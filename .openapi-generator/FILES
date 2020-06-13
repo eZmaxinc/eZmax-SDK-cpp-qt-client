@@ -1,0 +1,13 @@
+.openapi-generator-ignore
+client/CMakeLists.txt
+client/OAIActivesessionApi.cpp
+client/OAIActivesessionApi.h
+client/OAIEnum.h
+client/OAIHelpers.cpp
+client/OAIHelpers.h
+client/OAIHttpFileElement.cpp
+client/OAIHttpFileElement.h
+client/OAIHttpRequest.cpp
+client/OAIHttpRequest.h
+client/OAIObject.h
+client/client.pri
