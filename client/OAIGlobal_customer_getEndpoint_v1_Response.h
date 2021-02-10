@@ -11,39 +11,38 @@
  */
 
 /*
- * OAIApikey_createObject_v1_Response_mPayload.h
+ * OAIGlobal_customer_getEndpoint_v1_Response.h
  *
- * Payload for the /1/object/apikey/createObject API Request
+ * Response for the /1/customer/{pksCustomerCode}/endpoint API Request
  */
 
-#ifndef OAIApikey_createObject_v1_Response_mPayload_H
-#define OAIApikey_createObject_v1_Response_mPayload_H
+#ifndef OAIGlobal_customer_getEndpoint_v1_Response_H
+#define OAIGlobal_customer_getEndpoint_v1_Response_H
 
 #include <QJsonObject>
 
-#include "OAIApikey_Response.h"
-#include <QList>
+#include <QString>
 
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
 namespace OpenAPI {
 
-class OAIApikey_createObject_v1_Response_mPayload : public OAIObject {
+class OAIGlobal_customer_getEndpoint_v1_Response : public OAIObject {
 public:
-    OAIApikey_createObject_v1_Response_mPayload();
-    OAIApikey_createObject_v1_Response_mPayload(QString json);
-    ~OAIApikey_createObject_v1_Response_mPayload() override;
+    OAIGlobal_customer_getEndpoint_v1_Response();
+    OAIGlobal_customer_getEndpoint_v1_Response(QString json);
+    ~OAIGlobal_customer_getEndpoint_v1_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    QList<OAIApikey_Response> getAObjApikey() const;
-    void setAObjApikey(const QList<OAIApikey_Response> &a_obj_apikey);
-    bool is_a_obj_apikey_Set() const;
-    bool is_a_obj_apikey_Valid() const;
+    QString getSEndpointUrl() const;
+    void setSEndpointUrl(const QString &s_endpoint_url);
+    bool is_s_endpoint_url_Set() const;
+    bool is_s_endpoint_url_Valid() const;
 
     virtual bool isSet() const override;
     virtual bool isValid() const override;
@@ -51,13 +50,13 @@ public:
 private:
     void initializeModel();
 
-    QList<OAIApikey_Response> a_obj_apikey;
-    bool m_a_obj_apikey_isSet;
-    bool m_a_obj_apikey_isValid;
+    QString s_endpoint_url;
+    bool m_s_endpoint_url_isSet;
+    bool m_s_endpoint_url_isValid;
 };
 
 } // namespace OpenAPI
 
-Q_DECLARE_METATYPE(OpenAPI::OAIApikey_createObject_v1_Response_mPayload)
+Q_DECLARE_METATYPE(OpenAPI::OAIGlobal_customer_getEndpoint_v1_Response)
 
-#endif // OAIApikey_createObject_v1_Response_mPayload_H
+#endif // OAIGlobal_customer_getEndpoint_v1_Response_H

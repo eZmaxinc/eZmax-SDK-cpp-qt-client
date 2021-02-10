@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-#include "OAIEzsignfolder_editObject_v1_Request.h"
+#include "OAIGlobal_customer_getEndpoint_v1_Response.h"
 
 #include <QDebug>
 #include <QJsonArray>
@@ -21,71 +21,71 @@
 
 namespace OpenAPI {
 
-OAIEzsignfolder_editObject_v1_Request::OAIEzsignfolder_editObject_v1_Request(QString json) {
+OAIGlobal_customer_getEndpoint_v1_Response::OAIGlobal_customer_getEndpoint_v1_Response(QString json) {
     this->initializeModel();
     this->fromJson(json);
 }
 
-OAIEzsignfolder_editObject_v1_Request::OAIEzsignfolder_editObject_v1_Request() {
+OAIGlobal_customer_getEndpoint_v1_Response::OAIGlobal_customer_getEndpoint_v1_Response() {
     this->initializeModel();
 }
 
-OAIEzsignfolder_editObject_v1_Request::~OAIEzsignfolder_editObject_v1_Request() {}
+OAIGlobal_customer_getEndpoint_v1_Response::~OAIGlobal_customer_getEndpoint_v1_Response() {}
 
-void OAIEzsignfolder_editObject_v1_Request::initializeModel() {
+void OAIGlobal_customer_getEndpoint_v1_Response::initializeModel() {
 
-    m_obj_ezsignfolder_isSet = false;
-    m_obj_ezsignfolder_isValid = false;
+    m_s_endpoint_url_isSet = false;
+    m_s_endpoint_url_isValid = false;
 }
 
-void OAIEzsignfolder_editObject_v1_Request::fromJson(QString jsonString) {
+void OAIGlobal_customer_getEndpoint_v1_Response::fromJson(QString jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();
     this->fromJsonObject(jsonObject);
 }
 
-void OAIEzsignfolder_editObject_v1_Request::fromJsonObject(QJsonObject json) {
+void OAIGlobal_customer_getEndpoint_v1_Response::fromJsonObject(QJsonObject json) {
 
-    m_obj_ezsignfolder_isValid = ::OpenAPI::fromJsonValue(obj_ezsignfolder, json[QString("objEzsignfolder")]);
-    m_obj_ezsignfolder_isSet = !json[QString("objEzsignfolder")].isNull() && m_obj_ezsignfolder_isValid;
+    m_s_endpoint_url_isValid = ::OpenAPI::fromJsonValue(s_endpoint_url, json[QString("sEndpointURL")]);
+    m_s_endpoint_url_isSet = !json[QString("sEndpointURL")].isNull() && m_s_endpoint_url_isValid;
 }
 
-QString OAIEzsignfolder_editObject_v1_Request::asJson() const {
+QString OAIGlobal_customer_getEndpoint_v1_Response::asJson() const {
     QJsonObject obj = this->asJsonObject();
     QJsonDocument doc(obj);
     QByteArray bytes = doc.toJson();
     return QString(bytes);
 }
 
-QJsonObject OAIEzsignfolder_editObject_v1_Request::asJsonObject() const {
+QJsonObject OAIGlobal_customer_getEndpoint_v1_Response::asJsonObject() const {
     QJsonObject obj;
-    if (obj_ezsignfolder.isSet()) {
-        obj.insert(QString("objEzsignfolder"), ::OpenAPI::toJsonValue(obj_ezsignfolder));
+    if (m_s_endpoint_url_isSet) {
+        obj.insert(QString("sEndpointURL"), ::OpenAPI::toJsonValue(s_endpoint_url));
     }
     return obj;
 }
 
-OAIEzsignfolder_Request OAIEzsignfolder_editObject_v1_Request::getObjEzsignfolder() const {
-    return obj_ezsignfolder;
+QString OAIGlobal_customer_getEndpoint_v1_Response::getSEndpointUrl() const {
+    return s_endpoint_url;
 }
-void OAIEzsignfolder_editObject_v1_Request::setObjEzsignfolder(const OAIEzsignfolder_Request &obj_ezsignfolder) {
-    this->obj_ezsignfolder = obj_ezsignfolder;
-    this->m_obj_ezsignfolder_isSet = true;
-}
-
-bool OAIEzsignfolder_editObject_v1_Request::is_obj_ezsignfolder_Set() const{
-    return m_obj_ezsignfolder_isSet;
+void OAIGlobal_customer_getEndpoint_v1_Response::setSEndpointUrl(const QString &s_endpoint_url) {
+    this->s_endpoint_url = s_endpoint_url;
+    this->m_s_endpoint_url_isSet = true;
 }
 
-bool OAIEzsignfolder_editObject_v1_Request::is_obj_ezsignfolder_Valid() const{
-    return m_obj_ezsignfolder_isValid;
+bool OAIGlobal_customer_getEndpoint_v1_Response::is_s_endpoint_url_Set() const{
+    return m_s_endpoint_url_isSet;
 }
 
-bool OAIEzsignfolder_editObject_v1_Request::isSet() const {
+bool OAIGlobal_customer_getEndpoint_v1_Response::is_s_endpoint_url_Valid() const{
+    return m_s_endpoint_url_isValid;
+}
+
+bool OAIGlobal_customer_getEndpoint_v1_Response::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (obj_ezsignfolder.isSet()) {
+        if (m_s_endpoint_url_isSet) {
             isObjectUpdated = true;
             break;
         }
@@ -93,9 +93,9 @@ bool OAIEzsignfolder_editObject_v1_Request::isSet() const {
     return isObjectUpdated;
 }
 
-bool OAIEzsignfolder_editObject_v1_Request::isValid() const {
+bool OAIGlobal_customer_getEndpoint_v1_Response::isValid() const {
     // only required properties are required for the object to be considered valid
-    return true;
+    return m_s_endpoint_url_isValid && true;
 }
 
 } // namespace OpenAPI

@@ -92,6 +92,7 @@ HEADERS += \
     $${PWD}/OAIFranchisereferalincome_createObject_v1_Request.h \
     $${PWD}/OAIFranchisereferalincome_createObject_v1_Response.h \
     $${PWD}/OAIFranchisereferalincome_createObject_v1_Response_mPayload.h \
+    $${PWD}/OAIGlobal_customer_getEndpoint_v1_Response.h \
     $${PWD}/OAIMultilingual_ApikeyDescription.h \
     $${PWD}/OAIPhone_Request.h \
     $${PWD}/OAIUser_Response.h \
@@ -108,6 +109,7 @@ HEADERS += \
     $${PWD}/OAIWebhook_User_UserCreated_allOf.h \
     $${PWD}/OAIWebsite_Request.h \
 # APIs
+    $${PWD}/OAIGlobalCustomerApi.h \
     $${PWD}/OAIModuleUserApi.h \
     $${PWD}/OAIObjectActivesessionApi.h \
     $${PWD}/OAIObjectApikeyApi.h \
@@ -220,6 +222,7 @@ SOURCES += \
     $${PWD}/OAIFranchisereferalincome_createObject_v1_Request.cpp \
     $${PWD}/OAIFranchisereferalincome_createObject_v1_Response.cpp \
     $${PWD}/OAIFranchisereferalincome_createObject_v1_Response_mPayload.cpp \
+    $${PWD}/OAIGlobal_customer_getEndpoint_v1_Response.cpp \
     $${PWD}/OAIMultilingual_ApikeyDescription.cpp \
     $${PWD}/OAIPhone_Request.cpp \
     $${PWD}/OAIUser_Response.cpp \
@@ -236,6 +239,7 @@ SOURCES += \
     $${PWD}/OAIWebhook_User_UserCreated_allOf.cpp \
     $${PWD}/OAIWebsite_Request.cpp \
 # APIs
+    $${PWD}/OAIGlobalCustomerApi.cpp \
     $${PWD}/OAIModuleUserApi.cpp \
     $${PWD}/OAIObjectActivesessionApi.cpp \
     $${PWD}/OAIObjectApikeyApi.cpp \

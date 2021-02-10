@@ -2,7 +2,7 @@
 
 eZmax API Definition
 
-- API version: 1.0.28
+- API version: 1.0.29
 
 This API expose all the functionnalities for the eZmax and eZsign application.
 
@@ -68,13 +68,14 @@ example.h:
 ```c++
 
 #include <iostream>
-#include "../client/OAIModuleUserApi.h"
+#include "../client/OAIGlobalCustomerApi.h"
 
 using namespace test_namespace;
 
 class Example : public QObject {
     Q_OBJECT
-    QList<OAIUser_createEzsignuser_v1_Request> create();
+    QString create();
+    QString create();
 public slots:
    void exampleFunction1();
 };
@@ -84,33 +85,46 @@ example.cpp:
 
 ```c++
 
-#include "../client/OAIModuleUserApi.h"
+#include "../client/OAIGlobalCustomerApi.h"
 #include "example.h"
 #include <QTimer>
 #include <QEventLoop> 
 
-QList&lt;OAIUser_createEzsignuser_v1_Request&gt; Example::create(){
-    QList<OAIUser_createEzsignuser_v1_Request> obj;
+QString Example::create(){
+    QString obj;
+QString Example::create(){
+    QString obj;
  return obj;
 }
 
 void Example::exampleFunction1(){
-     OAIModuleUserApi apiInstance;
+     OAIGlobalCustomerApi apiInstance;
      
       // Configure API key authorization: Authorization
       apiInstance.setApiKey("YOUR API KEY NAME","YOUR API KEY");
         
       QEventLoop loop;
-      connect(&apiInstance, &OAIModuleUserApi::userCreateEzsignuserV1Signal, [&]() {
+      connect(&apiInstance, &OAIGlobalCustomerApi::globalCustomerGetEndpointV1Signal, [&]() {
           loop.quit();
       });
-      connect(&apiInstance, &OAIModuleUserApi::userCreateEzsignuserV1SignalE, [&](QNetworkReply::NetworkError, QString error_str) {
+      connect(&apiInstance, &OAIGlobalCustomerApi::globalCustomerGetEndpointV1SignalE, [&](QNetworkReply::NetworkError, QString error_str) {
           qDebug() << "Error happened while issuing request : " << error_str;
           loop.quit();
       });
 
-      QList<OAIUser_createEzsignuser_v1_Request> oai_user_create_ezsignuser_v1_request = create(); // QList<OAIUser_createEzsignuser_v1_Request> | 
-      apiInstance.userCreateEzsignuserV1(oai_user_create_ezsignuser_v1_request);
+      QString pks_customer_code = create(); // QString | The customer code assigned to your account
+        
+      QEventLoop loop;
+      connect(&apiInstance, &OAIGlobalCustomerApi::globalCustomerGetEndpointV1Signal, [&]() {
+          loop.quit();
+      });
+      connect(&apiInstance, &OAIGlobalCustomerApi::globalCustomerGetEndpointV1SignalE, [&](QNetworkReply::NetworkError, QString error_str) {
+          qDebug() << "Error happened while issuing request : " << error_str;
+          loop.quit();
+      });
+
+      QString s_infrastructureproduct_code = create(); // QString | The infrastructure product Code  If undefined, \"appcluster01\" is assumed
+      apiInstance.globalCustomerGetEndpointV1(pks_customer_codes_infrastructureproduct_code);
       QTimer::singleShot(5000, &loop, &QEventLoop::quit);
       loop.exec();
   }
@@ -123,6 +137,7 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*OAIGlobalCustomerApi* | [**globalCustomerGetEndpointV1**](OAIGlobalCustomerApi.md#globalCustomerGetEndpointV1) | **GET** /1/customer/{pksCustomerCode}/endpoint | Get customer endpoint
 *OAIModuleUserApi* | [**userCreateEzsignuserV1**](OAIModuleUserApi.md#userCreateEzsignuserV1) | **POST** /1/module/user/createezsignuser | Create a new User of type Ezsignuser
 *OAIObjectActivesessionApi* | [**activesessionGetCurrentV1**](OAIObjectActivesessionApi.md#activesessionGetCurrentV1) | **GET** /1/object/activesession/getCurrent | Get Current Activesession
 *OAIObjectApikeyApi* | [**apikeyCreateObjectV1**](OAIObjectApikeyApi.md#apikeyCreateObjectV1) | **POST** /1/object/apikey | Create a new Apikey
@@ -130,25 +145,25 @@ Class | Method | HTTP request | Description
 *OAIObjectEzsigndocumentApi* | [**ezsigndocumentCreateObjectV1**](OAIObjectEzsigndocumentApi.md#ezsigndocumentCreateObjectV1) | **POST** /1/object/ezsigndocument | Create a new Ezsigndocument
 *OAIObjectEzsigndocumentApi* | [**ezsigndocumentDeleteObjectV1**](OAIObjectEzsigndocumentApi.md#ezsigndocumentDeleteObjectV1) | **DELETE** /1/object/ezsigndocument/{pkiEzsigndocumentID} | Delete an existing Ezsigndocument
 *OAIObjectEzsigndocumentApi* | [**ezsigndocumentEditObjectV1**](OAIObjectEzsigndocumentApi.md#ezsigndocumentEditObjectV1) | **PUT** /1/object/ezsigndocument/{pkiEzsigndocumentID} | Modify an existing Ezsigndocument
+*OAIObjectEzsigndocumentApi* | [**ezsigndocumentGetChildrenV1**](OAIObjectEzsigndocumentApi.md#ezsigndocumentGetChildrenV1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getChildren | Retrieve an existing Ezsigndocument&#39;s children IDs
 *OAIObjectEzsigndocumentApi* | [**ezsigndocumentGetDownloadUrlV1**](OAIObjectEzsigndocumentApi.md#ezsigndocumentGetDownloadUrlV1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getDownloadUrl/{eDocumentType} | Retrieve a URL to download documents.
-*OAIObjectEzsigndocumentApi* | [**ezsigndocumentGetObjectGetChildrenV1**](OAIObjectEzsigndocumentApi.md#ezsigndocumentGetObjectGetChildrenV1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getChildren | Retrieve an existing Ezsigndocument&#39;s children IDs
 *OAIObjectEzsigndocumentApi* | [**ezsigndocumentGetObjectV1**](OAIObjectEzsigndocumentApi.md#ezsigndocumentGetObjectV1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID} | Retrieve an existing Ezsigndocument
 *OAIObjectEzsignfolderApi* | [**ezsignfolderCreateObjectV1**](OAIObjectEzsignfolderApi.md#ezsignfolderCreateObjectV1) | **POST** /1/object/ezsignfolder | Create a new Ezsignfolder
 *OAIObjectEzsignfolderApi* | [**ezsignfolderDeleteObjectV1**](OAIObjectEzsignfolderApi.md#ezsignfolderDeleteObjectV1) | **DELETE** /1/object/ezsignfolder/{pkiEzsignfolderID} | Delete an existing Ezsignfolder
 *OAIObjectEzsignfolderApi* | [**ezsignfolderEditObjectV1**](OAIObjectEzsignfolderApi.md#ezsignfolderEditObjectV1) | **PUT** /1/object/ezsignfolder/{pkiEzsignfolderID} | Modify an existing Ezsignfolder
-*OAIObjectEzsignfolderApi* | [**ezsignfolderGetObjectGetChildrenV1**](OAIObjectEzsignfolderApi.md#ezsignfolderGetObjectGetChildrenV1) | **GET** /1/object/ezsignfolder/{pkiEzsignfolderID}/getChildren | Retrieve an existing Ezsignfolder&#39;s children IDs
+*OAIObjectEzsignfolderApi* | [**ezsignfolderGetChildrenV1**](OAIObjectEzsignfolderApi.md#ezsignfolderGetChildrenV1) | **GET** /1/object/ezsignfolder/{pkiEzsignfolderID}/getChildren | Retrieve an existing Ezsignfolder&#39;s children IDs
 *OAIObjectEzsignfolderApi* | [**ezsignfolderGetObjectV1**](OAIObjectEzsignfolderApi.md#ezsignfolderGetObjectV1) | **GET** /1/object/ezsignfolder/{pkiEzsignfolderID} | Retrieve an existing Ezsignfolder
 *OAIObjectEzsignfolderApi* | [**ezsignfolderSendV1**](OAIObjectEzsignfolderApi.md#ezsignfolderSendV1) | **POST** /1/object/ezsignfolder/{pkiEzsignfolderID}/send | Send the Ezsignfolder to the signatories for signature
 *OAIObjectEzsignfoldersignerassociationApi* | [**ezsignfoldersignerassociationCreateObjectV1**](OAIObjectEzsignfoldersignerassociationApi.md#ezsignfoldersignerassociationCreateObjectV1) | **POST** /1/object/ezsignfoldersignerassociation | Create a new Ezsignfoldersignerassociation
 *OAIObjectEzsignfoldersignerassociationApi* | [**ezsignfoldersignerassociationDeleteObjectV1**](OAIObjectEzsignfoldersignerassociationApi.md#ezsignfoldersignerassociationDeleteObjectV1) | **DELETE** /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID} | Delete an existing Ezsignfoldersignerassociation
 *OAIObjectEzsignfoldersignerassociationApi* | [**ezsignfoldersignerassociationEditObjectV1**](OAIObjectEzsignfoldersignerassociationApi.md#ezsignfoldersignerassociationEditObjectV1) | **PUT** /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID} | Modify an existing Ezsignfoldersignerassociation
+*OAIObjectEzsignfoldersignerassociationApi* | [**ezsignfoldersignerassociationGetChildrenV1**](OAIObjectEzsignfoldersignerassociationApi.md#ezsignfoldersignerassociationGetChildrenV1) | **GET** /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID}/getChildren | Retrieve an existing Ezsignfoldersignerassociation&#39;s children IDs
 *OAIObjectEzsignfoldersignerassociationApi* | [**ezsignfoldersignerassociationGetInPersonLoginUrlV1**](OAIObjectEzsignfoldersignerassociationApi.md#ezsignfoldersignerassociationGetInPersonLoginUrlV1) | **GET** /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID}/getInPersonLoginUrl | Retrieve a Login Url to allow In-Person signing
-*OAIObjectEzsignfoldersignerassociationApi* | [**ezsignfoldersignerassociationGetObjectGetChildrenV1**](OAIObjectEzsignfoldersignerassociationApi.md#ezsignfoldersignerassociationGetObjectGetChildrenV1) | **GET** /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID}/getChildren | Retrieve an existing Ezsignfoldersignerassociation&#39;s children IDs
 *OAIObjectEzsignfoldersignerassociationApi* | [**ezsignfoldersignerassociationGetObjectV1**](OAIObjectEzsignfoldersignerassociationApi.md#ezsignfoldersignerassociationGetObjectV1) | **GET** /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID} | Retrieve an existing Ezsignfoldersignerassociation
 *OAIObjectEzsignsignatureApi* | [**ezsignsignatureCreateObjectV1**](OAIObjectEzsignsignatureApi.md#ezsignsignatureCreateObjectV1) | **POST** /1/object/ezsignsignature | Create a new Ezsignsignature
 *OAIObjectEzsignsignatureApi* | [**ezsignsignatureDeleteObjectV1**](OAIObjectEzsignsignatureApi.md#ezsignsignatureDeleteObjectV1) | **DELETE** /1/object/ezsignsignature/{pkiEzsignsignatureID} | Delete an existing Ezsignsignature
 *OAIObjectEzsignsignatureApi* | [**ezsignsignatureEditObjectV1**](OAIObjectEzsignsignatureApi.md#ezsignsignatureEditObjectV1) | **PUT** /1/object/ezsignsignature/{pkiEzsignsignatureID} | Modify an existing Ezsignsignature
-*OAIObjectEzsignsignatureApi* | [**ezsignsignatureGetObjectGetChildrenV1**](OAIObjectEzsignsignatureApi.md#ezsignsignatureGetObjectGetChildrenV1) | **GET** /1/object/ezsignsignature/{pkiEzsignsignatureID}/getChildren | Retrieve an existing Ezsignsignature&#39;s children IDs
+*OAIObjectEzsignsignatureApi* | [**ezsignsignatureGetChildrenV1**](OAIObjectEzsignsignatureApi.md#ezsignsignatureGetChildrenV1) | **GET** /1/object/ezsignsignature/{pkiEzsignsignatureID}/getChildren | Retrieve an existing Ezsignsignature&#39;s children IDs
 *OAIObjectEzsignsignatureApi* | [**ezsignsignatureGetObjectV1**](OAIObjectEzsignsignatureApi.md#ezsignsignatureGetObjectV1) | **GET** /1/object/ezsignsignature/{pkiEzsignsignatureID} | Retrieve an existing Ezsignsignature
 *OAIObjectFranchisebrokerApi* | [**franchisebrokerGetAutocompleteV1**](OAIObjectFranchisebrokerApi.md#franchisebrokerGetAutocompleteV1) | **GET** /1/object/franchisebroker/getAutocomplete/{sSelector} | Retrieve Franchisebrokers and IDs
 *OAIObjectFranchiseofficeApi* | [**franchiseofficeGetAutocompleteV1**](OAIObjectFranchiseofficeApi.md#franchiseofficeGetAutocompleteV1) | **GET** /1/object/franchiseoffice/getAutocomplete/{sSelector} | Retrieve Franchiseoffices and IDs
@@ -248,6 +263,7 @@ Class | Method | HTTP request | Description
  - [OAIFranchisereferalincome_createObject_v1_Request](OAIFranchisereferalincome_createObject_v1_Request.md)
  - [OAIFranchisereferalincome_createObject_v1_Response](OAIFranchisereferalincome_createObject_v1_Response.md)
  - [OAIFranchisereferalincome_createObject_v1_Response_mPayload](OAIFranchisereferalincome_createObject_v1_Response_mPayload.md)
+ - [OAIGlobal_customer_getEndpoint_v1_Response](OAIGlobal_customer_getEndpoint_v1_Response.md)
  - [OAIMultilingual_ApikeyDescription](OAIMultilingual_ApikeyDescription.md)
  - [OAIPhone_Request](OAIPhone_Request.md)
  - [OAIUser_Response](OAIUser_Response.md)

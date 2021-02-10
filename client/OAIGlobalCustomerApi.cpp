@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-#include "OAIObjectApikeyApi.h"
+#include "OAIGlobalCustomerApi.h"
 #include "OAIHelpers.h"
 #include "OAIServerConfiguration.h"
 #include <QJsonArray>
@@ -18,7 +18,7 @@
 
 namespace OpenAPI {
 
-OAIObjectApikeyApi::OAIObjectApikeyApi(const QString &scheme, const QString &host, int port, const QString &basePath, const int timeOut)
+OAIGlobalCustomerApi::OAIGlobalCustomerApi(const QString &scheme, const QString &host, int port, const QString &basePath, const int timeOut)
     : _scheme(scheme),
       _host(host),
       _port(port),
@@ -30,10 +30,10 @@ OAIObjectApikeyApi::OAIObjectApikeyApi(const QString &scheme, const QString &hos
       initializeServerConfigs();
       }
 
-OAIObjectApikeyApi::~OAIObjectApikeyApi() {
+OAIGlobalCustomerApi::~OAIGlobalCustomerApi() {
 }
 
-void OAIObjectApikeyApi::initializeServerConfigs(){
+void OAIGlobalCustomerApi::initializeServerConfigs(){
 
 //Default server
 QList<OAIServerConfiguration> defaultConf = QList<OAIServerConfiguration>();
@@ -49,8 +49,15 @@ defaultConf.append(OAIServerConfiguration(
     {"sInfrastructureregionCode", OAIServerVariable("The region where your services are hosted.","ca-central-1",
     QSet<QString>{ {"ca-central-1"},{"local"} })}, }));
     
-_serverConfigs.insert("apikeyCreateObjectV1",defaultConf);
-_serverIndices.insert("apikeyCreateObjectV1",0);
+serverConf.append(OAIServerConfiguration(
+    "https://{sInfrastructureenvironmenttypeDescription}.api.global.ezmax.com",
+    "The server endpoint where to send your API requests.",
+    QMap<QString, OAIServerVariable>{ 
+    {"sInfrastructureenvironmenttypeDescription", OAIServerVariable("The environment on on which to call the API. Should always be \"prod\" unless instructed otherwise by support.","prod",
+    QSet<QString>{ {"prod"} })}, }));
+    
+_serverConfigs.insert("globalCustomerGetEndpointV1",serverConf);
+_serverIndices.insert("globalCustomerGetEndpointV1",0);
 
 
 }
@@ -59,79 +66,79 @@ _serverIndices.insert("apikeyCreateObjectV1",0);
 * returns 0 on success and -1, -2 or -3 on failure.
 * -1 when the variable does not exist and -2 if the value is not defined in the enum and -3 if the operation or server index is not found 
 */
-int OAIObjectApikeyApi::setDefaultServerValue(int serverIndex, const QString &operation, const QString &variable, const QString &value){
+int OAIGlobalCustomerApi::setDefaultServerValue(int serverIndex, const QString &operation, const QString &variable, const QString &value){
     auto it = _serverConfigs.find(operation);
     if(it != _serverConfigs.end() && serverIndex < it.value().size() ){
       return _serverConfigs[operation][serverIndex].setDefaultValue(variable,value);
     }
     return -3;
 }
-void OAIObjectApikeyApi::setServerIndex(const QString &operation, int serverIndex){
+void OAIGlobalCustomerApi::setServerIndex(const QString &operation, int serverIndex){
     if(_serverIndices.contains(operation) && serverIndex < _serverConfigs.find(operation).value().size() )
         _serverIndices[operation] = serverIndex;
 }
 
-void OAIObjectApikeyApi::setScheme(const QString &scheme) {
+void OAIGlobalCustomerApi::setScheme(const QString &scheme) {
     _scheme = scheme;
 }
 
-void OAIObjectApikeyApi::setHost(const QString &host) {
+void OAIGlobalCustomerApi::setHost(const QString &host) {
     _host = host;
 }
 
-void OAIObjectApikeyApi::setPort(int port) {
+void OAIGlobalCustomerApi::setPort(int port) {
     _port = port;
 }
 
-void OAIObjectApikeyApi::setApiKey(const QString &apiKeyName, const QString &apiKey){
+void OAIGlobalCustomerApi::setApiKey(const QString &apiKeyName, const QString &apiKey){
     _apiKeys.insert(apiKeyName,apiKey);
 }
 
-void OAIObjectApikeyApi::setBearerToken(const QString &token){
+void OAIGlobalCustomerApi::setBearerToken(const QString &token){
     _bearerToken = token;
 }
 
-void OAIObjectApikeyApi::setUsername(const QString &username) {
+void OAIGlobalCustomerApi::setUsername(const QString &username) {
     _username = username;
 }
 
-void OAIObjectApikeyApi::setPassword(const QString &password) {
+void OAIGlobalCustomerApi::setPassword(const QString &password) {
     _password = password;
 }
 
-void OAIObjectApikeyApi::setBasePath(const QString &basePath) {
+void OAIGlobalCustomerApi::setBasePath(const QString &basePath) {
     _basePath = basePath;
 }
 
-void OAIObjectApikeyApi::setTimeOut(const int timeOut) {
+void OAIGlobalCustomerApi::setTimeOut(const int timeOut) {
     _timeOut = timeOut;
 }
 
-void OAIObjectApikeyApi::setWorkingDirectory(const QString &path) {
+void OAIGlobalCustomerApi::setWorkingDirectory(const QString &path) {
     _workingDirectory = path;
 }
 
-void OAIObjectApikeyApi::setNetworkAccessManager(QNetworkAccessManager* manager) {
+void OAIGlobalCustomerApi::setNetworkAccessManager(QNetworkAccessManager* manager) {
     _manager = manager;  
 }
 
-void OAIObjectApikeyApi::addHeaders(const QString &key, const QString &value) {
+void OAIGlobalCustomerApi::addHeaders(const QString &key, const QString &value) {
     defaultHeaders.insert(key, value);
 }
 
-void OAIObjectApikeyApi::enableRequestCompression() {
+void OAIGlobalCustomerApi::enableRequestCompression() {
     isRequestCompressionEnabled = true;
 }
 
-void OAIObjectApikeyApi::enableResponseCompression() {
+void OAIGlobalCustomerApi::enableResponseCompression() {
     isResponseCompressionEnabled = true;
 }
 
-void OAIObjectApikeyApi::abortRequests(){
+void OAIGlobalCustomerApi::abortRequests(){
     emit abortRequestsSignal();
 }
 
-QString OAIObjectApikeyApi::getParamStylePrefix(QString style){
+QString OAIGlobalCustomerApi::getParamStylePrefix(QString style){
 
         if(style == "matrix"){ 
             return ";";
@@ -149,7 +156,7 @@ QString OAIObjectApikeyApi::getParamStylePrefix(QString style){
             return "none";
 }
 
-QString OAIObjectApikeyApi::getParamStyleSuffix(QString style){
+QString OAIGlobalCustomerApi::getParamStyleSuffix(QString style){
 
         if(style == "matrix"){ 
             return "=";
@@ -167,7 +174,7 @@ QString OAIObjectApikeyApi::getParamStyleSuffix(QString style){
             return "none";
 }
 
-QString OAIObjectApikeyApi::getParamStyleDelimiter(QString style, QString name, bool isExplode){
+QString OAIGlobalCustomerApi::getParamStyleDelimiter(QString style, QString name, bool isExplode){
 
         if(style == "matrix"){ 
             return (isExplode) ? ";" + name + "=" : ",";
@@ -193,32 +200,52 @@ QString OAIObjectApikeyApi::getParamStyleDelimiter(QString style, QString name, 
             return "none";
 }
 
-void OAIObjectApikeyApi::apikeyCreateObjectV1(const QList<OAIApikey_createObject_v1_Request> &oai_apikey_create_object_v1_request) {
-    QString fullPath = QString(_serverConfigs["apikeyCreateObjectV1"][_serverIndices.value("apikeyCreateObjectV1")].URL()+"/1/object/apikey");
+void OAIGlobalCustomerApi::globalCustomerGetEndpointV1(const QString &pks_customer_code, const QString &s_infrastructureproduct_code) {
+    QString fullPath = QString(_serverConfigs["globalCustomerGetEndpointV1"][_serverIndices.value("globalCustomerGetEndpointV1")].URL()+"/1/customer/{pksCustomerCode}/endpoint");
     
     if(_apiKeys.contains("Authorization")){
         addHeaders("Authorization",_apiKeys.find("Authorization").value());
     }
     
+    QString pks_customer_codePathParam("{");
+    pks_customer_codePathParam.append("pksCustomerCode").append("}");
+    QString pathPrefix, pathSuffix, pathDelimiter;
+    QString pathStyle = "simple";    
+    if(pathStyle == "") 
+        pathStyle = "simple";
+    pathPrefix = getParamStylePrefix(pathStyle);
+    pathSuffix = getParamStyleSuffix(pathStyle);
+    pathDelimiter = getParamStyleDelimiter(pathStyle, "pksCustomerCode", false);
+    QString paramString = (pathStyle == "matrix") ? pathPrefix+"pksCustomerCode"+pathSuffix : pathPrefix;
+    fullPath.replace(pks_customer_codePathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pks_customer_code)));
 
+    QString queryPrefix, querySuffix, queryDelimiter, queryStyle;
+    queryStyle = "form";
+    if(queryStyle == "") 
+        queryStyle = "form";
+    queryPrefix = getParamStylePrefix(queryStyle);
+    querySuffix = getParamStyleSuffix(queryStyle);
+    queryDelimiter = getParamStyleDelimiter(queryStyle, "sInfrastructureproductCode", true); 
+    if (fullPath.indexOf("?") > 0)
+        fullPath.append(queryPrefix);
+    else
+        fullPath.append("?");
+
+    fullPath.append(QUrl::toPercentEncoding("sInfrastructureproductCode")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(s_infrastructureproduct_code)));
 
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
     worker->setWorkingDirectory(_workingDirectory);
-    OAIHttpRequestInput input(fullPath, "POST");
+    OAIHttpRequestInput input(fullPath, "GET");
 
-
-    QJsonDocument doc(::OpenAPI::toJsonValue(oai_apikey_create_object_v1_request).toArray());
-    QByteArray bytes = doc.toJson();
-    input.request_body.append(bytes);
     foreach (QString key, this->defaultHeaders.keys()) { input.headers.insert(key, this->defaultHeaders.value(key)); }
 
-    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIObjectApikeyApi::apikeyCreateObjectV1Callback);
-    connect(this, &OAIObjectApikeyApi::abortRequestsSignal, worker, &QObject::deleteLater); 
+    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIGlobalCustomerApi::globalCustomerGetEndpointV1Callback);
+    connect(this, &OAIGlobalCustomerApi::abortRequestsSignal, worker, &QObject::deleteLater); 
     worker->execute(&input);
 }
 
-void OAIObjectApikeyApi::apikeyCreateObjectV1Callback(OAIHttpRequestWorker *worker) {
+void OAIGlobalCustomerApi::globalCustomerGetEndpointV1Callback(OAIHttpRequestWorker *worker) {
     QString msg;
     QString error_str = worker->error_str;
     QNetworkReply::NetworkError error_type = worker->error_type;
@@ -229,15 +256,15 @@ void OAIObjectApikeyApi::apikeyCreateObjectV1Callback(OAIHttpRequestWorker *work
         msg = "Error: " + worker->error_str;
         error_str = QString("%1, %2").arg(worker->error_str).arg(QString(worker->response));
     }
-    OAIApikey_createObject_v1_Response output(QString(worker->response));
+    OAIGlobal_customer_getEndpoint_v1_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit apikeyCreateObjectV1Signal(output);
-        emit apikeyCreateObjectV1SignalFull(worker, output);
+        emit globalCustomerGetEndpointV1Signal(output);
+        emit globalCustomerGetEndpointV1SignalFull(worker, output);
     } else {
-        emit apikeyCreateObjectV1SignalE(output, error_type, error_str);
-        emit apikeyCreateObjectV1SignalEFull(worker, error_type, error_str);
+        emit globalCustomerGetEndpointV1SignalE(output, error_type, error_str);
+        emit globalCustomerGetEndpointV1SignalEFull(worker, error_type, error_str);
     }
 }
 

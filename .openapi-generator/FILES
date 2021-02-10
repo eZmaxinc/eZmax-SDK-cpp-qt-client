@@ -182,6 +182,10 @@ client/OAIFranchisereferalincome_createObject_v1_Response.cpp
 client/OAIFranchisereferalincome_createObject_v1_Response.h
 client/OAIFranchisereferalincome_createObject_v1_Response_mPayload.cpp
 client/OAIFranchisereferalincome_createObject_v1_Response_mPayload.h
+client/OAIGlobalCustomerApi.cpp
+client/OAIGlobalCustomerApi.h
+client/OAIGlobal_customer_getEndpoint_v1_Response.cpp
+client/OAIGlobal_customer_getEndpoint_v1_Response.h
 client/OAIHelpers.cpp
 client/OAIHelpers.h
 client/OAIHttpFileElement.cpp
