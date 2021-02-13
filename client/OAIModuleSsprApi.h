@@ -10,13 +10,13 @@
  * Do not edit the class manually.
  */
 
-#ifndef OAI_OAIObjectFranchiseofficeApi_H
-#define OAI_OAIObjectFranchiseofficeApi_H
+#ifndef OAI_OAIModuleSsprApi_H
+#define OAI_OAIModuleSsprApi_H
 
 #include "OAIHttpRequest.h"
 #include "OAIServerConfiguration.h"
 
-#include "OAICommon_getAutocomplete_v1_Response.h"
+#include "OAICommon_Response_Error.h"
 #include <QString>
 
 #include <QObject>
@@ -27,12 +27,12 @@
 
 namespace OpenAPI {
 
-class OAIObjectFranchiseofficeApi : public QObject {
+class OAIModuleSsprApi : public QObject {
     Q_OBJECT
 
 public:
-    OAIObjectFranchiseofficeApi(const QString &scheme = "https", const QString &host = "prod.api.appcluster01.ca-central-1.ezmax.com", int port = 0, const QString &basePath = "/rest", const int timeOut = 0);
-    ~OAIObjectFranchiseofficeApi();
+    OAIModuleSsprApi(const QString &scheme = "https", const QString &host = "prod.api.appcluster01.ca-central-1.ezmax.com", int port = 0, const QString &basePath = "/rest", const int timeOut = 0);
+    ~OAIModuleSsprApi();
 
     void initializeServerConfigs();
     int setDefaultServerValue(int serverIndex,const QString &operation, const QString &variable,const QString &val);
@@ -56,7 +56,7 @@ public:
     QString getParamStyleSuffix(QString style);
     QString getParamStyleDelimiter(QString style, QString name, bool isExplode);
 
-    void franchiseofficeGetAutocompleteV1(const QString &s_selector, const QString &s_query);
+    void ssprRemindUsernamesV1();
 
 private:
     QString _scheme, _host;
@@ -75,17 +75,17 @@ private:
     bool isResponseCompressionEnabled;
     bool isRequestCompressionEnabled;
 
-    void franchiseofficeGetAutocompleteV1Callback(OAIHttpRequestWorker *worker);
+    void ssprRemindUsernamesV1Callback(OAIHttpRequestWorker *worker);
 
 signals:
 
-    void franchiseofficeGetAutocompleteV1Signal(OAICommon_getAutocomplete_v1_Response summary);
+    void ssprRemindUsernamesV1Signal();
 
-    void franchiseofficeGetAutocompleteV1SignalFull(OAIHttpRequestWorker *worker, OAICommon_getAutocomplete_v1_Response summary);
+    void ssprRemindUsernamesV1SignalFull(OAIHttpRequestWorker *worker);
 
-    void franchiseofficeGetAutocompleteV1SignalE(OAICommon_getAutocomplete_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ssprRemindUsernamesV1SignalE(QNetworkReply::NetworkError error_type, QString error_str);
 
-    void franchiseofficeGetAutocompleteV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ssprRemindUsernamesV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
 
     void abortRequestsSignal(); 
 };

@@ -192,6 +192,8 @@ client/OAIHttpFileElement.cpp
 client/OAIHttpFileElement.h
 client/OAIHttpRequest.cpp
 client/OAIHttpRequest.h
+client/OAIModuleSsprApi.cpp
+client/OAIModuleSsprApi.h
 client/OAIModuleUserApi.cpp
 client/OAIModuleUserApi.h
 client/OAIMultilingual_ApikeyDescription.cpp

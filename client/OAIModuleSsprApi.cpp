@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-#include "OAIObjectFranchisereferalincomeApi.h"
+#include "OAIModuleSsprApi.h"
 #include "OAIHelpers.h"
 #include "OAIServerConfiguration.h"
 #include <QJsonArray>
@@ -18,7 +18,7 @@
 
 namespace OpenAPI {
 
-OAIObjectFranchisereferalincomeApi::OAIObjectFranchisereferalincomeApi(const QString &scheme, const QString &host, int port, const QString &basePath, const int timeOut)
+OAIModuleSsprApi::OAIModuleSsprApi(const QString &scheme, const QString &host, int port, const QString &basePath, const int timeOut)
     : _scheme(scheme),
       _host(host),
       _port(port),
@@ -30,10 +30,10 @@ OAIObjectFranchisereferalincomeApi::OAIObjectFranchisereferalincomeApi(const QSt
       initializeServerConfigs();
       }
 
-OAIObjectFranchisereferalincomeApi::~OAIObjectFranchisereferalincomeApi() {
+OAIModuleSsprApi::~OAIModuleSsprApi() {
 }
 
-void OAIObjectFranchisereferalincomeApi::initializeServerConfigs(){
+void OAIModuleSsprApi::initializeServerConfigs(){
 
 //Default server
 QList<OAIServerConfiguration> defaultConf = QList<OAIServerConfiguration>();
@@ -56,8 +56,8 @@ defaultConf.append(OAIServerConfiguration(
     {"sInfrastructureenvironmenttypeDescription", OAIServerVariable("The environment on on which to call the API. Should always be "prod" unless instructed otherwise by support.","prod",
     QSet<QString>{ {"prod"},{"stg"},{"qa"},{"dev"} })}, }));
     
-_serverConfigs.insert("franchisereferalincomeCreateObjectV1",defaultConf);
-_serverIndices.insert("franchisereferalincomeCreateObjectV1",0);
+_serverConfigs.insert("ssprRemindUsernamesV1",defaultConf);
+_serverIndices.insert("ssprRemindUsernamesV1",0);
 
 
 }
@@ -66,79 +66,79 @@ _serverIndices.insert("franchisereferalincomeCreateObjectV1",0);
 * returns 0 on success and -1, -2 or -3 on failure.
 * -1 when the variable does not exist and -2 if the value is not defined in the enum and -3 if the operation or server index is not found 
 */
-int OAIObjectFranchisereferalincomeApi::setDefaultServerValue(int serverIndex, const QString &operation, const QString &variable, const QString &value){
+int OAIModuleSsprApi::setDefaultServerValue(int serverIndex, const QString &operation, const QString &variable, const QString &value){
     auto it = _serverConfigs.find(operation);
     if(it != _serverConfigs.end() && serverIndex < it.value().size() ){
       return _serverConfigs[operation][serverIndex].setDefaultValue(variable,value);
     }
     return -3;
 }
-void OAIObjectFranchisereferalincomeApi::setServerIndex(const QString &operation, int serverIndex){
+void OAIModuleSsprApi::setServerIndex(const QString &operation, int serverIndex){
     if(_serverIndices.contains(operation) && serverIndex < _serverConfigs.find(operation).value().size() )
         _serverIndices[operation] = serverIndex;
 }
 
-void OAIObjectFranchisereferalincomeApi::setScheme(const QString &scheme) {
+void OAIModuleSsprApi::setScheme(const QString &scheme) {
     _scheme = scheme;
 }
 
-void OAIObjectFranchisereferalincomeApi::setHost(const QString &host) {
+void OAIModuleSsprApi::setHost(const QString &host) {
     _host = host;
 }
 
-void OAIObjectFranchisereferalincomeApi::setPort(int port) {
+void OAIModuleSsprApi::setPort(int port) {
     _port = port;
 }
 
-void OAIObjectFranchisereferalincomeApi::setApiKey(const QString &apiKeyName, const QString &apiKey){
+void OAIModuleSsprApi::setApiKey(const QString &apiKeyName, const QString &apiKey){
     _apiKeys.insert(apiKeyName,apiKey);
 }
 
-void OAIObjectFranchisereferalincomeApi::setBearerToken(const QString &token){
+void OAIModuleSsprApi::setBearerToken(const QString &token){
     _bearerToken = token;
 }
 
-void OAIObjectFranchisereferalincomeApi::setUsername(const QString &username) {
+void OAIModuleSsprApi::setUsername(const QString &username) {
     _username = username;
 }
 
-void OAIObjectFranchisereferalincomeApi::setPassword(const QString &password) {
+void OAIModuleSsprApi::setPassword(const QString &password) {
     _password = password;
 }
 
-void OAIObjectFranchisereferalincomeApi::setBasePath(const QString &basePath) {
+void OAIModuleSsprApi::setBasePath(const QString &basePath) {
     _basePath = basePath;
 }
 
-void OAIObjectFranchisereferalincomeApi::setTimeOut(const int timeOut) {
+void OAIModuleSsprApi::setTimeOut(const int timeOut) {
     _timeOut = timeOut;
 }
 
-void OAIObjectFranchisereferalincomeApi::setWorkingDirectory(const QString &path) {
+void OAIModuleSsprApi::setWorkingDirectory(const QString &path) {
     _workingDirectory = path;
 }
 
-void OAIObjectFranchisereferalincomeApi::setNetworkAccessManager(QNetworkAccessManager* manager) {
+void OAIModuleSsprApi::setNetworkAccessManager(QNetworkAccessManager* manager) {
     _manager = manager;  
 }
 
-void OAIObjectFranchisereferalincomeApi::addHeaders(const QString &key, const QString &value) {
+void OAIModuleSsprApi::addHeaders(const QString &key, const QString &value) {
     defaultHeaders.insert(key, value);
 }
 
-void OAIObjectFranchisereferalincomeApi::enableRequestCompression() {
+void OAIModuleSsprApi::enableRequestCompression() {
     isRequestCompressionEnabled = true;
 }
 
-void OAIObjectFranchisereferalincomeApi::enableResponseCompression() {
+void OAIModuleSsprApi::enableResponseCompression() {
     isResponseCompressionEnabled = true;
 }
 
-void OAIObjectFranchisereferalincomeApi::abortRequests(){
+void OAIModuleSsprApi::abortRequests(){
     emit abortRequestsSignal();
 }
 
-QString OAIObjectFranchisereferalincomeApi::getParamStylePrefix(QString style){
+QString OAIModuleSsprApi::getParamStylePrefix(QString style){
 
         if(style == "matrix"){ 
             return ";";
@@ -156,7 +156,7 @@ QString OAIObjectFranchisereferalincomeApi::getParamStylePrefix(QString style){
             return "none";
 }
 
-QString OAIObjectFranchisereferalincomeApi::getParamStyleSuffix(QString style){
+QString OAIModuleSsprApi::getParamStyleSuffix(QString style){
 
         if(style == "matrix"){ 
             return "=";
@@ -174,7 +174,7 @@ QString OAIObjectFranchisereferalincomeApi::getParamStyleSuffix(QString style){
             return "none";
 }
 
-QString OAIObjectFranchisereferalincomeApi::getParamStyleDelimiter(QString style, QString name, bool isExplode){
+QString OAIModuleSsprApi::getParamStyleDelimiter(QString style, QString name, bool isExplode){
 
         if(style == "matrix"){ 
             return (isExplode) ? ";" + name + "=" : ",";
@@ -200,8 +200,8 @@ QString OAIObjectFranchisereferalincomeApi::getParamStyleDelimiter(QString style
             return "none";
 }
 
-void OAIObjectFranchisereferalincomeApi::franchisereferalincomeCreateObjectV1(const QList<OAIFranchisereferalincome_createObject_v1_Request> &oai_franchisereferalincome_create_object_v1_request) {
-    QString fullPath = QString(_serverConfigs["franchisereferalincomeCreateObjectV1"][_serverIndices.value("franchisereferalincomeCreateObjectV1")].URL()+"/1/object/franchisereferalincome");
+void OAIModuleSsprApi::ssprRemindUsernamesV1() {
+    QString fullPath = QString(_serverConfigs["ssprRemindUsernamesV1"][_serverIndices.value("ssprRemindUsernamesV1")].URL()+"/1/module/sspr/remindUsernames");
     
     if(_apiKeys.contains("Authorization")){
         addHeaders("Authorization",_apiKeys.find("Authorization").value());
@@ -214,18 +214,14 @@ void OAIObjectFranchisereferalincomeApi::franchisereferalincomeCreateObjectV1(co
     worker->setWorkingDirectory(_workingDirectory);
     OAIHttpRequestInput input(fullPath, "POST");
 
-
-    QJsonDocument doc(::OpenAPI::toJsonValue(oai_franchisereferalincome_create_object_v1_request).toArray());
-    QByteArray bytes = doc.toJson();
-    input.request_body.append(bytes);
     foreach (QString key, this->defaultHeaders.keys()) { input.headers.insert(key, this->defaultHeaders.value(key)); }
 
-    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIObjectFranchisereferalincomeApi::franchisereferalincomeCreateObjectV1Callback);
-    connect(this, &OAIObjectFranchisereferalincomeApi::abortRequestsSignal, worker, &QObject::deleteLater); 
+    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIModuleSsprApi::ssprRemindUsernamesV1Callback);
+    connect(this, &OAIModuleSsprApi::abortRequestsSignal, worker, &QObject::deleteLater); 
     worker->execute(&input);
 }
 
-void OAIObjectFranchisereferalincomeApi::franchisereferalincomeCreateObjectV1Callback(OAIHttpRequestWorker *worker) {
+void OAIModuleSsprApi::ssprRemindUsernamesV1Callback(OAIHttpRequestWorker *worker) {
     QString msg;
     QString error_str = worker->error_str;
     QNetworkReply::NetworkError error_type = worker->error_type;
@@ -236,15 +232,14 @@ void OAIObjectFranchisereferalincomeApi::franchisereferalincomeCreateObjectV1Cal
         msg = "Error: " + worker->error_str;
         error_str = QString("%1, %2").arg(worker->error_str).arg(QString(worker->response));
     }
-    OAIFranchisereferalincome_createObject_v1_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit franchisereferalincomeCreateObjectV1Signal(output);
-        emit franchisereferalincomeCreateObjectV1SignalFull(worker, output);
+        emit ssprRemindUsernamesV1Signal();
+        emit ssprRemindUsernamesV1SignalFull(worker);
     } else {
-        emit franchisereferalincomeCreateObjectV1SignalE(output, error_type, error_str);
-        emit franchisereferalincomeCreateObjectV1SignalEFull(worker, error_type, error_str);
+        emit ssprRemindUsernamesV1SignalE(error_type, error_str);
+        emit ssprRemindUsernamesV1SignalEFull(worker, error_type, error_str);
     }
 }
 

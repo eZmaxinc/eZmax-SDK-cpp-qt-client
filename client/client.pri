@@ -110,6 +110,7 @@ HEADERS += \
     $${PWD}/OAIWebsite_Request.h \
 # APIs
     $${PWD}/OAIGlobalCustomerApi.h \
+    $${PWD}/OAIModuleSsprApi.h \
     $${PWD}/OAIModuleUserApi.h \
     $${PWD}/OAIObjectActivesessionApi.h \
     $${PWD}/OAIObjectApikeyApi.h \
@@ -240,6 +241,7 @@ SOURCES += \
     $${PWD}/OAIWebsite_Request.cpp \
 # APIs
     $${PWD}/OAIGlobalCustomerApi.cpp \
+    $${PWD}/OAIModuleSsprApi.cpp \
     $${PWD}/OAIModuleUserApi.cpp \
     $${PWD}/OAIObjectActivesessionApi.cpp \
     $${PWD}/OAIObjectApikeyApi.cpp \
