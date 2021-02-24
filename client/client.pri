@@ -38,8 +38,6 @@ HEADERS += \
     $${PWD}/OAIEzsigndocument_createObject_v1_Response.h \
     $${PWD}/OAIEzsigndocument_createObject_v1_Response_mPayload.h \
     $${PWD}/OAIEzsigndocument_deleteObject_v1_Response.h \
-    $${PWD}/OAIEzsigndocument_editObject_v1_Request.h \
-    $${PWD}/OAIEzsigndocument_editObject_v1_Response.h \
     $${PWD}/OAIEzsigndocument_getDownloadUrl_v1_Response.h \
     $${PWD}/OAIEzsigndocument_getDownloadUrl_v1_Response_mPayload.h \
     $${PWD}/OAIEzsigndocument_getObject_v1_Response.h \
@@ -53,8 +51,6 @@ HEADERS += \
     $${PWD}/OAIEzsignfolder_createObject_v1_Response.h \
     $${PWD}/OAIEzsignfolder_createObject_v1_Response_mPayload.h \
     $${PWD}/OAIEzsignfolder_deleteObject_v1_Response.h \
-    $${PWD}/OAIEzsignfolder_editObject_v1_Request.h \
-    $${PWD}/OAIEzsignfolder_editObject_v1_Response.h \
     $${PWD}/OAIEzsignfolder_getObject_v1_Response.h \
     $${PWD}/OAIEzsignfolder_getObject_v1_Response_mPayload.h \
     $${PWD}/OAIEzsignfolder_send_v1_Request.h \
@@ -65,8 +61,6 @@ HEADERS += \
     $${PWD}/OAIEzsignfoldersignerassociation_createObject_v1_Response.h \
     $${PWD}/OAIEzsignfoldersignerassociation_createObject_v1_Response_mPayload.h \
     $${PWD}/OAIEzsignfoldersignerassociation_deleteObject_v1_Response.h \
-    $${PWD}/OAIEzsignfoldersignerassociation_editObject_v1_Request.h \
-    $${PWD}/OAIEzsignfoldersignerassociation_editObject_v1_Response.h \
     $${PWD}/OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response.h \
     $${PWD}/OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response_mPayload.h \
     $${PWD}/OAIEzsignfoldersignerassociation_getObject_v1_Response.h \
@@ -76,8 +70,6 @@ HEADERS += \
     $${PWD}/OAIEzsignsignature_createObject_v1_Response.h \
     $${PWD}/OAIEzsignsignature_createObject_v1_Response_mPayload.h \
     $${PWD}/OAIEzsignsignature_deleteObject_v1_Response.h \
-    $${PWD}/OAIEzsignsignature_editObject_v1_Request.h \
-    $${PWD}/OAIEzsignsignature_editObject_v1_Response.h \
     $${PWD}/OAIEzsignsignature_getObject_v1_Response.h \
     $${PWD}/OAIEzsignsigner_Request.h \
     $${PWD}/OAIEzsignsigner_RequestCompound.h \
@@ -95,6 +87,14 @@ HEADERS += \
     $${PWD}/OAIGlobal_customer_getEndpoint_v1_Response.h \
     $${PWD}/OAIMultilingual_ApikeyDescription.h \
     $${PWD}/OAIPhone_Request.h \
+    $${PWD}/OAIUNUSED_ezsigndocument_editObject_v1_Request.h \
+    $${PWD}/OAIUNUSED_ezsigndocument_editObject_v1_Response.h \
+    $${PWD}/OAIUNUSED_ezsignfolder_editObject_v1_Request.h \
+    $${PWD}/OAIUNUSED_ezsignfolder_editObject_v1_Response.h \
+    $${PWD}/OAIUNUSED_ezsignfoldersignerassociation_editObject_v1_Request.h \
+    $${PWD}/OAIUNUSED_ezsignfoldersignerassociation_editObject_v1_Response.h \
+    $${PWD}/OAIUNUSED_ezsignsignature_editObject_v1_Request.h \
+    $${PWD}/OAIUNUSED_ezsignsignature_editObject_v1_Response.h \
     $${PWD}/OAIUser_Response.h \
     $${PWD}/OAIUser_Response_allOf.h \
     $${PWD}/OAIUser_createEzsignuser_v1_Request.h \
@@ -169,8 +169,6 @@ SOURCES += \
     $${PWD}/OAIEzsigndocument_createObject_v1_Response.cpp \
     $${PWD}/OAIEzsigndocument_createObject_v1_Response_mPayload.cpp \
     $${PWD}/OAIEzsigndocument_deleteObject_v1_Response.cpp \
-    $${PWD}/OAIEzsigndocument_editObject_v1_Request.cpp \
-    $${PWD}/OAIEzsigndocument_editObject_v1_Response.cpp \
     $${PWD}/OAIEzsigndocument_getDownloadUrl_v1_Response.cpp \
     $${PWD}/OAIEzsigndocument_getDownloadUrl_v1_Response_mPayload.cpp \
     $${PWD}/OAIEzsigndocument_getObject_v1_Response.cpp \
@@ -184,8 +182,6 @@ SOURCES += \
     $${PWD}/OAIEzsignfolder_createObject_v1_Response.cpp \
     $${PWD}/OAIEzsignfolder_createObject_v1_Response_mPayload.cpp \
     $${PWD}/OAIEzsignfolder_deleteObject_v1_Response.cpp \
-    $${PWD}/OAIEzsignfolder_editObject_v1_Request.cpp \
-    $${PWD}/OAIEzsignfolder_editObject_v1_Response.cpp \
     $${PWD}/OAIEzsignfolder_getObject_v1_Response.cpp \
     $${PWD}/OAIEzsignfolder_getObject_v1_Response_mPayload.cpp \
     $${PWD}/OAIEzsignfolder_send_v1_Request.cpp \
@@ -196,8 +192,6 @@ SOURCES += \
     $${PWD}/OAIEzsignfoldersignerassociation_createObject_v1_Response.cpp \
     $${PWD}/OAIEzsignfoldersignerassociation_createObject_v1_Response_mPayload.cpp \
     $${PWD}/OAIEzsignfoldersignerassociation_deleteObject_v1_Response.cpp \
-    $${PWD}/OAIEzsignfoldersignerassociation_editObject_v1_Request.cpp \
-    $${PWD}/OAIEzsignfoldersignerassociation_editObject_v1_Response.cpp \
     $${PWD}/OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response.cpp \
     $${PWD}/OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response_mPayload.cpp \
     $${PWD}/OAIEzsignfoldersignerassociation_getObject_v1_Response.cpp \
@@ -207,8 +201,6 @@ SOURCES += \
     $${PWD}/OAIEzsignsignature_createObject_v1_Response.cpp \
     $${PWD}/OAIEzsignsignature_createObject_v1_Response_mPayload.cpp \
     $${PWD}/OAIEzsignsignature_deleteObject_v1_Response.cpp \
-    $${PWD}/OAIEzsignsignature_editObject_v1_Request.cpp \
-    $${PWD}/OAIEzsignsignature_editObject_v1_Response.cpp \
     $${PWD}/OAIEzsignsignature_getObject_v1_Response.cpp \
     $${PWD}/OAIEzsignsigner_Request.cpp \
     $${PWD}/OAIEzsignsigner_RequestCompound.cpp \
@@ -226,6 +218,14 @@ SOURCES += \
     $${PWD}/OAIGlobal_customer_getEndpoint_v1_Response.cpp \
     $${PWD}/OAIMultilingual_ApikeyDescription.cpp \
     $${PWD}/OAIPhone_Request.cpp \
+    $${PWD}/OAIUNUSED_ezsigndocument_editObject_v1_Request.cpp \
+    $${PWD}/OAIUNUSED_ezsigndocument_editObject_v1_Response.cpp \
+    $${PWD}/OAIUNUSED_ezsignfolder_editObject_v1_Request.cpp \
+    $${PWD}/OAIUNUSED_ezsignfolder_editObject_v1_Response.cpp \
+    $${PWD}/OAIUNUSED_ezsignfoldersignerassociation_editObject_v1_Request.cpp \
+    $${PWD}/OAIUNUSED_ezsignfoldersignerassociation_editObject_v1_Response.cpp \
+    $${PWD}/OAIUNUSED_ezsignsignature_editObject_v1_Request.cpp \
+    $${PWD}/OAIUNUSED_ezsignsignature_editObject_v1_Response.cpp \
     $${PWD}/OAIUser_Response.cpp \
     $${PWD}/OAIUser_Response_allOf.cpp \
     $${PWD}/OAIUser_createEzsignuser_v1_Request.cpp \
