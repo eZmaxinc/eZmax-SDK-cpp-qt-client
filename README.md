@@ -132,7 +132,11 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *OAIGlobalCustomerApi* | [**globalCustomerGetEndpointV1**](OAIGlobalCustomerApi.md#globalCustomerGetEndpointV1) | **GET** /1/customer/{pksCustomerCode}/endpoint | Get customer endpoint
-*OAIModuleSsprApi* | [**ssprRemindUsernamesV1**](OAIModuleSsprApi.md#ssprRemindUsernamesV1) | **POST** /1/module/sspr/remindUsernames | Remind of forgotten username(s)
+*OAIModuleSsprApi* | [**ssprResetPasswordRequestV1**](OAIModuleSsprApi.md#ssprResetPasswordRequestV1) | **POST** /1/module/sspr/resetPasswordRequest/ | Reset Password Request
+*OAIModuleSsprApi* | [**ssprResetPasswordV1**](OAIModuleSsprApi.md#ssprResetPasswordV1) | **POST** /1/module/sspr/resetPassword | Reset Password
+*OAIModuleSsprApi* | [**ssprSendUsernamesV1**](OAIModuleSsprApi.md#ssprSendUsernamesV1) | **POST** /1/module/sspr/sendUsernames | Send username(s)
+*OAIModuleSsprApi* | [**ssprUnlockAccountRequestV1**](OAIModuleSsprApi.md#ssprUnlockAccountRequestV1) | **POST** /1/module/sspr/unlockAccountRequest | Unlock Account Request
+*OAIModuleSsprApi* | [**ssprUnlockAccountV1**](OAIModuleSsprApi.md#ssprUnlockAccountV1) | **POST** /1/module/sspr/unlockAccount | Unlock Account
 *OAIModuleUserApi* | [**userCreateEzsignuserV1**](OAIModuleUserApi.md#userCreateEzsignuserV1) | **POST** /1/module/user/createezsignuser | Create a new User of type Ezsignuser
 *OAIObjectActivesessionApi* | [**activesessionGetCurrentV1**](OAIObjectActivesessionApi.md#activesessionGetCurrentV1) | **GET** /1/object/activesession/getCurrent | Get Current Activesession
 *OAIObjectApikeyApi* | [**apikeyCreateObjectV1**](OAIObjectApikeyApi.md#apikeyCreateObjectV1) | **POST** /1/object/apikey | Create a new Apikey
@@ -241,6 +245,7 @@ Class | Method | HTTP request | Description
  - [OAIField_eEzsignfolderStep](OAIField_eEzsignfolderStep.md)
  - [OAIField_ePhoneType](OAIField_ePhoneType.md)
  - [OAIField_eUserType](OAIField_eUserType.md)
+ - [OAIField_eUserTypeSSPR](OAIField_eUserTypeSSPR.md)
  - [OAIFranchisereferalincome_Request](OAIFranchisereferalincome_Request.md)
  - [OAIFranchisereferalincome_RequestCompound](OAIFranchisereferalincome_RequestCompound.md)
  - [OAIFranchisereferalincome_createObject_v1_Request](OAIFranchisereferalincome_createObject_v1_Request.md)
@@ -249,6 +254,11 @@ Class | Method | HTTP request | Description
  - [OAIGlobal_customer_getEndpoint_v1_Response](OAIGlobal_customer_getEndpoint_v1_Response.md)
  - [OAIMultilingual_ApikeyDescription](OAIMultilingual_ApikeyDescription.md)
  - [OAIPhone_Request](OAIPhone_Request.md)
+ - [OAISspr_resetPasswordRequest_v1_Request](OAISspr_resetPasswordRequest_v1_Request.md)
+ - [OAISspr_resetPassword_v1_Request](OAISspr_resetPassword_v1_Request.md)
+ - [OAISspr_sendUsernames_v1_Request](OAISspr_sendUsernames_v1_Request.md)
+ - [OAISspr_unlockAccountRequest_v1_Request](OAISspr_unlockAccountRequest_v1_Request.md)
+ - [OAISspr_unlockAccount_v1_Request](OAISspr_unlockAccount_v1_Request.md)
  - [OAIUNUSED_ezsigndocument_editObject_v1_Request](OAIUNUSED_ezsigndocument_editObject_v1_Request.md)
  - [OAIUNUSED_ezsigndocument_editObject_v1_Response](OAIUNUSED_ezsigndocument_editObject_v1_Response.md)
  - [OAIUNUSED_ezsignfolder_editObject_v1_Request](OAIUNUSED_ezsignfolder_editObject_v1_Request.md)

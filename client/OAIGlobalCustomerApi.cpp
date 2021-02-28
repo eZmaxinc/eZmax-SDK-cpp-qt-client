@@ -56,14 +56,7 @@ defaultConf.append(OAIServerConfiguration(
     {"sInfrastructureenvironmenttypeDescription", OAIServerVariable("The environment on on which to call the API. Should always be "prod" unless instructed otherwise by support.","prod",
     QSet<QString>{ {"prod"},{"stg"},{"qa"},{"dev"} })}, }));
     
-serverConf.append(OAIServerConfiguration(
-    "https://{sInfrastructureenvironmenttypeDescription}.api.global.ezmax.com",
-    "The server endpoint where to send your API requests.",
-    QMap<QString, OAIServerVariable>{ 
-    {"sInfrastructureenvironmenttypeDescription", OAIServerVariable("The environment on on which to call the API. Should always be \"prod\" unless instructed otherwise by support.","prod",
-    QSet<QString>{ {"prod"},{"stg"},{"qa"},{"dev"} })},  }));
-    
-_serverConfigs.insert("globalCustomerGetEndpointV1",serverConf);
+_serverConfigs.insert("globalCustomerGetEndpointV1",defaultConf);
 _serverIndices.insert("globalCustomerGetEndpointV1",0);
 
 

@@ -56,8 +56,20 @@ defaultConf.append(OAIServerConfiguration(
     {"sInfrastructureenvironmenttypeDescription", OAIServerVariable("The environment on on which to call the API. Should always be "prod" unless instructed otherwise by support.","prod",
     QSet<QString>{ {"prod"},{"stg"},{"qa"},{"dev"} })}, }));
     
-_serverConfigs.insert("ssprRemindUsernamesV1",defaultConf);
-_serverIndices.insert("ssprRemindUsernamesV1",0);
+_serverConfigs.insert("ssprResetPasswordRequestV1",defaultConf);
+_serverIndices.insert("ssprResetPasswordRequestV1",0);
+
+_serverConfigs.insert("ssprResetPasswordV1",defaultConf);
+_serverIndices.insert("ssprResetPasswordV1",0);
+
+_serverConfigs.insert("ssprSendUsernamesV1",defaultConf);
+_serverIndices.insert("ssprSendUsernamesV1",0);
+
+_serverConfigs.insert("ssprUnlockAccountRequestV1",defaultConf);
+_serverIndices.insert("ssprUnlockAccountRequestV1",0);
+
+_serverConfigs.insert("ssprUnlockAccountV1",defaultConf);
+_serverIndices.insert("ssprUnlockAccountV1",0);
 
 
 }
@@ -200,8 +212,8 @@ QString OAIModuleSsprApi::getParamStyleDelimiter(QString style, QString name, bo
             return "none";
 }
 
-void OAIModuleSsprApi::ssprRemindUsernamesV1() {
-    QString fullPath = QString(_serverConfigs["ssprRemindUsernamesV1"][_serverIndices.value("ssprRemindUsernamesV1")].URL()+"/1/module/sspr/remindUsernames");
+void OAIModuleSsprApi::ssprResetPasswordRequestV1(const OAISspr_resetPasswordRequest_v1_Request &oai_sspr_reset_password_request_v1_request) {
+    QString fullPath = QString(_serverConfigs["ssprResetPasswordRequestV1"][_serverIndices.value("ssprResetPasswordRequestV1")].URL()+"/1/module/sspr/resetPasswordRequest/");
     
     if(_apiKeys.contains("Authorization")){
         addHeaders("Authorization",_apiKeys.find("Authorization").value());
@@ -214,14 +226,17 @@ void OAIModuleSsprApi::ssprRemindUsernamesV1() {
     worker->setWorkingDirectory(_workingDirectory);
     OAIHttpRequestInput input(fullPath, "POST");
 
+
+    QByteArray output = oai_sspr_reset_password_request_v1_request.asJson().toUtf8();
+    input.request_body.append(output);
     foreach (QString key, this->defaultHeaders.keys()) { input.headers.insert(key, this->defaultHeaders.value(key)); }
 
-    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIModuleSsprApi::ssprRemindUsernamesV1Callback);
+    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIModuleSsprApi::ssprResetPasswordRequestV1Callback);
     connect(this, &OAIModuleSsprApi::abortRequestsSignal, worker, &QObject::deleteLater); 
     worker->execute(&input);
 }
 
-void OAIModuleSsprApi::ssprRemindUsernamesV1Callback(OAIHttpRequestWorker *worker) {
+void OAIModuleSsprApi::ssprResetPasswordRequestV1Callback(OAIHttpRequestWorker *worker) {
     QString msg;
     QString error_str = worker->error_str;
     QNetworkReply::NetworkError error_type = worker->error_type;
@@ -235,11 +250,195 @@ void OAIModuleSsprApi::ssprRemindUsernamesV1Callback(OAIHttpRequestWorker *worke
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ssprRemindUsernamesV1Signal();
-        emit ssprRemindUsernamesV1SignalFull(worker);
+        emit ssprResetPasswordRequestV1Signal();
+        emit ssprResetPasswordRequestV1SignalFull(worker);
     } else {
-        emit ssprRemindUsernamesV1SignalE(error_type, error_str);
-        emit ssprRemindUsernamesV1SignalEFull(worker, error_type, error_str);
+        emit ssprResetPasswordRequestV1SignalE(error_type, error_str);
+        emit ssprResetPasswordRequestV1SignalEFull(worker, error_type, error_str);
+    }
+}
+
+void OAIModuleSsprApi::ssprResetPasswordV1(const OAISspr_resetPassword_v1_Request &oai_sspr_reset_password_v1_request) {
+    QString fullPath = QString(_serverConfigs["ssprResetPasswordV1"][_serverIndices.value("ssprResetPasswordV1")].URL()+"/1/module/sspr/resetPassword");
+    
+    if(_apiKeys.contains("Authorization")){
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+
+
+    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    OAIHttpRequestInput input(fullPath, "POST");
+
+
+    QByteArray output = oai_sspr_reset_password_v1_request.asJson().toUtf8();
+    input.request_body.append(output);
+    foreach (QString key, this->defaultHeaders.keys()) { input.headers.insert(key, this->defaultHeaders.value(key)); }
+
+    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIModuleSsprApi::ssprResetPasswordV1Callback);
+    connect(this, &OAIModuleSsprApi::abortRequestsSignal, worker, &QObject::deleteLater); 
+    worker->execute(&input);
+}
+
+void OAIModuleSsprApi::ssprResetPasswordV1Callback(OAIHttpRequestWorker *worker) {
+    QString msg;
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        msg = QString("Success! %1 bytes").arg(worker->response.length());
+    } else {
+        msg = "Error: " + worker->error_str;
+        error_str = QString("%1, %2").arg(worker->error_str).arg(QString(worker->response));
+    }
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit ssprResetPasswordV1Signal();
+        emit ssprResetPasswordV1SignalFull(worker);
+    } else {
+        emit ssprResetPasswordV1SignalE(error_type, error_str);
+        emit ssprResetPasswordV1SignalEFull(worker, error_type, error_str);
+    }
+}
+
+void OAIModuleSsprApi::ssprSendUsernamesV1(const OAISspr_sendUsernames_v1_Request &oai_sspr_send_usernames_v1_request) {
+    QString fullPath = QString(_serverConfigs["ssprSendUsernamesV1"][_serverIndices.value("ssprSendUsernamesV1")].URL()+"/1/module/sspr/sendUsernames");
+    
+    if(_apiKeys.contains("Authorization")){
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+
+
+    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    OAIHttpRequestInput input(fullPath, "POST");
+
+
+    QByteArray output = oai_sspr_send_usernames_v1_request.asJson().toUtf8();
+    input.request_body.append(output);
+    foreach (QString key, this->defaultHeaders.keys()) { input.headers.insert(key, this->defaultHeaders.value(key)); }
+
+    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIModuleSsprApi::ssprSendUsernamesV1Callback);
+    connect(this, &OAIModuleSsprApi::abortRequestsSignal, worker, &QObject::deleteLater); 
+    worker->execute(&input);
+}
+
+void OAIModuleSsprApi::ssprSendUsernamesV1Callback(OAIHttpRequestWorker *worker) {
+    QString msg;
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        msg = QString("Success! %1 bytes").arg(worker->response.length());
+    } else {
+        msg = "Error: " + worker->error_str;
+        error_str = QString("%1, %2").arg(worker->error_str).arg(QString(worker->response));
+    }
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit ssprSendUsernamesV1Signal();
+        emit ssprSendUsernamesV1SignalFull(worker);
+    } else {
+        emit ssprSendUsernamesV1SignalE(error_type, error_str);
+        emit ssprSendUsernamesV1SignalEFull(worker, error_type, error_str);
+    }
+}
+
+void OAIModuleSsprApi::ssprUnlockAccountRequestV1(const OAISspr_unlockAccountRequest_v1_Request &oai_sspr_unlock_account_request_v1_request) {
+    QString fullPath = QString(_serverConfigs["ssprUnlockAccountRequestV1"][_serverIndices.value("ssprUnlockAccountRequestV1")].URL()+"/1/module/sspr/unlockAccountRequest");
+    
+    if(_apiKeys.contains("Authorization")){
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+
+
+    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    OAIHttpRequestInput input(fullPath, "POST");
+
+
+    QByteArray output = oai_sspr_unlock_account_request_v1_request.asJson().toUtf8();
+    input.request_body.append(output);
+    foreach (QString key, this->defaultHeaders.keys()) { input.headers.insert(key, this->defaultHeaders.value(key)); }
+
+    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIModuleSsprApi::ssprUnlockAccountRequestV1Callback);
+    connect(this, &OAIModuleSsprApi::abortRequestsSignal, worker, &QObject::deleteLater); 
+    worker->execute(&input);
+}
+
+void OAIModuleSsprApi::ssprUnlockAccountRequestV1Callback(OAIHttpRequestWorker *worker) {
+    QString msg;
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        msg = QString("Success! %1 bytes").arg(worker->response.length());
+    } else {
+        msg = "Error: " + worker->error_str;
+        error_str = QString("%1, %2").arg(worker->error_str).arg(QString(worker->response));
+    }
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit ssprUnlockAccountRequestV1Signal();
+        emit ssprUnlockAccountRequestV1SignalFull(worker);
+    } else {
+        emit ssprUnlockAccountRequestV1SignalE(error_type, error_str);
+        emit ssprUnlockAccountRequestV1SignalEFull(worker, error_type, error_str);
+    }
+}
+
+void OAIModuleSsprApi::ssprUnlockAccountV1(const OAISspr_unlockAccount_v1_Request &oai_sspr_unlock_account_v1_request) {
+    QString fullPath = QString(_serverConfigs["ssprUnlockAccountV1"][_serverIndices.value("ssprUnlockAccountV1")].URL()+"/1/module/sspr/unlockAccount");
+    
+    if(_apiKeys.contains("Authorization")){
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+
+
+    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    OAIHttpRequestInput input(fullPath, "POST");
+
+
+    QByteArray output = oai_sspr_unlock_account_v1_request.asJson().toUtf8();
+    input.request_body.append(output);
+    foreach (QString key, this->defaultHeaders.keys()) { input.headers.insert(key, this->defaultHeaders.value(key)); }
+
+    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIModuleSsprApi::ssprUnlockAccountV1Callback);
+    connect(this, &OAIModuleSsprApi::abortRequestsSignal, worker, &QObject::deleteLater); 
+    worker->execute(&input);
+}
+
+void OAIModuleSsprApi::ssprUnlockAccountV1Callback(OAIHttpRequestWorker *worker) {
+    QString msg;
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        msg = QString("Success! %1 bytes").arg(worker->response.length());
+    } else {
+        msg = "Error: " + worker->error_str;
+        error_str = QString("%1, %2").arg(worker->error_str).arg(QString(worker->response));
+    }
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit ssprUnlockAccountV1Signal();
+        emit ssprUnlockAccountV1SignalFull(worker);
+    } else {
+        emit ssprUnlockAccountV1SignalE(error_type, error_str);
+        emit ssprUnlockAccountV1SignalEFull(worker, error_type, error_str);
     }
 }
 

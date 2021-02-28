@@ -156,6 +156,8 @@ client/OAIField_ePhoneType.cpp
 client/OAIField_ePhoneType.h
 client/OAIField_eUserType.cpp
 client/OAIField_eUserType.h
+client/OAIField_eUserTypeSSPR.cpp
+client/OAIField_eUserTypeSSPR.h
 client/OAIFranchisereferalincome_Request.cpp
 client/OAIFranchisereferalincome_Request.h
 client/OAIFranchisereferalincome_RequestCompound.cpp
@@ -207,6 +209,16 @@ client/OAIPhone_Request.cpp
 client/OAIPhone_Request.h
 client/OAIServerConfiguration.h
 client/OAIServerVariable.h
+client/OAISspr_resetPasswordRequest_v1_Request.cpp
+client/OAISspr_resetPasswordRequest_v1_Request.h
+client/OAISspr_resetPassword_v1_Request.cpp
+client/OAISspr_resetPassword_v1_Request.h
+client/OAISspr_sendUsernames_v1_Request.cpp
+client/OAISspr_sendUsernames_v1_Request.h
+client/OAISspr_unlockAccountRequest_v1_Request.cpp
+client/OAISspr_unlockAccountRequest_v1_Request.h
+client/OAISspr_unlockAccount_v1_Request.cpp
+client/OAISspr_unlockAccount_v1_Request.h
 client/OAIUNUSED_ezsigndocument_editObject_v1_Request.cpp
 client/OAIUNUSED_ezsigndocument_editObject_v1_Request.h
 client/OAIUNUSED_ezsigndocument_editObject_v1_Response.cpp

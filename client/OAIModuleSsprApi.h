@@ -17,6 +17,11 @@
 #include "OAIServerConfiguration.h"
 
 #include "OAICommon_Response_Error.h"
+#include "OAISspr_resetPasswordRequest_v1_Request.h"
+#include "OAISspr_resetPassword_v1_Request.h"
+#include "OAISspr_sendUsernames_v1_Request.h"
+#include "OAISspr_unlockAccountRequest_v1_Request.h"
+#include "OAISspr_unlockAccount_v1_Request.h"
 #include <QString>
 
 #include <QObject>
@@ -56,7 +61,11 @@ public:
     QString getParamStyleSuffix(QString style);
     QString getParamStyleDelimiter(QString style, QString name, bool isExplode);
 
-    void ssprRemindUsernamesV1();
+    void ssprResetPasswordRequestV1(const OAISspr_resetPasswordRequest_v1_Request &oai_sspr_reset_password_request_v1_request);
+    void ssprResetPasswordV1(const OAISspr_resetPassword_v1_Request &oai_sspr_reset_password_v1_request);
+    void ssprSendUsernamesV1(const OAISspr_sendUsernames_v1_Request &oai_sspr_send_usernames_v1_request);
+    void ssprUnlockAccountRequestV1(const OAISspr_unlockAccountRequest_v1_Request &oai_sspr_unlock_account_request_v1_request);
+    void ssprUnlockAccountV1(const OAISspr_unlockAccount_v1_Request &oai_sspr_unlock_account_v1_request);
 
 private:
     QString _scheme, _host;
@@ -75,17 +84,37 @@ private:
     bool isResponseCompressionEnabled;
     bool isRequestCompressionEnabled;
 
-    void ssprRemindUsernamesV1Callback(OAIHttpRequestWorker *worker);
+    void ssprResetPasswordRequestV1Callback(OAIHttpRequestWorker *worker);
+    void ssprResetPasswordV1Callback(OAIHttpRequestWorker *worker);
+    void ssprSendUsernamesV1Callback(OAIHttpRequestWorker *worker);
+    void ssprUnlockAccountRequestV1Callback(OAIHttpRequestWorker *worker);
+    void ssprUnlockAccountV1Callback(OAIHttpRequestWorker *worker);
 
 signals:
 
-    void ssprRemindUsernamesV1Signal();
+    void ssprResetPasswordRequestV1Signal();
+    void ssprResetPasswordV1Signal();
+    void ssprSendUsernamesV1Signal();
+    void ssprUnlockAccountRequestV1Signal();
+    void ssprUnlockAccountV1Signal();
 
-    void ssprRemindUsernamesV1SignalFull(OAIHttpRequestWorker *worker);
+    void ssprResetPasswordRequestV1SignalFull(OAIHttpRequestWorker *worker);
+    void ssprResetPasswordV1SignalFull(OAIHttpRequestWorker *worker);
+    void ssprSendUsernamesV1SignalFull(OAIHttpRequestWorker *worker);
+    void ssprUnlockAccountRequestV1SignalFull(OAIHttpRequestWorker *worker);
+    void ssprUnlockAccountV1SignalFull(OAIHttpRequestWorker *worker);
 
-    void ssprRemindUsernamesV1SignalE(QNetworkReply::NetworkError error_type, QString error_str);
+    void ssprResetPasswordRequestV1SignalE(QNetworkReply::NetworkError error_type, QString error_str);
+    void ssprResetPasswordV1SignalE(QNetworkReply::NetworkError error_type, QString error_str);
+    void ssprSendUsernamesV1SignalE(QNetworkReply::NetworkError error_type, QString error_str);
+    void ssprUnlockAccountRequestV1SignalE(QNetworkReply::NetworkError error_type, QString error_str);
+    void ssprUnlockAccountV1SignalE(QNetworkReply::NetworkError error_type, QString error_str);
 
-    void ssprRemindUsernamesV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ssprResetPasswordRequestV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ssprResetPasswordV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ssprSendUsernamesV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ssprUnlockAccountRequestV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ssprUnlockAccountV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
 
     void abortRequestsSignal(); 
 };

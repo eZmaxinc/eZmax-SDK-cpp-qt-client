@@ -79,6 +79,7 @@ HEADERS += \
     $${PWD}/OAIField_eEzsignfolderStep.h \
     $${PWD}/OAIField_ePhoneType.h \
     $${PWD}/OAIField_eUserType.h \
+    $${PWD}/OAIField_eUserTypeSSPR.h \
     $${PWD}/OAIFranchisereferalincome_Request.h \
     $${PWD}/OAIFranchisereferalincome_RequestCompound.h \
     $${PWD}/OAIFranchisereferalincome_createObject_v1_Request.h \
@@ -87,6 +88,11 @@ HEADERS += \
     $${PWD}/OAIGlobal_customer_getEndpoint_v1_Response.h \
     $${PWD}/OAIMultilingual_ApikeyDescription.h \
     $${PWD}/OAIPhone_Request.h \
+    $${PWD}/OAISspr_resetPasswordRequest_v1_Request.h \
+    $${PWD}/OAISspr_resetPassword_v1_Request.h \
+    $${PWD}/OAISspr_sendUsernames_v1_Request.h \
+    $${PWD}/OAISspr_unlockAccountRequest_v1_Request.h \
+    $${PWD}/OAISspr_unlockAccount_v1_Request.h \
     $${PWD}/OAIUNUSED_ezsigndocument_editObject_v1_Request.h \
     $${PWD}/OAIUNUSED_ezsigndocument_editObject_v1_Response.h \
     $${PWD}/OAIUNUSED_ezsignfolder_editObject_v1_Request.h \
@@ -129,8 +135,8 @@ HEADERS += \
     $${PWD}/OAIEnum.h \
     $${PWD}/OAIHttpFileElement.h \
     $${PWD}/OAIServerConfiguration.h \
-    $${PWD}/OAIServerVariable.h 
-    
+    $${PWD}/OAIServerVariable.h
+
 SOURCES += \
 # Models
     $${PWD}/OAIActivesession_getCurrent_v1_Response.cpp \
@@ -210,6 +216,7 @@ SOURCES += \
     $${PWD}/OAIField_eEzsignfolderStep.cpp \
     $${PWD}/OAIField_ePhoneType.cpp \
     $${PWD}/OAIField_eUserType.cpp \
+    $${PWD}/OAIField_eUserTypeSSPR.cpp \
     $${PWD}/OAIFranchisereferalincome_Request.cpp \
     $${PWD}/OAIFranchisereferalincome_RequestCompound.cpp \
     $${PWD}/OAIFranchisereferalincome_createObject_v1_Request.cpp \
@@ -218,6 +225,11 @@ SOURCES += \
     $${PWD}/OAIGlobal_customer_getEndpoint_v1_Response.cpp \
     $${PWD}/OAIMultilingual_ApikeyDescription.cpp \
     $${PWD}/OAIPhone_Request.cpp \
+    $${PWD}/OAISspr_resetPasswordRequest_v1_Request.cpp \
+    $${PWD}/OAISspr_resetPassword_v1_Request.cpp \
+    $${PWD}/OAISspr_sendUsernames_v1_Request.cpp \
+    $${PWD}/OAISspr_unlockAccountRequest_v1_Request.cpp \
+    $${PWD}/OAISspr_unlockAccount_v1_Request.cpp \
     $${PWD}/OAIUNUSED_ezsigndocument_editObject_v1_Request.cpp \
     $${PWD}/OAIUNUSED_ezsigndocument_editObject_v1_Response.cpp \
     $${PWD}/OAIUNUSED_ezsignfolder_editObject_v1_Request.cpp \
