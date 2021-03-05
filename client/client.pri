@@ -93,6 +93,7 @@ HEADERS += \
     $${PWD}/OAISspr_sendUsernames_v1_Request.h \
     $${PWD}/OAISspr_unlockAccountRequest_v1_Request.h \
     $${PWD}/OAISspr_unlockAccount_v1_Request.h \
+    $${PWD}/OAISspr_validateToken_v1_Request.h \
     $${PWD}/OAIUNUSED_ezsigndocument_editObject_v1_Request.h \
     $${PWD}/OAIUNUSED_ezsigndocument_editObject_v1_Response.h \
     $${PWD}/OAIUNUSED_ezsignfolder_editObject_v1_Request.h \
@@ -230,6 +231,7 @@ SOURCES += \
     $${PWD}/OAISspr_sendUsernames_v1_Request.cpp \
     $${PWD}/OAISspr_unlockAccountRequest_v1_Request.cpp \
     $${PWD}/OAISspr_unlockAccount_v1_Request.cpp \
+    $${PWD}/OAISspr_validateToken_v1_Request.cpp \
     $${PWD}/OAIUNUSED_ezsigndocument_editObject_v1_Request.cpp \
     $${PWD}/OAIUNUSED_ezsigndocument_editObject_v1_Response.cpp \
     $${PWD}/OAIUNUSED_ezsignfolder_editObject_v1_Request.cpp \

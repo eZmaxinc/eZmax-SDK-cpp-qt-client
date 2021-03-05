@@ -11,13 +11,13 @@
  */
 
 /*
- * OAISspr_unlockAccount_v1_Request.h
+ * OAISspr_validateToken_v1_Request.h
  *
- * Request for the /1/module/sspr/unlockAccount API Request
+ * Request for the /1/module/sspr/validateToken API Request
  */
 
-#ifndef OAISspr_unlockAccount_v1_Request_H
-#define OAISspr_unlockAccount_v1_Request_H
+#ifndef OAISspr_validateToken_v1_Request_H
+#define OAISspr_validateToken_v1_Request_H
 
 #include <QJsonObject>
 
@@ -29,11 +29,11 @@
 
 namespace OpenAPI {
 
-class OAISspr_unlockAccount_v1_Request : public OAIObject {
+class OAISspr_validateToken_v1_Request : public OAIObject {
 public:
-    OAISspr_unlockAccount_v1_Request();
-    OAISspr_unlockAccount_v1_Request(QString json);
-    ~OAISspr_unlockAccount_v1_Request() override;
+    OAISspr_validateToken_v1_Request();
+    OAISspr_validateToken_v1_Request(QString json);
+    ~OAISspr_validateToken_v1_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
@@ -103,6 +103,6 @@ private:
 
 } // namespace OpenAPI
 
-Q_DECLARE_METATYPE(OpenAPI::OAISspr_unlockAccount_v1_Request)
+Q_DECLARE_METATYPE(OpenAPI::OAISspr_validateToken_v1_Request)
 
-#endif // OAISspr_unlockAccount_v1_Request_H
+#endif // OAISspr_validateToken_v1_Request_H

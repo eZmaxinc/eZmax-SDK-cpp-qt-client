@@ -2,7 +2,7 @@
 
 eZmax API Definition
 
-- API version: 1.0.31
+- API version: 1.0.32
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
@@ -137,6 +137,7 @@ Class | Method | HTTP request | Description
 *OAIModuleSsprApi* | [**ssprSendUsernamesV1**](OAIModuleSsprApi.md#ssprSendUsernamesV1) | **POST** /1/module/sspr/sendUsernames | Send username(s)
 *OAIModuleSsprApi* | [**ssprUnlockAccountRequestV1**](OAIModuleSsprApi.md#ssprUnlockAccountRequestV1) | **POST** /1/module/sspr/unlockAccountRequest | Unlock Account Request
 *OAIModuleSsprApi* | [**ssprUnlockAccountV1**](OAIModuleSsprApi.md#ssprUnlockAccountV1) | **POST** /1/module/sspr/unlockAccount | Unlock Account
+*OAIModuleSsprApi* | [**ssprValidateTokenV1**](OAIModuleSsprApi.md#ssprValidateTokenV1) | **POST** /1/module/sspr/validateToken | Validate Token
 *OAIModuleUserApi* | [**userCreateEzsignuserV1**](OAIModuleUserApi.md#userCreateEzsignuserV1) | **POST** /1/module/user/createezsignuser | Create a new User of type Ezsignuser
 *OAIObjectActivesessionApi* | [**activesessionGetCurrentV1**](OAIObjectActivesessionApi.md#activesessionGetCurrentV1) | **GET** /1/object/activesession/getCurrent | Get Current Activesession
 *OAIObjectApikeyApi* | [**apikeyCreateObjectV1**](OAIObjectApikeyApi.md#apikeyCreateObjectV1) | **POST** /1/object/apikey | Create a new Apikey
@@ -259,6 +260,7 @@ Class | Method | HTTP request | Description
  - [OAISspr_sendUsernames_v1_Request](OAISspr_sendUsernames_v1_Request.md)
  - [OAISspr_unlockAccountRequest_v1_Request](OAISspr_unlockAccountRequest_v1_Request.md)
  - [OAISspr_unlockAccount_v1_Request](OAISspr_unlockAccount_v1_Request.md)
+ - [OAISspr_validateToken_v1_Request](OAISspr_validateToken_v1_Request.md)
  - [OAIUNUSED_ezsigndocument_editObject_v1_Request](OAIUNUSED_ezsigndocument_editObject_v1_Request.md)
  - [OAIUNUSED_ezsigndocument_editObject_v1_Response](OAIUNUSED_ezsigndocument_editObject_v1_Response.md)
  - [OAIUNUSED_ezsignfolder_editObject_v1_Request](OAIUNUSED_ezsignfolder_editObject_v1_Request.md)

@@ -106,6 +106,7 @@ add_library(${PROJECT_NAME}
     OAISspr_sendUsernames_v1_Request.cpp
     OAISspr_unlockAccountRequest_v1_Request.cpp
     OAISspr_unlockAccount_v1_Request.cpp
+    OAISspr_validateToken_v1_Request.cpp
     OAIUNUSED_ezsigndocument_editObject_v1_Request.cpp
     OAIUNUSED_ezsigndocument_editObject_v1_Response.cpp
     OAIUNUSED_ezsignfolder_editObject_v1_Request.cpp
