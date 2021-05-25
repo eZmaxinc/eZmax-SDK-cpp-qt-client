@@ -25,6 +25,9 @@ add_library(${PROJECT_NAME}
     OAIApikey_createObject_v1_Response.cpp
     OAIApikey_createObject_v1_Response_mPayload.cpp
     OAIAttempt_Response.cpp
+    OAIAuthenticate_authenticate_v2_Request.cpp
+    OAIAuthenticate_authenticate_v2_Response.cpp
+    OAIAuthenticate_authenticate_v2_Response_mPayload.cpp
     OAICommon_Audit.cpp
     OAICommon_Response.cpp
     OAICommon_Response_Error.cpp
@@ -129,6 +132,7 @@ add_library(${PROJECT_NAME}
     OAIWebhook_User_UserCreated_allOf.cpp
     OAIWebsite_Request.cpp
     OAIGlobalCustomerApi.cpp
+    OAIModuleAuthenticateApi.cpp
     OAIModuleSsprApi.cpp
     OAIModuleUserApi.cpp
     OAIObjectActivesessionApi.cpp

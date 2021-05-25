@@ -21,6 +21,12 @@ client/OAIApikey_createObject_v1_Response_mPayload.cpp
 client/OAIApikey_createObject_v1_Response_mPayload.h
 client/OAIAttempt_Response.cpp
 client/OAIAttempt_Response.h
+client/OAIAuthenticate_authenticate_v2_Request.cpp
+client/OAIAuthenticate_authenticate_v2_Request.h
+client/OAIAuthenticate_authenticate_v2_Response.cpp
+client/OAIAuthenticate_authenticate_v2_Response.h
+client/OAIAuthenticate_authenticate_v2_Response_mPayload.cpp
+client/OAIAuthenticate_authenticate_v2_Response_mPayload.h
 client/OAICommon_Audit.cpp
 client/OAICommon_Audit.h
 client/OAICommon_Response.cpp
@@ -178,6 +184,8 @@ client/OAIHttpFileElement.cpp
 client/OAIHttpFileElement.h
 client/OAIHttpRequest.cpp
 client/OAIHttpRequest.h
+client/OAIModuleAuthenticateApi.cpp
+client/OAIModuleAuthenticateApi.h
 client/OAIModuleSsprApi.cpp
 client/OAIModuleSsprApi.h
 client/OAIModuleUserApi.cpp

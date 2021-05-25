@@ -12,6 +12,9 @@ HEADERS += \
     $${PWD}/OAIApikey_createObject_v1_Response.h \
     $${PWD}/OAIApikey_createObject_v1_Response_mPayload.h \
     $${PWD}/OAIAttempt_Response.h \
+    $${PWD}/OAIAuthenticate_authenticate_v2_Request.h \
+    $${PWD}/OAIAuthenticate_authenticate_v2_Response.h \
+    $${PWD}/OAIAuthenticate_authenticate_v2_Response_mPayload.h \
     $${PWD}/OAICommon_Audit.h \
     $${PWD}/OAICommon_Response.h \
     $${PWD}/OAICommon_Response_Error.h \
@@ -117,6 +120,7 @@ HEADERS += \
     $${PWD}/OAIWebsite_Request.h \
 # APIs
     $${PWD}/OAIGlobalCustomerApi.h \
+    $${PWD}/OAIModuleAuthenticateApi.h \
     $${PWD}/OAIModuleSsprApi.h \
     $${PWD}/OAIModuleUserApi.h \
     $${PWD}/OAIObjectActivesessionApi.h \
@@ -150,6 +154,9 @@ SOURCES += \
     $${PWD}/OAIApikey_createObject_v1_Response.cpp \
     $${PWD}/OAIApikey_createObject_v1_Response_mPayload.cpp \
     $${PWD}/OAIAttempt_Response.cpp \
+    $${PWD}/OAIAuthenticate_authenticate_v2_Request.cpp \
+    $${PWD}/OAIAuthenticate_authenticate_v2_Response.cpp \
+    $${PWD}/OAIAuthenticate_authenticate_v2_Response_mPayload.cpp \
     $${PWD}/OAICommon_Audit.cpp \
     $${PWD}/OAICommon_Response.cpp \
     $${PWD}/OAICommon_Response_Error.cpp \
@@ -255,6 +262,7 @@ SOURCES += \
     $${PWD}/OAIWebsite_Request.cpp \
 # APIs
     $${PWD}/OAIGlobalCustomerApi.cpp \
+    $${PWD}/OAIModuleAuthenticateApi.cpp \
     $${PWD}/OAIModuleSsprApi.cpp \
     $${PWD}/OAIModuleUserApi.cpp \
     $${PWD}/OAIObjectActivesessionApi.cpp \
