@@ -93,6 +93,7 @@ add_library(${PROJECT_NAME}
     OAIField_eEzsigndocumentStep.cpp
     OAIField_eEzsignfolderSendreminderfrequency.cpp
     OAIField_eEzsignfolderStep.cpp
+    OAIField_eEzsignsignatureType.cpp
     OAIField_ePhoneType.cpp
     OAIField_eUserType.cpp
     OAIField_eUserTypeSSPR.cpp

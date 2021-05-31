@@ -158,6 +158,8 @@ client/OAIField_eEzsignfolderSendreminderfrequency.cpp
 client/OAIField_eEzsignfolderSendreminderfrequency.h
 client/OAIField_eEzsignfolderStep.cpp
 client/OAIField_eEzsignfolderStep.h
+client/OAIField_eEzsignsignatureType.cpp
+client/OAIField_eEzsignsignatureType.h
 client/OAIField_ePhoneType.cpp
 client/OAIField_ePhoneType.h
 client/OAIField_eUserType.cpp

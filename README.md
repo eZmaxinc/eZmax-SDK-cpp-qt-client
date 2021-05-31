@@ -2,7 +2,7 @@
 
 eZmax API Definition
 
-- API version: 1.0.43
+- API version: 1.0.44
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
@@ -248,6 +248,7 @@ Class | Method | HTTP request | Description
  - [OAIField_eEzsigndocumentStep](OAIField_eEzsigndocumentStep.md)
  - [OAIField_eEzsignfolderSendreminderfrequency](OAIField_eEzsignfolderSendreminderfrequency.md)
  - [OAIField_eEzsignfolderStep](OAIField_eEzsignfolderStep.md)
+ - [OAIField_eEzsignsignatureType](OAIField_eEzsignsignatureType.md)
  - [OAIField_ePhoneType](OAIField_ePhoneType.md)
  - [OAIField_eUserType](OAIField_eUserType.md)
  - [OAIField_eUserTypeSSPR](OAIField_eUserTypeSSPR.md)

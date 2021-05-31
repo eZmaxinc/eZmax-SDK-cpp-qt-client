@@ -80,6 +80,7 @@ HEADERS += \
     $${PWD}/OAIField_eEzsigndocumentStep.h \
     $${PWD}/OAIField_eEzsignfolderSendreminderfrequency.h \
     $${PWD}/OAIField_eEzsignfolderStep.h \
+    $${PWD}/OAIField_eEzsignsignatureType.h \
     $${PWD}/OAIField_ePhoneType.h \
     $${PWD}/OAIField_eUserType.h \
     $${PWD}/OAIField_eUserTypeSSPR.h \
@@ -222,6 +223,7 @@ SOURCES += \
     $${PWD}/OAIField_eEzsigndocumentStep.cpp \
     $${PWD}/OAIField_eEzsignfolderSendreminderfrequency.cpp \
     $${PWD}/OAIField_eEzsignfolderStep.cpp \
+    $${PWD}/OAIField_eEzsignsignatureType.cpp \
     $${PWD}/OAIField_ePhoneType.cpp \
     $${PWD}/OAIField_eUserType.cpp \
     $${PWD}/OAIField_eUserTypeSSPR.cpp \
