@@ -2,7 +2,7 @@
 
 eZmax API Definition
 
-- API version: 1.0.45
+- API version: 1.0.46
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
@@ -132,7 +132,7 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *OAIGlobalCustomerApi* | [**globalCustomerGetEndpointV1**](OAIGlobalCustomerApi.md#globalCustomerGetEndpointV1) | **GET** /1/customer/{pksCustomerCode}/endpoint | Get customer endpoint
-*OAIModuleAuthenticateApi* | [**authenticateAuthenticateV2**](OAIModuleAuthenticateApi.md#authenticateAuthenticateV2) | **POST** /2/module/authenticate/authenticate/ezsignuser/{eSessionType} | Authenticate a user
+*OAIModuleAuthenticateApi* | [**authenticateAuthenticateV2**](OAIModuleAuthenticateApi.md#authenticateAuthenticateV2) | **POST** /2/module/authenticate/authenticate/{eSessionType} | Authenticate a user
 *OAIModuleSsprApi* | [**ssprResetPasswordRequestV1**](OAIModuleSsprApi.md#ssprResetPasswordRequestV1) | **POST** /1/module/sspr/resetPasswordRequest | Reset Password Request
 *OAIModuleSsprApi* | [**ssprResetPasswordV1**](OAIModuleSsprApi.md#ssprResetPasswordV1) | **POST** /1/module/sspr/resetPassword | Reset Password
 *OAIModuleSsprApi* | [**ssprSendUsernamesV1**](OAIModuleSsprApi.md#ssprSendUsernamesV1) | **POST** /1/module/sspr/sendUsernames | Send username(s)
