@@ -2,7 +2,7 @@
 
 eZmax API Definition
 
-- API version: 1.0.46
+- API version: 1.0.47
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
@@ -82,7 +82,7 @@ example.cpp:
 #include "../client/OAIGlobalCustomerApi.h"
 #include "example.h"
 #include <QTimer>
-#include <QEventLoop> 
+#include <QEventLoop>
 
 QString Example::create(){
     QString obj;
@@ -96,7 +96,7 @@ void Example::exampleFunction1(){
      
       // Configure API key authorization: Authorization
       apiInstance.setApiKey("YOUR API KEY NAME","YOUR API KEY");
-        
+
       QEventLoop loop;
       connect(&apiInstance, &OAIGlobalCustomerApi::globalCustomerGetEndpointV1Signal, [&]() {
           loop.quit();
@@ -107,7 +107,7 @@ void Example::exampleFunction1(){
       });
 
       QString pks_customer_code = create(); // QString | The customer code assigned to your account
-        
+
       QEventLoop loop;
       connect(&apiInstance, &OAIGlobalCustomerApi::globalCustomerGetEndpointV1Signal, [&]() {
           loop.quit();
@@ -147,7 +147,9 @@ Class | Method | HTTP request | Description
 *OAIObjectEzsigndocumentApi* | [**ezsigndocumentDeleteObjectV1**](OAIObjectEzsigndocumentApi.md#ezsigndocumentDeleteObjectV1) | **DELETE** /1/object/ezsigndocument/{pkiEzsigndocumentID} | Delete an existing Ezsigndocument
 *OAIObjectEzsigndocumentApi* | [**ezsigndocumentGetChildrenV1**](OAIObjectEzsigndocumentApi.md#ezsigndocumentGetChildrenV1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getChildren | Retrieve an existing Ezsigndocument&#39;s children IDs
 *OAIObjectEzsigndocumentApi* | [**ezsigndocumentGetDownloadUrlV1**](OAIObjectEzsigndocumentApi.md#ezsigndocumentGetDownloadUrlV1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getDownloadUrl/{eDocumentType} | Retrieve a URL to download documents.
+*OAIObjectEzsigndocumentApi* | [**ezsigndocumentGetFormDataV1**](OAIObjectEzsigndocumentApi.md#ezsigndocumentGetFormDataV1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getFormData | Retrieve an existing Ezsigndocument&#39;s Form Data
 *OAIObjectEzsigndocumentApi* | [**ezsigndocumentGetObjectV1**](OAIObjectEzsigndocumentApi.md#ezsigndocumentGetObjectV1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID} | Retrieve an existing Ezsigndocument
+*OAIObjectEzsigndocumentApi* | [**ezsigndocumentGetWordsPositionsV1**](OAIObjectEzsigndocumentApi.md#ezsigndocumentGetWordsPositionsV1) | **POST** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getWordsPositions | Retrieve positions X,Y of given words from a Ezsigndocument
 *OAIObjectEzsignfolderApi* | [**ezsignfolderCreateObjectV1**](OAIObjectEzsignfolderApi.md#ezsignfolderCreateObjectV1) | **POST** /1/object/ezsignfolder | Create a new Ezsignfolder
 *OAIObjectEzsignfolderApi* | [**ezsignfolderDeleteObjectV1**](OAIObjectEzsignfolderApi.md#ezsignfolderDeleteObjectV1) | **DELETE** /1/object/ezsignfolder/{pkiEzsignfolderID} | Delete an existing Ezsignfolder
 *OAIObjectEzsignfolderApi* | [**ezsignfolderGetChildrenV1**](OAIObjectEzsignfolderApi.md#ezsignfolderGetChildrenV1) | **GET** /1/object/ezsignfolder/{pkiEzsignfolderID}/getChildren | Retrieve an existing Ezsignfolder&#39;s children IDs
@@ -171,6 +173,7 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [OAIActivesession_getCurrent_v1_Response](OAIActivesession_getCurrent_v1_Response.md)
+ - [OAIActivesession_getCurrent_v1_Response_allOf](OAIActivesession_getCurrent_v1_Response_allOf.md)
  - [OAIActivesession_getCurrent_v1_Response_mPayload](OAIActivesession_getCurrent_v1_Response_mPayload.md)
  - [OAIAddress_Request](OAIAddress_Request.md)
  - [OAIApikey_Request](OAIApikey_Request.md)
@@ -178,10 +181,12 @@ Class | Method | HTTP request | Description
  - [OAIApikey_Response](OAIApikey_Response.md)
  - [OAIApikey_createObject_v1_Request](OAIApikey_createObject_v1_Request.md)
  - [OAIApikey_createObject_v1_Response](OAIApikey_createObject_v1_Response.md)
+ - [OAIApikey_createObject_v1_Response_allOf](OAIApikey_createObject_v1_Response_allOf.md)
  - [OAIApikey_createObject_v1_Response_mPayload](OAIApikey_createObject_v1_Response_mPayload.md)
  - [OAIAttempt_Response](OAIAttempt_Response.md)
  - [OAIAuthenticate_authenticate_v2_Request](OAIAuthenticate_authenticate_v2_Request.md)
  - [OAIAuthenticate_authenticate_v2_Response](OAIAuthenticate_authenticate_v2_Response.md)
+ - [OAIAuthenticate_authenticate_v2_Response_allOf](OAIAuthenticate_authenticate_v2_Response_allOf.md)
  - [OAIAuthenticate_authenticate_v2_Response_mPayload](OAIAuthenticate_authenticate_v2_Response_mPayload.md)
  - [OAICommon_Audit](OAICommon_Audit.md)
  - [OAICommon_Response](OAICommon_Response.md)
@@ -191,12 +196,14 @@ Class | Method | HTTP request | Description
  - [OAICommon_Response_objSQLQuery](OAICommon_Response_objSQLQuery.md)
  - [OAICommon_Webhook](OAICommon_Webhook.md)
  - [OAICommon_getAutocomplete_v1_Response](OAICommon_getAutocomplete_v1_Response.md)
+ - [OAICommon_getAutocomplete_v1_Response_allOf](OAICommon_getAutocomplete_v1_Response_allOf.md)
  - [OAICommon_getAutocomplete_v1_Response_mPayload](OAICommon_getAutocomplete_v1_Response_mPayload.md)
  - [OAIContact_Request](OAIContact_Request.md)
  - [OAIContact_RequestCompound](OAIContact_RequestCompound.md)
  - [OAIContact_RequestCompound_allOf](OAIContact_RequestCompound_allOf.md)
  - [OAIContactinformations_Request](OAIContactinformations_Request.md)
  - [OAIContactinformations_RequestCompound](OAIContactinformations_RequestCompound.md)
+ - [OAIContactinformations_RequestCompound_allOf](OAIContactinformations_RequestCompound_allOf.md)
  - [OAIEmail_Request](OAIEmail_Request.md)
  - [OAIEzsigndocument_Request](OAIEzsigndocument_Request.md)
  - [OAIEzsigndocument_RequestCompound](OAIEzsigndocument_RequestCompound.md)
@@ -207,44 +214,59 @@ Class | Method | HTTP request | Description
  - [OAIEzsigndocument_applyEzsigntemplate_v1_Response](OAIEzsigndocument_applyEzsigntemplate_v1_Response.md)
  - [OAIEzsigndocument_createObject_v1_Request](OAIEzsigndocument_createObject_v1_Request.md)
  - [OAIEzsigndocument_createObject_v1_Response](OAIEzsigndocument_createObject_v1_Response.md)
+ - [OAIEzsigndocument_createObject_v1_Response_allOf](OAIEzsigndocument_createObject_v1_Response_allOf.md)
  - [OAIEzsigndocument_createObject_v1_Response_mPayload](OAIEzsigndocument_createObject_v1_Response_mPayload.md)
  - [OAIEzsigndocument_deleteObject_v1_Response](OAIEzsigndocument_deleteObject_v1_Response.md)
  - [OAIEzsigndocument_getDownloadUrl_v1_Response](OAIEzsigndocument_getDownloadUrl_v1_Response.md)
+ - [OAIEzsigndocument_getDownloadUrl_v1_Response_allOf](OAIEzsigndocument_getDownloadUrl_v1_Response_allOf.md)
  - [OAIEzsigndocument_getDownloadUrl_v1_Response_mPayload](OAIEzsigndocument_getDownloadUrl_v1_Response_mPayload.md)
  - [OAIEzsigndocument_getObject_v1_Response](OAIEzsigndocument_getObject_v1_Response.md)
+ - [OAIEzsigndocument_getObject_v1_Response_allOf](OAIEzsigndocument_getObject_v1_Response_allOf.md)
  - [OAIEzsigndocument_getObject_v1_Response_mPayload](OAIEzsigndocument_getObject_v1_Response_mPayload.md)
+ - [OAIEzsigndocument_getWordsPositions_v1_Request](OAIEzsigndocument_getWordsPositions_v1_Request.md)
+ - [OAIEzsigndocument_getWordsPositions_v1_Response](OAIEzsigndocument_getWordsPositions_v1_Response.md)
+ - [OAIEzsigndocument_getWordsPositions_v1_Response_allOf](OAIEzsigndocument_getWordsPositions_v1_Response_allOf.md)
+ - [OAIEzsigndocument_getWordsPositions_v1_Response_mPayload](OAIEzsigndocument_getWordsPositions_v1_Response_mPayload.md)
  - [OAIEzsignfolder_Request](OAIEzsignfolder_Request.md)
  - [OAIEzsignfolder_RequestCompound](OAIEzsignfolder_RequestCompound.md)
+ - [OAIEzsignfolder_RequestCompound_allOf](OAIEzsignfolder_RequestCompound_allOf.md)
  - [OAIEzsignfolder_Response](OAIEzsignfolder_Response.md)
  - [OAIEzsignfolder_ResponseCompound](OAIEzsignfolder_ResponseCompound.md)
- - [OAIEzsignfolder_Response_allOf](OAIEzsignfolder_Response_allOf.md)
  - [OAIEzsignfolder_createObject_v1_Request](OAIEzsignfolder_createObject_v1_Request.md)
  - [OAIEzsignfolder_createObject_v1_Response](OAIEzsignfolder_createObject_v1_Response.md)
  - [OAIEzsignfolder_createObject_v1_Response_mPayload](OAIEzsignfolder_createObject_v1_Response_mPayload.md)
  - [OAIEzsignfolder_deleteObject_v1_Response](OAIEzsignfolder_deleteObject_v1_Response.md)
  - [OAIEzsignfolder_getObject_v1_Response](OAIEzsignfolder_getObject_v1_Response.md)
+ - [OAIEzsignfolder_getObject_v1_Response_allOf](OAIEzsignfolder_getObject_v1_Response_allOf.md)
  - [OAIEzsignfolder_getObject_v1_Response_mPayload](OAIEzsignfolder_getObject_v1_Response_mPayload.md)
  - [OAIEzsignfolder_send_v1_Request](OAIEzsignfolder_send_v1_Request.md)
  - [OAIEzsignfolder_send_v1_Response](OAIEzsignfolder_send_v1_Response.md)
  - [OAIEzsignfoldersignerassociation_Request](OAIEzsignfoldersignerassociation_Request.md)
  - [OAIEzsignfoldersignerassociation_RequestCompound](OAIEzsignfoldersignerassociation_RequestCompound.md)
+ - [OAIEzsignfoldersignerassociation_RequestCompound_allOf](OAIEzsignfoldersignerassociation_RequestCompound_allOf.md)
  - [OAIEzsignfoldersignerassociation_createObject_v1_Request](OAIEzsignfoldersignerassociation_createObject_v1_Request.md)
  - [OAIEzsignfoldersignerassociation_createObject_v1_Response](OAIEzsignfoldersignerassociation_createObject_v1_Response.md)
+ - [OAIEzsignfoldersignerassociation_createObject_v1_Response_allOf](OAIEzsignfoldersignerassociation_createObject_v1_Response_allOf.md)
  - [OAIEzsignfoldersignerassociation_createObject_v1_Response_mPayload](OAIEzsignfoldersignerassociation_createObject_v1_Response_mPayload.md)
  - [OAIEzsignfoldersignerassociation_deleteObject_v1_Response](OAIEzsignfoldersignerassociation_deleteObject_v1_Response.md)
  - [OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response](OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response.md)
+ - [OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response_allOf](OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response_allOf.md)
  - [OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response_mPayload](OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response_mPayload.md)
  - [OAIEzsignfoldersignerassociation_getObject_v1_Response](OAIEzsignfoldersignerassociation_getObject_v1_Response.md)
+ - [OAIEzsignfoldersignerassociation_getObject_v1_Response_allOf](OAIEzsignfoldersignerassociation_getObject_v1_Response_allOf.md)
  - [OAIEzsignsignature_Request](OAIEzsignsignature_Request.md)
  - [OAIEzsignsignature_RequestCompound](OAIEzsignsignature_RequestCompound.md)
  - [OAIEzsignsignature_createObject_v1_Request](OAIEzsignsignature_createObject_v1_Request.md)
  - [OAIEzsignsignature_createObject_v1_Response](OAIEzsignsignature_createObject_v1_Response.md)
+ - [OAIEzsignsignature_createObject_v1_Response_allOf](OAIEzsignsignature_createObject_v1_Response_allOf.md)
  - [OAIEzsignsignature_createObject_v1_Response_mPayload](OAIEzsignsignature_createObject_v1_Response_mPayload.md)
  - [OAIEzsignsignature_deleteObject_v1_Response](OAIEzsignsignature_deleteObject_v1_Response.md)
  - [OAIEzsignsignature_getObject_v1_Response](OAIEzsignsignature_getObject_v1_Response.md)
+ - [OAIEzsignsignature_getObject_v1_Response_allOf](OAIEzsignsignature_getObject_v1_Response_allOf.md)
  - [OAIEzsignsigner_Request](OAIEzsignsigner_Request.md)
  - [OAIEzsignsigner_RequestCompound](OAIEzsignsigner_RequestCompound.md)
  - [OAIEzsignsigner_RequestCompound_Contact](OAIEzsignsigner_RequestCompound_Contact.md)
+ - [OAIEzsignsigner_RequestCompound_allOf](OAIEzsignsigner_RequestCompound_allOf.md)
  - [OAIField_eEzsigndocumentStep](OAIField_eEzsigndocumentStep.md)
  - [OAIField_eEzsignfolderSendreminderfrequency](OAIField_eEzsignfolderSendreminderfrequency.md)
  - [OAIField_eEzsignfolderStep](OAIField_eEzsignfolderStep.md)
@@ -254,8 +276,10 @@ Class | Method | HTTP request | Description
  - [OAIField_eUserTypeSSPR](OAIField_eUserTypeSSPR.md)
  - [OAIFranchisereferalincome_Request](OAIFranchisereferalincome_Request.md)
  - [OAIFranchisereferalincome_RequestCompound](OAIFranchisereferalincome_RequestCompound.md)
+ - [OAIFranchisereferalincome_RequestCompound_allOf](OAIFranchisereferalincome_RequestCompound_allOf.md)
  - [OAIFranchisereferalincome_createObject_v1_Request](OAIFranchisereferalincome_createObject_v1_Request.md)
  - [OAIFranchisereferalincome_createObject_v1_Response](OAIFranchisereferalincome_createObject_v1_Response.md)
+ - [OAIFranchisereferalincome_createObject_v1_Response_allOf](OAIFranchisereferalincome_createObject_v1_Response_allOf.md)
  - [OAIFranchisereferalincome_createObject_v1_Response_mPayload](OAIFranchisereferalincome_createObject_v1_Response_mPayload.md)
  - [OAIGlobal_customer_getEndpoint_v1_Response](OAIGlobal_customer_getEndpoint_v1_Response.md)
  - [OAIMultilingual_ApikeyDescription](OAIMultilingual_ApikeyDescription.md)
@@ -275,9 +299,9 @@ Class | Method | HTTP request | Description
  - [OAIUNUSED_ezsignsignature_editObject_v1_Request](OAIUNUSED_ezsignsignature_editObject_v1_Request.md)
  - [OAIUNUSED_ezsignsignature_editObject_v1_Response](OAIUNUSED_ezsignsignature_editObject_v1_Response.md)
  - [OAIUser_Response](OAIUser_Response.md)
- - [OAIUser_Response_allOf](OAIUser_Response_allOf.md)
  - [OAIUser_createEzsignuser_v1_Request](OAIUser_createEzsignuser_v1_Request.md)
  - [OAIUser_createEzsignuser_v1_Response](OAIUser_createEzsignuser_v1_Response.md)
+ - [OAIUser_createEzsignuser_v1_Response_allOf](OAIUser_createEzsignuser_v1_Response_allOf.md)
  - [OAIUser_createEzsignuser_v1_Response_mPayload](OAIUser_createEzsignuser_v1_Response_mPayload.md)
  - [OAIWebhook_Ezsign_DocumentCompleted](OAIWebhook_Ezsign_DocumentCompleted.md)
  - [OAIWebhook_Ezsign_DocumentCompleted_allOf](OAIWebhook_Ezsign_DocumentCompleted_allOf.md)
@@ -287,11 +311,12 @@ Class | Method | HTTP request | Description
  - [OAIWebhook_User_UserCreated](OAIWebhook_User_UserCreated.md)
  - [OAIWebhook_User_UserCreated_allOf](OAIWebhook_User_UserCreated_allOf.md)
  - [OAIWebsite_Request](OAIWebsite_Request.md)
+ - [OAIWordPosition_Response](OAIWordPosition_Response.md)
 
 
 ## Documentation for Servers
 
-Parameterized Servers are supported. Define a server in the API for each endpoint with arbitrary numbers of variables: 
+Parameterized Servers are supported. Define a server in the API for each endpoint with arbitrary numbers of variables:
 
 ```
 servers:
@@ -316,7 +341,7 @@ To change the default variable, use this function in each Api:
 ```
     int setDefaultServerValue(int serverIndex,const QString &operation, const QString &variable,const QString &val);
 ```
-The parameter "serverIndex" will choose a server from the server list for each endpoint. There is always at least one server with index 0. The Paramter "operation" should be the desired endpoint operationid. 
+The parameter "serverIndex" will choose a server from the server list for each endpoint. There is always at least one server with index 0. The Parameter "operation" should be the desired endpoint operationid.
 Variable is the name of the variable you wish to change and the value is the new default Value.
 The function will return -1 when the variable does not exists, -2 if value is not defined in the variable enum and -3 if the operation is not found.
 

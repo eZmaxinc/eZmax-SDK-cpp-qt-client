@@ -16,6 +16,7 @@ find_package(Qt5Network REQUIRED)
 
 add_library(${PROJECT_NAME}
     OAIActivesession_getCurrent_v1_Response.cpp
+    OAIActivesession_getCurrent_v1_Response_allOf.cpp
     OAIActivesession_getCurrent_v1_Response_mPayload.cpp
     OAIAddress_Request.cpp
     OAIApikey_Request.cpp
@@ -23,10 +24,12 @@ add_library(${PROJECT_NAME}
     OAIApikey_Response.cpp
     OAIApikey_createObject_v1_Request.cpp
     OAIApikey_createObject_v1_Response.cpp
+    OAIApikey_createObject_v1_Response_allOf.cpp
     OAIApikey_createObject_v1_Response_mPayload.cpp
     OAIAttempt_Response.cpp
     OAIAuthenticate_authenticate_v2_Request.cpp
     OAIAuthenticate_authenticate_v2_Response.cpp
+    OAIAuthenticate_authenticate_v2_Response_allOf.cpp
     OAIAuthenticate_authenticate_v2_Response_mPayload.cpp
     OAICommon_Audit.cpp
     OAICommon_Response.cpp
@@ -36,12 +39,14 @@ add_library(${PROJECT_NAME}
     OAICommon_Response_objSQLQuery.cpp
     OAICommon_Webhook.cpp
     OAICommon_getAutocomplete_v1_Response.cpp
+    OAICommon_getAutocomplete_v1_Response_allOf.cpp
     OAICommon_getAutocomplete_v1_Response_mPayload.cpp
     OAIContact_Request.cpp
     OAIContact_RequestCompound.cpp
     OAIContact_RequestCompound_allOf.cpp
     OAIContactinformations_Request.cpp
     OAIContactinformations_RequestCompound.cpp
+    OAIContactinformations_RequestCompound_allOf.cpp
     OAIEmail_Request.cpp
     OAIEzsigndocument_Request.cpp
     OAIEzsigndocument_RequestCompound.cpp
@@ -52,44 +57,59 @@ add_library(${PROJECT_NAME}
     OAIEzsigndocument_applyEzsigntemplate_v1_Response.cpp
     OAIEzsigndocument_createObject_v1_Request.cpp
     OAIEzsigndocument_createObject_v1_Response.cpp
+    OAIEzsigndocument_createObject_v1_Response_allOf.cpp
     OAIEzsigndocument_createObject_v1_Response_mPayload.cpp
     OAIEzsigndocument_deleteObject_v1_Response.cpp
     OAIEzsigndocument_getDownloadUrl_v1_Response.cpp
+    OAIEzsigndocument_getDownloadUrl_v1_Response_allOf.cpp
     OAIEzsigndocument_getDownloadUrl_v1_Response_mPayload.cpp
     OAIEzsigndocument_getObject_v1_Response.cpp
+    OAIEzsigndocument_getObject_v1_Response_allOf.cpp
     OAIEzsigndocument_getObject_v1_Response_mPayload.cpp
+    OAIEzsigndocument_getWordsPositions_v1_Request.cpp
+    OAIEzsigndocument_getWordsPositions_v1_Response.cpp
+    OAIEzsigndocument_getWordsPositions_v1_Response_allOf.cpp
+    OAIEzsigndocument_getWordsPositions_v1_Response_mPayload.cpp
     OAIEzsignfolder_Request.cpp
     OAIEzsignfolder_RequestCompound.cpp
+    OAIEzsignfolder_RequestCompound_allOf.cpp
     OAIEzsignfolder_Response.cpp
     OAIEzsignfolder_ResponseCompound.cpp
-    OAIEzsignfolder_Response_allOf.cpp
     OAIEzsignfolder_createObject_v1_Request.cpp
     OAIEzsignfolder_createObject_v1_Response.cpp
     OAIEzsignfolder_createObject_v1_Response_mPayload.cpp
     OAIEzsignfolder_deleteObject_v1_Response.cpp
     OAIEzsignfolder_getObject_v1_Response.cpp
+    OAIEzsignfolder_getObject_v1_Response_allOf.cpp
     OAIEzsignfolder_getObject_v1_Response_mPayload.cpp
     OAIEzsignfolder_send_v1_Request.cpp
     OAIEzsignfolder_send_v1_Response.cpp
     OAIEzsignfoldersignerassociation_Request.cpp
     OAIEzsignfoldersignerassociation_RequestCompound.cpp
+    OAIEzsignfoldersignerassociation_RequestCompound_allOf.cpp
     OAIEzsignfoldersignerassociation_createObject_v1_Request.cpp
     OAIEzsignfoldersignerassociation_createObject_v1_Response.cpp
+    OAIEzsignfoldersignerassociation_createObject_v1_Response_allOf.cpp
     OAIEzsignfoldersignerassociation_createObject_v1_Response_mPayload.cpp
     OAIEzsignfoldersignerassociation_deleteObject_v1_Response.cpp
     OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response.cpp
+    OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response_allOf.cpp
     OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response_mPayload.cpp
     OAIEzsignfoldersignerassociation_getObject_v1_Response.cpp
+    OAIEzsignfoldersignerassociation_getObject_v1_Response_allOf.cpp
     OAIEzsignsignature_Request.cpp
     OAIEzsignsignature_RequestCompound.cpp
     OAIEzsignsignature_createObject_v1_Request.cpp
     OAIEzsignsignature_createObject_v1_Response.cpp
+    OAIEzsignsignature_createObject_v1_Response_allOf.cpp
     OAIEzsignsignature_createObject_v1_Response_mPayload.cpp
     OAIEzsignsignature_deleteObject_v1_Response.cpp
     OAIEzsignsignature_getObject_v1_Response.cpp
+    OAIEzsignsignature_getObject_v1_Response_allOf.cpp
     OAIEzsignsigner_Request.cpp
     OAIEzsignsigner_RequestCompound.cpp
     OAIEzsignsigner_RequestCompound_Contact.cpp
+    OAIEzsignsigner_RequestCompound_allOf.cpp
     OAIField_eEzsigndocumentStep.cpp
     OAIField_eEzsignfolderSendreminderfrequency.cpp
     OAIField_eEzsignfolderStep.cpp
@@ -99,8 +119,10 @@ add_library(${PROJECT_NAME}
     OAIField_eUserTypeSSPR.cpp
     OAIFranchisereferalincome_Request.cpp
     OAIFranchisereferalincome_RequestCompound.cpp
+    OAIFranchisereferalincome_RequestCompound_allOf.cpp
     OAIFranchisereferalincome_createObject_v1_Request.cpp
     OAIFranchisereferalincome_createObject_v1_Response.cpp
+    OAIFranchisereferalincome_createObject_v1_Response_allOf.cpp
     OAIFranchisereferalincome_createObject_v1_Response_mPayload.cpp
     OAIGlobal_customer_getEndpoint_v1_Response.cpp
     OAIMultilingual_ApikeyDescription.cpp
@@ -120,9 +142,9 @@ add_library(${PROJECT_NAME}
     OAIUNUSED_ezsignsignature_editObject_v1_Request.cpp
     OAIUNUSED_ezsignsignature_editObject_v1_Response.cpp
     OAIUser_Response.cpp
-    OAIUser_Response_allOf.cpp
     OAIUser_createEzsignuser_v1_Request.cpp
     OAIUser_createEzsignuser_v1_Response.cpp
+    OAIUser_createEzsignuser_v1_Response_allOf.cpp
     OAIUser_createEzsignuser_v1_Response_mPayload.cpp
     OAIWebhook_Ezsign_DocumentCompleted.cpp
     OAIWebhook_Ezsign_DocumentCompleted_allOf.cpp
@@ -132,6 +154,7 @@ add_library(${PROJECT_NAME}
     OAIWebhook_User_UserCreated.cpp
     OAIWebhook_User_UserCreated_allOf.cpp
     OAIWebsite_Request.cpp
+    OAIWordPosition_Response.cpp
     OAIGlobalCustomerApi.cpp
     OAIModuleAuthenticateApi.cpp
     OAIModuleSsprApi.cpp
