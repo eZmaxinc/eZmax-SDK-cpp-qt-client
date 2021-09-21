@@ -39,7 +39,6 @@ HEADERS += \
     $${PWD}/OAIEzsigndocument_RequestCompound.h \
     $${PWD}/OAIEzsigndocument_Response.h \
     $${PWD}/OAIEzsigndocument_ResponseCompound.h \
-    $${PWD}/OAIEzsigndocument_Response_allOf.h \
     $${PWD}/OAIEzsigndocument_applyEzsigntemplate_v1_Request.h \
     $${PWD}/OAIEzsigndocument_applyEzsigntemplate_v1_Response.h \
     $${PWD}/OAIEzsigndocument_createObject_v1_Request.h \
@@ -50,6 +49,9 @@ HEADERS += \
     $${PWD}/OAIEzsigndocument_getDownloadUrl_v1_Response.h \
     $${PWD}/OAIEzsigndocument_getDownloadUrl_v1_Response_allOf.h \
     $${PWD}/OAIEzsigndocument_getDownloadUrl_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsigndocument_getEzsignpages_v1_Response.h \
+    $${PWD}/OAIEzsigndocument_getEzsignpages_v1_Response_allOf.h \
+    $${PWD}/OAIEzsigndocument_getEzsignpages_v1_Response_mPayload.h \
     $${PWD}/OAIEzsigndocument_getObject_v1_Response.h \
     $${PWD}/OAIEzsigndocument_getObject_v1_Response_allOf.h \
     $${PWD}/OAIEzsigndocument_getObject_v1_Response_mPayload.h \
@@ -84,6 +86,7 @@ HEADERS += \
     $${PWD}/OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response_mPayload.h \
     $${PWD}/OAIEzsignfoldersignerassociation_getObject_v1_Response.h \
     $${PWD}/OAIEzsignfoldersignerassociation_getObject_v1_Response_allOf.h \
+    $${PWD}/OAIEzsignpage_Response.h \
     $${PWD}/OAIEzsignsignature_Request.h \
     $${PWD}/OAIEzsignsignature_RequestCompound.h \
     $${PWD}/OAIEzsignsignature_createObject_v1_Request.h \
@@ -205,7 +208,6 @@ SOURCES += \
     $${PWD}/OAIEzsigndocument_RequestCompound.cpp \
     $${PWD}/OAIEzsigndocument_Response.cpp \
     $${PWD}/OAIEzsigndocument_ResponseCompound.cpp \
-    $${PWD}/OAIEzsigndocument_Response_allOf.cpp \
     $${PWD}/OAIEzsigndocument_applyEzsigntemplate_v1_Request.cpp \
     $${PWD}/OAIEzsigndocument_applyEzsigntemplate_v1_Response.cpp \
     $${PWD}/OAIEzsigndocument_createObject_v1_Request.cpp \
@@ -216,6 +218,9 @@ SOURCES += \
     $${PWD}/OAIEzsigndocument_getDownloadUrl_v1_Response.cpp \
     $${PWD}/OAIEzsigndocument_getDownloadUrl_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsigndocument_getDownloadUrl_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsigndocument_getEzsignpages_v1_Response.cpp \
+    $${PWD}/OAIEzsigndocument_getEzsignpages_v1_Response_allOf.cpp \
+    $${PWD}/OAIEzsigndocument_getEzsignpages_v1_Response_mPayload.cpp \
     $${PWD}/OAIEzsigndocument_getObject_v1_Response.cpp \
     $${PWD}/OAIEzsigndocument_getObject_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsigndocument_getObject_v1_Response_mPayload.cpp \
@@ -250,6 +255,7 @@ SOURCES += \
     $${PWD}/OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response_mPayload.cpp \
     $${PWD}/OAIEzsignfoldersignerassociation_getObject_v1_Response.cpp \
     $${PWD}/OAIEzsignfoldersignerassociation_getObject_v1_Response_allOf.cpp \
+    $${PWD}/OAIEzsignpage_Response.cpp \
     $${PWD}/OAIEzsignsignature_Request.cpp \
     $${PWD}/OAIEzsignsignature_RequestCompound.cpp \
     $${PWD}/OAIEzsignsignature_createObject_v1_Request.cpp \

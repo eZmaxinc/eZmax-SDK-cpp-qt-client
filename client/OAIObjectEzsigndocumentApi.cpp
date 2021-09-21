@@ -59,6 +59,8 @@ void OAIObjectEzsigndocumentApi::initializeServerConfigs() {
     _serverIndices.insert("ezsigndocumentGetChildrenV1", 0);
     _serverConfigs.insert("ezsigndocumentGetDownloadUrlV1", defaultConf);
     _serverIndices.insert("ezsigndocumentGetDownloadUrlV1", 0);
+    _serverConfigs.insert("ezsigndocumentGetEzsignpagesV1", defaultConf);
+    _serverIndices.insert("ezsigndocumentGetEzsignpagesV1", 0);
     _serverConfigs.insert("ezsigndocumentGetFormDataV1", defaultConf);
     _serverIndices.insert("ezsigndocumentGetFormDataV1", 0);
     _serverConfigs.insert("ezsigndocumentGetObjectV1", defaultConf);
@@ -579,6 +581,73 @@ void OAIObjectEzsigndocumentApi::ezsigndocumentGetDownloadUrlV1Callback(OAIHttpR
     } else {
         emit ezsigndocumentGetDownloadUrlV1SignalE(output, error_type, error_str);
         emit ezsigndocumentGetDownloadUrlV1SignalEFull(worker, error_type, error_str);
+    }
+}
+
+void OAIObjectEzsigndocumentApi::ezsigndocumentGetEzsignpagesV1(const qint32 &pki_ezsigndocument_id) {
+    QString fullPath = QString(_serverConfigs["ezsigndocumentGetEzsignpagesV1"][_serverIndices.value("ezsigndocumentGetEzsignpagesV1")].URL()+"/1/object/ezsigndocument/{pkiEzsigndocumentID}/getEzsignpages");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_ezsigndocument_idPathParam("{");
+        pki_ezsigndocument_idPathParam.append("pkiEzsigndocumentID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsigndocumentID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsigndocumentID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_ezsigndocument_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsigndocument_id)));
+    }
+    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    OAIHttpRequestInput input(fullPath, "GET");
+
+
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+#else
+    for (auto key : _defaultHeaders.keys()) {
+        input.headers.insert(key, _defaultHeaders[key]);
+    }
+#endif
+
+    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIObjectEzsigndocumentApi::ezsigndocumentGetEzsignpagesV1Callback);
+    connect(this, &OAIObjectEzsigndocumentApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this]() {
+        if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
+            emit allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void OAIObjectEzsigndocumentApi::ezsigndocumentGetEzsignpagesV1Callback(OAIHttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    OAIEzsigndocument_getEzsignpages_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit ezsigndocumentGetEzsignpagesV1Signal(output);
+        emit ezsigndocumentGetEzsignpagesV1SignalFull(worker, output);
+    } else {
+        emit ezsigndocumentGetEzsignpagesV1SignalE(output, error_type, error_str);
+        emit ezsigndocumentGetEzsignpagesV1SignalEFull(worker, error_type, error_str);
     }
 }
 

@@ -106,7 +106,7 @@ void Example::exampleFunction1(){
           loop.quit();
       });
 
-      QString pks_customer_code = create(); // QString | The customer code assigned to your account
+      QString pks_customer_code = create(); // QString | 
 
       QEventLoop loop;
       connect(&apiInstance, &OAIGlobalCustomerApi::globalCustomerGetEndpointV1Signal, [&]() {
@@ -147,12 +147,14 @@ Class | Method | HTTP request | Description
 *OAIObjectEzsigndocumentApi* | [**ezsigndocumentDeleteObjectV1**](OAIObjectEzsigndocumentApi.md#ezsigndocumentDeleteObjectV1) | **DELETE** /1/object/ezsigndocument/{pkiEzsigndocumentID} | Delete an existing Ezsigndocument
 *OAIObjectEzsigndocumentApi* | [**ezsigndocumentGetChildrenV1**](OAIObjectEzsigndocumentApi.md#ezsigndocumentGetChildrenV1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getChildren | Retrieve an existing Ezsigndocument&#39;s children IDs
 *OAIObjectEzsigndocumentApi* | [**ezsigndocumentGetDownloadUrlV1**](OAIObjectEzsigndocumentApi.md#ezsigndocumentGetDownloadUrlV1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getDownloadUrl/{eDocumentType} | Retrieve a URL to download documents.
+*OAIObjectEzsigndocumentApi* | [**ezsigndocumentGetEzsignpagesV1**](OAIObjectEzsigndocumentApi.md#ezsigndocumentGetEzsignpagesV1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getEzsignpages | Retrieve an existing Ezsigndocument&#39;s Ezsignpages
 *OAIObjectEzsigndocumentApi* | [**ezsigndocumentGetFormDataV1**](OAIObjectEzsigndocumentApi.md#ezsigndocumentGetFormDataV1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getFormData | Retrieve an existing Ezsigndocument&#39;s Form Data
 *OAIObjectEzsigndocumentApi* | [**ezsigndocumentGetObjectV1**](OAIObjectEzsigndocumentApi.md#ezsigndocumentGetObjectV1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID} | Retrieve an existing Ezsigndocument
 *OAIObjectEzsigndocumentApi* | [**ezsigndocumentGetWordsPositionsV1**](OAIObjectEzsigndocumentApi.md#ezsigndocumentGetWordsPositionsV1) | **POST** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getWordsPositions | Retrieve positions X,Y of given words from a Ezsigndocument
 *OAIObjectEzsignfolderApi* | [**ezsignfolderCreateObjectV1**](OAIObjectEzsignfolderApi.md#ezsignfolderCreateObjectV1) | **POST** /1/object/ezsignfolder | Create a new Ezsignfolder
 *OAIObjectEzsignfolderApi* | [**ezsignfolderDeleteObjectV1**](OAIObjectEzsignfolderApi.md#ezsignfolderDeleteObjectV1) | **DELETE** /1/object/ezsignfolder/{pkiEzsignfolderID} | Delete an existing Ezsignfolder
 *OAIObjectEzsignfolderApi* | [**ezsignfolderGetChildrenV1**](OAIObjectEzsignfolderApi.md#ezsignfolderGetChildrenV1) | **GET** /1/object/ezsignfolder/{pkiEzsignfolderID}/getChildren | Retrieve an existing Ezsignfolder&#39;s children IDs
+*OAIObjectEzsignfolderApi* | [**ezsignfolderGetFormsDataV1**](OAIObjectEzsignfolderApi.md#ezsignfolderGetFormsDataV1) | **GET** /1/object/ezsignfolder/{pkiEzsignfolderID}/getFormsData | Retrieve an existing Ezsignfolder&#39;s forms data
 *OAIObjectEzsignfolderApi* | [**ezsignfolderGetObjectV1**](OAIObjectEzsignfolderApi.md#ezsignfolderGetObjectV1) | **GET** /1/object/ezsignfolder/{pkiEzsignfolderID} | Retrieve an existing Ezsignfolder
 *OAIObjectEzsignfolderApi* | [**ezsignfolderSendV1**](OAIObjectEzsignfolderApi.md#ezsignfolderSendV1) | **POST** /1/object/ezsignfolder/{pkiEzsignfolderID}/send | Send the Ezsignfolder to the signatories for signature
 *OAIObjectEzsignfoldersignerassociationApi* | [**ezsignfoldersignerassociationCreateObjectV1**](OAIObjectEzsignfoldersignerassociationApi.md#ezsignfoldersignerassociationCreateObjectV1) | **POST** /1/object/ezsignfoldersignerassociation | Create a new Ezsignfoldersignerassociation
@@ -209,7 +211,6 @@ Class | Method | HTTP request | Description
  - [OAIEzsigndocument_RequestCompound](OAIEzsigndocument_RequestCompound.md)
  - [OAIEzsigndocument_Response](OAIEzsigndocument_Response.md)
  - [OAIEzsigndocument_ResponseCompound](OAIEzsigndocument_ResponseCompound.md)
- - [OAIEzsigndocument_Response_allOf](OAIEzsigndocument_Response_allOf.md)
  - [OAIEzsigndocument_applyEzsigntemplate_v1_Request](OAIEzsigndocument_applyEzsigntemplate_v1_Request.md)
  - [OAIEzsigndocument_applyEzsigntemplate_v1_Response](OAIEzsigndocument_applyEzsigntemplate_v1_Response.md)
  - [OAIEzsigndocument_createObject_v1_Request](OAIEzsigndocument_createObject_v1_Request.md)
@@ -220,6 +221,9 @@ Class | Method | HTTP request | Description
  - [OAIEzsigndocument_getDownloadUrl_v1_Response](OAIEzsigndocument_getDownloadUrl_v1_Response.md)
  - [OAIEzsigndocument_getDownloadUrl_v1_Response_allOf](OAIEzsigndocument_getDownloadUrl_v1_Response_allOf.md)
  - [OAIEzsigndocument_getDownloadUrl_v1_Response_mPayload](OAIEzsigndocument_getDownloadUrl_v1_Response_mPayload.md)
+ - [OAIEzsigndocument_getEzsignpages_v1_Response](OAIEzsigndocument_getEzsignpages_v1_Response.md)
+ - [OAIEzsigndocument_getEzsignpages_v1_Response_allOf](OAIEzsigndocument_getEzsignpages_v1_Response_allOf.md)
+ - [OAIEzsigndocument_getEzsignpages_v1_Response_mPayload](OAIEzsigndocument_getEzsignpages_v1_Response_mPayload.md)
  - [OAIEzsigndocument_getObject_v1_Response](OAIEzsigndocument_getObject_v1_Response.md)
  - [OAIEzsigndocument_getObject_v1_Response_allOf](OAIEzsigndocument_getObject_v1_Response_allOf.md)
  - [OAIEzsigndocument_getObject_v1_Response_mPayload](OAIEzsigndocument_getObject_v1_Response_mPayload.md)
@@ -254,6 +258,7 @@ Class | Method | HTTP request | Description
  - [OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response_mPayload](OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response_mPayload.md)
  - [OAIEzsignfoldersignerassociation_getObject_v1_Response](OAIEzsignfoldersignerassociation_getObject_v1_Response.md)
  - [OAIEzsignfoldersignerassociation_getObject_v1_Response_allOf](OAIEzsignfoldersignerassociation_getObject_v1_Response_allOf.md)
+ - [OAIEzsignpage_Response](OAIEzsignpage_Response.md)
  - [OAIEzsignsignature_Request](OAIEzsignsignature_Request.md)
  - [OAIEzsignsignature_RequestCompound](OAIEzsignsignature_RequestCompound.md)
  - [OAIEzsignsignature_createObject_v1_Request](OAIEzsignsignature_createObject_v1_Request.md)
