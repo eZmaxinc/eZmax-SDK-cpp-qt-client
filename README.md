@@ -2,7 +2,7 @@
 
 eZmax API Definition
 
-- API version: 1.0.48
+- API version: 1.1.0
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
@@ -143,6 +143,7 @@ Class | Method | HTTP request | Description
 *OAIObjectActivesessionApi* | [**activesessionGetCurrentV1**](OAIObjectActivesessionApi.md#activesessionGetCurrentV1) | **GET** /1/object/activesession/getCurrent | Get Current Activesession
 *OAIObjectApikeyApi* | [**apikeyCreateObjectV1**](OAIObjectApikeyApi.md#apikeyCreateObjectV1) | **POST** /1/object/apikey | Create a new Apikey
 *OAIObjectEzsigndocumentApi* | [**ezsigndocumentApplyEzsigntemplateV1**](OAIObjectEzsigndocumentApi.md#ezsigndocumentApplyEzsigntemplateV1) | **POST** /1/object/ezsigndocument/{pkiEzsigndocumentID}/applyezsigntemplate | Apply an Ezsign Template to the Ezsigndocument.
+*OAIObjectEzsigndocumentApi* | [**ezsigndocumentApplyEzsigntemplateV2**](OAIObjectEzsigndocumentApi.md#ezsigndocumentApplyEzsigntemplateV2) | **POST** /2/object/ezsigndocument/{pkiEzsigndocumentID}/applyEzsigntemplate | Apply an Ezsign Template to the Ezsigndocument.
 *OAIObjectEzsigndocumentApi* | [**ezsigndocumentCreateObjectV1**](OAIObjectEzsigndocumentApi.md#ezsigndocumentCreateObjectV1) | **POST** /1/object/ezsigndocument | Create a new Ezsigndocument
 *OAIObjectEzsigndocumentApi* | [**ezsigndocumentDeleteObjectV1**](OAIObjectEzsigndocumentApi.md#ezsigndocumentDeleteObjectV1) | **DELETE** /1/object/ezsigndocument/{pkiEzsigndocumentID} | Delete an existing Ezsigndocument
 *OAIObjectEzsigndocumentApi* | [**ezsigndocumentGetChildrenV1**](OAIObjectEzsigndocumentApi.md#ezsigndocumentGetChildrenV1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getChildren | Retrieve an existing Ezsigndocument&#39;s children IDs
@@ -206,6 +207,10 @@ Class | Method | HTTP request | Description
  - [OAIContactinformations_Request](OAIContactinformations_Request.md)
  - [OAIContactinformations_RequestCompound](OAIContactinformations_RequestCompound.md)
  - [OAIContactinformations_RequestCompound_allOf](OAIContactinformations_RequestCompound_allOf.md)
+ - [OAICustom_FormDataDocument_Response](OAICustom_FormDataDocument_Response.md)
+ - [OAICustom_FormDataFolder_Response](OAICustom_FormDataFolder_Response.md)
+ - [OAICustom_FormDataSigner_Response](OAICustom_FormDataSigner_Response.md)
+ - [OAICustom_WordPosition_Response](OAICustom_WordPosition_Response.md)
  - [OAIEmail_Request](OAIEmail_Request.md)
  - [OAIEzsigndocument_Request](OAIEzsigndocument_Request.md)
  - [OAIEzsigndocument_RequestCompound](OAIEzsigndocument_RequestCompound.md)
@@ -213,6 +218,8 @@ Class | Method | HTTP request | Description
  - [OAIEzsigndocument_ResponseCompound](OAIEzsigndocument_ResponseCompound.md)
  - [OAIEzsigndocument_applyEzsigntemplate_v1_Request](OAIEzsigndocument_applyEzsigntemplate_v1_Request.md)
  - [OAIEzsigndocument_applyEzsigntemplate_v1_Response](OAIEzsigndocument_applyEzsigntemplate_v1_Response.md)
+ - [OAIEzsigndocument_applyEzsigntemplate_v2_Request](OAIEzsigndocument_applyEzsigntemplate_v2_Request.md)
+ - [OAIEzsigndocument_applyEzsigntemplate_v2_Response](OAIEzsigndocument_applyEzsigntemplate_v2_Response.md)
  - [OAIEzsigndocument_createObject_v1_Request](OAIEzsigndocument_createObject_v1_Request.md)
  - [OAIEzsigndocument_createObject_v1_Response](OAIEzsigndocument_createObject_v1_Response.md)
  - [OAIEzsigndocument_createObject_v1_Response_allOf](OAIEzsigndocument_createObject_v1_Response_allOf.md)
@@ -224,6 +231,9 @@ Class | Method | HTTP request | Description
  - [OAIEzsigndocument_getEzsignpages_v1_Response](OAIEzsigndocument_getEzsignpages_v1_Response.md)
  - [OAIEzsigndocument_getEzsignpages_v1_Response_allOf](OAIEzsigndocument_getEzsignpages_v1_Response_allOf.md)
  - [OAIEzsigndocument_getEzsignpages_v1_Response_mPayload](OAIEzsigndocument_getEzsignpages_v1_Response_mPayload.md)
+ - [OAIEzsigndocument_getFormData_v1_Response](OAIEzsigndocument_getFormData_v1_Response.md)
+ - [OAIEzsigndocument_getFormData_v1_Response_allOf](OAIEzsigndocument_getFormData_v1_Response_allOf.md)
+ - [OAIEzsigndocument_getFormData_v1_Response_mPayload](OAIEzsigndocument_getFormData_v1_Response_mPayload.md)
  - [OAIEzsigndocument_getObject_v1_Response](OAIEzsigndocument_getObject_v1_Response.md)
  - [OAIEzsigndocument_getObject_v1_Response_allOf](OAIEzsigndocument_getObject_v1_Response_allOf.md)
  - [OAIEzsigndocument_getObject_v1_Response_mPayload](OAIEzsigndocument_getObject_v1_Response_mPayload.md)
@@ -240,6 +250,9 @@ Class | Method | HTTP request | Description
  - [OAIEzsignfolder_createObject_v1_Response](OAIEzsignfolder_createObject_v1_Response.md)
  - [OAIEzsignfolder_createObject_v1_Response_mPayload](OAIEzsignfolder_createObject_v1_Response_mPayload.md)
  - [OAIEzsignfolder_deleteObject_v1_Response](OAIEzsignfolder_deleteObject_v1_Response.md)
+ - [OAIEzsignfolder_getFormsData_v1_Response](OAIEzsignfolder_getFormsData_v1_Response.md)
+ - [OAIEzsignfolder_getFormsData_v1_Response_allOf](OAIEzsignfolder_getFormsData_v1_Response_allOf.md)
+ - [OAIEzsignfolder_getFormsData_v1_Response_mPayload](OAIEzsignfolder_getFormsData_v1_Response_mPayload.md)
  - [OAIEzsignfolder_getObject_v1_Response](OAIEzsignfolder_getObject_v1_Response.md)
  - [OAIEzsignfolder_getObject_v1_Response_allOf](OAIEzsignfolder_getObject_v1_Response_allOf.md)
  - [OAIEzsignfolder_getObject_v1_Response_mPayload](OAIEzsignfolder_getObject_v1_Response_mPayload.md)
@@ -258,6 +271,11 @@ Class | Method | HTTP request | Description
  - [OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response_mPayload](OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response_mPayload.md)
  - [OAIEzsignfoldersignerassociation_getObject_v1_Response](OAIEzsignfoldersignerassociation_getObject_v1_Response.md)
  - [OAIEzsignfoldersignerassociation_getObject_v1_Response_allOf](OAIEzsignfoldersignerassociation_getObject_v1_Response_allOf.md)
+ - [OAIEzsignformfield_Response](OAIEzsignformfield_Response.md)
+ - [OAIEzsignformfield_ResponseCompound](OAIEzsignformfield_ResponseCompound.md)
+ - [OAIEzsignformfieldgroup_Response](OAIEzsignformfieldgroup_Response.md)
+ - [OAIEzsignformfieldgroup_ResponseCompound](OAIEzsignformfieldgroup_ResponseCompound.md)
+ - [OAIEzsignformfieldgroup_ResponseCompound_allOf](OAIEzsignformfieldgroup_ResponseCompound_allOf.md)
  - [OAIEzsignpage_Response](OAIEzsignpage_Response.md)
  - [OAIEzsignsignature_Request](OAIEzsignsignature_Request.md)
  - [OAIEzsignsignature_RequestCompound](OAIEzsignsignature_RequestCompound.md)
@@ -316,7 +334,6 @@ Class | Method | HTTP request | Description
  - [OAIWebhook_User_UserCreated](OAIWebhook_User_UserCreated.md)
  - [OAIWebhook_User_UserCreated_allOf](OAIWebhook_User_UserCreated_allOf.md)
  - [OAIWebsite_Request](OAIWebsite_Request.md)
- - [OAIWordPosition_Response](OAIWordPosition_Response.md)
 
 
 ## Documentation for Servers

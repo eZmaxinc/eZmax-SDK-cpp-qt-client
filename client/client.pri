@@ -34,6 +34,10 @@ HEADERS += \
     $${PWD}/OAIContactinformations_Request.h \
     $${PWD}/OAIContactinformations_RequestCompound.h \
     $${PWD}/OAIContactinformations_RequestCompound_allOf.h \
+    $${PWD}/OAICustom_FormDataDocument_Response.h \
+    $${PWD}/OAICustom_FormDataFolder_Response.h \
+    $${PWD}/OAICustom_FormDataSigner_Response.h \
+    $${PWD}/OAICustom_WordPosition_Response.h \
     $${PWD}/OAIEmail_Request.h \
     $${PWD}/OAIEzsigndocument_Request.h \
     $${PWD}/OAIEzsigndocument_RequestCompound.h \
@@ -41,6 +45,8 @@ HEADERS += \
     $${PWD}/OAIEzsigndocument_ResponseCompound.h \
     $${PWD}/OAIEzsigndocument_applyEzsigntemplate_v1_Request.h \
     $${PWD}/OAIEzsigndocument_applyEzsigntemplate_v1_Response.h \
+    $${PWD}/OAIEzsigndocument_applyEzsigntemplate_v2_Request.h \
+    $${PWD}/OAIEzsigndocument_applyEzsigntemplate_v2_Response.h \
     $${PWD}/OAIEzsigndocument_createObject_v1_Request.h \
     $${PWD}/OAIEzsigndocument_createObject_v1_Response.h \
     $${PWD}/OAIEzsigndocument_createObject_v1_Response_allOf.h \
@@ -52,6 +58,9 @@ HEADERS += \
     $${PWD}/OAIEzsigndocument_getEzsignpages_v1_Response.h \
     $${PWD}/OAIEzsigndocument_getEzsignpages_v1_Response_allOf.h \
     $${PWD}/OAIEzsigndocument_getEzsignpages_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsigndocument_getFormData_v1_Response.h \
+    $${PWD}/OAIEzsigndocument_getFormData_v1_Response_allOf.h \
+    $${PWD}/OAIEzsigndocument_getFormData_v1_Response_mPayload.h \
     $${PWD}/OAIEzsigndocument_getObject_v1_Response.h \
     $${PWD}/OAIEzsigndocument_getObject_v1_Response_allOf.h \
     $${PWD}/OAIEzsigndocument_getObject_v1_Response_mPayload.h \
@@ -68,6 +77,9 @@ HEADERS += \
     $${PWD}/OAIEzsignfolder_createObject_v1_Response.h \
     $${PWD}/OAIEzsignfolder_createObject_v1_Response_mPayload.h \
     $${PWD}/OAIEzsignfolder_deleteObject_v1_Response.h \
+    $${PWD}/OAIEzsignfolder_getFormsData_v1_Response.h \
+    $${PWD}/OAIEzsignfolder_getFormsData_v1_Response_allOf.h \
+    $${PWD}/OAIEzsignfolder_getFormsData_v1_Response_mPayload.h \
     $${PWD}/OAIEzsignfolder_getObject_v1_Response.h \
     $${PWD}/OAIEzsignfolder_getObject_v1_Response_allOf.h \
     $${PWD}/OAIEzsignfolder_getObject_v1_Response_mPayload.h \
@@ -86,6 +98,11 @@ HEADERS += \
     $${PWD}/OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response_mPayload.h \
     $${PWD}/OAIEzsignfoldersignerassociation_getObject_v1_Response.h \
     $${PWD}/OAIEzsignfoldersignerassociation_getObject_v1_Response_allOf.h \
+    $${PWD}/OAIEzsignformfield_Response.h \
+    $${PWD}/OAIEzsignformfield_ResponseCompound.h \
+    $${PWD}/OAIEzsignformfieldgroup_Response.h \
+    $${PWD}/OAIEzsignformfieldgroup_ResponseCompound.h \
+    $${PWD}/OAIEzsignformfieldgroup_ResponseCompound_allOf.h \
     $${PWD}/OAIEzsignpage_Response.h \
     $${PWD}/OAIEzsignsignature_Request.h \
     $${PWD}/OAIEzsignsignature_RequestCompound.h \
@@ -144,7 +161,6 @@ HEADERS += \
     $${PWD}/OAIWebhook_User_UserCreated.h \
     $${PWD}/OAIWebhook_User_UserCreated_allOf.h \
     $${PWD}/OAIWebsite_Request.h \
-    $${PWD}/OAIWordPosition_Response.h \
 # APIs
     $${PWD}/OAIGlobalCustomerApi.h \
     $${PWD}/OAIModuleAuthenticateApi.h \
@@ -203,6 +219,10 @@ SOURCES += \
     $${PWD}/OAIContactinformations_Request.cpp \
     $${PWD}/OAIContactinformations_RequestCompound.cpp \
     $${PWD}/OAIContactinformations_RequestCompound_allOf.cpp \
+    $${PWD}/OAICustom_FormDataDocument_Response.cpp \
+    $${PWD}/OAICustom_FormDataFolder_Response.cpp \
+    $${PWD}/OAICustom_FormDataSigner_Response.cpp \
+    $${PWD}/OAICustom_WordPosition_Response.cpp \
     $${PWD}/OAIEmail_Request.cpp \
     $${PWD}/OAIEzsigndocument_Request.cpp \
     $${PWD}/OAIEzsigndocument_RequestCompound.cpp \
@@ -210,6 +230,8 @@ SOURCES += \
     $${PWD}/OAIEzsigndocument_ResponseCompound.cpp \
     $${PWD}/OAIEzsigndocument_applyEzsigntemplate_v1_Request.cpp \
     $${PWD}/OAIEzsigndocument_applyEzsigntemplate_v1_Response.cpp \
+    $${PWD}/OAIEzsigndocument_applyEzsigntemplate_v2_Request.cpp \
+    $${PWD}/OAIEzsigndocument_applyEzsigntemplate_v2_Response.cpp \
     $${PWD}/OAIEzsigndocument_createObject_v1_Request.cpp \
     $${PWD}/OAIEzsigndocument_createObject_v1_Response.cpp \
     $${PWD}/OAIEzsigndocument_createObject_v1_Response_allOf.cpp \
@@ -221,6 +243,9 @@ SOURCES += \
     $${PWD}/OAIEzsigndocument_getEzsignpages_v1_Response.cpp \
     $${PWD}/OAIEzsigndocument_getEzsignpages_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsigndocument_getEzsignpages_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsigndocument_getFormData_v1_Response.cpp \
+    $${PWD}/OAIEzsigndocument_getFormData_v1_Response_allOf.cpp \
+    $${PWD}/OAIEzsigndocument_getFormData_v1_Response_mPayload.cpp \
     $${PWD}/OAIEzsigndocument_getObject_v1_Response.cpp \
     $${PWD}/OAIEzsigndocument_getObject_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsigndocument_getObject_v1_Response_mPayload.cpp \
@@ -237,6 +262,9 @@ SOURCES += \
     $${PWD}/OAIEzsignfolder_createObject_v1_Response.cpp \
     $${PWD}/OAIEzsignfolder_createObject_v1_Response_mPayload.cpp \
     $${PWD}/OAIEzsignfolder_deleteObject_v1_Response.cpp \
+    $${PWD}/OAIEzsignfolder_getFormsData_v1_Response.cpp \
+    $${PWD}/OAIEzsignfolder_getFormsData_v1_Response_allOf.cpp \
+    $${PWD}/OAIEzsignfolder_getFormsData_v1_Response_mPayload.cpp \
     $${PWD}/OAIEzsignfolder_getObject_v1_Response.cpp \
     $${PWD}/OAIEzsignfolder_getObject_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsignfolder_getObject_v1_Response_mPayload.cpp \
@@ -255,6 +283,11 @@ SOURCES += \
     $${PWD}/OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response_mPayload.cpp \
     $${PWD}/OAIEzsignfoldersignerassociation_getObject_v1_Response.cpp \
     $${PWD}/OAIEzsignfoldersignerassociation_getObject_v1_Response_allOf.cpp \
+    $${PWD}/OAIEzsignformfield_Response.cpp \
+    $${PWD}/OAIEzsignformfield_ResponseCompound.cpp \
+    $${PWD}/OAIEzsignformfieldgroup_Response.cpp \
+    $${PWD}/OAIEzsignformfieldgroup_ResponseCompound.cpp \
+    $${PWD}/OAIEzsignformfieldgroup_ResponseCompound_allOf.cpp \
     $${PWD}/OAIEzsignpage_Response.cpp \
     $${PWD}/OAIEzsignsignature_Request.cpp \
     $${PWD}/OAIEzsignsignature_RequestCompound.cpp \
@@ -313,7 +346,6 @@ SOURCES += \
     $${PWD}/OAIWebhook_User_UserCreated.cpp \
     $${PWD}/OAIWebhook_User_UserCreated_allOf.cpp \
     $${PWD}/OAIWebsite_Request.cpp \
-    $${PWD}/OAIWordPosition_Response.cpp \
 # APIs
     $${PWD}/OAIGlobalCustomerApi.cpp \
     $${PWD}/OAIModuleAuthenticateApi.cpp \

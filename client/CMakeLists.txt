@@ -47,6 +47,10 @@ add_library(${PROJECT_NAME}
     OAIContactinformations_Request.cpp
     OAIContactinformations_RequestCompound.cpp
     OAIContactinformations_RequestCompound_allOf.cpp
+    OAICustom_FormDataDocument_Response.cpp
+    OAICustom_FormDataFolder_Response.cpp
+    OAICustom_FormDataSigner_Response.cpp
+    OAICustom_WordPosition_Response.cpp
     OAIEmail_Request.cpp
     OAIEzsigndocument_Request.cpp
     OAIEzsigndocument_RequestCompound.cpp
@@ -54,6 +58,8 @@ add_library(${PROJECT_NAME}
     OAIEzsigndocument_ResponseCompound.cpp
     OAIEzsigndocument_applyEzsigntemplate_v1_Request.cpp
     OAIEzsigndocument_applyEzsigntemplate_v1_Response.cpp
+    OAIEzsigndocument_applyEzsigntemplate_v2_Request.cpp
+    OAIEzsigndocument_applyEzsigntemplate_v2_Response.cpp
     OAIEzsigndocument_createObject_v1_Request.cpp
     OAIEzsigndocument_createObject_v1_Response.cpp
     OAIEzsigndocument_createObject_v1_Response_allOf.cpp
@@ -65,6 +71,9 @@ add_library(${PROJECT_NAME}
     OAIEzsigndocument_getEzsignpages_v1_Response.cpp
     OAIEzsigndocument_getEzsignpages_v1_Response_allOf.cpp
     OAIEzsigndocument_getEzsignpages_v1_Response_mPayload.cpp
+    OAIEzsigndocument_getFormData_v1_Response.cpp
+    OAIEzsigndocument_getFormData_v1_Response_allOf.cpp
+    OAIEzsigndocument_getFormData_v1_Response_mPayload.cpp
     OAIEzsigndocument_getObject_v1_Response.cpp
     OAIEzsigndocument_getObject_v1_Response_allOf.cpp
     OAIEzsigndocument_getObject_v1_Response_mPayload.cpp
@@ -81,6 +90,9 @@ add_library(${PROJECT_NAME}
     OAIEzsignfolder_createObject_v1_Response.cpp
     OAIEzsignfolder_createObject_v1_Response_mPayload.cpp
     OAIEzsignfolder_deleteObject_v1_Response.cpp
+    OAIEzsignfolder_getFormsData_v1_Response.cpp
+    OAIEzsignfolder_getFormsData_v1_Response_allOf.cpp
+    OAIEzsignfolder_getFormsData_v1_Response_mPayload.cpp
     OAIEzsignfolder_getObject_v1_Response.cpp
     OAIEzsignfolder_getObject_v1_Response_allOf.cpp
     OAIEzsignfolder_getObject_v1_Response_mPayload.cpp
@@ -99,6 +111,11 @@ add_library(${PROJECT_NAME}
     OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response_mPayload.cpp
     OAIEzsignfoldersignerassociation_getObject_v1_Response.cpp
     OAIEzsignfoldersignerassociation_getObject_v1_Response_allOf.cpp
+    OAIEzsignformfield_Response.cpp
+    OAIEzsignformfield_ResponseCompound.cpp
+    OAIEzsignformfieldgroup_Response.cpp
+    OAIEzsignformfieldgroup_ResponseCompound.cpp
+    OAIEzsignformfieldgroup_ResponseCompound_allOf.cpp
     OAIEzsignpage_Response.cpp
     OAIEzsignsignature_Request.cpp
     OAIEzsignsignature_RequestCompound.cpp
@@ -157,7 +174,6 @@ add_library(${PROJECT_NAME}
     OAIWebhook_User_UserCreated.cpp
     OAIWebhook_User_UserCreated_allOf.cpp
     OAIWebsite_Request.cpp
-    OAIWordPosition_Response.cpp
     OAIGlobalCustomerApi.cpp
     OAIModuleAuthenticateApi.cpp
     OAIModuleSsprApi.cpp
