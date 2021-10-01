@@ -40,20 +40,11 @@ public:
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    QList<OAICustom_WordPosition_Response> getASWords() const;
-    void setASWords(const QList<OAICustom_WordPosition_Response> &a_s_words);
-    bool is_a_s_words_Set() const;
-    bool is_a_s_words_Valid() const;
-
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
 private:
     void initializeModel();
-
-    QList<OAICustom_WordPosition_Response> a_s_words;
-    bool m_a_s_words_isSet;
-    bool m_a_s_words_isValid;
 };
 
 } // namespace OpenAPI

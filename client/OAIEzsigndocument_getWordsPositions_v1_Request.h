@@ -22,6 +22,7 @@
 #include <QJsonObject>
 
 #include <QList>
+#include <QString>
 
 #include "OAIEnum.h"
 #include "OAIObject.h"
@@ -39,10 +40,15 @@ public:
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    QList<QString> getASWords() const;
-    void setASWords(const QList<QString> &a_s_words);
-    bool is_a_s_words_Set() const;
-    bool is_a_s_words_Valid() const;
+    QString getEGet() const;
+    void setEGet(const QString &e_get);
+    bool is_e_get_Set() const;
+    bool is_e_get_Valid() const;
+
+    QList<QString> getASWord() const;
+    void setASWord(const QList<QString> &a_s_word);
+    bool is_a_s_word_Set() const;
+    bool is_a_s_word_Valid() const;
 
     virtual bool isSet() const override;
     virtual bool isValid() const override;
@@ -50,9 +56,13 @@ public:
 private:
     void initializeModel();
 
-    QList<QString> a_s_words;
-    bool m_a_s_words_isSet;
-    bool m_a_s_words_isValid;
+    QString e_get;
+    bool m_e_get_isSet;
+    bool m_e_get_isValid;
+
+    QList<QString> a_s_word;
+    bool m_a_s_word_isSet;
+    bool m_a_s_word_isValid;
 };
 
 } // namespace OpenAPI

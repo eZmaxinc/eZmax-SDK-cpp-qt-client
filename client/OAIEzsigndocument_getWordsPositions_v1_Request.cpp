@@ -34,8 +34,11 @@ OAIEzsigndocument_getWordsPositions_v1_Request::~OAIEzsigndocument_getWordsPosit
 
 void OAIEzsigndocument_getWordsPositions_v1_Request::initializeModel() {
 
-    m_a_s_words_isSet = false;
-    m_a_s_words_isValid = false;
+    m_e_get_isSet = false;
+    m_e_get_isValid = false;
+
+    m_a_s_word_isSet = false;
+    m_a_s_word_isValid = false;
 }
 
 void OAIEzsigndocument_getWordsPositions_v1_Request::fromJson(QString jsonString) {
@@ -47,8 +50,11 @@ void OAIEzsigndocument_getWordsPositions_v1_Request::fromJson(QString jsonString
 
 void OAIEzsigndocument_getWordsPositions_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_a_s_words_isValid = ::OpenAPI::fromJsonValue(a_s_words, json[QString("a_sWords")]);
-    m_a_s_words_isSet = !json[QString("a_sWords")].isNull() && m_a_s_words_isValid;
+    m_e_get_isValid = ::OpenAPI::fromJsonValue(e_get, json[QString("eGet")]);
+    m_e_get_isSet = !json[QString("eGet")].isNull() && m_e_get_isValid;
+
+    m_a_s_word_isValid = ::OpenAPI::fromJsonValue(a_s_word, json[QString("a_sWord")]);
+    m_a_s_word_isSet = !json[QString("a_sWord")].isNull() && m_a_s_word_isValid;
 }
 
 QString OAIEzsigndocument_getWordsPositions_v1_Request::asJson() const {
@@ -60,32 +66,56 @@ QString OAIEzsigndocument_getWordsPositions_v1_Request::asJson() const {
 
 QJsonObject OAIEzsigndocument_getWordsPositions_v1_Request::asJsonObject() const {
     QJsonObject obj;
-    if (a_s_words.size() > 0) {
-        obj.insert(QString("a_sWords"), ::OpenAPI::toJsonValue(a_s_words));
+    if (m_e_get_isSet) {
+        obj.insert(QString("eGet"), ::OpenAPI::toJsonValue(e_get));
+    }
+    if (a_s_word.size() > 0) {
+        obj.insert(QString("a_sWord"), ::OpenAPI::toJsonValue(a_s_word));
     }
     return obj;
 }
 
-QList<QString> OAIEzsigndocument_getWordsPositions_v1_Request::getASWords() const {
-    return a_s_words;
+QString OAIEzsigndocument_getWordsPositions_v1_Request::getEGet() const {
+    return e_get;
 }
-void OAIEzsigndocument_getWordsPositions_v1_Request::setASWords(const QList<QString> &a_s_words) {
-    this->a_s_words = a_s_words;
-    this->m_a_s_words_isSet = true;
-}
-
-bool OAIEzsigndocument_getWordsPositions_v1_Request::is_a_s_words_Set() const{
-    return m_a_s_words_isSet;
+void OAIEzsigndocument_getWordsPositions_v1_Request::setEGet(const QString &e_get) {
+    this->e_get = e_get;
+    this->m_e_get_isSet = true;
 }
 
-bool OAIEzsigndocument_getWordsPositions_v1_Request::is_a_s_words_Valid() const{
-    return m_a_s_words_isValid;
+bool OAIEzsigndocument_getWordsPositions_v1_Request::is_e_get_Set() const{
+    return m_e_get_isSet;
+}
+
+bool OAIEzsigndocument_getWordsPositions_v1_Request::is_e_get_Valid() const{
+    return m_e_get_isValid;
+}
+
+QList<QString> OAIEzsigndocument_getWordsPositions_v1_Request::getASWord() const {
+    return a_s_word;
+}
+void OAIEzsigndocument_getWordsPositions_v1_Request::setASWord(const QList<QString> &a_s_word) {
+    this->a_s_word = a_s_word;
+    this->m_a_s_word_isSet = true;
+}
+
+bool OAIEzsigndocument_getWordsPositions_v1_Request::is_a_s_word_Set() const{
+    return m_a_s_word_isSet;
+}
+
+bool OAIEzsigndocument_getWordsPositions_v1_Request::is_a_s_word_Valid() const{
+    return m_a_s_word_isValid;
 }
 
 bool OAIEzsigndocument_getWordsPositions_v1_Request::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_s_words.size() > 0) {
+        if (m_e_get_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (a_s_word.size() > 0) {
             isObjectUpdated = true;
             break;
         }
@@ -95,7 +125,7 @@ bool OAIEzsigndocument_getWordsPositions_v1_Request::isSet() const {
 
 bool OAIEzsigndocument_getWordsPositions_v1_Request::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_a_s_words_isValid && true;
+    return true;
 }
 
 } // namespace OpenAPI

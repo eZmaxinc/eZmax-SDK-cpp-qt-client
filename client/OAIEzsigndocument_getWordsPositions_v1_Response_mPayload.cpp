@@ -34,8 +34,6 @@ OAIEzsigndocument_getWordsPositions_v1_Response_mPayload::~OAIEzsigndocument_get
 
 void OAIEzsigndocument_getWordsPositions_v1_Response_mPayload::initializeModel() {
 
-    m_a_s_words_isSet = false;
-    m_a_s_words_isValid = false;
 }
 
 void OAIEzsigndocument_getWordsPositions_v1_Response_mPayload::fromJson(QString jsonString) {
@@ -47,8 +45,6 @@ void OAIEzsigndocument_getWordsPositions_v1_Response_mPayload::fromJson(QString 
 
 void OAIEzsigndocument_getWordsPositions_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_s_words_isValid = ::OpenAPI::fromJsonValue(a_s_words, json[QString("a_sWords")]);
-    m_a_s_words_isSet = !json[QString("a_sWords")].isNull() && m_a_s_words_isValid;
 }
 
 QString OAIEzsigndocument_getWordsPositions_v1_Response_mPayload::asJson() const {
@@ -60,42 +56,20 @@ QString OAIEzsigndocument_getWordsPositions_v1_Response_mPayload::asJson() const
 
 QJsonObject OAIEzsigndocument_getWordsPositions_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (a_s_words.size() > 0) {
-        obj.insert(QString("a_sWords"), ::OpenAPI::toJsonValue(a_s_words));
-    }
     return obj;
-}
-
-QList<OAICustom_WordPosition_Response> OAIEzsigndocument_getWordsPositions_v1_Response_mPayload::getASWords() const {
-    return a_s_words;
-}
-void OAIEzsigndocument_getWordsPositions_v1_Response_mPayload::setASWords(const QList<OAICustom_WordPosition_Response> &a_s_words) {
-    this->a_s_words = a_s_words;
-    this->m_a_s_words_isSet = true;
-}
-
-bool OAIEzsigndocument_getWordsPositions_v1_Response_mPayload::is_a_s_words_Set() const{
-    return m_a_s_words_isSet;
-}
-
-bool OAIEzsigndocument_getWordsPositions_v1_Response_mPayload::is_a_s_words_Valid() const{
-    return m_a_s_words_isValid;
 }
 
 bool OAIEzsigndocument_getWordsPositions_v1_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_s_words.size() > 0) {
-            isObjectUpdated = true;
-            break;
-        }
+
     } while (false);
     return isObjectUpdated;
 }
 
 bool OAIEzsigndocument_getWordsPositions_v1_Response_mPayload::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_a_s_words_isValid && true;
+    return true;
 }
 
 } // namespace OpenAPI
