@@ -71,8 +71,10 @@ client/OAICustom_FormDataFolder_Response.cpp
 client/OAICustom_FormDataFolder_Response.h
 client/OAICustom_FormDataSigner_Response.cpp
 client/OAICustom_FormDataSigner_Response.h
-client/OAICustom_WordPosition_Response.cpp
-client/OAICustom_WordPosition_Response.h
+client/OAICustom_WordPositionOccurence_Response.cpp
+client/OAICustom_WordPositionOccurence_Response.h
+client/OAICustom_WordPositionWord_Response.cpp
+client/OAICustom_WordPositionWord_Response.h
 client/OAIEmail_Request.cpp
 client/OAIEmail_Request.h
 client/OAIEnum.h
@@ -132,8 +134,6 @@ client/OAIEzsigndocument_getWordsPositions_v1_Response.cpp
 client/OAIEzsigndocument_getWordsPositions_v1_Response.h
 client/OAIEzsigndocument_getWordsPositions_v1_Response_allOf.cpp
 client/OAIEzsigndocument_getWordsPositions_v1_Response_allOf.h
-client/OAIEzsigndocument_getWordsPositions_v1_Response_mPayload.cpp
-client/OAIEzsigndocument_getWordsPositions_v1_Response_mPayload.h
 client/OAIEzsignfolder_Request.cpp
 client/OAIEzsignfolder_Request.h
 client/OAIEzsignfolder_RequestCompound.cpp

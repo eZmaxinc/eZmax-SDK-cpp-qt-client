@@ -60,16 +60,16 @@ QString OAIEzsigndocument_getWordsPositions_v1_Response_allOf::asJson() const {
 
 QJsonObject OAIEzsigndocument_getWordsPositions_v1_Response_allOf::asJsonObject() const {
     QJsonObject obj;
-    if (m_payload.isSet()) {
+    if (m_payload.size() > 0) {
         obj.insert(QString("mPayload"), ::OpenAPI::toJsonValue(m_payload));
     }
     return obj;
 }
 
-OAIEzsigndocument_getWordsPositions_v1_Response_mPayload OAIEzsigndocument_getWordsPositions_v1_Response_allOf::getMPayload() const {
+QList<OAICustom_WordPositionWord_Response> OAIEzsigndocument_getWordsPositions_v1_Response_allOf::getMPayload() const {
     return m_payload;
 }
-void OAIEzsigndocument_getWordsPositions_v1_Response_allOf::setMPayload(const OAIEzsigndocument_getWordsPositions_v1_Response_mPayload &m_payload) {
+void OAIEzsigndocument_getWordsPositions_v1_Response_allOf::setMPayload(const QList<OAICustom_WordPositionWord_Response> &m_payload) {
     this->m_payload = m_payload;
     this->m_m_payload_isSet = true;
 }
@@ -85,7 +85,7 @@ bool OAIEzsigndocument_getWordsPositions_v1_Response_allOf::is_m_payload_Valid()
 bool OAIEzsigndocument_getWordsPositions_v1_Response_allOf::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (m_payload.isSet()) {
+        if (m_payload.size() > 0) {
             isObjectUpdated = true;
             break;
         }

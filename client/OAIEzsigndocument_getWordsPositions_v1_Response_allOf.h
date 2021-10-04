@@ -21,7 +21,8 @@
 
 #include <QJsonObject>
 
-#include "OAIEzsigndocument_getWordsPositions_v1_Response_mPayload.h"
+#include "OAICustom_WordPositionWord_Response.h"
+#include <QList>
 
 #include "OAIEnum.h"
 #include "OAIObject.h"
@@ -39,8 +40,8 @@ public:
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    OAIEzsigndocument_getWordsPositions_v1_Response_mPayload getMPayload() const;
-    void setMPayload(const OAIEzsigndocument_getWordsPositions_v1_Response_mPayload &m_payload);
+    QList<OAICustom_WordPositionWord_Response> getMPayload() const;
+    void setMPayload(const QList<OAICustom_WordPositionWord_Response> &m_payload);
     bool is_m_payload_Set() const;
     bool is_m_payload_Valid() const;
 
@@ -50,7 +51,7 @@ public:
 private:
     void initializeModel();
 
-    OAIEzsigndocument_getWordsPositions_v1_Response_mPayload m_payload;
+    QList<OAICustom_WordPositionWord_Response> m_payload;
     bool m_m_payload_isSet;
     bool m_m_payload_isValid;
 };

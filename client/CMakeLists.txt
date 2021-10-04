@@ -50,7 +50,8 @@ add_library(${PROJECT_NAME}
     OAICustom_FormDataDocument_Response.cpp
     OAICustom_FormDataFolder_Response.cpp
     OAICustom_FormDataSigner_Response.cpp
-    OAICustom_WordPosition_Response.cpp
+    OAICustom_WordPositionOccurence_Response.cpp
+    OAICustom_WordPositionWord_Response.cpp
     OAIEmail_Request.cpp
     OAIEzsigndocument_Request.cpp
     OAIEzsigndocument_RequestCompound.cpp
@@ -80,7 +81,6 @@ add_library(${PROJECT_NAME}
     OAIEzsigndocument_getWordsPositions_v1_Request.cpp
     OAIEzsigndocument_getWordsPositions_v1_Response.cpp
     OAIEzsigndocument_getWordsPositions_v1_Response_allOf.cpp
-    OAIEzsigndocument_getWordsPositions_v1_Response_mPayload.cpp
     OAIEzsignfolder_Request.cpp
     OAIEzsignfolder_RequestCompound.cpp
     OAIEzsignfolder_RequestCompound_allOf.cpp

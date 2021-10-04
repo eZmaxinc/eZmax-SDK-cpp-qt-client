@@ -37,7 +37,8 @@ HEADERS += \
     $${PWD}/OAICustom_FormDataDocument_Response.h \
     $${PWD}/OAICustom_FormDataFolder_Response.h \
     $${PWD}/OAICustom_FormDataSigner_Response.h \
-    $${PWD}/OAICustom_WordPosition_Response.h \
+    $${PWD}/OAICustom_WordPositionOccurence_Response.h \
+    $${PWD}/OAICustom_WordPositionWord_Response.h \
     $${PWD}/OAIEmail_Request.h \
     $${PWD}/OAIEzsigndocument_Request.h \
     $${PWD}/OAIEzsigndocument_RequestCompound.h \
@@ -67,7 +68,6 @@ HEADERS += \
     $${PWD}/OAIEzsigndocument_getWordsPositions_v1_Request.h \
     $${PWD}/OAIEzsigndocument_getWordsPositions_v1_Response.h \
     $${PWD}/OAIEzsigndocument_getWordsPositions_v1_Response_allOf.h \
-    $${PWD}/OAIEzsigndocument_getWordsPositions_v1_Response_mPayload.h \
     $${PWD}/OAIEzsignfolder_Request.h \
     $${PWD}/OAIEzsignfolder_RequestCompound.h \
     $${PWD}/OAIEzsignfolder_RequestCompound_allOf.h \
@@ -222,7 +222,8 @@ SOURCES += \
     $${PWD}/OAICustom_FormDataDocument_Response.cpp \
     $${PWD}/OAICustom_FormDataFolder_Response.cpp \
     $${PWD}/OAICustom_FormDataSigner_Response.cpp \
-    $${PWD}/OAICustom_WordPosition_Response.cpp \
+    $${PWD}/OAICustom_WordPositionOccurence_Response.cpp \
+    $${PWD}/OAICustom_WordPositionWord_Response.cpp \
     $${PWD}/OAIEmail_Request.cpp \
     $${PWD}/OAIEzsigndocument_Request.cpp \
     $${PWD}/OAIEzsigndocument_RequestCompound.cpp \
@@ -252,7 +253,6 @@ SOURCES += \
     $${PWD}/OAIEzsigndocument_getWordsPositions_v1_Request.cpp \
     $${PWD}/OAIEzsigndocument_getWordsPositions_v1_Response.cpp \
     $${PWD}/OAIEzsigndocument_getWordsPositions_v1_Response_allOf.cpp \
-    $${PWD}/OAIEzsigndocument_getWordsPositions_v1_Response_mPayload.cpp \
     $${PWD}/OAIEzsignfolder_Request.cpp \
     $${PWD}/OAIEzsignfolder_RequestCompound.cpp \
     $${PWD}/OAIEzsignfolder_RequestCompound_allOf.cpp \

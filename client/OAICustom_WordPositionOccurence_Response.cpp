@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-#include "OAICustom_WordPosition_Response.h"
+#include "OAICustom_WordPositionOccurence_Response.h"
 
 #include <QDebug>
 #include <QJsonArray>
@@ -21,18 +21,18 @@
 
 namespace OpenAPI {
 
-OAICustom_WordPosition_Response::OAICustom_WordPosition_Response(QString json) {
+OAICustom_WordPositionOccurence_Response::OAICustom_WordPositionOccurence_Response(QString json) {
     this->initializeModel();
     this->fromJson(json);
 }
 
-OAICustom_WordPosition_Response::OAICustom_WordPosition_Response() {
+OAICustom_WordPositionOccurence_Response::OAICustom_WordPositionOccurence_Response() {
     this->initializeModel();
 }
 
-OAICustom_WordPosition_Response::~OAICustom_WordPosition_Response() {}
+OAICustom_WordPositionOccurence_Response::~OAICustom_WordPositionOccurence_Response() {}
 
-void OAICustom_WordPosition_Response::initializeModel() {
+void OAICustom_WordPositionOccurence_Response::initializeModel() {
 
     m_i_page_isSet = false;
     m_i_page_isValid = false;
@@ -44,14 +44,14 @@ void OAICustom_WordPosition_Response::initializeModel() {
     m_i_y_isValid = false;
 }
 
-void OAICustom_WordPosition_Response::fromJson(QString jsonString) {
+void OAICustom_WordPositionOccurence_Response::fromJson(QString jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();
     this->fromJsonObject(jsonObject);
 }
 
-void OAICustom_WordPosition_Response::fromJsonObject(QJsonObject json) {
+void OAICustom_WordPositionOccurence_Response::fromJsonObject(QJsonObject json) {
 
     m_i_page_isValid = ::OpenAPI::fromJsonValue(i_page, json[QString("iPage")]);
     m_i_page_isSet = !json[QString("iPage")].isNull() && m_i_page_isValid;
@@ -63,14 +63,14 @@ void OAICustom_WordPosition_Response::fromJsonObject(QJsonObject json) {
     m_i_y_isSet = !json[QString("iY")].isNull() && m_i_y_isValid;
 }
 
-QString OAICustom_WordPosition_Response::asJson() const {
+QString OAICustom_WordPositionOccurence_Response::asJson() const {
     QJsonObject obj = this->asJsonObject();
     QJsonDocument doc(obj);
     QByteArray bytes = doc.toJson();
     return QString(bytes);
 }
 
-QJsonObject OAICustom_WordPosition_Response::asJsonObject() const {
+QJsonObject OAICustom_WordPositionOccurence_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_i_page_isSet) {
         obj.insert(QString("iPage"), ::OpenAPI::toJsonValue(i_page));
@@ -84,55 +84,55 @@ QJsonObject OAICustom_WordPosition_Response::asJsonObject() const {
     return obj;
 }
 
-qint32 OAICustom_WordPosition_Response::getIPage() const {
+qint32 OAICustom_WordPositionOccurence_Response::getIPage() const {
     return i_page;
 }
-void OAICustom_WordPosition_Response::setIPage(const qint32 &i_page) {
+void OAICustom_WordPositionOccurence_Response::setIPage(const qint32 &i_page) {
     this->i_page = i_page;
     this->m_i_page_isSet = true;
 }
 
-bool OAICustom_WordPosition_Response::is_i_page_Set() const{
+bool OAICustom_WordPositionOccurence_Response::is_i_page_Set() const{
     return m_i_page_isSet;
 }
 
-bool OAICustom_WordPosition_Response::is_i_page_Valid() const{
+bool OAICustom_WordPositionOccurence_Response::is_i_page_Valid() const{
     return m_i_page_isValid;
 }
 
-qint32 OAICustom_WordPosition_Response::getIX() const {
+qint32 OAICustom_WordPositionOccurence_Response::getIX() const {
     return i_x;
 }
-void OAICustom_WordPosition_Response::setIX(const qint32 &i_x) {
+void OAICustom_WordPositionOccurence_Response::setIX(const qint32 &i_x) {
     this->i_x = i_x;
     this->m_i_x_isSet = true;
 }
 
-bool OAICustom_WordPosition_Response::is_i_x_Set() const{
+bool OAICustom_WordPositionOccurence_Response::is_i_x_Set() const{
     return m_i_x_isSet;
 }
 
-bool OAICustom_WordPosition_Response::is_i_x_Valid() const{
+bool OAICustom_WordPositionOccurence_Response::is_i_x_Valid() const{
     return m_i_x_isValid;
 }
 
-qint32 OAICustom_WordPosition_Response::getIY() const {
+qint32 OAICustom_WordPositionOccurence_Response::getIY() const {
     return i_y;
 }
-void OAICustom_WordPosition_Response::setIY(const qint32 &i_y) {
+void OAICustom_WordPositionOccurence_Response::setIY(const qint32 &i_y) {
     this->i_y = i_y;
     this->m_i_y_isSet = true;
 }
 
-bool OAICustom_WordPosition_Response::is_i_y_Set() const{
+bool OAICustom_WordPositionOccurence_Response::is_i_y_Set() const{
     return m_i_y_isSet;
 }
 
-bool OAICustom_WordPosition_Response::is_i_y_Valid() const{
+bool OAICustom_WordPositionOccurence_Response::is_i_y_Valid() const{
     return m_i_y_isValid;
 }
 
-bool OAICustom_WordPosition_Response::isSet() const {
+bool OAICustom_WordPositionOccurence_Response::isSet() const {
     bool isObjectUpdated = false;
     do {
         if (m_i_page_isSet) {
@@ -153,7 +153,7 @@ bool OAICustom_WordPosition_Response::isSet() const {
     return isObjectUpdated;
 }
 
-bool OAICustom_WordPosition_Response::isValid() const {
+bool OAICustom_WordPositionOccurence_Response::isValid() const {
     // only required properties are required for the object to be considered valid
     return true;
 }

@@ -11,13 +11,13 @@
  */
 
 /*
- * OAICustom_WordPosition_Response.h
+ * OAICustom_WordPositionOccurence_Response.h
  *
  * A Word Position Object
  */
 
-#ifndef OAICustom_WordPosition_Response_H
-#define OAICustom_WordPosition_Response_H
+#ifndef OAICustom_WordPositionOccurence_Response_H
+#define OAICustom_WordPositionOccurence_Response_H
 
 #include <QJsonObject>
 
@@ -27,11 +27,11 @@
 
 namespace OpenAPI {
 
-class OAICustom_WordPosition_Response : public OAIObject {
+class OAICustom_WordPositionOccurence_Response : public OAIObject {
 public:
-    OAICustom_WordPosition_Response();
-    OAICustom_WordPosition_Response(QString json);
-    ~OAICustom_WordPosition_Response() override;
+    OAICustom_WordPositionOccurence_Response();
+    OAICustom_WordPositionOccurence_Response(QString json);
+    ~OAICustom_WordPositionOccurence_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
@@ -74,6 +74,6 @@ private:
 
 } // namespace OpenAPI
 
-Q_DECLARE_METATYPE(OpenAPI::OAICustom_WordPosition_Response)
+Q_DECLARE_METATYPE(OpenAPI::OAICustom_WordPositionOccurence_Response)
 
-#endif // OAICustom_WordPosition_Response_H
+#endif // OAICustom_WordPositionOccurence_Response_H
