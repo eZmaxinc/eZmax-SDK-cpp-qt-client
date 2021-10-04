@@ -46,10 +46,10 @@ public:
     bool is_s_word_Set() const;
     bool is_s_word_Valid() const;
 
-    QList<OAICustom_WordPositionOccurence_Response> getObjWordPositionOccurence() const;
-    void setObjWordPositionOccurence(const QList<OAICustom_WordPositionOccurence_Response> &obj_word_position_occurence);
-    bool is_obj_word_position_occurence_Set() const;
-    bool is_obj_word_position_occurence_Valid() const;
+    QList<OAICustom_WordPositionOccurence_Response> getAObjWordPositionOccurence() const;
+    void setAObjWordPositionOccurence(const QList<OAICustom_WordPositionOccurence_Response> &a_obj_word_position_occurence);
+    bool is_a_obj_word_position_occurence_Set() const;
+    bool is_a_obj_word_position_occurence_Valid() const;
 
     virtual bool isSet() const override;
     virtual bool isValid() const override;
@@ -61,9 +61,9 @@ private:
     bool m_s_word_isSet;
     bool m_s_word_isValid;
 
-    QList<OAICustom_WordPositionOccurence_Response> obj_word_position_occurence;
-    bool m_obj_word_position_occurence_isSet;
-    bool m_obj_word_position_occurence_isValid;
+    QList<OAICustom_WordPositionOccurence_Response> a_obj_word_position_occurence;
+    bool m_a_obj_word_position_occurence_isSet;
+    bool m_a_obj_word_position_occurence_isValid;
 };
 
 } // namespace OpenAPI
