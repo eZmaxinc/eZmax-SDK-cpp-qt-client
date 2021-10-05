@@ -45,6 +45,11 @@ public:
     bool is_e_get_Set() const;
     bool is_e_get_Valid() const;
 
+    bool isBWordCaseSensitive() const;
+    void setBWordCaseSensitive(const bool &b_word_case_sensitive);
+    bool is_b_word_case_sensitive_Set() const;
+    bool is_b_word_case_sensitive_Valid() const;
+
     QList<QString> getASWord() const;
     void setASWord(const QList<QString> &a_s_word);
     bool is_a_s_word_Set() const;
@@ -59,6 +64,10 @@ private:
     QString e_get;
     bool m_e_get_isSet;
     bool m_e_get_isValid;
+
+    bool b_word_case_sensitive;
+    bool m_b_word_case_sensitive_isSet;
+    bool m_b_word_case_sensitive_isValid;
 
     QList<QString> a_s_word;
     bool m_a_s_word_isSet;

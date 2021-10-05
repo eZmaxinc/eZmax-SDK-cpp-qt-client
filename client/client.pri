@@ -28,6 +28,7 @@ HEADERS += \
     $${PWD}/OAICommon_getAutocomplete_v1_Response.h \
     $${PWD}/OAICommon_getAutocomplete_v1_Response_allOf.h \
     $${PWD}/OAICommon_getAutocomplete_v1_Response_mPayload.h \
+    $${PWD}/OAICommon_getList_v1_Response_mPayload.h \
     $${PWD}/OAIContact_Request.h \
     $${PWD}/OAIContact_RequestCompound.h \
     $${PWD}/OAIContact_RequestCompound_allOf.h \
@@ -98,6 +99,11 @@ HEADERS += \
     $${PWD}/OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response_mPayload.h \
     $${PWD}/OAIEzsignfoldersignerassociation_getObject_v1_Response.h \
     $${PWD}/OAIEzsignfoldersignerassociation_getObject_v1_Response_allOf.h \
+    $${PWD}/OAIEzsignfoldertype_ListElement.h \
+    $${PWD}/OAIEzsignfoldertype_getList_v1_Response.h \
+    $${PWD}/OAIEzsignfoldertype_getList_v1_Response_allOf.h \
+    $${PWD}/OAIEzsignfoldertype_getList_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsignfoldertype_getList_v1_Response_mPayload_allOf.h \
     $${PWD}/OAIEzsignformfield_Response.h \
     $${PWD}/OAIEzsignformfield_ResponseCompound.h \
     $${PWD}/OAIEzsignformfieldgroup_Response.h \
@@ -171,6 +177,7 @@ HEADERS += \
     $${PWD}/OAIObjectEzsigndocumentApi.h \
     $${PWD}/OAIObjectEzsignfolderApi.h \
     $${PWD}/OAIObjectEzsignfoldersignerassociationApi.h \
+    $${PWD}/OAIObjectEzsignfoldertypeApi.h \
     $${PWD}/OAIObjectEzsignsignatureApi.h \
     $${PWD}/OAIObjectFranchisebrokerApi.h \
     $${PWD}/OAIObjectFranchiseofficeApi.h \
@@ -213,6 +220,7 @@ SOURCES += \
     $${PWD}/OAICommon_getAutocomplete_v1_Response.cpp \
     $${PWD}/OAICommon_getAutocomplete_v1_Response_allOf.cpp \
     $${PWD}/OAICommon_getAutocomplete_v1_Response_mPayload.cpp \
+    $${PWD}/OAICommon_getList_v1_Response_mPayload.cpp \
     $${PWD}/OAIContact_Request.cpp \
     $${PWD}/OAIContact_RequestCompound.cpp \
     $${PWD}/OAIContact_RequestCompound_allOf.cpp \
@@ -283,6 +291,11 @@ SOURCES += \
     $${PWD}/OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response_mPayload.cpp \
     $${PWD}/OAIEzsignfoldersignerassociation_getObject_v1_Response.cpp \
     $${PWD}/OAIEzsignfoldersignerassociation_getObject_v1_Response_allOf.cpp \
+    $${PWD}/OAIEzsignfoldertype_ListElement.cpp \
+    $${PWD}/OAIEzsignfoldertype_getList_v1_Response.cpp \
+    $${PWD}/OAIEzsignfoldertype_getList_v1_Response_allOf.cpp \
+    $${PWD}/OAIEzsignfoldertype_getList_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsignfoldertype_getList_v1_Response_mPayload_allOf.cpp \
     $${PWD}/OAIEzsignformfield_Response.cpp \
     $${PWD}/OAIEzsignformfield_ResponseCompound.cpp \
     $${PWD}/OAIEzsignformfieldgroup_Response.cpp \
@@ -356,6 +369,7 @@ SOURCES += \
     $${PWD}/OAIObjectEzsigndocumentApi.cpp \
     $${PWD}/OAIObjectEzsignfolderApi.cpp \
     $${PWD}/OAIObjectEzsignfoldersignerassociationApi.cpp \
+    $${PWD}/OAIObjectEzsignfoldertypeApi.cpp \
     $${PWD}/OAIObjectEzsignsignatureApi.cpp \
     $${PWD}/OAIObjectFranchisebrokerApi.cpp \
     $${PWD}/OAIObjectFranchiseofficeApi.cpp \

@@ -37,6 +37,9 @@ void OAIEzsigndocument_getWordsPositions_v1_Request::initializeModel() {
     m_e_get_isSet = false;
     m_e_get_isValid = false;
 
+    m_b_word_case_sensitive_isSet = false;
+    m_b_word_case_sensitive_isValid = false;
+
     m_a_s_word_isSet = false;
     m_a_s_word_isValid = false;
 }
@@ -53,6 +56,9 @@ void OAIEzsigndocument_getWordsPositions_v1_Request::fromJsonObject(QJsonObject 
     m_e_get_isValid = ::OpenAPI::fromJsonValue(e_get, json[QString("eGet")]);
     m_e_get_isSet = !json[QString("eGet")].isNull() && m_e_get_isValid;
 
+    m_b_word_case_sensitive_isValid = ::OpenAPI::fromJsonValue(b_word_case_sensitive, json[QString("bWordCaseSensitive")]);
+    m_b_word_case_sensitive_isSet = !json[QString("bWordCaseSensitive")].isNull() && m_b_word_case_sensitive_isValid;
+
     m_a_s_word_isValid = ::OpenAPI::fromJsonValue(a_s_word, json[QString("a_sWord")]);
     m_a_s_word_isSet = !json[QString("a_sWord")].isNull() && m_a_s_word_isValid;
 }
@@ -68,6 +74,9 @@ QJsonObject OAIEzsigndocument_getWordsPositions_v1_Request::asJsonObject() const
     QJsonObject obj;
     if (m_e_get_isSet) {
         obj.insert(QString("eGet"), ::OpenAPI::toJsonValue(e_get));
+    }
+    if (m_b_word_case_sensitive_isSet) {
+        obj.insert(QString("bWordCaseSensitive"), ::OpenAPI::toJsonValue(b_word_case_sensitive));
     }
     if (a_s_word.size() > 0) {
         obj.insert(QString("a_sWord"), ::OpenAPI::toJsonValue(a_s_word));
@@ -89,6 +98,22 @@ bool OAIEzsigndocument_getWordsPositions_v1_Request::is_e_get_Set() const{
 
 bool OAIEzsigndocument_getWordsPositions_v1_Request::is_e_get_Valid() const{
     return m_e_get_isValid;
+}
+
+bool OAIEzsigndocument_getWordsPositions_v1_Request::isBWordCaseSensitive() const {
+    return b_word_case_sensitive;
+}
+void OAIEzsigndocument_getWordsPositions_v1_Request::setBWordCaseSensitive(const bool &b_word_case_sensitive) {
+    this->b_word_case_sensitive = b_word_case_sensitive;
+    this->m_b_word_case_sensitive_isSet = true;
+}
+
+bool OAIEzsigndocument_getWordsPositions_v1_Request::is_b_word_case_sensitive_Set() const{
+    return m_b_word_case_sensitive_isSet;
+}
+
+bool OAIEzsigndocument_getWordsPositions_v1_Request::is_b_word_case_sensitive_Valid() const{
+    return m_b_word_case_sensitive_isValid;
 }
 
 QList<QString> OAIEzsigndocument_getWordsPositions_v1_Request::getASWord() const {
@@ -115,6 +140,11 @@ bool OAIEzsigndocument_getWordsPositions_v1_Request::isSet() const {
             break;
         }
 
+        if (m_b_word_case_sensitive_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (a_s_word.size() > 0) {
             isObjectUpdated = true;
             break;
@@ -125,7 +155,7 @@ bool OAIEzsigndocument_getWordsPositions_v1_Request::isSet() const {
 
 bool OAIEzsigndocument_getWordsPositions_v1_Request::isValid() const {
     // only required properties are required for the object to be considered valid
-    return true;
+    return m_e_get_isValid && m_b_word_case_sensitive_isValid && true;
 }
 
 } // namespace OpenAPI

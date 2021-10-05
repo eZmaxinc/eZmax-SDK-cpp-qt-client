@@ -41,6 +41,7 @@ add_library(${PROJECT_NAME}
     OAICommon_getAutocomplete_v1_Response.cpp
     OAICommon_getAutocomplete_v1_Response_allOf.cpp
     OAICommon_getAutocomplete_v1_Response_mPayload.cpp
+    OAICommon_getList_v1_Response_mPayload.cpp
     OAIContact_Request.cpp
     OAIContact_RequestCompound.cpp
     OAIContact_RequestCompound_allOf.cpp
@@ -111,6 +112,11 @@ add_library(${PROJECT_NAME}
     OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response_mPayload.cpp
     OAIEzsignfoldersignerassociation_getObject_v1_Response.cpp
     OAIEzsignfoldersignerassociation_getObject_v1_Response_allOf.cpp
+    OAIEzsignfoldertype_ListElement.cpp
+    OAIEzsignfoldertype_getList_v1_Response.cpp
+    OAIEzsignfoldertype_getList_v1_Response_allOf.cpp
+    OAIEzsignfoldertype_getList_v1_Response_mPayload.cpp
+    OAIEzsignfoldertype_getList_v1_Response_mPayload_allOf.cpp
     OAIEzsignformfield_Response.cpp
     OAIEzsignformfield_ResponseCompound.cpp
     OAIEzsignformfieldgroup_Response.cpp
@@ -183,6 +189,7 @@ add_library(${PROJECT_NAME}
     OAIObjectEzsigndocumentApi.cpp
     OAIObjectEzsignfolderApi.cpp
     OAIObjectEzsignfoldersignerassociationApi.cpp
+    OAIObjectEzsignfoldertypeApi.cpp
     OAIObjectEzsignsignatureApi.cpp
     OAIObjectFranchisebrokerApi.cpp
     OAIObjectFranchiseofficeApi.cpp
