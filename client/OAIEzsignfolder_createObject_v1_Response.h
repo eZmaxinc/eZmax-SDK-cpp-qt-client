@@ -24,6 +24,7 @@
 #include "OAICommon_Response.h"
 #include "OAICommon_Response_objDebug.h"
 #include "OAICommon_Response_objDebugPayload.h"
+#include "OAIEzsignfolder_createObject_v1_Response_allOf.h"
 #include "OAIEzsignfolder_createObject_v1_Response_mPayload.h"
 
 #include "OAIEnum.h"

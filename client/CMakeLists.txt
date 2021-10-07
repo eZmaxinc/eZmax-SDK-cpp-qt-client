@@ -89,6 +89,7 @@ add_library(${PROJECT_NAME}
     OAIEzsignfolder_ResponseCompound.cpp
     OAIEzsignfolder_createObject_v1_Request.cpp
     OAIEzsignfolder_createObject_v1_Response.cpp
+    OAIEzsignfolder_createObject_v1_Response_allOf.cpp
     OAIEzsignfolder_createObject_v1_Response_mPayload.cpp
     OAIEzsignfolder_deleteObject_v1_Response.cpp
     OAIEzsignfolder_getFormsData_v1_Response.cpp

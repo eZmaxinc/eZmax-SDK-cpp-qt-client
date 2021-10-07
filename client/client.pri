@@ -76,6 +76,7 @@ HEADERS += \
     $${PWD}/OAIEzsignfolder_ResponseCompound.h \
     $${PWD}/OAIEzsignfolder_createObject_v1_Request.h \
     $${PWD}/OAIEzsignfolder_createObject_v1_Response.h \
+    $${PWD}/OAIEzsignfolder_createObject_v1_Response_allOf.h \
     $${PWD}/OAIEzsignfolder_createObject_v1_Response_mPayload.h \
     $${PWD}/OAIEzsignfolder_deleteObject_v1_Response.h \
     $${PWD}/OAIEzsignfolder_getFormsData_v1_Response.h \
@@ -269,6 +270,7 @@ SOURCES += \
     $${PWD}/OAIEzsignfolder_ResponseCompound.cpp \
     $${PWD}/OAIEzsignfolder_createObject_v1_Request.cpp \
     $${PWD}/OAIEzsignfolder_createObject_v1_Response.cpp \
+    $${PWD}/OAIEzsignfolder_createObject_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsignfolder_createObject_v1_Response_mPayload.cpp \
     $${PWD}/OAIEzsignfolder_deleteObject_v1_Response.cpp \
     $${PWD}/OAIEzsignfolder_getFormsData_v1_Response.cpp \

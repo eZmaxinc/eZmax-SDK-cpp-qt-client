@@ -250,6 +250,7 @@ Class | Method | HTTP request | Description
  - [OAIEzsignfolder_ResponseCompound](OAIEzsignfolder_ResponseCompound.md)
  - [OAIEzsignfolder_createObject_v1_Request](OAIEzsignfolder_createObject_v1_Request.md)
  - [OAIEzsignfolder_createObject_v1_Response](OAIEzsignfolder_createObject_v1_Response.md)
+ - [OAIEzsignfolder_createObject_v1_Response_allOf](OAIEzsignfolder_createObject_v1_Response_allOf.md)
  - [OAIEzsignfolder_createObject_v1_Response_mPayload](OAIEzsignfolder_createObject_v1_Response_mPayload.md)
  - [OAIEzsignfolder_deleteObject_v1_Response](OAIEzsignfolder_deleteObject_v1_Response.md)
  - [OAIEzsignfolder_getFormsData_v1_Response](OAIEzsignfolder_getFormsData_v1_Response.md)
