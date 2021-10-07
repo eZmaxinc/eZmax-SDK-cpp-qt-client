@@ -69,10 +69,10 @@ client/OAIContactinformations_RequestCompound_allOf.cpp
 client/OAIContactinformations_RequestCompound_allOf.h
 client/OAICustom_FormDataDocument_Response.cpp
 client/OAICustom_FormDataDocument_Response.h
-client/OAICustom_FormDataFolder_Response.cpp
-client/OAICustom_FormDataFolder_Response.h
 client/OAICustom_FormDataSigner_Response.cpp
 client/OAICustom_FormDataSigner_Response.h
+client/OAICustom_FormsDataFolder_Response.cpp
+client/OAICustom_FormsDataFolder_Response.h
 client/OAICustom_WordPositionOccurence_Response.cpp
 client/OAICustom_WordPositionOccurence_Response.h
 client/OAICustom_WordPositionWord_Response.cpp
@@ -276,6 +276,8 @@ client/OAIGlobalCustomerApi.cpp
 client/OAIGlobalCustomerApi.h
 client/OAIGlobal_customer_getEndpoint_v1_Response.cpp
 client/OAIGlobal_customer_getEndpoint_v1_Response.h
+client/OAIHeader_Accept_Language.cpp
+client/OAIHeader_Accept_Language.h
 client/OAIHelpers.cpp
 client/OAIHelpers.h
 client/OAIHttpFileElement.cpp

@@ -11,13 +11,13 @@
  */
 
 /*
- * OAICustom_FormDataFolder_Response.h
+ * OAICustom_FormsDataFolder_Response.h
  *
- * A form Data Folder Object
+ * A forms Data Folder Object
  */
 
-#ifndef OAICustom_FormDataFolder_Response_H
-#define OAICustom_FormDataFolder_Response_H
+#ifndef OAICustom_FormsDataFolder_Response_H
+#define OAICustom_FormsDataFolder_Response_H
 
 #include <QJsonObject>
 
@@ -30,11 +30,11 @@
 
 namespace OpenAPI {
 
-class OAICustom_FormDataFolder_Response : public OAIObject {
+class OAICustom_FormsDataFolder_Response : public OAIObject {
 public:
-    OAICustom_FormDataFolder_Response();
-    OAICustom_FormDataFolder_Response(QString json);
-    ~OAICustom_FormDataFolder_Response() override;
+    OAICustom_FormsDataFolder_Response();
+    OAICustom_FormsDataFolder_Response(QString json);
+    ~OAICustom_FormsDataFolder_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
@@ -77,6 +77,6 @@ private:
 
 } // namespace OpenAPI
 
-Q_DECLARE_METATYPE(OpenAPI::OAICustom_FormDataFolder_Response)
+Q_DECLARE_METATYPE(OpenAPI::OAICustom_FormsDataFolder_Response)
 
-#endif // OAICustom_FormDataFolder_Response_H
+#endif // OAICustom_FormsDataFolder_Response_H

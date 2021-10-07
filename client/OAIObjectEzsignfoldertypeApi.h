@@ -17,7 +17,9 @@
 #include "OAIHttpRequest.h"
 #include "OAIServerConfiguration.h"
 
+#include "OAICommon_Response_Error.h"
 #include "OAIEzsignfoldertype_getList_v1_Response.h"
+#include "OAIHeader_Accept_Language.h"
 #include <QString>
 
 #include <QObject>
@@ -56,8 +58,14 @@ public:
     QString getParamStyleSuffix(const QString &style);
     QString getParamStyleDelimiter(const QString &style, const QString &name, bool isExplode);
 
-
-    void ezsignfoldertypeGetListV1();
+    /**
+    * @param[in]  e_order_by QString [optional]
+    * @param[in]  i_row_max qint32 [optional]
+    * @param[in]  i_row_offset qint32 [optional]
+    * @param[in]  accept_language OAIHeader_Accept_Language [optional]
+    * @param[in]  s_filter QString [optional]
+    */
+    void ezsignfoldertypeGetListV1(const ::OpenAPI::OptionalParam<QString> &e_order_by = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<qint32> &i_row_max = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<qint32> &i_row_offset = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<OAIHeader_Accept_Language> &accept_language = ::OpenAPI::OptionalParam<OAIHeader_Accept_Language>(), const ::OpenAPI::OptionalParam<QString> &s_filter = ::OpenAPI::OptionalParam<QString>());
 
 
 private:

@@ -49,8 +49,8 @@ add_library(${PROJECT_NAME}
     OAIContactinformations_RequestCompound.cpp
     OAIContactinformations_RequestCompound_allOf.cpp
     OAICustom_FormDataDocument_Response.cpp
-    OAICustom_FormDataFolder_Response.cpp
     OAICustom_FormDataSigner_Response.cpp
+    OAICustom_FormsDataFolder_Response.cpp
     OAICustom_WordPositionOccurence_Response.cpp
     OAICustom_WordPositionWord_Response.cpp
     OAIEmail_Request.cpp
@@ -151,6 +151,7 @@ add_library(${PROJECT_NAME}
     OAIFranchisereferalincome_createObject_v1_Response_allOf.cpp
     OAIFranchisereferalincome_createObject_v1_Response_mPayload.cpp
     OAIGlobal_customer_getEndpoint_v1_Response.cpp
+    OAIHeader_Accept_Language.cpp
     OAIMultilingual_ApikeyDescription.cpp
     OAIPhone_Request.cpp
     OAISspr_resetPasswordRequest_v1_Request.cpp

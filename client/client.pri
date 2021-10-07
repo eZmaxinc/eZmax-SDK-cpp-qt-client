@@ -36,8 +36,8 @@ HEADERS += \
     $${PWD}/OAIContactinformations_RequestCompound.h \
     $${PWD}/OAIContactinformations_RequestCompound_allOf.h \
     $${PWD}/OAICustom_FormDataDocument_Response.h \
-    $${PWD}/OAICustom_FormDataFolder_Response.h \
     $${PWD}/OAICustom_FormDataSigner_Response.h \
+    $${PWD}/OAICustom_FormsDataFolder_Response.h \
     $${PWD}/OAICustom_WordPositionOccurence_Response.h \
     $${PWD}/OAICustom_WordPositionWord_Response.h \
     $${PWD}/OAIEmail_Request.h \
@@ -138,6 +138,7 @@ HEADERS += \
     $${PWD}/OAIFranchisereferalincome_createObject_v1_Response_allOf.h \
     $${PWD}/OAIFranchisereferalincome_createObject_v1_Response_mPayload.h \
     $${PWD}/OAIGlobal_customer_getEndpoint_v1_Response.h \
+    $${PWD}/OAIHeader_Accept_Language.h \
     $${PWD}/OAIMultilingual_ApikeyDescription.h \
     $${PWD}/OAIPhone_Request.h \
     $${PWD}/OAISspr_resetPasswordRequest_v1_Request.h \
@@ -228,8 +229,8 @@ SOURCES += \
     $${PWD}/OAIContactinformations_RequestCompound.cpp \
     $${PWD}/OAIContactinformations_RequestCompound_allOf.cpp \
     $${PWD}/OAICustom_FormDataDocument_Response.cpp \
-    $${PWD}/OAICustom_FormDataFolder_Response.cpp \
     $${PWD}/OAICustom_FormDataSigner_Response.cpp \
+    $${PWD}/OAICustom_FormsDataFolder_Response.cpp \
     $${PWD}/OAICustom_WordPositionOccurence_Response.cpp \
     $${PWD}/OAICustom_WordPositionWord_Response.cpp \
     $${PWD}/OAIEmail_Request.cpp \
@@ -330,6 +331,7 @@ SOURCES += \
     $${PWD}/OAIFranchisereferalincome_createObject_v1_Response_allOf.cpp \
     $${PWD}/OAIFranchisereferalincome_createObject_v1_Response_mPayload.cpp \
     $${PWD}/OAIGlobal_customer_getEndpoint_v1_Response.cpp \
+    $${PWD}/OAIHeader_Accept_Language.cpp \
     $${PWD}/OAIMultilingual_ApikeyDescription.cpp \
     $${PWD}/OAIPhone_Request.cpp \
     $${PWD}/OAISspr_resetPasswordRequest_v1_Request.cpp \

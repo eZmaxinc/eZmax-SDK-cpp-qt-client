@@ -226,19 +226,124 @@ QString OAIObjectEzsignfoldertypeApi::getParamStyleDelimiter(const QString &styl
     }
 }
 
-void OAIObjectEzsignfoldertypeApi::ezsignfoldertypeGetListV1() {
+void OAIObjectEzsignfoldertypeApi::ezsignfoldertypeGetListV1(const ::OpenAPI::OptionalParam<QString> &e_order_by, const ::OpenAPI::OptionalParam<qint32> &i_row_max, const ::OpenAPI::OptionalParam<qint32> &i_row_offset, const ::OpenAPI::OptionalParam<OAIHeader_Accept_Language> &accept_language, const ::OpenAPI::OptionalParam<QString> &s_filter) {
     QString fullPath = QString(_serverConfigs["ezsignfoldertypeGetListV1"][_serverIndices.value("ezsignfoldertypeGetListV1")].URL()+"/1/object/ezsignfoldertype/getList");
     
     if (_apiKeys.contains("Authorization")) {
         addHeaders("Authorization",_apiKeys.find("Authorization").value());
     }
     
+    QString queryPrefix, querySuffix, queryDelimiter, queryStyle;
+    if (e_order_by.hasValue())
+    {
+        queryStyle = "form";
+        if (queryStyle == "")
+            queryStyle = "form";
+        queryPrefix = getParamStylePrefix(queryStyle);
+        querySuffix = getParamStyleSuffix(queryStyle);
+        queryDelimiter = getParamStyleDelimiter(queryStyle, "eOrderBy", true);
+        if (fullPath.indexOf("?") > 0)
+            fullPath.append(queryPrefix);
+        else
+            fullPath.append("?");
+
+        fullPath.append(QUrl::toPercentEncoding("eOrderBy")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(e_order_by.value())));
+    }
+    if (i_row_max.hasValue())
+    {
+        queryStyle = "form";
+        if (queryStyle == "")
+            queryStyle = "form";
+        queryPrefix = getParamStylePrefix(queryStyle);
+        querySuffix = getParamStyleSuffix(queryStyle);
+        queryDelimiter = getParamStyleDelimiter(queryStyle, "iRowMax", true);
+        if (fullPath.indexOf("?") > 0)
+            fullPath.append(queryPrefix);
+        else
+            fullPath.append("?");
+
+        fullPath.append(QUrl::toPercentEncoding("iRowMax")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(i_row_max.value())));
+    }
+    if (i_row_offset.hasValue())
+    {
+        queryStyle = "form";
+        if (queryStyle == "")
+            queryStyle = "form";
+        queryPrefix = getParamStylePrefix(queryStyle);
+        querySuffix = getParamStyleSuffix(queryStyle);
+        queryDelimiter = getParamStyleDelimiter(queryStyle, "iRowOffset", true);
+        if (fullPath.indexOf("?") > 0)
+            fullPath.append(queryPrefix);
+        else
+            fullPath.append("?");
+
+        fullPath.append(QUrl::toPercentEncoding("iRowOffset")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(i_row_offset.value())));
+    }
+    if (s_filter.hasValue())
+    {
+        queryStyle = "form";
+        if (queryStyle == "")
+            queryStyle = "form";
+        queryPrefix = getParamStylePrefix(queryStyle);
+        querySuffix = getParamStyleSuffix(queryStyle);
+        queryDelimiter = getParamStyleDelimiter(queryStyle, "sFilter", true);
+        if (fullPath.indexOf("?") > 0)
+            fullPath.append(queryPrefix);
+        else
+            fullPath.append("?");
+
+        fullPath.append(QUrl::toPercentEncoding("sFilter")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(s_filter.value())));
+    }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
     worker->setWorkingDirectory(_workingDirectory);
     OAIHttpRequestInput input(fullPath, "GET");
 
 
+    if (accept_language.hasValue())
+    {
+        QString headerString;
+        QJsonObject parameter = accept_language.value().asJsonObject();
+        qint32 count = 0;
+        foreach(const QString& key, parameter.keys()) {
+            if (count > 0) {
+                headerString.append(",");
+            }
+            QString assignOperator = (false) ? "=" : ",";
+            switch(parameter.value(key).type()) {
+                case QJsonValue::String:
+                {
+                    headerString.append(key+assignOperator+parameter.value(key).toString());
+                    break;
+                }
+                case QJsonValue::Double:
+                {
+                    headerString.append(key+assignOperator+QString::number(parameter.value(key).toDouble()));
+                    break;
+                }
+                case QJsonValue::Bool:
+                {
+                    headerString.append(key+assignOperator+QVariant(parameter.value(key).toBool()).toString());
+                    break;
+                }
+                case QJsonValue::Array:
+                {
+                    headerString.append(key+assignOperator+QVariant(parameter.value(key).toArray()).toString());
+                    break;
+                }
+                case QJsonValue::Object:
+                {
+                    headerString.append(key+assignOperator+QVariant(parameter.value(key).toObject()).toString());
+                    break;
+                }
+                case QJsonValue::Null:
+                case QJsonValue::Undefined:
+                    break;
+            }
+            count++;
+        }
+        input.headers.insert("Accept-Language", headerString);
+    }
 #if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
