@@ -40,8 +40,8 @@ void OAICommon_Response_objDebugPayload::initializeModel() {
     m_i_version_max_isSet = false;
     m_i_version_max_isValid = false;
 
-    m_a_required_permissions_isSet = false;
-    m_a_required_permissions_isValid = false;
+    m_a_required_permission_isSet = false;
+    m_a_required_permission_isValid = false;
 }
 
 void OAICommon_Response_objDebugPayload::fromJson(QString jsonString) {
@@ -59,8 +59,8 @@ void OAICommon_Response_objDebugPayload::fromJsonObject(QJsonObject json) {
     m_i_version_max_isValid = ::OpenAPI::fromJsonValue(i_version_max, json[QString("iVersionMax")]);
     m_i_version_max_isSet = !json[QString("iVersionMax")].isNull() && m_i_version_max_isValid;
 
-    m_a_required_permissions_isValid = ::OpenAPI::fromJsonValue(a_required_permissions, json[QString("a_RequiredPermissions")]);
-    m_a_required_permissions_isSet = !json[QString("a_RequiredPermissions")].isNull() && m_a_required_permissions_isValid;
+    m_a_required_permission_isValid = ::OpenAPI::fromJsonValue(a_required_permission, json[QString("a_RequiredPermission")]);
+    m_a_required_permission_isSet = !json[QString("a_RequiredPermission")].isNull() && m_a_required_permission_isValid;
 }
 
 QString OAICommon_Response_objDebugPayload::asJson() const {
@@ -78,8 +78,8 @@ QJsonObject OAICommon_Response_objDebugPayload::asJsonObject() const {
     if (m_i_version_max_isSet) {
         obj.insert(QString("iVersionMax"), ::OpenAPI::toJsonValue(i_version_max));
     }
-    if (a_required_permissions.size() > 0) {
-        obj.insert(QString("a_RequiredPermissions"), ::OpenAPI::toJsonValue(a_required_permissions));
+    if (a_required_permission.size() > 0) {
+        obj.insert(QString("a_RequiredPermission"), ::OpenAPI::toJsonValue(a_required_permission));
     }
     return obj;
 }
@@ -116,20 +116,20 @@ bool OAICommon_Response_objDebugPayload::is_i_version_max_Valid() const{
     return m_i_version_max_isValid;
 }
 
-QList<qint32> OAICommon_Response_objDebugPayload::getARequiredPermissions() const {
-    return a_required_permissions;
+QList<qint32> OAICommon_Response_objDebugPayload::getARequiredPermission() const {
+    return a_required_permission;
 }
-void OAICommon_Response_objDebugPayload::setARequiredPermissions(const QList<qint32> &a_required_permissions) {
-    this->a_required_permissions = a_required_permissions;
-    this->m_a_required_permissions_isSet = true;
-}
-
-bool OAICommon_Response_objDebugPayload::is_a_required_permissions_Set() const{
-    return m_a_required_permissions_isSet;
+void OAICommon_Response_objDebugPayload::setARequiredPermission(const QList<qint32> &a_required_permission) {
+    this->a_required_permission = a_required_permission;
+    this->m_a_required_permission_isSet = true;
 }
 
-bool OAICommon_Response_objDebugPayload::is_a_required_permissions_Valid() const{
-    return m_a_required_permissions_isValid;
+bool OAICommon_Response_objDebugPayload::is_a_required_permission_Set() const{
+    return m_a_required_permission_isSet;
+}
+
+bool OAICommon_Response_objDebugPayload::is_a_required_permission_Valid() const{
+    return m_a_required_permission_isValid;
 }
 
 bool OAICommon_Response_objDebugPayload::isSet() const {
@@ -145,7 +145,7 @@ bool OAICommon_Response_objDebugPayload::isSet() const {
             break;
         }
 
-        if (a_required_permissions.size() > 0) {
+        if (a_required_permission.size() > 0) {
             isObjectUpdated = true;
             break;
         }
@@ -155,7 +155,7 @@ bool OAICommon_Response_objDebugPayload::isSet() const {
 
 bool OAICommon_Response_objDebugPayload::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_i_version_min_isValid && m_i_version_max_isValid && m_a_required_permissions_isValid && true;
+    return m_i_version_min_isValid && m_i_version_max_isValid && m_a_required_permission_isValid && true;
 }
 
 } // namespace OpenAPI

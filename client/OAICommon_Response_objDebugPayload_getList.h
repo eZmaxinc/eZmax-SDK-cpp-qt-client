@@ -11,28 +11,32 @@
  */
 
 /*
- * OAICommon_Response_objDebugPayload.h
+ * OAICommon_Response_objDebugPayload_getList.h
  *
  * This is a debug object containing debugging information on the actual function
  */
 
-#ifndef OAICommon_Response_objDebugPayload_H
-#define OAICommon_Response_objDebugPayload_H
+#ifndef OAICommon_Response_objDebugPayload_getList_H
+#define OAICommon_Response_objDebugPayload_getList_H
 
 #include <QJsonObject>
 
+#include "OAICommon_Response_Filter.h"
+#include "OAICommon_Response_objDebugPayload.h"
+#include "OAICommon_Response_objDebugPayload_getList_allOf.h"
 #include <QList>
+#include <QMap>
 
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
 namespace OpenAPI {
 
-class OAICommon_Response_objDebugPayload : public OAIObject {
+class OAICommon_Response_objDebugPayload_getList : public OAIObject {
 public:
-    OAICommon_Response_objDebugPayload();
-    OAICommon_Response_objDebugPayload(QString json);
-    ~OAICommon_Response_objDebugPayload() override;
+    OAICommon_Response_objDebugPayload_getList();
+    OAICommon_Response_objDebugPayload_getList(QString json);
+    ~OAICommon_Response_objDebugPayload_getList() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
@@ -54,6 +58,16 @@ public:
     bool is_a_required_permission_Set() const;
     bool is_a_required_permission_Valid() const;
 
+    OAICommon_Response_Filter getAFilter() const;
+    void setAFilter(const OAICommon_Response_Filter &a_filter);
+    bool is_a_filter_Set() const;
+    bool is_a_filter_Valid() const;
+
+    QMap<QString, QString> getAOrderBy() const;
+    void setAOrderBy(const QMap<QString, QString> &a_order_by);
+    bool is_a_order_by_Set() const;
+    bool is_a_order_by_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -71,10 +85,18 @@ private:
     QList<qint32> a_required_permission;
     bool m_a_required_permission_isSet;
     bool m_a_required_permission_isValid;
+
+    OAICommon_Response_Filter a_filter;
+    bool m_a_filter_isSet;
+    bool m_a_filter_isValid;
+
+    QMap<QString, QString> a_order_by;
+    bool m_a_order_by_isSet;
+    bool m_a_order_by_isValid;
 };
 
 } // namespace OpenAPI
 
-Q_DECLARE_METATYPE(OpenAPI::OAICommon_Response_objDebugPayload)
+Q_DECLARE_METATYPE(OpenAPI::OAICommon_Response_objDebugPayload_getList)
 
-#endif // OAICommon_Response_objDebugPayload_H
+#endif // OAICommon_Response_objDebugPayload_getList_H

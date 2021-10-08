@@ -34,8 +34,12 @@ add_library(${PROJECT_NAME}
     OAICommon_Audit.cpp
     OAICommon_Response.cpp
     OAICommon_Response_Error.cpp
+    OAICommon_Response_Filter.cpp
+    OAICommon_Response_getList.cpp
     OAICommon_Response_objDebug.cpp
     OAICommon_Response_objDebugPayload.cpp
+    OAICommon_Response_objDebugPayload_getList.cpp
+    OAICommon_Response_objDebugPayload_getList_allOf.cpp
     OAICommon_Response_objSQLQuery.cpp
     OAICommon_Webhook.cpp
     OAICommon_getAutocomplete_v1_Response.cpp
@@ -140,6 +144,7 @@ add_library(${PROJECT_NAME}
     OAIField_eEzsigndocumentStep.cpp
     OAIField_eEzsignfolderSendreminderfrequency.cpp
     OAIField_eEzsignfolderStep.cpp
+    OAIField_eEzsignfoldertypePrivacylevel.cpp
     OAIField_eEzsignsignatureType.cpp
     OAIField_ePhoneType.cpp
     OAIField_eUserType.cpp

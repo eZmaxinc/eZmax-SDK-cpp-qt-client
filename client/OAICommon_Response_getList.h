@@ -11,42 +11,34 @@
  */
 
 /*
- * OAIEzsignfoldertype_getList_v1_Response.h
+ * OAICommon_Response_getList.h
  *
- * Response for the /1/object/ezsignfoldertype/getList API Request
+ * All API response will inherit this based Response
  */
 
-#ifndef OAIEzsignfoldertype_getList_v1_Response_H
-#define OAIEzsignfoldertype_getList_v1_Response_H
+#ifndef OAICommon_Response_getList_H
+#define OAICommon_Response_getList_H
 
 #include <QJsonObject>
 
-#include "OAICommon_Response_getList.h"
 #include "OAICommon_Response_objDebug.h"
 #include "OAICommon_Response_objDebugPayload_getList.h"
-#include "OAIEzsignfoldertype_getList_v1_Response_allOf.h"
-#include "OAIEzsignfoldertype_getList_v1_Response_mPayload.h"
 
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
 namespace OpenAPI {
 
-class OAIEzsignfoldertype_getList_v1_Response : public OAIObject {
+class OAICommon_Response_getList : public OAIObject {
 public:
-    OAIEzsignfoldertype_getList_v1_Response();
-    OAIEzsignfoldertype_getList_v1_Response(QString json);
-    ~OAIEzsignfoldertype_getList_v1_Response() override;
+    OAICommon_Response_getList();
+    OAICommon_Response_getList(QString json);
+    ~OAICommon_Response_getList() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
-
-    OAIEzsignfoldertype_getList_v1_Response_mPayload getMPayload() const;
-    void setMPayload(const OAIEzsignfoldertype_getList_v1_Response_mPayload &m_payload);
-    bool is_m_payload_Set() const;
-    bool is_m_payload_Valid() const;
 
     OAICommon_Response_objDebugPayload_getList getObjDebugPayload() const;
     void setObjDebugPayload(const OAICommon_Response_objDebugPayload_getList &obj_debug_payload);
@@ -64,10 +56,6 @@ public:
 private:
     void initializeModel();
 
-    OAIEzsignfoldertype_getList_v1_Response_mPayload m_payload;
-    bool m_m_payload_isSet;
-    bool m_m_payload_isValid;
-
     OAICommon_Response_objDebugPayload_getList obj_debug_payload;
     bool m_obj_debug_payload_isSet;
     bool m_obj_debug_payload_isValid;
@@ -79,6 +67,6 @@ private:
 
 } // namespace OpenAPI
 
-Q_DECLARE_METATYPE(OpenAPI::OAIEzsignfoldertype_getList_v1_Response)
+Q_DECLARE_METATYPE(OpenAPI::OAICommon_Response_getList)
 
-#endif // OAIEzsignfoldertype_getList_v1_Response_H
+#endif // OAICommon_Response_getList_H

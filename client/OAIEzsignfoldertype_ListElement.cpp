@@ -37,8 +37,14 @@ void OAIEzsignfoldertype_ListElement::initializeModel() {
     m_pki_ezsignfoldertype_id_isSet = false;
     m_pki_ezsignfoldertype_id_isValid = false;
 
+    m_e_ezsignfoldertype_privacylevel_isSet = false;
+    m_e_ezsignfoldertype_privacylevel_isValid = false;
+
     m_s_ezsignfoldertype_name_x_isSet = false;
     m_s_ezsignfoldertype_name_x_isValid = false;
+
+    m_b_ezsignfoldertype_isactive_isSet = false;
+    m_b_ezsignfoldertype_isactive_isValid = false;
 }
 
 void OAIEzsignfoldertype_ListElement::fromJson(QString jsonString) {
@@ -53,8 +59,14 @@ void OAIEzsignfoldertype_ListElement::fromJsonObject(QJsonObject json) {
     m_pki_ezsignfoldertype_id_isValid = ::OpenAPI::fromJsonValue(pki_ezsignfoldertype_id, json[QString("pkiEzsignfoldertypeID")]);
     m_pki_ezsignfoldertype_id_isSet = !json[QString("pkiEzsignfoldertypeID")].isNull() && m_pki_ezsignfoldertype_id_isValid;
 
+    m_e_ezsignfoldertype_privacylevel_isValid = ::OpenAPI::fromJsonValue(e_ezsignfoldertype_privacylevel, json[QString("eEzsignfoldertypePrivacylevel")]);
+    m_e_ezsignfoldertype_privacylevel_isSet = !json[QString("eEzsignfoldertypePrivacylevel")].isNull() && m_e_ezsignfoldertype_privacylevel_isValid;
+
     m_s_ezsignfoldertype_name_x_isValid = ::OpenAPI::fromJsonValue(s_ezsignfoldertype_name_x, json[QString("sEzsignfoldertypeNameX")]);
     m_s_ezsignfoldertype_name_x_isSet = !json[QString("sEzsignfoldertypeNameX")].isNull() && m_s_ezsignfoldertype_name_x_isValid;
+
+    m_b_ezsignfoldertype_isactive_isValid = ::OpenAPI::fromJsonValue(b_ezsignfoldertype_isactive, json[QString("bEzsignfoldertypeIsactive")]);
+    m_b_ezsignfoldertype_isactive_isSet = !json[QString("bEzsignfoldertypeIsactive")].isNull() && m_b_ezsignfoldertype_isactive_isValid;
 }
 
 QString OAIEzsignfoldertype_ListElement::asJson() const {
@@ -69,8 +81,14 @@ QJsonObject OAIEzsignfoldertype_ListElement::asJsonObject() const {
     if (m_pki_ezsignfoldertype_id_isSet) {
         obj.insert(QString("pkiEzsignfoldertypeID"), ::OpenAPI::toJsonValue(pki_ezsignfoldertype_id));
     }
+    if (e_ezsignfoldertype_privacylevel.isSet()) {
+        obj.insert(QString("eEzsignfoldertypePrivacylevel"), ::OpenAPI::toJsonValue(e_ezsignfoldertype_privacylevel));
+    }
     if (m_s_ezsignfoldertype_name_x_isSet) {
         obj.insert(QString("sEzsignfoldertypeNameX"), ::OpenAPI::toJsonValue(s_ezsignfoldertype_name_x));
+    }
+    if (m_b_ezsignfoldertype_isactive_isSet) {
+        obj.insert(QString("bEzsignfoldertypeIsactive"), ::OpenAPI::toJsonValue(b_ezsignfoldertype_isactive));
     }
     return obj;
 }
@@ -91,6 +109,22 @@ bool OAIEzsignfoldertype_ListElement::is_pki_ezsignfoldertype_id_Valid() const{
     return m_pki_ezsignfoldertype_id_isValid;
 }
 
+OAIField_eEzsignfoldertypePrivacylevel OAIEzsignfoldertype_ListElement::getEEzsignfoldertypePrivacylevel() const {
+    return e_ezsignfoldertype_privacylevel;
+}
+void OAIEzsignfoldertype_ListElement::setEEzsignfoldertypePrivacylevel(const OAIField_eEzsignfoldertypePrivacylevel &e_ezsignfoldertype_privacylevel) {
+    this->e_ezsignfoldertype_privacylevel = e_ezsignfoldertype_privacylevel;
+    this->m_e_ezsignfoldertype_privacylevel_isSet = true;
+}
+
+bool OAIEzsignfoldertype_ListElement::is_e_ezsignfoldertype_privacylevel_Set() const{
+    return m_e_ezsignfoldertype_privacylevel_isSet;
+}
+
+bool OAIEzsignfoldertype_ListElement::is_e_ezsignfoldertype_privacylevel_Valid() const{
+    return m_e_ezsignfoldertype_privacylevel_isValid;
+}
+
 QString OAIEzsignfoldertype_ListElement::getSEzsignfoldertypeNameX() const {
     return s_ezsignfoldertype_name_x;
 }
@@ -107,6 +141,22 @@ bool OAIEzsignfoldertype_ListElement::is_s_ezsignfoldertype_name_x_Valid() const
     return m_s_ezsignfoldertype_name_x_isValid;
 }
 
+bool OAIEzsignfoldertype_ListElement::isBEzsignfoldertypeIsactive() const {
+    return b_ezsignfoldertype_isactive;
+}
+void OAIEzsignfoldertype_ListElement::setBEzsignfoldertypeIsactive(const bool &b_ezsignfoldertype_isactive) {
+    this->b_ezsignfoldertype_isactive = b_ezsignfoldertype_isactive;
+    this->m_b_ezsignfoldertype_isactive_isSet = true;
+}
+
+bool OAIEzsignfoldertype_ListElement::is_b_ezsignfoldertype_isactive_Set() const{
+    return m_b_ezsignfoldertype_isactive_isSet;
+}
+
+bool OAIEzsignfoldertype_ListElement::is_b_ezsignfoldertype_isactive_Valid() const{
+    return m_b_ezsignfoldertype_isactive_isValid;
+}
+
 bool OAIEzsignfoldertype_ListElement::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -115,7 +165,17 @@ bool OAIEzsignfoldertype_ListElement::isSet() const {
             break;
         }
 
+        if (e_ezsignfoldertype_privacylevel.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (m_s_ezsignfoldertype_name_x_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_b_ezsignfoldertype_isactive_isSet) {
             isObjectUpdated = true;
             break;
         }
@@ -125,7 +185,7 @@ bool OAIEzsignfoldertype_ListElement::isSet() const {
 
 bool OAIEzsignfoldertype_ListElement::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_pki_ezsignfoldertype_id_isValid && m_s_ezsignfoldertype_name_x_isValid && true;
+    return m_pki_ezsignfoldertype_id_isValid && m_e_ezsignfoldertype_privacylevel_isValid && m_s_ezsignfoldertype_name_x_isValid && m_b_ezsignfoldertype_isactive_isValid && true;
 }
 
 } // namespace OpenAPI

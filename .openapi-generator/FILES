@@ -39,10 +39,18 @@ client/OAICommon_Response.cpp
 client/OAICommon_Response.h
 client/OAICommon_Response_Error.cpp
 client/OAICommon_Response_Error.h
+client/OAICommon_Response_Filter.cpp
+client/OAICommon_Response_Filter.h
+client/OAICommon_Response_getList.cpp
+client/OAICommon_Response_getList.h
 client/OAICommon_Response_objDebug.cpp
 client/OAICommon_Response_objDebug.h
 client/OAICommon_Response_objDebugPayload.cpp
 client/OAICommon_Response_objDebugPayload.h
+client/OAICommon_Response_objDebugPayload_getList.cpp
+client/OAICommon_Response_objDebugPayload_getList.h
+client/OAICommon_Response_objDebugPayload_getList_allOf.cpp
+client/OAICommon_Response_objDebugPayload_getList_allOf.h
 client/OAICommon_Response_objSQLQuery.cpp
 client/OAICommon_Response_objSQLQuery.h
 client/OAICommon_Webhook.cpp
@@ -252,6 +260,8 @@ client/OAIField_eEzsignfolderSendreminderfrequency.cpp
 client/OAIField_eEzsignfolderSendreminderfrequency.h
 client/OAIField_eEzsignfolderStep.cpp
 client/OAIField_eEzsignfolderStep.h
+client/OAIField_eEzsignfoldertypePrivacylevel.cpp
+client/OAIField_eEzsignfoldertypePrivacylevel.h
 client/OAIField_eEzsignsignatureType.cpp
 client/OAIField_eEzsignsignatureType.h
 client/OAIField_ePhoneType.cpp

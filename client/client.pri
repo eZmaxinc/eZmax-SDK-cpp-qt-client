@@ -21,8 +21,12 @@ HEADERS += \
     $${PWD}/OAICommon_Audit.h \
     $${PWD}/OAICommon_Response.h \
     $${PWD}/OAICommon_Response_Error.h \
+    $${PWD}/OAICommon_Response_Filter.h \
+    $${PWD}/OAICommon_Response_getList.h \
     $${PWD}/OAICommon_Response_objDebug.h \
     $${PWD}/OAICommon_Response_objDebugPayload.h \
+    $${PWD}/OAICommon_Response_objDebugPayload_getList.h \
+    $${PWD}/OAICommon_Response_objDebugPayload_getList_allOf.h \
     $${PWD}/OAICommon_Response_objSQLQuery.h \
     $${PWD}/OAICommon_Webhook.h \
     $${PWD}/OAICommon_getAutocomplete_v1_Response.h \
@@ -127,6 +131,7 @@ HEADERS += \
     $${PWD}/OAIField_eEzsigndocumentStep.h \
     $${PWD}/OAIField_eEzsignfolderSendreminderfrequency.h \
     $${PWD}/OAIField_eEzsignfolderStep.h \
+    $${PWD}/OAIField_eEzsignfoldertypePrivacylevel.h \
     $${PWD}/OAIField_eEzsignsignatureType.h \
     $${PWD}/OAIField_ePhoneType.h \
     $${PWD}/OAIField_eUserType.h \
@@ -215,8 +220,12 @@ SOURCES += \
     $${PWD}/OAICommon_Audit.cpp \
     $${PWD}/OAICommon_Response.cpp \
     $${PWD}/OAICommon_Response_Error.cpp \
+    $${PWD}/OAICommon_Response_Filter.cpp \
+    $${PWD}/OAICommon_Response_getList.cpp \
     $${PWD}/OAICommon_Response_objDebug.cpp \
     $${PWD}/OAICommon_Response_objDebugPayload.cpp \
+    $${PWD}/OAICommon_Response_objDebugPayload_getList.cpp \
+    $${PWD}/OAICommon_Response_objDebugPayload_getList_allOf.cpp \
     $${PWD}/OAICommon_Response_objSQLQuery.cpp \
     $${PWD}/OAICommon_Webhook.cpp \
     $${PWD}/OAICommon_getAutocomplete_v1_Response.cpp \
@@ -321,6 +330,7 @@ SOURCES += \
     $${PWD}/OAIField_eEzsigndocumentStep.cpp \
     $${PWD}/OAIField_eEzsignfolderSendreminderfrequency.cpp \
     $${PWD}/OAIField_eEzsignfolderStep.cpp \
+    $${PWD}/OAIField_eEzsignfoldertypePrivacylevel.cpp \
     $${PWD}/OAIField_eEzsignsignatureType.cpp \
     $${PWD}/OAIField_ePhoneType.cpp \
     $${PWD}/OAIField_eUserType.cpp \
