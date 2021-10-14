@@ -18,6 +18,7 @@
 #include "OAIServerConfiguration.h"
 
 #include "OAICommon_Response_Error.h"
+#include "OAICommon_getAutocomplete_v1_Response.h"
 #include "OAIEzsignfoldertype_getList_v1_Response.h"
 #include "OAIHeader_Accept_Language.h"
 #include <QString>
@@ -59,6 +60,13 @@ public:
     QString getParamStyleDelimiter(const QString &style, const QString &name, bool isExplode);
 
     /**
+    * @param[in]  s_selector QString [required]
+    * @param[in]  accept_language OAIHeader_Accept_Language [optional]
+    * @param[in]  s_query QString [optional]
+    */
+    void ezsignfoldertypeGetAutocompleteV1(const QString &s_selector, const ::OpenAPI::OptionalParam<OAIHeader_Accept_Language> &accept_language = ::OpenAPI::OptionalParam<OAIHeader_Accept_Language>(), const ::OpenAPI::OptionalParam<QString> &s_query = ::OpenAPI::OptionalParam<QString>());
+
+    /**
     * @param[in]  e_order_by QString [optional]
     * @param[in]  i_row_max qint32 [optional]
     * @param[in]  i_row_offset qint32 [optional]
@@ -82,16 +90,21 @@ private:
     bool _isResponseCompressionEnabled;
     bool _isRequestCompressionEnabled;
 
+    void ezsignfoldertypeGetAutocompleteV1Callback(OAIHttpRequestWorker *worker);
     void ezsignfoldertypeGetListV1Callback(OAIHttpRequestWorker *worker);
 
 signals:
 
+    void ezsignfoldertypeGetAutocompleteV1Signal(OAICommon_getAutocomplete_v1_Response summary);
     void ezsignfoldertypeGetListV1Signal(OAIEzsignfoldertype_getList_v1_Response summary);
 
+    void ezsignfoldertypeGetAutocompleteV1SignalFull(OAIHttpRequestWorker *worker, OAICommon_getAutocomplete_v1_Response summary);
     void ezsignfoldertypeGetListV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsignfoldertype_getList_v1_Response summary);
 
+    void ezsignfoldertypeGetAutocompleteV1SignalE(OAICommon_getAutocomplete_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfoldertypeGetListV1SignalE(OAIEzsignfoldertype_getList_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
 
+    void ezsignfoldertypeGetAutocompleteV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfoldertypeGetListV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
 
     void abortRequestsSignal();

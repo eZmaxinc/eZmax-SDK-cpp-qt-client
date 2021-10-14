@@ -11,46 +11,45 @@
  */
 
 /*
- * OAICommon_getAutocomplete_v1_Response.h
+ * OAIEzsignfolder_getList_v1_Response.h
  *
- * Response for the /1/object/xxx/getAutocomplete API Request
+ * Response for the /1/object/ezsignfolder/getList API Request
  */
 
-#ifndef OAICommon_getAutocomplete_v1_Response_H
-#define OAICommon_getAutocomplete_v1_Response_H
+#ifndef OAIEzsignfolder_getList_v1_Response_H
+#define OAIEzsignfolder_getList_v1_Response_H
 
 #include <QJsonObject>
 
-#include "OAICommon_Response.h"
+#include "OAICommon_Response_getList.h"
 #include "OAICommon_Response_objDebug.h"
-#include "OAICommon_Response_objDebugPayload.h"
-#include "OAICommon_getAutocomplete_v1_Response_allOf.h"
-#include "OAICustom_AutocompleteElement_Response.h"
-#include <QList>
+#include "OAICommon_Response_objDebugPayload_getList.h"
+#include "OAIEzsignfolder_getList_v1_Response_allOf.h"
+#include "OAIEzsignfolder_getList_v1_Response_mPayload.h"
 
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
 namespace OpenAPI {
 
-class OAICommon_getAutocomplete_v1_Response : public OAIObject {
+class OAIEzsignfolder_getList_v1_Response : public OAIObject {
 public:
-    OAICommon_getAutocomplete_v1_Response();
-    OAICommon_getAutocomplete_v1_Response(QString json);
-    ~OAICommon_getAutocomplete_v1_Response() override;
+    OAIEzsignfolder_getList_v1_Response();
+    OAIEzsignfolder_getList_v1_Response(QString json);
+    ~OAIEzsignfolder_getList_v1_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    QList<OAICustom_AutocompleteElement_Response> getMPayload() const;
-    void setMPayload(const QList<OAICustom_AutocompleteElement_Response> &m_payload);
+    OAIEzsignfolder_getList_v1_Response_mPayload getMPayload() const;
+    void setMPayload(const OAIEzsignfolder_getList_v1_Response_mPayload &m_payload);
     bool is_m_payload_Set() const;
     bool is_m_payload_Valid() const;
 
-    OAICommon_Response_objDebugPayload getObjDebugPayload() const;
-    void setObjDebugPayload(const OAICommon_Response_objDebugPayload &obj_debug_payload);
+    OAICommon_Response_objDebugPayload_getList getObjDebugPayload() const;
+    void setObjDebugPayload(const OAICommon_Response_objDebugPayload_getList &obj_debug_payload);
     bool is_obj_debug_payload_Set() const;
     bool is_obj_debug_payload_Valid() const;
 
@@ -65,11 +64,11 @@ public:
 private:
     void initializeModel();
 
-    QList<OAICustom_AutocompleteElement_Response> m_payload;
+    OAIEzsignfolder_getList_v1_Response_mPayload m_payload;
     bool m_m_payload_isSet;
     bool m_m_payload_isValid;
 
-    OAICommon_Response_objDebugPayload obj_debug_payload;
+    OAICommon_Response_objDebugPayload_getList obj_debug_payload;
     bool m_obj_debug_payload_isSet;
     bool m_obj_debug_payload_isValid;
 
@@ -80,6 +79,6 @@ private:
 
 } // namespace OpenAPI
 
-Q_DECLARE_METATYPE(OpenAPI::OAICommon_getAutocomplete_v1_Response)
+Q_DECLARE_METATYPE(OpenAPI::OAIEzsignfolder_getList_v1_Response)
 
-#endif // OAICommon_getAutocomplete_v1_Response_H
+#endif // OAIEzsignfolder_getList_v1_Response_H

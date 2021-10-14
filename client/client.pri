@@ -31,7 +31,6 @@ HEADERS += \
     $${PWD}/OAICommon_Webhook.h \
     $${PWD}/OAICommon_getAutocomplete_v1_Response.h \
     $${PWD}/OAICommon_getAutocomplete_v1_Response_allOf.h \
-    $${PWD}/OAICommon_getAutocomplete_v1_Response_mPayload.h \
     $${PWD}/OAICommon_getList_v1_Response_mPayload.h \
     $${PWD}/OAIContact_Request.h \
     $${PWD}/OAIContact_RequestCompound.h \
@@ -39,6 +38,7 @@ HEADERS += \
     $${PWD}/OAIContactinformations_Request.h \
     $${PWD}/OAIContactinformations_RequestCompound.h \
     $${PWD}/OAIContactinformations_RequestCompound_allOf.h \
+    $${PWD}/OAICustom_AutocompleteElement_Response.h \
     $${PWD}/OAICustom_FormDataDocument_Response.h \
     $${PWD}/OAICustom_FormDataSigner_Response.h \
     $${PWD}/OAICustom_FormsDataFolder_Response.h \
@@ -73,6 +73,7 @@ HEADERS += \
     $${PWD}/OAIEzsigndocument_getWordsPositions_v1_Request.h \
     $${PWD}/OAIEzsigndocument_getWordsPositions_v1_Response.h \
     $${PWD}/OAIEzsigndocument_getWordsPositions_v1_Response_allOf.h \
+    $${PWD}/OAIEzsignfolder_ListElement.h \
     $${PWD}/OAIEzsignfolder_Request.h \
     $${PWD}/OAIEzsignfolder_RequestCompound.h \
     $${PWD}/OAIEzsignfolder_RequestCompound_allOf.h \
@@ -86,6 +87,10 @@ HEADERS += \
     $${PWD}/OAIEzsignfolder_getFormsData_v1_Response.h \
     $${PWD}/OAIEzsignfolder_getFormsData_v1_Response_allOf.h \
     $${PWD}/OAIEzsignfolder_getFormsData_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsignfolder_getList_v1_Response.h \
+    $${PWD}/OAIEzsignfolder_getList_v1_Response_allOf.h \
+    $${PWD}/OAIEzsignfolder_getList_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsignfolder_getList_v1_Response_mPayload_allOf.h \
     $${PWD}/OAIEzsignfolder_getObject_v1_Response.h \
     $${PWD}/OAIEzsignfolder_getObject_v1_Response_allOf.h \
     $${PWD}/OAIEzsignfolder_getObject_v1_Response_mPayload.h \
@@ -230,7 +235,6 @@ SOURCES += \
     $${PWD}/OAICommon_Webhook.cpp \
     $${PWD}/OAICommon_getAutocomplete_v1_Response.cpp \
     $${PWD}/OAICommon_getAutocomplete_v1_Response_allOf.cpp \
-    $${PWD}/OAICommon_getAutocomplete_v1_Response_mPayload.cpp \
     $${PWD}/OAICommon_getList_v1_Response_mPayload.cpp \
     $${PWD}/OAIContact_Request.cpp \
     $${PWD}/OAIContact_RequestCompound.cpp \
@@ -238,6 +242,7 @@ SOURCES += \
     $${PWD}/OAIContactinformations_Request.cpp \
     $${PWD}/OAIContactinformations_RequestCompound.cpp \
     $${PWD}/OAIContactinformations_RequestCompound_allOf.cpp \
+    $${PWD}/OAICustom_AutocompleteElement_Response.cpp \
     $${PWD}/OAICustom_FormDataDocument_Response.cpp \
     $${PWD}/OAICustom_FormDataSigner_Response.cpp \
     $${PWD}/OAICustom_FormsDataFolder_Response.cpp \
@@ -272,6 +277,7 @@ SOURCES += \
     $${PWD}/OAIEzsigndocument_getWordsPositions_v1_Request.cpp \
     $${PWD}/OAIEzsigndocument_getWordsPositions_v1_Response.cpp \
     $${PWD}/OAIEzsigndocument_getWordsPositions_v1_Response_allOf.cpp \
+    $${PWD}/OAIEzsignfolder_ListElement.cpp \
     $${PWD}/OAIEzsignfolder_Request.cpp \
     $${PWD}/OAIEzsignfolder_RequestCompound.cpp \
     $${PWD}/OAIEzsignfolder_RequestCompound_allOf.cpp \
@@ -285,6 +291,10 @@ SOURCES += \
     $${PWD}/OAIEzsignfolder_getFormsData_v1_Response.cpp \
     $${PWD}/OAIEzsignfolder_getFormsData_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsignfolder_getFormsData_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsignfolder_getList_v1_Response.cpp \
+    $${PWD}/OAIEzsignfolder_getList_v1_Response_allOf.cpp \
+    $${PWD}/OAIEzsignfolder_getList_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsignfolder_getList_v1_Response_mPayload_allOf.cpp \
     $${PWD}/OAIEzsignfolder_getObject_v1_Response.cpp \
     $${PWD}/OAIEzsignfolder_getObject_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsignfolder_getObject_v1_Response_mPayload.cpp \

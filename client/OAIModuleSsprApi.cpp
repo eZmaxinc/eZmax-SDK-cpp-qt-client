@@ -40,7 +40,7 @@ void OAIModuleSsprApi::initializeServerConfigs() {
     QSet<QString>{ {"prod"},{"stg"},{"qa"},{"dev"} })},
     
     {"sInfrastructureregionCode", OAIServerVariable("The region where your services are hosted.","ca-central-1",
-    QSet<QString>{ {"ca-central-1"},{"local"} })}, }));
+    QSet<QString>{ {"ca-central-1"} })}, }));
     
     defaultConf.append(OAIServerConfiguration(
     QUrl("https://{sInfrastructureenvironmenttypeDescription}.api.global.ezmax.com/"),

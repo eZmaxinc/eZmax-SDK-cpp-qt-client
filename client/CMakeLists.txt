@@ -44,7 +44,6 @@ add_library(${PROJECT_NAME}
     OAICommon_Webhook.cpp
     OAICommon_getAutocomplete_v1_Response.cpp
     OAICommon_getAutocomplete_v1_Response_allOf.cpp
-    OAICommon_getAutocomplete_v1_Response_mPayload.cpp
     OAICommon_getList_v1_Response_mPayload.cpp
     OAIContact_Request.cpp
     OAIContact_RequestCompound.cpp
@@ -52,6 +51,7 @@ add_library(${PROJECT_NAME}
     OAIContactinformations_Request.cpp
     OAIContactinformations_RequestCompound.cpp
     OAIContactinformations_RequestCompound_allOf.cpp
+    OAICustom_AutocompleteElement_Response.cpp
     OAICustom_FormDataDocument_Response.cpp
     OAICustom_FormDataSigner_Response.cpp
     OAICustom_FormsDataFolder_Response.cpp
@@ -86,6 +86,7 @@ add_library(${PROJECT_NAME}
     OAIEzsigndocument_getWordsPositions_v1_Request.cpp
     OAIEzsigndocument_getWordsPositions_v1_Response.cpp
     OAIEzsigndocument_getWordsPositions_v1_Response_allOf.cpp
+    OAIEzsignfolder_ListElement.cpp
     OAIEzsignfolder_Request.cpp
     OAIEzsignfolder_RequestCompound.cpp
     OAIEzsignfolder_RequestCompound_allOf.cpp
@@ -99,6 +100,10 @@ add_library(${PROJECT_NAME}
     OAIEzsignfolder_getFormsData_v1_Response.cpp
     OAIEzsignfolder_getFormsData_v1_Response_allOf.cpp
     OAIEzsignfolder_getFormsData_v1_Response_mPayload.cpp
+    OAIEzsignfolder_getList_v1_Response.cpp
+    OAIEzsignfolder_getList_v1_Response_allOf.cpp
+    OAIEzsignfolder_getList_v1_Response_mPayload.cpp
+    OAIEzsignfolder_getList_v1_Response_mPayload_allOf.cpp
     OAIEzsignfolder_getObject_v1_Response.cpp
     OAIEzsignfolder_getObject_v1_Response_allOf.cpp
     OAIEzsignfolder_getObject_v1_Response_mPayload.cpp

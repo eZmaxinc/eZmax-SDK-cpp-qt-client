@@ -22,9 +22,11 @@
 #include "OAIEzsignfolder_createObject_v1_Response.h"
 #include "OAIEzsignfolder_deleteObject_v1_Response.h"
 #include "OAIEzsignfolder_getFormsData_v1_Response.h"
+#include "OAIEzsignfolder_getList_v1_Response.h"
 #include "OAIEzsignfolder_getObject_v1_Response.h"
 #include "OAIEzsignfolder_send_v1_Request.h"
 #include "OAIEzsignfolder_send_v1_Response.h"
+#include "OAIHeader_Accept_Language.h"
 #include <QList>
 #include <QString>
 
@@ -85,6 +87,15 @@ public:
     void ezsignfolderGetFormsDataV1(const qint32 &pki_ezsignfolder_id);
 
     /**
+    * @param[in]  e_order_by QString [optional]
+    * @param[in]  i_row_max qint32 [optional]
+    * @param[in]  i_row_offset qint32 [optional]
+    * @param[in]  accept_language OAIHeader_Accept_Language [optional]
+    * @param[in]  s_filter QString [optional]
+    */
+    void ezsignfolderGetListV1(const ::OpenAPI::OptionalParam<QString> &e_order_by = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<qint32> &i_row_max = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<qint32> &i_row_offset = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<OAIHeader_Accept_Language> &accept_language = ::OpenAPI::OptionalParam<OAIHeader_Accept_Language>(), const ::OpenAPI::OptionalParam<QString> &s_filter = ::OpenAPI::OptionalParam<QString>());
+
+    /**
     * @param[in]  pki_ezsignfolder_id qint32 [required]
     */
     void ezsignfolderGetObjectV1(const qint32 &pki_ezsignfolder_id);
@@ -114,6 +125,7 @@ private:
     void ezsignfolderDeleteObjectV1Callback(OAIHttpRequestWorker *worker);
     void ezsignfolderGetChildrenV1Callback(OAIHttpRequestWorker *worker);
     void ezsignfolderGetFormsDataV1Callback(OAIHttpRequestWorker *worker);
+    void ezsignfolderGetListV1Callback(OAIHttpRequestWorker *worker);
     void ezsignfolderGetObjectV1Callback(OAIHttpRequestWorker *worker);
     void ezsignfolderSendV1Callback(OAIHttpRequestWorker *worker);
 
@@ -123,6 +135,7 @@ signals:
     void ezsignfolderDeleteObjectV1Signal(OAIEzsignfolder_deleteObject_v1_Response summary);
     void ezsignfolderGetChildrenV1Signal();
     void ezsignfolderGetFormsDataV1Signal(OAIEzsignfolder_getFormsData_v1_Response summary);
+    void ezsignfolderGetListV1Signal(OAIEzsignfolder_getList_v1_Response summary);
     void ezsignfolderGetObjectV1Signal(OAIEzsignfolder_getObject_v1_Response summary);
     void ezsignfolderSendV1Signal(OAIEzsignfolder_send_v1_Response summary);
 
@@ -130,6 +143,7 @@ signals:
     void ezsignfolderDeleteObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsignfolder_deleteObject_v1_Response summary);
     void ezsignfolderGetChildrenV1SignalFull(OAIHttpRequestWorker *worker);
     void ezsignfolderGetFormsDataV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsignfolder_getFormsData_v1_Response summary);
+    void ezsignfolderGetListV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsignfolder_getList_v1_Response summary);
     void ezsignfolderGetObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsignfolder_getObject_v1_Response summary);
     void ezsignfolderSendV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsignfolder_send_v1_Response summary);
 
@@ -137,6 +151,7 @@ signals:
     void ezsignfolderDeleteObjectV1SignalE(OAIEzsignfolder_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfolderGetChildrenV1SignalE(QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfolderGetFormsDataV1SignalE(OAIEzsignfolder_getFormsData_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfolderGetListV1SignalE(OAIEzsignfolder_getList_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfolderGetObjectV1SignalE(OAIEzsignfolder_getObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfolderSendV1SignalE(OAIEzsignfolder_send_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
 
@@ -144,6 +159,7 @@ signals:
     void ezsignfolderDeleteObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfolderGetChildrenV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfolderGetFormsDataV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfolderGetListV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfolderGetObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfolderSendV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
 

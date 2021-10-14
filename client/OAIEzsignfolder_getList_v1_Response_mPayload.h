@@ -11,19 +11,19 @@
  */
 
 /*
- * OAIEzsignfoldertype_getList_v1_Response_mPayload.h
+ * OAIEzsignfolder_getList_v1_Response_mPayload.h
  *
- * Payload for the /1/object/ezsignfoldertype/getList API Request
+ * Payload for the /1/object/ezsignfolder/getList API Request
  */
 
-#ifndef OAIEzsignfoldertype_getList_v1_Response_mPayload_H
-#define OAIEzsignfoldertype_getList_v1_Response_mPayload_H
+#ifndef OAIEzsignfolder_getList_v1_Response_mPayload_H
+#define OAIEzsignfolder_getList_v1_Response_mPayload_H
 
 #include <QJsonObject>
 
 #include "OAICommon_getList_v1_Response_mPayload.h"
-#include "OAIEzsignfoldertype_ListElement.h"
-#include "OAIEzsignfoldertype_getList_v1_Response_mPayload_allOf.h"
+#include "OAIEzsignfolder_ListElement.h"
+#include "OAIEzsignfolder_getList_v1_Response_mPayload_allOf.h"
 #include <QList>
 
 #include "OAIEnum.h"
@@ -31,21 +31,21 @@
 
 namespace OpenAPI {
 
-class OAIEzsignfoldertype_getList_v1_Response_mPayload : public OAIObject {
+class OAIEzsignfolder_getList_v1_Response_mPayload : public OAIObject {
 public:
-    OAIEzsignfoldertype_getList_v1_Response_mPayload();
-    OAIEzsignfoldertype_getList_v1_Response_mPayload(QString json);
-    ~OAIEzsignfoldertype_getList_v1_Response_mPayload() override;
+    OAIEzsignfolder_getList_v1_Response_mPayload();
+    OAIEzsignfolder_getList_v1_Response_mPayload(QString json);
+    ~OAIEzsignfolder_getList_v1_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    QList<OAIEzsignfoldertype_ListElement> getAObjEzsignfoldertype() const;
-    void setAObjEzsignfoldertype(const QList<OAIEzsignfoldertype_ListElement> &a_obj_ezsignfoldertype);
-    bool is_a_obj_ezsignfoldertype_Set() const;
-    bool is_a_obj_ezsignfoldertype_Valid() const;
+    QList<OAIEzsignfolder_ListElement> getAObjEzsignfolder() const;
+    void setAObjEzsignfolder(const QList<OAIEzsignfolder_ListElement> &a_obj_ezsignfolder);
+    bool is_a_obj_ezsignfolder_Set() const;
+    bool is_a_obj_ezsignfolder_Valid() const;
 
     qint32 getIRowReturned() const;
     void setIRowReturned(const qint32 &i_row_returned);
@@ -63,9 +63,9 @@ public:
 private:
     void initializeModel();
 
-    QList<OAIEzsignfoldertype_ListElement> a_obj_ezsignfoldertype;
-    bool m_a_obj_ezsignfoldertype_isSet;
-    bool m_a_obj_ezsignfoldertype_isValid;
+    QList<OAIEzsignfolder_ListElement> a_obj_ezsignfolder;
+    bool m_a_obj_ezsignfolder_isSet;
+    bool m_a_obj_ezsignfolder_isValid;
 
     qint32 i_row_returned;
     bool m_i_row_returned_isSet;
@@ -78,6 +78,6 @@ private:
 
 } // namespace OpenAPI
 
-Q_DECLARE_METATYPE(OpenAPI::OAIEzsignfoldertype_getList_v1_Response_mPayload)
+Q_DECLARE_METATYPE(OpenAPI::OAIEzsignfolder_getList_v1_Response_mPayload)
 
-#endif // OAIEzsignfoldertype_getList_v1_Response_mPayload_H
+#endif // OAIEzsignfolder_getList_v1_Response_mPayload_H
