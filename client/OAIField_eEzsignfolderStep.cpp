@@ -57,10 +57,6 @@ void OAIField_eEzsignfolderStep::fromJson(QString jsonString) {
         m_value = eOAIField_eEzsignfolderStep::EXPIRED;
         m_value_isSet = m_value_isValid = true;
     }
-    else if ( jsonString.compare("Signed", Qt::CaseInsensitive) == 0) {
-        m_value = eOAIField_eEzsignfolderStep::SIGNED;
-        m_value_isSet = m_value_isValid = true;
-    }
     else if ( jsonString.compare("Completed", Qt::CaseInsensitive) == 0) {
         m_value = eOAIField_eEzsignfolderStep::COMPLETED;
         m_value_isSet = m_value_isValid = true;
@@ -90,9 +86,6 @@ QString OAIField_eEzsignfolderStep::asJson() const {
             break;
         case eOAIField_eEzsignfolderStep::EXPIRED:
             val = "Expired";
-            break;
-        case eOAIField_eEzsignfolderStep::SIGNED:
-            val = "Signed";
             break;
         case eOAIField_eEzsignfolderStep::COMPLETED:
             val = "Completed";

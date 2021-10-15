@@ -44,7 +44,6 @@ public:
         SENT, 
         PARTIALLYSIGNED, 
         EXPIRED, 
-        SIGNED, 
         COMPLETED, 
         ARCHIVED
     };
