@@ -61,10 +61,10 @@ public:
 
     /**
     * @param[in]  s_selector QString [required]
-    * @param[in]  accept_language OAIHeader_Accept_Language [optional]
     * @param[in]  s_query QString [optional]
+    * @param[in]  accept_language OAIHeader_Accept_Language [optional]
     */
-    void ezsignfoldertypeGetAutocompleteV1(const QString &s_selector, const ::OpenAPI::OptionalParam<OAIHeader_Accept_Language> &accept_language = ::OpenAPI::OptionalParam<OAIHeader_Accept_Language>(), const ::OpenAPI::OptionalParam<QString> &s_query = ::OpenAPI::OptionalParam<QString>());
+    void ezsignfoldertypeGetAutocompleteV1(const QString &s_selector, const ::OpenAPI::OptionalParam<QString> &s_query = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<OAIHeader_Accept_Language> &accept_language = ::OpenAPI::OptionalParam<OAIHeader_Accept_Language>());
 
     /**
     * @param[in]  e_order_by QString [optional]

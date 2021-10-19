@@ -228,7 +228,7 @@ QString OAIObjectEzsignfoldertypeApi::getParamStyleDelimiter(const QString &styl
     }
 }
 
-void OAIObjectEzsignfoldertypeApi::ezsignfoldertypeGetAutocompleteV1(const QString &s_selector, const ::OpenAPI::OptionalParam<OAIHeader_Accept_Language> &accept_language, const ::OpenAPI::OptionalParam<QString> &s_query) {
+void OAIObjectEzsignfoldertypeApi::ezsignfoldertypeGetAutocompleteV1(const QString &s_selector, const ::OpenAPI::OptionalParam<QString> &s_query, const ::OpenAPI::OptionalParam<OAIHeader_Accept_Language> &accept_language) {
     QString fullPath = QString(_serverConfigs["ezsignfoldertypeGetAutocompleteV1"][_serverIndices.value("ezsignfoldertypeGetAutocompleteV1")].URL()+"/1/object/ezsignfoldertype/getAutocomplete/{sSelector}");
     
     if (_apiKeys.contains("Authorization")) {

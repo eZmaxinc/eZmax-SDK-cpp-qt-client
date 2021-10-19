@@ -22,7 +22,7 @@
 #include <QJsonObject>
 
 #include "OAIField_eEzsignfolderStep.h"
-#include "OAIOneOfstringnull.h"
+#include "OAIOneOfstringobject.h"
 #include <QString>
 
 #include "OAIEnum.h"
@@ -71,13 +71,13 @@ public:
     bool is_dt_created_date_Set() const;
     bool is_dt_created_date_Valid() const;
 
-    OAIOneOfstringnull getDtEzsignfolderSentdate() const;
-    void setDtEzsignfolderSentdate(const OAIOneOfstringnull &dt_ezsignfolder_sentdate);
+    OAIOneOfstringobject getDtEzsignfolderSentdate() const;
+    void setDtEzsignfolderSentdate(const OAIOneOfstringobject &dt_ezsignfolder_sentdate);
     bool is_dt_ezsignfolder_sentdate_Set() const;
     bool is_dt_ezsignfolder_sentdate_Valid() const;
 
-    OAIOneOfstringnull getDtDueDate() const;
-    void setDtDueDate(const OAIOneOfstringnull &dt_due_date);
+    OAIOneOfstringobject getDtDueDate() const;
+    void setDtDueDate(const OAIOneOfstringobject &dt_due_date);
     bool is_dt_due_date_Set() const;
     bool is_dt_due_date_Valid() const;
 
@@ -131,11 +131,11 @@ private:
     bool m_dt_created_date_isSet;
     bool m_dt_created_date_isValid;
 
-    OAIOneOfstringnull dt_ezsignfolder_sentdate;
+    OAIOneOfstringobject dt_ezsignfolder_sentdate;
     bool m_dt_ezsignfolder_sentdate_isSet;
     bool m_dt_ezsignfolder_sentdate_isValid;
 
-    OAIOneOfstringnull dt_due_date;
+    OAIOneOfstringobject dt_due_date;
     bool m_dt_due_date_isSet;
     bool m_dt_due_date_isValid;
 

@@ -261,10 +261,10 @@ bool OAIEzsignfolder_ListElement::is_dt_created_date_Valid() const{
     return m_dt_created_date_isValid;
 }
 
-OAIOneOfstringnull OAIEzsignfolder_ListElement::getDtEzsignfolderSentdate() const {
+OAIOneOfstringobject OAIEzsignfolder_ListElement::getDtEzsignfolderSentdate() const {
     return dt_ezsignfolder_sentdate;
 }
-void OAIEzsignfolder_ListElement::setDtEzsignfolderSentdate(const OAIOneOfstringnull &dt_ezsignfolder_sentdate) {
+void OAIEzsignfolder_ListElement::setDtEzsignfolderSentdate(const OAIOneOfstringobject &dt_ezsignfolder_sentdate) {
     this->dt_ezsignfolder_sentdate = dt_ezsignfolder_sentdate;
     this->m_dt_ezsignfolder_sentdate_isSet = true;
 }
@@ -277,10 +277,10 @@ bool OAIEzsignfolder_ListElement::is_dt_ezsignfolder_sentdate_Valid() const{
     return m_dt_ezsignfolder_sentdate_isValid;
 }
 
-OAIOneOfstringnull OAIEzsignfolder_ListElement::getDtDueDate() const {
+OAIOneOfstringobject OAIEzsignfolder_ListElement::getDtDueDate() const {
     return dt_due_date;
 }
-void OAIEzsignfolder_ListElement::setDtDueDate(const OAIOneOfstringnull &dt_due_date) {
+void OAIEzsignfolder_ListElement::setDtDueDate(const OAIOneOfstringobject &dt_due_date) {
     this->dt_due_date = dt_due_date;
     this->m_dt_due_date_isSet = true;
 }
