@@ -34,9 +34,6 @@ OAIList_saveListpresentation_v1_Response::~OAIList_saveListpresentation_v1_Respo
 
 void OAIList_saveListpresentation_v1_Response::initializeModel() {
 
-    m_m_payload_isSet = false;
-    m_m_payload_isValid = false;
-
     m_obj_debug_payload_isSet = false;
     m_obj_debug_payload_isValid = false;
 
@@ -52,9 +49,6 @@ void OAIList_saveListpresentation_v1_Response::fromJson(QString jsonString) {
 }
 
 void OAIList_saveListpresentation_v1_Response::fromJsonObject(QJsonObject json) {
-
-    m_m_payload_isValid = ::OpenAPI::fromJsonValue(m_payload, json[QString("mPayload")]);
-    m_m_payload_isSet = !json[QString("mPayload")].isNull() && m_m_payload_isValid;
 
     m_obj_debug_payload_isValid = ::OpenAPI::fromJsonValue(obj_debug_payload, json[QString("objDebugPayload")]);
     m_obj_debug_payload_isSet = !json[QString("objDebugPayload")].isNull() && m_obj_debug_payload_isValid;
@@ -72,9 +66,6 @@ QString OAIList_saveListpresentation_v1_Response::asJson() const {
 
 QJsonObject OAIList_saveListpresentation_v1_Response::asJsonObject() const {
     QJsonObject obj;
-    if (m_payload.isSet()) {
-        obj.insert(QString("mPayload"), ::OpenAPI::toJsonValue(m_payload));
-    }
     if (obj_debug_payload.isSet()) {
         obj.insert(QString("objDebugPayload"), ::OpenAPI::toJsonValue(obj_debug_payload));
     }
@@ -82,22 +73,6 @@ QJsonObject OAIList_saveListpresentation_v1_Response::asJsonObject() const {
         obj.insert(QString("objDebug"), ::OpenAPI::toJsonValue(obj_debug));
     }
     return obj;
-}
-
-OAIList_saveListpresentation_v1_Response_mPayload OAIList_saveListpresentation_v1_Response::getMPayload() const {
-    return m_payload;
-}
-void OAIList_saveListpresentation_v1_Response::setMPayload(const OAIList_saveListpresentation_v1_Response_mPayload &m_payload) {
-    this->m_payload = m_payload;
-    this->m_m_payload_isSet = true;
-}
-
-bool OAIList_saveListpresentation_v1_Response::is_m_payload_Set() const{
-    return m_m_payload_isSet;
-}
-
-bool OAIList_saveListpresentation_v1_Response::is_m_payload_Valid() const{
-    return m_m_payload_isValid;
 }
 
 OAICommon_Response_objDebugPayload OAIList_saveListpresentation_v1_Response::getObjDebugPayload() const {
@@ -135,11 +110,6 @@ bool OAIList_saveListpresentation_v1_Response::is_obj_debug_Valid() const{
 bool OAIList_saveListpresentation_v1_Response::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (m_payload.isSet()) {
-            isObjectUpdated = true;
-            break;
-        }
-
         if (obj_debug_payload.isSet()) {
             isObjectUpdated = true;
             break;
@@ -155,7 +125,7 @@ bool OAIList_saveListpresentation_v1_Response::isSet() const {
 
 bool OAIList_saveListpresentation_v1_Response::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_m_payload_isValid && true;
+    return true;
 }
 
 } // namespace OpenAPI

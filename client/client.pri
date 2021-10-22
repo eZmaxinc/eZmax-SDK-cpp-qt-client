@@ -151,10 +151,11 @@ HEADERS += \
     $${PWD}/OAIFranchisereferalincome_createObject_v1_Response_mPayload.h \
     $${PWD}/OAIGlobal_customer_getEndpoint_v1_Response.h \
     $${PWD}/OAIHeader_Accept_Language.h \
+    $${PWD}/OAIList_getListpresentation_v1_Response.h \
+    $${PWD}/OAIList_getListpresentation_v1_Response_allOf.h \
+    $${PWD}/OAIList_getListpresentation_v1_Response_mPayload.h \
     $${PWD}/OAIList_saveListpresentation_v1_Request.h \
     $${PWD}/OAIList_saveListpresentation_v1_Response.h \
-    $${PWD}/OAIList_saveListpresentation_v1_Response_allOf.h \
-    $${PWD}/OAIList_saveListpresentation_v1_Response_mPayload.h \
     $${PWD}/OAIListpresentation_Request.h \
     $${PWD}/OAIMultilingual_ApikeyDescription.h \
     $${PWD}/OAIPhone_Request.h \
@@ -362,10 +363,11 @@ SOURCES += \
     $${PWD}/OAIFranchisereferalincome_createObject_v1_Response_mPayload.cpp \
     $${PWD}/OAIGlobal_customer_getEndpoint_v1_Response.cpp \
     $${PWD}/OAIHeader_Accept_Language.cpp \
+    $${PWD}/OAIList_getListpresentation_v1_Response.cpp \
+    $${PWD}/OAIList_getListpresentation_v1_Response_allOf.cpp \
+    $${PWD}/OAIList_getListpresentation_v1_Response_mPayload.cpp \
     $${PWD}/OAIList_saveListpresentation_v1_Request.cpp \
     $${PWD}/OAIList_saveListpresentation_v1_Response.cpp \
-    $${PWD}/OAIList_saveListpresentation_v1_Response_allOf.cpp \
-    $${PWD}/OAIList_saveListpresentation_v1_Response_mPayload.cpp \
     $${PWD}/OAIListpresentation_Request.cpp \
     $${PWD}/OAIMultilingual_ApikeyDescription.cpp \
     $${PWD}/OAIPhone_Request.cpp \

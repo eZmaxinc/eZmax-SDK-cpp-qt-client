@@ -164,10 +164,11 @@ add_library(${PROJECT_NAME}
     OAIFranchisereferalincome_createObject_v1_Response_mPayload.cpp
     OAIGlobal_customer_getEndpoint_v1_Response.cpp
     OAIHeader_Accept_Language.cpp
+    OAIList_getListpresentation_v1_Response.cpp
+    OAIList_getListpresentation_v1_Response_allOf.cpp
+    OAIList_getListpresentation_v1_Response_mPayload.cpp
     OAIList_saveListpresentation_v1_Request.cpp
     OAIList_saveListpresentation_v1_Response.cpp
-    OAIList_saveListpresentation_v1_Response_allOf.cpp
-    OAIList_saveListpresentation_v1_Response_mPayload.cpp
     OAIListpresentation_Request.cpp
     OAIMultilingual_ApikeyDescription.cpp
     OAIPhone_Request.cpp

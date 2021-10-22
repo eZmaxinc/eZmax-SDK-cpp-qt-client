@@ -49,8 +49,10 @@ void OAIModuleListApi::initializeServerConfigs() {
     {"sInfrastructureenvironmenttypeDescription", OAIServerVariable("The environment on on which to call the API. Should always be "prod" unless instructed otherwise by support.","prod",
     QSet<QString>{ {"prod"},{"stg"},{"qa"},{"dev"} })}, }));
     
-    _serverConfigs.insert("listListpresentationV1", defaultConf);
-    _serverIndices.insert("listListpresentationV1", 0);
+    _serverConfigs.insert("listGetListpresentationV1", defaultConf);
+    _serverIndices.insert("listGetListpresentationV1", 0);
+    _serverConfigs.insert("listSaveListpresentationV1", defaultConf);
+    _serverIndices.insert("listSaveListpresentationV1", 0);
 }
 
 /**
@@ -226,8 +228,75 @@ QString OAIModuleListApi::getParamStyleDelimiter(const QString &style, const QSt
     }
 }
 
-void OAIModuleListApi::listListpresentationV1(const QString &s_list_name, const OAIList_saveListpresentation_v1_Request &oai_list_save_listpresentation_v1_request) {
-    QString fullPath = QString(_serverConfigs["listListpresentationV1"][_serverIndices.value("listListpresentationV1")].URL()+"/1/module/list/listpresentation/{sListName}");
+void OAIModuleListApi::listGetListpresentationV1(const QString &s_list_name) {
+    QString fullPath = QString(_serverConfigs["listGetListpresentationV1"][_serverIndices.value("listGetListpresentationV1")].URL()+"/1/module/list/listpresentation/{sListName}");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString s_list_namePathParam("{");
+        s_list_namePathParam.append("sListName").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "sListName", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"sListName"+pathSuffix : pathPrefix;
+        fullPath.replace(s_list_namePathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(s_list_name)));
+    }
+    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    OAIHttpRequestInput input(fullPath, "GET");
+
+
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+#else
+    for (auto key : _defaultHeaders.keys()) {
+        input.headers.insert(key, _defaultHeaders[key]);
+    }
+#endif
+
+    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIModuleListApi::listGetListpresentationV1Callback);
+    connect(this, &OAIModuleListApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this]() {
+        if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
+            emit allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void OAIModuleListApi::listGetListpresentationV1Callback(OAIHttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    OAIList_getListpresentation_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit listGetListpresentationV1Signal(output);
+        emit listGetListpresentationV1SignalFull(worker, output);
+    } else {
+        emit listGetListpresentationV1SignalE(output, error_type, error_str);
+        emit listGetListpresentationV1SignalEFull(worker, error_type, error_str);
+    }
+}
+
+void OAIModuleListApi::listSaveListpresentationV1(const QString &s_list_name, const OAIList_saveListpresentation_v1_Request &oai_list_save_listpresentation_v1_request) {
+    QString fullPath = QString(_serverConfigs["listSaveListpresentationV1"][_serverIndices.value("listSaveListpresentationV1")].URL()+"/1/module/list/listpresentation/{sListName}");
     
     if (_apiKeys.contains("Authorization")) {
         addHeaders("Authorization",_apiKeys.find("Authorization").value());
@@ -267,7 +336,7 @@ void OAIModuleListApi::listListpresentationV1(const QString &s_list_name, const 
     }
 #endif
 
-    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIModuleListApi::listListpresentationV1Callback);
+    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIModuleListApi::listSaveListpresentationV1Callback);
     connect(this, &OAIModuleListApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
@@ -278,7 +347,7 @@ void OAIModuleListApi::listListpresentationV1(const QString &s_list_name, const 
     worker->execute(&input);
 }
 
-void OAIModuleListApi::listListpresentationV1Callback(OAIHttpRequestWorker *worker) {
+void OAIModuleListApi::listSaveListpresentationV1Callback(OAIHttpRequestWorker *worker) {
     QString error_str = worker->error_str;
     QNetworkReply::NetworkError error_type = worker->error_type;
 
@@ -289,11 +358,11 @@ void OAIModuleListApi::listListpresentationV1Callback(OAIHttpRequestWorker *work
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit listListpresentationV1Signal(output);
-        emit listListpresentationV1SignalFull(worker, output);
+        emit listSaveListpresentationV1Signal(output);
+        emit listSaveListpresentationV1SignalFull(worker, output);
     } else {
-        emit listListpresentationV1SignalE(output, error_type, error_str);
-        emit listListpresentationV1SignalEFull(worker, error_type, error_str);
+        emit listSaveListpresentationV1SignalE(output, error_type, error_str);
+        emit listSaveListpresentationV1SignalEFull(worker, error_type, error_str);
     }
 }
 

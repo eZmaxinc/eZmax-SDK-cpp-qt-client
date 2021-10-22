@@ -11,13 +11,13 @@
  */
 
 /*
- * OAIList_saveListpresentation_v1_Response_mPayload.h
+ * OAIList_getListpresentation_v1_Response_mPayload.h
  *
- * Payload for the POST /1/module/list/listpresentation/{sListName} API Request
+ * Payload for the GET /1/module/list/listpresentation/{sListName} API Request
  */
 
-#ifndef OAIList_saveListpresentation_v1_Response_mPayload_H
-#define OAIList_saveListpresentation_v1_Response_mPayload_H
+#ifndef OAIList_getListpresentation_v1_Response_mPayload_H
+#define OAIList_getListpresentation_v1_Response_mPayload_H
 
 #include <QJsonObject>
 
@@ -29,11 +29,11 @@
 
 namespace OpenAPI {
 
-class OAIList_saveListpresentation_v1_Response_mPayload : public OAIObject {
+class OAIList_getListpresentation_v1_Response_mPayload : public OAIObject {
 public:
-    OAIList_saveListpresentation_v1_Response_mPayload();
-    OAIList_saveListpresentation_v1_Response_mPayload(QString json);
-    ~OAIList_saveListpresentation_v1_Response_mPayload() override;
+    OAIList_getListpresentation_v1_Response_mPayload();
+    OAIList_getListpresentation_v1_Response_mPayload(QString json);
+    ~OAIList_getListpresentation_v1_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
@@ -58,6 +58,6 @@ private:
 
 } // namespace OpenAPI
 
-Q_DECLARE_METATYPE(OpenAPI::OAIList_saveListpresentation_v1_Response_mPayload)
+Q_DECLARE_METATYPE(OpenAPI::OAIList_getListpresentation_v1_Response_mPayload)
 
-#endif // OAIList_saveListpresentation_v1_Response_mPayload_H
+#endif // OAIList_getListpresentation_v1_Response_mPayload_H

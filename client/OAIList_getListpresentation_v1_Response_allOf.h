@@ -11,36 +11,36 @@
  */
 
 /*
- * OAIList_saveListpresentation_v1_Response_allOf.h
+ * OAIList_getListpresentation_v1_Response_allOf.h
  *
  * 
  */
 
-#ifndef OAIList_saveListpresentation_v1_Response_allOf_H
-#define OAIList_saveListpresentation_v1_Response_allOf_H
+#ifndef OAIList_getListpresentation_v1_Response_allOf_H
+#define OAIList_getListpresentation_v1_Response_allOf_H
 
 #include <QJsonObject>
 
-#include "OAIList_saveListpresentation_v1_Response_mPayload.h"
+#include "OAIList_getListpresentation_v1_Response_mPayload.h"
 
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
 namespace OpenAPI {
 
-class OAIList_saveListpresentation_v1_Response_allOf : public OAIObject {
+class OAIList_getListpresentation_v1_Response_allOf : public OAIObject {
 public:
-    OAIList_saveListpresentation_v1_Response_allOf();
-    OAIList_saveListpresentation_v1_Response_allOf(QString json);
-    ~OAIList_saveListpresentation_v1_Response_allOf() override;
+    OAIList_getListpresentation_v1_Response_allOf();
+    OAIList_getListpresentation_v1_Response_allOf(QString json);
+    ~OAIList_getListpresentation_v1_Response_allOf() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    OAIList_saveListpresentation_v1_Response_mPayload getMPayload() const;
-    void setMPayload(const OAIList_saveListpresentation_v1_Response_mPayload &m_payload);
+    OAIList_getListpresentation_v1_Response_mPayload getMPayload() const;
+    void setMPayload(const OAIList_getListpresentation_v1_Response_mPayload &m_payload);
     bool is_m_payload_Set() const;
     bool is_m_payload_Valid() const;
 
@@ -50,13 +50,13 @@ public:
 private:
     void initializeModel();
 
-    OAIList_saveListpresentation_v1_Response_mPayload m_payload;
+    OAIList_getListpresentation_v1_Response_mPayload m_payload;
     bool m_m_payload_isSet;
     bool m_m_payload_isValid;
 };
 
 } // namespace OpenAPI
 
-Q_DECLARE_METATYPE(OpenAPI::OAIList_saveListpresentation_v1_Response_allOf)
+Q_DECLARE_METATYPE(OpenAPI::OAIList_getListpresentation_v1_Response_allOf)
 
-#endif // OAIList_saveListpresentation_v1_Response_allOf_H
+#endif // OAIList_getListpresentation_v1_Response_allOf_H

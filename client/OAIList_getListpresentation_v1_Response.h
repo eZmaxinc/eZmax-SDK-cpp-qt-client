@@ -11,35 +11,42 @@
  */
 
 /*
- * OAIList_saveListpresentation_v1_Response.h
+ * OAIList_getListpresentation_v1_Response.h
  *
- * Response for the POST /1/module/list/listpresentation/{sListName} API Request
+ * Response for the GET /1/module/list/listpresentation/{sListName} API Request
  */
 
-#ifndef OAIList_saveListpresentation_v1_Response_H
-#define OAIList_saveListpresentation_v1_Response_H
+#ifndef OAIList_getListpresentation_v1_Response_H
+#define OAIList_getListpresentation_v1_Response_H
 
 #include <QJsonObject>
 
 #include "OAICommon_Response.h"
 #include "OAICommon_Response_objDebug.h"
 #include "OAICommon_Response_objDebugPayload.h"
+#include "OAIList_getListpresentation_v1_Response_allOf.h"
+#include "OAIList_getListpresentation_v1_Response_mPayload.h"
 
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
 namespace OpenAPI {
 
-class OAIList_saveListpresentation_v1_Response : public OAIObject {
+class OAIList_getListpresentation_v1_Response : public OAIObject {
 public:
-    OAIList_saveListpresentation_v1_Response();
-    OAIList_saveListpresentation_v1_Response(QString json);
-    ~OAIList_saveListpresentation_v1_Response() override;
+    OAIList_getListpresentation_v1_Response();
+    OAIList_getListpresentation_v1_Response(QString json);
+    ~OAIList_getListpresentation_v1_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
+
+    OAIList_getListpresentation_v1_Response_mPayload getMPayload() const;
+    void setMPayload(const OAIList_getListpresentation_v1_Response_mPayload &m_payload);
+    bool is_m_payload_Set() const;
+    bool is_m_payload_Valid() const;
 
     OAICommon_Response_objDebugPayload getObjDebugPayload() const;
     void setObjDebugPayload(const OAICommon_Response_objDebugPayload &obj_debug_payload);
@@ -57,6 +64,10 @@ public:
 private:
     void initializeModel();
 
+    OAIList_getListpresentation_v1_Response_mPayload m_payload;
+    bool m_m_payload_isSet;
+    bool m_m_payload_isValid;
+
     OAICommon_Response_objDebugPayload obj_debug_payload;
     bool m_obj_debug_payload_isSet;
     bool m_obj_debug_payload_isValid;
@@ -68,6 +79,6 @@ private:
 
 } // namespace OpenAPI
 
-Q_DECLARE_METATYPE(OpenAPI::OAIList_saveListpresentation_v1_Response)
+Q_DECLARE_METATYPE(OpenAPI::OAIList_getListpresentation_v1_Response)
 
-#endif // OAIList_saveListpresentation_v1_Response_H
+#endif // OAIList_getListpresentation_v1_Response_H

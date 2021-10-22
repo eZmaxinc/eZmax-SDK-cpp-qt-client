@@ -18,6 +18,7 @@
 #include "OAIServerConfiguration.h"
 
 #include "OAICommon_Response_Error.h"
+#include "OAIList_getListpresentation_v1_Response.h"
 #include "OAIList_saveListpresentation_v1_Request.h"
 #include "OAIList_saveListpresentation_v1_Response.h"
 #include <QString>
@@ -60,9 +61,14 @@ public:
 
     /**
     * @param[in]  s_list_name QString [required]
+    */
+    void listGetListpresentationV1(const QString &s_list_name);
+
+    /**
+    * @param[in]  s_list_name QString [required]
     * @param[in]  oai_list_save_listpresentation_v1_request OAIList_saveListpresentation_v1_Request [required]
     */
-    void listListpresentationV1(const QString &s_list_name, const OAIList_saveListpresentation_v1_Request &oai_list_save_listpresentation_v1_request);
+    void listSaveListpresentationV1(const QString &s_list_name, const OAIList_saveListpresentation_v1_Request &oai_list_save_listpresentation_v1_request);
 
 
 private:
@@ -79,17 +85,22 @@ private:
     bool _isResponseCompressionEnabled;
     bool _isRequestCompressionEnabled;
 
-    void listListpresentationV1Callback(OAIHttpRequestWorker *worker);
+    void listGetListpresentationV1Callback(OAIHttpRequestWorker *worker);
+    void listSaveListpresentationV1Callback(OAIHttpRequestWorker *worker);
 
 signals:
 
-    void listListpresentationV1Signal(OAIList_saveListpresentation_v1_Response summary);
+    void listGetListpresentationV1Signal(OAIList_getListpresentation_v1_Response summary);
+    void listSaveListpresentationV1Signal(OAIList_saveListpresentation_v1_Response summary);
 
-    void listListpresentationV1SignalFull(OAIHttpRequestWorker *worker, OAIList_saveListpresentation_v1_Response summary);
+    void listGetListpresentationV1SignalFull(OAIHttpRequestWorker *worker, OAIList_getListpresentation_v1_Response summary);
+    void listSaveListpresentationV1SignalFull(OAIHttpRequestWorker *worker, OAIList_saveListpresentation_v1_Response summary);
 
-    void listListpresentationV1SignalE(OAIList_saveListpresentation_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void listGetListpresentationV1SignalE(OAIList_getListpresentation_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void listSaveListpresentationV1SignalE(OAIList_saveListpresentation_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
 
-    void listListpresentationV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void listGetListpresentationV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void listSaveListpresentationV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
