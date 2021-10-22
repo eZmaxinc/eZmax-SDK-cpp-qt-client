@@ -70,6 +70,11 @@ public:
     bool is_i_listpresentation_row_offset_Set() const;
     bool is_i_listpresentation_row_offset_Valid() const;
 
+    bool isBListpresentationDefault() const;
+    void setBListpresentationDefault(const bool &b_listpresentation_default);
+    bool is_b_listpresentation_default_Set() const;
+    bool is_b_listpresentation_default_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -99,6 +104,10 @@ private:
     qint32 i_listpresentation_row_offset;
     bool m_i_listpresentation_row_offset_isSet;
     bool m_i_listpresentation_row_offset_isValid;
+
+    bool b_listpresentation_default;
+    bool m_b_listpresentation_default_isSet;
+    bool m_b_listpresentation_default_isValid;
 };
 
 } // namespace OpenAPI

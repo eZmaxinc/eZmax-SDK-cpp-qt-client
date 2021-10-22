@@ -51,6 +51,9 @@ void OAIListpresentation_Request::initializeModel() {
 
     m_i_listpresentation_row_offset_isSet = false;
     m_i_listpresentation_row_offset_isValid = false;
+
+    m_b_listpresentation_default_isSet = false;
+    m_b_listpresentation_default_isValid = false;
 }
 
 void OAIListpresentation_Request::fromJson(QString jsonString) {
@@ -79,6 +82,9 @@ void OAIListpresentation_Request::fromJsonObject(QJsonObject json) {
 
     m_i_listpresentation_row_offset_isValid = ::OpenAPI::fromJsonValue(i_listpresentation_row_offset, json[QString("iListpresentationRowOffset")]);
     m_i_listpresentation_row_offset_isSet = !json[QString("iListpresentationRowOffset")].isNull() && m_i_listpresentation_row_offset_isValid;
+
+    m_b_listpresentation_default_isValid = ::OpenAPI::fromJsonValue(b_listpresentation_default, json[QString("bListpresentationDefault")]);
+    m_b_listpresentation_default_isSet = !json[QString("bListpresentationDefault")].isNull() && m_b_listpresentation_default_isValid;
 }
 
 QString OAIListpresentation_Request::asJson() const {
@@ -107,6 +113,9 @@ QJsonObject OAIListpresentation_Request::asJsonObject() const {
     }
     if (m_i_listpresentation_row_offset_isSet) {
         obj.insert(QString("iListpresentationRowOffset"), ::OpenAPI::toJsonValue(i_listpresentation_row_offset));
+    }
+    if (m_b_listpresentation_default_isSet) {
+        obj.insert(QString("bListpresentationDefault"), ::OpenAPI::toJsonValue(b_listpresentation_default));
     }
     return obj;
 }
@@ -207,6 +216,22 @@ bool OAIListpresentation_Request::is_i_listpresentation_row_offset_Valid() const
     return m_i_listpresentation_row_offset_isValid;
 }
 
+bool OAIListpresentation_Request::isBListpresentationDefault() const {
+    return b_listpresentation_default;
+}
+void OAIListpresentation_Request::setBListpresentationDefault(const bool &b_listpresentation_default) {
+    this->b_listpresentation_default = b_listpresentation_default;
+    this->m_b_listpresentation_default_isSet = true;
+}
+
+bool OAIListpresentation_Request::is_b_listpresentation_default_Set() const{
+    return m_b_listpresentation_default_isSet;
+}
+
+bool OAIListpresentation_Request::is_b_listpresentation_default_Valid() const{
+    return m_b_listpresentation_default_isValid;
+}
+
 bool OAIListpresentation_Request::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -239,13 +264,18 @@ bool OAIListpresentation_Request::isSet() const {
             isObjectUpdated = true;
             break;
         }
+
+        if (m_b_listpresentation_default_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
     } while (false);
     return isObjectUpdated;
 }
 
 bool OAIListpresentation_Request::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_s_listpresentation_description_isValid && m_s_listpresentation_filter_isValid && m_s_listpresentation_orderby_isValid && m_a_s_column_name_isValid && m_i_listpresentation_row_max_isValid && m_i_listpresentation_row_offset_isValid && true;
+    return m_s_listpresentation_description_isValid && m_s_listpresentation_filter_isValid && m_s_listpresentation_orderby_isValid && m_a_s_column_name_isValid && m_i_listpresentation_row_max_isValid && m_i_listpresentation_row_offset_isValid && m_b_listpresentation_default_isValid && true;
 }
 
 } // namespace OpenAPI
