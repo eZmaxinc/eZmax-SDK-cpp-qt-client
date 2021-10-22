@@ -96,6 +96,7 @@ HEADERS += \
     $${PWD}/OAIEzsignfolder_getObject_v1_Response_mPayload.h \
     $${PWD}/OAIEzsignfolder_send_v1_Request.h \
     $${PWD}/OAIEzsignfolder_send_v1_Response.h \
+    $${PWD}/OAIEzsignfolder_unsend_v1_Response.h \
     $${PWD}/OAIEzsignfoldersignerassociation_Request.h \
     $${PWD}/OAIEzsignfoldersignerassociation_RequestCompound.h \
     $${PWD}/OAIEzsignfoldersignerassociation_RequestCompound_allOf.h \
@@ -150,6 +151,11 @@ HEADERS += \
     $${PWD}/OAIFranchisereferalincome_createObject_v1_Response_mPayload.h \
     $${PWD}/OAIGlobal_customer_getEndpoint_v1_Response.h \
     $${PWD}/OAIHeader_Accept_Language.h \
+    $${PWD}/OAIList_saveListpresentation_v1_Request.h \
+    $${PWD}/OAIList_saveListpresentation_v1_Response.h \
+    $${PWD}/OAIList_saveListpresentation_v1_Response_allOf.h \
+    $${PWD}/OAIList_saveListpresentation_v1_Response_mPayload.h \
+    $${PWD}/OAIListpresentation_Request.h \
     $${PWD}/OAIMultilingual_ApikeyDescription.h \
     $${PWD}/OAIPhone_Request.h \
     $${PWD}/OAISspr_resetPasswordRequest_v1_Request.h \
@@ -182,6 +188,7 @@ HEADERS += \
 # APIs
     $${PWD}/OAIGlobalCustomerApi.h \
     $${PWD}/OAIModuleAuthenticateApi.h \
+    $${PWD}/OAIModuleListApi.h \
     $${PWD}/OAIModuleSsprApi.h \
     $${PWD}/OAIModuleUserApi.h \
     $${PWD}/OAIObjectActivesessionApi.h \
@@ -300,6 +307,7 @@ SOURCES += \
     $${PWD}/OAIEzsignfolder_getObject_v1_Response_mPayload.cpp \
     $${PWD}/OAIEzsignfolder_send_v1_Request.cpp \
     $${PWD}/OAIEzsignfolder_send_v1_Response.cpp \
+    $${PWD}/OAIEzsignfolder_unsend_v1_Response.cpp \
     $${PWD}/OAIEzsignfoldersignerassociation_Request.cpp \
     $${PWD}/OAIEzsignfoldersignerassociation_RequestCompound.cpp \
     $${PWD}/OAIEzsignfoldersignerassociation_RequestCompound_allOf.cpp \
@@ -354,6 +362,11 @@ SOURCES += \
     $${PWD}/OAIFranchisereferalincome_createObject_v1_Response_mPayload.cpp \
     $${PWD}/OAIGlobal_customer_getEndpoint_v1_Response.cpp \
     $${PWD}/OAIHeader_Accept_Language.cpp \
+    $${PWD}/OAIList_saveListpresentation_v1_Request.cpp \
+    $${PWD}/OAIList_saveListpresentation_v1_Response.cpp \
+    $${PWD}/OAIList_saveListpresentation_v1_Response_allOf.cpp \
+    $${PWD}/OAIList_saveListpresentation_v1_Response_mPayload.cpp \
+    $${PWD}/OAIListpresentation_Request.cpp \
     $${PWD}/OAIMultilingual_ApikeyDescription.cpp \
     $${PWD}/OAIPhone_Request.cpp \
     $${PWD}/OAISspr_resetPasswordRequest_v1_Request.cpp \
@@ -386,6 +399,7 @@ SOURCES += \
 # APIs
     $${PWD}/OAIGlobalCustomerApi.cpp \
     $${PWD}/OAIModuleAuthenticateApi.cpp \
+    $${PWD}/OAIModuleListApi.cpp \
     $${PWD}/OAIModuleSsprApi.cpp \
     $${PWD}/OAIModuleUserApi.cpp \
     $${PWD}/OAIObjectActivesessionApi.cpp \

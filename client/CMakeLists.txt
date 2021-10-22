@@ -109,6 +109,7 @@ add_library(${PROJECT_NAME}
     OAIEzsignfolder_getObject_v1_Response_mPayload.cpp
     OAIEzsignfolder_send_v1_Request.cpp
     OAIEzsignfolder_send_v1_Response.cpp
+    OAIEzsignfolder_unsend_v1_Response.cpp
     OAIEzsignfoldersignerassociation_Request.cpp
     OAIEzsignfoldersignerassociation_RequestCompound.cpp
     OAIEzsignfoldersignerassociation_RequestCompound_allOf.cpp
@@ -163,6 +164,11 @@ add_library(${PROJECT_NAME}
     OAIFranchisereferalincome_createObject_v1_Response_mPayload.cpp
     OAIGlobal_customer_getEndpoint_v1_Response.cpp
     OAIHeader_Accept_Language.cpp
+    OAIList_saveListpresentation_v1_Request.cpp
+    OAIList_saveListpresentation_v1_Response.cpp
+    OAIList_saveListpresentation_v1_Response_allOf.cpp
+    OAIList_saveListpresentation_v1_Response_mPayload.cpp
+    OAIListpresentation_Request.cpp
     OAIMultilingual_ApikeyDescription.cpp
     OAIPhone_Request.cpp
     OAISspr_resetPasswordRequest_v1_Request.cpp
@@ -194,6 +200,7 @@ add_library(${PROJECT_NAME}
     OAIWebsite_Request.cpp
     OAIGlobalCustomerApi.cpp
     OAIModuleAuthenticateApi.cpp
+    OAIModuleListApi.cpp
     OAIModuleSsprApi.cpp
     OAIModuleUserApi.cpp
     OAIObjectActivesessionApi.cpp
