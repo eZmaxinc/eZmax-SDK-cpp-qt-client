@@ -34,6 +34,8 @@ add_library(${PROJECT_NAME}
     OAICommon_Audit.cpp
     OAICommon_Response.cpp
     OAICommon_Response_Error.cpp
+    OAICommon_Response_Error_sTemporaryFileUrl.cpp
+    OAICommon_Response_Error_sTemporaryFileUrl_allOf.cpp
     OAICommon_Response_Filter.cpp
     OAICommon_Response_getList.cpp
     OAICommon_Response_objDebug.cpp

@@ -18,6 +18,7 @@
 #include "OAIServerConfiguration.h"
 
 #include "OAICommon_Response_Error.h"
+#include "OAICommon_Response_Error_sTemporaryFileUrl.h"
 #include "OAIEzsigndocument_applyEzsigntemplate_v1_Request.h"
 #include "OAIEzsigndocument_applyEzsigntemplate_v1_Response.h"
 #include "OAIEzsigndocument_applyEzsigntemplate_v2_Request.h"

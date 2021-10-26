@@ -21,6 +21,8 @@ HEADERS += \
     $${PWD}/OAICommon_Audit.h \
     $${PWD}/OAICommon_Response.h \
     $${PWD}/OAICommon_Response_Error.h \
+    $${PWD}/OAICommon_Response_Error_sTemporaryFileUrl.h \
+    $${PWD}/OAICommon_Response_Error_sTemporaryFileUrl_allOf.h \
     $${PWD}/OAICommon_Response_Filter.h \
     $${PWD}/OAICommon_Response_getList.h \
     $${PWD}/OAICommon_Response_objDebug.h \
@@ -233,6 +235,8 @@ SOURCES += \
     $${PWD}/OAICommon_Audit.cpp \
     $${PWD}/OAICommon_Response.cpp \
     $${PWD}/OAICommon_Response_Error.cpp \
+    $${PWD}/OAICommon_Response_Error_sTemporaryFileUrl.cpp \
+    $${PWD}/OAICommon_Response_Error_sTemporaryFileUrl_allOf.cpp \
     $${PWD}/OAICommon_Response_Filter.cpp \
     $${PWD}/OAICommon_Response_getList.cpp \
     $${PWD}/OAICommon_Response_objDebug.cpp \

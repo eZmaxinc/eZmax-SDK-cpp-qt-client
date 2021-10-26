@@ -39,6 +39,10 @@ client/OAICommon_Response.cpp
 client/OAICommon_Response.h
 client/OAICommon_Response_Error.cpp
 client/OAICommon_Response_Error.h
+client/OAICommon_Response_Error_sTemporaryFileUrl.cpp
+client/OAICommon_Response_Error_sTemporaryFileUrl.h
+client/OAICommon_Response_Error_sTemporaryFileUrl_allOf.cpp
+client/OAICommon_Response_Error_sTemporaryFileUrl_allOf.h
 client/OAICommon_Response_Filter.cpp
 client/OAICommon_Response_Filter.h
 client/OAICommon_Response_getList.cpp
