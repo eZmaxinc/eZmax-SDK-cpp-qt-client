@@ -47,6 +47,11 @@ HEADERS += \
     $${PWD}/OAICustom_WordPositionOccurence_Response.h \
     $${PWD}/OAICustom_WordPositionWord_Response.h \
     $${PWD}/OAIEmail_Request.h \
+    $${PWD}/OAIEzsignbulksend_ListElement.h \
+    $${PWD}/OAIEzsignbulksend_getList_v1_Response.h \
+    $${PWD}/OAIEzsignbulksend_getList_v1_Response_allOf.h \
+    $${PWD}/OAIEzsignbulksend_getList_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsignbulksend_getList_v1_Response_mPayload_allOf.h \
     $${PWD}/OAIEzsigndocument_Request.h \
     $${PWD}/OAIEzsigndocument_RequestCompound.h \
     $${PWD}/OAIEzsigndocument_Response.h \
@@ -196,6 +201,7 @@ HEADERS += \
     $${PWD}/OAIModuleUserApi.h \
     $${PWD}/OAIObjectActivesessionApi.h \
     $${PWD}/OAIObjectApikeyApi.h \
+    $${PWD}/OAIObjectEzsignbulksendApi.h \
     $${PWD}/OAIObjectEzsigndocumentApi.h \
     $${PWD}/OAIObjectEzsignfolderApi.h \
     $${PWD}/OAIObjectEzsignfoldersignerassociationApi.h \
@@ -212,7 +218,8 @@ HEADERS += \
     $${PWD}/OAIEnum.h \
     $${PWD}/OAIHttpFileElement.h \
     $${PWD}/OAIServerConfiguration.h \
-    $${PWD}/OAIServerVariable.h
+    $${PWD}/OAIServerVariable.h \
+    $${PWD}/OAIOauth.h
 
 SOURCES += \
 # Models
@@ -261,6 +268,11 @@ SOURCES += \
     $${PWD}/OAICustom_WordPositionOccurence_Response.cpp \
     $${PWD}/OAICustom_WordPositionWord_Response.cpp \
     $${PWD}/OAIEmail_Request.cpp \
+    $${PWD}/OAIEzsignbulksend_ListElement.cpp \
+    $${PWD}/OAIEzsignbulksend_getList_v1_Response.cpp \
+    $${PWD}/OAIEzsignbulksend_getList_v1_Response_allOf.cpp \
+    $${PWD}/OAIEzsignbulksend_getList_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsignbulksend_getList_v1_Response_mPayload_allOf.cpp \
     $${PWD}/OAIEzsigndocument_Request.cpp \
     $${PWD}/OAIEzsigndocument_RequestCompound.cpp \
     $${PWD}/OAIEzsigndocument_Response.cpp \
@@ -410,6 +422,7 @@ SOURCES += \
     $${PWD}/OAIModuleUserApi.cpp \
     $${PWD}/OAIObjectActivesessionApi.cpp \
     $${PWD}/OAIObjectApikeyApi.cpp \
+    $${PWD}/OAIObjectEzsignbulksendApi.cpp \
     $${PWD}/OAIObjectEzsigndocumentApi.cpp \
     $${PWD}/OAIObjectEzsignfolderApi.cpp \
     $${PWD}/OAIObjectEzsignfoldersignerassociationApi.cpp \
@@ -422,4 +435,5 @@ SOURCES += \
 # Others
     $${PWD}/OAIHelpers.cpp \
     $${PWD}/OAIHttpRequest.cpp \
-    $${PWD}/OAIHttpFileElement.cpp
+    $${PWD}/OAIHttpFileElement.cpp \
+    $${PWD}/OAIOauth.cpp

@@ -10,17 +10,17 @@
  * Do not edit the class manually.
  */
 
-#ifndef OAI_OAIModuleAuthenticateApi_H
-#define OAI_OAIModuleAuthenticateApi_H
+#ifndef OAI_OAIObjectEzsignbulksendApi_H
+#define OAI_OAIObjectEzsignbulksendApi_H
 
 #include "OAIHelpers.h"
 #include "OAIHttpRequest.h"
 #include "OAIServerConfiguration.h"
 #include "OAIOauth.h"
 
-#include "OAIAuthenticate_authenticate_v2_Request.h"
-#include "OAIAuthenticate_authenticate_v2_Response.h"
 #include "OAICommon_Response_Error.h"
+#include "OAIEzsignbulksend_getList_v1_Response.h"
+#include "OAIHeader_Accept_Language.h"
 #include <QString>
 
 #include <QObject>
@@ -31,12 +31,12 @@
 
 namespace OpenAPI {
 
-class OAIModuleAuthenticateApi : public QObject {
+class OAIObjectEzsignbulksendApi : public QObject {
     Q_OBJECT
 
 public:
-    OAIModuleAuthenticateApi(const int timeOut = 0);
-    ~OAIModuleAuthenticateApi();
+    OAIObjectEzsignbulksendApi(const int timeOut = 0);
+    ~OAIObjectEzsignbulksendApi();
 
     void initializeServerConfigs();
     int setDefaultServerValue(int serverIndex,const QString &operation, const QString &variable,const QString &val);
@@ -60,10 +60,13 @@ public:
     QString getParamStyleDelimiter(const QString &style, const QString &name, bool isExplode);
 
     /**
-    * @param[in]  e_session_type QString [required]
-    * @param[in]  oai_authenticate_authenticate_v2_request OAIAuthenticate_authenticate_v2_Request [required]
+    * @param[in]  e_order_by QString [optional]
+    * @param[in]  i_row_max qint32 [optional]
+    * @param[in]  i_row_offset qint32 [optional]
+    * @param[in]  accept_language OAIHeader_Accept_Language [optional]
+    * @param[in]  s_filter QString [optional]
     */
-    void authenticateAuthenticateV2(const QString &e_session_type, const OAIAuthenticate_authenticate_v2_Request &oai_authenticate_authenticate_v2_request);
+    void ezsignbulksendGetListV1(const ::OpenAPI::OptionalParam<QString> &e_order_by = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<qint32> &i_row_max = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<qint32> &i_row_offset = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<OAIHeader_Accept_Language> &accept_language = ::OpenAPI::OptionalParam<OAIHeader_Accept_Language>(), const ::OpenAPI::OptionalParam<QString> &s_filter = ::OpenAPI::OptionalParam<QString>());
 
 
 private:
@@ -88,17 +91,17 @@ private:
     OauthPassword _passwordFlow;
     int _OauthMethod = 0;
 
-    void authenticateAuthenticateV2Callback(OAIHttpRequestWorker *worker);
+    void ezsignbulksendGetListV1Callback(OAIHttpRequestWorker *worker);
 
 signals:
 
-    void authenticateAuthenticateV2Signal(OAIAuthenticate_authenticate_v2_Response summary);
+    void ezsignbulksendGetListV1Signal(OAIEzsignbulksend_getList_v1_Response summary);
 
-    void authenticateAuthenticateV2SignalFull(OAIHttpRequestWorker *worker, OAIAuthenticate_authenticate_v2_Response summary);
+    void ezsignbulksendGetListV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsignbulksend_getList_v1_Response summary);
 
-    void authenticateAuthenticateV2SignalE(OAIAuthenticate_authenticate_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignbulksendGetListV1SignalE(OAIEzsignbulksend_getList_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
 
-    void authenticateAuthenticateV2SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignbulksendGetListV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();

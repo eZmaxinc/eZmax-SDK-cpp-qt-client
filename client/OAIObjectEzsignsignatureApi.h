@@ -16,6 +16,7 @@
 #include "OAIHelpers.h"
 #include "OAIHttpRequest.h"
 #include "OAIServerConfiguration.h"
+#include "OAIOauth.h"
 
 #include "OAICommon_Response_Error.h"
 #include "OAIEzsignsignature_createObject_v1_Request.h"
@@ -95,6 +96,14 @@ private:
     QMap<QString, QString> _defaultHeaders;
     bool _isResponseCompressionEnabled;
     bool _isRequestCompressionEnabled;
+    OAIHttpRequestInput _latestInput;
+    OAIHttpRequestWorker *_latestWorker;
+    QStringList _latestScope;
+    OauthCode _authFlow;
+    OauthImplicit _implicitFlow;
+    OauthCredentials _credentialFlow;
+    OauthPassword _passwordFlow;
+    int _OauthMethod = 0;
 
     void ezsignsignatureCreateObjectV1Callback(OAIHttpRequestWorker *worker);
     void ezsignsignatureDeleteObjectV1Callback(OAIHttpRequestWorker *worker);
@@ -125,6 +134,10 @@ signals:
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
+
+public slots:
+    void tokenAvailable();
+    
 };
 
 } // namespace OpenAPI

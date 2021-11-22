@@ -61,17 +61,17 @@ void OAIEzsignfolder_ListElement::initializeModel() {
     m_dt_due_date_isSet = false;
     m_dt_due_date_isValid = false;
 
-    m_i_total_document_isSet = false;
-    m_i_total_document_isValid = false;
+    m_i_ezsigndocument_isSet = false;
+    m_i_ezsigndocument_isValid = false;
 
-    m_i_total_document_edm_isSet = false;
-    m_i_total_document_edm_isValid = false;
+    m_i_ezsigndocument_edm_isSet = false;
+    m_i_ezsigndocument_edm_isValid = false;
 
-    m_i_total_signature_isSet = false;
-    m_i_total_signature_isValid = false;
+    m_i_ezsignsignature_isSet = false;
+    m_i_ezsignsignature_isValid = false;
 
-    m_i_total_signature_signed_isSet = false;
-    m_i_total_signature_signed_isValid = false;
+    m_i_ezsignsignature_signed_isSet = false;
+    m_i_ezsignsignature_signed_isValid = false;
 }
 
 void OAIEzsignfolder_ListElement::fromJson(QString jsonString) {
@@ -110,17 +110,17 @@ void OAIEzsignfolder_ListElement::fromJsonObject(QJsonObject json) {
     m_dt_due_date_isValid = ::OpenAPI::fromJsonValue(dt_due_date, json[QString("dtDueDate")]);
     m_dt_due_date_isSet = !json[QString("dtDueDate")].isNull() && m_dt_due_date_isValid;
 
-    m_i_total_document_isValid = ::OpenAPI::fromJsonValue(i_total_document, json[QString("iTotalDocument")]);
-    m_i_total_document_isSet = !json[QString("iTotalDocument")].isNull() && m_i_total_document_isValid;
+    m_i_ezsigndocument_isValid = ::OpenAPI::fromJsonValue(i_ezsigndocument, json[QString("iEzsigndocument")]);
+    m_i_ezsigndocument_isSet = !json[QString("iEzsigndocument")].isNull() && m_i_ezsigndocument_isValid;
 
-    m_i_total_document_edm_isValid = ::OpenAPI::fromJsonValue(i_total_document_edm, json[QString("iTotalDocumentEdm")]);
-    m_i_total_document_edm_isSet = !json[QString("iTotalDocumentEdm")].isNull() && m_i_total_document_edm_isValid;
+    m_i_ezsigndocument_edm_isValid = ::OpenAPI::fromJsonValue(i_ezsigndocument_edm, json[QString("iEzsigndocumentEdm")]);
+    m_i_ezsigndocument_edm_isSet = !json[QString("iEzsigndocumentEdm")].isNull() && m_i_ezsigndocument_edm_isValid;
 
-    m_i_total_signature_isValid = ::OpenAPI::fromJsonValue(i_total_signature, json[QString("iTotalSignature")]);
-    m_i_total_signature_isSet = !json[QString("iTotalSignature")].isNull() && m_i_total_signature_isValid;
+    m_i_ezsignsignature_isValid = ::OpenAPI::fromJsonValue(i_ezsignsignature, json[QString("iEzsignsignature")]);
+    m_i_ezsignsignature_isSet = !json[QString("iEzsignsignature")].isNull() && m_i_ezsignsignature_isValid;
 
-    m_i_total_signature_signed_isValid = ::OpenAPI::fromJsonValue(i_total_signature_signed, json[QString("iTotalSignatureSigned")]);
-    m_i_total_signature_signed_isSet = !json[QString("iTotalSignatureSigned")].isNull() && m_i_total_signature_signed_isValid;
+    m_i_ezsignsignature_signed_isValid = ::OpenAPI::fromJsonValue(i_ezsignsignature_signed, json[QString("iEzsignsignatureSigned")]);
+    m_i_ezsignsignature_signed_isSet = !json[QString("iEzsignsignatureSigned")].isNull() && m_i_ezsignsignature_signed_isValid;
 }
 
 QString OAIEzsignfolder_ListElement::asJson() const {
@@ -159,17 +159,17 @@ QJsonObject OAIEzsignfolder_ListElement::asJsonObject() const {
     if (dt_due_date.isSet()) {
         obj.insert(QString("dtDueDate"), ::OpenAPI::toJsonValue(dt_due_date));
     }
-    if (m_i_total_document_isSet) {
-        obj.insert(QString("iTotalDocument"), ::OpenAPI::toJsonValue(i_total_document));
+    if (m_i_ezsigndocument_isSet) {
+        obj.insert(QString("iEzsigndocument"), ::OpenAPI::toJsonValue(i_ezsigndocument));
     }
-    if (m_i_total_document_edm_isSet) {
-        obj.insert(QString("iTotalDocumentEdm"), ::OpenAPI::toJsonValue(i_total_document_edm));
+    if (m_i_ezsigndocument_edm_isSet) {
+        obj.insert(QString("iEzsigndocumentEdm"), ::OpenAPI::toJsonValue(i_ezsigndocument_edm));
     }
-    if (m_i_total_signature_isSet) {
-        obj.insert(QString("iTotalSignature"), ::OpenAPI::toJsonValue(i_total_signature));
+    if (m_i_ezsignsignature_isSet) {
+        obj.insert(QString("iEzsignsignature"), ::OpenAPI::toJsonValue(i_ezsignsignature));
     }
-    if (m_i_total_signature_signed_isSet) {
-        obj.insert(QString("iTotalSignatureSigned"), ::OpenAPI::toJsonValue(i_total_signature_signed));
+    if (m_i_ezsignsignature_signed_isSet) {
+        obj.insert(QString("iEzsignsignatureSigned"), ::OpenAPI::toJsonValue(i_ezsignsignature_signed));
     }
     return obj;
 }
@@ -318,68 +318,68 @@ bool OAIEzsignfolder_ListElement::is_dt_due_date_Valid() const{
     return m_dt_due_date_isValid;
 }
 
-qint32 OAIEzsignfolder_ListElement::getITotalDocument() const {
-    return i_total_document;
+qint32 OAIEzsignfolder_ListElement::getIEzsigndocument() const {
+    return i_ezsigndocument;
 }
-void OAIEzsignfolder_ListElement::setITotalDocument(const qint32 &i_total_document) {
-    this->i_total_document = i_total_document;
-    this->m_i_total_document_isSet = true;
-}
-
-bool OAIEzsignfolder_ListElement::is_i_total_document_Set() const{
-    return m_i_total_document_isSet;
+void OAIEzsignfolder_ListElement::setIEzsigndocument(const qint32 &i_ezsigndocument) {
+    this->i_ezsigndocument = i_ezsigndocument;
+    this->m_i_ezsigndocument_isSet = true;
 }
 
-bool OAIEzsignfolder_ListElement::is_i_total_document_Valid() const{
-    return m_i_total_document_isValid;
+bool OAIEzsignfolder_ListElement::is_i_ezsigndocument_Set() const{
+    return m_i_ezsigndocument_isSet;
 }
 
-qint32 OAIEzsignfolder_ListElement::getITotalDocumentEdm() const {
-    return i_total_document_edm;
-}
-void OAIEzsignfolder_ListElement::setITotalDocumentEdm(const qint32 &i_total_document_edm) {
-    this->i_total_document_edm = i_total_document_edm;
-    this->m_i_total_document_edm_isSet = true;
+bool OAIEzsignfolder_ListElement::is_i_ezsigndocument_Valid() const{
+    return m_i_ezsigndocument_isValid;
 }
 
-bool OAIEzsignfolder_ListElement::is_i_total_document_edm_Set() const{
-    return m_i_total_document_edm_isSet;
+qint32 OAIEzsignfolder_ListElement::getIEzsigndocumentEdm() const {
+    return i_ezsigndocument_edm;
+}
+void OAIEzsignfolder_ListElement::setIEzsigndocumentEdm(const qint32 &i_ezsigndocument_edm) {
+    this->i_ezsigndocument_edm = i_ezsigndocument_edm;
+    this->m_i_ezsigndocument_edm_isSet = true;
 }
 
-bool OAIEzsignfolder_ListElement::is_i_total_document_edm_Valid() const{
-    return m_i_total_document_edm_isValid;
+bool OAIEzsignfolder_ListElement::is_i_ezsigndocument_edm_Set() const{
+    return m_i_ezsigndocument_edm_isSet;
 }
 
-qint32 OAIEzsignfolder_ListElement::getITotalSignature() const {
-    return i_total_signature;
-}
-void OAIEzsignfolder_ListElement::setITotalSignature(const qint32 &i_total_signature) {
-    this->i_total_signature = i_total_signature;
-    this->m_i_total_signature_isSet = true;
+bool OAIEzsignfolder_ListElement::is_i_ezsigndocument_edm_Valid() const{
+    return m_i_ezsigndocument_edm_isValid;
 }
 
-bool OAIEzsignfolder_ListElement::is_i_total_signature_Set() const{
-    return m_i_total_signature_isSet;
+qint32 OAIEzsignfolder_ListElement::getIEzsignsignature() const {
+    return i_ezsignsignature;
+}
+void OAIEzsignfolder_ListElement::setIEzsignsignature(const qint32 &i_ezsignsignature) {
+    this->i_ezsignsignature = i_ezsignsignature;
+    this->m_i_ezsignsignature_isSet = true;
 }
 
-bool OAIEzsignfolder_ListElement::is_i_total_signature_Valid() const{
-    return m_i_total_signature_isValid;
+bool OAIEzsignfolder_ListElement::is_i_ezsignsignature_Set() const{
+    return m_i_ezsignsignature_isSet;
 }
 
-qint32 OAIEzsignfolder_ListElement::getITotalSignatureSigned() const {
-    return i_total_signature_signed;
-}
-void OAIEzsignfolder_ListElement::setITotalSignatureSigned(const qint32 &i_total_signature_signed) {
-    this->i_total_signature_signed = i_total_signature_signed;
-    this->m_i_total_signature_signed_isSet = true;
+bool OAIEzsignfolder_ListElement::is_i_ezsignsignature_Valid() const{
+    return m_i_ezsignsignature_isValid;
 }
 
-bool OAIEzsignfolder_ListElement::is_i_total_signature_signed_Set() const{
-    return m_i_total_signature_signed_isSet;
+qint32 OAIEzsignfolder_ListElement::getIEzsignsignatureSigned() const {
+    return i_ezsignsignature_signed;
+}
+void OAIEzsignfolder_ListElement::setIEzsignsignatureSigned(const qint32 &i_ezsignsignature_signed) {
+    this->i_ezsignsignature_signed = i_ezsignsignature_signed;
+    this->m_i_ezsignsignature_signed_isSet = true;
 }
 
-bool OAIEzsignfolder_ListElement::is_i_total_signature_signed_Valid() const{
-    return m_i_total_signature_signed_isValid;
+bool OAIEzsignfolder_ListElement::is_i_ezsignsignature_signed_Set() const{
+    return m_i_ezsignsignature_signed_isSet;
+}
+
+bool OAIEzsignfolder_ListElement::is_i_ezsignsignature_signed_Valid() const{
+    return m_i_ezsignsignature_signed_isValid;
 }
 
 bool OAIEzsignfolder_ListElement::isSet() const {
@@ -430,22 +430,22 @@ bool OAIEzsignfolder_ListElement::isSet() const {
             break;
         }
 
-        if (m_i_total_document_isSet) {
+        if (m_i_ezsigndocument_isSet) {
             isObjectUpdated = true;
             break;
         }
 
-        if (m_i_total_document_edm_isSet) {
+        if (m_i_ezsigndocument_edm_isSet) {
             isObjectUpdated = true;
             break;
         }
 
-        if (m_i_total_signature_isSet) {
+        if (m_i_ezsignsignature_isSet) {
             isObjectUpdated = true;
             break;
         }
 
-        if (m_i_total_signature_signed_isSet) {
+        if (m_i_ezsignsignature_signed_isSet) {
             isObjectUpdated = true;
             break;
         }
@@ -455,7 +455,7 @@ bool OAIEzsignfolder_ListElement::isSet() const {
 
 bool OAIEzsignfolder_ListElement::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_pki_ezsignfolder_id_isValid && m_fki_ezsignfoldertype_id_isValid && m_e_ezsignfoldertype_privacylevel_isValid && m_s_ezsignfoldertype_name_x_isValid && m_s_ezsignfolder_description_isValid && m_e_ezsignfolder_step_isValid && m_dt_created_date_isValid && m_dt_ezsignfolder_sentdate_isValid && m_dt_due_date_isValid && m_i_total_document_isValid && m_i_total_document_edm_isValid && m_i_total_signature_isValid && m_i_total_signature_signed_isValid && true;
+    return m_pki_ezsignfolder_id_isValid && m_fki_ezsignfoldertype_id_isValid && m_e_ezsignfoldertype_privacylevel_isValid && m_s_ezsignfoldertype_name_x_isValid && m_s_ezsignfolder_description_isValid && m_e_ezsignfolder_step_isValid && m_dt_created_date_isValid && m_dt_ezsignfolder_sentdate_isValid && m_dt_due_date_isValid && m_i_ezsigndocument_isValid && m_i_ezsigndocument_edm_isValid && m_i_ezsignsignature_isValid && m_i_ezsignsignature_signed_isValid && true;
 }
 
 } // namespace OpenAPI

@@ -87,25 +87,25 @@ public:
     bool is_dt_due_date_Set() const;
     bool is_dt_due_date_Valid() const;
 
-    qint32 getITotalDocument() const;
-    void setITotalDocument(const qint32 &i_total_document);
-    bool is_i_total_document_Set() const;
-    bool is_i_total_document_Valid() const;
+    qint32 getIEzsigndocument() const;
+    void setIEzsigndocument(const qint32 &i_ezsigndocument);
+    bool is_i_ezsigndocument_Set() const;
+    bool is_i_ezsigndocument_Valid() const;
 
-    qint32 getITotalDocumentEdm() const;
-    void setITotalDocumentEdm(const qint32 &i_total_document_edm);
-    bool is_i_total_document_edm_Set() const;
-    bool is_i_total_document_edm_Valid() const;
+    qint32 getIEzsigndocumentEdm() const;
+    void setIEzsigndocumentEdm(const qint32 &i_ezsigndocument_edm);
+    bool is_i_ezsigndocument_edm_Set() const;
+    bool is_i_ezsigndocument_edm_Valid() const;
 
-    qint32 getITotalSignature() const;
-    void setITotalSignature(const qint32 &i_total_signature);
-    bool is_i_total_signature_Set() const;
-    bool is_i_total_signature_Valid() const;
+    qint32 getIEzsignsignature() const;
+    void setIEzsignsignature(const qint32 &i_ezsignsignature);
+    bool is_i_ezsignsignature_Set() const;
+    bool is_i_ezsignsignature_Valid() const;
 
-    qint32 getITotalSignatureSigned() const;
-    void setITotalSignatureSigned(const qint32 &i_total_signature_signed);
-    bool is_i_total_signature_signed_Set() const;
-    bool is_i_total_signature_signed_Valid() const;
+    qint32 getIEzsignsignatureSigned() const;
+    void setIEzsignsignatureSigned(const qint32 &i_ezsignsignature_signed);
+    bool is_i_ezsignsignature_signed_Set() const;
+    bool is_i_ezsignsignature_signed_Valid() const;
 
     virtual bool isSet() const override;
     virtual bool isValid() const override;
@@ -149,21 +149,21 @@ private:
     bool m_dt_due_date_isSet;
     bool m_dt_due_date_isValid;
 
-    qint32 i_total_document;
-    bool m_i_total_document_isSet;
-    bool m_i_total_document_isValid;
+    qint32 i_ezsigndocument;
+    bool m_i_ezsigndocument_isSet;
+    bool m_i_ezsigndocument_isValid;
 
-    qint32 i_total_document_edm;
-    bool m_i_total_document_edm_isSet;
-    bool m_i_total_document_edm_isValid;
+    qint32 i_ezsigndocument_edm;
+    bool m_i_ezsigndocument_edm_isSet;
+    bool m_i_ezsigndocument_edm_isValid;
 
-    qint32 i_total_signature;
-    bool m_i_total_signature_isSet;
-    bool m_i_total_signature_isValid;
+    qint32 i_ezsignsignature;
+    bool m_i_ezsignsignature_isSet;
+    bool m_i_ezsignsignature_isValid;
 
-    qint32 i_total_signature_signed;
-    bool m_i_total_signature_signed_isSet;
-    bool m_i_total_signature_signed_isValid;
+    qint32 i_ezsignsignature_signed;
+    bool m_i_ezsignsignature_signed_isSet;
+    bool m_i_ezsignsignature_signed_isValid;
 };
 
 } // namespace OpenAPI

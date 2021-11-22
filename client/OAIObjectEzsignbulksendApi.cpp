@@ -10,14 +10,14 @@
  * Do not edit the class manually.
  */
 
-#include "OAIObjectFranchisebrokerApi.h"
+#include "OAIObjectEzsignbulksendApi.h"
 #include "OAIServerConfiguration.h"
 #include <QJsonArray>
 #include <QJsonDocument>
 
 namespace OpenAPI {
 
-OAIObjectFranchisebrokerApi::OAIObjectFranchisebrokerApi(const int timeOut)
+OAIObjectEzsignbulksendApi::OAIObjectEzsignbulksendApi(const int timeOut)
     : _timeOut(timeOut),
       _manager(nullptr),
       _isResponseCompressionEnabled(false),
@@ -25,10 +25,10 @@ OAIObjectFranchisebrokerApi::OAIObjectFranchisebrokerApi(const int timeOut)
     initializeServerConfigs();
 }
 
-OAIObjectFranchisebrokerApi::~OAIObjectFranchisebrokerApi() {
+OAIObjectEzsignbulksendApi::~OAIObjectEzsignbulksendApi() {
 }
 
-void OAIObjectFranchisebrokerApi::initializeServerConfigs() {
+void OAIObjectEzsignbulksendApi::initializeServerConfigs() {
     //Default server
     QList<OAIServerConfiguration> defaultConf = QList<OAIServerConfiguration>();
     //varying endpoint server
@@ -49,53 +49,53 @@ void OAIObjectFranchisebrokerApi::initializeServerConfigs() {
     {"sInfrastructureenvironmenttypeDescription", OAIServerVariable("The environment on on which to call the API. Should always be "prod" unless instructed otherwise by support.","prod",
     QSet<QString>{ {"prod"},{"stg"},{"qa"},{"dev"} })}, }));
     
-    _serverConfigs.insert("franchisebrokerGetAutocompleteV1", defaultConf);
-    _serverIndices.insert("franchisebrokerGetAutocompleteV1", 0);
+    _serverConfigs.insert("ezsignbulksendGetListV1", defaultConf);
+    _serverIndices.insert("ezsignbulksendGetListV1", 0);
 }
 
 /**
 * returns 0 on success and -1, -2 or -3 on failure.
 * -1 when the variable does not exist and -2 if the value is not defined in the enum and -3 if the operation or server index is not found
 */
-int OAIObjectFranchisebrokerApi::setDefaultServerValue(int serverIndex, const QString &operation, const QString &variable, const QString &value) {
+int OAIObjectEzsignbulksendApi::setDefaultServerValue(int serverIndex, const QString &operation, const QString &variable, const QString &value) {
     auto it = _serverConfigs.find(operation);
     if (it != _serverConfigs.end() && serverIndex < it.value().size()) {
       return _serverConfigs[operation][serverIndex].setDefaultValue(variable,value);
     }
     return -3;
 }
-void OAIObjectFranchisebrokerApi::setServerIndex(const QString &operation, int serverIndex) {
+void OAIObjectEzsignbulksendApi::setServerIndex(const QString &operation, int serverIndex) {
     if (_serverIndices.contains(operation) && serverIndex < _serverConfigs.find(operation).value().size()) {
         _serverIndices[operation] = serverIndex;
     }
 }
 
-void OAIObjectFranchisebrokerApi::setApiKey(const QString &apiKeyName, const QString &apiKey) {
+void OAIObjectEzsignbulksendApi::setApiKey(const QString &apiKeyName, const QString &apiKey) {
     _apiKeys.insert(apiKeyName,apiKey);
 }
 
-void OAIObjectFranchisebrokerApi::setBearerToken(const QString &token) {
+void OAIObjectEzsignbulksendApi::setBearerToken(const QString &token) {
     _bearerToken = token;
 }
 
-void OAIObjectFranchisebrokerApi::setUsername(const QString &username) {
+void OAIObjectEzsignbulksendApi::setUsername(const QString &username) {
     _username = username;
 }
 
-void OAIObjectFranchisebrokerApi::setPassword(const QString &password) {
+void OAIObjectEzsignbulksendApi::setPassword(const QString &password) {
     _password = password;
 }
 
 
-void OAIObjectFranchisebrokerApi::setTimeOut(const int timeOut) {
+void OAIObjectEzsignbulksendApi::setTimeOut(const int timeOut) {
     _timeOut = timeOut;
 }
 
-void OAIObjectFranchisebrokerApi::setWorkingDirectory(const QString &path) {
+void OAIObjectEzsignbulksendApi::setWorkingDirectory(const QString &path) {
     _workingDirectory = path;
 }
 
-void OAIObjectFranchisebrokerApi::setNetworkAccessManager(QNetworkAccessManager* manager) {
+void OAIObjectEzsignbulksendApi::setNetworkAccessManager(QNetworkAccessManager* manager) {
     _manager = manager;
 }
 
@@ -107,7 +107,7 @@ void OAIObjectFranchisebrokerApi::setNetworkAccessManager(QNetworkAccessManager*
     * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
     * returns the index of the new server config on success and -1 if the operation is not found
     */
-int OAIObjectFranchisebrokerApi::addServerConfiguration(const QString &operation, const QUrl &url, const QString &description, const QMap<QString, OAIServerVariable> &variables) {
+int OAIObjectEzsignbulksendApi::addServerConfiguration(const QString &operation, const QUrl &url, const QString &description, const QMap<QString, OAIServerVariable> &variables) {
     if (_serverConfigs.contains(operation)) {
         _serverConfigs[operation].append(OAIServerConfiguration(
                     url,
@@ -125,7 +125,7 @@ int OAIObjectFranchisebrokerApi::addServerConfiguration(const QString &operation
     * @param description A String that describes the server
     * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
     */
-void OAIObjectFranchisebrokerApi::setNewServerForAllOperations(const QUrl &url, const QString &description, const QMap<QString, OAIServerVariable> &variables) {
+void OAIObjectEzsignbulksendApi::setNewServerForAllOperations(const QUrl &url, const QString &description, const QMap<QString, OAIServerVariable> &variables) {
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
     for (auto keyIt = _serverIndices.keyBegin(); keyIt != _serverIndices.keyEnd(); keyIt++) {
         setServerIndex(*keyIt, addServerConfiguration(*keyIt, url, description, variables));
@@ -143,27 +143,27 @@ void OAIObjectFranchisebrokerApi::setNewServerForAllOperations(const QUrl &url, 
     * @param description A String that describes the server
     * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
     */
-void OAIObjectFranchisebrokerApi::setNewServer(const QString &operation, const QUrl &url, const QString &description, const QMap<QString, OAIServerVariable> &variables) {
+void OAIObjectEzsignbulksendApi::setNewServer(const QString &operation, const QUrl &url, const QString &description, const QMap<QString, OAIServerVariable> &variables) {
     setServerIndex(operation, addServerConfiguration(operation, url, description, variables));
 }
 
-void OAIObjectFranchisebrokerApi::addHeaders(const QString &key, const QString &value) {
+void OAIObjectEzsignbulksendApi::addHeaders(const QString &key, const QString &value) {
     _defaultHeaders.insert(key, value);
 }
 
-void OAIObjectFranchisebrokerApi::enableRequestCompression() {
+void OAIObjectEzsignbulksendApi::enableRequestCompression() {
     _isRequestCompressionEnabled = true;
 }
 
-void OAIObjectFranchisebrokerApi::enableResponseCompression() {
+void OAIObjectEzsignbulksendApi::enableResponseCompression() {
     _isResponseCompressionEnabled = true;
 }
 
-void OAIObjectFranchisebrokerApi::abortRequests() {
+void OAIObjectEzsignbulksendApi::abortRequests() {
     emit abortRequestsSignal();
 }
 
-QString OAIObjectFranchisebrokerApi::getParamStylePrefix(const QString &style) {
+QString OAIObjectEzsignbulksendApi::getParamStylePrefix(const QString &style) {
     if (style == "matrix") {
         return ";";
     } else if (style == "label") {
@@ -181,7 +181,7 @@ QString OAIObjectFranchisebrokerApi::getParamStylePrefix(const QString &style) {
     }
 }
 
-QString OAIObjectFranchisebrokerApi::getParamStyleSuffix(const QString &style) {
+QString OAIObjectEzsignbulksendApi::getParamStyleSuffix(const QString &style) {
     if (style == "matrix") {
         return "=";
     } else if (style == "label") {
@@ -199,7 +199,7 @@ QString OAIObjectFranchisebrokerApi::getParamStyleSuffix(const QString &style) {
     }
 }
 
-QString OAIObjectFranchisebrokerApi::getParamStyleDelimiter(const QString &style, const QString &name, bool isExplode) {
+QString OAIObjectEzsignbulksendApi::getParamStyleDelimiter(const QString &style, const QString &name, bool isExplode) {
 
     if (style == "matrix") {
         return (isExplode) ? ";" + name + "=" : ",";
@@ -226,42 +226,73 @@ QString OAIObjectFranchisebrokerApi::getParamStyleDelimiter(const QString &style
     }
 }
 
-void OAIObjectFranchisebrokerApi::franchisebrokerGetAutocompleteV1(const QString &s_selector, const ::OpenAPI::OptionalParam<QString> &s_query) {
-    QString fullPath = QString(_serverConfigs["franchisebrokerGetAutocompleteV1"][_serverIndices.value("franchisebrokerGetAutocompleteV1")].URL()+"/1/object/franchisebroker/getAutocomplete/{sSelector}");
+void OAIObjectEzsignbulksendApi::ezsignbulksendGetListV1(const ::OpenAPI::OptionalParam<QString> &e_order_by, const ::OpenAPI::OptionalParam<qint32> &i_row_max, const ::OpenAPI::OptionalParam<qint32> &i_row_offset, const ::OpenAPI::OptionalParam<OAIHeader_Accept_Language> &accept_language, const ::OpenAPI::OptionalParam<QString> &s_filter) {
+    QString fullPath = QString(_serverConfigs["ezsignbulksendGetListV1"][_serverIndices.value("ezsignbulksendGetListV1")].URL()+"/1/object/ezsignbulksend/getList");
     
     if (_apiKeys.contains("Authorization")) {
         addHeaders("Authorization",_apiKeys.find("Authorization").value());
     }
     
-    
-    {
-        QString s_selectorPathParam("{");
-        s_selectorPathParam.append("sSelector").append("}");
-        QString pathPrefix, pathSuffix, pathDelimiter;
-        QString pathStyle = "simple";
-        if (pathStyle == "")
-            pathStyle = "simple";
-        pathPrefix = getParamStylePrefix(pathStyle);
-        pathSuffix = getParamStyleSuffix(pathStyle);
-        pathDelimiter = getParamStyleDelimiter(pathStyle, "sSelector", false);
-        QString paramString = (pathStyle == "matrix") ? pathPrefix+"sSelector"+pathSuffix : pathPrefix;
-        fullPath.replace(s_selectorPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(s_selector)));
-    }
     QString queryPrefix, querySuffix, queryDelimiter, queryStyle;
-    if (s_query.hasValue())
+    if (e_order_by.hasValue())
     {
         queryStyle = "form";
         if (queryStyle == "")
             queryStyle = "form";
         queryPrefix = getParamStylePrefix(queryStyle);
         querySuffix = getParamStyleSuffix(queryStyle);
-        queryDelimiter = getParamStyleDelimiter(queryStyle, "sQuery", true);
+        queryDelimiter = getParamStyleDelimiter(queryStyle, "eOrderBy", true);
         if (fullPath.indexOf("?") > 0)
             fullPath.append(queryPrefix);
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(s_query.value())));
+        fullPath.append(QUrl::toPercentEncoding("eOrderBy")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(e_order_by.value())));
+    }
+    if (i_row_max.hasValue())
+    {
+        queryStyle = "form";
+        if (queryStyle == "")
+            queryStyle = "form";
+        queryPrefix = getParamStylePrefix(queryStyle);
+        querySuffix = getParamStyleSuffix(queryStyle);
+        queryDelimiter = getParamStyleDelimiter(queryStyle, "iRowMax", true);
+        if (fullPath.indexOf("?") > 0)
+            fullPath.append(queryPrefix);
+        else
+            fullPath.append("?");
+
+        fullPath.append(QUrl::toPercentEncoding("iRowMax")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(i_row_max.value())));
+    }
+    if (i_row_offset.hasValue())
+    {
+        queryStyle = "form";
+        if (queryStyle == "")
+            queryStyle = "form";
+        queryPrefix = getParamStylePrefix(queryStyle);
+        querySuffix = getParamStyleSuffix(queryStyle);
+        queryDelimiter = getParamStyleDelimiter(queryStyle, "iRowOffset", true);
+        if (fullPath.indexOf("?") > 0)
+            fullPath.append(queryPrefix);
+        else
+            fullPath.append("?");
+
+        fullPath.append(QUrl::toPercentEncoding("iRowOffset")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(i_row_offset.value())));
+    }
+    if (s_filter.hasValue())
+    {
+        queryStyle = "form";
+        if (queryStyle == "")
+            queryStyle = "form";
+        queryPrefix = getParamStylePrefix(queryStyle);
+        querySuffix = getParamStyleSuffix(queryStyle);
+        queryDelimiter = getParamStyleDelimiter(queryStyle, "sFilter", true);
+        if (fullPath.indexOf("?") > 0)
+            fullPath.append(queryPrefix);
+        else
+            fullPath.append("?");
+
+        fullPath.append(QUrl::toPercentEncoding("sFilter")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(s_filter.value())));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -269,6 +300,50 @@ void OAIObjectFranchisebrokerApi::franchisebrokerGetAutocompleteV1(const QString
     OAIHttpRequestInput input(fullPath, "GET");
 
 
+    if (accept_language.hasValue())
+    {
+        QString headerString;
+        QJsonObject parameter = accept_language.value().asJsonObject();
+        qint32 count = 0;
+        foreach(const QString& key, parameter.keys()) {
+            if (count > 0) {
+                headerString.append(",");
+            }
+            QString assignOperator = (false) ? "=" : ",";
+            switch(parameter.value(key).type()) {
+                case QJsonValue::String:
+                {
+                    headerString.append(key+assignOperator+parameter.value(key).toString());
+                    break;
+                }
+                case QJsonValue::Double:
+                {
+                    headerString.append(key+assignOperator+QString::number(parameter.value(key).toDouble()));
+                    break;
+                }
+                case QJsonValue::Bool:
+                {
+                    headerString.append(key+assignOperator+QVariant(parameter.value(key).toBool()).toString());
+                    break;
+                }
+                case QJsonValue::Array:
+                {
+                    headerString.append(key+assignOperator+QVariant(parameter.value(key).toArray()).toString());
+                    break;
+                }
+                case QJsonValue::Object:
+                {
+                    headerString.append(key+assignOperator+QVariant(parameter.value(key).toObject()).toString());
+                    break;
+                }
+                case QJsonValue::Null:
+                case QJsonValue::Undefined:
+                    break;
+            }
+            count++;
+        }
+        input.headers.insert("Accept-Language", headerString);
+    }
 #if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
@@ -279,8 +354,8 @@ void OAIObjectFranchisebrokerApi::franchisebrokerGetAutocompleteV1(const QString
     }
 #endif
 
-    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIObjectFranchisebrokerApi::franchisebrokerGetAutocompleteV1Callback);
-    connect(this, &OAIObjectFranchisebrokerApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIObjectEzsignbulksendApi::ezsignbulksendGetListV1Callback);
+    connect(this, &OAIObjectEzsignbulksendApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
             emit allPendingRequestsCompleted();
@@ -290,26 +365,26 @@ void OAIObjectFranchisebrokerApi::franchisebrokerGetAutocompleteV1(const QString
     worker->execute(&input);
 }
 
-void OAIObjectFranchisebrokerApi::franchisebrokerGetAutocompleteV1Callback(OAIHttpRequestWorker *worker) {
+void OAIObjectEzsignbulksendApi::ezsignbulksendGetListV1Callback(OAIHttpRequestWorker *worker) {
     QString error_str = worker->error_str;
     QNetworkReply::NetworkError error_type = worker->error_type;
 
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    OAICommon_getAutocomplete_v1_Response output(QString(worker->response));
+    OAIEzsignbulksend_getList_v1_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit franchisebrokerGetAutocompleteV1Signal(output);
-        emit franchisebrokerGetAutocompleteV1SignalFull(worker, output);
+        emit ezsignbulksendGetListV1Signal(output);
+        emit ezsignbulksendGetListV1SignalFull(worker, output);
     } else {
-        emit franchisebrokerGetAutocompleteV1SignalE(output, error_type, error_str);
-        emit franchisebrokerGetAutocompleteV1SignalEFull(worker, error_type, error_str);
+        emit ezsignbulksendGetListV1SignalE(output, error_type, error_str);
+        emit ezsignbulksendGetListV1SignalEFull(worker, error_type, error_str);
     }
 }
 
-void OAIObjectFranchisebrokerApi::tokenAvailable(){
+void OAIObjectEzsignbulksendApi::tokenAvailable(){
   
     oauthToken token; 
     switch (_OauthMethod) {

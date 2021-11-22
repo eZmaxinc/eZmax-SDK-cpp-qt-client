@@ -60,6 +60,11 @@ add_library(${PROJECT_NAME}
     OAICustom_WordPositionOccurence_Response.cpp
     OAICustom_WordPositionWord_Response.cpp
     OAIEmail_Request.cpp
+    OAIEzsignbulksend_ListElement.cpp
+    OAIEzsignbulksend_getList_v1_Response.cpp
+    OAIEzsignbulksend_getList_v1_Response_allOf.cpp
+    OAIEzsignbulksend_getList_v1_Response_mPayload.cpp
+    OAIEzsignbulksend_getList_v1_Response_mPayload_allOf.cpp
     OAIEzsigndocument_Request.cpp
     OAIEzsigndocument_RequestCompound.cpp
     OAIEzsigndocument_Response.cpp
@@ -208,6 +213,7 @@ add_library(${PROJECT_NAME}
     OAIModuleUserApi.cpp
     OAIObjectActivesessionApi.cpp
     OAIObjectApikeyApi.cpp
+    OAIObjectEzsignbulksendApi.cpp
     OAIObjectEzsigndocumentApi.cpp
     OAIObjectEzsignfolderApi.cpp
     OAIObjectEzsignfoldersignerassociationApi.cpp
