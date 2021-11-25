@@ -141,11 +141,17 @@ HEADERS += \
     $${PWD}/OAIEzsignsigner_RequestCompound.h \
     $${PWD}/OAIEzsignsigner_RequestCompound_Contact.h \
     $${PWD}/OAIEzsignsigner_RequestCompound_allOf.h \
+    $${PWD}/OAIEzsigntemplatepackage_ListElement.h \
+    $${PWD}/OAIEzsigntemplatepackage_getList_v1_Response.h \
+    $${PWD}/OAIEzsigntemplatepackage_getList_v1_Response_allOf.h \
+    $${PWD}/OAIEzsigntemplatepackage_getList_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsigntemplatepackage_getList_v1_Response_mPayload_allOf.h \
     $${PWD}/OAIField_eEzsigndocumentStep.h \
     $${PWD}/OAIField_eEzsignfolderSendreminderfrequency.h \
     $${PWD}/OAIField_eEzsignfolderStep.h \
     $${PWD}/OAIField_eEzsignfoldertypePrivacylevel.h \
     $${PWD}/OAIField_eEzsignsignatureType.h \
+    $${PWD}/OAIField_eEzsigntemplatepackageType.h \
     $${PWD}/OAIField_ePhoneType.h \
     $${PWD}/OAIField_eUserType.h \
     $${PWD}/OAIField_eUserTypeSSPR.h \
@@ -207,6 +213,7 @@ HEADERS += \
     $${PWD}/OAIObjectEzsignfoldersignerassociationApi.h \
     $${PWD}/OAIObjectEzsignfoldertypeApi.h \
     $${PWD}/OAIObjectEzsignsignatureApi.h \
+    $${PWD}/OAIObjectEzsigntemplatepackageApi.h \
     $${PWD}/OAIObjectFranchisebrokerApi.h \
     $${PWD}/OAIObjectFranchiseofficeApi.h \
     $${PWD}/OAIObjectFranchisereferalincomeApi.h \
@@ -362,11 +369,17 @@ SOURCES += \
     $${PWD}/OAIEzsignsigner_RequestCompound.cpp \
     $${PWD}/OAIEzsignsigner_RequestCompound_Contact.cpp \
     $${PWD}/OAIEzsignsigner_RequestCompound_allOf.cpp \
+    $${PWD}/OAIEzsigntemplatepackage_ListElement.cpp \
+    $${PWD}/OAIEzsigntemplatepackage_getList_v1_Response.cpp \
+    $${PWD}/OAIEzsigntemplatepackage_getList_v1_Response_allOf.cpp \
+    $${PWD}/OAIEzsigntemplatepackage_getList_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsigntemplatepackage_getList_v1_Response_mPayload_allOf.cpp \
     $${PWD}/OAIField_eEzsigndocumentStep.cpp \
     $${PWD}/OAIField_eEzsignfolderSendreminderfrequency.cpp \
     $${PWD}/OAIField_eEzsignfolderStep.cpp \
     $${PWD}/OAIField_eEzsignfoldertypePrivacylevel.cpp \
     $${PWD}/OAIField_eEzsignsignatureType.cpp \
+    $${PWD}/OAIField_eEzsigntemplatepackageType.cpp \
     $${PWD}/OAIField_ePhoneType.cpp \
     $${PWD}/OAIField_eUserType.cpp \
     $${PWD}/OAIField_eUserTypeSSPR.cpp \
@@ -428,6 +441,7 @@ SOURCES += \
     $${PWD}/OAIObjectEzsignfoldersignerassociationApi.cpp \
     $${PWD}/OAIObjectEzsignfoldertypeApi.cpp \
     $${PWD}/OAIObjectEzsignsignatureApi.cpp \
+    $${PWD}/OAIObjectEzsigntemplatepackageApi.cpp \
     $${PWD}/OAIObjectFranchisebrokerApi.cpp \
     $${PWD}/OAIObjectFranchiseofficeApi.cpp \
     $${PWD}/OAIObjectFranchisereferalincomeApi.cpp \

@@ -154,11 +154,17 @@ add_library(${PROJECT_NAME}
     OAIEzsignsigner_RequestCompound.cpp
     OAIEzsignsigner_RequestCompound_Contact.cpp
     OAIEzsignsigner_RequestCompound_allOf.cpp
+    OAIEzsigntemplatepackage_ListElement.cpp
+    OAIEzsigntemplatepackage_getList_v1_Response.cpp
+    OAIEzsigntemplatepackage_getList_v1_Response_allOf.cpp
+    OAIEzsigntemplatepackage_getList_v1_Response_mPayload.cpp
+    OAIEzsigntemplatepackage_getList_v1_Response_mPayload_allOf.cpp
     OAIField_eEzsigndocumentStep.cpp
     OAIField_eEzsignfolderSendreminderfrequency.cpp
     OAIField_eEzsignfolderStep.cpp
     OAIField_eEzsignfoldertypePrivacylevel.cpp
     OAIField_eEzsignsignatureType.cpp
+    OAIField_eEzsigntemplatepackageType.cpp
     OAIField_ePhoneType.cpp
     OAIField_eUserType.cpp
     OAIField_eUserTypeSSPR.cpp
@@ -219,6 +225,7 @@ add_library(${PROJECT_NAME}
     OAIObjectEzsignfoldersignerassociationApi.cpp
     OAIObjectEzsignfoldertypeApi.cpp
     OAIObjectEzsignsignatureApi.cpp
+    OAIObjectEzsigntemplatepackageApi.cpp
     OAIObjectFranchisebrokerApi.cpp
     OAIObjectFranchiseofficeApi.cpp
     OAIObjectFranchisereferalincomeApi.cpp
