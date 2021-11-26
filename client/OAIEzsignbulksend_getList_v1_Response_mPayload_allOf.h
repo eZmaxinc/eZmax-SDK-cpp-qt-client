@@ -40,10 +40,10 @@ public:
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    QList<OAIEzsignbulksend_ListElement> getAObjEzsignfolder() const;
-    void setAObjEzsignfolder(const QList<OAIEzsignbulksend_ListElement> &a_obj_ezsignfolder);
-    bool is_a_obj_ezsignfolder_Set() const;
-    bool is_a_obj_ezsignfolder_Valid() const;
+    QList<OAIEzsignbulksend_ListElement> getAObjEzsignbulksend() const;
+    void setAObjEzsignbulksend(const QList<OAIEzsignbulksend_ListElement> &a_obj_ezsignbulksend);
+    bool is_a_obj_ezsignbulksend_Set() const;
+    bool is_a_obj_ezsignbulksend_Valid() const;
 
     virtual bool isSet() const override;
     virtual bool isValid() const override;
@@ -51,9 +51,9 @@ public:
 private:
     void initializeModel();
 
-    QList<OAIEzsignbulksend_ListElement> a_obj_ezsignfolder;
-    bool m_a_obj_ezsignfolder_isSet;
-    bool m_a_obj_ezsignfolder_isValid;
+    QList<OAIEzsignbulksend_ListElement> a_obj_ezsignbulksend;
+    bool m_a_obj_ezsignbulksend_isSet;
+    bool m_a_obj_ezsignbulksend_isValid;
 };
 
 } // namespace OpenAPI

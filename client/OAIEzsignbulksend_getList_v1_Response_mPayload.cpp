@@ -34,8 +34,8 @@ OAIEzsignbulksend_getList_v1_Response_mPayload::~OAIEzsignbulksend_getList_v1_Re
 
 void OAIEzsignbulksend_getList_v1_Response_mPayload::initializeModel() {
 
-    m_a_obj_ezsignfolder_isSet = false;
-    m_a_obj_ezsignfolder_isValid = false;
+    m_a_obj_ezsignbulksend_isSet = false;
+    m_a_obj_ezsignbulksend_isValid = false;
 
     m_i_row_returned_isSet = false;
     m_i_row_returned_isValid = false;
@@ -53,8 +53,8 @@ void OAIEzsignbulksend_getList_v1_Response_mPayload::fromJson(QString jsonString
 
 void OAIEzsignbulksend_getList_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_ezsignfolder_isValid = ::OpenAPI::fromJsonValue(a_obj_ezsignfolder, json[QString("a_objEzsignfolder")]);
-    m_a_obj_ezsignfolder_isSet = !json[QString("a_objEzsignfolder")].isNull() && m_a_obj_ezsignfolder_isValid;
+    m_a_obj_ezsignbulksend_isValid = ::OpenAPI::fromJsonValue(a_obj_ezsignbulksend, json[QString("a_objEzsignbulksend")]);
+    m_a_obj_ezsignbulksend_isSet = !json[QString("a_objEzsignbulksend")].isNull() && m_a_obj_ezsignbulksend_isValid;
 
     m_i_row_returned_isValid = ::OpenAPI::fromJsonValue(i_row_returned, json[QString("iRowReturned")]);
     m_i_row_returned_isSet = !json[QString("iRowReturned")].isNull() && m_i_row_returned_isValid;
@@ -72,8 +72,8 @@ QString OAIEzsignbulksend_getList_v1_Response_mPayload::asJson() const {
 
 QJsonObject OAIEzsignbulksend_getList_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_ezsignfolder.size() > 0) {
-        obj.insert(QString("a_objEzsignfolder"), ::OpenAPI::toJsonValue(a_obj_ezsignfolder));
+    if (a_obj_ezsignbulksend.size() > 0) {
+        obj.insert(QString("a_objEzsignbulksend"), ::OpenAPI::toJsonValue(a_obj_ezsignbulksend));
     }
     if (m_i_row_returned_isSet) {
         obj.insert(QString("iRowReturned"), ::OpenAPI::toJsonValue(i_row_returned));
@@ -84,20 +84,20 @@ QJsonObject OAIEzsignbulksend_getList_v1_Response_mPayload::asJsonObject() const
     return obj;
 }
 
-QList<OAIEzsignbulksend_ListElement> OAIEzsignbulksend_getList_v1_Response_mPayload::getAObjEzsignfolder() const {
-    return a_obj_ezsignfolder;
+QList<OAIEzsignbulksend_ListElement> OAIEzsignbulksend_getList_v1_Response_mPayload::getAObjEzsignbulksend() const {
+    return a_obj_ezsignbulksend;
 }
-void OAIEzsignbulksend_getList_v1_Response_mPayload::setAObjEzsignfolder(const QList<OAIEzsignbulksend_ListElement> &a_obj_ezsignfolder) {
-    this->a_obj_ezsignfolder = a_obj_ezsignfolder;
-    this->m_a_obj_ezsignfolder_isSet = true;
-}
-
-bool OAIEzsignbulksend_getList_v1_Response_mPayload::is_a_obj_ezsignfolder_Set() const{
-    return m_a_obj_ezsignfolder_isSet;
+void OAIEzsignbulksend_getList_v1_Response_mPayload::setAObjEzsignbulksend(const QList<OAIEzsignbulksend_ListElement> &a_obj_ezsignbulksend) {
+    this->a_obj_ezsignbulksend = a_obj_ezsignbulksend;
+    this->m_a_obj_ezsignbulksend_isSet = true;
 }
 
-bool OAIEzsignbulksend_getList_v1_Response_mPayload::is_a_obj_ezsignfolder_Valid() const{
-    return m_a_obj_ezsignfolder_isValid;
+bool OAIEzsignbulksend_getList_v1_Response_mPayload::is_a_obj_ezsignbulksend_Set() const{
+    return m_a_obj_ezsignbulksend_isSet;
+}
+
+bool OAIEzsignbulksend_getList_v1_Response_mPayload::is_a_obj_ezsignbulksend_Valid() const{
+    return m_a_obj_ezsignbulksend_isValid;
 }
 
 qint32 OAIEzsignbulksend_getList_v1_Response_mPayload::getIRowReturned() const {
@@ -135,7 +135,7 @@ bool OAIEzsignbulksend_getList_v1_Response_mPayload::is_i_row_filtered_Valid() c
 bool OAIEzsignbulksend_getList_v1_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_ezsignfolder.size() > 0) {
+        if (a_obj_ezsignbulksend.size() > 0) {
             isObjectUpdated = true;
             break;
         }
@@ -155,7 +155,7 @@ bool OAIEzsignbulksend_getList_v1_Response_mPayload::isSet() const {
 
 bool OAIEzsignbulksend_getList_v1_Response_mPayload::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_i_row_returned_isValid && m_i_row_filtered_isValid && true;
+    return m_a_obj_ezsignbulksend_isValid && m_i_row_returned_isValid && m_i_row_filtered_isValid && true;
 }
 
 } // namespace OpenAPI
