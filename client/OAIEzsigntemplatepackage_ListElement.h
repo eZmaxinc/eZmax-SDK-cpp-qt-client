@@ -22,7 +22,6 @@
 #include <QJsonObject>
 
 #include "OAIField_eEzsigntemplatepackageType.h"
-#include "OAIOneOfintegerobject.h"
 #include <QString>
 
 #include "OAIEnum.h"
@@ -46,18 +45,18 @@ public:
     bool is_pki_ezsigntemplatepackage_id_Set() const;
     bool is_pki_ezsigntemplatepackage_id_Valid() const;
 
-    OAIOneOfintegerobject getFkiDepartmentId() const;
-    void setFkiDepartmentId(const OAIOneOfintegerobject &fki_department_id);
+    qint32 getFkiDepartmentId() const;
+    void setFkiDepartmentId(const qint32 &fki_department_id);
     bool is_fki_department_id_Set() const;
     bool is_fki_department_id_Valid() const;
 
-    OAIOneOfintegerobject getFkiTeamId() const;
-    void setFkiTeamId(const OAIOneOfintegerobject &fki_team_id);
+    qint32 getFkiTeamId() const;
+    void setFkiTeamId(const qint32 &fki_team_id);
     bool is_fki_team_id_Set() const;
     bool is_fki_team_id_Valid() const;
 
-    OAIOneOfintegerobject getFkiEzsignfoldertypeId() const;
-    void setFkiEzsignfoldertypeId(const OAIOneOfintegerobject &fki_ezsignfoldertype_id);
+    qint32 getFkiEzsignfoldertypeId() const;
+    void setFkiEzsignfoldertypeId(const qint32 &fki_ezsignfoldertype_id);
     bool is_fki_ezsignfoldertype_id_Set() const;
     bool is_fki_ezsignfoldertype_id_Valid() const;
 
@@ -96,15 +95,15 @@ private:
     bool m_pki_ezsigntemplatepackage_id_isSet;
     bool m_pki_ezsigntemplatepackage_id_isValid;
 
-    OAIOneOfintegerobject fki_department_id;
+    qint32 fki_department_id;
     bool m_fki_department_id_isSet;
     bool m_fki_department_id_isValid;
 
-    OAIOneOfintegerobject fki_team_id;
+    qint32 fki_team_id;
     bool m_fki_team_id_isSet;
     bool m_fki_team_id_isValid;
 
-    OAIOneOfintegerobject fki_ezsignfoldertype_id;
+    qint32 fki_ezsignfoldertype_id;
     bool m_fki_ezsignfoldertype_id_isSet;
     bool m_fki_ezsignfoldertype_id_isValid;
 

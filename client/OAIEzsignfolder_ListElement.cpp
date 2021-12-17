@@ -153,10 +153,10 @@ QJsonObject OAIEzsignfolder_ListElement::asJsonObject() const {
     if (m_dt_created_date_isSet) {
         obj.insert(QString("dtCreatedDate"), ::OpenAPI::toJsonValue(dt_created_date));
     }
-    if (dt_ezsignfolder_sentdate.isSet()) {
+    if (m_dt_ezsignfolder_sentdate_isSet) {
         obj.insert(QString("dtEzsignfolderSentdate"), ::OpenAPI::toJsonValue(dt_ezsignfolder_sentdate));
     }
-    if (dt_due_date.isSet()) {
+    if (m_dt_due_date_isSet) {
         obj.insert(QString("dtDueDate"), ::OpenAPI::toJsonValue(dt_due_date));
     }
     if (m_i_ezsigndocument_isSet) {
@@ -286,10 +286,10 @@ bool OAIEzsignfolder_ListElement::is_dt_created_date_Valid() const{
     return m_dt_created_date_isValid;
 }
 
-OAIOneOfstringobject OAIEzsignfolder_ListElement::getDtEzsignfolderSentdate() const {
+QString OAIEzsignfolder_ListElement::getDtEzsignfolderSentdate() const {
     return dt_ezsignfolder_sentdate;
 }
-void OAIEzsignfolder_ListElement::setDtEzsignfolderSentdate(const OAIOneOfstringobject &dt_ezsignfolder_sentdate) {
+void OAIEzsignfolder_ListElement::setDtEzsignfolderSentdate(const QString &dt_ezsignfolder_sentdate) {
     this->dt_ezsignfolder_sentdate = dt_ezsignfolder_sentdate;
     this->m_dt_ezsignfolder_sentdate_isSet = true;
 }
@@ -302,10 +302,10 @@ bool OAIEzsignfolder_ListElement::is_dt_ezsignfolder_sentdate_Valid() const{
     return m_dt_ezsignfolder_sentdate_isValid;
 }
 
-OAIOneOfstringobject OAIEzsignfolder_ListElement::getDtDueDate() const {
+QString OAIEzsignfolder_ListElement::getDtDueDate() const {
     return dt_due_date;
 }
-void OAIEzsignfolder_ListElement::setDtDueDate(const OAIOneOfstringobject &dt_due_date) {
+void OAIEzsignfolder_ListElement::setDtDueDate(const QString &dt_due_date) {
     this->dt_due_date = dt_due_date;
     this->m_dt_due_date_isSet = true;
 }
@@ -420,12 +420,12 @@ bool OAIEzsignfolder_ListElement::isSet() const {
             break;
         }
 
-        if (dt_ezsignfolder_sentdate.isSet()) {
+        if (m_dt_ezsignfolder_sentdate_isSet) {
             isObjectUpdated = true;
             break;
         }
 
-        if (dt_due_date.isSet()) {
+        if (m_dt_due_date_isSet) {
             isObjectUpdated = true;
             break;
         }

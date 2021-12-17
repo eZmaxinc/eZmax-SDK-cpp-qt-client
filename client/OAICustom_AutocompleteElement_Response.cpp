@@ -78,7 +78,7 @@ QJsonObject OAICustom_AutocompleteElement_Response::asJsonObject() const {
     if (m_s_label_isSet) {
         obj.insert(QString("sLabel"), ::OpenAPI::toJsonValue(s_label));
     }
-    if (m_value.isSet()) {
+    if (m_m_value_isSet) {
         obj.insert(QString("mValue"), ::OpenAPI::toJsonValue(m_value));
     }
     return obj;
@@ -116,10 +116,10 @@ bool OAICustom_AutocompleteElement_Response::is_s_label_Valid() const{
     return m_s_label_isValid;
 }
 
-OAIOneOfintegerstring OAICustom_AutocompleteElement_Response::getMValue() const {
+QString OAICustom_AutocompleteElement_Response::getMValue() const {
     return m_value;
 }
-void OAICustom_AutocompleteElement_Response::setMValue(const OAIOneOfintegerstring &m_value) {
+void OAICustom_AutocompleteElement_Response::setMValue(const QString &m_value) {
     this->m_value = m_value;
     this->m_m_value_isSet = true;
 }
@@ -145,7 +145,7 @@ bool OAICustom_AutocompleteElement_Response::isSet() const {
             break;
         }
 
-        if (m_value.isSet()) {
+        if (m_m_value_isSet) {
             isObjectUpdated = true;
             break;
         }

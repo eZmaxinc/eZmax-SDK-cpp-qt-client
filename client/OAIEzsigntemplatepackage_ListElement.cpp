@@ -111,13 +111,13 @@ QJsonObject OAIEzsigntemplatepackage_ListElement::asJsonObject() const {
     if (m_pki_ezsigntemplatepackage_id_isSet) {
         obj.insert(QString("pkiEzsigntemplatepackageID"), ::OpenAPI::toJsonValue(pki_ezsigntemplatepackage_id));
     }
-    if (fki_department_id.isSet()) {
+    if (m_fki_department_id_isSet) {
         obj.insert(QString("fkiDepartmentID"), ::OpenAPI::toJsonValue(fki_department_id));
     }
-    if (fki_team_id.isSet()) {
+    if (m_fki_team_id_isSet) {
         obj.insert(QString("fkiTeamID"), ::OpenAPI::toJsonValue(fki_team_id));
     }
-    if (fki_ezsignfoldertype_id.isSet()) {
+    if (m_fki_ezsignfoldertype_id_isSet) {
         obj.insert(QString("fkiEzsignfoldertypeID"), ::OpenAPI::toJsonValue(fki_ezsignfoldertype_id));
     }
     if (m_fki_language_id_isSet) {
@@ -154,10 +154,10 @@ bool OAIEzsigntemplatepackage_ListElement::is_pki_ezsigntemplatepackage_id_Valid
     return m_pki_ezsigntemplatepackage_id_isValid;
 }
 
-OAIOneOfintegerobject OAIEzsigntemplatepackage_ListElement::getFkiDepartmentId() const {
+qint32 OAIEzsigntemplatepackage_ListElement::getFkiDepartmentId() const {
     return fki_department_id;
 }
-void OAIEzsigntemplatepackage_ListElement::setFkiDepartmentId(const OAIOneOfintegerobject &fki_department_id) {
+void OAIEzsigntemplatepackage_ListElement::setFkiDepartmentId(const qint32 &fki_department_id) {
     this->fki_department_id = fki_department_id;
     this->m_fki_department_id_isSet = true;
 }
@@ -170,10 +170,10 @@ bool OAIEzsigntemplatepackage_ListElement::is_fki_department_id_Valid() const{
     return m_fki_department_id_isValid;
 }
 
-OAIOneOfintegerobject OAIEzsigntemplatepackage_ListElement::getFkiTeamId() const {
+qint32 OAIEzsigntemplatepackage_ListElement::getFkiTeamId() const {
     return fki_team_id;
 }
-void OAIEzsigntemplatepackage_ListElement::setFkiTeamId(const OAIOneOfintegerobject &fki_team_id) {
+void OAIEzsigntemplatepackage_ListElement::setFkiTeamId(const qint32 &fki_team_id) {
     this->fki_team_id = fki_team_id;
     this->m_fki_team_id_isSet = true;
 }
@@ -186,10 +186,10 @@ bool OAIEzsigntemplatepackage_ListElement::is_fki_team_id_Valid() const{
     return m_fki_team_id_isValid;
 }
 
-OAIOneOfintegerobject OAIEzsigntemplatepackage_ListElement::getFkiEzsignfoldertypeId() const {
+qint32 OAIEzsigntemplatepackage_ListElement::getFkiEzsignfoldertypeId() const {
     return fki_ezsignfoldertype_id;
 }
-void OAIEzsigntemplatepackage_ListElement::setFkiEzsignfoldertypeId(const OAIOneOfintegerobject &fki_ezsignfoldertype_id) {
+void OAIEzsigntemplatepackage_ListElement::setFkiEzsignfoldertypeId(const qint32 &fki_ezsignfoldertype_id) {
     this->fki_ezsignfoldertype_id = fki_ezsignfoldertype_id;
     this->m_fki_ezsignfoldertype_id_isSet = true;
 }
@@ -290,17 +290,17 @@ bool OAIEzsigntemplatepackage_ListElement::isSet() const {
             break;
         }
 
-        if (fki_department_id.isSet()) {
+        if (m_fki_department_id_isSet) {
             isObjectUpdated = true;
             break;
         }
 
-        if (fki_team_id.isSet()) {
+        if (m_fki_team_id_isSet) {
             isObjectUpdated = true;
             break;
         }
 
-        if (fki_ezsignfoldertype_id.isSet()) {
+        if (m_fki_ezsignfoldertype_id_isSet) {
             isObjectUpdated = true;
             break;
         }

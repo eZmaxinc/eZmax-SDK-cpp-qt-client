@@ -21,7 +21,6 @@
 
 #include <QJsonObject>
 
-#include "OAIOneOfintegerstring.h"
 #include <QString>
 
 #include "OAIEnum.h"
@@ -50,8 +49,8 @@ public:
     bool is_s_label_Set() const;
     bool is_s_label_Valid() const;
 
-    OAIOneOfintegerstring getMValue() const;
-    void setMValue(const OAIOneOfintegerstring &m_value);
+    QString getMValue() const;
+    void setMValue(const QString &m_value);
     bool is_m_value_Set() const;
     bool is_m_value_Valid() const;
 
@@ -69,7 +68,7 @@ private:
     bool m_s_label_isSet;
     bool m_s_label_isValid;
 
-    OAIOneOfintegerstring m_value;
+    QString m_value;
     bool m_m_value_isSet;
     bool m_m_value_isValid;
 };
