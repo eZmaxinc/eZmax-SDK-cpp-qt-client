@@ -104,6 +104,9 @@ add_library(${PROJECT_NAME}
     OAIEzsignfolder_createObject_v1_Response_allOf.cpp
     OAIEzsignfolder_createObject_v1_Response_mPayload.cpp
     OAIEzsignfolder_deleteObject_v1_Response.cpp
+    OAIEzsignfolder_getEzsigndocuments_v1_Response.cpp
+    OAIEzsignfolder_getEzsigndocuments_v1_Response_allOf.cpp
+    OAIEzsignfolder_getEzsigndocuments_v1_Response_mPayload.cpp
     OAIEzsignfolder_getFormsData_v1_Response.cpp
     OAIEzsignfolder_getFormsData_v1_Response_allOf.cpp
     OAIEzsignfolder_getFormsData_v1_Response_mPayload.cpp
@@ -120,6 +123,8 @@ add_library(${PROJECT_NAME}
     OAIEzsignfoldersignerassociation_Request.cpp
     OAIEzsignfoldersignerassociation_RequestCompound.cpp
     OAIEzsignfoldersignerassociation_RequestCompound_allOf.cpp
+    OAIEzsignfoldersignerassociation_Response.cpp
+    OAIEzsignfoldersignerassociation_ResponseCompound.cpp
     OAIEzsignfoldersignerassociation_createObject_v1_Request.cpp
     OAIEzsignfoldersignerassociation_createObject_v1_Response.cpp
     OAIEzsignfoldersignerassociation_createObject_v1_Response_allOf.cpp
@@ -130,6 +135,7 @@ add_library(${PROJECT_NAME}
     OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response_mPayload.cpp
     OAIEzsignfoldersignerassociation_getObject_v1_Response.cpp
     OAIEzsignfoldersignerassociation_getObject_v1_Response_allOf.cpp
+    OAIEzsignfoldersignerassociation_getObject_v1_Response_mPayload.cpp
     OAIEzsignfoldertype_ListElement.cpp
     OAIEzsignfoldertype_getList_v1_Response.cpp
     OAIEzsignfoldertype_getList_v1_Response_allOf.cpp

@@ -91,6 +91,9 @@ HEADERS += \
     $${PWD}/OAIEzsignfolder_createObject_v1_Response_allOf.h \
     $${PWD}/OAIEzsignfolder_createObject_v1_Response_mPayload.h \
     $${PWD}/OAIEzsignfolder_deleteObject_v1_Response.h \
+    $${PWD}/OAIEzsignfolder_getEzsigndocuments_v1_Response.h \
+    $${PWD}/OAIEzsignfolder_getEzsigndocuments_v1_Response_allOf.h \
+    $${PWD}/OAIEzsignfolder_getEzsigndocuments_v1_Response_mPayload.h \
     $${PWD}/OAIEzsignfolder_getFormsData_v1_Response.h \
     $${PWD}/OAIEzsignfolder_getFormsData_v1_Response_allOf.h \
     $${PWD}/OAIEzsignfolder_getFormsData_v1_Response_mPayload.h \
@@ -107,6 +110,8 @@ HEADERS += \
     $${PWD}/OAIEzsignfoldersignerassociation_Request.h \
     $${PWD}/OAIEzsignfoldersignerassociation_RequestCompound.h \
     $${PWD}/OAIEzsignfoldersignerassociation_RequestCompound_allOf.h \
+    $${PWD}/OAIEzsignfoldersignerassociation_Response.h \
+    $${PWD}/OAIEzsignfoldersignerassociation_ResponseCompound.h \
     $${PWD}/OAIEzsignfoldersignerassociation_createObject_v1_Request.h \
     $${PWD}/OAIEzsignfoldersignerassociation_createObject_v1_Response.h \
     $${PWD}/OAIEzsignfoldersignerassociation_createObject_v1_Response_allOf.h \
@@ -117,6 +122,7 @@ HEADERS += \
     $${PWD}/OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response_mPayload.h \
     $${PWD}/OAIEzsignfoldersignerassociation_getObject_v1_Response.h \
     $${PWD}/OAIEzsignfoldersignerassociation_getObject_v1_Response_allOf.h \
+    $${PWD}/OAIEzsignfoldersignerassociation_getObject_v1_Response_mPayload.h \
     $${PWD}/OAIEzsignfoldertype_ListElement.h \
     $${PWD}/OAIEzsignfoldertype_getList_v1_Response.h \
     $${PWD}/OAIEzsignfoldertype_getList_v1_Response_allOf.h \
@@ -319,6 +325,9 @@ SOURCES += \
     $${PWD}/OAIEzsignfolder_createObject_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsignfolder_createObject_v1_Response_mPayload.cpp \
     $${PWD}/OAIEzsignfolder_deleteObject_v1_Response.cpp \
+    $${PWD}/OAIEzsignfolder_getEzsigndocuments_v1_Response.cpp \
+    $${PWD}/OAIEzsignfolder_getEzsigndocuments_v1_Response_allOf.cpp \
+    $${PWD}/OAIEzsignfolder_getEzsigndocuments_v1_Response_mPayload.cpp \
     $${PWD}/OAIEzsignfolder_getFormsData_v1_Response.cpp \
     $${PWD}/OAIEzsignfolder_getFormsData_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsignfolder_getFormsData_v1_Response_mPayload.cpp \
@@ -335,6 +344,8 @@ SOURCES += \
     $${PWD}/OAIEzsignfoldersignerassociation_Request.cpp \
     $${PWD}/OAIEzsignfoldersignerassociation_RequestCompound.cpp \
     $${PWD}/OAIEzsignfoldersignerassociation_RequestCompound_allOf.cpp \
+    $${PWD}/OAIEzsignfoldersignerassociation_Response.cpp \
+    $${PWD}/OAIEzsignfoldersignerassociation_ResponseCompound.cpp \
     $${PWD}/OAIEzsignfoldersignerassociation_createObject_v1_Request.cpp \
     $${PWD}/OAIEzsignfoldersignerassociation_createObject_v1_Response.cpp \
     $${PWD}/OAIEzsignfoldersignerassociation_createObject_v1_Response_allOf.cpp \
@@ -345,6 +356,7 @@ SOURCES += \
     $${PWD}/OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response_mPayload.cpp \
     $${PWD}/OAIEzsignfoldersignerassociation_getObject_v1_Response.cpp \
     $${PWD}/OAIEzsignfoldersignerassociation_getObject_v1_Response_allOf.cpp \
+    $${PWD}/OAIEzsignfoldersignerassociation_getObject_v1_Response_mPayload.cpp \
     $${PWD}/OAIEzsignfoldertype_ListElement.cpp \
     $${PWD}/OAIEzsignfoldertype_getList_v1_Response.cpp \
     $${PWD}/OAIEzsignfoldertype_getList_v1_Response_allOf.cpp \
