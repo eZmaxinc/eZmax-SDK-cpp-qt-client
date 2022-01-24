@@ -22,10 +22,7 @@
 #include <QJsonObject>
 
 #include "OAIEzsignfolder_Request.h"
-#include "OAIEzsignfolder_RequestCompound_allOf.h"
-#include "OAIEzsignfoldersignerassociation_Request.h"
 #include "OAIField_eEzsignfolderSendreminderfrequency.h"
-#include <QList>
 #include <QString>
 
 #include "OAIEnum.h"
@@ -43,11 +40,6 @@ public:
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
-
-    QList<OAIEzsignfoldersignerassociation_Request> getAEzsignfoldersignerassociation() const;
-    void setAEzsignfoldersignerassociation(const QList<OAIEzsignfoldersignerassociation_Request> &a_ezsignfoldersignerassociation);
-    bool is_a_ezsignfoldersignerassociation_Set() const;
-    bool is_a_ezsignfoldersignerassociation_Valid() const;
 
     qint32 getFkiEzsignfoldertypeId() const;
     void setFkiEzsignfoldertypeId(const qint32 &fki_ezsignfoldertype_id);
@@ -79,10 +71,6 @@ public:
 
 private:
     void initializeModel();
-
-    QList<OAIEzsignfoldersignerassociation_Request> a_ezsignfoldersignerassociation;
-    bool m_a_ezsignfoldersignerassociation_isSet;
-    bool m_a_ezsignfoldersignerassociation_isValid;
 
     qint32 fki_ezsignfoldertype_id;
     bool m_fki_ezsignfoldertype_id_isSet;

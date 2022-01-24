@@ -70,6 +70,12 @@ void OAIEzsignfolder_ResponseCompound::initializeModel() {
     m_dt_ezsignfolder_sentdate_isSet = false;
     m_dt_ezsignfolder_sentdate_isValid = false;
 
+    m_dt_ezsignfolder_scheduledarchive_isSet = false;
+    m_dt_ezsignfolder_scheduledarchive_isValid = false;
+
+    m_dt_ezsignfolder_scheduleddestruction_isSet = false;
+    m_dt_ezsignfolder_scheduleddestruction_isValid = false;
+
     m_e_ezsignfolder_step_isSet = false;
     m_e_ezsignfolder_step_isValid = false;
 
@@ -125,6 +131,12 @@ void OAIEzsignfolder_ResponseCompound::fromJsonObject(QJsonObject json) {
     m_dt_ezsignfolder_sentdate_isValid = ::OpenAPI::fromJsonValue(dt_ezsignfolder_sentdate, json[QString("dtEzsignfolderSentdate")]);
     m_dt_ezsignfolder_sentdate_isSet = !json[QString("dtEzsignfolderSentdate")].isNull() && m_dt_ezsignfolder_sentdate_isValid;
 
+    m_dt_ezsignfolder_scheduledarchive_isValid = ::OpenAPI::fromJsonValue(dt_ezsignfolder_scheduledarchive, json[QString("dtEzsignfolderScheduledarchive")]);
+    m_dt_ezsignfolder_scheduledarchive_isSet = !json[QString("dtEzsignfolderScheduledarchive")].isNull() && m_dt_ezsignfolder_scheduledarchive_isValid;
+
+    m_dt_ezsignfolder_scheduleddestruction_isValid = ::OpenAPI::fromJsonValue(dt_ezsignfolder_scheduleddestruction, json[QString("dtEzsignfolderScheduleddestruction")]);
+    m_dt_ezsignfolder_scheduleddestruction_isSet = !json[QString("dtEzsignfolderScheduleddestruction")].isNull() && m_dt_ezsignfolder_scheduleddestruction_isValid;
+
     m_e_ezsignfolder_step_isValid = ::OpenAPI::fromJsonValue(e_ezsignfolder_step, json[QString("eEzsignfolderStep")]);
     m_e_ezsignfolder_step_isSet = !json[QString("eEzsignfolderStep")].isNull() && m_e_ezsignfolder_step_isValid;
 
@@ -179,6 +191,12 @@ QJsonObject OAIEzsignfolder_ResponseCompound::asJsonObject() const {
     }
     if (m_dt_ezsignfolder_sentdate_isSet) {
         obj.insert(QString("dtEzsignfolderSentdate"), ::OpenAPI::toJsonValue(dt_ezsignfolder_sentdate));
+    }
+    if (m_dt_ezsignfolder_scheduledarchive_isSet) {
+        obj.insert(QString("dtEzsignfolderScheduledarchive"), ::OpenAPI::toJsonValue(dt_ezsignfolder_scheduledarchive));
+    }
+    if (m_dt_ezsignfolder_scheduleddestruction_isSet) {
+        obj.insert(QString("dtEzsignfolderScheduleddestruction"), ::OpenAPI::toJsonValue(dt_ezsignfolder_scheduleddestruction));
     }
     if (e_ezsignfolder_step.isSet()) {
         obj.insert(QString("eEzsignfolderStep"), ::OpenAPI::toJsonValue(e_ezsignfolder_step));
@@ -384,6 +402,38 @@ bool OAIEzsignfolder_ResponseCompound::is_dt_ezsignfolder_sentdate_Valid() const
     return m_dt_ezsignfolder_sentdate_isValid;
 }
 
+QString OAIEzsignfolder_ResponseCompound::getDtEzsignfolderScheduledarchive() const {
+    return dt_ezsignfolder_scheduledarchive;
+}
+void OAIEzsignfolder_ResponseCompound::setDtEzsignfolderScheduledarchive(const QString &dt_ezsignfolder_scheduledarchive) {
+    this->dt_ezsignfolder_scheduledarchive = dt_ezsignfolder_scheduledarchive;
+    this->m_dt_ezsignfolder_scheduledarchive_isSet = true;
+}
+
+bool OAIEzsignfolder_ResponseCompound::is_dt_ezsignfolder_scheduledarchive_Set() const{
+    return m_dt_ezsignfolder_scheduledarchive_isSet;
+}
+
+bool OAIEzsignfolder_ResponseCompound::is_dt_ezsignfolder_scheduledarchive_Valid() const{
+    return m_dt_ezsignfolder_scheduledarchive_isValid;
+}
+
+QString OAIEzsignfolder_ResponseCompound::getDtEzsignfolderScheduleddestruction() const {
+    return dt_ezsignfolder_scheduleddestruction;
+}
+void OAIEzsignfolder_ResponseCompound::setDtEzsignfolderScheduleddestruction(const QString &dt_ezsignfolder_scheduleddestruction) {
+    this->dt_ezsignfolder_scheduleddestruction = dt_ezsignfolder_scheduleddestruction;
+    this->m_dt_ezsignfolder_scheduleddestruction_isSet = true;
+}
+
+bool OAIEzsignfolder_ResponseCompound::is_dt_ezsignfolder_scheduleddestruction_Set() const{
+    return m_dt_ezsignfolder_scheduleddestruction_isSet;
+}
+
+bool OAIEzsignfolder_ResponseCompound::is_dt_ezsignfolder_scheduleddestruction_Valid() const{
+    return m_dt_ezsignfolder_scheduleddestruction_isValid;
+}
+
 OAIField_eEzsignfolderStep OAIEzsignfolder_ResponseCompound::getEEzsignfolderStep() const {
     return e_ezsignfolder_step;
 }
@@ -495,6 +545,16 @@ bool OAIEzsignfolder_ResponseCompound::isSet() const {
             break;
         }
 
+        if (m_dt_ezsignfolder_scheduledarchive_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_dt_ezsignfolder_scheduleddestruction_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (e_ezsignfolder_step.isSet()) {
             isObjectUpdated = true;
             break;
@@ -515,7 +575,7 @@ bool OAIEzsignfolder_ResponseCompound::isSet() const {
 
 bool OAIEzsignfolder_ResponseCompound::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_pki_ezsignfolder_id_isValid && m_fki_ezsignfoldertype_id_isValid && m_s_ezsignfoldertype_name_x_isValid && m_fki_billingentityinternal_id_isValid && m_s_billingentityinternal_description_x_isValid && m_fki_ezsigntsarequirement_id_isValid && m_s_ezsigntsarequirement_description_x_isValid && m_s_ezsignfolder_description_isValid && m_t_ezsignfolder_note_isValid && m_e_ezsignfolder_sendreminderfrequency_isValid && m_dt_ezsignfolder_duedate_isValid && m_dt_ezsignfolder_sentdate_isValid && m_e_ezsignfolder_step_isValid && m_dt_ezsignfolder_close_isValid && m_obj_audit_isValid && true;
+    return m_pki_ezsignfolder_id_isValid && m_fki_ezsignfoldertype_id_isValid && m_s_ezsignfoldertype_name_x_isValid && m_fki_billingentityinternal_id_isValid && m_s_billingentityinternal_description_x_isValid && m_fki_ezsigntsarequirement_id_isValid && m_s_ezsigntsarequirement_description_x_isValid && m_s_ezsignfolder_description_isValid && m_t_ezsignfolder_note_isValid && m_e_ezsignfolder_sendreminderfrequency_isValid && m_dt_ezsignfolder_duedate_isValid && m_dt_ezsignfolder_sentdate_isValid && m_dt_ezsignfolder_scheduledarchive_isValid && m_dt_ezsignfolder_scheduleddestruction_isValid && m_e_ezsignfolder_step_isValid && m_dt_ezsignfolder_close_isValid && m_obj_audit_isValid && true;
 }
 
 } // namespace OpenAPI

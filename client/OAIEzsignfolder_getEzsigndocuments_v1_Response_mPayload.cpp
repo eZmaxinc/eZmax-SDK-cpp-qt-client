@@ -66,10 +66,10 @@ QJsonObject OAIEzsignfolder_getEzsigndocuments_v1_Response_mPayload::asJsonObjec
     return obj;
 }
 
-QList<OAIEzsigndocument_Response> OAIEzsignfolder_getEzsigndocuments_v1_Response_mPayload::getAObjEzsigndocument() const {
+QList<OAIEzsigndocument_ResponseCompound> OAIEzsignfolder_getEzsigndocuments_v1_Response_mPayload::getAObjEzsigndocument() const {
     return a_obj_ezsigndocument;
 }
-void OAIEzsignfolder_getEzsigndocuments_v1_Response_mPayload::setAObjEzsigndocument(const QList<OAIEzsigndocument_Response> &a_obj_ezsigndocument) {
+void OAIEzsignfolder_getEzsigndocuments_v1_Response_mPayload::setAObjEzsigndocument(const QList<OAIEzsigndocument_ResponseCompound> &a_obj_ezsigndocument) {
     this->a_obj_ezsigndocument = a_obj_ezsigndocument;
     this->m_a_obj_ezsigndocument_isSet = true;
 }

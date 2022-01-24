@@ -26,6 +26,7 @@
 #include "OAICommon_Response_objDebugPayload_getList_allOf.h"
 #include <QList>
 #include <QMap>
+#include <QString>
 
 #include "OAIEnum.h"
 #include "OAIObject.h"

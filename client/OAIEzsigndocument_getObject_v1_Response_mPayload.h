@@ -22,7 +22,7 @@
 #include <QJsonObject>
 
 #include "OAICommon_Audit.h"
-#include "OAIEzsigndocument_Response.h"
+#include "OAIEzsigndocument_ResponseCompound.h"
 #include "OAIField_eEzsigndocumentStep.h"
 #include <QString>
 

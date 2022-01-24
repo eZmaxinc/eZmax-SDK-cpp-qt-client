@@ -22,6 +22,7 @@
 #include <QJsonObject>
 
 #include <QList>
+#include <QString>
 
 #include "OAIEnum.h"
 #include "OAIObject.h"

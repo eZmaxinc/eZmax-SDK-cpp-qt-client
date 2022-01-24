@@ -33,6 +33,7 @@
 #include "OAIEzsigndocument_getObject_v1_Response.h"
 #include "OAIEzsigndocument_getWordsPositions_v1_Request.h"
 #include "OAIEzsigndocument_getWordsPositions_v1_Response.h"
+#include "OAIHttpFileElement.h"
 #include <QList>
 #include <QString>
 

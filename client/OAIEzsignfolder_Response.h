@@ -102,6 +102,16 @@ public:
     bool is_dt_ezsignfolder_sentdate_Set() const;
     bool is_dt_ezsignfolder_sentdate_Valid() const;
 
+    QString getDtEzsignfolderScheduledarchive() const;
+    void setDtEzsignfolderScheduledarchive(const QString &dt_ezsignfolder_scheduledarchive);
+    bool is_dt_ezsignfolder_scheduledarchive_Set() const;
+    bool is_dt_ezsignfolder_scheduledarchive_Valid() const;
+
+    QString getDtEzsignfolderScheduleddestruction() const;
+    void setDtEzsignfolderScheduleddestruction(const QString &dt_ezsignfolder_scheduleddestruction);
+    bool is_dt_ezsignfolder_scheduleddestruction_Set() const;
+    bool is_dt_ezsignfolder_scheduleddestruction_Valid() const;
+
     OAIField_eEzsignfolderStep getEEzsignfolderStep() const;
     void setEEzsignfolderStep(const OAIField_eEzsignfolderStep &e_ezsignfolder_step);
     bool is_e_ezsignfolder_step_Set() const;
@@ -170,6 +180,14 @@ private:
     QString dt_ezsignfolder_sentdate;
     bool m_dt_ezsignfolder_sentdate_isSet;
     bool m_dt_ezsignfolder_sentdate_isValid;
+
+    QString dt_ezsignfolder_scheduledarchive;
+    bool m_dt_ezsignfolder_scheduledarchive_isSet;
+    bool m_dt_ezsignfolder_scheduledarchive_isValid;
+
+    QString dt_ezsignfolder_scheduleddestruction;
+    bool m_dt_ezsignfolder_scheduleddestruction_isSet;
+    bool m_dt_ezsignfolder_scheduleddestruction_isValid;
 
     OAIField_eEzsignfolderStep e_ezsignfolder_step;
     bool m_e_ezsignfolder_step_isSet;

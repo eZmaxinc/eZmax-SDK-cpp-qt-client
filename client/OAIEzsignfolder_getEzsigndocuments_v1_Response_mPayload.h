@@ -21,7 +21,7 @@
 
 #include <QJsonObject>
 
-#include "OAIEzsigndocument_Response.h"
+#include "OAIEzsigndocument_ResponseCompound.h"
 #include <QList>
 
 #include "OAIEnum.h"
@@ -40,8 +40,8 @@ public:
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    QList<OAIEzsigndocument_Response> getAObjEzsigndocument() const;
-    void setAObjEzsigndocument(const QList<OAIEzsigndocument_Response> &a_obj_ezsigndocument);
+    QList<OAIEzsigndocument_ResponseCompound> getAObjEzsigndocument() const;
+    void setAObjEzsigndocument(const QList<OAIEzsigndocument_ResponseCompound> &a_obj_ezsigndocument);
     bool is_a_obj_ezsigndocument_Set() const;
     bool is_a_obj_ezsigndocument_Valid() const;
 
@@ -51,7 +51,7 @@ public:
 private:
     void initializeModel();
 
-    QList<OAIEzsigndocument_Response> a_obj_ezsigndocument;
+    QList<OAIEzsigndocument_ResponseCompound> a_obj_ezsigndocument;
     bool m_a_obj_ezsigndocument_isSet;
     bool m_a_obj_ezsigndocument_isValid;
 };

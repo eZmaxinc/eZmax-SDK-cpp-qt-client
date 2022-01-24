@@ -21,6 +21,7 @@
 #include "OAICommon_Response_Error.h"
 #include "OAIEzsigntemplatepackage_getList_v1_Response.h"
 #include "OAIHeader_Accept_Language.h"
+#include "OAIHttpFileElement.h"
 #include <QString>
 
 #include <QObject>

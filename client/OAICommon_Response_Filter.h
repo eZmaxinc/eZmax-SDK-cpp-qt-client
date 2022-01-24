@@ -23,6 +23,7 @@
 
 #include <QList>
 #include <QMap>
+#include <QString>
 
 #include "OAIEnum.h"
 #include "OAIObject.h"

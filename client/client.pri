@@ -41,6 +41,8 @@ HEADERS += \
     $${PWD}/OAIContactinformations_RequestCompound.h \
     $${PWD}/OAIContactinformations_RequestCompound_allOf.h \
     $${PWD}/OAICustom_AutocompleteElement_Response.h \
+    $${PWD}/OAICustom_Ezsignfoldersignerassociationstatus_Response.h \
+    $${PWD}/OAICustom_Ezsignsignaturestatus_Response.h \
     $${PWD}/OAICustom_FormDataDocument_Response.h \
     $${PWD}/OAICustom_FormDataSigner_Response.h \
     $${PWD}/OAICustom_FormsDataFolder_Response.h \
@@ -83,7 +85,6 @@ HEADERS += \
     $${PWD}/OAIEzsignfolder_ListElement.h \
     $${PWD}/OAIEzsignfolder_Request.h \
     $${PWD}/OAIEzsignfolder_RequestCompound.h \
-    $${PWD}/OAIEzsignfolder_RequestCompound_allOf.h \
     $${PWD}/OAIEzsignfolder_Response.h \
     $${PWD}/OAIEzsignfolder_ResponseCompound.h \
     $${PWD}/OAIEzsignfolder_createObject_v1_Request.h \
@@ -94,6 +95,9 @@ HEADERS += \
     $${PWD}/OAIEzsignfolder_getEzsigndocuments_v1_Response.h \
     $${PWD}/OAIEzsignfolder_getEzsigndocuments_v1_Response_allOf.h \
     $${PWD}/OAIEzsignfolder_getEzsigndocuments_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsignfolder_getEzsignfoldersignerassociations_v1_Response.h \
+    $${PWD}/OAIEzsignfolder_getEzsignfoldersignerassociations_v1_Response_allOf.h \
+    $${PWD}/OAIEzsignfolder_getEzsignfoldersignerassociations_v1_Response_mPayload.h \
     $${PWD}/OAIEzsignfolder_getFormsData_v1_Response.h \
     $${PWD}/OAIEzsignfolder_getFormsData_v1_Response_allOf.h \
     $${PWD}/OAIEzsignfolder_getFormsData_v1_Response_mPayload.h \
@@ -147,6 +151,10 @@ HEADERS += \
     $${PWD}/OAIEzsignsigner_RequestCompound.h \
     $${PWD}/OAIEzsignsigner_RequestCompound_Contact.h \
     $${PWD}/OAIEzsignsigner_RequestCompound_allOf.h \
+    $${PWD}/OAIEzsignsigner_Response.h \
+    $${PWD}/OAIEzsignsigner_ResponseCompound.h \
+    $${PWD}/OAIEzsignsigner_ResponseCompound_Contact.h \
+    $${PWD}/OAIEzsignsigner_ResponseCompound_allOf.h \
     $${PWD}/OAIEzsigntemplatepackage_ListElement.h \
     $${PWD}/OAIEzsigntemplatepackage_getList_v1_Response.h \
     $${PWD}/OAIEzsigntemplatepackage_getList_v1_Response_allOf.h \
@@ -275,6 +283,8 @@ SOURCES += \
     $${PWD}/OAIContactinformations_RequestCompound.cpp \
     $${PWD}/OAIContactinformations_RequestCompound_allOf.cpp \
     $${PWD}/OAICustom_AutocompleteElement_Response.cpp \
+    $${PWD}/OAICustom_Ezsignfoldersignerassociationstatus_Response.cpp \
+    $${PWD}/OAICustom_Ezsignsignaturestatus_Response.cpp \
     $${PWD}/OAICustom_FormDataDocument_Response.cpp \
     $${PWD}/OAICustom_FormDataSigner_Response.cpp \
     $${PWD}/OAICustom_FormsDataFolder_Response.cpp \
@@ -317,7 +327,6 @@ SOURCES += \
     $${PWD}/OAIEzsignfolder_ListElement.cpp \
     $${PWD}/OAIEzsignfolder_Request.cpp \
     $${PWD}/OAIEzsignfolder_RequestCompound.cpp \
-    $${PWD}/OAIEzsignfolder_RequestCompound_allOf.cpp \
     $${PWD}/OAIEzsignfolder_Response.cpp \
     $${PWD}/OAIEzsignfolder_ResponseCompound.cpp \
     $${PWD}/OAIEzsignfolder_createObject_v1_Request.cpp \
@@ -328,6 +337,9 @@ SOURCES += \
     $${PWD}/OAIEzsignfolder_getEzsigndocuments_v1_Response.cpp \
     $${PWD}/OAIEzsignfolder_getEzsigndocuments_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsignfolder_getEzsigndocuments_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsignfolder_getEzsignfoldersignerassociations_v1_Response.cpp \
+    $${PWD}/OAIEzsignfolder_getEzsignfoldersignerassociations_v1_Response_allOf.cpp \
+    $${PWD}/OAIEzsignfolder_getEzsignfoldersignerassociations_v1_Response_mPayload.cpp \
     $${PWD}/OAIEzsignfolder_getFormsData_v1_Response.cpp \
     $${PWD}/OAIEzsignfolder_getFormsData_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsignfolder_getFormsData_v1_Response_mPayload.cpp \
@@ -381,6 +393,10 @@ SOURCES += \
     $${PWD}/OAIEzsignsigner_RequestCompound.cpp \
     $${PWD}/OAIEzsignsigner_RequestCompound_Contact.cpp \
     $${PWD}/OAIEzsignsigner_RequestCompound_allOf.cpp \
+    $${PWD}/OAIEzsignsigner_Response.cpp \
+    $${PWD}/OAIEzsignsigner_ResponseCompound.cpp \
+    $${PWD}/OAIEzsignsigner_ResponseCompound_Contact.cpp \
+    $${PWD}/OAIEzsignsigner_ResponseCompound_allOf.cpp \
     $${PWD}/OAIEzsigntemplatepackage_ListElement.cpp \
     $${PWD}/OAIEzsigntemplatepackage_getList_v1_Response.cpp \
     $${PWD}/OAIEzsigntemplatepackage_getList_v1_Response_allOf.cpp \
