@@ -22,7 +22,7 @@
 #include <QJsonObject>
 
 #include "OAICommon_Audit.h"
-#include "OAIEzsignfolder_Response.h"
+#include "OAIEzsignfolder_ResponseCompound.h"
 #include "OAIField_eEzsignfolderSendreminderfrequency.h"
 #include "OAIField_eEzsignfolderStep.h"
 #include <QString>
