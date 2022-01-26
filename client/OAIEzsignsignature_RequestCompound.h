@@ -22,7 +22,9 @@
 #include <QJsonObject>
 
 #include "OAIEzsignsignature_Request.h"
+#include "OAIEzsignsignaturecustomdate_Request.h"
 #include "OAIField_eEzsignsignatureType.h"
+#include <QList>
 
 #include "OAIEnum.h"
 #include "OAIObject.h"
@@ -39,6 +41,16 @@ public:
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
+
+    bool isBEzsignsignatureCustomdate() const;
+    void setBEzsignsignatureCustomdate(const bool &b_ezsignsignature_customdate);
+    bool is_b_ezsignsignature_customdate_Set() const;
+    bool is_b_ezsignsignature_customdate_Valid() const;
+
+    QList<OAIEzsignsignaturecustomdate_Request> getAObjEzsignsignaturecustomdate() const;
+    void setAObjEzsignsignaturecustomdate(const QList<OAIEzsignsignaturecustomdate_Request> &a_obj_ezsignsignaturecustomdate);
+    bool is_a_obj_ezsignsignaturecustomdate_Set() const;
+    bool is_a_obj_ezsignsignaturecustomdate_Valid() const;
 
     qint32 getFkiEzsignfoldersignerassociationId() const;
     void setFkiEzsignfoldersignerassociationId(const qint32 &fki_ezsignfoldersignerassociation_id);
@@ -80,6 +92,14 @@ public:
 
 private:
     void initializeModel();
+
+    bool b_ezsignsignature_customdate;
+    bool m_b_ezsignsignature_customdate_isSet;
+    bool m_b_ezsignsignature_customdate_isValid;
+
+    QList<OAIEzsignsignaturecustomdate_Request> a_obj_ezsignsignaturecustomdate;
+    bool m_a_obj_ezsignsignaturecustomdate_isSet;
+    bool m_a_obj_ezsignsignaturecustomdate_isValid;
 
     qint32 fki_ezsignfoldersignerassociation_id;
     bool m_fki_ezsignfoldersignerassociation_id_isSet;

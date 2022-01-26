@@ -147,6 +147,7 @@ HEADERS += \
     $${PWD}/OAIEzsignsignature_deleteObject_v1_Response.h \
     $${PWD}/OAIEzsignsignature_getObject_v1_Response.h \
     $${PWD}/OAIEzsignsignature_getObject_v1_Response_allOf.h \
+    $${PWD}/OAIEzsignsignaturecustomdate_Request.h \
     $${PWD}/OAIEzsignsigner_Request.h \
     $${PWD}/OAIEzsignsigner_RequestCompound.h \
     $${PWD}/OAIEzsignsigner_RequestCompound_Contact.h \
@@ -389,6 +390,7 @@ SOURCES += \
     $${PWD}/OAIEzsignsignature_deleteObject_v1_Response.cpp \
     $${PWD}/OAIEzsignsignature_getObject_v1_Response.cpp \
     $${PWD}/OAIEzsignsignature_getObject_v1_Response_allOf.cpp \
+    $${PWD}/OAIEzsignsignaturecustomdate_Request.cpp \
     $${PWD}/OAIEzsignsigner_Request.cpp \
     $${PWD}/OAIEzsignsigner_RequestCompound.cpp \
     $${PWD}/OAIEzsignsigner_RequestCompound_Contact.cpp \

@@ -292,6 +292,8 @@ client/OAIEzsignsignature_getObject_v1_Response.cpp
 client/OAIEzsignsignature_getObject_v1_Response.h
 client/OAIEzsignsignature_getObject_v1_Response_allOf.cpp
 client/OAIEzsignsignature_getObject_v1_Response_allOf.h
+client/OAIEzsignsignaturecustomdate_Request.cpp
+client/OAIEzsignsignaturecustomdate_Request.h
 client/OAIEzsignsigner_Request.cpp
 client/OAIEzsignsigner_Request.h
 client/OAIEzsignsigner_RequestCompound.cpp

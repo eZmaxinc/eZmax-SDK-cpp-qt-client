@@ -160,6 +160,7 @@ add_library(${PROJECT_NAME}
     OAIEzsignsignature_deleteObject_v1_Response.cpp
     OAIEzsignsignature_getObject_v1_Response.cpp
     OAIEzsignsignature_getObject_v1_Response_allOf.cpp
+    OAIEzsignsignaturecustomdate_Request.cpp
     OAIEzsignsigner_Request.cpp
     OAIEzsignsigner_RequestCompound.cpp
     OAIEzsignsigner_RequestCompound_Contact.cpp
