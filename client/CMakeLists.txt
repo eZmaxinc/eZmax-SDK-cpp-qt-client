@@ -129,6 +129,7 @@ add_library(${PROJECT_NAME}
     OAIEzsignfoldersignerassociation_RequestCompound_allOf.cpp
     OAIEzsignfoldersignerassociation_Response.cpp
     OAIEzsignfoldersignerassociation_ResponseCompound.cpp
+    OAIEzsignfoldersignerassociation_ResponseCompound_User.cpp
     OAIEzsignfoldersignerassociation_createObject_v1_Request.cpp
     OAIEzsignfoldersignerassociation_createObject_v1_Response.cpp
     OAIEzsignfoldersignerassociation_createObject_v1_Response_allOf.cpp

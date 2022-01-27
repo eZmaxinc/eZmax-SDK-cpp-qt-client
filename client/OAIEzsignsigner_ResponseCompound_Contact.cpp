@@ -46,11 +46,11 @@ void OAIEzsignsigner_ResponseCompound_Contact::initializeModel() {
     m_s_email_address_isSet = false;
     m_s_email_address_isValid = false;
 
-    m_s_phone_number_isSet = false;
-    m_s_phone_number_isValid = false;
+    m_s_phone_e164_isSet = false;
+    m_s_phone_e164_isValid = false;
 
-    m_s_phone_number_cell_isSet = false;
-    m_s_phone_number_cell_isValid = false;
+    m_s_phone_e164_cell_isSet = false;
+    m_s_phone_e164_cell_isValid = false;
 }
 
 void OAIEzsignsigner_ResponseCompound_Contact::fromJson(QString jsonString) {
@@ -74,11 +74,11 @@ void OAIEzsignsigner_ResponseCompound_Contact::fromJsonObject(QJsonObject json) 
     m_s_email_address_isValid = ::OpenAPI::fromJsonValue(s_email_address, json[QString("sEmailAddress")]);
     m_s_email_address_isSet = !json[QString("sEmailAddress")].isNull() && m_s_email_address_isValid;
 
-    m_s_phone_number_isValid = ::OpenAPI::fromJsonValue(s_phone_number, json[QString("sPhoneNumber")]);
-    m_s_phone_number_isSet = !json[QString("sPhoneNumber")].isNull() && m_s_phone_number_isValid;
+    m_s_phone_e164_isValid = ::OpenAPI::fromJsonValue(s_phone_e164, json[QString("sPhoneE164")]);
+    m_s_phone_e164_isSet = !json[QString("sPhoneE164")].isNull() && m_s_phone_e164_isValid;
 
-    m_s_phone_number_cell_isValid = ::OpenAPI::fromJsonValue(s_phone_number_cell, json[QString("sPhoneNumberCell")]);
-    m_s_phone_number_cell_isSet = !json[QString("sPhoneNumberCell")].isNull() && m_s_phone_number_cell_isValid;
+    m_s_phone_e164_cell_isValid = ::OpenAPI::fromJsonValue(s_phone_e164_cell, json[QString("sPhoneE164Cell")]);
+    m_s_phone_e164_cell_isSet = !json[QString("sPhoneE164Cell")].isNull() && m_s_phone_e164_cell_isValid;
 }
 
 QString OAIEzsignsigner_ResponseCompound_Contact::asJson() const {
@@ -102,11 +102,11 @@ QJsonObject OAIEzsignsigner_ResponseCompound_Contact::asJsonObject() const {
     if (m_s_email_address_isSet) {
         obj.insert(QString("sEmailAddress"), ::OpenAPI::toJsonValue(s_email_address));
     }
-    if (m_s_phone_number_isSet) {
-        obj.insert(QString("sPhoneNumber"), ::OpenAPI::toJsonValue(s_phone_number));
+    if (m_s_phone_e164_isSet) {
+        obj.insert(QString("sPhoneE164"), ::OpenAPI::toJsonValue(s_phone_e164));
     }
-    if (m_s_phone_number_cell_isSet) {
-        obj.insert(QString("sPhoneNumberCell"), ::OpenAPI::toJsonValue(s_phone_number_cell));
+    if (m_s_phone_e164_cell_isSet) {
+        obj.insert(QString("sPhoneE164Cell"), ::OpenAPI::toJsonValue(s_phone_e164_cell));
     }
     return obj;
 }
@@ -175,36 +175,36 @@ bool OAIEzsignsigner_ResponseCompound_Contact::is_s_email_address_Valid() const{
     return m_s_email_address_isValid;
 }
 
-QString OAIEzsignsigner_ResponseCompound_Contact::getSPhoneNumber() const {
-    return s_phone_number;
+QString OAIEzsignsigner_ResponseCompound_Contact::getSPhoneE164() const {
+    return s_phone_e164;
 }
-void OAIEzsignsigner_ResponseCompound_Contact::setSPhoneNumber(const QString &s_phone_number) {
-    this->s_phone_number = s_phone_number;
-    this->m_s_phone_number_isSet = true;
-}
-
-bool OAIEzsignsigner_ResponseCompound_Contact::is_s_phone_number_Set() const{
-    return m_s_phone_number_isSet;
+void OAIEzsignsigner_ResponseCompound_Contact::setSPhoneE164(const QString &s_phone_e164) {
+    this->s_phone_e164 = s_phone_e164;
+    this->m_s_phone_e164_isSet = true;
 }
 
-bool OAIEzsignsigner_ResponseCompound_Contact::is_s_phone_number_Valid() const{
-    return m_s_phone_number_isValid;
+bool OAIEzsignsigner_ResponseCompound_Contact::is_s_phone_e164_Set() const{
+    return m_s_phone_e164_isSet;
 }
 
-QString OAIEzsignsigner_ResponseCompound_Contact::getSPhoneNumberCell() const {
-    return s_phone_number_cell;
-}
-void OAIEzsignsigner_ResponseCompound_Contact::setSPhoneNumberCell(const QString &s_phone_number_cell) {
-    this->s_phone_number_cell = s_phone_number_cell;
-    this->m_s_phone_number_cell_isSet = true;
+bool OAIEzsignsigner_ResponseCompound_Contact::is_s_phone_e164_Valid() const{
+    return m_s_phone_e164_isValid;
 }
 
-bool OAIEzsignsigner_ResponseCompound_Contact::is_s_phone_number_cell_Set() const{
-    return m_s_phone_number_cell_isSet;
+QString OAIEzsignsigner_ResponseCompound_Contact::getSPhoneE164Cell() const {
+    return s_phone_e164_cell;
+}
+void OAIEzsignsigner_ResponseCompound_Contact::setSPhoneE164Cell(const QString &s_phone_e164_cell) {
+    this->s_phone_e164_cell = s_phone_e164_cell;
+    this->m_s_phone_e164_cell_isSet = true;
 }
 
-bool OAIEzsignsigner_ResponseCompound_Contact::is_s_phone_number_cell_Valid() const{
-    return m_s_phone_number_cell_isValid;
+bool OAIEzsignsigner_ResponseCompound_Contact::is_s_phone_e164_cell_Set() const{
+    return m_s_phone_e164_cell_isSet;
+}
+
+bool OAIEzsignsigner_ResponseCompound_Contact::is_s_phone_e164_cell_Valid() const{
+    return m_s_phone_e164_cell_isValid;
 }
 
 bool OAIEzsignsigner_ResponseCompound_Contact::isSet() const {
@@ -230,12 +230,12 @@ bool OAIEzsignsigner_ResponseCompound_Contact::isSet() const {
             break;
         }
 
-        if (m_s_phone_number_isSet) {
+        if (m_s_phone_e164_isSet) {
             isObjectUpdated = true;
             break;
         }
 
-        if (m_s_phone_number_cell_isSet) {
+        if (m_s_phone_e164_cell_isSet) {
             isObjectUpdated = true;
             break;
         }

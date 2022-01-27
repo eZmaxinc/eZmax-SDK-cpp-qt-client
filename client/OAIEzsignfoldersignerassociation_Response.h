@@ -48,16 +48,6 @@ public:
     bool is_fki_ezsignfolder_id_Set() const;
     bool is_fki_ezsignfolder_id_Valid() const;
 
-    qint32 getFkiEzsignsignerId() const;
-    void setFkiEzsignsignerId(const qint32 &fki_ezsignsigner_id);
-    bool is_fki_ezsignsigner_id_Set() const;
-    bool is_fki_ezsignsigner_id_Valid() const;
-
-    qint32 getFkiUserId() const;
-    void setFkiUserId(const qint32 &fki_user_id);
-    bool is_fki_user_id_Set() const;
-    bool is_fki_user_id_Valid() const;
-
     bool isBEzsignfoldersignerassociationReceivecopy() const;
     void setBEzsignfoldersignerassociationReceivecopy(const bool &b_ezsignfoldersignerassociation_receivecopy);
     bool is_b_ezsignfoldersignerassociation_receivecopy_Set() const;
@@ -76,14 +66,6 @@ private:
     qint32 fki_ezsignfolder_id;
     bool m_fki_ezsignfolder_id_isSet;
     bool m_fki_ezsignfolder_id_isValid;
-
-    qint32 fki_ezsignsigner_id;
-    bool m_fki_ezsignsigner_id_isSet;
-    bool m_fki_ezsignsigner_id_isValid;
-
-    qint32 fki_user_id;
-    bool m_fki_user_id_isSet;
-    bool m_fki_user_id_isValid;
 
     bool b_ezsignfoldersignerassociation_receivecopy;
     bool m_b_ezsignfoldersignerassociation_receivecopy_isSet;

@@ -34,17 +34,20 @@ OAIEzsignsigner_Response::~OAIEzsignsigner_Response() {}
 
 void OAIEzsignsigner_Response::initializeModel() {
 
+    m_pki_ezsignsigner_id_isSet = false;
+    m_pki_ezsignsigner_id_isValid = false;
+
     m_fki_taxassignment_id_isSet = false;
     m_fki_taxassignment_id_isValid = false;
 
     m_fki_secretquestion_id_isSet = false;
     m_fki_secretquestion_id_isValid = false;
 
-    m_e_ezsignsigner_logintype_isSet = false;
-    m_e_ezsignsigner_logintype_isValid = false;
+    m_fki_userlogintype_id_isSet = false;
+    m_fki_userlogintype_id_isValid = false;
 
-    m_s_ezsignsigner_secretanswer_isSet = false;
-    m_s_ezsignsigner_secretanswer_isValid = false;
+    m_s_userlogintype_description_x_isSet = false;
+    m_s_userlogintype_description_x_isValid = false;
 }
 
 void OAIEzsignsigner_Response::fromJson(QString jsonString) {
@@ -56,17 +59,20 @@ void OAIEzsignsigner_Response::fromJson(QString jsonString) {
 
 void OAIEzsignsigner_Response::fromJsonObject(QJsonObject json) {
 
+    m_pki_ezsignsigner_id_isValid = ::OpenAPI::fromJsonValue(pki_ezsignsigner_id, json[QString("pkiEzsignsignerID")]);
+    m_pki_ezsignsigner_id_isSet = !json[QString("pkiEzsignsignerID")].isNull() && m_pki_ezsignsigner_id_isValid;
+
     m_fki_taxassignment_id_isValid = ::OpenAPI::fromJsonValue(fki_taxassignment_id, json[QString("fkiTaxassignmentID")]);
     m_fki_taxassignment_id_isSet = !json[QString("fkiTaxassignmentID")].isNull() && m_fki_taxassignment_id_isValid;
 
     m_fki_secretquestion_id_isValid = ::OpenAPI::fromJsonValue(fki_secretquestion_id, json[QString("fkiSecretquestionID")]);
     m_fki_secretquestion_id_isSet = !json[QString("fkiSecretquestionID")].isNull() && m_fki_secretquestion_id_isValid;
 
-    m_e_ezsignsigner_logintype_isValid = ::OpenAPI::fromJsonValue(e_ezsignsigner_logintype, json[QString("eEzsignsignerLogintype")]);
-    m_e_ezsignsigner_logintype_isSet = !json[QString("eEzsignsignerLogintype")].isNull() && m_e_ezsignsigner_logintype_isValid;
+    m_fki_userlogintype_id_isValid = ::OpenAPI::fromJsonValue(fki_userlogintype_id, json[QString("fkiUserlogintypeID")]);
+    m_fki_userlogintype_id_isSet = !json[QString("fkiUserlogintypeID")].isNull() && m_fki_userlogintype_id_isValid;
 
-    m_s_ezsignsigner_secretanswer_isValid = ::OpenAPI::fromJsonValue(s_ezsignsigner_secretanswer, json[QString("sEzsignsignerSecretanswer")]);
-    m_s_ezsignsigner_secretanswer_isSet = !json[QString("sEzsignsignerSecretanswer")].isNull() && m_s_ezsignsigner_secretanswer_isValid;
+    m_s_userlogintype_description_x_isValid = ::OpenAPI::fromJsonValue(s_userlogintype_description_x, json[QString("sUserlogintypeDescriptionX")]);
+    m_s_userlogintype_description_x_isSet = !json[QString("sUserlogintypeDescriptionX")].isNull() && m_s_userlogintype_description_x_isValid;
 }
 
 QString OAIEzsignsigner_Response::asJson() const {
@@ -78,19 +84,38 @@ QString OAIEzsignsigner_Response::asJson() const {
 
 QJsonObject OAIEzsignsigner_Response::asJsonObject() const {
     QJsonObject obj;
+    if (m_pki_ezsignsigner_id_isSet) {
+        obj.insert(QString("pkiEzsignsignerID"), ::OpenAPI::toJsonValue(pki_ezsignsigner_id));
+    }
     if (m_fki_taxassignment_id_isSet) {
         obj.insert(QString("fkiTaxassignmentID"), ::OpenAPI::toJsonValue(fki_taxassignment_id));
     }
     if (m_fki_secretquestion_id_isSet) {
         obj.insert(QString("fkiSecretquestionID"), ::OpenAPI::toJsonValue(fki_secretquestion_id));
     }
-    if (m_e_ezsignsigner_logintype_isSet) {
-        obj.insert(QString("eEzsignsignerLogintype"), ::OpenAPI::toJsonValue(e_ezsignsigner_logintype));
+    if (m_fki_userlogintype_id_isSet) {
+        obj.insert(QString("fkiUserlogintypeID"), ::OpenAPI::toJsonValue(fki_userlogintype_id));
     }
-    if (m_s_ezsignsigner_secretanswer_isSet) {
-        obj.insert(QString("sEzsignsignerSecretanswer"), ::OpenAPI::toJsonValue(s_ezsignsigner_secretanswer));
+    if (m_s_userlogintype_description_x_isSet) {
+        obj.insert(QString("sUserlogintypeDescriptionX"), ::OpenAPI::toJsonValue(s_userlogintype_description_x));
     }
     return obj;
+}
+
+qint32 OAIEzsignsigner_Response::getPkiEzsignsignerId() const {
+    return pki_ezsignsigner_id;
+}
+void OAIEzsignsigner_Response::setPkiEzsignsignerId(const qint32 &pki_ezsignsigner_id) {
+    this->pki_ezsignsigner_id = pki_ezsignsigner_id;
+    this->m_pki_ezsignsigner_id_isSet = true;
+}
+
+bool OAIEzsignsigner_Response::is_pki_ezsignsigner_id_Set() const{
+    return m_pki_ezsignsigner_id_isSet;
+}
+
+bool OAIEzsignsigner_Response::is_pki_ezsignsigner_id_Valid() const{
+    return m_pki_ezsignsigner_id_isValid;
 }
 
 qint32 OAIEzsignsigner_Response::getFkiTaxassignmentId() const {
@@ -125,41 +150,46 @@ bool OAIEzsignsigner_Response::is_fki_secretquestion_id_Valid() const{
     return m_fki_secretquestion_id_isValid;
 }
 
-QString OAIEzsignsigner_Response::getEEzsignsignerLogintype() const {
-    return e_ezsignsigner_logintype;
+qint32 OAIEzsignsigner_Response::getFkiUserlogintypeId() const {
+    return fki_userlogintype_id;
 }
-void OAIEzsignsigner_Response::setEEzsignsignerLogintype(const QString &e_ezsignsigner_logintype) {
-    this->e_ezsignsigner_logintype = e_ezsignsigner_logintype;
-    this->m_e_ezsignsigner_logintype_isSet = true;
-}
-
-bool OAIEzsignsigner_Response::is_e_ezsignsigner_logintype_Set() const{
-    return m_e_ezsignsigner_logintype_isSet;
+void OAIEzsignsigner_Response::setFkiUserlogintypeId(const qint32 &fki_userlogintype_id) {
+    this->fki_userlogintype_id = fki_userlogintype_id;
+    this->m_fki_userlogintype_id_isSet = true;
 }
 
-bool OAIEzsignsigner_Response::is_e_ezsignsigner_logintype_Valid() const{
-    return m_e_ezsignsigner_logintype_isValid;
+bool OAIEzsignsigner_Response::is_fki_userlogintype_id_Set() const{
+    return m_fki_userlogintype_id_isSet;
 }
 
-QString OAIEzsignsigner_Response::getSEzsignsignerSecretanswer() const {
-    return s_ezsignsigner_secretanswer;
-}
-void OAIEzsignsigner_Response::setSEzsignsignerSecretanswer(const QString &s_ezsignsigner_secretanswer) {
-    this->s_ezsignsigner_secretanswer = s_ezsignsigner_secretanswer;
-    this->m_s_ezsignsigner_secretanswer_isSet = true;
+bool OAIEzsignsigner_Response::is_fki_userlogintype_id_Valid() const{
+    return m_fki_userlogintype_id_isValid;
 }
 
-bool OAIEzsignsigner_Response::is_s_ezsignsigner_secretanswer_Set() const{
-    return m_s_ezsignsigner_secretanswer_isSet;
+QString OAIEzsignsigner_Response::getSUserlogintypeDescriptionX() const {
+    return s_userlogintype_description_x;
+}
+void OAIEzsignsigner_Response::setSUserlogintypeDescriptionX(const QString &s_userlogintype_description_x) {
+    this->s_userlogintype_description_x = s_userlogintype_description_x;
+    this->m_s_userlogintype_description_x_isSet = true;
 }
 
-bool OAIEzsignsigner_Response::is_s_ezsignsigner_secretanswer_Valid() const{
-    return m_s_ezsignsigner_secretanswer_isValid;
+bool OAIEzsignsigner_Response::is_s_userlogintype_description_x_Set() const{
+    return m_s_userlogintype_description_x_isSet;
+}
+
+bool OAIEzsignsigner_Response::is_s_userlogintype_description_x_Valid() const{
+    return m_s_userlogintype_description_x_isValid;
 }
 
 bool OAIEzsignsigner_Response::isSet() const {
     bool isObjectUpdated = false;
     do {
+        if (m_pki_ezsignsigner_id_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (m_fki_taxassignment_id_isSet) {
             isObjectUpdated = true;
             break;
@@ -170,12 +200,12 @@ bool OAIEzsignsigner_Response::isSet() const {
             break;
         }
 
-        if (m_e_ezsignsigner_logintype_isSet) {
+        if (m_fki_userlogintype_id_isSet) {
             isObjectUpdated = true;
             break;
         }
 
-        if (m_s_ezsignsigner_secretanswer_isSet) {
+        if (m_s_userlogintype_description_x_isSet) {
             isObjectUpdated = true;
             break;
         }
@@ -185,7 +215,7 @@ bool OAIEzsignsigner_Response::isSet() const {
 
 bool OAIEzsignsigner_Response::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_fki_taxassignment_id_isValid && m_e_ezsignsigner_logintype_isValid && true;
+    return m_pki_ezsignsigner_id_isValid && m_fki_taxassignment_id_isValid && m_fki_userlogintype_id_isValid && m_s_userlogintype_description_x_isValid && true;
 }
 
 } // namespace OpenAPI

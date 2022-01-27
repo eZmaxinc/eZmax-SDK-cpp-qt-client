@@ -47,6 +47,11 @@ public:
     bool is_obj_contact_Set() const;
     bool is_obj_contact_Valid() const;
 
+    qint32 getPkiEzsignsignerId() const;
+    void setPkiEzsignsignerId(const qint32 &pki_ezsignsigner_id);
+    bool is_pki_ezsignsigner_id_Set() const;
+    bool is_pki_ezsignsigner_id_Valid() const;
+
     qint32 getFkiTaxassignmentId() const;
     void setFkiTaxassignmentId(const qint32 &fki_taxassignment_id);
     bool is_fki_taxassignment_id_Set() const;
@@ -57,15 +62,15 @@ public:
     bool is_fki_secretquestion_id_Set() const;
     bool is_fki_secretquestion_id_Valid() const;
 
-    QString getEEzsignsignerLogintype() const;
-    void setEEzsignsignerLogintype(const QString &e_ezsignsigner_logintype);
-    bool is_e_ezsignsigner_logintype_Set() const;
-    bool is_e_ezsignsigner_logintype_Valid() const;
+    qint32 getFkiUserlogintypeId() const;
+    void setFkiUserlogintypeId(const qint32 &fki_userlogintype_id);
+    bool is_fki_userlogintype_id_Set() const;
+    bool is_fki_userlogintype_id_Valid() const;
 
-    QString getSEzsignsignerSecretanswer() const;
-    void setSEzsignsignerSecretanswer(const QString &s_ezsignsigner_secretanswer);
-    bool is_s_ezsignsigner_secretanswer_Set() const;
-    bool is_s_ezsignsigner_secretanswer_Valid() const;
+    QString getSUserlogintypeDescriptionX() const;
+    void setSUserlogintypeDescriptionX(const QString &s_userlogintype_description_x);
+    bool is_s_userlogintype_description_x_Set() const;
+    bool is_s_userlogintype_description_x_Valid() const;
 
     virtual bool isSet() const override;
     virtual bool isValid() const override;
@@ -77,6 +82,10 @@ private:
     bool m_obj_contact_isSet;
     bool m_obj_contact_isValid;
 
+    qint32 pki_ezsignsigner_id;
+    bool m_pki_ezsignsigner_id_isSet;
+    bool m_pki_ezsignsigner_id_isValid;
+
     qint32 fki_taxassignment_id;
     bool m_fki_taxassignment_id_isSet;
     bool m_fki_taxassignment_id_isValid;
@@ -85,13 +94,13 @@ private:
     bool m_fki_secretquestion_id_isSet;
     bool m_fki_secretquestion_id_isValid;
 
-    QString e_ezsignsigner_logintype;
-    bool m_e_ezsignsigner_logintype_isSet;
-    bool m_e_ezsignsigner_logintype_isValid;
+    qint32 fki_userlogintype_id;
+    bool m_fki_userlogintype_id_isSet;
+    bool m_fki_userlogintype_id_isValid;
 
-    QString s_ezsignsigner_secretanswer;
-    bool m_s_ezsignsigner_secretanswer_isSet;
-    bool m_s_ezsignsigner_secretanswer_isValid;
+    QString s_userlogintype_description_x;
+    bool m_s_userlogintype_description_x_isSet;
+    bool m_s_userlogintype_description_x_isValid;
 };
 
 } // namespace OpenAPI

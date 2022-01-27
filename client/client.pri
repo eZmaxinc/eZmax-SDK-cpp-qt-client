@@ -116,6 +116,7 @@ HEADERS += \
     $${PWD}/OAIEzsignfoldersignerassociation_RequestCompound_allOf.h \
     $${PWD}/OAIEzsignfoldersignerassociation_Response.h \
     $${PWD}/OAIEzsignfoldersignerassociation_ResponseCompound.h \
+    $${PWD}/OAIEzsignfoldersignerassociation_ResponseCompound_User.h \
     $${PWD}/OAIEzsignfoldersignerassociation_createObject_v1_Request.h \
     $${PWD}/OAIEzsignfoldersignerassociation_createObject_v1_Response.h \
     $${PWD}/OAIEzsignfoldersignerassociation_createObject_v1_Response_allOf.h \
@@ -359,6 +360,7 @@ SOURCES += \
     $${PWD}/OAIEzsignfoldersignerassociation_RequestCompound_allOf.cpp \
     $${PWD}/OAIEzsignfoldersignerassociation_Response.cpp \
     $${PWD}/OAIEzsignfoldersignerassociation_ResponseCompound.cpp \
+    $${PWD}/OAIEzsignfoldersignerassociation_ResponseCompound_User.cpp \
     $${PWD}/OAIEzsignfoldersignerassociation_createObject_v1_Request.cpp \
     $${PWD}/OAIEzsignfoldersignerassociation_createObject_v1_Response.cpp \
     $${PWD}/OAIEzsignfoldersignerassociation_createObject_v1_Response_allOf.cpp \

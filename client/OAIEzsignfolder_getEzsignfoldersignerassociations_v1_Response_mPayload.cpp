@@ -66,10 +66,10 @@ QJsonObject OAIEzsignfolder_getEzsignfoldersignerassociations_v1_Response_mPaylo
     return obj;
 }
 
-QList<OAIEzsignfoldersignerassociation_Response> OAIEzsignfolder_getEzsignfoldersignerassociations_v1_Response_mPayload::getAObjEzsignfoldersignerassociation() const {
+QList<OAIEzsignfoldersignerassociation_ResponseCompound> OAIEzsignfolder_getEzsignfoldersignerassociations_v1_Response_mPayload::getAObjEzsignfoldersignerassociation() const {
     return a_obj_ezsignfoldersignerassociation;
 }
-void OAIEzsignfolder_getEzsignfoldersignerassociations_v1_Response_mPayload::setAObjEzsignfoldersignerassociation(const QList<OAIEzsignfoldersignerassociation_Response> &a_obj_ezsignfoldersignerassociation) {
+void OAIEzsignfolder_getEzsignfoldersignerassociations_v1_Response_mPayload::setAObjEzsignfoldersignerassociation(const QList<OAIEzsignfoldersignerassociation_ResponseCompound> &a_obj_ezsignfoldersignerassociation) {
     this->a_obj_ezsignfoldersignerassociation = a_obj_ezsignfoldersignerassociation;
     this->m_a_obj_ezsignfoldersignerassociation_isSet = true;
 }

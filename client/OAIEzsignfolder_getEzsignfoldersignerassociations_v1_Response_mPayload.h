@@ -21,7 +21,7 @@
 
 #include <QJsonObject>
 
-#include "OAIEzsignfoldersignerassociation_Response.h"
+#include "OAIEzsignfoldersignerassociation_ResponseCompound.h"
 #include <QList>
 
 #include "OAIEnum.h"
@@ -40,8 +40,8 @@ public:
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    QList<OAIEzsignfoldersignerassociation_Response> getAObjEzsignfoldersignerassociation() const;
-    void setAObjEzsignfoldersignerassociation(const QList<OAIEzsignfoldersignerassociation_Response> &a_obj_ezsignfoldersignerassociation);
+    QList<OAIEzsignfoldersignerassociation_ResponseCompound> getAObjEzsignfoldersignerassociation() const;
+    void setAObjEzsignfoldersignerassociation(const QList<OAIEzsignfoldersignerassociation_ResponseCompound> &a_obj_ezsignfoldersignerassociation);
     bool is_a_obj_ezsignfoldersignerassociation_Set() const;
     bool is_a_obj_ezsignfoldersignerassociation_Valid() const;
 
@@ -51,7 +51,7 @@ public:
 private:
     void initializeModel();
 
-    QList<OAIEzsignfoldersignerassociation_Response> a_obj_ezsignfoldersignerassociation;
+    QList<OAIEzsignfoldersignerassociation_ResponseCompound> a_obj_ezsignfoldersignerassociation;
     bool m_a_obj_ezsignfoldersignerassociation_isSet;
     bool m_a_obj_ezsignfoldersignerassociation_isValid;
 };

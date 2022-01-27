@@ -59,15 +59,15 @@ public:
     bool is_s_email_address_Set() const;
     bool is_s_email_address_Valid() const;
 
-    QString getSPhoneNumber() const;
-    void setSPhoneNumber(const QString &s_phone_number);
-    bool is_s_phone_number_Set() const;
-    bool is_s_phone_number_Valid() const;
+    QString getSPhoneE164() const;
+    void setSPhoneE164(const QString &s_phone_e164);
+    bool is_s_phone_e164_Set() const;
+    bool is_s_phone_e164_Valid() const;
 
-    QString getSPhoneNumberCell() const;
-    void setSPhoneNumberCell(const QString &s_phone_number_cell);
-    bool is_s_phone_number_cell_Set() const;
-    bool is_s_phone_number_cell_Valid() const;
+    QString getSPhoneE164Cell() const;
+    void setSPhoneE164Cell(const QString &s_phone_e164_cell);
+    bool is_s_phone_e164_cell_Set() const;
+    bool is_s_phone_e164_cell_Valid() const;
 
     virtual bool isSet() const override;
     virtual bool isValid() const override;
@@ -91,13 +91,13 @@ private:
     bool m_s_email_address_isSet;
     bool m_s_email_address_isValid;
 
-    QString s_phone_number;
-    bool m_s_phone_number_isSet;
-    bool m_s_phone_number_isValid;
+    QString s_phone_e164;
+    bool m_s_phone_e164_isSet;
+    bool m_s_phone_e164_isValid;
 
-    QString s_phone_number_cell;
-    bool m_s_phone_number_cell_isSet;
-    bool m_s_phone_number_cell_isValid;
+    QString s_phone_e164_cell;
+    bool m_s_phone_e164_cell_isSet;
+    bool m_s_phone_e164_cell_isValid;
 };
 
 } // namespace OpenAPI
