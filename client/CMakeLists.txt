@@ -228,6 +228,7 @@ add_library(${PROJECT_NAME}
     OAIWebhook_User_UserCreated.cpp
     OAIWebhook_User_UserCreated_allOf.cpp
     OAIWebsite_Request.cpp
+    OAIXxxx.cpp
     OAIGlobalCustomerApi.cpp
     OAIModuleAuthenticateApi.cpp
     OAIModuleListApi.cpp

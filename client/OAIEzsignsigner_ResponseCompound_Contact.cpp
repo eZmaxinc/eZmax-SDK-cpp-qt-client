@@ -34,6 +34,9 @@ OAIEzsignsigner_ResponseCompound_Contact::~OAIEzsignsigner_ResponseCompound_Cont
 
 void OAIEzsignsigner_ResponseCompound_Contact::initializeModel() {
 
+    m_pki_contact_id_isSet = false;
+    m_pki_contact_id_isValid = false;
+
     m_s_contact_firstname_isSet = false;
     m_s_contact_firstname_isValid = false;
 
@@ -61,6 +64,9 @@ void OAIEzsignsigner_ResponseCompound_Contact::fromJson(QString jsonString) {
 }
 
 void OAIEzsignsigner_ResponseCompound_Contact::fromJsonObject(QJsonObject json) {
+
+    m_pki_contact_id_isValid = ::OpenAPI::fromJsonValue(pki_contact_id, json[QString("pkiContactID")]);
+    m_pki_contact_id_isSet = !json[QString("pkiContactID")].isNull() && m_pki_contact_id_isValid;
 
     m_s_contact_firstname_isValid = ::OpenAPI::fromJsonValue(s_contact_firstname, json[QString("sContactFirstname")]);
     m_s_contact_firstname_isSet = !json[QString("sContactFirstname")].isNull() && m_s_contact_firstname_isValid;
@@ -90,6 +96,9 @@ QString OAIEzsignsigner_ResponseCompound_Contact::asJson() const {
 
 QJsonObject OAIEzsignsigner_ResponseCompound_Contact::asJsonObject() const {
     QJsonObject obj;
+    if (m_pki_contact_id_isSet) {
+        obj.insert(QString("pkiContactID"), ::OpenAPI::toJsonValue(pki_contact_id));
+    }
     if (m_s_contact_firstname_isSet) {
         obj.insert(QString("sContactFirstname"), ::OpenAPI::toJsonValue(s_contact_firstname));
     }
@@ -109,6 +118,22 @@ QJsonObject OAIEzsignsigner_ResponseCompound_Contact::asJsonObject() const {
         obj.insert(QString("sPhoneE164Cell"), ::OpenAPI::toJsonValue(s_phone_e164_cell));
     }
     return obj;
+}
+
+qint32 OAIEzsignsigner_ResponseCompound_Contact::getPkiContactId() const {
+    return pki_contact_id;
+}
+void OAIEzsignsigner_ResponseCompound_Contact::setPkiContactId(const qint32 &pki_contact_id) {
+    this->pki_contact_id = pki_contact_id;
+    this->m_pki_contact_id_isSet = true;
+}
+
+bool OAIEzsignsigner_ResponseCompound_Contact::is_pki_contact_id_Set() const{
+    return m_pki_contact_id_isSet;
+}
+
+bool OAIEzsignsigner_ResponseCompound_Contact::is_pki_contact_id_Valid() const{
+    return m_pki_contact_id_isValid;
 }
 
 QString OAIEzsignsigner_ResponseCompound_Contact::getSContactFirstname() const {
@@ -210,6 +235,11 @@ bool OAIEzsignsigner_ResponseCompound_Contact::is_s_phone_e164_cell_Valid() cons
 bool OAIEzsignsigner_ResponseCompound_Contact::isSet() const {
     bool isObjectUpdated = false;
     do {
+        if (m_pki_contact_id_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (m_s_contact_firstname_isSet) {
             isObjectUpdated = true;
             break;
@@ -245,7 +275,7 @@ bool OAIEzsignsigner_ResponseCompound_Contact::isSet() const {
 
 bool OAIEzsignsigner_ResponseCompound_Contact::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_s_contact_firstname_isValid && m_s_contact_lastname_isValid && m_fki_language_id_isValid && true;
+    return m_pki_contact_id_isValid && m_s_contact_firstname_isValid && m_s_contact_lastname_isValid && m_fki_language_id_isValid && true;
 }
 
 } // namespace OpenAPI

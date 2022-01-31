@@ -39,6 +39,11 @@ public:
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
+    qint32 getPkiContactId() const;
+    void setPkiContactId(const qint32 &pki_contact_id);
+    bool is_pki_contact_id_Set() const;
+    bool is_pki_contact_id_Valid() const;
+
     QString getSContactFirstname() const;
     void setSContactFirstname(const QString &s_contact_firstname);
     bool is_s_contact_firstname_Set() const;
@@ -74,6 +79,10 @@ public:
 
 private:
     void initializeModel();
+
+    qint32 pki_contact_id;
+    bool m_pki_contact_id_isSet;
+    bool m_pki_contact_id_isValid;
 
     QString s_contact_firstname;
     bool m_s_contact_firstname_isSet;

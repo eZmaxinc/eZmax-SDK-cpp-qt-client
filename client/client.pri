@@ -215,6 +215,7 @@ HEADERS += \
     $${PWD}/OAIWebhook_User_UserCreated.h \
     $${PWD}/OAIWebhook_User_UserCreated_allOf.h \
     $${PWD}/OAIWebsite_Request.h \
+    $${PWD}/OAIXxxx.h \
 # APIs
     $${PWD}/OAIGlobalCustomerApi.h \
     $${PWD}/OAIModuleAuthenticateApi.h \
@@ -459,6 +460,7 @@ SOURCES += \
     $${PWD}/OAIWebhook_User_UserCreated.cpp \
     $${PWD}/OAIWebhook_User_UserCreated_allOf.cpp \
     $${PWD}/OAIWebsite_Request.cpp \
+    $${PWD}/OAIXxxx.cpp \
 # APIs
     $${PWD}/OAIGlobalCustomerApi.cpp \
     $${PWD}/OAIModuleAuthenticateApi.cpp \

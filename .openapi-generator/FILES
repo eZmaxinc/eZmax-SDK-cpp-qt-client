@@ -475,4 +475,6 @@ client/OAIWebhook_User_UserCreated_allOf.cpp
 client/OAIWebhook_User_UserCreated_allOf.h
 client/OAIWebsite_Request.cpp
 client/OAIWebsite_Request.h
+client/OAIXxxx.cpp
+client/OAIXxxx.h
 client/client.pri
