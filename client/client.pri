@@ -58,6 +58,7 @@ HEADERS += \
     $${PWD}/OAIEzsigndocument_RequestCompound.h \
     $${PWD}/OAIEzsigndocument_Response.h \
     $${PWD}/OAIEzsigndocument_ResponseCompound.h \
+    $${PWD}/OAIEzsigndocument_ResponseCompound_allOf.h \
     $${PWD}/OAIEzsigndocument_applyEzsigntemplate_v1_Request.h \
     $${PWD}/OAIEzsigndocument_applyEzsigntemplate_v1_Response.h \
     $${PWD}/OAIEzsigndocument_applyEzsigntemplate_v2_Request.h \
@@ -117,6 +118,7 @@ HEADERS += \
     $${PWD}/OAIEzsignfoldersignerassociation_Response.h \
     $${PWD}/OAIEzsignfoldersignerassociation_ResponseCompound.h \
     $${PWD}/OAIEzsignfoldersignerassociation_ResponseCompound_User.h \
+    $${PWD}/OAIEzsignfoldersignerassociation_ResponseCompound_allOf.h \
     $${PWD}/OAIEzsignfoldersignerassociation_createObject_v1_Request.h \
     $${PWD}/OAIEzsignfoldersignerassociation_createObject_v1_Response.h \
     $${PWD}/OAIEzsignfoldersignerassociation_createObject_v1_Response_allOf.h \
@@ -141,6 +143,7 @@ HEADERS += \
     $${PWD}/OAIEzsignpage_Response.h \
     $${PWD}/OAIEzsignsignature_Request.h \
     $${PWD}/OAIEzsignsignature_RequestCompound.h \
+    $${PWD}/OAIEzsignsignature_RequestCompound_allOf.h \
     $${PWD}/OAIEzsignsignature_createObject_v1_Request.h \
     $${PWD}/OAIEzsignsignature_createObject_v1_Response.h \
     $${PWD}/OAIEzsignsignature_createObject_v1_Response_allOf.h \
@@ -162,6 +165,7 @@ HEADERS += \
     $${PWD}/OAIEzsigntemplatepackage_getList_v1_Response_allOf.h \
     $${PWD}/OAIEzsigntemplatepackage_getList_v1_Response_mPayload.h \
     $${PWD}/OAIEzsigntemplatepackage_getList_v1_Response_mPayload_allOf.h \
+    $${PWD}/OAIField_eActivesessionWeekdaystart.h \
     $${PWD}/OAIField_eEzsigndocumentStep.h \
     $${PWD}/OAIField_eEzsignfolderSendreminderfrequency.h \
     $${PWD}/OAIField_eEzsignfolderStep.h \
@@ -303,6 +307,7 @@ SOURCES += \
     $${PWD}/OAIEzsigndocument_RequestCompound.cpp \
     $${PWD}/OAIEzsigndocument_Response.cpp \
     $${PWD}/OAIEzsigndocument_ResponseCompound.cpp \
+    $${PWD}/OAIEzsigndocument_ResponseCompound_allOf.cpp \
     $${PWD}/OAIEzsigndocument_applyEzsigntemplate_v1_Request.cpp \
     $${PWD}/OAIEzsigndocument_applyEzsigntemplate_v1_Response.cpp \
     $${PWD}/OAIEzsigndocument_applyEzsigntemplate_v2_Request.cpp \
@@ -362,6 +367,7 @@ SOURCES += \
     $${PWD}/OAIEzsignfoldersignerassociation_Response.cpp \
     $${PWD}/OAIEzsignfoldersignerassociation_ResponseCompound.cpp \
     $${PWD}/OAIEzsignfoldersignerassociation_ResponseCompound_User.cpp \
+    $${PWD}/OAIEzsignfoldersignerassociation_ResponseCompound_allOf.cpp \
     $${PWD}/OAIEzsignfoldersignerassociation_createObject_v1_Request.cpp \
     $${PWD}/OAIEzsignfoldersignerassociation_createObject_v1_Response.cpp \
     $${PWD}/OAIEzsignfoldersignerassociation_createObject_v1_Response_allOf.cpp \
@@ -386,6 +392,7 @@ SOURCES += \
     $${PWD}/OAIEzsignpage_Response.cpp \
     $${PWD}/OAIEzsignsignature_Request.cpp \
     $${PWD}/OAIEzsignsignature_RequestCompound.cpp \
+    $${PWD}/OAIEzsignsignature_RequestCompound_allOf.cpp \
     $${PWD}/OAIEzsignsignature_createObject_v1_Request.cpp \
     $${PWD}/OAIEzsignsignature_createObject_v1_Response.cpp \
     $${PWD}/OAIEzsignsignature_createObject_v1_Response_allOf.cpp \
@@ -407,6 +414,7 @@ SOURCES += \
     $${PWD}/OAIEzsigntemplatepackage_getList_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsigntemplatepackage_getList_v1_Response_mPayload.cpp \
     $${PWD}/OAIEzsigntemplatepackage_getList_v1_Response_mPayload_allOf.cpp \
+    $${PWD}/OAIField_eActivesessionWeekdaystart.cpp \
     $${PWD}/OAIField_eEzsigndocumentStep.cpp \
     $${PWD}/OAIField_eEzsignfolderSendreminderfrequency.cpp \
     $${PWD}/OAIField_eEzsignfolderStep.cpp \

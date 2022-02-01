@@ -22,6 +22,8 @@
 #include <QJsonObject>
 
 #include "OAIEzsignfoldersignerassociation_ResponseCompound.h"
+#include "OAIEzsignfoldersignerassociation_ResponseCompound_User.h"
+#include "OAIEzsignsigner_ResponseCompound.h"
 
 #include "OAIEnum.h"
 #include "OAIObject.h"
@@ -38,6 +40,16 @@ public:
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
+
+    OAIEzsignfoldersignerassociation_ResponseCompound_User getObjUser() const;
+    void setObjUser(const OAIEzsignfoldersignerassociation_ResponseCompound_User &obj_user);
+    bool is_obj_user_Set() const;
+    bool is_obj_user_Valid() const;
+
+    OAIEzsignsigner_ResponseCompound getObjEzsignsigner() const;
+    void setObjEzsignsigner(const OAIEzsignsigner_ResponseCompound &obj_ezsignsigner);
+    bool is_obj_ezsignsigner_Set() const;
+    bool is_obj_ezsignsigner_Valid() const;
 
     qint32 getPkiEzsignfoldersignerassociationId() const;
     void setPkiEzsignfoldersignerassociationId(const qint32 &pki_ezsignfoldersignerassociation_id);
@@ -59,6 +71,14 @@ public:
 
 private:
     void initializeModel();
+
+    OAIEzsignfoldersignerassociation_ResponseCompound_User obj_user;
+    bool m_obj_user_isSet;
+    bool m_obj_user_isValid;
+
+    OAIEzsignsigner_ResponseCompound obj_ezsignsigner;
+    bool m_obj_ezsignsigner_isSet;
+    bool m_obj_ezsignsigner_isValid;
 
     qint32 pki_ezsignfoldersignerassociation_id;
     bool m_pki_ezsignfoldersignerassociation_id_isSet;

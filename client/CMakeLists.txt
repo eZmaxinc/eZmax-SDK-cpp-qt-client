@@ -71,6 +71,7 @@ add_library(${PROJECT_NAME}
     OAIEzsigndocument_RequestCompound.cpp
     OAIEzsigndocument_Response.cpp
     OAIEzsigndocument_ResponseCompound.cpp
+    OAIEzsigndocument_ResponseCompound_allOf.cpp
     OAIEzsigndocument_applyEzsigntemplate_v1_Request.cpp
     OAIEzsigndocument_applyEzsigntemplate_v1_Response.cpp
     OAIEzsigndocument_applyEzsigntemplate_v2_Request.cpp
@@ -130,6 +131,7 @@ add_library(${PROJECT_NAME}
     OAIEzsignfoldersignerassociation_Response.cpp
     OAIEzsignfoldersignerassociation_ResponseCompound.cpp
     OAIEzsignfoldersignerassociation_ResponseCompound_User.cpp
+    OAIEzsignfoldersignerassociation_ResponseCompound_allOf.cpp
     OAIEzsignfoldersignerassociation_createObject_v1_Request.cpp
     OAIEzsignfoldersignerassociation_createObject_v1_Response.cpp
     OAIEzsignfoldersignerassociation_createObject_v1_Response_allOf.cpp
@@ -154,6 +156,7 @@ add_library(${PROJECT_NAME}
     OAIEzsignpage_Response.cpp
     OAIEzsignsignature_Request.cpp
     OAIEzsignsignature_RequestCompound.cpp
+    OAIEzsignsignature_RequestCompound_allOf.cpp
     OAIEzsignsignature_createObject_v1_Request.cpp
     OAIEzsignsignature_createObject_v1_Response.cpp
     OAIEzsignsignature_createObject_v1_Response_allOf.cpp
@@ -175,6 +178,7 @@ add_library(${PROJECT_NAME}
     OAIEzsigntemplatepackage_getList_v1_Response_allOf.cpp
     OAIEzsigntemplatepackage_getList_v1_Response_mPayload.cpp
     OAIEzsigntemplatepackage_getList_v1_Response_mPayload_allOf.cpp
+    OAIField_eActivesessionWeekdaystart.cpp
     OAIField_eEzsigndocumentStep.cpp
     OAIField_eEzsignfolderSendreminderfrequency.cpp
     OAIField_eEzsignfolderStep.cpp

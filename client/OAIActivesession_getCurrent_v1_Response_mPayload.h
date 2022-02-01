@@ -21,6 +21,7 @@
 
 #include <QJsonObject>
 
+#include "OAIField_eActivesessionWeekdaystart.h"
 #include <QList>
 #include <QString>
 
@@ -49,6 +50,11 @@ public:
     void setEActivesessionSessiontype(const QString &e_activesession_sessiontype);
     bool is_e_activesession_sessiontype_Set() const;
     bool is_e_activesession_sessiontype_Valid() const;
+
+    OAIField_eActivesessionWeekdaystart getEActivesessionWeekdaystart() const;
+    void setEActivesessionWeekdaystart(const OAIField_eActivesessionWeekdaystart &e_activesession_weekdaystart);
+    bool is_e_activesession_weekdaystart_Set() const;
+    bool is_e_activesession_weekdaystart_Valid() const;
 
     qint32 getFkiLanguageId() const;
     void setFkiLanguageId(const qint32 &fki_language_id);
@@ -98,6 +104,10 @@ private:
     QString e_activesession_sessiontype;
     bool m_e_activesession_sessiontype_isSet;
     bool m_e_activesession_sessiontype_isValid;
+
+    OAIField_eActivesessionWeekdaystart e_activesession_weekdaystart;
+    bool m_e_activesession_weekdaystart_isSet;
+    bool m_e_activesession_weekdaystart_isValid;
 
     qint32 fki_language_id;
     bool m_fki_language_id_isSet;

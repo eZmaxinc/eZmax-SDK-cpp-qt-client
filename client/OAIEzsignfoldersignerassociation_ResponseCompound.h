@@ -23,6 +23,7 @@
 
 #include "OAIEzsignfoldersignerassociation_Response.h"
 #include "OAIEzsignfoldersignerassociation_ResponseCompound_User.h"
+#include "OAIEzsignfoldersignerassociation_ResponseCompound_allOf.h"
 #include "OAIEzsignsigner_ResponseCompound.h"
 
 #include "OAIEnum.h"

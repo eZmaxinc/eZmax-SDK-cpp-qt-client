@@ -24,6 +24,7 @@
 #include "OAICommon_Audit.h"
 #include "OAICustom_Ezsignfoldersignerassociationstatus_Response.h"
 #include "OAIEzsigndocument_Response.h"
+#include "OAIEzsigndocument_ResponseCompound_allOf.h"
 #include "OAIField_eEzsigndocumentStep.h"
 #include <QList>
 #include <QString>

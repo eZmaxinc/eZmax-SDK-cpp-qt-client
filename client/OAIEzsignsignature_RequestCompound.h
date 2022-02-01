@@ -22,6 +22,7 @@
 #include <QJsonObject>
 
 #include "OAIEzsignsignature_Request.h"
+#include "OAIEzsignsignature_RequestCompound_allOf.h"
 #include "OAIEzsignsignaturecustomdate_Request.h"
 #include "OAIField_eEzsignsignatureType.h"
 #include <QList>
