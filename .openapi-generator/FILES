@@ -1,6 +1,16 @@
 .openapi-generator-ignore
 README.md
 client/CMakeLists.txt
+client/OAIActivesession_Response.cpp
+client/OAIActivesession_Response.h
+client/OAIActivesession_ResponseCompound.cpp
+client/OAIActivesession_ResponseCompound.h
+client/OAIActivesession_ResponseCompound_Apikey.cpp
+client/OAIActivesession_ResponseCompound_Apikey.h
+client/OAIActivesession_ResponseCompound_User.cpp
+client/OAIActivesession_ResponseCompound_User.h
+client/OAIActivesession_ResponseCompound_allOf.cpp
+client/OAIActivesession_ResponseCompound_allOf.h
 client/OAIActivesession_getCurrent_v1_Response.cpp
 client/OAIActivesession_getCurrent_v1_Response.h
 client/OAIActivesession_getCurrent_v1_Response_allOf.cpp
@@ -328,6 +338,8 @@ client/OAIEzsigntemplatepackage_getList_v1_Response_mPayload.cpp
 client/OAIEzsigntemplatepackage_getList_v1_Response_mPayload.h
 client/OAIEzsigntemplatepackage_getList_v1_Response_mPayload_allOf.cpp
 client/OAIEzsigntemplatepackage_getList_v1_Response_mPayload_allOf.h
+client/OAIField_eActivesessionSessiontype.cpp
+client/OAIField_eActivesessionSessiontype.h
 client/OAIField_eActivesessionWeekdaystart.cpp
 client/OAIField_eActivesessionWeekdaystart.h
 client/OAIField_eEzsigndocumentStep.cpp
@@ -483,6 +495,4 @@ client/OAIWebhook_User_UserCreated_allOf.cpp
 client/OAIWebhook_User_UserCreated_allOf.h
 client/OAIWebsite_Request.cpp
 client/OAIWebsite_Request.h
-client/OAIXxxx.cpp
-client/OAIXxxx.h
 client/client.pri

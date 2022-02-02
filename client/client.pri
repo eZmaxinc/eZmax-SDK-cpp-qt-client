@@ -2,6 +2,11 @@ QT += network
 
 HEADERS += \
 # Models
+    $${PWD}/OAIActivesession_Response.h \
+    $${PWD}/OAIActivesession_ResponseCompound.h \
+    $${PWD}/OAIActivesession_ResponseCompound_Apikey.h \
+    $${PWD}/OAIActivesession_ResponseCompound_User.h \
+    $${PWD}/OAIActivesession_ResponseCompound_allOf.h \
     $${PWD}/OAIActivesession_getCurrent_v1_Response.h \
     $${PWD}/OAIActivesession_getCurrent_v1_Response_allOf.h \
     $${PWD}/OAIActivesession_getCurrent_v1_Response_mPayload.h \
@@ -165,6 +170,7 @@ HEADERS += \
     $${PWD}/OAIEzsigntemplatepackage_getList_v1_Response_allOf.h \
     $${PWD}/OAIEzsigntemplatepackage_getList_v1_Response_mPayload.h \
     $${PWD}/OAIEzsigntemplatepackage_getList_v1_Response_mPayload_allOf.h \
+    $${PWD}/OAIField_eActivesessionSessiontype.h \
     $${PWD}/OAIField_eActivesessionWeekdaystart.h \
     $${PWD}/OAIField_eEzsigndocumentStep.h \
     $${PWD}/OAIField_eEzsignfolderSendreminderfrequency.h \
@@ -219,7 +225,6 @@ HEADERS += \
     $${PWD}/OAIWebhook_User_UserCreated.h \
     $${PWD}/OAIWebhook_User_UserCreated_allOf.h \
     $${PWD}/OAIWebsite_Request.h \
-    $${PWD}/OAIXxxx.h \
 # APIs
     $${PWD}/OAIGlobalCustomerApi.h \
     $${PWD}/OAIModuleAuthenticateApi.h \
@@ -251,6 +256,11 @@ HEADERS += \
 
 SOURCES += \
 # Models
+    $${PWD}/OAIActivesession_Response.cpp \
+    $${PWD}/OAIActivesession_ResponseCompound.cpp \
+    $${PWD}/OAIActivesession_ResponseCompound_Apikey.cpp \
+    $${PWD}/OAIActivesession_ResponseCompound_User.cpp \
+    $${PWD}/OAIActivesession_ResponseCompound_allOf.cpp \
     $${PWD}/OAIActivesession_getCurrent_v1_Response.cpp \
     $${PWD}/OAIActivesession_getCurrent_v1_Response_allOf.cpp \
     $${PWD}/OAIActivesession_getCurrent_v1_Response_mPayload.cpp \
@@ -414,6 +424,7 @@ SOURCES += \
     $${PWD}/OAIEzsigntemplatepackage_getList_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsigntemplatepackage_getList_v1_Response_mPayload.cpp \
     $${PWD}/OAIEzsigntemplatepackage_getList_v1_Response_mPayload_allOf.cpp \
+    $${PWD}/OAIField_eActivesessionSessiontype.cpp \
     $${PWD}/OAIField_eActivesessionWeekdaystart.cpp \
     $${PWD}/OAIField_eEzsigndocumentStep.cpp \
     $${PWD}/OAIField_eEzsignfolderSendreminderfrequency.cpp \
@@ -468,7 +479,6 @@ SOURCES += \
     $${PWD}/OAIWebhook_User_UserCreated.cpp \
     $${PWD}/OAIWebhook_User_UserCreated_allOf.cpp \
     $${PWD}/OAIWebsite_Request.cpp \
-    $${PWD}/OAIXxxx.cpp \
 # APIs
     $${PWD}/OAIGlobalCustomerApi.cpp \
     $${PWD}/OAIModuleAuthenticateApi.cpp \

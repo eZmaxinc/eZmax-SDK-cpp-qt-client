@@ -15,6 +15,11 @@ find_package(Qt5Core REQUIRED)
 find_package(Qt5Network REQUIRED)
 
 add_library(${PROJECT_NAME}
+    OAIActivesession_Response.cpp
+    OAIActivesession_ResponseCompound.cpp
+    OAIActivesession_ResponseCompound_Apikey.cpp
+    OAIActivesession_ResponseCompound_User.cpp
+    OAIActivesession_ResponseCompound_allOf.cpp
     OAIActivesession_getCurrent_v1_Response.cpp
     OAIActivesession_getCurrent_v1_Response_allOf.cpp
     OAIActivesession_getCurrent_v1_Response_mPayload.cpp
@@ -178,6 +183,7 @@ add_library(${PROJECT_NAME}
     OAIEzsigntemplatepackage_getList_v1_Response_allOf.cpp
     OAIEzsigntemplatepackage_getList_v1_Response_mPayload.cpp
     OAIEzsigntemplatepackage_getList_v1_Response_mPayload_allOf.cpp
+    OAIField_eActivesessionSessiontype.cpp
     OAIField_eActivesessionWeekdaystart.cpp
     OAIField_eEzsigndocumentStep.cpp
     OAIField_eEzsignfolderSendreminderfrequency.cpp
@@ -232,7 +238,6 @@ add_library(${PROJECT_NAME}
     OAIWebhook_User_UserCreated.cpp
     OAIWebhook_User_UserCreated_allOf.cpp
     OAIWebsite_Request.cpp
-    OAIXxxx.cpp
     OAIGlobalCustomerApi.cpp
     OAIModuleAuthenticateApi.cpp
     OAIModuleListApi.cpp

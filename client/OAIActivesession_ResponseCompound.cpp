@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-#include "OAIActivesession_getCurrent_v1_Response_mPayload.h"
+#include "OAIActivesession_ResponseCompound.h"
 
 #include <QDebug>
 #include <QJsonArray>
@@ -21,18 +21,18 @@
 
 namespace OpenAPI {
 
-OAIActivesession_getCurrent_v1_Response_mPayload::OAIActivesession_getCurrent_v1_Response_mPayload(QString json) {
+OAIActivesession_ResponseCompound::OAIActivesession_ResponseCompound(QString json) {
     this->initializeModel();
     this->fromJson(json);
 }
 
-OAIActivesession_getCurrent_v1_Response_mPayload::OAIActivesession_getCurrent_v1_Response_mPayload() {
+OAIActivesession_ResponseCompound::OAIActivesession_ResponseCompound() {
     this->initializeModel();
 }
 
-OAIActivesession_getCurrent_v1_Response_mPayload::~OAIActivesession_getCurrent_v1_Response_mPayload() {}
+OAIActivesession_ResponseCompound::~OAIActivesession_ResponseCompound() {}
 
-void OAIActivesession_getCurrent_v1_Response_mPayload::initializeModel() {
+void OAIActivesession_ResponseCompound::initializeModel() {
 
     m_a_pki_permission_id_isSet = false;
     m_a_pki_permission_id_isValid = false;
@@ -71,14 +71,14 @@ void OAIActivesession_getCurrent_v1_Response_mPayload::initializeModel() {
     m_pks_customer_code_isValid = false;
 }
 
-void OAIActivesession_getCurrent_v1_Response_mPayload::fromJson(QString jsonString) {
+void OAIActivesession_ResponseCompound::fromJson(QString jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();
     this->fromJsonObject(jsonObject);
 }
 
-void OAIActivesession_getCurrent_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
+void OAIActivesession_ResponseCompound::fromJsonObject(QJsonObject json) {
 
     m_a_pki_permission_id_isValid = ::OpenAPI::fromJsonValue(a_pki_permission_id, json[QString("a_pkiPermissionID")]);
     m_a_pki_permission_id_isSet = !json[QString("a_pkiPermissionID")].isNull() && m_a_pki_permission_id_isValid;
@@ -117,14 +117,14 @@ void OAIActivesession_getCurrent_v1_Response_mPayload::fromJsonObject(QJsonObjec
     m_pks_customer_code_isSet = !json[QString("pksCustomerCode")].isNull() && m_pks_customer_code_isValid;
 }
 
-QString OAIActivesession_getCurrent_v1_Response_mPayload::asJson() const {
+QString OAIActivesession_ResponseCompound::asJson() const {
     QJsonObject obj = this->asJsonObject();
     QJsonDocument doc(obj);
     QByteArray bytes = doc.toJson();
     return QString(bytes);
 }
 
-QJsonObject OAIActivesession_getCurrent_v1_Response_mPayload::asJsonObject() const {
+QJsonObject OAIActivesession_ResponseCompound::asJsonObject() const {
     QJsonObject obj;
     if (a_pki_permission_id.size() > 0) {
         obj.insert(QString("a_pkiPermissionID"), ::OpenAPI::toJsonValue(a_pki_permission_id));
@@ -165,199 +165,199 @@ QJsonObject OAIActivesession_getCurrent_v1_Response_mPayload::asJsonObject() con
     return obj;
 }
 
-QList<qint32> OAIActivesession_getCurrent_v1_Response_mPayload::getAPkiPermissionId() const {
+QList<qint32> OAIActivesession_ResponseCompound::getAPkiPermissionId() const {
     return a_pki_permission_id;
 }
-void OAIActivesession_getCurrent_v1_Response_mPayload::setAPkiPermissionId(const QList<qint32> &a_pki_permission_id) {
+void OAIActivesession_ResponseCompound::setAPkiPermissionId(const QList<qint32> &a_pki_permission_id) {
     this->a_pki_permission_id = a_pki_permission_id;
     this->m_a_pki_permission_id_isSet = true;
 }
 
-bool OAIActivesession_getCurrent_v1_Response_mPayload::is_a_pki_permission_id_Set() const{
+bool OAIActivesession_ResponseCompound::is_a_pki_permission_id_Set() const{
     return m_a_pki_permission_id_isSet;
 }
 
-bool OAIActivesession_getCurrent_v1_Response_mPayload::is_a_pki_permission_id_Valid() const{
+bool OAIActivesession_ResponseCompound::is_a_pki_permission_id_Valid() const{
     return m_a_pki_permission_id_isValid;
 }
 
-OAIActivesession_ResponseCompound_User OAIActivesession_getCurrent_v1_Response_mPayload::getObjUserReal() const {
+OAIActivesession_ResponseCompound_User OAIActivesession_ResponseCompound::getObjUserReal() const {
     return obj_user_real;
 }
-void OAIActivesession_getCurrent_v1_Response_mPayload::setObjUserReal(const OAIActivesession_ResponseCompound_User &obj_user_real) {
+void OAIActivesession_ResponseCompound::setObjUserReal(const OAIActivesession_ResponseCompound_User &obj_user_real) {
     this->obj_user_real = obj_user_real;
     this->m_obj_user_real_isSet = true;
 }
 
-bool OAIActivesession_getCurrent_v1_Response_mPayload::is_obj_user_real_Set() const{
+bool OAIActivesession_ResponseCompound::is_obj_user_real_Set() const{
     return m_obj_user_real_isSet;
 }
 
-bool OAIActivesession_getCurrent_v1_Response_mPayload::is_obj_user_real_Valid() const{
+bool OAIActivesession_ResponseCompound::is_obj_user_real_Valid() const{
     return m_obj_user_real_isValid;
 }
 
-OAIActivesession_ResponseCompound_User OAIActivesession_getCurrent_v1_Response_mPayload::getObjUserCloned() const {
+OAIActivesession_ResponseCompound_User OAIActivesession_ResponseCompound::getObjUserCloned() const {
     return obj_user_cloned;
 }
-void OAIActivesession_getCurrent_v1_Response_mPayload::setObjUserCloned(const OAIActivesession_ResponseCompound_User &obj_user_cloned) {
+void OAIActivesession_ResponseCompound::setObjUserCloned(const OAIActivesession_ResponseCompound_User &obj_user_cloned) {
     this->obj_user_cloned = obj_user_cloned;
     this->m_obj_user_cloned_isSet = true;
 }
 
-bool OAIActivesession_getCurrent_v1_Response_mPayload::is_obj_user_cloned_Set() const{
+bool OAIActivesession_ResponseCompound::is_obj_user_cloned_Set() const{
     return m_obj_user_cloned_isSet;
 }
 
-bool OAIActivesession_getCurrent_v1_Response_mPayload::is_obj_user_cloned_Valid() const{
+bool OAIActivesession_ResponseCompound::is_obj_user_cloned_Valid() const{
     return m_obj_user_cloned_isValid;
 }
 
-OAIActivesession_ResponseCompound_Apikey OAIActivesession_getCurrent_v1_Response_mPayload::getObjApikey() const {
+OAIActivesession_ResponseCompound_Apikey OAIActivesession_ResponseCompound::getObjApikey() const {
     return obj_apikey;
 }
-void OAIActivesession_getCurrent_v1_Response_mPayload::setObjApikey(const OAIActivesession_ResponseCompound_Apikey &obj_apikey) {
+void OAIActivesession_ResponseCompound::setObjApikey(const OAIActivesession_ResponseCompound_Apikey &obj_apikey) {
     this->obj_apikey = obj_apikey;
     this->m_obj_apikey_isSet = true;
 }
 
-bool OAIActivesession_getCurrent_v1_Response_mPayload::is_obj_apikey_Set() const{
+bool OAIActivesession_ResponseCompound::is_obj_apikey_Set() const{
     return m_obj_apikey_isSet;
 }
 
-bool OAIActivesession_getCurrent_v1_Response_mPayload::is_obj_apikey_Valid() const{
+bool OAIActivesession_ResponseCompound::is_obj_apikey_Valid() const{
     return m_obj_apikey_isValid;
 }
 
-QList<QString> OAIActivesession_getCurrent_v1_Response_mPayload::getAEModuleInternalname() const {
+QList<QString> OAIActivesession_ResponseCompound::getAEModuleInternalname() const {
     return a_e_module_internalname;
 }
-void OAIActivesession_getCurrent_v1_Response_mPayload::setAEModuleInternalname(const QList<QString> &a_e_module_internalname) {
+void OAIActivesession_ResponseCompound::setAEModuleInternalname(const QList<QString> &a_e_module_internalname) {
     this->a_e_module_internalname = a_e_module_internalname;
     this->m_a_e_module_internalname_isSet = true;
 }
 
-bool OAIActivesession_getCurrent_v1_Response_mPayload::is_a_e_module_internalname_Set() const{
+bool OAIActivesession_ResponseCompound::is_a_e_module_internalname_Set() const{
     return m_a_e_module_internalname_isSet;
 }
 
-bool OAIActivesession_getCurrent_v1_Response_mPayload::is_a_e_module_internalname_Valid() const{
+bool OAIActivesession_ResponseCompound::is_a_e_module_internalname_Valid() const{
     return m_a_e_module_internalname_isValid;
 }
 
-OAIField_eActivesessionSessiontype OAIActivesession_getCurrent_v1_Response_mPayload::getEActivesessionSessiontype() const {
+OAIField_eActivesessionSessiontype OAIActivesession_ResponseCompound::getEActivesessionSessiontype() const {
     return e_activesession_sessiontype;
 }
-void OAIActivesession_getCurrent_v1_Response_mPayload::setEActivesessionSessiontype(const OAIField_eActivesessionSessiontype &e_activesession_sessiontype) {
+void OAIActivesession_ResponseCompound::setEActivesessionSessiontype(const OAIField_eActivesessionSessiontype &e_activesession_sessiontype) {
     this->e_activesession_sessiontype = e_activesession_sessiontype;
     this->m_e_activesession_sessiontype_isSet = true;
 }
 
-bool OAIActivesession_getCurrent_v1_Response_mPayload::is_e_activesession_sessiontype_Set() const{
+bool OAIActivesession_ResponseCompound::is_e_activesession_sessiontype_Set() const{
     return m_e_activesession_sessiontype_isSet;
 }
 
-bool OAIActivesession_getCurrent_v1_Response_mPayload::is_e_activesession_sessiontype_Valid() const{
+bool OAIActivesession_ResponseCompound::is_e_activesession_sessiontype_Valid() const{
     return m_e_activesession_sessiontype_isValid;
 }
 
-OAIField_eActivesessionWeekdaystart OAIActivesession_getCurrent_v1_Response_mPayload::getEActivesessionWeekdaystart() const {
+OAIField_eActivesessionWeekdaystart OAIActivesession_ResponseCompound::getEActivesessionWeekdaystart() const {
     return e_activesession_weekdaystart;
 }
-void OAIActivesession_getCurrent_v1_Response_mPayload::setEActivesessionWeekdaystart(const OAIField_eActivesessionWeekdaystart &e_activesession_weekdaystart) {
+void OAIActivesession_ResponseCompound::setEActivesessionWeekdaystart(const OAIField_eActivesessionWeekdaystart &e_activesession_weekdaystart) {
     this->e_activesession_weekdaystart = e_activesession_weekdaystart;
     this->m_e_activesession_weekdaystart_isSet = true;
 }
 
-bool OAIActivesession_getCurrent_v1_Response_mPayload::is_e_activesession_weekdaystart_Set() const{
+bool OAIActivesession_ResponseCompound::is_e_activesession_weekdaystart_Set() const{
     return m_e_activesession_weekdaystart_isSet;
 }
 
-bool OAIActivesession_getCurrent_v1_Response_mPayload::is_e_activesession_weekdaystart_Valid() const{
+bool OAIActivesession_ResponseCompound::is_e_activesession_weekdaystart_Valid() const{
     return m_e_activesession_weekdaystart_isValid;
 }
 
-qint32 OAIActivesession_getCurrent_v1_Response_mPayload::getFkiLanguageId() const {
+qint32 OAIActivesession_ResponseCompound::getFkiLanguageId() const {
     return fki_language_id;
 }
-void OAIActivesession_getCurrent_v1_Response_mPayload::setFkiLanguageId(const qint32 &fki_language_id) {
+void OAIActivesession_ResponseCompound::setFkiLanguageId(const qint32 &fki_language_id) {
     this->fki_language_id = fki_language_id;
     this->m_fki_language_id_isSet = true;
 }
 
-bool OAIActivesession_getCurrent_v1_Response_mPayload::is_fki_language_id_Set() const{
+bool OAIActivesession_ResponseCompound::is_fki_language_id_Set() const{
     return m_fki_language_id_isSet;
 }
 
-bool OAIActivesession_getCurrent_v1_Response_mPayload::is_fki_language_id_Valid() const{
+bool OAIActivesession_ResponseCompound::is_fki_language_id_Valid() const{
     return m_fki_language_id_isValid;
 }
 
-QString OAIActivesession_getCurrent_v1_Response_mPayload::getSCompanyNameX() const {
+QString OAIActivesession_ResponseCompound::getSCompanyNameX() const {
     return s_company_name_x;
 }
-void OAIActivesession_getCurrent_v1_Response_mPayload::setSCompanyNameX(const QString &s_company_name_x) {
+void OAIActivesession_ResponseCompound::setSCompanyNameX(const QString &s_company_name_x) {
     this->s_company_name_x = s_company_name_x;
     this->m_s_company_name_x_isSet = true;
 }
 
-bool OAIActivesession_getCurrent_v1_Response_mPayload::is_s_company_name_x_Set() const{
+bool OAIActivesession_ResponseCompound::is_s_company_name_x_Set() const{
     return m_s_company_name_x_isSet;
 }
 
-bool OAIActivesession_getCurrent_v1_Response_mPayload::is_s_company_name_x_Valid() const{
+bool OAIActivesession_ResponseCompound::is_s_company_name_x_Valid() const{
     return m_s_company_name_x_isValid;
 }
 
-QString OAIActivesession_getCurrent_v1_Response_mPayload::getSDepartmentNameX() const {
+QString OAIActivesession_ResponseCompound::getSDepartmentNameX() const {
     return s_department_name_x;
 }
-void OAIActivesession_getCurrent_v1_Response_mPayload::setSDepartmentNameX(const QString &s_department_name_x) {
+void OAIActivesession_ResponseCompound::setSDepartmentNameX(const QString &s_department_name_x) {
     this->s_department_name_x = s_department_name_x;
     this->m_s_department_name_x_isSet = true;
 }
 
-bool OAIActivesession_getCurrent_v1_Response_mPayload::is_s_department_name_x_Set() const{
+bool OAIActivesession_ResponseCompound::is_s_department_name_x_Set() const{
     return m_s_department_name_x_isSet;
 }
 
-bool OAIActivesession_getCurrent_v1_Response_mPayload::is_s_department_name_x_Valid() const{
+bool OAIActivesession_ResponseCompound::is_s_department_name_x_Valid() const{
     return m_s_department_name_x_isValid;
 }
 
-bool OAIActivesession_getCurrent_v1_Response_mPayload::isBActivesessionDebug() const {
+bool OAIActivesession_ResponseCompound::isBActivesessionDebug() const {
     return b_activesession_debug;
 }
-void OAIActivesession_getCurrent_v1_Response_mPayload::setBActivesessionDebug(const bool &b_activesession_debug) {
+void OAIActivesession_ResponseCompound::setBActivesessionDebug(const bool &b_activesession_debug) {
     this->b_activesession_debug = b_activesession_debug;
     this->m_b_activesession_debug_isSet = true;
 }
 
-bool OAIActivesession_getCurrent_v1_Response_mPayload::is_b_activesession_debug_Set() const{
+bool OAIActivesession_ResponseCompound::is_b_activesession_debug_Set() const{
     return m_b_activesession_debug_isSet;
 }
 
-bool OAIActivesession_getCurrent_v1_Response_mPayload::is_b_activesession_debug_Valid() const{
+bool OAIActivesession_ResponseCompound::is_b_activesession_debug_Valid() const{
     return m_b_activesession_debug_isValid;
 }
 
-QString OAIActivesession_getCurrent_v1_Response_mPayload::getPksCustomerCode() const {
+QString OAIActivesession_ResponseCompound::getPksCustomerCode() const {
     return pks_customer_code;
 }
-void OAIActivesession_getCurrent_v1_Response_mPayload::setPksCustomerCode(const QString &pks_customer_code) {
+void OAIActivesession_ResponseCompound::setPksCustomerCode(const QString &pks_customer_code) {
     this->pks_customer_code = pks_customer_code;
     this->m_pks_customer_code_isSet = true;
 }
 
-bool OAIActivesession_getCurrent_v1_Response_mPayload::is_pks_customer_code_Set() const{
+bool OAIActivesession_ResponseCompound::is_pks_customer_code_Set() const{
     return m_pks_customer_code_isSet;
 }
 
-bool OAIActivesession_getCurrent_v1_Response_mPayload::is_pks_customer_code_Valid() const{
+bool OAIActivesession_ResponseCompound::is_pks_customer_code_Valid() const{
     return m_pks_customer_code_isValid;
 }
 
-bool OAIActivesession_getCurrent_v1_Response_mPayload::isSet() const {
+bool OAIActivesession_ResponseCompound::isSet() const {
     bool isObjectUpdated = false;
     do {
         if (a_pki_permission_id.size() > 0) {
@@ -423,7 +423,7 @@ bool OAIActivesession_getCurrent_v1_Response_mPayload::isSet() const {
     return isObjectUpdated;
 }
 
-bool OAIActivesession_getCurrent_v1_Response_mPayload::isValid() const {
+bool OAIActivesession_ResponseCompound::isValid() const {
     // only required properties are required for the object to be considered valid
     return m_a_pki_permission_id_isValid && m_obj_user_real_isValid && m_a_e_module_internalname_isValid && m_e_activesession_sessiontype_isValid && m_e_activesession_weekdaystart_isValid && m_fki_language_id_isValid && m_s_company_name_x_isValid && m_s_department_name_x_isValid && m_b_activesession_debug_isValid && m_pks_customer_code_isValid && true;
 }

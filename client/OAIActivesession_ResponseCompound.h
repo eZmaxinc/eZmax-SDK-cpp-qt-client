@@ -11,19 +11,20 @@
  */
 
 /*
- * OAIActivesession_getCurrent_v1_Response_mPayload.h
+ * OAIActivesession_ResponseCompound.h
  *
  * Payload for the /1/object/activesession/getCurrent API Request
  */
 
-#ifndef OAIActivesession_getCurrent_v1_Response_mPayload_H
-#define OAIActivesession_getCurrent_v1_Response_mPayload_H
+#ifndef OAIActivesession_ResponseCompound_H
+#define OAIActivesession_ResponseCompound_H
 
 #include <QJsonObject>
 
-#include "OAIActivesession_ResponseCompound.h"
+#include "OAIActivesession_Response.h"
 #include "OAIActivesession_ResponseCompound_Apikey.h"
 #include "OAIActivesession_ResponseCompound_User.h"
+#include "OAIActivesession_ResponseCompound_allOf.h"
 #include "OAIField_eActivesessionSessiontype.h"
 #include "OAIField_eActivesessionWeekdaystart.h"
 #include <QList>
@@ -34,11 +35,11 @@
 
 namespace OpenAPI {
 
-class OAIActivesession_getCurrent_v1_Response_mPayload : public OAIObject {
+class OAIActivesession_ResponseCompound : public OAIObject {
 public:
-    OAIActivesession_getCurrent_v1_Response_mPayload();
-    OAIActivesession_getCurrent_v1_Response_mPayload(QString json);
-    ~OAIActivesession_getCurrent_v1_Response_mPayload() override;
+    OAIActivesession_ResponseCompound();
+    OAIActivesession_ResponseCompound(QString json);
+    ~OAIActivesession_ResponseCompound() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
@@ -162,6 +163,6 @@ private:
 
 } // namespace OpenAPI
 
-Q_DECLARE_METATYPE(OpenAPI::OAIActivesession_getCurrent_v1_Response_mPayload)
+Q_DECLARE_METATYPE(OpenAPI::OAIActivesession_ResponseCompound)
 
-#endif // OAIActivesession_getCurrent_v1_Response_mPayload_H
+#endif // OAIActivesession_ResponseCompound_H
