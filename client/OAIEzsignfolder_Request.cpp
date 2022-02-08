@@ -34,6 +34,9 @@ OAIEzsignfolder_Request::~OAIEzsignfolder_Request() {}
 
 void OAIEzsignfolder_Request::initializeModel() {
 
+    m_pki_ezsignfolder_id_isSet = false;
+    m_pki_ezsignfolder_id_isValid = false;
+
     m_fki_ezsignfoldertype_id_isSet = false;
     m_fki_ezsignfoldertype_id_isValid = false;
 
@@ -58,6 +61,9 @@ void OAIEzsignfolder_Request::fromJson(QString jsonString) {
 }
 
 void OAIEzsignfolder_Request::fromJsonObject(QJsonObject json) {
+
+    m_pki_ezsignfolder_id_isValid = ::OpenAPI::fromJsonValue(pki_ezsignfolder_id, json[QString("pkiEzsignfolderID")]);
+    m_pki_ezsignfolder_id_isSet = !json[QString("pkiEzsignfolderID")].isNull() && m_pki_ezsignfolder_id_isValid;
 
     m_fki_ezsignfoldertype_id_isValid = ::OpenAPI::fromJsonValue(fki_ezsignfoldertype_id, json[QString("fkiEzsignfoldertypeID")]);
     m_fki_ezsignfoldertype_id_isSet = !json[QString("fkiEzsignfoldertypeID")].isNull() && m_fki_ezsignfoldertype_id_isValid;
@@ -84,6 +90,9 @@ QString OAIEzsignfolder_Request::asJson() const {
 
 QJsonObject OAIEzsignfolder_Request::asJsonObject() const {
     QJsonObject obj;
+    if (m_pki_ezsignfolder_id_isSet) {
+        obj.insert(QString("pkiEzsignfolderID"), ::OpenAPI::toJsonValue(pki_ezsignfolder_id));
+    }
     if (m_fki_ezsignfoldertype_id_isSet) {
         obj.insert(QString("fkiEzsignfoldertypeID"), ::OpenAPI::toJsonValue(fki_ezsignfoldertype_id));
     }
@@ -100,6 +109,22 @@ QJsonObject OAIEzsignfolder_Request::asJsonObject() const {
         obj.insert(QString("eEzsignfolderSendreminderfrequency"), ::OpenAPI::toJsonValue(e_ezsignfolder_sendreminderfrequency));
     }
     return obj;
+}
+
+qint32 OAIEzsignfolder_Request::getPkiEzsignfolderId() const {
+    return pki_ezsignfolder_id;
+}
+void OAIEzsignfolder_Request::setPkiEzsignfolderId(const qint32 &pki_ezsignfolder_id) {
+    this->pki_ezsignfolder_id = pki_ezsignfolder_id;
+    this->m_pki_ezsignfolder_id_isSet = true;
+}
+
+bool OAIEzsignfolder_Request::is_pki_ezsignfolder_id_Set() const{
+    return m_pki_ezsignfolder_id_isSet;
+}
+
+bool OAIEzsignfolder_Request::is_pki_ezsignfolder_id_Valid() const{
+    return m_pki_ezsignfolder_id_isValid;
 }
 
 qint32 OAIEzsignfolder_Request::getFkiEzsignfoldertypeId() const {
@@ -185,6 +210,11 @@ bool OAIEzsignfolder_Request::is_e_ezsignfolder_sendreminderfrequency_Valid() co
 bool OAIEzsignfolder_Request::isSet() const {
     bool isObjectUpdated = false;
     do {
+        if (m_pki_ezsignfolder_id_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (m_fki_ezsignfoldertype_id_isSet) {
             isObjectUpdated = true;
             break;

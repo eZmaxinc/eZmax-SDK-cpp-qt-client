@@ -34,6 +34,9 @@ OAIApikey_Request::~OAIApikey_Request() {}
 
 void OAIApikey_Request::initializeModel() {
 
+    m_pki_apikey_id_isSet = false;
+    m_pki_apikey_id_isValid = false;
+
     m_fki_user_id_isSet = false;
     m_fki_user_id_isValid = false;
 
@@ -49,6 +52,9 @@ void OAIApikey_Request::fromJson(QString jsonString) {
 }
 
 void OAIApikey_Request::fromJsonObject(QJsonObject json) {
+
+    m_pki_apikey_id_isValid = ::OpenAPI::fromJsonValue(pki_apikey_id, json[QString("pkiApikeyID")]);
+    m_pki_apikey_id_isSet = !json[QString("pkiApikeyID")].isNull() && m_pki_apikey_id_isValid;
 
     m_fki_user_id_isValid = ::OpenAPI::fromJsonValue(fki_user_id, json[QString("fkiUserID")]);
     m_fki_user_id_isSet = !json[QString("fkiUserID")].isNull() && m_fki_user_id_isValid;
@@ -66,6 +72,9 @@ QString OAIApikey_Request::asJson() const {
 
 QJsonObject OAIApikey_Request::asJsonObject() const {
     QJsonObject obj;
+    if (m_pki_apikey_id_isSet) {
+        obj.insert(QString("pkiApikeyID"), ::OpenAPI::toJsonValue(pki_apikey_id));
+    }
     if (m_fki_user_id_isSet) {
         obj.insert(QString("fkiUserID"), ::OpenAPI::toJsonValue(fki_user_id));
     }
@@ -73,6 +82,22 @@ QJsonObject OAIApikey_Request::asJsonObject() const {
         obj.insert(QString("objApikeyDescription"), ::OpenAPI::toJsonValue(obj_apikey_description));
     }
     return obj;
+}
+
+qint32 OAIApikey_Request::getPkiApikeyId() const {
+    return pki_apikey_id;
+}
+void OAIApikey_Request::setPkiApikeyId(const qint32 &pki_apikey_id) {
+    this->pki_apikey_id = pki_apikey_id;
+    this->m_pki_apikey_id_isSet = true;
+}
+
+bool OAIApikey_Request::is_pki_apikey_id_Set() const{
+    return m_pki_apikey_id_isSet;
+}
+
+bool OAIApikey_Request::is_pki_apikey_id_Valid() const{
+    return m_pki_apikey_id_isValid;
 }
 
 qint32 OAIApikey_Request::getFkiUserId() const {
@@ -110,6 +135,11 @@ bool OAIApikey_Request::is_obj_apikey_description_Valid() const{
 bool OAIApikey_Request::isSet() const {
     bool isObjectUpdated = false;
     do {
+        if (m_pki_apikey_id_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (m_fki_user_id_isSet) {
             isObjectUpdated = true;
             break;

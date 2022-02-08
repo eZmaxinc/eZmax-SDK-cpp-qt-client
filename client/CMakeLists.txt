@@ -111,6 +111,8 @@ add_library(${PROJECT_NAME}
     OAIEzsignfolder_createObject_v1_Response_allOf.cpp
     OAIEzsignfolder_createObject_v1_Response_mPayload.cpp
     OAIEzsignfolder_deleteObject_v1_Response.cpp
+    OAIEzsignfolder_editObject_v1_Request.cpp
+    OAIEzsignfolder_editObject_v1_Response.cpp
     OAIEzsignfolder_getEzsigndocuments_v1_Response.cpp
     OAIEzsignfolder_getEzsigndocuments_v1_Response_allOf.cpp
     OAIEzsignfolder_getEzsigndocuments_v1_Response_mPayload.cpp

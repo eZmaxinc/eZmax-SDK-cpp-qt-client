@@ -53,6 +53,8 @@ void OAIObjectEzsignfolderApi::initializeServerConfigs() {
     _serverIndices.insert("ezsignfolderCreateObjectV1", 0);
     _serverConfigs.insert("ezsignfolderDeleteObjectV1", defaultConf);
     _serverIndices.insert("ezsignfolderDeleteObjectV1", 0);
+    _serverConfigs.insert("ezsignfolderEditObjectV1", defaultConf);
+    _serverIndices.insert("ezsignfolderEditObjectV1", 0);
     _serverConfigs.insert("ezsignfolderGetEzsigndocumentsV1", defaultConf);
     _serverIndices.insert("ezsignfolderGetEzsigndocumentsV1", 0);
     _serverConfigs.insert("ezsignfolderGetEzsignfoldersignerassociationsV1", defaultConf);
@@ -363,6 +365,77 @@ void OAIObjectEzsignfolderApi::ezsignfolderDeleteObjectV1Callback(OAIHttpRequest
     } else {
         emit ezsignfolderDeleteObjectV1SignalE(output, error_type, error_str);
         emit ezsignfolderDeleteObjectV1SignalEFull(worker, error_type, error_str);
+    }
+}
+
+void OAIObjectEzsignfolderApi::ezsignfolderEditObjectV1(const qint32 &pki_ezsignfolder_id, const OAIEzsignfolder_editObject_v1_Request &oai_ezsignfolder_edit_object_v1_request) {
+    QString fullPath = QString(_serverConfigs["ezsignfolderEditObjectV1"][_serverIndices.value("ezsignfolderEditObjectV1")].URL()+"/1/object/ezsignfolder/{pkiEzsignfolderID}");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_ezsignfolder_idPathParam("{");
+        pki_ezsignfolder_idPathParam.append("pkiEzsignfolderID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignfolderID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignfolderID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_ezsignfolder_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsignfolder_id)));
+    }
+    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    OAIHttpRequestInput input(fullPath, "PUT");
+
+    {
+
+        QByteArray output = oai_ezsignfolder_edit_object_v1_request.asJson().toUtf8();
+        input.request_body.append(output);
+    }
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+#else
+    for (auto key : _defaultHeaders.keys()) {
+        input.headers.insert(key, _defaultHeaders[key]);
+    }
+#endif
+
+    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIObjectEzsignfolderApi::ezsignfolderEditObjectV1Callback);
+    connect(this, &OAIObjectEzsignfolderApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this]() {
+        if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
+            emit allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void OAIObjectEzsignfolderApi::ezsignfolderEditObjectV1Callback(OAIHttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    OAIEzsignfolder_editObject_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit ezsignfolderEditObjectV1Signal(output);
+        emit ezsignfolderEditObjectV1SignalFull(worker, output);
+    } else {
+        emit ezsignfolderEditObjectV1SignalE(output, error_type, error_str);
+        emit ezsignfolderEditObjectV1SignalEFull(worker, error_type, error_str);
     }
 }
 

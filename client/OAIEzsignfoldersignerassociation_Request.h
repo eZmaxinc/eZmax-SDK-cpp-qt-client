@@ -38,6 +38,11 @@ public:
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
+    qint32 getPkiEzsignfoldersignerassociationId() const;
+    void setPkiEzsignfoldersignerassociationId(const qint32 &pki_ezsignfoldersignerassociation_id);
+    bool is_pki_ezsignfoldersignerassociation_id_Set() const;
+    bool is_pki_ezsignfoldersignerassociation_id_Valid() const;
+
     qint32 getFkiUserId() const;
     void setFkiUserId(const qint32 &fki_user_id);
     bool is_fki_user_id_Set() const;
@@ -58,6 +63,10 @@ public:
 
 private:
     void initializeModel();
+
+    qint32 pki_ezsignfoldersignerassociation_id;
+    bool m_pki_ezsignfoldersignerassociation_id_isSet;
+    bool m_pki_ezsignfoldersignerassociation_id_isValid;
 
     qint32 fki_user_id;
     bool m_fki_user_id_isSet;

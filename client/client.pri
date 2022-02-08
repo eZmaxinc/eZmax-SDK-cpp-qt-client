@@ -98,6 +98,8 @@ HEADERS += \
     $${PWD}/OAIEzsignfolder_createObject_v1_Response_allOf.h \
     $${PWD}/OAIEzsignfolder_createObject_v1_Response_mPayload.h \
     $${PWD}/OAIEzsignfolder_deleteObject_v1_Response.h \
+    $${PWD}/OAIEzsignfolder_editObject_v1_Request.h \
+    $${PWD}/OAIEzsignfolder_editObject_v1_Response.h \
     $${PWD}/OAIEzsignfolder_getEzsigndocuments_v1_Response.h \
     $${PWD}/OAIEzsignfolder_getEzsigndocuments_v1_Response_allOf.h \
     $${PWD}/OAIEzsignfolder_getEzsigndocuments_v1_Response_mPayload.h \
@@ -352,6 +354,8 @@ SOURCES += \
     $${PWD}/OAIEzsignfolder_createObject_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsignfolder_createObject_v1_Response_mPayload.cpp \
     $${PWD}/OAIEzsignfolder_deleteObject_v1_Response.cpp \
+    $${PWD}/OAIEzsignfolder_editObject_v1_Request.cpp \
+    $${PWD}/OAIEzsignfolder_editObject_v1_Response.cpp \
     $${PWD}/OAIEzsignfolder_getEzsigndocuments_v1_Response.cpp \
     $${PWD}/OAIEzsignfolder_getEzsigndocuments_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsignfolder_getEzsigndocuments_v1_Response_mPayload.cpp \

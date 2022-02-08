@@ -34,6 +34,9 @@ OAIEzsigndocument_Request::~OAIEzsigndocument_Request() {}
 
 void OAIEzsigndocument_Request::initializeModel() {
 
+    m_pki_ezsigndocument_id_isSet = false;
+    m_pki_ezsigndocument_id_isValid = false;
+
     m_e_ezsigndocument_source_isSet = false;
     m_e_ezsigndocument_source_isValid = false;
 
@@ -73,6 +76,9 @@ void OAIEzsigndocument_Request::fromJson(QString jsonString) {
 }
 
 void OAIEzsigndocument_Request::fromJsonObject(QJsonObject json) {
+
+    m_pki_ezsigndocument_id_isValid = ::OpenAPI::fromJsonValue(pki_ezsigndocument_id, json[QString("pkiEzsigndocumentID")]);
+    m_pki_ezsigndocument_id_isSet = !json[QString("pkiEzsigndocumentID")].isNull() && m_pki_ezsigndocument_id_isValid;
 
     m_e_ezsigndocument_source_isValid = ::OpenAPI::fromJsonValue(e_ezsigndocument_source, json[QString("eEzsigndocumentSource")]);
     m_e_ezsigndocument_source_isSet = !json[QString("eEzsigndocumentSource")].isNull() && m_e_ezsigndocument_source_isValid;
@@ -114,6 +120,9 @@ QString OAIEzsigndocument_Request::asJson() const {
 
 QJsonObject OAIEzsigndocument_Request::asJsonObject() const {
     QJsonObject obj;
+    if (m_pki_ezsigndocument_id_isSet) {
+        obj.insert(QString("pkiEzsigndocumentID"), ::OpenAPI::toJsonValue(pki_ezsigndocument_id));
+    }
     if (m_e_ezsigndocument_source_isSet) {
         obj.insert(QString("eEzsigndocumentSource"), ::OpenAPI::toJsonValue(e_ezsigndocument_source));
     }
@@ -145,6 +154,22 @@ QJsonObject OAIEzsigndocument_Request::asJsonObject() const {
         obj.insert(QString("sEzsigndocumentName"), ::OpenAPI::toJsonValue(s_ezsigndocument_name));
     }
     return obj;
+}
+
+qint32 OAIEzsigndocument_Request::getPkiEzsigndocumentId() const {
+    return pki_ezsigndocument_id;
+}
+void OAIEzsigndocument_Request::setPkiEzsigndocumentId(const qint32 &pki_ezsigndocument_id) {
+    this->pki_ezsigndocument_id = pki_ezsigndocument_id;
+    this->m_pki_ezsigndocument_id_isSet = true;
+}
+
+bool OAIEzsigndocument_Request::is_pki_ezsigndocument_id_Set() const{
+    return m_pki_ezsigndocument_id_isSet;
+}
+
+bool OAIEzsigndocument_Request::is_pki_ezsigndocument_id_Valid() const{
+    return m_pki_ezsigndocument_id_isValid;
 }
 
 QString OAIEzsigndocument_Request::getEEzsigndocumentSource() const {
@@ -310,6 +335,11 @@ bool OAIEzsigndocument_Request::is_s_ezsigndocument_name_Valid() const{
 bool OAIEzsigndocument_Request::isSet() const {
     bool isObjectUpdated = false;
     do {
+        if (m_pki_ezsigndocument_id_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (m_e_ezsigndocument_source_isSet) {
             isObjectUpdated = true;
             break;

@@ -39,6 +39,11 @@ public:
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
+    qint32 getPkiFranchisereferalincomeId() const;
+    void setPkiFranchisereferalincomeId(const qint32 &pki_franchisereferalincome_id);
+    bool is_pki_franchisereferalincome_id_Set() const;
+    bool is_pki_franchisereferalincome_id_Valid() const;
+
     qint32 getFkiFranchisebrokerId() const;
     void setFkiFranchisebrokerId(const qint32 &fki_franchisebroker_id);
     bool is_fki_franchisebroker_id_Set() const;
@@ -99,6 +104,10 @@ public:
 
 private:
     void initializeModel();
+
+    qint32 pki_franchisereferalincome_id;
+    bool m_pki_franchisereferalincome_id_isSet;
+    bool m_pki_franchisereferalincome_id_isValid;
 
     qint32 fki_franchisebroker_id;
     bool m_fki_franchisebroker_id_isSet;

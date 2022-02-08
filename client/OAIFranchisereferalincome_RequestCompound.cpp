@@ -40,6 +40,9 @@ void OAIFranchisereferalincome_RequestCompound::initializeModel() {
     m_a_obj_contact_isSet = false;
     m_a_obj_contact_isValid = false;
 
+    m_pki_franchisereferalincome_id_isSet = false;
+    m_pki_franchisereferalincome_id_isValid = false;
+
     m_fki_franchisebroker_id_isSet = false;
     m_fki_franchisebroker_id_isValid = false;
 
@@ -89,6 +92,9 @@ void OAIFranchisereferalincome_RequestCompound::fromJsonObject(QJsonObject json)
     m_a_obj_contact_isValid = ::OpenAPI::fromJsonValue(a_obj_contact, json[QString("a_objContact")]);
     m_a_obj_contact_isSet = !json[QString("a_objContact")].isNull() && m_a_obj_contact_isValid;
 
+    m_pki_franchisereferalincome_id_isValid = ::OpenAPI::fromJsonValue(pki_franchisereferalincome_id, json[QString("pkiFranchisereferalincomeID")]);
+    m_pki_franchisereferalincome_id_isSet = !json[QString("pkiFranchisereferalincomeID")].isNull() && m_pki_franchisereferalincome_id_isValid;
+
     m_fki_franchisebroker_id_isValid = ::OpenAPI::fromJsonValue(fki_franchisebroker_id, json[QString("fkiFranchisebrokerID")]);
     m_fki_franchisebroker_id_isSet = !json[QString("fkiFranchisebrokerID")].isNull() && m_fki_franchisebroker_id_isValid;
 
@@ -137,6 +143,9 @@ QJsonObject OAIFranchisereferalincome_RequestCompound::asJsonObject() const {
     }
     if (a_obj_contact.size() > 0) {
         obj.insert(QString("a_objContact"), ::OpenAPI::toJsonValue(a_obj_contact));
+    }
+    if (m_pki_franchisereferalincome_id_isSet) {
+        obj.insert(QString("pkiFranchisereferalincomeID"), ::OpenAPI::toJsonValue(pki_franchisereferalincome_id));
     }
     if (m_fki_franchisebroker_id_isSet) {
         obj.insert(QString("fkiFranchisebrokerID"), ::OpenAPI::toJsonValue(fki_franchisebroker_id));
@@ -204,6 +213,22 @@ bool OAIFranchisereferalincome_RequestCompound::is_a_obj_contact_Set() const{
 
 bool OAIFranchisereferalincome_RequestCompound::is_a_obj_contact_Valid() const{
     return m_a_obj_contact_isValid;
+}
+
+qint32 OAIFranchisereferalincome_RequestCompound::getPkiFranchisereferalincomeId() const {
+    return pki_franchisereferalincome_id;
+}
+void OAIFranchisereferalincome_RequestCompound::setPkiFranchisereferalincomeId(const qint32 &pki_franchisereferalincome_id) {
+    this->pki_franchisereferalincome_id = pki_franchisereferalincome_id;
+    this->m_pki_franchisereferalincome_id_isSet = true;
+}
+
+bool OAIFranchisereferalincome_RequestCompound::is_pki_franchisereferalincome_id_Set() const{
+    return m_pki_franchisereferalincome_id_isSet;
+}
+
+bool OAIFranchisereferalincome_RequestCompound::is_pki_franchisereferalincome_id_Valid() const{
+    return m_pki_franchisereferalincome_id_isValid;
 }
 
 qint32 OAIFranchisereferalincome_RequestCompound::getFkiFranchisebrokerId() const {
@@ -391,6 +416,11 @@ bool OAIFranchisereferalincome_RequestCompound::isSet() const {
         }
 
         if (a_obj_contact.size() > 0) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_pki_franchisereferalincome_id_isSet) {
             isObjectUpdated = true;
             break;
         }

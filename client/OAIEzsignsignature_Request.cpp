@@ -34,6 +34,9 @@ OAIEzsignsignature_Request::~OAIEzsignsignature_Request() {}
 
 void OAIEzsignsignature_Request::initializeModel() {
 
+    m_pki_ezsignsignature_id_isSet = false;
+    m_pki_ezsignsignature_id_isValid = false;
+
     m_fki_ezsignfoldersignerassociation_id_isSet = false;
     m_fki_ezsignfoldersignerassociation_id_isValid = false;
 
@@ -64,6 +67,9 @@ void OAIEzsignsignature_Request::fromJson(QString jsonString) {
 }
 
 void OAIEzsignsignature_Request::fromJsonObject(QJsonObject json) {
+
+    m_pki_ezsignsignature_id_isValid = ::OpenAPI::fromJsonValue(pki_ezsignsignature_id, json[QString("pkiEzsignsignatureID")]);
+    m_pki_ezsignsignature_id_isSet = !json[QString("pkiEzsignsignatureID")].isNull() && m_pki_ezsignsignature_id_isValid;
 
     m_fki_ezsignfoldersignerassociation_id_isValid = ::OpenAPI::fromJsonValue(fki_ezsignfoldersignerassociation_id, json[QString("fkiEzsignfoldersignerassociationID")]);
     m_fki_ezsignfoldersignerassociation_id_isSet = !json[QString("fkiEzsignfoldersignerassociationID")].isNull() && m_fki_ezsignfoldersignerassociation_id_isValid;
@@ -96,6 +102,9 @@ QString OAIEzsignsignature_Request::asJson() const {
 
 QJsonObject OAIEzsignsignature_Request::asJsonObject() const {
     QJsonObject obj;
+    if (m_pki_ezsignsignature_id_isSet) {
+        obj.insert(QString("pkiEzsignsignatureID"), ::OpenAPI::toJsonValue(pki_ezsignsignature_id));
+    }
     if (m_fki_ezsignfoldersignerassociation_id_isSet) {
         obj.insert(QString("fkiEzsignfoldersignerassociationID"), ::OpenAPI::toJsonValue(fki_ezsignfoldersignerassociation_id));
     }
@@ -118,6 +127,22 @@ QJsonObject OAIEzsignsignature_Request::asJsonObject() const {
         obj.insert(QString("fkiEzsigndocumentID"), ::OpenAPI::toJsonValue(fki_ezsigndocument_id));
     }
     return obj;
+}
+
+qint32 OAIEzsignsignature_Request::getPkiEzsignsignatureId() const {
+    return pki_ezsignsignature_id;
+}
+void OAIEzsignsignature_Request::setPkiEzsignsignatureId(const qint32 &pki_ezsignsignature_id) {
+    this->pki_ezsignsignature_id = pki_ezsignsignature_id;
+    this->m_pki_ezsignsignature_id_isSet = true;
+}
+
+bool OAIEzsignsignature_Request::is_pki_ezsignsignature_id_Set() const{
+    return m_pki_ezsignsignature_id_isSet;
+}
+
+bool OAIEzsignsignature_Request::is_pki_ezsignsignature_id_Valid() const{
+    return m_pki_ezsignsignature_id_isValid;
 }
 
 qint32 OAIEzsignsignature_Request::getFkiEzsignfoldersignerassociationId() const {
@@ -235,6 +260,11 @@ bool OAIEzsignsignature_Request::is_fki_ezsigndocument_id_Valid() const{
 bool OAIEzsignsignature_Request::isSet() const {
     bool isObjectUpdated = false;
     do {
+        if (m_pki_ezsignsignature_id_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (m_fki_ezsignfoldersignerassociation_id_isSet) {
             isObjectUpdated = true;
             break;

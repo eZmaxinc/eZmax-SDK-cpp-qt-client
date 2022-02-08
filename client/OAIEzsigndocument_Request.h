@@ -40,6 +40,11 @@ public:
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
+    qint32 getPkiEzsigndocumentId() const;
+    void setPkiEzsigndocumentId(const qint32 &pki_ezsigndocument_id);
+    bool is_pki_ezsigndocument_id_Set() const;
+    bool is_pki_ezsigndocument_id_Valid() const;
+
     QString getEEzsigndocumentSource() const;
     void setEEzsigndocumentSource(const QString &e_ezsigndocument_source);
     bool is_e_ezsigndocument_source_Set() const;
@@ -95,6 +100,10 @@ public:
 
 private:
     void initializeModel();
+
+    qint32 pki_ezsigndocument_id;
+    bool m_pki_ezsigndocument_id_isSet;
+    bool m_pki_ezsigndocument_id_isValid;
 
     QString e_ezsigndocument_source;
     bool m_e_ezsigndocument_source_isSet;
