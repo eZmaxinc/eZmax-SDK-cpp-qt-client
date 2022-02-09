@@ -61,6 +61,7 @@ HEADERS += \
     $${PWD}/OAIEzsignbulksend_getList_v1_Response_mPayload_allOf.h \
     $${PWD}/OAIEzsigndocument_Request.h \
     $${PWD}/OAIEzsigndocument_RequestCompound.h \
+    $${PWD}/OAIEzsigndocument_RequestPatch.h \
     $${PWD}/OAIEzsigndocument_Response.h \
     $${PWD}/OAIEzsigndocument_ResponseCompound.h \
     $${PWD}/OAIEzsigndocument_ResponseCompound_allOf.h \
@@ -88,6 +89,8 @@ HEADERS += \
     $${PWD}/OAIEzsigndocument_getWordsPositions_v1_Request.h \
     $${PWD}/OAIEzsigndocument_getWordsPositions_v1_Response.h \
     $${PWD}/OAIEzsigndocument_getWordsPositions_v1_Response_allOf.h \
+    $${PWD}/OAIEzsigndocument_patchObject_v1_Request.h \
+    $${PWD}/OAIEzsigndocument_patchObject_v1_Response.h \
     $${PWD}/OAIEzsignfolder_ListElement.h \
     $${PWD}/OAIEzsignfolder_Request.h \
     $${PWD}/OAIEzsignfolder_RequestCompound.h \
@@ -317,6 +320,7 @@ SOURCES += \
     $${PWD}/OAIEzsignbulksend_getList_v1_Response_mPayload_allOf.cpp \
     $${PWD}/OAIEzsigndocument_Request.cpp \
     $${PWD}/OAIEzsigndocument_RequestCompound.cpp \
+    $${PWD}/OAIEzsigndocument_RequestPatch.cpp \
     $${PWD}/OAIEzsigndocument_Response.cpp \
     $${PWD}/OAIEzsigndocument_ResponseCompound.cpp \
     $${PWD}/OAIEzsigndocument_ResponseCompound_allOf.cpp \
@@ -344,6 +348,8 @@ SOURCES += \
     $${PWD}/OAIEzsigndocument_getWordsPositions_v1_Request.cpp \
     $${PWD}/OAIEzsigndocument_getWordsPositions_v1_Response.cpp \
     $${PWD}/OAIEzsigndocument_getWordsPositions_v1_Response_allOf.cpp \
+    $${PWD}/OAIEzsigndocument_patchObject_v1_Request.cpp \
+    $${PWD}/OAIEzsigndocument_patchObject_v1_Response.cpp \
     $${PWD}/OAIEzsignfolder_ListElement.cpp \
     $${PWD}/OAIEzsignfolder_Request.cpp \
     $${PWD}/OAIEzsignfolder_RequestCompound.cpp \

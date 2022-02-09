@@ -120,6 +120,8 @@ client/OAIEzsigndocument_Request.cpp
 client/OAIEzsigndocument_Request.h
 client/OAIEzsigndocument_RequestCompound.cpp
 client/OAIEzsigndocument_RequestCompound.h
+client/OAIEzsigndocument_RequestPatch.cpp
+client/OAIEzsigndocument_RequestPatch.h
 client/OAIEzsigndocument_Response.cpp
 client/OAIEzsigndocument_Response.h
 client/OAIEzsigndocument_ResponseCompound.cpp
@@ -174,6 +176,10 @@ client/OAIEzsigndocument_getWordsPositions_v1_Response.cpp
 client/OAIEzsigndocument_getWordsPositions_v1_Response.h
 client/OAIEzsigndocument_getWordsPositions_v1_Response_allOf.cpp
 client/OAIEzsigndocument_getWordsPositions_v1_Response_allOf.h
+client/OAIEzsigndocument_patchObject_v1_Request.cpp
+client/OAIEzsigndocument_patchObject_v1_Request.h
+client/OAIEzsigndocument_patchObject_v1_Response.cpp
+client/OAIEzsigndocument_patchObject_v1_Response.h
 client/OAIEzsignfolder_ListElement.cpp
 client/OAIEzsignfolder_ListElement.h
 client/OAIEzsignfolder_Request.cpp

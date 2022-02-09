@@ -74,6 +74,7 @@ add_library(${PROJECT_NAME}
     OAIEzsignbulksend_getList_v1_Response_mPayload_allOf.cpp
     OAIEzsigndocument_Request.cpp
     OAIEzsigndocument_RequestCompound.cpp
+    OAIEzsigndocument_RequestPatch.cpp
     OAIEzsigndocument_Response.cpp
     OAIEzsigndocument_ResponseCompound.cpp
     OAIEzsigndocument_ResponseCompound_allOf.cpp
@@ -101,6 +102,8 @@ add_library(${PROJECT_NAME}
     OAIEzsigndocument_getWordsPositions_v1_Request.cpp
     OAIEzsigndocument_getWordsPositions_v1_Response.cpp
     OAIEzsigndocument_getWordsPositions_v1_Response_allOf.cpp
+    OAIEzsigndocument_patchObject_v1_Request.cpp
+    OAIEzsigndocument_patchObject_v1_Response.cpp
     OAIEzsignfolder_ListElement.cpp
     OAIEzsignfolder_Request.cpp
     OAIEzsignfolder_RequestCompound.cpp
