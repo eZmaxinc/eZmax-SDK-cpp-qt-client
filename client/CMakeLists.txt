@@ -172,6 +172,8 @@ add_library(${PROJECT_NAME}
     OAIEzsignsignature_createObject_v1_Response_allOf.cpp
     OAIEzsignsignature_createObject_v1_Response_mPayload.cpp
     OAIEzsignsignature_deleteObject_v1_Response.cpp
+    OAIEzsignsignature_editObject_v1_Request.cpp
+    OAIEzsignsignature_editObject_v1_Response.cpp
     OAIEzsignsignature_getObject_v1_Response.cpp
     OAIEzsignsignature_getObject_v1_Response_allOf.cpp
     OAIEzsignsignaturecustomdate_Request.cpp

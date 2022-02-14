@@ -159,6 +159,8 @@ HEADERS += \
     $${PWD}/OAIEzsignsignature_createObject_v1_Response_allOf.h \
     $${PWD}/OAIEzsignsignature_createObject_v1_Response_mPayload.h \
     $${PWD}/OAIEzsignsignature_deleteObject_v1_Response.h \
+    $${PWD}/OAIEzsignsignature_editObject_v1_Request.h \
+    $${PWD}/OAIEzsignsignature_editObject_v1_Response.h \
     $${PWD}/OAIEzsignsignature_getObject_v1_Response.h \
     $${PWD}/OAIEzsignsignature_getObject_v1_Response_allOf.h \
     $${PWD}/OAIEzsignsignaturecustomdate_Request.h \
@@ -418,6 +420,8 @@ SOURCES += \
     $${PWD}/OAIEzsignsignature_createObject_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsignsignature_createObject_v1_Response_mPayload.cpp \
     $${PWD}/OAIEzsignsignature_deleteObject_v1_Response.cpp \
+    $${PWD}/OAIEzsignsignature_editObject_v1_Request.cpp \
+    $${PWD}/OAIEzsignsignature_editObject_v1_Response.cpp \
     $${PWD}/OAIEzsignsignature_getObject_v1_Response.cpp \
     $${PWD}/OAIEzsignsignature_getObject_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsignsignaturecustomdate_Request.cpp \
