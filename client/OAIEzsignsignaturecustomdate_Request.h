@@ -39,6 +39,11 @@ public:
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
+    qint32 getPkiEzsignsignaturecustomdateId() const;
+    void setPkiEzsignsignaturecustomdateId(const qint32 &pki_ezsignsignaturecustomdate_id);
+    bool is_pki_ezsignsignaturecustomdate_id_Set() const;
+    bool is_pki_ezsignsignaturecustomdate_id_Valid() const;
+
     qint32 getIEzsignsignaturecustomdateX() const;
     void setIEzsignsignaturecustomdateX(const qint32 &i_ezsignsignaturecustomdate_x);
     bool is_i_ezsignsignaturecustomdate_x_Set() const;
@@ -59,6 +64,10 @@ public:
 
 private:
     void initializeModel();
+
+    qint32 pki_ezsignsignaturecustomdate_id;
+    bool m_pki_ezsignsignaturecustomdate_id_isSet;
+    bool m_pki_ezsignsignaturecustomdate_id_isValid;
 
     qint32 i_ezsignsignaturecustomdate_x;
     bool m_i_ezsignsignaturecustomdate_x_isSet;

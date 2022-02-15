@@ -34,6 +34,9 @@ OAIEzsignsignaturecustomdate_Request::~OAIEzsignsignaturecustomdate_Request() {}
 
 void OAIEzsignsignaturecustomdate_Request::initializeModel() {
 
+    m_pki_ezsignsignaturecustomdate_id_isSet = false;
+    m_pki_ezsignsignaturecustomdate_id_isValid = false;
+
     m_i_ezsignsignaturecustomdate_x_isSet = false;
     m_i_ezsignsignaturecustomdate_x_isValid = false;
 
@@ -52,6 +55,9 @@ void OAIEzsignsignaturecustomdate_Request::fromJson(QString jsonString) {
 }
 
 void OAIEzsignsignaturecustomdate_Request::fromJsonObject(QJsonObject json) {
+
+    m_pki_ezsignsignaturecustomdate_id_isValid = ::OpenAPI::fromJsonValue(pki_ezsignsignaturecustomdate_id, json[QString("pkiEzsignsignaturecustomdateID")]);
+    m_pki_ezsignsignaturecustomdate_id_isSet = !json[QString("pkiEzsignsignaturecustomdateID")].isNull() && m_pki_ezsignsignaturecustomdate_id_isValid;
 
     m_i_ezsignsignaturecustomdate_x_isValid = ::OpenAPI::fromJsonValue(i_ezsignsignaturecustomdate_x, json[QString("iEzsignsignaturecustomdateX")]);
     m_i_ezsignsignaturecustomdate_x_isSet = !json[QString("iEzsignsignaturecustomdateX")].isNull() && m_i_ezsignsignaturecustomdate_x_isValid;
@@ -72,6 +78,9 @@ QString OAIEzsignsignaturecustomdate_Request::asJson() const {
 
 QJsonObject OAIEzsignsignaturecustomdate_Request::asJsonObject() const {
     QJsonObject obj;
+    if (m_pki_ezsignsignaturecustomdate_id_isSet) {
+        obj.insert(QString("pkiEzsignsignaturecustomdateID"), ::OpenAPI::toJsonValue(pki_ezsignsignaturecustomdate_id));
+    }
     if (m_i_ezsignsignaturecustomdate_x_isSet) {
         obj.insert(QString("iEzsignsignaturecustomdateX"), ::OpenAPI::toJsonValue(i_ezsignsignaturecustomdate_x));
     }
@@ -82,6 +91,22 @@ QJsonObject OAIEzsignsignaturecustomdate_Request::asJsonObject() const {
         obj.insert(QString("sEzsignsignaturecustomdateFormat"), ::OpenAPI::toJsonValue(s_ezsignsignaturecustomdate_format));
     }
     return obj;
+}
+
+qint32 OAIEzsignsignaturecustomdate_Request::getPkiEzsignsignaturecustomdateId() const {
+    return pki_ezsignsignaturecustomdate_id;
+}
+void OAIEzsignsignaturecustomdate_Request::setPkiEzsignsignaturecustomdateId(const qint32 &pki_ezsignsignaturecustomdate_id) {
+    this->pki_ezsignsignaturecustomdate_id = pki_ezsignsignaturecustomdate_id;
+    this->m_pki_ezsignsignaturecustomdate_id_isSet = true;
+}
+
+bool OAIEzsignsignaturecustomdate_Request::is_pki_ezsignsignaturecustomdate_id_Set() const{
+    return m_pki_ezsignsignaturecustomdate_id_isSet;
+}
+
+bool OAIEzsignsignaturecustomdate_Request::is_pki_ezsignsignaturecustomdate_id_Valid() const{
+    return m_pki_ezsignsignaturecustomdate_id_isValid;
 }
 
 qint32 OAIEzsignsignaturecustomdate_Request::getIEzsignsignaturecustomdateX() const {
@@ -135,6 +160,11 @@ bool OAIEzsignsignaturecustomdate_Request::is_s_ezsignsignaturecustomdate_format
 bool OAIEzsignsignaturecustomdate_Request::isSet() const {
     bool isObjectUpdated = false;
     do {
+        if (m_pki_ezsignsignaturecustomdate_id_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (m_i_ezsignsignaturecustomdate_x_isSet) {
             isObjectUpdated = true;
             break;
