@@ -27,6 +27,7 @@
 #include "OAIEzsigndocument_createObject_v1_Request.h"
 #include "OAIEzsigndocument_createObject_v1_Response.h"
 #include "OAIEzsigndocument_deleteObject_v1_Response.h"
+#include "OAIEzsigndocument_editEzsignsignatures_v1_Response.h"
 #include "OAIEzsigndocument_getDownloadUrl_v1_Response.h"
 #include "OAIEzsigndocument_getEzsignpages_v1_Response.h"
 #include "OAIEzsigndocument_getFormData_v1_Response.h"
@@ -35,6 +36,7 @@
 #include "OAIEzsigndocument_getWordsPositions_v1_Response.h"
 #include "OAIEzsigndocument_patchObject_v1_Request.h"
 #include "OAIEzsigndocument_patchObject_v1_Response.h"
+#include "OAIEzsignsignature_RequestCompound.h"
 #include "OAIHttpFileElement.h"
 #include <QList>
 #include <QString>
@@ -99,6 +101,12 @@ public:
 
     /**
     * @param[in]  pki_ezsigndocument_id qint32 [required]
+    * @param[in]  oai_ezsignsignature_request_compound QList<OAIEzsignsignature_RequestCompound> [required]
+    */
+    void ezsigndocumentEditEzsignsignaturesV1(const qint32 &pki_ezsigndocument_id, const QList<OAIEzsignsignature_RequestCompound> &oai_ezsignsignature_request_compound);
+
+    /**
+    * @param[in]  pki_ezsigndocument_id qint32 [required]
     * @param[in]  e_document_type QString [required]
     */
     void ezsigndocumentGetDownloadUrlV1(const qint32 &pki_ezsigndocument_id, const QString &e_document_type);
@@ -157,6 +165,7 @@ private:
     void ezsigndocumentApplyEzsigntemplateV2Callback(OAIHttpRequestWorker *worker);
     void ezsigndocumentCreateObjectV1Callback(OAIHttpRequestWorker *worker);
     void ezsigndocumentDeleteObjectV1Callback(OAIHttpRequestWorker *worker);
+    void ezsigndocumentEditEzsignsignaturesV1Callback(OAIHttpRequestWorker *worker);
     void ezsigndocumentGetDownloadUrlV1Callback(OAIHttpRequestWorker *worker);
     void ezsigndocumentGetEzsignpagesV1Callback(OAIHttpRequestWorker *worker);
     void ezsigndocumentGetFormDataV1Callback(OAIHttpRequestWorker *worker);
@@ -170,6 +179,7 @@ signals:
     void ezsigndocumentApplyEzsigntemplateV2Signal(OAIEzsigndocument_applyEzsigntemplate_v2_Response summary);
     void ezsigndocumentCreateObjectV1Signal(OAIEzsigndocument_createObject_v1_Response summary);
     void ezsigndocumentDeleteObjectV1Signal(OAIEzsigndocument_deleteObject_v1_Response summary);
+    void ezsigndocumentEditEzsignsignaturesV1Signal(OAIEzsigndocument_editEzsignsignatures_v1_Response summary);
     void ezsigndocumentGetDownloadUrlV1Signal(OAIEzsigndocument_getDownloadUrl_v1_Response summary);
     void ezsigndocumentGetEzsignpagesV1Signal(OAIEzsigndocument_getEzsignpages_v1_Response summary);
     void ezsigndocumentGetFormDataV1Signal(OAIEzsigndocument_getFormData_v1_Response summary);
@@ -181,6 +191,7 @@ signals:
     void ezsigndocumentApplyEzsigntemplateV2SignalFull(OAIHttpRequestWorker *worker, OAIEzsigndocument_applyEzsigntemplate_v2_Response summary);
     void ezsigndocumentCreateObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsigndocument_createObject_v1_Response summary);
     void ezsigndocumentDeleteObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsigndocument_deleteObject_v1_Response summary);
+    void ezsigndocumentEditEzsignsignaturesV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsigndocument_editEzsignsignatures_v1_Response summary);
     void ezsigndocumentGetDownloadUrlV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsigndocument_getDownloadUrl_v1_Response summary);
     void ezsigndocumentGetEzsignpagesV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsigndocument_getEzsignpages_v1_Response summary);
     void ezsigndocumentGetFormDataV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsigndocument_getFormData_v1_Response summary);
@@ -192,6 +203,7 @@ signals:
     void ezsigndocumentApplyEzsigntemplateV2SignalE(OAIEzsigndocument_applyEzsigntemplate_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigndocumentCreateObjectV1SignalE(OAIEzsigndocument_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigndocumentDeleteObjectV1SignalE(OAIEzsigndocument_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentEditEzsignsignaturesV1SignalE(OAIEzsigndocument_editEzsignsignatures_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigndocumentGetDownloadUrlV1SignalE(OAIEzsigndocument_getDownloadUrl_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigndocumentGetEzsignpagesV1SignalE(OAIEzsigndocument_getEzsignpages_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigndocumentGetFormDataV1SignalE(OAIEzsigndocument_getFormData_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
@@ -203,6 +215,7 @@ signals:
     void ezsigndocumentApplyEzsigntemplateV2SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigndocumentCreateObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigndocumentDeleteObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentEditEzsignsignaturesV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigndocumentGetDownloadUrlV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigndocumentGetEzsignpagesV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigndocumentGetFormDataV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);

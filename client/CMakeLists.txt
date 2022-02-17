@@ -87,6 +87,7 @@ add_library(${PROJECT_NAME}
     OAIEzsigndocument_createObject_v1_Response_allOf.cpp
     OAIEzsigndocument_createObject_v1_Response_mPayload.cpp
     OAIEzsigndocument_deleteObject_v1_Response.cpp
+    OAIEzsigndocument_editEzsignsignatures_v1_Response.cpp
     OAIEzsigndocument_getDownloadUrl_v1_Response.cpp
     OAIEzsigndocument_getDownloadUrl_v1_Response_allOf.cpp
     OAIEzsigndocument_getDownloadUrl_v1_Response_mPayload.cpp
