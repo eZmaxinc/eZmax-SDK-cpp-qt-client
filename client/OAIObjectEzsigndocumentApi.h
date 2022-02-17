@@ -27,6 +27,7 @@
 #include "OAIEzsigndocument_createObject_v1_Request.h"
 #include "OAIEzsigndocument_createObject_v1_Response.h"
 #include "OAIEzsigndocument_deleteObject_v1_Response.h"
+#include "OAIEzsigndocument_editEzsignsignatures_v1_Request.h"
 #include "OAIEzsigndocument_editEzsignsignatures_v1_Response.h"
 #include "OAIEzsigndocument_getDownloadUrl_v1_Response.h"
 #include "OAIEzsigndocument_getEzsignpages_v1_Response.h"
@@ -36,7 +37,6 @@
 #include "OAIEzsigndocument_getWordsPositions_v1_Response.h"
 #include "OAIEzsigndocument_patchObject_v1_Request.h"
 #include "OAIEzsigndocument_patchObject_v1_Response.h"
-#include "OAIEzsignsignature_RequestCompound.h"
 #include "OAIHttpFileElement.h"
 #include <QList>
 #include <QString>
@@ -101,9 +101,9 @@ public:
 
     /**
     * @param[in]  pki_ezsigndocument_id qint32 [required]
-    * @param[in]  oai_ezsignsignature_request_compound QList<OAIEzsignsignature_RequestCompound> [required]
+    * @param[in]  oai_ezsigndocument_edit_ezsignsignatures_v1_request OAIEzsigndocument_editEzsignsignatures_v1_Request [required]
     */
-    void ezsigndocumentEditEzsignsignaturesV1(const qint32 &pki_ezsigndocument_id, const QList<OAIEzsignsignature_RequestCompound> &oai_ezsignsignature_request_compound);
+    void ezsigndocumentEditEzsignsignaturesV1(const qint32 &pki_ezsigndocument_id, const OAIEzsigndocument_editEzsignsignatures_v1_Request &oai_ezsigndocument_edit_ezsignsignatures_v1_request);
 
     /**
     * @param[in]  pki_ezsigndocument_id qint32 [required]

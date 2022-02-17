@@ -74,6 +74,7 @@ HEADERS += \
     $${PWD}/OAIEzsigndocument_createObject_v1_Response_allOf.h \
     $${PWD}/OAIEzsigndocument_createObject_v1_Response_mPayload.h \
     $${PWD}/OAIEzsigndocument_deleteObject_v1_Response.h \
+    $${PWD}/OAIEzsigndocument_editEzsignsignatures_v1_Request.h \
     $${PWD}/OAIEzsigndocument_editEzsignsignatures_v1_Response.h \
     $${PWD}/OAIEzsigndocument_getDownloadUrl_v1_Response.h \
     $${PWD}/OAIEzsigndocument_getDownloadUrl_v1_Response_allOf.h \
@@ -336,6 +337,7 @@ SOURCES += \
     $${PWD}/OAIEzsigndocument_createObject_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsigndocument_createObject_v1_Response_mPayload.cpp \
     $${PWD}/OAIEzsigndocument_deleteObject_v1_Response.cpp \
+    $${PWD}/OAIEzsigndocument_editEzsignsignatures_v1_Request.cpp \
     $${PWD}/OAIEzsigndocument_editEzsignsignatures_v1_Response.cpp \
     $${PWD}/OAIEzsigndocument_getDownloadUrl_v1_Response.cpp \
     $${PWD}/OAIEzsigndocument_getDownloadUrl_v1_Response_allOf.cpp \

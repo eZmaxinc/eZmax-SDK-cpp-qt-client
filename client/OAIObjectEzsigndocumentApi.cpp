@@ -512,7 +512,7 @@ void OAIObjectEzsigndocumentApi::ezsigndocumentDeleteObjectV1Callback(OAIHttpReq
     }
 }
 
-void OAIObjectEzsigndocumentApi::ezsigndocumentEditEzsignsignaturesV1(const qint32 &pki_ezsigndocument_id, const QList<OAIEzsignsignature_RequestCompound> &oai_ezsignsignature_request_compound) {
+void OAIObjectEzsigndocumentApi::ezsigndocumentEditEzsignsignaturesV1(const qint32 &pki_ezsigndocument_id, const OAIEzsigndocument_editEzsignsignatures_v1_Request &oai_ezsigndocument_edit_ezsignsignatures_v1_request) {
     QString fullPath = QString(_serverConfigs["ezsigndocumentEditEzsignsignaturesV1"][_serverIndices.value("ezsigndocumentEditEzsignsignaturesV1")].URL()+"/1/object/ezsigndocument/{pkiEzsigndocumentID}/editEzsignsignatures");
     
     if (_apiKeys.contains("Authorization")) {
@@ -539,9 +539,9 @@ void OAIObjectEzsigndocumentApi::ezsigndocumentEditEzsignsignaturesV1(const qint
     OAIHttpRequestInput input(fullPath, "PUT");
 
     {
-        QJsonDocument doc(::OpenAPI::toJsonValue(oai_ezsignsignature_request_compound).toArray());
-        QByteArray bytes = doc.toJson();
-        input.request_body.append(bytes);
+
+        QByteArray output = oai_ezsigndocument_edit_ezsignsignatures_v1_request.asJson().toUtf8();
+        input.request_body.append(output);
     }
 #if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
