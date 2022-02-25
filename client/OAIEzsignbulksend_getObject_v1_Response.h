@@ -11,35 +11,42 @@
  */
 
 /*
- * OAIUNUSED_ezsignsignature_editObject_v1_Response.h
+ * OAIEzsignbulksend_getObject_v1_Response.h
  *
- * Response for the /1/object/ezsignsignature/editObject API Request
+ * Response for the /1/object/ezsignbulksend/getObject API Request
  */
 
-#ifndef OAIUNUSED_ezsignsignature_editObject_v1_Response_H
-#define OAIUNUSED_ezsignsignature_editObject_v1_Response_H
+#ifndef OAIEzsignbulksend_getObject_v1_Response_H
+#define OAIEzsignbulksend_getObject_v1_Response_H
 
 #include <QJsonObject>
 
 #include "OAICommon_Response.h"
 #include "OAICommon_Response_objDebug.h"
 #include "OAICommon_Response_objDebugPayload.h"
+#include "OAIEzsignbulksend_getObject_v1_Response_allOf.h"
+#include "OAIEzsignbulksend_getObject_v1_Response_mPayload.h"
 
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
 namespace OpenAPI {
 
-class OAIUNUSED_ezsignsignature_editObject_v1_Response : public OAIObject {
+class OAIEzsignbulksend_getObject_v1_Response : public OAIObject {
 public:
-    OAIUNUSED_ezsignsignature_editObject_v1_Response();
-    OAIUNUSED_ezsignsignature_editObject_v1_Response(QString json);
-    ~OAIUNUSED_ezsignsignature_editObject_v1_Response() override;
+    OAIEzsignbulksend_getObject_v1_Response();
+    OAIEzsignbulksend_getObject_v1_Response(QString json);
+    ~OAIEzsignbulksend_getObject_v1_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
+
+    OAIEzsignbulksend_getObject_v1_Response_mPayload getMPayload() const;
+    void setMPayload(const OAIEzsignbulksend_getObject_v1_Response_mPayload &m_payload);
+    bool is_m_payload_Set() const;
+    bool is_m_payload_Valid() const;
 
     OAICommon_Response_objDebugPayload getObjDebugPayload() const;
     void setObjDebugPayload(const OAICommon_Response_objDebugPayload &obj_debug_payload);
@@ -57,6 +64,10 @@ public:
 private:
     void initializeModel();
 
+    OAIEzsignbulksend_getObject_v1_Response_mPayload m_payload;
+    bool m_m_payload_isSet;
+    bool m_m_payload_isValid;
+
     OAICommon_Response_objDebugPayload obj_debug_payload;
     bool m_obj_debug_payload_isSet;
     bool m_obj_debug_payload_isValid;
@@ -68,6 +79,6 @@ private:
 
 } // namespace OpenAPI
 
-Q_DECLARE_METATYPE(OpenAPI::OAIUNUSED_ezsignsignature_editObject_v1_Response)
+Q_DECLARE_METATYPE(OpenAPI::OAIEzsignbulksend_getObject_v1_Response)
 
-#endif // OAIUNUSED_ezsignsignature_editObject_v1_Response_H
+#endif // OAIEzsignbulksend_getObject_v1_Response_H

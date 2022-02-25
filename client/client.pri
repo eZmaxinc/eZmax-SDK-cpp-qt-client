@@ -55,10 +55,15 @@ HEADERS += \
     $${PWD}/OAICustom_WordPositionWord_Response.h \
     $${PWD}/OAIEmail_Request.h \
     $${PWD}/OAIEzsignbulksend_ListElement.h \
+    $${PWD}/OAIEzsignbulksend_Response.h \
+    $${PWD}/OAIEzsignbulksend_ResponseCompound.h \
     $${PWD}/OAIEzsignbulksend_getList_v1_Response.h \
     $${PWD}/OAIEzsignbulksend_getList_v1_Response_allOf.h \
     $${PWD}/OAIEzsignbulksend_getList_v1_Response_mPayload.h \
     $${PWD}/OAIEzsignbulksend_getList_v1_Response_mPayload_allOf.h \
+    $${PWD}/OAIEzsignbulksend_getObject_v1_Response.h \
+    $${PWD}/OAIEzsignbulksend_getObject_v1_Response_allOf.h \
+    $${PWD}/OAIEzsignbulksend_getObject_v1_Response_mPayload.h \
     $${PWD}/OAIEzsigndocument_Request.h \
     $${PWD}/OAIEzsigndocument_RequestCompound.h \
     $${PWD}/OAIEzsigndocument_RequestPatch.h \
@@ -76,6 +81,7 @@ HEADERS += \
     $${PWD}/OAIEzsigndocument_deleteObject_v1_Response.h \
     $${PWD}/OAIEzsigndocument_editEzsignsignatures_v1_Request.h \
     $${PWD}/OAIEzsigndocument_editEzsignsignatures_v1_Response.h \
+    $${PWD}/OAIEzsigndocument_endPrematurely_v1_Response.h \
     $${PWD}/OAIEzsigndocument_getDownloadUrl_v1_Response.h \
     $${PWD}/OAIEzsigndocument_getDownloadUrl_v1_Response_allOf.h \
     $${PWD}/OAIEzsigndocument_getDownloadUrl_v1_Response_mPayload.h \
@@ -88,11 +94,15 @@ HEADERS += \
     $${PWD}/OAIEzsigndocument_getObject_v1_Response.h \
     $${PWD}/OAIEzsigndocument_getObject_v1_Response_allOf.h \
     $${PWD}/OAIEzsigndocument_getObject_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsigndocument_getTemporaryProof_v1_Response.h \
+    $${PWD}/OAIEzsigndocument_getTemporaryProof_v1_Response_allOf.h \
+    $${PWD}/OAIEzsigndocument_getTemporaryProof_v1_Response_mPayload.h \
     $${PWD}/OAIEzsigndocument_getWordsPositions_v1_Request.h \
     $${PWD}/OAIEzsigndocument_getWordsPositions_v1_Response.h \
     $${PWD}/OAIEzsigndocument_getWordsPositions_v1_Response_allOf.h \
     $${PWD}/OAIEzsigndocument_patchObject_v1_Request.h \
     $${PWD}/OAIEzsigndocument_patchObject_v1_Response.h \
+    $${PWD}/OAIEzsigndocumentlog_Response.h \
     $${PWD}/OAIEzsignfolder_ListElement.h \
     $${PWD}/OAIEzsignfolder_Request.h \
     $${PWD}/OAIEzsignfolder_RequestCompound.h \
@@ -182,6 +192,7 @@ HEADERS += \
     $${PWD}/OAIField_eActivesessionSessiontype.h \
     $${PWD}/OAIField_eActivesessionWeekdaystart.h \
     $${PWD}/OAIField_eEzsigndocumentStep.h \
+    $${PWD}/OAIField_eEzsigndocumentlogType.h \
     $${PWD}/OAIField_eEzsignfolderSendreminderfrequency.h \
     $${PWD}/OAIField_eEzsignfolderStep.h \
     $${PWD}/OAIField_eEzsignfoldertypePrivacylevel.h \
@@ -213,14 +224,6 @@ HEADERS += \
     $${PWD}/OAISspr_unlockAccountRequest_v1_Request.h \
     $${PWD}/OAISspr_unlockAccount_v1_Request.h \
     $${PWD}/OAISspr_validateToken_v1_Request.h \
-    $${PWD}/OAIUNUSED_ezsigndocument_editObject_v1_Request.h \
-    $${PWD}/OAIUNUSED_ezsigndocument_editObject_v1_Response.h \
-    $${PWD}/OAIUNUSED_ezsignfolder_editObject_v1_Request.h \
-    $${PWD}/OAIUNUSED_ezsignfolder_editObject_v1_Response.h \
-    $${PWD}/OAIUNUSED_ezsignfoldersignerassociation_editObject_v1_Request.h \
-    $${PWD}/OAIUNUSED_ezsignfoldersignerassociation_editObject_v1_Response.h \
-    $${PWD}/OAIUNUSED_ezsignsignature_editObject_v1_Request.h \
-    $${PWD}/OAIUNUSED_ezsignsignature_editObject_v1_Response.h \
     $${PWD}/OAIUser_Response.h \
     $${PWD}/OAIUser_createEzsignuser_v1_Request.h \
     $${PWD}/OAIUser_createEzsignuser_v1_Response.h \
@@ -238,7 +241,6 @@ HEADERS += \
     $${PWD}/OAIGlobalCustomerApi.h \
     $${PWD}/OAIModuleAuthenticateApi.h \
     $${PWD}/OAIModuleListApi.h \
-    $${PWD}/OAIModuleSsprApi.h \
     $${PWD}/OAIModuleUserApi.h \
     $${PWD}/OAIObjectActivesessionApi.h \
     $${PWD}/OAIObjectApikeyApi.h \
@@ -318,10 +320,15 @@ SOURCES += \
     $${PWD}/OAICustom_WordPositionWord_Response.cpp \
     $${PWD}/OAIEmail_Request.cpp \
     $${PWD}/OAIEzsignbulksend_ListElement.cpp \
+    $${PWD}/OAIEzsignbulksend_Response.cpp \
+    $${PWD}/OAIEzsignbulksend_ResponseCompound.cpp \
     $${PWD}/OAIEzsignbulksend_getList_v1_Response.cpp \
     $${PWD}/OAIEzsignbulksend_getList_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsignbulksend_getList_v1_Response_mPayload.cpp \
     $${PWD}/OAIEzsignbulksend_getList_v1_Response_mPayload_allOf.cpp \
+    $${PWD}/OAIEzsignbulksend_getObject_v1_Response.cpp \
+    $${PWD}/OAIEzsignbulksend_getObject_v1_Response_allOf.cpp \
+    $${PWD}/OAIEzsignbulksend_getObject_v1_Response_mPayload.cpp \
     $${PWD}/OAIEzsigndocument_Request.cpp \
     $${PWD}/OAIEzsigndocument_RequestCompound.cpp \
     $${PWD}/OAIEzsigndocument_RequestPatch.cpp \
@@ -339,6 +346,7 @@ SOURCES += \
     $${PWD}/OAIEzsigndocument_deleteObject_v1_Response.cpp \
     $${PWD}/OAIEzsigndocument_editEzsignsignatures_v1_Request.cpp \
     $${PWD}/OAIEzsigndocument_editEzsignsignatures_v1_Response.cpp \
+    $${PWD}/OAIEzsigndocument_endPrematurely_v1_Response.cpp \
     $${PWD}/OAIEzsigndocument_getDownloadUrl_v1_Response.cpp \
     $${PWD}/OAIEzsigndocument_getDownloadUrl_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsigndocument_getDownloadUrl_v1_Response_mPayload.cpp \
@@ -351,11 +359,15 @@ SOURCES += \
     $${PWD}/OAIEzsigndocument_getObject_v1_Response.cpp \
     $${PWD}/OAIEzsigndocument_getObject_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsigndocument_getObject_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsigndocument_getTemporaryProof_v1_Response.cpp \
+    $${PWD}/OAIEzsigndocument_getTemporaryProof_v1_Response_allOf.cpp \
+    $${PWD}/OAIEzsigndocument_getTemporaryProof_v1_Response_mPayload.cpp \
     $${PWD}/OAIEzsigndocument_getWordsPositions_v1_Request.cpp \
     $${PWD}/OAIEzsigndocument_getWordsPositions_v1_Response.cpp \
     $${PWD}/OAIEzsigndocument_getWordsPositions_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsigndocument_patchObject_v1_Request.cpp \
     $${PWD}/OAIEzsigndocument_patchObject_v1_Response.cpp \
+    $${PWD}/OAIEzsigndocumentlog_Response.cpp \
     $${PWD}/OAIEzsignfolder_ListElement.cpp \
     $${PWD}/OAIEzsignfolder_Request.cpp \
     $${PWD}/OAIEzsignfolder_RequestCompound.cpp \
@@ -445,6 +457,7 @@ SOURCES += \
     $${PWD}/OAIField_eActivesessionSessiontype.cpp \
     $${PWD}/OAIField_eActivesessionWeekdaystart.cpp \
     $${PWD}/OAIField_eEzsigndocumentStep.cpp \
+    $${PWD}/OAIField_eEzsigndocumentlogType.cpp \
     $${PWD}/OAIField_eEzsignfolderSendreminderfrequency.cpp \
     $${PWD}/OAIField_eEzsignfolderStep.cpp \
     $${PWD}/OAIField_eEzsignfoldertypePrivacylevel.cpp \
@@ -476,14 +489,6 @@ SOURCES += \
     $${PWD}/OAISspr_unlockAccountRequest_v1_Request.cpp \
     $${PWD}/OAISspr_unlockAccount_v1_Request.cpp \
     $${PWD}/OAISspr_validateToken_v1_Request.cpp \
-    $${PWD}/OAIUNUSED_ezsigndocument_editObject_v1_Request.cpp \
-    $${PWD}/OAIUNUSED_ezsigndocument_editObject_v1_Response.cpp \
-    $${PWD}/OAIUNUSED_ezsignfolder_editObject_v1_Request.cpp \
-    $${PWD}/OAIUNUSED_ezsignfolder_editObject_v1_Response.cpp \
-    $${PWD}/OAIUNUSED_ezsignfoldersignerassociation_editObject_v1_Request.cpp \
-    $${PWD}/OAIUNUSED_ezsignfoldersignerassociation_editObject_v1_Response.cpp \
-    $${PWD}/OAIUNUSED_ezsignsignature_editObject_v1_Request.cpp \
-    $${PWD}/OAIUNUSED_ezsignsignature_editObject_v1_Response.cpp \
     $${PWD}/OAIUser_Response.cpp \
     $${PWD}/OAIUser_createEzsignuser_v1_Request.cpp \
     $${PWD}/OAIUser_createEzsignuser_v1_Response.cpp \
@@ -501,7 +506,6 @@ SOURCES += \
     $${PWD}/OAIGlobalCustomerApi.cpp \
     $${PWD}/OAIModuleAuthenticateApi.cpp \
     $${PWD}/OAIModuleListApi.cpp \
-    $${PWD}/OAIModuleSsprApi.cpp \
     $${PWD}/OAIModuleUserApi.cpp \
     $${PWD}/OAIObjectActivesessionApi.cpp \
     $${PWD}/OAIObjectApikeyApi.cpp \

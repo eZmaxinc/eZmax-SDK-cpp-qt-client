@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-#include "OAIUNUSED_ezsignfoldersignerassociation_editObject_v1_Response.h"
+#include "OAIEzsigndocument_endPrematurely_v1_Response.h"
 
 #include <QDebug>
 #include <QJsonArray>
@@ -21,18 +21,18 @@
 
 namespace OpenAPI {
 
-OAIUNUSED_ezsignfoldersignerassociation_editObject_v1_Response::OAIUNUSED_ezsignfoldersignerassociation_editObject_v1_Response(QString json) {
+OAIEzsigndocument_endPrematurely_v1_Response::OAIEzsigndocument_endPrematurely_v1_Response(QString json) {
     this->initializeModel();
     this->fromJson(json);
 }
 
-OAIUNUSED_ezsignfoldersignerassociation_editObject_v1_Response::OAIUNUSED_ezsignfoldersignerassociation_editObject_v1_Response() {
+OAIEzsigndocument_endPrematurely_v1_Response::OAIEzsigndocument_endPrematurely_v1_Response() {
     this->initializeModel();
 }
 
-OAIUNUSED_ezsignfoldersignerassociation_editObject_v1_Response::~OAIUNUSED_ezsignfoldersignerassociation_editObject_v1_Response() {}
+OAIEzsigndocument_endPrematurely_v1_Response::~OAIEzsigndocument_endPrematurely_v1_Response() {}
 
-void OAIUNUSED_ezsignfoldersignerassociation_editObject_v1_Response::initializeModel() {
+void OAIEzsigndocument_endPrematurely_v1_Response::initializeModel() {
 
     m_obj_debug_payload_isSet = false;
     m_obj_debug_payload_isValid = false;
@@ -41,14 +41,14 @@ void OAIUNUSED_ezsignfoldersignerassociation_editObject_v1_Response::initializeM
     m_obj_debug_isValid = false;
 }
 
-void OAIUNUSED_ezsignfoldersignerassociation_editObject_v1_Response::fromJson(QString jsonString) {
+void OAIEzsigndocument_endPrematurely_v1_Response::fromJson(QString jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();
     this->fromJsonObject(jsonObject);
 }
 
-void OAIUNUSED_ezsignfoldersignerassociation_editObject_v1_Response::fromJsonObject(QJsonObject json) {
+void OAIEzsigndocument_endPrematurely_v1_Response::fromJsonObject(QJsonObject json) {
 
     m_obj_debug_payload_isValid = ::OpenAPI::fromJsonValue(obj_debug_payload, json[QString("objDebugPayload")]);
     m_obj_debug_payload_isSet = !json[QString("objDebugPayload")].isNull() && m_obj_debug_payload_isValid;
@@ -57,14 +57,14 @@ void OAIUNUSED_ezsignfoldersignerassociation_editObject_v1_Response::fromJsonObj
     m_obj_debug_isSet = !json[QString("objDebug")].isNull() && m_obj_debug_isValid;
 }
 
-QString OAIUNUSED_ezsignfoldersignerassociation_editObject_v1_Response::asJson() const {
+QString OAIEzsigndocument_endPrematurely_v1_Response::asJson() const {
     QJsonObject obj = this->asJsonObject();
     QJsonDocument doc(obj);
     QByteArray bytes = doc.toJson();
     return QString(bytes);
 }
 
-QJsonObject OAIUNUSED_ezsignfoldersignerassociation_editObject_v1_Response::asJsonObject() const {
+QJsonObject OAIEzsigndocument_endPrematurely_v1_Response::asJsonObject() const {
     QJsonObject obj;
     if (obj_debug_payload.isSet()) {
         obj.insert(QString("objDebugPayload"), ::OpenAPI::toJsonValue(obj_debug_payload));
@@ -75,39 +75,39 @@ QJsonObject OAIUNUSED_ezsignfoldersignerassociation_editObject_v1_Response::asJs
     return obj;
 }
 
-OAICommon_Response_objDebugPayload OAIUNUSED_ezsignfoldersignerassociation_editObject_v1_Response::getObjDebugPayload() const {
+OAICommon_Response_objDebugPayload OAIEzsigndocument_endPrematurely_v1_Response::getObjDebugPayload() const {
     return obj_debug_payload;
 }
-void OAIUNUSED_ezsignfoldersignerassociation_editObject_v1_Response::setObjDebugPayload(const OAICommon_Response_objDebugPayload &obj_debug_payload) {
+void OAIEzsigndocument_endPrematurely_v1_Response::setObjDebugPayload(const OAICommon_Response_objDebugPayload &obj_debug_payload) {
     this->obj_debug_payload = obj_debug_payload;
     this->m_obj_debug_payload_isSet = true;
 }
 
-bool OAIUNUSED_ezsignfoldersignerassociation_editObject_v1_Response::is_obj_debug_payload_Set() const{
+bool OAIEzsigndocument_endPrematurely_v1_Response::is_obj_debug_payload_Set() const{
     return m_obj_debug_payload_isSet;
 }
 
-bool OAIUNUSED_ezsignfoldersignerassociation_editObject_v1_Response::is_obj_debug_payload_Valid() const{
+bool OAIEzsigndocument_endPrematurely_v1_Response::is_obj_debug_payload_Valid() const{
     return m_obj_debug_payload_isValid;
 }
 
-OAICommon_Response_objDebug OAIUNUSED_ezsignfoldersignerassociation_editObject_v1_Response::getObjDebug() const {
+OAICommon_Response_objDebug OAIEzsigndocument_endPrematurely_v1_Response::getObjDebug() const {
     return obj_debug;
 }
-void OAIUNUSED_ezsignfoldersignerassociation_editObject_v1_Response::setObjDebug(const OAICommon_Response_objDebug &obj_debug) {
+void OAIEzsigndocument_endPrematurely_v1_Response::setObjDebug(const OAICommon_Response_objDebug &obj_debug) {
     this->obj_debug = obj_debug;
     this->m_obj_debug_isSet = true;
 }
 
-bool OAIUNUSED_ezsignfoldersignerassociation_editObject_v1_Response::is_obj_debug_Set() const{
+bool OAIEzsigndocument_endPrematurely_v1_Response::is_obj_debug_Set() const{
     return m_obj_debug_isSet;
 }
 
-bool OAIUNUSED_ezsignfoldersignerassociation_editObject_v1_Response::is_obj_debug_Valid() const{
+bool OAIEzsigndocument_endPrematurely_v1_Response::is_obj_debug_Valid() const{
     return m_obj_debug_isValid;
 }
 
-bool OAIUNUSED_ezsignfoldersignerassociation_editObject_v1_Response::isSet() const {
+bool OAIEzsigndocument_endPrematurely_v1_Response::isSet() const {
     bool isObjectUpdated = false;
     do {
         if (obj_debug_payload.isSet()) {
@@ -123,7 +123,7 @@ bool OAIUNUSED_ezsignfoldersignerassociation_editObject_v1_Response::isSet() con
     return isObjectUpdated;
 }
 
-bool OAIUNUSED_ezsignfoldersignerassociation_editObject_v1_Response::isValid() const {
+bool OAIEzsigndocument_endPrematurely_v1_Response::isValid() const {
     // only required properties are required for the object to be considered valid
     return true;
 }

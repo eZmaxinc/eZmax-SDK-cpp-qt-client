@@ -20,6 +20,7 @@
 
 #include "OAICommon_Response_Error.h"
 #include "OAIEzsignbulksend_getList_v1_Response.h"
+#include "OAIEzsignbulksend_getObject_v1_Response.h"
 #include "OAIHeader_Accept_Language.h"
 #include "OAIHttpFileElement.h"
 #include <QString>
@@ -69,6 +70,11 @@ public:
     */
     void ezsignbulksendGetListV1(const ::OpenAPI::OptionalParam<QString> &e_order_by = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<qint32> &i_row_max = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<qint32> &i_row_offset = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<OAIHeader_Accept_Language> &accept_language = ::OpenAPI::OptionalParam<OAIHeader_Accept_Language>(), const ::OpenAPI::OptionalParam<QString> &s_filter = ::OpenAPI::OptionalParam<QString>());
 
+    /**
+    * @param[in]  pki_ezsignbulksend_id qint32 [required]
+    */
+    void ezsignbulksendGetObjectV1(const qint32 &pki_ezsignbulksend_id);
+
 
 private:
     QMap<QString,int> _serverIndices;
@@ -93,16 +99,21 @@ private:
     int _OauthMethod = 0;
 
     void ezsignbulksendGetListV1Callback(OAIHttpRequestWorker *worker);
+    void ezsignbulksendGetObjectV1Callback(OAIHttpRequestWorker *worker);
 
 signals:
 
     void ezsignbulksendGetListV1Signal(OAIEzsignbulksend_getList_v1_Response summary);
+    void ezsignbulksendGetObjectV1Signal(OAIEzsignbulksend_getObject_v1_Response summary);
 
     void ezsignbulksendGetListV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsignbulksend_getList_v1_Response summary);
+    void ezsignbulksendGetObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsignbulksend_getObject_v1_Response summary);
 
     void ezsignbulksendGetListV1SignalE(OAIEzsignbulksend_getList_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignbulksendGetObjectV1SignalE(OAIEzsignbulksend_getObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
 
     void ezsignbulksendGetListV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignbulksendGetObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();

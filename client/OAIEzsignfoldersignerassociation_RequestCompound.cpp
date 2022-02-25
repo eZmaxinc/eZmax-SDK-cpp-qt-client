@@ -215,7 +215,7 @@ bool OAIEzsignfoldersignerassociation_RequestCompound::isSet() const {
 
 bool OAIEzsignfoldersignerassociation_RequestCompound::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_fki_ezsignfolder_id_isValid && true;
+    return m_obj_ezsignsigner_isValid && m_fki_ezsignfolder_id_isValid && true;
 }
 
 } // namespace OpenAPI

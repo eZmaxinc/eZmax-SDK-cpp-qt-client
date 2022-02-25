@@ -11,13 +11,13 @@
  */
 
 /*
- * OAIUNUSED_ezsigndocument_editObject_v1_Response.h
+ * OAIEzsigndocument_endPrematurely_v1_Response.h
  *
- * Response for the /1/object/ezsigndocument/editObject API Request
+ * Response for the /1/object/ezsigndocument/{pkiEzsigndocument}/endPrematurely API Request
  */
 
-#ifndef OAIUNUSED_ezsigndocument_editObject_v1_Response_H
-#define OAIUNUSED_ezsigndocument_editObject_v1_Response_H
+#ifndef OAIEzsigndocument_endPrematurely_v1_Response_H
+#define OAIEzsigndocument_endPrematurely_v1_Response_H
 
 #include <QJsonObject>
 
@@ -30,11 +30,11 @@
 
 namespace OpenAPI {
 
-class OAIUNUSED_ezsigndocument_editObject_v1_Response : public OAIObject {
+class OAIEzsigndocument_endPrematurely_v1_Response : public OAIObject {
 public:
-    OAIUNUSED_ezsigndocument_editObject_v1_Response();
-    OAIUNUSED_ezsigndocument_editObject_v1_Response(QString json);
-    ~OAIUNUSED_ezsigndocument_editObject_v1_Response() override;
+    OAIEzsigndocument_endPrematurely_v1_Response();
+    OAIEzsigndocument_endPrematurely_v1_Response(QString json);
+    ~OAIEzsigndocument_endPrematurely_v1_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
@@ -68,6 +68,6 @@ private:
 
 } // namespace OpenAPI
 
-Q_DECLARE_METATYPE(OpenAPI::OAIUNUSED_ezsigndocument_editObject_v1_Response)
+Q_DECLARE_METATYPE(OpenAPI::OAIEzsigndocument_endPrematurely_v1_Response)
 
-#endif // OAIUNUSED_ezsigndocument_editObject_v1_Response_H
+#endif // OAIEzsigndocument_endPrematurely_v1_Response_H

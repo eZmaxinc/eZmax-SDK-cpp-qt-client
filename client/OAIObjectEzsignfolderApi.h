@@ -34,6 +34,7 @@
 #include "OAIEzsignfolder_unsend_v1_Response.h"
 #include "OAIHeader_Accept_Language.h"
 #include "OAIHttpFileElement.h"
+#include "OAIObject.h"
 #include <QList>
 #include <QString>
 
@@ -126,9 +127,9 @@ public:
 
     /**
     * @param[in]  pki_ezsignfolder_id qint32 [required]
-    * @param[in]  body QString [required]
+    * @param[in]  body OAIObject [required]
     */
-    void ezsignfolderUnsendV1(const qint32 &pki_ezsignfolder_id, const QString &body);
+    void ezsignfolderUnsendV1(const qint32 &pki_ezsignfolder_id, const OAIObject &body);
 
 
 private:

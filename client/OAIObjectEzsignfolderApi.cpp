@@ -936,7 +936,7 @@ void OAIObjectEzsignfolderApi::ezsignfolderSendV1Callback(OAIHttpRequestWorker *
     }
 }
 
-void OAIObjectEzsignfolderApi::ezsignfolderUnsendV1(const qint32 &pki_ezsignfolder_id, const QString &body) {
+void OAIObjectEzsignfolderApi::ezsignfolderUnsendV1(const qint32 &pki_ezsignfolder_id, const OAIObject &body) {
     QString fullPath = QString(_serverConfigs["ezsignfolderUnsendV1"][_serverIndices.value("ezsignfolderUnsendV1")].URL()+"/1/object/ezsignfolder/{pkiEzsignfolderID}/unsend");
     
     if (_apiKeys.contains("Authorization")) {
@@ -964,7 +964,7 @@ void OAIObjectEzsignfolderApi::ezsignfolderUnsendV1(const qint32 &pki_ezsignfold
 
     {
 
-        QByteArray output = body.toUtf8();
+        QByteArray output = body.asJson().toUtf8();
         input.request_body.append(output);
     }
 #if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)

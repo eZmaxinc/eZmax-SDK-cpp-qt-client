@@ -68,10 +68,15 @@ add_library(${PROJECT_NAME}
     OAICustom_WordPositionWord_Response.cpp
     OAIEmail_Request.cpp
     OAIEzsignbulksend_ListElement.cpp
+    OAIEzsignbulksend_Response.cpp
+    OAIEzsignbulksend_ResponseCompound.cpp
     OAIEzsignbulksend_getList_v1_Response.cpp
     OAIEzsignbulksend_getList_v1_Response_allOf.cpp
     OAIEzsignbulksend_getList_v1_Response_mPayload.cpp
     OAIEzsignbulksend_getList_v1_Response_mPayload_allOf.cpp
+    OAIEzsignbulksend_getObject_v1_Response.cpp
+    OAIEzsignbulksend_getObject_v1_Response_allOf.cpp
+    OAIEzsignbulksend_getObject_v1_Response_mPayload.cpp
     OAIEzsigndocument_Request.cpp
     OAIEzsigndocument_RequestCompound.cpp
     OAIEzsigndocument_RequestPatch.cpp
@@ -89,6 +94,7 @@ add_library(${PROJECT_NAME}
     OAIEzsigndocument_deleteObject_v1_Response.cpp
     OAIEzsigndocument_editEzsignsignatures_v1_Request.cpp
     OAIEzsigndocument_editEzsignsignatures_v1_Response.cpp
+    OAIEzsigndocument_endPrematurely_v1_Response.cpp
     OAIEzsigndocument_getDownloadUrl_v1_Response.cpp
     OAIEzsigndocument_getDownloadUrl_v1_Response_allOf.cpp
     OAIEzsigndocument_getDownloadUrl_v1_Response_mPayload.cpp
@@ -101,11 +107,15 @@ add_library(${PROJECT_NAME}
     OAIEzsigndocument_getObject_v1_Response.cpp
     OAIEzsigndocument_getObject_v1_Response_allOf.cpp
     OAIEzsigndocument_getObject_v1_Response_mPayload.cpp
+    OAIEzsigndocument_getTemporaryProof_v1_Response.cpp
+    OAIEzsigndocument_getTemporaryProof_v1_Response_allOf.cpp
+    OAIEzsigndocument_getTemporaryProof_v1_Response_mPayload.cpp
     OAIEzsigndocument_getWordsPositions_v1_Request.cpp
     OAIEzsigndocument_getWordsPositions_v1_Response.cpp
     OAIEzsigndocument_getWordsPositions_v1_Response_allOf.cpp
     OAIEzsigndocument_patchObject_v1_Request.cpp
     OAIEzsigndocument_patchObject_v1_Response.cpp
+    OAIEzsigndocumentlog_Response.cpp
     OAIEzsignfolder_ListElement.cpp
     OAIEzsignfolder_Request.cpp
     OAIEzsignfolder_RequestCompound.cpp
@@ -195,6 +205,7 @@ add_library(${PROJECT_NAME}
     OAIField_eActivesessionSessiontype.cpp
     OAIField_eActivesessionWeekdaystart.cpp
     OAIField_eEzsigndocumentStep.cpp
+    OAIField_eEzsigndocumentlogType.cpp
     OAIField_eEzsignfolderSendreminderfrequency.cpp
     OAIField_eEzsignfolderStep.cpp
     OAIField_eEzsignfoldertypePrivacylevel.cpp
@@ -226,14 +237,6 @@ add_library(${PROJECT_NAME}
     OAISspr_unlockAccountRequest_v1_Request.cpp
     OAISspr_unlockAccount_v1_Request.cpp
     OAISspr_validateToken_v1_Request.cpp
-    OAIUNUSED_ezsigndocument_editObject_v1_Request.cpp
-    OAIUNUSED_ezsigndocument_editObject_v1_Response.cpp
-    OAIUNUSED_ezsignfolder_editObject_v1_Request.cpp
-    OAIUNUSED_ezsignfolder_editObject_v1_Response.cpp
-    OAIUNUSED_ezsignfoldersignerassociation_editObject_v1_Request.cpp
-    OAIUNUSED_ezsignfoldersignerassociation_editObject_v1_Response.cpp
-    OAIUNUSED_ezsignsignature_editObject_v1_Request.cpp
-    OAIUNUSED_ezsignsignature_editObject_v1_Response.cpp
     OAIUser_Response.cpp
     OAIUser_createEzsignuser_v1_Request.cpp
     OAIUser_createEzsignuser_v1_Response.cpp
@@ -250,7 +253,6 @@ add_library(${PROJECT_NAME}
     OAIGlobalCustomerApi.cpp
     OAIModuleAuthenticateApi.cpp
     OAIModuleListApi.cpp
-    OAIModuleSsprApi.cpp
     OAIModuleUserApi.cpp
     OAIObjectActivesessionApi.cpp
     OAIObjectApikeyApi.cpp

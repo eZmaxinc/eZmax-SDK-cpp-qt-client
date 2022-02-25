@@ -95,7 +95,7 @@ bool OAIEzsignfoldersignerassociation_RequestCompound_allOf::isSet() const {
 
 bool OAIEzsignfoldersignerassociation_RequestCompound_allOf::isValid() const {
     // only required properties are required for the object to be considered valid
-    return true;
+    return m_obj_ezsignsigner_isValid && true;
 }
 
 } // namespace OpenAPI
