@@ -31,6 +31,10 @@ add_library(${PROJECT_NAME}
     OAIApikey_createObject_v1_Response.cpp
     OAIApikey_createObject_v1_Response_allOf.cpp
     OAIApikey_createObject_v1_Response_mPayload.cpp
+    OAIApikey_createObject_v2_Request.cpp
+    OAIApikey_createObject_v2_Response.cpp
+    OAIApikey_createObject_v2_Response_allOf.cpp
+    OAIApikey_createObject_v2_Response_mPayload.cpp
     OAIAttempt_Response.cpp
     OAIAuthenticate_authenticate_v2_Request.cpp
     OAIAuthenticate_authenticate_v2_Response.cpp
@@ -91,6 +95,10 @@ add_library(${PROJECT_NAME}
     OAIEzsigndocument_createObject_v1_Response.cpp
     OAIEzsigndocument_createObject_v1_Response_allOf.cpp
     OAIEzsigndocument_createObject_v1_Response_mPayload.cpp
+    OAIEzsigndocument_createObject_v2_Request.cpp
+    OAIEzsigndocument_createObject_v2_Response.cpp
+    OAIEzsigndocument_createObject_v2_Response_allOf.cpp
+    OAIEzsigndocument_createObject_v2_Response_mPayload.cpp
     OAIEzsigndocument_deleteObject_v1_Response.cpp
     OAIEzsigndocument_editEzsignsignatures_v1_Request.cpp
     OAIEzsigndocument_editEzsignsignatures_v1_Response.cpp
@@ -125,6 +133,10 @@ add_library(${PROJECT_NAME}
     OAIEzsignfolder_createObject_v1_Response.cpp
     OAIEzsignfolder_createObject_v1_Response_allOf.cpp
     OAIEzsignfolder_createObject_v1_Response_mPayload.cpp
+    OAIEzsignfolder_createObject_v2_Request.cpp
+    OAIEzsignfolder_createObject_v2_Response.cpp
+    OAIEzsignfolder_createObject_v2_Response_allOf.cpp
+    OAIEzsignfolder_createObject_v2_Response_mPayload.cpp
     OAIEzsignfolder_deleteObject_v1_Response.cpp
     OAIEzsignfolder_editObject_v1_Request.cpp
     OAIEzsignfolder_editObject_v1_Response.cpp
@@ -158,6 +170,10 @@ add_library(${PROJECT_NAME}
     OAIEzsignfoldersignerassociation_createObject_v1_Response.cpp
     OAIEzsignfoldersignerassociation_createObject_v1_Response_allOf.cpp
     OAIEzsignfoldersignerassociation_createObject_v1_Response_mPayload.cpp
+    OAIEzsignfoldersignerassociation_createObject_v2_Request.cpp
+    OAIEzsignfoldersignerassociation_createObject_v2_Response.cpp
+    OAIEzsignfoldersignerassociation_createObject_v2_Response_allOf.cpp
+    OAIEzsignfoldersignerassociation_createObject_v2_Response_mPayload.cpp
     OAIEzsignfoldersignerassociation_deleteObject_v1_Response.cpp
     OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response.cpp
     OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response_allOf.cpp
@@ -183,6 +199,10 @@ add_library(${PROJECT_NAME}
     OAIEzsignsignature_createObject_v1_Response.cpp
     OAIEzsignsignature_createObject_v1_Response_allOf.cpp
     OAIEzsignsignature_createObject_v1_Response_mPayload.cpp
+    OAIEzsignsignature_createObject_v2_Request.cpp
+    OAIEzsignsignature_createObject_v2_Response.cpp
+    OAIEzsignsignature_createObject_v2_Response_allOf.cpp
+    OAIEzsignsignature_createObject_v2_Response_mPayload.cpp
     OAIEzsignsignature_deleteObject_v1_Response.cpp
     OAIEzsignsignature_editObject_v1_Request.cpp
     OAIEzsignsignature_editObject_v1_Response.cpp
@@ -221,6 +241,10 @@ add_library(${PROJECT_NAME}
     OAIFranchisereferalincome_createObject_v1_Response.cpp
     OAIFranchisereferalincome_createObject_v1_Response_allOf.cpp
     OAIFranchisereferalincome_createObject_v1_Response_mPayload.cpp
+    OAIFranchisereferalincome_createObject_v2_Request.cpp
+    OAIFranchisereferalincome_createObject_v2_Response.cpp
+    OAIFranchisereferalincome_createObject_v2_Response_allOf.cpp
+    OAIFranchisereferalincome_createObject_v2_Response_mPayload.cpp
     OAIGlobal_customer_getEndpoint_v1_Response.cpp
     OAIHeader_Accept_Language.cpp
     OAIList_getListpresentation_v1_Response.cpp

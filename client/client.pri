@@ -18,6 +18,10 @@ HEADERS += \
     $${PWD}/OAIApikey_createObject_v1_Response.h \
     $${PWD}/OAIApikey_createObject_v1_Response_allOf.h \
     $${PWD}/OAIApikey_createObject_v1_Response_mPayload.h \
+    $${PWD}/OAIApikey_createObject_v2_Request.h \
+    $${PWD}/OAIApikey_createObject_v2_Response.h \
+    $${PWD}/OAIApikey_createObject_v2_Response_allOf.h \
+    $${PWD}/OAIApikey_createObject_v2_Response_mPayload.h \
     $${PWD}/OAIAttempt_Response.h \
     $${PWD}/OAIAuthenticate_authenticate_v2_Request.h \
     $${PWD}/OAIAuthenticate_authenticate_v2_Response.h \
@@ -78,6 +82,10 @@ HEADERS += \
     $${PWD}/OAIEzsigndocument_createObject_v1_Response.h \
     $${PWD}/OAIEzsigndocument_createObject_v1_Response_allOf.h \
     $${PWD}/OAIEzsigndocument_createObject_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsigndocument_createObject_v2_Request.h \
+    $${PWD}/OAIEzsigndocument_createObject_v2_Response.h \
+    $${PWD}/OAIEzsigndocument_createObject_v2_Response_allOf.h \
+    $${PWD}/OAIEzsigndocument_createObject_v2_Response_mPayload.h \
     $${PWD}/OAIEzsigndocument_deleteObject_v1_Response.h \
     $${PWD}/OAIEzsigndocument_editEzsignsignatures_v1_Request.h \
     $${PWD}/OAIEzsigndocument_editEzsignsignatures_v1_Response.h \
@@ -112,6 +120,10 @@ HEADERS += \
     $${PWD}/OAIEzsignfolder_createObject_v1_Response.h \
     $${PWD}/OAIEzsignfolder_createObject_v1_Response_allOf.h \
     $${PWD}/OAIEzsignfolder_createObject_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsignfolder_createObject_v2_Request.h \
+    $${PWD}/OAIEzsignfolder_createObject_v2_Response.h \
+    $${PWD}/OAIEzsignfolder_createObject_v2_Response_allOf.h \
+    $${PWD}/OAIEzsignfolder_createObject_v2_Response_mPayload.h \
     $${PWD}/OAIEzsignfolder_deleteObject_v1_Response.h \
     $${PWD}/OAIEzsignfolder_editObject_v1_Request.h \
     $${PWD}/OAIEzsignfolder_editObject_v1_Response.h \
@@ -145,6 +157,10 @@ HEADERS += \
     $${PWD}/OAIEzsignfoldersignerassociation_createObject_v1_Response.h \
     $${PWD}/OAIEzsignfoldersignerassociation_createObject_v1_Response_allOf.h \
     $${PWD}/OAIEzsignfoldersignerassociation_createObject_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsignfoldersignerassociation_createObject_v2_Request.h \
+    $${PWD}/OAIEzsignfoldersignerassociation_createObject_v2_Response.h \
+    $${PWD}/OAIEzsignfoldersignerassociation_createObject_v2_Response_allOf.h \
+    $${PWD}/OAIEzsignfoldersignerassociation_createObject_v2_Response_mPayload.h \
     $${PWD}/OAIEzsignfoldersignerassociation_deleteObject_v1_Response.h \
     $${PWD}/OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response.h \
     $${PWD}/OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response_allOf.h \
@@ -170,6 +186,10 @@ HEADERS += \
     $${PWD}/OAIEzsignsignature_createObject_v1_Response.h \
     $${PWD}/OAIEzsignsignature_createObject_v1_Response_allOf.h \
     $${PWD}/OAIEzsignsignature_createObject_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsignsignature_createObject_v2_Request.h \
+    $${PWD}/OAIEzsignsignature_createObject_v2_Response.h \
+    $${PWD}/OAIEzsignsignature_createObject_v2_Response_allOf.h \
+    $${PWD}/OAIEzsignsignature_createObject_v2_Response_mPayload.h \
     $${PWD}/OAIEzsignsignature_deleteObject_v1_Response.h \
     $${PWD}/OAIEzsignsignature_editObject_v1_Request.h \
     $${PWD}/OAIEzsignsignature_editObject_v1_Response.h \
@@ -208,6 +228,10 @@ HEADERS += \
     $${PWD}/OAIFranchisereferalincome_createObject_v1_Response.h \
     $${PWD}/OAIFranchisereferalincome_createObject_v1_Response_allOf.h \
     $${PWD}/OAIFranchisereferalincome_createObject_v1_Response_mPayload.h \
+    $${PWD}/OAIFranchisereferalincome_createObject_v2_Request.h \
+    $${PWD}/OAIFranchisereferalincome_createObject_v2_Response.h \
+    $${PWD}/OAIFranchisereferalincome_createObject_v2_Response_allOf.h \
+    $${PWD}/OAIFranchisereferalincome_createObject_v2_Response_mPayload.h \
     $${PWD}/OAIGlobal_customer_getEndpoint_v1_Response.h \
     $${PWD}/OAIHeader_Accept_Language.h \
     $${PWD}/OAIList_getListpresentation_v1_Response.h \
@@ -283,6 +307,10 @@ SOURCES += \
     $${PWD}/OAIApikey_createObject_v1_Response.cpp \
     $${PWD}/OAIApikey_createObject_v1_Response_allOf.cpp \
     $${PWD}/OAIApikey_createObject_v1_Response_mPayload.cpp \
+    $${PWD}/OAIApikey_createObject_v2_Request.cpp \
+    $${PWD}/OAIApikey_createObject_v2_Response.cpp \
+    $${PWD}/OAIApikey_createObject_v2_Response_allOf.cpp \
+    $${PWD}/OAIApikey_createObject_v2_Response_mPayload.cpp \
     $${PWD}/OAIAttempt_Response.cpp \
     $${PWD}/OAIAuthenticate_authenticate_v2_Request.cpp \
     $${PWD}/OAIAuthenticate_authenticate_v2_Response.cpp \
@@ -343,6 +371,10 @@ SOURCES += \
     $${PWD}/OAIEzsigndocument_createObject_v1_Response.cpp \
     $${PWD}/OAIEzsigndocument_createObject_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsigndocument_createObject_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsigndocument_createObject_v2_Request.cpp \
+    $${PWD}/OAIEzsigndocument_createObject_v2_Response.cpp \
+    $${PWD}/OAIEzsigndocument_createObject_v2_Response_allOf.cpp \
+    $${PWD}/OAIEzsigndocument_createObject_v2_Response_mPayload.cpp \
     $${PWD}/OAIEzsigndocument_deleteObject_v1_Response.cpp \
     $${PWD}/OAIEzsigndocument_editEzsignsignatures_v1_Request.cpp \
     $${PWD}/OAIEzsigndocument_editEzsignsignatures_v1_Response.cpp \
@@ -377,6 +409,10 @@ SOURCES += \
     $${PWD}/OAIEzsignfolder_createObject_v1_Response.cpp \
     $${PWD}/OAIEzsignfolder_createObject_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsignfolder_createObject_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsignfolder_createObject_v2_Request.cpp \
+    $${PWD}/OAIEzsignfolder_createObject_v2_Response.cpp \
+    $${PWD}/OAIEzsignfolder_createObject_v2_Response_allOf.cpp \
+    $${PWD}/OAIEzsignfolder_createObject_v2_Response_mPayload.cpp \
     $${PWD}/OAIEzsignfolder_deleteObject_v1_Response.cpp \
     $${PWD}/OAIEzsignfolder_editObject_v1_Request.cpp \
     $${PWD}/OAIEzsignfolder_editObject_v1_Response.cpp \
@@ -410,6 +446,10 @@ SOURCES += \
     $${PWD}/OAIEzsignfoldersignerassociation_createObject_v1_Response.cpp \
     $${PWD}/OAIEzsignfoldersignerassociation_createObject_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsignfoldersignerassociation_createObject_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsignfoldersignerassociation_createObject_v2_Request.cpp \
+    $${PWD}/OAIEzsignfoldersignerassociation_createObject_v2_Response.cpp \
+    $${PWD}/OAIEzsignfoldersignerassociation_createObject_v2_Response_allOf.cpp \
+    $${PWD}/OAIEzsignfoldersignerassociation_createObject_v2_Response_mPayload.cpp \
     $${PWD}/OAIEzsignfoldersignerassociation_deleteObject_v1_Response.cpp \
     $${PWD}/OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response.cpp \
     $${PWD}/OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response_allOf.cpp \
@@ -435,6 +475,10 @@ SOURCES += \
     $${PWD}/OAIEzsignsignature_createObject_v1_Response.cpp \
     $${PWD}/OAIEzsignsignature_createObject_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsignsignature_createObject_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsignsignature_createObject_v2_Request.cpp \
+    $${PWD}/OAIEzsignsignature_createObject_v2_Response.cpp \
+    $${PWD}/OAIEzsignsignature_createObject_v2_Response_allOf.cpp \
+    $${PWD}/OAIEzsignsignature_createObject_v2_Response_mPayload.cpp \
     $${PWD}/OAIEzsignsignature_deleteObject_v1_Response.cpp \
     $${PWD}/OAIEzsignsignature_editObject_v1_Request.cpp \
     $${PWD}/OAIEzsignsignature_editObject_v1_Response.cpp \
@@ -473,6 +517,10 @@ SOURCES += \
     $${PWD}/OAIFranchisereferalincome_createObject_v1_Response.cpp \
     $${PWD}/OAIFranchisereferalincome_createObject_v1_Response_allOf.cpp \
     $${PWD}/OAIFranchisereferalincome_createObject_v1_Response_mPayload.cpp \
+    $${PWD}/OAIFranchisereferalincome_createObject_v2_Request.cpp \
+    $${PWD}/OAIFranchisereferalincome_createObject_v2_Response.cpp \
+    $${PWD}/OAIFranchisereferalincome_createObject_v2_Response_allOf.cpp \
+    $${PWD}/OAIFranchisereferalincome_createObject_v2_Response_mPayload.cpp \
     $${PWD}/OAIGlobal_customer_getEndpoint_v1_Response.cpp \
     $${PWD}/OAIHeader_Accept_Language.cpp \
     $${PWD}/OAIList_getListpresentation_v1_Response.cpp \

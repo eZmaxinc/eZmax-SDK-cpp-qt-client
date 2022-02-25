@@ -51,6 +51,8 @@ void OAIObjectFranchisereferalincomeApi::initializeServerConfigs() {
     
     _serverConfigs.insert("franchisereferalincomeCreateObjectV1", defaultConf);
     _serverIndices.insert("franchisereferalincomeCreateObjectV1", 0);
+    _serverConfigs.insert("franchisereferalincomeCreateObjectV2", defaultConf);
+    _serverIndices.insert("franchisereferalincomeCreateObjectV2", 0);
 }
 
 /**
@@ -280,6 +282,63 @@ void OAIObjectFranchisereferalincomeApi::franchisereferalincomeCreateObjectV1Cal
     } else {
         emit franchisereferalincomeCreateObjectV1SignalE(output, error_type, error_str);
         emit franchisereferalincomeCreateObjectV1SignalEFull(worker, error_type, error_str);
+    }
+}
+
+void OAIObjectFranchisereferalincomeApi::franchisereferalincomeCreateObjectV2(const OAIFranchisereferalincome_createObject_v2_Request &oai_franchisereferalincome_create_object_v2_request) {
+    QString fullPath = QString(_serverConfigs["franchisereferalincomeCreateObjectV2"][_serverIndices.value("franchisereferalincomeCreateObjectV2")].URL()+"/2/object/franchisereferalincome");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    OAIHttpRequestInput input(fullPath, "POST");
+
+    {
+
+        QByteArray output = oai_franchisereferalincome_create_object_v2_request.asJson().toUtf8();
+        input.request_body.append(output);
+    }
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+#else
+    for (auto key : _defaultHeaders.keys()) {
+        input.headers.insert(key, _defaultHeaders[key]);
+    }
+#endif
+
+    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIObjectFranchisereferalincomeApi::franchisereferalincomeCreateObjectV2Callback);
+    connect(this, &OAIObjectFranchisereferalincomeApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this]() {
+        if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
+            emit allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void OAIObjectFranchisereferalincomeApi::franchisereferalincomeCreateObjectV2Callback(OAIHttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    OAIFranchisereferalincome_createObject_v2_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit franchisereferalincomeCreateObjectV2Signal(output);
+        emit franchisereferalincomeCreateObjectV2SignalFull(worker, output);
+    } else {
+        emit franchisereferalincomeCreateObjectV2SignalE(output, error_type, error_str);
+        emit franchisereferalincomeCreateObjectV2SignalEFull(worker, error_type, error_str);
     }
 }
 

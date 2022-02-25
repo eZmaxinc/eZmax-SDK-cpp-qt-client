@@ -21,6 +21,8 @@
 #include "OAICommon_Response_Error.h"
 #include "OAIEzsignfoldersignerassociation_createObject_v1_Request.h"
 #include "OAIEzsignfoldersignerassociation_createObject_v1_Response.h"
+#include "OAIEzsignfoldersignerassociation_createObject_v2_Request.h"
+#include "OAIEzsignfoldersignerassociation_createObject_v2_Response.h"
 #include "OAIEzsignfoldersignerassociation_deleteObject_v1_Response.h"
 #include "OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response.h"
 #include "OAIEzsignfoldersignerassociation_getObject_v1_Response.h"
@@ -66,7 +68,12 @@ public:
     /**
     * @param[in]  oai_ezsignfoldersignerassociation_create_object_v1_request QList<OAIEzsignfoldersignerassociation_createObject_v1_Request> [required]
     */
-    void ezsignfoldersignerassociationCreateObjectV1(const QList<OAIEzsignfoldersignerassociation_createObject_v1_Request> &oai_ezsignfoldersignerassociation_create_object_v1_request);
+    Q_DECL_DEPRECATED void ezsignfoldersignerassociationCreateObjectV1(const QList<OAIEzsignfoldersignerassociation_createObject_v1_Request> &oai_ezsignfoldersignerassociation_create_object_v1_request);
+
+    /**
+    * @param[in]  oai_ezsignfoldersignerassociation_create_object_v2_request OAIEzsignfoldersignerassociation_createObject_v2_Request [required]
+    */
+    void ezsignfoldersignerassociationCreateObjectV2(const OAIEzsignfoldersignerassociation_createObject_v2_Request &oai_ezsignfoldersignerassociation_create_object_v2_request);
 
     /**
     * @param[in]  pki_ezsignfoldersignerassociation_id qint32 [required]
@@ -107,6 +114,7 @@ private:
     int _OauthMethod = 0;
 
     void ezsignfoldersignerassociationCreateObjectV1Callback(OAIHttpRequestWorker *worker);
+    void ezsignfoldersignerassociationCreateObjectV2Callback(OAIHttpRequestWorker *worker);
     void ezsignfoldersignerassociationDeleteObjectV1Callback(OAIHttpRequestWorker *worker);
     void ezsignfoldersignerassociationGetInPersonLoginUrlV1Callback(OAIHttpRequestWorker *worker);
     void ezsignfoldersignerassociationGetObjectV1Callback(OAIHttpRequestWorker *worker);
@@ -114,21 +122,25 @@ private:
 signals:
 
     void ezsignfoldersignerassociationCreateObjectV1Signal(OAIEzsignfoldersignerassociation_createObject_v1_Response summary);
+    void ezsignfoldersignerassociationCreateObjectV2Signal(OAIEzsignfoldersignerassociation_createObject_v2_Response summary);
     void ezsignfoldersignerassociationDeleteObjectV1Signal(OAIEzsignfoldersignerassociation_deleteObject_v1_Response summary);
     void ezsignfoldersignerassociationGetInPersonLoginUrlV1Signal(OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response summary);
     void ezsignfoldersignerassociationGetObjectV1Signal(OAIEzsignfoldersignerassociation_getObject_v1_Response summary);
 
     void ezsignfoldersignerassociationCreateObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsignfoldersignerassociation_createObject_v1_Response summary);
+    void ezsignfoldersignerassociationCreateObjectV2SignalFull(OAIHttpRequestWorker *worker, OAIEzsignfoldersignerassociation_createObject_v2_Response summary);
     void ezsignfoldersignerassociationDeleteObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsignfoldersignerassociation_deleteObject_v1_Response summary);
     void ezsignfoldersignerassociationGetInPersonLoginUrlV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response summary);
     void ezsignfoldersignerassociationGetObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsignfoldersignerassociation_getObject_v1_Response summary);
 
     void ezsignfoldersignerassociationCreateObjectV1SignalE(OAIEzsignfoldersignerassociation_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfoldersignerassociationCreateObjectV2SignalE(OAIEzsignfoldersignerassociation_createObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfoldersignerassociationDeleteObjectV1SignalE(OAIEzsignfoldersignerassociation_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfoldersignerassociationGetInPersonLoginUrlV1SignalE(OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfoldersignerassociationGetObjectV1SignalE(OAIEzsignfoldersignerassociation_getObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
 
     void ezsignfoldersignerassociationCreateObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfoldersignerassociationCreateObjectV2SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfoldersignerassociationDeleteObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfoldersignerassociationGetInPersonLoginUrlV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfoldersignerassociationGetObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);

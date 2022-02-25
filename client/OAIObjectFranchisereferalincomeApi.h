@@ -20,6 +20,8 @@
 
 #include "OAIFranchisereferalincome_createObject_v1_Request.h"
 #include "OAIFranchisereferalincome_createObject_v1_Response.h"
+#include "OAIFranchisereferalincome_createObject_v2_Request.h"
+#include "OAIFranchisereferalincome_createObject_v2_Response.h"
 #include <QList>
 #include <QString>
 
@@ -62,7 +64,12 @@ public:
     /**
     * @param[in]  oai_franchisereferalincome_create_object_v1_request QList<OAIFranchisereferalincome_createObject_v1_Request> [required]
     */
-    void franchisereferalincomeCreateObjectV1(const QList<OAIFranchisereferalincome_createObject_v1_Request> &oai_franchisereferalincome_create_object_v1_request);
+    Q_DECL_DEPRECATED void franchisereferalincomeCreateObjectV1(const QList<OAIFranchisereferalincome_createObject_v1_Request> &oai_franchisereferalincome_create_object_v1_request);
+
+    /**
+    * @param[in]  oai_franchisereferalincome_create_object_v2_request OAIFranchisereferalincome_createObject_v2_Request [required]
+    */
+    void franchisereferalincomeCreateObjectV2(const OAIFranchisereferalincome_createObject_v2_Request &oai_franchisereferalincome_create_object_v2_request);
 
 
 private:
@@ -88,16 +95,21 @@ private:
     int _OauthMethod = 0;
 
     void franchisereferalincomeCreateObjectV1Callback(OAIHttpRequestWorker *worker);
+    void franchisereferalincomeCreateObjectV2Callback(OAIHttpRequestWorker *worker);
 
 signals:
 
     void franchisereferalincomeCreateObjectV1Signal(OAIFranchisereferalincome_createObject_v1_Response summary);
+    void franchisereferalincomeCreateObjectV2Signal(OAIFranchisereferalincome_createObject_v2_Response summary);
 
     void franchisereferalincomeCreateObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIFranchisereferalincome_createObject_v1_Response summary);
+    void franchisereferalincomeCreateObjectV2SignalFull(OAIHttpRequestWorker *worker, OAIFranchisereferalincome_createObject_v2_Response summary);
 
     void franchisereferalincomeCreateObjectV1SignalE(OAIFranchisereferalincome_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void franchisereferalincomeCreateObjectV2SignalE(OAIFranchisereferalincome_createObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
 
     void franchisereferalincomeCreateObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void franchisereferalincomeCreateObjectV2SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();

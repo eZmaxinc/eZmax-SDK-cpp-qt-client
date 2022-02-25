@@ -51,6 +51,8 @@ void OAIObjectEzsignfolderApi::initializeServerConfigs() {
     
     _serverConfigs.insert("ezsignfolderCreateObjectV1", defaultConf);
     _serverIndices.insert("ezsignfolderCreateObjectV1", 0);
+    _serverConfigs.insert("ezsignfolderCreateObjectV2", defaultConf);
+    _serverIndices.insert("ezsignfolderCreateObjectV2", 0);
     _serverConfigs.insert("ezsignfolderDeleteObjectV1", defaultConf);
     _serverIndices.insert("ezsignfolderDeleteObjectV1", 0);
     _serverConfigs.insert("ezsignfolderEditObjectV1", defaultConf);
@@ -298,6 +300,63 @@ void OAIObjectEzsignfolderApi::ezsignfolderCreateObjectV1Callback(OAIHttpRequest
     } else {
         emit ezsignfolderCreateObjectV1SignalE(output, error_type, error_str);
         emit ezsignfolderCreateObjectV1SignalEFull(worker, error_type, error_str);
+    }
+}
+
+void OAIObjectEzsignfolderApi::ezsignfolderCreateObjectV2(const OAIEzsignfolder_createObject_v2_Request &oai_ezsignfolder_create_object_v2_request) {
+    QString fullPath = QString(_serverConfigs["ezsignfolderCreateObjectV2"][_serverIndices.value("ezsignfolderCreateObjectV2")].URL()+"/2/object/ezsignfolder");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    OAIHttpRequestInput input(fullPath, "POST");
+
+    {
+
+        QByteArray output = oai_ezsignfolder_create_object_v2_request.asJson().toUtf8();
+        input.request_body.append(output);
+    }
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+#else
+    for (auto key : _defaultHeaders.keys()) {
+        input.headers.insert(key, _defaultHeaders[key]);
+    }
+#endif
+
+    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIObjectEzsignfolderApi::ezsignfolderCreateObjectV2Callback);
+    connect(this, &OAIObjectEzsignfolderApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this]() {
+        if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
+            emit allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void OAIObjectEzsignfolderApi::ezsignfolderCreateObjectV2Callback(OAIHttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    OAIEzsignfolder_createObject_v2_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit ezsignfolderCreateObjectV2Signal(output);
+        emit ezsignfolderCreateObjectV2SignalFull(worker, output);
+    } else {
+        emit ezsignfolderCreateObjectV2SignalE(output, error_type, error_str);
+        emit ezsignfolderCreateObjectV2SignalEFull(worker, error_type, error_str);
     }
 }
 

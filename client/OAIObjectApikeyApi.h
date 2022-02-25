@@ -20,6 +20,8 @@
 
 #include "OAIApikey_createObject_v1_Request.h"
 #include "OAIApikey_createObject_v1_Response.h"
+#include "OAIApikey_createObject_v2_Request.h"
+#include "OAIApikey_createObject_v2_Response.h"
 #include <QList>
 #include <QString>
 
@@ -62,7 +64,12 @@ public:
     /**
     * @param[in]  oai_apikey_create_object_v1_request QList<OAIApikey_createObject_v1_Request> [required]
     */
-    void apikeyCreateObjectV1(const QList<OAIApikey_createObject_v1_Request> &oai_apikey_create_object_v1_request);
+    Q_DECL_DEPRECATED void apikeyCreateObjectV1(const QList<OAIApikey_createObject_v1_Request> &oai_apikey_create_object_v1_request);
+
+    /**
+    * @param[in]  oai_apikey_create_object_v2_request OAIApikey_createObject_v2_Request [required]
+    */
+    void apikeyCreateObjectV2(const OAIApikey_createObject_v2_Request &oai_apikey_create_object_v2_request);
 
 
 private:
@@ -88,16 +95,21 @@ private:
     int _OauthMethod = 0;
 
     void apikeyCreateObjectV1Callback(OAIHttpRequestWorker *worker);
+    void apikeyCreateObjectV2Callback(OAIHttpRequestWorker *worker);
 
 signals:
 
     void apikeyCreateObjectV1Signal(OAIApikey_createObject_v1_Response summary);
+    void apikeyCreateObjectV2Signal(OAIApikey_createObject_v2_Response summary);
 
     void apikeyCreateObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIApikey_createObject_v1_Response summary);
+    void apikeyCreateObjectV2SignalFull(OAIHttpRequestWorker *worker, OAIApikey_createObject_v2_Response summary);
 
     void apikeyCreateObjectV1SignalE(OAIApikey_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void apikeyCreateObjectV2SignalE(OAIApikey_createObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
 
     void apikeyCreateObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void apikeyCreateObjectV2SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
