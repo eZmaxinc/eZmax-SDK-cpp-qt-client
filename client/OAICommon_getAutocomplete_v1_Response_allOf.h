@@ -28,6 +28,7 @@
 #include "OAIObject.h"
 
 namespace OpenAPI {
+class OAICustom_AutocompleteElement_Response;
 
 class OAICommon_getAutocomplete_v1_Response_allOf : public OAIObject {
 public:

@@ -60,16 +60,16 @@ QString OAIEzsignsignature_getObject_v1_Response_allOf::asJson() const {
 
 QJsonObject OAIEzsignsignature_getObject_v1_Response_allOf::asJsonObject() const {
     QJsonObject obj;
-    if (m_m_payload_isSet) {
+    if (m_payload.isSet()) {
         obj.insert(QString("mPayload"), ::OpenAPI::toJsonValue(m_payload));
     }
     return obj;
 }
 
-OAIObject OAIEzsignsignature_getObject_v1_Response_allOf::getMPayload() const {
+OAIEzsignsignature_getObject_v1_Response_mPayload OAIEzsignsignature_getObject_v1_Response_allOf::getMPayload() const {
     return m_payload;
 }
-void OAIEzsignsignature_getObject_v1_Response_allOf::setMPayload(const OAIObject &m_payload) {
+void OAIEzsignsignature_getObject_v1_Response_allOf::setMPayload(const OAIEzsignsignature_getObject_v1_Response_mPayload &m_payload) {
     this->m_payload = m_payload;
     this->m_m_payload_isSet = true;
 }
@@ -85,7 +85,7 @@ bool OAIEzsignsignature_getObject_v1_Response_allOf::is_m_payload_Valid() const{
 bool OAIEzsignsignature_getObject_v1_Response_allOf::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (m_m_payload_isSet) {
+        if (m_payload.isSet()) {
             isObjectUpdated = true;
             break;
         }

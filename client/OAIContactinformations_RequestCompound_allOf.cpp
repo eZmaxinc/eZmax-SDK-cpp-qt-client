@@ -93,10 +93,10 @@ QJsonObject OAIContactinformations_RequestCompound_allOf::asJsonObject() const {
     return obj;
 }
 
-QList<OAIAddress_Request> OAIContactinformations_RequestCompound_allOf::getAObjAddress() const {
+QList<OAIAddress_RequestCompound> OAIContactinformations_RequestCompound_allOf::getAObjAddress() const {
     return a_obj_address;
 }
-void OAIContactinformations_RequestCompound_allOf::setAObjAddress(const QList<OAIAddress_Request> &a_obj_address) {
+void OAIContactinformations_RequestCompound_allOf::setAObjAddress(const QList<OAIAddress_RequestCompound> &a_obj_address) {
     this->a_obj_address = a_obj_address;
     this->m_a_obj_address_isSet = true;
 }
@@ -109,10 +109,10 @@ bool OAIContactinformations_RequestCompound_allOf::is_a_obj_address_Valid() cons
     return m_a_obj_address_isValid;
 }
 
-QList<OAIPhone_Request> OAIContactinformations_RequestCompound_allOf::getAObjPhone() const {
+QList<OAIPhone_RequestCompound> OAIContactinformations_RequestCompound_allOf::getAObjPhone() const {
     return a_obj_phone;
 }
-void OAIContactinformations_RequestCompound_allOf::setAObjPhone(const QList<OAIPhone_Request> &a_obj_phone) {
+void OAIContactinformations_RequestCompound_allOf::setAObjPhone(const QList<OAIPhone_RequestCompound> &a_obj_phone) {
     this->a_obj_phone = a_obj_phone;
     this->m_a_obj_phone_isSet = true;
 }
@@ -125,10 +125,10 @@ bool OAIContactinformations_RequestCompound_allOf::is_a_obj_phone_Valid() const{
     return m_a_obj_phone_isValid;
 }
 
-QList<OAIEmail_Request> OAIContactinformations_RequestCompound_allOf::getAObjEmail() const {
+QList<OAIEmail_RequestCompound> OAIContactinformations_RequestCompound_allOf::getAObjEmail() const {
     return a_obj_email;
 }
-void OAIContactinformations_RequestCompound_allOf::setAObjEmail(const QList<OAIEmail_Request> &a_obj_email) {
+void OAIContactinformations_RequestCompound_allOf::setAObjEmail(const QList<OAIEmail_RequestCompound> &a_obj_email) {
     this->a_obj_email = a_obj_email;
     this->m_a_obj_email_isSet = true;
 }
@@ -141,10 +141,10 @@ bool OAIContactinformations_RequestCompound_allOf::is_a_obj_email_Valid() const{
     return m_a_obj_email_isValid;
 }
 
-QList<OAIWebsite_Request> OAIContactinformations_RequestCompound_allOf::getAObjWebsite() const {
+QList<OAIWebsite_RequestCompound> OAIContactinformations_RequestCompound_allOf::getAObjWebsite() const {
     return a_obj_website;
 }
-void OAIContactinformations_RequestCompound_allOf::setAObjWebsite(const QList<OAIWebsite_Request> &a_obj_website) {
+void OAIContactinformations_RequestCompound_allOf::setAObjWebsite(const QList<OAIWebsite_RequestCompound> &a_obj_website) {
     this->a_obj_website = a_obj_website;
     this->m_a_obj_website_isSet = true;
 }

@@ -21,9 +21,9 @@
 
 #include <QJsonObject>
 
-#include "OAIAttempt_Response.h"
+#include "OAIAttempt_ResponseCompound.h"
 #include "OAICommon_Webhook.h"
-#include "OAIUser_Response.h"
+#include "OAIUser_ResponseCompound.h"
 #include "OAIWebhook_Response.h"
 #include "OAIWebhook_User_UserCreated_allOf.h"
 #include <QList>
@@ -32,6 +32,9 @@
 #include "OAIObject.h"
 
 namespace OpenAPI {
+class OAIUser_ResponseCompound;
+class OAIWebhook_Response;
+class OAIAttempt_ResponseCompound;
 
 class OAIWebhook_User_UserCreated : public OAIObject {
 public:
@@ -44,8 +47,8 @@ public:
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    OAIUser_Response getObjUser() const;
-    void setObjUser(const OAIUser_Response &obj_user);
+    OAIUser_ResponseCompound getObjUser() const;
+    void setObjUser(const OAIUser_ResponseCompound &obj_user);
     bool is_obj_user_Set() const;
     bool is_obj_user_Valid() const;
 
@@ -54,8 +57,8 @@ public:
     bool is_obj_webhook_Set() const;
     bool is_obj_webhook_Valid() const;
 
-    QList<OAIAttempt_Response> getAObjAttempt() const;
-    void setAObjAttempt(const QList<OAIAttempt_Response> &a_obj_attempt);
+    QList<OAIAttempt_ResponseCompound> getAObjAttempt() const;
+    void setAObjAttempt(const QList<OAIAttempt_ResponseCompound> &a_obj_attempt);
     bool is_a_obj_attempt_Set() const;
     bool is_a_obj_attempt_Valid() const;
 
@@ -65,7 +68,7 @@ public:
 private:
     void initializeModel();
 
-    OAIUser_Response obj_user;
+    OAIUser_ResponseCompound obj_user;
     bool m_obj_user_isSet;
     bool m_obj_user_isValid;
 
@@ -73,7 +76,7 @@ private:
     bool m_obj_webhook_isSet;
     bool m_obj_webhook_isValid;
 
-    QList<OAIAttempt_Response> a_obj_attempt;
+    QList<OAIAttempt_ResponseCompound> a_obj_attempt;
     bool m_a_obj_attempt_isSet;
     bool m_a_obj_attempt_isValid;
 };

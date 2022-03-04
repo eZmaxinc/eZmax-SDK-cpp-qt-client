@@ -28,6 +28,8 @@
 #include "OAIObject.h"
 
 namespace OpenAPI {
+class OAICommon_Response_objDebugPayload_getList;
+class OAICommon_Response_objDebug;
 
 class OAICommon_Response_getList : public OAIObject {
 public:

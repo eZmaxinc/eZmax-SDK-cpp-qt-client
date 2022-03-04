@@ -84,10 +84,10 @@ QJsonObject OAIWebhook_User_UserCreated::asJsonObject() const {
     return obj;
 }
 
-OAIUser_Response OAIWebhook_User_UserCreated::getObjUser() const {
+OAIUser_ResponseCompound OAIWebhook_User_UserCreated::getObjUser() const {
     return obj_user;
 }
-void OAIWebhook_User_UserCreated::setObjUser(const OAIUser_Response &obj_user) {
+void OAIWebhook_User_UserCreated::setObjUser(const OAIUser_ResponseCompound &obj_user) {
     this->obj_user = obj_user;
     this->m_obj_user_isSet = true;
 }
@@ -116,10 +116,10 @@ bool OAIWebhook_User_UserCreated::is_obj_webhook_Valid() const{
     return m_obj_webhook_isValid;
 }
 
-QList<OAIAttempt_Response> OAIWebhook_User_UserCreated::getAObjAttempt() const {
+QList<OAIAttempt_ResponseCompound> OAIWebhook_User_UserCreated::getAObjAttempt() const {
     return a_obj_attempt;
 }
-void OAIWebhook_User_UserCreated::setAObjAttempt(const QList<OAIAttempt_Response> &a_obj_attempt) {
+void OAIWebhook_User_UserCreated::setAObjAttempt(const QList<OAIAttempt_ResponseCompound> &a_obj_attempt) {
     this->a_obj_attempt = a_obj_attempt;
     this->m_a_obj_attempt_isSet = true;
 }

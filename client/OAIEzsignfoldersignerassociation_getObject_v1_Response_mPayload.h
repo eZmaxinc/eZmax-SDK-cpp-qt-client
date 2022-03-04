@@ -29,6 +29,8 @@
 #include "OAIObject.h"
 
 namespace OpenAPI {
+class OAIEzsignfoldersignerassociation_ResponseCompound_User;
+class OAIEzsignsigner_ResponseCompound;
 
 class OAIEzsignfoldersignerassociation_getObject_v1_Response_mPayload : public OAIObject {
 public:
@@ -40,16 +42,6 @@ public:
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
-
-    OAIEzsignfoldersignerassociation_ResponseCompound_User getObjUser() const;
-    void setObjUser(const OAIEzsignfoldersignerassociation_ResponseCompound_User &obj_user);
-    bool is_obj_user_Set() const;
-    bool is_obj_user_Valid() const;
-
-    OAIEzsignsigner_ResponseCompound getObjEzsignsigner() const;
-    void setObjEzsignsigner(const OAIEzsignsigner_ResponseCompound &obj_ezsignsigner);
-    bool is_obj_ezsignsigner_Set() const;
-    bool is_obj_ezsignsigner_Valid() const;
 
     qint32 getPkiEzsignfoldersignerassociationId() const;
     void setPkiEzsignfoldersignerassociationId(const qint32 &pki_ezsignfoldersignerassociation_id);
@@ -66,19 +58,21 @@ public:
     bool is_b_ezsignfoldersignerassociation_receivecopy_Set() const;
     bool is_b_ezsignfoldersignerassociation_receivecopy_Valid() const;
 
+    OAIEzsignfoldersignerassociation_ResponseCompound_User getObjUser() const;
+    void setObjUser(const OAIEzsignfoldersignerassociation_ResponseCompound_User &obj_user);
+    bool is_obj_user_Set() const;
+    bool is_obj_user_Valid() const;
+
+    OAIEzsignsigner_ResponseCompound getObjEzsignsigner() const;
+    void setObjEzsignsigner(const OAIEzsignsigner_ResponseCompound &obj_ezsignsigner);
+    bool is_obj_ezsignsigner_Set() const;
+    bool is_obj_ezsignsigner_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
 private:
     void initializeModel();
-
-    OAIEzsignfoldersignerassociation_ResponseCompound_User obj_user;
-    bool m_obj_user_isSet;
-    bool m_obj_user_isValid;
-
-    OAIEzsignsigner_ResponseCompound obj_ezsignsigner;
-    bool m_obj_ezsignsigner_isSet;
-    bool m_obj_ezsignsigner_isValid;
 
     qint32 pki_ezsignfoldersignerassociation_id;
     bool m_pki_ezsignfoldersignerassociation_id_isSet;
@@ -91,6 +85,14 @@ private:
     bool b_ezsignfoldersignerassociation_receivecopy;
     bool m_b_ezsignfoldersignerassociation_receivecopy_isSet;
     bool m_b_ezsignfoldersignerassociation_receivecopy_isValid;
+
+    OAIEzsignfoldersignerassociation_ResponseCompound_User obj_user;
+    bool m_obj_user_isSet;
+    bool m_obj_user_isValid;
+
+    OAIEzsignsigner_ResponseCompound obj_ezsignsigner;
+    bool m_obj_ezsignsigner_isSet;
+    bool m_obj_ezsignsigner_isValid;
 };
 
 } // namespace OpenAPI

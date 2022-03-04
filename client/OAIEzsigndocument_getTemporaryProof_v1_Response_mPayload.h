@@ -21,12 +21,13 @@
 
 #include <QJsonObject>
 
-#include "OAIEzsigndocumentlog_Response.h"
+#include "OAIEzsigndocumentlog_ResponseCompound.h"
 
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
 namespace OpenAPI {
+class OAIEzsigndocumentlog_ResponseCompound;
 
 class OAIEzsigndocument_getTemporaryProof_v1_Response_mPayload : public OAIObject {
 public:
@@ -39,8 +40,8 @@ public:
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    OAIEzsigndocumentlog_Response getAObjEzsigndocumentlog() const;
-    void setAObjEzsigndocumentlog(const OAIEzsigndocumentlog_Response &a_obj_ezsigndocumentlog);
+    OAIEzsigndocumentlog_ResponseCompound getAObjEzsigndocumentlog() const;
+    void setAObjEzsigndocumentlog(const OAIEzsigndocumentlog_ResponseCompound &a_obj_ezsigndocumentlog);
     bool is_a_obj_ezsigndocumentlog_Set() const;
     bool is_a_obj_ezsigndocumentlog_Valid() const;
 
@@ -50,7 +51,7 @@ public:
 private:
     void initializeModel();
 
-    OAIEzsigndocumentlog_Response a_obj_ezsigndocumentlog;
+    OAIEzsigndocumentlog_ResponseCompound a_obj_ezsigndocumentlog;
     bool m_a_obj_ezsigndocumentlog_isSet;
     bool m_a_obj_ezsigndocumentlog_isValid;
 };

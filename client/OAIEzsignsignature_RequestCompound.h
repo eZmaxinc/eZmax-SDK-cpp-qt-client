@@ -23,7 +23,7 @@
 
 #include "OAIEzsignsignature_Request.h"
 #include "OAIEzsignsignature_RequestCompound_allOf.h"
-#include "OAIEzsignsignaturecustomdate_Request.h"
+#include "OAIEzsignsignaturecustomdate_RequestCompound.h"
 #include "OAIField_eEzsignsignatureType.h"
 #include <QList>
 
@@ -31,6 +31,7 @@
 #include "OAIObject.h"
 
 namespace OpenAPI {
+class OAIEzsignsignaturecustomdate_RequestCompound;
 
 class OAIEzsignsignature_RequestCompound : public OAIObject {
 public:
@@ -42,16 +43,6 @@ public:
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
-
-    bool isBEzsignsignatureCustomdate() const;
-    void setBEzsignsignatureCustomdate(const bool &b_ezsignsignature_customdate);
-    bool is_b_ezsignsignature_customdate_Set() const;
-    bool is_b_ezsignsignature_customdate_Valid() const;
-
-    QList<OAIEzsignsignaturecustomdate_Request> getAObjEzsignsignaturecustomdate() const;
-    void setAObjEzsignsignaturecustomdate(const QList<OAIEzsignsignaturecustomdate_Request> &a_obj_ezsignsignaturecustomdate);
-    bool is_a_obj_ezsignsignaturecustomdate_Set() const;
-    bool is_a_obj_ezsignsignaturecustomdate_Valid() const;
 
     qint32 getPkiEzsignsignatureId() const;
     void setPkiEzsignsignatureId(const qint32 &pki_ezsignsignature_id);
@@ -93,19 +84,21 @@ public:
     bool is_fki_ezsigndocument_id_Set() const;
     bool is_fki_ezsigndocument_id_Valid() const;
 
+    bool isBEzsignsignatureCustomdate() const;
+    void setBEzsignsignatureCustomdate(const bool &b_ezsignsignature_customdate);
+    bool is_b_ezsignsignature_customdate_Set() const;
+    bool is_b_ezsignsignature_customdate_Valid() const;
+
+    QList<OAIEzsignsignaturecustomdate_RequestCompound> getAObjEzsignsignaturecustomdate() const;
+    void setAObjEzsignsignaturecustomdate(const QList<OAIEzsignsignaturecustomdate_RequestCompound> &a_obj_ezsignsignaturecustomdate);
+    bool is_a_obj_ezsignsignaturecustomdate_Set() const;
+    bool is_a_obj_ezsignsignaturecustomdate_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
 private:
     void initializeModel();
-
-    bool b_ezsignsignature_customdate;
-    bool m_b_ezsignsignature_customdate_isSet;
-    bool m_b_ezsignsignature_customdate_isValid;
-
-    QList<OAIEzsignsignaturecustomdate_Request> a_obj_ezsignsignaturecustomdate;
-    bool m_a_obj_ezsignsignaturecustomdate_isSet;
-    bool m_a_obj_ezsignsignaturecustomdate_isValid;
 
     qint32 pki_ezsignsignature_id;
     bool m_pki_ezsignsignature_id_isSet;
@@ -138,6 +131,14 @@ private:
     qint32 fki_ezsigndocument_id;
     bool m_fki_ezsigndocument_id_isSet;
     bool m_fki_ezsigndocument_id_isValid;
+
+    bool b_ezsignsignature_customdate;
+    bool m_b_ezsignsignature_customdate_isSet;
+    bool m_b_ezsignsignature_customdate_isValid;
+
+    QList<OAIEzsignsignaturecustomdate_RequestCompound> a_obj_ezsignsignaturecustomdate;
+    bool m_a_obj_ezsignsignaturecustomdate_isSet;
+    bool m_a_obj_ezsignsignaturecustomdate_isValid;
 };
 
 } // namespace OpenAPI

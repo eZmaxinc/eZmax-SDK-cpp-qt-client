@@ -34,12 +34,6 @@ OAIEzsignfoldersignerassociation_getObject_v1_Response_mPayload::~OAIEzsignfolde
 
 void OAIEzsignfoldersignerassociation_getObject_v1_Response_mPayload::initializeModel() {
 
-    m_obj_user_isSet = false;
-    m_obj_user_isValid = false;
-
-    m_obj_ezsignsigner_isSet = false;
-    m_obj_ezsignsigner_isValid = false;
-
     m_pki_ezsignfoldersignerassociation_id_isSet = false;
     m_pki_ezsignfoldersignerassociation_id_isValid = false;
 
@@ -48,6 +42,12 @@ void OAIEzsignfoldersignerassociation_getObject_v1_Response_mPayload::initialize
 
     m_b_ezsignfoldersignerassociation_receivecopy_isSet = false;
     m_b_ezsignfoldersignerassociation_receivecopy_isValid = false;
+
+    m_obj_user_isSet = false;
+    m_obj_user_isValid = false;
+
+    m_obj_ezsignsigner_isSet = false;
+    m_obj_ezsignsigner_isValid = false;
 }
 
 void OAIEzsignfoldersignerassociation_getObject_v1_Response_mPayload::fromJson(QString jsonString) {
@@ -59,12 +59,6 @@ void OAIEzsignfoldersignerassociation_getObject_v1_Response_mPayload::fromJson(Q
 
 void OAIEzsignfoldersignerassociation_getObject_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_obj_user_isValid = ::OpenAPI::fromJsonValue(obj_user, json[QString("objUser")]);
-    m_obj_user_isSet = !json[QString("objUser")].isNull() && m_obj_user_isValid;
-
-    m_obj_ezsignsigner_isValid = ::OpenAPI::fromJsonValue(obj_ezsignsigner, json[QString("objEzsignsigner")]);
-    m_obj_ezsignsigner_isSet = !json[QString("objEzsignsigner")].isNull() && m_obj_ezsignsigner_isValid;
-
     m_pki_ezsignfoldersignerassociation_id_isValid = ::OpenAPI::fromJsonValue(pki_ezsignfoldersignerassociation_id, json[QString("pkiEzsignfoldersignerassociationID")]);
     m_pki_ezsignfoldersignerassociation_id_isSet = !json[QString("pkiEzsignfoldersignerassociationID")].isNull() && m_pki_ezsignfoldersignerassociation_id_isValid;
 
@@ -73,6 +67,12 @@ void OAIEzsignfoldersignerassociation_getObject_v1_Response_mPayload::fromJsonOb
 
     m_b_ezsignfoldersignerassociation_receivecopy_isValid = ::OpenAPI::fromJsonValue(b_ezsignfoldersignerassociation_receivecopy, json[QString("bEzsignfoldersignerassociationReceivecopy")]);
     m_b_ezsignfoldersignerassociation_receivecopy_isSet = !json[QString("bEzsignfoldersignerassociationReceivecopy")].isNull() && m_b_ezsignfoldersignerassociation_receivecopy_isValid;
+
+    m_obj_user_isValid = ::OpenAPI::fromJsonValue(obj_user, json[QString("objUser")]);
+    m_obj_user_isSet = !json[QString("objUser")].isNull() && m_obj_user_isValid;
+
+    m_obj_ezsignsigner_isValid = ::OpenAPI::fromJsonValue(obj_ezsignsigner, json[QString("objEzsignsigner")]);
+    m_obj_ezsignsigner_isSet = !json[QString("objEzsignsigner")].isNull() && m_obj_ezsignsigner_isValid;
 }
 
 QString OAIEzsignfoldersignerassociation_getObject_v1_Response_mPayload::asJson() const {
@@ -84,12 +84,6 @@ QString OAIEzsignfoldersignerassociation_getObject_v1_Response_mPayload::asJson(
 
 QJsonObject OAIEzsignfoldersignerassociation_getObject_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (obj_user.isSet()) {
-        obj.insert(QString("objUser"), ::OpenAPI::toJsonValue(obj_user));
-    }
-    if (obj_ezsignsigner.isSet()) {
-        obj.insert(QString("objEzsignsigner"), ::OpenAPI::toJsonValue(obj_ezsignsigner));
-    }
     if (m_pki_ezsignfoldersignerassociation_id_isSet) {
         obj.insert(QString("pkiEzsignfoldersignerassociationID"), ::OpenAPI::toJsonValue(pki_ezsignfoldersignerassociation_id));
     }
@@ -99,39 +93,13 @@ QJsonObject OAIEzsignfoldersignerassociation_getObject_v1_Response_mPayload::asJ
     if (m_b_ezsignfoldersignerassociation_receivecopy_isSet) {
         obj.insert(QString("bEzsignfoldersignerassociationReceivecopy"), ::OpenAPI::toJsonValue(b_ezsignfoldersignerassociation_receivecopy));
     }
+    if (obj_user.isSet()) {
+        obj.insert(QString("objUser"), ::OpenAPI::toJsonValue(obj_user));
+    }
+    if (obj_ezsignsigner.isSet()) {
+        obj.insert(QString("objEzsignsigner"), ::OpenAPI::toJsonValue(obj_ezsignsigner));
+    }
     return obj;
-}
-
-OAIEzsignfoldersignerassociation_ResponseCompound_User OAIEzsignfoldersignerassociation_getObject_v1_Response_mPayload::getObjUser() const {
-    return obj_user;
-}
-void OAIEzsignfoldersignerassociation_getObject_v1_Response_mPayload::setObjUser(const OAIEzsignfoldersignerassociation_ResponseCompound_User &obj_user) {
-    this->obj_user = obj_user;
-    this->m_obj_user_isSet = true;
-}
-
-bool OAIEzsignfoldersignerassociation_getObject_v1_Response_mPayload::is_obj_user_Set() const{
-    return m_obj_user_isSet;
-}
-
-bool OAIEzsignfoldersignerassociation_getObject_v1_Response_mPayload::is_obj_user_Valid() const{
-    return m_obj_user_isValid;
-}
-
-OAIEzsignsigner_ResponseCompound OAIEzsignfoldersignerassociation_getObject_v1_Response_mPayload::getObjEzsignsigner() const {
-    return obj_ezsignsigner;
-}
-void OAIEzsignfoldersignerassociation_getObject_v1_Response_mPayload::setObjEzsignsigner(const OAIEzsignsigner_ResponseCompound &obj_ezsignsigner) {
-    this->obj_ezsignsigner = obj_ezsignsigner;
-    this->m_obj_ezsignsigner_isSet = true;
-}
-
-bool OAIEzsignfoldersignerassociation_getObject_v1_Response_mPayload::is_obj_ezsignsigner_Set() const{
-    return m_obj_ezsignsigner_isSet;
-}
-
-bool OAIEzsignfoldersignerassociation_getObject_v1_Response_mPayload::is_obj_ezsignsigner_Valid() const{
-    return m_obj_ezsignsigner_isValid;
 }
 
 qint32 OAIEzsignfoldersignerassociation_getObject_v1_Response_mPayload::getPkiEzsignfoldersignerassociationId() const {
@@ -182,19 +150,41 @@ bool OAIEzsignfoldersignerassociation_getObject_v1_Response_mPayload::is_b_ezsig
     return m_b_ezsignfoldersignerassociation_receivecopy_isValid;
 }
 
+OAIEzsignfoldersignerassociation_ResponseCompound_User OAIEzsignfoldersignerassociation_getObject_v1_Response_mPayload::getObjUser() const {
+    return obj_user;
+}
+void OAIEzsignfoldersignerassociation_getObject_v1_Response_mPayload::setObjUser(const OAIEzsignfoldersignerassociation_ResponseCompound_User &obj_user) {
+    this->obj_user = obj_user;
+    this->m_obj_user_isSet = true;
+}
+
+bool OAIEzsignfoldersignerassociation_getObject_v1_Response_mPayload::is_obj_user_Set() const{
+    return m_obj_user_isSet;
+}
+
+bool OAIEzsignfoldersignerassociation_getObject_v1_Response_mPayload::is_obj_user_Valid() const{
+    return m_obj_user_isValid;
+}
+
+OAIEzsignsigner_ResponseCompound OAIEzsignfoldersignerassociation_getObject_v1_Response_mPayload::getObjEzsignsigner() const {
+    return obj_ezsignsigner;
+}
+void OAIEzsignfoldersignerassociation_getObject_v1_Response_mPayload::setObjEzsignsigner(const OAIEzsignsigner_ResponseCompound &obj_ezsignsigner) {
+    this->obj_ezsignsigner = obj_ezsignsigner;
+    this->m_obj_ezsignsigner_isSet = true;
+}
+
+bool OAIEzsignfoldersignerassociation_getObject_v1_Response_mPayload::is_obj_ezsignsigner_Set() const{
+    return m_obj_ezsignsigner_isSet;
+}
+
+bool OAIEzsignfoldersignerassociation_getObject_v1_Response_mPayload::is_obj_ezsignsigner_Valid() const{
+    return m_obj_ezsignsigner_isValid;
+}
+
 bool OAIEzsignfoldersignerassociation_getObject_v1_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (obj_user.isSet()) {
-            isObjectUpdated = true;
-            break;
-        }
-
-        if (obj_ezsignsigner.isSet()) {
-            isObjectUpdated = true;
-            break;
-        }
-
         if (m_pki_ezsignfoldersignerassociation_id_isSet) {
             isObjectUpdated = true;
             break;
@@ -206,6 +196,16 @@ bool OAIEzsignfoldersignerassociation_getObject_v1_Response_mPayload::isSet() co
         }
 
         if (m_b_ezsignfoldersignerassociation_receivecopy_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (obj_user.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (obj_ezsignsigner.isSet()) {
             isObjectUpdated = true;
             break;
         }

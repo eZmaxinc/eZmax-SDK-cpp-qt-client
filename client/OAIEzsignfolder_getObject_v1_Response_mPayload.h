@@ -31,6 +31,7 @@
 #include "OAIObject.h"
 
 namespace OpenAPI {
+class OAICommon_Audit;
 
 class OAIEzsignfolder_getObject_v1_Response_mPayload : public OAIObject {
 public:

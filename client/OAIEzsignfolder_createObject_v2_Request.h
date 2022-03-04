@@ -28,6 +28,7 @@
 #include "OAIObject.h"
 
 namespace OpenAPI {
+class OAIEzsignfolder_RequestCompound;
 
 class OAIEzsignfolder_createObject_v2_Request : public OAIObject {
 public:

@@ -21,13 +21,14 @@
 
 #include <QJsonObject>
 
-#include "OAIEzsignsignaturecustomdate_Request.h"
+#include "OAIEzsignsignaturecustomdate_RequestCompound.h"
 #include <QList>
 
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
 namespace OpenAPI {
+class OAIEzsignsignaturecustomdate_RequestCompound;
 
 class OAIEzsignsignature_RequestCompound_allOf : public OAIObject {
 public:
@@ -45,8 +46,8 @@ public:
     bool is_b_ezsignsignature_customdate_Set() const;
     bool is_b_ezsignsignature_customdate_Valid() const;
 
-    QList<OAIEzsignsignaturecustomdate_Request> getAObjEzsignsignaturecustomdate() const;
-    void setAObjEzsignsignaturecustomdate(const QList<OAIEzsignsignaturecustomdate_Request> &a_obj_ezsignsignaturecustomdate);
+    QList<OAIEzsignsignaturecustomdate_RequestCompound> getAObjEzsignsignaturecustomdate() const;
+    void setAObjEzsignsignaturecustomdate(const QList<OAIEzsignsignaturecustomdate_RequestCompound> &a_obj_ezsignsignaturecustomdate);
     bool is_a_obj_ezsignsignaturecustomdate_Set() const;
     bool is_a_obj_ezsignsignaturecustomdate_Valid() const;
 
@@ -60,7 +61,7 @@ private:
     bool m_b_ezsignsignature_customdate_isSet;
     bool m_b_ezsignsignature_customdate_isValid;
 
-    QList<OAIEzsignsignaturecustomdate_Request> a_obj_ezsignsignaturecustomdate;
+    QList<OAIEzsignsignaturecustomdate_RequestCompound> a_obj_ezsignsignaturecustomdate;
     bool m_a_obj_ezsignsignaturecustomdate_isSet;
     bool m_a_obj_ezsignsignaturecustomdate_isValid;
 };

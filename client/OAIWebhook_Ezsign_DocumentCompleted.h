@@ -21,7 +21,7 @@
 
 #include <QJsonObject>
 
-#include "OAIAttempt_Response.h"
+#include "OAIAttempt_ResponseCompound.h"
 #include "OAICommon_Webhook.h"
 #include "OAIEzsigndocument_Response.h"
 #include "OAIWebhook_Ezsign_DocumentCompleted_allOf.h"
@@ -32,6 +32,9 @@
 #include "OAIObject.h"
 
 namespace OpenAPI {
+class OAIEzsigndocument_Response;
+class OAIWebhook_Response;
+class OAIAttempt_ResponseCompound;
 
 class OAIWebhook_Ezsign_DocumentCompleted : public OAIObject {
 public:
@@ -54,8 +57,8 @@ public:
     bool is_obj_webhook_Set() const;
     bool is_obj_webhook_Valid() const;
 
-    QList<OAIAttempt_Response> getAObjAttempt() const;
-    void setAObjAttempt(const QList<OAIAttempt_Response> &a_obj_attempt);
+    QList<OAIAttempt_ResponseCompound> getAObjAttempt() const;
+    void setAObjAttempt(const QList<OAIAttempt_ResponseCompound> &a_obj_attempt);
     bool is_a_obj_attempt_Set() const;
     bool is_a_obj_attempt_Valid() const;
 
@@ -73,7 +76,7 @@ private:
     bool m_obj_webhook_isSet;
     bool m_obj_webhook_isValid;
 
-    QList<OAIAttempt_Response> a_obj_attempt;
+    QList<OAIAttempt_ResponseCompound> a_obj_attempt;
     bool m_a_obj_attempt_isSet;
     bool m_a_obj_attempt_isValid;
 };

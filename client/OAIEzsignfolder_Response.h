@@ -30,6 +30,7 @@
 #include "OAIObject.h"
 
 namespace OpenAPI {
+class OAICommon_Audit;
 
 class OAIEzsignfolder_Response : public OAIObject {
 public:

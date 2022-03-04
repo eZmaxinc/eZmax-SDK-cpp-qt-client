@@ -30,6 +30,8 @@
 #include "OAIObject.h"
 
 namespace OpenAPI {
+class OAIActivesession_ResponseCompound_User;
+class OAIActivesession_ResponseCompound_Apikey;
 
 class OAIActivesession_ResponseCompound_allOf : public OAIObject {
 public:

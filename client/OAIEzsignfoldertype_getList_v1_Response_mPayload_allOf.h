@@ -28,6 +28,7 @@
 #include "OAIObject.h"
 
 namespace OpenAPI {
+class OAIEzsignfoldertype_ListElement;
 
 class OAIEzsignfoldertype_getList_v1_Response_mPayload_allOf : public OAIObject {
 public:

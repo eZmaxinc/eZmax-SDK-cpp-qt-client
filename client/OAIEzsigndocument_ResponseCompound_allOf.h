@@ -28,6 +28,7 @@
 #include "OAIObject.h"
 
 namespace OpenAPI {
+class OAICustom_Ezsignfoldersignerassociationstatus_Response;
 
 class OAIEzsigndocument_ResponseCompound_allOf : public OAIObject {
 public:

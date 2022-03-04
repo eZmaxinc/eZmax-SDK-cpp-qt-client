@@ -21,18 +21,22 @@
 
 #include <QJsonObject>
 
-#include "OAIAddress_Request.h"
+#include "OAIAddress_RequestCompound.h"
 #include "OAIContactinformations_Request.h"
 #include "OAIContactinformations_RequestCompound_allOf.h"
-#include "OAIEmail_Request.h"
-#include "OAIPhone_Request.h"
-#include "OAIWebsite_Request.h"
+#include "OAIEmail_RequestCompound.h"
+#include "OAIPhone_RequestCompound.h"
+#include "OAIWebsite_RequestCompound.h"
 #include <QList>
 
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
 namespace OpenAPI {
+class OAIAddress_RequestCompound;
+class OAIPhone_RequestCompound;
+class OAIEmail_RequestCompound;
+class OAIWebsite_RequestCompound;
 
 class OAIContactinformations_RequestCompound : public OAIObject {
 public:
@@ -44,26 +48,6 @@ public:
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
-
-    QList<OAIAddress_Request> getAObjAddress() const;
-    void setAObjAddress(const QList<OAIAddress_Request> &a_obj_address);
-    bool is_a_obj_address_Set() const;
-    bool is_a_obj_address_Valid() const;
-
-    QList<OAIPhone_Request> getAObjPhone() const;
-    void setAObjPhone(const QList<OAIPhone_Request> &a_obj_phone);
-    bool is_a_obj_phone_Set() const;
-    bool is_a_obj_phone_Valid() const;
-
-    QList<OAIEmail_Request> getAObjEmail() const;
-    void setAObjEmail(const QList<OAIEmail_Request> &a_obj_email);
-    bool is_a_obj_email_Set() const;
-    bool is_a_obj_email_Valid() const;
-
-    QList<OAIWebsite_Request> getAObjWebsite() const;
-    void setAObjWebsite(const QList<OAIWebsite_Request> &a_obj_website);
-    bool is_a_obj_website_Set() const;
-    bool is_a_obj_website_Valid() const;
 
     qint32 getIAddressDefault() const;
     void setIAddressDefault(const qint32 &i_address_default);
@@ -85,27 +69,31 @@ public:
     bool is_i_website_default_Set() const;
     bool is_i_website_default_Valid() const;
 
+    QList<OAIAddress_RequestCompound> getAObjAddress() const;
+    void setAObjAddress(const QList<OAIAddress_RequestCompound> &a_obj_address);
+    bool is_a_obj_address_Set() const;
+    bool is_a_obj_address_Valid() const;
+
+    QList<OAIPhone_RequestCompound> getAObjPhone() const;
+    void setAObjPhone(const QList<OAIPhone_RequestCompound> &a_obj_phone);
+    bool is_a_obj_phone_Set() const;
+    bool is_a_obj_phone_Valid() const;
+
+    QList<OAIEmail_RequestCompound> getAObjEmail() const;
+    void setAObjEmail(const QList<OAIEmail_RequestCompound> &a_obj_email);
+    bool is_a_obj_email_Set() const;
+    bool is_a_obj_email_Valid() const;
+
+    QList<OAIWebsite_RequestCompound> getAObjWebsite() const;
+    void setAObjWebsite(const QList<OAIWebsite_RequestCompound> &a_obj_website);
+    bool is_a_obj_website_Set() const;
+    bool is_a_obj_website_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
 private:
     void initializeModel();
-
-    QList<OAIAddress_Request> a_obj_address;
-    bool m_a_obj_address_isSet;
-    bool m_a_obj_address_isValid;
-
-    QList<OAIPhone_Request> a_obj_phone;
-    bool m_a_obj_phone_isSet;
-    bool m_a_obj_phone_isValid;
-
-    QList<OAIEmail_Request> a_obj_email;
-    bool m_a_obj_email_isSet;
-    bool m_a_obj_email_isValid;
-
-    QList<OAIWebsite_Request> a_obj_website;
-    bool m_a_obj_website_isSet;
-    bool m_a_obj_website_isValid;
 
     qint32 i_address_default;
     bool m_i_address_default_isSet;
@@ -122,6 +110,22 @@ private:
     qint32 i_website_default;
     bool m_i_website_default_isSet;
     bool m_i_website_default_isValid;
+
+    QList<OAIAddress_RequestCompound> a_obj_address;
+    bool m_a_obj_address_isSet;
+    bool m_a_obj_address_isValid;
+
+    QList<OAIPhone_RequestCompound> a_obj_phone;
+    bool m_a_obj_phone_isSet;
+    bool m_a_obj_phone_isValid;
+
+    QList<OAIEmail_RequestCompound> a_obj_email;
+    bool m_a_obj_email_isSet;
+    bool m_a_obj_email_isValid;
+
+    QList<OAIWebsite_RequestCompound> a_obj_website;
+    bool m_a_obj_website_isSet;
+    bool m_a_obj_website_isValid;
 };
 
 } // namespace OpenAPI

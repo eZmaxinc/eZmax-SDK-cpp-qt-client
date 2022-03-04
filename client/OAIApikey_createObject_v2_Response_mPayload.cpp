@@ -66,10 +66,10 @@ QJsonObject OAIApikey_createObject_v2_Response_mPayload::asJsonObject() const {
     return obj;
 }
 
-QList<OAIApikey_Response> OAIApikey_createObject_v2_Response_mPayload::getAObjApikey() const {
+QList<OAIApikey_ResponseCompound> OAIApikey_createObject_v2_Response_mPayload::getAObjApikey() const {
     return a_obj_apikey;
 }
-void OAIApikey_createObject_v2_Response_mPayload::setAObjApikey(const QList<OAIApikey_Response> &a_obj_apikey) {
+void OAIApikey_createObject_v2_Response_mPayload::setAObjApikey(const QList<OAIApikey_ResponseCompound> &a_obj_apikey) {
     this->a_obj_apikey = a_obj_apikey;
     this->m_a_obj_apikey_isSet = true;
 }

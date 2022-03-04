@@ -34,21 +34,6 @@ OAIActivesession_ResponseCompound::~OAIActivesession_ResponseCompound() {}
 
 void OAIActivesession_ResponseCompound::initializeModel() {
 
-    m_a_pki_permission_id_isSet = false;
-    m_a_pki_permission_id_isValid = false;
-
-    m_obj_user_real_isSet = false;
-    m_obj_user_real_isValid = false;
-
-    m_obj_user_cloned_isSet = false;
-    m_obj_user_cloned_isValid = false;
-
-    m_obj_apikey_isSet = false;
-    m_obj_apikey_isValid = false;
-
-    m_a_e_module_internalname_isSet = false;
-    m_a_e_module_internalname_isValid = false;
-
     m_e_activesession_sessiontype_isSet = false;
     m_e_activesession_sessiontype_isValid = false;
 
@@ -69,6 +54,21 @@ void OAIActivesession_ResponseCompound::initializeModel() {
 
     m_pks_customer_code_isSet = false;
     m_pks_customer_code_isValid = false;
+
+    m_a_pki_permission_id_isSet = false;
+    m_a_pki_permission_id_isValid = false;
+
+    m_obj_user_real_isSet = false;
+    m_obj_user_real_isValid = false;
+
+    m_obj_user_cloned_isSet = false;
+    m_obj_user_cloned_isValid = false;
+
+    m_obj_apikey_isSet = false;
+    m_obj_apikey_isValid = false;
+
+    m_a_e_module_internalname_isSet = false;
+    m_a_e_module_internalname_isValid = false;
 }
 
 void OAIActivesession_ResponseCompound::fromJson(QString jsonString) {
@@ -79,21 +79,6 @@ void OAIActivesession_ResponseCompound::fromJson(QString jsonString) {
 }
 
 void OAIActivesession_ResponseCompound::fromJsonObject(QJsonObject json) {
-
-    m_a_pki_permission_id_isValid = ::OpenAPI::fromJsonValue(a_pki_permission_id, json[QString("a_pkiPermissionID")]);
-    m_a_pki_permission_id_isSet = !json[QString("a_pkiPermissionID")].isNull() && m_a_pki_permission_id_isValid;
-
-    m_obj_user_real_isValid = ::OpenAPI::fromJsonValue(obj_user_real, json[QString("objUserReal")]);
-    m_obj_user_real_isSet = !json[QString("objUserReal")].isNull() && m_obj_user_real_isValid;
-
-    m_obj_user_cloned_isValid = ::OpenAPI::fromJsonValue(obj_user_cloned, json[QString("objUserCloned")]);
-    m_obj_user_cloned_isSet = !json[QString("objUserCloned")].isNull() && m_obj_user_cloned_isValid;
-
-    m_obj_apikey_isValid = ::OpenAPI::fromJsonValue(obj_apikey, json[QString("objApikey")]);
-    m_obj_apikey_isSet = !json[QString("objApikey")].isNull() && m_obj_apikey_isValid;
-
-    m_a_e_module_internalname_isValid = ::OpenAPI::fromJsonValue(a_e_module_internalname, json[QString("a_eModuleInternalname")]);
-    m_a_e_module_internalname_isSet = !json[QString("a_eModuleInternalname")].isNull() && m_a_e_module_internalname_isValid;
 
     m_e_activesession_sessiontype_isValid = ::OpenAPI::fromJsonValue(e_activesession_sessiontype, json[QString("eActivesessionSessiontype")]);
     m_e_activesession_sessiontype_isSet = !json[QString("eActivesessionSessiontype")].isNull() && m_e_activesession_sessiontype_isValid;
@@ -115,6 +100,21 @@ void OAIActivesession_ResponseCompound::fromJsonObject(QJsonObject json) {
 
     m_pks_customer_code_isValid = ::OpenAPI::fromJsonValue(pks_customer_code, json[QString("pksCustomerCode")]);
     m_pks_customer_code_isSet = !json[QString("pksCustomerCode")].isNull() && m_pks_customer_code_isValid;
+
+    m_a_pki_permission_id_isValid = ::OpenAPI::fromJsonValue(a_pki_permission_id, json[QString("a_pkiPermissionID")]);
+    m_a_pki_permission_id_isSet = !json[QString("a_pkiPermissionID")].isNull() && m_a_pki_permission_id_isValid;
+
+    m_obj_user_real_isValid = ::OpenAPI::fromJsonValue(obj_user_real, json[QString("objUserReal")]);
+    m_obj_user_real_isSet = !json[QString("objUserReal")].isNull() && m_obj_user_real_isValid;
+
+    m_obj_user_cloned_isValid = ::OpenAPI::fromJsonValue(obj_user_cloned, json[QString("objUserCloned")]);
+    m_obj_user_cloned_isSet = !json[QString("objUserCloned")].isNull() && m_obj_user_cloned_isValid;
+
+    m_obj_apikey_isValid = ::OpenAPI::fromJsonValue(obj_apikey, json[QString("objApikey")]);
+    m_obj_apikey_isSet = !json[QString("objApikey")].isNull() && m_obj_apikey_isValid;
+
+    m_a_e_module_internalname_isValid = ::OpenAPI::fromJsonValue(a_e_module_internalname, json[QString("a_eModuleInternalname")]);
+    m_a_e_module_internalname_isSet = !json[QString("a_eModuleInternalname")].isNull() && m_a_e_module_internalname_isValid;
 }
 
 QString OAIActivesession_ResponseCompound::asJson() const {
@@ -126,21 +126,6 @@ QString OAIActivesession_ResponseCompound::asJson() const {
 
 QJsonObject OAIActivesession_ResponseCompound::asJsonObject() const {
     QJsonObject obj;
-    if (a_pki_permission_id.size() > 0) {
-        obj.insert(QString("a_pkiPermissionID"), ::OpenAPI::toJsonValue(a_pki_permission_id));
-    }
-    if (obj_user_real.isSet()) {
-        obj.insert(QString("objUserReal"), ::OpenAPI::toJsonValue(obj_user_real));
-    }
-    if (obj_user_cloned.isSet()) {
-        obj.insert(QString("objUserCloned"), ::OpenAPI::toJsonValue(obj_user_cloned));
-    }
-    if (obj_apikey.isSet()) {
-        obj.insert(QString("objApikey"), ::OpenAPI::toJsonValue(obj_apikey));
-    }
-    if (a_e_module_internalname.size() > 0) {
-        obj.insert(QString("a_eModuleInternalname"), ::OpenAPI::toJsonValue(a_e_module_internalname));
-    }
     if (e_activesession_sessiontype.isSet()) {
         obj.insert(QString("eActivesessionSessiontype"), ::OpenAPI::toJsonValue(e_activesession_sessiontype));
     }
@@ -162,87 +147,22 @@ QJsonObject OAIActivesession_ResponseCompound::asJsonObject() const {
     if (m_pks_customer_code_isSet) {
         obj.insert(QString("pksCustomerCode"), ::OpenAPI::toJsonValue(pks_customer_code));
     }
+    if (a_pki_permission_id.size() > 0) {
+        obj.insert(QString("a_pkiPermissionID"), ::OpenAPI::toJsonValue(a_pki_permission_id));
+    }
+    if (obj_user_real.isSet()) {
+        obj.insert(QString("objUserReal"), ::OpenAPI::toJsonValue(obj_user_real));
+    }
+    if (obj_user_cloned.isSet()) {
+        obj.insert(QString("objUserCloned"), ::OpenAPI::toJsonValue(obj_user_cloned));
+    }
+    if (obj_apikey.isSet()) {
+        obj.insert(QString("objApikey"), ::OpenAPI::toJsonValue(obj_apikey));
+    }
+    if (a_e_module_internalname.size() > 0) {
+        obj.insert(QString("a_eModuleInternalname"), ::OpenAPI::toJsonValue(a_e_module_internalname));
+    }
     return obj;
-}
-
-QList<qint32> OAIActivesession_ResponseCompound::getAPkiPermissionId() const {
-    return a_pki_permission_id;
-}
-void OAIActivesession_ResponseCompound::setAPkiPermissionId(const QList<qint32> &a_pki_permission_id) {
-    this->a_pki_permission_id = a_pki_permission_id;
-    this->m_a_pki_permission_id_isSet = true;
-}
-
-bool OAIActivesession_ResponseCompound::is_a_pki_permission_id_Set() const{
-    return m_a_pki_permission_id_isSet;
-}
-
-bool OAIActivesession_ResponseCompound::is_a_pki_permission_id_Valid() const{
-    return m_a_pki_permission_id_isValid;
-}
-
-OAIActivesession_ResponseCompound_User OAIActivesession_ResponseCompound::getObjUserReal() const {
-    return obj_user_real;
-}
-void OAIActivesession_ResponseCompound::setObjUserReal(const OAIActivesession_ResponseCompound_User &obj_user_real) {
-    this->obj_user_real = obj_user_real;
-    this->m_obj_user_real_isSet = true;
-}
-
-bool OAIActivesession_ResponseCompound::is_obj_user_real_Set() const{
-    return m_obj_user_real_isSet;
-}
-
-bool OAIActivesession_ResponseCompound::is_obj_user_real_Valid() const{
-    return m_obj_user_real_isValid;
-}
-
-OAIActivesession_ResponseCompound_User OAIActivesession_ResponseCompound::getObjUserCloned() const {
-    return obj_user_cloned;
-}
-void OAIActivesession_ResponseCompound::setObjUserCloned(const OAIActivesession_ResponseCompound_User &obj_user_cloned) {
-    this->obj_user_cloned = obj_user_cloned;
-    this->m_obj_user_cloned_isSet = true;
-}
-
-bool OAIActivesession_ResponseCompound::is_obj_user_cloned_Set() const{
-    return m_obj_user_cloned_isSet;
-}
-
-bool OAIActivesession_ResponseCompound::is_obj_user_cloned_Valid() const{
-    return m_obj_user_cloned_isValid;
-}
-
-OAIActivesession_ResponseCompound_Apikey OAIActivesession_ResponseCompound::getObjApikey() const {
-    return obj_apikey;
-}
-void OAIActivesession_ResponseCompound::setObjApikey(const OAIActivesession_ResponseCompound_Apikey &obj_apikey) {
-    this->obj_apikey = obj_apikey;
-    this->m_obj_apikey_isSet = true;
-}
-
-bool OAIActivesession_ResponseCompound::is_obj_apikey_Set() const{
-    return m_obj_apikey_isSet;
-}
-
-bool OAIActivesession_ResponseCompound::is_obj_apikey_Valid() const{
-    return m_obj_apikey_isValid;
-}
-
-QList<QString> OAIActivesession_ResponseCompound::getAEModuleInternalname() const {
-    return a_e_module_internalname;
-}
-void OAIActivesession_ResponseCompound::setAEModuleInternalname(const QList<QString> &a_e_module_internalname) {
-    this->a_e_module_internalname = a_e_module_internalname;
-    this->m_a_e_module_internalname_isSet = true;
-}
-
-bool OAIActivesession_ResponseCompound::is_a_e_module_internalname_Set() const{
-    return m_a_e_module_internalname_isSet;
-}
-
-bool OAIActivesession_ResponseCompound::is_a_e_module_internalname_Valid() const{
-    return m_a_e_module_internalname_isValid;
 }
 
 OAIField_eActivesessionSessiontype OAIActivesession_ResponseCompound::getEActivesessionSessiontype() const {
@@ -357,34 +277,89 @@ bool OAIActivesession_ResponseCompound::is_pks_customer_code_Valid() const{
     return m_pks_customer_code_isValid;
 }
 
+QList<qint32> OAIActivesession_ResponseCompound::getAPkiPermissionId() const {
+    return a_pki_permission_id;
+}
+void OAIActivesession_ResponseCompound::setAPkiPermissionId(const QList<qint32> &a_pki_permission_id) {
+    this->a_pki_permission_id = a_pki_permission_id;
+    this->m_a_pki_permission_id_isSet = true;
+}
+
+bool OAIActivesession_ResponseCompound::is_a_pki_permission_id_Set() const{
+    return m_a_pki_permission_id_isSet;
+}
+
+bool OAIActivesession_ResponseCompound::is_a_pki_permission_id_Valid() const{
+    return m_a_pki_permission_id_isValid;
+}
+
+OAIActivesession_ResponseCompound_User OAIActivesession_ResponseCompound::getObjUserReal() const {
+    return obj_user_real;
+}
+void OAIActivesession_ResponseCompound::setObjUserReal(const OAIActivesession_ResponseCompound_User &obj_user_real) {
+    this->obj_user_real = obj_user_real;
+    this->m_obj_user_real_isSet = true;
+}
+
+bool OAIActivesession_ResponseCompound::is_obj_user_real_Set() const{
+    return m_obj_user_real_isSet;
+}
+
+bool OAIActivesession_ResponseCompound::is_obj_user_real_Valid() const{
+    return m_obj_user_real_isValid;
+}
+
+OAIActivesession_ResponseCompound_User OAIActivesession_ResponseCompound::getObjUserCloned() const {
+    return obj_user_cloned;
+}
+void OAIActivesession_ResponseCompound::setObjUserCloned(const OAIActivesession_ResponseCompound_User &obj_user_cloned) {
+    this->obj_user_cloned = obj_user_cloned;
+    this->m_obj_user_cloned_isSet = true;
+}
+
+bool OAIActivesession_ResponseCompound::is_obj_user_cloned_Set() const{
+    return m_obj_user_cloned_isSet;
+}
+
+bool OAIActivesession_ResponseCompound::is_obj_user_cloned_Valid() const{
+    return m_obj_user_cloned_isValid;
+}
+
+OAIActivesession_ResponseCompound_Apikey OAIActivesession_ResponseCompound::getObjApikey() const {
+    return obj_apikey;
+}
+void OAIActivesession_ResponseCompound::setObjApikey(const OAIActivesession_ResponseCompound_Apikey &obj_apikey) {
+    this->obj_apikey = obj_apikey;
+    this->m_obj_apikey_isSet = true;
+}
+
+bool OAIActivesession_ResponseCompound::is_obj_apikey_Set() const{
+    return m_obj_apikey_isSet;
+}
+
+bool OAIActivesession_ResponseCompound::is_obj_apikey_Valid() const{
+    return m_obj_apikey_isValid;
+}
+
+QList<QString> OAIActivesession_ResponseCompound::getAEModuleInternalname() const {
+    return a_e_module_internalname;
+}
+void OAIActivesession_ResponseCompound::setAEModuleInternalname(const QList<QString> &a_e_module_internalname) {
+    this->a_e_module_internalname = a_e_module_internalname;
+    this->m_a_e_module_internalname_isSet = true;
+}
+
+bool OAIActivesession_ResponseCompound::is_a_e_module_internalname_Set() const{
+    return m_a_e_module_internalname_isSet;
+}
+
+bool OAIActivesession_ResponseCompound::is_a_e_module_internalname_Valid() const{
+    return m_a_e_module_internalname_isValid;
+}
+
 bool OAIActivesession_ResponseCompound::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_pki_permission_id.size() > 0) {
-            isObjectUpdated = true;
-            break;
-        }
-
-        if (obj_user_real.isSet()) {
-            isObjectUpdated = true;
-            break;
-        }
-
-        if (obj_user_cloned.isSet()) {
-            isObjectUpdated = true;
-            break;
-        }
-
-        if (obj_apikey.isSet()) {
-            isObjectUpdated = true;
-            break;
-        }
-
-        if (a_e_module_internalname.size() > 0) {
-            isObjectUpdated = true;
-            break;
-        }
-
         if (e_activesession_sessiontype.isSet()) {
             isObjectUpdated = true;
             break;
@@ -419,13 +394,38 @@ bool OAIActivesession_ResponseCompound::isSet() const {
             isObjectUpdated = true;
             break;
         }
+
+        if (a_pki_permission_id.size() > 0) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (obj_user_real.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (obj_user_cloned.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (obj_apikey.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (a_e_module_internalname.size() > 0) {
+            isObjectUpdated = true;
+            break;
+        }
     } while (false);
     return isObjectUpdated;
 }
 
 bool OAIActivesession_ResponseCompound::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_a_pki_permission_id_isValid && m_obj_user_real_isValid && m_a_e_module_internalname_isValid && m_e_activesession_sessiontype_isValid && m_e_activesession_weekdaystart_isValid && m_fki_language_id_isValid && m_s_company_name_x_isValid && m_s_department_name_x_isValid && m_b_activesession_debug_isValid && m_pks_customer_code_isValid && true;
+    return m_e_activesession_sessiontype_isValid && m_e_activesession_weekdaystart_isValid && m_fki_language_id_isValid && m_s_company_name_x_isValid && m_s_department_name_x_isValid && m_b_activesession_debug_isValid && m_pks_customer_code_isValid && m_a_pki_permission_id_isValid && m_obj_user_real_isValid && m_a_e_module_internalname_isValid && true;
 }
 
 } // namespace OpenAPI

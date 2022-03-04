@@ -31,6 +31,9 @@
 #include "OAIObject.h"
 
 namespace OpenAPI {
+class OAIEzsignfoldersignerassociation_createObject_v2_Response_mPayload;
+class OAICommon_Response_objDebugPayload;
+class OAICommon_Response_objDebug;
 
 class OAIEzsignfoldersignerassociation_createObject_v2_Response : public OAIObject {
 public:

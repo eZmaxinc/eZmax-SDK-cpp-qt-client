@@ -25,12 +25,15 @@
 #include "OAICommon_Response_objDebug.h"
 #include "OAICommon_Response_objDebugPayload.h"
 #include "OAIEzsignsignature_getObject_v1_Response_allOf.h"
-#include "OAIObject.h"
+#include "OAIEzsignsignature_getObject_v1_Response_mPayload.h"
 
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
 namespace OpenAPI {
+class OAIEzsignsignature_getObject_v1_Response_mPayload;
+class OAICommon_Response_objDebugPayload;
+class OAICommon_Response_objDebug;
 
 class OAIEzsignsignature_getObject_v1_Response : public OAIObject {
 public:
@@ -43,8 +46,8 @@ public:
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    OAIObject getMPayload() const;
-    void setMPayload(const OAIObject &m_payload);
+    OAIEzsignsignature_getObject_v1_Response_mPayload getMPayload() const;
+    void setMPayload(const OAIEzsignsignature_getObject_v1_Response_mPayload &m_payload);
     bool is_m_payload_Set() const;
     bool is_m_payload_Valid() const;
 
@@ -64,7 +67,7 @@ public:
 private:
     void initializeModel();
 
-    OAIObject m_payload;
+    OAIEzsignsignature_getObject_v1_Response_mPayload m_payload;
     bool m_m_payload_isSet;
     bool m_m_payload_isValid;
 

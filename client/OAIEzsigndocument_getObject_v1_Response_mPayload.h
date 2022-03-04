@@ -32,6 +32,8 @@
 #include "OAIObject.h"
 
 namespace OpenAPI {
+class OAICommon_Audit;
+class OAICustom_Ezsignfoldersignerassociationstatus_Response;
 
 class OAIEzsigndocument_getObject_v1_Response_mPayload : public OAIObject {
 public:
@@ -43,31 +45,6 @@ public:
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
-
-    qint32 getIEzsigndocumentStepformtotal() const;
-    void setIEzsigndocumentStepformtotal(const qint32 &i_ezsigndocument_stepformtotal);
-    bool is_i_ezsigndocument_stepformtotal_Set() const;
-    bool is_i_ezsigndocument_stepformtotal_Valid() const;
-
-    qint32 getIEzsigndocumentStepformcurrent() const;
-    void setIEzsigndocumentStepformcurrent(const qint32 &i_ezsigndocument_stepformcurrent);
-    bool is_i_ezsigndocument_stepformcurrent_Set() const;
-    bool is_i_ezsigndocument_stepformcurrent_Valid() const;
-
-    qint32 getIEzsigndocumentStepsignaturetotal() const;
-    void setIEzsigndocumentStepsignaturetotal(const qint32 &i_ezsigndocument_stepsignaturetotal);
-    bool is_i_ezsigndocument_stepsignaturetotal_Set() const;
-    bool is_i_ezsigndocument_stepsignaturetotal_Valid() const;
-
-    qint32 getIEzsigndocumentStepsignatureCurrent() const;
-    void setIEzsigndocumentStepsignatureCurrent(const qint32 &i_ezsigndocument_stepsignature_current);
-    bool is_i_ezsigndocument_stepsignature_current_Set() const;
-    bool is_i_ezsigndocument_stepsignature_current_Valid() const;
-
-    QList<OAICustom_Ezsignfoldersignerassociationstatus_Response> getAObjEzsignfoldersignerassociationstatus() const;
-    void setAObjEzsignfoldersignerassociationstatus(const QList<OAICustom_Ezsignfoldersignerassociationstatus_Response> &a_obj_ezsignfoldersignerassociationstatus);
-    bool is_a_obj_ezsignfoldersignerassociationstatus_Set() const;
-    bool is_a_obj_ezsignfoldersignerassociationstatus_Valid() const;
 
     qint32 getFkiEzsignfolderId() const;
     void setFkiEzsignfolderId(const qint32 &fki_ezsignfolder_id);
@@ -144,31 +121,36 @@ public:
     bool is_obj_audit_Set() const;
     bool is_obj_audit_Valid() const;
 
+    qint32 getIEzsigndocumentStepformtotal() const;
+    void setIEzsigndocumentStepformtotal(const qint32 &i_ezsigndocument_stepformtotal);
+    bool is_i_ezsigndocument_stepformtotal_Set() const;
+    bool is_i_ezsigndocument_stepformtotal_Valid() const;
+
+    qint32 getIEzsigndocumentStepformcurrent() const;
+    void setIEzsigndocumentStepformcurrent(const qint32 &i_ezsigndocument_stepformcurrent);
+    bool is_i_ezsigndocument_stepformcurrent_Set() const;
+    bool is_i_ezsigndocument_stepformcurrent_Valid() const;
+
+    qint32 getIEzsigndocumentStepsignaturetotal() const;
+    void setIEzsigndocumentStepsignaturetotal(const qint32 &i_ezsigndocument_stepsignaturetotal);
+    bool is_i_ezsigndocument_stepsignaturetotal_Set() const;
+    bool is_i_ezsigndocument_stepsignaturetotal_Valid() const;
+
+    qint32 getIEzsigndocumentStepsignatureCurrent() const;
+    void setIEzsigndocumentStepsignatureCurrent(const qint32 &i_ezsigndocument_stepsignature_current);
+    bool is_i_ezsigndocument_stepsignature_current_Set() const;
+    bool is_i_ezsigndocument_stepsignature_current_Valid() const;
+
+    QList<OAICustom_Ezsignfoldersignerassociationstatus_Response> getAObjEzsignfoldersignerassociationstatus() const;
+    void setAObjEzsignfoldersignerassociationstatus(const QList<OAICustom_Ezsignfoldersignerassociationstatus_Response> &a_obj_ezsignfoldersignerassociationstatus);
+    bool is_a_obj_ezsignfoldersignerassociationstatus_Set() const;
+    bool is_a_obj_ezsignfoldersignerassociationstatus_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
 private:
     void initializeModel();
-
-    qint32 i_ezsigndocument_stepformtotal;
-    bool m_i_ezsigndocument_stepformtotal_isSet;
-    bool m_i_ezsigndocument_stepformtotal_isValid;
-
-    qint32 i_ezsigndocument_stepformcurrent;
-    bool m_i_ezsigndocument_stepformcurrent_isSet;
-    bool m_i_ezsigndocument_stepformcurrent_isValid;
-
-    qint32 i_ezsigndocument_stepsignaturetotal;
-    bool m_i_ezsigndocument_stepsignaturetotal_isSet;
-    bool m_i_ezsigndocument_stepsignaturetotal_isValid;
-
-    qint32 i_ezsigndocument_stepsignature_current;
-    bool m_i_ezsigndocument_stepsignature_current_isSet;
-    bool m_i_ezsigndocument_stepsignature_current_isValid;
-
-    QList<OAICustom_Ezsignfoldersignerassociationstatus_Response> a_obj_ezsignfoldersignerassociationstatus;
-    bool m_a_obj_ezsignfoldersignerassociationstatus_isSet;
-    bool m_a_obj_ezsignfoldersignerassociationstatus_isValid;
 
     qint32 fki_ezsignfolder_id;
     bool m_fki_ezsignfolder_id_isSet;
@@ -229,6 +211,26 @@ private:
     OAICommon_Audit obj_audit;
     bool m_obj_audit_isSet;
     bool m_obj_audit_isValid;
+
+    qint32 i_ezsigndocument_stepformtotal;
+    bool m_i_ezsigndocument_stepformtotal_isSet;
+    bool m_i_ezsigndocument_stepformtotal_isValid;
+
+    qint32 i_ezsigndocument_stepformcurrent;
+    bool m_i_ezsigndocument_stepformcurrent_isSet;
+    bool m_i_ezsigndocument_stepformcurrent_isValid;
+
+    qint32 i_ezsigndocument_stepsignaturetotal;
+    bool m_i_ezsigndocument_stepsignaturetotal_isSet;
+    bool m_i_ezsigndocument_stepsignaturetotal_isValid;
+
+    qint32 i_ezsigndocument_stepsignature_current;
+    bool m_i_ezsigndocument_stepsignature_current_isSet;
+    bool m_i_ezsigndocument_stepsignature_current_isValid;
+
+    QList<OAICustom_Ezsignfoldersignerassociationstatus_Response> a_obj_ezsignfoldersignerassociationstatus;
+    bool m_a_obj_ezsignfoldersignerassociationstatus_isSet;
+    bool m_a_obj_ezsignfoldersignerassociationstatus_isValid;
 };
 
 } // namespace OpenAPI

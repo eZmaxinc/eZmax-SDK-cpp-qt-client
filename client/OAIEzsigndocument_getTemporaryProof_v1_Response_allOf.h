@@ -27,6 +27,7 @@
 #include "OAIObject.h"
 
 namespace OpenAPI {
+class OAIEzsigndocument_getTemporaryProof_v1_Response_mPayload;
 
 class OAIEzsigndocument_getTemporaryProof_v1_Response_allOf : public OAIObject {
 public:

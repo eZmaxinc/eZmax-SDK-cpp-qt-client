@@ -27,6 +27,7 @@
 #include "OAIObject.h"
 
 namespace OpenAPI {
+class OAIEzsignsigner_RequestCompound_Contact;
 
 class OAIEzsignsigner_RequestCompound_allOf : public OAIObject {
 public:

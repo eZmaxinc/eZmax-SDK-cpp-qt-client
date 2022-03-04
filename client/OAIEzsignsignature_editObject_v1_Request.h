@@ -27,6 +27,7 @@
 #include "OAIObject.h"
 
 namespace OpenAPI {
+class OAIEzsignsignature_RequestCompound;
 
 class OAIEzsignsignature_editObject_v1_Request : public OAIObject {
 public:

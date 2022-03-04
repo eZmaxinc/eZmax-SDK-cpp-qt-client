@@ -33,6 +33,8 @@
 #include "OAIObject.h"
 
 namespace OpenAPI {
+class OAIActivesession_ResponseCompound_User;
+class OAIActivesession_ResponseCompound_Apikey;
 
 class OAIActivesession_getCurrent_v1_Response_mPayload : public OAIObject {
 public:
@@ -44,31 +46,6 @@ public:
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
-
-    QList<qint32> getAPkiPermissionId() const;
-    void setAPkiPermissionId(const QList<qint32> &a_pki_permission_id);
-    bool is_a_pki_permission_id_Set() const;
-    bool is_a_pki_permission_id_Valid() const;
-
-    OAIActivesession_ResponseCompound_User getObjUserReal() const;
-    void setObjUserReal(const OAIActivesession_ResponseCompound_User &obj_user_real);
-    bool is_obj_user_real_Set() const;
-    bool is_obj_user_real_Valid() const;
-
-    OAIActivesession_ResponseCompound_User getObjUserCloned() const;
-    void setObjUserCloned(const OAIActivesession_ResponseCompound_User &obj_user_cloned);
-    bool is_obj_user_cloned_Set() const;
-    bool is_obj_user_cloned_Valid() const;
-
-    OAIActivesession_ResponseCompound_Apikey getObjApikey() const;
-    void setObjApikey(const OAIActivesession_ResponseCompound_Apikey &obj_apikey);
-    bool is_obj_apikey_Set() const;
-    bool is_obj_apikey_Valid() const;
-
-    QList<QString> getAEModuleInternalname() const;
-    void setAEModuleInternalname(const QList<QString> &a_e_module_internalname);
-    bool is_a_e_module_internalname_Set() const;
-    bool is_a_e_module_internalname_Valid() const;
 
     OAIField_eActivesessionSessiontype getEActivesessionSessiontype() const;
     void setEActivesessionSessiontype(const OAIField_eActivesessionSessiontype &e_activesession_sessiontype);
@@ -105,31 +82,36 @@ public:
     bool is_pks_customer_code_Set() const;
     bool is_pks_customer_code_Valid() const;
 
+    QList<qint32> getAPkiPermissionId() const;
+    void setAPkiPermissionId(const QList<qint32> &a_pki_permission_id);
+    bool is_a_pki_permission_id_Set() const;
+    bool is_a_pki_permission_id_Valid() const;
+
+    OAIActivesession_ResponseCompound_User getObjUserReal() const;
+    void setObjUserReal(const OAIActivesession_ResponseCompound_User &obj_user_real);
+    bool is_obj_user_real_Set() const;
+    bool is_obj_user_real_Valid() const;
+
+    OAIActivesession_ResponseCompound_User getObjUserCloned() const;
+    void setObjUserCloned(const OAIActivesession_ResponseCompound_User &obj_user_cloned);
+    bool is_obj_user_cloned_Set() const;
+    bool is_obj_user_cloned_Valid() const;
+
+    OAIActivesession_ResponseCompound_Apikey getObjApikey() const;
+    void setObjApikey(const OAIActivesession_ResponseCompound_Apikey &obj_apikey);
+    bool is_obj_apikey_Set() const;
+    bool is_obj_apikey_Valid() const;
+
+    QList<QString> getAEModuleInternalname() const;
+    void setAEModuleInternalname(const QList<QString> &a_e_module_internalname);
+    bool is_a_e_module_internalname_Set() const;
+    bool is_a_e_module_internalname_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
 private:
     void initializeModel();
-
-    QList<qint32> a_pki_permission_id;
-    bool m_a_pki_permission_id_isSet;
-    bool m_a_pki_permission_id_isValid;
-
-    OAIActivesession_ResponseCompound_User obj_user_real;
-    bool m_obj_user_real_isSet;
-    bool m_obj_user_real_isValid;
-
-    OAIActivesession_ResponseCompound_User obj_user_cloned;
-    bool m_obj_user_cloned_isSet;
-    bool m_obj_user_cloned_isValid;
-
-    OAIActivesession_ResponseCompound_Apikey obj_apikey;
-    bool m_obj_apikey_isSet;
-    bool m_obj_apikey_isValid;
-
-    QList<QString> a_e_module_internalname;
-    bool m_a_e_module_internalname_isSet;
-    bool m_a_e_module_internalname_isValid;
 
     OAIField_eActivesessionSessiontype e_activesession_sessiontype;
     bool m_e_activesession_sessiontype_isSet;
@@ -158,6 +140,26 @@ private:
     QString pks_customer_code;
     bool m_pks_customer_code_isSet;
     bool m_pks_customer_code_isValid;
+
+    QList<qint32> a_pki_permission_id;
+    bool m_a_pki_permission_id_isSet;
+    bool m_a_pki_permission_id_isValid;
+
+    OAIActivesession_ResponseCompound_User obj_user_real;
+    bool m_obj_user_real_isSet;
+    bool m_obj_user_real_isValid;
+
+    OAIActivesession_ResponseCompound_User obj_user_cloned;
+    bool m_obj_user_cloned_isSet;
+    bool m_obj_user_cloned_isValid;
+
+    OAIActivesession_ResponseCompound_Apikey obj_apikey;
+    bool m_obj_apikey_isSet;
+    bool m_obj_apikey_isValid;
+
+    QList<QString> a_e_module_internalname;
+    bool m_a_e_module_internalname_isSet;
+    bool m_a_e_module_internalname_isValid;
 };
 
 } // namespace OpenAPI

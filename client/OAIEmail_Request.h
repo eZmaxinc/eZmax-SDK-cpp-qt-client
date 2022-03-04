@@ -13,7 +13,7 @@
 /*
  * OAIEmail_Request.h
  *
- * A Contact Object
+ * An Email Object
  */
 
 #ifndef OAIEmail_Request_H

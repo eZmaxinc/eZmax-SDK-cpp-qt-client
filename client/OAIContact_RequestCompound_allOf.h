@@ -27,6 +27,7 @@
 #include "OAIObject.h"
 
 namespace OpenAPI {
+class OAIContactinformations_RequestCompound;
 
 class OAIContact_RequestCompound_allOf : public OAIObject {
 public:

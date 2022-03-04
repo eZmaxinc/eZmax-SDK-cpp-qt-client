@@ -27,6 +27,7 @@
 #include "OAIObject.h"
 
 namespace OpenAPI {
+class OAIList_getListpresentation_v1_Response_mPayload;
 
 class OAIList_getListpresentation_v1_Response_allOf : public OAIObject {
 public:

@@ -27,6 +27,7 @@
 #include "OAIObject.h"
 
 namespace OpenAPI {
+class OAIEzsignfolder_Response;
 
 class OAIWebhook_Ezsign_FolderCompleted_allOf : public OAIObject {
 public:

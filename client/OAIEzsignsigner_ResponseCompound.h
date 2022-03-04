@@ -30,6 +30,7 @@
 #include "OAIObject.h"
 
 namespace OpenAPI {
+class OAIEzsignsigner_ResponseCompound_Contact;
 
 class OAIEzsignsigner_ResponseCompound : public OAIObject {
 public:
@@ -41,11 +42,6 @@ public:
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
-
-    OAIEzsignsigner_ResponseCompound_Contact getObjContact() const;
-    void setObjContact(const OAIEzsignsigner_ResponseCompound_Contact &obj_contact);
-    bool is_obj_contact_Set() const;
-    bool is_obj_contact_Valid() const;
 
     qint32 getPkiEzsignsignerId() const;
     void setPkiEzsignsignerId(const qint32 &pki_ezsignsigner_id);
@@ -72,15 +68,16 @@ public:
     bool is_s_userlogintype_description_x_Set() const;
     bool is_s_userlogintype_description_x_Valid() const;
 
+    OAIEzsignsigner_ResponseCompound_Contact getObjContact() const;
+    void setObjContact(const OAIEzsignsigner_ResponseCompound_Contact &obj_contact);
+    bool is_obj_contact_Set() const;
+    bool is_obj_contact_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
 private:
     void initializeModel();
-
-    OAIEzsignsigner_ResponseCompound_Contact obj_contact;
-    bool m_obj_contact_isSet;
-    bool m_obj_contact_isValid;
 
     qint32 pki_ezsignsigner_id;
     bool m_pki_ezsignsigner_id_isSet;
@@ -101,6 +98,10 @@ private:
     QString s_userlogintype_description_x;
     bool m_s_userlogintype_description_x_isSet;
     bool m_s_userlogintype_description_x_isValid;
+
+    OAIEzsignsigner_ResponseCompound_Contact obj_contact;
+    bool m_obj_contact_isSet;
+    bool m_obj_contact_isValid;
 };
 
 } // namespace OpenAPI

@@ -30,6 +30,7 @@
 #include "OAIObject.h"
 
 namespace OpenAPI {
+class OAIContactinformations_RequestCompound;
 
 class OAIContact_RequestCompound : public OAIObject {
 public:
@@ -41,11 +42,6 @@ public:
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
-
-    OAIContactinformations_RequestCompound getObjContactinformations() const;
-    void setObjContactinformations(const OAIContactinformations_RequestCompound &obj_contactinformations);
-    bool is_obj_contactinformations_Set() const;
-    bool is_obj_contactinformations_Valid() const;
 
     qint32 getFkiContacttitleId() const;
     void setFkiContacttitleId(const qint32 &fki_contacttitle_id);
@@ -77,15 +73,16 @@ public:
     bool is_dt_contact_birthdate_Set() const;
     bool is_dt_contact_birthdate_Valid() const;
 
+    OAIContactinformations_RequestCompound getObjContactinformations() const;
+    void setObjContactinformations(const OAIContactinformations_RequestCompound &obj_contactinformations);
+    bool is_obj_contactinformations_Set() const;
+    bool is_obj_contactinformations_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
 private:
     void initializeModel();
-
-    OAIContactinformations_RequestCompound obj_contactinformations;
-    bool m_obj_contactinformations_isSet;
-    bool m_obj_contactinformations_isValid;
 
     qint32 fki_contacttitle_id;
     bool m_fki_contacttitle_id_isSet;
@@ -110,6 +107,10 @@ private:
     QString dt_contact_birthdate;
     bool m_dt_contact_birthdate_isSet;
     bool m_dt_contact_birthdate_isValid;
+
+    OAIContactinformations_RequestCompound obj_contactinformations;
+    bool m_obj_contactinformations_isSet;
+    bool m_obj_contactinformations_isValid;
 };
 
 } // namespace OpenAPI

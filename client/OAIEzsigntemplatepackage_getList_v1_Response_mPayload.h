@@ -30,6 +30,7 @@
 #include "OAIObject.h"
 
 namespace OpenAPI {
+class OAIEzsigntemplatepackage_ListElement;
 
 class OAIEzsigntemplatepackage_getList_v1_Response_mPayload : public OAIObject {
 public:

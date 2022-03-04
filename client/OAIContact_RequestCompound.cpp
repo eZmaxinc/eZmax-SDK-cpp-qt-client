@@ -34,9 +34,6 @@ OAIContact_RequestCompound::~OAIContact_RequestCompound() {}
 
 void OAIContact_RequestCompound::initializeModel() {
 
-    m_obj_contactinformations_isSet = false;
-    m_obj_contactinformations_isValid = false;
-
     m_fki_contacttitle_id_isSet = false;
     m_fki_contacttitle_id_isValid = false;
 
@@ -54,6 +51,9 @@ void OAIContact_RequestCompound::initializeModel() {
 
     m_dt_contact_birthdate_isSet = false;
     m_dt_contact_birthdate_isValid = false;
+
+    m_obj_contactinformations_isSet = false;
+    m_obj_contactinformations_isValid = false;
 }
 
 void OAIContact_RequestCompound::fromJson(QString jsonString) {
@@ -64,9 +64,6 @@ void OAIContact_RequestCompound::fromJson(QString jsonString) {
 }
 
 void OAIContact_RequestCompound::fromJsonObject(QJsonObject json) {
-
-    m_obj_contactinformations_isValid = ::OpenAPI::fromJsonValue(obj_contactinformations, json[QString("objContactinformations")]);
-    m_obj_contactinformations_isSet = !json[QString("objContactinformations")].isNull() && m_obj_contactinformations_isValid;
 
     m_fki_contacttitle_id_isValid = ::OpenAPI::fromJsonValue(fki_contacttitle_id, json[QString("fkiContacttitleID")]);
     m_fki_contacttitle_id_isSet = !json[QString("fkiContacttitleID")].isNull() && m_fki_contacttitle_id_isValid;
@@ -85,6 +82,9 @@ void OAIContact_RequestCompound::fromJsonObject(QJsonObject json) {
 
     m_dt_contact_birthdate_isValid = ::OpenAPI::fromJsonValue(dt_contact_birthdate, json[QString("dtContactBirthdate")]);
     m_dt_contact_birthdate_isSet = !json[QString("dtContactBirthdate")].isNull() && m_dt_contact_birthdate_isValid;
+
+    m_obj_contactinformations_isValid = ::OpenAPI::fromJsonValue(obj_contactinformations, json[QString("objContactinformations")]);
+    m_obj_contactinformations_isSet = !json[QString("objContactinformations")].isNull() && m_obj_contactinformations_isValid;
 }
 
 QString OAIContact_RequestCompound::asJson() const {
@@ -96,9 +96,6 @@ QString OAIContact_RequestCompound::asJson() const {
 
 QJsonObject OAIContact_RequestCompound::asJsonObject() const {
     QJsonObject obj;
-    if (obj_contactinformations.isSet()) {
-        obj.insert(QString("objContactinformations"), ::OpenAPI::toJsonValue(obj_contactinformations));
-    }
     if (m_fki_contacttitle_id_isSet) {
         obj.insert(QString("fkiContacttitleID"), ::OpenAPI::toJsonValue(fki_contacttitle_id));
     }
@@ -117,23 +114,10 @@ QJsonObject OAIContact_RequestCompound::asJsonObject() const {
     if (m_dt_contact_birthdate_isSet) {
         obj.insert(QString("dtContactBirthdate"), ::OpenAPI::toJsonValue(dt_contact_birthdate));
     }
+    if (obj_contactinformations.isSet()) {
+        obj.insert(QString("objContactinformations"), ::OpenAPI::toJsonValue(obj_contactinformations));
+    }
     return obj;
-}
-
-OAIContactinformations_RequestCompound OAIContact_RequestCompound::getObjContactinformations() const {
-    return obj_contactinformations;
-}
-void OAIContact_RequestCompound::setObjContactinformations(const OAIContactinformations_RequestCompound &obj_contactinformations) {
-    this->obj_contactinformations = obj_contactinformations;
-    this->m_obj_contactinformations_isSet = true;
-}
-
-bool OAIContact_RequestCompound::is_obj_contactinformations_Set() const{
-    return m_obj_contactinformations_isSet;
-}
-
-bool OAIContact_RequestCompound::is_obj_contactinformations_Valid() const{
-    return m_obj_contactinformations_isValid;
 }
 
 qint32 OAIContact_RequestCompound::getFkiContacttitleId() const {
@@ -232,14 +216,25 @@ bool OAIContact_RequestCompound::is_dt_contact_birthdate_Valid() const{
     return m_dt_contact_birthdate_isValid;
 }
 
+OAIContactinformations_RequestCompound OAIContact_RequestCompound::getObjContactinformations() const {
+    return obj_contactinformations;
+}
+void OAIContact_RequestCompound::setObjContactinformations(const OAIContactinformations_RequestCompound &obj_contactinformations) {
+    this->obj_contactinformations = obj_contactinformations;
+    this->m_obj_contactinformations_isSet = true;
+}
+
+bool OAIContact_RequestCompound::is_obj_contactinformations_Set() const{
+    return m_obj_contactinformations_isSet;
+}
+
+bool OAIContact_RequestCompound::is_obj_contactinformations_Valid() const{
+    return m_obj_contactinformations_isValid;
+}
+
 bool OAIContact_RequestCompound::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (obj_contactinformations.isSet()) {
-            isObjectUpdated = true;
-            break;
-        }
-
         if (m_fki_contacttitle_id_isSet) {
             isObjectUpdated = true;
             break;
@@ -269,13 +264,18 @@ bool OAIContact_RequestCompound::isSet() const {
             isObjectUpdated = true;
             break;
         }
+
+        if (obj_contactinformations.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
     } while (false);
     return isObjectUpdated;
 }
 
 bool OAIContact_RequestCompound::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_obj_contactinformations_isValid && m_fki_contacttitle_id_isValid && m_fki_language_id_isValid && m_s_contact_firstname_isValid && m_s_contact_lastname_isValid && m_s_contact_company_isValid && true;
+    return m_fki_contacttitle_id_isValid && m_fki_language_id_isValid && m_s_contact_firstname_isValid && m_s_contact_lastname_isValid && m_s_contact_company_isValid && m_obj_contactinformations_isValid && true;
 }
 
 } // namespace OpenAPI

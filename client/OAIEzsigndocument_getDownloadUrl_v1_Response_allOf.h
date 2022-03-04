@@ -27,6 +27,7 @@
 #include "OAIObject.h"
 
 namespace OpenAPI {
+class OAIEzsigndocument_getDownloadUrl_v1_Response_mPayload;
 
 class OAIEzsigndocument_getDownloadUrl_v1_Response_allOf : public OAIObject {
 public:

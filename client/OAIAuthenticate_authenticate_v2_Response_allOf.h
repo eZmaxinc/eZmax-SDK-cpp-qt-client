@@ -27,6 +27,7 @@
 #include "OAIObject.h"
 
 namespace OpenAPI {
+class OAIAuthenticate_authenticate_v2_Response_mPayload;
 
 class OAIAuthenticate_authenticate_v2_Response_allOf : public OAIObject {
 public:

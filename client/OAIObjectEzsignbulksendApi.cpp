@@ -49,6 +49,8 @@ void OAIObjectEzsignbulksendApi::initializeServerConfigs() {
     {"sInfrastructureenvironmenttypeDescription", OAIServerVariable("The environment on on which to call the API. Should always be "prod" unless instructed otherwise by support.","prod",
     QSet<QString>{ {"prod"},{"stg"},{"qa"},{"dev"} })}, }));
     
+    _serverConfigs.insert("ezsignbulksendGetEzsignbulksendtransmissionsV1", defaultConf);
+    _serverIndices.insert("ezsignbulksendGetEzsignbulksendtransmissionsV1", 0);
     _serverConfigs.insert("ezsignbulksendGetListV1", defaultConf);
     _serverIndices.insert("ezsignbulksendGetListV1", 0);
     _serverConfigs.insert("ezsignbulksendGetObjectV1", defaultConf);
@@ -225,6 +227,73 @@ QString OAIObjectEzsignbulksendApi::getParamStyleDelimiter(const QString &style,
 
     } else {
         return "none";
+    }
+}
+
+void OAIObjectEzsignbulksendApi::ezsignbulksendGetEzsignbulksendtransmissionsV1(const qint32 &pki_ezsignbulksend_id) {
+    QString fullPath = QString(_serverConfigs["ezsignbulksendGetEzsignbulksendtransmissionsV1"][_serverIndices.value("ezsignbulksendGetEzsignbulksendtransmissionsV1")].URL()+"/1/object/ezsignbulksend/{pkiEzsignbulksendID}/getEzsignbulksendtransmissions");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_ezsignbulksend_idPathParam("{");
+        pki_ezsignbulksend_idPathParam.append("pkiEzsignbulksendID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignbulksendID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignbulksendID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_ezsignbulksend_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsignbulksend_id)));
+    }
+    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    OAIHttpRequestInput input(fullPath, "GET");
+
+
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+#else
+    for (auto key : _defaultHeaders.keys()) {
+        input.headers.insert(key, _defaultHeaders[key]);
+    }
+#endif
+
+    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIObjectEzsignbulksendApi::ezsignbulksendGetEzsignbulksendtransmissionsV1Callback);
+    connect(this, &OAIObjectEzsignbulksendApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this]() {
+        if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
+            emit allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void OAIObjectEzsignbulksendApi::ezsignbulksendGetEzsignbulksendtransmissionsV1Callback(OAIHttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    OAIEzsignbulksend_getEzsignbulksendtransmissions_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit ezsignbulksendGetEzsignbulksendtransmissionsV1Signal(output);
+        emit ezsignbulksendGetEzsignbulksendtransmissionsV1SignalFull(worker, output);
+    } else {
+        emit ezsignbulksendGetEzsignbulksendtransmissionsV1SignalE(output, error_type, error_str);
+        emit ezsignbulksendGetEzsignbulksendtransmissionsV1SignalEFull(worker, error_type, error_str);
     }
 }
 
@@ -464,7 +533,7 @@ void OAIObjectEzsignbulksendApi::tokenAvailable(){
             _latestWorker->execute(&_latestInput);
         }else{
             _implicitFlow.removeToken(_latestScope.join(" "));
-            qDebug() << "Could not retreive a valid token";
+            qDebug() << "Could not retrieve a valid token";
         }
         break;
     case 2: //authorization flow
@@ -474,7 +543,7 @@ void OAIObjectEzsignbulksendApi::tokenAvailable(){
             _latestWorker->execute(&_latestInput);
         }else{
             _authFlow.removeToken(_latestScope.join(" "));    
-            qDebug() << "Could not retreive a valid token";
+            qDebug() << "Could not retrieve a valid token";
         }
         break;
     case 3: //client credentials flow
@@ -484,7 +553,7 @@ void OAIObjectEzsignbulksendApi::tokenAvailable(){
             _latestWorker->execute(&_latestInput);
         }else{
             _credentialFlow.removeToken(_latestScope.join(" "));    
-            qDebug() << "Could not retreive a valid token";
+            qDebug() << "Could not retrieve a valid token";
         }
         break;
     case 4: //resource owner password flow
@@ -494,7 +563,7 @@ void OAIObjectEzsignbulksendApi::tokenAvailable(){
             _latestWorker->execute(&_latestInput);
         }else{
             _credentialFlow.removeToken(_latestScope.join(" "));    
-            qDebug() << "Could not retreive a valid token";
+            qDebug() << "Could not retrieve a valid token";
         }
         break;
     default:

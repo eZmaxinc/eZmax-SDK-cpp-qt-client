@@ -29,6 +29,7 @@
 #include "OAIObject.h"
 
 namespace OpenAPI {
+class OAIEzsignsigner_RequestCompound;
 
 class OAIEzsignfoldersignerassociation_RequestCompound : public OAIObject {
 public:
@@ -40,11 +41,6 @@ public:
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
-
-    OAIEzsignsigner_RequestCompound getObjEzsignsigner() const;
-    void setObjEzsignsigner(const OAIEzsignsigner_RequestCompound &obj_ezsignsigner);
-    bool is_obj_ezsignsigner_Set() const;
-    bool is_obj_ezsignsigner_Valid() const;
 
     qint32 getPkiEzsignfoldersignerassociationId() const;
     void setPkiEzsignfoldersignerassociationId(const qint32 &pki_ezsignfoldersignerassociation_id);
@@ -66,15 +62,16 @@ public:
     bool is_b_ezsignfoldersignerassociation_receivecopy_Set() const;
     bool is_b_ezsignfoldersignerassociation_receivecopy_Valid() const;
 
+    OAIEzsignsigner_RequestCompound getObjEzsignsigner() const;
+    void setObjEzsignsigner(const OAIEzsignsigner_RequestCompound &obj_ezsignsigner);
+    bool is_obj_ezsignsigner_Set() const;
+    bool is_obj_ezsignsigner_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
 private:
     void initializeModel();
-
-    OAIEzsignsigner_RequestCompound obj_ezsignsigner;
-    bool m_obj_ezsignsigner_isSet;
-    bool m_obj_ezsignsigner_isValid;
 
     qint32 pki_ezsignfoldersignerassociation_id;
     bool m_pki_ezsignfoldersignerassociation_id_isSet;
@@ -91,6 +88,10 @@ private:
     bool b_ezsignfoldersignerassociation_receivecopy;
     bool m_b_ezsignfoldersignerassociation_receivecopy_isSet;
     bool m_b_ezsignfoldersignerassociation_receivecopy_isValid;
+
+    OAIEzsignsigner_RequestCompound obj_ezsignsigner;
+    bool m_obj_ezsignsigner_isSet;
+    bool m_obj_ezsignsigner_isValid;
 };
 
 } // namespace OpenAPI

@@ -116,10 +116,10 @@ bool OAIWebhook_Ezsign_DocumentCompleted::is_obj_webhook_Valid() const{
     return m_obj_webhook_isValid;
 }
 
-QList<OAIAttempt_Response> OAIWebhook_Ezsign_DocumentCompleted::getAObjAttempt() const {
+QList<OAIAttempt_ResponseCompound> OAIWebhook_Ezsign_DocumentCompleted::getAObjAttempt() const {
     return a_obj_attempt;
 }
-void OAIWebhook_Ezsign_DocumentCompleted::setAObjAttempt(const QList<OAIAttempt_Response> &a_obj_attempt) {
+void OAIWebhook_Ezsign_DocumentCompleted::setAObjAttempt(const QList<OAIAttempt_ResponseCompound> &a_obj_attempt) {
     this->a_obj_attempt = a_obj_attempt;
     this->m_a_obj_attempt_isSet = true;
 }

@@ -30,6 +30,7 @@
 #include "OAIObject.h"
 
 namespace OpenAPI {
+class OAICustom_FormDataSigner_Response;
 
 class OAIEzsigndocument_getFormData_v1_Response_mPayload : public OAIObject {
 public:

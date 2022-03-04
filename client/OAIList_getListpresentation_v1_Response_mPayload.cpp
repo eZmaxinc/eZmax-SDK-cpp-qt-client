@@ -66,10 +66,10 @@ QJsonObject OAIList_getListpresentation_v1_Response_mPayload::asJsonObject() con
     return obj;
 }
 
-QList<OAIListpresentation_Request> OAIList_getListpresentation_v1_Response_mPayload::getAObjListpresentation() const {
+QList<OAIListpresentation_ResponseCompound> OAIList_getListpresentation_v1_Response_mPayload::getAObjListpresentation() const {
     return a_obj_listpresentation;
 }
-void OAIList_getListpresentation_v1_Response_mPayload::setAObjListpresentation(const QList<OAIListpresentation_Request> &a_obj_listpresentation) {
+void OAIList_getListpresentation_v1_Response_mPayload::setAObjListpresentation(const QList<OAIListpresentation_ResponseCompound> &a_obj_listpresentation) {
     this->a_obj_listpresentation = a_obj_listpresentation;
     this->m_a_obj_listpresentation_isSet = true;
 }

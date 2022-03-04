@@ -66,10 +66,10 @@ QJsonObject OAIWebhook_User_UserCreated_allOf::asJsonObject() const {
     return obj;
 }
 
-OAIUser_Response OAIWebhook_User_UserCreated_allOf::getObjUser() const {
+OAIUser_ResponseCompound OAIWebhook_User_UserCreated_allOf::getObjUser() const {
     return obj_user;
 }
-void OAIWebhook_User_UserCreated_allOf::setObjUser(const OAIUser_Response &obj_user) {
+void OAIWebhook_User_UserCreated_allOf::setObjUser(const OAIUser_ResponseCompound &obj_user) {
     this->obj_user = obj_user;
     this->m_obj_user_isSet = true;
 }

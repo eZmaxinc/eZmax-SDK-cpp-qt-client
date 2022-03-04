@@ -32,6 +32,9 @@
 #include "OAIObject.h"
 
 namespace OpenAPI {
+class OAICustom_AutocompleteElement_Response;
+class OAICommon_Response_objDebugPayload;
+class OAICommon_Response_objDebug;
 
 class OAICommon_getAutocomplete_v1_Response : public OAIObject {
 public:

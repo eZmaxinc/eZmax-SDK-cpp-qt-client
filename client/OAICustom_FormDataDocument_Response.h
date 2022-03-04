@@ -29,6 +29,7 @@
 #include "OAIObject.h"
 
 namespace OpenAPI {
+class OAICustom_FormDataSigner_Response;
 
 class OAICustom_FormDataDocument_Response : public OAIObject {
 public:

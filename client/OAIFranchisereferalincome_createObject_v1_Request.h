@@ -28,6 +28,8 @@
 #include "OAIObject.h"
 
 namespace OpenAPI {
+class OAIFranchisereferalincome_Request;
+class OAIFranchisereferalincome_RequestCompound;
 
 class OAIFranchisereferalincome_createObject_v1_Request : public OAIObject {
 public:

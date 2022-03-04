@@ -31,6 +31,9 @@
 #include "OAIObject.h"
 
 namespace OpenAPI {
+class OAIUser_createEzsignuser_v1_Response_mPayload;
+class OAICommon_Response_objDebugPayload;
+class OAICommon_Response_objDebug;
 
 class OAIUser_createEzsignuser_v1_Response : public OAIObject {
 public:

@@ -21,13 +21,18 @@
 
 #include <QJsonObject>
 
-#include "OAIEzsignformfield_Response.h"
+#include "OAICustom_DropdownElement_ResponseCompound.h"
+#include "OAIEzsignformfield_ResponseCompound.h"
+#include "OAIEzsignformfieldgroupsigner_ResponseCompound.h"
 #include <QList>
 
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
 namespace OpenAPI {
+class OAIEzsignformfield_ResponseCompound;
+class OAICustom_DropdownElement_ResponseCompound;
+class OAIEzsignformfieldgroupsigner_ResponseCompound;
 
 class OAIEzsignformfieldgroup_ResponseCompound_allOf : public OAIObject {
 public:
@@ -40,10 +45,20 @@ public:
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    QList<OAIEzsignformfield_Response> getAObjEzsignformfield() const;
-    void setAObjEzsignformfield(const QList<OAIEzsignformfield_Response> &a_obj_ezsignformfield);
+    QList<OAIEzsignformfield_ResponseCompound> getAObjEzsignformfield() const;
+    void setAObjEzsignformfield(const QList<OAIEzsignformfield_ResponseCompound> &a_obj_ezsignformfield);
     bool is_a_obj_ezsignformfield_Set() const;
     bool is_a_obj_ezsignformfield_Valid() const;
+
+    QList<OAICustom_DropdownElement_ResponseCompound> getAObjDropdownElement() const;
+    void setAObjDropdownElement(const QList<OAICustom_DropdownElement_ResponseCompound> &a_obj_dropdown_element);
+    bool is_a_obj_dropdown_element_Set() const;
+    bool is_a_obj_dropdown_element_Valid() const;
+
+    OAIEzsignformfieldgroupsigner_ResponseCompound getAObjEzsignformfieldgroupsigner() const;
+    void setAObjEzsignformfieldgroupsigner(const OAIEzsignformfieldgroupsigner_ResponseCompound &a_obj_ezsignformfieldgroupsigner);
+    bool is_a_obj_ezsignformfieldgroupsigner_Set() const;
+    bool is_a_obj_ezsignformfieldgroupsigner_Valid() const;
 
     virtual bool isSet() const override;
     virtual bool isValid() const override;
@@ -51,9 +66,17 @@ public:
 private:
     void initializeModel();
 
-    QList<OAIEzsignformfield_Response> a_obj_ezsignformfield;
+    QList<OAIEzsignformfield_ResponseCompound> a_obj_ezsignformfield;
     bool m_a_obj_ezsignformfield_isSet;
     bool m_a_obj_ezsignformfield_isValid;
+
+    QList<OAICustom_DropdownElement_ResponseCompound> a_obj_dropdown_element;
+    bool m_a_obj_dropdown_element_isSet;
+    bool m_a_obj_dropdown_element_isValid;
+
+    OAIEzsignformfieldgroupsigner_ResponseCompound a_obj_ezsignformfieldgroupsigner;
+    bool m_a_obj_ezsignformfieldgroupsigner_isSet;
+    bool m_a_obj_ezsignformfieldgroupsigner_isValid;
 };
 
 } // namespace OpenAPI

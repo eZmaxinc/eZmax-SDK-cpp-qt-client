@@ -30,6 +30,7 @@
 #include "OAIObject.h"
 
 namespace OpenAPI {
+class OAIEzsignsigner_RequestCompound_Contact;
 
 class OAIEzsignsigner_RequestCompound : public OAIObject {
 public:
@@ -42,10 +43,10 @@ public:
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    OAIEzsignsigner_RequestCompound_Contact getObjContact() const;
-    void setObjContact(const OAIEzsignsigner_RequestCompound_Contact &obj_contact);
-    bool is_obj_contact_Set() const;
-    bool is_obj_contact_Valid() const;
+    qint32 getFkiUserlogintypeId() const;
+    void setFkiUserlogintypeId(const qint32 &fki_userlogintype_id);
+    bool is_fki_userlogintype_id_Set() const;
+    bool is_fki_userlogintype_id_Valid() const;
 
     qint32 getFkiTaxassignmentId() const;
     void setFkiTaxassignmentId(const qint32 &fki_taxassignment_id);
@@ -57,15 +58,20 @@ public:
     bool is_fki_secretquestion_id_Set() const;
     bool is_fki_secretquestion_id_Valid() const;
 
-    QString getEEzsignsignerLogintype() const;
-    void setEEzsignsignerLogintype(const QString &e_ezsignsigner_logintype);
-    bool is_e_ezsignsigner_logintype_Set() const;
-    bool is_e_ezsignsigner_logintype_Valid() const;
+    Q_DECL_DEPRECATED QString getEEzsignsignerLogintype() const;
+    Q_DECL_DEPRECATED void setEEzsignsignerLogintype(const QString &e_ezsignsigner_logintype);
+    Q_DECL_DEPRECATED bool is_e_ezsignsigner_logintype_Set() const;
+    Q_DECL_DEPRECATED bool is_e_ezsignsigner_logintype_Valid() const;
 
     QString getSEzsignsignerSecretanswer() const;
     void setSEzsignsignerSecretanswer(const QString &s_ezsignsigner_secretanswer);
     bool is_s_ezsignsigner_secretanswer_Set() const;
     bool is_s_ezsignsigner_secretanswer_Valid() const;
+
+    OAIEzsignsigner_RequestCompound_Contact getObjContact() const;
+    void setObjContact(const OAIEzsignsigner_RequestCompound_Contact &obj_contact);
+    bool is_obj_contact_Set() const;
+    bool is_obj_contact_Valid() const;
 
     virtual bool isSet() const override;
     virtual bool isValid() const override;
@@ -73,9 +79,9 @@ public:
 private:
     void initializeModel();
 
-    OAIEzsignsigner_RequestCompound_Contact obj_contact;
-    bool m_obj_contact_isSet;
-    bool m_obj_contact_isValid;
+    qint32 fki_userlogintype_id;
+    bool m_fki_userlogintype_id_isSet;
+    bool m_fki_userlogintype_id_isValid;
 
     qint32 fki_taxassignment_id;
     bool m_fki_taxassignment_id_isSet;
@@ -92,6 +98,10 @@ private:
     QString s_ezsignsigner_secretanswer;
     bool m_s_ezsignsigner_secretanswer_isSet;
     bool m_s_ezsignsigner_secretanswer_isValid;
+
+    OAIEzsignsigner_RequestCompound_Contact obj_contact;
+    bool m_obj_contact_isSet;
+    bool m_obj_contact_isValid;
 };
 
 } // namespace OpenAPI

@@ -21,13 +21,14 @@
 
 #include <QJsonObject>
 
-#include "OAIEzsignpage_Response.h"
+#include "OAIEzsignpage_ResponseCompound.h"
 #include <QList>
 
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
 namespace OpenAPI {
+class OAIEzsignpage_ResponseCompound;
 
 class OAIEzsigndocument_getEzsignpages_v1_Response_mPayload : public OAIObject {
 public:
@@ -40,8 +41,8 @@ public:
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    QList<OAIEzsignpage_Response> getAObjEzsignpage() const;
-    void setAObjEzsignpage(const QList<OAIEzsignpage_Response> &a_obj_ezsignpage);
+    QList<OAIEzsignpage_ResponseCompound> getAObjEzsignpage() const;
+    void setAObjEzsignpage(const QList<OAIEzsignpage_ResponseCompound> &a_obj_ezsignpage);
     bool is_a_obj_ezsignpage_Set() const;
     bool is_a_obj_ezsignpage_Valid() const;
 
@@ -51,7 +52,7 @@ public:
 private:
     void initializeModel();
 
-    QList<OAIEzsignpage_Response> a_obj_ezsignpage;
+    QList<OAIEzsignpage_ResponseCompound> a_obj_ezsignpage;
     bool m_a_obj_ezsignpage_isSet;
     bool m_a_obj_ezsignpage_isValid;
 };

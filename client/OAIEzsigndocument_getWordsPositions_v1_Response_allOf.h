@@ -28,6 +28,7 @@
 #include "OAIObject.h"
 
 namespace OpenAPI {
+class OAICustom_WordPositionWord_Response;
 
 class OAIEzsigndocument_getWordsPositions_v1_Response_allOf : public OAIObject {
 public:

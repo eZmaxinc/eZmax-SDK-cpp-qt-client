@@ -29,6 +29,7 @@
 #include "OAIObject.h"
 
 namespace OpenAPI {
+class OAICustom_WordPositionOccurence_Response;
 
 class OAICustom_WordPositionWord_Response : public OAIObject {
 public:

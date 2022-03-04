@@ -21,13 +21,14 @@
 
 #include <QJsonObject>
 
-#include "OAIListpresentation_Request.h"
+#include "OAIListpresentation_ResponseCompound.h"
 #include <QList>
 
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
 namespace OpenAPI {
+class OAIListpresentation_ResponseCompound;
 
 class OAIList_getListpresentation_v1_Response_mPayload : public OAIObject {
 public:
@@ -40,8 +41,8 @@ public:
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    QList<OAIListpresentation_Request> getAObjListpresentation() const;
-    void setAObjListpresentation(const QList<OAIListpresentation_Request> &a_obj_listpresentation);
+    QList<OAIListpresentation_ResponseCompound> getAObjListpresentation() const;
+    void setAObjListpresentation(const QList<OAIListpresentation_ResponseCompound> &a_obj_listpresentation);
     bool is_a_obj_listpresentation_Set() const;
     bool is_a_obj_listpresentation_Valid() const;
 
@@ -51,7 +52,7 @@ public:
 private:
     void initializeModel();
 
-    QList<OAIListpresentation_Request> a_obj_listpresentation;
+    QList<OAIListpresentation_ResponseCompound> a_obj_listpresentation;
     bool m_a_obj_listpresentation_isSet;
     bool m_a_obj_listpresentation_isValid;
 };

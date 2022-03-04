@@ -28,6 +28,8 @@
 #include "OAIObject.h"
 
 namespace OpenAPI {
+class OAIEzsigndocument_Request;
+class OAIEzsigndocument_RequestCompound;
 
 class OAIEzsigndocument_createObject_v1_Request : public OAIObject {
 public:

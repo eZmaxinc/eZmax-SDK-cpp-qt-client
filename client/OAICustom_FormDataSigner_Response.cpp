@@ -46,8 +46,8 @@ void OAICustom_FormDataSigner_Response::initializeModel() {
     m_s_contact_lastname_isSet = false;
     m_s_contact_lastname_isValid = false;
 
-    m_a_obj_ezsignformfieldgroup_compound_isSet = false;
-    m_a_obj_ezsignformfieldgroup_compound_isValid = false;
+    m_a_obj_ezsignformfieldgroup_isSet = false;
+    m_a_obj_ezsignformfieldgroup_isValid = false;
 }
 
 void OAICustom_FormDataSigner_Response::fromJson(QString jsonString) {
@@ -71,8 +71,8 @@ void OAICustom_FormDataSigner_Response::fromJsonObject(QJsonObject json) {
     m_s_contact_lastname_isValid = ::OpenAPI::fromJsonValue(s_contact_lastname, json[QString("sContactLastname")]);
     m_s_contact_lastname_isSet = !json[QString("sContactLastname")].isNull() && m_s_contact_lastname_isValid;
 
-    m_a_obj_ezsignformfieldgroup_compound_isValid = ::OpenAPI::fromJsonValue(a_obj_ezsignformfieldgroup_compound, json[QString("a_objEzsignformfieldgroupCompound")]);
-    m_a_obj_ezsignformfieldgroup_compound_isSet = !json[QString("a_objEzsignformfieldgroupCompound")].isNull() && m_a_obj_ezsignformfieldgroup_compound_isValid;
+    m_a_obj_ezsignformfieldgroup_isValid = ::OpenAPI::fromJsonValue(a_obj_ezsignformfieldgroup, json[QString("a_objEzsignformfieldgroup")]);
+    m_a_obj_ezsignformfieldgroup_isSet = !json[QString("a_objEzsignformfieldgroup")].isNull() && m_a_obj_ezsignformfieldgroup_isValid;
 }
 
 QString OAICustom_FormDataSigner_Response::asJson() const {
@@ -96,8 +96,8 @@ QJsonObject OAICustom_FormDataSigner_Response::asJsonObject() const {
     if (m_s_contact_lastname_isSet) {
         obj.insert(QString("sContactLastname"), ::OpenAPI::toJsonValue(s_contact_lastname));
     }
-    if (a_obj_ezsignformfieldgroup_compound.size() > 0) {
-        obj.insert(QString("a_objEzsignformfieldgroupCompound"), ::OpenAPI::toJsonValue(a_obj_ezsignformfieldgroup_compound));
+    if (a_obj_ezsignformfieldgroup.size() > 0) {
+        obj.insert(QString("a_objEzsignformfieldgroup"), ::OpenAPI::toJsonValue(a_obj_ezsignformfieldgroup));
     }
     return obj;
 }
@@ -166,20 +166,20 @@ bool OAICustom_FormDataSigner_Response::is_s_contact_lastname_Valid() const{
     return m_s_contact_lastname_isValid;
 }
 
-QList<OAIEzsignformfieldgroup_ResponseCompound> OAICustom_FormDataSigner_Response::getAObjEzsignformfieldgroupCompound() const {
-    return a_obj_ezsignformfieldgroup_compound;
+QList<OAICustom_FormDataEzsignformfieldgroup_Response> OAICustom_FormDataSigner_Response::getAObjEzsignformfieldgroup() const {
+    return a_obj_ezsignformfieldgroup;
 }
-void OAICustom_FormDataSigner_Response::setAObjEzsignformfieldgroupCompound(const QList<OAIEzsignformfieldgroup_ResponseCompound> &a_obj_ezsignformfieldgroup_compound) {
-    this->a_obj_ezsignformfieldgroup_compound = a_obj_ezsignformfieldgroup_compound;
-    this->m_a_obj_ezsignformfieldgroup_compound_isSet = true;
-}
-
-bool OAICustom_FormDataSigner_Response::is_a_obj_ezsignformfieldgroup_compound_Set() const{
-    return m_a_obj_ezsignformfieldgroup_compound_isSet;
+void OAICustom_FormDataSigner_Response::setAObjEzsignformfieldgroup(const QList<OAICustom_FormDataEzsignformfieldgroup_Response> &a_obj_ezsignformfieldgroup) {
+    this->a_obj_ezsignformfieldgroup = a_obj_ezsignformfieldgroup;
+    this->m_a_obj_ezsignformfieldgroup_isSet = true;
 }
 
-bool OAICustom_FormDataSigner_Response::is_a_obj_ezsignformfieldgroup_compound_Valid() const{
-    return m_a_obj_ezsignformfieldgroup_compound_isValid;
+bool OAICustom_FormDataSigner_Response::is_a_obj_ezsignformfieldgroup_Set() const{
+    return m_a_obj_ezsignformfieldgroup_isSet;
+}
+
+bool OAICustom_FormDataSigner_Response::is_a_obj_ezsignformfieldgroup_Valid() const{
+    return m_a_obj_ezsignformfieldgroup_isValid;
 }
 
 bool OAICustom_FormDataSigner_Response::isSet() const {
@@ -205,7 +205,7 @@ bool OAICustom_FormDataSigner_Response::isSet() const {
             break;
         }
 
-        if (a_obj_ezsignformfieldgroup_compound.size() > 0) {
+        if (a_obj_ezsignformfieldgroup.size() > 0) {
             isObjectUpdated = true;
             break;
         }
@@ -215,7 +215,7 @@ bool OAICustom_FormDataSigner_Response::isSet() const {
 
 bool OAICustom_FormDataSigner_Response::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_fki_ezsignfoldersignerassociation_id_isValid && m_s_contact_firstname_isValid && m_s_contact_lastname_isValid && m_a_obj_ezsignformfieldgroup_compound_isValid && true;
+    return m_fki_ezsignfoldersignerassociation_id_isValid && m_s_contact_firstname_isValid && m_s_contact_lastname_isValid && m_a_obj_ezsignformfieldgroup_isValid && true;
 }
 
 } // namespace OpenAPI

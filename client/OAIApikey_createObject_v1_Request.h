@@ -28,6 +28,8 @@
 #include "OAIObject.h"
 
 namespace OpenAPI {
+class OAIApikey_Request;
+class OAIApikey_RequestCompound;
 
 class OAIApikey_createObject_v1_Request : public OAIObject {
 public:

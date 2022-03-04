@@ -29,6 +29,7 @@
 #include "OAIObject.h"
 
 namespace OpenAPI {
+class OAICustom_FormDataDocument_Response;
 
 class OAICustom_FormsDataFolder_Response : public OAIObject {
 public:

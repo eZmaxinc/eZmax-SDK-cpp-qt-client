@@ -66,10 +66,10 @@ QJsonObject OAIEzsigndocument_getTemporaryProof_v1_Response_mPayload::asJsonObje
     return obj;
 }
 
-OAIEzsigndocumentlog_Response OAIEzsigndocument_getTemporaryProof_v1_Response_mPayload::getAObjEzsigndocumentlog() const {
+OAIEzsigndocumentlog_ResponseCompound OAIEzsigndocument_getTemporaryProof_v1_Response_mPayload::getAObjEzsigndocumentlog() const {
     return a_obj_ezsigndocumentlog;
 }
-void OAIEzsigndocument_getTemporaryProof_v1_Response_mPayload::setAObjEzsigndocumentlog(const OAIEzsigndocumentlog_Response &a_obj_ezsigndocumentlog) {
+void OAIEzsigndocument_getTemporaryProof_v1_Response_mPayload::setAObjEzsigndocumentlog(const OAIEzsigndocumentlog_ResponseCompound &a_obj_ezsigndocumentlog) {
     this->a_obj_ezsigndocumentlog = a_obj_ezsigndocumentlog;
     this->m_a_obj_ezsigndocumentlog_isSet = true;
 }

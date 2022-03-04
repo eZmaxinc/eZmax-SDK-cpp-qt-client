@@ -34,8 +34,8 @@ OAIEzsignsigner_RequestCompound::~OAIEzsignsigner_RequestCompound() {}
 
 void OAIEzsignsigner_RequestCompound::initializeModel() {
 
-    m_obj_contact_isSet = false;
-    m_obj_contact_isValid = false;
+    m_fki_userlogintype_id_isSet = false;
+    m_fki_userlogintype_id_isValid = false;
 
     m_fki_taxassignment_id_isSet = false;
     m_fki_taxassignment_id_isValid = false;
@@ -48,6 +48,9 @@ void OAIEzsignsigner_RequestCompound::initializeModel() {
 
     m_s_ezsignsigner_secretanswer_isSet = false;
     m_s_ezsignsigner_secretanswer_isValid = false;
+
+    m_obj_contact_isSet = false;
+    m_obj_contact_isValid = false;
 }
 
 void OAIEzsignsigner_RequestCompound::fromJson(QString jsonString) {
@@ -59,8 +62,8 @@ void OAIEzsignsigner_RequestCompound::fromJson(QString jsonString) {
 
 void OAIEzsignsigner_RequestCompound::fromJsonObject(QJsonObject json) {
 
-    m_obj_contact_isValid = ::OpenAPI::fromJsonValue(obj_contact, json[QString("objContact")]);
-    m_obj_contact_isSet = !json[QString("objContact")].isNull() && m_obj_contact_isValid;
+    m_fki_userlogintype_id_isValid = ::OpenAPI::fromJsonValue(fki_userlogintype_id, json[QString("fkiUserlogintypeID")]);
+    m_fki_userlogintype_id_isSet = !json[QString("fkiUserlogintypeID")].isNull() && m_fki_userlogintype_id_isValid;
 
     m_fki_taxassignment_id_isValid = ::OpenAPI::fromJsonValue(fki_taxassignment_id, json[QString("fkiTaxassignmentID")]);
     m_fki_taxassignment_id_isSet = !json[QString("fkiTaxassignmentID")].isNull() && m_fki_taxassignment_id_isValid;
@@ -73,6 +76,9 @@ void OAIEzsignsigner_RequestCompound::fromJsonObject(QJsonObject json) {
 
     m_s_ezsignsigner_secretanswer_isValid = ::OpenAPI::fromJsonValue(s_ezsignsigner_secretanswer, json[QString("sEzsignsignerSecretanswer")]);
     m_s_ezsignsigner_secretanswer_isSet = !json[QString("sEzsignsignerSecretanswer")].isNull() && m_s_ezsignsigner_secretanswer_isValid;
+
+    m_obj_contact_isValid = ::OpenAPI::fromJsonValue(obj_contact, json[QString("objContact")]);
+    m_obj_contact_isSet = !json[QString("objContact")].isNull() && m_obj_contact_isValid;
 }
 
 QString OAIEzsignsigner_RequestCompound::asJson() const {
@@ -84,8 +90,8 @@ QString OAIEzsignsigner_RequestCompound::asJson() const {
 
 QJsonObject OAIEzsignsigner_RequestCompound::asJsonObject() const {
     QJsonObject obj;
-    if (obj_contact.isSet()) {
-        obj.insert(QString("objContact"), ::OpenAPI::toJsonValue(obj_contact));
+    if (m_fki_userlogintype_id_isSet) {
+        obj.insert(QString("fkiUserlogintypeID"), ::OpenAPI::toJsonValue(fki_userlogintype_id));
     }
     if (m_fki_taxassignment_id_isSet) {
         obj.insert(QString("fkiTaxassignmentID"), ::OpenAPI::toJsonValue(fki_taxassignment_id));
@@ -99,23 +105,26 @@ QJsonObject OAIEzsignsigner_RequestCompound::asJsonObject() const {
     if (m_s_ezsignsigner_secretanswer_isSet) {
         obj.insert(QString("sEzsignsignerSecretanswer"), ::OpenAPI::toJsonValue(s_ezsignsigner_secretanswer));
     }
+    if (obj_contact.isSet()) {
+        obj.insert(QString("objContact"), ::OpenAPI::toJsonValue(obj_contact));
+    }
     return obj;
 }
 
-OAIEzsignsigner_RequestCompound_Contact OAIEzsignsigner_RequestCompound::getObjContact() const {
-    return obj_contact;
+qint32 OAIEzsignsigner_RequestCompound::getFkiUserlogintypeId() const {
+    return fki_userlogintype_id;
 }
-void OAIEzsignsigner_RequestCompound::setObjContact(const OAIEzsignsigner_RequestCompound_Contact &obj_contact) {
-    this->obj_contact = obj_contact;
-    this->m_obj_contact_isSet = true;
-}
-
-bool OAIEzsignsigner_RequestCompound::is_obj_contact_Set() const{
-    return m_obj_contact_isSet;
+void OAIEzsignsigner_RequestCompound::setFkiUserlogintypeId(const qint32 &fki_userlogintype_id) {
+    this->fki_userlogintype_id = fki_userlogintype_id;
+    this->m_fki_userlogintype_id_isSet = true;
 }
 
-bool OAIEzsignsigner_RequestCompound::is_obj_contact_Valid() const{
-    return m_obj_contact_isValid;
+bool OAIEzsignsigner_RequestCompound::is_fki_userlogintype_id_Set() const{
+    return m_fki_userlogintype_id_isSet;
+}
+
+bool OAIEzsignsigner_RequestCompound::is_fki_userlogintype_id_Valid() const{
+    return m_fki_userlogintype_id_isValid;
 }
 
 qint32 OAIEzsignsigner_RequestCompound::getFkiTaxassignmentId() const {
@@ -182,10 +191,26 @@ bool OAIEzsignsigner_RequestCompound::is_s_ezsignsigner_secretanswer_Valid() con
     return m_s_ezsignsigner_secretanswer_isValid;
 }
 
+OAIEzsignsigner_RequestCompound_Contact OAIEzsignsigner_RequestCompound::getObjContact() const {
+    return obj_contact;
+}
+void OAIEzsignsigner_RequestCompound::setObjContact(const OAIEzsignsigner_RequestCompound_Contact &obj_contact) {
+    this->obj_contact = obj_contact;
+    this->m_obj_contact_isSet = true;
+}
+
+bool OAIEzsignsigner_RequestCompound::is_obj_contact_Set() const{
+    return m_obj_contact_isSet;
+}
+
+bool OAIEzsignsigner_RequestCompound::is_obj_contact_Valid() const{
+    return m_obj_contact_isValid;
+}
+
 bool OAIEzsignsigner_RequestCompound::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (obj_contact.isSet()) {
+        if (m_fki_userlogintype_id_isSet) {
             isObjectUpdated = true;
             break;
         }
@@ -209,13 +234,18 @@ bool OAIEzsignsigner_RequestCompound::isSet() const {
             isObjectUpdated = true;
             break;
         }
+
+        if (obj_contact.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
     } while (false);
     return isObjectUpdated;
 }
 
 bool OAIEzsignsigner_RequestCompound::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_obj_contact_isValid && m_fki_taxassignment_id_isValid && m_e_ezsignsigner_logintype_isValid && true;
+    return m_fki_taxassignment_id_isValid && m_obj_contact_isValid && true;
 }
 
 } // namespace OpenAPI

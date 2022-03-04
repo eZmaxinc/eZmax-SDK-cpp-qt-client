@@ -21,7 +21,7 @@
 
 #include <QJsonObject>
 
-#include "OAIEzsignformfieldgroup_ResponseCompound.h"
+#include "OAICustom_FormDataEzsignformfieldgroup_Response.h"
 #include <QList>
 #include <QString>
 
@@ -29,6 +29,7 @@
 #include "OAIObject.h"
 
 namespace OpenAPI {
+class OAICustom_FormDataEzsignformfieldgroup_Response;
 
 class OAICustom_FormDataSigner_Response : public OAIObject {
 public:
@@ -61,10 +62,10 @@ public:
     bool is_s_contact_lastname_Set() const;
     bool is_s_contact_lastname_Valid() const;
 
-    QList<OAIEzsignformfieldgroup_ResponseCompound> getAObjEzsignformfieldgroupCompound() const;
-    void setAObjEzsignformfieldgroupCompound(const QList<OAIEzsignformfieldgroup_ResponseCompound> &a_obj_ezsignformfieldgroup_compound);
-    bool is_a_obj_ezsignformfieldgroup_compound_Set() const;
-    bool is_a_obj_ezsignformfieldgroup_compound_Valid() const;
+    QList<OAICustom_FormDataEzsignformfieldgroup_Response> getAObjEzsignformfieldgroup() const;
+    void setAObjEzsignformfieldgroup(const QList<OAICustom_FormDataEzsignformfieldgroup_Response> &a_obj_ezsignformfieldgroup);
+    bool is_a_obj_ezsignformfieldgroup_Set() const;
+    bool is_a_obj_ezsignformfieldgroup_Valid() const;
 
     virtual bool isSet() const override;
     virtual bool isValid() const override;
@@ -88,9 +89,9 @@ private:
     bool m_s_contact_lastname_isSet;
     bool m_s_contact_lastname_isValid;
 
-    QList<OAIEzsignformfieldgroup_ResponseCompound> a_obj_ezsignformfieldgroup_compound;
-    bool m_a_obj_ezsignformfieldgroup_compound_isSet;
-    bool m_a_obj_ezsignformfieldgroup_compound_isValid;
+    QList<OAICustom_FormDataEzsignformfieldgroup_Response> a_obj_ezsignformfieldgroup;
+    bool m_a_obj_ezsignformfieldgroup_isSet;
+    bool m_a_obj_ezsignformfieldgroup_isValid;
 };
 
 } // namespace OpenAPI

@@ -34,12 +34,6 @@ OAIEzsignsignature_RequestCompound::~OAIEzsignsignature_RequestCompound() {}
 
 void OAIEzsignsignature_RequestCompound::initializeModel() {
 
-    m_b_ezsignsignature_customdate_isSet = false;
-    m_b_ezsignsignature_customdate_isValid = false;
-
-    m_a_obj_ezsignsignaturecustomdate_isSet = false;
-    m_a_obj_ezsignsignaturecustomdate_isValid = false;
-
     m_pki_ezsignsignature_id_isSet = false;
     m_pki_ezsignsignature_id_isValid = false;
 
@@ -63,6 +57,12 @@ void OAIEzsignsignature_RequestCompound::initializeModel() {
 
     m_fki_ezsigndocument_id_isSet = false;
     m_fki_ezsigndocument_id_isValid = false;
+
+    m_b_ezsignsignature_customdate_isSet = false;
+    m_b_ezsignsignature_customdate_isValid = false;
+
+    m_a_obj_ezsignsignaturecustomdate_isSet = false;
+    m_a_obj_ezsignsignaturecustomdate_isValid = false;
 }
 
 void OAIEzsignsignature_RequestCompound::fromJson(QString jsonString) {
@@ -73,12 +73,6 @@ void OAIEzsignsignature_RequestCompound::fromJson(QString jsonString) {
 }
 
 void OAIEzsignsignature_RequestCompound::fromJsonObject(QJsonObject json) {
-
-    m_b_ezsignsignature_customdate_isValid = ::OpenAPI::fromJsonValue(b_ezsignsignature_customdate, json[QString("bEzsignsignatureCustomdate")]);
-    m_b_ezsignsignature_customdate_isSet = !json[QString("bEzsignsignatureCustomdate")].isNull() && m_b_ezsignsignature_customdate_isValid;
-
-    m_a_obj_ezsignsignaturecustomdate_isValid = ::OpenAPI::fromJsonValue(a_obj_ezsignsignaturecustomdate, json[QString("a_objEzsignsignaturecustomdate")]);
-    m_a_obj_ezsignsignaturecustomdate_isSet = !json[QString("a_objEzsignsignaturecustomdate")].isNull() && m_a_obj_ezsignsignaturecustomdate_isValid;
 
     m_pki_ezsignsignature_id_isValid = ::OpenAPI::fromJsonValue(pki_ezsignsignature_id, json[QString("pkiEzsignsignatureID")]);
     m_pki_ezsignsignature_id_isSet = !json[QString("pkiEzsignsignatureID")].isNull() && m_pki_ezsignsignature_id_isValid;
@@ -103,6 +97,12 @@ void OAIEzsignsignature_RequestCompound::fromJsonObject(QJsonObject json) {
 
     m_fki_ezsigndocument_id_isValid = ::OpenAPI::fromJsonValue(fki_ezsigndocument_id, json[QString("fkiEzsigndocumentID")]);
     m_fki_ezsigndocument_id_isSet = !json[QString("fkiEzsigndocumentID")].isNull() && m_fki_ezsigndocument_id_isValid;
+
+    m_b_ezsignsignature_customdate_isValid = ::OpenAPI::fromJsonValue(b_ezsignsignature_customdate, json[QString("bEzsignsignatureCustomdate")]);
+    m_b_ezsignsignature_customdate_isSet = !json[QString("bEzsignsignatureCustomdate")].isNull() && m_b_ezsignsignature_customdate_isValid;
+
+    m_a_obj_ezsignsignaturecustomdate_isValid = ::OpenAPI::fromJsonValue(a_obj_ezsignsignaturecustomdate, json[QString("a_objEzsignsignaturecustomdate")]);
+    m_a_obj_ezsignsignaturecustomdate_isSet = !json[QString("a_objEzsignsignaturecustomdate")].isNull() && m_a_obj_ezsignsignaturecustomdate_isValid;
 }
 
 QString OAIEzsignsignature_RequestCompound::asJson() const {
@@ -114,12 +114,6 @@ QString OAIEzsignsignature_RequestCompound::asJson() const {
 
 QJsonObject OAIEzsignsignature_RequestCompound::asJsonObject() const {
     QJsonObject obj;
-    if (m_b_ezsignsignature_customdate_isSet) {
-        obj.insert(QString("bEzsignsignatureCustomdate"), ::OpenAPI::toJsonValue(b_ezsignsignature_customdate));
-    }
-    if (a_obj_ezsignsignaturecustomdate.size() > 0) {
-        obj.insert(QString("a_objEzsignsignaturecustomdate"), ::OpenAPI::toJsonValue(a_obj_ezsignsignaturecustomdate));
-    }
     if (m_pki_ezsignsignature_id_isSet) {
         obj.insert(QString("pkiEzsignsignatureID"), ::OpenAPI::toJsonValue(pki_ezsignsignature_id));
     }
@@ -144,39 +138,13 @@ QJsonObject OAIEzsignsignature_RequestCompound::asJsonObject() const {
     if (m_fki_ezsigndocument_id_isSet) {
         obj.insert(QString("fkiEzsigndocumentID"), ::OpenAPI::toJsonValue(fki_ezsigndocument_id));
     }
+    if (m_b_ezsignsignature_customdate_isSet) {
+        obj.insert(QString("bEzsignsignatureCustomdate"), ::OpenAPI::toJsonValue(b_ezsignsignature_customdate));
+    }
+    if (a_obj_ezsignsignaturecustomdate.size() > 0) {
+        obj.insert(QString("a_objEzsignsignaturecustomdate"), ::OpenAPI::toJsonValue(a_obj_ezsignsignaturecustomdate));
+    }
     return obj;
-}
-
-bool OAIEzsignsignature_RequestCompound::isBEzsignsignatureCustomdate() const {
-    return b_ezsignsignature_customdate;
-}
-void OAIEzsignsignature_RequestCompound::setBEzsignsignatureCustomdate(const bool &b_ezsignsignature_customdate) {
-    this->b_ezsignsignature_customdate = b_ezsignsignature_customdate;
-    this->m_b_ezsignsignature_customdate_isSet = true;
-}
-
-bool OAIEzsignsignature_RequestCompound::is_b_ezsignsignature_customdate_Set() const{
-    return m_b_ezsignsignature_customdate_isSet;
-}
-
-bool OAIEzsignsignature_RequestCompound::is_b_ezsignsignature_customdate_Valid() const{
-    return m_b_ezsignsignature_customdate_isValid;
-}
-
-QList<OAIEzsignsignaturecustomdate_Request> OAIEzsignsignature_RequestCompound::getAObjEzsignsignaturecustomdate() const {
-    return a_obj_ezsignsignaturecustomdate;
-}
-void OAIEzsignsignature_RequestCompound::setAObjEzsignsignaturecustomdate(const QList<OAIEzsignsignaturecustomdate_Request> &a_obj_ezsignsignaturecustomdate) {
-    this->a_obj_ezsignsignaturecustomdate = a_obj_ezsignsignaturecustomdate;
-    this->m_a_obj_ezsignsignaturecustomdate_isSet = true;
-}
-
-bool OAIEzsignsignature_RequestCompound::is_a_obj_ezsignsignaturecustomdate_Set() const{
-    return m_a_obj_ezsignsignaturecustomdate_isSet;
-}
-
-bool OAIEzsignsignature_RequestCompound::is_a_obj_ezsignsignaturecustomdate_Valid() const{
-    return m_a_obj_ezsignsignaturecustomdate_isValid;
 }
 
 qint32 OAIEzsignsignature_RequestCompound::getPkiEzsignsignatureId() const {
@@ -307,19 +275,41 @@ bool OAIEzsignsignature_RequestCompound::is_fki_ezsigndocument_id_Valid() const{
     return m_fki_ezsigndocument_id_isValid;
 }
 
+bool OAIEzsignsignature_RequestCompound::isBEzsignsignatureCustomdate() const {
+    return b_ezsignsignature_customdate;
+}
+void OAIEzsignsignature_RequestCompound::setBEzsignsignatureCustomdate(const bool &b_ezsignsignature_customdate) {
+    this->b_ezsignsignature_customdate = b_ezsignsignature_customdate;
+    this->m_b_ezsignsignature_customdate_isSet = true;
+}
+
+bool OAIEzsignsignature_RequestCompound::is_b_ezsignsignature_customdate_Set() const{
+    return m_b_ezsignsignature_customdate_isSet;
+}
+
+bool OAIEzsignsignature_RequestCompound::is_b_ezsignsignature_customdate_Valid() const{
+    return m_b_ezsignsignature_customdate_isValid;
+}
+
+QList<OAIEzsignsignaturecustomdate_RequestCompound> OAIEzsignsignature_RequestCompound::getAObjEzsignsignaturecustomdate() const {
+    return a_obj_ezsignsignaturecustomdate;
+}
+void OAIEzsignsignature_RequestCompound::setAObjEzsignsignaturecustomdate(const QList<OAIEzsignsignaturecustomdate_RequestCompound> &a_obj_ezsignsignaturecustomdate) {
+    this->a_obj_ezsignsignaturecustomdate = a_obj_ezsignsignaturecustomdate;
+    this->m_a_obj_ezsignsignaturecustomdate_isSet = true;
+}
+
+bool OAIEzsignsignature_RequestCompound::is_a_obj_ezsignsignaturecustomdate_Set() const{
+    return m_a_obj_ezsignsignaturecustomdate_isSet;
+}
+
+bool OAIEzsignsignature_RequestCompound::is_a_obj_ezsignsignaturecustomdate_Valid() const{
+    return m_a_obj_ezsignsignaturecustomdate_isValid;
+}
+
 bool OAIEzsignsignature_RequestCompound::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (m_b_ezsignsignature_customdate_isSet) {
-            isObjectUpdated = true;
-            break;
-        }
-
-        if (a_obj_ezsignsignaturecustomdate.size() > 0) {
-            isObjectUpdated = true;
-            break;
-        }
-
         if (m_pki_ezsignsignature_id_isSet) {
             isObjectUpdated = true;
             break;
@@ -356,6 +346,16 @@ bool OAIEzsignsignature_RequestCompound::isSet() const {
         }
 
         if (m_fki_ezsigndocument_id_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_b_ezsignsignature_customdate_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (a_obj_ezsignsignaturecustomdate.size() > 0) {
             isObjectUpdated = true;
             break;
         }

@@ -27,6 +27,7 @@
 #include "OAIObject.h"
 
 namespace OpenAPI {
+class OAIFranchisereferalincome_createObject_v1_Response_mPayload;
 
 class OAIFranchisereferalincome_createObject_v1_Response_allOf : public OAIObject {
 public:

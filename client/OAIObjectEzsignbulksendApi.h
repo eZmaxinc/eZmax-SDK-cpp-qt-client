@@ -19,6 +19,7 @@
 #include "OAIOauth.h"
 
 #include "OAICommon_Response_Error.h"
+#include "OAIEzsignbulksend_getEzsignbulksendtransmissions_v1_Response.h"
 #include "OAIEzsignbulksend_getList_v1_Response.h"
 #include "OAIEzsignbulksend_getObject_v1_Response.h"
 #include "OAIHeader_Accept_Language.h"
@@ -62,6 +63,11 @@ public:
     QString getParamStyleDelimiter(const QString &style, const QString &name, bool isExplode);
 
     /**
+    * @param[in]  pki_ezsignbulksend_id qint32 [required]
+    */
+    void ezsignbulksendGetEzsignbulksendtransmissionsV1(const qint32 &pki_ezsignbulksend_id);
+
+    /**
     * @param[in]  e_order_by QString [optional]
     * @param[in]  i_row_max qint32 [optional]
     * @param[in]  i_row_offset qint32 [optional]
@@ -98,20 +104,25 @@ private:
     OauthPassword _passwordFlow;
     int _OauthMethod = 0;
 
+    void ezsignbulksendGetEzsignbulksendtransmissionsV1Callback(OAIHttpRequestWorker *worker);
     void ezsignbulksendGetListV1Callback(OAIHttpRequestWorker *worker);
     void ezsignbulksendGetObjectV1Callback(OAIHttpRequestWorker *worker);
 
 signals:
 
+    void ezsignbulksendGetEzsignbulksendtransmissionsV1Signal(OAIEzsignbulksend_getEzsignbulksendtransmissions_v1_Response summary);
     void ezsignbulksendGetListV1Signal(OAIEzsignbulksend_getList_v1_Response summary);
     void ezsignbulksendGetObjectV1Signal(OAIEzsignbulksend_getObject_v1_Response summary);
 
+    void ezsignbulksendGetEzsignbulksendtransmissionsV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsignbulksend_getEzsignbulksendtransmissions_v1_Response summary);
     void ezsignbulksendGetListV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsignbulksend_getList_v1_Response summary);
     void ezsignbulksendGetObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsignbulksend_getObject_v1_Response summary);
 
+    void ezsignbulksendGetEzsignbulksendtransmissionsV1SignalE(OAIEzsignbulksend_getEzsignbulksendtransmissions_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignbulksendGetListV1SignalE(OAIEzsignbulksend_getList_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignbulksendGetObjectV1SignalE(OAIEzsignbulksend_getObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
 
+    void ezsignbulksendGetEzsignbulksendtransmissionsV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignbulksendGetListV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignbulksendGetObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
 

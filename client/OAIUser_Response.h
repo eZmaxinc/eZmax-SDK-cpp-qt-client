@@ -29,6 +29,7 @@
 #include "OAIObject.h"
 
 namespace OpenAPI {
+class OAICommon_Audit;
 
 class OAIUser_Response : public OAIObject {
 public:

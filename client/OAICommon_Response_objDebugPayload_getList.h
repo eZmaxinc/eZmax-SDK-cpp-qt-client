@@ -32,6 +32,7 @@
 #include "OAIObject.h"
 
 namespace OpenAPI {
+class OAICommon_Response_Filter;
 
 class OAICommon_Response_objDebugPayload_getList : public OAIObject {
 public:

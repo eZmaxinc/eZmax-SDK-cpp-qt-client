@@ -13,7 +13,7 @@
 /*
  * OAICustom_AutocompleteElement_Response.h
  *
- * Generic Autocomplete Response
+ * Generic AutocompleteElement Response
  */
 
 #ifndef OAICustom_AutocompleteElement_Response_H

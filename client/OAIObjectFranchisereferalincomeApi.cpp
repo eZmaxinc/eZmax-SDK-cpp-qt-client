@@ -353,7 +353,7 @@ void OAIObjectFranchisereferalincomeApi::tokenAvailable(){
             _latestWorker->execute(&_latestInput);
         }else{
             _implicitFlow.removeToken(_latestScope.join(" "));
-            qDebug() << "Could not retreive a valid token";
+            qDebug() << "Could not retrieve a valid token";
         }
         break;
     case 2: //authorization flow
@@ -363,7 +363,7 @@ void OAIObjectFranchisereferalincomeApi::tokenAvailable(){
             _latestWorker->execute(&_latestInput);
         }else{
             _authFlow.removeToken(_latestScope.join(" "));    
-            qDebug() << "Could not retreive a valid token";
+            qDebug() << "Could not retrieve a valid token";
         }
         break;
     case 3: //client credentials flow
@@ -373,7 +373,7 @@ void OAIObjectFranchisereferalincomeApi::tokenAvailable(){
             _latestWorker->execute(&_latestInput);
         }else{
             _credentialFlow.removeToken(_latestScope.join(" "));    
-            qDebug() << "Could not retreive a valid token";
+            qDebug() << "Could not retrieve a valid token";
         }
         break;
     case 4: //resource owner password flow
@@ -383,7 +383,7 @@ void OAIObjectFranchisereferalincomeApi::tokenAvailable(){
             _latestWorker->execute(&_latestInput);
         }else{
             _credentialFlow.removeToken(_latestScope.join(" "));    
-            qDebug() << "Could not retreive a valid token";
+            qDebug() << "Could not retrieve a valid token";
         }
         break;
     default:

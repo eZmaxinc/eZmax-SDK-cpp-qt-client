@@ -29,6 +29,7 @@
 #include "OAIObject.h"
 
 namespace OpenAPI {
+class OAICommon_Response_objSQLQuery;
 
 class OAICommon_Response_objDebug : public OAIObject {
 public:

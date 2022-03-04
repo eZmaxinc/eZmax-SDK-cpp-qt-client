@@ -27,6 +27,7 @@
 #include "OAIObject.h"
 
 namespace OpenAPI {
+class OAIActivesession_getCurrent_v1_Response_mPayload;
 
 class OAIActivesession_getCurrent_v1_Response_allOf : public OAIObject {
 public:

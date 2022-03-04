@@ -29,6 +29,8 @@
 #include "OAIObject.h"
 
 namespace OpenAPI {
+class OAIMultilingual_ApikeyDescription;
+class OAICommon_Audit;
 
 class OAIApikey_Response : public OAIObject {
 public:

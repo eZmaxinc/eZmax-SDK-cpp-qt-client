@@ -21,12 +21,13 @@
 
 #include <QJsonObject>
 
-#include "OAIUser_Response.h"
+#include "OAIUser_ResponseCompound.h"
 
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
 namespace OpenAPI {
+class OAIUser_ResponseCompound;
 
 class OAIWebhook_User_UserCreated_allOf : public OAIObject {
 public:
@@ -39,8 +40,8 @@ public:
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    OAIUser_Response getObjUser() const;
-    void setObjUser(const OAIUser_Response &obj_user);
+    OAIUser_ResponseCompound getObjUser() const;
+    void setObjUser(const OAIUser_ResponseCompound &obj_user);
     bool is_obj_user_Set() const;
     bool is_obj_user_Valid() const;
 
@@ -50,7 +51,7 @@ public:
 private:
     void initializeModel();
 
-    OAIUser_Response obj_user;
+    OAIUser_ResponseCompound obj_user;
     bool m_obj_user_isSet;
     bool m_obj_user_isValid;
 };

@@ -91,10 +91,10 @@ bool OAIEzsignsignature_RequestCompound_allOf::is_b_ezsignsignature_customdate_V
     return m_b_ezsignsignature_customdate_isValid;
 }
 
-QList<OAIEzsignsignaturecustomdate_Request> OAIEzsignsignature_RequestCompound_allOf::getAObjEzsignsignaturecustomdate() const {
+QList<OAIEzsignsignaturecustomdate_RequestCompound> OAIEzsignsignature_RequestCompound_allOf::getAObjEzsignsignaturecustomdate() const {
     return a_obj_ezsignsignaturecustomdate;
 }
-void OAIEzsignsignature_RequestCompound_allOf::setAObjEzsignsignaturecustomdate(const QList<OAIEzsignsignaturecustomdate_Request> &a_obj_ezsignsignaturecustomdate) {
+void OAIEzsignsignature_RequestCompound_allOf::setAObjEzsignsignaturecustomdate(const QList<OAIEzsignsignaturecustomdate_RequestCompound> &a_obj_ezsignsignaturecustomdate) {
     this->a_obj_ezsignsignaturecustomdate = a_obj_ezsignsignaturecustomdate;
     this->m_a_obj_ezsignsignaturecustomdate_isSet = true;
 }

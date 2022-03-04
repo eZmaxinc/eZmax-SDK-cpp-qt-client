@@ -30,6 +30,7 @@
 #include "OAIObject.h"
 
 namespace OpenAPI {
+class OAIEzsignbulksend_ListElement;
 
 class OAIEzsignbulksend_getList_v1_Response_mPayload : public OAIObject {
 public:

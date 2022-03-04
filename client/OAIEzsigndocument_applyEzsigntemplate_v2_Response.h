@@ -29,6 +29,8 @@
 #include "OAIObject.h"
 
 namespace OpenAPI {
+class OAICommon_Response_objDebugPayload;
+class OAICommon_Response_objDebug;
 
 class OAIEzsigndocument_applyEzsigntemplate_v2_Response : public OAIObject {
 public:

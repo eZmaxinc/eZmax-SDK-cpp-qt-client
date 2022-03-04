@@ -21,13 +21,14 @@
 
 #include <QJsonObject>
 
-#include "OAIApikey_Response.h"
+#include "OAIApikey_ResponseCompound.h"
 #include <QList>
 
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
 namespace OpenAPI {
+class OAIApikey_ResponseCompound;
 
 class OAIApikey_createObject_v2_Response_mPayload : public OAIObject {
 public:
@@ -40,8 +41,8 @@ public:
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    QList<OAIApikey_Response> getAObjApikey() const;
-    void setAObjApikey(const QList<OAIApikey_Response> &a_obj_apikey);
+    QList<OAIApikey_ResponseCompound> getAObjApikey() const;
+    void setAObjApikey(const QList<OAIApikey_ResponseCompound> &a_obj_apikey);
     bool is_a_obj_apikey_Set() const;
     bool is_a_obj_apikey_Valid() const;
 
@@ -51,7 +52,7 @@ public:
 private:
     void initializeModel();
 
-    QList<OAIApikey_Response> a_obj_apikey;
+    QList<OAIApikey_ResponseCompound> a_obj_apikey;
     bool m_a_obj_apikey_isSet;
     bool m_a_obj_apikey_isValid;
 };

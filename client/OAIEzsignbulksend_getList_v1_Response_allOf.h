@@ -27,6 +27,7 @@
 #include "OAIObject.h"
 
 namespace OpenAPI {
+class OAIEzsignbulksend_getList_v1_Response_mPayload;
 
 class OAIEzsignbulksend_getList_v1_Response_allOf : public OAIObject {
 public:

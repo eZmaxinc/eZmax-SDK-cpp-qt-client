@@ -27,6 +27,7 @@
 #include "OAIObject.h"
 
 namespace OpenAPI {
+class OAIEzsigndocument_getFormData_v1_Response_mPayload;
 
 class OAIEzsigndocument_getFormData_v1_Response_allOf : public OAIObject {
 public:

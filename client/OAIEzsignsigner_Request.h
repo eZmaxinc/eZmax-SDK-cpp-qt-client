@@ -39,6 +39,11 @@ public:
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
+    qint32 getFkiUserlogintypeId() const;
+    void setFkiUserlogintypeId(const qint32 &fki_userlogintype_id);
+    bool is_fki_userlogintype_id_Set() const;
+    bool is_fki_userlogintype_id_Valid() const;
+
     qint32 getFkiTaxassignmentId() const;
     void setFkiTaxassignmentId(const qint32 &fki_taxassignment_id);
     bool is_fki_taxassignment_id_Set() const;
@@ -49,10 +54,10 @@ public:
     bool is_fki_secretquestion_id_Set() const;
     bool is_fki_secretquestion_id_Valid() const;
 
-    QString getEEzsignsignerLogintype() const;
-    void setEEzsignsignerLogintype(const QString &e_ezsignsigner_logintype);
-    bool is_e_ezsignsigner_logintype_Set() const;
-    bool is_e_ezsignsigner_logintype_Valid() const;
+    Q_DECL_DEPRECATED QString getEEzsignsignerLogintype() const;
+    Q_DECL_DEPRECATED void setEEzsignsignerLogintype(const QString &e_ezsignsigner_logintype);
+    Q_DECL_DEPRECATED bool is_e_ezsignsigner_logintype_Set() const;
+    Q_DECL_DEPRECATED bool is_e_ezsignsigner_logintype_Valid() const;
 
     QString getSEzsignsignerSecretanswer() const;
     void setSEzsignsignerSecretanswer(const QString &s_ezsignsigner_secretanswer);
@@ -64,6 +69,10 @@ public:
 
 private:
     void initializeModel();
+
+    qint32 fki_userlogintype_id;
+    bool m_fki_userlogintype_id_isSet;
+    bool m_fki_userlogintype_id_isValid;
 
     qint32 fki_taxassignment_id;
     bool m_fki_taxassignment_id_isSet;
