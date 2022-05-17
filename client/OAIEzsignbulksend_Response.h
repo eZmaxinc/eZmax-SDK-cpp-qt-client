@@ -1,5 +1,5 @@
 /**
- * eZmax API Definition
+ * eZmax API Definition (Full)
  * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
  * The version of the OpenAPI document: 1.1.7
@@ -56,6 +56,16 @@ public:
     bool is_fki_language_id_Set() const;
     bool is_fki_language_id_Valid() const;
 
+    QString getSLanguageNameX() const;
+    void setSLanguageNameX(const QString &s_language_name_x);
+    bool is_s_language_name_x_Set() const;
+    bool is_s_language_name_x_Valid() const;
+
+    QString getSEzsignfoldertypeNameX() const;
+    void setSEzsignfoldertypeNameX(const QString &s_ezsignfoldertype_name_x);
+    bool is_s_ezsignfoldertype_name_x_Set() const;
+    bool is_s_ezsignfoldertype_name_x_Valid() const;
+
     QString getSEzsignbulksendDescription() const;
     void setSEzsignbulksendDescription(const QString &s_ezsignbulksend_description);
     bool is_s_ezsignbulksend_description_Set() const;
@@ -65,6 +75,11 @@ public:
     void setTEzsignbulksendNote(const QString &t_ezsignbulksend_note);
     bool is_t_ezsignbulksend_note_Set() const;
     bool is_t_ezsignbulksend_note_Valid() const;
+
+    bool isBEzsignbulksendNeedvalidation() const;
+    void setBEzsignbulksendNeedvalidation(const bool &b_ezsignbulksend_needvalidation);
+    bool is_b_ezsignbulksend_needvalidation_Set() const;
+    bool is_b_ezsignbulksend_needvalidation_Valid() const;
 
     bool isBEzsignbulksendIsactive() const;
     void setBEzsignbulksendIsactive(const bool &b_ezsignbulksend_isactive);
@@ -94,6 +109,14 @@ private:
     bool m_fki_language_id_isSet;
     bool m_fki_language_id_isValid;
 
+    QString s_language_name_x;
+    bool m_s_language_name_x_isSet;
+    bool m_s_language_name_x_isValid;
+
+    QString s_ezsignfoldertype_name_x;
+    bool m_s_ezsignfoldertype_name_x_isSet;
+    bool m_s_ezsignfoldertype_name_x_isValid;
+
     QString s_ezsignbulksend_description;
     bool m_s_ezsignbulksend_description_isSet;
     bool m_s_ezsignbulksend_description_isValid;
@@ -101,6 +124,10 @@ private:
     QString t_ezsignbulksend_note;
     bool m_t_ezsignbulksend_note_isSet;
     bool m_t_ezsignbulksend_note_isValid;
+
+    bool b_ezsignbulksend_needvalidation;
+    bool m_b_ezsignbulksend_needvalidation_isSet;
+    bool m_b_ezsignbulksend_needvalidation_isValid;
 
     bool b_ezsignbulksend_isactive;
     bool m_b_ezsignbulksend_isactive_isSet;

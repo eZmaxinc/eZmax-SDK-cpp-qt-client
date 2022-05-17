@@ -1,5 +1,5 @@
 /**
- * eZmax API Definition
+ * eZmax API Definition (Full)
  * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
  * The version of the OpenAPI document: 1.1.7
@@ -13,7 +13,7 @@
 /*
  * OAIEzsignsignature_getObject_v1_Response_mPayload.h
  *
- * Payload for the /1/object/ezsignsignature/getObject API Request
+ * Payload for GET /1/object/ezsignsignature/{pkiEzsignsignatureID}
  */
 
 #ifndef OAIEzsignsignature_getObject_v1_Response_mPayload_H
@@ -23,8 +23,11 @@
 
 #include "OAIEzsignsignature_ResponseCompound.h"
 #include "OAIEzsignsignaturecustomdate_ResponseCompound.h"
+#include "OAIField_eEzsignsignatureFont.h"
+#include "OAIField_eEzsignsignatureTooltipposition.h"
 #include "OAIField_eEzsignsignatureType.h"
 #include <QList>
+#include <QString>
 
 #include "OAIEnum.h"
 #include "OAIObject.h"
@@ -47,6 +50,11 @@ public:
     void setPkiEzsignsignatureId(const qint32 &pki_ezsignsignature_id);
     bool is_pki_ezsignsignature_id_Set() const;
     bool is_pki_ezsignsignature_id_Valid() const;
+
+    qint32 getFkiEzsigndocumentId() const;
+    void setFkiEzsigndocumentId(const qint32 &fki_ezsigndocument_id);
+    bool is_fki_ezsigndocument_id_Set() const;
+    bool is_fki_ezsigndocument_id_Valid() const;
 
     qint32 getFkiEzsignfoldersignerassociationId() const;
     void setFkiEzsignfoldersignerassociationId(const qint32 &fki_ezsignfoldersignerassociation_id);
@@ -78,10 +86,20 @@ public:
     bool is_e_ezsignsignature_type_Set() const;
     bool is_e_ezsignsignature_type_Valid() const;
 
-    qint32 getFkiEzsigndocumentId() const;
-    void setFkiEzsigndocumentId(const qint32 &fki_ezsigndocument_id);
-    bool is_fki_ezsigndocument_id_Set() const;
-    bool is_fki_ezsigndocument_id_Valid() const;
+    QString getTEzsignsignatureTooltip() const;
+    void setTEzsignsignatureTooltip(const QString &t_ezsignsignature_tooltip);
+    bool is_t_ezsignsignature_tooltip_Set() const;
+    bool is_t_ezsignsignature_tooltip_Valid() const;
+
+    OAIField_eEzsignsignatureTooltipposition getEEzsignsignatureTooltipposition() const;
+    void setEEzsignsignatureTooltipposition(const OAIField_eEzsignsignatureTooltipposition &e_ezsignsignature_tooltipposition);
+    bool is_e_ezsignsignature_tooltipposition_Set() const;
+    bool is_e_ezsignsignature_tooltipposition_Valid() const;
+
+    OAIField_eEzsignsignatureFont getEEzsignsignatureFont() const;
+    void setEEzsignsignatureFont(const OAIField_eEzsignsignatureFont &e_ezsignsignature_font);
+    bool is_e_ezsignsignature_font_Set() const;
+    bool is_e_ezsignsignature_font_Valid() const;
 
     bool isBEzsignsignatureCustomdate() const;
     void setBEzsignsignatureCustomdate(const bool &b_ezsignsignature_customdate);
@@ -102,6 +120,10 @@ private:
     qint32 pki_ezsignsignature_id;
     bool m_pki_ezsignsignature_id_isSet;
     bool m_pki_ezsignsignature_id_isValid;
+
+    qint32 fki_ezsigndocument_id;
+    bool m_fki_ezsigndocument_id_isSet;
+    bool m_fki_ezsigndocument_id_isValid;
 
     qint32 fki_ezsignfoldersignerassociation_id;
     bool m_fki_ezsignfoldersignerassociation_id_isSet;
@@ -127,9 +149,17 @@ private:
     bool m_e_ezsignsignature_type_isSet;
     bool m_e_ezsignsignature_type_isValid;
 
-    qint32 fki_ezsigndocument_id;
-    bool m_fki_ezsigndocument_id_isSet;
-    bool m_fki_ezsigndocument_id_isValid;
+    QString t_ezsignsignature_tooltip;
+    bool m_t_ezsignsignature_tooltip_isSet;
+    bool m_t_ezsignsignature_tooltip_isValid;
+
+    OAIField_eEzsignsignatureTooltipposition e_ezsignsignature_tooltipposition;
+    bool m_e_ezsignsignature_tooltipposition_isSet;
+    bool m_e_ezsignsignature_tooltipposition_isValid;
+
+    OAIField_eEzsignsignatureFont e_ezsignsignature_font;
+    bool m_e_ezsignsignature_font_isSet;
+    bool m_e_ezsignsignature_font_isValid;
 
     bool b_ezsignsignature_customdate;
     bool m_b_ezsignsignature_customdate_isSet;

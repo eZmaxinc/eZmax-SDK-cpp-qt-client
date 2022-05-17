@@ -1,5 +1,5 @@
 /**
- * eZmax API Definition
+ * eZmax API Definition (Full)
  * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
  * The version of the OpenAPI document: 1.1.7
@@ -60,16 +60,16 @@ QString OAIEzsigndocument_getTemporaryProof_v1_Response_mPayload::asJson() const
 
 QJsonObject OAIEzsigndocument_getTemporaryProof_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_ezsigndocumentlog.isSet()) {
+    if (a_obj_ezsigndocumentlog.size() > 0) {
         obj.insert(QString("a_objEzsigndocumentlog"), ::OpenAPI::toJsonValue(a_obj_ezsigndocumentlog));
     }
     return obj;
 }
 
-OAIEzsigndocumentlog_ResponseCompound OAIEzsigndocument_getTemporaryProof_v1_Response_mPayload::getAObjEzsigndocumentlog() const {
+QList<OAIEzsigndocumentlog_ResponseCompound> OAIEzsigndocument_getTemporaryProof_v1_Response_mPayload::getAObjEzsigndocumentlog() const {
     return a_obj_ezsigndocumentlog;
 }
-void OAIEzsigndocument_getTemporaryProof_v1_Response_mPayload::setAObjEzsigndocumentlog(const OAIEzsigndocumentlog_ResponseCompound &a_obj_ezsigndocumentlog) {
+void OAIEzsigndocument_getTemporaryProof_v1_Response_mPayload::setAObjEzsigndocumentlog(const QList<OAIEzsigndocumentlog_ResponseCompound> &a_obj_ezsigndocumentlog) {
     this->a_obj_ezsigndocumentlog = a_obj_ezsigndocumentlog;
     this->m_a_obj_ezsigndocumentlog_isSet = true;
 }
@@ -85,7 +85,7 @@ bool OAIEzsigndocument_getTemporaryProof_v1_Response_mPayload::is_a_obj_ezsigndo
 bool OAIEzsigndocument_getTemporaryProof_v1_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_ezsigndocumentlog.isSet()) {
+        if (a_obj_ezsigndocumentlog.size() > 0) {
             isObjectUpdated = true;
             break;
         }

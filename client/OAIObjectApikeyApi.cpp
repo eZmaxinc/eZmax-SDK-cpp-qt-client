@@ -1,5 +1,5 @@
 /**
- * eZmax API Definition
+ * eZmax API Definition (Full)
  * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
  * The version of the OpenAPI document: 1.1.7
@@ -43,7 +43,7 @@ void OAIObjectApikeyApi::initializeServerConfigs() {
     QSet<QString>{ {"ca-central-1"} })}, }));
     
     defaultConf.append(OAIServerConfiguration(
-    QUrl("https://{sInfrastructureenvironmenttypeDescription}.api.global.ezmax.com/"),
+    QUrl("https://{sInfrastructureenvironmenttypeDescription}.api.global.ezmax.com"),
     "The server endpoint where to send your global API requests.",
     QMap<QString, OAIServerVariable>{ 
     {"sInfrastructureenvironmenttypeDescription", OAIServerVariable("The environment on on which to call the API. Should always be "prod" unless instructed otherwise by support.","prod",
@@ -299,6 +299,7 @@ void OAIObjectApikeyApi::apikeyCreateObjectV2(const OAIApikey_createObject_v2_Re
 
     {
 
+        
         QByteArray output = oai_apikey_create_object_v2_request.asJson().toUtf8();
         input.request_body.append(output);
     }

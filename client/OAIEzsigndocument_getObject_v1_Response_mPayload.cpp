@@ -1,5 +1,5 @@
 /**
- * eZmax API Definition
+ * eZmax API Definition (Full)
  * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
  * The version of the OpenAPI document: 1.1.7
@@ -76,6 +76,9 @@ void OAIEzsigndocument_getObject_v1_Response_mPayload::initializeModel() {
     m_s_ezsigndocument_md5signed_isSet = false;
     m_s_ezsigndocument_md5signed_isValid = false;
 
+    m_b_ezsigndocument_ezsignform_isSet = false;
+    m_b_ezsigndocument_ezsignform_isValid = false;
+
     m_obj_audit_isSet = false;
     m_obj_audit_isValid = false;
 
@@ -146,6 +149,9 @@ void OAIEzsigndocument_getObject_v1_Response_mPayload::fromJsonObject(QJsonObjec
     m_s_ezsigndocument_md5signed_isValid = ::OpenAPI::fromJsonValue(s_ezsigndocument_md5signed, json[QString("sEzsigndocumentMD5signed")]);
     m_s_ezsigndocument_md5signed_isSet = !json[QString("sEzsigndocumentMD5signed")].isNull() && m_s_ezsigndocument_md5signed_isValid;
 
+    m_b_ezsigndocument_ezsignform_isValid = ::OpenAPI::fromJsonValue(b_ezsigndocument_ezsignform, json[QString("bEzsigndocumentEzsignform")]);
+    m_b_ezsigndocument_ezsignform_isSet = !json[QString("bEzsigndocumentEzsignform")].isNull() && m_b_ezsigndocument_ezsignform_isValid;
+
     m_obj_audit_isValid = ::OpenAPI::fromJsonValue(obj_audit, json[QString("objAudit")]);
     m_obj_audit_isSet = !json[QString("objAudit")].isNull() && m_obj_audit_isValid;
 
@@ -215,6 +221,9 @@ QJsonObject OAIEzsigndocument_getObject_v1_Response_mPayload::asJsonObject() con
     }
     if (m_s_ezsigndocument_md5signed_isSet) {
         obj.insert(QString("sEzsigndocumentMD5signed"), ::OpenAPI::toJsonValue(s_ezsigndocument_md5signed));
+    }
+    if (m_b_ezsigndocument_ezsignform_isSet) {
+        obj.insert(QString("bEzsigndocumentEzsignform"), ::OpenAPI::toJsonValue(b_ezsigndocument_ezsignform));
     }
     if (obj_audit.isSet()) {
         obj.insert(QString("objAudit"), ::OpenAPI::toJsonValue(obj_audit));
@@ -461,6 +470,22 @@ bool OAIEzsigndocument_getObject_v1_Response_mPayload::is_s_ezsigndocument_md5si
     return m_s_ezsigndocument_md5signed_isValid;
 }
 
+bool OAIEzsigndocument_getObject_v1_Response_mPayload::isBEzsigndocumentEzsignform() const {
+    return b_ezsigndocument_ezsignform;
+}
+void OAIEzsigndocument_getObject_v1_Response_mPayload::setBEzsigndocumentEzsignform(const bool &b_ezsigndocument_ezsignform) {
+    this->b_ezsigndocument_ezsignform = b_ezsigndocument_ezsignform;
+    this->m_b_ezsigndocument_ezsignform_isSet = true;
+}
+
+bool OAIEzsigndocument_getObject_v1_Response_mPayload::is_b_ezsigndocument_ezsignform_Set() const{
+    return m_b_ezsigndocument_ezsignform_isSet;
+}
+
+bool OAIEzsigndocument_getObject_v1_Response_mPayload::is_b_ezsigndocument_ezsignform_Valid() const{
+    return m_b_ezsigndocument_ezsignform_isValid;
+}
+
 OAICommon_Audit OAIEzsigndocument_getObject_v1_Response_mPayload::getObjAudit() const {
     return obj_audit;
 }
@@ -630,6 +655,11 @@ bool OAIEzsigndocument_getObject_v1_Response_mPayload::isSet() const {
             break;
         }
 
+        if (m_b_ezsigndocument_ezsignform_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (obj_audit.isSet()) {
             isObjectUpdated = true;
             break;
@@ -665,7 +695,7 @@ bool OAIEzsigndocument_getObject_v1_Response_mPayload::isSet() const {
 
 bool OAIEzsigndocument_getObject_v1_Response_mPayload::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_fki_ezsignfolder_id_isValid && m_dt_ezsigndocument_duedate_isValid && m_fki_language_id_isValid && m_s_ezsigndocument_name_isValid && m_pki_ezsigndocument_id_isValid && m_e_ezsigndocument_step_isValid && m_dt_ezsigndocument_firstsend_isValid && m_dt_ezsigndocument_lastsend_isValid && m_i_ezsigndocument_order_isValid && m_i_ezsigndocument_pagetotal_isValid && m_i_ezsigndocument_signaturesigned_isValid && m_i_ezsigndocument_signaturetotal_isValid && m_s_ezsigndocument_md5initial_isValid && m_s_ezsigndocument_md5signed_isValid && m_obj_audit_isValid && m_i_ezsigndocument_stepformtotal_isValid && m_i_ezsigndocument_stepformcurrent_isValid && m_i_ezsigndocument_stepsignaturetotal_isValid && m_i_ezsigndocument_stepsignature_current_isValid && m_a_obj_ezsignfoldersignerassociationstatus_isValid && true;
+    return m_fki_ezsignfolder_id_isValid && m_dt_ezsigndocument_duedate_isValid && m_fki_language_id_isValid && m_s_ezsigndocument_name_isValid && m_pki_ezsigndocument_id_isValid && m_e_ezsigndocument_step_isValid && m_dt_ezsigndocument_firstsend_isValid && m_dt_ezsigndocument_lastsend_isValid && m_i_ezsigndocument_order_isValid && m_i_ezsigndocument_pagetotal_isValid && m_i_ezsigndocument_signaturesigned_isValid && m_i_ezsigndocument_signaturetotal_isValid && m_s_ezsigndocument_md5initial_isValid && m_s_ezsigndocument_md5signed_isValid && m_b_ezsigndocument_ezsignform_isValid && m_obj_audit_isValid && m_i_ezsigndocument_stepformtotal_isValid && m_i_ezsigndocument_stepformcurrent_isValid && m_i_ezsigndocument_stepsignaturetotal_isValid && m_i_ezsigndocument_stepsignature_current_isValid && m_a_obj_ezsignfoldersignerassociationstatus_isValid && true;
 }
 
 } // namespace OpenAPI

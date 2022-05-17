@@ -1,5 +1,5 @@
 /**
- * eZmax API Definition
+ * eZmax API Definition (Full)
  * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
  * The version of the OpenAPI document: 1.1.7
@@ -13,7 +13,7 @@
 /*
  * OAIActivesession_ResponseCompound.h
  *
- * Payload for the /1/object/activesession/getCurrent API Request
+ * Payload for GET /1/object/activesession/getCurrent
  */
 
 #ifndef OAIActivesession_ResponseCompound_H
@@ -25,7 +25,7 @@
 #include "OAIActivesession_ResponseCompound_Apikey.h"
 #include "OAIActivesession_ResponseCompound_User.h"
 #include "OAIActivesession_ResponseCompound_allOf.h"
-#include "OAIField_eActivesessionSessiontype.h"
+#include "OAIField_eActivesessionUsertype.h"
 #include "OAIField_eActivesessionWeekdaystart.h"
 #include <QList>
 #include <QString>
@@ -48,10 +48,10 @@ public:
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    OAIField_eActivesessionSessiontype getEActivesessionSessiontype() const;
-    void setEActivesessionSessiontype(const OAIField_eActivesessionSessiontype &e_activesession_sessiontype);
-    bool is_e_activesession_sessiontype_Set() const;
-    bool is_e_activesession_sessiontype_Valid() const;
+    OAIField_eActivesessionUsertype getEActivesessionUsertype() const;
+    void setEActivesessionUsertype(const OAIField_eActivesessionUsertype &e_activesession_usertype);
+    bool is_e_activesession_usertype_Set() const;
+    bool is_e_activesession_usertype_Valid() const;
 
     OAIField_eActivesessionWeekdaystart getEActivesessionWeekdaystart() const;
     void setEActivesessionWeekdaystart(const OAIField_eActivesessionWeekdaystart &e_activesession_weekdaystart);
@@ -114,9 +114,9 @@ public:
 private:
     void initializeModel();
 
-    OAIField_eActivesessionSessiontype e_activesession_sessiontype;
-    bool m_e_activesession_sessiontype_isSet;
-    bool m_e_activesession_sessiontype_isValid;
+    OAIField_eActivesessionUsertype e_activesession_usertype;
+    bool m_e_activesession_usertype_isSet;
+    bool m_e_activesession_usertype_isValid;
 
     OAIField_eActivesessionWeekdaystart e_activesession_weekdaystart;
     bool m_e_activesession_weekdaystart_isSet;

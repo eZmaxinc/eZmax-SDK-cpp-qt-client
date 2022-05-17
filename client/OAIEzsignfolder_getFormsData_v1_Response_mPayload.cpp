@@ -1,5 +1,5 @@
 /**
- * eZmax API Definition
+ * eZmax API Definition (Full)
  * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
  * The version of the OpenAPI document: 1.1.7
@@ -34,14 +34,8 @@ OAIEzsignfolder_getFormsData_v1_Response_mPayload::~OAIEzsignfolder_getFormsData
 
 void OAIEzsignfolder_getFormsData_v1_Response_mPayload::initializeModel() {
 
-    m_pki_ezsignfolder_id_isSet = false;
-    m_pki_ezsignfolder_id_isValid = false;
-
-    m_s_ezsignfolder_description_isSet = false;
-    m_s_ezsignfolder_description_isValid = false;
-
-    m_a_obj_form_data_document_isSet = false;
-    m_a_obj_form_data_document_isValid = false;
+    m_obj_forms_data_folder_isSet = false;
+    m_obj_forms_data_folder_isValid = false;
 }
 
 void OAIEzsignfolder_getFormsData_v1_Response_mPayload::fromJson(QString jsonString) {
@@ -53,14 +47,8 @@ void OAIEzsignfolder_getFormsData_v1_Response_mPayload::fromJson(QString jsonStr
 
 void OAIEzsignfolder_getFormsData_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_pki_ezsignfolder_id_isValid = ::OpenAPI::fromJsonValue(pki_ezsignfolder_id, json[QString("pkiEzsignfolderID")]);
-    m_pki_ezsignfolder_id_isSet = !json[QString("pkiEzsignfolderID")].isNull() && m_pki_ezsignfolder_id_isValid;
-
-    m_s_ezsignfolder_description_isValid = ::OpenAPI::fromJsonValue(s_ezsignfolder_description, json[QString("sEzsignfolderDescription")]);
-    m_s_ezsignfolder_description_isSet = !json[QString("sEzsignfolderDescription")].isNull() && m_s_ezsignfolder_description_isValid;
-
-    m_a_obj_form_data_document_isValid = ::OpenAPI::fromJsonValue(a_obj_form_data_document, json[QString("a_objFormDataDocument")]);
-    m_a_obj_form_data_document_isSet = !json[QString("a_objFormDataDocument")].isNull() && m_a_obj_form_data_document_isValid;
+    m_obj_forms_data_folder_isValid = ::OpenAPI::fromJsonValue(obj_forms_data_folder, json[QString("objFormsDataFolder")]);
+    m_obj_forms_data_folder_isSet = !json[QString("objFormsDataFolder")].isNull() && m_obj_forms_data_folder_isValid;
 }
 
 QString OAIEzsignfolder_getFormsData_v1_Response_mPayload::asJson() const {
@@ -72,80 +60,32 @@ QString OAIEzsignfolder_getFormsData_v1_Response_mPayload::asJson() const {
 
 QJsonObject OAIEzsignfolder_getFormsData_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (m_pki_ezsignfolder_id_isSet) {
-        obj.insert(QString("pkiEzsignfolderID"), ::OpenAPI::toJsonValue(pki_ezsignfolder_id));
-    }
-    if (m_s_ezsignfolder_description_isSet) {
-        obj.insert(QString("sEzsignfolderDescription"), ::OpenAPI::toJsonValue(s_ezsignfolder_description));
-    }
-    if (a_obj_form_data_document.size() > 0) {
-        obj.insert(QString("a_objFormDataDocument"), ::OpenAPI::toJsonValue(a_obj_form_data_document));
+    if (obj_forms_data_folder.isSet()) {
+        obj.insert(QString("objFormsDataFolder"), ::OpenAPI::toJsonValue(obj_forms_data_folder));
     }
     return obj;
 }
 
-qint32 OAIEzsignfolder_getFormsData_v1_Response_mPayload::getPkiEzsignfolderId() const {
-    return pki_ezsignfolder_id;
+OAICustom_FormsDataFolder_Response OAIEzsignfolder_getFormsData_v1_Response_mPayload::getObjFormsDataFolder() const {
+    return obj_forms_data_folder;
 }
-void OAIEzsignfolder_getFormsData_v1_Response_mPayload::setPkiEzsignfolderId(const qint32 &pki_ezsignfolder_id) {
-    this->pki_ezsignfolder_id = pki_ezsignfolder_id;
-    this->m_pki_ezsignfolder_id_isSet = true;
-}
-
-bool OAIEzsignfolder_getFormsData_v1_Response_mPayload::is_pki_ezsignfolder_id_Set() const{
-    return m_pki_ezsignfolder_id_isSet;
+void OAIEzsignfolder_getFormsData_v1_Response_mPayload::setObjFormsDataFolder(const OAICustom_FormsDataFolder_Response &obj_forms_data_folder) {
+    this->obj_forms_data_folder = obj_forms_data_folder;
+    this->m_obj_forms_data_folder_isSet = true;
 }
 
-bool OAIEzsignfolder_getFormsData_v1_Response_mPayload::is_pki_ezsignfolder_id_Valid() const{
-    return m_pki_ezsignfolder_id_isValid;
+bool OAIEzsignfolder_getFormsData_v1_Response_mPayload::is_obj_forms_data_folder_Set() const{
+    return m_obj_forms_data_folder_isSet;
 }
 
-QString OAIEzsignfolder_getFormsData_v1_Response_mPayload::getSEzsignfolderDescription() const {
-    return s_ezsignfolder_description;
-}
-void OAIEzsignfolder_getFormsData_v1_Response_mPayload::setSEzsignfolderDescription(const QString &s_ezsignfolder_description) {
-    this->s_ezsignfolder_description = s_ezsignfolder_description;
-    this->m_s_ezsignfolder_description_isSet = true;
-}
-
-bool OAIEzsignfolder_getFormsData_v1_Response_mPayload::is_s_ezsignfolder_description_Set() const{
-    return m_s_ezsignfolder_description_isSet;
-}
-
-bool OAIEzsignfolder_getFormsData_v1_Response_mPayload::is_s_ezsignfolder_description_Valid() const{
-    return m_s_ezsignfolder_description_isValid;
-}
-
-QList<OAICustom_FormDataDocument_Response> OAIEzsignfolder_getFormsData_v1_Response_mPayload::getAObjFormDataDocument() const {
-    return a_obj_form_data_document;
-}
-void OAIEzsignfolder_getFormsData_v1_Response_mPayload::setAObjFormDataDocument(const QList<OAICustom_FormDataDocument_Response> &a_obj_form_data_document) {
-    this->a_obj_form_data_document = a_obj_form_data_document;
-    this->m_a_obj_form_data_document_isSet = true;
-}
-
-bool OAIEzsignfolder_getFormsData_v1_Response_mPayload::is_a_obj_form_data_document_Set() const{
-    return m_a_obj_form_data_document_isSet;
-}
-
-bool OAIEzsignfolder_getFormsData_v1_Response_mPayload::is_a_obj_form_data_document_Valid() const{
-    return m_a_obj_form_data_document_isValid;
+bool OAIEzsignfolder_getFormsData_v1_Response_mPayload::is_obj_forms_data_folder_Valid() const{
+    return m_obj_forms_data_folder_isValid;
 }
 
 bool OAIEzsignfolder_getFormsData_v1_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (m_pki_ezsignfolder_id_isSet) {
-            isObjectUpdated = true;
-            break;
-        }
-
-        if (m_s_ezsignfolder_description_isSet) {
-            isObjectUpdated = true;
-            break;
-        }
-
-        if (a_obj_form_data_document.size() > 0) {
+        if (obj_forms_data_folder.isSet()) {
             isObjectUpdated = true;
             break;
         }
@@ -155,7 +95,7 @@ bool OAIEzsignfolder_getFormsData_v1_Response_mPayload::isSet() const {
 
 bool OAIEzsignfolder_getFormsData_v1_Response_mPayload::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_pki_ezsignfolder_id_isValid && m_s_ezsignfolder_description_isValid && m_a_obj_form_data_document_isValid && true;
+    return m_obj_forms_data_folder_isValid && true;
 }
 
 } // namespace OpenAPI

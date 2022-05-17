@@ -1,5 +1,5 @@
 /**
- * eZmax API Definition
+ * eZmax API Definition (Full)
  * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
  * The version of the OpenAPI document: 1.1.7
@@ -13,7 +13,7 @@
 /*
  * OAIEzsignformfieldgroup_getObject_v1_Response_mPayload.h
  *
- * Payload for the /1/object/ezsignformfieldgroup/getObject API Request
+ * Payload for GET /1/object/ezsignformfieldgroup/{pkiEzsignformfieldgroupID}
  */
 
 #ifndef OAIEzsignformfieldgroup_getObject_v1_Response_mPayload_H
@@ -135,8 +135,8 @@ public:
     bool is_a_obj_dropdown_element_Set() const;
     bool is_a_obj_dropdown_element_Valid() const;
 
-    OAIEzsignformfieldgroupsigner_ResponseCompound getAObjEzsignformfieldgroupsigner() const;
-    void setAObjEzsignformfieldgroupsigner(const OAIEzsignformfieldgroupsigner_ResponseCompound &a_obj_ezsignformfieldgroupsigner);
+    QList<OAIEzsignformfieldgroupsigner_ResponseCompound> getAObjEzsignformfieldgroupsigner() const;
+    void setAObjEzsignformfieldgroupsigner(const QList<OAIEzsignformfieldgroupsigner_ResponseCompound> &a_obj_ezsignformfieldgroupsigner);
     bool is_a_obj_ezsignformfieldgroupsigner_Set() const;
     bool is_a_obj_ezsignformfieldgroupsigner_Valid() const;
 
@@ -214,7 +214,7 @@ private:
     bool m_a_obj_dropdown_element_isSet;
     bool m_a_obj_dropdown_element_isValid;
 
-    OAIEzsignformfieldgroupsigner_ResponseCompound a_obj_ezsignformfieldgroupsigner;
+    QList<OAIEzsignformfieldgroupsigner_ResponseCompound> a_obj_ezsignformfieldgroupsigner;
     bool m_a_obj_ezsignformfieldgroupsigner_isSet;
     bool m_a_obj_ezsignformfieldgroupsigner_isValid;
 };

@@ -1,5 +1,5 @@
 /**
- * eZmax API Definition
+ * eZmax API Definition (Full)
  * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
  * The version of the OpenAPI document: 1.1.7
@@ -21,7 +21,6 @@
 
 #include <QJsonObject>
 
-#include "OAIField_eEzsigntemplatepackageType.h"
 #include <QString>
 
 #include "OAIEnum.h"
@@ -45,16 +44,6 @@ public:
     bool is_pki_ezsigntemplatepackage_id_Set() const;
     bool is_pki_ezsigntemplatepackage_id_Valid() const;
 
-    qint32 getFkiDepartmentId() const;
-    void setFkiDepartmentId(const qint32 &fki_department_id);
-    bool is_fki_department_id_Set() const;
-    bool is_fki_department_id_Valid() const;
-
-    qint32 getFkiTeamId() const;
-    void setFkiTeamId(const qint32 &fki_team_id);
-    bool is_fki_team_id_Set() const;
-    bool is_fki_team_id_Valid() const;
-
     qint32 getFkiEzsignfoldertypeId() const;
     void setFkiEzsignfoldertypeId(const qint32 &fki_ezsignfoldertype_id);
     bool is_fki_ezsignfoldertype_id_Set() const;
@@ -64,11 +53,6 @@ public:
     void setFkiLanguageId(const qint32 &fki_language_id);
     bool is_fki_language_id_Set() const;
     bool is_fki_language_id_Valid() const;
-
-    OAIField_eEzsigntemplatepackageType getEEzsigntemplatepackageType() const;
-    void setEEzsigntemplatepackageType(const OAIField_eEzsigntemplatepackageType &e_ezsigntemplatepackage_type);
-    bool is_e_ezsigntemplatepackage_type_Set() const;
-    bool is_e_ezsigntemplatepackage_type_Valid() const;
 
     QString getSEzsigntemplatepackageDescription() const;
     void setSEzsigntemplatepackageDescription(const QString &s_ezsigntemplatepackage_description);
@@ -80,10 +64,20 @@ public:
     bool is_b_ezsigntemplatepackage_isactive_Set() const;
     bool is_b_ezsigntemplatepackage_isactive_Valid() const;
 
+    bool isBEzsigntemplatepackageNeedvalidation() const;
+    void setBEzsigntemplatepackageNeedvalidation(const bool &b_ezsigntemplatepackage_needvalidation);
+    bool is_b_ezsigntemplatepackage_needvalidation_Set() const;
+    bool is_b_ezsigntemplatepackage_needvalidation_Valid() const;
+
     qint32 getIEzsigntemplatepackagemembership() const;
     void setIEzsigntemplatepackagemembership(const qint32 &i_ezsigntemplatepackagemembership);
     bool is_i_ezsigntemplatepackagemembership_Set() const;
     bool is_i_ezsigntemplatepackagemembership_Valid() const;
+
+    QString getSEzsignfoldertypeNameX() const;
+    void setSEzsignfoldertypeNameX(const QString &s_ezsignfoldertype_name_x);
+    bool is_s_ezsignfoldertype_name_x_Set() const;
+    bool is_s_ezsignfoldertype_name_x_Valid() const;
 
     virtual bool isSet() const override;
     virtual bool isValid() const override;
@@ -95,14 +89,6 @@ private:
     bool m_pki_ezsigntemplatepackage_id_isSet;
     bool m_pki_ezsigntemplatepackage_id_isValid;
 
-    qint32 fki_department_id;
-    bool m_fki_department_id_isSet;
-    bool m_fki_department_id_isValid;
-
-    qint32 fki_team_id;
-    bool m_fki_team_id_isSet;
-    bool m_fki_team_id_isValid;
-
     qint32 fki_ezsignfoldertype_id;
     bool m_fki_ezsignfoldertype_id_isSet;
     bool m_fki_ezsignfoldertype_id_isValid;
@@ -110,10 +96,6 @@ private:
     qint32 fki_language_id;
     bool m_fki_language_id_isSet;
     bool m_fki_language_id_isValid;
-
-    OAIField_eEzsigntemplatepackageType e_ezsigntemplatepackage_type;
-    bool m_e_ezsigntemplatepackage_type_isSet;
-    bool m_e_ezsigntemplatepackage_type_isValid;
 
     QString s_ezsigntemplatepackage_description;
     bool m_s_ezsigntemplatepackage_description_isSet;
@@ -123,9 +105,17 @@ private:
     bool m_b_ezsigntemplatepackage_isactive_isSet;
     bool m_b_ezsigntemplatepackage_isactive_isValid;
 
+    bool b_ezsigntemplatepackage_needvalidation;
+    bool m_b_ezsigntemplatepackage_needvalidation_isSet;
+    bool m_b_ezsigntemplatepackage_needvalidation_isValid;
+
     qint32 i_ezsigntemplatepackagemembership;
     bool m_i_ezsigntemplatepackagemembership_isSet;
     bool m_i_ezsigntemplatepackagemembership_isValid;
+
+    QString s_ezsignfoldertype_name_x;
+    bool m_s_ezsignfoldertype_name_x_isSet;
+    bool m_s_ezsignfoldertype_name_x_isValid;
 };
 
 } // namespace OpenAPI

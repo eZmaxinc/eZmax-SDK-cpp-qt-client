@@ -1,5 +1,5 @@
 /**
- * eZmax API Definition
+ * eZmax API Definition (Full)
  * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
  * The version of the OpenAPI document: 1.1.7
@@ -43,7 +43,7 @@ void OAIObjectEzsignsignatureApi::initializeServerConfigs() {
     QSet<QString>{ {"ca-central-1"} })}, }));
     
     defaultConf.append(OAIServerConfiguration(
-    QUrl("https://{sInfrastructureenvironmenttypeDescription}.api.global.ezmax.com/"),
+    QUrl("https://{sInfrastructureenvironmenttypeDescription}.api.global.ezmax.com"),
     "The server endpoint where to send your global API requests.",
     QMap<QString, OAIServerVariable>{ 
     {"sInfrastructureenvironmenttypeDescription", OAIServerVariable("The environment on on which to call the API. Should always be "prod" unless instructed otherwise by support.","prod",
@@ -59,6 +59,8 @@ void OAIObjectEzsignsignatureApi::initializeServerConfigs() {
     _serverIndices.insert("ezsignsignatureEditObjectV1", 0);
     _serverConfigs.insert("ezsignsignatureGetObjectV1", defaultConf);
     _serverIndices.insert("ezsignsignatureGetObjectV1", 0);
+    _serverConfigs.insert("ezsignsignatureSignV1", defaultConf);
+    _serverIndices.insert("ezsignsignatureSignV1", 0);
 }
 
 /**
@@ -305,6 +307,7 @@ void OAIObjectEzsignsignatureApi::ezsignsignatureCreateObjectV2(const OAIEzsigns
 
     {
 
+        
         QByteArray output = oai_ezsignsignature_create_object_v2_request.asJson().toUtf8();
         input.request_body.append(output);
     }
@@ -443,6 +446,7 @@ void OAIObjectEzsignsignatureApi::ezsignsignatureEditObjectV1(const qint32 &pki_
 
     {
 
+        
         QByteArray output = oai_ezsignsignature_edit_object_v1_request.asJson().toUtf8();
         input.request_body.append(output);
     }
@@ -550,6 +554,78 @@ void OAIObjectEzsignsignatureApi::ezsignsignatureGetObjectV1Callback(OAIHttpRequ
     } else {
         emit ezsignsignatureGetObjectV1SignalE(output, error_type, error_str);
         emit ezsignsignatureGetObjectV1SignalEFull(worker, error_type, error_str);
+    }
+}
+
+void OAIObjectEzsignsignatureApi::ezsignsignatureSignV1(const qint32 &pki_ezsignsignature_id, const OAIEzsignsignature_sign_v1_Request &oai_ezsignsignature_sign_v1_request) {
+    QString fullPath = QString(_serverConfigs["ezsignsignatureSignV1"][_serverIndices.value("ezsignsignatureSignV1")].URL()+"/1/object/ezsignsignature/{pkiEzsignsignatureID}/sign");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_ezsignsignature_idPathParam("{");
+        pki_ezsignsignature_idPathParam.append("pkiEzsignsignatureID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignsignatureID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignsignatureID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_ezsignsignature_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsignsignature_id)));
+    }
+    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    OAIHttpRequestInput input(fullPath, "POST");
+
+    {
+
+        
+        QByteArray output = oai_ezsignsignature_sign_v1_request.asJson().toUtf8();
+        input.request_body.append(output);
+    }
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+#else
+    for (auto key : _defaultHeaders.keys()) {
+        input.headers.insert(key, _defaultHeaders[key]);
+    }
+#endif
+
+    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIObjectEzsignsignatureApi::ezsignsignatureSignV1Callback);
+    connect(this, &OAIObjectEzsignsignatureApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this]() {
+        if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
+            emit allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void OAIObjectEzsignsignatureApi::ezsignsignatureSignV1Callback(OAIHttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    OAIEzsignsignature_sign_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit ezsignsignatureSignV1Signal(output);
+        emit ezsignsignatureSignV1SignalFull(worker, output);
+    } else {
+        emit ezsignsignatureSignV1SignalE(output, error_type, error_str);
+        emit ezsignsignatureSignV1SignalEFull(worker, error_type, error_str);
     }
 }
 

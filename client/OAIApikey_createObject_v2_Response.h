@@ -1,5 +1,5 @@
 /**
- * eZmax API Definition
+ * eZmax API Definition (Full)
  * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
  * The version of the OpenAPI document: 1.1.7
@@ -13,7 +13,7 @@
 /*
  * OAIApikey_createObject_v2_Response.h
  *
- * Response for the /2/object/apikey/createObject API Request
+ * Response for POST /2/object/apikey
  */
 
 #ifndef OAIApikey_createObject_v2_Response_H

@@ -1,5 +1,5 @@
 /**
- * eZmax API Definition
+ * eZmax API Definition (Full)
  * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
  * The version of the OpenAPI document: 1.1.7
@@ -57,6 +57,15 @@ void OAIEzsignsignature_Request::initializeModel() {
 
     m_fki_ezsigndocument_id_isSet = false;
     m_fki_ezsigndocument_id_isValid = false;
+
+    m_t_ezsignsignature_tooltip_isSet = false;
+    m_t_ezsignsignature_tooltip_isValid = false;
+
+    m_e_ezsignsignature_tooltipposition_isSet = false;
+    m_e_ezsignsignature_tooltipposition_isValid = false;
+
+    m_e_ezsignsignature_font_isSet = false;
+    m_e_ezsignsignature_font_isValid = false;
 }
 
 void OAIEzsignsignature_Request::fromJson(QString jsonString) {
@@ -91,6 +100,15 @@ void OAIEzsignsignature_Request::fromJsonObject(QJsonObject json) {
 
     m_fki_ezsigndocument_id_isValid = ::OpenAPI::fromJsonValue(fki_ezsigndocument_id, json[QString("fkiEzsigndocumentID")]);
     m_fki_ezsigndocument_id_isSet = !json[QString("fkiEzsigndocumentID")].isNull() && m_fki_ezsigndocument_id_isValid;
+
+    m_t_ezsignsignature_tooltip_isValid = ::OpenAPI::fromJsonValue(t_ezsignsignature_tooltip, json[QString("tEzsignsignatureTooltip")]);
+    m_t_ezsignsignature_tooltip_isSet = !json[QString("tEzsignsignatureTooltip")].isNull() && m_t_ezsignsignature_tooltip_isValid;
+
+    m_e_ezsignsignature_tooltipposition_isValid = ::OpenAPI::fromJsonValue(e_ezsignsignature_tooltipposition, json[QString("eEzsignsignatureTooltipposition")]);
+    m_e_ezsignsignature_tooltipposition_isSet = !json[QString("eEzsignsignatureTooltipposition")].isNull() && m_e_ezsignsignature_tooltipposition_isValid;
+
+    m_e_ezsignsignature_font_isValid = ::OpenAPI::fromJsonValue(e_ezsignsignature_font, json[QString("eEzsignsignatureFont")]);
+    m_e_ezsignsignature_font_isSet = !json[QString("eEzsignsignatureFont")].isNull() && m_e_ezsignsignature_font_isValid;
 }
 
 QString OAIEzsignsignature_Request::asJson() const {
@@ -125,6 +143,15 @@ QJsonObject OAIEzsignsignature_Request::asJsonObject() const {
     }
     if (m_fki_ezsigndocument_id_isSet) {
         obj.insert(QString("fkiEzsigndocumentID"), ::OpenAPI::toJsonValue(fki_ezsigndocument_id));
+    }
+    if (m_t_ezsignsignature_tooltip_isSet) {
+        obj.insert(QString("tEzsignsignatureTooltip"), ::OpenAPI::toJsonValue(t_ezsignsignature_tooltip));
+    }
+    if (e_ezsignsignature_tooltipposition.isSet()) {
+        obj.insert(QString("eEzsignsignatureTooltipposition"), ::OpenAPI::toJsonValue(e_ezsignsignature_tooltipposition));
+    }
+    if (e_ezsignsignature_font.isSet()) {
+        obj.insert(QString("eEzsignsignatureFont"), ::OpenAPI::toJsonValue(e_ezsignsignature_font));
     }
     return obj;
 }
@@ -257,6 +284,54 @@ bool OAIEzsignsignature_Request::is_fki_ezsigndocument_id_Valid() const{
     return m_fki_ezsigndocument_id_isValid;
 }
 
+QString OAIEzsignsignature_Request::getTEzsignsignatureTooltip() const {
+    return t_ezsignsignature_tooltip;
+}
+void OAIEzsignsignature_Request::setTEzsignsignatureTooltip(const QString &t_ezsignsignature_tooltip) {
+    this->t_ezsignsignature_tooltip = t_ezsignsignature_tooltip;
+    this->m_t_ezsignsignature_tooltip_isSet = true;
+}
+
+bool OAIEzsignsignature_Request::is_t_ezsignsignature_tooltip_Set() const{
+    return m_t_ezsignsignature_tooltip_isSet;
+}
+
+bool OAIEzsignsignature_Request::is_t_ezsignsignature_tooltip_Valid() const{
+    return m_t_ezsignsignature_tooltip_isValid;
+}
+
+OAIField_eEzsignsignatureTooltipposition OAIEzsignsignature_Request::getEEzsignsignatureTooltipposition() const {
+    return e_ezsignsignature_tooltipposition;
+}
+void OAIEzsignsignature_Request::setEEzsignsignatureTooltipposition(const OAIField_eEzsignsignatureTooltipposition &e_ezsignsignature_tooltipposition) {
+    this->e_ezsignsignature_tooltipposition = e_ezsignsignature_tooltipposition;
+    this->m_e_ezsignsignature_tooltipposition_isSet = true;
+}
+
+bool OAIEzsignsignature_Request::is_e_ezsignsignature_tooltipposition_Set() const{
+    return m_e_ezsignsignature_tooltipposition_isSet;
+}
+
+bool OAIEzsignsignature_Request::is_e_ezsignsignature_tooltipposition_Valid() const{
+    return m_e_ezsignsignature_tooltipposition_isValid;
+}
+
+OAIField_eEzsignsignatureFont OAIEzsignsignature_Request::getEEzsignsignatureFont() const {
+    return e_ezsignsignature_font;
+}
+void OAIEzsignsignature_Request::setEEzsignsignatureFont(const OAIField_eEzsignsignatureFont &e_ezsignsignature_font) {
+    this->e_ezsignsignature_font = e_ezsignsignature_font;
+    this->m_e_ezsignsignature_font_isSet = true;
+}
+
+bool OAIEzsignsignature_Request::is_e_ezsignsignature_font_Set() const{
+    return m_e_ezsignsignature_font_isSet;
+}
+
+bool OAIEzsignsignature_Request::is_e_ezsignsignature_font_Valid() const{
+    return m_e_ezsignsignature_font_isValid;
+}
+
 bool OAIEzsignsignature_Request::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -296,6 +371,21 @@ bool OAIEzsignsignature_Request::isSet() const {
         }
 
         if (m_fki_ezsigndocument_id_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_t_ezsignsignature_tooltip_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (e_ezsignsignature_tooltipposition.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (e_ezsignsignature_font.isSet()) {
             isObjectUpdated = true;
             break;
         }

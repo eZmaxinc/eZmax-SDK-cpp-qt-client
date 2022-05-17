@@ -1,5 +1,5 @@
 /**
- * eZmax API Definition
+ * eZmax API Definition (Full)
  * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
  * The version of the OpenAPI document: 1.1.7
@@ -52,6 +52,9 @@ void OAIEzsignsigner_ResponseCompound_Contact::initializeModel() {
     m_s_phone_e164_isSet = false;
     m_s_phone_e164_isValid = false;
 
+    m_s_phone_extension_isSet = false;
+    m_s_phone_extension_isValid = false;
+
     m_s_phone_e164_cell_isSet = false;
     m_s_phone_e164_cell_isValid = false;
 }
@@ -83,6 +86,9 @@ void OAIEzsignsigner_ResponseCompound_Contact::fromJsonObject(QJsonObject json) 
     m_s_phone_e164_isValid = ::OpenAPI::fromJsonValue(s_phone_e164, json[QString("sPhoneE164")]);
     m_s_phone_e164_isSet = !json[QString("sPhoneE164")].isNull() && m_s_phone_e164_isValid;
 
+    m_s_phone_extension_isValid = ::OpenAPI::fromJsonValue(s_phone_extension, json[QString("sPhoneExtension")]);
+    m_s_phone_extension_isSet = !json[QString("sPhoneExtension")].isNull() && m_s_phone_extension_isValid;
+
     m_s_phone_e164_cell_isValid = ::OpenAPI::fromJsonValue(s_phone_e164_cell, json[QString("sPhoneE164Cell")]);
     m_s_phone_e164_cell_isSet = !json[QString("sPhoneE164Cell")].isNull() && m_s_phone_e164_cell_isValid;
 }
@@ -113,6 +119,9 @@ QJsonObject OAIEzsignsigner_ResponseCompound_Contact::asJsonObject() const {
     }
     if (m_s_phone_e164_isSet) {
         obj.insert(QString("sPhoneE164"), ::OpenAPI::toJsonValue(s_phone_e164));
+    }
+    if (m_s_phone_extension_isSet) {
+        obj.insert(QString("sPhoneExtension"), ::OpenAPI::toJsonValue(s_phone_extension));
     }
     if (m_s_phone_e164_cell_isSet) {
         obj.insert(QString("sPhoneE164Cell"), ::OpenAPI::toJsonValue(s_phone_e164_cell));
@@ -216,6 +225,22 @@ bool OAIEzsignsigner_ResponseCompound_Contact::is_s_phone_e164_Valid() const{
     return m_s_phone_e164_isValid;
 }
 
+QString OAIEzsignsigner_ResponseCompound_Contact::getSPhoneExtension() const {
+    return s_phone_extension;
+}
+void OAIEzsignsigner_ResponseCompound_Contact::setSPhoneExtension(const QString &s_phone_extension) {
+    this->s_phone_extension = s_phone_extension;
+    this->m_s_phone_extension_isSet = true;
+}
+
+bool OAIEzsignsigner_ResponseCompound_Contact::is_s_phone_extension_Set() const{
+    return m_s_phone_extension_isSet;
+}
+
+bool OAIEzsignsigner_ResponseCompound_Contact::is_s_phone_extension_Valid() const{
+    return m_s_phone_extension_isValid;
+}
+
 QString OAIEzsignsigner_ResponseCompound_Contact::getSPhoneE164Cell() const {
     return s_phone_e164_cell;
 }
@@ -261,6 +286,11 @@ bool OAIEzsignsigner_ResponseCompound_Contact::isSet() const {
         }
 
         if (m_s_phone_e164_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_s_phone_extension_isSet) {
             isObjectUpdated = true;
             break;
         }

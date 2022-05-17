@@ -1,5 +1,5 @@
 /**
- * eZmax API Definition
+ * eZmax API Definition (Full)
  * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
  * The version of the OpenAPI document: 1.1.7
@@ -34,8 +34,8 @@ OAIActivesession_ResponseCompound::~OAIActivesession_ResponseCompound() {}
 
 void OAIActivesession_ResponseCompound::initializeModel() {
 
-    m_e_activesession_sessiontype_isSet = false;
-    m_e_activesession_sessiontype_isValid = false;
+    m_e_activesession_usertype_isSet = false;
+    m_e_activesession_usertype_isValid = false;
 
     m_e_activesession_weekdaystart_isSet = false;
     m_e_activesession_weekdaystart_isValid = false;
@@ -80,8 +80,8 @@ void OAIActivesession_ResponseCompound::fromJson(QString jsonString) {
 
 void OAIActivesession_ResponseCompound::fromJsonObject(QJsonObject json) {
 
-    m_e_activesession_sessiontype_isValid = ::OpenAPI::fromJsonValue(e_activesession_sessiontype, json[QString("eActivesessionSessiontype")]);
-    m_e_activesession_sessiontype_isSet = !json[QString("eActivesessionSessiontype")].isNull() && m_e_activesession_sessiontype_isValid;
+    m_e_activesession_usertype_isValid = ::OpenAPI::fromJsonValue(e_activesession_usertype, json[QString("eActivesessionUsertype")]);
+    m_e_activesession_usertype_isSet = !json[QString("eActivesessionUsertype")].isNull() && m_e_activesession_usertype_isValid;
 
     m_e_activesession_weekdaystart_isValid = ::OpenAPI::fromJsonValue(e_activesession_weekdaystart, json[QString("eActivesessionWeekdaystart")]);
     m_e_activesession_weekdaystart_isSet = !json[QString("eActivesessionWeekdaystart")].isNull() && m_e_activesession_weekdaystart_isValid;
@@ -126,8 +126,8 @@ QString OAIActivesession_ResponseCompound::asJson() const {
 
 QJsonObject OAIActivesession_ResponseCompound::asJsonObject() const {
     QJsonObject obj;
-    if (e_activesession_sessiontype.isSet()) {
-        obj.insert(QString("eActivesessionSessiontype"), ::OpenAPI::toJsonValue(e_activesession_sessiontype));
+    if (e_activesession_usertype.isSet()) {
+        obj.insert(QString("eActivesessionUsertype"), ::OpenAPI::toJsonValue(e_activesession_usertype));
     }
     if (e_activesession_weekdaystart.isSet()) {
         obj.insert(QString("eActivesessionWeekdaystart"), ::OpenAPI::toJsonValue(e_activesession_weekdaystart));
@@ -165,20 +165,20 @@ QJsonObject OAIActivesession_ResponseCompound::asJsonObject() const {
     return obj;
 }
 
-OAIField_eActivesessionSessiontype OAIActivesession_ResponseCompound::getEActivesessionSessiontype() const {
-    return e_activesession_sessiontype;
+OAIField_eActivesessionUsertype OAIActivesession_ResponseCompound::getEActivesessionUsertype() const {
+    return e_activesession_usertype;
 }
-void OAIActivesession_ResponseCompound::setEActivesessionSessiontype(const OAIField_eActivesessionSessiontype &e_activesession_sessiontype) {
-    this->e_activesession_sessiontype = e_activesession_sessiontype;
-    this->m_e_activesession_sessiontype_isSet = true;
-}
-
-bool OAIActivesession_ResponseCompound::is_e_activesession_sessiontype_Set() const{
-    return m_e_activesession_sessiontype_isSet;
+void OAIActivesession_ResponseCompound::setEActivesessionUsertype(const OAIField_eActivesessionUsertype &e_activesession_usertype) {
+    this->e_activesession_usertype = e_activesession_usertype;
+    this->m_e_activesession_usertype_isSet = true;
 }
 
-bool OAIActivesession_ResponseCompound::is_e_activesession_sessiontype_Valid() const{
-    return m_e_activesession_sessiontype_isValid;
+bool OAIActivesession_ResponseCompound::is_e_activesession_usertype_Set() const{
+    return m_e_activesession_usertype_isSet;
+}
+
+bool OAIActivesession_ResponseCompound::is_e_activesession_usertype_Valid() const{
+    return m_e_activesession_usertype_isValid;
 }
 
 OAIField_eActivesessionWeekdaystart OAIActivesession_ResponseCompound::getEActivesessionWeekdaystart() const {
@@ -360,7 +360,7 @@ bool OAIActivesession_ResponseCompound::is_a_e_module_internalname_Valid() const
 bool OAIActivesession_ResponseCompound::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (e_activesession_sessiontype.isSet()) {
+        if (e_activesession_usertype.isSet()) {
             isObjectUpdated = true;
             break;
         }
@@ -425,7 +425,7 @@ bool OAIActivesession_ResponseCompound::isSet() const {
 
 bool OAIActivesession_ResponseCompound::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_e_activesession_sessiontype_isValid && m_e_activesession_weekdaystart_isValid && m_fki_language_id_isValid && m_s_company_name_x_isValid && m_s_department_name_x_isValid && m_b_activesession_debug_isValid && m_pks_customer_code_isValid && m_a_pki_permission_id_isValid && m_obj_user_real_isValid && m_a_e_module_internalname_isValid && true;
+    return m_e_activesession_usertype_isValid && m_e_activesession_weekdaystart_isValid && m_fki_language_id_isValid && m_s_company_name_x_isValid && m_s_department_name_x_isValid && m_b_activesession_debug_isValid && m_pks_customer_code_isValid && m_a_pki_permission_id_isValid && m_obj_user_real_isValid && m_a_e_module_internalname_isValid && true;
 }
 
 } // namespace OpenAPI

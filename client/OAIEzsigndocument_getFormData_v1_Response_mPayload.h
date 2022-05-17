@@ -1,5 +1,5 @@
 /**
- * eZmax API Definition
+ * eZmax API Definition (Full)
  * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
  * The version of the OpenAPI document: 1.1.7
@@ -13,7 +13,7 @@
 /*
  * OAIEzsigndocument_getFormData_v1_Response_mPayload.h
  *
- * Payload for the /1/object/ezsigndocument/{pkiEzsigndocument}/getFormData API Request
+ * Payload for GET /1/object/ezsigndocument/{pkiEzsigndocument}/getFormData
  */
 
 #ifndef OAIEzsigndocument_getFormData_v1_Response_mPayload_H
@@ -22,15 +22,12 @@
 #include <QJsonObject>
 
 #include "OAICustom_FormDataDocument_Response.h"
-#include "OAICustom_FormDataSigner_Response.h"
-#include <QList>
-#include <QString>
 
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
 namespace OpenAPI {
-class OAICustom_FormDataSigner_Response;
+class OAICustom_FormDataDocument_Response;
 
 class OAIEzsigndocument_getFormData_v1_Response_mPayload : public OAIObject {
 public:
@@ -43,30 +40,10 @@ public:
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    qint32 getPkiEzsigndocumentId() const;
-    void setPkiEzsigndocumentId(const qint32 &pki_ezsigndocument_id);
-    bool is_pki_ezsigndocument_id_Set() const;
-    bool is_pki_ezsigndocument_id_Valid() const;
-
-    qint32 getFkiEzsignfolderId() const;
-    void setFkiEzsignfolderId(const qint32 &fki_ezsignfolder_id);
-    bool is_fki_ezsignfolder_id_Set() const;
-    bool is_fki_ezsignfolder_id_Valid() const;
-
-    QString getSEzsigndocumentName() const;
-    void setSEzsigndocumentName(const QString &s_ezsigndocument_name);
-    bool is_s_ezsigndocument_name_Set() const;
-    bool is_s_ezsigndocument_name_Valid() const;
-
-    QString getDtModifiedDate() const;
-    void setDtModifiedDate(const QString &dt_modified_date);
-    bool is_dt_modified_date_Set() const;
-    bool is_dt_modified_date_Valid() const;
-
-    QList<OAICustom_FormDataSigner_Response> getAObjFormDataSigner() const;
-    void setAObjFormDataSigner(const QList<OAICustom_FormDataSigner_Response> &a_obj_form_data_signer);
-    bool is_a_obj_form_data_signer_Set() const;
-    bool is_a_obj_form_data_signer_Valid() const;
+    OAICustom_FormDataDocument_Response getObjFormDataDocument() const;
+    void setObjFormDataDocument(const OAICustom_FormDataDocument_Response &obj_form_data_document);
+    bool is_obj_form_data_document_Set() const;
+    bool is_obj_form_data_document_Valid() const;
 
     virtual bool isSet() const override;
     virtual bool isValid() const override;
@@ -74,25 +51,9 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_ezsigndocument_id;
-    bool m_pki_ezsigndocument_id_isSet;
-    bool m_pki_ezsigndocument_id_isValid;
-
-    qint32 fki_ezsignfolder_id;
-    bool m_fki_ezsignfolder_id_isSet;
-    bool m_fki_ezsignfolder_id_isValid;
-
-    QString s_ezsigndocument_name;
-    bool m_s_ezsigndocument_name_isSet;
-    bool m_s_ezsigndocument_name_isValid;
-
-    QString dt_modified_date;
-    bool m_dt_modified_date_isSet;
-    bool m_dt_modified_date_isValid;
-
-    QList<OAICustom_FormDataSigner_Response> a_obj_form_data_signer;
-    bool m_a_obj_form_data_signer_isSet;
-    bool m_a_obj_form_data_signer_isValid;
+    OAICustom_FormDataDocument_Response obj_form_data_document;
+    bool m_obj_form_data_document_isSet;
+    bool m_obj_form_data_document_isValid;
 };
 
 } // namespace OpenAPI

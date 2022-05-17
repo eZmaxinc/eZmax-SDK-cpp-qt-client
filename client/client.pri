@@ -26,10 +26,6 @@ HEADERS += \
     $${PWD}/OAIApikey_createObject_v2_Response_mPayload.h \
     $${PWD}/OAIAttempt_Response.h \
     $${PWD}/OAIAttempt_ResponseCompound.h \
-    $${PWD}/OAIAuthenticate_authenticate_v2_Request.h \
-    $${PWD}/OAIAuthenticate_authenticate_v2_Response.h \
-    $${PWD}/OAIAuthenticate_authenticate_v2_Response_allOf.h \
-    $${PWD}/OAIAuthenticate_authenticate_v2_Response_mPayload.h \
     $${PWD}/OAICommon_Audit.h \
     $${PWD}/OAICommon_Auditdetail.h \
     $${PWD}/OAICommon_Response.h \
@@ -44,6 +40,8 @@ HEADERS += \
     $${PWD}/OAICommon_Response_objDebugPayload_getList_allOf.h \
     $${PWD}/OAICommon_Response_objSQLQuery.h \
     $${PWD}/OAICommon_Webhook.h \
+    $${PWD}/OAICommon_getAutocompleteDisabled_v1_Response.h \
+    $${PWD}/OAICommon_getAutocompleteDisabled_v1_Response_allOf.h \
     $${PWD}/OAICommon_getAutocomplete_v1_Response.h \
     $${PWD}/OAICommon_getAutocomplete_v1_Response_allOf.h \
     $${PWD}/OAICommon_getList_v1_Response_mPayload.h \
@@ -53,28 +51,61 @@ HEADERS += \
     $${PWD}/OAIContactinformations_Request.h \
     $${PWD}/OAIContactinformations_RequestCompound.h \
     $${PWD}/OAIContactinformations_RequestCompound_allOf.h \
+    $${PWD}/OAICustom_AutocompleteElementDisabled_Response.h \
+    $${PWD}/OAICustom_AutocompleteElementDisabled_Response_allOf.h \
     $${PWD}/OAICustom_AutocompleteElement_Response.h \
     $${PWD}/OAICustom_DropdownElement_Request.h \
     $${PWD}/OAICustom_DropdownElement_RequestCompound.h \
     $${PWD}/OAICustom_DropdownElement_Response.h \
     $${PWD}/OAICustom_DropdownElement_ResponseCompound.h \
     $${PWD}/OAICustom_Ezsignfoldersignerassociationstatus_Response.h \
+    $${PWD}/OAICustom_EzsignfoldertransmissionSigner_Response.h \
+    $${PWD}/OAICustom_Ezsignfoldertransmission_Response.h \
     $${PWD}/OAICustom_Ezsignsignaturestatus_Response.h \
     $${PWD}/OAICustom_FormDataDocument_Response.h \
     $${PWD}/OAICustom_FormDataEzsignformfield_Response.h \
     $${PWD}/OAICustom_FormDataEzsignformfieldgroup_Response.h \
     $${PWD}/OAICustom_FormDataSigner_Response.h \
     $${PWD}/OAICustom_FormsDataFolder_Response.h \
+    $${PWD}/OAICustom_ImportEzsigntemplatepackageRelation_Request.h \
+    $${PWD}/OAICustom_Notificationsubsectiongetnotificationtests_Response.h \
+    $${PWD}/OAICustom_Notificationsubsectiongetnotificationtests_Response_allOf.h \
+    $${PWD}/OAICustom_Notificationtestgetnotificationtests_Response.h \
+    $${PWD}/OAICustom_Notificationtestgetnotificationtests_Response_allOf.h \
+    $${PWD}/OAICustom_User_Response.h \
     $${PWD}/OAICustom_WordPositionOccurence_Response.h \
     $${PWD}/OAICustom_WordPositionWord_Response.h \
     $${PWD}/OAIEmail_Request.h \
     $${PWD}/OAIEmail_RequestCompound.h \
+    $${PWD}/OAIEzsign_suggestSigners_v1_Response.h \
+    $${PWD}/OAIEzsign_suggestSigners_v1_Response_allOf.h \
+    $${PWD}/OAIEzsign_suggestSigners_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsign_suggestTemplates_v1_Response.h \
+    $${PWD}/OAIEzsign_suggestTemplates_v1_Response_allOf.h \
+    $${PWD}/OAIEzsign_suggestTemplates_v1_Response_mPayload.h \
     $${PWD}/OAIEzsignbulksend_ListElement.h \
+    $${PWD}/OAIEzsignbulksend_Request.h \
+    $${PWD}/OAIEzsignbulksend_RequestCompound.h \
     $${PWD}/OAIEzsignbulksend_Response.h \
     $${PWD}/OAIEzsignbulksend_ResponseCompound.h \
+    $${PWD}/OAIEzsignbulksend_ResponseCompound_allOf.h \
+    $${PWD}/OAIEzsignbulksend_createEzsignbulksendtransmission_v1_Request.h \
+    $${PWD}/OAIEzsignbulksend_createEzsignbulksendtransmission_v1_Response.h \
+    $${PWD}/OAIEzsignbulksend_createEzsignbulksendtransmission_v1_Response_allOf.h \
+    $${PWD}/OAIEzsignbulksend_createEzsignbulksendtransmission_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsignbulksend_createObject_v1_Request.h \
+    $${PWD}/OAIEzsignbulksend_createObject_v1_Response.h \
+    $${PWD}/OAIEzsignbulksend_createObject_v1_Response_allOf.h \
+    $${PWD}/OAIEzsignbulksend_createObject_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsignbulksend_deleteObject_v1_Response.h \
+    $${PWD}/OAIEzsignbulksend_editObject_v1_Request.h \
+    $${PWD}/OAIEzsignbulksend_editObject_v1_Response.h \
     $${PWD}/OAIEzsignbulksend_getEzsignbulksendtransmissions_v1_Response.h \
     $${PWD}/OAIEzsignbulksend_getEzsignbulksendtransmissions_v1_Response_allOf.h \
     $${PWD}/OAIEzsignbulksend_getEzsignbulksendtransmissions_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsignbulksend_getFormsData_v1_Response.h \
+    $${PWD}/OAIEzsignbulksend_getFormsData_v1_Response_allOf.h \
+    $${PWD}/OAIEzsignbulksend_getFormsData_v1_Response_mPayload.h \
     $${PWD}/OAIEzsignbulksend_getList_v1_Response.h \
     $${PWD}/OAIEzsignbulksend_getList_v1_Response_allOf.h \
     $${PWD}/OAIEzsignbulksend_getList_v1_Response_mPayload.h \
@@ -82,8 +113,39 @@ HEADERS += \
     $${PWD}/OAIEzsignbulksend_getObject_v1_Response.h \
     $${PWD}/OAIEzsignbulksend_getObject_v1_Response_allOf.h \
     $${PWD}/OAIEzsignbulksend_getObject_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsignbulksend_reorder_v1_Request.h \
+    $${PWD}/OAIEzsignbulksend_reorder_v1_Response.h \
+    $${PWD}/OAIEzsignbulksenddocumentmapping_Request.h \
+    $${PWD}/OAIEzsignbulksenddocumentmapping_RequestCompound.h \
+    $${PWD}/OAIEzsignbulksenddocumentmapping_Response.h \
+    $${PWD}/OAIEzsignbulksenddocumentmapping_ResponseCompound.h \
+    $${PWD}/OAIEzsignbulksenddocumentmapping_ResponseCompound_allOf.h \
+    $${PWD}/OAIEzsignbulksenddocumentmapping_createObject_v1_Request.h \
+    $${PWD}/OAIEzsignbulksenddocumentmapping_createObject_v1_Response.h \
+    $${PWD}/OAIEzsignbulksenddocumentmapping_createObject_v1_Response_allOf.h \
+    $${PWD}/OAIEzsignbulksenddocumentmapping_createObject_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsignbulksenddocumentmapping_deleteObject_v1_Response.h \
+    $${PWD}/OAIEzsignbulksenddocumentmapping_getObject_v1_Response.h \
+    $${PWD}/OAIEzsignbulksenddocumentmapping_getObject_v1_Response_allOf.h \
+    $${PWD}/OAIEzsignbulksenddocumentmapping_getObject_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsignbulksendsignermapping_Request.h \
+    $${PWD}/OAIEzsignbulksendsignermapping_RequestCompound.h \
+    $${PWD}/OAIEzsignbulksendsignermapping_Response.h \
+    $${PWD}/OAIEzsignbulksendsignermapping_ResponseCompound.h \
+    $${PWD}/OAIEzsignbulksendsignermapping_createObject_v1_Request.h \
+    $${PWD}/OAIEzsignbulksendsignermapping_createObject_v1_Response.h \
+    $${PWD}/OAIEzsignbulksendsignermapping_createObject_v1_Response_allOf.h \
+    $${PWD}/OAIEzsignbulksendsignermapping_createObject_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsignbulksendsignermapping_deleteObject_v1_Response.h \
+    $${PWD}/OAIEzsignbulksendsignermapping_getObject_v1_Response.h \
+    $${PWD}/OAIEzsignbulksendsignermapping_getObject_v1_Response_allOf.h \
+    $${PWD}/OAIEzsignbulksendsignermapping_getObject_v1_Response_mPayload.h \
     $${PWD}/OAIEzsignbulksendtransmission_Response.h \
     $${PWD}/OAIEzsignbulksendtransmission_ResponseCompound.h \
+    $${PWD}/OAIEzsignbulksendtransmission_ResponseCompound_allOf.h \
+    $${PWD}/OAIEzsignbulksendtransmission_getFormsData_v1_Response.h \
+    $${PWD}/OAIEzsignbulksendtransmission_getFormsData_v1_Response_allOf.h \
+    $${PWD}/OAIEzsignbulksendtransmission_getFormsData_v1_Response_mPayload.h \
     $${PWD}/OAIEzsignbulksendtransmission_getObject_v1_Response.h \
     $${PWD}/OAIEzsignbulksendtransmission_getObject_v1_Response_allOf.h \
     $${PWD}/OAIEzsignbulksendtransmission_getObject_v1_Response_mPayload.h \
@@ -108,9 +170,16 @@ HEADERS += \
     $${PWD}/OAIEzsigndocument_deleteObject_v1_Response.h \
     $${PWD}/OAIEzsigndocument_editEzsignformfieldgroups_v1_Request.h \
     $${PWD}/OAIEzsigndocument_editEzsignformfieldgroups_v1_Response.h \
+    $${PWD}/OAIEzsigndocument_editEzsignformfieldgroups_v1_Response_allOf.h \
+    $${PWD}/OAIEzsigndocument_editEzsignformfieldgroups_v1_Response_mPayload.h \
     $${PWD}/OAIEzsigndocument_editEzsignsignatures_v1_Request.h \
     $${PWD}/OAIEzsigndocument_editEzsignsignatures_v1_Response.h \
+    $${PWD}/OAIEzsigndocument_editEzsignsignatures_v1_Response_allOf.h \
+    $${PWD}/OAIEzsigndocument_editEzsignsignatures_v1_Response_mPayload.h \
     $${PWD}/OAIEzsigndocument_endPrematurely_v1_Response.h \
+    $${PWD}/OAIEzsigndocument_getActionableElements_v1_Response.h \
+    $${PWD}/OAIEzsigndocument_getActionableElements_v1_Response_allOf.h \
+    $${PWD}/OAIEzsigndocument_getActionableElements_v1_Response_mPayload.h \
     $${PWD}/OAIEzsigndocument_getDownloadUrl_v1_Response.h \
     $${PWD}/OAIEzsigndocument_getDownloadUrl_v1_Response_allOf.h \
     $${PWD}/OAIEzsigndocument_getDownloadUrl_v1_Response_mPayload.h \
@@ -137,6 +206,7 @@ HEADERS += \
     $${PWD}/OAIEzsigndocument_getWordsPositions_v1_Response_allOf.h \
     $${PWD}/OAIEzsigndocument_patchObject_v1_Request.h \
     $${PWD}/OAIEzsigndocument_patchObject_v1_Response.h \
+    $${PWD}/OAIEzsigndocument_unsend_v1_Response.h \
     $${PWD}/OAIEzsigndocumentlog_Response.h \
     $${PWD}/OAIEzsigndocumentlog_ResponseCompound.h \
     $${PWD}/OAIEzsignfolder_ListElement.h \
@@ -144,6 +214,8 @@ HEADERS += \
     $${PWD}/OAIEzsignfolder_RequestCompound.h \
     $${PWD}/OAIEzsignfolder_Response.h \
     $${PWD}/OAIEzsignfolder_ResponseCompound.h \
+    $${PWD}/OAIEzsignfolder_archive_v1_Response.h \
+    $${PWD}/OAIEzsignfolder_batchDownload_v1_Request.h \
     $${PWD}/OAIEzsignfolder_createObject_v1_Request.h \
     $${PWD}/OAIEzsignfolder_createObject_v1_Response.h \
     $${PWD}/OAIEzsignfolder_createObject_v1_Response_allOf.h \
@@ -155,6 +227,9 @@ HEADERS += \
     $${PWD}/OAIEzsignfolder_deleteObject_v1_Response.h \
     $${PWD}/OAIEzsignfolder_editObject_v1_Request.h \
     $${PWD}/OAIEzsignfolder_editObject_v1_Response.h \
+    $${PWD}/OAIEzsignfolder_getActionableElements_v1_Response.h \
+    $${PWD}/OAIEzsignfolder_getActionableElements_v1_Response_allOf.h \
+    $${PWD}/OAIEzsignfolder_getActionableElements_v1_Response_mPayload.h \
     $${PWD}/OAIEzsignfolder_getEzsigndocuments_v1_Response.h \
     $${PWD}/OAIEzsignfolder_getEzsigndocuments_v1_Response_allOf.h \
     $${PWD}/OAIEzsignfolder_getEzsigndocuments_v1_Response_mPayload.h \
@@ -171,6 +246,12 @@ HEADERS += \
     $${PWD}/OAIEzsignfolder_getObject_v1_Response.h \
     $${PWD}/OAIEzsignfolder_getObject_v1_Response_allOf.h \
     $${PWD}/OAIEzsignfolder_getObject_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsignfolder_importEzsigntemplatepackage_v1_Request.h \
+    $${PWD}/OAIEzsignfolder_importEzsigntemplatepackage_v1_Response.h \
+    $${PWD}/OAIEzsignfolder_importEzsigntemplatepackage_v1_Response_allOf.h \
+    $${PWD}/OAIEzsignfolder_importEzsigntemplatepackage_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsignfolder_reorder_v1_Request.h \
+    $${PWD}/OAIEzsignfolder_reorder_v1_Response.h \
     $${PWD}/OAIEzsignfolder_send_v1_Request.h \
     $${PWD}/OAIEzsignfolder_send_v1_Response.h \
     $${PWD}/OAIEzsignfolder_unsend_v1_Response.h \
@@ -190,6 +271,8 @@ HEADERS += \
     $${PWD}/OAIEzsignfoldersignerassociation_createObject_v2_Response_allOf.h \
     $${PWD}/OAIEzsignfoldersignerassociation_createObject_v2_Response_mPayload.h \
     $${PWD}/OAIEzsignfoldersignerassociation_deleteObject_v1_Response.h \
+    $${PWD}/OAIEzsignfoldersignerassociation_editObject_v1_Request.h \
+    $${PWD}/OAIEzsignfoldersignerassociation_editObject_v1_Response.h \
     $${PWD}/OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response.h \
     $${PWD}/OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response_allOf.h \
     $${PWD}/OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response_mPayload.h \
@@ -247,6 +330,9 @@ HEADERS += \
     $${PWD}/OAIEzsignsignature_getObject_v1_Response.h \
     $${PWD}/OAIEzsignsignature_getObject_v1_Response_allOf.h \
     $${PWD}/OAIEzsignsignature_getObject_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsignsignature_sign_v1_Request.h \
+    $${PWD}/OAIEzsignsignature_sign_v1_Response.h \
+    $${PWD}/OAIEzsignsignature_sign_v1_Response_allOf.h \
     $${PWD}/OAIEzsignsignaturecustomdate_Request.h \
     $${PWD}/OAIEzsignsignaturecustomdate_RequestCompound.h \
     $${PWD}/OAIEzsignsignaturecustomdate_Response.h \
@@ -259,12 +345,190 @@ HEADERS += \
     $${PWD}/OAIEzsignsigner_ResponseCompound.h \
     $${PWD}/OAIEzsignsigner_ResponseCompound_Contact.h \
     $${PWD}/OAIEzsignsigner_ResponseCompound_allOf.h \
+    $${PWD}/OAIEzsigntemplate_ListElement.h \
+    $${PWD}/OAIEzsigntemplate_Request.h \
+    $${PWD}/OAIEzsigntemplate_RequestCompound.h \
+    $${PWD}/OAIEzsigntemplate_Response.h \
+    $${PWD}/OAIEzsigntemplate_ResponseCompound.h \
+    $${PWD}/OAIEzsigntemplate_ResponseCompound_allOf.h \
+    $${PWD}/OAIEzsigntemplate_createObject_v1_Request.h \
+    $${PWD}/OAIEzsigntemplate_createObject_v1_Response.h \
+    $${PWD}/OAIEzsigntemplate_createObject_v1_Response_allOf.h \
+    $${PWD}/OAIEzsigntemplate_createObject_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsigntemplate_deleteObject_v1_Response.h \
+    $${PWD}/OAIEzsigntemplate_editObject_v1_Request.h \
+    $${PWD}/OAIEzsigntemplate_editObject_v1_Response.h \
+    $${PWD}/OAIEzsigntemplate_getList_v1_Response.h \
+    $${PWD}/OAIEzsigntemplate_getList_v1_Response_allOf.h \
+    $${PWD}/OAIEzsigntemplate_getList_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsigntemplate_getList_v1_Response_mPayload_allOf.h \
+    $${PWD}/OAIEzsigntemplate_getObject_v1_Response.h \
+    $${PWD}/OAIEzsigntemplate_getObject_v1_Response_allOf.h \
+    $${PWD}/OAIEzsigntemplate_getObject_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsigntemplatedocument_Request.h \
+    $${PWD}/OAIEzsigntemplatedocument_RequestCompound.h \
+    $${PWD}/OAIEzsigntemplatedocument_RequestPatch.h \
+    $${PWD}/OAIEzsigntemplatedocument_Response.h \
+    $${PWD}/OAIEzsigntemplatedocument_ResponseCompound.h \
+    $${PWD}/OAIEzsigntemplatedocument_createObject_v1_Request.h \
+    $${PWD}/OAIEzsigntemplatedocument_createObject_v1_Response.h \
+    $${PWD}/OAIEzsigntemplatedocument_createObject_v1_Response_allOf.h \
+    $${PWD}/OAIEzsigntemplatedocument_createObject_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsigntemplatedocument_editEzsigntemplateformfieldgroups_v1_Request.h \
+    $${PWD}/OAIEzsigntemplatedocument_editEzsigntemplateformfieldgroups_v1_Response.h \
+    $${PWD}/OAIEzsigntemplatedocument_editEzsigntemplateformfieldgroups_v1_Response_allOf.h \
+    $${PWD}/OAIEzsigntemplatedocument_editEzsigntemplateformfieldgroups_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsigntemplatedocument_editEzsigntemplatesignatures_v1_Request.h \
+    $${PWD}/OAIEzsigntemplatedocument_editEzsigntemplatesignatures_v1_Response.h \
+    $${PWD}/OAIEzsigntemplatedocument_editEzsigntemplatesignatures_v1_Response_allOf.h \
+    $${PWD}/OAIEzsigntemplatedocument_editEzsigntemplatesignatures_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsigntemplatedocument_editObject_v1_Request.h \
+    $${PWD}/OAIEzsigntemplatedocument_editObject_v1_Response.h \
+    $${PWD}/OAIEzsigntemplatedocument_getEzsigntemplatedocumentpages_v1_Response.h \
+    $${PWD}/OAIEzsigntemplatedocument_getEzsigntemplatedocumentpages_v1_Response_allOf.h \
+    $${PWD}/OAIEzsigntemplatedocument_getEzsigntemplatedocumentpages_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsigntemplatedocument_getEzsigntemplateformfieldgroups_v1_Response.h \
+    $${PWD}/OAIEzsigntemplatedocument_getEzsigntemplateformfieldgroups_v1_Response_allOf.h \
+    $${PWD}/OAIEzsigntemplatedocument_getEzsigntemplateformfieldgroups_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsigntemplatedocument_getEzsigntemplatesignatures_v1_Response.h \
+    $${PWD}/OAIEzsigntemplatedocument_getEzsigntemplatesignatures_v1_Response_allOf.h \
+    $${PWD}/OAIEzsigntemplatedocument_getEzsigntemplatesignatures_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsigntemplatedocument_getObject_v1_Response.h \
+    $${PWD}/OAIEzsigntemplatedocument_getObject_v1_Response_allOf.h \
+    $${PWD}/OAIEzsigntemplatedocument_getObject_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsigntemplatedocument_getWordsPositions_v1_Request.h \
+    $${PWD}/OAIEzsigntemplatedocument_getWordsPositions_v1_Response.h \
+    $${PWD}/OAIEzsigntemplatedocument_getWordsPositions_v1_Response_allOf.h \
+    $${PWD}/OAIEzsigntemplatedocument_patchObject_v1_Request.h \
+    $${PWD}/OAIEzsigntemplatedocument_patchObject_v1_Response.h \
+    $${PWD}/OAIEzsigntemplatedocumentpage_Response.h \
+    $${PWD}/OAIEzsigntemplatedocumentpage_ResponseCompound.h \
+    $${PWD}/OAIEzsigntemplateformfield_Request.h \
+    $${PWD}/OAIEzsigntemplateformfield_RequestCompound.h \
+    $${PWD}/OAIEzsigntemplateformfield_Response.h \
+    $${PWD}/OAIEzsigntemplateformfield_ResponseCompound.h \
+    $${PWD}/OAIEzsigntemplateformfieldgroup_Request.h \
+    $${PWD}/OAIEzsigntemplateformfieldgroup_RequestCompound.h \
+    $${PWD}/OAIEzsigntemplateformfieldgroup_RequestCompound_allOf.h \
+    $${PWD}/OAIEzsigntemplateformfieldgroup_Response.h \
+    $${PWD}/OAIEzsigntemplateformfieldgroup_ResponseCompound.h \
+    $${PWD}/OAIEzsigntemplateformfieldgroup_ResponseCompound_allOf.h \
+    $${PWD}/OAIEzsigntemplateformfieldgroup_createObject_v1_Request.h \
+    $${PWD}/OAIEzsigntemplateformfieldgroup_createObject_v1_Response.h \
+    $${PWD}/OAIEzsigntemplateformfieldgroup_createObject_v1_Response_allOf.h \
+    $${PWD}/OAIEzsigntemplateformfieldgroup_createObject_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsigntemplateformfieldgroup_deleteObject_v1_Response.h \
+    $${PWD}/OAIEzsigntemplateformfieldgroup_editObject_v1_Request.h \
+    $${PWD}/OAIEzsigntemplateformfieldgroup_editObject_v1_Response.h \
+    $${PWD}/OAIEzsigntemplateformfieldgroup_getObject_v1_Response.h \
+    $${PWD}/OAIEzsigntemplateformfieldgroup_getObject_v1_Response_allOf.h \
+    $${PWD}/OAIEzsigntemplateformfieldgroup_getObject_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsigntemplateformfieldgroupsigner_Request.h \
+    $${PWD}/OAIEzsigntemplateformfieldgroupsigner_RequestCompound.h \
+    $${PWD}/OAIEzsigntemplateformfieldgroupsigner_Response.h \
+    $${PWD}/OAIEzsigntemplateformfieldgroupsigner_ResponseCompound.h \
     $${PWD}/OAIEzsigntemplatepackage_ListElement.h \
+    $${PWD}/OAIEzsigntemplatepackage_Request.h \
+    $${PWD}/OAIEzsigntemplatepackage_RequestCompound.h \
+    $${PWD}/OAIEzsigntemplatepackage_Response.h \
+    $${PWD}/OAIEzsigntemplatepackage_ResponseCompound.h \
+    $${PWD}/OAIEzsigntemplatepackage_ResponseCompound_allOf.h \
+    $${PWD}/OAIEzsigntemplatepackage_createObject_v1_Request.h \
+    $${PWD}/OAIEzsigntemplatepackage_createObject_v1_Response.h \
+    $${PWD}/OAIEzsigntemplatepackage_createObject_v1_Response_allOf.h \
+    $${PWD}/OAIEzsigntemplatepackage_createObject_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsigntemplatepackage_deleteObject_v1_Response.h \
+    $${PWD}/OAIEzsigntemplatepackage_editEzsigntemplatepackagesigners_v1_Request.h \
+    $${PWD}/OAIEzsigntemplatepackage_editEzsigntemplatepackagesigners_v1_Response.h \
+    $${PWD}/OAIEzsigntemplatepackage_editEzsigntemplatepackagesigners_v1_Response_allOf.h \
+    $${PWD}/OAIEzsigntemplatepackage_editEzsigntemplatepackagesigners_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsigntemplatepackage_editObject_v1_Request.h \
+    $${PWD}/OAIEzsigntemplatepackage_editObject_v1_Response.h \
     $${PWD}/OAIEzsigntemplatepackage_getList_v1_Response.h \
     $${PWD}/OAIEzsigntemplatepackage_getList_v1_Response_allOf.h \
     $${PWD}/OAIEzsigntemplatepackage_getList_v1_Response_mPayload.h \
     $${PWD}/OAIEzsigntemplatepackage_getList_v1_Response_mPayload_allOf.h \
-    $${PWD}/OAIField_eActivesessionSessiontype.h \
+    $${PWD}/OAIEzsigntemplatepackage_getObject_v1_Response.h \
+    $${PWD}/OAIEzsigntemplatepackage_getObject_v1_Response_allOf.h \
+    $${PWD}/OAIEzsigntemplatepackage_getObject_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsigntemplatepackagemembership_Request.h \
+    $${PWD}/OAIEzsigntemplatepackagemembership_RequestCompound.h \
+    $${PWD}/OAIEzsigntemplatepackagemembership_Response.h \
+    $${PWD}/OAIEzsigntemplatepackagemembership_ResponseCompound.h \
+    $${PWD}/OAIEzsigntemplatepackagemembership_ResponseCompound_allOf.h \
+    $${PWD}/OAIEzsigntemplatepackagemembership_createObject_v1_Request.h \
+    $${PWD}/OAIEzsigntemplatepackagemembership_createObject_v1_Response.h \
+    $${PWD}/OAIEzsigntemplatepackagemembership_createObject_v1_Response_allOf.h \
+    $${PWD}/OAIEzsigntemplatepackagemembership_createObject_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsigntemplatepackagemembership_deleteObject_v1_Response.h \
+    $${PWD}/OAIEzsigntemplatepackagemembership_getObject_v1_Response.h \
+    $${PWD}/OAIEzsigntemplatepackagemembership_getObject_v1_Response_allOf.h \
+    $${PWD}/OAIEzsigntemplatepackagemembership_getObject_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsigntemplatepackagesigner_Request.h \
+    $${PWD}/OAIEzsigntemplatepackagesigner_RequestCompound.h \
+    $${PWD}/OAIEzsigntemplatepackagesigner_Response.h \
+    $${PWD}/OAIEzsigntemplatepackagesigner_ResponseCompound.h \
+    $${PWD}/OAIEzsigntemplatepackagesigner_createObject_v1_Request.h \
+    $${PWD}/OAIEzsigntemplatepackagesigner_createObject_v1_Response.h \
+    $${PWD}/OAIEzsigntemplatepackagesigner_createObject_v1_Response_allOf.h \
+    $${PWD}/OAIEzsigntemplatepackagesigner_createObject_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsigntemplatepackagesigner_deleteObject_v1_Response.h \
+    $${PWD}/OAIEzsigntemplatepackagesigner_deleteObject_v1_Response_allOf.h \
+    $${PWD}/OAIEzsigntemplatepackagesigner_deleteObject_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsigntemplatepackagesigner_editObject_v1_Request.h \
+    $${PWD}/OAIEzsigntemplatepackagesigner_editObject_v1_Response.h \
+    $${PWD}/OAIEzsigntemplatepackagesigner_getObject_v1_Response.h \
+    $${PWD}/OAIEzsigntemplatepackagesigner_getObject_v1_Response_allOf.h \
+    $${PWD}/OAIEzsigntemplatepackagesigner_getObject_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsigntemplatepackagesignermembership_Request.h \
+    $${PWD}/OAIEzsigntemplatepackagesignermembership_RequestCompound.h \
+    $${PWD}/OAIEzsigntemplatepackagesignermembership_Response.h \
+    $${PWD}/OAIEzsigntemplatepackagesignermembership_ResponseCompound.h \
+    $${PWD}/OAIEzsigntemplatepackagesignermembership_createObject_v1_Request.h \
+    $${PWD}/OAIEzsigntemplatepackagesignermembership_createObject_v1_Response.h \
+    $${PWD}/OAIEzsigntemplatepackagesignermembership_createObject_v1_Response_allOf.h \
+    $${PWD}/OAIEzsigntemplatepackagesignermembership_createObject_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsigntemplatepackagesignermembership_deleteObject_v1_Response.h \
+    $${PWD}/OAIEzsigntemplatepackagesignermembership_deleteObject_v1_Response_allOf.h \
+    $${PWD}/OAIEzsigntemplatepackagesignermembership_deleteObject_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsigntemplatepackagesignermembership_getObject_v1_Response.h \
+    $${PWD}/OAIEzsigntemplatepackagesignermembership_getObject_v1_Response_allOf.h \
+    $${PWD}/OAIEzsigntemplatepackagesignermembership_getObject_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsigntemplatesignature_Request.h \
+    $${PWD}/OAIEzsigntemplatesignature_RequestCompound.h \
+    $${PWD}/OAIEzsigntemplatesignature_RequestCompound_allOf.h \
+    $${PWD}/OAIEzsigntemplatesignature_Response.h \
+    $${PWD}/OAIEzsigntemplatesignature_ResponseCompound.h \
+    $${PWD}/OAIEzsigntemplatesignature_ResponseCompound_allOf.h \
+    $${PWD}/OAIEzsigntemplatesignature_createObject_v1_Request.h \
+    $${PWD}/OAIEzsigntemplatesignature_createObject_v1_Response.h \
+    $${PWD}/OAIEzsigntemplatesignature_createObject_v1_Response_allOf.h \
+    $${PWD}/OAIEzsigntemplatesignature_createObject_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsigntemplatesignature_deleteObject_v1_Response.h \
+    $${PWD}/OAIEzsigntemplatesignature_editObject_v1_Request.h \
+    $${PWD}/OAIEzsigntemplatesignature_editObject_v1_Response.h \
+    $${PWD}/OAIEzsigntemplatesignature_getObject_v1_Response.h \
+    $${PWD}/OAIEzsigntemplatesignature_getObject_v1_Response_allOf.h \
+    $${PWD}/OAIEzsigntemplatesignature_getObject_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsigntemplatesignaturecustomdate_Request.h \
+    $${PWD}/OAIEzsigntemplatesignaturecustomdate_RequestCompound.h \
+    $${PWD}/OAIEzsigntemplatesignaturecustomdate_Response.h \
+    $${PWD}/OAIEzsigntemplatesignaturecustomdate_ResponseCompound.h \
+    $${PWD}/OAIEzsigntemplatesigner_Request.h \
+    $${PWD}/OAIEzsigntemplatesigner_RequestCompound.h \
+    $${PWD}/OAIEzsigntemplatesigner_Response.h \
+    $${PWD}/OAIEzsigntemplatesigner_ResponseCompound.h \
+    $${PWD}/OAIEzsigntemplatesigner_createObject_v1_Request.h \
+    $${PWD}/OAIEzsigntemplatesigner_createObject_v1_Response.h \
+    $${PWD}/OAIEzsigntemplatesigner_createObject_v1_Response_allOf.h \
+    $${PWD}/OAIEzsigntemplatesigner_createObject_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsigntemplatesigner_deleteObject_v1_Response.h \
+    $${PWD}/OAIEzsigntemplatesigner_editObject_v1_Request.h \
+    $${PWD}/OAIEzsigntemplatesigner_editObject_v1_Response.h \
+    $${PWD}/OAIEzsigntemplatesigner_getObject_v1_Response.h \
+    $${PWD}/OAIEzsigntemplatesigner_getObject_v1_Response_allOf.h \
+    $${PWD}/OAIEzsigntemplatesigner_getObject_v1_Response_mPayload.h \
+    $${PWD}/OAIField_eActivesessionUsertype.h \
     $${PWD}/OAIField_eActivesessionWeekdaystart.h \
     $${PWD}/OAIField_eEzsigndocumentStep.h \
     $${PWD}/OAIField_eEzsigndocumentlogType.h \
@@ -274,11 +538,18 @@ HEADERS += \
     $${PWD}/OAIField_eEzsignformfieldgroupSignerrequirement.h \
     $${PWD}/OAIField_eEzsignformfieldgroupTooltipposition.h \
     $${PWD}/OAIField_eEzsignformfieldgroupType.h \
+    $${PWD}/OAIField_eEzsignsignatureFont.h \
+    $${PWD}/OAIField_eEzsignsignatureTooltipposition.h \
     $${PWD}/OAIField_eEzsignsignatureType.h \
-    $${PWD}/OAIField_eEzsigntemplatepackageType.h \
+    $${PWD}/OAIField_eEzsigntemplateformfieldgroupSignerrequirement.h \
+    $${PWD}/OAIField_eEzsigntemplateformfieldgroupTooltipposition.h \
+    $${PWD}/OAIField_eEzsigntemplateformfieldgroupType.h \
+    $${PWD}/OAIField_eEzsigntemplatesignatureFont.h \
+    $${PWD}/OAIField_eEzsigntemplatesignatureTooltipposition.h \
+    $${PWD}/OAIField_eEzsigntemplatesignatureType.h \
+    $${PWD}/OAIField_eNotificationpreferenceStatus.h \
     $${PWD}/OAIField_ePhoneType.h \
     $${PWD}/OAIField_eUserType.h \
-    $${PWD}/OAIField_eUserTypeSSPR.h \
     $${PWD}/OAIFranchisereferalincome_Request.h \
     $${PWD}/OAIFranchisereferalincome_RequestCompound.h \
     $${PWD}/OAIFranchisereferalincome_RequestCompound_allOf.h \
@@ -292,23 +563,14 @@ HEADERS += \
     $${PWD}/OAIFranchisereferalincome_createObject_v2_Response_mPayload.h \
     $${PWD}/OAIGlobal_customer_getEndpoint_v1_Response.h \
     $${PWD}/OAIHeader_Accept_Language.h \
-    $${PWD}/OAIList_getListpresentation_v1_Response.h \
-    $${PWD}/OAIList_getListpresentation_v1_Response_allOf.h \
-    $${PWD}/OAIList_getListpresentation_v1_Response_mPayload.h \
-    $${PWD}/OAIList_saveListpresentation_v1_Request.h \
-    $${PWD}/OAIList_saveListpresentation_v1_Response.h \
-    $${PWD}/OAIListpresentation_Request.h \
-    $${PWD}/OAIListpresentation_RequestCompound.h \
-    $${PWD}/OAIListpresentation_ResponseCompound.h \
     $${PWD}/OAIMultilingual_ApikeyDescription.h \
+    $${PWD}/OAINotificationsection_getNotificationtests_v1_Response.h \
+    $${PWD}/OAINotificationsection_getNotificationtests_v1_Response_allOf.h \
+    $${PWD}/OAINotificationsection_getNotificationtests_v1_Response_mPayload.h \
+    $${PWD}/OAINotificationsubsection_Response.h \
+    $${PWD}/OAINotificationtest_Response.h \
     $${PWD}/OAIPhone_Request.h \
     $${PWD}/OAIPhone_RequestCompound.h \
-    $${PWD}/OAISspr_resetPasswordRequest_v1_Request.h \
-    $${PWD}/OAISspr_resetPassword_v1_Request.h \
-    $${PWD}/OAISspr_sendUsernames_v1_Request.h \
-    $${PWD}/OAISspr_unlockAccountRequest_v1_Request.h \
-    $${PWD}/OAISspr_unlockAccount_v1_Request.h \
-    $${PWD}/OAISspr_validateToken_v1_Request.h \
     $${PWD}/OAIUser_Response.h \
     $${PWD}/OAIUser_ResponseCompound.h \
     $${PWD}/OAIUser_createEzsignuser_v1_Request.h \
@@ -326,12 +588,13 @@ HEADERS += \
     $${PWD}/OAIWebsite_RequestCompound.h \
 # APIs
     $${PWD}/OAIGlobalCustomerApi.h \
-    $${PWD}/OAIModuleAuthenticateApi.h \
-    $${PWD}/OAIModuleListApi.h \
+    $${PWD}/OAIModuleEzsignApi.h \
     $${PWD}/OAIModuleUserApi.h \
     $${PWD}/OAIObjectActivesessionApi.h \
     $${PWD}/OAIObjectApikeyApi.h \
     $${PWD}/OAIObjectEzsignbulksendApi.h \
+    $${PWD}/OAIObjectEzsignbulksenddocumentmappingApi.h \
+    $${PWD}/OAIObjectEzsignbulksendsignermappingApi.h \
     $${PWD}/OAIObjectEzsignbulksendtransmissionApi.h \
     $${PWD}/OAIObjectEzsigndocumentApi.h \
     $${PWD}/OAIObjectEzsignfolderApi.h \
@@ -339,11 +602,22 @@ HEADERS += \
     $${PWD}/OAIObjectEzsignfoldertypeApi.h \
     $${PWD}/OAIObjectEzsignformfieldgroupApi.h \
     $${PWD}/OAIObjectEzsignsignatureApi.h \
+    $${PWD}/OAIObjectEzsigntemplateApi.h \
+    $${PWD}/OAIObjectEzsigntemplatedocumentApi.h \
+    $${PWD}/OAIObjectEzsigntemplateformfieldgroupApi.h \
     $${PWD}/OAIObjectEzsigntemplatepackageApi.h \
+    $${PWD}/OAIObjectEzsigntemplatepackagemembershipApi.h \
+    $${PWD}/OAIObjectEzsigntemplatepackagesignerApi.h \
+    $${PWD}/OAIObjectEzsigntemplatepackagesignermembershipApi.h \
+    $${PWD}/OAIObjectEzsigntemplatesignatureApi.h \
+    $${PWD}/OAIObjectEzsigntemplatesignerApi.h \
+    $${PWD}/OAIObjectEzsigntsarequirementApi.h \
     $${PWD}/OAIObjectFranchisebrokerApi.h \
     $${PWD}/OAIObjectFranchiseofficeApi.h \
     $${PWD}/OAIObjectFranchisereferalincomeApi.h \
+    $${PWD}/OAIObjectNotificationsectionApi.h \
     $${PWD}/OAIObjectPeriodApi.h \
+    $${PWD}/OAIObjectSecretquestionApi.h \
 # Others
     $${PWD}/OAIHelpers.h \
     $${PWD}/OAIHttpRequest.h \
@@ -380,10 +654,6 @@ SOURCES += \
     $${PWD}/OAIApikey_createObject_v2_Response_mPayload.cpp \
     $${PWD}/OAIAttempt_Response.cpp \
     $${PWD}/OAIAttempt_ResponseCompound.cpp \
-    $${PWD}/OAIAuthenticate_authenticate_v2_Request.cpp \
-    $${PWD}/OAIAuthenticate_authenticate_v2_Response.cpp \
-    $${PWD}/OAIAuthenticate_authenticate_v2_Response_allOf.cpp \
-    $${PWD}/OAIAuthenticate_authenticate_v2_Response_mPayload.cpp \
     $${PWD}/OAICommon_Audit.cpp \
     $${PWD}/OAICommon_Auditdetail.cpp \
     $${PWD}/OAICommon_Response.cpp \
@@ -398,6 +668,8 @@ SOURCES += \
     $${PWD}/OAICommon_Response_objDebugPayload_getList_allOf.cpp \
     $${PWD}/OAICommon_Response_objSQLQuery.cpp \
     $${PWD}/OAICommon_Webhook.cpp \
+    $${PWD}/OAICommon_getAutocompleteDisabled_v1_Response.cpp \
+    $${PWD}/OAICommon_getAutocompleteDisabled_v1_Response_allOf.cpp \
     $${PWD}/OAICommon_getAutocomplete_v1_Response.cpp \
     $${PWD}/OAICommon_getAutocomplete_v1_Response_allOf.cpp \
     $${PWD}/OAICommon_getList_v1_Response_mPayload.cpp \
@@ -407,28 +679,61 @@ SOURCES += \
     $${PWD}/OAIContactinformations_Request.cpp \
     $${PWD}/OAIContactinformations_RequestCompound.cpp \
     $${PWD}/OAIContactinformations_RequestCompound_allOf.cpp \
+    $${PWD}/OAICustom_AutocompleteElementDisabled_Response.cpp \
+    $${PWD}/OAICustom_AutocompleteElementDisabled_Response_allOf.cpp \
     $${PWD}/OAICustom_AutocompleteElement_Response.cpp \
     $${PWD}/OAICustom_DropdownElement_Request.cpp \
     $${PWD}/OAICustom_DropdownElement_RequestCompound.cpp \
     $${PWD}/OAICustom_DropdownElement_Response.cpp \
     $${PWD}/OAICustom_DropdownElement_ResponseCompound.cpp \
     $${PWD}/OAICustom_Ezsignfoldersignerassociationstatus_Response.cpp \
+    $${PWD}/OAICustom_EzsignfoldertransmissionSigner_Response.cpp \
+    $${PWD}/OAICustom_Ezsignfoldertransmission_Response.cpp \
     $${PWD}/OAICustom_Ezsignsignaturestatus_Response.cpp \
     $${PWD}/OAICustom_FormDataDocument_Response.cpp \
     $${PWD}/OAICustom_FormDataEzsignformfield_Response.cpp \
     $${PWD}/OAICustom_FormDataEzsignformfieldgroup_Response.cpp \
     $${PWD}/OAICustom_FormDataSigner_Response.cpp \
     $${PWD}/OAICustom_FormsDataFolder_Response.cpp \
+    $${PWD}/OAICustom_ImportEzsigntemplatepackageRelation_Request.cpp \
+    $${PWD}/OAICustom_Notificationsubsectiongetnotificationtests_Response.cpp \
+    $${PWD}/OAICustom_Notificationsubsectiongetnotificationtests_Response_allOf.cpp \
+    $${PWD}/OAICustom_Notificationtestgetnotificationtests_Response.cpp \
+    $${PWD}/OAICustom_Notificationtestgetnotificationtests_Response_allOf.cpp \
+    $${PWD}/OAICustom_User_Response.cpp \
     $${PWD}/OAICustom_WordPositionOccurence_Response.cpp \
     $${PWD}/OAICustom_WordPositionWord_Response.cpp \
     $${PWD}/OAIEmail_Request.cpp \
     $${PWD}/OAIEmail_RequestCompound.cpp \
+    $${PWD}/OAIEzsign_suggestSigners_v1_Response.cpp \
+    $${PWD}/OAIEzsign_suggestSigners_v1_Response_allOf.cpp \
+    $${PWD}/OAIEzsign_suggestSigners_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsign_suggestTemplates_v1_Response.cpp \
+    $${PWD}/OAIEzsign_suggestTemplates_v1_Response_allOf.cpp \
+    $${PWD}/OAIEzsign_suggestTemplates_v1_Response_mPayload.cpp \
     $${PWD}/OAIEzsignbulksend_ListElement.cpp \
+    $${PWD}/OAIEzsignbulksend_Request.cpp \
+    $${PWD}/OAIEzsignbulksend_RequestCompound.cpp \
     $${PWD}/OAIEzsignbulksend_Response.cpp \
     $${PWD}/OAIEzsignbulksend_ResponseCompound.cpp \
+    $${PWD}/OAIEzsignbulksend_ResponseCompound_allOf.cpp \
+    $${PWD}/OAIEzsignbulksend_createEzsignbulksendtransmission_v1_Request.cpp \
+    $${PWD}/OAIEzsignbulksend_createEzsignbulksendtransmission_v1_Response.cpp \
+    $${PWD}/OAIEzsignbulksend_createEzsignbulksendtransmission_v1_Response_allOf.cpp \
+    $${PWD}/OAIEzsignbulksend_createEzsignbulksendtransmission_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsignbulksend_createObject_v1_Request.cpp \
+    $${PWD}/OAIEzsignbulksend_createObject_v1_Response.cpp \
+    $${PWD}/OAIEzsignbulksend_createObject_v1_Response_allOf.cpp \
+    $${PWD}/OAIEzsignbulksend_createObject_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsignbulksend_deleteObject_v1_Response.cpp \
+    $${PWD}/OAIEzsignbulksend_editObject_v1_Request.cpp \
+    $${PWD}/OAIEzsignbulksend_editObject_v1_Response.cpp \
     $${PWD}/OAIEzsignbulksend_getEzsignbulksendtransmissions_v1_Response.cpp \
     $${PWD}/OAIEzsignbulksend_getEzsignbulksendtransmissions_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsignbulksend_getEzsignbulksendtransmissions_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsignbulksend_getFormsData_v1_Response.cpp \
+    $${PWD}/OAIEzsignbulksend_getFormsData_v1_Response_allOf.cpp \
+    $${PWD}/OAIEzsignbulksend_getFormsData_v1_Response_mPayload.cpp \
     $${PWD}/OAIEzsignbulksend_getList_v1_Response.cpp \
     $${PWD}/OAIEzsignbulksend_getList_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsignbulksend_getList_v1_Response_mPayload.cpp \
@@ -436,8 +741,39 @@ SOURCES += \
     $${PWD}/OAIEzsignbulksend_getObject_v1_Response.cpp \
     $${PWD}/OAIEzsignbulksend_getObject_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsignbulksend_getObject_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsignbulksend_reorder_v1_Request.cpp \
+    $${PWD}/OAIEzsignbulksend_reorder_v1_Response.cpp \
+    $${PWD}/OAIEzsignbulksenddocumentmapping_Request.cpp \
+    $${PWD}/OAIEzsignbulksenddocumentmapping_RequestCompound.cpp \
+    $${PWD}/OAIEzsignbulksenddocumentmapping_Response.cpp \
+    $${PWD}/OAIEzsignbulksenddocumentmapping_ResponseCompound.cpp \
+    $${PWD}/OAIEzsignbulksenddocumentmapping_ResponseCompound_allOf.cpp \
+    $${PWD}/OAIEzsignbulksenddocumentmapping_createObject_v1_Request.cpp \
+    $${PWD}/OAIEzsignbulksenddocumentmapping_createObject_v1_Response.cpp \
+    $${PWD}/OAIEzsignbulksenddocumentmapping_createObject_v1_Response_allOf.cpp \
+    $${PWD}/OAIEzsignbulksenddocumentmapping_createObject_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsignbulksenddocumentmapping_deleteObject_v1_Response.cpp \
+    $${PWD}/OAIEzsignbulksenddocumentmapping_getObject_v1_Response.cpp \
+    $${PWD}/OAIEzsignbulksenddocumentmapping_getObject_v1_Response_allOf.cpp \
+    $${PWD}/OAIEzsignbulksenddocumentmapping_getObject_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsignbulksendsignermapping_Request.cpp \
+    $${PWD}/OAIEzsignbulksendsignermapping_RequestCompound.cpp \
+    $${PWD}/OAIEzsignbulksendsignermapping_Response.cpp \
+    $${PWD}/OAIEzsignbulksendsignermapping_ResponseCompound.cpp \
+    $${PWD}/OAIEzsignbulksendsignermapping_createObject_v1_Request.cpp \
+    $${PWD}/OAIEzsignbulksendsignermapping_createObject_v1_Response.cpp \
+    $${PWD}/OAIEzsignbulksendsignermapping_createObject_v1_Response_allOf.cpp \
+    $${PWD}/OAIEzsignbulksendsignermapping_createObject_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsignbulksendsignermapping_deleteObject_v1_Response.cpp \
+    $${PWD}/OAIEzsignbulksendsignermapping_getObject_v1_Response.cpp \
+    $${PWD}/OAIEzsignbulksendsignermapping_getObject_v1_Response_allOf.cpp \
+    $${PWD}/OAIEzsignbulksendsignermapping_getObject_v1_Response_mPayload.cpp \
     $${PWD}/OAIEzsignbulksendtransmission_Response.cpp \
     $${PWD}/OAIEzsignbulksendtransmission_ResponseCompound.cpp \
+    $${PWD}/OAIEzsignbulksendtransmission_ResponseCompound_allOf.cpp \
+    $${PWD}/OAIEzsignbulksendtransmission_getFormsData_v1_Response.cpp \
+    $${PWD}/OAIEzsignbulksendtransmission_getFormsData_v1_Response_allOf.cpp \
+    $${PWD}/OAIEzsignbulksendtransmission_getFormsData_v1_Response_mPayload.cpp \
     $${PWD}/OAIEzsignbulksendtransmission_getObject_v1_Response.cpp \
     $${PWD}/OAIEzsignbulksendtransmission_getObject_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsignbulksendtransmission_getObject_v1_Response_mPayload.cpp \
@@ -462,9 +798,16 @@ SOURCES += \
     $${PWD}/OAIEzsigndocument_deleteObject_v1_Response.cpp \
     $${PWD}/OAIEzsigndocument_editEzsignformfieldgroups_v1_Request.cpp \
     $${PWD}/OAIEzsigndocument_editEzsignformfieldgroups_v1_Response.cpp \
+    $${PWD}/OAIEzsigndocument_editEzsignformfieldgroups_v1_Response_allOf.cpp \
+    $${PWD}/OAIEzsigndocument_editEzsignformfieldgroups_v1_Response_mPayload.cpp \
     $${PWD}/OAIEzsigndocument_editEzsignsignatures_v1_Request.cpp \
     $${PWD}/OAIEzsigndocument_editEzsignsignatures_v1_Response.cpp \
+    $${PWD}/OAIEzsigndocument_editEzsignsignatures_v1_Response_allOf.cpp \
+    $${PWD}/OAIEzsigndocument_editEzsignsignatures_v1_Response_mPayload.cpp \
     $${PWD}/OAIEzsigndocument_endPrematurely_v1_Response.cpp \
+    $${PWD}/OAIEzsigndocument_getActionableElements_v1_Response.cpp \
+    $${PWD}/OAIEzsigndocument_getActionableElements_v1_Response_allOf.cpp \
+    $${PWD}/OAIEzsigndocument_getActionableElements_v1_Response_mPayload.cpp \
     $${PWD}/OAIEzsigndocument_getDownloadUrl_v1_Response.cpp \
     $${PWD}/OAIEzsigndocument_getDownloadUrl_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsigndocument_getDownloadUrl_v1_Response_mPayload.cpp \
@@ -491,6 +834,7 @@ SOURCES += \
     $${PWD}/OAIEzsigndocument_getWordsPositions_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsigndocument_patchObject_v1_Request.cpp \
     $${PWD}/OAIEzsigndocument_patchObject_v1_Response.cpp \
+    $${PWD}/OAIEzsigndocument_unsend_v1_Response.cpp \
     $${PWD}/OAIEzsigndocumentlog_Response.cpp \
     $${PWD}/OAIEzsigndocumentlog_ResponseCompound.cpp \
     $${PWD}/OAIEzsignfolder_ListElement.cpp \
@@ -498,6 +842,8 @@ SOURCES += \
     $${PWD}/OAIEzsignfolder_RequestCompound.cpp \
     $${PWD}/OAIEzsignfolder_Response.cpp \
     $${PWD}/OAIEzsignfolder_ResponseCompound.cpp \
+    $${PWD}/OAIEzsignfolder_archive_v1_Response.cpp \
+    $${PWD}/OAIEzsignfolder_batchDownload_v1_Request.cpp \
     $${PWD}/OAIEzsignfolder_createObject_v1_Request.cpp \
     $${PWD}/OAIEzsignfolder_createObject_v1_Response.cpp \
     $${PWD}/OAIEzsignfolder_createObject_v1_Response_allOf.cpp \
@@ -509,6 +855,9 @@ SOURCES += \
     $${PWD}/OAIEzsignfolder_deleteObject_v1_Response.cpp \
     $${PWD}/OAIEzsignfolder_editObject_v1_Request.cpp \
     $${PWD}/OAIEzsignfolder_editObject_v1_Response.cpp \
+    $${PWD}/OAIEzsignfolder_getActionableElements_v1_Response.cpp \
+    $${PWD}/OAIEzsignfolder_getActionableElements_v1_Response_allOf.cpp \
+    $${PWD}/OAIEzsignfolder_getActionableElements_v1_Response_mPayload.cpp \
     $${PWD}/OAIEzsignfolder_getEzsigndocuments_v1_Response.cpp \
     $${PWD}/OAIEzsignfolder_getEzsigndocuments_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsignfolder_getEzsigndocuments_v1_Response_mPayload.cpp \
@@ -525,6 +874,12 @@ SOURCES += \
     $${PWD}/OAIEzsignfolder_getObject_v1_Response.cpp \
     $${PWD}/OAIEzsignfolder_getObject_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsignfolder_getObject_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsignfolder_importEzsigntemplatepackage_v1_Request.cpp \
+    $${PWD}/OAIEzsignfolder_importEzsigntemplatepackage_v1_Response.cpp \
+    $${PWD}/OAIEzsignfolder_importEzsigntemplatepackage_v1_Response_allOf.cpp \
+    $${PWD}/OAIEzsignfolder_importEzsigntemplatepackage_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsignfolder_reorder_v1_Request.cpp \
+    $${PWD}/OAIEzsignfolder_reorder_v1_Response.cpp \
     $${PWD}/OAIEzsignfolder_send_v1_Request.cpp \
     $${PWD}/OAIEzsignfolder_send_v1_Response.cpp \
     $${PWD}/OAIEzsignfolder_unsend_v1_Response.cpp \
@@ -544,6 +899,8 @@ SOURCES += \
     $${PWD}/OAIEzsignfoldersignerassociation_createObject_v2_Response_allOf.cpp \
     $${PWD}/OAIEzsignfoldersignerassociation_createObject_v2_Response_mPayload.cpp \
     $${PWD}/OAIEzsignfoldersignerassociation_deleteObject_v1_Response.cpp \
+    $${PWD}/OAIEzsignfoldersignerassociation_editObject_v1_Request.cpp \
+    $${PWD}/OAIEzsignfoldersignerassociation_editObject_v1_Response.cpp \
     $${PWD}/OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response.cpp \
     $${PWD}/OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response_mPayload.cpp \
@@ -601,6 +958,9 @@ SOURCES += \
     $${PWD}/OAIEzsignsignature_getObject_v1_Response.cpp \
     $${PWD}/OAIEzsignsignature_getObject_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsignsignature_getObject_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsignsignature_sign_v1_Request.cpp \
+    $${PWD}/OAIEzsignsignature_sign_v1_Response.cpp \
+    $${PWD}/OAIEzsignsignature_sign_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsignsignaturecustomdate_Request.cpp \
     $${PWD}/OAIEzsignsignaturecustomdate_RequestCompound.cpp \
     $${PWD}/OAIEzsignsignaturecustomdate_Response.cpp \
@@ -613,12 +973,190 @@ SOURCES += \
     $${PWD}/OAIEzsignsigner_ResponseCompound.cpp \
     $${PWD}/OAIEzsignsigner_ResponseCompound_Contact.cpp \
     $${PWD}/OAIEzsignsigner_ResponseCompound_allOf.cpp \
+    $${PWD}/OAIEzsigntemplate_ListElement.cpp \
+    $${PWD}/OAIEzsigntemplate_Request.cpp \
+    $${PWD}/OAIEzsigntemplate_RequestCompound.cpp \
+    $${PWD}/OAIEzsigntemplate_Response.cpp \
+    $${PWD}/OAIEzsigntemplate_ResponseCompound.cpp \
+    $${PWD}/OAIEzsigntemplate_ResponseCompound_allOf.cpp \
+    $${PWD}/OAIEzsigntemplate_createObject_v1_Request.cpp \
+    $${PWD}/OAIEzsigntemplate_createObject_v1_Response.cpp \
+    $${PWD}/OAIEzsigntemplate_createObject_v1_Response_allOf.cpp \
+    $${PWD}/OAIEzsigntemplate_createObject_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsigntemplate_deleteObject_v1_Response.cpp \
+    $${PWD}/OAIEzsigntemplate_editObject_v1_Request.cpp \
+    $${PWD}/OAIEzsigntemplate_editObject_v1_Response.cpp \
+    $${PWD}/OAIEzsigntemplate_getList_v1_Response.cpp \
+    $${PWD}/OAIEzsigntemplate_getList_v1_Response_allOf.cpp \
+    $${PWD}/OAIEzsigntemplate_getList_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsigntemplate_getList_v1_Response_mPayload_allOf.cpp \
+    $${PWD}/OAIEzsigntemplate_getObject_v1_Response.cpp \
+    $${PWD}/OAIEzsigntemplate_getObject_v1_Response_allOf.cpp \
+    $${PWD}/OAIEzsigntemplate_getObject_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsigntemplatedocument_Request.cpp \
+    $${PWD}/OAIEzsigntemplatedocument_RequestCompound.cpp \
+    $${PWD}/OAIEzsigntemplatedocument_RequestPatch.cpp \
+    $${PWD}/OAIEzsigntemplatedocument_Response.cpp \
+    $${PWD}/OAIEzsigntemplatedocument_ResponseCompound.cpp \
+    $${PWD}/OAIEzsigntemplatedocument_createObject_v1_Request.cpp \
+    $${PWD}/OAIEzsigntemplatedocument_createObject_v1_Response.cpp \
+    $${PWD}/OAIEzsigntemplatedocument_createObject_v1_Response_allOf.cpp \
+    $${PWD}/OAIEzsigntemplatedocument_createObject_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsigntemplatedocument_editEzsigntemplateformfieldgroups_v1_Request.cpp \
+    $${PWD}/OAIEzsigntemplatedocument_editEzsigntemplateformfieldgroups_v1_Response.cpp \
+    $${PWD}/OAIEzsigntemplatedocument_editEzsigntemplateformfieldgroups_v1_Response_allOf.cpp \
+    $${PWD}/OAIEzsigntemplatedocument_editEzsigntemplateformfieldgroups_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsigntemplatedocument_editEzsigntemplatesignatures_v1_Request.cpp \
+    $${PWD}/OAIEzsigntemplatedocument_editEzsigntemplatesignatures_v1_Response.cpp \
+    $${PWD}/OAIEzsigntemplatedocument_editEzsigntemplatesignatures_v1_Response_allOf.cpp \
+    $${PWD}/OAIEzsigntemplatedocument_editEzsigntemplatesignatures_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsigntemplatedocument_editObject_v1_Request.cpp \
+    $${PWD}/OAIEzsigntemplatedocument_editObject_v1_Response.cpp \
+    $${PWD}/OAIEzsigntemplatedocument_getEzsigntemplatedocumentpages_v1_Response.cpp \
+    $${PWD}/OAIEzsigntemplatedocument_getEzsigntemplatedocumentpages_v1_Response_allOf.cpp \
+    $${PWD}/OAIEzsigntemplatedocument_getEzsigntemplatedocumentpages_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsigntemplatedocument_getEzsigntemplateformfieldgroups_v1_Response.cpp \
+    $${PWD}/OAIEzsigntemplatedocument_getEzsigntemplateformfieldgroups_v1_Response_allOf.cpp \
+    $${PWD}/OAIEzsigntemplatedocument_getEzsigntemplateformfieldgroups_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsigntemplatedocument_getEzsigntemplatesignatures_v1_Response.cpp \
+    $${PWD}/OAIEzsigntemplatedocument_getEzsigntemplatesignatures_v1_Response_allOf.cpp \
+    $${PWD}/OAIEzsigntemplatedocument_getEzsigntemplatesignatures_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsigntemplatedocument_getObject_v1_Response.cpp \
+    $${PWD}/OAIEzsigntemplatedocument_getObject_v1_Response_allOf.cpp \
+    $${PWD}/OAIEzsigntemplatedocument_getObject_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsigntemplatedocument_getWordsPositions_v1_Request.cpp \
+    $${PWD}/OAIEzsigntemplatedocument_getWordsPositions_v1_Response.cpp \
+    $${PWD}/OAIEzsigntemplatedocument_getWordsPositions_v1_Response_allOf.cpp \
+    $${PWD}/OAIEzsigntemplatedocument_patchObject_v1_Request.cpp \
+    $${PWD}/OAIEzsigntemplatedocument_patchObject_v1_Response.cpp \
+    $${PWD}/OAIEzsigntemplatedocumentpage_Response.cpp \
+    $${PWD}/OAIEzsigntemplatedocumentpage_ResponseCompound.cpp \
+    $${PWD}/OAIEzsigntemplateformfield_Request.cpp \
+    $${PWD}/OAIEzsigntemplateformfield_RequestCompound.cpp \
+    $${PWD}/OAIEzsigntemplateformfield_Response.cpp \
+    $${PWD}/OAIEzsigntemplateformfield_ResponseCompound.cpp \
+    $${PWD}/OAIEzsigntemplateformfieldgroup_Request.cpp \
+    $${PWD}/OAIEzsigntemplateformfieldgroup_RequestCompound.cpp \
+    $${PWD}/OAIEzsigntemplateformfieldgroup_RequestCompound_allOf.cpp \
+    $${PWD}/OAIEzsigntemplateformfieldgroup_Response.cpp \
+    $${PWD}/OAIEzsigntemplateformfieldgroup_ResponseCompound.cpp \
+    $${PWD}/OAIEzsigntemplateformfieldgroup_ResponseCompound_allOf.cpp \
+    $${PWD}/OAIEzsigntemplateformfieldgroup_createObject_v1_Request.cpp \
+    $${PWD}/OAIEzsigntemplateformfieldgroup_createObject_v1_Response.cpp \
+    $${PWD}/OAIEzsigntemplateformfieldgroup_createObject_v1_Response_allOf.cpp \
+    $${PWD}/OAIEzsigntemplateformfieldgroup_createObject_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsigntemplateformfieldgroup_deleteObject_v1_Response.cpp \
+    $${PWD}/OAIEzsigntemplateformfieldgroup_editObject_v1_Request.cpp \
+    $${PWD}/OAIEzsigntemplateformfieldgroup_editObject_v1_Response.cpp \
+    $${PWD}/OAIEzsigntemplateformfieldgroup_getObject_v1_Response.cpp \
+    $${PWD}/OAIEzsigntemplateformfieldgroup_getObject_v1_Response_allOf.cpp \
+    $${PWD}/OAIEzsigntemplateformfieldgroup_getObject_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsigntemplateformfieldgroupsigner_Request.cpp \
+    $${PWD}/OAIEzsigntemplateformfieldgroupsigner_RequestCompound.cpp \
+    $${PWD}/OAIEzsigntemplateformfieldgroupsigner_Response.cpp \
+    $${PWD}/OAIEzsigntemplateformfieldgroupsigner_ResponseCompound.cpp \
     $${PWD}/OAIEzsigntemplatepackage_ListElement.cpp \
+    $${PWD}/OAIEzsigntemplatepackage_Request.cpp \
+    $${PWD}/OAIEzsigntemplatepackage_RequestCompound.cpp \
+    $${PWD}/OAIEzsigntemplatepackage_Response.cpp \
+    $${PWD}/OAIEzsigntemplatepackage_ResponseCompound.cpp \
+    $${PWD}/OAIEzsigntemplatepackage_ResponseCompound_allOf.cpp \
+    $${PWD}/OAIEzsigntemplatepackage_createObject_v1_Request.cpp \
+    $${PWD}/OAIEzsigntemplatepackage_createObject_v1_Response.cpp \
+    $${PWD}/OAIEzsigntemplatepackage_createObject_v1_Response_allOf.cpp \
+    $${PWD}/OAIEzsigntemplatepackage_createObject_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsigntemplatepackage_deleteObject_v1_Response.cpp \
+    $${PWD}/OAIEzsigntemplatepackage_editEzsigntemplatepackagesigners_v1_Request.cpp \
+    $${PWD}/OAIEzsigntemplatepackage_editEzsigntemplatepackagesigners_v1_Response.cpp \
+    $${PWD}/OAIEzsigntemplatepackage_editEzsigntemplatepackagesigners_v1_Response_allOf.cpp \
+    $${PWD}/OAIEzsigntemplatepackage_editEzsigntemplatepackagesigners_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsigntemplatepackage_editObject_v1_Request.cpp \
+    $${PWD}/OAIEzsigntemplatepackage_editObject_v1_Response.cpp \
     $${PWD}/OAIEzsigntemplatepackage_getList_v1_Response.cpp \
     $${PWD}/OAIEzsigntemplatepackage_getList_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsigntemplatepackage_getList_v1_Response_mPayload.cpp \
     $${PWD}/OAIEzsigntemplatepackage_getList_v1_Response_mPayload_allOf.cpp \
-    $${PWD}/OAIField_eActivesessionSessiontype.cpp \
+    $${PWD}/OAIEzsigntemplatepackage_getObject_v1_Response.cpp \
+    $${PWD}/OAIEzsigntemplatepackage_getObject_v1_Response_allOf.cpp \
+    $${PWD}/OAIEzsigntemplatepackage_getObject_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsigntemplatepackagemembership_Request.cpp \
+    $${PWD}/OAIEzsigntemplatepackagemembership_RequestCompound.cpp \
+    $${PWD}/OAIEzsigntemplatepackagemembership_Response.cpp \
+    $${PWD}/OAIEzsigntemplatepackagemembership_ResponseCompound.cpp \
+    $${PWD}/OAIEzsigntemplatepackagemembership_ResponseCompound_allOf.cpp \
+    $${PWD}/OAIEzsigntemplatepackagemembership_createObject_v1_Request.cpp \
+    $${PWD}/OAIEzsigntemplatepackagemembership_createObject_v1_Response.cpp \
+    $${PWD}/OAIEzsigntemplatepackagemembership_createObject_v1_Response_allOf.cpp \
+    $${PWD}/OAIEzsigntemplatepackagemembership_createObject_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsigntemplatepackagemembership_deleteObject_v1_Response.cpp \
+    $${PWD}/OAIEzsigntemplatepackagemembership_getObject_v1_Response.cpp \
+    $${PWD}/OAIEzsigntemplatepackagemembership_getObject_v1_Response_allOf.cpp \
+    $${PWD}/OAIEzsigntemplatepackagemembership_getObject_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsigntemplatepackagesigner_Request.cpp \
+    $${PWD}/OAIEzsigntemplatepackagesigner_RequestCompound.cpp \
+    $${PWD}/OAIEzsigntemplatepackagesigner_Response.cpp \
+    $${PWD}/OAIEzsigntemplatepackagesigner_ResponseCompound.cpp \
+    $${PWD}/OAIEzsigntemplatepackagesigner_createObject_v1_Request.cpp \
+    $${PWD}/OAIEzsigntemplatepackagesigner_createObject_v1_Response.cpp \
+    $${PWD}/OAIEzsigntemplatepackagesigner_createObject_v1_Response_allOf.cpp \
+    $${PWD}/OAIEzsigntemplatepackagesigner_createObject_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsigntemplatepackagesigner_deleteObject_v1_Response.cpp \
+    $${PWD}/OAIEzsigntemplatepackagesigner_deleteObject_v1_Response_allOf.cpp \
+    $${PWD}/OAIEzsigntemplatepackagesigner_deleteObject_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsigntemplatepackagesigner_editObject_v1_Request.cpp \
+    $${PWD}/OAIEzsigntemplatepackagesigner_editObject_v1_Response.cpp \
+    $${PWD}/OAIEzsigntemplatepackagesigner_getObject_v1_Response.cpp \
+    $${PWD}/OAIEzsigntemplatepackagesigner_getObject_v1_Response_allOf.cpp \
+    $${PWD}/OAIEzsigntemplatepackagesigner_getObject_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsigntemplatepackagesignermembership_Request.cpp \
+    $${PWD}/OAIEzsigntemplatepackagesignermembership_RequestCompound.cpp \
+    $${PWD}/OAIEzsigntemplatepackagesignermembership_Response.cpp \
+    $${PWD}/OAIEzsigntemplatepackagesignermembership_ResponseCompound.cpp \
+    $${PWD}/OAIEzsigntemplatepackagesignermembership_createObject_v1_Request.cpp \
+    $${PWD}/OAIEzsigntemplatepackagesignermembership_createObject_v1_Response.cpp \
+    $${PWD}/OAIEzsigntemplatepackagesignermembership_createObject_v1_Response_allOf.cpp \
+    $${PWD}/OAIEzsigntemplatepackagesignermembership_createObject_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsigntemplatepackagesignermembership_deleteObject_v1_Response.cpp \
+    $${PWD}/OAIEzsigntemplatepackagesignermembership_deleteObject_v1_Response_allOf.cpp \
+    $${PWD}/OAIEzsigntemplatepackagesignermembership_deleteObject_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsigntemplatepackagesignermembership_getObject_v1_Response.cpp \
+    $${PWD}/OAIEzsigntemplatepackagesignermembership_getObject_v1_Response_allOf.cpp \
+    $${PWD}/OAIEzsigntemplatepackagesignermembership_getObject_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsigntemplatesignature_Request.cpp \
+    $${PWD}/OAIEzsigntemplatesignature_RequestCompound.cpp \
+    $${PWD}/OAIEzsigntemplatesignature_RequestCompound_allOf.cpp \
+    $${PWD}/OAIEzsigntemplatesignature_Response.cpp \
+    $${PWD}/OAIEzsigntemplatesignature_ResponseCompound.cpp \
+    $${PWD}/OAIEzsigntemplatesignature_ResponseCompound_allOf.cpp \
+    $${PWD}/OAIEzsigntemplatesignature_createObject_v1_Request.cpp \
+    $${PWD}/OAIEzsigntemplatesignature_createObject_v1_Response.cpp \
+    $${PWD}/OAIEzsigntemplatesignature_createObject_v1_Response_allOf.cpp \
+    $${PWD}/OAIEzsigntemplatesignature_createObject_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsigntemplatesignature_deleteObject_v1_Response.cpp \
+    $${PWD}/OAIEzsigntemplatesignature_editObject_v1_Request.cpp \
+    $${PWD}/OAIEzsigntemplatesignature_editObject_v1_Response.cpp \
+    $${PWD}/OAIEzsigntemplatesignature_getObject_v1_Response.cpp \
+    $${PWD}/OAIEzsigntemplatesignature_getObject_v1_Response_allOf.cpp \
+    $${PWD}/OAIEzsigntemplatesignature_getObject_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsigntemplatesignaturecustomdate_Request.cpp \
+    $${PWD}/OAIEzsigntemplatesignaturecustomdate_RequestCompound.cpp \
+    $${PWD}/OAIEzsigntemplatesignaturecustomdate_Response.cpp \
+    $${PWD}/OAIEzsigntemplatesignaturecustomdate_ResponseCompound.cpp \
+    $${PWD}/OAIEzsigntemplatesigner_Request.cpp \
+    $${PWD}/OAIEzsigntemplatesigner_RequestCompound.cpp \
+    $${PWD}/OAIEzsigntemplatesigner_Response.cpp \
+    $${PWD}/OAIEzsigntemplatesigner_ResponseCompound.cpp \
+    $${PWD}/OAIEzsigntemplatesigner_createObject_v1_Request.cpp \
+    $${PWD}/OAIEzsigntemplatesigner_createObject_v1_Response.cpp \
+    $${PWD}/OAIEzsigntemplatesigner_createObject_v1_Response_allOf.cpp \
+    $${PWD}/OAIEzsigntemplatesigner_createObject_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsigntemplatesigner_deleteObject_v1_Response.cpp \
+    $${PWD}/OAIEzsigntemplatesigner_editObject_v1_Request.cpp \
+    $${PWD}/OAIEzsigntemplatesigner_editObject_v1_Response.cpp \
+    $${PWD}/OAIEzsigntemplatesigner_getObject_v1_Response.cpp \
+    $${PWD}/OAIEzsigntemplatesigner_getObject_v1_Response_allOf.cpp \
+    $${PWD}/OAIEzsigntemplatesigner_getObject_v1_Response_mPayload.cpp \
+    $${PWD}/OAIField_eActivesessionUsertype.cpp \
     $${PWD}/OAIField_eActivesessionWeekdaystart.cpp \
     $${PWD}/OAIField_eEzsigndocumentStep.cpp \
     $${PWD}/OAIField_eEzsigndocumentlogType.cpp \
@@ -628,11 +1166,18 @@ SOURCES += \
     $${PWD}/OAIField_eEzsignformfieldgroupSignerrequirement.cpp \
     $${PWD}/OAIField_eEzsignformfieldgroupTooltipposition.cpp \
     $${PWD}/OAIField_eEzsignformfieldgroupType.cpp \
+    $${PWD}/OAIField_eEzsignsignatureFont.cpp \
+    $${PWD}/OAIField_eEzsignsignatureTooltipposition.cpp \
     $${PWD}/OAIField_eEzsignsignatureType.cpp \
-    $${PWD}/OAIField_eEzsigntemplatepackageType.cpp \
+    $${PWD}/OAIField_eEzsigntemplateformfieldgroupSignerrequirement.cpp \
+    $${PWD}/OAIField_eEzsigntemplateformfieldgroupTooltipposition.cpp \
+    $${PWD}/OAIField_eEzsigntemplateformfieldgroupType.cpp \
+    $${PWD}/OAIField_eEzsigntemplatesignatureFont.cpp \
+    $${PWD}/OAIField_eEzsigntemplatesignatureTooltipposition.cpp \
+    $${PWD}/OAIField_eEzsigntemplatesignatureType.cpp \
+    $${PWD}/OAIField_eNotificationpreferenceStatus.cpp \
     $${PWD}/OAIField_ePhoneType.cpp \
     $${PWD}/OAIField_eUserType.cpp \
-    $${PWD}/OAIField_eUserTypeSSPR.cpp \
     $${PWD}/OAIFranchisereferalincome_Request.cpp \
     $${PWD}/OAIFranchisereferalincome_RequestCompound.cpp \
     $${PWD}/OAIFranchisereferalincome_RequestCompound_allOf.cpp \
@@ -646,23 +1191,14 @@ SOURCES += \
     $${PWD}/OAIFranchisereferalincome_createObject_v2_Response_mPayload.cpp \
     $${PWD}/OAIGlobal_customer_getEndpoint_v1_Response.cpp \
     $${PWD}/OAIHeader_Accept_Language.cpp \
-    $${PWD}/OAIList_getListpresentation_v1_Response.cpp \
-    $${PWD}/OAIList_getListpresentation_v1_Response_allOf.cpp \
-    $${PWD}/OAIList_getListpresentation_v1_Response_mPayload.cpp \
-    $${PWD}/OAIList_saveListpresentation_v1_Request.cpp \
-    $${PWD}/OAIList_saveListpresentation_v1_Response.cpp \
-    $${PWD}/OAIListpresentation_Request.cpp \
-    $${PWD}/OAIListpresentation_RequestCompound.cpp \
-    $${PWD}/OAIListpresentation_ResponseCompound.cpp \
     $${PWD}/OAIMultilingual_ApikeyDescription.cpp \
+    $${PWD}/OAINotificationsection_getNotificationtests_v1_Response.cpp \
+    $${PWD}/OAINotificationsection_getNotificationtests_v1_Response_allOf.cpp \
+    $${PWD}/OAINotificationsection_getNotificationtests_v1_Response_mPayload.cpp \
+    $${PWD}/OAINotificationsubsection_Response.cpp \
+    $${PWD}/OAINotificationtest_Response.cpp \
     $${PWD}/OAIPhone_Request.cpp \
     $${PWD}/OAIPhone_RequestCompound.cpp \
-    $${PWD}/OAISspr_resetPasswordRequest_v1_Request.cpp \
-    $${PWD}/OAISspr_resetPassword_v1_Request.cpp \
-    $${PWD}/OAISspr_sendUsernames_v1_Request.cpp \
-    $${PWD}/OAISspr_unlockAccountRequest_v1_Request.cpp \
-    $${PWD}/OAISspr_unlockAccount_v1_Request.cpp \
-    $${PWD}/OAISspr_validateToken_v1_Request.cpp \
     $${PWD}/OAIUser_Response.cpp \
     $${PWD}/OAIUser_ResponseCompound.cpp \
     $${PWD}/OAIUser_createEzsignuser_v1_Request.cpp \
@@ -680,12 +1216,13 @@ SOURCES += \
     $${PWD}/OAIWebsite_RequestCompound.cpp \
 # APIs
     $${PWD}/OAIGlobalCustomerApi.cpp \
-    $${PWD}/OAIModuleAuthenticateApi.cpp \
-    $${PWD}/OAIModuleListApi.cpp \
+    $${PWD}/OAIModuleEzsignApi.cpp \
     $${PWD}/OAIModuleUserApi.cpp \
     $${PWD}/OAIObjectActivesessionApi.cpp \
     $${PWD}/OAIObjectApikeyApi.cpp \
     $${PWD}/OAIObjectEzsignbulksendApi.cpp \
+    $${PWD}/OAIObjectEzsignbulksenddocumentmappingApi.cpp \
+    $${PWD}/OAIObjectEzsignbulksendsignermappingApi.cpp \
     $${PWD}/OAIObjectEzsignbulksendtransmissionApi.cpp \
     $${PWD}/OAIObjectEzsigndocumentApi.cpp \
     $${PWD}/OAIObjectEzsignfolderApi.cpp \
@@ -693,11 +1230,22 @@ SOURCES += \
     $${PWD}/OAIObjectEzsignfoldertypeApi.cpp \
     $${PWD}/OAIObjectEzsignformfieldgroupApi.cpp \
     $${PWD}/OAIObjectEzsignsignatureApi.cpp \
+    $${PWD}/OAIObjectEzsigntemplateApi.cpp \
+    $${PWD}/OAIObjectEzsigntemplatedocumentApi.cpp \
+    $${PWD}/OAIObjectEzsigntemplateformfieldgroupApi.cpp \
     $${PWD}/OAIObjectEzsigntemplatepackageApi.cpp \
+    $${PWD}/OAIObjectEzsigntemplatepackagemembershipApi.cpp \
+    $${PWD}/OAIObjectEzsigntemplatepackagesignerApi.cpp \
+    $${PWD}/OAIObjectEzsigntemplatepackagesignermembershipApi.cpp \
+    $${PWD}/OAIObjectEzsigntemplatesignatureApi.cpp \
+    $${PWD}/OAIObjectEzsigntemplatesignerApi.cpp \
+    $${PWD}/OAIObjectEzsigntsarequirementApi.cpp \
     $${PWD}/OAIObjectFranchisebrokerApi.cpp \
     $${PWD}/OAIObjectFranchiseofficeApi.cpp \
     $${PWD}/OAIObjectFranchisereferalincomeApi.cpp \
+    $${PWD}/OAIObjectNotificationsectionApi.cpp \
     $${PWD}/OAIObjectPeriodApi.cpp \
+    $${PWD}/OAIObjectSecretquestionApi.cpp \
 # Others
     $${PWD}/OAIHelpers.cpp \
     $${PWD}/OAIHttpRequest.cpp \

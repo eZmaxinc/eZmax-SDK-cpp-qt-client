@@ -1,5 +1,5 @@
 /**
- * eZmax API Definition
+ * eZmax API Definition (Full)
  * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
  * The version of the OpenAPI document: 1.1.7
@@ -43,7 +43,7 @@ void OAIObjectPeriodApi::initializeServerConfigs() {
     QSet<QString>{ {"ca-central-1"} })}, }));
     
     defaultConf.append(OAIServerConfiguration(
-    QUrl("https://{sInfrastructureenvironmenttypeDescription}.api.global.ezmax.com/"),
+    QUrl("https://{sInfrastructureenvironmenttypeDescription}.api.global.ezmax.com"),
     "The server endpoint where to send your global API requests.",
     QMap<QString, OAIServerVariable>{ 
     {"sInfrastructureenvironmenttypeDescription", OAIServerVariable("The environment on on which to call the API. Should always be "prod" unless instructed otherwise by support.","prod",
@@ -226,7 +226,7 @@ QString OAIObjectPeriodApi::getParamStyleDelimiter(const QString &style, const Q
     }
 }
 
-void OAIObjectPeriodApi::periodGetAutocompleteV1(const QString &s_selector, const ::OpenAPI::OptionalParam<QString> &s_query) {
+void OAIObjectPeriodApi::periodGetAutocompleteV1(const QString &s_selector, const ::OpenAPI::OptionalParam<QString> &s_query, const ::OpenAPI::OptionalParam<OAIHeader_Accept_Language> &accept_language) {
     QString fullPath = QString(_serverConfigs["periodGetAutocompleteV1"][_serverIndices.value("periodGetAutocompleteV1")].URL()+"/1/object/period/getAutocomplete/{sSelector}");
     
     if (_apiKeys.contains("Authorization")) {
@@ -269,6 +269,50 @@ void OAIObjectPeriodApi::periodGetAutocompleteV1(const QString &s_selector, cons
     OAIHttpRequestInput input(fullPath, "GET");
 
 
+    if (accept_language.hasValue())
+    {
+        QString headerString;
+        QJsonObject parameter = accept_language.value().asJsonObject();
+        qint32 count = 0;
+        foreach(const QString& key, parameter.keys()) {
+            if (count > 0) {
+                headerString.append(",");
+            }
+            QString assignOperator = (false) ? "=" : ",";
+            switch(parameter.value(key).type()) {
+                case QJsonValue::String:
+                {
+                    headerString.append(key+assignOperator+parameter.value(key).toString());
+                    break;
+                }
+                case QJsonValue::Double:
+                {
+                    headerString.append(key+assignOperator+QString::number(parameter.value(key).toDouble()));
+                    break;
+                }
+                case QJsonValue::Bool:
+                {
+                    headerString.append(key+assignOperator+QVariant(parameter.value(key).toBool()).toString());
+                    break;
+                }
+                case QJsonValue::Array:
+                {
+                    headerString.append(key+assignOperator+QVariant(parameter.value(key).toArray()).toString());
+                    break;
+                }
+                case QJsonValue::Object:
+                {
+                    headerString.append(key+assignOperator+QVariant(parameter.value(key).toObject()).toString());
+                    break;
+                }
+                case QJsonValue::Null:
+                case QJsonValue::Undefined:
+                    break;
+            }
+            count++;
+        }
+        input.headers.insert("Accept-Language", headerString);
+    }
 #if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);

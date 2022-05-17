@@ -1,5 +1,5 @@
 /**
- * eZmax API Definition
+ * eZmax API Definition (Full)
  * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
  * The version of the OpenAPI document: 1.1.7
@@ -13,7 +13,7 @@
 /*
  * OAIEzsignbulksendtransmission_getObject_v1_Response_mPayload.h
  *
- * Payload for the /1/object/ezsignbulksendtransmission/{pkiEzsignbulksendtransmissionID}/getObject API Request
+ * Payload for GET /1/object/ezsignbulksendtransmission/{pkiEzsignbulksendtransmissionID}
  */
 
 #ifndef OAIEzsignbulksendtransmission_getObject_v1_Response_mPayload_H
@@ -22,7 +22,9 @@
 #include <QJsonObject>
 
 #include "OAICommon_Audit.h"
+#include "OAICustom_Ezsignfoldertransmission_Response.h"
 #include "OAIEzsignbulksendtransmission_ResponseCompound.h"
+#include <QList>
 #include <QString>
 
 #include "OAIEnum.h"
@@ -30,6 +32,7 @@
 
 namespace OpenAPI {
 class OAICommon_Audit;
+class OAICustom_Ezsignfoldertransmission_Response;
 
 class OAIEzsignbulksendtransmission_getObject_v1_Response_mPayload : public OAIObject {
 public:
@@ -67,6 +70,11 @@ public:
     bool is_obj_audit_Set() const;
     bool is_obj_audit_Valid() const;
 
+    QList<OAICustom_Ezsignfoldertransmission_Response> getAObjEzsignfoldertransmission() const;
+    void setAObjEzsignfoldertransmission(const QList<OAICustom_Ezsignfoldertransmission_Response> &a_obj_ezsignfoldertransmission);
+    bool is_a_obj_ezsignfoldertransmission_Set() const;
+    bool is_a_obj_ezsignfoldertransmission_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -92,6 +100,10 @@ private:
     OAICommon_Audit obj_audit;
     bool m_obj_audit_isSet;
     bool m_obj_audit_isValid;
+
+    QList<OAICustom_Ezsignfoldertransmission_Response> a_obj_ezsignfoldertransmission;
+    bool m_a_obj_ezsignfoldertransmission_isSet;
+    bool m_a_obj_ezsignfoldertransmission_isValid;
 };
 
 } // namespace OpenAPI

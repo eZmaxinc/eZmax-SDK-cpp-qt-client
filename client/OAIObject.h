@@ -1,5 +1,5 @@
 /**
- * eZmax API Definition
+ * eZmax API Definition (Full)
  * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
  * The version of the OpenAPI document: 1.1.7
@@ -58,6 +58,14 @@ public:
 private:
     QJsonObject jObj;
 };
+
+inline bool operator==(const OAIObject& left, const OAIObject& right){  
+    return (left.asJsonObject() == right.asJsonObject());  
+}
+
+inline uint qHash(const OAIObject& obj, uint seed = 0) noexcept{
+    return qHash(obj.asJsonObject(), seed);
+}
 
 } // namespace OpenAPI
 

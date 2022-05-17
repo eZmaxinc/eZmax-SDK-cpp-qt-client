@@ -1,5 +1,5 @@
 /**
- * eZmax API Definition
+ * eZmax API Definition (Full)
  * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
  * The version of the OpenAPI document: 1.1.7
@@ -57,10 +57,6 @@ void OAIField_eEzsignformfieldgroupTooltipposition::fromJson(QString jsonString)
         m_value = eOAIField_eEzsignformfieldgroupTooltipposition::MIDDLELEFT;
         m_value_isSet = m_value_isValid = true;
     }
-    else if ( jsonString.compare("MiddleCenter", Qt::CaseInsensitive) == 0) {
-        m_value = eOAIField_eEzsignformfieldgroupTooltipposition::MIDDLECENTER;
-        m_value_isSet = m_value_isValid = true;
-    }
     else if ( jsonString.compare("MiddleRight", Qt::CaseInsensitive) == 0) {
         m_value = eOAIField_eEzsignformfieldgroupTooltipposition::MIDDLERIGHT;
         m_value_isSet = m_value_isValid = true;
@@ -98,9 +94,6 @@ QString OAIField_eEzsignformfieldgroupTooltipposition::asJson() const {
             break;
         case eOAIField_eEzsignformfieldgroupTooltipposition::MIDDLELEFT:
             val = "MiddleLeft";
-            break;
-        case eOAIField_eEzsignformfieldgroupTooltipposition::MIDDLECENTER:
-            val = "MiddleCenter";
             break;
         case eOAIField_eEzsignformfieldgroupTooltipposition::MIDDLERIGHT:
             val = "MiddleRight";

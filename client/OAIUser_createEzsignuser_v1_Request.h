@@ -1,5 +1,5 @@
 /**
- * eZmax API Definition
+ * eZmax API Definition (Full)
  * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
  * The version of the OpenAPI document: 1.1.7
@@ -13,7 +13,7 @@
 /*
  * OAIUser_createEzsignuser_v1_Request.h
  *
- * Request for the /1/module/user/createEzsignuser API Request
+ * Request for POST /1/module/user/createEzsignuser
  */
 
 #ifndef OAIUser_createEzsignuser_v1_Request_H

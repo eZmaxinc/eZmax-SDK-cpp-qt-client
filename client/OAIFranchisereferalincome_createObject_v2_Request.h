@@ -1,5 +1,5 @@
 /**
- * eZmax API Definition
+ * eZmax API Definition (Full)
  * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
  * The version of the OpenAPI document: 1.1.7
@@ -13,7 +13,7 @@
 /*
  * OAIFranchisereferalincome_createObject_v2_Request.h
  *
- * Request for the /2/object/franchisereferalincome/createObject API Request
+ * Request for POST /2/object/franchisereferalincome
  */
 
 #ifndef OAIFranchisereferalincome_createObject_v2_Request_H

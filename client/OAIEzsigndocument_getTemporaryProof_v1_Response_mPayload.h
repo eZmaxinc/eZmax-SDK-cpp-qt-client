@@ -1,5 +1,5 @@
 /**
- * eZmax API Definition
+ * eZmax API Definition (Full)
  * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
  * The version of the OpenAPI document: 1.1.7
@@ -13,7 +13,7 @@
 /*
  * OAIEzsigndocument_getTemporaryProof_v1_Response_mPayload.h
  *
- * Payload for the /1/object/ezsigndocument/{pkiEzsigndocumentID}/getTemporaryProof API Request
+ * Payload for GET /1/object/ezsigndocument/{pkiEzsigndocumentID}/getTemporaryProof
  */
 
 #ifndef OAIEzsigndocument_getTemporaryProof_v1_Response_mPayload_H
@@ -22,6 +22,7 @@
 #include <QJsonObject>
 
 #include "OAIEzsigndocumentlog_ResponseCompound.h"
+#include <QList>
 
 #include "OAIEnum.h"
 #include "OAIObject.h"
@@ -40,8 +41,8 @@ public:
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    OAIEzsigndocumentlog_ResponseCompound getAObjEzsigndocumentlog() const;
-    void setAObjEzsigndocumentlog(const OAIEzsigndocumentlog_ResponseCompound &a_obj_ezsigndocumentlog);
+    QList<OAIEzsigndocumentlog_ResponseCompound> getAObjEzsigndocumentlog() const;
+    void setAObjEzsigndocumentlog(const QList<OAIEzsigndocumentlog_ResponseCompound> &a_obj_ezsigndocumentlog);
     bool is_a_obj_ezsigndocumentlog_Set() const;
     bool is_a_obj_ezsigndocumentlog_Valid() const;
 
@@ -51,7 +52,7 @@ public:
 private:
     void initializeModel();
 
-    OAIEzsigndocumentlog_ResponseCompound a_obj_ezsigndocumentlog;
+    QList<OAIEzsigndocumentlog_ResponseCompound> a_obj_ezsigndocumentlog;
     bool m_a_obj_ezsigndocumentlog_isSet;
     bool m_a_obj_ezsigndocumentlog_isValid;
 };

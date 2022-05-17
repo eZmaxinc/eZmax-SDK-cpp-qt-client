@@ -1,5 +1,5 @@
 /**
- * eZmax API Definition
+ * eZmax API Definition (Full)
  * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
  * The version of the OpenAPI document: 1.1.7
@@ -49,10 +49,15 @@ public:
     bool is_s_label_Set() const;
     bool is_s_label_Valid() const;
 
-    QString getMValue() const;
-    void setMValue(const QString &m_value);
-    bool is_m_value_Set() const;
-    bool is_m_value_Valid() const;
+    QString getSValue() const;
+    void setSValue(const QString &s_value);
+    bool is_s_value_Set() const;
+    bool is_s_value_Valid() const;
+
+    Q_DECL_DEPRECATED QString getMValue() const;
+    Q_DECL_DEPRECATED void setMValue(const QString &m_value);
+    Q_DECL_DEPRECATED bool is_m_value_Set() const;
+    Q_DECL_DEPRECATED bool is_m_value_Valid() const;
 
     virtual bool isSet() const override;
     virtual bool isValid() const override;
@@ -67,6 +72,10 @@ private:
     QString s_label;
     bool m_s_label_isSet;
     bool m_s_label_isValid;
+
+    QString s_value;
+    bool m_s_value_isSet;
+    bool m_s_value_isValid;
 
     QString m_value;
     bool m_m_value_isSet;

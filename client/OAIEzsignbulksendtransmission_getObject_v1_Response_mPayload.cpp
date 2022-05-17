@@ -1,5 +1,5 @@
 /**
- * eZmax API Definition
+ * eZmax API Definition (Full)
  * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
  * The version of the OpenAPI document: 1.1.7
@@ -48,6 +48,9 @@ void OAIEzsignbulksendtransmission_getObject_v1_Response_mPayload::initializeMod
 
     m_obj_audit_isSet = false;
     m_obj_audit_isValid = false;
+
+    m_a_obj_ezsignfoldertransmission_isSet = false;
+    m_a_obj_ezsignfoldertransmission_isValid = false;
 }
 
 void OAIEzsignbulksendtransmission_getObject_v1_Response_mPayload::fromJson(QString jsonString) {
@@ -73,6 +76,9 @@ void OAIEzsignbulksendtransmission_getObject_v1_Response_mPayload::fromJsonObjec
 
     m_obj_audit_isValid = ::OpenAPI::fromJsonValue(obj_audit, json[QString("objAudit")]);
     m_obj_audit_isSet = !json[QString("objAudit")].isNull() && m_obj_audit_isValid;
+
+    m_a_obj_ezsignfoldertransmission_isValid = ::OpenAPI::fromJsonValue(a_obj_ezsignfoldertransmission, json[QString("a_objEzsignfoldertransmission")]);
+    m_a_obj_ezsignfoldertransmission_isSet = !json[QString("a_objEzsignfoldertransmission")].isNull() && m_a_obj_ezsignfoldertransmission_isValid;
 }
 
 QString OAIEzsignbulksendtransmission_getObject_v1_Response_mPayload::asJson() const {
@@ -98,6 +104,9 @@ QJsonObject OAIEzsignbulksendtransmission_getObject_v1_Response_mPayload::asJson
     }
     if (obj_audit.isSet()) {
         obj.insert(QString("objAudit"), ::OpenAPI::toJsonValue(obj_audit));
+    }
+    if (a_obj_ezsignfoldertransmission.size() > 0) {
+        obj.insert(QString("a_objEzsignfoldertransmission"), ::OpenAPI::toJsonValue(a_obj_ezsignfoldertransmission));
     }
     return obj;
 }
@@ -182,6 +191,22 @@ bool OAIEzsignbulksendtransmission_getObject_v1_Response_mPayload::is_obj_audit_
     return m_obj_audit_isValid;
 }
 
+QList<OAICustom_Ezsignfoldertransmission_Response> OAIEzsignbulksendtransmission_getObject_v1_Response_mPayload::getAObjEzsignfoldertransmission() const {
+    return a_obj_ezsignfoldertransmission;
+}
+void OAIEzsignbulksendtransmission_getObject_v1_Response_mPayload::setAObjEzsignfoldertransmission(const QList<OAICustom_Ezsignfoldertransmission_Response> &a_obj_ezsignfoldertransmission) {
+    this->a_obj_ezsignfoldertransmission = a_obj_ezsignfoldertransmission;
+    this->m_a_obj_ezsignfoldertransmission_isSet = true;
+}
+
+bool OAIEzsignbulksendtransmission_getObject_v1_Response_mPayload::is_a_obj_ezsignfoldertransmission_Set() const{
+    return m_a_obj_ezsignfoldertransmission_isSet;
+}
+
+bool OAIEzsignbulksendtransmission_getObject_v1_Response_mPayload::is_a_obj_ezsignfoldertransmission_Valid() const{
+    return m_a_obj_ezsignfoldertransmission_isValid;
+}
+
 bool OAIEzsignbulksendtransmission_getObject_v1_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -209,13 +234,18 @@ bool OAIEzsignbulksendtransmission_getObject_v1_Response_mPayload::isSet() const
             isObjectUpdated = true;
             break;
         }
+
+        if (a_obj_ezsignfoldertransmission.size() > 0) {
+            isObjectUpdated = true;
+            break;
+        }
     } while (false);
     return isObjectUpdated;
 }
 
 bool OAIEzsignbulksendtransmission_getObject_v1_Response_mPayload::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_pki_ezsignbulksendtransmission_id_isValid && m_fki_ezsignbulksend_id_isValid && m_s_ezsignbulksendtransmission_description_isValid && m_i_ezsignbulksendtransmission_errors_isValid && m_obj_audit_isValid && true;
+    return m_pki_ezsignbulksendtransmission_id_isValid && m_fki_ezsignbulksend_id_isValid && m_s_ezsignbulksendtransmission_description_isValid && m_i_ezsignbulksendtransmission_errors_isValid && m_obj_audit_isValid && m_a_obj_ezsignfoldertransmission_isValid && true;
 }
 
 } // namespace OpenAPI

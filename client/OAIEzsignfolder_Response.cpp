@@ -1,5 +1,5 @@
 /**
- * eZmax API Definition
+ * eZmax API Definition (Full)
  * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
  * The version of the OpenAPI document: 1.1.7
@@ -575,7 +575,7 @@ bool OAIEzsignfolder_Response::isSet() const {
 
 bool OAIEzsignfolder_Response::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_pki_ezsignfolder_id_isValid && m_fki_ezsignfoldertype_id_isValid && m_s_ezsignfoldertype_name_x_isValid && m_fki_billingentityinternal_id_isValid && m_s_billingentityinternal_description_x_isValid && m_fki_ezsigntsarequirement_id_isValid && m_s_ezsigntsarequirement_description_x_isValid && m_s_ezsignfolder_description_isValid && m_t_ezsignfolder_note_isValid && m_e_ezsignfolder_sendreminderfrequency_isValid && m_dt_ezsignfolder_duedate_isValid && m_dt_ezsignfolder_sentdate_isValid && m_dt_ezsignfolder_scheduledarchive_isValid && m_dt_ezsignfolder_scheduleddestruction_isValid && m_e_ezsignfolder_step_isValid && m_dt_ezsignfolder_close_isValid && m_obj_audit_isValid && true;
+    return m_pki_ezsignfolder_id_isValid && m_fki_ezsignfoldertype_id_isValid && m_s_ezsignfoldertype_name_x_isValid && m_fki_billingentityinternal_id_isValid && m_s_billingentityinternal_description_x_isValid && m_fki_ezsigntsarequirement_id_isValid && m_s_ezsigntsarequirement_description_x_isValid && m_s_ezsignfolder_description_isValid && m_t_ezsignfolder_note_isValid && m_e_ezsignfolder_sendreminderfrequency_isValid && m_dt_ezsignfolder_scheduledarchive_isValid && m_dt_ezsignfolder_scheduleddestruction_isValid && m_e_ezsignfolder_step_isValid && m_dt_ezsignfolder_close_isValid && m_obj_audit_isValid && true;
 }
 
 } // namespace OpenAPI

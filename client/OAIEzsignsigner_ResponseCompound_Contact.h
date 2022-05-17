@@ -1,5 +1,5 @@
 /**
- * eZmax API Definition
+ * eZmax API Definition (Full)
  * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
  * The version of the OpenAPI document: 1.1.7
@@ -69,6 +69,11 @@ public:
     bool is_s_phone_e164_Set() const;
     bool is_s_phone_e164_Valid() const;
 
+    QString getSPhoneExtension() const;
+    void setSPhoneExtension(const QString &s_phone_extension);
+    bool is_s_phone_extension_Set() const;
+    bool is_s_phone_extension_Valid() const;
+
     QString getSPhoneE164Cell() const;
     void setSPhoneE164Cell(const QString &s_phone_e164_cell);
     bool is_s_phone_e164_cell_Set() const;
@@ -103,6 +108,10 @@ private:
     QString s_phone_e164;
     bool m_s_phone_e164_isSet;
     bool m_s_phone_e164_isValid;
+
+    QString s_phone_extension;
+    bool m_s_phone_extension_isSet;
+    bool m_s_phone_extension_isValid;
 
     QString s_phone_e164_cell;
     bool m_s_phone_e164_cell_isSet;

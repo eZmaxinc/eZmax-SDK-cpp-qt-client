@@ -1,5 +1,5 @@
 /**
- * eZmax API Definition
+ * eZmax API Definition (Full)
  * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
  * The version of the OpenAPI document: 1.1.7
@@ -21,7 +21,6 @@
 
 #include <QJsonObject>
 
-#include "OAIField_eEzsignfoldertypePrivacylevel.h"
 #include <QString>
 
 #include "OAIEnum.h"
@@ -60,10 +59,10 @@ public:
     bool is_s_ezsignfoldertype_name_x_Set() const;
     bool is_s_ezsignfoldertype_name_x_Valid() const;
 
-    OAIField_eEzsignfoldertypePrivacylevel getEEzsignfoldertypePrivacylevel() const;
-    void setEEzsignfoldertypePrivacylevel(const OAIField_eEzsignfoldertypePrivacylevel &e_ezsignfoldertype_privacylevel);
-    bool is_e_ezsignfoldertype_privacylevel_Set() const;
-    bool is_e_ezsignfoldertype_privacylevel_Valid() const;
+    bool isBEzsignbulksendNeedvalidation() const;
+    void setBEzsignbulksendNeedvalidation(const bool &b_ezsignbulksend_needvalidation);
+    bool is_b_ezsignbulksend_needvalidation_Set() const;
+    bool is_b_ezsignbulksend_needvalidation_Valid() const;
 
     bool isBEzsignbulksendIsactive() const;
     void setBEzsignbulksendIsactive(const bool &b_ezsignbulksend_isactive);
@@ -117,9 +116,9 @@ private:
     bool m_s_ezsignfoldertype_name_x_isSet;
     bool m_s_ezsignfoldertype_name_x_isValid;
 
-    OAIField_eEzsignfoldertypePrivacylevel e_ezsignfoldertype_privacylevel;
-    bool m_e_ezsignfoldertype_privacylevel_isSet;
-    bool m_e_ezsignfoldertype_privacylevel_isValid;
+    bool b_ezsignbulksend_needvalidation;
+    bool m_b_ezsignbulksend_needvalidation_isSet;
+    bool m_b_ezsignbulksend_needvalidation_isValid;
 
     bool b_ezsignbulksend_isactive;
     bool m_b_ezsignbulksend_isactive_isSet;

@@ -1,5 +1,5 @@
 /**
- * eZmax API Definition
+ * eZmax API Definition (Full)
  * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
  * The version of the OpenAPI document: 1.1.7
@@ -213,7 +213,7 @@ QJsonObject OAIEzsignformfieldgroup_ResponseCompound::asJsonObject() const {
     if (a_obj_dropdown_element.size() > 0) {
         obj.insert(QString("a_objDropdownElement"), ::OpenAPI::toJsonValue(a_obj_dropdown_element));
     }
-    if (a_obj_ezsignformfieldgroupsigner.isSet()) {
+    if (a_obj_ezsignformfieldgroupsigner.size() > 0) {
         obj.insert(QString("a_objEzsignformfieldgroupsigner"), ::OpenAPI::toJsonValue(a_obj_ezsignformfieldgroupsigner));
     }
     return obj;
@@ -491,10 +491,10 @@ bool OAIEzsignformfieldgroup_ResponseCompound::is_a_obj_dropdown_element_Valid()
     return m_a_obj_dropdown_element_isValid;
 }
 
-OAIEzsignformfieldgroupsigner_ResponseCompound OAIEzsignformfieldgroup_ResponseCompound::getAObjEzsignformfieldgroupsigner() const {
+QList<OAIEzsignformfieldgroupsigner_ResponseCompound> OAIEzsignformfieldgroup_ResponseCompound::getAObjEzsignformfieldgroupsigner() const {
     return a_obj_ezsignformfieldgroupsigner;
 }
-void OAIEzsignformfieldgroup_ResponseCompound::setAObjEzsignformfieldgroupsigner(const OAIEzsignformfieldgroupsigner_ResponseCompound &a_obj_ezsignformfieldgroupsigner) {
+void OAIEzsignformfieldgroup_ResponseCompound::setAObjEzsignformfieldgroupsigner(const QList<OAIEzsignformfieldgroupsigner_ResponseCompound> &a_obj_ezsignformfieldgroupsigner) {
     this->a_obj_ezsignformfieldgroupsigner = a_obj_ezsignformfieldgroupsigner;
     this->m_a_obj_ezsignformfieldgroupsigner_isSet = true;
 }
@@ -595,7 +595,7 @@ bool OAIEzsignformfieldgroup_ResponseCompound::isSet() const {
             break;
         }
 
-        if (a_obj_ezsignformfieldgroupsigner.isSet()) {
+        if (a_obj_ezsignformfieldgroupsigner.size() > 0) {
             isObjectUpdated = true;
             break;
         }

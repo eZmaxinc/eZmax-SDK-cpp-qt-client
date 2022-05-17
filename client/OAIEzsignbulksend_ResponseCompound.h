@@ -1,5 +1,5 @@
 /**
- * eZmax API Definition
+ * eZmax API Definition (Full)
  * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
  * The version of the OpenAPI document: 1.1.7
@@ -23,6 +23,10 @@
 
 #include "OAICommon_Audit.h"
 #include "OAIEzsignbulksend_Response.h"
+#include "OAIEzsignbulksend_ResponseCompound_allOf.h"
+#include "OAIEzsignbulksenddocumentmapping_ResponseCompound.h"
+#include "OAIEzsignbulksendsignermapping_Response.h"
+#include <QList>
 #include <QString>
 
 #include "OAIEnum.h"
@@ -30,6 +34,8 @@
 
 namespace OpenAPI {
 class OAICommon_Audit;
+class OAIEzsignbulksenddocumentmapping_ResponseCompound;
+class OAIEzsignbulksendsignermapping_Response;
 
 class OAIEzsignbulksend_ResponseCompound : public OAIObject {
 public:
@@ -57,6 +63,16 @@ public:
     bool is_fki_language_id_Set() const;
     bool is_fki_language_id_Valid() const;
 
+    QString getSLanguageNameX() const;
+    void setSLanguageNameX(const QString &s_language_name_x);
+    bool is_s_language_name_x_Set() const;
+    bool is_s_language_name_x_Valid() const;
+
+    QString getSEzsignfoldertypeNameX() const;
+    void setSEzsignfoldertypeNameX(const QString &s_ezsignfoldertype_name_x);
+    bool is_s_ezsignfoldertype_name_x_Set() const;
+    bool is_s_ezsignfoldertype_name_x_Valid() const;
+
     QString getSEzsignbulksendDescription() const;
     void setSEzsignbulksendDescription(const QString &s_ezsignbulksend_description);
     bool is_s_ezsignbulksend_description_Set() const;
@@ -67,6 +83,11 @@ public:
     bool is_t_ezsignbulksend_note_Set() const;
     bool is_t_ezsignbulksend_note_Valid() const;
 
+    bool isBEzsignbulksendNeedvalidation() const;
+    void setBEzsignbulksendNeedvalidation(const bool &b_ezsignbulksend_needvalidation);
+    bool is_b_ezsignbulksend_needvalidation_Set() const;
+    bool is_b_ezsignbulksend_needvalidation_Valid() const;
+
     bool isBEzsignbulksendIsactive() const;
     void setBEzsignbulksendIsactive(const bool &b_ezsignbulksend_isactive);
     bool is_b_ezsignbulksend_isactive_Set() const;
@@ -76,6 +97,16 @@ public:
     void setObjAudit(const OAICommon_Audit &obj_audit);
     bool is_obj_audit_Set() const;
     bool is_obj_audit_Valid() const;
+
+    QList<OAIEzsignbulksenddocumentmapping_ResponseCompound> getAObjEzsignbulksenddocumentmapping() const;
+    void setAObjEzsignbulksenddocumentmapping(const QList<OAIEzsignbulksenddocumentmapping_ResponseCompound> &a_obj_ezsignbulksenddocumentmapping);
+    bool is_a_obj_ezsignbulksenddocumentmapping_Set() const;
+    bool is_a_obj_ezsignbulksenddocumentmapping_Valid() const;
+
+    QList<OAIEzsignbulksendsignermapping_Response> getAObjEzsignbulksendsignermapping() const;
+    void setAObjEzsignbulksendsignermapping(const QList<OAIEzsignbulksendsignermapping_Response> &a_obj_ezsignbulksendsignermapping);
+    bool is_a_obj_ezsignbulksendsignermapping_Set() const;
+    bool is_a_obj_ezsignbulksendsignermapping_Valid() const;
 
     virtual bool isSet() const override;
     virtual bool isValid() const override;
@@ -95,6 +126,14 @@ private:
     bool m_fki_language_id_isSet;
     bool m_fki_language_id_isValid;
 
+    QString s_language_name_x;
+    bool m_s_language_name_x_isSet;
+    bool m_s_language_name_x_isValid;
+
+    QString s_ezsignfoldertype_name_x;
+    bool m_s_ezsignfoldertype_name_x_isSet;
+    bool m_s_ezsignfoldertype_name_x_isValid;
+
     QString s_ezsignbulksend_description;
     bool m_s_ezsignbulksend_description_isSet;
     bool m_s_ezsignbulksend_description_isValid;
@@ -103,6 +142,10 @@ private:
     bool m_t_ezsignbulksend_note_isSet;
     bool m_t_ezsignbulksend_note_isValid;
 
+    bool b_ezsignbulksend_needvalidation;
+    bool m_b_ezsignbulksend_needvalidation_isSet;
+    bool m_b_ezsignbulksend_needvalidation_isValid;
+
     bool b_ezsignbulksend_isactive;
     bool m_b_ezsignbulksend_isactive_isSet;
     bool m_b_ezsignbulksend_isactive_isValid;
@@ -110,6 +153,14 @@ private:
     OAICommon_Audit obj_audit;
     bool m_obj_audit_isSet;
     bool m_obj_audit_isValid;
+
+    QList<OAIEzsignbulksenddocumentmapping_ResponseCompound> a_obj_ezsignbulksenddocumentmapping;
+    bool m_a_obj_ezsignbulksenddocumentmapping_isSet;
+    bool m_a_obj_ezsignbulksenddocumentmapping_isValid;
+
+    QList<OAIEzsignbulksendsignermapping_Response> a_obj_ezsignbulksendsignermapping;
+    bool m_a_obj_ezsignbulksendsignermapping_isSet;
+    bool m_a_obj_ezsignbulksendsignermapping_isValid;
 };
 
 } // namespace OpenAPI

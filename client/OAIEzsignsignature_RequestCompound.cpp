@@ -1,5 +1,5 @@
 /**
- * eZmax API Definition
+ * eZmax API Definition (Full)
  * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
  * The version of the OpenAPI document: 1.1.7
@@ -58,6 +58,15 @@ void OAIEzsignsignature_RequestCompound::initializeModel() {
     m_fki_ezsigndocument_id_isSet = false;
     m_fki_ezsigndocument_id_isValid = false;
 
+    m_t_ezsignsignature_tooltip_isSet = false;
+    m_t_ezsignsignature_tooltip_isValid = false;
+
+    m_e_ezsignsignature_tooltipposition_isSet = false;
+    m_e_ezsignsignature_tooltipposition_isValid = false;
+
+    m_e_ezsignsignature_font_isSet = false;
+    m_e_ezsignsignature_font_isValid = false;
+
     m_b_ezsignsignature_customdate_isSet = false;
     m_b_ezsignsignature_customdate_isValid = false;
 
@@ -98,6 +107,15 @@ void OAIEzsignsignature_RequestCompound::fromJsonObject(QJsonObject json) {
     m_fki_ezsigndocument_id_isValid = ::OpenAPI::fromJsonValue(fki_ezsigndocument_id, json[QString("fkiEzsigndocumentID")]);
     m_fki_ezsigndocument_id_isSet = !json[QString("fkiEzsigndocumentID")].isNull() && m_fki_ezsigndocument_id_isValid;
 
+    m_t_ezsignsignature_tooltip_isValid = ::OpenAPI::fromJsonValue(t_ezsignsignature_tooltip, json[QString("tEzsignsignatureTooltip")]);
+    m_t_ezsignsignature_tooltip_isSet = !json[QString("tEzsignsignatureTooltip")].isNull() && m_t_ezsignsignature_tooltip_isValid;
+
+    m_e_ezsignsignature_tooltipposition_isValid = ::OpenAPI::fromJsonValue(e_ezsignsignature_tooltipposition, json[QString("eEzsignsignatureTooltipposition")]);
+    m_e_ezsignsignature_tooltipposition_isSet = !json[QString("eEzsignsignatureTooltipposition")].isNull() && m_e_ezsignsignature_tooltipposition_isValid;
+
+    m_e_ezsignsignature_font_isValid = ::OpenAPI::fromJsonValue(e_ezsignsignature_font, json[QString("eEzsignsignatureFont")]);
+    m_e_ezsignsignature_font_isSet = !json[QString("eEzsignsignatureFont")].isNull() && m_e_ezsignsignature_font_isValid;
+
     m_b_ezsignsignature_customdate_isValid = ::OpenAPI::fromJsonValue(b_ezsignsignature_customdate, json[QString("bEzsignsignatureCustomdate")]);
     m_b_ezsignsignature_customdate_isSet = !json[QString("bEzsignsignatureCustomdate")].isNull() && m_b_ezsignsignature_customdate_isValid;
 
@@ -137,6 +155,15 @@ QJsonObject OAIEzsignsignature_RequestCompound::asJsonObject() const {
     }
     if (m_fki_ezsigndocument_id_isSet) {
         obj.insert(QString("fkiEzsigndocumentID"), ::OpenAPI::toJsonValue(fki_ezsigndocument_id));
+    }
+    if (m_t_ezsignsignature_tooltip_isSet) {
+        obj.insert(QString("tEzsignsignatureTooltip"), ::OpenAPI::toJsonValue(t_ezsignsignature_tooltip));
+    }
+    if (e_ezsignsignature_tooltipposition.isSet()) {
+        obj.insert(QString("eEzsignsignatureTooltipposition"), ::OpenAPI::toJsonValue(e_ezsignsignature_tooltipposition));
+    }
+    if (e_ezsignsignature_font.isSet()) {
+        obj.insert(QString("eEzsignsignatureFont"), ::OpenAPI::toJsonValue(e_ezsignsignature_font));
     }
     if (m_b_ezsignsignature_customdate_isSet) {
         obj.insert(QString("bEzsignsignatureCustomdate"), ::OpenAPI::toJsonValue(b_ezsignsignature_customdate));
@@ -275,6 +302,54 @@ bool OAIEzsignsignature_RequestCompound::is_fki_ezsigndocument_id_Valid() const{
     return m_fki_ezsigndocument_id_isValid;
 }
 
+QString OAIEzsignsignature_RequestCompound::getTEzsignsignatureTooltip() const {
+    return t_ezsignsignature_tooltip;
+}
+void OAIEzsignsignature_RequestCompound::setTEzsignsignatureTooltip(const QString &t_ezsignsignature_tooltip) {
+    this->t_ezsignsignature_tooltip = t_ezsignsignature_tooltip;
+    this->m_t_ezsignsignature_tooltip_isSet = true;
+}
+
+bool OAIEzsignsignature_RequestCompound::is_t_ezsignsignature_tooltip_Set() const{
+    return m_t_ezsignsignature_tooltip_isSet;
+}
+
+bool OAIEzsignsignature_RequestCompound::is_t_ezsignsignature_tooltip_Valid() const{
+    return m_t_ezsignsignature_tooltip_isValid;
+}
+
+OAIField_eEzsignsignatureTooltipposition OAIEzsignsignature_RequestCompound::getEEzsignsignatureTooltipposition() const {
+    return e_ezsignsignature_tooltipposition;
+}
+void OAIEzsignsignature_RequestCompound::setEEzsignsignatureTooltipposition(const OAIField_eEzsignsignatureTooltipposition &e_ezsignsignature_tooltipposition) {
+    this->e_ezsignsignature_tooltipposition = e_ezsignsignature_tooltipposition;
+    this->m_e_ezsignsignature_tooltipposition_isSet = true;
+}
+
+bool OAIEzsignsignature_RequestCompound::is_e_ezsignsignature_tooltipposition_Set() const{
+    return m_e_ezsignsignature_tooltipposition_isSet;
+}
+
+bool OAIEzsignsignature_RequestCompound::is_e_ezsignsignature_tooltipposition_Valid() const{
+    return m_e_ezsignsignature_tooltipposition_isValid;
+}
+
+OAIField_eEzsignsignatureFont OAIEzsignsignature_RequestCompound::getEEzsignsignatureFont() const {
+    return e_ezsignsignature_font;
+}
+void OAIEzsignsignature_RequestCompound::setEEzsignsignatureFont(const OAIField_eEzsignsignatureFont &e_ezsignsignature_font) {
+    this->e_ezsignsignature_font = e_ezsignsignature_font;
+    this->m_e_ezsignsignature_font_isSet = true;
+}
+
+bool OAIEzsignsignature_RequestCompound::is_e_ezsignsignature_font_Set() const{
+    return m_e_ezsignsignature_font_isSet;
+}
+
+bool OAIEzsignsignature_RequestCompound::is_e_ezsignsignature_font_Valid() const{
+    return m_e_ezsignsignature_font_isValid;
+}
+
 bool OAIEzsignsignature_RequestCompound::isBEzsignsignatureCustomdate() const {
     return b_ezsignsignature_customdate;
 }
@@ -346,6 +421,21 @@ bool OAIEzsignsignature_RequestCompound::isSet() const {
         }
 
         if (m_fki_ezsigndocument_id_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_t_ezsignsignature_tooltip_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (e_ezsignsignature_tooltipposition.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (e_ezsignsignature_font.isSet()) {
             isObjectUpdated = true;
             break;
         }

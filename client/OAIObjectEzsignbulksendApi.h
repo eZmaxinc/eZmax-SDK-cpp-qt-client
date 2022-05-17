@@ -1,5 +1,5 @@
 /**
- * eZmax API Definition
+ * eZmax API Definition (Full)
  * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
  * The version of the OpenAPI document: 1.1.7
@@ -19,9 +19,19 @@
 #include "OAIOauth.h"
 
 #include "OAICommon_Response_Error.h"
+#include "OAIEzsignbulksend_createEzsignbulksendtransmission_v1_Request.h"
+#include "OAIEzsignbulksend_createEzsignbulksendtransmission_v1_Response.h"
+#include "OAIEzsignbulksend_createObject_v1_Request.h"
+#include "OAIEzsignbulksend_createObject_v1_Response.h"
+#include "OAIEzsignbulksend_deleteObject_v1_Response.h"
+#include "OAIEzsignbulksend_editObject_v1_Request.h"
+#include "OAIEzsignbulksend_editObject_v1_Response.h"
 #include "OAIEzsignbulksend_getEzsignbulksendtransmissions_v1_Response.h"
+#include "OAIEzsignbulksend_getFormsData_v1_Response.h"
 #include "OAIEzsignbulksend_getList_v1_Response.h"
 #include "OAIEzsignbulksend_getObject_v1_Response.h"
+#include "OAIEzsignbulksend_reorder_v1_Request.h"
+#include "OAIEzsignbulksend_reorder_v1_Response.h"
 #include "OAIHeader_Accept_Language.h"
 #include "OAIHttpFileElement.h"
 #include <QString>
@@ -64,8 +74,41 @@ public:
 
     /**
     * @param[in]  pki_ezsignbulksend_id qint32 [required]
+    * @param[in]  oai_ezsignbulksend_create_ezsignbulksendtransmission_v1_request OAIEzsignbulksend_createEzsignbulksendtransmission_v1_Request [required]
+    */
+    void ezsignbulksendCreateEzsignbulksendtransmissionV1(const qint32 &pki_ezsignbulksend_id, const OAIEzsignbulksend_createEzsignbulksendtransmission_v1_Request &oai_ezsignbulksend_create_ezsignbulksendtransmission_v1_request);
+
+    /**
+    * @param[in]  oai_ezsignbulksend_create_object_v1_request OAIEzsignbulksend_createObject_v1_Request [required]
+    */
+    void ezsignbulksendCreateObjectV1(const OAIEzsignbulksend_createObject_v1_Request &oai_ezsignbulksend_create_object_v1_request);
+
+    /**
+    * @param[in]  pki_ezsignbulksend_id qint32 [required]
+    */
+    void ezsignbulksendDeleteObjectV1(const qint32 &pki_ezsignbulksend_id);
+
+    /**
+    * @param[in]  pki_ezsignbulksend_id qint32 [required]
+    * @param[in]  oai_ezsignbulksend_edit_object_v1_request OAIEzsignbulksend_editObject_v1_Request [required]
+    */
+    void ezsignbulksendEditObjectV1(const qint32 &pki_ezsignbulksend_id, const OAIEzsignbulksend_editObject_v1_Request &oai_ezsignbulksend_edit_object_v1_request);
+
+    /**
+    * @param[in]  pki_ezsignbulksend_id qint32 [required]
+    * @param[in]  e_csv_separator QString [required]
+    */
+    void ezsignbulksendGetCsvTemplateV1(const qint32 &pki_ezsignbulksend_id, const QString &e_csv_separator);
+
+    /**
+    * @param[in]  pki_ezsignbulksend_id qint32 [required]
     */
     void ezsignbulksendGetEzsignbulksendtransmissionsV1(const qint32 &pki_ezsignbulksend_id);
+
+    /**
+    * @param[in]  pki_ezsignbulksend_id qint32 [required]
+    */
+    void ezsignbulksendGetFormsDataV1(const qint32 &pki_ezsignbulksend_id);
 
     /**
     * @param[in]  e_order_by QString [optional]
@@ -80,6 +123,12 @@ public:
     * @param[in]  pki_ezsignbulksend_id qint32 [required]
     */
     void ezsignbulksendGetObjectV1(const qint32 &pki_ezsignbulksend_id);
+
+    /**
+    * @param[in]  pki_ezsignbulksend_id qint32 [required]
+    * @param[in]  oai_ezsignbulksend_reorder_v1_request OAIEzsignbulksend_reorder_v1_Request [required]
+    */
+    void ezsignbulksendReorderV1(const qint32 &pki_ezsignbulksend_id, const OAIEzsignbulksend_reorder_v1_Request &oai_ezsignbulksend_reorder_v1_request);
 
 
 private:
@@ -104,27 +153,62 @@ private:
     OauthPassword _passwordFlow;
     int _OauthMethod = 0;
 
+    void ezsignbulksendCreateEzsignbulksendtransmissionV1Callback(OAIHttpRequestWorker *worker);
+    void ezsignbulksendCreateObjectV1Callback(OAIHttpRequestWorker *worker);
+    void ezsignbulksendDeleteObjectV1Callback(OAIHttpRequestWorker *worker);
+    void ezsignbulksendEditObjectV1Callback(OAIHttpRequestWorker *worker);
+    void ezsignbulksendGetCsvTemplateV1Callback(OAIHttpRequestWorker *worker);
     void ezsignbulksendGetEzsignbulksendtransmissionsV1Callback(OAIHttpRequestWorker *worker);
+    void ezsignbulksendGetFormsDataV1Callback(OAIHttpRequestWorker *worker);
     void ezsignbulksendGetListV1Callback(OAIHttpRequestWorker *worker);
     void ezsignbulksendGetObjectV1Callback(OAIHttpRequestWorker *worker);
+    void ezsignbulksendReorderV1Callback(OAIHttpRequestWorker *worker);
 
 signals:
 
+    void ezsignbulksendCreateEzsignbulksendtransmissionV1Signal(OAIEzsignbulksend_createEzsignbulksendtransmission_v1_Response summary);
+    void ezsignbulksendCreateObjectV1Signal(OAIEzsignbulksend_createObject_v1_Response summary);
+    void ezsignbulksendDeleteObjectV1Signal(OAIEzsignbulksend_deleteObject_v1_Response summary);
+    void ezsignbulksendEditObjectV1Signal(OAIEzsignbulksend_editObject_v1_Response summary);
+    void ezsignbulksendGetCsvTemplateV1Signal(QString summary);
     void ezsignbulksendGetEzsignbulksendtransmissionsV1Signal(OAIEzsignbulksend_getEzsignbulksendtransmissions_v1_Response summary);
+    void ezsignbulksendGetFormsDataV1Signal(OAIEzsignbulksend_getFormsData_v1_Response summary);
     void ezsignbulksendGetListV1Signal(OAIEzsignbulksend_getList_v1_Response summary);
     void ezsignbulksendGetObjectV1Signal(OAIEzsignbulksend_getObject_v1_Response summary);
+    void ezsignbulksendReorderV1Signal(OAIEzsignbulksend_reorder_v1_Response summary);
 
+    void ezsignbulksendCreateEzsignbulksendtransmissionV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsignbulksend_createEzsignbulksendtransmission_v1_Response summary);
+    void ezsignbulksendCreateObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsignbulksend_createObject_v1_Response summary);
+    void ezsignbulksendDeleteObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsignbulksend_deleteObject_v1_Response summary);
+    void ezsignbulksendEditObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsignbulksend_editObject_v1_Response summary);
+    void ezsignbulksendGetCsvTemplateV1SignalFull(OAIHttpRequestWorker *worker, QString summary);
     void ezsignbulksendGetEzsignbulksendtransmissionsV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsignbulksend_getEzsignbulksendtransmissions_v1_Response summary);
+    void ezsignbulksendGetFormsDataV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsignbulksend_getFormsData_v1_Response summary);
     void ezsignbulksendGetListV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsignbulksend_getList_v1_Response summary);
     void ezsignbulksendGetObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsignbulksend_getObject_v1_Response summary);
+    void ezsignbulksendReorderV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsignbulksend_reorder_v1_Response summary);
 
+    void ezsignbulksendCreateEzsignbulksendtransmissionV1SignalE(OAIEzsignbulksend_createEzsignbulksendtransmission_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignbulksendCreateObjectV1SignalE(OAIEzsignbulksend_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignbulksendDeleteObjectV1SignalE(OAIEzsignbulksend_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignbulksendEditObjectV1SignalE(OAIEzsignbulksend_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignbulksendGetCsvTemplateV1SignalE(QString summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignbulksendGetEzsignbulksendtransmissionsV1SignalE(OAIEzsignbulksend_getEzsignbulksendtransmissions_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignbulksendGetFormsDataV1SignalE(OAIEzsignbulksend_getFormsData_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignbulksendGetListV1SignalE(OAIEzsignbulksend_getList_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignbulksendGetObjectV1SignalE(OAIEzsignbulksend_getObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignbulksendReorderV1SignalE(OAIEzsignbulksend_reorder_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
 
+    void ezsignbulksendCreateEzsignbulksendtransmissionV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignbulksendCreateObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignbulksendDeleteObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignbulksendEditObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignbulksendGetCsvTemplateV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignbulksendGetEzsignbulksendtransmissionsV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignbulksendGetFormsDataV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignbulksendGetListV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignbulksendGetObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignbulksendReorderV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();

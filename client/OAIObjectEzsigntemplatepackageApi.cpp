@@ -1,5 +1,5 @@
 /**
- * eZmax API Definition
+ * eZmax API Definition (Full)
  * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
  * The version of the OpenAPI document: 1.1.7
@@ -43,14 +43,26 @@ void OAIObjectEzsigntemplatepackageApi::initializeServerConfigs() {
     QSet<QString>{ {"ca-central-1"} })}, }));
     
     defaultConf.append(OAIServerConfiguration(
-    QUrl("https://{sInfrastructureenvironmenttypeDescription}.api.global.ezmax.com/"),
+    QUrl("https://{sInfrastructureenvironmenttypeDescription}.api.global.ezmax.com"),
     "The server endpoint where to send your global API requests.",
     QMap<QString, OAIServerVariable>{ 
     {"sInfrastructureenvironmenttypeDescription", OAIServerVariable("The environment on on which to call the API. Should always be "prod" unless instructed otherwise by support.","prod",
     QSet<QString>{ {"prod"},{"stg"},{"qa"},{"dev"} })}, }));
     
+    _serverConfigs.insert("ezsigntemplatepackageCreateObjectV1", defaultConf);
+    _serverIndices.insert("ezsigntemplatepackageCreateObjectV1", 0);
+    _serverConfigs.insert("ezsigntemplatepackageDeleteObjectV1", defaultConf);
+    _serverIndices.insert("ezsigntemplatepackageDeleteObjectV1", 0);
+    _serverConfigs.insert("ezsigntemplatepackageEditEzsigntemplatepackagesignersV1", defaultConf);
+    _serverIndices.insert("ezsigntemplatepackageEditEzsigntemplatepackagesignersV1", 0);
+    _serverConfigs.insert("ezsigntemplatepackageEditObjectV1", defaultConf);
+    _serverIndices.insert("ezsigntemplatepackageEditObjectV1", 0);
+    _serverConfigs.insert("ezsigntemplatepackageGetAutocompleteV1", defaultConf);
+    _serverIndices.insert("ezsigntemplatepackageGetAutocompleteV1", 0);
     _serverConfigs.insert("ezsigntemplatepackageGetListV1", defaultConf);
     _serverIndices.insert("ezsigntemplatepackageGetListV1", 0);
+    _serverConfigs.insert("ezsigntemplatepackageGetObjectV1", defaultConf);
+    _serverIndices.insert("ezsigntemplatepackageGetObjectV1", 0);
 }
 
 /**
@@ -226,6 +238,402 @@ QString OAIObjectEzsigntemplatepackageApi::getParamStyleDelimiter(const QString 
     }
 }
 
+void OAIObjectEzsigntemplatepackageApi::ezsigntemplatepackageCreateObjectV1(const OAIEzsigntemplatepackage_createObject_v1_Request &oai_ezsigntemplatepackage_create_object_v1_request) {
+    QString fullPath = QString(_serverConfigs["ezsigntemplatepackageCreateObjectV1"][_serverIndices.value("ezsigntemplatepackageCreateObjectV1")].URL()+"/1/object/ezsigntemplatepackage");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    OAIHttpRequestInput input(fullPath, "POST");
+
+    {
+
+        
+        QByteArray output = oai_ezsigntemplatepackage_create_object_v1_request.asJson().toUtf8();
+        input.request_body.append(output);
+    }
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+#else
+    for (auto key : _defaultHeaders.keys()) {
+        input.headers.insert(key, _defaultHeaders[key]);
+    }
+#endif
+
+    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIObjectEzsigntemplatepackageApi::ezsigntemplatepackageCreateObjectV1Callback);
+    connect(this, &OAIObjectEzsigntemplatepackageApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this]() {
+        if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
+            emit allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void OAIObjectEzsigntemplatepackageApi::ezsigntemplatepackageCreateObjectV1Callback(OAIHttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    OAIEzsigntemplatepackage_createObject_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit ezsigntemplatepackageCreateObjectV1Signal(output);
+        emit ezsigntemplatepackageCreateObjectV1SignalFull(worker, output);
+    } else {
+        emit ezsigntemplatepackageCreateObjectV1SignalE(output, error_type, error_str);
+        emit ezsigntemplatepackageCreateObjectV1SignalEFull(worker, error_type, error_str);
+    }
+}
+
+void OAIObjectEzsigntemplatepackageApi::ezsigntemplatepackageDeleteObjectV1(const qint32 &pki_ezsigntemplatepackage_id) {
+    QString fullPath = QString(_serverConfigs["ezsigntemplatepackageDeleteObjectV1"][_serverIndices.value("ezsigntemplatepackageDeleteObjectV1")].URL()+"/1/object/ezsigntemplatepackage/{pkiEzsigntemplatepackageID}");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_ezsigntemplatepackage_idPathParam("{");
+        pki_ezsigntemplatepackage_idPathParam.append("pkiEzsigntemplatepackageID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsigntemplatepackageID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsigntemplatepackageID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_ezsigntemplatepackage_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsigntemplatepackage_id)));
+    }
+    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    OAIHttpRequestInput input(fullPath, "DELETE");
+
+
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+#else
+    for (auto key : _defaultHeaders.keys()) {
+        input.headers.insert(key, _defaultHeaders[key]);
+    }
+#endif
+
+    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIObjectEzsigntemplatepackageApi::ezsigntemplatepackageDeleteObjectV1Callback);
+    connect(this, &OAIObjectEzsigntemplatepackageApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this]() {
+        if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
+            emit allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void OAIObjectEzsigntemplatepackageApi::ezsigntemplatepackageDeleteObjectV1Callback(OAIHttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    OAIEzsigntemplatepackage_deleteObject_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit ezsigntemplatepackageDeleteObjectV1Signal(output);
+        emit ezsigntemplatepackageDeleteObjectV1SignalFull(worker, output);
+    } else {
+        emit ezsigntemplatepackageDeleteObjectV1SignalE(output, error_type, error_str);
+        emit ezsigntemplatepackageDeleteObjectV1SignalEFull(worker, error_type, error_str);
+    }
+}
+
+void OAIObjectEzsigntemplatepackageApi::ezsigntemplatepackageEditEzsigntemplatepackagesignersV1(const qint32 &pki_ezsigntemplatepackage_id, const OAIEzsigntemplatepackage_editEzsigntemplatepackagesigners_v1_Request &oai_ezsigntemplatepackage_edit_ezsigntemplatepackagesigners_v1_request) {
+    QString fullPath = QString(_serverConfigs["ezsigntemplatepackageEditEzsigntemplatepackagesignersV1"][_serverIndices.value("ezsigntemplatepackageEditEzsigntemplatepackagesignersV1")].URL()+"/1/object/ezsigntemplatepackage/{pkiEzsigntemplatepackageID}/editEzsigntemplatepackagesigners");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_ezsigntemplatepackage_idPathParam("{");
+        pki_ezsigntemplatepackage_idPathParam.append("pkiEzsigntemplatepackageID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsigntemplatepackageID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsigntemplatepackageID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_ezsigntemplatepackage_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsigntemplatepackage_id)));
+    }
+    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    OAIHttpRequestInput input(fullPath, "PUT");
+
+    {
+
+        
+        QByteArray output = oai_ezsigntemplatepackage_edit_ezsigntemplatepackagesigners_v1_request.asJson().toUtf8();
+        input.request_body.append(output);
+    }
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+#else
+    for (auto key : _defaultHeaders.keys()) {
+        input.headers.insert(key, _defaultHeaders[key]);
+    }
+#endif
+
+    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIObjectEzsigntemplatepackageApi::ezsigntemplatepackageEditEzsigntemplatepackagesignersV1Callback);
+    connect(this, &OAIObjectEzsigntemplatepackageApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this]() {
+        if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
+            emit allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void OAIObjectEzsigntemplatepackageApi::ezsigntemplatepackageEditEzsigntemplatepackagesignersV1Callback(OAIHttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    OAIEzsigntemplatepackage_editEzsigntemplatepackagesigners_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit ezsigntemplatepackageEditEzsigntemplatepackagesignersV1Signal(output);
+        emit ezsigntemplatepackageEditEzsigntemplatepackagesignersV1SignalFull(worker, output);
+    } else {
+        emit ezsigntemplatepackageEditEzsigntemplatepackagesignersV1SignalE(output, error_type, error_str);
+        emit ezsigntemplatepackageEditEzsigntemplatepackagesignersV1SignalEFull(worker, error_type, error_str);
+    }
+}
+
+void OAIObjectEzsigntemplatepackageApi::ezsigntemplatepackageEditObjectV1(const qint32 &pki_ezsigntemplatepackage_id, const OAIEzsigntemplatepackage_editObject_v1_Request &oai_ezsigntemplatepackage_edit_object_v1_request) {
+    QString fullPath = QString(_serverConfigs["ezsigntemplatepackageEditObjectV1"][_serverIndices.value("ezsigntemplatepackageEditObjectV1")].URL()+"/1/object/ezsigntemplatepackage/{pkiEzsigntemplatepackageID}");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_ezsigntemplatepackage_idPathParam("{");
+        pki_ezsigntemplatepackage_idPathParam.append("pkiEzsigntemplatepackageID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsigntemplatepackageID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsigntemplatepackageID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_ezsigntemplatepackage_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsigntemplatepackage_id)));
+    }
+    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    OAIHttpRequestInput input(fullPath, "PUT");
+
+    {
+
+        
+        QByteArray output = oai_ezsigntemplatepackage_edit_object_v1_request.asJson().toUtf8();
+        input.request_body.append(output);
+    }
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+#else
+    for (auto key : _defaultHeaders.keys()) {
+        input.headers.insert(key, _defaultHeaders[key]);
+    }
+#endif
+
+    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIObjectEzsigntemplatepackageApi::ezsigntemplatepackageEditObjectV1Callback);
+    connect(this, &OAIObjectEzsigntemplatepackageApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this]() {
+        if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
+            emit allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void OAIObjectEzsigntemplatepackageApi::ezsigntemplatepackageEditObjectV1Callback(OAIHttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    OAIEzsigntemplatepackage_editObject_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit ezsigntemplatepackageEditObjectV1Signal(output);
+        emit ezsigntemplatepackageEditObjectV1SignalFull(worker, output);
+    } else {
+        emit ezsigntemplatepackageEditObjectV1SignalE(output, error_type, error_str);
+        emit ezsigntemplatepackageEditObjectV1SignalEFull(worker, error_type, error_str);
+    }
+}
+
+void OAIObjectEzsigntemplatepackageApi::ezsigntemplatepackageGetAutocompleteV1(const QString &s_selector, const ::OpenAPI::OptionalParam<QString> &s_query, const ::OpenAPI::OptionalParam<OAIHeader_Accept_Language> &accept_language) {
+    QString fullPath = QString(_serverConfigs["ezsigntemplatepackageGetAutocompleteV1"][_serverIndices.value("ezsigntemplatepackageGetAutocompleteV1")].URL()+"/1/object/ezsigntemplatepackage/getAutocomplete/{sSelector}");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString s_selectorPathParam("{");
+        s_selectorPathParam.append("sSelector").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "sSelector", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"sSelector"+pathSuffix : pathPrefix;
+        fullPath.replace(s_selectorPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(s_selector)));
+    }
+    QString queryPrefix, querySuffix, queryDelimiter, queryStyle;
+    if (s_query.hasValue())
+    {
+        queryStyle = "form";
+        if (queryStyle == "")
+            queryStyle = "form";
+        queryPrefix = getParamStylePrefix(queryStyle);
+        querySuffix = getParamStyleSuffix(queryStyle);
+        queryDelimiter = getParamStyleDelimiter(queryStyle, "sQuery", true);
+        if (fullPath.indexOf("?") > 0)
+            fullPath.append(queryPrefix);
+        else
+            fullPath.append("?");
+
+        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(s_query.value())));
+    }
+    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    OAIHttpRequestInput input(fullPath, "GET");
+
+
+    if (accept_language.hasValue())
+    {
+        QString headerString;
+        QJsonObject parameter = accept_language.value().asJsonObject();
+        qint32 count = 0;
+        foreach(const QString& key, parameter.keys()) {
+            if (count > 0) {
+                headerString.append(",");
+            }
+            QString assignOperator = (false) ? "=" : ",";
+            switch(parameter.value(key).type()) {
+                case QJsonValue::String:
+                {
+                    headerString.append(key+assignOperator+parameter.value(key).toString());
+                    break;
+                }
+                case QJsonValue::Double:
+                {
+                    headerString.append(key+assignOperator+QString::number(parameter.value(key).toDouble()));
+                    break;
+                }
+                case QJsonValue::Bool:
+                {
+                    headerString.append(key+assignOperator+QVariant(parameter.value(key).toBool()).toString());
+                    break;
+                }
+                case QJsonValue::Array:
+                {
+                    headerString.append(key+assignOperator+QVariant(parameter.value(key).toArray()).toString());
+                    break;
+                }
+                case QJsonValue::Object:
+                {
+                    headerString.append(key+assignOperator+QVariant(parameter.value(key).toObject()).toString());
+                    break;
+                }
+                case QJsonValue::Null:
+                case QJsonValue::Undefined:
+                    break;
+            }
+            count++;
+        }
+        input.headers.insert("Accept-Language", headerString);
+    }
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+#else
+    for (auto key : _defaultHeaders.keys()) {
+        input.headers.insert(key, _defaultHeaders[key]);
+    }
+#endif
+
+    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIObjectEzsigntemplatepackageApi::ezsigntemplatepackageGetAutocompleteV1Callback);
+    connect(this, &OAIObjectEzsigntemplatepackageApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this]() {
+        if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
+            emit allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void OAIObjectEzsigntemplatepackageApi::ezsigntemplatepackageGetAutocompleteV1Callback(OAIHttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    OAICommon_getAutocompleteDisabled_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit ezsigntemplatepackageGetAutocompleteV1Signal(output);
+        emit ezsigntemplatepackageGetAutocompleteV1SignalFull(worker, output);
+    } else {
+        emit ezsigntemplatepackageGetAutocompleteV1SignalE(output, error_type, error_str);
+        emit ezsigntemplatepackageGetAutocompleteV1SignalEFull(worker, error_type, error_str);
+    }
+}
+
 void OAIObjectEzsigntemplatepackageApi::ezsigntemplatepackageGetListV1(const ::OpenAPI::OptionalParam<QString> &e_order_by, const ::OpenAPI::OptionalParam<qint32> &i_row_max, const ::OpenAPI::OptionalParam<qint32> &i_row_offset, const ::OpenAPI::OptionalParam<OAIHeader_Accept_Language> &accept_language, const ::OpenAPI::OptionalParam<QString> &s_filter) {
     QString fullPath = QString(_serverConfigs["ezsigntemplatepackageGetListV1"][_serverIndices.value("ezsigntemplatepackageGetListV1")].URL()+"/1/object/ezsigntemplatepackage/getList");
     
@@ -381,6 +789,73 @@ void OAIObjectEzsigntemplatepackageApi::ezsigntemplatepackageGetListV1Callback(O
     } else {
         emit ezsigntemplatepackageGetListV1SignalE(output, error_type, error_str);
         emit ezsigntemplatepackageGetListV1SignalEFull(worker, error_type, error_str);
+    }
+}
+
+void OAIObjectEzsigntemplatepackageApi::ezsigntemplatepackageGetObjectV1(const qint32 &pki_ezsigntemplatepackage_id) {
+    QString fullPath = QString(_serverConfigs["ezsigntemplatepackageGetObjectV1"][_serverIndices.value("ezsigntemplatepackageGetObjectV1")].URL()+"/1/object/ezsigntemplatepackage/{pkiEzsigntemplatepackageID}");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_ezsigntemplatepackage_idPathParam("{");
+        pki_ezsigntemplatepackage_idPathParam.append("pkiEzsigntemplatepackageID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsigntemplatepackageID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsigntemplatepackageID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_ezsigntemplatepackage_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsigntemplatepackage_id)));
+    }
+    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    OAIHttpRequestInput input(fullPath, "GET");
+
+
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+#else
+    for (auto key : _defaultHeaders.keys()) {
+        input.headers.insert(key, _defaultHeaders[key]);
+    }
+#endif
+
+    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIObjectEzsigntemplatepackageApi::ezsigntemplatepackageGetObjectV1Callback);
+    connect(this, &OAIObjectEzsigntemplatepackageApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this]() {
+        if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
+            emit allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void OAIObjectEzsigntemplatepackageApi::ezsigntemplatepackageGetObjectV1Callback(OAIHttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    OAIEzsigntemplatepackage_getObject_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit ezsigntemplatepackageGetObjectV1Signal(output);
+        emit ezsigntemplatepackageGetObjectV1SignalFull(worker, output);
+    } else {
+        emit ezsigntemplatepackageGetObjectV1SignalE(output, error_type, error_str);
+        emit ezsigntemplatepackageGetObjectV1SignalEFull(worker, error_type, error_str);
     }
 }
 

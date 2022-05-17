@@ -1,5 +1,5 @@
 /**
- * eZmax API Definition
+ * eZmax API Definition (Full)
  * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
  * The version of the OpenAPI document: 1.1.7
@@ -24,8 +24,11 @@
 #include "OAIEzsignsignature_Request.h"
 #include "OAIEzsignsignature_RequestCompound_allOf.h"
 #include "OAIEzsignsignaturecustomdate_RequestCompound.h"
+#include "OAIField_eEzsignsignatureFont.h"
+#include "OAIField_eEzsignsignatureTooltipposition.h"
 #include "OAIField_eEzsignsignatureType.h"
 #include <QList>
+#include <QString>
 
 #include "OAIEnum.h"
 #include "OAIObject.h"
@@ -84,6 +87,21 @@ public:
     bool is_fki_ezsigndocument_id_Set() const;
     bool is_fki_ezsigndocument_id_Valid() const;
 
+    QString getTEzsignsignatureTooltip() const;
+    void setTEzsignsignatureTooltip(const QString &t_ezsignsignature_tooltip);
+    bool is_t_ezsignsignature_tooltip_Set() const;
+    bool is_t_ezsignsignature_tooltip_Valid() const;
+
+    OAIField_eEzsignsignatureTooltipposition getEEzsignsignatureTooltipposition() const;
+    void setEEzsignsignatureTooltipposition(const OAIField_eEzsignsignatureTooltipposition &e_ezsignsignature_tooltipposition);
+    bool is_e_ezsignsignature_tooltipposition_Set() const;
+    bool is_e_ezsignsignature_tooltipposition_Valid() const;
+
+    OAIField_eEzsignsignatureFont getEEzsignsignatureFont() const;
+    void setEEzsignsignatureFont(const OAIField_eEzsignsignatureFont &e_ezsignsignature_font);
+    bool is_e_ezsignsignature_font_Set() const;
+    bool is_e_ezsignsignature_font_Valid() const;
+
     bool isBEzsignsignatureCustomdate() const;
     void setBEzsignsignatureCustomdate(const bool &b_ezsignsignature_customdate);
     bool is_b_ezsignsignature_customdate_Set() const;
@@ -131,6 +149,18 @@ private:
     qint32 fki_ezsigndocument_id;
     bool m_fki_ezsigndocument_id_isSet;
     bool m_fki_ezsigndocument_id_isValid;
+
+    QString t_ezsignsignature_tooltip;
+    bool m_t_ezsignsignature_tooltip_isSet;
+    bool m_t_ezsignsignature_tooltip_isValid;
+
+    OAIField_eEzsignsignatureTooltipposition e_ezsignsignature_tooltipposition;
+    bool m_e_ezsignsignature_tooltipposition_isSet;
+    bool m_e_ezsignsignature_tooltipposition_isValid;
+
+    OAIField_eEzsignsignatureFont e_ezsignsignature_font;
+    bool m_e_ezsignsignature_font_isSet;
+    bool m_e_ezsignsignature_font_isValid;
 
     bool b_ezsignsignature_customdate;
     bool m_b_ezsignsignature_customdate_isSet;

@@ -1,5 +1,5 @@
 /**
- * eZmax API Definition
+ * eZmax API Definition (Full)
  * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
  * The version of the OpenAPI document: 1.1.7
@@ -65,6 +65,10 @@ void OAIField_eEzsignfolderStep::fromJson(QString jsonString) {
         m_value = eOAIField_eEzsignfolderStep::ARCHIVED;
         m_value_isSet = m_value_isValid = true;
     }
+    else if ( jsonString.compare("Disposed", Qt::CaseInsensitive) == 0) {
+        m_value = eOAIField_eEzsignfolderStep::DISPOSED;
+        m_value_isSet = m_value_isValid = true;
+    }
 }
 
 void OAIField_eEzsignfolderStep::fromJsonValue(QJsonValue json) {
@@ -92,6 +96,9 @@ QString OAIField_eEzsignfolderStep::asJson() const {
             break;
         case eOAIField_eEzsignfolderStep::ARCHIVED:
             val = "Archived";
+            break;
+        case eOAIField_eEzsignfolderStep::DISPOSED:
+            val = "Disposed";
             break;
         default:
             break;

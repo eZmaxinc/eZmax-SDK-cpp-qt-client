@@ -1,5 +1,5 @@
 /**
- * eZmax API Definition
+ * eZmax API Definition (Full)
  * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
  * The version of the OpenAPI document: 1.1.7
@@ -46,6 +46,26 @@ public:
     bool is_pki_ezsigndocument_id_Set() const;
     bool is_pki_ezsigndocument_id_Valid() const;
 
+    qint32 getFkiEzsignfolderId() const;
+    void setFkiEzsignfolderId(const qint32 &fki_ezsignfolder_id);
+    bool is_fki_ezsignfolder_id_Set() const;
+    bool is_fki_ezsignfolder_id_Valid() const;
+
+    qint32 getFkiEzsigntemplateId() const;
+    void setFkiEzsigntemplateId(const qint32 &fki_ezsigntemplate_id);
+    bool is_fki_ezsigntemplate_id_Set() const;
+    bool is_fki_ezsigntemplate_id_Valid() const;
+
+    qint32 getFkiEzsignfoldersignerassociationId() const;
+    void setFkiEzsignfoldersignerassociationId(const qint32 &fki_ezsignfoldersignerassociation_id);
+    bool is_fki_ezsignfoldersignerassociation_id_Set() const;
+    bool is_fki_ezsignfoldersignerassociation_id_Valid() const;
+
+    qint32 getFkiLanguageId() const;
+    void setFkiLanguageId(const qint32 &fki_language_id);
+    bool is_fki_language_id_Set() const;
+    bool is_fki_language_id_Valid() const;
+
     QString getEEzsigndocumentSource() const;
     void setEEzsigndocumentSource(const QString &e_ezsigndocument_source);
     bool is_e_ezsigndocument_source_Set() const;
@@ -76,20 +96,15 @@ public:
     bool is_s_ezsigndocument_password_Set() const;
     bool is_s_ezsigndocument_password_Valid() const;
 
-    qint32 getFkiEzsignfolderId() const;
-    void setFkiEzsignfolderId(const qint32 &fki_ezsignfolder_id);
-    bool is_fki_ezsignfolder_id_Set() const;
-    bool is_fki_ezsignfolder_id_Valid() const;
+    QString getEEzsigndocumentForm() const;
+    void setEEzsigndocumentForm(const QString &e_ezsigndocument_form);
+    bool is_e_ezsigndocument_form_Set() const;
+    bool is_e_ezsigndocument_form_Valid() const;
 
     QString getDtEzsigndocumentDuedate() const;
     void setDtEzsigndocumentDuedate(const QString &dt_ezsigndocument_duedate);
     bool is_dt_ezsigndocument_duedate_Set() const;
     bool is_dt_ezsigndocument_duedate_Valid() const;
-
-    qint32 getFkiLanguageId() const;
-    void setFkiLanguageId(const qint32 &fki_language_id);
-    bool is_fki_language_id_Set() const;
-    bool is_fki_language_id_Valid() const;
 
     QString getSEzsigndocumentName() const;
     void setSEzsigndocumentName(const QString &s_ezsigndocument_name);
@@ -105,6 +120,22 @@ private:
     qint32 pki_ezsigndocument_id;
     bool m_pki_ezsigndocument_id_isSet;
     bool m_pki_ezsigndocument_id_isValid;
+
+    qint32 fki_ezsignfolder_id;
+    bool m_fki_ezsignfolder_id_isSet;
+    bool m_fki_ezsignfolder_id_isValid;
+
+    qint32 fki_ezsigntemplate_id;
+    bool m_fki_ezsigntemplate_id_isSet;
+    bool m_fki_ezsigntemplate_id_isValid;
+
+    qint32 fki_ezsignfoldersignerassociation_id;
+    bool m_fki_ezsignfoldersignerassociation_id_isSet;
+    bool m_fki_ezsignfoldersignerassociation_id_isValid;
+
+    qint32 fki_language_id;
+    bool m_fki_language_id_isSet;
+    bool m_fki_language_id_isValid;
 
     QString e_ezsigndocument_source;
     bool m_e_ezsigndocument_source_isSet;
@@ -130,17 +161,13 @@ private:
     bool m_s_ezsigndocument_password_isSet;
     bool m_s_ezsigndocument_password_isValid;
 
-    qint32 fki_ezsignfolder_id;
-    bool m_fki_ezsignfolder_id_isSet;
-    bool m_fki_ezsignfolder_id_isValid;
+    QString e_ezsigndocument_form;
+    bool m_e_ezsigndocument_form_isSet;
+    bool m_e_ezsigndocument_form_isValid;
 
     QString dt_ezsigndocument_duedate;
     bool m_dt_ezsigndocument_duedate_isSet;
     bool m_dt_ezsigndocument_duedate_isValid;
-
-    qint32 fki_language_id;
-    bool m_fki_language_id_isSet;
-    bool m_fki_language_id_isValid;
 
     QString s_ezsigndocument_name;
     bool m_s_ezsigndocument_name_isSet;

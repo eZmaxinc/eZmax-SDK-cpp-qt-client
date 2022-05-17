@@ -2,7 +2,7 @@
 
 # 
 
-eZmax API Definition
+eZmax API Definition (Full)
 
 - API version: 1.1.7
 

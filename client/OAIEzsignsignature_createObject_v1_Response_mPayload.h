@@ -1,5 +1,5 @@
 /**
- * eZmax API Definition
+ * eZmax API Definition (Full)
  * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
  * The version of the OpenAPI document: 1.1.7
@@ -13,7 +13,7 @@
 /*
  * OAIEzsignsignature_createObject_v1_Response_mPayload.h
  *
- * Payload for the /1/object/ezsignsignature/createObject API Request
+ * Payload for POST /1/object/ezsignsignature
  */
 
 #ifndef OAIEzsignsignature_createObject_v1_Response_mPayload_H

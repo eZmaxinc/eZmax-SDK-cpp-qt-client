@@ -1,5 +1,5 @@
 /**
- * eZmax API Definition
+ * eZmax API Definition (Full)
  * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
  * The version of the OpenAPI document: 1.1.7
@@ -13,7 +13,7 @@
 /*
  * OAIEzsignsignature_editObject_v1_Response.h
  *
- * Response for the /1/object/ezsignsignature/editObject API Request
+ * Response for PUT /1/object/ezsignsignature/{pkiEzsignsignatureID}
  */
 
 #ifndef OAIEzsignsignature_editObject_v1_Response_H

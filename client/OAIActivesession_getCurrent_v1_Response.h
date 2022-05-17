@@ -1,5 +1,5 @@
 /**
- * eZmax API Definition
+ * eZmax API Definition (Full)
  * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
  * The version of the OpenAPI document: 1.1.7
@@ -13,7 +13,7 @@
 /*
  * OAIActivesession_getCurrent_v1_Response.h
  *
- * Response for the /1/object/activesession/getCurrent API Request
+ * Response for GET /1/object/activesession/getCurrent
  */
 
 #ifndef OAIActivesession_getCurrent_v1_Response_H

@@ -1,5 +1,5 @@
 /**
- * eZmax API Definition
+ * eZmax API Definition (Full)
  * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
  * The version of the OpenAPI document: 1.1.7
@@ -58,8 +58,8 @@ void OAIEzsignfolder_ListElement::initializeModel() {
     m_dt_ezsignfolder_sentdate_isSet = false;
     m_dt_ezsignfolder_sentdate_isValid = false;
 
-    m_dt_due_date_isSet = false;
-    m_dt_due_date_isValid = false;
+    m_dt_ezsignfolder_duedate_isSet = false;
+    m_dt_ezsignfolder_duedate_isValid = false;
 
     m_i_ezsigndocument_isSet = false;
     m_i_ezsigndocument_isValid = false;
@@ -107,8 +107,8 @@ void OAIEzsignfolder_ListElement::fromJsonObject(QJsonObject json) {
     m_dt_ezsignfolder_sentdate_isValid = ::OpenAPI::fromJsonValue(dt_ezsignfolder_sentdate, json[QString("dtEzsignfolderSentdate")]);
     m_dt_ezsignfolder_sentdate_isSet = !json[QString("dtEzsignfolderSentdate")].isNull() && m_dt_ezsignfolder_sentdate_isValid;
 
-    m_dt_due_date_isValid = ::OpenAPI::fromJsonValue(dt_due_date, json[QString("dtDueDate")]);
-    m_dt_due_date_isSet = !json[QString("dtDueDate")].isNull() && m_dt_due_date_isValid;
+    m_dt_ezsignfolder_duedate_isValid = ::OpenAPI::fromJsonValue(dt_ezsignfolder_duedate, json[QString("dtEzsignfolderDuedate")]);
+    m_dt_ezsignfolder_duedate_isSet = !json[QString("dtEzsignfolderDuedate")].isNull() && m_dt_ezsignfolder_duedate_isValid;
 
     m_i_ezsigndocument_isValid = ::OpenAPI::fromJsonValue(i_ezsigndocument, json[QString("iEzsigndocument")]);
     m_i_ezsigndocument_isSet = !json[QString("iEzsigndocument")].isNull() && m_i_ezsigndocument_isValid;
@@ -156,8 +156,8 @@ QJsonObject OAIEzsignfolder_ListElement::asJsonObject() const {
     if (m_dt_ezsignfolder_sentdate_isSet) {
         obj.insert(QString("dtEzsignfolderSentdate"), ::OpenAPI::toJsonValue(dt_ezsignfolder_sentdate));
     }
-    if (m_dt_due_date_isSet) {
-        obj.insert(QString("dtDueDate"), ::OpenAPI::toJsonValue(dt_due_date));
+    if (m_dt_ezsignfolder_duedate_isSet) {
+        obj.insert(QString("dtEzsignfolderDuedate"), ::OpenAPI::toJsonValue(dt_ezsignfolder_duedate));
     }
     if (m_i_ezsigndocument_isSet) {
         obj.insert(QString("iEzsigndocument"), ::OpenAPI::toJsonValue(i_ezsigndocument));
@@ -302,20 +302,20 @@ bool OAIEzsignfolder_ListElement::is_dt_ezsignfolder_sentdate_Valid() const{
     return m_dt_ezsignfolder_sentdate_isValid;
 }
 
-QString OAIEzsignfolder_ListElement::getDtDueDate() const {
-    return dt_due_date;
+QString OAIEzsignfolder_ListElement::getDtEzsignfolderDuedate() const {
+    return dt_ezsignfolder_duedate;
 }
-void OAIEzsignfolder_ListElement::setDtDueDate(const QString &dt_due_date) {
-    this->dt_due_date = dt_due_date;
-    this->m_dt_due_date_isSet = true;
-}
-
-bool OAIEzsignfolder_ListElement::is_dt_due_date_Set() const{
-    return m_dt_due_date_isSet;
+void OAIEzsignfolder_ListElement::setDtEzsignfolderDuedate(const QString &dt_ezsignfolder_duedate) {
+    this->dt_ezsignfolder_duedate = dt_ezsignfolder_duedate;
+    this->m_dt_ezsignfolder_duedate_isSet = true;
 }
 
-bool OAIEzsignfolder_ListElement::is_dt_due_date_Valid() const{
-    return m_dt_due_date_isValid;
+bool OAIEzsignfolder_ListElement::is_dt_ezsignfolder_duedate_Set() const{
+    return m_dt_ezsignfolder_duedate_isSet;
+}
+
+bool OAIEzsignfolder_ListElement::is_dt_ezsignfolder_duedate_Valid() const{
+    return m_dt_ezsignfolder_duedate_isValid;
 }
 
 qint32 OAIEzsignfolder_ListElement::getIEzsigndocument() const {
@@ -425,7 +425,7 @@ bool OAIEzsignfolder_ListElement::isSet() const {
             break;
         }
 
-        if (m_dt_due_date_isSet) {
+        if (m_dt_ezsignfolder_duedate_isSet) {
             isObjectUpdated = true;
             break;
         }
@@ -455,7 +455,7 @@ bool OAIEzsignfolder_ListElement::isSet() const {
 
 bool OAIEzsignfolder_ListElement::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_pki_ezsignfolder_id_isValid && m_fki_ezsignfoldertype_id_isValid && m_e_ezsignfoldertype_privacylevel_isValid && m_s_ezsignfoldertype_name_x_isValid && m_s_ezsignfolder_description_isValid && m_e_ezsignfolder_step_isValid && m_dt_created_date_isValid && m_dt_ezsignfolder_sentdate_isValid && m_dt_due_date_isValid && m_i_ezsigndocument_isValid && m_i_ezsigndocument_edm_isValid && m_i_ezsignsignature_isValid && m_i_ezsignsignature_signed_isValid && true;
+    return m_pki_ezsignfolder_id_isValid && m_fki_ezsignfoldertype_id_isValid && m_e_ezsignfoldertype_privacylevel_isValid && m_s_ezsignfoldertype_name_x_isValid && m_s_ezsignfolder_description_isValid && m_e_ezsignfolder_step_isValid && m_dt_created_date_isValid && m_i_ezsigndocument_isValid && m_i_ezsigndocument_edm_isValid && m_i_ezsignsignature_isValid && m_i_ezsignsignature_signed_isValid && true;
 }
 
 } // namespace OpenAPI

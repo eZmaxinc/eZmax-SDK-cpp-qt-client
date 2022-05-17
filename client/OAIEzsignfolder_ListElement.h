@@ -1,5 +1,5 @@
 /**
- * eZmax API Definition
+ * eZmax API Definition (Full)
  * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
  * The version of the OpenAPI document: 1.1.7
@@ -81,10 +81,10 @@ public:
     bool is_dt_ezsignfolder_sentdate_Set() const;
     bool is_dt_ezsignfolder_sentdate_Valid() const;
 
-    QString getDtDueDate() const;
-    void setDtDueDate(const QString &dt_due_date);
-    bool is_dt_due_date_Set() const;
-    bool is_dt_due_date_Valid() const;
+    QString getDtEzsignfolderDuedate() const;
+    void setDtEzsignfolderDuedate(const QString &dt_ezsignfolder_duedate);
+    bool is_dt_ezsignfolder_duedate_Set() const;
+    bool is_dt_ezsignfolder_duedate_Valid() const;
 
     qint32 getIEzsigndocument() const;
     void setIEzsigndocument(const qint32 &i_ezsigndocument);
@@ -144,9 +144,9 @@ private:
     bool m_dt_ezsignfolder_sentdate_isSet;
     bool m_dt_ezsignfolder_sentdate_isValid;
 
-    QString dt_due_date;
-    bool m_dt_due_date_isSet;
-    bool m_dt_due_date_isValid;
+    QString dt_ezsignfolder_duedate;
+    bool m_dt_ezsignfolder_duedate_isSet;
+    bool m_dt_ezsignfolder_duedate_isValid;
 
     qint32 i_ezsigndocument;
     bool m_i_ezsigndocument_isSet;

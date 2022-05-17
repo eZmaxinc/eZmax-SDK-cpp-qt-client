@@ -1,5 +1,5 @@
 /**
- * eZmax API Definition
+ * eZmax API Definition (Full)
  * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
  * The version of the OpenAPI document: 1.1.7
@@ -305,7 +305,7 @@ bool OAIEzsigndocumentlog_ResponseCompound::isSet() const {
 
 bool OAIEzsigndocumentlog_ResponseCompound::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_fki_user_id_isValid && m_fki_ezsignsigner_id_isValid && m_dt_ezsigndocumentlog_datetime_isValid && m_e_ezsigndocumentlog_type_isValid && m_s_ezsigndocumentlog_detail_isValid && m_s_ezsigndocumentlog_lastname_isValid && m_s_ezsigndocumentlog_firstname_isValid && m_s_ezsigndocumentlog_ip_isValid && true;
+    return m_dt_ezsigndocumentlog_datetime_isValid && m_e_ezsigndocumentlog_type_isValid && m_s_ezsigndocumentlog_detail_isValid && m_s_ezsigndocumentlog_lastname_isValid && m_s_ezsigndocumentlog_firstname_isValid && m_s_ezsigndocumentlog_ip_isValid && true;
 }
 
 } // namespace OpenAPI

@@ -13,6 +13,7 @@ endif ()
 
 find_package(Qt5Core REQUIRED)
 find_package(Qt5Network REQUIRED)
+find_package(Qt5Gui REQUIRED)
 
 add_library(${PROJECT_NAME}
     OAIActivesession_Response.cpp
@@ -39,10 +40,6 @@ add_library(${PROJECT_NAME}
     OAIApikey_createObject_v2_Response_mPayload.cpp
     OAIAttempt_Response.cpp
     OAIAttempt_ResponseCompound.cpp
-    OAIAuthenticate_authenticate_v2_Request.cpp
-    OAIAuthenticate_authenticate_v2_Response.cpp
-    OAIAuthenticate_authenticate_v2_Response_allOf.cpp
-    OAIAuthenticate_authenticate_v2_Response_mPayload.cpp
     OAICommon_Audit.cpp
     OAICommon_Auditdetail.cpp
     OAICommon_Response.cpp
@@ -57,6 +54,8 @@ add_library(${PROJECT_NAME}
     OAICommon_Response_objDebugPayload_getList_allOf.cpp
     OAICommon_Response_objSQLQuery.cpp
     OAICommon_Webhook.cpp
+    OAICommon_getAutocompleteDisabled_v1_Response.cpp
+    OAICommon_getAutocompleteDisabled_v1_Response_allOf.cpp
     OAICommon_getAutocomplete_v1_Response.cpp
     OAICommon_getAutocomplete_v1_Response_allOf.cpp
     OAICommon_getList_v1_Response_mPayload.cpp
@@ -66,28 +65,61 @@ add_library(${PROJECT_NAME}
     OAIContactinformations_Request.cpp
     OAIContactinformations_RequestCompound.cpp
     OAIContactinformations_RequestCompound_allOf.cpp
+    OAICustom_AutocompleteElementDisabled_Response.cpp
+    OAICustom_AutocompleteElementDisabled_Response_allOf.cpp
     OAICustom_AutocompleteElement_Response.cpp
     OAICustom_DropdownElement_Request.cpp
     OAICustom_DropdownElement_RequestCompound.cpp
     OAICustom_DropdownElement_Response.cpp
     OAICustom_DropdownElement_ResponseCompound.cpp
     OAICustom_Ezsignfoldersignerassociationstatus_Response.cpp
+    OAICustom_EzsignfoldertransmissionSigner_Response.cpp
+    OAICustom_Ezsignfoldertransmission_Response.cpp
     OAICustom_Ezsignsignaturestatus_Response.cpp
     OAICustom_FormDataDocument_Response.cpp
     OAICustom_FormDataEzsignformfield_Response.cpp
     OAICustom_FormDataEzsignformfieldgroup_Response.cpp
     OAICustom_FormDataSigner_Response.cpp
     OAICustom_FormsDataFolder_Response.cpp
+    OAICustom_ImportEzsigntemplatepackageRelation_Request.cpp
+    OAICustom_Notificationsubsectiongetnotificationtests_Response.cpp
+    OAICustom_Notificationsubsectiongetnotificationtests_Response_allOf.cpp
+    OAICustom_Notificationtestgetnotificationtests_Response.cpp
+    OAICustom_Notificationtestgetnotificationtests_Response_allOf.cpp
+    OAICustom_User_Response.cpp
     OAICustom_WordPositionOccurence_Response.cpp
     OAICustom_WordPositionWord_Response.cpp
     OAIEmail_Request.cpp
     OAIEmail_RequestCompound.cpp
+    OAIEzsign_suggestSigners_v1_Response.cpp
+    OAIEzsign_suggestSigners_v1_Response_allOf.cpp
+    OAIEzsign_suggestSigners_v1_Response_mPayload.cpp
+    OAIEzsign_suggestTemplates_v1_Response.cpp
+    OAIEzsign_suggestTemplates_v1_Response_allOf.cpp
+    OAIEzsign_suggestTemplates_v1_Response_mPayload.cpp
     OAIEzsignbulksend_ListElement.cpp
+    OAIEzsignbulksend_Request.cpp
+    OAIEzsignbulksend_RequestCompound.cpp
     OAIEzsignbulksend_Response.cpp
     OAIEzsignbulksend_ResponseCompound.cpp
+    OAIEzsignbulksend_ResponseCompound_allOf.cpp
+    OAIEzsignbulksend_createEzsignbulksendtransmission_v1_Request.cpp
+    OAIEzsignbulksend_createEzsignbulksendtransmission_v1_Response.cpp
+    OAIEzsignbulksend_createEzsignbulksendtransmission_v1_Response_allOf.cpp
+    OAIEzsignbulksend_createEzsignbulksendtransmission_v1_Response_mPayload.cpp
+    OAIEzsignbulksend_createObject_v1_Request.cpp
+    OAIEzsignbulksend_createObject_v1_Response.cpp
+    OAIEzsignbulksend_createObject_v1_Response_allOf.cpp
+    OAIEzsignbulksend_createObject_v1_Response_mPayload.cpp
+    OAIEzsignbulksend_deleteObject_v1_Response.cpp
+    OAIEzsignbulksend_editObject_v1_Request.cpp
+    OAIEzsignbulksend_editObject_v1_Response.cpp
     OAIEzsignbulksend_getEzsignbulksendtransmissions_v1_Response.cpp
     OAIEzsignbulksend_getEzsignbulksendtransmissions_v1_Response_allOf.cpp
     OAIEzsignbulksend_getEzsignbulksendtransmissions_v1_Response_mPayload.cpp
+    OAIEzsignbulksend_getFormsData_v1_Response.cpp
+    OAIEzsignbulksend_getFormsData_v1_Response_allOf.cpp
+    OAIEzsignbulksend_getFormsData_v1_Response_mPayload.cpp
     OAIEzsignbulksend_getList_v1_Response.cpp
     OAIEzsignbulksend_getList_v1_Response_allOf.cpp
     OAIEzsignbulksend_getList_v1_Response_mPayload.cpp
@@ -95,8 +127,39 @@ add_library(${PROJECT_NAME}
     OAIEzsignbulksend_getObject_v1_Response.cpp
     OAIEzsignbulksend_getObject_v1_Response_allOf.cpp
     OAIEzsignbulksend_getObject_v1_Response_mPayload.cpp
+    OAIEzsignbulksend_reorder_v1_Request.cpp
+    OAIEzsignbulksend_reorder_v1_Response.cpp
+    OAIEzsignbulksenddocumentmapping_Request.cpp
+    OAIEzsignbulksenddocumentmapping_RequestCompound.cpp
+    OAIEzsignbulksenddocumentmapping_Response.cpp
+    OAIEzsignbulksenddocumentmapping_ResponseCompound.cpp
+    OAIEzsignbulksenddocumentmapping_ResponseCompound_allOf.cpp
+    OAIEzsignbulksenddocumentmapping_createObject_v1_Request.cpp
+    OAIEzsignbulksenddocumentmapping_createObject_v1_Response.cpp
+    OAIEzsignbulksenddocumentmapping_createObject_v1_Response_allOf.cpp
+    OAIEzsignbulksenddocumentmapping_createObject_v1_Response_mPayload.cpp
+    OAIEzsignbulksenddocumentmapping_deleteObject_v1_Response.cpp
+    OAIEzsignbulksenddocumentmapping_getObject_v1_Response.cpp
+    OAIEzsignbulksenddocumentmapping_getObject_v1_Response_allOf.cpp
+    OAIEzsignbulksenddocumentmapping_getObject_v1_Response_mPayload.cpp
+    OAIEzsignbulksendsignermapping_Request.cpp
+    OAIEzsignbulksendsignermapping_RequestCompound.cpp
+    OAIEzsignbulksendsignermapping_Response.cpp
+    OAIEzsignbulksendsignermapping_ResponseCompound.cpp
+    OAIEzsignbulksendsignermapping_createObject_v1_Request.cpp
+    OAIEzsignbulksendsignermapping_createObject_v1_Response.cpp
+    OAIEzsignbulksendsignermapping_createObject_v1_Response_allOf.cpp
+    OAIEzsignbulksendsignermapping_createObject_v1_Response_mPayload.cpp
+    OAIEzsignbulksendsignermapping_deleteObject_v1_Response.cpp
+    OAIEzsignbulksendsignermapping_getObject_v1_Response.cpp
+    OAIEzsignbulksendsignermapping_getObject_v1_Response_allOf.cpp
+    OAIEzsignbulksendsignermapping_getObject_v1_Response_mPayload.cpp
     OAIEzsignbulksendtransmission_Response.cpp
     OAIEzsignbulksendtransmission_ResponseCompound.cpp
+    OAIEzsignbulksendtransmission_ResponseCompound_allOf.cpp
+    OAIEzsignbulksendtransmission_getFormsData_v1_Response.cpp
+    OAIEzsignbulksendtransmission_getFormsData_v1_Response_allOf.cpp
+    OAIEzsignbulksendtransmission_getFormsData_v1_Response_mPayload.cpp
     OAIEzsignbulksendtransmission_getObject_v1_Response.cpp
     OAIEzsignbulksendtransmission_getObject_v1_Response_allOf.cpp
     OAIEzsignbulksendtransmission_getObject_v1_Response_mPayload.cpp
@@ -121,9 +184,16 @@ add_library(${PROJECT_NAME}
     OAIEzsigndocument_deleteObject_v1_Response.cpp
     OAIEzsigndocument_editEzsignformfieldgroups_v1_Request.cpp
     OAIEzsigndocument_editEzsignformfieldgroups_v1_Response.cpp
+    OAIEzsigndocument_editEzsignformfieldgroups_v1_Response_allOf.cpp
+    OAIEzsigndocument_editEzsignformfieldgroups_v1_Response_mPayload.cpp
     OAIEzsigndocument_editEzsignsignatures_v1_Request.cpp
     OAIEzsigndocument_editEzsignsignatures_v1_Response.cpp
+    OAIEzsigndocument_editEzsignsignatures_v1_Response_allOf.cpp
+    OAIEzsigndocument_editEzsignsignatures_v1_Response_mPayload.cpp
     OAIEzsigndocument_endPrematurely_v1_Response.cpp
+    OAIEzsigndocument_getActionableElements_v1_Response.cpp
+    OAIEzsigndocument_getActionableElements_v1_Response_allOf.cpp
+    OAIEzsigndocument_getActionableElements_v1_Response_mPayload.cpp
     OAIEzsigndocument_getDownloadUrl_v1_Response.cpp
     OAIEzsigndocument_getDownloadUrl_v1_Response_allOf.cpp
     OAIEzsigndocument_getDownloadUrl_v1_Response_mPayload.cpp
@@ -150,6 +220,7 @@ add_library(${PROJECT_NAME}
     OAIEzsigndocument_getWordsPositions_v1_Response_allOf.cpp
     OAIEzsigndocument_patchObject_v1_Request.cpp
     OAIEzsigndocument_patchObject_v1_Response.cpp
+    OAIEzsigndocument_unsend_v1_Response.cpp
     OAIEzsigndocumentlog_Response.cpp
     OAIEzsigndocumentlog_ResponseCompound.cpp
     OAIEzsignfolder_ListElement.cpp
@@ -157,6 +228,8 @@ add_library(${PROJECT_NAME}
     OAIEzsignfolder_RequestCompound.cpp
     OAIEzsignfolder_Response.cpp
     OAIEzsignfolder_ResponseCompound.cpp
+    OAIEzsignfolder_archive_v1_Response.cpp
+    OAIEzsignfolder_batchDownload_v1_Request.cpp
     OAIEzsignfolder_createObject_v1_Request.cpp
     OAIEzsignfolder_createObject_v1_Response.cpp
     OAIEzsignfolder_createObject_v1_Response_allOf.cpp
@@ -168,6 +241,9 @@ add_library(${PROJECT_NAME}
     OAIEzsignfolder_deleteObject_v1_Response.cpp
     OAIEzsignfolder_editObject_v1_Request.cpp
     OAIEzsignfolder_editObject_v1_Response.cpp
+    OAIEzsignfolder_getActionableElements_v1_Response.cpp
+    OAIEzsignfolder_getActionableElements_v1_Response_allOf.cpp
+    OAIEzsignfolder_getActionableElements_v1_Response_mPayload.cpp
     OAIEzsignfolder_getEzsigndocuments_v1_Response.cpp
     OAIEzsignfolder_getEzsigndocuments_v1_Response_allOf.cpp
     OAIEzsignfolder_getEzsigndocuments_v1_Response_mPayload.cpp
@@ -184,6 +260,12 @@ add_library(${PROJECT_NAME}
     OAIEzsignfolder_getObject_v1_Response.cpp
     OAIEzsignfolder_getObject_v1_Response_allOf.cpp
     OAIEzsignfolder_getObject_v1_Response_mPayload.cpp
+    OAIEzsignfolder_importEzsigntemplatepackage_v1_Request.cpp
+    OAIEzsignfolder_importEzsigntemplatepackage_v1_Response.cpp
+    OAIEzsignfolder_importEzsigntemplatepackage_v1_Response_allOf.cpp
+    OAIEzsignfolder_importEzsigntemplatepackage_v1_Response_mPayload.cpp
+    OAIEzsignfolder_reorder_v1_Request.cpp
+    OAIEzsignfolder_reorder_v1_Response.cpp
     OAIEzsignfolder_send_v1_Request.cpp
     OAIEzsignfolder_send_v1_Response.cpp
     OAIEzsignfolder_unsend_v1_Response.cpp
@@ -203,6 +285,8 @@ add_library(${PROJECT_NAME}
     OAIEzsignfoldersignerassociation_createObject_v2_Response_allOf.cpp
     OAIEzsignfoldersignerassociation_createObject_v2_Response_mPayload.cpp
     OAIEzsignfoldersignerassociation_deleteObject_v1_Response.cpp
+    OAIEzsignfoldersignerassociation_editObject_v1_Request.cpp
+    OAIEzsignfoldersignerassociation_editObject_v1_Response.cpp
     OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response.cpp
     OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response_allOf.cpp
     OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response_mPayload.cpp
@@ -260,6 +344,9 @@ add_library(${PROJECT_NAME}
     OAIEzsignsignature_getObject_v1_Response.cpp
     OAIEzsignsignature_getObject_v1_Response_allOf.cpp
     OAIEzsignsignature_getObject_v1_Response_mPayload.cpp
+    OAIEzsignsignature_sign_v1_Request.cpp
+    OAIEzsignsignature_sign_v1_Response.cpp
+    OAIEzsignsignature_sign_v1_Response_allOf.cpp
     OAIEzsignsignaturecustomdate_Request.cpp
     OAIEzsignsignaturecustomdate_RequestCompound.cpp
     OAIEzsignsignaturecustomdate_Response.cpp
@@ -272,12 +359,190 @@ add_library(${PROJECT_NAME}
     OAIEzsignsigner_ResponseCompound.cpp
     OAIEzsignsigner_ResponseCompound_Contact.cpp
     OAIEzsignsigner_ResponseCompound_allOf.cpp
+    OAIEzsigntemplate_ListElement.cpp
+    OAIEzsigntemplate_Request.cpp
+    OAIEzsigntemplate_RequestCompound.cpp
+    OAIEzsigntemplate_Response.cpp
+    OAIEzsigntemplate_ResponseCompound.cpp
+    OAIEzsigntemplate_ResponseCompound_allOf.cpp
+    OAIEzsigntemplate_createObject_v1_Request.cpp
+    OAIEzsigntemplate_createObject_v1_Response.cpp
+    OAIEzsigntemplate_createObject_v1_Response_allOf.cpp
+    OAIEzsigntemplate_createObject_v1_Response_mPayload.cpp
+    OAIEzsigntemplate_deleteObject_v1_Response.cpp
+    OAIEzsigntemplate_editObject_v1_Request.cpp
+    OAIEzsigntemplate_editObject_v1_Response.cpp
+    OAIEzsigntemplate_getList_v1_Response.cpp
+    OAIEzsigntemplate_getList_v1_Response_allOf.cpp
+    OAIEzsigntemplate_getList_v1_Response_mPayload.cpp
+    OAIEzsigntemplate_getList_v1_Response_mPayload_allOf.cpp
+    OAIEzsigntemplate_getObject_v1_Response.cpp
+    OAIEzsigntemplate_getObject_v1_Response_allOf.cpp
+    OAIEzsigntemplate_getObject_v1_Response_mPayload.cpp
+    OAIEzsigntemplatedocument_Request.cpp
+    OAIEzsigntemplatedocument_RequestCompound.cpp
+    OAIEzsigntemplatedocument_RequestPatch.cpp
+    OAIEzsigntemplatedocument_Response.cpp
+    OAIEzsigntemplatedocument_ResponseCompound.cpp
+    OAIEzsigntemplatedocument_createObject_v1_Request.cpp
+    OAIEzsigntemplatedocument_createObject_v1_Response.cpp
+    OAIEzsigntemplatedocument_createObject_v1_Response_allOf.cpp
+    OAIEzsigntemplatedocument_createObject_v1_Response_mPayload.cpp
+    OAIEzsigntemplatedocument_editEzsigntemplateformfieldgroups_v1_Request.cpp
+    OAIEzsigntemplatedocument_editEzsigntemplateformfieldgroups_v1_Response.cpp
+    OAIEzsigntemplatedocument_editEzsigntemplateformfieldgroups_v1_Response_allOf.cpp
+    OAIEzsigntemplatedocument_editEzsigntemplateformfieldgroups_v1_Response_mPayload.cpp
+    OAIEzsigntemplatedocument_editEzsigntemplatesignatures_v1_Request.cpp
+    OAIEzsigntemplatedocument_editEzsigntemplatesignatures_v1_Response.cpp
+    OAIEzsigntemplatedocument_editEzsigntemplatesignatures_v1_Response_allOf.cpp
+    OAIEzsigntemplatedocument_editEzsigntemplatesignatures_v1_Response_mPayload.cpp
+    OAIEzsigntemplatedocument_editObject_v1_Request.cpp
+    OAIEzsigntemplatedocument_editObject_v1_Response.cpp
+    OAIEzsigntemplatedocument_getEzsigntemplatedocumentpages_v1_Response.cpp
+    OAIEzsigntemplatedocument_getEzsigntemplatedocumentpages_v1_Response_allOf.cpp
+    OAIEzsigntemplatedocument_getEzsigntemplatedocumentpages_v1_Response_mPayload.cpp
+    OAIEzsigntemplatedocument_getEzsigntemplateformfieldgroups_v1_Response.cpp
+    OAIEzsigntemplatedocument_getEzsigntemplateformfieldgroups_v1_Response_allOf.cpp
+    OAIEzsigntemplatedocument_getEzsigntemplateformfieldgroups_v1_Response_mPayload.cpp
+    OAIEzsigntemplatedocument_getEzsigntemplatesignatures_v1_Response.cpp
+    OAIEzsigntemplatedocument_getEzsigntemplatesignatures_v1_Response_allOf.cpp
+    OAIEzsigntemplatedocument_getEzsigntemplatesignatures_v1_Response_mPayload.cpp
+    OAIEzsigntemplatedocument_getObject_v1_Response.cpp
+    OAIEzsigntemplatedocument_getObject_v1_Response_allOf.cpp
+    OAIEzsigntemplatedocument_getObject_v1_Response_mPayload.cpp
+    OAIEzsigntemplatedocument_getWordsPositions_v1_Request.cpp
+    OAIEzsigntemplatedocument_getWordsPositions_v1_Response.cpp
+    OAIEzsigntemplatedocument_getWordsPositions_v1_Response_allOf.cpp
+    OAIEzsigntemplatedocument_patchObject_v1_Request.cpp
+    OAIEzsigntemplatedocument_patchObject_v1_Response.cpp
+    OAIEzsigntemplatedocumentpage_Response.cpp
+    OAIEzsigntemplatedocumentpage_ResponseCompound.cpp
+    OAIEzsigntemplateformfield_Request.cpp
+    OAIEzsigntemplateformfield_RequestCompound.cpp
+    OAIEzsigntemplateformfield_Response.cpp
+    OAIEzsigntemplateformfield_ResponseCompound.cpp
+    OAIEzsigntemplateformfieldgroup_Request.cpp
+    OAIEzsigntemplateformfieldgroup_RequestCompound.cpp
+    OAIEzsigntemplateformfieldgroup_RequestCompound_allOf.cpp
+    OAIEzsigntemplateformfieldgroup_Response.cpp
+    OAIEzsigntemplateformfieldgroup_ResponseCompound.cpp
+    OAIEzsigntemplateformfieldgroup_ResponseCompound_allOf.cpp
+    OAIEzsigntemplateformfieldgroup_createObject_v1_Request.cpp
+    OAIEzsigntemplateformfieldgroup_createObject_v1_Response.cpp
+    OAIEzsigntemplateformfieldgroup_createObject_v1_Response_allOf.cpp
+    OAIEzsigntemplateformfieldgroup_createObject_v1_Response_mPayload.cpp
+    OAIEzsigntemplateformfieldgroup_deleteObject_v1_Response.cpp
+    OAIEzsigntemplateformfieldgroup_editObject_v1_Request.cpp
+    OAIEzsigntemplateformfieldgroup_editObject_v1_Response.cpp
+    OAIEzsigntemplateformfieldgroup_getObject_v1_Response.cpp
+    OAIEzsigntemplateformfieldgroup_getObject_v1_Response_allOf.cpp
+    OAIEzsigntemplateformfieldgroup_getObject_v1_Response_mPayload.cpp
+    OAIEzsigntemplateformfieldgroupsigner_Request.cpp
+    OAIEzsigntemplateformfieldgroupsigner_RequestCompound.cpp
+    OAIEzsigntemplateformfieldgroupsigner_Response.cpp
+    OAIEzsigntemplateformfieldgroupsigner_ResponseCompound.cpp
     OAIEzsigntemplatepackage_ListElement.cpp
+    OAIEzsigntemplatepackage_Request.cpp
+    OAIEzsigntemplatepackage_RequestCompound.cpp
+    OAIEzsigntemplatepackage_Response.cpp
+    OAIEzsigntemplatepackage_ResponseCompound.cpp
+    OAIEzsigntemplatepackage_ResponseCompound_allOf.cpp
+    OAIEzsigntemplatepackage_createObject_v1_Request.cpp
+    OAIEzsigntemplatepackage_createObject_v1_Response.cpp
+    OAIEzsigntemplatepackage_createObject_v1_Response_allOf.cpp
+    OAIEzsigntemplatepackage_createObject_v1_Response_mPayload.cpp
+    OAIEzsigntemplatepackage_deleteObject_v1_Response.cpp
+    OAIEzsigntemplatepackage_editEzsigntemplatepackagesigners_v1_Request.cpp
+    OAIEzsigntemplatepackage_editEzsigntemplatepackagesigners_v1_Response.cpp
+    OAIEzsigntemplatepackage_editEzsigntemplatepackagesigners_v1_Response_allOf.cpp
+    OAIEzsigntemplatepackage_editEzsigntemplatepackagesigners_v1_Response_mPayload.cpp
+    OAIEzsigntemplatepackage_editObject_v1_Request.cpp
+    OAIEzsigntemplatepackage_editObject_v1_Response.cpp
     OAIEzsigntemplatepackage_getList_v1_Response.cpp
     OAIEzsigntemplatepackage_getList_v1_Response_allOf.cpp
     OAIEzsigntemplatepackage_getList_v1_Response_mPayload.cpp
     OAIEzsigntemplatepackage_getList_v1_Response_mPayload_allOf.cpp
-    OAIField_eActivesessionSessiontype.cpp
+    OAIEzsigntemplatepackage_getObject_v1_Response.cpp
+    OAIEzsigntemplatepackage_getObject_v1_Response_allOf.cpp
+    OAIEzsigntemplatepackage_getObject_v1_Response_mPayload.cpp
+    OAIEzsigntemplatepackagemembership_Request.cpp
+    OAIEzsigntemplatepackagemembership_RequestCompound.cpp
+    OAIEzsigntemplatepackagemembership_Response.cpp
+    OAIEzsigntemplatepackagemembership_ResponseCompound.cpp
+    OAIEzsigntemplatepackagemembership_ResponseCompound_allOf.cpp
+    OAIEzsigntemplatepackagemembership_createObject_v1_Request.cpp
+    OAIEzsigntemplatepackagemembership_createObject_v1_Response.cpp
+    OAIEzsigntemplatepackagemembership_createObject_v1_Response_allOf.cpp
+    OAIEzsigntemplatepackagemembership_createObject_v1_Response_mPayload.cpp
+    OAIEzsigntemplatepackagemembership_deleteObject_v1_Response.cpp
+    OAIEzsigntemplatepackagemembership_getObject_v1_Response.cpp
+    OAIEzsigntemplatepackagemembership_getObject_v1_Response_allOf.cpp
+    OAIEzsigntemplatepackagemembership_getObject_v1_Response_mPayload.cpp
+    OAIEzsigntemplatepackagesigner_Request.cpp
+    OAIEzsigntemplatepackagesigner_RequestCompound.cpp
+    OAIEzsigntemplatepackagesigner_Response.cpp
+    OAIEzsigntemplatepackagesigner_ResponseCompound.cpp
+    OAIEzsigntemplatepackagesigner_createObject_v1_Request.cpp
+    OAIEzsigntemplatepackagesigner_createObject_v1_Response.cpp
+    OAIEzsigntemplatepackagesigner_createObject_v1_Response_allOf.cpp
+    OAIEzsigntemplatepackagesigner_createObject_v1_Response_mPayload.cpp
+    OAIEzsigntemplatepackagesigner_deleteObject_v1_Response.cpp
+    OAIEzsigntemplatepackagesigner_deleteObject_v1_Response_allOf.cpp
+    OAIEzsigntemplatepackagesigner_deleteObject_v1_Response_mPayload.cpp
+    OAIEzsigntemplatepackagesigner_editObject_v1_Request.cpp
+    OAIEzsigntemplatepackagesigner_editObject_v1_Response.cpp
+    OAIEzsigntemplatepackagesigner_getObject_v1_Response.cpp
+    OAIEzsigntemplatepackagesigner_getObject_v1_Response_allOf.cpp
+    OAIEzsigntemplatepackagesigner_getObject_v1_Response_mPayload.cpp
+    OAIEzsigntemplatepackagesignermembership_Request.cpp
+    OAIEzsigntemplatepackagesignermembership_RequestCompound.cpp
+    OAIEzsigntemplatepackagesignermembership_Response.cpp
+    OAIEzsigntemplatepackagesignermembership_ResponseCompound.cpp
+    OAIEzsigntemplatepackagesignermembership_createObject_v1_Request.cpp
+    OAIEzsigntemplatepackagesignermembership_createObject_v1_Response.cpp
+    OAIEzsigntemplatepackagesignermembership_createObject_v1_Response_allOf.cpp
+    OAIEzsigntemplatepackagesignermembership_createObject_v1_Response_mPayload.cpp
+    OAIEzsigntemplatepackagesignermembership_deleteObject_v1_Response.cpp
+    OAIEzsigntemplatepackagesignermembership_deleteObject_v1_Response_allOf.cpp
+    OAIEzsigntemplatepackagesignermembership_deleteObject_v1_Response_mPayload.cpp
+    OAIEzsigntemplatepackagesignermembership_getObject_v1_Response.cpp
+    OAIEzsigntemplatepackagesignermembership_getObject_v1_Response_allOf.cpp
+    OAIEzsigntemplatepackagesignermembership_getObject_v1_Response_mPayload.cpp
+    OAIEzsigntemplatesignature_Request.cpp
+    OAIEzsigntemplatesignature_RequestCompound.cpp
+    OAIEzsigntemplatesignature_RequestCompound_allOf.cpp
+    OAIEzsigntemplatesignature_Response.cpp
+    OAIEzsigntemplatesignature_ResponseCompound.cpp
+    OAIEzsigntemplatesignature_ResponseCompound_allOf.cpp
+    OAIEzsigntemplatesignature_createObject_v1_Request.cpp
+    OAIEzsigntemplatesignature_createObject_v1_Response.cpp
+    OAIEzsigntemplatesignature_createObject_v1_Response_allOf.cpp
+    OAIEzsigntemplatesignature_createObject_v1_Response_mPayload.cpp
+    OAIEzsigntemplatesignature_deleteObject_v1_Response.cpp
+    OAIEzsigntemplatesignature_editObject_v1_Request.cpp
+    OAIEzsigntemplatesignature_editObject_v1_Response.cpp
+    OAIEzsigntemplatesignature_getObject_v1_Response.cpp
+    OAIEzsigntemplatesignature_getObject_v1_Response_allOf.cpp
+    OAIEzsigntemplatesignature_getObject_v1_Response_mPayload.cpp
+    OAIEzsigntemplatesignaturecustomdate_Request.cpp
+    OAIEzsigntemplatesignaturecustomdate_RequestCompound.cpp
+    OAIEzsigntemplatesignaturecustomdate_Response.cpp
+    OAIEzsigntemplatesignaturecustomdate_ResponseCompound.cpp
+    OAIEzsigntemplatesigner_Request.cpp
+    OAIEzsigntemplatesigner_RequestCompound.cpp
+    OAIEzsigntemplatesigner_Response.cpp
+    OAIEzsigntemplatesigner_ResponseCompound.cpp
+    OAIEzsigntemplatesigner_createObject_v1_Request.cpp
+    OAIEzsigntemplatesigner_createObject_v1_Response.cpp
+    OAIEzsigntemplatesigner_createObject_v1_Response_allOf.cpp
+    OAIEzsigntemplatesigner_createObject_v1_Response_mPayload.cpp
+    OAIEzsigntemplatesigner_deleteObject_v1_Response.cpp
+    OAIEzsigntemplatesigner_editObject_v1_Request.cpp
+    OAIEzsigntemplatesigner_editObject_v1_Response.cpp
+    OAIEzsigntemplatesigner_getObject_v1_Response.cpp
+    OAIEzsigntemplatesigner_getObject_v1_Response_allOf.cpp
+    OAIEzsigntemplatesigner_getObject_v1_Response_mPayload.cpp
+    OAIField_eActivesessionUsertype.cpp
     OAIField_eActivesessionWeekdaystart.cpp
     OAIField_eEzsigndocumentStep.cpp
     OAIField_eEzsigndocumentlogType.cpp
@@ -287,11 +552,18 @@ add_library(${PROJECT_NAME}
     OAIField_eEzsignformfieldgroupSignerrequirement.cpp
     OAIField_eEzsignformfieldgroupTooltipposition.cpp
     OAIField_eEzsignformfieldgroupType.cpp
+    OAIField_eEzsignsignatureFont.cpp
+    OAIField_eEzsignsignatureTooltipposition.cpp
     OAIField_eEzsignsignatureType.cpp
-    OAIField_eEzsigntemplatepackageType.cpp
+    OAIField_eEzsigntemplateformfieldgroupSignerrequirement.cpp
+    OAIField_eEzsigntemplateformfieldgroupTooltipposition.cpp
+    OAIField_eEzsigntemplateformfieldgroupType.cpp
+    OAIField_eEzsigntemplatesignatureFont.cpp
+    OAIField_eEzsigntemplatesignatureTooltipposition.cpp
+    OAIField_eEzsigntemplatesignatureType.cpp
+    OAIField_eNotificationpreferenceStatus.cpp
     OAIField_ePhoneType.cpp
     OAIField_eUserType.cpp
-    OAIField_eUserTypeSSPR.cpp
     OAIFranchisereferalincome_Request.cpp
     OAIFranchisereferalincome_RequestCompound.cpp
     OAIFranchisereferalincome_RequestCompound_allOf.cpp
@@ -305,23 +577,14 @@ add_library(${PROJECT_NAME}
     OAIFranchisereferalincome_createObject_v2_Response_mPayload.cpp
     OAIGlobal_customer_getEndpoint_v1_Response.cpp
     OAIHeader_Accept_Language.cpp
-    OAIList_getListpresentation_v1_Response.cpp
-    OAIList_getListpresentation_v1_Response_allOf.cpp
-    OAIList_getListpresentation_v1_Response_mPayload.cpp
-    OAIList_saveListpresentation_v1_Request.cpp
-    OAIList_saveListpresentation_v1_Response.cpp
-    OAIListpresentation_Request.cpp
-    OAIListpresentation_RequestCompound.cpp
-    OAIListpresentation_ResponseCompound.cpp
     OAIMultilingual_ApikeyDescription.cpp
+    OAINotificationsection_getNotificationtests_v1_Response.cpp
+    OAINotificationsection_getNotificationtests_v1_Response_allOf.cpp
+    OAINotificationsection_getNotificationtests_v1_Response_mPayload.cpp
+    OAINotificationsubsection_Response.cpp
+    OAINotificationtest_Response.cpp
     OAIPhone_Request.cpp
     OAIPhone_RequestCompound.cpp
-    OAISspr_resetPasswordRequest_v1_Request.cpp
-    OAISspr_resetPassword_v1_Request.cpp
-    OAISspr_sendUsernames_v1_Request.cpp
-    OAISspr_unlockAccountRequest_v1_Request.cpp
-    OAISspr_unlockAccount_v1_Request.cpp
-    OAISspr_validateToken_v1_Request.cpp
     OAIUser_Response.cpp
     OAIUser_ResponseCompound.cpp
     OAIUser_createEzsignuser_v1_Request.cpp
@@ -338,12 +601,13 @@ add_library(${PROJECT_NAME}
     OAIWebsite_Request.cpp
     OAIWebsite_RequestCompound.cpp
     OAIGlobalCustomerApi.cpp
-    OAIModuleAuthenticateApi.cpp
-    OAIModuleListApi.cpp
+    OAIModuleEzsignApi.cpp
     OAIModuleUserApi.cpp
     OAIObjectActivesessionApi.cpp
     OAIObjectApikeyApi.cpp
     OAIObjectEzsignbulksendApi.cpp
+    OAIObjectEzsignbulksenddocumentmappingApi.cpp
+    OAIObjectEzsignbulksendsignermappingApi.cpp
     OAIObjectEzsignbulksendtransmissionApi.cpp
     OAIObjectEzsigndocumentApi.cpp
     OAIObjectEzsignfolderApi.cpp
@@ -351,18 +615,30 @@ add_library(${PROJECT_NAME}
     OAIObjectEzsignfoldertypeApi.cpp
     OAIObjectEzsignformfieldgroupApi.cpp
     OAIObjectEzsignsignatureApi.cpp
+    OAIObjectEzsigntemplateApi.cpp
+    OAIObjectEzsigntemplatedocumentApi.cpp
+    OAIObjectEzsigntemplateformfieldgroupApi.cpp
     OAIObjectEzsigntemplatepackageApi.cpp
+    OAIObjectEzsigntemplatepackagemembershipApi.cpp
+    OAIObjectEzsigntemplatepackagesignerApi.cpp
+    OAIObjectEzsigntemplatepackagesignermembershipApi.cpp
+    OAIObjectEzsigntemplatesignatureApi.cpp
+    OAIObjectEzsigntemplatesignerApi.cpp
+    OAIObjectEzsigntsarequirementApi.cpp
     OAIObjectFranchisebrokerApi.cpp
     OAIObjectFranchiseofficeApi.cpp
     OAIObjectFranchisereferalincomeApi.cpp
+    OAIObjectNotificationsectionApi.cpp
     OAIObjectPeriodApi.cpp
+    OAIObjectSecretquestionApi.cpp
     OAIHelpers.cpp
     OAIHttpRequest.cpp
     OAIHttpFileElement.cpp
     OAIOauth.cpp
 )
-target_link_libraries(${PROJECT_NAME} PRIVATE Qt5::Core Qt5::Network)
+target_link_libraries(${PROJECT_NAME} PRIVATE Qt5::Core Qt5::Network Qt5::Gui)
 if(NOT APPLE)
+  find_package(OpenSSL REQUIRED)
   target_link_libraries(${PROJECT_NAME} PRIVATE ssl crypto)
 endif()
 

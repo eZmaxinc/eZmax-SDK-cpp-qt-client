@@ -1,5 +1,5 @@
 /**
- * eZmax API Definition
+ * eZmax API Definition (Full)
  * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
  * The version of the OpenAPI document: 1.1.7
@@ -13,7 +13,7 @@
 /*
  * OAIEzsigndocument_editEzsignsignatures_v1_Response.h
  *
- * Response for the /1/object/ezsigndocument/{pkiEzsigndocumentID}/editEzsignsignatures API Request
+ * Response for PUT /1/object/ezsigndocument/{pkiEzsigndocumentID}/editEzsignsignatures
  */
 
 #ifndef OAIEzsigndocument_editEzsignsignatures_v1_Response_H
@@ -24,11 +24,14 @@
 #include "OAICommon_Response.h"
 #include "OAICommon_Response_objDebug.h"
 #include "OAICommon_Response_objDebugPayload.h"
+#include "OAIEzsigndocument_editEzsignsignatures_v1_Response_allOf.h"
+#include "OAIEzsigndocument_editEzsignsignatures_v1_Response_mPayload.h"
 
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
 namespace OpenAPI {
+class OAIEzsigndocument_editEzsignsignatures_v1_Response_mPayload;
 class OAICommon_Response_objDebugPayload;
 class OAICommon_Response_objDebug;
 
@@ -42,6 +45,11 @@ public:
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
+
+    OAIEzsigndocument_editEzsignsignatures_v1_Response_mPayload getMPayload() const;
+    void setMPayload(const OAIEzsigndocument_editEzsignsignatures_v1_Response_mPayload &m_payload);
+    bool is_m_payload_Set() const;
+    bool is_m_payload_Valid() const;
 
     OAICommon_Response_objDebugPayload getObjDebugPayload() const;
     void setObjDebugPayload(const OAICommon_Response_objDebugPayload &obj_debug_payload);
@@ -58,6 +66,10 @@ public:
 
 private:
     void initializeModel();
+
+    OAIEzsigndocument_editEzsignsignatures_v1_Response_mPayload m_payload;
+    bool m_m_payload_isSet;
+    bool m_m_payload_isValid;
 
     OAICommon_Response_objDebugPayload obj_debug_payload;
     bool m_obj_debug_payload_isSet;

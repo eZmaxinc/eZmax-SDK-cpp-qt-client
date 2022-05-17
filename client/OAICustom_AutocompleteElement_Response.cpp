@@ -1,5 +1,5 @@
 /**
- * eZmax API Definition
+ * eZmax API Definition (Full)
  * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
  * The version of the OpenAPI document: 1.1.7
@@ -40,6 +40,9 @@ void OAICustom_AutocompleteElement_Response::initializeModel() {
     m_s_label_isSet = false;
     m_s_label_isValid = false;
 
+    m_s_value_isSet = false;
+    m_s_value_isValid = false;
+
     m_m_value_isSet = false;
     m_m_value_isValid = false;
 }
@@ -59,6 +62,9 @@ void OAICustom_AutocompleteElement_Response::fromJsonObject(QJsonObject json) {
     m_s_label_isValid = ::OpenAPI::fromJsonValue(s_label, json[QString("sLabel")]);
     m_s_label_isSet = !json[QString("sLabel")].isNull() && m_s_label_isValid;
 
+    m_s_value_isValid = ::OpenAPI::fromJsonValue(s_value, json[QString("sValue")]);
+    m_s_value_isSet = !json[QString("sValue")].isNull() && m_s_value_isValid;
+
     m_m_value_isValid = ::OpenAPI::fromJsonValue(m_value, json[QString("mValue")]);
     m_m_value_isSet = !json[QString("mValue")].isNull() && m_m_value_isValid;
 }
@@ -77,6 +83,9 @@ QJsonObject OAICustom_AutocompleteElement_Response::asJsonObject() const {
     }
     if (m_s_label_isSet) {
         obj.insert(QString("sLabel"), ::OpenAPI::toJsonValue(s_label));
+    }
+    if (m_s_value_isSet) {
+        obj.insert(QString("sValue"), ::OpenAPI::toJsonValue(s_value));
     }
     if (m_m_value_isSet) {
         obj.insert(QString("mValue"), ::OpenAPI::toJsonValue(m_value));
@@ -116,6 +125,22 @@ bool OAICustom_AutocompleteElement_Response::is_s_label_Valid() const{
     return m_s_label_isValid;
 }
 
+QString OAICustom_AutocompleteElement_Response::getSValue() const {
+    return s_value;
+}
+void OAICustom_AutocompleteElement_Response::setSValue(const QString &s_value) {
+    this->s_value = s_value;
+    this->m_s_value_isSet = true;
+}
+
+bool OAICustom_AutocompleteElement_Response::is_s_value_Set() const{
+    return m_s_value_isSet;
+}
+
+bool OAICustom_AutocompleteElement_Response::is_s_value_Valid() const{
+    return m_s_value_isValid;
+}
+
 QString OAICustom_AutocompleteElement_Response::getMValue() const {
     return m_value;
 }
@@ -145,6 +170,11 @@ bool OAICustom_AutocompleteElement_Response::isSet() const {
             break;
         }
 
+        if (m_s_value_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (m_m_value_isSet) {
             isObjectUpdated = true;
             break;
@@ -155,7 +185,7 @@ bool OAICustom_AutocompleteElement_Response::isSet() const {
 
 bool OAICustom_AutocompleteElement_Response::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_s_category_isValid && m_s_label_isValid && m_m_value_isValid && true;
+    return m_s_category_isValid && m_s_label_isValid && m_s_value_isValid && true;
 }
 
 } // namespace OpenAPI

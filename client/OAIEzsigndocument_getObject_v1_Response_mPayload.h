@@ -1,5 +1,5 @@
 /**
- * eZmax API Definition
+ * eZmax API Definition (Full)
  * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
  * The version of the OpenAPI document: 1.1.7
@@ -13,7 +13,7 @@
 /*
  * OAIEzsigndocument_getObject_v1_Response_mPayload.h
  *
- * Payload for the /1/object/ezsigndocument/getObject API Request
+ * Payload for GET /1/object/ezsigndocument/{pkiEzsigndocumentID}
  */
 
 #ifndef OAIEzsigndocument_getObject_v1_Response_mPayload_H
@@ -116,6 +116,11 @@ public:
     bool is_s_ezsigndocument_md5signed_Set() const;
     bool is_s_ezsigndocument_md5signed_Valid() const;
 
+    bool isBEzsigndocumentEzsignform() const;
+    void setBEzsigndocumentEzsignform(const bool &b_ezsigndocument_ezsignform);
+    bool is_b_ezsigndocument_ezsignform_Set() const;
+    bool is_b_ezsigndocument_ezsignform_Valid() const;
+
     OAICommon_Audit getObjAudit() const;
     void setObjAudit(const OAICommon_Audit &obj_audit);
     bool is_obj_audit_Set() const;
@@ -207,6 +212,10 @@ private:
     QString s_ezsigndocument_md5signed;
     bool m_s_ezsigndocument_md5signed_isSet;
     bool m_s_ezsigndocument_md5signed_isValid;
+
+    bool b_ezsigndocument_ezsignform;
+    bool m_b_ezsigndocument_ezsignform_isSet;
+    bool m_b_ezsigndocument_ezsignform_isValid;
 
     OAICommon_Audit obj_audit;
     bool m_obj_audit_isSet;

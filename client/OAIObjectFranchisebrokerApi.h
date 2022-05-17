@@ -1,5 +1,5 @@
 /**
- * eZmax API Definition
+ * eZmax API Definition (Full)
  * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
  * The version of the OpenAPI document: 1.1.7
@@ -19,6 +19,7 @@
 #include "OAIOauth.h"
 
 #include "OAICommon_getAutocomplete_v1_Response.h"
+#include "OAIHeader_Accept_Language.h"
 #include <QString>
 
 #include <QObject>
@@ -60,8 +61,9 @@ public:
     /**
     * @param[in]  s_selector QString [required]
     * @param[in]  s_query QString [optional]
+    * @param[in]  accept_language OAIHeader_Accept_Language [optional]
     */
-    void franchisebrokerGetAutocompleteV1(const QString &s_selector, const ::OpenAPI::OptionalParam<QString> &s_query = ::OpenAPI::OptionalParam<QString>());
+    void franchisebrokerGetAutocompleteV1(const QString &s_selector, const ::OpenAPI::OptionalParam<QString> &s_query = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<OAIHeader_Accept_Language> &accept_language = ::OpenAPI::OptionalParam<OAIHeader_Accept_Language>());
 
 
 private:
