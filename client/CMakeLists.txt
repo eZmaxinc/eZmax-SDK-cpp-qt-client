@@ -47,6 +47,8 @@ add_library(${PROJECT_NAME}
     OAICommon_Response_Error_sTemporaryFileUrl.cpp
     OAICommon_Response_Error_sTemporaryFileUrl_allOf.cpp
     OAICommon_Response_Filter.cpp
+    OAICommon_Response_Redirect_sSecretquestionTextX.cpp
+    OAICommon_Response_Warning.cpp
     OAICommon_Response_getList.cpp
     OAICommon_Response_objDebug.cpp
     OAICommon_Response_objDebugPayload.cpp
@@ -239,6 +241,9 @@ add_library(${PROJECT_NAME}
     OAIEzsignfolder_createObject_v2_Response_allOf.cpp
     OAIEzsignfolder_createObject_v2_Response_mPayload.cpp
     OAIEzsignfolder_deleteObject_v1_Response.cpp
+    OAIEzsignfolder_disposeEzsignfolders_v1_Request.cpp
+    OAIEzsignfolder_disposeEzsignfolders_v1_Response.cpp
+    OAIEzsignfolder_dispose_v1_Response.cpp
     OAIEzsignfolder_editObject_v1_Request.cpp
     OAIEzsignfolder_editObject_v1_Response.cpp
     OAIEzsignfolder_getActionableElements_v1_Response.cpp
@@ -398,6 +403,7 @@ add_library(${PROJECT_NAME}
     OAIEzsigntemplatedocument_editEzsigntemplatesignatures_v1_Response_mPayload.cpp
     OAIEzsigntemplatedocument_editObject_v1_Request.cpp
     OAIEzsigntemplatedocument_editObject_v1_Response.cpp
+    OAIEzsigntemplatedocument_editObject_v1_Response_allOf.cpp
     OAIEzsigntemplatedocument_getEzsigntemplatedocumentpages_v1_Response.cpp
     OAIEzsigntemplatedocument_getEzsigntemplatedocumentpages_v1_Response_allOf.cpp
     OAIEzsigntemplatedocument_getEzsigntemplatedocumentpages_v1_Response_mPayload.cpp
@@ -563,6 +569,7 @@ add_library(${PROJECT_NAME}
     OAIField_eEzsigntemplatesignatureType.cpp
     OAIField_eNotificationpreferenceStatus.cpp
     OAIField_ePhoneType.cpp
+    OAIField_eUserEzsignsendreminderfrequency.cpp
     OAIField_eUserType.cpp
     OAIFranchisereferalincome_Request.cpp
     OAIFranchisereferalincome_RequestCompound.cpp
@@ -583,6 +590,9 @@ add_library(${PROJECT_NAME}
     OAINotificationsection_getNotificationtests_v1_Response_mPayload.cpp
     OAINotificationsubsection_Response.cpp
     OAINotificationtest_Response.cpp
+    OAINotificationtest_getElements_v1_Response.cpp
+    OAINotificationtest_getElements_v1_Response_allOf.cpp
+    OAINotificationtest_getElements_v1_Response_mPayload.cpp
     OAIPhone_Request.cpp
     OAIPhone_RequestCompound.cpp
     OAIUser_Response.cpp
@@ -605,6 +615,8 @@ add_library(${PROJECT_NAME}
     OAIModuleUserApi.cpp
     OAIObjectActivesessionApi.cpp
     OAIObjectApikeyApi.cpp
+    OAIObjectBillingentityinternalApi.cpp
+    OAIObjectBrandingApi.cpp
     OAIObjectEzsignbulksendApi.cpp
     OAIObjectEzsignbulksenddocumentmappingApi.cpp
     OAIObjectEzsignbulksendsignermappingApi.cpp
@@ -629,8 +641,13 @@ add_library(${PROJECT_NAME}
     OAIObjectFranchiseofficeApi.cpp
     OAIObjectFranchisereferalincomeApi.cpp
     OAIObjectNotificationsectionApi.cpp
+    OAIObjectNotificationtestApi.cpp
     OAIObjectPeriodApi.cpp
     OAIObjectSecretquestionApi.cpp
+    OAIObjectTaxassignmentApi.cpp
+    OAIObjectTimezoneApi.cpp
+    OAIObjectUserApi.cpp
+    OAIObjectUsergroupApi.cpp
     OAIHelpers.cpp
     OAIHttpRequest.cpp
     OAIHttpFileElement.cpp

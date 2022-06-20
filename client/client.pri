@@ -33,6 +33,8 @@ HEADERS += \
     $${PWD}/OAICommon_Response_Error_sTemporaryFileUrl.h \
     $${PWD}/OAICommon_Response_Error_sTemporaryFileUrl_allOf.h \
     $${PWD}/OAICommon_Response_Filter.h \
+    $${PWD}/OAICommon_Response_Redirect_sSecretquestionTextX.h \
+    $${PWD}/OAICommon_Response_Warning.h \
     $${PWD}/OAICommon_Response_getList.h \
     $${PWD}/OAICommon_Response_objDebug.h \
     $${PWD}/OAICommon_Response_objDebugPayload.h \
@@ -225,6 +227,9 @@ HEADERS += \
     $${PWD}/OAIEzsignfolder_createObject_v2_Response_allOf.h \
     $${PWD}/OAIEzsignfolder_createObject_v2_Response_mPayload.h \
     $${PWD}/OAIEzsignfolder_deleteObject_v1_Response.h \
+    $${PWD}/OAIEzsignfolder_disposeEzsignfolders_v1_Request.h \
+    $${PWD}/OAIEzsignfolder_disposeEzsignfolders_v1_Response.h \
+    $${PWD}/OAIEzsignfolder_dispose_v1_Response.h \
     $${PWD}/OAIEzsignfolder_editObject_v1_Request.h \
     $${PWD}/OAIEzsignfolder_editObject_v1_Response.h \
     $${PWD}/OAIEzsignfolder_getActionableElements_v1_Response.h \
@@ -384,6 +389,7 @@ HEADERS += \
     $${PWD}/OAIEzsigntemplatedocument_editEzsigntemplatesignatures_v1_Response_mPayload.h \
     $${PWD}/OAIEzsigntemplatedocument_editObject_v1_Request.h \
     $${PWD}/OAIEzsigntemplatedocument_editObject_v1_Response.h \
+    $${PWD}/OAIEzsigntemplatedocument_editObject_v1_Response_allOf.h \
     $${PWD}/OAIEzsigntemplatedocument_getEzsigntemplatedocumentpages_v1_Response.h \
     $${PWD}/OAIEzsigntemplatedocument_getEzsigntemplatedocumentpages_v1_Response_allOf.h \
     $${PWD}/OAIEzsigntemplatedocument_getEzsigntemplatedocumentpages_v1_Response_mPayload.h \
@@ -549,6 +555,7 @@ HEADERS += \
     $${PWD}/OAIField_eEzsigntemplatesignatureType.h \
     $${PWD}/OAIField_eNotificationpreferenceStatus.h \
     $${PWD}/OAIField_ePhoneType.h \
+    $${PWD}/OAIField_eUserEzsignsendreminderfrequency.h \
     $${PWD}/OAIField_eUserType.h \
     $${PWD}/OAIFranchisereferalincome_Request.h \
     $${PWD}/OAIFranchisereferalincome_RequestCompound.h \
@@ -569,6 +576,9 @@ HEADERS += \
     $${PWD}/OAINotificationsection_getNotificationtests_v1_Response_mPayload.h \
     $${PWD}/OAINotificationsubsection_Response.h \
     $${PWD}/OAINotificationtest_Response.h \
+    $${PWD}/OAINotificationtest_getElements_v1_Response.h \
+    $${PWD}/OAINotificationtest_getElements_v1_Response_allOf.h \
+    $${PWD}/OAINotificationtest_getElements_v1_Response_mPayload.h \
     $${PWD}/OAIPhone_Request.h \
     $${PWD}/OAIPhone_RequestCompound.h \
     $${PWD}/OAIUser_Response.h \
@@ -592,6 +602,8 @@ HEADERS += \
     $${PWD}/OAIModuleUserApi.h \
     $${PWD}/OAIObjectActivesessionApi.h \
     $${PWD}/OAIObjectApikeyApi.h \
+    $${PWD}/OAIObjectBillingentityinternalApi.h \
+    $${PWD}/OAIObjectBrandingApi.h \
     $${PWD}/OAIObjectEzsignbulksendApi.h \
     $${PWD}/OAIObjectEzsignbulksenddocumentmappingApi.h \
     $${PWD}/OAIObjectEzsignbulksendsignermappingApi.h \
@@ -616,8 +628,13 @@ HEADERS += \
     $${PWD}/OAIObjectFranchiseofficeApi.h \
     $${PWD}/OAIObjectFranchisereferalincomeApi.h \
     $${PWD}/OAIObjectNotificationsectionApi.h \
+    $${PWD}/OAIObjectNotificationtestApi.h \
     $${PWD}/OAIObjectPeriodApi.h \
     $${PWD}/OAIObjectSecretquestionApi.h \
+    $${PWD}/OAIObjectTaxassignmentApi.h \
+    $${PWD}/OAIObjectTimezoneApi.h \
+    $${PWD}/OAIObjectUserApi.h \
+    $${PWD}/OAIObjectUsergroupApi.h \
 # Others
     $${PWD}/OAIHelpers.h \
     $${PWD}/OAIHttpRequest.h \
@@ -661,6 +678,8 @@ SOURCES += \
     $${PWD}/OAICommon_Response_Error_sTemporaryFileUrl.cpp \
     $${PWD}/OAICommon_Response_Error_sTemporaryFileUrl_allOf.cpp \
     $${PWD}/OAICommon_Response_Filter.cpp \
+    $${PWD}/OAICommon_Response_Redirect_sSecretquestionTextX.cpp \
+    $${PWD}/OAICommon_Response_Warning.cpp \
     $${PWD}/OAICommon_Response_getList.cpp \
     $${PWD}/OAICommon_Response_objDebug.cpp \
     $${PWD}/OAICommon_Response_objDebugPayload.cpp \
@@ -853,6 +872,9 @@ SOURCES += \
     $${PWD}/OAIEzsignfolder_createObject_v2_Response_allOf.cpp \
     $${PWD}/OAIEzsignfolder_createObject_v2_Response_mPayload.cpp \
     $${PWD}/OAIEzsignfolder_deleteObject_v1_Response.cpp \
+    $${PWD}/OAIEzsignfolder_disposeEzsignfolders_v1_Request.cpp \
+    $${PWD}/OAIEzsignfolder_disposeEzsignfolders_v1_Response.cpp \
+    $${PWD}/OAIEzsignfolder_dispose_v1_Response.cpp \
     $${PWD}/OAIEzsignfolder_editObject_v1_Request.cpp \
     $${PWD}/OAIEzsignfolder_editObject_v1_Response.cpp \
     $${PWD}/OAIEzsignfolder_getActionableElements_v1_Response.cpp \
@@ -1012,6 +1034,7 @@ SOURCES += \
     $${PWD}/OAIEzsigntemplatedocument_editEzsigntemplatesignatures_v1_Response_mPayload.cpp \
     $${PWD}/OAIEzsigntemplatedocument_editObject_v1_Request.cpp \
     $${PWD}/OAIEzsigntemplatedocument_editObject_v1_Response.cpp \
+    $${PWD}/OAIEzsigntemplatedocument_editObject_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsigntemplatedocument_getEzsigntemplatedocumentpages_v1_Response.cpp \
     $${PWD}/OAIEzsigntemplatedocument_getEzsigntemplatedocumentpages_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsigntemplatedocument_getEzsigntemplatedocumentpages_v1_Response_mPayload.cpp \
@@ -1177,6 +1200,7 @@ SOURCES += \
     $${PWD}/OAIField_eEzsigntemplatesignatureType.cpp \
     $${PWD}/OAIField_eNotificationpreferenceStatus.cpp \
     $${PWD}/OAIField_ePhoneType.cpp \
+    $${PWD}/OAIField_eUserEzsignsendreminderfrequency.cpp \
     $${PWD}/OAIField_eUserType.cpp \
     $${PWD}/OAIFranchisereferalincome_Request.cpp \
     $${PWD}/OAIFranchisereferalincome_RequestCompound.cpp \
@@ -1197,6 +1221,9 @@ SOURCES += \
     $${PWD}/OAINotificationsection_getNotificationtests_v1_Response_mPayload.cpp \
     $${PWD}/OAINotificationsubsection_Response.cpp \
     $${PWD}/OAINotificationtest_Response.cpp \
+    $${PWD}/OAINotificationtest_getElements_v1_Response.cpp \
+    $${PWD}/OAINotificationtest_getElements_v1_Response_allOf.cpp \
+    $${PWD}/OAINotificationtest_getElements_v1_Response_mPayload.cpp \
     $${PWD}/OAIPhone_Request.cpp \
     $${PWD}/OAIPhone_RequestCompound.cpp \
     $${PWD}/OAIUser_Response.cpp \
@@ -1220,6 +1247,8 @@ SOURCES += \
     $${PWD}/OAIModuleUserApi.cpp \
     $${PWD}/OAIObjectActivesessionApi.cpp \
     $${PWD}/OAIObjectApikeyApi.cpp \
+    $${PWD}/OAIObjectBillingentityinternalApi.cpp \
+    $${PWD}/OAIObjectBrandingApi.cpp \
     $${PWD}/OAIObjectEzsignbulksendApi.cpp \
     $${PWD}/OAIObjectEzsignbulksenddocumentmappingApi.cpp \
     $${PWD}/OAIObjectEzsignbulksendsignermappingApi.cpp \
@@ -1244,8 +1273,13 @@ SOURCES += \
     $${PWD}/OAIObjectFranchiseofficeApi.cpp \
     $${PWD}/OAIObjectFranchisereferalincomeApi.cpp \
     $${PWD}/OAIObjectNotificationsectionApi.cpp \
+    $${PWD}/OAIObjectNotificationtestApi.cpp \
     $${PWD}/OAIObjectPeriodApi.cpp \
     $${PWD}/OAIObjectSecretquestionApi.cpp \
+    $${PWD}/OAIObjectTaxassignmentApi.cpp \
+    $${PWD}/OAIObjectTimezoneApi.cpp \
+    $${PWD}/OAIObjectUserApi.cpp \
+    $${PWD}/OAIObjectUsergroupApi.cpp \
 # Others
     $${PWD}/OAIHelpers.cpp \
     $${PWD}/OAIHttpRequest.cpp \
