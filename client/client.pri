@@ -26,6 +26,25 @@ HEADERS += \
     $${PWD}/OAIApikey_createObject_v2_Response_mPayload.h \
     $${PWD}/OAIAttempt_Response.h \
     $${PWD}/OAIAttempt_ResponseCompound.h \
+    $${PWD}/OAIBranding_ListElement.h \
+    $${PWD}/OAIBranding_Request.h \
+    $${PWD}/OAIBranding_RequestCompound.h \
+    $${PWD}/OAIBranding_Response.h \
+    $${PWD}/OAIBranding_ResponseCompound.h \
+    $${PWD}/OAIBranding_ResponseCompound_allOf.h \
+    $${PWD}/OAIBranding_createObject_v1_Request.h \
+    $${PWD}/OAIBranding_createObject_v1_Response.h \
+    $${PWD}/OAIBranding_createObject_v1_Response_allOf.h \
+    $${PWD}/OAIBranding_createObject_v1_Response_mPayload.h \
+    $${PWD}/OAIBranding_editObject_v1_Request.h \
+    $${PWD}/OAIBranding_editObject_v1_Response.h \
+    $${PWD}/OAIBranding_getList_v1_Response.h \
+    $${PWD}/OAIBranding_getList_v1_Response_allOf.h \
+    $${PWD}/OAIBranding_getList_v1_Response_mPayload.h \
+    $${PWD}/OAIBranding_getList_v1_Response_mPayload_allOf.h \
+    $${PWD}/OAIBranding_getObject_v1_Response.h \
+    $${PWD}/OAIBranding_getObject_v1_Response_allOf.h \
+    $${PWD}/OAIBranding_getObject_v1_Response_mPayload.h \
     $${PWD}/OAICommon_Audit.h \
     $${PWD}/OAICommon_Auditdetail.h \
     $${PWD}/OAICommon_Response.h \
@@ -60,6 +79,9 @@ HEADERS += \
     $${PWD}/OAICustom_DropdownElement_RequestCompound.h \
     $${PWD}/OAICustom_DropdownElement_Response.h \
     $${PWD}/OAICustom_DropdownElement_ResponseCompound.h \
+    $${PWD}/OAICustom_EzsignfoldersignerassociationActionableElement_Response.h \
+    $${PWD}/OAICustom_EzsignfoldersignerassociationActionableElement_Response_allOf.h \
+    $${PWD}/OAICustom_Ezsignfoldersignerassociationmessage_Request.h \
     $${PWD}/OAICustom_Ezsignfoldersignerassociationstatus_Response.h \
     $${PWD}/OAICustom_EzsignfoldertransmissionSigner_Response.h \
     $${PWD}/OAICustom_Ezsignfoldertransmission_Response.h \
@@ -75,8 +97,15 @@ HEADERS += \
     $${PWD}/OAICustom_Notificationtestgetnotificationtests_Response.h \
     $${PWD}/OAICustom_Notificationtestgetnotificationtests_Response_allOf.h \
     $${PWD}/OAICustom_User_Response.h \
+    $${PWD}/OAICustom_Webhook_Response.h \
+    $${PWD}/OAICustom_Webhook_Response_allOf.h \
+    $${PWD}/OAICustom_Webhooklog_Response.h \
+    $${PWD}/OAICustom_Webhooklog_Response_allOf.h \
     $${PWD}/OAICustom_WordPositionOccurence_Response.h \
     $${PWD}/OAICustom_WordPositionWord_Response.h \
+    $${PWD}/OAIDepartment_getMembers_v1_Response.h \
+    $${PWD}/OAIDepartment_getMembers_v1_Response_allOf.h \
+    $${PWD}/OAIDepartment_getMembers_v1_Response_mPayload.h \
     $${PWD}/OAIEmail_Request.h \
     $${PWD}/OAIEmail_RequestCompound.h \
     $${PWD}/OAIEzsign_suggestSigners_v1_Response.h \
@@ -251,6 +280,10 @@ HEADERS += \
     $${PWD}/OAIEzsignfolder_getObject_v1_Response.h \
     $${PWD}/OAIEzsignfolder_getObject_v1_Response_allOf.h \
     $${PWD}/OAIEzsignfolder_getObject_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsignfolder_importEzsignfoldersignerassociations_v1_Request.h \
+    $${PWD}/OAIEzsignfolder_importEzsignfoldersignerassociations_v1_Response.h \
+    $${PWD}/OAIEzsignfolder_importEzsignfoldersignerassociations_v1_Response_allOf.h \
+    $${PWD}/OAIEzsignfolder_importEzsignfoldersignerassociations_v1_Response_mPayload.h \
     $${PWD}/OAIEzsignfolder_importEzsigntemplatepackage_v1_Request.h \
     $${PWD}/OAIEzsignfolder_importEzsigntemplatepackage_v1_Response.h \
     $${PWD}/OAIEzsignfolder_importEzsigntemplatepackage_v1_Response_allOf.h \
@@ -259,6 +292,8 @@ HEADERS += \
     $${PWD}/OAIEzsignfolder_reorder_v1_Response.h \
     $${PWD}/OAIEzsignfolder_send_v1_Request.h \
     $${PWD}/OAIEzsignfolder_send_v1_Response.h \
+    $${PWD}/OAIEzsignfolder_send_v2_Request.h \
+    $${PWD}/OAIEzsignfolder_send_v2_Response.h \
     $${PWD}/OAIEzsignfolder_unsend_v1_Response.h \
     $${PWD}/OAIEzsignfoldersignerassociation_Request.h \
     $${PWD}/OAIEzsignfoldersignerassociation_RequestCompound.h \
@@ -285,10 +320,24 @@ HEADERS += \
     $${PWD}/OAIEzsignfoldersignerassociation_getObject_v1_Response_allOf.h \
     $${PWD}/OAIEzsignfoldersignerassociation_getObject_v1_Response_mPayload.h \
     $${PWD}/OAIEzsignfoldertype_ListElement.h \
+    $${PWD}/OAIEzsignfoldertype_Request.h \
+    $${PWD}/OAIEzsignfoldertype_RequestCompound.h \
+    $${PWD}/OAIEzsignfoldertype_RequestCompound_allOf.h \
+    $${PWD}/OAIEzsignfoldertype_Response.h \
+    $${PWD}/OAIEzsignfoldertype_ResponseCompound.h \
+    $${PWD}/OAIEzsignfoldertype_createObject_v1_Request.h \
+    $${PWD}/OAIEzsignfoldertype_createObject_v1_Response.h \
+    $${PWD}/OAIEzsignfoldertype_createObject_v1_Response_allOf.h \
+    $${PWD}/OAIEzsignfoldertype_createObject_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsignfoldertype_editObject_v1_Request.h \
+    $${PWD}/OAIEzsignfoldertype_editObject_v1_Response.h \
     $${PWD}/OAIEzsignfoldertype_getList_v1_Response.h \
     $${PWD}/OAIEzsignfoldertype_getList_v1_Response_allOf.h \
     $${PWD}/OAIEzsignfoldertype_getList_v1_Response_mPayload.h \
     $${PWD}/OAIEzsignfoldertype_getList_v1_Response_mPayload_allOf.h \
+    $${PWD}/OAIEzsignfoldertype_getObject_v1_Response.h \
+    $${PWD}/OAIEzsignfoldertype_getObject_v1_Response_allOf.h \
+    $${PWD}/OAIEzsignfoldertype_getObject_v1_Response_mPayload.h \
     $${PWD}/OAIEzsignformfield_Request.h \
     $${PWD}/OAIEzsignformfield_RequestCompound.h \
     $${PWD}/OAIEzsignformfield_Response.h \
@@ -536,14 +585,18 @@ HEADERS += \
     $${PWD}/OAIEzsigntemplatesigner_getObject_v1_Response_mPayload.h \
     $${PWD}/OAIField_eActivesessionUsertype.h \
     $${PWD}/OAIField_eActivesessionWeekdaystart.h \
+    $${PWD}/OAIField_eBrandingLogo.h \
     $${PWD}/OAIField_eEzsigndocumentStep.h \
     $${PWD}/OAIField_eEzsigndocumentlogType.h \
     $${PWD}/OAIField_eEzsignfolderSendreminderfrequency.h \
     $${PWD}/OAIField_eEzsignfolderStep.h \
+    $${PWD}/OAIField_eEzsignfoldertypeDisposal.h \
     $${PWD}/OAIField_eEzsignfoldertypePrivacylevel.h \
+    $${PWD}/OAIField_eEzsignfoldertypeSendreminderfrequency.h \
     $${PWD}/OAIField_eEzsignformfieldgroupSignerrequirement.h \
     $${PWD}/OAIField_eEzsignformfieldgroupTooltipposition.h \
     $${PWD}/OAIField_eEzsignformfieldgroupType.h \
+    $${PWD}/OAIField_eEzsignsignatureAttachmentnamesource.h \
     $${PWD}/OAIField_eEzsignsignatureFont.h \
     $${PWD}/OAIField_eEzsignsignatureTooltipposition.h \
     $${PWD}/OAIField_eEzsignsignatureType.h \
@@ -557,6 +610,9 @@ HEADERS += \
     $${PWD}/OAIField_ePhoneType.h \
     $${PWD}/OAIField_eUserEzsignsendreminderfrequency.h \
     $${PWD}/OAIField_eUserType.h \
+    $${PWD}/OAIField_eWebhookEzsignevent.h \
+    $${PWD}/OAIField_eWebhookManagementevent.h \
+    $${PWD}/OAIField_eWebhookModule.h \
     $${PWD}/OAIFranchisereferalincome_Request.h \
     $${PWD}/OAIFranchisereferalincome_RequestCompound.h \
     $${PWD}/OAIFranchisereferalincome_RequestCompound_allOf.h \
@@ -571,6 +627,10 @@ HEADERS += \
     $${PWD}/OAIGlobal_customer_getEndpoint_v1_Response.h \
     $${PWD}/OAIHeader_Accept_Language.h \
     $${PWD}/OAIMultilingual_ApikeyDescription.h \
+    $${PWD}/OAIMultilingual_BrandingDescription.h \
+    $${PWD}/OAIMultilingual_EzsignfoldertypeName.h \
+    $${PWD}/OAIMultilingual_NotificationsubsectionName.h \
+    $${PWD}/OAIMultilingual_NotificationtestName.h \
     $${PWD}/OAINotificationsection_getNotificationtests_v1_Response.h \
     $${PWD}/OAINotificationsection_getNotificationtests_v1_Response_allOf.h \
     $${PWD}/OAINotificationsection_getNotificationtests_v1_Response_mPayload.h \
@@ -591,9 +651,32 @@ HEADERS += \
     $${PWD}/OAIWebhook_Ezsign_DocumentCompleted_allOf.h \
     $${PWD}/OAIWebhook_Ezsign_FolderCompleted.h \
     $${PWD}/OAIWebhook_Ezsign_FolderCompleted_allOf.h \
+    $${PWD}/OAIWebhook_ListElement.h \
+    $${PWD}/OAIWebhook_Request.h \
+    $${PWD}/OAIWebhook_RequestCompound.h \
     $${PWD}/OAIWebhook_Response.h \
+    $${PWD}/OAIWebhook_ResponseCompound.h \
     $${PWD}/OAIWebhook_User_UserCreated.h \
     $${PWD}/OAIWebhook_User_UserCreated_allOf.h \
+    $${PWD}/OAIWebhook_createObject_v1_Request.h \
+    $${PWD}/OAIWebhook_createObject_v1_Response.h \
+    $${PWD}/OAIWebhook_createObject_v1_Response_allOf.h \
+    $${PWD}/OAIWebhook_createObject_v1_Response_mPayload.h \
+    $${PWD}/OAIWebhook_deleteObject_v1_Response.h \
+    $${PWD}/OAIWebhook_editObject_v1_Request.h \
+    $${PWD}/OAIWebhook_editObject_v1_Response.h \
+    $${PWD}/OAIWebhook_getHistory_v1_Response.h \
+    $${PWD}/OAIWebhook_getHistory_v1_Response_allOf.h \
+    $${PWD}/OAIWebhook_getHistory_v1_Response_mPayload.h \
+    $${PWD}/OAIWebhook_getHistory_v1_Response_mPayload_allOf.h \
+    $${PWD}/OAIWebhook_getList_v1_Response.h \
+    $${PWD}/OAIWebhook_getList_v1_Response_allOf.h \
+    $${PWD}/OAIWebhook_getList_v1_Response_mPayload.h \
+    $${PWD}/OAIWebhook_getList_v1_Response_mPayload_allOf.h \
+    $${PWD}/OAIWebhook_getObject_v1_Response.h \
+    $${PWD}/OAIWebhook_getObject_v1_Response_allOf.h \
+    $${PWD}/OAIWebhook_getObject_v1_Response_mPayload.h \
+    $${PWD}/OAIWebhook_test_v1_Response.h \
     $${PWD}/OAIWebsite_Request.h \
     $${PWD}/OAIWebsite_RequestCompound.h \
 # APIs
@@ -604,6 +687,7 @@ HEADERS += \
     $${PWD}/OAIObjectApikeyApi.h \
     $${PWD}/OAIObjectBillingentityinternalApi.h \
     $${PWD}/OAIObjectBrandingApi.h \
+    $${PWD}/OAIObjectDepartmentApi.h \
     $${PWD}/OAIObjectEzsignbulksendApi.h \
     $${PWD}/OAIObjectEzsignbulksenddocumentmappingApi.h \
     $${PWD}/OAIObjectEzsignbulksendsignermappingApi.h \
@@ -635,6 +719,7 @@ HEADERS += \
     $${PWD}/OAIObjectTimezoneApi.h \
     $${PWD}/OAIObjectUserApi.h \
     $${PWD}/OAIObjectUsergroupApi.h \
+    $${PWD}/OAIObjectWebhookApi.h \
 # Others
     $${PWD}/OAIHelpers.h \
     $${PWD}/OAIHttpRequest.h \
@@ -671,6 +756,25 @@ SOURCES += \
     $${PWD}/OAIApikey_createObject_v2_Response_mPayload.cpp \
     $${PWD}/OAIAttempt_Response.cpp \
     $${PWD}/OAIAttempt_ResponseCompound.cpp \
+    $${PWD}/OAIBranding_ListElement.cpp \
+    $${PWD}/OAIBranding_Request.cpp \
+    $${PWD}/OAIBranding_RequestCompound.cpp \
+    $${PWD}/OAIBranding_Response.cpp \
+    $${PWD}/OAIBranding_ResponseCompound.cpp \
+    $${PWD}/OAIBranding_ResponseCompound_allOf.cpp \
+    $${PWD}/OAIBranding_createObject_v1_Request.cpp \
+    $${PWD}/OAIBranding_createObject_v1_Response.cpp \
+    $${PWD}/OAIBranding_createObject_v1_Response_allOf.cpp \
+    $${PWD}/OAIBranding_createObject_v1_Response_mPayload.cpp \
+    $${PWD}/OAIBranding_editObject_v1_Request.cpp \
+    $${PWD}/OAIBranding_editObject_v1_Response.cpp \
+    $${PWD}/OAIBranding_getList_v1_Response.cpp \
+    $${PWD}/OAIBranding_getList_v1_Response_allOf.cpp \
+    $${PWD}/OAIBranding_getList_v1_Response_mPayload.cpp \
+    $${PWD}/OAIBranding_getList_v1_Response_mPayload_allOf.cpp \
+    $${PWD}/OAIBranding_getObject_v1_Response.cpp \
+    $${PWD}/OAIBranding_getObject_v1_Response_allOf.cpp \
+    $${PWD}/OAIBranding_getObject_v1_Response_mPayload.cpp \
     $${PWD}/OAICommon_Audit.cpp \
     $${PWD}/OAICommon_Auditdetail.cpp \
     $${PWD}/OAICommon_Response.cpp \
@@ -705,6 +809,9 @@ SOURCES += \
     $${PWD}/OAICustom_DropdownElement_RequestCompound.cpp \
     $${PWD}/OAICustom_DropdownElement_Response.cpp \
     $${PWD}/OAICustom_DropdownElement_ResponseCompound.cpp \
+    $${PWD}/OAICustom_EzsignfoldersignerassociationActionableElement_Response.cpp \
+    $${PWD}/OAICustom_EzsignfoldersignerassociationActionableElement_Response_allOf.cpp \
+    $${PWD}/OAICustom_Ezsignfoldersignerassociationmessage_Request.cpp \
     $${PWD}/OAICustom_Ezsignfoldersignerassociationstatus_Response.cpp \
     $${PWD}/OAICustom_EzsignfoldertransmissionSigner_Response.cpp \
     $${PWD}/OAICustom_Ezsignfoldertransmission_Response.cpp \
@@ -720,8 +827,15 @@ SOURCES += \
     $${PWD}/OAICustom_Notificationtestgetnotificationtests_Response.cpp \
     $${PWD}/OAICustom_Notificationtestgetnotificationtests_Response_allOf.cpp \
     $${PWD}/OAICustom_User_Response.cpp \
+    $${PWD}/OAICustom_Webhook_Response.cpp \
+    $${PWD}/OAICustom_Webhook_Response_allOf.cpp \
+    $${PWD}/OAICustom_Webhooklog_Response.cpp \
+    $${PWD}/OAICustom_Webhooklog_Response_allOf.cpp \
     $${PWD}/OAICustom_WordPositionOccurence_Response.cpp \
     $${PWD}/OAICustom_WordPositionWord_Response.cpp \
+    $${PWD}/OAIDepartment_getMembers_v1_Response.cpp \
+    $${PWD}/OAIDepartment_getMembers_v1_Response_allOf.cpp \
+    $${PWD}/OAIDepartment_getMembers_v1_Response_mPayload.cpp \
     $${PWD}/OAIEmail_Request.cpp \
     $${PWD}/OAIEmail_RequestCompound.cpp \
     $${PWD}/OAIEzsign_suggestSigners_v1_Response.cpp \
@@ -896,6 +1010,10 @@ SOURCES += \
     $${PWD}/OAIEzsignfolder_getObject_v1_Response.cpp \
     $${PWD}/OAIEzsignfolder_getObject_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsignfolder_getObject_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsignfolder_importEzsignfoldersignerassociations_v1_Request.cpp \
+    $${PWD}/OAIEzsignfolder_importEzsignfoldersignerassociations_v1_Response.cpp \
+    $${PWD}/OAIEzsignfolder_importEzsignfoldersignerassociations_v1_Response_allOf.cpp \
+    $${PWD}/OAIEzsignfolder_importEzsignfoldersignerassociations_v1_Response_mPayload.cpp \
     $${PWD}/OAIEzsignfolder_importEzsigntemplatepackage_v1_Request.cpp \
     $${PWD}/OAIEzsignfolder_importEzsigntemplatepackage_v1_Response.cpp \
     $${PWD}/OAIEzsignfolder_importEzsigntemplatepackage_v1_Response_allOf.cpp \
@@ -904,6 +1022,8 @@ SOURCES += \
     $${PWD}/OAIEzsignfolder_reorder_v1_Response.cpp \
     $${PWD}/OAIEzsignfolder_send_v1_Request.cpp \
     $${PWD}/OAIEzsignfolder_send_v1_Response.cpp \
+    $${PWD}/OAIEzsignfolder_send_v2_Request.cpp \
+    $${PWD}/OAIEzsignfolder_send_v2_Response.cpp \
     $${PWD}/OAIEzsignfolder_unsend_v1_Response.cpp \
     $${PWD}/OAIEzsignfoldersignerassociation_Request.cpp \
     $${PWD}/OAIEzsignfoldersignerassociation_RequestCompound.cpp \
@@ -930,10 +1050,24 @@ SOURCES += \
     $${PWD}/OAIEzsignfoldersignerassociation_getObject_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsignfoldersignerassociation_getObject_v1_Response_mPayload.cpp \
     $${PWD}/OAIEzsignfoldertype_ListElement.cpp \
+    $${PWD}/OAIEzsignfoldertype_Request.cpp \
+    $${PWD}/OAIEzsignfoldertype_RequestCompound.cpp \
+    $${PWD}/OAIEzsignfoldertype_RequestCompound_allOf.cpp \
+    $${PWD}/OAIEzsignfoldertype_Response.cpp \
+    $${PWD}/OAIEzsignfoldertype_ResponseCompound.cpp \
+    $${PWD}/OAIEzsignfoldertype_createObject_v1_Request.cpp \
+    $${PWD}/OAIEzsignfoldertype_createObject_v1_Response.cpp \
+    $${PWD}/OAIEzsignfoldertype_createObject_v1_Response_allOf.cpp \
+    $${PWD}/OAIEzsignfoldertype_createObject_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsignfoldertype_editObject_v1_Request.cpp \
+    $${PWD}/OAIEzsignfoldertype_editObject_v1_Response.cpp \
     $${PWD}/OAIEzsignfoldertype_getList_v1_Response.cpp \
     $${PWD}/OAIEzsignfoldertype_getList_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsignfoldertype_getList_v1_Response_mPayload.cpp \
     $${PWD}/OAIEzsignfoldertype_getList_v1_Response_mPayload_allOf.cpp \
+    $${PWD}/OAIEzsignfoldertype_getObject_v1_Response.cpp \
+    $${PWD}/OAIEzsignfoldertype_getObject_v1_Response_allOf.cpp \
+    $${PWD}/OAIEzsignfoldertype_getObject_v1_Response_mPayload.cpp \
     $${PWD}/OAIEzsignformfield_Request.cpp \
     $${PWD}/OAIEzsignformfield_RequestCompound.cpp \
     $${PWD}/OAIEzsignformfield_Response.cpp \
@@ -1181,14 +1315,18 @@ SOURCES += \
     $${PWD}/OAIEzsigntemplatesigner_getObject_v1_Response_mPayload.cpp \
     $${PWD}/OAIField_eActivesessionUsertype.cpp \
     $${PWD}/OAIField_eActivesessionWeekdaystart.cpp \
+    $${PWD}/OAIField_eBrandingLogo.cpp \
     $${PWD}/OAIField_eEzsigndocumentStep.cpp \
     $${PWD}/OAIField_eEzsigndocumentlogType.cpp \
     $${PWD}/OAIField_eEzsignfolderSendreminderfrequency.cpp \
     $${PWD}/OAIField_eEzsignfolderStep.cpp \
+    $${PWD}/OAIField_eEzsignfoldertypeDisposal.cpp \
     $${PWD}/OAIField_eEzsignfoldertypePrivacylevel.cpp \
+    $${PWD}/OAIField_eEzsignfoldertypeSendreminderfrequency.cpp \
     $${PWD}/OAIField_eEzsignformfieldgroupSignerrequirement.cpp \
     $${PWD}/OAIField_eEzsignformfieldgroupTooltipposition.cpp \
     $${PWD}/OAIField_eEzsignformfieldgroupType.cpp \
+    $${PWD}/OAIField_eEzsignsignatureAttachmentnamesource.cpp \
     $${PWD}/OAIField_eEzsignsignatureFont.cpp \
     $${PWD}/OAIField_eEzsignsignatureTooltipposition.cpp \
     $${PWD}/OAIField_eEzsignsignatureType.cpp \
@@ -1202,6 +1340,9 @@ SOURCES += \
     $${PWD}/OAIField_ePhoneType.cpp \
     $${PWD}/OAIField_eUserEzsignsendreminderfrequency.cpp \
     $${PWD}/OAIField_eUserType.cpp \
+    $${PWD}/OAIField_eWebhookEzsignevent.cpp \
+    $${PWD}/OAIField_eWebhookManagementevent.cpp \
+    $${PWD}/OAIField_eWebhookModule.cpp \
     $${PWD}/OAIFranchisereferalincome_Request.cpp \
     $${PWD}/OAIFranchisereferalincome_RequestCompound.cpp \
     $${PWD}/OAIFranchisereferalincome_RequestCompound_allOf.cpp \
@@ -1216,6 +1357,10 @@ SOURCES += \
     $${PWD}/OAIGlobal_customer_getEndpoint_v1_Response.cpp \
     $${PWD}/OAIHeader_Accept_Language.cpp \
     $${PWD}/OAIMultilingual_ApikeyDescription.cpp \
+    $${PWD}/OAIMultilingual_BrandingDescription.cpp \
+    $${PWD}/OAIMultilingual_EzsignfoldertypeName.cpp \
+    $${PWD}/OAIMultilingual_NotificationsubsectionName.cpp \
+    $${PWD}/OAIMultilingual_NotificationtestName.cpp \
     $${PWD}/OAINotificationsection_getNotificationtests_v1_Response.cpp \
     $${PWD}/OAINotificationsection_getNotificationtests_v1_Response_allOf.cpp \
     $${PWD}/OAINotificationsection_getNotificationtests_v1_Response_mPayload.cpp \
@@ -1236,9 +1381,32 @@ SOURCES += \
     $${PWD}/OAIWebhook_Ezsign_DocumentCompleted_allOf.cpp \
     $${PWD}/OAIWebhook_Ezsign_FolderCompleted.cpp \
     $${PWD}/OAIWebhook_Ezsign_FolderCompleted_allOf.cpp \
+    $${PWD}/OAIWebhook_ListElement.cpp \
+    $${PWD}/OAIWebhook_Request.cpp \
+    $${PWD}/OAIWebhook_RequestCompound.cpp \
     $${PWD}/OAIWebhook_Response.cpp \
+    $${PWD}/OAIWebhook_ResponseCompound.cpp \
     $${PWD}/OAIWebhook_User_UserCreated.cpp \
     $${PWD}/OAIWebhook_User_UserCreated_allOf.cpp \
+    $${PWD}/OAIWebhook_createObject_v1_Request.cpp \
+    $${PWD}/OAIWebhook_createObject_v1_Response.cpp \
+    $${PWD}/OAIWebhook_createObject_v1_Response_allOf.cpp \
+    $${PWD}/OAIWebhook_createObject_v1_Response_mPayload.cpp \
+    $${PWD}/OAIWebhook_deleteObject_v1_Response.cpp \
+    $${PWD}/OAIWebhook_editObject_v1_Request.cpp \
+    $${PWD}/OAIWebhook_editObject_v1_Response.cpp \
+    $${PWD}/OAIWebhook_getHistory_v1_Response.cpp \
+    $${PWD}/OAIWebhook_getHistory_v1_Response_allOf.cpp \
+    $${PWD}/OAIWebhook_getHistory_v1_Response_mPayload.cpp \
+    $${PWD}/OAIWebhook_getHistory_v1_Response_mPayload_allOf.cpp \
+    $${PWD}/OAIWebhook_getList_v1_Response.cpp \
+    $${PWD}/OAIWebhook_getList_v1_Response_allOf.cpp \
+    $${PWD}/OAIWebhook_getList_v1_Response_mPayload.cpp \
+    $${PWD}/OAIWebhook_getList_v1_Response_mPayload_allOf.cpp \
+    $${PWD}/OAIWebhook_getObject_v1_Response.cpp \
+    $${PWD}/OAIWebhook_getObject_v1_Response_allOf.cpp \
+    $${PWD}/OAIWebhook_getObject_v1_Response_mPayload.cpp \
+    $${PWD}/OAIWebhook_test_v1_Response.cpp \
     $${PWD}/OAIWebsite_Request.cpp \
     $${PWD}/OAIWebsite_RequestCompound.cpp \
 # APIs
@@ -1249,6 +1417,7 @@ SOURCES += \
     $${PWD}/OAIObjectApikeyApi.cpp \
     $${PWD}/OAIObjectBillingentityinternalApi.cpp \
     $${PWD}/OAIObjectBrandingApi.cpp \
+    $${PWD}/OAIObjectDepartmentApi.cpp \
     $${PWD}/OAIObjectEzsignbulksendApi.cpp \
     $${PWD}/OAIObjectEzsignbulksenddocumentmappingApi.cpp \
     $${PWD}/OAIObjectEzsignbulksendsignermappingApi.cpp \
@@ -1280,6 +1449,7 @@ SOURCES += \
     $${PWD}/OAIObjectTimezoneApi.cpp \
     $${PWD}/OAIObjectUserApi.cpp \
     $${PWD}/OAIObjectUsergroupApi.cpp \
+    $${PWD}/OAIObjectWebhookApi.cpp \
 # Others
     $${PWD}/OAIHelpers.cpp \
     $${PWD}/OAIHttpRequest.cpp \
