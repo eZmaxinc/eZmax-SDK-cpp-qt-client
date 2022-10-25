@@ -26,6 +26,11 @@ HEADERS += \
     $${PWD}/OAIApikey_createObject_v2_Response_mPayload.h \
     $${PWD}/OAIAttempt_Response.h \
     $${PWD}/OAIAttempt_ResponseCompound.h \
+    $${PWD}/OAIBillingentityinternal_AutocompleteElement_Response.h \
+    $${PWD}/OAIBillingentityinternal_getAutocomplete_v2_Response.h \
+    $${PWD}/OAIBillingentityinternal_getAutocomplete_v2_Response_allOf.h \
+    $${PWD}/OAIBillingentityinternal_getAutocomplete_v2_Response_mPayload.h \
+    $${PWD}/OAIBranding_AutocompleteElement_Response.h \
     $${PWD}/OAIBranding_ListElement.h \
     $${PWD}/OAIBranding_Request.h \
     $${PWD}/OAIBranding_RequestCompound.h \
@@ -38,6 +43,9 @@ HEADERS += \
     $${PWD}/OAIBranding_createObject_v1_Response_mPayload.h \
     $${PWD}/OAIBranding_editObject_v1_Request.h \
     $${PWD}/OAIBranding_editObject_v1_Response.h \
+    $${PWD}/OAIBranding_getAutocomplete_v2_Response.h \
+    $${PWD}/OAIBranding_getAutocomplete_v2_Response_allOf.h \
+    $${PWD}/OAIBranding_getAutocomplete_v2_Response_mPayload.h \
     $${PWD}/OAIBranding_getList_v1_Response.h \
     $${PWD}/OAIBranding_getList_v1_Response_allOf.h \
     $${PWD}/OAIBranding_getList_v1_Response_mPayload.h \
@@ -49,6 +57,7 @@ HEADERS += \
     $${PWD}/OAICommon_Auditdetail.h \
     $${PWD}/OAICommon_Response.h \
     $${PWD}/OAICommon_Response_Error.h \
+    $${PWD}/OAICommon_Response_Error_TooManyRequests.h \
     $${PWD}/OAICommon_Response_Error_sTemporaryFileUrl.h \
     $${PWD}/OAICommon_Response_Error_sTemporaryFileUrl_allOf.h \
     $${PWD}/OAICommon_Response_Filter.h \
@@ -75,10 +84,16 @@ HEADERS += \
     $${PWD}/OAICustom_AutocompleteElementDisabled_Response.h \
     $${PWD}/OAICustom_AutocompleteElementDisabled_Response_allOf.h \
     $${PWD}/OAICustom_AutocompleteElement_Response.h \
+    $${PWD}/OAICustom_ContactName_Response.h \
     $${PWD}/OAICustom_DropdownElement_Request.h \
     $${PWD}/OAICustom_DropdownElement_RequestCompound.h \
     $${PWD}/OAICustom_DropdownElement_Response.h \
     $${PWD}/OAICustom_DropdownElement_ResponseCompound.h \
+    $${PWD}/OAICustom_EzmaxinvoicingEzsigndocument_Response.h \
+    $${PWD}/OAICustom_EzmaxinvoicingEzsigndocument_Response_allOf.h \
+    $${PWD}/OAICustom_EzmaxinvoicingEzsignfolder_Response.h \
+    $${PWD}/OAICustom_EzmaxinvoicingEzsignfolder_Response_allOf.h \
+    $${PWD}/OAICustom_Ezmaxpricing_Response.h \
     $${PWD}/OAICustom_EzsignfoldersignerassociationActionableElement_Response.h \
     $${PWD}/OAICustom_EzsignfoldersignerassociationActionableElement_Response_allOf.h \
     $${PWD}/OAICustom_Ezsignfoldersignerassociationmessage_Request.h \
@@ -103,11 +118,51 @@ HEADERS += \
     $${PWD}/OAICustom_Webhooklog_Response_allOf.h \
     $${PWD}/OAICustom_WordPositionOccurence_Response.h \
     $${PWD}/OAICustom_WordPositionWord_Response.h \
+    $${PWD}/OAIDepartment_AutocompleteElement_Response.h \
+    $${PWD}/OAIDepartment_getAutocomplete_v2_Response.h \
+    $${PWD}/OAIDepartment_getAutocomplete_v2_Response_allOf.h \
+    $${PWD}/OAIDepartment_getAutocomplete_v2_Response_mPayload.h \
     $${PWD}/OAIDepartment_getMembers_v1_Response.h \
     $${PWD}/OAIDepartment_getMembers_v1_Response_allOf.h \
     $${PWD}/OAIDepartment_getMembers_v1_Response_mPayload.h \
     $${PWD}/OAIEmail_Request.h \
     $${PWD}/OAIEmail_RequestCompound.h \
+    $${PWD}/OAIEzmaxinvoicing_AutocompleteElement_Response.h \
+    $${PWD}/OAIEzmaxinvoicing_Response.h \
+    $${PWD}/OAIEzmaxinvoicing_ResponseCompound.h \
+    $${PWD}/OAIEzmaxinvoicing_ResponseCompound_allOf.h \
+    $${PWD}/OAIEzmaxinvoicing_getAutocomplete_v2_Response.h \
+    $${PWD}/OAIEzmaxinvoicing_getAutocomplete_v2_Response_allOf.h \
+    $${PWD}/OAIEzmaxinvoicing_getAutocomplete_v2_Response_mPayload.h \
+    $${PWD}/OAIEzmaxinvoicing_getObject_v1_Response.h \
+    $${PWD}/OAIEzmaxinvoicing_getObject_v1_Response_allOf.h \
+    $${PWD}/OAIEzmaxinvoicing_getObject_v1_Response_mPayload.h \
+    $${PWD}/OAIEzmaxinvoicing_getProvisional_v1_Response.h \
+    $${PWD}/OAIEzmaxinvoicing_getProvisional_v1_Response_allOf.h \
+    $${PWD}/OAIEzmaxinvoicing_getProvisional_v1_Response_mPayload.h \
+    $${PWD}/OAIEzmaxinvoicingagent_Response.h \
+    $${PWD}/OAIEzmaxinvoicingagent_ResponseCompound.h \
+    $${PWD}/OAIEzmaxinvoicingagent_ResponseCompound_allOf.h \
+    $${PWD}/OAIEzmaxinvoicingcommission_Response.h \
+    $${PWD}/OAIEzmaxinvoicingcommission_ResponseCompound.h \
+    $${PWD}/OAIEzmaxinvoicingcommission_ResponseCompound_allOf.h \
+    $${PWD}/OAIEzmaxinvoicingcontract_Response.h \
+    $${PWD}/OAIEzmaxinvoicingcontract_ResponseCompound.h \
+    $${PWD}/OAIEzmaxinvoicingsummaryexternal_Response.h \
+    $${PWD}/OAIEzmaxinvoicingsummaryexternal_ResponseCompound.h \
+    $${PWD}/OAIEzmaxinvoicingsummaryexternal_ResponseCompound_allOf.h \
+    $${PWD}/OAIEzmaxinvoicingsummaryexternaldetail_Response.h \
+    $${PWD}/OAIEzmaxinvoicingsummaryexternaldetail_ResponseCompound.h \
+    $${PWD}/OAIEzmaxinvoicingsummaryglobal_Response.h \
+    $${PWD}/OAIEzmaxinvoicingsummaryglobal_ResponseCompound.h \
+    $${PWD}/OAIEzmaxinvoicingsummaryglobal_ResponseCompound_allOf.h \
+    $${PWD}/OAIEzmaxinvoicingsummaryinternal_Response.h \
+    $${PWD}/OAIEzmaxinvoicingsummaryinternal_ResponseCompound.h \
+    $${PWD}/OAIEzmaxinvoicingsummaryinternal_ResponseCompound_allOf.h \
+    $${PWD}/OAIEzmaxinvoicingsummaryinternaldetail_Response.h \
+    $${PWD}/OAIEzmaxinvoicingsummaryinternaldetail_ResponseCompound.h \
+    $${PWD}/OAIEzmaxinvoicinguser_Response.h \
+    $${PWD}/OAIEzmaxinvoicinguser_ResponseCompound.h \
     $${PWD}/OAIEzsign_suggestSigners_v1_Response.h \
     $${PWD}/OAIEzsign_suggestSigners_v1_Response_allOf.h \
     $${PWD}/OAIEzsign_suggestSigners_v1_Response_mPayload.h \
@@ -313,12 +368,14 @@ HEADERS += \
     $${PWD}/OAIEzsignfoldersignerassociation_deleteObject_v1_Response.h \
     $${PWD}/OAIEzsignfoldersignerassociation_editObject_v1_Request.h \
     $${PWD}/OAIEzsignfoldersignerassociation_editObject_v1_Response.h \
+    $${PWD}/OAIEzsignfoldersignerassociation_forceDisconnect_v1_Response.h \
     $${PWD}/OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response.h \
     $${PWD}/OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response_allOf.h \
     $${PWD}/OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response_mPayload.h \
     $${PWD}/OAIEzsignfoldersignerassociation_getObject_v1_Response.h \
     $${PWD}/OAIEzsignfoldersignerassociation_getObject_v1_Response_allOf.h \
     $${PWD}/OAIEzsignfoldersignerassociation_getObject_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsignfoldertype_AutocompleteElement_Response.h \
     $${PWD}/OAIEzsignfoldertype_ListElement.h \
     $${PWD}/OAIEzsignfoldertype_Request.h \
     $${PWD}/OAIEzsignfoldertype_RequestCompound.h \
@@ -331,6 +388,9 @@ HEADERS += \
     $${PWD}/OAIEzsignfoldertype_createObject_v1_Response_mPayload.h \
     $${PWD}/OAIEzsignfoldertype_editObject_v1_Request.h \
     $${PWD}/OAIEzsignfoldertype_editObject_v1_Response.h \
+    $${PWD}/OAIEzsignfoldertype_getAutocomplete_v2_Response.h \
+    $${PWD}/OAIEzsignfoldertype_getAutocomplete_v2_Response_allOf.h \
+    $${PWD}/OAIEzsignfoldertype_getAutocomplete_v2_Response_mPayload.h \
     $${PWD}/OAIEzsignfoldertype_getList_v1_Response.h \
     $${PWD}/OAIEzsignfoldertype_getList_v1_Response_allOf.h \
     $${PWD}/OAIEzsignfoldertype_getList_v1_Response_mPayload.h \
@@ -399,6 +459,7 @@ HEADERS += \
     $${PWD}/OAIEzsignsigner_ResponseCompound.h \
     $${PWD}/OAIEzsignsigner_ResponseCompound_Contact.h \
     $${PWD}/OAIEzsignsigner_ResponseCompound_allOf.h \
+    $${PWD}/OAIEzsigntemplate_AutocompleteElement_Response.h \
     $${PWD}/OAIEzsigntemplate_ListElement.h \
     $${PWD}/OAIEzsigntemplate_Request.h \
     $${PWD}/OAIEzsigntemplate_RequestCompound.h \
@@ -412,6 +473,9 @@ HEADERS += \
     $${PWD}/OAIEzsigntemplate_deleteObject_v1_Response.h \
     $${PWD}/OAIEzsigntemplate_editObject_v1_Request.h \
     $${PWD}/OAIEzsigntemplate_editObject_v1_Response.h \
+    $${PWD}/OAIEzsigntemplate_getAutocomplete_v2_Response.h \
+    $${PWD}/OAIEzsigntemplate_getAutocomplete_v2_Response_allOf.h \
+    $${PWD}/OAIEzsigntemplate_getAutocomplete_v2_Response_mPayload.h \
     $${PWD}/OAIEzsigntemplate_getList_v1_Response.h \
     $${PWD}/OAIEzsigntemplate_getList_v1_Response_allOf.h \
     $${PWD}/OAIEzsigntemplate_getList_v1_Response_mPayload.h \
@@ -482,6 +546,7 @@ HEADERS += \
     $${PWD}/OAIEzsigntemplateformfieldgroupsigner_RequestCompound.h \
     $${PWD}/OAIEzsigntemplateformfieldgroupsigner_Response.h \
     $${PWD}/OAIEzsigntemplateformfieldgroupsigner_ResponseCompound.h \
+    $${PWD}/OAIEzsigntemplatepackage_AutocompleteElement_Response.h \
     $${PWD}/OAIEzsigntemplatepackage_ListElement.h \
     $${PWD}/OAIEzsigntemplatepackage_Request.h \
     $${PWD}/OAIEzsigntemplatepackage_RequestCompound.h \
@@ -499,6 +564,9 @@ HEADERS += \
     $${PWD}/OAIEzsigntemplatepackage_editEzsigntemplatepackagesigners_v1_Response_mPayload.h \
     $${PWD}/OAIEzsigntemplatepackage_editObject_v1_Request.h \
     $${PWD}/OAIEzsigntemplatepackage_editObject_v1_Response.h \
+    $${PWD}/OAIEzsigntemplatepackage_getAutocomplete_v2_Response.h \
+    $${PWD}/OAIEzsigntemplatepackage_getAutocomplete_v2_Response_allOf.h \
+    $${PWD}/OAIEzsigntemplatepackage_getAutocomplete_v2_Response_mPayload.h \
     $${PWD}/OAIEzsigntemplatepackage_getList_v1_Response.h \
     $${PWD}/OAIEzsigntemplatepackage_getList_v1_Response_allOf.h \
     $${PWD}/OAIEzsigntemplatepackage_getList_v1_Response_mPayload.h \
@@ -583,9 +651,18 @@ HEADERS += \
     $${PWD}/OAIEzsigntemplatesigner_getObject_v1_Response.h \
     $${PWD}/OAIEzsigntemplatesigner_getObject_v1_Response_allOf.h \
     $${PWD}/OAIEzsigntemplatesigner_getObject_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsigntsarequirement_AutocompleteElement_Response.h \
+    $${PWD}/OAIEzsigntsarequirement_getAutocomplete_v2_Response.h \
+    $${PWD}/OAIEzsigntsarequirement_getAutocomplete_v2_Response_allOf.h \
+    $${PWD}/OAIEzsigntsarequirement_getAutocomplete_v2_Response_mPayload.h \
     $${PWD}/OAIField_eActivesessionUsertype.h \
     $${PWD}/OAIField_eActivesessionWeekdaystart.h \
     $${PWD}/OAIField_eBrandingLogo.h \
+    $${PWD}/OAIField_eEzmaxinvoicingPaymenttype.h \
+    $${PWD}/OAIField_eEzmaxinvoicingagentVariationezmax.h \
+    $${PWD}/OAIField_eEzmaxinvoicingagentVariationezsign.h \
+    $${PWD}/OAIField_eEzmaxinvoicingcontractPaymenttype.h \
+    $${PWD}/OAIField_eEzmaxinvoicinguserVariationezsign.h \
     $${PWD}/OAIField_eEzsigndocumentStep.h \
     $${PWD}/OAIField_eEzsigndocumentlogType.h \
     $${PWD}/OAIField_eEzsignfolderSendreminderfrequency.h \
@@ -603,6 +680,7 @@ HEADERS += \
     $${PWD}/OAIField_eEzsigntemplateformfieldgroupSignerrequirement.h \
     $${PWD}/OAIField_eEzsigntemplateformfieldgroupTooltipposition.h \
     $${PWD}/OAIField_eEzsigntemplateformfieldgroupType.h \
+    $${PWD}/OAIField_eEzsigntemplatesignatureAttachmentnamesource.h \
     $${PWD}/OAIField_eEzsigntemplatesignatureFont.h \
     $${PWD}/OAIField_eEzsigntemplatesignatureTooltipposition.h \
     $${PWD}/OAIField_eEzsigntemplatesignatureType.h \
@@ -628,6 +706,7 @@ HEADERS += \
     $${PWD}/OAIHeader_Accept_Language.h \
     $${PWD}/OAIMultilingual_ApikeyDescription.h \
     $${PWD}/OAIMultilingual_BrandingDescription.h \
+    $${PWD}/OAIMultilingual_EzmaxinvoicingsummaryinternalDescription.h \
     $${PWD}/OAIMultilingual_EzsignfoldertypeName.h \
     $${PWD}/OAIMultilingual_NotificationsubsectionName.h \
     $${PWD}/OAIMultilingual_NotificationtestName.h \
@@ -641,12 +720,32 @@ HEADERS += \
     $${PWD}/OAINotificationtest_getElements_v1_Response_mPayload.h \
     $${PWD}/OAIPhone_Request.h \
     $${PWD}/OAIPhone_RequestCompound.h \
+    $${PWD}/OAISecretquestion_AutocompleteElement_Response.h \
+    $${PWD}/OAISecretquestion_getAutocomplete_v2_Response.h \
+    $${PWD}/OAISecretquestion_getAutocomplete_v2_Response_allOf.h \
+    $${PWD}/OAISecretquestion_getAutocomplete_v2_Response_mPayload.h \
+    $${PWD}/OAITaxassignment_AutocompleteElement_Response.h \
+    $${PWD}/OAITaxassignment_getAutocomplete_v2_Response.h \
+    $${PWD}/OAITaxassignment_getAutocomplete_v2_Response_allOf.h \
+    $${PWD}/OAITaxassignment_getAutocomplete_v2_Response_mPayload.h \
+    $${PWD}/OAITimezone_AutocompleteElement_Response.h \
+    $${PWD}/OAITimezone_getAutocomplete_v2_Response.h \
+    $${PWD}/OAITimezone_getAutocomplete_v2_Response_allOf.h \
+    $${PWD}/OAITimezone_getAutocomplete_v2_Response_mPayload.h \
+    $${PWD}/OAIUser_AutocompleteElement_Response.h \
     $${PWD}/OAIUser_Response.h \
     $${PWD}/OAIUser_ResponseCompound.h \
     $${PWD}/OAIUser_createEzsignuser_v1_Request.h \
     $${PWD}/OAIUser_createEzsignuser_v1_Response.h \
     $${PWD}/OAIUser_createEzsignuser_v1_Response_allOf.h \
     $${PWD}/OAIUser_createEzsignuser_v1_Response_mPayload.h \
+    $${PWD}/OAIUser_getAutocomplete_v2_Response.h \
+    $${PWD}/OAIUser_getAutocomplete_v2_Response_allOf.h \
+    $${PWD}/OAIUser_getAutocomplete_v2_Response_mPayload.h \
+    $${PWD}/OAIUsergroup_AutocompleteElement_Response.h \
+    $${PWD}/OAIUsergroup_getAutocomplete_v2_Response.h \
+    $${PWD}/OAIUsergroup_getAutocomplete_v2_Response_allOf.h \
+    $${PWD}/OAIUsergroup_getAutocomplete_v2_Response_mPayload.h \
     $${PWD}/OAIWebhook_Ezsign_DocumentCompleted.h \
     $${PWD}/OAIWebhook_Ezsign_DocumentCompleted_allOf.h \
     $${PWD}/OAIWebhook_Ezsign_FolderCompleted.h \
@@ -688,6 +787,7 @@ HEADERS += \
     $${PWD}/OAIObjectBillingentityinternalApi.h \
     $${PWD}/OAIObjectBrandingApi.h \
     $${PWD}/OAIObjectDepartmentApi.h \
+    $${PWD}/OAIObjectEzmaxinvoicingApi.h \
     $${PWD}/OAIObjectEzsignbulksendApi.h \
     $${PWD}/OAIObjectEzsignbulksenddocumentmappingApi.h \
     $${PWD}/OAIObjectEzsignbulksendsignermappingApi.h \
@@ -756,6 +856,11 @@ SOURCES += \
     $${PWD}/OAIApikey_createObject_v2_Response_mPayload.cpp \
     $${PWD}/OAIAttempt_Response.cpp \
     $${PWD}/OAIAttempt_ResponseCompound.cpp \
+    $${PWD}/OAIBillingentityinternal_AutocompleteElement_Response.cpp \
+    $${PWD}/OAIBillingentityinternal_getAutocomplete_v2_Response.cpp \
+    $${PWD}/OAIBillingentityinternal_getAutocomplete_v2_Response_allOf.cpp \
+    $${PWD}/OAIBillingentityinternal_getAutocomplete_v2_Response_mPayload.cpp \
+    $${PWD}/OAIBranding_AutocompleteElement_Response.cpp \
     $${PWD}/OAIBranding_ListElement.cpp \
     $${PWD}/OAIBranding_Request.cpp \
     $${PWD}/OAIBranding_RequestCompound.cpp \
@@ -768,6 +873,9 @@ SOURCES += \
     $${PWD}/OAIBranding_createObject_v1_Response_mPayload.cpp \
     $${PWD}/OAIBranding_editObject_v1_Request.cpp \
     $${PWD}/OAIBranding_editObject_v1_Response.cpp \
+    $${PWD}/OAIBranding_getAutocomplete_v2_Response.cpp \
+    $${PWD}/OAIBranding_getAutocomplete_v2_Response_allOf.cpp \
+    $${PWD}/OAIBranding_getAutocomplete_v2_Response_mPayload.cpp \
     $${PWD}/OAIBranding_getList_v1_Response.cpp \
     $${PWD}/OAIBranding_getList_v1_Response_allOf.cpp \
     $${PWD}/OAIBranding_getList_v1_Response_mPayload.cpp \
@@ -779,6 +887,7 @@ SOURCES += \
     $${PWD}/OAICommon_Auditdetail.cpp \
     $${PWD}/OAICommon_Response.cpp \
     $${PWD}/OAICommon_Response_Error.cpp \
+    $${PWD}/OAICommon_Response_Error_TooManyRequests.cpp \
     $${PWD}/OAICommon_Response_Error_sTemporaryFileUrl.cpp \
     $${PWD}/OAICommon_Response_Error_sTemporaryFileUrl_allOf.cpp \
     $${PWD}/OAICommon_Response_Filter.cpp \
@@ -805,10 +914,16 @@ SOURCES += \
     $${PWD}/OAICustom_AutocompleteElementDisabled_Response.cpp \
     $${PWD}/OAICustom_AutocompleteElementDisabled_Response_allOf.cpp \
     $${PWD}/OAICustom_AutocompleteElement_Response.cpp \
+    $${PWD}/OAICustom_ContactName_Response.cpp \
     $${PWD}/OAICustom_DropdownElement_Request.cpp \
     $${PWD}/OAICustom_DropdownElement_RequestCompound.cpp \
     $${PWD}/OAICustom_DropdownElement_Response.cpp \
     $${PWD}/OAICustom_DropdownElement_ResponseCompound.cpp \
+    $${PWD}/OAICustom_EzmaxinvoicingEzsigndocument_Response.cpp \
+    $${PWD}/OAICustom_EzmaxinvoicingEzsigndocument_Response_allOf.cpp \
+    $${PWD}/OAICustom_EzmaxinvoicingEzsignfolder_Response.cpp \
+    $${PWD}/OAICustom_EzmaxinvoicingEzsignfolder_Response_allOf.cpp \
+    $${PWD}/OAICustom_Ezmaxpricing_Response.cpp \
     $${PWD}/OAICustom_EzsignfoldersignerassociationActionableElement_Response.cpp \
     $${PWD}/OAICustom_EzsignfoldersignerassociationActionableElement_Response_allOf.cpp \
     $${PWD}/OAICustom_Ezsignfoldersignerassociationmessage_Request.cpp \
@@ -833,11 +948,51 @@ SOURCES += \
     $${PWD}/OAICustom_Webhooklog_Response_allOf.cpp \
     $${PWD}/OAICustom_WordPositionOccurence_Response.cpp \
     $${PWD}/OAICustom_WordPositionWord_Response.cpp \
+    $${PWD}/OAIDepartment_AutocompleteElement_Response.cpp \
+    $${PWD}/OAIDepartment_getAutocomplete_v2_Response.cpp \
+    $${PWD}/OAIDepartment_getAutocomplete_v2_Response_allOf.cpp \
+    $${PWD}/OAIDepartment_getAutocomplete_v2_Response_mPayload.cpp \
     $${PWD}/OAIDepartment_getMembers_v1_Response.cpp \
     $${PWD}/OAIDepartment_getMembers_v1_Response_allOf.cpp \
     $${PWD}/OAIDepartment_getMembers_v1_Response_mPayload.cpp \
     $${PWD}/OAIEmail_Request.cpp \
     $${PWD}/OAIEmail_RequestCompound.cpp \
+    $${PWD}/OAIEzmaxinvoicing_AutocompleteElement_Response.cpp \
+    $${PWD}/OAIEzmaxinvoicing_Response.cpp \
+    $${PWD}/OAIEzmaxinvoicing_ResponseCompound.cpp \
+    $${PWD}/OAIEzmaxinvoicing_ResponseCompound_allOf.cpp \
+    $${PWD}/OAIEzmaxinvoicing_getAutocomplete_v2_Response.cpp \
+    $${PWD}/OAIEzmaxinvoicing_getAutocomplete_v2_Response_allOf.cpp \
+    $${PWD}/OAIEzmaxinvoicing_getAutocomplete_v2_Response_mPayload.cpp \
+    $${PWD}/OAIEzmaxinvoicing_getObject_v1_Response.cpp \
+    $${PWD}/OAIEzmaxinvoicing_getObject_v1_Response_allOf.cpp \
+    $${PWD}/OAIEzmaxinvoicing_getObject_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzmaxinvoicing_getProvisional_v1_Response.cpp \
+    $${PWD}/OAIEzmaxinvoicing_getProvisional_v1_Response_allOf.cpp \
+    $${PWD}/OAIEzmaxinvoicing_getProvisional_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzmaxinvoicingagent_Response.cpp \
+    $${PWD}/OAIEzmaxinvoicingagent_ResponseCompound.cpp \
+    $${PWD}/OAIEzmaxinvoicingagent_ResponseCompound_allOf.cpp \
+    $${PWD}/OAIEzmaxinvoicingcommission_Response.cpp \
+    $${PWD}/OAIEzmaxinvoicingcommission_ResponseCompound.cpp \
+    $${PWD}/OAIEzmaxinvoicingcommission_ResponseCompound_allOf.cpp \
+    $${PWD}/OAIEzmaxinvoicingcontract_Response.cpp \
+    $${PWD}/OAIEzmaxinvoicingcontract_ResponseCompound.cpp \
+    $${PWD}/OAIEzmaxinvoicingsummaryexternal_Response.cpp \
+    $${PWD}/OAIEzmaxinvoicingsummaryexternal_ResponseCompound.cpp \
+    $${PWD}/OAIEzmaxinvoicingsummaryexternal_ResponseCompound_allOf.cpp \
+    $${PWD}/OAIEzmaxinvoicingsummaryexternaldetail_Response.cpp \
+    $${PWD}/OAIEzmaxinvoicingsummaryexternaldetail_ResponseCompound.cpp \
+    $${PWD}/OAIEzmaxinvoicingsummaryglobal_Response.cpp \
+    $${PWD}/OAIEzmaxinvoicingsummaryglobal_ResponseCompound.cpp \
+    $${PWD}/OAIEzmaxinvoicingsummaryglobal_ResponseCompound_allOf.cpp \
+    $${PWD}/OAIEzmaxinvoicingsummaryinternal_Response.cpp \
+    $${PWD}/OAIEzmaxinvoicingsummaryinternal_ResponseCompound.cpp \
+    $${PWD}/OAIEzmaxinvoicingsummaryinternal_ResponseCompound_allOf.cpp \
+    $${PWD}/OAIEzmaxinvoicingsummaryinternaldetail_Response.cpp \
+    $${PWD}/OAIEzmaxinvoicingsummaryinternaldetail_ResponseCompound.cpp \
+    $${PWD}/OAIEzmaxinvoicinguser_Response.cpp \
+    $${PWD}/OAIEzmaxinvoicinguser_ResponseCompound.cpp \
     $${PWD}/OAIEzsign_suggestSigners_v1_Response.cpp \
     $${PWD}/OAIEzsign_suggestSigners_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsign_suggestSigners_v1_Response_mPayload.cpp \
@@ -1043,12 +1198,14 @@ SOURCES += \
     $${PWD}/OAIEzsignfoldersignerassociation_deleteObject_v1_Response.cpp \
     $${PWD}/OAIEzsignfoldersignerassociation_editObject_v1_Request.cpp \
     $${PWD}/OAIEzsignfoldersignerassociation_editObject_v1_Response.cpp \
+    $${PWD}/OAIEzsignfoldersignerassociation_forceDisconnect_v1_Response.cpp \
     $${PWD}/OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response.cpp \
     $${PWD}/OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response_mPayload.cpp \
     $${PWD}/OAIEzsignfoldersignerassociation_getObject_v1_Response.cpp \
     $${PWD}/OAIEzsignfoldersignerassociation_getObject_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsignfoldersignerassociation_getObject_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsignfoldertype_AutocompleteElement_Response.cpp \
     $${PWD}/OAIEzsignfoldertype_ListElement.cpp \
     $${PWD}/OAIEzsignfoldertype_Request.cpp \
     $${PWD}/OAIEzsignfoldertype_RequestCompound.cpp \
@@ -1061,6 +1218,9 @@ SOURCES += \
     $${PWD}/OAIEzsignfoldertype_createObject_v1_Response_mPayload.cpp \
     $${PWD}/OAIEzsignfoldertype_editObject_v1_Request.cpp \
     $${PWD}/OAIEzsignfoldertype_editObject_v1_Response.cpp \
+    $${PWD}/OAIEzsignfoldertype_getAutocomplete_v2_Response.cpp \
+    $${PWD}/OAIEzsignfoldertype_getAutocomplete_v2_Response_allOf.cpp \
+    $${PWD}/OAIEzsignfoldertype_getAutocomplete_v2_Response_mPayload.cpp \
     $${PWD}/OAIEzsignfoldertype_getList_v1_Response.cpp \
     $${PWD}/OAIEzsignfoldertype_getList_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsignfoldertype_getList_v1_Response_mPayload.cpp \
@@ -1129,6 +1289,7 @@ SOURCES += \
     $${PWD}/OAIEzsignsigner_ResponseCompound.cpp \
     $${PWD}/OAIEzsignsigner_ResponseCompound_Contact.cpp \
     $${PWD}/OAIEzsignsigner_ResponseCompound_allOf.cpp \
+    $${PWD}/OAIEzsigntemplate_AutocompleteElement_Response.cpp \
     $${PWD}/OAIEzsigntemplate_ListElement.cpp \
     $${PWD}/OAIEzsigntemplate_Request.cpp \
     $${PWD}/OAIEzsigntemplate_RequestCompound.cpp \
@@ -1142,6 +1303,9 @@ SOURCES += \
     $${PWD}/OAIEzsigntemplate_deleteObject_v1_Response.cpp \
     $${PWD}/OAIEzsigntemplate_editObject_v1_Request.cpp \
     $${PWD}/OAIEzsigntemplate_editObject_v1_Response.cpp \
+    $${PWD}/OAIEzsigntemplate_getAutocomplete_v2_Response.cpp \
+    $${PWD}/OAIEzsigntemplate_getAutocomplete_v2_Response_allOf.cpp \
+    $${PWD}/OAIEzsigntemplate_getAutocomplete_v2_Response_mPayload.cpp \
     $${PWD}/OAIEzsigntemplate_getList_v1_Response.cpp \
     $${PWD}/OAIEzsigntemplate_getList_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsigntemplate_getList_v1_Response_mPayload.cpp \
@@ -1212,6 +1376,7 @@ SOURCES += \
     $${PWD}/OAIEzsigntemplateformfieldgroupsigner_RequestCompound.cpp \
     $${PWD}/OAIEzsigntemplateformfieldgroupsigner_Response.cpp \
     $${PWD}/OAIEzsigntemplateformfieldgroupsigner_ResponseCompound.cpp \
+    $${PWD}/OAIEzsigntemplatepackage_AutocompleteElement_Response.cpp \
     $${PWD}/OAIEzsigntemplatepackage_ListElement.cpp \
     $${PWD}/OAIEzsigntemplatepackage_Request.cpp \
     $${PWD}/OAIEzsigntemplatepackage_RequestCompound.cpp \
@@ -1229,6 +1394,9 @@ SOURCES += \
     $${PWD}/OAIEzsigntemplatepackage_editEzsigntemplatepackagesigners_v1_Response_mPayload.cpp \
     $${PWD}/OAIEzsigntemplatepackage_editObject_v1_Request.cpp \
     $${PWD}/OAIEzsigntemplatepackage_editObject_v1_Response.cpp \
+    $${PWD}/OAIEzsigntemplatepackage_getAutocomplete_v2_Response.cpp \
+    $${PWD}/OAIEzsigntemplatepackage_getAutocomplete_v2_Response_allOf.cpp \
+    $${PWD}/OAIEzsigntemplatepackage_getAutocomplete_v2_Response_mPayload.cpp \
     $${PWD}/OAIEzsigntemplatepackage_getList_v1_Response.cpp \
     $${PWD}/OAIEzsigntemplatepackage_getList_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsigntemplatepackage_getList_v1_Response_mPayload.cpp \
@@ -1313,9 +1481,18 @@ SOURCES += \
     $${PWD}/OAIEzsigntemplatesigner_getObject_v1_Response.cpp \
     $${PWD}/OAIEzsigntemplatesigner_getObject_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsigntemplatesigner_getObject_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsigntsarequirement_AutocompleteElement_Response.cpp \
+    $${PWD}/OAIEzsigntsarequirement_getAutocomplete_v2_Response.cpp \
+    $${PWD}/OAIEzsigntsarequirement_getAutocomplete_v2_Response_allOf.cpp \
+    $${PWD}/OAIEzsigntsarequirement_getAutocomplete_v2_Response_mPayload.cpp \
     $${PWD}/OAIField_eActivesessionUsertype.cpp \
     $${PWD}/OAIField_eActivesessionWeekdaystart.cpp \
     $${PWD}/OAIField_eBrandingLogo.cpp \
+    $${PWD}/OAIField_eEzmaxinvoicingPaymenttype.cpp \
+    $${PWD}/OAIField_eEzmaxinvoicingagentVariationezmax.cpp \
+    $${PWD}/OAIField_eEzmaxinvoicingagentVariationezsign.cpp \
+    $${PWD}/OAIField_eEzmaxinvoicingcontractPaymenttype.cpp \
+    $${PWD}/OAIField_eEzmaxinvoicinguserVariationezsign.cpp \
     $${PWD}/OAIField_eEzsigndocumentStep.cpp \
     $${PWD}/OAIField_eEzsigndocumentlogType.cpp \
     $${PWD}/OAIField_eEzsignfolderSendreminderfrequency.cpp \
@@ -1333,6 +1510,7 @@ SOURCES += \
     $${PWD}/OAIField_eEzsigntemplateformfieldgroupSignerrequirement.cpp \
     $${PWD}/OAIField_eEzsigntemplateformfieldgroupTooltipposition.cpp \
     $${PWD}/OAIField_eEzsigntemplateformfieldgroupType.cpp \
+    $${PWD}/OAIField_eEzsigntemplatesignatureAttachmentnamesource.cpp \
     $${PWD}/OAIField_eEzsigntemplatesignatureFont.cpp \
     $${PWD}/OAIField_eEzsigntemplatesignatureTooltipposition.cpp \
     $${PWD}/OAIField_eEzsigntemplatesignatureType.cpp \
@@ -1358,6 +1536,7 @@ SOURCES += \
     $${PWD}/OAIHeader_Accept_Language.cpp \
     $${PWD}/OAIMultilingual_ApikeyDescription.cpp \
     $${PWD}/OAIMultilingual_BrandingDescription.cpp \
+    $${PWD}/OAIMultilingual_EzmaxinvoicingsummaryinternalDescription.cpp \
     $${PWD}/OAIMultilingual_EzsignfoldertypeName.cpp \
     $${PWD}/OAIMultilingual_NotificationsubsectionName.cpp \
     $${PWD}/OAIMultilingual_NotificationtestName.cpp \
@@ -1371,12 +1550,32 @@ SOURCES += \
     $${PWD}/OAINotificationtest_getElements_v1_Response_mPayload.cpp \
     $${PWD}/OAIPhone_Request.cpp \
     $${PWD}/OAIPhone_RequestCompound.cpp \
+    $${PWD}/OAISecretquestion_AutocompleteElement_Response.cpp \
+    $${PWD}/OAISecretquestion_getAutocomplete_v2_Response.cpp \
+    $${PWD}/OAISecretquestion_getAutocomplete_v2_Response_allOf.cpp \
+    $${PWD}/OAISecretquestion_getAutocomplete_v2_Response_mPayload.cpp \
+    $${PWD}/OAITaxassignment_AutocompleteElement_Response.cpp \
+    $${PWD}/OAITaxassignment_getAutocomplete_v2_Response.cpp \
+    $${PWD}/OAITaxassignment_getAutocomplete_v2_Response_allOf.cpp \
+    $${PWD}/OAITaxassignment_getAutocomplete_v2_Response_mPayload.cpp \
+    $${PWD}/OAITimezone_AutocompleteElement_Response.cpp \
+    $${PWD}/OAITimezone_getAutocomplete_v2_Response.cpp \
+    $${PWD}/OAITimezone_getAutocomplete_v2_Response_allOf.cpp \
+    $${PWD}/OAITimezone_getAutocomplete_v2_Response_mPayload.cpp \
+    $${PWD}/OAIUser_AutocompleteElement_Response.cpp \
     $${PWD}/OAIUser_Response.cpp \
     $${PWD}/OAIUser_ResponseCompound.cpp \
     $${PWD}/OAIUser_createEzsignuser_v1_Request.cpp \
     $${PWD}/OAIUser_createEzsignuser_v1_Response.cpp \
     $${PWD}/OAIUser_createEzsignuser_v1_Response_allOf.cpp \
     $${PWD}/OAIUser_createEzsignuser_v1_Response_mPayload.cpp \
+    $${PWD}/OAIUser_getAutocomplete_v2_Response.cpp \
+    $${PWD}/OAIUser_getAutocomplete_v2_Response_allOf.cpp \
+    $${PWD}/OAIUser_getAutocomplete_v2_Response_mPayload.cpp \
+    $${PWD}/OAIUsergroup_AutocompleteElement_Response.cpp \
+    $${PWD}/OAIUsergroup_getAutocomplete_v2_Response.cpp \
+    $${PWD}/OAIUsergroup_getAutocomplete_v2_Response_allOf.cpp \
+    $${PWD}/OAIUsergroup_getAutocomplete_v2_Response_mPayload.cpp \
     $${PWD}/OAIWebhook_Ezsign_DocumentCompleted.cpp \
     $${PWD}/OAIWebhook_Ezsign_DocumentCompleted_allOf.cpp \
     $${PWD}/OAIWebhook_Ezsign_FolderCompleted.cpp \
@@ -1418,6 +1617,7 @@ SOURCES += \
     $${PWD}/OAIObjectBillingentityinternalApi.cpp \
     $${PWD}/OAIObjectBrandingApi.cpp \
     $${PWD}/OAIObjectDepartmentApi.cpp \
+    $${PWD}/OAIObjectEzmaxinvoicingApi.cpp \
     $${PWD}/OAIObjectEzsignbulksendApi.cpp \
     $${PWD}/OAIObjectEzsignbulksenddocumentmappingApi.cpp \
     $${PWD}/OAIObjectEzsignbulksendsignermappingApi.cpp \

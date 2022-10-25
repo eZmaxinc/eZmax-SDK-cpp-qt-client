@@ -40,6 +40,11 @@ add_library(${PROJECT_NAME}
     OAIApikey_createObject_v2_Response_mPayload.cpp
     OAIAttempt_Response.cpp
     OAIAttempt_ResponseCompound.cpp
+    OAIBillingentityinternal_AutocompleteElement_Response.cpp
+    OAIBillingentityinternal_getAutocomplete_v2_Response.cpp
+    OAIBillingentityinternal_getAutocomplete_v2_Response_allOf.cpp
+    OAIBillingentityinternal_getAutocomplete_v2_Response_mPayload.cpp
+    OAIBranding_AutocompleteElement_Response.cpp
     OAIBranding_ListElement.cpp
     OAIBranding_Request.cpp
     OAIBranding_RequestCompound.cpp
@@ -52,6 +57,9 @@ add_library(${PROJECT_NAME}
     OAIBranding_createObject_v1_Response_mPayload.cpp
     OAIBranding_editObject_v1_Request.cpp
     OAIBranding_editObject_v1_Response.cpp
+    OAIBranding_getAutocomplete_v2_Response.cpp
+    OAIBranding_getAutocomplete_v2_Response_allOf.cpp
+    OAIBranding_getAutocomplete_v2_Response_mPayload.cpp
     OAIBranding_getList_v1_Response.cpp
     OAIBranding_getList_v1_Response_allOf.cpp
     OAIBranding_getList_v1_Response_mPayload.cpp
@@ -63,6 +71,7 @@ add_library(${PROJECT_NAME}
     OAICommon_Auditdetail.cpp
     OAICommon_Response.cpp
     OAICommon_Response_Error.cpp
+    OAICommon_Response_Error_TooManyRequests.cpp
     OAICommon_Response_Error_sTemporaryFileUrl.cpp
     OAICommon_Response_Error_sTemporaryFileUrl_allOf.cpp
     OAICommon_Response_Filter.cpp
@@ -89,10 +98,16 @@ add_library(${PROJECT_NAME}
     OAICustom_AutocompleteElementDisabled_Response.cpp
     OAICustom_AutocompleteElementDisabled_Response_allOf.cpp
     OAICustom_AutocompleteElement_Response.cpp
+    OAICustom_ContactName_Response.cpp
     OAICustom_DropdownElement_Request.cpp
     OAICustom_DropdownElement_RequestCompound.cpp
     OAICustom_DropdownElement_Response.cpp
     OAICustom_DropdownElement_ResponseCompound.cpp
+    OAICustom_EzmaxinvoicingEzsigndocument_Response.cpp
+    OAICustom_EzmaxinvoicingEzsigndocument_Response_allOf.cpp
+    OAICustom_EzmaxinvoicingEzsignfolder_Response.cpp
+    OAICustom_EzmaxinvoicingEzsignfolder_Response_allOf.cpp
+    OAICustom_Ezmaxpricing_Response.cpp
     OAICustom_EzsignfoldersignerassociationActionableElement_Response.cpp
     OAICustom_EzsignfoldersignerassociationActionableElement_Response_allOf.cpp
     OAICustom_Ezsignfoldersignerassociationmessage_Request.cpp
@@ -117,11 +132,51 @@ add_library(${PROJECT_NAME}
     OAICustom_Webhooklog_Response_allOf.cpp
     OAICustom_WordPositionOccurence_Response.cpp
     OAICustom_WordPositionWord_Response.cpp
+    OAIDepartment_AutocompleteElement_Response.cpp
+    OAIDepartment_getAutocomplete_v2_Response.cpp
+    OAIDepartment_getAutocomplete_v2_Response_allOf.cpp
+    OAIDepartment_getAutocomplete_v2_Response_mPayload.cpp
     OAIDepartment_getMembers_v1_Response.cpp
     OAIDepartment_getMembers_v1_Response_allOf.cpp
     OAIDepartment_getMembers_v1_Response_mPayload.cpp
     OAIEmail_Request.cpp
     OAIEmail_RequestCompound.cpp
+    OAIEzmaxinvoicing_AutocompleteElement_Response.cpp
+    OAIEzmaxinvoicing_Response.cpp
+    OAIEzmaxinvoicing_ResponseCompound.cpp
+    OAIEzmaxinvoicing_ResponseCompound_allOf.cpp
+    OAIEzmaxinvoicing_getAutocomplete_v2_Response.cpp
+    OAIEzmaxinvoicing_getAutocomplete_v2_Response_allOf.cpp
+    OAIEzmaxinvoicing_getAutocomplete_v2_Response_mPayload.cpp
+    OAIEzmaxinvoicing_getObject_v1_Response.cpp
+    OAIEzmaxinvoicing_getObject_v1_Response_allOf.cpp
+    OAIEzmaxinvoicing_getObject_v1_Response_mPayload.cpp
+    OAIEzmaxinvoicing_getProvisional_v1_Response.cpp
+    OAIEzmaxinvoicing_getProvisional_v1_Response_allOf.cpp
+    OAIEzmaxinvoicing_getProvisional_v1_Response_mPayload.cpp
+    OAIEzmaxinvoicingagent_Response.cpp
+    OAIEzmaxinvoicingagent_ResponseCompound.cpp
+    OAIEzmaxinvoicingagent_ResponseCompound_allOf.cpp
+    OAIEzmaxinvoicingcommission_Response.cpp
+    OAIEzmaxinvoicingcommission_ResponseCompound.cpp
+    OAIEzmaxinvoicingcommission_ResponseCompound_allOf.cpp
+    OAIEzmaxinvoicingcontract_Response.cpp
+    OAIEzmaxinvoicingcontract_ResponseCompound.cpp
+    OAIEzmaxinvoicingsummaryexternal_Response.cpp
+    OAIEzmaxinvoicingsummaryexternal_ResponseCompound.cpp
+    OAIEzmaxinvoicingsummaryexternal_ResponseCompound_allOf.cpp
+    OAIEzmaxinvoicingsummaryexternaldetail_Response.cpp
+    OAIEzmaxinvoicingsummaryexternaldetail_ResponseCompound.cpp
+    OAIEzmaxinvoicingsummaryglobal_Response.cpp
+    OAIEzmaxinvoicingsummaryglobal_ResponseCompound.cpp
+    OAIEzmaxinvoicingsummaryglobal_ResponseCompound_allOf.cpp
+    OAIEzmaxinvoicingsummaryinternal_Response.cpp
+    OAIEzmaxinvoicingsummaryinternal_ResponseCompound.cpp
+    OAIEzmaxinvoicingsummaryinternal_ResponseCompound_allOf.cpp
+    OAIEzmaxinvoicingsummaryinternaldetail_Response.cpp
+    OAIEzmaxinvoicingsummaryinternaldetail_ResponseCompound.cpp
+    OAIEzmaxinvoicinguser_Response.cpp
+    OAIEzmaxinvoicinguser_ResponseCompound.cpp
     OAIEzsign_suggestSigners_v1_Response.cpp
     OAIEzsign_suggestSigners_v1_Response_allOf.cpp
     OAIEzsign_suggestSigners_v1_Response_mPayload.cpp
@@ -327,12 +382,14 @@ add_library(${PROJECT_NAME}
     OAIEzsignfoldersignerassociation_deleteObject_v1_Response.cpp
     OAIEzsignfoldersignerassociation_editObject_v1_Request.cpp
     OAIEzsignfoldersignerassociation_editObject_v1_Response.cpp
+    OAIEzsignfoldersignerassociation_forceDisconnect_v1_Response.cpp
     OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response.cpp
     OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response_allOf.cpp
     OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response_mPayload.cpp
     OAIEzsignfoldersignerassociation_getObject_v1_Response.cpp
     OAIEzsignfoldersignerassociation_getObject_v1_Response_allOf.cpp
     OAIEzsignfoldersignerassociation_getObject_v1_Response_mPayload.cpp
+    OAIEzsignfoldertype_AutocompleteElement_Response.cpp
     OAIEzsignfoldertype_ListElement.cpp
     OAIEzsignfoldertype_Request.cpp
     OAIEzsignfoldertype_RequestCompound.cpp
@@ -345,6 +402,9 @@ add_library(${PROJECT_NAME}
     OAIEzsignfoldertype_createObject_v1_Response_mPayload.cpp
     OAIEzsignfoldertype_editObject_v1_Request.cpp
     OAIEzsignfoldertype_editObject_v1_Response.cpp
+    OAIEzsignfoldertype_getAutocomplete_v2_Response.cpp
+    OAIEzsignfoldertype_getAutocomplete_v2_Response_allOf.cpp
+    OAIEzsignfoldertype_getAutocomplete_v2_Response_mPayload.cpp
     OAIEzsignfoldertype_getList_v1_Response.cpp
     OAIEzsignfoldertype_getList_v1_Response_allOf.cpp
     OAIEzsignfoldertype_getList_v1_Response_mPayload.cpp
@@ -413,6 +473,7 @@ add_library(${PROJECT_NAME}
     OAIEzsignsigner_ResponseCompound.cpp
     OAIEzsignsigner_ResponseCompound_Contact.cpp
     OAIEzsignsigner_ResponseCompound_allOf.cpp
+    OAIEzsigntemplate_AutocompleteElement_Response.cpp
     OAIEzsigntemplate_ListElement.cpp
     OAIEzsigntemplate_Request.cpp
     OAIEzsigntemplate_RequestCompound.cpp
@@ -426,6 +487,9 @@ add_library(${PROJECT_NAME}
     OAIEzsigntemplate_deleteObject_v1_Response.cpp
     OAIEzsigntemplate_editObject_v1_Request.cpp
     OAIEzsigntemplate_editObject_v1_Response.cpp
+    OAIEzsigntemplate_getAutocomplete_v2_Response.cpp
+    OAIEzsigntemplate_getAutocomplete_v2_Response_allOf.cpp
+    OAIEzsigntemplate_getAutocomplete_v2_Response_mPayload.cpp
     OAIEzsigntemplate_getList_v1_Response.cpp
     OAIEzsigntemplate_getList_v1_Response_allOf.cpp
     OAIEzsigntemplate_getList_v1_Response_mPayload.cpp
@@ -496,6 +560,7 @@ add_library(${PROJECT_NAME}
     OAIEzsigntemplateformfieldgroupsigner_RequestCompound.cpp
     OAIEzsigntemplateformfieldgroupsigner_Response.cpp
     OAIEzsigntemplateformfieldgroupsigner_ResponseCompound.cpp
+    OAIEzsigntemplatepackage_AutocompleteElement_Response.cpp
     OAIEzsigntemplatepackage_ListElement.cpp
     OAIEzsigntemplatepackage_Request.cpp
     OAIEzsigntemplatepackage_RequestCompound.cpp
@@ -513,6 +578,9 @@ add_library(${PROJECT_NAME}
     OAIEzsigntemplatepackage_editEzsigntemplatepackagesigners_v1_Response_mPayload.cpp
     OAIEzsigntemplatepackage_editObject_v1_Request.cpp
     OAIEzsigntemplatepackage_editObject_v1_Response.cpp
+    OAIEzsigntemplatepackage_getAutocomplete_v2_Response.cpp
+    OAIEzsigntemplatepackage_getAutocomplete_v2_Response_allOf.cpp
+    OAIEzsigntemplatepackage_getAutocomplete_v2_Response_mPayload.cpp
     OAIEzsigntemplatepackage_getList_v1_Response.cpp
     OAIEzsigntemplatepackage_getList_v1_Response_allOf.cpp
     OAIEzsigntemplatepackage_getList_v1_Response_mPayload.cpp
@@ -597,9 +665,18 @@ add_library(${PROJECT_NAME}
     OAIEzsigntemplatesigner_getObject_v1_Response.cpp
     OAIEzsigntemplatesigner_getObject_v1_Response_allOf.cpp
     OAIEzsigntemplatesigner_getObject_v1_Response_mPayload.cpp
+    OAIEzsigntsarequirement_AutocompleteElement_Response.cpp
+    OAIEzsigntsarequirement_getAutocomplete_v2_Response.cpp
+    OAIEzsigntsarequirement_getAutocomplete_v2_Response_allOf.cpp
+    OAIEzsigntsarequirement_getAutocomplete_v2_Response_mPayload.cpp
     OAIField_eActivesessionUsertype.cpp
     OAIField_eActivesessionWeekdaystart.cpp
     OAIField_eBrandingLogo.cpp
+    OAIField_eEzmaxinvoicingPaymenttype.cpp
+    OAIField_eEzmaxinvoicingagentVariationezmax.cpp
+    OAIField_eEzmaxinvoicingagentVariationezsign.cpp
+    OAIField_eEzmaxinvoicingcontractPaymenttype.cpp
+    OAIField_eEzmaxinvoicinguserVariationezsign.cpp
     OAIField_eEzsigndocumentStep.cpp
     OAIField_eEzsigndocumentlogType.cpp
     OAIField_eEzsignfolderSendreminderfrequency.cpp
@@ -617,6 +694,7 @@ add_library(${PROJECT_NAME}
     OAIField_eEzsigntemplateformfieldgroupSignerrequirement.cpp
     OAIField_eEzsigntemplateformfieldgroupTooltipposition.cpp
     OAIField_eEzsigntemplateformfieldgroupType.cpp
+    OAIField_eEzsigntemplatesignatureAttachmentnamesource.cpp
     OAIField_eEzsigntemplatesignatureFont.cpp
     OAIField_eEzsigntemplatesignatureTooltipposition.cpp
     OAIField_eEzsigntemplatesignatureType.cpp
@@ -642,6 +720,7 @@ add_library(${PROJECT_NAME}
     OAIHeader_Accept_Language.cpp
     OAIMultilingual_ApikeyDescription.cpp
     OAIMultilingual_BrandingDescription.cpp
+    OAIMultilingual_EzmaxinvoicingsummaryinternalDescription.cpp
     OAIMultilingual_EzsignfoldertypeName.cpp
     OAIMultilingual_NotificationsubsectionName.cpp
     OAIMultilingual_NotificationtestName.cpp
@@ -655,12 +734,32 @@ add_library(${PROJECT_NAME}
     OAINotificationtest_getElements_v1_Response_mPayload.cpp
     OAIPhone_Request.cpp
     OAIPhone_RequestCompound.cpp
+    OAISecretquestion_AutocompleteElement_Response.cpp
+    OAISecretquestion_getAutocomplete_v2_Response.cpp
+    OAISecretquestion_getAutocomplete_v2_Response_allOf.cpp
+    OAISecretquestion_getAutocomplete_v2_Response_mPayload.cpp
+    OAITaxassignment_AutocompleteElement_Response.cpp
+    OAITaxassignment_getAutocomplete_v2_Response.cpp
+    OAITaxassignment_getAutocomplete_v2_Response_allOf.cpp
+    OAITaxassignment_getAutocomplete_v2_Response_mPayload.cpp
+    OAITimezone_AutocompleteElement_Response.cpp
+    OAITimezone_getAutocomplete_v2_Response.cpp
+    OAITimezone_getAutocomplete_v2_Response_allOf.cpp
+    OAITimezone_getAutocomplete_v2_Response_mPayload.cpp
+    OAIUser_AutocompleteElement_Response.cpp
     OAIUser_Response.cpp
     OAIUser_ResponseCompound.cpp
     OAIUser_createEzsignuser_v1_Request.cpp
     OAIUser_createEzsignuser_v1_Response.cpp
     OAIUser_createEzsignuser_v1_Response_allOf.cpp
     OAIUser_createEzsignuser_v1_Response_mPayload.cpp
+    OAIUser_getAutocomplete_v2_Response.cpp
+    OAIUser_getAutocomplete_v2_Response_allOf.cpp
+    OAIUser_getAutocomplete_v2_Response_mPayload.cpp
+    OAIUsergroup_AutocompleteElement_Response.cpp
+    OAIUsergroup_getAutocomplete_v2_Response.cpp
+    OAIUsergroup_getAutocomplete_v2_Response_allOf.cpp
+    OAIUsergroup_getAutocomplete_v2_Response_mPayload.cpp
     OAIWebhook_Ezsign_DocumentCompleted.cpp
     OAIWebhook_Ezsign_DocumentCompleted_allOf.cpp
     OAIWebhook_Ezsign_FolderCompleted.cpp
@@ -701,6 +800,7 @@ add_library(${PROJECT_NAME}
     OAIObjectBillingentityinternalApi.cpp
     OAIObjectBrandingApi.cpp
     OAIObjectDepartmentApi.cpp
+    OAIObjectEzmaxinvoicingApi.cpp
     OAIObjectEzsignbulksendApi.cpp
     OAIObjectEzsignbulksenddocumentmappingApi.cpp
     OAIObjectEzsignbulksendsignermappingApi.cpp
