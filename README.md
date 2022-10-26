@@ -4,7 +4,7 @@
 
 eZmax API Definition (Full)
 
-- API version: 1.1.11
+- API version: 1.1.12
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
