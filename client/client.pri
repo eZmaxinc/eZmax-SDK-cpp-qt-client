@@ -53,6 +53,9 @@ HEADERS += \
     $${PWD}/OAIBranding_getObject_v1_Response.h \
     $${PWD}/OAIBranding_getObject_v1_Response_allOf.h \
     $${PWD}/OAIBranding_getObject_v1_Response_mPayload.h \
+    $${PWD}/OAIBranding_getObject_v2_Response.h \
+    $${PWD}/OAIBranding_getObject_v2_Response_allOf.h \
+    $${PWD}/OAIBranding_getObject_v2_Response_mPayload.h \
     $${PWD}/OAICommon_Audit.h \
     $${PWD}/OAICommon_Auditdetail.h \
     $${PWD}/OAICommon_Response.h \
@@ -137,6 +140,9 @@ HEADERS += \
     $${PWD}/OAIEzmaxinvoicing_getObject_v1_Response.h \
     $${PWD}/OAIEzmaxinvoicing_getObject_v1_Response_allOf.h \
     $${PWD}/OAIEzmaxinvoicing_getObject_v1_Response_mPayload.h \
+    $${PWD}/OAIEzmaxinvoicing_getObject_v2_Response.h \
+    $${PWD}/OAIEzmaxinvoicing_getObject_v2_Response_allOf.h \
+    $${PWD}/OAIEzmaxinvoicing_getObject_v2_Response_mPayload.h \
     $${PWD}/OAIEzmaxinvoicing_getProvisional_v1_Response.h \
     $${PWD}/OAIEzmaxinvoicing_getProvisional_v1_Response_allOf.h \
     $${PWD}/OAIEzmaxinvoicing_getProvisional_v1_Response_mPayload.h \
@@ -199,6 +205,9 @@ HEADERS += \
     $${PWD}/OAIEzsignbulksend_getObject_v1_Response.h \
     $${PWD}/OAIEzsignbulksend_getObject_v1_Response_allOf.h \
     $${PWD}/OAIEzsignbulksend_getObject_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsignbulksend_getObject_v2_Response.h \
+    $${PWD}/OAIEzsignbulksend_getObject_v2_Response_allOf.h \
+    $${PWD}/OAIEzsignbulksend_getObject_v2_Response_mPayload.h \
     $${PWD}/OAIEzsignbulksend_reorder_v1_Request.h \
     $${PWD}/OAIEzsignbulksend_reorder_v1_Response.h \
     $${PWD}/OAIEzsignbulksenddocumentmapping_Request.h \
@@ -214,6 +223,9 @@ HEADERS += \
     $${PWD}/OAIEzsignbulksenddocumentmapping_getObject_v1_Response.h \
     $${PWD}/OAIEzsignbulksenddocumentmapping_getObject_v1_Response_allOf.h \
     $${PWD}/OAIEzsignbulksenddocumentmapping_getObject_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsignbulksenddocumentmapping_getObject_v2_Response.h \
+    $${PWD}/OAIEzsignbulksenddocumentmapping_getObject_v2_Response_allOf.h \
+    $${PWD}/OAIEzsignbulksenddocumentmapping_getObject_v2_Response_mPayload.h \
     $${PWD}/OAIEzsignbulksendsignermapping_Request.h \
     $${PWD}/OAIEzsignbulksendsignermapping_RequestCompound.h \
     $${PWD}/OAIEzsignbulksendsignermapping_Response.h \
@@ -226,6 +238,9 @@ HEADERS += \
     $${PWD}/OAIEzsignbulksendsignermapping_getObject_v1_Response.h \
     $${PWD}/OAIEzsignbulksendsignermapping_getObject_v1_Response_allOf.h \
     $${PWD}/OAIEzsignbulksendsignermapping_getObject_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsignbulksendsignermapping_getObject_v2_Response.h \
+    $${PWD}/OAIEzsignbulksendsignermapping_getObject_v2_Response_allOf.h \
+    $${PWD}/OAIEzsignbulksendsignermapping_getObject_v2_Response_mPayload.h \
     $${PWD}/OAIEzsignbulksendtransmission_Response.h \
     $${PWD}/OAIEzsignbulksendtransmission_ResponseCompound.h \
     $${PWD}/OAIEzsignbulksendtransmission_ResponseCompound_allOf.h \
@@ -235,6 +250,9 @@ HEADERS += \
     $${PWD}/OAIEzsignbulksendtransmission_getObject_v1_Response.h \
     $${PWD}/OAIEzsignbulksendtransmission_getObject_v1_Response_allOf.h \
     $${PWD}/OAIEzsignbulksendtransmission_getObject_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsignbulksendtransmission_getObject_v2_Response.h \
+    $${PWD}/OAIEzsignbulksendtransmission_getObject_v2_Response_allOf.h \
+    $${PWD}/OAIEzsignbulksendtransmission_getObject_v2_Response_mPayload.h \
     $${PWD}/OAIEzsigndocument_Request.h \
     $${PWD}/OAIEzsigndocument_RequestCompound.h \
     $${PWD}/OAIEzsigndocument_RequestPatch.h \
@@ -284,6 +302,9 @@ HEADERS += \
     $${PWD}/OAIEzsigndocument_getObject_v1_Response.h \
     $${PWD}/OAIEzsigndocument_getObject_v1_Response_allOf.h \
     $${PWD}/OAIEzsigndocument_getObject_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsigndocument_getObject_v2_Response.h \
+    $${PWD}/OAIEzsigndocument_getObject_v2_Response_allOf.h \
+    $${PWD}/OAIEzsigndocument_getObject_v2_Response_mPayload.h \
     $${PWD}/OAIEzsigndocument_getTemporaryProof_v1_Response.h \
     $${PWD}/OAIEzsigndocument_getTemporaryProof_v1_Response_allOf.h \
     $${PWD}/OAIEzsigndocument_getTemporaryProof_v1_Response_mPayload.h \
@@ -335,6 +356,9 @@ HEADERS += \
     $${PWD}/OAIEzsignfolder_getObject_v1_Response.h \
     $${PWD}/OAIEzsignfolder_getObject_v1_Response_allOf.h \
     $${PWD}/OAIEzsignfolder_getObject_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsignfolder_getObject_v2_Response.h \
+    $${PWD}/OAIEzsignfolder_getObject_v2_Response_allOf.h \
+    $${PWD}/OAIEzsignfolder_getObject_v2_Response_mPayload.h \
     $${PWD}/OAIEzsignfolder_importEzsignfoldersignerassociations_v1_Request.h \
     $${PWD}/OAIEzsignfolder_importEzsignfoldersignerassociations_v1_Response.h \
     $${PWD}/OAIEzsignfolder_importEzsignfoldersignerassociations_v1_Response_allOf.h \
@@ -375,6 +399,9 @@ HEADERS += \
     $${PWD}/OAIEzsignfoldersignerassociation_getObject_v1_Response.h \
     $${PWD}/OAIEzsignfoldersignerassociation_getObject_v1_Response_allOf.h \
     $${PWD}/OAIEzsignfoldersignerassociation_getObject_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsignfoldersignerassociation_getObject_v2_Response.h \
+    $${PWD}/OAIEzsignfoldersignerassociation_getObject_v2_Response_allOf.h \
+    $${PWD}/OAIEzsignfoldersignerassociation_getObject_v2_Response_mPayload.h \
     $${PWD}/OAIEzsignfoldertype_AutocompleteElement_Response.h \
     $${PWD}/OAIEzsignfoldertype_ListElement.h \
     $${PWD}/OAIEzsignfoldertype_Request.h \
@@ -398,6 +425,9 @@ HEADERS += \
     $${PWD}/OAIEzsignfoldertype_getObject_v1_Response.h \
     $${PWD}/OAIEzsignfoldertype_getObject_v1_Response_allOf.h \
     $${PWD}/OAIEzsignfoldertype_getObject_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsignfoldertype_getObject_v2_Response.h \
+    $${PWD}/OAIEzsignfoldertype_getObject_v2_Response_allOf.h \
+    $${PWD}/OAIEzsignfoldertype_getObject_v2_Response_mPayload.h \
     $${PWD}/OAIEzsignformfield_Request.h \
     $${PWD}/OAIEzsignformfield_RequestCompound.h \
     $${PWD}/OAIEzsignformfield_Response.h \
@@ -418,6 +448,9 @@ HEADERS += \
     $${PWD}/OAIEzsignformfieldgroup_getObject_v1_Response.h \
     $${PWD}/OAIEzsignformfieldgroup_getObject_v1_Response_allOf.h \
     $${PWD}/OAIEzsignformfieldgroup_getObject_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsignformfieldgroup_getObject_v2_Response.h \
+    $${PWD}/OAIEzsignformfieldgroup_getObject_v2_Response_allOf.h \
+    $${PWD}/OAIEzsignformfieldgroup_getObject_v2_Response_mPayload.h \
     $${PWD}/OAIEzsignformfieldgroupsigner_Request.h \
     $${PWD}/OAIEzsignformfieldgroupsigner_RequestCompound.h \
     $${PWD}/OAIEzsignformfieldgroupsigner_Response.h \
@@ -444,6 +477,9 @@ HEADERS += \
     $${PWD}/OAIEzsignsignature_getObject_v1_Response.h \
     $${PWD}/OAIEzsignsignature_getObject_v1_Response_allOf.h \
     $${PWD}/OAIEzsignsignature_getObject_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsignsignature_getObject_v2_Response.h \
+    $${PWD}/OAIEzsignsignature_getObject_v2_Response_allOf.h \
+    $${PWD}/OAIEzsignsignature_getObject_v2_Response_mPayload.h \
     $${PWD}/OAIEzsignsignature_sign_v1_Request.h \
     $${PWD}/OAIEzsignsignature_sign_v1_Response.h \
     $${PWD}/OAIEzsignsignature_sign_v1_Response_allOf.h \
@@ -483,6 +519,9 @@ HEADERS += \
     $${PWD}/OAIEzsigntemplate_getObject_v1_Response.h \
     $${PWD}/OAIEzsigntemplate_getObject_v1_Response_allOf.h \
     $${PWD}/OAIEzsigntemplate_getObject_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsigntemplate_getObject_v2_Response.h \
+    $${PWD}/OAIEzsigntemplate_getObject_v2_Response_allOf.h \
+    $${PWD}/OAIEzsigntemplate_getObject_v2_Response_mPayload.h \
     $${PWD}/OAIEzsigntemplatedocument_Request.h \
     $${PWD}/OAIEzsigntemplatedocument_RequestCompound.h \
     $${PWD}/OAIEzsigntemplatedocument_RequestPatch.h \
@@ -515,6 +554,9 @@ HEADERS += \
     $${PWD}/OAIEzsigntemplatedocument_getObject_v1_Response.h \
     $${PWD}/OAIEzsigntemplatedocument_getObject_v1_Response_allOf.h \
     $${PWD}/OAIEzsigntemplatedocument_getObject_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsigntemplatedocument_getObject_v2_Response.h \
+    $${PWD}/OAIEzsigntemplatedocument_getObject_v2_Response_allOf.h \
+    $${PWD}/OAIEzsigntemplatedocument_getObject_v2_Response_mPayload.h \
     $${PWD}/OAIEzsigntemplatedocument_getWordsPositions_v1_Request.h \
     $${PWD}/OAIEzsigntemplatedocument_getWordsPositions_v1_Response.h \
     $${PWD}/OAIEzsigntemplatedocument_getWordsPositions_v1_Response_allOf.h \
@@ -542,6 +584,9 @@ HEADERS += \
     $${PWD}/OAIEzsigntemplateformfieldgroup_getObject_v1_Response.h \
     $${PWD}/OAIEzsigntemplateformfieldgroup_getObject_v1_Response_allOf.h \
     $${PWD}/OAIEzsigntemplateformfieldgroup_getObject_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsigntemplateformfieldgroup_getObject_v2_Response.h \
+    $${PWD}/OAIEzsigntemplateformfieldgroup_getObject_v2_Response_allOf.h \
+    $${PWD}/OAIEzsigntemplateformfieldgroup_getObject_v2_Response_mPayload.h \
     $${PWD}/OAIEzsigntemplateformfieldgroupsigner_Request.h \
     $${PWD}/OAIEzsigntemplateformfieldgroupsigner_RequestCompound.h \
     $${PWD}/OAIEzsigntemplateformfieldgroupsigner_Response.h \
@@ -574,6 +619,9 @@ HEADERS += \
     $${PWD}/OAIEzsigntemplatepackage_getObject_v1_Response.h \
     $${PWD}/OAIEzsigntemplatepackage_getObject_v1_Response_allOf.h \
     $${PWD}/OAIEzsigntemplatepackage_getObject_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsigntemplatepackage_getObject_v2_Response.h \
+    $${PWD}/OAIEzsigntemplatepackage_getObject_v2_Response_allOf.h \
+    $${PWD}/OAIEzsigntemplatepackage_getObject_v2_Response_mPayload.h \
     $${PWD}/OAIEzsigntemplatepackagemembership_Request.h \
     $${PWD}/OAIEzsigntemplatepackagemembership_RequestCompound.h \
     $${PWD}/OAIEzsigntemplatepackagemembership_Response.h \
@@ -587,6 +635,9 @@ HEADERS += \
     $${PWD}/OAIEzsigntemplatepackagemembership_getObject_v1_Response.h \
     $${PWD}/OAIEzsigntemplatepackagemembership_getObject_v1_Response_allOf.h \
     $${PWD}/OAIEzsigntemplatepackagemembership_getObject_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsigntemplatepackagemembership_getObject_v2_Response.h \
+    $${PWD}/OAIEzsigntemplatepackagemembership_getObject_v2_Response_allOf.h \
+    $${PWD}/OAIEzsigntemplatepackagemembership_getObject_v2_Response_mPayload.h \
     $${PWD}/OAIEzsigntemplatepackagesigner_Request.h \
     $${PWD}/OAIEzsigntemplatepackagesigner_RequestCompound.h \
     $${PWD}/OAIEzsigntemplatepackagesigner_Response.h \
@@ -603,6 +654,9 @@ HEADERS += \
     $${PWD}/OAIEzsigntemplatepackagesigner_getObject_v1_Response.h \
     $${PWD}/OAIEzsigntemplatepackagesigner_getObject_v1_Response_allOf.h \
     $${PWD}/OAIEzsigntemplatepackagesigner_getObject_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsigntemplatepackagesigner_getObject_v2_Response.h \
+    $${PWD}/OAIEzsigntemplatepackagesigner_getObject_v2_Response_allOf.h \
+    $${PWD}/OAIEzsigntemplatepackagesigner_getObject_v2_Response_mPayload.h \
     $${PWD}/OAIEzsigntemplatepackagesignermembership_Request.h \
     $${PWD}/OAIEzsigntemplatepackagesignermembership_RequestCompound.h \
     $${PWD}/OAIEzsigntemplatepackagesignermembership_Response.h \
@@ -617,6 +671,9 @@ HEADERS += \
     $${PWD}/OAIEzsigntemplatepackagesignermembership_getObject_v1_Response.h \
     $${PWD}/OAIEzsigntemplatepackagesignermembership_getObject_v1_Response_allOf.h \
     $${PWD}/OAIEzsigntemplatepackagesignermembership_getObject_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsigntemplatepackagesignermembership_getObject_v2_Response.h \
+    $${PWD}/OAIEzsigntemplatepackagesignermembership_getObject_v2_Response_allOf.h \
+    $${PWD}/OAIEzsigntemplatepackagesignermembership_getObject_v2_Response_mPayload.h \
     $${PWD}/OAIEzsigntemplatesignature_Request.h \
     $${PWD}/OAIEzsigntemplatesignature_RequestCompound.h \
     $${PWD}/OAIEzsigntemplatesignature_RequestCompound_allOf.h \
@@ -633,6 +690,9 @@ HEADERS += \
     $${PWD}/OAIEzsigntemplatesignature_getObject_v1_Response.h \
     $${PWD}/OAIEzsigntemplatesignature_getObject_v1_Response_allOf.h \
     $${PWD}/OAIEzsigntemplatesignature_getObject_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsigntemplatesignature_getObject_v2_Response.h \
+    $${PWD}/OAIEzsigntemplatesignature_getObject_v2_Response_allOf.h \
+    $${PWD}/OAIEzsigntemplatesignature_getObject_v2_Response_mPayload.h \
     $${PWD}/OAIEzsigntemplatesignaturecustomdate_Request.h \
     $${PWD}/OAIEzsigntemplatesignaturecustomdate_RequestCompound.h \
     $${PWD}/OAIEzsigntemplatesignaturecustomdate_Response.h \
@@ -651,6 +711,9 @@ HEADERS += \
     $${PWD}/OAIEzsigntemplatesigner_getObject_v1_Response.h \
     $${PWD}/OAIEzsigntemplatesigner_getObject_v1_Response_allOf.h \
     $${PWD}/OAIEzsigntemplatesigner_getObject_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsigntemplatesigner_getObject_v2_Response.h \
+    $${PWD}/OAIEzsigntemplatesigner_getObject_v2_Response_allOf.h \
+    $${PWD}/OAIEzsigntemplatesigner_getObject_v2_Response_mPayload.h \
     $${PWD}/OAIEzsigntsarequirement_AutocompleteElement_Response.h \
     $${PWD}/OAIEzsigntsarequirement_getAutocomplete_v2_Response.h \
     $${PWD}/OAIEzsigntsarequirement_getAutocomplete_v2_Response_allOf.h \
@@ -688,6 +751,8 @@ HEADERS += \
     $${PWD}/OAIField_ePhoneType.h \
     $${PWD}/OAIField_eUserEzsignsendreminderfrequency.h \
     $${PWD}/OAIField_eUserType.h \
+    $${PWD}/OAIField_eVersionhistoryType.h \
+    $${PWD}/OAIField_eVersionhistoryUsertype.h \
     $${PWD}/OAIField_eWebhookEzsignevent.h \
     $${PWD}/OAIField_eWebhookManagementevent.h \
     $${PWD}/OAIField_eWebhookModule.h \
@@ -710,6 +775,7 @@ HEADERS += \
     $${PWD}/OAIMultilingual_EzsignfoldertypeName.h \
     $${PWD}/OAIMultilingual_NotificationsubsectionName.h \
     $${PWD}/OAIMultilingual_NotificationtestName.h \
+    $${PWD}/OAIMultilingual_VersionhistoryDetail.h \
     $${PWD}/OAINotificationsection_getNotificationtests_v1_Response.h \
     $${PWD}/OAINotificationsection_getNotificationtests_v1_Response_allOf.h \
     $${PWD}/OAINotificationsection_getNotificationtests_v1_Response_mPayload.h \
@@ -746,6 +812,11 @@ HEADERS += \
     $${PWD}/OAIUsergroup_getAutocomplete_v2_Response.h \
     $${PWD}/OAIUsergroup_getAutocomplete_v2_Response_allOf.h \
     $${PWD}/OAIUsergroup_getAutocomplete_v2_Response_mPayload.h \
+    $${PWD}/OAIVersionhistory_Response.h \
+    $${PWD}/OAIVersionhistory_ResponseCompound.h \
+    $${PWD}/OAIVersionhistory_getObject_v2_Response.h \
+    $${PWD}/OAIVersionhistory_getObject_v2_Response_allOf.h \
+    $${PWD}/OAIVersionhistory_getObject_v2_Response_mPayload.h \
     $${PWD}/OAIWebhook_Ezsign_DocumentCompleted.h \
     $${PWD}/OAIWebhook_Ezsign_DocumentCompleted_allOf.h \
     $${PWD}/OAIWebhook_Ezsign_FolderCompleted.h \
@@ -755,6 +826,7 @@ HEADERS += \
     $${PWD}/OAIWebhook_RequestCompound.h \
     $${PWD}/OAIWebhook_Response.h \
     $${PWD}/OAIWebhook_ResponseCompound.h \
+    $${PWD}/OAIWebhook_ResponseCompound_allOf.h \
     $${PWD}/OAIWebhook_User_UserCreated.h \
     $${PWD}/OAIWebhook_User_UserCreated_allOf.h \
     $${PWD}/OAIWebhook_createObject_v1_Request.h \
@@ -775,6 +847,9 @@ HEADERS += \
     $${PWD}/OAIWebhook_getObject_v1_Response.h \
     $${PWD}/OAIWebhook_getObject_v1_Response_allOf.h \
     $${PWD}/OAIWebhook_getObject_v1_Response_mPayload.h \
+    $${PWD}/OAIWebhook_getObject_v2_Response.h \
+    $${PWD}/OAIWebhook_getObject_v2_Response_allOf.h \
+    $${PWD}/OAIWebhook_getObject_v2_Response_mPayload.h \
     $${PWD}/OAIWebhook_test_v1_Response.h \
     $${PWD}/OAIWebsite_Request.h \
     $${PWD}/OAIWebsite_RequestCompound.h \
@@ -819,6 +894,7 @@ HEADERS += \
     $${PWD}/OAIObjectTimezoneApi.h \
     $${PWD}/OAIObjectUserApi.h \
     $${PWD}/OAIObjectUsergroupApi.h \
+    $${PWD}/OAIObjectVersionhistoryApi.h \
     $${PWD}/OAIObjectWebhookApi.h \
 # Others
     $${PWD}/OAIHelpers.h \
@@ -883,6 +959,9 @@ SOURCES += \
     $${PWD}/OAIBranding_getObject_v1_Response.cpp \
     $${PWD}/OAIBranding_getObject_v1_Response_allOf.cpp \
     $${PWD}/OAIBranding_getObject_v1_Response_mPayload.cpp \
+    $${PWD}/OAIBranding_getObject_v2_Response.cpp \
+    $${PWD}/OAIBranding_getObject_v2_Response_allOf.cpp \
+    $${PWD}/OAIBranding_getObject_v2_Response_mPayload.cpp \
     $${PWD}/OAICommon_Audit.cpp \
     $${PWD}/OAICommon_Auditdetail.cpp \
     $${PWD}/OAICommon_Response.cpp \
@@ -967,6 +1046,9 @@ SOURCES += \
     $${PWD}/OAIEzmaxinvoicing_getObject_v1_Response.cpp \
     $${PWD}/OAIEzmaxinvoicing_getObject_v1_Response_allOf.cpp \
     $${PWD}/OAIEzmaxinvoicing_getObject_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzmaxinvoicing_getObject_v2_Response.cpp \
+    $${PWD}/OAIEzmaxinvoicing_getObject_v2_Response_allOf.cpp \
+    $${PWD}/OAIEzmaxinvoicing_getObject_v2_Response_mPayload.cpp \
     $${PWD}/OAIEzmaxinvoicing_getProvisional_v1_Response.cpp \
     $${PWD}/OAIEzmaxinvoicing_getProvisional_v1_Response_allOf.cpp \
     $${PWD}/OAIEzmaxinvoicing_getProvisional_v1_Response_mPayload.cpp \
@@ -1029,6 +1111,9 @@ SOURCES += \
     $${PWD}/OAIEzsignbulksend_getObject_v1_Response.cpp \
     $${PWD}/OAIEzsignbulksend_getObject_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsignbulksend_getObject_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsignbulksend_getObject_v2_Response.cpp \
+    $${PWD}/OAIEzsignbulksend_getObject_v2_Response_allOf.cpp \
+    $${PWD}/OAIEzsignbulksend_getObject_v2_Response_mPayload.cpp \
     $${PWD}/OAIEzsignbulksend_reorder_v1_Request.cpp \
     $${PWD}/OAIEzsignbulksend_reorder_v1_Response.cpp \
     $${PWD}/OAIEzsignbulksenddocumentmapping_Request.cpp \
@@ -1044,6 +1129,9 @@ SOURCES += \
     $${PWD}/OAIEzsignbulksenddocumentmapping_getObject_v1_Response.cpp \
     $${PWD}/OAIEzsignbulksenddocumentmapping_getObject_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsignbulksenddocumentmapping_getObject_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsignbulksenddocumentmapping_getObject_v2_Response.cpp \
+    $${PWD}/OAIEzsignbulksenddocumentmapping_getObject_v2_Response_allOf.cpp \
+    $${PWD}/OAIEzsignbulksenddocumentmapping_getObject_v2_Response_mPayload.cpp \
     $${PWD}/OAIEzsignbulksendsignermapping_Request.cpp \
     $${PWD}/OAIEzsignbulksendsignermapping_RequestCompound.cpp \
     $${PWD}/OAIEzsignbulksendsignermapping_Response.cpp \
@@ -1056,6 +1144,9 @@ SOURCES += \
     $${PWD}/OAIEzsignbulksendsignermapping_getObject_v1_Response.cpp \
     $${PWD}/OAIEzsignbulksendsignermapping_getObject_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsignbulksendsignermapping_getObject_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsignbulksendsignermapping_getObject_v2_Response.cpp \
+    $${PWD}/OAIEzsignbulksendsignermapping_getObject_v2_Response_allOf.cpp \
+    $${PWD}/OAIEzsignbulksendsignermapping_getObject_v2_Response_mPayload.cpp \
     $${PWD}/OAIEzsignbulksendtransmission_Response.cpp \
     $${PWD}/OAIEzsignbulksendtransmission_ResponseCompound.cpp \
     $${PWD}/OAIEzsignbulksendtransmission_ResponseCompound_allOf.cpp \
@@ -1065,6 +1156,9 @@ SOURCES += \
     $${PWD}/OAIEzsignbulksendtransmission_getObject_v1_Response.cpp \
     $${PWD}/OAIEzsignbulksendtransmission_getObject_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsignbulksendtransmission_getObject_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsignbulksendtransmission_getObject_v2_Response.cpp \
+    $${PWD}/OAIEzsignbulksendtransmission_getObject_v2_Response_allOf.cpp \
+    $${PWD}/OAIEzsignbulksendtransmission_getObject_v2_Response_mPayload.cpp \
     $${PWD}/OAIEzsigndocument_Request.cpp \
     $${PWD}/OAIEzsigndocument_RequestCompound.cpp \
     $${PWD}/OAIEzsigndocument_RequestPatch.cpp \
@@ -1114,6 +1208,9 @@ SOURCES += \
     $${PWD}/OAIEzsigndocument_getObject_v1_Response.cpp \
     $${PWD}/OAIEzsigndocument_getObject_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsigndocument_getObject_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsigndocument_getObject_v2_Response.cpp \
+    $${PWD}/OAIEzsigndocument_getObject_v2_Response_allOf.cpp \
+    $${PWD}/OAIEzsigndocument_getObject_v2_Response_mPayload.cpp \
     $${PWD}/OAIEzsigndocument_getTemporaryProof_v1_Response.cpp \
     $${PWD}/OAIEzsigndocument_getTemporaryProof_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsigndocument_getTemporaryProof_v1_Response_mPayload.cpp \
@@ -1165,6 +1262,9 @@ SOURCES += \
     $${PWD}/OAIEzsignfolder_getObject_v1_Response.cpp \
     $${PWD}/OAIEzsignfolder_getObject_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsignfolder_getObject_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsignfolder_getObject_v2_Response.cpp \
+    $${PWD}/OAIEzsignfolder_getObject_v2_Response_allOf.cpp \
+    $${PWD}/OAIEzsignfolder_getObject_v2_Response_mPayload.cpp \
     $${PWD}/OAIEzsignfolder_importEzsignfoldersignerassociations_v1_Request.cpp \
     $${PWD}/OAIEzsignfolder_importEzsignfoldersignerassociations_v1_Response.cpp \
     $${PWD}/OAIEzsignfolder_importEzsignfoldersignerassociations_v1_Response_allOf.cpp \
@@ -1205,6 +1305,9 @@ SOURCES += \
     $${PWD}/OAIEzsignfoldersignerassociation_getObject_v1_Response.cpp \
     $${PWD}/OAIEzsignfoldersignerassociation_getObject_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsignfoldersignerassociation_getObject_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsignfoldersignerassociation_getObject_v2_Response.cpp \
+    $${PWD}/OAIEzsignfoldersignerassociation_getObject_v2_Response_allOf.cpp \
+    $${PWD}/OAIEzsignfoldersignerassociation_getObject_v2_Response_mPayload.cpp \
     $${PWD}/OAIEzsignfoldertype_AutocompleteElement_Response.cpp \
     $${PWD}/OAIEzsignfoldertype_ListElement.cpp \
     $${PWD}/OAIEzsignfoldertype_Request.cpp \
@@ -1228,6 +1331,9 @@ SOURCES += \
     $${PWD}/OAIEzsignfoldertype_getObject_v1_Response.cpp \
     $${PWD}/OAIEzsignfoldertype_getObject_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsignfoldertype_getObject_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsignfoldertype_getObject_v2_Response.cpp \
+    $${PWD}/OAIEzsignfoldertype_getObject_v2_Response_allOf.cpp \
+    $${PWD}/OAIEzsignfoldertype_getObject_v2_Response_mPayload.cpp \
     $${PWD}/OAIEzsignformfield_Request.cpp \
     $${PWD}/OAIEzsignformfield_RequestCompound.cpp \
     $${PWD}/OAIEzsignformfield_Response.cpp \
@@ -1248,6 +1354,9 @@ SOURCES += \
     $${PWD}/OAIEzsignformfieldgroup_getObject_v1_Response.cpp \
     $${PWD}/OAIEzsignformfieldgroup_getObject_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsignformfieldgroup_getObject_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsignformfieldgroup_getObject_v2_Response.cpp \
+    $${PWD}/OAIEzsignformfieldgroup_getObject_v2_Response_allOf.cpp \
+    $${PWD}/OAIEzsignformfieldgroup_getObject_v2_Response_mPayload.cpp \
     $${PWD}/OAIEzsignformfieldgroupsigner_Request.cpp \
     $${PWD}/OAIEzsignformfieldgroupsigner_RequestCompound.cpp \
     $${PWD}/OAIEzsignformfieldgroupsigner_Response.cpp \
@@ -1274,6 +1383,9 @@ SOURCES += \
     $${PWD}/OAIEzsignsignature_getObject_v1_Response.cpp \
     $${PWD}/OAIEzsignsignature_getObject_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsignsignature_getObject_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsignsignature_getObject_v2_Response.cpp \
+    $${PWD}/OAIEzsignsignature_getObject_v2_Response_allOf.cpp \
+    $${PWD}/OAIEzsignsignature_getObject_v2_Response_mPayload.cpp \
     $${PWD}/OAIEzsignsignature_sign_v1_Request.cpp \
     $${PWD}/OAIEzsignsignature_sign_v1_Response.cpp \
     $${PWD}/OAIEzsignsignature_sign_v1_Response_allOf.cpp \
@@ -1313,6 +1425,9 @@ SOURCES += \
     $${PWD}/OAIEzsigntemplate_getObject_v1_Response.cpp \
     $${PWD}/OAIEzsigntemplate_getObject_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsigntemplate_getObject_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsigntemplate_getObject_v2_Response.cpp \
+    $${PWD}/OAIEzsigntemplate_getObject_v2_Response_allOf.cpp \
+    $${PWD}/OAIEzsigntemplate_getObject_v2_Response_mPayload.cpp \
     $${PWD}/OAIEzsigntemplatedocument_Request.cpp \
     $${PWD}/OAIEzsigntemplatedocument_RequestCompound.cpp \
     $${PWD}/OAIEzsigntemplatedocument_RequestPatch.cpp \
@@ -1345,6 +1460,9 @@ SOURCES += \
     $${PWD}/OAIEzsigntemplatedocument_getObject_v1_Response.cpp \
     $${PWD}/OAIEzsigntemplatedocument_getObject_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsigntemplatedocument_getObject_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsigntemplatedocument_getObject_v2_Response.cpp \
+    $${PWD}/OAIEzsigntemplatedocument_getObject_v2_Response_allOf.cpp \
+    $${PWD}/OAIEzsigntemplatedocument_getObject_v2_Response_mPayload.cpp \
     $${PWD}/OAIEzsigntemplatedocument_getWordsPositions_v1_Request.cpp \
     $${PWD}/OAIEzsigntemplatedocument_getWordsPositions_v1_Response.cpp \
     $${PWD}/OAIEzsigntemplatedocument_getWordsPositions_v1_Response_allOf.cpp \
@@ -1372,6 +1490,9 @@ SOURCES += \
     $${PWD}/OAIEzsigntemplateformfieldgroup_getObject_v1_Response.cpp \
     $${PWD}/OAIEzsigntemplateformfieldgroup_getObject_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsigntemplateformfieldgroup_getObject_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsigntemplateformfieldgroup_getObject_v2_Response.cpp \
+    $${PWD}/OAIEzsigntemplateformfieldgroup_getObject_v2_Response_allOf.cpp \
+    $${PWD}/OAIEzsigntemplateformfieldgroup_getObject_v2_Response_mPayload.cpp \
     $${PWD}/OAIEzsigntemplateformfieldgroupsigner_Request.cpp \
     $${PWD}/OAIEzsigntemplateformfieldgroupsigner_RequestCompound.cpp \
     $${PWD}/OAIEzsigntemplateformfieldgroupsigner_Response.cpp \
@@ -1404,6 +1525,9 @@ SOURCES += \
     $${PWD}/OAIEzsigntemplatepackage_getObject_v1_Response.cpp \
     $${PWD}/OAIEzsigntemplatepackage_getObject_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsigntemplatepackage_getObject_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsigntemplatepackage_getObject_v2_Response.cpp \
+    $${PWD}/OAIEzsigntemplatepackage_getObject_v2_Response_allOf.cpp \
+    $${PWD}/OAIEzsigntemplatepackage_getObject_v2_Response_mPayload.cpp \
     $${PWD}/OAIEzsigntemplatepackagemembership_Request.cpp \
     $${PWD}/OAIEzsigntemplatepackagemembership_RequestCompound.cpp \
     $${PWD}/OAIEzsigntemplatepackagemembership_Response.cpp \
@@ -1417,6 +1541,9 @@ SOURCES += \
     $${PWD}/OAIEzsigntemplatepackagemembership_getObject_v1_Response.cpp \
     $${PWD}/OAIEzsigntemplatepackagemembership_getObject_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsigntemplatepackagemembership_getObject_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsigntemplatepackagemembership_getObject_v2_Response.cpp \
+    $${PWD}/OAIEzsigntemplatepackagemembership_getObject_v2_Response_allOf.cpp \
+    $${PWD}/OAIEzsigntemplatepackagemembership_getObject_v2_Response_mPayload.cpp \
     $${PWD}/OAIEzsigntemplatepackagesigner_Request.cpp \
     $${PWD}/OAIEzsigntemplatepackagesigner_RequestCompound.cpp \
     $${PWD}/OAIEzsigntemplatepackagesigner_Response.cpp \
@@ -1433,6 +1560,9 @@ SOURCES += \
     $${PWD}/OAIEzsigntemplatepackagesigner_getObject_v1_Response.cpp \
     $${PWD}/OAIEzsigntemplatepackagesigner_getObject_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsigntemplatepackagesigner_getObject_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsigntemplatepackagesigner_getObject_v2_Response.cpp \
+    $${PWD}/OAIEzsigntemplatepackagesigner_getObject_v2_Response_allOf.cpp \
+    $${PWD}/OAIEzsigntemplatepackagesigner_getObject_v2_Response_mPayload.cpp \
     $${PWD}/OAIEzsigntemplatepackagesignermembership_Request.cpp \
     $${PWD}/OAIEzsigntemplatepackagesignermembership_RequestCompound.cpp \
     $${PWD}/OAIEzsigntemplatepackagesignermembership_Response.cpp \
@@ -1447,6 +1577,9 @@ SOURCES += \
     $${PWD}/OAIEzsigntemplatepackagesignermembership_getObject_v1_Response.cpp \
     $${PWD}/OAIEzsigntemplatepackagesignermembership_getObject_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsigntemplatepackagesignermembership_getObject_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsigntemplatepackagesignermembership_getObject_v2_Response.cpp \
+    $${PWD}/OAIEzsigntemplatepackagesignermembership_getObject_v2_Response_allOf.cpp \
+    $${PWD}/OAIEzsigntemplatepackagesignermembership_getObject_v2_Response_mPayload.cpp \
     $${PWD}/OAIEzsigntemplatesignature_Request.cpp \
     $${PWD}/OAIEzsigntemplatesignature_RequestCompound.cpp \
     $${PWD}/OAIEzsigntemplatesignature_RequestCompound_allOf.cpp \
@@ -1463,6 +1596,9 @@ SOURCES += \
     $${PWD}/OAIEzsigntemplatesignature_getObject_v1_Response.cpp \
     $${PWD}/OAIEzsigntemplatesignature_getObject_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsigntemplatesignature_getObject_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsigntemplatesignature_getObject_v2_Response.cpp \
+    $${PWD}/OAIEzsigntemplatesignature_getObject_v2_Response_allOf.cpp \
+    $${PWD}/OAIEzsigntemplatesignature_getObject_v2_Response_mPayload.cpp \
     $${PWD}/OAIEzsigntemplatesignaturecustomdate_Request.cpp \
     $${PWD}/OAIEzsigntemplatesignaturecustomdate_RequestCompound.cpp \
     $${PWD}/OAIEzsigntemplatesignaturecustomdate_Response.cpp \
@@ -1481,6 +1617,9 @@ SOURCES += \
     $${PWD}/OAIEzsigntemplatesigner_getObject_v1_Response.cpp \
     $${PWD}/OAIEzsigntemplatesigner_getObject_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsigntemplatesigner_getObject_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsigntemplatesigner_getObject_v2_Response.cpp \
+    $${PWD}/OAIEzsigntemplatesigner_getObject_v2_Response_allOf.cpp \
+    $${PWD}/OAIEzsigntemplatesigner_getObject_v2_Response_mPayload.cpp \
     $${PWD}/OAIEzsigntsarequirement_AutocompleteElement_Response.cpp \
     $${PWD}/OAIEzsigntsarequirement_getAutocomplete_v2_Response.cpp \
     $${PWD}/OAIEzsigntsarequirement_getAutocomplete_v2_Response_allOf.cpp \
@@ -1518,6 +1657,8 @@ SOURCES += \
     $${PWD}/OAIField_ePhoneType.cpp \
     $${PWD}/OAIField_eUserEzsignsendreminderfrequency.cpp \
     $${PWD}/OAIField_eUserType.cpp \
+    $${PWD}/OAIField_eVersionhistoryType.cpp \
+    $${PWD}/OAIField_eVersionhistoryUsertype.cpp \
     $${PWD}/OAIField_eWebhookEzsignevent.cpp \
     $${PWD}/OAIField_eWebhookManagementevent.cpp \
     $${PWD}/OAIField_eWebhookModule.cpp \
@@ -1540,6 +1681,7 @@ SOURCES += \
     $${PWD}/OAIMultilingual_EzsignfoldertypeName.cpp \
     $${PWD}/OAIMultilingual_NotificationsubsectionName.cpp \
     $${PWD}/OAIMultilingual_NotificationtestName.cpp \
+    $${PWD}/OAIMultilingual_VersionhistoryDetail.cpp \
     $${PWD}/OAINotificationsection_getNotificationtests_v1_Response.cpp \
     $${PWD}/OAINotificationsection_getNotificationtests_v1_Response_allOf.cpp \
     $${PWD}/OAINotificationsection_getNotificationtests_v1_Response_mPayload.cpp \
@@ -1576,6 +1718,11 @@ SOURCES += \
     $${PWD}/OAIUsergroup_getAutocomplete_v2_Response.cpp \
     $${PWD}/OAIUsergroup_getAutocomplete_v2_Response_allOf.cpp \
     $${PWD}/OAIUsergroup_getAutocomplete_v2_Response_mPayload.cpp \
+    $${PWD}/OAIVersionhistory_Response.cpp \
+    $${PWD}/OAIVersionhistory_ResponseCompound.cpp \
+    $${PWD}/OAIVersionhistory_getObject_v2_Response.cpp \
+    $${PWD}/OAIVersionhistory_getObject_v2_Response_allOf.cpp \
+    $${PWD}/OAIVersionhistory_getObject_v2_Response_mPayload.cpp \
     $${PWD}/OAIWebhook_Ezsign_DocumentCompleted.cpp \
     $${PWD}/OAIWebhook_Ezsign_DocumentCompleted_allOf.cpp \
     $${PWD}/OAIWebhook_Ezsign_FolderCompleted.cpp \
@@ -1585,6 +1732,7 @@ SOURCES += \
     $${PWD}/OAIWebhook_RequestCompound.cpp \
     $${PWD}/OAIWebhook_Response.cpp \
     $${PWD}/OAIWebhook_ResponseCompound.cpp \
+    $${PWD}/OAIWebhook_ResponseCompound_allOf.cpp \
     $${PWD}/OAIWebhook_User_UserCreated.cpp \
     $${PWD}/OAIWebhook_User_UserCreated_allOf.cpp \
     $${PWD}/OAIWebhook_createObject_v1_Request.cpp \
@@ -1605,6 +1753,9 @@ SOURCES += \
     $${PWD}/OAIWebhook_getObject_v1_Response.cpp \
     $${PWD}/OAIWebhook_getObject_v1_Response_allOf.cpp \
     $${PWD}/OAIWebhook_getObject_v1_Response_mPayload.cpp \
+    $${PWD}/OAIWebhook_getObject_v2_Response.cpp \
+    $${PWD}/OAIWebhook_getObject_v2_Response_allOf.cpp \
+    $${PWD}/OAIWebhook_getObject_v2_Response_mPayload.cpp \
     $${PWD}/OAIWebhook_test_v1_Response.cpp \
     $${PWD}/OAIWebsite_Request.cpp \
     $${PWD}/OAIWebsite_RequestCompound.cpp \
@@ -1649,6 +1800,7 @@ SOURCES += \
     $${PWD}/OAIObjectTimezoneApi.cpp \
     $${PWD}/OAIObjectUserApi.cpp \
     $${PWD}/OAIObjectUsergroupApi.cpp \
+    $${PWD}/OAIObjectVersionhistoryApi.cpp \
     $${PWD}/OAIObjectWebhookApi.cpp \
 # Others
     $${PWD}/OAIHelpers.cpp \
