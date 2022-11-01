@@ -496,7 +496,6 @@ add_library(${PROJECT_NAME}
     OAIEzsignsignature_getObject_v2_Response_mPayload.cpp
     OAIEzsignsignature_sign_v1_Request.cpp
     OAIEzsignsignature_sign_v1_Response.cpp
-    OAIEzsignsignature_sign_v1_Response_allOf.cpp
     OAIEzsignsignaturecustomdate_Request.cpp
     OAIEzsignsignaturecustomdate_RequestCompound.cpp
     OAIEzsignsignaturecustomdate_Response.cpp
@@ -770,6 +769,14 @@ add_library(${PROJECT_NAME}
     OAIField_eWebhookEzsignevent.cpp
     OAIField_eWebhookManagementevent.cpp
     OAIField_eWebhookModule.cpp
+    OAIFranchisebroker_AutocompleteElement_Response.cpp
+    OAIFranchisebroker_getAutocomplete_v2_Response.cpp
+    OAIFranchisebroker_getAutocomplete_v2_Response_allOf.cpp
+    OAIFranchisebroker_getAutocomplete_v2_Response_mPayload.cpp
+    OAIFranchiseoffice_AutocompleteElement_Response.cpp
+    OAIFranchiseoffice_getAutocomplete_v2_Response.cpp
+    OAIFranchiseoffice_getAutocomplete_v2_Response_allOf.cpp
+    OAIFranchiseoffice_getAutocomplete_v2_Response_mPayload.cpp
     OAIFranchisereferalincome_Request.cpp
     OAIFranchisereferalincome_RequestCompound.cpp
     OAIFranchisereferalincome_RequestCompound_allOf.cpp
@@ -798,6 +805,10 @@ add_library(${PROJECT_NAME}
     OAINotificationtest_getElements_v1_Response.cpp
     OAINotificationtest_getElements_v1_Response_allOf.cpp
     OAINotificationtest_getElements_v1_Response_mPayload.cpp
+    OAIPeriod_AutocompleteElement_Response.cpp
+    OAIPeriod_getAutocomplete_v2_Response.cpp
+    OAIPeriod_getAutocomplete_v2_Response_allOf.cpp
+    OAIPeriod_getAutocomplete_v2_Response_mPayload.cpp
     OAIPhone_Request.cpp
     OAIPhone_RequestCompound.cpp
     OAISecretquestion_AutocompleteElement_Response.cpp

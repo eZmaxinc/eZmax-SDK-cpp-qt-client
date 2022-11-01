@@ -482,7 +482,6 @@ HEADERS += \
     $${PWD}/OAIEzsignsignature_getObject_v2_Response_mPayload.h \
     $${PWD}/OAIEzsignsignature_sign_v1_Request.h \
     $${PWD}/OAIEzsignsignature_sign_v1_Response.h \
-    $${PWD}/OAIEzsignsignature_sign_v1_Response_allOf.h \
     $${PWD}/OAIEzsignsignaturecustomdate_Request.h \
     $${PWD}/OAIEzsignsignaturecustomdate_RequestCompound.h \
     $${PWD}/OAIEzsignsignaturecustomdate_Response.h \
@@ -756,6 +755,14 @@ HEADERS += \
     $${PWD}/OAIField_eWebhookEzsignevent.h \
     $${PWD}/OAIField_eWebhookManagementevent.h \
     $${PWD}/OAIField_eWebhookModule.h \
+    $${PWD}/OAIFranchisebroker_AutocompleteElement_Response.h \
+    $${PWD}/OAIFranchisebroker_getAutocomplete_v2_Response.h \
+    $${PWD}/OAIFranchisebroker_getAutocomplete_v2_Response_allOf.h \
+    $${PWD}/OAIFranchisebroker_getAutocomplete_v2_Response_mPayload.h \
+    $${PWD}/OAIFranchiseoffice_AutocompleteElement_Response.h \
+    $${PWD}/OAIFranchiseoffice_getAutocomplete_v2_Response.h \
+    $${PWD}/OAIFranchiseoffice_getAutocomplete_v2_Response_allOf.h \
+    $${PWD}/OAIFranchiseoffice_getAutocomplete_v2_Response_mPayload.h \
     $${PWD}/OAIFranchisereferalincome_Request.h \
     $${PWD}/OAIFranchisereferalincome_RequestCompound.h \
     $${PWD}/OAIFranchisereferalincome_RequestCompound_allOf.h \
@@ -784,6 +791,10 @@ HEADERS += \
     $${PWD}/OAINotificationtest_getElements_v1_Response.h \
     $${PWD}/OAINotificationtest_getElements_v1_Response_allOf.h \
     $${PWD}/OAINotificationtest_getElements_v1_Response_mPayload.h \
+    $${PWD}/OAIPeriod_AutocompleteElement_Response.h \
+    $${PWD}/OAIPeriod_getAutocomplete_v2_Response.h \
+    $${PWD}/OAIPeriod_getAutocomplete_v2_Response_allOf.h \
+    $${PWD}/OAIPeriod_getAutocomplete_v2_Response_mPayload.h \
     $${PWD}/OAIPhone_Request.h \
     $${PWD}/OAIPhone_RequestCompound.h \
     $${PWD}/OAISecretquestion_AutocompleteElement_Response.h \
@@ -1388,7 +1399,6 @@ SOURCES += \
     $${PWD}/OAIEzsignsignature_getObject_v2_Response_mPayload.cpp \
     $${PWD}/OAIEzsignsignature_sign_v1_Request.cpp \
     $${PWD}/OAIEzsignsignature_sign_v1_Response.cpp \
-    $${PWD}/OAIEzsignsignature_sign_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsignsignaturecustomdate_Request.cpp \
     $${PWD}/OAIEzsignsignaturecustomdate_RequestCompound.cpp \
     $${PWD}/OAIEzsignsignaturecustomdate_Response.cpp \
@@ -1662,6 +1672,14 @@ SOURCES += \
     $${PWD}/OAIField_eWebhookEzsignevent.cpp \
     $${PWD}/OAIField_eWebhookManagementevent.cpp \
     $${PWD}/OAIField_eWebhookModule.cpp \
+    $${PWD}/OAIFranchisebroker_AutocompleteElement_Response.cpp \
+    $${PWD}/OAIFranchisebroker_getAutocomplete_v2_Response.cpp \
+    $${PWD}/OAIFranchisebroker_getAutocomplete_v2_Response_allOf.cpp \
+    $${PWD}/OAIFranchisebroker_getAutocomplete_v2_Response_mPayload.cpp \
+    $${PWD}/OAIFranchiseoffice_AutocompleteElement_Response.cpp \
+    $${PWD}/OAIFranchiseoffice_getAutocomplete_v2_Response.cpp \
+    $${PWD}/OAIFranchiseoffice_getAutocomplete_v2_Response_allOf.cpp \
+    $${PWD}/OAIFranchiseoffice_getAutocomplete_v2_Response_mPayload.cpp \
     $${PWD}/OAIFranchisereferalincome_Request.cpp \
     $${PWD}/OAIFranchisereferalincome_RequestCompound.cpp \
     $${PWD}/OAIFranchisereferalincome_RequestCompound_allOf.cpp \
@@ -1690,6 +1708,10 @@ SOURCES += \
     $${PWD}/OAINotificationtest_getElements_v1_Response.cpp \
     $${PWD}/OAINotificationtest_getElements_v1_Response_allOf.cpp \
     $${PWD}/OAINotificationtest_getElements_v1_Response_mPayload.cpp \
+    $${PWD}/OAIPeriod_AutocompleteElement_Response.cpp \
+    $${PWD}/OAIPeriod_getAutocomplete_v2_Response.cpp \
+    $${PWD}/OAIPeriod_getAutocomplete_v2_Response_allOf.cpp \
+    $${PWD}/OAIPeriod_getAutocomplete_v2_Response_mPayload.cpp \
     $${PWD}/OAIPhone_Request.cpp \
     $${PWD}/OAIPhone_RequestCompound.cpp \
     $${PWD}/OAISecretquestion_AutocompleteElement_Response.cpp \
