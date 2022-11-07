@@ -387,10 +387,13 @@ add_library(${PROJECT_NAME}
     OAIEzsignfolder_send_v1_Response.cpp
     OAIEzsignfolder_send_v2_Request.cpp
     OAIEzsignfolder_send_v2_Response.cpp
+    OAIEzsignfolder_send_v3_Request.cpp
+    OAIEzsignfolder_send_v3_Response.cpp
     OAIEzsignfolder_unsend_v1_Response.cpp
     OAIEzsignfoldersignerassociation_Request.cpp
     OAIEzsignfoldersignerassociation_RequestCompound.cpp
     OAIEzsignfoldersignerassociation_RequestCompound_allOf.cpp
+    OAIEzsignfoldersignerassociation_RequestPatch.cpp
     OAIEzsignfoldersignerassociation_Response.cpp
     OAIEzsignfoldersignerassociation_ResponseCompound.cpp
     OAIEzsignfoldersignerassociation_ResponseCompound_User.cpp
@@ -416,6 +419,8 @@ add_library(${PROJECT_NAME}
     OAIEzsignfoldersignerassociation_getObject_v2_Response.cpp
     OAIEzsignfoldersignerassociation_getObject_v2_Response_allOf.cpp
     OAIEzsignfoldersignerassociation_getObject_v2_Response_mPayload.cpp
+    OAIEzsignfoldersignerassociation_patchObject_v1_Request.cpp
+    OAIEzsignfoldersignerassociation_patchObject_v1_Response.cpp
     OAIEzsignfoldertype_AutocompleteElement_Response.cpp
     OAIEzsignfoldertype_ListElement.cpp
     OAIEzsignfoldertype_Request.cpp

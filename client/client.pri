@@ -373,10 +373,13 @@ HEADERS += \
     $${PWD}/OAIEzsignfolder_send_v1_Response.h \
     $${PWD}/OAIEzsignfolder_send_v2_Request.h \
     $${PWD}/OAIEzsignfolder_send_v2_Response.h \
+    $${PWD}/OAIEzsignfolder_send_v3_Request.h \
+    $${PWD}/OAIEzsignfolder_send_v3_Response.h \
     $${PWD}/OAIEzsignfolder_unsend_v1_Response.h \
     $${PWD}/OAIEzsignfoldersignerassociation_Request.h \
     $${PWD}/OAIEzsignfoldersignerassociation_RequestCompound.h \
     $${PWD}/OAIEzsignfoldersignerassociation_RequestCompound_allOf.h \
+    $${PWD}/OAIEzsignfoldersignerassociation_RequestPatch.h \
     $${PWD}/OAIEzsignfoldersignerassociation_Response.h \
     $${PWD}/OAIEzsignfoldersignerassociation_ResponseCompound.h \
     $${PWD}/OAIEzsignfoldersignerassociation_ResponseCompound_User.h \
@@ -402,6 +405,8 @@ HEADERS += \
     $${PWD}/OAIEzsignfoldersignerassociation_getObject_v2_Response.h \
     $${PWD}/OAIEzsignfoldersignerassociation_getObject_v2_Response_allOf.h \
     $${PWD}/OAIEzsignfoldersignerassociation_getObject_v2_Response_mPayload.h \
+    $${PWD}/OAIEzsignfoldersignerassociation_patchObject_v1_Request.h \
+    $${PWD}/OAIEzsignfoldersignerassociation_patchObject_v1_Response.h \
     $${PWD}/OAIEzsignfoldertype_AutocompleteElement_Response.h \
     $${PWD}/OAIEzsignfoldertype_ListElement.h \
     $${PWD}/OAIEzsignfoldertype_Request.h \
@@ -1290,10 +1295,13 @@ SOURCES += \
     $${PWD}/OAIEzsignfolder_send_v1_Response.cpp \
     $${PWD}/OAIEzsignfolder_send_v2_Request.cpp \
     $${PWD}/OAIEzsignfolder_send_v2_Response.cpp \
+    $${PWD}/OAIEzsignfolder_send_v3_Request.cpp \
+    $${PWD}/OAIEzsignfolder_send_v3_Response.cpp \
     $${PWD}/OAIEzsignfolder_unsend_v1_Response.cpp \
     $${PWD}/OAIEzsignfoldersignerassociation_Request.cpp \
     $${PWD}/OAIEzsignfoldersignerassociation_RequestCompound.cpp \
     $${PWD}/OAIEzsignfoldersignerassociation_RequestCompound_allOf.cpp \
+    $${PWD}/OAIEzsignfoldersignerassociation_RequestPatch.cpp \
     $${PWD}/OAIEzsignfoldersignerassociation_Response.cpp \
     $${PWD}/OAIEzsignfoldersignerassociation_ResponseCompound.cpp \
     $${PWD}/OAIEzsignfoldersignerassociation_ResponseCompound_User.cpp \
@@ -1319,6 +1327,8 @@ SOURCES += \
     $${PWD}/OAIEzsignfoldersignerassociation_getObject_v2_Response.cpp \
     $${PWD}/OAIEzsignfoldersignerassociation_getObject_v2_Response_allOf.cpp \
     $${PWD}/OAIEzsignfoldersignerassociation_getObject_v2_Response_mPayload.cpp \
+    $${PWD}/OAIEzsignfoldersignerassociation_patchObject_v1_Request.cpp \
+    $${PWD}/OAIEzsignfoldersignerassociation_patchObject_v1_Response.cpp \
     $${PWD}/OAIEzsignfoldertype_AutocompleteElement_Response.cpp \
     $${PWD}/OAIEzsignfoldertype_ListElement.cpp \
     $${PWD}/OAIEzsignfoldertype_Request.cpp \
