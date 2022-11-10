@@ -506,6 +506,10 @@ HEADERS += \
     $${PWD}/OAIEzsigntemplate_Response.h \
     $${PWD}/OAIEzsigntemplate_ResponseCompound.h \
     $${PWD}/OAIEzsigntemplate_ResponseCompound_allOf.h \
+    $${PWD}/OAIEzsigntemplate_copy_v1_Request.h \
+    $${PWD}/OAIEzsigntemplate_copy_v1_Response.h \
+    $${PWD}/OAIEzsigntemplate_copy_v1_Response_allOf.h \
+    $${PWD}/OAIEzsigntemplate_copy_v1_Response_mPayload.h \
     $${PWD}/OAIEzsigntemplate_createObject_v1_Request.h \
     $${PWD}/OAIEzsigntemplate_createObject_v1_Response.h \
     $${PWD}/OAIEzsigntemplate_createObject_v1_Response_allOf.h \
@@ -1428,6 +1432,10 @@ SOURCES += \
     $${PWD}/OAIEzsigntemplate_Response.cpp \
     $${PWD}/OAIEzsigntemplate_ResponseCompound.cpp \
     $${PWD}/OAIEzsigntemplate_ResponseCompound_allOf.cpp \
+    $${PWD}/OAIEzsigntemplate_copy_v1_Request.cpp \
+    $${PWD}/OAIEzsigntemplate_copy_v1_Response.cpp \
+    $${PWD}/OAIEzsigntemplate_copy_v1_Response_allOf.cpp \
+    $${PWD}/OAIEzsigntemplate_copy_v1_Response_mPayload.cpp \
     $${PWD}/OAIEzsigntemplate_createObject_v1_Request.cpp \
     $${PWD}/OAIEzsigntemplate_createObject_v1_Response.cpp \
     $${PWD}/OAIEzsigntemplate_createObject_v1_Response_allOf.cpp \

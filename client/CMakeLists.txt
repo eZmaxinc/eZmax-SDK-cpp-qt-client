@@ -520,6 +520,10 @@ add_library(${PROJECT_NAME}
     OAIEzsigntemplate_Response.cpp
     OAIEzsigntemplate_ResponseCompound.cpp
     OAIEzsigntemplate_ResponseCompound_allOf.cpp
+    OAIEzsigntemplate_copy_v1_Request.cpp
+    OAIEzsigntemplate_copy_v1_Response.cpp
+    OAIEzsigntemplate_copy_v1_Response_allOf.cpp
+    OAIEzsigntemplate_copy_v1_Response_mPayload.cpp
     OAIEzsigntemplate_createObject_v1_Request.cpp
     OAIEzsigntemplate_createObject_v1_Response.cpp
     OAIEzsigntemplate_createObject_v1_Response_allOf.cpp
