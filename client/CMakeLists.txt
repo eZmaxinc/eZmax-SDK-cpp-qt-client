@@ -92,6 +92,29 @@ add_library(${PROJECT_NAME}
     OAICommon_getAutocomplete_v1_Response.cpp
     OAICommon_getAutocomplete_v1_Response_allOf.cpp
     OAICommon_getList_v1_Response_mPayload.cpp
+    OAICommunication_ListElement.cpp
+    OAICommunication_Response.cpp
+    OAICommunication_ResponseCompound.cpp
+    OAICommunication_ResponseCompound_allOf.cpp
+    OAICommunication_getCount_v1_Response.cpp
+    OAICommunication_getCount_v1_Response_allOf.cpp
+    OAICommunication_getCount_v1_Response_mPayload.cpp
+    OAICommunication_getList_v1_Response.cpp
+    OAICommunication_getList_v1_Response_allOf.cpp
+    OAICommunication_getList_v1_Response_mPayload.cpp
+    OAICommunication_getObject_v2_Response.cpp
+    OAICommunication_getObject_v2_Response_allOf.cpp
+    OAICommunication_getObject_v2_Response_mPayload.cpp
+    OAICommunicationattachment_Response.cpp
+    OAICommunicationattachment_ResponseCompound.cpp
+    OAICommunicationexternalimage_Response.cpp
+    OAICommunicationexternalimage_ResponseCompound.cpp
+    OAICommunicationexternalrecipient_Response.cpp
+    OAICommunicationexternalrecipient_ResponseCompound.cpp
+    OAICommunicationimage_Response.cpp
+    OAICommunicationimage_ResponseCompound.cpp
+    OAICommunicationrecipient_Response.cpp
+    OAICommunicationrecipient_ResponseCompound.cpp
     OAIContact_Request.cpp
     OAIContact_RequestCompound.cpp
     OAIContact_RequestCompound_allOf.cpp
@@ -743,6 +766,10 @@ add_library(${PROJECT_NAME}
     OAIField_eActivesessionUsertype.cpp
     OAIField_eActivesessionWeekdaystart.cpp
     OAIField_eBrandingLogo.cpp
+    OAIField_eCommunicationEmailimportance.cpp
+    OAIField_eCommunicationType.cpp
+    OAIField_eCommunicationexternalrecipientType.cpp
+    OAIField_eCommunicationrecipientType.cpp
     OAIField_eEzmaxinvoicingPaymenttype.cpp
     OAIField_eEzmaxinvoicingagentVariationezmax.cpp
     OAIField_eEzmaxinvoicingagentVariationezsign.cpp
@@ -820,6 +847,8 @@ add_library(${PROJECT_NAME}
     OAIPeriod_getAutocomplete_v2_Response_mPayload.cpp
     OAIPhone_Request.cpp
     OAIPhone_RequestCompound.cpp
+    OAIPhone_Response.cpp
+    OAIPhone_ResponseCompound.cpp
     OAISecretquestion_AutocompleteElement_Response.cpp
     OAISecretquestion_getAutocomplete_v2_Response.cpp
     OAISecretquestion_getAutocomplete_v2_Response_allOf.cpp
@@ -888,12 +917,14 @@ add_library(${PROJECT_NAME}
     OAIWebsite_Request.cpp
     OAIWebsite_RequestCompound.cpp
     OAIGlobalCustomerApi.cpp
+    OAIModuleCommunicationApi.cpp
     OAIModuleEzsignApi.cpp
     OAIModuleUserApi.cpp
     OAIObjectActivesessionApi.cpp
     OAIObjectApikeyApi.cpp
     OAIObjectBillingentityinternalApi.cpp
     OAIObjectBrandingApi.cpp
+    OAIObjectCommunicationApi.cpp
     OAIObjectDepartmentApi.cpp
     OAIObjectEzmaxinvoicingApi.cpp
     OAIObjectEzsignbulksendApi.cpp

@@ -78,6 +78,29 @@ HEADERS += \
     $${PWD}/OAICommon_getAutocomplete_v1_Response.h \
     $${PWD}/OAICommon_getAutocomplete_v1_Response_allOf.h \
     $${PWD}/OAICommon_getList_v1_Response_mPayload.h \
+    $${PWD}/OAICommunication_ListElement.h \
+    $${PWD}/OAICommunication_Response.h \
+    $${PWD}/OAICommunication_ResponseCompound.h \
+    $${PWD}/OAICommunication_ResponseCompound_allOf.h \
+    $${PWD}/OAICommunication_getCount_v1_Response.h \
+    $${PWD}/OAICommunication_getCount_v1_Response_allOf.h \
+    $${PWD}/OAICommunication_getCount_v1_Response_mPayload.h \
+    $${PWD}/OAICommunication_getList_v1_Response.h \
+    $${PWD}/OAICommunication_getList_v1_Response_allOf.h \
+    $${PWD}/OAICommunication_getList_v1_Response_mPayload.h \
+    $${PWD}/OAICommunication_getObject_v2_Response.h \
+    $${PWD}/OAICommunication_getObject_v2_Response_allOf.h \
+    $${PWD}/OAICommunication_getObject_v2_Response_mPayload.h \
+    $${PWD}/OAICommunicationattachment_Response.h \
+    $${PWD}/OAICommunicationattachment_ResponseCompound.h \
+    $${PWD}/OAICommunicationexternalimage_Response.h \
+    $${PWD}/OAICommunicationexternalimage_ResponseCompound.h \
+    $${PWD}/OAICommunicationexternalrecipient_Response.h \
+    $${PWD}/OAICommunicationexternalrecipient_ResponseCompound.h \
+    $${PWD}/OAICommunicationimage_Response.h \
+    $${PWD}/OAICommunicationimage_ResponseCompound.h \
+    $${PWD}/OAICommunicationrecipient_Response.h \
+    $${PWD}/OAICommunicationrecipient_ResponseCompound.h \
     $${PWD}/OAIContact_Request.h \
     $${PWD}/OAIContact_RequestCompound.h \
     $${PWD}/OAIContact_RequestCompound_allOf.h \
@@ -729,6 +752,10 @@ HEADERS += \
     $${PWD}/OAIField_eActivesessionUsertype.h \
     $${PWD}/OAIField_eActivesessionWeekdaystart.h \
     $${PWD}/OAIField_eBrandingLogo.h \
+    $${PWD}/OAIField_eCommunicationEmailimportance.h \
+    $${PWD}/OAIField_eCommunicationType.h \
+    $${PWD}/OAIField_eCommunicationexternalrecipientType.h \
+    $${PWD}/OAIField_eCommunicationrecipientType.h \
     $${PWD}/OAIField_eEzmaxinvoicingPaymenttype.h \
     $${PWD}/OAIField_eEzmaxinvoicingagentVariationezmax.h \
     $${PWD}/OAIField_eEzmaxinvoicingagentVariationezsign.h \
@@ -806,6 +833,8 @@ HEADERS += \
     $${PWD}/OAIPeriod_getAutocomplete_v2_Response_mPayload.h \
     $${PWD}/OAIPhone_Request.h \
     $${PWD}/OAIPhone_RequestCompound.h \
+    $${PWD}/OAIPhone_Response.h \
+    $${PWD}/OAIPhone_ResponseCompound.h \
     $${PWD}/OAISecretquestion_AutocompleteElement_Response.h \
     $${PWD}/OAISecretquestion_getAutocomplete_v2_Response.h \
     $${PWD}/OAISecretquestion_getAutocomplete_v2_Response_allOf.h \
@@ -875,12 +904,14 @@ HEADERS += \
     $${PWD}/OAIWebsite_RequestCompound.h \
 # APIs
     $${PWD}/OAIGlobalCustomerApi.h \
+    $${PWD}/OAIModuleCommunicationApi.h \
     $${PWD}/OAIModuleEzsignApi.h \
     $${PWD}/OAIModuleUserApi.h \
     $${PWD}/OAIObjectActivesessionApi.h \
     $${PWD}/OAIObjectApikeyApi.h \
     $${PWD}/OAIObjectBillingentityinternalApi.h \
     $${PWD}/OAIObjectBrandingApi.h \
+    $${PWD}/OAIObjectCommunicationApi.h \
     $${PWD}/OAIObjectDepartmentApi.h \
     $${PWD}/OAIObjectEzmaxinvoicingApi.h \
     $${PWD}/OAIObjectEzsignbulksendApi.h \
@@ -1004,6 +1035,29 @@ SOURCES += \
     $${PWD}/OAICommon_getAutocomplete_v1_Response.cpp \
     $${PWD}/OAICommon_getAutocomplete_v1_Response_allOf.cpp \
     $${PWD}/OAICommon_getList_v1_Response_mPayload.cpp \
+    $${PWD}/OAICommunication_ListElement.cpp \
+    $${PWD}/OAICommunication_Response.cpp \
+    $${PWD}/OAICommunication_ResponseCompound.cpp \
+    $${PWD}/OAICommunication_ResponseCompound_allOf.cpp \
+    $${PWD}/OAICommunication_getCount_v1_Response.cpp \
+    $${PWD}/OAICommunication_getCount_v1_Response_allOf.cpp \
+    $${PWD}/OAICommunication_getCount_v1_Response_mPayload.cpp \
+    $${PWD}/OAICommunication_getList_v1_Response.cpp \
+    $${PWD}/OAICommunication_getList_v1_Response_allOf.cpp \
+    $${PWD}/OAICommunication_getList_v1_Response_mPayload.cpp \
+    $${PWD}/OAICommunication_getObject_v2_Response.cpp \
+    $${PWD}/OAICommunication_getObject_v2_Response_allOf.cpp \
+    $${PWD}/OAICommunication_getObject_v2_Response_mPayload.cpp \
+    $${PWD}/OAICommunicationattachment_Response.cpp \
+    $${PWD}/OAICommunicationattachment_ResponseCompound.cpp \
+    $${PWD}/OAICommunicationexternalimage_Response.cpp \
+    $${PWD}/OAICommunicationexternalimage_ResponseCompound.cpp \
+    $${PWD}/OAICommunicationexternalrecipient_Response.cpp \
+    $${PWD}/OAICommunicationexternalrecipient_ResponseCompound.cpp \
+    $${PWD}/OAICommunicationimage_Response.cpp \
+    $${PWD}/OAICommunicationimage_ResponseCompound.cpp \
+    $${PWD}/OAICommunicationrecipient_Response.cpp \
+    $${PWD}/OAICommunicationrecipient_ResponseCompound.cpp \
     $${PWD}/OAIContact_Request.cpp \
     $${PWD}/OAIContact_RequestCompound.cpp \
     $${PWD}/OAIContact_RequestCompound_allOf.cpp \
@@ -1655,6 +1709,10 @@ SOURCES += \
     $${PWD}/OAIField_eActivesessionUsertype.cpp \
     $${PWD}/OAIField_eActivesessionWeekdaystart.cpp \
     $${PWD}/OAIField_eBrandingLogo.cpp \
+    $${PWD}/OAIField_eCommunicationEmailimportance.cpp \
+    $${PWD}/OAIField_eCommunicationType.cpp \
+    $${PWD}/OAIField_eCommunicationexternalrecipientType.cpp \
+    $${PWD}/OAIField_eCommunicationrecipientType.cpp \
     $${PWD}/OAIField_eEzmaxinvoicingPaymenttype.cpp \
     $${PWD}/OAIField_eEzmaxinvoicingagentVariationezmax.cpp \
     $${PWD}/OAIField_eEzmaxinvoicingagentVariationezsign.cpp \
@@ -1732,6 +1790,8 @@ SOURCES += \
     $${PWD}/OAIPeriod_getAutocomplete_v2_Response_mPayload.cpp \
     $${PWD}/OAIPhone_Request.cpp \
     $${PWD}/OAIPhone_RequestCompound.cpp \
+    $${PWD}/OAIPhone_Response.cpp \
+    $${PWD}/OAIPhone_ResponseCompound.cpp \
     $${PWD}/OAISecretquestion_AutocompleteElement_Response.cpp \
     $${PWD}/OAISecretquestion_getAutocomplete_v2_Response.cpp \
     $${PWD}/OAISecretquestion_getAutocomplete_v2_Response_allOf.cpp \
@@ -1801,12 +1861,14 @@ SOURCES += \
     $${PWD}/OAIWebsite_RequestCompound.cpp \
 # APIs
     $${PWD}/OAIGlobalCustomerApi.cpp \
+    $${PWD}/OAIModuleCommunicationApi.cpp \
     $${PWD}/OAIModuleEzsignApi.cpp \
     $${PWD}/OAIModuleUserApi.cpp \
     $${PWD}/OAIObjectActivesessionApi.cpp \
     $${PWD}/OAIObjectApikeyApi.cpp \
     $${PWD}/OAIObjectBillingentityinternalApi.cpp \
     $${PWD}/OAIObjectBrandingApi.cpp \
+    $${PWD}/OAIObjectCommunicationApi.cpp \
     $${PWD}/OAIObjectDepartmentApi.cpp \
     $${PWD}/OAIObjectEzmaxinvoicingApi.cpp \
     $${PWD}/OAIObjectEzsignbulksendApi.cpp \
