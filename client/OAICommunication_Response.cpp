@@ -37,8 +37,8 @@ void OAICommunication_Response::initializeModel() {
     m_pki_communication_id_isSet = false;
     m_pki_communication_id_isValid = false;
 
-    m_e_communication_emailimportance_isSet = false;
-    m_e_communication_emailimportance_isValid = false;
+    m_e_communication_importance_isSet = false;
+    m_e_communication_importance_isValid = false;
 
     m_e_communication_type_isSet = false;
     m_e_communication_type_isValid = false;
@@ -46,11 +46,17 @@ void OAICommunication_Response::initializeModel() {
     m_s_communication_subject_isSet = false;
     m_s_communication_subject_isValid = false;
 
-    m_dt_communication_sentdate_isSet = false;
-    m_dt_communication_sentdate_isValid = false;
+    m_e_communication_direction_isSet = false;
+    m_e_communication_direction_isValid = false;
+
+    m_i_communicationrecipient_count_isSet = false;
+    m_i_communicationrecipient_count_isValid = false;
 
     m_obj_contact_from_isSet = false;
     m_obj_contact_from_isValid = false;
+
+    m_obj_audit_isSet = false;
+    m_obj_audit_isValid = false;
 }
 
 void OAICommunication_Response::fromJson(QString jsonString) {
@@ -65,8 +71,8 @@ void OAICommunication_Response::fromJsonObject(QJsonObject json) {
     m_pki_communication_id_isValid = ::OpenAPI::fromJsonValue(pki_communication_id, json[QString("pkiCommunicationID")]);
     m_pki_communication_id_isSet = !json[QString("pkiCommunicationID")].isNull() && m_pki_communication_id_isValid;
 
-    m_e_communication_emailimportance_isValid = ::OpenAPI::fromJsonValue(e_communication_emailimportance, json[QString("eCommunicationEmailimportance")]);
-    m_e_communication_emailimportance_isSet = !json[QString("eCommunicationEmailimportance")].isNull() && m_e_communication_emailimportance_isValid;
+    m_e_communication_importance_isValid = ::OpenAPI::fromJsonValue(e_communication_importance, json[QString("eCommunicationImportance")]);
+    m_e_communication_importance_isSet = !json[QString("eCommunicationImportance")].isNull() && m_e_communication_importance_isValid;
 
     m_e_communication_type_isValid = ::OpenAPI::fromJsonValue(e_communication_type, json[QString("eCommunicationType")]);
     m_e_communication_type_isSet = !json[QString("eCommunicationType")].isNull() && m_e_communication_type_isValid;
@@ -74,11 +80,17 @@ void OAICommunication_Response::fromJsonObject(QJsonObject json) {
     m_s_communication_subject_isValid = ::OpenAPI::fromJsonValue(s_communication_subject, json[QString("sCommunicationSubject")]);
     m_s_communication_subject_isSet = !json[QString("sCommunicationSubject")].isNull() && m_s_communication_subject_isValid;
 
-    m_dt_communication_sentdate_isValid = ::OpenAPI::fromJsonValue(dt_communication_sentdate, json[QString("dtCommunicationSentdate")]);
-    m_dt_communication_sentdate_isSet = !json[QString("dtCommunicationSentdate")].isNull() && m_dt_communication_sentdate_isValid;
+    m_e_communication_direction_isValid = ::OpenAPI::fromJsonValue(e_communication_direction, json[QString("eCommunicationDirection")]);
+    m_e_communication_direction_isSet = !json[QString("eCommunicationDirection")].isNull() && m_e_communication_direction_isValid;
+
+    m_i_communicationrecipient_count_isValid = ::OpenAPI::fromJsonValue(i_communicationrecipient_count, json[QString("iCommunicationrecipientCount")]);
+    m_i_communicationrecipient_count_isSet = !json[QString("iCommunicationrecipientCount")].isNull() && m_i_communicationrecipient_count_isValid;
 
     m_obj_contact_from_isValid = ::OpenAPI::fromJsonValue(obj_contact_from, json[QString("objContactFrom")]);
     m_obj_contact_from_isSet = !json[QString("objContactFrom")].isNull() && m_obj_contact_from_isValid;
+
+    m_obj_audit_isValid = ::OpenAPI::fromJsonValue(obj_audit, json[QString("objAudit")]);
+    m_obj_audit_isSet = !json[QString("objAudit")].isNull() && m_obj_audit_isValid;
 }
 
 QString OAICommunication_Response::asJson() const {
@@ -93,8 +105,8 @@ QJsonObject OAICommunication_Response::asJsonObject() const {
     if (m_pki_communication_id_isSet) {
         obj.insert(QString("pkiCommunicationID"), ::OpenAPI::toJsonValue(pki_communication_id));
     }
-    if (e_communication_emailimportance.isSet()) {
-        obj.insert(QString("eCommunicationEmailimportance"), ::OpenAPI::toJsonValue(e_communication_emailimportance));
+    if (e_communication_importance.isSet()) {
+        obj.insert(QString("eCommunicationImportance"), ::OpenAPI::toJsonValue(e_communication_importance));
     }
     if (e_communication_type.isSet()) {
         obj.insert(QString("eCommunicationType"), ::OpenAPI::toJsonValue(e_communication_type));
@@ -102,11 +114,17 @@ QJsonObject OAICommunication_Response::asJsonObject() const {
     if (m_s_communication_subject_isSet) {
         obj.insert(QString("sCommunicationSubject"), ::OpenAPI::toJsonValue(s_communication_subject));
     }
-    if (m_dt_communication_sentdate_isSet) {
-        obj.insert(QString("dtCommunicationSentdate"), ::OpenAPI::toJsonValue(dt_communication_sentdate));
+    if (e_communication_direction.isSet()) {
+        obj.insert(QString("eCommunicationDirection"), ::OpenAPI::toJsonValue(e_communication_direction));
+    }
+    if (m_i_communicationrecipient_count_isSet) {
+        obj.insert(QString("iCommunicationrecipientCount"), ::OpenAPI::toJsonValue(i_communicationrecipient_count));
     }
     if (obj_contact_from.isSet()) {
         obj.insert(QString("objContactFrom"), ::OpenAPI::toJsonValue(obj_contact_from));
+    }
+    if (obj_audit.isSet()) {
+        obj.insert(QString("objAudit"), ::OpenAPI::toJsonValue(obj_audit));
     }
     return obj;
 }
@@ -127,20 +145,20 @@ bool OAICommunication_Response::is_pki_communication_id_Valid() const{
     return m_pki_communication_id_isValid;
 }
 
-OAIField_eCommunicationEmailimportance OAICommunication_Response::getECommunicationEmailimportance() const {
-    return e_communication_emailimportance;
+OAIField_eCommunicationImportance OAICommunication_Response::getECommunicationImportance() const {
+    return e_communication_importance;
 }
-void OAICommunication_Response::setECommunicationEmailimportance(const OAIField_eCommunicationEmailimportance &e_communication_emailimportance) {
-    this->e_communication_emailimportance = e_communication_emailimportance;
-    this->m_e_communication_emailimportance_isSet = true;
-}
-
-bool OAICommunication_Response::is_e_communication_emailimportance_Set() const{
-    return m_e_communication_emailimportance_isSet;
+void OAICommunication_Response::setECommunicationImportance(const OAIField_eCommunicationImportance &e_communication_importance) {
+    this->e_communication_importance = e_communication_importance;
+    this->m_e_communication_importance_isSet = true;
 }
 
-bool OAICommunication_Response::is_e_communication_emailimportance_Valid() const{
-    return m_e_communication_emailimportance_isValid;
+bool OAICommunication_Response::is_e_communication_importance_Set() const{
+    return m_e_communication_importance_isSet;
+}
+
+bool OAICommunication_Response::is_e_communication_importance_Valid() const{
+    return m_e_communication_importance_isValid;
 }
 
 OAIField_eCommunicationType OAICommunication_Response::getECommunicationType() const {
@@ -175,20 +193,36 @@ bool OAICommunication_Response::is_s_communication_subject_Valid() const{
     return m_s_communication_subject_isValid;
 }
 
-QString OAICommunication_Response::getDtCommunicationSentdate() const {
-    return dt_communication_sentdate;
+OAIComputed_eCommunicationDirection OAICommunication_Response::getECommunicationDirection() const {
+    return e_communication_direction;
 }
-void OAICommunication_Response::setDtCommunicationSentdate(const QString &dt_communication_sentdate) {
-    this->dt_communication_sentdate = dt_communication_sentdate;
-    this->m_dt_communication_sentdate_isSet = true;
-}
-
-bool OAICommunication_Response::is_dt_communication_sentdate_Set() const{
-    return m_dt_communication_sentdate_isSet;
+void OAICommunication_Response::setECommunicationDirection(const OAIComputed_eCommunicationDirection &e_communication_direction) {
+    this->e_communication_direction = e_communication_direction;
+    this->m_e_communication_direction_isSet = true;
 }
 
-bool OAICommunication_Response::is_dt_communication_sentdate_Valid() const{
-    return m_dt_communication_sentdate_isValid;
+bool OAICommunication_Response::is_e_communication_direction_Set() const{
+    return m_e_communication_direction_isSet;
+}
+
+bool OAICommunication_Response::is_e_communication_direction_Valid() const{
+    return m_e_communication_direction_isValid;
+}
+
+qint32 OAICommunication_Response::getICommunicationrecipientCount() const {
+    return i_communicationrecipient_count;
+}
+void OAICommunication_Response::setICommunicationrecipientCount(const qint32 &i_communicationrecipient_count) {
+    this->i_communicationrecipient_count = i_communicationrecipient_count;
+    this->m_i_communicationrecipient_count_isSet = true;
+}
+
+bool OAICommunication_Response::is_i_communicationrecipient_count_Set() const{
+    return m_i_communicationrecipient_count_isSet;
+}
+
+bool OAICommunication_Response::is_i_communicationrecipient_count_Valid() const{
+    return m_i_communicationrecipient_count_isValid;
 }
 
 OAICustom_ContactName_Response OAICommunication_Response::getObjContactFrom() const {
@@ -207,6 +241,22 @@ bool OAICommunication_Response::is_obj_contact_from_Valid() const{
     return m_obj_contact_from_isValid;
 }
 
+OAICommon_Audit OAICommunication_Response::getObjAudit() const {
+    return obj_audit;
+}
+void OAICommunication_Response::setObjAudit(const OAICommon_Audit &obj_audit) {
+    this->obj_audit = obj_audit;
+    this->m_obj_audit_isSet = true;
+}
+
+bool OAICommunication_Response::is_obj_audit_Set() const{
+    return m_obj_audit_isSet;
+}
+
+bool OAICommunication_Response::is_obj_audit_Valid() const{
+    return m_obj_audit_isValid;
+}
+
 bool OAICommunication_Response::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -215,7 +265,7 @@ bool OAICommunication_Response::isSet() const {
             break;
         }
 
-        if (e_communication_emailimportance.isSet()) {
+        if (e_communication_importance.isSet()) {
             isObjectUpdated = true;
             break;
         }
@@ -230,12 +280,22 @@ bool OAICommunication_Response::isSet() const {
             break;
         }
 
-        if (m_dt_communication_sentdate_isSet) {
+        if (e_communication_direction.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_i_communicationrecipient_count_isSet) {
             isObjectUpdated = true;
             break;
         }
 
         if (obj_contact_from.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (obj_audit.isSet()) {
             isObjectUpdated = true;
             break;
         }
@@ -245,7 +305,7 @@ bool OAICommunication_Response::isSet() const {
 
 bool OAICommunication_Response::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_pki_communication_id_isValid && m_e_communication_type_isValid && m_s_communication_subject_isValid && m_dt_communication_sentdate_isValid && m_obj_contact_from_isValid && true;
+    return m_pki_communication_id_isValid && m_e_communication_importance_isValid && m_e_communication_type_isValid && m_s_communication_subject_isValid && m_e_communication_direction_isValid && m_i_communicationrecipient_count_isValid && m_obj_contact_from_isValid && m_obj_audit_isValid && true;
 }
 
 } // namespace OpenAPI

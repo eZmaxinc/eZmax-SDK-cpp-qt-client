@@ -13,7 +13,7 @@
 /*
  * OAIField_eCommunicationexternalrecipientType.h
  *
- * The Type of Communicationexternalrecipient
+ * The type of Communicationexternalrecipient
  */
 
 #ifndef OAIField_eCommunicationexternalrecipientType_H

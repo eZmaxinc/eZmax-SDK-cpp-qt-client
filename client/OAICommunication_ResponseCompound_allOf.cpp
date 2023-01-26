@@ -42,12 +42,6 @@ void OAICommunication_ResponseCompound_allOf::initializeModel() {
 
     m_a_obj_communicationexternalrecipient_isSet = false;
     m_a_obj_communicationexternalrecipient_isValid = false;
-
-    m_a_obj_communicationimage_isSet = false;
-    m_a_obj_communicationimage_isValid = false;
-
-    m_a_obj_communicationexternalimage_isSet = false;
-    m_a_obj_communicationexternalimage_isValid = false;
 }
 
 void OAICommunication_ResponseCompound_allOf::fromJson(QString jsonString) {
@@ -67,12 +61,6 @@ void OAICommunication_ResponseCompound_allOf::fromJsonObject(QJsonObject json) {
 
     m_a_obj_communicationexternalrecipient_isValid = ::OpenAPI::fromJsonValue(a_obj_communicationexternalrecipient, json[QString("a_objCommunicationexternalrecipient")]);
     m_a_obj_communicationexternalrecipient_isSet = !json[QString("a_objCommunicationexternalrecipient")].isNull() && m_a_obj_communicationexternalrecipient_isValid;
-
-    m_a_obj_communicationimage_isValid = ::OpenAPI::fromJsonValue(a_obj_communicationimage, json[QString("a_objCommunicationimage")]);
-    m_a_obj_communicationimage_isSet = !json[QString("a_objCommunicationimage")].isNull() && m_a_obj_communicationimage_isValid;
-
-    m_a_obj_communicationexternalimage_isValid = ::OpenAPI::fromJsonValue(a_obj_communicationexternalimage, json[QString("a_objCommunicationexternalimage")]);
-    m_a_obj_communicationexternalimage_isSet = !json[QString("a_objCommunicationexternalimage")].isNull() && m_a_obj_communicationexternalimage_isValid;
 }
 
 QString OAICommunication_ResponseCompound_allOf::asJson() const {
@@ -92,12 +80,6 @@ QJsonObject OAICommunication_ResponseCompound_allOf::asJsonObject() const {
     }
     if (a_obj_communicationexternalrecipient.size() > 0) {
         obj.insert(QString("a_objCommunicationexternalrecipient"), ::OpenAPI::toJsonValue(a_obj_communicationexternalrecipient));
-    }
-    if (a_obj_communicationimage.size() > 0) {
-        obj.insert(QString("a_objCommunicationimage"), ::OpenAPI::toJsonValue(a_obj_communicationimage));
-    }
-    if (a_obj_communicationexternalimage.size() > 0) {
-        obj.insert(QString("a_objCommunicationexternalimage"), ::OpenAPI::toJsonValue(a_obj_communicationexternalimage));
     }
     return obj;
 }
@@ -150,38 +132,6 @@ bool OAICommunication_ResponseCompound_allOf::is_a_obj_communicationexternalreci
     return m_a_obj_communicationexternalrecipient_isValid;
 }
 
-QList<OAICommunicationimage_ResponseCompound> OAICommunication_ResponseCompound_allOf::getAObjCommunicationimage() const {
-    return a_obj_communicationimage;
-}
-void OAICommunication_ResponseCompound_allOf::setAObjCommunicationimage(const QList<OAICommunicationimage_ResponseCompound> &a_obj_communicationimage) {
-    this->a_obj_communicationimage = a_obj_communicationimage;
-    this->m_a_obj_communicationimage_isSet = true;
-}
-
-bool OAICommunication_ResponseCompound_allOf::is_a_obj_communicationimage_Set() const{
-    return m_a_obj_communicationimage_isSet;
-}
-
-bool OAICommunication_ResponseCompound_allOf::is_a_obj_communicationimage_Valid() const{
-    return m_a_obj_communicationimage_isValid;
-}
-
-QList<OAICommunicationexternalimage_ResponseCompound> OAICommunication_ResponseCompound_allOf::getAObjCommunicationexternalimage() const {
-    return a_obj_communicationexternalimage;
-}
-void OAICommunication_ResponseCompound_allOf::setAObjCommunicationexternalimage(const QList<OAICommunicationexternalimage_ResponseCompound> &a_obj_communicationexternalimage) {
-    this->a_obj_communicationexternalimage = a_obj_communicationexternalimage;
-    this->m_a_obj_communicationexternalimage_isSet = true;
-}
-
-bool OAICommunication_ResponseCompound_allOf::is_a_obj_communicationexternalimage_Set() const{
-    return m_a_obj_communicationexternalimage_isSet;
-}
-
-bool OAICommunication_ResponseCompound_allOf::is_a_obj_communicationexternalimage_Valid() const{
-    return m_a_obj_communicationexternalimage_isValid;
-}
-
 bool OAICommunication_ResponseCompound_allOf::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -199,23 +149,13 @@ bool OAICommunication_ResponseCompound_allOf::isSet() const {
             isObjectUpdated = true;
             break;
         }
-
-        if (a_obj_communicationimage.size() > 0) {
-            isObjectUpdated = true;
-            break;
-        }
-
-        if (a_obj_communicationexternalimage.size() > 0) {
-            isObjectUpdated = true;
-            break;
-        }
     } while (false);
     return isObjectUpdated;
 }
 
 bool OAICommunication_ResponseCompound_allOf::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_a_obj_communicationattachment_isValid && m_a_obj_communicationrecipient_isValid && m_a_obj_communicationexternalrecipient_isValid && m_a_obj_communicationimage_isValid && m_a_obj_communicationexternalimage_isValid && true;
+    return m_a_obj_communicationattachment_isValid && m_a_obj_communicationrecipient_isValid && m_a_obj_communicationexternalrecipient_isValid && true;
 }
 
 } // namespace OpenAPI

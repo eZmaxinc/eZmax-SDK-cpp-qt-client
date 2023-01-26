@@ -22,9 +22,7 @@
 #include <QJsonObject>
 
 #include "OAICommunicationattachment_ResponseCompound.h"
-#include "OAICommunicationexternalimage_ResponseCompound.h"
 #include "OAICommunicationexternalrecipient_ResponseCompound.h"
-#include "OAICommunicationimage_ResponseCompound.h"
 #include "OAICommunicationrecipient_ResponseCompound.h"
 #include <QList>
 
@@ -35,8 +33,6 @@ namespace OpenAPI {
 class OAICommunicationattachment_ResponseCompound;
 class OAICommunicationrecipient_ResponseCompound;
 class OAICommunicationexternalrecipient_ResponseCompound;
-class OAICommunicationimage_ResponseCompound;
-class OAICommunicationexternalimage_ResponseCompound;
 
 class OAICommunication_ResponseCompound_allOf : public OAIObject {
 public:
@@ -64,16 +60,6 @@ public:
     bool is_a_obj_communicationexternalrecipient_Set() const;
     bool is_a_obj_communicationexternalrecipient_Valid() const;
 
-    QList<OAICommunicationimage_ResponseCompound> getAObjCommunicationimage() const;
-    void setAObjCommunicationimage(const QList<OAICommunicationimage_ResponseCompound> &a_obj_communicationimage);
-    bool is_a_obj_communicationimage_Set() const;
-    bool is_a_obj_communicationimage_Valid() const;
-
-    QList<OAICommunicationexternalimage_ResponseCompound> getAObjCommunicationexternalimage() const;
-    void setAObjCommunicationexternalimage(const QList<OAICommunicationexternalimage_ResponseCompound> &a_obj_communicationexternalimage);
-    bool is_a_obj_communicationexternalimage_Set() const;
-    bool is_a_obj_communicationexternalimage_Valid() const;
-
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -91,14 +77,6 @@ private:
     QList<OAICommunicationexternalrecipient_ResponseCompound> a_obj_communicationexternalrecipient;
     bool m_a_obj_communicationexternalrecipient_isSet;
     bool m_a_obj_communicationexternalrecipient_isValid;
-
-    QList<OAICommunicationimage_ResponseCompound> a_obj_communicationimage;
-    bool m_a_obj_communicationimage_isSet;
-    bool m_a_obj_communicationimage_isValid;
-
-    QList<OAICommunicationexternalimage_ResponseCompound> a_obj_communicationexternalimage;
-    bool m_a_obj_communicationexternalimage_isSet;
-    bool m_a_obj_communicationexternalimage_isValid;
 };
 
 } // namespace OpenAPI

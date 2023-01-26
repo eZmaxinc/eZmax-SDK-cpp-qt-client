@@ -21,8 +21,10 @@
 
 #include <QJsonObject>
 
+#include "OAICommon_Audit.h"
+#include "OAIComputed_eCommunicationDirection.h"
 #include "OAICustom_ContactName_Response.h"
-#include "OAIField_eCommunicationEmailimportance.h"
+#include "OAIField_eCommunicationImportance.h"
 #include "OAIField_eCommunicationType.h"
 #include <QString>
 
@@ -31,6 +33,7 @@
 
 namespace OpenAPI {
 class OAICustom_ContactName_Response;
+class OAICommon_Audit;
 
 class OAICommunication_Response : public OAIObject {
 public:
@@ -48,10 +51,10 @@ public:
     bool is_pki_communication_id_Set() const;
     bool is_pki_communication_id_Valid() const;
 
-    OAIField_eCommunicationEmailimportance getECommunicationEmailimportance() const;
-    void setECommunicationEmailimportance(const OAIField_eCommunicationEmailimportance &e_communication_emailimportance);
-    bool is_e_communication_emailimportance_Set() const;
-    bool is_e_communication_emailimportance_Valid() const;
+    OAIField_eCommunicationImportance getECommunicationImportance() const;
+    void setECommunicationImportance(const OAIField_eCommunicationImportance &e_communication_importance);
+    bool is_e_communication_importance_Set() const;
+    bool is_e_communication_importance_Valid() const;
 
     OAIField_eCommunicationType getECommunicationType() const;
     void setECommunicationType(const OAIField_eCommunicationType &e_communication_type);
@@ -63,15 +66,25 @@ public:
     bool is_s_communication_subject_Set() const;
     bool is_s_communication_subject_Valid() const;
 
-    QString getDtCommunicationSentdate() const;
-    void setDtCommunicationSentdate(const QString &dt_communication_sentdate);
-    bool is_dt_communication_sentdate_Set() const;
-    bool is_dt_communication_sentdate_Valid() const;
+    OAIComputed_eCommunicationDirection getECommunicationDirection() const;
+    void setECommunicationDirection(const OAIComputed_eCommunicationDirection &e_communication_direction);
+    bool is_e_communication_direction_Set() const;
+    bool is_e_communication_direction_Valid() const;
+
+    qint32 getICommunicationrecipientCount() const;
+    void setICommunicationrecipientCount(const qint32 &i_communicationrecipient_count);
+    bool is_i_communicationrecipient_count_Set() const;
+    bool is_i_communicationrecipient_count_Valid() const;
 
     OAICustom_ContactName_Response getObjContactFrom() const;
     void setObjContactFrom(const OAICustom_ContactName_Response &obj_contact_from);
     bool is_obj_contact_from_Set() const;
     bool is_obj_contact_from_Valid() const;
+
+    OAICommon_Audit getObjAudit() const;
+    void setObjAudit(const OAICommon_Audit &obj_audit);
+    bool is_obj_audit_Set() const;
+    bool is_obj_audit_Valid() const;
 
     virtual bool isSet() const override;
     virtual bool isValid() const override;
@@ -83,9 +96,9 @@ private:
     bool m_pki_communication_id_isSet;
     bool m_pki_communication_id_isValid;
 
-    OAIField_eCommunicationEmailimportance e_communication_emailimportance;
-    bool m_e_communication_emailimportance_isSet;
-    bool m_e_communication_emailimportance_isValid;
+    OAIField_eCommunicationImportance e_communication_importance;
+    bool m_e_communication_importance_isSet;
+    bool m_e_communication_importance_isValid;
 
     OAIField_eCommunicationType e_communication_type;
     bool m_e_communication_type_isSet;
@@ -95,13 +108,21 @@ private:
     bool m_s_communication_subject_isSet;
     bool m_s_communication_subject_isValid;
 
-    QString dt_communication_sentdate;
-    bool m_dt_communication_sentdate_isSet;
-    bool m_dt_communication_sentdate_isValid;
+    OAIComputed_eCommunicationDirection e_communication_direction;
+    bool m_e_communication_direction_isSet;
+    bool m_e_communication_direction_isValid;
+
+    qint32 i_communicationrecipient_count;
+    bool m_i_communicationrecipient_count_isSet;
+    bool m_i_communicationrecipient_count_isValid;
 
     OAICustom_ContactName_Response obj_contact_from;
     bool m_obj_contact_from_isSet;
     bool m_obj_contact_from_isValid;
+
+    OAICommon_Audit obj_audit;
+    bool m_obj_audit_isSet;
+    bool m_obj_audit_isValid;
 };
 
 } // namespace OpenAPI

@@ -21,15 +21,18 @@
 
 #include <QJsonObject>
 
+#include "OAIDescriptionstatic_ResponseCompound.h"
+#include "OAIEmailstatic_ResponseCompound.h"
 #include "OAIField_eCommunicationexternalrecipientType.h"
-#include "OAIPhone_ResponseCompound.h"
-#include <QString>
+#include "OAIPhonestatic_ResponseCompound.h"
 
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
 namespace OpenAPI {
-class OAIPhone_ResponseCompound;
+class OAIDescriptionstatic_ResponseCompound;
+class OAIEmailstatic_ResponseCompound;
+class OAIPhonestatic_ResponseCompound;
 
 class OAICommunicationexternalrecipient_ResponseCompound : public OAIObject {
 public:
@@ -47,25 +50,25 @@ public:
     bool is_pki_communicationexternalrecipient_id_Set() const;
     bool is_pki_communicationexternalrecipient_id_Valid() const;
 
-    QString getSEmailAddress() const;
-    void setSEmailAddress(const QString &s_email_address);
-    bool is_s_email_address_Set() const;
-    bool is_s_email_address_Valid() const;
-
-    OAIPhone_ResponseCompound getObjPhoneSms() const;
-    void setObjPhoneSms(const OAIPhone_ResponseCompound &obj_phone_sms);
-    bool is_obj_phone_sms_Set() const;
-    bool is_obj_phone_sms_Valid() const;
-
     OAIField_eCommunicationexternalrecipientType getECommunicationexternalrecipientType() const;
     void setECommunicationexternalrecipientType(const OAIField_eCommunicationexternalrecipientType &e_communicationexternalrecipient_type);
     bool is_e_communicationexternalrecipient_type_Set() const;
     bool is_e_communicationexternalrecipient_type_Valid() const;
 
-    QString getSCommunicationexternalrecipientName() const;
-    void setSCommunicationexternalrecipientName(const QString &s_communicationexternalrecipient_name);
-    bool is_s_communicationexternalrecipient_name_Set() const;
-    bool is_s_communicationexternalrecipient_name_Valid() const;
+    OAIDescriptionstatic_ResponseCompound getObjDescriptionstatic() const;
+    void setObjDescriptionstatic(const OAIDescriptionstatic_ResponseCompound &obj_descriptionstatic);
+    bool is_obj_descriptionstatic_Set() const;
+    bool is_obj_descriptionstatic_Valid() const;
+
+    OAIEmailstatic_ResponseCompound getObjEmailstatic() const;
+    void setObjEmailstatic(const OAIEmailstatic_ResponseCompound &obj_emailstatic);
+    bool is_obj_emailstatic_Set() const;
+    bool is_obj_emailstatic_Valid() const;
+
+    OAIPhonestatic_ResponseCompound getObjPhonestatic() const;
+    void setObjPhonestatic(const OAIPhonestatic_ResponseCompound &obj_phonestatic);
+    bool is_obj_phonestatic_Set() const;
+    bool is_obj_phonestatic_Valid() const;
 
     virtual bool isSet() const override;
     virtual bool isValid() const override;
@@ -77,21 +80,21 @@ private:
     bool m_pki_communicationexternalrecipient_id_isSet;
     bool m_pki_communicationexternalrecipient_id_isValid;
 
-    QString s_email_address;
-    bool m_s_email_address_isSet;
-    bool m_s_email_address_isValid;
-
-    OAIPhone_ResponseCompound obj_phone_sms;
-    bool m_obj_phone_sms_isSet;
-    bool m_obj_phone_sms_isValid;
-
     OAIField_eCommunicationexternalrecipientType e_communicationexternalrecipient_type;
     bool m_e_communicationexternalrecipient_type_isSet;
     bool m_e_communicationexternalrecipient_type_isValid;
 
-    QString s_communicationexternalrecipient_name;
-    bool m_s_communicationexternalrecipient_name_isSet;
-    bool m_s_communicationexternalrecipient_name_isValid;
+    OAIDescriptionstatic_ResponseCompound obj_descriptionstatic;
+    bool m_obj_descriptionstatic_isSet;
+    bool m_obj_descriptionstatic_isValid;
+
+    OAIEmailstatic_ResponseCompound obj_emailstatic;
+    bool m_obj_emailstatic_isSet;
+    bool m_obj_emailstatic_isValid;
+
+    OAIPhonestatic_ResponseCompound obj_phonestatic;
+    bool m_obj_phonestatic_isSet;
+    bool m_obj_phonestatic_isValid;
 };
 
 } // namespace OpenAPI

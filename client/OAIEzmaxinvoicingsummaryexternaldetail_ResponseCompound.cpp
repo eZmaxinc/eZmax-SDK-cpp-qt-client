@@ -60,6 +60,9 @@ void OAIEzmaxinvoicingsummaryexternaldetail_ResponseCompound::initializeModel() 
 
     m_b_ezmaxinvoicingsummaryexternaldetail_adjustment_isSet = false;
     m_b_ezmaxinvoicingsummaryexternaldetail_adjustment_isValid = false;
+
+    m_t_ezmaxproduct_help_x_isSet = false;
+    m_t_ezmaxproduct_help_x_isValid = false;
 }
 
 void OAIEzmaxinvoicingsummaryexternaldetail_ResponseCompound::fromJson(QString jsonString) {
@@ -97,6 +100,9 @@ void OAIEzmaxinvoicingsummaryexternaldetail_ResponseCompound::fromJsonObject(QJs
 
     m_b_ezmaxinvoicingsummaryexternaldetail_adjustment_isValid = ::OpenAPI::fromJsonValue(b_ezmaxinvoicingsummaryexternaldetail_adjustment, json[QString("bEzmaxinvoicingsummaryexternaldetailAdjustment")]);
     m_b_ezmaxinvoicingsummaryexternaldetail_adjustment_isSet = !json[QString("bEzmaxinvoicingsummaryexternaldetailAdjustment")].isNull() && m_b_ezmaxinvoicingsummaryexternaldetail_adjustment_isValid;
+
+    m_t_ezmaxproduct_help_x_isValid = ::OpenAPI::fromJsonValue(t_ezmaxproduct_help_x, json[QString("tEzmaxproductHelpX")]);
+    m_t_ezmaxproduct_help_x_isSet = !json[QString("tEzmaxproductHelpX")].isNull() && m_t_ezmaxproduct_help_x_isValid;
 }
 
 QString OAIEzmaxinvoicingsummaryexternaldetail_ResponseCompound::asJson() const {
@@ -134,6 +140,9 @@ QJsonObject OAIEzmaxinvoicingsummaryexternaldetail_ResponseCompound::asJsonObjec
     }
     if (m_b_ezmaxinvoicingsummaryexternaldetail_adjustment_isSet) {
         obj.insert(QString("bEzmaxinvoicingsummaryexternaldetailAdjustment"), ::OpenAPI::toJsonValue(b_ezmaxinvoicingsummaryexternaldetail_adjustment));
+    }
+    if (m_t_ezmaxproduct_help_x_isSet) {
+        obj.insert(QString("tEzmaxproductHelpX"), ::OpenAPI::toJsonValue(t_ezmaxproduct_help_x));
     }
     return obj;
 }
@@ -282,6 +291,22 @@ bool OAIEzmaxinvoicingsummaryexternaldetail_ResponseCompound::is_b_ezmaxinvoicin
     return m_b_ezmaxinvoicingsummaryexternaldetail_adjustment_isValid;
 }
 
+QString OAIEzmaxinvoicingsummaryexternaldetail_ResponseCompound::getTEzmaxproductHelpX() const {
+    return t_ezmaxproduct_help_x;
+}
+void OAIEzmaxinvoicingsummaryexternaldetail_ResponseCompound::setTEzmaxproductHelpX(const QString &t_ezmaxproduct_help_x) {
+    this->t_ezmaxproduct_help_x = t_ezmaxproduct_help_x;
+    this->m_t_ezmaxproduct_help_x_isSet = true;
+}
+
+bool OAIEzmaxinvoicingsummaryexternaldetail_ResponseCompound::is_t_ezmaxproduct_help_x_Set() const{
+    return m_t_ezmaxproduct_help_x_isSet;
+}
+
+bool OAIEzmaxinvoicingsummaryexternaldetail_ResponseCompound::is_t_ezmaxproduct_help_x_Valid() const{
+    return m_t_ezmaxproduct_help_x_isValid;
+}
+
 bool OAIEzmaxinvoicingsummaryexternaldetail_ResponseCompound::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -329,13 +354,18 @@ bool OAIEzmaxinvoicingsummaryexternaldetail_ResponseCompound::isSet() const {
             isObjectUpdated = true;
             break;
         }
+
+        if (m_t_ezmaxproduct_help_x_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
     } while (false);
     return isObjectUpdated;
 }
 
 bool OAIEzmaxinvoicingsummaryexternaldetail_ResponseCompound::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_fki_ezmaxproduct_id_isValid && m_s_ezmaxproduct_description_x_isValid && m_d_ezmaxinvoicingsummaryexternaldetail_countreal_isValid && m_d_ezmaxinvoicingsummaryexternaldetail_subtotal_isValid && m_d_ezmaxinvoicingsummaryexternaldetail_rebate_isValid && m_d_ezmaxinvoicingsummaryexternaldetail_total_isValid && m_b_ezmaxinvoicingsummaryexternaldetail_adjustment_isValid && true;
+    return m_fki_ezmaxproduct_id_isValid && m_s_ezmaxproduct_description_x_isValid && m_d_ezmaxinvoicingsummaryexternaldetail_countreal_isValid && m_d_ezmaxinvoicingsummaryexternaldetail_subtotal_isValid && m_d_ezmaxinvoicingsummaryexternaldetail_rebate_isValid && m_d_ezmaxinvoicingsummaryexternaldetail_total_isValid && m_b_ezmaxinvoicingsummaryexternaldetail_adjustment_isValid && m_t_ezmaxproduct_help_x_isValid && true;
 }
 
 } // namespace OpenAPI

@@ -88,19 +88,17 @@ HEADERS += \
     $${PWD}/OAICommunication_getList_v1_Response.h \
     $${PWD}/OAICommunication_getList_v1_Response_allOf.h \
     $${PWD}/OAICommunication_getList_v1_Response_mPayload.h \
+    $${PWD}/OAICommunication_getList_v1_Response_mPayload_allOf.h \
     $${PWD}/OAICommunication_getObject_v2_Response.h \
     $${PWD}/OAICommunication_getObject_v2_Response_allOf.h \
     $${PWD}/OAICommunication_getObject_v2_Response_mPayload.h \
     $${PWD}/OAICommunicationattachment_Response.h \
     $${PWD}/OAICommunicationattachment_ResponseCompound.h \
-    $${PWD}/OAICommunicationexternalimage_Response.h \
-    $${PWD}/OAICommunicationexternalimage_ResponseCompound.h \
     $${PWD}/OAICommunicationexternalrecipient_Response.h \
     $${PWD}/OAICommunicationexternalrecipient_ResponseCompound.h \
-    $${PWD}/OAICommunicationimage_Response.h \
-    $${PWD}/OAICommunicationimage_ResponseCompound.h \
     $${PWD}/OAICommunicationrecipient_Response.h \
     $${PWD}/OAICommunicationrecipient_ResponseCompound.h \
+    $${PWD}/OAIComputed_eCommunicationDirection.h \
     $${PWD}/OAIContact_Request.h \
     $${PWD}/OAIContact_RequestCompound.h \
     $${PWD}/OAIContact_RequestCompound_allOf.h \
@@ -151,8 +149,12 @@ HEADERS += \
     $${PWD}/OAIDepartment_getMembers_v1_Response.h \
     $${PWD}/OAIDepartment_getMembers_v1_Response_allOf.h \
     $${PWD}/OAIDepartment_getMembers_v1_Response_mPayload.h \
+    $${PWD}/OAIDescriptionstatic_Response.h \
+    $${PWD}/OAIDescriptionstatic_ResponseCompound.h \
     $${PWD}/OAIEmail_Request.h \
     $${PWD}/OAIEmail_RequestCompound.h \
+    $${PWD}/OAIEmailstatic_Response.h \
+    $${PWD}/OAIEmailstatic_ResponseCompound.h \
     $${PWD}/OAIEzmaxinvoicing_AutocompleteElement_Response.h \
     $${PWD}/OAIEzmaxinvoicing_Response.h \
     $${PWD}/OAIEzmaxinvoicing_ResponseCompound.h \
@@ -752,9 +754,10 @@ HEADERS += \
     $${PWD}/OAIField_eActivesessionUsertype.h \
     $${PWD}/OAIField_eActivesessionWeekdaystart.h \
     $${PWD}/OAIField_eBrandingLogo.h \
-    $${PWD}/OAIField_eCommunicationEmailimportance.h \
+    $${PWD}/OAIField_eCommunicationImportance.h \
     $${PWD}/OAIField_eCommunicationType.h \
     $${PWD}/OAIField_eCommunicationexternalrecipientType.h \
+    $${PWD}/OAIField_eCommunicationrecipientObjecttype.h \
     $${PWD}/OAIField_eCommunicationrecipientType.h \
     $${PWD}/OAIField_eEzmaxinvoicingPaymenttype.h \
     $${PWD}/OAIField_eEzmaxinvoicingagentVariationezmax.h \
@@ -818,6 +821,7 @@ HEADERS += \
     $${PWD}/OAIMultilingual_EzsignfoldertypeName.h \
     $${PWD}/OAIMultilingual_NotificationsubsectionName.h \
     $${PWD}/OAIMultilingual_NotificationtestName.h \
+    $${PWD}/OAIMultilingual_PaymenttermDescription.h \
     $${PWD}/OAIMultilingual_VersionhistoryDetail.h \
     $${PWD}/OAINotificationsection_getNotificationtests_v1_Response.h \
     $${PWD}/OAINotificationsection_getNotificationtests_v1_Response_allOf.h \
@@ -827,14 +831,37 @@ HEADERS += \
     $${PWD}/OAINotificationtest_getElements_v1_Response.h \
     $${PWD}/OAINotificationtest_getElements_v1_Response_allOf.h \
     $${PWD}/OAINotificationtest_getElements_v1_Response_mPayload.h \
+    $${PWD}/OAIPaymentterm_AutocompleteElement_Response.h \
+    $${PWD}/OAIPaymentterm_ListElement.h \
+    $${PWD}/OAIPaymentterm_Request.h \
+    $${PWD}/OAIPaymentterm_RequestCompound.h \
+    $${PWD}/OAIPaymentterm_Response.h \
+    $${PWD}/OAIPaymentterm_ResponseCompound.h \
+    $${PWD}/OAIPaymentterm_createObject_v1_Request.h \
+    $${PWD}/OAIPaymentterm_createObject_v1_Response.h \
+    $${PWD}/OAIPaymentterm_createObject_v1_Response_allOf.h \
+    $${PWD}/OAIPaymentterm_createObject_v1_Response_mPayload.h \
+    $${PWD}/OAIPaymentterm_deleteObject_v1_Response.h \
+    $${PWD}/OAIPaymentterm_editObject_v1_Request.h \
+    $${PWD}/OAIPaymentterm_editObject_v1_Response.h \
+    $${PWD}/OAIPaymentterm_getAutocomplete_v2_Response.h \
+    $${PWD}/OAIPaymentterm_getAutocomplete_v2_Response_allOf.h \
+    $${PWD}/OAIPaymentterm_getAutocomplete_v2_Response_mPayload.h \
+    $${PWD}/OAIPaymentterm_getList_v1_Response.h \
+    $${PWD}/OAIPaymentterm_getList_v1_Response_allOf.h \
+    $${PWD}/OAIPaymentterm_getList_v1_Response_mPayload.h \
+    $${PWD}/OAIPaymentterm_getList_v1_Response_mPayload_allOf.h \
+    $${PWD}/OAIPaymentterm_getObject_v2_Response.h \
+    $${PWD}/OAIPaymentterm_getObject_v2_Response_allOf.h \
+    $${PWD}/OAIPaymentterm_getObject_v2_Response_mPayload.h \
     $${PWD}/OAIPeriod_AutocompleteElement_Response.h \
     $${PWD}/OAIPeriod_getAutocomplete_v2_Response.h \
     $${PWD}/OAIPeriod_getAutocomplete_v2_Response_allOf.h \
     $${PWD}/OAIPeriod_getAutocomplete_v2_Response_mPayload.h \
     $${PWD}/OAIPhone_Request.h \
     $${PWD}/OAIPhone_RequestCompound.h \
-    $${PWD}/OAIPhone_Response.h \
-    $${PWD}/OAIPhone_ResponseCompound.h \
+    $${PWD}/OAIPhonestatic_Response.h \
+    $${PWD}/OAIPhonestatic_ResponseCompound.h \
     $${PWD}/OAISecretquestion_AutocompleteElement_Response.h \
     $${PWD}/OAISecretquestion_getAutocomplete_v2_Response.h \
     $${PWD}/OAISecretquestion_getAutocomplete_v2_Response_allOf.h \
@@ -939,6 +966,7 @@ HEADERS += \
     $${PWD}/OAIObjectFranchisereferalincomeApi.h \
     $${PWD}/OAIObjectNotificationsectionApi.h \
     $${PWD}/OAIObjectNotificationtestApi.h \
+    $${PWD}/OAIObjectPaymenttermApi.h \
     $${PWD}/OAIObjectPeriodApi.h \
     $${PWD}/OAIObjectSecretquestionApi.h \
     $${PWD}/OAIObjectTaxassignmentApi.h \
@@ -1045,19 +1073,17 @@ SOURCES += \
     $${PWD}/OAICommunication_getList_v1_Response.cpp \
     $${PWD}/OAICommunication_getList_v1_Response_allOf.cpp \
     $${PWD}/OAICommunication_getList_v1_Response_mPayload.cpp \
+    $${PWD}/OAICommunication_getList_v1_Response_mPayload_allOf.cpp \
     $${PWD}/OAICommunication_getObject_v2_Response.cpp \
     $${PWD}/OAICommunication_getObject_v2_Response_allOf.cpp \
     $${PWD}/OAICommunication_getObject_v2_Response_mPayload.cpp \
     $${PWD}/OAICommunicationattachment_Response.cpp \
     $${PWD}/OAICommunicationattachment_ResponseCompound.cpp \
-    $${PWD}/OAICommunicationexternalimage_Response.cpp \
-    $${PWD}/OAICommunicationexternalimage_ResponseCompound.cpp \
     $${PWD}/OAICommunicationexternalrecipient_Response.cpp \
     $${PWD}/OAICommunicationexternalrecipient_ResponseCompound.cpp \
-    $${PWD}/OAICommunicationimage_Response.cpp \
-    $${PWD}/OAICommunicationimage_ResponseCompound.cpp \
     $${PWD}/OAICommunicationrecipient_Response.cpp \
     $${PWD}/OAICommunicationrecipient_ResponseCompound.cpp \
+    $${PWD}/OAIComputed_eCommunicationDirection.cpp \
     $${PWD}/OAIContact_Request.cpp \
     $${PWD}/OAIContact_RequestCompound.cpp \
     $${PWD}/OAIContact_RequestCompound_allOf.cpp \
@@ -1108,8 +1134,12 @@ SOURCES += \
     $${PWD}/OAIDepartment_getMembers_v1_Response.cpp \
     $${PWD}/OAIDepartment_getMembers_v1_Response_allOf.cpp \
     $${PWD}/OAIDepartment_getMembers_v1_Response_mPayload.cpp \
+    $${PWD}/OAIDescriptionstatic_Response.cpp \
+    $${PWD}/OAIDescriptionstatic_ResponseCompound.cpp \
     $${PWD}/OAIEmail_Request.cpp \
     $${PWD}/OAIEmail_RequestCompound.cpp \
+    $${PWD}/OAIEmailstatic_Response.cpp \
+    $${PWD}/OAIEmailstatic_ResponseCompound.cpp \
     $${PWD}/OAIEzmaxinvoicing_AutocompleteElement_Response.cpp \
     $${PWD}/OAIEzmaxinvoicing_Response.cpp \
     $${PWD}/OAIEzmaxinvoicing_ResponseCompound.cpp \
@@ -1709,9 +1739,10 @@ SOURCES += \
     $${PWD}/OAIField_eActivesessionUsertype.cpp \
     $${PWD}/OAIField_eActivesessionWeekdaystart.cpp \
     $${PWD}/OAIField_eBrandingLogo.cpp \
-    $${PWD}/OAIField_eCommunicationEmailimportance.cpp \
+    $${PWD}/OAIField_eCommunicationImportance.cpp \
     $${PWD}/OAIField_eCommunicationType.cpp \
     $${PWD}/OAIField_eCommunicationexternalrecipientType.cpp \
+    $${PWD}/OAIField_eCommunicationrecipientObjecttype.cpp \
     $${PWD}/OAIField_eCommunicationrecipientType.cpp \
     $${PWD}/OAIField_eEzmaxinvoicingPaymenttype.cpp \
     $${PWD}/OAIField_eEzmaxinvoicingagentVariationezmax.cpp \
@@ -1775,6 +1806,7 @@ SOURCES += \
     $${PWD}/OAIMultilingual_EzsignfoldertypeName.cpp \
     $${PWD}/OAIMultilingual_NotificationsubsectionName.cpp \
     $${PWD}/OAIMultilingual_NotificationtestName.cpp \
+    $${PWD}/OAIMultilingual_PaymenttermDescription.cpp \
     $${PWD}/OAIMultilingual_VersionhistoryDetail.cpp \
     $${PWD}/OAINotificationsection_getNotificationtests_v1_Response.cpp \
     $${PWD}/OAINotificationsection_getNotificationtests_v1_Response_allOf.cpp \
@@ -1784,14 +1816,37 @@ SOURCES += \
     $${PWD}/OAINotificationtest_getElements_v1_Response.cpp \
     $${PWD}/OAINotificationtest_getElements_v1_Response_allOf.cpp \
     $${PWD}/OAINotificationtest_getElements_v1_Response_mPayload.cpp \
+    $${PWD}/OAIPaymentterm_AutocompleteElement_Response.cpp \
+    $${PWD}/OAIPaymentterm_ListElement.cpp \
+    $${PWD}/OAIPaymentterm_Request.cpp \
+    $${PWD}/OAIPaymentterm_RequestCompound.cpp \
+    $${PWD}/OAIPaymentterm_Response.cpp \
+    $${PWD}/OAIPaymentterm_ResponseCompound.cpp \
+    $${PWD}/OAIPaymentterm_createObject_v1_Request.cpp \
+    $${PWD}/OAIPaymentterm_createObject_v1_Response.cpp \
+    $${PWD}/OAIPaymentterm_createObject_v1_Response_allOf.cpp \
+    $${PWD}/OAIPaymentterm_createObject_v1_Response_mPayload.cpp \
+    $${PWD}/OAIPaymentterm_deleteObject_v1_Response.cpp \
+    $${PWD}/OAIPaymentterm_editObject_v1_Request.cpp \
+    $${PWD}/OAIPaymentterm_editObject_v1_Response.cpp \
+    $${PWD}/OAIPaymentterm_getAutocomplete_v2_Response.cpp \
+    $${PWD}/OAIPaymentterm_getAutocomplete_v2_Response_allOf.cpp \
+    $${PWD}/OAIPaymentterm_getAutocomplete_v2_Response_mPayload.cpp \
+    $${PWD}/OAIPaymentterm_getList_v1_Response.cpp \
+    $${PWD}/OAIPaymentterm_getList_v1_Response_allOf.cpp \
+    $${PWD}/OAIPaymentterm_getList_v1_Response_mPayload.cpp \
+    $${PWD}/OAIPaymentterm_getList_v1_Response_mPayload_allOf.cpp \
+    $${PWD}/OAIPaymentterm_getObject_v2_Response.cpp \
+    $${PWD}/OAIPaymentterm_getObject_v2_Response_allOf.cpp \
+    $${PWD}/OAIPaymentterm_getObject_v2_Response_mPayload.cpp \
     $${PWD}/OAIPeriod_AutocompleteElement_Response.cpp \
     $${PWD}/OAIPeriod_getAutocomplete_v2_Response.cpp \
     $${PWD}/OAIPeriod_getAutocomplete_v2_Response_allOf.cpp \
     $${PWD}/OAIPeriod_getAutocomplete_v2_Response_mPayload.cpp \
     $${PWD}/OAIPhone_Request.cpp \
     $${PWD}/OAIPhone_RequestCompound.cpp \
-    $${PWD}/OAIPhone_Response.cpp \
-    $${PWD}/OAIPhone_ResponseCompound.cpp \
+    $${PWD}/OAIPhonestatic_Response.cpp \
+    $${PWD}/OAIPhonestatic_ResponseCompound.cpp \
     $${PWD}/OAISecretquestion_AutocompleteElement_Response.cpp \
     $${PWD}/OAISecretquestion_getAutocomplete_v2_Response.cpp \
     $${PWD}/OAISecretquestion_getAutocomplete_v2_Response_allOf.cpp \
@@ -1896,6 +1951,7 @@ SOURCES += \
     $${PWD}/OAIObjectFranchisereferalincomeApi.cpp \
     $${PWD}/OAIObjectNotificationsectionApi.cpp \
     $${PWD}/OAIObjectNotificationtestApi.cpp \
+    $${PWD}/OAIObjectPaymenttermApi.cpp \
     $${PWD}/OAIObjectPeriodApi.cpp \
     $${PWD}/OAIObjectSecretquestionApi.cpp \
     $${PWD}/OAIObjectTaxassignmentApi.cpp \

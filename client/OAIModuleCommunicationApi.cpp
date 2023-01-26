@@ -51,8 +51,6 @@ void OAIModuleCommunicationApi::initializeServerConfigs() {
     
     _serverConfigs.insert("communicationGetCommunicationCountV1", defaultConf);
     _serverIndices.insert("communicationGetCommunicationCountV1", 0);
-    _serverConfigs.insert("communicationGetCommunicationListV1", defaultConf);
-    _serverIndices.insert("communicationGetCommunicationListV1", 0);
 }
 
 /**
@@ -228,8 +226,8 @@ QString OAIModuleCommunicationApi::getParamStyleDelimiter(const QString &style, 
     }
 }
 
-void OAIModuleCommunicationApi::communicationGetCommunicationCountV1(const QString &e_communication_module, const ::OpenAPI::OptionalParam<qint32> &pki_ezsignfolder_id) {
-    QString fullPath = QString(_serverConfigs["communicationGetCommunicationCountV1"][_serverIndices.value("communicationGetCommunicationCountV1")].URL()+"/1/module/communication/getCommunicationCount");
+void OAIModuleCommunicationApi::communicationGetCommunicationCountV1(const QString &e_communication_objecttype, const ::OpenAPI::OptionalParam<qint32> &pki_ezsignfolder_id) {
+    QString fullPath = QString(_serverConfigs["communicationGetCommunicationCountV1"][_serverIndices.value("communicationGetCommunicationCountV1")].URL()+"/1/module/communication/getCount");
     
     if (_apiKeys.contains("Authorization")) {
         addHeaders("Authorization",_apiKeys.find("Authorization").value());
@@ -243,13 +241,13 @@ void OAIModuleCommunicationApi::communicationGetCommunicationCountV1(const QStri
             queryStyle = "form";
         queryPrefix = getParamStylePrefix(queryStyle);
         querySuffix = getParamStyleSuffix(queryStyle);
-        queryDelimiter = getParamStyleDelimiter(queryStyle, "eCommunicationModule", true);
+        queryDelimiter = getParamStyleDelimiter(queryStyle, "eCommunicationObjecttype", true);
         if (fullPath.indexOf("?") > 0)
             fullPath.append(queryPrefix);
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("eCommunicationModule")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(e_communication_module)));
+        fullPath.append(QUrl::toPercentEncoding("eCommunicationObjecttype")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(e_communication_objecttype)));
     }
     if (pki_ezsignfolder_id.hasValue())
     {
@@ -309,90 +307,6 @@ void OAIModuleCommunicationApi::communicationGetCommunicationCountV1Callback(OAI
     } else {
         emit communicationGetCommunicationCountV1SignalE(output, error_type, error_str);
         emit communicationGetCommunicationCountV1SignalEFull(worker, error_type, error_str);
-    }
-}
-
-void OAIModuleCommunicationApi::communicationGetCommunicationListV1(const QString &e_communication_module, const ::OpenAPI::OptionalParam<qint32> &pki_ezsignfolder_id) {
-    QString fullPath = QString(_serverConfigs["communicationGetCommunicationListV1"][_serverIndices.value("communicationGetCommunicationListV1")].URL()+"/1/module/communication/getCommunicationList");
-    
-    if (_apiKeys.contains("Authorization")) {
-        addHeaders("Authorization",_apiKeys.find("Authorization").value());
-    }
-    
-    QString queryPrefix, querySuffix, queryDelimiter, queryStyle;
-    
-    {
-        queryStyle = "form";
-        if (queryStyle == "")
-            queryStyle = "form";
-        queryPrefix = getParamStylePrefix(queryStyle);
-        querySuffix = getParamStyleSuffix(queryStyle);
-        queryDelimiter = getParamStyleDelimiter(queryStyle, "eCommunicationModule", true);
-        if (fullPath.indexOf("?") > 0)
-            fullPath.append(queryPrefix);
-        else
-            fullPath.append("?");
-
-        fullPath.append(QUrl::toPercentEncoding("eCommunicationModule")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(e_communication_module)));
-    }
-    if (pki_ezsignfolder_id.hasValue())
-    {
-        queryStyle = "form";
-        if (queryStyle == "")
-            queryStyle = "form";
-        queryPrefix = getParamStylePrefix(queryStyle);
-        querySuffix = getParamStyleSuffix(queryStyle);
-        queryDelimiter = getParamStyleDelimiter(queryStyle, "pkiEzsignfolderID", true);
-        if (fullPath.indexOf("?") > 0)
-            fullPath.append(queryPrefix);
-        else
-            fullPath.append("?");
-
-        fullPath.append(QUrl::toPercentEncoding("pkiEzsignfolderID")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsignfolder_id.value())));
-    }
-    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
-    worker->setTimeOut(_timeOut);
-    worker->setWorkingDirectory(_workingDirectory);
-    OAIHttpRequestInput input(fullPath, "GET");
-
-
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
-    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
-        input.headers.insert(keyValueIt->first, keyValueIt->second);
-    }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
-
-    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIModuleCommunicationApi::communicationGetCommunicationListV1Callback);
-    connect(this, &OAIModuleCommunicationApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
-        if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
-        }
-    });
-
-    worker->execute(&input);
-}
-
-void OAIModuleCommunicationApi::communicationGetCommunicationListV1Callback(OAIHttpRequestWorker *worker) {
-    QString error_str = worker->error_str;
-    QNetworkReply::NetworkError error_type = worker->error_type;
-
-    if (worker->error_type != QNetworkReply::NoError) {
-        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
-    }
-    OAICommunication_getList_v1_Response output(QString(worker->response));
-    worker->deleteLater();
-
-    if (worker->error_type == QNetworkReply::NoError) {
-        emit communicationGetCommunicationListV1Signal(output);
-        emit communicationGetCommunicationListV1SignalFull(worker, output);
-    } else {
-        emit communicationGetCommunicationListV1SignalE(output, error_type, error_str);
-        emit communicationGetCommunicationListV1SignalEFull(worker, error_type, error_str);
     }
 }
 

@@ -20,7 +20,6 @@
 
 #include "OAICommon_Response_Error.h"
 #include "OAICommunication_getCount_v1_Response.h"
-#include "OAICommunication_getList_v1_Response.h"
 #include <QString>
 
 #include <QObject>
@@ -60,16 +59,10 @@ public:
     QString getParamStyleDelimiter(const QString &style, const QString &name, bool isExplode);
 
     /**
-    * @param[in]  e_communication_module QString [required]
+    * @param[in]  e_communication_objecttype QString [required]
     * @param[in]  pki_ezsignfolder_id qint32 [optional]
     */
-    void communicationGetCommunicationCountV1(const QString &e_communication_module, const ::OpenAPI::OptionalParam<qint32> &pki_ezsignfolder_id = ::OpenAPI::OptionalParam<qint32>());
-
-    /**
-    * @param[in]  e_communication_module QString [required]
-    * @param[in]  pki_ezsignfolder_id qint32 [optional]
-    */
-    void communicationGetCommunicationListV1(const QString &e_communication_module, const ::OpenAPI::OptionalParam<qint32> &pki_ezsignfolder_id = ::OpenAPI::OptionalParam<qint32>());
+    void communicationGetCommunicationCountV1(const QString &e_communication_objecttype, const ::OpenAPI::OptionalParam<qint32> &pki_ezsignfolder_id = ::OpenAPI::OptionalParam<qint32>());
 
 
 private:
@@ -95,21 +88,16 @@ private:
     int _OauthMethod = 0;
 
     void communicationGetCommunicationCountV1Callback(OAIHttpRequestWorker *worker);
-    void communicationGetCommunicationListV1Callback(OAIHttpRequestWorker *worker);
 
 signals:
 
     void communicationGetCommunicationCountV1Signal(OAICommunication_getCount_v1_Response summary);
-    void communicationGetCommunicationListV1Signal(OAICommunication_getList_v1_Response summary);
 
     void communicationGetCommunicationCountV1SignalFull(OAIHttpRequestWorker *worker, OAICommunication_getCount_v1_Response summary);
-    void communicationGetCommunicationListV1SignalFull(OAIHttpRequestWorker *worker, OAICommunication_getList_v1_Response summary);
 
     void communicationGetCommunicationCountV1SignalE(OAICommunication_getCount_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void communicationGetCommunicationListV1SignalE(OAICommunication_getList_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
 
     void communicationGetCommunicationCountV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
-    void communicationGetCommunicationListV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();

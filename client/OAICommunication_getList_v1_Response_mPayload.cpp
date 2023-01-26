@@ -36,6 +36,12 @@ void OAICommunication_getList_v1_Response_mPayload::initializeModel() {
 
     m_a_obj_communication_isSet = false;
     m_a_obj_communication_isValid = false;
+
+    m_i_row_returned_isSet = false;
+    m_i_row_returned_isValid = false;
+
+    m_i_row_filtered_isSet = false;
+    m_i_row_filtered_isValid = false;
 }
 
 void OAICommunication_getList_v1_Response_mPayload::fromJson(QString jsonString) {
@@ -49,6 +55,12 @@ void OAICommunication_getList_v1_Response_mPayload::fromJsonObject(QJsonObject j
 
     m_a_obj_communication_isValid = ::OpenAPI::fromJsonValue(a_obj_communication, json[QString("a_objCommunication")]);
     m_a_obj_communication_isSet = !json[QString("a_objCommunication")].isNull() && m_a_obj_communication_isValid;
+
+    m_i_row_returned_isValid = ::OpenAPI::fromJsonValue(i_row_returned, json[QString("iRowReturned")]);
+    m_i_row_returned_isSet = !json[QString("iRowReturned")].isNull() && m_i_row_returned_isValid;
+
+    m_i_row_filtered_isValid = ::OpenAPI::fromJsonValue(i_row_filtered, json[QString("iRowFiltered")]);
+    m_i_row_filtered_isSet = !json[QString("iRowFiltered")].isNull() && m_i_row_filtered_isValid;
 }
 
 QString OAICommunication_getList_v1_Response_mPayload::asJson() const {
@@ -62,6 +74,12 @@ QJsonObject OAICommunication_getList_v1_Response_mPayload::asJsonObject() const 
     QJsonObject obj;
     if (a_obj_communication.size() > 0) {
         obj.insert(QString("a_objCommunication"), ::OpenAPI::toJsonValue(a_obj_communication));
+    }
+    if (m_i_row_returned_isSet) {
+        obj.insert(QString("iRowReturned"), ::OpenAPI::toJsonValue(i_row_returned));
+    }
+    if (m_i_row_filtered_isSet) {
+        obj.insert(QString("iRowFiltered"), ::OpenAPI::toJsonValue(i_row_filtered));
     }
     return obj;
 }
@@ -82,10 +100,52 @@ bool OAICommunication_getList_v1_Response_mPayload::is_a_obj_communication_Valid
     return m_a_obj_communication_isValid;
 }
 
+qint32 OAICommunication_getList_v1_Response_mPayload::getIRowReturned() const {
+    return i_row_returned;
+}
+void OAICommunication_getList_v1_Response_mPayload::setIRowReturned(const qint32 &i_row_returned) {
+    this->i_row_returned = i_row_returned;
+    this->m_i_row_returned_isSet = true;
+}
+
+bool OAICommunication_getList_v1_Response_mPayload::is_i_row_returned_Set() const{
+    return m_i_row_returned_isSet;
+}
+
+bool OAICommunication_getList_v1_Response_mPayload::is_i_row_returned_Valid() const{
+    return m_i_row_returned_isValid;
+}
+
+qint32 OAICommunication_getList_v1_Response_mPayload::getIRowFiltered() const {
+    return i_row_filtered;
+}
+void OAICommunication_getList_v1_Response_mPayload::setIRowFiltered(const qint32 &i_row_filtered) {
+    this->i_row_filtered = i_row_filtered;
+    this->m_i_row_filtered_isSet = true;
+}
+
+bool OAICommunication_getList_v1_Response_mPayload::is_i_row_filtered_Set() const{
+    return m_i_row_filtered_isSet;
+}
+
+bool OAICommunication_getList_v1_Response_mPayload::is_i_row_filtered_Valid() const{
+    return m_i_row_filtered_isValid;
+}
+
 bool OAICommunication_getList_v1_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
         if (a_obj_communication.size() > 0) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_i_row_returned_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_i_row_filtered_isSet) {
             isObjectUpdated = true;
             break;
         }
@@ -95,7 +155,7 @@ bool OAICommunication_getList_v1_Response_mPayload::isSet() const {
 
 bool OAICommunication_getList_v1_Response_mPayload::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_a_obj_communication_isValid && true;
+    return m_a_obj_communication_isValid && m_i_row_returned_isValid && m_i_row_filtered_isValid && true;
 }
 
 } // namespace OpenAPI

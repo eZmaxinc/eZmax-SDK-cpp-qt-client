@@ -21,15 +21,19 @@
 
 #include <QJsonObject>
 
+#include "OAIDescriptionstatic_ResponseCompound.h"
+#include "OAIEmailstatic_ResponseCompound.h"
+#include "OAIField_eCommunicationrecipientObjecttype.h"
 #include "OAIField_eCommunicationrecipientType.h"
-#include "OAIPhone_ResponseCompound.h"
-#include <QString>
+#include "OAIPhonestatic_ResponseCompound.h"
 
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
 namespace OpenAPI {
-class OAIPhone_ResponseCompound;
+class OAIDescriptionstatic_ResponseCompound;
+class OAIEmailstatic_ResponseCompound;
+class OAIPhonestatic_ResponseCompound;
 
 class OAICommunicationrecipient_ResponseCompound : public OAIObject {
 public:
@@ -46,6 +50,11 @@ public:
     void setPkiCommunicationrecipientId(const qint32 &pki_communicationrecipient_id);
     bool is_pki_communicationrecipient_id_Set() const;
     bool is_pki_communicationrecipient_id_Valid() const;
+
+    OAIField_eCommunicationrecipientObjecttype getECommunicationrecipientObjecttype() const;
+    void setECommunicationrecipientObjecttype(const OAIField_eCommunicationrecipientObjecttype &e_communicationrecipient_objecttype);
+    bool is_e_communicationrecipient_objecttype_Set() const;
+    bool is_e_communicationrecipient_objecttype_Valid() const;
 
     qint32 getFkiAgentId() const;
     void setFkiAgentId(const qint32 &fki_agent_id);
@@ -87,16 +96,6 @@ public:
     bool is_fki_user_id_Set() const;
     bool is_fki_user_id_Valid() const;
 
-    QString getSEmailAddress() const;
-    void setSEmailAddress(const QString &s_email_address);
-    bool is_s_email_address_Set() const;
-    bool is_s_email_address_Valid() const;
-
-    OAIField_eCommunicationrecipientType getECommunicationrecipientType() const;
-    void setECommunicationrecipientType(const OAIField_eCommunicationrecipientType &e_communicationrecipient_type);
-    bool is_e_communicationrecipient_type_Set() const;
-    bool is_e_communicationrecipient_type_Valid() const;
-
     qint32 getFkiAgentincorporationId() const;
     void setFkiAgentincorporationId(const qint32 &fki_agentincorporation_id);
     bool is_fki_agentincorporation_id_Set() const;
@@ -132,10 +131,25 @@ public:
     bool is_fki_supplier_id_Set() const;
     bool is_fki_supplier_id_Valid() const;
 
-    OAIPhone_ResponseCompound getObjPhoneSms() const;
-    void setObjPhoneSms(const OAIPhone_ResponseCompound &obj_phone_sms);
-    bool is_obj_phone_sms_Set() const;
-    bool is_obj_phone_sms_Valid() const;
+    OAIField_eCommunicationrecipientType getECommunicationrecipientType() const;
+    void setECommunicationrecipientType(const OAIField_eCommunicationrecipientType &e_communicationrecipient_type);
+    bool is_e_communicationrecipient_type_Set() const;
+    bool is_e_communicationrecipient_type_Valid() const;
+
+    OAIDescriptionstatic_ResponseCompound getObjDescriptionstatic() const;
+    void setObjDescriptionstatic(const OAIDescriptionstatic_ResponseCompound &obj_descriptionstatic);
+    bool is_obj_descriptionstatic_Set() const;
+    bool is_obj_descriptionstatic_Valid() const;
+
+    OAIEmailstatic_ResponseCompound getObjEmailstatic() const;
+    void setObjEmailstatic(const OAIEmailstatic_ResponseCompound &obj_emailstatic);
+    bool is_obj_emailstatic_Set() const;
+    bool is_obj_emailstatic_Valid() const;
+
+    OAIPhonestatic_ResponseCompound getObjPhonestatic() const;
+    void setObjPhonestatic(const OAIPhonestatic_ResponseCompound &obj_phonestatic);
+    bool is_obj_phonestatic_Set() const;
+    bool is_obj_phonestatic_Valid() const;
 
     virtual bool isSet() const override;
     virtual bool isValid() const override;
@@ -146,6 +160,10 @@ private:
     qint32 pki_communicationrecipient_id;
     bool m_pki_communicationrecipient_id_isSet;
     bool m_pki_communicationrecipient_id_isValid;
+
+    OAIField_eCommunicationrecipientObjecttype e_communicationrecipient_objecttype;
+    bool m_e_communicationrecipient_objecttype_isSet;
+    bool m_e_communicationrecipient_objecttype_isValid;
 
     qint32 fki_agent_id;
     bool m_fki_agent_id_isSet;
@@ -179,14 +197,6 @@ private:
     bool m_fki_user_id_isSet;
     bool m_fki_user_id_isValid;
 
-    QString s_email_address;
-    bool m_s_email_address_isSet;
-    bool m_s_email_address_isValid;
-
-    OAIField_eCommunicationrecipientType e_communicationrecipient_type;
-    bool m_e_communicationrecipient_type_isSet;
-    bool m_e_communicationrecipient_type_isValid;
-
     qint32 fki_agentincorporation_id;
     bool m_fki_agentincorporation_id_isSet;
     bool m_fki_agentincorporation_id_isValid;
@@ -215,9 +225,21 @@ private:
     bool m_fki_supplier_id_isSet;
     bool m_fki_supplier_id_isValid;
 
-    OAIPhone_ResponseCompound obj_phone_sms;
-    bool m_obj_phone_sms_isSet;
-    bool m_obj_phone_sms_isValid;
+    OAIField_eCommunicationrecipientType e_communicationrecipient_type;
+    bool m_e_communicationrecipient_type_isSet;
+    bool m_e_communicationrecipient_type_isValid;
+
+    OAIDescriptionstatic_ResponseCompound obj_descriptionstatic;
+    bool m_obj_descriptionstatic_isSet;
+    bool m_obj_descriptionstatic_isValid;
+
+    OAIEmailstatic_ResponseCompound obj_emailstatic;
+    bool m_obj_emailstatic_isSet;
+    bool m_obj_emailstatic_isValid;
+
+    OAIPhonestatic_ResponseCompound obj_phonestatic;
+    bool m_obj_phonestatic_isSet;
+    bool m_obj_phonestatic_isValid;
 };
 
 } // namespace OpenAPI

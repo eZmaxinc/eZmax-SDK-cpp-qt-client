@@ -132,6 +132,11 @@ public:
     bool is_b_ezmaxinvoicingsummaryglobal_adjustment_Set() const;
     bool is_b_ezmaxinvoicingsummaryglobal_adjustment_Valid() const;
 
+    QString getTEzmaxproductHelpX() const;
+    void setTEzmaxproductHelpX(const QString &t_ezmaxproduct_help_x);
+    bool is_t_ezmaxproduct_help_x_Set() const;
+    bool is_t_ezmaxproduct_help_x_Valid() const;
+
     QList<OAIEzmaxinvoicingcommission_ResponseCompound> getAObjEzmaxinvoicingcommission() const;
     void setAObjEzmaxinvoicingcommission(const QList<OAIEzmaxinvoicingcommission_ResponseCompound> &a_obj_ezmaxinvoicingcommission);
     bool is_a_obj_ezmaxinvoicingcommission_Set() const;
@@ -214,6 +219,10 @@ private:
     bool b_ezmaxinvoicingsummaryglobal_adjustment;
     bool m_b_ezmaxinvoicingsummaryglobal_adjustment_isSet;
     bool m_b_ezmaxinvoicingsummaryglobal_adjustment_isValid;
+
+    QString t_ezmaxproduct_help_x;
+    bool m_t_ezmaxproduct_help_x_isSet;
+    bool m_t_ezmaxproduct_help_x_isValid;
 
     QList<OAIEzmaxinvoicingcommission_ResponseCompound> a_obj_ezmaxinvoicingcommission;
     bool m_a_obj_ezmaxinvoicingcommission_isSet;

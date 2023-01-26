@@ -129,6 +129,11 @@ public:
     bool is_b_ezmaxinvoicingsummaryglobal_adjustment_Set() const;
     bool is_b_ezmaxinvoicingsummaryglobal_adjustment_Valid() const;
 
+    QString getTEzmaxproductHelpX() const;
+    void setTEzmaxproductHelpX(const QString &t_ezmaxproduct_help_x);
+    bool is_t_ezmaxproduct_help_x_Set() const;
+    bool is_t_ezmaxproduct_help_x_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -206,6 +211,10 @@ private:
     bool b_ezmaxinvoicingsummaryglobal_adjustment;
     bool m_b_ezmaxinvoicingsummaryglobal_adjustment_isSet;
     bool m_b_ezmaxinvoicingsummaryglobal_adjustment_isValid;
+
+    QString t_ezmaxproduct_help_x;
+    bool m_t_ezmaxproduct_help_x_isSet;
+    bool m_t_ezmaxproduct_help_x_isValid;
 };
 
 } // namespace OpenAPI

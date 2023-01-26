@@ -100,10 +100,10 @@ bool OAICommunication_getList_v1_Response::is_m_payload_Valid() const{
     return m_m_payload_isValid;
 }
 
-OAICommon_Response_objDebugPayload OAICommunication_getList_v1_Response::getObjDebugPayload() const {
+OAICommon_Response_objDebugPayload_getList OAICommunication_getList_v1_Response::getObjDebugPayload() const {
     return obj_debug_payload;
 }
-void OAICommunication_getList_v1_Response::setObjDebugPayload(const OAICommon_Response_objDebugPayload &obj_debug_payload) {
+void OAICommunication_getList_v1_Response::setObjDebugPayload(const OAICommon_Response_objDebugPayload_getList &obj_debug_payload) {
     this->obj_debug_payload = obj_debug_payload;
     this->m_obj_debug_payload_isSet = true;
 }

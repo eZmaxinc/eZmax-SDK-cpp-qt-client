@@ -87,6 +87,9 @@ void OAIEzmaxinvoicingsummaryglobal_Response::initializeModel() {
 
     m_b_ezmaxinvoicingsummaryglobal_adjustment_isSet = false;
     m_b_ezmaxinvoicingsummaryglobal_adjustment_isValid = false;
+
+    m_t_ezmaxproduct_help_x_isSet = false;
+    m_t_ezmaxproduct_help_x_isValid = false;
 }
 
 void OAIEzmaxinvoicingsummaryglobal_Response::fromJson(QString jsonString) {
@@ -151,6 +154,9 @@ void OAIEzmaxinvoicingsummaryglobal_Response::fromJsonObject(QJsonObject json) {
 
     m_b_ezmaxinvoicingsummaryglobal_adjustment_isValid = ::OpenAPI::fromJsonValue(b_ezmaxinvoicingsummaryglobal_adjustment, json[QString("bEzmaxinvoicingsummaryglobalAdjustment")]);
     m_b_ezmaxinvoicingsummaryglobal_adjustment_isSet = !json[QString("bEzmaxinvoicingsummaryglobalAdjustment")].isNull() && m_b_ezmaxinvoicingsummaryglobal_adjustment_isValid;
+
+    m_t_ezmaxproduct_help_x_isValid = ::OpenAPI::fromJsonValue(t_ezmaxproduct_help_x, json[QString("tEzmaxproductHelpX")]);
+    m_t_ezmaxproduct_help_x_isSet = !json[QString("tEzmaxproductHelpX")].isNull() && m_t_ezmaxproduct_help_x_isValid;
 }
 
 QString OAIEzmaxinvoicingsummaryglobal_Response::asJson() const {
@@ -215,6 +221,9 @@ QJsonObject OAIEzmaxinvoicingsummaryglobal_Response::asJsonObject() const {
     }
     if (m_b_ezmaxinvoicingsummaryglobal_adjustment_isSet) {
         obj.insert(QString("bEzmaxinvoicingsummaryglobalAdjustment"), ::OpenAPI::toJsonValue(b_ezmaxinvoicingsummaryglobal_adjustment));
+    }
+    if (m_t_ezmaxproduct_help_x_isSet) {
+        obj.insert(QString("tEzmaxproductHelpX"), ::OpenAPI::toJsonValue(t_ezmaxproduct_help_x));
     }
     return obj;
 }
@@ -507,6 +516,22 @@ bool OAIEzmaxinvoicingsummaryglobal_Response::is_b_ezmaxinvoicingsummaryglobal_a
     return m_b_ezmaxinvoicingsummaryglobal_adjustment_isValid;
 }
 
+QString OAIEzmaxinvoicingsummaryglobal_Response::getTEzmaxproductHelpX() const {
+    return t_ezmaxproduct_help_x;
+}
+void OAIEzmaxinvoicingsummaryglobal_Response::setTEzmaxproductHelpX(const QString &t_ezmaxproduct_help_x) {
+    this->t_ezmaxproduct_help_x = t_ezmaxproduct_help_x;
+    this->m_t_ezmaxproduct_help_x_isSet = true;
+}
+
+bool OAIEzmaxinvoicingsummaryglobal_Response::is_t_ezmaxproduct_help_x_Set() const{
+    return m_t_ezmaxproduct_help_x_isSet;
+}
+
+bool OAIEzmaxinvoicingsummaryglobal_Response::is_t_ezmaxproduct_help_x_Valid() const{
+    return m_t_ezmaxproduct_help_x_isValid;
+}
+
 bool OAIEzmaxinvoicingsummaryglobal_Response::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -599,13 +624,18 @@ bool OAIEzmaxinvoicingsummaryglobal_Response::isSet() const {
             isObjectUpdated = true;
             break;
         }
+
+        if (m_t_ezmaxproduct_help_x_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
     } while (false);
     return isObjectUpdated;
 }
 
 bool OAIEzmaxinvoicingsummaryglobal_Response::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_fki_ezmaxproduct_id_isValid && m_s_ezmaxproduct_description_x_isValid && m_dt_ezmaxinvoicingsummaryglobal_start_isValid && m_dt_ezmaxinvoicingsummaryglobal_end_isValid && m_i_ezmaxinvoicingsummaryglobal_days_isValid && m_d_ezmaxinvoicingsummaryglobal_countreal_isValid && m_d_ezmaxinvoicingsummaryglobal_countbilled_isValid && m_d_ezmaxinvoicingsummaryglobal_subtotal_isValid && m_d_ezmaxinvoicingsummaryglobal_rebateamount_isValid && m_d_ezmaxinvoicingsummaryglobal_rebatepercent_isValid && m_d_ezmaxinvoicingsummaryglobal_rebatetotal_isValid && m_d_ezmaxinvoicingsummaryglobal_total_isValid && m_b_ezmaxinvoicingsummaryglobal_adjustment_isValid && true;
+    return m_fki_ezmaxproduct_id_isValid && m_s_ezmaxproduct_description_x_isValid && m_dt_ezmaxinvoicingsummaryglobal_start_isValid && m_dt_ezmaxinvoicingsummaryglobal_end_isValid && m_i_ezmaxinvoicingsummaryglobal_days_isValid && m_d_ezmaxinvoicingsummaryglobal_countreal_isValid && m_d_ezmaxinvoicingsummaryglobal_countbilled_isValid && m_d_ezmaxinvoicingsummaryglobal_subtotal_isValid && m_d_ezmaxinvoicingsummaryglobal_rebateamount_isValid && m_d_ezmaxinvoicingsummaryglobal_rebatepercent_isValid && m_d_ezmaxinvoicingsummaryglobal_rebatetotal_isValid && m_d_ezmaxinvoicingsummaryglobal_total_isValid && m_b_ezmaxinvoicingsummaryglobal_adjustment_isValid && m_t_ezmaxproduct_help_x_isValid && true;
 }
 
 } // namespace OpenAPI

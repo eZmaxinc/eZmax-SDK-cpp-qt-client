@@ -13,7 +13,7 @@
 /*
  * OAICommunication_getCount_v1_Response_mPayload.h
  *
- * Payload for GET /1/module/communication/getCount
+ * Payload for GET /1/module/communication/getCommunicationCount
  */
 
 #ifndef OAICommunication_getCount_v1_Response_mPayload_H

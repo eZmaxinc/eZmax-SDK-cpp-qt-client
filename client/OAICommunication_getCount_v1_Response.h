@@ -13,7 +13,7 @@
 /*
  * OAICommunication_getCount_v1_Response.h
  *
- * Response for GET /1/module/communication/getCount
+ * Response for GET /1/module/communication/getCommunicationCount
  */
 
 #ifndef OAICommunication_getCount_v1_Response_H

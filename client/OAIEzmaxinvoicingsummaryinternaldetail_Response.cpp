@@ -66,6 +66,9 @@ void OAIEzmaxinvoicingsummaryinternaldetail_Response::initializeModel() {
 
     m_b_ezmaxinvoicingsummaryinternaldetail_adjustment_isSet = false;
     m_b_ezmaxinvoicingsummaryinternaldetail_adjustment_isValid = false;
+
+    m_t_ezmaxproduct_help_x_isSet = false;
+    m_t_ezmaxproduct_help_x_isValid = false;
 }
 
 void OAIEzmaxinvoicingsummaryinternaldetail_Response::fromJson(QString jsonString) {
@@ -109,6 +112,9 @@ void OAIEzmaxinvoicingsummaryinternaldetail_Response::fromJsonObject(QJsonObject
 
     m_b_ezmaxinvoicingsummaryinternaldetail_adjustment_isValid = ::OpenAPI::fromJsonValue(b_ezmaxinvoicingsummaryinternaldetail_adjustment, json[QString("bEzmaxinvoicingsummaryinternaldetailAdjustment")]);
     m_b_ezmaxinvoicingsummaryinternaldetail_adjustment_isSet = !json[QString("bEzmaxinvoicingsummaryinternaldetailAdjustment")].isNull() && m_b_ezmaxinvoicingsummaryinternaldetail_adjustment_isValid;
+
+    m_t_ezmaxproduct_help_x_isValid = ::OpenAPI::fromJsonValue(t_ezmaxproduct_help_x, json[QString("tEzmaxproductHelpX")]);
+    m_t_ezmaxproduct_help_x_isSet = !json[QString("tEzmaxproductHelpX")].isNull() && m_t_ezmaxproduct_help_x_isValid;
 }
 
 QString OAIEzmaxinvoicingsummaryinternaldetail_Response::asJson() const {
@@ -152,6 +158,9 @@ QJsonObject OAIEzmaxinvoicingsummaryinternaldetail_Response::asJsonObject() cons
     }
     if (m_b_ezmaxinvoicingsummaryinternaldetail_adjustment_isSet) {
         obj.insert(QString("bEzmaxinvoicingsummaryinternaldetailAdjustment"), ::OpenAPI::toJsonValue(b_ezmaxinvoicingsummaryinternaldetail_adjustment));
+    }
+    if (m_t_ezmaxproduct_help_x_isSet) {
+        obj.insert(QString("tEzmaxproductHelpX"), ::OpenAPI::toJsonValue(t_ezmaxproduct_help_x));
     }
     return obj;
 }
@@ -332,6 +341,22 @@ bool OAIEzmaxinvoicingsummaryinternaldetail_Response::is_b_ezmaxinvoicingsummary
     return m_b_ezmaxinvoicingsummaryinternaldetail_adjustment_isValid;
 }
 
+QString OAIEzmaxinvoicingsummaryinternaldetail_Response::getTEzmaxproductHelpX() const {
+    return t_ezmaxproduct_help_x;
+}
+void OAIEzmaxinvoicingsummaryinternaldetail_Response::setTEzmaxproductHelpX(const QString &t_ezmaxproduct_help_x) {
+    this->t_ezmaxproduct_help_x = t_ezmaxproduct_help_x;
+    this->m_t_ezmaxproduct_help_x_isSet = true;
+}
+
+bool OAIEzmaxinvoicingsummaryinternaldetail_Response::is_t_ezmaxproduct_help_x_Set() const{
+    return m_t_ezmaxproduct_help_x_isSet;
+}
+
+bool OAIEzmaxinvoicingsummaryinternaldetail_Response::is_t_ezmaxproduct_help_x_Valid() const{
+    return m_t_ezmaxproduct_help_x_isValid;
+}
+
 bool OAIEzmaxinvoicingsummaryinternaldetail_Response::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -389,13 +414,18 @@ bool OAIEzmaxinvoicingsummaryinternaldetail_Response::isSet() const {
             isObjectUpdated = true;
             break;
         }
+
+        if (m_t_ezmaxproduct_help_x_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
     } while (false);
     return isObjectUpdated;
 }
 
 bool OAIEzmaxinvoicingsummaryinternaldetail_Response::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_fki_ezmaxproduct_id_isValid && m_s_ezmaxproduct_description_x_isValid && m_fki_billingentityexternal_id_isValid && m_s_billingentityexternal_description_isValid && m_d_ezmaxinvoicingsummaryinternaldetail_countreal_isValid && m_d_ezmaxinvoicingsummaryinternaldetail_subtotal_isValid && m_d_ezmaxinvoicingsummaryinternaldetail_rebate_isValid && m_d_ezmaxinvoicingsummaryinternaldetail_total_isValid && m_b_ezmaxinvoicingsummaryinternaldetail_adjustment_isValid && true;
+    return m_fki_ezmaxproduct_id_isValid && m_s_ezmaxproduct_description_x_isValid && m_fki_billingentityexternal_id_isValid && m_s_billingentityexternal_description_isValid && m_d_ezmaxinvoicingsummaryinternaldetail_countreal_isValid && m_d_ezmaxinvoicingsummaryinternaldetail_subtotal_isValid && m_d_ezmaxinvoicingsummaryinternaldetail_rebate_isValid && m_d_ezmaxinvoicingsummaryinternaldetail_total_isValid && m_b_ezmaxinvoicingsummaryinternaldetail_adjustment_isValid && m_t_ezmaxproduct_help_x_isValid && true;
 }
 
 } // namespace OpenAPI

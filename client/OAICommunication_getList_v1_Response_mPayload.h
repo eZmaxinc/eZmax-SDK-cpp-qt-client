@@ -13,7 +13,7 @@
 /*
  * OAICommunication_getList_v1_Response_mPayload.h
  *
- * Payload for GET /1/module/communication/getList
+ * Payload for GET /1/object/communication/getList
  */
 
 #ifndef OAICommunication_getList_v1_Response_mPayload_H
@@ -46,6 +46,16 @@ public:
     bool is_a_obj_communication_Set() const;
     bool is_a_obj_communication_Valid() const;
 
+    qint32 getIRowReturned() const;
+    void setIRowReturned(const qint32 &i_row_returned);
+    bool is_i_row_returned_Set() const;
+    bool is_i_row_returned_Valid() const;
+
+    qint32 getIRowFiltered() const;
+    void setIRowFiltered(const qint32 &i_row_filtered);
+    bool is_i_row_filtered_Set() const;
+    bool is_i_row_filtered_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -55,6 +65,14 @@ private:
     QList<OAICommunication_ListElement> a_obj_communication;
     bool m_a_obj_communication_isSet;
     bool m_a_obj_communication_isValid;
+
+    qint32 i_row_returned;
+    bool m_i_row_returned_isSet;
+    bool m_i_row_returned_isValid;
+
+    qint32 i_row_filtered;
+    bool m_i_row_filtered_isSet;
+    bool m_i_row_filtered_isValid;
 };
 
 } // namespace OpenAPI

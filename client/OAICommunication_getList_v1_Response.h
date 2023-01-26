@@ -13,7 +13,7 @@
 /*
  * OAICommunication_getList_v1_Response.h
  *
- * Response for GET /1/module/communication/getList
+ * Response for GET /1/object/communication/getList
  */
 
 #ifndef OAICommunication_getList_v1_Response_H
@@ -22,7 +22,7 @@
 #include <QJsonObject>
 
 #include "OAICommon_Response_objDebug.h"
-#include "OAICommon_Response_objDebugPayload.h"
+#include "OAICommon_Response_objDebugPayload_getList.h"
 #include "OAICommunication_getList_v1_Response_mPayload.h"
 
 #include "OAIEnum.h"
@@ -30,7 +30,7 @@
 
 namespace OpenAPI {
 class OAICommunication_getList_v1_Response_mPayload;
-class OAICommon_Response_objDebugPayload;
+class OAICommon_Response_objDebugPayload_getList;
 class OAICommon_Response_objDebug;
 
 class OAICommunication_getList_v1_Response : public OAIObject {
@@ -49,8 +49,8 @@ public:
     bool is_m_payload_Set() const;
     bool is_m_payload_Valid() const;
 
-    OAICommon_Response_objDebugPayload getObjDebugPayload() const;
-    void setObjDebugPayload(const OAICommon_Response_objDebugPayload &obj_debug_payload);
+    OAICommon_Response_objDebugPayload_getList getObjDebugPayload() const;
+    void setObjDebugPayload(const OAICommon_Response_objDebugPayload_getList &obj_debug_payload);
     bool is_obj_debug_payload_Set() const;
     bool is_obj_debug_payload_Valid() const;
 
@@ -69,7 +69,7 @@ private:
     bool m_m_payload_isSet;
     bool m_m_payload_isValid;
 
-    OAICommon_Response_objDebugPayload obj_debug_payload;
+    OAICommon_Response_objDebugPayload_getList obj_debug_payload;
     bool m_obj_debug_payload_isSet;
     bool m_obj_debug_payload_isValid;
 

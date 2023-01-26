@@ -37,6 +37,9 @@ void OAICommunicationrecipient_Response::initializeModel() {
     m_pki_communicationrecipient_id_isSet = false;
     m_pki_communicationrecipient_id_isValid = false;
 
+    m_e_communicationrecipient_objecttype_isSet = false;
+    m_e_communicationrecipient_objecttype_isValid = false;
+
     m_fki_agent_id_isSet = false;
     m_fki_agent_id_isValid = false;
 
@@ -61,12 +64,6 @@ void OAICommunicationrecipient_Response::initializeModel() {
     m_fki_user_id_isSet = false;
     m_fki_user_id_isValid = false;
 
-    m_s_email_address_isSet = false;
-    m_s_email_address_isValid = false;
-
-    m_e_communicationrecipient_type_isSet = false;
-    m_e_communicationrecipient_type_isValid = false;
-
     m_fki_agentincorporation_id_isSet = false;
     m_fki_agentincorporation_id_isValid = false;
 
@@ -88,8 +85,17 @@ void OAICommunicationrecipient_Response::initializeModel() {
     m_fki_supplier_id_isSet = false;
     m_fki_supplier_id_isValid = false;
 
-    m_obj_phone_sms_isSet = false;
-    m_obj_phone_sms_isValid = false;
+    m_e_communicationrecipient_type_isSet = false;
+    m_e_communicationrecipient_type_isValid = false;
+
+    m_obj_descriptionstatic_isSet = false;
+    m_obj_descriptionstatic_isValid = false;
+
+    m_obj_emailstatic_isSet = false;
+    m_obj_emailstatic_isValid = false;
+
+    m_obj_phonestatic_isSet = false;
+    m_obj_phonestatic_isValid = false;
 }
 
 void OAICommunicationrecipient_Response::fromJson(QString jsonString) {
@@ -103,6 +109,9 @@ void OAICommunicationrecipient_Response::fromJsonObject(QJsonObject json) {
 
     m_pki_communicationrecipient_id_isValid = ::OpenAPI::fromJsonValue(pki_communicationrecipient_id, json[QString("pkiCommunicationrecipientID")]);
     m_pki_communicationrecipient_id_isSet = !json[QString("pkiCommunicationrecipientID")].isNull() && m_pki_communicationrecipient_id_isValid;
+
+    m_e_communicationrecipient_objecttype_isValid = ::OpenAPI::fromJsonValue(e_communicationrecipient_objecttype, json[QString("eCommunicationrecipientObjecttype")]);
+    m_e_communicationrecipient_objecttype_isSet = !json[QString("eCommunicationrecipientObjecttype")].isNull() && m_e_communicationrecipient_objecttype_isValid;
 
     m_fki_agent_id_isValid = ::OpenAPI::fromJsonValue(fki_agent_id, json[QString("fkiAgentID")]);
     m_fki_agent_id_isSet = !json[QString("fkiAgentID")].isNull() && m_fki_agent_id_isValid;
@@ -128,12 +137,6 @@ void OAICommunicationrecipient_Response::fromJsonObject(QJsonObject json) {
     m_fki_user_id_isValid = ::OpenAPI::fromJsonValue(fki_user_id, json[QString("fkiUserID")]);
     m_fki_user_id_isSet = !json[QString("fkiUserID")].isNull() && m_fki_user_id_isValid;
 
-    m_s_email_address_isValid = ::OpenAPI::fromJsonValue(s_email_address, json[QString("sEmailAddress")]);
-    m_s_email_address_isSet = !json[QString("sEmailAddress")].isNull() && m_s_email_address_isValid;
-
-    m_e_communicationrecipient_type_isValid = ::OpenAPI::fromJsonValue(e_communicationrecipient_type, json[QString("eCommunicationrecipientType")]);
-    m_e_communicationrecipient_type_isSet = !json[QString("eCommunicationrecipientType")].isNull() && m_e_communicationrecipient_type_isValid;
-
     m_fki_agentincorporation_id_isValid = ::OpenAPI::fromJsonValue(fki_agentincorporation_id, json[QString("fkiAgentincorporationID")]);
     m_fki_agentincorporation_id_isSet = !json[QString("fkiAgentincorporationID")].isNull() && m_fki_agentincorporation_id_isValid;
 
@@ -155,8 +158,17 @@ void OAICommunicationrecipient_Response::fromJsonObject(QJsonObject json) {
     m_fki_supplier_id_isValid = ::OpenAPI::fromJsonValue(fki_supplier_id, json[QString("fkiSupplierID")]);
     m_fki_supplier_id_isSet = !json[QString("fkiSupplierID")].isNull() && m_fki_supplier_id_isValid;
 
-    m_obj_phone_sms_isValid = ::OpenAPI::fromJsonValue(obj_phone_sms, json[QString("objPhoneSms")]);
-    m_obj_phone_sms_isSet = !json[QString("objPhoneSms")].isNull() && m_obj_phone_sms_isValid;
+    m_e_communicationrecipient_type_isValid = ::OpenAPI::fromJsonValue(e_communicationrecipient_type, json[QString("eCommunicationrecipientType")]);
+    m_e_communicationrecipient_type_isSet = !json[QString("eCommunicationrecipientType")].isNull() && m_e_communicationrecipient_type_isValid;
+
+    m_obj_descriptionstatic_isValid = ::OpenAPI::fromJsonValue(obj_descriptionstatic, json[QString("objDescriptionstatic")]);
+    m_obj_descriptionstatic_isSet = !json[QString("objDescriptionstatic")].isNull() && m_obj_descriptionstatic_isValid;
+
+    m_obj_emailstatic_isValid = ::OpenAPI::fromJsonValue(obj_emailstatic, json[QString("objEmailstatic")]);
+    m_obj_emailstatic_isSet = !json[QString("objEmailstatic")].isNull() && m_obj_emailstatic_isValid;
+
+    m_obj_phonestatic_isValid = ::OpenAPI::fromJsonValue(obj_phonestatic, json[QString("objPhonestatic")]);
+    m_obj_phonestatic_isSet = !json[QString("objPhonestatic")].isNull() && m_obj_phonestatic_isValid;
 }
 
 QString OAICommunicationrecipient_Response::asJson() const {
@@ -170,6 +182,9 @@ QJsonObject OAICommunicationrecipient_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_communicationrecipient_id_isSet) {
         obj.insert(QString("pkiCommunicationrecipientID"), ::OpenAPI::toJsonValue(pki_communicationrecipient_id));
+    }
+    if (e_communicationrecipient_objecttype.isSet()) {
+        obj.insert(QString("eCommunicationrecipientObjecttype"), ::OpenAPI::toJsonValue(e_communicationrecipient_objecttype));
     }
     if (m_fki_agent_id_isSet) {
         obj.insert(QString("fkiAgentID"), ::OpenAPI::toJsonValue(fki_agent_id));
@@ -195,12 +210,6 @@ QJsonObject OAICommunicationrecipient_Response::asJsonObject() const {
     if (m_fki_user_id_isSet) {
         obj.insert(QString("fkiUserID"), ::OpenAPI::toJsonValue(fki_user_id));
     }
-    if (m_s_email_address_isSet) {
-        obj.insert(QString("sEmailAddress"), ::OpenAPI::toJsonValue(s_email_address));
-    }
-    if (e_communicationrecipient_type.isSet()) {
-        obj.insert(QString("eCommunicationrecipientType"), ::OpenAPI::toJsonValue(e_communicationrecipient_type));
-    }
     if (m_fki_agentincorporation_id_isSet) {
         obj.insert(QString("fkiAgentincorporationID"), ::OpenAPI::toJsonValue(fki_agentincorporation_id));
     }
@@ -222,8 +231,17 @@ QJsonObject OAICommunicationrecipient_Response::asJsonObject() const {
     if (m_fki_supplier_id_isSet) {
         obj.insert(QString("fkiSupplierID"), ::OpenAPI::toJsonValue(fki_supplier_id));
     }
-    if (obj_phone_sms.isSet()) {
-        obj.insert(QString("objPhoneSms"), ::OpenAPI::toJsonValue(obj_phone_sms));
+    if (e_communicationrecipient_type.isSet()) {
+        obj.insert(QString("eCommunicationrecipientType"), ::OpenAPI::toJsonValue(e_communicationrecipient_type));
+    }
+    if (obj_descriptionstatic.isSet()) {
+        obj.insert(QString("objDescriptionstatic"), ::OpenAPI::toJsonValue(obj_descriptionstatic));
+    }
+    if (obj_emailstatic.isSet()) {
+        obj.insert(QString("objEmailstatic"), ::OpenAPI::toJsonValue(obj_emailstatic));
+    }
+    if (obj_phonestatic.isSet()) {
+        obj.insert(QString("objPhonestatic"), ::OpenAPI::toJsonValue(obj_phonestatic));
     }
     return obj;
 }
@@ -242,6 +260,22 @@ bool OAICommunicationrecipient_Response::is_pki_communicationrecipient_id_Set() 
 
 bool OAICommunicationrecipient_Response::is_pki_communicationrecipient_id_Valid() const{
     return m_pki_communicationrecipient_id_isValid;
+}
+
+OAIField_eCommunicationrecipientObjecttype OAICommunicationrecipient_Response::getECommunicationrecipientObjecttype() const {
+    return e_communicationrecipient_objecttype;
+}
+void OAICommunicationrecipient_Response::setECommunicationrecipientObjecttype(const OAIField_eCommunicationrecipientObjecttype &e_communicationrecipient_objecttype) {
+    this->e_communicationrecipient_objecttype = e_communicationrecipient_objecttype;
+    this->m_e_communicationrecipient_objecttype_isSet = true;
+}
+
+bool OAICommunicationrecipient_Response::is_e_communicationrecipient_objecttype_Set() const{
+    return m_e_communicationrecipient_objecttype_isSet;
+}
+
+bool OAICommunicationrecipient_Response::is_e_communicationrecipient_objecttype_Valid() const{
+    return m_e_communicationrecipient_objecttype_isValid;
 }
 
 qint32 OAICommunicationrecipient_Response::getFkiAgentId() const {
@@ -372,38 +406,6 @@ bool OAICommunicationrecipient_Response::is_fki_user_id_Valid() const{
     return m_fki_user_id_isValid;
 }
 
-QString OAICommunicationrecipient_Response::getSEmailAddress() const {
-    return s_email_address;
-}
-void OAICommunicationrecipient_Response::setSEmailAddress(const QString &s_email_address) {
-    this->s_email_address = s_email_address;
-    this->m_s_email_address_isSet = true;
-}
-
-bool OAICommunicationrecipient_Response::is_s_email_address_Set() const{
-    return m_s_email_address_isSet;
-}
-
-bool OAICommunicationrecipient_Response::is_s_email_address_Valid() const{
-    return m_s_email_address_isValid;
-}
-
-OAIField_eCommunicationrecipientType OAICommunicationrecipient_Response::getECommunicationrecipientType() const {
-    return e_communicationrecipient_type;
-}
-void OAICommunicationrecipient_Response::setECommunicationrecipientType(const OAIField_eCommunicationrecipientType &e_communicationrecipient_type) {
-    this->e_communicationrecipient_type = e_communicationrecipient_type;
-    this->m_e_communicationrecipient_type_isSet = true;
-}
-
-bool OAICommunicationrecipient_Response::is_e_communicationrecipient_type_Set() const{
-    return m_e_communicationrecipient_type_isSet;
-}
-
-bool OAICommunicationrecipient_Response::is_e_communicationrecipient_type_Valid() const{
-    return m_e_communicationrecipient_type_isValid;
-}
-
 qint32 OAICommunicationrecipient_Response::getFkiAgentincorporationId() const {
     return fki_agentincorporation_id;
 }
@@ -516,26 +518,79 @@ bool OAICommunicationrecipient_Response::is_fki_supplier_id_Valid() const{
     return m_fki_supplier_id_isValid;
 }
 
-OAIPhone_ResponseCompound OAICommunicationrecipient_Response::getObjPhoneSms() const {
-    return obj_phone_sms;
+OAIField_eCommunicationrecipientType OAICommunicationrecipient_Response::getECommunicationrecipientType() const {
+    return e_communicationrecipient_type;
 }
-void OAICommunicationrecipient_Response::setObjPhoneSms(const OAIPhone_ResponseCompound &obj_phone_sms) {
-    this->obj_phone_sms = obj_phone_sms;
-    this->m_obj_phone_sms_isSet = true;
-}
-
-bool OAICommunicationrecipient_Response::is_obj_phone_sms_Set() const{
-    return m_obj_phone_sms_isSet;
+void OAICommunicationrecipient_Response::setECommunicationrecipientType(const OAIField_eCommunicationrecipientType &e_communicationrecipient_type) {
+    this->e_communicationrecipient_type = e_communicationrecipient_type;
+    this->m_e_communicationrecipient_type_isSet = true;
 }
 
-bool OAICommunicationrecipient_Response::is_obj_phone_sms_Valid() const{
-    return m_obj_phone_sms_isValid;
+bool OAICommunicationrecipient_Response::is_e_communicationrecipient_type_Set() const{
+    return m_e_communicationrecipient_type_isSet;
+}
+
+bool OAICommunicationrecipient_Response::is_e_communicationrecipient_type_Valid() const{
+    return m_e_communicationrecipient_type_isValid;
+}
+
+OAIDescriptionstatic_ResponseCompound OAICommunicationrecipient_Response::getObjDescriptionstatic() const {
+    return obj_descriptionstatic;
+}
+void OAICommunicationrecipient_Response::setObjDescriptionstatic(const OAIDescriptionstatic_ResponseCompound &obj_descriptionstatic) {
+    this->obj_descriptionstatic = obj_descriptionstatic;
+    this->m_obj_descriptionstatic_isSet = true;
+}
+
+bool OAICommunicationrecipient_Response::is_obj_descriptionstatic_Set() const{
+    return m_obj_descriptionstatic_isSet;
+}
+
+bool OAICommunicationrecipient_Response::is_obj_descriptionstatic_Valid() const{
+    return m_obj_descriptionstatic_isValid;
+}
+
+OAIEmailstatic_ResponseCompound OAICommunicationrecipient_Response::getObjEmailstatic() const {
+    return obj_emailstatic;
+}
+void OAICommunicationrecipient_Response::setObjEmailstatic(const OAIEmailstatic_ResponseCompound &obj_emailstatic) {
+    this->obj_emailstatic = obj_emailstatic;
+    this->m_obj_emailstatic_isSet = true;
+}
+
+bool OAICommunicationrecipient_Response::is_obj_emailstatic_Set() const{
+    return m_obj_emailstatic_isSet;
+}
+
+bool OAICommunicationrecipient_Response::is_obj_emailstatic_Valid() const{
+    return m_obj_emailstatic_isValid;
+}
+
+OAIPhonestatic_ResponseCompound OAICommunicationrecipient_Response::getObjPhonestatic() const {
+    return obj_phonestatic;
+}
+void OAICommunicationrecipient_Response::setObjPhonestatic(const OAIPhonestatic_ResponseCompound &obj_phonestatic) {
+    this->obj_phonestatic = obj_phonestatic;
+    this->m_obj_phonestatic_isSet = true;
+}
+
+bool OAICommunicationrecipient_Response::is_obj_phonestatic_Set() const{
+    return m_obj_phonestatic_isSet;
+}
+
+bool OAICommunicationrecipient_Response::is_obj_phonestatic_Valid() const{
+    return m_obj_phonestatic_isValid;
 }
 
 bool OAICommunicationrecipient_Response::isSet() const {
     bool isObjectUpdated = false;
     do {
         if (m_pki_communicationrecipient_id_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (e_communicationrecipient_objecttype.isSet()) {
             isObjectUpdated = true;
             break;
         }
@@ -580,16 +635,6 @@ bool OAICommunicationrecipient_Response::isSet() const {
             break;
         }
 
-        if (m_s_email_address_isSet) {
-            isObjectUpdated = true;
-            break;
-        }
-
-        if (e_communicationrecipient_type.isSet()) {
-            isObjectUpdated = true;
-            break;
-        }
-
         if (m_fki_agentincorporation_id_isSet) {
             isObjectUpdated = true;
             break;
@@ -625,7 +670,22 @@ bool OAICommunicationrecipient_Response::isSet() const {
             break;
         }
 
-        if (obj_phone_sms.isSet()) {
+        if (e_communicationrecipient_type.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (obj_descriptionstatic.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (obj_emailstatic.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (obj_phonestatic.isSet()) {
             isObjectUpdated = true;
             break;
         }
@@ -635,7 +695,7 @@ bool OAICommunicationrecipient_Response::isSet() const {
 
 bool OAICommunicationrecipient_Response::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_pki_communicationrecipient_id_isValid && true;
+    return m_pki_communicationrecipient_id_isValid && m_e_communicationrecipient_type_isValid && m_obj_descriptionstatic_isValid && true;
 }
 
 } // namespace OpenAPI
