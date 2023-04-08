@@ -53,8 +53,6 @@ void OAIObjectEzsigntemplatepackagesignermembershipApi::initializeServerConfigs(
     _serverIndices.insert("ezsigntemplatepackagesignermembershipCreateObjectV1", 0);
     _serverConfigs.insert("ezsigntemplatepackagesignermembershipDeleteObjectV1", defaultConf);
     _serverIndices.insert("ezsigntemplatepackagesignermembershipDeleteObjectV1", 0);
-    _serverConfigs.insert("ezsigntemplatepackagesignermembershipGetObjectV1", defaultConf);
-    _serverIndices.insert("ezsigntemplatepackagesignermembershipGetObjectV1", 0);
     _serverConfigs.insert("ezsigntemplatepackagesignermembershipGetObjectV2", defaultConf);
     _serverIndices.insert("ezsigntemplatepackagesignermembershipGetObjectV2", 0);
 }
@@ -354,73 +352,6 @@ void OAIObjectEzsigntemplatepackagesignermembershipApi::ezsigntemplatepackagesig
     } else {
         emit ezsigntemplatepackagesignermembershipDeleteObjectV1SignalE(output, error_type, error_str);
         emit ezsigntemplatepackagesignermembershipDeleteObjectV1SignalEFull(worker, error_type, error_str);
-    }
-}
-
-void OAIObjectEzsigntemplatepackagesignermembershipApi::ezsigntemplatepackagesignermembershipGetObjectV1(const qint32 &pki_ezsigntemplatepackagesignermembership_id) {
-    QString fullPath = QString(_serverConfigs["ezsigntemplatepackagesignermembershipGetObjectV1"][_serverIndices.value("ezsigntemplatepackagesignermembershipGetObjectV1")].URL()+"/1/object/ezsigntemplatepackagesignermembership/{pkiEzsigntemplatepackagesignermembershipID}");
-    
-    if (_apiKeys.contains("Authorization")) {
-        addHeaders("Authorization",_apiKeys.find("Authorization").value());
-    }
-    
-    
-    {
-        QString pki_ezsigntemplatepackagesignermembership_idPathParam("{");
-        pki_ezsigntemplatepackagesignermembership_idPathParam.append("pkiEzsigntemplatepackagesignermembershipID").append("}");
-        QString pathPrefix, pathSuffix, pathDelimiter;
-        QString pathStyle = "simple";
-        if (pathStyle == "")
-            pathStyle = "simple";
-        pathPrefix = getParamStylePrefix(pathStyle);
-        pathSuffix = getParamStyleSuffix(pathStyle);
-        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsigntemplatepackagesignermembershipID", false);
-        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsigntemplatepackagesignermembershipID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsigntemplatepackagesignermembership_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsigntemplatepackagesignermembership_id)));
-    }
-    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
-    worker->setTimeOut(_timeOut);
-    worker->setWorkingDirectory(_workingDirectory);
-    OAIHttpRequestInput input(fullPath, "GET");
-
-
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
-    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
-        input.headers.insert(keyValueIt->first, keyValueIt->second);
-    }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
-
-    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIObjectEzsigntemplatepackagesignermembershipApi::ezsigntemplatepackagesignermembershipGetObjectV1Callback);
-    connect(this, &OAIObjectEzsigntemplatepackagesignermembershipApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
-        if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
-        }
-    });
-
-    worker->execute(&input);
-}
-
-void OAIObjectEzsigntemplatepackagesignermembershipApi::ezsigntemplatepackagesignermembershipGetObjectV1Callback(OAIHttpRequestWorker *worker) {
-    QString error_str = worker->error_str;
-    QNetworkReply::NetworkError error_type = worker->error_type;
-
-    if (worker->error_type != QNetworkReply::NoError) {
-        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
-    }
-    OAIEzsigntemplatepackagesignermembership_getObject_v1_Response output(QString(worker->response));
-    worker->deleteLater();
-
-    if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsigntemplatepackagesignermembershipGetObjectV1Signal(output);
-        emit ezsigntemplatepackagesignermembershipGetObjectV1SignalFull(worker, output);
-    } else {
-        emit ezsigntemplatepackagesignermembershipGetObjectV1SignalE(output, error_type, error_str);
-        emit ezsigntemplatepackagesignermembershipGetObjectV1SignalEFull(worker, error_type, error_str);
     }
 }
 

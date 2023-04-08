@@ -110,6 +110,11 @@ public:
     bool is_s_ezsigndocument_name_Set() const;
     bool is_s_ezsigndocument_name_Valid() const;
 
+    QString getSEzsigndocumentExternalid() const;
+    void setSEzsigndocumentExternalid(const QString &s_ezsigndocument_externalid);
+    bool is_s_ezsigndocument_externalid_Set() const;
+    bool is_s_ezsigndocument_externalid_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -171,6 +176,10 @@ private:
     QString s_ezsigndocument_name;
     bool m_s_ezsigndocument_name_isSet;
     bool m_s_ezsigndocument_name_isValid;
+
+    QString s_ezsigndocument_externalid;
+    bool m_s_ezsigndocument_externalid_isSet;
+    bool m_s_ezsigndocument_externalid_isValid;
 };
 
 } // namespace OpenAPI

@@ -49,10 +49,18 @@ void OAIObjectBillingentityinternalApi::initializeServerConfigs() {
     {"sInfrastructureenvironmenttypeDescription", OAIServerVariable("The environment on on which to call the API. Should always be "prod" unless instructed otherwise by support.","prod",
     QSet<QString>{ {"prod"},{"stg"},{"qa"},{"dev"} })}, }));
     
-    _serverConfigs.insert("billingentityinternalGetAutocompleteV1", defaultConf);
-    _serverIndices.insert("billingentityinternalGetAutocompleteV1", 0);
+    _serverConfigs.insert("billingentityinternalCreateObjectV1", defaultConf);
+    _serverIndices.insert("billingentityinternalCreateObjectV1", 0);
+    _serverConfigs.insert("billingentityinternalDeleteObjectV1", defaultConf);
+    _serverIndices.insert("billingentityinternalDeleteObjectV1", 0);
+    _serverConfigs.insert("billingentityinternalEditObjectV1", defaultConf);
+    _serverIndices.insert("billingentityinternalEditObjectV1", 0);
     _serverConfigs.insert("billingentityinternalGetAutocompleteV2", defaultConf);
     _serverIndices.insert("billingentityinternalGetAutocompleteV2", 0);
+    _serverConfigs.insert("billingentityinternalGetListV1", defaultConf);
+    _serverIndices.insert("billingentityinternalGetListV1", 0);
+    _serverConfigs.insert("billingentityinternalGetObjectV2", defaultConf);
+    _serverIndices.insert("billingentityinternalGetObjectV2", 0);
 }
 
 /**
@@ -228,107 +236,23 @@ QString OAIObjectBillingentityinternalApi::getParamStyleDelimiter(const QString 
     }
 }
 
-void OAIObjectBillingentityinternalApi::billingentityinternalGetAutocompleteV1(const QString &s_selector, const ::OpenAPI::OptionalParam<QString> &e_filter_active, const ::OpenAPI::OptionalParam<QString> &s_query, const ::OpenAPI::OptionalParam<OAIHeader_Accept_Language> &accept_language) {
-    QString fullPath = QString(_serverConfigs["billingentityinternalGetAutocompleteV1"][_serverIndices.value("billingentityinternalGetAutocompleteV1")].URL()+"/1/object/billingentityinternal/getAutocomplete/{sSelector}");
+void OAIObjectBillingentityinternalApi::billingentityinternalCreateObjectV1(const OAIBillingentityinternal_createObject_v1_Request &oai_billingentityinternal_create_object_v1_request) {
+    QString fullPath = QString(_serverConfigs["billingentityinternalCreateObjectV1"][_serverIndices.value("billingentityinternalCreateObjectV1")].URL()+"/1/object/billingentityinternal");
     
     if (_apiKeys.contains("Authorization")) {
         addHeaders("Authorization",_apiKeys.find("Authorization").value());
     }
     
-    
-    {
-        QString s_selectorPathParam("{");
-        s_selectorPathParam.append("sSelector").append("}");
-        QString pathPrefix, pathSuffix, pathDelimiter;
-        QString pathStyle = "simple";
-        if (pathStyle == "")
-            pathStyle = "simple";
-        pathPrefix = getParamStylePrefix(pathStyle);
-        pathSuffix = getParamStyleSuffix(pathStyle);
-        pathDelimiter = getParamStyleDelimiter(pathStyle, "sSelector", false);
-        QString paramString = (pathStyle == "matrix") ? pathPrefix+"sSelector"+pathSuffix : pathPrefix;
-        fullPath.replace(s_selectorPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(s_selector)));
-    }
-    QString queryPrefix, querySuffix, queryDelimiter, queryStyle;
-    if (e_filter_active.hasValue())
-    {
-        queryStyle = "form";
-        if (queryStyle == "")
-            queryStyle = "form";
-        queryPrefix = getParamStylePrefix(queryStyle);
-        querySuffix = getParamStyleSuffix(queryStyle);
-        queryDelimiter = getParamStyleDelimiter(queryStyle, "eFilterActive", true);
-        if (fullPath.indexOf("?") > 0)
-            fullPath.append(queryPrefix);
-        else
-            fullPath.append("?");
-
-        fullPath.append(QUrl::toPercentEncoding("eFilterActive")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(e_filter_active.value())));
-    }
-    if (s_query.hasValue())
-    {
-        queryStyle = "form";
-        if (queryStyle == "")
-            queryStyle = "form";
-        queryPrefix = getParamStylePrefix(queryStyle);
-        querySuffix = getParamStyleSuffix(queryStyle);
-        queryDelimiter = getParamStyleDelimiter(queryStyle, "sQuery", true);
-        if (fullPath.indexOf("?") > 0)
-            fullPath.append(queryPrefix);
-        else
-            fullPath.append("?");
-
-        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(s_query.value())));
-    }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
     worker->setWorkingDirectory(_workingDirectory);
-    OAIHttpRequestInput input(fullPath, "GET");
+    OAIHttpRequestInput input(fullPath, "POST");
 
-
-    if (accept_language.hasValue())
     {
-        QString headerString;
-        QJsonObject parameter = accept_language.value().asJsonObject();
-        qint32 count = 0;
-        for (const QString& key : parameter.keys()) {
-            if (count > 0) {
-                headerString.append(",");
-            }
-            QString assignOperator = (false) ? "=" : ",";
-            switch(parameter.value(key).type()) {
-                case QJsonValue::String:
-                {
-                    headerString.append(key+assignOperator+parameter.value(key).toString());
-                    break;
-                }
-                case QJsonValue::Double:
-                {
-                    headerString.append(key+assignOperator+QString::number(parameter.value(key).toDouble()));
-                    break;
-                }
-                case QJsonValue::Bool:
-                {
-                    headerString.append(key+assignOperator+QVariant(parameter.value(key).toBool()).toString());
-                    break;
-                }
-                case QJsonValue::Array:
-                {
-                    headerString.append(key+assignOperator+QVariant(parameter.value(key).toArray()).toString());
-                    break;
-                }
-                case QJsonValue::Object:
-                {
-                    headerString.append(key+assignOperator+QVariant(parameter.value(key).toObject()).toString());
-                    break;
-                }
-                case QJsonValue::Null:
-                case QJsonValue::Undefined:
-                    break;
-            }
-            count++;
-        }
-        input.headers.insert("Accept-Language", headerString);
+
+        
+        QByteArray output = oai_billingentityinternal_create_object_v1_request.asJson().toUtf8();
+        input.request_body.append(output);
     }
 #if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
@@ -340,7 +264,7 @@ void OAIObjectBillingentityinternalApi::billingentityinternalGetAutocompleteV1(c
     }
 #endif
 
-    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIObjectBillingentityinternalApi::billingentityinternalGetAutocompleteV1Callback);
+    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIObjectBillingentityinternalApi::billingentityinternalCreateObjectV1Callback);
     connect(this, &OAIObjectBillingentityinternalApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
@@ -351,22 +275,161 @@ void OAIObjectBillingentityinternalApi::billingentityinternalGetAutocompleteV1(c
     worker->execute(&input);
 }
 
-void OAIObjectBillingentityinternalApi::billingentityinternalGetAutocompleteV1Callback(OAIHttpRequestWorker *worker) {
+void OAIObjectBillingentityinternalApi::billingentityinternalCreateObjectV1Callback(OAIHttpRequestWorker *worker) {
     QString error_str = worker->error_str;
     QNetworkReply::NetworkError error_type = worker->error_type;
 
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    OAICommon_getAutocomplete_v1_Response output(QString(worker->response));
+    OAIBillingentityinternal_createObject_v1_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit billingentityinternalGetAutocompleteV1Signal(output);
-        emit billingentityinternalGetAutocompleteV1SignalFull(worker, output);
+        emit billingentityinternalCreateObjectV1Signal(output);
+        emit billingentityinternalCreateObjectV1SignalFull(worker, output);
     } else {
-        emit billingentityinternalGetAutocompleteV1SignalE(output, error_type, error_str);
-        emit billingentityinternalGetAutocompleteV1SignalEFull(worker, error_type, error_str);
+        emit billingentityinternalCreateObjectV1SignalE(output, error_type, error_str);
+        emit billingentityinternalCreateObjectV1SignalEFull(worker, error_type, error_str);
+    }
+}
+
+void OAIObjectBillingentityinternalApi::billingentityinternalDeleteObjectV1(const qint32 &pki_billingentityinternal_id) {
+    QString fullPath = QString(_serverConfigs["billingentityinternalDeleteObjectV1"][_serverIndices.value("billingentityinternalDeleteObjectV1")].URL()+"/1/object/billingentityinternal/{pkiBillingentityinternalID}");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_billingentityinternal_idPathParam("{");
+        pki_billingentityinternal_idPathParam.append("pkiBillingentityinternalID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiBillingentityinternalID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiBillingentityinternalID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_billingentityinternal_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_billingentityinternal_id)));
+    }
+    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    OAIHttpRequestInput input(fullPath, "DELETE");
+
+
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+#else
+    for (auto key : _defaultHeaders.keys()) {
+        input.headers.insert(key, _defaultHeaders[key]);
+    }
+#endif
+
+    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIObjectBillingentityinternalApi::billingentityinternalDeleteObjectV1Callback);
+    connect(this, &OAIObjectBillingentityinternalApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this]() {
+        if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
+            emit allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void OAIObjectBillingentityinternalApi::billingentityinternalDeleteObjectV1Callback(OAIHttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    OAIBillingentityinternal_deleteObject_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit billingentityinternalDeleteObjectV1Signal(output);
+        emit billingentityinternalDeleteObjectV1SignalFull(worker, output);
+    } else {
+        emit billingentityinternalDeleteObjectV1SignalE(output, error_type, error_str);
+        emit billingentityinternalDeleteObjectV1SignalEFull(worker, error_type, error_str);
+    }
+}
+
+void OAIObjectBillingentityinternalApi::billingentityinternalEditObjectV1(const qint32 &pki_billingentityinternal_id, const OAIBillingentityinternal_editObject_v1_Request &oai_billingentityinternal_edit_object_v1_request) {
+    QString fullPath = QString(_serverConfigs["billingentityinternalEditObjectV1"][_serverIndices.value("billingentityinternalEditObjectV1")].URL()+"/1/object/billingentityinternal/{pkiBillingentityinternalID}");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_billingentityinternal_idPathParam("{");
+        pki_billingentityinternal_idPathParam.append("pkiBillingentityinternalID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiBillingentityinternalID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiBillingentityinternalID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_billingentityinternal_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_billingentityinternal_id)));
+    }
+    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    OAIHttpRequestInput input(fullPath, "PUT");
+
+    {
+
+        
+        QByteArray output = oai_billingentityinternal_edit_object_v1_request.asJson().toUtf8();
+        input.request_body.append(output);
+    }
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+#else
+    for (auto key : _defaultHeaders.keys()) {
+        input.headers.insert(key, _defaultHeaders[key]);
+    }
+#endif
+
+    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIObjectBillingentityinternalApi::billingentityinternalEditObjectV1Callback);
+    connect(this, &OAIObjectBillingentityinternalApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this]() {
+        if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
+            emit allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void OAIObjectBillingentityinternalApi::billingentityinternalEditObjectV1Callback(OAIHttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    OAIBillingentityinternal_editObject_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit billingentityinternalEditObjectV1Signal(output);
+        emit billingentityinternalEditObjectV1SignalFull(worker, output);
+    } else {
+        emit billingentityinternalEditObjectV1SignalE(output, error_type, error_str);
+        emit billingentityinternalEditObjectV1SignalEFull(worker, error_type, error_str);
     }
 }
 
@@ -509,6 +572,231 @@ void OAIObjectBillingentityinternalApi::billingentityinternalGetAutocompleteV2Ca
     } else {
         emit billingentityinternalGetAutocompleteV2SignalE(output, error_type, error_str);
         emit billingentityinternalGetAutocompleteV2SignalEFull(worker, error_type, error_str);
+    }
+}
+
+void OAIObjectBillingentityinternalApi::billingentityinternalGetListV1(const ::OpenAPI::OptionalParam<QString> &e_order_by, const ::OpenAPI::OptionalParam<qint32> &i_row_max, const ::OpenAPI::OptionalParam<qint32> &i_row_offset, const ::OpenAPI::OptionalParam<OAIHeader_Accept_Language> &accept_language, const ::OpenAPI::OptionalParam<QString> &s_filter) {
+    QString fullPath = QString(_serverConfigs["billingentityinternalGetListV1"][_serverIndices.value("billingentityinternalGetListV1")].URL()+"/1/object/billingentityinternal/getList");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    QString queryPrefix, querySuffix, queryDelimiter, queryStyle;
+    if (e_order_by.hasValue())
+    {
+        queryStyle = "form";
+        if (queryStyle == "")
+            queryStyle = "form";
+        queryPrefix = getParamStylePrefix(queryStyle);
+        querySuffix = getParamStyleSuffix(queryStyle);
+        queryDelimiter = getParamStyleDelimiter(queryStyle, "eOrderBy", true);
+        if (fullPath.indexOf("?") > 0)
+            fullPath.append(queryPrefix);
+        else
+            fullPath.append("?");
+
+        fullPath.append(QUrl::toPercentEncoding("eOrderBy")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(e_order_by.value())));
+    }
+    if (i_row_max.hasValue())
+    {
+        queryStyle = "form";
+        if (queryStyle == "")
+            queryStyle = "form";
+        queryPrefix = getParamStylePrefix(queryStyle);
+        querySuffix = getParamStyleSuffix(queryStyle);
+        queryDelimiter = getParamStyleDelimiter(queryStyle, "iRowMax", true);
+        if (fullPath.indexOf("?") > 0)
+            fullPath.append(queryPrefix);
+        else
+            fullPath.append("?");
+
+        fullPath.append(QUrl::toPercentEncoding("iRowMax")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(i_row_max.value())));
+    }
+    if (i_row_offset.hasValue())
+    {
+        queryStyle = "form";
+        if (queryStyle == "")
+            queryStyle = "form";
+        queryPrefix = getParamStylePrefix(queryStyle);
+        querySuffix = getParamStyleSuffix(queryStyle);
+        queryDelimiter = getParamStyleDelimiter(queryStyle, "iRowOffset", true);
+        if (fullPath.indexOf("?") > 0)
+            fullPath.append(queryPrefix);
+        else
+            fullPath.append("?");
+
+        fullPath.append(QUrl::toPercentEncoding("iRowOffset")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(i_row_offset.value())));
+    }
+    if (s_filter.hasValue())
+    {
+        queryStyle = "form";
+        if (queryStyle == "")
+            queryStyle = "form";
+        queryPrefix = getParamStylePrefix(queryStyle);
+        querySuffix = getParamStyleSuffix(queryStyle);
+        queryDelimiter = getParamStyleDelimiter(queryStyle, "sFilter", true);
+        if (fullPath.indexOf("?") > 0)
+            fullPath.append(queryPrefix);
+        else
+            fullPath.append("?");
+
+        fullPath.append(QUrl::toPercentEncoding("sFilter")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(s_filter.value())));
+    }
+    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    OAIHttpRequestInput input(fullPath, "GET");
+
+
+    if (accept_language.hasValue())
+    {
+        QString headerString;
+        QJsonObject parameter = accept_language.value().asJsonObject();
+        qint32 count = 0;
+        for (const QString& key : parameter.keys()) {
+            if (count > 0) {
+                headerString.append(",");
+            }
+            QString assignOperator = (false) ? "=" : ",";
+            switch(parameter.value(key).type()) {
+                case QJsonValue::String:
+                {
+                    headerString.append(key+assignOperator+parameter.value(key).toString());
+                    break;
+                }
+                case QJsonValue::Double:
+                {
+                    headerString.append(key+assignOperator+QString::number(parameter.value(key).toDouble()));
+                    break;
+                }
+                case QJsonValue::Bool:
+                {
+                    headerString.append(key+assignOperator+QVariant(parameter.value(key).toBool()).toString());
+                    break;
+                }
+                case QJsonValue::Array:
+                {
+                    headerString.append(key+assignOperator+QVariant(parameter.value(key).toArray()).toString());
+                    break;
+                }
+                case QJsonValue::Object:
+                {
+                    headerString.append(key+assignOperator+QVariant(parameter.value(key).toObject()).toString());
+                    break;
+                }
+                case QJsonValue::Null:
+                case QJsonValue::Undefined:
+                    break;
+            }
+            count++;
+        }
+        input.headers.insert("Accept-Language", headerString);
+    }
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+#else
+    for (auto key : _defaultHeaders.keys()) {
+        input.headers.insert(key, _defaultHeaders[key]);
+    }
+#endif
+
+    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIObjectBillingentityinternalApi::billingentityinternalGetListV1Callback);
+    connect(this, &OAIObjectBillingentityinternalApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this]() {
+        if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
+            emit allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void OAIObjectBillingentityinternalApi::billingentityinternalGetListV1Callback(OAIHttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    OAIBillingentityinternal_getList_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit billingentityinternalGetListV1Signal(output);
+        emit billingentityinternalGetListV1SignalFull(worker, output);
+    } else {
+        emit billingentityinternalGetListV1SignalE(output, error_type, error_str);
+        emit billingentityinternalGetListV1SignalEFull(worker, error_type, error_str);
+    }
+}
+
+void OAIObjectBillingentityinternalApi::billingentityinternalGetObjectV2(const qint32 &pki_billingentityinternal_id) {
+    QString fullPath = QString(_serverConfigs["billingentityinternalGetObjectV2"][_serverIndices.value("billingentityinternalGetObjectV2")].URL()+"/2/object/billingentityinternal/{pkiBillingentityinternalID}");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_billingentityinternal_idPathParam("{");
+        pki_billingentityinternal_idPathParam.append("pkiBillingentityinternalID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiBillingentityinternalID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiBillingentityinternalID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_billingentityinternal_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_billingentityinternal_id)));
+    }
+    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    OAIHttpRequestInput input(fullPath, "GET");
+
+
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+#else
+    for (auto key : _defaultHeaders.keys()) {
+        input.headers.insert(key, _defaultHeaders[key]);
+    }
+#endif
+
+    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIObjectBillingentityinternalApi::billingentityinternalGetObjectV2Callback);
+    connect(this, &OAIObjectBillingentityinternalApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this]() {
+        if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
+            emit allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void OAIObjectBillingentityinternalApi::billingentityinternalGetObjectV2Callback(OAIHttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    OAIBillingentityinternal_getObject_v2_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit billingentityinternalGetObjectV2Signal(output);
+        emit billingentityinternalGetObjectV2SignalFull(worker, output);
+    } else {
+        emit billingentityinternalGetObjectV2SignalE(output, error_type, error_str);
+        emit billingentityinternalGetObjectV2SignalEFull(worker, error_type, error_str);
     }
 }
 

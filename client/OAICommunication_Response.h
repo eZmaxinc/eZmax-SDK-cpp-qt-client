@@ -23,16 +23,20 @@
 
 #include "OAICommon_Audit.h"
 #include "OAIComputed_eCommunicationDirection.h"
-#include "OAICustom_ContactName_Response.h"
+#include "OAIDescriptionstatic_Response.h"
+#include "OAIEmailstatic_Response.h"
 #include "OAIField_eCommunicationImportance.h"
 #include "OAIField_eCommunicationType.h"
+#include "OAIPhonestatic_Response.h"
 #include <QString>
 
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
 namespace OpenAPI {
-class OAICustom_ContactName_Response;
+class OAIDescriptionstatic_Response;
+class OAIEmailstatic_Response;
+class OAIPhonestatic_Response;
 class OAICommon_Audit;
 
 class OAICommunication_Response : public OAIObject {
@@ -66,6 +70,11 @@ public:
     bool is_s_communication_subject_Set() const;
     bool is_s_communication_subject_Valid() const;
 
+    QString getSCommunicationBodyurl() const;
+    void setSCommunicationBodyurl(const QString &s_communication_bodyurl);
+    bool is_s_communication_bodyurl_Set() const;
+    bool is_s_communication_bodyurl_Valid() const;
+
     OAIComputed_eCommunicationDirection getECommunicationDirection() const;
     void setECommunicationDirection(const OAIComputed_eCommunicationDirection &e_communication_direction);
     bool is_e_communication_direction_Set() const;
@@ -76,10 +85,20 @@ public:
     bool is_i_communicationrecipient_count_Set() const;
     bool is_i_communicationrecipient_count_Valid() const;
 
-    OAICustom_ContactName_Response getObjContactFrom() const;
-    void setObjContactFrom(const OAICustom_ContactName_Response &obj_contact_from);
-    bool is_obj_contact_from_Set() const;
-    bool is_obj_contact_from_Valid() const;
+    OAIDescriptionstatic_Response getObjDescriptionstaticSender() const;
+    void setObjDescriptionstaticSender(const OAIDescriptionstatic_Response &obj_descriptionstatic_sender);
+    bool is_obj_descriptionstatic_sender_Set() const;
+    bool is_obj_descriptionstatic_sender_Valid() const;
+
+    OAIEmailstatic_Response getObjEmailstaticSender() const;
+    void setObjEmailstaticSender(const OAIEmailstatic_Response &obj_emailstatic_sender);
+    bool is_obj_emailstatic_sender_Set() const;
+    bool is_obj_emailstatic_sender_Valid() const;
+
+    OAIPhonestatic_Response getObjPhonestaticSender() const;
+    void setObjPhonestaticSender(const OAIPhonestatic_Response &obj_phonestatic_sender);
+    bool is_obj_phonestatic_sender_Set() const;
+    bool is_obj_phonestatic_sender_Valid() const;
 
     OAICommon_Audit getObjAudit() const;
     void setObjAudit(const OAICommon_Audit &obj_audit);
@@ -108,6 +127,10 @@ private:
     bool m_s_communication_subject_isSet;
     bool m_s_communication_subject_isValid;
 
+    QString s_communication_bodyurl;
+    bool m_s_communication_bodyurl_isSet;
+    bool m_s_communication_bodyurl_isValid;
+
     OAIComputed_eCommunicationDirection e_communication_direction;
     bool m_e_communication_direction_isSet;
     bool m_e_communication_direction_isValid;
@@ -116,9 +139,17 @@ private:
     bool m_i_communicationrecipient_count_isSet;
     bool m_i_communicationrecipient_count_isValid;
 
-    OAICustom_ContactName_Response obj_contact_from;
-    bool m_obj_contact_from_isSet;
-    bool m_obj_contact_from_isValid;
+    OAIDescriptionstatic_Response obj_descriptionstatic_sender;
+    bool m_obj_descriptionstatic_sender_isSet;
+    bool m_obj_descriptionstatic_sender_isValid;
+
+    OAIEmailstatic_Response obj_emailstatic_sender;
+    bool m_obj_emailstatic_sender_isSet;
+    bool m_obj_emailstatic_sender_isValid;
+
+    OAIPhonestatic_Response obj_phonestatic_sender;
+    bool m_obj_phonestatic_sender_isSet;
+    bool m_obj_phonestatic_sender_isValid;
 
     OAICommon_Audit obj_audit;
     bool m_obj_audit_isSet;

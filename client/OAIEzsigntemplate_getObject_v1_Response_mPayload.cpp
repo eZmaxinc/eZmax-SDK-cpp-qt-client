@@ -58,6 +58,9 @@ void OAIEzsigntemplate_getObject_v1_Response_mPayload::initializeModel() {
     m_s_ezsignfoldertype_name_x_isSet = false;
     m_s_ezsignfoldertype_name_x_isValid = false;
 
+    m_obj_audit_isSet = false;
+    m_obj_audit_isValid = false;
+
     m_obj_ezsigntemplatedocument_isSet = false;
     m_obj_ezsigntemplatedocument_isValid = false;
 
@@ -98,6 +101,9 @@ void OAIEzsigntemplate_getObject_v1_Response_mPayload::fromJsonObject(QJsonObjec
     m_s_ezsignfoldertype_name_x_isValid = ::OpenAPI::fromJsonValue(s_ezsignfoldertype_name_x, json[QString("sEzsignfoldertypeNameX")]);
     m_s_ezsignfoldertype_name_x_isSet = !json[QString("sEzsignfoldertypeNameX")].isNull() && m_s_ezsignfoldertype_name_x_isValid;
 
+    m_obj_audit_isValid = ::OpenAPI::fromJsonValue(obj_audit, json[QString("objAudit")]);
+    m_obj_audit_isSet = !json[QString("objAudit")].isNull() && m_obj_audit_isValid;
+
     m_obj_ezsigntemplatedocument_isValid = ::OpenAPI::fromJsonValue(obj_ezsigntemplatedocument, json[QString("objEzsigntemplatedocument")]);
     m_obj_ezsigntemplatedocument_isSet = !json[QString("objEzsigntemplatedocument")].isNull() && m_obj_ezsigntemplatedocument_isValid;
 
@@ -137,6 +143,9 @@ QJsonObject OAIEzsigntemplate_getObject_v1_Response_mPayload::asJsonObject() con
     }
     if (m_s_ezsignfoldertype_name_x_isSet) {
         obj.insert(QString("sEzsignfoldertypeNameX"), ::OpenAPI::toJsonValue(s_ezsignfoldertype_name_x));
+    }
+    if (obj_audit.isSet()) {
+        obj.insert(QString("objAudit"), ::OpenAPI::toJsonValue(obj_audit));
     }
     if (obj_ezsigntemplatedocument.isSet()) {
         obj.insert(QString("objEzsigntemplatedocument"), ::OpenAPI::toJsonValue(obj_ezsigntemplatedocument));
@@ -275,6 +284,22 @@ bool OAIEzsigntemplate_getObject_v1_Response_mPayload::is_s_ezsignfoldertype_nam
     return m_s_ezsignfoldertype_name_x_isValid;
 }
 
+OAICommon_Audit OAIEzsigntemplate_getObject_v1_Response_mPayload::getObjAudit() const {
+    return obj_audit;
+}
+void OAIEzsigntemplate_getObject_v1_Response_mPayload::setObjAudit(const OAICommon_Audit &obj_audit) {
+    this->obj_audit = obj_audit;
+    this->m_obj_audit_isSet = true;
+}
+
+bool OAIEzsigntemplate_getObject_v1_Response_mPayload::is_obj_audit_Set() const{
+    return m_obj_audit_isSet;
+}
+
+bool OAIEzsigntemplate_getObject_v1_Response_mPayload::is_obj_audit_Valid() const{
+    return m_obj_audit_isValid;
+}
+
 OAIEzsigntemplatedocument_Response OAIEzsigntemplate_getObject_v1_Response_mPayload::getObjEzsigntemplatedocument() const {
     return obj_ezsigntemplatedocument;
 }
@@ -350,6 +375,11 @@ bool OAIEzsigntemplate_getObject_v1_Response_mPayload::isSet() const {
             break;
         }
 
+        if (obj_audit.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (obj_ezsigntemplatedocument.isSet()) {
             isObjectUpdated = true;
             break;
@@ -365,7 +395,7 @@ bool OAIEzsigntemplate_getObject_v1_Response_mPayload::isSet() const {
 
 bool OAIEzsigntemplate_getObject_v1_Response_mPayload::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_pki_ezsigntemplate_id_isValid && m_fki_ezsignfoldertype_id_isValid && m_fki_language_id_isValid && m_s_language_name_x_isValid && m_s_ezsigntemplate_description_isValid && m_b_ezsigntemplate_adminonly_isValid && m_s_ezsignfoldertype_name_x_isValid && m_a_obj_ezsigntemplatesigner_isValid && true;
+    return m_pki_ezsigntemplate_id_isValid && m_fki_ezsignfoldertype_id_isValid && m_fki_language_id_isValid && m_s_language_name_x_isValid && m_s_ezsigntemplate_description_isValid && m_b_ezsigntemplate_adminonly_isValid && m_s_ezsignfoldertype_name_x_isValid && m_obj_audit_isValid && m_a_obj_ezsigntemplatesigner_isValid && true;
 }
 
 } // namespace OpenAPI

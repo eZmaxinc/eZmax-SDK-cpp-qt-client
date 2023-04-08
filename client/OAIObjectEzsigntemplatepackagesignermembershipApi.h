@@ -22,7 +22,6 @@
 #include "OAIEzsigntemplatepackagesignermembership_createObject_v1_Request.h"
 #include "OAIEzsigntemplatepackagesignermembership_createObject_v1_Response.h"
 #include "OAIEzsigntemplatepackagesignermembership_deleteObject_v1_Response.h"
-#include "OAIEzsigntemplatepackagesignermembership_getObject_v1_Response.h"
 #include "OAIEzsigntemplatepackagesignermembership_getObject_v2_Response.h"
 #include <QString>
 
@@ -75,11 +74,6 @@ public:
     /**
     * @param[in]  pki_ezsigntemplatepackagesignermembership_id qint32 [required]
     */
-    Q_DECL_DEPRECATED void ezsigntemplatepackagesignermembershipGetObjectV1(const qint32 &pki_ezsigntemplatepackagesignermembership_id);
-
-    /**
-    * @param[in]  pki_ezsigntemplatepackagesignermembership_id qint32 [required]
-    */
     void ezsigntemplatepackagesignermembershipGetObjectV2(const qint32 &pki_ezsigntemplatepackagesignermembership_id);
 
 
@@ -107,29 +101,24 @@ private:
 
     void ezsigntemplatepackagesignermembershipCreateObjectV1Callback(OAIHttpRequestWorker *worker);
     void ezsigntemplatepackagesignermembershipDeleteObjectV1Callback(OAIHttpRequestWorker *worker);
-    void ezsigntemplatepackagesignermembershipGetObjectV1Callback(OAIHttpRequestWorker *worker);
     void ezsigntemplatepackagesignermembershipGetObjectV2Callback(OAIHttpRequestWorker *worker);
 
 signals:
 
     void ezsigntemplatepackagesignermembershipCreateObjectV1Signal(OAIEzsigntemplatepackagesignermembership_createObject_v1_Response summary);
     void ezsigntemplatepackagesignermembershipDeleteObjectV1Signal(OAIEzsigntemplatepackagesignermembership_deleteObject_v1_Response summary);
-    void ezsigntemplatepackagesignermembershipGetObjectV1Signal(OAIEzsigntemplatepackagesignermembership_getObject_v1_Response summary);
     void ezsigntemplatepackagesignermembershipGetObjectV2Signal(OAIEzsigntemplatepackagesignermembership_getObject_v2_Response summary);
 
     void ezsigntemplatepackagesignermembershipCreateObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsigntemplatepackagesignermembership_createObject_v1_Response summary);
     void ezsigntemplatepackagesignermembershipDeleteObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsigntemplatepackagesignermembership_deleteObject_v1_Response summary);
-    void ezsigntemplatepackagesignermembershipGetObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsigntemplatepackagesignermembership_getObject_v1_Response summary);
     void ezsigntemplatepackagesignermembershipGetObjectV2SignalFull(OAIHttpRequestWorker *worker, OAIEzsigntemplatepackagesignermembership_getObject_v2_Response summary);
 
     void ezsigntemplatepackagesignermembershipCreateObjectV1SignalE(OAIEzsigntemplatepackagesignermembership_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplatepackagesignermembershipDeleteObjectV1SignalE(OAIEzsigntemplatepackagesignermembership_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void ezsigntemplatepackagesignermembershipGetObjectV1SignalE(OAIEzsigntemplatepackagesignermembership_getObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplatepackagesignermembershipGetObjectV2SignalE(OAIEzsigntemplatepackagesignermembership_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
 
     void ezsigntemplatepackagesignermembershipCreateObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplatepackagesignermembershipDeleteObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
-    void ezsigntemplatepackagesignermembershipGetObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplatepackagesignermembershipGetObjectV2SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
 
     void abortRequestsSignal();

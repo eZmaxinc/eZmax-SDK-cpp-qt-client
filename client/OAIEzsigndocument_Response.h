@@ -132,10 +132,20 @@ public:
     bool is_b_ezsigndocument_ezsignform_Set() const;
     bool is_b_ezsigndocument_ezsignform_Valid() const;
 
+    bool isBEzsigndocumentHassignedsignatures() const;
+    void setBEzsigndocumentHassignedsignatures(const bool &b_ezsigndocument_hassignedsignatures);
+    bool is_b_ezsigndocument_hassignedsignatures_Set() const;
+    bool is_b_ezsigndocument_hassignedsignatures_Valid() const;
+
     OAICommon_Audit getObjAudit() const;
     void setObjAudit(const OAICommon_Audit &obj_audit);
     bool is_obj_audit_Set() const;
     bool is_obj_audit_Valid() const;
+
+    QString getSEzsigndocumentExternalid() const;
+    void setSEzsigndocumentExternalid(const QString &s_ezsigndocument_externalid);
+    bool is_s_ezsigndocument_externalid_Set() const;
+    bool is_s_ezsigndocument_externalid_Valid() const;
 
     virtual bool isSet() const override;
     virtual bool isValid() const override;
@@ -215,9 +225,17 @@ private:
     bool m_b_ezsigndocument_ezsignform_isSet;
     bool m_b_ezsigndocument_ezsignform_isValid;
 
+    bool b_ezsigndocument_hassignedsignatures;
+    bool m_b_ezsigndocument_hassignedsignatures_isSet;
+    bool m_b_ezsigndocument_hassignedsignatures_isValid;
+
     OAICommon_Audit obj_audit;
     bool m_obj_audit_isSet;
     bool m_obj_audit_isValid;
+
+    QString s_ezsigndocument_externalid;
+    bool m_s_ezsigndocument_externalid_isSet;
+    bool m_s_ezsigndocument_externalid_isValid;
 };
 
 } // namespace OpenAPI

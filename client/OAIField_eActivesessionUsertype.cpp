@@ -49,6 +49,10 @@ void OAIField_eActivesessionUsertype::fromJson(QString jsonString) {
         m_value = eOAIField_eActivesessionUsertype::ASSISTANT;
         m_value_isSet = m_value_isValid = true;
     }
+    else if ( jsonString.compare("EzsignSigner", Qt::CaseInsensitive) == 0) {
+        m_value = eOAIField_eActivesessionUsertype::EZSIGNSIGNER;
+        m_value_isSet = m_value_isValid = true;
+    }
     else if ( jsonString.compare("EzsignUser", Qt::CaseInsensitive) == 0) {
         m_value = eOAIField_eActivesessionUsertype::EZSIGNUSER;
         m_value_isSet = m_value_isValid = true;
@@ -72,6 +76,9 @@ QString OAIField_eActivesessionUsertype::asJson() const {
             break;
         case eOAIField_eActivesessionUsertype::ASSISTANT:
             val = "Assistant";
+            break;
+        case eOAIField_eActivesessionUsertype::EZSIGNSIGNER:
+            val = "EzsignSigner";
             break;
         case eOAIField_eActivesessionUsertype::EZSIGNUSER:
             val = "EzsignUser";

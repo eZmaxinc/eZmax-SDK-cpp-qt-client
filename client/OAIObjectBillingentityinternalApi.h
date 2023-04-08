@@ -18,9 +18,17 @@
 #include "OAIServerConfiguration.h"
 #include "OAIOauth.h"
 
+#include "OAIBillingentityinternal_createObject_v1_Request.h"
+#include "OAIBillingentityinternal_createObject_v1_Response.h"
+#include "OAIBillingentityinternal_deleteObject_v1_Response.h"
+#include "OAIBillingentityinternal_editObject_v1_Request.h"
+#include "OAIBillingentityinternal_editObject_v1_Response.h"
 #include "OAIBillingentityinternal_getAutocomplete_v2_Response.h"
-#include "OAICommon_getAutocomplete_v1_Response.h"
+#include "OAIBillingentityinternal_getList_v1_Response.h"
+#include "OAIBillingentityinternal_getObject_v2_Response.h"
+#include "OAICommon_Response_Error.h"
 #include "OAIHeader_Accept_Language.h"
+#include "OAIHttpFileElement.h"
 #include <QString>
 
 #include <QObject>
@@ -60,12 +68,20 @@ public:
     QString getParamStyleDelimiter(const QString &style, const QString &name, bool isExplode);
 
     /**
-    * @param[in]  s_selector QString [required]
-    * @param[in]  e_filter_active QString [optional]
-    * @param[in]  s_query QString [optional]
-    * @param[in]  accept_language OAIHeader_Accept_Language [optional]
+    * @param[in]  oai_billingentityinternal_create_object_v1_request OAIBillingentityinternal_createObject_v1_Request [required]
     */
-    Q_DECL_DEPRECATED void billingentityinternalGetAutocompleteV1(const QString &s_selector, const ::OpenAPI::OptionalParam<QString> &e_filter_active = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &s_query = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<OAIHeader_Accept_Language> &accept_language = ::OpenAPI::OptionalParam<OAIHeader_Accept_Language>());
+    void billingentityinternalCreateObjectV1(const OAIBillingentityinternal_createObject_v1_Request &oai_billingentityinternal_create_object_v1_request);
+
+    /**
+    * @param[in]  pki_billingentityinternal_id qint32 [required]
+    */
+    void billingentityinternalDeleteObjectV1(const qint32 &pki_billingentityinternal_id);
+
+    /**
+    * @param[in]  pki_billingentityinternal_id qint32 [required]
+    * @param[in]  oai_billingentityinternal_edit_object_v1_request OAIBillingentityinternal_editObject_v1_Request [required]
+    */
+    void billingentityinternalEditObjectV1(const qint32 &pki_billingentityinternal_id, const OAIBillingentityinternal_editObject_v1_Request &oai_billingentityinternal_edit_object_v1_request);
 
     /**
     * @param[in]  s_selector QString [required]
@@ -74,6 +90,20 @@ public:
     * @param[in]  accept_language OAIHeader_Accept_Language [optional]
     */
     void billingentityinternalGetAutocompleteV2(const QString &s_selector, const ::OpenAPI::OptionalParam<QString> &e_filter_active = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &s_query = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<OAIHeader_Accept_Language> &accept_language = ::OpenAPI::OptionalParam<OAIHeader_Accept_Language>());
+
+    /**
+    * @param[in]  e_order_by QString [optional]
+    * @param[in]  i_row_max qint32 [optional]
+    * @param[in]  i_row_offset qint32 [optional]
+    * @param[in]  accept_language OAIHeader_Accept_Language [optional]
+    * @param[in]  s_filter QString [optional]
+    */
+    void billingentityinternalGetListV1(const ::OpenAPI::OptionalParam<QString> &e_order_by = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<qint32> &i_row_max = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<qint32> &i_row_offset = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<OAIHeader_Accept_Language> &accept_language = ::OpenAPI::OptionalParam<OAIHeader_Accept_Language>(), const ::OpenAPI::OptionalParam<QString> &s_filter = ::OpenAPI::OptionalParam<QString>());
+
+    /**
+    * @param[in]  pki_billingentityinternal_id qint32 [required]
+    */
+    void billingentityinternalGetObjectV2(const qint32 &pki_billingentityinternal_id);
 
 
 private:
@@ -98,22 +128,42 @@ private:
     OauthPassword _passwordFlow;
     int _OauthMethod = 0;
 
-    void billingentityinternalGetAutocompleteV1Callback(OAIHttpRequestWorker *worker);
+    void billingentityinternalCreateObjectV1Callback(OAIHttpRequestWorker *worker);
+    void billingentityinternalDeleteObjectV1Callback(OAIHttpRequestWorker *worker);
+    void billingentityinternalEditObjectV1Callback(OAIHttpRequestWorker *worker);
     void billingentityinternalGetAutocompleteV2Callback(OAIHttpRequestWorker *worker);
+    void billingentityinternalGetListV1Callback(OAIHttpRequestWorker *worker);
+    void billingentityinternalGetObjectV2Callback(OAIHttpRequestWorker *worker);
 
 signals:
 
-    void billingentityinternalGetAutocompleteV1Signal(OAICommon_getAutocomplete_v1_Response summary);
+    void billingentityinternalCreateObjectV1Signal(OAIBillingentityinternal_createObject_v1_Response summary);
+    void billingentityinternalDeleteObjectV1Signal(OAIBillingentityinternal_deleteObject_v1_Response summary);
+    void billingentityinternalEditObjectV1Signal(OAIBillingentityinternal_editObject_v1_Response summary);
     void billingentityinternalGetAutocompleteV2Signal(OAIBillingentityinternal_getAutocomplete_v2_Response summary);
+    void billingentityinternalGetListV1Signal(OAIBillingentityinternal_getList_v1_Response summary);
+    void billingentityinternalGetObjectV2Signal(OAIBillingentityinternal_getObject_v2_Response summary);
 
-    void billingentityinternalGetAutocompleteV1SignalFull(OAIHttpRequestWorker *worker, OAICommon_getAutocomplete_v1_Response summary);
+    void billingentityinternalCreateObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIBillingentityinternal_createObject_v1_Response summary);
+    void billingentityinternalDeleteObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIBillingentityinternal_deleteObject_v1_Response summary);
+    void billingentityinternalEditObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIBillingentityinternal_editObject_v1_Response summary);
     void billingentityinternalGetAutocompleteV2SignalFull(OAIHttpRequestWorker *worker, OAIBillingentityinternal_getAutocomplete_v2_Response summary);
+    void billingentityinternalGetListV1SignalFull(OAIHttpRequestWorker *worker, OAIBillingentityinternal_getList_v1_Response summary);
+    void billingentityinternalGetObjectV2SignalFull(OAIHttpRequestWorker *worker, OAIBillingentityinternal_getObject_v2_Response summary);
 
-    void billingentityinternalGetAutocompleteV1SignalE(OAICommon_getAutocomplete_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void billingentityinternalCreateObjectV1SignalE(OAIBillingentityinternal_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void billingentityinternalDeleteObjectV1SignalE(OAIBillingentityinternal_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void billingentityinternalEditObjectV1SignalE(OAIBillingentityinternal_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void billingentityinternalGetAutocompleteV2SignalE(OAIBillingentityinternal_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void billingentityinternalGetListV1SignalE(OAIBillingentityinternal_getList_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void billingentityinternalGetObjectV2SignalE(OAIBillingentityinternal_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
 
-    void billingentityinternalGetAutocompleteV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void billingentityinternalCreateObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void billingentityinternalDeleteObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void billingentityinternalEditObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void billingentityinternalGetAutocompleteV2SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void billingentityinternalGetListV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void billingentityinternalGetObjectV2SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();

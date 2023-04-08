@@ -57,6 +57,9 @@ void OAIEzsigntemplate_Response::initializeModel() {
 
     m_s_ezsignfoldertype_name_x_isSet = false;
     m_s_ezsignfoldertype_name_x_isValid = false;
+
+    m_obj_audit_isSet = false;
+    m_obj_audit_isValid = false;
 }
 
 void OAIEzsigntemplate_Response::fromJson(QString jsonString) {
@@ -91,6 +94,9 @@ void OAIEzsigntemplate_Response::fromJsonObject(QJsonObject json) {
 
     m_s_ezsignfoldertype_name_x_isValid = ::OpenAPI::fromJsonValue(s_ezsignfoldertype_name_x, json[QString("sEzsignfoldertypeNameX")]);
     m_s_ezsignfoldertype_name_x_isSet = !json[QString("sEzsignfoldertypeNameX")].isNull() && m_s_ezsignfoldertype_name_x_isValid;
+
+    m_obj_audit_isValid = ::OpenAPI::fromJsonValue(obj_audit, json[QString("objAudit")]);
+    m_obj_audit_isSet = !json[QString("objAudit")].isNull() && m_obj_audit_isValid;
 }
 
 QString OAIEzsigntemplate_Response::asJson() const {
@@ -125,6 +131,9 @@ QJsonObject OAIEzsigntemplate_Response::asJsonObject() const {
     }
     if (m_s_ezsignfoldertype_name_x_isSet) {
         obj.insert(QString("sEzsignfoldertypeNameX"), ::OpenAPI::toJsonValue(s_ezsignfoldertype_name_x));
+    }
+    if (obj_audit.isSet()) {
+        obj.insert(QString("objAudit"), ::OpenAPI::toJsonValue(obj_audit));
     }
     return obj;
 }
@@ -257,6 +266,22 @@ bool OAIEzsigntemplate_Response::is_s_ezsignfoldertype_name_x_Valid() const{
     return m_s_ezsignfoldertype_name_x_isValid;
 }
 
+OAICommon_Audit OAIEzsigntemplate_Response::getObjAudit() const {
+    return obj_audit;
+}
+void OAIEzsigntemplate_Response::setObjAudit(const OAICommon_Audit &obj_audit) {
+    this->obj_audit = obj_audit;
+    this->m_obj_audit_isSet = true;
+}
+
+bool OAIEzsigntemplate_Response::is_obj_audit_Set() const{
+    return m_obj_audit_isSet;
+}
+
+bool OAIEzsigntemplate_Response::is_obj_audit_Valid() const{
+    return m_obj_audit_isValid;
+}
+
 bool OAIEzsigntemplate_Response::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -299,13 +324,18 @@ bool OAIEzsigntemplate_Response::isSet() const {
             isObjectUpdated = true;
             break;
         }
+
+        if (obj_audit.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
     } while (false);
     return isObjectUpdated;
 }
 
 bool OAIEzsigntemplate_Response::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_pki_ezsigntemplate_id_isValid && m_fki_ezsignfoldertype_id_isValid && m_fki_language_id_isValid && m_s_language_name_x_isValid && m_s_ezsigntemplate_description_isValid && m_b_ezsigntemplate_adminonly_isValid && m_s_ezsignfoldertype_name_x_isValid && true;
+    return m_pki_ezsigntemplate_id_isValid && m_fki_ezsignfoldertype_id_isValid && m_fki_language_id_isValid && m_s_language_name_x_isValid && m_s_ezsigntemplate_description_isValid && m_b_ezsigntemplate_adminonly_isValid && m_s_ezsignfoldertype_name_x_isValid && m_obj_audit_isValid && true;
 }
 
 } // namespace OpenAPI

@@ -70,6 +70,11 @@ public:
     bool is_e_ezsignfolder_sendreminderfrequency_Set() const;
     bool is_e_ezsignfolder_sendreminderfrequency_Valid() const;
 
+    QString getSEzsignfolderExternalid() const;
+    void setSEzsignfolderExternalid(const QString &s_ezsignfolder_externalid);
+    bool is_s_ezsignfolder_externalid_Set() const;
+    bool is_s_ezsignfolder_externalid_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -99,6 +104,10 @@ private:
     OAIField_eEzsignfolderSendreminderfrequency e_ezsignfolder_sendreminderfrequency;
     bool m_e_ezsignfolder_sendreminderfrequency_isSet;
     bool m_e_ezsignfolder_sendreminderfrequency_isValid;
+
+    QString s_ezsignfolder_externalid;
+    bool m_s_ezsignfolder_externalid_isSet;
+    bool m_s_ezsignfolder_externalid_isValid;
 };
 
 } // namespace OpenAPI

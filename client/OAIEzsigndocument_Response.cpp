@@ -88,8 +88,14 @@ void OAIEzsigndocument_Response::initializeModel() {
     m_b_ezsigndocument_ezsignform_isSet = false;
     m_b_ezsigndocument_ezsignform_isValid = false;
 
+    m_b_ezsigndocument_hassignedsignatures_isSet = false;
+    m_b_ezsigndocument_hassignedsignatures_isValid = false;
+
     m_obj_audit_isSet = false;
     m_obj_audit_isValid = false;
+
+    m_s_ezsigndocument_externalid_isSet = false;
+    m_s_ezsigndocument_externalid_isValid = false;
 }
 
 void OAIEzsigndocument_Response::fromJson(QString jsonString) {
@@ -155,8 +161,14 @@ void OAIEzsigndocument_Response::fromJsonObject(QJsonObject json) {
     m_b_ezsigndocument_ezsignform_isValid = ::OpenAPI::fromJsonValue(b_ezsigndocument_ezsignform, json[QString("bEzsigndocumentEzsignform")]);
     m_b_ezsigndocument_ezsignform_isSet = !json[QString("bEzsigndocumentEzsignform")].isNull() && m_b_ezsigndocument_ezsignform_isValid;
 
+    m_b_ezsigndocument_hassignedsignatures_isValid = ::OpenAPI::fromJsonValue(b_ezsigndocument_hassignedsignatures, json[QString("bEzsigndocumentHassignedsignatures")]);
+    m_b_ezsigndocument_hassignedsignatures_isSet = !json[QString("bEzsigndocumentHassignedsignatures")].isNull() && m_b_ezsigndocument_hassignedsignatures_isValid;
+
     m_obj_audit_isValid = ::OpenAPI::fromJsonValue(obj_audit, json[QString("objAudit")]);
     m_obj_audit_isSet = !json[QString("objAudit")].isNull() && m_obj_audit_isValid;
+
+    m_s_ezsigndocument_externalid_isValid = ::OpenAPI::fromJsonValue(s_ezsigndocument_externalid, json[QString("sEzsigndocumentExternalid")]);
+    m_s_ezsigndocument_externalid_isSet = !json[QString("sEzsigndocumentExternalid")].isNull() && m_s_ezsigndocument_externalid_isValid;
 }
 
 QString OAIEzsigndocument_Response::asJson() const {
@@ -222,8 +234,14 @@ QJsonObject OAIEzsigndocument_Response::asJsonObject() const {
     if (m_b_ezsigndocument_ezsignform_isSet) {
         obj.insert(QString("bEzsigndocumentEzsignform"), ::OpenAPI::toJsonValue(b_ezsigndocument_ezsignform));
     }
+    if (m_b_ezsigndocument_hassignedsignatures_isSet) {
+        obj.insert(QString("bEzsigndocumentHassignedsignatures"), ::OpenAPI::toJsonValue(b_ezsigndocument_hassignedsignatures));
+    }
     if (obj_audit.isSet()) {
         obj.insert(QString("objAudit"), ::OpenAPI::toJsonValue(obj_audit));
+    }
+    if (m_s_ezsigndocument_externalid_isSet) {
+        obj.insert(QString("sEzsigndocumentExternalid"), ::OpenAPI::toJsonValue(s_ezsigndocument_externalid));
     }
     return obj;
 }
@@ -516,6 +534,22 @@ bool OAIEzsigndocument_Response::is_b_ezsigndocument_ezsignform_Valid() const{
     return m_b_ezsigndocument_ezsignform_isValid;
 }
 
+bool OAIEzsigndocument_Response::isBEzsigndocumentHassignedsignatures() const {
+    return b_ezsigndocument_hassignedsignatures;
+}
+void OAIEzsigndocument_Response::setBEzsigndocumentHassignedsignatures(const bool &b_ezsigndocument_hassignedsignatures) {
+    this->b_ezsigndocument_hassignedsignatures = b_ezsigndocument_hassignedsignatures;
+    this->m_b_ezsigndocument_hassignedsignatures_isSet = true;
+}
+
+bool OAIEzsigndocument_Response::is_b_ezsigndocument_hassignedsignatures_Set() const{
+    return m_b_ezsigndocument_hassignedsignatures_isSet;
+}
+
+bool OAIEzsigndocument_Response::is_b_ezsigndocument_hassignedsignatures_Valid() const{
+    return m_b_ezsigndocument_hassignedsignatures_isValid;
+}
+
 OAICommon_Audit OAIEzsigndocument_Response::getObjAudit() const {
     return obj_audit;
 }
@@ -530,6 +564,22 @@ bool OAIEzsigndocument_Response::is_obj_audit_Set() const{
 
 bool OAIEzsigndocument_Response::is_obj_audit_Valid() const{
     return m_obj_audit_isValid;
+}
+
+QString OAIEzsigndocument_Response::getSEzsigndocumentExternalid() const {
+    return s_ezsigndocument_externalid;
+}
+void OAIEzsigndocument_Response::setSEzsigndocumentExternalid(const QString &s_ezsigndocument_externalid) {
+    this->s_ezsigndocument_externalid = s_ezsigndocument_externalid;
+    this->m_s_ezsigndocument_externalid_isSet = true;
+}
+
+bool OAIEzsigndocument_Response::is_s_ezsigndocument_externalid_Set() const{
+    return m_s_ezsigndocument_externalid_isSet;
+}
+
+bool OAIEzsigndocument_Response::is_s_ezsigndocument_externalid_Valid() const{
+    return m_s_ezsigndocument_externalid_isValid;
 }
 
 bool OAIEzsigndocument_Response::isSet() const {
@@ -625,7 +675,17 @@ bool OAIEzsigndocument_Response::isSet() const {
             break;
         }
 
+        if (m_b_ezsigndocument_hassignedsignatures_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (obj_audit.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_s_ezsigndocument_externalid_isSet) {
             isObjectUpdated = true;
             break;
         }
@@ -635,7 +695,7 @@ bool OAIEzsigndocument_Response::isSet() const {
 
 bool OAIEzsigndocument_Response::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_fki_ezsignfolder_id_isValid && m_dt_ezsigndocument_duedate_isValid && m_fki_language_id_isValid && m_s_ezsigndocument_name_isValid && m_pki_ezsigndocument_id_isValid && m_e_ezsigndocument_step_isValid && m_i_ezsigndocument_order_isValid && m_i_ezsigndocument_pagetotal_isValid && m_i_ezsigndocument_signaturesigned_isValid && m_i_ezsigndocument_signaturetotal_isValid && m_s_ezsigndocument_md5initial_isValid && m_s_ezsigndocument_md5signed_isValid && m_b_ezsigndocument_ezsignform_isValid && m_obj_audit_isValid && true;
+    return m_fki_ezsignfolder_id_isValid && m_dt_ezsigndocument_duedate_isValid && m_fki_language_id_isValid && m_s_ezsigndocument_name_isValid && m_pki_ezsigndocument_id_isValid && m_e_ezsigndocument_step_isValid && m_i_ezsigndocument_order_isValid && m_i_ezsigndocument_pagetotal_isValid && m_i_ezsigndocument_signaturesigned_isValid && m_i_ezsigndocument_signaturetotal_isValid && m_s_ezsigndocument_md5initial_isValid && m_s_ezsigndocument_md5signed_isValid && m_b_ezsigndocument_ezsignform_isValid && m_b_ezsigndocument_hassignedsignatures_isValid && m_obj_audit_isValid && m_s_ezsigndocument_externalid_isValid && true;
 }
 
 } // namespace OpenAPI

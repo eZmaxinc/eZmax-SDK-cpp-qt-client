@@ -57,8 +57,8 @@ void OAIObjectEzsignsignatureApi::initializeServerConfigs() {
     _serverIndices.insert("ezsignsignatureDeleteObjectV1", 0);
     _serverConfigs.insert("ezsignsignatureEditObjectV1", defaultConf);
     _serverIndices.insert("ezsignsignatureEditObjectV1", 0);
-    _serverConfigs.insert("ezsignsignatureGetObjectV1", defaultConf);
-    _serverIndices.insert("ezsignsignatureGetObjectV1", 0);
+    _serverConfigs.insert("ezsignsignatureGetEzsignsignaturesAutomaticV1", defaultConf);
+    _serverIndices.insert("ezsignsignatureGetEzsignsignaturesAutomaticV1", 0);
     _serverConfigs.insert("ezsignsignatureGetObjectV2", defaultConf);
     _serverIndices.insert("ezsignsignatureGetObjectV2", 0);
     _serverConfigs.insert("ezsignsignatureSignV1", defaultConf);
@@ -492,27 +492,13 @@ void OAIObjectEzsignsignatureApi::ezsignsignatureEditObjectV1Callback(OAIHttpReq
     }
 }
 
-void OAIObjectEzsignsignatureApi::ezsignsignatureGetObjectV1(const qint32 &pki_ezsignsignature_id) {
-    QString fullPath = QString(_serverConfigs["ezsignsignatureGetObjectV1"][_serverIndices.value("ezsignsignatureGetObjectV1")].URL()+"/1/object/ezsignsignature/{pkiEzsignsignatureID}");
+void OAIObjectEzsignsignatureApi::ezsignsignatureGetEzsignsignaturesAutomaticV1() {
+    QString fullPath = QString(_serverConfigs["ezsignsignatureGetEzsignsignaturesAutomaticV1"][_serverIndices.value("ezsignsignatureGetEzsignsignaturesAutomaticV1")].URL()+"/1/object/ezsignsignature/getEzsignsignaturesAutomatic");
     
     if (_apiKeys.contains("Authorization")) {
         addHeaders("Authorization",_apiKeys.find("Authorization").value());
     }
     
-    
-    {
-        QString pki_ezsignsignature_idPathParam("{");
-        pki_ezsignsignature_idPathParam.append("pkiEzsignsignatureID").append("}");
-        QString pathPrefix, pathSuffix, pathDelimiter;
-        QString pathStyle = "simple";
-        if (pathStyle == "")
-            pathStyle = "simple";
-        pathPrefix = getParamStylePrefix(pathStyle);
-        pathSuffix = getParamStyleSuffix(pathStyle);
-        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignsignatureID", false);
-        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignsignatureID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsignsignature_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsignsignature_id)));
-    }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
     worker->setWorkingDirectory(_workingDirectory);
@@ -529,7 +515,7 @@ void OAIObjectEzsignsignatureApi::ezsignsignatureGetObjectV1(const qint32 &pki_e
     }
 #endif
 
-    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIObjectEzsignsignatureApi::ezsignsignatureGetObjectV1Callback);
+    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIObjectEzsignsignatureApi::ezsignsignatureGetEzsignsignaturesAutomaticV1Callback);
     connect(this, &OAIObjectEzsignsignatureApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
@@ -540,22 +526,22 @@ void OAIObjectEzsignsignatureApi::ezsignsignatureGetObjectV1(const qint32 &pki_e
     worker->execute(&input);
 }
 
-void OAIObjectEzsignsignatureApi::ezsignsignatureGetObjectV1Callback(OAIHttpRequestWorker *worker) {
+void OAIObjectEzsignsignatureApi::ezsignsignatureGetEzsignsignaturesAutomaticV1Callback(OAIHttpRequestWorker *worker) {
     QString error_str = worker->error_str;
     QNetworkReply::NetworkError error_type = worker->error_type;
 
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    OAIEzsignsignature_getObject_v1_Response output(QString(worker->response));
+    OAIEzsignsignature_getEzsignsignaturesAutomatic_v1_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsignsignatureGetObjectV1Signal(output);
-        emit ezsignsignatureGetObjectV1SignalFull(worker, output);
+        emit ezsignsignatureGetEzsignsignaturesAutomaticV1Signal(output);
+        emit ezsignsignatureGetEzsignsignaturesAutomaticV1SignalFull(worker, output);
     } else {
-        emit ezsignsignatureGetObjectV1SignalE(output, error_type, error_str);
-        emit ezsignsignatureGetObjectV1SignalEFull(worker, error_type, error_str);
+        emit ezsignsignatureGetEzsignsignaturesAutomaticV1SignalE(output, error_type, error_str);
+        emit ezsignsignatureGetEzsignsignaturesAutomaticV1SignalEFull(worker, error_type, error_str);
     }
 }
 

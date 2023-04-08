@@ -18,8 +18,6 @@
 #include "OAIServerConfiguration.h"
 #include "OAIOauth.h"
 
-#include "OAICommon_Response_Error.h"
-#include "OAICommon_getAutocompleteDisabled_v1_Response.h"
 #include "OAIEzsigntsarequirement_getAutocomplete_v2_Response.h"
 #include "OAIHeader_Accept_Language.h"
 #include <QString>
@@ -67,15 +65,6 @@ public:
     * @param[in]  s_query QString [optional]
     * @param[in]  accept_language OAIHeader_Accept_Language [optional]
     */
-    Q_DECL_DEPRECATED void ezsigntsarequirementGetAutocompleteV1(const QString &s_selector, const ::OpenAPI::OptionalParam<qint32> &fki_ezsignfoldertype_id = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<QString> &e_filter_active = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &s_query = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<OAIHeader_Accept_Language> &accept_language = ::OpenAPI::OptionalParam<OAIHeader_Accept_Language>());
-
-    /**
-    * @param[in]  s_selector QString [required]
-    * @param[in]  fki_ezsignfoldertype_id qint32 [optional]
-    * @param[in]  e_filter_active QString [optional]
-    * @param[in]  s_query QString [optional]
-    * @param[in]  accept_language OAIHeader_Accept_Language [optional]
-    */
     void ezsigntsarequirementGetAutocompleteV2(const QString &s_selector, const ::OpenAPI::OptionalParam<qint32> &fki_ezsignfoldertype_id = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<QString> &e_filter_active = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &s_query = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<OAIHeader_Accept_Language> &accept_language = ::OpenAPI::OptionalParam<OAIHeader_Accept_Language>());
 
 
@@ -101,21 +90,16 @@ private:
     OauthPassword _passwordFlow;
     int _OauthMethod = 0;
 
-    void ezsigntsarequirementGetAutocompleteV1Callback(OAIHttpRequestWorker *worker);
     void ezsigntsarequirementGetAutocompleteV2Callback(OAIHttpRequestWorker *worker);
 
 signals:
 
-    void ezsigntsarequirementGetAutocompleteV1Signal(OAICommon_getAutocompleteDisabled_v1_Response summary);
     void ezsigntsarequirementGetAutocompleteV2Signal(OAIEzsigntsarequirement_getAutocomplete_v2_Response summary);
 
-    void ezsigntsarequirementGetAutocompleteV1SignalFull(OAIHttpRequestWorker *worker, OAICommon_getAutocompleteDisabled_v1_Response summary);
     void ezsigntsarequirementGetAutocompleteV2SignalFull(OAIHttpRequestWorker *worker, OAIEzsigntsarequirement_getAutocomplete_v2_Response summary);
 
-    void ezsigntsarequirementGetAutocompleteV1SignalE(OAICommon_getAutocompleteDisabled_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntsarequirementGetAutocompleteV2SignalE(OAIEzsigntsarequirement_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
 
-    void ezsigntsarequirementGetAutocompleteV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntsarequirementGetAutocompleteV2SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
 
     void abortRequestsSignal();

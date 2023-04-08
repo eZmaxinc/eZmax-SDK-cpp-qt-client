@@ -24,10 +24,8 @@
 #include "OAIBranding_editObject_v1_Response.h"
 #include "OAIBranding_getAutocomplete_v2_Response.h"
 #include "OAIBranding_getList_v1_Response.h"
-#include "OAIBranding_getObject_v1_Response.h"
 #include "OAIBranding_getObject_v2_Response.h"
 #include "OAICommon_Response_Error.h"
-#include "OAICommon_getAutocomplete_v1_Response.h"
 #include "OAIHeader_Accept_Language.h"
 #include "OAIHttpFileElement.h"
 #include <QString>
@@ -85,14 +83,6 @@ public:
     * @param[in]  s_query QString [optional]
     * @param[in]  accept_language OAIHeader_Accept_Language [optional]
     */
-    Q_DECL_DEPRECATED void brandingGetAutocompleteV1(const QString &s_selector, const ::OpenAPI::OptionalParam<QString> &e_filter_active = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &s_query = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<OAIHeader_Accept_Language> &accept_language = ::OpenAPI::OptionalParam<OAIHeader_Accept_Language>());
-
-    /**
-    * @param[in]  s_selector QString [required]
-    * @param[in]  e_filter_active QString [optional]
-    * @param[in]  s_query QString [optional]
-    * @param[in]  accept_language OAIHeader_Accept_Language [optional]
-    */
     void brandingGetAutocompleteV2(const QString &s_selector, const ::OpenAPI::OptionalParam<QString> &e_filter_active = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &s_query = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<OAIHeader_Accept_Language> &accept_language = ::OpenAPI::OptionalParam<OAIHeader_Accept_Language>());
 
     /**
@@ -103,11 +93,6 @@ public:
     * @param[in]  s_filter QString [optional]
     */
     void brandingGetListV1(const ::OpenAPI::OptionalParam<QString> &e_order_by = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<qint32> &i_row_max = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<qint32> &i_row_offset = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<OAIHeader_Accept_Language> &accept_language = ::OpenAPI::OptionalParam<OAIHeader_Accept_Language>(), const ::OpenAPI::OptionalParam<QString> &s_filter = ::OpenAPI::OptionalParam<QString>());
-
-    /**
-    * @param[in]  pki_branding_id qint32 [required]
-    */
-    Q_DECL_DEPRECATED void brandingGetObjectV1(const qint32 &pki_branding_id);
 
     /**
     * @param[in]  pki_branding_id qint32 [required]
@@ -139,44 +124,34 @@ private:
 
     void brandingCreateObjectV1Callback(OAIHttpRequestWorker *worker);
     void brandingEditObjectV1Callback(OAIHttpRequestWorker *worker);
-    void brandingGetAutocompleteV1Callback(OAIHttpRequestWorker *worker);
     void brandingGetAutocompleteV2Callback(OAIHttpRequestWorker *worker);
     void brandingGetListV1Callback(OAIHttpRequestWorker *worker);
-    void brandingGetObjectV1Callback(OAIHttpRequestWorker *worker);
     void brandingGetObjectV2Callback(OAIHttpRequestWorker *worker);
 
 signals:
 
     void brandingCreateObjectV1Signal(OAIBranding_createObject_v1_Response summary);
     void brandingEditObjectV1Signal(OAIBranding_editObject_v1_Response summary);
-    void brandingGetAutocompleteV1Signal(OAICommon_getAutocomplete_v1_Response summary);
     void brandingGetAutocompleteV2Signal(OAIBranding_getAutocomplete_v2_Response summary);
     void brandingGetListV1Signal(OAIBranding_getList_v1_Response summary);
-    void brandingGetObjectV1Signal(OAIBranding_getObject_v1_Response summary);
     void brandingGetObjectV2Signal(OAIBranding_getObject_v2_Response summary);
 
     void brandingCreateObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIBranding_createObject_v1_Response summary);
     void brandingEditObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIBranding_editObject_v1_Response summary);
-    void brandingGetAutocompleteV1SignalFull(OAIHttpRequestWorker *worker, OAICommon_getAutocomplete_v1_Response summary);
     void brandingGetAutocompleteV2SignalFull(OAIHttpRequestWorker *worker, OAIBranding_getAutocomplete_v2_Response summary);
     void brandingGetListV1SignalFull(OAIHttpRequestWorker *worker, OAIBranding_getList_v1_Response summary);
-    void brandingGetObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIBranding_getObject_v1_Response summary);
     void brandingGetObjectV2SignalFull(OAIHttpRequestWorker *worker, OAIBranding_getObject_v2_Response summary);
 
     void brandingCreateObjectV1SignalE(OAIBranding_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void brandingEditObjectV1SignalE(OAIBranding_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void brandingGetAutocompleteV1SignalE(OAICommon_getAutocomplete_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void brandingGetAutocompleteV2SignalE(OAIBranding_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void brandingGetListV1SignalE(OAIBranding_getList_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void brandingGetObjectV1SignalE(OAIBranding_getObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void brandingGetObjectV2SignalE(OAIBranding_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
 
     void brandingCreateObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void brandingEditObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
-    void brandingGetAutocompleteV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void brandingGetAutocompleteV2SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void brandingGetListV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
-    void brandingGetObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void brandingGetObjectV2SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
 
     void abortRequestsSignal();

@@ -64,6 +64,11 @@ public:
     bool is_i_ezsigntemplatedocument_signaturetotal_Set() const;
     bool is_i_ezsigntemplatedocument_signaturetotal_Valid() const;
 
+    bool isBEzsigntemplatedocumentHassignedsignatures() const;
+    void setBEzsigntemplatedocumentHassignedsignatures(const bool &b_ezsigntemplatedocument_hassignedsignatures);
+    bool is_b_ezsigntemplatedocument_hassignedsignatures_Set() const;
+    bool is_b_ezsigntemplatedocument_hassignedsignatures_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -89,6 +94,10 @@ private:
     qint32 i_ezsigntemplatedocument_signaturetotal;
     bool m_i_ezsigntemplatedocument_signaturetotal_isSet;
     bool m_i_ezsigntemplatedocument_signaturetotal_isValid;
+
+    bool b_ezsigntemplatedocument_hassignedsignatures;
+    bool m_b_ezsigntemplatedocument_hassignedsignatures_isSet;
+    bool m_b_ezsigntemplatedocument_hassignedsignatures_isValid;
 };
 
 } // namespace OpenAPI

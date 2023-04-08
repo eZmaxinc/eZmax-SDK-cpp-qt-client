@@ -51,10 +51,10 @@ void OAIObjectEzsignbulksendtransmissionApi::initializeServerConfigs() {
     
     _serverConfigs.insert("ezsignbulksendtransmissionGetCsvErrorsV1", defaultConf);
     _serverIndices.insert("ezsignbulksendtransmissionGetCsvErrorsV1", 0);
+    _serverConfigs.insert("ezsignbulksendtransmissionGetEzsignsignaturesAutomaticV1", defaultConf);
+    _serverIndices.insert("ezsignbulksendtransmissionGetEzsignsignaturesAutomaticV1", 0);
     _serverConfigs.insert("ezsignbulksendtransmissionGetFormsDataV1", defaultConf);
     _serverIndices.insert("ezsignbulksendtransmissionGetFormsDataV1", 0);
-    _serverConfigs.insert("ezsignbulksendtransmissionGetObjectV1", defaultConf);
-    _serverIndices.insert("ezsignbulksendtransmissionGetObjectV1", 0);
     _serverConfigs.insert("ezsignbulksendtransmissionGetObjectV2", defaultConf);
     _serverIndices.insert("ezsignbulksendtransmissionGetObjectV2", 0);
 }
@@ -300,6 +300,73 @@ void OAIObjectEzsignbulksendtransmissionApi::ezsignbulksendtransmissionGetCsvErr
     }
 }
 
+void OAIObjectEzsignbulksendtransmissionApi::ezsignbulksendtransmissionGetEzsignsignaturesAutomaticV1(const qint32 &pki_ezsignbulksendtransmission_id) {
+    QString fullPath = QString(_serverConfigs["ezsignbulksendtransmissionGetEzsignsignaturesAutomaticV1"][_serverIndices.value("ezsignbulksendtransmissionGetEzsignsignaturesAutomaticV1")].URL()+"/1/object/ezsignbulksendtransmission/{pkiEzsignbulksendtransmissionID}/getEzsignsignaturesAutomatic");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_ezsignbulksendtransmission_idPathParam("{");
+        pki_ezsignbulksendtransmission_idPathParam.append("pkiEzsignbulksendtransmissionID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignbulksendtransmissionID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignbulksendtransmissionID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_ezsignbulksendtransmission_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsignbulksendtransmission_id)));
+    }
+    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    OAIHttpRequestInput input(fullPath, "GET");
+
+
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+#else
+    for (auto key : _defaultHeaders.keys()) {
+        input.headers.insert(key, _defaultHeaders[key]);
+    }
+#endif
+
+    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIObjectEzsignbulksendtransmissionApi::ezsignbulksendtransmissionGetEzsignsignaturesAutomaticV1Callback);
+    connect(this, &OAIObjectEzsignbulksendtransmissionApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this]() {
+        if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
+            emit allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void OAIObjectEzsignbulksendtransmissionApi::ezsignbulksendtransmissionGetEzsignsignaturesAutomaticV1Callback(OAIHttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    OAIEzsignbulksendtransmission_getEzsignsignaturesAutomatic_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit ezsignbulksendtransmissionGetEzsignsignaturesAutomaticV1Signal(output);
+        emit ezsignbulksendtransmissionGetEzsignsignaturesAutomaticV1SignalFull(worker, output);
+    } else {
+        emit ezsignbulksendtransmissionGetEzsignsignaturesAutomaticV1SignalE(output, error_type, error_str);
+        emit ezsignbulksendtransmissionGetEzsignsignaturesAutomaticV1SignalEFull(worker, error_type, error_str);
+    }
+}
+
 void OAIObjectEzsignbulksendtransmissionApi::ezsignbulksendtransmissionGetFormsDataV1(const qint32 &pki_ezsignbulksendtransmission_id) {
     QString fullPath = QString(_serverConfigs["ezsignbulksendtransmissionGetFormsDataV1"][_serverIndices.value("ezsignbulksendtransmissionGetFormsDataV1")].URL()+"/1/object/ezsignbulksendtransmission/{pkiEzsignbulksendtransmissionID}/getFormsData");
     
@@ -364,73 +431,6 @@ void OAIObjectEzsignbulksendtransmissionApi::ezsignbulksendtransmissionGetFormsD
     } else {
         emit ezsignbulksendtransmissionGetFormsDataV1SignalE(output, error_type, error_str);
         emit ezsignbulksendtransmissionGetFormsDataV1SignalEFull(worker, error_type, error_str);
-    }
-}
-
-void OAIObjectEzsignbulksendtransmissionApi::ezsignbulksendtransmissionGetObjectV1(const qint32 &pki_ezsignbulksendtransmission_id) {
-    QString fullPath = QString(_serverConfigs["ezsignbulksendtransmissionGetObjectV1"][_serverIndices.value("ezsignbulksendtransmissionGetObjectV1")].URL()+"/1/object/ezsignbulksendtransmission/{pkiEzsignbulksendtransmissionID}");
-    
-    if (_apiKeys.contains("Authorization")) {
-        addHeaders("Authorization",_apiKeys.find("Authorization").value());
-    }
-    
-    
-    {
-        QString pki_ezsignbulksendtransmission_idPathParam("{");
-        pki_ezsignbulksendtransmission_idPathParam.append("pkiEzsignbulksendtransmissionID").append("}");
-        QString pathPrefix, pathSuffix, pathDelimiter;
-        QString pathStyle = "simple";
-        if (pathStyle == "")
-            pathStyle = "simple";
-        pathPrefix = getParamStylePrefix(pathStyle);
-        pathSuffix = getParamStyleSuffix(pathStyle);
-        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignbulksendtransmissionID", false);
-        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignbulksendtransmissionID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsignbulksendtransmission_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsignbulksendtransmission_id)));
-    }
-    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
-    worker->setTimeOut(_timeOut);
-    worker->setWorkingDirectory(_workingDirectory);
-    OAIHttpRequestInput input(fullPath, "GET");
-
-
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
-    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
-        input.headers.insert(keyValueIt->first, keyValueIt->second);
-    }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
-
-    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIObjectEzsignbulksendtransmissionApi::ezsignbulksendtransmissionGetObjectV1Callback);
-    connect(this, &OAIObjectEzsignbulksendtransmissionApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
-        if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
-        }
-    });
-
-    worker->execute(&input);
-}
-
-void OAIObjectEzsignbulksendtransmissionApi::ezsignbulksendtransmissionGetObjectV1Callback(OAIHttpRequestWorker *worker) {
-    QString error_str = worker->error_str;
-    QNetworkReply::NetworkError error_type = worker->error_type;
-
-    if (worker->error_type != QNetworkReply::NoError) {
-        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
-    }
-    OAIEzsignbulksendtransmission_getObject_v1_Response output(QString(worker->response));
-    worker->deleteLater();
-
-    if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsignbulksendtransmissionGetObjectV1Signal(output);
-        emit ezsignbulksendtransmissionGetObjectV1SignalFull(worker, output);
-    } else {
-        emit ezsignbulksendtransmissionGetObjectV1SignalE(output, error_type, error_str);
-        emit ezsignbulksendtransmissionGetObjectV1SignalEFull(worker, error_type, error_str);
     }
 }
 

@@ -21,12 +21,14 @@
 
 #include <QJsonObject>
 
+#include "OAICommon_Audit.h"
 #include <QString>
 
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
 namespace OpenAPI {
+class OAICommon_Audit;
 
 class OAIEzsigntemplate_Response : public OAIObject {
 public:
@@ -79,6 +81,11 @@ public:
     bool is_s_ezsignfoldertype_name_x_Set() const;
     bool is_s_ezsignfoldertype_name_x_Valid() const;
 
+    OAICommon_Audit getObjAudit() const;
+    void setObjAudit(const OAICommon_Audit &obj_audit);
+    bool is_obj_audit_Set() const;
+    bool is_obj_audit_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -116,6 +123,10 @@ private:
     QString s_ezsignfoldertype_name_x;
     bool m_s_ezsignfoldertype_name_x_isSet;
     bool m_s_ezsignfoldertype_name_x_isValid;
+
+    OAICommon_Audit obj_audit;
+    bool m_obj_audit_isSet;
+    bool m_obj_audit_isValid;
 };
 
 } // namespace OpenAPI

@@ -42,6 +42,7 @@ public:
         INVALID_VALUE_OPENAPI_GENERATED = 0,
         AGENTBROKER, 
         ASSISTANT, 
+        EZSIGNSIGNER, 
         EZSIGNUSER, 
         NORMAL
     };

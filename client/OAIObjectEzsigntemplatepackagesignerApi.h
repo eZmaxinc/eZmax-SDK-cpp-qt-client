@@ -24,7 +24,6 @@
 #include "OAIEzsigntemplatepackagesigner_deleteObject_v1_Response.h"
 #include "OAIEzsigntemplatepackagesigner_editObject_v1_Request.h"
 #include "OAIEzsigntemplatepackagesigner_editObject_v1_Response.h"
-#include "OAIEzsigntemplatepackagesigner_getObject_v1_Response.h"
 #include "OAIEzsigntemplatepackagesigner_getObject_v2_Response.h"
 #include <QString>
 
@@ -83,11 +82,6 @@ public:
     /**
     * @param[in]  pki_ezsigntemplatepackagesigner_id qint32 [required]
     */
-    Q_DECL_DEPRECATED void ezsigntemplatepackagesignerGetObjectV1(const qint32 &pki_ezsigntemplatepackagesigner_id);
-
-    /**
-    * @param[in]  pki_ezsigntemplatepackagesigner_id qint32 [required]
-    */
     void ezsigntemplatepackagesignerGetObjectV2(const qint32 &pki_ezsigntemplatepackagesigner_id);
 
 
@@ -116,7 +110,6 @@ private:
     void ezsigntemplatepackagesignerCreateObjectV1Callback(OAIHttpRequestWorker *worker);
     void ezsigntemplatepackagesignerDeleteObjectV1Callback(OAIHttpRequestWorker *worker);
     void ezsigntemplatepackagesignerEditObjectV1Callback(OAIHttpRequestWorker *worker);
-    void ezsigntemplatepackagesignerGetObjectV1Callback(OAIHttpRequestWorker *worker);
     void ezsigntemplatepackagesignerGetObjectV2Callback(OAIHttpRequestWorker *worker);
 
 signals:
@@ -124,25 +117,21 @@ signals:
     void ezsigntemplatepackagesignerCreateObjectV1Signal(OAIEzsigntemplatepackagesigner_createObject_v1_Response summary);
     void ezsigntemplatepackagesignerDeleteObjectV1Signal(OAIEzsigntemplatepackagesigner_deleteObject_v1_Response summary);
     void ezsigntemplatepackagesignerEditObjectV1Signal(OAIEzsigntemplatepackagesigner_editObject_v1_Response summary);
-    void ezsigntemplatepackagesignerGetObjectV1Signal(OAIEzsigntemplatepackagesigner_getObject_v1_Response summary);
     void ezsigntemplatepackagesignerGetObjectV2Signal(OAIEzsigntemplatepackagesigner_getObject_v2_Response summary);
 
     void ezsigntemplatepackagesignerCreateObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsigntemplatepackagesigner_createObject_v1_Response summary);
     void ezsigntemplatepackagesignerDeleteObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsigntemplatepackagesigner_deleteObject_v1_Response summary);
     void ezsigntemplatepackagesignerEditObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsigntemplatepackagesigner_editObject_v1_Response summary);
-    void ezsigntemplatepackagesignerGetObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsigntemplatepackagesigner_getObject_v1_Response summary);
     void ezsigntemplatepackagesignerGetObjectV2SignalFull(OAIHttpRequestWorker *worker, OAIEzsigntemplatepackagesigner_getObject_v2_Response summary);
 
     void ezsigntemplatepackagesignerCreateObjectV1SignalE(OAIEzsigntemplatepackagesigner_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplatepackagesignerDeleteObjectV1SignalE(OAIEzsigntemplatepackagesigner_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplatepackagesignerEditObjectV1SignalE(OAIEzsigntemplatepackagesigner_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void ezsigntemplatepackagesignerGetObjectV1SignalE(OAIEzsigntemplatepackagesigner_getObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplatepackagesignerGetObjectV2SignalE(OAIEzsigntemplatepackagesigner_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
 
     void ezsigntemplatepackagesignerCreateObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplatepackagesignerDeleteObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplatepackagesignerEditObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
-    void ezsigntemplatepackagesignerGetObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplatepackagesignerGetObjectV2SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
 
     void abortRequestsSignal();

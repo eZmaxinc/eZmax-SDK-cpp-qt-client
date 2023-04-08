@@ -19,7 +19,6 @@
 #include "OAIOauth.h"
 
 #include "OAICommon_Response_Error.h"
-#include "OAICommon_getAutocompleteDisabled_v1_Response.h"
 #include "OAIEzsigntemplatepackage_createObject_v1_Request.h"
 #include "OAIEzsigntemplatepackage_createObject_v1_Response.h"
 #include "OAIEzsigntemplatepackage_deleteObject_v1_Response.h"
@@ -29,7 +28,6 @@
 #include "OAIEzsigntemplatepackage_editObject_v1_Response.h"
 #include "OAIEzsigntemplatepackage_getAutocomplete_v2_Response.h"
 #include "OAIEzsigntemplatepackage_getList_v1_Response.h"
-#include "OAIEzsigntemplatepackage_getObject_v1_Response.h"
 #include "OAIEzsigntemplatepackage_getObject_v2_Response.h"
 #include "OAIHeader_Accept_Language.h"
 #include "OAIHttpFileElement.h"
@@ -99,14 +97,6 @@ public:
     * @param[in]  s_query QString [optional]
     * @param[in]  accept_language OAIHeader_Accept_Language [optional]
     */
-    Q_DECL_DEPRECATED void ezsigntemplatepackageGetAutocompleteV1(const QString &s_selector, const ::OpenAPI::OptionalParam<QString> &e_filter_active = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &s_query = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<OAIHeader_Accept_Language> &accept_language = ::OpenAPI::OptionalParam<OAIHeader_Accept_Language>());
-
-    /**
-    * @param[in]  s_selector QString [required]
-    * @param[in]  e_filter_active QString [optional]
-    * @param[in]  s_query QString [optional]
-    * @param[in]  accept_language OAIHeader_Accept_Language [optional]
-    */
     void ezsigntemplatepackageGetAutocompleteV2(const QString &s_selector, const ::OpenAPI::OptionalParam<QString> &e_filter_active = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &s_query = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<OAIHeader_Accept_Language> &accept_language = ::OpenAPI::OptionalParam<OAIHeader_Accept_Language>());
 
     /**
@@ -117,11 +107,6 @@ public:
     * @param[in]  s_filter QString [optional]
     */
     void ezsigntemplatepackageGetListV1(const ::OpenAPI::OptionalParam<QString> &e_order_by = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<qint32> &i_row_max = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<qint32> &i_row_offset = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<OAIHeader_Accept_Language> &accept_language = ::OpenAPI::OptionalParam<OAIHeader_Accept_Language>(), const ::OpenAPI::OptionalParam<QString> &s_filter = ::OpenAPI::OptionalParam<QString>());
-
-    /**
-    * @param[in]  pki_ezsigntemplatepackage_id qint32 [required]
-    */
-    Q_DECL_DEPRECATED void ezsigntemplatepackageGetObjectV1(const qint32 &pki_ezsigntemplatepackage_id);
 
     /**
     * @param[in]  pki_ezsigntemplatepackage_id qint32 [required]
@@ -155,10 +140,8 @@ private:
     void ezsigntemplatepackageDeleteObjectV1Callback(OAIHttpRequestWorker *worker);
     void ezsigntemplatepackageEditEzsigntemplatepackagesignersV1Callback(OAIHttpRequestWorker *worker);
     void ezsigntemplatepackageEditObjectV1Callback(OAIHttpRequestWorker *worker);
-    void ezsigntemplatepackageGetAutocompleteV1Callback(OAIHttpRequestWorker *worker);
     void ezsigntemplatepackageGetAutocompleteV2Callback(OAIHttpRequestWorker *worker);
     void ezsigntemplatepackageGetListV1Callback(OAIHttpRequestWorker *worker);
-    void ezsigntemplatepackageGetObjectV1Callback(OAIHttpRequestWorker *worker);
     void ezsigntemplatepackageGetObjectV2Callback(OAIHttpRequestWorker *worker);
 
 signals:
@@ -167,40 +150,32 @@ signals:
     void ezsigntemplatepackageDeleteObjectV1Signal(OAIEzsigntemplatepackage_deleteObject_v1_Response summary);
     void ezsigntemplatepackageEditEzsigntemplatepackagesignersV1Signal(OAIEzsigntemplatepackage_editEzsigntemplatepackagesigners_v1_Response summary);
     void ezsigntemplatepackageEditObjectV1Signal(OAIEzsigntemplatepackage_editObject_v1_Response summary);
-    void ezsigntemplatepackageGetAutocompleteV1Signal(OAICommon_getAutocompleteDisabled_v1_Response summary);
     void ezsigntemplatepackageGetAutocompleteV2Signal(OAIEzsigntemplatepackage_getAutocomplete_v2_Response summary);
     void ezsigntemplatepackageGetListV1Signal(OAIEzsigntemplatepackage_getList_v1_Response summary);
-    void ezsigntemplatepackageGetObjectV1Signal(OAIEzsigntemplatepackage_getObject_v1_Response summary);
     void ezsigntemplatepackageGetObjectV2Signal(OAIEzsigntemplatepackage_getObject_v2_Response summary);
 
     void ezsigntemplatepackageCreateObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsigntemplatepackage_createObject_v1_Response summary);
     void ezsigntemplatepackageDeleteObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsigntemplatepackage_deleteObject_v1_Response summary);
     void ezsigntemplatepackageEditEzsigntemplatepackagesignersV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsigntemplatepackage_editEzsigntemplatepackagesigners_v1_Response summary);
     void ezsigntemplatepackageEditObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsigntemplatepackage_editObject_v1_Response summary);
-    void ezsigntemplatepackageGetAutocompleteV1SignalFull(OAIHttpRequestWorker *worker, OAICommon_getAutocompleteDisabled_v1_Response summary);
     void ezsigntemplatepackageGetAutocompleteV2SignalFull(OAIHttpRequestWorker *worker, OAIEzsigntemplatepackage_getAutocomplete_v2_Response summary);
     void ezsigntemplatepackageGetListV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsigntemplatepackage_getList_v1_Response summary);
-    void ezsigntemplatepackageGetObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsigntemplatepackage_getObject_v1_Response summary);
     void ezsigntemplatepackageGetObjectV2SignalFull(OAIHttpRequestWorker *worker, OAIEzsigntemplatepackage_getObject_v2_Response summary);
 
     void ezsigntemplatepackageCreateObjectV1SignalE(OAIEzsigntemplatepackage_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplatepackageDeleteObjectV1SignalE(OAIEzsigntemplatepackage_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplatepackageEditEzsigntemplatepackagesignersV1SignalE(OAIEzsigntemplatepackage_editEzsigntemplatepackagesigners_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplatepackageEditObjectV1SignalE(OAIEzsigntemplatepackage_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void ezsigntemplatepackageGetAutocompleteV1SignalE(OAICommon_getAutocompleteDisabled_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplatepackageGetAutocompleteV2SignalE(OAIEzsigntemplatepackage_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplatepackageGetListV1SignalE(OAIEzsigntemplatepackage_getList_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void ezsigntemplatepackageGetObjectV1SignalE(OAIEzsigntemplatepackage_getObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplatepackageGetObjectV2SignalE(OAIEzsigntemplatepackage_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
 
     void ezsigntemplatepackageCreateObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplatepackageDeleteObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplatepackageEditEzsigntemplatepackagesignersV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplatepackageEditObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
-    void ezsigntemplatepackageGetAutocompleteV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplatepackageGetAutocompleteV2SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplatepackageGetListV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
-    void ezsigntemplatepackageGetObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplatepackageGetObjectV2SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
 
     void abortRequestsSignal();

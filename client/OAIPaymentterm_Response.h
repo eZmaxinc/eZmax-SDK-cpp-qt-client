@@ -22,6 +22,7 @@
 #include <QJsonObject>
 
 #include "OAICommon_Audit.h"
+#include "OAIField_ePaymenttermType.h"
 #include "OAIMultilingual_PaymenttermDescription.h"
 #include <QString>
 
@@ -53,6 +54,16 @@ public:
     bool is_s_paymentterm_code_Set() const;
     bool is_s_paymentterm_code_Valid() const;
 
+    OAIField_ePaymenttermType getEPaymenttermType() const;
+    void setEPaymenttermType(const OAIField_ePaymenttermType &e_paymentterm_type);
+    bool is_e_paymentterm_type_Set() const;
+    bool is_e_paymentterm_type_Valid() const;
+
+    qint32 getIPaymenttermDay() const;
+    void setIPaymenttermDay(const qint32 &i_paymentterm_day);
+    bool is_i_paymentterm_day_Set() const;
+    bool is_i_paymentterm_day_Valid() const;
+
     OAIMultilingual_PaymenttermDescription getObjPaymenttermDescription() const;
     void setObjPaymenttermDescription(const OAIMultilingual_PaymenttermDescription &obj_paymentterm_description);
     bool is_obj_paymentterm_description_Set() const;
@@ -81,6 +92,14 @@ private:
     QString s_paymentterm_code;
     bool m_s_paymentterm_code_isSet;
     bool m_s_paymentterm_code_isValid;
+
+    OAIField_ePaymenttermType e_paymentterm_type;
+    bool m_e_paymentterm_type_isSet;
+    bool m_e_paymentterm_type_isValid;
+
+    qint32 i_paymentterm_day;
+    bool m_i_paymentterm_day_isSet;
+    bool m_i_paymentterm_day_isValid;
 
     OAIMultilingual_PaymenttermDescription obj_paymentterm_description;
     bool m_obj_paymentterm_description_isSet;

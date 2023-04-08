@@ -55,8 +55,6 @@ void OAIObjectEzsigntemplatepackagesignerApi::initializeServerConfigs() {
     _serverIndices.insert("ezsigntemplatepackagesignerDeleteObjectV1", 0);
     _serverConfigs.insert("ezsigntemplatepackagesignerEditObjectV1", defaultConf);
     _serverIndices.insert("ezsigntemplatepackagesignerEditObjectV1", 0);
-    _serverConfigs.insert("ezsigntemplatepackagesignerGetObjectV1", defaultConf);
-    _serverIndices.insert("ezsigntemplatepackagesignerGetObjectV1", 0);
     _serverConfigs.insert("ezsigntemplatepackagesignerGetObjectV2", defaultConf);
     _serverIndices.insert("ezsigntemplatepackagesignerGetObjectV2", 0);
 }
@@ -428,73 +426,6 @@ void OAIObjectEzsigntemplatepackagesignerApi::ezsigntemplatepackagesignerEditObj
     } else {
         emit ezsigntemplatepackagesignerEditObjectV1SignalE(output, error_type, error_str);
         emit ezsigntemplatepackagesignerEditObjectV1SignalEFull(worker, error_type, error_str);
-    }
-}
-
-void OAIObjectEzsigntemplatepackagesignerApi::ezsigntemplatepackagesignerGetObjectV1(const qint32 &pki_ezsigntemplatepackagesigner_id) {
-    QString fullPath = QString(_serverConfigs["ezsigntemplatepackagesignerGetObjectV1"][_serverIndices.value("ezsigntemplatepackagesignerGetObjectV1")].URL()+"/1/object/ezsigntemplatepackagesigner/{pkiEzsigntemplatepackagesignerID}");
-    
-    if (_apiKeys.contains("Authorization")) {
-        addHeaders("Authorization",_apiKeys.find("Authorization").value());
-    }
-    
-    
-    {
-        QString pki_ezsigntemplatepackagesigner_idPathParam("{");
-        pki_ezsigntemplatepackagesigner_idPathParam.append("pkiEzsigntemplatepackagesignerID").append("}");
-        QString pathPrefix, pathSuffix, pathDelimiter;
-        QString pathStyle = "simple";
-        if (pathStyle == "")
-            pathStyle = "simple";
-        pathPrefix = getParamStylePrefix(pathStyle);
-        pathSuffix = getParamStyleSuffix(pathStyle);
-        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsigntemplatepackagesignerID", false);
-        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsigntemplatepackagesignerID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsigntemplatepackagesigner_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsigntemplatepackagesigner_id)));
-    }
-    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
-    worker->setTimeOut(_timeOut);
-    worker->setWorkingDirectory(_workingDirectory);
-    OAIHttpRequestInput input(fullPath, "GET");
-
-
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
-    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
-        input.headers.insert(keyValueIt->first, keyValueIt->second);
-    }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
-
-    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIObjectEzsigntemplatepackagesignerApi::ezsigntemplatepackagesignerGetObjectV1Callback);
-    connect(this, &OAIObjectEzsigntemplatepackagesignerApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
-        if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
-        }
-    });
-
-    worker->execute(&input);
-}
-
-void OAIObjectEzsigntemplatepackagesignerApi::ezsigntemplatepackagesignerGetObjectV1Callback(OAIHttpRequestWorker *worker) {
-    QString error_str = worker->error_str;
-    QNetworkReply::NetworkError error_type = worker->error_type;
-
-    if (worker->error_type != QNetworkReply::NoError) {
-        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
-    }
-    OAIEzsigntemplatepackagesigner_getObject_v1_Response output(QString(worker->response));
-    worker->deleteLater();
-
-    if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsigntemplatepackagesignerGetObjectV1Signal(output);
-        emit ezsigntemplatepackagesignerGetObjectV1SignalFull(worker, output);
-    } else {
-        emit ezsigntemplatepackagesignerGetObjectV1SignalE(output, error_type, error_str);
-        emit ezsigntemplatepackagesignerGetObjectV1SignalEFull(worker, error_type, error_str);
     }
 }
 

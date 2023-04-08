@@ -93,6 +93,9 @@ void OAIEzsignfolder_ResponseCompound::initializeModel() {
 
     m_obj_audit_isSet = false;
     m_obj_audit_isValid = false;
+
+    m_s_ezsignfolder_externalid_isSet = false;
+    m_s_ezsignfolder_externalid_isValid = false;
 }
 
 void OAIEzsignfolder_ResponseCompound::fromJson(QString jsonString) {
@@ -163,6 +166,9 @@ void OAIEzsignfolder_ResponseCompound::fromJsonObject(QJsonObject json) {
 
     m_obj_audit_isValid = ::OpenAPI::fromJsonValue(obj_audit, json[QString("objAudit")]);
     m_obj_audit_isSet = !json[QString("objAudit")].isNull() && m_obj_audit_isValid;
+
+    m_s_ezsignfolder_externalid_isValid = ::OpenAPI::fromJsonValue(s_ezsignfolder_externalid, json[QString("sEzsignfolderExternalid")]);
+    m_s_ezsignfolder_externalid_isSet = !json[QString("sEzsignfolderExternalid")].isNull() && m_s_ezsignfolder_externalid_isValid;
 }
 
 QString OAIEzsignfolder_ResponseCompound::asJson() const {
@@ -233,6 +239,9 @@ QJsonObject OAIEzsignfolder_ResponseCompound::asJsonObject() const {
     }
     if (obj_audit.isSet()) {
         obj.insert(QString("objAudit"), ::OpenAPI::toJsonValue(obj_audit));
+    }
+    if (m_s_ezsignfolder_externalid_isSet) {
+        obj.insert(QString("sEzsignfolderExternalid"), ::OpenAPI::toJsonValue(s_ezsignfolder_externalid));
     }
     return obj;
 }
@@ -557,6 +566,22 @@ bool OAIEzsignfolder_ResponseCompound::is_obj_audit_Valid() const{
     return m_obj_audit_isValid;
 }
 
+QString OAIEzsignfolder_ResponseCompound::getSEzsignfolderExternalid() const {
+    return s_ezsignfolder_externalid;
+}
+void OAIEzsignfolder_ResponseCompound::setSEzsignfolderExternalid(const QString &s_ezsignfolder_externalid) {
+    this->s_ezsignfolder_externalid = s_ezsignfolder_externalid;
+    this->m_s_ezsignfolder_externalid_isSet = true;
+}
+
+bool OAIEzsignfolder_ResponseCompound::is_s_ezsignfolder_externalid_Set() const{
+    return m_s_ezsignfolder_externalid_isSet;
+}
+
+bool OAIEzsignfolder_ResponseCompound::is_s_ezsignfolder_externalid_Valid() const{
+    return m_s_ezsignfolder_externalid_isValid;
+}
+
 bool OAIEzsignfolder_ResponseCompound::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -659,13 +684,18 @@ bool OAIEzsignfolder_ResponseCompound::isSet() const {
             isObjectUpdated = true;
             break;
         }
+
+        if (m_s_ezsignfolder_externalid_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
     } while (false);
     return isObjectUpdated;
 }
 
 bool OAIEzsignfolder_ResponseCompound::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_pki_ezsignfolder_id_isValid && m_fki_ezsignfoldertype_id_isValid && m_s_ezsignfoldertype_name_x_isValid && m_fki_billingentityinternal_id_isValid && m_s_billingentityinternal_description_x_isValid && m_fki_ezsigntsarequirement_id_isValid && m_s_ezsigntsarequirement_description_x_isValid && m_s_ezsignfolder_description_isValid && m_t_ezsignfolder_note_isValid && m_b_ezsignfolder_isdisposable_isValid && m_e_ezsignfolder_sendreminderfrequency_isValid && m_e_ezsignfolder_step_isValid && m_t_ezsignfolder_message_isValid && m_obj_audit_isValid && true;
+    return m_pki_ezsignfolder_id_isValid && m_fki_ezsignfoldertype_id_isValid && m_s_ezsignfoldertype_name_x_isValid && m_fki_billingentityinternal_id_isValid && m_s_billingentityinternal_description_x_isValid && m_fki_ezsigntsarequirement_id_isValid && m_s_ezsigntsarequirement_description_x_isValid && m_s_ezsignfolder_description_isValid && m_t_ezsignfolder_note_isValid && m_b_ezsignfolder_isdisposable_isValid && m_e_ezsignfolder_sendreminderfrequency_isValid && m_e_ezsignfolder_step_isValid && m_t_ezsignfolder_message_isValid && m_obj_audit_isValid && m_s_ezsignfolder_externalid_isValid && true;
 }
 
 } // namespace OpenAPI

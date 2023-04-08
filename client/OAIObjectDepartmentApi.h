@@ -19,7 +19,6 @@
 #include "OAIOauth.h"
 
 #include "OAICommon_Response_Error.h"
-#include "OAICommon_getAutocomplete_v1_Response.h"
 #include "OAIDepartment_getAutocomplete_v2_Response.h"
 #include "OAIDepartment_getMembers_v1_Response.h"
 #include "OAIHeader_Accept_Language.h"
@@ -67,14 +66,6 @@ public:
     * @param[in]  s_query QString [optional]
     * @param[in]  accept_language OAIHeader_Accept_Language [optional]
     */
-    Q_DECL_DEPRECATED void departmentGetAutocompleteV1(const QString &s_selector, const ::OpenAPI::OptionalParam<QString> &e_filter_active = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &s_query = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<OAIHeader_Accept_Language> &accept_language = ::OpenAPI::OptionalParam<OAIHeader_Accept_Language>());
-
-    /**
-    * @param[in]  s_selector QString [required]
-    * @param[in]  e_filter_active QString [optional]
-    * @param[in]  s_query QString [optional]
-    * @param[in]  accept_language OAIHeader_Accept_Language [optional]
-    */
     void departmentGetAutocompleteV2(const QString &s_selector, const ::OpenAPI::OptionalParam<QString> &e_filter_active = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &s_query = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<OAIHeader_Accept_Language> &accept_language = ::OpenAPI::OptionalParam<OAIHeader_Accept_Language>());
 
     /**
@@ -105,25 +96,20 @@ private:
     OauthPassword _passwordFlow;
     int _OauthMethod = 0;
 
-    void departmentGetAutocompleteV1Callback(OAIHttpRequestWorker *worker);
     void departmentGetAutocompleteV2Callback(OAIHttpRequestWorker *worker);
     void departmentGetMembersV1Callback(OAIHttpRequestWorker *worker);
 
 signals:
 
-    void departmentGetAutocompleteV1Signal(OAICommon_getAutocomplete_v1_Response summary);
     void departmentGetAutocompleteV2Signal(OAIDepartment_getAutocomplete_v2_Response summary);
     void departmentGetMembersV1Signal(OAIDepartment_getMembers_v1_Response summary);
 
-    void departmentGetAutocompleteV1SignalFull(OAIHttpRequestWorker *worker, OAICommon_getAutocomplete_v1_Response summary);
     void departmentGetAutocompleteV2SignalFull(OAIHttpRequestWorker *worker, OAIDepartment_getAutocomplete_v2_Response summary);
     void departmentGetMembersV1SignalFull(OAIHttpRequestWorker *worker, OAIDepartment_getMembers_v1_Response summary);
 
-    void departmentGetAutocompleteV1SignalE(OAICommon_getAutocomplete_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void departmentGetAutocompleteV2SignalE(OAIDepartment_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void departmentGetMembersV1SignalE(OAIDepartment_getMembers_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
 
-    void departmentGetAutocompleteV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void departmentGetAutocompleteV2SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void departmentGetMembersV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
 

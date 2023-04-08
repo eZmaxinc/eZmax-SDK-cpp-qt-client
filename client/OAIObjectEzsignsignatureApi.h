@@ -26,7 +26,7 @@
 #include "OAIEzsignsignature_deleteObject_v1_Response.h"
 #include "OAIEzsignsignature_editObject_v1_Request.h"
 #include "OAIEzsignsignature_editObject_v1_Response.h"
-#include "OAIEzsignsignature_getObject_v1_Response.h"
+#include "OAIEzsignsignature_getEzsignsignaturesAutomatic_v1_Response.h"
 #include "OAIEzsignsignature_getObject_v2_Response.h"
 #include "OAIEzsignsignature_sign_v1_Request.h"
 #include "OAIEzsignsignature_sign_v1_Response.h"
@@ -90,10 +90,8 @@ public:
     */
     void ezsignsignatureEditObjectV1(const qint32 &pki_ezsignsignature_id, const OAIEzsignsignature_editObject_v1_Request &oai_ezsignsignature_edit_object_v1_request);
 
-    /**
-    * @param[in]  pki_ezsignsignature_id qint32 [required]
-    */
-    Q_DECL_DEPRECATED void ezsignsignatureGetObjectV1(const qint32 &pki_ezsignsignature_id);
+
+    void ezsignsignatureGetEzsignsignaturesAutomaticV1();
 
     /**
     * @param[in]  pki_ezsignsignature_id qint32 [required]
@@ -133,7 +131,7 @@ private:
     void ezsignsignatureCreateObjectV2Callback(OAIHttpRequestWorker *worker);
     void ezsignsignatureDeleteObjectV1Callback(OAIHttpRequestWorker *worker);
     void ezsignsignatureEditObjectV1Callback(OAIHttpRequestWorker *worker);
-    void ezsignsignatureGetObjectV1Callback(OAIHttpRequestWorker *worker);
+    void ezsignsignatureGetEzsignsignaturesAutomaticV1Callback(OAIHttpRequestWorker *worker);
     void ezsignsignatureGetObjectV2Callback(OAIHttpRequestWorker *worker);
     void ezsignsignatureSignV1Callback(OAIHttpRequestWorker *worker);
 
@@ -143,7 +141,7 @@ signals:
     void ezsignsignatureCreateObjectV2Signal(OAIEzsignsignature_createObject_v2_Response summary);
     void ezsignsignatureDeleteObjectV1Signal(OAIEzsignsignature_deleteObject_v1_Response summary);
     void ezsignsignatureEditObjectV1Signal(OAIEzsignsignature_editObject_v1_Response summary);
-    void ezsignsignatureGetObjectV1Signal(OAIEzsignsignature_getObject_v1_Response summary);
+    void ezsignsignatureGetEzsignsignaturesAutomaticV1Signal(OAIEzsignsignature_getEzsignsignaturesAutomatic_v1_Response summary);
     void ezsignsignatureGetObjectV2Signal(OAIEzsignsignature_getObject_v2_Response summary);
     void ezsignsignatureSignV1Signal(OAIEzsignsignature_sign_v1_Response summary);
 
@@ -151,7 +149,7 @@ signals:
     void ezsignsignatureCreateObjectV2SignalFull(OAIHttpRequestWorker *worker, OAIEzsignsignature_createObject_v2_Response summary);
     void ezsignsignatureDeleteObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsignsignature_deleteObject_v1_Response summary);
     void ezsignsignatureEditObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsignsignature_editObject_v1_Response summary);
-    void ezsignsignatureGetObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsignsignature_getObject_v1_Response summary);
+    void ezsignsignatureGetEzsignsignaturesAutomaticV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsignsignature_getEzsignsignaturesAutomatic_v1_Response summary);
     void ezsignsignatureGetObjectV2SignalFull(OAIHttpRequestWorker *worker, OAIEzsignsignature_getObject_v2_Response summary);
     void ezsignsignatureSignV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsignsignature_sign_v1_Response summary);
 
@@ -159,7 +157,7 @@ signals:
     void ezsignsignatureCreateObjectV2SignalE(OAIEzsignsignature_createObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignsignatureDeleteObjectV1SignalE(OAIEzsignsignature_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignsignatureEditObjectV1SignalE(OAIEzsignsignature_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void ezsignsignatureGetObjectV1SignalE(OAIEzsignsignature_getObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignsignatureGetEzsignsignaturesAutomaticV1SignalE(OAIEzsignsignature_getEzsignsignaturesAutomatic_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignsignatureGetObjectV2SignalE(OAIEzsignsignature_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignsignatureSignV1SignalE(OAIEzsignsignature_sign_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
 
@@ -167,7 +165,7 @@ signals:
     void ezsignsignatureCreateObjectV2SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignsignatureDeleteObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignsignatureEditObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
-    void ezsignsignatureGetObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignsignatureGetEzsignsignaturesAutomaticV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignsignatureGetObjectV2SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignsignatureSignV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
 

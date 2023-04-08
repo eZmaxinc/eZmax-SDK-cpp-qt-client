@@ -65,14 +65,20 @@ void OAIObjectEzsigndocumentApi::initializeServerConfigs() {
     _serverIndices.insert("ezsigndocumentEditEzsignsignaturesV1", 0);
     _serverConfigs.insert("ezsigndocumentEndPrematurelyV1", defaultConf);
     _serverIndices.insert("ezsigndocumentEndPrematurelyV1", 0);
+    _serverConfigs.insert("ezsigndocumentFlattenV1", defaultConf);
+    _serverIndices.insert("ezsigndocumentFlattenV1", 0);
     _serverConfigs.insert("ezsigndocumentGetActionableElementsV1", defaultConf);
     _serverIndices.insert("ezsigndocumentGetActionableElementsV1", 0);
     _serverConfigs.insert("ezsigndocumentGetDownloadUrlV1", defaultConf);
     _serverIndices.insert("ezsigndocumentGetDownloadUrlV1", 0);
+    _serverConfigs.insert("ezsigndocumentGetEzsignannotationsV1", defaultConf);
+    _serverIndices.insert("ezsigndocumentGetEzsignannotationsV1", 0);
     _serverConfigs.insert("ezsigndocumentGetEzsignformfieldgroupsV1", defaultConf);
     _serverIndices.insert("ezsigndocumentGetEzsignformfieldgroupsV1", 0);
     _serverConfigs.insert("ezsigndocumentGetEzsignpagesV1", defaultConf);
     _serverIndices.insert("ezsigndocumentGetEzsignpagesV1", 0);
+    _serverConfigs.insert("ezsigndocumentGetEzsignsignaturesAutomaticV1", defaultConf);
+    _serverIndices.insert("ezsigndocumentGetEzsignsignaturesAutomaticV1", 0);
     _serverConfigs.insert("ezsigndocumentGetEzsignsignaturesV1", defaultConf);
     _serverIndices.insert("ezsigndocumentGetEzsignsignaturesV1", 0);
     _serverConfigs.insert("ezsigndocumentGetFormDataV1", defaultConf);
@@ -806,6 +812,78 @@ void OAIObjectEzsigndocumentApi::ezsigndocumentEndPrematurelyV1Callback(OAIHttpR
     }
 }
 
+void OAIObjectEzsigndocumentApi::ezsigndocumentFlattenV1(const qint32 &pki_ezsigndocument_id, const OAIObject &body) {
+    QString fullPath = QString(_serverConfigs["ezsigndocumentFlattenV1"][_serverIndices.value("ezsigndocumentFlattenV1")].URL()+"/1/object/ezsigndocument/{pkiEzsigndocumentID}/flatten");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_ezsigndocument_idPathParam("{");
+        pki_ezsigndocument_idPathParam.append("pkiEzsigndocumentID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsigndocumentID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsigndocumentID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_ezsigndocument_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsigndocument_id)));
+    }
+    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    OAIHttpRequestInput input(fullPath, "POST");
+
+    {
+
+        
+        QByteArray output = body.asJson().toUtf8();
+        input.request_body.append(output);
+    }
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+#else
+    for (auto key : _defaultHeaders.keys()) {
+        input.headers.insert(key, _defaultHeaders[key]);
+    }
+#endif
+
+    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIObjectEzsigndocumentApi::ezsigndocumentFlattenV1Callback);
+    connect(this, &OAIObjectEzsigndocumentApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this]() {
+        if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
+            emit allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void OAIObjectEzsigndocumentApi::ezsigndocumentFlattenV1Callback(OAIHttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    OAIEzsigndocument_flatten_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit ezsigndocumentFlattenV1Signal(output);
+        emit ezsigndocumentFlattenV1SignalFull(worker, output);
+    } else {
+        emit ezsigndocumentFlattenV1SignalE(output, error_type, error_str);
+        emit ezsigndocumentFlattenV1SignalEFull(worker, error_type, error_str);
+    }
+}
+
 void OAIObjectEzsigndocumentApi::ezsigndocumentGetActionableElementsV1(const qint32 &pki_ezsigndocument_id) {
     QString fullPath = QString(_serverConfigs["ezsigndocumentGetActionableElementsV1"][_serverIndices.value("ezsigndocumentGetActionableElementsV1")].URL()+"/1/object/ezsigndocument/{pkiEzsigndocumentID}/getActionableElements");
     
@@ -954,6 +1032,73 @@ void OAIObjectEzsigndocumentApi::ezsigndocumentGetDownloadUrlV1Callback(OAIHttpR
     }
 }
 
+void OAIObjectEzsigndocumentApi::ezsigndocumentGetEzsignannotationsV1(const qint32 &pki_ezsigndocument_id) {
+    QString fullPath = QString(_serverConfigs["ezsigndocumentGetEzsignannotationsV1"][_serverIndices.value("ezsigndocumentGetEzsignannotationsV1")].URL()+"/1/object/ezsigndocument/{pkiEzsigndocumentID}/getEzsignannotations");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_ezsigndocument_idPathParam("{");
+        pki_ezsigndocument_idPathParam.append("pkiEzsigndocumentID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsigndocumentID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsigndocumentID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_ezsigndocument_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsigndocument_id)));
+    }
+    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    OAIHttpRequestInput input(fullPath, "GET");
+
+
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+#else
+    for (auto key : _defaultHeaders.keys()) {
+        input.headers.insert(key, _defaultHeaders[key]);
+    }
+#endif
+
+    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIObjectEzsigndocumentApi::ezsigndocumentGetEzsignannotationsV1Callback);
+    connect(this, &OAIObjectEzsigndocumentApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this]() {
+        if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
+            emit allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void OAIObjectEzsigndocumentApi::ezsigndocumentGetEzsignannotationsV1Callback(OAIHttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    OAIEzsigndocument_getEzsignannotations_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit ezsigndocumentGetEzsignannotationsV1Signal(output);
+        emit ezsigndocumentGetEzsignannotationsV1SignalFull(worker, output);
+    } else {
+        emit ezsigndocumentGetEzsignannotationsV1SignalE(output, error_type, error_str);
+        emit ezsigndocumentGetEzsignannotationsV1SignalEFull(worker, error_type, error_str);
+    }
+}
+
 void OAIObjectEzsigndocumentApi::ezsigndocumentGetEzsignformfieldgroupsV1(const qint32 &pki_ezsigndocument_id) {
     QString fullPath = QString(_serverConfigs["ezsigndocumentGetEzsignformfieldgroupsV1"][_serverIndices.value("ezsigndocumentGetEzsignformfieldgroupsV1")].URL()+"/1/object/ezsigndocument/{pkiEzsigndocumentID}/getEzsignformfieldgroups");
     
@@ -1085,6 +1230,73 @@ void OAIObjectEzsigndocumentApi::ezsigndocumentGetEzsignpagesV1Callback(OAIHttpR
     } else {
         emit ezsigndocumentGetEzsignpagesV1SignalE(output, error_type, error_str);
         emit ezsigndocumentGetEzsignpagesV1SignalEFull(worker, error_type, error_str);
+    }
+}
+
+void OAIObjectEzsigndocumentApi::ezsigndocumentGetEzsignsignaturesAutomaticV1(const qint32 &pki_ezsigndocument_id) {
+    QString fullPath = QString(_serverConfigs["ezsigndocumentGetEzsignsignaturesAutomaticV1"][_serverIndices.value("ezsigndocumentGetEzsignsignaturesAutomaticV1")].URL()+"/1/object/ezsigndocument/{pkiEzsigndocumentID}/getEzsignsignaturesAutomatic");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_ezsigndocument_idPathParam("{");
+        pki_ezsigndocument_idPathParam.append("pkiEzsigndocumentID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsigndocumentID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsigndocumentID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_ezsigndocument_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsigndocument_id)));
+    }
+    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    OAIHttpRequestInput input(fullPath, "GET");
+
+
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+#else
+    for (auto key : _defaultHeaders.keys()) {
+        input.headers.insert(key, _defaultHeaders[key]);
+    }
+#endif
+
+    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIObjectEzsigndocumentApi::ezsigndocumentGetEzsignsignaturesAutomaticV1Callback);
+    connect(this, &OAIObjectEzsigndocumentApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this]() {
+        if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
+            emit allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void OAIObjectEzsigndocumentApi::ezsigndocumentGetEzsignsignaturesAutomaticV1Callback(OAIHttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    OAIEzsigndocument_getEzsignsignaturesAutomatic_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit ezsigndocumentGetEzsignsignaturesAutomaticV1Signal(output);
+        emit ezsigndocumentGetEzsignsignaturesAutomaticV1SignalFull(worker, output);
+    } else {
+        emit ezsigndocumentGetEzsignsignaturesAutomaticV1SignalE(output, error_type, error_str);
+        emit ezsigndocumentGetEzsignsignaturesAutomaticV1SignalEFull(worker, error_type, error_str);
     }
 }
 

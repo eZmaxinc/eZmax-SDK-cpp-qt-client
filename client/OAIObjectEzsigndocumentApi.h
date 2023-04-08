@@ -34,10 +34,13 @@
 #include "OAIEzsigndocument_editEzsignsignatures_v1_Request.h"
 #include "OAIEzsigndocument_editEzsignsignatures_v1_Response.h"
 #include "OAIEzsigndocument_endPrematurely_v1_Response.h"
+#include "OAIEzsigndocument_flatten_v1_Response.h"
 #include "OAIEzsigndocument_getActionableElements_v1_Response.h"
 #include "OAIEzsigndocument_getDownloadUrl_v1_Response.h"
+#include "OAIEzsigndocument_getEzsignannotations_v1_Response.h"
 #include "OAIEzsigndocument_getEzsignformfieldgroups_v1_Response.h"
 #include "OAIEzsigndocument_getEzsignpages_v1_Response.h"
+#include "OAIEzsigndocument_getEzsignsignaturesAutomatic_v1_Response.h"
 #include "OAIEzsigndocument_getEzsignsignatures_v1_Response.h"
 #include "OAIEzsigndocument_getFormData_v1_Response.h"
 #include "OAIEzsigndocument_getObject_v1_Response.h"
@@ -136,6 +139,12 @@ public:
 
     /**
     * @param[in]  pki_ezsigndocument_id qint32 [required]
+    * @param[in]  body OAIObject [required]
+    */
+    void ezsigndocumentFlattenV1(const qint32 &pki_ezsigndocument_id, const OAIObject &body);
+
+    /**
+    * @param[in]  pki_ezsigndocument_id qint32 [required]
     */
     void ezsigndocumentGetActionableElementsV1(const qint32 &pki_ezsigndocument_id);
 
@@ -148,12 +157,22 @@ public:
     /**
     * @param[in]  pki_ezsigndocument_id qint32 [required]
     */
+    void ezsigndocumentGetEzsignannotationsV1(const qint32 &pki_ezsigndocument_id);
+
+    /**
+    * @param[in]  pki_ezsigndocument_id qint32 [required]
+    */
     void ezsigndocumentGetEzsignformfieldgroupsV1(const qint32 &pki_ezsigndocument_id);
 
     /**
     * @param[in]  pki_ezsigndocument_id qint32 [required]
     */
     void ezsigndocumentGetEzsignpagesV1(const qint32 &pki_ezsigndocument_id);
+
+    /**
+    * @param[in]  pki_ezsigndocument_id qint32 [required]
+    */
+    void ezsigndocumentGetEzsignsignaturesAutomaticV1(const qint32 &pki_ezsigndocument_id);
 
     /**
     * @param[in]  pki_ezsigndocument_id qint32 [required]
@@ -229,10 +248,13 @@ private:
     void ezsigndocumentEditEzsignformfieldgroupsV1Callback(OAIHttpRequestWorker *worker);
     void ezsigndocumentEditEzsignsignaturesV1Callback(OAIHttpRequestWorker *worker);
     void ezsigndocumentEndPrematurelyV1Callback(OAIHttpRequestWorker *worker);
+    void ezsigndocumentFlattenV1Callback(OAIHttpRequestWorker *worker);
     void ezsigndocumentGetActionableElementsV1Callback(OAIHttpRequestWorker *worker);
     void ezsigndocumentGetDownloadUrlV1Callback(OAIHttpRequestWorker *worker);
+    void ezsigndocumentGetEzsignannotationsV1Callback(OAIHttpRequestWorker *worker);
     void ezsigndocumentGetEzsignformfieldgroupsV1Callback(OAIHttpRequestWorker *worker);
     void ezsigndocumentGetEzsignpagesV1Callback(OAIHttpRequestWorker *worker);
+    void ezsigndocumentGetEzsignsignaturesAutomaticV1Callback(OAIHttpRequestWorker *worker);
     void ezsigndocumentGetEzsignsignaturesV1Callback(OAIHttpRequestWorker *worker);
     void ezsigndocumentGetFormDataV1Callback(OAIHttpRequestWorker *worker);
     void ezsigndocumentGetObjectV1Callback(OAIHttpRequestWorker *worker);
@@ -252,10 +274,13 @@ signals:
     void ezsigndocumentEditEzsignformfieldgroupsV1Signal(OAIEzsigndocument_editEzsignformfieldgroups_v1_Response summary);
     void ezsigndocumentEditEzsignsignaturesV1Signal(OAIEzsigndocument_editEzsignsignatures_v1_Response summary);
     void ezsigndocumentEndPrematurelyV1Signal(OAIEzsigndocument_endPrematurely_v1_Response summary);
+    void ezsigndocumentFlattenV1Signal(OAIEzsigndocument_flatten_v1_Response summary);
     void ezsigndocumentGetActionableElementsV1Signal(OAIEzsigndocument_getActionableElements_v1_Response summary);
     void ezsigndocumentGetDownloadUrlV1Signal(OAIEzsigndocument_getDownloadUrl_v1_Response summary);
+    void ezsigndocumentGetEzsignannotationsV1Signal(OAIEzsigndocument_getEzsignannotations_v1_Response summary);
     void ezsigndocumentGetEzsignformfieldgroupsV1Signal(OAIEzsigndocument_getEzsignformfieldgroups_v1_Response summary);
     void ezsigndocumentGetEzsignpagesV1Signal(OAIEzsigndocument_getEzsignpages_v1_Response summary);
+    void ezsigndocumentGetEzsignsignaturesAutomaticV1Signal(OAIEzsigndocument_getEzsignsignaturesAutomatic_v1_Response summary);
     void ezsigndocumentGetEzsignsignaturesV1Signal(OAIEzsigndocument_getEzsignsignatures_v1_Response summary);
     void ezsigndocumentGetFormDataV1Signal(OAIEzsigndocument_getFormData_v1_Response summary);
     void ezsigndocumentGetObjectV1Signal(OAIEzsigndocument_getObject_v1_Response summary);
@@ -273,10 +298,13 @@ signals:
     void ezsigndocumentEditEzsignformfieldgroupsV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsigndocument_editEzsignformfieldgroups_v1_Response summary);
     void ezsigndocumentEditEzsignsignaturesV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsigndocument_editEzsignsignatures_v1_Response summary);
     void ezsigndocumentEndPrematurelyV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsigndocument_endPrematurely_v1_Response summary);
+    void ezsigndocumentFlattenV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsigndocument_flatten_v1_Response summary);
     void ezsigndocumentGetActionableElementsV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsigndocument_getActionableElements_v1_Response summary);
     void ezsigndocumentGetDownloadUrlV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsigndocument_getDownloadUrl_v1_Response summary);
+    void ezsigndocumentGetEzsignannotationsV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsigndocument_getEzsignannotations_v1_Response summary);
     void ezsigndocumentGetEzsignformfieldgroupsV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsigndocument_getEzsignformfieldgroups_v1_Response summary);
     void ezsigndocumentGetEzsignpagesV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsigndocument_getEzsignpages_v1_Response summary);
+    void ezsigndocumentGetEzsignsignaturesAutomaticV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsigndocument_getEzsignsignaturesAutomatic_v1_Response summary);
     void ezsigndocumentGetEzsignsignaturesV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsigndocument_getEzsignsignatures_v1_Response summary);
     void ezsigndocumentGetFormDataV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsigndocument_getFormData_v1_Response summary);
     void ezsigndocumentGetObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsigndocument_getObject_v1_Response summary);
@@ -294,10 +322,13 @@ signals:
     void ezsigndocumentEditEzsignformfieldgroupsV1SignalE(OAIEzsigndocument_editEzsignformfieldgroups_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigndocumentEditEzsignsignaturesV1SignalE(OAIEzsigndocument_editEzsignsignatures_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigndocumentEndPrematurelyV1SignalE(OAIEzsigndocument_endPrematurely_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentFlattenV1SignalE(OAIEzsigndocument_flatten_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigndocumentGetActionableElementsV1SignalE(OAIEzsigndocument_getActionableElements_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigndocumentGetDownloadUrlV1SignalE(OAIEzsigndocument_getDownloadUrl_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentGetEzsignannotationsV1SignalE(OAIEzsigndocument_getEzsignannotations_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigndocumentGetEzsignformfieldgroupsV1SignalE(OAIEzsigndocument_getEzsignformfieldgroups_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigndocumentGetEzsignpagesV1SignalE(OAIEzsigndocument_getEzsignpages_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentGetEzsignsignaturesAutomaticV1SignalE(OAIEzsigndocument_getEzsignsignaturesAutomatic_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigndocumentGetEzsignsignaturesV1SignalE(OAIEzsigndocument_getEzsignsignatures_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigndocumentGetFormDataV1SignalE(OAIEzsigndocument_getFormData_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigndocumentGetObjectV1SignalE(OAIEzsigndocument_getObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
@@ -315,10 +346,13 @@ signals:
     void ezsigndocumentEditEzsignformfieldgroupsV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigndocumentEditEzsignsignaturesV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigndocumentEndPrematurelyV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentFlattenV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigndocumentGetActionableElementsV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigndocumentGetDownloadUrlV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentGetEzsignannotationsV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigndocumentGetEzsignformfieldgroupsV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigndocumentGetEzsignpagesV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentGetEzsignsignaturesAutomaticV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigndocumentGetEzsignsignaturesV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigndocumentGetFormDataV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigndocumentGetObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);

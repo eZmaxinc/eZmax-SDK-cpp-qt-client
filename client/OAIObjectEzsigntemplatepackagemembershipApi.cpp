@@ -53,8 +53,6 @@ void OAIObjectEzsigntemplatepackagemembershipApi::initializeServerConfigs() {
     _serverIndices.insert("ezsigntemplatepackagemembershipCreateObjectV1", 0);
     _serverConfigs.insert("ezsigntemplatepackagemembershipDeleteObjectV1", defaultConf);
     _serverIndices.insert("ezsigntemplatepackagemembershipDeleteObjectV1", 0);
-    _serverConfigs.insert("ezsigntemplatepackagemembershipGetObjectV1", defaultConf);
-    _serverIndices.insert("ezsigntemplatepackagemembershipGetObjectV1", 0);
     _serverConfigs.insert("ezsigntemplatepackagemembershipGetObjectV2", defaultConf);
     _serverIndices.insert("ezsigntemplatepackagemembershipGetObjectV2", 0);
 }
@@ -354,73 +352,6 @@ void OAIObjectEzsigntemplatepackagemembershipApi::ezsigntemplatepackagemembershi
     } else {
         emit ezsigntemplatepackagemembershipDeleteObjectV1SignalE(output, error_type, error_str);
         emit ezsigntemplatepackagemembershipDeleteObjectV1SignalEFull(worker, error_type, error_str);
-    }
-}
-
-void OAIObjectEzsigntemplatepackagemembershipApi::ezsigntemplatepackagemembershipGetObjectV1(const qint32 &pki_ezsigntemplatepackagemembership_id) {
-    QString fullPath = QString(_serverConfigs["ezsigntemplatepackagemembershipGetObjectV1"][_serverIndices.value("ezsigntemplatepackagemembershipGetObjectV1")].URL()+"/1/object/ezsigntemplatepackagemembership/{pkiEzsigntemplatepackagemembershipID}");
-    
-    if (_apiKeys.contains("Authorization")) {
-        addHeaders("Authorization",_apiKeys.find("Authorization").value());
-    }
-    
-    
-    {
-        QString pki_ezsigntemplatepackagemembership_idPathParam("{");
-        pki_ezsigntemplatepackagemembership_idPathParam.append("pkiEzsigntemplatepackagemembershipID").append("}");
-        QString pathPrefix, pathSuffix, pathDelimiter;
-        QString pathStyle = "simple";
-        if (pathStyle == "")
-            pathStyle = "simple";
-        pathPrefix = getParamStylePrefix(pathStyle);
-        pathSuffix = getParamStyleSuffix(pathStyle);
-        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsigntemplatepackagemembershipID", false);
-        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsigntemplatepackagemembershipID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsigntemplatepackagemembership_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsigntemplatepackagemembership_id)));
-    }
-    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
-    worker->setTimeOut(_timeOut);
-    worker->setWorkingDirectory(_workingDirectory);
-    OAIHttpRequestInput input(fullPath, "GET");
-
-
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
-    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
-        input.headers.insert(keyValueIt->first, keyValueIt->second);
-    }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
-
-    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIObjectEzsigntemplatepackagemembershipApi::ezsigntemplatepackagemembershipGetObjectV1Callback);
-    connect(this, &OAIObjectEzsigntemplatepackagemembershipApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
-        if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
-        }
-    });
-
-    worker->execute(&input);
-}
-
-void OAIObjectEzsigntemplatepackagemembershipApi::ezsigntemplatepackagemembershipGetObjectV1Callback(OAIHttpRequestWorker *worker) {
-    QString error_str = worker->error_str;
-    QNetworkReply::NetworkError error_type = worker->error_type;
-
-    if (worker->error_type != QNetworkReply::NoError) {
-        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
-    }
-    OAIEzsigntemplatepackagemembership_getObject_v1_Response output(QString(worker->response));
-    worker->deleteLater();
-
-    if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsigntemplatepackagemembershipGetObjectV1Signal(output);
-        emit ezsigntemplatepackagemembershipGetObjectV1SignalFull(worker, output);
-    } else {
-        emit ezsigntemplatepackagemembershipGetObjectV1SignalE(output, error_type, error_str);
-        emit ezsigntemplatepackagemembershipGetObjectV1SignalEFull(worker, error_type, error_str);
     }
 }
 

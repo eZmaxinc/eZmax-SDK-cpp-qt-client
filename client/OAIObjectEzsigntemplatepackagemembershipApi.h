@@ -22,7 +22,6 @@
 #include "OAIEzsigntemplatepackagemembership_createObject_v1_Request.h"
 #include "OAIEzsigntemplatepackagemembership_createObject_v1_Response.h"
 #include "OAIEzsigntemplatepackagemembership_deleteObject_v1_Response.h"
-#include "OAIEzsigntemplatepackagemembership_getObject_v1_Response.h"
 #include "OAIEzsigntemplatepackagemembership_getObject_v2_Response.h"
 #include <QString>
 
@@ -75,11 +74,6 @@ public:
     /**
     * @param[in]  pki_ezsigntemplatepackagemembership_id qint32 [required]
     */
-    Q_DECL_DEPRECATED void ezsigntemplatepackagemembershipGetObjectV1(const qint32 &pki_ezsigntemplatepackagemembership_id);
-
-    /**
-    * @param[in]  pki_ezsigntemplatepackagemembership_id qint32 [required]
-    */
     void ezsigntemplatepackagemembershipGetObjectV2(const qint32 &pki_ezsigntemplatepackagemembership_id);
 
 
@@ -107,29 +101,24 @@ private:
 
     void ezsigntemplatepackagemembershipCreateObjectV1Callback(OAIHttpRequestWorker *worker);
     void ezsigntemplatepackagemembershipDeleteObjectV1Callback(OAIHttpRequestWorker *worker);
-    void ezsigntemplatepackagemembershipGetObjectV1Callback(OAIHttpRequestWorker *worker);
     void ezsigntemplatepackagemembershipGetObjectV2Callback(OAIHttpRequestWorker *worker);
 
 signals:
 
     void ezsigntemplatepackagemembershipCreateObjectV1Signal(OAIEzsigntemplatepackagemembership_createObject_v1_Response summary);
     void ezsigntemplatepackagemembershipDeleteObjectV1Signal(OAIEzsigntemplatepackagemembership_deleteObject_v1_Response summary);
-    void ezsigntemplatepackagemembershipGetObjectV1Signal(OAIEzsigntemplatepackagemembership_getObject_v1_Response summary);
     void ezsigntemplatepackagemembershipGetObjectV2Signal(OAIEzsigntemplatepackagemembership_getObject_v2_Response summary);
 
     void ezsigntemplatepackagemembershipCreateObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsigntemplatepackagemembership_createObject_v1_Response summary);
     void ezsigntemplatepackagemembershipDeleteObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsigntemplatepackagemembership_deleteObject_v1_Response summary);
-    void ezsigntemplatepackagemembershipGetObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsigntemplatepackagemembership_getObject_v1_Response summary);
     void ezsigntemplatepackagemembershipGetObjectV2SignalFull(OAIHttpRequestWorker *worker, OAIEzsigntemplatepackagemembership_getObject_v2_Response summary);
 
     void ezsigntemplatepackagemembershipCreateObjectV1SignalE(OAIEzsigntemplatepackagemembership_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplatepackagemembershipDeleteObjectV1SignalE(OAIEzsigntemplatepackagemembership_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void ezsigntemplatepackagemembershipGetObjectV1SignalE(OAIEzsigntemplatepackagemembership_getObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplatepackagemembershipGetObjectV2SignalE(OAIEzsigntemplatepackagemembership_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
 
     void ezsigntemplatepackagemembershipCreateObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplatepackagemembershipDeleteObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
-    void ezsigntemplatepackagemembershipGetObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplatepackagemembershipGetObjectV2SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
 
     void abortRequestsSignal();

@@ -19,10 +19,7 @@
 #include "OAIOauth.h"
 
 #include "OAICommon_Response_Error.h"
-#include "OAICommunication_getList_v1_Response.h"
 #include "OAICommunication_getObject_v2_Response.h"
-#include "OAIHeader_Accept_Language.h"
-#include "OAIHttpFileElement.h"
 #include <QString>
 
 #include <QObject>
@@ -62,15 +59,6 @@ public:
     QString getParamStyleDelimiter(const QString &style, const QString &name, bool isExplode);
 
     /**
-    * @param[in]  e_order_by QString [optional]
-    * @param[in]  i_row_max qint32 [optional]
-    * @param[in]  i_row_offset qint32 [optional]
-    * @param[in]  accept_language OAIHeader_Accept_Language [optional]
-    * @param[in]  s_filter QString [optional]
-    */
-    void communicationGetListV1(const ::OpenAPI::OptionalParam<QString> &e_order_by = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<qint32> &i_row_max = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<qint32> &i_row_offset = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<OAIHeader_Accept_Language> &accept_language = ::OpenAPI::OptionalParam<OAIHeader_Accept_Language>(), const ::OpenAPI::OptionalParam<QString> &s_filter = ::OpenAPI::OptionalParam<QString>());
-
-    /**
     * @param[in]  pki_communication_id qint32 [required]
     */
     void communicationGetObjectV2(const qint32 &pki_communication_id);
@@ -98,21 +86,16 @@ private:
     OauthPassword _passwordFlow;
     int _OauthMethod = 0;
 
-    void communicationGetListV1Callback(OAIHttpRequestWorker *worker);
     void communicationGetObjectV2Callback(OAIHttpRequestWorker *worker);
 
 signals:
 
-    void communicationGetListV1Signal(OAICommunication_getList_v1_Response summary);
     void communicationGetObjectV2Signal(OAICommunication_getObject_v2_Response summary);
 
-    void communicationGetListV1SignalFull(OAIHttpRequestWorker *worker, OAICommunication_getList_v1_Response summary);
     void communicationGetObjectV2SignalFull(OAIHttpRequestWorker *worker, OAICommunication_getObject_v2_Response summary);
 
-    void communicationGetListV1SignalE(OAICommunication_getList_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void communicationGetObjectV2SignalE(OAICommunication_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
 
-    void communicationGetListV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void communicationGetObjectV2SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
 
     void abortRequestsSignal();

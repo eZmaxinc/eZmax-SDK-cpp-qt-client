@@ -53,8 +53,6 @@ void OAIObjectEzsignbulksenddocumentmappingApi::initializeServerConfigs() {
     _serverIndices.insert("ezsignbulksenddocumentmappingCreateObjectV1", 0);
     _serverConfigs.insert("ezsignbulksenddocumentmappingDeleteObjectV1", defaultConf);
     _serverIndices.insert("ezsignbulksenddocumentmappingDeleteObjectV1", 0);
-    _serverConfigs.insert("ezsignbulksenddocumentmappingGetObjectV1", defaultConf);
-    _serverIndices.insert("ezsignbulksenddocumentmappingGetObjectV1", 0);
     _serverConfigs.insert("ezsignbulksenddocumentmappingGetObjectV2", defaultConf);
     _serverIndices.insert("ezsignbulksenddocumentmappingGetObjectV2", 0);
 }
@@ -354,73 +352,6 @@ void OAIObjectEzsignbulksenddocumentmappingApi::ezsignbulksenddocumentmappingDel
     } else {
         emit ezsignbulksenddocumentmappingDeleteObjectV1SignalE(output, error_type, error_str);
         emit ezsignbulksenddocumentmappingDeleteObjectV1SignalEFull(worker, error_type, error_str);
-    }
-}
-
-void OAIObjectEzsignbulksenddocumentmappingApi::ezsignbulksenddocumentmappingGetObjectV1(const qint32 &pki_ezsignbulksenddocumentmapping_id) {
-    QString fullPath = QString(_serverConfigs["ezsignbulksenddocumentmappingGetObjectV1"][_serverIndices.value("ezsignbulksenddocumentmappingGetObjectV1")].URL()+"/1/object/ezsignbulksenddocumentmapping/{pkiEzsignbulksenddocumentmappingID}");
-    
-    if (_apiKeys.contains("Authorization")) {
-        addHeaders("Authorization",_apiKeys.find("Authorization").value());
-    }
-    
-    
-    {
-        QString pki_ezsignbulksenddocumentmapping_idPathParam("{");
-        pki_ezsignbulksenddocumentmapping_idPathParam.append("pkiEzsignbulksenddocumentmappingID").append("}");
-        QString pathPrefix, pathSuffix, pathDelimiter;
-        QString pathStyle = "simple";
-        if (pathStyle == "")
-            pathStyle = "simple";
-        pathPrefix = getParamStylePrefix(pathStyle);
-        pathSuffix = getParamStyleSuffix(pathStyle);
-        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignbulksenddocumentmappingID", false);
-        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignbulksenddocumentmappingID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsignbulksenddocumentmapping_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsignbulksenddocumentmapping_id)));
-    }
-    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
-    worker->setTimeOut(_timeOut);
-    worker->setWorkingDirectory(_workingDirectory);
-    OAIHttpRequestInput input(fullPath, "GET");
-
-
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
-    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
-        input.headers.insert(keyValueIt->first, keyValueIt->second);
-    }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
-
-    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIObjectEzsignbulksenddocumentmappingApi::ezsignbulksenddocumentmappingGetObjectV1Callback);
-    connect(this, &OAIObjectEzsignbulksenddocumentmappingApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
-        if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
-        }
-    });
-
-    worker->execute(&input);
-}
-
-void OAIObjectEzsignbulksenddocumentmappingApi::ezsignbulksenddocumentmappingGetObjectV1Callback(OAIHttpRequestWorker *worker) {
-    QString error_str = worker->error_str;
-    QNetworkReply::NetworkError error_type = worker->error_type;
-
-    if (worker->error_type != QNetworkReply::NoError) {
-        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
-    }
-    OAIEzsignbulksenddocumentmapping_getObject_v1_Response output(QString(worker->response));
-    worker->deleteLater();
-
-    if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsignbulksenddocumentmappingGetObjectV1Signal(output);
-        emit ezsignbulksenddocumentmappingGetObjectV1SignalFull(worker, output);
-    } else {
-        emit ezsignbulksenddocumentmappingGetObjectV1SignalE(output, error_type, error_str);
-        emit ezsignbulksenddocumentmappingGetObjectV1SignalEFull(worker, error_type, error_str);
     }
 }
 

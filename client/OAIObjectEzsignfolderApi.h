@@ -32,8 +32,11 @@
 #include "OAIEzsignfolder_editObject_v1_Request.h"
 #include "OAIEzsignfolder_editObject_v1_Response.h"
 #include "OAIEzsignfolder_getActionableElements_v1_Response.h"
+#include "OAIEzsignfolder_getCommunicationCount_v1_Response.h"
+#include "OAIEzsignfolder_getCommunicationList_v1_Response.h"
 #include "OAIEzsignfolder_getEzsigndocuments_v1_Response.h"
 #include "OAIEzsignfolder_getEzsignfoldersignerassociations_v1_Response.h"
+#include "OAIEzsignfolder_getEzsignsignaturesAutomatic_v1_Response.h"
 #include "OAIEzsignfolder_getFormsData_v1_Response.h"
 #include "OAIEzsignfolder_getList_v1_Response.h"
 #include "OAIEzsignfolder_getObject_v1_Response.h"
@@ -145,12 +148,27 @@ public:
     /**
     * @param[in]  pki_ezsignfolder_id qint32 [required]
     */
+    void ezsignfolderGetCommunicationCountV1(const qint32 &pki_ezsignfolder_id);
+
+    /**
+    * @param[in]  pki_ezsignfolder_id qint32 [required]
+    */
+    void ezsignfolderGetCommunicationListV1(const qint32 &pki_ezsignfolder_id);
+
+    /**
+    * @param[in]  pki_ezsignfolder_id qint32 [required]
+    */
     void ezsignfolderGetEzsigndocumentsV1(const qint32 &pki_ezsignfolder_id);
 
     /**
     * @param[in]  pki_ezsignfolder_id qint32 [required]
     */
     void ezsignfolderGetEzsignfoldersignerassociationsV1(const qint32 &pki_ezsignfolder_id);
+
+    /**
+    * @param[in]  pki_ezsignfolder_id qint32 [required]
+    */
+    void ezsignfolderGetEzsignsignaturesAutomaticV1(const qint32 &pki_ezsignfolder_id);
 
     /**
     * @param[in]  pki_ezsignfolder_id qint32 [required]
@@ -250,8 +268,11 @@ private:
     void ezsignfolderDisposeV1Callback(OAIHttpRequestWorker *worker);
     void ezsignfolderEditObjectV1Callback(OAIHttpRequestWorker *worker);
     void ezsignfolderGetActionableElementsV1Callback(OAIHttpRequestWorker *worker);
+    void ezsignfolderGetCommunicationCountV1Callback(OAIHttpRequestWorker *worker);
+    void ezsignfolderGetCommunicationListV1Callback(OAIHttpRequestWorker *worker);
     void ezsignfolderGetEzsigndocumentsV1Callback(OAIHttpRequestWorker *worker);
     void ezsignfolderGetEzsignfoldersignerassociationsV1Callback(OAIHttpRequestWorker *worker);
+    void ezsignfolderGetEzsignsignaturesAutomaticV1Callback(OAIHttpRequestWorker *worker);
     void ezsignfolderGetFormsDataV1Callback(OAIHttpRequestWorker *worker);
     void ezsignfolderGetListV1Callback(OAIHttpRequestWorker *worker);
     void ezsignfolderGetObjectV1Callback(OAIHttpRequestWorker *worker);
@@ -275,8 +296,11 @@ signals:
     void ezsignfolderDisposeV1Signal(OAIEzsignfolder_dispose_v1_Response summary);
     void ezsignfolderEditObjectV1Signal(OAIEzsignfolder_editObject_v1_Response summary);
     void ezsignfolderGetActionableElementsV1Signal(OAIEzsignfolder_getActionableElements_v1_Response summary);
+    void ezsignfolderGetCommunicationCountV1Signal(OAIEzsignfolder_getCommunicationCount_v1_Response summary);
+    void ezsignfolderGetCommunicationListV1Signal(OAIEzsignfolder_getCommunicationList_v1_Response summary);
     void ezsignfolderGetEzsigndocumentsV1Signal(OAIEzsignfolder_getEzsigndocuments_v1_Response summary);
     void ezsignfolderGetEzsignfoldersignerassociationsV1Signal(OAIEzsignfolder_getEzsignfoldersignerassociations_v1_Response summary);
+    void ezsignfolderGetEzsignsignaturesAutomaticV1Signal(OAIEzsignfolder_getEzsignsignaturesAutomatic_v1_Response summary);
     void ezsignfolderGetFormsDataV1Signal(OAIEzsignfolder_getFormsData_v1_Response summary);
     void ezsignfolderGetListV1Signal(OAIEzsignfolder_getList_v1_Response summary);
     void ezsignfolderGetObjectV1Signal(OAIEzsignfolder_getObject_v1_Response summary);
@@ -298,8 +322,11 @@ signals:
     void ezsignfolderDisposeV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsignfolder_dispose_v1_Response summary);
     void ezsignfolderEditObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsignfolder_editObject_v1_Response summary);
     void ezsignfolderGetActionableElementsV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsignfolder_getActionableElements_v1_Response summary);
+    void ezsignfolderGetCommunicationCountV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsignfolder_getCommunicationCount_v1_Response summary);
+    void ezsignfolderGetCommunicationListV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsignfolder_getCommunicationList_v1_Response summary);
     void ezsignfolderGetEzsigndocumentsV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsignfolder_getEzsigndocuments_v1_Response summary);
     void ezsignfolderGetEzsignfoldersignerassociationsV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsignfolder_getEzsignfoldersignerassociations_v1_Response summary);
+    void ezsignfolderGetEzsignsignaturesAutomaticV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsignfolder_getEzsignsignaturesAutomatic_v1_Response summary);
     void ezsignfolderGetFormsDataV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsignfolder_getFormsData_v1_Response summary);
     void ezsignfolderGetListV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsignfolder_getList_v1_Response summary);
     void ezsignfolderGetObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsignfolder_getObject_v1_Response summary);
@@ -321,8 +348,11 @@ signals:
     void ezsignfolderDisposeV1SignalE(OAIEzsignfolder_dispose_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfolderEditObjectV1SignalE(OAIEzsignfolder_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfolderGetActionableElementsV1SignalE(OAIEzsignfolder_getActionableElements_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfolderGetCommunicationCountV1SignalE(OAIEzsignfolder_getCommunicationCount_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfolderGetCommunicationListV1SignalE(OAIEzsignfolder_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfolderGetEzsigndocumentsV1SignalE(OAIEzsignfolder_getEzsigndocuments_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfolderGetEzsignfoldersignerassociationsV1SignalE(OAIEzsignfolder_getEzsignfoldersignerassociations_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfolderGetEzsignsignaturesAutomaticV1SignalE(OAIEzsignfolder_getEzsignsignaturesAutomatic_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfolderGetFormsDataV1SignalE(OAIEzsignfolder_getFormsData_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfolderGetListV1SignalE(OAIEzsignfolder_getList_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfolderGetObjectV1SignalE(OAIEzsignfolder_getObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
@@ -344,8 +374,11 @@ signals:
     void ezsignfolderDisposeV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfolderEditObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfolderGetActionableElementsV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfolderGetCommunicationCountV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfolderGetCommunicationListV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfolderGetEzsigndocumentsV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfolderGetEzsignfoldersignerassociationsV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfolderGetEzsignsignaturesAutomaticV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfolderGetFormsDataV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfolderGetListV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfolderGetObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);

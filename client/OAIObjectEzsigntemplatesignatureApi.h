@@ -24,7 +24,6 @@
 #include "OAIEzsigntemplatesignature_deleteObject_v1_Response.h"
 #include "OAIEzsigntemplatesignature_editObject_v1_Request.h"
 #include "OAIEzsigntemplatesignature_editObject_v1_Response.h"
-#include "OAIEzsigntemplatesignature_getObject_v1_Response.h"
 #include "OAIEzsigntemplatesignature_getObject_v2_Response.h"
 #include <QString>
 
@@ -83,11 +82,6 @@ public:
     /**
     * @param[in]  pki_ezsigntemplatesignature_id qint32 [required]
     */
-    Q_DECL_DEPRECATED void ezsigntemplatesignatureGetObjectV1(const qint32 &pki_ezsigntemplatesignature_id);
-
-    /**
-    * @param[in]  pki_ezsigntemplatesignature_id qint32 [required]
-    */
     void ezsigntemplatesignatureGetObjectV2(const qint32 &pki_ezsigntemplatesignature_id);
 
 
@@ -116,7 +110,6 @@ private:
     void ezsigntemplatesignatureCreateObjectV1Callback(OAIHttpRequestWorker *worker);
     void ezsigntemplatesignatureDeleteObjectV1Callback(OAIHttpRequestWorker *worker);
     void ezsigntemplatesignatureEditObjectV1Callback(OAIHttpRequestWorker *worker);
-    void ezsigntemplatesignatureGetObjectV1Callback(OAIHttpRequestWorker *worker);
     void ezsigntemplatesignatureGetObjectV2Callback(OAIHttpRequestWorker *worker);
 
 signals:
@@ -124,25 +117,21 @@ signals:
     void ezsigntemplatesignatureCreateObjectV1Signal(OAIEzsigntemplatesignature_createObject_v1_Response summary);
     void ezsigntemplatesignatureDeleteObjectV1Signal(OAIEzsigntemplatesignature_deleteObject_v1_Response summary);
     void ezsigntemplatesignatureEditObjectV1Signal(OAIEzsigntemplatesignature_editObject_v1_Response summary);
-    void ezsigntemplatesignatureGetObjectV1Signal(OAIEzsigntemplatesignature_getObject_v1_Response summary);
     void ezsigntemplatesignatureGetObjectV2Signal(OAIEzsigntemplatesignature_getObject_v2_Response summary);
 
     void ezsigntemplatesignatureCreateObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsigntemplatesignature_createObject_v1_Response summary);
     void ezsigntemplatesignatureDeleteObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsigntemplatesignature_deleteObject_v1_Response summary);
     void ezsigntemplatesignatureEditObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsigntemplatesignature_editObject_v1_Response summary);
-    void ezsigntemplatesignatureGetObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsigntemplatesignature_getObject_v1_Response summary);
     void ezsigntemplatesignatureGetObjectV2SignalFull(OAIHttpRequestWorker *worker, OAIEzsigntemplatesignature_getObject_v2_Response summary);
 
     void ezsigntemplatesignatureCreateObjectV1SignalE(OAIEzsigntemplatesignature_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplatesignatureDeleteObjectV1SignalE(OAIEzsigntemplatesignature_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplatesignatureEditObjectV1SignalE(OAIEzsigntemplatesignature_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void ezsigntemplatesignatureGetObjectV1SignalE(OAIEzsigntemplatesignature_getObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplatesignatureGetObjectV2SignalE(OAIEzsigntemplatesignature_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
 
     void ezsigntemplatesignatureCreateObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplatesignatureDeleteObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplatesignatureEditObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
-    void ezsigntemplatesignatureGetObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplatesignatureGetObjectV2SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
 
     void abortRequestsSignal();

@@ -48,6 +48,9 @@ void OAIEzsigntemplatedocument_Response::initializeModel() {
 
     m_i_ezsigntemplatedocument_signaturetotal_isSet = false;
     m_i_ezsigntemplatedocument_signaturetotal_isValid = false;
+
+    m_b_ezsigntemplatedocument_hassignedsignatures_isSet = false;
+    m_b_ezsigntemplatedocument_hassignedsignatures_isValid = false;
 }
 
 void OAIEzsigntemplatedocument_Response::fromJson(QString jsonString) {
@@ -73,6 +76,9 @@ void OAIEzsigntemplatedocument_Response::fromJsonObject(QJsonObject json) {
 
     m_i_ezsigntemplatedocument_signaturetotal_isValid = ::OpenAPI::fromJsonValue(i_ezsigntemplatedocument_signaturetotal, json[QString("iEzsigntemplatedocumentSignaturetotal")]);
     m_i_ezsigntemplatedocument_signaturetotal_isSet = !json[QString("iEzsigntemplatedocumentSignaturetotal")].isNull() && m_i_ezsigntemplatedocument_signaturetotal_isValid;
+
+    m_b_ezsigntemplatedocument_hassignedsignatures_isValid = ::OpenAPI::fromJsonValue(b_ezsigntemplatedocument_hassignedsignatures, json[QString("bEzsigntemplatedocumentHassignedsignatures")]);
+    m_b_ezsigntemplatedocument_hassignedsignatures_isSet = !json[QString("bEzsigntemplatedocumentHassignedsignatures")].isNull() && m_b_ezsigntemplatedocument_hassignedsignatures_isValid;
 }
 
 QString OAIEzsigntemplatedocument_Response::asJson() const {
@@ -98,6 +104,9 @@ QJsonObject OAIEzsigntemplatedocument_Response::asJsonObject() const {
     }
     if (m_i_ezsigntemplatedocument_signaturetotal_isSet) {
         obj.insert(QString("iEzsigntemplatedocumentSignaturetotal"), ::OpenAPI::toJsonValue(i_ezsigntemplatedocument_signaturetotal));
+    }
+    if (m_b_ezsigntemplatedocument_hassignedsignatures_isSet) {
+        obj.insert(QString("bEzsigntemplatedocumentHassignedsignatures"), ::OpenAPI::toJsonValue(b_ezsigntemplatedocument_hassignedsignatures));
     }
     return obj;
 }
@@ -182,6 +191,22 @@ bool OAIEzsigntemplatedocument_Response::is_i_ezsigntemplatedocument_signatureto
     return m_i_ezsigntemplatedocument_signaturetotal_isValid;
 }
 
+bool OAIEzsigntemplatedocument_Response::isBEzsigntemplatedocumentHassignedsignatures() const {
+    return b_ezsigntemplatedocument_hassignedsignatures;
+}
+void OAIEzsigntemplatedocument_Response::setBEzsigntemplatedocumentHassignedsignatures(const bool &b_ezsigntemplatedocument_hassignedsignatures) {
+    this->b_ezsigntemplatedocument_hassignedsignatures = b_ezsigntemplatedocument_hassignedsignatures;
+    this->m_b_ezsigntemplatedocument_hassignedsignatures_isSet = true;
+}
+
+bool OAIEzsigntemplatedocument_Response::is_b_ezsigntemplatedocument_hassignedsignatures_Set() const{
+    return m_b_ezsigntemplatedocument_hassignedsignatures_isSet;
+}
+
+bool OAIEzsigntemplatedocument_Response::is_b_ezsigntemplatedocument_hassignedsignatures_Valid() const{
+    return m_b_ezsigntemplatedocument_hassignedsignatures_isValid;
+}
+
 bool OAIEzsigntemplatedocument_Response::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -209,13 +234,18 @@ bool OAIEzsigntemplatedocument_Response::isSet() const {
             isObjectUpdated = true;
             break;
         }
+
+        if (m_b_ezsigntemplatedocument_hassignedsignatures_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
     } while (false);
     return isObjectUpdated;
 }
 
 bool OAIEzsigntemplatedocument_Response::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_pki_ezsigntemplatedocument_id_isValid && m_fki_ezsigntemplate_id_isValid && m_s_ezsigntemplatedocument_name_isValid && m_i_ezsigntemplatedocument_pagetotal_isValid && m_i_ezsigntemplatedocument_signaturetotal_isValid && true;
+    return m_pki_ezsigntemplatedocument_id_isValid && m_fki_ezsigntemplate_id_isValid && m_s_ezsigntemplatedocument_name_isValid && m_i_ezsigntemplatedocument_pagetotal_isValid && m_i_ezsigntemplatedocument_signaturetotal_isValid && m_b_ezsigntemplatedocument_hassignedsignatures_isValid && true;
 }
 
 } // namespace OpenAPI

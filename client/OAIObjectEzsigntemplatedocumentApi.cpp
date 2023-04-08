@@ -57,14 +57,14 @@ void OAIObjectEzsigntemplatedocumentApi::initializeServerConfigs() {
     _serverIndices.insert("ezsigntemplatedocumentEditEzsigntemplatesignaturesV1", 0);
     _serverConfigs.insert("ezsigntemplatedocumentEditObjectV1", defaultConf);
     _serverIndices.insert("ezsigntemplatedocumentEditObjectV1", 0);
+    _serverConfigs.insert("ezsigntemplatedocumentFlattenV1", defaultConf);
+    _serverIndices.insert("ezsigntemplatedocumentFlattenV1", 0);
     _serverConfigs.insert("ezsigntemplatedocumentGetEzsigntemplatedocumentpagesV1", defaultConf);
     _serverIndices.insert("ezsigntemplatedocumentGetEzsigntemplatedocumentpagesV1", 0);
     _serverConfigs.insert("ezsigntemplatedocumentGetEzsigntemplateformfieldgroupsV1", defaultConf);
     _serverIndices.insert("ezsigntemplatedocumentGetEzsigntemplateformfieldgroupsV1", 0);
     _serverConfigs.insert("ezsigntemplatedocumentGetEzsigntemplatesignaturesV1", defaultConf);
     _serverIndices.insert("ezsigntemplatedocumentGetEzsigntemplatesignaturesV1", 0);
-    _serverConfigs.insert("ezsigntemplatedocumentGetObjectV1", defaultConf);
-    _serverIndices.insert("ezsigntemplatedocumentGetObjectV1", 0);
     _serverConfigs.insert("ezsigntemplatedocumentGetObjectV2", defaultConf);
     _serverIndices.insert("ezsigntemplatedocumentGetObjectV2", 0);
     _serverConfigs.insert("ezsigntemplatedocumentGetWordsPositionsV1", defaultConf);
@@ -520,6 +520,78 @@ void OAIObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentEditObjectV1Callb
     }
 }
 
+void OAIObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentFlattenV1(const qint32 &pki_ezsigntemplatedocument_id, const OAIObject &body) {
+    QString fullPath = QString(_serverConfigs["ezsigntemplatedocumentFlattenV1"][_serverIndices.value("ezsigntemplatedocumentFlattenV1")].URL()+"/1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/flatten");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_ezsigntemplatedocument_idPathParam("{");
+        pki_ezsigntemplatedocument_idPathParam.append("pkiEzsigntemplatedocumentID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsigntemplatedocumentID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsigntemplatedocumentID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_ezsigntemplatedocument_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsigntemplatedocument_id)));
+    }
+    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    OAIHttpRequestInput input(fullPath, "POST");
+
+    {
+
+        
+        QByteArray output = body.asJson().toUtf8();
+        input.request_body.append(output);
+    }
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+#else
+    for (auto key : _defaultHeaders.keys()) {
+        input.headers.insert(key, _defaultHeaders[key]);
+    }
+#endif
+
+    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentFlattenV1Callback);
+    connect(this, &OAIObjectEzsigntemplatedocumentApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this]() {
+        if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
+            emit allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void OAIObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentFlattenV1Callback(OAIHttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    OAIEzsigntemplatedocument_flatten_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit ezsigntemplatedocumentFlattenV1Signal(output);
+        emit ezsigntemplatedocumentFlattenV1SignalFull(worker, output);
+    } else {
+        emit ezsigntemplatedocumentFlattenV1SignalE(output, error_type, error_str);
+        emit ezsigntemplatedocumentFlattenV1SignalEFull(worker, error_type, error_str);
+    }
+}
+
 void OAIObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentGetEzsigntemplatedocumentpagesV1(const qint32 &pki_ezsigntemplatedocument_id) {
     QString fullPath = QString(_serverConfigs["ezsigntemplatedocumentGetEzsigntemplatedocumentpagesV1"][_serverIndices.value("ezsigntemplatedocumentGetEzsigntemplatedocumentpagesV1")].URL()+"/1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/getEzsigntemplatedocumentpages");
     
@@ -718,73 +790,6 @@ void OAIObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentGetEzsigntemplate
     } else {
         emit ezsigntemplatedocumentGetEzsigntemplatesignaturesV1SignalE(output, error_type, error_str);
         emit ezsigntemplatedocumentGetEzsigntemplatesignaturesV1SignalEFull(worker, error_type, error_str);
-    }
-}
-
-void OAIObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentGetObjectV1(const qint32 &pki_ezsigntemplatedocument_id) {
-    QString fullPath = QString(_serverConfigs["ezsigntemplatedocumentGetObjectV1"][_serverIndices.value("ezsigntemplatedocumentGetObjectV1")].URL()+"/1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}");
-    
-    if (_apiKeys.contains("Authorization")) {
-        addHeaders("Authorization",_apiKeys.find("Authorization").value());
-    }
-    
-    
-    {
-        QString pki_ezsigntemplatedocument_idPathParam("{");
-        pki_ezsigntemplatedocument_idPathParam.append("pkiEzsigntemplatedocumentID").append("}");
-        QString pathPrefix, pathSuffix, pathDelimiter;
-        QString pathStyle = "simple";
-        if (pathStyle == "")
-            pathStyle = "simple";
-        pathPrefix = getParamStylePrefix(pathStyle);
-        pathSuffix = getParamStyleSuffix(pathStyle);
-        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsigntemplatedocumentID", false);
-        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsigntemplatedocumentID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsigntemplatedocument_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsigntemplatedocument_id)));
-    }
-    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
-    worker->setTimeOut(_timeOut);
-    worker->setWorkingDirectory(_workingDirectory);
-    OAIHttpRequestInput input(fullPath, "GET");
-
-
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
-    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
-        input.headers.insert(keyValueIt->first, keyValueIt->second);
-    }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
-
-    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentGetObjectV1Callback);
-    connect(this, &OAIObjectEzsigntemplatedocumentApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
-        if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
-        }
-    });
-
-    worker->execute(&input);
-}
-
-void OAIObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentGetObjectV1Callback(OAIHttpRequestWorker *worker) {
-    QString error_str = worker->error_str;
-    QNetworkReply::NetworkError error_type = worker->error_type;
-
-    if (worker->error_type != QNetworkReply::NoError) {
-        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
-    }
-    OAIEzsigntemplatedocument_getObject_v1_Response output(QString(worker->response));
-    worker->deleteLater();
-
-    if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsigntemplatedocumentGetObjectV1Signal(output);
-        emit ezsigntemplatedocumentGetObjectV1SignalFull(worker, output);
-    } else {
-        emit ezsigntemplatedocumentGetObjectV1SignalE(output, error_type, error_str);
-        emit ezsigntemplatedocumentGetObjectV1SignalEFull(worker, error_type, error_str);
     }
 }
 

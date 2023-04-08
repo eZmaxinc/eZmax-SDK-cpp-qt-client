@@ -24,6 +24,7 @@
 #include "OAICustom_EzsignfoldertransmissionSigner_Response.h"
 #include "OAIField_eEzsignfolderStep.h"
 #include <QList>
+#include <QString>
 
 #include "OAIEnum.h"
 #include "OAIObject.h"
@@ -46,6 +47,11 @@ public:
     void setPkiEzsignfolderId(const qint32 &pki_ezsignfolder_id);
     bool is_pki_ezsignfolder_id_Set() const;
     bool is_pki_ezsignfolder_id_Valid() const;
+
+    QString getSEzsignfolderDescription() const;
+    void setSEzsignfolderDescription(const QString &s_ezsignfolder_description);
+    bool is_s_ezsignfolder_description_Set() const;
+    bool is_s_ezsignfolder_description_Valid() const;
 
     OAIField_eEzsignfolderStep getEEzsignfolderStep() const;
     void setEEzsignfolderStep(const OAIField_eEzsignfolderStep &e_ezsignfolder_step);
@@ -76,6 +82,10 @@ private:
     qint32 pki_ezsignfolder_id;
     bool m_pki_ezsignfolder_id_isSet;
     bool m_pki_ezsignfolder_id_isValid;
+
+    QString s_ezsignfolder_description;
+    bool m_s_ezsignfolder_description_isSet;
+    bool m_s_ezsignfolder_description_isValid;
 
     OAIField_eEzsignfolderStep e_ezsignfolder_step;
     bool m_e_ezsignfolder_step_isSet;

@@ -55,8 +55,6 @@ void OAIObjectEzsignformfieldgroupApi::initializeServerConfigs() {
     _serverIndices.insert("ezsignformfieldgroupDeleteObjectV1", 0);
     _serverConfigs.insert("ezsignformfieldgroupEditObjectV1", defaultConf);
     _serverIndices.insert("ezsignformfieldgroupEditObjectV1", 0);
-    _serverConfigs.insert("ezsignformfieldgroupGetObjectV1", defaultConf);
-    _serverIndices.insert("ezsignformfieldgroupGetObjectV1", 0);
     _serverConfigs.insert("ezsignformfieldgroupGetObjectV2", defaultConf);
     _serverIndices.insert("ezsignformfieldgroupGetObjectV2", 0);
 }
@@ -428,73 +426,6 @@ void OAIObjectEzsignformfieldgroupApi::ezsignformfieldgroupEditObjectV1Callback(
     } else {
         emit ezsignformfieldgroupEditObjectV1SignalE(output, error_type, error_str);
         emit ezsignformfieldgroupEditObjectV1SignalEFull(worker, error_type, error_str);
-    }
-}
-
-void OAIObjectEzsignformfieldgroupApi::ezsignformfieldgroupGetObjectV1(const qint32 &pki_ezsignformfieldgroup_id) {
-    QString fullPath = QString(_serverConfigs["ezsignformfieldgroupGetObjectV1"][_serverIndices.value("ezsignformfieldgroupGetObjectV1")].URL()+"/1/object/ezsignformfieldgroup/{pkiEzsignformfieldgroupID}");
-    
-    if (_apiKeys.contains("Authorization")) {
-        addHeaders("Authorization",_apiKeys.find("Authorization").value());
-    }
-    
-    
-    {
-        QString pki_ezsignformfieldgroup_idPathParam("{");
-        pki_ezsignformfieldgroup_idPathParam.append("pkiEzsignformfieldgroupID").append("}");
-        QString pathPrefix, pathSuffix, pathDelimiter;
-        QString pathStyle = "simple";
-        if (pathStyle == "")
-            pathStyle = "simple";
-        pathPrefix = getParamStylePrefix(pathStyle);
-        pathSuffix = getParamStyleSuffix(pathStyle);
-        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignformfieldgroupID", false);
-        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignformfieldgroupID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsignformfieldgroup_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsignformfieldgroup_id)));
-    }
-    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
-    worker->setTimeOut(_timeOut);
-    worker->setWorkingDirectory(_workingDirectory);
-    OAIHttpRequestInput input(fullPath, "GET");
-
-
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
-    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
-        input.headers.insert(keyValueIt->first, keyValueIt->second);
-    }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
-
-    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIObjectEzsignformfieldgroupApi::ezsignformfieldgroupGetObjectV1Callback);
-    connect(this, &OAIObjectEzsignformfieldgroupApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
-        if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
-        }
-    });
-
-    worker->execute(&input);
-}
-
-void OAIObjectEzsignformfieldgroupApi::ezsignformfieldgroupGetObjectV1Callback(OAIHttpRequestWorker *worker) {
-    QString error_str = worker->error_str;
-    QNetworkReply::NetworkError error_type = worker->error_type;
-
-    if (worker->error_type != QNetworkReply::NoError) {
-        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
-    }
-    OAIEzsignformfieldgroup_getObject_v1_Response output(QString(worker->response));
-    worker->deleteLater();
-
-    if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsignformfieldgroupGetObjectV1Signal(output);
-        emit ezsignformfieldgroupGetObjectV1SignalFull(worker, output);
-    } else {
-        emit ezsignformfieldgroupGetObjectV1SignalE(output, error_type, error_str);
-        emit ezsignformfieldgroupGetObjectV1SignalEFull(worker, error_type, error_str);
     }
 }
 

@@ -40,6 +40,12 @@ void OAIPaymentterm_RequestCompound::initializeModel() {
     m_s_paymentterm_code_isSet = false;
     m_s_paymentterm_code_isValid = false;
 
+    m_e_paymentterm_type_isSet = false;
+    m_e_paymentterm_type_isValid = false;
+
+    m_i_paymentterm_day_isSet = false;
+    m_i_paymentterm_day_isValid = false;
+
     m_obj_paymentterm_description_isSet = false;
     m_obj_paymentterm_description_isValid = false;
 
@@ -62,6 +68,12 @@ void OAIPaymentterm_RequestCompound::fromJsonObject(QJsonObject json) {
     m_s_paymentterm_code_isValid = ::OpenAPI::fromJsonValue(s_paymentterm_code, json[QString("sPaymenttermCode")]);
     m_s_paymentterm_code_isSet = !json[QString("sPaymenttermCode")].isNull() && m_s_paymentterm_code_isValid;
 
+    m_e_paymentterm_type_isValid = ::OpenAPI::fromJsonValue(e_paymentterm_type, json[QString("ePaymenttermType")]);
+    m_e_paymentterm_type_isSet = !json[QString("ePaymenttermType")].isNull() && m_e_paymentterm_type_isValid;
+
+    m_i_paymentterm_day_isValid = ::OpenAPI::fromJsonValue(i_paymentterm_day, json[QString("iPaymenttermDay")]);
+    m_i_paymentterm_day_isSet = !json[QString("iPaymenttermDay")].isNull() && m_i_paymentterm_day_isValid;
+
     m_obj_paymentterm_description_isValid = ::OpenAPI::fromJsonValue(obj_paymentterm_description, json[QString("objPaymenttermDescription")]);
     m_obj_paymentterm_description_isSet = !json[QString("objPaymenttermDescription")].isNull() && m_obj_paymentterm_description_isValid;
 
@@ -83,6 +95,12 @@ QJsonObject OAIPaymentterm_RequestCompound::asJsonObject() const {
     }
     if (m_s_paymentterm_code_isSet) {
         obj.insert(QString("sPaymenttermCode"), ::OpenAPI::toJsonValue(s_paymentterm_code));
+    }
+    if (e_paymentterm_type.isSet()) {
+        obj.insert(QString("ePaymenttermType"), ::OpenAPI::toJsonValue(e_paymentterm_type));
+    }
+    if (m_i_paymentterm_day_isSet) {
+        obj.insert(QString("iPaymenttermDay"), ::OpenAPI::toJsonValue(i_paymentterm_day));
     }
     if (obj_paymentterm_description.isSet()) {
         obj.insert(QString("objPaymenttermDescription"), ::OpenAPI::toJsonValue(obj_paymentterm_description));
@@ -123,6 +141,38 @@ bool OAIPaymentterm_RequestCompound::is_s_paymentterm_code_Set() const{
 
 bool OAIPaymentterm_RequestCompound::is_s_paymentterm_code_Valid() const{
     return m_s_paymentterm_code_isValid;
+}
+
+OAIField_ePaymenttermType OAIPaymentterm_RequestCompound::getEPaymenttermType() const {
+    return e_paymentterm_type;
+}
+void OAIPaymentterm_RequestCompound::setEPaymenttermType(const OAIField_ePaymenttermType &e_paymentterm_type) {
+    this->e_paymentterm_type = e_paymentterm_type;
+    this->m_e_paymentterm_type_isSet = true;
+}
+
+bool OAIPaymentterm_RequestCompound::is_e_paymentterm_type_Set() const{
+    return m_e_paymentterm_type_isSet;
+}
+
+bool OAIPaymentterm_RequestCompound::is_e_paymentterm_type_Valid() const{
+    return m_e_paymentterm_type_isValid;
+}
+
+qint32 OAIPaymentterm_RequestCompound::getIPaymenttermDay() const {
+    return i_paymentterm_day;
+}
+void OAIPaymentterm_RequestCompound::setIPaymenttermDay(const qint32 &i_paymentterm_day) {
+    this->i_paymentterm_day = i_paymentterm_day;
+    this->m_i_paymentterm_day_isSet = true;
+}
+
+bool OAIPaymentterm_RequestCompound::is_i_paymentterm_day_Set() const{
+    return m_i_paymentterm_day_isSet;
+}
+
+bool OAIPaymentterm_RequestCompound::is_i_paymentterm_day_Valid() const{
+    return m_i_paymentterm_day_isValid;
 }
 
 OAIMultilingual_PaymenttermDescription OAIPaymentterm_RequestCompound::getObjPaymenttermDescription() const {
@@ -170,6 +220,16 @@ bool OAIPaymentterm_RequestCompound::isSet() const {
             break;
         }
 
+        if (e_paymentterm_type.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_i_paymentterm_day_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (obj_paymentterm_description.isSet()) {
             isObjectUpdated = true;
             break;
@@ -185,7 +245,7 @@ bool OAIPaymentterm_RequestCompound::isSet() const {
 
 bool OAIPaymentterm_RequestCompound::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_s_paymentterm_code_isValid && m_obj_paymentterm_description_isValid && m_b_paymentterm_isactive_isValid && true;
+    return m_s_paymentterm_code_isValid && m_e_paymentterm_type_isValid && m_i_paymentterm_day_isValid && m_obj_paymentterm_description_isValid && m_b_paymentterm_isactive_isValid && true;
 }
 
 } // namespace OpenAPI

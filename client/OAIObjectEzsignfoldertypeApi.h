@@ -26,7 +26,6 @@
 #include "OAIEzsignfoldertype_editObject_v1_Response.h"
 #include "OAIEzsignfoldertype_getAutocomplete_v2_Response.h"
 #include "OAIEzsignfoldertype_getList_v1_Response.h"
-#include "OAIEzsignfoldertype_getObject_v1_Response.h"
 #include "OAIEzsignfoldertype_getObject_v2_Response.h"
 #include "OAIHeader_Accept_Language.h"
 #include "OAIHttpFileElement.h"
@@ -107,11 +106,6 @@ public:
     /**
     * @param[in]  pki_ezsignfoldertype_id qint32 [required]
     */
-    Q_DECL_DEPRECATED void ezsignfoldertypeGetObjectV1(const qint32 &pki_ezsignfoldertype_id);
-
-    /**
-    * @param[in]  pki_ezsignfoldertype_id qint32 [required]
-    */
     void ezsignfoldertypeGetObjectV2(const qint32 &pki_ezsignfoldertype_id);
 
 
@@ -142,7 +136,6 @@ private:
     void ezsignfoldertypeGetAutocompleteV1Callback(OAIHttpRequestWorker *worker);
     void ezsignfoldertypeGetAutocompleteV2Callback(OAIHttpRequestWorker *worker);
     void ezsignfoldertypeGetListV1Callback(OAIHttpRequestWorker *worker);
-    void ezsignfoldertypeGetObjectV1Callback(OAIHttpRequestWorker *worker);
     void ezsignfoldertypeGetObjectV2Callback(OAIHttpRequestWorker *worker);
 
 signals:
@@ -152,7 +145,6 @@ signals:
     void ezsignfoldertypeGetAutocompleteV1Signal(OAICommon_getAutocomplete_v1_Response summary);
     void ezsignfoldertypeGetAutocompleteV2Signal(OAIEzsignfoldertype_getAutocomplete_v2_Response summary);
     void ezsignfoldertypeGetListV1Signal(OAIEzsignfoldertype_getList_v1_Response summary);
-    void ezsignfoldertypeGetObjectV1Signal(OAIEzsignfoldertype_getObject_v1_Response summary);
     void ezsignfoldertypeGetObjectV2Signal(OAIEzsignfoldertype_getObject_v2_Response summary);
 
     void ezsignfoldertypeCreateObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsignfoldertype_createObject_v1_Response summary);
@@ -160,7 +152,6 @@ signals:
     void ezsignfoldertypeGetAutocompleteV1SignalFull(OAIHttpRequestWorker *worker, OAICommon_getAutocomplete_v1_Response summary);
     void ezsignfoldertypeGetAutocompleteV2SignalFull(OAIHttpRequestWorker *worker, OAIEzsignfoldertype_getAutocomplete_v2_Response summary);
     void ezsignfoldertypeGetListV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsignfoldertype_getList_v1_Response summary);
-    void ezsignfoldertypeGetObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsignfoldertype_getObject_v1_Response summary);
     void ezsignfoldertypeGetObjectV2SignalFull(OAIHttpRequestWorker *worker, OAIEzsignfoldertype_getObject_v2_Response summary);
 
     void ezsignfoldertypeCreateObjectV1SignalE(OAIEzsignfoldertype_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
@@ -168,7 +159,6 @@ signals:
     void ezsignfoldertypeGetAutocompleteV1SignalE(OAICommon_getAutocomplete_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfoldertypeGetAutocompleteV2SignalE(OAIEzsignfoldertype_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfoldertypeGetListV1SignalE(OAIEzsignfoldertype_getList_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void ezsignfoldertypeGetObjectV1SignalE(OAIEzsignfoldertype_getObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfoldertypeGetObjectV2SignalE(OAIEzsignfoldertype_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
 
     void ezsignfoldertypeCreateObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
@@ -176,7 +166,6 @@ signals:
     void ezsignfoldertypeGetAutocompleteV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfoldertypeGetAutocompleteV2SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfoldertypeGetListV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
-    void ezsignfoldertypeGetObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfoldertypeGetObjectV2SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
 
     void abortRequestsSignal();

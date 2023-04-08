@@ -18,7 +18,6 @@
 #include "OAIServerConfiguration.h"
 #include "OAIOauth.h"
 
-#include "OAICommon_getAutocomplete_v1_Response.h"
 #include "OAIHeader_Accept_Language.h"
 #include "OAISecretquestion_getAutocomplete_v2_Response.h"
 #include <QString>
@@ -65,14 +64,6 @@ public:
     * @param[in]  s_query QString [optional]
     * @param[in]  accept_language OAIHeader_Accept_Language [optional]
     */
-    Q_DECL_DEPRECATED void secretquestionGetAutocompleteV1(const QString &s_selector, const ::OpenAPI::OptionalParam<QString> &e_filter_active = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &s_query = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<OAIHeader_Accept_Language> &accept_language = ::OpenAPI::OptionalParam<OAIHeader_Accept_Language>());
-
-    /**
-    * @param[in]  s_selector QString [required]
-    * @param[in]  e_filter_active QString [optional]
-    * @param[in]  s_query QString [optional]
-    * @param[in]  accept_language OAIHeader_Accept_Language [optional]
-    */
     void secretquestionGetAutocompleteV2(const QString &s_selector, const ::OpenAPI::OptionalParam<QString> &e_filter_active = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &s_query = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<OAIHeader_Accept_Language> &accept_language = ::OpenAPI::OptionalParam<OAIHeader_Accept_Language>());
 
 
@@ -98,21 +89,16 @@ private:
     OauthPassword _passwordFlow;
     int _OauthMethod = 0;
 
-    void secretquestionGetAutocompleteV1Callback(OAIHttpRequestWorker *worker);
     void secretquestionGetAutocompleteV2Callback(OAIHttpRequestWorker *worker);
 
 signals:
 
-    void secretquestionGetAutocompleteV1Signal(OAICommon_getAutocomplete_v1_Response summary);
     void secretquestionGetAutocompleteV2Signal(OAISecretquestion_getAutocomplete_v2_Response summary);
 
-    void secretquestionGetAutocompleteV1SignalFull(OAIHttpRequestWorker *worker, OAICommon_getAutocomplete_v1_Response summary);
     void secretquestionGetAutocompleteV2SignalFull(OAIHttpRequestWorker *worker, OAISecretquestion_getAutocomplete_v2_Response summary);
 
-    void secretquestionGetAutocompleteV1SignalE(OAICommon_getAutocomplete_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void secretquestionGetAutocompleteV2SignalE(OAISecretquestion_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
 
-    void secretquestionGetAutocompleteV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void secretquestionGetAutocompleteV2SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
 
     void abortRequestsSignal();

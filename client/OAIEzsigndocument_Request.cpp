@@ -75,6 +75,9 @@ void OAIEzsigndocument_Request::initializeModel() {
 
     m_s_ezsigndocument_name_isSet = false;
     m_s_ezsigndocument_name_isValid = false;
+
+    m_s_ezsigndocument_externalid_isSet = false;
+    m_s_ezsigndocument_externalid_isValid = false;
 }
 
 void OAIEzsigndocument_Request::fromJson(QString jsonString) {
@@ -127,6 +130,9 @@ void OAIEzsigndocument_Request::fromJsonObject(QJsonObject json) {
 
     m_s_ezsigndocument_name_isValid = ::OpenAPI::fromJsonValue(s_ezsigndocument_name, json[QString("sEzsigndocumentName")]);
     m_s_ezsigndocument_name_isSet = !json[QString("sEzsigndocumentName")].isNull() && m_s_ezsigndocument_name_isValid;
+
+    m_s_ezsigndocument_externalid_isValid = ::OpenAPI::fromJsonValue(s_ezsigndocument_externalid, json[QString("sEzsigndocumentExternalid")]);
+    m_s_ezsigndocument_externalid_isSet = !json[QString("sEzsigndocumentExternalid")].isNull() && m_s_ezsigndocument_externalid_isValid;
 }
 
 QString OAIEzsigndocument_Request::asJson() const {
@@ -179,6 +185,9 @@ QJsonObject OAIEzsigndocument_Request::asJsonObject() const {
     }
     if (m_s_ezsigndocument_name_isSet) {
         obj.insert(QString("sEzsigndocumentName"), ::OpenAPI::toJsonValue(s_ezsigndocument_name));
+    }
+    if (m_s_ezsigndocument_externalid_isSet) {
+        obj.insert(QString("sEzsigndocumentExternalid"), ::OpenAPI::toJsonValue(s_ezsigndocument_externalid));
     }
     return obj;
 }
@@ -407,6 +416,22 @@ bool OAIEzsigndocument_Request::is_s_ezsigndocument_name_Valid() const{
     return m_s_ezsigndocument_name_isValid;
 }
 
+QString OAIEzsigndocument_Request::getSEzsigndocumentExternalid() const {
+    return s_ezsigndocument_externalid;
+}
+void OAIEzsigndocument_Request::setSEzsigndocumentExternalid(const QString &s_ezsigndocument_externalid) {
+    this->s_ezsigndocument_externalid = s_ezsigndocument_externalid;
+    this->m_s_ezsigndocument_externalid_isSet = true;
+}
+
+bool OAIEzsigndocument_Request::is_s_ezsigndocument_externalid_Set() const{
+    return m_s_ezsigndocument_externalid_isSet;
+}
+
+bool OAIEzsigndocument_Request::is_s_ezsigndocument_externalid_Valid() const{
+    return m_s_ezsigndocument_externalid_isValid;
+}
+
 bool OAIEzsigndocument_Request::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -476,6 +501,11 @@ bool OAIEzsigndocument_Request::isSet() const {
         }
 
         if (m_s_ezsigndocument_name_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_s_ezsigndocument_externalid_isSet) {
             isObjectUpdated = true;
             break;
         }

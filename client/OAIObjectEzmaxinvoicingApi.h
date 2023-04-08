@@ -21,7 +21,6 @@
 #include "OAICommon_Response_Error.h"
 #include "OAICommon_getAutocomplete_v1_Response.h"
 #include "OAIEzmaxinvoicing_getAutocomplete_v2_Response.h"
-#include "OAIEzmaxinvoicing_getObject_v1_Response.h"
 #include "OAIEzmaxinvoicing_getObject_v2_Response.h"
 #include "OAIEzmaxinvoicing_getProvisional_v1_Response.h"
 #include "OAIHeader_Accept_Language.h"
@@ -82,11 +81,6 @@ public:
     /**
     * @param[in]  pki_ezmaxinvoicing_id qint32 [required]
     */
-    Q_DECL_DEPRECATED void ezmaxinvoicingGetObjectV1(const qint32 &pki_ezmaxinvoicing_id);
-
-    /**
-    * @param[in]  pki_ezmaxinvoicing_id qint32 [required]
-    */
     void ezmaxinvoicingGetObjectV2(const qint32 &pki_ezmaxinvoicing_id);
 
 
@@ -117,7 +111,6 @@ private:
 
     void ezmaxinvoicingGetAutocompleteV1Callback(OAIHttpRequestWorker *worker);
     void ezmaxinvoicingGetAutocompleteV2Callback(OAIHttpRequestWorker *worker);
-    void ezmaxinvoicingGetObjectV1Callback(OAIHttpRequestWorker *worker);
     void ezmaxinvoicingGetObjectV2Callback(OAIHttpRequestWorker *worker);
     void ezmaxinvoicingGetProvisionalV1Callback(OAIHttpRequestWorker *worker);
 
@@ -125,25 +118,21 @@ signals:
 
     void ezmaxinvoicingGetAutocompleteV1Signal(OAICommon_getAutocomplete_v1_Response summary);
     void ezmaxinvoicingGetAutocompleteV2Signal(OAIEzmaxinvoicing_getAutocomplete_v2_Response summary);
-    void ezmaxinvoicingGetObjectV1Signal(OAIEzmaxinvoicing_getObject_v1_Response summary);
     void ezmaxinvoicingGetObjectV2Signal(OAIEzmaxinvoicing_getObject_v2_Response summary);
     void ezmaxinvoicingGetProvisionalV1Signal(OAIEzmaxinvoicing_getProvisional_v1_Response summary);
 
     void ezmaxinvoicingGetAutocompleteV1SignalFull(OAIHttpRequestWorker *worker, OAICommon_getAutocomplete_v1_Response summary);
     void ezmaxinvoicingGetAutocompleteV2SignalFull(OAIHttpRequestWorker *worker, OAIEzmaxinvoicing_getAutocomplete_v2_Response summary);
-    void ezmaxinvoicingGetObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIEzmaxinvoicing_getObject_v1_Response summary);
     void ezmaxinvoicingGetObjectV2SignalFull(OAIHttpRequestWorker *worker, OAIEzmaxinvoicing_getObject_v2_Response summary);
     void ezmaxinvoicingGetProvisionalV1SignalFull(OAIHttpRequestWorker *worker, OAIEzmaxinvoicing_getProvisional_v1_Response summary);
 
     void ezmaxinvoicingGetAutocompleteV1SignalE(OAICommon_getAutocomplete_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezmaxinvoicingGetAutocompleteV2SignalE(OAIEzmaxinvoicing_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void ezmaxinvoicingGetObjectV1SignalE(OAIEzmaxinvoicing_getObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezmaxinvoicingGetObjectV2SignalE(OAIEzmaxinvoicing_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezmaxinvoicingGetProvisionalV1SignalE(OAIEzmaxinvoicing_getProvisional_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
 
     void ezmaxinvoicingGetAutocompleteV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezmaxinvoicingGetAutocompleteV2SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
-    void ezmaxinvoicingGetObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezmaxinvoicingGetObjectV2SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezmaxinvoicingGetProvisionalV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
 

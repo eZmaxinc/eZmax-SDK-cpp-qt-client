@@ -19,7 +19,11 @@
 #include "OAIOauth.h"
 
 #include "OAIActivesession_getCurrent_v1_Response.h"
+#include "OAIActivesession_getList_v1_Response.h"
+#include "OAICommon_Response_Error.h"
 #include "OAICommon_Response_Redirect_sSecretquestionTextX.h"
+#include "OAIHeader_Accept_Language.h"
+#include "OAIHttpFileElement.h"
 #include <QString>
 
 #include <QObject>
@@ -61,6 +65,15 @@ public:
 
     void activesessionGetCurrentV1();
 
+    /**
+    * @param[in]  e_order_by QString [optional]
+    * @param[in]  i_row_max qint32 [optional]
+    * @param[in]  i_row_offset qint32 [optional]
+    * @param[in]  accept_language OAIHeader_Accept_Language [optional]
+    * @param[in]  s_filter QString [optional]
+    */
+    void activesessionGetListV1(const ::OpenAPI::OptionalParam<QString> &e_order_by = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<qint32> &i_row_max = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<qint32> &i_row_offset = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<OAIHeader_Accept_Language> &accept_language = ::OpenAPI::OptionalParam<OAIHeader_Accept_Language>(), const ::OpenAPI::OptionalParam<QString> &s_filter = ::OpenAPI::OptionalParam<QString>());
+
 
 private:
     QMap<QString,int> _serverIndices;
@@ -85,16 +98,21 @@ private:
     int _OauthMethod = 0;
 
     void activesessionGetCurrentV1Callback(OAIHttpRequestWorker *worker);
+    void activesessionGetListV1Callback(OAIHttpRequestWorker *worker);
 
 signals:
 
     void activesessionGetCurrentV1Signal(OAIActivesession_getCurrent_v1_Response summary);
+    void activesessionGetListV1Signal(OAIActivesession_getList_v1_Response summary);
 
     void activesessionGetCurrentV1SignalFull(OAIHttpRequestWorker *worker, OAIActivesession_getCurrent_v1_Response summary);
+    void activesessionGetListV1SignalFull(OAIHttpRequestWorker *worker, OAIActivesession_getList_v1_Response summary);
 
     void activesessionGetCurrentV1SignalE(OAIActivesession_getCurrent_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void activesessionGetListV1SignalE(OAIActivesession_getList_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
 
     void activesessionGetCurrentV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void activesessionGetListV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();

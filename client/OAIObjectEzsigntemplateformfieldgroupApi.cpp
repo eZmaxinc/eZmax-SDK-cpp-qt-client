@@ -55,8 +55,6 @@ void OAIObjectEzsigntemplateformfieldgroupApi::initializeServerConfigs() {
     _serverIndices.insert("ezsigntemplateformfieldgroupDeleteObjectV1", 0);
     _serverConfigs.insert("ezsigntemplateformfieldgroupEditObjectV1", defaultConf);
     _serverIndices.insert("ezsigntemplateformfieldgroupEditObjectV1", 0);
-    _serverConfigs.insert("ezsigntemplateformfieldgroupGetObjectV1", defaultConf);
-    _serverIndices.insert("ezsigntemplateformfieldgroupGetObjectV1", 0);
     _serverConfigs.insert("ezsigntemplateformfieldgroupGetObjectV2", defaultConf);
     _serverIndices.insert("ezsigntemplateformfieldgroupGetObjectV2", 0);
 }
@@ -428,73 +426,6 @@ void OAIObjectEzsigntemplateformfieldgroupApi::ezsigntemplateformfieldgroupEditO
     } else {
         emit ezsigntemplateformfieldgroupEditObjectV1SignalE(output, error_type, error_str);
         emit ezsigntemplateformfieldgroupEditObjectV1SignalEFull(worker, error_type, error_str);
-    }
-}
-
-void OAIObjectEzsigntemplateformfieldgroupApi::ezsigntemplateformfieldgroupGetObjectV1(const qint32 &pki_ezsigntemplateformfieldgroup_id) {
-    QString fullPath = QString(_serverConfigs["ezsigntemplateformfieldgroupGetObjectV1"][_serverIndices.value("ezsigntemplateformfieldgroupGetObjectV1")].URL()+"/1/object/ezsigntemplateformfieldgroup/{pkiEzsigntemplateformfieldgroupID}");
-    
-    if (_apiKeys.contains("Authorization")) {
-        addHeaders("Authorization",_apiKeys.find("Authorization").value());
-    }
-    
-    
-    {
-        QString pki_ezsigntemplateformfieldgroup_idPathParam("{");
-        pki_ezsigntemplateformfieldgroup_idPathParam.append("pkiEzsigntemplateformfieldgroupID").append("}");
-        QString pathPrefix, pathSuffix, pathDelimiter;
-        QString pathStyle = "simple";
-        if (pathStyle == "")
-            pathStyle = "simple";
-        pathPrefix = getParamStylePrefix(pathStyle);
-        pathSuffix = getParamStyleSuffix(pathStyle);
-        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsigntemplateformfieldgroupID", false);
-        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsigntemplateformfieldgroupID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsigntemplateformfieldgroup_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsigntemplateformfieldgroup_id)));
-    }
-    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
-    worker->setTimeOut(_timeOut);
-    worker->setWorkingDirectory(_workingDirectory);
-    OAIHttpRequestInput input(fullPath, "GET");
-
-
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
-    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
-        input.headers.insert(keyValueIt->first, keyValueIt->second);
-    }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
-
-    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIObjectEzsigntemplateformfieldgroupApi::ezsigntemplateformfieldgroupGetObjectV1Callback);
-    connect(this, &OAIObjectEzsigntemplateformfieldgroupApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
-        if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
-        }
-    });
-
-    worker->execute(&input);
-}
-
-void OAIObjectEzsigntemplateformfieldgroupApi::ezsigntemplateformfieldgroupGetObjectV1Callback(OAIHttpRequestWorker *worker) {
-    QString error_str = worker->error_str;
-    QNetworkReply::NetworkError error_type = worker->error_type;
-
-    if (worker->error_type != QNetworkReply::NoError) {
-        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
-    }
-    OAIEzsigntemplateformfieldgroup_getObject_v1_Response output(QString(worker->response));
-    worker->deleteLater();
-
-    if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsigntemplateformfieldgroupGetObjectV1Signal(output);
-        emit ezsigntemplateformfieldgroupGetObjectV1SignalFull(worker, output);
-    } else {
-        emit ezsigntemplateformfieldgroupGetObjectV1SignalE(output, error_type, error_str);
-        emit ezsigntemplateformfieldgroupGetObjectV1SignalEFull(worker, error_type, error_str);
     }
 }
 

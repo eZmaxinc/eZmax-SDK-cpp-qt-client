@@ -143,6 +143,11 @@ public:
     bool is_obj_audit_Set() const;
     bool is_obj_audit_Valid() const;
 
+    QString getSEzsignfolderExternalid() const;
+    void setSEzsignfolderExternalid(const QString &s_ezsignfolder_externalid);
+    bool is_s_ezsignfolder_externalid_Set() const;
+    bool is_s_ezsignfolder_externalid_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -228,6 +233,10 @@ private:
     OAICommon_Audit obj_audit;
     bool m_obj_audit_isSet;
     bool m_obj_audit_isValid;
+
+    QString s_ezsignfolder_externalid;
+    bool m_s_ezsignfolder_externalid_isSet;
+    bool m_s_ezsignfolder_externalid_isValid;
 };
 
 } // namespace OpenAPI

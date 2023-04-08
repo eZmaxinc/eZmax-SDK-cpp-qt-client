@@ -61,12 +61,12 @@ void OAIObjectEzsignbulksendApi::initializeServerConfigs() {
     _serverIndices.insert("ezsignbulksendGetCsvTemplateV1", 0);
     _serverConfigs.insert("ezsignbulksendGetEzsignbulksendtransmissionsV1", defaultConf);
     _serverIndices.insert("ezsignbulksendGetEzsignbulksendtransmissionsV1", 0);
+    _serverConfigs.insert("ezsignbulksendGetEzsignsignaturesAutomaticV1", defaultConf);
+    _serverIndices.insert("ezsignbulksendGetEzsignsignaturesAutomaticV1", 0);
     _serverConfigs.insert("ezsignbulksendGetFormsDataV1", defaultConf);
     _serverIndices.insert("ezsignbulksendGetFormsDataV1", 0);
     _serverConfigs.insert("ezsignbulksendGetListV1", defaultConf);
     _serverIndices.insert("ezsignbulksendGetListV1", 0);
-    _serverConfigs.insert("ezsignbulksendGetObjectV1", defaultConf);
-    _serverIndices.insert("ezsignbulksendGetObjectV1", 0);
     _serverConfigs.insert("ezsignbulksendGetObjectV2", defaultConf);
     _serverIndices.insert("ezsignbulksendGetObjectV2", 0);
     _serverConfigs.insert("ezsignbulksendReorderV1", defaultConf);
@@ -666,6 +666,73 @@ void OAIObjectEzsignbulksendApi::ezsignbulksendGetEzsignbulksendtransmissionsV1C
     }
 }
 
+void OAIObjectEzsignbulksendApi::ezsignbulksendGetEzsignsignaturesAutomaticV1(const qint32 &pki_ezsignbulksend_id) {
+    QString fullPath = QString(_serverConfigs["ezsignbulksendGetEzsignsignaturesAutomaticV1"][_serverIndices.value("ezsignbulksendGetEzsignsignaturesAutomaticV1")].URL()+"/1/object/ezsignbulksend/{pkiEzsignbulksendID}/getEzsignsignaturesAutomatic");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_ezsignbulksend_idPathParam("{");
+        pki_ezsignbulksend_idPathParam.append("pkiEzsignbulksendID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignbulksendID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignbulksendID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_ezsignbulksend_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsignbulksend_id)));
+    }
+    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    OAIHttpRequestInput input(fullPath, "GET");
+
+
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+#else
+    for (auto key : _defaultHeaders.keys()) {
+        input.headers.insert(key, _defaultHeaders[key]);
+    }
+#endif
+
+    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIObjectEzsignbulksendApi::ezsignbulksendGetEzsignsignaturesAutomaticV1Callback);
+    connect(this, &OAIObjectEzsignbulksendApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this]() {
+        if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
+            emit allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void OAIObjectEzsignbulksendApi::ezsignbulksendGetEzsignsignaturesAutomaticV1Callback(OAIHttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    OAIEzsignbulksend_getEzsignsignaturesAutomatic_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit ezsignbulksendGetEzsignsignaturesAutomaticV1Signal(output);
+        emit ezsignbulksendGetEzsignsignaturesAutomaticV1SignalFull(worker, output);
+    } else {
+        emit ezsignbulksendGetEzsignsignaturesAutomaticV1SignalE(output, error_type, error_str);
+        emit ezsignbulksendGetEzsignsignaturesAutomaticV1SignalEFull(worker, error_type, error_str);
+    }
+}
+
 void OAIObjectEzsignbulksendApi::ezsignbulksendGetFormsDataV1(const qint32 &pki_ezsignbulksend_id) {
     QString fullPath = QString(_serverConfigs["ezsignbulksendGetFormsDataV1"][_serverIndices.value("ezsignbulksendGetFormsDataV1")].URL()+"/1/object/ezsignbulksend/{pkiEzsignbulksendID}/getFormsData");
     
@@ -888,73 +955,6 @@ void OAIObjectEzsignbulksendApi::ezsignbulksendGetListV1Callback(OAIHttpRequestW
     } else {
         emit ezsignbulksendGetListV1SignalE(output, error_type, error_str);
         emit ezsignbulksendGetListV1SignalEFull(worker, error_type, error_str);
-    }
-}
-
-void OAIObjectEzsignbulksendApi::ezsignbulksendGetObjectV1(const qint32 &pki_ezsignbulksend_id) {
-    QString fullPath = QString(_serverConfigs["ezsignbulksendGetObjectV1"][_serverIndices.value("ezsignbulksendGetObjectV1")].URL()+"/1/object/ezsignbulksend/{pkiEzsignbulksendID}");
-    
-    if (_apiKeys.contains("Authorization")) {
-        addHeaders("Authorization",_apiKeys.find("Authorization").value());
-    }
-    
-    
-    {
-        QString pki_ezsignbulksend_idPathParam("{");
-        pki_ezsignbulksend_idPathParam.append("pkiEzsignbulksendID").append("}");
-        QString pathPrefix, pathSuffix, pathDelimiter;
-        QString pathStyle = "simple";
-        if (pathStyle == "")
-            pathStyle = "simple";
-        pathPrefix = getParamStylePrefix(pathStyle);
-        pathSuffix = getParamStyleSuffix(pathStyle);
-        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignbulksendID", false);
-        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignbulksendID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsignbulksend_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsignbulksend_id)));
-    }
-    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
-    worker->setTimeOut(_timeOut);
-    worker->setWorkingDirectory(_workingDirectory);
-    OAIHttpRequestInput input(fullPath, "GET");
-
-
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
-    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
-        input.headers.insert(keyValueIt->first, keyValueIt->second);
-    }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
-
-    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIObjectEzsignbulksendApi::ezsignbulksendGetObjectV1Callback);
-    connect(this, &OAIObjectEzsignbulksendApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
-        if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
-        }
-    });
-
-    worker->execute(&input);
-}
-
-void OAIObjectEzsignbulksendApi::ezsignbulksendGetObjectV1Callback(OAIHttpRequestWorker *worker) {
-    QString error_str = worker->error_str;
-    QNetworkReply::NetworkError error_type = worker->error_type;
-
-    if (worker->error_type != QNetworkReply::NoError) {
-        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
-    }
-    OAIEzsignbulksend_getObject_v1_Response output(QString(worker->response));
-    worker->deleteLater();
-
-    if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsignbulksendGetObjectV1Signal(output);
-        emit ezsignbulksendGetObjectV1SignalFull(worker, output);
-    } else {
-        emit ezsignbulksendGetObjectV1SignalE(output, error_type, error_str);
-        emit ezsignbulksendGetObjectV1SignalEFull(worker, error_type, error_str);
     }
 }
 

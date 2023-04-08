@@ -22,7 +22,6 @@
 #include "OAIEzsignbulksenddocumentmapping_createObject_v1_Request.h"
 #include "OAIEzsignbulksenddocumentmapping_createObject_v1_Response.h"
 #include "OAIEzsignbulksenddocumentmapping_deleteObject_v1_Response.h"
-#include "OAIEzsignbulksenddocumentmapping_getObject_v1_Response.h"
 #include "OAIEzsignbulksenddocumentmapping_getObject_v2_Response.h"
 #include <QString>
 
@@ -75,11 +74,6 @@ public:
     /**
     * @param[in]  pki_ezsignbulksenddocumentmapping_id qint32 [required]
     */
-    Q_DECL_DEPRECATED void ezsignbulksenddocumentmappingGetObjectV1(const qint32 &pki_ezsignbulksenddocumentmapping_id);
-
-    /**
-    * @param[in]  pki_ezsignbulksenddocumentmapping_id qint32 [required]
-    */
     void ezsignbulksenddocumentmappingGetObjectV2(const qint32 &pki_ezsignbulksenddocumentmapping_id);
 
 
@@ -107,29 +101,24 @@ private:
 
     void ezsignbulksenddocumentmappingCreateObjectV1Callback(OAIHttpRequestWorker *worker);
     void ezsignbulksenddocumentmappingDeleteObjectV1Callback(OAIHttpRequestWorker *worker);
-    void ezsignbulksenddocumentmappingGetObjectV1Callback(OAIHttpRequestWorker *worker);
     void ezsignbulksenddocumentmappingGetObjectV2Callback(OAIHttpRequestWorker *worker);
 
 signals:
 
     void ezsignbulksenddocumentmappingCreateObjectV1Signal(OAIEzsignbulksenddocumentmapping_createObject_v1_Response summary);
     void ezsignbulksenddocumentmappingDeleteObjectV1Signal(OAIEzsignbulksenddocumentmapping_deleteObject_v1_Response summary);
-    void ezsignbulksenddocumentmappingGetObjectV1Signal(OAIEzsignbulksenddocumentmapping_getObject_v1_Response summary);
     void ezsignbulksenddocumentmappingGetObjectV2Signal(OAIEzsignbulksenddocumentmapping_getObject_v2_Response summary);
 
     void ezsignbulksenddocumentmappingCreateObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsignbulksenddocumentmapping_createObject_v1_Response summary);
     void ezsignbulksenddocumentmappingDeleteObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsignbulksenddocumentmapping_deleteObject_v1_Response summary);
-    void ezsignbulksenddocumentmappingGetObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsignbulksenddocumentmapping_getObject_v1_Response summary);
     void ezsignbulksenddocumentmappingGetObjectV2SignalFull(OAIHttpRequestWorker *worker, OAIEzsignbulksenddocumentmapping_getObject_v2_Response summary);
 
     void ezsignbulksenddocumentmappingCreateObjectV1SignalE(OAIEzsignbulksenddocumentmapping_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignbulksenddocumentmappingDeleteObjectV1SignalE(OAIEzsignbulksenddocumentmapping_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void ezsignbulksenddocumentmappingGetObjectV1SignalE(OAIEzsignbulksenddocumentmapping_getObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignbulksenddocumentmappingGetObjectV2SignalE(OAIEzsignbulksenddocumentmapping_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
 
     void ezsignbulksenddocumentmappingCreateObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignbulksenddocumentmappingDeleteObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
-    void ezsignbulksenddocumentmappingGetObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignbulksenddocumentmappingGetObjectV2SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
 
     void abortRequestsSignal();

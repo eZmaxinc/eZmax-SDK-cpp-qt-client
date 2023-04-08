@@ -21,6 +21,7 @@
 
 #include <QJsonObject>
 
+#include "OAICommon_Audit.h"
 #include "OAIEzsigntemplatedocument_Response.h"
 #include "OAIEzsigntemplatesigner_ResponseCompound.h"
 #include <QList>
@@ -30,6 +31,7 @@
 #include "OAIObject.h"
 
 namespace OpenAPI {
+class OAICommon_Audit;
 class OAIEzsigntemplatedocument_Response;
 class OAIEzsigntemplatesigner_ResponseCompound;
 
@@ -84,6 +86,11 @@ public:
     bool is_s_ezsignfoldertype_name_x_Set() const;
     bool is_s_ezsignfoldertype_name_x_Valid() const;
 
+    OAICommon_Audit getObjAudit() const;
+    void setObjAudit(const OAICommon_Audit &obj_audit);
+    bool is_obj_audit_Set() const;
+    bool is_obj_audit_Valid() const;
+
     OAIEzsigntemplatedocument_Response getObjEzsigntemplatedocument() const;
     void setObjEzsigntemplatedocument(const OAIEzsigntemplatedocument_Response &obj_ezsigntemplatedocument);
     bool is_obj_ezsigntemplatedocument_Set() const;
@@ -131,6 +138,10 @@ private:
     QString s_ezsignfoldertype_name_x;
     bool m_s_ezsignfoldertype_name_x_isSet;
     bool m_s_ezsignfoldertype_name_x_isValid;
+
+    OAICommon_Audit obj_audit;
+    bool m_obj_audit_isSet;
+    bool m_obj_audit_isValid;
 
     OAIEzsigntemplatedocument_Response obj_ezsigntemplatedocument;
     bool m_obj_ezsigntemplatedocument_isSet;

@@ -53,8 +53,6 @@ void OAIObjectEzmaxinvoicingApi::initializeServerConfigs() {
     _serverIndices.insert("ezmaxinvoicingGetAutocompleteV1", 0);
     _serverConfigs.insert("ezmaxinvoicingGetAutocompleteV2", defaultConf);
     _serverIndices.insert("ezmaxinvoicingGetAutocompleteV2", 0);
-    _serverConfigs.insert("ezmaxinvoicingGetObjectV1", defaultConf);
-    _serverIndices.insert("ezmaxinvoicingGetObjectV1", 0);
     _serverConfigs.insert("ezmaxinvoicingGetObjectV2", defaultConf);
     _serverIndices.insert("ezmaxinvoicingGetObjectV2", 0);
     _serverConfigs.insert("ezmaxinvoicingGetProvisionalV1", defaultConf);
@@ -515,73 +513,6 @@ void OAIObjectEzmaxinvoicingApi::ezmaxinvoicingGetAutocompleteV2Callback(OAIHttp
     } else {
         emit ezmaxinvoicingGetAutocompleteV2SignalE(output, error_type, error_str);
         emit ezmaxinvoicingGetAutocompleteV2SignalEFull(worker, error_type, error_str);
-    }
-}
-
-void OAIObjectEzmaxinvoicingApi::ezmaxinvoicingGetObjectV1(const qint32 &pki_ezmaxinvoicing_id) {
-    QString fullPath = QString(_serverConfigs["ezmaxinvoicingGetObjectV1"][_serverIndices.value("ezmaxinvoicingGetObjectV1")].URL()+"/1/object/ezmaxinvoicing/{pkiEzmaxinvoicingID}");
-    
-    if (_apiKeys.contains("Authorization")) {
-        addHeaders("Authorization",_apiKeys.find("Authorization").value());
-    }
-    
-    
-    {
-        QString pki_ezmaxinvoicing_idPathParam("{");
-        pki_ezmaxinvoicing_idPathParam.append("pkiEzmaxinvoicingID").append("}");
-        QString pathPrefix, pathSuffix, pathDelimiter;
-        QString pathStyle = "simple";
-        if (pathStyle == "")
-            pathStyle = "simple";
-        pathPrefix = getParamStylePrefix(pathStyle);
-        pathSuffix = getParamStyleSuffix(pathStyle);
-        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzmaxinvoicingID", false);
-        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzmaxinvoicingID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezmaxinvoicing_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezmaxinvoicing_id)));
-    }
-    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
-    worker->setTimeOut(_timeOut);
-    worker->setWorkingDirectory(_workingDirectory);
-    OAIHttpRequestInput input(fullPath, "GET");
-
-
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
-    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
-        input.headers.insert(keyValueIt->first, keyValueIt->second);
-    }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
-
-    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIObjectEzmaxinvoicingApi::ezmaxinvoicingGetObjectV1Callback);
-    connect(this, &OAIObjectEzmaxinvoicingApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
-        if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
-        }
-    });
-
-    worker->execute(&input);
-}
-
-void OAIObjectEzmaxinvoicingApi::ezmaxinvoicingGetObjectV1Callback(OAIHttpRequestWorker *worker) {
-    QString error_str = worker->error_str;
-    QNetworkReply::NetworkError error_type = worker->error_type;
-
-    if (worker->error_type != QNetworkReply::NoError) {
-        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
-    }
-    OAIEzmaxinvoicing_getObject_v1_Response output(QString(worker->response));
-    worker->deleteLater();
-
-    if (worker->error_type == QNetworkReply::NoError) {
-        emit ezmaxinvoicingGetObjectV1Signal(output);
-        emit ezmaxinvoicingGetObjectV1SignalFull(worker, output);
-    } else {
-        emit ezmaxinvoicingGetObjectV1SignalE(output, error_type, error_str);
-        emit ezmaxinvoicingGetObjectV1SignalEFull(worker, error_type, error_str);
     }
 }
 

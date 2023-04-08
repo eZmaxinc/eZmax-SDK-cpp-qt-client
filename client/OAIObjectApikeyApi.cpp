@@ -49,8 +49,6 @@ void OAIObjectApikeyApi::initializeServerConfigs() {
     {"sInfrastructureenvironmenttypeDescription", OAIServerVariable("The environment on on which to call the API. Should always be "prod" unless instructed otherwise by support.","prod",
     QSet<QString>{ {"prod"},{"stg"},{"qa"},{"dev"} })}, }));
     
-    _serverConfigs.insert("apikeyCreateObjectV1", defaultConf);
-    _serverIndices.insert("apikeyCreateObjectV1", 0);
     _serverConfigs.insert("apikeyCreateObjectV2", defaultConf);
     _serverIndices.insert("apikeyCreateObjectV2", 0);
 }
@@ -225,63 +223,6 @@ QString OAIObjectApikeyApi::getParamStyleDelimiter(const QString &style, const Q
 
     } else {
         return "none";
-    }
-}
-
-void OAIObjectApikeyApi::apikeyCreateObjectV1(const QList<OAIApikey_createObject_v1_Request> &oai_apikey_create_object_v1_request) {
-    QString fullPath = QString(_serverConfigs["apikeyCreateObjectV1"][_serverIndices.value("apikeyCreateObjectV1")].URL()+"/1/object/apikey");
-    
-    if (_apiKeys.contains("Authorization")) {
-        addHeaders("Authorization",_apiKeys.find("Authorization").value());
-    }
-    
-    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
-    worker->setTimeOut(_timeOut);
-    worker->setWorkingDirectory(_workingDirectory);
-    OAIHttpRequestInput input(fullPath, "POST");
-
-    {
-        QJsonDocument doc(::OpenAPI::toJsonValue(oai_apikey_create_object_v1_request).toArray());
-        QByteArray bytes = doc.toJson();
-        input.request_body.append(bytes);
-    }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
-    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
-        input.headers.insert(keyValueIt->first, keyValueIt->second);
-    }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
-
-    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIObjectApikeyApi::apikeyCreateObjectV1Callback);
-    connect(this, &OAIObjectApikeyApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
-        if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
-        }
-    });
-
-    worker->execute(&input);
-}
-
-void OAIObjectApikeyApi::apikeyCreateObjectV1Callback(OAIHttpRequestWorker *worker) {
-    QString error_str = worker->error_str;
-    QNetworkReply::NetworkError error_type = worker->error_type;
-
-    if (worker->error_type != QNetworkReply::NoError) {
-        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
-    }
-    OAIApikey_createObject_v1_Response output(QString(worker->response));
-    worker->deleteLater();
-
-    if (worker->error_type == QNetworkReply::NoError) {
-        emit apikeyCreateObjectV1Signal(output);
-        emit apikeyCreateObjectV1SignalFull(worker, output);
-    } else {
-        emit apikeyCreateObjectV1SignalE(output, error_type, error_str);
-        emit apikeyCreateObjectV1SignalEFull(worker, error_type, error_str);
     }
 }
 

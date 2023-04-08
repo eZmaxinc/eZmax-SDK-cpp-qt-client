@@ -30,7 +30,6 @@
 #include "OAIWebhook_editObject_v1_Response.h"
 #include "OAIWebhook_getHistory_v1_Response.h"
 #include "OAIWebhook_getList_v1_Response.h"
-#include "OAIWebhook_getObject_v1_Response.h"
 #include "OAIWebhook_getObject_v2_Response.h"
 #include "OAIWebhook_test_v1_Response.h"
 #include <QString>
@@ -105,11 +104,6 @@ public:
     /**
     * @param[in]  pki_webhook_id qint32 [required]
     */
-    Q_DECL_DEPRECATED void webhookGetObjectV1(const qint32 &pki_webhook_id);
-
-    /**
-    * @param[in]  pki_webhook_id qint32 [required]
-    */
     void webhookGetObjectV2(const qint32 &pki_webhook_id);
 
     /**
@@ -146,7 +140,6 @@ private:
     void webhookEditObjectV1Callback(OAIHttpRequestWorker *worker);
     void webhookGetHistoryV1Callback(OAIHttpRequestWorker *worker);
     void webhookGetListV1Callback(OAIHttpRequestWorker *worker);
-    void webhookGetObjectV1Callback(OAIHttpRequestWorker *worker);
     void webhookGetObjectV2Callback(OAIHttpRequestWorker *worker);
     void webhookTestV1Callback(OAIHttpRequestWorker *worker);
 
@@ -157,7 +150,6 @@ signals:
     void webhookEditObjectV1Signal(OAIWebhook_editObject_v1_Response summary);
     void webhookGetHistoryV1Signal(OAIWebhook_getHistory_v1_Response summary);
     void webhookGetListV1Signal(OAIWebhook_getList_v1_Response summary);
-    void webhookGetObjectV1Signal(OAIWebhook_getObject_v1_Response summary);
     void webhookGetObjectV2Signal(OAIWebhook_getObject_v2_Response summary);
     void webhookTestV1Signal(OAIWebhook_test_v1_Response summary);
 
@@ -166,7 +158,6 @@ signals:
     void webhookEditObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIWebhook_editObject_v1_Response summary);
     void webhookGetHistoryV1SignalFull(OAIHttpRequestWorker *worker, OAIWebhook_getHistory_v1_Response summary);
     void webhookGetListV1SignalFull(OAIHttpRequestWorker *worker, OAIWebhook_getList_v1_Response summary);
-    void webhookGetObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIWebhook_getObject_v1_Response summary);
     void webhookGetObjectV2SignalFull(OAIHttpRequestWorker *worker, OAIWebhook_getObject_v2_Response summary);
     void webhookTestV1SignalFull(OAIHttpRequestWorker *worker, OAIWebhook_test_v1_Response summary);
 
@@ -175,7 +166,6 @@ signals:
     void webhookEditObjectV1SignalE(OAIWebhook_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void webhookGetHistoryV1SignalE(OAIWebhook_getHistory_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void webhookGetListV1SignalE(OAIWebhook_getList_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void webhookGetObjectV1SignalE(OAIWebhook_getObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void webhookGetObjectV2SignalE(OAIWebhook_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void webhookTestV1SignalE(OAIWebhook_test_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
 
@@ -184,7 +174,6 @@ signals:
     void webhookEditObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void webhookGetHistoryV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void webhookGetListV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
-    void webhookGetObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void webhookGetObjectV2SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void webhookTestV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
 

@@ -51,6 +51,9 @@ void OAIEzsignfolder_RequestCompound::initializeModel() {
 
     m_e_ezsignfolder_sendreminderfrequency_isSet = false;
     m_e_ezsignfolder_sendreminderfrequency_isValid = false;
+
+    m_s_ezsignfolder_externalid_isSet = false;
+    m_s_ezsignfolder_externalid_isValid = false;
 }
 
 void OAIEzsignfolder_RequestCompound::fromJson(QString jsonString) {
@@ -79,6 +82,9 @@ void OAIEzsignfolder_RequestCompound::fromJsonObject(QJsonObject json) {
 
     m_e_ezsignfolder_sendreminderfrequency_isValid = ::OpenAPI::fromJsonValue(e_ezsignfolder_sendreminderfrequency, json[QString("eEzsignfolderSendreminderfrequency")]);
     m_e_ezsignfolder_sendreminderfrequency_isSet = !json[QString("eEzsignfolderSendreminderfrequency")].isNull() && m_e_ezsignfolder_sendreminderfrequency_isValid;
+
+    m_s_ezsignfolder_externalid_isValid = ::OpenAPI::fromJsonValue(s_ezsignfolder_externalid, json[QString("sEzsignfolderExternalid")]);
+    m_s_ezsignfolder_externalid_isSet = !json[QString("sEzsignfolderExternalid")].isNull() && m_s_ezsignfolder_externalid_isValid;
 }
 
 QString OAIEzsignfolder_RequestCompound::asJson() const {
@@ -107,6 +113,9 @@ QJsonObject OAIEzsignfolder_RequestCompound::asJsonObject() const {
     }
     if (e_ezsignfolder_sendreminderfrequency.isSet()) {
         obj.insert(QString("eEzsignfolderSendreminderfrequency"), ::OpenAPI::toJsonValue(e_ezsignfolder_sendreminderfrequency));
+    }
+    if (m_s_ezsignfolder_externalid_isSet) {
+        obj.insert(QString("sEzsignfolderExternalid"), ::OpenAPI::toJsonValue(s_ezsignfolder_externalid));
     }
     return obj;
 }
@@ -207,6 +216,22 @@ bool OAIEzsignfolder_RequestCompound::is_e_ezsignfolder_sendreminderfrequency_Va
     return m_e_ezsignfolder_sendreminderfrequency_isValid;
 }
 
+QString OAIEzsignfolder_RequestCompound::getSEzsignfolderExternalid() const {
+    return s_ezsignfolder_externalid;
+}
+void OAIEzsignfolder_RequestCompound::setSEzsignfolderExternalid(const QString &s_ezsignfolder_externalid) {
+    this->s_ezsignfolder_externalid = s_ezsignfolder_externalid;
+    this->m_s_ezsignfolder_externalid_isSet = true;
+}
+
+bool OAIEzsignfolder_RequestCompound::is_s_ezsignfolder_externalid_Set() const{
+    return m_s_ezsignfolder_externalid_isSet;
+}
+
+bool OAIEzsignfolder_RequestCompound::is_s_ezsignfolder_externalid_Valid() const{
+    return m_s_ezsignfolder_externalid_isValid;
+}
+
 bool OAIEzsignfolder_RequestCompound::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -236,6 +261,11 @@ bool OAIEzsignfolder_RequestCompound::isSet() const {
         }
 
         if (e_ezsignfolder_sendreminderfrequency.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_s_ezsignfolder_externalid_isSet) {
             isObjectUpdated = true;
             break;
         }

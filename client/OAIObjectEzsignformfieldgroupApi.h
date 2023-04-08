@@ -24,7 +24,6 @@
 #include "OAIEzsignformfieldgroup_deleteObject_v1_Response.h"
 #include "OAIEzsignformfieldgroup_editObject_v1_Request.h"
 #include "OAIEzsignformfieldgroup_editObject_v1_Response.h"
-#include "OAIEzsignformfieldgroup_getObject_v1_Response.h"
 #include "OAIEzsignformfieldgroup_getObject_v2_Response.h"
 #include <QString>
 
@@ -83,11 +82,6 @@ public:
     /**
     * @param[in]  pki_ezsignformfieldgroup_id qint32 [required]
     */
-    Q_DECL_DEPRECATED void ezsignformfieldgroupGetObjectV1(const qint32 &pki_ezsignformfieldgroup_id);
-
-    /**
-    * @param[in]  pki_ezsignformfieldgroup_id qint32 [required]
-    */
     void ezsignformfieldgroupGetObjectV2(const qint32 &pki_ezsignformfieldgroup_id);
 
 
@@ -116,7 +110,6 @@ private:
     void ezsignformfieldgroupCreateObjectV1Callback(OAIHttpRequestWorker *worker);
     void ezsignformfieldgroupDeleteObjectV1Callback(OAIHttpRequestWorker *worker);
     void ezsignformfieldgroupEditObjectV1Callback(OAIHttpRequestWorker *worker);
-    void ezsignformfieldgroupGetObjectV1Callback(OAIHttpRequestWorker *worker);
     void ezsignformfieldgroupGetObjectV2Callback(OAIHttpRequestWorker *worker);
 
 signals:
@@ -124,25 +117,21 @@ signals:
     void ezsignformfieldgroupCreateObjectV1Signal(OAIEzsignformfieldgroup_createObject_v1_Response summary);
     void ezsignformfieldgroupDeleteObjectV1Signal(OAIEzsignformfieldgroup_deleteObject_v1_Response summary);
     void ezsignformfieldgroupEditObjectV1Signal(OAIEzsignformfieldgroup_editObject_v1_Response summary);
-    void ezsignformfieldgroupGetObjectV1Signal(OAIEzsignformfieldgroup_getObject_v1_Response summary);
     void ezsignformfieldgroupGetObjectV2Signal(OAIEzsignformfieldgroup_getObject_v2_Response summary);
 
     void ezsignformfieldgroupCreateObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsignformfieldgroup_createObject_v1_Response summary);
     void ezsignformfieldgroupDeleteObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsignformfieldgroup_deleteObject_v1_Response summary);
     void ezsignformfieldgroupEditObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsignformfieldgroup_editObject_v1_Response summary);
-    void ezsignformfieldgroupGetObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsignformfieldgroup_getObject_v1_Response summary);
     void ezsignformfieldgroupGetObjectV2SignalFull(OAIHttpRequestWorker *worker, OAIEzsignformfieldgroup_getObject_v2_Response summary);
 
     void ezsignformfieldgroupCreateObjectV1SignalE(OAIEzsignformfieldgroup_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignformfieldgroupDeleteObjectV1SignalE(OAIEzsignformfieldgroup_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignformfieldgroupEditObjectV1SignalE(OAIEzsignformfieldgroup_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void ezsignformfieldgroupGetObjectV1SignalE(OAIEzsignformfieldgroup_getObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignformfieldgroupGetObjectV2SignalE(OAIEzsignformfieldgroup_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
 
     void ezsignformfieldgroupCreateObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignformfieldgroupDeleteObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignformfieldgroupEditObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
-    void ezsignformfieldgroupGetObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignformfieldgroupGetObjectV2SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
 
     void abortRequestsSignal();

@@ -19,8 +19,8 @@
 #include "OAIOauth.h"
 
 #include "OAICommon_Response_Error.h"
+#include "OAIEzsignbulksendtransmission_getEzsignsignaturesAutomatic_v1_Response.h"
 #include "OAIEzsignbulksendtransmission_getFormsData_v1_Response.h"
-#include "OAIEzsignbulksendtransmission_getObject_v1_Response.h"
 #include "OAIEzsignbulksendtransmission_getObject_v2_Response.h"
 #include "OAIHttpFileElement.h"
 #include <QString>
@@ -69,12 +69,12 @@ public:
     /**
     * @param[in]  pki_ezsignbulksendtransmission_id qint32 [required]
     */
-    void ezsignbulksendtransmissionGetFormsDataV1(const qint32 &pki_ezsignbulksendtransmission_id);
+    void ezsignbulksendtransmissionGetEzsignsignaturesAutomaticV1(const qint32 &pki_ezsignbulksendtransmission_id);
 
     /**
     * @param[in]  pki_ezsignbulksendtransmission_id qint32 [required]
     */
-    Q_DECL_DEPRECATED void ezsignbulksendtransmissionGetObjectV1(const qint32 &pki_ezsignbulksendtransmission_id);
+    void ezsignbulksendtransmissionGetFormsDataV1(const qint32 &pki_ezsignbulksendtransmission_id);
 
     /**
     * @param[in]  pki_ezsignbulksendtransmission_id qint32 [required]
@@ -105,30 +105,30 @@ private:
     int _OauthMethod = 0;
 
     void ezsignbulksendtransmissionGetCsvErrorsV1Callback(OAIHttpRequestWorker *worker);
+    void ezsignbulksendtransmissionGetEzsignsignaturesAutomaticV1Callback(OAIHttpRequestWorker *worker);
     void ezsignbulksendtransmissionGetFormsDataV1Callback(OAIHttpRequestWorker *worker);
-    void ezsignbulksendtransmissionGetObjectV1Callback(OAIHttpRequestWorker *worker);
     void ezsignbulksendtransmissionGetObjectV2Callback(OAIHttpRequestWorker *worker);
 
 signals:
 
     void ezsignbulksendtransmissionGetCsvErrorsV1Signal(QString summary);
+    void ezsignbulksendtransmissionGetEzsignsignaturesAutomaticV1Signal(OAIEzsignbulksendtransmission_getEzsignsignaturesAutomatic_v1_Response summary);
     void ezsignbulksendtransmissionGetFormsDataV1Signal(OAIEzsignbulksendtransmission_getFormsData_v1_Response summary);
-    void ezsignbulksendtransmissionGetObjectV1Signal(OAIEzsignbulksendtransmission_getObject_v1_Response summary);
     void ezsignbulksendtransmissionGetObjectV2Signal(OAIEzsignbulksendtransmission_getObject_v2_Response summary);
 
     void ezsignbulksendtransmissionGetCsvErrorsV1SignalFull(OAIHttpRequestWorker *worker, QString summary);
+    void ezsignbulksendtransmissionGetEzsignsignaturesAutomaticV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsignbulksendtransmission_getEzsignsignaturesAutomatic_v1_Response summary);
     void ezsignbulksendtransmissionGetFormsDataV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsignbulksendtransmission_getFormsData_v1_Response summary);
-    void ezsignbulksendtransmissionGetObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIEzsignbulksendtransmission_getObject_v1_Response summary);
     void ezsignbulksendtransmissionGetObjectV2SignalFull(OAIHttpRequestWorker *worker, OAIEzsignbulksendtransmission_getObject_v2_Response summary);
 
     void ezsignbulksendtransmissionGetCsvErrorsV1SignalE(QString summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignbulksendtransmissionGetEzsignsignaturesAutomaticV1SignalE(OAIEzsignbulksendtransmission_getEzsignsignaturesAutomatic_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignbulksendtransmissionGetFormsDataV1SignalE(OAIEzsignbulksendtransmission_getFormsData_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void ezsignbulksendtransmissionGetObjectV1SignalE(OAIEzsignbulksendtransmission_getObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignbulksendtransmissionGetObjectV2SignalE(OAIEzsignbulksendtransmission_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
 
     void ezsignbulksendtransmissionGetCsvErrorsV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignbulksendtransmissionGetEzsignsignaturesAutomaticV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignbulksendtransmissionGetFormsDataV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
-    void ezsignbulksendtransmissionGetObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignbulksendtransmissionGetObjectV2SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
 
     void abortRequestsSignal();

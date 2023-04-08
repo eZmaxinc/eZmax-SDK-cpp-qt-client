@@ -49,10 +49,20 @@ void OAIObjectUsergroupApi::initializeServerConfigs() {
     {"sInfrastructureenvironmenttypeDescription", OAIServerVariable("The environment on on which to call the API. Should always be "prod" unless instructed otherwise by support.","prod",
     QSet<QString>{ {"prod"},{"stg"},{"qa"},{"dev"} })}, }));
     
-    _serverConfigs.insert("usergroupGetAutocompleteV1", defaultConf);
-    _serverIndices.insert("usergroupGetAutocompleteV1", 0);
+    _serverConfigs.insert("usergroupCreateObjectV1", defaultConf);
+    _serverIndices.insert("usergroupCreateObjectV1", 0);
+    _serverConfigs.insert("usergroupDeleteObjectV1", defaultConf);
+    _serverIndices.insert("usergroupDeleteObjectV1", 0);
+    _serverConfigs.insert("usergroupEditObjectV1", defaultConf);
+    _serverIndices.insert("usergroupEditObjectV1", 0);
     _serverConfigs.insert("usergroupGetAutocompleteV2", defaultConf);
     _serverIndices.insert("usergroupGetAutocompleteV2", 0);
+    _serverConfigs.insert("usergroupGetListV1", defaultConf);
+    _serverIndices.insert("usergroupGetListV1", 0);
+    _serverConfigs.insert("usergroupGetMembersV1", defaultConf);
+    _serverIndices.insert("usergroupGetMembersV1", 0);
+    _serverConfigs.insert("usergroupGetObjectV2", defaultConf);
+    _serverIndices.insert("usergroupGetObjectV2", 0);
 }
 
 /**
@@ -228,107 +238,23 @@ QString OAIObjectUsergroupApi::getParamStyleDelimiter(const QString &style, cons
     }
 }
 
-void OAIObjectUsergroupApi::usergroupGetAutocompleteV1(const QString &s_selector, const ::OpenAPI::OptionalParam<QString> &e_filter_active, const ::OpenAPI::OptionalParam<QString> &s_query, const ::OpenAPI::OptionalParam<OAIHeader_Accept_Language> &accept_language) {
-    QString fullPath = QString(_serverConfigs["usergroupGetAutocompleteV1"][_serverIndices.value("usergroupGetAutocompleteV1")].URL()+"/1/object/usergroup/getAutocomplete/{sSelector}");
+void OAIObjectUsergroupApi::usergroupCreateObjectV1(const OAIUsergroup_createObject_v1_Request &oai_usergroup_create_object_v1_request) {
+    QString fullPath = QString(_serverConfigs["usergroupCreateObjectV1"][_serverIndices.value("usergroupCreateObjectV1")].URL()+"/1/object/usergroup");
     
     if (_apiKeys.contains("Authorization")) {
         addHeaders("Authorization",_apiKeys.find("Authorization").value());
     }
     
-    
-    {
-        QString s_selectorPathParam("{");
-        s_selectorPathParam.append("sSelector").append("}");
-        QString pathPrefix, pathSuffix, pathDelimiter;
-        QString pathStyle = "simple";
-        if (pathStyle == "")
-            pathStyle = "simple";
-        pathPrefix = getParamStylePrefix(pathStyle);
-        pathSuffix = getParamStyleSuffix(pathStyle);
-        pathDelimiter = getParamStyleDelimiter(pathStyle, "sSelector", false);
-        QString paramString = (pathStyle == "matrix") ? pathPrefix+"sSelector"+pathSuffix : pathPrefix;
-        fullPath.replace(s_selectorPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(s_selector)));
-    }
-    QString queryPrefix, querySuffix, queryDelimiter, queryStyle;
-    if (e_filter_active.hasValue())
-    {
-        queryStyle = "form";
-        if (queryStyle == "")
-            queryStyle = "form";
-        queryPrefix = getParamStylePrefix(queryStyle);
-        querySuffix = getParamStyleSuffix(queryStyle);
-        queryDelimiter = getParamStyleDelimiter(queryStyle, "eFilterActive", true);
-        if (fullPath.indexOf("?") > 0)
-            fullPath.append(queryPrefix);
-        else
-            fullPath.append("?");
-
-        fullPath.append(QUrl::toPercentEncoding("eFilterActive")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(e_filter_active.value())));
-    }
-    if (s_query.hasValue())
-    {
-        queryStyle = "form";
-        if (queryStyle == "")
-            queryStyle = "form";
-        queryPrefix = getParamStylePrefix(queryStyle);
-        querySuffix = getParamStyleSuffix(queryStyle);
-        queryDelimiter = getParamStyleDelimiter(queryStyle, "sQuery", true);
-        if (fullPath.indexOf("?") > 0)
-            fullPath.append(queryPrefix);
-        else
-            fullPath.append("?");
-
-        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(s_query.value())));
-    }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
     worker->setWorkingDirectory(_workingDirectory);
-    OAIHttpRequestInput input(fullPath, "GET");
+    OAIHttpRequestInput input(fullPath, "POST");
 
-
-    if (accept_language.hasValue())
     {
-        QString headerString;
-        QJsonObject parameter = accept_language.value().asJsonObject();
-        qint32 count = 0;
-        for (const QString& key : parameter.keys()) {
-            if (count > 0) {
-                headerString.append(",");
-            }
-            QString assignOperator = (false) ? "=" : ",";
-            switch(parameter.value(key).type()) {
-                case QJsonValue::String:
-                {
-                    headerString.append(key+assignOperator+parameter.value(key).toString());
-                    break;
-                }
-                case QJsonValue::Double:
-                {
-                    headerString.append(key+assignOperator+QString::number(parameter.value(key).toDouble()));
-                    break;
-                }
-                case QJsonValue::Bool:
-                {
-                    headerString.append(key+assignOperator+QVariant(parameter.value(key).toBool()).toString());
-                    break;
-                }
-                case QJsonValue::Array:
-                {
-                    headerString.append(key+assignOperator+QVariant(parameter.value(key).toArray()).toString());
-                    break;
-                }
-                case QJsonValue::Object:
-                {
-                    headerString.append(key+assignOperator+QVariant(parameter.value(key).toObject()).toString());
-                    break;
-                }
-                case QJsonValue::Null:
-                case QJsonValue::Undefined:
-                    break;
-            }
-            count++;
-        }
-        input.headers.insert("Accept-Language", headerString);
+
+        
+        QByteArray output = oai_usergroup_create_object_v1_request.asJson().toUtf8();
+        input.request_body.append(output);
     }
 #if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
@@ -340,7 +266,7 @@ void OAIObjectUsergroupApi::usergroupGetAutocompleteV1(const QString &s_selector
     }
 #endif
 
-    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIObjectUsergroupApi::usergroupGetAutocompleteV1Callback);
+    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIObjectUsergroupApi::usergroupCreateObjectV1Callback);
     connect(this, &OAIObjectUsergroupApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
@@ -351,22 +277,161 @@ void OAIObjectUsergroupApi::usergroupGetAutocompleteV1(const QString &s_selector
     worker->execute(&input);
 }
 
-void OAIObjectUsergroupApi::usergroupGetAutocompleteV1Callback(OAIHttpRequestWorker *worker) {
+void OAIObjectUsergroupApi::usergroupCreateObjectV1Callback(OAIHttpRequestWorker *worker) {
     QString error_str = worker->error_str;
     QNetworkReply::NetworkError error_type = worker->error_type;
 
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    OAICommon_getAutocomplete_v1_Response output(QString(worker->response));
+    OAIUsergroup_createObject_v1_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit usergroupGetAutocompleteV1Signal(output);
-        emit usergroupGetAutocompleteV1SignalFull(worker, output);
+        emit usergroupCreateObjectV1Signal(output);
+        emit usergroupCreateObjectV1SignalFull(worker, output);
     } else {
-        emit usergroupGetAutocompleteV1SignalE(output, error_type, error_str);
-        emit usergroupGetAutocompleteV1SignalEFull(worker, error_type, error_str);
+        emit usergroupCreateObjectV1SignalE(output, error_type, error_str);
+        emit usergroupCreateObjectV1SignalEFull(worker, error_type, error_str);
+    }
+}
+
+void OAIObjectUsergroupApi::usergroupDeleteObjectV1(const qint32 &pki_usergroup_id) {
+    QString fullPath = QString(_serverConfigs["usergroupDeleteObjectV1"][_serverIndices.value("usergroupDeleteObjectV1")].URL()+"/1/object/usergroup/{pkiUsergroupID}");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_usergroup_idPathParam("{");
+        pki_usergroup_idPathParam.append("pkiUsergroupID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiUsergroupID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiUsergroupID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_usergroup_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_usergroup_id)));
+    }
+    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    OAIHttpRequestInput input(fullPath, "DELETE");
+
+
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+#else
+    for (auto key : _defaultHeaders.keys()) {
+        input.headers.insert(key, _defaultHeaders[key]);
+    }
+#endif
+
+    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIObjectUsergroupApi::usergroupDeleteObjectV1Callback);
+    connect(this, &OAIObjectUsergroupApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this]() {
+        if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
+            emit allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void OAIObjectUsergroupApi::usergroupDeleteObjectV1Callback(OAIHttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    OAIUsergroup_deleteObject_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit usergroupDeleteObjectV1Signal(output);
+        emit usergroupDeleteObjectV1SignalFull(worker, output);
+    } else {
+        emit usergroupDeleteObjectV1SignalE(output, error_type, error_str);
+        emit usergroupDeleteObjectV1SignalEFull(worker, error_type, error_str);
+    }
+}
+
+void OAIObjectUsergroupApi::usergroupEditObjectV1(const qint32 &pki_usergroup_id, const OAIUsergroup_editObject_v1_Request &oai_usergroup_edit_object_v1_request) {
+    QString fullPath = QString(_serverConfigs["usergroupEditObjectV1"][_serverIndices.value("usergroupEditObjectV1")].URL()+"/1/object/usergroup/{pkiUsergroupID}");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_usergroup_idPathParam("{");
+        pki_usergroup_idPathParam.append("pkiUsergroupID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiUsergroupID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiUsergroupID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_usergroup_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_usergroup_id)));
+    }
+    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    OAIHttpRequestInput input(fullPath, "PUT");
+
+    {
+
+        
+        QByteArray output = oai_usergroup_edit_object_v1_request.asJson().toUtf8();
+        input.request_body.append(output);
+    }
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+#else
+    for (auto key : _defaultHeaders.keys()) {
+        input.headers.insert(key, _defaultHeaders[key]);
+    }
+#endif
+
+    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIObjectUsergroupApi::usergroupEditObjectV1Callback);
+    connect(this, &OAIObjectUsergroupApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this]() {
+        if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
+            emit allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void OAIObjectUsergroupApi::usergroupEditObjectV1Callback(OAIHttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    OAIUsergroup_editObject_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit usergroupEditObjectV1Signal(output);
+        emit usergroupEditObjectV1SignalFull(worker, output);
+    } else {
+        emit usergroupEditObjectV1SignalE(output, error_type, error_str);
+        emit usergroupEditObjectV1SignalEFull(worker, error_type, error_str);
     }
 }
 
@@ -509,6 +574,298 @@ void OAIObjectUsergroupApi::usergroupGetAutocompleteV2Callback(OAIHttpRequestWor
     } else {
         emit usergroupGetAutocompleteV2SignalE(output, error_type, error_str);
         emit usergroupGetAutocompleteV2SignalEFull(worker, error_type, error_str);
+    }
+}
+
+void OAIObjectUsergroupApi::usergroupGetListV1(const ::OpenAPI::OptionalParam<QString> &e_order_by, const ::OpenAPI::OptionalParam<qint32> &i_row_max, const ::OpenAPI::OptionalParam<qint32> &i_row_offset, const ::OpenAPI::OptionalParam<OAIHeader_Accept_Language> &accept_language, const ::OpenAPI::OptionalParam<QString> &s_filter) {
+    QString fullPath = QString(_serverConfigs["usergroupGetListV1"][_serverIndices.value("usergroupGetListV1")].URL()+"/1/object/usergroup/getList");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    QString queryPrefix, querySuffix, queryDelimiter, queryStyle;
+    if (e_order_by.hasValue())
+    {
+        queryStyle = "form";
+        if (queryStyle == "")
+            queryStyle = "form";
+        queryPrefix = getParamStylePrefix(queryStyle);
+        querySuffix = getParamStyleSuffix(queryStyle);
+        queryDelimiter = getParamStyleDelimiter(queryStyle, "eOrderBy", true);
+        if (fullPath.indexOf("?") > 0)
+            fullPath.append(queryPrefix);
+        else
+            fullPath.append("?");
+
+        fullPath.append(QUrl::toPercentEncoding("eOrderBy")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(e_order_by.value())));
+    }
+    if (i_row_max.hasValue())
+    {
+        queryStyle = "form";
+        if (queryStyle == "")
+            queryStyle = "form";
+        queryPrefix = getParamStylePrefix(queryStyle);
+        querySuffix = getParamStyleSuffix(queryStyle);
+        queryDelimiter = getParamStyleDelimiter(queryStyle, "iRowMax", true);
+        if (fullPath.indexOf("?") > 0)
+            fullPath.append(queryPrefix);
+        else
+            fullPath.append("?");
+
+        fullPath.append(QUrl::toPercentEncoding("iRowMax")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(i_row_max.value())));
+    }
+    if (i_row_offset.hasValue())
+    {
+        queryStyle = "form";
+        if (queryStyle == "")
+            queryStyle = "form";
+        queryPrefix = getParamStylePrefix(queryStyle);
+        querySuffix = getParamStyleSuffix(queryStyle);
+        queryDelimiter = getParamStyleDelimiter(queryStyle, "iRowOffset", true);
+        if (fullPath.indexOf("?") > 0)
+            fullPath.append(queryPrefix);
+        else
+            fullPath.append("?");
+
+        fullPath.append(QUrl::toPercentEncoding("iRowOffset")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(i_row_offset.value())));
+    }
+    if (s_filter.hasValue())
+    {
+        queryStyle = "form";
+        if (queryStyle == "")
+            queryStyle = "form";
+        queryPrefix = getParamStylePrefix(queryStyle);
+        querySuffix = getParamStyleSuffix(queryStyle);
+        queryDelimiter = getParamStyleDelimiter(queryStyle, "sFilter", true);
+        if (fullPath.indexOf("?") > 0)
+            fullPath.append(queryPrefix);
+        else
+            fullPath.append("?");
+
+        fullPath.append(QUrl::toPercentEncoding("sFilter")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(s_filter.value())));
+    }
+    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    OAIHttpRequestInput input(fullPath, "GET");
+
+
+    if (accept_language.hasValue())
+    {
+        QString headerString;
+        QJsonObject parameter = accept_language.value().asJsonObject();
+        qint32 count = 0;
+        for (const QString& key : parameter.keys()) {
+            if (count > 0) {
+                headerString.append(",");
+            }
+            QString assignOperator = (false) ? "=" : ",";
+            switch(parameter.value(key).type()) {
+                case QJsonValue::String:
+                {
+                    headerString.append(key+assignOperator+parameter.value(key).toString());
+                    break;
+                }
+                case QJsonValue::Double:
+                {
+                    headerString.append(key+assignOperator+QString::number(parameter.value(key).toDouble()));
+                    break;
+                }
+                case QJsonValue::Bool:
+                {
+                    headerString.append(key+assignOperator+QVariant(parameter.value(key).toBool()).toString());
+                    break;
+                }
+                case QJsonValue::Array:
+                {
+                    headerString.append(key+assignOperator+QVariant(parameter.value(key).toArray()).toString());
+                    break;
+                }
+                case QJsonValue::Object:
+                {
+                    headerString.append(key+assignOperator+QVariant(parameter.value(key).toObject()).toString());
+                    break;
+                }
+                case QJsonValue::Null:
+                case QJsonValue::Undefined:
+                    break;
+            }
+            count++;
+        }
+        input.headers.insert("Accept-Language", headerString);
+    }
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+#else
+    for (auto key : _defaultHeaders.keys()) {
+        input.headers.insert(key, _defaultHeaders[key]);
+    }
+#endif
+
+    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIObjectUsergroupApi::usergroupGetListV1Callback);
+    connect(this, &OAIObjectUsergroupApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this]() {
+        if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
+            emit allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void OAIObjectUsergroupApi::usergroupGetListV1Callback(OAIHttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    OAIUsergroup_getList_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit usergroupGetListV1Signal(output);
+        emit usergroupGetListV1SignalFull(worker, output);
+    } else {
+        emit usergroupGetListV1SignalE(output, error_type, error_str);
+        emit usergroupGetListV1SignalEFull(worker, error_type, error_str);
+    }
+}
+
+void OAIObjectUsergroupApi::usergroupGetMembersV1(const qint32 &pki_usergroup_id) {
+    QString fullPath = QString(_serverConfigs["usergroupGetMembersV1"][_serverIndices.value("usergroupGetMembersV1")].URL()+"/1/object/usergroup/{pkiUsergroupID}/getMembers");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_usergroup_idPathParam("{");
+        pki_usergroup_idPathParam.append("pkiUsergroupID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiUsergroupID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiUsergroupID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_usergroup_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_usergroup_id)));
+    }
+    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    OAIHttpRequestInput input(fullPath, "GET");
+
+
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+#else
+    for (auto key : _defaultHeaders.keys()) {
+        input.headers.insert(key, _defaultHeaders[key]);
+    }
+#endif
+
+    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIObjectUsergroupApi::usergroupGetMembersV1Callback);
+    connect(this, &OAIObjectUsergroupApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this]() {
+        if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
+            emit allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void OAIObjectUsergroupApi::usergroupGetMembersV1Callback(OAIHttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    OAIUsergroup_getMembers_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit usergroupGetMembersV1Signal(output);
+        emit usergroupGetMembersV1SignalFull(worker, output);
+    } else {
+        emit usergroupGetMembersV1SignalE(output, error_type, error_str);
+        emit usergroupGetMembersV1SignalEFull(worker, error_type, error_str);
+    }
+}
+
+void OAIObjectUsergroupApi::usergroupGetObjectV2(const qint32 &pki_usergroup_id) {
+    QString fullPath = QString(_serverConfigs["usergroupGetObjectV2"][_serverIndices.value("usergroupGetObjectV2")].URL()+"/2/object/usergroup/{pkiUsergroupID}");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_usergroup_idPathParam("{");
+        pki_usergroup_idPathParam.append("pkiUsergroupID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiUsergroupID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiUsergroupID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_usergroup_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_usergroup_id)));
+    }
+    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    OAIHttpRequestInput input(fullPath, "GET");
+
+
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+#else
+    for (auto key : _defaultHeaders.keys()) {
+        input.headers.insert(key, _defaultHeaders[key]);
+    }
+#endif
+
+    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIObjectUsergroupApi::usergroupGetObjectV2Callback);
+    connect(this, &OAIObjectUsergroupApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this]() {
+        if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
+            emit allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void OAIObjectUsergroupApi::usergroupGetObjectV2Callback(OAIHttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    OAIUsergroup_getObject_v2_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit usergroupGetObjectV2Signal(output);
+        emit usergroupGetObjectV2SignalFull(worker, output);
+    } else {
+        emit usergroupGetObjectV2SignalE(output, error_type, error_str);
+        emit usergroupGetObjectV2SignalEFull(worker, error_type, error_str);
     }
 }
 
