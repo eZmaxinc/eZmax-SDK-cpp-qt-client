@@ -20,7 +20,6 @@
 
 #include "OAIBillingentityinternal_createObject_v1_Request.h"
 #include "OAIBillingentityinternal_createObject_v1_Response.h"
-#include "OAIBillingentityinternal_deleteObject_v1_Response.h"
 #include "OAIBillingentityinternal_editObject_v1_Request.h"
 #include "OAIBillingentityinternal_editObject_v1_Response.h"
 #include "OAIBillingentityinternal_getAutocomplete_v2_Response.h"
@@ -74,11 +73,6 @@ public:
 
     /**
     * @param[in]  pki_billingentityinternal_id qint32 [required]
-    */
-    void billingentityinternalDeleteObjectV1(const qint32 &pki_billingentityinternal_id);
-
-    /**
-    * @param[in]  pki_billingentityinternal_id qint32 [required]
     * @param[in]  oai_billingentityinternal_edit_object_v1_request OAIBillingentityinternal_editObject_v1_Request [required]
     */
     void billingentityinternalEditObjectV1(const qint32 &pki_billingentityinternal_id, const OAIBillingentityinternal_editObject_v1_Request &oai_billingentityinternal_edit_object_v1_request);
@@ -129,7 +123,6 @@ private:
     int _OauthMethod = 0;
 
     void billingentityinternalCreateObjectV1Callback(OAIHttpRequestWorker *worker);
-    void billingentityinternalDeleteObjectV1Callback(OAIHttpRequestWorker *worker);
     void billingentityinternalEditObjectV1Callback(OAIHttpRequestWorker *worker);
     void billingentityinternalGetAutocompleteV2Callback(OAIHttpRequestWorker *worker);
     void billingentityinternalGetListV1Callback(OAIHttpRequestWorker *worker);
@@ -138,28 +131,24 @@ private:
 signals:
 
     void billingentityinternalCreateObjectV1Signal(OAIBillingentityinternal_createObject_v1_Response summary);
-    void billingentityinternalDeleteObjectV1Signal(OAIBillingentityinternal_deleteObject_v1_Response summary);
     void billingentityinternalEditObjectV1Signal(OAIBillingentityinternal_editObject_v1_Response summary);
     void billingentityinternalGetAutocompleteV2Signal(OAIBillingentityinternal_getAutocomplete_v2_Response summary);
     void billingentityinternalGetListV1Signal(OAIBillingentityinternal_getList_v1_Response summary);
     void billingentityinternalGetObjectV2Signal(OAIBillingentityinternal_getObject_v2_Response summary);
 
     void billingentityinternalCreateObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIBillingentityinternal_createObject_v1_Response summary);
-    void billingentityinternalDeleteObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIBillingentityinternal_deleteObject_v1_Response summary);
     void billingentityinternalEditObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIBillingentityinternal_editObject_v1_Response summary);
     void billingentityinternalGetAutocompleteV2SignalFull(OAIHttpRequestWorker *worker, OAIBillingentityinternal_getAutocomplete_v2_Response summary);
     void billingentityinternalGetListV1SignalFull(OAIHttpRequestWorker *worker, OAIBillingentityinternal_getList_v1_Response summary);
     void billingentityinternalGetObjectV2SignalFull(OAIHttpRequestWorker *worker, OAIBillingentityinternal_getObject_v2_Response summary);
 
     void billingentityinternalCreateObjectV1SignalE(OAIBillingentityinternal_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void billingentityinternalDeleteObjectV1SignalE(OAIBillingentityinternal_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void billingentityinternalEditObjectV1SignalE(OAIBillingentityinternal_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void billingentityinternalGetAutocompleteV2SignalE(OAIBillingentityinternal_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void billingentityinternalGetListV1SignalE(OAIBillingentityinternal_getList_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void billingentityinternalGetObjectV2SignalE(OAIBillingentityinternal_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
 
     void billingentityinternalCreateObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
-    void billingentityinternalDeleteObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void billingentityinternalEditObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void billingentityinternalGetAutocompleteV2SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void billingentityinternalGetListV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);

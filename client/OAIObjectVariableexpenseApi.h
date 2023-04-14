@@ -23,7 +23,6 @@
 #include "OAIHttpFileElement.h"
 #include "OAIVariableexpense_createObject_v1_Request.h"
 #include "OAIVariableexpense_createObject_v1_Response.h"
-#include "OAIVariableexpense_deleteObject_v1_Response.h"
 #include "OAIVariableexpense_editObject_v1_Request.h"
 #include "OAIVariableexpense_editObject_v1_Response.h"
 #include "OAIVariableexpense_getAutocomplete_v2_Response.h"
@@ -71,11 +70,6 @@ public:
     * @param[in]  oai_variableexpense_create_object_v1_request OAIVariableexpense_createObject_v1_Request [required]
     */
     void variableexpenseCreateObjectV1(const OAIVariableexpense_createObject_v1_Request &oai_variableexpense_create_object_v1_request);
-
-    /**
-    * @param[in]  pki_variableexpense_id qint32 [required]
-    */
-    void variableexpenseDeleteObjectV1(const qint32 &pki_variableexpense_id);
 
     /**
     * @param[in]  pki_variableexpense_id qint32 [required]
@@ -129,7 +123,6 @@ private:
     int _OauthMethod = 0;
 
     void variableexpenseCreateObjectV1Callback(OAIHttpRequestWorker *worker);
-    void variableexpenseDeleteObjectV1Callback(OAIHttpRequestWorker *worker);
     void variableexpenseEditObjectV1Callback(OAIHttpRequestWorker *worker);
     void variableexpenseGetAutocompleteV2Callback(OAIHttpRequestWorker *worker);
     void variableexpenseGetListV1Callback(OAIHttpRequestWorker *worker);
@@ -138,28 +131,24 @@ private:
 signals:
 
     void variableexpenseCreateObjectV1Signal(OAIVariableexpense_createObject_v1_Response summary);
-    void variableexpenseDeleteObjectV1Signal(OAIVariableexpense_deleteObject_v1_Response summary);
     void variableexpenseEditObjectV1Signal(OAIVariableexpense_editObject_v1_Response summary);
     void variableexpenseGetAutocompleteV2Signal(OAIVariableexpense_getAutocomplete_v2_Response summary);
     void variableexpenseGetListV1Signal(OAIVariableexpense_getList_v1_Response summary);
     void variableexpenseGetObjectV2Signal(OAIVariableexpense_getObject_v2_Response summary);
 
     void variableexpenseCreateObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIVariableexpense_createObject_v1_Response summary);
-    void variableexpenseDeleteObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIVariableexpense_deleteObject_v1_Response summary);
     void variableexpenseEditObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIVariableexpense_editObject_v1_Response summary);
     void variableexpenseGetAutocompleteV2SignalFull(OAIHttpRequestWorker *worker, OAIVariableexpense_getAutocomplete_v2_Response summary);
     void variableexpenseGetListV1SignalFull(OAIHttpRequestWorker *worker, OAIVariableexpense_getList_v1_Response summary);
     void variableexpenseGetObjectV2SignalFull(OAIHttpRequestWorker *worker, OAIVariableexpense_getObject_v2_Response summary);
 
     void variableexpenseCreateObjectV1SignalE(OAIVariableexpense_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void variableexpenseDeleteObjectV1SignalE(OAIVariableexpense_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void variableexpenseEditObjectV1SignalE(OAIVariableexpense_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void variableexpenseGetAutocompleteV2SignalE(OAIVariableexpense_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void variableexpenseGetListV1SignalE(OAIVariableexpense_getList_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void variableexpenseGetObjectV2SignalE(OAIVariableexpense_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
 
     void variableexpenseCreateObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
-    void variableexpenseDeleteObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void variableexpenseEditObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void variableexpenseGetAutocompleteV2SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void variableexpenseGetListV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);

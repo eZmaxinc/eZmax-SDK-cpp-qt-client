@@ -51,16 +51,12 @@ void OAIObjectUsergroupApi::initializeServerConfigs() {
     
     _serverConfigs.insert("usergroupCreateObjectV1", defaultConf);
     _serverIndices.insert("usergroupCreateObjectV1", 0);
-    _serverConfigs.insert("usergroupDeleteObjectV1", defaultConf);
-    _serverIndices.insert("usergroupDeleteObjectV1", 0);
     _serverConfigs.insert("usergroupEditObjectV1", defaultConf);
     _serverIndices.insert("usergroupEditObjectV1", 0);
     _serverConfigs.insert("usergroupGetAutocompleteV2", defaultConf);
     _serverIndices.insert("usergroupGetAutocompleteV2", 0);
     _serverConfigs.insert("usergroupGetListV1", defaultConf);
     _serverIndices.insert("usergroupGetListV1", 0);
-    _serverConfigs.insert("usergroupGetMembersV1", defaultConf);
-    _serverIndices.insert("usergroupGetMembersV1", 0);
     _serverConfigs.insert("usergroupGetObjectV2", defaultConf);
     _serverIndices.insert("usergroupGetObjectV2", 0);
 }
@@ -293,73 +289,6 @@ void OAIObjectUsergroupApi::usergroupCreateObjectV1Callback(OAIHttpRequestWorker
     } else {
         emit usergroupCreateObjectV1SignalE(output, error_type, error_str);
         emit usergroupCreateObjectV1SignalEFull(worker, error_type, error_str);
-    }
-}
-
-void OAIObjectUsergroupApi::usergroupDeleteObjectV1(const qint32 &pki_usergroup_id) {
-    QString fullPath = QString(_serverConfigs["usergroupDeleteObjectV1"][_serverIndices.value("usergroupDeleteObjectV1")].URL()+"/1/object/usergroup/{pkiUsergroupID}");
-    
-    if (_apiKeys.contains("Authorization")) {
-        addHeaders("Authorization",_apiKeys.find("Authorization").value());
-    }
-    
-    
-    {
-        QString pki_usergroup_idPathParam("{");
-        pki_usergroup_idPathParam.append("pkiUsergroupID").append("}");
-        QString pathPrefix, pathSuffix, pathDelimiter;
-        QString pathStyle = "simple";
-        if (pathStyle == "")
-            pathStyle = "simple";
-        pathPrefix = getParamStylePrefix(pathStyle);
-        pathSuffix = getParamStyleSuffix(pathStyle);
-        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiUsergroupID", false);
-        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiUsergroupID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_usergroup_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_usergroup_id)));
-    }
-    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
-    worker->setTimeOut(_timeOut);
-    worker->setWorkingDirectory(_workingDirectory);
-    OAIHttpRequestInput input(fullPath, "DELETE");
-
-
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
-    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
-        input.headers.insert(keyValueIt->first, keyValueIt->second);
-    }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
-
-    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIObjectUsergroupApi::usergroupDeleteObjectV1Callback);
-    connect(this, &OAIObjectUsergroupApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
-        if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
-        }
-    });
-
-    worker->execute(&input);
-}
-
-void OAIObjectUsergroupApi::usergroupDeleteObjectV1Callback(OAIHttpRequestWorker *worker) {
-    QString error_str = worker->error_str;
-    QNetworkReply::NetworkError error_type = worker->error_type;
-
-    if (worker->error_type != QNetworkReply::NoError) {
-        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
-    }
-    OAIUsergroup_deleteObject_v1_Response output(QString(worker->response));
-    worker->deleteLater();
-
-    if (worker->error_type == QNetworkReply::NoError) {
-        emit usergroupDeleteObjectV1Signal(output);
-        emit usergroupDeleteObjectV1SignalFull(worker, output);
-    } else {
-        emit usergroupDeleteObjectV1SignalE(output, error_type, error_str);
-        emit usergroupDeleteObjectV1SignalEFull(worker, error_type, error_str);
     }
 }
 
@@ -732,73 +661,6 @@ void OAIObjectUsergroupApi::usergroupGetListV1Callback(OAIHttpRequestWorker *wor
     } else {
         emit usergroupGetListV1SignalE(output, error_type, error_str);
         emit usergroupGetListV1SignalEFull(worker, error_type, error_str);
-    }
-}
-
-void OAIObjectUsergroupApi::usergroupGetMembersV1(const qint32 &pki_usergroup_id) {
-    QString fullPath = QString(_serverConfigs["usergroupGetMembersV1"][_serverIndices.value("usergroupGetMembersV1")].URL()+"/1/object/usergroup/{pkiUsergroupID}/getMembers");
-    
-    if (_apiKeys.contains("Authorization")) {
-        addHeaders("Authorization",_apiKeys.find("Authorization").value());
-    }
-    
-    
-    {
-        QString pki_usergroup_idPathParam("{");
-        pki_usergroup_idPathParam.append("pkiUsergroupID").append("}");
-        QString pathPrefix, pathSuffix, pathDelimiter;
-        QString pathStyle = "simple";
-        if (pathStyle == "")
-            pathStyle = "simple";
-        pathPrefix = getParamStylePrefix(pathStyle);
-        pathSuffix = getParamStyleSuffix(pathStyle);
-        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiUsergroupID", false);
-        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiUsergroupID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_usergroup_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_usergroup_id)));
-    }
-    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
-    worker->setTimeOut(_timeOut);
-    worker->setWorkingDirectory(_workingDirectory);
-    OAIHttpRequestInput input(fullPath, "GET");
-
-
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
-    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
-        input.headers.insert(keyValueIt->first, keyValueIt->second);
-    }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
-
-    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIObjectUsergroupApi::usergroupGetMembersV1Callback);
-    connect(this, &OAIObjectUsergroupApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
-        if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
-        }
-    });
-
-    worker->execute(&input);
-}
-
-void OAIObjectUsergroupApi::usergroupGetMembersV1Callback(OAIHttpRequestWorker *worker) {
-    QString error_str = worker->error_str;
-    QNetworkReply::NetworkError error_type = worker->error_type;
-
-    if (worker->error_type != QNetworkReply::NoError) {
-        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
-    }
-    OAIUsergroup_getMembers_v1_Response output(QString(worker->response));
-    worker->deleteLater();
-
-    if (worker->error_type == QNetworkReply::NoError) {
-        emit usergroupGetMembersV1Signal(output);
-        emit usergroupGetMembersV1SignalFull(worker, output);
-    } else {
-        emit usergroupGetMembersV1SignalE(output, error_type, error_str);
-        emit usergroupGetMembersV1SignalEFull(worker, error_type, error_str);
     }
 }
 

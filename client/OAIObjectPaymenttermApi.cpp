@@ -51,8 +51,6 @@ void OAIObjectPaymenttermApi::initializeServerConfigs() {
     
     _serverConfigs.insert("paymenttermCreateObjectV1", defaultConf);
     _serverIndices.insert("paymenttermCreateObjectV1", 0);
-    _serverConfigs.insert("paymenttermDeleteObjectV1", defaultConf);
-    _serverIndices.insert("paymenttermDeleteObjectV1", 0);
     _serverConfigs.insert("paymenttermEditObjectV1", defaultConf);
     _serverIndices.insert("paymenttermEditObjectV1", 0);
     _serverConfigs.insert("paymenttermGetAutocompleteV2", defaultConf);
@@ -291,73 +289,6 @@ void OAIObjectPaymenttermApi::paymenttermCreateObjectV1Callback(OAIHttpRequestWo
     } else {
         emit paymenttermCreateObjectV1SignalE(output, error_type, error_str);
         emit paymenttermCreateObjectV1SignalEFull(worker, error_type, error_str);
-    }
-}
-
-void OAIObjectPaymenttermApi::paymenttermDeleteObjectV1(const qint32 &pki_paymentterm_id) {
-    QString fullPath = QString(_serverConfigs["paymenttermDeleteObjectV1"][_serverIndices.value("paymenttermDeleteObjectV1")].URL()+"/1/object/paymentterm/{pkiPaymenttermID}");
-    
-    if (_apiKeys.contains("Authorization")) {
-        addHeaders("Authorization",_apiKeys.find("Authorization").value());
-    }
-    
-    
-    {
-        QString pki_paymentterm_idPathParam("{");
-        pki_paymentterm_idPathParam.append("pkiPaymenttermID").append("}");
-        QString pathPrefix, pathSuffix, pathDelimiter;
-        QString pathStyle = "simple";
-        if (pathStyle == "")
-            pathStyle = "simple";
-        pathPrefix = getParamStylePrefix(pathStyle);
-        pathSuffix = getParamStyleSuffix(pathStyle);
-        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiPaymenttermID", false);
-        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiPaymenttermID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_paymentterm_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_paymentterm_id)));
-    }
-    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
-    worker->setTimeOut(_timeOut);
-    worker->setWorkingDirectory(_workingDirectory);
-    OAIHttpRequestInput input(fullPath, "DELETE");
-
-
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
-    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
-        input.headers.insert(keyValueIt->first, keyValueIt->second);
-    }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
-
-    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIObjectPaymenttermApi::paymenttermDeleteObjectV1Callback);
-    connect(this, &OAIObjectPaymenttermApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
-        if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
-        }
-    });
-
-    worker->execute(&input);
-}
-
-void OAIObjectPaymenttermApi::paymenttermDeleteObjectV1Callback(OAIHttpRequestWorker *worker) {
-    QString error_str = worker->error_str;
-    QNetworkReply::NetworkError error_type = worker->error_type;
-
-    if (worker->error_type != QNetworkReply::NoError) {
-        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
-    }
-    OAIPaymentterm_deleteObject_v1_Response output(QString(worker->response));
-    worker->deleteLater();
-
-    if (worker->error_type == QNetworkReply::NoError) {
-        emit paymenttermDeleteObjectV1Signal(output);
-        emit paymenttermDeleteObjectV1SignalFull(worker, output);
-    } else {
-        emit paymenttermDeleteObjectV1SignalE(output, error_type, error_str);
-        emit paymenttermDeleteObjectV1SignalEFull(worker, error_type, error_str);
     }
 }
 

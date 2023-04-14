@@ -51,8 +51,6 @@ void OAIObjectBillingentityinternalApi::initializeServerConfigs() {
     
     _serverConfigs.insert("billingentityinternalCreateObjectV1", defaultConf);
     _serverIndices.insert("billingentityinternalCreateObjectV1", 0);
-    _serverConfigs.insert("billingentityinternalDeleteObjectV1", defaultConf);
-    _serverIndices.insert("billingentityinternalDeleteObjectV1", 0);
     _serverConfigs.insert("billingentityinternalEditObjectV1", defaultConf);
     _serverIndices.insert("billingentityinternalEditObjectV1", 0);
     _serverConfigs.insert("billingentityinternalGetAutocompleteV2", defaultConf);
@@ -291,73 +289,6 @@ void OAIObjectBillingentityinternalApi::billingentityinternalCreateObjectV1Callb
     } else {
         emit billingentityinternalCreateObjectV1SignalE(output, error_type, error_str);
         emit billingentityinternalCreateObjectV1SignalEFull(worker, error_type, error_str);
-    }
-}
-
-void OAIObjectBillingentityinternalApi::billingentityinternalDeleteObjectV1(const qint32 &pki_billingentityinternal_id) {
-    QString fullPath = QString(_serverConfigs["billingentityinternalDeleteObjectV1"][_serverIndices.value("billingentityinternalDeleteObjectV1")].URL()+"/1/object/billingentityinternal/{pkiBillingentityinternalID}");
-    
-    if (_apiKeys.contains("Authorization")) {
-        addHeaders("Authorization",_apiKeys.find("Authorization").value());
-    }
-    
-    
-    {
-        QString pki_billingentityinternal_idPathParam("{");
-        pki_billingentityinternal_idPathParam.append("pkiBillingentityinternalID").append("}");
-        QString pathPrefix, pathSuffix, pathDelimiter;
-        QString pathStyle = "simple";
-        if (pathStyle == "")
-            pathStyle = "simple";
-        pathPrefix = getParamStylePrefix(pathStyle);
-        pathSuffix = getParamStyleSuffix(pathStyle);
-        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiBillingentityinternalID", false);
-        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiBillingentityinternalID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_billingentityinternal_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_billingentityinternal_id)));
-    }
-    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
-    worker->setTimeOut(_timeOut);
-    worker->setWorkingDirectory(_workingDirectory);
-    OAIHttpRequestInput input(fullPath, "DELETE");
-
-
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
-    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
-        input.headers.insert(keyValueIt->first, keyValueIt->second);
-    }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
-
-    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIObjectBillingentityinternalApi::billingentityinternalDeleteObjectV1Callback);
-    connect(this, &OAIObjectBillingentityinternalApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
-        if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
-        }
-    });
-
-    worker->execute(&input);
-}
-
-void OAIObjectBillingentityinternalApi::billingentityinternalDeleteObjectV1Callback(OAIHttpRequestWorker *worker) {
-    QString error_str = worker->error_str;
-    QNetworkReply::NetworkError error_type = worker->error_type;
-
-    if (worker->error_type != QNetworkReply::NoError) {
-        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
-    }
-    OAIBillingentityinternal_deleteObject_v1_Response output(QString(worker->response));
-    worker->deleteLater();
-
-    if (worker->error_type == QNetworkReply::NoError) {
-        emit billingentityinternalDeleteObjectV1Signal(output);
-        emit billingentityinternalDeleteObjectV1SignalFull(worker, output);
-    } else {
-        emit billingentityinternalDeleteObjectV1SignalE(output, error_type, error_str);
-        emit billingentityinternalDeleteObjectV1SignalEFull(worker, error_type, error_str);
     }
 }
 

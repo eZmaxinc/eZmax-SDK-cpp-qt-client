@@ -23,7 +23,6 @@
 #include "OAIHttpFileElement.h"
 #include "OAIPaymentterm_createObject_v1_Request.h"
 #include "OAIPaymentterm_createObject_v1_Response.h"
-#include "OAIPaymentterm_deleteObject_v1_Response.h"
 #include "OAIPaymentterm_editObject_v1_Request.h"
 #include "OAIPaymentterm_editObject_v1_Response.h"
 #include "OAIPaymentterm_getAutocomplete_v2_Response.h"
@@ -71,11 +70,6 @@ public:
     * @param[in]  oai_paymentterm_create_object_v1_request OAIPaymentterm_createObject_v1_Request [required]
     */
     void paymenttermCreateObjectV1(const OAIPaymentterm_createObject_v1_Request &oai_paymentterm_create_object_v1_request);
-
-    /**
-    * @param[in]  pki_paymentterm_id qint32 [required]
-    */
-    void paymenttermDeleteObjectV1(const qint32 &pki_paymentterm_id);
 
     /**
     * @param[in]  pki_paymentterm_id qint32 [required]
@@ -129,7 +123,6 @@ private:
     int _OauthMethod = 0;
 
     void paymenttermCreateObjectV1Callback(OAIHttpRequestWorker *worker);
-    void paymenttermDeleteObjectV1Callback(OAIHttpRequestWorker *worker);
     void paymenttermEditObjectV1Callback(OAIHttpRequestWorker *worker);
     void paymenttermGetAutocompleteV2Callback(OAIHttpRequestWorker *worker);
     void paymenttermGetListV1Callback(OAIHttpRequestWorker *worker);
@@ -138,28 +131,24 @@ private:
 signals:
 
     void paymenttermCreateObjectV1Signal(OAIPaymentterm_createObject_v1_Response summary);
-    void paymenttermDeleteObjectV1Signal(OAIPaymentterm_deleteObject_v1_Response summary);
     void paymenttermEditObjectV1Signal(OAIPaymentterm_editObject_v1_Response summary);
     void paymenttermGetAutocompleteV2Signal(OAIPaymentterm_getAutocomplete_v2_Response summary);
     void paymenttermGetListV1Signal(OAIPaymentterm_getList_v1_Response summary);
     void paymenttermGetObjectV2Signal(OAIPaymentterm_getObject_v2_Response summary);
 
     void paymenttermCreateObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIPaymentterm_createObject_v1_Response summary);
-    void paymenttermDeleteObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIPaymentterm_deleteObject_v1_Response summary);
     void paymenttermEditObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIPaymentterm_editObject_v1_Response summary);
     void paymenttermGetAutocompleteV2SignalFull(OAIHttpRequestWorker *worker, OAIPaymentterm_getAutocomplete_v2_Response summary);
     void paymenttermGetListV1SignalFull(OAIHttpRequestWorker *worker, OAIPaymentterm_getList_v1_Response summary);
     void paymenttermGetObjectV2SignalFull(OAIHttpRequestWorker *worker, OAIPaymentterm_getObject_v2_Response summary);
 
     void paymenttermCreateObjectV1SignalE(OAIPaymentterm_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void paymenttermDeleteObjectV1SignalE(OAIPaymentterm_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void paymenttermEditObjectV1SignalE(OAIPaymentterm_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void paymenttermGetAutocompleteV2SignalE(OAIPaymentterm_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void paymenttermGetListV1SignalE(OAIPaymentterm_getList_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void paymenttermGetObjectV2SignalE(OAIPaymentterm_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
 
     void paymenttermCreateObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
-    void paymenttermDeleteObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void paymenttermEditObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void paymenttermGetAutocompleteV2SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void paymenttermGetListV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);

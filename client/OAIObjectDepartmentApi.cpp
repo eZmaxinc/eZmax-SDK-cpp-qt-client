@@ -51,8 +51,6 @@ void OAIObjectDepartmentApi::initializeServerConfigs() {
     
     _serverConfigs.insert("departmentGetAutocompleteV2", defaultConf);
     _serverIndices.insert("departmentGetAutocompleteV2", 0);
-    _serverConfigs.insert("departmentGetMembersV1", defaultConf);
-    _serverIndices.insert("departmentGetMembersV1", 0);
 }
 
 /**
@@ -367,73 +365,6 @@ void OAIObjectDepartmentApi::departmentGetAutocompleteV2Callback(OAIHttpRequestW
     } else {
         emit departmentGetAutocompleteV2SignalE(output, error_type, error_str);
         emit departmentGetAutocompleteV2SignalEFull(worker, error_type, error_str);
-    }
-}
-
-void OAIObjectDepartmentApi::departmentGetMembersV1(const qint32 &pki_department_id) {
-    QString fullPath = QString(_serverConfigs["departmentGetMembersV1"][_serverIndices.value("departmentGetMembersV1")].URL()+"/1/object/department/{pkiDepartmentID}/getMembers");
-    
-    if (_apiKeys.contains("Authorization")) {
-        addHeaders("Authorization",_apiKeys.find("Authorization").value());
-    }
-    
-    
-    {
-        QString pki_department_idPathParam("{");
-        pki_department_idPathParam.append("pkiDepartmentID").append("}");
-        QString pathPrefix, pathSuffix, pathDelimiter;
-        QString pathStyle = "simple";
-        if (pathStyle == "")
-            pathStyle = "simple";
-        pathPrefix = getParamStylePrefix(pathStyle);
-        pathSuffix = getParamStyleSuffix(pathStyle);
-        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiDepartmentID", false);
-        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiDepartmentID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_department_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_department_id)));
-    }
-    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
-    worker->setTimeOut(_timeOut);
-    worker->setWorkingDirectory(_workingDirectory);
-    OAIHttpRequestInput input(fullPath, "GET");
-
-
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
-    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
-        input.headers.insert(keyValueIt->first, keyValueIt->second);
-    }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
-
-    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIObjectDepartmentApi::departmentGetMembersV1Callback);
-    connect(this, &OAIObjectDepartmentApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
-        if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
-        }
-    });
-
-    worker->execute(&input);
-}
-
-void OAIObjectDepartmentApi::departmentGetMembersV1Callback(OAIHttpRequestWorker *worker) {
-    QString error_str = worker->error_str;
-    QNetworkReply::NetworkError error_type = worker->error_type;
-
-    if (worker->error_type != QNetworkReply::NoError) {
-        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
-    }
-    OAIDepartment_getMembers_v1_Response output(QString(worker->response));
-    worker->deleteLater();
-
-    if (worker->error_type == QNetworkReply::NoError) {
-        emit departmentGetMembersV1Signal(output);
-        emit departmentGetMembersV1SignalFull(worker, output);
-    } else {
-        emit departmentGetMembersV1SignalE(output, error_type, error_str);
-        emit departmentGetMembersV1SignalEFull(worker, error_type, error_str);
     }
 }
 

@@ -23,12 +23,10 @@
 #include "OAIHttpFileElement.h"
 #include "OAIUsergroup_createObject_v1_Request.h"
 #include "OAIUsergroup_createObject_v1_Response.h"
-#include "OAIUsergroup_deleteObject_v1_Response.h"
 #include "OAIUsergroup_editObject_v1_Request.h"
 #include "OAIUsergroup_editObject_v1_Response.h"
 #include "OAIUsergroup_getAutocomplete_v2_Response.h"
 #include "OAIUsergroup_getList_v1_Response.h"
-#include "OAIUsergroup_getMembers_v1_Response.h"
 #include "OAIUsergroup_getObject_v2_Response.h"
 #include <QString>
 
@@ -75,11 +73,6 @@ public:
 
     /**
     * @param[in]  pki_usergroup_id qint32 [required]
-    */
-    void usergroupDeleteObjectV1(const qint32 &pki_usergroup_id);
-
-    /**
-    * @param[in]  pki_usergroup_id qint32 [required]
     * @param[in]  oai_usergroup_edit_object_v1_request OAIUsergroup_editObject_v1_Request [required]
     */
     void usergroupEditObjectV1(const qint32 &pki_usergroup_id, const OAIUsergroup_editObject_v1_Request &oai_usergroup_edit_object_v1_request);
@@ -100,11 +93,6 @@ public:
     * @param[in]  s_filter QString [optional]
     */
     void usergroupGetListV1(const ::OpenAPI::OptionalParam<QString> &e_order_by = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<qint32> &i_row_max = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<qint32> &i_row_offset = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<OAIHeader_Accept_Language> &accept_language = ::OpenAPI::OptionalParam<OAIHeader_Accept_Language>(), const ::OpenAPI::OptionalParam<QString> &s_filter = ::OpenAPI::OptionalParam<QString>());
-
-    /**
-    * @param[in]  pki_usergroup_id qint32 [required]
-    */
-    void usergroupGetMembersV1(const qint32 &pki_usergroup_id);
 
     /**
     * @param[in]  pki_usergroup_id qint32 [required]
@@ -135,45 +123,35 @@ private:
     int _OauthMethod = 0;
 
     void usergroupCreateObjectV1Callback(OAIHttpRequestWorker *worker);
-    void usergroupDeleteObjectV1Callback(OAIHttpRequestWorker *worker);
     void usergroupEditObjectV1Callback(OAIHttpRequestWorker *worker);
     void usergroupGetAutocompleteV2Callback(OAIHttpRequestWorker *worker);
     void usergroupGetListV1Callback(OAIHttpRequestWorker *worker);
-    void usergroupGetMembersV1Callback(OAIHttpRequestWorker *worker);
     void usergroupGetObjectV2Callback(OAIHttpRequestWorker *worker);
 
 signals:
 
     void usergroupCreateObjectV1Signal(OAIUsergroup_createObject_v1_Response summary);
-    void usergroupDeleteObjectV1Signal(OAIUsergroup_deleteObject_v1_Response summary);
     void usergroupEditObjectV1Signal(OAIUsergroup_editObject_v1_Response summary);
     void usergroupGetAutocompleteV2Signal(OAIUsergroup_getAutocomplete_v2_Response summary);
     void usergroupGetListV1Signal(OAIUsergroup_getList_v1_Response summary);
-    void usergroupGetMembersV1Signal(OAIUsergroup_getMembers_v1_Response summary);
     void usergroupGetObjectV2Signal(OAIUsergroup_getObject_v2_Response summary);
 
     void usergroupCreateObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIUsergroup_createObject_v1_Response summary);
-    void usergroupDeleteObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIUsergroup_deleteObject_v1_Response summary);
     void usergroupEditObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIUsergroup_editObject_v1_Response summary);
     void usergroupGetAutocompleteV2SignalFull(OAIHttpRequestWorker *worker, OAIUsergroup_getAutocomplete_v2_Response summary);
     void usergroupGetListV1SignalFull(OAIHttpRequestWorker *worker, OAIUsergroup_getList_v1_Response summary);
-    void usergroupGetMembersV1SignalFull(OAIHttpRequestWorker *worker, OAIUsergroup_getMembers_v1_Response summary);
     void usergroupGetObjectV2SignalFull(OAIHttpRequestWorker *worker, OAIUsergroup_getObject_v2_Response summary);
 
     void usergroupCreateObjectV1SignalE(OAIUsergroup_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void usergroupDeleteObjectV1SignalE(OAIUsergroup_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void usergroupEditObjectV1SignalE(OAIUsergroup_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void usergroupGetAutocompleteV2SignalE(OAIUsergroup_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void usergroupGetListV1SignalE(OAIUsergroup_getList_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void usergroupGetMembersV1SignalE(OAIUsergroup_getMembers_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void usergroupGetObjectV2SignalE(OAIUsergroup_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
 
     void usergroupCreateObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
-    void usergroupDeleteObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void usergroupEditObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void usergroupGetAutocompleteV2SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void usergroupGetListV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
-    void usergroupGetMembersV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void usergroupGetObjectV2SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
 
     void abortRequestsSignal();

@@ -41,7 +41,6 @@ HEADERS += \
     $${PWD}/OAIBillingentityinternal_createObject_v1_Response.h \
     $${PWD}/OAIBillingentityinternal_createObject_v1_Response_allOf.h \
     $${PWD}/OAIBillingentityinternal_createObject_v1_Response_mPayload.h \
-    $${PWD}/OAIBillingentityinternal_deleteObject_v1_Response.h \
     $${PWD}/OAIBillingentityinternal_editObject_v1_Request.h \
     $${PWD}/OAIBillingentityinternal_editObject_v1_Response.h \
     $${PWD}/OAIBillingentityinternal_getAutocomplete_v2_Response.h \
@@ -159,9 +158,6 @@ HEADERS += \
     $${PWD}/OAIDepartment_getAutocomplete_v2_Response.h \
     $${PWD}/OAIDepartment_getAutocomplete_v2_Response_allOf.h \
     $${PWD}/OAIDepartment_getAutocomplete_v2_Response_mPayload.h \
-    $${PWD}/OAIDepartment_getMembers_v1_Response.h \
-    $${PWD}/OAIDepartment_getMembers_v1_Response_allOf.h \
-    $${PWD}/OAIDepartment_getMembers_v1_Response_mPayload.h \
     $${PWD}/OAIDescriptionstatic_Response.h \
     $${PWD}/OAIDescriptionstatic_ResponseCompound.h \
     $${PWD}/OAIEmail_Request.h \
@@ -854,7 +850,6 @@ HEADERS += \
     $${PWD}/OAIPaymentterm_createObject_v1_Response.h \
     $${PWD}/OAIPaymentterm_createObject_v1_Response_allOf.h \
     $${PWD}/OAIPaymentterm_createObject_v1_Response_mPayload.h \
-    $${PWD}/OAIPaymentterm_deleteObject_v1_Response.h \
     $${PWD}/OAIPaymentterm_editObject_v1_Request.h \
     $${PWD}/OAIPaymentterm_editObject_v1_Response.h \
     $${PWD}/OAIPaymentterm_getAutocomplete_v2_Response.h \
@@ -909,7 +904,6 @@ HEADERS += \
     $${PWD}/OAIUsergroup_createObject_v1_Response.h \
     $${PWD}/OAIUsergroup_createObject_v1_Response_allOf.h \
     $${PWD}/OAIUsergroup_createObject_v1_Response_mPayload.h \
-    $${PWD}/OAIUsergroup_deleteObject_v1_Response.h \
     $${PWD}/OAIUsergroup_editObject_v1_Request.h \
     $${PWD}/OAIUsergroup_editObject_v1_Response.h \
     $${PWD}/OAIUsergroup_getAutocomplete_v2_Response.h \
@@ -919,9 +913,6 @@ HEADERS += \
     $${PWD}/OAIUsergroup_getList_v1_Response_allOf.h \
     $${PWD}/OAIUsergroup_getList_v1_Response_mPayload.h \
     $${PWD}/OAIUsergroup_getList_v1_Response_mPayload_allOf.h \
-    $${PWD}/OAIUsergroup_getMembers_v1_Response.h \
-    $${PWD}/OAIUsergroup_getMembers_v1_Response_allOf.h \
-    $${PWD}/OAIUsergroup_getMembers_v1_Response_mPayload.h \
     $${PWD}/OAIUsergroup_getObject_v2_Response.h \
     $${PWD}/OAIUsergroup_getObject_v2_Response_allOf.h \
     $${PWD}/OAIUsergroup_getObject_v2_Response_mPayload.h \
@@ -935,7 +926,6 @@ HEADERS += \
     $${PWD}/OAIVariableexpense_createObject_v1_Response.h \
     $${PWD}/OAIVariableexpense_createObject_v1_Response_allOf.h \
     $${PWD}/OAIVariableexpense_createObject_v1_Response_mPayload.h \
-    $${PWD}/OAIVariableexpense_deleteObject_v1_Response.h \
     $${PWD}/OAIVariableexpense_editObject_v1_Request.h \
     $${PWD}/OAIVariableexpense_editObject_v1_Response.h \
     $${PWD}/OAIVariableexpense_getAutocomplete_v2_Response.h \
@@ -1087,7 +1077,6 @@ SOURCES += \
     $${PWD}/OAIBillingentityinternal_createObject_v1_Response.cpp \
     $${PWD}/OAIBillingentityinternal_createObject_v1_Response_allOf.cpp \
     $${PWD}/OAIBillingentityinternal_createObject_v1_Response_mPayload.cpp \
-    $${PWD}/OAIBillingentityinternal_deleteObject_v1_Response.cpp \
     $${PWD}/OAIBillingentityinternal_editObject_v1_Request.cpp \
     $${PWD}/OAIBillingentityinternal_editObject_v1_Response.cpp \
     $${PWD}/OAIBillingentityinternal_getAutocomplete_v2_Response.cpp \
@@ -1205,9 +1194,6 @@ SOURCES += \
     $${PWD}/OAIDepartment_getAutocomplete_v2_Response.cpp \
     $${PWD}/OAIDepartment_getAutocomplete_v2_Response_allOf.cpp \
     $${PWD}/OAIDepartment_getAutocomplete_v2_Response_mPayload.cpp \
-    $${PWD}/OAIDepartment_getMembers_v1_Response.cpp \
-    $${PWD}/OAIDepartment_getMembers_v1_Response_allOf.cpp \
-    $${PWD}/OAIDepartment_getMembers_v1_Response_mPayload.cpp \
     $${PWD}/OAIDescriptionstatic_Response.cpp \
     $${PWD}/OAIDescriptionstatic_ResponseCompound.cpp \
     $${PWD}/OAIEmail_Request.cpp \
@@ -1900,7 +1886,6 @@ SOURCES += \
     $${PWD}/OAIPaymentterm_createObject_v1_Response.cpp \
     $${PWD}/OAIPaymentterm_createObject_v1_Response_allOf.cpp \
     $${PWD}/OAIPaymentterm_createObject_v1_Response_mPayload.cpp \
-    $${PWD}/OAIPaymentterm_deleteObject_v1_Response.cpp \
     $${PWD}/OAIPaymentterm_editObject_v1_Request.cpp \
     $${PWD}/OAIPaymentterm_editObject_v1_Response.cpp \
     $${PWD}/OAIPaymentterm_getAutocomplete_v2_Response.cpp \
@@ -1955,7 +1940,6 @@ SOURCES += \
     $${PWD}/OAIUsergroup_createObject_v1_Response.cpp \
     $${PWD}/OAIUsergroup_createObject_v1_Response_allOf.cpp \
     $${PWD}/OAIUsergroup_createObject_v1_Response_mPayload.cpp \
-    $${PWD}/OAIUsergroup_deleteObject_v1_Response.cpp \
     $${PWD}/OAIUsergroup_editObject_v1_Request.cpp \
     $${PWD}/OAIUsergroup_editObject_v1_Response.cpp \
     $${PWD}/OAIUsergroup_getAutocomplete_v2_Response.cpp \
@@ -1965,9 +1949,6 @@ SOURCES += \
     $${PWD}/OAIUsergroup_getList_v1_Response_allOf.cpp \
     $${PWD}/OAIUsergroup_getList_v1_Response_mPayload.cpp \
     $${PWD}/OAIUsergroup_getList_v1_Response_mPayload_allOf.cpp \
-    $${PWD}/OAIUsergroup_getMembers_v1_Response.cpp \
-    $${PWD}/OAIUsergroup_getMembers_v1_Response_allOf.cpp \
-    $${PWD}/OAIUsergroup_getMembers_v1_Response_mPayload.cpp \
     $${PWD}/OAIUsergroup_getObject_v2_Response.cpp \
     $${PWD}/OAIUsergroup_getObject_v2_Response_allOf.cpp \
     $${PWD}/OAIUsergroup_getObject_v2_Response_mPayload.cpp \
@@ -1981,7 +1962,6 @@ SOURCES += \
     $${PWD}/OAIVariableexpense_createObject_v1_Response.cpp \
     $${PWD}/OAIVariableexpense_createObject_v1_Response_allOf.cpp \
     $${PWD}/OAIVariableexpense_createObject_v1_Response_mPayload.cpp \
-    $${PWD}/OAIVariableexpense_deleteObject_v1_Response.cpp \
     $${PWD}/OAIVariableexpense_editObject_v1_Request.cpp \
     $${PWD}/OAIVariableexpense_editObject_v1_Response.cpp \
     $${PWD}/OAIVariableexpense_getAutocomplete_v2_Response.cpp \

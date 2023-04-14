@@ -18,9 +18,7 @@
 #include "OAIServerConfiguration.h"
 #include "OAIOauth.h"
 
-#include "OAICommon_Response_Error.h"
 #include "OAIDepartment_getAutocomplete_v2_Response.h"
-#include "OAIDepartment_getMembers_v1_Response.h"
 #include "OAIHeader_Accept_Language.h"
 #include <QString>
 
@@ -68,11 +66,6 @@ public:
     */
     void departmentGetAutocompleteV2(const QString &s_selector, const ::OpenAPI::OptionalParam<QString> &e_filter_active = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &s_query = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<OAIHeader_Accept_Language> &accept_language = ::OpenAPI::OptionalParam<OAIHeader_Accept_Language>());
 
-    /**
-    * @param[in]  pki_department_id qint32 [required]
-    */
-    void departmentGetMembersV1(const qint32 &pki_department_id);
-
 
 private:
     QMap<QString,int> _serverIndices;
@@ -97,21 +90,16 @@ private:
     int _OauthMethod = 0;
 
     void departmentGetAutocompleteV2Callback(OAIHttpRequestWorker *worker);
-    void departmentGetMembersV1Callback(OAIHttpRequestWorker *worker);
 
 signals:
 
     void departmentGetAutocompleteV2Signal(OAIDepartment_getAutocomplete_v2_Response summary);
-    void departmentGetMembersV1Signal(OAIDepartment_getMembers_v1_Response summary);
 
     void departmentGetAutocompleteV2SignalFull(OAIHttpRequestWorker *worker, OAIDepartment_getAutocomplete_v2_Response summary);
-    void departmentGetMembersV1SignalFull(OAIHttpRequestWorker *worker, OAIDepartment_getMembers_v1_Response summary);
 
     void departmentGetAutocompleteV2SignalE(OAIDepartment_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void departmentGetMembersV1SignalE(OAIDepartment_getMembers_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
 
     void departmentGetAutocompleteV2SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
-    void departmentGetMembersV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
