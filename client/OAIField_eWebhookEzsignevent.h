@@ -41,6 +41,8 @@ public:
     enum class eOAIField_eWebhookEzsignevent {
         INVALID_VALUE_OPENAPI_GENERATED = 0,
         DOCUMENTCOMPLETED, 
+        EZSIGNSIGNERACCEPTCLAUSE, 
+        EZSIGNSIGNERCONNECT, 
         FOLDERCOMPLETED
     };
     OAIField_eWebhookEzsignevent::eOAIField_eWebhookEzsignevent getValue() const;

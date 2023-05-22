@@ -39,6 +39,9 @@ void OAIEzsignsignature_ResponseCompound_allOf::initializeModel() {
 
     m_a_obj_ezsignsignaturecustomdate_isSet = false;
     m_a_obj_ezsignsignaturecustomdate_isValid = false;
+
+    m_obj_creditcardtransaction_isSet = false;
+    m_obj_creditcardtransaction_isValid = false;
 }
 
 void OAIEzsignsignature_ResponseCompound_allOf::fromJson(QString jsonString) {
@@ -55,6 +58,9 @@ void OAIEzsignsignature_ResponseCompound_allOf::fromJsonObject(QJsonObject json)
 
     m_a_obj_ezsignsignaturecustomdate_isValid = ::OpenAPI::fromJsonValue(a_obj_ezsignsignaturecustomdate, json[QString("a_objEzsignsignaturecustomdate")]);
     m_a_obj_ezsignsignaturecustomdate_isSet = !json[QString("a_objEzsignsignaturecustomdate")].isNull() && m_a_obj_ezsignsignaturecustomdate_isValid;
+
+    m_obj_creditcardtransaction_isValid = ::OpenAPI::fromJsonValue(obj_creditcardtransaction, json[QString("objCreditcardtransaction")]);
+    m_obj_creditcardtransaction_isSet = !json[QString("objCreditcardtransaction")].isNull() && m_obj_creditcardtransaction_isValid;
 }
 
 QString OAIEzsignsignature_ResponseCompound_allOf::asJson() const {
@@ -71,6 +77,9 @@ QJsonObject OAIEzsignsignature_ResponseCompound_allOf::asJsonObject() const {
     }
     if (a_obj_ezsignsignaturecustomdate.size() > 0) {
         obj.insert(QString("a_objEzsignsignaturecustomdate"), ::OpenAPI::toJsonValue(a_obj_ezsignsignaturecustomdate));
+    }
+    if (obj_creditcardtransaction.isSet()) {
+        obj.insert(QString("objCreditcardtransaction"), ::OpenAPI::toJsonValue(obj_creditcardtransaction));
     }
     return obj;
 }
@@ -107,6 +116,22 @@ bool OAIEzsignsignature_ResponseCompound_allOf::is_a_obj_ezsignsignaturecustomda
     return m_a_obj_ezsignsignaturecustomdate_isValid;
 }
 
+OAICustom_Creditcardtransaction_Response OAIEzsignsignature_ResponseCompound_allOf::getObjCreditcardtransaction() const {
+    return obj_creditcardtransaction;
+}
+void OAIEzsignsignature_ResponseCompound_allOf::setObjCreditcardtransaction(const OAICustom_Creditcardtransaction_Response &obj_creditcardtransaction) {
+    this->obj_creditcardtransaction = obj_creditcardtransaction;
+    this->m_obj_creditcardtransaction_isSet = true;
+}
+
+bool OAIEzsignsignature_ResponseCompound_allOf::is_obj_creditcardtransaction_Set() const{
+    return m_obj_creditcardtransaction_isSet;
+}
+
+bool OAIEzsignsignature_ResponseCompound_allOf::is_obj_creditcardtransaction_Valid() const{
+    return m_obj_creditcardtransaction_isValid;
+}
+
 bool OAIEzsignsignature_ResponseCompound_allOf::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -116,6 +141,11 @@ bool OAIEzsignsignature_ResponseCompound_allOf::isSet() const {
         }
 
         if (a_obj_ezsignsignaturecustomdate.size() > 0) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (obj_creditcardtransaction.isSet()) {
             isObjectUpdated = true;
             break;
         }

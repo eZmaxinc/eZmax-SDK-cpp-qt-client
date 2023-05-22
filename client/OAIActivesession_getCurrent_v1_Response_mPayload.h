@@ -23,6 +23,7 @@
 
 #include "OAIActivesession_ResponseCompound_Apikey.h"
 #include "OAIActivesession_ResponseCompound_User.h"
+#include "OAIField_eActivesessionOrigin.h"
 #include "OAIField_eActivesessionUsertype.h"
 #include "OAIField_eActivesessionWeekdaystart.h"
 #include <QList>
@@ -50,6 +51,11 @@ public:
     void setEActivesessionUsertype(const OAIField_eActivesessionUsertype &e_activesession_usertype);
     bool is_e_activesession_usertype_Set() const;
     bool is_e_activesession_usertype_Valid() const;
+
+    OAIField_eActivesessionOrigin getEActivesessionOrigin() const;
+    void setEActivesessionOrigin(const OAIField_eActivesessionOrigin &e_activesession_origin);
+    bool is_e_activesession_origin_Set() const;
+    bool is_e_activesession_origin_Valid() const;
 
     OAIField_eActivesessionWeekdaystart getEActivesessionWeekdaystart() const;
     void setEActivesessionWeekdaystart(const OAIField_eActivesessionWeekdaystart &e_activesession_weekdaystart);
@@ -125,6 +131,10 @@ private:
     OAIField_eActivesessionUsertype e_activesession_usertype;
     bool m_e_activesession_usertype_isSet;
     bool m_e_activesession_usertype_isValid;
+
+    OAIField_eActivesessionOrigin e_activesession_origin;
+    bool m_e_activesession_origin_isSet;
+    bool m_e_activesession_origin_isValid;
 
     OAIField_eActivesessionWeekdaystart e_activesession_weekdaystart;
     bool m_e_activesession_weekdaystart_isSet;

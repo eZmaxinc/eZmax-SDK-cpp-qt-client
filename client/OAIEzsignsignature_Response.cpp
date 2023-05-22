@@ -81,6 +81,12 @@ void OAIEzsignsignature_Response::initializeModel() {
 
     m_fki_ezsignfoldersignerassociation_id_validation_isSet = false;
     m_fki_ezsignfoldersignerassociation_id_validation_isValid = false;
+
+    m_dt_ezsignsignature_date_isSet = false;
+    m_dt_ezsignsignature_date_isValid = false;
+
+    m_obj_contact_name_isSet = false;
+    m_obj_contact_name_isValid = false;
 }
 
 void OAIEzsignsignature_Response::fromJson(QString jsonString) {
@@ -139,6 +145,12 @@ void OAIEzsignsignature_Response::fromJsonObject(QJsonObject json) {
 
     m_fki_ezsignfoldersignerassociation_id_validation_isValid = ::OpenAPI::fromJsonValue(fki_ezsignfoldersignerassociation_id_validation, json[QString("fkiEzsignfoldersignerassociationIDValidation")]);
     m_fki_ezsignfoldersignerassociation_id_validation_isSet = !json[QString("fkiEzsignfoldersignerassociationIDValidation")].isNull() && m_fki_ezsignfoldersignerassociation_id_validation_isValid;
+
+    m_dt_ezsignsignature_date_isValid = ::OpenAPI::fromJsonValue(dt_ezsignsignature_date, json[QString("dtEzsignsignatureDate")]);
+    m_dt_ezsignsignature_date_isSet = !json[QString("dtEzsignsignatureDate")].isNull() && m_dt_ezsignsignature_date_isValid;
+
+    m_obj_contact_name_isValid = ::OpenAPI::fromJsonValue(obj_contact_name, json[QString("objContactName")]);
+    m_obj_contact_name_isSet = !json[QString("objContactName")].isNull() && m_obj_contact_name_isValid;
 }
 
 QString OAIEzsignsignature_Response::asJson() const {
@@ -197,6 +209,12 @@ QJsonObject OAIEzsignsignature_Response::asJsonObject() const {
     }
     if (m_fki_ezsignfoldersignerassociation_id_validation_isSet) {
         obj.insert(QString("fkiEzsignfoldersignerassociationIDValidation"), ::OpenAPI::toJsonValue(fki_ezsignfoldersignerassociation_id_validation));
+    }
+    if (m_dt_ezsignsignature_date_isSet) {
+        obj.insert(QString("dtEzsignsignatureDate"), ::OpenAPI::toJsonValue(dt_ezsignsignature_date));
+    }
+    if (obj_contact_name.isSet()) {
+        obj.insert(QString("objContactName"), ::OpenAPI::toJsonValue(obj_contact_name));
     }
     return obj;
 }
@@ -457,6 +475,38 @@ bool OAIEzsignsignature_Response::is_fki_ezsignfoldersignerassociation_id_valida
     return m_fki_ezsignfoldersignerassociation_id_validation_isValid;
 }
 
+QString OAIEzsignsignature_Response::getDtEzsignsignatureDate() const {
+    return dt_ezsignsignature_date;
+}
+void OAIEzsignsignature_Response::setDtEzsignsignatureDate(const QString &dt_ezsignsignature_date) {
+    this->dt_ezsignsignature_date = dt_ezsignsignature_date;
+    this->m_dt_ezsignsignature_date_isSet = true;
+}
+
+bool OAIEzsignsignature_Response::is_dt_ezsignsignature_date_Set() const{
+    return m_dt_ezsignsignature_date_isSet;
+}
+
+bool OAIEzsignsignature_Response::is_dt_ezsignsignature_date_Valid() const{
+    return m_dt_ezsignsignature_date_isValid;
+}
+
+OAICustom_ContactName_Response OAIEzsignsignature_Response::getObjContactName() const {
+    return obj_contact_name;
+}
+void OAIEzsignsignature_Response::setObjContactName(const OAICustom_ContactName_Response &obj_contact_name) {
+    this->obj_contact_name = obj_contact_name;
+    this->m_obj_contact_name_isSet = true;
+}
+
+bool OAIEzsignsignature_Response::is_obj_contact_name_Set() const{
+    return m_obj_contact_name_isSet;
+}
+
+bool OAIEzsignsignature_Response::is_obj_contact_name_Valid() const{
+    return m_obj_contact_name_isValid;
+}
+
 bool OAIEzsignsignature_Response::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -539,13 +589,23 @@ bool OAIEzsignsignature_Response::isSet() const {
             isObjectUpdated = true;
             break;
         }
+
+        if (m_dt_ezsignsignature_date_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (obj_contact_name.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
     } while (false);
     return isObjectUpdated;
 }
 
 bool OAIEzsignsignature_Response::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_pki_ezsignsignature_id_isValid && m_fki_ezsigndocument_id_isValid && m_fki_ezsignfoldersignerassociation_id_isValid && m_i_ezsignpage_pagenumber_isValid && m_i_ezsignsignature_x_isValid && m_i_ezsignsignature_y_isValid && m_i_ezsignsignature_step_isValid && m_e_ezsignsignature_type_isValid && true;
+    return m_pki_ezsignsignature_id_isValid && m_fki_ezsigndocument_id_isValid && m_fki_ezsignfoldersignerassociation_id_isValid && m_i_ezsignpage_pagenumber_isValid && m_i_ezsignsignature_x_isValid && m_i_ezsignsignature_y_isValid && m_i_ezsignsignature_step_isValid && m_e_ezsignsignature_type_isValid && m_obj_contact_name_isValid && true;
 }
 
 } // namespace OpenAPI

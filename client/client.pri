@@ -76,6 +76,11 @@ HEADERS += \
     $${PWD}/OAIBranding_getObject_v2_Response.h \
     $${PWD}/OAIBranding_getObject_v2_Response_allOf.h \
     $${PWD}/OAIBranding_getObject_v2_Response_mPayload.h \
+    $${PWD}/OAIClonehistory_ListElement.h \
+    $${PWD}/OAIClonehistory_getList_v1_Response.h \
+    $${PWD}/OAIClonehistory_getList_v1_Response_allOf.h \
+    $${PWD}/OAIClonehistory_getList_v1_Response_mPayload.h \
+    $${PWD}/OAIClonehistory_getList_v1_Response_mPayload_allOf.h \
     $${PWD}/OAICommon_Audit.h \
     $${PWD}/OAICommon_Auditdetail.h \
     $${PWD}/OAICommon_Response.h \
@@ -118,6 +123,7 @@ HEADERS += \
     $${PWD}/OAICustom_AutocompleteElement_Response.h \
     $${PWD}/OAICustom_CommunicationListElement_Response.h \
     $${PWD}/OAICustom_ContactName_Response.h \
+    $${PWD}/OAICustom_Creditcardtransaction_Response.h \
     $${PWD}/OAICustom_DropdownElement_Request.h \
     $${PWD}/OAICustom_DropdownElement_RequestCompound.h \
     $${PWD}/OAICustom_DropdownElement_Response.h \
@@ -319,6 +325,9 @@ HEADERS += \
     $${PWD}/OAIEzsigndocument_getActionableElements_v1_Response.h \
     $${PWD}/OAIEzsigndocument_getActionableElements_v1_Response_allOf.h \
     $${PWD}/OAIEzsigndocument_getActionableElements_v1_Response_mPayload.h \
+    $${PWD}/OAIEzsigndocument_getCompletedElements_v1_Response.h \
+    $${PWD}/OAIEzsigndocument_getCompletedElements_v1_Response_allOf.h \
+    $${PWD}/OAIEzsigndocument_getCompletedElements_v1_Response_mPayload.h \
     $${PWD}/OAIEzsigndocument_getDownloadUrl_v1_Response.h \
     $${PWD}/OAIEzsigndocument_getDownloadUrl_v1_Response_allOf.h \
     $${PWD}/OAIEzsigndocument_getDownloadUrl_v1_Response_mPayload.h \
@@ -748,6 +757,7 @@ HEADERS += \
     $${PWD}/OAIEzsigntsarequirement_getAutocomplete_v2_Response.h \
     $${PWD}/OAIEzsigntsarequirement_getAutocomplete_v2_Response_allOf.h \
     $${PWD}/OAIEzsigntsarequirement_getAutocomplete_v2_Response_mPayload.h \
+    $${PWD}/OAIField_eActivesessionOrigin.h \
     $${PWD}/OAIField_eActivesessionUsertype.h \
     $${PWD}/OAIField_eActivesessionWeekdaystart.h \
     $${PWD}/OAIField_eBrandingLogo.h \
@@ -786,6 +796,7 @@ HEADERS += \
     $${PWD}/OAIField_eNotificationpreferenceStatus.h \
     $${PWD}/OAIField_ePaymenttermType.h \
     $${PWD}/OAIField_ePhoneType.h \
+    $${PWD}/OAIField_eSessionhistoryEndby.h \
     $${PWD}/OAIField_eUserEzsignsendreminderfrequency.h \
     $${PWD}/OAIField_eUserType.h \
     $${PWD}/OAIField_eVariableexpenseTaxable.h \
@@ -820,6 +831,7 @@ HEADERS += \
     $${PWD}/OAIFranchisereferalincome_createObject_v2_Response_mPayload.h \
     $${PWD}/OAIGlobal_customer_getEndpoint_v1_Response.h \
     $${PWD}/OAIGlobal_ezmaxclient_version_v1_Response.h \
+    $${PWD}/OAIGlobal_ezmaxcustomer_getConfiguration_v1_Response.h \
     $${PWD}/OAIHeader_Accept_Language.h \
     $${PWD}/OAIMultilingual_ApikeyDescription.h \
     $${PWD}/OAIMultilingual_BillingentityinternalDescription.h \
@@ -874,6 +886,11 @@ HEADERS += \
     $${PWD}/OAISecretquestion_getAutocomplete_v2_Response.h \
     $${PWD}/OAISecretquestion_getAutocomplete_v2_Response_allOf.h \
     $${PWD}/OAISecretquestion_getAutocomplete_v2_Response_mPayload.h \
+    $${PWD}/OAISessionhistory_ListElement.h \
+    $${PWD}/OAISessionhistory_getList_v1_Response.h \
+    $${PWD}/OAISessionhistory_getList_v1_Response_allOf.h \
+    $${PWD}/OAISessionhistory_getList_v1_Response_mPayload.h \
+    $${PWD}/OAISessionhistory_getList_v1_Response_mPayload_allOf.h \
     $${PWD}/OAITaxassignment_AutocompleteElement_Response.h \
     $${PWD}/OAITaxassignment_getAutocomplete_v2_Response.h \
     $${PWD}/OAITaxassignment_getAutocomplete_v2_Response_allOf.h \
@@ -916,6 +933,19 @@ HEADERS += \
     $${PWD}/OAIUsergroup_getObject_v2_Response.h \
     $${PWD}/OAIUsergroup_getObject_v2_Response_allOf.h \
     $${PWD}/OAIUsergroup_getObject_v2_Response_mPayload.h \
+    $${PWD}/OAIUserstaged_ListElement.h \
+    $${PWD}/OAIUserstaged_Response.h \
+    $${PWD}/OAIUserstaged_ResponseCompound.h \
+    $${PWD}/OAIUserstaged_deleteObject_v1_Response.h \
+    $${PWD}/OAIUserstaged_getList_v1_Response.h \
+    $${PWD}/OAIUserstaged_getList_v1_Response_allOf.h \
+    $${PWD}/OAIUserstaged_getList_v1_Response_mPayload.h \
+    $${PWD}/OAIUserstaged_getList_v1_Response_mPayload_allOf.h \
+    $${PWD}/OAIUserstaged_getObject_v2_Response.h \
+    $${PWD}/OAIUserstaged_getObject_v2_Response_allOf.h \
+    $${PWD}/OAIUserstaged_getObject_v2_Response_mPayload.h \
+    $${PWD}/OAIUserstaged_map_v1_Request.h \
+    $${PWD}/OAIUserstaged_map_v1_Response.h \
     $${PWD}/OAIVariableexpense_AutocompleteElement_Response.h \
     $${PWD}/OAIVariableexpense_ListElement.h \
     $${PWD}/OAIVariableexpense_Request.h \
@@ -945,6 +975,9 @@ HEADERS += \
     $${PWD}/OAIVersionhistory_getObject_v2_Response_mPayload.h \
     $${PWD}/OAIWebhook_Ezsign_DocumentCompleted.h \
     $${PWD}/OAIWebhook_Ezsign_DocumentCompleted_allOf.h \
+    $${PWD}/OAIWebhook_Ezsign_EzsignsignerAcceptclause.h \
+    $${PWD}/OAIWebhook_Ezsign_EzsignsignerAcceptclause_allOf.h \
+    $${PWD}/OAIWebhook_Ezsign_EzsignsignerConnect.h \
     $${PWD}/OAIWebhook_Ezsign_FolderCompleted.h \
     $${PWD}/OAIWebhook_Ezsign_FolderCompleted_allOf.h \
     $${PWD}/OAIWebhook_ListElement.h \
@@ -979,6 +1012,7 @@ HEADERS += \
 # APIs
     $${PWD}/OAIGlobalCustomerApi.h \
     $${PWD}/OAIGlobalEzmaxclientApi.h \
+    $${PWD}/OAIGlobalEzmaxcustomerApi.h \
     $${PWD}/OAIModuleEzsignApi.h \
     $${PWD}/OAIModuleUserApi.h \
     $${PWD}/OAIObjectActivesessionApi.h \
@@ -986,6 +1020,7 @@ HEADERS += \
     $${PWD}/OAIObjectBillingentityexternalApi.h \
     $${PWD}/OAIObjectBillingentityinternalApi.h \
     $${PWD}/OAIObjectBrandingApi.h \
+    $${PWD}/OAIObjectClonehistoryApi.h \
     $${PWD}/OAIObjectCommunicationApi.h \
     $${PWD}/OAIObjectDepartmentApi.h \
     $${PWD}/OAIObjectEzmaxinvoicingApi.h \
@@ -1019,10 +1054,12 @@ HEADERS += \
     $${PWD}/OAIObjectPaymenttermApi.h \
     $${PWD}/OAIObjectPeriodApi.h \
     $${PWD}/OAIObjectSecretquestionApi.h \
+    $${PWD}/OAIObjectSessionhistoryApi.h \
     $${PWD}/OAIObjectTaxassignmentApi.h \
     $${PWD}/OAIObjectTimezoneApi.h \
     $${PWD}/OAIObjectUserApi.h \
     $${PWD}/OAIObjectUsergroupApi.h \
+    $${PWD}/OAIObjectUserstagedApi.h \
     $${PWD}/OAIObjectVariableexpenseApi.h \
     $${PWD}/OAIObjectVersionhistoryApi.h \
     $${PWD}/OAIObjectWebhookApi.h \
@@ -1112,6 +1149,11 @@ SOURCES += \
     $${PWD}/OAIBranding_getObject_v2_Response.cpp \
     $${PWD}/OAIBranding_getObject_v2_Response_allOf.cpp \
     $${PWD}/OAIBranding_getObject_v2_Response_mPayload.cpp \
+    $${PWD}/OAIClonehistory_ListElement.cpp \
+    $${PWD}/OAIClonehistory_getList_v1_Response.cpp \
+    $${PWD}/OAIClonehistory_getList_v1_Response_allOf.cpp \
+    $${PWD}/OAIClonehistory_getList_v1_Response_mPayload.cpp \
+    $${PWD}/OAIClonehistory_getList_v1_Response_mPayload_allOf.cpp \
     $${PWD}/OAICommon_Audit.cpp \
     $${PWD}/OAICommon_Auditdetail.cpp \
     $${PWD}/OAICommon_Response.cpp \
@@ -1154,6 +1196,7 @@ SOURCES += \
     $${PWD}/OAICustom_AutocompleteElement_Response.cpp \
     $${PWD}/OAICustom_CommunicationListElement_Response.cpp \
     $${PWD}/OAICustom_ContactName_Response.cpp \
+    $${PWD}/OAICustom_Creditcardtransaction_Response.cpp \
     $${PWD}/OAICustom_DropdownElement_Request.cpp \
     $${PWD}/OAICustom_DropdownElement_RequestCompound.cpp \
     $${PWD}/OAICustom_DropdownElement_Response.cpp \
@@ -1355,6 +1398,9 @@ SOURCES += \
     $${PWD}/OAIEzsigndocument_getActionableElements_v1_Response.cpp \
     $${PWD}/OAIEzsigndocument_getActionableElements_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsigndocument_getActionableElements_v1_Response_mPayload.cpp \
+    $${PWD}/OAIEzsigndocument_getCompletedElements_v1_Response.cpp \
+    $${PWD}/OAIEzsigndocument_getCompletedElements_v1_Response_allOf.cpp \
+    $${PWD}/OAIEzsigndocument_getCompletedElements_v1_Response_mPayload.cpp \
     $${PWD}/OAIEzsigndocument_getDownloadUrl_v1_Response.cpp \
     $${PWD}/OAIEzsigndocument_getDownloadUrl_v1_Response_allOf.cpp \
     $${PWD}/OAIEzsigndocument_getDownloadUrl_v1_Response_mPayload.cpp \
@@ -1784,6 +1830,7 @@ SOURCES += \
     $${PWD}/OAIEzsigntsarequirement_getAutocomplete_v2_Response.cpp \
     $${PWD}/OAIEzsigntsarequirement_getAutocomplete_v2_Response_allOf.cpp \
     $${PWD}/OAIEzsigntsarequirement_getAutocomplete_v2_Response_mPayload.cpp \
+    $${PWD}/OAIField_eActivesessionOrigin.cpp \
     $${PWD}/OAIField_eActivesessionUsertype.cpp \
     $${PWD}/OAIField_eActivesessionWeekdaystart.cpp \
     $${PWD}/OAIField_eBrandingLogo.cpp \
@@ -1822,6 +1869,7 @@ SOURCES += \
     $${PWD}/OAIField_eNotificationpreferenceStatus.cpp \
     $${PWD}/OAIField_ePaymenttermType.cpp \
     $${PWD}/OAIField_ePhoneType.cpp \
+    $${PWD}/OAIField_eSessionhistoryEndby.cpp \
     $${PWD}/OAIField_eUserEzsignsendreminderfrequency.cpp \
     $${PWD}/OAIField_eUserType.cpp \
     $${PWD}/OAIField_eVariableexpenseTaxable.cpp \
@@ -1856,6 +1904,7 @@ SOURCES += \
     $${PWD}/OAIFranchisereferalincome_createObject_v2_Response_mPayload.cpp \
     $${PWD}/OAIGlobal_customer_getEndpoint_v1_Response.cpp \
     $${PWD}/OAIGlobal_ezmaxclient_version_v1_Response.cpp \
+    $${PWD}/OAIGlobal_ezmaxcustomer_getConfiguration_v1_Response.cpp \
     $${PWD}/OAIHeader_Accept_Language.cpp \
     $${PWD}/OAIMultilingual_ApikeyDescription.cpp \
     $${PWD}/OAIMultilingual_BillingentityinternalDescription.cpp \
@@ -1910,6 +1959,11 @@ SOURCES += \
     $${PWD}/OAISecretquestion_getAutocomplete_v2_Response.cpp \
     $${PWD}/OAISecretquestion_getAutocomplete_v2_Response_allOf.cpp \
     $${PWD}/OAISecretquestion_getAutocomplete_v2_Response_mPayload.cpp \
+    $${PWD}/OAISessionhistory_ListElement.cpp \
+    $${PWD}/OAISessionhistory_getList_v1_Response.cpp \
+    $${PWD}/OAISessionhistory_getList_v1_Response_allOf.cpp \
+    $${PWD}/OAISessionhistory_getList_v1_Response_mPayload.cpp \
+    $${PWD}/OAISessionhistory_getList_v1_Response_mPayload_allOf.cpp \
     $${PWD}/OAITaxassignment_AutocompleteElement_Response.cpp \
     $${PWD}/OAITaxassignment_getAutocomplete_v2_Response.cpp \
     $${PWD}/OAITaxassignment_getAutocomplete_v2_Response_allOf.cpp \
@@ -1952,6 +2006,19 @@ SOURCES += \
     $${PWD}/OAIUsergroup_getObject_v2_Response.cpp \
     $${PWD}/OAIUsergroup_getObject_v2_Response_allOf.cpp \
     $${PWD}/OAIUsergroup_getObject_v2_Response_mPayload.cpp \
+    $${PWD}/OAIUserstaged_ListElement.cpp \
+    $${PWD}/OAIUserstaged_Response.cpp \
+    $${PWD}/OAIUserstaged_ResponseCompound.cpp \
+    $${PWD}/OAIUserstaged_deleteObject_v1_Response.cpp \
+    $${PWD}/OAIUserstaged_getList_v1_Response.cpp \
+    $${PWD}/OAIUserstaged_getList_v1_Response_allOf.cpp \
+    $${PWD}/OAIUserstaged_getList_v1_Response_mPayload.cpp \
+    $${PWD}/OAIUserstaged_getList_v1_Response_mPayload_allOf.cpp \
+    $${PWD}/OAIUserstaged_getObject_v2_Response.cpp \
+    $${PWD}/OAIUserstaged_getObject_v2_Response_allOf.cpp \
+    $${PWD}/OAIUserstaged_getObject_v2_Response_mPayload.cpp \
+    $${PWD}/OAIUserstaged_map_v1_Request.cpp \
+    $${PWD}/OAIUserstaged_map_v1_Response.cpp \
     $${PWD}/OAIVariableexpense_AutocompleteElement_Response.cpp \
     $${PWD}/OAIVariableexpense_ListElement.cpp \
     $${PWD}/OAIVariableexpense_Request.cpp \
@@ -1981,6 +2048,9 @@ SOURCES += \
     $${PWD}/OAIVersionhistory_getObject_v2_Response_mPayload.cpp \
     $${PWD}/OAIWebhook_Ezsign_DocumentCompleted.cpp \
     $${PWD}/OAIWebhook_Ezsign_DocumentCompleted_allOf.cpp \
+    $${PWD}/OAIWebhook_Ezsign_EzsignsignerAcceptclause.cpp \
+    $${PWD}/OAIWebhook_Ezsign_EzsignsignerAcceptclause_allOf.cpp \
+    $${PWD}/OAIWebhook_Ezsign_EzsignsignerConnect.cpp \
     $${PWD}/OAIWebhook_Ezsign_FolderCompleted.cpp \
     $${PWD}/OAIWebhook_Ezsign_FolderCompleted_allOf.cpp \
     $${PWD}/OAIWebhook_ListElement.cpp \
@@ -2015,6 +2085,7 @@ SOURCES += \
 # APIs
     $${PWD}/OAIGlobalCustomerApi.cpp \
     $${PWD}/OAIGlobalEzmaxclientApi.cpp \
+    $${PWD}/OAIGlobalEzmaxcustomerApi.cpp \
     $${PWD}/OAIModuleEzsignApi.cpp \
     $${PWD}/OAIModuleUserApi.cpp \
     $${PWD}/OAIObjectActivesessionApi.cpp \
@@ -2022,6 +2093,7 @@ SOURCES += \
     $${PWD}/OAIObjectBillingentityexternalApi.cpp \
     $${PWD}/OAIObjectBillingentityinternalApi.cpp \
     $${PWD}/OAIObjectBrandingApi.cpp \
+    $${PWD}/OAIObjectClonehistoryApi.cpp \
     $${PWD}/OAIObjectCommunicationApi.cpp \
     $${PWD}/OAIObjectDepartmentApi.cpp \
     $${PWD}/OAIObjectEzmaxinvoicingApi.cpp \
@@ -2055,10 +2127,12 @@ SOURCES += \
     $${PWD}/OAIObjectPaymenttermApi.cpp \
     $${PWD}/OAIObjectPeriodApi.cpp \
     $${PWD}/OAIObjectSecretquestionApi.cpp \
+    $${PWD}/OAIObjectSessionhistoryApi.cpp \
     $${PWD}/OAIObjectTaxassignmentApi.cpp \
     $${PWD}/OAIObjectTimezoneApi.cpp \
     $${PWD}/OAIObjectUserApi.cpp \
     $${PWD}/OAIObjectUsergroupApi.cpp \
+    $${PWD}/OAIObjectUserstagedApi.cpp \
     $${PWD}/OAIObjectVariableexpenseApi.cpp \
     $${PWD}/OAIObjectVersionhistoryApi.cpp \
     $${PWD}/OAIObjectWebhookApi.cpp \

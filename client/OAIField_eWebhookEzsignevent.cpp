@@ -45,6 +45,14 @@ void OAIField_eWebhookEzsignevent::fromJson(QString jsonString) {
         m_value = eOAIField_eWebhookEzsignevent::DOCUMENTCOMPLETED;
         m_value_isSet = m_value_isValid = true;
     }
+    else if ( jsonString.compare("EzsignsignerAcceptclause", Qt::CaseInsensitive) == 0) {
+        m_value = eOAIField_eWebhookEzsignevent::EZSIGNSIGNERACCEPTCLAUSE;
+        m_value_isSet = m_value_isValid = true;
+    }
+    else if ( jsonString.compare("EzsignsignerConnect", Qt::CaseInsensitive) == 0) {
+        m_value = eOAIField_eWebhookEzsignevent::EZSIGNSIGNERCONNECT;
+        m_value_isSet = m_value_isValid = true;
+    }
     else if ( jsonString.compare("FolderCompleted", Qt::CaseInsensitive) == 0) {
         m_value = eOAIField_eWebhookEzsignevent::FOLDERCOMPLETED;
         m_value_isSet = m_value_isValid = true;
@@ -61,6 +69,12 @@ QString OAIField_eWebhookEzsignevent::asJson() const {
     switch (m_value){
         case eOAIField_eWebhookEzsignevent::DOCUMENTCOMPLETED:
             val = "DocumentCompleted";
+            break;
+        case eOAIField_eWebhookEzsignevent::EZSIGNSIGNERACCEPTCLAUSE:
+            val = "EzsignsignerAcceptclause";
+            break;
+        case eOAIField_eWebhookEzsignevent::EZSIGNSIGNERCONNECT:
+            val = "EzsignsignerConnect";
             break;
         case eOAIField_eWebhookEzsignevent::FOLDERCOMPLETED:
             val = "FolderCompleted";

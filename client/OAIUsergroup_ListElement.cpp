@@ -39,6 +39,9 @@ void OAIUsergroup_ListElement::initializeModel() {
 
     m_s_usergroup_name_x_isSet = false;
     m_s_usergroup_name_x_isValid = false;
+
+    m_i_count_user_isSet = false;
+    m_i_count_user_isValid = false;
 }
 
 void OAIUsergroup_ListElement::fromJson(QString jsonString) {
@@ -55,6 +58,9 @@ void OAIUsergroup_ListElement::fromJsonObject(QJsonObject json) {
 
     m_s_usergroup_name_x_isValid = ::OpenAPI::fromJsonValue(s_usergroup_name_x, json[QString("sUsergroupNameX")]);
     m_s_usergroup_name_x_isSet = !json[QString("sUsergroupNameX")].isNull() && m_s_usergroup_name_x_isValid;
+
+    m_i_count_user_isValid = ::OpenAPI::fromJsonValue(i_count_user, json[QString("iCountUser")]);
+    m_i_count_user_isSet = !json[QString("iCountUser")].isNull() && m_i_count_user_isValid;
 }
 
 QString OAIUsergroup_ListElement::asJson() const {
@@ -71,6 +77,9 @@ QJsonObject OAIUsergroup_ListElement::asJsonObject() const {
     }
     if (m_s_usergroup_name_x_isSet) {
         obj.insert(QString("sUsergroupNameX"), ::OpenAPI::toJsonValue(s_usergroup_name_x));
+    }
+    if (m_i_count_user_isSet) {
+        obj.insert(QString("iCountUser"), ::OpenAPI::toJsonValue(i_count_user));
     }
     return obj;
 }
@@ -107,6 +116,22 @@ bool OAIUsergroup_ListElement::is_s_usergroup_name_x_Valid() const{
     return m_s_usergroup_name_x_isValid;
 }
 
+qint32 OAIUsergroup_ListElement::getICountUser() const {
+    return i_count_user;
+}
+void OAIUsergroup_ListElement::setICountUser(const qint32 &i_count_user) {
+    this->i_count_user = i_count_user;
+    this->m_i_count_user_isSet = true;
+}
+
+bool OAIUsergroup_ListElement::is_i_count_user_Set() const{
+    return m_i_count_user_isSet;
+}
+
+bool OAIUsergroup_ListElement::is_i_count_user_Valid() const{
+    return m_i_count_user_isValid;
+}
+
 bool OAIUsergroup_ListElement::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -119,13 +144,18 @@ bool OAIUsergroup_ListElement::isSet() const {
             isObjectUpdated = true;
             break;
         }
+
+        if (m_i_count_user_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
     } while (false);
     return isObjectUpdated;
 }
 
 bool OAIUsergroup_ListElement::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_pki_usergroup_id_isValid && m_s_usergroup_name_x_isValid && true;
+    return m_pki_usergroup_id_isValid && m_s_usergroup_name_x_isValid && m_i_count_user_isValid && true;
 }
 
 } // namespace OpenAPI

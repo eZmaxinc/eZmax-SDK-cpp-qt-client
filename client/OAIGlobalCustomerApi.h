@@ -62,7 +62,7 @@ public:
     * @param[in]  pks_customer_code QString [required]
     * @param[in]  s_infrastructureproduct_code QString [optional]
     */
-    void globalCustomerGetEndpointV1(const QString &pks_customer_code, const ::OpenAPI::OptionalParam<QString> &s_infrastructureproduct_code = ::OpenAPI::OptionalParam<QString>());
+    Q_DECL_DEPRECATED void globalCustomerGetEndpointV1(const QString &pks_customer_code, const ::OpenAPI::OptionalParam<QString> &s_infrastructureproduct_code = ::OpenAPI::OptionalParam<QString>());
 
 
 private:

@@ -21,6 +21,8 @@
 
 #include <QJsonObject>
 
+#include "OAICustom_ContactName_Response.h"
+#include "OAICustom_Creditcardtransaction_Response.h"
 #include "OAIEzsignsignaturecustomdate_ResponseCompound.h"
 #include "OAIField_eEzsignsignatureAttachmentnamesource.h"
 #include "OAIField_eEzsignsignatureFont.h"
@@ -33,7 +35,9 @@
 #include "OAIObject.h"
 
 namespace OpenAPI {
+class OAICustom_ContactName_Response;
 class OAIEzsignsignaturecustomdate_ResponseCompound;
+class OAICustom_Creditcardtransaction_Response;
 
 class OAIEzsignsignature_ResponseCompound : public OAIObject {
 public:
@@ -126,6 +130,16 @@ public:
     bool is_fki_ezsignfoldersignerassociation_id_validation_Set() const;
     bool is_fki_ezsignfoldersignerassociation_id_validation_Valid() const;
 
+    QString getDtEzsignsignatureDate() const;
+    void setDtEzsignsignatureDate(const QString &dt_ezsignsignature_date);
+    bool is_dt_ezsignsignature_date_Set() const;
+    bool is_dt_ezsignsignature_date_Valid() const;
+
+    OAICustom_ContactName_Response getObjContactName() const;
+    void setObjContactName(const OAICustom_ContactName_Response &obj_contact_name);
+    bool is_obj_contact_name_Set() const;
+    bool is_obj_contact_name_Valid() const;
+
     bool isBEzsignsignatureCustomdate() const;
     void setBEzsignsignatureCustomdate(const bool &b_ezsignsignature_customdate);
     bool is_b_ezsignsignature_customdate_Set() const;
@@ -135,6 +149,11 @@ public:
     void setAObjEzsignsignaturecustomdate(const QList<OAIEzsignsignaturecustomdate_ResponseCompound> &a_obj_ezsignsignaturecustomdate);
     bool is_a_obj_ezsignsignaturecustomdate_Set() const;
     bool is_a_obj_ezsignsignaturecustomdate_Valid() const;
+
+    OAICustom_Creditcardtransaction_Response getObjCreditcardtransaction() const;
+    void setObjCreditcardtransaction(const OAICustom_Creditcardtransaction_Response &obj_creditcardtransaction);
+    bool is_obj_creditcardtransaction_Set() const;
+    bool is_obj_creditcardtransaction_Valid() const;
 
     virtual bool isSet() const override;
     virtual bool isValid() const override;
@@ -206,6 +225,14 @@ private:
     bool m_fki_ezsignfoldersignerassociation_id_validation_isSet;
     bool m_fki_ezsignfoldersignerassociation_id_validation_isValid;
 
+    QString dt_ezsignsignature_date;
+    bool m_dt_ezsignsignature_date_isSet;
+    bool m_dt_ezsignsignature_date_isValid;
+
+    OAICustom_ContactName_Response obj_contact_name;
+    bool m_obj_contact_name_isSet;
+    bool m_obj_contact_name_isValid;
+
     bool b_ezsignsignature_customdate;
     bool m_b_ezsignsignature_customdate_isSet;
     bool m_b_ezsignsignature_customdate_isValid;
@@ -213,6 +240,10 @@ private:
     QList<OAIEzsignsignaturecustomdate_ResponseCompound> a_obj_ezsignsignaturecustomdate;
     bool m_a_obj_ezsignsignaturecustomdate_isSet;
     bool m_a_obj_ezsignsignaturecustomdate_isValid;
+
+    OAICustom_Creditcardtransaction_Response obj_creditcardtransaction;
+    bool m_obj_creditcardtransaction_isSet;
+    bool m_obj_creditcardtransaction_isValid;
 };
 
 } // namespace OpenAPI

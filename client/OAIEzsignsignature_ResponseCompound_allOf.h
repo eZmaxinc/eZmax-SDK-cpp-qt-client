@@ -21,6 +21,7 @@
 
 #include <QJsonObject>
 
+#include "OAICustom_Creditcardtransaction_Response.h"
 #include "OAIEzsignsignaturecustomdate_ResponseCompound.h"
 #include <QList>
 
@@ -29,6 +30,7 @@
 
 namespace OpenAPI {
 class OAIEzsignsignaturecustomdate_ResponseCompound;
+class OAICustom_Creditcardtransaction_Response;
 
 class OAIEzsignsignature_ResponseCompound_allOf : public OAIObject {
 public:
@@ -51,6 +53,11 @@ public:
     bool is_a_obj_ezsignsignaturecustomdate_Set() const;
     bool is_a_obj_ezsignsignaturecustomdate_Valid() const;
 
+    OAICustom_Creditcardtransaction_Response getObjCreditcardtransaction() const;
+    void setObjCreditcardtransaction(const OAICustom_Creditcardtransaction_Response &obj_creditcardtransaction);
+    bool is_obj_creditcardtransaction_Set() const;
+    bool is_obj_creditcardtransaction_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -64,6 +71,10 @@ private:
     QList<OAIEzsignsignaturecustomdate_ResponseCompound> a_obj_ezsignsignaturecustomdate;
     bool m_a_obj_ezsignsignaturecustomdate_isSet;
     bool m_a_obj_ezsignsignaturecustomdate_isValid;
+
+    OAICustom_Creditcardtransaction_Response obj_creditcardtransaction;
+    bool m_obj_creditcardtransaction_isSet;
+    bool m_obj_creditcardtransaction_isValid;
 };
 
 } // namespace OpenAPI

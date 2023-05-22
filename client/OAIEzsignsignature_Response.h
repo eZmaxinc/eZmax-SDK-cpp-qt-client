@@ -21,6 +21,7 @@
 
 #include <QJsonObject>
 
+#include "OAICustom_ContactName_Response.h"
 #include "OAIField_eEzsignsignatureAttachmentnamesource.h"
 #include "OAIField_eEzsignsignatureFont.h"
 #include "OAIField_eEzsignsignatureTooltipposition.h"
@@ -31,6 +32,7 @@
 #include "OAIObject.h"
 
 namespace OpenAPI {
+class OAICustom_ContactName_Response;
 
 class OAIEzsignsignature_Response : public OAIObject {
 public:
@@ -123,6 +125,16 @@ public:
     bool is_fki_ezsignfoldersignerassociation_id_validation_Set() const;
     bool is_fki_ezsignfoldersignerassociation_id_validation_Valid() const;
 
+    QString getDtEzsignsignatureDate() const;
+    void setDtEzsignsignatureDate(const QString &dt_ezsignsignature_date);
+    bool is_dt_ezsignsignature_date_Set() const;
+    bool is_dt_ezsignsignature_date_Valid() const;
+
+    OAICustom_ContactName_Response getObjContactName() const;
+    void setObjContactName(const OAICustom_ContactName_Response &obj_contact_name);
+    bool is_obj_contact_name_Set() const;
+    bool is_obj_contact_name_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -192,6 +204,14 @@ private:
     qint32 fki_ezsignfoldersignerassociation_id_validation;
     bool m_fki_ezsignfoldersignerassociation_id_validation_isSet;
     bool m_fki_ezsignfoldersignerassociation_id_validation_isValid;
+
+    QString dt_ezsignsignature_date;
+    bool m_dt_ezsignsignature_date_isSet;
+    bool m_dt_ezsignsignature_date_isValid;
+
+    OAICustom_ContactName_Response obj_contact_name;
+    bool m_obj_contact_name_isSet;
+    bool m_obj_contact_name_isValid;
 };
 
 } // namespace OpenAPI

@@ -69,6 +69,8 @@ void OAIObjectEzsigndocumentApi::initializeServerConfigs() {
     _serverIndices.insert("ezsigndocumentFlattenV1", 0);
     _serverConfigs.insert("ezsigndocumentGetActionableElementsV1", defaultConf);
     _serverIndices.insert("ezsigndocumentGetActionableElementsV1", 0);
+    _serverConfigs.insert("ezsigndocumentGetCompletedElementsV1", defaultConf);
+    _serverIndices.insert("ezsigndocumentGetCompletedElementsV1", 0);
     _serverConfigs.insert("ezsigndocumentGetDownloadUrlV1", defaultConf);
     _serverIndices.insert("ezsigndocumentGetDownloadUrlV1", 0);
     _serverConfigs.insert("ezsigndocumentGetEzsignannotationsV1", defaultConf);
@@ -948,6 +950,73 @@ void OAIObjectEzsigndocumentApi::ezsigndocumentGetActionableElementsV1Callback(O
     } else {
         emit ezsigndocumentGetActionableElementsV1SignalE(output, error_type, error_str);
         emit ezsigndocumentGetActionableElementsV1SignalEFull(worker, error_type, error_str);
+    }
+}
+
+void OAIObjectEzsigndocumentApi::ezsigndocumentGetCompletedElementsV1(const qint32 &pki_ezsigndocument_id) {
+    QString fullPath = QString(_serverConfigs["ezsigndocumentGetCompletedElementsV1"][_serverIndices.value("ezsigndocumentGetCompletedElementsV1")].URL()+"/1/object/ezsigndocument/{pkiEzsigndocumentID}/getCompletedElements");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_ezsigndocument_idPathParam("{");
+        pki_ezsigndocument_idPathParam.append("pkiEzsigndocumentID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsigndocumentID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsigndocumentID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_ezsigndocument_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsigndocument_id)));
+    }
+    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    OAIHttpRequestInput input(fullPath, "GET");
+
+
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+#else
+    for (auto key : _defaultHeaders.keys()) {
+        input.headers.insert(key, _defaultHeaders[key]);
+    }
+#endif
+
+    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIObjectEzsigndocumentApi::ezsigndocumentGetCompletedElementsV1Callback);
+    connect(this, &OAIObjectEzsigndocumentApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this]() {
+        if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
+            emit allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void OAIObjectEzsigndocumentApi::ezsigndocumentGetCompletedElementsV1Callback(OAIHttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    OAIEzsigndocument_getCompletedElements_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit ezsigndocumentGetCompletedElementsV1Signal(output);
+        emit ezsigndocumentGetCompletedElementsV1SignalFull(worker, output);
+    } else {
+        emit ezsigndocumentGetCompletedElementsV1SignalE(output, error_type, error_str);
+        emit ezsigndocumentGetCompletedElementsV1SignalEFull(worker, error_type, error_str);
     }
 }
 

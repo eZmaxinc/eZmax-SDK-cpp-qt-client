@@ -37,6 +37,9 @@ void OAIActivesession_getCurrent_v1_Response_mPayload::initializeModel() {
     m_e_activesession_usertype_isSet = false;
     m_e_activesession_usertype_isValid = false;
 
+    m_e_activesession_origin_isSet = false;
+    m_e_activesession_origin_isValid = false;
+
     m_e_activesession_weekdaystart_isSet = false;
     m_e_activesession_weekdaystart_isValid = false;
 
@@ -89,6 +92,9 @@ void OAIActivesession_getCurrent_v1_Response_mPayload::fromJsonObject(QJsonObjec
     m_e_activesession_usertype_isValid = ::OpenAPI::fromJsonValue(e_activesession_usertype, json[QString("eActivesessionUsertype")]);
     m_e_activesession_usertype_isSet = !json[QString("eActivesessionUsertype")].isNull() && m_e_activesession_usertype_isValid;
 
+    m_e_activesession_origin_isValid = ::OpenAPI::fromJsonValue(e_activesession_origin, json[QString("eActivesessionOrigin")]);
+    m_e_activesession_origin_isSet = !json[QString("eActivesessionOrigin")].isNull() && m_e_activesession_origin_isValid;
+
     m_e_activesession_weekdaystart_isValid = ::OpenAPI::fromJsonValue(e_activesession_weekdaystart, json[QString("eActivesessionWeekdaystart")]);
     m_e_activesession_weekdaystart_isSet = !json[QString("eActivesessionWeekdaystart")].isNull() && m_e_activesession_weekdaystart_isValid;
 
@@ -140,6 +146,9 @@ QJsonObject OAIActivesession_getCurrent_v1_Response_mPayload::asJsonObject() con
     QJsonObject obj;
     if (e_activesession_usertype.isSet()) {
         obj.insert(QString("eActivesessionUsertype"), ::OpenAPI::toJsonValue(e_activesession_usertype));
+    }
+    if (e_activesession_origin.isSet()) {
+        obj.insert(QString("eActivesessionOrigin"), ::OpenAPI::toJsonValue(e_activesession_origin));
     }
     if (e_activesession_weekdaystart.isSet()) {
         obj.insert(QString("eActivesessionWeekdaystart"), ::OpenAPI::toJsonValue(e_activesession_weekdaystart));
@@ -197,6 +206,22 @@ bool OAIActivesession_getCurrent_v1_Response_mPayload::is_e_activesession_userty
 
 bool OAIActivesession_getCurrent_v1_Response_mPayload::is_e_activesession_usertype_Valid() const{
     return m_e_activesession_usertype_isValid;
+}
+
+OAIField_eActivesessionOrigin OAIActivesession_getCurrent_v1_Response_mPayload::getEActivesessionOrigin() const {
+    return e_activesession_origin;
+}
+void OAIActivesession_getCurrent_v1_Response_mPayload::setEActivesessionOrigin(const OAIField_eActivesessionOrigin &e_activesession_origin) {
+    this->e_activesession_origin = e_activesession_origin;
+    this->m_e_activesession_origin_isSet = true;
+}
+
+bool OAIActivesession_getCurrent_v1_Response_mPayload::is_e_activesession_origin_Set() const{
+    return m_e_activesession_origin_isSet;
+}
+
+bool OAIActivesession_getCurrent_v1_Response_mPayload::is_e_activesession_origin_Valid() const{
+    return m_e_activesession_origin_isValid;
 }
 
 OAIField_eActivesessionWeekdaystart OAIActivesession_getCurrent_v1_Response_mPayload::getEActivesessionWeekdaystart() const {
@@ -415,6 +440,11 @@ bool OAIActivesession_getCurrent_v1_Response_mPayload::isSet() const {
             break;
         }
 
+        if (e_activesession_origin.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (e_activesession_weekdaystart.isSet()) {
             isObjectUpdated = true;
             break;
@@ -485,7 +515,7 @@ bool OAIActivesession_getCurrent_v1_Response_mPayload::isSet() const {
 
 bool OAIActivesession_getCurrent_v1_Response_mPayload::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_e_activesession_usertype_isValid && m_e_activesession_weekdaystart_isValid && m_fki_language_id_isValid && m_s_company_name_x_isValid && m_s_department_name_x_isValid && m_b_activesession_debug_isValid && m_b_activesession_issuperadmin_isValid && m_pks_customer_code_isValid && m_a_pki_permission_id_isValid && m_obj_user_real_isValid && m_a_e_module_internalname_isValid && true;
+    return m_e_activesession_usertype_isValid && m_e_activesession_origin_isValid && m_e_activesession_weekdaystart_isValid && m_fki_language_id_isValid && m_s_company_name_x_isValid && m_s_department_name_x_isValid && m_b_activesession_debug_isValid && m_b_activesession_issuperadmin_isValid && m_pks_customer_code_isValid && m_a_pki_permission_id_isValid && m_obj_user_real_isValid && m_a_e_module_internalname_isValid && true;
 }
 
 } // namespace OpenAPI

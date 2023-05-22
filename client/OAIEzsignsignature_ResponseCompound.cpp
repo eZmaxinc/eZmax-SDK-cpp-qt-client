@@ -82,11 +82,20 @@ void OAIEzsignsignature_ResponseCompound::initializeModel() {
     m_fki_ezsignfoldersignerassociation_id_validation_isSet = false;
     m_fki_ezsignfoldersignerassociation_id_validation_isValid = false;
 
+    m_dt_ezsignsignature_date_isSet = false;
+    m_dt_ezsignsignature_date_isValid = false;
+
+    m_obj_contact_name_isSet = false;
+    m_obj_contact_name_isValid = false;
+
     m_b_ezsignsignature_customdate_isSet = false;
     m_b_ezsignsignature_customdate_isValid = false;
 
     m_a_obj_ezsignsignaturecustomdate_isSet = false;
     m_a_obj_ezsignsignaturecustomdate_isValid = false;
+
+    m_obj_creditcardtransaction_isSet = false;
+    m_obj_creditcardtransaction_isValid = false;
 }
 
 void OAIEzsignsignature_ResponseCompound::fromJson(QString jsonString) {
@@ -146,11 +155,20 @@ void OAIEzsignsignature_ResponseCompound::fromJsonObject(QJsonObject json) {
     m_fki_ezsignfoldersignerassociation_id_validation_isValid = ::OpenAPI::fromJsonValue(fki_ezsignfoldersignerassociation_id_validation, json[QString("fkiEzsignfoldersignerassociationIDValidation")]);
     m_fki_ezsignfoldersignerassociation_id_validation_isSet = !json[QString("fkiEzsignfoldersignerassociationIDValidation")].isNull() && m_fki_ezsignfoldersignerassociation_id_validation_isValid;
 
+    m_dt_ezsignsignature_date_isValid = ::OpenAPI::fromJsonValue(dt_ezsignsignature_date, json[QString("dtEzsignsignatureDate")]);
+    m_dt_ezsignsignature_date_isSet = !json[QString("dtEzsignsignatureDate")].isNull() && m_dt_ezsignsignature_date_isValid;
+
+    m_obj_contact_name_isValid = ::OpenAPI::fromJsonValue(obj_contact_name, json[QString("objContactName")]);
+    m_obj_contact_name_isSet = !json[QString("objContactName")].isNull() && m_obj_contact_name_isValid;
+
     m_b_ezsignsignature_customdate_isValid = ::OpenAPI::fromJsonValue(b_ezsignsignature_customdate, json[QString("bEzsignsignatureCustomdate")]);
     m_b_ezsignsignature_customdate_isSet = !json[QString("bEzsignsignatureCustomdate")].isNull() && m_b_ezsignsignature_customdate_isValid;
 
     m_a_obj_ezsignsignaturecustomdate_isValid = ::OpenAPI::fromJsonValue(a_obj_ezsignsignaturecustomdate, json[QString("a_objEzsignsignaturecustomdate")]);
     m_a_obj_ezsignsignaturecustomdate_isSet = !json[QString("a_objEzsignsignaturecustomdate")].isNull() && m_a_obj_ezsignsignaturecustomdate_isValid;
+
+    m_obj_creditcardtransaction_isValid = ::OpenAPI::fromJsonValue(obj_creditcardtransaction, json[QString("objCreditcardtransaction")]);
+    m_obj_creditcardtransaction_isSet = !json[QString("objCreditcardtransaction")].isNull() && m_obj_creditcardtransaction_isValid;
 }
 
 QString OAIEzsignsignature_ResponseCompound::asJson() const {
@@ -210,11 +228,20 @@ QJsonObject OAIEzsignsignature_ResponseCompound::asJsonObject() const {
     if (m_fki_ezsignfoldersignerassociation_id_validation_isSet) {
         obj.insert(QString("fkiEzsignfoldersignerassociationIDValidation"), ::OpenAPI::toJsonValue(fki_ezsignfoldersignerassociation_id_validation));
     }
+    if (m_dt_ezsignsignature_date_isSet) {
+        obj.insert(QString("dtEzsignsignatureDate"), ::OpenAPI::toJsonValue(dt_ezsignsignature_date));
+    }
+    if (obj_contact_name.isSet()) {
+        obj.insert(QString("objContactName"), ::OpenAPI::toJsonValue(obj_contact_name));
+    }
     if (m_b_ezsignsignature_customdate_isSet) {
         obj.insert(QString("bEzsignsignatureCustomdate"), ::OpenAPI::toJsonValue(b_ezsignsignature_customdate));
     }
     if (a_obj_ezsignsignaturecustomdate.size() > 0) {
         obj.insert(QString("a_objEzsignsignaturecustomdate"), ::OpenAPI::toJsonValue(a_obj_ezsignsignaturecustomdate));
+    }
+    if (obj_creditcardtransaction.isSet()) {
+        obj.insert(QString("objCreditcardtransaction"), ::OpenAPI::toJsonValue(obj_creditcardtransaction));
     }
     return obj;
 }
@@ -475,6 +502,38 @@ bool OAIEzsignsignature_ResponseCompound::is_fki_ezsignfoldersignerassociation_i
     return m_fki_ezsignfoldersignerassociation_id_validation_isValid;
 }
 
+QString OAIEzsignsignature_ResponseCompound::getDtEzsignsignatureDate() const {
+    return dt_ezsignsignature_date;
+}
+void OAIEzsignsignature_ResponseCompound::setDtEzsignsignatureDate(const QString &dt_ezsignsignature_date) {
+    this->dt_ezsignsignature_date = dt_ezsignsignature_date;
+    this->m_dt_ezsignsignature_date_isSet = true;
+}
+
+bool OAIEzsignsignature_ResponseCompound::is_dt_ezsignsignature_date_Set() const{
+    return m_dt_ezsignsignature_date_isSet;
+}
+
+bool OAIEzsignsignature_ResponseCompound::is_dt_ezsignsignature_date_Valid() const{
+    return m_dt_ezsignsignature_date_isValid;
+}
+
+OAICustom_ContactName_Response OAIEzsignsignature_ResponseCompound::getObjContactName() const {
+    return obj_contact_name;
+}
+void OAIEzsignsignature_ResponseCompound::setObjContactName(const OAICustom_ContactName_Response &obj_contact_name) {
+    this->obj_contact_name = obj_contact_name;
+    this->m_obj_contact_name_isSet = true;
+}
+
+bool OAIEzsignsignature_ResponseCompound::is_obj_contact_name_Set() const{
+    return m_obj_contact_name_isSet;
+}
+
+bool OAIEzsignsignature_ResponseCompound::is_obj_contact_name_Valid() const{
+    return m_obj_contact_name_isValid;
+}
+
 bool OAIEzsignsignature_ResponseCompound::isBEzsignsignatureCustomdate() const {
     return b_ezsignsignature_customdate;
 }
@@ -505,6 +564,22 @@ bool OAIEzsignsignature_ResponseCompound::is_a_obj_ezsignsignaturecustomdate_Set
 
 bool OAIEzsignsignature_ResponseCompound::is_a_obj_ezsignsignaturecustomdate_Valid() const{
     return m_a_obj_ezsignsignaturecustomdate_isValid;
+}
+
+OAICustom_Creditcardtransaction_Response OAIEzsignsignature_ResponseCompound::getObjCreditcardtransaction() const {
+    return obj_creditcardtransaction;
+}
+void OAIEzsignsignature_ResponseCompound::setObjCreditcardtransaction(const OAICustom_Creditcardtransaction_Response &obj_creditcardtransaction) {
+    this->obj_creditcardtransaction = obj_creditcardtransaction;
+    this->m_obj_creditcardtransaction_isSet = true;
+}
+
+bool OAIEzsignsignature_ResponseCompound::is_obj_creditcardtransaction_Set() const{
+    return m_obj_creditcardtransaction_isSet;
+}
+
+bool OAIEzsignsignature_ResponseCompound::is_obj_creditcardtransaction_Valid() const{
+    return m_obj_creditcardtransaction_isValid;
 }
 
 bool OAIEzsignsignature_ResponseCompound::isSet() const {
@@ -590,6 +665,16 @@ bool OAIEzsignsignature_ResponseCompound::isSet() const {
             break;
         }
 
+        if (m_dt_ezsignsignature_date_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (obj_contact_name.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (m_b_ezsignsignature_customdate_isSet) {
             isObjectUpdated = true;
             break;
@@ -599,13 +684,18 @@ bool OAIEzsignsignature_ResponseCompound::isSet() const {
             isObjectUpdated = true;
             break;
         }
+
+        if (obj_creditcardtransaction.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
     } while (false);
     return isObjectUpdated;
 }
 
 bool OAIEzsignsignature_ResponseCompound::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_pki_ezsignsignature_id_isValid && m_fki_ezsigndocument_id_isValid && m_fki_ezsignfoldersignerassociation_id_isValid && m_i_ezsignpage_pagenumber_isValid && m_i_ezsignsignature_x_isValid && m_i_ezsignsignature_y_isValid && m_i_ezsignsignature_step_isValid && m_e_ezsignsignature_type_isValid && true;
+    return m_pki_ezsignsignature_id_isValid && m_fki_ezsigndocument_id_isValid && m_fki_ezsignfoldersignerassociation_id_isValid && m_i_ezsignpage_pagenumber_isValid && m_i_ezsignsignature_x_isValid && m_i_ezsignsignature_y_isValid && m_i_ezsignsignature_step_isValid && m_e_ezsignsignature_type_isValid && m_obj_contact_name_isValid && true;
 }
 
 } // namespace OpenAPI
