@@ -4,7 +4,7 @@
 
 eZmax API Definition (Full)
 
-- API version: 1.1.17
+- API version: 1.1.18
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
@@ -59,9 +59,6 @@ QString Example::create(){
 void Example::exampleFunction1(){
      OAIGlobalCustomerApi apiInstance;
      
-      // Configure API key authorization: Authorization
-      apiInstance.setApiKey("YOUR API KEY NAME","YOUR API KEY");
-
       QEventLoop loop;
       connect(&apiInstance, &OAIGlobalCustomerApi::globalCustomerGetEndpointV1Signal, [&]() {
           loop.quit();
@@ -150,6 +147,17 @@ Authentication schemes defined for the API:
 - **Type**: API key
 - **API key parameter name**: Authorization
 - **Location**: HTTP header
+
+### Bearer
+
+- **Type**: HTTP Bearer Token authentication
+
+### Presigned
+
+
+- **Type**: API key
+- **API key parameter name**: sAuthorization
+- **Location**: URL query string
 
 
 ## Author
