@@ -175,10 +175,10 @@ bool OAISubnet_Response::is_obj_subnet_description_Valid() const{
     return m_obj_subnet_description_isValid;
 }
 
-qint32 OAISubnet_Response::getISubnetNetwork() const {
+qint64 OAISubnet_Response::getISubnetNetwork() const {
     return i_subnet_network;
 }
-void OAISubnet_Response::setISubnetNetwork(const qint32 &i_subnet_network) {
+void OAISubnet_Response::setISubnetNetwork(const qint64 &i_subnet_network) {
     this->i_subnet_network = i_subnet_network;
     this->m_i_subnet_network_isSet = true;
 }
@@ -191,10 +191,10 @@ bool OAISubnet_Response::is_i_subnet_network_Valid() const{
     return m_i_subnet_network_isValid;
 }
 
-qint32 OAISubnet_Response::getISubnetMask() const {
+qint64 OAISubnet_Response::getISubnetMask() const {
     return i_subnet_mask;
 }
-void OAISubnet_Response::setISubnetMask(const qint32 &i_subnet_mask) {
+void OAISubnet_Response::setISubnetMask(const qint64 &i_subnet_mask) {
     this->i_subnet_mask = i_subnet_mask;
     this->m_i_subnet_mask_isSet = true;
 }

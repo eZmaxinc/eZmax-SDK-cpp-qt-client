@@ -60,13 +60,13 @@ public:
     bool is_obj_subnet_description_Set() const;
     bool is_obj_subnet_description_Valid() const;
 
-    qint32 getISubnetNetwork() const;
-    void setISubnetNetwork(const qint32 &i_subnet_network);
+    qint64 getISubnetNetwork() const;
+    void setISubnetNetwork(const qint64 &i_subnet_network);
     bool is_i_subnet_network_Set() const;
     bool is_i_subnet_network_Valid() const;
 
-    qint32 getISubnetMask() const;
-    void setISubnetMask(const qint32 &i_subnet_mask);
+    qint64 getISubnetMask() const;
+    void setISubnetMask(const qint64 &i_subnet_mask);
     bool is_i_subnet_mask_Set() const;
     bool is_i_subnet_mask_Valid() const;
 
@@ -92,11 +92,11 @@ private:
     bool m_obj_subnet_description_isSet;
     bool m_obj_subnet_description_isValid;
 
-    qint32 i_subnet_network;
+    qint64 i_subnet_network;
     bool m_i_subnet_network_isSet;
     bool m_i_subnet_network_isValid;
 
-    qint32 i_subnet_mask;
+    qint64 i_subnet_mask;
     bool m_i_subnet_mask_isSet;
     bool m_i_subnet_mask_isValid;
 };
