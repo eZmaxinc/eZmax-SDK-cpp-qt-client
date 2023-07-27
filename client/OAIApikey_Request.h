@@ -60,6 +60,11 @@ public:
     bool is_b_apikey_isactive_Set() const;
     bool is_b_apikey_isactive_Valid() const;
 
+    bool isBApikeyIssigned() const;
+    void setBApikeyIssigned(const bool &b_apikey_issigned);
+    bool is_b_apikey_issigned_Set() const;
+    bool is_b_apikey_issigned_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -81,6 +86,10 @@ private:
     bool b_apikey_isactive;
     bool m_b_apikey_isactive_isSet;
     bool m_b_apikey_isactive_isValid;
+
+    bool b_apikey_issigned;
+    bool m_b_apikey_issigned_isSet;
+    bool m_b_apikey_issigned_isValid;
 };
 
 } // namespace OpenAPI

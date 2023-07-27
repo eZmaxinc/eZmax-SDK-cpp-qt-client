@@ -24,7 +24,6 @@
 #include "OAIEzsignfoldersignerassociation_ResponseCompound_User.h"
 #include "OAIEzsignsigner_ResponseCompound.h"
 #include "OAIEzsignsignergroup_ResponseCompound.h"
-#include "OAIUsergroup_ResponseCompound.h"
 #include <QString>
 
 #include "OAIEnum.h"
@@ -33,7 +32,6 @@
 namespace OpenAPI {
 class OAIEzsignsignergroup_ResponseCompound;
 class OAIEzsignfoldersignerassociation_ResponseCompound_User;
-class OAIUsergroup_ResponseCompound;
 class OAIEzsignsigner_ResponseCompound;
 
 class OAIEzsignfoldersignerassociation_getObject_v1_Response_mPayload : public OAIObject {
@@ -82,11 +80,6 @@ public:
     bool is_obj_user_Set() const;
     bool is_obj_user_Valid() const;
 
-    OAIUsergroup_ResponseCompound getObjUsergroup() const;
-    void setObjUsergroup(const OAIUsergroup_ResponseCompound &obj_usergroup);
-    bool is_obj_usergroup_Set() const;
-    bool is_obj_usergroup_Valid() const;
-
     OAIEzsignsigner_ResponseCompound getObjEzsignsigner() const;
     void setObjEzsignsigner(const OAIEzsignsigner_ResponseCompound &obj_ezsignsigner);
     bool is_obj_ezsignsigner_Set() const;
@@ -125,10 +118,6 @@ private:
     OAIEzsignfoldersignerassociation_ResponseCompound_User obj_user;
     bool m_obj_user_isSet;
     bool m_obj_user_isValid;
-
-    OAIUsergroup_ResponseCompound obj_usergroup;
-    bool m_obj_usergroup_isSet;
-    bool m_obj_usergroup_isValid;
 
     OAIEzsignsigner_ResponseCompound obj_ezsignsigner;
     bool m_obj_ezsignsigner_isSet;

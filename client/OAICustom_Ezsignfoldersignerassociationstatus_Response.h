@@ -47,15 +47,20 @@ public:
     bool is_fki_ezsignfoldersignerassociation_id_Set() const;
     bool is_fki_ezsignfoldersignerassociation_id_Valid() const;
 
-    QString getSEzsignfoldersignerassociationstatusLastname() const;
-    void setSEzsignfoldersignerassociationstatusLastname(const QString &s_ezsignfoldersignerassociationstatus_lastname);
-    bool is_s_ezsignfoldersignerassociationstatus_lastname_Set() const;
-    bool is_s_ezsignfoldersignerassociationstatus_lastname_Valid() const;
+    Q_DECL_DEPRECATED QString getSEzsignfoldersignerassociationstatusLastname() const;
+    Q_DECL_DEPRECATED void setSEzsignfoldersignerassociationstatusLastname(const QString &s_ezsignfoldersignerassociationstatus_lastname);
+    Q_DECL_DEPRECATED bool is_s_ezsignfoldersignerassociationstatus_lastname_Set() const;
+    Q_DECL_DEPRECATED bool is_s_ezsignfoldersignerassociationstatus_lastname_Valid() const;
 
-    QString getSEzsignfoldersignerassociationstatusFirstname() const;
-    void setSEzsignfoldersignerassociationstatusFirstname(const QString &s_ezsignfoldersignerassociationstatus_firstname);
-    bool is_s_ezsignfoldersignerassociationstatus_firstname_Set() const;
-    bool is_s_ezsignfoldersignerassociationstatus_firstname_Valid() const;
+    Q_DECL_DEPRECATED QString getSEzsignfoldersignerassociationstatusFirstname() const;
+    Q_DECL_DEPRECATED void setSEzsignfoldersignerassociationstatusFirstname(const QString &s_ezsignfoldersignerassociationstatus_firstname);
+    Q_DECL_DEPRECATED bool is_s_ezsignfoldersignerassociationstatus_firstname_Set() const;
+    Q_DECL_DEPRECATED bool is_s_ezsignfoldersignerassociationstatus_firstname_Valid() const;
+
+    QString getSEzsignfoldersignerassociationstatusDescriptionX() const;
+    void setSEzsignfoldersignerassociationstatusDescriptionX(const QString &s_ezsignfoldersignerassociationstatus_description_x);
+    bool is_s_ezsignfoldersignerassociationstatus_description_x_Set() const;
+    bool is_s_ezsignfoldersignerassociationstatus_description_x_Valid() const;
 
     QList<OAICustom_Ezsignsignaturestatus_Response> getAObjEzsignsignaturestatus() const;
     void setAObjEzsignsignaturestatus(const QList<OAICustom_Ezsignsignaturestatus_Response> &a_obj_ezsignsignaturestatus);
@@ -79,6 +84,10 @@ private:
     QString s_ezsignfoldersignerassociationstatus_firstname;
     bool m_s_ezsignfoldersignerassociationstatus_firstname_isSet;
     bool m_s_ezsignfoldersignerassociationstatus_firstname_isValid;
+
+    QString s_ezsignfoldersignerassociationstatus_description_x;
+    bool m_s_ezsignfoldersignerassociationstatus_description_x_isSet;
+    bool m_s_ezsignfoldersignerassociationstatus_description_x_isValid;
 
     QList<OAICustom_Ezsignsignaturestatus_Response> a_obj_ezsignsignaturestatus;
     bool m_a_obj_ezsignsignaturestatus_isSet;

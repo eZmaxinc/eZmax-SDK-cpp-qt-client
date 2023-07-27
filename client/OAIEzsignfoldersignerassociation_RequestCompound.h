@@ -51,11 +51,6 @@ public:
     bool is_fki_user_id_Set() const;
     bool is_fki_user_id_Valid() const;
 
-    qint32 getFkiUsergroupId() const;
-    void setFkiUsergroupId(const qint32 &fki_usergroup_id);
-    bool is_fki_usergroup_id_Set() const;
-    bool is_fki_usergroup_id_Valid() const;
-
     qint32 getFkiEzsignsignergroupId() const;
     void setFkiEzsignsignergroupId(const qint32 &fki_ezsignsignergroup_id);
     bool is_fki_ezsignsignergroup_id_Set() const;
@@ -94,10 +89,6 @@ private:
     qint32 fki_user_id;
     bool m_fki_user_id_isSet;
     bool m_fki_user_id_isValid;
-
-    qint32 fki_usergroup_id;
-    bool m_fki_usergroup_id_isSet;
-    bool m_fki_usergroup_id_isValid;
 
     qint32 fki_ezsignsignergroup_id;
     bool m_fki_ezsignsignergroup_id_isSet;

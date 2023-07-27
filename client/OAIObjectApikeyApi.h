@@ -24,10 +24,16 @@
 #include "OAIApikey_editObject_v1_Response.h"
 #include "OAIApikey_editPermissions_v1_Request.h"
 #include "OAIApikey_editPermissions_v1_Response.h"
+#include "OAIApikey_getCors_v1_Response.h"
+#include "OAIApikey_getList_v1_Response.h"
 #include "OAIApikey_getObject_v2_Response.h"
 #include "OAIApikey_getPermissions_v1_Response.h"
 #include "OAIApikey_getSubnets_v1_Response.h"
+#include "OAIApikey_regenerate_v1_Request.h"
+#include "OAIApikey_regenerate_v1_Response.h"
 #include "OAICommon_Response_Error.h"
+#include "OAIHeader_Accept_Language.h"
+#include "OAIHttpFileElement.h"
 #include <QString>
 
 #include <QObject>
@@ -86,6 +92,20 @@ public:
     /**
     * @param[in]  pki_apikey_id qint32 [required]
     */
+    void apikeyGetCorsV1(const qint32 &pki_apikey_id);
+
+    /**
+    * @param[in]  e_order_by QString [optional]
+    * @param[in]  i_row_max qint32 [optional]
+    * @param[in]  i_row_offset qint32 [optional]
+    * @param[in]  accept_language OAIHeader_Accept_Language [optional]
+    * @param[in]  s_filter QString [optional]
+    */
+    void apikeyGetListV1(const ::OpenAPI::OptionalParam<QString> &e_order_by = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<qint32> &i_row_max = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<qint32> &i_row_offset = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<OAIHeader_Accept_Language> &accept_language = ::OpenAPI::OptionalParam<OAIHeader_Accept_Language>(), const ::OpenAPI::OptionalParam<QString> &s_filter = ::OpenAPI::OptionalParam<QString>());
+
+    /**
+    * @param[in]  pki_apikey_id qint32 [required]
+    */
     void apikeyGetObjectV2(const qint32 &pki_apikey_id);
 
     /**
@@ -97,6 +117,12 @@ public:
     * @param[in]  pki_apikey_id qint32 [required]
     */
     void apikeyGetSubnetsV1(const qint32 &pki_apikey_id);
+
+    /**
+    * @param[in]  pki_apikey_id qint32 [required]
+    * @param[in]  oai_apikey_regenerate_v1_request OAIApikey_regenerate_v1_Request [required]
+    */
+    void apikeyRegenerateV1(const qint32 &pki_apikey_id, const OAIApikey_regenerate_v1_Request &oai_apikey_regenerate_v1_request);
 
 
 private:
@@ -124,39 +150,54 @@ private:
     void apikeyCreateObjectV2Callback(OAIHttpRequestWorker *worker);
     void apikeyEditObjectV1Callback(OAIHttpRequestWorker *worker);
     void apikeyEditPermissionsV1Callback(OAIHttpRequestWorker *worker);
+    void apikeyGetCorsV1Callback(OAIHttpRequestWorker *worker);
+    void apikeyGetListV1Callback(OAIHttpRequestWorker *worker);
     void apikeyGetObjectV2Callback(OAIHttpRequestWorker *worker);
     void apikeyGetPermissionsV1Callback(OAIHttpRequestWorker *worker);
     void apikeyGetSubnetsV1Callback(OAIHttpRequestWorker *worker);
+    void apikeyRegenerateV1Callback(OAIHttpRequestWorker *worker);
 
 signals:
 
     void apikeyCreateObjectV2Signal(OAIApikey_createObject_v2_Response summary);
     void apikeyEditObjectV1Signal(OAIApikey_editObject_v1_Response summary);
     void apikeyEditPermissionsV1Signal(OAIApikey_editPermissions_v1_Response summary);
+    void apikeyGetCorsV1Signal(OAIApikey_getCors_v1_Response summary);
+    void apikeyGetListV1Signal(OAIApikey_getList_v1_Response summary);
     void apikeyGetObjectV2Signal(OAIApikey_getObject_v2_Response summary);
     void apikeyGetPermissionsV1Signal(OAIApikey_getPermissions_v1_Response summary);
     void apikeyGetSubnetsV1Signal(OAIApikey_getSubnets_v1_Response summary);
+    void apikeyRegenerateV1Signal(OAIApikey_regenerate_v1_Response summary);
 
     void apikeyCreateObjectV2SignalFull(OAIHttpRequestWorker *worker, OAIApikey_createObject_v2_Response summary);
     void apikeyEditObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIApikey_editObject_v1_Response summary);
     void apikeyEditPermissionsV1SignalFull(OAIHttpRequestWorker *worker, OAIApikey_editPermissions_v1_Response summary);
+    void apikeyGetCorsV1SignalFull(OAIHttpRequestWorker *worker, OAIApikey_getCors_v1_Response summary);
+    void apikeyGetListV1SignalFull(OAIHttpRequestWorker *worker, OAIApikey_getList_v1_Response summary);
     void apikeyGetObjectV2SignalFull(OAIHttpRequestWorker *worker, OAIApikey_getObject_v2_Response summary);
     void apikeyGetPermissionsV1SignalFull(OAIHttpRequestWorker *worker, OAIApikey_getPermissions_v1_Response summary);
     void apikeyGetSubnetsV1SignalFull(OAIHttpRequestWorker *worker, OAIApikey_getSubnets_v1_Response summary);
+    void apikeyRegenerateV1SignalFull(OAIHttpRequestWorker *worker, OAIApikey_regenerate_v1_Response summary);
 
     void apikeyCreateObjectV2SignalE(OAIApikey_createObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void apikeyEditObjectV1SignalE(OAIApikey_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void apikeyEditPermissionsV1SignalE(OAIApikey_editPermissions_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void apikeyGetCorsV1SignalE(OAIApikey_getCors_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void apikeyGetListV1SignalE(OAIApikey_getList_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void apikeyGetObjectV2SignalE(OAIApikey_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void apikeyGetPermissionsV1SignalE(OAIApikey_getPermissions_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void apikeyGetSubnetsV1SignalE(OAIApikey_getSubnets_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void apikeyRegenerateV1SignalE(OAIApikey_regenerate_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
 
     void apikeyCreateObjectV2SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void apikeyEditObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void apikeyEditPermissionsV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void apikeyGetCorsV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void apikeyGetListV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void apikeyGetObjectV2SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void apikeyGetPermissionsV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void apikeyGetSubnetsV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void apikeyRegenerateV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();

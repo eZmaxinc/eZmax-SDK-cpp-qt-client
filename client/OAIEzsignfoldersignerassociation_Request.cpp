@@ -40,9 +40,6 @@ void OAIEzsignfoldersignerassociation_Request::initializeModel() {
     m_fki_user_id_isSet = false;
     m_fki_user_id_isValid = false;
 
-    m_fki_usergroup_id_isSet = false;
-    m_fki_usergroup_id_isValid = false;
-
     m_fki_ezsignsignergroup_id_isSet = false;
     m_fki_ezsignsignergroup_id_isValid = false;
 
@@ -71,9 +68,6 @@ void OAIEzsignfoldersignerassociation_Request::fromJsonObject(QJsonObject json) 
     m_fki_user_id_isValid = ::OpenAPI::fromJsonValue(fki_user_id, json[QString("fkiUserID")]);
     m_fki_user_id_isSet = !json[QString("fkiUserID")].isNull() && m_fki_user_id_isValid;
 
-    m_fki_usergroup_id_isValid = ::OpenAPI::fromJsonValue(fki_usergroup_id, json[QString("fkiUsergroupID")]);
-    m_fki_usergroup_id_isSet = !json[QString("fkiUsergroupID")].isNull() && m_fki_usergroup_id_isValid;
-
     m_fki_ezsignsignergroup_id_isValid = ::OpenAPI::fromJsonValue(fki_ezsignsignergroup_id, json[QString("fkiEzsignsignergroupID")]);
     m_fki_ezsignsignergroup_id_isSet = !json[QString("fkiEzsignsignergroupID")].isNull() && m_fki_ezsignsignergroup_id_isValid;
 
@@ -101,9 +95,6 @@ QJsonObject OAIEzsignfoldersignerassociation_Request::asJsonObject() const {
     }
     if (m_fki_user_id_isSet) {
         obj.insert(QString("fkiUserID"), ::OpenAPI::toJsonValue(fki_user_id));
-    }
-    if (m_fki_usergroup_id_isSet) {
-        obj.insert(QString("fkiUsergroupID"), ::OpenAPI::toJsonValue(fki_usergroup_id));
     }
     if (m_fki_ezsignsignergroup_id_isSet) {
         obj.insert(QString("fkiEzsignsignergroupID"), ::OpenAPI::toJsonValue(fki_ezsignsignergroup_id));
@@ -150,22 +141,6 @@ bool OAIEzsignfoldersignerassociation_Request::is_fki_user_id_Set() const{
 
 bool OAIEzsignfoldersignerassociation_Request::is_fki_user_id_Valid() const{
     return m_fki_user_id_isValid;
-}
-
-qint32 OAIEzsignfoldersignerassociation_Request::getFkiUsergroupId() const {
-    return fki_usergroup_id;
-}
-void OAIEzsignfoldersignerassociation_Request::setFkiUsergroupId(const qint32 &fki_usergroup_id) {
-    this->fki_usergroup_id = fki_usergroup_id;
-    this->m_fki_usergroup_id_isSet = true;
-}
-
-bool OAIEzsignfoldersignerassociation_Request::is_fki_usergroup_id_Set() const{
-    return m_fki_usergroup_id_isSet;
-}
-
-bool OAIEzsignfoldersignerassociation_Request::is_fki_usergroup_id_Valid() const{
-    return m_fki_usergroup_id_isValid;
 }
 
 qint32 OAIEzsignfoldersignerassociation_Request::getFkiEzsignsignergroupId() const {
@@ -241,11 +216,6 @@ bool OAIEzsignfoldersignerassociation_Request::isSet() const {
         }
 
         if (m_fki_user_id_isSet) {
-            isObjectUpdated = true;
-            break;
-        }
-
-        if (m_fki_usergroup_id_isSet) {
             isObjectUpdated = true;
             break;
         }

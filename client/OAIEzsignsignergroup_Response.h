@@ -21,11 +21,14 @@
 
 #include <QJsonObject>
 
+#include "OAIMultilingual_EzsignsignergroupDescription.h"
+#include <QString>
 
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
 namespace OpenAPI {
+class OAIMultilingual_EzsignsignergroupDescription;
 
 class OAIEzsignsignergroup_Response : public OAIObject {
 public:
@@ -43,6 +46,16 @@ public:
     bool is_pki_ezsignsignergroup_id_Set() const;
     bool is_pki_ezsignsignergroup_id_Valid() const;
 
+    OAIMultilingual_EzsignsignergroupDescription getObjEzsignsignergroupDescription() const;
+    void setObjEzsignsignergroupDescription(const OAIMultilingual_EzsignsignergroupDescription &obj_ezsignsignergroup_description);
+    bool is_obj_ezsignsignergroup_description_Set() const;
+    bool is_obj_ezsignsignergroup_description_Valid() const;
+
+    QString getSEzsignsignergroupDescriptionX() const;
+    void setSEzsignsignergroupDescriptionX(const QString &s_ezsignsignergroup_description_x);
+    bool is_s_ezsignsignergroup_description_x_Set() const;
+    bool is_s_ezsignsignergroup_description_x_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -52,6 +65,14 @@ private:
     qint32 pki_ezsignsignergroup_id;
     bool m_pki_ezsignsignergroup_id_isSet;
     bool m_pki_ezsignsignergroup_id_isValid;
+
+    OAIMultilingual_EzsignsignergroupDescription obj_ezsignsignergroup_description;
+    bool m_obj_ezsignsignergroup_description_isSet;
+    bool m_obj_ezsignsignergroup_description_isValid;
+
+    QString s_ezsignsignergroup_description_x;
+    bool m_s_ezsignsignergroup_description_x_isSet;
+    bool m_s_ezsignsignergroup_description_x_isValid;
 };
 
 } // namespace OpenAPI

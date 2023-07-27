@@ -65,12 +65,18 @@ void OAIObjectApikeyApi::initializeServerConfigs() {
     _serverIndices.insert("apikeyEditObjectV1", 0);
     _serverConfigs.insert("apikeyEditPermissionsV1", defaultConf);
     _serverIndices.insert("apikeyEditPermissionsV1", 0);
+    _serverConfigs.insert("apikeyGetCorsV1", defaultConf);
+    _serverIndices.insert("apikeyGetCorsV1", 0);
+    _serverConfigs.insert("apikeyGetListV1", defaultConf);
+    _serverIndices.insert("apikeyGetListV1", 0);
     _serverConfigs.insert("apikeyGetObjectV2", defaultConf);
     _serverIndices.insert("apikeyGetObjectV2", 0);
     _serverConfigs.insert("apikeyGetPermissionsV1", defaultConf);
     _serverIndices.insert("apikeyGetPermissionsV1", 0);
     _serverConfigs.insert("apikeyGetSubnetsV1", defaultConf);
     _serverIndices.insert("apikeyGetSubnetsV1", 0);
+    _serverConfigs.insert("apikeyRegenerateV1", defaultConf);
+    _serverIndices.insert("apikeyRegenerateV1", 0);
 }
 
 /**
@@ -448,6 +454,231 @@ void OAIObjectApikeyApi::apikeyEditPermissionsV1Callback(OAIHttpRequestWorker *w
     }
 }
 
+void OAIObjectApikeyApi::apikeyGetCorsV1(const qint32 &pki_apikey_id) {
+    QString fullPath = QString(_serverConfigs["apikeyGetCorsV1"][_serverIndices.value("apikeyGetCorsV1")].URL()+"/1/object/apikey/{pkiApikeyID}/getCors");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_apikey_idPathParam("{");
+        pki_apikey_idPathParam.append("pkiApikeyID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiApikeyID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiApikeyID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_apikey_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_apikey_id)));
+    }
+    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    OAIHttpRequestInput input(fullPath, "GET");
+
+
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+#else
+    for (auto key : _defaultHeaders.keys()) {
+        input.headers.insert(key, _defaultHeaders[key]);
+    }
+#endif
+
+    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIObjectApikeyApi::apikeyGetCorsV1Callback);
+    connect(this, &OAIObjectApikeyApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this]() {
+        if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
+            emit allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void OAIObjectApikeyApi::apikeyGetCorsV1Callback(OAIHttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    OAIApikey_getCors_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit apikeyGetCorsV1Signal(output);
+        emit apikeyGetCorsV1SignalFull(worker, output);
+    } else {
+        emit apikeyGetCorsV1SignalE(output, error_type, error_str);
+        emit apikeyGetCorsV1SignalEFull(worker, error_type, error_str);
+    }
+}
+
+void OAIObjectApikeyApi::apikeyGetListV1(const ::OpenAPI::OptionalParam<QString> &e_order_by, const ::OpenAPI::OptionalParam<qint32> &i_row_max, const ::OpenAPI::OptionalParam<qint32> &i_row_offset, const ::OpenAPI::OptionalParam<OAIHeader_Accept_Language> &accept_language, const ::OpenAPI::OptionalParam<QString> &s_filter) {
+    QString fullPath = QString(_serverConfigs["apikeyGetListV1"][_serverIndices.value("apikeyGetListV1")].URL()+"/1/object/apikey/getList");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    QString queryPrefix, querySuffix, queryDelimiter, queryStyle;
+    if (e_order_by.hasValue())
+    {
+        queryStyle = "form";
+        if (queryStyle == "")
+            queryStyle = "form";
+        queryPrefix = getParamStylePrefix(queryStyle);
+        querySuffix = getParamStyleSuffix(queryStyle);
+        queryDelimiter = getParamStyleDelimiter(queryStyle, "eOrderBy", true);
+        if (fullPath.indexOf("?") > 0)
+            fullPath.append(queryPrefix);
+        else
+            fullPath.append("?");
+
+        fullPath.append(QUrl::toPercentEncoding("eOrderBy")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(e_order_by.value())));
+    }
+    if (i_row_max.hasValue())
+    {
+        queryStyle = "form";
+        if (queryStyle == "")
+            queryStyle = "form";
+        queryPrefix = getParamStylePrefix(queryStyle);
+        querySuffix = getParamStyleSuffix(queryStyle);
+        queryDelimiter = getParamStyleDelimiter(queryStyle, "iRowMax", true);
+        if (fullPath.indexOf("?") > 0)
+            fullPath.append(queryPrefix);
+        else
+            fullPath.append("?");
+
+        fullPath.append(QUrl::toPercentEncoding("iRowMax")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(i_row_max.value())));
+    }
+    if (i_row_offset.hasValue())
+    {
+        queryStyle = "form";
+        if (queryStyle == "")
+            queryStyle = "form";
+        queryPrefix = getParamStylePrefix(queryStyle);
+        querySuffix = getParamStyleSuffix(queryStyle);
+        queryDelimiter = getParamStyleDelimiter(queryStyle, "iRowOffset", true);
+        if (fullPath.indexOf("?") > 0)
+            fullPath.append(queryPrefix);
+        else
+            fullPath.append("?");
+
+        fullPath.append(QUrl::toPercentEncoding("iRowOffset")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(i_row_offset.value())));
+    }
+    if (s_filter.hasValue())
+    {
+        queryStyle = "form";
+        if (queryStyle == "")
+            queryStyle = "form";
+        queryPrefix = getParamStylePrefix(queryStyle);
+        querySuffix = getParamStyleSuffix(queryStyle);
+        queryDelimiter = getParamStyleDelimiter(queryStyle, "sFilter", true);
+        if (fullPath.indexOf("?") > 0)
+            fullPath.append(queryPrefix);
+        else
+            fullPath.append("?");
+
+        fullPath.append(QUrl::toPercentEncoding("sFilter")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(s_filter.value())));
+    }
+    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    OAIHttpRequestInput input(fullPath, "GET");
+
+
+    if (accept_language.hasValue())
+    {
+        QString headerString;
+        QJsonObject parameter = accept_language.value().asJsonObject();
+        qint32 count = 0;
+        for (const QString& key : parameter.keys()) {
+            if (count > 0) {
+                headerString.append(",");
+            }
+            QString assignOperator = (false) ? "=" : ",";
+            switch(parameter.value(key).type()) {
+                case QJsonValue::String:
+                {
+                    headerString.append(key+assignOperator+parameter.value(key).toString());
+                    break;
+                }
+                case QJsonValue::Double:
+                {
+                    headerString.append(key+assignOperator+QString::number(parameter.value(key).toDouble()));
+                    break;
+                }
+                case QJsonValue::Bool:
+                {
+                    headerString.append(key+assignOperator+QVariant(parameter.value(key).toBool()).toString());
+                    break;
+                }
+                case QJsonValue::Array:
+                {
+                    headerString.append(key+assignOperator+QVariant(parameter.value(key).toArray()).toString());
+                    break;
+                }
+                case QJsonValue::Object:
+                {
+                    headerString.append(key+assignOperator+QVariant(parameter.value(key).toObject()).toString());
+                    break;
+                }
+                case QJsonValue::Null:
+                case QJsonValue::Undefined:
+                    break;
+            }
+            count++;
+        }
+        input.headers.insert("Accept-Language", headerString);
+    }
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+#else
+    for (auto key : _defaultHeaders.keys()) {
+        input.headers.insert(key, _defaultHeaders[key]);
+    }
+#endif
+
+    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIObjectApikeyApi::apikeyGetListV1Callback);
+    connect(this, &OAIObjectApikeyApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this]() {
+        if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
+            emit allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void OAIObjectApikeyApi::apikeyGetListV1Callback(OAIHttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    OAIApikey_getList_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit apikeyGetListV1Signal(output);
+        emit apikeyGetListV1SignalFull(worker, output);
+    } else {
+        emit apikeyGetListV1SignalE(output, error_type, error_str);
+        emit apikeyGetListV1SignalEFull(worker, error_type, error_str);
+    }
+}
+
 void OAIObjectApikeyApi::apikeyGetObjectV2(const qint32 &pki_apikey_id) {
     QString fullPath = QString(_serverConfigs["apikeyGetObjectV2"][_serverIndices.value("apikeyGetObjectV2")].URL()+"/2/object/apikey/{pkiApikeyID}");
     
@@ -646,6 +877,78 @@ void OAIObjectApikeyApi::apikeyGetSubnetsV1Callback(OAIHttpRequestWorker *worker
     } else {
         emit apikeyGetSubnetsV1SignalE(output, error_type, error_str);
         emit apikeyGetSubnetsV1SignalEFull(worker, error_type, error_str);
+    }
+}
+
+void OAIObjectApikeyApi::apikeyRegenerateV1(const qint32 &pki_apikey_id, const OAIApikey_regenerate_v1_Request &oai_apikey_regenerate_v1_request) {
+    QString fullPath = QString(_serverConfigs["apikeyRegenerateV1"][_serverIndices.value("apikeyRegenerateV1")].URL()+"/1/object/apikey/{pkiApikeyID}/regenerate");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_apikey_idPathParam("{");
+        pki_apikey_idPathParam.append("pkiApikeyID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiApikeyID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiApikeyID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_apikey_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_apikey_id)));
+    }
+    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    OAIHttpRequestInput input(fullPath, "POST");
+
+    {
+
+        
+        QByteArray output = oai_apikey_regenerate_v1_request.asJson().toUtf8();
+        input.request_body.append(output);
+    }
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+#else
+    for (auto key : _defaultHeaders.keys()) {
+        input.headers.insert(key, _defaultHeaders[key]);
+    }
+#endif
+
+    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIObjectApikeyApi::apikeyRegenerateV1Callback);
+    connect(this, &OAIObjectApikeyApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this]() {
+        if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
+            emit allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void OAIObjectApikeyApi::apikeyRegenerateV1Callback(OAIHttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    OAIApikey_regenerate_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit apikeyRegenerateV1Signal(output);
+        emit apikeyRegenerateV1SignalFull(worker, output);
+    } else {
+        emit apikeyRegenerateV1SignalE(output, error_type, error_str);
+        emit apikeyRegenerateV1SignalEFull(worker, error_type, error_str);
     }
 }
 

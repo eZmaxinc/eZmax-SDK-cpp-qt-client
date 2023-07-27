@@ -45,6 +45,9 @@ void OAIApikey_Request::initializeModel() {
 
     m_b_apikey_isactive_isSet = false;
     m_b_apikey_isactive_isValid = false;
+
+    m_b_apikey_issigned_isSet = false;
+    m_b_apikey_issigned_isValid = false;
 }
 
 void OAIApikey_Request::fromJson(QString jsonString) {
@@ -67,6 +70,9 @@ void OAIApikey_Request::fromJsonObject(QJsonObject json) {
 
     m_b_apikey_isactive_isValid = ::OpenAPI::fromJsonValue(b_apikey_isactive, json[QString("bApikeyIsactive")]);
     m_b_apikey_isactive_isSet = !json[QString("bApikeyIsactive")].isNull() && m_b_apikey_isactive_isValid;
+
+    m_b_apikey_issigned_isValid = ::OpenAPI::fromJsonValue(b_apikey_issigned, json[QString("bApikeyIssigned")]);
+    m_b_apikey_issigned_isSet = !json[QString("bApikeyIssigned")].isNull() && m_b_apikey_issigned_isValid;
 }
 
 QString OAIApikey_Request::asJson() const {
@@ -89,6 +95,9 @@ QJsonObject OAIApikey_Request::asJsonObject() const {
     }
     if (m_b_apikey_isactive_isSet) {
         obj.insert(QString("bApikeyIsactive"), ::OpenAPI::toJsonValue(b_apikey_isactive));
+    }
+    if (m_b_apikey_issigned_isSet) {
+        obj.insert(QString("bApikeyIssigned"), ::OpenAPI::toJsonValue(b_apikey_issigned));
     }
     return obj;
 }
@@ -157,6 +166,22 @@ bool OAIApikey_Request::is_b_apikey_isactive_Valid() const{
     return m_b_apikey_isactive_isValid;
 }
 
+bool OAIApikey_Request::isBApikeyIssigned() const {
+    return b_apikey_issigned;
+}
+void OAIApikey_Request::setBApikeyIssigned(const bool &b_apikey_issigned) {
+    this->b_apikey_issigned = b_apikey_issigned;
+    this->m_b_apikey_issigned_isSet = true;
+}
+
+bool OAIApikey_Request::is_b_apikey_issigned_Set() const{
+    return m_b_apikey_issigned_isSet;
+}
+
+bool OAIApikey_Request::is_b_apikey_issigned_Valid() const{
+    return m_b_apikey_issigned_isValid;
+}
+
 bool OAIApikey_Request::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -176,6 +201,11 @@ bool OAIApikey_Request::isSet() const {
         }
 
         if (m_b_apikey_isactive_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_b_apikey_issigned_isSet) {
             isObjectUpdated = true;
             break;
         }

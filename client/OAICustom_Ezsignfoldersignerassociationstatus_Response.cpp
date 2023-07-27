@@ -43,6 +43,9 @@ void OAICustom_Ezsignfoldersignerassociationstatus_Response::initializeModel() {
     m_s_ezsignfoldersignerassociationstatus_firstname_isSet = false;
     m_s_ezsignfoldersignerassociationstatus_firstname_isValid = false;
 
+    m_s_ezsignfoldersignerassociationstatus_description_x_isSet = false;
+    m_s_ezsignfoldersignerassociationstatus_description_x_isValid = false;
+
     m_a_obj_ezsignsignaturestatus_isSet = false;
     m_a_obj_ezsignsignaturestatus_isValid = false;
 }
@@ -65,6 +68,9 @@ void OAICustom_Ezsignfoldersignerassociationstatus_Response::fromJsonObject(QJso
     m_s_ezsignfoldersignerassociationstatus_firstname_isValid = ::OpenAPI::fromJsonValue(s_ezsignfoldersignerassociationstatus_firstname, json[QString("sEzsignfoldersignerassociationstatusFirstname")]);
     m_s_ezsignfoldersignerassociationstatus_firstname_isSet = !json[QString("sEzsignfoldersignerassociationstatusFirstname")].isNull() && m_s_ezsignfoldersignerassociationstatus_firstname_isValid;
 
+    m_s_ezsignfoldersignerassociationstatus_description_x_isValid = ::OpenAPI::fromJsonValue(s_ezsignfoldersignerassociationstatus_description_x, json[QString("sEzsignfoldersignerassociationstatusDescriptionX")]);
+    m_s_ezsignfoldersignerassociationstatus_description_x_isSet = !json[QString("sEzsignfoldersignerassociationstatusDescriptionX")].isNull() && m_s_ezsignfoldersignerassociationstatus_description_x_isValid;
+
     m_a_obj_ezsignsignaturestatus_isValid = ::OpenAPI::fromJsonValue(a_obj_ezsignsignaturestatus, json[QString("a_objEzsignsignaturestatus")]);
     m_a_obj_ezsignsignaturestatus_isSet = !json[QString("a_objEzsignsignaturestatus")].isNull() && m_a_obj_ezsignsignaturestatus_isValid;
 }
@@ -86,6 +92,9 @@ QJsonObject OAICustom_Ezsignfoldersignerassociationstatus_Response::asJsonObject
     }
     if (m_s_ezsignfoldersignerassociationstatus_firstname_isSet) {
         obj.insert(QString("sEzsignfoldersignerassociationstatusFirstname"), ::OpenAPI::toJsonValue(s_ezsignfoldersignerassociationstatus_firstname));
+    }
+    if (m_s_ezsignfoldersignerassociationstatus_description_x_isSet) {
+        obj.insert(QString("sEzsignfoldersignerassociationstatusDescriptionX"), ::OpenAPI::toJsonValue(s_ezsignfoldersignerassociationstatus_description_x));
     }
     if (a_obj_ezsignsignaturestatus.size() > 0) {
         obj.insert(QString("a_objEzsignsignaturestatus"), ::OpenAPI::toJsonValue(a_obj_ezsignsignaturestatus));
@@ -141,6 +150,22 @@ bool OAICustom_Ezsignfoldersignerassociationstatus_Response::is_s_ezsignfoldersi
     return m_s_ezsignfoldersignerassociationstatus_firstname_isValid;
 }
 
+QString OAICustom_Ezsignfoldersignerassociationstatus_Response::getSEzsignfoldersignerassociationstatusDescriptionX() const {
+    return s_ezsignfoldersignerassociationstatus_description_x;
+}
+void OAICustom_Ezsignfoldersignerassociationstatus_Response::setSEzsignfoldersignerassociationstatusDescriptionX(const QString &s_ezsignfoldersignerassociationstatus_description_x) {
+    this->s_ezsignfoldersignerassociationstatus_description_x = s_ezsignfoldersignerassociationstatus_description_x;
+    this->m_s_ezsignfoldersignerassociationstatus_description_x_isSet = true;
+}
+
+bool OAICustom_Ezsignfoldersignerassociationstatus_Response::is_s_ezsignfoldersignerassociationstatus_description_x_Set() const{
+    return m_s_ezsignfoldersignerassociationstatus_description_x_isSet;
+}
+
+bool OAICustom_Ezsignfoldersignerassociationstatus_Response::is_s_ezsignfoldersignerassociationstatus_description_x_Valid() const{
+    return m_s_ezsignfoldersignerassociationstatus_description_x_isValid;
+}
+
 QList<OAICustom_Ezsignsignaturestatus_Response> OAICustom_Ezsignfoldersignerassociationstatus_Response::getAObjEzsignsignaturestatus() const {
     return a_obj_ezsignsignaturestatus;
 }
@@ -171,6 +196,11 @@ bool OAICustom_Ezsignfoldersignerassociationstatus_Response::isSet() const {
         }
 
         if (m_s_ezsignfoldersignerassociationstatus_firstname_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_s_ezsignfoldersignerassociationstatus_description_x_isSet) {
             isObjectUpdated = true;
             break;
         }

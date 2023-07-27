@@ -22,6 +22,7 @@
 #include <QJsonObject>
 
 #include "OAICommon_Audit.h"
+#include "OAICustom_ContactName_Response.h"
 #include "OAIMultilingual_ApikeyDescription.h"
 #include <QString>
 
@@ -30,6 +31,7 @@
 
 namespace OpenAPI {
 class OAIMultilingual_ApikeyDescription;
+class OAICustom_ContactName_Response;
 class OAICommon_Audit;
 
 class OAIApikey_ResponseCompound : public OAIObject {
@@ -58,15 +60,30 @@ public:
     bool is_obj_apikey_description_Set() const;
     bool is_obj_apikey_description_Valid() const;
 
-    QString getSComputedToken() const;
-    void setSComputedToken(const QString &s_computed_token);
-    bool is_s_computed_token_Set() const;
-    bool is_s_computed_token_Valid() const;
+    OAICustom_ContactName_Response getObjContactName() const;
+    void setObjContactName(const OAICustom_ContactName_Response &obj_contact_name);
+    bool is_obj_contact_name_Set() const;
+    bool is_obj_contact_name_Valid() const;
+
+    QString getSApikeyApikey() const;
+    void setSApikeyApikey(const QString &s_apikey_apikey);
+    bool is_s_apikey_apikey_Set() const;
+    bool is_s_apikey_apikey_Valid() const;
+
+    QString getSApikeySecret() const;
+    void setSApikeySecret(const QString &s_apikey_secret);
+    bool is_s_apikey_secret_Set() const;
+    bool is_s_apikey_secret_Valid() const;
 
     bool isBApikeyIsactive() const;
     void setBApikeyIsactive(const bool &b_apikey_isactive);
     bool is_b_apikey_isactive_Set() const;
     bool is_b_apikey_isactive_Valid() const;
+
+    bool isBApikeyIssigned() const;
+    void setBApikeyIssigned(const bool &b_apikey_issigned);
+    bool is_b_apikey_issigned_Set() const;
+    bool is_b_apikey_issigned_Valid() const;
 
     OAICommon_Audit getObjAudit() const;
     void setObjAudit(const OAICommon_Audit &obj_audit);
@@ -91,13 +108,25 @@ private:
     bool m_obj_apikey_description_isSet;
     bool m_obj_apikey_description_isValid;
 
-    QString s_computed_token;
-    bool m_s_computed_token_isSet;
-    bool m_s_computed_token_isValid;
+    OAICustom_ContactName_Response obj_contact_name;
+    bool m_obj_contact_name_isSet;
+    bool m_obj_contact_name_isValid;
+
+    QString s_apikey_apikey;
+    bool m_s_apikey_apikey_isSet;
+    bool m_s_apikey_apikey_isValid;
+
+    QString s_apikey_secret;
+    bool m_s_apikey_secret_isSet;
+    bool m_s_apikey_secret_isValid;
 
     bool b_apikey_isactive;
     bool m_b_apikey_isactive_isSet;
     bool m_b_apikey_isactive_isValid;
+
+    bool b_apikey_issigned;
+    bool m_b_apikey_issigned_isSet;
+    bool m_b_apikey_issigned_isValid;
 
     OAICommon_Audit obj_audit;
     bool m_obj_audit_isSet;
