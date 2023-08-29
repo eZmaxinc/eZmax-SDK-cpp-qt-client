@@ -47,7 +47,7 @@ void OAIEzsigndocument_editEzsignformfieldgroups_v1_Request::fromJson(QString js
 
 void OAIEzsigndocument_editEzsignformfieldgroups_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_ezsignformfieldgroup_isValid = ::OpenAPI::fromJsonValue(a_obj_ezsignformfieldgroup, json[QString("a_objEzsignformfieldgroup")]);
+    m_a_obj_ezsignformfieldgroup_isValid = ::OpenAPI::fromJsonValue(m_a_obj_ezsignformfieldgroup, json[QString("a_objEzsignformfieldgroup")]);
     m_a_obj_ezsignformfieldgroup_isSet = !json[QString("a_objEzsignformfieldgroup")].isNull() && m_a_obj_ezsignformfieldgroup_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIEzsigndocument_editEzsignformfieldgroups_v1_Request::asJson() const {
 
 QJsonObject OAIEzsigndocument_editEzsignformfieldgroups_v1_Request::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_ezsignformfieldgroup.size() > 0) {
-        obj.insert(QString("a_objEzsignformfieldgroup"), ::OpenAPI::toJsonValue(a_obj_ezsignformfieldgroup));
+    if (m_a_obj_ezsignformfieldgroup.size() > 0) {
+        obj.insert(QString("a_objEzsignformfieldgroup"), ::OpenAPI::toJsonValue(m_a_obj_ezsignformfieldgroup));
     }
     return obj;
 }
 
 QList<OAIEzsignformfieldgroup_RequestCompound> OAIEzsigndocument_editEzsignformfieldgroups_v1_Request::getAObjEzsignformfieldgroup() const {
-    return a_obj_ezsignformfieldgroup;
+    return m_a_obj_ezsignformfieldgroup;
 }
 void OAIEzsigndocument_editEzsignformfieldgroups_v1_Request::setAObjEzsignformfieldgroup(const QList<OAIEzsignformfieldgroup_RequestCompound> &a_obj_ezsignformfieldgroup) {
-    this->a_obj_ezsignformfieldgroup = a_obj_ezsignformfieldgroup;
-    this->m_a_obj_ezsignformfieldgroup_isSet = true;
+    m_a_obj_ezsignformfieldgroup = a_obj_ezsignformfieldgroup;
+    m_a_obj_ezsignformfieldgroup_isSet = true;
 }
 
 bool OAIEzsigndocument_editEzsignformfieldgroups_v1_Request::is_a_obj_ezsignformfieldgroup_Set() const{
@@ -85,7 +85,7 @@ bool OAIEzsigndocument_editEzsignformfieldgroups_v1_Request::is_a_obj_ezsignform
 bool OAIEzsigndocument_editEzsignformfieldgroups_v1_Request::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_ezsignformfieldgroup.size() > 0) {
+        if (m_a_obj_ezsignformfieldgroup.size() > 0) {
             isObjectUpdated = true;
             break;
         }

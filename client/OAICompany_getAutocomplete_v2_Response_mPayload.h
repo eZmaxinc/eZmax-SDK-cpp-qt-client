@@ -52,7 +52,7 @@ public:
 private:
     void initializeModel();
 
-    QList<OAICompany_AutocompleteElement_Response> a_obj_company;
+    QList<OAICompany_AutocompleteElement_Response> m_a_obj_company;
     bool m_a_obj_company_isSet;
     bool m_a_obj_company_isValid;
 };

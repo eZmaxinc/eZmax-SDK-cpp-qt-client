@@ -70,23 +70,23 @@ public:
 private:
     void initializeModel();
 
-    qint32 fki_ezsignfolder_id;
+    qint32 m_fki_ezsignfolder_id;
     bool m_fki_ezsignfolder_id_isSet;
     bool m_fki_ezsignfolder_id_isValid;
 
-    QString s_name;
+    QString m_s_name;
     bool m_s_name_isSet;
     bool m_s_name_isValid;
 
-    QString s_ezsignfolder_description;
+    QString m_s_ezsignfolder_description;
     bool m_s_ezsignfolder_description_isSet;
     bool m_s_ezsignfolder_description_isValid;
 
-    QString s_ezsigndocument_name;
+    QString m_s_ezsigndocument_name;
     bool m_s_ezsigndocument_name_isSet;
     bool m_s_ezsigndocument_name_isValid;
 
-    bool b_ezsignfolder_allowed;
+    bool m_b_ezsignfolder_allowed;
     bool m_b_ezsignfolder_allowed_isSet;
     bool m_b_ezsignfolder_allowed_isValid;
 };

@@ -53,13 +53,13 @@ void OAIFranchiseoffice_AutocompleteElement_Response::fromJson(QString jsonStrin
 
 void OAIFranchiseoffice_AutocompleteElement_Response::fromJsonObject(QJsonObject json) {
 
-    m_s_franchiseoffice_description_isValid = ::OpenAPI::fromJsonValue(s_franchiseoffice_description, json[QString("sFranchiseofficeDescription")]);
+    m_s_franchiseoffice_description_isValid = ::OpenAPI::fromJsonValue(m_s_franchiseoffice_description, json[QString("sFranchiseofficeDescription")]);
     m_s_franchiseoffice_description_isSet = !json[QString("sFranchiseofficeDescription")].isNull() && m_s_franchiseoffice_description_isValid;
 
-    m_pki_franchiseoffice_id_isValid = ::OpenAPI::fromJsonValue(pki_franchiseoffice_id, json[QString("pkiFranchiseofficeID")]);
+    m_pki_franchiseoffice_id_isValid = ::OpenAPI::fromJsonValue(m_pki_franchiseoffice_id, json[QString("pkiFranchiseofficeID")]);
     m_pki_franchiseoffice_id_isSet = !json[QString("pkiFranchiseofficeID")].isNull() && m_pki_franchiseoffice_id_isValid;
 
-    m_b_franchiseoffice_isactive_isValid = ::OpenAPI::fromJsonValue(b_franchiseoffice_isactive, json[QString("bFranchiseofficeIsactive")]);
+    m_b_franchiseoffice_isactive_isValid = ::OpenAPI::fromJsonValue(m_b_franchiseoffice_isactive, json[QString("bFranchiseofficeIsactive")]);
     m_b_franchiseoffice_isactive_isSet = !json[QString("bFranchiseofficeIsactive")].isNull() && m_b_franchiseoffice_isactive_isValid;
 }
 
@@ -73,23 +73,23 @@ QString OAIFranchiseoffice_AutocompleteElement_Response::asJson() const {
 QJsonObject OAIFranchiseoffice_AutocompleteElement_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_s_franchiseoffice_description_isSet) {
-        obj.insert(QString("sFranchiseofficeDescription"), ::OpenAPI::toJsonValue(s_franchiseoffice_description));
+        obj.insert(QString("sFranchiseofficeDescription"), ::OpenAPI::toJsonValue(m_s_franchiseoffice_description));
     }
     if (m_pki_franchiseoffice_id_isSet) {
-        obj.insert(QString("pkiFranchiseofficeID"), ::OpenAPI::toJsonValue(pki_franchiseoffice_id));
+        obj.insert(QString("pkiFranchiseofficeID"), ::OpenAPI::toJsonValue(m_pki_franchiseoffice_id));
     }
     if (m_b_franchiseoffice_isactive_isSet) {
-        obj.insert(QString("bFranchiseofficeIsactive"), ::OpenAPI::toJsonValue(b_franchiseoffice_isactive));
+        obj.insert(QString("bFranchiseofficeIsactive"), ::OpenAPI::toJsonValue(m_b_franchiseoffice_isactive));
     }
     return obj;
 }
 
 QString OAIFranchiseoffice_AutocompleteElement_Response::getSFranchiseofficeDescription() const {
-    return s_franchiseoffice_description;
+    return m_s_franchiseoffice_description;
 }
 void OAIFranchiseoffice_AutocompleteElement_Response::setSFranchiseofficeDescription(const QString &s_franchiseoffice_description) {
-    this->s_franchiseoffice_description = s_franchiseoffice_description;
-    this->m_s_franchiseoffice_description_isSet = true;
+    m_s_franchiseoffice_description = s_franchiseoffice_description;
+    m_s_franchiseoffice_description_isSet = true;
 }
 
 bool OAIFranchiseoffice_AutocompleteElement_Response::is_s_franchiseoffice_description_Set() const{
@@ -101,11 +101,11 @@ bool OAIFranchiseoffice_AutocompleteElement_Response::is_s_franchiseoffice_descr
 }
 
 qint32 OAIFranchiseoffice_AutocompleteElement_Response::getPkiFranchiseofficeId() const {
-    return pki_franchiseoffice_id;
+    return m_pki_franchiseoffice_id;
 }
 void OAIFranchiseoffice_AutocompleteElement_Response::setPkiFranchiseofficeId(const qint32 &pki_franchiseoffice_id) {
-    this->pki_franchiseoffice_id = pki_franchiseoffice_id;
-    this->m_pki_franchiseoffice_id_isSet = true;
+    m_pki_franchiseoffice_id = pki_franchiseoffice_id;
+    m_pki_franchiseoffice_id_isSet = true;
 }
 
 bool OAIFranchiseoffice_AutocompleteElement_Response::is_pki_franchiseoffice_id_Set() const{
@@ -117,11 +117,11 @@ bool OAIFranchiseoffice_AutocompleteElement_Response::is_pki_franchiseoffice_id_
 }
 
 bool OAIFranchiseoffice_AutocompleteElement_Response::isBFranchiseofficeIsactive() const {
-    return b_franchiseoffice_isactive;
+    return m_b_franchiseoffice_isactive;
 }
 void OAIFranchiseoffice_AutocompleteElement_Response::setBFranchiseofficeIsactive(const bool &b_franchiseoffice_isactive) {
-    this->b_franchiseoffice_isactive = b_franchiseoffice_isactive;
-    this->m_b_franchiseoffice_isactive_isSet = true;
+    m_b_franchiseoffice_isactive = b_franchiseoffice_isactive;
+    m_b_franchiseoffice_isactive_isSet = true;
 }
 
 bool OAIFranchiseoffice_AutocompleteElement_Response::is_b_franchiseoffice_isactive_Set() const{

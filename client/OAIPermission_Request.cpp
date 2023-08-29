@@ -62,22 +62,22 @@ void OAIPermission_Request::fromJson(QString jsonString) {
 
 void OAIPermission_Request::fromJsonObject(QJsonObject json) {
 
-    m_pki_permission_id_isValid = ::OpenAPI::fromJsonValue(pki_permission_id, json[QString("pkiPermissionID")]);
+    m_pki_permission_id_isValid = ::OpenAPI::fromJsonValue(m_pki_permission_id, json[QString("pkiPermissionID")]);
     m_pki_permission_id_isSet = !json[QString("pkiPermissionID")].isNull() && m_pki_permission_id_isValid;
 
-    m_fki_user_id_isValid = ::OpenAPI::fromJsonValue(fki_user_id, json[QString("fkiUserID")]);
+    m_fki_user_id_isValid = ::OpenAPI::fromJsonValue(m_fki_user_id, json[QString("fkiUserID")]);
     m_fki_user_id_isSet = !json[QString("fkiUserID")].isNull() && m_fki_user_id_isValid;
 
-    m_fki_apikey_id_isValid = ::OpenAPI::fromJsonValue(fki_apikey_id, json[QString("fkiApikeyID")]);
+    m_fki_apikey_id_isValid = ::OpenAPI::fromJsonValue(m_fki_apikey_id, json[QString("fkiApikeyID")]);
     m_fki_apikey_id_isSet = !json[QString("fkiApikeyID")].isNull() && m_fki_apikey_id_isValid;
 
-    m_fki_usergroup_id_isValid = ::OpenAPI::fromJsonValue(fki_usergroup_id, json[QString("fkiUsergroupID")]);
+    m_fki_usergroup_id_isValid = ::OpenAPI::fromJsonValue(m_fki_usergroup_id, json[QString("fkiUsergroupID")]);
     m_fki_usergroup_id_isSet = !json[QString("fkiUsergroupID")].isNull() && m_fki_usergroup_id_isValid;
 
-    m_fki_company_id_isValid = ::OpenAPI::fromJsonValue(fki_company_id, json[QString("fkiCompanyID")]);
+    m_fki_company_id_isValid = ::OpenAPI::fromJsonValue(m_fki_company_id, json[QString("fkiCompanyID")]);
     m_fki_company_id_isSet = !json[QString("fkiCompanyID")].isNull() && m_fki_company_id_isValid;
 
-    m_fki_modulesection_id_isValid = ::OpenAPI::fromJsonValue(fki_modulesection_id, json[QString("fkiModulesectionID")]);
+    m_fki_modulesection_id_isValid = ::OpenAPI::fromJsonValue(m_fki_modulesection_id, json[QString("fkiModulesectionID")]);
     m_fki_modulesection_id_isSet = !json[QString("fkiModulesectionID")].isNull() && m_fki_modulesection_id_isValid;
 }
 
@@ -91,32 +91,32 @@ QString OAIPermission_Request::asJson() const {
 QJsonObject OAIPermission_Request::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_permission_id_isSet) {
-        obj.insert(QString("pkiPermissionID"), ::OpenAPI::toJsonValue(pki_permission_id));
+        obj.insert(QString("pkiPermissionID"), ::OpenAPI::toJsonValue(m_pki_permission_id));
     }
     if (m_fki_user_id_isSet) {
-        obj.insert(QString("fkiUserID"), ::OpenAPI::toJsonValue(fki_user_id));
+        obj.insert(QString("fkiUserID"), ::OpenAPI::toJsonValue(m_fki_user_id));
     }
     if (m_fki_apikey_id_isSet) {
-        obj.insert(QString("fkiApikeyID"), ::OpenAPI::toJsonValue(fki_apikey_id));
+        obj.insert(QString("fkiApikeyID"), ::OpenAPI::toJsonValue(m_fki_apikey_id));
     }
     if (m_fki_usergroup_id_isSet) {
-        obj.insert(QString("fkiUsergroupID"), ::OpenAPI::toJsonValue(fki_usergroup_id));
+        obj.insert(QString("fkiUsergroupID"), ::OpenAPI::toJsonValue(m_fki_usergroup_id));
     }
     if (m_fki_company_id_isSet) {
-        obj.insert(QString("fkiCompanyID"), ::OpenAPI::toJsonValue(fki_company_id));
+        obj.insert(QString("fkiCompanyID"), ::OpenAPI::toJsonValue(m_fki_company_id));
     }
     if (m_fki_modulesection_id_isSet) {
-        obj.insert(QString("fkiModulesectionID"), ::OpenAPI::toJsonValue(fki_modulesection_id));
+        obj.insert(QString("fkiModulesectionID"), ::OpenAPI::toJsonValue(m_fki_modulesection_id));
     }
     return obj;
 }
 
 qint32 OAIPermission_Request::getPkiPermissionId() const {
-    return pki_permission_id;
+    return m_pki_permission_id;
 }
 void OAIPermission_Request::setPkiPermissionId(const qint32 &pki_permission_id) {
-    this->pki_permission_id = pki_permission_id;
-    this->m_pki_permission_id_isSet = true;
+    m_pki_permission_id = pki_permission_id;
+    m_pki_permission_id_isSet = true;
 }
 
 bool OAIPermission_Request::is_pki_permission_id_Set() const{
@@ -128,11 +128,11 @@ bool OAIPermission_Request::is_pki_permission_id_Valid() const{
 }
 
 qint32 OAIPermission_Request::getFkiUserId() const {
-    return fki_user_id;
+    return m_fki_user_id;
 }
 void OAIPermission_Request::setFkiUserId(const qint32 &fki_user_id) {
-    this->fki_user_id = fki_user_id;
-    this->m_fki_user_id_isSet = true;
+    m_fki_user_id = fki_user_id;
+    m_fki_user_id_isSet = true;
 }
 
 bool OAIPermission_Request::is_fki_user_id_Set() const{
@@ -144,11 +144,11 @@ bool OAIPermission_Request::is_fki_user_id_Valid() const{
 }
 
 qint32 OAIPermission_Request::getFkiApikeyId() const {
-    return fki_apikey_id;
+    return m_fki_apikey_id;
 }
 void OAIPermission_Request::setFkiApikeyId(const qint32 &fki_apikey_id) {
-    this->fki_apikey_id = fki_apikey_id;
-    this->m_fki_apikey_id_isSet = true;
+    m_fki_apikey_id = fki_apikey_id;
+    m_fki_apikey_id_isSet = true;
 }
 
 bool OAIPermission_Request::is_fki_apikey_id_Set() const{
@@ -160,11 +160,11 @@ bool OAIPermission_Request::is_fki_apikey_id_Valid() const{
 }
 
 qint32 OAIPermission_Request::getFkiUsergroupId() const {
-    return fki_usergroup_id;
+    return m_fki_usergroup_id;
 }
 void OAIPermission_Request::setFkiUsergroupId(const qint32 &fki_usergroup_id) {
-    this->fki_usergroup_id = fki_usergroup_id;
-    this->m_fki_usergroup_id_isSet = true;
+    m_fki_usergroup_id = fki_usergroup_id;
+    m_fki_usergroup_id_isSet = true;
 }
 
 bool OAIPermission_Request::is_fki_usergroup_id_Set() const{
@@ -176,11 +176,11 @@ bool OAIPermission_Request::is_fki_usergroup_id_Valid() const{
 }
 
 qint32 OAIPermission_Request::getFkiCompanyId() const {
-    return fki_company_id;
+    return m_fki_company_id;
 }
 void OAIPermission_Request::setFkiCompanyId(const qint32 &fki_company_id) {
-    this->fki_company_id = fki_company_id;
-    this->m_fki_company_id_isSet = true;
+    m_fki_company_id = fki_company_id;
+    m_fki_company_id_isSet = true;
 }
 
 bool OAIPermission_Request::is_fki_company_id_Set() const{
@@ -192,11 +192,11 @@ bool OAIPermission_Request::is_fki_company_id_Valid() const{
 }
 
 qint32 OAIPermission_Request::getFkiModulesectionId() const {
-    return fki_modulesection_id;
+    return m_fki_modulesection_id;
 }
 void OAIPermission_Request::setFkiModulesectionId(const qint32 &fki_modulesection_id) {
-    this->fki_modulesection_id = fki_modulesection_id;
-    this->m_fki_modulesection_id_isSet = true;
+    m_fki_modulesection_id = fki_modulesection_id;
+    m_fki_modulesection_id_isSet = true;
 }
 
 bool OAIPermission_Request::is_fki_modulesection_id_Set() const{

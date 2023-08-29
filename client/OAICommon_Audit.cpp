@@ -50,10 +50,10 @@ void OAICommon_Audit::fromJson(QString jsonString) {
 
 void OAICommon_Audit::fromJsonObject(QJsonObject json) {
 
-    m_obj_auditdetail_created_isValid = ::OpenAPI::fromJsonValue(obj_auditdetail_created, json[QString("objAuditdetailCreated")]);
+    m_obj_auditdetail_created_isValid = ::OpenAPI::fromJsonValue(m_obj_auditdetail_created, json[QString("objAuditdetailCreated")]);
     m_obj_auditdetail_created_isSet = !json[QString("objAuditdetailCreated")].isNull() && m_obj_auditdetail_created_isValid;
 
-    m_obj_auditdetail_modified_isValid = ::OpenAPI::fromJsonValue(obj_auditdetail_modified, json[QString("objAuditdetailModified")]);
+    m_obj_auditdetail_modified_isValid = ::OpenAPI::fromJsonValue(m_obj_auditdetail_modified, json[QString("objAuditdetailModified")]);
     m_obj_auditdetail_modified_isSet = !json[QString("objAuditdetailModified")].isNull() && m_obj_auditdetail_modified_isValid;
 }
 
@@ -66,21 +66,21 @@ QString OAICommon_Audit::asJson() const {
 
 QJsonObject OAICommon_Audit::asJsonObject() const {
     QJsonObject obj;
-    if (obj_auditdetail_created.isSet()) {
-        obj.insert(QString("objAuditdetailCreated"), ::OpenAPI::toJsonValue(obj_auditdetail_created));
+    if (m_obj_auditdetail_created.isSet()) {
+        obj.insert(QString("objAuditdetailCreated"), ::OpenAPI::toJsonValue(m_obj_auditdetail_created));
     }
-    if (obj_auditdetail_modified.isSet()) {
-        obj.insert(QString("objAuditdetailModified"), ::OpenAPI::toJsonValue(obj_auditdetail_modified));
+    if (m_obj_auditdetail_modified.isSet()) {
+        obj.insert(QString("objAuditdetailModified"), ::OpenAPI::toJsonValue(m_obj_auditdetail_modified));
     }
     return obj;
 }
 
 OAICommon_Auditdetail OAICommon_Audit::getObjAuditdetailCreated() const {
-    return obj_auditdetail_created;
+    return m_obj_auditdetail_created;
 }
 void OAICommon_Audit::setObjAuditdetailCreated(const OAICommon_Auditdetail &obj_auditdetail_created) {
-    this->obj_auditdetail_created = obj_auditdetail_created;
-    this->m_obj_auditdetail_created_isSet = true;
+    m_obj_auditdetail_created = obj_auditdetail_created;
+    m_obj_auditdetail_created_isSet = true;
 }
 
 bool OAICommon_Audit::is_obj_auditdetail_created_Set() const{
@@ -92,11 +92,11 @@ bool OAICommon_Audit::is_obj_auditdetail_created_Valid() const{
 }
 
 OAICommon_Auditdetail OAICommon_Audit::getObjAuditdetailModified() const {
-    return obj_auditdetail_modified;
+    return m_obj_auditdetail_modified;
 }
 void OAICommon_Audit::setObjAuditdetailModified(const OAICommon_Auditdetail &obj_auditdetail_modified) {
-    this->obj_auditdetail_modified = obj_auditdetail_modified;
-    this->m_obj_auditdetail_modified_isSet = true;
+    m_obj_auditdetail_modified = obj_auditdetail_modified;
+    m_obj_auditdetail_modified_isSet = true;
 }
 
 bool OAICommon_Audit::is_obj_auditdetail_modified_Set() const{
@@ -110,12 +110,12 @@ bool OAICommon_Audit::is_obj_auditdetail_modified_Valid() const{
 bool OAICommon_Audit::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (obj_auditdetail_created.isSet()) {
+        if (m_obj_auditdetail_created.isSet()) {
             isObjectUpdated = true;
             break;
         }
 
-        if (obj_auditdetail_modified.isSet()) {
+        if (m_obj_auditdetail_modified.isSet()) {
             isObjectUpdated = true;
             break;
         }

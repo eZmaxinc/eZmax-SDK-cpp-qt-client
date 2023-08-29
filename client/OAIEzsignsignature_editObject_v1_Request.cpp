@@ -47,7 +47,7 @@ void OAIEzsignsignature_editObject_v1_Request::fromJson(QString jsonString) {
 
 void OAIEzsignsignature_editObject_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_obj_ezsignsignature_isValid = ::OpenAPI::fromJsonValue(obj_ezsignsignature, json[QString("objEzsignsignature")]);
+    m_obj_ezsignsignature_isValid = ::OpenAPI::fromJsonValue(m_obj_ezsignsignature, json[QString("objEzsignsignature")]);
     m_obj_ezsignsignature_isSet = !json[QString("objEzsignsignature")].isNull() && m_obj_ezsignsignature_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIEzsignsignature_editObject_v1_Request::asJson() const {
 
 QJsonObject OAIEzsignsignature_editObject_v1_Request::asJsonObject() const {
     QJsonObject obj;
-    if (obj_ezsignsignature.isSet()) {
-        obj.insert(QString("objEzsignsignature"), ::OpenAPI::toJsonValue(obj_ezsignsignature));
+    if (m_obj_ezsignsignature.isSet()) {
+        obj.insert(QString("objEzsignsignature"), ::OpenAPI::toJsonValue(m_obj_ezsignsignature));
     }
     return obj;
 }
 
 OAIEzsignsignature_RequestCompound OAIEzsignsignature_editObject_v1_Request::getObjEzsignsignature() const {
-    return obj_ezsignsignature;
+    return m_obj_ezsignsignature;
 }
 void OAIEzsignsignature_editObject_v1_Request::setObjEzsignsignature(const OAIEzsignsignature_RequestCompound &obj_ezsignsignature) {
-    this->obj_ezsignsignature = obj_ezsignsignature;
-    this->m_obj_ezsignsignature_isSet = true;
+    m_obj_ezsignsignature = obj_ezsignsignature;
+    m_obj_ezsignsignature_isSet = true;
 }
 
 bool OAIEzsignsignature_editObject_v1_Request::is_obj_ezsignsignature_Set() const{
@@ -85,7 +85,7 @@ bool OAIEzsignsignature_editObject_v1_Request::is_obj_ezsignsignature_Valid() co
 bool OAIEzsignsignature_editObject_v1_Request::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (obj_ezsignsignature.isSet()) {
+        if (m_obj_ezsignsignature.isSet()) {
             isObjectUpdated = true;
             break;
         }

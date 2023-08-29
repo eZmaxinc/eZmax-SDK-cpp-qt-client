@@ -54,11 +54,11 @@ public:
 private:
     void initializeModel();
 
-    bool supported;
+    bool m_supported;
     bool m_supported_isSet;
     bool m_supported_isValid;
 
-    qint32 max_results;
+    qint32 m_max_results;
     bool m_max_results_isSet;
     bool m_max_results_isValid;
 };

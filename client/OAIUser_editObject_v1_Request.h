@@ -51,7 +51,7 @@ public:
 private:
     void initializeModel();
 
-    OAIUser_RequestCompound obj_user;
+    OAIUser_RequestCompound m_obj_user;
     bool m_obj_user_isSet;
     bool m_obj_user_isValid;
 };

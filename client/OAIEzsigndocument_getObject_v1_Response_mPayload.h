@@ -22,6 +22,7 @@
 #include <QJsonObject>
 
 #include "OAICommon_Audit.h"
+#include "OAIComputed_eEzsigndocumentSteptype.h"
 #include "OAICustom_Ezsignfoldersignerassociationstatus_Response.h"
 #include "OAIField_eEzsigndocumentStep.h"
 #include <QList>
@@ -150,6 +151,11 @@ public:
     bool is_s_ezsigndocument_externalid_Set() const;
     bool is_s_ezsigndocument_externalid_Valid() const;
 
+    OAIComputed_eEzsigndocumentSteptype getEEzsigndocumentSteptype() const;
+    void setEEzsigndocumentSteptype(const OAIComputed_eEzsigndocumentSteptype &e_ezsigndocument_steptype);
+    bool is_e_ezsigndocument_steptype_Set() const;
+    bool is_e_ezsigndocument_steptype_Valid() const;
+
     qint32 getIEzsigndocumentStepformtotal() const;
     void setIEzsigndocumentStepformtotal(const qint32 &i_ezsigndocument_stepformtotal);
     bool is_i_ezsigndocument_stepformtotal_Set() const;
@@ -181,107 +187,111 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_ezsigndocument_id;
+    qint32 m_pki_ezsigndocument_id;
     bool m_pki_ezsigndocument_id_isSet;
     bool m_pki_ezsigndocument_id_isValid;
 
-    qint32 fki_ezsignfolder_id;
+    qint32 m_fki_ezsignfolder_id;
     bool m_fki_ezsignfolder_id_isSet;
     bool m_fki_ezsignfolder_id_isValid;
 
-    qint32 fki_ezsignfoldersignerassociation_id_declinedtosign;
+    qint32 m_fki_ezsignfoldersignerassociation_id_declinedtosign;
     bool m_fki_ezsignfoldersignerassociation_id_declinedtosign_isSet;
     bool m_fki_ezsignfoldersignerassociation_id_declinedtosign_isValid;
 
-    QString dt_ezsigndocument_duedate;
+    QString m_dt_ezsigndocument_duedate;
     bool m_dt_ezsigndocument_duedate_isSet;
     bool m_dt_ezsigndocument_duedate_isValid;
 
-    QString dt_ezsignform_completed;
+    QString m_dt_ezsignform_completed;
     bool m_dt_ezsignform_completed_isSet;
     bool m_dt_ezsignform_completed_isValid;
 
-    qint32 fki_language_id;
+    qint32 m_fki_language_id;
     bool m_fki_language_id_isSet;
     bool m_fki_language_id_isValid;
 
-    QString s_ezsigndocument_name;
+    QString m_s_ezsigndocument_name;
     bool m_s_ezsigndocument_name_isSet;
     bool m_s_ezsigndocument_name_isValid;
 
-    OAIField_eEzsigndocumentStep e_ezsigndocument_step;
+    OAIField_eEzsigndocumentStep m_e_ezsigndocument_step;
     bool m_e_ezsigndocument_step_isSet;
     bool m_e_ezsigndocument_step_isValid;
 
-    QString dt_ezsigndocument_firstsend;
+    QString m_dt_ezsigndocument_firstsend;
     bool m_dt_ezsigndocument_firstsend_isSet;
     bool m_dt_ezsigndocument_firstsend_isValid;
 
-    QString dt_ezsigndocument_lastsend;
+    QString m_dt_ezsigndocument_lastsend;
     bool m_dt_ezsigndocument_lastsend_isSet;
     bool m_dt_ezsigndocument_lastsend_isValid;
 
-    qint32 i_ezsigndocument_order;
+    qint32 m_i_ezsigndocument_order;
     bool m_i_ezsigndocument_order_isSet;
     bool m_i_ezsigndocument_order_isValid;
 
-    qint32 i_ezsigndocument_pagetotal;
+    qint32 m_i_ezsigndocument_pagetotal;
     bool m_i_ezsigndocument_pagetotal_isSet;
     bool m_i_ezsigndocument_pagetotal_isValid;
 
-    qint32 i_ezsigndocument_signaturesigned;
+    qint32 m_i_ezsigndocument_signaturesigned;
     bool m_i_ezsigndocument_signaturesigned_isSet;
     bool m_i_ezsigndocument_signaturesigned_isValid;
 
-    qint32 i_ezsigndocument_signaturetotal;
+    qint32 m_i_ezsigndocument_signaturetotal;
     bool m_i_ezsigndocument_signaturetotal_isSet;
     bool m_i_ezsigndocument_signaturetotal_isValid;
 
-    QString s_ezsigndocument_md5initial;
+    QString m_s_ezsigndocument_md5initial;
     bool m_s_ezsigndocument_md5initial_isSet;
     bool m_s_ezsigndocument_md5initial_isValid;
 
-    QString t_ezsigndocument_declinedtosignreason;
+    QString m_t_ezsigndocument_declinedtosignreason;
     bool m_t_ezsigndocument_declinedtosignreason_isSet;
     bool m_t_ezsigndocument_declinedtosignreason_isValid;
 
-    QString s_ezsigndocument_md5signed;
+    QString m_s_ezsigndocument_md5signed;
     bool m_s_ezsigndocument_md5signed_isSet;
     bool m_s_ezsigndocument_md5signed_isValid;
 
-    bool b_ezsigndocument_ezsignform;
+    bool m_b_ezsigndocument_ezsignform;
     bool m_b_ezsigndocument_ezsignform_isSet;
     bool m_b_ezsigndocument_ezsignform_isValid;
 
-    bool b_ezsigndocument_hassignedsignatures;
+    bool m_b_ezsigndocument_hassignedsignatures;
     bool m_b_ezsigndocument_hassignedsignatures_isSet;
     bool m_b_ezsigndocument_hassignedsignatures_isValid;
 
-    OAICommon_Audit obj_audit;
+    OAICommon_Audit m_obj_audit;
     bool m_obj_audit_isSet;
     bool m_obj_audit_isValid;
 
-    QString s_ezsigndocument_externalid;
+    QString m_s_ezsigndocument_externalid;
     bool m_s_ezsigndocument_externalid_isSet;
     bool m_s_ezsigndocument_externalid_isValid;
 
-    qint32 i_ezsigndocument_stepformtotal;
+    OAIComputed_eEzsigndocumentSteptype m_e_ezsigndocument_steptype;
+    bool m_e_ezsigndocument_steptype_isSet;
+    bool m_e_ezsigndocument_steptype_isValid;
+
+    qint32 m_i_ezsigndocument_stepformtotal;
     bool m_i_ezsigndocument_stepformtotal_isSet;
     bool m_i_ezsigndocument_stepformtotal_isValid;
 
-    qint32 i_ezsigndocument_stepformcurrent;
+    qint32 m_i_ezsigndocument_stepformcurrent;
     bool m_i_ezsigndocument_stepformcurrent_isSet;
     bool m_i_ezsigndocument_stepformcurrent_isValid;
 
-    qint32 i_ezsigndocument_stepsignaturetotal;
+    qint32 m_i_ezsigndocument_stepsignaturetotal;
     bool m_i_ezsigndocument_stepsignaturetotal_isSet;
     bool m_i_ezsigndocument_stepsignaturetotal_isValid;
 
-    qint32 i_ezsigndocument_stepsignature_current;
+    qint32 m_i_ezsigndocument_stepsignature_current;
     bool m_i_ezsigndocument_stepsignature_current_isSet;
     bool m_i_ezsigndocument_stepsignature_current_isValid;
 
-    QList<OAICustom_Ezsignfoldersignerassociationstatus_Response> a_obj_ezsignfoldersignerassociationstatus;
+    QList<OAICustom_Ezsignfoldersignerassociationstatus_Response> m_a_obj_ezsignfoldersignerassociationstatus;
     bool m_a_obj_ezsignfoldersignerassociationstatus_isSet;
     bool m_a_obj_ezsignfoldersignerassociationstatus_isValid;
 };

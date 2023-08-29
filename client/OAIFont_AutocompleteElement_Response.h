@@ -60,15 +60,15 @@ public:
 private:
     void initializeModel();
 
-    QString s_font_name;
+    QString m_s_font_name;
     bool m_s_font_name_isSet;
     bool m_s_font_name_isValid;
 
-    qint32 pki_font_id;
+    qint32 m_pki_font_id;
     bool m_pki_font_id_isSet;
     bool m_pki_font_id_isValid;
 
-    bool b_font_isactive;
+    bool m_b_font_isactive;
     bool m_b_font_isactive_isSet;
     bool m_b_font_isactive_isValid;
 };

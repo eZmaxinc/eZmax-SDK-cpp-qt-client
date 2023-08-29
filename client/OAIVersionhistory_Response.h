@@ -104,47 +104,47 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_versionhistory_id;
+    qint32 m_pki_versionhistory_id;
     bool m_pki_versionhistory_id_isSet;
     bool m_pki_versionhistory_id_isValid;
 
-    qint32 fki_module_id;
+    qint32 m_fki_module_id;
     bool m_fki_module_id_isSet;
     bool m_fki_module_id_isValid;
 
-    qint32 fki_modulesection_id;
+    qint32 m_fki_modulesection_id;
     bool m_fki_modulesection_id_isSet;
     bool m_fki_modulesection_id_isValid;
 
-    QString s_module_name_x;
+    QString m_s_module_name_x;
     bool m_s_module_name_x_isSet;
     bool m_s_module_name_x_isValid;
 
-    QString s_modulesection_name_x;
+    QString m_s_modulesection_name_x;
     bool m_s_modulesection_name_x_isSet;
     bool m_s_modulesection_name_x_isValid;
 
-    OAIField_eVersionhistoryUsertype e_versionhistory_usertype;
+    OAIField_eVersionhistoryUsertype m_e_versionhistory_usertype;
     bool m_e_versionhistory_usertype_isSet;
     bool m_e_versionhistory_usertype_isValid;
 
-    OAIMultilingual_VersionhistoryDetail obj_versionhistory_detail;
+    OAIMultilingual_VersionhistoryDetail m_obj_versionhistory_detail;
     bool m_obj_versionhistory_detail_isSet;
     bool m_obj_versionhistory_detail_isValid;
 
-    QString dt_versionhistory_date;
+    QString m_dt_versionhistory_date;
     bool m_dt_versionhistory_date_isSet;
     bool m_dt_versionhistory_date_isValid;
 
-    QString dt_versionhistory_dateend;
+    QString m_dt_versionhistory_dateend;
     bool m_dt_versionhistory_dateend_isSet;
     bool m_dt_versionhistory_dateend_isValid;
 
-    OAIField_eVersionhistoryType e_versionhistory_type;
+    OAIField_eVersionhistoryType m_e_versionhistory_type;
     bool m_e_versionhistory_type_isSet;
     bool m_e_versionhistory_type_isValid;
 
-    bool b_versionhistory_draft;
+    bool m_b_versionhistory_draft;
     bool m_b_versionhistory_draft_isSet;
     bool m_b_versionhistory_draft_isValid;
 };

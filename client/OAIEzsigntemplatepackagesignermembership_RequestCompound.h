@@ -69,23 +69,23 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_ezsigntemplatepackagesignermembership_id;
+    qint32 m_pki_ezsigntemplatepackagesignermembership_id;
     bool m_pki_ezsigntemplatepackagesignermembership_id_isSet;
     bool m_pki_ezsigntemplatepackagesignermembership_id_isValid;
 
-    qint32 fki_ezsigntemplatepackagemembership_id;
+    qint32 m_fki_ezsigntemplatepackagemembership_id;
     bool m_fki_ezsigntemplatepackagemembership_id_isSet;
     bool m_fki_ezsigntemplatepackagemembership_id_isValid;
 
-    qint32 fki_ezsigntemplatepackagesigner_id;
+    qint32 m_fki_ezsigntemplatepackagesigner_id;
     bool m_fki_ezsigntemplatepackagesigner_id_isSet;
     bool m_fki_ezsigntemplatepackagesigner_id_isValid;
 
-    qint32 fki_ezsigntemplatesigner_id;
+    qint32 m_fki_ezsigntemplatesigner_id;
     bool m_fki_ezsigntemplatesigner_id_isSet;
     bool m_fki_ezsigntemplatesigner_id_isValid;
 
-    qint32 i_ezsigntemplatepackagesignermembership_copy;
+    qint32 m_i_ezsigntemplatepackagesignermembership_copy;
     bool m_i_ezsigntemplatepackagesignermembership_copy_isSet;
     bool m_i_ezsigntemplatepackagesignermembership_copy_isValid;
 };

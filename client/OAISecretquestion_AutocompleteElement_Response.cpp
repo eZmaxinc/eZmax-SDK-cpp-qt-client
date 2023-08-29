@@ -53,13 +53,13 @@ void OAISecretquestion_AutocompleteElement_Response::fromJson(QString jsonString
 
 void OAISecretquestion_AutocompleteElement_Response::fromJsonObject(QJsonObject json) {
 
-    m_s_secretquestion_text_x_isValid = ::OpenAPI::fromJsonValue(s_secretquestion_text_x, json[QString("sSecretquestionTextX")]);
+    m_s_secretquestion_text_x_isValid = ::OpenAPI::fromJsonValue(m_s_secretquestion_text_x, json[QString("sSecretquestionTextX")]);
     m_s_secretquestion_text_x_isSet = !json[QString("sSecretquestionTextX")].isNull() && m_s_secretquestion_text_x_isValid;
 
-    m_pki_secretquestion_id_isValid = ::OpenAPI::fromJsonValue(pki_secretquestion_id, json[QString("pkiSecretquestionID")]);
+    m_pki_secretquestion_id_isValid = ::OpenAPI::fromJsonValue(m_pki_secretquestion_id, json[QString("pkiSecretquestionID")]);
     m_pki_secretquestion_id_isSet = !json[QString("pkiSecretquestionID")].isNull() && m_pki_secretquestion_id_isValid;
 
-    m_b_secretquestion_isactive_isValid = ::OpenAPI::fromJsonValue(b_secretquestion_isactive, json[QString("bSecretquestionIsactive")]);
+    m_b_secretquestion_isactive_isValid = ::OpenAPI::fromJsonValue(m_b_secretquestion_isactive, json[QString("bSecretquestionIsactive")]);
     m_b_secretquestion_isactive_isSet = !json[QString("bSecretquestionIsactive")].isNull() && m_b_secretquestion_isactive_isValid;
 }
 
@@ -73,23 +73,23 @@ QString OAISecretquestion_AutocompleteElement_Response::asJson() const {
 QJsonObject OAISecretquestion_AutocompleteElement_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_s_secretquestion_text_x_isSet) {
-        obj.insert(QString("sSecretquestionTextX"), ::OpenAPI::toJsonValue(s_secretquestion_text_x));
+        obj.insert(QString("sSecretquestionTextX"), ::OpenAPI::toJsonValue(m_s_secretquestion_text_x));
     }
     if (m_pki_secretquestion_id_isSet) {
-        obj.insert(QString("pkiSecretquestionID"), ::OpenAPI::toJsonValue(pki_secretquestion_id));
+        obj.insert(QString("pkiSecretquestionID"), ::OpenAPI::toJsonValue(m_pki_secretquestion_id));
     }
     if (m_b_secretquestion_isactive_isSet) {
-        obj.insert(QString("bSecretquestionIsactive"), ::OpenAPI::toJsonValue(b_secretquestion_isactive));
+        obj.insert(QString("bSecretquestionIsactive"), ::OpenAPI::toJsonValue(m_b_secretquestion_isactive));
     }
     return obj;
 }
 
 QString OAISecretquestion_AutocompleteElement_Response::getSSecretquestionTextX() const {
-    return s_secretquestion_text_x;
+    return m_s_secretquestion_text_x;
 }
 void OAISecretquestion_AutocompleteElement_Response::setSSecretquestionTextX(const QString &s_secretquestion_text_x) {
-    this->s_secretquestion_text_x = s_secretquestion_text_x;
-    this->m_s_secretquestion_text_x_isSet = true;
+    m_s_secretquestion_text_x = s_secretquestion_text_x;
+    m_s_secretquestion_text_x_isSet = true;
 }
 
 bool OAISecretquestion_AutocompleteElement_Response::is_s_secretquestion_text_x_Set() const{
@@ -101,11 +101,11 @@ bool OAISecretquestion_AutocompleteElement_Response::is_s_secretquestion_text_x_
 }
 
 qint32 OAISecretquestion_AutocompleteElement_Response::getPkiSecretquestionId() const {
-    return pki_secretquestion_id;
+    return m_pki_secretquestion_id;
 }
 void OAISecretquestion_AutocompleteElement_Response::setPkiSecretquestionId(const qint32 &pki_secretquestion_id) {
-    this->pki_secretquestion_id = pki_secretquestion_id;
-    this->m_pki_secretquestion_id_isSet = true;
+    m_pki_secretquestion_id = pki_secretquestion_id;
+    m_pki_secretquestion_id_isSet = true;
 }
 
 bool OAISecretquestion_AutocompleteElement_Response::is_pki_secretquestion_id_Set() const{
@@ -117,11 +117,11 @@ bool OAISecretquestion_AutocompleteElement_Response::is_pki_secretquestion_id_Va
 }
 
 bool OAISecretquestion_AutocompleteElement_Response::isBSecretquestionIsactive() const {
-    return b_secretquestion_isactive;
+    return m_b_secretquestion_isactive;
 }
 void OAISecretquestion_AutocompleteElement_Response::setBSecretquestionIsactive(const bool &b_secretquestion_isactive) {
-    this->b_secretquestion_isactive = b_secretquestion_isactive;
-    this->m_b_secretquestion_isactive_isSet = true;
+    m_b_secretquestion_isactive = b_secretquestion_isactive;
+    m_b_secretquestion_isactive_isSet = true;
 }
 
 bool OAISecretquestion_AutocompleteElement_Response::is_b_secretquestion_isactive_Set() const{

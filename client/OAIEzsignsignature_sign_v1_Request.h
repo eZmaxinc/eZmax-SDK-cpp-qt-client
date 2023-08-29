@@ -78,27 +78,27 @@ public:
 private:
     void initializeModel();
 
-    QString s_value;
+    QString m_s_value;
     bool m_s_value_isSet;
     bool m_s_value_isValid;
 
-    QString e_attachments_confirmation_decision;
+    QString m_e_attachments_confirmation_decision;
     bool m_e_attachments_confirmation_decision_isSet;
     bool m_e_attachments_confirmation_decision_isValid;
 
-    QString s_attachments_refusal_reason;
+    QString m_s_attachments_refusal_reason;
     bool m_s_attachments_refusal_reason_isSet;
     bool m_s_attachments_refusal_reason_isValid;
 
-    QString s_svg;
+    QString m_s_svg;
     bool m_s_svg_isSet;
     bool m_s_svg_isValid;
 
-    QList<OAICommon_File> a_obj_file;
+    QList<OAICommon_File> m_a_obj_file;
     bool m_a_obj_file_isSet;
     bool m_a_obj_file_isValid;
 
-    bool b_is_automatic;
+    bool m_b_is_automatic;
     bool m_b_is_automatic_isSet;
     bool m_b_is_automatic_isValid;
 };

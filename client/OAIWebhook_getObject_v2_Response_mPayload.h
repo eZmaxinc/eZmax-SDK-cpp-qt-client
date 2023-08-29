@@ -51,7 +51,7 @@ public:
 private:
     void initializeModel();
 
-    OAIWebhook_ResponseCompound obj_webhook;
+    OAIWebhook_ResponseCompound m_obj_webhook;
     bool m_obj_webhook_isSet;
     bool m_obj_webhook_isValid;
 };

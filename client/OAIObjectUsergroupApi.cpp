@@ -65,6 +65,8 @@ void OAIObjectUsergroupApi::initializeServerConfigs() {
     _serverIndices.insert("usergroupEditObjectV1", 0);
     _serverConfigs.insert("usergroupEditPermissionsV1", defaultConf);
     _serverIndices.insert("usergroupEditPermissionsV1", 0);
+    _serverConfigs.insert("usergroupEditUsergroupdelegationsV1", defaultConf);
+    _serverIndices.insert("usergroupEditUsergroupdelegationsV1", 0);
     _serverConfigs.insert("usergroupEditUsergroupmembershipsV1", defaultConf);
     _serverIndices.insert("usergroupEditUsergroupmembershipsV1", 0);
     _serverConfigs.insert("usergroupGetAutocompleteV2", defaultConf);
@@ -75,6 +77,8 @@ void OAIObjectUsergroupApi::initializeServerConfigs() {
     _serverIndices.insert("usergroupGetObjectV2", 0);
     _serverConfigs.insert("usergroupGetPermissionsV1", defaultConf);
     _serverIndices.insert("usergroupGetPermissionsV1", 0);
+    _serverConfigs.insert("usergroupGetUsergroupdelegationsV1", defaultConf);
+    _serverIndices.insert("usergroupGetUsergroupdelegationsV1", 0);
     _serverConfigs.insert("usergroupGetUsergroupmembershipsV1", defaultConf);
     _serverIndices.insert("usergroupGetUsergroupmembershipsV1", 0);
 }
@@ -451,6 +455,78 @@ void OAIObjectUsergroupApi::usergroupEditPermissionsV1Callback(OAIHttpRequestWor
     } else {
         emit usergroupEditPermissionsV1SignalE(output, error_type, error_str);
         emit usergroupEditPermissionsV1SignalEFull(worker, error_type, error_str);
+    }
+}
+
+void OAIObjectUsergroupApi::usergroupEditUsergroupdelegationsV1(const qint32 &pki_usergroup_id, const OAIUsergroup_editUsergroupdelegations_v1_Request &oai_usergroup_edit_usergroupdelegations_v1_request) {
+    QString fullPath = QString(_serverConfigs["usergroupEditUsergroupdelegationsV1"][_serverIndices.value("usergroupEditUsergroupdelegationsV1")].URL()+"/1/object/usergroup/{pkiUsergroupID}/editUsergroupdelegations");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_usergroup_idPathParam("{");
+        pki_usergroup_idPathParam.append("pkiUsergroupID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiUsergroupID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiUsergroupID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_usergroup_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_usergroup_id)));
+    }
+    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    OAIHttpRequestInput input(fullPath, "PUT");
+
+    {
+
+        
+        QByteArray output = oai_usergroup_edit_usergroupdelegations_v1_request.asJson().toUtf8();
+        input.request_body.append(output);
+    }
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+#else
+    for (auto key : _defaultHeaders.keys()) {
+        input.headers.insert(key, _defaultHeaders[key]);
+    }
+#endif
+
+    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIObjectUsergroupApi::usergroupEditUsergroupdelegationsV1Callback);
+    connect(this, &OAIObjectUsergroupApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this]() {
+        if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
+            emit allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void OAIObjectUsergroupApi::usergroupEditUsergroupdelegationsV1Callback(OAIHttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    OAIUsergroup_editUsergroupdelegations_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit usergroupEditUsergroupdelegationsV1Signal(output);
+        emit usergroupEditUsergroupdelegationsV1SignalFull(worker, output);
+    } else {
+        emit usergroupEditUsergroupdelegationsV1SignalE(output, error_type, error_str);
+        emit usergroupEditUsergroupdelegationsV1SignalEFull(worker, error_type, error_str);
     }
 }
 
@@ -957,6 +1033,73 @@ void OAIObjectUsergroupApi::usergroupGetPermissionsV1Callback(OAIHttpRequestWork
     } else {
         emit usergroupGetPermissionsV1SignalE(output, error_type, error_str);
         emit usergroupGetPermissionsV1SignalEFull(worker, error_type, error_str);
+    }
+}
+
+void OAIObjectUsergroupApi::usergroupGetUsergroupdelegationsV1(const qint32 &pki_usergroup_id) {
+    QString fullPath = QString(_serverConfigs["usergroupGetUsergroupdelegationsV1"][_serverIndices.value("usergroupGetUsergroupdelegationsV1")].URL()+"/1/object/usergroup/{pkiUsergroupID}/getUsergroupdelegations");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_usergroup_idPathParam("{");
+        pki_usergroup_idPathParam.append("pkiUsergroupID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiUsergroupID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiUsergroupID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_usergroup_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_usergroup_id)));
+    }
+    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    OAIHttpRequestInput input(fullPath, "GET");
+
+
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+#else
+    for (auto key : _defaultHeaders.keys()) {
+        input.headers.insert(key, _defaultHeaders[key]);
+    }
+#endif
+
+    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIObjectUsergroupApi::usergroupGetUsergroupdelegationsV1Callback);
+    connect(this, &OAIObjectUsergroupApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this]() {
+        if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
+            emit allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void OAIObjectUsergroupApi::usergroupGetUsergroupdelegationsV1Callback(OAIHttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    OAIUsergroup_getUsergroupdelegations_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit usergroupGetUsergroupdelegationsV1Signal(output);
+        emit usergroupGetUsergroupdelegationsV1SignalFull(worker, output);
+    } else {
+        emit usergroupGetUsergroupdelegationsV1SignalE(output, error_type, error_str);
+        emit usergroupGetUsergroupdelegationsV1SignalEFull(worker, error_type, error_str);
     }
 }
 

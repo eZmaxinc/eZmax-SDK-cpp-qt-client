@@ -91,39 +91,39 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_ezmaxinvoicinguser_id;
+    qint32 m_pki_ezmaxinvoicinguser_id;
     bool m_pki_ezmaxinvoicinguser_id_isSet;
     bool m_pki_ezmaxinvoicinguser_id_isValid;
 
-    qint32 fki_ezmaxinvoicing_id;
+    qint32 m_fki_ezmaxinvoicing_id;
     bool m_fki_ezmaxinvoicing_id_isSet;
     bool m_fki_ezmaxinvoicing_id_isValid;
 
-    qint32 fki_billingentityinternal_id;
+    qint32 m_fki_billingentityinternal_id;
     bool m_fki_billingentityinternal_id_isSet;
     bool m_fki_billingentityinternal_id_isValid;
 
-    QString s_billingentityinternal_description_x;
+    QString m_s_billingentityinternal_description_x;
     bool m_s_billingentityinternal_description_x_isSet;
     bool m_s_billingentityinternal_description_x_isValid;
 
-    qint32 fki_user_id;
+    qint32 m_fki_user_id;
     bool m_fki_user_id_isSet;
     bool m_fki_user_id_isValid;
 
-    qint32 i_ezmaxinvoicinguser_ezsigndocument;
+    qint32 m_i_ezmaxinvoicinguser_ezsigndocument;
     bool m_i_ezmaxinvoicinguser_ezsigndocument_isSet;
     bool m_i_ezmaxinvoicinguser_ezsigndocument_isValid;
 
-    bool b_ezmaxinvoicinguser_ezsignaccount;
+    bool m_b_ezmaxinvoicinguser_ezsignaccount;
     bool m_b_ezmaxinvoicinguser_ezsignaccount_isSet;
     bool m_b_ezmaxinvoicinguser_ezsignaccount_isValid;
 
-    bool b_ezmaxinvoicinguser_billableezsign;
+    bool m_b_ezmaxinvoicinguser_billableezsign;
     bool m_b_ezmaxinvoicinguser_billableezsign_isSet;
     bool m_b_ezmaxinvoicinguser_billableezsign_isValid;
 
-    OAIField_eEzmaxinvoicinguserVariationezsign e_ezmaxinvoicinguser_variationezsign;
+    OAIField_eEzmaxinvoicinguserVariationezsign m_e_ezmaxinvoicinguser_variationezsign;
     bool m_e_ezmaxinvoicinguser_variationezsign_isSet;
     bool m_e_ezmaxinvoicinguser_variationezsign_isValid;
 };

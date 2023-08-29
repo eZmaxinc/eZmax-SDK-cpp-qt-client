@@ -30,9 +30,9 @@
 #include "OAIObject.h"
 
 namespace OpenAPI {
-class OAIEzsignfolder_Response;
 class OAICustom_Webhook_Response;
 class OAIAttempt_ResponseCompound;
+class OAIEzsignfolder_Response;
 
 class OAIWebhook_Ezsign_FolderCompleted : public OAIObject {
 public:
@@ -45,11 +45,6 @@ public:
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    OAIEzsignfolder_Response getObjEzsignfolder() const;
-    void setObjEzsignfolder(const OAIEzsignfolder_Response &obj_ezsignfolder);
-    bool is_obj_ezsignfolder_Set() const;
-    bool is_obj_ezsignfolder_Valid() const;
-
     OAICustom_Webhook_Response getObjWebhook() const;
     void setObjWebhook(const OAICustom_Webhook_Response &obj_webhook);
     bool is_obj_webhook_Set() const;
@@ -60,23 +55,28 @@ public:
     bool is_a_obj_attempt_Set() const;
     bool is_a_obj_attempt_Valid() const;
 
+    OAIEzsignfolder_Response getObjEzsignfolder() const;
+    void setObjEzsignfolder(const OAIEzsignfolder_Response &obj_ezsignfolder);
+    bool is_obj_ezsignfolder_Set() const;
+    bool is_obj_ezsignfolder_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
 private:
     void initializeModel();
 
-    OAIEzsignfolder_Response obj_ezsignfolder;
-    bool m_obj_ezsignfolder_isSet;
-    bool m_obj_ezsignfolder_isValid;
-
-    OAICustom_Webhook_Response obj_webhook;
+    OAICustom_Webhook_Response m_obj_webhook;
     bool m_obj_webhook_isSet;
     bool m_obj_webhook_isValid;
 
-    QList<OAIAttempt_ResponseCompound> a_obj_attempt;
+    QList<OAIAttempt_ResponseCompound> m_a_obj_attempt;
     bool m_a_obj_attempt_isSet;
     bool m_a_obj_attempt_isValid;
+
+    OAIEzsignfolder_Response m_obj_ezsignfolder;
+    bool m_obj_ezsignfolder_isSet;
+    bool m_obj_ezsignfolder_isValid;
 };
 
 } // namespace OpenAPI

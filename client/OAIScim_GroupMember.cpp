@@ -56,16 +56,16 @@ void OAIScim_GroupMember::fromJson(QString jsonString) {
 
 void OAIScim_GroupMember::fromJsonObject(QJsonObject json) {
 
-    m_value_isValid = ::OpenAPI::fromJsonValue(value, json[QString("value")]);
+    m_value_isValid = ::OpenAPI::fromJsonValue(m_value, json[QString("value")]);
     m_value_isSet = !json[QString("value")].isNull() && m_value_isValid;
 
-    m_display_isValid = ::OpenAPI::fromJsonValue(display, json[QString("display")]);
+    m_display_isValid = ::OpenAPI::fromJsonValue(m_display, json[QString("display")]);
     m_display_isSet = !json[QString("display")].isNull() && m_display_isValid;
 
-    m_type_isValid = ::OpenAPI::fromJsonValue(type, json[QString("type")]);
+    m_type_isValid = ::OpenAPI::fromJsonValue(m_type, json[QString("type")]);
     m_type_isSet = !json[QString("type")].isNull() && m_type_isValid;
 
-    m_ref_isValid = ::OpenAPI::fromJsonValue(ref, json[QString("$ref")]);
+    m_ref_isValid = ::OpenAPI::fromJsonValue(m_ref, json[QString("$ref")]);
     m_ref_isSet = !json[QString("$ref")].isNull() && m_ref_isValid;
 }
 
@@ -79,26 +79,26 @@ QString OAIScim_GroupMember::asJson() const {
 QJsonObject OAIScim_GroupMember::asJsonObject() const {
     QJsonObject obj;
     if (m_value_isSet) {
-        obj.insert(QString("value"), ::OpenAPI::toJsonValue(value));
+        obj.insert(QString("value"), ::OpenAPI::toJsonValue(m_value));
     }
     if (m_display_isSet) {
-        obj.insert(QString("display"), ::OpenAPI::toJsonValue(display));
+        obj.insert(QString("display"), ::OpenAPI::toJsonValue(m_display));
     }
     if (m_type_isSet) {
-        obj.insert(QString("type"), ::OpenAPI::toJsonValue(type));
+        obj.insert(QString("type"), ::OpenAPI::toJsonValue(m_type));
     }
     if (m_ref_isSet) {
-        obj.insert(QString("$ref"), ::OpenAPI::toJsonValue(ref));
+        obj.insert(QString("$ref"), ::OpenAPI::toJsonValue(m_ref));
     }
     return obj;
 }
 
 QString OAIScim_GroupMember::getValue() const {
-    return value;
+    return m_value;
 }
 void OAIScim_GroupMember::setValue(const QString &value) {
-    this->value = value;
-    this->m_value_isSet = true;
+    m_value = value;
+    m_value_isSet = true;
 }
 
 bool OAIScim_GroupMember::is_value_Set() const{
@@ -110,11 +110,11 @@ bool OAIScim_GroupMember::is_value_Valid() const{
 }
 
 QString OAIScim_GroupMember::getDisplay() const {
-    return display;
+    return m_display;
 }
 void OAIScim_GroupMember::setDisplay(const QString &display) {
-    this->display = display;
-    this->m_display_isSet = true;
+    m_display = display;
+    m_display_isSet = true;
 }
 
 bool OAIScim_GroupMember::is_display_Set() const{
@@ -126,11 +126,11 @@ bool OAIScim_GroupMember::is_display_Valid() const{
 }
 
 QString OAIScim_GroupMember::getType() const {
-    return type;
+    return m_type;
 }
 void OAIScim_GroupMember::setType(const QString &type) {
-    this->type = type;
-    this->m_type_isSet = true;
+    m_type = type;
+    m_type_isSet = true;
 }
 
 bool OAIScim_GroupMember::is_type_Set() const{
@@ -142,11 +142,11 @@ bool OAIScim_GroupMember::is_type_Valid() const{
 }
 
 QString OAIScim_GroupMember::getRef() const {
-    return ref;
+    return m_ref;
 }
 void OAIScim_GroupMember::setRef(const QString &ref) {
-    this->ref = ref;
-    this->m_ref_isSet = true;
+    m_ref = ref;
+    m_ref_isSet = true;
 }
 
 bool OAIScim_GroupMember::is_ref_Set() const{

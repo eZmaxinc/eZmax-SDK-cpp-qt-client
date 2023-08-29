@@ -52,7 +52,7 @@ public:
 private:
     void initializeModel();
 
-    QList<OAIEzsignfolder_RequestCompound> a_obj_ezsignfolder;
+    QList<OAIEzsignfolder_RequestCompound> m_a_obj_ezsignfolder;
     bool m_a_obj_ezsignfolder_isSet;
     bool m_a_obj_ezsignfolder_isValid;
 };

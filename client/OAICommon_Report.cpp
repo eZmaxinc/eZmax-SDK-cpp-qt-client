@@ -47,7 +47,7 @@ void OAICommon_Report::fromJson(QString jsonString) {
 
 void OAICommon_Report::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_reportsection_isValid = ::OpenAPI::fromJsonValue(a_obj_reportsection, json[QString("a_objReportsection")]);
+    m_a_obj_reportsection_isValid = ::OpenAPI::fromJsonValue(m_a_obj_reportsection, json[QString("a_objReportsection")]);
     m_a_obj_reportsection_isSet = !json[QString("a_objReportsection")].isNull() && m_a_obj_reportsection_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAICommon_Report::asJson() const {
 
 QJsonObject OAICommon_Report::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_reportsection.size() > 0) {
-        obj.insert(QString("a_objReportsection"), ::OpenAPI::toJsonValue(a_obj_reportsection));
+    if (m_a_obj_reportsection.size() > 0) {
+        obj.insert(QString("a_objReportsection"), ::OpenAPI::toJsonValue(m_a_obj_reportsection));
     }
     return obj;
 }
 
 QList<OAICommon_Reportsection> OAICommon_Report::getAObjReportsection() const {
-    return a_obj_reportsection;
+    return m_a_obj_reportsection;
 }
 void OAICommon_Report::setAObjReportsection(const QList<OAICommon_Reportsection> &a_obj_reportsection) {
-    this->a_obj_reportsection = a_obj_reportsection;
-    this->m_a_obj_reportsection_isSet = true;
+    m_a_obj_reportsection = a_obj_reportsection;
+    m_a_obj_reportsection_isSet = true;
 }
 
 bool OAICommon_Report::is_a_obj_reportsection_Set() const{
@@ -85,7 +85,7 @@ bool OAICommon_Report::is_a_obj_reportsection_Valid() const{
 bool OAICommon_Report::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_reportsection.size() > 0) {
+        if (m_a_obj_reportsection.size() > 0) {
             isObjectUpdated = true;
             break;
         }

@@ -57,11 +57,11 @@ public:
 private:
     void initializeModel();
 
-    QString e_websocket_messagetype;
+    QString m_e_websocket_messagetype;
     bool m_e_websocket_messagetype_isSet;
     bool m_e_websocket_messagetype_isValid;
 
-    OAIWebsocket_Response_GetWebsocketID_V1_mPayload m_payload;
+    OAIWebsocket_Response_GetWebsocketID_V1_mPayload m_m_payload;
     bool m_m_payload_isSet;
     bool m_m_payload_isValid;
 };

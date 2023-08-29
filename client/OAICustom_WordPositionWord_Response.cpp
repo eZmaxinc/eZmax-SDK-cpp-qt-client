@@ -50,10 +50,10 @@ void OAICustom_WordPositionWord_Response::fromJson(QString jsonString) {
 
 void OAICustom_WordPositionWord_Response::fromJsonObject(QJsonObject json) {
 
-    m_s_word_isValid = ::OpenAPI::fromJsonValue(s_word, json[QString("sWord")]);
+    m_s_word_isValid = ::OpenAPI::fromJsonValue(m_s_word, json[QString("sWord")]);
     m_s_word_isSet = !json[QString("sWord")].isNull() && m_s_word_isValid;
 
-    m_a_obj_word_position_occurence_isValid = ::OpenAPI::fromJsonValue(a_obj_word_position_occurence, json[QString("a_objWordPositionOccurence")]);
+    m_a_obj_word_position_occurence_isValid = ::OpenAPI::fromJsonValue(m_a_obj_word_position_occurence, json[QString("a_objWordPositionOccurence")]);
     m_a_obj_word_position_occurence_isSet = !json[QString("a_objWordPositionOccurence")].isNull() && m_a_obj_word_position_occurence_isValid;
 }
 
@@ -67,20 +67,20 @@ QString OAICustom_WordPositionWord_Response::asJson() const {
 QJsonObject OAICustom_WordPositionWord_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_s_word_isSet) {
-        obj.insert(QString("sWord"), ::OpenAPI::toJsonValue(s_word));
+        obj.insert(QString("sWord"), ::OpenAPI::toJsonValue(m_s_word));
     }
-    if (a_obj_word_position_occurence.size() > 0) {
-        obj.insert(QString("a_objWordPositionOccurence"), ::OpenAPI::toJsonValue(a_obj_word_position_occurence));
+    if (m_a_obj_word_position_occurence.size() > 0) {
+        obj.insert(QString("a_objWordPositionOccurence"), ::OpenAPI::toJsonValue(m_a_obj_word_position_occurence));
     }
     return obj;
 }
 
 QString OAICustom_WordPositionWord_Response::getSWord() const {
-    return s_word;
+    return m_s_word;
 }
 void OAICustom_WordPositionWord_Response::setSWord(const QString &s_word) {
-    this->s_word = s_word;
-    this->m_s_word_isSet = true;
+    m_s_word = s_word;
+    m_s_word_isSet = true;
 }
 
 bool OAICustom_WordPositionWord_Response::is_s_word_Set() const{
@@ -92,11 +92,11 @@ bool OAICustom_WordPositionWord_Response::is_s_word_Valid() const{
 }
 
 QList<OAICustom_WordPositionOccurence_Response> OAICustom_WordPositionWord_Response::getAObjWordPositionOccurence() const {
-    return a_obj_word_position_occurence;
+    return m_a_obj_word_position_occurence;
 }
 void OAICustom_WordPositionWord_Response::setAObjWordPositionOccurence(const QList<OAICustom_WordPositionOccurence_Response> &a_obj_word_position_occurence) {
-    this->a_obj_word_position_occurence = a_obj_word_position_occurence;
-    this->m_a_obj_word_position_occurence_isSet = true;
+    m_a_obj_word_position_occurence = a_obj_word_position_occurence;
+    m_a_obj_word_position_occurence_isSet = true;
 }
 
 bool OAICustom_WordPositionWord_Response::is_a_obj_word_position_occurence_Set() const{
@@ -115,7 +115,7 @@ bool OAICustom_WordPositionWord_Response::isSet() const {
             break;
         }
 
-        if (a_obj_word_position_occurence.size() > 0) {
+        if (m_a_obj_word_position_occurence.size() > 0) {
             isObjectUpdated = true;
             break;
         }

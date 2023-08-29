@@ -47,7 +47,7 @@ void OAIEzsigntemplatepackagesignermembership_createObject_v1_Request::fromJson(
 
 void OAIEzsigntemplatepackagesignermembership_createObject_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_ezsigntemplatepackagesignermembership_isValid = ::OpenAPI::fromJsonValue(a_obj_ezsigntemplatepackagesignermembership, json[QString("a_objEzsigntemplatepackagesignermembership")]);
+    m_a_obj_ezsigntemplatepackagesignermembership_isValid = ::OpenAPI::fromJsonValue(m_a_obj_ezsigntemplatepackagesignermembership, json[QString("a_objEzsigntemplatepackagesignermembership")]);
     m_a_obj_ezsigntemplatepackagesignermembership_isSet = !json[QString("a_objEzsigntemplatepackagesignermembership")].isNull() && m_a_obj_ezsigntemplatepackagesignermembership_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIEzsigntemplatepackagesignermembership_createObject_v1_Request::asJson
 
 QJsonObject OAIEzsigntemplatepackagesignermembership_createObject_v1_Request::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_ezsigntemplatepackagesignermembership.size() > 0) {
-        obj.insert(QString("a_objEzsigntemplatepackagesignermembership"), ::OpenAPI::toJsonValue(a_obj_ezsigntemplatepackagesignermembership));
+    if (m_a_obj_ezsigntemplatepackagesignermembership.size() > 0) {
+        obj.insert(QString("a_objEzsigntemplatepackagesignermembership"), ::OpenAPI::toJsonValue(m_a_obj_ezsigntemplatepackagesignermembership));
     }
     return obj;
 }
 
 QList<OAIEzsigntemplatepackagesignermembership_RequestCompound> OAIEzsigntemplatepackagesignermembership_createObject_v1_Request::getAObjEzsigntemplatepackagesignermembership() const {
-    return a_obj_ezsigntemplatepackagesignermembership;
+    return m_a_obj_ezsigntemplatepackagesignermembership;
 }
 void OAIEzsigntemplatepackagesignermembership_createObject_v1_Request::setAObjEzsigntemplatepackagesignermembership(const QList<OAIEzsigntemplatepackagesignermembership_RequestCompound> &a_obj_ezsigntemplatepackagesignermembership) {
-    this->a_obj_ezsigntemplatepackagesignermembership = a_obj_ezsigntemplatepackagesignermembership;
-    this->m_a_obj_ezsigntemplatepackagesignermembership_isSet = true;
+    m_a_obj_ezsigntemplatepackagesignermembership = a_obj_ezsigntemplatepackagesignermembership;
+    m_a_obj_ezsigntemplatepackagesignermembership_isSet = true;
 }
 
 bool OAIEzsigntemplatepackagesignermembership_createObject_v1_Request::is_a_obj_ezsigntemplatepackagesignermembership_Set() const{
@@ -85,7 +85,7 @@ bool OAIEzsigntemplatepackagesignermembership_createObject_v1_Request::is_a_obj_
 bool OAIEzsigntemplatepackagesignermembership_createObject_v1_Request::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_ezsigntemplatepackagesignermembership.size() > 0) {
+        if (m_a_obj_ezsigntemplatepackagesignermembership.size() > 0) {
             isObjectUpdated = true;
             break;
         }

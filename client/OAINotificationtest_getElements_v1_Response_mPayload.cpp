@@ -56,13 +56,13 @@ void OAINotificationtest_getElements_v1_Response_mPayload::fromJson(QString json
 
 void OAINotificationtest_getElements_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_pki_notificationtest_id_isValid = ::OpenAPI::fromJsonValue(pki_notificationtest_id, json[QString("pkiNotificationtestID")]);
+    m_pki_notificationtest_id_isValid = ::OpenAPI::fromJsonValue(m_pki_notificationtest_id, json[QString("pkiNotificationtestID")]);
     m_pki_notificationtest_id_isSet = !json[QString("pkiNotificationtestID")].isNull() && m_pki_notificationtest_id_isValid;
 
-    m_s_notificationtest_function_isValid = ::OpenAPI::fromJsonValue(s_notificationtest_function, json[QString("sNotificationtestFunction")]);
+    m_s_notificationtest_function_isValid = ::OpenAPI::fromJsonValue(m_s_notificationtest_function, json[QString("sNotificationtestFunction")]);
     m_s_notificationtest_function_isSet = !json[QString("sNotificationtestFunction")].isNull() && m_s_notificationtest_function_isValid;
 
-    m_a_s_variableobject_property_isValid = ::OpenAPI::fromJsonValue(a_s_variableobject_property, json[QString("a_sVariableobjectProperty")]);
+    m_a_s_variableobject_property_isValid = ::OpenAPI::fromJsonValue(m_a_s_variableobject_property, json[QString("a_sVariableobjectProperty")]);
     m_a_s_variableobject_property_isSet = !json[QString("a_sVariableobjectProperty")].isNull() && m_a_s_variableobject_property_isValid;
 
     if(json["a_objVariableobject"].isArray()){
@@ -73,7 +73,7 @@ void OAINotificationtest_getElements_v1_Response_mPayload::fromJsonObject(QJsonO
                 QMap<QString, QJsonValue> item;
                 m_a_obj_variableobject_isValid &= ::OpenAPI::fromJsonValue(item, jval);
                 m_a_obj_variableobject_isSet = !jval.isNull() && m_a_obj_variableobject_isValid;
-                a_obj_variableobject.push_back(item);
+                m_a_obj_variableobject.push_back(item);
             }
         }
     }
@@ -89,27 +89,27 @@ QString OAINotificationtest_getElements_v1_Response_mPayload::asJson() const {
 QJsonObject OAINotificationtest_getElements_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_notificationtest_id_isSet) {
-        obj.insert(QString("pkiNotificationtestID"), ::OpenAPI::toJsonValue(pki_notificationtest_id));
+        obj.insert(QString("pkiNotificationtestID"), ::OpenAPI::toJsonValue(m_pki_notificationtest_id));
     }
     if (m_s_notificationtest_function_isSet) {
-        obj.insert(QString("sNotificationtestFunction"), ::OpenAPI::toJsonValue(s_notificationtest_function));
+        obj.insert(QString("sNotificationtestFunction"), ::OpenAPI::toJsonValue(m_s_notificationtest_function));
     }
-    if (a_s_variableobject_property.size() > 0) {
-        obj.insert(QString("a_sVariableobjectProperty"), ::OpenAPI::toJsonValue(a_s_variableobject_property));
+    if (m_a_s_variableobject_property.size() > 0) {
+        obj.insert(QString("a_sVariableobjectProperty"), ::OpenAPI::toJsonValue(m_a_s_variableobject_property));
     }
-    if (a_obj_variableobject.size() > 0) {
+    if (m_a_obj_variableobject.size() > 0) {
         
-        obj.insert(QString("a_objVariableobject"), toJsonValue(a_obj_variableobject));
+        obj.insert(QString("a_objVariableobject"), toJsonValue(m_a_obj_variableobject));
     }
     return obj;
 }
 
 qint32 OAINotificationtest_getElements_v1_Response_mPayload::getPkiNotificationtestId() const {
-    return pki_notificationtest_id;
+    return m_pki_notificationtest_id;
 }
 void OAINotificationtest_getElements_v1_Response_mPayload::setPkiNotificationtestId(const qint32 &pki_notificationtest_id) {
-    this->pki_notificationtest_id = pki_notificationtest_id;
-    this->m_pki_notificationtest_id_isSet = true;
+    m_pki_notificationtest_id = pki_notificationtest_id;
+    m_pki_notificationtest_id_isSet = true;
 }
 
 bool OAINotificationtest_getElements_v1_Response_mPayload::is_pki_notificationtest_id_Set() const{
@@ -121,11 +121,11 @@ bool OAINotificationtest_getElements_v1_Response_mPayload::is_pki_notificationte
 }
 
 QString OAINotificationtest_getElements_v1_Response_mPayload::getSNotificationtestFunction() const {
-    return s_notificationtest_function;
+    return m_s_notificationtest_function;
 }
 void OAINotificationtest_getElements_v1_Response_mPayload::setSNotificationtestFunction(const QString &s_notificationtest_function) {
-    this->s_notificationtest_function = s_notificationtest_function;
-    this->m_s_notificationtest_function_isSet = true;
+    m_s_notificationtest_function = s_notificationtest_function;
+    m_s_notificationtest_function_isSet = true;
 }
 
 bool OAINotificationtest_getElements_v1_Response_mPayload::is_s_notificationtest_function_Set() const{
@@ -137,11 +137,11 @@ bool OAINotificationtest_getElements_v1_Response_mPayload::is_s_notificationtest
 }
 
 QList<QString> OAINotificationtest_getElements_v1_Response_mPayload::getASVariableobjectProperty() const {
-    return a_s_variableobject_property;
+    return m_a_s_variableobject_property;
 }
 void OAINotificationtest_getElements_v1_Response_mPayload::setASVariableobjectProperty(const QList<QString> &a_s_variableobject_property) {
-    this->a_s_variableobject_property = a_s_variableobject_property;
-    this->m_a_s_variableobject_property_isSet = true;
+    m_a_s_variableobject_property = a_s_variableobject_property;
+    m_a_s_variableobject_property_isSet = true;
 }
 
 bool OAINotificationtest_getElements_v1_Response_mPayload::is_a_s_variableobject_property_Set() const{
@@ -153,11 +153,11 @@ bool OAINotificationtest_getElements_v1_Response_mPayload::is_a_s_variableobject
 }
 
 QList<QMap> OAINotificationtest_getElements_v1_Response_mPayload::getAObjVariableobject() const {
-    return a_obj_variableobject;
+    return m_a_obj_variableobject;
 }
 void OAINotificationtest_getElements_v1_Response_mPayload::setAObjVariableobject(const QList<QMap> &a_obj_variableobject) {
-    this->a_obj_variableobject = a_obj_variableobject;
-    this->m_a_obj_variableobject_isSet = true;
+    m_a_obj_variableobject = a_obj_variableobject;
+    m_a_obj_variableobject_isSet = true;
 }
 
 bool OAINotificationtest_getElements_v1_Response_mPayload::is_a_obj_variableobject_Set() const{
@@ -181,12 +181,12 @@ bool OAINotificationtest_getElements_v1_Response_mPayload::isSet() const {
             break;
         }
 
-        if (a_s_variableobject_property.size() > 0) {
+        if (m_a_s_variableobject_property.size() > 0) {
             isObjectUpdated = true;
             break;
         }
 
-        if (a_obj_variableobject.size() > 0) {
+        if (m_a_obj_variableobject.size() > 0) {
             isObjectUpdated = true;
             break;
         }

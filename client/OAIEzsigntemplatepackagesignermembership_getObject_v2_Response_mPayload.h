@@ -51,7 +51,7 @@ public:
 private:
     void initializeModel();
 
-    OAIEzsigntemplatepackagesignermembership_ResponseCompound obj_ezsigntemplatepackagesignermembership;
+    OAIEzsigntemplatepackagesignermembership_ResponseCompound m_obj_ezsigntemplatepackagesignermembership;
     bool m_obj_ezsigntemplatepackagesignermembership_isSet;
     bool m_obj_ezsigntemplatepackagesignermembership_isValid;
 };

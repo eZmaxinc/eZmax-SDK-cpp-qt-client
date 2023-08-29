@@ -60,15 +60,15 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_ezmaxproduct_id;
+    qint32 m_pki_ezmaxproduct_id;
     bool m_pki_ezmaxproduct_id_isSet;
     bool m_pki_ezmaxproduct_id_isValid;
 
-    QString s_ezmaxproduct_description_x;
+    QString m_s_ezmaxproduct_description_x;
     bool m_s_ezmaxproduct_description_x_isSet;
     bool m_s_ezmaxproduct_description_x_isValid;
 
-    bool b_ezmaxproduct_isactive;
+    bool m_b_ezmaxproduct_isactive;
     bool m_b_ezmaxproduct_isactive_isSet;
     bool m_b_ezmaxproduct_isactive_isValid;
 };

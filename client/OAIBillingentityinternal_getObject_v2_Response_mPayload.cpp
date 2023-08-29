@@ -47,7 +47,7 @@ void OAIBillingentityinternal_getObject_v2_Response_mPayload::fromJson(QString j
 
 void OAIBillingentityinternal_getObject_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_obj_billingentityinternal_isValid = ::OpenAPI::fromJsonValue(obj_billingentityinternal, json[QString("objBillingentityinternal")]);
+    m_obj_billingentityinternal_isValid = ::OpenAPI::fromJsonValue(m_obj_billingentityinternal, json[QString("objBillingentityinternal")]);
     m_obj_billingentityinternal_isSet = !json[QString("objBillingentityinternal")].isNull() && m_obj_billingentityinternal_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIBillingentityinternal_getObject_v2_Response_mPayload::asJson() const 
 
 QJsonObject OAIBillingentityinternal_getObject_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (obj_billingentityinternal.isSet()) {
-        obj.insert(QString("objBillingentityinternal"), ::OpenAPI::toJsonValue(obj_billingentityinternal));
+    if (m_obj_billingentityinternal.isSet()) {
+        obj.insert(QString("objBillingentityinternal"), ::OpenAPI::toJsonValue(m_obj_billingentityinternal));
     }
     return obj;
 }
 
 OAIBillingentityinternal_ResponseCompound OAIBillingentityinternal_getObject_v2_Response_mPayload::getObjBillingentityinternal() const {
-    return obj_billingentityinternal;
+    return m_obj_billingentityinternal;
 }
 void OAIBillingentityinternal_getObject_v2_Response_mPayload::setObjBillingentityinternal(const OAIBillingentityinternal_ResponseCompound &obj_billingentityinternal) {
-    this->obj_billingentityinternal = obj_billingentityinternal;
-    this->m_obj_billingentityinternal_isSet = true;
+    m_obj_billingentityinternal = obj_billingentityinternal;
+    m_obj_billingentityinternal_isSet = true;
 }
 
 bool OAIBillingentityinternal_getObject_v2_Response_mPayload::is_obj_billingentityinternal_Set() const{
@@ -85,7 +85,7 @@ bool OAIBillingentityinternal_getObject_v2_Response_mPayload::is_obj_billingenti
 bool OAIBillingentityinternal_getObject_v2_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (obj_billingentityinternal.isSet()) {
+        if (m_obj_billingentityinternal.isSet()) {
             isObjectUpdated = true;
             break;
         }

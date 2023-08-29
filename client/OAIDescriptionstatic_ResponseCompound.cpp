@@ -50,10 +50,10 @@ void OAIDescriptionstatic_ResponseCompound::fromJson(QString jsonString) {
 
 void OAIDescriptionstatic_ResponseCompound::fromJsonObject(QJsonObject json) {
 
-    m_pki_descriptionstatic_id_isValid = ::OpenAPI::fromJsonValue(pki_descriptionstatic_id, json[QString("pkiDescriptionstaticID")]);
+    m_pki_descriptionstatic_id_isValid = ::OpenAPI::fromJsonValue(m_pki_descriptionstatic_id, json[QString("pkiDescriptionstaticID")]);
     m_pki_descriptionstatic_id_isSet = !json[QString("pkiDescriptionstaticID")].isNull() && m_pki_descriptionstatic_id_isValid;
 
-    m_s_descriptionstatic_description_isValid = ::OpenAPI::fromJsonValue(s_descriptionstatic_description, json[QString("sDescriptionstaticDescription")]);
+    m_s_descriptionstatic_description_isValid = ::OpenAPI::fromJsonValue(m_s_descriptionstatic_description, json[QString("sDescriptionstaticDescription")]);
     m_s_descriptionstatic_description_isSet = !json[QString("sDescriptionstaticDescription")].isNull() && m_s_descriptionstatic_description_isValid;
 }
 
@@ -67,20 +67,20 @@ QString OAIDescriptionstatic_ResponseCompound::asJson() const {
 QJsonObject OAIDescriptionstatic_ResponseCompound::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_descriptionstatic_id_isSet) {
-        obj.insert(QString("pkiDescriptionstaticID"), ::OpenAPI::toJsonValue(pki_descriptionstatic_id));
+        obj.insert(QString("pkiDescriptionstaticID"), ::OpenAPI::toJsonValue(m_pki_descriptionstatic_id));
     }
     if (m_s_descriptionstatic_description_isSet) {
-        obj.insert(QString("sDescriptionstaticDescription"), ::OpenAPI::toJsonValue(s_descriptionstatic_description));
+        obj.insert(QString("sDescriptionstaticDescription"), ::OpenAPI::toJsonValue(m_s_descriptionstatic_description));
     }
     return obj;
 }
 
 qint32 OAIDescriptionstatic_ResponseCompound::getPkiDescriptionstaticId() const {
-    return pki_descriptionstatic_id;
+    return m_pki_descriptionstatic_id;
 }
 void OAIDescriptionstatic_ResponseCompound::setPkiDescriptionstaticId(const qint32 &pki_descriptionstatic_id) {
-    this->pki_descriptionstatic_id = pki_descriptionstatic_id;
-    this->m_pki_descriptionstatic_id_isSet = true;
+    m_pki_descriptionstatic_id = pki_descriptionstatic_id;
+    m_pki_descriptionstatic_id_isSet = true;
 }
 
 bool OAIDescriptionstatic_ResponseCompound::is_pki_descriptionstatic_id_Set() const{
@@ -92,11 +92,11 @@ bool OAIDescriptionstatic_ResponseCompound::is_pki_descriptionstatic_id_Valid() 
 }
 
 QString OAIDescriptionstatic_ResponseCompound::getSDescriptionstaticDescription() const {
-    return s_descriptionstatic_description;
+    return m_s_descriptionstatic_description;
 }
 void OAIDescriptionstatic_ResponseCompound::setSDescriptionstaticDescription(const QString &s_descriptionstatic_description) {
-    this->s_descriptionstatic_description = s_descriptionstatic_description;
-    this->m_s_descriptionstatic_description_isSet = true;
+    m_s_descriptionstatic_description = s_descriptionstatic_description;
+    m_s_descriptionstatic_description_isSet = true;
 }
 
 bool OAIDescriptionstatic_ResponseCompound::is_s_descriptionstatic_description_Set() const{

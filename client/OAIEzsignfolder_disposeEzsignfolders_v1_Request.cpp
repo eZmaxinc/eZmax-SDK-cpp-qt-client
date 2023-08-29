@@ -47,7 +47,7 @@ void OAIEzsignfolder_disposeEzsignfolders_v1_Request::fromJson(QString jsonStrin
 
 void OAIEzsignfolder_disposeEzsignfolders_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_a_pki_ezsignfolder_id_isValid = ::OpenAPI::fromJsonValue(a_pki_ezsignfolder_id, json[QString("a_pkiEzsignfolderID")]);
+    m_a_pki_ezsignfolder_id_isValid = ::OpenAPI::fromJsonValue(m_a_pki_ezsignfolder_id, json[QString("a_pkiEzsignfolderID")]);
     m_a_pki_ezsignfolder_id_isSet = !json[QString("a_pkiEzsignfolderID")].isNull() && m_a_pki_ezsignfolder_id_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIEzsignfolder_disposeEzsignfolders_v1_Request::asJson() const {
 
 QJsonObject OAIEzsignfolder_disposeEzsignfolders_v1_Request::asJsonObject() const {
     QJsonObject obj;
-    if (a_pki_ezsignfolder_id.size() > 0) {
-        obj.insert(QString("a_pkiEzsignfolderID"), ::OpenAPI::toJsonValue(a_pki_ezsignfolder_id));
+    if (m_a_pki_ezsignfolder_id.size() > 0) {
+        obj.insert(QString("a_pkiEzsignfolderID"), ::OpenAPI::toJsonValue(m_a_pki_ezsignfolder_id));
     }
     return obj;
 }
 
 QList<qint32> OAIEzsignfolder_disposeEzsignfolders_v1_Request::getAPkiEzsignfolderId() const {
-    return a_pki_ezsignfolder_id;
+    return m_a_pki_ezsignfolder_id;
 }
 void OAIEzsignfolder_disposeEzsignfolders_v1_Request::setAPkiEzsignfolderId(const QList<qint32> &a_pki_ezsignfolder_id) {
-    this->a_pki_ezsignfolder_id = a_pki_ezsignfolder_id;
-    this->m_a_pki_ezsignfolder_id_isSet = true;
+    m_a_pki_ezsignfolder_id = a_pki_ezsignfolder_id;
+    m_a_pki_ezsignfolder_id_isSet = true;
 }
 
 bool OAIEzsignfolder_disposeEzsignfolders_v1_Request::is_a_pki_ezsignfolder_id_Set() const{
@@ -85,7 +85,7 @@ bool OAIEzsignfolder_disposeEzsignfolders_v1_Request::is_a_pki_ezsignfolder_id_V
 bool OAIEzsignfolder_disposeEzsignfolders_v1_Request::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_pki_ezsignfolder_id.size() > 0) {
+        if (m_a_pki_ezsignfolder_id.size() > 0) {
             isObjectUpdated = true;
             break;
         }

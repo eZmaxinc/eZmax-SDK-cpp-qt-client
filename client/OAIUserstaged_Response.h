@@ -75,27 +75,27 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_userstaged_id;
+    qint32 m_pki_userstaged_id;
     bool m_pki_userstaged_id_isSet;
     bool m_pki_userstaged_id_isValid;
 
-    qint32 fki_email_id;
+    qint32 m_fki_email_id;
     bool m_fki_email_id_isSet;
     bool m_fki_email_id_isValid;
 
-    QString s_email_address;
+    QString m_s_email_address;
     bool m_s_email_address_isSet;
     bool m_s_email_address_isValid;
 
-    QString s_userstaged_firstname;
+    QString m_s_userstaged_firstname;
     bool m_s_userstaged_firstname_isSet;
     bool m_s_userstaged_firstname_isValid;
 
-    QString s_userstaged_lastname;
+    QString m_s_userstaged_lastname;
     bool m_s_userstaged_lastname_isSet;
     bool m_s_userstaged_lastname_isValid;
 
-    QString s_userstaged_externalid;
+    QString m_s_userstaged_externalid;
     bool m_s_userstaged_externalid_isSet;
     bool m_s_userstaged_externalid_isValid;
 };

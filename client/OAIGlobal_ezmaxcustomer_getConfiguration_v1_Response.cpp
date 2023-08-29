@@ -59,19 +59,19 @@ void OAIGlobal_ezmaxcustomer_getConfiguration_v1_Response::fromJson(QString json
 
 void OAIGlobal_ezmaxcustomer_getConfiguration_v1_Response::fromJsonObject(QJsonObject json) {
 
-    m_s_infrastructureregion_code_isValid = ::OpenAPI::fromJsonValue(s_infrastructureregion_code, json[QString("sInfrastructureregionCode")]);
+    m_s_infrastructureregion_code_isValid = ::OpenAPI::fromJsonValue(m_s_infrastructureregion_code, json[QString("sInfrastructureregionCode")]);
     m_s_infrastructureregion_code_isSet = !json[QString("sInfrastructureregionCode")].isNull() && m_s_infrastructureregion_code_isValid;
 
-    m_s_infrastructureregion_code_web_isValid = ::OpenAPI::fromJsonValue(s_infrastructureregion_code_web, json[QString("sInfrastructureregionCodeWeb")]);
+    m_s_infrastructureregion_code_web_isValid = ::OpenAPI::fromJsonValue(m_s_infrastructureregion_code_web, json[QString("sInfrastructureregionCodeWeb")]);
     m_s_infrastructureregion_code_web_isSet = !json[QString("sInfrastructureregionCodeWeb")].isNull() && m_s_infrastructureregion_code_web_isValid;
 
-    m_s_infrastructureenvironmenttype_description_isValid = ::OpenAPI::fromJsonValue(s_infrastructureenvironmenttype_description, json[QString("sInfrastructureenvironmenttypeDescription")]);
+    m_s_infrastructureenvironmenttype_description_isValid = ::OpenAPI::fromJsonValue(m_s_infrastructureenvironmenttype_description, json[QString("sInfrastructureenvironmenttypeDescription")]);
     m_s_infrastructureenvironmenttype_description_isSet = !json[QString("sInfrastructureenvironmenttypeDescription")].isNull() && m_s_infrastructureenvironmenttype_description_isValid;
 
-    m_s_cognito_client_id_external_isValid = ::OpenAPI::fromJsonValue(s_cognito_client_id_external, json[QString("sCognitoClientIDExternal")]);
+    m_s_cognito_client_id_external_isValid = ::OpenAPI::fromJsonValue(m_s_cognito_client_id_external, json[QString("sCognitoClientIDExternal")]);
     m_s_cognito_client_id_external_isSet = !json[QString("sCognitoClientIDExternal")].isNull() && m_s_cognito_client_id_external_isValid;
 
-    m_s_cognito_client_id_ezmaxpublic_isValid = ::OpenAPI::fromJsonValue(s_cognito_client_id_ezmaxpublic, json[QString("sCognitoClientIDEzmaxpublic")]);
+    m_s_cognito_client_id_ezmaxpublic_isValid = ::OpenAPI::fromJsonValue(m_s_cognito_client_id_ezmaxpublic, json[QString("sCognitoClientIDEzmaxpublic")]);
     m_s_cognito_client_id_ezmaxpublic_isSet = !json[QString("sCognitoClientIDEzmaxpublic")].isNull() && m_s_cognito_client_id_ezmaxpublic_isValid;
 }
 
@@ -85,29 +85,29 @@ QString OAIGlobal_ezmaxcustomer_getConfiguration_v1_Response::asJson() const {
 QJsonObject OAIGlobal_ezmaxcustomer_getConfiguration_v1_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_s_infrastructureregion_code_isSet) {
-        obj.insert(QString("sInfrastructureregionCode"), ::OpenAPI::toJsonValue(s_infrastructureregion_code));
+        obj.insert(QString("sInfrastructureregionCode"), ::OpenAPI::toJsonValue(m_s_infrastructureregion_code));
     }
     if (m_s_infrastructureregion_code_web_isSet) {
-        obj.insert(QString("sInfrastructureregionCodeWeb"), ::OpenAPI::toJsonValue(s_infrastructureregion_code_web));
+        obj.insert(QString("sInfrastructureregionCodeWeb"), ::OpenAPI::toJsonValue(m_s_infrastructureregion_code_web));
     }
     if (m_s_infrastructureenvironmenttype_description_isSet) {
-        obj.insert(QString("sInfrastructureenvironmenttypeDescription"), ::OpenAPI::toJsonValue(s_infrastructureenvironmenttype_description));
+        obj.insert(QString("sInfrastructureenvironmenttypeDescription"), ::OpenAPI::toJsonValue(m_s_infrastructureenvironmenttype_description));
     }
     if (m_s_cognito_client_id_external_isSet) {
-        obj.insert(QString("sCognitoClientIDExternal"), ::OpenAPI::toJsonValue(s_cognito_client_id_external));
+        obj.insert(QString("sCognitoClientIDExternal"), ::OpenAPI::toJsonValue(m_s_cognito_client_id_external));
     }
     if (m_s_cognito_client_id_ezmaxpublic_isSet) {
-        obj.insert(QString("sCognitoClientIDEzmaxpublic"), ::OpenAPI::toJsonValue(s_cognito_client_id_ezmaxpublic));
+        obj.insert(QString("sCognitoClientIDEzmaxpublic"), ::OpenAPI::toJsonValue(m_s_cognito_client_id_ezmaxpublic));
     }
     return obj;
 }
 
 QString OAIGlobal_ezmaxcustomer_getConfiguration_v1_Response::getSInfrastructureregionCode() const {
-    return s_infrastructureregion_code;
+    return m_s_infrastructureregion_code;
 }
 void OAIGlobal_ezmaxcustomer_getConfiguration_v1_Response::setSInfrastructureregionCode(const QString &s_infrastructureregion_code) {
-    this->s_infrastructureregion_code = s_infrastructureregion_code;
-    this->m_s_infrastructureregion_code_isSet = true;
+    m_s_infrastructureregion_code = s_infrastructureregion_code;
+    m_s_infrastructureregion_code_isSet = true;
 }
 
 bool OAIGlobal_ezmaxcustomer_getConfiguration_v1_Response::is_s_infrastructureregion_code_Set() const{
@@ -119,11 +119,11 @@ bool OAIGlobal_ezmaxcustomer_getConfiguration_v1_Response::is_s_infrastructurere
 }
 
 QString OAIGlobal_ezmaxcustomer_getConfiguration_v1_Response::getSInfrastructureregionCodeWeb() const {
-    return s_infrastructureregion_code_web;
+    return m_s_infrastructureregion_code_web;
 }
 void OAIGlobal_ezmaxcustomer_getConfiguration_v1_Response::setSInfrastructureregionCodeWeb(const QString &s_infrastructureregion_code_web) {
-    this->s_infrastructureregion_code_web = s_infrastructureregion_code_web;
-    this->m_s_infrastructureregion_code_web_isSet = true;
+    m_s_infrastructureregion_code_web = s_infrastructureregion_code_web;
+    m_s_infrastructureregion_code_web_isSet = true;
 }
 
 bool OAIGlobal_ezmaxcustomer_getConfiguration_v1_Response::is_s_infrastructureregion_code_web_Set() const{
@@ -135,11 +135,11 @@ bool OAIGlobal_ezmaxcustomer_getConfiguration_v1_Response::is_s_infrastructurere
 }
 
 QString OAIGlobal_ezmaxcustomer_getConfiguration_v1_Response::getSInfrastructureenvironmenttypeDescription() const {
-    return s_infrastructureenvironmenttype_description;
+    return m_s_infrastructureenvironmenttype_description;
 }
 void OAIGlobal_ezmaxcustomer_getConfiguration_v1_Response::setSInfrastructureenvironmenttypeDescription(const QString &s_infrastructureenvironmenttype_description) {
-    this->s_infrastructureenvironmenttype_description = s_infrastructureenvironmenttype_description;
-    this->m_s_infrastructureenvironmenttype_description_isSet = true;
+    m_s_infrastructureenvironmenttype_description = s_infrastructureenvironmenttype_description;
+    m_s_infrastructureenvironmenttype_description_isSet = true;
 }
 
 bool OAIGlobal_ezmaxcustomer_getConfiguration_v1_Response::is_s_infrastructureenvironmenttype_description_Set() const{
@@ -151,11 +151,11 @@ bool OAIGlobal_ezmaxcustomer_getConfiguration_v1_Response::is_s_infrastructureen
 }
 
 QString OAIGlobal_ezmaxcustomer_getConfiguration_v1_Response::getSCognitoClientIdExternal() const {
-    return s_cognito_client_id_external;
+    return m_s_cognito_client_id_external;
 }
 void OAIGlobal_ezmaxcustomer_getConfiguration_v1_Response::setSCognitoClientIdExternal(const QString &s_cognito_client_id_external) {
-    this->s_cognito_client_id_external = s_cognito_client_id_external;
-    this->m_s_cognito_client_id_external_isSet = true;
+    m_s_cognito_client_id_external = s_cognito_client_id_external;
+    m_s_cognito_client_id_external_isSet = true;
 }
 
 bool OAIGlobal_ezmaxcustomer_getConfiguration_v1_Response::is_s_cognito_client_id_external_Set() const{
@@ -167,11 +167,11 @@ bool OAIGlobal_ezmaxcustomer_getConfiguration_v1_Response::is_s_cognito_client_i
 }
 
 QString OAIGlobal_ezmaxcustomer_getConfiguration_v1_Response::getSCognitoClientIdEzmaxpublic() const {
-    return s_cognito_client_id_ezmaxpublic;
+    return m_s_cognito_client_id_ezmaxpublic;
 }
 void OAIGlobal_ezmaxcustomer_getConfiguration_v1_Response::setSCognitoClientIdEzmaxpublic(const QString &s_cognito_client_id_ezmaxpublic) {
-    this->s_cognito_client_id_ezmaxpublic = s_cognito_client_id_ezmaxpublic;
-    this->m_s_cognito_client_id_ezmaxpublic_isSet = true;
+    m_s_cognito_client_id_ezmaxpublic = s_cognito_client_id_ezmaxpublic;
+    m_s_cognito_client_id_ezmaxpublic_isSet = true;
 }
 
 bool OAIGlobal_ezmaxcustomer_getConfiguration_v1_Response::is_s_cognito_client_id_ezmaxpublic_Set() const{

@@ -60,15 +60,15 @@ public:
 private:
     void initializeModel();
 
-    QString s_variableexpense_description_x;
+    QString m_s_variableexpense_description_x;
     bool m_s_variableexpense_description_x_isSet;
     bool m_s_variableexpense_description_x_isValid;
 
-    qint32 pki_variableexpense_id;
+    qint32 m_pki_variableexpense_id;
     bool m_pki_variableexpense_id_isSet;
     bool m_pki_variableexpense_id_isValid;
 
-    bool b_variableexpense_isactive;
+    bool m_b_variableexpense_isactive;
     bool m_b_variableexpense_isactive_isSet;
     bool m_b_variableexpense_isactive_isValid;
 };

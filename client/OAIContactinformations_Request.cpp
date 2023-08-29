@@ -56,16 +56,16 @@ void OAIContactinformations_Request::fromJson(QString jsonString) {
 
 void OAIContactinformations_Request::fromJsonObject(QJsonObject json) {
 
-    m_i_address_default_isValid = ::OpenAPI::fromJsonValue(i_address_default, json[QString("iAddressDefault")]);
+    m_i_address_default_isValid = ::OpenAPI::fromJsonValue(m_i_address_default, json[QString("iAddressDefault")]);
     m_i_address_default_isSet = !json[QString("iAddressDefault")].isNull() && m_i_address_default_isValid;
 
-    m_i_phone_default_isValid = ::OpenAPI::fromJsonValue(i_phone_default, json[QString("iPhoneDefault")]);
+    m_i_phone_default_isValid = ::OpenAPI::fromJsonValue(m_i_phone_default, json[QString("iPhoneDefault")]);
     m_i_phone_default_isSet = !json[QString("iPhoneDefault")].isNull() && m_i_phone_default_isValid;
 
-    m_i_email_default_isValid = ::OpenAPI::fromJsonValue(i_email_default, json[QString("iEmailDefault")]);
+    m_i_email_default_isValid = ::OpenAPI::fromJsonValue(m_i_email_default, json[QString("iEmailDefault")]);
     m_i_email_default_isSet = !json[QString("iEmailDefault")].isNull() && m_i_email_default_isValid;
 
-    m_i_website_default_isValid = ::OpenAPI::fromJsonValue(i_website_default, json[QString("iWebsiteDefault")]);
+    m_i_website_default_isValid = ::OpenAPI::fromJsonValue(m_i_website_default, json[QString("iWebsiteDefault")]);
     m_i_website_default_isSet = !json[QString("iWebsiteDefault")].isNull() && m_i_website_default_isValid;
 }
 
@@ -79,26 +79,26 @@ QString OAIContactinformations_Request::asJson() const {
 QJsonObject OAIContactinformations_Request::asJsonObject() const {
     QJsonObject obj;
     if (m_i_address_default_isSet) {
-        obj.insert(QString("iAddressDefault"), ::OpenAPI::toJsonValue(i_address_default));
+        obj.insert(QString("iAddressDefault"), ::OpenAPI::toJsonValue(m_i_address_default));
     }
     if (m_i_phone_default_isSet) {
-        obj.insert(QString("iPhoneDefault"), ::OpenAPI::toJsonValue(i_phone_default));
+        obj.insert(QString("iPhoneDefault"), ::OpenAPI::toJsonValue(m_i_phone_default));
     }
     if (m_i_email_default_isSet) {
-        obj.insert(QString("iEmailDefault"), ::OpenAPI::toJsonValue(i_email_default));
+        obj.insert(QString("iEmailDefault"), ::OpenAPI::toJsonValue(m_i_email_default));
     }
     if (m_i_website_default_isSet) {
-        obj.insert(QString("iWebsiteDefault"), ::OpenAPI::toJsonValue(i_website_default));
+        obj.insert(QString("iWebsiteDefault"), ::OpenAPI::toJsonValue(m_i_website_default));
     }
     return obj;
 }
 
 qint32 OAIContactinformations_Request::getIAddressDefault() const {
-    return i_address_default;
+    return m_i_address_default;
 }
 void OAIContactinformations_Request::setIAddressDefault(const qint32 &i_address_default) {
-    this->i_address_default = i_address_default;
-    this->m_i_address_default_isSet = true;
+    m_i_address_default = i_address_default;
+    m_i_address_default_isSet = true;
 }
 
 bool OAIContactinformations_Request::is_i_address_default_Set() const{
@@ -110,11 +110,11 @@ bool OAIContactinformations_Request::is_i_address_default_Valid() const{
 }
 
 qint32 OAIContactinformations_Request::getIPhoneDefault() const {
-    return i_phone_default;
+    return m_i_phone_default;
 }
 void OAIContactinformations_Request::setIPhoneDefault(const qint32 &i_phone_default) {
-    this->i_phone_default = i_phone_default;
-    this->m_i_phone_default_isSet = true;
+    m_i_phone_default = i_phone_default;
+    m_i_phone_default_isSet = true;
 }
 
 bool OAIContactinformations_Request::is_i_phone_default_Set() const{
@@ -126,11 +126,11 @@ bool OAIContactinformations_Request::is_i_phone_default_Valid() const{
 }
 
 qint32 OAIContactinformations_Request::getIEmailDefault() const {
-    return i_email_default;
+    return m_i_email_default;
 }
 void OAIContactinformations_Request::setIEmailDefault(const qint32 &i_email_default) {
-    this->i_email_default = i_email_default;
-    this->m_i_email_default_isSet = true;
+    m_i_email_default = i_email_default;
+    m_i_email_default_isSet = true;
 }
 
 bool OAIContactinformations_Request::is_i_email_default_Set() const{
@@ -142,11 +142,11 @@ bool OAIContactinformations_Request::is_i_email_default_Valid() const{
 }
 
 qint32 OAIContactinformations_Request::getIWebsiteDefault() const {
-    return i_website_default;
+    return m_i_website_default;
 }
 void OAIContactinformations_Request::setIWebsiteDefault(const qint32 &i_website_default) {
-    this->i_website_default = i_website_default;
-    this->m_i_website_default_isSet = true;
+    m_i_website_default = i_website_default;
+    m_i_website_default_isSet = true;
 }
 
 bool OAIContactinformations_Request::is_i_website_default_Set() const{

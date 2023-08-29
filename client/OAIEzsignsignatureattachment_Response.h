@@ -70,23 +70,23 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_ezsignsignatureattachment_id;
+    qint32 m_pki_ezsignsignatureattachment_id;
     bool m_pki_ezsignsignatureattachment_id_isSet;
     bool m_pki_ezsignsignatureattachment_id_isValid;
 
-    qint32 fki_ezsignsignature_id;
+    qint32 m_fki_ezsignsignature_id;
     bool m_fki_ezsignsignature_id_isSet;
     bool m_fki_ezsignsignature_id_isValid;
 
-    QString bin_ezsignsignatureattachment_md5;
+    QString m_bin_ezsignsignatureattachment_md5;
     bool m_bin_ezsignsignatureattachment_md5_isSet;
     bool m_bin_ezsignsignatureattachment_md5_isValid;
 
-    QString s_ezsignsignatureattachment_name;
+    QString m_s_ezsignsignatureattachment_name;
     bool m_s_ezsignsignatureattachment_name_isSet;
     bool m_s_ezsignsignatureattachment_name_isValid;
 
-    QString s_download_url;
+    QString m_s_download_url;
     bool m_s_download_url_isSet;
     bool m_s_download_url_isValid;
 };

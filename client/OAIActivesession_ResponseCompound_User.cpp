@@ -74,34 +74,34 @@ void OAIActivesession_ResponseCompound_User::fromJson(QString jsonString) {
 
 void OAIActivesession_ResponseCompound_User::fromJsonObject(QJsonObject json) {
 
-    m_pki_user_id_isValid = ::OpenAPI::fromJsonValue(pki_user_id, json[QString("pkiUserID")]);
+    m_pki_user_id_isValid = ::OpenAPI::fromJsonValue(m_pki_user_id, json[QString("pkiUserID")]);
     m_pki_user_id_isSet = !json[QString("pkiUserID")].isNull() && m_pki_user_id_isValid;
 
-    m_fki_timezone_id_isValid = ::OpenAPI::fromJsonValue(fki_timezone_id, json[QString("fkiTimezoneID")]);
+    m_fki_timezone_id_isValid = ::OpenAPI::fromJsonValue(m_fki_timezone_id, json[QString("fkiTimezoneID")]);
     m_fki_timezone_id_isSet = !json[QString("fkiTimezoneID")].isNull() && m_fki_timezone_id_isValid;
 
-    m_s_avatar_url_isValid = ::OpenAPI::fromJsonValue(s_avatar_url, json[QString("sAvatarUrl")]);
+    m_s_avatar_url_isValid = ::OpenAPI::fromJsonValue(m_s_avatar_url, json[QString("sAvatarUrl")]);
     m_s_avatar_url_isSet = !json[QString("sAvatarUrl")].isNull() && m_s_avatar_url_isValid;
 
-    m_s_user_firstname_isValid = ::OpenAPI::fromJsonValue(s_user_firstname, json[QString("sUserFirstname")]);
+    m_s_user_firstname_isValid = ::OpenAPI::fromJsonValue(m_s_user_firstname, json[QString("sUserFirstname")]);
     m_s_user_firstname_isSet = !json[QString("sUserFirstname")].isNull() && m_s_user_firstname_isValid;
 
-    m_s_user_lastname_isValid = ::OpenAPI::fromJsonValue(s_user_lastname, json[QString("sUserLastname")]);
+    m_s_user_lastname_isValid = ::OpenAPI::fromJsonValue(m_s_user_lastname, json[QString("sUserLastname")]);
     m_s_user_lastname_isSet = !json[QString("sUserLastname")].isNull() && m_s_user_lastname_isValid;
 
-    m_s_email_address_isValid = ::OpenAPI::fromJsonValue(s_email_address, json[QString("sEmailAddress")]);
+    m_s_email_address_isValid = ::OpenAPI::fromJsonValue(m_s_email_address, json[QString("sEmailAddress")]);
     m_s_email_address_isSet = !json[QString("sEmailAddress")].isNull() && m_s_email_address_isValid;
 
-    m_e_user_ezsignsendreminderfrequency_isValid = ::OpenAPI::fromJsonValue(e_user_ezsignsendreminderfrequency, json[QString("eUserEzsignsendreminderfrequency")]);
+    m_e_user_ezsignsendreminderfrequency_isValid = ::OpenAPI::fromJsonValue(m_e_user_ezsignsendreminderfrequency, json[QString("eUserEzsignsendreminderfrequency")]);
     m_e_user_ezsignsendreminderfrequency_isSet = !json[QString("eUserEzsignsendreminderfrequency")].isNull() && m_e_user_ezsignsendreminderfrequency_isValid;
 
-    m_i_user_interfacecolor_isValid = ::OpenAPI::fromJsonValue(i_user_interfacecolor, json[QString("iUserInterfacecolor")]);
+    m_i_user_interfacecolor_isValid = ::OpenAPI::fromJsonValue(m_i_user_interfacecolor, json[QString("iUserInterfacecolor")]);
     m_i_user_interfacecolor_isSet = !json[QString("iUserInterfacecolor")].isNull() && m_i_user_interfacecolor_isValid;
 
-    m_b_user_interfacedark_isValid = ::OpenAPI::fromJsonValue(b_user_interfacedark, json[QString("bUserInterfacedark")]);
+    m_b_user_interfacedark_isValid = ::OpenAPI::fromJsonValue(m_b_user_interfacedark, json[QString("bUserInterfacedark")]);
     m_b_user_interfacedark_isSet = !json[QString("bUserInterfacedark")].isNull() && m_b_user_interfacedark_isValid;
 
-    m_i_user_listresult_isValid = ::OpenAPI::fromJsonValue(i_user_listresult, json[QString("iUserListresult")]);
+    m_i_user_listresult_isValid = ::OpenAPI::fromJsonValue(m_i_user_listresult, json[QString("iUserListresult")]);
     m_i_user_listresult_isSet = !json[QString("iUserListresult")].isNull() && m_i_user_listresult_isValid;
 }
 
@@ -115,44 +115,44 @@ QString OAIActivesession_ResponseCompound_User::asJson() const {
 QJsonObject OAIActivesession_ResponseCompound_User::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_user_id_isSet) {
-        obj.insert(QString("pkiUserID"), ::OpenAPI::toJsonValue(pki_user_id));
+        obj.insert(QString("pkiUserID"), ::OpenAPI::toJsonValue(m_pki_user_id));
     }
     if (m_fki_timezone_id_isSet) {
-        obj.insert(QString("fkiTimezoneID"), ::OpenAPI::toJsonValue(fki_timezone_id));
+        obj.insert(QString("fkiTimezoneID"), ::OpenAPI::toJsonValue(m_fki_timezone_id));
     }
     if (m_s_avatar_url_isSet) {
-        obj.insert(QString("sAvatarUrl"), ::OpenAPI::toJsonValue(s_avatar_url));
+        obj.insert(QString("sAvatarUrl"), ::OpenAPI::toJsonValue(m_s_avatar_url));
     }
     if (m_s_user_firstname_isSet) {
-        obj.insert(QString("sUserFirstname"), ::OpenAPI::toJsonValue(s_user_firstname));
+        obj.insert(QString("sUserFirstname"), ::OpenAPI::toJsonValue(m_s_user_firstname));
     }
     if (m_s_user_lastname_isSet) {
-        obj.insert(QString("sUserLastname"), ::OpenAPI::toJsonValue(s_user_lastname));
+        obj.insert(QString("sUserLastname"), ::OpenAPI::toJsonValue(m_s_user_lastname));
     }
     if (m_s_email_address_isSet) {
-        obj.insert(QString("sEmailAddress"), ::OpenAPI::toJsonValue(s_email_address));
+        obj.insert(QString("sEmailAddress"), ::OpenAPI::toJsonValue(m_s_email_address));
     }
-    if (e_user_ezsignsendreminderfrequency.isSet()) {
-        obj.insert(QString("eUserEzsignsendreminderfrequency"), ::OpenAPI::toJsonValue(e_user_ezsignsendreminderfrequency));
+    if (m_e_user_ezsignsendreminderfrequency.isSet()) {
+        obj.insert(QString("eUserEzsignsendreminderfrequency"), ::OpenAPI::toJsonValue(m_e_user_ezsignsendreminderfrequency));
     }
     if (m_i_user_interfacecolor_isSet) {
-        obj.insert(QString("iUserInterfacecolor"), ::OpenAPI::toJsonValue(i_user_interfacecolor));
+        obj.insert(QString("iUserInterfacecolor"), ::OpenAPI::toJsonValue(m_i_user_interfacecolor));
     }
     if (m_b_user_interfacedark_isSet) {
-        obj.insert(QString("bUserInterfacedark"), ::OpenAPI::toJsonValue(b_user_interfacedark));
+        obj.insert(QString("bUserInterfacedark"), ::OpenAPI::toJsonValue(m_b_user_interfacedark));
     }
     if (m_i_user_listresult_isSet) {
-        obj.insert(QString("iUserListresult"), ::OpenAPI::toJsonValue(i_user_listresult));
+        obj.insert(QString("iUserListresult"), ::OpenAPI::toJsonValue(m_i_user_listresult));
     }
     return obj;
 }
 
 qint32 OAIActivesession_ResponseCompound_User::getPkiUserId() const {
-    return pki_user_id;
+    return m_pki_user_id;
 }
 void OAIActivesession_ResponseCompound_User::setPkiUserId(const qint32 &pki_user_id) {
-    this->pki_user_id = pki_user_id;
-    this->m_pki_user_id_isSet = true;
+    m_pki_user_id = pki_user_id;
+    m_pki_user_id_isSet = true;
 }
 
 bool OAIActivesession_ResponseCompound_User::is_pki_user_id_Set() const{
@@ -164,11 +164,11 @@ bool OAIActivesession_ResponseCompound_User::is_pki_user_id_Valid() const{
 }
 
 qint32 OAIActivesession_ResponseCompound_User::getFkiTimezoneId() const {
-    return fki_timezone_id;
+    return m_fki_timezone_id;
 }
 void OAIActivesession_ResponseCompound_User::setFkiTimezoneId(const qint32 &fki_timezone_id) {
-    this->fki_timezone_id = fki_timezone_id;
-    this->m_fki_timezone_id_isSet = true;
+    m_fki_timezone_id = fki_timezone_id;
+    m_fki_timezone_id_isSet = true;
 }
 
 bool OAIActivesession_ResponseCompound_User::is_fki_timezone_id_Set() const{
@@ -180,11 +180,11 @@ bool OAIActivesession_ResponseCompound_User::is_fki_timezone_id_Valid() const{
 }
 
 QString OAIActivesession_ResponseCompound_User::getSAvatarUrl() const {
-    return s_avatar_url;
+    return m_s_avatar_url;
 }
 void OAIActivesession_ResponseCompound_User::setSAvatarUrl(const QString &s_avatar_url) {
-    this->s_avatar_url = s_avatar_url;
-    this->m_s_avatar_url_isSet = true;
+    m_s_avatar_url = s_avatar_url;
+    m_s_avatar_url_isSet = true;
 }
 
 bool OAIActivesession_ResponseCompound_User::is_s_avatar_url_Set() const{
@@ -196,11 +196,11 @@ bool OAIActivesession_ResponseCompound_User::is_s_avatar_url_Valid() const{
 }
 
 QString OAIActivesession_ResponseCompound_User::getSUserFirstname() const {
-    return s_user_firstname;
+    return m_s_user_firstname;
 }
 void OAIActivesession_ResponseCompound_User::setSUserFirstname(const QString &s_user_firstname) {
-    this->s_user_firstname = s_user_firstname;
-    this->m_s_user_firstname_isSet = true;
+    m_s_user_firstname = s_user_firstname;
+    m_s_user_firstname_isSet = true;
 }
 
 bool OAIActivesession_ResponseCompound_User::is_s_user_firstname_Set() const{
@@ -212,11 +212,11 @@ bool OAIActivesession_ResponseCompound_User::is_s_user_firstname_Valid() const{
 }
 
 QString OAIActivesession_ResponseCompound_User::getSUserLastname() const {
-    return s_user_lastname;
+    return m_s_user_lastname;
 }
 void OAIActivesession_ResponseCompound_User::setSUserLastname(const QString &s_user_lastname) {
-    this->s_user_lastname = s_user_lastname;
-    this->m_s_user_lastname_isSet = true;
+    m_s_user_lastname = s_user_lastname;
+    m_s_user_lastname_isSet = true;
 }
 
 bool OAIActivesession_ResponseCompound_User::is_s_user_lastname_Set() const{
@@ -228,11 +228,11 @@ bool OAIActivesession_ResponseCompound_User::is_s_user_lastname_Valid() const{
 }
 
 QString OAIActivesession_ResponseCompound_User::getSEmailAddress() const {
-    return s_email_address;
+    return m_s_email_address;
 }
 void OAIActivesession_ResponseCompound_User::setSEmailAddress(const QString &s_email_address) {
-    this->s_email_address = s_email_address;
-    this->m_s_email_address_isSet = true;
+    m_s_email_address = s_email_address;
+    m_s_email_address_isSet = true;
 }
 
 bool OAIActivesession_ResponseCompound_User::is_s_email_address_Set() const{
@@ -244,11 +244,11 @@ bool OAIActivesession_ResponseCompound_User::is_s_email_address_Valid() const{
 }
 
 OAIField_eUserEzsignsendreminderfrequency OAIActivesession_ResponseCompound_User::getEUserEzsignsendreminderfrequency() const {
-    return e_user_ezsignsendreminderfrequency;
+    return m_e_user_ezsignsendreminderfrequency;
 }
 void OAIActivesession_ResponseCompound_User::setEUserEzsignsendreminderfrequency(const OAIField_eUserEzsignsendreminderfrequency &e_user_ezsignsendreminderfrequency) {
-    this->e_user_ezsignsendreminderfrequency = e_user_ezsignsendreminderfrequency;
-    this->m_e_user_ezsignsendreminderfrequency_isSet = true;
+    m_e_user_ezsignsendreminderfrequency = e_user_ezsignsendreminderfrequency;
+    m_e_user_ezsignsendreminderfrequency_isSet = true;
 }
 
 bool OAIActivesession_ResponseCompound_User::is_e_user_ezsignsendreminderfrequency_Set() const{
@@ -260,11 +260,11 @@ bool OAIActivesession_ResponseCompound_User::is_e_user_ezsignsendreminderfrequen
 }
 
 qint32 OAIActivesession_ResponseCompound_User::getIUserInterfacecolor() const {
-    return i_user_interfacecolor;
+    return m_i_user_interfacecolor;
 }
 void OAIActivesession_ResponseCompound_User::setIUserInterfacecolor(const qint32 &i_user_interfacecolor) {
-    this->i_user_interfacecolor = i_user_interfacecolor;
-    this->m_i_user_interfacecolor_isSet = true;
+    m_i_user_interfacecolor = i_user_interfacecolor;
+    m_i_user_interfacecolor_isSet = true;
 }
 
 bool OAIActivesession_ResponseCompound_User::is_i_user_interfacecolor_Set() const{
@@ -276,11 +276,11 @@ bool OAIActivesession_ResponseCompound_User::is_i_user_interfacecolor_Valid() co
 }
 
 bool OAIActivesession_ResponseCompound_User::isBUserInterfacedark() const {
-    return b_user_interfacedark;
+    return m_b_user_interfacedark;
 }
 void OAIActivesession_ResponseCompound_User::setBUserInterfacedark(const bool &b_user_interfacedark) {
-    this->b_user_interfacedark = b_user_interfacedark;
-    this->m_b_user_interfacedark_isSet = true;
+    m_b_user_interfacedark = b_user_interfacedark;
+    m_b_user_interfacedark_isSet = true;
 }
 
 bool OAIActivesession_ResponseCompound_User::is_b_user_interfacedark_Set() const{
@@ -292,11 +292,11 @@ bool OAIActivesession_ResponseCompound_User::is_b_user_interfacedark_Valid() con
 }
 
 qint32 OAIActivesession_ResponseCompound_User::getIUserListresult() const {
-    return i_user_listresult;
+    return m_i_user_listresult;
 }
 void OAIActivesession_ResponseCompound_User::setIUserListresult(const qint32 &i_user_listresult) {
-    this->i_user_listresult = i_user_listresult;
-    this->m_i_user_listresult_isSet = true;
+    m_i_user_listresult = i_user_listresult;
+    m_i_user_listresult_isSet = true;
 }
 
 bool OAIActivesession_ResponseCompound_User::is_i_user_listresult_Set() const{
@@ -340,7 +340,7 @@ bool OAIActivesession_ResponseCompound_User::isSet() const {
             break;
         }
 
-        if (e_user_ezsignsendreminderfrequency.isSet()) {
+        if (m_e_user_ezsignsendreminderfrequency.isSet()) {
             isObjectUpdated = true;
             break;
         }

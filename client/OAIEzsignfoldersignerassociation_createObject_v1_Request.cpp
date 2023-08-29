@@ -50,10 +50,10 @@ void OAIEzsignfoldersignerassociation_createObject_v1_Request::fromJson(QString 
 
 void OAIEzsignfoldersignerassociation_createObject_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_obj_ezsignfoldersignerassociation_isValid = ::OpenAPI::fromJsonValue(obj_ezsignfoldersignerassociation, json[QString("objEzsignfoldersignerassociation")]);
+    m_obj_ezsignfoldersignerassociation_isValid = ::OpenAPI::fromJsonValue(m_obj_ezsignfoldersignerassociation, json[QString("objEzsignfoldersignerassociation")]);
     m_obj_ezsignfoldersignerassociation_isSet = !json[QString("objEzsignfoldersignerassociation")].isNull() && m_obj_ezsignfoldersignerassociation_isValid;
 
-    m_obj_ezsignfoldersignerassociation_compound_isValid = ::OpenAPI::fromJsonValue(obj_ezsignfoldersignerassociation_compound, json[QString("objEzsignfoldersignerassociationCompound")]);
+    m_obj_ezsignfoldersignerassociation_compound_isValid = ::OpenAPI::fromJsonValue(m_obj_ezsignfoldersignerassociation_compound, json[QString("objEzsignfoldersignerassociationCompound")]);
     m_obj_ezsignfoldersignerassociation_compound_isSet = !json[QString("objEzsignfoldersignerassociationCompound")].isNull() && m_obj_ezsignfoldersignerassociation_compound_isValid;
 }
 
@@ -66,21 +66,21 @@ QString OAIEzsignfoldersignerassociation_createObject_v1_Request::asJson() const
 
 QJsonObject OAIEzsignfoldersignerassociation_createObject_v1_Request::asJsonObject() const {
     QJsonObject obj;
-    if (obj_ezsignfoldersignerassociation.isSet()) {
-        obj.insert(QString("objEzsignfoldersignerassociation"), ::OpenAPI::toJsonValue(obj_ezsignfoldersignerassociation));
+    if (m_obj_ezsignfoldersignerassociation.isSet()) {
+        obj.insert(QString("objEzsignfoldersignerassociation"), ::OpenAPI::toJsonValue(m_obj_ezsignfoldersignerassociation));
     }
-    if (obj_ezsignfoldersignerassociation_compound.isSet()) {
-        obj.insert(QString("objEzsignfoldersignerassociationCompound"), ::OpenAPI::toJsonValue(obj_ezsignfoldersignerassociation_compound));
+    if (m_obj_ezsignfoldersignerassociation_compound.isSet()) {
+        obj.insert(QString("objEzsignfoldersignerassociationCompound"), ::OpenAPI::toJsonValue(m_obj_ezsignfoldersignerassociation_compound));
     }
     return obj;
 }
 
 OAIEzsignfoldersignerassociation_Request OAIEzsignfoldersignerassociation_createObject_v1_Request::getObjEzsignfoldersignerassociation() const {
-    return obj_ezsignfoldersignerassociation;
+    return m_obj_ezsignfoldersignerassociation;
 }
 void OAIEzsignfoldersignerassociation_createObject_v1_Request::setObjEzsignfoldersignerassociation(const OAIEzsignfoldersignerassociation_Request &obj_ezsignfoldersignerassociation) {
-    this->obj_ezsignfoldersignerassociation = obj_ezsignfoldersignerassociation;
-    this->m_obj_ezsignfoldersignerassociation_isSet = true;
+    m_obj_ezsignfoldersignerassociation = obj_ezsignfoldersignerassociation;
+    m_obj_ezsignfoldersignerassociation_isSet = true;
 }
 
 bool OAIEzsignfoldersignerassociation_createObject_v1_Request::is_obj_ezsignfoldersignerassociation_Set() const{
@@ -92,11 +92,11 @@ bool OAIEzsignfoldersignerassociation_createObject_v1_Request::is_obj_ezsignfold
 }
 
 OAIEzsignfoldersignerassociation_RequestCompound OAIEzsignfoldersignerassociation_createObject_v1_Request::getObjEzsignfoldersignerassociationCompound() const {
-    return obj_ezsignfoldersignerassociation_compound;
+    return m_obj_ezsignfoldersignerassociation_compound;
 }
 void OAIEzsignfoldersignerassociation_createObject_v1_Request::setObjEzsignfoldersignerassociationCompound(const OAIEzsignfoldersignerassociation_RequestCompound &obj_ezsignfoldersignerassociation_compound) {
-    this->obj_ezsignfoldersignerassociation_compound = obj_ezsignfoldersignerassociation_compound;
-    this->m_obj_ezsignfoldersignerassociation_compound_isSet = true;
+    m_obj_ezsignfoldersignerassociation_compound = obj_ezsignfoldersignerassociation_compound;
+    m_obj_ezsignfoldersignerassociation_compound_isSet = true;
 }
 
 bool OAIEzsignfoldersignerassociation_createObject_v1_Request::is_obj_ezsignfoldersignerassociation_compound_Set() const{
@@ -110,12 +110,12 @@ bool OAIEzsignfoldersignerassociation_createObject_v1_Request::is_obj_ezsignfold
 bool OAIEzsignfoldersignerassociation_createObject_v1_Request::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (obj_ezsignfoldersignerassociation.isSet()) {
+        if (m_obj_ezsignfoldersignerassociation.isSet()) {
             isObjectUpdated = true;
             break;
         }
 
-        if (obj_ezsignfoldersignerassociation_compound.isSet()) {
+        if (m_obj_ezsignfoldersignerassociation_compound.isSet()) {
             isObjectUpdated = true;
             break;
         }

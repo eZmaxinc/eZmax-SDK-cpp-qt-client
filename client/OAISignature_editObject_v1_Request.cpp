@@ -47,7 +47,7 @@ void OAISignature_editObject_v1_Request::fromJson(QString jsonString) {
 
 void OAISignature_editObject_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_obj_signature_isValid = ::OpenAPI::fromJsonValue(obj_signature, json[QString("objSignature")]);
+    m_obj_signature_isValid = ::OpenAPI::fromJsonValue(m_obj_signature, json[QString("objSignature")]);
     m_obj_signature_isSet = !json[QString("objSignature")].isNull() && m_obj_signature_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAISignature_editObject_v1_Request::asJson() const {
 
 QJsonObject OAISignature_editObject_v1_Request::asJsonObject() const {
     QJsonObject obj;
-    if (obj_signature.isSet()) {
-        obj.insert(QString("objSignature"), ::OpenAPI::toJsonValue(obj_signature));
+    if (m_obj_signature.isSet()) {
+        obj.insert(QString("objSignature"), ::OpenAPI::toJsonValue(m_obj_signature));
     }
     return obj;
 }
 
 OAISignature_RequestCompound OAISignature_editObject_v1_Request::getObjSignature() const {
-    return obj_signature;
+    return m_obj_signature;
 }
 void OAISignature_editObject_v1_Request::setObjSignature(const OAISignature_RequestCompound &obj_signature) {
-    this->obj_signature = obj_signature;
-    this->m_obj_signature_isSet = true;
+    m_obj_signature = obj_signature;
+    m_obj_signature_isSet = true;
 }
 
 bool OAISignature_editObject_v1_Request::is_obj_signature_Set() const{
@@ -85,7 +85,7 @@ bool OAISignature_editObject_v1_Request::is_obj_signature_Valid() const{
 bool OAISignature_editObject_v1_Request::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (obj_signature.isSet()) {
+        if (m_obj_signature.isSet()) {
             isObjectUpdated = true;
             break;
         }

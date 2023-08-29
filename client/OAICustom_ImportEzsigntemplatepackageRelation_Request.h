@@ -60,15 +60,15 @@ public:
 private:
     void initializeModel();
 
-    qint32 fki_ezsigntemplatepackagesigner_id;
+    qint32 m_fki_ezsigntemplatepackagesigner_id;
     bool m_fki_ezsigntemplatepackagesigner_id_isSet;
     bool m_fki_ezsigntemplatepackagesigner_id_isValid;
 
-    qint32 fki_ezsignfoldersignerassociation_id;
+    qint32 m_fki_ezsignfoldersignerassociation_id;
     bool m_fki_ezsignfoldersignerassociation_id_isSet;
     bool m_fki_ezsignfoldersignerassociation_id_isValid;
 
-    QString s_ezsigntemplatepackagesigner_description;
+    QString m_s_ezsigntemplatepackagesigner_description;
     bool m_s_ezsigntemplatepackagesigner_description_isSet;
     bool m_s_ezsigntemplatepackagesigner_description_isValid;
 };

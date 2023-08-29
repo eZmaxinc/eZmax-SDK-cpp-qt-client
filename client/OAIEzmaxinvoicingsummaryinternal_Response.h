@@ -77,27 +77,27 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_ezmaxinvoicingsummaryinternal_id;
+    qint32 m_pki_ezmaxinvoicingsummaryinternal_id;
     bool m_pki_ezmaxinvoicingsummaryinternal_id_isSet;
     bool m_pki_ezmaxinvoicingsummaryinternal_id_isValid;
 
-    OAIMultilingual_EzmaxinvoicingsummaryinternalDescription obj_ezmaxinvoicingsummaryinternal_description;
+    OAIMultilingual_EzmaxinvoicingsummaryinternalDescription m_obj_ezmaxinvoicingsummaryinternal_description;
     bool m_obj_ezmaxinvoicingsummaryinternal_description_isSet;
     bool m_obj_ezmaxinvoicingsummaryinternal_description_isValid;
 
-    QString s_ezmaxinvoicingsummaryinternal_description_x;
+    QString m_s_ezmaxinvoicingsummaryinternal_description_x;
     bool m_s_ezmaxinvoicingsummaryinternal_description_x_isSet;
     bool m_s_ezmaxinvoicingsummaryinternal_description_x_isValid;
 
-    qint32 fki_ezmaxinvoicing_id;
+    qint32 m_fki_ezmaxinvoicing_id;
     bool m_fki_ezmaxinvoicing_id_isSet;
     bool m_fki_ezmaxinvoicing_id_isValid;
 
-    qint32 fki_billingentityinternal_id;
+    qint32 m_fki_billingentityinternal_id;
     bool m_fki_billingentityinternal_id_isSet;
     bool m_fki_billingentityinternal_id_isValid;
 
-    QString s_billingentityinternal_description_x;
+    QString m_s_billingentityinternal_description_x;
     bool m_s_billingentityinternal_description_x_isSet;
     bool m_s_billingentityinternal_description_x_isValid;
 };

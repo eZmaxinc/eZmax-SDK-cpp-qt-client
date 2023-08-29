@@ -61,15 +61,15 @@ public:
 private:
     void initializeModel();
 
-    QString t_ezsignfolder_message;
+    QString m_t_ezsignfolder_message;
     bool m_t_ezsignfolder_message_isSet;
     bool m_t_ezsignfolder_message_isValid;
 
-    QString dt_ezsignfolder_delayedsenddate;
+    QString m_dt_ezsignfolder_delayedsenddate;
     bool m_dt_ezsignfolder_delayedsenddate_isSet;
     bool m_dt_ezsignfolder_delayedsenddate_isValid;
 
-    QList<qint32> a_fki_ezsignfoldersignerassociation_id;
+    QList<qint32> m_a_fki_ezsignfoldersignerassociation_id;
     bool m_a_fki_ezsignfoldersignerassociation_id_isSet;
     bool m_a_fki_ezsignfoldersignerassociation_id_isValid;
 };

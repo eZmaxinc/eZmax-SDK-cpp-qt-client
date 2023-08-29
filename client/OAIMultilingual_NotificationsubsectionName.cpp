@@ -50,10 +50,10 @@ void OAIMultilingual_NotificationsubsectionName::fromJson(QString jsonString) {
 
 void OAIMultilingual_NotificationsubsectionName::fromJsonObject(QJsonObject json) {
 
-    m_s_notificationsubsection_name1_isValid = ::OpenAPI::fromJsonValue(s_notificationsubsection_name1, json[QString("sNotificationsubsectionName1")]);
+    m_s_notificationsubsection_name1_isValid = ::OpenAPI::fromJsonValue(m_s_notificationsubsection_name1, json[QString("sNotificationsubsectionName1")]);
     m_s_notificationsubsection_name1_isSet = !json[QString("sNotificationsubsectionName1")].isNull() && m_s_notificationsubsection_name1_isValid;
 
-    m_s_notificationsubsection_name2_isValid = ::OpenAPI::fromJsonValue(s_notificationsubsection_name2, json[QString("sNotificationsubsectionName2")]);
+    m_s_notificationsubsection_name2_isValid = ::OpenAPI::fromJsonValue(m_s_notificationsubsection_name2, json[QString("sNotificationsubsectionName2")]);
     m_s_notificationsubsection_name2_isSet = !json[QString("sNotificationsubsectionName2")].isNull() && m_s_notificationsubsection_name2_isValid;
 }
 
@@ -67,20 +67,20 @@ QString OAIMultilingual_NotificationsubsectionName::asJson() const {
 QJsonObject OAIMultilingual_NotificationsubsectionName::asJsonObject() const {
     QJsonObject obj;
     if (m_s_notificationsubsection_name1_isSet) {
-        obj.insert(QString("sNotificationsubsectionName1"), ::OpenAPI::toJsonValue(s_notificationsubsection_name1));
+        obj.insert(QString("sNotificationsubsectionName1"), ::OpenAPI::toJsonValue(m_s_notificationsubsection_name1));
     }
     if (m_s_notificationsubsection_name2_isSet) {
-        obj.insert(QString("sNotificationsubsectionName2"), ::OpenAPI::toJsonValue(s_notificationsubsection_name2));
+        obj.insert(QString("sNotificationsubsectionName2"), ::OpenAPI::toJsonValue(m_s_notificationsubsection_name2));
     }
     return obj;
 }
 
 QString OAIMultilingual_NotificationsubsectionName::getSNotificationsubsectionName1() const {
-    return s_notificationsubsection_name1;
+    return m_s_notificationsubsection_name1;
 }
 void OAIMultilingual_NotificationsubsectionName::setSNotificationsubsectionName1(const QString &s_notificationsubsection_name1) {
-    this->s_notificationsubsection_name1 = s_notificationsubsection_name1;
-    this->m_s_notificationsubsection_name1_isSet = true;
+    m_s_notificationsubsection_name1 = s_notificationsubsection_name1;
+    m_s_notificationsubsection_name1_isSet = true;
 }
 
 bool OAIMultilingual_NotificationsubsectionName::is_s_notificationsubsection_name1_Set() const{
@@ -92,11 +92,11 @@ bool OAIMultilingual_NotificationsubsectionName::is_s_notificationsubsection_nam
 }
 
 QString OAIMultilingual_NotificationsubsectionName::getSNotificationsubsectionName2() const {
-    return s_notificationsubsection_name2;
+    return m_s_notificationsubsection_name2;
 }
 void OAIMultilingual_NotificationsubsectionName::setSNotificationsubsectionName2(const QString &s_notificationsubsection_name2) {
-    this->s_notificationsubsection_name2 = s_notificationsubsection_name2;
-    this->m_s_notificationsubsection_name2_isSet = true;
+    m_s_notificationsubsection_name2 = s_notificationsubsection_name2;
+    m_s_notificationsubsection_name2_isSet = true;
 }
 
 bool OAIMultilingual_NotificationsubsectionName::is_s_notificationsubsection_name2_Set() const{

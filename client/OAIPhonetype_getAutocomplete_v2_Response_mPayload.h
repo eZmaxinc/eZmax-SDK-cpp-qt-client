@@ -52,7 +52,7 @@ public:
 private:
     void initializeModel();
 
-    QList<OAIPhonetype_AutocompleteElement_Response> a_obj_phonetype;
+    QList<OAIPhonetype_AutocompleteElement_Response> m_a_obj_phonetype;
     bool m_a_obj_phonetype_isSet;
     bool m_a_obj_phonetype_isValid;
 };

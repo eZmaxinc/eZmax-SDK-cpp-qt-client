@@ -71,31 +71,31 @@ void OAIApikey_ResponseCompound::fromJson(QString jsonString) {
 
 void OAIApikey_ResponseCompound::fromJsonObject(QJsonObject json) {
 
-    m_pki_apikey_id_isValid = ::OpenAPI::fromJsonValue(pki_apikey_id, json[QString("pkiApikeyID")]);
+    m_pki_apikey_id_isValid = ::OpenAPI::fromJsonValue(m_pki_apikey_id, json[QString("pkiApikeyID")]);
     m_pki_apikey_id_isSet = !json[QString("pkiApikeyID")].isNull() && m_pki_apikey_id_isValid;
 
-    m_fki_user_id_isValid = ::OpenAPI::fromJsonValue(fki_user_id, json[QString("fkiUserID")]);
+    m_fki_user_id_isValid = ::OpenAPI::fromJsonValue(m_fki_user_id, json[QString("fkiUserID")]);
     m_fki_user_id_isSet = !json[QString("fkiUserID")].isNull() && m_fki_user_id_isValid;
 
-    m_obj_apikey_description_isValid = ::OpenAPI::fromJsonValue(obj_apikey_description, json[QString("objApikeyDescription")]);
+    m_obj_apikey_description_isValid = ::OpenAPI::fromJsonValue(m_obj_apikey_description, json[QString("objApikeyDescription")]);
     m_obj_apikey_description_isSet = !json[QString("objApikeyDescription")].isNull() && m_obj_apikey_description_isValid;
 
-    m_obj_contact_name_isValid = ::OpenAPI::fromJsonValue(obj_contact_name, json[QString("objContactName")]);
+    m_obj_contact_name_isValid = ::OpenAPI::fromJsonValue(m_obj_contact_name, json[QString("objContactName")]);
     m_obj_contact_name_isSet = !json[QString("objContactName")].isNull() && m_obj_contact_name_isValid;
 
-    m_s_apikey_apikey_isValid = ::OpenAPI::fromJsonValue(s_apikey_apikey, json[QString("sApikeyApikey")]);
+    m_s_apikey_apikey_isValid = ::OpenAPI::fromJsonValue(m_s_apikey_apikey, json[QString("sApikeyApikey")]);
     m_s_apikey_apikey_isSet = !json[QString("sApikeyApikey")].isNull() && m_s_apikey_apikey_isValid;
 
-    m_s_apikey_secret_isValid = ::OpenAPI::fromJsonValue(s_apikey_secret, json[QString("sApikeySecret")]);
+    m_s_apikey_secret_isValid = ::OpenAPI::fromJsonValue(m_s_apikey_secret, json[QString("sApikeySecret")]);
     m_s_apikey_secret_isSet = !json[QString("sApikeySecret")].isNull() && m_s_apikey_secret_isValid;
 
-    m_b_apikey_isactive_isValid = ::OpenAPI::fromJsonValue(b_apikey_isactive, json[QString("bApikeyIsactive")]);
+    m_b_apikey_isactive_isValid = ::OpenAPI::fromJsonValue(m_b_apikey_isactive, json[QString("bApikeyIsactive")]);
     m_b_apikey_isactive_isSet = !json[QString("bApikeyIsactive")].isNull() && m_b_apikey_isactive_isValid;
 
-    m_b_apikey_issigned_isValid = ::OpenAPI::fromJsonValue(b_apikey_issigned, json[QString("bApikeyIssigned")]);
+    m_b_apikey_issigned_isValid = ::OpenAPI::fromJsonValue(m_b_apikey_issigned, json[QString("bApikeyIssigned")]);
     m_b_apikey_issigned_isSet = !json[QString("bApikeyIssigned")].isNull() && m_b_apikey_issigned_isValid;
 
-    m_obj_audit_isValid = ::OpenAPI::fromJsonValue(obj_audit, json[QString("objAudit")]);
+    m_obj_audit_isValid = ::OpenAPI::fromJsonValue(m_obj_audit, json[QString("objAudit")]);
     m_obj_audit_isSet = !json[QString("objAudit")].isNull() && m_obj_audit_isValid;
 }
 
@@ -109,41 +109,41 @@ QString OAIApikey_ResponseCompound::asJson() const {
 QJsonObject OAIApikey_ResponseCompound::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_apikey_id_isSet) {
-        obj.insert(QString("pkiApikeyID"), ::OpenAPI::toJsonValue(pki_apikey_id));
+        obj.insert(QString("pkiApikeyID"), ::OpenAPI::toJsonValue(m_pki_apikey_id));
     }
     if (m_fki_user_id_isSet) {
-        obj.insert(QString("fkiUserID"), ::OpenAPI::toJsonValue(fki_user_id));
+        obj.insert(QString("fkiUserID"), ::OpenAPI::toJsonValue(m_fki_user_id));
     }
-    if (obj_apikey_description.isSet()) {
-        obj.insert(QString("objApikeyDescription"), ::OpenAPI::toJsonValue(obj_apikey_description));
+    if (m_obj_apikey_description.isSet()) {
+        obj.insert(QString("objApikeyDescription"), ::OpenAPI::toJsonValue(m_obj_apikey_description));
     }
-    if (obj_contact_name.isSet()) {
-        obj.insert(QString("objContactName"), ::OpenAPI::toJsonValue(obj_contact_name));
+    if (m_obj_contact_name.isSet()) {
+        obj.insert(QString("objContactName"), ::OpenAPI::toJsonValue(m_obj_contact_name));
     }
     if (m_s_apikey_apikey_isSet) {
-        obj.insert(QString("sApikeyApikey"), ::OpenAPI::toJsonValue(s_apikey_apikey));
+        obj.insert(QString("sApikeyApikey"), ::OpenAPI::toJsonValue(m_s_apikey_apikey));
     }
     if (m_s_apikey_secret_isSet) {
-        obj.insert(QString("sApikeySecret"), ::OpenAPI::toJsonValue(s_apikey_secret));
+        obj.insert(QString("sApikeySecret"), ::OpenAPI::toJsonValue(m_s_apikey_secret));
     }
     if (m_b_apikey_isactive_isSet) {
-        obj.insert(QString("bApikeyIsactive"), ::OpenAPI::toJsonValue(b_apikey_isactive));
+        obj.insert(QString("bApikeyIsactive"), ::OpenAPI::toJsonValue(m_b_apikey_isactive));
     }
     if (m_b_apikey_issigned_isSet) {
-        obj.insert(QString("bApikeyIssigned"), ::OpenAPI::toJsonValue(b_apikey_issigned));
+        obj.insert(QString("bApikeyIssigned"), ::OpenAPI::toJsonValue(m_b_apikey_issigned));
     }
-    if (obj_audit.isSet()) {
-        obj.insert(QString("objAudit"), ::OpenAPI::toJsonValue(obj_audit));
+    if (m_obj_audit.isSet()) {
+        obj.insert(QString("objAudit"), ::OpenAPI::toJsonValue(m_obj_audit));
     }
     return obj;
 }
 
 qint32 OAIApikey_ResponseCompound::getPkiApikeyId() const {
-    return pki_apikey_id;
+    return m_pki_apikey_id;
 }
 void OAIApikey_ResponseCompound::setPkiApikeyId(const qint32 &pki_apikey_id) {
-    this->pki_apikey_id = pki_apikey_id;
-    this->m_pki_apikey_id_isSet = true;
+    m_pki_apikey_id = pki_apikey_id;
+    m_pki_apikey_id_isSet = true;
 }
 
 bool OAIApikey_ResponseCompound::is_pki_apikey_id_Set() const{
@@ -155,11 +155,11 @@ bool OAIApikey_ResponseCompound::is_pki_apikey_id_Valid() const{
 }
 
 qint32 OAIApikey_ResponseCompound::getFkiUserId() const {
-    return fki_user_id;
+    return m_fki_user_id;
 }
 void OAIApikey_ResponseCompound::setFkiUserId(const qint32 &fki_user_id) {
-    this->fki_user_id = fki_user_id;
-    this->m_fki_user_id_isSet = true;
+    m_fki_user_id = fki_user_id;
+    m_fki_user_id_isSet = true;
 }
 
 bool OAIApikey_ResponseCompound::is_fki_user_id_Set() const{
@@ -171,11 +171,11 @@ bool OAIApikey_ResponseCompound::is_fki_user_id_Valid() const{
 }
 
 OAIMultilingual_ApikeyDescription OAIApikey_ResponseCompound::getObjApikeyDescription() const {
-    return obj_apikey_description;
+    return m_obj_apikey_description;
 }
 void OAIApikey_ResponseCompound::setObjApikeyDescription(const OAIMultilingual_ApikeyDescription &obj_apikey_description) {
-    this->obj_apikey_description = obj_apikey_description;
-    this->m_obj_apikey_description_isSet = true;
+    m_obj_apikey_description = obj_apikey_description;
+    m_obj_apikey_description_isSet = true;
 }
 
 bool OAIApikey_ResponseCompound::is_obj_apikey_description_Set() const{
@@ -187,11 +187,11 @@ bool OAIApikey_ResponseCompound::is_obj_apikey_description_Valid() const{
 }
 
 OAICustom_ContactName_Response OAIApikey_ResponseCompound::getObjContactName() const {
-    return obj_contact_name;
+    return m_obj_contact_name;
 }
 void OAIApikey_ResponseCompound::setObjContactName(const OAICustom_ContactName_Response &obj_contact_name) {
-    this->obj_contact_name = obj_contact_name;
-    this->m_obj_contact_name_isSet = true;
+    m_obj_contact_name = obj_contact_name;
+    m_obj_contact_name_isSet = true;
 }
 
 bool OAIApikey_ResponseCompound::is_obj_contact_name_Set() const{
@@ -203,11 +203,11 @@ bool OAIApikey_ResponseCompound::is_obj_contact_name_Valid() const{
 }
 
 QString OAIApikey_ResponseCompound::getSApikeyApikey() const {
-    return s_apikey_apikey;
+    return m_s_apikey_apikey;
 }
 void OAIApikey_ResponseCompound::setSApikeyApikey(const QString &s_apikey_apikey) {
-    this->s_apikey_apikey = s_apikey_apikey;
-    this->m_s_apikey_apikey_isSet = true;
+    m_s_apikey_apikey = s_apikey_apikey;
+    m_s_apikey_apikey_isSet = true;
 }
 
 bool OAIApikey_ResponseCompound::is_s_apikey_apikey_Set() const{
@@ -219,11 +219,11 @@ bool OAIApikey_ResponseCompound::is_s_apikey_apikey_Valid() const{
 }
 
 QString OAIApikey_ResponseCompound::getSApikeySecret() const {
-    return s_apikey_secret;
+    return m_s_apikey_secret;
 }
 void OAIApikey_ResponseCompound::setSApikeySecret(const QString &s_apikey_secret) {
-    this->s_apikey_secret = s_apikey_secret;
-    this->m_s_apikey_secret_isSet = true;
+    m_s_apikey_secret = s_apikey_secret;
+    m_s_apikey_secret_isSet = true;
 }
 
 bool OAIApikey_ResponseCompound::is_s_apikey_secret_Set() const{
@@ -235,11 +235,11 @@ bool OAIApikey_ResponseCompound::is_s_apikey_secret_Valid() const{
 }
 
 bool OAIApikey_ResponseCompound::isBApikeyIsactive() const {
-    return b_apikey_isactive;
+    return m_b_apikey_isactive;
 }
 void OAIApikey_ResponseCompound::setBApikeyIsactive(const bool &b_apikey_isactive) {
-    this->b_apikey_isactive = b_apikey_isactive;
-    this->m_b_apikey_isactive_isSet = true;
+    m_b_apikey_isactive = b_apikey_isactive;
+    m_b_apikey_isactive_isSet = true;
 }
 
 bool OAIApikey_ResponseCompound::is_b_apikey_isactive_Set() const{
@@ -251,11 +251,11 @@ bool OAIApikey_ResponseCompound::is_b_apikey_isactive_Valid() const{
 }
 
 bool OAIApikey_ResponseCompound::isBApikeyIssigned() const {
-    return b_apikey_issigned;
+    return m_b_apikey_issigned;
 }
 void OAIApikey_ResponseCompound::setBApikeyIssigned(const bool &b_apikey_issigned) {
-    this->b_apikey_issigned = b_apikey_issigned;
-    this->m_b_apikey_issigned_isSet = true;
+    m_b_apikey_issigned = b_apikey_issigned;
+    m_b_apikey_issigned_isSet = true;
 }
 
 bool OAIApikey_ResponseCompound::is_b_apikey_issigned_Set() const{
@@ -267,11 +267,11 @@ bool OAIApikey_ResponseCompound::is_b_apikey_issigned_Valid() const{
 }
 
 OAICommon_Audit OAIApikey_ResponseCompound::getObjAudit() const {
-    return obj_audit;
+    return m_obj_audit;
 }
 void OAIApikey_ResponseCompound::setObjAudit(const OAICommon_Audit &obj_audit) {
-    this->obj_audit = obj_audit;
-    this->m_obj_audit_isSet = true;
+    m_obj_audit = obj_audit;
+    m_obj_audit_isSet = true;
 }
 
 bool OAIApikey_ResponseCompound::is_obj_audit_Set() const{
@@ -295,12 +295,12 @@ bool OAIApikey_ResponseCompound::isSet() const {
             break;
         }
 
-        if (obj_apikey_description.isSet()) {
+        if (m_obj_apikey_description.isSet()) {
             isObjectUpdated = true;
             break;
         }
 
-        if (obj_contact_name.isSet()) {
+        if (m_obj_contact_name.isSet()) {
             isObjectUpdated = true;
             break;
         }
@@ -325,7 +325,7 @@ bool OAIApikey_ResponseCompound::isSet() const {
             break;
         }
 
-        if (obj_audit.isSet()) {
+        if (m_obj_audit.isSet()) {
             isObjectUpdated = true;
             break;
         }

@@ -55,11 +55,11 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_apikey_id;
+    qint32 m_pki_apikey_id;
     bool m_pki_apikey_id_isSet;
     bool m_pki_apikey_id_isValid;
 
-    QString s_apikey_description_x;
+    QString m_s_apikey_description_x;
     bool m_s_apikey_description_x_isSet;
     bool m_s_apikey_description_x_isValid;
 };

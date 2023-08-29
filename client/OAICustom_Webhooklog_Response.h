@@ -55,11 +55,11 @@ public:
 private:
     void initializeModel();
 
-    QString dt_webhooklog_date;
+    QString m_dt_webhooklog_date;
     bool m_dt_webhooklog_date_isSet;
     bool m_dt_webhooklog_date_isValid;
 
-    QString t_webhooklog_json;
+    QString m_t_webhooklog_json;
     bool m_t_webhooklog_json_isSet;
     bool m_t_webhooklog_json_isValid;
 };

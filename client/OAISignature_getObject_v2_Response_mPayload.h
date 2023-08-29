@@ -51,7 +51,7 @@ public:
 private:
     void initializeModel();
 
-    OAISignature_ResponseCompound obj_signature;
+    OAISignature_ResponseCompound m_obj_signature;
     bool m_obj_signature_isSet;
     bool m_obj_signature_isValid;
 };

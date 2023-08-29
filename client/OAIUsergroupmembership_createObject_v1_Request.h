@@ -52,7 +52,7 @@ public:
 private:
     void initializeModel();
 
-    QList<OAIUsergroupmembership_RequestCompound> a_obj_usergroupmembership;
+    QList<OAIUsergroupmembership_RequestCompound> m_a_obj_usergroupmembership;
     bool m_a_obj_usergroupmembership_isSet;
     bool m_a_obj_usergroupmembership_isValid;
 };

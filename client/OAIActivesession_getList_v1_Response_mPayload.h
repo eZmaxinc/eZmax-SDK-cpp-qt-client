@@ -41,11 +41,6 @@ public:
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    QList<OAIActivesession_ListElement> getAObjActivesession() const;
-    void setAObjActivesession(const QList<OAIActivesession_ListElement> &a_obj_activesession);
-    bool is_a_obj_activesession_Set() const;
-    bool is_a_obj_activesession_Valid() const;
-
     qint32 getIRowReturned() const;
     void setIRowReturned(const qint32 &i_row_returned);
     bool is_i_row_returned_Set() const;
@@ -56,23 +51,28 @@ public:
     bool is_i_row_filtered_Set() const;
     bool is_i_row_filtered_Valid() const;
 
+    QList<OAIActivesession_ListElement> getAObjActivesession() const;
+    void setAObjActivesession(const QList<OAIActivesession_ListElement> &a_obj_activesession);
+    bool is_a_obj_activesession_Set() const;
+    bool is_a_obj_activesession_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
 private:
     void initializeModel();
 
-    QList<OAIActivesession_ListElement> a_obj_activesession;
-    bool m_a_obj_activesession_isSet;
-    bool m_a_obj_activesession_isValid;
-
-    qint32 i_row_returned;
+    qint32 m_i_row_returned;
     bool m_i_row_returned_isSet;
     bool m_i_row_returned_isValid;
 
-    qint32 i_row_filtered;
+    qint32 m_i_row_filtered;
     bool m_i_row_filtered_isSet;
     bool m_i_row_filtered_isValid;
+
+    QList<OAIActivesession_ListElement> m_a_obj_activesession;
+    bool m_a_obj_activesession_isSet;
+    bool m_a_obj_activesession_isValid;
 };
 
 } // namespace OpenAPI

@@ -60,15 +60,15 @@ public:
 private:
     void initializeModel();
 
-    QString s_period_yyyymm;
+    QString m_s_period_yyyymm;
     bool m_s_period_yyyymm_isSet;
     bool m_s_period_yyyymm_isValid;
 
-    qint32 pki_period_id;
+    qint32 m_pki_period_id;
     bool m_pki_period_id_isSet;
     bool m_pki_period_id_isValid;
 
-    bool b_period_isactive;
+    bool m_b_period_isactive;
     bool m_b_period_isactive_isSet;
     bool m_b_period_isactive_isValid;
 };

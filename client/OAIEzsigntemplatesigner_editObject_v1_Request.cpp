@@ -47,7 +47,7 @@ void OAIEzsigntemplatesigner_editObject_v1_Request::fromJson(QString jsonString)
 
 void OAIEzsigntemplatesigner_editObject_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_obj_ezsigntemplatesigner_isValid = ::OpenAPI::fromJsonValue(obj_ezsigntemplatesigner, json[QString("objEzsigntemplatesigner")]);
+    m_obj_ezsigntemplatesigner_isValid = ::OpenAPI::fromJsonValue(m_obj_ezsigntemplatesigner, json[QString("objEzsigntemplatesigner")]);
     m_obj_ezsigntemplatesigner_isSet = !json[QString("objEzsigntemplatesigner")].isNull() && m_obj_ezsigntemplatesigner_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIEzsigntemplatesigner_editObject_v1_Request::asJson() const {
 
 QJsonObject OAIEzsigntemplatesigner_editObject_v1_Request::asJsonObject() const {
     QJsonObject obj;
-    if (obj_ezsigntemplatesigner.isSet()) {
-        obj.insert(QString("objEzsigntemplatesigner"), ::OpenAPI::toJsonValue(obj_ezsigntemplatesigner));
+    if (m_obj_ezsigntemplatesigner.isSet()) {
+        obj.insert(QString("objEzsigntemplatesigner"), ::OpenAPI::toJsonValue(m_obj_ezsigntemplatesigner));
     }
     return obj;
 }
 
 OAIEzsigntemplatesigner_RequestCompound OAIEzsigntemplatesigner_editObject_v1_Request::getObjEzsigntemplatesigner() const {
-    return obj_ezsigntemplatesigner;
+    return m_obj_ezsigntemplatesigner;
 }
 void OAIEzsigntemplatesigner_editObject_v1_Request::setObjEzsigntemplatesigner(const OAIEzsigntemplatesigner_RequestCompound &obj_ezsigntemplatesigner) {
-    this->obj_ezsigntemplatesigner = obj_ezsigntemplatesigner;
-    this->m_obj_ezsigntemplatesigner_isSet = true;
+    m_obj_ezsigntemplatesigner = obj_ezsigntemplatesigner;
+    m_obj_ezsigntemplatesigner_isSet = true;
 }
 
 bool OAIEzsigntemplatesigner_editObject_v1_Request::is_obj_ezsigntemplatesigner_Set() const{
@@ -85,7 +85,7 @@ bool OAIEzsigntemplatesigner_editObject_v1_Request::is_obj_ezsigntemplatesigner_
 bool OAIEzsigntemplatesigner_editObject_v1_Request::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (obj_ezsigntemplatesigner.isSet()) {
+        if (m_obj_ezsigntemplatesigner.isSet()) {
             isObjectUpdated = true;
             break;
         }

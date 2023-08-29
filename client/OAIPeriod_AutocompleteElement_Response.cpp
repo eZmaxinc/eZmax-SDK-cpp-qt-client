@@ -53,13 +53,13 @@ void OAIPeriod_AutocompleteElement_Response::fromJson(QString jsonString) {
 
 void OAIPeriod_AutocompleteElement_Response::fromJsonObject(QJsonObject json) {
 
-    m_s_period_yyyymm_isValid = ::OpenAPI::fromJsonValue(s_period_yyyymm, json[QString("sPeriodYYYYMM")]);
+    m_s_period_yyyymm_isValid = ::OpenAPI::fromJsonValue(m_s_period_yyyymm, json[QString("sPeriodYYYYMM")]);
     m_s_period_yyyymm_isSet = !json[QString("sPeriodYYYYMM")].isNull() && m_s_period_yyyymm_isValid;
 
-    m_pki_period_id_isValid = ::OpenAPI::fromJsonValue(pki_period_id, json[QString("pkiPeriodID")]);
+    m_pki_period_id_isValid = ::OpenAPI::fromJsonValue(m_pki_period_id, json[QString("pkiPeriodID")]);
     m_pki_period_id_isSet = !json[QString("pkiPeriodID")].isNull() && m_pki_period_id_isValid;
 
-    m_b_period_isactive_isValid = ::OpenAPI::fromJsonValue(b_period_isactive, json[QString("bPeriodIsactive")]);
+    m_b_period_isactive_isValid = ::OpenAPI::fromJsonValue(m_b_period_isactive, json[QString("bPeriodIsactive")]);
     m_b_period_isactive_isSet = !json[QString("bPeriodIsactive")].isNull() && m_b_period_isactive_isValid;
 }
 
@@ -73,23 +73,23 @@ QString OAIPeriod_AutocompleteElement_Response::asJson() const {
 QJsonObject OAIPeriod_AutocompleteElement_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_s_period_yyyymm_isSet) {
-        obj.insert(QString("sPeriodYYYYMM"), ::OpenAPI::toJsonValue(s_period_yyyymm));
+        obj.insert(QString("sPeriodYYYYMM"), ::OpenAPI::toJsonValue(m_s_period_yyyymm));
     }
     if (m_pki_period_id_isSet) {
-        obj.insert(QString("pkiPeriodID"), ::OpenAPI::toJsonValue(pki_period_id));
+        obj.insert(QString("pkiPeriodID"), ::OpenAPI::toJsonValue(m_pki_period_id));
     }
     if (m_b_period_isactive_isSet) {
-        obj.insert(QString("bPeriodIsactive"), ::OpenAPI::toJsonValue(b_period_isactive));
+        obj.insert(QString("bPeriodIsactive"), ::OpenAPI::toJsonValue(m_b_period_isactive));
     }
     return obj;
 }
 
 QString OAIPeriod_AutocompleteElement_Response::getSPeriodYyyymm() const {
-    return s_period_yyyymm;
+    return m_s_period_yyyymm;
 }
 void OAIPeriod_AutocompleteElement_Response::setSPeriodYyyymm(const QString &s_period_yyyymm) {
-    this->s_period_yyyymm = s_period_yyyymm;
-    this->m_s_period_yyyymm_isSet = true;
+    m_s_period_yyyymm = s_period_yyyymm;
+    m_s_period_yyyymm_isSet = true;
 }
 
 bool OAIPeriod_AutocompleteElement_Response::is_s_period_yyyymm_Set() const{
@@ -101,11 +101,11 @@ bool OAIPeriod_AutocompleteElement_Response::is_s_period_yyyymm_Valid() const{
 }
 
 qint32 OAIPeriod_AutocompleteElement_Response::getPkiPeriodId() const {
-    return pki_period_id;
+    return m_pki_period_id;
 }
 void OAIPeriod_AutocompleteElement_Response::setPkiPeriodId(const qint32 &pki_period_id) {
-    this->pki_period_id = pki_period_id;
-    this->m_pki_period_id_isSet = true;
+    m_pki_period_id = pki_period_id;
+    m_pki_period_id_isSet = true;
 }
 
 bool OAIPeriod_AutocompleteElement_Response::is_pki_period_id_Set() const{
@@ -117,11 +117,11 @@ bool OAIPeriod_AutocompleteElement_Response::is_pki_period_id_Valid() const{
 }
 
 bool OAIPeriod_AutocompleteElement_Response::isBPeriodIsactive() const {
-    return b_period_isactive;
+    return m_b_period_isactive;
 }
 void OAIPeriod_AutocompleteElement_Response::setBPeriodIsactive(const bool &b_period_isactive) {
-    this->b_period_isactive = b_period_isactive;
-    this->m_b_period_isactive_isSet = true;
+    m_b_period_isactive = b_period_isactive;
+    m_b_period_isactive_isSet = true;
 }
 
 bool OAIPeriod_AutocompleteElement_Response::is_b_period_isactive_Set() const{

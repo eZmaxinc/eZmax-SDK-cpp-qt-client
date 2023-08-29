@@ -47,7 +47,7 @@ void OAIEzsigntemplatedocument_editObject_v1_Request::fromJson(QString jsonStrin
 
 void OAIEzsigntemplatedocument_editObject_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_obj_ezsigntemplatedocument_isValid = ::OpenAPI::fromJsonValue(obj_ezsigntemplatedocument, json[QString("objEzsigntemplatedocument")]);
+    m_obj_ezsigntemplatedocument_isValid = ::OpenAPI::fromJsonValue(m_obj_ezsigntemplatedocument, json[QString("objEzsigntemplatedocument")]);
     m_obj_ezsigntemplatedocument_isSet = !json[QString("objEzsigntemplatedocument")].isNull() && m_obj_ezsigntemplatedocument_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIEzsigntemplatedocument_editObject_v1_Request::asJson() const {
 
 QJsonObject OAIEzsigntemplatedocument_editObject_v1_Request::asJsonObject() const {
     QJsonObject obj;
-    if (obj_ezsigntemplatedocument.isSet()) {
-        obj.insert(QString("objEzsigntemplatedocument"), ::OpenAPI::toJsonValue(obj_ezsigntemplatedocument));
+    if (m_obj_ezsigntemplatedocument.isSet()) {
+        obj.insert(QString("objEzsigntemplatedocument"), ::OpenAPI::toJsonValue(m_obj_ezsigntemplatedocument));
     }
     return obj;
 }
 
 OAIEzsigntemplatedocument_RequestCompound OAIEzsigntemplatedocument_editObject_v1_Request::getObjEzsigntemplatedocument() const {
-    return obj_ezsigntemplatedocument;
+    return m_obj_ezsigntemplatedocument;
 }
 void OAIEzsigntemplatedocument_editObject_v1_Request::setObjEzsigntemplatedocument(const OAIEzsigntemplatedocument_RequestCompound &obj_ezsigntemplatedocument) {
-    this->obj_ezsigntemplatedocument = obj_ezsigntemplatedocument;
-    this->m_obj_ezsigntemplatedocument_isSet = true;
+    m_obj_ezsigntemplatedocument = obj_ezsigntemplatedocument;
+    m_obj_ezsigntemplatedocument_isSet = true;
 }
 
 bool OAIEzsigntemplatedocument_editObject_v1_Request::is_obj_ezsigntemplatedocument_Set() const{
@@ -85,7 +85,7 @@ bool OAIEzsigntemplatedocument_editObject_v1_Request::is_obj_ezsigntemplatedocum
 bool OAIEzsigntemplatedocument_editObject_v1_Request::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (obj_ezsigntemplatedocument.isSet()) {
+        if (m_obj_ezsigntemplatedocument.isSet()) {
             isObjectUpdated = true;
             break;
         }

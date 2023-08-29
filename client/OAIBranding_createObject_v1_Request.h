@@ -52,7 +52,7 @@ public:
 private:
     void initializeModel();
 
-    QList<OAIBranding_RequestCompound> a_obj_branding;
+    QList<OAIBranding_RequestCompound> m_a_obj_branding;
     bool m_a_obj_branding_isSet;
     bool m_a_obj_branding_isValid;
 };

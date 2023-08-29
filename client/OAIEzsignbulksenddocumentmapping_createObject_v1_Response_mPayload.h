@@ -50,7 +50,7 @@ public:
 private:
     void initializeModel();
 
-    QList<qint32> a_pki_ezsignbulksenddocumentmapping_id;
+    QList<qint32> m_a_pki_ezsignbulksenddocumentmapping_id;
     bool m_a_pki_ezsignbulksenddocumentmapping_id_isSet;
     bool m_a_pki_ezsignbulksenddocumentmapping_id_isValid;
 };

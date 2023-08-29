@@ -52,7 +52,7 @@ public:
 private:
     void initializeModel();
 
-    QList<OAITaxassignment_AutocompleteElement_Response> a_obj_taxassignment;
+    QList<OAITaxassignment_AutocompleteElement_Response> m_a_obj_taxassignment;
     bool m_a_obj_taxassignment_isSet;
     bool m_a_obj_taxassignment_isValid;
 };

@@ -58,7 +58,6 @@
 #include "OAIHeader_Accept_Language.h"
 #include "OAIHttpFileElement.h"
 #include "OAIObject.h"
-#include <QList>
 #include <QString>
 
 #include <QObject>

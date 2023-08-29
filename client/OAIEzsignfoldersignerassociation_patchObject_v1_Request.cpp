@@ -47,7 +47,7 @@ void OAIEzsignfoldersignerassociation_patchObject_v1_Request::fromJson(QString j
 
 void OAIEzsignfoldersignerassociation_patchObject_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_obj_ezsignfoldersignerassociation_isValid = ::OpenAPI::fromJsonValue(obj_ezsignfoldersignerassociation, json[QString("objEzsignfoldersignerassociation")]);
+    m_obj_ezsignfoldersignerassociation_isValid = ::OpenAPI::fromJsonValue(m_obj_ezsignfoldersignerassociation, json[QString("objEzsignfoldersignerassociation")]);
     m_obj_ezsignfoldersignerassociation_isSet = !json[QString("objEzsignfoldersignerassociation")].isNull() && m_obj_ezsignfoldersignerassociation_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIEzsignfoldersignerassociation_patchObject_v1_Request::asJson() const 
 
 QJsonObject OAIEzsignfoldersignerassociation_patchObject_v1_Request::asJsonObject() const {
     QJsonObject obj;
-    if (obj_ezsignfoldersignerassociation.isSet()) {
-        obj.insert(QString("objEzsignfoldersignerassociation"), ::OpenAPI::toJsonValue(obj_ezsignfoldersignerassociation));
+    if (m_obj_ezsignfoldersignerassociation.isSet()) {
+        obj.insert(QString("objEzsignfoldersignerassociation"), ::OpenAPI::toJsonValue(m_obj_ezsignfoldersignerassociation));
     }
     return obj;
 }
 
 OAIEzsignfoldersignerassociation_RequestPatch OAIEzsignfoldersignerassociation_patchObject_v1_Request::getObjEzsignfoldersignerassociation() const {
-    return obj_ezsignfoldersignerassociation;
+    return m_obj_ezsignfoldersignerassociation;
 }
 void OAIEzsignfoldersignerassociation_patchObject_v1_Request::setObjEzsignfoldersignerassociation(const OAIEzsignfoldersignerassociation_RequestPatch &obj_ezsignfoldersignerassociation) {
-    this->obj_ezsignfoldersignerassociation = obj_ezsignfoldersignerassociation;
-    this->m_obj_ezsignfoldersignerassociation_isSet = true;
+    m_obj_ezsignfoldersignerassociation = obj_ezsignfoldersignerassociation;
+    m_obj_ezsignfoldersignerassociation_isSet = true;
 }
 
 bool OAIEzsignfoldersignerassociation_patchObject_v1_Request::is_obj_ezsignfoldersignerassociation_Set() const{
@@ -85,7 +85,7 @@ bool OAIEzsignfoldersignerassociation_patchObject_v1_Request::is_obj_ezsignfolde
 bool OAIEzsignfoldersignerassociation_patchObject_v1_Request::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (obj_ezsignfoldersignerassociation.isSet()) {
+        if (m_obj_ezsignfoldersignerassociation.isSet()) {
             isObjectUpdated = true;
             break;
         }

@@ -20,7 +20,6 @@
 
 #include "OAIUser_createEzsignuser_v1_Request.h"
 #include "OAIUser_createEzsignuser_v1_Response.h"
-#include <QList>
 #include <QString>
 
 #include <QObject>

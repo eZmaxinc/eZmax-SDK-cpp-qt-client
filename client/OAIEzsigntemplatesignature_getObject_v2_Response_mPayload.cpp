@@ -47,7 +47,7 @@ void OAIEzsigntemplatesignature_getObject_v2_Response_mPayload::fromJson(QString
 
 void OAIEzsigntemplatesignature_getObject_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_obj_ezsigntemplatesignature_isValid = ::OpenAPI::fromJsonValue(obj_ezsigntemplatesignature, json[QString("objEzsigntemplatesignature")]);
+    m_obj_ezsigntemplatesignature_isValid = ::OpenAPI::fromJsonValue(m_obj_ezsigntemplatesignature, json[QString("objEzsigntemplatesignature")]);
     m_obj_ezsigntemplatesignature_isSet = !json[QString("objEzsigntemplatesignature")].isNull() && m_obj_ezsigntemplatesignature_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIEzsigntemplatesignature_getObject_v2_Response_mPayload::asJson() cons
 
 QJsonObject OAIEzsigntemplatesignature_getObject_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (obj_ezsigntemplatesignature.isSet()) {
-        obj.insert(QString("objEzsigntemplatesignature"), ::OpenAPI::toJsonValue(obj_ezsigntemplatesignature));
+    if (m_obj_ezsigntemplatesignature.isSet()) {
+        obj.insert(QString("objEzsigntemplatesignature"), ::OpenAPI::toJsonValue(m_obj_ezsigntemplatesignature));
     }
     return obj;
 }
 
 OAIEzsigntemplatesignature_ResponseCompound OAIEzsigntemplatesignature_getObject_v2_Response_mPayload::getObjEzsigntemplatesignature() const {
-    return obj_ezsigntemplatesignature;
+    return m_obj_ezsigntemplatesignature;
 }
 void OAIEzsigntemplatesignature_getObject_v2_Response_mPayload::setObjEzsigntemplatesignature(const OAIEzsigntemplatesignature_ResponseCompound &obj_ezsigntemplatesignature) {
-    this->obj_ezsigntemplatesignature = obj_ezsigntemplatesignature;
-    this->m_obj_ezsigntemplatesignature_isSet = true;
+    m_obj_ezsigntemplatesignature = obj_ezsigntemplatesignature;
+    m_obj_ezsigntemplatesignature_isSet = true;
 }
 
 bool OAIEzsigntemplatesignature_getObject_v2_Response_mPayload::is_obj_ezsigntemplatesignature_Set() const{
@@ -85,7 +85,7 @@ bool OAIEzsigntemplatesignature_getObject_v2_Response_mPayload::is_obj_ezsigntem
 bool OAIEzsigntemplatesignature_getObject_v2_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (obj_ezsigntemplatesignature.isSet()) {
+        if (m_obj_ezsigntemplatesignature.isSet()) {
             isObjectUpdated = true;
             break;
         }

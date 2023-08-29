@@ -53,13 +53,13 @@ void OAICommon_Response_Error_EzsignformValidation::fromJson(QString jsonString)
 
 void OAICommon_Response_Error_EzsignformValidation::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_ezsignformfielderror_isValid = ::OpenAPI::fromJsonValue(a_obj_ezsignformfielderror, json[QString("a_objEzsignformfielderror")]);
+    m_a_obj_ezsignformfielderror_isValid = ::OpenAPI::fromJsonValue(m_a_obj_ezsignformfielderror, json[QString("a_objEzsignformfielderror")]);
     m_a_obj_ezsignformfielderror_isSet = !json[QString("a_objEzsignformfielderror")].isNull() && m_a_obj_ezsignformfielderror_isValid;
 
-    m_s_error_message_isValid = ::OpenAPI::fromJsonValue(s_error_message, json[QString("sErrorMessage")]);
+    m_s_error_message_isValid = ::OpenAPI::fromJsonValue(m_s_error_message, json[QString("sErrorMessage")]);
     m_s_error_message_isSet = !json[QString("sErrorMessage")].isNull() && m_s_error_message_isValid;
 
-    m_e_error_code_isValid = ::OpenAPI::fromJsonValue(e_error_code, json[QString("eErrorCode")]);
+    m_e_error_code_isValid = ::OpenAPI::fromJsonValue(m_e_error_code, json[QString("eErrorCode")]);
     m_e_error_code_isSet = !json[QString("eErrorCode")].isNull() && m_e_error_code_isValid;
 }
 
@@ -72,24 +72,24 @@ QString OAICommon_Response_Error_EzsignformValidation::asJson() const {
 
 QJsonObject OAICommon_Response_Error_EzsignformValidation::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_ezsignformfielderror.size() > 0) {
-        obj.insert(QString("a_objEzsignformfielderror"), ::OpenAPI::toJsonValue(a_obj_ezsignformfielderror));
+    if (m_a_obj_ezsignformfielderror.size() > 0) {
+        obj.insert(QString("a_objEzsignformfielderror"), ::OpenAPI::toJsonValue(m_a_obj_ezsignformfielderror));
     }
     if (m_s_error_message_isSet) {
-        obj.insert(QString("sErrorMessage"), ::OpenAPI::toJsonValue(s_error_message));
+        obj.insert(QString("sErrorMessage"), ::OpenAPI::toJsonValue(m_s_error_message));
     }
-    if (e_error_code.isSet()) {
-        obj.insert(QString("eErrorCode"), ::OpenAPI::toJsonValue(e_error_code));
+    if (m_e_error_code.isSet()) {
+        obj.insert(QString("eErrorCode"), ::OpenAPI::toJsonValue(m_e_error_code));
     }
     return obj;
 }
 
 QList<OAICustom_Ezsignformfielderror_Response> OAICommon_Response_Error_EzsignformValidation::getAObjEzsignformfielderror() const {
-    return a_obj_ezsignformfielderror;
+    return m_a_obj_ezsignformfielderror;
 }
 void OAICommon_Response_Error_EzsignformValidation::setAObjEzsignformfielderror(const QList<OAICustom_Ezsignformfielderror_Response> &a_obj_ezsignformfielderror) {
-    this->a_obj_ezsignformfielderror = a_obj_ezsignformfielderror;
-    this->m_a_obj_ezsignformfielderror_isSet = true;
+    m_a_obj_ezsignformfielderror = a_obj_ezsignformfielderror;
+    m_a_obj_ezsignformfielderror_isSet = true;
 }
 
 bool OAICommon_Response_Error_EzsignformValidation::is_a_obj_ezsignformfielderror_Set() const{
@@ -101,11 +101,11 @@ bool OAICommon_Response_Error_EzsignformValidation::is_a_obj_ezsignformfielderro
 }
 
 QString OAICommon_Response_Error_EzsignformValidation::getSErrorMessage() const {
-    return s_error_message;
+    return m_s_error_message;
 }
 void OAICommon_Response_Error_EzsignformValidation::setSErrorMessage(const QString &s_error_message) {
-    this->s_error_message = s_error_message;
-    this->m_s_error_message_isSet = true;
+    m_s_error_message = s_error_message;
+    m_s_error_message_isSet = true;
 }
 
 bool OAICommon_Response_Error_EzsignformValidation::is_s_error_message_Set() const{
@@ -117,11 +117,11 @@ bool OAICommon_Response_Error_EzsignformValidation::is_s_error_message_Valid() c
 }
 
 OAIField_eErrorCode OAICommon_Response_Error_EzsignformValidation::getEErrorCode() const {
-    return e_error_code;
+    return m_e_error_code;
 }
 void OAICommon_Response_Error_EzsignformValidation::setEErrorCode(const OAIField_eErrorCode &e_error_code) {
-    this->e_error_code = e_error_code;
-    this->m_e_error_code_isSet = true;
+    m_e_error_code = e_error_code;
+    m_e_error_code_isSet = true;
 }
 
 bool OAICommon_Response_Error_EzsignformValidation::is_e_error_code_Set() const{
@@ -135,7 +135,7 @@ bool OAICommon_Response_Error_EzsignformValidation::is_e_error_code_Valid() cons
 bool OAICommon_Response_Error_EzsignformValidation::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_ezsignformfielderror.size() > 0) {
+        if (m_a_obj_ezsignformfielderror.size() > 0) {
             isObjectUpdated = true;
             break;
         }
@@ -145,7 +145,7 @@ bool OAICommon_Response_Error_EzsignformValidation::isSet() const {
             break;
         }
 
-        if (e_error_code.isSet()) {
+        if (m_e_error_code.isSet()) {
             isObjectUpdated = true;
             break;
         }

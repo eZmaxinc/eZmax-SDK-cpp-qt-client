@@ -47,7 +47,7 @@ void OAIEzsignsignature_getEzsignsignatureattachment_v1_Response_mPayload::fromJ
 
 void OAIEzsignsignature_getEzsignsignatureattachment_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_ezsignsignatureattachment_isValid = ::OpenAPI::fromJsonValue(a_obj_ezsignsignatureattachment, json[QString("a_objEzsignsignatureattachment")]);
+    m_a_obj_ezsignsignatureattachment_isValid = ::OpenAPI::fromJsonValue(m_a_obj_ezsignsignatureattachment, json[QString("a_objEzsignsignatureattachment")]);
     m_a_obj_ezsignsignatureattachment_isSet = !json[QString("a_objEzsignsignatureattachment")].isNull() && m_a_obj_ezsignsignatureattachment_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIEzsignsignature_getEzsignsignatureattachment_v1_Response_mPayload::as
 
 QJsonObject OAIEzsignsignature_getEzsignsignatureattachment_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_ezsignsignatureattachment.size() > 0) {
-        obj.insert(QString("a_objEzsignsignatureattachment"), ::OpenAPI::toJsonValue(a_obj_ezsignsignatureattachment));
+    if (m_a_obj_ezsignsignatureattachment.size() > 0) {
+        obj.insert(QString("a_objEzsignsignatureattachment"), ::OpenAPI::toJsonValue(m_a_obj_ezsignsignatureattachment));
     }
     return obj;
 }
 
 QList<OAIEzsignsignatureattachment_Response> OAIEzsignsignature_getEzsignsignatureattachment_v1_Response_mPayload::getAObjEzsignsignatureattachment() const {
-    return a_obj_ezsignsignatureattachment;
+    return m_a_obj_ezsignsignatureattachment;
 }
 void OAIEzsignsignature_getEzsignsignatureattachment_v1_Response_mPayload::setAObjEzsignsignatureattachment(const QList<OAIEzsignsignatureattachment_Response> &a_obj_ezsignsignatureattachment) {
-    this->a_obj_ezsignsignatureattachment = a_obj_ezsignsignatureattachment;
-    this->m_a_obj_ezsignsignatureattachment_isSet = true;
+    m_a_obj_ezsignsignatureattachment = a_obj_ezsignsignatureattachment;
+    m_a_obj_ezsignsignatureattachment_isSet = true;
 }
 
 bool OAIEzsignsignature_getEzsignsignatureattachment_v1_Response_mPayload::is_a_obj_ezsignsignatureattachment_Set() const{
@@ -85,7 +85,7 @@ bool OAIEzsignsignature_getEzsignsignatureattachment_v1_Response_mPayload::is_a_
 bool OAIEzsignsignature_getEzsignsignatureattachment_v1_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_ezsignsignatureattachment.size() > 0) {
+        if (m_a_obj_ezsignsignatureattachment.size() > 0) {
             isObjectUpdated = true;
             break;
         }

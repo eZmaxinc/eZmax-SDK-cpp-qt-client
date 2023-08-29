@@ -51,7 +51,7 @@ public:
 private:
     void initializeModel();
 
-    OAIUsergroup_ResponseCompound obj_usergroup;
+    OAIUsergroup_ResponseCompound m_obj_usergroup;
     bool m_obj_usergroup_isSet;
     bool m_obj_usergroup_isValid;
 };

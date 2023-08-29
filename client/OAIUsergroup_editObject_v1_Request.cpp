@@ -47,7 +47,7 @@ void OAIUsergroup_editObject_v1_Request::fromJson(QString jsonString) {
 
 void OAIUsergroup_editObject_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_obj_usergroup_isValid = ::OpenAPI::fromJsonValue(obj_usergroup, json[QString("objUsergroup")]);
+    m_obj_usergroup_isValid = ::OpenAPI::fromJsonValue(m_obj_usergroup, json[QString("objUsergroup")]);
     m_obj_usergroup_isSet = !json[QString("objUsergroup")].isNull() && m_obj_usergroup_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIUsergroup_editObject_v1_Request::asJson() const {
 
 QJsonObject OAIUsergroup_editObject_v1_Request::asJsonObject() const {
     QJsonObject obj;
-    if (obj_usergroup.isSet()) {
-        obj.insert(QString("objUsergroup"), ::OpenAPI::toJsonValue(obj_usergroup));
+    if (m_obj_usergroup.isSet()) {
+        obj.insert(QString("objUsergroup"), ::OpenAPI::toJsonValue(m_obj_usergroup));
     }
     return obj;
 }
 
 OAIUsergroup_RequestCompound OAIUsergroup_editObject_v1_Request::getObjUsergroup() const {
-    return obj_usergroup;
+    return m_obj_usergroup;
 }
 void OAIUsergroup_editObject_v1_Request::setObjUsergroup(const OAIUsergroup_RequestCompound &obj_usergroup) {
-    this->obj_usergroup = obj_usergroup;
-    this->m_obj_usergroup_isSet = true;
+    m_obj_usergroup = obj_usergroup;
+    m_obj_usergroup_isSet = true;
 }
 
 bool OAIUsergroup_editObject_v1_Request::is_obj_usergroup_Set() const{
@@ -85,7 +85,7 @@ bool OAIUsergroup_editObject_v1_Request::is_obj_usergroup_Valid() const{
 bool OAIUsergroup_editObject_v1_Request::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (obj_usergroup.isSet()) {
+        if (m_obj_usergroup.isSet()) {
             isObjectUpdated = true;
             break;
         }

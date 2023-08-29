@@ -56,16 +56,16 @@ void OAIEzsigntsarequirement_AutocompleteElement_Response::fromJson(QString json
 
 void OAIEzsigntsarequirement_AutocompleteElement_Response::fromJsonObject(QJsonObject json) {
 
-    m_s_ezsigntsarequirement_description_x_isValid = ::OpenAPI::fromJsonValue(s_ezsigntsarequirement_description_x, json[QString("sEzsigntsarequirementDescriptionX")]);
+    m_s_ezsigntsarequirement_description_x_isValid = ::OpenAPI::fromJsonValue(m_s_ezsigntsarequirement_description_x, json[QString("sEzsigntsarequirementDescriptionX")]);
     m_s_ezsigntsarequirement_description_x_isSet = !json[QString("sEzsigntsarequirementDescriptionX")].isNull() && m_s_ezsigntsarequirement_description_x_isValid;
 
-    m_pki_ezsigntsarequirement_id_isValid = ::OpenAPI::fromJsonValue(pki_ezsigntsarequirement_id, json[QString("pkiEzsigntsarequirementID")]);
+    m_pki_ezsigntsarequirement_id_isValid = ::OpenAPI::fromJsonValue(m_pki_ezsigntsarequirement_id, json[QString("pkiEzsigntsarequirementID")]);
     m_pki_ezsigntsarequirement_id_isSet = !json[QString("pkiEzsigntsarequirementID")].isNull() && m_pki_ezsigntsarequirement_id_isValid;
 
-    m_b_ezsigntsarequirement_isactive_isValid = ::OpenAPI::fromJsonValue(b_ezsigntsarequirement_isactive, json[QString("bEzsigntsarequirementIsactive")]);
+    m_b_ezsigntsarequirement_isactive_isValid = ::OpenAPI::fromJsonValue(m_b_ezsigntsarequirement_isactive, json[QString("bEzsigntsarequirementIsactive")]);
     m_b_ezsigntsarequirement_isactive_isSet = !json[QString("bEzsigntsarequirementIsactive")].isNull() && m_b_ezsigntsarequirement_isactive_isValid;
 
-    m_b_disabled_isValid = ::OpenAPI::fromJsonValue(b_disabled, json[QString("bDisabled")]);
+    m_b_disabled_isValid = ::OpenAPI::fromJsonValue(m_b_disabled, json[QString("bDisabled")]);
     m_b_disabled_isSet = !json[QString("bDisabled")].isNull() && m_b_disabled_isValid;
 }
 
@@ -79,26 +79,26 @@ QString OAIEzsigntsarequirement_AutocompleteElement_Response::asJson() const {
 QJsonObject OAIEzsigntsarequirement_AutocompleteElement_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_s_ezsigntsarequirement_description_x_isSet) {
-        obj.insert(QString("sEzsigntsarequirementDescriptionX"), ::OpenAPI::toJsonValue(s_ezsigntsarequirement_description_x));
+        obj.insert(QString("sEzsigntsarequirementDescriptionX"), ::OpenAPI::toJsonValue(m_s_ezsigntsarequirement_description_x));
     }
     if (m_pki_ezsigntsarequirement_id_isSet) {
-        obj.insert(QString("pkiEzsigntsarequirementID"), ::OpenAPI::toJsonValue(pki_ezsigntsarequirement_id));
+        obj.insert(QString("pkiEzsigntsarequirementID"), ::OpenAPI::toJsonValue(m_pki_ezsigntsarequirement_id));
     }
     if (m_b_ezsigntsarequirement_isactive_isSet) {
-        obj.insert(QString("bEzsigntsarequirementIsactive"), ::OpenAPI::toJsonValue(b_ezsigntsarequirement_isactive));
+        obj.insert(QString("bEzsigntsarequirementIsactive"), ::OpenAPI::toJsonValue(m_b_ezsigntsarequirement_isactive));
     }
     if (m_b_disabled_isSet) {
-        obj.insert(QString("bDisabled"), ::OpenAPI::toJsonValue(b_disabled));
+        obj.insert(QString("bDisabled"), ::OpenAPI::toJsonValue(m_b_disabled));
     }
     return obj;
 }
 
 QString OAIEzsigntsarequirement_AutocompleteElement_Response::getSEzsigntsarequirementDescriptionX() const {
-    return s_ezsigntsarequirement_description_x;
+    return m_s_ezsigntsarequirement_description_x;
 }
 void OAIEzsigntsarequirement_AutocompleteElement_Response::setSEzsigntsarequirementDescriptionX(const QString &s_ezsigntsarequirement_description_x) {
-    this->s_ezsigntsarequirement_description_x = s_ezsigntsarequirement_description_x;
-    this->m_s_ezsigntsarequirement_description_x_isSet = true;
+    m_s_ezsigntsarequirement_description_x = s_ezsigntsarequirement_description_x;
+    m_s_ezsigntsarequirement_description_x_isSet = true;
 }
 
 bool OAIEzsigntsarequirement_AutocompleteElement_Response::is_s_ezsigntsarequirement_description_x_Set() const{
@@ -110,11 +110,11 @@ bool OAIEzsigntsarequirement_AutocompleteElement_Response::is_s_ezsigntsarequire
 }
 
 qint32 OAIEzsigntsarequirement_AutocompleteElement_Response::getPkiEzsigntsarequirementId() const {
-    return pki_ezsigntsarequirement_id;
+    return m_pki_ezsigntsarequirement_id;
 }
 void OAIEzsigntsarequirement_AutocompleteElement_Response::setPkiEzsigntsarequirementId(const qint32 &pki_ezsigntsarequirement_id) {
-    this->pki_ezsigntsarequirement_id = pki_ezsigntsarequirement_id;
-    this->m_pki_ezsigntsarequirement_id_isSet = true;
+    m_pki_ezsigntsarequirement_id = pki_ezsigntsarequirement_id;
+    m_pki_ezsigntsarequirement_id_isSet = true;
 }
 
 bool OAIEzsigntsarequirement_AutocompleteElement_Response::is_pki_ezsigntsarequirement_id_Set() const{
@@ -126,11 +126,11 @@ bool OAIEzsigntsarequirement_AutocompleteElement_Response::is_pki_ezsigntsarequi
 }
 
 bool OAIEzsigntsarequirement_AutocompleteElement_Response::isBEzsigntsarequirementIsactive() const {
-    return b_ezsigntsarequirement_isactive;
+    return m_b_ezsigntsarequirement_isactive;
 }
 void OAIEzsigntsarequirement_AutocompleteElement_Response::setBEzsigntsarequirementIsactive(const bool &b_ezsigntsarequirement_isactive) {
-    this->b_ezsigntsarequirement_isactive = b_ezsigntsarequirement_isactive;
-    this->m_b_ezsigntsarequirement_isactive_isSet = true;
+    m_b_ezsigntsarequirement_isactive = b_ezsigntsarequirement_isactive;
+    m_b_ezsigntsarequirement_isactive_isSet = true;
 }
 
 bool OAIEzsigntsarequirement_AutocompleteElement_Response::is_b_ezsigntsarequirement_isactive_Set() const{
@@ -142,11 +142,11 @@ bool OAIEzsigntsarequirement_AutocompleteElement_Response::is_b_ezsigntsarequire
 }
 
 bool OAIEzsigntsarequirement_AutocompleteElement_Response::isBDisabled() const {
-    return b_disabled;
+    return m_b_disabled;
 }
 void OAIEzsigntsarequirement_AutocompleteElement_Response::setBDisabled(const bool &b_disabled) {
-    this->b_disabled = b_disabled;
-    this->m_b_disabled_isSet = true;
+    m_b_disabled = b_disabled;
+    m_b_disabled_isSet = true;
 }
 
 bool OAIEzsigntsarequirement_AutocompleteElement_Response::is_b_disabled_Set() const{

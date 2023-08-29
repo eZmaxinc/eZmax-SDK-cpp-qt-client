@@ -47,7 +47,7 @@ void OAISystemconfiguration_editObject_v1_Request::fromJson(QString jsonString) 
 
 void OAISystemconfiguration_editObject_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_obj_systemconfiguration_isValid = ::OpenAPI::fromJsonValue(obj_systemconfiguration, json[QString("objSystemconfiguration")]);
+    m_obj_systemconfiguration_isValid = ::OpenAPI::fromJsonValue(m_obj_systemconfiguration, json[QString("objSystemconfiguration")]);
     m_obj_systemconfiguration_isSet = !json[QString("objSystemconfiguration")].isNull() && m_obj_systemconfiguration_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAISystemconfiguration_editObject_v1_Request::asJson() const {
 
 QJsonObject OAISystemconfiguration_editObject_v1_Request::asJsonObject() const {
     QJsonObject obj;
-    if (obj_systemconfiguration.isSet()) {
-        obj.insert(QString("objSystemconfiguration"), ::OpenAPI::toJsonValue(obj_systemconfiguration));
+    if (m_obj_systemconfiguration.isSet()) {
+        obj.insert(QString("objSystemconfiguration"), ::OpenAPI::toJsonValue(m_obj_systemconfiguration));
     }
     return obj;
 }
 
 OAISystemconfiguration_RequestCompound OAISystemconfiguration_editObject_v1_Request::getObjSystemconfiguration() const {
-    return obj_systemconfiguration;
+    return m_obj_systemconfiguration;
 }
 void OAISystemconfiguration_editObject_v1_Request::setObjSystemconfiguration(const OAISystemconfiguration_RequestCompound &obj_systemconfiguration) {
-    this->obj_systemconfiguration = obj_systemconfiguration;
-    this->m_obj_systemconfiguration_isSet = true;
+    m_obj_systemconfiguration = obj_systemconfiguration;
+    m_obj_systemconfiguration_isSet = true;
 }
 
 bool OAISystemconfiguration_editObject_v1_Request::is_obj_systemconfiguration_Set() const{
@@ -85,7 +85,7 @@ bool OAISystemconfiguration_editObject_v1_Request::is_obj_systemconfiguration_Va
 bool OAISystemconfiguration_editObject_v1_Request::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (obj_systemconfiguration.isSet()) {
+        if (m_obj_systemconfiguration.isSet()) {
             isObjectUpdated = true;
             break;
         }

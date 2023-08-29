@@ -62,22 +62,22 @@ void OAIModule_Response::fromJson(QString jsonString) {
 
 void OAIModule_Response::fromJsonObject(QJsonObject json) {
 
-    m_pki_module_id_isValid = ::OpenAPI::fromJsonValue(pki_module_id, json[QString("pkiModuleID")]);
+    m_pki_module_id_isValid = ::OpenAPI::fromJsonValue(m_pki_module_id, json[QString("pkiModuleID")]);
     m_pki_module_id_isSet = !json[QString("pkiModuleID")].isNull() && m_pki_module_id_isValid;
 
-    m_fki_modulegroup_id_isValid = ::OpenAPI::fromJsonValue(fki_modulegroup_id, json[QString("fkiModulegroupID")]);
+    m_fki_modulegroup_id_isValid = ::OpenAPI::fromJsonValue(m_fki_modulegroup_id, json[QString("fkiModulegroupID")]);
     m_fki_modulegroup_id_isSet = !json[QString("fkiModulegroupID")].isNull() && m_fki_modulegroup_id_isValid;
 
-    m_e_module_internalname_isValid = ::OpenAPI::fromJsonValue(e_module_internalname, json[QString("eModuleInternalname")]);
+    m_e_module_internalname_isValid = ::OpenAPI::fromJsonValue(m_e_module_internalname, json[QString("eModuleInternalname")]);
     m_e_module_internalname_isSet = !json[QString("eModuleInternalname")].isNull() && m_e_module_internalname_isValid;
 
-    m_s_module_name_x_isValid = ::OpenAPI::fromJsonValue(s_module_name_x, json[QString("sModuleNameX")]);
+    m_s_module_name_x_isValid = ::OpenAPI::fromJsonValue(m_s_module_name_x, json[QString("sModuleNameX")]);
     m_s_module_name_x_isSet = !json[QString("sModuleNameX")].isNull() && m_s_module_name_x_isValid;
 
-    m_b_module_registered_isValid = ::OpenAPI::fromJsonValue(b_module_registered, json[QString("bModuleRegistered")]);
+    m_b_module_registered_isValid = ::OpenAPI::fromJsonValue(m_b_module_registered, json[QString("bModuleRegistered")]);
     m_b_module_registered_isSet = !json[QString("bModuleRegistered")].isNull() && m_b_module_registered_isValid;
 
-    m_b_module_registeredapi_isValid = ::OpenAPI::fromJsonValue(b_module_registeredapi, json[QString("bModuleRegisteredapi")]);
+    m_b_module_registeredapi_isValid = ::OpenAPI::fromJsonValue(m_b_module_registeredapi, json[QString("bModuleRegisteredapi")]);
     m_b_module_registeredapi_isSet = !json[QString("bModuleRegisteredapi")].isNull() && m_b_module_registeredapi_isValid;
 }
 
@@ -91,32 +91,32 @@ QString OAIModule_Response::asJson() const {
 QJsonObject OAIModule_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_module_id_isSet) {
-        obj.insert(QString("pkiModuleID"), ::OpenAPI::toJsonValue(pki_module_id));
+        obj.insert(QString("pkiModuleID"), ::OpenAPI::toJsonValue(m_pki_module_id));
     }
     if (m_fki_modulegroup_id_isSet) {
-        obj.insert(QString("fkiModulegroupID"), ::OpenAPI::toJsonValue(fki_modulegroup_id));
+        obj.insert(QString("fkiModulegroupID"), ::OpenAPI::toJsonValue(m_fki_modulegroup_id));
     }
     if (m_e_module_internalname_isSet) {
-        obj.insert(QString("eModuleInternalname"), ::OpenAPI::toJsonValue(e_module_internalname));
+        obj.insert(QString("eModuleInternalname"), ::OpenAPI::toJsonValue(m_e_module_internalname));
     }
     if (m_s_module_name_x_isSet) {
-        obj.insert(QString("sModuleNameX"), ::OpenAPI::toJsonValue(s_module_name_x));
+        obj.insert(QString("sModuleNameX"), ::OpenAPI::toJsonValue(m_s_module_name_x));
     }
     if (m_b_module_registered_isSet) {
-        obj.insert(QString("bModuleRegistered"), ::OpenAPI::toJsonValue(b_module_registered));
+        obj.insert(QString("bModuleRegistered"), ::OpenAPI::toJsonValue(m_b_module_registered));
     }
     if (m_b_module_registeredapi_isSet) {
-        obj.insert(QString("bModuleRegisteredapi"), ::OpenAPI::toJsonValue(b_module_registeredapi));
+        obj.insert(QString("bModuleRegisteredapi"), ::OpenAPI::toJsonValue(m_b_module_registeredapi));
     }
     return obj;
 }
 
 qint32 OAIModule_Response::getPkiModuleId() const {
-    return pki_module_id;
+    return m_pki_module_id;
 }
 void OAIModule_Response::setPkiModuleId(const qint32 &pki_module_id) {
-    this->pki_module_id = pki_module_id;
-    this->m_pki_module_id_isSet = true;
+    m_pki_module_id = pki_module_id;
+    m_pki_module_id_isSet = true;
 }
 
 bool OAIModule_Response::is_pki_module_id_Set() const{
@@ -128,11 +128,11 @@ bool OAIModule_Response::is_pki_module_id_Valid() const{
 }
 
 qint32 OAIModule_Response::getFkiModulegroupId() const {
-    return fki_modulegroup_id;
+    return m_fki_modulegroup_id;
 }
 void OAIModule_Response::setFkiModulegroupId(const qint32 &fki_modulegroup_id) {
-    this->fki_modulegroup_id = fki_modulegroup_id;
-    this->m_fki_modulegroup_id_isSet = true;
+    m_fki_modulegroup_id = fki_modulegroup_id;
+    m_fki_modulegroup_id_isSet = true;
 }
 
 bool OAIModule_Response::is_fki_modulegroup_id_Set() const{
@@ -144,11 +144,11 @@ bool OAIModule_Response::is_fki_modulegroup_id_Valid() const{
 }
 
 QString OAIModule_Response::getEModuleInternalname() const {
-    return e_module_internalname;
+    return m_e_module_internalname;
 }
 void OAIModule_Response::setEModuleInternalname(const QString &e_module_internalname) {
-    this->e_module_internalname = e_module_internalname;
-    this->m_e_module_internalname_isSet = true;
+    m_e_module_internalname = e_module_internalname;
+    m_e_module_internalname_isSet = true;
 }
 
 bool OAIModule_Response::is_e_module_internalname_Set() const{
@@ -160,11 +160,11 @@ bool OAIModule_Response::is_e_module_internalname_Valid() const{
 }
 
 QString OAIModule_Response::getSModuleNameX() const {
-    return s_module_name_x;
+    return m_s_module_name_x;
 }
 void OAIModule_Response::setSModuleNameX(const QString &s_module_name_x) {
-    this->s_module_name_x = s_module_name_x;
-    this->m_s_module_name_x_isSet = true;
+    m_s_module_name_x = s_module_name_x;
+    m_s_module_name_x_isSet = true;
 }
 
 bool OAIModule_Response::is_s_module_name_x_Set() const{
@@ -176,11 +176,11 @@ bool OAIModule_Response::is_s_module_name_x_Valid() const{
 }
 
 bool OAIModule_Response::isBModuleRegistered() const {
-    return b_module_registered;
+    return m_b_module_registered;
 }
 void OAIModule_Response::setBModuleRegistered(const bool &b_module_registered) {
-    this->b_module_registered = b_module_registered;
-    this->m_b_module_registered_isSet = true;
+    m_b_module_registered = b_module_registered;
+    m_b_module_registered_isSet = true;
 }
 
 bool OAIModule_Response::is_b_module_registered_Set() const{
@@ -192,11 +192,11 @@ bool OAIModule_Response::is_b_module_registered_Valid() const{
 }
 
 bool OAIModule_Response::isBModuleRegisteredapi() const {
-    return b_module_registeredapi;
+    return m_b_module_registeredapi;
 }
 void OAIModule_Response::setBModuleRegisteredapi(const bool &b_module_registeredapi) {
-    this->b_module_registeredapi = b_module_registeredapi;
-    this->m_b_module_registeredapi_isSet = true;
+    m_b_module_registeredapi = b_module_registeredapi;
+    m_b_module_registeredapi_isSet = true;
 }
 
 bool OAIModule_Response::is_b_module_registeredapi_Set() const{

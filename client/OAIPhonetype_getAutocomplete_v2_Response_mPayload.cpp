@@ -47,7 +47,7 @@ void OAIPhonetype_getAutocomplete_v2_Response_mPayload::fromJson(QString jsonStr
 
 void OAIPhonetype_getAutocomplete_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_phonetype_isValid = ::OpenAPI::fromJsonValue(a_obj_phonetype, json[QString("a_objPhonetype")]);
+    m_a_obj_phonetype_isValid = ::OpenAPI::fromJsonValue(m_a_obj_phonetype, json[QString("a_objPhonetype")]);
     m_a_obj_phonetype_isSet = !json[QString("a_objPhonetype")].isNull() && m_a_obj_phonetype_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIPhonetype_getAutocomplete_v2_Response_mPayload::asJson() const {
 
 QJsonObject OAIPhonetype_getAutocomplete_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_phonetype.size() > 0) {
-        obj.insert(QString("a_objPhonetype"), ::OpenAPI::toJsonValue(a_obj_phonetype));
+    if (m_a_obj_phonetype.size() > 0) {
+        obj.insert(QString("a_objPhonetype"), ::OpenAPI::toJsonValue(m_a_obj_phonetype));
     }
     return obj;
 }
 
 QList<OAIPhonetype_AutocompleteElement_Response> OAIPhonetype_getAutocomplete_v2_Response_mPayload::getAObjPhonetype() const {
-    return a_obj_phonetype;
+    return m_a_obj_phonetype;
 }
 void OAIPhonetype_getAutocomplete_v2_Response_mPayload::setAObjPhonetype(const QList<OAIPhonetype_AutocompleteElement_Response> &a_obj_phonetype) {
-    this->a_obj_phonetype = a_obj_phonetype;
-    this->m_a_obj_phonetype_isSet = true;
+    m_a_obj_phonetype = a_obj_phonetype;
+    m_a_obj_phonetype_isSet = true;
 }
 
 bool OAIPhonetype_getAutocomplete_v2_Response_mPayload::is_a_obj_phonetype_Set() const{
@@ -85,7 +85,7 @@ bool OAIPhonetype_getAutocomplete_v2_Response_mPayload::is_a_obj_phonetype_Valid
 bool OAIPhonetype_getAutocomplete_v2_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_phonetype.size() > 0) {
+        if (m_a_obj_phonetype.size() > 0) {
             isObjectUpdated = true;
             break;
         }

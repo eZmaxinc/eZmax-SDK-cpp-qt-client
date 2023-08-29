@@ -58,11 +58,11 @@ public:
 private:
     void initializeModel();
 
-    OAIEzsignfoldersignerassociation_Request obj_ezsignfoldersignerassociation;
+    OAIEzsignfoldersignerassociation_Request m_obj_ezsignfoldersignerassociation;
     bool m_obj_ezsignfoldersignerassociation_isSet;
     bool m_obj_ezsignfoldersignerassociation_isValid;
 
-    OAIEzsignfoldersignerassociation_RequestCompound obj_ezsignfoldersignerassociation_compound;
+    OAIEzsignfoldersignerassociation_RequestCompound m_obj_ezsignfoldersignerassociation_compound;
     bool m_obj_ezsignfoldersignerassociation_compound_isSet;
     bool m_obj_ezsignfoldersignerassociation_compound_isValid;
 };

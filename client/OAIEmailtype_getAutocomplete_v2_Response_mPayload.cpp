@@ -47,7 +47,7 @@ void OAIEmailtype_getAutocomplete_v2_Response_mPayload::fromJson(QString jsonStr
 
 void OAIEmailtype_getAutocomplete_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_emailtype_isValid = ::OpenAPI::fromJsonValue(a_obj_emailtype, json[QString("a_objEmailtype")]);
+    m_a_obj_emailtype_isValid = ::OpenAPI::fromJsonValue(m_a_obj_emailtype, json[QString("a_objEmailtype")]);
     m_a_obj_emailtype_isSet = !json[QString("a_objEmailtype")].isNull() && m_a_obj_emailtype_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIEmailtype_getAutocomplete_v2_Response_mPayload::asJson() const {
 
 QJsonObject OAIEmailtype_getAutocomplete_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_emailtype.size() > 0) {
-        obj.insert(QString("a_objEmailtype"), ::OpenAPI::toJsonValue(a_obj_emailtype));
+    if (m_a_obj_emailtype.size() > 0) {
+        obj.insert(QString("a_objEmailtype"), ::OpenAPI::toJsonValue(m_a_obj_emailtype));
     }
     return obj;
 }
 
 QList<OAIEmailtype_AutocompleteElement_Response> OAIEmailtype_getAutocomplete_v2_Response_mPayload::getAObjEmailtype() const {
-    return a_obj_emailtype;
+    return m_a_obj_emailtype;
 }
 void OAIEmailtype_getAutocomplete_v2_Response_mPayload::setAObjEmailtype(const QList<OAIEmailtype_AutocompleteElement_Response> &a_obj_emailtype) {
-    this->a_obj_emailtype = a_obj_emailtype;
-    this->m_a_obj_emailtype_isSet = true;
+    m_a_obj_emailtype = a_obj_emailtype;
+    m_a_obj_emailtype_isSet = true;
 }
 
 bool OAIEmailtype_getAutocomplete_v2_Response_mPayload::is_a_obj_emailtype_Set() const{
@@ -85,7 +85,7 @@ bool OAIEmailtype_getAutocomplete_v2_Response_mPayload::is_a_obj_emailtype_Valid
 bool OAIEmailtype_getAutocomplete_v2_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_emailtype.size() > 0) {
+        if (m_a_obj_emailtype.size() > 0) {
             isObjectUpdated = true;
             break;
         }

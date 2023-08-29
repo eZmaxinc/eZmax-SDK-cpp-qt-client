@@ -82,31 +82,31 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_ezsignfoldersignerassociation_id;
+    qint32 m_pki_ezsignfoldersignerassociation_id;
     bool m_pki_ezsignfoldersignerassociation_id_isSet;
     bool m_pki_ezsignfoldersignerassociation_id_isValid;
 
-    qint32 fki_user_id;
+    qint32 m_fki_user_id;
     bool m_fki_user_id_isSet;
     bool m_fki_user_id_isValid;
 
-    qint32 fki_ezsignsignergroup_id;
+    qint32 m_fki_ezsignsignergroup_id;
     bool m_fki_ezsignsignergroup_id_isSet;
     bool m_fki_ezsignsignergroup_id_isValid;
 
-    qint32 fki_ezsignfolder_id;
+    qint32 m_fki_ezsignfolder_id;
     bool m_fki_ezsignfolder_id_isSet;
     bool m_fki_ezsignfolder_id_isValid;
 
-    bool b_ezsignfoldersignerassociation_receivecopy;
+    bool m_b_ezsignfoldersignerassociation_receivecopy;
     bool m_b_ezsignfoldersignerassociation_receivecopy_isSet;
     bool m_b_ezsignfoldersignerassociation_receivecopy_isValid;
 
-    QString t_ezsignfoldersignerassociation_message;
+    QString m_t_ezsignfoldersignerassociation_message;
     bool m_t_ezsignfoldersignerassociation_message_isSet;
     bool m_t_ezsignfoldersignerassociation_message_isValid;
 
-    OAIEzsignsigner_RequestCompound obj_ezsignsigner;
+    OAIEzsignsigner_RequestCompound m_obj_ezsignsigner;
     bool m_obj_ezsignsigner_isSet;
     bool m_obj_ezsignsigner_isValid;
 };

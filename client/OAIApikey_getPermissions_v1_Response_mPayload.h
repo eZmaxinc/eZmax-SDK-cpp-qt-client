@@ -52,7 +52,7 @@ public:
 private:
     void initializeModel();
 
-    QList<OAIModulegroup_ResponseCompound> a_obj_modulegroup;
+    QList<OAIModulegroup_ResponseCompound> m_a_obj_modulegroup;
     bool m_a_obj_modulegroup_isSet;
     bool m_a_obj_modulegroup_isValid;
 };

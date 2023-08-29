@@ -90,39 +90,39 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_ezsigntemplateformfield_id;
+    qint32 m_pki_ezsigntemplateformfield_id;
     bool m_pki_ezsigntemplateformfield_id_isSet;
     bool m_pki_ezsigntemplateformfield_id_isValid;
 
-    qint32 i_ezsigntemplatedocumentpage_pagenumber;
+    qint32 m_i_ezsigntemplatedocumentpage_pagenumber;
     bool m_i_ezsigntemplatedocumentpage_pagenumber_isSet;
     bool m_i_ezsigntemplatedocumentpage_pagenumber_isValid;
 
-    QString s_ezsigntemplateformfield_label;
+    QString m_s_ezsigntemplateformfield_label;
     bool m_s_ezsigntemplateformfield_label_isSet;
     bool m_s_ezsigntemplateformfield_label_isValid;
 
-    QString s_ezsigntemplateformfield_value;
+    QString m_s_ezsigntemplateformfield_value;
     bool m_s_ezsigntemplateformfield_value_isSet;
     bool m_s_ezsigntemplateformfield_value_isValid;
 
-    qint32 i_ezsigntemplateformfield_x;
+    qint32 m_i_ezsigntemplateformfield_x;
     bool m_i_ezsigntemplateformfield_x_isSet;
     bool m_i_ezsigntemplateformfield_x_isValid;
 
-    qint32 i_ezsigntemplateformfield_y;
+    qint32 m_i_ezsigntemplateformfield_y;
     bool m_i_ezsigntemplateformfield_y_isSet;
     bool m_i_ezsigntemplateformfield_y_isValid;
 
-    qint32 i_ezsigntemplateformfield_width;
+    qint32 m_i_ezsigntemplateformfield_width;
     bool m_i_ezsigntemplateformfield_width_isSet;
     bool m_i_ezsigntemplateformfield_width_isValid;
 
-    qint32 i_ezsigntemplateformfield_height;
+    qint32 m_i_ezsigntemplateformfield_height;
     bool m_i_ezsigntemplateformfield_height_isSet;
     bool m_i_ezsigntemplateformfield_height_isValid;
 
-    bool b_ezsigntemplateformfield_selected;
+    bool m_b_ezsigntemplateformfield_selected;
     bool m_b_ezsigntemplateformfield_selected_isSet;
     bool m_b_ezsigntemplateformfield_selected_isValid;
 };

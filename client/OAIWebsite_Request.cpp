@@ -50,10 +50,10 @@ void OAIWebsite_Request::fromJson(QString jsonString) {
 
 void OAIWebsite_Request::fromJsonObject(QJsonObject json) {
 
-    m_fki_websitetype_id_isValid = ::OpenAPI::fromJsonValue(fki_websitetype_id, json[QString("fkiWebsitetypeID")]);
+    m_fki_websitetype_id_isValid = ::OpenAPI::fromJsonValue(m_fki_websitetype_id, json[QString("fkiWebsitetypeID")]);
     m_fki_websitetype_id_isSet = !json[QString("fkiWebsitetypeID")].isNull() && m_fki_websitetype_id_isValid;
 
-    m_s_website_address_isValid = ::OpenAPI::fromJsonValue(s_website_address, json[QString("sWebsiteAddress")]);
+    m_s_website_address_isValid = ::OpenAPI::fromJsonValue(m_s_website_address, json[QString("sWebsiteAddress")]);
     m_s_website_address_isSet = !json[QString("sWebsiteAddress")].isNull() && m_s_website_address_isValid;
 }
 
@@ -67,20 +67,20 @@ QString OAIWebsite_Request::asJson() const {
 QJsonObject OAIWebsite_Request::asJsonObject() const {
     QJsonObject obj;
     if (m_fki_websitetype_id_isSet) {
-        obj.insert(QString("fkiWebsitetypeID"), ::OpenAPI::toJsonValue(fki_websitetype_id));
+        obj.insert(QString("fkiWebsitetypeID"), ::OpenAPI::toJsonValue(m_fki_websitetype_id));
     }
     if (m_s_website_address_isSet) {
-        obj.insert(QString("sWebsiteAddress"), ::OpenAPI::toJsonValue(s_website_address));
+        obj.insert(QString("sWebsiteAddress"), ::OpenAPI::toJsonValue(m_s_website_address));
     }
     return obj;
 }
 
 qint32 OAIWebsite_Request::getFkiWebsitetypeId() const {
-    return fki_websitetype_id;
+    return m_fki_websitetype_id;
 }
 void OAIWebsite_Request::setFkiWebsitetypeId(const qint32 &fki_websitetype_id) {
-    this->fki_websitetype_id = fki_websitetype_id;
-    this->m_fki_websitetype_id_isSet = true;
+    m_fki_websitetype_id = fki_websitetype_id;
+    m_fki_websitetype_id_isSet = true;
 }
 
 bool OAIWebsite_Request::is_fki_websitetype_id_Set() const{
@@ -92,11 +92,11 @@ bool OAIWebsite_Request::is_fki_websitetype_id_Valid() const{
 }
 
 QString OAIWebsite_Request::getSWebsiteAddress() const {
-    return s_website_address;
+    return m_s_website_address;
 }
 void OAIWebsite_Request::setSWebsiteAddress(const QString &s_website_address) {
-    this->s_website_address = s_website_address;
-    this->m_s_website_address_isSet = true;
+    m_s_website_address = s_website_address;
+    m_s_website_address_isSet = true;
 }
 
 bool OAIWebsite_Request::is_s_website_address_Set() const{

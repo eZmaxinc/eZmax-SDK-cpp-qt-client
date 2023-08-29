@@ -68,28 +68,28 @@ void OAIScim_ServiceProviderConfig::fromJson(QString jsonString) {
 
 void OAIScim_ServiceProviderConfig::fromJsonObject(QJsonObject json) {
 
-    m_authentication_schemes_isValid = ::OpenAPI::fromJsonValue(authentication_schemes, json[QString("authenticationSchemes")]);
+    m_authentication_schemes_isValid = ::OpenAPI::fromJsonValue(m_authentication_schemes, json[QString("authenticationSchemes")]);
     m_authentication_schemes_isSet = !json[QString("authenticationSchemes")].isNull() && m_authentication_schemes_isValid;
 
-    m_bulk_isValid = ::OpenAPI::fromJsonValue(bulk, json[QString("bulk")]);
+    m_bulk_isValid = ::OpenAPI::fromJsonValue(m_bulk, json[QString("bulk")]);
     m_bulk_isSet = !json[QString("bulk")].isNull() && m_bulk_isValid;
 
-    m_change_password_isValid = ::OpenAPI::fromJsonValue(change_password, json[QString("changePassword")]);
+    m_change_password_isValid = ::OpenAPI::fromJsonValue(m_change_password, json[QString("changePassword")]);
     m_change_password_isSet = !json[QString("changePassword")].isNull() && m_change_password_isValid;
 
-    m_documentation_uri_isValid = ::OpenAPI::fromJsonValue(documentation_uri, json[QString("documentationUri")]);
+    m_documentation_uri_isValid = ::OpenAPI::fromJsonValue(m_documentation_uri, json[QString("documentationUri")]);
     m_documentation_uri_isSet = !json[QString("documentationUri")].isNull() && m_documentation_uri_isValid;
 
-    m_etag_isValid = ::OpenAPI::fromJsonValue(etag, json[QString("etag")]);
+    m_etag_isValid = ::OpenAPI::fromJsonValue(m_etag, json[QString("etag")]);
     m_etag_isSet = !json[QString("etag")].isNull() && m_etag_isValid;
 
-    m_filter_isValid = ::OpenAPI::fromJsonValue(filter, json[QString("filter")]);
+    m_filter_isValid = ::OpenAPI::fromJsonValue(m_filter, json[QString("filter")]);
     m_filter_isSet = !json[QString("filter")].isNull() && m_filter_isValid;
 
-    m_patch_isValid = ::OpenAPI::fromJsonValue(patch, json[QString("patch")]);
+    m_patch_isValid = ::OpenAPI::fromJsonValue(m_patch, json[QString("patch")]);
     m_patch_isSet = !json[QString("patch")].isNull() && m_patch_isValid;
 
-    m_sort_isValid = ::OpenAPI::fromJsonValue(sort, json[QString("sort")]);
+    m_sort_isValid = ::OpenAPI::fromJsonValue(m_sort, json[QString("sort")]);
     m_sort_isSet = !json[QString("sort")].isNull() && m_sort_isValid;
 }
 
@@ -102,39 +102,39 @@ QString OAIScim_ServiceProviderConfig::asJson() const {
 
 QJsonObject OAIScim_ServiceProviderConfig::asJsonObject() const {
     QJsonObject obj;
-    if (authentication_schemes.size() > 0) {
-        obj.insert(QString("authenticationSchemes"), ::OpenAPI::toJsonValue(authentication_schemes));
+    if (m_authentication_schemes.size() > 0) {
+        obj.insert(QString("authenticationSchemes"), ::OpenAPI::toJsonValue(m_authentication_schemes));
     }
-    if (bulk.isSet()) {
-        obj.insert(QString("bulk"), ::OpenAPI::toJsonValue(bulk));
+    if (m_bulk.isSet()) {
+        obj.insert(QString("bulk"), ::OpenAPI::toJsonValue(m_bulk));
     }
-    if (change_password.isSet()) {
-        obj.insert(QString("changePassword"), ::OpenAPI::toJsonValue(change_password));
+    if (m_change_password.isSet()) {
+        obj.insert(QString("changePassword"), ::OpenAPI::toJsonValue(m_change_password));
     }
     if (m_documentation_uri_isSet) {
-        obj.insert(QString("documentationUri"), ::OpenAPI::toJsonValue(documentation_uri));
+        obj.insert(QString("documentationUri"), ::OpenAPI::toJsonValue(m_documentation_uri));
     }
-    if (etag.isSet()) {
-        obj.insert(QString("etag"), ::OpenAPI::toJsonValue(etag));
+    if (m_etag.isSet()) {
+        obj.insert(QString("etag"), ::OpenAPI::toJsonValue(m_etag));
     }
-    if (filter.isSet()) {
-        obj.insert(QString("filter"), ::OpenAPI::toJsonValue(filter));
+    if (m_filter.isSet()) {
+        obj.insert(QString("filter"), ::OpenAPI::toJsonValue(m_filter));
     }
-    if (patch.isSet()) {
-        obj.insert(QString("patch"), ::OpenAPI::toJsonValue(patch));
+    if (m_patch.isSet()) {
+        obj.insert(QString("patch"), ::OpenAPI::toJsonValue(m_patch));
     }
-    if (sort.isSet()) {
-        obj.insert(QString("sort"), ::OpenAPI::toJsonValue(sort));
+    if (m_sort.isSet()) {
+        obj.insert(QString("sort"), ::OpenAPI::toJsonValue(m_sort));
     }
     return obj;
 }
 
 QList<OAIScim_AuthenticationScheme> OAIScim_ServiceProviderConfig::getAuthenticationSchemes() const {
-    return authentication_schemes;
+    return m_authentication_schemes;
 }
 void OAIScim_ServiceProviderConfig::setAuthenticationSchemes(const QList<OAIScim_AuthenticationScheme> &authentication_schemes) {
-    this->authentication_schemes = authentication_schemes;
-    this->m_authentication_schemes_isSet = true;
+    m_authentication_schemes = authentication_schemes;
+    m_authentication_schemes_isSet = true;
 }
 
 bool OAIScim_ServiceProviderConfig::is_authentication_schemes_Set() const{
@@ -146,11 +146,11 @@ bool OAIScim_ServiceProviderConfig::is_authentication_schemes_Valid() const{
 }
 
 OAIScim_ServiceProviderConfig_bulk OAIScim_ServiceProviderConfig::getBulk() const {
-    return bulk;
+    return m_bulk;
 }
 void OAIScim_ServiceProviderConfig::setBulk(const OAIScim_ServiceProviderConfig_bulk &bulk) {
-    this->bulk = bulk;
-    this->m_bulk_isSet = true;
+    m_bulk = bulk;
+    m_bulk_isSet = true;
 }
 
 bool OAIScim_ServiceProviderConfig::is_bulk_Set() const{
@@ -162,11 +162,11 @@ bool OAIScim_ServiceProviderConfig::is_bulk_Valid() const{
 }
 
 OAIScim_ServiceProviderConfig_changePassword OAIScim_ServiceProviderConfig::getChangePassword() const {
-    return change_password;
+    return m_change_password;
 }
 void OAIScim_ServiceProviderConfig::setChangePassword(const OAIScim_ServiceProviderConfig_changePassword &change_password) {
-    this->change_password = change_password;
-    this->m_change_password_isSet = true;
+    m_change_password = change_password;
+    m_change_password_isSet = true;
 }
 
 bool OAIScim_ServiceProviderConfig::is_change_password_Set() const{
@@ -178,11 +178,11 @@ bool OAIScim_ServiceProviderConfig::is_change_password_Valid() const{
 }
 
 QString OAIScim_ServiceProviderConfig::getDocumentationUri() const {
-    return documentation_uri;
+    return m_documentation_uri;
 }
 void OAIScim_ServiceProviderConfig::setDocumentationUri(const QString &documentation_uri) {
-    this->documentation_uri = documentation_uri;
-    this->m_documentation_uri_isSet = true;
+    m_documentation_uri = documentation_uri;
+    m_documentation_uri_isSet = true;
 }
 
 bool OAIScim_ServiceProviderConfig::is_documentation_uri_Set() const{
@@ -194,11 +194,11 @@ bool OAIScim_ServiceProviderConfig::is_documentation_uri_Valid() const{
 }
 
 OAIScim_ServiceProviderConfig_etag OAIScim_ServiceProviderConfig::getEtag() const {
-    return etag;
+    return m_etag;
 }
 void OAIScim_ServiceProviderConfig::setEtag(const OAIScim_ServiceProviderConfig_etag &etag) {
-    this->etag = etag;
-    this->m_etag_isSet = true;
+    m_etag = etag;
+    m_etag_isSet = true;
 }
 
 bool OAIScim_ServiceProviderConfig::is_etag_Set() const{
@@ -210,11 +210,11 @@ bool OAIScim_ServiceProviderConfig::is_etag_Valid() const{
 }
 
 OAIScim_ServiceProviderConfig_filter OAIScim_ServiceProviderConfig::getFilter() const {
-    return filter;
+    return m_filter;
 }
 void OAIScim_ServiceProviderConfig::setFilter(const OAIScim_ServiceProviderConfig_filter &filter) {
-    this->filter = filter;
-    this->m_filter_isSet = true;
+    m_filter = filter;
+    m_filter_isSet = true;
 }
 
 bool OAIScim_ServiceProviderConfig::is_filter_Set() const{
@@ -226,11 +226,11 @@ bool OAIScim_ServiceProviderConfig::is_filter_Valid() const{
 }
 
 OAIScim_ServiceProviderConfig_patch OAIScim_ServiceProviderConfig::getPatch() const {
-    return patch;
+    return m_patch;
 }
 void OAIScim_ServiceProviderConfig::setPatch(const OAIScim_ServiceProviderConfig_patch &patch) {
-    this->patch = patch;
-    this->m_patch_isSet = true;
+    m_patch = patch;
+    m_patch_isSet = true;
 }
 
 bool OAIScim_ServiceProviderConfig::is_patch_Set() const{
@@ -242,11 +242,11 @@ bool OAIScim_ServiceProviderConfig::is_patch_Valid() const{
 }
 
 OAIScim_ServiceProviderConfig_sort OAIScim_ServiceProviderConfig::getSort() const {
-    return sort;
+    return m_sort;
 }
 void OAIScim_ServiceProviderConfig::setSort(const OAIScim_ServiceProviderConfig_sort &sort) {
-    this->sort = sort;
-    this->m_sort_isSet = true;
+    m_sort = sort;
+    m_sort_isSet = true;
 }
 
 bool OAIScim_ServiceProviderConfig::is_sort_Set() const{
@@ -260,17 +260,17 @@ bool OAIScim_ServiceProviderConfig::is_sort_Valid() const{
 bool OAIScim_ServiceProviderConfig::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (authentication_schemes.size() > 0) {
+        if (m_authentication_schemes.size() > 0) {
             isObjectUpdated = true;
             break;
         }
 
-        if (bulk.isSet()) {
+        if (m_bulk.isSet()) {
             isObjectUpdated = true;
             break;
         }
 
-        if (change_password.isSet()) {
+        if (m_change_password.isSet()) {
             isObjectUpdated = true;
             break;
         }
@@ -280,22 +280,22 @@ bool OAIScim_ServiceProviderConfig::isSet() const {
             break;
         }
 
-        if (etag.isSet()) {
+        if (m_etag.isSet()) {
             isObjectUpdated = true;
             break;
         }
 
-        if (filter.isSet()) {
+        if (m_filter.isSet()) {
             isObjectUpdated = true;
             break;
         }
 
-        if (patch.isSet()) {
+        if (m_patch.isSet()) {
             isObjectUpdated = true;
             break;
         }
 
-        if (sort.isSet()) {
+        if (m_sort.isSet()) {
             isObjectUpdated = true;
             break;
         }

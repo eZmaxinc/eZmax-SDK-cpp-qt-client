@@ -50,10 +50,10 @@ void OAICommon_Reportgroup::fromJson(QString jsonString) {
 
 void OAICommon_Reportgroup::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_report_isValid = ::OpenAPI::fromJsonValue(a_obj_report, json[QString("a_objReport")]);
+    m_a_obj_report_isValid = ::OpenAPI::fromJsonValue(m_a_obj_report, json[QString("a_objReport")]);
     m_a_obj_report_isSet = !json[QString("a_objReport")].isNull() && m_a_obj_report_isValid;
 
-    m_a_obj_reportcellstyle_custom_isValid = ::OpenAPI::fromJsonValue(a_obj_reportcellstyle_custom, json[QString("a_objReportcellstyleCustom")]);
+    m_a_obj_reportcellstyle_custom_isValid = ::OpenAPI::fromJsonValue(m_a_obj_reportcellstyle_custom, json[QString("a_objReportcellstyleCustom")]);
     m_a_obj_reportcellstyle_custom_isSet = !json[QString("a_objReportcellstyleCustom")].isNull() && m_a_obj_reportcellstyle_custom_isValid;
 }
 
@@ -66,21 +66,21 @@ QString OAICommon_Reportgroup::asJson() const {
 
 QJsonObject OAICommon_Reportgroup::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_report.size() > 0) {
-        obj.insert(QString("a_objReport"), ::OpenAPI::toJsonValue(a_obj_report));
+    if (m_a_obj_report.size() > 0) {
+        obj.insert(QString("a_objReport"), ::OpenAPI::toJsonValue(m_a_obj_report));
     }
-    if (a_obj_reportcellstyle_custom.size() > 0) {
-        obj.insert(QString("a_objReportcellstyleCustom"), ::OpenAPI::toJsonValue(a_obj_reportcellstyle_custom));
+    if (m_a_obj_reportcellstyle_custom.size() > 0) {
+        obj.insert(QString("a_objReportcellstyleCustom"), ::OpenAPI::toJsonValue(m_a_obj_reportcellstyle_custom));
     }
     return obj;
 }
 
 QList<OAICommon_Report> OAICommon_Reportgroup::getAObjReport() const {
-    return a_obj_report;
+    return m_a_obj_report;
 }
 void OAICommon_Reportgroup::setAObjReport(const QList<OAICommon_Report> &a_obj_report) {
-    this->a_obj_report = a_obj_report;
-    this->m_a_obj_report_isSet = true;
+    m_a_obj_report = a_obj_report;
+    m_a_obj_report_isSet = true;
 }
 
 bool OAICommon_Reportgroup::is_a_obj_report_Set() const{
@@ -92,11 +92,11 @@ bool OAICommon_Reportgroup::is_a_obj_report_Valid() const{
 }
 
 QList<OAICommon_Reportcellstyle> OAICommon_Reportgroup::getAObjReportcellstyleCustom() const {
-    return a_obj_reportcellstyle_custom;
+    return m_a_obj_reportcellstyle_custom;
 }
 void OAICommon_Reportgroup::setAObjReportcellstyleCustom(const QList<OAICommon_Reportcellstyle> &a_obj_reportcellstyle_custom) {
-    this->a_obj_reportcellstyle_custom = a_obj_reportcellstyle_custom;
-    this->m_a_obj_reportcellstyle_custom_isSet = true;
+    m_a_obj_reportcellstyle_custom = a_obj_reportcellstyle_custom;
+    m_a_obj_reportcellstyle_custom_isSet = true;
 }
 
 bool OAICommon_Reportgroup::is_a_obj_reportcellstyle_custom_Set() const{
@@ -110,12 +110,12 @@ bool OAICommon_Reportgroup::is_a_obj_reportcellstyle_custom_Valid() const{
 bool OAICommon_Reportgroup::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_report.size() > 0) {
+        if (m_a_obj_report.size() > 0) {
             isObjectUpdated = true;
             break;
         }
 
-        if (a_obj_reportcellstyle_custom.size() > 0) {
+        if (m_a_obj_reportcellstyle_custom.size() > 0) {
             isObjectUpdated = true;
             break;
         }

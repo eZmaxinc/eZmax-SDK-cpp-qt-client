@@ -47,7 +47,7 @@ void OAIEzsignfoldertype_getObject_v2_Response_mPayload::fromJson(QString jsonSt
 
 void OAIEzsignfoldertype_getObject_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_obj_ezsignfoldertype_isValid = ::OpenAPI::fromJsonValue(obj_ezsignfoldertype, json[QString("objEzsignfoldertype")]);
+    m_obj_ezsignfoldertype_isValid = ::OpenAPI::fromJsonValue(m_obj_ezsignfoldertype, json[QString("objEzsignfoldertype")]);
     m_obj_ezsignfoldertype_isSet = !json[QString("objEzsignfoldertype")].isNull() && m_obj_ezsignfoldertype_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIEzsignfoldertype_getObject_v2_Response_mPayload::asJson() const {
 
 QJsonObject OAIEzsignfoldertype_getObject_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (obj_ezsignfoldertype.isSet()) {
-        obj.insert(QString("objEzsignfoldertype"), ::OpenAPI::toJsonValue(obj_ezsignfoldertype));
+    if (m_obj_ezsignfoldertype.isSet()) {
+        obj.insert(QString("objEzsignfoldertype"), ::OpenAPI::toJsonValue(m_obj_ezsignfoldertype));
     }
     return obj;
 }
 
 OAIEzsignfoldertype_ResponseCompound OAIEzsignfoldertype_getObject_v2_Response_mPayload::getObjEzsignfoldertype() const {
-    return obj_ezsignfoldertype;
+    return m_obj_ezsignfoldertype;
 }
 void OAIEzsignfoldertype_getObject_v2_Response_mPayload::setObjEzsignfoldertype(const OAIEzsignfoldertype_ResponseCompound &obj_ezsignfoldertype) {
-    this->obj_ezsignfoldertype = obj_ezsignfoldertype;
-    this->m_obj_ezsignfoldertype_isSet = true;
+    m_obj_ezsignfoldertype = obj_ezsignfoldertype;
+    m_obj_ezsignfoldertype_isSet = true;
 }
 
 bool OAIEzsignfoldertype_getObject_v2_Response_mPayload::is_obj_ezsignfoldertype_Set() const{
@@ -85,7 +85,7 @@ bool OAIEzsignfoldertype_getObject_v2_Response_mPayload::is_obj_ezsignfoldertype
 bool OAIEzsignfoldertype_getObject_v2_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (obj_ezsignfoldertype.isSet()) {
+        if (m_obj_ezsignfoldertype.isSet()) {
             isObjectUpdated = true;
             break;
         }

@@ -47,7 +47,7 @@ void OAIGlobal_ezmaxclient_version_v1_Response::fromJson(QString jsonString) {
 
 void OAIGlobal_ezmaxclient_version_v1_Response::fromJsonObject(QJsonObject json) {
 
-    m_s_ezmaxclient_version_isValid = ::OpenAPI::fromJsonValue(s_ezmaxclient_version, json[QString("sEzmaxclientVersion")]);
+    m_s_ezmaxclient_version_isValid = ::OpenAPI::fromJsonValue(m_s_ezmaxclient_version, json[QString("sEzmaxclientVersion")]);
     m_s_ezmaxclient_version_isSet = !json[QString("sEzmaxclientVersion")].isNull() && m_s_ezmaxclient_version_isValid;
 }
 
@@ -61,17 +61,17 @@ QString OAIGlobal_ezmaxclient_version_v1_Response::asJson() const {
 QJsonObject OAIGlobal_ezmaxclient_version_v1_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_s_ezmaxclient_version_isSet) {
-        obj.insert(QString("sEzmaxclientVersion"), ::OpenAPI::toJsonValue(s_ezmaxclient_version));
+        obj.insert(QString("sEzmaxclientVersion"), ::OpenAPI::toJsonValue(m_s_ezmaxclient_version));
     }
     return obj;
 }
 
 QString OAIGlobal_ezmaxclient_version_v1_Response::getSEzmaxclientVersion() const {
-    return s_ezmaxclient_version;
+    return m_s_ezmaxclient_version;
 }
 void OAIGlobal_ezmaxclient_version_v1_Response::setSEzmaxclientVersion(const QString &s_ezmaxclient_version) {
-    this->s_ezmaxclient_version = s_ezmaxclient_version;
-    this->m_s_ezmaxclient_version_isSet = true;
+    m_s_ezmaxclient_version = s_ezmaxclient_version;
+    m_s_ezmaxclient_version_isSet = true;
 }
 
 bool OAIGlobal_ezmaxclient_version_v1_Response::is_s_ezmaxclient_version_Set() const{

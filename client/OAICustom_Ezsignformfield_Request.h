@@ -65,19 +65,19 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_ezsignformfield_id;
+    qint32 m_pki_ezsignformfield_id;
     bool m_pki_ezsignformfield_id_isSet;
     bool m_pki_ezsignformfield_id_isValid;
 
-    QString s_ezsignformfield_label;
+    QString m_s_ezsignformfield_label;
     bool m_s_ezsignformfield_label_isSet;
     bool m_s_ezsignformfield_label_isValid;
 
-    bool b_ezsignformfield_selected;
+    bool m_b_ezsignformfield_selected;
     bool m_b_ezsignformfield_selected_isSet;
     bool m_b_ezsignformfield_selected_isValid;
 
-    QString s_ezsignformfield_enteredvalue;
+    QString m_s_ezsignformfield_enteredvalue;
     bool m_s_ezsignformfield_enteredvalue_isSet;
     bool m_s_ezsignformfield_enteredvalue_isValid;
 };

@@ -53,13 +53,13 @@ void OAIModulegroup_ResponseCompound::fromJson(QString jsonString) {
 
 void OAIModulegroup_ResponseCompound::fromJsonObject(QJsonObject json) {
 
-    m_pki_modulegroup_id_isValid = ::OpenAPI::fromJsonValue(pki_modulegroup_id, json[QString("pkiModulegroupID")]);
+    m_pki_modulegroup_id_isValid = ::OpenAPI::fromJsonValue(m_pki_modulegroup_id, json[QString("pkiModulegroupID")]);
     m_pki_modulegroup_id_isSet = !json[QString("pkiModulegroupID")].isNull() && m_pki_modulegroup_id_isValid;
 
-    m_s_modulegroup_name_x_isValid = ::OpenAPI::fromJsonValue(s_modulegroup_name_x, json[QString("sModulegroupNameX")]);
+    m_s_modulegroup_name_x_isValid = ::OpenAPI::fromJsonValue(m_s_modulegroup_name_x, json[QString("sModulegroupNameX")]);
     m_s_modulegroup_name_x_isSet = !json[QString("sModulegroupNameX")].isNull() && m_s_modulegroup_name_x_isValid;
 
-    m_a_obj_module_isValid = ::OpenAPI::fromJsonValue(a_obj_module, json[QString("a_objModule")]);
+    m_a_obj_module_isValid = ::OpenAPI::fromJsonValue(m_a_obj_module, json[QString("a_objModule")]);
     m_a_obj_module_isSet = !json[QString("a_objModule")].isNull() && m_a_obj_module_isValid;
 }
 
@@ -73,23 +73,23 @@ QString OAIModulegroup_ResponseCompound::asJson() const {
 QJsonObject OAIModulegroup_ResponseCompound::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_modulegroup_id_isSet) {
-        obj.insert(QString("pkiModulegroupID"), ::OpenAPI::toJsonValue(pki_modulegroup_id));
+        obj.insert(QString("pkiModulegroupID"), ::OpenAPI::toJsonValue(m_pki_modulegroup_id));
     }
     if (m_s_modulegroup_name_x_isSet) {
-        obj.insert(QString("sModulegroupNameX"), ::OpenAPI::toJsonValue(s_modulegroup_name_x));
+        obj.insert(QString("sModulegroupNameX"), ::OpenAPI::toJsonValue(m_s_modulegroup_name_x));
     }
-    if (a_obj_module.size() > 0) {
-        obj.insert(QString("a_objModule"), ::OpenAPI::toJsonValue(a_obj_module));
+    if (m_a_obj_module.size() > 0) {
+        obj.insert(QString("a_objModule"), ::OpenAPI::toJsonValue(m_a_obj_module));
     }
     return obj;
 }
 
 qint32 OAIModulegroup_ResponseCompound::getPkiModulegroupId() const {
-    return pki_modulegroup_id;
+    return m_pki_modulegroup_id;
 }
 void OAIModulegroup_ResponseCompound::setPkiModulegroupId(const qint32 &pki_modulegroup_id) {
-    this->pki_modulegroup_id = pki_modulegroup_id;
-    this->m_pki_modulegroup_id_isSet = true;
+    m_pki_modulegroup_id = pki_modulegroup_id;
+    m_pki_modulegroup_id_isSet = true;
 }
 
 bool OAIModulegroup_ResponseCompound::is_pki_modulegroup_id_Set() const{
@@ -101,11 +101,11 @@ bool OAIModulegroup_ResponseCompound::is_pki_modulegroup_id_Valid() const{
 }
 
 QString OAIModulegroup_ResponseCompound::getSModulegroupNameX() const {
-    return s_modulegroup_name_x;
+    return m_s_modulegroup_name_x;
 }
 void OAIModulegroup_ResponseCompound::setSModulegroupNameX(const QString &s_modulegroup_name_x) {
-    this->s_modulegroup_name_x = s_modulegroup_name_x;
-    this->m_s_modulegroup_name_x_isSet = true;
+    m_s_modulegroup_name_x = s_modulegroup_name_x;
+    m_s_modulegroup_name_x_isSet = true;
 }
 
 bool OAIModulegroup_ResponseCompound::is_s_modulegroup_name_x_Set() const{
@@ -117,11 +117,11 @@ bool OAIModulegroup_ResponseCompound::is_s_modulegroup_name_x_Valid() const{
 }
 
 QList<OAIModule_ResponseCompound> OAIModulegroup_ResponseCompound::getAObjModule() const {
-    return a_obj_module;
+    return m_a_obj_module;
 }
 void OAIModulegroup_ResponseCompound::setAObjModule(const QList<OAIModule_ResponseCompound> &a_obj_module) {
-    this->a_obj_module = a_obj_module;
-    this->m_a_obj_module_isSet = true;
+    m_a_obj_module = a_obj_module;
+    m_a_obj_module_isSet = true;
 }
 
 bool OAIModulegroup_ResponseCompound::is_a_obj_module_Set() const{
@@ -145,7 +145,7 @@ bool OAIModulegroup_ResponseCompound::isSet() const {
             break;
         }
 
-        if (a_obj_module.size() > 0) {
+        if (m_a_obj_module.size() > 0) {
             isObjectUpdated = true;
             break;
         }

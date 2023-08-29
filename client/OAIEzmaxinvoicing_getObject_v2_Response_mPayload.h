@@ -51,7 +51,7 @@ public:
 private:
     void initializeModel();
 
-    OAIEzmaxinvoicing_ResponseCompound obj_ezmaxinvoicing;
+    OAIEzmaxinvoicing_ResponseCompound m_obj_ezmaxinvoicing;
     bool m_obj_ezmaxinvoicing_isSet;
     bool m_obj_ezmaxinvoicing_isValid;
 };

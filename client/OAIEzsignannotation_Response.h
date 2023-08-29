@@ -103,47 +103,47 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_ezsignannotation_id;
+    qint32 m_pki_ezsignannotation_id;
     bool m_pki_ezsignannotation_id_isSet;
     bool m_pki_ezsignannotation_id_isValid;
 
-    qint32 fki_ezsigndocument_id;
+    qint32 m_fki_ezsigndocument_id;
     bool m_fki_ezsigndocument_id_isSet;
     bool m_fki_ezsigndocument_id_isValid;
 
-    OAIEnum_Horizontalalignment e_ezsignannotation_horizontalalignment;
+    OAIEnum_Horizontalalignment m_e_ezsignannotation_horizontalalignment;
     bool m_e_ezsignannotation_horizontalalignment_isSet;
     bool m_e_ezsignannotation_horizontalalignment_isValid;
 
-    OAIEnum_Verticalalignment e_ezsignannotation_verticalalignment;
+    OAIEnum_Verticalalignment m_e_ezsignannotation_verticalalignment;
     bool m_e_ezsignannotation_verticalalignment_isSet;
     bool m_e_ezsignannotation_verticalalignment_isValid;
 
-    OAIField_eEzsignannotationType e_ezsignannotation_type;
+    OAIField_eEzsignannotationType m_e_ezsignannotation_type;
     bool m_e_ezsignannotation_type_isSet;
     bool m_e_ezsignannotation_type_isValid;
 
-    qint32 i_ezsignannotation_x;
+    qint32 m_i_ezsignannotation_x;
     bool m_i_ezsignannotation_x_isSet;
     bool m_i_ezsignannotation_x_isValid;
 
-    qint32 i_ezsignannotation_y;
+    qint32 m_i_ezsignannotation_y;
     bool m_i_ezsignannotation_y_isSet;
     bool m_i_ezsignannotation_y_isValid;
 
-    qint32 i_ezsignannotation_width;
+    qint32 m_i_ezsignannotation_width;
     bool m_i_ezsignannotation_width_isSet;
     bool m_i_ezsignannotation_width_isValid;
 
-    qint32 i_ezsignannotation_height;
+    qint32 m_i_ezsignannotation_height;
     bool m_i_ezsignannotation_height_isSet;
     bool m_i_ezsignannotation_height_isValid;
 
-    QString s_ezsignannotation_text;
+    QString m_s_ezsignannotation_text;
     bool m_s_ezsignannotation_text_isSet;
     bool m_s_ezsignannotation_text_isValid;
 
-    qint32 i_ezsignpage_pagenumber;
+    qint32 m_i_ezsignpage_pagenumber;
     bool m_i_ezsignpage_pagenumber_isSet;
     bool m_i_ezsignpage_pagenumber_isValid;
 };

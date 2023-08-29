@@ -47,7 +47,7 @@ void OAISubnet_createObject_v1_Request::fromJson(QString jsonString) {
 
 void OAISubnet_createObject_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_subnet_isValid = ::OpenAPI::fromJsonValue(a_obj_subnet, json[QString("a_objSubnet")]);
+    m_a_obj_subnet_isValid = ::OpenAPI::fromJsonValue(m_a_obj_subnet, json[QString("a_objSubnet")]);
     m_a_obj_subnet_isSet = !json[QString("a_objSubnet")].isNull() && m_a_obj_subnet_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAISubnet_createObject_v1_Request::asJson() const {
 
 QJsonObject OAISubnet_createObject_v1_Request::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_subnet.size() > 0) {
-        obj.insert(QString("a_objSubnet"), ::OpenAPI::toJsonValue(a_obj_subnet));
+    if (m_a_obj_subnet.size() > 0) {
+        obj.insert(QString("a_objSubnet"), ::OpenAPI::toJsonValue(m_a_obj_subnet));
     }
     return obj;
 }
 
 QList<OAISubnet_RequestCompound> OAISubnet_createObject_v1_Request::getAObjSubnet() const {
-    return a_obj_subnet;
+    return m_a_obj_subnet;
 }
 void OAISubnet_createObject_v1_Request::setAObjSubnet(const QList<OAISubnet_RequestCompound> &a_obj_subnet) {
-    this->a_obj_subnet = a_obj_subnet;
-    this->m_a_obj_subnet_isSet = true;
+    m_a_obj_subnet = a_obj_subnet;
+    m_a_obj_subnet_isSet = true;
 }
 
 bool OAISubnet_createObject_v1_Request::is_a_obj_subnet_Set() const{
@@ -85,7 +85,7 @@ bool OAISubnet_createObject_v1_Request::is_a_obj_subnet_Valid() const{
 bool OAISubnet_createObject_v1_Request::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_subnet.size() > 0) {
+        if (m_a_obj_subnet.size() > 0) {
             isObjectUpdated = true;
             break;
         }

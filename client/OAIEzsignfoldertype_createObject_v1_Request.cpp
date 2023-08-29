@@ -47,7 +47,7 @@ void OAIEzsignfoldertype_createObject_v1_Request::fromJson(QString jsonString) {
 
 void OAIEzsignfoldertype_createObject_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_ezsignfoldertype_isValid = ::OpenAPI::fromJsonValue(a_obj_ezsignfoldertype, json[QString("a_objEzsignfoldertype")]);
+    m_a_obj_ezsignfoldertype_isValid = ::OpenAPI::fromJsonValue(m_a_obj_ezsignfoldertype, json[QString("a_objEzsignfoldertype")]);
     m_a_obj_ezsignfoldertype_isSet = !json[QString("a_objEzsignfoldertype")].isNull() && m_a_obj_ezsignfoldertype_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIEzsignfoldertype_createObject_v1_Request::asJson() const {
 
 QJsonObject OAIEzsignfoldertype_createObject_v1_Request::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_ezsignfoldertype.size() > 0) {
-        obj.insert(QString("a_objEzsignfoldertype"), ::OpenAPI::toJsonValue(a_obj_ezsignfoldertype));
+    if (m_a_obj_ezsignfoldertype.size() > 0) {
+        obj.insert(QString("a_objEzsignfoldertype"), ::OpenAPI::toJsonValue(m_a_obj_ezsignfoldertype));
     }
     return obj;
 }
 
 QList<OAIEzsignfoldertype_RequestCompound> OAIEzsignfoldertype_createObject_v1_Request::getAObjEzsignfoldertype() const {
-    return a_obj_ezsignfoldertype;
+    return m_a_obj_ezsignfoldertype;
 }
 void OAIEzsignfoldertype_createObject_v1_Request::setAObjEzsignfoldertype(const QList<OAIEzsignfoldertype_RequestCompound> &a_obj_ezsignfoldertype) {
-    this->a_obj_ezsignfoldertype = a_obj_ezsignfoldertype;
-    this->m_a_obj_ezsignfoldertype_isSet = true;
+    m_a_obj_ezsignfoldertype = a_obj_ezsignfoldertype;
+    m_a_obj_ezsignfoldertype_isSet = true;
 }
 
 bool OAIEzsignfoldertype_createObject_v1_Request::is_a_obj_ezsignfoldertype_Set() const{
@@ -85,7 +85,7 @@ bool OAIEzsignfoldertype_createObject_v1_Request::is_a_obj_ezsignfoldertype_Vali
 bool OAIEzsignfoldertype_createObject_v1_Request::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_ezsignfoldertype.size() > 0) {
+        if (m_a_obj_ezsignfoldertype.size() > 0) {
             isObjectUpdated = true;
             break;
         }

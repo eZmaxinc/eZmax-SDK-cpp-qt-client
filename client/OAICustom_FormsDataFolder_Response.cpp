@@ -53,13 +53,13 @@ void OAICustom_FormsDataFolder_Response::fromJson(QString jsonString) {
 
 void OAICustom_FormsDataFolder_Response::fromJsonObject(QJsonObject json) {
 
-    m_pki_ezsignfolder_id_isValid = ::OpenAPI::fromJsonValue(pki_ezsignfolder_id, json[QString("pkiEzsignfolderID")]);
+    m_pki_ezsignfolder_id_isValid = ::OpenAPI::fromJsonValue(m_pki_ezsignfolder_id, json[QString("pkiEzsignfolderID")]);
     m_pki_ezsignfolder_id_isSet = !json[QString("pkiEzsignfolderID")].isNull() && m_pki_ezsignfolder_id_isValid;
 
-    m_s_ezsignfolder_description_isValid = ::OpenAPI::fromJsonValue(s_ezsignfolder_description, json[QString("sEzsignfolderDescription")]);
+    m_s_ezsignfolder_description_isValid = ::OpenAPI::fromJsonValue(m_s_ezsignfolder_description, json[QString("sEzsignfolderDescription")]);
     m_s_ezsignfolder_description_isSet = !json[QString("sEzsignfolderDescription")].isNull() && m_s_ezsignfolder_description_isValid;
 
-    m_a_obj_form_data_document_isValid = ::OpenAPI::fromJsonValue(a_obj_form_data_document, json[QString("a_objFormDataDocument")]);
+    m_a_obj_form_data_document_isValid = ::OpenAPI::fromJsonValue(m_a_obj_form_data_document, json[QString("a_objFormDataDocument")]);
     m_a_obj_form_data_document_isSet = !json[QString("a_objFormDataDocument")].isNull() && m_a_obj_form_data_document_isValid;
 }
 
@@ -73,23 +73,23 @@ QString OAICustom_FormsDataFolder_Response::asJson() const {
 QJsonObject OAICustom_FormsDataFolder_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_ezsignfolder_id_isSet) {
-        obj.insert(QString("pkiEzsignfolderID"), ::OpenAPI::toJsonValue(pki_ezsignfolder_id));
+        obj.insert(QString("pkiEzsignfolderID"), ::OpenAPI::toJsonValue(m_pki_ezsignfolder_id));
     }
     if (m_s_ezsignfolder_description_isSet) {
-        obj.insert(QString("sEzsignfolderDescription"), ::OpenAPI::toJsonValue(s_ezsignfolder_description));
+        obj.insert(QString("sEzsignfolderDescription"), ::OpenAPI::toJsonValue(m_s_ezsignfolder_description));
     }
-    if (a_obj_form_data_document.size() > 0) {
-        obj.insert(QString("a_objFormDataDocument"), ::OpenAPI::toJsonValue(a_obj_form_data_document));
+    if (m_a_obj_form_data_document.size() > 0) {
+        obj.insert(QString("a_objFormDataDocument"), ::OpenAPI::toJsonValue(m_a_obj_form_data_document));
     }
     return obj;
 }
 
 qint32 OAICustom_FormsDataFolder_Response::getPkiEzsignfolderId() const {
-    return pki_ezsignfolder_id;
+    return m_pki_ezsignfolder_id;
 }
 void OAICustom_FormsDataFolder_Response::setPkiEzsignfolderId(const qint32 &pki_ezsignfolder_id) {
-    this->pki_ezsignfolder_id = pki_ezsignfolder_id;
-    this->m_pki_ezsignfolder_id_isSet = true;
+    m_pki_ezsignfolder_id = pki_ezsignfolder_id;
+    m_pki_ezsignfolder_id_isSet = true;
 }
 
 bool OAICustom_FormsDataFolder_Response::is_pki_ezsignfolder_id_Set() const{
@@ -101,11 +101,11 @@ bool OAICustom_FormsDataFolder_Response::is_pki_ezsignfolder_id_Valid() const{
 }
 
 QString OAICustom_FormsDataFolder_Response::getSEzsignfolderDescription() const {
-    return s_ezsignfolder_description;
+    return m_s_ezsignfolder_description;
 }
 void OAICustom_FormsDataFolder_Response::setSEzsignfolderDescription(const QString &s_ezsignfolder_description) {
-    this->s_ezsignfolder_description = s_ezsignfolder_description;
-    this->m_s_ezsignfolder_description_isSet = true;
+    m_s_ezsignfolder_description = s_ezsignfolder_description;
+    m_s_ezsignfolder_description_isSet = true;
 }
 
 bool OAICustom_FormsDataFolder_Response::is_s_ezsignfolder_description_Set() const{
@@ -117,11 +117,11 @@ bool OAICustom_FormsDataFolder_Response::is_s_ezsignfolder_description_Valid() c
 }
 
 QList<OAICustom_FormDataDocument_Response> OAICustom_FormsDataFolder_Response::getAObjFormDataDocument() const {
-    return a_obj_form_data_document;
+    return m_a_obj_form_data_document;
 }
 void OAICustom_FormsDataFolder_Response::setAObjFormDataDocument(const QList<OAICustom_FormDataDocument_Response> &a_obj_form_data_document) {
-    this->a_obj_form_data_document = a_obj_form_data_document;
-    this->m_a_obj_form_data_document_isSet = true;
+    m_a_obj_form_data_document = a_obj_form_data_document;
+    m_a_obj_form_data_document_isSet = true;
 }
 
 bool OAICustom_FormsDataFolder_Response::is_a_obj_form_data_document_Set() const{
@@ -145,7 +145,7 @@ bool OAICustom_FormsDataFolder_Response::isSet() const {
             break;
         }
 
-        if (a_obj_form_data_document.size() > 0) {
+        if (m_a_obj_form_data_document.size() > 0) {
             isObjectUpdated = true;
             break;
         }

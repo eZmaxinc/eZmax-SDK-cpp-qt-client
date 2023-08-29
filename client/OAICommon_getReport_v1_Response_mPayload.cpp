@@ -47,7 +47,7 @@ void OAICommon_getReport_v1_Response_mPayload::fromJson(QString jsonString) {
 
 void OAICommon_getReport_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_obj_reportgroup_isValid = ::OpenAPI::fromJsonValue(obj_reportgroup, json[QString("objReportgroup")]);
+    m_obj_reportgroup_isValid = ::OpenAPI::fromJsonValue(m_obj_reportgroup, json[QString("objReportgroup")]);
     m_obj_reportgroup_isSet = !json[QString("objReportgroup")].isNull() && m_obj_reportgroup_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAICommon_getReport_v1_Response_mPayload::asJson() const {
 
 QJsonObject OAICommon_getReport_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (obj_reportgroup.isSet()) {
-        obj.insert(QString("objReportgroup"), ::OpenAPI::toJsonValue(obj_reportgroup));
+    if (m_obj_reportgroup.isSet()) {
+        obj.insert(QString("objReportgroup"), ::OpenAPI::toJsonValue(m_obj_reportgroup));
     }
     return obj;
 }
 
 OAICommon_Reportgroup OAICommon_getReport_v1_Response_mPayload::getObjReportgroup() const {
-    return obj_reportgroup;
+    return m_obj_reportgroup;
 }
 void OAICommon_getReport_v1_Response_mPayload::setObjReportgroup(const OAICommon_Reportgroup &obj_reportgroup) {
-    this->obj_reportgroup = obj_reportgroup;
-    this->m_obj_reportgroup_isSet = true;
+    m_obj_reportgroup = obj_reportgroup;
+    m_obj_reportgroup_isSet = true;
 }
 
 bool OAICommon_getReport_v1_Response_mPayload::is_obj_reportgroup_Set() const{
@@ -85,7 +85,7 @@ bool OAICommon_getReport_v1_Response_mPayload::is_obj_reportgroup_Valid() const{
 bool OAICommon_getReport_v1_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (obj_reportgroup.isSet()) {
+        if (m_obj_reportgroup.isSet()) {
             isObjectUpdated = true;
             break;
         }

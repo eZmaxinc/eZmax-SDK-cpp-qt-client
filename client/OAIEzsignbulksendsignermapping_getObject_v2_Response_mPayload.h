@@ -51,7 +51,7 @@ public:
 private:
     void initializeModel();
 
-    OAIEzsignbulksendsignermapping_ResponseCompound obj_ezsignbulksendsignermapping;
+    OAIEzsignbulksendsignermapping_ResponseCompound m_obj_ezsignbulksendsignermapping;
     bool m_obj_ezsignbulksendsignermapping_isSet;
     bool m_obj_ezsignbulksendsignermapping_isValid;
 };

@@ -47,7 +47,7 @@ void OAIUsergroupmembership_createObject_v1_Request::fromJson(QString jsonString
 
 void OAIUsergroupmembership_createObject_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_usergroupmembership_isValid = ::OpenAPI::fromJsonValue(a_obj_usergroupmembership, json[QString("a_objUsergroupmembership")]);
+    m_a_obj_usergroupmembership_isValid = ::OpenAPI::fromJsonValue(m_a_obj_usergroupmembership, json[QString("a_objUsergroupmembership")]);
     m_a_obj_usergroupmembership_isSet = !json[QString("a_objUsergroupmembership")].isNull() && m_a_obj_usergroupmembership_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIUsergroupmembership_createObject_v1_Request::asJson() const {
 
 QJsonObject OAIUsergroupmembership_createObject_v1_Request::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_usergroupmembership.size() > 0) {
-        obj.insert(QString("a_objUsergroupmembership"), ::OpenAPI::toJsonValue(a_obj_usergroupmembership));
+    if (m_a_obj_usergroupmembership.size() > 0) {
+        obj.insert(QString("a_objUsergroupmembership"), ::OpenAPI::toJsonValue(m_a_obj_usergroupmembership));
     }
     return obj;
 }
 
 QList<OAIUsergroupmembership_RequestCompound> OAIUsergroupmembership_createObject_v1_Request::getAObjUsergroupmembership() const {
-    return a_obj_usergroupmembership;
+    return m_a_obj_usergroupmembership;
 }
 void OAIUsergroupmembership_createObject_v1_Request::setAObjUsergroupmembership(const QList<OAIUsergroupmembership_RequestCompound> &a_obj_usergroupmembership) {
-    this->a_obj_usergroupmembership = a_obj_usergroupmembership;
-    this->m_a_obj_usergroupmembership_isSet = true;
+    m_a_obj_usergroupmembership = a_obj_usergroupmembership;
+    m_a_obj_usergroupmembership_isSet = true;
 }
 
 bool OAIUsergroupmembership_createObject_v1_Request::is_a_obj_usergroupmembership_Set() const{
@@ -85,7 +85,7 @@ bool OAIUsergroupmembership_createObject_v1_Request::is_a_obj_usergroupmembershi
 bool OAIUsergroupmembership_createObject_v1_Request::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_usergroupmembership.size() > 0) {
+        if (m_a_obj_usergroupmembership.size() > 0) {
             isObjectUpdated = true;
             break;
         }

@@ -47,7 +47,7 @@ void OAIEzsignfolder_importEzsigntemplatepackage_v1_Response_mPayload::fromJson(
 
 void OAIEzsignfolder_importEzsigntemplatepackage_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_ezsigndocument_isValid = ::OpenAPI::fromJsonValue(a_obj_ezsigndocument, json[QString("a_objEzsigndocument")]);
+    m_a_obj_ezsigndocument_isValid = ::OpenAPI::fromJsonValue(m_a_obj_ezsigndocument, json[QString("a_objEzsigndocument")]);
     m_a_obj_ezsigndocument_isSet = !json[QString("a_objEzsigndocument")].isNull() && m_a_obj_ezsigndocument_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIEzsignfolder_importEzsigntemplatepackage_v1_Response_mPayload::asJson
 
 QJsonObject OAIEzsignfolder_importEzsigntemplatepackage_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_ezsigndocument.size() > 0) {
-        obj.insert(QString("a_objEzsigndocument"), ::OpenAPI::toJsonValue(a_obj_ezsigndocument));
+    if (m_a_obj_ezsigndocument.size() > 0) {
+        obj.insert(QString("a_objEzsigndocument"), ::OpenAPI::toJsonValue(m_a_obj_ezsigndocument));
     }
     return obj;
 }
 
 QList<OAIEzsigndocument_ResponseCompound> OAIEzsignfolder_importEzsigntemplatepackage_v1_Response_mPayload::getAObjEzsigndocument() const {
-    return a_obj_ezsigndocument;
+    return m_a_obj_ezsigndocument;
 }
 void OAIEzsignfolder_importEzsigntemplatepackage_v1_Response_mPayload::setAObjEzsigndocument(const QList<OAIEzsigndocument_ResponseCompound> &a_obj_ezsigndocument) {
-    this->a_obj_ezsigndocument = a_obj_ezsigndocument;
-    this->m_a_obj_ezsigndocument_isSet = true;
+    m_a_obj_ezsigndocument = a_obj_ezsigndocument;
+    m_a_obj_ezsigndocument_isSet = true;
 }
 
 bool OAIEzsignfolder_importEzsigntemplatepackage_v1_Response_mPayload::is_a_obj_ezsigndocument_Set() const{
@@ -85,7 +85,7 @@ bool OAIEzsignfolder_importEzsigntemplatepackage_v1_Response_mPayload::is_a_obj_
 bool OAIEzsignfolder_importEzsigntemplatepackage_v1_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_ezsigndocument.size() > 0) {
+        if (m_a_obj_ezsigndocument.size() > 0) {
             isObjectUpdated = true;
             break;
         }

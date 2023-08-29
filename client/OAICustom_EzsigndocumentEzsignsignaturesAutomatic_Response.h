@@ -63,15 +63,15 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_ezsigndocument_id;
+    qint32 m_pki_ezsigndocument_id;
     bool m_pki_ezsigndocument_id_isSet;
     bool m_pki_ezsigndocument_id_isValid;
 
-    QString s_ezsigndocument_name;
+    QString m_s_ezsigndocument_name;
     bool m_s_ezsigndocument_name_isSet;
     bool m_s_ezsigndocument_name_isValid;
 
-    QList<OAICustom_EzsignsignatureEzsignsignaturesAutomatic_Response> a_obj_ezsignsignature;
+    QList<OAICustom_EzsignsignatureEzsignsignaturesAutomatic_Response> m_a_obj_ezsignsignature;
     bool m_a_obj_ezsignsignature_isSet;
     bool m_a_obj_ezsignsignature_isValid;
 };

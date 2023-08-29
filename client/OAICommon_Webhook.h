@@ -59,11 +59,11 @@ public:
 private:
     void initializeModel();
 
-    OAICustom_Webhook_Response obj_webhook;
+    OAICustom_Webhook_Response m_obj_webhook;
     bool m_obj_webhook_isSet;
     bool m_obj_webhook_isValid;
 
-    QList<OAIAttempt_ResponseCompound> a_obj_attempt;
+    QList<OAIAttempt_ResponseCompound> m_a_obj_attempt;
     bool m_a_obj_attempt_isSet;
     bool m_a_obj_attempt_isValid;
 };

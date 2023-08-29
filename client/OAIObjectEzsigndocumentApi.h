@@ -59,7 +59,6 @@
 #include "OAIEzsigndocument_unsend_v1_Response.h"
 #include "OAIHttpFileElement.h"
 #include "OAIObject.h"
-#include <QList>
 #include <QString>
 
 #include <QObject>

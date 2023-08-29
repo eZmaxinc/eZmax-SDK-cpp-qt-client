@@ -50,10 +50,10 @@ void OAIMultilingual_EzsignfoldertypeName::fromJson(QString jsonString) {
 
 void OAIMultilingual_EzsignfoldertypeName::fromJsonObject(QJsonObject json) {
 
-    m_s_ezsignfoldertype_name1_isValid = ::OpenAPI::fromJsonValue(s_ezsignfoldertype_name1, json[QString("sEzsignfoldertypeName1")]);
+    m_s_ezsignfoldertype_name1_isValid = ::OpenAPI::fromJsonValue(m_s_ezsignfoldertype_name1, json[QString("sEzsignfoldertypeName1")]);
     m_s_ezsignfoldertype_name1_isSet = !json[QString("sEzsignfoldertypeName1")].isNull() && m_s_ezsignfoldertype_name1_isValid;
 
-    m_s_ezsignfoldertype_name2_isValid = ::OpenAPI::fromJsonValue(s_ezsignfoldertype_name2, json[QString("sEzsignfoldertypeName2")]);
+    m_s_ezsignfoldertype_name2_isValid = ::OpenAPI::fromJsonValue(m_s_ezsignfoldertype_name2, json[QString("sEzsignfoldertypeName2")]);
     m_s_ezsignfoldertype_name2_isSet = !json[QString("sEzsignfoldertypeName2")].isNull() && m_s_ezsignfoldertype_name2_isValid;
 }
 
@@ -67,20 +67,20 @@ QString OAIMultilingual_EzsignfoldertypeName::asJson() const {
 QJsonObject OAIMultilingual_EzsignfoldertypeName::asJsonObject() const {
     QJsonObject obj;
     if (m_s_ezsignfoldertype_name1_isSet) {
-        obj.insert(QString("sEzsignfoldertypeName1"), ::OpenAPI::toJsonValue(s_ezsignfoldertype_name1));
+        obj.insert(QString("sEzsignfoldertypeName1"), ::OpenAPI::toJsonValue(m_s_ezsignfoldertype_name1));
     }
     if (m_s_ezsignfoldertype_name2_isSet) {
-        obj.insert(QString("sEzsignfoldertypeName2"), ::OpenAPI::toJsonValue(s_ezsignfoldertype_name2));
+        obj.insert(QString("sEzsignfoldertypeName2"), ::OpenAPI::toJsonValue(m_s_ezsignfoldertype_name2));
     }
     return obj;
 }
 
 QString OAIMultilingual_EzsignfoldertypeName::getSEzsignfoldertypeName1() const {
-    return s_ezsignfoldertype_name1;
+    return m_s_ezsignfoldertype_name1;
 }
 void OAIMultilingual_EzsignfoldertypeName::setSEzsignfoldertypeName1(const QString &s_ezsignfoldertype_name1) {
-    this->s_ezsignfoldertype_name1 = s_ezsignfoldertype_name1;
-    this->m_s_ezsignfoldertype_name1_isSet = true;
+    m_s_ezsignfoldertype_name1 = s_ezsignfoldertype_name1;
+    m_s_ezsignfoldertype_name1_isSet = true;
 }
 
 bool OAIMultilingual_EzsignfoldertypeName::is_s_ezsignfoldertype_name1_Set() const{
@@ -92,11 +92,11 @@ bool OAIMultilingual_EzsignfoldertypeName::is_s_ezsignfoldertype_name1_Valid() c
 }
 
 QString OAIMultilingual_EzsignfoldertypeName::getSEzsignfoldertypeName2() const {
-    return s_ezsignfoldertype_name2;
+    return m_s_ezsignfoldertype_name2;
 }
 void OAIMultilingual_EzsignfoldertypeName::setSEzsignfoldertypeName2(const QString &s_ezsignfoldertype_name2) {
-    this->s_ezsignfoldertype_name2 = s_ezsignfoldertype_name2;
-    this->m_s_ezsignfoldertype_name2_isSet = true;
+    m_s_ezsignfoldertype_name2 = s_ezsignfoldertype_name2;
+    m_s_ezsignfoldertype_name2_isSet = true;
 }
 
 bool OAIMultilingual_EzsignfoldertypeName::is_s_ezsignfoldertype_name2_Set() const{

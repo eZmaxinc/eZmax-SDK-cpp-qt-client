@@ -96,43 +96,43 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_sessionhistory_id;
+    qint32 m_pki_sessionhistory_id;
     bool m_pki_sessionhistory_id_isSet;
     bool m_pki_sessionhistory_id_isValid;
 
-    qint32 fki_computer_id;
+    qint32 m_fki_computer_id;
     bool m_fki_computer_id_isSet;
     bool m_fki_computer_id_isValid;
 
-    qint32 fki_user_id;
+    qint32 m_fki_user_id;
     bool m_fki_user_id_isSet;
     bool m_fki_user_id_isValid;
 
-    QString dt_sessionhistory_firsthit;
+    QString m_dt_sessionhistory_firsthit;
     bool m_dt_sessionhistory_firsthit_isSet;
     bool m_dt_sessionhistory_firsthit_isValid;
 
-    QString dt_sessionhistory_lasthit;
+    QString m_dt_sessionhistory_lasthit;
     bool m_dt_sessionhistory_lasthit_isSet;
     bool m_dt_sessionhistory_lasthit_isValid;
 
-    OAIField_eSessionhistoryEndby e_sessionhistory_endby;
+    OAIField_eSessionhistoryEndby m_e_sessionhistory_endby;
     bool m_e_sessionhistory_endby_isSet;
     bool m_e_sessionhistory_endby_isValid;
 
-    QString s_computer_description;
+    QString m_s_computer_description;
     bool m_s_computer_description_isSet;
     bool m_s_computer_description_isValid;
 
-    QString s_sessionhistory_duration;
+    QString m_s_sessionhistory_duration;
     bool m_s_sessionhistory_duration_isSet;
     bool m_s_sessionhistory_duration_isValid;
 
-    QString s_sessionhistory_ip;
+    QString m_s_sessionhistory_ip;
     bool m_s_sessionhistory_ip_isSet;
     bool m_s_sessionhistory_ip_isValid;
 
-    QString s_user_loginname;
+    QString m_s_user_loginname;
     bool m_s_user_loginname_isSet;
     bool m_s_user_loginname_isValid;
 };

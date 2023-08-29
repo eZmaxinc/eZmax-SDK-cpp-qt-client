@@ -55,11 +55,11 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_emailstatic_id;
+    qint32 m_pki_emailstatic_id;
     bool m_pki_emailstatic_id_isSet;
     bool m_pki_emailstatic_id_isValid;
 
-    QString s_emailstatic_address;
+    QString m_s_emailstatic_address;
     bool m_s_emailstatic_address_isSet;
     bool m_s_emailstatic_address_isValid;
 };

@@ -50,10 +50,10 @@ void OAICommon_Response_objSQLQuery::fromJson(QString jsonString) {
 
 void OAICommon_Response_objSQLQuery::fromJsonObject(QJsonObject json) {
 
-    m_s_query_isValid = ::OpenAPI::fromJsonValue(s_query, json[QString("sQuery")]);
+    m_s_query_isValid = ::OpenAPI::fromJsonValue(m_s_query, json[QString("sQuery")]);
     m_s_query_isSet = !json[QString("sQuery")].isNull() && m_s_query_isValid;
 
-    m_f_duration_isValid = ::OpenAPI::fromJsonValue(f_duration, json[QString("fDuration")]);
+    m_f_duration_isValid = ::OpenAPI::fromJsonValue(m_f_duration, json[QString("fDuration")]);
     m_f_duration_isSet = !json[QString("fDuration")].isNull() && m_f_duration_isValid;
 }
 
@@ -67,20 +67,20 @@ QString OAICommon_Response_objSQLQuery::asJson() const {
 QJsonObject OAICommon_Response_objSQLQuery::asJsonObject() const {
     QJsonObject obj;
     if (m_s_query_isSet) {
-        obj.insert(QString("sQuery"), ::OpenAPI::toJsonValue(s_query));
+        obj.insert(QString("sQuery"), ::OpenAPI::toJsonValue(m_s_query));
     }
     if (m_f_duration_isSet) {
-        obj.insert(QString("fDuration"), ::OpenAPI::toJsonValue(f_duration));
+        obj.insert(QString("fDuration"), ::OpenAPI::toJsonValue(m_f_duration));
     }
     return obj;
 }
 
 QString OAICommon_Response_objSQLQuery::getSQuery() const {
-    return s_query;
+    return m_s_query;
 }
 void OAICommon_Response_objSQLQuery::setSQuery(const QString &s_query) {
-    this->s_query = s_query;
-    this->m_s_query_isSet = true;
+    m_s_query = s_query;
+    m_s_query_isSet = true;
 }
 
 bool OAICommon_Response_objSQLQuery::is_s_query_Set() const{
@@ -92,11 +92,11 @@ bool OAICommon_Response_objSQLQuery::is_s_query_Valid() const{
 }
 
 float OAICommon_Response_objSQLQuery::getFDuration() const {
-    return f_duration;
+    return m_f_duration;
 }
 void OAICommon_Response_objSQLQuery::setFDuration(const float &f_duration) {
-    this->f_duration = f_duration;
-    this->m_f_duration_isSet = true;
+    m_f_duration = f_duration;
+    m_f_duration_isSet = true;
 }
 
 bool OAICommon_Response_objSQLQuery::is_f_duration_Set() const{

@@ -60,15 +60,15 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_phonestatic_id;
+    qint32 m_pki_phonestatic_id;
     bool m_pki_phonestatic_id_isSet;
     bool m_pki_phonestatic_id_isValid;
 
-    QString s_phonestatic_e164;
+    QString m_s_phonestatic_e164;
     bool m_s_phonestatic_e164_isSet;
     bool m_s_phonestatic_e164_isValid;
 
-    QString s_phonestatic_extension;
+    QString m_s_phonestatic_extension;
     bool m_s_phonestatic_extension_isSet;
     bool m_s_phonestatic_extension_isValid;
 };

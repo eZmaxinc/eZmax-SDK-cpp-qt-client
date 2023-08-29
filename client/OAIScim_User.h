@@ -68,19 +68,19 @@ public:
 private:
     void initializeModel();
 
-    QString id;
+    QString m_id;
     bool m_id_isSet;
     bool m_id_isValid;
 
-    QString user_name;
+    QString m_user_name;
     bool m_user_name_isSet;
     bool m_user_name_isValid;
 
-    QString display_name;
+    QString m_display_name;
     bool m_display_name_isSet;
     bool m_display_name_isValid;
 
-    QList<OAIScim_Email> emails;
+    QList<OAIScim_Email> m_emails;
     bool m_emails_isSet;
     bool m_emails_isValid;
 };

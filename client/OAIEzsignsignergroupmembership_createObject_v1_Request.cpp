@@ -47,7 +47,7 @@ void OAIEzsignsignergroupmembership_createObject_v1_Request::fromJson(QString js
 
 void OAIEzsignsignergroupmembership_createObject_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_ezsignsignergroupmembership_isValid = ::OpenAPI::fromJsonValue(a_obj_ezsignsignergroupmembership, json[QString("a_objEzsignsignergroupmembership")]);
+    m_a_obj_ezsignsignergroupmembership_isValid = ::OpenAPI::fromJsonValue(m_a_obj_ezsignsignergroupmembership, json[QString("a_objEzsignsignergroupmembership")]);
     m_a_obj_ezsignsignergroupmembership_isSet = !json[QString("a_objEzsignsignergroupmembership")].isNull() && m_a_obj_ezsignsignergroupmembership_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIEzsignsignergroupmembership_createObject_v1_Request::asJson() const {
 
 QJsonObject OAIEzsignsignergroupmembership_createObject_v1_Request::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_ezsignsignergroupmembership.size() > 0) {
-        obj.insert(QString("a_objEzsignsignergroupmembership"), ::OpenAPI::toJsonValue(a_obj_ezsignsignergroupmembership));
+    if (m_a_obj_ezsignsignergroupmembership.size() > 0) {
+        obj.insert(QString("a_objEzsignsignergroupmembership"), ::OpenAPI::toJsonValue(m_a_obj_ezsignsignergroupmembership));
     }
     return obj;
 }
 
 QList<OAIEzsignsignergroupmembership_RequestCompound> OAIEzsignsignergroupmembership_createObject_v1_Request::getAObjEzsignsignergroupmembership() const {
-    return a_obj_ezsignsignergroupmembership;
+    return m_a_obj_ezsignsignergroupmembership;
 }
 void OAIEzsignsignergroupmembership_createObject_v1_Request::setAObjEzsignsignergroupmembership(const QList<OAIEzsignsignergroupmembership_RequestCompound> &a_obj_ezsignsignergroupmembership) {
-    this->a_obj_ezsignsignergroupmembership = a_obj_ezsignsignergroupmembership;
-    this->m_a_obj_ezsignsignergroupmembership_isSet = true;
+    m_a_obj_ezsignsignergroupmembership = a_obj_ezsignsignergroupmembership;
+    m_a_obj_ezsignsignergroupmembership_isSet = true;
 }
 
 bool OAIEzsignsignergroupmembership_createObject_v1_Request::is_a_obj_ezsignsignergroupmembership_Set() const{
@@ -85,7 +85,7 @@ bool OAIEzsignsignergroupmembership_createObject_v1_Request::is_a_obj_ezsignsign
 bool OAIEzsignsignergroupmembership_createObject_v1_Request::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_ezsignsignergroupmembership.size() > 0) {
+        if (m_a_obj_ezsignsignergroupmembership.size() > 0) {
             isObjectUpdated = true;
             break;
         }

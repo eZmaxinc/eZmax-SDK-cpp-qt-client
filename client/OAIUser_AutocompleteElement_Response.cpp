@@ -56,16 +56,16 @@ void OAIUser_AutocompleteElement_Response::fromJson(QString jsonString) {
 
 void OAIUser_AutocompleteElement_Response::fromJsonObject(QJsonObject json) {
 
-    m_e_user_type_isValid = ::OpenAPI::fromJsonValue(e_user_type, json[QString("eUserType")]);
+    m_e_user_type_isValid = ::OpenAPI::fromJsonValue(m_e_user_type, json[QString("eUserType")]);
     m_e_user_type_isSet = !json[QString("eUserType")].isNull() && m_e_user_type_isValid;
 
-    m_s_user_name_isValid = ::OpenAPI::fromJsonValue(s_user_name, json[QString("sUserName")]);
+    m_s_user_name_isValid = ::OpenAPI::fromJsonValue(m_s_user_name, json[QString("sUserName")]);
     m_s_user_name_isSet = !json[QString("sUserName")].isNull() && m_s_user_name_isValid;
 
-    m_pki_user_id_isValid = ::OpenAPI::fromJsonValue(pki_user_id, json[QString("pkiUserID")]);
+    m_pki_user_id_isValid = ::OpenAPI::fromJsonValue(m_pki_user_id, json[QString("pkiUserID")]);
     m_pki_user_id_isSet = !json[QString("pkiUserID")].isNull() && m_pki_user_id_isValid;
 
-    m_b_user_isactive_isValid = ::OpenAPI::fromJsonValue(b_user_isactive, json[QString("bUserIsactive")]);
+    m_b_user_isactive_isValid = ::OpenAPI::fromJsonValue(m_b_user_isactive, json[QString("bUserIsactive")]);
     m_b_user_isactive_isSet = !json[QString("bUserIsactive")].isNull() && m_b_user_isactive_isValid;
 }
 
@@ -78,27 +78,27 @@ QString OAIUser_AutocompleteElement_Response::asJson() const {
 
 QJsonObject OAIUser_AutocompleteElement_Response::asJsonObject() const {
     QJsonObject obj;
-    if (e_user_type.isSet()) {
-        obj.insert(QString("eUserType"), ::OpenAPI::toJsonValue(e_user_type));
+    if (m_e_user_type.isSet()) {
+        obj.insert(QString("eUserType"), ::OpenAPI::toJsonValue(m_e_user_type));
     }
     if (m_s_user_name_isSet) {
-        obj.insert(QString("sUserName"), ::OpenAPI::toJsonValue(s_user_name));
+        obj.insert(QString("sUserName"), ::OpenAPI::toJsonValue(m_s_user_name));
     }
     if (m_pki_user_id_isSet) {
-        obj.insert(QString("pkiUserID"), ::OpenAPI::toJsonValue(pki_user_id));
+        obj.insert(QString("pkiUserID"), ::OpenAPI::toJsonValue(m_pki_user_id));
     }
     if (m_b_user_isactive_isSet) {
-        obj.insert(QString("bUserIsactive"), ::OpenAPI::toJsonValue(b_user_isactive));
+        obj.insert(QString("bUserIsactive"), ::OpenAPI::toJsonValue(m_b_user_isactive));
     }
     return obj;
 }
 
 OAIField_eUserType OAIUser_AutocompleteElement_Response::getEUserType() const {
-    return e_user_type;
+    return m_e_user_type;
 }
 void OAIUser_AutocompleteElement_Response::setEUserType(const OAIField_eUserType &e_user_type) {
-    this->e_user_type = e_user_type;
-    this->m_e_user_type_isSet = true;
+    m_e_user_type = e_user_type;
+    m_e_user_type_isSet = true;
 }
 
 bool OAIUser_AutocompleteElement_Response::is_e_user_type_Set() const{
@@ -110,11 +110,11 @@ bool OAIUser_AutocompleteElement_Response::is_e_user_type_Valid() const{
 }
 
 QString OAIUser_AutocompleteElement_Response::getSUserName() const {
-    return s_user_name;
+    return m_s_user_name;
 }
 void OAIUser_AutocompleteElement_Response::setSUserName(const QString &s_user_name) {
-    this->s_user_name = s_user_name;
-    this->m_s_user_name_isSet = true;
+    m_s_user_name = s_user_name;
+    m_s_user_name_isSet = true;
 }
 
 bool OAIUser_AutocompleteElement_Response::is_s_user_name_Set() const{
@@ -126,11 +126,11 @@ bool OAIUser_AutocompleteElement_Response::is_s_user_name_Valid() const{
 }
 
 qint32 OAIUser_AutocompleteElement_Response::getPkiUserId() const {
-    return pki_user_id;
+    return m_pki_user_id;
 }
 void OAIUser_AutocompleteElement_Response::setPkiUserId(const qint32 &pki_user_id) {
-    this->pki_user_id = pki_user_id;
-    this->m_pki_user_id_isSet = true;
+    m_pki_user_id = pki_user_id;
+    m_pki_user_id_isSet = true;
 }
 
 bool OAIUser_AutocompleteElement_Response::is_pki_user_id_Set() const{
@@ -142,11 +142,11 @@ bool OAIUser_AutocompleteElement_Response::is_pki_user_id_Valid() const{
 }
 
 bool OAIUser_AutocompleteElement_Response::isBUserIsactive() const {
-    return b_user_isactive;
+    return m_b_user_isactive;
 }
 void OAIUser_AutocompleteElement_Response::setBUserIsactive(const bool &b_user_isactive) {
-    this->b_user_isactive = b_user_isactive;
-    this->m_b_user_isactive_isSet = true;
+    m_b_user_isactive = b_user_isactive;
+    m_b_user_isactive_isSet = true;
 }
 
 bool OAIUser_AutocompleteElement_Response::is_b_user_isactive_Set() const{
@@ -160,7 +160,7 @@ bool OAIUser_AutocompleteElement_Response::is_b_user_isactive_Valid() const{
 bool OAIUser_AutocompleteElement_Response::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (e_user_type.isSet()) {
+        if (m_e_user_type.isSet()) {
             isObjectUpdated = true;
             break;
         }

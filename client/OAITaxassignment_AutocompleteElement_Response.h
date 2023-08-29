@@ -60,15 +60,15 @@ public:
 private:
     void initializeModel();
 
-    QString s_taxassignment_description_x;
+    QString m_s_taxassignment_description_x;
     bool m_s_taxassignment_description_x_isSet;
     bool m_s_taxassignment_description_x_isValid;
 
-    qint32 pki_taxassignment_id;
+    qint32 m_pki_taxassignment_id;
     bool m_pki_taxassignment_id_isSet;
     bool m_pki_taxassignment_id_isValid;
 
-    bool b_taxassignment_isactive;
+    bool m_b_taxassignment_isactive;
     bool m_b_taxassignment_isactive_isSet;
     bool m_b_taxassignment_isactive_isValid;
 };

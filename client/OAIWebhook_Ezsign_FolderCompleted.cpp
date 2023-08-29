@@ -34,14 +34,14 @@ OAIWebhook_Ezsign_FolderCompleted::~OAIWebhook_Ezsign_FolderCompleted() {}
 
 void OAIWebhook_Ezsign_FolderCompleted::initializeModel() {
 
-    m_obj_ezsignfolder_isSet = false;
-    m_obj_ezsignfolder_isValid = false;
-
     m_obj_webhook_isSet = false;
     m_obj_webhook_isValid = false;
 
     m_a_obj_attempt_isSet = false;
     m_a_obj_attempt_isValid = false;
+
+    m_obj_ezsignfolder_isSet = false;
+    m_obj_ezsignfolder_isValid = false;
 }
 
 void OAIWebhook_Ezsign_FolderCompleted::fromJson(QString jsonString) {
@@ -53,14 +53,14 @@ void OAIWebhook_Ezsign_FolderCompleted::fromJson(QString jsonString) {
 
 void OAIWebhook_Ezsign_FolderCompleted::fromJsonObject(QJsonObject json) {
 
-    m_obj_ezsignfolder_isValid = ::OpenAPI::fromJsonValue(obj_ezsignfolder, json[QString("objEzsignfolder")]);
-    m_obj_ezsignfolder_isSet = !json[QString("objEzsignfolder")].isNull() && m_obj_ezsignfolder_isValid;
-
-    m_obj_webhook_isValid = ::OpenAPI::fromJsonValue(obj_webhook, json[QString("objWebhook")]);
+    m_obj_webhook_isValid = ::OpenAPI::fromJsonValue(m_obj_webhook, json[QString("objWebhook")]);
     m_obj_webhook_isSet = !json[QString("objWebhook")].isNull() && m_obj_webhook_isValid;
 
-    m_a_obj_attempt_isValid = ::OpenAPI::fromJsonValue(a_obj_attempt, json[QString("a_objAttempt")]);
+    m_a_obj_attempt_isValid = ::OpenAPI::fromJsonValue(m_a_obj_attempt, json[QString("a_objAttempt")]);
     m_a_obj_attempt_isSet = !json[QString("a_objAttempt")].isNull() && m_a_obj_attempt_isValid;
+
+    m_obj_ezsignfolder_isValid = ::OpenAPI::fromJsonValue(m_obj_ezsignfolder, json[QString("objEzsignfolder")]);
+    m_obj_ezsignfolder_isSet = !json[QString("objEzsignfolder")].isNull() && m_obj_ezsignfolder_isValid;
 }
 
 QString OAIWebhook_Ezsign_FolderCompleted::asJson() const {
@@ -72,40 +72,24 @@ QString OAIWebhook_Ezsign_FolderCompleted::asJson() const {
 
 QJsonObject OAIWebhook_Ezsign_FolderCompleted::asJsonObject() const {
     QJsonObject obj;
-    if (obj_ezsignfolder.isSet()) {
-        obj.insert(QString("objEzsignfolder"), ::OpenAPI::toJsonValue(obj_ezsignfolder));
+    if (m_obj_webhook.isSet()) {
+        obj.insert(QString("objWebhook"), ::OpenAPI::toJsonValue(m_obj_webhook));
     }
-    if (obj_webhook.isSet()) {
-        obj.insert(QString("objWebhook"), ::OpenAPI::toJsonValue(obj_webhook));
+    if (m_a_obj_attempt.size() > 0) {
+        obj.insert(QString("a_objAttempt"), ::OpenAPI::toJsonValue(m_a_obj_attempt));
     }
-    if (a_obj_attempt.size() > 0) {
-        obj.insert(QString("a_objAttempt"), ::OpenAPI::toJsonValue(a_obj_attempt));
+    if (m_obj_ezsignfolder.isSet()) {
+        obj.insert(QString("objEzsignfolder"), ::OpenAPI::toJsonValue(m_obj_ezsignfolder));
     }
     return obj;
 }
 
-OAIEzsignfolder_Response OAIWebhook_Ezsign_FolderCompleted::getObjEzsignfolder() const {
-    return obj_ezsignfolder;
-}
-void OAIWebhook_Ezsign_FolderCompleted::setObjEzsignfolder(const OAIEzsignfolder_Response &obj_ezsignfolder) {
-    this->obj_ezsignfolder = obj_ezsignfolder;
-    this->m_obj_ezsignfolder_isSet = true;
-}
-
-bool OAIWebhook_Ezsign_FolderCompleted::is_obj_ezsignfolder_Set() const{
-    return m_obj_ezsignfolder_isSet;
-}
-
-bool OAIWebhook_Ezsign_FolderCompleted::is_obj_ezsignfolder_Valid() const{
-    return m_obj_ezsignfolder_isValid;
-}
-
 OAICustom_Webhook_Response OAIWebhook_Ezsign_FolderCompleted::getObjWebhook() const {
-    return obj_webhook;
+    return m_obj_webhook;
 }
 void OAIWebhook_Ezsign_FolderCompleted::setObjWebhook(const OAICustom_Webhook_Response &obj_webhook) {
-    this->obj_webhook = obj_webhook;
-    this->m_obj_webhook_isSet = true;
+    m_obj_webhook = obj_webhook;
+    m_obj_webhook_isSet = true;
 }
 
 bool OAIWebhook_Ezsign_FolderCompleted::is_obj_webhook_Set() const{
@@ -117,11 +101,11 @@ bool OAIWebhook_Ezsign_FolderCompleted::is_obj_webhook_Valid() const{
 }
 
 QList<OAIAttempt_ResponseCompound> OAIWebhook_Ezsign_FolderCompleted::getAObjAttempt() const {
-    return a_obj_attempt;
+    return m_a_obj_attempt;
 }
 void OAIWebhook_Ezsign_FolderCompleted::setAObjAttempt(const QList<OAIAttempt_ResponseCompound> &a_obj_attempt) {
-    this->a_obj_attempt = a_obj_attempt;
-    this->m_a_obj_attempt_isSet = true;
+    m_a_obj_attempt = a_obj_attempt;
+    m_a_obj_attempt_isSet = true;
 }
 
 bool OAIWebhook_Ezsign_FolderCompleted::is_a_obj_attempt_Set() const{
@@ -132,20 +116,36 @@ bool OAIWebhook_Ezsign_FolderCompleted::is_a_obj_attempt_Valid() const{
     return m_a_obj_attempt_isValid;
 }
 
+OAIEzsignfolder_Response OAIWebhook_Ezsign_FolderCompleted::getObjEzsignfolder() const {
+    return m_obj_ezsignfolder;
+}
+void OAIWebhook_Ezsign_FolderCompleted::setObjEzsignfolder(const OAIEzsignfolder_Response &obj_ezsignfolder) {
+    m_obj_ezsignfolder = obj_ezsignfolder;
+    m_obj_ezsignfolder_isSet = true;
+}
+
+bool OAIWebhook_Ezsign_FolderCompleted::is_obj_ezsignfolder_Set() const{
+    return m_obj_ezsignfolder_isSet;
+}
+
+bool OAIWebhook_Ezsign_FolderCompleted::is_obj_ezsignfolder_Valid() const{
+    return m_obj_ezsignfolder_isValid;
+}
+
 bool OAIWebhook_Ezsign_FolderCompleted::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (obj_ezsignfolder.isSet()) {
+        if (m_obj_webhook.isSet()) {
             isObjectUpdated = true;
             break;
         }
 
-        if (obj_webhook.isSet()) {
+        if (m_a_obj_attempt.size() > 0) {
             isObjectUpdated = true;
             break;
         }
 
-        if (a_obj_attempt.size() > 0) {
+        if (m_obj_ezsignfolder.isSet()) {
             isObjectUpdated = true;
             break;
         }
@@ -155,7 +155,7 @@ bool OAIWebhook_Ezsign_FolderCompleted::isSet() const {
 
 bool OAIWebhook_Ezsign_FolderCompleted::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_obj_ezsignfolder_isValid && m_obj_webhook_isValid && m_a_obj_attempt_isValid && true;
+    return m_obj_webhook_isValid && m_a_obj_attempt_isValid && m_obj_ezsignfolder_isValid && true;
 }
 
 } // namespace OpenAPI

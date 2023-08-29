@@ -53,13 +53,13 @@ void OAIPhonetype_AutocompleteElement_Response::fromJson(QString jsonString) {
 
 void OAIPhonetype_AutocompleteElement_Response::fromJsonObject(QJsonObject json) {
 
-    m_pki_phonetype_id_isValid = ::OpenAPI::fromJsonValue(pki_phonetype_id, json[QString("pkiPhonetypeID")]);
+    m_pki_phonetype_id_isValid = ::OpenAPI::fromJsonValue(m_pki_phonetype_id, json[QString("pkiPhonetypeID")]);
     m_pki_phonetype_id_isSet = !json[QString("pkiPhonetypeID")].isNull() && m_pki_phonetype_id_isValid;
 
-    m_s_phonetype_name_x_isValid = ::OpenAPI::fromJsonValue(s_phonetype_name_x, json[QString("sPhonetypeNameX")]);
+    m_s_phonetype_name_x_isValid = ::OpenAPI::fromJsonValue(m_s_phonetype_name_x, json[QString("sPhonetypeNameX")]);
     m_s_phonetype_name_x_isSet = !json[QString("sPhonetypeNameX")].isNull() && m_s_phonetype_name_x_isValid;
 
-    m_b_phonetype_isactive_isValid = ::OpenAPI::fromJsonValue(b_phonetype_isactive, json[QString("bPhonetypeIsactive")]);
+    m_b_phonetype_isactive_isValid = ::OpenAPI::fromJsonValue(m_b_phonetype_isactive, json[QString("bPhonetypeIsactive")]);
     m_b_phonetype_isactive_isSet = !json[QString("bPhonetypeIsactive")].isNull() && m_b_phonetype_isactive_isValid;
 }
 
@@ -73,23 +73,23 @@ QString OAIPhonetype_AutocompleteElement_Response::asJson() const {
 QJsonObject OAIPhonetype_AutocompleteElement_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_phonetype_id_isSet) {
-        obj.insert(QString("pkiPhonetypeID"), ::OpenAPI::toJsonValue(pki_phonetype_id));
+        obj.insert(QString("pkiPhonetypeID"), ::OpenAPI::toJsonValue(m_pki_phonetype_id));
     }
     if (m_s_phonetype_name_x_isSet) {
-        obj.insert(QString("sPhonetypeNameX"), ::OpenAPI::toJsonValue(s_phonetype_name_x));
+        obj.insert(QString("sPhonetypeNameX"), ::OpenAPI::toJsonValue(m_s_phonetype_name_x));
     }
     if (m_b_phonetype_isactive_isSet) {
-        obj.insert(QString("bPhonetypeIsactive"), ::OpenAPI::toJsonValue(b_phonetype_isactive));
+        obj.insert(QString("bPhonetypeIsactive"), ::OpenAPI::toJsonValue(m_b_phonetype_isactive));
     }
     return obj;
 }
 
 qint32 OAIPhonetype_AutocompleteElement_Response::getPkiPhonetypeId() const {
-    return pki_phonetype_id;
+    return m_pki_phonetype_id;
 }
 void OAIPhonetype_AutocompleteElement_Response::setPkiPhonetypeId(const qint32 &pki_phonetype_id) {
-    this->pki_phonetype_id = pki_phonetype_id;
-    this->m_pki_phonetype_id_isSet = true;
+    m_pki_phonetype_id = pki_phonetype_id;
+    m_pki_phonetype_id_isSet = true;
 }
 
 bool OAIPhonetype_AutocompleteElement_Response::is_pki_phonetype_id_Set() const{
@@ -101,11 +101,11 @@ bool OAIPhonetype_AutocompleteElement_Response::is_pki_phonetype_id_Valid() cons
 }
 
 QString OAIPhonetype_AutocompleteElement_Response::getSPhonetypeNameX() const {
-    return s_phonetype_name_x;
+    return m_s_phonetype_name_x;
 }
 void OAIPhonetype_AutocompleteElement_Response::setSPhonetypeNameX(const QString &s_phonetype_name_x) {
-    this->s_phonetype_name_x = s_phonetype_name_x;
-    this->m_s_phonetype_name_x_isSet = true;
+    m_s_phonetype_name_x = s_phonetype_name_x;
+    m_s_phonetype_name_x_isSet = true;
 }
 
 bool OAIPhonetype_AutocompleteElement_Response::is_s_phonetype_name_x_Set() const{
@@ -117,11 +117,11 @@ bool OAIPhonetype_AutocompleteElement_Response::is_s_phonetype_name_x_Valid() co
 }
 
 bool OAIPhonetype_AutocompleteElement_Response::isBPhonetypeIsactive() const {
-    return b_phonetype_isactive;
+    return m_b_phonetype_isactive;
 }
 void OAIPhonetype_AutocompleteElement_Response::setBPhonetypeIsactive(const bool &b_phonetype_isactive) {
-    this->b_phonetype_isactive = b_phonetype_isactive;
-    this->m_b_phonetype_isactive_isSet = true;
+    m_b_phonetype_isactive = b_phonetype_isactive;
+    m_b_phonetype_isactive_isSet = true;
 }
 
 bool OAIPhonetype_AutocompleteElement_Response::is_b_phonetype_isactive_Set() const{

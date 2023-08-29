@@ -177,91 +177,91 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_ezmaxinvoicing_id;
+    qint32 m_pki_ezmaxinvoicing_id;
     bool m_pki_ezmaxinvoicing_id_isSet;
     bool m_pki_ezmaxinvoicing_id_isValid;
 
-    qint32 fki_ezmaxinvoicingcontract_id;
+    qint32 m_fki_ezmaxinvoicingcontract_id;
     bool m_fki_ezmaxinvoicingcontract_id_isSet;
     bool m_fki_ezmaxinvoicingcontract_id_isValid;
 
-    qint32 fki_ezmaxpricing_id;
+    qint32 m_fki_ezmaxpricing_id;
     bool m_fki_ezmaxpricing_id_isSet;
     bool m_fki_ezmaxpricing_id_isValid;
 
-    qint32 fki_systemconfigurationtype_id;
+    qint32 m_fki_systemconfigurationtype_id;
     bool m_fki_systemconfigurationtype_id_isSet;
     bool m_fki_systemconfigurationtype_id_isValid;
 
-    QString s_systemconfigurationtype_description_x;
+    QString m_s_systemconfigurationtype_description_x;
     bool m_s_systemconfigurationtype_description_x_isSet;
     bool m_s_systemconfigurationtype_description_x_isValid;
 
-    QString yyyymm_ezmaxinvoicing;
+    QString m_yyyymm_ezmaxinvoicing;
     bool m_yyyymm_ezmaxinvoicing_isSet;
     bool m_yyyymm_ezmaxinvoicing_isValid;
 
-    qint32 i_ezmaxinvoicing_days;
+    qint32 m_i_ezmaxinvoicing_days;
     bool m_i_ezmaxinvoicing_days_isSet;
     bool m_i_ezmaxinvoicing_days_isValid;
 
-    OAIField_eEzmaxinvoicingPaymenttype e_ezmaxinvoicing_paymenttype;
+    OAIField_eEzmaxinvoicingPaymenttype m_e_ezmaxinvoicing_paymenttype;
     bool m_e_ezmaxinvoicing_paymenttype_isSet;
     bool m_e_ezmaxinvoicing_paymenttype_isValid;
 
-    QString d_ezmaxinvoicing_rebatepaymenttype;
+    QString m_d_ezmaxinvoicing_rebatepaymenttype;
     bool m_d_ezmaxinvoicing_rebatepaymenttype_isSet;
     bool m_d_ezmaxinvoicing_rebatepaymenttype_isValid;
 
-    qint32 i_ezmaxinvoicing_contractlength;
+    qint32 m_i_ezmaxinvoicing_contractlength;
     bool m_i_ezmaxinvoicing_contractlength_isSet;
     bool m_i_ezmaxinvoicing_contractlength_isValid;
 
-    QString d_ezmaxinvoicing_rebatecontractlength;
+    QString m_d_ezmaxinvoicing_rebatecontractlength;
     bool m_d_ezmaxinvoicing_rebatecontractlength_isSet;
     bool m_d_ezmaxinvoicing_rebatecontractlength_isValid;
 
-    bool b_ezmaxinvoicing_rebate_ezsignallagents;
+    bool m_b_ezmaxinvoicing_rebate_ezsignallagents;
     bool m_b_ezmaxinvoicing_rebate_ezsignallagents_isSet;
     bool m_b_ezmaxinvoicing_rebate_ezsignallagents_isValid;
 
-    OAICommon_Audit obj_audit;
+    OAICommon_Audit m_obj_audit;
     bool m_obj_audit_isSet;
     bool m_obj_audit_isValid;
 
-    OAIEzmaxinvoicingcontract_ResponseCompound obj_ezmaxinvoicingcontract;
+    OAIEzmaxinvoicingcontract_ResponseCompound m_obj_ezmaxinvoicingcontract;
     bool m_obj_ezmaxinvoicingcontract_isSet;
     bool m_obj_ezmaxinvoicingcontract_isValid;
 
-    OAICustom_Ezmaxpricing_Response obj_ezmaxpricing;
+    OAICustom_Ezmaxpricing_Response m_obj_ezmaxpricing;
     bool m_obj_ezmaxpricing_isSet;
     bool m_obj_ezmaxpricing_isValid;
 
-    QList<OAIEzmaxinvoicingsummaryglobal_ResponseCompound> a_obj_ezmaxinvoicingsummaryglobal;
+    QList<OAIEzmaxinvoicingsummaryglobal_ResponseCompound> m_a_obj_ezmaxinvoicingsummaryglobal;
     bool m_a_obj_ezmaxinvoicingsummaryglobal_isSet;
     bool m_a_obj_ezmaxinvoicingsummaryglobal_isValid;
 
-    QList<OAIEzmaxinvoicingsummaryexternal_ResponseCompound> a_obj_ezmaxinvoicingsummaryexternal;
+    QList<OAIEzmaxinvoicingsummaryexternal_ResponseCompound> m_a_obj_ezmaxinvoicingsummaryexternal;
     bool m_a_obj_ezmaxinvoicingsummaryexternal_isSet;
     bool m_a_obj_ezmaxinvoicingsummaryexternal_isValid;
 
-    QList<OAIEzmaxinvoicingsummaryinternal_ResponseCompound> a_obj_ezmaxinvoicingsummaryinternal;
+    QList<OAIEzmaxinvoicingsummaryinternal_ResponseCompound> m_a_obj_ezmaxinvoicingsummaryinternal;
     bool m_a_obj_ezmaxinvoicingsummaryinternal_isSet;
     bool m_a_obj_ezmaxinvoicingsummaryinternal_isValid;
 
-    QList<OAIEzmaxinvoicingagent_ResponseCompound> a_obj_ezmaxinvoicingagent;
+    QList<OAIEzmaxinvoicingagent_ResponseCompound> m_a_obj_ezmaxinvoicingagent;
     bool m_a_obj_ezmaxinvoicingagent_isSet;
     bool m_a_obj_ezmaxinvoicingagent_isValid;
 
-    QList<OAIEzmaxinvoicinguser_ResponseCompound> a_obj_ezmaxinvoicinguser;
+    QList<OAIEzmaxinvoicinguser_ResponseCompound> m_a_obj_ezmaxinvoicinguser;
     bool m_a_obj_ezmaxinvoicinguser_isSet;
     bool m_a_obj_ezmaxinvoicinguser_isValid;
 
-    QList<OAICustom_EzmaxinvoicingEzsignfolder_Response> a_obj_ezmaxinvoicingezsignfolder;
+    QList<OAICustom_EzmaxinvoicingEzsignfolder_Response> m_a_obj_ezmaxinvoicingezsignfolder;
     bool m_a_obj_ezmaxinvoicingezsignfolder_isSet;
     bool m_a_obj_ezmaxinvoicingezsignfolder_isValid;
 
-    QList<OAICustom_EzmaxinvoicingEzsigndocument_Response> a_obj_ezmaxinvoicingezsigndocument;
+    QList<OAICustom_EzmaxinvoicingEzsigndocument_Response> m_a_obj_ezmaxinvoicingezsigndocument;
     bool m_a_obj_ezmaxinvoicingezsigndocument_isSet;
     bool m_a_obj_ezmaxinvoicingezsigndocument_isValid;
 };

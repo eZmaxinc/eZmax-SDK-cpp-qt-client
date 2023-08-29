@@ -52,7 +52,7 @@ public:
 private:
     void initializeModel();
 
-    QList<OAICustom_Notificationsubsectiongetnotificationtests_Response> a_obj_notificationsubsection;
+    QList<OAICustom_Notificationsubsectiongetnotificationtests_Response> m_a_obj_notificationsubsection;
     bool m_a_obj_notificationsubsection_isSet;
     bool m_a_obj_notificationsubsection_isValid;
 };

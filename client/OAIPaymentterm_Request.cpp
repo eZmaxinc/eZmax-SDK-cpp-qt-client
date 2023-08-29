@@ -62,22 +62,22 @@ void OAIPaymentterm_Request::fromJson(QString jsonString) {
 
 void OAIPaymentterm_Request::fromJsonObject(QJsonObject json) {
 
-    m_pki_paymentterm_id_isValid = ::OpenAPI::fromJsonValue(pki_paymentterm_id, json[QString("pkiPaymenttermID")]);
+    m_pki_paymentterm_id_isValid = ::OpenAPI::fromJsonValue(m_pki_paymentterm_id, json[QString("pkiPaymenttermID")]);
     m_pki_paymentterm_id_isSet = !json[QString("pkiPaymenttermID")].isNull() && m_pki_paymentterm_id_isValid;
 
-    m_s_paymentterm_code_isValid = ::OpenAPI::fromJsonValue(s_paymentterm_code, json[QString("sPaymenttermCode")]);
+    m_s_paymentterm_code_isValid = ::OpenAPI::fromJsonValue(m_s_paymentterm_code, json[QString("sPaymenttermCode")]);
     m_s_paymentterm_code_isSet = !json[QString("sPaymenttermCode")].isNull() && m_s_paymentterm_code_isValid;
 
-    m_e_paymentterm_type_isValid = ::OpenAPI::fromJsonValue(e_paymentterm_type, json[QString("ePaymenttermType")]);
+    m_e_paymentterm_type_isValid = ::OpenAPI::fromJsonValue(m_e_paymentterm_type, json[QString("ePaymenttermType")]);
     m_e_paymentterm_type_isSet = !json[QString("ePaymenttermType")].isNull() && m_e_paymentterm_type_isValid;
 
-    m_i_paymentterm_day_isValid = ::OpenAPI::fromJsonValue(i_paymentterm_day, json[QString("iPaymenttermDay")]);
+    m_i_paymentterm_day_isValid = ::OpenAPI::fromJsonValue(m_i_paymentterm_day, json[QString("iPaymenttermDay")]);
     m_i_paymentterm_day_isSet = !json[QString("iPaymenttermDay")].isNull() && m_i_paymentterm_day_isValid;
 
-    m_obj_paymentterm_description_isValid = ::OpenAPI::fromJsonValue(obj_paymentterm_description, json[QString("objPaymenttermDescription")]);
+    m_obj_paymentterm_description_isValid = ::OpenAPI::fromJsonValue(m_obj_paymentterm_description, json[QString("objPaymenttermDescription")]);
     m_obj_paymentterm_description_isSet = !json[QString("objPaymenttermDescription")].isNull() && m_obj_paymentterm_description_isValid;
 
-    m_b_paymentterm_isactive_isValid = ::OpenAPI::fromJsonValue(b_paymentterm_isactive, json[QString("bPaymenttermIsactive")]);
+    m_b_paymentterm_isactive_isValid = ::OpenAPI::fromJsonValue(m_b_paymentterm_isactive, json[QString("bPaymenttermIsactive")]);
     m_b_paymentterm_isactive_isSet = !json[QString("bPaymenttermIsactive")].isNull() && m_b_paymentterm_isactive_isValid;
 }
 
@@ -91,32 +91,32 @@ QString OAIPaymentterm_Request::asJson() const {
 QJsonObject OAIPaymentterm_Request::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_paymentterm_id_isSet) {
-        obj.insert(QString("pkiPaymenttermID"), ::OpenAPI::toJsonValue(pki_paymentterm_id));
+        obj.insert(QString("pkiPaymenttermID"), ::OpenAPI::toJsonValue(m_pki_paymentterm_id));
     }
     if (m_s_paymentterm_code_isSet) {
-        obj.insert(QString("sPaymenttermCode"), ::OpenAPI::toJsonValue(s_paymentterm_code));
+        obj.insert(QString("sPaymenttermCode"), ::OpenAPI::toJsonValue(m_s_paymentterm_code));
     }
-    if (e_paymentterm_type.isSet()) {
-        obj.insert(QString("ePaymenttermType"), ::OpenAPI::toJsonValue(e_paymentterm_type));
+    if (m_e_paymentterm_type.isSet()) {
+        obj.insert(QString("ePaymenttermType"), ::OpenAPI::toJsonValue(m_e_paymentterm_type));
     }
     if (m_i_paymentterm_day_isSet) {
-        obj.insert(QString("iPaymenttermDay"), ::OpenAPI::toJsonValue(i_paymentterm_day));
+        obj.insert(QString("iPaymenttermDay"), ::OpenAPI::toJsonValue(m_i_paymentterm_day));
     }
-    if (obj_paymentterm_description.isSet()) {
-        obj.insert(QString("objPaymenttermDescription"), ::OpenAPI::toJsonValue(obj_paymentterm_description));
+    if (m_obj_paymentterm_description.isSet()) {
+        obj.insert(QString("objPaymenttermDescription"), ::OpenAPI::toJsonValue(m_obj_paymentterm_description));
     }
     if (m_b_paymentterm_isactive_isSet) {
-        obj.insert(QString("bPaymenttermIsactive"), ::OpenAPI::toJsonValue(b_paymentterm_isactive));
+        obj.insert(QString("bPaymenttermIsactive"), ::OpenAPI::toJsonValue(m_b_paymentterm_isactive));
     }
     return obj;
 }
 
 qint32 OAIPaymentterm_Request::getPkiPaymenttermId() const {
-    return pki_paymentterm_id;
+    return m_pki_paymentterm_id;
 }
 void OAIPaymentterm_Request::setPkiPaymenttermId(const qint32 &pki_paymentterm_id) {
-    this->pki_paymentterm_id = pki_paymentterm_id;
-    this->m_pki_paymentterm_id_isSet = true;
+    m_pki_paymentterm_id = pki_paymentterm_id;
+    m_pki_paymentterm_id_isSet = true;
 }
 
 bool OAIPaymentterm_Request::is_pki_paymentterm_id_Set() const{
@@ -128,11 +128,11 @@ bool OAIPaymentterm_Request::is_pki_paymentterm_id_Valid() const{
 }
 
 QString OAIPaymentterm_Request::getSPaymenttermCode() const {
-    return s_paymentterm_code;
+    return m_s_paymentterm_code;
 }
 void OAIPaymentterm_Request::setSPaymenttermCode(const QString &s_paymentterm_code) {
-    this->s_paymentterm_code = s_paymentterm_code;
-    this->m_s_paymentterm_code_isSet = true;
+    m_s_paymentterm_code = s_paymentterm_code;
+    m_s_paymentterm_code_isSet = true;
 }
 
 bool OAIPaymentterm_Request::is_s_paymentterm_code_Set() const{
@@ -144,11 +144,11 @@ bool OAIPaymentterm_Request::is_s_paymentterm_code_Valid() const{
 }
 
 OAIField_ePaymenttermType OAIPaymentterm_Request::getEPaymenttermType() const {
-    return e_paymentterm_type;
+    return m_e_paymentterm_type;
 }
 void OAIPaymentterm_Request::setEPaymenttermType(const OAIField_ePaymenttermType &e_paymentterm_type) {
-    this->e_paymentterm_type = e_paymentterm_type;
-    this->m_e_paymentterm_type_isSet = true;
+    m_e_paymentterm_type = e_paymentterm_type;
+    m_e_paymentterm_type_isSet = true;
 }
 
 bool OAIPaymentterm_Request::is_e_paymentterm_type_Set() const{
@@ -160,11 +160,11 @@ bool OAIPaymentterm_Request::is_e_paymentterm_type_Valid() const{
 }
 
 qint32 OAIPaymentterm_Request::getIPaymenttermDay() const {
-    return i_paymentterm_day;
+    return m_i_paymentterm_day;
 }
 void OAIPaymentterm_Request::setIPaymenttermDay(const qint32 &i_paymentterm_day) {
-    this->i_paymentterm_day = i_paymentterm_day;
-    this->m_i_paymentterm_day_isSet = true;
+    m_i_paymentterm_day = i_paymentterm_day;
+    m_i_paymentterm_day_isSet = true;
 }
 
 bool OAIPaymentterm_Request::is_i_paymentterm_day_Set() const{
@@ -176,11 +176,11 @@ bool OAIPaymentterm_Request::is_i_paymentterm_day_Valid() const{
 }
 
 OAIMultilingual_PaymenttermDescription OAIPaymentterm_Request::getObjPaymenttermDescription() const {
-    return obj_paymentterm_description;
+    return m_obj_paymentterm_description;
 }
 void OAIPaymentterm_Request::setObjPaymenttermDescription(const OAIMultilingual_PaymenttermDescription &obj_paymentterm_description) {
-    this->obj_paymentterm_description = obj_paymentterm_description;
-    this->m_obj_paymentterm_description_isSet = true;
+    m_obj_paymentterm_description = obj_paymentterm_description;
+    m_obj_paymentterm_description_isSet = true;
 }
 
 bool OAIPaymentterm_Request::is_obj_paymentterm_description_Set() const{
@@ -192,11 +192,11 @@ bool OAIPaymentterm_Request::is_obj_paymentterm_description_Valid() const{
 }
 
 bool OAIPaymentterm_Request::isBPaymenttermIsactive() const {
-    return b_paymentterm_isactive;
+    return m_b_paymentterm_isactive;
 }
 void OAIPaymentterm_Request::setBPaymenttermIsactive(const bool &b_paymentterm_isactive) {
-    this->b_paymentterm_isactive = b_paymentterm_isactive;
-    this->m_b_paymentterm_isactive_isSet = true;
+    m_b_paymentterm_isactive = b_paymentterm_isactive;
+    m_b_paymentterm_isactive_isSet = true;
 }
 
 bool OAIPaymentterm_Request::is_b_paymentterm_isactive_Set() const{
@@ -220,7 +220,7 @@ bool OAIPaymentterm_Request::isSet() const {
             break;
         }
 
-        if (e_paymentterm_type.isSet()) {
+        if (m_e_paymentterm_type.isSet()) {
             isObjectUpdated = true;
             break;
         }
@@ -230,7 +230,7 @@ bool OAIPaymentterm_Request::isSet() const {
             break;
         }
 
-        if (obj_paymentterm_description.isSet()) {
+        if (m_obj_paymentterm_description.isSet()) {
             isObjectUpdated = true;
             break;
         }

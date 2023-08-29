@@ -50,10 +50,10 @@ void OAIMultilingual_VersionhistoryDetail::fromJson(QString jsonString) {
 
 void OAIMultilingual_VersionhistoryDetail::fromJsonObject(QJsonObject json) {
 
-    m_t_versionhistory_detail1_isValid = ::OpenAPI::fromJsonValue(t_versionhistory_detail1, json[QString("tVersionhistoryDetail1")]);
+    m_t_versionhistory_detail1_isValid = ::OpenAPI::fromJsonValue(m_t_versionhistory_detail1, json[QString("tVersionhistoryDetail1")]);
     m_t_versionhistory_detail1_isSet = !json[QString("tVersionhistoryDetail1")].isNull() && m_t_versionhistory_detail1_isValid;
 
-    m_t_versionhistory_detail2_isValid = ::OpenAPI::fromJsonValue(t_versionhistory_detail2, json[QString("tVersionhistoryDetail2")]);
+    m_t_versionhistory_detail2_isValid = ::OpenAPI::fromJsonValue(m_t_versionhistory_detail2, json[QString("tVersionhistoryDetail2")]);
     m_t_versionhistory_detail2_isSet = !json[QString("tVersionhistoryDetail2")].isNull() && m_t_versionhistory_detail2_isValid;
 }
 
@@ -67,20 +67,20 @@ QString OAIMultilingual_VersionhistoryDetail::asJson() const {
 QJsonObject OAIMultilingual_VersionhistoryDetail::asJsonObject() const {
     QJsonObject obj;
     if (m_t_versionhistory_detail1_isSet) {
-        obj.insert(QString("tVersionhistoryDetail1"), ::OpenAPI::toJsonValue(t_versionhistory_detail1));
+        obj.insert(QString("tVersionhistoryDetail1"), ::OpenAPI::toJsonValue(m_t_versionhistory_detail1));
     }
     if (m_t_versionhistory_detail2_isSet) {
-        obj.insert(QString("tVersionhistoryDetail2"), ::OpenAPI::toJsonValue(t_versionhistory_detail2));
+        obj.insert(QString("tVersionhistoryDetail2"), ::OpenAPI::toJsonValue(m_t_versionhistory_detail2));
     }
     return obj;
 }
 
 QString OAIMultilingual_VersionhistoryDetail::getTVersionhistoryDetail1() const {
-    return t_versionhistory_detail1;
+    return m_t_versionhistory_detail1;
 }
 void OAIMultilingual_VersionhistoryDetail::setTVersionhistoryDetail1(const QString &t_versionhistory_detail1) {
-    this->t_versionhistory_detail1 = t_versionhistory_detail1;
-    this->m_t_versionhistory_detail1_isSet = true;
+    m_t_versionhistory_detail1 = t_versionhistory_detail1;
+    m_t_versionhistory_detail1_isSet = true;
 }
 
 bool OAIMultilingual_VersionhistoryDetail::is_t_versionhistory_detail1_Set() const{
@@ -92,11 +92,11 @@ bool OAIMultilingual_VersionhistoryDetail::is_t_versionhistory_detail1_Valid() c
 }
 
 QString OAIMultilingual_VersionhistoryDetail::getTVersionhistoryDetail2() const {
-    return t_versionhistory_detail2;
+    return m_t_versionhistory_detail2;
 }
 void OAIMultilingual_VersionhistoryDetail::setTVersionhistoryDetail2(const QString &t_versionhistory_detail2) {
-    this->t_versionhistory_detail2 = t_versionhistory_detail2;
-    this->m_t_versionhistory_detail2_isSet = true;
+    m_t_versionhistory_detail2 = t_versionhistory_detail2;
+    m_t_versionhistory_detail2_isSet = true;
 }
 
 bool OAIMultilingual_VersionhistoryDetail::is_t_versionhistory_detail2_Set() const{

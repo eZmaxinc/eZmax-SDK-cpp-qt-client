@@ -47,7 +47,7 @@ void OAIEzsigntemplatepackage_createObject_v1_Request::fromJson(QString jsonStri
 
 void OAIEzsigntemplatepackage_createObject_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_ezsigntemplatepackage_isValid = ::OpenAPI::fromJsonValue(a_obj_ezsigntemplatepackage, json[QString("a_objEzsigntemplatepackage")]);
+    m_a_obj_ezsigntemplatepackage_isValid = ::OpenAPI::fromJsonValue(m_a_obj_ezsigntemplatepackage, json[QString("a_objEzsigntemplatepackage")]);
     m_a_obj_ezsigntemplatepackage_isSet = !json[QString("a_objEzsigntemplatepackage")].isNull() && m_a_obj_ezsigntemplatepackage_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIEzsigntemplatepackage_createObject_v1_Request::asJson() const {
 
 QJsonObject OAIEzsigntemplatepackage_createObject_v1_Request::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_ezsigntemplatepackage.size() > 0) {
-        obj.insert(QString("a_objEzsigntemplatepackage"), ::OpenAPI::toJsonValue(a_obj_ezsigntemplatepackage));
+    if (m_a_obj_ezsigntemplatepackage.size() > 0) {
+        obj.insert(QString("a_objEzsigntemplatepackage"), ::OpenAPI::toJsonValue(m_a_obj_ezsigntemplatepackage));
     }
     return obj;
 }
 
 QList<OAIEzsigntemplatepackage_RequestCompound> OAIEzsigntemplatepackage_createObject_v1_Request::getAObjEzsigntemplatepackage() const {
-    return a_obj_ezsigntemplatepackage;
+    return m_a_obj_ezsigntemplatepackage;
 }
 void OAIEzsigntemplatepackage_createObject_v1_Request::setAObjEzsigntemplatepackage(const QList<OAIEzsigntemplatepackage_RequestCompound> &a_obj_ezsigntemplatepackage) {
-    this->a_obj_ezsigntemplatepackage = a_obj_ezsigntemplatepackage;
-    this->m_a_obj_ezsigntemplatepackage_isSet = true;
+    m_a_obj_ezsigntemplatepackage = a_obj_ezsigntemplatepackage;
+    m_a_obj_ezsigntemplatepackage_isSet = true;
 }
 
 bool OAIEzsigntemplatepackage_createObject_v1_Request::is_a_obj_ezsigntemplatepackage_Set() const{
@@ -85,7 +85,7 @@ bool OAIEzsigntemplatepackage_createObject_v1_Request::is_a_obj_ezsigntemplatepa
 bool OAIEzsigntemplatepackage_createObject_v1_Request::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_ezsigntemplatepackage.size() > 0) {
+        if (m_a_obj_ezsigntemplatepackage.size() > 0) {
             isObjectUpdated = true;
             break;
         }

@@ -65,6 +65,8 @@ void OAIObjectUserApi::initializeServerConfigs() {
     _serverIndices.insert("userEditObjectV1", 0);
     _serverConfigs.insert("userEditPermissionsV1", defaultConf);
     _serverIndices.insert("userEditPermissionsV1", 0);
+    _serverConfigs.insert("userGetApikeysV1", defaultConf);
+    _serverIndices.insert("userGetApikeysV1", 0);
     _serverConfigs.insert("userGetAutocompleteV2", defaultConf);
     _serverIndices.insert("userGetAutocompleteV2", 0);
     _serverConfigs.insert("userGetEffectivePermissionsV1", defaultConf);
@@ -77,6 +79,8 @@ void OAIObjectUserApi::initializeServerConfigs() {
     _serverIndices.insert("userGetPermissionsV1", 0);
     _serverConfigs.insert("userGetSubnetsV1", defaultConf);
     _serverIndices.insert("userGetSubnetsV1", 0);
+    _serverConfigs.insert("userSendPasswordResetV1", defaultConf);
+    _serverIndices.insert("userSendPasswordResetV1", 0);
 }
 
 /**
@@ -451,6 +455,73 @@ void OAIObjectUserApi::userEditPermissionsV1Callback(OAIHttpRequestWorker *worke
     } else {
         emit userEditPermissionsV1SignalE(output, error_type, error_str);
         emit userEditPermissionsV1SignalEFull(worker, error_type, error_str);
+    }
+}
+
+void OAIObjectUserApi::userGetApikeysV1(const qint32 &pki_user_id) {
+    QString fullPath = QString(_serverConfigs["userGetApikeysV1"][_serverIndices.value("userGetApikeysV1")].URL()+"/1/object/user/{pkiUserID}/getApikeys");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_user_idPathParam("{");
+        pki_user_idPathParam.append("pkiUserID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiUserID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiUserID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_user_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_user_id)));
+    }
+    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    OAIHttpRequestInput input(fullPath, "GET");
+
+
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+#else
+    for (auto key : _defaultHeaders.keys()) {
+        input.headers.insert(key, _defaultHeaders[key]);
+    }
+#endif
+
+    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIObjectUserApi::userGetApikeysV1Callback);
+    connect(this, &OAIObjectUserApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this]() {
+        if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
+            emit allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void OAIObjectUserApi::userGetApikeysV1Callback(OAIHttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    OAIUser_getApikeys_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit userGetApikeysV1Signal(output);
+        emit userGetApikeysV1SignalFull(worker, output);
+    } else {
+        emit userGetApikeysV1SignalE(output, error_type, error_str);
+        emit userGetApikeysV1SignalEFull(worker, error_type, error_str);
     }
 }
 
@@ -1019,6 +1090,78 @@ void OAIObjectUserApi::userGetSubnetsV1Callback(OAIHttpRequestWorker *worker) {
     } else {
         emit userGetSubnetsV1SignalE(output, error_type, error_str);
         emit userGetSubnetsV1SignalEFull(worker, error_type, error_str);
+    }
+}
+
+void OAIObjectUserApi::userSendPasswordResetV1(const qint32 &pki_user_id, const OAIObject &body) {
+    QString fullPath = QString(_serverConfigs["userSendPasswordResetV1"][_serverIndices.value("userSendPasswordResetV1")].URL()+"/1/object/user/{pkiUserID}/sendPasswordReset");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_user_idPathParam("{");
+        pki_user_idPathParam.append("pkiUserID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiUserID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiUserID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_user_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_user_id)));
+    }
+    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    OAIHttpRequestInput input(fullPath, "POST");
+
+    {
+
+        
+        QByteArray output = body.asJson().toUtf8();
+        input.request_body.append(output);
+    }
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+#else
+    for (auto key : _defaultHeaders.keys()) {
+        input.headers.insert(key, _defaultHeaders[key]);
+    }
+#endif
+
+    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIObjectUserApi::userSendPasswordResetV1Callback);
+    connect(this, &OAIObjectUserApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this]() {
+        if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
+            emit allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void OAIObjectUserApi::userSendPasswordResetV1Callback(OAIHttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    OAIUser_sendPasswordReset_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit userSendPasswordResetV1Signal(output);
+        emit userSendPasswordResetV1SignalFull(worker, output);
+    } else {
+        emit userSendPasswordResetV1SignalE(output, error_type, error_str);
+        emit userSendPasswordResetV1SignalEFull(worker, error_type, error_str);
     }
 }
 

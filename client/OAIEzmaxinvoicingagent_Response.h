@@ -147,83 +147,83 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_ezmaxinvoicingagent_id;
+    qint32 m_pki_ezmaxinvoicingagent_id;
     bool m_pki_ezmaxinvoicingagent_id_isSet;
     bool m_pki_ezmaxinvoicingagent_id_isValid;
 
-    qint32 fki_ezmaxinvoicing_id;
+    qint32 m_fki_ezmaxinvoicing_id;
     bool m_fki_ezmaxinvoicing_id_isSet;
     bool m_fki_ezmaxinvoicing_id_isValid;
 
-    qint32 fki_billingentityinternal_id;
+    qint32 m_fki_billingentityinternal_id;
     bool m_fki_billingentityinternal_id_isSet;
     bool m_fki_billingentityinternal_id_isValid;
 
-    QString s_billingentityinternal_description_x;
+    QString m_s_billingentityinternal_description_x;
     bool m_s_billingentityinternal_description_x_isSet;
     bool m_s_billingentityinternal_description_x_isValid;
 
-    qint32 fki_agent_id;
+    qint32 m_fki_agent_id;
     bool m_fki_agent_id_isSet;
     bool m_fki_agent_id_isValid;
 
-    qint32 fki_broker_id;
+    qint32 m_fki_broker_id;
     bool m_fki_broker_id_isSet;
     bool m_fki_broker_id_isValid;
 
-    qint32 i_ezmaxinvoicingagent_session;
+    qint32 m_i_ezmaxinvoicingagent_session;
     bool m_i_ezmaxinvoicingagent_session_isSet;
     bool m_i_ezmaxinvoicingagent_session_isValid;
 
-    qint32 i_ezmaxinvoicingagent_cloned;
+    qint32 m_i_ezmaxinvoicingagent_cloned;
     bool m_i_ezmaxinvoicingagent_cloned_isSet;
     bool m_i_ezmaxinvoicingagent_cloned_isValid;
 
-    qint32 i_ezmaxinvoicingagent_invoice;
+    qint32 m_i_ezmaxinvoicingagent_invoice;
     bool m_i_ezmaxinvoicingagent_invoice_isSet;
     bool m_i_ezmaxinvoicingagent_invoice_isValid;
 
-    qint32 i_ezmaxinvoicingagent_inscription;
+    qint32 m_i_ezmaxinvoicingagent_inscription;
     bool m_i_ezmaxinvoicingagent_inscription_isSet;
     bool m_i_ezmaxinvoicingagent_inscription_isValid;
 
-    qint32 i_ezmaxinvoicingagent_inscriptionactive;
+    qint32 m_i_ezmaxinvoicingagent_inscriptionactive;
     bool m_i_ezmaxinvoicingagent_inscriptionactive_isSet;
     bool m_i_ezmaxinvoicingagent_inscriptionactive_isValid;
 
-    qint32 i_ezmaxinvoicingagent_sale;
+    qint32 m_i_ezmaxinvoicingagent_sale;
     bool m_i_ezmaxinvoicingagent_sale_isSet;
     bool m_i_ezmaxinvoicingagent_sale_isValid;
 
-    qint32 i_ezmaxinvoicingagent_otherincome;
+    qint32 m_i_ezmaxinvoicingagent_otherincome;
     bool m_i_ezmaxinvoicingagent_otherincome_isSet;
     bool m_i_ezmaxinvoicingagent_otherincome_isValid;
 
-    qint32 i_ezmaxinvoicingagent_commissioncalculation;
+    qint32 m_i_ezmaxinvoicingagent_commissioncalculation;
     bool m_i_ezmaxinvoicingagent_commissioncalculation_isSet;
     bool m_i_ezmaxinvoicingagent_commissioncalculation_isValid;
 
-    qint32 i_ezmaxinvoicingagent_ezsigndocument;
+    qint32 m_i_ezmaxinvoicingagent_ezsigndocument;
     bool m_i_ezmaxinvoicingagent_ezsigndocument_isSet;
     bool m_i_ezmaxinvoicingagent_ezsigndocument_isValid;
 
-    bool b_ezmaxinvoicingagent_ezsignaccount;
+    bool m_b_ezmaxinvoicingagent_ezsignaccount;
     bool m_b_ezmaxinvoicingagent_ezsignaccount_isSet;
     bool m_b_ezmaxinvoicingagent_ezsignaccount_isValid;
 
-    bool b_ezmaxinvoicingagent_billableezmax;
+    bool m_b_ezmaxinvoicingagent_billableezmax;
     bool m_b_ezmaxinvoicingagent_billableezmax_isSet;
     bool m_b_ezmaxinvoicingagent_billableezmax_isValid;
 
-    OAIField_eEzmaxinvoicingagentVariationezmax e_ezmaxinvoicingagent_variationezmax;
+    OAIField_eEzmaxinvoicingagentVariationezmax m_e_ezmaxinvoicingagent_variationezmax;
     bool m_e_ezmaxinvoicingagent_variationezmax_isSet;
     bool m_e_ezmaxinvoicingagent_variationezmax_isValid;
 
-    bool b_ezmaxinvoicingagent_billableezsign;
+    bool m_b_ezmaxinvoicingagent_billableezsign;
     bool m_b_ezmaxinvoicingagent_billableezsign_isSet;
     bool m_b_ezmaxinvoicingagent_billableezsign_isValid;
 
-    OAIField_eEzmaxinvoicingagentVariationezsign e_ezmaxinvoicingagent_variationezsign;
+    OAIField_eEzmaxinvoicingagentVariationezsign m_e_ezmaxinvoicingagent_variationezsign;
     bool m_e_ezmaxinvoicingagent_variationezsign_isSet;
     bool m_e_ezmaxinvoicingagent_variationezsign_isValid;
 };

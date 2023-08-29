@@ -52,7 +52,7 @@ public:
 private:
     void initializeModel();
 
-    QList<OAICommon_Reportsection> a_obj_reportsection;
+    QList<OAICommon_Reportsection> m_a_obj_reportsection;
     bool m_a_obj_reportsection_isSet;
     bool m_a_obj_reportsection_isValid;
 };

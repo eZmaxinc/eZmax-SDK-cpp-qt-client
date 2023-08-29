@@ -50,7 +50,7 @@ public:
 private:
     void initializeModel();
 
-    QString s_reason;
+    QString m_s_reason;
     bool m_s_reason_isSet;
     bool m_s_reason_isValid;
 };

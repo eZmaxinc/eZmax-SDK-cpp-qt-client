@@ -52,7 +52,7 @@ public:
 private:
     void initializeModel();
 
-    QList<OAIUser_RequestCompound> a_obj_user;
+    QList<OAIUser_RequestCompound> m_a_obj_user;
     bool m_a_obj_user_isSet;
     bool m_a_obj_user_isValid;
 };

@@ -83,31 +83,31 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_notificationtest_id;
+    qint32 m_pki_notificationtest_id;
     bool m_pki_notificationtest_id_isSet;
     bool m_pki_notificationtest_id_isValid;
 
-    OAIMultilingual_NotificationtestName obj_notificationtest_name;
+    OAIMultilingual_NotificationtestName m_obj_notificationtest_name;
     bool m_obj_notificationtest_name_isSet;
     bool m_obj_notificationtest_name_isValid;
 
-    qint32 fki_notificationsubsection_id;
+    qint32 m_fki_notificationsubsection_id;
     bool m_fki_notificationsubsection_id_isSet;
     bool m_fki_notificationsubsection_id_isValid;
 
-    QString s_notificationtest_function;
+    QString m_s_notificationtest_function;
     bool m_s_notificationtest_function_isSet;
     bool m_s_notificationtest_function_isValid;
 
-    QString s_notificationtest_name_x;
+    QString m_s_notificationtest_name_x;
     bool m_s_notificationtest_name_x_isSet;
     bool m_s_notificationtest_name_x_isValid;
 
-    OAIField_eNotificationpreferenceStatus e_notificationpreference_status;
+    OAIField_eNotificationpreferenceStatus m_e_notificationpreference_status;
     bool m_e_notificationpreference_status_isSet;
     bool m_e_notificationpreference_status_isValid;
 
-    qint32 i_notificationtest;
+    qint32 m_i_notificationtest;
     bool m_i_notificationtest_isSet;
     bool m_i_notificationtest_isValid;
 };

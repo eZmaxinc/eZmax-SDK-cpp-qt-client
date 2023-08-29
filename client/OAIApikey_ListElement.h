@@ -75,27 +75,27 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_apikey_id;
+    qint32 m_pki_apikey_id;
     bool m_pki_apikey_id_isSet;
     bool m_pki_apikey_id_isValid;
 
-    QString s_apikey_description_x;
+    QString m_s_apikey_description_x;
     bool m_s_apikey_description_x_isSet;
     bool m_s_apikey_description_x_isValid;
 
-    QString s_user_firstname;
+    QString m_s_user_firstname;
     bool m_s_user_firstname_isSet;
     bool m_s_user_firstname_isValid;
 
-    QString s_user_lastname;
+    QString m_s_user_lastname;
     bool m_s_user_lastname_isSet;
     bool m_s_user_lastname_isValid;
 
-    bool b_apikey_isactive;
+    bool m_b_apikey_isactive;
     bool m_b_apikey_isactive_isSet;
     bool m_b_apikey_isactive_isValid;
 
-    bool b_apikey_issigned;
+    bool m_b_apikey_issigned;
     bool m_b_apikey_issigned_isSet;
     bool m_b_apikey_issigned_isValid;
 };

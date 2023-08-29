@@ -52,7 +52,7 @@ public:
 private:
     void initializeModel();
 
-    QList<OAIPaymentterm_RequestCompound> a_obj_paymentterm;
+    QList<OAIPaymentterm_RequestCompound> m_a_obj_paymentterm;
     bool m_a_obj_paymentterm_isSet;
     bool m_a_obj_paymentterm_isValid;
 };

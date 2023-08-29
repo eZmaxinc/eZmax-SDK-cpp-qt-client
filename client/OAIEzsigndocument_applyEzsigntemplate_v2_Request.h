@@ -61,15 +61,15 @@ public:
 private:
     void initializeModel();
 
-    qint32 fki_ezsigntemplate_id;
+    qint32 m_fki_ezsigntemplate_id;
     bool m_fki_ezsigntemplate_id_isSet;
     bool m_fki_ezsigntemplate_id_isValid;
 
-    QList<QString> a_s_ezsigntemplatesigner;
+    QList<QString> m_a_s_ezsigntemplatesigner;
     bool m_a_s_ezsigntemplatesigner_isSet;
     bool m_a_s_ezsigntemplatesigner_isValid;
 
-    QList<qint32> a_pki_ezsignfoldersignerassociation_id;
+    QList<qint32> m_a_pki_ezsignfoldersignerassociation_id;
     bool m_a_pki_ezsignfoldersignerassociation_id_isSet;
     bool m_a_pki_ezsignfoldersignerassociation_id_isValid;
 };

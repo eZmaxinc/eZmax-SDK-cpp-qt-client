@@ -47,7 +47,7 @@ void OAIUser_createObject_v1_Request::fromJson(QString jsonString) {
 
 void OAIUser_createObject_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_user_isValid = ::OpenAPI::fromJsonValue(a_obj_user, json[QString("a_objUser")]);
+    m_a_obj_user_isValid = ::OpenAPI::fromJsonValue(m_a_obj_user, json[QString("a_objUser")]);
     m_a_obj_user_isSet = !json[QString("a_objUser")].isNull() && m_a_obj_user_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIUser_createObject_v1_Request::asJson() const {
 
 QJsonObject OAIUser_createObject_v1_Request::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_user.size() > 0) {
-        obj.insert(QString("a_objUser"), ::OpenAPI::toJsonValue(a_obj_user));
+    if (m_a_obj_user.size() > 0) {
+        obj.insert(QString("a_objUser"), ::OpenAPI::toJsonValue(m_a_obj_user));
     }
     return obj;
 }
 
 QList<OAIUser_RequestCompound> OAIUser_createObject_v1_Request::getAObjUser() const {
-    return a_obj_user;
+    return m_a_obj_user;
 }
 void OAIUser_createObject_v1_Request::setAObjUser(const QList<OAIUser_RequestCompound> &a_obj_user) {
-    this->a_obj_user = a_obj_user;
-    this->m_a_obj_user_isSet = true;
+    m_a_obj_user = a_obj_user;
+    m_a_obj_user_isSet = true;
 }
 
 bool OAIUser_createObject_v1_Request::is_a_obj_user_Set() const{
@@ -85,7 +85,7 @@ bool OAIUser_createObject_v1_Request::is_a_obj_user_Valid() const{
 bool OAIUser_createObject_v1_Request::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_user.size() > 0) {
+        if (m_a_obj_user.size() > 0) {
             isObjectUpdated = true;
             break;
         }

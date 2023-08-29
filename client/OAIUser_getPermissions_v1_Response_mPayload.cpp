@@ -47,7 +47,7 @@ void OAIUser_getPermissions_v1_Response_mPayload::fromJson(QString jsonString) {
 
 void OAIUser_getPermissions_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_modulegroup_isValid = ::OpenAPI::fromJsonValue(a_obj_modulegroup, json[QString("a_objModulegroup")]);
+    m_a_obj_modulegroup_isValid = ::OpenAPI::fromJsonValue(m_a_obj_modulegroup, json[QString("a_objModulegroup")]);
     m_a_obj_modulegroup_isSet = !json[QString("a_objModulegroup")].isNull() && m_a_obj_modulegroup_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIUser_getPermissions_v1_Response_mPayload::asJson() const {
 
 QJsonObject OAIUser_getPermissions_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_modulegroup.size() > 0) {
-        obj.insert(QString("a_objModulegroup"), ::OpenAPI::toJsonValue(a_obj_modulegroup));
+    if (m_a_obj_modulegroup.size() > 0) {
+        obj.insert(QString("a_objModulegroup"), ::OpenAPI::toJsonValue(m_a_obj_modulegroup));
     }
     return obj;
 }
 
 QList<OAIModulegroup_ResponseCompound> OAIUser_getPermissions_v1_Response_mPayload::getAObjModulegroup() const {
-    return a_obj_modulegroup;
+    return m_a_obj_modulegroup;
 }
 void OAIUser_getPermissions_v1_Response_mPayload::setAObjModulegroup(const QList<OAIModulegroup_ResponseCompound> &a_obj_modulegroup) {
-    this->a_obj_modulegroup = a_obj_modulegroup;
-    this->m_a_obj_modulegroup_isSet = true;
+    m_a_obj_modulegroup = a_obj_modulegroup;
+    m_a_obj_modulegroup_isSet = true;
 }
 
 bool OAIUser_getPermissions_v1_Response_mPayload::is_a_obj_modulegroup_Set() const{
@@ -85,7 +85,7 @@ bool OAIUser_getPermissions_v1_Response_mPayload::is_a_obj_modulegroup_Valid() c
 bool OAIUser_getPermissions_v1_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_modulegroup.size() > 0) {
+        if (m_a_obj_modulegroup.size() > 0) {
             isObjectUpdated = true;
             break;
         }

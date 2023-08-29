@@ -52,7 +52,7 @@ public:
 private:
     void initializeModel();
 
-    QList<OAIEzsignannotation_ResponseCompound> a_obj_ezsignannotation;
+    QList<OAIEzsignannotation_ResponseCompound> m_a_obj_ezsignannotation;
     bool m_a_obj_ezsignannotation_isSet;
     bool m_a_obj_ezsignannotation_isValid;
 };

@@ -95,43 +95,43 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_ezmaxinvoicingsummaryexternaldetail_id;
+    qint32 m_pki_ezmaxinvoicingsummaryexternaldetail_id;
     bool m_pki_ezmaxinvoicingsummaryexternaldetail_id_isSet;
     bool m_pki_ezmaxinvoicingsummaryexternaldetail_id_isValid;
 
-    qint32 fki_ezmaxinvoicingsummaryexternal_id;
+    qint32 m_fki_ezmaxinvoicingsummaryexternal_id;
     bool m_fki_ezmaxinvoicingsummaryexternal_id_isSet;
     bool m_fki_ezmaxinvoicingsummaryexternal_id_isValid;
 
-    qint32 fki_ezmaxproduct_id;
+    qint32 m_fki_ezmaxproduct_id;
     bool m_fki_ezmaxproduct_id_isSet;
     bool m_fki_ezmaxproduct_id_isValid;
 
-    QString s_ezmaxproduct_description_x;
+    QString m_s_ezmaxproduct_description_x;
     bool m_s_ezmaxproduct_description_x_isSet;
     bool m_s_ezmaxproduct_description_x_isValid;
 
-    QString d_ezmaxinvoicingsummaryexternaldetail_countreal;
+    QString m_d_ezmaxinvoicingsummaryexternaldetail_countreal;
     bool m_d_ezmaxinvoicingsummaryexternaldetail_countreal_isSet;
     bool m_d_ezmaxinvoicingsummaryexternaldetail_countreal_isValid;
 
-    QString d_ezmaxinvoicingsummaryexternaldetail_subtotal;
+    QString m_d_ezmaxinvoicingsummaryexternaldetail_subtotal;
     bool m_d_ezmaxinvoicingsummaryexternaldetail_subtotal_isSet;
     bool m_d_ezmaxinvoicingsummaryexternaldetail_subtotal_isValid;
 
-    QString d_ezmaxinvoicingsummaryexternaldetail_rebate;
+    QString m_d_ezmaxinvoicingsummaryexternaldetail_rebate;
     bool m_d_ezmaxinvoicingsummaryexternaldetail_rebate_isSet;
     bool m_d_ezmaxinvoicingsummaryexternaldetail_rebate_isValid;
 
-    QString d_ezmaxinvoicingsummaryexternaldetail_total;
+    QString m_d_ezmaxinvoicingsummaryexternaldetail_total;
     bool m_d_ezmaxinvoicingsummaryexternaldetail_total_isSet;
     bool m_d_ezmaxinvoicingsummaryexternaldetail_total_isValid;
 
-    bool b_ezmaxinvoicingsummaryexternaldetail_adjustment;
+    bool m_b_ezmaxinvoicingsummaryexternaldetail_adjustment;
     bool m_b_ezmaxinvoicingsummaryexternaldetail_adjustment_isSet;
     bool m_b_ezmaxinvoicingsummaryexternaldetail_adjustment_isValid;
 
-    QString t_ezmaxproduct_help_x;
+    QString m_t_ezmaxproduct_help_x;
     bool m_t_ezmaxproduct_help_x_isSet;
     bool m_t_ezmaxproduct_help_x_isValid;
 };

@@ -47,7 +47,7 @@ void OAIEzsignsignature_createObject_v2_Request::fromJson(QString jsonString) {
 
 void OAIEzsignsignature_createObject_v2_Request::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_ezsignsignature_isValid = ::OpenAPI::fromJsonValue(a_obj_ezsignsignature, json[QString("a_objEzsignsignature")]);
+    m_a_obj_ezsignsignature_isValid = ::OpenAPI::fromJsonValue(m_a_obj_ezsignsignature, json[QString("a_objEzsignsignature")]);
     m_a_obj_ezsignsignature_isSet = !json[QString("a_objEzsignsignature")].isNull() && m_a_obj_ezsignsignature_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIEzsignsignature_createObject_v2_Request::asJson() const {
 
 QJsonObject OAIEzsignsignature_createObject_v2_Request::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_ezsignsignature.size() > 0) {
-        obj.insert(QString("a_objEzsignsignature"), ::OpenAPI::toJsonValue(a_obj_ezsignsignature));
+    if (m_a_obj_ezsignsignature.size() > 0) {
+        obj.insert(QString("a_objEzsignsignature"), ::OpenAPI::toJsonValue(m_a_obj_ezsignsignature));
     }
     return obj;
 }
 
 QList<OAIEzsignsignature_RequestCompound> OAIEzsignsignature_createObject_v2_Request::getAObjEzsignsignature() const {
-    return a_obj_ezsignsignature;
+    return m_a_obj_ezsignsignature;
 }
 void OAIEzsignsignature_createObject_v2_Request::setAObjEzsignsignature(const QList<OAIEzsignsignature_RequestCompound> &a_obj_ezsignsignature) {
-    this->a_obj_ezsignsignature = a_obj_ezsignsignature;
-    this->m_a_obj_ezsignsignature_isSet = true;
+    m_a_obj_ezsignsignature = a_obj_ezsignsignature;
+    m_a_obj_ezsignsignature_isSet = true;
 }
 
 bool OAIEzsignsignature_createObject_v2_Request::is_a_obj_ezsignsignature_Set() const{
@@ -85,7 +85,7 @@ bool OAIEzsignsignature_createObject_v2_Request::is_a_obj_ezsignsignature_Valid(
 bool OAIEzsignsignature_createObject_v2_Request::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_ezsignsignature.size() > 0) {
+        if (m_a_obj_ezsignsignature.size() > 0) {
             isObjectUpdated = true;
             break;
         }

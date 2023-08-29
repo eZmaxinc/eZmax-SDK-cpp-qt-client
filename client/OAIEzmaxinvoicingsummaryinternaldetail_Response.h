@@ -105,51 +105,51 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_ezmaxinvoicingsummaryinternaldetail_id;
+    qint32 m_pki_ezmaxinvoicingsummaryinternaldetail_id;
     bool m_pki_ezmaxinvoicingsummaryinternaldetail_id_isSet;
     bool m_pki_ezmaxinvoicingsummaryinternaldetail_id_isValid;
 
-    qint32 fki_ezmaxinvoicingsummaryinternal_id;
+    qint32 m_fki_ezmaxinvoicingsummaryinternal_id;
     bool m_fki_ezmaxinvoicingsummaryinternal_id_isSet;
     bool m_fki_ezmaxinvoicingsummaryinternal_id_isValid;
 
-    qint32 fki_ezmaxproduct_id;
+    qint32 m_fki_ezmaxproduct_id;
     bool m_fki_ezmaxproduct_id_isSet;
     bool m_fki_ezmaxproduct_id_isValid;
 
-    QString s_ezmaxproduct_description_x;
+    QString m_s_ezmaxproduct_description_x;
     bool m_s_ezmaxproduct_description_x_isSet;
     bool m_s_ezmaxproduct_description_x_isValid;
 
-    qint32 fki_billingentityexternal_id;
+    qint32 m_fki_billingentityexternal_id;
     bool m_fki_billingentityexternal_id_isSet;
     bool m_fki_billingentityexternal_id_isValid;
 
-    QString s_billingentityexternal_description;
+    QString m_s_billingentityexternal_description;
     bool m_s_billingentityexternal_description_isSet;
     bool m_s_billingentityexternal_description_isValid;
 
-    QString d_ezmaxinvoicingsummaryinternaldetail_countreal;
+    QString m_d_ezmaxinvoicingsummaryinternaldetail_countreal;
     bool m_d_ezmaxinvoicingsummaryinternaldetail_countreal_isSet;
     bool m_d_ezmaxinvoicingsummaryinternaldetail_countreal_isValid;
 
-    QString d_ezmaxinvoicingsummaryinternaldetail_subtotal;
+    QString m_d_ezmaxinvoicingsummaryinternaldetail_subtotal;
     bool m_d_ezmaxinvoicingsummaryinternaldetail_subtotal_isSet;
     bool m_d_ezmaxinvoicingsummaryinternaldetail_subtotal_isValid;
 
-    QString d_ezmaxinvoicingsummaryinternaldetail_rebate;
+    QString m_d_ezmaxinvoicingsummaryinternaldetail_rebate;
     bool m_d_ezmaxinvoicingsummaryinternaldetail_rebate_isSet;
     bool m_d_ezmaxinvoicingsummaryinternaldetail_rebate_isValid;
 
-    QString d_ezmaxinvoicingsummaryinternaldetail_total;
+    QString m_d_ezmaxinvoicingsummaryinternaldetail_total;
     bool m_d_ezmaxinvoicingsummaryinternaldetail_total_isSet;
     bool m_d_ezmaxinvoicingsummaryinternaldetail_total_isValid;
 
-    bool b_ezmaxinvoicingsummaryinternaldetail_adjustment;
+    bool m_b_ezmaxinvoicingsummaryinternaldetail_adjustment;
     bool m_b_ezmaxinvoicingsummaryinternaldetail_adjustment_isSet;
     bool m_b_ezmaxinvoicingsummaryinternaldetail_adjustment_isValid;
 
-    QString t_ezmaxproduct_help_x;
+    QString m_t_ezmaxproduct_help_x;
     bool m_t_ezmaxproduct_help_x_isSet;
     bool m_t_ezmaxproduct_help_x_isValid;
 };

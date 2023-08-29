@@ -56,11 +56,11 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_usergroup_id;
+    qint32 m_pki_usergroup_id;
     bool m_pki_usergroup_id_isSet;
     bool m_pki_usergroup_id_isValid;
 
-    OAIMultilingual_UsergroupName obj_usergroup_name;
+    OAIMultilingual_UsergroupName m_obj_usergroup_name;
     bool m_obj_usergroup_name_isSet;
     bool m_obj_usergroup_name_isValid;
 };

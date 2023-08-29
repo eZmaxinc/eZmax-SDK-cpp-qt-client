@@ -47,7 +47,7 @@ void OAIFont_getAutocomplete_v2_Response_mPayload::fromJson(QString jsonString) 
 
 void OAIFont_getAutocomplete_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_font_isValid = ::OpenAPI::fromJsonValue(a_obj_font, json[QString("a_objFont")]);
+    m_a_obj_font_isValid = ::OpenAPI::fromJsonValue(m_a_obj_font, json[QString("a_objFont")]);
     m_a_obj_font_isSet = !json[QString("a_objFont")].isNull() && m_a_obj_font_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIFont_getAutocomplete_v2_Response_mPayload::asJson() const {
 
 QJsonObject OAIFont_getAutocomplete_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_font.size() > 0) {
-        obj.insert(QString("a_objFont"), ::OpenAPI::toJsonValue(a_obj_font));
+    if (m_a_obj_font.size() > 0) {
+        obj.insert(QString("a_objFont"), ::OpenAPI::toJsonValue(m_a_obj_font));
     }
     return obj;
 }
 
 QList<OAIFont_AutocompleteElement_Response> OAIFont_getAutocomplete_v2_Response_mPayload::getAObjFont() const {
-    return a_obj_font;
+    return m_a_obj_font;
 }
 void OAIFont_getAutocomplete_v2_Response_mPayload::setAObjFont(const QList<OAIFont_AutocompleteElement_Response> &a_obj_font) {
-    this->a_obj_font = a_obj_font;
-    this->m_a_obj_font_isSet = true;
+    m_a_obj_font = a_obj_font;
+    m_a_obj_font_isSet = true;
 }
 
 bool OAIFont_getAutocomplete_v2_Response_mPayload::is_a_obj_font_Set() const{
@@ -85,7 +85,7 @@ bool OAIFont_getAutocomplete_v2_Response_mPayload::is_a_obj_font_Valid() const{
 bool OAIFont_getAutocomplete_v2_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_font.size() > 0) {
+        if (m_a_obj_font.size() > 0) {
             isObjectUpdated = true;
             break;
         }

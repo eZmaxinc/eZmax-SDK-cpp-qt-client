@@ -148,83 +148,83 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_ezmaxinvoicingsummaryglobal_id;
+    qint32 m_pki_ezmaxinvoicingsummaryglobal_id;
     bool m_pki_ezmaxinvoicingsummaryglobal_id_isSet;
     bool m_pki_ezmaxinvoicingsummaryglobal_id_isValid;
 
-    qint32 fki_ezmaxinvoicing_id;
+    qint32 m_fki_ezmaxinvoicing_id;
     bool m_fki_ezmaxinvoicing_id_isSet;
     bool m_fki_ezmaxinvoicing_id_isValid;
 
-    qint32 fki_ezmaxproduct_id;
+    qint32 m_fki_ezmaxproduct_id;
     bool m_fki_ezmaxproduct_id_isSet;
     bool m_fki_ezmaxproduct_id_isValid;
 
-    QString s_ezmaxproduct_description_x;
+    QString m_s_ezmaxproduct_description_x;
     bool m_s_ezmaxproduct_description_x_isSet;
     bool m_s_ezmaxproduct_description_x_isValid;
 
-    QString dt_ezmaxinvoicingsummaryglobal_start;
+    QString m_dt_ezmaxinvoicingsummaryglobal_start;
     bool m_dt_ezmaxinvoicingsummaryglobal_start_isSet;
     bool m_dt_ezmaxinvoicingsummaryglobal_start_isValid;
 
-    QString dt_ezmaxinvoicingsummaryglobal_end;
+    QString m_dt_ezmaxinvoicingsummaryglobal_end;
     bool m_dt_ezmaxinvoicingsummaryglobal_end_isSet;
     bool m_dt_ezmaxinvoicingsummaryglobal_end_isValid;
 
-    qint32 i_ezmaxinvoicingsummaryglobal_days;
+    qint32 m_i_ezmaxinvoicingsummaryglobal_days;
     bool m_i_ezmaxinvoicingsummaryglobal_days_isSet;
     bool m_i_ezmaxinvoicingsummaryglobal_days_isValid;
 
-    QString d_ezmaxinvoicingsummaryglobal_countreal;
+    QString m_d_ezmaxinvoicingsummaryglobal_countreal;
     bool m_d_ezmaxinvoicingsummaryglobal_countreal_isSet;
     bool m_d_ezmaxinvoicingsummaryglobal_countreal_isValid;
 
-    QString d_ezmaxinvoicingsummaryglobal_countbilled;
+    QString m_d_ezmaxinvoicingsummaryglobal_countbilled;
     bool m_d_ezmaxinvoicingsummaryglobal_countbilled_isSet;
     bool m_d_ezmaxinvoicingsummaryglobal_countbilled_isValid;
 
-    QString d_ezmaxinvoicingsummaryglobal_subtotal;
+    QString m_d_ezmaxinvoicingsummaryglobal_subtotal;
     bool m_d_ezmaxinvoicingsummaryglobal_subtotal_isSet;
     bool m_d_ezmaxinvoicingsummaryglobal_subtotal_isValid;
 
-    QString d_ezmaxinvoicingsummaryglobal_rebateamount;
+    QString m_d_ezmaxinvoicingsummaryglobal_rebateamount;
     bool m_d_ezmaxinvoicingsummaryglobal_rebateamount_isSet;
     bool m_d_ezmaxinvoicingsummaryglobal_rebateamount_isValid;
 
-    QString d_ezmaxinvoicingsummaryglobal_rebatepercent;
+    QString m_d_ezmaxinvoicingsummaryglobal_rebatepercent;
     bool m_d_ezmaxinvoicingsummaryglobal_rebatepercent_isSet;
     bool m_d_ezmaxinvoicingsummaryglobal_rebatepercent_isValid;
 
-    QString d_ezmaxinvoicingsummaryglobal_rebatetotal;
+    QString m_d_ezmaxinvoicingsummaryglobal_rebatetotal;
     bool m_d_ezmaxinvoicingsummaryglobal_rebatetotal_isSet;
     bool m_d_ezmaxinvoicingsummaryglobal_rebatetotal_isValid;
 
-    QString d_ezmaxinvoicingsummaryglobal_total;
+    QString m_d_ezmaxinvoicingsummaryglobal_total;
     bool m_d_ezmaxinvoicingsummaryglobal_total_isSet;
     bool m_d_ezmaxinvoicingsummaryglobal_total_isValid;
 
-    QString d_ezmaxinvoicingsummaryglobal_representative;
+    QString m_d_ezmaxinvoicingsummaryglobal_representative;
     bool m_d_ezmaxinvoicingsummaryglobal_representative_isSet;
     bool m_d_ezmaxinvoicingsummaryglobal_representative_isValid;
 
-    QString d_ezmaxinvoicingsummaryglobal_partner;
+    QString m_d_ezmaxinvoicingsummaryglobal_partner;
     bool m_d_ezmaxinvoicingsummaryglobal_partner_isSet;
     bool m_d_ezmaxinvoicingsummaryglobal_partner_isValid;
 
-    QString d_ezmaxinvoicingsummaryglobal_net;
+    QString m_d_ezmaxinvoicingsummaryglobal_net;
     bool m_d_ezmaxinvoicingsummaryglobal_net_isSet;
     bool m_d_ezmaxinvoicingsummaryglobal_net_isValid;
 
-    bool b_ezmaxinvoicingsummaryglobal_adjustment;
+    bool m_b_ezmaxinvoicingsummaryglobal_adjustment;
     bool m_b_ezmaxinvoicingsummaryglobal_adjustment_isSet;
     bool m_b_ezmaxinvoicingsummaryglobal_adjustment_isValid;
 
-    QString t_ezmaxproduct_help_x;
+    QString m_t_ezmaxproduct_help_x;
     bool m_t_ezmaxproduct_help_x_isSet;
     bool m_t_ezmaxproduct_help_x_isValid;
 
-    QList<OAIEzmaxinvoicingcommission_ResponseCompound> a_obj_ezmaxinvoicingcommission;
+    QList<OAIEzmaxinvoicingcommission_ResponseCompound> m_a_obj_ezmaxinvoicingcommission;
     bool m_a_obj_ezmaxinvoicingcommission_isSet;
     bool m_a_obj_ezmaxinvoicingcommission_isValid;
 };

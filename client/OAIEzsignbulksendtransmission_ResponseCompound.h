@@ -80,27 +80,27 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_ezsignbulksendtransmission_id;
+    qint32 m_pki_ezsignbulksendtransmission_id;
     bool m_pki_ezsignbulksendtransmission_id_isSet;
     bool m_pki_ezsignbulksendtransmission_id_isValid;
 
-    qint32 fki_ezsignbulksend_id;
+    qint32 m_fki_ezsignbulksend_id;
     bool m_fki_ezsignbulksend_id_isSet;
     bool m_fki_ezsignbulksend_id_isValid;
 
-    QString s_ezsignbulksendtransmission_description;
+    QString m_s_ezsignbulksendtransmission_description;
     bool m_s_ezsignbulksendtransmission_description_isSet;
     bool m_s_ezsignbulksendtransmission_description_isValid;
 
-    qint32 i_ezsignbulksendtransmission_errors;
+    qint32 m_i_ezsignbulksendtransmission_errors;
     bool m_i_ezsignbulksendtransmission_errors_isSet;
     bool m_i_ezsignbulksendtransmission_errors_isValid;
 
-    OAICommon_Audit obj_audit;
+    OAICommon_Audit m_obj_audit;
     bool m_obj_audit_isSet;
     bool m_obj_audit_isValid;
 
-    QList<OAICustom_Ezsignfoldertransmission_Response> a_obj_ezsignfoldertransmission;
+    QList<OAICustom_Ezsignfoldertransmission_Response> m_a_obj_ezsignfoldertransmission;
     bool m_a_obj_ezsignfoldertransmission_isSet;
     bool m_a_obj_ezsignfoldertransmission_isValid;
 };

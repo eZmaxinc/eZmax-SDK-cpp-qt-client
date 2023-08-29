@@ -50,7 +50,7 @@ public:
 private:
     void initializeModel();
 
-    QSet<qint32> a_fki_ezsignfoldersignerassociation_id;
+    QSet<qint32> m_a_fki_ezsignfoldersignerassociation_id;
     bool m_a_fki_ezsignfoldersignerassociation_id_isSet;
     bool m_a_fki_ezsignfoldersignerassociation_id_isValid;
 };

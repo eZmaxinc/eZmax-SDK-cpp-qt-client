@@ -60,15 +60,15 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_email_id;
+    qint32 m_pki_email_id;
     bool m_pki_email_id_isSet;
     bool m_pki_email_id_isValid;
 
-    qint32 fki_emailtype_id;
+    qint32 m_fki_emailtype_id;
     bool m_fki_emailtype_id_isSet;
     bool m_fki_emailtype_id_isValid;
 
-    QString s_email_address;
+    QString m_s_email_address;
     bool m_s_email_address_isSet;
     bool m_s_email_address_isValid;
 };

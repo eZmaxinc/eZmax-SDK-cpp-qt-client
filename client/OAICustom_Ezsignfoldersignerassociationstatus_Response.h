@@ -73,23 +73,23 @@ public:
 private:
     void initializeModel();
 
-    qint32 fki_ezsignfoldersignerassociation_id;
+    qint32 m_fki_ezsignfoldersignerassociation_id;
     bool m_fki_ezsignfoldersignerassociation_id_isSet;
     bool m_fki_ezsignfoldersignerassociation_id_isValid;
 
-    QString s_ezsignfoldersignerassociationstatus_lastname;
+    QString m_s_ezsignfoldersignerassociationstatus_lastname;
     bool m_s_ezsignfoldersignerassociationstatus_lastname_isSet;
     bool m_s_ezsignfoldersignerassociationstatus_lastname_isValid;
 
-    QString s_ezsignfoldersignerassociationstatus_firstname;
+    QString m_s_ezsignfoldersignerassociationstatus_firstname;
     bool m_s_ezsignfoldersignerassociationstatus_firstname_isSet;
     bool m_s_ezsignfoldersignerassociationstatus_firstname_isValid;
 
-    QString s_ezsignfoldersignerassociationstatus_description_x;
+    QString m_s_ezsignfoldersignerassociationstatus_description_x;
     bool m_s_ezsignfoldersignerassociationstatus_description_x_isSet;
     bool m_s_ezsignfoldersignerassociationstatus_description_x_isValid;
 
-    QList<OAICustom_Ezsignsignaturestatus_Response> a_obj_ezsignsignaturestatus;
+    QList<OAICustom_Ezsignsignaturestatus_Response> m_a_obj_ezsignsignaturestatus;
     bool m_a_obj_ezsignsignaturestatus_isSet;
     bool m_a_obj_ezsignsignaturestatus_isValid;
 };

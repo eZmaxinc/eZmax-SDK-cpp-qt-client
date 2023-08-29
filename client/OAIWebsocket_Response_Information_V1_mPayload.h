@@ -50,7 +50,7 @@ public:
 private:
     void initializeModel();
 
-    QString s_information_message;
+    QString m_s_information_message;
     bool m_s_information_message_isSet;
     bool m_s_information_message_isValid;
 };

@@ -34,14 +34,14 @@ OAIEzsigntemplatepackage_getList_v1_Response_mPayload::~OAIEzsigntemplatepackage
 
 void OAIEzsigntemplatepackage_getList_v1_Response_mPayload::initializeModel() {
 
-    m_a_obj_ezsigntemplatepackage_isSet = false;
-    m_a_obj_ezsigntemplatepackage_isValid = false;
-
     m_i_row_returned_isSet = false;
     m_i_row_returned_isValid = false;
 
     m_i_row_filtered_isSet = false;
     m_i_row_filtered_isValid = false;
+
+    m_a_obj_ezsigntemplatepackage_isSet = false;
+    m_a_obj_ezsigntemplatepackage_isValid = false;
 }
 
 void OAIEzsigntemplatepackage_getList_v1_Response_mPayload::fromJson(QString jsonString) {
@@ -53,14 +53,14 @@ void OAIEzsigntemplatepackage_getList_v1_Response_mPayload::fromJson(QString jso
 
 void OAIEzsigntemplatepackage_getList_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_ezsigntemplatepackage_isValid = ::OpenAPI::fromJsonValue(a_obj_ezsigntemplatepackage, json[QString("a_objEzsigntemplatepackage")]);
-    m_a_obj_ezsigntemplatepackage_isSet = !json[QString("a_objEzsigntemplatepackage")].isNull() && m_a_obj_ezsigntemplatepackage_isValid;
-
-    m_i_row_returned_isValid = ::OpenAPI::fromJsonValue(i_row_returned, json[QString("iRowReturned")]);
+    m_i_row_returned_isValid = ::OpenAPI::fromJsonValue(m_i_row_returned, json[QString("iRowReturned")]);
     m_i_row_returned_isSet = !json[QString("iRowReturned")].isNull() && m_i_row_returned_isValid;
 
-    m_i_row_filtered_isValid = ::OpenAPI::fromJsonValue(i_row_filtered, json[QString("iRowFiltered")]);
+    m_i_row_filtered_isValid = ::OpenAPI::fromJsonValue(m_i_row_filtered, json[QString("iRowFiltered")]);
     m_i_row_filtered_isSet = !json[QString("iRowFiltered")].isNull() && m_i_row_filtered_isValid;
+
+    m_a_obj_ezsigntemplatepackage_isValid = ::OpenAPI::fromJsonValue(m_a_obj_ezsigntemplatepackage, json[QString("a_objEzsigntemplatepackage")]);
+    m_a_obj_ezsigntemplatepackage_isSet = !json[QString("a_objEzsigntemplatepackage")].isNull() && m_a_obj_ezsigntemplatepackage_isValid;
 }
 
 QString OAIEzsigntemplatepackage_getList_v1_Response_mPayload::asJson() const {
@@ -72,40 +72,24 @@ QString OAIEzsigntemplatepackage_getList_v1_Response_mPayload::asJson() const {
 
 QJsonObject OAIEzsigntemplatepackage_getList_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_ezsigntemplatepackage.size() > 0) {
-        obj.insert(QString("a_objEzsigntemplatepackage"), ::OpenAPI::toJsonValue(a_obj_ezsigntemplatepackage));
-    }
     if (m_i_row_returned_isSet) {
-        obj.insert(QString("iRowReturned"), ::OpenAPI::toJsonValue(i_row_returned));
+        obj.insert(QString("iRowReturned"), ::OpenAPI::toJsonValue(m_i_row_returned));
     }
     if (m_i_row_filtered_isSet) {
-        obj.insert(QString("iRowFiltered"), ::OpenAPI::toJsonValue(i_row_filtered));
+        obj.insert(QString("iRowFiltered"), ::OpenAPI::toJsonValue(m_i_row_filtered));
+    }
+    if (m_a_obj_ezsigntemplatepackage.size() > 0) {
+        obj.insert(QString("a_objEzsigntemplatepackage"), ::OpenAPI::toJsonValue(m_a_obj_ezsigntemplatepackage));
     }
     return obj;
 }
 
-QList<OAIEzsigntemplatepackage_ListElement> OAIEzsigntemplatepackage_getList_v1_Response_mPayload::getAObjEzsigntemplatepackage() const {
-    return a_obj_ezsigntemplatepackage;
-}
-void OAIEzsigntemplatepackage_getList_v1_Response_mPayload::setAObjEzsigntemplatepackage(const QList<OAIEzsigntemplatepackage_ListElement> &a_obj_ezsigntemplatepackage) {
-    this->a_obj_ezsigntemplatepackage = a_obj_ezsigntemplatepackage;
-    this->m_a_obj_ezsigntemplatepackage_isSet = true;
-}
-
-bool OAIEzsigntemplatepackage_getList_v1_Response_mPayload::is_a_obj_ezsigntemplatepackage_Set() const{
-    return m_a_obj_ezsigntemplatepackage_isSet;
-}
-
-bool OAIEzsigntemplatepackage_getList_v1_Response_mPayload::is_a_obj_ezsigntemplatepackage_Valid() const{
-    return m_a_obj_ezsigntemplatepackage_isValid;
-}
-
 qint32 OAIEzsigntemplatepackage_getList_v1_Response_mPayload::getIRowReturned() const {
-    return i_row_returned;
+    return m_i_row_returned;
 }
 void OAIEzsigntemplatepackage_getList_v1_Response_mPayload::setIRowReturned(const qint32 &i_row_returned) {
-    this->i_row_returned = i_row_returned;
-    this->m_i_row_returned_isSet = true;
+    m_i_row_returned = i_row_returned;
+    m_i_row_returned_isSet = true;
 }
 
 bool OAIEzsigntemplatepackage_getList_v1_Response_mPayload::is_i_row_returned_Set() const{
@@ -117,11 +101,11 @@ bool OAIEzsigntemplatepackage_getList_v1_Response_mPayload::is_i_row_returned_Va
 }
 
 qint32 OAIEzsigntemplatepackage_getList_v1_Response_mPayload::getIRowFiltered() const {
-    return i_row_filtered;
+    return m_i_row_filtered;
 }
 void OAIEzsigntemplatepackage_getList_v1_Response_mPayload::setIRowFiltered(const qint32 &i_row_filtered) {
-    this->i_row_filtered = i_row_filtered;
-    this->m_i_row_filtered_isSet = true;
+    m_i_row_filtered = i_row_filtered;
+    m_i_row_filtered_isSet = true;
 }
 
 bool OAIEzsigntemplatepackage_getList_v1_Response_mPayload::is_i_row_filtered_Set() const{
@@ -132,14 +116,25 @@ bool OAIEzsigntemplatepackage_getList_v1_Response_mPayload::is_i_row_filtered_Va
     return m_i_row_filtered_isValid;
 }
 
+QList<OAIEzsigntemplatepackage_ListElement> OAIEzsigntemplatepackage_getList_v1_Response_mPayload::getAObjEzsigntemplatepackage() const {
+    return m_a_obj_ezsigntemplatepackage;
+}
+void OAIEzsigntemplatepackage_getList_v1_Response_mPayload::setAObjEzsigntemplatepackage(const QList<OAIEzsigntemplatepackage_ListElement> &a_obj_ezsigntemplatepackage) {
+    m_a_obj_ezsigntemplatepackage = a_obj_ezsigntemplatepackage;
+    m_a_obj_ezsigntemplatepackage_isSet = true;
+}
+
+bool OAIEzsigntemplatepackage_getList_v1_Response_mPayload::is_a_obj_ezsigntemplatepackage_Set() const{
+    return m_a_obj_ezsigntemplatepackage_isSet;
+}
+
+bool OAIEzsigntemplatepackage_getList_v1_Response_mPayload::is_a_obj_ezsigntemplatepackage_Valid() const{
+    return m_a_obj_ezsigntemplatepackage_isValid;
+}
+
 bool OAIEzsigntemplatepackage_getList_v1_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_ezsigntemplatepackage.size() > 0) {
-            isObjectUpdated = true;
-            break;
-        }
-
         if (m_i_row_returned_isSet) {
             isObjectUpdated = true;
             break;
@@ -149,13 +144,18 @@ bool OAIEzsigntemplatepackage_getList_v1_Response_mPayload::isSet() const {
             isObjectUpdated = true;
             break;
         }
+
+        if (m_a_obj_ezsigntemplatepackage.size() > 0) {
+            isObjectUpdated = true;
+            break;
+        }
     } while (false);
     return isObjectUpdated;
 }
 
 bool OAIEzsigntemplatepackage_getList_v1_Response_mPayload::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_a_obj_ezsigntemplatepackage_isValid && m_i_row_returned_isValid && m_i_row_filtered_isValid && true;
+    return m_i_row_returned_isValid && m_i_row_filtered_isValid && m_a_obj_ezsigntemplatepackage_isValid && true;
 }
 
 } // namespace OpenAPI

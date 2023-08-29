@@ -52,7 +52,7 @@ public:
 private:
     void initializeModel();
 
-    QList<OAISignature_RequestCompound> a_obj_signature;
+    QList<OAISignature_RequestCompound> m_a_obj_signature;
     bool m_a_obj_signature_isSet;
     bool m_a_obj_signature_isValid;
 };

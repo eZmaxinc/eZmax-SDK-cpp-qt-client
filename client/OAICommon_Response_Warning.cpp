@@ -50,10 +50,10 @@ void OAICommon_Response_Warning::fromJson(QString jsonString) {
 
 void OAICommon_Response_Warning::fromJsonObject(QJsonObject json) {
 
-    m_s_warning_message_isValid = ::OpenAPI::fromJsonValue(s_warning_message, json[QString("sWarningMessage")]);
+    m_s_warning_message_isValid = ::OpenAPI::fromJsonValue(m_s_warning_message, json[QString("sWarningMessage")]);
     m_s_warning_message_isSet = !json[QString("sWarningMessage")].isNull() && m_s_warning_message_isValid;
 
-    m_e_warning_code_isValid = ::OpenAPI::fromJsonValue(e_warning_code, json[QString("eWarningCode")]);
+    m_e_warning_code_isValid = ::OpenAPI::fromJsonValue(m_e_warning_code, json[QString("eWarningCode")]);
     m_e_warning_code_isSet = !json[QString("eWarningCode")].isNull() && m_e_warning_code_isValid;
 }
 
@@ -67,20 +67,20 @@ QString OAICommon_Response_Warning::asJson() const {
 QJsonObject OAICommon_Response_Warning::asJsonObject() const {
     QJsonObject obj;
     if (m_s_warning_message_isSet) {
-        obj.insert(QString("sWarningMessage"), ::OpenAPI::toJsonValue(s_warning_message));
+        obj.insert(QString("sWarningMessage"), ::OpenAPI::toJsonValue(m_s_warning_message));
     }
     if (m_e_warning_code_isSet) {
-        obj.insert(QString("eWarningCode"), ::OpenAPI::toJsonValue(e_warning_code));
+        obj.insert(QString("eWarningCode"), ::OpenAPI::toJsonValue(m_e_warning_code));
     }
     return obj;
 }
 
 QString OAICommon_Response_Warning::getSWarningMessage() const {
-    return s_warning_message;
+    return m_s_warning_message;
 }
 void OAICommon_Response_Warning::setSWarningMessage(const QString &s_warning_message) {
-    this->s_warning_message = s_warning_message;
-    this->m_s_warning_message_isSet = true;
+    m_s_warning_message = s_warning_message;
+    m_s_warning_message_isSet = true;
 }
 
 bool OAICommon_Response_Warning::is_s_warning_message_Set() const{
@@ -92,11 +92,11 @@ bool OAICommon_Response_Warning::is_s_warning_message_Valid() const{
 }
 
 QString OAICommon_Response_Warning::getEWarningCode() const {
-    return e_warning_code;
+    return m_e_warning_code;
 }
 void OAICommon_Response_Warning::setEWarningCode(const QString &e_warning_code) {
-    this->e_warning_code = e_warning_code;
-    this->m_e_warning_code_isSet = true;
+    m_e_warning_code = e_warning_code;
+    m_e_warning_code_isSet = true;
 }
 
 bool OAICommon_Response_Warning::is_e_warning_code_Set() const{

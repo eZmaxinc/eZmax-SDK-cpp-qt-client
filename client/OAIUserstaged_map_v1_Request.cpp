@@ -47,7 +47,7 @@ void OAIUserstaged_map_v1_Request::fromJson(QString jsonString) {
 
 void OAIUserstaged_map_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_fki_user_id_isValid = ::OpenAPI::fromJsonValue(fki_user_id, json[QString("fkiUserID")]);
+    m_fki_user_id_isValid = ::OpenAPI::fromJsonValue(m_fki_user_id, json[QString("fkiUserID")]);
     m_fki_user_id_isSet = !json[QString("fkiUserID")].isNull() && m_fki_user_id_isValid;
 }
 
@@ -61,17 +61,17 @@ QString OAIUserstaged_map_v1_Request::asJson() const {
 QJsonObject OAIUserstaged_map_v1_Request::asJsonObject() const {
     QJsonObject obj;
     if (m_fki_user_id_isSet) {
-        obj.insert(QString("fkiUserID"), ::OpenAPI::toJsonValue(fki_user_id));
+        obj.insert(QString("fkiUserID"), ::OpenAPI::toJsonValue(m_fki_user_id));
     }
     return obj;
 }
 
 qint32 OAIUserstaged_map_v1_Request::getFkiUserId() const {
-    return fki_user_id;
+    return m_fki_user_id;
 }
 void OAIUserstaged_map_v1_Request::setFkiUserId(const qint32 &fki_user_id) {
-    this->fki_user_id = fki_user_id;
-    this->m_fki_user_id_isSet = true;
+    m_fki_user_id = fki_user_id;
+    m_fki_user_id_isSet = true;
 }
 
 bool OAIUserstaged_map_v1_Request::is_fki_user_id_Set() const{

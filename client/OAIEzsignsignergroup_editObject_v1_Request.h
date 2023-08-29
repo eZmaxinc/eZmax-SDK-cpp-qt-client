@@ -40,10 +40,10 @@ public:
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    OAIEzsignsignergroup_RequestCompound getObjBranding() const;
-    void setObjBranding(const OAIEzsignsignergroup_RequestCompound &obj_branding);
-    bool is_obj_branding_Set() const;
-    bool is_obj_branding_Valid() const;
+    OAIEzsignsignergroup_RequestCompound getObjEzsignsignergroup() const;
+    void setObjEzsignsignergroup(const OAIEzsignsignergroup_RequestCompound &obj_ezsignsignergroup);
+    bool is_obj_ezsignsignergroup_Set() const;
+    bool is_obj_ezsignsignergroup_Valid() const;
 
     virtual bool isSet() const override;
     virtual bool isValid() const override;
@@ -51,9 +51,9 @@ public:
 private:
     void initializeModel();
 
-    OAIEzsignsignergroup_RequestCompound obj_branding;
-    bool m_obj_branding_isSet;
-    bool m_obj_branding_isValid;
+    OAIEzsignsignergroup_RequestCompound m_obj_ezsignsignergroup;
+    bool m_obj_ezsignsignergroup_isSet;
+    bool m_obj_ezsignsignergroup_isValid;
 };
 
 } // namespace OpenAPI

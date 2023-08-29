@@ -47,7 +47,7 @@ void OAIWebhook_createObject_v1_Request::fromJson(QString jsonString) {
 
 void OAIWebhook_createObject_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_webhook_isValid = ::OpenAPI::fromJsonValue(a_obj_webhook, json[QString("a_objWebhook")]);
+    m_a_obj_webhook_isValid = ::OpenAPI::fromJsonValue(m_a_obj_webhook, json[QString("a_objWebhook")]);
     m_a_obj_webhook_isSet = !json[QString("a_objWebhook")].isNull() && m_a_obj_webhook_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIWebhook_createObject_v1_Request::asJson() const {
 
 QJsonObject OAIWebhook_createObject_v1_Request::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_webhook.size() > 0) {
-        obj.insert(QString("a_objWebhook"), ::OpenAPI::toJsonValue(a_obj_webhook));
+    if (m_a_obj_webhook.size() > 0) {
+        obj.insert(QString("a_objWebhook"), ::OpenAPI::toJsonValue(m_a_obj_webhook));
     }
     return obj;
 }
 
 QList<OAIWebhook_RequestCompound> OAIWebhook_createObject_v1_Request::getAObjWebhook() const {
-    return a_obj_webhook;
+    return m_a_obj_webhook;
 }
 void OAIWebhook_createObject_v1_Request::setAObjWebhook(const QList<OAIWebhook_RequestCompound> &a_obj_webhook) {
-    this->a_obj_webhook = a_obj_webhook;
-    this->m_a_obj_webhook_isSet = true;
+    m_a_obj_webhook = a_obj_webhook;
+    m_a_obj_webhook_isSet = true;
 }
 
 bool OAIWebhook_createObject_v1_Request::is_a_obj_webhook_Set() const{
@@ -85,7 +85,7 @@ bool OAIWebhook_createObject_v1_Request::is_a_obj_webhook_Valid() const{
 bool OAIWebhook_createObject_v1_Request::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_webhook.size() > 0) {
+        if (m_a_obj_webhook.size() > 0) {
             isObjectUpdated = true;
             break;
         }

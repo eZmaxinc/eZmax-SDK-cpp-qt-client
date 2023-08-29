@@ -50,10 +50,10 @@ void OAICustom_Webhooklog_Response::fromJson(QString jsonString) {
 
 void OAICustom_Webhooklog_Response::fromJsonObject(QJsonObject json) {
 
-    m_dt_webhooklog_date_isValid = ::OpenAPI::fromJsonValue(dt_webhooklog_date, json[QString("dtWebhooklogDate")]);
+    m_dt_webhooklog_date_isValid = ::OpenAPI::fromJsonValue(m_dt_webhooklog_date, json[QString("dtWebhooklogDate")]);
     m_dt_webhooklog_date_isSet = !json[QString("dtWebhooklogDate")].isNull() && m_dt_webhooklog_date_isValid;
 
-    m_t_webhooklog_json_isValid = ::OpenAPI::fromJsonValue(t_webhooklog_json, json[QString("tWebhooklogJson")]);
+    m_t_webhooklog_json_isValid = ::OpenAPI::fromJsonValue(m_t_webhooklog_json, json[QString("tWebhooklogJson")]);
     m_t_webhooklog_json_isSet = !json[QString("tWebhooklogJson")].isNull() && m_t_webhooklog_json_isValid;
 }
 
@@ -67,20 +67,20 @@ QString OAICustom_Webhooklog_Response::asJson() const {
 QJsonObject OAICustom_Webhooklog_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_dt_webhooklog_date_isSet) {
-        obj.insert(QString("dtWebhooklogDate"), ::OpenAPI::toJsonValue(dt_webhooklog_date));
+        obj.insert(QString("dtWebhooklogDate"), ::OpenAPI::toJsonValue(m_dt_webhooklog_date));
     }
     if (m_t_webhooklog_json_isSet) {
-        obj.insert(QString("tWebhooklogJson"), ::OpenAPI::toJsonValue(t_webhooklog_json));
+        obj.insert(QString("tWebhooklogJson"), ::OpenAPI::toJsonValue(m_t_webhooklog_json));
     }
     return obj;
 }
 
 QString OAICustom_Webhooklog_Response::getDtWebhooklogDate() const {
-    return dt_webhooklog_date;
+    return m_dt_webhooklog_date;
 }
 void OAICustom_Webhooklog_Response::setDtWebhooklogDate(const QString &dt_webhooklog_date) {
-    this->dt_webhooklog_date = dt_webhooklog_date;
-    this->m_dt_webhooklog_date_isSet = true;
+    m_dt_webhooklog_date = dt_webhooklog_date;
+    m_dt_webhooklog_date_isSet = true;
 }
 
 bool OAICustom_Webhooklog_Response::is_dt_webhooklog_date_Set() const{
@@ -92,11 +92,11 @@ bool OAICustom_Webhooklog_Response::is_dt_webhooklog_date_Valid() const{
 }
 
 QString OAICustom_Webhooklog_Response::getTWebhooklogJson() const {
-    return t_webhooklog_json;
+    return m_t_webhooklog_json;
 }
 void OAICustom_Webhooklog_Response::setTWebhooklogJson(const QString &t_webhooklog_json) {
-    this->t_webhooklog_json = t_webhooklog_json;
-    this->m_t_webhooklog_json_isSet = true;
+    m_t_webhooklog_json = t_webhooklog_json;
+    m_t_webhooklog_json_isSet = true;
 }
 
 bool OAICustom_Webhooklog_Response::is_t_webhooklog_json_Set() const{

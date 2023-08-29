@@ -47,7 +47,7 @@ void OAIEzsignfolder_getCommunicationList_v1_Response_mPayload::fromJson(QString
 
 void OAIEzsignfolder_getCommunicationList_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_communication_isValid = ::OpenAPI::fromJsonValue(a_obj_communication, json[QString("a_objCommunication")]);
+    m_a_obj_communication_isValid = ::OpenAPI::fromJsonValue(m_a_obj_communication, json[QString("a_objCommunication")]);
     m_a_obj_communication_isSet = !json[QString("a_objCommunication")].isNull() && m_a_obj_communication_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIEzsignfolder_getCommunicationList_v1_Response_mPayload::asJson() cons
 
 QJsonObject OAIEzsignfolder_getCommunicationList_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_communication.size() > 0) {
-        obj.insert(QString("a_objCommunication"), ::OpenAPI::toJsonValue(a_obj_communication));
+    if (m_a_obj_communication.size() > 0) {
+        obj.insert(QString("a_objCommunication"), ::OpenAPI::toJsonValue(m_a_obj_communication));
     }
     return obj;
 }
 
 QList<OAICustom_CommunicationListElement_Response> OAIEzsignfolder_getCommunicationList_v1_Response_mPayload::getAObjCommunication() const {
-    return a_obj_communication;
+    return m_a_obj_communication;
 }
 void OAIEzsignfolder_getCommunicationList_v1_Response_mPayload::setAObjCommunication(const QList<OAICustom_CommunicationListElement_Response> &a_obj_communication) {
-    this->a_obj_communication = a_obj_communication;
-    this->m_a_obj_communication_isSet = true;
+    m_a_obj_communication = a_obj_communication;
+    m_a_obj_communication_isSet = true;
 }
 
 bool OAIEzsignfolder_getCommunicationList_v1_Response_mPayload::is_a_obj_communication_Set() const{
@@ -85,7 +85,7 @@ bool OAIEzsignfolder_getCommunicationList_v1_Response_mPayload::is_a_obj_communi
 bool OAIEzsignfolder_getCommunicationList_v1_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_communication.size() > 0) {
+        if (m_a_obj_communication.size() > 0) {
             isObjectUpdated = true;
             break;
         }

@@ -73,23 +73,23 @@ public:
 private:
     void initializeModel();
 
-    QString s_memory_usage;
+    QString m_s_memory_usage;
     bool m_s_memory_usage_isSet;
     bool m_s_memory_usage_isValid;
 
-    QString s_run_time;
+    QString m_s_run_time;
     bool m_s_run_time_isSet;
     bool m_s_run_time_isValid;
 
-    qint32 i_sql_selects;
+    qint32 m_i_sql_selects;
     bool m_i_sql_selects_isSet;
     bool m_i_sql_selects_isValid;
 
-    qint32 i_sql_queries;
+    qint32 m_i_sql_queries;
     bool m_i_sql_queries_isSet;
     bool m_i_sql_queries_isValid;
 
-    QList<OAICommon_Response_objSQLQuery> a_obj_sql_query;
+    QList<OAICommon_Response_objSQLQuery> m_a_obj_sql_query;
     bool m_a_obj_sql_query_isSet;
     bool m_a_obj_sql_query_isValid;
 };

@@ -64,15 +64,15 @@ public:
 private:
     void initializeModel();
 
-    QList<OAICustom_Ezsignformfielderror_Response> a_obj_ezsignformfielderror;
+    QList<OAICustom_Ezsignformfielderror_Response> m_a_obj_ezsignformfielderror;
     bool m_a_obj_ezsignformfielderror_isSet;
     bool m_a_obj_ezsignformfielderror_isValid;
 
-    QString s_error_message;
+    QString m_s_error_message;
     bool m_s_error_message_isSet;
     bool m_s_error_message_isValid;
 
-    OAIField_eErrorCode e_error_code;
+    OAIField_eErrorCode m_e_error_code;
     bool m_e_error_code_isSet;
     bool m_e_error_code_isValid;
 };

@@ -187,111 +187,111 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_user_id;
+    qint32 m_pki_user_id;
     bool m_pki_user_id_isSet;
     bool m_pki_user_id_isValid;
 
-    qint32 fki_agent_id;
+    qint32 m_fki_agent_id;
     bool m_fki_agent_id_isSet;
     bool m_fki_agent_id_isValid;
 
-    qint32 fki_broker_id;
+    qint32 m_fki_broker_id;
     bool m_fki_broker_id_isSet;
     bool m_fki_broker_id_isValid;
 
-    qint32 fki_assistant_id;
+    qint32 m_fki_assistant_id;
     bool m_fki_assistant_id_isSet;
     bool m_fki_assistant_id_isValid;
 
-    qint32 fki_employee_id;
+    qint32 m_fki_employee_id;
     bool m_fki_employee_id_isSet;
     bool m_fki_employee_id_isValid;
 
-    qint32 fki_company_id_default;
+    qint32 m_fki_company_id_default;
     bool m_fki_company_id_default_isSet;
     bool m_fki_company_id_default_isValid;
 
-    qint32 fki_department_id_default;
+    qint32 m_fki_department_id_default;
     bool m_fki_department_id_default_isSet;
     bool m_fki_department_id_default_isValid;
 
-    qint32 fki_timezone_id;
+    qint32 m_fki_timezone_id;
     bool m_fki_timezone_id_isSet;
     bool m_fki_timezone_id_isValid;
 
-    qint32 fki_language_id;
+    qint32 m_fki_language_id;
     bool m_fki_language_id_isSet;
     bool m_fki_language_id_isValid;
 
-    OAIEmail_RequestCompound obj_email;
+    OAIEmail_RequestCompound m_obj_email;
     bool m_obj_email_isSet;
     bool m_obj_email_isValid;
 
-    qint32 fki_billingentityinternal_id;
+    qint32 m_fki_billingentityinternal_id;
     bool m_fki_billingentityinternal_id_isSet;
     bool m_fki_billingentityinternal_id_isValid;
 
-    OAIPhone_RequestCompound obj_phone_home;
+    OAIPhone_RequestCompound m_obj_phone_home;
     bool m_obj_phone_home_isSet;
     bool m_obj_phone_home_isValid;
 
-    OAIPhone_RequestCompound obj_phone_sms;
+    OAIPhone_RequestCompound m_obj_phone_sms;
     bool m_obj_phone_sms_isSet;
     bool m_obj_phone_sms_isValid;
 
-    qint32 fki_secretquestion_id;
+    qint32 m_fki_secretquestion_id;
     bool m_fki_secretquestion_id_isSet;
     bool m_fki_secretquestion_id_isValid;
 
-    QString s_user_secretresponse;
+    QString m_s_user_secretresponse;
     bool m_s_user_secretresponse_isSet;
     bool m_s_user_secretresponse_isValid;
 
-    qint32 fki_module_id_form;
+    qint32 m_fki_module_id_form;
     bool m_fki_module_id_form_isSet;
     bool m_fki_module_id_form_isValid;
 
-    OAIField_eUserType e_user_type;
+    OAIField_eUserType m_e_user_type;
     bool m_e_user_type_isSet;
     bool m_e_user_type_isValid;
 
-    OAIField_eUserLogintype e_user_logintype;
+    OAIField_eUserLogintype m_e_user_logintype;
     bool m_e_user_logintype_isSet;
     bool m_e_user_logintype_isValid;
 
-    QString s_user_firstname;
+    QString m_s_user_firstname;
     bool m_s_user_firstname_isSet;
     bool m_s_user_firstname_isValid;
 
-    QString s_user_lastname;
+    QString m_s_user_lastname;
     bool m_s_user_lastname_isSet;
     bool m_s_user_lastname_isValid;
 
-    QString s_user_loginname;
+    QString m_s_user_loginname;
     bool m_s_user_loginname_isSet;
     bool m_s_user_loginname_isValid;
 
-    OAIField_eUserEzsignaccess e_user_ezsignaccess;
+    OAIField_eUserEzsignaccess m_e_user_ezsignaccess;
     bool m_e_user_ezsignaccess_isSet;
     bool m_e_user_ezsignaccess_isValid;
 
-    bool b_user_isactive;
+    bool m_b_user_isactive;
     bool m_b_user_isactive_isSet;
     bool m_b_user_isactive_isValid;
 
-    bool b_user_validatebyadministration;
+    bool m_b_user_validatebyadministration;
     bool m_b_user_validatebyadministration_isSet;
     bool m_b_user_validatebyadministration_isValid;
 
-    bool b_user_validatebydirector;
+    bool m_b_user_validatebydirector;
     bool m_b_user_validatebydirector_isSet;
     bool m_b_user_validatebydirector_isValid;
 
-    bool b_user_attachmentautoverified;
+    bool m_b_user_attachmentautoverified;
     bool m_b_user_attachmentautoverified_isSet;
     bool m_b_user_attachmentautoverified_isValid;
 
-    bool b_user_changepassword;
+    bool m_b_user_changepassword;
     bool m_b_user_changepassword_isSet;
     bool m_b_user_changepassword_isValid;
 };

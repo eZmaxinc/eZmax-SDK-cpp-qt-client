@@ -56,11 +56,11 @@ public:
 private:
     void initializeModel();
 
-    QList<QString> a_s_email_address_success;
+    QList<QString> m_a_s_email_address_success;
     bool m_a_s_email_address_success_isSet;
     bool m_a_s_email_address_success_isValid;
 
-    QList<QString> a_s_email_address_failure;
+    QList<QString> m_a_s_email_address_failure;
     bool m_a_s_email_address_failure_isSet;
     bool m_a_s_email_address_failure_isValid;
 };

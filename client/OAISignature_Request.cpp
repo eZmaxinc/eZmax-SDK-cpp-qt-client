@@ -50,10 +50,10 @@ void OAISignature_Request::fromJson(QString jsonString) {
 
 void OAISignature_Request::fromJsonObject(QJsonObject json) {
 
-    m_pki_signature_id_isValid = ::OpenAPI::fromJsonValue(pki_signature_id, json[QString("pkiSignatureID")]);
+    m_pki_signature_id_isValid = ::OpenAPI::fromJsonValue(m_pki_signature_id, json[QString("pkiSignatureID")]);
     m_pki_signature_id_isSet = !json[QString("pkiSignatureID")].isNull() && m_pki_signature_id_isValid;
 
-    m_t_signature_svg_isValid = ::OpenAPI::fromJsonValue(t_signature_svg, json[QString("tSignatureSvg")]);
+    m_t_signature_svg_isValid = ::OpenAPI::fromJsonValue(m_t_signature_svg, json[QString("tSignatureSvg")]);
     m_t_signature_svg_isSet = !json[QString("tSignatureSvg")].isNull() && m_t_signature_svg_isValid;
 }
 
@@ -67,20 +67,20 @@ QString OAISignature_Request::asJson() const {
 QJsonObject OAISignature_Request::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_signature_id_isSet) {
-        obj.insert(QString("pkiSignatureID"), ::OpenAPI::toJsonValue(pki_signature_id));
+        obj.insert(QString("pkiSignatureID"), ::OpenAPI::toJsonValue(m_pki_signature_id));
     }
     if (m_t_signature_svg_isSet) {
-        obj.insert(QString("tSignatureSvg"), ::OpenAPI::toJsonValue(t_signature_svg));
+        obj.insert(QString("tSignatureSvg"), ::OpenAPI::toJsonValue(m_t_signature_svg));
     }
     return obj;
 }
 
 qint32 OAISignature_Request::getPkiSignatureId() const {
-    return pki_signature_id;
+    return m_pki_signature_id;
 }
 void OAISignature_Request::setPkiSignatureId(const qint32 &pki_signature_id) {
-    this->pki_signature_id = pki_signature_id;
-    this->m_pki_signature_id_isSet = true;
+    m_pki_signature_id = pki_signature_id;
+    m_pki_signature_id_isSet = true;
 }
 
 bool OAISignature_Request::is_pki_signature_id_Set() const{
@@ -92,11 +92,11 @@ bool OAISignature_Request::is_pki_signature_id_Valid() const{
 }
 
 QString OAISignature_Request::getTSignatureSvg() const {
-    return t_signature_svg;
+    return m_t_signature_svg;
 }
 void OAISignature_Request::setTSignatureSvg(const QString &t_signature_svg) {
-    this->t_signature_svg = t_signature_svg;
-    this->m_t_signature_svg_isSet = true;
+    m_t_signature_svg = t_signature_svg;
+    m_t_signature_svg_isSet = true;
 }
 
 bool OAISignature_Request::is_t_signature_svg_Set() const{

@@ -96,43 +96,43 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_user_id;
+    qint32 m_pki_user_id;
     bool m_pki_user_id_isSet;
     bool m_pki_user_id_isValid;
 
-    qint32 fki_timezone_id;
+    qint32 m_fki_timezone_id;
     bool m_fki_timezone_id_isSet;
     bool m_fki_timezone_id_isValid;
 
-    QString s_avatar_url;
+    QString m_s_avatar_url;
     bool m_s_avatar_url_isSet;
     bool m_s_avatar_url_isValid;
 
-    QString s_user_firstname;
+    QString m_s_user_firstname;
     bool m_s_user_firstname_isSet;
     bool m_s_user_firstname_isValid;
 
-    QString s_user_lastname;
+    QString m_s_user_lastname;
     bool m_s_user_lastname_isSet;
     bool m_s_user_lastname_isValid;
 
-    QString s_email_address;
+    QString m_s_email_address;
     bool m_s_email_address_isSet;
     bool m_s_email_address_isValid;
 
-    OAIField_eUserEzsignsendreminderfrequency e_user_ezsignsendreminderfrequency;
+    OAIField_eUserEzsignsendreminderfrequency m_e_user_ezsignsendreminderfrequency;
     bool m_e_user_ezsignsendreminderfrequency_isSet;
     bool m_e_user_ezsignsendreminderfrequency_isValid;
 
-    qint32 i_user_interfacecolor;
+    qint32 m_i_user_interfacecolor;
     bool m_i_user_interfacecolor_isSet;
     bool m_i_user_interfacecolor_isValid;
 
-    bool b_user_interfacedark;
+    bool m_b_user_interfacedark;
     bool m_b_user_interfacedark_isSet;
     bool m_b_user_interfacedark_isValid;
 
-    qint32 i_user_listresult;
+    qint32 m_i_user_listresult;
     bool m_i_user_listresult_isSet;
     bool m_i_user_listresult_isValid;
 };

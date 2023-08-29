@@ -93,35 +93,35 @@ public:
 private:
     void initializeModel();
 
-    qint32 i_address_default;
+    qint32 m_i_address_default;
     bool m_i_address_default_isSet;
     bool m_i_address_default_isValid;
 
-    qint32 i_phone_default;
+    qint32 m_i_phone_default;
     bool m_i_phone_default_isSet;
     bool m_i_phone_default_isValid;
 
-    qint32 i_email_default;
+    qint32 m_i_email_default;
     bool m_i_email_default_isSet;
     bool m_i_email_default_isValid;
 
-    qint32 i_website_default;
+    qint32 m_i_website_default;
     bool m_i_website_default_isSet;
     bool m_i_website_default_isValid;
 
-    QList<OAIAddress_RequestCompound> a_obj_address;
+    QList<OAIAddress_RequestCompound> m_a_obj_address;
     bool m_a_obj_address_isSet;
     bool m_a_obj_address_isValid;
 
-    QList<OAIPhone_RequestCompound> a_obj_phone;
+    QList<OAIPhone_RequestCompound> m_a_obj_phone;
     bool m_a_obj_phone_isSet;
     bool m_a_obj_phone_isValid;
 
-    QList<OAIEmail_RequestCompound> a_obj_email;
+    QList<OAIEmail_RequestCompound> m_a_obj_email;
     bool m_a_obj_email_isSet;
     bool m_a_obj_email_isValid;
 
-    QList<OAIWebsite_RequestCompound> a_obj_website;
+    QList<OAIWebsite_RequestCompound> m_a_obj_website;
     bool m_a_obj_website_isSet;
     bool m_a_obj_website_isValid;
 };

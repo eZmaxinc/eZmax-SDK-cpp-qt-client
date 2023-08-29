@@ -47,7 +47,7 @@ void OAIEzsigntsarequirement_getAutocomplete_v2_Response_mPayload::fromJson(QStr
 
 void OAIEzsigntsarequirement_getAutocomplete_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_ezsigntsarequirement_isValid = ::OpenAPI::fromJsonValue(a_obj_ezsigntsarequirement, json[QString("a_objEzsigntsarequirement")]);
+    m_a_obj_ezsigntsarequirement_isValid = ::OpenAPI::fromJsonValue(m_a_obj_ezsigntsarequirement, json[QString("a_objEzsigntsarequirement")]);
     m_a_obj_ezsigntsarequirement_isSet = !json[QString("a_objEzsigntsarequirement")].isNull() && m_a_obj_ezsigntsarequirement_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIEzsigntsarequirement_getAutocomplete_v2_Response_mPayload::asJson() c
 
 QJsonObject OAIEzsigntsarequirement_getAutocomplete_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_ezsigntsarequirement.size() > 0) {
-        obj.insert(QString("a_objEzsigntsarequirement"), ::OpenAPI::toJsonValue(a_obj_ezsigntsarequirement));
+    if (m_a_obj_ezsigntsarequirement.size() > 0) {
+        obj.insert(QString("a_objEzsigntsarequirement"), ::OpenAPI::toJsonValue(m_a_obj_ezsigntsarequirement));
     }
     return obj;
 }
 
 QList<OAIEzsigntsarequirement_AutocompleteElement_Response> OAIEzsigntsarequirement_getAutocomplete_v2_Response_mPayload::getAObjEzsigntsarequirement() const {
-    return a_obj_ezsigntsarequirement;
+    return m_a_obj_ezsigntsarequirement;
 }
 void OAIEzsigntsarequirement_getAutocomplete_v2_Response_mPayload::setAObjEzsigntsarequirement(const QList<OAIEzsigntsarequirement_AutocompleteElement_Response> &a_obj_ezsigntsarequirement) {
-    this->a_obj_ezsigntsarequirement = a_obj_ezsigntsarequirement;
-    this->m_a_obj_ezsigntsarequirement_isSet = true;
+    m_a_obj_ezsigntsarequirement = a_obj_ezsigntsarequirement;
+    m_a_obj_ezsigntsarequirement_isSet = true;
 }
 
 bool OAIEzsigntsarequirement_getAutocomplete_v2_Response_mPayload::is_a_obj_ezsigntsarequirement_Set() const{
@@ -85,7 +85,7 @@ bool OAIEzsigntsarequirement_getAutocomplete_v2_Response_mPayload::is_a_obj_ezsi
 bool OAIEzsigntsarequirement_getAutocomplete_v2_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_ezsigntsarequirement.size() > 0) {
+        if (m_a_obj_ezsigntsarequirement.size() > 0) {
             isObjectUpdated = true;
             break;
         }

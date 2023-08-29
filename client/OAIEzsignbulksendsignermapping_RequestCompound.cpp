@@ -56,16 +56,16 @@ void OAIEzsignbulksendsignermapping_RequestCompound::fromJson(QString jsonString
 
 void OAIEzsignbulksendsignermapping_RequestCompound::fromJsonObject(QJsonObject json) {
 
-    m_pki_ezsignbulksendsignermapping_id_isValid = ::OpenAPI::fromJsonValue(pki_ezsignbulksendsignermapping_id, json[QString("pkiEzsignbulksendsignermappingID")]);
+    m_pki_ezsignbulksendsignermapping_id_isValid = ::OpenAPI::fromJsonValue(m_pki_ezsignbulksendsignermapping_id, json[QString("pkiEzsignbulksendsignermappingID")]);
     m_pki_ezsignbulksendsignermapping_id_isSet = !json[QString("pkiEzsignbulksendsignermappingID")].isNull() && m_pki_ezsignbulksendsignermapping_id_isValid;
 
-    m_fki_ezsignbulksend_id_isValid = ::OpenAPI::fromJsonValue(fki_ezsignbulksend_id, json[QString("fkiEzsignbulksendID")]);
+    m_fki_ezsignbulksend_id_isValid = ::OpenAPI::fromJsonValue(m_fki_ezsignbulksend_id, json[QString("fkiEzsignbulksendID")]);
     m_fki_ezsignbulksend_id_isSet = !json[QString("fkiEzsignbulksendID")].isNull() && m_fki_ezsignbulksend_id_isValid;
 
-    m_fki_user_id_isValid = ::OpenAPI::fromJsonValue(fki_user_id, json[QString("fkiUserID")]);
+    m_fki_user_id_isValid = ::OpenAPI::fromJsonValue(m_fki_user_id, json[QString("fkiUserID")]);
     m_fki_user_id_isSet = !json[QString("fkiUserID")].isNull() && m_fki_user_id_isValid;
 
-    m_s_ezsignbulksendsignermapping_description_isValid = ::OpenAPI::fromJsonValue(s_ezsignbulksendsignermapping_description, json[QString("sEzsignbulksendsignermappingDescription")]);
+    m_s_ezsignbulksendsignermapping_description_isValid = ::OpenAPI::fromJsonValue(m_s_ezsignbulksendsignermapping_description, json[QString("sEzsignbulksendsignermappingDescription")]);
     m_s_ezsignbulksendsignermapping_description_isSet = !json[QString("sEzsignbulksendsignermappingDescription")].isNull() && m_s_ezsignbulksendsignermapping_description_isValid;
 }
 
@@ -79,26 +79,26 @@ QString OAIEzsignbulksendsignermapping_RequestCompound::asJson() const {
 QJsonObject OAIEzsignbulksendsignermapping_RequestCompound::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_ezsignbulksendsignermapping_id_isSet) {
-        obj.insert(QString("pkiEzsignbulksendsignermappingID"), ::OpenAPI::toJsonValue(pki_ezsignbulksendsignermapping_id));
+        obj.insert(QString("pkiEzsignbulksendsignermappingID"), ::OpenAPI::toJsonValue(m_pki_ezsignbulksendsignermapping_id));
     }
     if (m_fki_ezsignbulksend_id_isSet) {
-        obj.insert(QString("fkiEzsignbulksendID"), ::OpenAPI::toJsonValue(fki_ezsignbulksend_id));
+        obj.insert(QString("fkiEzsignbulksendID"), ::OpenAPI::toJsonValue(m_fki_ezsignbulksend_id));
     }
     if (m_fki_user_id_isSet) {
-        obj.insert(QString("fkiUserID"), ::OpenAPI::toJsonValue(fki_user_id));
+        obj.insert(QString("fkiUserID"), ::OpenAPI::toJsonValue(m_fki_user_id));
     }
     if (m_s_ezsignbulksendsignermapping_description_isSet) {
-        obj.insert(QString("sEzsignbulksendsignermappingDescription"), ::OpenAPI::toJsonValue(s_ezsignbulksendsignermapping_description));
+        obj.insert(QString("sEzsignbulksendsignermappingDescription"), ::OpenAPI::toJsonValue(m_s_ezsignbulksendsignermapping_description));
     }
     return obj;
 }
 
 qint32 OAIEzsignbulksendsignermapping_RequestCompound::getPkiEzsignbulksendsignermappingId() const {
-    return pki_ezsignbulksendsignermapping_id;
+    return m_pki_ezsignbulksendsignermapping_id;
 }
 void OAIEzsignbulksendsignermapping_RequestCompound::setPkiEzsignbulksendsignermappingId(const qint32 &pki_ezsignbulksendsignermapping_id) {
-    this->pki_ezsignbulksendsignermapping_id = pki_ezsignbulksendsignermapping_id;
-    this->m_pki_ezsignbulksendsignermapping_id_isSet = true;
+    m_pki_ezsignbulksendsignermapping_id = pki_ezsignbulksendsignermapping_id;
+    m_pki_ezsignbulksendsignermapping_id_isSet = true;
 }
 
 bool OAIEzsignbulksendsignermapping_RequestCompound::is_pki_ezsignbulksendsignermapping_id_Set() const{
@@ -110,11 +110,11 @@ bool OAIEzsignbulksendsignermapping_RequestCompound::is_pki_ezsignbulksendsigner
 }
 
 qint32 OAIEzsignbulksendsignermapping_RequestCompound::getFkiEzsignbulksendId() const {
-    return fki_ezsignbulksend_id;
+    return m_fki_ezsignbulksend_id;
 }
 void OAIEzsignbulksendsignermapping_RequestCompound::setFkiEzsignbulksendId(const qint32 &fki_ezsignbulksend_id) {
-    this->fki_ezsignbulksend_id = fki_ezsignbulksend_id;
-    this->m_fki_ezsignbulksend_id_isSet = true;
+    m_fki_ezsignbulksend_id = fki_ezsignbulksend_id;
+    m_fki_ezsignbulksend_id_isSet = true;
 }
 
 bool OAIEzsignbulksendsignermapping_RequestCompound::is_fki_ezsignbulksend_id_Set() const{
@@ -126,11 +126,11 @@ bool OAIEzsignbulksendsignermapping_RequestCompound::is_fki_ezsignbulksend_id_Va
 }
 
 qint32 OAIEzsignbulksendsignermapping_RequestCompound::getFkiUserId() const {
-    return fki_user_id;
+    return m_fki_user_id;
 }
 void OAIEzsignbulksendsignermapping_RequestCompound::setFkiUserId(const qint32 &fki_user_id) {
-    this->fki_user_id = fki_user_id;
-    this->m_fki_user_id_isSet = true;
+    m_fki_user_id = fki_user_id;
+    m_fki_user_id_isSet = true;
 }
 
 bool OAIEzsignbulksendsignermapping_RequestCompound::is_fki_user_id_Set() const{
@@ -142,11 +142,11 @@ bool OAIEzsignbulksendsignermapping_RequestCompound::is_fki_user_id_Valid() cons
 }
 
 QString OAIEzsignbulksendsignermapping_RequestCompound::getSEzsignbulksendsignermappingDescription() const {
-    return s_ezsignbulksendsignermapping_description;
+    return m_s_ezsignbulksendsignermapping_description;
 }
 void OAIEzsignbulksendsignermapping_RequestCompound::setSEzsignbulksendsignermappingDescription(const QString &s_ezsignbulksendsignermapping_description) {
-    this->s_ezsignbulksendsignermapping_description = s_ezsignbulksendsignermapping_description;
-    this->m_s_ezsignbulksendsignermapping_description_isSet = true;
+    m_s_ezsignbulksendsignermapping_description = s_ezsignbulksendsignermapping_description;
+    m_s_ezsignbulksendsignermapping_description_isSet = true;
 }
 
 bool OAIEzsignbulksendsignermapping_RequestCompound::is_s_ezsignbulksendsignermapping_description_Set() const{

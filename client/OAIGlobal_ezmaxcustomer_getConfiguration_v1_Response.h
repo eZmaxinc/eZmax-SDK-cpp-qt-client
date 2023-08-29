@@ -70,23 +70,23 @@ public:
 private:
     void initializeModel();
 
-    QString s_infrastructureregion_code;
+    QString m_s_infrastructureregion_code;
     bool m_s_infrastructureregion_code_isSet;
     bool m_s_infrastructureregion_code_isValid;
 
-    QString s_infrastructureregion_code_web;
+    QString m_s_infrastructureregion_code_web;
     bool m_s_infrastructureregion_code_web_isSet;
     bool m_s_infrastructureregion_code_web_isValid;
 
-    QString s_infrastructureenvironmenttype_description;
+    QString m_s_infrastructureenvironmenttype_description;
     bool m_s_infrastructureenvironmenttype_description_isSet;
     bool m_s_infrastructureenvironmenttype_description_isValid;
 
-    QString s_cognito_client_id_external;
+    QString m_s_cognito_client_id_external;
     bool m_s_cognito_client_id_external_isSet;
     bool m_s_cognito_client_id_external_isValid;
 
-    QString s_cognito_client_id_ezmaxpublic;
+    QString m_s_cognito_client_id_ezmaxpublic;
     bool m_s_cognito_client_id_ezmaxpublic_isSet;
     bool m_s_cognito_client_id_ezmaxpublic_isValid;
 };

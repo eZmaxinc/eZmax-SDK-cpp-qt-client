@@ -47,7 +47,7 @@ void OAIPaymentterm_createObject_v1_Response_mPayload::fromJson(QString jsonStri
 
 void OAIPaymentterm_createObject_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_pki_paymentterm_id_isValid = ::OpenAPI::fromJsonValue(a_pki_paymentterm_id, json[QString("a_pkiPaymenttermID")]);
+    m_a_pki_paymentterm_id_isValid = ::OpenAPI::fromJsonValue(m_a_pki_paymentterm_id, json[QString("a_pkiPaymenttermID")]);
     m_a_pki_paymentterm_id_isSet = !json[QString("a_pkiPaymenttermID")].isNull() && m_a_pki_paymentterm_id_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIPaymentterm_createObject_v1_Response_mPayload::asJson() const {
 
 QJsonObject OAIPaymentterm_createObject_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (a_pki_paymentterm_id.size() > 0) {
-        obj.insert(QString("a_pkiPaymenttermID"), ::OpenAPI::toJsonValue(a_pki_paymentterm_id));
+    if (m_a_pki_paymentterm_id.size() > 0) {
+        obj.insert(QString("a_pkiPaymenttermID"), ::OpenAPI::toJsonValue(m_a_pki_paymentterm_id));
     }
     return obj;
 }
 
 QList<qint32> OAIPaymentterm_createObject_v1_Response_mPayload::getAPkiPaymenttermId() const {
-    return a_pki_paymentterm_id;
+    return m_a_pki_paymentterm_id;
 }
 void OAIPaymentterm_createObject_v1_Response_mPayload::setAPkiPaymenttermId(const QList<qint32> &a_pki_paymentterm_id) {
-    this->a_pki_paymentterm_id = a_pki_paymentterm_id;
-    this->m_a_pki_paymentterm_id_isSet = true;
+    m_a_pki_paymentterm_id = a_pki_paymentterm_id;
+    m_a_pki_paymentterm_id_isSet = true;
 }
 
 bool OAIPaymentterm_createObject_v1_Response_mPayload::is_a_pki_paymentterm_id_Set() const{
@@ -85,7 +85,7 @@ bool OAIPaymentterm_createObject_v1_Response_mPayload::is_a_pki_paymentterm_id_V
 bool OAIPaymentterm_createObject_v1_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_pki_paymentterm_id.size() > 0) {
+        if (m_a_pki_paymentterm_id.size() > 0) {
             isObjectUpdated = true;
             break;
         }

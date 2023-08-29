@@ -50,10 +50,10 @@ void OAIUsergroup_Request::fromJson(QString jsonString) {
 
 void OAIUsergroup_Request::fromJsonObject(QJsonObject json) {
 
-    m_pki_usergroup_id_isValid = ::OpenAPI::fromJsonValue(pki_usergroup_id, json[QString("pkiUsergroupID")]);
+    m_pki_usergroup_id_isValid = ::OpenAPI::fromJsonValue(m_pki_usergroup_id, json[QString("pkiUsergroupID")]);
     m_pki_usergroup_id_isSet = !json[QString("pkiUsergroupID")].isNull() && m_pki_usergroup_id_isValid;
 
-    m_obj_usergroup_name_isValid = ::OpenAPI::fromJsonValue(obj_usergroup_name, json[QString("objUsergroupName")]);
+    m_obj_usergroup_name_isValid = ::OpenAPI::fromJsonValue(m_obj_usergroup_name, json[QString("objUsergroupName")]);
     m_obj_usergroup_name_isSet = !json[QString("objUsergroupName")].isNull() && m_obj_usergroup_name_isValid;
 }
 
@@ -67,20 +67,20 @@ QString OAIUsergroup_Request::asJson() const {
 QJsonObject OAIUsergroup_Request::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_usergroup_id_isSet) {
-        obj.insert(QString("pkiUsergroupID"), ::OpenAPI::toJsonValue(pki_usergroup_id));
+        obj.insert(QString("pkiUsergroupID"), ::OpenAPI::toJsonValue(m_pki_usergroup_id));
     }
-    if (obj_usergroup_name.isSet()) {
-        obj.insert(QString("objUsergroupName"), ::OpenAPI::toJsonValue(obj_usergroup_name));
+    if (m_obj_usergroup_name.isSet()) {
+        obj.insert(QString("objUsergroupName"), ::OpenAPI::toJsonValue(m_obj_usergroup_name));
     }
     return obj;
 }
 
 qint32 OAIUsergroup_Request::getPkiUsergroupId() const {
-    return pki_usergroup_id;
+    return m_pki_usergroup_id;
 }
 void OAIUsergroup_Request::setPkiUsergroupId(const qint32 &pki_usergroup_id) {
-    this->pki_usergroup_id = pki_usergroup_id;
-    this->m_pki_usergroup_id_isSet = true;
+    m_pki_usergroup_id = pki_usergroup_id;
+    m_pki_usergroup_id_isSet = true;
 }
 
 bool OAIUsergroup_Request::is_pki_usergroup_id_Set() const{
@@ -92,11 +92,11 @@ bool OAIUsergroup_Request::is_pki_usergroup_id_Valid() const{
 }
 
 OAIMultilingual_UsergroupName OAIUsergroup_Request::getObjUsergroupName() const {
-    return obj_usergroup_name;
+    return m_obj_usergroup_name;
 }
 void OAIUsergroup_Request::setObjUsergroupName(const OAIMultilingual_UsergroupName &obj_usergroup_name) {
-    this->obj_usergroup_name = obj_usergroup_name;
-    this->m_obj_usergroup_name_isSet = true;
+    m_obj_usergroup_name = obj_usergroup_name;
+    m_obj_usergroup_name_isSet = true;
 }
 
 bool OAIUsergroup_Request::is_obj_usergroup_name_Set() const{
@@ -115,7 +115,7 @@ bool OAIUsergroup_Request::isSet() const {
             break;
         }
 
-        if (obj_usergroup_name.isSet()) {
+        if (m_obj_usergroup_name.isSet()) {
             isObjectUpdated = true;
             break;
         }

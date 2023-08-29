@@ -47,7 +47,7 @@ void OAIUserstaged_getObject_v2_Response_mPayload::fromJson(QString jsonString) 
 
 void OAIUserstaged_getObject_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_obj_userstaged_isValid = ::OpenAPI::fromJsonValue(obj_userstaged, json[QString("objUserstaged")]);
+    m_obj_userstaged_isValid = ::OpenAPI::fromJsonValue(m_obj_userstaged, json[QString("objUserstaged")]);
     m_obj_userstaged_isSet = !json[QString("objUserstaged")].isNull() && m_obj_userstaged_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIUserstaged_getObject_v2_Response_mPayload::asJson() const {
 
 QJsonObject OAIUserstaged_getObject_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (obj_userstaged.isSet()) {
-        obj.insert(QString("objUserstaged"), ::OpenAPI::toJsonValue(obj_userstaged));
+    if (m_obj_userstaged.isSet()) {
+        obj.insert(QString("objUserstaged"), ::OpenAPI::toJsonValue(m_obj_userstaged));
     }
     return obj;
 }
 
 OAIUserstaged_ResponseCompound OAIUserstaged_getObject_v2_Response_mPayload::getObjUserstaged() const {
-    return obj_userstaged;
+    return m_obj_userstaged;
 }
 void OAIUserstaged_getObject_v2_Response_mPayload::setObjUserstaged(const OAIUserstaged_ResponseCompound &obj_userstaged) {
-    this->obj_userstaged = obj_userstaged;
-    this->m_obj_userstaged_isSet = true;
+    m_obj_userstaged = obj_userstaged;
+    m_obj_userstaged_isSet = true;
 }
 
 bool OAIUserstaged_getObject_v2_Response_mPayload::is_obj_userstaged_Set() const{
@@ -85,7 +85,7 @@ bool OAIUserstaged_getObject_v2_Response_mPayload::is_obj_userstaged_Valid() con
 bool OAIUserstaged_getObject_v2_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (obj_userstaged.isSet()) {
+        if (m_obj_userstaged.isSet()) {
             isObjectUpdated = true;
             break;
         }

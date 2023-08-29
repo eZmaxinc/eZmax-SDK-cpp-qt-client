@@ -52,7 +52,7 @@ public:
 private:
     void initializeModel();
 
-    QList<OAICustom_CommunicationListElement_Response> a_obj_communication;
+    QList<OAICustom_CommunicationListElement_Response> m_a_obj_communication;
     bool m_a_obj_communication_isSet;
     bool m_a_obj_communication_isValid;
 };

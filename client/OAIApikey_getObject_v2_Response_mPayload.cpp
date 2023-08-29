@@ -47,7 +47,7 @@ void OAIApikey_getObject_v2_Response_mPayload::fromJson(QString jsonString) {
 
 void OAIApikey_getObject_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_obj_apikey_isValid = ::OpenAPI::fromJsonValue(obj_apikey, json[QString("objApikey")]);
+    m_obj_apikey_isValid = ::OpenAPI::fromJsonValue(m_obj_apikey, json[QString("objApikey")]);
     m_obj_apikey_isSet = !json[QString("objApikey")].isNull() && m_obj_apikey_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIApikey_getObject_v2_Response_mPayload::asJson() const {
 
 QJsonObject OAIApikey_getObject_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (obj_apikey.isSet()) {
-        obj.insert(QString("objApikey"), ::OpenAPI::toJsonValue(obj_apikey));
+    if (m_obj_apikey.isSet()) {
+        obj.insert(QString("objApikey"), ::OpenAPI::toJsonValue(m_obj_apikey));
     }
     return obj;
 }
 
 OAIApikey_ResponseCompound OAIApikey_getObject_v2_Response_mPayload::getObjApikey() const {
-    return obj_apikey;
+    return m_obj_apikey;
 }
 void OAIApikey_getObject_v2_Response_mPayload::setObjApikey(const OAIApikey_ResponseCompound &obj_apikey) {
-    this->obj_apikey = obj_apikey;
-    this->m_obj_apikey_isSet = true;
+    m_obj_apikey = obj_apikey;
+    m_obj_apikey_isSet = true;
 }
 
 bool OAIApikey_getObject_v2_Response_mPayload::is_obj_apikey_Set() const{
@@ -85,7 +85,7 @@ bool OAIApikey_getObject_v2_Response_mPayload::is_obj_apikey_Valid() const{
 bool OAIApikey_getObject_v2_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (obj_apikey.isSet()) {
+        if (m_obj_apikey.isSet()) {
             isObjectUpdated = true;
             break;
         }

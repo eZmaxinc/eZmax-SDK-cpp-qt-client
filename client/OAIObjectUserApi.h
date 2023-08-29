@@ -21,18 +21,21 @@
 #include "OAICommon_Response_Error.h"
 #include "OAIHeader_Accept_Language.h"
 #include "OAIHttpFileElement.h"
+#include "OAIObject.h"
 #include "OAIUser_createObject_v1_Request.h"
 #include "OAIUser_createObject_v1_Response.h"
 #include "OAIUser_editObject_v1_Request.h"
 #include "OAIUser_editObject_v1_Response.h"
 #include "OAIUser_editPermissions_v1_Request.h"
 #include "OAIUser_editPermissions_v1_Response.h"
+#include "OAIUser_getApikeys_v1_Response.h"
 #include "OAIUser_getAutocomplete_v2_Response.h"
 #include "OAIUser_getEffectivePermissions_v1_Response.h"
 #include "OAIUser_getList_v1_Response.h"
 #include "OAIUser_getObject_v2_Response.h"
 #include "OAIUser_getPermissions_v1_Response.h"
 #include "OAIUser_getSubnets_v1_Response.h"
+#include "OAIUser_sendPasswordReset_v1_Response.h"
 #include <QString>
 
 #include <QObject>
@@ -89,6 +92,11 @@ public:
     void userEditPermissionsV1(const qint32 &pki_user_id, const OAIUser_editPermissions_v1_Request &oai_user_edit_permissions_v1_request);
 
     /**
+    * @param[in]  pki_user_id qint32 [required]
+    */
+    void userGetApikeysV1(const qint32 &pki_user_id);
+
+    /**
     * @param[in]  s_selector QString [required]
     * @param[in]  e_filter_active QString [optional]
     * @param[in]  s_query QString [optional]
@@ -125,6 +133,12 @@ public:
     */
     void userGetSubnetsV1(const qint32 &pki_user_id);
 
+    /**
+    * @param[in]  pki_user_id qint32 [required]
+    * @param[in]  body OAIObject [required]
+    */
+    void userSendPasswordResetV1(const qint32 &pki_user_id, const OAIObject &body);
+
 
 private:
     QMap<QString,int> _serverIndices;
@@ -151,54 +165,64 @@ private:
     void userCreateObjectV1Callback(OAIHttpRequestWorker *worker);
     void userEditObjectV1Callback(OAIHttpRequestWorker *worker);
     void userEditPermissionsV1Callback(OAIHttpRequestWorker *worker);
+    void userGetApikeysV1Callback(OAIHttpRequestWorker *worker);
     void userGetAutocompleteV2Callback(OAIHttpRequestWorker *worker);
     void userGetEffectivePermissionsV1Callback(OAIHttpRequestWorker *worker);
     void userGetListV1Callback(OAIHttpRequestWorker *worker);
     void userGetObjectV2Callback(OAIHttpRequestWorker *worker);
     void userGetPermissionsV1Callback(OAIHttpRequestWorker *worker);
     void userGetSubnetsV1Callback(OAIHttpRequestWorker *worker);
+    void userSendPasswordResetV1Callback(OAIHttpRequestWorker *worker);
 
 signals:
 
     void userCreateObjectV1Signal(OAIUser_createObject_v1_Response summary);
     void userEditObjectV1Signal(OAIUser_editObject_v1_Response summary);
     void userEditPermissionsV1Signal(OAIUser_editPermissions_v1_Response summary);
+    void userGetApikeysV1Signal(OAIUser_getApikeys_v1_Response summary);
     void userGetAutocompleteV2Signal(OAIUser_getAutocomplete_v2_Response summary);
     void userGetEffectivePermissionsV1Signal(OAIUser_getEffectivePermissions_v1_Response summary);
     void userGetListV1Signal(OAIUser_getList_v1_Response summary);
     void userGetObjectV2Signal(OAIUser_getObject_v2_Response summary);
     void userGetPermissionsV1Signal(OAIUser_getPermissions_v1_Response summary);
     void userGetSubnetsV1Signal(OAIUser_getSubnets_v1_Response summary);
+    void userSendPasswordResetV1Signal(OAIUser_sendPasswordReset_v1_Response summary);
 
     void userCreateObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIUser_createObject_v1_Response summary);
     void userEditObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIUser_editObject_v1_Response summary);
     void userEditPermissionsV1SignalFull(OAIHttpRequestWorker *worker, OAIUser_editPermissions_v1_Response summary);
+    void userGetApikeysV1SignalFull(OAIHttpRequestWorker *worker, OAIUser_getApikeys_v1_Response summary);
     void userGetAutocompleteV2SignalFull(OAIHttpRequestWorker *worker, OAIUser_getAutocomplete_v2_Response summary);
     void userGetEffectivePermissionsV1SignalFull(OAIHttpRequestWorker *worker, OAIUser_getEffectivePermissions_v1_Response summary);
     void userGetListV1SignalFull(OAIHttpRequestWorker *worker, OAIUser_getList_v1_Response summary);
     void userGetObjectV2SignalFull(OAIHttpRequestWorker *worker, OAIUser_getObject_v2_Response summary);
     void userGetPermissionsV1SignalFull(OAIHttpRequestWorker *worker, OAIUser_getPermissions_v1_Response summary);
     void userGetSubnetsV1SignalFull(OAIHttpRequestWorker *worker, OAIUser_getSubnets_v1_Response summary);
+    void userSendPasswordResetV1SignalFull(OAIHttpRequestWorker *worker, OAIUser_sendPasswordReset_v1_Response summary);
 
     void userCreateObjectV1SignalE(OAIUser_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void userEditObjectV1SignalE(OAIUser_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void userEditPermissionsV1SignalE(OAIUser_editPermissions_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void userGetApikeysV1SignalE(OAIUser_getApikeys_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void userGetAutocompleteV2SignalE(OAIUser_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void userGetEffectivePermissionsV1SignalE(OAIUser_getEffectivePermissions_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void userGetListV1SignalE(OAIUser_getList_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void userGetObjectV2SignalE(OAIUser_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void userGetPermissionsV1SignalE(OAIUser_getPermissions_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void userGetSubnetsV1SignalE(OAIUser_getSubnets_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void userSendPasswordResetV1SignalE(OAIUser_sendPasswordReset_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
 
     void userCreateObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void userEditObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void userEditPermissionsV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void userGetApikeysV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void userGetAutocompleteV2SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void userGetEffectivePermissionsV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void userGetListV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void userGetObjectV2SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void userGetPermissionsV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void userGetSubnetsV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void userSendPasswordResetV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();

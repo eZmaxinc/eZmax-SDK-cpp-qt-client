@@ -146,106 +146,106 @@ void OAIEzsignfoldertype_Response::fromJson(QString jsonString) {
 
 void OAIEzsignfoldertype_Response::fromJsonObject(QJsonObject json) {
 
-    m_pki_ezsignfoldertype_id_isValid = ::OpenAPI::fromJsonValue(pki_ezsignfoldertype_id, json[QString("pkiEzsignfoldertypeID")]);
+    m_pki_ezsignfoldertype_id_isValid = ::OpenAPI::fromJsonValue(m_pki_ezsignfoldertype_id, json[QString("pkiEzsignfoldertypeID")]);
     m_pki_ezsignfoldertype_id_isSet = !json[QString("pkiEzsignfoldertypeID")].isNull() && m_pki_ezsignfoldertype_id_isValid;
 
-    m_obj_ezsignfoldertype_name_isValid = ::OpenAPI::fromJsonValue(obj_ezsignfoldertype_name, json[QString("objEzsignfoldertypeName")]);
+    m_obj_ezsignfoldertype_name_isValid = ::OpenAPI::fromJsonValue(m_obj_ezsignfoldertype_name, json[QString("objEzsignfoldertypeName")]);
     m_obj_ezsignfoldertype_name_isSet = !json[QString("objEzsignfoldertypeName")].isNull() && m_obj_ezsignfoldertype_name_isValid;
 
-    m_fki_branding_id_isValid = ::OpenAPI::fromJsonValue(fki_branding_id, json[QString("fkiBrandingID")]);
+    m_fki_branding_id_isValid = ::OpenAPI::fromJsonValue(m_fki_branding_id, json[QString("fkiBrandingID")]);
     m_fki_branding_id_isSet = !json[QString("fkiBrandingID")].isNull() && m_fki_branding_id_isValid;
 
-    m_fki_billingentityinternal_id_isValid = ::OpenAPI::fromJsonValue(fki_billingentityinternal_id, json[QString("fkiBillingentityinternalID")]);
+    m_fki_billingentityinternal_id_isValid = ::OpenAPI::fromJsonValue(m_fki_billingentityinternal_id, json[QString("fkiBillingentityinternalID")]);
     m_fki_billingentityinternal_id_isSet = !json[QString("fkiBillingentityinternalID")].isNull() && m_fki_billingentityinternal_id_isValid;
 
-    m_fki_usergroup_id_isValid = ::OpenAPI::fromJsonValue(fki_usergroup_id, json[QString("fkiUsergroupID")]);
+    m_fki_usergroup_id_isValid = ::OpenAPI::fromJsonValue(m_fki_usergroup_id, json[QString("fkiUsergroupID")]);
     m_fki_usergroup_id_isSet = !json[QString("fkiUsergroupID")].isNull() && m_fki_usergroup_id_isValid;
 
-    m_fki_usergroup_id_restricted_isValid = ::OpenAPI::fromJsonValue(fki_usergroup_id_restricted, json[QString("fkiUsergroupIDRestricted")]);
+    m_fki_usergroup_id_restricted_isValid = ::OpenAPI::fromJsonValue(m_fki_usergroup_id_restricted, json[QString("fkiUsergroupIDRestricted")]);
     m_fki_usergroup_id_restricted_isSet = !json[QString("fkiUsergroupIDRestricted")].isNull() && m_fki_usergroup_id_restricted_isValid;
 
-    m_fki_ezsigntsarequirement_id_isValid = ::OpenAPI::fromJsonValue(fki_ezsigntsarequirement_id, json[QString("fkiEzsigntsarequirementID")]);
+    m_fki_ezsigntsarequirement_id_isValid = ::OpenAPI::fromJsonValue(m_fki_ezsigntsarequirement_id, json[QString("fkiEzsigntsarequirementID")]);
     m_fki_ezsigntsarequirement_id_isSet = !json[QString("fkiEzsigntsarequirementID")].isNull() && m_fki_ezsigntsarequirement_id_isValid;
 
-    m_s_branding_description_x_isValid = ::OpenAPI::fromJsonValue(s_branding_description_x, json[QString("sBrandingDescriptionX")]);
+    m_s_branding_description_x_isValid = ::OpenAPI::fromJsonValue(m_s_branding_description_x, json[QString("sBrandingDescriptionX")]);
     m_s_branding_description_x_isSet = !json[QString("sBrandingDescriptionX")].isNull() && m_s_branding_description_x_isValid;
 
-    m_s_billingentityinternal_description_x_isValid = ::OpenAPI::fromJsonValue(s_billingentityinternal_description_x, json[QString("sBillingentityinternalDescriptionX")]);
+    m_s_billingentityinternal_description_x_isValid = ::OpenAPI::fromJsonValue(m_s_billingentityinternal_description_x, json[QString("sBillingentityinternalDescriptionX")]);
     m_s_billingentityinternal_description_x_isSet = !json[QString("sBillingentityinternalDescriptionX")].isNull() && m_s_billingentityinternal_description_x_isValid;
 
-    m_s_ezsigntsarequirement_description_x_isValid = ::OpenAPI::fromJsonValue(s_ezsigntsarequirement_description_x, json[QString("sEzsigntsarequirementDescriptionX")]);
+    m_s_ezsigntsarequirement_description_x_isValid = ::OpenAPI::fromJsonValue(m_s_ezsigntsarequirement_description_x, json[QString("sEzsigntsarequirementDescriptionX")]);
     m_s_ezsigntsarequirement_description_x_isSet = !json[QString("sEzsigntsarequirementDescriptionX")].isNull() && m_s_ezsigntsarequirement_description_x_isValid;
 
-    m_s_email_address_signed_isValid = ::OpenAPI::fromJsonValue(s_email_address_signed, json[QString("sEmailAddressSigned")]);
+    m_s_email_address_signed_isValid = ::OpenAPI::fromJsonValue(m_s_email_address_signed, json[QString("sEmailAddressSigned")]);
     m_s_email_address_signed_isSet = !json[QString("sEmailAddressSigned")].isNull() && m_s_email_address_signed_isValid;
 
-    m_s_email_address_summary_isValid = ::OpenAPI::fromJsonValue(s_email_address_summary, json[QString("sEmailAddressSummary")]);
+    m_s_email_address_summary_isValid = ::OpenAPI::fromJsonValue(m_s_email_address_summary, json[QString("sEmailAddressSummary")]);
     m_s_email_address_summary_isSet = !json[QString("sEmailAddressSummary")].isNull() && m_s_email_address_summary_isValid;
 
-    m_s_usergroup_name_x_isValid = ::OpenAPI::fromJsonValue(s_usergroup_name_x, json[QString("sUsergroupNameX")]);
+    m_s_usergroup_name_x_isValid = ::OpenAPI::fromJsonValue(m_s_usergroup_name_x, json[QString("sUsergroupNameX")]);
     m_s_usergroup_name_x_isSet = !json[QString("sUsergroupNameX")].isNull() && m_s_usergroup_name_x_isValid;
 
-    m_s_usergroup_name_x_restricted_isValid = ::OpenAPI::fromJsonValue(s_usergroup_name_x_restricted, json[QString("sUsergroupNameXRestricted")]);
+    m_s_usergroup_name_x_restricted_isValid = ::OpenAPI::fromJsonValue(m_s_usergroup_name_x_restricted, json[QString("sUsergroupNameXRestricted")]);
     m_s_usergroup_name_x_restricted_isSet = !json[QString("sUsergroupNameXRestricted")].isNull() && m_s_usergroup_name_x_restricted_isValid;
 
-    m_e_ezsignfoldertype_privacylevel_isValid = ::OpenAPI::fromJsonValue(e_ezsignfoldertype_privacylevel, json[QString("eEzsignfoldertypePrivacylevel")]);
+    m_e_ezsignfoldertype_privacylevel_isValid = ::OpenAPI::fromJsonValue(m_e_ezsignfoldertype_privacylevel, json[QString("eEzsignfoldertypePrivacylevel")]);
     m_e_ezsignfoldertype_privacylevel_isSet = !json[QString("eEzsignfoldertypePrivacylevel")].isNull() && m_e_ezsignfoldertype_privacylevel_isValid;
 
-    m_e_ezsignfoldertype_sendreminderfrequency_isValid = ::OpenAPI::fromJsonValue(e_ezsignfoldertype_sendreminderfrequency, json[QString("eEzsignfoldertypeSendreminderfrequency")]);
+    m_e_ezsignfoldertype_sendreminderfrequency_isValid = ::OpenAPI::fromJsonValue(m_e_ezsignfoldertype_sendreminderfrequency, json[QString("eEzsignfoldertypeSendreminderfrequency")]);
     m_e_ezsignfoldertype_sendreminderfrequency_isSet = !json[QString("eEzsignfoldertypeSendreminderfrequency")].isNull() && m_e_ezsignfoldertype_sendreminderfrequency_isValid;
 
-    m_i_ezsignfoldertype_archivaldays_isValid = ::OpenAPI::fromJsonValue(i_ezsignfoldertype_archivaldays, json[QString("iEzsignfoldertypeArchivaldays")]);
+    m_i_ezsignfoldertype_archivaldays_isValid = ::OpenAPI::fromJsonValue(m_i_ezsignfoldertype_archivaldays, json[QString("iEzsignfoldertypeArchivaldays")]);
     m_i_ezsignfoldertype_archivaldays_isSet = !json[QString("iEzsignfoldertypeArchivaldays")].isNull() && m_i_ezsignfoldertype_archivaldays_isValid;
 
-    m_e_ezsignfoldertype_disposal_isValid = ::OpenAPI::fromJsonValue(e_ezsignfoldertype_disposal, json[QString("eEzsignfoldertypeDisposal")]);
+    m_e_ezsignfoldertype_disposal_isValid = ::OpenAPI::fromJsonValue(m_e_ezsignfoldertype_disposal, json[QString("eEzsignfoldertypeDisposal")]);
     m_e_ezsignfoldertype_disposal_isSet = !json[QString("eEzsignfoldertypeDisposal")].isNull() && m_e_ezsignfoldertype_disposal_isValid;
 
-    m_i_ezsignfoldertype_disposaldays_isValid = ::OpenAPI::fromJsonValue(i_ezsignfoldertype_disposaldays, json[QString("iEzsignfoldertypeDisposaldays")]);
+    m_i_ezsignfoldertype_disposaldays_isValid = ::OpenAPI::fromJsonValue(m_i_ezsignfoldertype_disposaldays, json[QString("iEzsignfoldertypeDisposaldays")]);
     m_i_ezsignfoldertype_disposaldays_isSet = !json[QString("iEzsignfoldertypeDisposaldays")].isNull() && m_i_ezsignfoldertype_disposaldays_isValid;
 
-    m_i_ezsignfoldertype_deadlinedays_isValid = ::OpenAPI::fromJsonValue(i_ezsignfoldertype_deadlinedays, json[QString("iEzsignfoldertypeDeadlinedays")]);
+    m_i_ezsignfoldertype_deadlinedays_isValid = ::OpenAPI::fromJsonValue(m_i_ezsignfoldertype_deadlinedays, json[QString("iEzsignfoldertypeDeadlinedays")]);
     m_i_ezsignfoldertype_deadlinedays_isSet = !json[QString("iEzsignfoldertypeDeadlinedays")].isNull() && m_i_ezsignfoldertype_deadlinedays_isValid;
 
-    m_b_ezsignfoldertype_sendattatchmentsigner_isValid = ::OpenAPI::fromJsonValue(b_ezsignfoldertype_sendattatchmentsigner, json[QString("bEzsignfoldertypeSendattatchmentsigner")]);
+    m_b_ezsignfoldertype_sendattatchmentsigner_isValid = ::OpenAPI::fromJsonValue(m_b_ezsignfoldertype_sendattatchmentsigner, json[QString("bEzsignfoldertypeSendattatchmentsigner")]);
     m_b_ezsignfoldertype_sendattatchmentsigner_isSet = !json[QString("bEzsignfoldertypeSendattatchmentsigner")].isNull() && m_b_ezsignfoldertype_sendattatchmentsigner_isValid;
 
-    m_b_ezsignfoldertype_sendsignedtodocumentowner_isValid = ::OpenAPI::fromJsonValue(b_ezsignfoldertype_sendsignedtodocumentowner, json[QString("bEzsignfoldertypeSendsignedtodocumentowner")]);
+    m_b_ezsignfoldertype_sendsignedtodocumentowner_isValid = ::OpenAPI::fromJsonValue(m_b_ezsignfoldertype_sendsignedtodocumentowner, json[QString("bEzsignfoldertypeSendsignedtodocumentowner")]);
     m_b_ezsignfoldertype_sendsignedtodocumentowner_isSet = !json[QString("bEzsignfoldertypeSendsignedtodocumentowner")].isNull() && m_b_ezsignfoldertype_sendsignedtodocumentowner_isValid;
 
-    m_b_ezsignfoldertype_sendsignedtofolderowner_isValid = ::OpenAPI::fromJsonValue(b_ezsignfoldertype_sendsignedtofolderowner, json[QString("bEzsignfoldertypeSendsignedtofolderowner")]);
+    m_b_ezsignfoldertype_sendsignedtofolderowner_isValid = ::OpenAPI::fromJsonValue(m_b_ezsignfoldertype_sendsignedtofolderowner, json[QString("bEzsignfoldertypeSendsignedtofolderowner")]);
     m_b_ezsignfoldertype_sendsignedtofolderowner_isSet = !json[QString("bEzsignfoldertypeSendsignedtofolderowner")].isNull() && m_b_ezsignfoldertype_sendsignedtofolderowner_isValid;
 
-    m_b_ezsignfoldertype_sendsignedtofullgroup_isValid = ::OpenAPI::fromJsonValue(b_ezsignfoldertype_sendsignedtofullgroup, json[QString("bEzsignfoldertypeSendsignedtofullgroup")]);
+    m_b_ezsignfoldertype_sendsignedtofullgroup_isValid = ::OpenAPI::fromJsonValue(m_b_ezsignfoldertype_sendsignedtofullgroup, json[QString("bEzsignfoldertypeSendsignedtofullgroup")]);
     m_b_ezsignfoldertype_sendsignedtofullgroup_isSet = !json[QString("bEzsignfoldertypeSendsignedtofullgroup")].isNull() && m_b_ezsignfoldertype_sendsignedtofullgroup_isValid;
 
-    m_b_ezsignfoldertype_sendsignedtolimitedgroup_isValid = ::OpenAPI::fromJsonValue(b_ezsignfoldertype_sendsignedtolimitedgroup, json[QString("bEzsignfoldertypeSendsignedtolimitedgroup")]);
+    m_b_ezsignfoldertype_sendsignedtolimitedgroup_isValid = ::OpenAPI::fromJsonValue(m_b_ezsignfoldertype_sendsignedtolimitedgroup, json[QString("bEzsignfoldertypeSendsignedtolimitedgroup")]);
     m_b_ezsignfoldertype_sendsignedtolimitedgroup_isSet = !json[QString("bEzsignfoldertypeSendsignedtolimitedgroup")].isNull() && m_b_ezsignfoldertype_sendsignedtolimitedgroup_isValid;
 
-    m_b_ezsignfoldertype_sendsignedtocolleague_isValid = ::OpenAPI::fromJsonValue(b_ezsignfoldertype_sendsignedtocolleague, json[QString("bEzsignfoldertypeSendsignedtocolleague")]);
+    m_b_ezsignfoldertype_sendsignedtocolleague_isValid = ::OpenAPI::fromJsonValue(m_b_ezsignfoldertype_sendsignedtocolleague, json[QString("bEzsignfoldertypeSendsignedtocolleague")]);
     m_b_ezsignfoldertype_sendsignedtocolleague_isSet = !json[QString("bEzsignfoldertypeSendsignedtocolleague")].isNull() && m_b_ezsignfoldertype_sendsignedtocolleague_isValid;
 
-    m_b_ezsignfoldertype_sendsummarytodocumentowner_isValid = ::OpenAPI::fromJsonValue(b_ezsignfoldertype_sendsummarytodocumentowner, json[QString("bEzsignfoldertypeSendsummarytodocumentowner")]);
+    m_b_ezsignfoldertype_sendsummarytodocumentowner_isValid = ::OpenAPI::fromJsonValue(m_b_ezsignfoldertype_sendsummarytodocumentowner, json[QString("bEzsignfoldertypeSendsummarytodocumentowner")]);
     m_b_ezsignfoldertype_sendsummarytodocumentowner_isSet = !json[QString("bEzsignfoldertypeSendsummarytodocumentowner")].isNull() && m_b_ezsignfoldertype_sendsummarytodocumentowner_isValid;
 
-    m_b_ezsignfoldertype_sendsummarytofolderowner_isValid = ::OpenAPI::fromJsonValue(b_ezsignfoldertype_sendsummarytofolderowner, json[QString("bEzsignfoldertypeSendsummarytofolderowner")]);
+    m_b_ezsignfoldertype_sendsummarytofolderowner_isValid = ::OpenAPI::fromJsonValue(m_b_ezsignfoldertype_sendsummarytofolderowner, json[QString("bEzsignfoldertypeSendsummarytofolderowner")]);
     m_b_ezsignfoldertype_sendsummarytofolderowner_isSet = !json[QString("bEzsignfoldertypeSendsummarytofolderowner")].isNull() && m_b_ezsignfoldertype_sendsummarytofolderowner_isValid;
 
-    m_b_ezsignfoldertype_sendsummarytofullgroup_isValid = ::OpenAPI::fromJsonValue(b_ezsignfoldertype_sendsummarytofullgroup, json[QString("bEzsignfoldertypeSendsummarytofullgroup")]);
+    m_b_ezsignfoldertype_sendsummarytofullgroup_isValid = ::OpenAPI::fromJsonValue(m_b_ezsignfoldertype_sendsummarytofullgroup, json[QString("bEzsignfoldertypeSendsummarytofullgroup")]);
     m_b_ezsignfoldertype_sendsummarytofullgroup_isSet = !json[QString("bEzsignfoldertypeSendsummarytofullgroup")].isNull() && m_b_ezsignfoldertype_sendsummarytofullgroup_isValid;
 
-    m_b_ezsignfoldertype_sendsummarytolimitedgroup_isValid = ::OpenAPI::fromJsonValue(b_ezsignfoldertype_sendsummarytolimitedgroup, json[QString("bEzsignfoldertypeSendsummarytolimitedgroup")]);
+    m_b_ezsignfoldertype_sendsummarytolimitedgroup_isValid = ::OpenAPI::fromJsonValue(m_b_ezsignfoldertype_sendsummarytolimitedgroup, json[QString("bEzsignfoldertypeSendsummarytolimitedgroup")]);
     m_b_ezsignfoldertype_sendsummarytolimitedgroup_isSet = !json[QString("bEzsignfoldertypeSendsummarytolimitedgroup")].isNull() && m_b_ezsignfoldertype_sendsummarytolimitedgroup_isValid;
 
-    m_b_ezsignfoldertype_sendsummarytocolleague_isValid = ::OpenAPI::fromJsonValue(b_ezsignfoldertype_sendsummarytocolleague, json[QString("bEzsignfoldertypeSendsummarytocolleague")]);
+    m_b_ezsignfoldertype_sendsummarytocolleague_isValid = ::OpenAPI::fromJsonValue(m_b_ezsignfoldertype_sendsummarytocolleague, json[QString("bEzsignfoldertypeSendsummarytocolleague")]);
     m_b_ezsignfoldertype_sendsummarytocolleague_isSet = !json[QString("bEzsignfoldertypeSendsummarytocolleague")].isNull() && m_b_ezsignfoldertype_sendsummarytocolleague_isValid;
 
-    m_b_ezsignfoldertype_includeproofsigner_isValid = ::OpenAPI::fromJsonValue(b_ezsignfoldertype_includeproofsigner, json[QString("bEzsignfoldertypeIncludeproofsigner")]);
+    m_b_ezsignfoldertype_includeproofsigner_isValid = ::OpenAPI::fromJsonValue(m_b_ezsignfoldertype_includeproofsigner, json[QString("bEzsignfoldertypeIncludeproofsigner")]);
     m_b_ezsignfoldertype_includeproofsigner_isSet = !json[QString("bEzsignfoldertypeIncludeproofsigner")].isNull() && m_b_ezsignfoldertype_includeproofsigner_isValid;
 
-    m_b_ezsignfoldertype_includeproofuser_isValid = ::OpenAPI::fromJsonValue(b_ezsignfoldertype_includeproofuser, json[QString("bEzsignfoldertypeIncludeproofuser")]);
+    m_b_ezsignfoldertype_includeproofuser_isValid = ::OpenAPI::fromJsonValue(m_b_ezsignfoldertype_includeproofuser, json[QString("bEzsignfoldertypeIncludeproofuser")]);
     m_b_ezsignfoldertype_includeproofuser_isSet = !json[QString("bEzsignfoldertypeIncludeproofuser")].isNull() && m_b_ezsignfoldertype_includeproofuser_isValid;
 
-    m_b_ezsignfoldertype_isactive_isValid = ::OpenAPI::fromJsonValue(b_ezsignfoldertype_isactive, json[QString("bEzsignfoldertypeIsactive")]);
+    m_b_ezsignfoldertype_isactive_isValid = ::OpenAPI::fromJsonValue(m_b_ezsignfoldertype_isactive, json[QString("bEzsignfoldertypeIsactive")]);
     m_b_ezsignfoldertype_isactive_isSet = !json[QString("bEzsignfoldertypeIsactive")].isNull() && m_b_ezsignfoldertype_isactive_isValid;
 }
 
@@ -259,116 +259,116 @@ QString OAIEzsignfoldertype_Response::asJson() const {
 QJsonObject OAIEzsignfoldertype_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_ezsignfoldertype_id_isSet) {
-        obj.insert(QString("pkiEzsignfoldertypeID"), ::OpenAPI::toJsonValue(pki_ezsignfoldertype_id));
+        obj.insert(QString("pkiEzsignfoldertypeID"), ::OpenAPI::toJsonValue(m_pki_ezsignfoldertype_id));
     }
-    if (obj_ezsignfoldertype_name.isSet()) {
-        obj.insert(QString("objEzsignfoldertypeName"), ::OpenAPI::toJsonValue(obj_ezsignfoldertype_name));
+    if (m_obj_ezsignfoldertype_name.isSet()) {
+        obj.insert(QString("objEzsignfoldertypeName"), ::OpenAPI::toJsonValue(m_obj_ezsignfoldertype_name));
     }
     if (m_fki_branding_id_isSet) {
-        obj.insert(QString("fkiBrandingID"), ::OpenAPI::toJsonValue(fki_branding_id));
+        obj.insert(QString("fkiBrandingID"), ::OpenAPI::toJsonValue(m_fki_branding_id));
     }
     if (m_fki_billingentityinternal_id_isSet) {
-        obj.insert(QString("fkiBillingentityinternalID"), ::OpenAPI::toJsonValue(fki_billingentityinternal_id));
+        obj.insert(QString("fkiBillingentityinternalID"), ::OpenAPI::toJsonValue(m_fki_billingentityinternal_id));
     }
     if (m_fki_usergroup_id_isSet) {
-        obj.insert(QString("fkiUsergroupID"), ::OpenAPI::toJsonValue(fki_usergroup_id));
+        obj.insert(QString("fkiUsergroupID"), ::OpenAPI::toJsonValue(m_fki_usergroup_id));
     }
     if (m_fki_usergroup_id_restricted_isSet) {
-        obj.insert(QString("fkiUsergroupIDRestricted"), ::OpenAPI::toJsonValue(fki_usergroup_id_restricted));
+        obj.insert(QString("fkiUsergroupIDRestricted"), ::OpenAPI::toJsonValue(m_fki_usergroup_id_restricted));
     }
     if (m_fki_ezsigntsarequirement_id_isSet) {
-        obj.insert(QString("fkiEzsigntsarequirementID"), ::OpenAPI::toJsonValue(fki_ezsigntsarequirement_id));
+        obj.insert(QString("fkiEzsigntsarequirementID"), ::OpenAPI::toJsonValue(m_fki_ezsigntsarequirement_id));
     }
     if (m_s_branding_description_x_isSet) {
-        obj.insert(QString("sBrandingDescriptionX"), ::OpenAPI::toJsonValue(s_branding_description_x));
+        obj.insert(QString("sBrandingDescriptionX"), ::OpenAPI::toJsonValue(m_s_branding_description_x));
     }
     if (m_s_billingentityinternal_description_x_isSet) {
-        obj.insert(QString("sBillingentityinternalDescriptionX"), ::OpenAPI::toJsonValue(s_billingentityinternal_description_x));
+        obj.insert(QString("sBillingentityinternalDescriptionX"), ::OpenAPI::toJsonValue(m_s_billingentityinternal_description_x));
     }
     if (m_s_ezsigntsarequirement_description_x_isSet) {
-        obj.insert(QString("sEzsigntsarequirementDescriptionX"), ::OpenAPI::toJsonValue(s_ezsigntsarequirement_description_x));
+        obj.insert(QString("sEzsigntsarequirementDescriptionX"), ::OpenAPI::toJsonValue(m_s_ezsigntsarequirement_description_x));
     }
     if (m_s_email_address_signed_isSet) {
-        obj.insert(QString("sEmailAddressSigned"), ::OpenAPI::toJsonValue(s_email_address_signed));
+        obj.insert(QString("sEmailAddressSigned"), ::OpenAPI::toJsonValue(m_s_email_address_signed));
     }
     if (m_s_email_address_summary_isSet) {
-        obj.insert(QString("sEmailAddressSummary"), ::OpenAPI::toJsonValue(s_email_address_summary));
+        obj.insert(QString("sEmailAddressSummary"), ::OpenAPI::toJsonValue(m_s_email_address_summary));
     }
     if (m_s_usergroup_name_x_isSet) {
-        obj.insert(QString("sUsergroupNameX"), ::OpenAPI::toJsonValue(s_usergroup_name_x));
+        obj.insert(QString("sUsergroupNameX"), ::OpenAPI::toJsonValue(m_s_usergroup_name_x));
     }
     if (m_s_usergroup_name_x_restricted_isSet) {
-        obj.insert(QString("sUsergroupNameXRestricted"), ::OpenAPI::toJsonValue(s_usergroup_name_x_restricted));
+        obj.insert(QString("sUsergroupNameXRestricted"), ::OpenAPI::toJsonValue(m_s_usergroup_name_x_restricted));
     }
-    if (e_ezsignfoldertype_privacylevel.isSet()) {
-        obj.insert(QString("eEzsignfoldertypePrivacylevel"), ::OpenAPI::toJsonValue(e_ezsignfoldertype_privacylevel));
+    if (m_e_ezsignfoldertype_privacylevel.isSet()) {
+        obj.insert(QString("eEzsignfoldertypePrivacylevel"), ::OpenAPI::toJsonValue(m_e_ezsignfoldertype_privacylevel));
     }
-    if (e_ezsignfoldertype_sendreminderfrequency.isSet()) {
-        obj.insert(QString("eEzsignfoldertypeSendreminderfrequency"), ::OpenAPI::toJsonValue(e_ezsignfoldertype_sendreminderfrequency));
+    if (m_e_ezsignfoldertype_sendreminderfrequency.isSet()) {
+        obj.insert(QString("eEzsignfoldertypeSendreminderfrequency"), ::OpenAPI::toJsonValue(m_e_ezsignfoldertype_sendreminderfrequency));
     }
     if (m_i_ezsignfoldertype_archivaldays_isSet) {
-        obj.insert(QString("iEzsignfoldertypeArchivaldays"), ::OpenAPI::toJsonValue(i_ezsignfoldertype_archivaldays));
+        obj.insert(QString("iEzsignfoldertypeArchivaldays"), ::OpenAPI::toJsonValue(m_i_ezsignfoldertype_archivaldays));
     }
-    if (e_ezsignfoldertype_disposal.isSet()) {
-        obj.insert(QString("eEzsignfoldertypeDisposal"), ::OpenAPI::toJsonValue(e_ezsignfoldertype_disposal));
+    if (m_e_ezsignfoldertype_disposal.isSet()) {
+        obj.insert(QString("eEzsignfoldertypeDisposal"), ::OpenAPI::toJsonValue(m_e_ezsignfoldertype_disposal));
     }
     if (m_i_ezsignfoldertype_disposaldays_isSet) {
-        obj.insert(QString("iEzsignfoldertypeDisposaldays"), ::OpenAPI::toJsonValue(i_ezsignfoldertype_disposaldays));
+        obj.insert(QString("iEzsignfoldertypeDisposaldays"), ::OpenAPI::toJsonValue(m_i_ezsignfoldertype_disposaldays));
     }
     if (m_i_ezsignfoldertype_deadlinedays_isSet) {
-        obj.insert(QString("iEzsignfoldertypeDeadlinedays"), ::OpenAPI::toJsonValue(i_ezsignfoldertype_deadlinedays));
+        obj.insert(QString("iEzsignfoldertypeDeadlinedays"), ::OpenAPI::toJsonValue(m_i_ezsignfoldertype_deadlinedays));
     }
     if (m_b_ezsignfoldertype_sendattatchmentsigner_isSet) {
-        obj.insert(QString("bEzsignfoldertypeSendattatchmentsigner"), ::OpenAPI::toJsonValue(b_ezsignfoldertype_sendattatchmentsigner));
+        obj.insert(QString("bEzsignfoldertypeSendattatchmentsigner"), ::OpenAPI::toJsonValue(m_b_ezsignfoldertype_sendattatchmentsigner));
     }
     if (m_b_ezsignfoldertype_sendsignedtodocumentowner_isSet) {
-        obj.insert(QString("bEzsignfoldertypeSendsignedtodocumentowner"), ::OpenAPI::toJsonValue(b_ezsignfoldertype_sendsignedtodocumentowner));
+        obj.insert(QString("bEzsignfoldertypeSendsignedtodocumentowner"), ::OpenAPI::toJsonValue(m_b_ezsignfoldertype_sendsignedtodocumentowner));
     }
     if (m_b_ezsignfoldertype_sendsignedtofolderowner_isSet) {
-        obj.insert(QString("bEzsignfoldertypeSendsignedtofolderowner"), ::OpenAPI::toJsonValue(b_ezsignfoldertype_sendsignedtofolderowner));
+        obj.insert(QString("bEzsignfoldertypeSendsignedtofolderowner"), ::OpenAPI::toJsonValue(m_b_ezsignfoldertype_sendsignedtofolderowner));
     }
     if (m_b_ezsignfoldertype_sendsignedtofullgroup_isSet) {
-        obj.insert(QString("bEzsignfoldertypeSendsignedtofullgroup"), ::OpenAPI::toJsonValue(b_ezsignfoldertype_sendsignedtofullgroup));
+        obj.insert(QString("bEzsignfoldertypeSendsignedtofullgroup"), ::OpenAPI::toJsonValue(m_b_ezsignfoldertype_sendsignedtofullgroup));
     }
     if (m_b_ezsignfoldertype_sendsignedtolimitedgroup_isSet) {
-        obj.insert(QString("bEzsignfoldertypeSendsignedtolimitedgroup"), ::OpenAPI::toJsonValue(b_ezsignfoldertype_sendsignedtolimitedgroup));
+        obj.insert(QString("bEzsignfoldertypeSendsignedtolimitedgroup"), ::OpenAPI::toJsonValue(m_b_ezsignfoldertype_sendsignedtolimitedgroup));
     }
     if (m_b_ezsignfoldertype_sendsignedtocolleague_isSet) {
-        obj.insert(QString("bEzsignfoldertypeSendsignedtocolleague"), ::OpenAPI::toJsonValue(b_ezsignfoldertype_sendsignedtocolleague));
+        obj.insert(QString("bEzsignfoldertypeSendsignedtocolleague"), ::OpenAPI::toJsonValue(m_b_ezsignfoldertype_sendsignedtocolleague));
     }
     if (m_b_ezsignfoldertype_sendsummarytodocumentowner_isSet) {
-        obj.insert(QString("bEzsignfoldertypeSendsummarytodocumentowner"), ::OpenAPI::toJsonValue(b_ezsignfoldertype_sendsummarytodocumentowner));
+        obj.insert(QString("bEzsignfoldertypeSendsummarytodocumentowner"), ::OpenAPI::toJsonValue(m_b_ezsignfoldertype_sendsummarytodocumentowner));
     }
     if (m_b_ezsignfoldertype_sendsummarytofolderowner_isSet) {
-        obj.insert(QString("bEzsignfoldertypeSendsummarytofolderowner"), ::OpenAPI::toJsonValue(b_ezsignfoldertype_sendsummarytofolderowner));
+        obj.insert(QString("bEzsignfoldertypeSendsummarytofolderowner"), ::OpenAPI::toJsonValue(m_b_ezsignfoldertype_sendsummarytofolderowner));
     }
     if (m_b_ezsignfoldertype_sendsummarytofullgroup_isSet) {
-        obj.insert(QString("bEzsignfoldertypeSendsummarytofullgroup"), ::OpenAPI::toJsonValue(b_ezsignfoldertype_sendsummarytofullgroup));
+        obj.insert(QString("bEzsignfoldertypeSendsummarytofullgroup"), ::OpenAPI::toJsonValue(m_b_ezsignfoldertype_sendsummarytofullgroup));
     }
     if (m_b_ezsignfoldertype_sendsummarytolimitedgroup_isSet) {
-        obj.insert(QString("bEzsignfoldertypeSendsummarytolimitedgroup"), ::OpenAPI::toJsonValue(b_ezsignfoldertype_sendsummarytolimitedgroup));
+        obj.insert(QString("bEzsignfoldertypeSendsummarytolimitedgroup"), ::OpenAPI::toJsonValue(m_b_ezsignfoldertype_sendsummarytolimitedgroup));
     }
     if (m_b_ezsignfoldertype_sendsummarytocolleague_isSet) {
-        obj.insert(QString("bEzsignfoldertypeSendsummarytocolleague"), ::OpenAPI::toJsonValue(b_ezsignfoldertype_sendsummarytocolleague));
+        obj.insert(QString("bEzsignfoldertypeSendsummarytocolleague"), ::OpenAPI::toJsonValue(m_b_ezsignfoldertype_sendsummarytocolleague));
     }
     if (m_b_ezsignfoldertype_includeproofsigner_isSet) {
-        obj.insert(QString("bEzsignfoldertypeIncludeproofsigner"), ::OpenAPI::toJsonValue(b_ezsignfoldertype_includeproofsigner));
+        obj.insert(QString("bEzsignfoldertypeIncludeproofsigner"), ::OpenAPI::toJsonValue(m_b_ezsignfoldertype_includeproofsigner));
     }
     if (m_b_ezsignfoldertype_includeproofuser_isSet) {
-        obj.insert(QString("bEzsignfoldertypeIncludeproofuser"), ::OpenAPI::toJsonValue(b_ezsignfoldertype_includeproofuser));
+        obj.insert(QString("bEzsignfoldertypeIncludeproofuser"), ::OpenAPI::toJsonValue(m_b_ezsignfoldertype_includeproofuser));
     }
     if (m_b_ezsignfoldertype_isactive_isSet) {
-        obj.insert(QString("bEzsignfoldertypeIsactive"), ::OpenAPI::toJsonValue(b_ezsignfoldertype_isactive));
+        obj.insert(QString("bEzsignfoldertypeIsactive"), ::OpenAPI::toJsonValue(m_b_ezsignfoldertype_isactive));
     }
     return obj;
 }
 
 qint32 OAIEzsignfoldertype_Response::getPkiEzsignfoldertypeId() const {
-    return pki_ezsignfoldertype_id;
+    return m_pki_ezsignfoldertype_id;
 }
 void OAIEzsignfoldertype_Response::setPkiEzsignfoldertypeId(const qint32 &pki_ezsignfoldertype_id) {
-    this->pki_ezsignfoldertype_id = pki_ezsignfoldertype_id;
-    this->m_pki_ezsignfoldertype_id_isSet = true;
+    m_pki_ezsignfoldertype_id = pki_ezsignfoldertype_id;
+    m_pki_ezsignfoldertype_id_isSet = true;
 }
 
 bool OAIEzsignfoldertype_Response::is_pki_ezsignfoldertype_id_Set() const{
@@ -380,11 +380,11 @@ bool OAIEzsignfoldertype_Response::is_pki_ezsignfoldertype_id_Valid() const{
 }
 
 OAIMultilingual_EzsignfoldertypeName OAIEzsignfoldertype_Response::getObjEzsignfoldertypeName() const {
-    return obj_ezsignfoldertype_name;
+    return m_obj_ezsignfoldertype_name;
 }
 void OAIEzsignfoldertype_Response::setObjEzsignfoldertypeName(const OAIMultilingual_EzsignfoldertypeName &obj_ezsignfoldertype_name) {
-    this->obj_ezsignfoldertype_name = obj_ezsignfoldertype_name;
-    this->m_obj_ezsignfoldertype_name_isSet = true;
+    m_obj_ezsignfoldertype_name = obj_ezsignfoldertype_name;
+    m_obj_ezsignfoldertype_name_isSet = true;
 }
 
 bool OAIEzsignfoldertype_Response::is_obj_ezsignfoldertype_name_Set() const{
@@ -396,11 +396,11 @@ bool OAIEzsignfoldertype_Response::is_obj_ezsignfoldertype_name_Valid() const{
 }
 
 qint32 OAIEzsignfoldertype_Response::getFkiBrandingId() const {
-    return fki_branding_id;
+    return m_fki_branding_id;
 }
 void OAIEzsignfoldertype_Response::setFkiBrandingId(const qint32 &fki_branding_id) {
-    this->fki_branding_id = fki_branding_id;
-    this->m_fki_branding_id_isSet = true;
+    m_fki_branding_id = fki_branding_id;
+    m_fki_branding_id_isSet = true;
 }
 
 bool OAIEzsignfoldertype_Response::is_fki_branding_id_Set() const{
@@ -412,11 +412,11 @@ bool OAIEzsignfoldertype_Response::is_fki_branding_id_Valid() const{
 }
 
 qint32 OAIEzsignfoldertype_Response::getFkiBillingentityinternalId() const {
-    return fki_billingentityinternal_id;
+    return m_fki_billingentityinternal_id;
 }
 void OAIEzsignfoldertype_Response::setFkiBillingentityinternalId(const qint32 &fki_billingentityinternal_id) {
-    this->fki_billingentityinternal_id = fki_billingentityinternal_id;
-    this->m_fki_billingentityinternal_id_isSet = true;
+    m_fki_billingentityinternal_id = fki_billingentityinternal_id;
+    m_fki_billingentityinternal_id_isSet = true;
 }
 
 bool OAIEzsignfoldertype_Response::is_fki_billingentityinternal_id_Set() const{
@@ -428,11 +428,11 @@ bool OAIEzsignfoldertype_Response::is_fki_billingentityinternal_id_Valid() const
 }
 
 qint32 OAIEzsignfoldertype_Response::getFkiUsergroupId() const {
-    return fki_usergroup_id;
+    return m_fki_usergroup_id;
 }
 void OAIEzsignfoldertype_Response::setFkiUsergroupId(const qint32 &fki_usergroup_id) {
-    this->fki_usergroup_id = fki_usergroup_id;
-    this->m_fki_usergroup_id_isSet = true;
+    m_fki_usergroup_id = fki_usergroup_id;
+    m_fki_usergroup_id_isSet = true;
 }
 
 bool OAIEzsignfoldertype_Response::is_fki_usergroup_id_Set() const{
@@ -444,11 +444,11 @@ bool OAIEzsignfoldertype_Response::is_fki_usergroup_id_Valid() const{
 }
 
 qint32 OAIEzsignfoldertype_Response::getFkiUsergroupIdRestricted() const {
-    return fki_usergroup_id_restricted;
+    return m_fki_usergroup_id_restricted;
 }
 void OAIEzsignfoldertype_Response::setFkiUsergroupIdRestricted(const qint32 &fki_usergroup_id_restricted) {
-    this->fki_usergroup_id_restricted = fki_usergroup_id_restricted;
-    this->m_fki_usergroup_id_restricted_isSet = true;
+    m_fki_usergroup_id_restricted = fki_usergroup_id_restricted;
+    m_fki_usergroup_id_restricted_isSet = true;
 }
 
 bool OAIEzsignfoldertype_Response::is_fki_usergroup_id_restricted_Set() const{
@@ -460,11 +460,11 @@ bool OAIEzsignfoldertype_Response::is_fki_usergroup_id_restricted_Valid() const{
 }
 
 qint32 OAIEzsignfoldertype_Response::getFkiEzsigntsarequirementId() const {
-    return fki_ezsigntsarequirement_id;
+    return m_fki_ezsigntsarequirement_id;
 }
 void OAIEzsignfoldertype_Response::setFkiEzsigntsarequirementId(const qint32 &fki_ezsigntsarequirement_id) {
-    this->fki_ezsigntsarequirement_id = fki_ezsigntsarequirement_id;
-    this->m_fki_ezsigntsarequirement_id_isSet = true;
+    m_fki_ezsigntsarequirement_id = fki_ezsigntsarequirement_id;
+    m_fki_ezsigntsarequirement_id_isSet = true;
 }
 
 bool OAIEzsignfoldertype_Response::is_fki_ezsigntsarequirement_id_Set() const{
@@ -476,11 +476,11 @@ bool OAIEzsignfoldertype_Response::is_fki_ezsigntsarequirement_id_Valid() const{
 }
 
 QString OAIEzsignfoldertype_Response::getSBrandingDescriptionX() const {
-    return s_branding_description_x;
+    return m_s_branding_description_x;
 }
 void OAIEzsignfoldertype_Response::setSBrandingDescriptionX(const QString &s_branding_description_x) {
-    this->s_branding_description_x = s_branding_description_x;
-    this->m_s_branding_description_x_isSet = true;
+    m_s_branding_description_x = s_branding_description_x;
+    m_s_branding_description_x_isSet = true;
 }
 
 bool OAIEzsignfoldertype_Response::is_s_branding_description_x_Set() const{
@@ -492,11 +492,11 @@ bool OAIEzsignfoldertype_Response::is_s_branding_description_x_Valid() const{
 }
 
 QString OAIEzsignfoldertype_Response::getSBillingentityinternalDescriptionX() const {
-    return s_billingentityinternal_description_x;
+    return m_s_billingentityinternal_description_x;
 }
 void OAIEzsignfoldertype_Response::setSBillingentityinternalDescriptionX(const QString &s_billingentityinternal_description_x) {
-    this->s_billingentityinternal_description_x = s_billingentityinternal_description_x;
-    this->m_s_billingentityinternal_description_x_isSet = true;
+    m_s_billingentityinternal_description_x = s_billingentityinternal_description_x;
+    m_s_billingentityinternal_description_x_isSet = true;
 }
 
 bool OAIEzsignfoldertype_Response::is_s_billingentityinternal_description_x_Set() const{
@@ -508,11 +508,11 @@ bool OAIEzsignfoldertype_Response::is_s_billingentityinternal_description_x_Vali
 }
 
 QString OAIEzsignfoldertype_Response::getSEzsigntsarequirementDescriptionX() const {
-    return s_ezsigntsarequirement_description_x;
+    return m_s_ezsigntsarequirement_description_x;
 }
 void OAIEzsignfoldertype_Response::setSEzsigntsarequirementDescriptionX(const QString &s_ezsigntsarequirement_description_x) {
-    this->s_ezsigntsarequirement_description_x = s_ezsigntsarequirement_description_x;
-    this->m_s_ezsigntsarequirement_description_x_isSet = true;
+    m_s_ezsigntsarequirement_description_x = s_ezsigntsarequirement_description_x;
+    m_s_ezsigntsarequirement_description_x_isSet = true;
 }
 
 bool OAIEzsignfoldertype_Response::is_s_ezsigntsarequirement_description_x_Set() const{
@@ -524,11 +524,11 @@ bool OAIEzsignfoldertype_Response::is_s_ezsigntsarequirement_description_x_Valid
 }
 
 QString OAIEzsignfoldertype_Response::getSEmailAddressSigned() const {
-    return s_email_address_signed;
+    return m_s_email_address_signed;
 }
 void OAIEzsignfoldertype_Response::setSEmailAddressSigned(const QString &s_email_address_signed) {
-    this->s_email_address_signed = s_email_address_signed;
-    this->m_s_email_address_signed_isSet = true;
+    m_s_email_address_signed = s_email_address_signed;
+    m_s_email_address_signed_isSet = true;
 }
 
 bool OAIEzsignfoldertype_Response::is_s_email_address_signed_Set() const{
@@ -540,11 +540,11 @@ bool OAIEzsignfoldertype_Response::is_s_email_address_signed_Valid() const{
 }
 
 QString OAIEzsignfoldertype_Response::getSEmailAddressSummary() const {
-    return s_email_address_summary;
+    return m_s_email_address_summary;
 }
 void OAIEzsignfoldertype_Response::setSEmailAddressSummary(const QString &s_email_address_summary) {
-    this->s_email_address_summary = s_email_address_summary;
-    this->m_s_email_address_summary_isSet = true;
+    m_s_email_address_summary = s_email_address_summary;
+    m_s_email_address_summary_isSet = true;
 }
 
 bool OAIEzsignfoldertype_Response::is_s_email_address_summary_Set() const{
@@ -556,11 +556,11 @@ bool OAIEzsignfoldertype_Response::is_s_email_address_summary_Valid() const{
 }
 
 QString OAIEzsignfoldertype_Response::getSUsergroupNameX() const {
-    return s_usergroup_name_x;
+    return m_s_usergroup_name_x;
 }
 void OAIEzsignfoldertype_Response::setSUsergroupNameX(const QString &s_usergroup_name_x) {
-    this->s_usergroup_name_x = s_usergroup_name_x;
-    this->m_s_usergroup_name_x_isSet = true;
+    m_s_usergroup_name_x = s_usergroup_name_x;
+    m_s_usergroup_name_x_isSet = true;
 }
 
 bool OAIEzsignfoldertype_Response::is_s_usergroup_name_x_Set() const{
@@ -572,11 +572,11 @@ bool OAIEzsignfoldertype_Response::is_s_usergroup_name_x_Valid() const{
 }
 
 QString OAIEzsignfoldertype_Response::getSUsergroupNameXRestricted() const {
-    return s_usergroup_name_x_restricted;
+    return m_s_usergroup_name_x_restricted;
 }
 void OAIEzsignfoldertype_Response::setSUsergroupNameXRestricted(const QString &s_usergroup_name_x_restricted) {
-    this->s_usergroup_name_x_restricted = s_usergroup_name_x_restricted;
-    this->m_s_usergroup_name_x_restricted_isSet = true;
+    m_s_usergroup_name_x_restricted = s_usergroup_name_x_restricted;
+    m_s_usergroup_name_x_restricted_isSet = true;
 }
 
 bool OAIEzsignfoldertype_Response::is_s_usergroup_name_x_restricted_Set() const{
@@ -588,11 +588,11 @@ bool OAIEzsignfoldertype_Response::is_s_usergroup_name_x_restricted_Valid() cons
 }
 
 OAIField_eEzsignfoldertypePrivacylevel OAIEzsignfoldertype_Response::getEEzsignfoldertypePrivacylevel() const {
-    return e_ezsignfoldertype_privacylevel;
+    return m_e_ezsignfoldertype_privacylevel;
 }
 void OAIEzsignfoldertype_Response::setEEzsignfoldertypePrivacylevel(const OAIField_eEzsignfoldertypePrivacylevel &e_ezsignfoldertype_privacylevel) {
-    this->e_ezsignfoldertype_privacylevel = e_ezsignfoldertype_privacylevel;
-    this->m_e_ezsignfoldertype_privacylevel_isSet = true;
+    m_e_ezsignfoldertype_privacylevel = e_ezsignfoldertype_privacylevel;
+    m_e_ezsignfoldertype_privacylevel_isSet = true;
 }
 
 bool OAIEzsignfoldertype_Response::is_e_ezsignfoldertype_privacylevel_Set() const{
@@ -604,11 +604,11 @@ bool OAIEzsignfoldertype_Response::is_e_ezsignfoldertype_privacylevel_Valid() co
 }
 
 OAIField_eEzsignfoldertypeSendreminderfrequency OAIEzsignfoldertype_Response::getEEzsignfoldertypeSendreminderfrequency() const {
-    return e_ezsignfoldertype_sendreminderfrequency;
+    return m_e_ezsignfoldertype_sendreminderfrequency;
 }
 void OAIEzsignfoldertype_Response::setEEzsignfoldertypeSendreminderfrequency(const OAIField_eEzsignfoldertypeSendreminderfrequency &e_ezsignfoldertype_sendreminderfrequency) {
-    this->e_ezsignfoldertype_sendreminderfrequency = e_ezsignfoldertype_sendreminderfrequency;
-    this->m_e_ezsignfoldertype_sendreminderfrequency_isSet = true;
+    m_e_ezsignfoldertype_sendreminderfrequency = e_ezsignfoldertype_sendreminderfrequency;
+    m_e_ezsignfoldertype_sendreminderfrequency_isSet = true;
 }
 
 bool OAIEzsignfoldertype_Response::is_e_ezsignfoldertype_sendreminderfrequency_Set() const{
@@ -620,11 +620,11 @@ bool OAIEzsignfoldertype_Response::is_e_ezsignfoldertype_sendreminderfrequency_V
 }
 
 qint32 OAIEzsignfoldertype_Response::getIEzsignfoldertypeArchivaldays() const {
-    return i_ezsignfoldertype_archivaldays;
+    return m_i_ezsignfoldertype_archivaldays;
 }
 void OAIEzsignfoldertype_Response::setIEzsignfoldertypeArchivaldays(const qint32 &i_ezsignfoldertype_archivaldays) {
-    this->i_ezsignfoldertype_archivaldays = i_ezsignfoldertype_archivaldays;
-    this->m_i_ezsignfoldertype_archivaldays_isSet = true;
+    m_i_ezsignfoldertype_archivaldays = i_ezsignfoldertype_archivaldays;
+    m_i_ezsignfoldertype_archivaldays_isSet = true;
 }
 
 bool OAIEzsignfoldertype_Response::is_i_ezsignfoldertype_archivaldays_Set() const{
@@ -636,11 +636,11 @@ bool OAIEzsignfoldertype_Response::is_i_ezsignfoldertype_archivaldays_Valid() co
 }
 
 OAIField_eEzsignfoldertypeDisposal OAIEzsignfoldertype_Response::getEEzsignfoldertypeDisposal() const {
-    return e_ezsignfoldertype_disposal;
+    return m_e_ezsignfoldertype_disposal;
 }
 void OAIEzsignfoldertype_Response::setEEzsignfoldertypeDisposal(const OAIField_eEzsignfoldertypeDisposal &e_ezsignfoldertype_disposal) {
-    this->e_ezsignfoldertype_disposal = e_ezsignfoldertype_disposal;
-    this->m_e_ezsignfoldertype_disposal_isSet = true;
+    m_e_ezsignfoldertype_disposal = e_ezsignfoldertype_disposal;
+    m_e_ezsignfoldertype_disposal_isSet = true;
 }
 
 bool OAIEzsignfoldertype_Response::is_e_ezsignfoldertype_disposal_Set() const{
@@ -652,11 +652,11 @@ bool OAIEzsignfoldertype_Response::is_e_ezsignfoldertype_disposal_Valid() const{
 }
 
 qint32 OAIEzsignfoldertype_Response::getIEzsignfoldertypeDisposaldays() const {
-    return i_ezsignfoldertype_disposaldays;
+    return m_i_ezsignfoldertype_disposaldays;
 }
 void OAIEzsignfoldertype_Response::setIEzsignfoldertypeDisposaldays(const qint32 &i_ezsignfoldertype_disposaldays) {
-    this->i_ezsignfoldertype_disposaldays = i_ezsignfoldertype_disposaldays;
-    this->m_i_ezsignfoldertype_disposaldays_isSet = true;
+    m_i_ezsignfoldertype_disposaldays = i_ezsignfoldertype_disposaldays;
+    m_i_ezsignfoldertype_disposaldays_isSet = true;
 }
 
 bool OAIEzsignfoldertype_Response::is_i_ezsignfoldertype_disposaldays_Set() const{
@@ -668,11 +668,11 @@ bool OAIEzsignfoldertype_Response::is_i_ezsignfoldertype_disposaldays_Valid() co
 }
 
 qint32 OAIEzsignfoldertype_Response::getIEzsignfoldertypeDeadlinedays() const {
-    return i_ezsignfoldertype_deadlinedays;
+    return m_i_ezsignfoldertype_deadlinedays;
 }
 void OAIEzsignfoldertype_Response::setIEzsignfoldertypeDeadlinedays(const qint32 &i_ezsignfoldertype_deadlinedays) {
-    this->i_ezsignfoldertype_deadlinedays = i_ezsignfoldertype_deadlinedays;
-    this->m_i_ezsignfoldertype_deadlinedays_isSet = true;
+    m_i_ezsignfoldertype_deadlinedays = i_ezsignfoldertype_deadlinedays;
+    m_i_ezsignfoldertype_deadlinedays_isSet = true;
 }
 
 bool OAIEzsignfoldertype_Response::is_i_ezsignfoldertype_deadlinedays_Set() const{
@@ -684,11 +684,11 @@ bool OAIEzsignfoldertype_Response::is_i_ezsignfoldertype_deadlinedays_Valid() co
 }
 
 bool OAIEzsignfoldertype_Response::isBEzsignfoldertypeSendattatchmentsigner() const {
-    return b_ezsignfoldertype_sendattatchmentsigner;
+    return m_b_ezsignfoldertype_sendattatchmentsigner;
 }
 void OAIEzsignfoldertype_Response::setBEzsignfoldertypeSendattatchmentsigner(const bool &b_ezsignfoldertype_sendattatchmentsigner) {
-    this->b_ezsignfoldertype_sendattatchmentsigner = b_ezsignfoldertype_sendattatchmentsigner;
-    this->m_b_ezsignfoldertype_sendattatchmentsigner_isSet = true;
+    m_b_ezsignfoldertype_sendattatchmentsigner = b_ezsignfoldertype_sendattatchmentsigner;
+    m_b_ezsignfoldertype_sendattatchmentsigner_isSet = true;
 }
 
 bool OAIEzsignfoldertype_Response::is_b_ezsignfoldertype_sendattatchmentsigner_Set() const{
@@ -700,11 +700,11 @@ bool OAIEzsignfoldertype_Response::is_b_ezsignfoldertype_sendattatchmentsigner_V
 }
 
 bool OAIEzsignfoldertype_Response::isBEzsignfoldertypeSendsignedtodocumentowner() const {
-    return b_ezsignfoldertype_sendsignedtodocumentowner;
+    return m_b_ezsignfoldertype_sendsignedtodocumentowner;
 }
 void OAIEzsignfoldertype_Response::setBEzsignfoldertypeSendsignedtodocumentowner(const bool &b_ezsignfoldertype_sendsignedtodocumentowner) {
-    this->b_ezsignfoldertype_sendsignedtodocumentowner = b_ezsignfoldertype_sendsignedtodocumentowner;
-    this->m_b_ezsignfoldertype_sendsignedtodocumentowner_isSet = true;
+    m_b_ezsignfoldertype_sendsignedtodocumentowner = b_ezsignfoldertype_sendsignedtodocumentowner;
+    m_b_ezsignfoldertype_sendsignedtodocumentowner_isSet = true;
 }
 
 bool OAIEzsignfoldertype_Response::is_b_ezsignfoldertype_sendsignedtodocumentowner_Set() const{
@@ -716,11 +716,11 @@ bool OAIEzsignfoldertype_Response::is_b_ezsignfoldertype_sendsignedtodocumentown
 }
 
 bool OAIEzsignfoldertype_Response::isBEzsignfoldertypeSendsignedtofolderowner() const {
-    return b_ezsignfoldertype_sendsignedtofolderowner;
+    return m_b_ezsignfoldertype_sendsignedtofolderowner;
 }
 void OAIEzsignfoldertype_Response::setBEzsignfoldertypeSendsignedtofolderowner(const bool &b_ezsignfoldertype_sendsignedtofolderowner) {
-    this->b_ezsignfoldertype_sendsignedtofolderowner = b_ezsignfoldertype_sendsignedtofolderowner;
-    this->m_b_ezsignfoldertype_sendsignedtofolderowner_isSet = true;
+    m_b_ezsignfoldertype_sendsignedtofolderowner = b_ezsignfoldertype_sendsignedtofolderowner;
+    m_b_ezsignfoldertype_sendsignedtofolderowner_isSet = true;
 }
 
 bool OAIEzsignfoldertype_Response::is_b_ezsignfoldertype_sendsignedtofolderowner_Set() const{
@@ -732,11 +732,11 @@ bool OAIEzsignfoldertype_Response::is_b_ezsignfoldertype_sendsignedtofolderowner
 }
 
 bool OAIEzsignfoldertype_Response::isBEzsignfoldertypeSendsignedtofullgroup() const {
-    return b_ezsignfoldertype_sendsignedtofullgroup;
+    return m_b_ezsignfoldertype_sendsignedtofullgroup;
 }
 void OAIEzsignfoldertype_Response::setBEzsignfoldertypeSendsignedtofullgroup(const bool &b_ezsignfoldertype_sendsignedtofullgroup) {
-    this->b_ezsignfoldertype_sendsignedtofullgroup = b_ezsignfoldertype_sendsignedtofullgroup;
-    this->m_b_ezsignfoldertype_sendsignedtofullgroup_isSet = true;
+    m_b_ezsignfoldertype_sendsignedtofullgroup = b_ezsignfoldertype_sendsignedtofullgroup;
+    m_b_ezsignfoldertype_sendsignedtofullgroup_isSet = true;
 }
 
 bool OAIEzsignfoldertype_Response::is_b_ezsignfoldertype_sendsignedtofullgroup_Set() const{
@@ -748,11 +748,11 @@ bool OAIEzsignfoldertype_Response::is_b_ezsignfoldertype_sendsignedtofullgroup_V
 }
 
 bool OAIEzsignfoldertype_Response::isBEzsignfoldertypeSendsignedtolimitedgroup() const {
-    return b_ezsignfoldertype_sendsignedtolimitedgroup;
+    return m_b_ezsignfoldertype_sendsignedtolimitedgroup;
 }
 void OAIEzsignfoldertype_Response::setBEzsignfoldertypeSendsignedtolimitedgroup(const bool &b_ezsignfoldertype_sendsignedtolimitedgroup) {
-    this->b_ezsignfoldertype_sendsignedtolimitedgroup = b_ezsignfoldertype_sendsignedtolimitedgroup;
-    this->m_b_ezsignfoldertype_sendsignedtolimitedgroup_isSet = true;
+    m_b_ezsignfoldertype_sendsignedtolimitedgroup = b_ezsignfoldertype_sendsignedtolimitedgroup;
+    m_b_ezsignfoldertype_sendsignedtolimitedgroup_isSet = true;
 }
 
 bool OAIEzsignfoldertype_Response::is_b_ezsignfoldertype_sendsignedtolimitedgroup_Set() const{
@@ -764,11 +764,11 @@ bool OAIEzsignfoldertype_Response::is_b_ezsignfoldertype_sendsignedtolimitedgrou
 }
 
 bool OAIEzsignfoldertype_Response::isBEzsignfoldertypeSendsignedtocolleague() const {
-    return b_ezsignfoldertype_sendsignedtocolleague;
+    return m_b_ezsignfoldertype_sendsignedtocolleague;
 }
 void OAIEzsignfoldertype_Response::setBEzsignfoldertypeSendsignedtocolleague(const bool &b_ezsignfoldertype_sendsignedtocolleague) {
-    this->b_ezsignfoldertype_sendsignedtocolleague = b_ezsignfoldertype_sendsignedtocolleague;
-    this->m_b_ezsignfoldertype_sendsignedtocolleague_isSet = true;
+    m_b_ezsignfoldertype_sendsignedtocolleague = b_ezsignfoldertype_sendsignedtocolleague;
+    m_b_ezsignfoldertype_sendsignedtocolleague_isSet = true;
 }
 
 bool OAIEzsignfoldertype_Response::is_b_ezsignfoldertype_sendsignedtocolleague_Set() const{
@@ -780,11 +780,11 @@ bool OAIEzsignfoldertype_Response::is_b_ezsignfoldertype_sendsignedtocolleague_V
 }
 
 bool OAIEzsignfoldertype_Response::isBEzsignfoldertypeSendsummarytodocumentowner() const {
-    return b_ezsignfoldertype_sendsummarytodocumentowner;
+    return m_b_ezsignfoldertype_sendsummarytodocumentowner;
 }
 void OAIEzsignfoldertype_Response::setBEzsignfoldertypeSendsummarytodocumentowner(const bool &b_ezsignfoldertype_sendsummarytodocumentowner) {
-    this->b_ezsignfoldertype_sendsummarytodocumentowner = b_ezsignfoldertype_sendsummarytodocumentowner;
-    this->m_b_ezsignfoldertype_sendsummarytodocumentowner_isSet = true;
+    m_b_ezsignfoldertype_sendsummarytodocumentowner = b_ezsignfoldertype_sendsummarytodocumentowner;
+    m_b_ezsignfoldertype_sendsummarytodocumentowner_isSet = true;
 }
 
 bool OAIEzsignfoldertype_Response::is_b_ezsignfoldertype_sendsummarytodocumentowner_Set() const{
@@ -796,11 +796,11 @@ bool OAIEzsignfoldertype_Response::is_b_ezsignfoldertype_sendsummarytodocumentow
 }
 
 bool OAIEzsignfoldertype_Response::isBEzsignfoldertypeSendsummarytofolderowner() const {
-    return b_ezsignfoldertype_sendsummarytofolderowner;
+    return m_b_ezsignfoldertype_sendsummarytofolderowner;
 }
 void OAIEzsignfoldertype_Response::setBEzsignfoldertypeSendsummarytofolderowner(const bool &b_ezsignfoldertype_sendsummarytofolderowner) {
-    this->b_ezsignfoldertype_sendsummarytofolderowner = b_ezsignfoldertype_sendsummarytofolderowner;
-    this->m_b_ezsignfoldertype_sendsummarytofolderowner_isSet = true;
+    m_b_ezsignfoldertype_sendsummarytofolderowner = b_ezsignfoldertype_sendsummarytofolderowner;
+    m_b_ezsignfoldertype_sendsummarytofolderowner_isSet = true;
 }
 
 bool OAIEzsignfoldertype_Response::is_b_ezsignfoldertype_sendsummarytofolderowner_Set() const{
@@ -812,11 +812,11 @@ bool OAIEzsignfoldertype_Response::is_b_ezsignfoldertype_sendsummarytofolderowne
 }
 
 bool OAIEzsignfoldertype_Response::isBEzsignfoldertypeSendsummarytofullgroup() const {
-    return b_ezsignfoldertype_sendsummarytofullgroup;
+    return m_b_ezsignfoldertype_sendsummarytofullgroup;
 }
 void OAIEzsignfoldertype_Response::setBEzsignfoldertypeSendsummarytofullgroup(const bool &b_ezsignfoldertype_sendsummarytofullgroup) {
-    this->b_ezsignfoldertype_sendsummarytofullgroup = b_ezsignfoldertype_sendsummarytofullgroup;
-    this->m_b_ezsignfoldertype_sendsummarytofullgroup_isSet = true;
+    m_b_ezsignfoldertype_sendsummarytofullgroup = b_ezsignfoldertype_sendsummarytofullgroup;
+    m_b_ezsignfoldertype_sendsummarytofullgroup_isSet = true;
 }
 
 bool OAIEzsignfoldertype_Response::is_b_ezsignfoldertype_sendsummarytofullgroup_Set() const{
@@ -828,11 +828,11 @@ bool OAIEzsignfoldertype_Response::is_b_ezsignfoldertype_sendsummarytofullgroup_
 }
 
 bool OAIEzsignfoldertype_Response::isBEzsignfoldertypeSendsummarytolimitedgroup() const {
-    return b_ezsignfoldertype_sendsummarytolimitedgroup;
+    return m_b_ezsignfoldertype_sendsummarytolimitedgroup;
 }
 void OAIEzsignfoldertype_Response::setBEzsignfoldertypeSendsummarytolimitedgroup(const bool &b_ezsignfoldertype_sendsummarytolimitedgroup) {
-    this->b_ezsignfoldertype_sendsummarytolimitedgroup = b_ezsignfoldertype_sendsummarytolimitedgroup;
-    this->m_b_ezsignfoldertype_sendsummarytolimitedgroup_isSet = true;
+    m_b_ezsignfoldertype_sendsummarytolimitedgroup = b_ezsignfoldertype_sendsummarytolimitedgroup;
+    m_b_ezsignfoldertype_sendsummarytolimitedgroup_isSet = true;
 }
 
 bool OAIEzsignfoldertype_Response::is_b_ezsignfoldertype_sendsummarytolimitedgroup_Set() const{
@@ -844,11 +844,11 @@ bool OAIEzsignfoldertype_Response::is_b_ezsignfoldertype_sendsummarytolimitedgro
 }
 
 bool OAIEzsignfoldertype_Response::isBEzsignfoldertypeSendsummarytocolleague() const {
-    return b_ezsignfoldertype_sendsummarytocolleague;
+    return m_b_ezsignfoldertype_sendsummarytocolleague;
 }
 void OAIEzsignfoldertype_Response::setBEzsignfoldertypeSendsummarytocolleague(const bool &b_ezsignfoldertype_sendsummarytocolleague) {
-    this->b_ezsignfoldertype_sendsummarytocolleague = b_ezsignfoldertype_sendsummarytocolleague;
-    this->m_b_ezsignfoldertype_sendsummarytocolleague_isSet = true;
+    m_b_ezsignfoldertype_sendsummarytocolleague = b_ezsignfoldertype_sendsummarytocolleague;
+    m_b_ezsignfoldertype_sendsummarytocolleague_isSet = true;
 }
 
 bool OAIEzsignfoldertype_Response::is_b_ezsignfoldertype_sendsummarytocolleague_Set() const{
@@ -860,11 +860,11 @@ bool OAIEzsignfoldertype_Response::is_b_ezsignfoldertype_sendsummarytocolleague_
 }
 
 bool OAIEzsignfoldertype_Response::isBEzsignfoldertypeIncludeproofsigner() const {
-    return b_ezsignfoldertype_includeproofsigner;
+    return m_b_ezsignfoldertype_includeproofsigner;
 }
 void OAIEzsignfoldertype_Response::setBEzsignfoldertypeIncludeproofsigner(const bool &b_ezsignfoldertype_includeproofsigner) {
-    this->b_ezsignfoldertype_includeproofsigner = b_ezsignfoldertype_includeproofsigner;
-    this->m_b_ezsignfoldertype_includeproofsigner_isSet = true;
+    m_b_ezsignfoldertype_includeproofsigner = b_ezsignfoldertype_includeproofsigner;
+    m_b_ezsignfoldertype_includeproofsigner_isSet = true;
 }
 
 bool OAIEzsignfoldertype_Response::is_b_ezsignfoldertype_includeproofsigner_Set() const{
@@ -876,11 +876,11 @@ bool OAIEzsignfoldertype_Response::is_b_ezsignfoldertype_includeproofsigner_Vali
 }
 
 bool OAIEzsignfoldertype_Response::isBEzsignfoldertypeIncludeproofuser() const {
-    return b_ezsignfoldertype_includeproofuser;
+    return m_b_ezsignfoldertype_includeproofuser;
 }
 void OAIEzsignfoldertype_Response::setBEzsignfoldertypeIncludeproofuser(const bool &b_ezsignfoldertype_includeproofuser) {
-    this->b_ezsignfoldertype_includeproofuser = b_ezsignfoldertype_includeproofuser;
-    this->m_b_ezsignfoldertype_includeproofuser_isSet = true;
+    m_b_ezsignfoldertype_includeproofuser = b_ezsignfoldertype_includeproofuser;
+    m_b_ezsignfoldertype_includeproofuser_isSet = true;
 }
 
 bool OAIEzsignfoldertype_Response::is_b_ezsignfoldertype_includeproofuser_Set() const{
@@ -892,11 +892,11 @@ bool OAIEzsignfoldertype_Response::is_b_ezsignfoldertype_includeproofuser_Valid(
 }
 
 bool OAIEzsignfoldertype_Response::isBEzsignfoldertypeIsactive() const {
-    return b_ezsignfoldertype_isactive;
+    return m_b_ezsignfoldertype_isactive;
 }
 void OAIEzsignfoldertype_Response::setBEzsignfoldertypeIsactive(const bool &b_ezsignfoldertype_isactive) {
-    this->b_ezsignfoldertype_isactive = b_ezsignfoldertype_isactive;
-    this->m_b_ezsignfoldertype_isactive_isSet = true;
+    m_b_ezsignfoldertype_isactive = b_ezsignfoldertype_isactive;
+    m_b_ezsignfoldertype_isactive_isSet = true;
 }
 
 bool OAIEzsignfoldertype_Response::is_b_ezsignfoldertype_isactive_Set() const{
@@ -915,7 +915,7 @@ bool OAIEzsignfoldertype_Response::isSet() const {
             break;
         }
 
-        if (obj_ezsignfoldertype_name.isSet()) {
+        if (m_obj_ezsignfoldertype_name.isSet()) {
             isObjectUpdated = true;
             break;
         }
@@ -980,12 +980,12 @@ bool OAIEzsignfoldertype_Response::isSet() const {
             break;
         }
 
-        if (e_ezsignfoldertype_privacylevel.isSet()) {
+        if (m_e_ezsignfoldertype_privacylevel.isSet()) {
             isObjectUpdated = true;
             break;
         }
 
-        if (e_ezsignfoldertype_sendreminderfrequency.isSet()) {
+        if (m_e_ezsignfoldertype_sendreminderfrequency.isSet()) {
             isObjectUpdated = true;
             break;
         }
@@ -995,7 +995,7 @@ bool OAIEzsignfoldertype_Response::isSet() const {
             break;
         }
 
-        if (e_ezsignfoldertype_disposal.isSet()) {
+        if (m_e_ezsignfoldertype_disposal.isSet()) {
             isObjectUpdated = true;
             break;
         }

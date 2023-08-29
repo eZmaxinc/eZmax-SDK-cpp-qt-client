@@ -47,7 +47,7 @@ void OAIEzsigntemplatesigner_createObject_v1_Request::fromJson(QString jsonStrin
 
 void OAIEzsigntemplatesigner_createObject_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_ezsigntemplatesigner_isValid = ::OpenAPI::fromJsonValue(a_obj_ezsigntemplatesigner, json[QString("a_objEzsigntemplatesigner")]);
+    m_a_obj_ezsigntemplatesigner_isValid = ::OpenAPI::fromJsonValue(m_a_obj_ezsigntemplatesigner, json[QString("a_objEzsigntemplatesigner")]);
     m_a_obj_ezsigntemplatesigner_isSet = !json[QString("a_objEzsigntemplatesigner")].isNull() && m_a_obj_ezsigntemplatesigner_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIEzsigntemplatesigner_createObject_v1_Request::asJson() const {
 
 QJsonObject OAIEzsigntemplatesigner_createObject_v1_Request::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_ezsigntemplatesigner.size() > 0) {
-        obj.insert(QString("a_objEzsigntemplatesigner"), ::OpenAPI::toJsonValue(a_obj_ezsigntemplatesigner));
+    if (m_a_obj_ezsigntemplatesigner.size() > 0) {
+        obj.insert(QString("a_objEzsigntemplatesigner"), ::OpenAPI::toJsonValue(m_a_obj_ezsigntemplatesigner));
     }
     return obj;
 }
 
 QList<OAIEzsigntemplatesigner_RequestCompound> OAIEzsigntemplatesigner_createObject_v1_Request::getAObjEzsigntemplatesigner() const {
-    return a_obj_ezsigntemplatesigner;
+    return m_a_obj_ezsigntemplatesigner;
 }
 void OAIEzsigntemplatesigner_createObject_v1_Request::setAObjEzsigntemplatesigner(const QList<OAIEzsigntemplatesigner_RequestCompound> &a_obj_ezsigntemplatesigner) {
-    this->a_obj_ezsigntemplatesigner = a_obj_ezsigntemplatesigner;
-    this->m_a_obj_ezsigntemplatesigner_isSet = true;
+    m_a_obj_ezsigntemplatesigner = a_obj_ezsigntemplatesigner;
+    m_a_obj_ezsigntemplatesigner_isSet = true;
 }
 
 bool OAIEzsigntemplatesigner_createObject_v1_Request::is_a_obj_ezsigntemplatesigner_Set() const{
@@ -85,7 +85,7 @@ bool OAIEzsigntemplatesigner_createObject_v1_Request::is_a_obj_ezsigntemplatesig
 bool OAIEzsigntemplatesigner_createObject_v1_Request::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_ezsigntemplatesigner.size() > 0) {
+        if (m_a_obj_ezsigntemplatesigner.size() > 0) {
             isObjectUpdated = true;
             break;
         }

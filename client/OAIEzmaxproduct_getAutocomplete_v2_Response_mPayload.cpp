@@ -47,7 +47,7 @@ void OAIEzmaxproduct_getAutocomplete_v2_Response_mPayload::fromJson(QString json
 
 void OAIEzmaxproduct_getAutocomplete_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_ezmaxproduct_isValid = ::OpenAPI::fromJsonValue(a_obj_ezmaxproduct, json[QString("a_objEzmaxproduct")]);
+    m_a_obj_ezmaxproduct_isValid = ::OpenAPI::fromJsonValue(m_a_obj_ezmaxproduct, json[QString("a_objEzmaxproduct")]);
     m_a_obj_ezmaxproduct_isSet = !json[QString("a_objEzmaxproduct")].isNull() && m_a_obj_ezmaxproduct_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIEzmaxproduct_getAutocomplete_v2_Response_mPayload::asJson() const {
 
 QJsonObject OAIEzmaxproduct_getAutocomplete_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_ezmaxproduct.size() > 0) {
-        obj.insert(QString("a_objEzmaxproduct"), ::OpenAPI::toJsonValue(a_obj_ezmaxproduct));
+    if (m_a_obj_ezmaxproduct.size() > 0) {
+        obj.insert(QString("a_objEzmaxproduct"), ::OpenAPI::toJsonValue(m_a_obj_ezmaxproduct));
     }
     return obj;
 }
 
 QList<OAIEzmaxproduct_AutocompleteElement_Response> OAIEzmaxproduct_getAutocomplete_v2_Response_mPayload::getAObjEzmaxproduct() const {
-    return a_obj_ezmaxproduct;
+    return m_a_obj_ezmaxproduct;
 }
 void OAIEzmaxproduct_getAutocomplete_v2_Response_mPayload::setAObjEzmaxproduct(const QList<OAIEzmaxproduct_AutocompleteElement_Response> &a_obj_ezmaxproduct) {
-    this->a_obj_ezmaxproduct = a_obj_ezmaxproduct;
-    this->m_a_obj_ezmaxproduct_isSet = true;
+    m_a_obj_ezmaxproduct = a_obj_ezmaxproduct;
+    m_a_obj_ezmaxproduct_isSet = true;
 }
 
 bool OAIEzmaxproduct_getAutocomplete_v2_Response_mPayload::is_a_obj_ezmaxproduct_Set() const{
@@ -85,7 +85,7 @@ bool OAIEzmaxproduct_getAutocomplete_v2_Response_mPayload::is_a_obj_ezmaxproduct
 bool OAIEzmaxproduct_getAutocomplete_v2_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_ezmaxproduct.size() > 0) {
+        if (m_a_obj_ezmaxproduct.size() > 0) {
             isObjectUpdated = true;
             break;
         }

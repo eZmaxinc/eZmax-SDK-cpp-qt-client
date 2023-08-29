@@ -47,7 +47,7 @@ void OAIEzsigndocument_getEzsignpages_v1_Response_mPayload::fromJson(QString jso
 
 void OAIEzsigndocument_getEzsignpages_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_ezsignpage_isValid = ::OpenAPI::fromJsonValue(a_obj_ezsignpage, json[QString("a_objEzsignpage")]);
+    m_a_obj_ezsignpage_isValid = ::OpenAPI::fromJsonValue(m_a_obj_ezsignpage, json[QString("a_objEzsignpage")]);
     m_a_obj_ezsignpage_isSet = !json[QString("a_objEzsignpage")].isNull() && m_a_obj_ezsignpage_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIEzsigndocument_getEzsignpages_v1_Response_mPayload::asJson() const {
 
 QJsonObject OAIEzsigndocument_getEzsignpages_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_ezsignpage.size() > 0) {
-        obj.insert(QString("a_objEzsignpage"), ::OpenAPI::toJsonValue(a_obj_ezsignpage));
+    if (m_a_obj_ezsignpage.size() > 0) {
+        obj.insert(QString("a_objEzsignpage"), ::OpenAPI::toJsonValue(m_a_obj_ezsignpage));
     }
     return obj;
 }
 
 QList<OAIEzsignpage_ResponseCompound> OAIEzsigndocument_getEzsignpages_v1_Response_mPayload::getAObjEzsignpage() const {
-    return a_obj_ezsignpage;
+    return m_a_obj_ezsignpage;
 }
 void OAIEzsigndocument_getEzsignpages_v1_Response_mPayload::setAObjEzsignpage(const QList<OAIEzsignpage_ResponseCompound> &a_obj_ezsignpage) {
-    this->a_obj_ezsignpage = a_obj_ezsignpage;
-    this->m_a_obj_ezsignpage_isSet = true;
+    m_a_obj_ezsignpage = a_obj_ezsignpage;
+    m_a_obj_ezsignpage_isSet = true;
 }
 
 bool OAIEzsigndocument_getEzsignpages_v1_Response_mPayload::is_a_obj_ezsignpage_Set() const{
@@ -85,7 +85,7 @@ bool OAIEzsigndocument_getEzsignpages_v1_Response_mPayload::is_a_obj_ezsignpage_
 bool OAIEzsigndocument_getEzsignpages_v1_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_ezsignpage.size() > 0) {
+        if (m_a_obj_ezsignpage.size() > 0) {
             isObjectUpdated = true;
             break;
         }

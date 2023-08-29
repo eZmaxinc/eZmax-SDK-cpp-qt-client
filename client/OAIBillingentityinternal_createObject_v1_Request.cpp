@@ -47,7 +47,7 @@ void OAIBillingentityinternal_createObject_v1_Request::fromJson(QString jsonStri
 
 void OAIBillingentityinternal_createObject_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_billingentityinternal_isValid = ::OpenAPI::fromJsonValue(a_obj_billingentityinternal, json[QString("a_objBillingentityinternal")]);
+    m_a_obj_billingentityinternal_isValid = ::OpenAPI::fromJsonValue(m_a_obj_billingentityinternal, json[QString("a_objBillingentityinternal")]);
     m_a_obj_billingentityinternal_isSet = !json[QString("a_objBillingentityinternal")].isNull() && m_a_obj_billingentityinternal_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIBillingentityinternal_createObject_v1_Request::asJson() const {
 
 QJsonObject OAIBillingentityinternal_createObject_v1_Request::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_billingentityinternal.size() > 0) {
-        obj.insert(QString("a_objBillingentityinternal"), ::OpenAPI::toJsonValue(a_obj_billingentityinternal));
+    if (m_a_obj_billingentityinternal.size() > 0) {
+        obj.insert(QString("a_objBillingentityinternal"), ::OpenAPI::toJsonValue(m_a_obj_billingentityinternal));
     }
     return obj;
 }
 
 QList<OAIBillingentityinternal_RequestCompound> OAIBillingentityinternal_createObject_v1_Request::getAObjBillingentityinternal() const {
-    return a_obj_billingentityinternal;
+    return m_a_obj_billingentityinternal;
 }
 void OAIBillingentityinternal_createObject_v1_Request::setAObjBillingentityinternal(const QList<OAIBillingentityinternal_RequestCompound> &a_obj_billingentityinternal) {
-    this->a_obj_billingentityinternal = a_obj_billingentityinternal;
-    this->m_a_obj_billingentityinternal_isSet = true;
+    m_a_obj_billingentityinternal = a_obj_billingentityinternal;
+    m_a_obj_billingentityinternal_isSet = true;
 }
 
 bool OAIBillingentityinternal_createObject_v1_Request::is_a_obj_billingentityinternal_Set() const{
@@ -85,7 +85,7 @@ bool OAIBillingentityinternal_createObject_v1_Request::is_a_obj_billingentityint
 bool OAIBillingentityinternal_createObject_v1_Request::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_billingentityinternal.size() > 0) {
+        if (m_a_obj_billingentityinternal.size() > 0) {
             isObjectUpdated = true;
             break;
         }

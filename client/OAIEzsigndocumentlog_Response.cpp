@@ -68,28 +68,28 @@ void OAIEzsigndocumentlog_Response::fromJson(QString jsonString) {
 
 void OAIEzsigndocumentlog_Response::fromJsonObject(QJsonObject json) {
 
-    m_fki_user_id_isValid = ::OpenAPI::fromJsonValue(fki_user_id, json[QString("fkiUserID")]);
+    m_fki_user_id_isValid = ::OpenAPI::fromJsonValue(m_fki_user_id, json[QString("fkiUserID")]);
     m_fki_user_id_isSet = !json[QString("fkiUserID")].isNull() && m_fki_user_id_isValid;
 
-    m_fki_ezsignsigner_id_isValid = ::OpenAPI::fromJsonValue(fki_ezsignsigner_id, json[QString("fkiEzsignsignerID")]);
+    m_fki_ezsignsigner_id_isValid = ::OpenAPI::fromJsonValue(m_fki_ezsignsigner_id, json[QString("fkiEzsignsignerID")]);
     m_fki_ezsignsigner_id_isSet = !json[QString("fkiEzsignsignerID")].isNull() && m_fki_ezsignsigner_id_isValid;
 
-    m_dt_ezsigndocumentlog_datetime_isValid = ::OpenAPI::fromJsonValue(dt_ezsigndocumentlog_datetime, json[QString("dtEzsigndocumentlogDatetime")]);
+    m_dt_ezsigndocumentlog_datetime_isValid = ::OpenAPI::fromJsonValue(m_dt_ezsigndocumentlog_datetime, json[QString("dtEzsigndocumentlogDatetime")]);
     m_dt_ezsigndocumentlog_datetime_isSet = !json[QString("dtEzsigndocumentlogDatetime")].isNull() && m_dt_ezsigndocumentlog_datetime_isValid;
 
-    m_e_ezsigndocumentlog_type_isValid = ::OpenAPI::fromJsonValue(e_ezsigndocumentlog_type, json[QString("eEzsigndocumentlogType")]);
+    m_e_ezsigndocumentlog_type_isValid = ::OpenAPI::fromJsonValue(m_e_ezsigndocumentlog_type, json[QString("eEzsigndocumentlogType")]);
     m_e_ezsigndocumentlog_type_isSet = !json[QString("eEzsigndocumentlogType")].isNull() && m_e_ezsigndocumentlog_type_isValid;
 
-    m_s_ezsigndocumentlog_detail_isValid = ::OpenAPI::fromJsonValue(s_ezsigndocumentlog_detail, json[QString("sEzsigndocumentlogDetail")]);
+    m_s_ezsigndocumentlog_detail_isValid = ::OpenAPI::fromJsonValue(m_s_ezsigndocumentlog_detail, json[QString("sEzsigndocumentlogDetail")]);
     m_s_ezsigndocumentlog_detail_isSet = !json[QString("sEzsigndocumentlogDetail")].isNull() && m_s_ezsigndocumentlog_detail_isValid;
 
-    m_s_ezsigndocumentlog_lastname_isValid = ::OpenAPI::fromJsonValue(s_ezsigndocumentlog_lastname, json[QString("sEzsigndocumentlogLastname")]);
+    m_s_ezsigndocumentlog_lastname_isValid = ::OpenAPI::fromJsonValue(m_s_ezsigndocumentlog_lastname, json[QString("sEzsigndocumentlogLastname")]);
     m_s_ezsigndocumentlog_lastname_isSet = !json[QString("sEzsigndocumentlogLastname")].isNull() && m_s_ezsigndocumentlog_lastname_isValid;
 
-    m_s_ezsigndocumentlog_firstname_isValid = ::OpenAPI::fromJsonValue(s_ezsigndocumentlog_firstname, json[QString("sEzsigndocumentlogFirstname")]);
+    m_s_ezsigndocumentlog_firstname_isValid = ::OpenAPI::fromJsonValue(m_s_ezsigndocumentlog_firstname, json[QString("sEzsigndocumentlogFirstname")]);
     m_s_ezsigndocumentlog_firstname_isSet = !json[QString("sEzsigndocumentlogFirstname")].isNull() && m_s_ezsigndocumentlog_firstname_isValid;
 
-    m_s_ezsigndocumentlog_ip_isValid = ::OpenAPI::fromJsonValue(s_ezsigndocumentlog_ip, json[QString("sEzsigndocumentlogIP")]);
+    m_s_ezsigndocumentlog_ip_isValid = ::OpenAPI::fromJsonValue(m_s_ezsigndocumentlog_ip, json[QString("sEzsigndocumentlogIP")]);
     m_s_ezsigndocumentlog_ip_isSet = !json[QString("sEzsigndocumentlogIP")].isNull() && m_s_ezsigndocumentlog_ip_isValid;
 }
 
@@ -103,38 +103,38 @@ QString OAIEzsigndocumentlog_Response::asJson() const {
 QJsonObject OAIEzsigndocumentlog_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_fki_user_id_isSet) {
-        obj.insert(QString("fkiUserID"), ::OpenAPI::toJsonValue(fki_user_id));
+        obj.insert(QString("fkiUserID"), ::OpenAPI::toJsonValue(m_fki_user_id));
     }
     if (m_fki_ezsignsigner_id_isSet) {
-        obj.insert(QString("fkiEzsignsignerID"), ::OpenAPI::toJsonValue(fki_ezsignsigner_id));
+        obj.insert(QString("fkiEzsignsignerID"), ::OpenAPI::toJsonValue(m_fki_ezsignsigner_id));
     }
     if (m_dt_ezsigndocumentlog_datetime_isSet) {
-        obj.insert(QString("dtEzsigndocumentlogDatetime"), ::OpenAPI::toJsonValue(dt_ezsigndocumentlog_datetime));
+        obj.insert(QString("dtEzsigndocumentlogDatetime"), ::OpenAPI::toJsonValue(m_dt_ezsigndocumentlog_datetime));
     }
-    if (e_ezsigndocumentlog_type.isSet()) {
-        obj.insert(QString("eEzsigndocumentlogType"), ::OpenAPI::toJsonValue(e_ezsigndocumentlog_type));
+    if (m_e_ezsigndocumentlog_type.isSet()) {
+        obj.insert(QString("eEzsigndocumentlogType"), ::OpenAPI::toJsonValue(m_e_ezsigndocumentlog_type));
     }
     if (m_s_ezsigndocumentlog_detail_isSet) {
-        obj.insert(QString("sEzsigndocumentlogDetail"), ::OpenAPI::toJsonValue(s_ezsigndocumentlog_detail));
+        obj.insert(QString("sEzsigndocumentlogDetail"), ::OpenAPI::toJsonValue(m_s_ezsigndocumentlog_detail));
     }
     if (m_s_ezsigndocumentlog_lastname_isSet) {
-        obj.insert(QString("sEzsigndocumentlogLastname"), ::OpenAPI::toJsonValue(s_ezsigndocumentlog_lastname));
+        obj.insert(QString("sEzsigndocumentlogLastname"), ::OpenAPI::toJsonValue(m_s_ezsigndocumentlog_lastname));
     }
     if (m_s_ezsigndocumentlog_firstname_isSet) {
-        obj.insert(QString("sEzsigndocumentlogFirstname"), ::OpenAPI::toJsonValue(s_ezsigndocumentlog_firstname));
+        obj.insert(QString("sEzsigndocumentlogFirstname"), ::OpenAPI::toJsonValue(m_s_ezsigndocumentlog_firstname));
     }
     if (m_s_ezsigndocumentlog_ip_isSet) {
-        obj.insert(QString("sEzsigndocumentlogIP"), ::OpenAPI::toJsonValue(s_ezsigndocumentlog_ip));
+        obj.insert(QString("sEzsigndocumentlogIP"), ::OpenAPI::toJsonValue(m_s_ezsigndocumentlog_ip));
     }
     return obj;
 }
 
 qint32 OAIEzsigndocumentlog_Response::getFkiUserId() const {
-    return fki_user_id;
+    return m_fki_user_id;
 }
 void OAIEzsigndocumentlog_Response::setFkiUserId(const qint32 &fki_user_id) {
-    this->fki_user_id = fki_user_id;
-    this->m_fki_user_id_isSet = true;
+    m_fki_user_id = fki_user_id;
+    m_fki_user_id_isSet = true;
 }
 
 bool OAIEzsigndocumentlog_Response::is_fki_user_id_Set() const{
@@ -146,11 +146,11 @@ bool OAIEzsigndocumentlog_Response::is_fki_user_id_Valid() const{
 }
 
 qint32 OAIEzsigndocumentlog_Response::getFkiEzsignsignerId() const {
-    return fki_ezsignsigner_id;
+    return m_fki_ezsignsigner_id;
 }
 void OAIEzsigndocumentlog_Response::setFkiEzsignsignerId(const qint32 &fki_ezsignsigner_id) {
-    this->fki_ezsignsigner_id = fki_ezsignsigner_id;
-    this->m_fki_ezsignsigner_id_isSet = true;
+    m_fki_ezsignsigner_id = fki_ezsignsigner_id;
+    m_fki_ezsignsigner_id_isSet = true;
 }
 
 bool OAIEzsigndocumentlog_Response::is_fki_ezsignsigner_id_Set() const{
@@ -162,11 +162,11 @@ bool OAIEzsigndocumentlog_Response::is_fki_ezsignsigner_id_Valid() const{
 }
 
 QString OAIEzsigndocumentlog_Response::getDtEzsigndocumentlogDatetime() const {
-    return dt_ezsigndocumentlog_datetime;
+    return m_dt_ezsigndocumentlog_datetime;
 }
 void OAIEzsigndocumentlog_Response::setDtEzsigndocumentlogDatetime(const QString &dt_ezsigndocumentlog_datetime) {
-    this->dt_ezsigndocumentlog_datetime = dt_ezsigndocumentlog_datetime;
-    this->m_dt_ezsigndocumentlog_datetime_isSet = true;
+    m_dt_ezsigndocumentlog_datetime = dt_ezsigndocumentlog_datetime;
+    m_dt_ezsigndocumentlog_datetime_isSet = true;
 }
 
 bool OAIEzsigndocumentlog_Response::is_dt_ezsigndocumentlog_datetime_Set() const{
@@ -178,11 +178,11 @@ bool OAIEzsigndocumentlog_Response::is_dt_ezsigndocumentlog_datetime_Valid() con
 }
 
 OAIField_eEzsigndocumentlogType OAIEzsigndocumentlog_Response::getEEzsigndocumentlogType() const {
-    return e_ezsigndocumentlog_type;
+    return m_e_ezsigndocumentlog_type;
 }
 void OAIEzsigndocumentlog_Response::setEEzsigndocumentlogType(const OAIField_eEzsigndocumentlogType &e_ezsigndocumentlog_type) {
-    this->e_ezsigndocumentlog_type = e_ezsigndocumentlog_type;
-    this->m_e_ezsigndocumentlog_type_isSet = true;
+    m_e_ezsigndocumentlog_type = e_ezsigndocumentlog_type;
+    m_e_ezsigndocumentlog_type_isSet = true;
 }
 
 bool OAIEzsigndocumentlog_Response::is_e_ezsigndocumentlog_type_Set() const{
@@ -194,11 +194,11 @@ bool OAIEzsigndocumentlog_Response::is_e_ezsigndocumentlog_type_Valid() const{
 }
 
 QString OAIEzsigndocumentlog_Response::getSEzsigndocumentlogDetail() const {
-    return s_ezsigndocumentlog_detail;
+    return m_s_ezsigndocumentlog_detail;
 }
 void OAIEzsigndocumentlog_Response::setSEzsigndocumentlogDetail(const QString &s_ezsigndocumentlog_detail) {
-    this->s_ezsigndocumentlog_detail = s_ezsigndocumentlog_detail;
-    this->m_s_ezsigndocumentlog_detail_isSet = true;
+    m_s_ezsigndocumentlog_detail = s_ezsigndocumentlog_detail;
+    m_s_ezsigndocumentlog_detail_isSet = true;
 }
 
 bool OAIEzsigndocumentlog_Response::is_s_ezsigndocumentlog_detail_Set() const{
@@ -210,11 +210,11 @@ bool OAIEzsigndocumentlog_Response::is_s_ezsigndocumentlog_detail_Valid() const{
 }
 
 QString OAIEzsigndocumentlog_Response::getSEzsigndocumentlogLastname() const {
-    return s_ezsigndocumentlog_lastname;
+    return m_s_ezsigndocumentlog_lastname;
 }
 void OAIEzsigndocumentlog_Response::setSEzsigndocumentlogLastname(const QString &s_ezsigndocumentlog_lastname) {
-    this->s_ezsigndocumentlog_lastname = s_ezsigndocumentlog_lastname;
-    this->m_s_ezsigndocumentlog_lastname_isSet = true;
+    m_s_ezsigndocumentlog_lastname = s_ezsigndocumentlog_lastname;
+    m_s_ezsigndocumentlog_lastname_isSet = true;
 }
 
 bool OAIEzsigndocumentlog_Response::is_s_ezsigndocumentlog_lastname_Set() const{
@@ -226,11 +226,11 @@ bool OAIEzsigndocumentlog_Response::is_s_ezsigndocumentlog_lastname_Valid() cons
 }
 
 QString OAIEzsigndocumentlog_Response::getSEzsigndocumentlogFirstname() const {
-    return s_ezsigndocumentlog_firstname;
+    return m_s_ezsigndocumentlog_firstname;
 }
 void OAIEzsigndocumentlog_Response::setSEzsigndocumentlogFirstname(const QString &s_ezsigndocumentlog_firstname) {
-    this->s_ezsigndocumentlog_firstname = s_ezsigndocumentlog_firstname;
-    this->m_s_ezsigndocumentlog_firstname_isSet = true;
+    m_s_ezsigndocumentlog_firstname = s_ezsigndocumentlog_firstname;
+    m_s_ezsigndocumentlog_firstname_isSet = true;
 }
 
 bool OAIEzsigndocumentlog_Response::is_s_ezsigndocumentlog_firstname_Set() const{
@@ -242,11 +242,11 @@ bool OAIEzsigndocumentlog_Response::is_s_ezsigndocumentlog_firstname_Valid() con
 }
 
 QString OAIEzsigndocumentlog_Response::getSEzsigndocumentlogIp() const {
-    return s_ezsigndocumentlog_ip;
+    return m_s_ezsigndocumentlog_ip;
 }
 void OAIEzsigndocumentlog_Response::setSEzsigndocumentlogIp(const QString &s_ezsigndocumentlog_ip) {
-    this->s_ezsigndocumentlog_ip = s_ezsigndocumentlog_ip;
-    this->m_s_ezsigndocumentlog_ip_isSet = true;
+    m_s_ezsigndocumentlog_ip = s_ezsigndocumentlog_ip;
+    m_s_ezsigndocumentlog_ip_isSet = true;
 }
 
 bool OAIEzsigndocumentlog_Response::is_s_ezsigndocumentlog_ip_Set() const{
@@ -275,7 +275,7 @@ bool OAIEzsigndocumentlog_Response::isSet() const {
             break;
         }
 
-        if (e_ezsigndocumentlog_type.isSet()) {
+        if (m_e_ezsigndocumentlog_type.isSet()) {
             isObjectUpdated = true;
             break;
         }

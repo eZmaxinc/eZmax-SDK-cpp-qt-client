@@ -47,7 +47,7 @@ void OAIEzsignfolder_getCommunicationCount_v1_Response_mPayload::fromJson(QStrin
 
 void OAIEzsignfolder_getCommunicationCount_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_i_communication_count_isValid = ::OpenAPI::fromJsonValue(i_communication_count, json[QString("iCommunicationCount")]);
+    m_i_communication_count_isValid = ::OpenAPI::fromJsonValue(m_i_communication_count, json[QString("iCommunicationCount")]);
     m_i_communication_count_isSet = !json[QString("iCommunicationCount")].isNull() && m_i_communication_count_isValid;
 }
 
@@ -61,17 +61,17 @@ QString OAIEzsignfolder_getCommunicationCount_v1_Response_mPayload::asJson() con
 QJsonObject OAIEzsignfolder_getCommunicationCount_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_i_communication_count_isSet) {
-        obj.insert(QString("iCommunicationCount"), ::OpenAPI::toJsonValue(i_communication_count));
+        obj.insert(QString("iCommunicationCount"), ::OpenAPI::toJsonValue(m_i_communication_count));
     }
     return obj;
 }
 
 qint32 OAIEzsignfolder_getCommunicationCount_v1_Response_mPayload::getICommunicationCount() const {
-    return i_communication_count;
+    return m_i_communication_count;
 }
 void OAIEzsignfolder_getCommunicationCount_v1_Response_mPayload::setICommunicationCount(const qint32 &i_communication_count) {
-    this->i_communication_count = i_communication_count;
-    this->m_i_communication_count_isSet = true;
+    m_i_communication_count = i_communication_count;
+    m_i_communication_count_isSet = true;
 }
 
 bool OAIEzsignfolder_getCommunicationCount_v1_Response_mPayload::is_i_communication_count_Set() const{

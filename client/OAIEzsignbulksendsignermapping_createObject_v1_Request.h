@@ -52,7 +52,7 @@ public:
 private:
     void initializeModel();
 
-    QList<OAIEzsignbulksendsignermapping_RequestCompound> a_obj_ezsignbulksendsignermapping;
+    QList<OAIEzsignbulksendsignermapping_RequestCompound> m_a_obj_ezsignbulksendsignermapping;
     bool m_a_obj_ezsignbulksendsignermapping_isSet;
     bool m_a_obj_ezsignbulksendsignermapping_isValid;
 };

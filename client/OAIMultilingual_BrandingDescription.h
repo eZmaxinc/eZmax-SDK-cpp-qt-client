@@ -55,11 +55,11 @@ public:
 private:
     void initializeModel();
 
-    QString s_branding_description1;
+    QString m_s_branding_description1;
     bool m_s_branding_description1_isSet;
     bool m_s_branding_description1_isValid;
 
-    QString s_branding_description2;
+    QString m_s_branding_description2;
     bool m_s_branding_description2_isSet;
     bool m_s_branding_description2_isValid;
 };

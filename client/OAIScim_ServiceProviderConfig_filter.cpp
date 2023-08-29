@@ -50,10 +50,10 @@ void OAIScim_ServiceProviderConfig_filter::fromJson(QString jsonString) {
 
 void OAIScim_ServiceProviderConfig_filter::fromJsonObject(QJsonObject json) {
 
-    m_supported_isValid = ::OpenAPI::fromJsonValue(supported, json[QString("supported")]);
+    m_supported_isValid = ::OpenAPI::fromJsonValue(m_supported, json[QString("supported")]);
     m_supported_isSet = !json[QString("supported")].isNull() && m_supported_isValid;
 
-    m_max_results_isValid = ::OpenAPI::fromJsonValue(max_results, json[QString("maxResults")]);
+    m_max_results_isValid = ::OpenAPI::fromJsonValue(m_max_results, json[QString("maxResults")]);
     m_max_results_isSet = !json[QString("maxResults")].isNull() && m_max_results_isValid;
 }
 
@@ -67,20 +67,20 @@ QString OAIScim_ServiceProviderConfig_filter::asJson() const {
 QJsonObject OAIScim_ServiceProviderConfig_filter::asJsonObject() const {
     QJsonObject obj;
     if (m_supported_isSet) {
-        obj.insert(QString("supported"), ::OpenAPI::toJsonValue(supported));
+        obj.insert(QString("supported"), ::OpenAPI::toJsonValue(m_supported));
     }
     if (m_max_results_isSet) {
-        obj.insert(QString("maxResults"), ::OpenAPI::toJsonValue(max_results));
+        obj.insert(QString("maxResults"), ::OpenAPI::toJsonValue(m_max_results));
     }
     return obj;
 }
 
 bool OAIScim_ServiceProviderConfig_filter::isSupported() const {
-    return supported;
+    return m_supported;
 }
 void OAIScim_ServiceProviderConfig_filter::setSupported(const bool &supported) {
-    this->supported = supported;
-    this->m_supported_isSet = true;
+    m_supported = supported;
+    m_supported_isSet = true;
 }
 
 bool OAIScim_ServiceProviderConfig_filter::is_supported_Set() const{
@@ -92,11 +92,11 @@ bool OAIScim_ServiceProviderConfig_filter::is_supported_Valid() const{
 }
 
 qint32 OAIScim_ServiceProviderConfig_filter::getMaxResults() const {
-    return max_results;
+    return m_max_results;
 }
 void OAIScim_ServiceProviderConfig_filter::setMaxResults(const qint32 &max_results) {
-    this->max_results = max_results;
-    this->m_max_results_isSet = true;
+    m_max_results = max_results;
+    m_max_results_isSet = true;
 }
 
 bool OAIScim_ServiceProviderConfig_filter::is_max_results_Set() const{

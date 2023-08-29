@@ -47,7 +47,7 @@ void OAIBranding_createObject_v1_Request::fromJson(QString jsonString) {
 
 void OAIBranding_createObject_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_branding_isValid = ::OpenAPI::fromJsonValue(a_obj_branding, json[QString("a_objBranding")]);
+    m_a_obj_branding_isValid = ::OpenAPI::fromJsonValue(m_a_obj_branding, json[QString("a_objBranding")]);
     m_a_obj_branding_isSet = !json[QString("a_objBranding")].isNull() && m_a_obj_branding_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIBranding_createObject_v1_Request::asJson() const {
 
 QJsonObject OAIBranding_createObject_v1_Request::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_branding.size() > 0) {
-        obj.insert(QString("a_objBranding"), ::OpenAPI::toJsonValue(a_obj_branding));
+    if (m_a_obj_branding.size() > 0) {
+        obj.insert(QString("a_objBranding"), ::OpenAPI::toJsonValue(m_a_obj_branding));
     }
     return obj;
 }
 
 QList<OAIBranding_RequestCompound> OAIBranding_createObject_v1_Request::getAObjBranding() const {
-    return a_obj_branding;
+    return m_a_obj_branding;
 }
 void OAIBranding_createObject_v1_Request::setAObjBranding(const QList<OAIBranding_RequestCompound> &a_obj_branding) {
-    this->a_obj_branding = a_obj_branding;
-    this->m_a_obj_branding_isSet = true;
+    m_a_obj_branding = a_obj_branding;
+    m_a_obj_branding_isSet = true;
 }
 
 bool OAIBranding_createObject_v1_Request::is_a_obj_branding_Set() const{
@@ -85,7 +85,7 @@ bool OAIBranding_createObject_v1_Request::is_a_obj_branding_Valid() const{
 bool OAIBranding_createObject_v1_Request::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_branding.size() > 0) {
+        if (m_a_obj_branding.size() > 0) {
             isObjectUpdated = true;
             break;
         }

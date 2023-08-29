@@ -80,31 +80,31 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_permission_id;
+    qint32 m_pki_permission_id;
     bool m_pki_permission_id_isSet;
     bool m_pki_permission_id_isValid;
 
-    qint32 fki_user_id;
+    qint32 m_fki_user_id;
     bool m_fki_user_id_isSet;
     bool m_fki_user_id_isValid;
 
-    qint32 fki_apikey_id;
+    qint32 m_fki_apikey_id;
     bool m_fki_apikey_id_isSet;
     bool m_fki_apikey_id_isValid;
 
-    qint32 fki_usergroup_id;
+    qint32 m_fki_usergroup_id;
     bool m_fki_usergroup_id_isSet;
     bool m_fki_usergroup_id_isValid;
 
-    qint32 fki_company_id;
+    qint32 m_fki_company_id;
     bool m_fki_company_id_isSet;
     bool m_fki_company_id_isValid;
 
-    qint32 fki_modulesection_id;
+    qint32 m_fki_modulesection_id;
     bool m_fki_modulesection_id_isSet;
     bool m_fki_modulesection_id_isValid;
 
-    QString s_company_name_x;
+    QString m_s_company_name_x;
     bool m_s_company_name_x_isSet;
     bool m_s_company_name_x_isValid;
 };

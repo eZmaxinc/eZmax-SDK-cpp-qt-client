@@ -53,13 +53,13 @@ void OAICors_Response::fromJson(QString jsonString) {
 
 void OAICors_Response::fromJsonObject(QJsonObject json) {
 
-    m_pki_cors_id_isValid = ::OpenAPI::fromJsonValue(pki_cors_id, json[QString("pkiCorsID")]);
+    m_pki_cors_id_isValid = ::OpenAPI::fromJsonValue(m_pki_cors_id, json[QString("pkiCorsID")]);
     m_pki_cors_id_isSet = !json[QString("pkiCorsID")].isNull() && m_pki_cors_id_isValid;
 
-    m_fki_apikey_id_isValid = ::OpenAPI::fromJsonValue(fki_apikey_id, json[QString("fkiApikeyID")]);
+    m_fki_apikey_id_isValid = ::OpenAPI::fromJsonValue(m_fki_apikey_id, json[QString("fkiApikeyID")]);
     m_fki_apikey_id_isSet = !json[QString("fkiApikeyID")].isNull() && m_fki_apikey_id_isValid;
 
-    m_s_cors_entryurl_isValid = ::OpenAPI::fromJsonValue(s_cors_entryurl, json[QString("sCorsEntryurl")]);
+    m_s_cors_entryurl_isValid = ::OpenAPI::fromJsonValue(m_s_cors_entryurl, json[QString("sCorsEntryurl")]);
     m_s_cors_entryurl_isSet = !json[QString("sCorsEntryurl")].isNull() && m_s_cors_entryurl_isValid;
 }
 
@@ -73,23 +73,23 @@ QString OAICors_Response::asJson() const {
 QJsonObject OAICors_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_cors_id_isSet) {
-        obj.insert(QString("pkiCorsID"), ::OpenAPI::toJsonValue(pki_cors_id));
+        obj.insert(QString("pkiCorsID"), ::OpenAPI::toJsonValue(m_pki_cors_id));
     }
     if (m_fki_apikey_id_isSet) {
-        obj.insert(QString("fkiApikeyID"), ::OpenAPI::toJsonValue(fki_apikey_id));
+        obj.insert(QString("fkiApikeyID"), ::OpenAPI::toJsonValue(m_fki_apikey_id));
     }
     if (m_s_cors_entryurl_isSet) {
-        obj.insert(QString("sCorsEntryurl"), ::OpenAPI::toJsonValue(s_cors_entryurl));
+        obj.insert(QString("sCorsEntryurl"), ::OpenAPI::toJsonValue(m_s_cors_entryurl));
     }
     return obj;
 }
 
 qint32 OAICors_Response::getPkiCorsId() const {
-    return pki_cors_id;
+    return m_pki_cors_id;
 }
 void OAICors_Response::setPkiCorsId(const qint32 &pki_cors_id) {
-    this->pki_cors_id = pki_cors_id;
-    this->m_pki_cors_id_isSet = true;
+    m_pki_cors_id = pki_cors_id;
+    m_pki_cors_id_isSet = true;
 }
 
 bool OAICors_Response::is_pki_cors_id_Set() const{
@@ -101,11 +101,11 @@ bool OAICors_Response::is_pki_cors_id_Valid() const{
 }
 
 qint32 OAICors_Response::getFkiApikeyId() const {
-    return fki_apikey_id;
+    return m_fki_apikey_id;
 }
 void OAICors_Response::setFkiApikeyId(const qint32 &fki_apikey_id) {
-    this->fki_apikey_id = fki_apikey_id;
-    this->m_fki_apikey_id_isSet = true;
+    m_fki_apikey_id = fki_apikey_id;
+    m_fki_apikey_id_isSet = true;
 }
 
 bool OAICors_Response::is_fki_apikey_id_Set() const{
@@ -117,11 +117,11 @@ bool OAICors_Response::is_fki_apikey_id_Valid() const{
 }
 
 QString OAICors_Response::getSCorsEntryurl() const {
-    return s_cors_entryurl;
+    return m_s_cors_entryurl;
 }
 void OAICors_Response::setSCorsEntryurl(const QString &s_cors_entryurl) {
-    this->s_cors_entryurl = s_cors_entryurl;
-    this->m_s_cors_entryurl_isSet = true;
+    m_s_cors_entryurl = s_cors_entryurl;
+    m_s_cors_entryurl_isSet = true;
 }
 
 bool OAICors_Response::is_s_cors_entryurl_Set() const{

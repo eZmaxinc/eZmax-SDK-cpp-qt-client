@@ -53,13 +53,13 @@ void OAIBranding_AutocompleteElement_Response::fromJson(QString jsonString) {
 
 void OAIBranding_AutocompleteElement_Response::fromJsonObject(QJsonObject json) {
 
-    m_s_branding_description_x_isValid = ::OpenAPI::fromJsonValue(s_branding_description_x, json[QString("sBrandingDescriptionX")]);
+    m_s_branding_description_x_isValid = ::OpenAPI::fromJsonValue(m_s_branding_description_x, json[QString("sBrandingDescriptionX")]);
     m_s_branding_description_x_isSet = !json[QString("sBrandingDescriptionX")].isNull() && m_s_branding_description_x_isValid;
 
-    m_pki_branding_id_isValid = ::OpenAPI::fromJsonValue(pki_branding_id, json[QString("pkiBrandingID")]);
+    m_pki_branding_id_isValid = ::OpenAPI::fromJsonValue(m_pki_branding_id, json[QString("pkiBrandingID")]);
     m_pki_branding_id_isSet = !json[QString("pkiBrandingID")].isNull() && m_pki_branding_id_isValid;
 
-    m_b_branding_isactive_isValid = ::OpenAPI::fromJsonValue(b_branding_isactive, json[QString("bBrandingIsactive")]);
+    m_b_branding_isactive_isValid = ::OpenAPI::fromJsonValue(m_b_branding_isactive, json[QString("bBrandingIsactive")]);
     m_b_branding_isactive_isSet = !json[QString("bBrandingIsactive")].isNull() && m_b_branding_isactive_isValid;
 }
 
@@ -73,23 +73,23 @@ QString OAIBranding_AutocompleteElement_Response::asJson() const {
 QJsonObject OAIBranding_AutocompleteElement_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_s_branding_description_x_isSet) {
-        obj.insert(QString("sBrandingDescriptionX"), ::OpenAPI::toJsonValue(s_branding_description_x));
+        obj.insert(QString("sBrandingDescriptionX"), ::OpenAPI::toJsonValue(m_s_branding_description_x));
     }
     if (m_pki_branding_id_isSet) {
-        obj.insert(QString("pkiBrandingID"), ::OpenAPI::toJsonValue(pki_branding_id));
+        obj.insert(QString("pkiBrandingID"), ::OpenAPI::toJsonValue(m_pki_branding_id));
     }
     if (m_b_branding_isactive_isSet) {
-        obj.insert(QString("bBrandingIsactive"), ::OpenAPI::toJsonValue(b_branding_isactive));
+        obj.insert(QString("bBrandingIsactive"), ::OpenAPI::toJsonValue(m_b_branding_isactive));
     }
     return obj;
 }
 
 QString OAIBranding_AutocompleteElement_Response::getSBrandingDescriptionX() const {
-    return s_branding_description_x;
+    return m_s_branding_description_x;
 }
 void OAIBranding_AutocompleteElement_Response::setSBrandingDescriptionX(const QString &s_branding_description_x) {
-    this->s_branding_description_x = s_branding_description_x;
-    this->m_s_branding_description_x_isSet = true;
+    m_s_branding_description_x = s_branding_description_x;
+    m_s_branding_description_x_isSet = true;
 }
 
 bool OAIBranding_AutocompleteElement_Response::is_s_branding_description_x_Set() const{
@@ -101,11 +101,11 @@ bool OAIBranding_AutocompleteElement_Response::is_s_branding_description_x_Valid
 }
 
 qint32 OAIBranding_AutocompleteElement_Response::getPkiBrandingId() const {
-    return pki_branding_id;
+    return m_pki_branding_id;
 }
 void OAIBranding_AutocompleteElement_Response::setPkiBrandingId(const qint32 &pki_branding_id) {
-    this->pki_branding_id = pki_branding_id;
-    this->m_pki_branding_id_isSet = true;
+    m_pki_branding_id = pki_branding_id;
+    m_pki_branding_id_isSet = true;
 }
 
 bool OAIBranding_AutocompleteElement_Response::is_pki_branding_id_Set() const{
@@ -117,11 +117,11 @@ bool OAIBranding_AutocompleteElement_Response::is_pki_branding_id_Valid() const{
 }
 
 bool OAIBranding_AutocompleteElement_Response::isBBrandingIsactive() const {
-    return b_branding_isactive;
+    return m_b_branding_isactive;
 }
 void OAIBranding_AutocompleteElement_Response::setBBrandingIsactive(const bool &b_branding_isactive) {
-    this->b_branding_isactive = b_branding_isactive;
-    this->m_b_branding_isactive_isSet = true;
+    m_b_branding_isactive = b_branding_isactive;
+    m_b_branding_isactive_isSet = true;
 }
 
 bool OAIBranding_AutocompleteElement_Response::is_b_branding_isactive_Set() const{

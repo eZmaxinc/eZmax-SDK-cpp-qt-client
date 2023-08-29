@@ -77,37 +77,37 @@ void OAIEzsignannotation_Response::fromJson(QString jsonString) {
 
 void OAIEzsignannotation_Response::fromJsonObject(QJsonObject json) {
 
-    m_pki_ezsignannotation_id_isValid = ::OpenAPI::fromJsonValue(pki_ezsignannotation_id, json[QString("pkiEzsignannotationID")]);
+    m_pki_ezsignannotation_id_isValid = ::OpenAPI::fromJsonValue(m_pki_ezsignannotation_id, json[QString("pkiEzsignannotationID")]);
     m_pki_ezsignannotation_id_isSet = !json[QString("pkiEzsignannotationID")].isNull() && m_pki_ezsignannotation_id_isValid;
 
-    m_fki_ezsigndocument_id_isValid = ::OpenAPI::fromJsonValue(fki_ezsigndocument_id, json[QString("fkiEzsigndocumentID")]);
+    m_fki_ezsigndocument_id_isValid = ::OpenAPI::fromJsonValue(m_fki_ezsigndocument_id, json[QString("fkiEzsigndocumentID")]);
     m_fki_ezsigndocument_id_isSet = !json[QString("fkiEzsigndocumentID")].isNull() && m_fki_ezsigndocument_id_isValid;
 
-    m_e_ezsignannotation_horizontalalignment_isValid = ::OpenAPI::fromJsonValue(e_ezsignannotation_horizontalalignment, json[QString("eEzsignannotationHorizontalalignment")]);
+    m_e_ezsignannotation_horizontalalignment_isValid = ::OpenAPI::fromJsonValue(m_e_ezsignannotation_horizontalalignment, json[QString("eEzsignannotationHorizontalalignment")]);
     m_e_ezsignannotation_horizontalalignment_isSet = !json[QString("eEzsignannotationHorizontalalignment")].isNull() && m_e_ezsignannotation_horizontalalignment_isValid;
 
-    m_e_ezsignannotation_verticalalignment_isValid = ::OpenAPI::fromJsonValue(e_ezsignannotation_verticalalignment, json[QString("eEzsignannotationVerticalalignment")]);
+    m_e_ezsignannotation_verticalalignment_isValid = ::OpenAPI::fromJsonValue(m_e_ezsignannotation_verticalalignment, json[QString("eEzsignannotationVerticalalignment")]);
     m_e_ezsignannotation_verticalalignment_isSet = !json[QString("eEzsignannotationVerticalalignment")].isNull() && m_e_ezsignannotation_verticalalignment_isValid;
 
-    m_e_ezsignannotation_type_isValid = ::OpenAPI::fromJsonValue(e_ezsignannotation_type, json[QString("eEzsignannotationType")]);
+    m_e_ezsignannotation_type_isValid = ::OpenAPI::fromJsonValue(m_e_ezsignannotation_type, json[QString("eEzsignannotationType")]);
     m_e_ezsignannotation_type_isSet = !json[QString("eEzsignannotationType")].isNull() && m_e_ezsignannotation_type_isValid;
 
-    m_i_ezsignannotation_x_isValid = ::OpenAPI::fromJsonValue(i_ezsignannotation_x, json[QString("iEzsignannotationX")]);
+    m_i_ezsignannotation_x_isValid = ::OpenAPI::fromJsonValue(m_i_ezsignannotation_x, json[QString("iEzsignannotationX")]);
     m_i_ezsignannotation_x_isSet = !json[QString("iEzsignannotationX")].isNull() && m_i_ezsignannotation_x_isValid;
 
-    m_i_ezsignannotation_y_isValid = ::OpenAPI::fromJsonValue(i_ezsignannotation_y, json[QString("iEzsignannotationY")]);
+    m_i_ezsignannotation_y_isValid = ::OpenAPI::fromJsonValue(m_i_ezsignannotation_y, json[QString("iEzsignannotationY")]);
     m_i_ezsignannotation_y_isSet = !json[QString("iEzsignannotationY")].isNull() && m_i_ezsignannotation_y_isValid;
 
-    m_i_ezsignannotation_width_isValid = ::OpenAPI::fromJsonValue(i_ezsignannotation_width, json[QString("iEzsignannotationWidth")]);
+    m_i_ezsignannotation_width_isValid = ::OpenAPI::fromJsonValue(m_i_ezsignannotation_width, json[QString("iEzsignannotationWidth")]);
     m_i_ezsignannotation_width_isSet = !json[QString("iEzsignannotationWidth")].isNull() && m_i_ezsignannotation_width_isValid;
 
-    m_i_ezsignannotation_height_isValid = ::OpenAPI::fromJsonValue(i_ezsignannotation_height, json[QString("iEzsignannotationHeight")]);
+    m_i_ezsignannotation_height_isValid = ::OpenAPI::fromJsonValue(m_i_ezsignannotation_height, json[QString("iEzsignannotationHeight")]);
     m_i_ezsignannotation_height_isSet = !json[QString("iEzsignannotationHeight")].isNull() && m_i_ezsignannotation_height_isValid;
 
-    m_s_ezsignannotation_text_isValid = ::OpenAPI::fromJsonValue(s_ezsignannotation_text, json[QString("sEzsignannotationText")]);
+    m_s_ezsignannotation_text_isValid = ::OpenAPI::fromJsonValue(m_s_ezsignannotation_text, json[QString("sEzsignannotationText")]);
     m_s_ezsignannotation_text_isSet = !json[QString("sEzsignannotationText")].isNull() && m_s_ezsignannotation_text_isValid;
 
-    m_i_ezsignpage_pagenumber_isValid = ::OpenAPI::fromJsonValue(i_ezsignpage_pagenumber, json[QString("iEzsignpagePagenumber")]);
+    m_i_ezsignpage_pagenumber_isValid = ::OpenAPI::fromJsonValue(m_i_ezsignpage_pagenumber, json[QString("iEzsignpagePagenumber")]);
     m_i_ezsignpage_pagenumber_isSet = !json[QString("iEzsignpagePagenumber")].isNull() && m_i_ezsignpage_pagenumber_isValid;
 }
 
@@ -121,47 +121,47 @@ QString OAIEzsignannotation_Response::asJson() const {
 QJsonObject OAIEzsignannotation_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_ezsignannotation_id_isSet) {
-        obj.insert(QString("pkiEzsignannotationID"), ::OpenAPI::toJsonValue(pki_ezsignannotation_id));
+        obj.insert(QString("pkiEzsignannotationID"), ::OpenAPI::toJsonValue(m_pki_ezsignannotation_id));
     }
     if (m_fki_ezsigndocument_id_isSet) {
-        obj.insert(QString("fkiEzsigndocumentID"), ::OpenAPI::toJsonValue(fki_ezsigndocument_id));
+        obj.insert(QString("fkiEzsigndocumentID"), ::OpenAPI::toJsonValue(m_fki_ezsigndocument_id));
     }
-    if (e_ezsignannotation_horizontalalignment.isSet()) {
-        obj.insert(QString("eEzsignannotationHorizontalalignment"), ::OpenAPI::toJsonValue(e_ezsignannotation_horizontalalignment));
+    if (m_e_ezsignannotation_horizontalalignment.isSet()) {
+        obj.insert(QString("eEzsignannotationHorizontalalignment"), ::OpenAPI::toJsonValue(m_e_ezsignannotation_horizontalalignment));
     }
-    if (e_ezsignannotation_verticalalignment.isSet()) {
-        obj.insert(QString("eEzsignannotationVerticalalignment"), ::OpenAPI::toJsonValue(e_ezsignannotation_verticalalignment));
+    if (m_e_ezsignannotation_verticalalignment.isSet()) {
+        obj.insert(QString("eEzsignannotationVerticalalignment"), ::OpenAPI::toJsonValue(m_e_ezsignannotation_verticalalignment));
     }
-    if (e_ezsignannotation_type.isSet()) {
-        obj.insert(QString("eEzsignannotationType"), ::OpenAPI::toJsonValue(e_ezsignannotation_type));
+    if (m_e_ezsignannotation_type.isSet()) {
+        obj.insert(QString("eEzsignannotationType"), ::OpenAPI::toJsonValue(m_e_ezsignannotation_type));
     }
     if (m_i_ezsignannotation_x_isSet) {
-        obj.insert(QString("iEzsignannotationX"), ::OpenAPI::toJsonValue(i_ezsignannotation_x));
+        obj.insert(QString("iEzsignannotationX"), ::OpenAPI::toJsonValue(m_i_ezsignannotation_x));
     }
     if (m_i_ezsignannotation_y_isSet) {
-        obj.insert(QString("iEzsignannotationY"), ::OpenAPI::toJsonValue(i_ezsignannotation_y));
+        obj.insert(QString("iEzsignannotationY"), ::OpenAPI::toJsonValue(m_i_ezsignannotation_y));
     }
     if (m_i_ezsignannotation_width_isSet) {
-        obj.insert(QString("iEzsignannotationWidth"), ::OpenAPI::toJsonValue(i_ezsignannotation_width));
+        obj.insert(QString("iEzsignannotationWidth"), ::OpenAPI::toJsonValue(m_i_ezsignannotation_width));
     }
     if (m_i_ezsignannotation_height_isSet) {
-        obj.insert(QString("iEzsignannotationHeight"), ::OpenAPI::toJsonValue(i_ezsignannotation_height));
+        obj.insert(QString("iEzsignannotationHeight"), ::OpenAPI::toJsonValue(m_i_ezsignannotation_height));
     }
     if (m_s_ezsignannotation_text_isSet) {
-        obj.insert(QString("sEzsignannotationText"), ::OpenAPI::toJsonValue(s_ezsignannotation_text));
+        obj.insert(QString("sEzsignannotationText"), ::OpenAPI::toJsonValue(m_s_ezsignannotation_text));
     }
     if (m_i_ezsignpage_pagenumber_isSet) {
-        obj.insert(QString("iEzsignpagePagenumber"), ::OpenAPI::toJsonValue(i_ezsignpage_pagenumber));
+        obj.insert(QString("iEzsignpagePagenumber"), ::OpenAPI::toJsonValue(m_i_ezsignpage_pagenumber));
     }
     return obj;
 }
 
 qint32 OAIEzsignannotation_Response::getPkiEzsignannotationId() const {
-    return pki_ezsignannotation_id;
+    return m_pki_ezsignannotation_id;
 }
 void OAIEzsignannotation_Response::setPkiEzsignannotationId(const qint32 &pki_ezsignannotation_id) {
-    this->pki_ezsignannotation_id = pki_ezsignannotation_id;
-    this->m_pki_ezsignannotation_id_isSet = true;
+    m_pki_ezsignannotation_id = pki_ezsignannotation_id;
+    m_pki_ezsignannotation_id_isSet = true;
 }
 
 bool OAIEzsignannotation_Response::is_pki_ezsignannotation_id_Set() const{
@@ -173,11 +173,11 @@ bool OAIEzsignannotation_Response::is_pki_ezsignannotation_id_Valid() const{
 }
 
 qint32 OAIEzsignannotation_Response::getFkiEzsigndocumentId() const {
-    return fki_ezsigndocument_id;
+    return m_fki_ezsigndocument_id;
 }
 void OAIEzsignannotation_Response::setFkiEzsigndocumentId(const qint32 &fki_ezsigndocument_id) {
-    this->fki_ezsigndocument_id = fki_ezsigndocument_id;
-    this->m_fki_ezsigndocument_id_isSet = true;
+    m_fki_ezsigndocument_id = fki_ezsigndocument_id;
+    m_fki_ezsigndocument_id_isSet = true;
 }
 
 bool OAIEzsignannotation_Response::is_fki_ezsigndocument_id_Set() const{
@@ -189,11 +189,11 @@ bool OAIEzsignannotation_Response::is_fki_ezsigndocument_id_Valid() const{
 }
 
 OAIEnum_Horizontalalignment OAIEzsignannotation_Response::getEEzsignannotationHorizontalalignment() const {
-    return e_ezsignannotation_horizontalalignment;
+    return m_e_ezsignannotation_horizontalalignment;
 }
 void OAIEzsignannotation_Response::setEEzsignannotationHorizontalalignment(const OAIEnum_Horizontalalignment &e_ezsignannotation_horizontalalignment) {
-    this->e_ezsignannotation_horizontalalignment = e_ezsignannotation_horizontalalignment;
-    this->m_e_ezsignannotation_horizontalalignment_isSet = true;
+    m_e_ezsignannotation_horizontalalignment = e_ezsignannotation_horizontalalignment;
+    m_e_ezsignannotation_horizontalalignment_isSet = true;
 }
 
 bool OAIEzsignannotation_Response::is_e_ezsignannotation_horizontalalignment_Set() const{
@@ -205,11 +205,11 @@ bool OAIEzsignannotation_Response::is_e_ezsignannotation_horizontalalignment_Val
 }
 
 OAIEnum_Verticalalignment OAIEzsignannotation_Response::getEEzsignannotationVerticalalignment() const {
-    return e_ezsignannotation_verticalalignment;
+    return m_e_ezsignannotation_verticalalignment;
 }
 void OAIEzsignannotation_Response::setEEzsignannotationVerticalalignment(const OAIEnum_Verticalalignment &e_ezsignannotation_verticalalignment) {
-    this->e_ezsignannotation_verticalalignment = e_ezsignannotation_verticalalignment;
-    this->m_e_ezsignannotation_verticalalignment_isSet = true;
+    m_e_ezsignannotation_verticalalignment = e_ezsignannotation_verticalalignment;
+    m_e_ezsignannotation_verticalalignment_isSet = true;
 }
 
 bool OAIEzsignannotation_Response::is_e_ezsignannotation_verticalalignment_Set() const{
@@ -221,11 +221,11 @@ bool OAIEzsignannotation_Response::is_e_ezsignannotation_verticalalignment_Valid
 }
 
 OAIField_eEzsignannotationType OAIEzsignannotation_Response::getEEzsignannotationType() const {
-    return e_ezsignannotation_type;
+    return m_e_ezsignannotation_type;
 }
 void OAIEzsignannotation_Response::setEEzsignannotationType(const OAIField_eEzsignannotationType &e_ezsignannotation_type) {
-    this->e_ezsignannotation_type = e_ezsignannotation_type;
-    this->m_e_ezsignannotation_type_isSet = true;
+    m_e_ezsignannotation_type = e_ezsignannotation_type;
+    m_e_ezsignannotation_type_isSet = true;
 }
 
 bool OAIEzsignannotation_Response::is_e_ezsignannotation_type_Set() const{
@@ -237,11 +237,11 @@ bool OAIEzsignannotation_Response::is_e_ezsignannotation_type_Valid() const{
 }
 
 qint32 OAIEzsignannotation_Response::getIEzsignannotationX() const {
-    return i_ezsignannotation_x;
+    return m_i_ezsignannotation_x;
 }
 void OAIEzsignannotation_Response::setIEzsignannotationX(const qint32 &i_ezsignannotation_x) {
-    this->i_ezsignannotation_x = i_ezsignannotation_x;
-    this->m_i_ezsignannotation_x_isSet = true;
+    m_i_ezsignannotation_x = i_ezsignannotation_x;
+    m_i_ezsignannotation_x_isSet = true;
 }
 
 bool OAIEzsignannotation_Response::is_i_ezsignannotation_x_Set() const{
@@ -253,11 +253,11 @@ bool OAIEzsignannotation_Response::is_i_ezsignannotation_x_Valid() const{
 }
 
 qint32 OAIEzsignannotation_Response::getIEzsignannotationY() const {
-    return i_ezsignannotation_y;
+    return m_i_ezsignannotation_y;
 }
 void OAIEzsignannotation_Response::setIEzsignannotationY(const qint32 &i_ezsignannotation_y) {
-    this->i_ezsignannotation_y = i_ezsignannotation_y;
-    this->m_i_ezsignannotation_y_isSet = true;
+    m_i_ezsignannotation_y = i_ezsignannotation_y;
+    m_i_ezsignannotation_y_isSet = true;
 }
 
 bool OAIEzsignannotation_Response::is_i_ezsignannotation_y_Set() const{
@@ -269,11 +269,11 @@ bool OAIEzsignannotation_Response::is_i_ezsignannotation_y_Valid() const{
 }
 
 qint32 OAIEzsignannotation_Response::getIEzsignannotationWidth() const {
-    return i_ezsignannotation_width;
+    return m_i_ezsignannotation_width;
 }
 void OAIEzsignannotation_Response::setIEzsignannotationWidth(const qint32 &i_ezsignannotation_width) {
-    this->i_ezsignannotation_width = i_ezsignannotation_width;
-    this->m_i_ezsignannotation_width_isSet = true;
+    m_i_ezsignannotation_width = i_ezsignannotation_width;
+    m_i_ezsignannotation_width_isSet = true;
 }
 
 bool OAIEzsignannotation_Response::is_i_ezsignannotation_width_Set() const{
@@ -285,11 +285,11 @@ bool OAIEzsignannotation_Response::is_i_ezsignannotation_width_Valid() const{
 }
 
 qint32 OAIEzsignannotation_Response::getIEzsignannotationHeight() const {
-    return i_ezsignannotation_height;
+    return m_i_ezsignannotation_height;
 }
 void OAIEzsignannotation_Response::setIEzsignannotationHeight(const qint32 &i_ezsignannotation_height) {
-    this->i_ezsignannotation_height = i_ezsignannotation_height;
-    this->m_i_ezsignannotation_height_isSet = true;
+    m_i_ezsignannotation_height = i_ezsignannotation_height;
+    m_i_ezsignannotation_height_isSet = true;
 }
 
 bool OAIEzsignannotation_Response::is_i_ezsignannotation_height_Set() const{
@@ -301,11 +301,11 @@ bool OAIEzsignannotation_Response::is_i_ezsignannotation_height_Valid() const{
 }
 
 QString OAIEzsignannotation_Response::getSEzsignannotationText() const {
-    return s_ezsignannotation_text;
+    return m_s_ezsignannotation_text;
 }
 void OAIEzsignannotation_Response::setSEzsignannotationText(const QString &s_ezsignannotation_text) {
-    this->s_ezsignannotation_text = s_ezsignannotation_text;
-    this->m_s_ezsignannotation_text_isSet = true;
+    m_s_ezsignannotation_text = s_ezsignannotation_text;
+    m_s_ezsignannotation_text_isSet = true;
 }
 
 bool OAIEzsignannotation_Response::is_s_ezsignannotation_text_Set() const{
@@ -317,11 +317,11 @@ bool OAIEzsignannotation_Response::is_s_ezsignannotation_text_Valid() const{
 }
 
 qint32 OAIEzsignannotation_Response::getIEzsignpagePagenumber() const {
-    return i_ezsignpage_pagenumber;
+    return m_i_ezsignpage_pagenumber;
 }
 void OAIEzsignannotation_Response::setIEzsignpagePagenumber(const qint32 &i_ezsignpage_pagenumber) {
-    this->i_ezsignpage_pagenumber = i_ezsignpage_pagenumber;
-    this->m_i_ezsignpage_pagenumber_isSet = true;
+    m_i_ezsignpage_pagenumber = i_ezsignpage_pagenumber;
+    m_i_ezsignpage_pagenumber_isSet = true;
 }
 
 bool OAIEzsignannotation_Response::is_i_ezsignpage_pagenumber_Set() const{
@@ -345,17 +345,17 @@ bool OAIEzsignannotation_Response::isSet() const {
             break;
         }
 
-        if (e_ezsignannotation_horizontalalignment.isSet()) {
+        if (m_e_ezsignannotation_horizontalalignment.isSet()) {
             isObjectUpdated = true;
             break;
         }
 
-        if (e_ezsignannotation_verticalalignment.isSet()) {
+        if (m_e_ezsignannotation_verticalalignment.isSet()) {
             isObjectUpdated = true;
             break;
         }
 
-        if (e_ezsignannotation_type.isSet()) {
+        if (m_e_ezsignannotation_type.isSet()) {
             isObjectUpdated = true;
             break;
         }

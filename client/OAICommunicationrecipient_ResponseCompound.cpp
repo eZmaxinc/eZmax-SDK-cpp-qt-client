@@ -107,67 +107,67 @@ void OAICommunicationrecipient_ResponseCompound::fromJson(QString jsonString) {
 
 void OAICommunicationrecipient_ResponseCompound::fromJsonObject(QJsonObject json) {
 
-    m_pki_communicationrecipient_id_isValid = ::OpenAPI::fromJsonValue(pki_communicationrecipient_id, json[QString("pkiCommunicationrecipientID")]);
+    m_pki_communicationrecipient_id_isValid = ::OpenAPI::fromJsonValue(m_pki_communicationrecipient_id, json[QString("pkiCommunicationrecipientID")]);
     m_pki_communicationrecipient_id_isSet = !json[QString("pkiCommunicationrecipientID")].isNull() && m_pki_communicationrecipient_id_isValid;
 
-    m_e_communicationrecipient_objecttype_isValid = ::OpenAPI::fromJsonValue(e_communicationrecipient_objecttype, json[QString("eCommunicationrecipientObjecttype")]);
+    m_e_communicationrecipient_objecttype_isValid = ::OpenAPI::fromJsonValue(m_e_communicationrecipient_objecttype, json[QString("eCommunicationrecipientObjecttype")]);
     m_e_communicationrecipient_objecttype_isSet = !json[QString("eCommunicationrecipientObjecttype")].isNull() && m_e_communicationrecipient_objecttype_isValid;
 
-    m_fki_agent_id_isValid = ::OpenAPI::fromJsonValue(fki_agent_id, json[QString("fkiAgentID")]);
+    m_fki_agent_id_isValid = ::OpenAPI::fromJsonValue(m_fki_agent_id, json[QString("fkiAgentID")]);
     m_fki_agent_id_isSet = !json[QString("fkiAgentID")].isNull() && m_fki_agent_id_isValid;
 
-    m_fki_broker_id_isValid = ::OpenAPI::fromJsonValue(fki_broker_id, json[QString("fkiBrokerID")]);
+    m_fki_broker_id_isValid = ::OpenAPI::fromJsonValue(m_fki_broker_id, json[QString("fkiBrokerID")]);
     m_fki_broker_id_isSet = !json[QString("fkiBrokerID")].isNull() && m_fki_broker_id_isValid;
 
-    m_fki_contact_id_isValid = ::OpenAPI::fromJsonValue(fki_contact_id, json[QString("fkiContactID")]);
+    m_fki_contact_id_isValid = ::OpenAPI::fromJsonValue(m_fki_contact_id, json[QString("fkiContactID")]);
     m_fki_contact_id_isSet = !json[QString("fkiContactID")].isNull() && m_fki_contact_id_isValid;
 
-    m_fki_customer_id_isValid = ::OpenAPI::fromJsonValue(fki_customer_id, json[QString("fkiCustomerID")]);
+    m_fki_customer_id_isValid = ::OpenAPI::fromJsonValue(m_fki_customer_id, json[QString("fkiCustomerID")]);
     m_fki_customer_id_isSet = !json[QString("fkiCustomerID")].isNull() && m_fki_customer_id_isValid;
 
-    m_fki_employee_id_isValid = ::OpenAPI::fromJsonValue(fki_employee_id, json[QString("fkiEmployeeID")]);
+    m_fki_employee_id_isValid = ::OpenAPI::fromJsonValue(m_fki_employee_id, json[QString("fkiEmployeeID")]);
     m_fki_employee_id_isSet = !json[QString("fkiEmployeeID")].isNull() && m_fki_employee_id_isValid;
 
-    m_fki_ezsignsigner_id_isValid = ::OpenAPI::fromJsonValue(fki_ezsignsigner_id, json[QString("fkiEzsignsignerID")]);
+    m_fki_ezsignsigner_id_isValid = ::OpenAPI::fromJsonValue(m_fki_ezsignsigner_id, json[QString("fkiEzsignsignerID")]);
     m_fki_ezsignsigner_id_isSet = !json[QString("fkiEzsignsignerID")].isNull() && m_fki_ezsignsigner_id_isValid;
 
-    m_fki_franchiseoffice_id_isValid = ::OpenAPI::fromJsonValue(fki_franchiseoffice_id, json[QString("fkiFranchiseofficeID")]);
+    m_fki_franchiseoffice_id_isValid = ::OpenAPI::fromJsonValue(m_fki_franchiseoffice_id, json[QString("fkiFranchiseofficeID")]);
     m_fki_franchiseoffice_id_isSet = !json[QString("fkiFranchiseofficeID")].isNull() && m_fki_franchiseoffice_id_isValid;
 
-    m_fki_user_id_isValid = ::OpenAPI::fromJsonValue(fki_user_id, json[QString("fkiUserID")]);
+    m_fki_user_id_isValid = ::OpenAPI::fromJsonValue(m_fki_user_id, json[QString("fkiUserID")]);
     m_fki_user_id_isSet = !json[QString("fkiUserID")].isNull() && m_fki_user_id_isValid;
 
-    m_fki_agentincorporation_id_isValid = ::OpenAPI::fromJsonValue(fki_agentincorporation_id, json[QString("fkiAgentincorporationID")]);
+    m_fki_agentincorporation_id_isValid = ::OpenAPI::fromJsonValue(m_fki_agentincorporation_id, json[QString("fkiAgentincorporationID")]);
     m_fki_agentincorporation_id_isSet = !json[QString("fkiAgentincorporationID")].isNull() && m_fki_agentincorporation_id_isValid;
 
-    m_fki_assistant_id_isValid = ::OpenAPI::fromJsonValue(fki_assistant_id, json[QString("fkiAssistantID")]);
+    m_fki_assistant_id_isValid = ::OpenAPI::fromJsonValue(m_fki_assistant_id, json[QString("fkiAssistantID")]);
     m_fki_assistant_id_isSet = !json[QString("fkiAssistantID")].isNull() && m_fki_assistant_id_isValid;
 
-    m_fki_externalbroker_id_isValid = ::OpenAPI::fromJsonValue(fki_externalbroker_id, json[QString("fkiExternalbrokerID")]);
+    m_fki_externalbroker_id_isValid = ::OpenAPI::fromJsonValue(m_fki_externalbroker_id, json[QString("fkiExternalbrokerID")]);
     m_fki_externalbroker_id_isSet = !json[QString("fkiExternalbrokerID")].isNull() && m_fki_externalbroker_id_isValid;
 
-    m_fki_ezcomagent_id_isValid = ::OpenAPI::fromJsonValue(fki_ezcomagent_id, json[QString("fkiEzcomagentID")]);
+    m_fki_ezcomagent_id_isValid = ::OpenAPI::fromJsonValue(m_fki_ezcomagent_id, json[QString("fkiEzcomagentID")]);
     m_fki_ezcomagent_id_isSet = !json[QString("fkiEzcomagentID")].isNull() && m_fki_ezcomagent_id_isValid;
 
-    m_fki_notary_id_isValid = ::OpenAPI::fromJsonValue(fki_notary_id, json[QString("fkiNotaryID")]);
+    m_fki_notary_id_isValid = ::OpenAPI::fromJsonValue(m_fki_notary_id, json[QString("fkiNotaryID")]);
     m_fki_notary_id_isSet = !json[QString("fkiNotaryID")].isNull() && m_fki_notary_id_isValid;
 
-    m_fki_rewardmember_id_isValid = ::OpenAPI::fromJsonValue(fki_rewardmember_id, json[QString("fkiRewardmemberID")]);
+    m_fki_rewardmember_id_isValid = ::OpenAPI::fromJsonValue(m_fki_rewardmember_id, json[QString("fkiRewardmemberID")]);
     m_fki_rewardmember_id_isSet = !json[QString("fkiRewardmemberID")].isNull() && m_fki_rewardmember_id_isValid;
 
-    m_fki_supplier_id_isValid = ::OpenAPI::fromJsonValue(fki_supplier_id, json[QString("fkiSupplierID")]);
+    m_fki_supplier_id_isValid = ::OpenAPI::fromJsonValue(m_fki_supplier_id, json[QString("fkiSupplierID")]);
     m_fki_supplier_id_isSet = !json[QString("fkiSupplierID")].isNull() && m_fki_supplier_id_isValid;
 
-    m_e_communicationrecipient_type_isValid = ::OpenAPI::fromJsonValue(e_communicationrecipient_type, json[QString("eCommunicationrecipientType")]);
+    m_e_communicationrecipient_type_isValid = ::OpenAPI::fromJsonValue(m_e_communicationrecipient_type, json[QString("eCommunicationrecipientType")]);
     m_e_communicationrecipient_type_isSet = !json[QString("eCommunicationrecipientType")].isNull() && m_e_communicationrecipient_type_isValid;
 
-    m_obj_descriptionstatic_isValid = ::OpenAPI::fromJsonValue(obj_descriptionstatic, json[QString("objDescriptionstatic")]);
+    m_obj_descriptionstatic_isValid = ::OpenAPI::fromJsonValue(m_obj_descriptionstatic, json[QString("objDescriptionstatic")]);
     m_obj_descriptionstatic_isSet = !json[QString("objDescriptionstatic")].isNull() && m_obj_descriptionstatic_isValid;
 
-    m_obj_emailstatic_isValid = ::OpenAPI::fromJsonValue(obj_emailstatic, json[QString("objEmailstatic")]);
+    m_obj_emailstatic_isValid = ::OpenAPI::fromJsonValue(m_obj_emailstatic, json[QString("objEmailstatic")]);
     m_obj_emailstatic_isSet = !json[QString("objEmailstatic")].isNull() && m_obj_emailstatic_isValid;
 
-    m_obj_phonestatic_isValid = ::OpenAPI::fromJsonValue(obj_phonestatic, json[QString("objPhonestatic")]);
+    m_obj_phonestatic_isValid = ::OpenAPI::fromJsonValue(m_obj_phonestatic, json[QString("objPhonestatic")]);
     m_obj_phonestatic_isSet = !json[QString("objPhonestatic")].isNull() && m_obj_phonestatic_isValid;
 }
 
@@ -181,77 +181,77 @@ QString OAICommunicationrecipient_ResponseCompound::asJson() const {
 QJsonObject OAICommunicationrecipient_ResponseCompound::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_communicationrecipient_id_isSet) {
-        obj.insert(QString("pkiCommunicationrecipientID"), ::OpenAPI::toJsonValue(pki_communicationrecipient_id));
+        obj.insert(QString("pkiCommunicationrecipientID"), ::OpenAPI::toJsonValue(m_pki_communicationrecipient_id));
     }
-    if (e_communicationrecipient_objecttype.isSet()) {
-        obj.insert(QString("eCommunicationrecipientObjecttype"), ::OpenAPI::toJsonValue(e_communicationrecipient_objecttype));
+    if (m_e_communicationrecipient_objecttype.isSet()) {
+        obj.insert(QString("eCommunicationrecipientObjecttype"), ::OpenAPI::toJsonValue(m_e_communicationrecipient_objecttype));
     }
     if (m_fki_agent_id_isSet) {
-        obj.insert(QString("fkiAgentID"), ::OpenAPI::toJsonValue(fki_agent_id));
+        obj.insert(QString("fkiAgentID"), ::OpenAPI::toJsonValue(m_fki_agent_id));
     }
     if (m_fki_broker_id_isSet) {
-        obj.insert(QString("fkiBrokerID"), ::OpenAPI::toJsonValue(fki_broker_id));
+        obj.insert(QString("fkiBrokerID"), ::OpenAPI::toJsonValue(m_fki_broker_id));
     }
     if (m_fki_contact_id_isSet) {
-        obj.insert(QString("fkiContactID"), ::OpenAPI::toJsonValue(fki_contact_id));
+        obj.insert(QString("fkiContactID"), ::OpenAPI::toJsonValue(m_fki_contact_id));
     }
     if (m_fki_customer_id_isSet) {
-        obj.insert(QString("fkiCustomerID"), ::OpenAPI::toJsonValue(fki_customer_id));
+        obj.insert(QString("fkiCustomerID"), ::OpenAPI::toJsonValue(m_fki_customer_id));
     }
     if (m_fki_employee_id_isSet) {
-        obj.insert(QString("fkiEmployeeID"), ::OpenAPI::toJsonValue(fki_employee_id));
+        obj.insert(QString("fkiEmployeeID"), ::OpenAPI::toJsonValue(m_fki_employee_id));
     }
     if (m_fki_ezsignsigner_id_isSet) {
-        obj.insert(QString("fkiEzsignsignerID"), ::OpenAPI::toJsonValue(fki_ezsignsigner_id));
+        obj.insert(QString("fkiEzsignsignerID"), ::OpenAPI::toJsonValue(m_fki_ezsignsigner_id));
     }
     if (m_fki_franchiseoffice_id_isSet) {
-        obj.insert(QString("fkiFranchiseofficeID"), ::OpenAPI::toJsonValue(fki_franchiseoffice_id));
+        obj.insert(QString("fkiFranchiseofficeID"), ::OpenAPI::toJsonValue(m_fki_franchiseoffice_id));
     }
     if (m_fki_user_id_isSet) {
-        obj.insert(QString("fkiUserID"), ::OpenAPI::toJsonValue(fki_user_id));
+        obj.insert(QString("fkiUserID"), ::OpenAPI::toJsonValue(m_fki_user_id));
     }
     if (m_fki_agentincorporation_id_isSet) {
-        obj.insert(QString("fkiAgentincorporationID"), ::OpenAPI::toJsonValue(fki_agentincorporation_id));
+        obj.insert(QString("fkiAgentincorporationID"), ::OpenAPI::toJsonValue(m_fki_agentincorporation_id));
     }
     if (m_fki_assistant_id_isSet) {
-        obj.insert(QString("fkiAssistantID"), ::OpenAPI::toJsonValue(fki_assistant_id));
+        obj.insert(QString("fkiAssistantID"), ::OpenAPI::toJsonValue(m_fki_assistant_id));
     }
     if (m_fki_externalbroker_id_isSet) {
-        obj.insert(QString("fkiExternalbrokerID"), ::OpenAPI::toJsonValue(fki_externalbroker_id));
+        obj.insert(QString("fkiExternalbrokerID"), ::OpenAPI::toJsonValue(m_fki_externalbroker_id));
     }
     if (m_fki_ezcomagent_id_isSet) {
-        obj.insert(QString("fkiEzcomagentID"), ::OpenAPI::toJsonValue(fki_ezcomagent_id));
+        obj.insert(QString("fkiEzcomagentID"), ::OpenAPI::toJsonValue(m_fki_ezcomagent_id));
     }
     if (m_fki_notary_id_isSet) {
-        obj.insert(QString("fkiNotaryID"), ::OpenAPI::toJsonValue(fki_notary_id));
+        obj.insert(QString("fkiNotaryID"), ::OpenAPI::toJsonValue(m_fki_notary_id));
     }
     if (m_fki_rewardmember_id_isSet) {
-        obj.insert(QString("fkiRewardmemberID"), ::OpenAPI::toJsonValue(fki_rewardmember_id));
+        obj.insert(QString("fkiRewardmemberID"), ::OpenAPI::toJsonValue(m_fki_rewardmember_id));
     }
     if (m_fki_supplier_id_isSet) {
-        obj.insert(QString("fkiSupplierID"), ::OpenAPI::toJsonValue(fki_supplier_id));
+        obj.insert(QString("fkiSupplierID"), ::OpenAPI::toJsonValue(m_fki_supplier_id));
     }
-    if (e_communicationrecipient_type.isSet()) {
-        obj.insert(QString("eCommunicationrecipientType"), ::OpenAPI::toJsonValue(e_communicationrecipient_type));
+    if (m_e_communicationrecipient_type.isSet()) {
+        obj.insert(QString("eCommunicationrecipientType"), ::OpenAPI::toJsonValue(m_e_communicationrecipient_type));
     }
-    if (obj_descriptionstatic.isSet()) {
-        obj.insert(QString("objDescriptionstatic"), ::OpenAPI::toJsonValue(obj_descriptionstatic));
+    if (m_obj_descriptionstatic.isSet()) {
+        obj.insert(QString("objDescriptionstatic"), ::OpenAPI::toJsonValue(m_obj_descriptionstatic));
     }
-    if (obj_emailstatic.isSet()) {
-        obj.insert(QString("objEmailstatic"), ::OpenAPI::toJsonValue(obj_emailstatic));
+    if (m_obj_emailstatic.isSet()) {
+        obj.insert(QString("objEmailstatic"), ::OpenAPI::toJsonValue(m_obj_emailstatic));
     }
-    if (obj_phonestatic.isSet()) {
-        obj.insert(QString("objPhonestatic"), ::OpenAPI::toJsonValue(obj_phonestatic));
+    if (m_obj_phonestatic.isSet()) {
+        obj.insert(QString("objPhonestatic"), ::OpenAPI::toJsonValue(m_obj_phonestatic));
     }
     return obj;
 }
 
 qint32 OAICommunicationrecipient_ResponseCompound::getPkiCommunicationrecipientId() const {
-    return pki_communicationrecipient_id;
+    return m_pki_communicationrecipient_id;
 }
 void OAICommunicationrecipient_ResponseCompound::setPkiCommunicationrecipientId(const qint32 &pki_communicationrecipient_id) {
-    this->pki_communicationrecipient_id = pki_communicationrecipient_id;
-    this->m_pki_communicationrecipient_id_isSet = true;
+    m_pki_communicationrecipient_id = pki_communicationrecipient_id;
+    m_pki_communicationrecipient_id_isSet = true;
 }
 
 bool OAICommunicationrecipient_ResponseCompound::is_pki_communicationrecipient_id_Set() const{
@@ -263,11 +263,11 @@ bool OAICommunicationrecipient_ResponseCompound::is_pki_communicationrecipient_i
 }
 
 OAIField_eCommunicationrecipientObjecttype OAICommunicationrecipient_ResponseCompound::getECommunicationrecipientObjecttype() const {
-    return e_communicationrecipient_objecttype;
+    return m_e_communicationrecipient_objecttype;
 }
 void OAICommunicationrecipient_ResponseCompound::setECommunicationrecipientObjecttype(const OAIField_eCommunicationrecipientObjecttype &e_communicationrecipient_objecttype) {
-    this->e_communicationrecipient_objecttype = e_communicationrecipient_objecttype;
-    this->m_e_communicationrecipient_objecttype_isSet = true;
+    m_e_communicationrecipient_objecttype = e_communicationrecipient_objecttype;
+    m_e_communicationrecipient_objecttype_isSet = true;
 }
 
 bool OAICommunicationrecipient_ResponseCompound::is_e_communicationrecipient_objecttype_Set() const{
@@ -279,11 +279,11 @@ bool OAICommunicationrecipient_ResponseCompound::is_e_communicationrecipient_obj
 }
 
 qint32 OAICommunicationrecipient_ResponseCompound::getFkiAgentId() const {
-    return fki_agent_id;
+    return m_fki_agent_id;
 }
 void OAICommunicationrecipient_ResponseCompound::setFkiAgentId(const qint32 &fki_agent_id) {
-    this->fki_agent_id = fki_agent_id;
-    this->m_fki_agent_id_isSet = true;
+    m_fki_agent_id = fki_agent_id;
+    m_fki_agent_id_isSet = true;
 }
 
 bool OAICommunicationrecipient_ResponseCompound::is_fki_agent_id_Set() const{
@@ -295,11 +295,11 @@ bool OAICommunicationrecipient_ResponseCompound::is_fki_agent_id_Valid() const{
 }
 
 qint32 OAICommunicationrecipient_ResponseCompound::getFkiBrokerId() const {
-    return fki_broker_id;
+    return m_fki_broker_id;
 }
 void OAICommunicationrecipient_ResponseCompound::setFkiBrokerId(const qint32 &fki_broker_id) {
-    this->fki_broker_id = fki_broker_id;
-    this->m_fki_broker_id_isSet = true;
+    m_fki_broker_id = fki_broker_id;
+    m_fki_broker_id_isSet = true;
 }
 
 bool OAICommunicationrecipient_ResponseCompound::is_fki_broker_id_Set() const{
@@ -311,11 +311,11 @@ bool OAICommunicationrecipient_ResponseCompound::is_fki_broker_id_Valid() const{
 }
 
 qint32 OAICommunicationrecipient_ResponseCompound::getFkiContactId() const {
-    return fki_contact_id;
+    return m_fki_contact_id;
 }
 void OAICommunicationrecipient_ResponseCompound::setFkiContactId(const qint32 &fki_contact_id) {
-    this->fki_contact_id = fki_contact_id;
-    this->m_fki_contact_id_isSet = true;
+    m_fki_contact_id = fki_contact_id;
+    m_fki_contact_id_isSet = true;
 }
 
 bool OAICommunicationrecipient_ResponseCompound::is_fki_contact_id_Set() const{
@@ -327,11 +327,11 @@ bool OAICommunicationrecipient_ResponseCompound::is_fki_contact_id_Valid() const
 }
 
 qint32 OAICommunicationrecipient_ResponseCompound::getFkiCustomerId() const {
-    return fki_customer_id;
+    return m_fki_customer_id;
 }
 void OAICommunicationrecipient_ResponseCompound::setFkiCustomerId(const qint32 &fki_customer_id) {
-    this->fki_customer_id = fki_customer_id;
-    this->m_fki_customer_id_isSet = true;
+    m_fki_customer_id = fki_customer_id;
+    m_fki_customer_id_isSet = true;
 }
 
 bool OAICommunicationrecipient_ResponseCompound::is_fki_customer_id_Set() const{
@@ -343,11 +343,11 @@ bool OAICommunicationrecipient_ResponseCompound::is_fki_customer_id_Valid() cons
 }
 
 qint32 OAICommunicationrecipient_ResponseCompound::getFkiEmployeeId() const {
-    return fki_employee_id;
+    return m_fki_employee_id;
 }
 void OAICommunicationrecipient_ResponseCompound::setFkiEmployeeId(const qint32 &fki_employee_id) {
-    this->fki_employee_id = fki_employee_id;
-    this->m_fki_employee_id_isSet = true;
+    m_fki_employee_id = fki_employee_id;
+    m_fki_employee_id_isSet = true;
 }
 
 bool OAICommunicationrecipient_ResponseCompound::is_fki_employee_id_Set() const{
@@ -359,11 +359,11 @@ bool OAICommunicationrecipient_ResponseCompound::is_fki_employee_id_Valid() cons
 }
 
 qint32 OAICommunicationrecipient_ResponseCompound::getFkiEzsignsignerId() const {
-    return fki_ezsignsigner_id;
+    return m_fki_ezsignsigner_id;
 }
 void OAICommunicationrecipient_ResponseCompound::setFkiEzsignsignerId(const qint32 &fki_ezsignsigner_id) {
-    this->fki_ezsignsigner_id = fki_ezsignsigner_id;
-    this->m_fki_ezsignsigner_id_isSet = true;
+    m_fki_ezsignsigner_id = fki_ezsignsigner_id;
+    m_fki_ezsignsigner_id_isSet = true;
 }
 
 bool OAICommunicationrecipient_ResponseCompound::is_fki_ezsignsigner_id_Set() const{
@@ -375,11 +375,11 @@ bool OAICommunicationrecipient_ResponseCompound::is_fki_ezsignsigner_id_Valid() 
 }
 
 qint32 OAICommunicationrecipient_ResponseCompound::getFkiFranchiseofficeId() const {
-    return fki_franchiseoffice_id;
+    return m_fki_franchiseoffice_id;
 }
 void OAICommunicationrecipient_ResponseCompound::setFkiFranchiseofficeId(const qint32 &fki_franchiseoffice_id) {
-    this->fki_franchiseoffice_id = fki_franchiseoffice_id;
-    this->m_fki_franchiseoffice_id_isSet = true;
+    m_fki_franchiseoffice_id = fki_franchiseoffice_id;
+    m_fki_franchiseoffice_id_isSet = true;
 }
 
 bool OAICommunicationrecipient_ResponseCompound::is_fki_franchiseoffice_id_Set() const{
@@ -391,11 +391,11 @@ bool OAICommunicationrecipient_ResponseCompound::is_fki_franchiseoffice_id_Valid
 }
 
 qint32 OAICommunicationrecipient_ResponseCompound::getFkiUserId() const {
-    return fki_user_id;
+    return m_fki_user_id;
 }
 void OAICommunicationrecipient_ResponseCompound::setFkiUserId(const qint32 &fki_user_id) {
-    this->fki_user_id = fki_user_id;
-    this->m_fki_user_id_isSet = true;
+    m_fki_user_id = fki_user_id;
+    m_fki_user_id_isSet = true;
 }
 
 bool OAICommunicationrecipient_ResponseCompound::is_fki_user_id_Set() const{
@@ -407,11 +407,11 @@ bool OAICommunicationrecipient_ResponseCompound::is_fki_user_id_Valid() const{
 }
 
 qint32 OAICommunicationrecipient_ResponseCompound::getFkiAgentincorporationId() const {
-    return fki_agentincorporation_id;
+    return m_fki_agentincorporation_id;
 }
 void OAICommunicationrecipient_ResponseCompound::setFkiAgentincorporationId(const qint32 &fki_agentincorporation_id) {
-    this->fki_agentincorporation_id = fki_agentincorporation_id;
-    this->m_fki_agentincorporation_id_isSet = true;
+    m_fki_agentincorporation_id = fki_agentincorporation_id;
+    m_fki_agentincorporation_id_isSet = true;
 }
 
 bool OAICommunicationrecipient_ResponseCompound::is_fki_agentincorporation_id_Set() const{
@@ -423,11 +423,11 @@ bool OAICommunicationrecipient_ResponseCompound::is_fki_agentincorporation_id_Va
 }
 
 qint32 OAICommunicationrecipient_ResponseCompound::getFkiAssistantId() const {
-    return fki_assistant_id;
+    return m_fki_assistant_id;
 }
 void OAICommunicationrecipient_ResponseCompound::setFkiAssistantId(const qint32 &fki_assistant_id) {
-    this->fki_assistant_id = fki_assistant_id;
-    this->m_fki_assistant_id_isSet = true;
+    m_fki_assistant_id = fki_assistant_id;
+    m_fki_assistant_id_isSet = true;
 }
 
 bool OAICommunicationrecipient_ResponseCompound::is_fki_assistant_id_Set() const{
@@ -439,11 +439,11 @@ bool OAICommunicationrecipient_ResponseCompound::is_fki_assistant_id_Valid() con
 }
 
 qint32 OAICommunicationrecipient_ResponseCompound::getFkiExternalbrokerId() const {
-    return fki_externalbroker_id;
+    return m_fki_externalbroker_id;
 }
 void OAICommunicationrecipient_ResponseCompound::setFkiExternalbrokerId(const qint32 &fki_externalbroker_id) {
-    this->fki_externalbroker_id = fki_externalbroker_id;
-    this->m_fki_externalbroker_id_isSet = true;
+    m_fki_externalbroker_id = fki_externalbroker_id;
+    m_fki_externalbroker_id_isSet = true;
 }
 
 bool OAICommunicationrecipient_ResponseCompound::is_fki_externalbroker_id_Set() const{
@@ -455,11 +455,11 @@ bool OAICommunicationrecipient_ResponseCompound::is_fki_externalbroker_id_Valid(
 }
 
 qint32 OAICommunicationrecipient_ResponseCompound::getFkiEzcomagentId() const {
-    return fki_ezcomagent_id;
+    return m_fki_ezcomagent_id;
 }
 void OAICommunicationrecipient_ResponseCompound::setFkiEzcomagentId(const qint32 &fki_ezcomagent_id) {
-    this->fki_ezcomagent_id = fki_ezcomagent_id;
-    this->m_fki_ezcomagent_id_isSet = true;
+    m_fki_ezcomagent_id = fki_ezcomagent_id;
+    m_fki_ezcomagent_id_isSet = true;
 }
 
 bool OAICommunicationrecipient_ResponseCompound::is_fki_ezcomagent_id_Set() const{
@@ -471,11 +471,11 @@ bool OAICommunicationrecipient_ResponseCompound::is_fki_ezcomagent_id_Valid() co
 }
 
 qint32 OAICommunicationrecipient_ResponseCompound::getFkiNotaryId() const {
-    return fki_notary_id;
+    return m_fki_notary_id;
 }
 void OAICommunicationrecipient_ResponseCompound::setFkiNotaryId(const qint32 &fki_notary_id) {
-    this->fki_notary_id = fki_notary_id;
-    this->m_fki_notary_id_isSet = true;
+    m_fki_notary_id = fki_notary_id;
+    m_fki_notary_id_isSet = true;
 }
 
 bool OAICommunicationrecipient_ResponseCompound::is_fki_notary_id_Set() const{
@@ -487,11 +487,11 @@ bool OAICommunicationrecipient_ResponseCompound::is_fki_notary_id_Valid() const{
 }
 
 qint32 OAICommunicationrecipient_ResponseCompound::getFkiRewardmemberId() const {
-    return fki_rewardmember_id;
+    return m_fki_rewardmember_id;
 }
 void OAICommunicationrecipient_ResponseCompound::setFkiRewardmemberId(const qint32 &fki_rewardmember_id) {
-    this->fki_rewardmember_id = fki_rewardmember_id;
-    this->m_fki_rewardmember_id_isSet = true;
+    m_fki_rewardmember_id = fki_rewardmember_id;
+    m_fki_rewardmember_id_isSet = true;
 }
 
 bool OAICommunicationrecipient_ResponseCompound::is_fki_rewardmember_id_Set() const{
@@ -503,11 +503,11 @@ bool OAICommunicationrecipient_ResponseCompound::is_fki_rewardmember_id_Valid() 
 }
 
 qint32 OAICommunicationrecipient_ResponseCompound::getFkiSupplierId() const {
-    return fki_supplier_id;
+    return m_fki_supplier_id;
 }
 void OAICommunicationrecipient_ResponseCompound::setFkiSupplierId(const qint32 &fki_supplier_id) {
-    this->fki_supplier_id = fki_supplier_id;
-    this->m_fki_supplier_id_isSet = true;
+    m_fki_supplier_id = fki_supplier_id;
+    m_fki_supplier_id_isSet = true;
 }
 
 bool OAICommunicationrecipient_ResponseCompound::is_fki_supplier_id_Set() const{
@@ -519,11 +519,11 @@ bool OAICommunicationrecipient_ResponseCompound::is_fki_supplier_id_Valid() cons
 }
 
 OAIField_eCommunicationrecipientType OAICommunicationrecipient_ResponseCompound::getECommunicationrecipientType() const {
-    return e_communicationrecipient_type;
+    return m_e_communicationrecipient_type;
 }
 void OAICommunicationrecipient_ResponseCompound::setECommunicationrecipientType(const OAIField_eCommunicationrecipientType &e_communicationrecipient_type) {
-    this->e_communicationrecipient_type = e_communicationrecipient_type;
-    this->m_e_communicationrecipient_type_isSet = true;
+    m_e_communicationrecipient_type = e_communicationrecipient_type;
+    m_e_communicationrecipient_type_isSet = true;
 }
 
 bool OAICommunicationrecipient_ResponseCompound::is_e_communicationrecipient_type_Set() const{
@@ -535,11 +535,11 @@ bool OAICommunicationrecipient_ResponseCompound::is_e_communicationrecipient_typ
 }
 
 OAIDescriptionstatic_ResponseCompound OAICommunicationrecipient_ResponseCompound::getObjDescriptionstatic() const {
-    return obj_descriptionstatic;
+    return m_obj_descriptionstatic;
 }
 void OAICommunicationrecipient_ResponseCompound::setObjDescriptionstatic(const OAIDescriptionstatic_ResponseCompound &obj_descriptionstatic) {
-    this->obj_descriptionstatic = obj_descriptionstatic;
-    this->m_obj_descriptionstatic_isSet = true;
+    m_obj_descriptionstatic = obj_descriptionstatic;
+    m_obj_descriptionstatic_isSet = true;
 }
 
 bool OAICommunicationrecipient_ResponseCompound::is_obj_descriptionstatic_Set() const{
@@ -551,11 +551,11 @@ bool OAICommunicationrecipient_ResponseCompound::is_obj_descriptionstatic_Valid(
 }
 
 OAIEmailstatic_ResponseCompound OAICommunicationrecipient_ResponseCompound::getObjEmailstatic() const {
-    return obj_emailstatic;
+    return m_obj_emailstatic;
 }
 void OAICommunicationrecipient_ResponseCompound::setObjEmailstatic(const OAIEmailstatic_ResponseCompound &obj_emailstatic) {
-    this->obj_emailstatic = obj_emailstatic;
-    this->m_obj_emailstatic_isSet = true;
+    m_obj_emailstatic = obj_emailstatic;
+    m_obj_emailstatic_isSet = true;
 }
 
 bool OAICommunicationrecipient_ResponseCompound::is_obj_emailstatic_Set() const{
@@ -567,11 +567,11 @@ bool OAICommunicationrecipient_ResponseCompound::is_obj_emailstatic_Valid() cons
 }
 
 OAIPhonestatic_ResponseCompound OAICommunicationrecipient_ResponseCompound::getObjPhonestatic() const {
-    return obj_phonestatic;
+    return m_obj_phonestatic;
 }
 void OAICommunicationrecipient_ResponseCompound::setObjPhonestatic(const OAIPhonestatic_ResponseCompound &obj_phonestatic) {
-    this->obj_phonestatic = obj_phonestatic;
-    this->m_obj_phonestatic_isSet = true;
+    m_obj_phonestatic = obj_phonestatic;
+    m_obj_phonestatic_isSet = true;
 }
 
 bool OAICommunicationrecipient_ResponseCompound::is_obj_phonestatic_Set() const{
@@ -590,7 +590,7 @@ bool OAICommunicationrecipient_ResponseCompound::isSet() const {
             break;
         }
 
-        if (e_communicationrecipient_objecttype.isSet()) {
+        if (m_e_communicationrecipient_objecttype.isSet()) {
             isObjectUpdated = true;
             break;
         }
@@ -670,22 +670,22 @@ bool OAICommunicationrecipient_ResponseCompound::isSet() const {
             break;
         }
 
-        if (e_communicationrecipient_type.isSet()) {
+        if (m_e_communicationrecipient_type.isSet()) {
             isObjectUpdated = true;
             break;
         }
 
-        if (obj_descriptionstatic.isSet()) {
+        if (m_obj_descriptionstatic.isSet()) {
             isObjectUpdated = true;
             break;
         }
 
-        if (obj_emailstatic.isSet()) {
+        if (m_obj_emailstatic.isSet()) {
             isObjectUpdated = true;
             break;
         }
 
-        if (obj_phonestatic.isSet()) {
+        if (m_obj_phonestatic.isSet()) {
             isObjectUpdated = true;
             break;
         }

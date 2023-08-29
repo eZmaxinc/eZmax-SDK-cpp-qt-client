@@ -47,7 +47,7 @@ void OAICommunication_getObject_v2_Response_mPayload::fromJson(QString jsonStrin
 
 void OAICommunication_getObject_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_obj_communication_isValid = ::OpenAPI::fromJsonValue(obj_communication, json[QString("objCommunication")]);
+    m_obj_communication_isValid = ::OpenAPI::fromJsonValue(m_obj_communication, json[QString("objCommunication")]);
     m_obj_communication_isSet = !json[QString("objCommunication")].isNull() && m_obj_communication_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAICommunication_getObject_v2_Response_mPayload::asJson() const {
 
 QJsonObject OAICommunication_getObject_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (obj_communication.isSet()) {
-        obj.insert(QString("objCommunication"), ::OpenAPI::toJsonValue(obj_communication));
+    if (m_obj_communication.isSet()) {
+        obj.insert(QString("objCommunication"), ::OpenAPI::toJsonValue(m_obj_communication));
     }
     return obj;
 }
 
 OAICommunication_ResponseCompound OAICommunication_getObject_v2_Response_mPayload::getObjCommunication() const {
-    return obj_communication;
+    return m_obj_communication;
 }
 void OAICommunication_getObject_v2_Response_mPayload::setObjCommunication(const OAICommunication_ResponseCompound &obj_communication) {
-    this->obj_communication = obj_communication;
-    this->m_obj_communication_isSet = true;
+    m_obj_communication = obj_communication;
+    m_obj_communication_isSet = true;
 }
 
 bool OAICommunication_getObject_v2_Response_mPayload::is_obj_communication_Set() const{
@@ -85,7 +85,7 @@ bool OAICommunication_getObject_v2_Response_mPayload::is_obj_communication_Valid
 bool OAICommunication_getObject_v2_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (obj_communication.isSet()) {
+        if (m_obj_communication.isSet()) {
             isObjectUpdated = true;
             break;
         }

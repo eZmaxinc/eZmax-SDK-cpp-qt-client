@@ -51,7 +51,7 @@ public:
 private:
     void initializeModel();
 
-    OAIEzsignsignature_RequestCompound obj_ezsignsignature;
+    OAIEzsignsignature_RequestCompound m_obj_ezsignsignature;
     bool m_obj_ezsignsignature_isSet;
     bool m_obj_ezsignsignature_isValid;
 };

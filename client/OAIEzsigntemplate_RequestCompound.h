@@ -70,23 +70,23 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_ezsigntemplate_id;
+    qint32 m_pki_ezsigntemplate_id;
     bool m_pki_ezsigntemplate_id_isSet;
     bool m_pki_ezsigntemplate_id_isValid;
 
-    qint32 fki_ezsignfoldertype_id;
+    qint32 m_fki_ezsignfoldertype_id;
     bool m_fki_ezsignfoldertype_id_isSet;
     bool m_fki_ezsignfoldertype_id_isValid;
 
-    qint32 fki_language_id;
+    qint32 m_fki_language_id;
     bool m_fki_language_id_isSet;
     bool m_fki_language_id_isValid;
 
-    QString s_ezsigntemplate_description;
+    QString m_s_ezsigntemplate_description;
     bool m_s_ezsigntemplate_description_isSet;
     bool m_s_ezsigntemplate_description_isValid;
 
-    bool b_ezsigntemplate_adminonly;
+    bool m_b_ezsigntemplate_adminonly;
     bool m_b_ezsigntemplate_adminonly_isSet;
     bool m_b_ezsigntemplate_adminonly_isValid;
 };

@@ -116,51 +116,51 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_communication_id;
+    qint32 m_pki_communication_id;
     bool m_pki_communication_id_isSet;
     bool m_pki_communication_id_isValid;
 
-    OAIField_eCommunicationImportance e_communication_importance;
+    OAIField_eCommunicationImportance m_e_communication_importance;
     bool m_e_communication_importance_isSet;
     bool m_e_communication_importance_isValid;
 
-    OAIField_eCommunicationType e_communication_type;
+    OAIField_eCommunicationType m_e_communication_type;
     bool m_e_communication_type_isSet;
     bool m_e_communication_type_isValid;
 
-    QString s_communication_subject;
+    QString m_s_communication_subject;
     bool m_s_communication_subject_isSet;
     bool m_s_communication_subject_isValid;
 
-    QString s_communication_bodyurl;
+    QString m_s_communication_bodyurl;
     bool m_s_communication_bodyurl_isSet;
     bool m_s_communication_bodyurl_isValid;
 
-    OAIComputed_eCommunicationDirection e_communication_direction;
+    OAIComputed_eCommunicationDirection m_e_communication_direction;
     bool m_e_communication_direction_isSet;
     bool m_e_communication_direction_isValid;
 
-    qint32 i_communicationrecipient_count;
+    qint32 m_i_communicationrecipient_count;
     bool m_i_communicationrecipient_count_isSet;
     bool m_i_communicationrecipient_count_isValid;
 
-    bool b_communication_private;
+    bool m_b_communication_private;
     bool m_b_communication_private_isSet;
     bool m_b_communication_private_isValid;
 
-    OAIDescriptionstatic_Response obj_descriptionstatic_sender;
+    OAIDescriptionstatic_Response m_obj_descriptionstatic_sender;
     bool m_obj_descriptionstatic_sender_isSet;
     bool m_obj_descriptionstatic_sender_isValid;
 
-    OAIEmailstatic_Response obj_emailstatic_sender;
+    OAIEmailstatic_Response m_obj_emailstatic_sender;
     bool m_obj_emailstatic_sender_isSet;
     bool m_obj_emailstatic_sender_isValid;
 
-    OAIPhonestatic_Response obj_phonestatic_sender;
+    OAIPhonestatic_Response m_obj_phonestatic_sender;
     bool m_obj_phonestatic_sender_isSet;
     bool m_obj_phonestatic_sender_isValid;
 
-    OAICommon_Audit obj_audit;
+    OAICommon_Audit m_obj_audit;
     bool m_obj_audit_isSet;
     bool m_obj_audit_isValid;
 };

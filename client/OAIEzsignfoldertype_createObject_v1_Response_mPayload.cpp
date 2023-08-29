@@ -47,7 +47,7 @@ void OAIEzsignfoldertype_createObject_v1_Response_mPayload::fromJson(QString jso
 
 void OAIEzsignfoldertype_createObject_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_pki_ezsignfoldertype_id_isValid = ::OpenAPI::fromJsonValue(a_pki_ezsignfoldertype_id, json[QString("a_pkiEzsignfoldertypeID")]);
+    m_a_pki_ezsignfoldertype_id_isValid = ::OpenAPI::fromJsonValue(m_a_pki_ezsignfoldertype_id, json[QString("a_pkiEzsignfoldertypeID")]);
     m_a_pki_ezsignfoldertype_id_isSet = !json[QString("a_pkiEzsignfoldertypeID")].isNull() && m_a_pki_ezsignfoldertype_id_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIEzsignfoldertype_createObject_v1_Response_mPayload::asJson() const {
 
 QJsonObject OAIEzsignfoldertype_createObject_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (a_pki_ezsignfoldertype_id.size() > 0) {
-        obj.insert(QString("a_pkiEzsignfoldertypeID"), ::OpenAPI::toJsonValue(a_pki_ezsignfoldertype_id));
+    if (m_a_pki_ezsignfoldertype_id.size() > 0) {
+        obj.insert(QString("a_pkiEzsignfoldertypeID"), ::OpenAPI::toJsonValue(m_a_pki_ezsignfoldertype_id));
     }
     return obj;
 }
 
 QList<qint32> OAIEzsignfoldertype_createObject_v1_Response_mPayload::getAPkiEzsignfoldertypeId() const {
-    return a_pki_ezsignfoldertype_id;
+    return m_a_pki_ezsignfoldertype_id;
 }
 void OAIEzsignfoldertype_createObject_v1_Response_mPayload::setAPkiEzsignfoldertypeId(const QList<qint32> &a_pki_ezsignfoldertype_id) {
-    this->a_pki_ezsignfoldertype_id = a_pki_ezsignfoldertype_id;
-    this->m_a_pki_ezsignfoldertype_id_isSet = true;
+    m_a_pki_ezsignfoldertype_id = a_pki_ezsignfoldertype_id;
+    m_a_pki_ezsignfoldertype_id_isSet = true;
 }
 
 bool OAIEzsignfoldertype_createObject_v1_Response_mPayload::is_a_pki_ezsignfoldertype_id_Set() const{
@@ -85,7 +85,7 @@ bool OAIEzsignfoldertype_createObject_v1_Response_mPayload::is_a_pki_ezsignfolde
 bool OAIEzsignfoldertype_createObject_v1_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_pki_ezsignfoldertype_id.size() > 0) {
+        if (m_a_pki_ezsignfoldertype_id.size() > 0) {
             isObjectUpdated = true;
             break;
         }

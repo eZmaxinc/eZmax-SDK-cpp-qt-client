@@ -62,22 +62,22 @@ void OAIContact_Request::fromJson(QString jsonString) {
 
 void OAIContact_Request::fromJsonObject(QJsonObject json) {
 
-    m_fki_contacttitle_id_isValid = ::OpenAPI::fromJsonValue(fki_contacttitle_id, json[QString("fkiContacttitleID")]);
+    m_fki_contacttitle_id_isValid = ::OpenAPI::fromJsonValue(m_fki_contacttitle_id, json[QString("fkiContacttitleID")]);
     m_fki_contacttitle_id_isSet = !json[QString("fkiContacttitleID")].isNull() && m_fki_contacttitle_id_isValid;
 
-    m_fki_language_id_isValid = ::OpenAPI::fromJsonValue(fki_language_id, json[QString("fkiLanguageID")]);
+    m_fki_language_id_isValid = ::OpenAPI::fromJsonValue(m_fki_language_id, json[QString("fkiLanguageID")]);
     m_fki_language_id_isSet = !json[QString("fkiLanguageID")].isNull() && m_fki_language_id_isValid;
 
-    m_s_contact_firstname_isValid = ::OpenAPI::fromJsonValue(s_contact_firstname, json[QString("sContactFirstname")]);
+    m_s_contact_firstname_isValid = ::OpenAPI::fromJsonValue(m_s_contact_firstname, json[QString("sContactFirstname")]);
     m_s_contact_firstname_isSet = !json[QString("sContactFirstname")].isNull() && m_s_contact_firstname_isValid;
 
-    m_s_contact_lastname_isValid = ::OpenAPI::fromJsonValue(s_contact_lastname, json[QString("sContactLastname")]);
+    m_s_contact_lastname_isValid = ::OpenAPI::fromJsonValue(m_s_contact_lastname, json[QString("sContactLastname")]);
     m_s_contact_lastname_isSet = !json[QString("sContactLastname")].isNull() && m_s_contact_lastname_isValid;
 
-    m_s_contact_company_isValid = ::OpenAPI::fromJsonValue(s_contact_company, json[QString("sContactCompany")]);
+    m_s_contact_company_isValid = ::OpenAPI::fromJsonValue(m_s_contact_company, json[QString("sContactCompany")]);
     m_s_contact_company_isSet = !json[QString("sContactCompany")].isNull() && m_s_contact_company_isValid;
 
-    m_dt_contact_birthdate_isValid = ::OpenAPI::fromJsonValue(dt_contact_birthdate, json[QString("dtContactBirthdate")]);
+    m_dt_contact_birthdate_isValid = ::OpenAPI::fromJsonValue(m_dt_contact_birthdate, json[QString("dtContactBirthdate")]);
     m_dt_contact_birthdate_isSet = !json[QString("dtContactBirthdate")].isNull() && m_dt_contact_birthdate_isValid;
 }
 
@@ -91,32 +91,32 @@ QString OAIContact_Request::asJson() const {
 QJsonObject OAIContact_Request::asJsonObject() const {
     QJsonObject obj;
     if (m_fki_contacttitle_id_isSet) {
-        obj.insert(QString("fkiContacttitleID"), ::OpenAPI::toJsonValue(fki_contacttitle_id));
+        obj.insert(QString("fkiContacttitleID"), ::OpenAPI::toJsonValue(m_fki_contacttitle_id));
     }
     if (m_fki_language_id_isSet) {
-        obj.insert(QString("fkiLanguageID"), ::OpenAPI::toJsonValue(fki_language_id));
+        obj.insert(QString("fkiLanguageID"), ::OpenAPI::toJsonValue(m_fki_language_id));
     }
     if (m_s_contact_firstname_isSet) {
-        obj.insert(QString("sContactFirstname"), ::OpenAPI::toJsonValue(s_contact_firstname));
+        obj.insert(QString("sContactFirstname"), ::OpenAPI::toJsonValue(m_s_contact_firstname));
     }
     if (m_s_contact_lastname_isSet) {
-        obj.insert(QString("sContactLastname"), ::OpenAPI::toJsonValue(s_contact_lastname));
+        obj.insert(QString("sContactLastname"), ::OpenAPI::toJsonValue(m_s_contact_lastname));
     }
     if (m_s_contact_company_isSet) {
-        obj.insert(QString("sContactCompany"), ::OpenAPI::toJsonValue(s_contact_company));
+        obj.insert(QString("sContactCompany"), ::OpenAPI::toJsonValue(m_s_contact_company));
     }
     if (m_dt_contact_birthdate_isSet) {
-        obj.insert(QString("dtContactBirthdate"), ::OpenAPI::toJsonValue(dt_contact_birthdate));
+        obj.insert(QString("dtContactBirthdate"), ::OpenAPI::toJsonValue(m_dt_contact_birthdate));
     }
     return obj;
 }
 
 qint32 OAIContact_Request::getFkiContacttitleId() const {
-    return fki_contacttitle_id;
+    return m_fki_contacttitle_id;
 }
 void OAIContact_Request::setFkiContacttitleId(const qint32 &fki_contacttitle_id) {
-    this->fki_contacttitle_id = fki_contacttitle_id;
-    this->m_fki_contacttitle_id_isSet = true;
+    m_fki_contacttitle_id = fki_contacttitle_id;
+    m_fki_contacttitle_id_isSet = true;
 }
 
 bool OAIContact_Request::is_fki_contacttitle_id_Set() const{
@@ -128,11 +128,11 @@ bool OAIContact_Request::is_fki_contacttitle_id_Valid() const{
 }
 
 qint32 OAIContact_Request::getFkiLanguageId() const {
-    return fki_language_id;
+    return m_fki_language_id;
 }
 void OAIContact_Request::setFkiLanguageId(const qint32 &fki_language_id) {
-    this->fki_language_id = fki_language_id;
-    this->m_fki_language_id_isSet = true;
+    m_fki_language_id = fki_language_id;
+    m_fki_language_id_isSet = true;
 }
 
 bool OAIContact_Request::is_fki_language_id_Set() const{
@@ -144,11 +144,11 @@ bool OAIContact_Request::is_fki_language_id_Valid() const{
 }
 
 QString OAIContact_Request::getSContactFirstname() const {
-    return s_contact_firstname;
+    return m_s_contact_firstname;
 }
 void OAIContact_Request::setSContactFirstname(const QString &s_contact_firstname) {
-    this->s_contact_firstname = s_contact_firstname;
-    this->m_s_contact_firstname_isSet = true;
+    m_s_contact_firstname = s_contact_firstname;
+    m_s_contact_firstname_isSet = true;
 }
 
 bool OAIContact_Request::is_s_contact_firstname_Set() const{
@@ -160,11 +160,11 @@ bool OAIContact_Request::is_s_contact_firstname_Valid() const{
 }
 
 QString OAIContact_Request::getSContactLastname() const {
-    return s_contact_lastname;
+    return m_s_contact_lastname;
 }
 void OAIContact_Request::setSContactLastname(const QString &s_contact_lastname) {
-    this->s_contact_lastname = s_contact_lastname;
-    this->m_s_contact_lastname_isSet = true;
+    m_s_contact_lastname = s_contact_lastname;
+    m_s_contact_lastname_isSet = true;
 }
 
 bool OAIContact_Request::is_s_contact_lastname_Set() const{
@@ -176,11 +176,11 @@ bool OAIContact_Request::is_s_contact_lastname_Valid() const{
 }
 
 QString OAIContact_Request::getSContactCompany() const {
-    return s_contact_company;
+    return m_s_contact_company;
 }
 void OAIContact_Request::setSContactCompany(const QString &s_contact_company) {
-    this->s_contact_company = s_contact_company;
-    this->m_s_contact_company_isSet = true;
+    m_s_contact_company = s_contact_company;
+    m_s_contact_company_isSet = true;
 }
 
 bool OAIContact_Request::is_s_contact_company_Set() const{
@@ -192,11 +192,11 @@ bool OAIContact_Request::is_s_contact_company_Valid() const{
 }
 
 QString OAIContact_Request::getDtContactBirthdate() const {
-    return dt_contact_birthdate;
+    return m_dt_contact_birthdate;
 }
 void OAIContact_Request::setDtContactBirthdate(const QString &dt_contact_birthdate) {
-    this->dt_contact_birthdate = dt_contact_birthdate;
-    this->m_dt_contact_birthdate_isSet = true;
+    m_dt_contact_birthdate = dt_contact_birthdate;
+    m_dt_contact_birthdate_isSet = true;
 }
 
 bool OAIContact_Request::is_dt_contact_birthdate_Set() const{

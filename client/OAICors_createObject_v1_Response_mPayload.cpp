@@ -47,7 +47,7 @@ void OAICors_createObject_v1_Response_mPayload::fromJson(QString jsonString) {
 
 void OAICors_createObject_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_pki_cors_id_isValid = ::OpenAPI::fromJsonValue(a_pki_cors_id, json[QString("a_pkiCorsID")]);
+    m_a_pki_cors_id_isValid = ::OpenAPI::fromJsonValue(m_a_pki_cors_id, json[QString("a_pkiCorsID")]);
     m_a_pki_cors_id_isSet = !json[QString("a_pkiCorsID")].isNull() && m_a_pki_cors_id_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAICors_createObject_v1_Response_mPayload::asJson() const {
 
 QJsonObject OAICors_createObject_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (a_pki_cors_id.size() > 0) {
-        obj.insert(QString("a_pkiCorsID"), ::OpenAPI::toJsonValue(a_pki_cors_id));
+    if (m_a_pki_cors_id.size() > 0) {
+        obj.insert(QString("a_pkiCorsID"), ::OpenAPI::toJsonValue(m_a_pki_cors_id));
     }
     return obj;
 }
 
 QList<qint32> OAICors_createObject_v1_Response_mPayload::getAPkiCorsId() const {
-    return a_pki_cors_id;
+    return m_a_pki_cors_id;
 }
 void OAICors_createObject_v1_Response_mPayload::setAPkiCorsId(const QList<qint32> &a_pki_cors_id) {
-    this->a_pki_cors_id = a_pki_cors_id;
-    this->m_a_pki_cors_id_isSet = true;
+    m_a_pki_cors_id = a_pki_cors_id;
+    m_a_pki_cors_id_isSet = true;
 }
 
 bool OAICors_createObject_v1_Response_mPayload::is_a_pki_cors_id_Set() const{
@@ -85,7 +85,7 @@ bool OAICors_createObject_v1_Response_mPayload::is_a_pki_cors_id_Valid() const{
 bool OAICors_createObject_v1_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_pki_cors_id.size() > 0) {
+        if (m_a_pki_cors_id.size() > 0) {
             isObjectUpdated = true;
             break;
         }

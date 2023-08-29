@@ -52,7 +52,7 @@ public:
 private:
     void initializeModel();
 
-    QList<OAIApikey_ResponseCompound> a_obj_apikey;
+    QList<OAIApikey_ResponseCompound> m_a_obj_apikey;
     bool m_a_obj_apikey_isSet;
     bool m_a_obj_apikey_isValid;
 };

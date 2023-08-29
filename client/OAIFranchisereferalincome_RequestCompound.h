@@ -120,59 +120,59 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_franchisereferalincome_id;
+    qint32 m_pki_franchisereferalincome_id;
     bool m_pki_franchisereferalincome_id_isSet;
     bool m_pki_franchisereferalincome_id_isValid;
 
-    qint32 fki_franchisebroker_id;
+    qint32 m_fki_franchisebroker_id;
     bool m_fki_franchisebroker_id_isSet;
     bool m_fki_franchisebroker_id_isValid;
 
-    qint32 fki_franchisereferalincomeprogram_id;
+    qint32 m_fki_franchisereferalincomeprogram_id;
     bool m_fki_franchisereferalincomeprogram_id_isSet;
     bool m_fki_franchisereferalincomeprogram_id_isValid;
 
-    qint32 fki_period_id;
+    qint32 m_fki_period_id;
     bool m_fki_period_id_isSet;
     bool m_fki_period_id_isValid;
 
-    QString d_franchisereferalincome_loan;
+    QString m_d_franchisereferalincome_loan;
     bool m_d_franchisereferalincome_loan_isSet;
     bool m_d_franchisereferalincome_loan_isValid;
 
-    QString d_franchisereferalincome_franchiseamount;
+    QString m_d_franchisereferalincome_franchiseamount;
     bool m_d_franchisereferalincome_franchiseamount_isSet;
     bool m_d_franchisereferalincome_franchiseamount_isValid;
 
-    QString d_franchisereferalincome_franchisoramount;
+    QString m_d_franchisereferalincome_franchisoramount;
     bool m_d_franchisereferalincome_franchisoramount_isSet;
     bool m_d_franchisereferalincome_franchisoramount_isValid;
 
-    QString d_franchisereferalincome_agentamount;
+    QString m_d_franchisereferalincome_agentamount;
     bool m_d_franchisereferalincome_agentamount_isSet;
     bool m_d_franchisereferalincome_agentamount_isValid;
 
-    QString dt_franchisereferalincome_disbursed;
+    QString m_dt_franchisereferalincome_disbursed;
     bool m_dt_franchisereferalincome_disbursed_isSet;
     bool m_dt_franchisereferalincome_disbursed_isValid;
 
-    QString t_franchisereferalincome_comment;
+    QString m_t_franchisereferalincome_comment;
     bool m_t_franchisereferalincome_comment_isSet;
     bool m_t_franchisereferalincome_comment_isValid;
 
-    qint32 fki_franchiseoffice_id;
+    qint32 m_fki_franchiseoffice_id;
     bool m_fki_franchiseoffice_id_isSet;
     bool m_fki_franchiseoffice_id_isValid;
 
-    QString s_franchisereferalincome_remoteid;
+    QString m_s_franchisereferalincome_remoteid;
     bool m_s_franchisereferalincome_remoteid_isSet;
     bool m_s_franchisereferalincome_remoteid_isValid;
 
-    OAIAddress_Request obj_address;
+    OAIAddress_Request m_obj_address;
     bool m_obj_address_isSet;
     bool m_obj_address_isValid;
 
-    QList<OAIContact_RequestCompound> a_obj_contact;
+    QList<OAIContact_RequestCompound> m_a_obj_contact;
     bool m_a_obj_contact_isSet;
     bool m_a_obj_contact_isValid;
 };

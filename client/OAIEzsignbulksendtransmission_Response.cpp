@@ -59,19 +59,19 @@ void OAIEzsignbulksendtransmission_Response::fromJson(QString jsonString) {
 
 void OAIEzsignbulksendtransmission_Response::fromJsonObject(QJsonObject json) {
 
-    m_pki_ezsignbulksendtransmission_id_isValid = ::OpenAPI::fromJsonValue(pki_ezsignbulksendtransmission_id, json[QString("pkiEzsignbulksendtransmissionID")]);
+    m_pki_ezsignbulksendtransmission_id_isValid = ::OpenAPI::fromJsonValue(m_pki_ezsignbulksendtransmission_id, json[QString("pkiEzsignbulksendtransmissionID")]);
     m_pki_ezsignbulksendtransmission_id_isSet = !json[QString("pkiEzsignbulksendtransmissionID")].isNull() && m_pki_ezsignbulksendtransmission_id_isValid;
 
-    m_fki_ezsignbulksend_id_isValid = ::OpenAPI::fromJsonValue(fki_ezsignbulksend_id, json[QString("fkiEzsignbulksendID")]);
+    m_fki_ezsignbulksend_id_isValid = ::OpenAPI::fromJsonValue(m_fki_ezsignbulksend_id, json[QString("fkiEzsignbulksendID")]);
     m_fki_ezsignbulksend_id_isSet = !json[QString("fkiEzsignbulksendID")].isNull() && m_fki_ezsignbulksend_id_isValid;
 
-    m_s_ezsignbulksendtransmission_description_isValid = ::OpenAPI::fromJsonValue(s_ezsignbulksendtransmission_description, json[QString("sEzsignbulksendtransmissionDescription")]);
+    m_s_ezsignbulksendtransmission_description_isValid = ::OpenAPI::fromJsonValue(m_s_ezsignbulksendtransmission_description, json[QString("sEzsignbulksendtransmissionDescription")]);
     m_s_ezsignbulksendtransmission_description_isSet = !json[QString("sEzsignbulksendtransmissionDescription")].isNull() && m_s_ezsignbulksendtransmission_description_isValid;
 
-    m_i_ezsignbulksendtransmission_errors_isValid = ::OpenAPI::fromJsonValue(i_ezsignbulksendtransmission_errors, json[QString("iEzsignbulksendtransmissionErrors")]);
+    m_i_ezsignbulksendtransmission_errors_isValid = ::OpenAPI::fromJsonValue(m_i_ezsignbulksendtransmission_errors, json[QString("iEzsignbulksendtransmissionErrors")]);
     m_i_ezsignbulksendtransmission_errors_isSet = !json[QString("iEzsignbulksendtransmissionErrors")].isNull() && m_i_ezsignbulksendtransmission_errors_isValid;
 
-    m_obj_audit_isValid = ::OpenAPI::fromJsonValue(obj_audit, json[QString("objAudit")]);
+    m_obj_audit_isValid = ::OpenAPI::fromJsonValue(m_obj_audit, json[QString("objAudit")]);
     m_obj_audit_isSet = !json[QString("objAudit")].isNull() && m_obj_audit_isValid;
 }
 
@@ -85,29 +85,29 @@ QString OAIEzsignbulksendtransmission_Response::asJson() const {
 QJsonObject OAIEzsignbulksendtransmission_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_ezsignbulksendtransmission_id_isSet) {
-        obj.insert(QString("pkiEzsignbulksendtransmissionID"), ::OpenAPI::toJsonValue(pki_ezsignbulksendtransmission_id));
+        obj.insert(QString("pkiEzsignbulksendtransmissionID"), ::OpenAPI::toJsonValue(m_pki_ezsignbulksendtransmission_id));
     }
     if (m_fki_ezsignbulksend_id_isSet) {
-        obj.insert(QString("fkiEzsignbulksendID"), ::OpenAPI::toJsonValue(fki_ezsignbulksend_id));
+        obj.insert(QString("fkiEzsignbulksendID"), ::OpenAPI::toJsonValue(m_fki_ezsignbulksend_id));
     }
     if (m_s_ezsignbulksendtransmission_description_isSet) {
-        obj.insert(QString("sEzsignbulksendtransmissionDescription"), ::OpenAPI::toJsonValue(s_ezsignbulksendtransmission_description));
+        obj.insert(QString("sEzsignbulksendtransmissionDescription"), ::OpenAPI::toJsonValue(m_s_ezsignbulksendtransmission_description));
     }
     if (m_i_ezsignbulksendtransmission_errors_isSet) {
-        obj.insert(QString("iEzsignbulksendtransmissionErrors"), ::OpenAPI::toJsonValue(i_ezsignbulksendtransmission_errors));
+        obj.insert(QString("iEzsignbulksendtransmissionErrors"), ::OpenAPI::toJsonValue(m_i_ezsignbulksendtransmission_errors));
     }
-    if (obj_audit.isSet()) {
-        obj.insert(QString("objAudit"), ::OpenAPI::toJsonValue(obj_audit));
+    if (m_obj_audit.isSet()) {
+        obj.insert(QString("objAudit"), ::OpenAPI::toJsonValue(m_obj_audit));
     }
     return obj;
 }
 
 qint32 OAIEzsignbulksendtransmission_Response::getPkiEzsignbulksendtransmissionId() const {
-    return pki_ezsignbulksendtransmission_id;
+    return m_pki_ezsignbulksendtransmission_id;
 }
 void OAIEzsignbulksendtransmission_Response::setPkiEzsignbulksendtransmissionId(const qint32 &pki_ezsignbulksendtransmission_id) {
-    this->pki_ezsignbulksendtransmission_id = pki_ezsignbulksendtransmission_id;
-    this->m_pki_ezsignbulksendtransmission_id_isSet = true;
+    m_pki_ezsignbulksendtransmission_id = pki_ezsignbulksendtransmission_id;
+    m_pki_ezsignbulksendtransmission_id_isSet = true;
 }
 
 bool OAIEzsignbulksendtransmission_Response::is_pki_ezsignbulksendtransmission_id_Set() const{
@@ -119,11 +119,11 @@ bool OAIEzsignbulksendtransmission_Response::is_pki_ezsignbulksendtransmission_i
 }
 
 qint32 OAIEzsignbulksendtransmission_Response::getFkiEzsignbulksendId() const {
-    return fki_ezsignbulksend_id;
+    return m_fki_ezsignbulksend_id;
 }
 void OAIEzsignbulksendtransmission_Response::setFkiEzsignbulksendId(const qint32 &fki_ezsignbulksend_id) {
-    this->fki_ezsignbulksend_id = fki_ezsignbulksend_id;
-    this->m_fki_ezsignbulksend_id_isSet = true;
+    m_fki_ezsignbulksend_id = fki_ezsignbulksend_id;
+    m_fki_ezsignbulksend_id_isSet = true;
 }
 
 bool OAIEzsignbulksendtransmission_Response::is_fki_ezsignbulksend_id_Set() const{
@@ -135,11 +135,11 @@ bool OAIEzsignbulksendtransmission_Response::is_fki_ezsignbulksend_id_Valid() co
 }
 
 QString OAIEzsignbulksendtransmission_Response::getSEzsignbulksendtransmissionDescription() const {
-    return s_ezsignbulksendtransmission_description;
+    return m_s_ezsignbulksendtransmission_description;
 }
 void OAIEzsignbulksendtransmission_Response::setSEzsignbulksendtransmissionDescription(const QString &s_ezsignbulksendtransmission_description) {
-    this->s_ezsignbulksendtransmission_description = s_ezsignbulksendtransmission_description;
-    this->m_s_ezsignbulksendtransmission_description_isSet = true;
+    m_s_ezsignbulksendtransmission_description = s_ezsignbulksendtransmission_description;
+    m_s_ezsignbulksendtransmission_description_isSet = true;
 }
 
 bool OAIEzsignbulksendtransmission_Response::is_s_ezsignbulksendtransmission_description_Set() const{
@@ -151,11 +151,11 @@ bool OAIEzsignbulksendtransmission_Response::is_s_ezsignbulksendtransmission_des
 }
 
 qint32 OAIEzsignbulksendtransmission_Response::getIEzsignbulksendtransmissionErrors() const {
-    return i_ezsignbulksendtransmission_errors;
+    return m_i_ezsignbulksendtransmission_errors;
 }
 void OAIEzsignbulksendtransmission_Response::setIEzsignbulksendtransmissionErrors(const qint32 &i_ezsignbulksendtransmission_errors) {
-    this->i_ezsignbulksendtransmission_errors = i_ezsignbulksendtransmission_errors;
-    this->m_i_ezsignbulksendtransmission_errors_isSet = true;
+    m_i_ezsignbulksendtransmission_errors = i_ezsignbulksendtransmission_errors;
+    m_i_ezsignbulksendtransmission_errors_isSet = true;
 }
 
 bool OAIEzsignbulksendtransmission_Response::is_i_ezsignbulksendtransmission_errors_Set() const{
@@ -167,11 +167,11 @@ bool OAIEzsignbulksendtransmission_Response::is_i_ezsignbulksendtransmission_err
 }
 
 OAICommon_Audit OAIEzsignbulksendtransmission_Response::getObjAudit() const {
-    return obj_audit;
+    return m_obj_audit;
 }
 void OAIEzsignbulksendtransmission_Response::setObjAudit(const OAICommon_Audit &obj_audit) {
-    this->obj_audit = obj_audit;
-    this->m_obj_audit_isSet = true;
+    m_obj_audit = obj_audit;
+    m_obj_audit_isSet = true;
 }
 
 bool OAIEzsignbulksendtransmission_Response::is_obj_audit_Set() const{
@@ -205,7 +205,7 @@ bool OAIEzsignbulksendtransmission_Response::isSet() const {
             break;
         }
 
-        if (obj_audit.isSet()) {
+        if (m_obj_audit.isSet()) {
             isObjectUpdated = true;
             break;
         }

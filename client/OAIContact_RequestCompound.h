@@ -82,31 +82,31 @@ public:
 private:
     void initializeModel();
 
-    qint32 fki_contacttitle_id;
+    qint32 m_fki_contacttitle_id;
     bool m_fki_contacttitle_id_isSet;
     bool m_fki_contacttitle_id_isValid;
 
-    qint32 fki_language_id;
+    qint32 m_fki_language_id;
     bool m_fki_language_id_isSet;
     bool m_fki_language_id_isValid;
 
-    QString s_contact_firstname;
+    QString m_s_contact_firstname;
     bool m_s_contact_firstname_isSet;
     bool m_s_contact_firstname_isValid;
 
-    QString s_contact_lastname;
+    QString m_s_contact_lastname;
     bool m_s_contact_lastname_isSet;
     bool m_s_contact_lastname_isValid;
 
-    QString s_contact_company;
+    QString m_s_contact_company;
     bool m_s_contact_company_isSet;
     bool m_s_contact_company_isValid;
 
-    QString dt_contact_birthdate;
+    QString m_dt_contact_birthdate;
     bool m_dt_contact_birthdate_isSet;
     bool m_dt_contact_birthdate_isValid;
 
-    OAIContactinformations_RequestCompound obj_contactinformations;
+    OAIContactinformations_RequestCompound m_obj_contactinformations;
     bool m_obj_contactinformations_isSet;
     bool m_obj_contactinformations_isValid;
 };

@@ -52,7 +52,7 @@ public:
 private:
     void initializeModel();
 
-    QList<OAIUsergroup_AutocompleteElement_Response> a_obj_usergroup;
+    QList<OAIUsergroup_AutocompleteElement_Response> m_a_obj_usergroup;
     bool m_a_obj_usergroup_isSet;
     bool m_a_obj_usergroup_isValid;
 };

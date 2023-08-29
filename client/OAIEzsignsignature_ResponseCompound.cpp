@@ -97,6 +97,9 @@ void OAIEzsignsignature_ResponseCompound::initializeModel() {
     m_s_ezsignsignature_description_isSet = false;
     m_s_ezsignsignature_description_isValid = false;
 
+    m_i_ezsignsignature_maxlength_isSet = false;
+    m_i_ezsignsignature_maxlength_isValid = false;
+
     m_e_ezsignsignature_textvalidation_isSet = false;
     m_e_ezsignsignature_textvalidation_isValid = false;
 
@@ -128,88 +131,91 @@ void OAIEzsignsignature_ResponseCompound::fromJson(QString jsonString) {
 
 void OAIEzsignsignature_ResponseCompound::fromJsonObject(QJsonObject json) {
 
-    m_pki_ezsignsignature_id_isValid = ::OpenAPI::fromJsonValue(pki_ezsignsignature_id, json[QString("pkiEzsignsignatureID")]);
+    m_pki_ezsignsignature_id_isValid = ::OpenAPI::fromJsonValue(m_pki_ezsignsignature_id, json[QString("pkiEzsignsignatureID")]);
     m_pki_ezsignsignature_id_isSet = !json[QString("pkiEzsignsignatureID")].isNull() && m_pki_ezsignsignature_id_isValid;
 
-    m_fki_ezsigndocument_id_isValid = ::OpenAPI::fromJsonValue(fki_ezsigndocument_id, json[QString("fkiEzsigndocumentID")]);
+    m_fki_ezsigndocument_id_isValid = ::OpenAPI::fromJsonValue(m_fki_ezsigndocument_id, json[QString("fkiEzsigndocumentID")]);
     m_fki_ezsigndocument_id_isSet = !json[QString("fkiEzsigndocumentID")].isNull() && m_fki_ezsigndocument_id_isValid;
 
-    m_fki_ezsignfoldersignerassociation_id_isValid = ::OpenAPI::fromJsonValue(fki_ezsignfoldersignerassociation_id, json[QString("fkiEzsignfoldersignerassociationID")]);
+    m_fki_ezsignfoldersignerassociation_id_isValid = ::OpenAPI::fromJsonValue(m_fki_ezsignfoldersignerassociation_id, json[QString("fkiEzsignfoldersignerassociationID")]);
     m_fki_ezsignfoldersignerassociation_id_isSet = !json[QString("fkiEzsignfoldersignerassociationID")].isNull() && m_fki_ezsignfoldersignerassociation_id_isValid;
 
-    m_i_ezsignpage_pagenumber_isValid = ::OpenAPI::fromJsonValue(i_ezsignpage_pagenumber, json[QString("iEzsignpagePagenumber")]);
+    m_i_ezsignpage_pagenumber_isValid = ::OpenAPI::fromJsonValue(m_i_ezsignpage_pagenumber, json[QString("iEzsignpagePagenumber")]);
     m_i_ezsignpage_pagenumber_isSet = !json[QString("iEzsignpagePagenumber")].isNull() && m_i_ezsignpage_pagenumber_isValid;
 
-    m_i_ezsignsignature_x_isValid = ::OpenAPI::fromJsonValue(i_ezsignsignature_x, json[QString("iEzsignsignatureX")]);
+    m_i_ezsignsignature_x_isValid = ::OpenAPI::fromJsonValue(m_i_ezsignsignature_x, json[QString("iEzsignsignatureX")]);
     m_i_ezsignsignature_x_isSet = !json[QString("iEzsignsignatureX")].isNull() && m_i_ezsignsignature_x_isValid;
 
-    m_i_ezsignsignature_y_isValid = ::OpenAPI::fromJsonValue(i_ezsignsignature_y, json[QString("iEzsignsignatureY")]);
+    m_i_ezsignsignature_y_isValid = ::OpenAPI::fromJsonValue(m_i_ezsignsignature_y, json[QString("iEzsignsignatureY")]);
     m_i_ezsignsignature_y_isSet = !json[QString("iEzsignsignatureY")].isNull() && m_i_ezsignsignature_y_isValid;
 
-    m_i_ezsignsignature_height_isValid = ::OpenAPI::fromJsonValue(i_ezsignsignature_height, json[QString("iEzsignsignatureHeight")]);
+    m_i_ezsignsignature_height_isValid = ::OpenAPI::fromJsonValue(m_i_ezsignsignature_height, json[QString("iEzsignsignatureHeight")]);
     m_i_ezsignsignature_height_isSet = !json[QString("iEzsignsignatureHeight")].isNull() && m_i_ezsignsignature_height_isValid;
 
-    m_i_ezsignsignature_width_isValid = ::OpenAPI::fromJsonValue(i_ezsignsignature_width, json[QString("iEzsignsignatureWidth")]);
+    m_i_ezsignsignature_width_isValid = ::OpenAPI::fromJsonValue(m_i_ezsignsignature_width, json[QString("iEzsignsignatureWidth")]);
     m_i_ezsignsignature_width_isSet = !json[QString("iEzsignsignatureWidth")].isNull() && m_i_ezsignsignature_width_isValid;
 
-    m_i_ezsignsignature_step_isValid = ::OpenAPI::fromJsonValue(i_ezsignsignature_step, json[QString("iEzsignsignatureStep")]);
+    m_i_ezsignsignature_step_isValid = ::OpenAPI::fromJsonValue(m_i_ezsignsignature_step, json[QString("iEzsignsignatureStep")]);
     m_i_ezsignsignature_step_isSet = !json[QString("iEzsignsignatureStep")].isNull() && m_i_ezsignsignature_step_isValid;
 
-    m_e_ezsignsignature_type_isValid = ::OpenAPI::fromJsonValue(e_ezsignsignature_type, json[QString("eEzsignsignatureType")]);
+    m_e_ezsignsignature_type_isValid = ::OpenAPI::fromJsonValue(m_e_ezsignsignature_type, json[QString("eEzsignsignatureType")]);
     m_e_ezsignsignature_type_isSet = !json[QString("eEzsignsignatureType")].isNull() && m_e_ezsignsignature_type_isValid;
 
-    m_t_ezsignsignature_tooltip_isValid = ::OpenAPI::fromJsonValue(t_ezsignsignature_tooltip, json[QString("tEzsignsignatureTooltip")]);
+    m_t_ezsignsignature_tooltip_isValid = ::OpenAPI::fromJsonValue(m_t_ezsignsignature_tooltip, json[QString("tEzsignsignatureTooltip")]);
     m_t_ezsignsignature_tooltip_isSet = !json[QString("tEzsignsignatureTooltip")].isNull() && m_t_ezsignsignature_tooltip_isValid;
 
-    m_e_ezsignsignature_tooltipposition_isValid = ::OpenAPI::fromJsonValue(e_ezsignsignature_tooltipposition, json[QString("eEzsignsignatureTooltipposition")]);
+    m_e_ezsignsignature_tooltipposition_isValid = ::OpenAPI::fromJsonValue(m_e_ezsignsignature_tooltipposition, json[QString("eEzsignsignatureTooltipposition")]);
     m_e_ezsignsignature_tooltipposition_isSet = !json[QString("eEzsignsignatureTooltipposition")].isNull() && m_e_ezsignsignature_tooltipposition_isValid;
 
-    m_e_ezsignsignature_font_isValid = ::OpenAPI::fromJsonValue(e_ezsignsignature_font, json[QString("eEzsignsignatureFont")]);
+    m_e_ezsignsignature_font_isValid = ::OpenAPI::fromJsonValue(m_e_ezsignsignature_font, json[QString("eEzsignsignatureFont")]);
     m_e_ezsignsignature_font_isSet = !json[QString("eEzsignsignatureFont")].isNull() && m_e_ezsignsignature_font_isValid;
 
-    m_i_ezsignsignature_validationstep_isValid = ::OpenAPI::fromJsonValue(i_ezsignsignature_validationstep, json[QString("iEzsignsignatureValidationstep")]);
+    m_i_ezsignsignature_validationstep_isValid = ::OpenAPI::fromJsonValue(m_i_ezsignsignature_validationstep, json[QString("iEzsignsignatureValidationstep")]);
     m_i_ezsignsignature_validationstep_isSet = !json[QString("iEzsignsignatureValidationstep")].isNull() && m_i_ezsignsignature_validationstep_isValid;
 
-    m_s_ezsignsignature_attachmentdescription_isValid = ::OpenAPI::fromJsonValue(s_ezsignsignature_attachmentdescription, json[QString("sEzsignsignatureAttachmentdescription")]);
+    m_s_ezsignsignature_attachmentdescription_isValid = ::OpenAPI::fromJsonValue(m_s_ezsignsignature_attachmentdescription, json[QString("sEzsignsignatureAttachmentdescription")]);
     m_s_ezsignsignature_attachmentdescription_isSet = !json[QString("sEzsignsignatureAttachmentdescription")].isNull() && m_s_ezsignsignature_attachmentdescription_isValid;
 
-    m_e_ezsignsignature_attachmentnamesource_isValid = ::OpenAPI::fromJsonValue(e_ezsignsignature_attachmentnamesource, json[QString("eEzsignsignatureAttachmentnamesource")]);
+    m_e_ezsignsignature_attachmentnamesource_isValid = ::OpenAPI::fromJsonValue(m_e_ezsignsignature_attachmentnamesource, json[QString("eEzsignsignatureAttachmentnamesource")]);
     m_e_ezsignsignature_attachmentnamesource_isSet = !json[QString("eEzsignsignatureAttachmentnamesource")].isNull() && m_e_ezsignsignature_attachmentnamesource_isValid;
 
-    m_b_ezsignsignature_required_isValid = ::OpenAPI::fromJsonValue(b_ezsignsignature_required, json[QString("bEzsignsignatureRequired")]);
+    m_b_ezsignsignature_required_isValid = ::OpenAPI::fromJsonValue(m_b_ezsignsignature_required, json[QString("bEzsignsignatureRequired")]);
     m_b_ezsignsignature_required_isSet = !json[QString("bEzsignsignatureRequired")].isNull() && m_b_ezsignsignature_required_isValid;
 
-    m_fki_ezsignfoldersignerassociation_id_validation_isValid = ::OpenAPI::fromJsonValue(fki_ezsignfoldersignerassociation_id_validation, json[QString("fkiEzsignfoldersignerassociationIDValidation")]);
+    m_fki_ezsignfoldersignerassociation_id_validation_isValid = ::OpenAPI::fromJsonValue(m_fki_ezsignfoldersignerassociation_id_validation, json[QString("fkiEzsignfoldersignerassociationIDValidation")]);
     m_fki_ezsignfoldersignerassociation_id_validation_isSet = !json[QString("fkiEzsignfoldersignerassociationIDValidation")].isNull() && m_fki_ezsignfoldersignerassociation_id_validation_isValid;
 
-    m_dt_ezsignsignature_date_isValid = ::OpenAPI::fromJsonValue(dt_ezsignsignature_date, json[QString("dtEzsignsignatureDate")]);
+    m_dt_ezsignsignature_date_isValid = ::OpenAPI::fromJsonValue(m_dt_ezsignsignature_date, json[QString("dtEzsignsignatureDate")]);
     m_dt_ezsignsignature_date_isSet = !json[QString("dtEzsignsignatureDate")].isNull() && m_dt_ezsignsignature_date_isValid;
 
-    m_i_ezsignsignatureattachment_count_isValid = ::OpenAPI::fromJsonValue(i_ezsignsignatureattachment_count, json[QString("iEzsignsignatureattachmentCount")]);
+    m_i_ezsignsignatureattachment_count_isValid = ::OpenAPI::fromJsonValue(m_i_ezsignsignatureattachment_count, json[QString("iEzsignsignatureattachmentCount")]);
     m_i_ezsignsignatureattachment_count_isSet = !json[QString("iEzsignsignatureattachmentCount")].isNull() && m_i_ezsignsignatureattachment_count_isValid;
 
-    m_s_ezsignsignature_description_isValid = ::OpenAPI::fromJsonValue(s_ezsignsignature_description, json[QString("sEzsignsignatureDescription")]);
+    m_s_ezsignsignature_description_isValid = ::OpenAPI::fromJsonValue(m_s_ezsignsignature_description, json[QString("sEzsignsignatureDescription")]);
     m_s_ezsignsignature_description_isSet = !json[QString("sEzsignsignatureDescription")].isNull() && m_s_ezsignsignature_description_isValid;
 
-    m_e_ezsignsignature_textvalidation_isValid = ::OpenAPI::fromJsonValue(e_ezsignsignature_textvalidation, json[QString("eEzsignsignatureTextvalidation")]);
+    m_i_ezsignsignature_maxlength_isValid = ::OpenAPI::fromJsonValue(m_i_ezsignsignature_maxlength, json[QString("iEzsignsignatureMaxlength")]);
+    m_i_ezsignsignature_maxlength_isSet = !json[QString("iEzsignsignatureMaxlength")].isNull() && m_i_ezsignsignature_maxlength_isValid;
+
+    m_e_ezsignsignature_textvalidation_isValid = ::OpenAPI::fromJsonValue(m_e_ezsignsignature_textvalidation, json[QString("eEzsignsignatureTextvalidation")]);
     m_e_ezsignsignature_textvalidation_isSet = !json[QString("eEzsignsignatureTextvalidation")].isNull() && m_e_ezsignsignature_textvalidation_isValid;
 
-    m_s_ezsignsignature_regexp_isValid = ::OpenAPI::fromJsonValue(s_ezsignsignature_regexp, json[QString("sEzsignsignatureRegexp")]);
+    m_s_ezsignsignature_regexp_isValid = ::OpenAPI::fromJsonValue(m_s_ezsignsignature_regexp, json[QString("sEzsignsignatureRegexp")]);
     m_s_ezsignsignature_regexp_isSet = !json[QString("sEzsignsignatureRegexp")].isNull() && m_s_ezsignsignature_regexp_isValid;
 
-    m_obj_contact_name_isValid = ::OpenAPI::fromJsonValue(obj_contact_name, json[QString("objContactName")]);
+    m_obj_contact_name_isValid = ::OpenAPI::fromJsonValue(m_obj_contact_name, json[QString("objContactName")]);
     m_obj_contact_name_isSet = !json[QString("objContactName")].isNull() && m_obj_contact_name_isValid;
 
-    m_obj_signature_isValid = ::OpenAPI::fromJsonValue(obj_signature, json[QString("objSignature")]);
+    m_obj_signature_isValid = ::OpenAPI::fromJsonValue(m_obj_signature, json[QString("objSignature")]);
     m_obj_signature_isSet = !json[QString("objSignature")].isNull() && m_obj_signature_isValid;
 
-    m_b_ezsignsignature_customdate_isValid = ::OpenAPI::fromJsonValue(b_ezsignsignature_customdate, json[QString("bEzsignsignatureCustomdate")]);
+    m_b_ezsignsignature_customdate_isValid = ::OpenAPI::fromJsonValue(m_b_ezsignsignature_customdate, json[QString("bEzsignsignatureCustomdate")]);
     m_b_ezsignsignature_customdate_isSet = !json[QString("bEzsignsignatureCustomdate")].isNull() && m_b_ezsignsignature_customdate_isValid;
 
-    m_a_obj_ezsignsignaturecustomdate_isValid = ::OpenAPI::fromJsonValue(a_obj_ezsignsignaturecustomdate, json[QString("a_objEzsignsignaturecustomdate")]);
+    m_a_obj_ezsignsignaturecustomdate_isValid = ::OpenAPI::fromJsonValue(m_a_obj_ezsignsignaturecustomdate, json[QString("a_objEzsignsignaturecustomdate")]);
     m_a_obj_ezsignsignaturecustomdate_isSet = !json[QString("a_objEzsignsignaturecustomdate")].isNull() && m_a_obj_ezsignsignaturecustomdate_isValid;
 
-    m_obj_creditcardtransaction_isValid = ::OpenAPI::fromJsonValue(obj_creditcardtransaction, json[QString("objCreditcardtransaction")]);
+    m_obj_creditcardtransaction_isValid = ::OpenAPI::fromJsonValue(m_obj_creditcardtransaction, json[QString("objCreditcardtransaction")]);
     m_obj_creditcardtransaction_isSet = !json[QString("objCreditcardtransaction")].isNull() && m_obj_creditcardtransaction_isValid;
 }
 
@@ -223,98 +229,101 @@ QString OAIEzsignsignature_ResponseCompound::asJson() const {
 QJsonObject OAIEzsignsignature_ResponseCompound::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_ezsignsignature_id_isSet) {
-        obj.insert(QString("pkiEzsignsignatureID"), ::OpenAPI::toJsonValue(pki_ezsignsignature_id));
+        obj.insert(QString("pkiEzsignsignatureID"), ::OpenAPI::toJsonValue(m_pki_ezsignsignature_id));
     }
     if (m_fki_ezsigndocument_id_isSet) {
-        obj.insert(QString("fkiEzsigndocumentID"), ::OpenAPI::toJsonValue(fki_ezsigndocument_id));
+        obj.insert(QString("fkiEzsigndocumentID"), ::OpenAPI::toJsonValue(m_fki_ezsigndocument_id));
     }
     if (m_fki_ezsignfoldersignerassociation_id_isSet) {
-        obj.insert(QString("fkiEzsignfoldersignerassociationID"), ::OpenAPI::toJsonValue(fki_ezsignfoldersignerassociation_id));
+        obj.insert(QString("fkiEzsignfoldersignerassociationID"), ::OpenAPI::toJsonValue(m_fki_ezsignfoldersignerassociation_id));
     }
     if (m_i_ezsignpage_pagenumber_isSet) {
-        obj.insert(QString("iEzsignpagePagenumber"), ::OpenAPI::toJsonValue(i_ezsignpage_pagenumber));
+        obj.insert(QString("iEzsignpagePagenumber"), ::OpenAPI::toJsonValue(m_i_ezsignpage_pagenumber));
     }
     if (m_i_ezsignsignature_x_isSet) {
-        obj.insert(QString("iEzsignsignatureX"), ::OpenAPI::toJsonValue(i_ezsignsignature_x));
+        obj.insert(QString("iEzsignsignatureX"), ::OpenAPI::toJsonValue(m_i_ezsignsignature_x));
     }
     if (m_i_ezsignsignature_y_isSet) {
-        obj.insert(QString("iEzsignsignatureY"), ::OpenAPI::toJsonValue(i_ezsignsignature_y));
+        obj.insert(QString("iEzsignsignatureY"), ::OpenAPI::toJsonValue(m_i_ezsignsignature_y));
     }
     if (m_i_ezsignsignature_height_isSet) {
-        obj.insert(QString("iEzsignsignatureHeight"), ::OpenAPI::toJsonValue(i_ezsignsignature_height));
+        obj.insert(QString("iEzsignsignatureHeight"), ::OpenAPI::toJsonValue(m_i_ezsignsignature_height));
     }
     if (m_i_ezsignsignature_width_isSet) {
-        obj.insert(QString("iEzsignsignatureWidth"), ::OpenAPI::toJsonValue(i_ezsignsignature_width));
+        obj.insert(QString("iEzsignsignatureWidth"), ::OpenAPI::toJsonValue(m_i_ezsignsignature_width));
     }
     if (m_i_ezsignsignature_step_isSet) {
-        obj.insert(QString("iEzsignsignatureStep"), ::OpenAPI::toJsonValue(i_ezsignsignature_step));
+        obj.insert(QString("iEzsignsignatureStep"), ::OpenAPI::toJsonValue(m_i_ezsignsignature_step));
     }
-    if (e_ezsignsignature_type.isSet()) {
-        obj.insert(QString("eEzsignsignatureType"), ::OpenAPI::toJsonValue(e_ezsignsignature_type));
+    if (m_e_ezsignsignature_type.isSet()) {
+        obj.insert(QString("eEzsignsignatureType"), ::OpenAPI::toJsonValue(m_e_ezsignsignature_type));
     }
     if (m_t_ezsignsignature_tooltip_isSet) {
-        obj.insert(QString("tEzsignsignatureTooltip"), ::OpenAPI::toJsonValue(t_ezsignsignature_tooltip));
+        obj.insert(QString("tEzsignsignatureTooltip"), ::OpenAPI::toJsonValue(m_t_ezsignsignature_tooltip));
     }
-    if (e_ezsignsignature_tooltipposition.isSet()) {
-        obj.insert(QString("eEzsignsignatureTooltipposition"), ::OpenAPI::toJsonValue(e_ezsignsignature_tooltipposition));
+    if (m_e_ezsignsignature_tooltipposition.isSet()) {
+        obj.insert(QString("eEzsignsignatureTooltipposition"), ::OpenAPI::toJsonValue(m_e_ezsignsignature_tooltipposition));
     }
-    if (e_ezsignsignature_font.isSet()) {
-        obj.insert(QString("eEzsignsignatureFont"), ::OpenAPI::toJsonValue(e_ezsignsignature_font));
+    if (m_e_ezsignsignature_font.isSet()) {
+        obj.insert(QString("eEzsignsignatureFont"), ::OpenAPI::toJsonValue(m_e_ezsignsignature_font));
     }
     if (m_i_ezsignsignature_validationstep_isSet) {
-        obj.insert(QString("iEzsignsignatureValidationstep"), ::OpenAPI::toJsonValue(i_ezsignsignature_validationstep));
+        obj.insert(QString("iEzsignsignatureValidationstep"), ::OpenAPI::toJsonValue(m_i_ezsignsignature_validationstep));
     }
     if (m_s_ezsignsignature_attachmentdescription_isSet) {
-        obj.insert(QString("sEzsignsignatureAttachmentdescription"), ::OpenAPI::toJsonValue(s_ezsignsignature_attachmentdescription));
+        obj.insert(QString("sEzsignsignatureAttachmentdescription"), ::OpenAPI::toJsonValue(m_s_ezsignsignature_attachmentdescription));
     }
-    if (e_ezsignsignature_attachmentnamesource.isSet()) {
-        obj.insert(QString("eEzsignsignatureAttachmentnamesource"), ::OpenAPI::toJsonValue(e_ezsignsignature_attachmentnamesource));
+    if (m_e_ezsignsignature_attachmentnamesource.isSet()) {
+        obj.insert(QString("eEzsignsignatureAttachmentnamesource"), ::OpenAPI::toJsonValue(m_e_ezsignsignature_attachmentnamesource));
     }
     if (m_b_ezsignsignature_required_isSet) {
-        obj.insert(QString("bEzsignsignatureRequired"), ::OpenAPI::toJsonValue(b_ezsignsignature_required));
+        obj.insert(QString("bEzsignsignatureRequired"), ::OpenAPI::toJsonValue(m_b_ezsignsignature_required));
     }
     if (m_fki_ezsignfoldersignerassociation_id_validation_isSet) {
-        obj.insert(QString("fkiEzsignfoldersignerassociationIDValidation"), ::OpenAPI::toJsonValue(fki_ezsignfoldersignerassociation_id_validation));
+        obj.insert(QString("fkiEzsignfoldersignerassociationIDValidation"), ::OpenAPI::toJsonValue(m_fki_ezsignfoldersignerassociation_id_validation));
     }
     if (m_dt_ezsignsignature_date_isSet) {
-        obj.insert(QString("dtEzsignsignatureDate"), ::OpenAPI::toJsonValue(dt_ezsignsignature_date));
+        obj.insert(QString("dtEzsignsignatureDate"), ::OpenAPI::toJsonValue(m_dt_ezsignsignature_date));
     }
     if (m_i_ezsignsignatureattachment_count_isSet) {
-        obj.insert(QString("iEzsignsignatureattachmentCount"), ::OpenAPI::toJsonValue(i_ezsignsignatureattachment_count));
+        obj.insert(QString("iEzsignsignatureattachmentCount"), ::OpenAPI::toJsonValue(m_i_ezsignsignatureattachment_count));
     }
     if (m_s_ezsignsignature_description_isSet) {
-        obj.insert(QString("sEzsignsignatureDescription"), ::OpenAPI::toJsonValue(s_ezsignsignature_description));
+        obj.insert(QString("sEzsignsignatureDescription"), ::OpenAPI::toJsonValue(m_s_ezsignsignature_description));
     }
-    if (e_ezsignsignature_textvalidation.isSet()) {
-        obj.insert(QString("eEzsignsignatureTextvalidation"), ::OpenAPI::toJsonValue(e_ezsignsignature_textvalidation));
+    if (m_i_ezsignsignature_maxlength_isSet) {
+        obj.insert(QString("iEzsignsignatureMaxlength"), ::OpenAPI::toJsonValue(m_i_ezsignsignature_maxlength));
+    }
+    if (m_e_ezsignsignature_textvalidation.isSet()) {
+        obj.insert(QString("eEzsignsignatureTextvalidation"), ::OpenAPI::toJsonValue(m_e_ezsignsignature_textvalidation));
     }
     if (m_s_ezsignsignature_regexp_isSet) {
-        obj.insert(QString("sEzsignsignatureRegexp"), ::OpenAPI::toJsonValue(s_ezsignsignature_regexp));
+        obj.insert(QString("sEzsignsignatureRegexp"), ::OpenAPI::toJsonValue(m_s_ezsignsignature_regexp));
     }
-    if (obj_contact_name.isSet()) {
-        obj.insert(QString("objContactName"), ::OpenAPI::toJsonValue(obj_contact_name));
+    if (m_obj_contact_name.isSet()) {
+        obj.insert(QString("objContactName"), ::OpenAPI::toJsonValue(m_obj_contact_name));
     }
-    if (obj_signature.isSet()) {
-        obj.insert(QString("objSignature"), ::OpenAPI::toJsonValue(obj_signature));
+    if (m_obj_signature.isSet()) {
+        obj.insert(QString("objSignature"), ::OpenAPI::toJsonValue(m_obj_signature));
     }
     if (m_b_ezsignsignature_customdate_isSet) {
-        obj.insert(QString("bEzsignsignatureCustomdate"), ::OpenAPI::toJsonValue(b_ezsignsignature_customdate));
+        obj.insert(QString("bEzsignsignatureCustomdate"), ::OpenAPI::toJsonValue(m_b_ezsignsignature_customdate));
     }
-    if (a_obj_ezsignsignaturecustomdate.size() > 0) {
-        obj.insert(QString("a_objEzsignsignaturecustomdate"), ::OpenAPI::toJsonValue(a_obj_ezsignsignaturecustomdate));
+    if (m_a_obj_ezsignsignaturecustomdate.size() > 0) {
+        obj.insert(QString("a_objEzsignsignaturecustomdate"), ::OpenAPI::toJsonValue(m_a_obj_ezsignsignaturecustomdate));
     }
-    if (obj_creditcardtransaction.isSet()) {
-        obj.insert(QString("objCreditcardtransaction"), ::OpenAPI::toJsonValue(obj_creditcardtransaction));
+    if (m_obj_creditcardtransaction.isSet()) {
+        obj.insert(QString("objCreditcardtransaction"), ::OpenAPI::toJsonValue(m_obj_creditcardtransaction));
     }
     return obj;
 }
 
 qint32 OAIEzsignsignature_ResponseCompound::getPkiEzsignsignatureId() const {
-    return pki_ezsignsignature_id;
+    return m_pki_ezsignsignature_id;
 }
 void OAIEzsignsignature_ResponseCompound::setPkiEzsignsignatureId(const qint32 &pki_ezsignsignature_id) {
-    this->pki_ezsignsignature_id = pki_ezsignsignature_id;
-    this->m_pki_ezsignsignature_id_isSet = true;
+    m_pki_ezsignsignature_id = pki_ezsignsignature_id;
+    m_pki_ezsignsignature_id_isSet = true;
 }
 
 bool OAIEzsignsignature_ResponseCompound::is_pki_ezsignsignature_id_Set() const{
@@ -326,11 +335,11 @@ bool OAIEzsignsignature_ResponseCompound::is_pki_ezsignsignature_id_Valid() cons
 }
 
 qint32 OAIEzsignsignature_ResponseCompound::getFkiEzsigndocumentId() const {
-    return fki_ezsigndocument_id;
+    return m_fki_ezsigndocument_id;
 }
 void OAIEzsignsignature_ResponseCompound::setFkiEzsigndocumentId(const qint32 &fki_ezsigndocument_id) {
-    this->fki_ezsigndocument_id = fki_ezsigndocument_id;
-    this->m_fki_ezsigndocument_id_isSet = true;
+    m_fki_ezsigndocument_id = fki_ezsigndocument_id;
+    m_fki_ezsigndocument_id_isSet = true;
 }
 
 bool OAIEzsignsignature_ResponseCompound::is_fki_ezsigndocument_id_Set() const{
@@ -342,11 +351,11 @@ bool OAIEzsignsignature_ResponseCompound::is_fki_ezsigndocument_id_Valid() const
 }
 
 qint32 OAIEzsignsignature_ResponseCompound::getFkiEzsignfoldersignerassociationId() const {
-    return fki_ezsignfoldersignerassociation_id;
+    return m_fki_ezsignfoldersignerassociation_id;
 }
 void OAIEzsignsignature_ResponseCompound::setFkiEzsignfoldersignerassociationId(const qint32 &fki_ezsignfoldersignerassociation_id) {
-    this->fki_ezsignfoldersignerassociation_id = fki_ezsignfoldersignerassociation_id;
-    this->m_fki_ezsignfoldersignerassociation_id_isSet = true;
+    m_fki_ezsignfoldersignerassociation_id = fki_ezsignfoldersignerassociation_id;
+    m_fki_ezsignfoldersignerassociation_id_isSet = true;
 }
 
 bool OAIEzsignsignature_ResponseCompound::is_fki_ezsignfoldersignerassociation_id_Set() const{
@@ -358,11 +367,11 @@ bool OAIEzsignsignature_ResponseCompound::is_fki_ezsignfoldersignerassociation_i
 }
 
 qint32 OAIEzsignsignature_ResponseCompound::getIEzsignpagePagenumber() const {
-    return i_ezsignpage_pagenumber;
+    return m_i_ezsignpage_pagenumber;
 }
 void OAIEzsignsignature_ResponseCompound::setIEzsignpagePagenumber(const qint32 &i_ezsignpage_pagenumber) {
-    this->i_ezsignpage_pagenumber = i_ezsignpage_pagenumber;
-    this->m_i_ezsignpage_pagenumber_isSet = true;
+    m_i_ezsignpage_pagenumber = i_ezsignpage_pagenumber;
+    m_i_ezsignpage_pagenumber_isSet = true;
 }
 
 bool OAIEzsignsignature_ResponseCompound::is_i_ezsignpage_pagenumber_Set() const{
@@ -374,11 +383,11 @@ bool OAIEzsignsignature_ResponseCompound::is_i_ezsignpage_pagenumber_Valid() con
 }
 
 qint32 OAIEzsignsignature_ResponseCompound::getIEzsignsignatureX() const {
-    return i_ezsignsignature_x;
+    return m_i_ezsignsignature_x;
 }
 void OAIEzsignsignature_ResponseCompound::setIEzsignsignatureX(const qint32 &i_ezsignsignature_x) {
-    this->i_ezsignsignature_x = i_ezsignsignature_x;
-    this->m_i_ezsignsignature_x_isSet = true;
+    m_i_ezsignsignature_x = i_ezsignsignature_x;
+    m_i_ezsignsignature_x_isSet = true;
 }
 
 bool OAIEzsignsignature_ResponseCompound::is_i_ezsignsignature_x_Set() const{
@@ -390,11 +399,11 @@ bool OAIEzsignsignature_ResponseCompound::is_i_ezsignsignature_x_Valid() const{
 }
 
 qint32 OAIEzsignsignature_ResponseCompound::getIEzsignsignatureY() const {
-    return i_ezsignsignature_y;
+    return m_i_ezsignsignature_y;
 }
 void OAIEzsignsignature_ResponseCompound::setIEzsignsignatureY(const qint32 &i_ezsignsignature_y) {
-    this->i_ezsignsignature_y = i_ezsignsignature_y;
-    this->m_i_ezsignsignature_y_isSet = true;
+    m_i_ezsignsignature_y = i_ezsignsignature_y;
+    m_i_ezsignsignature_y_isSet = true;
 }
 
 bool OAIEzsignsignature_ResponseCompound::is_i_ezsignsignature_y_Set() const{
@@ -406,11 +415,11 @@ bool OAIEzsignsignature_ResponseCompound::is_i_ezsignsignature_y_Valid() const{
 }
 
 qint32 OAIEzsignsignature_ResponseCompound::getIEzsignsignatureHeight() const {
-    return i_ezsignsignature_height;
+    return m_i_ezsignsignature_height;
 }
 void OAIEzsignsignature_ResponseCompound::setIEzsignsignatureHeight(const qint32 &i_ezsignsignature_height) {
-    this->i_ezsignsignature_height = i_ezsignsignature_height;
-    this->m_i_ezsignsignature_height_isSet = true;
+    m_i_ezsignsignature_height = i_ezsignsignature_height;
+    m_i_ezsignsignature_height_isSet = true;
 }
 
 bool OAIEzsignsignature_ResponseCompound::is_i_ezsignsignature_height_Set() const{
@@ -422,11 +431,11 @@ bool OAIEzsignsignature_ResponseCompound::is_i_ezsignsignature_height_Valid() co
 }
 
 qint32 OAIEzsignsignature_ResponseCompound::getIEzsignsignatureWidth() const {
-    return i_ezsignsignature_width;
+    return m_i_ezsignsignature_width;
 }
 void OAIEzsignsignature_ResponseCompound::setIEzsignsignatureWidth(const qint32 &i_ezsignsignature_width) {
-    this->i_ezsignsignature_width = i_ezsignsignature_width;
-    this->m_i_ezsignsignature_width_isSet = true;
+    m_i_ezsignsignature_width = i_ezsignsignature_width;
+    m_i_ezsignsignature_width_isSet = true;
 }
 
 bool OAIEzsignsignature_ResponseCompound::is_i_ezsignsignature_width_Set() const{
@@ -438,11 +447,11 @@ bool OAIEzsignsignature_ResponseCompound::is_i_ezsignsignature_width_Valid() con
 }
 
 qint32 OAIEzsignsignature_ResponseCompound::getIEzsignsignatureStep() const {
-    return i_ezsignsignature_step;
+    return m_i_ezsignsignature_step;
 }
 void OAIEzsignsignature_ResponseCompound::setIEzsignsignatureStep(const qint32 &i_ezsignsignature_step) {
-    this->i_ezsignsignature_step = i_ezsignsignature_step;
-    this->m_i_ezsignsignature_step_isSet = true;
+    m_i_ezsignsignature_step = i_ezsignsignature_step;
+    m_i_ezsignsignature_step_isSet = true;
 }
 
 bool OAIEzsignsignature_ResponseCompound::is_i_ezsignsignature_step_Set() const{
@@ -454,11 +463,11 @@ bool OAIEzsignsignature_ResponseCompound::is_i_ezsignsignature_step_Valid() cons
 }
 
 OAIField_eEzsignsignatureType OAIEzsignsignature_ResponseCompound::getEEzsignsignatureType() const {
-    return e_ezsignsignature_type;
+    return m_e_ezsignsignature_type;
 }
 void OAIEzsignsignature_ResponseCompound::setEEzsignsignatureType(const OAIField_eEzsignsignatureType &e_ezsignsignature_type) {
-    this->e_ezsignsignature_type = e_ezsignsignature_type;
-    this->m_e_ezsignsignature_type_isSet = true;
+    m_e_ezsignsignature_type = e_ezsignsignature_type;
+    m_e_ezsignsignature_type_isSet = true;
 }
 
 bool OAIEzsignsignature_ResponseCompound::is_e_ezsignsignature_type_Set() const{
@@ -470,11 +479,11 @@ bool OAIEzsignsignature_ResponseCompound::is_e_ezsignsignature_type_Valid() cons
 }
 
 QString OAIEzsignsignature_ResponseCompound::getTEzsignsignatureTooltip() const {
-    return t_ezsignsignature_tooltip;
+    return m_t_ezsignsignature_tooltip;
 }
 void OAIEzsignsignature_ResponseCompound::setTEzsignsignatureTooltip(const QString &t_ezsignsignature_tooltip) {
-    this->t_ezsignsignature_tooltip = t_ezsignsignature_tooltip;
-    this->m_t_ezsignsignature_tooltip_isSet = true;
+    m_t_ezsignsignature_tooltip = t_ezsignsignature_tooltip;
+    m_t_ezsignsignature_tooltip_isSet = true;
 }
 
 bool OAIEzsignsignature_ResponseCompound::is_t_ezsignsignature_tooltip_Set() const{
@@ -486,11 +495,11 @@ bool OAIEzsignsignature_ResponseCompound::is_t_ezsignsignature_tooltip_Valid() c
 }
 
 OAIField_eEzsignsignatureTooltipposition OAIEzsignsignature_ResponseCompound::getEEzsignsignatureTooltipposition() const {
-    return e_ezsignsignature_tooltipposition;
+    return m_e_ezsignsignature_tooltipposition;
 }
 void OAIEzsignsignature_ResponseCompound::setEEzsignsignatureTooltipposition(const OAIField_eEzsignsignatureTooltipposition &e_ezsignsignature_tooltipposition) {
-    this->e_ezsignsignature_tooltipposition = e_ezsignsignature_tooltipposition;
-    this->m_e_ezsignsignature_tooltipposition_isSet = true;
+    m_e_ezsignsignature_tooltipposition = e_ezsignsignature_tooltipposition;
+    m_e_ezsignsignature_tooltipposition_isSet = true;
 }
 
 bool OAIEzsignsignature_ResponseCompound::is_e_ezsignsignature_tooltipposition_Set() const{
@@ -502,11 +511,11 @@ bool OAIEzsignsignature_ResponseCompound::is_e_ezsignsignature_tooltipposition_V
 }
 
 OAIField_eEzsignsignatureFont OAIEzsignsignature_ResponseCompound::getEEzsignsignatureFont() const {
-    return e_ezsignsignature_font;
+    return m_e_ezsignsignature_font;
 }
 void OAIEzsignsignature_ResponseCompound::setEEzsignsignatureFont(const OAIField_eEzsignsignatureFont &e_ezsignsignature_font) {
-    this->e_ezsignsignature_font = e_ezsignsignature_font;
-    this->m_e_ezsignsignature_font_isSet = true;
+    m_e_ezsignsignature_font = e_ezsignsignature_font;
+    m_e_ezsignsignature_font_isSet = true;
 }
 
 bool OAIEzsignsignature_ResponseCompound::is_e_ezsignsignature_font_Set() const{
@@ -518,11 +527,11 @@ bool OAIEzsignsignature_ResponseCompound::is_e_ezsignsignature_font_Valid() cons
 }
 
 qint32 OAIEzsignsignature_ResponseCompound::getIEzsignsignatureValidationstep() const {
-    return i_ezsignsignature_validationstep;
+    return m_i_ezsignsignature_validationstep;
 }
 void OAIEzsignsignature_ResponseCompound::setIEzsignsignatureValidationstep(const qint32 &i_ezsignsignature_validationstep) {
-    this->i_ezsignsignature_validationstep = i_ezsignsignature_validationstep;
-    this->m_i_ezsignsignature_validationstep_isSet = true;
+    m_i_ezsignsignature_validationstep = i_ezsignsignature_validationstep;
+    m_i_ezsignsignature_validationstep_isSet = true;
 }
 
 bool OAIEzsignsignature_ResponseCompound::is_i_ezsignsignature_validationstep_Set() const{
@@ -534,11 +543,11 @@ bool OAIEzsignsignature_ResponseCompound::is_i_ezsignsignature_validationstep_Va
 }
 
 QString OAIEzsignsignature_ResponseCompound::getSEzsignsignatureAttachmentdescription() const {
-    return s_ezsignsignature_attachmentdescription;
+    return m_s_ezsignsignature_attachmentdescription;
 }
 void OAIEzsignsignature_ResponseCompound::setSEzsignsignatureAttachmentdescription(const QString &s_ezsignsignature_attachmentdescription) {
-    this->s_ezsignsignature_attachmentdescription = s_ezsignsignature_attachmentdescription;
-    this->m_s_ezsignsignature_attachmentdescription_isSet = true;
+    m_s_ezsignsignature_attachmentdescription = s_ezsignsignature_attachmentdescription;
+    m_s_ezsignsignature_attachmentdescription_isSet = true;
 }
 
 bool OAIEzsignsignature_ResponseCompound::is_s_ezsignsignature_attachmentdescription_Set() const{
@@ -550,11 +559,11 @@ bool OAIEzsignsignature_ResponseCompound::is_s_ezsignsignature_attachmentdescrip
 }
 
 OAIField_eEzsignsignatureAttachmentnamesource OAIEzsignsignature_ResponseCompound::getEEzsignsignatureAttachmentnamesource() const {
-    return e_ezsignsignature_attachmentnamesource;
+    return m_e_ezsignsignature_attachmentnamesource;
 }
 void OAIEzsignsignature_ResponseCompound::setEEzsignsignatureAttachmentnamesource(const OAIField_eEzsignsignatureAttachmentnamesource &e_ezsignsignature_attachmentnamesource) {
-    this->e_ezsignsignature_attachmentnamesource = e_ezsignsignature_attachmentnamesource;
-    this->m_e_ezsignsignature_attachmentnamesource_isSet = true;
+    m_e_ezsignsignature_attachmentnamesource = e_ezsignsignature_attachmentnamesource;
+    m_e_ezsignsignature_attachmentnamesource_isSet = true;
 }
 
 bool OAIEzsignsignature_ResponseCompound::is_e_ezsignsignature_attachmentnamesource_Set() const{
@@ -566,11 +575,11 @@ bool OAIEzsignsignature_ResponseCompound::is_e_ezsignsignature_attachmentnamesou
 }
 
 bool OAIEzsignsignature_ResponseCompound::isBEzsignsignatureRequired() const {
-    return b_ezsignsignature_required;
+    return m_b_ezsignsignature_required;
 }
 void OAIEzsignsignature_ResponseCompound::setBEzsignsignatureRequired(const bool &b_ezsignsignature_required) {
-    this->b_ezsignsignature_required = b_ezsignsignature_required;
-    this->m_b_ezsignsignature_required_isSet = true;
+    m_b_ezsignsignature_required = b_ezsignsignature_required;
+    m_b_ezsignsignature_required_isSet = true;
 }
 
 bool OAIEzsignsignature_ResponseCompound::is_b_ezsignsignature_required_Set() const{
@@ -582,11 +591,11 @@ bool OAIEzsignsignature_ResponseCompound::is_b_ezsignsignature_required_Valid() 
 }
 
 qint32 OAIEzsignsignature_ResponseCompound::getFkiEzsignfoldersignerassociationIdValidation() const {
-    return fki_ezsignfoldersignerassociation_id_validation;
+    return m_fki_ezsignfoldersignerassociation_id_validation;
 }
 void OAIEzsignsignature_ResponseCompound::setFkiEzsignfoldersignerassociationIdValidation(const qint32 &fki_ezsignfoldersignerassociation_id_validation) {
-    this->fki_ezsignfoldersignerassociation_id_validation = fki_ezsignfoldersignerassociation_id_validation;
-    this->m_fki_ezsignfoldersignerassociation_id_validation_isSet = true;
+    m_fki_ezsignfoldersignerassociation_id_validation = fki_ezsignfoldersignerassociation_id_validation;
+    m_fki_ezsignfoldersignerassociation_id_validation_isSet = true;
 }
 
 bool OAIEzsignsignature_ResponseCompound::is_fki_ezsignfoldersignerassociation_id_validation_Set() const{
@@ -598,11 +607,11 @@ bool OAIEzsignsignature_ResponseCompound::is_fki_ezsignfoldersignerassociation_i
 }
 
 QString OAIEzsignsignature_ResponseCompound::getDtEzsignsignatureDate() const {
-    return dt_ezsignsignature_date;
+    return m_dt_ezsignsignature_date;
 }
 void OAIEzsignsignature_ResponseCompound::setDtEzsignsignatureDate(const QString &dt_ezsignsignature_date) {
-    this->dt_ezsignsignature_date = dt_ezsignsignature_date;
-    this->m_dt_ezsignsignature_date_isSet = true;
+    m_dt_ezsignsignature_date = dt_ezsignsignature_date;
+    m_dt_ezsignsignature_date_isSet = true;
 }
 
 bool OAIEzsignsignature_ResponseCompound::is_dt_ezsignsignature_date_Set() const{
@@ -614,11 +623,11 @@ bool OAIEzsignsignature_ResponseCompound::is_dt_ezsignsignature_date_Valid() con
 }
 
 qint32 OAIEzsignsignature_ResponseCompound::getIEzsignsignatureattachmentCount() const {
-    return i_ezsignsignatureattachment_count;
+    return m_i_ezsignsignatureattachment_count;
 }
 void OAIEzsignsignature_ResponseCompound::setIEzsignsignatureattachmentCount(const qint32 &i_ezsignsignatureattachment_count) {
-    this->i_ezsignsignatureattachment_count = i_ezsignsignatureattachment_count;
-    this->m_i_ezsignsignatureattachment_count_isSet = true;
+    m_i_ezsignsignatureattachment_count = i_ezsignsignatureattachment_count;
+    m_i_ezsignsignatureattachment_count_isSet = true;
 }
 
 bool OAIEzsignsignature_ResponseCompound::is_i_ezsignsignatureattachment_count_Set() const{
@@ -630,11 +639,11 @@ bool OAIEzsignsignature_ResponseCompound::is_i_ezsignsignatureattachment_count_V
 }
 
 QString OAIEzsignsignature_ResponseCompound::getSEzsignsignatureDescription() const {
-    return s_ezsignsignature_description;
+    return m_s_ezsignsignature_description;
 }
 void OAIEzsignsignature_ResponseCompound::setSEzsignsignatureDescription(const QString &s_ezsignsignature_description) {
-    this->s_ezsignsignature_description = s_ezsignsignature_description;
-    this->m_s_ezsignsignature_description_isSet = true;
+    m_s_ezsignsignature_description = s_ezsignsignature_description;
+    m_s_ezsignsignature_description_isSet = true;
 }
 
 bool OAIEzsignsignature_ResponseCompound::is_s_ezsignsignature_description_Set() const{
@@ -645,12 +654,28 @@ bool OAIEzsignsignature_ResponseCompound::is_s_ezsignsignature_description_Valid
     return m_s_ezsignsignature_description_isValid;
 }
 
+qint32 OAIEzsignsignature_ResponseCompound::getIEzsignsignatureMaxlength() const {
+    return m_i_ezsignsignature_maxlength;
+}
+void OAIEzsignsignature_ResponseCompound::setIEzsignsignatureMaxlength(const qint32 &i_ezsignsignature_maxlength) {
+    m_i_ezsignsignature_maxlength = i_ezsignsignature_maxlength;
+    m_i_ezsignsignature_maxlength_isSet = true;
+}
+
+bool OAIEzsignsignature_ResponseCompound::is_i_ezsignsignature_maxlength_Set() const{
+    return m_i_ezsignsignature_maxlength_isSet;
+}
+
+bool OAIEzsignsignature_ResponseCompound::is_i_ezsignsignature_maxlength_Valid() const{
+    return m_i_ezsignsignature_maxlength_isValid;
+}
+
 OAIEnum_Textvalidation OAIEzsignsignature_ResponseCompound::getEEzsignsignatureTextvalidation() const {
-    return e_ezsignsignature_textvalidation;
+    return m_e_ezsignsignature_textvalidation;
 }
 void OAIEzsignsignature_ResponseCompound::setEEzsignsignatureTextvalidation(const OAIEnum_Textvalidation &e_ezsignsignature_textvalidation) {
-    this->e_ezsignsignature_textvalidation = e_ezsignsignature_textvalidation;
-    this->m_e_ezsignsignature_textvalidation_isSet = true;
+    m_e_ezsignsignature_textvalidation = e_ezsignsignature_textvalidation;
+    m_e_ezsignsignature_textvalidation_isSet = true;
 }
 
 bool OAIEzsignsignature_ResponseCompound::is_e_ezsignsignature_textvalidation_Set() const{
@@ -662,11 +687,11 @@ bool OAIEzsignsignature_ResponseCompound::is_e_ezsignsignature_textvalidation_Va
 }
 
 QString OAIEzsignsignature_ResponseCompound::getSEzsignsignatureRegexp() const {
-    return s_ezsignsignature_regexp;
+    return m_s_ezsignsignature_regexp;
 }
 void OAIEzsignsignature_ResponseCompound::setSEzsignsignatureRegexp(const QString &s_ezsignsignature_regexp) {
-    this->s_ezsignsignature_regexp = s_ezsignsignature_regexp;
-    this->m_s_ezsignsignature_regexp_isSet = true;
+    m_s_ezsignsignature_regexp = s_ezsignsignature_regexp;
+    m_s_ezsignsignature_regexp_isSet = true;
 }
 
 bool OAIEzsignsignature_ResponseCompound::is_s_ezsignsignature_regexp_Set() const{
@@ -678,11 +703,11 @@ bool OAIEzsignsignature_ResponseCompound::is_s_ezsignsignature_regexp_Valid() co
 }
 
 OAICustom_ContactName_Response OAIEzsignsignature_ResponseCompound::getObjContactName() const {
-    return obj_contact_name;
+    return m_obj_contact_name;
 }
 void OAIEzsignsignature_ResponseCompound::setObjContactName(const OAICustom_ContactName_Response &obj_contact_name) {
-    this->obj_contact_name = obj_contact_name;
-    this->m_obj_contact_name_isSet = true;
+    m_obj_contact_name = obj_contact_name;
+    m_obj_contact_name_isSet = true;
 }
 
 bool OAIEzsignsignature_ResponseCompound::is_obj_contact_name_Set() const{
@@ -694,11 +719,11 @@ bool OAIEzsignsignature_ResponseCompound::is_obj_contact_name_Valid() const{
 }
 
 OAISignature_ResponseCompound OAIEzsignsignature_ResponseCompound::getObjSignature() const {
-    return obj_signature;
+    return m_obj_signature;
 }
 void OAIEzsignsignature_ResponseCompound::setObjSignature(const OAISignature_ResponseCompound &obj_signature) {
-    this->obj_signature = obj_signature;
-    this->m_obj_signature_isSet = true;
+    m_obj_signature = obj_signature;
+    m_obj_signature_isSet = true;
 }
 
 bool OAIEzsignsignature_ResponseCompound::is_obj_signature_Set() const{
@@ -710,11 +735,11 @@ bool OAIEzsignsignature_ResponseCompound::is_obj_signature_Valid() const{
 }
 
 bool OAIEzsignsignature_ResponseCompound::isBEzsignsignatureCustomdate() const {
-    return b_ezsignsignature_customdate;
+    return m_b_ezsignsignature_customdate;
 }
 void OAIEzsignsignature_ResponseCompound::setBEzsignsignatureCustomdate(const bool &b_ezsignsignature_customdate) {
-    this->b_ezsignsignature_customdate = b_ezsignsignature_customdate;
-    this->m_b_ezsignsignature_customdate_isSet = true;
+    m_b_ezsignsignature_customdate = b_ezsignsignature_customdate;
+    m_b_ezsignsignature_customdate_isSet = true;
 }
 
 bool OAIEzsignsignature_ResponseCompound::is_b_ezsignsignature_customdate_Set() const{
@@ -726,11 +751,11 @@ bool OAIEzsignsignature_ResponseCompound::is_b_ezsignsignature_customdate_Valid(
 }
 
 QList<OAIEzsignsignaturecustomdate_ResponseCompound> OAIEzsignsignature_ResponseCompound::getAObjEzsignsignaturecustomdate() const {
-    return a_obj_ezsignsignaturecustomdate;
+    return m_a_obj_ezsignsignaturecustomdate;
 }
 void OAIEzsignsignature_ResponseCompound::setAObjEzsignsignaturecustomdate(const QList<OAIEzsignsignaturecustomdate_ResponseCompound> &a_obj_ezsignsignaturecustomdate) {
-    this->a_obj_ezsignsignaturecustomdate = a_obj_ezsignsignaturecustomdate;
-    this->m_a_obj_ezsignsignaturecustomdate_isSet = true;
+    m_a_obj_ezsignsignaturecustomdate = a_obj_ezsignsignaturecustomdate;
+    m_a_obj_ezsignsignaturecustomdate_isSet = true;
 }
 
 bool OAIEzsignsignature_ResponseCompound::is_a_obj_ezsignsignaturecustomdate_Set() const{
@@ -742,11 +767,11 @@ bool OAIEzsignsignature_ResponseCompound::is_a_obj_ezsignsignaturecustomdate_Val
 }
 
 OAICustom_Creditcardtransaction_Response OAIEzsignsignature_ResponseCompound::getObjCreditcardtransaction() const {
-    return obj_creditcardtransaction;
+    return m_obj_creditcardtransaction;
 }
 void OAIEzsignsignature_ResponseCompound::setObjCreditcardtransaction(const OAICustom_Creditcardtransaction_Response &obj_creditcardtransaction) {
-    this->obj_creditcardtransaction = obj_creditcardtransaction;
-    this->m_obj_creditcardtransaction_isSet = true;
+    m_obj_creditcardtransaction = obj_creditcardtransaction;
+    m_obj_creditcardtransaction_isSet = true;
 }
 
 bool OAIEzsignsignature_ResponseCompound::is_obj_creditcardtransaction_Set() const{
@@ -805,7 +830,7 @@ bool OAIEzsignsignature_ResponseCompound::isSet() const {
             break;
         }
 
-        if (e_ezsignsignature_type.isSet()) {
+        if (m_e_ezsignsignature_type.isSet()) {
             isObjectUpdated = true;
             break;
         }
@@ -815,12 +840,12 @@ bool OAIEzsignsignature_ResponseCompound::isSet() const {
             break;
         }
 
-        if (e_ezsignsignature_tooltipposition.isSet()) {
+        if (m_e_ezsignsignature_tooltipposition.isSet()) {
             isObjectUpdated = true;
             break;
         }
 
-        if (e_ezsignsignature_font.isSet()) {
+        if (m_e_ezsignsignature_font.isSet()) {
             isObjectUpdated = true;
             break;
         }
@@ -835,7 +860,7 @@ bool OAIEzsignsignature_ResponseCompound::isSet() const {
             break;
         }
 
-        if (e_ezsignsignature_attachmentnamesource.isSet()) {
+        if (m_e_ezsignsignature_attachmentnamesource.isSet()) {
             isObjectUpdated = true;
             break;
         }
@@ -865,7 +890,12 @@ bool OAIEzsignsignature_ResponseCompound::isSet() const {
             break;
         }
 
-        if (e_ezsignsignature_textvalidation.isSet()) {
+        if (m_i_ezsignsignature_maxlength_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_e_ezsignsignature_textvalidation.isSet()) {
             isObjectUpdated = true;
             break;
         }
@@ -875,12 +905,12 @@ bool OAIEzsignsignature_ResponseCompound::isSet() const {
             break;
         }
 
-        if (obj_contact_name.isSet()) {
+        if (m_obj_contact_name.isSet()) {
             isObjectUpdated = true;
             break;
         }
 
-        if (obj_signature.isSet()) {
+        if (m_obj_signature.isSet()) {
             isObjectUpdated = true;
             break;
         }
@@ -890,12 +920,12 @@ bool OAIEzsignsignature_ResponseCompound::isSet() const {
             break;
         }
 
-        if (a_obj_ezsignsignaturecustomdate.size() > 0) {
+        if (m_a_obj_ezsignsignaturecustomdate.size() > 0) {
             isObjectUpdated = true;
             break;
         }
 
-        if (obj_creditcardtransaction.isSet()) {
+        if (m_obj_creditcardtransaction.isSet()) {
             isObjectUpdated = true;
             break;
         }

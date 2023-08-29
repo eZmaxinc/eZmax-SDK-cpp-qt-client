@@ -47,7 +47,7 @@ void OAIEzsigntemplatedocument_getEzsigntemplatedocumentpages_v1_Response_mPaylo
 
 void OAIEzsigntemplatedocument_getEzsigntemplatedocumentpages_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_ezsigntemplatedocumentpage_isValid = ::OpenAPI::fromJsonValue(a_obj_ezsigntemplatedocumentpage, json[QString("a_objEzsigntemplatedocumentpage")]);
+    m_a_obj_ezsigntemplatedocumentpage_isValid = ::OpenAPI::fromJsonValue(m_a_obj_ezsigntemplatedocumentpage, json[QString("a_objEzsigntemplatedocumentpage")]);
     m_a_obj_ezsigntemplatedocumentpage_isSet = !json[QString("a_objEzsigntemplatedocumentpage")].isNull() && m_a_obj_ezsigntemplatedocumentpage_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIEzsigntemplatedocument_getEzsigntemplatedocumentpages_v1_Response_mPa
 
 QJsonObject OAIEzsigntemplatedocument_getEzsigntemplatedocumentpages_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_ezsigntemplatedocumentpage.size() > 0) {
-        obj.insert(QString("a_objEzsigntemplatedocumentpage"), ::OpenAPI::toJsonValue(a_obj_ezsigntemplatedocumentpage));
+    if (m_a_obj_ezsigntemplatedocumentpage.size() > 0) {
+        obj.insert(QString("a_objEzsigntemplatedocumentpage"), ::OpenAPI::toJsonValue(m_a_obj_ezsigntemplatedocumentpage));
     }
     return obj;
 }
 
 QList<OAIEzsigntemplatedocumentpage_ResponseCompound> OAIEzsigntemplatedocument_getEzsigntemplatedocumentpages_v1_Response_mPayload::getAObjEzsigntemplatedocumentpage() const {
-    return a_obj_ezsigntemplatedocumentpage;
+    return m_a_obj_ezsigntemplatedocumentpage;
 }
 void OAIEzsigntemplatedocument_getEzsigntemplatedocumentpages_v1_Response_mPayload::setAObjEzsigntemplatedocumentpage(const QList<OAIEzsigntemplatedocumentpage_ResponseCompound> &a_obj_ezsigntemplatedocumentpage) {
-    this->a_obj_ezsigntemplatedocumentpage = a_obj_ezsigntemplatedocumentpage;
-    this->m_a_obj_ezsigntemplatedocumentpage_isSet = true;
+    m_a_obj_ezsigntemplatedocumentpage = a_obj_ezsigntemplatedocumentpage;
+    m_a_obj_ezsigntemplatedocumentpage_isSet = true;
 }
 
 bool OAIEzsigntemplatedocument_getEzsigntemplatedocumentpages_v1_Response_mPayload::is_a_obj_ezsigntemplatedocumentpage_Set() const{
@@ -85,7 +85,7 @@ bool OAIEzsigntemplatedocument_getEzsigntemplatedocumentpages_v1_Response_mPaylo
 bool OAIEzsigntemplatedocument_getEzsigntemplatedocumentpages_v1_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_ezsigntemplatedocumentpage.size() > 0) {
+        if (m_a_obj_ezsigntemplatedocumentpage.size() > 0) {
             isObjectUpdated = true;
             break;
         }

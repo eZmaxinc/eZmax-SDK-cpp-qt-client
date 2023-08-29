@@ -59,19 +59,19 @@ void OAIEzsignsigner_Request::fromJson(QString jsonString) {
 
 void OAIEzsignsigner_Request::fromJsonObject(QJsonObject json) {
 
-    m_fki_userlogintype_id_isValid = ::OpenAPI::fromJsonValue(fki_userlogintype_id, json[QString("fkiUserlogintypeID")]);
+    m_fki_userlogintype_id_isValid = ::OpenAPI::fromJsonValue(m_fki_userlogintype_id, json[QString("fkiUserlogintypeID")]);
     m_fki_userlogintype_id_isSet = !json[QString("fkiUserlogintypeID")].isNull() && m_fki_userlogintype_id_isValid;
 
-    m_fki_taxassignment_id_isValid = ::OpenAPI::fromJsonValue(fki_taxassignment_id, json[QString("fkiTaxassignmentID")]);
+    m_fki_taxassignment_id_isValid = ::OpenAPI::fromJsonValue(m_fki_taxassignment_id, json[QString("fkiTaxassignmentID")]);
     m_fki_taxassignment_id_isSet = !json[QString("fkiTaxassignmentID")].isNull() && m_fki_taxassignment_id_isValid;
 
-    m_fki_secretquestion_id_isValid = ::OpenAPI::fromJsonValue(fki_secretquestion_id, json[QString("fkiSecretquestionID")]);
+    m_fki_secretquestion_id_isValid = ::OpenAPI::fromJsonValue(m_fki_secretquestion_id, json[QString("fkiSecretquestionID")]);
     m_fki_secretquestion_id_isSet = !json[QString("fkiSecretquestionID")].isNull() && m_fki_secretquestion_id_isValid;
 
-    m_e_ezsignsigner_logintype_isValid = ::OpenAPI::fromJsonValue(e_ezsignsigner_logintype, json[QString("eEzsignsignerLogintype")]);
+    m_e_ezsignsigner_logintype_isValid = ::OpenAPI::fromJsonValue(m_e_ezsignsigner_logintype, json[QString("eEzsignsignerLogintype")]);
     m_e_ezsignsigner_logintype_isSet = !json[QString("eEzsignsignerLogintype")].isNull() && m_e_ezsignsigner_logintype_isValid;
 
-    m_s_ezsignsigner_secretanswer_isValid = ::OpenAPI::fromJsonValue(s_ezsignsigner_secretanswer, json[QString("sEzsignsignerSecretanswer")]);
+    m_s_ezsignsigner_secretanswer_isValid = ::OpenAPI::fromJsonValue(m_s_ezsignsigner_secretanswer, json[QString("sEzsignsignerSecretanswer")]);
     m_s_ezsignsigner_secretanswer_isSet = !json[QString("sEzsignsignerSecretanswer")].isNull() && m_s_ezsignsigner_secretanswer_isValid;
 }
 
@@ -85,29 +85,29 @@ QString OAIEzsignsigner_Request::asJson() const {
 QJsonObject OAIEzsignsigner_Request::asJsonObject() const {
     QJsonObject obj;
     if (m_fki_userlogintype_id_isSet) {
-        obj.insert(QString("fkiUserlogintypeID"), ::OpenAPI::toJsonValue(fki_userlogintype_id));
+        obj.insert(QString("fkiUserlogintypeID"), ::OpenAPI::toJsonValue(m_fki_userlogintype_id));
     }
     if (m_fki_taxassignment_id_isSet) {
-        obj.insert(QString("fkiTaxassignmentID"), ::OpenAPI::toJsonValue(fki_taxassignment_id));
+        obj.insert(QString("fkiTaxassignmentID"), ::OpenAPI::toJsonValue(m_fki_taxassignment_id));
     }
     if (m_fki_secretquestion_id_isSet) {
-        obj.insert(QString("fkiSecretquestionID"), ::OpenAPI::toJsonValue(fki_secretquestion_id));
+        obj.insert(QString("fkiSecretquestionID"), ::OpenAPI::toJsonValue(m_fki_secretquestion_id));
     }
     if (m_e_ezsignsigner_logintype_isSet) {
-        obj.insert(QString("eEzsignsignerLogintype"), ::OpenAPI::toJsonValue(e_ezsignsigner_logintype));
+        obj.insert(QString("eEzsignsignerLogintype"), ::OpenAPI::toJsonValue(m_e_ezsignsigner_logintype));
     }
     if (m_s_ezsignsigner_secretanswer_isSet) {
-        obj.insert(QString("sEzsignsignerSecretanswer"), ::OpenAPI::toJsonValue(s_ezsignsigner_secretanswer));
+        obj.insert(QString("sEzsignsignerSecretanswer"), ::OpenAPI::toJsonValue(m_s_ezsignsigner_secretanswer));
     }
     return obj;
 }
 
 qint32 OAIEzsignsigner_Request::getFkiUserlogintypeId() const {
-    return fki_userlogintype_id;
+    return m_fki_userlogintype_id;
 }
 void OAIEzsignsigner_Request::setFkiUserlogintypeId(const qint32 &fki_userlogintype_id) {
-    this->fki_userlogintype_id = fki_userlogintype_id;
-    this->m_fki_userlogintype_id_isSet = true;
+    m_fki_userlogintype_id = fki_userlogintype_id;
+    m_fki_userlogintype_id_isSet = true;
 }
 
 bool OAIEzsignsigner_Request::is_fki_userlogintype_id_Set() const{
@@ -119,11 +119,11 @@ bool OAIEzsignsigner_Request::is_fki_userlogintype_id_Valid() const{
 }
 
 qint32 OAIEzsignsigner_Request::getFkiTaxassignmentId() const {
-    return fki_taxassignment_id;
+    return m_fki_taxassignment_id;
 }
 void OAIEzsignsigner_Request::setFkiTaxassignmentId(const qint32 &fki_taxassignment_id) {
-    this->fki_taxassignment_id = fki_taxassignment_id;
-    this->m_fki_taxassignment_id_isSet = true;
+    m_fki_taxassignment_id = fki_taxassignment_id;
+    m_fki_taxassignment_id_isSet = true;
 }
 
 bool OAIEzsignsigner_Request::is_fki_taxassignment_id_Set() const{
@@ -135,11 +135,11 @@ bool OAIEzsignsigner_Request::is_fki_taxassignment_id_Valid() const{
 }
 
 qint32 OAIEzsignsigner_Request::getFkiSecretquestionId() const {
-    return fki_secretquestion_id;
+    return m_fki_secretquestion_id;
 }
 void OAIEzsignsigner_Request::setFkiSecretquestionId(const qint32 &fki_secretquestion_id) {
-    this->fki_secretquestion_id = fki_secretquestion_id;
-    this->m_fki_secretquestion_id_isSet = true;
+    m_fki_secretquestion_id = fki_secretquestion_id;
+    m_fki_secretquestion_id_isSet = true;
 }
 
 bool OAIEzsignsigner_Request::is_fki_secretquestion_id_Set() const{
@@ -151,11 +151,11 @@ bool OAIEzsignsigner_Request::is_fki_secretquestion_id_Valid() const{
 }
 
 QString OAIEzsignsigner_Request::getEEzsignsignerLogintype() const {
-    return e_ezsignsigner_logintype;
+    return m_e_ezsignsigner_logintype;
 }
 void OAIEzsignsigner_Request::setEEzsignsignerLogintype(const QString &e_ezsignsigner_logintype) {
-    this->e_ezsignsigner_logintype = e_ezsignsigner_logintype;
-    this->m_e_ezsignsigner_logintype_isSet = true;
+    m_e_ezsignsigner_logintype = e_ezsignsigner_logintype;
+    m_e_ezsignsigner_logintype_isSet = true;
 }
 
 bool OAIEzsignsigner_Request::is_e_ezsignsigner_logintype_Set() const{
@@ -167,11 +167,11 @@ bool OAIEzsignsigner_Request::is_e_ezsignsigner_logintype_Valid() const{
 }
 
 QString OAIEzsignsigner_Request::getSEzsignsignerSecretanswer() const {
-    return s_ezsignsigner_secretanswer;
+    return m_s_ezsignsigner_secretanswer;
 }
 void OAIEzsignsigner_Request::setSEzsignsignerSecretanswer(const QString &s_ezsignsigner_secretanswer) {
-    this->s_ezsignsigner_secretanswer = s_ezsignsigner_secretanswer;
-    this->m_s_ezsignsigner_secretanswer_isSet = true;
+    m_s_ezsignsigner_secretanswer = s_ezsignsigner_secretanswer;
+    m_s_ezsignsigner_secretanswer_isSet = true;
 }
 
 bool OAIEzsignsigner_Request::is_s_ezsignsigner_secretanswer_Set() const{

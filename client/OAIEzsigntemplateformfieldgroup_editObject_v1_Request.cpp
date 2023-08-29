@@ -47,7 +47,7 @@ void OAIEzsigntemplateformfieldgroup_editObject_v1_Request::fromJson(QString jso
 
 void OAIEzsigntemplateformfieldgroup_editObject_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_obj_ezsigntemplateformfieldgroup_isValid = ::OpenAPI::fromJsonValue(obj_ezsigntemplateformfieldgroup, json[QString("objEzsigntemplateformfieldgroup")]);
+    m_obj_ezsigntemplateformfieldgroup_isValid = ::OpenAPI::fromJsonValue(m_obj_ezsigntemplateformfieldgroup, json[QString("objEzsigntemplateformfieldgroup")]);
     m_obj_ezsigntemplateformfieldgroup_isSet = !json[QString("objEzsigntemplateformfieldgroup")].isNull() && m_obj_ezsigntemplateformfieldgroup_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIEzsigntemplateformfieldgroup_editObject_v1_Request::asJson() const {
 
 QJsonObject OAIEzsigntemplateformfieldgroup_editObject_v1_Request::asJsonObject() const {
     QJsonObject obj;
-    if (obj_ezsigntemplateformfieldgroup.isSet()) {
-        obj.insert(QString("objEzsigntemplateformfieldgroup"), ::OpenAPI::toJsonValue(obj_ezsigntemplateformfieldgroup));
+    if (m_obj_ezsigntemplateformfieldgroup.isSet()) {
+        obj.insert(QString("objEzsigntemplateformfieldgroup"), ::OpenAPI::toJsonValue(m_obj_ezsigntemplateformfieldgroup));
     }
     return obj;
 }
 
 OAIEzsigntemplateformfieldgroup_RequestCompound OAIEzsigntemplateformfieldgroup_editObject_v1_Request::getObjEzsigntemplateformfieldgroup() const {
-    return obj_ezsigntemplateformfieldgroup;
+    return m_obj_ezsigntemplateformfieldgroup;
 }
 void OAIEzsigntemplateformfieldgroup_editObject_v1_Request::setObjEzsigntemplateformfieldgroup(const OAIEzsigntemplateformfieldgroup_RequestCompound &obj_ezsigntemplateformfieldgroup) {
-    this->obj_ezsigntemplateformfieldgroup = obj_ezsigntemplateformfieldgroup;
-    this->m_obj_ezsigntemplateformfieldgroup_isSet = true;
+    m_obj_ezsigntemplateformfieldgroup = obj_ezsigntemplateformfieldgroup;
+    m_obj_ezsigntemplateformfieldgroup_isSet = true;
 }
 
 bool OAIEzsigntemplateformfieldgroup_editObject_v1_Request::is_obj_ezsigntemplateformfieldgroup_Set() const{
@@ -85,7 +85,7 @@ bool OAIEzsigntemplateformfieldgroup_editObject_v1_Request::is_obj_ezsigntemplat
 bool OAIEzsigntemplateformfieldgroup_editObject_v1_Request::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (obj_ezsigntemplateformfieldgroup.isSet()) {
+        if (m_obj_ezsigntemplateformfieldgroup.isSet()) {
             isObjectUpdated = true;
             break;
         }

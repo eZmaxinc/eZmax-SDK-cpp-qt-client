@@ -50,10 +50,10 @@ void OAIEzsigndocument_getCompletedElements_v1_Response_mPayload::fromJson(QStri
 
 void OAIEzsigndocument_getCompletedElements_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_ezsignsignature_isValid = ::OpenAPI::fromJsonValue(a_obj_ezsignsignature, json[QString("a_objEzsignsignature")]);
+    m_a_obj_ezsignsignature_isValid = ::OpenAPI::fromJsonValue(m_a_obj_ezsignsignature, json[QString("a_objEzsignsignature")]);
     m_a_obj_ezsignsignature_isSet = !json[QString("a_objEzsignsignature")].isNull() && m_a_obj_ezsignsignature_isValid;
 
-    m_a_obj_ezsignformfieldgroup_isValid = ::OpenAPI::fromJsonValue(a_obj_ezsignformfieldgroup, json[QString("a_objEzsignformfieldgroup")]);
+    m_a_obj_ezsignformfieldgroup_isValid = ::OpenAPI::fromJsonValue(m_a_obj_ezsignformfieldgroup, json[QString("a_objEzsignformfieldgroup")]);
     m_a_obj_ezsignformfieldgroup_isSet = !json[QString("a_objEzsignformfieldgroup")].isNull() && m_a_obj_ezsignformfieldgroup_isValid;
 }
 
@@ -66,21 +66,21 @@ QString OAIEzsigndocument_getCompletedElements_v1_Response_mPayload::asJson() co
 
 QJsonObject OAIEzsigndocument_getCompletedElements_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_ezsignsignature.size() > 0) {
-        obj.insert(QString("a_objEzsignsignature"), ::OpenAPI::toJsonValue(a_obj_ezsignsignature));
+    if (m_a_obj_ezsignsignature.size() > 0) {
+        obj.insert(QString("a_objEzsignsignature"), ::OpenAPI::toJsonValue(m_a_obj_ezsignsignature));
     }
-    if (a_obj_ezsignformfieldgroup.size() > 0) {
-        obj.insert(QString("a_objEzsignformfieldgroup"), ::OpenAPI::toJsonValue(a_obj_ezsignformfieldgroup));
+    if (m_a_obj_ezsignformfieldgroup.size() > 0) {
+        obj.insert(QString("a_objEzsignformfieldgroup"), ::OpenAPI::toJsonValue(m_a_obj_ezsignformfieldgroup));
     }
     return obj;
 }
 
 QList<OAIEzsignsignature_ResponseCompound> OAIEzsigndocument_getCompletedElements_v1_Response_mPayload::getAObjEzsignsignature() const {
-    return a_obj_ezsignsignature;
+    return m_a_obj_ezsignsignature;
 }
 void OAIEzsigndocument_getCompletedElements_v1_Response_mPayload::setAObjEzsignsignature(const QList<OAIEzsignsignature_ResponseCompound> &a_obj_ezsignsignature) {
-    this->a_obj_ezsignsignature = a_obj_ezsignsignature;
-    this->m_a_obj_ezsignsignature_isSet = true;
+    m_a_obj_ezsignsignature = a_obj_ezsignsignature;
+    m_a_obj_ezsignsignature_isSet = true;
 }
 
 bool OAIEzsigndocument_getCompletedElements_v1_Response_mPayload::is_a_obj_ezsignsignature_Set() const{
@@ -92,11 +92,11 @@ bool OAIEzsigndocument_getCompletedElements_v1_Response_mPayload::is_a_obj_ezsig
 }
 
 QList<OAIEzsignformfieldgroup_ResponseCompound> OAIEzsigndocument_getCompletedElements_v1_Response_mPayload::getAObjEzsignformfieldgroup() const {
-    return a_obj_ezsignformfieldgroup;
+    return m_a_obj_ezsignformfieldgroup;
 }
 void OAIEzsigndocument_getCompletedElements_v1_Response_mPayload::setAObjEzsignformfieldgroup(const QList<OAIEzsignformfieldgroup_ResponseCompound> &a_obj_ezsignformfieldgroup) {
-    this->a_obj_ezsignformfieldgroup = a_obj_ezsignformfieldgroup;
-    this->m_a_obj_ezsignformfieldgroup_isSet = true;
+    m_a_obj_ezsignformfieldgroup = a_obj_ezsignformfieldgroup;
+    m_a_obj_ezsignformfieldgroup_isSet = true;
 }
 
 bool OAIEzsigndocument_getCompletedElements_v1_Response_mPayload::is_a_obj_ezsignformfieldgroup_Set() const{
@@ -110,12 +110,12 @@ bool OAIEzsigndocument_getCompletedElements_v1_Response_mPayload::is_a_obj_ezsig
 bool OAIEzsigndocument_getCompletedElements_v1_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_ezsignsignature.size() > 0) {
+        if (m_a_obj_ezsignsignature.size() > 0) {
             isObjectUpdated = true;
             break;
         }
 
-        if (a_obj_ezsignformfieldgroup.size() > 0) {
+        if (m_a_obj_ezsignformfieldgroup.size() > 0) {
             isObjectUpdated = true;
             break;
         }

@@ -101,43 +101,43 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_ezsignfoldersignerassociation_id;
+    qint32 m_pki_ezsignfoldersignerassociation_id;
     bool m_pki_ezsignfoldersignerassociation_id_isSet;
     bool m_pki_ezsignfoldersignerassociation_id_isValid;
 
-    qint32 fki_ezsignfolder_id;
+    qint32 m_fki_ezsignfolder_id;
     bool m_fki_ezsignfolder_id_isSet;
     bool m_fki_ezsignfolder_id_isValid;
 
-    bool b_ezsignfoldersignerassociation_delayedsend;
+    bool m_b_ezsignfoldersignerassociation_delayedsend;
     bool m_b_ezsignfoldersignerassociation_delayedsend_isSet;
     bool m_b_ezsignfoldersignerassociation_delayedsend_isValid;
 
-    bool b_ezsignfoldersignerassociation_receivecopy;
+    bool m_b_ezsignfoldersignerassociation_receivecopy;
     bool m_b_ezsignfoldersignerassociation_receivecopy_isSet;
     bool m_b_ezsignfoldersignerassociation_receivecopy_isValid;
 
-    QString t_ezsignfoldersignerassociation_message;
+    QString m_t_ezsignfoldersignerassociation_message;
     bool m_t_ezsignfoldersignerassociation_message_isSet;
     bool m_t_ezsignfoldersignerassociation_message_isValid;
 
-    OAIEzsignsignergroup_ResponseCompound obj_ezsignsignergroup;
+    OAIEzsignsignergroup_ResponseCompound m_obj_ezsignsignergroup;
     bool m_obj_ezsignsignergroup_isSet;
     bool m_obj_ezsignsignergroup_isValid;
 
-    OAIEzsignfoldersignerassociation_ResponseCompound_User obj_user;
+    OAIEzsignfoldersignerassociation_ResponseCompound_User m_obj_user;
     bool m_obj_user_isSet;
     bool m_obj_user_isValid;
 
-    OAIEzsignsigner_ResponseCompound obj_ezsignsigner;
+    OAIEzsignsigner_ResponseCompound m_obj_ezsignsigner;
     bool m_obj_ezsignsigner_isSet;
     bool m_obj_ezsignsigner_isValid;
 
-    bool b_ezsignfoldersignerassociation_hasactionableelements_current;
+    bool m_b_ezsignfoldersignerassociation_hasactionableelements_current;
     bool m_b_ezsignfoldersignerassociation_hasactionableelements_current_isSet;
     bool m_b_ezsignfoldersignerassociation_hasactionableelements_current_isValid;
 
-    bool b_ezsignfoldersignerassociation_hasactionableelements_future;
+    bool m_b_ezsignfoldersignerassociation_hasactionableelements_future;
     bool m_b_ezsignfoldersignerassociation_hasactionableelements_future_isSet;
     bool m_b_ezsignfoldersignerassociation_hasactionableelements_future_isValid;
 };

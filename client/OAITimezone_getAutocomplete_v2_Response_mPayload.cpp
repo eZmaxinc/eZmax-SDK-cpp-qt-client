@@ -47,7 +47,7 @@ void OAITimezone_getAutocomplete_v2_Response_mPayload::fromJson(QString jsonStri
 
 void OAITimezone_getAutocomplete_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_timezone_isValid = ::OpenAPI::fromJsonValue(a_obj_timezone, json[QString("a_objTimezone")]);
+    m_a_obj_timezone_isValid = ::OpenAPI::fromJsonValue(m_a_obj_timezone, json[QString("a_objTimezone")]);
     m_a_obj_timezone_isSet = !json[QString("a_objTimezone")].isNull() && m_a_obj_timezone_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAITimezone_getAutocomplete_v2_Response_mPayload::asJson() const {
 
 QJsonObject OAITimezone_getAutocomplete_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_timezone.size() > 0) {
-        obj.insert(QString("a_objTimezone"), ::OpenAPI::toJsonValue(a_obj_timezone));
+    if (m_a_obj_timezone.size() > 0) {
+        obj.insert(QString("a_objTimezone"), ::OpenAPI::toJsonValue(m_a_obj_timezone));
     }
     return obj;
 }
 
 QList<OAITimezone_AutocompleteElement_Response> OAITimezone_getAutocomplete_v2_Response_mPayload::getAObjTimezone() const {
-    return a_obj_timezone;
+    return m_a_obj_timezone;
 }
 void OAITimezone_getAutocomplete_v2_Response_mPayload::setAObjTimezone(const QList<OAITimezone_AutocompleteElement_Response> &a_obj_timezone) {
-    this->a_obj_timezone = a_obj_timezone;
-    this->m_a_obj_timezone_isSet = true;
+    m_a_obj_timezone = a_obj_timezone;
+    m_a_obj_timezone_isSet = true;
 }
 
 bool OAITimezone_getAutocomplete_v2_Response_mPayload::is_a_obj_timezone_Set() const{
@@ -85,7 +85,7 @@ bool OAITimezone_getAutocomplete_v2_Response_mPayload::is_a_obj_timezone_Valid()
 bool OAITimezone_getAutocomplete_v2_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_timezone.size() > 0) {
+        if (m_a_obj_timezone.size() > 0) {
             isObjectUpdated = true;
             break;
         }

@@ -60,15 +60,15 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_ezsigntemplatesigner_id;
+    qint32 m_pki_ezsigntemplatesigner_id;
     bool m_pki_ezsigntemplatesigner_id_isSet;
     bool m_pki_ezsigntemplatesigner_id_isValid;
 
-    qint32 fki_ezsigntemplate_id;
+    qint32 m_fki_ezsigntemplate_id;
     bool m_fki_ezsigntemplate_id_isSet;
     bool m_fki_ezsigntemplate_id_isValid;
 
-    QString s_ezsigntemplatesigner_description;
+    QString m_s_ezsigntemplatesigner_description;
     bool m_s_ezsigntemplatesigner_description_isSet;
     bool m_s_ezsigntemplatesigner_description_isValid;
 };

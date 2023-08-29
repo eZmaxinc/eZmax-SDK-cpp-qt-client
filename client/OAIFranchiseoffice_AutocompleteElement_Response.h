@@ -60,15 +60,15 @@ public:
 private:
     void initializeModel();
 
-    QString s_franchiseoffice_description;
+    QString m_s_franchiseoffice_description;
     bool m_s_franchiseoffice_description_isSet;
     bool m_s_franchiseoffice_description_isValid;
 
-    qint32 pki_franchiseoffice_id;
+    qint32 m_pki_franchiseoffice_id;
     bool m_pki_franchiseoffice_id_isSet;
     bool m_pki_franchiseoffice_id_isValid;
 
-    bool b_franchiseoffice_isactive;
+    bool m_b_franchiseoffice_isactive;
     bool m_b_franchiseoffice_isactive_isSet;
     bool m_b_franchiseoffice_isactive_isValid;
 };

@@ -47,7 +47,7 @@ void OAIWebhook_getHistory_v1_Response_mPayload::fromJson(QString jsonString) {
 
 void OAIWebhook_getHistory_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_webhooklog_isValid = ::OpenAPI::fromJsonValue(a_obj_webhooklog, json[QString("a_objWebhooklog")]);
+    m_a_obj_webhooklog_isValid = ::OpenAPI::fromJsonValue(m_a_obj_webhooklog, json[QString("a_objWebhooklog")]);
     m_a_obj_webhooklog_isSet = !json[QString("a_objWebhooklog")].isNull() && m_a_obj_webhooklog_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIWebhook_getHistory_v1_Response_mPayload::asJson() const {
 
 QJsonObject OAIWebhook_getHistory_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_webhooklog.size() > 0) {
-        obj.insert(QString("a_objWebhooklog"), ::OpenAPI::toJsonValue(a_obj_webhooklog));
+    if (m_a_obj_webhooklog.size() > 0) {
+        obj.insert(QString("a_objWebhooklog"), ::OpenAPI::toJsonValue(m_a_obj_webhooklog));
     }
     return obj;
 }
 
 QList<OAICustom_Webhooklog_Response> OAIWebhook_getHistory_v1_Response_mPayload::getAObjWebhooklog() const {
-    return a_obj_webhooklog;
+    return m_a_obj_webhooklog;
 }
 void OAIWebhook_getHistory_v1_Response_mPayload::setAObjWebhooklog(const QList<OAICustom_Webhooklog_Response> &a_obj_webhooklog) {
-    this->a_obj_webhooklog = a_obj_webhooklog;
-    this->m_a_obj_webhooklog_isSet = true;
+    m_a_obj_webhooklog = a_obj_webhooklog;
+    m_a_obj_webhooklog_isSet = true;
 }
 
 bool OAIWebhook_getHistory_v1_Response_mPayload::is_a_obj_webhooklog_Set() const{
@@ -85,7 +85,7 @@ bool OAIWebhook_getHistory_v1_Response_mPayload::is_a_obj_webhooklog_Valid() con
 bool OAIWebhook_getHistory_v1_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_webhooklog.size() > 0) {
+        if (m_a_obj_webhooklog.size() > 0) {
             isObjectUpdated = true;
             break;
         }

@@ -50,10 +50,10 @@ void OAICustom_Ezsignformfielderrortest_Response::fromJson(QString jsonString) {
 
 void OAICustom_Ezsignformfielderrortest_Response::fromJsonObject(QJsonObject json) {
 
-    m_s_ezsignformfielderrortest_name_isValid = ::OpenAPI::fromJsonValue(s_ezsignformfielderrortest_name, json[QString("sEzsignformfielderrortestName")]);
+    m_s_ezsignformfielderrortest_name_isValid = ::OpenAPI::fromJsonValue(m_s_ezsignformfielderrortest_name, json[QString("sEzsignformfielderrortestName")]);
     m_s_ezsignformfielderrortest_name_isSet = !json[QString("sEzsignformfielderrortestName")].isNull() && m_s_ezsignformfielderrortest_name_isValid;
 
-    m_s_ezsignformfielderrortest_detail_isValid = ::OpenAPI::fromJsonValue(s_ezsignformfielderrortest_detail, json[QString("sEzsignformfielderrortestDetail")]);
+    m_s_ezsignformfielderrortest_detail_isValid = ::OpenAPI::fromJsonValue(m_s_ezsignformfielderrortest_detail, json[QString("sEzsignformfielderrortestDetail")]);
     m_s_ezsignformfielderrortest_detail_isSet = !json[QString("sEzsignformfielderrortestDetail")].isNull() && m_s_ezsignformfielderrortest_detail_isValid;
 }
 
@@ -67,20 +67,20 @@ QString OAICustom_Ezsignformfielderrortest_Response::asJson() const {
 QJsonObject OAICustom_Ezsignformfielderrortest_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_s_ezsignformfielderrortest_name_isSet) {
-        obj.insert(QString("sEzsignformfielderrortestName"), ::OpenAPI::toJsonValue(s_ezsignformfielderrortest_name));
+        obj.insert(QString("sEzsignformfielderrortestName"), ::OpenAPI::toJsonValue(m_s_ezsignformfielderrortest_name));
     }
     if (m_s_ezsignformfielderrortest_detail_isSet) {
-        obj.insert(QString("sEzsignformfielderrortestDetail"), ::OpenAPI::toJsonValue(s_ezsignformfielderrortest_detail));
+        obj.insert(QString("sEzsignformfielderrortestDetail"), ::OpenAPI::toJsonValue(m_s_ezsignformfielderrortest_detail));
     }
     return obj;
 }
 
 QString OAICustom_Ezsignformfielderrortest_Response::getSEzsignformfielderrortestName() const {
-    return s_ezsignformfielderrortest_name;
+    return m_s_ezsignformfielderrortest_name;
 }
 void OAICustom_Ezsignformfielderrortest_Response::setSEzsignformfielderrortestName(const QString &s_ezsignformfielderrortest_name) {
-    this->s_ezsignformfielderrortest_name = s_ezsignformfielderrortest_name;
-    this->m_s_ezsignformfielderrortest_name_isSet = true;
+    m_s_ezsignformfielderrortest_name = s_ezsignformfielderrortest_name;
+    m_s_ezsignformfielderrortest_name_isSet = true;
 }
 
 bool OAICustom_Ezsignformfielderrortest_Response::is_s_ezsignformfielderrortest_name_Set() const{
@@ -92,11 +92,11 @@ bool OAICustom_Ezsignformfielderrortest_Response::is_s_ezsignformfielderrortest_
 }
 
 QString OAICustom_Ezsignformfielderrortest_Response::getSEzsignformfielderrortestDetail() const {
-    return s_ezsignformfielderrortest_detail;
+    return m_s_ezsignformfielderrortest_detail;
 }
 void OAICustom_Ezsignformfielderrortest_Response::setSEzsignformfielderrortestDetail(const QString &s_ezsignformfielderrortest_detail) {
-    this->s_ezsignformfielderrortest_detail = s_ezsignformfielderrortest_detail;
-    this->m_s_ezsignformfielderrortest_detail_isSet = true;
+    m_s_ezsignformfielderrortest_detail = s_ezsignformfielderrortest_detail;
+    m_s_ezsignformfielderrortest_detail_isSet = true;
 }
 
 bool OAICustom_Ezsignformfielderrortest_Response::is_s_ezsignformfielderrortest_detail_Set() const{

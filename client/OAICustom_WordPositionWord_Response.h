@@ -58,11 +58,11 @@ public:
 private:
     void initializeModel();
 
-    QString s_word;
+    QString m_s_word;
     bool m_s_word_isSet;
     bool m_s_word_isValid;
 
-    QList<OAICustom_WordPositionOccurence_Response> a_obj_word_position_occurence;
+    QList<OAICustom_WordPositionOccurence_Response> m_a_obj_word_position_occurence;
     bool m_a_obj_word_position_occurence_isSet;
     bool m_a_obj_word_position_occurence_isValid;
 };

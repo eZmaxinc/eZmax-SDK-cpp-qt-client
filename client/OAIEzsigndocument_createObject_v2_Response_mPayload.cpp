@@ -47,7 +47,7 @@ void OAIEzsigndocument_createObject_v2_Response_mPayload::fromJson(QString jsonS
 
 void OAIEzsigndocument_createObject_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_pki_ezsigndocument_id_isValid = ::OpenAPI::fromJsonValue(a_pki_ezsigndocument_id, json[QString("a_pkiEzsigndocumentID")]);
+    m_a_pki_ezsigndocument_id_isValid = ::OpenAPI::fromJsonValue(m_a_pki_ezsigndocument_id, json[QString("a_pkiEzsigndocumentID")]);
     m_a_pki_ezsigndocument_id_isSet = !json[QString("a_pkiEzsigndocumentID")].isNull() && m_a_pki_ezsigndocument_id_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIEzsigndocument_createObject_v2_Response_mPayload::asJson() const {
 
 QJsonObject OAIEzsigndocument_createObject_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (a_pki_ezsigndocument_id.size() > 0) {
-        obj.insert(QString("a_pkiEzsigndocumentID"), ::OpenAPI::toJsonValue(a_pki_ezsigndocument_id));
+    if (m_a_pki_ezsigndocument_id.size() > 0) {
+        obj.insert(QString("a_pkiEzsigndocumentID"), ::OpenAPI::toJsonValue(m_a_pki_ezsigndocument_id));
     }
     return obj;
 }
 
 QList<qint32> OAIEzsigndocument_createObject_v2_Response_mPayload::getAPkiEzsigndocumentId() const {
-    return a_pki_ezsigndocument_id;
+    return m_a_pki_ezsigndocument_id;
 }
 void OAIEzsigndocument_createObject_v2_Response_mPayload::setAPkiEzsigndocumentId(const QList<qint32> &a_pki_ezsigndocument_id) {
-    this->a_pki_ezsigndocument_id = a_pki_ezsigndocument_id;
-    this->m_a_pki_ezsigndocument_id_isSet = true;
+    m_a_pki_ezsigndocument_id = a_pki_ezsigndocument_id;
+    m_a_pki_ezsigndocument_id_isSet = true;
 }
 
 bool OAIEzsigndocument_createObject_v2_Response_mPayload::is_a_pki_ezsigndocument_id_Set() const{
@@ -85,7 +85,7 @@ bool OAIEzsigndocument_createObject_v2_Response_mPayload::is_a_pki_ezsigndocumen
 bool OAIEzsigndocument_createObject_v2_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_pki_ezsigndocument_id.size() > 0) {
+        if (m_a_pki_ezsigndocument_id.size() > 0) {
             isObjectUpdated = true;
             break;
         }

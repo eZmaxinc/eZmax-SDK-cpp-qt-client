@@ -50,7 +50,7 @@ public:
 private:
     void initializeModel();
 
-    QString s_download_url;
+    QString m_s_download_url;
     bool m_s_download_url_isSet;
     bool m_s_download_url_isValid;
 };

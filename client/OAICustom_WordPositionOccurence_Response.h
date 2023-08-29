@@ -59,15 +59,15 @@ public:
 private:
     void initializeModel();
 
-    qint32 i_page;
+    qint32 m_i_page;
     bool m_i_page_isSet;
     bool m_i_page_isValid;
 
-    qint32 i_x;
+    qint32 m_i_x;
     bool m_i_x_isSet;
     bool m_i_x_isValid;
 
-    qint32 i_y;
+    qint32 m_i_y;
     bool m_i_y_isSet;
     bool m_i_y_isValid;
 };

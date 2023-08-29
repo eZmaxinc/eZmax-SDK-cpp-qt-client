@@ -51,7 +51,7 @@ public:
 private:
     void initializeModel();
 
-    OAICustom_FormsDataFolder_Response obj_forms_data_folder;
+    OAICustom_FormsDataFolder_Response m_obj_forms_data_folder;
     bool m_obj_forms_data_folder_isSet;
     bool m_obj_forms_data_folder_isValid;
 };

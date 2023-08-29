@@ -77,27 +77,27 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_ezsignsigner_id;
+    qint32 m_pki_ezsignsigner_id;
     bool m_pki_ezsignsigner_id_isSet;
     bool m_pki_ezsignsigner_id_isValid;
 
-    qint32 fki_taxassignment_id;
+    qint32 m_fki_taxassignment_id;
     bool m_fki_taxassignment_id_isSet;
     bool m_fki_taxassignment_id_isValid;
 
-    qint32 fki_secretquestion_id;
+    qint32 m_fki_secretquestion_id;
     bool m_fki_secretquestion_id_isSet;
     bool m_fki_secretquestion_id_isValid;
 
-    qint32 fki_userlogintype_id;
+    qint32 m_fki_userlogintype_id;
     bool m_fki_userlogintype_id_isSet;
     bool m_fki_userlogintype_id_isValid;
 
-    QString s_userlogintype_description_x;
+    QString m_s_userlogintype_description_x;
     bool m_s_userlogintype_description_x_isSet;
     bool m_s_userlogintype_description_x_isValid;
 
-    OAIEzsignsigner_ResponseCompound_Contact obj_contact;
+    OAIEzsignsigner_ResponseCompound_Contact m_obj_contact;
     bool m_obj_contact_isSet;
     bool m_obj_contact_isValid;
 };

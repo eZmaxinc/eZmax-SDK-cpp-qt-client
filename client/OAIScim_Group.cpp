@@ -53,13 +53,13 @@ void OAIScim_Group::fromJson(QString jsonString) {
 
 void OAIScim_Group::fromJsonObject(QJsonObject json) {
 
-    m_id_isValid = ::OpenAPI::fromJsonValue(id, json[QString("id")]);
+    m_id_isValid = ::OpenAPI::fromJsonValue(m_id, json[QString("id")]);
     m_id_isSet = !json[QString("id")].isNull() && m_id_isValid;
 
-    m_display_name_isValid = ::OpenAPI::fromJsonValue(display_name, json[QString("displayName")]);
+    m_display_name_isValid = ::OpenAPI::fromJsonValue(m_display_name, json[QString("displayName")]);
     m_display_name_isSet = !json[QString("displayName")].isNull() && m_display_name_isValid;
 
-    m_members_isValid = ::OpenAPI::fromJsonValue(members, json[QString("members")]);
+    m_members_isValid = ::OpenAPI::fromJsonValue(m_members, json[QString("members")]);
     m_members_isSet = !json[QString("members")].isNull() && m_members_isValid;
 }
 
@@ -73,23 +73,23 @@ QString OAIScim_Group::asJson() const {
 QJsonObject OAIScim_Group::asJsonObject() const {
     QJsonObject obj;
     if (m_id_isSet) {
-        obj.insert(QString("id"), ::OpenAPI::toJsonValue(id));
+        obj.insert(QString("id"), ::OpenAPI::toJsonValue(m_id));
     }
     if (m_display_name_isSet) {
-        obj.insert(QString("displayName"), ::OpenAPI::toJsonValue(display_name));
+        obj.insert(QString("displayName"), ::OpenAPI::toJsonValue(m_display_name));
     }
-    if (members.size() > 0) {
-        obj.insert(QString("members"), ::OpenAPI::toJsonValue(members));
+    if (m_members.size() > 0) {
+        obj.insert(QString("members"), ::OpenAPI::toJsonValue(m_members));
     }
     return obj;
 }
 
 QString OAIScim_Group::getId() const {
-    return id;
+    return m_id;
 }
 void OAIScim_Group::setId(const QString &id) {
-    this->id = id;
-    this->m_id_isSet = true;
+    m_id = id;
+    m_id_isSet = true;
 }
 
 bool OAIScim_Group::is_id_Set() const{
@@ -101,11 +101,11 @@ bool OAIScim_Group::is_id_Valid() const{
 }
 
 QString OAIScim_Group::getDisplayName() const {
-    return display_name;
+    return m_display_name;
 }
 void OAIScim_Group::setDisplayName(const QString &display_name) {
-    this->display_name = display_name;
-    this->m_display_name_isSet = true;
+    m_display_name = display_name;
+    m_display_name_isSet = true;
 }
 
 bool OAIScim_Group::is_display_name_Set() const{
@@ -117,11 +117,11 @@ bool OAIScim_Group::is_display_name_Valid() const{
 }
 
 QList<OAIScim_GroupMember> OAIScim_Group::getMembers() const {
-    return members;
+    return m_members;
 }
 void OAIScim_Group::setMembers(const QList<OAIScim_GroupMember> &members) {
-    this->members = members;
-    this->m_members_isSet = true;
+    m_members = members;
+    m_members_isSet = true;
 }
 
 bool OAIScim_Group::is_members_Set() const{
@@ -145,7 +145,7 @@ bool OAIScim_Group::isSet() const {
             break;
         }
 
-        if (members.size() > 0) {
+        if (m_members.size() > 0) {
             isObjectUpdated = true;
             break;
         }

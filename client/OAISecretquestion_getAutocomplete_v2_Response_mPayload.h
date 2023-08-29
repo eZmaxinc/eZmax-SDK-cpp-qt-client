@@ -52,7 +52,7 @@ public:
 private:
     void initializeModel();
 
-    QList<OAISecretquestion_AutocompleteElement_Response> a_obj_secretquestion;
+    QList<OAISecretquestion_AutocompleteElement_Response> m_a_obj_secretquestion;
     bool m_a_obj_secretquestion_isSet;
     bool m_a_obj_secretquestion_isValid;
 };

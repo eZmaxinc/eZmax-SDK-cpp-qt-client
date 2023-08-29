@@ -50,10 +50,10 @@ void OAIEzsignfolder_batchDownload_v1_Request::fromJson(QString jsonString) {
 
 void OAIEzsignfolder_batchDownload_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_a_pki_ezsigndocument_id_isValid = ::OpenAPI::fromJsonValue(a_pki_ezsigndocument_id, json[QString("a_pkiEzsigndocumentID")]);
+    m_a_pki_ezsigndocument_id_isValid = ::OpenAPI::fromJsonValue(m_a_pki_ezsigndocument_id, json[QString("a_pkiEzsigndocumentID")]);
     m_a_pki_ezsigndocument_id_isSet = !json[QString("a_pkiEzsigndocumentID")].isNull() && m_a_pki_ezsigndocument_id_isValid;
 
-    m_a_e_document_type_isValid = ::OpenAPI::fromJsonValue(a_e_document_type, json[QString("a_eDocumentType")]);
+    m_a_e_document_type_isValid = ::OpenAPI::fromJsonValue(m_a_e_document_type, json[QString("a_eDocumentType")]);
     m_a_e_document_type_isSet = !json[QString("a_eDocumentType")].isNull() && m_a_e_document_type_isValid;
 }
 
@@ -66,21 +66,21 @@ QString OAIEzsignfolder_batchDownload_v1_Request::asJson() const {
 
 QJsonObject OAIEzsignfolder_batchDownload_v1_Request::asJsonObject() const {
     QJsonObject obj;
-    if (a_pki_ezsigndocument_id.size() > 0) {
-        obj.insert(QString("a_pkiEzsigndocumentID"), ::OpenAPI::toJsonValue(a_pki_ezsigndocument_id));
+    if (m_a_pki_ezsigndocument_id.size() > 0) {
+        obj.insert(QString("a_pkiEzsigndocumentID"), ::OpenAPI::toJsonValue(m_a_pki_ezsigndocument_id));
     }
-    if (a_e_document_type.size() > 0) {
-        obj.insert(QString("a_eDocumentType"), ::OpenAPI::toJsonValue(a_e_document_type));
+    if (m_a_e_document_type.size() > 0) {
+        obj.insert(QString("a_eDocumentType"), ::OpenAPI::toJsonValue(m_a_e_document_type));
     }
     return obj;
 }
 
 QList<qint32> OAIEzsignfolder_batchDownload_v1_Request::getAPkiEzsigndocumentId() const {
-    return a_pki_ezsigndocument_id;
+    return m_a_pki_ezsigndocument_id;
 }
 void OAIEzsignfolder_batchDownload_v1_Request::setAPkiEzsigndocumentId(const QList<qint32> &a_pki_ezsigndocument_id) {
-    this->a_pki_ezsigndocument_id = a_pki_ezsigndocument_id;
-    this->m_a_pki_ezsigndocument_id_isSet = true;
+    m_a_pki_ezsigndocument_id = a_pki_ezsigndocument_id;
+    m_a_pki_ezsigndocument_id_isSet = true;
 }
 
 bool OAIEzsignfolder_batchDownload_v1_Request::is_a_pki_ezsigndocument_id_Set() const{
@@ -92,11 +92,11 @@ bool OAIEzsignfolder_batchDownload_v1_Request::is_a_pki_ezsigndocument_id_Valid(
 }
 
 QList<QString> OAIEzsignfolder_batchDownload_v1_Request::getAEDocumentType() const {
-    return a_e_document_type;
+    return m_a_e_document_type;
 }
 void OAIEzsignfolder_batchDownload_v1_Request::setAEDocumentType(const QList<QString> &a_e_document_type) {
-    this->a_e_document_type = a_e_document_type;
-    this->m_a_e_document_type_isSet = true;
+    m_a_e_document_type = a_e_document_type;
+    m_a_e_document_type_isSet = true;
 }
 
 bool OAIEzsignfolder_batchDownload_v1_Request::is_a_e_document_type_Set() const{
@@ -110,12 +110,12 @@ bool OAIEzsignfolder_batchDownload_v1_Request::is_a_e_document_type_Valid() cons
 bool OAIEzsignfolder_batchDownload_v1_Request::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_pki_ezsigndocument_id.size() > 0) {
+        if (m_a_pki_ezsigndocument_id.size() > 0) {
             isObjectUpdated = true;
             break;
         }
 
-        if (a_e_document_type.size() > 0) {
+        if (m_a_e_document_type.size() > 0) {
             isObjectUpdated = true;
             break;
         }

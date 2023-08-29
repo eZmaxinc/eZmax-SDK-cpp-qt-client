@@ -51,7 +51,7 @@ public:
 private:
     void initializeModel();
 
-    OAISubnet_RequestCompound obj_subnet;
+    OAISubnet_RequestCompound m_obj_subnet;
     bool m_obj_subnet_isSet;
     bool m_obj_subnet_isValid;
 };

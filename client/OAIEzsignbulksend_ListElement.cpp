@@ -77,37 +77,37 @@ void OAIEzsignbulksend_ListElement::fromJson(QString jsonString) {
 
 void OAIEzsignbulksend_ListElement::fromJsonObject(QJsonObject json) {
 
-    m_pki_ezsignbulksend_id_isValid = ::OpenAPI::fromJsonValue(pki_ezsignbulksend_id, json[QString("pkiEzsignbulksendID")]);
+    m_pki_ezsignbulksend_id_isValid = ::OpenAPI::fromJsonValue(m_pki_ezsignbulksend_id, json[QString("pkiEzsignbulksendID")]);
     m_pki_ezsignbulksend_id_isSet = !json[QString("pkiEzsignbulksendID")].isNull() && m_pki_ezsignbulksend_id_isValid;
 
-    m_fki_ezsignfoldertype_id_isValid = ::OpenAPI::fromJsonValue(fki_ezsignfoldertype_id, json[QString("fkiEzsignfoldertypeID")]);
+    m_fki_ezsignfoldertype_id_isValid = ::OpenAPI::fromJsonValue(m_fki_ezsignfoldertype_id, json[QString("fkiEzsignfoldertypeID")]);
     m_fki_ezsignfoldertype_id_isSet = !json[QString("fkiEzsignfoldertypeID")].isNull() && m_fki_ezsignfoldertype_id_isValid;
 
-    m_s_ezsignbulksend_description_isValid = ::OpenAPI::fromJsonValue(s_ezsignbulksend_description, json[QString("sEzsignbulksendDescription")]);
+    m_s_ezsignbulksend_description_isValid = ::OpenAPI::fromJsonValue(m_s_ezsignbulksend_description, json[QString("sEzsignbulksendDescription")]);
     m_s_ezsignbulksend_description_isSet = !json[QString("sEzsignbulksendDescription")].isNull() && m_s_ezsignbulksend_description_isValid;
 
-    m_s_ezsignfoldertype_name_x_isValid = ::OpenAPI::fromJsonValue(s_ezsignfoldertype_name_x, json[QString("sEzsignfoldertypeNameX")]);
+    m_s_ezsignfoldertype_name_x_isValid = ::OpenAPI::fromJsonValue(m_s_ezsignfoldertype_name_x, json[QString("sEzsignfoldertypeNameX")]);
     m_s_ezsignfoldertype_name_x_isSet = !json[QString("sEzsignfoldertypeNameX")].isNull() && m_s_ezsignfoldertype_name_x_isValid;
 
-    m_b_ezsignbulksend_needvalidation_isValid = ::OpenAPI::fromJsonValue(b_ezsignbulksend_needvalidation, json[QString("bEzsignbulksendNeedvalidation")]);
+    m_b_ezsignbulksend_needvalidation_isValid = ::OpenAPI::fromJsonValue(m_b_ezsignbulksend_needvalidation, json[QString("bEzsignbulksendNeedvalidation")]);
     m_b_ezsignbulksend_needvalidation_isSet = !json[QString("bEzsignbulksendNeedvalidation")].isNull() && m_b_ezsignbulksend_needvalidation_isValid;
 
-    m_i_ezsignbulksendtransmission_isValid = ::OpenAPI::fromJsonValue(i_ezsignbulksendtransmission, json[QString("iEzsignbulksendtransmission")]);
+    m_i_ezsignbulksendtransmission_isValid = ::OpenAPI::fromJsonValue(m_i_ezsignbulksendtransmission, json[QString("iEzsignbulksendtransmission")]);
     m_i_ezsignbulksendtransmission_isSet = !json[QString("iEzsignbulksendtransmission")].isNull() && m_i_ezsignbulksendtransmission_isValid;
 
-    m_i_ezsignfolder_isValid = ::OpenAPI::fromJsonValue(i_ezsignfolder, json[QString("iEzsignfolder")]);
+    m_i_ezsignfolder_isValid = ::OpenAPI::fromJsonValue(m_i_ezsignfolder, json[QString("iEzsignfolder")]);
     m_i_ezsignfolder_isSet = !json[QString("iEzsignfolder")].isNull() && m_i_ezsignfolder_isValid;
 
-    m_i_ezsigndocument_isValid = ::OpenAPI::fromJsonValue(i_ezsigndocument, json[QString("iEzsigndocument")]);
+    m_i_ezsigndocument_isValid = ::OpenAPI::fromJsonValue(m_i_ezsigndocument, json[QString("iEzsigndocument")]);
     m_i_ezsigndocument_isSet = !json[QString("iEzsigndocument")].isNull() && m_i_ezsigndocument_isValid;
 
-    m_i_ezsignsignature_isValid = ::OpenAPI::fromJsonValue(i_ezsignsignature, json[QString("iEzsignsignature")]);
+    m_i_ezsignsignature_isValid = ::OpenAPI::fromJsonValue(m_i_ezsignsignature, json[QString("iEzsignsignature")]);
     m_i_ezsignsignature_isSet = !json[QString("iEzsignsignature")].isNull() && m_i_ezsignsignature_isValid;
 
-    m_i_ezsignsignature_signed_isValid = ::OpenAPI::fromJsonValue(i_ezsignsignature_signed, json[QString("iEzsignsignatureSigned")]);
+    m_i_ezsignsignature_signed_isValid = ::OpenAPI::fromJsonValue(m_i_ezsignsignature_signed, json[QString("iEzsignsignatureSigned")]);
     m_i_ezsignsignature_signed_isSet = !json[QString("iEzsignsignatureSigned")].isNull() && m_i_ezsignsignature_signed_isValid;
 
-    m_b_ezsignbulksend_isactive_isValid = ::OpenAPI::fromJsonValue(b_ezsignbulksend_isactive, json[QString("bEzsignbulksendIsactive")]);
+    m_b_ezsignbulksend_isactive_isValid = ::OpenAPI::fromJsonValue(m_b_ezsignbulksend_isactive, json[QString("bEzsignbulksendIsactive")]);
     m_b_ezsignbulksend_isactive_isSet = !json[QString("bEzsignbulksendIsactive")].isNull() && m_b_ezsignbulksend_isactive_isValid;
 }
 
@@ -121,47 +121,47 @@ QString OAIEzsignbulksend_ListElement::asJson() const {
 QJsonObject OAIEzsignbulksend_ListElement::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_ezsignbulksend_id_isSet) {
-        obj.insert(QString("pkiEzsignbulksendID"), ::OpenAPI::toJsonValue(pki_ezsignbulksend_id));
+        obj.insert(QString("pkiEzsignbulksendID"), ::OpenAPI::toJsonValue(m_pki_ezsignbulksend_id));
     }
     if (m_fki_ezsignfoldertype_id_isSet) {
-        obj.insert(QString("fkiEzsignfoldertypeID"), ::OpenAPI::toJsonValue(fki_ezsignfoldertype_id));
+        obj.insert(QString("fkiEzsignfoldertypeID"), ::OpenAPI::toJsonValue(m_fki_ezsignfoldertype_id));
     }
     if (m_s_ezsignbulksend_description_isSet) {
-        obj.insert(QString("sEzsignbulksendDescription"), ::OpenAPI::toJsonValue(s_ezsignbulksend_description));
+        obj.insert(QString("sEzsignbulksendDescription"), ::OpenAPI::toJsonValue(m_s_ezsignbulksend_description));
     }
     if (m_s_ezsignfoldertype_name_x_isSet) {
-        obj.insert(QString("sEzsignfoldertypeNameX"), ::OpenAPI::toJsonValue(s_ezsignfoldertype_name_x));
+        obj.insert(QString("sEzsignfoldertypeNameX"), ::OpenAPI::toJsonValue(m_s_ezsignfoldertype_name_x));
     }
     if (m_b_ezsignbulksend_needvalidation_isSet) {
-        obj.insert(QString("bEzsignbulksendNeedvalidation"), ::OpenAPI::toJsonValue(b_ezsignbulksend_needvalidation));
+        obj.insert(QString("bEzsignbulksendNeedvalidation"), ::OpenAPI::toJsonValue(m_b_ezsignbulksend_needvalidation));
     }
     if (m_i_ezsignbulksendtransmission_isSet) {
-        obj.insert(QString("iEzsignbulksendtransmission"), ::OpenAPI::toJsonValue(i_ezsignbulksendtransmission));
+        obj.insert(QString("iEzsignbulksendtransmission"), ::OpenAPI::toJsonValue(m_i_ezsignbulksendtransmission));
     }
     if (m_i_ezsignfolder_isSet) {
-        obj.insert(QString("iEzsignfolder"), ::OpenAPI::toJsonValue(i_ezsignfolder));
+        obj.insert(QString("iEzsignfolder"), ::OpenAPI::toJsonValue(m_i_ezsignfolder));
     }
     if (m_i_ezsigndocument_isSet) {
-        obj.insert(QString("iEzsigndocument"), ::OpenAPI::toJsonValue(i_ezsigndocument));
+        obj.insert(QString("iEzsigndocument"), ::OpenAPI::toJsonValue(m_i_ezsigndocument));
     }
     if (m_i_ezsignsignature_isSet) {
-        obj.insert(QString("iEzsignsignature"), ::OpenAPI::toJsonValue(i_ezsignsignature));
+        obj.insert(QString("iEzsignsignature"), ::OpenAPI::toJsonValue(m_i_ezsignsignature));
     }
     if (m_i_ezsignsignature_signed_isSet) {
-        obj.insert(QString("iEzsignsignatureSigned"), ::OpenAPI::toJsonValue(i_ezsignsignature_signed));
+        obj.insert(QString("iEzsignsignatureSigned"), ::OpenAPI::toJsonValue(m_i_ezsignsignature_signed));
     }
     if (m_b_ezsignbulksend_isactive_isSet) {
-        obj.insert(QString("bEzsignbulksendIsactive"), ::OpenAPI::toJsonValue(b_ezsignbulksend_isactive));
+        obj.insert(QString("bEzsignbulksendIsactive"), ::OpenAPI::toJsonValue(m_b_ezsignbulksend_isactive));
     }
     return obj;
 }
 
 qint32 OAIEzsignbulksend_ListElement::getPkiEzsignbulksendId() const {
-    return pki_ezsignbulksend_id;
+    return m_pki_ezsignbulksend_id;
 }
 void OAIEzsignbulksend_ListElement::setPkiEzsignbulksendId(const qint32 &pki_ezsignbulksend_id) {
-    this->pki_ezsignbulksend_id = pki_ezsignbulksend_id;
-    this->m_pki_ezsignbulksend_id_isSet = true;
+    m_pki_ezsignbulksend_id = pki_ezsignbulksend_id;
+    m_pki_ezsignbulksend_id_isSet = true;
 }
 
 bool OAIEzsignbulksend_ListElement::is_pki_ezsignbulksend_id_Set() const{
@@ -173,11 +173,11 @@ bool OAIEzsignbulksend_ListElement::is_pki_ezsignbulksend_id_Valid() const{
 }
 
 qint32 OAIEzsignbulksend_ListElement::getFkiEzsignfoldertypeId() const {
-    return fki_ezsignfoldertype_id;
+    return m_fki_ezsignfoldertype_id;
 }
 void OAIEzsignbulksend_ListElement::setFkiEzsignfoldertypeId(const qint32 &fki_ezsignfoldertype_id) {
-    this->fki_ezsignfoldertype_id = fki_ezsignfoldertype_id;
-    this->m_fki_ezsignfoldertype_id_isSet = true;
+    m_fki_ezsignfoldertype_id = fki_ezsignfoldertype_id;
+    m_fki_ezsignfoldertype_id_isSet = true;
 }
 
 bool OAIEzsignbulksend_ListElement::is_fki_ezsignfoldertype_id_Set() const{
@@ -189,11 +189,11 @@ bool OAIEzsignbulksend_ListElement::is_fki_ezsignfoldertype_id_Valid() const{
 }
 
 QString OAIEzsignbulksend_ListElement::getSEzsignbulksendDescription() const {
-    return s_ezsignbulksend_description;
+    return m_s_ezsignbulksend_description;
 }
 void OAIEzsignbulksend_ListElement::setSEzsignbulksendDescription(const QString &s_ezsignbulksend_description) {
-    this->s_ezsignbulksend_description = s_ezsignbulksend_description;
-    this->m_s_ezsignbulksend_description_isSet = true;
+    m_s_ezsignbulksend_description = s_ezsignbulksend_description;
+    m_s_ezsignbulksend_description_isSet = true;
 }
 
 bool OAIEzsignbulksend_ListElement::is_s_ezsignbulksend_description_Set() const{
@@ -205,11 +205,11 @@ bool OAIEzsignbulksend_ListElement::is_s_ezsignbulksend_description_Valid() cons
 }
 
 QString OAIEzsignbulksend_ListElement::getSEzsignfoldertypeNameX() const {
-    return s_ezsignfoldertype_name_x;
+    return m_s_ezsignfoldertype_name_x;
 }
 void OAIEzsignbulksend_ListElement::setSEzsignfoldertypeNameX(const QString &s_ezsignfoldertype_name_x) {
-    this->s_ezsignfoldertype_name_x = s_ezsignfoldertype_name_x;
-    this->m_s_ezsignfoldertype_name_x_isSet = true;
+    m_s_ezsignfoldertype_name_x = s_ezsignfoldertype_name_x;
+    m_s_ezsignfoldertype_name_x_isSet = true;
 }
 
 bool OAIEzsignbulksend_ListElement::is_s_ezsignfoldertype_name_x_Set() const{
@@ -221,11 +221,11 @@ bool OAIEzsignbulksend_ListElement::is_s_ezsignfoldertype_name_x_Valid() const{
 }
 
 bool OAIEzsignbulksend_ListElement::isBEzsignbulksendNeedvalidation() const {
-    return b_ezsignbulksend_needvalidation;
+    return m_b_ezsignbulksend_needvalidation;
 }
 void OAIEzsignbulksend_ListElement::setBEzsignbulksendNeedvalidation(const bool &b_ezsignbulksend_needvalidation) {
-    this->b_ezsignbulksend_needvalidation = b_ezsignbulksend_needvalidation;
-    this->m_b_ezsignbulksend_needvalidation_isSet = true;
+    m_b_ezsignbulksend_needvalidation = b_ezsignbulksend_needvalidation;
+    m_b_ezsignbulksend_needvalidation_isSet = true;
 }
 
 bool OAIEzsignbulksend_ListElement::is_b_ezsignbulksend_needvalidation_Set() const{
@@ -237,11 +237,11 @@ bool OAIEzsignbulksend_ListElement::is_b_ezsignbulksend_needvalidation_Valid() c
 }
 
 qint32 OAIEzsignbulksend_ListElement::getIEzsignbulksendtransmission() const {
-    return i_ezsignbulksendtransmission;
+    return m_i_ezsignbulksendtransmission;
 }
 void OAIEzsignbulksend_ListElement::setIEzsignbulksendtransmission(const qint32 &i_ezsignbulksendtransmission) {
-    this->i_ezsignbulksendtransmission = i_ezsignbulksendtransmission;
-    this->m_i_ezsignbulksendtransmission_isSet = true;
+    m_i_ezsignbulksendtransmission = i_ezsignbulksendtransmission;
+    m_i_ezsignbulksendtransmission_isSet = true;
 }
 
 bool OAIEzsignbulksend_ListElement::is_i_ezsignbulksendtransmission_Set() const{
@@ -253,11 +253,11 @@ bool OAIEzsignbulksend_ListElement::is_i_ezsignbulksendtransmission_Valid() cons
 }
 
 qint32 OAIEzsignbulksend_ListElement::getIEzsignfolder() const {
-    return i_ezsignfolder;
+    return m_i_ezsignfolder;
 }
 void OAIEzsignbulksend_ListElement::setIEzsignfolder(const qint32 &i_ezsignfolder) {
-    this->i_ezsignfolder = i_ezsignfolder;
-    this->m_i_ezsignfolder_isSet = true;
+    m_i_ezsignfolder = i_ezsignfolder;
+    m_i_ezsignfolder_isSet = true;
 }
 
 bool OAIEzsignbulksend_ListElement::is_i_ezsignfolder_Set() const{
@@ -269,11 +269,11 @@ bool OAIEzsignbulksend_ListElement::is_i_ezsignfolder_Valid() const{
 }
 
 qint32 OAIEzsignbulksend_ListElement::getIEzsigndocument() const {
-    return i_ezsigndocument;
+    return m_i_ezsigndocument;
 }
 void OAIEzsignbulksend_ListElement::setIEzsigndocument(const qint32 &i_ezsigndocument) {
-    this->i_ezsigndocument = i_ezsigndocument;
-    this->m_i_ezsigndocument_isSet = true;
+    m_i_ezsigndocument = i_ezsigndocument;
+    m_i_ezsigndocument_isSet = true;
 }
 
 bool OAIEzsignbulksend_ListElement::is_i_ezsigndocument_Set() const{
@@ -285,11 +285,11 @@ bool OAIEzsignbulksend_ListElement::is_i_ezsigndocument_Valid() const{
 }
 
 qint32 OAIEzsignbulksend_ListElement::getIEzsignsignature() const {
-    return i_ezsignsignature;
+    return m_i_ezsignsignature;
 }
 void OAIEzsignbulksend_ListElement::setIEzsignsignature(const qint32 &i_ezsignsignature) {
-    this->i_ezsignsignature = i_ezsignsignature;
-    this->m_i_ezsignsignature_isSet = true;
+    m_i_ezsignsignature = i_ezsignsignature;
+    m_i_ezsignsignature_isSet = true;
 }
 
 bool OAIEzsignbulksend_ListElement::is_i_ezsignsignature_Set() const{
@@ -301,11 +301,11 @@ bool OAIEzsignbulksend_ListElement::is_i_ezsignsignature_Valid() const{
 }
 
 qint32 OAIEzsignbulksend_ListElement::getIEzsignsignatureSigned() const {
-    return i_ezsignsignature_signed;
+    return m_i_ezsignsignature_signed;
 }
 void OAIEzsignbulksend_ListElement::setIEzsignsignatureSigned(const qint32 &i_ezsignsignature_signed) {
-    this->i_ezsignsignature_signed = i_ezsignsignature_signed;
-    this->m_i_ezsignsignature_signed_isSet = true;
+    m_i_ezsignsignature_signed = i_ezsignsignature_signed;
+    m_i_ezsignsignature_signed_isSet = true;
 }
 
 bool OAIEzsignbulksend_ListElement::is_i_ezsignsignature_signed_Set() const{
@@ -317,11 +317,11 @@ bool OAIEzsignbulksend_ListElement::is_i_ezsignsignature_signed_Valid() const{
 }
 
 bool OAIEzsignbulksend_ListElement::isBEzsignbulksendIsactive() const {
-    return b_ezsignbulksend_isactive;
+    return m_b_ezsignbulksend_isactive;
 }
 void OAIEzsignbulksend_ListElement::setBEzsignbulksendIsactive(const bool &b_ezsignbulksend_isactive) {
-    this->b_ezsignbulksend_isactive = b_ezsignbulksend_isactive;
-    this->m_b_ezsignbulksend_isactive_isSet = true;
+    m_b_ezsignbulksend_isactive = b_ezsignbulksend_isactive;
+    m_b_ezsignbulksend_isactive_isSet = true;
 }
 
 bool OAIEzsignbulksend_ListElement::is_b_ezsignbulksend_isactive_Set() const{

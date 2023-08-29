@@ -90,39 +90,39 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_branding_id;
+    qint32 m_pki_branding_id;
     bool m_pki_branding_id_isSet;
     bool m_pki_branding_id_isValid;
 
-    QString s_branding_description_x;
+    QString m_s_branding_description_x;
     bool m_s_branding_description_x_isSet;
     bool m_s_branding_description_x_isValid;
 
-    qint32 i_branding_colortext;
+    qint32 m_i_branding_colortext;
     bool m_i_branding_colortext_isSet;
     bool m_i_branding_colortext_isValid;
 
-    qint32 i_branding_colortextlinkbox;
+    qint32 m_i_branding_colortextlinkbox;
     bool m_i_branding_colortextlinkbox_isSet;
     bool m_i_branding_colortextlinkbox_isValid;
 
-    qint32 i_branding_colortextbutton;
+    qint32 m_i_branding_colortextbutton;
     bool m_i_branding_colortextbutton_isSet;
     bool m_i_branding_colortextbutton_isValid;
 
-    qint32 i_branding_colorbackground;
+    qint32 m_i_branding_colorbackground;
     bool m_i_branding_colorbackground_isSet;
     bool m_i_branding_colorbackground_isValid;
 
-    qint32 i_branding_colorbackgroundbutton;
+    qint32 m_i_branding_colorbackgroundbutton;
     bool m_i_branding_colorbackgroundbutton_isSet;
     bool m_i_branding_colorbackgroundbutton_isValid;
 
-    qint32 i_branding_colorbackgroundsmallbox;
+    qint32 m_i_branding_colorbackgroundsmallbox;
     bool m_i_branding_colorbackgroundsmallbox_isSet;
     bool m_i_branding_colorbackgroundsmallbox_isValid;
 
-    bool b_branding_isactive;
+    bool m_b_branding_isactive;
     bool m_b_branding_isactive_isSet;
     bool m_b_branding_isactive_isValid;
 };

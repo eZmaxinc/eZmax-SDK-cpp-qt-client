@@ -47,7 +47,7 @@ void OAIVariableexpense_createObject_v1_Request::fromJson(QString jsonString) {
 
 void OAIVariableexpense_createObject_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_variableexpense_isValid = ::OpenAPI::fromJsonValue(a_obj_variableexpense, json[QString("a_objVariableexpense")]);
+    m_a_obj_variableexpense_isValid = ::OpenAPI::fromJsonValue(m_a_obj_variableexpense, json[QString("a_objVariableexpense")]);
     m_a_obj_variableexpense_isSet = !json[QString("a_objVariableexpense")].isNull() && m_a_obj_variableexpense_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIVariableexpense_createObject_v1_Request::asJson() const {
 
 QJsonObject OAIVariableexpense_createObject_v1_Request::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_variableexpense.size() > 0) {
-        obj.insert(QString("a_objVariableexpense"), ::OpenAPI::toJsonValue(a_obj_variableexpense));
+    if (m_a_obj_variableexpense.size() > 0) {
+        obj.insert(QString("a_objVariableexpense"), ::OpenAPI::toJsonValue(m_a_obj_variableexpense));
     }
     return obj;
 }
 
 QList<OAIVariableexpense_RequestCompound> OAIVariableexpense_createObject_v1_Request::getAObjVariableexpense() const {
-    return a_obj_variableexpense;
+    return m_a_obj_variableexpense;
 }
 void OAIVariableexpense_createObject_v1_Request::setAObjVariableexpense(const QList<OAIVariableexpense_RequestCompound> &a_obj_variableexpense) {
-    this->a_obj_variableexpense = a_obj_variableexpense;
-    this->m_a_obj_variableexpense_isSet = true;
+    m_a_obj_variableexpense = a_obj_variableexpense;
+    m_a_obj_variableexpense_isSet = true;
 }
 
 bool OAIVariableexpense_createObject_v1_Request::is_a_obj_variableexpense_Set() const{
@@ -85,7 +85,7 @@ bool OAIVariableexpense_createObject_v1_Request::is_a_obj_variableexpense_Valid(
 bool OAIVariableexpense_createObject_v1_Request::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_variableexpense.size() > 0) {
+        if (m_a_obj_variableexpense.size() > 0) {
             isObjectUpdated = true;
             break;
         }

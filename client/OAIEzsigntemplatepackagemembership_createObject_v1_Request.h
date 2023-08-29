@@ -52,7 +52,7 @@ public:
 private:
     void initializeModel();
 
-    QList<OAIEzsigntemplatepackagemembership_RequestCompound> a_obj_ezsigntemplatepackagemembership;
+    QList<OAIEzsigntemplatepackagemembership_RequestCompound> m_a_obj_ezsigntemplatepackagemembership;
     bool m_a_obj_ezsigntemplatepackagemembership_isSet;
     bool m_a_obj_ezsigntemplatepackagemembership_isValid;
 };

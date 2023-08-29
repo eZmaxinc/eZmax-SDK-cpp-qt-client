@@ -47,7 +47,7 @@ void OAIEzsignbulksendsignermapping_createObject_v1_Response_mPayload::fromJson(
 
 void OAIEzsignbulksendsignermapping_createObject_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_pki_ezsignbulksendsignermapping_id_isValid = ::OpenAPI::fromJsonValue(a_pki_ezsignbulksendsignermapping_id, json[QString("a_pkiEzsignbulksendsignermappingID")]);
+    m_a_pki_ezsignbulksendsignermapping_id_isValid = ::OpenAPI::fromJsonValue(m_a_pki_ezsignbulksendsignermapping_id, json[QString("a_pkiEzsignbulksendsignermappingID")]);
     m_a_pki_ezsignbulksendsignermapping_id_isSet = !json[QString("a_pkiEzsignbulksendsignermappingID")].isNull() && m_a_pki_ezsignbulksendsignermapping_id_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIEzsignbulksendsignermapping_createObject_v1_Response_mPayload::asJson
 
 QJsonObject OAIEzsignbulksendsignermapping_createObject_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (a_pki_ezsignbulksendsignermapping_id.size() > 0) {
-        obj.insert(QString("a_pkiEzsignbulksendsignermappingID"), ::OpenAPI::toJsonValue(a_pki_ezsignbulksendsignermapping_id));
+    if (m_a_pki_ezsignbulksendsignermapping_id.size() > 0) {
+        obj.insert(QString("a_pkiEzsignbulksendsignermappingID"), ::OpenAPI::toJsonValue(m_a_pki_ezsignbulksendsignermapping_id));
     }
     return obj;
 }
 
 QList<qint32> OAIEzsignbulksendsignermapping_createObject_v1_Response_mPayload::getAPkiEzsignbulksendsignermappingId() const {
-    return a_pki_ezsignbulksendsignermapping_id;
+    return m_a_pki_ezsignbulksendsignermapping_id;
 }
 void OAIEzsignbulksendsignermapping_createObject_v1_Response_mPayload::setAPkiEzsignbulksendsignermappingId(const QList<qint32> &a_pki_ezsignbulksendsignermapping_id) {
-    this->a_pki_ezsignbulksendsignermapping_id = a_pki_ezsignbulksendsignermapping_id;
-    this->m_a_pki_ezsignbulksendsignermapping_id_isSet = true;
+    m_a_pki_ezsignbulksendsignermapping_id = a_pki_ezsignbulksendsignermapping_id;
+    m_a_pki_ezsignbulksendsignermapping_id_isSet = true;
 }
 
 bool OAIEzsignbulksendsignermapping_createObject_v1_Response_mPayload::is_a_pki_ezsignbulksendsignermapping_id_Set() const{
@@ -85,7 +85,7 @@ bool OAIEzsignbulksendsignermapping_createObject_v1_Response_mPayload::is_a_pki_
 bool OAIEzsignbulksendsignermapping_createObject_v1_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_pki_ezsignbulksendsignermapping_id.size() > 0) {
+        if (m_a_pki_ezsignbulksendsignermapping_id.size() > 0) {
             isObjectUpdated = true;
             break;
         }

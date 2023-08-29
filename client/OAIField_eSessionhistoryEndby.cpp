@@ -93,6 +93,10 @@ void OAIField_eSessionhistoryEndby::fromJson(QString jsonString) {
         m_value = eOAIField_eSessionhistoryEndby::BADIP;
         m_value_isSet = m_value_isValid = true;
     }
+    else if ( jsonString.compare("ForcedLogoff", Qt::CaseInsensitive) == 0) {
+        m_value = eOAIField_eSessionhistoryEndby::FORCEDLOGOFF;
+        m_value_isSet = m_value_isValid = true;
+    }
 }
 
 void OAIField_eSessionhistoryEndby::fromJsonValue(QJsonValue json) {
@@ -141,6 +145,9 @@ QString OAIField_eSessionhistoryEndby::asJson() const {
             break;
         case eOAIField_eSessionhistoryEndby::BADIP:
             val = "BadIP";
+            break;
+        case eOAIField_eSessionhistoryEndby::FORCEDLOGOFF:
+            val = "ForcedLogoff";
             break;
         default:
             break;

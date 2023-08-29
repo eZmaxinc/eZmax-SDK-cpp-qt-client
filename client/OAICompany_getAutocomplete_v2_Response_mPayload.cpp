@@ -47,7 +47,7 @@ void OAICompany_getAutocomplete_v2_Response_mPayload::fromJson(QString jsonStrin
 
 void OAICompany_getAutocomplete_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_company_isValid = ::OpenAPI::fromJsonValue(a_obj_company, json[QString("a_objCompany")]);
+    m_a_obj_company_isValid = ::OpenAPI::fromJsonValue(m_a_obj_company, json[QString("a_objCompany")]);
     m_a_obj_company_isSet = !json[QString("a_objCompany")].isNull() && m_a_obj_company_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAICompany_getAutocomplete_v2_Response_mPayload::asJson() const {
 
 QJsonObject OAICompany_getAutocomplete_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_company.size() > 0) {
-        obj.insert(QString("a_objCompany"), ::OpenAPI::toJsonValue(a_obj_company));
+    if (m_a_obj_company.size() > 0) {
+        obj.insert(QString("a_objCompany"), ::OpenAPI::toJsonValue(m_a_obj_company));
     }
     return obj;
 }
 
 QList<OAICompany_AutocompleteElement_Response> OAICompany_getAutocomplete_v2_Response_mPayload::getAObjCompany() const {
-    return a_obj_company;
+    return m_a_obj_company;
 }
 void OAICompany_getAutocomplete_v2_Response_mPayload::setAObjCompany(const QList<OAICompany_AutocompleteElement_Response> &a_obj_company) {
-    this->a_obj_company = a_obj_company;
-    this->m_a_obj_company_isSet = true;
+    m_a_obj_company = a_obj_company;
+    m_a_obj_company_isSet = true;
 }
 
 bool OAICompany_getAutocomplete_v2_Response_mPayload::is_a_obj_company_Set() const{
@@ -85,7 +85,7 @@ bool OAICompany_getAutocomplete_v2_Response_mPayload::is_a_obj_company_Valid() c
 bool OAICompany_getAutocomplete_v2_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_company.size() > 0) {
+        if (m_a_obj_company.size() > 0) {
             isObjectUpdated = true;
             break;
         }

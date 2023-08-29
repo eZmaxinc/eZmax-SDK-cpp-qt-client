@@ -47,7 +47,7 @@ void OAIEzsigntemplatepackagemembership_getObject_v2_Response_mPayload::fromJson
 
 void OAIEzsigntemplatepackagemembership_getObject_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_obj_ezsigntemplatepackagemembership_isValid = ::OpenAPI::fromJsonValue(obj_ezsigntemplatepackagemembership, json[QString("objEzsigntemplatepackagemembership")]);
+    m_obj_ezsigntemplatepackagemembership_isValid = ::OpenAPI::fromJsonValue(m_obj_ezsigntemplatepackagemembership, json[QString("objEzsigntemplatepackagemembership")]);
     m_obj_ezsigntemplatepackagemembership_isSet = !json[QString("objEzsigntemplatepackagemembership")].isNull() && m_obj_ezsigntemplatepackagemembership_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIEzsigntemplatepackagemembership_getObject_v2_Response_mPayload::asJso
 
 QJsonObject OAIEzsigntemplatepackagemembership_getObject_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (obj_ezsigntemplatepackagemembership.isSet()) {
-        obj.insert(QString("objEzsigntemplatepackagemembership"), ::OpenAPI::toJsonValue(obj_ezsigntemplatepackagemembership));
+    if (m_obj_ezsigntemplatepackagemembership.isSet()) {
+        obj.insert(QString("objEzsigntemplatepackagemembership"), ::OpenAPI::toJsonValue(m_obj_ezsigntemplatepackagemembership));
     }
     return obj;
 }
 
 OAIEzsigntemplatepackagemembership_ResponseCompound OAIEzsigntemplatepackagemembership_getObject_v2_Response_mPayload::getObjEzsigntemplatepackagemembership() const {
-    return obj_ezsigntemplatepackagemembership;
+    return m_obj_ezsigntemplatepackagemembership;
 }
 void OAIEzsigntemplatepackagemembership_getObject_v2_Response_mPayload::setObjEzsigntemplatepackagemembership(const OAIEzsigntemplatepackagemembership_ResponseCompound &obj_ezsigntemplatepackagemembership) {
-    this->obj_ezsigntemplatepackagemembership = obj_ezsigntemplatepackagemembership;
-    this->m_obj_ezsigntemplatepackagemembership_isSet = true;
+    m_obj_ezsigntemplatepackagemembership = obj_ezsigntemplatepackagemembership;
+    m_obj_ezsigntemplatepackagemembership_isSet = true;
 }
 
 bool OAIEzsigntemplatepackagemembership_getObject_v2_Response_mPayload::is_obj_ezsigntemplatepackagemembership_Set() const{
@@ -85,7 +85,7 @@ bool OAIEzsigntemplatepackagemembership_getObject_v2_Response_mPayload::is_obj_e
 bool OAIEzsigntemplatepackagemembership_getObject_v2_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (obj_ezsigntemplatepackagemembership.isSet()) {
+        if (m_obj_ezsigntemplatepackagemembership.isSet()) {
             isObjectUpdated = true;
             break;
         }

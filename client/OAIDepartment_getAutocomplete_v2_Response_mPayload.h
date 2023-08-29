@@ -52,7 +52,7 @@ public:
 private:
     void initializeModel();
 
-    QList<OAIDepartment_AutocompleteElement_Response> a_obj_department;
+    QList<OAIDepartment_AutocompleteElement_Response> m_a_obj_department;
     bool m_a_obj_department_isSet;
     bool m_a_obj_department_isValid;
 };

@@ -51,7 +51,7 @@ public:
 private:
     void initializeModel();
 
-    OAIUserstaged_ResponseCompound obj_userstaged;
+    OAIUserstaged_ResponseCompound m_obj_userstaged;
     bool m_obj_userstaged_isSet;
     bool m_obj_userstaged_isValid;
 };

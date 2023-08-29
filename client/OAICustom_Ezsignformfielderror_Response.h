@@ -58,11 +58,11 @@ public:
 private:
     void initializeModel();
 
-    QString s_ezsignformfield_label;
+    QString m_s_ezsignformfield_label;
     bool m_s_ezsignformfield_label_isSet;
     bool m_s_ezsignformfield_label_isValid;
 
-    QList<OAICustom_Ezsignformfielderrortest_Response> a_obj_ezsignformfielderrortest;
+    QList<OAICustom_Ezsignformfielderrortest_Response> m_a_obj_ezsignformfielderrortest;
     bool m_a_obj_ezsignformfielderrortest_isSet;
     bool m_a_obj_ezsignformfielderrortest_isValid;
 };

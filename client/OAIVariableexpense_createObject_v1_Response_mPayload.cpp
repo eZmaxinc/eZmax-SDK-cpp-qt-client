@@ -47,7 +47,7 @@ void OAIVariableexpense_createObject_v1_Response_mPayload::fromJson(QString json
 
 void OAIVariableexpense_createObject_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_pki_variableexpense_id_isValid = ::OpenAPI::fromJsonValue(a_pki_variableexpense_id, json[QString("a_pkiVariableexpenseID")]);
+    m_a_pki_variableexpense_id_isValid = ::OpenAPI::fromJsonValue(m_a_pki_variableexpense_id, json[QString("a_pkiVariableexpenseID")]);
     m_a_pki_variableexpense_id_isSet = !json[QString("a_pkiVariableexpenseID")].isNull() && m_a_pki_variableexpense_id_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIVariableexpense_createObject_v1_Response_mPayload::asJson() const {
 
 QJsonObject OAIVariableexpense_createObject_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (a_pki_variableexpense_id.size() > 0) {
-        obj.insert(QString("a_pkiVariableexpenseID"), ::OpenAPI::toJsonValue(a_pki_variableexpense_id));
+    if (m_a_pki_variableexpense_id.size() > 0) {
+        obj.insert(QString("a_pkiVariableexpenseID"), ::OpenAPI::toJsonValue(m_a_pki_variableexpense_id));
     }
     return obj;
 }
 
 QList<qint32> OAIVariableexpense_createObject_v1_Response_mPayload::getAPkiVariableexpenseId() const {
-    return a_pki_variableexpense_id;
+    return m_a_pki_variableexpense_id;
 }
 void OAIVariableexpense_createObject_v1_Response_mPayload::setAPkiVariableexpenseId(const QList<qint32> &a_pki_variableexpense_id) {
-    this->a_pki_variableexpense_id = a_pki_variableexpense_id;
-    this->m_a_pki_variableexpense_id_isSet = true;
+    m_a_pki_variableexpense_id = a_pki_variableexpense_id;
+    m_a_pki_variableexpense_id_isSet = true;
 }
 
 bool OAIVariableexpense_createObject_v1_Response_mPayload::is_a_pki_variableexpense_id_Set() const{
@@ -85,7 +85,7 @@ bool OAIVariableexpense_createObject_v1_Response_mPayload::is_a_pki_variableexpe
 bool OAIVariableexpense_createObject_v1_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_pki_variableexpense_id.size() > 0) {
+        if (m_a_pki_variableexpense_id.size() > 0) {
             isObjectUpdated = true;
             break;
         }

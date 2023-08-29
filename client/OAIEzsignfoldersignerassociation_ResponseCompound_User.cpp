@@ -59,19 +59,19 @@ void OAIEzsignfoldersignerassociation_ResponseCompound_User::fromJson(QString js
 
 void OAIEzsignfoldersignerassociation_ResponseCompound_User::fromJsonObject(QJsonObject json) {
 
-    m_pki_user_id_isValid = ::OpenAPI::fromJsonValue(pki_user_id, json[QString("pkiUserID")]);
+    m_pki_user_id_isValid = ::OpenAPI::fromJsonValue(m_pki_user_id, json[QString("pkiUserID")]);
     m_pki_user_id_isSet = !json[QString("pkiUserID")].isNull() && m_pki_user_id_isValid;
 
-    m_fki_language_id_isValid = ::OpenAPI::fromJsonValue(fki_language_id, json[QString("fkiLanguageID")]);
+    m_fki_language_id_isValid = ::OpenAPI::fromJsonValue(m_fki_language_id, json[QString("fkiLanguageID")]);
     m_fki_language_id_isSet = !json[QString("fkiLanguageID")].isNull() && m_fki_language_id_isValid;
 
-    m_s_user_firstname_isValid = ::OpenAPI::fromJsonValue(s_user_firstname, json[QString("sUserFirstname")]);
+    m_s_user_firstname_isValid = ::OpenAPI::fromJsonValue(m_s_user_firstname, json[QString("sUserFirstname")]);
     m_s_user_firstname_isSet = !json[QString("sUserFirstname")].isNull() && m_s_user_firstname_isValid;
 
-    m_s_user_lastname_isValid = ::OpenAPI::fromJsonValue(s_user_lastname, json[QString("sUserLastname")]);
+    m_s_user_lastname_isValid = ::OpenAPI::fromJsonValue(m_s_user_lastname, json[QString("sUserLastname")]);
     m_s_user_lastname_isSet = !json[QString("sUserLastname")].isNull() && m_s_user_lastname_isValid;
 
-    m_s_email_address_isValid = ::OpenAPI::fromJsonValue(s_email_address, json[QString("sEmailAddress")]);
+    m_s_email_address_isValid = ::OpenAPI::fromJsonValue(m_s_email_address, json[QString("sEmailAddress")]);
     m_s_email_address_isSet = !json[QString("sEmailAddress")].isNull() && m_s_email_address_isValid;
 }
 
@@ -85,29 +85,29 @@ QString OAIEzsignfoldersignerassociation_ResponseCompound_User::asJson() const {
 QJsonObject OAIEzsignfoldersignerassociation_ResponseCompound_User::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_user_id_isSet) {
-        obj.insert(QString("pkiUserID"), ::OpenAPI::toJsonValue(pki_user_id));
+        obj.insert(QString("pkiUserID"), ::OpenAPI::toJsonValue(m_pki_user_id));
     }
     if (m_fki_language_id_isSet) {
-        obj.insert(QString("fkiLanguageID"), ::OpenAPI::toJsonValue(fki_language_id));
+        obj.insert(QString("fkiLanguageID"), ::OpenAPI::toJsonValue(m_fki_language_id));
     }
     if (m_s_user_firstname_isSet) {
-        obj.insert(QString("sUserFirstname"), ::OpenAPI::toJsonValue(s_user_firstname));
+        obj.insert(QString("sUserFirstname"), ::OpenAPI::toJsonValue(m_s_user_firstname));
     }
     if (m_s_user_lastname_isSet) {
-        obj.insert(QString("sUserLastname"), ::OpenAPI::toJsonValue(s_user_lastname));
+        obj.insert(QString("sUserLastname"), ::OpenAPI::toJsonValue(m_s_user_lastname));
     }
     if (m_s_email_address_isSet) {
-        obj.insert(QString("sEmailAddress"), ::OpenAPI::toJsonValue(s_email_address));
+        obj.insert(QString("sEmailAddress"), ::OpenAPI::toJsonValue(m_s_email_address));
     }
     return obj;
 }
 
 qint32 OAIEzsignfoldersignerassociation_ResponseCompound_User::getPkiUserId() const {
-    return pki_user_id;
+    return m_pki_user_id;
 }
 void OAIEzsignfoldersignerassociation_ResponseCompound_User::setPkiUserId(const qint32 &pki_user_id) {
-    this->pki_user_id = pki_user_id;
-    this->m_pki_user_id_isSet = true;
+    m_pki_user_id = pki_user_id;
+    m_pki_user_id_isSet = true;
 }
 
 bool OAIEzsignfoldersignerassociation_ResponseCompound_User::is_pki_user_id_Set() const{
@@ -119,11 +119,11 @@ bool OAIEzsignfoldersignerassociation_ResponseCompound_User::is_pki_user_id_Vali
 }
 
 qint32 OAIEzsignfoldersignerassociation_ResponseCompound_User::getFkiLanguageId() const {
-    return fki_language_id;
+    return m_fki_language_id;
 }
 void OAIEzsignfoldersignerassociation_ResponseCompound_User::setFkiLanguageId(const qint32 &fki_language_id) {
-    this->fki_language_id = fki_language_id;
-    this->m_fki_language_id_isSet = true;
+    m_fki_language_id = fki_language_id;
+    m_fki_language_id_isSet = true;
 }
 
 bool OAIEzsignfoldersignerassociation_ResponseCompound_User::is_fki_language_id_Set() const{
@@ -135,11 +135,11 @@ bool OAIEzsignfoldersignerassociation_ResponseCompound_User::is_fki_language_id_
 }
 
 QString OAIEzsignfoldersignerassociation_ResponseCompound_User::getSUserFirstname() const {
-    return s_user_firstname;
+    return m_s_user_firstname;
 }
 void OAIEzsignfoldersignerassociation_ResponseCompound_User::setSUserFirstname(const QString &s_user_firstname) {
-    this->s_user_firstname = s_user_firstname;
-    this->m_s_user_firstname_isSet = true;
+    m_s_user_firstname = s_user_firstname;
+    m_s_user_firstname_isSet = true;
 }
 
 bool OAIEzsignfoldersignerassociation_ResponseCompound_User::is_s_user_firstname_Set() const{
@@ -151,11 +151,11 @@ bool OAIEzsignfoldersignerassociation_ResponseCompound_User::is_s_user_firstname
 }
 
 QString OAIEzsignfoldersignerassociation_ResponseCompound_User::getSUserLastname() const {
-    return s_user_lastname;
+    return m_s_user_lastname;
 }
 void OAIEzsignfoldersignerassociation_ResponseCompound_User::setSUserLastname(const QString &s_user_lastname) {
-    this->s_user_lastname = s_user_lastname;
-    this->m_s_user_lastname_isSet = true;
+    m_s_user_lastname = s_user_lastname;
+    m_s_user_lastname_isSet = true;
 }
 
 bool OAIEzsignfoldersignerassociation_ResponseCompound_User::is_s_user_lastname_Set() const{
@@ -167,11 +167,11 @@ bool OAIEzsignfoldersignerassociation_ResponseCompound_User::is_s_user_lastname_
 }
 
 QString OAIEzsignfoldersignerassociation_ResponseCompound_User::getSEmailAddress() const {
-    return s_email_address;
+    return m_s_email_address;
 }
 void OAIEzsignfoldersignerassociation_ResponseCompound_User::setSEmailAddress(const QString &s_email_address) {
-    this->s_email_address = s_email_address;
-    this->m_s_email_address_isSet = true;
+    m_s_email_address = s_email_address;
+    m_s_email_address_isSet = true;
 }
 
 bool OAIEzsignfoldersignerassociation_ResponseCompound_User::is_s_email_address_Set() const{

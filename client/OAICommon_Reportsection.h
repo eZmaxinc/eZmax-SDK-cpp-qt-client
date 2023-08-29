@@ -75,23 +75,23 @@ public:
 private:
     void initializeModel();
 
-    QList<OAICommon_Reportsubsection> a_obj_reportsubsection;
+    QList<OAICommon_Reportsubsection> m_a_obj_reportsubsection;
     bool m_a_obj_reportsubsection_isSet;
     bool m_a_obj_reportsubsection_isValid;
 
-    QList<OAICommon_Reportcolumn> a_obj_reportcolumn;
+    QList<OAICommon_Reportcolumn> m_a_obj_reportcolumn;
     bool m_a_obj_reportcolumn_isSet;
     bool m_a_obj_reportcolumn_isValid;
 
-    OAIEnum_Horizontalalignment e_reportsection_horizontalalignment;
+    OAIEnum_Horizontalalignment m_e_reportsection_horizontalalignment;
     bool m_e_reportsection_horizontalalignment_isSet;
     bool m_e_reportsection_horizontalalignment_isValid;
 
-    qint32 i_reportsection_columncount;
+    qint32 m_i_reportsection_columncount;
     bool m_i_reportsection_columncount_isSet;
     bool m_i_reportsection_columncount_isValid;
 
-    qint32 i_reportsection_width;
+    qint32 m_i_reportsection_width;
     bool m_i_reportsection_width_isSet;
     bool m_i_reportsection_width_isValid;
 };

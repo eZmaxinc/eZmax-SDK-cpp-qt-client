@@ -54,11 +54,11 @@ public:
 private:
     void initializeModel();
 
-    bool b_ezsigntemplatepackage_needvalidation;
+    bool m_b_ezsigntemplatepackage_needvalidation;
     bool m_b_ezsigntemplatepackage_needvalidation_isSet;
     bool m_b_ezsigntemplatepackage_needvalidation_isValid;
 
-    bool b_ezsignbulksend_needvalidation;
+    bool m_b_ezsignbulksend_needvalidation;
     bool m_b_ezsignbulksend_needvalidation_isSet;
     bool m_b_ezsignbulksend_needvalidation_isValid;
 };

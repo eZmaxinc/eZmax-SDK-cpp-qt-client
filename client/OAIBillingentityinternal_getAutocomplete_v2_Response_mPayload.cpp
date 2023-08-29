@@ -47,7 +47,7 @@ void OAIBillingentityinternal_getAutocomplete_v2_Response_mPayload::fromJson(QSt
 
 void OAIBillingentityinternal_getAutocomplete_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_billingentityinternal_isValid = ::OpenAPI::fromJsonValue(a_obj_billingentityinternal, json[QString("a_objBillingentityinternal")]);
+    m_a_obj_billingentityinternal_isValid = ::OpenAPI::fromJsonValue(m_a_obj_billingentityinternal, json[QString("a_objBillingentityinternal")]);
     m_a_obj_billingentityinternal_isSet = !json[QString("a_objBillingentityinternal")].isNull() && m_a_obj_billingentityinternal_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIBillingentityinternal_getAutocomplete_v2_Response_mPayload::asJson() 
 
 QJsonObject OAIBillingentityinternal_getAutocomplete_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_billingentityinternal.size() > 0) {
-        obj.insert(QString("a_objBillingentityinternal"), ::OpenAPI::toJsonValue(a_obj_billingentityinternal));
+    if (m_a_obj_billingentityinternal.size() > 0) {
+        obj.insert(QString("a_objBillingentityinternal"), ::OpenAPI::toJsonValue(m_a_obj_billingentityinternal));
     }
     return obj;
 }
 
 QList<OAIBillingentityinternal_AutocompleteElement_Response> OAIBillingentityinternal_getAutocomplete_v2_Response_mPayload::getAObjBillingentityinternal() const {
-    return a_obj_billingentityinternal;
+    return m_a_obj_billingentityinternal;
 }
 void OAIBillingentityinternal_getAutocomplete_v2_Response_mPayload::setAObjBillingentityinternal(const QList<OAIBillingentityinternal_AutocompleteElement_Response> &a_obj_billingentityinternal) {
-    this->a_obj_billingentityinternal = a_obj_billingentityinternal;
-    this->m_a_obj_billingentityinternal_isSet = true;
+    m_a_obj_billingentityinternal = a_obj_billingentityinternal;
+    m_a_obj_billingentityinternal_isSet = true;
 }
 
 bool OAIBillingentityinternal_getAutocomplete_v2_Response_mPayload::is_a_obj_billingentityinternal_Set() const{
@@ -85,7 +85,7 @@ bool OAIBillingentityinternal_getAutocomplete_v2_Response_mPayload::is_a_obj_bil
 bool OAIBillingentityinternal_getAutocomplete_v2_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_billingentityinternal.size() > 0) {
+        if (m_a_obj_billingentityinternal.size() > 0) {
             isObjectUpdated = true;
             break;
         }

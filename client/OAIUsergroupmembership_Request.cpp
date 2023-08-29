@@ -53,13 +53,13 @@ void OAIUsergroupmembership_Request::fromJson(QString jsonString) {
 
 void OAIUsergroupmembership_Request::fromJsonObject(QJsonObject json) {
 
-    m_pki_usergroupmembership_id_isValid = ::OpenAPI::fromJsonValue(pki_usergroupmembership_id, json[QString("pkiUsergroupmembershipID")]);
+    m_pki_usergroupmembership_id_isValid = ::OpenAPI::fromJsonValue(m_pki_usergroupmembership_id, json[QString("pkiUsergroupmembershipID")]);
     m_pki_usergroupmembership_id_isSet = !json[QString("pkiUsergroupmembershipID")].isNull() && m_pki_usergroupmembership_id_isValid;
 
-    m_fki_usergroup_id_isValid = ::OpenAPI::fromJsonValue(fki_usergroup_id, json[QString("fkiUsergroupID")]);
+    m_fki_usergroup_id_isValid = ::OpenAPI::fromJsonValue(m_fki_usergroup_id, json[QString("fkiUsergroupID")]);
     m_fki_usergroup_id_isSet = !json[QString("fkiUsergroupID")].isNull() && m_fki_usergroup_id_isValid;
 
-    m_fki_user_id_isValid = ::OpenAPI::fromJsonValue(fki_user_id, json[QString("fkiUserID")]);
+    m_fki_user_id_isValid = ::OpenAPI::fromJsonValue(m_fki_user_id, json[QString("fkiUserID")]);
     m_fki_user_id_isSet = !json[QString("fkiUserID")].isNull() && m_fki_user_id_isValid;
 }
 
@@ -73,23 +73,23 @@ QString OAIUsergroupmembership_Request::asJson() const {
 QJsonObject OAIUsergroupmembership_Request::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_usergroupmembership_id_isSet) {
-        obj.insert(QString("pkiUsergroupmembershipID"), ::OpenAPI::toJsonValue(pki_usergroupmembership_id));
+        obj.insert(QString("pkiUsergroupmembershipID"), ::OpenAPI::toJsonValue(m_pki_usergroupmembership_id));
     }
     if (m_fki_usergroup_id_isSet) {
-        obj.insert(QString("fkiUsergroupID"), ::OpenAPI::toJsonValue(fki_usergroup_id));
+        obj.insert(QString("fkiUsergroupID"), ::OpenAPI::toJsonValue(m_fki_usergroup_id));
     }
     if (m_fki_user_id_isSet) {
-        obj.insert(QString("fkiUserID"), ::OpenAPI::toJsonValue(fki_user_id));
+        obj.insert(QString("fkiUserID"), ::OpenAPI::toJsonValue(m_fki_user_id));
     }
     return obj;
 }
 
 qint32 OAIUsergroupmembership_Request::getPkiUsergroupmembershipId() const {
-    return pki_usergroupmembership_id;
+    return m_pki_usergroupmembership_id;
 }
 void OAIUsergroupmembership_Request::setPkiUsergroupmembershipId(const qint32 &pki_usergroupmembership_id) {
-    this->pki_usergroupmembership_id = pki_usergroupmembership_id;
-    this->m_pki_usergroupmembership_id_isSet = true;
+    m_pki_usergroupmembership_id = pki_usergroupmembership_id;
+    m_pki_usergroupmembership_id_isSet = true;
 }
 
 bool OAIUsergroupmembership_Request::is_pki_usergroupmembership_id_Set() const{
@@ -101,11 +101,11 @@ bool OAIUsergroupmembership_Request::is_pki_usergroupmembership_id_Valid() const
 }
 
 qint32 OAIUsergroupmembership_Request::getFkiUsergroupId() const {
-    return fki_usergroup_id;
+    return m_fki_usergroup_id;
 }
 void OAIUsergroupmembership_Request::setFkiUsergroupId(const qint32 &fki_usergroup_id) {
-    this->fki_usergroup_id = fki_usergroup_id;
-    this->m_fki_usergroup_id_isSet = true;
+    m_fki_usergroup_id = fki_usergroup_id;
+    m_fki_usergroup_id_isSet = true;
 }
 
 bool OAIUsergroupmembership_Request::is_fki_usergroup_id_Set() const{
@@ -117,11 +117,11 @@ bool OAIUsergroupmembership_Request::is_fki_usergroup_id_Valid() const{
 }
 
 qint32 OAIUsergroupmembership_Request::getFkiUserId() const {
-    return fki_user_id;
+    return m_fki_user_id;
 }
 void OAIUsergroupmembership_Request::setFkiUserId(const qint32 &fki_user_id) {
-    this->fki_user_id = fki_user_id;
-    this->m_fki_user_id_isSet = true;
+    m_fki_user_id = fki_user_id;
+    m_fki_user_id_isSet = true;
 }
 
 bool OAIUsergroupmembership_Request::is_fki_user_id_Set() const{

@@ -53,13 +53,13 @@ void OAIBillingentityinternalproduct_Request::fromJson(QString jsonString) {
 
 void OAIBillingentityinternalproduct_Request::fromJsonObject(QJsonObject json) {
 
-    m_pki_billingentityinternalproduct_id_isValid = ::OpenAPI::fromJsonValue(pki_billingentityinternalproduct_id, json[QString("pkiBillingentityinternalproductID")]);
+    m_pki_billingentityinternalproduct_id_isValid = ::OpenAPI::fromJsonValue(m_pki_billingentityinternalproduct_id, json[QString("pkiBillingentityinternalproductID")]);
     m_pki_billingentityinternalproduct_id_isSet = !json[QString("pkiBillingentityinternalproductID")].isNull() && m_pki_billingentityinternalproduct_id_isValid;
 
-    m_fki_ezmaxproduct_id_isValid = ::OpenAPI::fromJsonValue(fki_ezmaxproduct_id, json[QString("fkiEzmaxproductID")]);
+    m_fki_ezmaxproduct_id_isValid = ::OpenAPI::fromJsonValue(m_fki_ezmaxproduct_id, json[QString("fkiEzmaxproductID")]);
     m_fki_ezmaxproduct_id_isSet = !json[QString("fkiEzmaxproductID")].isNull() && m_fki_ezmaxproduct_id_isValid;
 
-    m_fki_billingentityexternal_id_isValid = ::OpenAPI::fromJsonValue(fki_billingentityexternal_id, json[QString("fkiBillingentityexternalID")]);
+    m_fki_billingentityexternal_id_isValid = ::OpenAPI::fromJsonValue(m_fki_billingentityexternal_id, json[QString("fkiBillingentityexternalID")]);
     m_fki_billingentityexternal_id_isSet = !json[QString("fkiBillingentityexternalID")].isNull() && m_fki_billingentityexternal_id_isValid;
 }
 
@@ -73,23 +73,23 @@ QString OAIBillingentityinternalproduct_Request::asJson() const {
 QJsonObject OAIBillingentityinternalproduct_Request::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_billingentityinternalproduct_id_isSet) {
-        obj.insert(QString("pkiBillingentityinternalproductID"), ::OpenAPI::toJsonValue(pki_billingentityinternalproduct_id));
+        obj.insert(QString("pkiBillingentityinternalproductID"), ::OpenAPI::toJsonValue(m_pki_billingentityinternalproduct_id));
     }
     if (m_fki_ezmaxproduct_id_isSet) {
-        obj.insert(QString("fkiEzmaxproductID"), ::OpenAPI::toJsonValue(fki_ezmaxproduct_id));
+        obj.insert(QString("fkiEzmaxproductID"), ::OpenAPI::toJsonValue(m_fki_ezmaxproduct_id));
     }
     if (m_fki_billingentityexternal_id_isSet) {
-        obj.insert(QString("fkiBillingentityexternalID"), ::OpenAPI::toJsonValue(fki_billingentityexternal_id));
+        obj.insert(QString("fkiBillingentityexternalID"), ::OpenAPI::toJsonValue(m_fki_billingentityexternal_id));
     }
     return obj;
 }
 
 qint32 OAIBillingentityinternalproduct_Request::getPkiBillingentityinternalproductId() const {
-    return pki_billingentityinternalproduct_id;
+    return m_pki_billingentityinternalproduct_id;
 }
 void OAIBillingentityinternalproduct_Request::setPkiBillingentityinternalproductId(const qint32 &pki_billingentityinternalproduct_id) {
-    this->pki_billingentityinternalproduct_id = pki_billingentityinternalproduct_id;
-    this->m_pki_billingentityinternalproduct_id_isSet = true;
+    m_pki_billingentityinternalproduct_id = pki_billingentityinternalproduct_id;
+    m_pki_billingentityinternalproduct_id_isSet = true;
 }
 
 bool OAIBillingentityinternalproduct_Request::is_pki_billingentityinternalproduct_id_Set() const{
@@ -101,11 +101,11 @@ bool OAIBillingentityinternalproduct_Request::is_pki_billingentityinternalproduc
 }
 
 qint32 OAIBillingentityinternalproduct_Request::getFkiEzmaxproductId() const {
-    return fki_ezmaxproduct_id;
+    return m_fki_ezmaxproduct_id;
 }
 void OAIBillingentityinternalproduct_Request::setFkiEzmaxproductId(const qint32 &fki_ezmaxproduct_id) {
-    this->fki_ezmaxproduct_id = fki_ezmaxproduct_id;
-    this->m_fki_ezmaxproduct_id_isSet = true;
+    m_fki_ezmaxproduct_id = fki_ezmaxproduct_id;
+    m_fki_ezmaxproduct_id_isSet = true;
 }
 
 bool OAIBillingentityinternalproduct_Request::is_fki_ezmaxproduct_id_Set() const{
@@ -117,11 +117,11 @@ bool OAIBillingentityinternalproduct_Request::is_fki_ezmaxproduct_id_Valid() con
 }
 
 qint32 OAIBillingentityinternalproduct_Request::getFkiBillingentityexternalId() const {
-    return fki_billingentityexternal_id;
+    return m_fki_billingentityexternal_id;
 }
 void OAIBillingentityinternalproduct_Request::setFkiBillingentityexternalId(const qint32 &fki_billingentityexternal_id) {
-    this->fki_billingentityexternal_id = fki_billingentityexternal_id;
-    this->m_fki_billingentityexternal_id_isSet = true;
+    m_fki_billingentityexternal_id = fki_billingentityexternal_id;
+    m_fki_billingentityexternal_id_isSet = true;
 }
 
 bool OAIBillingentityinternalproduct_Request::is_fki_billingentityexternal_id_Set() const{

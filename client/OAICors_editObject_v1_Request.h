@@ -51,7 +51,7 @@ public:
 private:
     void initializeModel();
 
-    OAICors_RequestCompound obj_cors;
+    OAICors_RequestCompound m_obj_cors;
     bool m_obj_cors_isSet;
     bool m_obj_cors_isValid;
 };

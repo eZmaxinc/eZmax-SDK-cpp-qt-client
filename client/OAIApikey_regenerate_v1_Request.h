@@ -49,7 +49,7 @@ public:
 private:
     void initializeModel();
 
-    bool b_apikey_issigned;
+    bool m_b_apikey_issigned;
     bool m_b_apikey_issigned_isSet;
     bool m_b_apikey_issigned_isValid;
 };

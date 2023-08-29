@@ -60,15 +60,15 @@ public:
 private:
     void initializeModel();
 
-    QString s_secretquestion_text_x;
+    QString m_s_secretquestion_text_x;
     bool m_s_secretquestion_text_x_isSet;
     bool m_s_secretquestion_text_x_isValid;
 
-    qint32 pki_secretquestion_id;
+    qint32 m_pki_secretquestion_id;
     bool m_pki_secretquestion_id_isSet;
     bool m_pki_secretquestion_id_isValid;
 
-    bool b_secretquestion_isactive;
+    bool m_b_secretquestion_isactive;
     bool m_b_secretquestion_isactive_isSet;
     bool m_b_secretquestion_isactive_isValid;
 };

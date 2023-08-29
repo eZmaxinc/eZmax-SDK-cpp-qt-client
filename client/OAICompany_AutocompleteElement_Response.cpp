@@ -53,13 +53,13 @@ void OAICompany_AutocompleteElement_Response::fromJson(QString jsonString) {
 
 void OAICompany_AutocompleteElement_Response::fromJsonObject(QJsonObject json) {
 
-    m_pki_company_id_isValid = ::OpenAPI::fromJsonValue(pki_company_id, json[QString("pkiCompanyID")]);
+    m_pki_company_id_isValid = ::OpenAPI::fromJsonValue(m_pki_company_id, json[QString("pkiCompanyID")]);
     m_pki_company_id_isSet = !json[QString("pkiCompanyID")].isNull() && m_pki_company_id_isValid;
 
-    m_s_company_name_x_isValid = ::OpenAPI::fromJsonValue(s_company_name_x, json[QString("sCompanyNameX")]);
+    m_s_company_name_x_isValid = ::OpenAPI::fromJsonValue(m_s_company_name_x, json[QString("sCompanyNameX")]);
     m_s_company_name_x_isSet = !json[QString("sCompanyNameX")].isNull() && m_s_company_name_x_isValid;
 
-    m_b_company_isactive_isValid = ::OpenAPI::fromJsonValue(b_company_isactive, json[QString("bCompanyIsactive")]);
+    m_b_company_isactive_isValid = ::OpenAPI::fromJsonValue(m_b_company_isactive, json[QString("bCompanyIsactive")]);
     m_b_company_isactive_isSet = !json[QString("bCompanyIsactive")].isNull() && m_b_company_isactive_isValid;
 }
 
@@ -73,23 +73,23 @@ QString OAICompany_AutocompleteElement_Response::asJson() const {
 QJsonObject OAICompany_AutocompleteElement_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_company_id_isSet) {
-        obj.insert(QString("pkiCompanyID"), ::OpenAPI::toJsonValue(pki_company_id));
+        obj.insert(QString("pkiCompanyID"), ::OpenAPI::toJsonValue(m_pki_company_id));
     }
     if (m_s_company_name_x_isSet) {
-        obj.insert(QString("sCompanyNameX"), ::OpenAPI::toJsonValue(s_company_name_x));
+        obj.insert(QString("sCompanyNameX"), ::OpenAPI::toJsonValue(m_s_company_name_x));
     }
     if (m_b_company_isactive_isSet) {
-        obj.insert(QString("bCompanyIsactive"), ::OpenAPI::toJsonValue(b_company_isactive));
+        obj.insert(QString("bCompanyIsactive"), ::OpenAPI::toJsonValue(m_b_company_isactive));
     }
     return obj;
 }
 
 qint32 OAICompany_AutocompleteElement_Response::getPkiCompanyId() const {
-    return pki_company_id;
+    return m_pki_company_id;
 }
 void OAICompany_AutocompleteElement_Response::setPkiCompanyId(const qint32 &pki_company_id) {
-    this->pki_company_id = pki_company_id;
-    this->m_pki_company_id_isSet = true;
+    m_pki_company_id = pki_company_id;
+    m_pki_company_id_isSet = true;
 }
 
 bool OAICompany_AutocompleteElement_Response::is_pki_company_id_Set() const{
@@ -101,11 +101,11 @@ bool OAICompany_AutocompleteElement_Response::is_pki_company_id_Valid() const{
 }
 
 QString OAICompany_AutocompleteElement_Response::getSCompanyNameX() const {
-    return s_company_name_x;
+    return m_s_company_name_x;
 }
 void OAICompany_AutocompleteElement_Response::setSCompanyNameX(const QString &s_company_name_x) {
-    this->s_company_name_x = s_company_name_x;
-    this->m_s_company_name_x_isSet = true;
+    m_s_company_name_x = s_company_name_x;
+    m_s_company_name_x_isSet = true;
 }
 
 bool OAICompany_AutocompleteElement_Response::is_s_company_name_x_Set() const{
@@ -117,11 +117,11 @@ bool OAICompany_AutocompleteElement_Response::is_s_company_name_x_Valid() const{
 }
 
 bool OAICompany_AutocompleteElement_Response::isBCompanyIsactive() const {
-    return b_company_isactive;
+    return m_b_company_isactive;
 }
 void OAICompany_AutocompleteElement_Response::setBCompanyIsactive(const bool &b_company_isactive) {
-    this->b_company_isactive = b_company_isactive;
-    this->m_b_company_isactive_isSet = true;
+    m_b_company_isactive = b_company_isactive;
+    m_b_company_isactive_isSet = true;
 }
 
 bool OAICompany_AutocompleteElement_Response::is_b_company_isactive_Set() const{

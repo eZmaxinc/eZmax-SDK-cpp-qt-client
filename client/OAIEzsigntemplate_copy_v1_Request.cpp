@@ -47,7 +47,7 @@ void OAIEzsigntemplate_copy_v1_Request::fromJson(QString jsonString) {
 
 void OAIEzsigntemplate_copy_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_a_fki_ezsignfoldertype_id_isValid = ::OpenAPI::fromJsonValue(a_fki_ezsignfoldertype_id, json[QString("a_fkiEzsignfoldertypeID")]);
+    m_a_fki_ezsignfoldertype_id_isValid = ::OpenAPI::fromJsonValue(m_a_fki_ezsignfoldertype_id, json[QString("a_fkiEzsignfoldertypeID")]);
     m_a_fki_ezsignfoldertype_id_isSet = !json[QString("a_fkiEzsignfoldertypeID")].isNull() && m_a_fki_ezsignfoldertype_id_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIEzsigntemplate_copy_v1_Request::asJson() const {
 
 QJsonObject OAIEzsigntemplate_copy_v1_Request::asJsonObject() const {
     QJsonObject obj;
-    if (a_fki_ezsignfoldertype_id.size() > 0) {
-        obj.insert(QString("a_fkiEzsignfoldertypeID"), ::OpenAPI::toJsonValue(a_fki_ezsignfoldertype_id));
+    if (m_a_fki_ezsignfoldertype_id.size() > 0) {
+        obj.insert(QString("a_fkiEzsignfoldertypeID"), ::OpenAPI::toJsonValue(m_a_fki_ezsignfoldertype_id));
     }
     return obj;
 }
 
 QList<qint32> OAIEzsigntemplate_copy_v1_Request::getAFkiEzsignfoldertypeId() const {
-    return a_fki_ezsignfoldertype_id;
+    return m_a_fki_ezsignfoldertype_id;
 }
 void OAIEzsigntemplate_copy_v1_Request::setAFkiEzsignfoldertypeId(const QList<qint32> &a_fki_ezsignfoldertype_id) {
-    this->a_fki_ezsignfoldertype_id = a_fki_ezsignfoldertype_id;
-    this->m_a_fki_ezsignfoldertype_id_isSet = true;
+    m_a_fki_ezsignfoldertype_id = a_fki_ezsignfoldertype_id;
+    m_a_fki_ezsignfoldertype_id_isSet = true;
 }
 
 bool OAIEzsigntemplate_copy_v1_Request::is_a_fki_ezsignfoldertype_id_Set() const{
@@ -85,7 +85,7 @@ bool OAIEzsigntemplate_copy_v1_Request::is_a_fki_ezsignfoldertype_id_Valid() con
 bool OAIEzsigntemplate_copy_v1_Request::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_fki_ezsignfoldertype_id.size() > 0) {
+        if (m_a_fki_ezsignfoldertype_id.size() > 0) {
             isObjectUpdated = true;
             break;
         }

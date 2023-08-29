@@ -50,7 +50,7 @@ public:
 private:
     void initializeModel();
 
-    QString s_secretquestion_text_x;
+    QString m_s_secretquestion_text_x;
     bool m_s_secretquestion_text_x_isSet;
     bool m_s_secretquestion_text_x_isValid;
 };

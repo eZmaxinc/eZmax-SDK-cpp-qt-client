@@ -53,13 +53,13 @@ void OAIVariableexpense_AutocompleteElement_Response::fromJson(QString jsonStrin
 
 void OAIVariableexpense_AutocompleteElement_Response::fromJsonObject(QJsonObject json) {
 
-    m_s_variableexpense_description_x_isValid = ::OpenAPI::fromJsonValue(s_variableexpense_description_x, json[QString("sVariableexpenseDescriptionX")]);
+    m_s_variableexpense_description_x_isValid = ::OpenAPI::fromJsonValue(m_s_variableexpense_description_x, json[QString("sVariableexpenseDescriptionX")]);
     m_s_variableexpense_description_x_isSet = !json[QString("sVariableexpenseDescriptionX")].isNull() && m_s_variableexpense_description_x_isValid;
 
-    m_pki_variableexpense_id_isValid = ::OpenAPI::fromJsonValue(pki_variableexpense_id, json[QString("pkiVariableexpenseID")]);
+    m_pki_variableexpense_id_isValid = ::OpenAPI::fromJsonValue(m_pki_variableexpense_id, json[QString("pkiVariableexpenseID")]);
     m_pki_variableexpense_id_isSet = !json[QString("pkiVariableexpenseID")].isNull() && m_pki_variableexpense_id_isValid;
 
-    m_b_variableexpense_isactive_isValid = ::OpenAPI::fromJsonValue(b_variableexpense_isactive, json[QString("bVariableexpenseIsactive")]);
+    m_b_variableexpense_isactive_isValid = ::OpenAPI::fromJsonValue(m_b_variableexpense_isactive, json[QString("bVariableexpenseIsactive")]);
     m_b_variableexpense_isactive_isSet = !json[QString("bVariableexpenseIsactive")].isNull() && m_b_variableexpense_isactive_isValid;
 }
 
@@ -73,23 +73,23 @@ QString OAIVariableexpense_AutocompleteElement_Response::asJson() const {
 QJsonObject OAIVariableexpense_AutocompleteElement_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_s_variableexpense_description_x_isSet) {
-        obj.insert(QString("sVariableexpenseDescriptionX"), ::OpenAPI::toJsonValue(s_variableexpense_description_x));
+        obj.insert(QString("sVariableexpenseDescriptionX"), ::OpenAPI::toJsonValue(m_s_variableexpense_description_x));
     }
     if (m_pki_variableexpense_id_isSet) {
-        obj.insert(QString("pkiVariableexpenseID"), ::OpenAPI::toJsonValue(pki_variableexpense_id));
+        obj.insert(QString("pkiVariableexpenseID"), ::OpenAPI::toJsonValue(m_pki_variableexpense_id));
     }
     if (m_b_variableexpense_isactive_isSet) {
-        obj.insert(QString("bVariableexpenseIsactive"), ::OpenAPI::toJsonValue(b_variableexpense_isactive));
+        obj.insert(QString("bVariableexpenseIsactive"), ::OpenAPI::toJsonValue(m_b_variableexpense_isactive));
     }
     return obj;
 }
 
 QString OAIVariableexpense_AutocompleteElement_Response::getSVariableexpenseDescriptionX() const {
-    return s_variableexpense_description_x;
+    return m_s_variableexpense_description_x;
 }
 void OAIVariableexpense_AutocompleteElement_Response::setSVariableexpenseDescriptionX(const QString &s_variableexpense_description_x) {
-    this->s_variableexpense_description_x = s_variableexpense_description_x;
-    this->m_s_variableexpense_description_x_isSet = true;
+    m_s_variableexpense_description_x = s_variableexpense_description_x;
+    m_s_variableexpense_description_x_isSet = true;
 }
 
 bool OAIVariableexpense_AutocompleteElement_Response::is_s_variableexpense_description_x_Set() const{
@@ -101,11 +101,11 @@ bool OAIVariableexpense_AutocompleteElement_Response::is_s_variableexpense_descr
 }
 
 qint32 OAIVariableexpense_AutocompleteElement_Response::getPkiVariableexpenseId() const {
-    return pki_variableexpense_id;
+    return m_pki_variableexpense_id;
 }
 void OAIVariableexpense_AutocompleteElement_Response::setPkiVariableexpenseId(const qint32 &pki_variableexpense_id) {
-    this->pki_variableexpense_id = pki_variableexpense_id;
-    this->m_pki_variableexpense_id_isSet = true;
+    m_pki_variableexpense_id = pki_variableexpense_id;
+    m_pki_variableexpense_id_isSet = true;
 }
 
 bool OAIVariableexpense_AutocompleteElement_Response::is_pki_variableexpense_id_Set() const{
@@ -117,11 +117,11 @@ bool OAIVariableexpense_AutocompleteElement_Response::is_pki_variableexpense_id_
 }
 
 bool OAIVariableexpense_AutocompleteElement_Response::isBVariableexpenseIsactive() const {
-    return b_variableexpense_isactive;
+    return m_b_variableexpense_isactive;
 }
 void OAIVariableexpense_AutocompleteElement_Response::setBVariableexpenseIsactive(const bool &b_variableexpense_isactive) {
-    this->b_variableexpense_isactive = b_variableexpense_isactive;
-    this->m_b_variableexpense_isactive_isSet = true;
+    m_b_variableexpense_isactive = b_variableexpense_isactive;
+    m_b_variableexpense_isactive_isSet = true;
 }
 
 bool OAIVariableexpense_AutocompleteElement_Response::is_b_variableexpense_isactive_Set() const{

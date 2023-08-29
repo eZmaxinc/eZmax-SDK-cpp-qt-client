@@ -53,13 +53,13 @@ void OAIEzsignsignergroup_RequestCompound::fromJson(QString jsonString) {
 
 void OAIEzsignsignergroup_RequestCompound::fromJsonObject(QJsonObject json) {
 
-    m_pki_ezsignsignergroup_id_isValid = ::OpenAPI::fromJsonValue(pki_ezsignsignergroup_id, json[QString("pkiEzsignsignergroupID")]);
+    m_pki_ezsignsignergroup_id_isValid = ::OpenAPI::fromJsonValue(m_pki_ezsignsignergroup_id, json[QString("pkiEzsignsignergroupID")]);
     m_pki_ezsignsignergroup_id_isSet = !json[QString("pkiEzsignsignergroupID")].isNull() && m_pki_ezsignsignergroup_id_isValid;
 
-    m_fki_ezsignfolder_id_isValid = ::OpenAPI::fromJsonValue(fki_ezsignfolder_id, json[QString("fkiEzsignfolderID")]);
+    m_fki_ezsignfolder_id_isValid = ::OpenAPI::fromJsonValue(m_fki_ezsignfolder_id, json[QString("fkiEzsignfolderID")]);
     m_fki_ezsignfolder_id_isSet = !json[QString("fkiEzsignfolderID")].isNull() && m_fki_ezsignfolder_id_isValid;
 
-    m_obj_ezsignsignergroup_description_isValid = ::OpenAPI::fromJsonValue(obj_ezsignsignergroup_description, json[QString("objEzsignsignergroupDescription")]);
+    m_obj_ezsignsignergroup_description_isValid = ::OpenAPI::fromJsonValue(m_obj_ezsignsignergroup_description, json[QString("objEzsignsignergroupDescription")]);
     m_obj_ezsignsignergroup_description_isSet = !json[QString("objEzsignsignergroupDescription")].isNull() && m_obj_ezsignsignergroup_description_isValid;
 }
 
@@ -73,23 +73,23 @@ QString OAIEzsignsignergroup_RequestCompound::asJson() const {
 QJsonObject OAIEzsignsignergroup_RequestCompound::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_ezsignsignergroup_id_isSet) {
-        obj.insert(QString("pkiEzsignsignergroupID"), ::OpenAPI::toJsonValue(pki_ezsignsignergroup_id));
+        obj.insert(QString("pkiEzsignsignergroupID"), ::OpenAPI::toJsonValue(m_pki_ezsignsignergroup_id));
     }
     if (m_fki_ezsignfolder_id_isSet) {
-        obj.insert(QString("fkiEzsignfolderID"), ::OpenAPI::toJsonValue(fki_ezsignfolder_id));
+        obj.insert(QString("fkiEzsignfolderID"), ::OpenAPI::toJsonValue(m_fki_ezsignfolder_id));
     }
-    if (obj_ezsignsignergroup_description.isSet()) {
-        obj.insert(QString("objEzsignsignergroupDescription"), ::OpenAPI::toJsonValue(obj_ezsignsignergroup_description));
+    if (m_obj_ezsignsignergroup_description.isSet()) {
+        obj.insert(QString("objEzsignsignergroupDescription"), ::OpenAPI::toJsonValue(m_obj_ezsignsignergroup_description));
     }
     return obj;
 }
 
 qint32 OAIEzsignsignergroup_RequestCompound::getPkiEzsignsignergroupId() const {
-    return pki_ezsignsignergroup_id;
+    return m_pki_ezsignsignergroup_id;
 }
 void OAIEzsignsignergroup_RequestCompound::setPkiEzsignsignergroupId(const qint32 &pki_ezsignsignergroup_id) {
-    this->pki_ezsignsignergroup_id = pki_ezsignsignergroup_id;
-    this->m_pki_ezsignsignergroup_id_isSet = true;
+    m_pki_ezsignsignergroup_id = pki_ezsignsignergroup_id;
+    m_pki_ezsignsignergroup_id_isSet = true;
 }
 
 bool OAIEzsignsignergroup_RequestCompound::is_pki_ezsignsignergroup_id_Set() const{
@@ -101,11 +101,11 @@ bool OAIEzsignsignergroup_RequestCompound::is_pki_ezsignsignergroup_id_Valid() c
 }
 
 qint32 OAIEzsignsignergroup_RequestCompound::getFkiEzsignfolderId() const {
-    return fki_ezsignfolder_id;
+    return m_fki_ezsignfolder_id;
 }
 void OAIEzsignsignergroup_RequestCompound::setFkiEzsignfolderId(const qint32 &fki_ezsignfolder_id) {
-    this->fki_ezsignfolder_id = fki_ezsignfolder_id;
-    this->m_fki_ezsignfolder_id_isSet = true;
+    m_fki_ezsignfolder_id = fki_ezsignfolder_id;
+    m_fki_ezsignfolder_id_isSet = true;
 }
 
 bool OAIEzsignsignergroup_RequestCompound::is_fki_ezsignfolder_id_Set() const{
@@ -117,11 +117,11 @@ bool OAIEzsignsignergroup_RequestCompound::is_fki_ezsignfolder_id_Valid() const{
 }
 
 OAIMultilingual_EzsignsignergroupDescription OAIEzsignsignergroup_RequestCompound::getObjEzsignsignergroupDescription() const {
-    return obj_ezsignsignergroup_description;
+    return m_obj_ezsignsignergroup_description;
 }
 void OAIEzsignsignergroup_RequestCompound::setObjEzsignsignergroupDescription(const OAIMultilingual_EzsignsignergroupDescription &obj_ezsignsignergroup_description) {
-    this->obj_ezsignsignergroup_description = obj_ezsignsignergroup_description;
-    this->m_obj_ezsignsignergroup_description_isSet = true;
+    m_obj_ezsignsignergroup_description = obj_ezsignsignergroup_description;
+    m_obj_ezsignsignergroup_description_isSet = true;
 }
 
 bool OAIEzsignsignergroup_RequestCompound::is_obj_ezsignsignergroup_description_Set() const{
@@ -145,7 +145,7 @@ bool OAIEzsignsignergroup_RequestCompound::isSet() const {
             break;
         }
 
-        if (obj_ezsignsignergroup_description.isSet()) {
+        if (m_obj_ezsignsignergroup_description.isSet()) {
             isObjectUpdated = true;
             break;
         }

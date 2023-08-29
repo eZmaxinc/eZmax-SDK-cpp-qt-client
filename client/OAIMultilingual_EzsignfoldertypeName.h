@@ -55,11 +55,11 @@ public:
 private:
     void initializeModel();
 
-    QString s_ezsignfoldertype_name1;
+    QString m_s_ezsignfoldertype_name1;
     bool m_s_ezsignfoldertype_name1_isSet;
     bool m_s_ezsignfoldertype_name1_isValid;
 
-    QString s_ezsignfoldertype_name2;
+    QString m_s_ezsignfoldertype_name2;
     bool m_s_ezsignfoldertype_name2_isSet;
     bool m_s_ezsignfoldertype_name2_isValid;
 };

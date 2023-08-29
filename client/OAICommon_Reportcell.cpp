@@ -50,10 +50,10 @@ void OAICommon_Reportcell::fromJson(QString jsonString) {
 
 void OAICommon_Reportcell::fromJsonObject(QJsonObject json) {
 
-    m_i_reportcell_columnspan_isValid = ::OpenAPI::fromJsonValue(i_reportcell_columnspan, json[QString("iReportcellColumnspan")]);
+    m_i_reportcell_columnspan_isValid = ::OpenAPI::fromJsonValue(m_i_reportcell_columnspan, json[QString("iReportcellColumnspan")]);
     m_i_reportcell_columnspan_isSet = !json[QString("iReportcellColumnspan")].isNull() && m_i_reportcell_columnspan_isValid;
 
-    m_i_reportcell_rowspan_isValid = ::OpenAPI::fromJsonValue(i_reportcell_rowspan, json[QString("iReportcellRowspan")]);
+    m_i_reportcell_rowspan_isValid = ::OpenAPI::fromJsonValue(m_i_reportcell_rowspan, json[QString("iReportcellRowspan")]);
     m_i_reportcell_rowspan_isSet = !json[QString("iReportcellRowspan")].isNull() && m_i_reportcell_rowspan_isValid;
 }
 
@@ -67,20 +67,20 @@ QString OAICommon_Reportcell::asJson() const {
 QJsonObject OAICommon_Reportcell::asJsonObject() const {
     QJsonObject obj;
     if (m_i_reportcell_columnspan_isSet) {
-        obj.insert(QString("iReportcellColumnspan"), ::OpenAPI::toJsonValue(i_reportcell_columnspan));
+        obj.insert(QString("iReportcellColumnspan"), ::OpenAPI::toJsonValue(m_i_reportcell_columnspan));
     }
     if (m_i_reportcell_rowspan_isSet) {
-        obj.insert(QString("iReportcellRowspan"), ::OpenAPI::toJsonValue(i_reportcell_rowspan));
+        obj.insert(QString("iReportcellRowspan"), ::OpenAPI::toJsonValue(m_i_reportcell_rowspan));
     }
     return obj;
 }
 
 qint32 OAICommon_Reportcell::getIReportcellColumnspan() const {
-    return i_reportcell_columnspan;
+    return m_i_reportcell_columnspan;
 }
 void OAICommon_Reportcell::setIReportcellColumnspan(const qint32 &i_reportcell_columnspan) {
-    this->i_reportcell_columnspan = i_reportcell_columnspan;
-    this->m_i_reportcell_columnspan_isSet = true;
+    m_i_reportcell_columnspan = i_reportcell_columnspan;
+    m_i_reportcell_columnspan_isSet = true;
 }
 
 bool OAICommon_Reportcell::is_i_reportcell_columnspan_Set() const{
@@ -92,11 +92,11 @@ bool OAICommon_Reportcell::is_i_reportcell_columnspan_Valid() const{
 }
 
 qint32 OAICommon_Reportcell::getIReportcellRowspan() const {
-    return i_reportcell_rowspan;
+    return m_i_reportcell_rowspan;
 }
 void OAICommon_Reportcell::setIReportcellRowspan(const qint32 &i_reportcell_rowspan) {
-    this->i_reportcell_rowspan = i_reportcell_rowspan;
-    this->m_i_reportcell_rowspan_isSet = true;
+    m_i_reportcell_rowspan = i_reportcell_rowspan;
+    m_i_reportcell_rowspan_isSet = true;
 }
 
 bool OAICommon_Reportcell::is_i_reportcell_rowspan_Set() const{

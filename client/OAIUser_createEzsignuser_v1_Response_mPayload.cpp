@@ -50,10 +50,10 @@ void OAIUser_createEzsignuser_v1_Response_mPayload::fromJson(QString jsonString)
 
 void OAIUser_createEzsignuser_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_s_email_address_success_isValid = ::OpenAPI::fromJsonValue(a_s_email_address_success, json[QString("a_sEmailAddressSuccess")]);
+    m_a_s_email_address_success_isValid = ::OpenAPI::fromJsonValue(m_a_s_email_address_success, json[QString("a_sEmailAddressSuccess")]);
     m_a_s_email_address_success_isSet = !json[QString("a_sEmailAddressSuccess")].isNull() && m_a_s_email_address_success_isValid;
 
-    m_a_s_email_address_failure_isValid = ::OpenAPI::fromJsonValue(a_s_email_address_failure, json[QString("a_sEmailAddressFailure")]);
+    m_a_s_email_address_failure_isValid = ::OpenAPI::fromJsonValue(m_a_s_email_address_failure, json[QString("a_sEmailAddressFailure")]);
     m_a_s_email_address_failure_isSet = !json[QString("a_sEmailAddressFailure")].isNull() && m_a_s_email_address_failure_isValid;
 }
 
@@ -66,21 +66,21 @@ QString OAIUser_createEzsignuser_v1_Response_mPayload::asJson() const {
 
 QJsonObject OAIUser_createEzsignuser_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (a_s_email_address_success.size() > 0) {
-        obj.insert(QString("a_sEmailAddressSuccess"), ::OpenAPI::toJsonValue(a_s_email_address_success));
+    if (m_a_s_email_address_success.size() > 0) {
+        obj.insert(QString("a_sEmailAddressSuccess"), ::OpenAPI::toJsonValue(m_a_s_email_address_success));
     }
-    if (a_s_email_address_failure.size() > 0) {
-        obj.insert(QString("a_sEmailAddressFailure"), ::OpenAPI::toJsonValue(a_s_email_address_failure));
+    if (m_a_s_email_address_failure.size() > 0) {
+        obj.insert(QString("a_sEmailAddressFailure"), ::OpenAPI::toJsonValue(m_a_s_email_address_failure));
     }
     return obj;
 }
 
 QList<QString> OAIUser_createEzsignuser_v1_Response_mPayload::getASEmailAddressSuccess() const {
-    return a_s_email_address_success;
+    return m_a_s_email_address_success;
 }
 void OAIUser_createEzsignuser_v1_Response_mPayload::setASEmailAddressSuccess(const QList<QString> &a_s_email_address_success) {
-    this->a_s_email_address_success = a_s_email_address_success;
-    this->m_a_s_email_address_success_isSet = true;
+    m_a_s_email_address_success = a_s_email_address_success;
+    m_a_s_email_address_success_isSet = true;
 }
 
 bool OAIUser_createEzsignuser_v1_Response_mPayload::is_a_s_email_address_success_Set() const{
@@ -92,11 +92,11 @@ bool OAIUser_createEzsignuser_v1_Response_mPayload::is_a_s_email_address_success
 }
 
 QList<QString> OAIUser_createEzsignuser_v1_Response_mPayload::getASEmailAddressFailure() const {
-    return a_s_email_address_failure;
+    return m_a_s_email_address_failure;
 }
 void OAIUser_createEzsignuser_v1_Response_mPayload::setASEmailAddressFailure(const QList<QString> &a_s_email_address_failure) {
-    this->a_s_email_address_failure = a_s_email_address_failure;
-    this->m_a_s_email_address_failure_isSet = true;
+    m_a_s_email_address_failure = a_s_email_address_failure;
+    m_a_s_email_address_failure_isSet = true;
 }
 
 bool OAIUser_createEzsignuser_v1_Response_mPayload::is_a_s_email_address_failure_Set() const{
@@ -110,12 +110,12 @@ bool OAIUser_createEzsignuser_v1_Response_mPayload::is_a_s_email_address_failure
 bool OAIUser_createEzsignuser_v1_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_s_email_address_success.size() > 0) {
+        if (m_a_s_email_address_success.size() > 0) {
             isObjectUpdated = true;
             break;
         }
 
-        if (a_s_email_address_failure.size() > 0) {
+        if (m_a_s_email_address_failure.size() > 0) {
             isObjectUpdated = true;
             break;
         }

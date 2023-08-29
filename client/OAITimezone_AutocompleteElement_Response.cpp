@@ -53,13 +53,13 @@ void OAITimezone_AutocompleteElement_Response::fromJson(QString jsonString) {
 
 void OAITimezone_AutocompleteElement_Response::fromJsonObject(QJsonObject json) {
 
-    m_s_timezone_name_isValid = ::OpenAPI::fromJsonValue(s_timezone_name, json[QString("sTimezoneName")]);
+    m_s_timezone_name_isValid = ::OpenAPI::fromJsonValue(m_s_timezone_name, json[QString("sTimezoneName")]);
     m_s_timezone_name_isSet = !json[QString("sTimezoneName")].isNull() && m_s_timezone_name_isValid;
 
-    m_pki_timezone_id_isValid = ::OpenAPI::fromJsonValue(pki_timezone_id, json[QString("pkiTimezoneID")]);
+    m_pki_timezone_id_isValid = ::OpenAPI::fromJsonValue(m_pki_timezone_id, json[QString("pkiTimezoneID")]);
     m_pki_timezone_id_isSet = !json[QString("pkiTimezoneID")].isNull() && m_pki_timezone_id_isValid;
 
-    m_b_timezone_isactive_isValid = ::OpenAPI::fromJsonValue(b_timezone_isactive, json[QString("bTimezoneIsactive")]);
+    m_b_timezone_isactive_isValid = ::OpenAPI::fromJsonValue(m_b_timezone_isactive, json[QString("bTimezoneIsactive")]);
     m_b_timezone_isactive_isSet = !json[QString("bTimezoneIsactive")].isNull() && m_b_timezone_isactive_isValid;
 }
 
@@ -73,23 +73,23 @@ QString OAITimezone_AutocompleteElement_Response::asJson() const {
 QJsonObject OAITimezone_AutocompleteElement_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_s_timezone_name_isSet) {
-        obj.insert(QString("sTimezoneName"), ::OpenAPI::toJsonValue(s_timezone_name));
+        obj.insert(QString("sTimezoneName"), ::OpenAPI::toJsonValue(m_s_timezone_name));
     }
     if (m_pki_timezone_id_isSet) {
-        obj.insert(QString("pkiTimezoneID"), ::OpenAPI::toJsonValue(pki_timezone_id));
+        obj.insert(QString("pkiTimezoneID"), ::OpenAPI::toJsonValue(m_pki_timezone_id));
     }
     if (m_b_timezone_isactive_isSet) {
-        obj.insert(QString("bTimezoneIsactive"), ::OpenAPI::toJsonValue(b_timezone_isactive));
+        obj.insert(QString("bTimezoneIsactive"), ::OpenAPI::toJsonValue(m_b_timezone_isactive));
     }
     return obj;
 }
 
 QString OAITimezone_AutocompleteElement_Response::getSTimezoneName() const {
-    return s_timezone_name;
+    return m_s_timezone_name;
 }
 void OAITimezone_AutocompleteElement_Response::setSTimezoneName(const QString &s_timezone_name) {
-    this->s_timezone_name = s_timezone_name;
-    this->m_s_timezone_name_isSet = true;
+    m_s_timezone_name = s_timezone_name;
+    m_s_timezone_name_isSet = true;
 }
 
 bool OAITimezone_AutocompleteElement_Response::is_s_timezone_name_Set() const{
@@ -101,11 +101,11 @@ bool OAITimezone_AutocompleteElement_Response::is_s_timezone_name_Valid() const{
 }
 
 qint32 OAITimezone_AutocompleteElement_Response::getPkiTimezoneId() const {
-    return pki_timezone_id;
+    return m_pki_timezone_id;
 }
 void OAITimezone_AutocompleteElement_Response::setPkiTimezoneId(const qint32 &pki_timezone_id) {
-    this->pki_timezone_id = pki_timezone_id;
-    this->m_pki_timezone_id_isSet = true;
+    m_pki_timezone_id = pki_timezone_id;
+    m_pki_timezone_id_isSet = true;
 }
 
 bool OAITimezone_AutocompleteElement_Response::is_pki_timezone_id_Set() const{
@@ -117,11 +117,11 @@ bool OAITimezone_AutocompleteElement_Response::is_pki_timezone_id_Valid() const{
 }
 
 bool OAITimezone_AutocompleteElement_Response::isBTimezoneIsactive() const {
-    return b_timezone_isactive;
+    return m_b_timezone_isactive;
 }
 void OAITimezone_AutocompleteElement_Response::setBTimezoneIsactive(const bool &b_timezone_isactive) {
-    this->b_timezone_isactive = b_timezone_isactive;
-    this->m_b_timezone_isactive_isSet = true;
+    m_b_timezone_isactive = b_timezone_isactive;
+    m_b_timezone_isactive_isSet = true;
 }
 
 bool OAITimezone_AutocompleteElement_Response::is_b_timezone_isactive_Set() const{

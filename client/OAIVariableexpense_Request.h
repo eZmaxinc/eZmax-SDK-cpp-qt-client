@@ -73,23 +73,23 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_variableexpense_id;
+    qint32 m_pki_variableexpense_id;
     bool m_pki_variableexpense_id_isSet;
     bool m_pki_variableexpense_id_isValid;
 
-    QString s_variableexpense_code;
+    QString m_s_variableexpense_code;
     bool m_s_variableexpense_code_isSet;
     bool m_s_variableexpense_code_isValid;
 
-    OAIMultilingual_VariableexpenseDescription obj_variableexpense_description;
+    OAIMultilingual_VariableexpenseDescription m_obj_variableexpense_description;
     bool m_obj_variableexpense_description_isSet;
     bool m_obj_variableexpense_description_isValid;
 
-    OAIField_eVariableexpenseTaxable e_variableexpense_taxable;
+    OAIField_eVariableexpenseTaxable m_e_variableexpense_taxable;
     bool m_e_variableexpense_taxable_isSet;
     bool m_e_variableexpense_taxable_isValid;
 
-    bool b_variableexpense_isactive;
+    bool m_b_variableexpense_isactive;
     bool m_b_variableexpense_isactive_isSet;
     bool m_b_variableexpense_isactive_isValid;
 };

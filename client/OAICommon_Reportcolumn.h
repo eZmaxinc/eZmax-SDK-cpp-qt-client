@@ -56,11 +56,11 @@ public:
 private:
     void initializeModel();
 
-    OAICommon_Reportcellstyle obj_reportcellstyle_default;
+    OAICommon_Reportcellstyle m_obj_reportcellstyle_default;
     bool m_obj_reportcellstyle_default_isSet;
     bool m_obj_reportcellstyle_default_isValid;
 
-    qint32 i_reportcolumn_width;
+    qint32 m_i_reportcolumn_width;
     bool m_i_reportcolumn_width_isSet;
     bool m_i_reportcolumn_width_isValid;
 };

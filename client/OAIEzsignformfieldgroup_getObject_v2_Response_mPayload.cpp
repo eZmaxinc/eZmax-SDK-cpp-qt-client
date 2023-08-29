@@ -47,7 +47,7 @@ void OAIEzsignformfieldgroup_getObject_v2_Response_mPayload::fromJson(QString js
 
 void OAIEzsignformfieldgroup_getObject_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_obj_ezsignformfieldgroup_isValid = ::OpenAPI::fromJsonValue(obj_ezsignformfieldgroup, json[QString("objEzsignformfieldgroup")]);
+    m_obj_ezsignformfieldgroup_isValid = ::OpenAPI::fromJsonValue(m_obj_ezsignformfieldgroup, json[QString("objEzsignformfieldgroup")]);
     m_obj_ezsignformfieldgroup_isSet = !json[QString("objEzsignformfieldgroup")].isNull() && m_obj_ezsignformfieldgroup_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIEzsignformfieldgroup_getObject_v2_Response_mPayload::asJson() const {
 
 QJsonObject OAIEzsignformfieldgroup_getObject_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (obj_ezsignformfieldgroup.isSet()) {
-        obj.insert(QString("objEzsignformfieldgroup"), ::OpenAPI::toJsonValue(obj_ezsignformfieldgroup));
+    if (m_obj_ezsignformfieldgroup.isSet()) {
+        obj.insert(QString("objEzsignformfieldgroup"), ::OpenAPI::toJsonValue(m_obj_ezsignformfieldgroup));
     }
     return obj;
 }
 
 OAIEzsignformfieldgroup_ResponseCompound OAIEzsignformfieldgroup_getObject_v2_Response_mPayload::getObjEzsignformfieldgroup() const {
-    return obj_ezsignformfieldgroup;
+    return m_obj_ezsignformfieldgroup;
 }
 void OAIEzsignformfieldgroup_getObject_v2_Response_mPayload::setObjEzsignformfieldgroup(const OAIEzsignformfieldgroup_ResponseCompound &obj_ezsignformfieldgroup) {
-    this->obj_ezsignformfieldgroup = obj_ezsignformfieldgroup;
-    this->m_obj_ezsignformfieldgroup_isSet = true;
+    m_obj_ezsignformfieldgroup = obj_ezsignformfieldgroup;
+    m_obj_ezsignformfieldgroup_isSet = true;
 }
 
 bool OAIEzsignformfieldgroup_getObject_v2_Response_mPayload::is_obj_ezsignformfieldgroup_Set() const{
@@ -85,7 +85,7 @@ bool OAIEzsignformfieldgroup_getObject_v2_Response_mPayload::is_obj_ezsignformfi
 bool OAIEzsignformfieldgroup_getObject_v2_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (obj_ezsignformfieldgroup.isSet()) {
+        if (m_obj_ezsignformfieldgroup.isSet()) {
             isObjectUpdated = true;
             break;
         }

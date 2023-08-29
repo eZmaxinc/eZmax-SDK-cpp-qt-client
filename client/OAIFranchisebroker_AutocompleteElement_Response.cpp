@@ -53,13 +53,13 @@ void OAIFranchisebroker_AutocompleteElement_Response::fromJson(QString jsonStrin
 
 void OAIFranchisebroker_AutocompleteElement_Response::fromJsonObject(QJsonObject json) {
 
-    m_s_franchisebroker_name_isValid = ::OpenAPI::fromJsonValue(s_franchisebroker_name, json[QString("sFranchisebrokerName")]);
+    m_s_franchisebroker_name_isValid = ::OpenAPI::fromJsonValue(m_s_franchisebroker_name, json[QString("sFranchisebrokerName")]);
     m_s_franchisebroker_name_isSet = !json[QString("sFranchisebrokerName")].isNull() && m_s_franchisebroker_name_isValid;
 
-    m_pki_franchisebroker_id_isValid = ::OpenAPI::fromJsonValue(pki_franchisebroker_id, json[QString("pkiFranchisebrokerID")]);
+    m_pki_franchisebroker_id_isValid = ::OpenAPI::fromJsonValue(m_pki_franchisebroker_id, json[QString("pkiFranchisebrokerID")]);
     m_pki_franchisebroker_id_isSet = !json[QString("pkiFranchisebrokerID")].isNull() && m_pki_franchisebroker_id_isValid;
 
-    m_b_franchisebroker_isactive_isValid = ::OpenAPI::fromJsonValue(b_franchisebroker_isactive, json[QString("bFranchisebrokerIsactive")]);
+    m_b_franchisebroker_isactive_isValid = ::OpenAPI::fromJsonValue(m_b_franchisebroker_isactive, json[QString("bFranchisebrokerIsactive")]);
     m_b_franchisebroker_isactive_isSet = !json[QString("bFranchisebrokerIsactive")].isNull() && m_b_franchisebroker_isactive_isValid;
 }
 
@@ -73,23 +73,23 @@ QString OAIFranchisebroker_AutocompleteElement_Response::asJson() const {
 QJsonObject OAIFranchisebroker_AutocompleteElement_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_s_franchisebroker_name_isSet) {
-        obj.insert(QString("sFranchisebrokerName"), ::OpenAPI::toJsonValue(s_franchisebroker_name));
+        obj.insert(QString("sFranchisebrokerName"), ::OpenAPI::toJsonValue(m_s_franchisebroker_name));
     }
     if (m_pki_franchisebroker_id_isSet) {
-        obj.insert(QString("pkiFranchisebrokerID"), ::OpenAPI::toJsonValue(pki_franchisebroker_id));
+        obj.insert(QString("pkiFranchisebrokerID"), ::OpenAPI::toJsonValue(m_pki_franchisebroker_id));
     }
     if (m_b_franchisebroker_isactive_isSet) {
-        obj.insert(QString("bFranchisebrokerIsactive"), ::OpenAPI::toJsonValue(b_franchisebroker_isactive));
+        obj.insert(QString("bFranchisebrokerIsactive"), ::OpenAPI::toJsonValue(m_b_franchisebroker_isactive));
     }
     return obj;
 }
 
 QString OAIFranchisebroker_AutocompleteElement_Response::getSFranchisebrokerName() const {
-    return s_franchisebroker_name;
+    return m_s_franchisebroker_name;
 }
 void OAIFranchisebroker_AutocompleteElement_Response::setSFranchisebrokerName(const QString &s_franchisebroker_name) {
-    this->s_franchisebroker_name = s_franchisebroker_name;
-    this->m_s_franchisebroker_name_isSet = true;
+    m_s_franchisebroker_name = s_franchisebroker_name;
+    m_s_franchisebroker_name_isSet = true;
 }
 
 bool OAIFranchisebroker_AutocompleteElement_Response::is_s_franchisebroker_name_Set() const{
@@ -101,11 +101,11 @@ bool OAIFranchisebroker_AutocompleteElement_Response::is_s_franchisebroker_name_
 }
 
 qint32 OAIFranchisebroker_AutocompleteElement_Response::getPkiFranchisebrokerId() const {
-    return pki_franchisebroker_id;
+    return m_pki_franchisebroker_id;
 }
 void OAIFranchisebroker_AutocompleteElement_Response::setPkiFranchisebrokerId(const qint32 &pki_franchisebroker_id) {
-    this->pki_franchisebroker_id = pki_franchisebroker_id;
-    this->m_pki_franchisebroker_id_isSet = true;
+    m_pki_franchisebroker_id = pki_franchisebroker_id;
+    m_pki_franchisebroker_id_isSet = true;
 }
 
 bool OAIFranchisebroker_AutocompleteElement_Response::is_pki_franchisebroker_id_Set() const{
@@ -117,11 +117,11 @@ bool OAIFranchisebroker_AutocompleteElement_Response::is_pki_franchisebroker_id_
 }
 
 bool OAIFranchisebroker_AutocompleteElement_Response::isBFranchisebrokerIsactive() const {
-    return b_franchisebroker_isactive;
+    return m_b_franchisebroker_isactive;
 }
 void OAIFranchisebroker_AutocompleteElement_Response::setBFranchisebrokerIsactive(const bool &b_franchisebroker_isactive) {
-    this->b_franchisebroker_isactive = b_franchisebroker_isactive;
-    this->m_b_franchisebroker_isactive_isSet = true;
+    m_b_franchisebroker_isactive = b_franchisebroker_isactive;
+    m_b_franchisebroker_isactive_isSet = true;
 }
 
 bool OAIFranchisebroker_AutocompleteElement_Response::is_b_franchisebroker_isactive_Set() const{

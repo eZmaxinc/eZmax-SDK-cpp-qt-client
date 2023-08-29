@@ -47,7 +47,7 @@ void OAIEzsignsignature_getObject_v2_Response_mPayload::fromJson(QString jsonStr
 
 void OAIEzsignsignature_getObject_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_obj_ezsignsignature_isValid = ::OpenAPI::fromJsonValue(obj_ezsignsignature, json[QString("objEzsignsignature")]);
+    m_obj_ezsignsignature_isValid = ::OpenAPI::fromJsonValue(m_obj_ezsignsignature, json[QString("objEzsignsignature")]);
     m_obj_ezsignsignature_isSet = !json[QString("objEzsignsignature")].isNull() && m_obj_ezsignsignature_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIEzsignsignature_getObject_v2_Response_mPayload::asJson() const {
 
 QJsonObject OAIEzsignsignature_getObject_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (obj_ezsignsignature.isSet()) {
-        obj.insert(QString("objEzsignsignature"), ::OpenAPI::toJsonValue(obj_ezsignsignature));
+    if (m_obj_ezsignsignature.isSet()) {
+        obj.insert(QString("objEzsignsignature"), ::OpenAPI::toJsonValue(m_obj_ezsignsignature));
     }
     return obj;
 }
 
 OAIEzsignsignature_ResponseCompound OAIEzsignsignature_getObject_v2_Response_mPayload::getObjEzsignsignature() const {
-    return obj_ezsignsignature;
+    return m_obj_ezsignsignature;
 }
 void OAIEzsignsignature_getObject_v2_Response_mPayload::setObjEzsignsignature(const OAIEzsignsignature_ResponseCompound &obj_ezsignsignature) {
-    this->obj_ezsignsignature = obj_ezsignsignature;
-    this->m_obj_ezsignsignature_isSet = true;
+    m_obj_ezsignsignature = obj_ezsignsignature;
+    m_obj_ezsignsignature_isSet = true;
 }
 
 bool OAIEzsignsignature_getObject_v2_Response_mPayload::is_obj_ezsignsignature_Set() const{
@@ -85,7 +85,7 @@ bool OAIEzsignsignature_getObject_v2_Response_mPayload::is_obj_ezsignsignature_V
 bool OAIEzsignsignature_getObject_v2_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (obj_ezsignsignature.isSet()) {
+        if (m_obj_ezsignsignature.isSet()) {
             isObjectUpdated = true;
             break;
         }

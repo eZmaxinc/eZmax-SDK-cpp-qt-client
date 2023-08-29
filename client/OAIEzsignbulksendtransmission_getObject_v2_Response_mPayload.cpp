@@ -47,7 +47,7 @@ void OAIEzsignbulksendtransmission_getObject_v2_Response_mPayload::fromJson(QStr
 
 void OAIEzsignbulksendtransmission_getObject_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_obj_ezsignbulksendtransmission_isValid = ::OpenAPI::fromJsonValue(obj_ezsignbulksendtransmission, json[QString("objEzsignbulksendtransmission")]);
+    m_obj_ezsignbulksendtransmission_isValid = ::OpenAPI::fromJsonValue(m_obj_ezsignbulksendtransmission, json[QString("objEzsignbulksendtransmission")]);
     m_obj_ezsignbulksendtransmission_isSet = !json[QString("objEzsignbulksendtransmission")].isNull() && m_obj_ezsignbulksendtransmission_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIEzsignbulksendtransmission_getObject_v2_Response_mPayload::asJson() c
 
 QJsonObject OAIEzsignbulksendtransmission_getObject_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (obj_ezsignbulksendtransmission.isSet()) {
-        obj.insert(QString("objEzsignbulksendtransmission"), ::OpenAPI::toJsonValue(obj_ezsignbulksendtransmission));
+    if (m_obj_ezsignbulksendtransmission.isSet()) {
+        obj.insert(QString("objEzsignbulksendtransmission"), ::OpenAPI::toJsonValue(m_obj_ezsignbulksendtransmission));
     }
     return obj;
 }
 
 OAIEzsignbulksendtransmission_ResponseCompound OAIEzsignbulksendtransmission_getObject_v2_Response_mPayload::getObjEzsignbulksendtransmission() const {
-    return obj_ezsignbulksendtransmission;
+    return m_obj_ezsignbulksendtransmission;
 }
 void OAIEzsignbulksendtransmission_getObject_v2_Response_mPayload::setObjEzsignbulksendtransmission(const OAIEzsignbulksendtransmission_ResponseCompound &obj_ezsignbulksendtransmission) {
-    this->obj_ezsignbulksendtransmission = obj_ezsignbulksendtransmission;
-    this->m_obj_ezsignbulksendtransmission_isSet = true;
+    m_obj_ezsignbulksendtransmission = obj_ezsignbulksendtransmission;
+    m_obj_ezsignbulksendtransmission_isSet = true;
 }
 
 bool OAIEzsignbulksendtransmission_getObject_v2_Response_mPayload::is_obj_ezsignbulksendtransmission_Set() const{
@@ -85,7 +85,7 @@ bool OAIEzsignbulksendtransmission_getObject_v2_Response_mPayload::is_obj_ezsign
 bool OAIEzsignbulksendtransmission_getObject_v2_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (obj_ezsignbulksendtransmission.isSet()) {
+        if (m_obj_ezsignbulksendtransmission.isSet()) {
             isObjectUpdated = true;
             break;
         }

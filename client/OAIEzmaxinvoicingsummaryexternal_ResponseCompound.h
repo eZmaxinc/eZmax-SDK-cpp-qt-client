@@ -78,27 +78,27 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_ezmaxinvoicingsummaryexternal_id;
+    qint32 m_pki_ezmaxinvoicingsummaryexternal_id;
     bool m_pki_ezmaxinvoicingsummaryexternal_id_isSet;
     bool m_pki_ezmaxinvoicingsummaryexternal_id_isValid;
 
-    qint32 fki_ezmaxinvoicing_id;
+    qint32 m_fki_ezmaxinvoicing_id;
     bool m_fki_ezmaxinvoicing_id_isSet;
     bool m_fki_ezmaxinvoicing_id_isValid;
 
-    qint32 fki_billingentityexternal_id;
+    qint32 m_fki_billingentityexternal_id;
     bool m_fki_billingentityexternal_id_isSet;
     bool m_fki_billingentityexternal_id_isValid;
 
-    QString s_billingentityexternal_description;
+    QString m_s_billingentityexternal_description;
     bool m_s_billingentityexternal_description_isSet;
     bool m_s_billingentityexternal_description_isValid;
 
-    QString s_ezmaxinvoicingsummaryexternal_description;
+    QString m_s_ezmaxinvoicingsummaryexternal_description;
     bool m_s_ezmaxinvoicingsummaryexternal_description_isSet;
     bool m_s_ezmaxinvoicingsummaryexternal_description_isValid;
 
-    QList<OAIEzmaxinvoicingsummaryexternaldetail_ResponseCompound> a_obj_ezmaxinvoicingsummaryexternaldetail;
+    QList<OAIEzmaxinvoicingsummaryexternaldetail_ResponseCompound> m_a_obj_ezmaxinvoicingsummaryexternaldetail;
     bool m_a_obj_ezmaxinvoicingsummaryexternaldetail_isSet;
     bool m_a_obj_ezmaxinvoicingsummaryexternaldetail_isValid;
 };

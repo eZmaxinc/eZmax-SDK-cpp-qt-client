@@ -47,7 +47,7 @@ void OAIEzsigntemplateformfieldgroup_createObject_v1_Response_mPayload::fromJson
 
 void OAIEzsigntemplateformfieldgroup_createObject_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_pki_ezsigntemplateformfieldgroup_id_isValid = ::OpenAPI::fromJsonValue(a_pki_ezsigntemplateformfieldgroup_id, json[QString("a_pkiEzsigntemplateformfieldgroupID")]);
+    m_a_pki_ezsigntemplateformfieldgroup_id_isValid = ::OpenAPI::fromJsonValue(m_a_pki_ezsigntemplateformfieldgroup_id, json[QString("a_pkiEzsigntemplateformfieldgroupID")]);
     m_a_pki_ezsigntemplateformfieldgroup_id_isSet = !json[QString("a_pkiEzsigntemplateformfieldgroupID")].isNull() && m_a_pki_ezsigntemplateformfieldgroup_id_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIEzsigntemplateformfieldgroup_createObject_v1_Response_mPayload::asJso
 
 QJsonObject OAIEzsigntemplateformfieldgroup_createObject_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (a_pki_ezsigntemplateformfieldgroup_id.size() > 0) {
-        obj.insert(QString("a_pkiEzsigntemplateformfieldgroupID"), ::OpenAPI::toJsonValue(a_pki_ezsigntemplateformfieldgroup_id));
+    if (m_a_pki_ezsigntemplateformfieldgroup_id.size() > 0) {
+        obj.insert(QString("a_pkiEzsigntemplateformfieldgroupID"), ::OpenAPI::toJsonValue(m_a_pki_ezsigntemplateformfieldgroup_id));
     }
     return obj;
 }
 
 QList<qint32> OAIEzsigntemplateformfieldgroup_createObject_v1_Response_mPayload::getAPkiEzsigntemplateformfieldgroupId() const {
-    return a_pki_ezsigntemplateformfieldgroup_id;
+    return m_a_pki_ezsigntemplateformfieldgroup_id;
 }
 void OAIEzsigntemplateformfieldgroup_createObject_v1_Response_mPayload::setAPkiEzsigntemplateformfieldgroupId(const QList<qint32> &a_pki_ezsigntemplateformfieldgroup_id) {
-    this->a_pki_ezsigntemplateformfieldgroup_id = a_pki_ezsigntemplateformfieldgroup_id;
-    this->m_a_pki_ezsigntemplateformfieldgroup_id_isSet = true;
+    m_a_pki_ezsigntemplateformfieldgroup_id = a_pki_ezsigntemplateformfieldgroup_id;
+    m_a_pki_ezsigntemplateformfieldgroup_id_isSet = true;
 }
 
 bool OAIEzsigntemplateformfieldgroup_createObject_v1_Response_mPayload::is_a_pki_ezsigntemplateformfieldgroup_id_Set() const{
@@ -85,7 +85,7 @@ bool OAIEzsigntemplateformfieldgroup_createObject_v1_Response_mPayload::is_a_pki
 bool OAIEzsigntemplateformfieldgroup_createObject_v1_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_pki_ezsigntemplateformfieldgroup_id.size() > 0) {
+        if (m_a_pki_ezsigntemplateformfieldgroup_id.size() > 0) {
             isObjectUpdated = true;
             break;
         }

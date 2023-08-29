@@ -47,7 +47,7 @@ void OAIVariableexpense_editObject_v1_Request::fromJson(QString jsonString) {
 
 void OAIVariableexpense_editObject_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_obj_variableexpense_isValid = ::OpenAPI::fromJsonValue(obj_variableexpense, json[QString("objVariableexpense")]);
+    m_obj_variableexpense_isValid = ::OpenAPI::fromJsonValue(m_obj_variableexpense, json[QString("objVariableexpense")]);
     m_obj_variableexpense_isSet = !json[QString("objVariableexpense")].isNull() && m_obj_variableexpense_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIVariableexpense_editObject_v1_Request::asJson() const {
 
 QJsonObject OAIVariableexpense_editObject_v1_Request::asJsonObject() const {
     QJsonObject obj;
-    if (obj_variableexpense.isSet()) {
-        obj.insert(QString("objVariableexpense"), ::OpenAPI::toJsonValue(obj_variableexpense));
+    if (m_obj_variableexpense.isSet()) {
+        obj.insert(QString("objVariableexpense"), ::OpenAPI::toJsonValue(m_obj_variableexpense));
     }
     return obj;
 }
 
 OAIVariableexpense_RequestCompound OAIVariableexpense_editObject_v1_Request::getObjVariableexpense() const {
-    return obj_variableexpense;
+    return m_obj_variableexpense;
 }
 void OAIVariableexpense_editObject_v1_Request::setObjVariableexpense(const OAIVariableexpense_RequestCompound &obj_variableexpense) {
-    this->obj_variableexpense = obj_variableexpense;
-    this->m_obj_variableexpense_isSet = true;
+    m_obj_variableexpense = obj_variableexpense;
+    m_obj_variableexpense_isSet = true;
 }
 
 bool OAIVariableexpense_editObject_v1_Request::is_obj_variableexpense_Set() const{
@@ -85,7 +85,7 @@ bool OAIVariableexpense_editObject_v1_Request::is_obj_variableexpense_Valid() co
 bool OAIVariableexpense_editObject_v1_Request::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (obj_variableexpense.isSet()) {
+        if (m_obj_variableexpense.isSet()) {
             isObjectUpdated = true;
             break;
         }

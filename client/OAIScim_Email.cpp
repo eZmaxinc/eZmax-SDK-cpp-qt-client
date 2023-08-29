@@ -50,10 +50,10 @@ void OAIScim_Email::fromJson(QString jsonString) {
 
 void OAIScim_Email::fromJsonObject(QJsonObject json) {
 
-    m_value_isValid = ::OpenAPI::fromJsonValue(value, json[QString("value")]);
+    m_value_isValid = ::OpenAPI::fromJsonValue(m_value, json[QString("value")]);
     m_value_isSet = !json[QString("value")].isNull() && m_value_isValid;
 
-    m_primary_isValid = ::OpenAPI::fromJsonValue(primary, json[QString("primary")]);
+    m_primary_isValid = ::OpenAPI::fromJsonValue(m_primary, json[QString("primary")]);
     m_primary_isSet = !json[QString("primary")].isNull() && m_primary_isValid;
 }
 
@@ -67,20 +67,20 @@ QString OAIScim_Email::asJson() const {
 QJsonObject OAIScim_Email::asJsonObject() const {
     QJsonObject obj;
     if (m_value_isSet) {
-        obj.insert(QString("value"), ::OpenAPI::toJsonValue(value));
+        obj.insert(QString("value"), ::OpenAPI::toJsonValue(m_value));
     }
     if (m_primary_isSet) {
-        obj.insert(QString("primary"), ::OpenAPI::toJsonValue(primary));
+        obj.insert(QString("primary"), ::OpenAPI::toJsonValue(m_primary));
     }
     return obj;
 }
 
 QString OAIScim_Email::getValue() const {
-    return value;
+    return m_value;
 }
 void OAIScim_Email::setValue(const QString &value) {
-    this->value = value;
-    this->m_value_isSet = true;
+    m_value = value;
+    m_value_isSet = true;
 }
 
 bool OAIScim_Email::is_value_Set() const{
@@ -92,11 +92,11 @@ bool OAIScim_Email::is_value_Valid() const{
 }
 
 bool OAIScim_Email::isPrimary() const {
-    return primary;
+    return m_primary;
 }
 void OAIScim_Email::setPrimary(const bool &primary) {
-    this->primary = primary;
-    this->m_primary_isSet = true;
+    m_primary = primary;
+    m_primary_isSet = true;
 }
 
 bool OAIScim_Email::is_primary_Set() const{

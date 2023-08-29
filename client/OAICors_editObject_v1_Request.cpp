@@ -47,7 +47,7 @@ void OAICors_editObject_v1_Request::fromJson(QString jsonString) {
 
 void OAICors_editObject_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_obj_cors_isValid = ::OpenAPI::fromJsonValue(obj_cors, json[QString("objCors")]);
+    m_obj_cors_isValid = ::OpenAPI::fromJsonValue(m_obj_cors, json[QString("objCors")]);
     m_obj_cors_isSet = !json[QString("objCors")].isNull() && m_obj_cors_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAICors_editObject_v1_Request::asJson() const {
 
 QJsonObject OAICors_editObject_v1_Request::asJsonObject() const {
     QJsonObject obj;
-    if (obj_cors.isSet()) {
-        obj.insert(QString("objCors"), ::OpenAPI::toJsonValue(obj_cors));
+    if (m_obj_cors.isSet()) {
+        obj.insert(QString("objCors"), ::OpenAPI::toJsonValue(m_obj_cors));
     }
     return obj;
 }
 
 OAICors_RequestCompound OAICors_editObject_v1_Request::getObjCors() const {
-    return obj_cors;
+    return m_obj_cors;
 }
 void OAICors_editObject_v1_Request::setObjCors(const OAICors_RequestCompound &obj_cors) {
-    this->obj_cors = obj_cors;
-    this->m_obj_cors_isSet = true;
+    m_obj_cors = obj_cors;
+    m_obj_cors_isSet = true;
 }
 
 bool OAICors_editObject_v1_Request::is_obj_cors_Set() const{
@@ -85,7 +85,7 @@ bool OAICors_editObject_v1_Request::is_obj_cors_Valid() const{
 bool OAICors_editObject_v1_Request::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (obj_cors.isSet()) {
+        if (m_obj_cors.isSet()) {
             isObjectUpdated = true;
             break;
         }

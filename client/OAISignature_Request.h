@@ -55,11 +55,11 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_signature_id;
+    qint32 m_pki_signature_id;
     bool m_pki_signature_id_isSet;
     bool m_pki_signature_id_isValid;
 
-    QString t_signature_svg;
+    QString m_t_signature_svg;
     bool m_t_signature_svg_isSet;
     bool m_t_signature_svg_isValid;
 };

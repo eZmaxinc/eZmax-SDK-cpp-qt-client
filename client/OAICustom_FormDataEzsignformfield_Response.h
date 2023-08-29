@@ -55,11 +55,11 @@ public:
 private:
     void initializeModel();
 
-    QString s_ezsignformfield_label;
+    QString m_s_ezsignformfield_label;
     bool m_s_ezsignformfield_label_isSet;
     bool m_s_ezsignformfield_label_isValid;
 
-    QString s_ezsignformfield_value;
+    QString m_s_ezsignformfield_value;
     bool m_s_ezsignformfield_value_isSet;
     bool m_s_ezsignformfield_value_isValid;
 };

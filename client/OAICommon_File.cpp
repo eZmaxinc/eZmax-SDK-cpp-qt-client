@@ -56,16 +56,16 @@ void OAICommon_File::fromJson(QString jsonString) {
 
 void OAICommon_File::fromJsonObject(QJsonObject json) {
 
-    m_s_file_name_isValid = ::OpenAPI::fromJsonValue(s_file_name, json[QString("sFileName")]);
+    m_s_file_name_isValid = ::OpenAPI::fromJsonValue(m_s_file_name, json[QString("sFileName")]);
     m_s_file_name_isSet = !json[QString("sFileName")].isNull() && m_s_file_name_isValid;
 
-    m_s_file_url_isValid = ::OpenAPI::fromJsonValue(s_file_url, json[QString("sFileUrl")]);
+    m_s_file_url_isValid = ::OpenAPI::fromJsonValue(m_s_file_url, json[QString("sFileUrl")]);
     m_s_file_url_isSet = !json[QString("sFileUrl")].isNull() && m_s_file_url_isValid;
 
-    m_s_file_base64_isValid = ::OpenAPI::fromJsonValue(s_file_base64, json[QString("sFileBase64")]);
+    m_s_file_base64_isValid = ::OpenAPI::fromJsonValue(m_s_file_base64, json[QString("sFileBase64")]);
     m_s_file_base64_isSet = !json[QString("sFileBase64")].isNull() && m_s_file_base64_isValid;
 
-    m_e_file_source_isValid = ::OpenAPI::fromJsonValue(e_file_source, json[QString("eFileSource")]);
+    m_e_file_source_isValid = ::OpenAPI::fromJsonValue(m_e_file_source, json[QString("eFileSource")]);
     m_e_file_source_isSet = !json[QString("eFileSource")].isNull() && m_e_file_source_isValid;
 }
 
@@ -79,26 +79,26 @@ QString OAICommon_File::asJson() const {
 QJsonObject OAICommon_File::asJsonObject() const {
     QJsonObject obj;
     if (m_s_file_name_isSet) {
-        obj.insert(QString("sFileName"), ::OpenAPI::toJsonValue(s_file_name));
+        obj.insert(QString("sFileName"), ::OpenAPI::toJsonValue(m_s_file_name));
     }
     if (m_s_file_url_isSet) {
-        obj.insert(QString("sFileUrl"), ::OpenAPI::toJsonValue(s_file_url));
+        obj.insert(QString("sFileUrl"), ::OpenAPI::toJsonValue(m_s_file_url));
     }
     if (m_s_file_base64_isSet) {
-        obj.insert(QString("sFileBase64"), ::OpenAPI::toJsonValue(s_file_base64));
+        obj.insert(QString("sFileBase64"), ::OpenAPI::toJsonValue(m_s_file_base64));
     }
     if (m_e_file_source_isSet) {
-        obj.insert(QString("eFileSource"), ::OpenAPI::toJsonValue(e_file_source));
+        obj.insert(QString("eFileSource"), ::OpenAPI::toJsonValue(m_e_file_source));
     }
     return obj;
 }
 
 QString OAICommon_File::getSFileName() const {
-    return s_file_name;
+    return m_s_file_name;
 }
 void OAICommon_File::setSFileName(const QString &s_file_name) {
-    this->s_file_name = s_file_name;
-    this->m_s_file_name_isSet = true;
+    m_s_file_name = s_file_name;
+    m_s_file_name_isSet = true;
 }
 
 bool OAICommon_File::is_s_file_name_Set() const{
@@ -110,11 +110,11 @@ bool OAICommon_File::is_s_file_name_Valid() const{
 }
 
 QString OAICommon_File::getSFileUrl() const {
-    return s_file_url;
+    return m_s_file_url;
 }
 void OAICommon_File::setSFileUrl(const QString &s_file_url) {
-    this->s_file_url = s_file_url;
-    this->m_s_file_url_isSet = true;
+    m_s_file_url = s_file_url;
+    m_s_file_url_isSet = true;
 }
 
 bool OAICommon_File::is_s_file_url_Set() const{
@@ -126,11 +126,11 @@ bool OAICommon_File::is_s_file_url_Valid() const{
 }
 
 QByteArray OAICommon_File::getSFileBase64() const {
-    return s_file_base64;
+    return m_s_file_base64;
 }
 void OAICommon_File::setSFileBase64(const QByteArray &s_file_base64) {
-    this->s_file_base64 = s_file_base64;
-    this->m_s_file_base64_isSet = true;
+    m_s_file_base64 = s_file_base64;
+    m_s_file_base64_isSet = true;
 }
 
 bool OAICommon_File::is_s_file_base64_Set() const{
@@ -142,11 +142,11 @@ bool OAICommon_File::is_s_file_base64_Valid() const{
 }
 
 QString OAICommon_File::getEFileSource() const {
-    return e_file_source;
+    return m_e_file_source;
 }
 void OAICommon_File::setEFileSource(const QString &e_file_source) {
-    this->e_file_source = e_file_source;
-    this->m_e_file_source_isSet = true;
+    m_e_file_source = e_file_source;
+    m_e_file_source_isSet = true;
 }
 
 bool OAICommon_File::is_e_file_source_Set() const{

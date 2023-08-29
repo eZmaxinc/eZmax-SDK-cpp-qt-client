@@ -60,15 +60,15 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_ezsignsignature_id;
+    qint32 m_pki_ezsignsignature_id;
     bool m_pki_ezsignsignature_id_isSet;
     bool m_pki_ezsignsignature_id_isValid;
 
-    OAIField_eEzsignsignatureType e_ezsignsignature_type;
+    OAIField_eEzsignsignatureType m_e_ezsignsignature_type;
     bool m_e_ezsignsignature_type_isSet;
     bool m_e_ezsignsignature_type_isValid;
 
-    qint32 i_ezsignpage_pagenumber;
+    qint32 m_i_ezsignpage_pagenumber;
     bool m_i_ezsignpage_pagenumber_isSet;
     bool m_i_ezsignpage_pagenumber_isValid;
 };

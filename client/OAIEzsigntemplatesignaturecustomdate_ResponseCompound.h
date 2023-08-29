@@ -65,19 +65,19 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_ezsigntemplatesignaturecustomdate_id;
+    qint32 m_pki_ezsigntemplatesignaturecustomdate_id;
     bool m_pki_ezsigntemplatesignaturecustomdate_id_isSet;
     bool m_pki_ezsigntemplatesignaturecustomdate_id_isValid;
 
-    qint32 i_ezsigntemplatesignaturecustomdate_x;
+    qint32 m_i_ezsigntemplatesignaturecustomdate_x;
     bool m_i_ezsigntemplatesignaturecustomdate_x_isSet;
     bool m_i_ezsigntemplatesignaturecustomdate_x_isValid;
 
-    qint32 i_ezsigntemplatesignaturecustomdate_y;
+    qint32 m_i_ezsigntemplatesignaturecustomdate_y;
     bool m_i_ezsigntemplatesignaturecustomdate_y_isSet;
     bool m_i_ezsigntemplatesignaturecustomdate_y_isValid;
 
-    QString s_ezsigntemplatesignaturecustomdate_format;
+    QString m_s_ezsigntemplatesignaturecustomdate_format;
     bool m_s_ezsigntemplatesignaturecustomdate_format_isSet;
     bool m_s_ezsigntemplatesignaturecustomdate_format_isValid;
 };

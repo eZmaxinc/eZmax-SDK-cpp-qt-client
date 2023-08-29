@@ -47,7 +47,7 @@ void OAIUsergroup_editUsergroupmemberships_v1_Response_mPayload::fromJson(QStrin
 
 void OAIUsergroup_editUsergroupmemberships_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_pki_usergroupmembership_id_isValid = ::OpenAPI::fromJsonValue(a_pki_usergroupmembership_id, json[QString("a_pkiUsergroupmembershipID")]);
+    m_a_pki_usergroupmembership_id_isValid = ::OpenAPI::fromJsonValue(m_a_pki_usergroupmembership_id, json[QString("a_pkiUsergroupmembershipID")]);
     m_a_pki_usergroupmembership_id_isSet = !json[QString("a_pkiUsergroupmembershipID")].isNull() && m_a_pki_usergroupmembership_id_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIUsergroup_editUsergroupmemberships_v1_Response_mPayload::asJson() con
 
 QJsonObject OAIUsergroup_editUsergroupmemberships_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (a_pki_usergroupmembership_id.size() > 0) {
-        obj.insert(QString("a_pkiUsergroupmembershipID"), ::OpenAPI::toJsonValue(a_pki_usergroupmembership_id));
+    if (m_a_pki_usergroupmembership_id.size() > 0) {
+        obj.insert(QString("a_pkiUsergroupmembershipID"), ::OpenAPI::toJsonValue(m_a_pki_usergroupmembership_id));
     }
     return obj;
 }
 
 QList<qint32> OAIUsergroup_editUsergroupmemberships_v1_Response_mPayload::getAPkiUsergroupmembershipId() const {
-    return a_pki_usergroupmembership_id;
+    return m_a_pki_usergroupmembership_id;
 }
 void OAIUsergroup_editUsergroupmemberships_v1_Response_mPayload::setAPkiUsergroupmembershipId(const QList<qint32> &a_pki_usergroupmembership_id) {
-    this->a_pki_usergroupmembership_id = a_pki_usergroupmembership_id;
-    this->m_a_pki_usergroupmembership_id_isSet = true;
+    m_a_pki_usergroupmembership_id = a_pki_usergroupmembership_id;
+    m_a_pki_usergroupmembership_id_isSet = true;
 }
 
 bool OAIUsergroup_editUsergroupmemberships_v1_Response_mPayload::is_a_pki_usergroupmembership_id_Set() const{
@@ -85,7 +85,7 @@ bool OAIUsergroup_editUsergroupmemberships_v1_Response_mPayload::is_a_pki_usergr
 bool OAIUsergroup_editUsergroupmemberships_v1_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_pki_usergroupmembership_id.size() > 0) {
+        if (m_a_pki_usergroupmembership_id.size() > 0) {
             isObjectUpdated = true;
             break;
         }

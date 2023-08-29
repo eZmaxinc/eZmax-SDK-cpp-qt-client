@@ -50,10 +50,10 @@ void OAIEmailstatic_ResponseCompound::fromJson(QString jsonString) {
 
 void OAIEmailstatic_ResponseCompound::fromJsonObject(QJsonObject json) {
 
-    m_pki_emailstatic_id_isValid = ::OpenAPI::fromJsonValue(pki_emailstatic_id, json[QString("pkiEmailstaticID")]);
+    m_pki_emailstatic_id_isValid = ::OpenAPI::fromJsonValue(m_pki_emailstatic_id, json[QString("pkiEmailstaticID")]);
     m_pki_emailstatic_id_isSet = !json[QString("pkiEmailstaticID")].isNull() && m_pki_emailstatic_id_isValid;
 
-    m_s_emailstatic_address_isValid = ::OpenAPI::fromJsonValue(s_emailstatic_address, json[QString("sEmailstaticAddress")]);
+    m_s_emailstatic_address_isValid = ::OpenAPI::fromJsonValue(m_s_emailstatic_address, json[QString("sEmailstaticAddress")]);
     m_s_emailstatic_address_isSet = !json[QString("sEmailstaticAddress")].isNull() && m_s_emailstatic_address_isValid;
 }
 
@@ -67,20 +67,20 @@ QString OAIEmailstatic_ResponseCompound::asJson() const {
 QJsonObject OAIEmailstatic_ResponseCompound::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_emailstatic_id_isSet) {
-        obj.insert(QString("pkiEmailstaticID"), ::OpenAPI::toJsonValue(pki_emailstatic_id));
+        obj.insert(QString("pkiEmailstaticID"), ::OpenAPI::toJsonValue(m_pki_emailstatic_id));
     }
     if (m_s_emailstatic_address_isSet) {
-        obj.insert(QString("sEmailstaticAddress"), ::OpenAPI::toJsonValue(s_emailstatic_address));
+        obj.insert(QString("sEmailstaticAddress"), ::OpenAPI::toJsonValue(m_s_emailstatic_address));
     }
     return obj;
 }
 
 qint32 OAIEmailstatic_ResponseCompound::getPkiEmailstaticId() const {
-    return pki_emailstatic_id;
+    return m_pki_emailstatic_id;
 }
 void OAIEmailstatic_ResponseCompound::setPkiEmailstaticId(const qint32 &pki_emailstatic_id) {
-    this->pki_emailstatic_id = pki_emailstatic_id;
-    this->m_pki_emailstatic_id_isSet = true;
+    m_pki_emailstatic_id = pki_emailstatic_id;
+    m_pki_emailstatic_id_isSet = true;
 }
 
 bool OAIEmailstatic_ResponseCompound::is_pki_emailstatic_id_Set() const{
@@ -92,11 +92,11 @@ bool OAIEmailstatic_ResponseCompound::is_pki_emailstatic_id_Valid() const{
 }
 
 QString OAIEmailstatic_ResponseCompound::getSEmailstaticAddress() const {
-    return s_emailstatic_address;
+    return m_s_emailstatic_address;
 }
 void OAIEmailstatic_ResponseCompound::setSEmailstaticAddress(const QString &s_emailstatic_address) {
-    this->s_emailstatic_address = s_emailstatic_address;
-    this->m_s_emailstatic_address_isSet = true;
+    m_s_emailstatic_address = s_emailstatic_address;
+    m_s_emailstatic_address_isSet = true;
 }
 
 bool OAIEmailstatic_ResponseCompound::is_s_emailstatic_address_Set() const{

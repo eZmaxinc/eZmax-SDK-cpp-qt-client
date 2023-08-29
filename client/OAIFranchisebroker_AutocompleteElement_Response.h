@@ -60,15 +60,15 @@ public:
 private:
     void initializeModel();
 
-    QString s_franchisebroker_name;
+    QString m_s_franchisebroker_name;
     bool m_s_franchisebroker_name_isSet;
     bool m_s_franchisebroker_name_isValid;
 
-    qint32 pki_franchisebroker_id;
+    qint32 m_pki_franchisebroker_id;
     bool m_pki_franchisebroker_id_isSet;
     bool m_pki_franchisebroker_id_isValid;
 
-    bool b_franchisebroker_isactive;
+    bool m_b_franchisebroker_isactive;
     bool m_b_franchisebroker_isactive_isSet;
     bool m_b_franchisebroker_isactive_isValid;
 };

@@ -47,7 +47,7 @@ void OAIEzsigntemplatepackage_editEzsigntemplatepackagesigners_v1_Request::fromJ
 
 void OAIEzsigntemplatepackage_editEzsigntemplatepackagesigners_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_ezsigntemplatepackagesigner_isValid = ::OpenAPI::fromJsonValue(a_obj_ezsigntemplatepackagesigner, json[QString("a_objEzsigntemplatepackagesigner")]);
+    m_a_obj_ezsigntemplatepackagesigner_isValid = ::OpenAPI::fromJsonValue(m_a_obj_ezsigntemplatepackagesigner, json[QString("a_objEzsigntemplatepackagesigner")]);
     m_a_obj_ezsigntemplatepackagesigner_isSet = !json[QString("a_objEzsigntemplatepackagesigner")].isNull() && m_a_obj_ezsigntemplatepackagesigner_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIEzsigntemplatepackage_editEzsigntemplatepackagesigners_v1_Request::as
 
 QJsonObject OAIEzsigntemplatepackage_editEzsigntemplatepackagesigners_v1_Request::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_ezsigntemplatepackagesigner.size() > 0) {
-        obj.insert(QString("a_objEzsigntemplatepackagesigner"), ::OpenAPI::toJsonValue(a_obj_ezsigntemplatepackagesigner));
+    if (m_a_obj_ezsigntemplatepackagesigner.size() > 0) {
+        obj.insert(QString("a_objEzsigntemplatepackagesigner"), ::OpenAPI::toJsonValue(m_a_obj_ezsigntemplatepackagesigner));
     }
     return obj;
 }
 
 QList<OAIEzsigntemplatepackagesigner_RequestCompound> OAIEzsigntemplatepackage_editEzsigntemplatepackagesigners_v1_Request::getAObjEzsigntemplatepackagesigner() const {
-    return a_obj_ezsigntemplatepackagesigner;
+    return m_a_obj_ezsigntemplatepackagesigner;
 }
 void OAIEzsigntemplatepackage_editEzsigntemplatepackagesigners_v1_Request::setAObjEzsigntemplatepackagesigner(const QList<OAIEzsigntemplatepackagesigner_RequestCompound> &a_obj_ezsigntemplatepackagesigner) {
-    this->a_obj_ezsigntemplatepackagesigner = a_obj_ezsigntemplatepackagesigner;
-    this->m_a_obj_ezsigntemplatepackagesigner_isSet = true;
+    m_a_obj_ezsigntemplatepackagesigner = a_obj_ezsigntemplatepackagesigner;
+    m_a_obj_ezsigntemplatepackagesigner_isSet = true;
 }
 
 bool OAIEzsigntemplatepackage_editEzsigntemplatepackagesigners_v1_Request::is_a_obj_ezsigntemplatepackagesigner_Set() const{
@@ -85,7 +85,7 @@ bool OAIEzsigntemplatepackage_editEzsigntemplatepackagesigners_v1_Request::is_a_
 bool OAIEzsigntemplatepackage_editEzsigntemplatepackagesigners_v1_Request::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_ezsigntemplatepackagesigner.size() > 0) {
+        if (m_a_obj_ezsigntemplatepackagesigner.size() > 0) {
             isObjectUpdated = true;
             break;
         }

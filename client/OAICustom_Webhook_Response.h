@@ -42,16 +42,6 @@ public:
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    QString getPksCustomerCode() const;
-    void setPksCustomerCode(const QString &pks_customer_code);
-    bool is_pks_customer_code_Set() const;
-    bool is_pks_customer_code_Valid() const;
-
-    bool isBWebhookTest() const;
-    void setBWebhookTest(const bool &b_webhook_test);
-    bool is_b_webhook_test_Set() const;
-    bool is_b_webhook_test_Valid() const;
-
     qint32 getPkiWebhookId() const;
     void setPkiWebhookId(const qint32 &pki_webhook_id);
     bool is_pki_webhook_id_Set() const;
@@ -107,63 +97,73 @@ public:
     bool is_b_webhook_skipsslvalidation_Set() const;
     bool is_b_webhook_skipsslvalidation_Valid() const;
 
+    QString getPksCustomerCode() const;
+    void setPksCustomerCode(const QString &pks_customer_code);
+    bool is_pks_customer_code_Set() const;
+    bool is_pks_customer_code_Valid() const;
+
+    bool isBWebhookTest() const;
+    void setBWebhookTest(const bool &b_webhook_test);
+    bool is_b_webhook_test_Set() const;
+    bool is_b_webhook_test_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
 private:
     void initializeModel();
 
-    QString pks_customer_code;
-    bool m_pks_customer_code_isSet;
-    bool m_pks_customer_code_isValid;
-
-    bool b_webhook_test;
-    bool m_b_webhook_test_isSet;
-    bool m_b_webhook_test_isValid;
-
-    qint32 pki_webhook_id;
+    qint32 m_pki_webhook_id;
     bool m_pki_webhook_id_isSet;
     bool m_pki_webhook_id_isValid;
 
-    QString s_webhook_description;
+    QString m_s_webhook_description;
     bool m_s_webhook_description_isSet;
     bool m_s_webhook_description_isValid;
 
-    qint32 fki_ezsignfoldertype_id;
+    qint32 m_fki_ezsignfoldertype_id;
     bool m_fki_ezsignfoldertype_id_isSet;
     bool m_fki_ezsignfoldertype_id_isValid;
 
-    QString s_ezsignfoldertype_name_x;
+    QString m_s_ezsignfoldertype_name_x;
     bool m_s_ezsignfoldertype_name_x_isSet;
     bool m_s_ezsignfoldertype_name_x_isValid;
 
-    OAIField_eWebhookModule e_webhook_module;
+    OAIField_eWebhookModule m_e_webhook_module;
     bool m_e_webhook_module_isSet;
     bool m_e_webhook_module_isValid;
 
-    OAIField_eWebhookEzsignevent e_webhook_ezsignevent;
+    OAIField_eWebhookEzsignevent m_e_webhook_ezsignevent;
     bool m_e_webhook_ezsignevent_isSet;
     bool m_e_webhook_ezsignevent_isValid;
 
-    OAIField_eWebhookManagementevent e_webhook_managementevent;
+    OAIField_eWebhookManagementevent m_e_webhook_managementevent;
     bool m_e_webhook_managementevent_isSet;
     bool m_e_webhook_managementevent_isValid;
 
-    QString s_webhook_url;
+    QString m_s_webhook_url;
     bool m_s_webhook_url_isSet;
     bool m_s_webhook_url_isValid;
 
-    QString s_webhook_emailfailed;
+    QString m_s_webhook_emailfailed;
     bool m_s_webhook_emailfailed_isSet;
     bool m_s_webhook_emailfailed_isValid;
 
-    bool b_webhook_isactive;
+    bool m_b_webhook_isactive;
     bool m_b_webhook_isactive_isSet;
     bool m_b_webhook_isactive_isValid;
 
-    bool b_webhook_skipsslvalidation;
+    bool m_b_webhook_skipsslvalidation;
     bool m_b_webhook_skipsslvalidation_isSet;
     bool m_b_webhook_skipsslvalidation_isValid;
+
+    QString m_pks_customer_code;
+    bool m_pks_customer_code_isSet;
+    bool m_pks_customer_code_isValid;
+
+    bool m_b_webhook_test;
+    bool m_b_webhook_test_isSet;
+    bool m_b_webhook_test_isValid;
 };
 
 } // namespace OpenAPI

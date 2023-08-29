@@ -64,15 +64,15 @@ public:
 private:
     void initializeModel();
 
-    QList<OAIEzsignfoldersignerassociation_ResponseCompound> a_obj_ezsignfoldersignerassociation;
+    QList<OAIEzsignfoldersignerassociation_ResponseCompound> m_a_obj_ezsignfoldersignerassociation;
     bool m_a_obj_ezsignfoldersignerassociation_isSet;
     bool m_a_obj_ezsignfoldersignerassociation_isValid;
 
-    QList<OAICustom_User_Response> a_obj_user_team;
+    QList<OAICustom_User_Response> m_a_obj_user_team;
     bool m_a_obj_user_team_isSet;
     bool m_a_obj_user_team_isValid;
 
-    QList<OAICustom_User_Response> a_obj_user;
+    QList<OAICustom_User_Response> m_a_obj_user;
     bool m_a_obj_user_isSet;
     bool m_a_obj_user_isValid;
 };

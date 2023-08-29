@@ -53,13 +53,13 @@ void OAIPaymentterm_AutocompleteElement_Response::fromJson(QString jsonString) {
 
 void OAIPaymentterm_AutocompleteElement_Response::fromJsonObject(QJsonObject json) {
 
-    m_pki_paymentterm_id_isValid = ::OpenAPI::fromJsonValue(pki_paymentterm_id, json[QString("pkiPaymenttermID")]);
+    m_pki_paymentterm_id_isValid = ::OpenAPI::fromJsonValue(m_pki_paymentterm_id, json[QString("pkiPaymenttermID")]);
     m_pki_paymentterm_id_isSet = !json[QString("pkiPaymenttermID")].isNull() && m_pki_paymentterm_id_isValid;
 
-    m_s_paymentterm_description_x_isValid = ::OpenAPI::fromJsonValue(s_paymentterm_description_x, json[QString("sPaymenttermDescriptionX")]);
+    m_s_paymentterm_description_x_isValid = ::OpenAPI::fromJsonValue(m_s_paymentterm_description_x, json[QString("sPaymenttermDescriptionX")]);
     m_s_paymentterm_description_x_isSet = !json[QString("sPaymenttermDescriptionX")].isNull() && m_s_paymentterm_description_x_isValid;
 
-    m_b_paymentterm_isactive_isValid = ::OpenAPI::fromJsonValue(b_paymentterm_isactive, json[QString("bPaymenttermIsactive")]);
+    m_b_paymentterm_isactive_isValid = ::OpenAPI::fromJsonValue(m_b_paymentterm_isactive, json[QString("bPaymenttermIsactive")]);
     m_b_paymentterm_isactive_isSet = !json[QString("bPaymenttermIsactive")].isNull() && m_b_paymentterm_isactive_isValid;
 }
 
@@ -73,23 +73,23 @@ QString OAIPaymentterm_AutocompleteElement_Response::asJson() const {
 QJsonObject OAIPaymentterm_AutocompleteElement_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_paymentterm_id_isSet) {
-        obj.insert(QString("pkiPaymenttermID"), ::OpenAPI::toJsonValue(pki_paymentterm_id));
+        obj.insert(QString("pkiPaymenttermID"), ::OpenAPI::toJsonValue(m_pki_paymentterm_id));
     }
     if (m_s_paymentterm_description_x_isSet) {
-        obj.insert(QString("sPaymenttermDescriptionX"), ::OpenAPI::toJsonValue(s_paymentterm_description_x));
+        obj.insert(QString("sPaymenttermDescriptionX"), ::OpenAPI::toJsonValue(m_s_paymentterm_description_x));
     }
     if (m_b_paymentterm_isactive_isSet) {
-        obj.insert(QString("bPaymenttermIsactive"), ::OpenAPI::toJsonValue(b_paymentterm_isactive));
+        obj.insert(QString("bPaymenttermIsactive"), ::OpenAPI::toJsonValue(m_b_paymentterm_isactive));
     }
     return obj;
 }
 
 qint32 OAIPaymentterm_AutocompleteElement_Response::getPkiPaymenttermId() const {
-    return pki_paymentterm_id;
+    return m_pki_paymentterm_id;
 }
 void OAIPaymentterm_AutocompleteElement_Response::setPkiPaymenttermId(const qint32 &pki_paymentterm_id) {
-    this->pki_paymentterm_id = pki_paymentterm_id;
-    this->m_pki_paymentterm_id_isSet = true;
+    m_pki_paymentterm_id = pki_paymentterm_id;
+    m_pki_paymentterm_id_isSet = true;
 }
 
 bool OAIPaymentterm_AutocompleteElement_Response::is_pki_paymentterm_id_Set() const{
@@ -101,11 +101,11 @@ bool OAIPaymentterm_AutocompleteElement_Response::is_pki_paymentterm_id_Valid() 
 }
 
 QString OAIPaymentterm_AutocompleteElement_Response::getSPaymenttermDescriptionX() const {
-    return s_paymentterm_description_x;
+    return m_s_paymentterm_description_x;
 }
 void OAIPaymentterm_AutocompleteElement_Response::setSPaymenttermDescriptionX(const QString &s_paymentterm_description_x) {
-    this->s_paymentterm_description_x = s_paymentterm_description_x;
-    this->m_s_paymentterm_description_x_isSet = true;
+    m_s_paymentterm_description_x = s_paymentterm_description_x;
+    m_s_paymentterm_description_x_isSet = true;
 }
 
 bool OAIPaymentterm_AutocompleteElement_Response::is_s_paymentterm_description_x_Set() const{
@@ -117,11 +117,11 @@ bool OAIPaymentterm_AutocompleteElement_Response::is_s_paymentterm_description_x
 }
 
 bool OAIPaymentterm_AutocompleteElement_Response::isBPaymenttermIsactive() const {
-    return b_paymentterm_isactive;
+    return m_b_paymentterm_isactive;
 }
 void OAIPaymentterm_AutocompleteElement_Response::setBPaymenttermIsactive(const bool &b_paymentterm_isactive) {
-    this->b_paymentterm_isactive = b_paymentterm_isactive;
-    this->m_b_paymentterm_isactive_isSet = true;
+    m_b_paymentterm_isactive = b_paymentterm_isactive;
+    m_b_paymentterm_isactive_isSet = true;
 }
 
 bool OAIPaymentterm_AutocompleteElement_Response::is_b_paymentterm_isactive_Set() const{

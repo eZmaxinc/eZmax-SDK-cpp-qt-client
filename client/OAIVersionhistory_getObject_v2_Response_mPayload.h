@@ -51,7 +51,7 @@ public:
 private:
     void initializeModel();
 
-    OAIVersionhistory_ResponseCompound obj_versionhistory;
+    OAIVersionhistory_ResponseCompound m_obj_versionhistory;
     bool m_obj_versionhistory_isSet;
     bool m_obj_versionhistory_isValid;
 };

@@ -55,11 +55,11 @@ public:
 private:
     void initializeModel();
 
-    qint32 fki_websitetype_id;
+    qint32 m_fki_websitetype_id;
     bool m_fki_websitetype_id_isSet;
     bool m_fki_websitetype_id_isValid;
 
-    QString s_website_address;
+    QString m_s_website_address;
     bool m_s_website_address_isSet;
     bool m_s_website_address_isValid;
 };

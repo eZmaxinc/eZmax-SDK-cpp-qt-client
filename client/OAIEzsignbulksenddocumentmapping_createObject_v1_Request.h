@@ -52,7 +52,7 @@ public:
 private:
     void initializeModel();
 
-    QList<OAIEzsignbulksenddocumentmapping_RequestCompound> a_obj_ezsignbulksenddocumentmapping;
+    QList<OAIEzsignbulksenddocumentmapping_RequestCompound> m_a_obj_ezsignbulksenddocumentmapping;
     bool m_a_obj_ezsignbulksenddocumentmapping_isSet;
     bool m_a_obj_ezsignbulksenddocumentmapping_isValid;
 };

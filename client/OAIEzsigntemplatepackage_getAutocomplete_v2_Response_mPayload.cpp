@@ -47,7 +47,7 @@ void OAIEzsigntemplatepackage_getAutocomplete_v2_Response_mPayload::fromJson(QSt
 
 void OAIEzsigntemplatepackage_getAutocomplete_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_ezsigntemplatepackage_isValid = ::OpenAPI::fromJsonValue(a_obj_ezsigntemplatepackage, json[QString("a_objEzsigntemplatepackage")]);
+    m_a_obj_ezsigntemplatepackage_isValid = ::OpenAPI::fromJsonValue(m_a_obj_ezsigntemplatepackage, json[QString("a_objEzsigntemplatepackage")]);
     m_a_obj_ezsigntemplatepackage_isSet = !json[QString("a_objEzsigntemplatepackage")].isNull() && m_a_obj_ezsigntemplatepackage_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIEzsigntemplatepackage_getAutocomplete_v2_Response_mPayload::asJson() 
 
 QJsonObject OAIEzsigntemplatepackage_getAutocomplete_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_ezsigntemplatepackage.size() > 0) {
-        obj.insert(QString("a_objEzsigntemplatepackage"), ::OpenAPI::toJsonValue(a_obj_ezsigntemplatepackage));
+    if (m_a_obj_ezsigntemplatepackage.size() > 0) {
+        obj.insert(QString("a_objEzsigntemplatepackage"), ::OpenAPI::toJsonValue(m_a_obj_ezsigntemplatepackage));
     }
     return obj;
 }
 
 QList<OAIEzsigntemplatepackage_AutocompleteElement_Response> OAIEzsigntemplatepackage_getAutocomplete_v2_Response_mPayload::getAObjEzsigntemplatepackage() const {
-    return a_obj_ezsigntemplatepackage;
+    return m_a_obj_ezsigntemplatepackage;
 }
 void OAIEzsigntemplatepackage_getAutocomplete_v2_Response_mPayload::setAObjEzsigntemplatepackage(const QList<OAIEzsigntemplatepackage_AutocompleteElement_Response> &a_obj_ezsigntemplatepackage) {
-    this->a_obj_ezsigntemplatepackage = a_obj_ezsigntemplatepackage;
-    this->m_a_obj_ezsigntemplatepackage_isSet = true;
+    m_a_obj_ezsigntemplatepackage = a_obj_ezsigntemplatepackage;
+    m_a_obj_ezsigntemplatepackage_isSet = true;
 }
 
 bool OAIEzsigntemplatepackage_getAutocomplete_v2_Response_mPayload::is_a_obj_ezsigntemplatepackage_Set() const{
@@ -85,7 +85,7 @@ bool OAIEzsigntemplatepackage_getAutocomplete_v2_Response_mPayload::is_a_obj_ezs
 bool OAIEzsigntemplatepackage_getAutocomplete_v2_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_ezsigntemplatepackage.size() > 0) {
+        if (m_a_obj_ezsigntemplatepackage.size() > 0) {
             isObjectUpdated = true;
             break;
         }

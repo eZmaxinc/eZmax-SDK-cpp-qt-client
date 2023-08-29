@@ -34,14 +34,14 @@ OAIUserstaged_getList_v1_Response_mPayload::~OAIUserstaged_getList_v1_Response_m
 
 void OAIUserstaged_getList_v1_Response_mPayload::initializeModel() {
 
-    m_a_obj_userstaged_isSet = false;
-    m_a_obj_userstaged_isValid = false;
-
     m_i_row_returned_isSet = false;
     m_i_row_returned_isValid = false;
 
     m_i_row_filtered_isSet = false;
     m_i_row_filtered_isValid = false;
+
+    m_a_obj_userstaged_isSet = false;
+    m_a_obj_userstaged_isValid = false;
 }
 
 void OAIUserstaged_getList_v1_Response_mPayload::fromJson(QString jsonString) {
@@ -53,14 +53,14 @@ void OAIUserstaged_getList_v1_Response_mPayload::fromJson(QString jsonString) {
 
 void OAIUserstaged_getList_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_userstaged_isValid = ::OpenAPI::fromJsonValue(a_obj_userstaged, json[QString("a_objUserstaged")]);
-    m_a_obj_userstaged_isSet = !json[QString("a_objUserstaged")].isNull() && m_a_obj_userstaged_isValid;
-
-    m_i_row_returned_isValid = ::OpenAPI::fromJsonValue(i_row_returned, json[QString("iRowReturned")]);
+    m_i_row_returned_isValid = ::OpenAPI::fromJsonValue(m_i_row_returned, json[QString("iRowReturned")]);
     m_i_row_returned_isSet = !json[QString("iRowReturned")].isNull() && m_i_row_returned_isValid;
 
-    m_i_row_filtered_isValid = ::OpenAPI::fromJsonValue(i_row_filtered, json[QString("iRowFiltered")]);
+    m_i_row_filtered_isValid = ::OpenAPI::fromJsonValue(m_i_row_filtered, json[QString("iRowFiltered")]);
     m_i_row_filtered_isSet = !json[QString("iRowFiltered")].isNull() && m_i_row_filtered_isValid;
+
+    m_a_obj_userstaged_isValid = ::OpenAPI::fromJsonValue(m_a_obj_userstaged, json[QString("a_objUserstaged")]);
+    m_a_obj_userstaged_isSet = !json[QString("a_objUserstaged")].isNull() && m_a_obj_userstaged_isValid;
 }
 
 QString OAIUserstaged_getList_v1_Response_mPayload::asJson() const {
@@ -72,40 +72,24 @@ QString OAIUserstaged_getList_v1_Response_mPayload::asJson() const {
 
 QJsonObject OAIUserstaged_getList_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_userstaged.size() > 0) {
-        obj.insert(QString("a_objUserstaged"), ::OpenAPI::toJsonValue(a_obj_userstaged));
-    }
     if (m_i_row_returned_isSet) {
-        obj.insert(QString("iRowReturned"), ::OpenAPI::toJsonValue(i_row_returned));
+        obj.insert(QString("iRowReturned"), ::OpenAPI::toJsonValue(m_i_row_returned));
     }
     if (m_i_row_filtered_isSet) {
-        obj.insert(QString("iRowFiltered"), ::OpenAPI::toJsonValue(i_row_filtered));
+        obj.insert(QString("iRowFiltered"), ::OpenAPI::toJsonValue(m_i_row_filtered));
+    }
+    if (m_a_obj_userstaged.size() > 0) {
+        obj.insert(QString("a_objUserstaged"), ::OpenAPI::toJsonValue(m_a_obj_userstaged));
     }
     return obj;
 }
 
-QList<OAIUserstaged_ListElement> OAIUserstaged_getList_v1_Response_mPayload::getAObjUserstaged() const {
-    return a_obj_userstaged;
-}
-void OAIUserstaged_getList_v1_Response_mPayload::setAObjUserstaged(const QList<OAIUserstaged_ListElement> &a_obj_userstaged) {
-    this->a_obj_userstaged = a_obj_userstaged;
-    this->m_a_obj_userstaged_isSet = true;
-}
-
-bool OAIUserstaged_getList_v1_Response_mPayload::is_a_obj_userstaged_Set() const{
-    return m_a_obj_userstaged_isSet;
-}
-
-bool OAIUserstaged_getList_v1_Response_mPayload::is_a_obj_userstaged_Valid() const{
-    return m_a_obj_userstaged_isValid;
-}
-
 qint32 OAIUserstaged_getList_v1_Response_mPayload::getIRowReturned() const {
-    return i_row_returned;
+    return m_i_row_returned;
 }
 void OAIUserstaged_getList_v1_Response_mPayload::setIRowReturned(const qint32 &i_row_returned) {
-    this->i_row_returned = i_row_returned;
-    this->m_i_row_returned_isSet = true;
+    m_i_row_returned = i_row_returned;
+    m_i_row_returned_isSet = true;
 }
 
 bool OAIUserstaged_getList_v1_Response_mPayload::is_i_row_returned_Set() const{
@@ -117,11 +101,11 @@ bool OAIUserstaged_getList_v1_Response_mPayload::is_i_row_returned_Valid() const
 }
 
 qint32 OAIUserstaged_getList_v1_Response_mPayload::getIRowFiltered() const {
-    return i_row_filtered;
+    return m_i_row_filtered;
 }
 void OAIUserstaged_getList_v1_Response_mPayload::setIRowFiltered(const qint32 &i_row_filtered) {
-    this->i_row_filtered = i_row_filtered;
-    this->m_i_row_filtered_isSet = true;
+    m_i_row_filtered = i_row_filtered;
+    m_i_row_filtered_isSet = true;
 }
 
 bool OAIUserstaged_getList_v1_Response_mPayload::is_i_row_filtered_Set() const{
@@ -132,14 +116,25 @@ bool OAIUserstaged_getList_v1_Response_mPayload::is_i_row_filtered_Valid() const
     return m_i_row_filtered_isValid;
 }
 
+QList<OAIUserstaged_ListElement> OAIUserstaged_getList_v1_Response_mPayload::getAObjUserstaged() const {
+    return m_a_obj_userstaged;
+}
+void OAIUserstaged_getList_v1_Response_mPayload::setAObjUserstaged(const QList<OAIUserstaged_ListElement> &a_obj_userstaged) {
+    m_a_obj_userstaged = a_obj_userstaged;
+    m_a_obj_userstaged_isSet = true;
+}
+
+bool OAIUserstaged_getList_v1_Response_mPayload::is_a_obj_userstaged_Set() const{
+    return m_a_obj_userstaged_isSet;
+}
+
+bool OAIUserstaged_getList_v1_Response_mPayload::is_a_obj_userstaged_Valid() const{
+    return m_a_obj_userstaged_isValid;
+}
+
 bool OAIUserstaged_getList_v1_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_userstaged.size() > 0) {
-            isObjectUpdated = true;
-            break;
-        }
-
         if (m_i_row_returned_isSet) {
             isObjectUpdated = true;
             break;
@@ -149,13 +144,18 @@ bool OAIUserstaged_getList_v1_Response_mPayload::isSet() const {
             isObjectUpdated = true;
             break;
         }
+
+        if (m_a_obj_userstaged.size() > 0) {
+            isObjectUpdated = true;
+            break;
+        }
     } while (false);
     return isObjectUpdated;
 }
 
 bool OAIUserstaged_getList_v1_Response_mPayload::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_a_obj_userstaged_isValid && m_i_row_returned_isValid && m_i_row_filtered_isValid && true;
+    return m_i_row_returned_isValid && m_i_row_filtered_isValid && m_a_obj_userstaged_isValid && true;
 }
 
 } // namespace OpenAPI

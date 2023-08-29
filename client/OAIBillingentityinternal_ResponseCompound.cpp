@@ -53,13 +53,13 @@ void OAIBillingentityinternal_ResponseCompound::fromJson(QString jsonString) {
 
 void OAIBillingentityinternal_ResponseCompound::fromJsonObject(QJsonObject json) {
 
-    m_pki_billingentityinternal_id_isValid = ::OpenAPI::fromJsonValue(pki_billingentityinternal_id, json[QString("pkiBillingentityinternalID")]);
+    m_pki_billingentityinternal_id_isValid = ::OpenAPI::fromJsonValue(m_pki_billingentityinternal_id, json[QString("pkiBillingentityinternalID")]);
     m_pki_billingentityinternal_id_isSet = !json[QString("pkiBillingentityinternalID")].isNull() && m_pki_billingentityinternal_id_isValid;
 
-    m_obj_billingentityinternal_description_isValid = ::OpenAPI::fromJsonValue(obj_billingentityinternal_description, json[QString("objBillingentityinternalDescription")]);
+    m_obj_billingentityinternal_description_isValid = ::OpenAPI::fromJsonValue(m_obj_billingentityinternal_description, json[QString("objBillingentityinternalDescription")]);
     m_obj_billingentityinternal_description_isSet = !json[QString("objBillingentityinternalDescription")].isNull() && m_obj_billingentityinternal_description_isValid;
 
-    m_a_obj_billingentityinternalproduct_isValid = ::OpenAPI::fromJsonValue(a_obj_billingentityinternalproduct, json[QString("a_objBillingentityinternalproduct")]);
+    m_a_obj_billingentityinternalproduct_isValid = ::OpenAPI::fromJsonValue(m_a_obj_billingentityinternalproduct, json[QString("a_objBillingentityinternalproduct")]);
     m_a_obj_billingentityinternalproduct_isSet = !json[QString("a_objBillingentityinternalproduct")].isNull() && m_a_obj_billingentityinternalproduct_isValid;
 }
 
@@ -73,23 +73,23 @@ QString OAIBillingentityinternal_ResponseCompound::asJson() const {
 QJsonObject OAIBillingentityinternal_ResponseCompound::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_billingentityinternal_id_isSet) {
-        obj.insert(QString("pkiBillingentityinternalID"), ::OpenAPI::toJsonValue(pki_billingentityinternal_id));
+        obj.insert(QString("pkiBillingentityinternalID"), ::OpenAPI::toJsonValue(m_pki_billingentityinternal_id));
     }
-    if (obj_billingentityinternal_description.isSet()) {
-        obj.insert(QString("objBillingentityinternalDescription"), ::OpenAPI::toJsonValue(obj_billingentityinternal_description));
+    if (m_obj_billingentityinternal_description.isSet()) {
+        obj.insert(QString("objBillingentityinternalDescription"), ::OpenAPI::toJsonValue(m_obj_billingentityinternal_description));
     }
-    if (a_obj_billingentityinternalproduct.size() > 0) {
-        obj.insert(QString("a_objBillingentityinternalproduct"), ::OpenAPI::toJsonValue(a_obj_billingentityinternalproduct));
+    if (m_a_obj_billingentityinternalproduct.size() > 0) {
+        obj.insert(QString("a_objBillingentityinternalproduct"), ::OpenAPI::toJsonValue(m_a_obj_billingentityinternalproduct));
     }
     return obj;
 }
 
 qint32 OAIBillingentityinternal_ResponseCompound::getPkiBillingentityinternalId() const {
-    return pki_billingentityinternal_id;
+    return m_pki_billingentityinternal_id;
 }
 void OAIBillingentityinternal_ResponseCompound::setPkiBillingentityinternalId(const qint32 &pki_billingentityinternal_id) {
-    this->pki_billingentityinternal_id = pki_billingentityinternal_id;
-    this->m_pki_billingentityinternal_id_isSet = true;
+    m_pki_billingentityinternal_id = pki_billingentityinternal_id;
+    m_pki_billingentityinternal_id_isSet = true;
 }
 
 bool OAIBillingentityinternal_ResponseCompound::is_pki_billingentityinternal_id_Set() const{
@@ -101,11 +101,11 @@ bool OAIBillingentityinternal_ResponseCompound::is_pki_billingentityinternal_id_
 }
 
 OAIMultilingual_BillingentityinternalDescription OAIBillingentityinternal_ResponseCompound::getObjBillingentityinternalDescription() const {
-    return obj_billingentityinternal_description;
+    return m_obj_billingentityinternal_description;
 }
 void OAIBillingentityinternal_ResponseCompound::setObjBillingentityinternalDescription(const OAIMultilingual_BillingentityinternalDescription &obj_billingentityinternal_description) {
-    this->obj_billingentityinternal_description = obj_billingentityinternal_description;
-    this->m_obj_billingentityinternal_description_isSet = true;
+    m_obj_billingentityinternal_description = obj_billingentityinternal_description;
+    m_obj_billingentityinternal_description_isSet = true;
 }
 
 bool OAIBillingentityinternal_ResponseCompound::is_obj_billingentityinternal_description_Set() const{
@@ -117,11 +117,11 @@ bool OAIBillingentityinternal_ResponseCompound::is_obj_billingentityinternal_des
 }
 
 QList<OAIBillingentityinternalproduct_ResponseCompound> OAIBillingentityinternal_ResponseCompound::getAObjBillingentityinternalproduct() const {
-    return a_obj_billingentityinternalproduct;
+    return m_a_obj_billingentityinternalproduct;
 }
 void OAIBillingentityinternal_ResponseCompound::setAObjBillingentityinternalproduct(const QList<OAIBillingentityinternalproduct_ResponseCompound> &a_obj_billingentityinternalproduct) {
-    this->a_obj_billingentityinternalproduct = a_obj_billingentityinternalproduct;
-    this->m_a_obj_billingentityinternalproduct_isSet = true;
+    m_a_obj_billingentityinternalproduct = a_obj_billingentityinternalproduct;
+    m_a_obj_billingentityinternalproduct_isSet = true;
 }
 
 bool OAIBillingentityinternal_ResponseCompound::is_a_obj_billingentityinternalproduct_Set() const{
@@ -140,12 +140,12 @@ bool OAIBillingentityinternal_ResponseCompound::isSet() const {
             break;
         }
 
-        if (obj_billingentityinternal_description.isSet()) {
+        if (m_obj_billingentityinternal_description.isSet()) {
             isObjectUpdated = true;
             break;
         }
 
-        if (a_obj_billingentityinternalproduct.size() > 0) {
+        if (m_a_obj_billingentityinternalproduct.size() > 0) {
             isObjectUpdated = true;
             break;
         }

@@ -31,7 +31,6 @@
 #include "OAIEzsignsignature_getObject_v2_Response.h"
 #include "OAIEzsignsignature_sign_v1_Request.h"
 #include "OAIEzsignsignature_sign_v1_Response.h"
-#include <QList>
 #include <QString>
 
 #include <QObject>

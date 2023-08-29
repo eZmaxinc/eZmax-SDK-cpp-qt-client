@@ -50,10 +50,10 @@ void OAIMultilingual_SubnetDescription::fromJson(QString jsonString) {
 
 void OAIMultilingual_SubnetDescription::fromJsonObject(QJsonObject json) {
 
-    m_s_subnet_description1_isValid = ::OpenAPI::fromJsonValue(s_subnet_description1, json[QString("sSubnetDescription1")]);
+    m_s_subnet_description1_isValid = ::OpenAPI::fromJsonValue(m_s_subnet_description1, json[QString("sSubnetDescription1")]);
     m_s_subnet_description1_isSet = !json[QString("sSubnetDescription1")].isNull() && m_s_subnet_description1_isValid;
 
-    m_s_subnet_description2_isValid = ::OpenAPI::fromJsonValue(s_subnet_description2, json[QString("sSubnetDescription2")]);
+    m_s_subnet_description2_isValid = ::OpenAPI::fromJsonValue(m_s_subnet_description2, json[QString("sSubnetDescription2")]);
     m_s_subnet_description2_isSet = !json[QString("sSubnetDescription2")].isNull() && m_s_subnet_description2_isValid;
 }
 
@@ -67,20 +67,20 @@ QString OAIMultilingual_SubnetDescription::asJson() const {
 QJsonObject OAIMultilingual_SubnetDescription::asJsonObject() const {
     QJsonObject obj;
     if (m_s_subnet_description1_isSet) {
-        obj.insert(QString("sSubnetDescription1"), ::OpenAPI::toJsonValue(s_subnet_description1));
+        obj.insert(QString("sSubnetDescription1"), ::OpenAPI::toJsonValue(m_s_subnet_description1));
     }
     if (m_s_subnet_description2_isSet) {
-        obj.insert(QString("sSubnetDescription2"), ::OpenAPI::toJsonValue(s_subnet_description2));
+        obj.insert(QString("sSubnetDescription2"), ::OpenAPI::toJsonValue(m_s_subnet_description2));
     }
     return obj;
 }
 
 QString OAIMultilingual_SubnetDescription::getSSubnetDescription1() const {
-    return s_subnet_description1;
+    return m_s_subnet_description1;
 }
 void OAIMultilingual_SubnetDescription::setSSubnetDescription1(const QString &s_subnet_description1) {
-    this->s_subnet_description1 = s_subnet_description1;
-    this->m_s_subnet_description1_isSet = true;
+    m_s_subnet_description1 = s_subnet_description1;
+    m_s_subnet_description1_isSet = true;
 }
 
 bool OAIMultilingual_SubnetDescription::is_s_subnet_description1_Set() const{
@@ -92,11 +92,11 @@ bool OAIMultilingual_SubnetDescription::is_s_subnet_description1_Valid() const{
 }
 
 QString OAIMultilingual_SubnetDescription::getSSubnetDescription2() const {
-    return s_subnet_description2;
+    return m_s_subnet_description2;
 }
 void OAIMultilingual_SubnetDescription::setSSubnetDescription2(const QString &s_subnet_description2) {
-    this->s_subnet_description2 = s_subnet_description2;
-    this->m_s_subnet_description2_isSet = true;
+    m_s_subnet_description2 = s_subnet_description2;
+    m_s_subnet_description2_isSet = true;
 }
 
 bool OAIMultilingual_SubnetDescription::is_s_subnet_description2_Set() const{

@@ -55,11 +55,11 @@ public:
 private:
     void initializeModel();
 
-    QString t_versionhistory_detail1;
+    QString m_t_versionhistory_detail1;
     bool m_t_versionhistory_detail1_isSet;
     bool m_t_versionhistory_detail1_isValid;
 
-    QString t_versionhistory_detail2;
+    QString m_t_versionhistory_detail2;
     bool m_t_versionhistory_detail2_isSet;
     bool m_t_versionhistory_detail2_isValid;
 };

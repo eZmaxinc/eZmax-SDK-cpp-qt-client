@@ -80,31 +80,31 @@ public:
 private:
     void initializeModel();
 
-    qint32 fki_user_id;
+    qint32 m_fki_user_id;
     bool m_fki_user_id_isSet;
     bool m_fki_user_id_isValid;
 
-    qint32 fki_apikey_id;
+    qint32 m_fki_apikey_id;
     bool m_fki_apikey_id_isSet;
     bool m_fki_apikey_id_isValid;
 
-    QString s_user_loginname;
+    QString m_s_user_loginname;
     bool m_s_user_loginname_isSet;
     bool m_s_user_loginname_isValid;
 
-    QString s_user_lastname;
+    QString m_s_user_lastname;
     bool m_s_user_lastname_isSet;
     bool m_s_user_lastname_isValid;
 
-    QString s_user_firstname;
+    QString m_s_user_firstname;
     bool m_s_user_firstname_isSet;
     bool m_s_user_firstname_isValid;
 
-    QString s_apikey_description_x;
+    QString m_s_apikey_description_x;
     bool m_s_apikey_description_x_isSet;
     bool m_s_apikey_description_x_isValid;
 
-    QString dt_auditdetail_date;
+    QString m_dt_auditdetail_date;
     bool m_dt_auditdetail_date_isSet;
     bool m_dt_auditdetail_date_isValid;
 };

@@ -47,7 +47,7 @@ void OAIPermission_getObject_v2_Response_mPayload::fromJson(QString jsonString) 
 
 void OAIPermission_getObject_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_obj_permission_isValid = ::OpenAPI::fromJsonValue(obj_permission, json[QString("objPermission")]);
+    m_obj_permission_isValid = ::OpenAPI::fromJsonValue(m_obj_permission, json[QString("objPermission")]);
     m_obj_permission_isSet = !json[QString("objPermission")].isNull() && m_obj_permission_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIPermission_getObject_v2_Response_mPayload::asJson() const {
 
 QJsonObject OAIPermission_getObject_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (obj_permission.isSet()) {
-        obj.insert(QString("objPermission"), ::OpenAPI::toJsonValue(obj_permission));
+    if (m_obj_permission.isSet()) {
+        obj.insert(QString("objPermission"), ::OpenAPI::toJsonValue(m_obj_permission));
     }
     return obj;
 }
 
 OAIPermission_ResponseCompound OAIPermission_getObject_v2_Response_mPayload::getObjPermission() const {
-    return obj_permission;
+    return m_obj_permission;
 }
 void OAIPermission_getObject_v2_Response_mPayload::setObjPermission(const OAIPermission_ResponseCompound &obj_permission) {
-    this->obj_permission = obj_permission;
-    this->m_obj_permission_isSet = true;
+    m_obj_permission = obj_permission;
+    m_obj_permission_isSet = true;
 }
 
 bool OAIPermission_getObject_v2_Response_mPayload::is_obj_permission_Set() const{
@@ -85,7 +85,7 @@ bool OAIPermission_getObject_v2_Response_mPayload::is_obj_permission_Valid() con
 bool OAIPermission_getObject_v2_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (obj_permission.isSet()) {
+        if (m_obj_permission.isSet()) {
             isObjectUpdated = true;
             break;
         }

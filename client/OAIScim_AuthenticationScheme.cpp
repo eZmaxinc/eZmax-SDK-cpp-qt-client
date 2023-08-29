@@ -53,13 +53,13 @@ void OAIScim_AuthenticationScheme::fromJson(QString jsonString) {
 
 void OAIScim_AuthenticationScheme::fromJsonObject(QJsonObject json) {
 
-    m_description_isValid = ::OpenAPI::fromJsonValue(description, json[QString("description")]);
+    m_description_isValid = ::OpenAPI::fromJsonValue(m_description, json[QString("description")]);
     m_description_isSet = !json[QString("description")].isNull() && m_description_isValid;
 
-    m_name_isValid = ::OpenAPI::fromJsonValue(name, json[QString("name")]);
+    m_name_isValid = ::OpenAPI::fromJsonValue(m_name, json[QString("name")]);
     m_name_isSet = !json[QString("name")].isNull() && m_name_isValid;
 
-    m_type_isValid = ::OpenAPI::fromJsonValue(type, json[QString("type")]);
+    m_type_isValid = ::OpenAPI::fromJsonValue(m_type, json[QString("type")]);
     m_type_isSet = !json[QString("type")].isNull() && m_type_isValid;
 }
 
@@ -73,23 +73,23 @@ QString OAIScim_AuthenticationScheme::asJson() const {
 QJsonObject OAIScim_AuthenticationScheme::asJsonObject() const {
     QJsonObject obj;
     if (m_description_isSet) {
-        obj.insert(QString("description"), ::OpenAPI::toJsonValue(description));
+        obj.insert(QString("description"), ::OpenAPI::toJsonValue(m_description));
     }
     if (m_name_isSet) {
-        obj.insert(QString("name"), ::OpenAPI::toJsonValue(name));
+        obj.insert(QString("name"), ::OpenAPI::toJsonValue(m_name));
     }
     if (m_type_isSet) {
-        obj.insert(QString("type"), ::OpenAPI::toJsonValue(type));
+        obj.insert(QString("type"), ::OpenAPI::toJsonValue(m_type));
     }
     return obj;
 }
 
 QString OAIScim_AuthenticationScheme::getDescription() const {
-    return description;
+    return m_description;
 }
 void OAIScim_AuthenticationScheme::setDescription(const QString &description) {
-    this->description = description;
-    this->m_description_isSet = true;
+    m_description = description;
+    m_description_isSet = true;
 }
 
 bool OAIScim_AuthenticationScheme::is_description_Set() const{
@@ -101,11 +101,11 @@ bool OAIScim_AuthenticationScheme::is_description_Valid() const{
 }
 
 QString OAIScim_AuthenticationScheme::getName() const {
-    return name;
+    return m_name;
 }
 void OAIScim_AuthenticationScheme::setName(const QString &name) {
-    this->name = name;
-    this->m_name_isSet = true;
+    m_name = name;
+    m_name_isSet = true;
 }
 
 bool OAIScim_AuthenticationScheme::is_name_Set() const{
@@ -117,11 +117,11 @@ bool OAIScim_AuthenticationScheme::is_name_Valid() const{
 }
 
 QString OAIScim_AuthenticationScheme::getType() const {
-    return type;
+    return m_type;
 }
 void OAIScim_AuthenticationScheme::setType(const QString &type) {
-    this->type = type;
-    this->m_type_isSet = true;
+    m_type = type;
+    m_type_isSet = true;
 }
 
 bool OAIScim_AuthenticationScheme::is_type_Set() const{

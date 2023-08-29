@@ -47,7 +47,7 @@ void OAISecretquestion_getAutocomplete_v2_Response_mPayload::fromJson(QString js
 
 void OAISecretquestion_getAutocomplete_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_secretquestion_isValid = ::OpenAPI::fromJsonValue(a_obj_secretquestion, json[QString("a_objSecretquestion")]);
+    m_a_obj_secretquestion_isValid = ::OpenAPI::fromJsonValue(m_a_obj_secretquestion, json[QString("a_objSecretquestion")]);
     m_a_obj_secretquestion_isSet = !json[QString("a_objSecretquestion")].isNull() && m_a_obj_secretquestion_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAISecretquestion_getAutocomplete_v2_Response_mPayload::asJson() const {
 
 QJsonObject OAISecretquestion_getAutocomplete_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_secretquestion.size() > 0) {
-        obj.insert(QString("a_objSecretquestion"), ::OpenAPI::toJsonValue(a_obj_secretquestion));
+    if (m_a_obj_secretquestion.size() > 0) {
+        obj.insert(QString("a_objSecretquestion"), ::OpenAPI::toJsonValue(m_a_obj_secretquestion));
     }
     return obj;
 }
 
 QList<OAISecretquestion_AutocompleteElement_Response> OAISecretquestion_getAutocomplete_v2_Response_mPayload::getAObjSecretquestion() const {
-    return a_obj_secretquestion;
+    return m_a_obj_secretquestion;
 }
 void OAISecretquestion_getAutocomplete_v2_Response_mPayload::setAObjSecretquestion(const QList<OAISecretquestion_AutocompleteElement_Response> &a_obj_secretquestion) {
-    this->a_obj_secretquestion = a_obj_secretquestion;
-    this->m_a_obj_secretquestion_isSet = true;
+    m_a_obj_secretquestion = a_obj_secretquestion;
+    m_a_obj_secretquestion_isSet = true;
 }
 
 bool OAISecretquestion_getAutocomplete_v2_Response_mPayload::is_a_obj_secretquestion_Set() const{
@@ -85,7 +85,7 @@ bool OAISecretquestion_getAutocomplete_v2_Response_mPayload::is_a_obj_secretques
 bool OAISecretquestion_getAutocomplete_v2_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_secretquestion.size() > 0) {
+        if (m_a_obj_secretquestion.size() > 0) {
             isObjectUpdated = true;
             break;
         }

@@ -47,7 +47,7 @@ void OAIEzsigntemplatepackage_getObject_v2_Response_mPayload::fromJson(QString j
 
 void OAIEzsigntemplatepackage_getObject_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_obj_ezsigntemplatepackage_isValid = ::OpenAPI::fromJsonValue(obj_ezsigntemplatepackage, json[QString("objEzsigntemplatepackage")]);
+    m_obj_ezsigntemplatepackage_isValid = ::OpenAPI::fromJsonValue(m_obj_ezsigntemplatepackage, json[QString("objEzsigntemplatepackage")]);
     m_obj_ezsigntemplatepackage_isSet = !json[QString("objEzsigntemplatepackage")].isNull() && m_obj_ezsigntemplatepackage_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIEzsigntemplatepackage_getObject_v2_Response_mPayload::asJson() const 
 
 QJsonObject OAIEzsigntemplatepackage_getObject_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (obj_ezsigntemplatepackage.isSet()) {
-        obj.insert(QString("objEzsigntemplatepackage"), ::OpenAPI::toJsonValue(obj_ezsigntemplatepackage));
+    if (m_obj_ezsigntemplatepackage.isSet()) {
+        obj.insert(QString("objEzsigntemplatepackage"), ::OpenAPI::toJsonValue(m_obj_ezsigntemplatepackage));
     }
     return obj;
 }
 
 OAIEzsigntemplatepackage_ResponseCompound OAIEzsigntemplatepackage_getObject_v2_Response_mPayload::getObjEzsigntemplatepackage() const {
-    return obj_ezsigntemplatepackage;
+    return m_obj_ezsigntemplatepackage;
 }
 void OAIEzsigntemplatepackage_getObject_v2_Response_mPayload::setObjEzsigntemplatepackage(const OAIEzsigntemplatepackage_ResponseCompound &obj_ezsigntemplatepackage) {
-    this->obj_ezsigntemplatepackage = obj_ezsigntemplatepackage;
-    this->m_obj_ezsigntemplatepackage_isSet = true;
+    m_obj_ezsigntemplatepackage = obj_ezsigntemplatepackage;
+    m_obj_ezsigntemplatepackage_isSet = true;
 }
 
 bool OAIEzsigntemplatepackage_getObject_v2_Response_mPayload::is_obj_ezsigntemplatepackage_Set() const{
@@ -85,7 +85,7 @@ bool OAIEzsigntemplatepackage_getObject_v2_Response_mPayload::is_obj_ezsigntempl
 bool OAIEzsigntemplatepackage_getObject_v2_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (obj_ezsigntemplatepackage.isSet()) {
+        if (m_obj_ezsigntemplatepackage.isSet()) {
             isObjectUpdated = true;
             break;
         }

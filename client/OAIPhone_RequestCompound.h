@@ -91,39 +91,39 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_phone_id;
+    qint32 m_pki_phone_id;
     bool m_pki_phone_id_isSet;
     bool m_pki_phone_id_isValid;
 
-    qint32 fki_phonetype_id;
+    qint32 m_fki_phonetype_id;
     bool m_fki_phonetype_id_isSet;
     bool m_fki_phonetype_id_isValid;
 
-    OAIField_ePhoneType e_phone_type;
+    OAIField_ePhoneType m_e_phone_type;
     bool m_e_phone_type_isSet;
     bool m_e_phone_type_isValid;
 
-    QString s_phone_region;
+    QString m_s_phone_region;
     bool m_s_phone_region_isSet;
     bool m_s_phone_region_isValid;
 
-    QString s_phone_exchange;
+    QString m_s_phone_exchange;
     bool m_s_phone_exchange_isSet;
     bool m_s_phone_exchange_isValid;
 
-    QString s_phone_number;
+    QString m_s_phone_number;
     bool m_s_phone_number_isSet;
     bool m_s_phone_number_isValid;
 
-    QString s_phone_international;
+    QString m_s_phone_international;
     bool m_s_phone_international_isSet;
     bool m_s_phone_international_isValid;
 
-    QString s_phone_extension;
+    QString m_s_phone_extension;
     bool m_s_phone_extension_isSet;
     bool m_s_phone_extension_isValid;
 
-    QString s_phone_e164;
+    QString m_s_phone_e164;
     bool m_s_phone_e164_isSet;
     bool m_s_phone_e164_isValid;
 };

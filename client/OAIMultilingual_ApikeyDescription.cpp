@@ -50,10 +50,10 @@ void OAIMultilingual_ApikeyDescription::fromJson(QString jsonString) {
 
 void OAIMultilingual_ApikeyDescription::fromJsonObject(QJsonObject json) {
 
-    m_s_apikey_description1_isValid = ::OpenAPI::fromJsonValue(s_apikey_description1, json[QString("sApikeyDescription1")]);
+    m_s_apikey_description1_isValid = ::OpenAPI::fromJsonValue(m_s_apikey_description1, json[QString("sApikeyDescription1")]);
     m_s_apikey_description1_isSet = !json[QString("sApikeyDescription1")].isNull() && m_s_apikey_description1_isValid;
 
-    m_s_apikey_description2_isValid = ::OpenAPI::fromJsonValue(s_apikey_description2, json[QString("sApikeyDescription2")]);
+    m_s_apikey_description2_isValid = ::OpenAPI::fromJsonValue(m_s_apikey_description2, json[QString("sApikeyDescription2")]);
     m_s_apikey_description2_isSet = !json[QString("sApikeyDescription2")].isNull() && m_s_apikey_description2_isValid;
 }
 
@@ -67,20 +67,20 @@ QString OAIMultilingual_ApikeyDescription::asJson() const {
 QJsonObject OAIMultilingual_ApikeyDescription::asJsonObject() const {
     QJsonObject obj;
     if (m_s_apikey_description1_isSet) {
-        obj.insert(QString("sApikeyDescription1"), ::OpenAPI::toJsonValue(s_apikey_description1));
+        obj.insert(QString("sApikeyDescription1"), ::OpenAPI::toJsonValue(m_s_apikey_description1));
     }
     if (m_s_apikey_description2_isSet) {
-        obj.insert(QString("sApikeyDescription2"), ::OpenAPI::toJsonValue(s_apikey_description2));
+        obj.insert(QString("sApikeyDescription2"), ::OpenAPI::toJsonValue(m_s_apikey_description2));
     }
     return obj;
 }
 
 QString OAIMultilingual_ApikeyDescription::getSApikeyDescription1() const {
-    return s_apikey_description1;
+    return m_s_apikey_description1;
 }
 void OAIMultilingual_ApikeyDescription::setSApikeyDescription1(const QString &s_apikey_description1) {
-    this->s_apikey_description1 = s_apikey_description1;
-    this->m_s_apikey_description1_isSet = true;
+    m_s_apikey_description1 = s_apikey_description1;
+    m_s_apikey_description1_isSet = true;
 }
 
 bool OAIMultilingual_ApikeyDescription::is_s_apikey_description1_Set() const{
@@ -92,11 +92,11 @@ bool OAIMultilingual_ApikeyDescription::is_s_apikey_description1_Valid() const{
 }
 
 QString OAIMultilingual_ApikeyDescription::getSApikeyDescription2() const {
-    return s_apikey_description2;
+    return m_s_apikey_description2;
 }
 void OAIMultilingual_ApikeyDescription::setSApikeyDescription2(const QString &s_apikey_description2) {
-    this->s_apikey_description2 = s_apikey_description2;
-    this->m_s_apikey_description2_isSet = true;
+    m_s_apikey_description2 = s_apikey_description2;
+    m_s_apikey_description2_isSet = true;
 }
 
 bool OAIMultilingual_ApikeyDescription::is_s_apikey_description2_Set() const{

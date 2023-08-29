@@ -96,39 +96,39 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_apikey_id;
+    qint32 m_pki_apikey_id;
     bool m_pki_apikey_id_isSet;
     bool m_pki_apikey_id_isValid;
 
-    qint32 fki_user_id;
+    qint32 m_fki_user_id;
     bool m_fki_user_id_isSet;
     bool m_fki_user_id_isValid;
 
-    OAIMultilingual_ApikeyDescription obj_apikey_description;
+    OAIMultilingual_ApikeyDescription m_obj_apikey_description;
     bool m_obj_apikey_description_isSet;
     bool m_obj_apikey_description_isValid;
 
-    OAICustom_ContactName_Response obj_contact_name;
+    OAICustom_ContactName_Response m_obj_contact_name;
     bool m_obj_contact_name_isSet;
     bool m_obj_contact_name_isValid;
 
-    QString s_apikey_apikey;
+    QString m_s_apikey_apikey;
     bool m_s_apikey_apikey_isSet;
     bool m_s_apikey_apikey_isValid;
 
-    QString s_apikey_secret;
+    QString m_s_apikey_secret;
     bool m_s_apikey_secret_isSet;
     bool m_s_apikey_secret_isValid;
 
-    bool b_apikey_isactive;
+    bool m_b_apikey_isactive;
     bool m_b_apikey_isactive_isSet;
     bool m_b_apikey_isactive_isValid;
 
-    bool b_apikey_issigned;
+    bool m_b_apikey_issigned;
     bool m_b_apikey_issigned_isSet;
     bool m_b_apikey_issigned_isValid;
 
-    OAICommon_Audit obj_audit;
+    OAICommon_Audit m_obj_audit;
     bool m_obj_audit_isSet;
     bool m_obj_audit_isValid;
 };

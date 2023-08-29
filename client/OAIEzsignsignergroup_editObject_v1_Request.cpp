@@ -34,8 +34,8 @@ OAIEzsignsignergroup_editObject_v1_Request::~OAIEzsignsignergroup_editObject_v1_
 
 void OAIEzsignsignergroup_editObject_v1_Request::initializeModel() {
 
-    m_obj_branding_isSet = false;
-    m_obj_branding_isValid = false;
+    m_obj_ezsignsignergroup_isSet = false;
+    m_obj_ezsignsignergroup_isValid = false;
 }
 
 void OAIEzsignsignergroup_editObject_v1_Request::fromJson(QString jsonString) {
@@ -47,8 +47,8 @@ void OAIEzsignsignergroup_editObject_v1_Request::fromJson(QString jsonString) {
 
 void OAIEzsignsignergroup_editObject_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_obj_branding_isValid = ::OpenAPI::fromJsonValue(obj_branding, json[QString("objBranding")]);
-    m_obj_branding_isSet = !json[QString("objBranding")].isNull() && m_obj_branding_isValid;
+    m_obj_ezsignsignergroup_isValid = ::OpenAPI::fromJsonValue(m_obj_ezsignsignergroup, json[QString("objEzsignsignergroup")]);
+    m_obj_ezsignsignergroup_isSet = !json[QString("objEzsignsignergroup")].isNull() && m_obj_ezsignsignergroup_isValid;
 }
 
 QString OAIEzsignsignergroup_editObject_v1_Request::asJson() const {
@@ -60,32 +60,32 @@ QString OAIEzsignsignergroup_editObject_v1_Request::asJson() const {
 
 QJsonObject OAIEzsignsignergroup_editObject_v1_Request::asJsonObject() const {
     QJsonObject obj;
-    if (obj_branding.isSet()) {
-        obj.insert(QString("objBranding"), ::OpenAPI::toJsonValue(obj_branding));
+    if (m_obj_ezsignsignergroup.isSet()) {
+        obj.insert(QString("objEzsignsignergroup"), ::OpenAPI::toJsonValue(m_obj_ezsignsignergroup));
     }
     return obj;
 }
 
-OAIEzsignsignergroup_RequestCompound OAIEzsignsignergroup_editObject_v1_Request::getObjBranding() const {
-    return obj_branding;
+OAIEzsignsignergroup_RequestCompound OAIEzsignsignergroup_editObject_v1_Request::getObjEzsignsignergroup() const {
+    return m_obj_ezsignsignergroup;
 }
-void OAIEzsignsignergroup_editObject_v1_Request::setObjBranding(const OAIEzsignsignergroup_RequestCompound &obj_branding) {
-    this->obj_branding = obj_branding;
-    this->m_obj_branding_isSet = true;
-}
-
-bool OAIEzsignsignergroup_editObject_v1_Request::is_obj_branding_Set() const{
-    return m_obj_branding_isSet;
+void OAIEzsignsignergroup_editObject_v1_Request::setObjEzsignsignergroup(const OAIEzsignsignergroup_RequestCompound &obj_ezsignsignergroup) {
+    m_obj_ezsignsignergroup = obj_ezsignsignergroup;
+    m_obj_ezsignsignergroup_isSet = true;
 }
 
-bool OAIEzsignsignergroup_editObject_v1_Request::is_obj_branding_Valid() const{
-    return m_obj_branding_isValid;
+bool OAIEzsignsignergroup_editObject_v1_Request::is_obj_ezsignsignergroup_Set() const{
+    return m_obj_ezsignsignergroup_isSet;
+}
+
+bool OAIEzsignsignergroup_editObject_v1_Request::is_obj_ezsignsignergroup_Valid() const{
+    return m_obj_ezsignsignergroup_isValid;
 }
 
 bool OAIEzsignsignergroup_editObject_v1_Request::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (obj_branding.isSet()) {
+        if (m_obj_ezsignsignergroup.isSet()) {
             isObjectUpdated = true;
             break;
         }
@@ -95,7 +95,7 @@ bool OAIEzsignsignergroup_editObject_v1_Request::isSet() const {
 
 bool OAIEzsignsignergroup_editObject_v1_Request::isValid() const {
     // only required properties are required for the object to be considered valid
-    return true;
+    return m_obj_ezsignsignergroup_isValid && true;
 }
 
 } // namespace OpenAPI

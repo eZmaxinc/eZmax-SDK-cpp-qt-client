@@ -56,16 +56,16 @@ void OAICustom_User_Response::fromJson(QString jsonString) {
 
 void OAICustom_User_Response::fromJsonObject(QJsonObject json) {
 
-    m_pki_user_id_isValid = ::OpenAPI::fromJsonValue(pki_user_id, json[QString("pkiUserID")]);
+    m_pki_user_id_isValid = ::OpenAPI::fromJsonValue(m_pki_user_id, json[QString("pkiUserID")]);
     m_pki_user_id_isSet = !json[QString("pkiUserID")].isNull() && m_pki_user_id_isValid;
 
-    m_s_user_lastname_isValid = ::OpenAPI::fromJsonValue(s_user_lastname, json[QString("sUserLastname")]);
+    m_s_user_lastname_isValid = ::OpenAPI::fromJsonValue(m_s_user_lastname, json[QString("sUserLastname")]);
     m_s_user_lastname_isSet = !json[QString("sUserLastname")].isNull() && m_s_user_lastname_isValid;
 
-    m_s_user_firstname_isValid = ::OpenAPI::fromJsonValue(s_user_firstname, json[QString("sUserFirstname")]);
+    m_s_user_firstname_isValid = ::OpenAPI::fromJsonValue(m_s_user_firstname, json[QString("sUserFirstname")]);
     m_s_user_firstname_isSet = !json[QString("sUserFirstname")].isNull() && m_s_user_firstname_isValid;
 
-    m_s_email_address_isValid = ::OpenAPI::fromJsonValue(s_email_address, json[QString("sEmailAddress")]);
+    m_s_email_address_isValid = ::OpenAPI::fromJsonValue(m_s_email_address, json[QString("sEmailAddress")]);
     m_s_email_address_isSet = !json[QString("sEmailAddress")].isNull() && m_s_email_address_isValid;
 }
 
@@ -79,26 +79,26 @@ QString OAICustom_User_Response::asJson() const {
 QJsonObject OAICustom_User_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_user_id_isSet) {
-        obj.insert(QString("pkiUserID"), ::OpenAPI::toJsonValue(pki_user_id));
+        obj.insert(QString("pkiUserID"), ::OpenAPI::toJsonValue(m_pki_user_id));
     }
     if (m_s_user_lastname_isSet) {
-        obj.insert(QString("sUserLastname"), ::OpenAPI::toJsonValue(s_user_lastname));
+        obj.insert(QString("sUserLastname"), ::OpenAPI::toJsonValue(m_s_user_lastname));
     }
     if (m_s_user_firstname_isSet) {
-        obj.insert(QString("sUserFirstname"), ::OpenAPI::toJsonValue(s_user_firstname));
+        obj.insert(QString("sUserFirstname"), ::OpenAPI::toJsonValue(m_s_user_firstname));
     }
     if (m_s_email_address_isSet) {
-        obj.insert(QString("sEmailAddress"), ::OpenAPI::toJsonValue(s_email_address));
+        obj.insert(QString("sEmailAddress"), ::OpenAPI::toJsonValue(m_s_email_address));
     }
     return obj;
 }
 
 qint32 OAICustom_User_Response::getPkiUserId() const {
-    return pki_user_id;
+    return m_pki_user_id;
 }
 void OAICustom_User_Response::setPkiUserId(const qint32 &pki_user_id) {
-    this->pki_user_id = pki_user_id;
-    this->m_pki_user_id_isSet = true;
+    m_pki_user_id = pki_user_id;
+    m_pki_user_id_isSet = true;
 }
 
 bool OAICustom_User_Response::is_pki_user_id_Set() const{
@@ -110,11 +110,11 @@ bool OAICustom_User_Response::is_pki_user_id_Valid() const{
 }
 
 QString OAICustom_User_Response::getSUserLastname() const {
-    return s_user_lastname;
+    return m_s_user_lastname;
 }
 void OAICustom_User_Response::setSUserLastname(const QString &s_user_lastname) {
-    this->s_user_lastname = s_user_lastname;
-    this->m_s_user_lastname_isSet = true;
+    m_s_user_lastname = s_user_lastname;
+    m_s_user_lastname_isSet = true;
 }
 
 bool OAICustom_User_Response::is_s_user_lastname_Set() const{
@@ -126,11 +126,11 @@ bool OAICustom_User_Response::is_s_user_lastname_Valid() const{
 }
 
 QString OAICustom_User_Response::getSUserFirstname() const {
-    return s_user_firstname;
+    return m_s_user_firstname;
 }
 void OAICustom_User_Response::setSUserFirstname(const QString &s_user_firstname) {
-    this->s_user_firstname = s_user_firstname;
-    this->m_s_user_firstname_isSet = true;
+    m_s_user_firstname = s_user_firstname;
+    m_s_user_firstname_isSet = true;
 }
 
 bool OAICustom_User_Response::is_s_user_firstname_Set() const{
@@ -142,11 +142,11 @@ bool OAICustom_User_Response::is_s_user_firstname_Valid() const{
 }
 
 QString OAICustom_User_Response::getSEmailAddress() const {
-    return s_email_address;
+    return m_s_email_address;
 }
 void OAICustom_User_Response::setSEmailAddress(const QString &s_email_address) {
-    this->s_email_address = s_email_address;
-    this->m_s_email_address_isSet = true;
+    m_s_email_address = s_email_address;
+    m_s_email_address_isSet = true;
 }
 
 bool OAICustom_User_Response::is_s_email_address_Set() const{

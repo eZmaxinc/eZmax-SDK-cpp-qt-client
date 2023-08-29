@@ -107,47 +107,47 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_ezsigntemplate_id;
+    qint32 m_pki_ezsigntemplate_id;
     bool m_pki_ezsigntemplate_id_isSet;
     bool m_pki_ezsigntemplate_id_isValid;
 
-    qint32 fki_ezsigntemplatedocument_id;
+    qint32 m_fki_ezsigntemplatedocument_id;
     bool m_fki_ezsigntemplatedocument_id_isSet;
     bool m_fki_ezsigntemplatedocument_id_isValid;
 
-    qint32 fki_ezsignfoldertype_id;
+    qint32 m_fki_ezsignfoldertype_id;
     bool m_fki_ezsignfoldertype_id_isSet;
     bool m_fki_ezsignfoldertype_id_isValid;
 
-    qint32 fki_language_id;
+    qint32 m_fki_language_id;
     bool m_fki_language_id_isSet;
     bool m_fki_language_id_isValid;
 
-    QString s_language_name_x;
+    QString m_s_language_name_x;
     bool m_s_language_name_x_isSet;
     bool m_s_language_name_x_isValid;
 
-    QString s_ezsigntemplate_description;
+    QString m_s_ezsigntemplate_description;
     bool m_s_ezsigntemplate_description_isSet;
     bool m_s_ezsigntemplate_description_isValid;
 
-    bool b_ezsigntemplate_adminonly;
+    bool m_b_ezsigntemplate_adminonly;
     bool m_b_ezsigntemplate_adminonly_isSet;
     bool m_b_ezsigntemplate_adminonly_isValid;
 
-    QString s_ezsignfoldertype_name_x;
+    QString m_s_ezsignfoldertype_name_x;
     bool m_s_ezsignfoldertype_name_x_isSet;
     bool m_s_ezsignfoldertype_name_x_isValid;
 
-    OAICommon_Audit obj_audit;
+    OAICommon_Audit m_obj_audit;
     bool m_obj_audit_isSet;
     bool m_obj_audit_isValid;
 
-    OAIEzsigntemplatedocument_Response obj_ezsigntemplatedocument;
+    OAIEzsigntemplatedocument_Response m_obj_ezsigntemplatedocument;
     bool m_obj_ezsigntemplatedocument_isSet;
     bool m_obj_ezsigntemplatedocument_isValid;
 
-    QList<OAIEzsigntemplatesigner_ResponseCompound> a_obj_ezsigntemplatesigner;
+    QList<OAIEzsigntemplatesigner_ResponseCompound> m_a_obj_ezsigntemplatesigner;
     bool m_a_obj_ezsigntemplatesigner_isSet;
     bool m_a_obj_ezsigntemplatesigner_isValid;
 };

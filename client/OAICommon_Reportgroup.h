@@ -59,11 +59,11 @@ public:
 private:
     void initializeModel();
 
-    QList<OAICommon_Report> a_obj_report;
+    QList<OAICommon_Report> m_a_obj_report;
     bool m_a_obj_report_isSet;
     bool m_a_obj_report_isValid;
 
-    QList<OAICommon_Reportcellstyle> a_obj_reportcellstyle_custom;
+    QList<OAICommon_Reportcellstyle> m_a_obj_reportcellstyle_custom;
     bool m_a_obj_reportcellstyle_custom_isSet;
     bool m_a_obj_reportcellstyle_custom_isValid;
 };

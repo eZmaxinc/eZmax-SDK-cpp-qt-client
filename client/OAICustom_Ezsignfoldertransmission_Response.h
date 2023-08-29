@@ -79,27 +79,27 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_ezsignfolder_id;
+    qint32 m_pki_ezsignfolder_id;
     bool m_pki_ezsignfolder_id_isSet;
     bool m_pki_ezsignfolder_id_isValid;
 
-    QString s_ezsignfolder_description;
+    QString m_s_ezsignfolder_description;
     bool m_s_ezsignfolder_description_isSet;
     bool m_s_ezsignfolder_description_isValid;
 
-    OAIField_eEzsignfolderStep e_ezsignfolder_step;
+    OAIField_eEzsignfolderStep m_e_ezsignfolder_step;
     bool m_e_ezsignfolder_step_isSet;
     bool m_e_ezsignfolder_step_isValid;
 
-    qint32 i_ezsignfolder_signaturetotal;
+    qint32 m_i_ezsignfolder_signaturetotal;
     bool m_i_ezsignfolder_signaturetotal_isSet;
     bool m_i_ezsignfolder_signaturetotal_isValid;
 
-    qint32 i_ezsignfolder_signaturesigned;
+    qint32 m_i_ezsignfolder_signaturesigned;
     bool m_i_ezsignfolder_signaturesigned_isSet;
     bool m_i_ezsignfolder_signaturesigned_isValid;
 
-    QList<OAICustom_EzsignfoldertransmissionSigner_Response> a_obj_ezsignfoldertransmission_signer;
+    QList<OAICustom_EzsignfoldertransmissionSigner_Response> m_a_obj_ezsignfoldertransmission_signer;
     bool m_a_obj_ezsignfoldertransmission_signer_isSet;
     bool m_a_obj_ezsignfoldertransmission_signer_isValid;
 };

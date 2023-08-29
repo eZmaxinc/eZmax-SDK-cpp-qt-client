@@ -52,7 +52,7 @@ public:
 private:
     void initializeModel();
 
-    QList<OAISubnet_ResponseCompound> a_obj_subnet;
+    QList<OAISubnet_ResponseCompound> m_a_obj_subnet;
     bool m_a_obj_subnet_isSet;
     bool m_a_obj_subnet_isValid;
 };

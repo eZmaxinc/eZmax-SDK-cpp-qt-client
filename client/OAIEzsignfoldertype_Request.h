@@ -195,119 +195,119 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_ezsignfoldertype_id;
+    qint32 m_pki_ezsignfoldertype_id;
     bool m_pki_ezsignfoldertype_id_isSet;
     bool m_pki_ezsignfoldertype_id_isValid;
 
-    OAIMultilingual_EzsignfoldertypeName obj_ezsignfoldertype_name;
+    OAIMultilingual_EzsignfoldertypeName m_obj_ezsignfoldertype_name;
     bool m_obj_ezsignfoldertype_name_isSet;
     bool m_obj_ezsignfoldertype_name_isValid;
 
-    qint32 fki_branding_id;
+    qint32 m_fki_branding_id;
     bool m_fki_branding_id_isSet;
     bool m_fki_branding_id_isValid;
 
-    qint32 fki_billingentityinternal_id;
+    qint32 m_fki_billingentityinternal_id;
     bool m_fki_billingentityinternal_id_isSet;
     bool m_fki_billingentityinternal_id_isValid;
 
-    qint32 fki_usergroup_id;
+    qint32 m_fki_usergroup_id;
     bool m_fki_usergroup_id_isSet;
     bool m_fki_usergroup_id_isValid;
 
-    qint32 fki_usergroup_id_restricted;
+    qint32 m_fki_usergroup_id_restricted;
     bool m_fki_usergroup_id_restricted_isSet;
     bool m_fki_usergroup_id_restricted_isValid;
 
-    qint32 fki_ezsigntsarequirement_id;
+    qint32 m_fki_ezsigntsarequirement_id;
     bool m_fki_ezsigntsarequirement_id_isSet;
     bool m_fki_ezsigntsarequirement_id_isValid;
 
-    QString s_email_address_signed;
+    QString m_s_email_address_signed;
     bool m_s_email_address_signed_isSet;
     bool m_s_email_address_signed_isValid;
 
-    QString s_email_address_summary;
+    QString m_s_email_address_summary;
     bool m_s_email_address_summary_isSet;
     bool m_s_email_address_summary_isValid;
 
-    OAIField_eEzsignfoldertypePrivacylevel e_ezsignfoldertype_privacylevel;
+    OAIField_eEzsignfoldertypePrivacylevel m_e_ezsignfoldertype_privacylevel;
     bool m_e_ezsignfoldertype_privacylevel_isSet;
     bool m_e_ezsignfoldertype_privacylevel_isValid;
 
-    OAIField_eEzsignfoldertypeSendreminderfrequency e_ezsignfoldertype_sendreminderfrequency;
+    OAIField_eEzsignfoldertypeSendreminderfrequency m_e_ezsignfoldertype_sendreminderfrequency;
     bool m_e_ezsignfoldertype_sendreminderfrequency_isSet;
     bool m_e_ezsignfoldertype_sendreminderfrequency_isValid;
 
-    qint32 i_ezsignfoldertype_archivaldays;
+    qint32 m_i_ezsignfoldertype_archivaldays;
     bool m_i_ezsignfoldertype_archivaldays_isSet;
     bool m_i_ezsignfoldertype_archivaldays_isValid;
 
-    OAIField_eEzsignfoldertypeDisposal e_ezsignfoldertype_disposal;
+    OAIField_eEzsignfoldertypeDisposal m_e_ezsignfoldertype_disposal;
     bool m_e_ezsignfoldertype_disposal_isSet;
     bool m_e_ezsignfoldertype_disposal_isValid;
 
-    qint32 i_ezsignfoldertype_disposaldays;
+    qint32 m_i_ezsignfoldertype_disposaldays;
     bool m_i_ezsignfoldertype_disposaldays_isSet;
     bool m_i_ezsignfoldertype_disposaldays_isValid;
 
-    qint32 i_ezsignfoldertype_deadlinedays;
+    qint32 m_i_ezsignfoldertype_deadlinedays;
     bool m_i_ezsignfoldertype_deadlinedays_isSet;
     bool m_i_ezsignfoldertype_deadlinedays_isValid;
 
-    bool b_ezsignfoldertype_sendattatchmentsigner;
+    bool m_b_ezsignfoldertype_sendattatchmentsigner;
     bool m_b_ezsignfoldertype_sendattatchmentsigner_isSet;
     bool m_b_ezsignfoldertype_sendattatchmentsigner_isValid;
 
-    bool b_ezsignfoldertype_sendsignedtodocumentowner;
+    bool m_b_ezsignfoldertype_sendsignedtodocumentowner;
     bool m_b_ezsignfoldertype_sendsignedtodocumentowner_isSet;
     bool m_b_ezsignfoldertype_sendsignedtodocumentowner_isValid;
 
-    bool b_ezsignfoldertype_sendsignedtofolderowner;
+    bool m_b_ezsignfoldertype_sendsignedtofolderowner;
     bool m_b_ezsignfoldertype_sendsignedtofolderowner_isSet;
     bool m_b_ezsignfoldertype_sendsignedtofolderowner_isValid;
 
-    bool b_ezsignfoldertype_sendsignedtofullgroup;
+    bool m_b_ezsignfoldertype_sendsignedtofullgroup;
     bool m_b_ezsignfoldertype_sendsignedtofullgroup_isSet;
     bool m_b_ezsignfoldertype_sendsignedtofullgroup_isValid;
 
-    bool b_ezsignfoldertype_sendsignedtolimitedgroup;
+    bool m_b_ezsignfoldertype_sendsignedtolimitedgroup;
     bool m_b_ezsignfoldertype_sendsignedtolimitedgroup_isSet;
     bool m_b_ezsignfoldertype_sendsignedtolimitedgroup_isValid;
 
-    bool b_ezsignfoldertype_sendsignedtocolleague;
+    bool m_b_ezsignfoldertype_sendsignedtocolleague;
     bool m_b_ezsignfoldertype_sendsignedtocolleague_isSet;
     bool m_b_ezsignfoldertype_sendsignedtocolleague_isValid;
 
-    bool b_ezsignfoldertype_sendsummarytodocumentowner;
+    bool m_b_ezsignfoldertype_sendsummarytodocumentowner;
     bool m_b_ezsignfoldertype_sendsummarytodocumentowner_isSet;
     bool m_b_ezsignfoldertype_sendsummarytodocumentowner_isValid;
 
-    bool b_ezsignfoldertype_sendsummarytofolderowner;
+    bool m_b_ezsignfoldertype_sendsummarytofolderowner;
     bool m_b_ezsignfoldertype_sendsummarytofolderowner_isSet;
     bool m_b_ezsignfoldertype_sendsummarytofolderowner_isValid;
 
-    bool b_ezsignfoldertype_sendsummarytofullgroup;
+    bool m_b_ezsignfoldertype_sendsummarytofullgroup;
     bool m_b_ezsignfoldertype_sendsummarytofullgroup_isSet;
     bool m_b_ezsignfoldertype_sendsummarytofullgroup_isValid;
 
-    bool b_ezsignfoldertype_sendsummarytolimitedgroup;
+    bool m_b_ezsignfoldertype_sendsummarytolimitedgroup;
     bool m_b_ezsignfoldertype_sendsummarytolimitedgroup_isSet;
     bool m_b_ezsignfoldertype_sendsummarytolimitedgroup_isValid;
 
-    bool b_ezsignfoldertype_sendsummarytocolleague;
+    bool m_b_ezsignfoldertype_sendsummarytocolleague;
     bool m_b_ezsignfoldertype_sendsummarytocolleague_isSet;
     bool m_b_ezsignfoldertype_sendsummarytocolleague_isValid;
 
-    bool b_ezsignfoldertype_includeproofsigner;
+    bool m_b_ezsignfoldertype_includeproofsigner;
     bool m_b_ezsignfoldertype_includeproofsigner_isSet;
     bool m_b_ezsignfoldertype_includeproofsigner_isValid;
 
-    bool b_ezsignfoldertype_includeproofuser;
+    bool m_b_ezsignfoldertype_includeproofuser;
     bool m_b_ezsignfoldertype_includeproofuser_isSet;
     bool m_b_ezsignfoldertype_includeproofuser_isValid;
 
-    bool b_ezsignfoldertype_isactive;
+    bool m_b_ezsignfoldertype_isactive;
     bool m_b_ezsignfoldertype_isactive_isSet;
     bool m_b_ezsignfoldertype_isactive_isValid;
 };

@@ -53,13 +53,13 @@ void OAIEzsignfolder_importEzsigntemplatepackage_v1_Request::fromJson(QString js
 
 void OAIEzsignfolder_importEzsigntemplatepackage_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_fki_ezsigntemplatepackage_id_isValid = ::OpenAPI::fromJsonValue(fki_ezsigntemplatepackage_id, json[QString("fkiEzsigntemplatepackageID")]);
+    m_fki_ezsigntemplatepackage_id_isValid = ::OpenAPI::fromJsonValue(m_fki_ezsigntemplatepackage_id, json[QString("fkiEzsigntemplatepackageID")]);
     m_fki_ezsigntemplatepackage_id_isSet = !json[QString("fkiEzsigntemplatepackageID")].isNull() && m_fki_ezsigntemplatepackage_id_isValid;
 
-    m_dt_ezsigndocument_duedate_isValid = ::OpenAPI::fromJsonValue(dt_ezsigndocument_duedate, json[QString("dtEzsigndocumentDuedate")]);
+    m_dt_ezsigndocument_duedate_isValid = ::OpenAPI::fromJsonValue(m_dt_ezsigndocument_duedate, json[QString("dtEzsigndocumentDuedate")]);
     m_dt_ezsigndocument_duedate_isSet = !json[QString("dtEzsigndocumentDuedate")].isNull() && m_dt_ezsigndocument_duedate_isValid;
 
-    m_a_obj_import_ezsigntemplatepackage_relation_isValid = ::OpenAPI::fromJsonValue(a_obj_import_ezsigntemplatepackage_relation, json[QString("a_objImportEzsigntemplatepackageRelation")]);
+    m_a_obj_import_ezsigntemplatepackage_relation_isValid = ::OpenAPI::fromJsonValue(m_a_obj_import_ezsigntemplatepackage_relation, json[QString("a_objImportEzsigntemplatepackageRelation")]);
     m_a_obj_import_ezsigntemplatepackage_relation_isSet = !json[QString("a_objImportEzsigntemplatepackageRelation")].isNull() && m_a_obj_import_ezsigntemplatepackage_relation_isValid;
 }
 
@@ -73,23 +73,23 @@ QString OAIEzsignfolder_importEzsigntemplatepackage_v1_Request::asJson() const {
 QJsonObject OAIEzsignfolder_importEzsigntemplatepackage_v1_Request::asJsonObject() const {
     QJsonObject obj;
     if (m_fki_ezsigntemplatepackage_id_isSet) {
-        obj.insert(QString("fkiEzsigntemplatepackageID"), ::OpenAPI::toJsonValue(fki_ezsigntemplatepackage_id));
+        obj.insert(QString("fkiEzsigntemplatepackageID"), ::OpenAPI::toJsonValue(m_fki_ezsigntemplatepackage_id));
     }
     if (m_dt_ezsigndocument_duedate_isSet) {
-        obj.insert(QString("dtEzsigndocumentDuedate"), ::OpenAPI::toJsonValue(dt_ezsigndocument_duedate));
+        obj.insert(QString("dtEzsigndocumentDuedate"), ::OpenAPI::toJsonValue(m_dt_ezsigndocument_duedate));
     }
-    if (a_obj_import_ezsigntemplatepackage_relation.size() > 0) {
-        obj.insert(QString("a_objImportEzsigntemplatepackageRelation"), ::OpenAPI::toJsonValue(a_obj_import_ezsigntemplatepackage_relation));
+    if (m_a_obj_import_ezsigntemplatepackage_relation.size() > 0) {
+        obj.insert(QString("a_objImportEzsigntemplatepackageRelation"), ::OpenAPI::toJsonValue(m_a_obj_import_ezsigntemplatepackage_relation));
     }
     return obj;
 }
 
 qint32 OAIEzsignfolder_importEzsigntemplatepackage_v1_Request::getFkiEzsigntemplatepackageId() const {
-    return fki_ezsigntemplatepackage_id;
+    return m_fki_ezsigntemplatepackage_id;
 }
 void OAIEzsignfolder_importEzsigntemplatepackage_v1_Request::setFkiEzsigntemplatepackageId(const qint32 &fki_ezsigntemplatepackage_id) {
-    this->fki_ezsigntemplatepackage_id = fki_ezsigntemplatepackage_id;
-    this->m_fki_ezsigntemplatepackage_id_isSet = true;
+    m_fki_ezsigntemplatepackage_id = fki_ezsigntemplatepackage_id;
+    m_fki_ezsigntemplatepackage_id_isSet = true;
 }
 
 bool OAIEzsignfolder_importEzsigntemplatepackage_v1_Request::is_fki_ezsigntemplatepackage_id_Set() const{
@@ -101,11 +101,11 @@ bool OAIEzsignfolder_importEzsigntemplatepackage_v1_Request::is_fki_ezsigntempla
 }
 
 QString OAIEzsignfolder_importEzsigntemplatepackage_v1_Request::getDtEzsigndocumentDuedate() const {
-    return dt_ezsigndocument_duedate;
+    return m_dt_ezsigndocument_duedate;
 }
 void OAIEzsignfolder_importEzsigntemplatepackage_v1_Request::setDtEzsigndocumentDuedate(const QString &dt_ezsigndocument_duedate) {
-    this->dt_ezsigndocument_duedate = dt_ezsigndocument_duedate;
-    this->m_dt_ezsigndocument_duedate_isSet = true;
+    m_dt_ezsigndocument_duedate = dt_ezsigndocument_duedate;
+    m_dt_ezsigndocument_duedate_isSet = true;
 }
 
 bool OAIEzsignfolder_importEzsigntemplatepackage_v1_Request::is_dt_ezsigndocument_duedate_Set() const{
@@ -117,11 +117,11 @@ bool OAIEzsignfolder_importEzsigntemplatepackage_v1_Request::is_dt_ezsigndocumen
 }
 
 QList<OAICustom_ImportEzsigntemplatepackageRelation_Request> OAIEzsignfolder_importEzsigntemplatepackage_v1_Request::getAObjImportEzsigntemplatepackageRelation() const {
-    return a_obj_import_ezsigntemplatepackage_relation;
+    return m_a_obj_import_ezsigntemplatepackage_relation;
 }
 void OAIEzsignfolder_importEzsigntemplatepackage_v1_Request::setAObjImportEzsigntemplatepackageRelation(const QList<OAICustom_ImportEzsigntemplatepackageRelation_Request> &a_obj_import_ezsigntemplatepackage_relation) {
-    this->a_obj_import_ezsigntemplatepackage_relation = a_obj_import_ezsigntemplatepackage_relation;
-    this->m_a_obj_import_ezsigntemplatepackage_relation_isSet = true;
+    m_a_obj_import_ezsigntemplatepackage_relation = a_obj_import_ezsigntemplatepackage_relation;
+    m_a_obj_import_ezsigntemplatepackage_relation_isSet = true;
 }
 
 bool OAIEzsignfolder_importEzsigntemplatepackage_v1_Request::is_a_obj_import_ezsigntemplatepackage_relation_Set() const{
@@ -145,7 +145,7 @@ bool OAIEzsignfolder_importEzsigntemplatepackage_v1_Request::isSet() const {
             break;
         }
 
-        if (a_obj_import_ezsigntemplatepackage_relation.size() > 0) {
+        if (m_a_obj_import_ezsigntemplatepackage_relation.size() > 0) {
             isObjectUpdated = true;
             break;
         }

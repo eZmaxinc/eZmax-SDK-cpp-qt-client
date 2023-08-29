@@ -90,39 +90,39 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_ezsigntemplate_id;
+    qint32 m_pki_ezsigntemplate_id;
     bool m_pki_ezsigntemplate_id_isSet;
     bool m_pki_ezsigntemplate_id_isValid;
 
-    qint32 fki_ezsignfoldertype_id;
+    qint32 m_fki_ezsignfoldertype_id;
     bool m_fki_ezsignfoldertype_id_isSet;
     bool m_fki_ezsignfoldertype_id_isValid;
 
-    qint32 fki_language_id;
+    qint32 m_fki_language_id;
     bool m_fki_language_id_isSet;
     bool m_fki_language_id_isValid;
 
-    QString s_ezsigntemplate_description;
+    QString m_s_ezsigntemplate_description;
     bool m_s_ezsigntemplate_description_isSet;
     bool m_s_ezsigntemplate_description_isValid;
 
-    qint32 i_ezsigntemplatedocument_pagetotal;
+    qint32 m_i_ezsigntemplatedocument_pagetotal;
     bool m_i_ezsigntemplatedocument_pagetotal_isSet;
     bool m_i_ezsigntemplatedocument_pagetotal_isValid;
 
-    qint32 i_ezsigntemplate_signaturetotal;
+    qint32 m_i_ezsigntemplate_signaturetotal;
     bool m_i_ezsigntemplate_signaturetotal_isSet;
     bool m_i_ezsigntemplate_signaturetotal_isValid;
 
-    qint32 i_ezsigntemplate_formfieldtotal;
+    qint32 m_i_ezsigntemplate_formfieldtotal;
     bool m_i_ezsigntemplate_formfieldtotal_isSet;
     bool m_i_ezsigntemplate_formfieldtotal_isValid;
 
-    bool b_ezsigntemplate_incomplete;
+    bool m_b_ezsigntemplate_incomplete;
     bool m_b_ezsigntemplate_incomplete_isSet;
     bool m_b_ezsigntemplate_incomplete_isValid;
 
-    QString s_ezsignfoldertype_name_x;
+    QString m_s_ezsignfoldertype_name_x;
     bool m_s_ezsignfoldertype_name_x_isSet;
     bool m_s_ezsignfoldertype_name_x_isValid;
 };

@@ -47,7 +47,7 @@ void OAIEzsignfoldertype_getAutocomplete_v2_Response_mPayload::fromJson(QString 
 
 void OAIEzsignfoldertype_getAutocomplete_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_ezsignfoldertype_isValid = ::OpenAPI::fromJsonValue(a_obj_ezsignfoldertype, json[QString("a_objEzsignfoldertype")]);
+    m_a_obj_ezsignfoldertype_isValid = ::OpenAPI::fromJsonValue(m_a_obj_ezsignfoldertype, json[QString("a_objEzsignfoldertype")]);
     m_a_obj_ezsignfoldertype_isSet = !json[QString("a_objEzsignfoldertype")].isNull() && m_a_obj_ezsignfoldertype_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIEzsignfoldertype_getAutocomplete_v2_Response_mPayload::asJson() const
 
 QJsonObject OAIEzsignfoldertype_getAutocomplete_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_ezsignfoldertype.size() > 0) {
-        obj.insert(QString("a_objEzsignfoldertype"), ::OpenAPI::toJsonValue(a_obj_ezsignfoldertype));
+    if (m_a_obj_ezsignfoldertype.size() > 0) {
+        obj.insert(QString("a_objEzsignfoldertype"), ::OpenAPI::toJsonValue(m_a_obj_ezsignfoldertype));
     }
     return obj;
 }
 
 QList<OAIEzsignfoldertype_AutocompleteElement_Response> OAIEzsignfoldertype_getAutocomplete_v2_Response_mPayload::getAObjEzsignfoldertype() const {
-    return a_obj_ezsignfoldertype;
+    return m_a_obj_ezsignfoldertype;
 }
 void OAIEzsignfoldertype_getAutocomplete_v2_Response_mPayload::setAObjEzsignfoldertype(const QList<OAIEzsignfoldertype_AutocompleteElement_Response> &a_obj_ezsignfoldertype) {
-    this->a_obj_ezsignfoldertype = a_obj_ezsignfoldertype;
-    this->m_a_obj_ezsignfoldertype_isSet = true;
+    m_a_obj_ezsignfoldertype = a_obj_ezsignfoldertype;
+    m_a_obj_ezsignfoldertype_isSet = true;
 }
 
 bool OAIEzsignfoldertype_getAutocomplete_v2_Response_mPayload::is_a_obj_ezsignfoldertype_Set() const{
@@ -85,7 +85,7 @@ bool OAIEzsignfoldertype_getAutocomplete_v2_Response_mPayload::is_a_obj_ezsignfo
 bool OAIEzsignfoldertype_getAutocomplete_v2_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_ezsignfoldertype.size() > 0) {
+        if (m_a_obj_ezsignfoldertype.size() > 0) {
             isObjectUpdated = true;
             break;
         }

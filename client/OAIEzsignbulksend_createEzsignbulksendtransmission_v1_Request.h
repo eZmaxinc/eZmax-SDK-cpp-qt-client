@@ -82,31 +82,31 @@ public:
 private:
     void initializeModel();
 
-    qint32 fki_userlogintype_id;
+    qint32 m_fki_userlogintype_id;
     bool m_fki_userlogintype_id_isSet;
     bool m_fki_userlogintype_id_isValid;
 
-    qint32 fki_ezsigntsarequirement_id;
+    qint32 m_fki_ezsigntsarequirement_id;
     bool m_fki_ezsigntsarequirement_id_isSet;
     bool m_fki_ezsigntsarequirement_id_isValid;
 
-    QString s_ezsignbulksendtransmission_description;
+    QString m_s_ezsignbulksendtransmission_description;
     bool m_s_ezsignbulksendtransmission_description_isSet;
     bool m_s_ezsignbulksendtransmission_description_isValid;
 
-    QString dt_ezsigndocument_duedate;
+    QString m_dt_ezsigndocument_duedate;
     bool m_dt_ezsigndocument_duedate_isSet;
     bool m_dt_ezsigndocument_duedate_isValid;
 
-    OAIField_eEzsignfolderSendreminderfrequency e_ezsignfolder_sendreminderfrequency;
+    OAIField_eEzsignfolderSendreminderfrequency m_e_ezsignfolder_sendreminderfrequency;
     bool m_e_ezsignfolder_sendreminderfrequency_isSet;
     bool m_e_ezsignfolder_sendreminderfrequency_isValid;
 
-    QString t_extra_message;
+    QString m_t_extra_message;
     bool m_t_extra_message_isSet;
     bool m_t_extra_message_isValid;
 
-    QByteArray s_csv_base64;
+    QByteArray m_s_csv_base64;
     bool m_s_csv_base64_isSet;
     bool m_s_csv_base64_isValid;
 };

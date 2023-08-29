@@ -73,23 +73,23 @@ public:
 private:
     void initializeModel();
 
-    qint32 total_results;
+    qint32 m_total_results;
     bool m_total_results_isSet;
     bool m_total_results_isValid;
 
-    qint32 items_per_page;
+    qint32 m_items_per_page;
     bool m_items_per_page_isSet;
     bool m_items_per_page_isValid;
 
-    qint32 start_index;
+    qint32 m_start_index;
     bool m_start_index_isSet;
     bool m_start_index_isValid;
 
-    QList<QString> schemas;
+    QList<QString> m_schemas;
     bool m_schemas_isSet;
     bool m_schemas_isValid;
 
-    QList<OAIScim_User> resources;
+    QList<OAIScim_User> m_resources;
     bool m_resources_isSet;
     bool m_resources_isValid;
 };

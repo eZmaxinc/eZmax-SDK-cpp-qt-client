@@ -47,7 +47,7 @@ void OAIVersionhistory_getObject_v2_Response_mPayload::fromJson(QString jsonStri
 
 void OAIVersionhistory_getObject_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_obj_versionhistory_isValid = ::OpenAPI::fromJsonValue(obj_versionhistory, json[QString("objVersionhistory")]);
+    m_obj_versionhistory_isValid = ::OpenAPI::fromJsonValue(m_obj_versionhistory, json[QString("objVersionhistory")]);
     m_obj_versionhistory_isSet = !json[QString("objVersionhistory")].isNull() && m_obj_versionhistory_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIVersionhistory_getObject_v2_Response_mPayload::asJson() const {
 
 QJsonObject OAIVersionhistory_getObject_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (obj_versionhistory.isSet()) {
-        obj.insert(QString("objVersionhistory"), ::OpenAPI::toJsonValue(obj_versionhistory));
+    if (m_obj_versionhistory.isSet()) {
+        obj.insert(QString("objVersionhistory"), ::OpenAPI::toJsonValue(m_obj_versionhistory));
     }
     return obj;
 }
 
 OAIVersionhistory_ResponseCompound OAIVersionhistory_getObject_v2_Response_mPayload::getObjVersionhistory() const {
-    return obj_versionhistory;
+    return m_obj_versionhistory;
 }
 void OAIVersionhistory_getObject_v2_Response_mPayload::setObjVersionhistory(const OAIVersionhistory_ResponseCompound &obj_versionhistory) {
-    this->obj_versionhistory = obj_versionhistory;
-    this->m_obj_versionhistory_isSet = true;
+    m_obj_versionhistory = obj_versionhistory;
+    m_obj_versionhistory_isSet = true;
 }
 
 bool OAIVersionhistory_getObject_v2_Response_mPayload::is_obj_versionhistory_Set() const{
@@ -85,7 +85,7 @@ bool OAIVersionhistory_getObject_v2_Response_mPayload::is_obj_versionhistory_Val
 bool OAIVersionhistory_getObject_v2_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (obj_versionhistory.isSet()) {
+        if (m_obj_versionhistory.isSet()) {
             isObjectUpdated = true;
             break;
         }

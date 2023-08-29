@@ -47,7 +47,7 @@ void OAIUserstaged_createUser_v1_Response_mPayload::fromJson(QString jsonString)
 
 void OAIUserstaged_createUser_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_pki_user_id_isValid = ::OpenAPI::fromJsonValue(pki_user_id, json[QString("pkiUserID")]);
+    m_pki_user_id_isValid = ::OpenAPI::fromJsonValue(m_pki_user_id, json[QString("pkiUserID")]);
     m_pki_user_id_isSet = !json[QString("pkiUserID")].isNull() && m_pki_user_id_isValid;
 }
 
@@ -61,17 +61,17 @@ QString OAIUserstaged_createUser_v1_Response_mPayload::asJson() const {
 QJsonObject OAIUserstaged_createUser_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_user_id_isSet) {
-        obj.insert(QString("pkiUserID"), ::OpenAPI::toJsonValue(pki_user_id));
+        obj.insert(QString("pkiUserID"), ::OpenAPI::toJsonValue(m_pki_user_id));
     }
     return obj;
 }
 
 qint32 OAIUserstaged_createUser_v1_Response_mPayload::getPkiUserId() const {
-    return pki_user_id;
+    return m_pki_user_id;
 }
 void OAIUserstaged_createUser_v1_Response_mPayload::setPkiUserId(const qint32 &pki_user_id) {
-    this->pki_user_id = pki_user_id;
-    this->m_pki_user_id_isSet = true;
+    m_pki_user_id = pki_user_id;
+    m_pki_user_id_isSet = true;
 }
 
 bool OAIUserstaged_createUser_v1_Response_mPayload::is_pki_user_id_Set() const{

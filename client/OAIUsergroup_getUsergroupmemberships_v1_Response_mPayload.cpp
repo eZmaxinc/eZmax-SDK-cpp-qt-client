@@ -47,7 +47,7 @@ void OAIUsergroup_getUsergroupmemberships_v1_Response_mPayload::fromJson(QString
 
 void OAIUsergroup_getUsergroupmemberships_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_usergroupmembership_isValid = ::OpenAPI::fromJsonValue(a_obj_usergroupmembership, json[QString("a_objUsergroupmembership")]);
+    m_a_obj_usergroupmembership_isValid = ::OpenAPI::fromJsonValue(m_a_obj_usergroupmembership, json[QString("a_objUsergroupmembership")]);
     m_a_obj_usergroupmembership_isSet = !json[QString("a_objUsergroupmembership")].isNull() && m_a_obj_usergroupmembership_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIUsergroup_getUsergroupmemberships_v1_Response_mPayload::asJson() cons
 
 QJsonObject OAIUsergroup_getUsergroupmemberships_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_usergroupmembership.size() > 0) {
-        obj.insert(QString("a_objUsergroupmembership"), ::OpenAPI::toJsonValue(a_obj_usergroupmembership));
+    if (m_a_obj_usergroupmembership.size() > 0) {
+        obj.insert(QString("a_objUsergroupmembership"), ::OpenAPI::toJsonValue(m_a_obj_usergroupmembership));
     }
     return obj;
 }
 
 QList<OAIUsergroupmembership_ResponseCompound> OAIUsergroup_getUsergroupmemberships_v1_Response_mPayload::getAObjUsergroupmembership() const {
-    return a_obj_usergroupmembership;
+    return m_a_obj_usergroupmembership;
 }
 void OAIUsergroup_getUsergroupmemberships_v1_Response_mPayload::setAObjUsergroupmembership(const QList<OAIUsergroupmembership_ResponseCompound> &a_obj_usergroupmembership) {
-    this->a_obj_usergroupmembership = a_obj_usergroupmembership;
-    this->m_a_obj_usergroupmembership_isSet = true;
+    m_a_obj_usergroupmembership = a_obj_usergroupmembership;
+    m_a_obj_usergroupmembership_isSet = true;
 }
 
 bool OAIUsergroup_getUsergroupmemberships_v1_Response_mPayload::is_a_obj_usergroupmembership_Set() const{
@@ -85,7 +85,7 @@ bool OAIUsergroup_getUsergroupmemberships_v1_Response_mPayload::is_a_obj_usergro
 bool OAIUsergroup_getUsergroupmemberships_v1_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_usergroupmembership.size() > 0) {
+        if (m_a_obj_usergroupmembership.size() > 0) {
             isObjectUpdated = true;
             break;
         }

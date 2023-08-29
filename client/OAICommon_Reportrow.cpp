@@ -50,10 +50,10 @@ void OAICommon_Reportrow::fromJson(QString jsonString) {
 
 void OAICommon_Reportrow::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_reportcell_isValid = ::OpenAPI::fromJsonValue(a_obj_reportcell, json[QString("a_objReportcell")]);
+    m_a_obj_reportcell_isValid = ::OpenAPI::fromJsonValue(m_a_obj_reportcell, json[QString("a_objReportcell")]);
     m_a_obj_reportcell_isSet = !json[QString("a_objReportcell")].isNull() && m_a_obj_reportcell_isValid;
 
-    m_i_reportrow_height_isValid = ::OpenAPI::fromJsonValue(i_reportrow_height, json[QString("iReportrowHeight")]);
+    m_i_reportrow_height_isValid = ::OpenAPI::fromJsonValue(m_i_reportrow_height, json[QString("iReportrowHeight")]);
     m_i_reportrow_height_isSet = !json[QString("iReportrowHeight")].isNull() && m_i_reportrow_height_isValid;
 }
 
@@ -66,21 +66,21 @@ QString OAICommon_Reportrow::asJson() const {
 
 QJsonObject OAICommon_Reportrow::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_reportcell.size() > 0) {
-        obj.insert(QString("a_objReportcell"), ::OpenAPI::toJsonValue(a_obj_reportcell));
+    if (m_a_obj_reportcell.size() > 0) {
+        obj.insert(QString("a_objReportcell"), ::OpenAPI::toJsonValue(m_a_obj_reportcell));
     }
     if (m_i_reportrow_height_isSet) {
-        obj.insert(QString("iReportrowHeight"), ::OpenAPI::toJsonValue(i_reportrow_height));
+        obj.insert(QString("iReportrowHeight"), ::OpenAPI::toJsonValue(m_i_reportrow_height));
     }
     return obj;
 }
 
 QList<OAICommon_Reportcell> OAICommon_Reportrow::getAObjReportcell() const {
-    return a_obj_reportcell;
+    return m_a_obj_reportcell;
 }
 void OAICommon_Reportrow::setAObjReportcell(const QList<OAICommon_Reportcell> &a_obj_reportcell) {
-    this->a_obj_reportcell = a_obj_reportcell;
-    this->m_a_obj_reportcell_isSet = true;
+    m_a_obj_reportcell = a_obj_reportcell;
+    m_a_obj_reportcell_isSet = true;
 }
 
 bool OAICommon_Reportrow::is_a_obj_reportcell_Set() const{
@@ -92,11 +92,11 @@ bool OAICommon_Reportrow::is_a_obj_reportcell_Valid() const{
 }
 
 qint32 OAICommon_Reportrow::getIReportrowHeight() const {
-    return i_reportrow_height;
+    return m_i_reportrow_height;
 }
 void OAICommon_Reportrow::setIReportrowHeight(const qint32 &i_reportrow_height) {
-    this->i_reportrow_height = i_reportrow_height;
-    this->m_i_reportrow_height_isSet = true;
+    m_i_reportrow_height = i_reportrow_height;
+    m_i_reportrow_height_isSet = true;
 }
 
 bool OAICommon_Reportrow::is_i_reportrow_height_Set() const{
@@ -110,7 +110,7 @@ bool OAICommon_Reportrow::is_i_reportrow_height_Valid() const{
 bool OAICommon_Reportrow::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_reportcell.size() > 0) {
+        if (m_a_obj_reportcell.size() > 0) {
             isObjectUpdated = true;
             break;
         }

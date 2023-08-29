@@ -53,13 +53,13 @@ void OAICustom_Ezsignformfieldgroup_Request::fromJson(QString jsonString) {
 
 void OAICustom_Ezsignformfieldgroup_Request::fromJsonObject(QJsonObject json) {
 
-    m_pki_ezsignformfieldgroup_id_isValid = ::OpenAPI::fromJsonValue(pki_ezsignformfieldgroup_id, json[QString("pkiEzsignformfieldgroupID")]);
+    m_pki_ezsignformfieldgroup_id_isValid = ::OpenAPI::fromJsonValue(m_pki_ezsignformfieldgroup_id, json[QString("pkiEzsignformfieldgroupID")]);
     m_pki_ezsignformfieldgroup_id_isSet = !json[QString("pkiEzsignformfieldgroupID")].isNull() && m_pki_ezsignformfieldgroup_id_isValid;
 
-    m_s_ezsignformfieldgroup_label_isValid = ::OpenAPI::fromJsonValue(s_ezsignformfieldgroup_label, json[QString("sEzsignformfieldgroupLabel")]);
+    m_s_ezsignformfieldgroup_label_isValid = ::OpenAPI::fromJsonValue(m_s_ezsignformfieldgroup_label, json[QString("sEzsignformfieldgroupLabel")]);
     m_s_ezsignformfieldgroup_label_isSet = !json[QString("sEzsignformfieldgroupLabel")].isNull() && m_s_ezsignformfieldgroup_label_isValid;
 
-    m_a_obj_ezsignformfield_isValid = ::OpenAPI::fromJsonValue(a_obj_ezsignformfield, json[QString("a_objEzsignformfield")]);
+    m_a_obj_ezsignformfield_isValid = ::OpenAPI::fromJsonValue(m_a_obj_ezsignformfield, json[QString("a_objEzsignformfield")]);
     m_a_obj_ezsignformfield_isSet = !json[QString("a_objEzsignformfield")].isNull() && m_a_obj_ezsignformfield_isValid;
 }
 
@@ -73,23 +73,23 @@ QString OAICustom_Ezsignformfieldgroup_Request::asJson() const {
 QJsonObject OAICustom_Ezsignformfieldgroup_Request::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_ezsignformfieldgroup_id_isSet) {
-        obj.insert(QString("pkiEzsignformfieldgroupID"), ::OpenAPI::toJsonValue(pki_ezsignformfieldgroup_id));
+        obj.insert(QString("pkiEzsignformfieldgroupID"), ::OpenAPI::toJsonValue(m_pki_ezsignformfieldgroup_id));
     }
     if (m_s_ezsignformfieldgroup_label_isSet) {
-        obj.insert(QString("sEzsignformfieldgroupLabel"), ::OpenAPI::toJsonValue(s_ezsignformfieldgroup_label));
+        obj.insert(QString("sEzsignformfieldgroupLabel"), ::OpenAPI::toJsonValue(m_s_ezsignformfieldgroup_label));
     }
-    if (a_obj_ezsignformfield.size() > 0) {
-        obj.insert(QString("a_objEzsignformfield"), ::OpenAPI::toJsonValue(a_obj_ezsignformfield));
+    if (m_a_obj_ezsignformfield.size() > 0) {
+        obj.insert(QString("a_objEzsignformfield"), ::OpenAPI::toJsonValue(m_a_obj_ezsignformfield));
     }
     return obj;
 }
 
 qint32 OAICustom_Ezsignformfieldgroup_Request::getPkiEzsignformfieldgroupId() const {
-    return pki_ezsignformfieldgroup_id;
+    return m_pki_ezsignformfieldgroup_id;
 }
 void OAICustom_Ezsignformfieldgroup_Request::setPkiEzsignformfieldgroupId(const qint32 &pki_ezsignformfieldgroup_id) {
-    this->pki_ezsignformfieldgroup_id = pki_ezsignformfieldgroup_id;
-    this->m_pki_ezsignformfieldgroup_id_isSet = true;
+    m_pki_ezsignformfieldgroup_id = pki_ezsignformfieldgroup_id;
+    m_pki_ezsignformfieldgroup_id_isSet = true;
 }
 
 bool OAICustom_Ezsignformfieldgroup_Request::is_pki_ezsignformfieldgroup_id_Set() const{
@@ -101,11 +101,11 @@ bool OAICustom_Ezsignformfieldgroup_Request::is_pki_ezsignformfieldgroup_id_Vali
 }
 
 QString OAICustom_Ezsignformfieldgroup_Request::getSEzsignformfieldgroupLabel() const {
-    return s_ezsignformfieldgroup_label;
+    return m_s_ezsignformfieldgroup_label;
 }
 void OAICustom_Ezsignformfieldgroup_Request::setSEzsignformfieldgroupLabel(const QString &s_ezsignformfieldgroup_label) {
-    this->s_ezsignformfieldgroup_label = s_ezsignformfieldgroup_label;
-    this->m_s_ezsignformfieldgroup_label_isSet = true;
+    m_s_ezsignformfieldgroup_label = s_ezsignformfieldgroup_label;
+    m_s_ezsignformfieldgroup_label_isSet = true;
 }
 
 bool OAICustom_Ezsignformfieldgroup_Request::is_s_ezsignformfieldgroup_label_Set() const{
@@ -117,11 +117,11 @@ bool OAICustom_Ezsignformfieldgroup_Request::is_s_ezsignformfieldgroup_label_Val
 }
 
 QList<OAICustom_Ezsignformfield_Request> OAICustom_Ezsignformfieldgroup_Request::getAObjEzsignformfield() const {
-    return a_obj_ezsignformfield;
+    return m_a_obj_ezsignformfield;
 }
 void OAICustom_Ezsignformfieldgroup_Request::setAObjEzsignformfield(const QList<OAICustom_Ezsignformfield_Request> &a_obj_ezsignformfield) {
-    this->a_obj_ezsignformfield = a_obj_ezsignformfield;
-    this->m_a_obj_ezsignformfield_isSet = true;
+    m_a_obj_ezsignformfield = a_obj_ezsignformfield;
+    m_a_obj_ezsignformfield_isSet = true;
 }
 
 bool OAICustom_Ezsignformfieldgroup_Request::is_a_obj_ezsignformfield_Set() const{
@@ -145,7 +145,7 @@ bool OAICustom_Ezsignformfieldgroup_Request::isSet() const {
             break;
         }
 
-        if (a_obj_ezsignformfield.size() > 0) {
+        if (m_a_obj_ezsignformfield.size() > 0) {
             isObjectUpdated = true;
             break;
         }

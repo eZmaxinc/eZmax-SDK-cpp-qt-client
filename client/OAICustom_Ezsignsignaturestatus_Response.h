@@ -65,19 +65,19 @@ public:
 private:
     void initializeModel();
 
-    QString e_ezsignsignaturestatus_steptype;
+    QString m_e_ezsignsignaturestatus_steptype;
     bool m_e_ezsignsignaturestatus_steptype_isSet;
     bool m_e_ezsignsignaturestatus_steptype_isValid;
 
-    qint32 i_ezsignsignaturestatus_step;
+    qint32 m_i_ezsignsignaturestatus_step;
     bool m_i_ezsignsignaturestatus_step_isSet;
     bool m_i_ezsignsignaturestatus_step_isValid;
 
-    qint32 i_ezsignsignaturestatus_total;
+    qint32 m_i_ezsignsignaturestatus_total;
     bool m_i_ezsignsignaturestatus_total_isSet;
     bool m_i_ezsignsignaturestatus_total_isValid;
 
-    qint32 i_ezsignsignaturestatus_signed;
+    qint32 m_i_ezsignsignaturestatus_signed;
     bool m_i_ezsignsignaturestatus_signed_isSet;
     bool m_i_ezsignsignaturestatus_signed_isValid;
 };

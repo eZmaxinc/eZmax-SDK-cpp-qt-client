@@ -65,19 +65,19 @@ public:
 private:
     void initializeModel();
 
-    QString s_ezsigntsarequirement_description_x;
+    QString m_s_ezsigntsarequirement_description_x;
     bool m_s_ezsigntsarequirement_description_x_isSet;
     bool m_s_ezsigntsarequirement_description_x_isValid;
 
-    qint32 pki_ezsigntsarequirement_id;
+    qint32 m_pki_ezsigntsarequirement_id;
     bool m_pki_ezsigntsarequirement_id_isSet;
     bool m_pki_ezsigntsarequirement_id_isValid;
 
-    bool b_ezsigntsarequirement_isactive;
+    bool m_b_ezsigntsarequirement_isactive;
     bool m_b_ezsigntsarequirement_isactive_isSet;
     bool m_b_ezsigntsarequirement_isactive_isValid;
 
-    bool b_disabled;
+    bool m_b_disabled;
     bool m_b_disabled_isSet;
     bool m_b_disabled_isValid;
 };

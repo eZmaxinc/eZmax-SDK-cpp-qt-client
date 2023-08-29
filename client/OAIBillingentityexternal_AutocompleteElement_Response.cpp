@@ -53,13 +53,13 @@ void OAIBillingentityexternal_AutocompleteElement_Response::fromJson(QString jso
 
 void OAIBillingentityexternal_AutocompleteElement_Response::fromJsonObject(QJsonObject json) {
 
-    m_pki_billingentityexternal_id_isValid = ::OpenAPI::fromJsonValue(pki_billingentityexternal_id, json[QString("pkiBillingentityexternalID")]);
+    m_pki_billingentityexternal_id_isValid = ::OpenAPI::fromJsonValue(m_pki_billingentityexternal_id, json[QString("pkiBillingentityexternalID")]);
     m_pki_billingentityexternal_id_isSet = !json[QString("pkiBillingentityexternalID")].isNull() && m_pki_billingentityexternal_id_isValid;
 
-    m_s_billingentityexternal_description_isValid = ::OpenAPI::fromJsonValue(s_billingentityexternal_description, json[QString("sBillingentityexternalDescription")]);
+    m_s_billingentityexternal_description_isValid = ::OpenAPI::fromJsonValue(m_s_billingentityexternal_description, json[QString("sBillingentityexternalDescription")]);
     m_s_billingentityexternal_description_isSet = !json[QString("sBillingentityexternalDescription")].isNull() && m_s_billingentityexternal_description_isValid;
 
-    m_b_billingentityexternal_isactive_isValid = ::OpenAPI::fromJsonValue(b_billingentityexternal_isactive, json[QString("bBillingentityexternalIsactive")]);
+    m_b_billingentityexternal_isactive_isValid = ::OpenAPI::fromJsonValue(m_b_billingentityexternal_isactive, json[QString("bBillingentityexternalIsactive")]);
     m_b_billingentityexternal_isactive_isSet = !json[QString("bBillingentityexternalIsactive")].isNull() && m_b_billingentityexternal_isactive_isValid;
 }
 
@@ -73,23 +73,23 @@ QString OAIBillingentityexternal_AutocompleteElement_Response::asJson() const {
 QJsonObject OAIBillingentityexternal_AutocompleteElement_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_billingentityexternal_id_isSet) {
-        obj.insert(QString("pkiBillingentityexternalID"), ::OpenAPI::toJsonValue(pki_billingentityexternal_id));
+        obj.insert(QString("pkiBillingentityexternalID"), ::OpenAPI::toJsonValue(m_pki_billingentityexternal_id));
     }
     if (m_s_billingentityexternal_description_isSet) {
-        obj.insert(QString("sBillingentityexternalDescription"), ::OpenAPI::toJsonValue(s_billingentityexternal_description));
+        obj.insert(QString("sBillingentityexternalDescription"), ::OpenAPI::toJsonValue(m_s_billingentityexternal_description));
     }
     if (m_b_billingentityexternal_isactive_isSet) {
-        obj.insert(QString("bBillingentityexternalIsactive"), ::OpenAPI::toJsonValue(b_billingentityexternal_isactive));
+        obj.insert(QString("bBillingentityexternalIsactive"), ::OpenAPI::toJsonValue(m_b_billingentityexternal_isactive));
     }
     return obj;
 }
 
 qint32 OAIBillingentityexternal_AutocompleteElement_Response::getPkiBillingentityexternalId() const {
-    return pki_billingentityexternal_id;
+    return m_pki_billingentityexternal_id;
 }
 void OAIBillingentityexternal_AutocompleteElement_Response::setPkiBillingentityexternalId(const qint32 &pki_billingentityexternal_id) {
-    this->pki_billingentityexternal_id = pki_billingentityexternal_id;
-    this->m_pki_billingentityexternal_id_isSet = true;
+    m_pki_billingentityexternal_id = pki_billingentityexternal_id;
+    m_pki_billingentityexternal_id_isSet = true;
 }
 
 bool OAIBillingentityexternal_AutocompleteElement_Response::is_pki_billingentityexternal_id_Set() const{
@@ -101,11 +101,11 @@ bool OAIBillingentityexternal_AutocompleteElement_Response::is_pki_billingentity
 }
 
 QString OAIBillingentityexternal_AutocompleteElement_Response::getSBillingentityexternalDescription() const {
-    return s_billingentityexternal_description;
+    return m_s_billingentityexternal_description;
 }
 void OAIBillingentityexternal_AutocompleteElement_Response::setSBillingentityexternalDescription(const QString &s_billingentityexternal_description) {
-    this->s_billingentityexternal_description = s_billingentityexternal_description;
-    this->m_s_billingentityexternal_description_isSet = true;
+    m_s_billingentityexternal_description = s_billingentityexternal_description;
+    m_s_billingentityexternal_description_isSet = true;
 }
 
 bool OAIBillingentityexternal_AutocompleteElement_Response::is_s_billingentityexternal_description_Set() const{
@@ -117,11 +117,11 @@ bool OAIBillingentityexternal_AutocompleteElement_Response::is_s_billingentityex
 }
 
 bool OAIBillingentityexternal_AutocompleteElement_Response::isBBillingentityexternalIsactive() const {
-    return b_billingentityexternal_isactive;
+    return m_b_billingentityexternal_isactive;
 }
 void OAIBillingentityexternal_AutocompleteElement_Response::setBBillingentityexternalIsactive(const bool &b_billingentityexternal_isactive) {
-    this->b_billingentityexternal_isactive = b_billingentityexternal_isactive;
-    this->m_b_billingentityexternal_isactive_isSet = true;
+    m_b_billingentityexternal_isactive = b_billingentityexternal_isactive;
+    m_b_billingentityexternal_isactive_isSet = true;
 }
 
 bool OAIBillingentityexternal_AutocompleteElement_Response::is_b_billingentityexternal_isactive_Set() const{

@@ -86,46 +86,46 @@ void OAIFranchisereferalincome_RequestCompound::fromJson(QString jsonString) {
 
 void OAIFranchisereferalincome_RequestCompound::fromJsonObject(QJsonObject json) {
 
-    m_pki_franchisereferalincome_id_isValid = ::OpenAPI::fromJsonValue(pki_franchisereferalincome_id, json[QString("pkiFranchisereferalincomeID")]);
+    m_pki_franchisereferalincome_id_isValid = ::OpenAPI::fromJsonValue(m_pki_franchisereferalincome_id, json[QString("pkiFranchisereferalincomeID")]);
     m_pki_franchisereferalincome_id_isSet = !json[QString("pkiFranchisereferalincomeID")].isNull() && m_pki_franchisereferalincome_id_isValid;
 
-    m_fki_franchisebroker_id_isValid = ::OpenAPI::fromJsonValue(fki_franchisebroker_id, json[QString("fkiFranchisebrokerID")]);
+    m_fki_franchisebroker_id_isValid = ::OpenAPI::fromJsonValue(m_fki_franchisebroker_id, json[QString("fkiFranchisebrokerID")]);
     m_fki_franchisebroker_id_isSet = !json[QString("fkiFranchisebrokerID")].isNull() && m_fki_franchisebroker_id_isValid;
 
-    m_fki_franchisereferalincomeprogram_id_isValid = ::OpenAPI::fromJsonValue(fki_franchisereferalincomeprogram_id, json[QString("fkiFranchisereferalincomeprogramID")]);
+    m_fki_franchisereferalincomeprogram_id_isValid = ::OpenAPI::fromJsonValue(m_fki_franchisereferalincomeprogram_id, json[QString("fkiFranchisereferalincomeprogramID")]);
     m_fki_franchisereferalincomeprogram_id_isSet = !json[QString("fkiFranchisereferalincomeprogramID")].isNull() && m_fki_franchisereferalincomeprogram_id_isValid;
 
-    m_fki_period_id_isValid = ::OpenAPI::fromJsonValue(fki_period_id, json[QString("fkiPeriodID")]);
+    m_fki_period_id_isValid = ::OpenAPI::fromJsonValue(m_fki_period_id, json[QString("fkiPeriodID")]);
     m_fki_period_id_isSet = !json[QString("fkiPeriodID")].isNull() && m_fki_period_id_isValid;
 
-    m_d_franchisereferalincome_loan_isValid = ::OpenAPI::fromJsonValue(d_franchisereferalincome_loan, json[QString("dFranchisereferalincomeLoan")]);
+    m_d_franchisereferalincome_loan_isValid = ::OpenAPI::fromJsonValue(m_d_franchisereferalincome_loan, json[QString("dFranchisereferalincomeLoan")]);
     m_d_franchisereferalincome_loan_isSet = !json[QString("dFranchisereferalincomeLoan")].isNull() && m_d_franchisereferalincome_loan_isValid;
 
-    m_d_franchisereferalincome_franchiseamount_isValid = ::OpenAPI::fromJsonValue(d_franchisereferalincome_franchiseamount, json[QString("dFranchisereferalincomeFranchiseamount")]);
+    m_d_franchisereferalincome_franchiseamount_isValid = ::OpenAPI::fromJsonValue(m_d_franchisereferalincome_franchiseamount, json[QString("dFranchisereferalincomeFranchiseamount")]);
     m_d_franchisereferalincome_franchiseamount_isSet = !json[QString("dFranchisereferalincomeFranchiseamount")].isNull() && m_d_franchisereferalincome_franchiseamount_isValid;
 
-    m_d_franchisereferalincome_franchisoramount_isValid = ::OpenAPI::fromJsonValue(d_franchisereferalincome_franchisoramount, json[QString("dFranchisereferalincomeFranchisoramount")]);
+    m_d_franchisereferalincome_franchisoramount_isValid = ::OpenAPI::fromJsonValue(m_d_franchisereferalincome_franchisoramount, json[QString("dFranchisereferalincomeFranchisoramount")]);
     m_d_franchisereferalincome_franchisoramount_isSet = !json[QString("dFranchisereferalincomeFranchisoramount")].isNull() && m_d_franchisereferalincome_franchisoramount_isValid;
 
-    m_d_franchisereferalincome_agentamount_isValid = ::OpenAPI::fromJsonValue(d_franchisereferalincome_agentamount, json[QString("dFranchisereferalincomeAgentamount")]);
+    m_d_franchisereferalincome_agentamount_isValid = ::OpenAPI::fromJsonValue(m_d_franchisereferalincome_agentamount, json[QString("dFranchisereferalincomeAgentamount")]);
     m_d_franchisereferalincome_agentamount_isSet = !json[QString("dFranchisereferalincomeAgentamount")].isNull() && m_d_franchisereferalincome_agentamount_isValid;
 
-    m_dt_franchisereferalincome_disbursed_isValid = ::OpenAPI::fromJsonValue(dt_franchisereferalincome_disbursed, json[QString("dtFranchisereferalincomeDisbursed")]);
+    m_dt_franchisereferalincome_disbursed_isValid = ::OpenAPI::fromJsonValue(m_dt_franchisereferalincome_disbursed, json[QString("dtFranchisereferalincomeDisbursed")]);
     m_dt_franchisereferalincome_disbursed_isSet = !json[QString("dtFranchisereferalincomeDisbursed")].isNull() && m_dt_franchisereferalincome_disbursed_isValid;
 
-    m_t_franchisereferalincome_comment_isValid = ::OpenAPI::fromJsonValue(t_franchisereferalincome_comment, json[QString("tFranchisereferalincomeComment")]);
+    m_t_franchisereferalincome_comment_isValid = ::OpenAPI::fromJsonValue(m_t_franchisereferalincome_comment, json[QString("tFranchisereferalincomeComment")]);
     m_t_franchisereferalincome_comment_isSet = !json[QString("tFranchisereferalincomeComment")].isNull() && m_t_franchisereferalincome_comment_isValid;
 
-    m_fki_franchiseoffice_id_isValid = ::OpenAPI::fromJsonValue(fki_franchiseoffice_id, json[QString("fkiFranchiseofficeID")]);
+    m_fki_franchiseoffice_id_isValid = ::OpenAPI::fromJsonValue(m_fki_franchiseoffice_id, json[QString("fkiFranchiseofficeID")]);
     m_fki_franchiseoffice_id_isSet = !json[QString("fkiFranchiseofficeID")].isNull() && m_fki_franchiseoffice_id_isValid;
 
-    m_s_franchisereferalincome_remoteid_isValid = ::OpenAPI::fromJsonValue(s_franchisereferalincome_remoteid, json[QString("sFranchisereferalincomeRemoteid")]);
+    m_s_franchisereferalincome_remoteid_isValid = ::OpenAPI::fromJsonValue(m_s_franchisereferalincome_remoteid, json[QString("sFranchisereferalincomeRemoteid")]);
     m_s_franchisereferalincome_remoteid_isSet = !json[QString("sFranchisereferalincomeRemoteid")].isNull() && m_s_franchisereferalincome_remoteid_isValid;
 
-    m_obj_address_isValid = ::OpenAPI::fromJsonValue(obj_address, json[QString("objAddress")]);
+    m_obj_address_isValid = ::OpenAPI::fromJsonValue(m_obj_address, json[QString("objAddress")]);
     m_obj_address_isSet = !json[QString("objAddress")].isNull() && m_obj_address_isValid;
 
-    m_a_obj_contact_isValid = ::OpenAPI::fromJsonValue(a_obj_contact, json[QString("a_objContact")]);
+    m_a_obj_contact_isValid = ::OpenAPI::fromJsonValue(m_a_obj_contact, json[QString("a_objContact")]);
     m_a_obj_contact_isSet = !json[QString("a_objContact")].isNull() && m_a_obj_contact_isValid;
 }
 
@@ -139,56 +139,56 @@ QString OAIFranchisereferalincome_RequestCompound::asJson() const {
 QJsonObject OAIFranchisereferalincome_RequestCompound::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_franchisereferalincome_id_isSet) {
-        obj.insert(QString("pkiFranchisereferalincomeID"), ::OpenAPI::toJsonValue(pki_franchisereferalincome_id));
+        obj.insert(QString("pkiFranchisereferalincomeID"), ::OpenAPI::toJsonValue(m_pki_franchisereferalincome_id));
     }
     if (m_fki_franchisebroker_id_isSet) {
-        obj.insert(QString("fkiFranchisebrokerID"), ::OpenAPI::toJsonValue(fki_franchisebroker_id));
+        obj.insert(QString("fkiFranchisebrokerID"), ::OpenAPI::toJsonValue(m_fki_franchisebroker_id));
     }
     if (m_fki_franchisereferalincomeprogram_id_isSet) {
-        obj.insert(QString("fkiFranchisereferalincomeprogramID"), ::OpenAPI::toJsonValue(fki_franchisereferalincomeprogram_id));
+        obj.insert(QString("fkiFranchisereferalincomeprogramID"), ::OpenAPI::toJsonValue(m_fki_franchisereferalincomeprogram_id));
     }
     if (m_fki_period_id_isSet) {
-        obj.insert(QString("fkiPeriodID"), ::OpenAPI::toJsonValue(fki_period_id));
+        obj.insert(QString("fkiPeriodID"), ::OpenAPI::toJsonValue(m_fki_period_id));
     }
     if (m_d_franchisereferalincome_loan_isSet) {
-        obj.insert(QString("dFranchisereferalincomeLoan"), ::OpenAPI::toJsonValue(d_franchisereferalincome_loan));
+        obj.insert(QString("dFranchisereferalincomeLoan"), ::OpenAPI::toJsonValue(m_d_franchisereferalincome_loan));
     }
     if (m_d_franchisereferalincome_franchiseamount_isSet) {
-        obj.insert(QString("dFranchisereferalincomeFranchiseamount"), ::OpenAPI::toJsonValue(d_franchisereferalincome_franchiseamount));
+        obj.insert(QString("dFranchisereferalincomeFranchiseamount"), ::OpenAPI::toJsonValue(m_d_franchisereferalincome_franchiseamount));
     }
     if (m_d_franchisereferalincome_franchisoramount_isSet) {
-        obj.insert(QString("dFranchisereferalincomeFranchisoramount"), ::OpenAPI::toJsonValue(d_franchisereferalincome_franchisoramount));
+        obj.insert(QString("dFranchisereferalincomeFranchisoramount"), ::OpenAPI::toJsonValue(m_d_franchisereferalincome_franchisoramount));
     }
     if (m_d_franchisereferalincome_agentamount_isSet) {
-        obj.insert(QString("dFranchisereferalincomeAgentamount"), ::OpenAPI::toJsonValue(d_franchisereferalincome_agentamount));
+        obj.insert(QString("dFranchisereferalincomeAgentamount"), ::OpenAPI::toJsonValue(m_d_franchisereferalincome_agentamount));
     }
     if (m_dt_franchisereferalincome_disbursed_isSet) {
-        obj.insert(QString("dtFranchisereferalincomeDisbursed"), ::OpenAPI::toJsonValue(dt_franchisereferalincome_disbursed));
+        obj.insert(QString("dtFranchisereferalincomeDisbursed"), ::OpenAPI::toJsonValue(m_dt_franchisereferalincome_disbursed));
     }
     if (m_t_franchisereferalincome_comment_isSet) {
-        obj.insert(QString("tFranchisereferalincomeComment"), ::OpenAPI::toJsonValue(t_franchisereferalincome_comment));
+        obj.insert(QString("tFranchisereferalincomeComment"), ::OpenAPI::toJsonValue(m_t_franchisereferalincome_comment));
     }
     if (m_fki_franchiseoffice_id_isSet) {
-        obj.insert(QString("fkiFranchiseofficeID"), ::OpenAPI::toJsonValue(fki_franchiseoffice_id));
+        obj.insert(QString("fkiFranchiseofficeID"), ::OpenAPI::toJsonValue(m_fki_franchiseoffice_id));
     }
     if (m_s_franchisereferalincome_remoteid_isSet) {
-        obj.insert(QString("sFranchisereferalincomeRemoteid"), ::OpenAPI::toJsonValue(s_franchisereferalincome_remoteid));
+        obj.insert(QString("sFranchisereferalincomeRemoteid"), ::OpenAPI::toJsonValue(m_s_franchisereferalincome_remoteid));
     }
-    if (obj_address.isSet()) {
-        obj.insert(QString("objAddress"), ::OpenAPI::toJsonValue(obj_address));
+    if (m_obj_address.isSet()) {
+        obj.insert(QString("objAddress"), ::OpenAPI::toJsonValue(m_obj_address));
     }
-    if (a_obj_contact.size() > 0) {
-        obj.insert(QString("a_objContact"), ::OpenAPI::toJsonValue(a_obj_contact));
+    if (m_a_obj_contact.size() > 0) {
+        obj.insert(QString("a_objContact"), ::OpenAPI::toJsonValue(m_a_obj_contact));
     }
     return obj;
 }
 
 qint32 OAIFranchisereferalincome_RequestCompound::getPkiFranchisereferalincomeId() const {
-    return pki_franchisereferalincome_id;
+    return m_pki_franchisereferalincome_id;
 }
 void OAIFranchisereferalincome_RequestCompound::setPkiFranchisereferalincomeId(const qint32 &pki_franchisereferalincome_id) {
-    this->pki_franchisereferalincome_id = pki_franchisereferalincome_id;
-    this->m_pki_franchisereferalincome_id_isSet = true;
+    m_pki_franchisereferalincome_id = pki_franchisereferalincome_id;
+    m_pki_franchisereferalincome_id_isSet = true;
 }
 
 bool OAIFranchisereferalincome_RequestCompound::is_pki_franchisereferalincome_id_Set() const{
@@ -200,11 +200,11 @@ bool OAIFranchisereferalincome_RequestCompound::is_pki_franchisereferalincome_id
 }
 
 qint32 OAIFranchisereferalincome_RequestCompound::getFkiFranchisebrokerId() const {
-    return fki_franchisebroker_id;
+    return m_fki_franchisebroker_id;
 }
 void OAIFranchisereferalincome_RequestCompound::setFkiFranchisebrokerId(const qint32 &fki_franchisebroker_id) {
-    this->fki_franchisebroker_id = fki_franchisebroker_id;
-    this->m_fki_franchisebroker_id_isSet = true;
+    m_fki_franchisebroker_id = fki_franchisebroker_id;
+    m_fki_franchisebroker_id_isSet = true;
 }
 
 bool OAIFranchisereferalincome_RequestCompound::is_fki_franchisebroker_id_Set() const{
@@ -216,11 +216,11 @@ bool OAIFranchisereferalincome_RequestCompound::is_fki_franchisebroker_id_Valid(
 }
 
 qint32 OAIFranchisereferalincome_RequestCompound::getFkiFranchisereferalincomeprogramId() const {
-    return fki_franchisereferalincomeprogram_id;
+    return m_fki_franchisereferalincomeprogram_id;
 }
 void OAIFranchisereferalincome_RequestCompound::setFkiFranchisereferalincomeprogramId(const qint32 &fki_franchisereferalincomeprogram_id) {
-    this->fki_franchisereferalincomeprogram_id = fki_franchisereferalincomeprogram_id;
-    this->m_fki_franchisereferalincomeprogram_id_isSet = true;
+    m_fki_franchisereferalincomeprogram_id = fki_franchisereferalincomeprogram_id;
+    m_fki_franchisereferalincomeprogram_id_isSet = true;
 }
 
 bool OAIFranchisereferalincome_RequestCompound::is_fki_franchisereferalincomeprogram_id_Set() const{
@@ -232,11 +232,11 @@ bool OAIFranchisereferalincome_RequestCompound::is_fki_franchisereferalincomepro
 }
 
 qint32 OAIFranchisereferalincome_RequestCompound::getFkiPeriodId() const {
-    return fki_period_id;
+    return m_fki_period_id;
 }
 void OAIFranchisereferalincome_RequestCompound::setFkiPeriodId(const qint32 &fki_period_id) {
-    this->fki_period_id = fki_period_id;
-    this->m_fki_period_id_isSet = true;
+    m_fki_period_id = fki_period_id;
+    m_fki_period_id_isSet = true;
 }
 
 bool OAIFranchisereferalincome_RequestCompound::is_fki_period_id_Set() const{
@@ -248,11 +248,11 @@ bool OAIFranchisereferalincome_RequestCompound::is_fki_period_id_Valid() const{
 }
 
 QString OAIFranchisereferalincome_RequestCompound::getDFranchisereferalincomeLoan() const {
-    return d_franchisereferalincome_loan;
+    return m_d_franchisereferalincome_loan;
 }
 void OAIFranchisereferalincome_RequestCompound::setDFranchisereferalincomeLoan(const QString &d_franchisereferalincome_loan) {
-    this->d_franchisereferalincome_loan = d_franchisereferalincome_loan;
-    this->m_d_franchisereferalincome_loan_isSet = true;
+    m_d_franchisereferalincome_loan = d_franchisereferalincome_loan;
+    m_d_franchisereferalincome_loan_isSet = true;
 }
 
 bool OAIFranchisereferalincome_RequestCompound::is_d_franchisereferalincome_loan_Set() const{
@@ -264,11 +264,11 @@ bool OAIFranchisereferalincome_RequestCompound::is_d_franchisereferalincome_loan
 }
 
 QString OAIFranchisereferalincome_RequestCompound::getDFranchisereferalincomeFranchiseamount() const {
-    return d_franchisereferalincome_franchiseamount;
+    return m_d_franchisereferalincome_franchiseamount;
 }
 void OAIFranchisereferalincome_RequestCompound::setDFranchisereferalincomeFranchiseamount(const QString &d_franchisereferalincome_franchiseamount) {
-    this->d_franchisereferalincome_franchiseamount = d_franchisereferalincome_franchiseamount;
-    this->m_d_franchisereferalincome_franchiseamount_isSet = true;
+    m_d_franchisereferalincome_franchiseamount = d_franchisereferalincome_franchiseamount;
+    m_d_franchisereferalincome_franchiseamount_isSet = true;
 }
 
 bool OAIFranchisereferalincome_RequestCompound::is_d_franchisereferalincome_franchiseamount_Set() const{
@@ -280,11 +280,11 @@ bool OAIFranchisereferalincome_RequestCompound::is_d_franchisereferalincome_fran
 }
 
 QString OAIFranchisereferalincome_RequestCompound::getDFranchisereferalincomeFranchisoramount() const {
-    return d_franchisereferalincome_franchisoramount;
+    return m_d_franchisereferalincome_franchisoramount;
 }
 void OAIFranchisereferalincome_RequestCompound::setDFranchisereferalincomeFranchisoramount(const QString &d_franchisereferalincome_franchisoramount) {
-    this->d_franchisereferalincome_franchisoramount = d_franchisereferalincome_franchisoramount;
-    this->m_d_franchisereferalincome_franchisoramount_isSet = true;
+    m_d_franchisereferalincome_franchisoramount = d_franchisereferalincome_franchisoramount;
+    m_d_franchisereferalincome_franchisoramount_isSet = true;
 }
 
 bool OAIFranchisereferalincome_RequestCompound::is_d_franchisereferalincome_franchisoramount_Set() const{
@@ -296,11 +296,11 @@ bool OAIFranchisereferalincome_RequestCompound::is_d_franchisereferalincome_fran
 }
 
 QString OAIFranchisereferalincome_RequestCompound::getDFranchisereferalincomeAgentamount() const {
-    return d_franchisereferalincome_agentamount;
+    return m_d_franchisereferalincome_agentamount;
 }
 void OAIFranchisereferalincome_RequestCompound::setDFranchisereferalincomeAgentamount(const QString &d_franchisereferalincome_agentamount) {
-    this->d_franchisereferalincome_agentamount = d_franchisereferalincome_agentamount;
-    this->m_d_franchisereferalincome_agentamount_isSet = true;
+    m_d_franchisereferalincome_agentamount = d_franchisereferalincome_agentamount;
+    m_d_franchisereferalincome_agentamount_isSet = true;
 }
 
 bool OAIFranchisereferalincome_RequestCompound::is_d_franchisereferalincome_agentamount_Set() const{
@@ -312,11 +312,11 @@ bool OAIFranchisereferalincome_RequestCompound::is_d_franchisereferalincome_agen
 }
 
 QString OAIFranchisereferalincome_RequestCompound::getDtFranchisereferalincomeDisbursed() const {
-    return dt_franchisereferalincome_disbursed;
+    return m_dt_franchisereferalincome_disbursed;
 }
 void OAIFranchisereferalincome_RequestCompound::setDtFranchisereferalincomeDisbursed(const QString &dt_franchisereferalincome_disbursed) {
-    this->dt_franchisereferalincome_disbursed = dt_franchisereferalincome_disbursed;
-    this->m_dt_franchisereferalincome_disbursed_isSet = true;
+    m_dt_franchisereferalincome_disbursed = dt_franchisereferalincome_disbursed;
+    m_dt_franchisereferalincome_disbursed_isSet = true;
 }
 
 bool OAIFranchisereferalincome_RequestCompound::is_dt_franchisereferalincome_disbursed_Set() const{
@@ -328,11 +328,11 @@ bool OAIFranchisereferalincome_RequestCompound::is_dt_franchisereferalincome_dis
 }
 
 QString OAIFranchisereferalincome_RequestCompound::getTFranchisereferalincomeComment() const {
-    return t_franchisereferalincome_comment;
+    return m_t_franchisereferalincome_comment;
 }
 void OAIFranchisereferalincome_RequestCompound::setTFranchisereferalincomeComment(const QString &t_franchisereferalincome_comment) {
-    this->t_franchisereferalincome_comment = t_franchisereferalincome_comment;
-    this->m_t_franchisereferalincome_comment_isSet = true;
+    m_t_franchisereferalincome_comment = t_franchisereferalincome_comment;
+    m_t_franchisereferalincome_comment_isSet = true;
 }
 
 bool OAIFranchisereferalincome_RequestCompound::is_t_franchisereferalincome_comment_Set() const{
@@ -344,11 +344,11 @@ bool OAIFranchisereferalincome_RequestCompound::is_t_franchisereferalincome_comm
 }
 
 qint32 OAIFranchisereferalincome_RequestCompound::getFkiFranchiseofficeId() const {
-    return fki_franchiseoffice_id;
+    return m_fki_franchiseoffice_id;
 }
 void OAIFranchisereferalincome_RequestCompound::setFkiFranchiseofficeId(const qint32 &fki_franchiseoffice_id) {
-    this->fki_franchiseoffice_id = fki_franchiseoffice_id;
-    this->m_fki_franchiseoffice_id_isSet = true;
+    m_fki_franchiseoffice_id = fki_franchiseoffice_id;
+    m_fki_franchiseoffice_id_isSet = true;
 }
 
 bool OAIFranchisereferalincome_RequestCompound::is_fki_franchiseoffice_id_Set() const{
@@ -360,11 +360,11 @@ bool OAIFranchisereferalincome_RequestCompound::is_fki_franchiseoffice_id_Valid(
 }
 
 QString OAIFranchisereferalincome_RequestCompound::getSFranchisereferalincomeRemoteid() const {
-    return s_franchisereferalincome_remoteid;
+    return m_s_franchisereferalincome_remoteid;
 }
 void OAIFranchisereferalincome_RequestCompound::setSFranchisereferalincomeRemoteid(const QString &s_franchisereferalincome_remoteid) {
-    this->s_franchisereferalincome_remoteid = s_franchisereferalincome_remoteid;
-    this->m_s_franchisereferalincome_remoteid_isSet = true;
+    m_s_franchisereferalincome_remoteid = s_franchisereferalincome_remoteid;
+    m_s_franchisereferalincome_remoteid_isSet = true;
 }
 
 bool OAIFranchisereferalincome_RequestCompound::is_s_franchisereferalincome_remoteid_Set() const{
@@ -376,11 +376,11 @@ bool OAIFranchisereferalincome_RequestCompound::is_s_franchisereferalincome_remo
 }
 
 OAIAddress_Request OAIFranchisereferalincome_RequestCompound::getObjAddress() const {
-    return obj_address;
+    return m_obj_address;
 }
 void OAIFranchisereferalincome_RequestCompound::setObjAddress(const OAIAddress_Request &obj_address) {
-    this->obj_address = obj_address;
-    this->m_obj_address_isSet = true;
+    m_obj_address = obj_address;
+    m_obj_address_isSet = true;
 }
 
 bool OAIFranchisereferalincome_RequestCompound::is_obj_address_Set() const{
@@ -392,11 +392,11 @@ bool OAIFranchisereferalincome_RequestCompound::is_obj_address_Valid() const{
 }
 
 QList<OAIContact_RequestCompound> OAIFranchisereferalincome_RequestCompound::getAObjContact() const {
-    return a_obj_contact;
+    return m_a_obj_contact;
 }
 void OAIFranchisereferalincome_RequestCompound::setAObjContact(const QList<OAIContact_RequestCompound> &a_obj_contact) {
-    this->a_obj_contact = a_obj_contact;
-    this->m_a_obj_contact_isSet = true;
+    m_a_obj_contact = a_obj_contact;
+    m_a_obj_contact_isSet = true;
 }
 
 bool OAIFranchisereferalincome_RequestCompound::is_a_obj_contact_Set() const{
@@ -470,12 +470,12 @@ bool OAIFranchisereferalincome_RequestCompound::isSet() const {
             break;
         }
 
-        if (obj_address.isSet()) {
+        if (m_obj_address.isSet()) {
             isObjectUpdated = true;
             break;
         }
 
-        if (a_obj_contact.size() > 0) {
+        if (m_a_obj_contact.size() > 0) {
             isObjectUpdated = true;
             break;
         }

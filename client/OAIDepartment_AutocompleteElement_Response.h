@@ -65,19 +65,19 @@ public:
 private:
     void initializeModel();
 
-    QString s_company_name_x;
+    QString m_s_company_name_x;
     bool m_s_company_name_x_isSet;
     bool m_s_company_name_x_isValid;
 
-    QString s_department_name_x;
+    QString m_s_department_name_x;
     bool m_s_department_name_x_isSet;
     bool m_s_department_name_x_isValid;
 
-    qint32 pki_department_id;
+    qint32 m_pki_department_id;
     bool m_pki_department_id_isSet;
     bool m_pki_department_id_isValid;
 
-    bool b_department_isactive;
+    bool m_b_department_isactive;
     bool m_b_department_isactive_isSet;
     bool m_b_department_isactive_isValid;
 };

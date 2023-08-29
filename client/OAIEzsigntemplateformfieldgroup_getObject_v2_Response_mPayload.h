@@ -51,7 +51,7 @@ public:
 private:
     void initializeModel();
 
-    OAIEzsigntemplateformfieldgroup_ResponseCompound obj_ezsigntemplateformfieldgroup;
+    OAIEzsigntemplateformfieldgroup_ResponseCompound m_obj_ezsigntemplateformfieldgroup;
     bool m_obj_ezsigntemplateformfieldgroup_isSet;
     bool m_obj_ezsigntemplateformfieldgroup_isValid;
 };

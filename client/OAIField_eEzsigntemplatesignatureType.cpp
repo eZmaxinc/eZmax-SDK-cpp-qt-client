@@ -65,6 +65,14 @@ void OAIField_eEzsigntemplatesignatureType::fromJson(QString jsonString) {
         m_value = eOAIField_eEzsigntemplatesignatureType::ATTACHMENTS;
         m_value_isSet = m_value_isValid = true;
     }
+    else if ( jsonString.compare("FieldText", Qt::CaseInsensitive) == 0) {
+        m_value = eOAIField_eEzsigntemplatesignatureType::FIELDTEXT;
+        m_value_isSet = m_value_isValid = true;
+    }
+    else if ( jsonString.compare("FieldTextarea", Qt::CaseInsensitive) == 0) {
+        m_value = eOAIField_eEzsigntemplatesignatureType::FIELDTEXTAREA;
+        m_value_isSet = m_value_isValid = true;
+    }
 }
 
 void OAIField_eEzsigntemplatesignatureType::fromJsonValue(QJsonValue json) {
@@ -92,6 +100,12 @@ QString OAIField_eEzsigntemplatesignatureType::asJson() const {
             break;
         case eOAIField_eEzsigntemplatesignatureType::ATTACHMENTS:
             val = "Attachments";
+            break;
+        case eOAIField_eEzsigntemplatesignatureType::FIELDTEXT:
+            val = "FieldText";
+            break;
+        case eOAIField_eEzsigntemplatesignatureType::FIELDTEXTAREA:
+            val = "FieldTextarea";
             break;
         default:
             break;

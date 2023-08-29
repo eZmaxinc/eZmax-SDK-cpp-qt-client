@@ -62,22 +62,22 @@ void OAIUserstaged_Response::fromJson(QString jsonString) {
 
 void OAIUserstaged_Response::fromJsonObject(QJsonObject json) {
 
-    m_pki_userstaged_id_isValid = ::OpenAPI::fromJsonValue(pki_userstaged_id, json[QString("pkiUserstagedID")]);
+    m_pki_userstaged_id_isValid = ::OpenAPI::fromJsonValue(m_pki_userstaged_id, json[QString("pkiUserstagedID")]);
     m_pki_userstaged_id_isSet = !json[QString("pkiUserstagedID")].isNull() && m_pki_userstaged_id_isValid;
 
-    m_fki_email_id_isValid = ::OpenAPI::fromJsonValue(fki_email_id, json[QString("fkiEmailID")]);
+    m_fki_email_id_isValid = ::OpenAPI::fromJsonValue(m_fki_email_id, json[QString("fkiEmailID")]);
     m_fki_email_id_isSet = !json[QString("fkiEmailID")].isNull() && m_fki_email_id_isValid;
 
-    m_s_email_address_isValid = ::OpenAPI::fromJsonValue(s_email_address, json[QString("sEmailAddress")]);
+    m_s_email_address_isValid = ::OpenAPI::fromJsonValue(m_s_email_address, json[QString("sEmailAddress")]);
     m_s_email_address_isSet = !json[QString("sEmailAddress")].isNull() && m_s_email_address_isValid;
 
-    m_s_userstaged_firstname_isValid = ::OpenAPI::fromJsonValue(s_userstaged_firstname, json[QString("sUserstagedFirstname")]);
+    m_s_userstaged_firstname_isValid = ::OpenAPI::fromJsonValue(m_s_userstaged_firstname, json[QString("sUserstagedFirstname")]);
     m_s_userstaged_firstname_isSet = !json[QString("sUserstagedFirstname")].isNull() && m_s_userstaged_firstname_isValid;
 
-    m_s_userstaged_lastname_isValid = ::OpenAPI::fromJsonValue(s_userstaged_lastname, json[QString("sUserstagedLastname")]);
+    m_s_userstaged_lastname_isValid = ::OpenAPI::fromJsonValue(m_s_userstaged_lastname, json[QString("sUserstagedLastname")]);
     m_s_userstaged_lastname_isSet = !json[QString("sUserstagedLastname")].isNull() && m_s_userstaged_lastname_isValid;
 
-    m_s_userstaged_externalid_isValid = ::OpenAPI::fromJsonValue(s_userstaged_externalid, json[QString("sUserstagedExternalid")]);
+    m_s_userstaged_externalid_isValid = ::OpenAPI::fromJsonValue(m_s_userstaged_externalid, json[QString("sUserstagedExternalid")]);
     m_s_userstaged_externalid_isSet = !json[QString("sUserstagedExternalid")].isNull() && m_s_userstaged_externalid_isValid;
 }
 
@@ -91,32 +91,32 @@ QString OAIUserstaged_Response::asJson() const {
 QJsonObject OAIUserstaged_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_userstaged_id_isSet) {
-        obj.insert(QString("pkiUserstagedID"), ::OpenAPI::toJsonValue(pki_userstaged_id));
+        obj.insert(QString("pkiUserstagedID"), ::OpenAPI::toJsonValue(m_pki_userstaged_id));
     }
     if (m_fki_email_id_isSet) {
-        obj.insert(QString("fkiEmailID"), ::OpenAPI::toJsonValue(fki_email_id));
+        obj.insert(QString("fkiEmailID"), ::OpenAPI::toJsonValue(m_fki_email_id));
     }
     if (m_s_email_address_isSet) {
-        obj.insert(QString("sEmailAddress"), ::OpenAPI::toJsonValue(s_email_address));
+        obj.insert(QString("sEmailAddress"), ::OpenAPI::toJsonValue(m_s_email_address));
     }
     if (m_s_userstaged_firstname_isSet) {
-        obj.insert(QString("sUserstagedFirstname"), ::OpenAPI::toJsonValue(s_userstaged_firstname));
+        obj.insert(QString("sUserstagedFirstname"), ::OpenAPI::toJsonValue(m_s_userstaged_firstname));
     }
     if (m_s_userstaged_lastname_isSet) {
-        obj.insert(QString("sUserstagedLastname"), ::OpenAPI::toJsonValue(s_userstaged_lastname));
+        obj.insert(QString("sUserstagedLastname"), ::OpenAPI::toJsonValue(m_s_userstaged_lastname));
     }
     if (m_s_userstaged_externalid_isSet) {
-        obj.insert(QString("sUserstagedExternalid"), ::OpenAPI::toJsonValue(s_userstaged_externalid));
+        obj.insert(QString("sUserstagedExternalid"), ::OpenAPI::toJsonValue(m_s_userstaged_externalid));
     }
     return obj;
 }
 
 qint32 OAIUserstaged_Response::getPkiUserstagedId() const {
-    return pki_userstaged_id;
+    return m_pki_userstaged_id;
 }
 void OAIUserstaged_Response::setPkiUserstagedId(const qint32 &pki_userstaged_id) {
-    this->pki_userstaged_id = pki_userstaged_id;
-    this->m_pki_userstaged_id_isSet = true;
+    m_pki_userstaged_id = pki_userstaged_id;
+    m_pki_userstaged_id_isSet = true;
 }
 
 bool OAIUserstaged_Response::is_pki_userstaged_id_Set() const{
@@ -128,11 +128,11 @@ bool OAIUserstaged_Response::is_pki_userstaged_id_Valid() const{
 }
 
 qint32 OAIUserstaged_Response::getFkiEmailId() const {
-    return fki_email_id;
+    return m_fki_email_id;
 }
 void OAIUserstaged_Response::setFkiEmailId(const qint32 &fki_email_id) {
-    this->fki_email_id = fki_email_id;
-    this->m_fki_email_id_isSet = true;
+    m_fki_email_id = fki_email_id;
+    m_fki_email_id_isSet = true;
 }
 
 bool OAIUserstaged_Response::is_fki_email_id_Set() const{
@@ -144,11 +144,11 @@ bool OAIUserstaged_Response::is_fki_email_id_Valid() const{
 }
 
 QString OAIUserstaged_Response::getSEmailAddress() const {
-    return s_email_address;
+    return m_s_email_address;
 }
 void OAIUserstaged_Response::setSEmailAddress(const QString &s_email_address) {
-    this->s_email_address = s_email_address;
-    this->m_s_email_address_isSet = true;
+    m_s_email_address = s_email_address;
+    m_s_email_address_isSet = true;
 }
 
 bool OAIUserstaged_Response::is_s_email_address_Set() const{
@@ -160,11 +160,11 @@ bool OAIUserstaged_Response::is_s_email_address_Valid() const{
 }
 
 QString OAIUserstaged_Response::getSUserstagedFirstname() const {
-    return s_userstaged_firstname;
+    return m_s_userstaged_firstname;
 }
 void OAIUserstaged_Response::setSUserstagedFirstname(const QString &s_userstaged_firstname) {
-    this->s_userstaged_firstname = s_userstaged_firstname;
-    this->m_s_userstaged_firstname_isSet = true;
+    m_s_userstaged_firstname = s_userstaged_firstname;
+    m_s_userstaged_firstname_isSet = true;
 }
 
 bool OAIUserstaged_Response::is_s_userstaged_firstname_Set() const{
@@ -176,11 +176,11 @@ bool OAIUserstaged_Response::is_s_userstaged_firstname_Valid() const{
 }
 
 QString OAIUserstaged_Response::getSUserstagedLastname() const {
-    return s_userstaged_lastname;
+    return m_s_userstaged_lastname;
 }
 void OAIUserstaged_Response::setSUserstagedLastname(const QString &s_userstaged_lastname) {
-    this->s_userstaged_lastname = s_userstaged_lastname;
-    this->m_s_userstaged_lastname_isSet = true;
+    m_s_userstaged_lastname = s_userstaged_lastname;
+    m_s_userstaged_lastname_isSet = true;
 }
 
 bool OAIUserstaged_Response::is_s_userstaged_lastname_Set() const{
@@ -192,11 +192,11 @@ bool OAIUserstaged_Response::is_s_userstaged_lastname_Valid() const{
 }
 
 QString OAIUserstaged_Response::getSUserstagedExternalid() const {
-    return s_userstaged_externalid;
+    return m_s_userstaged_externalid;
 }
 void OAIUserstaged_Response::setSUserstagedExternalid(const QString &s_userstaged_externalid) {
-    this->s_userstaged_externalid = s_userstaged_externalid;
-    this->m_s_userstaged_externalid_isSet = true;
+    m_s_userstaged_externalid = s_userstaged_externalid;
+    m_s_userstaged_externalid_isSet = true;
 }
 
 bool OAIUserstaged_Response::is_s_userstaged_externalid_Set() const{

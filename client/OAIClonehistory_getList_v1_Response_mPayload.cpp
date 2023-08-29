@@ -34,14 +34,14 @@ OAIClonehistory_getList_v1_Response_mPayload::~OAIClonehistory_getList_v1_Respon
 
 void OAIClonehistory_getList_v1_Response_mPayload::initializeModel() {
 
-    m_a_obj_clonehistory_isSet = false;
-    m_a_obj_clonehistory_isValid = false;
-
     m_i_row_returned_isSet = false;
     m_i_row_returned_isValid = false;
 
     m_i_row_filtered_isSet = false;
     m_i_row_filtered_isValid = false;
+
+    m_a_obj_clonehistory_isSet = false;
+    m_a_obj_clonehistory_isValid = false;
 }
 
 void OAIClonehistory_getList_v1_Response_mPayload::fromJson(QString jsonString) {
@@ -53,14 +53,14 @@ void OAIClonehistory_getList_v1_Response_mPayload::fromJson(QString jsonString) 
 
 void OAIClonehistory_getList_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_clonehistory_isValid = ::OpenAPI::fromJsonValue(a_obj_clonehistory, json[QString("a_objClonehistory")]);
-    m_a_obj_clonehistory_isSet = !json[QString("a_objClonehistory")].isNull() && m_a_obj_clonehistory_isValid;
-
-    m_i_row_returned_isValid = ::OpenAPI::fromJsonValue(i_row_returned, json[QString("iRowReturned")]);
+    m_i_row_returned_isValid = ::OpenAPI::fromJsonValue(m_i_row_returned, json[QString("iRowReturned")]);
     m_i_row_returned_isSet = !json[QString("iRowReturned")].isNull() && m_i_row_returned_isValid;
 
-    m_i_row_filtered_isValid = ::OpenAPI::fromJsonValue(i_row_filtered, json[QString("iRowFiltered")]);
+    m_i_row_filtered_isValid = ::OpenAPI::fromJsonValue(m_i_row_filtered, json[QString("iRowFiltered")]);
     m_i_row_filtered_isSet = !json[QString("iRowFiltered")].isNull() && m_i_row_filtered_isValid;
+
+    m_a_obj_clonehistory_isValid = ::OpenAPI::fromJsonValue(m_a_obj_clonehistory, json[QString("a_objClonehistory")]);
+    m_a_obj_clonehistory_isSet = !json[QString("a_objClonehistory")].isNull() && m_a_obj_clonehistory_isValid;
 }
 
 QString OAIClonehistory_getList_v1_Response_mPayload::asJson() const {
@@ -72,40 +72,24 @@ QString OAIClonehistory_getList_v1_Response_mPayload::asJson() const {
 
 QJsonObject OAIClonehistory_getList_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_clonehistory.size() > 0) {
-        obj.insert(QString("a_objClonehistory"), ::OpenAPI::toJsonValue(a_obj_clonehistory));
-    }
     if (m_i_row_returned_isSet) {
-        obj.insert(QString("iRowReturned"), ::OpenAPI::toJsonValue(i_row_returned));
+        obj.insert(QString("iRowReturned"), ::OpenAPI::toJsonValue(m_i_row_returned));
     }
     if (m_i_row_filtered_isSet) {
-        obj.insert(QString("iRowFiltered"), ::OpenAPI::toJsonValue(i_row_filtered));
+        obj.insert(QString("iRowFiltered"), ::OpenAPI::toJsonValue(m_i_row_filtered));
+    }
+    if (m_a_obj_clonehistory.size() > 0) {
+        obj.insert(QString("a_objClonehistory"), ::OpenAPI::toJsonValue(m_a_obj_clonehistory));
     }
     return obj;
 }
 
-QList<OAIClonehistory_ListElement> OAIClonehistory_getList_v1_Response_mPayload::getAObjClonehistory() const {
-    return a_obj_clonehistory;
-}
-void OAIClonehistory_getList_v1_Response_mPayload::setAObjClonehistory(const QList<OAIClonehistory_ListElement> &a_obj_clonehistory) {
-    this->a_obj_clonehistory = a_obj_clonehistory;
-    this->m_a_obj_clonehistory_isSet = true;
-}
-
-bool OAIClonehistory_getList_v1_Response_mPayload::is_a_obj_clonehistory_Set() const{
-    return m_a_obj_clonehistory_isSet;
-}
-
-bool OAIClonehistory_getList_v1_Response_mPayload::is_a_obj_clonehistory_Valid() const{
-    return m_a_obj_clonehistory_isValid;
-}
-
 qint32 OAIClonehistory_getList_v1_Response_mPayload::getIRowReturned() const {
-    return i_row_returned;
+    return m_i_row_returned;
 }
 void OAIClonehistory_getList_v1_Response_mPayload::setIRowReturned(const qint32 &i_row_returned) {
-    this->i_row_returned = i_row_returned;
-    this->m_i_row_returned_isSet = true;
+    m_i_row_returned = i_row_returned;
+    m_i_row_returned_isSet = true;
 }
 
 bool OAIClonehistory_getList_v1_Response_mPayload::is_i_row_returned_Set() const{
@@ -117,11 +101,11 @@ bool OAIClonehistory_getList_v1_Response_mPayload::is_i_row_returned_Valid() con
 }
 
 qint32 OAIClonehistory_getList_v1_Response_mPayload::getIRowFiltered() const {
-    return i_row_filtered;
+    return m_i_row_filtered;
 }
 void OAIClonehistory_getList_v1_Response_mPayload::setIRowFiltered(const qint32 &i_row_filtered) {
-    this->i_row_filtered = i_row_filtered;
-    this->m_i_row_filtered_isSet = true;
+    m_i_row_filtered = i_row_filtered;
+    m_i_row_filtered_isSet = true;
 }
 
 bool OAIClonehistory_getList_v1_Response_mPayload::is_i_row_filtered_Set() const{
@@ -132,14 +116,25 @@ bool OAIClonehistory_getList_v1_Response_mPayload::is_i_row_filtered_Valid() con
     return m_i_row_filtered_isValid;
 }
 
+QList<OAIClonehistory_ListElement> OAIClonehistory_getList_v1_Response_mPayload::getAObjClonehistory() const {
+    return m_a_obj_clonehistory;
+}
+void OAIClonehistory_getList_v1_Response_mPayload::setAObjClonehistory(const QList<OAIClonehistory_ListElement> &a_obj_clonehistory) {
+    m_a_obj_clonehistory = a_obj_clonehistory;
+    m_a_obj_clonehistory_isSet = true;
+}
+
+bool OAIClonehistory_getList_v1_Response_mPayload::is_a_obj_clonehistory_Set() const{
+    return m_a_obj_clonehistory_isSet;
+}
+
+bool OAIClonehistory_getList_v1_Response_mPayload::is_a_obj_clonehistory_Valid() const{
+    return m_a_obj_clonehistory_isValid;
+}
+
 bool OAIClonehistory_getList_v1_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_clonehistory.size() > 0) {
-            isObjectUpdated = true;
-            break;
-        }
-
         if (m_i_row_returned_isSet) {
             isObjectUpdated = true;
             break;
@@ -149,13 +144,18 @@ bool OAIClonehistory_getList_v1_Response_mPayload::isSet() const {
             isObjectUpdated = true;
             break;
         }
+
+        if (m_a_obj_clonehistory.size() > 0) {
+            isObjectUpdated = true;
+            break;
+        }
     } while (false);
     return isObjectUpdated;
 }
 
 bool OAIClonehistory_getList_v1_Response_mPayload::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_a_obj_clonehistory_isValid && m_i_row_returned_isValid && m_i_row_filtered_isValid && true;
+    return m_i_row_returned_isValid && m_i_row_filtered_isValid && m_a_obj_clonehistory_isValid && true;
 }
 
 } // namespace OpenAPI

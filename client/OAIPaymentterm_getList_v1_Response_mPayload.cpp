@@ -34,14 +34,14 @@ OAIPaymentterm_getList_v1_Response_mPayload::~OAIPaymentterm_getList_v1_Response
 
 void OAIPaymentterm_getList_v1_Response_mPayload::initializeModel() {
 
-    m_a_obj_paymentterm_isSet = false;
-    m_a_obj_paymentterm_isValid = false;
-
     m_i_row_returned_isSet = false;
     m_i_row_returned_isValid = false;
 
     m_i_row_filtered_isSet = false;
     m_i_row_filtered_isValid = false;
+
+    m_a_obj_paymentterm_isSet = false;
+    m_a_obj_paymentterm_isValid = false;
 }
 
 void OAIPaymentterm_getList_v1_Response_mPayload::fromJson(QString jsonString) {
@@ -53,14 +53,14 @@ void OAIPaymentterm_getList_v1_Response_mPayload::fromJson(QString jsonString) {
 
 void OAIPaymentterm_getList_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_paymentterm_isValid = ::OpenAPI::fromJsonValue(a_obj_paymentterm, json[QString("a_objPaymentterm")]);
-    m_a_obj_paymentterm_isSet = !json[QString("a_objPaymentterm")].isNull() && m_a_obj_paymentterm_isValid;
-
-    m_i_row_returned_isValid = ::OpenAPI::fromJsonValue(i_row_returned, json[QString("iRowReturned")]);
+    m_i_row_returned_isValid = ::OpenAPI::fromJsonValue(m_i_row_returned, json[QString("iRowReturned")]);
     m_i_row_returned_isSet = !json[QString("iRowReturned")].isNull() && m_i_row_returned_isValid;
 
-    m_i_row_filtered_isValid = ::OpenAPI::fromJsonValue(i_row_filtered, json[QString("iRowFiltered")]);
+    m_i_row_filtered_isValid = ::OpenAPI::fromJsonValue(m_i_row_filtered, json[QString("iRowFiltered")]);
     m_i_row_filtered_isSet = !json[QString("iRowFiltered")].isNull() && m_i_row_filtered_isValid;
+
+    m_a_obj_paymentterm_isValid = ::OpenAPI::fromJsonValue(m_a_obj_paymentterm, json[QString("a_objPaymentterm")]);
+    m_a_obj_paymentterm_isSet = !json[QString("a_objPaymentterm")].isNull() && m_a_obj_paymentterm_isValid;
 }
 
 QString OAIPaymentterm_getList_v1_Response_mPayload::asJson() const {
@@ -72,40 +72,24 @@ QString OAIPaymentterm_getList_v1_Response_mPayload::asJson() const {
 
 QJsonObject OAIPaymentterm_getList_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_paymentterm.size() > 0) {
-        obj.insert(QString("a_objPaymentterm"), ::OpenAPI::toJsonValue(a_obj_paymentterm));
-    }
     if (m_i_row_returned_isSet) {
-        obj.insert(QString("iRowReturned"), ::OpenAPI::toJsonValue(i_row_returned));
+        obj.insert(QString("iRowReturned"), ::OpenAPI::toJsonValue(m_i_row_returned));
     }
     if (m_i_row_filtered_isSet) {
-        obj.insert(QString("iRowFiltered"), ::OpenAPI::toJsonValue(i_row_filtered));
+        obj.insert(QString("iRowFiltered"), ::OpenAPI::toJsonValue(m_i_row_filtered));
+    }
+    if (m_a_obj_paymentterm.size() > 0) {
+        obj.insert(QString("a_objPaymentterm"), ::OpenAPI::toJsonValue(m_a_obj_paymentterm));
     }
     return obj;
 }
 
-QList<OAIPaymentterm_ListElement> OAIPaymentterm_getList_v1_Response_mPayload::getAObjPaymentterm() const {
-    return a_obj_paymentterm;
-}
-void OAIPaymentterm_getList_v1_Response_mPayload::setAObjPaymentterm(const QList<OAIPaymentterm_ListElement> &a_obj_paymentterm) {
-    this->a_obj_paymentterm = a_obj_paymentterm;
-    this->m_a_obj_paymentterm_isSet = true;
-}
-
-bool OAIPaymentterm_getList_v1_Response_mPayload::is_a_obj_paymentterm_Set() const{
-    return m_a_obj_paymentterm_isSet;
-}
-
-bool OAIPaymentterm_getList_v1_Response_mPayload::is_a_obj_paymentterm_Valid() const{
-    return m_a_obj_paymentterm_isValid;
-}
-
 qint32 OAIPaymentterm_getList_v1_Response_mPayload::getIRowReturned() const {
-    return i_row_returned;
+    return m_i_row_returned;
 }
 void OAIPaymentterm_getList_v1_Response_mPayload::setIRowReturned(const qint32 &i_row_returned) {
-    this->i_row_returned = i_row_returned;
-    this->m_i_row_returned_isSet = true;
+    m_i_row_returned = i_row_returned;
+    m_i_row_returned_isSet = true;
 }
 
 bool OAIPaymentterm_getList_v1_Response_mPayload::is_i_row_returned_Set() const{
@@ -117,11 +101,11 @@ bool OAIPaymentterm_getList_v1_Response_mPayload::is_i_row_returned_Valid() cons
 }
 
 qint32 OAIPaymentterm_getList_v1_Response_mPayload::getIRowFiltered() const {
-    return i_row_filtered;
+    return m_i_row_filtered;
 }
 void OAIPaymentterm_getList_v1_Response_mPayload::setIRowFiltered(const qint32 &i_row_filtered) {
-    this->i_row_filtered = i_row_filtered;
-    this->m_i_row_filtered_isSet = true;
+    m_i_row_filtered = i_row_filtered;
+    m_i_row_filtered_isSet = true;
 }
 
 bool OAIPaymentterm_getList_v1_Response_mPayload::is_i_row_filtered_Set() const{
@@ -132,14 +116,25 @@ bool OAIPaymentterm_getList_v1_Response_mPayload::is_i_row_filtered_Valid() cons
     return m_i_row_filtered_isValid;
 }
 
+QList<OAIPaymentterm_ListElement> OAIPaymentterm_getList_v1_Response_mPayload::getAObjPaymentterm() const {
+    return m_a_obj_paymentterm;
+}
+void OAIPaymentterm_getList_v1_Response_mPayload::setAObjPaymentterm(const QList<OAIPaymentterm_ListElement> &a_obj_paymentterm) {
+    m_a_obj_paymentterm = a_obj_paymentterm;
+    m_a_obj_paymentterm_isSet = true;
+}
+
+bool OAIPaymentterm_getList_v1_Response_mPayload::is_a_obj_paymentterm_Set() const{
+    return m_a_obj_paymentterm_isSet;
+}
+
+bool OAIPaymentterm_getList_v1_Response_mPayload::is_a_obj_paymentterm_Valid() const{
+    return m_a_obj_paymentterm_isValid;
+}
+
 bool OAIPaymentterm_getList_v1_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_paymentterm.size() > 0) {
-            isObjectUpdated = true;
-            break;
-        }
-
         if (m_i_row_returned_isSet) {
             isObjectUpdated = true;
             break;
@@ -149,13 +144,18 @@ bool OAIPaymentterm_getList_v1_Response_mPayload::isSet() const {
             isObjectUpdated = true;
             break;
         }
+
+        if (m_a_obj_paymentterm.size() > 0) {
+            isObjectUpdated = true;
+            break;
+        }
     } while (false);
     return isObjectUpdated;
 }
 
 bool OAIPaymentterm_getList_v1_Response_mPayload::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_a_obj_paymentterm_isValid && m_i_row_returned_isValid && m_i_row_filtered_isValid && true;
+    return m_i_row_returned_isValid && m_i_row_filtered_isValid && m_a_obj_paymentterm_isValid && true;
 }
 
 } // namespace OpenAPI

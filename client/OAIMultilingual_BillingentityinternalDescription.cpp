@@ -50,10 +50,10 @@ void OAIMultilingual_BillingentityinternalDescription::fromJson(QString jsonStri
 
 void OAIMultilingual_BillingentityinternalDescription::fromJsonObject(QJsonObject json) {
 
-    m_s_billingentityinternal_description1_isValid = ::OpenAPI::fromJsonValue(s_billingentityinternal_description1, json[QString("sBillingentityinternalDescription1")]);
+    m_s_billingentityinternal_description1_isValid = ::OpenAPI::fromJsonValue(m_s_billingentityinternal_description1, json[QString("sBillingentityinternalDescription1")]);
     m_s_billingentityinternal_description1_isSet = !json[QString("sBillingentityinternalDescription1")].isNull() && m_s_billingentityinternal_description1_isValid;
 
-    m_s_billingentityinternal_description2_isValid = ::OpenAPI::fromJsonValue(s_billingentityinternal_description2, json[QString("sBillingentityinternalDescription2")]);
+    m_s_billingentityinternal_description2_isValid = ::OpenAPI::fromJsonValue(m_s_billingentityinternal_description2, json[QString("sBillingentityinternalDescription2")]);
     m_s_billingentityinternal_description2_isSet = !json[QString("sBillingentityinternalDescription2")].isNull() && m_s_billingentityinternal_description2_isValid;
 }
 
@@ -67,20 +67,20 @@ QString OAIMultilingual_BillingentityinternalDescription::asJson() const {
 QJsonObject OAIMultilingual_BillingentityinternalDescription::asJsonObject() const {
     QJsonObject obj;
     if (m_s_billingentityinternal_description1_isSet) {
-        obj.insert(QString("sBillingentityinternalDescription1"), ::OpenAPI::toJsonValue(s_billingentityinternal_description1));
+        obj.insert(QString("sBillingentityinternalDescription1"), ::OpenAPI::toJsonValue(m_s_billingentityinternal_description1));
     }
     if (m_s_billingentityinternal_description2_isSet) {
-        obj.insert(QString("sBillingentityinternalDescription2"), ::OpenAPI::toJsonValue(s_billingentityinternal_description2));
+        obj.insert(QString("sBillingentityinternalDescription2"), ::OpenAPI::toJsonValue(m_s_billingentityinternal_description2));
     }
     return obj;
 }
 
 QString OAIMultilingual_BillingentityinternalDescription::getSBillingentityinternalDescription1() const {
-    return s_billingentityinternal_description1;
+    return m_s_billingentityinternal_description1;
 }
 void OAIMultilingual_BillingentityinternalDescription::setSBillingentityinternalDescription1(const QString &s_billingentityinternal_description1) {
-    this->s_billingentityinternal_description1 = s_billingentityinternal_description1;
-    this->m_s_billingentityinternal_description1_isSet = true;
+    m_s_billingentityinternal_description1 = s_billingentityinternal_description1;
+    m_s_billingentityinternal_description1_isSet = true;
 }
 
 bool OAIMultilingual_BillingentityinternalDescription::is_s_billingentityinternal_description1_Set() const{
@@ -92,11 +92,11 @@ bool OAIMultilingual_BillingentityinternalDescription::is_s_billingentityinterna
 }
 
 QString OAIMultilingual_BillingentityinternalDescription::getSBillingentityinternalDescription2() const {
-    return s_billingentityinternal_description2;
+    return m_s_billingentityinternal_description2;
 }
 void OAIMultilingual_BillingentityinternalDescription::setSBillingentityinternalDescription2(const QString &s_billingentityinternal_description2) {
-    this->s_billingentityinternal_description2 = s_billingentityinternal_description2;
-    this->m_s_billingentityinternal_description2_isSet = true;
+    m_s_billingentityinternal_description2 = s_billingentityinternal_description2;
+    m_s_billingentityinternal_description2_isSet = true;
 }
 
 bool OAIMultilingual_BillingentityinternalDescription::is_s_billingentityinternal_description2_Set() const{

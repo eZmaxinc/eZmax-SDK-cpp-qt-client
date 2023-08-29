@@ -54,11 +54,11 @@ public:
 private:
     void initializeModel();
 
-    qint32 i_row_returned;
+    qint32 m_i_row_returned;
     bool m_i_row_returned_isSet;
     bool m_i_row_returned_isValid;
 
-    qint32 i_row_filtered;
+    qint32 m_i_row_filtered;
     bool m_i_row_filtered_isSet;
     bool m_i_row_filtered_isValid;
 };

@@ -95,43 +95,43 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_ezsignformfield_id;
+    qint32 m_pki_ezsignformfield_id;
     bool m_pki_ezsignformfield_id_isSet;
     bool m_pki_ezsignformfield_id_isValid;
 
-    qint32 i_ezsignpage_pagenumber;
+    qint32 m_i_ezsignpage_pagenumber;
     bool m_i_ezsignpage_pagenumber_isSet;
     bool m_i_ezsignpage_pagenumber_isValid;
 
-    QString s_ezsignformfield_label;
+    QString m_s_ezsignformfield_label;
     bool m_s_ezsignformfield_label_isSet;
     bool m_s_ezsignformfield_label_isValid;
 
-    QString s_ezsignformfield_value;
+    QString m_s_ezsignformfield_value;
     bool m_s_ezsignformfield_value_isSet;
     bool m_s_ezsignformfield_value_isValid;
 
-    qint32 i_ezsignformfield_x;
+    qint32 m_i_ezsignformfield_x;
     bool m_i_ezsignformfield_x_isSet;
     bool m_i_ezsignformfield_x_isValid;
 
-    qint32 i_ezsignformfield_y;
+    qint32 m_i_ezsignformfield_y;
     bool m_i_ezsignformfield_y_isSet;
     bool m_i_ezsignformfield_y_isValid;
 
-    qint32 i_ezsignformfield_width;
+    qint32 m_i_ezsignformfield_width;
     bool m_i_ezsignformfield_width_isSet;
     bool m_i_ezsignformfield_width_isValid;
 
-    qint32 i_ezsignformfield_height;
+    qint32 m_i_ezsignformfield_height;
     bool m_i_ezsignformfield_height_isSet;
     bool m_i_ezsignformfield_height_isValid;
 
-    bool b_ezsignformfield_selected;
+    bool m_b_ezsignformfield_selected;
     bool m_b_ezsignformfield_selected_isSet;
     bool m_b_ezsignformfield_selected_isValid;
 
-    QString s_ezsignformfield_enteredvalue;
+    QString m_s_ezsignformfield_enteredvalue;
     bool m_s_ezsignformfield_enteredvalue_isSet;
     bool m_s_ezsignformfield_enteredvalue_isValid;
 };

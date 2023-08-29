@@ -61,15 +61,15 @@ public:
 private:
     void initializeModel();
 
-    OAICommon_Reportsubsectionpart obj_reportsubsectionpart_header;
+    OAICommon_Reportsubsectionpart m_obj_reportsubsectionpart_header;
     bool m_obj_reportsubsectionpart_header_isSet;
     bool m_obj_reportsubsectionpart_header_isValid;
 
-    OAICommon_Reportsubsectionpart obj_reportsubsectionpart_body;
+    OAICommon_Reportsubsectionpart m_obj_reportsubsectionpart_body;
     bool m_obj_reportsubsectionpart_body_isSet;
     bool m_obj_reportsubsectionpart_body_isValid;
 
-    OAICommon_Reportsubsectionpart obj_reportsubsectionpart_footer;
+    OAICommon_Reportsubsectionpart m_obj_reportsubsectionpart_footer;
     bool m_obj_reportsubsectionpart_footer_isSet;
     bool m_obj_reportsubsectionpart_footer_isValid;
 };

@@ -47,7 +47,7 @@ void OAIVariableexpense_getAutocomplete_v2_Response_mPayload::fromJson(QString j
 
 void OAIVariableexpense_getAutocomplete_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_variableexpense_isValid = ::OpenAPI::fromJsonValue(a_obj_variableexpense, json[QString("a_objVariableexpense")]);
+    m_a_obj_variableexpense_isValid = ::OpenAPI::fromJsonValue(m_a_obj_variableexpense, json[QString("a_objVariableexpense")]);
     m_a_obj_variableexpense_isSet = !json[QString("a_objVariableexpense")].isNull() && m_a_obj_variableexpense_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIVariableexpense_getAutocomplete_v2_Response_mPayload::asJson() const 
 
 QJsonObject OAIVariableexpense_getAutocomplete_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_variableexpense.size() > 0) {
-        obj.insert(QString("a_objVariableexpense"), ::OpenAPI::toJsonValue(a_obj_variableexpense));
+    if (m_a_obj_variableexpense.size() > 0) {
+        obj.insert(QString("a_objVariableexpense"), ::OpenAPI::toJsonValue(m_a_obj_variableexpense));
     }
     return obj;
 }
 
 QList<OAIVariableexpense_AutocompleteElement_Response> OAIVariableexpense_getAutocomplete_v2_Response_mPayload::getAObjVariableexpense() const {
-    return a_obj_variableexpense;
+    return m_a_obj_variableexpense;
 }
 void OAIVariableexpense_getAutocomplete_v2_Response_mPayload::setAObjVariableexpense(const QList<OAIVariableexpense_AutocompleteElement_Response> &a_obj_variableexpense) {
-    this->a_obj_variableexpense = a_obj_variableexpense;
-    this->m_a_obj_variableexpense_isSet = true;
+    m_a_obj_variableexpense = a_obj_variableexpense;
+    m_a_obj_variableexpense_isSet = true;
 }
 
 bool OAIVariableexpense_getAutocomplete_v2_Response_mPayload::is_a_obj_variableexpense_Set() const{
@@ -85,7 +85,7 @@ bool OAIVariableexpense_getAutocomplete_v2_Response_mPayload::is_a_obj_variablee
 bool OAIVariableexpense_getAutocomplete_v2_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_variableexpense.size() > 0) {
+        if (m_a_obj_variableexpense.size() > 0) {
             isObjectUpdated = true;
             break;
         }

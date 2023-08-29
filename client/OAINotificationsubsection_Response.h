@@ -72,23 +72,23 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_notificationsubsection_id;
+    qint32 m_pki_notificationsubsection_id;
     bool m_pki_notificationsubsection_id_isSet;
     bool m_pki_notificationsubsection_id_isValid;
 
-    qint32 fki_notificationsection_id;
+    qint32 m_fki_notificationsection_id;
     bool m_fki_notificationsection_id_isSet;
     bool m_fki_notificationsection_id_isValid;
 
-    OAIMultilingual_NotificationsubsectionName obj_notificationsubsection_name;
+    OAIMultilingual_NotificationsubsectionName m_obj_notificationsubsection_name;
     bool m_obj_notificationsubsection_name_isSet;
     bool m_obj_notificationsubsection_name_isValid;
 
-    QString s_notificationsection_name_x;
+    QString m_s_notificationsection_name_x;
     bool m_s_notificationsection_name_x_isSet;
     bool m_s_notificationsection_name_x_isValid;
 
-    QString s_notificationsubsection_name_x;
+    QString m_s_notificationsubsection_name_x;
     bool m_s_notificationsubsection_name_x_isSet;
     bool m_s_notificationsubsection_name_x_isValid;
 };

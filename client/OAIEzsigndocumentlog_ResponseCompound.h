@@ -86,35 +86,35 @@ public:
 private:
     void initializeModel();
 
-    qint32 fki_user_id;
+    qint32 m_fki_user_id;
     bool m_fki_user_id_isSet;
     bool m_fki_user_id_isValid;
 
-    qint32 fki_ezsignsigner_id;
+    qint32 m_fki_ezsignsigner_id;
     bool m_fki_ezsignsigner_id_isSet;
     bool m_fki_ezsignsigner_id_isValid;
 
-    QString dt_ezsigndocumentlog_datetime;
+    QString m_dt_ezsigndocumentlog_datetime;
     bool m_dt_ezsigndocumentlog_datetime_isSet;
     bool m_dt_ezsigndocumentlog_datetime_isValid;
 
-    OAIField_eEzsigndocumentlogType e_ezsigndocumentlog_type;
+    OAIField_eEzsigndocumentlogType m_e_ezsigndocumentlog_type;
     bool m_e_ezsigndocumentlog_type_isSet;
     bool m_e_ezsigndocumentlog_type_isValid;
 
-    QString s_ezsigndocumentlog_detail;
+    QString m_s_ezsigndocumentlog_detail;
     bool m_s_ezsigndocumentlog_detail_isSet;
     bool m_s_ezsigndocumentlog_detail_isValid;
 
-    QString s_ezsigndocumentlog_lastname;
+    QString m_s_ezsigndocumentlog_lastname;
     bool m_s_ezsigndocumentlog_lastname_isSet;
     bool m_s_ezsigndocumentlog_lastname_isValid;
 
-    QString s_ezsigndocumentlog_firstname;
+    QString m_s_ezsigndocumentlog_firstname;
     bool m_s_ezsigndocumentlog_firstname_isSet;
     bool m_s_ezsigndocumentlog_firstname_isValid;
 
-    QString s_ezsigndocumentlog_ip;
+    QString m_s_ezsigndocumentlog_ip;
     bool m_s_ezsigndocumentlog_ip_isSet;
     bool m_s_ezsigndocumentlog_ip_isValid;
 };

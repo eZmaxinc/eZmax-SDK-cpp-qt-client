@@ -53,13 +53,13 @@ void OAIScim_ServiceProviderConfig_bulk::fromJson(QString jsonString) {
 
 void OAIScim_ServiceProviderConfig_bulk::fromJsonObject(QJsonObject json) {
 
-    m_supported_isValid = ::OpenAPI::fromJsonValue(supported, json[QString("supported")]);
+    m_supported_isValid = ::OpenAPI::fromJsonValue(m_supported, json[QString("supported")]);
     m_supported_isSet = !json[QString("supported")].isNull() && m_supported_isValid;
 
-    m_max_operations_isValid = ::OpenAPI::fromJsonValue(max_operations, json[QString("maxOperations")]);
+    m_max_operations_isValid = ::OpenAPI::fromJsonValue(m_max_operations, json[QString("maxOperations")]);
     m_max_operations_isSet = !json[QString("maxOperations")].isNull() && m_max_operations_isValid;
 
-    m_max_payload_size_isValid = ::OpenAPI::fromJsonValue(max_payload_size, json[QString("maxPayloadSize")]);
+    m_max_payload_size_isValid = ::OpenAPI::fromJsonValue(m_max_payload_size, json[QString("maxPayloadSize")]);
     m_max_payload_size_isSet = !json[QString("maxPayloadSize")].isNull() && m_max_payload_size_isValid;
 }
 
@@ -73,23 +73,23 @@ QString OAIScim_ServiceProviderConfig_bulk::asJson() const {
 QJsonObject OAIScim_ServiceProviderConfig_bulk::asJsonObject() const {
     QJsonObject obj;
     if (m_supported_isSet) {
-        obj.insert(QString("supported"), ::OpenAPI::toJsonValue(supported));
+        obj.insert(QString("supported"), ::OpenAPI::toJsonValue(m_supported));
     }
     if (m_max_operations_isSet) {
-        obj.insert(QString("maxOperations"), ::OpenAPI::toJsonValue(max_operations));
+        obj.insert(QString("maxOperations"), ::OpenAPI::toJsonValue(m_max_operations));
     }
     if (m_max_payload_size_isSet) {
-        obj.insert(QString("maxPayloadSize"), ::OpenAPI::toJsonValue(max_payload_size));
+        obj.insert(QString("maxPayloadSize"), ::OpenAPI::toJsonValue(m_max_payload_size));
     }
     return obj;
 }
 
 bool OAIScim_ServiceProviderConfig_bulk::isSupported() const {
-    return supported;
+    return m_supported;
 }
 void OAIScim_ServiceProviderConfig_bulk::setSupported(const bool &supported) {
-    this->supported = supported;
-    this->m_supported_isSet = true;
+    m_supported = supported;
+    m_supported_isSet = true;
 }
 
 bool OAIScim_ServiceProviderConfig_bulk::is_supported_Set() const{
@@ -101,11 +101,11 @@ bool OAIScim_ServiceProviderConfig_bulk::is_supported_Valid() const{
 }
 
 qint32 OAIScim_ServiceProviderConfig_bulk::getMaxOperations() const {
-    return max_operations;
+    return m_max_operations;
 }
 void OAIScim_ServiceProviderConfig_bulk::setMaxOperations(const qint32 &max_operations) {
-    this->max_operations = max_operations;
-    this->m_max_operations_isSet = true;
+    m_max_operations = max_operations;
+    m_max_operations_isSet = true;
 }
 
 bool OAIScim_ServiceProviderConfig_bulk::is_max_operations_Set() const{
@@ -117,11 +117,11 @@ bool OAIScim_ServiceProviderConfig_bulk::is_max_operations_Valid() const{
 }
 
 qint32 OAIScim_ServiceProviderConfig_bulk::getMaxPayloadSize() const {
-    return max_payload_size;
+    return m_max_payload_size;
 }
 void OAIScim_ServiceProviderConfig_bulk::setMaxPayloadSize(const qint32 &max_payload_size) {
-    this->max_payload_size = max_payload_size;
-    this->m_max_payload_size_isSet = true;
+    m_max_payload_size = max_payload_size;
+    m_max_payload_size_isSet = true;
 }
 
 bool OAIScim_ServiceProviderConfig_bulk::is_max_payload_size_Set() const{

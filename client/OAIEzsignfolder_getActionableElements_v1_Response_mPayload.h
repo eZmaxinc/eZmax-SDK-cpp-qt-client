@@ -59,11 +59,11 @@ public:
 private:
     void initializeModel();
 
-    QList<OAIEzsignsignature_ResponseCompound> a_obj_ezsignsignature;
+    QList<OAIEzsignsignature_ResponseCompound> m_a_obj_ezsignsignature;
     bool m_a_obj_ezsignsignature_isSet;
     bool m_a_obj_ezsignsignature_isValid;
 
-    QList<OAIEzsignformfieldgroup_ResponseCompound> a_obj_ezsignformfieldgroup;
+    QList<OAIEzsignformfieldgroup_ResponseCompound> m_a_obj_ezsignformfieldgroup;
     bool m_a_obj_ezsignformfieldgroup_isSet;
     bool m_a_obj_ezsignformfieldgroup_isValid;
 };

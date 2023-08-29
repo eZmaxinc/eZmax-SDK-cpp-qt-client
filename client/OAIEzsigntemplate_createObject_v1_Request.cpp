@@ -47,7 +47,7 @@ void OAIEzsigntemplate_createObject_v1_Request::fromJson(QString jsonString) {
 
 void OAIEzsigntemplate_createObject_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_ezsigntemplate_isValid = ::OpenAPI::fromJsonValue(a_obj_ezsigntemplate, json[QString("a_objEzsigntemplate")]);
+    m_a_obj_ezsigntemplate_isValid = ::OpenAPI::fromJsonValue(m_a_obj_ezsigntemplate, json[QString("a_objEzsigntemplate")]);
     m_a_obj_ezsigntemplate_isSet = !json[QString("a_objEzsigntemplate")].isNull() && m_a_obj_ezsigntemplate_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIEzsigntemplate_createObject_v1_Request::asJson() const {
 
 QJsonObject OAIEzsigntemplate_createObject_v1_Request::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_ezsigntemplate.size() > 0) {
-        obj.insert(QString("a_objEzsigntemplate"), ::OpenAPI::toJsonValue(a_obj_ezsigntemplate));
+    if (m_a_obj_ezsigntemplate.size() > 0) {
+        obj.insert(QString("a_objEzsigntemplate"), ::OpenAPI::toJsonValue(m_a_obj_ezsigntemplate));
     }
     return obj;
 }
 
 QList<OAIEzsigntemplate_RequestCompound> OAIEzsigntemplate_createObject_v1_Request::getAObjEzsigntemplate() const {
-    return a_obj_ezsigntemplate;
+    return m_a_obj_ezsigntemplate;
 }
 void OAIEzsigntemplate_createObject_v1_Request::setAObjEzsigntemplate(const QList<OAIEzsigntemplate_RequestCompound> &a_obj_ezsigntemplate) {
-    this->a_obj_ezsigntemplate = a_obj_ezsigntemplate;
-    this->m_a_obj_ezsigntemplate_isSet = true;
+    m_a_obj_ezsigntemplate = a_obj_ezsigntemplate;
+    m_a_obj_ezsigntemplate_isSet = true;
 }
 
 bool OAIEzsigntemplate_createObject_v1_Request::is_a_obj_ezsigntemplate_Set() const{
@@ -85,7 +85,7 @@ bool OAIEzsigntemplate_createObject_v1_Request::is_a_obj_ezsigntemplate_Valid() 
 bool OAIEzsigntemplate_createObject_v1_Request::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_ezsigntemplate.size() > 0) {
+        if (m_a_obj_ezsigntemplate.size() > 0) {
             isObjectUpdated = true;
             break;
         }

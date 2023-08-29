@@ -50,10 +50,10 @@ void OAIBillingentityinternal_ListElement::fromJson(QString jsonString) {
 
 void OAIBillingentityinternal_ListElement::fromJsonObject(QJsonObject json) {
 
-    m_pki_billingentityinternal_id_isValid = ::OpenAPI::fromJsonValue(pki_billingentityinternal_id, json[QString("pkiBillingentityinternalID")]);
+    m_pki_billingentityinternal_id_isValid = ::OpenAPI::fromJsonValue(m_pki_billingentityinternal_id, json[QString("pkiBillingentityinternalID")]);
     m_pki_billingentityinternal_id_isSet = !json[QString("pkiBillingentityinternalID")].isNull() && m_pki_billingentityinternal_id_isValid;
 
-    m_s_billingentityinternal_description_x_isValid = ::OpenAPI::fromJsonValue(s_billingentityinternal_description_x, json[QString("sBillingentityinternalDescriptionX")]);
+    m_s_billingentityinternal_description_x_isValid = ::OpenAPI::fromJsonValue(m_s_billingentityinternal_description_x, json[QString("sBillingentityinternalDescriptionX")]);
     m_s_billingentityinternal_description_x_isSet = !json[QString("sBillingentityinternalDescriptionX")].isNull() && m_s_billingentityinternal_description_x_isValid;
 }
 
@@ -67,20 +67,20 @@ QString OAIBillingentityinternal_ListElement::asJson() const {
 QJsonObject OAIBillingentityinternal_ListElement::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_billingentityinternal_id_isSet) {
-        obj.insert(QString("pkiBillingentityinternalID"), ::OpenAPI::toJsonValue(pki_billingentityinternal_id));
+        obj.insert(QString("pkiBillingentityinternalID"), ::OpenAPI::toJsonValue(m_pki_billingentityinternal_id));
     }
     if (m_s_billingentityinternal_description_x_isSet) {
-        obj.insert(QString("sBillingentityinternalDescriptionX"), ::OpenAPI::toJsonValue(s_billingentityinternal_description_x));
+        obj.insert(QString("sBillingentityinternalDescriptionX"), ::OpenAPI::toJsonValue(m_s_billingentityinternal_description_x));
     }
     return obj;
 }
 
 qint32 OAIBillingentityinternal_ListElement::getPkiBillingentityinternalId() const {
-    return pki_billingentityinternal_id;
+    return m_pki_billingentityinternal_id;
 }
 void OAIBillingentityinternal_ListElement::setPkiBillingentityinternalId(const qint32 &pki_billingentityinternal_id) {
-    this->pki_billingentityinternal_id = pki_billingentityinternal_id;
-    this->m_pki_billingentityinternal_id_isSet = true;
+    m_pki_billingentityinternal_id = pki_billingentityinternal_id;
+    m_pki_billingentityinternal_id_isSet = true;
 }
 
 bool OAIBillingentityinternal_ListElement::is_pki_billingentityinternal_id_Set() const{
@@ -92,11 +92,11 @@ bool OAIBillingentityinternal_ListElement::is_pki_billingentityinternal_id_Valid
 }
 
 QString OAIBillingentityinternal_ListElement::getSBillingentityinternalDescriptionX() const {
-    return s_billingentityinternal_description_x;
+    return m_s_billingentityinternal_description_x;
 }
 void OAIBillingentityinternal_ListElement::setSBillingentityinternalDescriptionX(const QString &s_billingentityinternal_description_x) {
-    this->s_billingentityinternal_description_x = s_billingentityinternal_description_x;
-    this->m_s_billingentityinternal_description_x_isSet = true;
+    m_s_billingentityinternal_description_x = s_billingentityinternal_description_x;
+    m_s_billingentityinternal_description_x_isSet = true;
 }
 
 bool OAIBillingentityinternal_ListElement::is_s_billingentityinternal_description_x_Set() const{

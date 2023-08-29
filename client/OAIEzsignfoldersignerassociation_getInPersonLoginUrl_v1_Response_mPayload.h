@@ -50,7 +50,7 @@ public:
 private:
     void initializeModel();
 
-    QString s_login_url;
+    QString m_s_login_url;
     bool m_s_login_url_isSet;
     bool m_s_login_url_isValid;
 };

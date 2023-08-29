@@ -84,35 +84,35 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_textstylestatic_id;
+    qint32 m_pki_textstylestatic_id;
     bool m_pki_textstylestatic_id_isSet;
     bool m_pki_textstylestatic_id_isValid;
 
-    qint32 fki_font_id;
+    qint32 m_fki_font_id;
     bool m_fki_font_id_isSet;
     bool m_fki_font_id_isValid;
 
-    bool b_textstylestatic_bold;
+    bool m_b_textstylestatic_bold;
     bool m_b_textstylestatic_bold_isSet;
     bool m_b_textstylestatic_bold_isValid;
 
-    bool b_textstylestatic_underline;
+    bool m_b_textstylestatic_underline;
     bool m_b_textstylestatic_underline_isSet;
     bool m_b_textstylestatic_underline_isValid;
 
-    bool b_textstylestatic_italic;
+    bool m_b_textstylestatic_italic;
     bool m_b_textstylestatic_italic_isSet;
     bool m_b_textstylestatic_italic_isValid;
 
-    bool b_textstylestatic_strikethrough;
+    bool m_b_textstylestatic_strikethrough;
     bool m_b_textstylestatic_strikethrough_isSet;
     bool m_b_textstylestatic_strikethrough_isValid;
 
-    qint32 i_textstylestatic_fontcolor;
+    qint32 m_i_textstylestatic_fontcolor;
     bool m_i_textstylestatic_fontcolor_isSet;
     bool m_i_textstylestatic_fontcolor_isValid;
 
-    qint32 i_textstylestatic_size;
+    qint32 m_i_textstylestatic_size;
     bool m_i_textstylestatic_size_isSet;
     bool m_i_textstylestatic_size_isValid;
 };

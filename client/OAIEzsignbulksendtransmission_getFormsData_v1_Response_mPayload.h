@@ -52,7 +52,7 @@ public:
 private:
     void initializeModel();
 
-    QList<OAICustom_FormsDataFolder_Response> a_obj_forms_data_folder;
+    QList<OAICustom_FormsDataFolder_Response> m_a_obj_forms_data_folder;
     bool m_a_obj_forms_data_folder_isSet;
     bool m_a_obj_forms_data_folder_isValid;
 };

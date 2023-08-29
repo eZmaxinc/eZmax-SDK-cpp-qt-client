@@ -52,7 +52,7 @@ public:
 private:
     void initializeModel();
 
-    QList<OAIEmailtype_AutocompleteElement_Response> a_obj_emailtype;
+    QList<OAIEmailtype_AutocompleteElement_Response> m_a_obj_emailtype;
     bool m_a_obj_emailtype_isSet;
     bool m_a_obj_emailtype_isValid;
 };

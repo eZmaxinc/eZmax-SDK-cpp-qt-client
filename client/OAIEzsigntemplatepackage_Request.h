@@ -75,27 +75,27 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_ezsigntemplatepackage_id;
+    qint32 m_pki_ezsigntemplatepackage_id;
     bool m_pki_ezsigntemplatepackage_id_isSet;
     bool m_pki_ezsigntemplatepackage_id_isValid;
 
-    qint32 fki_ezsignfoldertype_id;
+    qint32 m_fki_ezsignfoldertype_id;
     bool m_fki_ezsignfoldertype_id_isSet;
     bool m_fki_ezsignfoldertype_id_isValid;
 
-    qint32 fki_language_id;
+    qint32 m_fki_language_id;
     bool m_fki_language_id_isSet;
     bool m_fki_language_id_isValid;
 
-    QString s_ezsigntemplatepackage_description;
+    QString m_s_ezsigntemplatepackage_description;
     bool m_s_ezsigntemplatepackage_description_isSet;
     bool m_s_ezsigntemplatepackage_description_isValid;
 
-    bool b_ezsigntemplatepackage_adminonly;
+    bool m_b_ezsigntemplatepackage_adminonly;
     bool m_b_ezsigntemplatepackage_adminonly_isSet;
     bool m_b_ezsigntemplatepackage_adminonly_isValid;
 
-    bool b_ezsigntemplatepackage_isactive;
+    bool m_b_ezsigntemplatepackage_isactive;
     bool m_b_ezsigntemplatepackage_isactive_isSet;
     bool m_b_ezsigntemplatepackage_isactive_isValid;
 };

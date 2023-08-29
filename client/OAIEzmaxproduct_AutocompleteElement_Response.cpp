@@ -53,13 +53,13 @@ void OAIEzmaxproduct_AutocompleteElement_Response::fromJson(QString jsonString) 
 
 void OAIEzmaxproduct_AutocompleteElement_Response::fromJsonObject(QJsonObject json) {
 
-    m_pki_ezmaxproduct_id_isValid = ::OpenAPI::fromJsonValue(pki_ezmaxproduct_id, json[QString("pkiEzmaxproductID")]);
+    m_pki_ezmaxproduct_id_isValid = ::OpenAPI::fromJsonValue(m_pki_ezmaxproduct_id, json[QString("pkiEzmaxproductID")]);
     m_pki_ezmaxproduct_id_isSet = !json[QString("pkiEzmaxproductID")].isNull() && m_pki_ezmaxproduct_id_isValid;
 
-    m_s_ezmaxproduct_description_x_isValid = ::OpenAPI::fromJsonValue(s_ezmaxproduct_description_x, json[QString("sEzmaxproductDescriptionX")]);
+    m_s_ezmaxproduct_description_x_isValid = ::OpenAPI::fromJsonValue(m_s_ezmaxproduct_description_x, json[QString("sEzmaxproductDescriptionX")]);
     m_s_ezmaxproduct_description_x_isSet = !json[QString("sEzmaxproductDescriptionX")].isNull() && m_s_ezmaxproduct_description_x_isValid;
 
-    m_b_ezmaxproduct_isactive_isValid = ::OpenAPI::fromJsonValue(b_ezmaxproduct_isactive, json[QString("bEzmaxproductIsactive")]);
+    m_b_ezmaxproduct_isactive_isValid = ::OpenAPI::fromJsonValue(m_b_ezmaxproduct_isactive, json[QString("bEzmaxproductIsactive")]);
     m_b_ezmaxproduct_isactive_isSet = !json[QString("bEzmaxproductIsactive")].isNull() && m_b_ezmaxproduct_isactive_isValid;
 }
 
@@ -73,23 +73,23 @@ QString OAIEzmaxproduct_AutocompleteElement_Response::asJson() const {
 QJsonObject OAIEzmaxproduct_AutocompleteElement_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_ezmaxproduct_id_isSet) {
-        obj.insert(QString("pkiEzmaxproductID"), ::OpenAPI::toJsonValue(pki_ezmaxproduct_id));
+        obj.insert(QString("pkiEzmaxproductID"), ::OpenAPI::toJsonValue(m_pki_ezmaxproduct_id));
     }
     if (m_s_ezmaxproduct_description_x_isSet) {
-        obj.insert(QString("sEzmaxproductDescriptionX"), ::OpenAPI::toJsonValue(s_ezmaxproduct_description_x));
+        obj.insert(QString("sEzmaxproductDescriptionX"), ::OpenAPI::toJsonValue(m_s_ezmaxproduct_description_x));
     }
     if (m_b_ezmaxproduct_isactive_isSet) {
-        obj.insert(QString("bEzmaxproductIsactive"), ::OpenAPI::toJsonValue(b_ezmaxproduct_isactive));
+        obj.insert(QString("bEzmaxproductIsactive"), ::OpenAPI::toJsonValue(m_b_ezmaxproduct_isactive));
     }
     return obj;
 }
 
 qint32 OAIEzmaxproduct_AutocompleteElement_Response::getPkiEzmaxproductId() const {
-    return pki_ezmaxproduct_id;
+    return m_pki_ezmaxproduct_id;
 }
 void OAIEzmaxproduct_AutocompleteElement_Response::setPkiEzmaxproductId(const qint32 &pki_ezmaxproduct_id) {
-    this->pki_ezmaxproduct_id = pki_ezmaxproduct_id;
-    this->m_pki_ezmaxproduct_id_isSet = true;
+    m_pki_ezmaxproduct_id = pki_ezmaxproduct_id;
+    m_pki_ezmaxproduct_id_isSet = true;
 }
 
 bool OAIEzmaxproduct_AutocompleteElement_Response::is_pki_ezmaxproduct_id_Set() const{
@@ -101,11 +101,11 @@ bool OAIEzmaxproduct_AutocompleteElement_Response::is_pki_ezmaxproduct_id_Valid(
 }
 
 QString OAIEzmaxproduct_AutocompleteElement_Response::getSEzmaxproductDescriptionX() const {
-    return s_ezmaxproduct_description_x;
+    return m_s_ezmaxproduct_description_x;
 }
 void OAIEzmaxproduct_AutocompleteElement_Response::setSEzmaxproductDescriptionX(const QString &s_ezmaxproduct_description_x) {
-    this->s_ezmaxproduct_description_x = s_ezmaxproduct_description_x;
-    this->m_s_ezmaxproduct_description_x_isSet = true;
+    m_s_ezmaxproduct_description_x = s_ezmaxproduct_description_x;
+    m_s_ezmaxproduct_description_x_isSet = true;
 }
 
 bool OAIEzmaxproduct_AutocompleteElement_Response::is_s_ezmaxproduct_description_x_Set() const{
@@ -117,11 +117,11 @@ bool OAIEzmaxproduct_AutocompleteElement_Response::is_s_ezmaxproduct_description
 }
 
 bool OAIEzmaxproduct_AutocompleteElement_Response::isBEzmaxproductIsactive() const {
-    return b_ezmaxproduct_isactive;
+    return m_b_ezmaxproduct_isactive;
 }
 void OAIEzmaxproduct_AutocompleteElement_Response::setBEzmaxproductIsactive(const bool &b_ezmaxproduct_isactive) {
-    this->b_ezmaxproduct_isactive = b_ezmaxproduct_isactive;
-    this->m_b_ezmaxproduct_isactive_isSet = true;
+    m_b_ezmaxproduct_isactive = b_ezmaxproduct_isactive;
+    m_b_ezmaxproduct_isactive_isSet = true;
 }
 
 bool OAIEzmaxproduct_AutocompleteElement_Response::is_b_ezmaxproduct_isactive_Set() const{

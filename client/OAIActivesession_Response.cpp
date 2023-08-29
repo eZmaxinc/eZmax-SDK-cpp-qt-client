@@ -77,37 +77,37 @@ void OAIActivesession_Response::fromJson(QString jsonString) {
 
 void OAIActivesession_Response::fromJsonObject(QJsonObject json) {
 
-    m_e_activesession_usertype_isValid = ::OpenAPI::fromJsonValue(e_activesession_usertype, json[QString("eActivesessionUsertype")]);
+    m_e_activesession_usertype_isValid = ::OpenAPI::fromJsonValue(m_e_activesession_usertype, json[QString("eActivesessionUsertype")]);
     m_e_activesession_usertype_isSet = !json[QString("eActivesessionUsertype")].isNull() && m_e_activesession_usertype_isValid;
 
-    m_e_activesession_origin_isValid = ::OpenAPI::fromJsonValue(e_activesession_origin, json[QString("eActivesessionOrigin")]);
+    m_e_activesession_origin_isValid = ::OpenAPI::fromJsonValue(m_e_activesession_origin, json[QString("eActivesessionOrigin")]);
     m_e_activesession_origin_isSet = !json[QString("eActivesessionOrigin")].isNull() && m_e_activesession_origin_isValid;
 
-    m_e_activesession_weekdaystart_isValid = ::OpenAPI::fromJsonValue(e_activesession_weekdaystart, json[QString("eActivesessionWeekdaystart")]);
+    m_e_activesession_weekdaystart_isValid = ::OpenAPI::fromJsonValue(m_e_activesession_weekdaystart, json[QString("eActivesessionWeekdaystart")]);
     m_e_activesession_weekdaystart_isSet = !json[QString("eActivesessionWeekdaystart")].isNull() && m_e_activesession_weekdaystart_isValid;
 
-    m_fki_language_id_isValid = ::OpenAPI::fromJsonValue(fki_language_id, json[QString("fkiLanguageID")]);
+    m_fki_language_id_isValid = ::OpenAPI::fromJsonValue(m_fki_language_id, json[QString("fkiLanguageID")]);
     m_fki_language_id_isSet = !json[QString("fkiLanguageID")].isNull() && m_fki_language_id_isValid;
 
-    m_s_company_name_x_isValid = ::OpenAPI::fromJsonValue(s_company_name_x, json[QString("sCompanyNameX")]);
+    m_s_company_name_x_isValid = ::OpenAPI::fromJsonValue(m_s_company_name_x, json[QString("sCompanyNameX")]);
     m_s_company_name_x_isSet = !json[QString("sCompanyNameX")].isNull() && m_s_company_name_x_isValid;
 
-    m_s_department_name_x_isValid = ::OpenAPI::fromJsonValue(s_department_name_x, json[QString("sDepartmentNameX")]);
+    m_s_department_name_x_isValid = ::OpenAPI::fromJsonValue(m_s_department_name_x, json[QString("sDepartmentNameX")]);
     m_s_department_name_x_isSet = !json[QString("sDepartmentNameX")].isNull() && m_s_department_name_x_isValid;
 
-    m_b_activesession_debug_isValid = ::OpenAPI::fromJsonValue(b_activesession_debug, json[QString("bActivesessionDebug")]);
+    m_b_activesession_debug_isValid = ::OpenAPI::fromJsonValue(m_b_activesession_debug, json[QString("bActivesessionDebug")]);
     m_b_activesession_debug_isSet = !json[QString("bActivesessionDebug")].isNull() && m_b_activesession_debug_isValid;
 
-    m_b_activesession_issuperadmin_isValid = ::OpenAPI::fromJsonValue(b_activesession_issuperadmin, json[QString("bActivesessionIssuperadmin")]);
+    m_b_activesession_issuperadmin_isValid = ::OpenAPI::fromJsonValue(m_b_activesession_issuperadmin, json[QString("bActivesessionIssuperadmin")]);
     m_b_activesession_issuperadmin_isSet = !json[QString("bActivesessionIssuperadmin")].isNull() && m_b_activesession_issuperadmin_isValid;
 
-    m_pks_customer_code_isValid = ::OpenAPI::fromJsonValue(pks_customer_code, json[QString("pksCustomerCode")]);
+    m_pks_customer_code_isValid = ::OpenAPI::fromJsonValue(m_pks_customer_code, json[QString("pksCustomerCode")]);
     m_pks_customer_code_isSet = !json[QString("pksCustomerCode")].isNull() && m_pks_customer_code_isValid;
 
-    m_fki_systemconfigurationtype_id_isValid = ::OpenAPI::fromJsonValue(fki_systemconfigurationtype_id, json[QString("fkiSystemconfigurationtypeID")]);
+    m_fki_systemconfigurationtype_id_isValid = ::OpenAPI::fromJsonValue(m_fki_systemconfigurationtype_id, json[QString("fkiSystemconfigurationtypeID")]);
     m_fki_systemconfigurationtype_id_isSet = !json[QString("fkiSystemconfigurationtypeID")].isNull() && m_fki_systemconfigurationtype_id_isValid;
 
-    m_fki_signature_id_isValid = ::OpenAPI::fromJsonValue(fki_signature_id, json[QString("fkiSignatureID")]);
+    m_fki_signature_id_isValid = ::OpenAPI::fromJsonValue(m_fki_signature_id, json[QString("fkiSignatureID")]);
     m_fki_signature_id_isSet = !json[QString("fkiSignatureID")].isNull() && m_fki_signature_id_isValid;
 }
 
@@ -120,48 +120,48 @@ QString OAIActivesession_Response::asJson() const {
 
 QJsonObject OAIActivesession_Response::asJsonObject() const {
     QJsonObject obj;
-    if (e_activesession_usertype.isSet()) {
-        obj.insert(QString("eActivesessionUsertype"), ::OpenAPI::toJsonValue(e_activesession_usertype));
+    if (m_e_activesession_usertype.isSet()) {
+        obj.insert(QString("eActivesessionUsertype"), ::OpenAPI::toJsonValue(m_e_activesession_usertype));
     }
-    if (e_activesession_origin.isSet()) {
-        obj.insert(QString("eActivesessionOrigin"), ::OpenAPI::toJsonValue(e_activesession_origin));
+    if (m_e_activesession_origin.isSet()) {
+        obj.insert(QString("eActivesessionOrigin"), ::OpenAPI::toJsonValue(m_e_activesession_origin));
     }
-    if (e_activesession_weekdaystart.isSet()) {
-        obj.insert(QString("eActivesessionWeekdaystart"), ::OpenAPI::toJsonValue(e_activesession_weekdaystart));
+    if (m_e_activesession_weekdaystart.isSet()) {
+        obj.insert(QString("eActivesessionWeekdaystart"), ::OpenAPI::toJsonValue(m_e_activesession_weekdaystart));
     }
     if (m_fki_language_id_isSet) {
-        obj.insert(QString("fkiLanguageID"), ::OpenAPI::toJsonValue(fki_language_id));
+        obj.insert(QString("fkiLanguageID"), ::OpenAPI::toJsonValue(m_fki_language_id));
     }
     if (m_s_company_name_x_isSet) {
-        obj.insert(QString("sCompanyNameX"), ::OpenAPI::toJsonValue(s_company_name_x));
+        obj.insert(QString("sCompanyNameX"), ::OpenAPI::toJsonValue(m_s_company_name_x));
     }
     if (m_s_department_name_x_isSet) {
-        obj.insert(QString("sDepartmentNameX"), ::OpenAPI::toJsonValue(s_department_name_x));
+        obj.insert(QString("sDepartmentNameX"), ::OpenAPI::toJsonValue(m_s_department_name_x));
     }
     if (m_b_activesession_debug_isSet) {
-        obj.insert(QString("bActivesessionDebug"), ::OpenAPI::toJsonValue(b_activesession_debug));
+        obj.insert(QString("bActivesessionDebug"), ::OpenAPI::toJsonValue(m_b_activesession_debug));
     }
     if (m_b_activesession_issuperadmin_isSet) {
-        obj.insert(QString("bActivesessionIssuperadmin"), ::OpenAPI::toJsonValue(b_activesession_issuperadmin));
+        obj.insert(QString("bActivesessionIssuperadmin"), ::OpenAPI::toJsonValue(m_b_activesession_issuperadmin));
     }
     if (m_pks_customer_code_isSet) {
-        obj.insert(QString("pksCustomerCode"), ::OpenAPI::toJsonValue(pks_customer_code));
+        obj.insert(QString("pksCustomerCode"), ::OpenAPI::toJsonValue(m_pks_customer_code));
     }
     if (m_fki_systemconfigurationtype_id_isSet) {
-        obj.insert(QString("fkiSystemconfigurationtypeID"), ::OpenAPI::toJsonValue(fki_systemconfigurationtype_id));
+        obj.insert(QString("fkiSystemconfigurationtypeID"), ::OpenAPI::toJsonValue(m_fki_systemconfigurationtype_id));
     }
     if (m_fki_signature_id_isSet) {
-        obj.insert(QString("fkiSignatureID"), ::OpenAPI::toJsonValue(fki_signature_id));
+        obj.insert(QString("fkiSignatureID"), ::OpenAPI::toJsonValue(m_fki_signature_id));
     }
     return obj;
 }
 
 OAIField_eActivesessionUsertype OAIActivesession_Response::getEActivesessionUsertype() const {
-    return e_activesession_usertype;
+    return m_e_activesession_usertype;
 }
 void OAIActivesession_Response::setEActivesessionUsertype(const OAIField_eActivesessionUsertype &e_activesession_usertype) {
-    this->e_activesession_usertype = e_activesession_usertype;
-    this->m_e_activesession_usertype_isSet = true;
+    m_e_activesession_usertype = e_activesession_usertype;
+    m_e_activesession_usertype_isSet = true;
 }
 
 bool OAIActivesession_Response::is_e_activesession_usertype_Set() const{
@@ -173,11 +173,11 @@ bool OAIActivesession_Response::is_e_activesession_usertype_Valid() const{
 }
 
 OAIField_eActivesessionOrigin OAIActivesession_Response::getEActivesessionOrigin() const {
-    return e_activesession_origin;
+    return m_e_activesession_origin;
 }
 void OAIActivesession_Response::setEActivesessionOrigin(const OAIField_eActivesessionOrigin &e_activesession_origin) {
-    this->e_activesession_origin = e_activesession_origin;
-    this->m_e_activesession_origin_isSet = true;
+    m_e_activesession_origin = e_activesession_origin;
+    m_e_activesession_origin_isSet = true;
 }
 
 bool OAIActivesession_Response::is_e_activesession_origin_Set() const{
@@ -189,11 +189,11 @@ bool OAIActivesession_Response::is_e_activesession_origin_Valid() const{
 }
 
 OAIField_eActivesessionWeekdaystart OAIActivesession_Response::getEActivesessionWeekdaystart() const {
-    return e_activesession_weekdaystart;
+    return m_e_activesession_weekdaystart;
 }
 void OAIActivesession_Response::setEActivesessionWeekdaystart(const OAIField_eActivesessionWeekdaystart &e_activesession_weekdaystart) {
-    this->e_activesession_weekdaystart = e_activesession_weekdaystart;
-    this->m_e_activesession_weekdaystart_isSet = true;
+    m_e_activesession_weekdaystart = e_activesession_weekdaystart;
+    m_e_activesession_weekdaystart_isSet = true;
 }
 
 bool OAIActivesession_Response::is_e_activesession_weekdaystart_Set() const{
@@ -205,11 +205,11 @@ bool OAIActivesession_Response::is_e_activesession_weekdaystart_Valid() const{
 }
 
 qint32 OAIActivesession_Response::getFkiLanguageId() const {
-    return fki_language_id;
+    return m_fki_language_id;
 }
 void OAIActivesession_Response::setFkiLanguageId(const qint32 &fki_language_id) {
-    this->fki_language_id = fki_language_id;
-    this->m_fki_language_id_isSet = true;
+    m_fki_language_id = fki_language_id;
+    m_fki_language_id_isSet = true;
 }
 
 bool OAIActivesession_Response::is_fki_language_id_Set() const{
@@ -221,11 +221,11 @@ bool OAIActivesession_Response::is_fki_language_id_Valid() const{
 }
 
 QString OAIActivesession_Response::getSCompanyNameX() const {
-    return s_company_name_x;
+    return m_s_company_name_x;
 }
 void OAIActivesession_Response::setSCompanyNameX(const QString &s_company_name_x) {
-    this->s_company_name_x = s_company_name_x;
-    this->m_s_company_name_x_isSet = true;
+    m_s_company_name_x = s_company_name_x;
+    m_s_company_name_x_isSet = true;
 }
 
 bool OAIActivesession_Response::is_s_company_name_x_Set() const{
@@ -237,11 +237,11 @@ bool OAIActivesession_Response::is_s_company_name_x_Valid() const{
 }
 
 QString OAIActivesession_Response::getSDepartmentNameX() const {
-    return s_department_name_x;
+    return m_s_department_name_x;
 }
 void OAIActivesession_Response::setSDepartmentNameX(const QString &s_department_name_x) {
-    this->s_department_name_x = s_department_name_x;
-    this->m_s_department_name_x_isSet = true;
+    m_s_department_name_x = s_department_name_x;
+    m_s_department_name_x_isSet = true;
 }
 
 bool OAIActivesession_Response::is_s_department_name_x_Set() const{
@@ -253,11 +253,11 @@ bool OAIActivesession_Response::is_s_department_name_x_Valid() const{
 }
 
 bool OAIActivesession_Response::isBActivesessionDebug() const {
-    return b_activesession_debug;
+    return m_b_activesession_debug;
 }
 void OAIActivesession_Response::setBActivesessionDebug(const bool &b_activesession_debug) {
-    this->b_activesession_debug = b_activesession_debug;
-    this->m_b_activesession_debug_isSet = true;
+    m_b_activesession_debug = b_activesession_debug;
+    m_b_activesession_debug_isSet = true;
 }
 
 bool OAIActivesession_Response::is_b_activesession_debug_Set() const{
@@ -269,11 +269,11 @@ bool OAIActivesession_Response::is_b_activesession_debug_Valid() const{
 }
 
 bool OAIActivesession_Response::isBActivesessionIssuperadmin() const {
-    return b_activesession_issuperadmin;
+    return m_b_activesession_issuperadmin;
 }
 void OAIActivesession_Response::setBActivesessionIssuperadmin(const bool &b_activesession_issuperadmin) {
-    this->b_activesession_issuperadmin = b_activesession_issuperadmin;
-    this->m_b_activesession_issuperadmin_isSet = true;
+    m_b_activesession_issuperadmin = b_activesession_issuperadmin;
+    m_b_activesession_issuperadmin_isSet = true;
 }
 
 bool OAIActivesession_Response::is_b_activesession_issuperadmin_Set() const{
@@ -285,11 +285,11 @@ bool OAIActivesession_Response::is_b_activesession_issuperadmin_Valid() const{
 }
 
 QString OAIActivesession_Response::getPksCustomerCode() const {
-    return pks_customer_code;
+    return m_pks_customer_code;
 }
 void OAIActivesession_Response::setPksCustomerCode(const QString &pks_customer_code) {
-    this->pks_customer_code = pks_customer_code;
-    this->m_pks_customer_code_isSet = true;
+    m_pks_customer_code = pks_customer_code;
+    m_pks_customer_code_isSet = true;
 }
 
 bool OAIActivesession_Response::is_pks_customer_code_Set() const{
@@ -301,11 +301,11 @@ bool OAIActivesession_Response::is_pks_customer_code_Valid() const{
 }
 
 qint32 OAIActivesession_Response::getFkiSystemconfigurationtypeId() const {
-    return fki_systemconfigurationtype_id;
+    return m_fki_systemconfigurationtype_id;
 }
 void OAIActivesession_Response::setFkiSystemconfigurationtypeId(const qint32 &fki_systemconfigurationtype_id) {
-    this->fki_systemconfigurationtype_id = fki_systemconfigurationtype_id;
-    this->m_fki_systemconfigurationtype_id_isSet = true;
+    m_fki_systemconfigurationtype_id = fki_systemconfigurationtype_id;
+    m_fki_systemconfigurationtype_id_isSet = true;
 }
 
 bool OAIActivesession_Response::is_fki_systemconfigurationtype_id_Set() const{
@@ -317,11 +317,11 @@ bool OAIActivesession_Response::is_fki_systemconfigurationtype_id_Valid() const{
 }
 
 qint32 OAIActivesession_Response::getFkiSignatureId() const {
-    return fki_signature_id;
+    return m_fki_signature_id;
 }
 void OAIActivesession_Response::setFkiSignatureId(const qint32 &fki_signature_id) {
-    this->fki_signature_id = fki_signature_id;
-    this->m_fki_signature_id_isSet = true;
+    m_fki_signature_id = fki_signature_id;
+    m_fki_signature_id_isSet = true;
 }
 
 bool OAIActivesession_Response::is_fki_signature_id_Set() const{
@@ -335,17 +335,17 @@ bool OAIActivesession_Response::is_fki_signature_id_Valid() const{
 bool OAIActivesession_Response::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (e_activesession_usertype.isSet()) {
+        if (m_e_activesession_usertype.isSet()) {
             isObjectUpdated = true;
             break;
         }
 
-        if (e_activesession_origin.isSet()) {
+        if (m_e_activesession_origin.isSet()) {
             isObjectUpdated = true;
             break;
         }
 
-        if (e_activesession_weekdaystart.isSet()) {
+        if (m_e_activesession_weekdaystart.isSet()) {
             isObjectUpdated = true;
             break;
         }

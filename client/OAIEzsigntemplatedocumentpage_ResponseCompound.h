@@ -80,31 +80,31 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_ezsigntemplatedocumentpage_id;
+    qint32 m_pki_ezsigntemplatedocumentpage_id;
     bool m_pki_ezsigntemplatedocumentpage_id_isSet;
     bool m_pki_ezsigntemplatedocumentpage_id_isValid;
 
-    qint32 i_ezsigntemplatedocumentpage_widthimage;
+    qint32 m_i_ezsigntemplatedocumentpage_widthimage;
     bool m_i_ezsigntemplatedocumentpage_widthimage_isSet;
     bool m_i_ezsigntemplatedocumentpage_widthimage_isValid;
 
-    qint32 i_ezsigntemplatedocumentpage_heightimage;
+    qint32 m_i_ezsigntemplatedocumentpage_heightimage;
     bool m_i_ezsigntemplatedocumentpage_heightimage_isSet;
     bool m_i_ezsigntemplatedocumentpage_heightimage_isValid;
 
-    qint32 i_ezsigntemplatedocumentpage_widthpdf;
+    qint32 m_i_ezsigntemplatedocumentpage_widthpdf;
     bool m_i_ezsigntemplatedocumentpage_widthpdf_isSet;
     bool m_i_ezsigntemplatedocumentpage_widthpdf_isValid;
 
-    qint32 i_ezsigntemplatedocumentpage_heightpdf;
+    qint32 m_i_ezsigntemplatedocumentpage_heightpdf;
     bool m_i_ezsigntemplatedocumentpage_heightpdf_isSet;
     bool m_i_ezsigntemplatedocumentpage_heightpdf_isValid;
 
-    qint32 i_ezsigntemplatedocumentpage_pagenumber;
+    qint32 m_i_ezsigntemplatedocumentpage_pagenumber;
     bool m_i_ezsigntemplatedocumentpage_pagenumber_isSet;
     bool m_i_ezsigntemplatedocumentpage_pagenumber_isValid;
 
-    QString s_computed_imageurl;
+    QString m_s_computed_imageurl;
     bool m_s_computed_imageurl_isSet;
     bool m_s_computed_imageurl_isValid;
 };

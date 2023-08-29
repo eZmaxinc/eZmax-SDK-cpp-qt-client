@@ -52,7 +52,7 @@ public:
 private:
     void initializeModel();
 
-    QList<OAIFranchisebroker_AutocompleteElement_Response> a_obj_franchisebroker;
+    QList<OAIFranchisebroker_AutocompleteElement_Response> m_a_obj_franchisebroker;
     bool m_a_obj_franchisebroker_isSet;
     bool m_a_obj_franchisebroker_isValid;
 };

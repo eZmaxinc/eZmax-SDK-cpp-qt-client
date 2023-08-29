@@ -85,35 +85,35 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_ezmaxinvoicingcommission_id;
+    qint32 m_pki_ezmaxinvoicingcommission_id;
     bool m_pki_ezmaxinvoicingcommission_id_isSet;
     bool m_pki_ezmaxinvoicingcommission_id_isValid;
 
-    qint32 fki_ezmaxinvoicingsummaryglobal_id;
+    qint32 m_fki_ezmaxinvoicingsummaryglobal_id;
     bool m_fki_ezmaxinvoicingsummaryglobal_id_isSet;
     bool m_fki_ezmaxinvoicingsummaryglobal_id_isValid;
 
-    qint32 fki_ezmaxpartner_id;
+    qint32 m_fki_ezmaxpartner_id;
     bool m_fki_ezmaxpartner_id_isSet;
     bool m_fki_ezmaxpartner_id_isValid;
 
-    qint32 fki_ezmaxrepresentative_id;
+    qint32 m_fki_ezmaxrepresentative_id;
     bool m_fki_ezmaxrepresentative_id_isSet;
     bool m_fki_ezmaxrepresentative_id_isValid;
 
-    QString dt_ezmaxinvoicingcommission_start;
+    QString m_dt_ezmaxinvoicingcommission_start;
     bool m_dt_ezmaxinvoicingcommission_start_isSet;
     bool m_dt_ezmaxinvoicingcommission_start_isValid;
 
-    QString dt_ezmaxinvoicingcommission_end;
+    QString m_dt_ezmaxinvoicingcommission_end;
     bool m_dt_ezmaxinvoicingcommission_end_isSet;
     bool m_dt_ezmaxinvoicingcommission_end_isValid;
 
-    qint32 i_ezmaxinvoicingcommission_days;
+    qint32 m_i_ezmaxinvoicingcommission_days;
     bool m_i_ezmaxinvoicingcommission_days_isSet;
     bool m_i_ezmaxinvoicingcommission_days_isValid;
 
-    QString d_ezmaxinvoicingcommission_amount;
+    QString m_d_ezmaxinvoicingcommission_amount;
     bool m_d_ezmaxinvoicingcommission_amount_isSet;
     bool m_d_ezmaxinvoicingcommission_amount_isValid;
 };

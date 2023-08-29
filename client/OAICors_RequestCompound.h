@@ -60,15 +60,15 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_cors_id;
+    qint32 m_pki_cors_id;
     bool m_pki_cors_id_isSet;
     bool m_pki_cors_id_isValid;
 
-    qint32 fki_apikey_id;
+    qint32 m_fki_apikey_id;
     bool m_fki_apikey_id_isSet;
     bool m_fki_apikey_id_isValid;
 
-    QString s_cors_entryurl;
+    QString m_s_cors_entryurl;
     bool m_s_cors_entryurl_isSet;
     bool m_s_cors_entryurl_isValid;
 };

@@ -73,23 +73,23 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_ezsigndocument_id;
+    qint32 m_pki_ezsigndocument_id;
     bool m_pki_ezsigndocument_id_isSet;
     bool m_pki_ezsigndocument_id_isValid;
 
-    qint32 fki_ezsignfolder_id;
+    qint32 m_fki_ezsignfolder_id;
     bool m_fki_ezsignfolder_id_isSet;
     bool m_fki_ezsignfolder_id_isValid;
 
-    QString s_ezsigndocument_name;
+    QString m_s_ezsigndocument_name;
     bool m_s_ezsigndocument_name_isSet;
     bool m_s_ezsigndocument_name_isValid;
 
-    QString dt_modified_date;
+    QString m_dt_modified_date;
     bool m_dt_modified_date_isSet;
     bool m_dt_modified_date_isValid;
 
-    QList<OAICustom_FormDataSigner_Response> a_obj_form_data_signer;
+    QList<OAICustom_FormDataSigner_Response> m_a_obj_form_data_signer;
     bool m_a_obj_form_data_signer_isSet;
     bool m_a_obj_form_data_signer_isValid;
 };

@@ -50,10 +50,10 @@ void OAIWebsocket_Response_Error_V1_mPayload::fromJson(QString jsonString) {
 
 void OAIWebsocket_Response_Error_V1_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_s_error_message_isValid = ::OpenAPI::fromJsonValue(s_error_message, json[QString("sErrorMessage")]);
+    m_s_error_message_isValid = ::OpenAPI::fromJsonValue(m_s_error_message, json[QString("sErrorMessage")]);
     m_s_error_message_isSet = !json[QString("sErrorMessage")].isNull() && m_s_error_message_isValid;
 
-    m_e_error_code_isValid = ::OpenAPI::fromJsonValue(e_error_code, json[QString("eErrorCode")]);
+    m_e_error_code_isValid = ::OpenAPI::fromJsonValue(m_e_error_code, json[QString("eErrorCode")]);
     m_e_error_code_isSet = !json[QString("eErrorCode")].isNull() && m_e_error_code_isValid;
 }
 
@@ -67,20 +67,20 @@ QString OAIWebsocket_Response_Error_V1_mPayload::asJson() const {
 QJsonObject OAIWebsocket_Response_Error_V1_mPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_s_error_message_isSet) {
-        obj.insert(QString("sErrorMessage"), ::OpenAPI::toJsonValue(s_error_message));
+        obj.insert(QString("sErrorMessage"), ::OpenAPI::toJsonValue(m_s_error_message));
     }
-    if (e_error_code.isSet()) {
-        obj.insert(QString("eErrorCode"), ::OpenAPI::toJsonValue(e_error_code));
+    if (m_e_error_code.isSet()) {
+        obj.insert(QString("eErrorCode"), ::OpenAPI::toJsonValue(m_e_error_code));
     }
     return obj;
 }
 
 QString OAIWebsocket_Response_Error_V1_mPayload::getSErrorMessage() const {
-    return s_error_message;
+    return m_s_error_message;
 }
 void OAIWebsocket_Response_Error_V1_mPayload::setSErrorMessage(const QString &s_error_message) {
-    this->s_error_message = s_error_message;
-    this->m_s_error_message_isSet = true;
+    m_s_error_message = s_error_message;
+    m_s_error_message_isSet = true;
 }
 
 bool OAIWebsocket_Response_Error_V1_mPayload::is_s_error_message_Set() const{
@@ -92,11 +92,11 @@ bool OAIWebsocket_Response_Error_V1_mPayload::is_s_error_message_Valid() const{
 }
 
 OAIField_eErrorCode OAIWebsocket_Response_Error_V1_mPayload::getEErrorCode() const {
-    return e_error_code;
+    return m_e_error_code;
 }
 void OAIWebsocket_Response_Error_V1_mPayload::setEErrorCode(const OAIField_eErrorCode &e_error_code) {
-    this->e_error_code = e_error_code;
-    this->m_e_error_code_isSet = true;
+    m_e_error_code = e_error_code;
+    m_e_error_code_isSet = true;
 }
 
 bool OAIWebsocket_Response_Error_V1_mPayload::is_e_error_code_Set() const{
@@ -115,7 +115,7 @@ bool OAIWebsocket_Response_Error_V1_mPayload::isSet() const {
             break;
         }
 
-        if (e_error_code.isSet()) {
+        if (m_e_error_code.isSet()) {
             isObjectUpdated = true;
             break;
         }

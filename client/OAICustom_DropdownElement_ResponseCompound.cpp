@@ -50,10 +50,10 @@ void OAICustom_DropdownElement_ResponseCompound::fromJson(QString jsonString) {
 
 void OAICustom_DropdownElement_ResponseCompound::fromJsonObject(QJsonObject json) {
 
-    m_s_label_isValid = ::OpenAPI::fromJsonValue(s_label, json[QString("sLabel")]);
+    m_s_label_isValid = ::OpenAPI::fromJsonValue(m_s_label, json[QString("sLabel")]);
     m_s_label_isSet = !json[QString("sLabel")].isNull() && m_s_label_isValid;
 
-    m_s_value_isValid = ::OpenAPI::fromJsonValue(s_value, json[QString("sValue")]);
+    m_s_value_isValid = ::OpenAPI::fromJsonValue(m_s_value, json[QString("sValue")]);
     m_s_value_isSet = !json[QString("sValue")].isNull() && m_s_value_isValid;
 }
 
@@ -67,20 +67,20 @@ QString OAICustom_DropdownElement_ResponseCompound::asJson() const {
 QJsonObject OAICustom_DropdownElement_ResponseCompound::asJsonObject() const {
     QJsonObject obj;
     if (m_s_label_isSet) {
-        obj.insert(QString("sLabel"), ::OpenAPI::toJsonValue(s_label));
+        obj.insert(QString("sLabel"), ::OpenAPI::toJsonValue(m_s_label));
     }
     if (m_s_value_isSet) {
-        obj.insert(QString("sValue"), ::OpenAPI::toJsonValue(s_value));
+        obj.insert(QString("sValue"), ::OpenAPI::toJsonValue(m_s_value));
     }
     return obj;
 }
 
 QString OAICustom_DropdownElement_ResponseCompound::getSLabel() const {
-    return s_label;
+    return m_s_label;
 }
 void OAICustom_DropdownElement_ResponseCompound::setSLabel(const QString &s_label) {
-    this->s_label = s_label;
-    this->m_s_label_isSet = true;
+    m_s_label = s_label;
+    m_s_label_isSet = true;
 }
 
 bool OAICustom_DropdownElement_ResponseCompound::is_s_label_Set() const{
@@ -92,11 +92,11 @@ bool OAICustom_DropdownElement_ResponseCompound::is_s_label_Valid() const{
 }
 
 QString OAICustom_DropdownElement_ResponseCompound::getSValue() const {
-    return s_value;
+    return m_s_value;
 }
 void OAICustom_DropdownElement_ResponseCompound::setSValue(const QString &s_value) {
-    this->s_value = s_value;
-    this->m_s_value_isSet = true;
+    m_s_value = s_value;
+    m_s_value_isSet = true;
 }
 
 bool OAICustom_DropdownElement_ResponseCompound::is_s_value_Set() const{

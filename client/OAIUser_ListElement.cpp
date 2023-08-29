@@ -74,34 +74,34 @@ void OAIUser_ListElement::fromJson(QString jsonString) {
 
 void OAIUser_ListElement::fromJsonObject(QJsonObject json) {
 
-    m_pki_user_id_isValid = ::OpenAPI::fromJsonValue(pki_user_id, json[QString("pkiUserID")]);
+    m_pki_user_id_isValid = ::OpenAPI::fromJsonValue(m_pki_user_id, json[QString("pkiUserID")]);
     m_pki_user_id_isSet = !json[QString("pkiUserID")].isNull() && m_pki_user_id_isValid;
 
-    m_s_user_firstname_isValid = ::OpenAPI::fromJsonValue(s_user_firstname, json[QString("sUserFirstname")]);
+    m_s_user_firstname_isValid = ::OpenAPI::fromJsonValue(m_s_user_firstname, json[QString("sUserFirstname")]);
     m_s_user_firstname_isSet = !json[QString("sUserFirstname")].isNull() && m_s_user_firstname_isValid;
 
-    m_s_user_lastname_isValid = ::OpenAPI::fromJsonValue(s_user_lastname, json[QString("sUserLastname")]);
+    m_s_user_lastname_isValid = ::OpenAPI::fromJsonValue(m_s_user_lastname, json[QString("sUserLastname")]);
     m_s_user_lastname_isSet = !json[QString("sUserLastname")].isNull() && m_s_user_lastname_isValid;
 
-    m_s_user_loginname_isValid = ::OpenAPI::fromJsonValue(s_user_loginname, json[QString("sUserLoginname")]);
+    m_s_user_loginname_isValid = ::OpenAPI::fromJsonValue(m_s_user_loginname, json[QString("sUserLoginname")]);
     m_s_user_loginname_isSet = !json[QString("sUserLoginname")].isNull() && m_s_user_loginname_isValid;
 
-    m_b_user_isactive_isValid = ::OpenAPI::fromJsonValue(b_user_isactive, json[QString("bUserIsactive")]);
+    m_b_user_isactive_isValid = ::OpenAPI::fromJsonValue(m_b_user_isactive, json[QString("bUserIsactive")]);
     m_b_user_isactive_isSet = !json[QString("bUserIsactive")].isNull() && m_b_user_isactive_isValid;
 
-    m_e_user_type_isValid = ::OpenAPI::fromJsonValue(e_user_type, json[QString("eUserType")]);
+    m_e_user_type_isValid = ::OpenAPI::fromJsonValue(m_e_user_type, json[QString("eUserType")]);
     m_e_user_type_isSet = !json[QString("eUserType")].isNull() && m_e_user_type_isValid;
 
-    m_e_user_origin_isValid = ::OpenAPI::fromJsonValue(e_user_origin, json[QString("eUserOrigin")]);
+    m_e_user_origin_isValid = ::OpenAPI::fromJsonValue(m_e_user_origin, json[QString("eUserOrigin")]);
     m_e_user_origin_isSet = !json[QString("eUserOrigin")].isNull() && m_e_user_origin_isValid;
 
-    m_e_user_ezsignaccess_isValid = ::OpenAPI::fromJsonValue(e_user_ezsignaccess, json[QString("eUserEzsignaccess")]);
+    m_e_user_ezsignaccess_isValid = ::OpenAPI::fromJsonValue(m_e_user_ezsignaccess, json[QString("eUserEzsignaccess")]);
     m_e_user_ezsignaccess_isSet = !json[QString("eUserEzsignaccess")].isNull() && m_e_user_ezsignaccess_isValid;
 
-    m_dt_user_ezsignprepaidexpiration_isValid = ::OpenAPI::fromJsonValue(dt_user_ezsignprepaidexpiration, json[QString("dtUserEzsignprepaidexpiration")]);
+    m_dt_user_ezsignprepaidexpiration_isValid = ::OpenAPI::fromJsonValue(m_dt_user_ezsignprepaidexpiration, json[QString("dtUserEzsignprepaidexpiration")]);
     m_dt_user_ezsignprepaidexpiration_isSet = !json[QString("dtUserEzsignprepaidexpiration")].isNull() && m_dt_user_ezsignprepaidexpiration_isValid;
 
-    m_s_email_address_isValid = ::OpenAPI::fromJsonValue(s_email_address, json[QString("sEmailAddress")]);
+    m_s_email_address_isValid = ::OpenAPI::fromJsonValue(m_s_email_address, json[QString("sEmailAddress")]);
     m_s_email_address_isSet = !json[QString("sEmailAddress")].isNull() && m_s_email_address_isValid;
 }
 
@@ -115,44 +115,44 @@ QString OAIUser_ListElement::asJson() const {
 QJsonObject OAIUser_ListElement::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_user_id_isSet) {
-        obj.insert(QString("pkiUserID"), ::OpenAPI::toJsonValue(pki_user_id));
+        obj.insert(QString("pkiUserID"), ::OpenAPI::toJsonValue(m_pki_user_id));
     }
     if (m_s_user_firstname_isSet) {
-        obj.insert(QString("sUserFirstname"), ::OpenAPI::toJsonValue(s_user_firstname));
+        obj.insert(QString("sUserFirstname"), ::OpenAPI::toJsonValue(m_s_user_firstname));
     }
     if (m_s_user_lastname_isSet) {
-        obj.insert(QString("sUserLastname"), ::OpenAPI::toJsonValue(s_user_lastname));
+        obj.insert(QString("sUserLastname"), ::OpenAPI::toJsonValue(m_s_user_lastname));
     }
     if (m_s_user_loginname_isSet) {
-        obj.insert(QString("sUserLoginname"), ::OpenAPI::toJsonValue(s_user_loginname));
+        obj.insert(QString("sUserLoginname"), ::OpenAPI::toJsonValue(m_s_user_loginname));
     }
     if (m_b_user_isactive_isSet) {
-        obj.insert(QString("bUserIsactive"), ::OpenAPI::toJsonValue(b_user_isactive));
+        obj.insert(QString("bUserIsactive"), ::OpenAPI::toJsonValue(m_b_user_isactive));
     }
-    if (e_user_type.isSet()) {
-        obj.insert(QString("eUserType"), ::OpenAPI::toJsonValue(e_user_type));
+    if (m_e_user_type.isSet()) {
+        obj.insert(QString("eUserType"), ::OpenAPI::toJsonValue(m_e_user_type));
     }
-    if (e_user_origin.isSet()) {
-        obj.insert(QString("eUserOrigin"), ::OpenAPI::toJsonValue(e_user_origin));
+    if (m_e_user_origin.isSet()) {
+        obj.insert(QString("eUserOrigin"), ::OpenAPI::toJsonValue(m_e_user_origin));
     }
-    if (e_user_ezsignaccess.isSet()) {
-        obj.insert(QString("eUserEzsignaccess"), ::OpenAPI::toJsonValue(e_user_ezsignaccess));
+    if (m_e_user_ezsignaccess.isSet()) {
+        obj.insert(QString("eUserEzsignaccess"), ::OpenAPI::toJsonValue(m_e_user_ezsignaccess));
     }
     if (m_dt_user_ezsignprepaidexpiration_isSet) {
-        obj.insert(QString("dtUserEzsignprepaidexpiration"), ::OpenAPI::toJsonValue(dt_user_ezsignprepaidexpiration));
+        obj.insert(QString("dtUserEzsignprepaidexpiration"), ::OpenAPI::toJsonValue(m_dt_user_ezsignprepaidexpiration));
     }
     if (m_s_email_address_isSet) {
-        obj.insert(QString("sEmailAddress"), ::OpenAPI::toJsonValue(s_email_address));
+        obj.insert(QString("sEmailAddress"), ::OpenAPI::toJsonValue(m_s_email_address));
     }
     return obj;
 }
 
 qint32 OAIUser_ListElement::getPkiUserId() const {
-    return pki_user_id;
+    return m_pki_user_id;
 }
 void OAIUser_ListElement::setPkiUserId(const qint32 &pki_user_id) {
-    this->pki_user_id = pki_user_id;
-    this->m_pki_user_id_isSet = true;
+    m_pki_user_id = pki_user_id;
+    m_pki_user_id_isSet = true;
 }
 
 bool OAIUser_ListElement::is_pki_user_id_Set() const{
@@ -164,11 +164,11 @@ bool OAIUser_ListElement::is_pki_user_id_Valid() const{
 }
 
 QString OAIUser_ListElement::getSUserFirstname() const {
-    return s_user_firstname;
+    return m_s_user_firstname;
 }
 void OAIUser_ListElement::setSUserFirstname(const QString &s_user_firstname) {
-    this->s_user_firstname = s_user_firstname;
-    this->m_s_user_firstname_isSet = true;
+    m_s_user_firstname = s_user_firstname;
+    m_s_user_firstname_isSet = true;
 }
 
 bool OAIUser_ListElement::is_s_user_firstname_Set() const{
@@ -180,11 +180,11 @@ bool OAIUser_ListElement::is_s_user_firstname_Valid() const{
 }
 
 QString OAIUser_ListElement::getSUserLastname() const {
-    return s_user_lastname;
+    return m_s_user_lastname;
 }
 void OAIUser_ListElement::setSUserLastname(const QString &s_user_lastname) {
-    this->s_user_lastname = s_user_lastname;
-    this->m_s_user_lastname_isSet = true;
+    m_s_user_lastname = s_user_lastname;
+    m_s_user_lastname_isSet = true;
 }
 
 bool OAIUser_ListElement::is_s_user_lastname_Set() const{
@@ -196,11 +196,11 @@ bool OAIUser_ListElement::is_s_user_lastname_Valid() const{
 }
 
 QString OAIUser_ListElement::getSUserLoginname() const {
-    return s_user_loginname;
+    return m_s_user_loginname;
 }
 void OAIUser_ListElement::setSUserLoginname(const QString &s_user_loginname) {
-    this->s_user_loginname = s_user_loginname;
-    this->m_s_user_loginname_isSet = true;
+    m_s_user_loginname = s_user_loginname;
+    m_s_user_loginname_isSet = true;
 }
 
 bool OAIUser_ListElement::is_s_user_loginname_Set() const{
@@ -212,11 +212,11 @@ bool OAIUser_ListElement::is_s_user_loginname_Valid() const{
 }
 
 bool OAIUser_ListElement::isBUserIsactive() const {
-    return b_user_isactive;
+    return m_b_user_isactive;
 }
 void OAIUser_ListElement::setBUserIsactive(const bool &b_user_isactive) {
-    this->b_user_isactive = b_user_isactive;
-    this->m_b_user_isactive_isSet = true;
+    m_b_user_isactive = b_user_isactive;
+    m_b_user_isactive_isSet = true;
 }
 
 bool OAIUser_ListElement::is_b_user_isactive_Set() const{
@@ -228,11 +228,11 @@ bool OAIUser_ListElement::is_b_user_isactive_Valid() const{
 }
 
 OAIField_eUserType OAIUser_ListElement::getEUserType() const {
-    return e_user_type;
+    return m_e_user_type;
 }
 void OAIUser_ListElement::setEUserType(const OAIField_eUserType &e_user_type) {
-    this->e_user_type = e_user_type;
-    this->m_e_user_type_isSet = true;
+    m_e_user_type = e_user_type;
+    m_e_user_type_isSet = true;
 }
 
 bool OAIUser_ListElement::is_e_user_type_Set() const{
@@ -244,11 +244,11 @@ bool OAIUser_ListElement::is_e_user_type_Valid() const{
 }
 
 OAIField_eUserOrigin OAIUser_ListElement::getEUserOrigin() const {
-    return e_user_origin;
+    return m_e_user_origin;
 }
 void OAIUser_ListElement::setEUserOrigin(const OAIField_eUserOrigin &e_user_origin) {
-    this->e_user_origin = e_user_origin;
-    this->m_e_user_origin_isSet = true;
+    m_e_user_origin = e_user_origin;
+    m_e_user_origin_isSet = true;
 }
 
 bool OAIUser_ListElement::is_e_user_origin_Set() const{
@@ -260,11 +260,11 @@ bool OAIUser_ListElement::is_e_user_origin_Valid() const{
 }
 
 OAIField_eUserEzsignaccess OAIUser_ListElement::getEUserEzsignaccess() const {
-    return e_user_ezsignaccess;
+    return m_e_user_ezsignaccess;
 }
 void OAIUser_ListElement::setEUserEzsignaccess(const OAIField_eUserEzsignaccess &e_user_ezsignaccess) {
-    this->e_user_ezsignaccess = e_user_ezsignaccess;
-    this->m_e_user_ezsignaccess_isSet = true;
+    m_e_user_ezsignaccess = e_user_ezsignaccess;
+    m_e_user_ezsignaccess_isSet = true;
 }
 
 bool OAIUser_ListElement::is_e_user_ezsignaccess_Set() const{
@@ -276,11 +276,11 @@ bool OAIUser_ListElement::is_e_user_ezsignaccess_Valid() const{
 }
 
 QString OAIUser_ListElement::getDtUserEzsignprepaidexpiration() const {
-    return dt_user_ezsignprepaidexpiration;
+    return m_dt_user_ezsignprepaidexpiration;
 }
 void OAIUser_ListElement::setDtUserEzsignprepaidexpiration(const QString &dt_user_ezsignprepaidexpiration) {
-    this->dt_user_ezsignprepaidexpiration = dt_user_ezsignprepaidexpiration;
-    this->m_dt_user_ezsignprepaidexpiration_isSet = true;
+    m_dt_user_ezsignprepaidexpiration = dt_user_ezsignprepaidexpiration;
+    m_dt_user_ezsignprepaidexpiration_isSet = true;
 }
 
 bool OAIUser_ListElement::is_dt_user_ezsignprepaidexpiration_Set() const{
@@ -292,11 +292,11 @@ bool OAIUser_ListElement::is_dt_user_ezsignprepaidexpiration_Valid() const{
 }
 
 QString OAIUser_ListElement::getSEmailAddress() const {
-    return s_email_address;
+    return m_s_email_address;
 }
 void OAIUser_ListElement::setSEmailAddress(const QString &s_email_address) {
-    this->s_email_address = s_email_address;
-    this->m_s_email_address_isSet = true;
+    m_s_email_address = s_email_address;
+    m_s_email_address_isSet = true;
 }
 
 bool OAIUser_ListElement::is_s_email_address_Set() const{
@@ -335,17 +335,17 @@ bool OAIUser_ListElement::isSet() const {
             break;
         }
 
-        if (e_user_type.isSet()) {
+        if (m_e_user_type.isSet()) {
             isObjectUpdated = true;
             break;
         }
 
-        if (e_user_origin.isSet()) {
+        if (m_e_user_origin.isSet()) {
             isObjectUpdated = true;
             break;
         }
 
-        if (e_user_ezsignaccess.isSet()) {
+        if (m_e_user_ezsignaccess.isSet()) {
             isObjectUpdated = true;
             break;
         }

@@ -52,7 +52,7 @@ public:
 private:
     void initializeModel();
 
-    QList<OAIEzsignbulksendtransmission_ResponseCompound> a_obj_ezsignbulksendtransmission;
+    QList<OAIEzsignbulksendtransmission_ResponseCompound> m_a_obj_ezsignbulksendtransmission;
     bool m_a_obj_ezsignbulksendtransmission_isSet;
     bool m_a_obj_ezsignbulksendtransmission_isValid;
 };

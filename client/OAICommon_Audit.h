@@ -56,11 +56,11 @@ public:
 private:
     void initializeModel();
 
-    OAICommon_Auditdetail obj_auditdetail_created;
+    OAICommon_Auditdetail m_obj_auditdetail_created;
     bool m_obj_auditdetail_created_isSet;
     bool m_obj_auditdetail_created_isValid;
 
-    OAICommon_Auditdetail obj_auditdetail_modified;
+    OAICommon_Auditdetail m_obj_auditdetail_modified;
     bool m_obj_auditdetail_modified_isSet;
     bool m_obj_auditdetail_modified_isValid;
 };

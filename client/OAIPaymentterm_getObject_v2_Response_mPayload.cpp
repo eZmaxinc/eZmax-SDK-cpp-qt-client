@@ -47,7 +47,7 @@ void OAIPaymentterm_getObject_v2_Response_mPayload::fromJson(QString jsonString)
 
 void OAIPaymentterm_getObject_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_obj_paymentterm_isValid = ::OpenAPI::fromJsonValue(obj_paymentterm, json[QString("objPaymentterm")]);
+    m_obj_paymentterm_isValid = ::OpenAPI::fromJsonValue(m_obj_paymentterm, json[QString("objPaymentterm")]);
     m_obj_paymentterm_isSet = !json[QString("objPaymentterm")].isNull() && m_obj_paymentterm_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIPaymentterm_getObject_v2_Response_mPayload::asJson() const {
 
 QJsonObject OAIPaymentterm_getObject_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (obj_paymentterm.isSet()) {
-        obj.insert(QString("objPaymentterm"), ::OpenAPI::toJsonValue(obj_paymentterm));
+    if (m_obj_paymentterm.isSet()) {
+        obj.insert(QString("objPaymentterm"), ::OpenAPI::toJsonValue(m_obj_paymentterm));
     }
     return obj;
 }
 
 OAIPaymentterm_ResponseCompound OAIPaymentterm_getObject_v2_Response_mPayload::getObjPaymentterm() const {
-    return obj_paymentterm;
+    return m_obj_paymentterm;
 }
 void OAIPaymentterm_getObject_v2_Response_mPayload::setObjPaymentterm(const OAIPaymentterm_ResponseCompound &obj_paymentterm) {
-    this->obj_paymentterm = obj_paymentterm;
-    this->m_obj_paymentterm_isSet = true;
+    m_obj_paymentterm = obj_paymentterm;
+    m_obj_paymentterm_isSet = true;
 }
 
 bool OAIPaymentterm_getObject_v2_Response_mPayload::is_obj_paymentterm_Set() const{
@@ -85,7 +85,7 @@ bool OAIPaymentterm_getObject_v2_Response_mPayload::is_obj_paymentterm_Valid() c
 bool OAIPaymentterm_getObject_v2_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (obj_paymentterm.isSet()) {
+        if (m_obj_paymentterm.isSet()) {
             isObjectUpdated = true;
             break;
         }

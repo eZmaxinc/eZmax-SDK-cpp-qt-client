@@ -59,15 +59,15 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_billingentityinternalproduct_id;
+    qint32 m_pki_billingentityinternalproduct_id;
     bool m_pki_billingentityinternalproduct_id_isSet;
     bool m_pki_billingentityinternalproduct_id_isValid;
 
-    qint32 fki_ezmaxproduct_id;
+    qint32 m_fki_ezmaxproduct_id;
     bool m_fki_ezmaxproduct_id_isSet;
     bool m_fki_ezmaxproduct_id_isValid;
 
-    qint32 fki_billingentityexternal_id;
+    qint32 m_fki_billingentityexternal_id;
     bool m_fki_billingentityexternal_id_isSet;
     bool m_fki_billingentityexternal_id_isValid;
 };

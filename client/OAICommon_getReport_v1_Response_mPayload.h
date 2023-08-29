@@ -51,7 +51,7 @@ public:
 private:
     void initializeModel();
 
-    OAICommon_Reportgroup obj_reportgroup;
+    OAICommon_Reportgroup m_obj_reportgroup;
     bool m_obj_reportgroup_isSet;
     bool m_obj_reportgroup_isValid;
 };

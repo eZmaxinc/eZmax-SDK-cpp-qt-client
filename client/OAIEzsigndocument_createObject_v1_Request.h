@@ -58,11 +58,11 @@ public:
 private:
     void initializeModel();
 
-    OAIEzsigndocument_Request obj_ezsigndocument;
+    OAIEzsigndocument_Request m_obj_ezsigndocument;
     bool m_obj_ezsigndocument_isSet;
     bool m_obj_ezsigndocument_isValid;
 
-    OAIEzsigndocument_RequestCompound obj_ezsigndocument_compound;
+    OAIEzsigndocument_RequestCompound m_obj_ezsigndocument_compound;
     bool m_obj_ezsigndocument_compound_isSet;
     bool m_obj_ezsigndocument_compound_isValid;
 };

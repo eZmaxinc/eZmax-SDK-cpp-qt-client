@@ -50,7 +50,7 @@ void OAICommon_Response_Filter::fromJson(QString jsonString) {
 
 void OAICommon_Response_Filter::fromJsonObject(QJsonObject json) {
 
-    m_a_auto_type_isValid = ::OpenAPI::fromJsonValue(a_auto_type, json[QString("a_AutoType")]);
+    m_a_auto_type_isValid = ::OpenAPI::fromJsonValue(m_a_auto_type, json[QString("a_AutoType")]);
     m_a_auto_type_isSet = !json[QString("a_AutoType")].isNull() && m_a_auto_type_isValid;
 
     if(json["a_Enum"].isObject()){
@@ -62,7 +62,7 @@ void OAICommon_Response_Filter::fromJsonObject(QJsonObject json) {
                 auto jval = QJsonValue::fromVariant(varmap.value(val));
                 m_a_enum_isValid &= ::OpenAPI::fromJsonValue(item, jval);
                 m_a_enum_isSet &= !jval.isNull() && m_a_enum_isValid;
-                a_enum.insert(a_enum.end(), val, item);
+                m_a_enum.insert(m_a_enum.end(), val, item);
             }
         }
     }
@@ -77,22 +77,22 @@ QString OAICommon_Response_Filter::asJson() const {
 
 QJsonObject OAICommon_Response_Filter::asJsonObject() const {
     QJsonObject obj;
-    if (a_auto_type.size() > 0) {
-        obj.insert(QString("a_AutoType"), ::OpenAPI::toJsonValue(a_auto_type));
+    if (m_a_auto_type.size() > 0) {
+        obj.insert(QString("a_AutoType"), ::OpenAPI::toJsonValue(m_a_auto_type));
     }
-    if (a_enum.size() > 0) {
+    if (m_a_enum.size() > 0) {
         
-        obj.insert(QString("a_Enum"), toJsonValue(a_enum));
+        obj.insert(QString("a_Enum"), toJsonValue(m_a_enum));
     }
     return obj;
 }
 
 QMap<QString, QString> OAICommon_Response_Filter::getAAutoType() const {
-    return a_auto_type;
+    return m_a_auto_type;
 }
 void OAICommon_Response_Filter::setAAutoType(const QMap<QString, QString> &a_auto_type) {
-    this->a_auto_type = a_auto_type;
-    this->m_a_auto_type_isSet = true;
+    m_a_auto_type = a_auto_type;
+    m_a_auto_type_isSet = true;
 }
 
 bool OAICommon_Response_Filter::is_a_auto_type_Set() const{
@@ -104,11 +104,11 @@ bool OAICommon_Response_Filter::is_a_auto_type_Valid() const{
 }
 
 QMap<QString, QMap<QString, QString>> OAICommon_Response_Filter::getAEnum() const {
-    return a_enum;
+    return m_a_enum;
 }
 void OAICommon_Response_Filter::setAEnum(const QMap<QString, QMap<QString, QString>> &a_enum) {
-    this->a_enum = a_enum;
-    this->m_a_enum_isSet = true;
+    m_a_enum = a_enum;
+    m_a_enum_isSet = true;
 }
 
 bool OAICommon_Response_Filter::is_a_enum_Set() const{
@@ -122,12 +122,12 @@ bool OAICommon_Response_Filter::is_a_enum_Valid() const{
 bool OAICommon_Response_Filter::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_auto_type.size() > 0) {
+        if (m_a_auto_type.size() > 0) {
             isObjectUpdated = true;
             break;
         }
 
-        if (a_enum.size() > 0) {
+        if (m_a_enum.size() > 0) {
             isObjectUpdated = true;
             break;
         }

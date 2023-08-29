@@ -47,7 +47,7 @@ void OAIEzsigndocument_getDownloadUrl_v1_Response_mPayload::fromJson(QString jso
 
 void OAIEzsigndocument_getDownloadUrl_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_s_download_url_isValid = ::OpenAPI::fromJsonValue(s_download_url, json[QString("sDownloadUrl")]);
+    m_s_download_url_isValid = ::OpenAPI::fromJsonValue(m_s_download_url, json[QString("sDownloadUrl")]);
     m_s_download_url_isSet = !json[QString("sDownloadUrl")].isNull() && m_s_download_url_isValid;
 }
 
@@ -61,17 +61,17 @@ QString OAIEzsigndocument_getDownloadUrl_v1_Response_mPayload::asJson() const {
 QJsonObject OAIEzsigndocument_getDownloadUrl_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_s_download_url_isSet) {
-        obj.insert(QString("sDownloadUrl"), ::OpenAPI::toJsonValue(s_download_url));
+        obj.insert(QString("sDownloadUrl"), ::OpenAPI::toJsonValue(m_s_download_url));
     }
     return obj;
 }
 
 QString OAIEzsigndocument_getDownloadUrl_v1_Response_mPayload::getSDownloadUrl() const {
-    return s_download_url;
+    return m_s_download_url;
 }
 void OAIEzsigndocument_getDownloadUrl_v1_Response_mPayload::setSDownloadUrl(const QString &s_download_url) {
-    this->s_download_url = s_download_url;
-    this->m_s_download_url_isSet = true;
+    m_s_download_url = s_download_url;
+    m_s_download_url_isSet = true;
 }
 
 bool OAIEzsigndocument_getDownloadUrl_v1_Response_mPayload::is_s_download_url_Set() const{

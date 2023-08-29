@@ -81,31 +81,31 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_ezsignfolder_id;
+    qint32 m_pki_ezsignfolder_id;
     bool m_pki_ezsignfolder_id_isSet;
     bool m_pki_ezsignfolder_id_isValid;
 
-    qint32 fki_ezsignfoldertype_id;
+    qint32 m_fki_ezsignfoldertype_id;
     bool m_fki_ezsignfoldertype_id_isSet;
     bool m_fki_ezsignfoldertype_id_isValid;
 
-    qint32 fki_ezsigntsarequirement_id;
+    qint32 m_fki_ezsigntsarequirement_id;
     bool m_fki_ezsigntsarequirement_id_isSet;
     bool m_fki_ezsigntsarequirement_id_isValid;
 
-    QString s_ezsignfolder_description;
+    QString m_s_ezsignfolder_description;
     bool m_s_ezsignfolder_description_isSet;
     bool m_s_ezsignfolder_description_isValid;
 
-    QString t_ezsignfolder_note;
+    QString m_t_ezsignfolder_note;
     bool m_t_ezsignfolder_note_isSet;
     bool m_t_ezsignfolder_note_isValid;
 
-    OAIField_eEzsignfolderSendreminderfrequency e_ezsignfolder_sendreminderfrequency;
+    OAIField_eEzsignfolderSendreminderfrequency m_e_ezsignfolder_sendreminderfrequency;
     bool m_e_ezsignfolder_sendreminderfrequency_isSet;
     bool m_e_ezsignfolder_sendreminderfrequency_isValid;
 
-    QString s_ezsignfolder_externalid;
+    QString m_s_ezsignfolder_externalid;
     bool m_s_ezsignfolder_externalid_isSet;
     bool m_s_ezsignfolder_externalid_isValid;
 };

@@ -50,10 +50,10 @@ void OAIModulegroup_Response::fromJson(QString jsonString) {
 
 void OAIModulegroup_Response::fromJsonObject(QJsonObject json) {
 
-    m_pki_modulegroup_id_isValid = ::OpenAPI::fromJsonValue(pki_modulegroup_id, json[QString("pkiModulegroupID")]);
+    m_pki_modulegroup_id_isValid = ::OpenAPI::fromJsonValue(m_pki_modulegroup_id, json[QString("pkiModulegroupID")]);
     m_pki_modulegroup_id_isSet = !json[QString("pkiModulegroupID")].isNull() && m_pki_modulegroup_id_isValid;
 
-    m_s_modulegroup_name_x_isValid = ::OpenAPI::fromJsonValue(s_modulegroup_name_x, json[QString("sModulegroupNameX")]);
+    m_s_modulegroup_name_x_isValid = ::OpenAPI::fromJsonValue(m_s_modulegroup_name_x, json[QString("sModulegroupNameX")]);
     m_s_modulegroup_name_x_isSet = !json[QString("sModulegroupNameX")].isNull() && m_s_modulegroup_name_x_isValid;
 }
 
@@ -67,20 +67,20 @@ QString OAIModulegroup_Response::asJson() const {
 QJsonObject OAIModulegroup_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_modulegroup_id_isSet) {
-        obj.insert(QString("pkiModulegroupID"), ::OpenAPI::toJsonValue(pki_modulegroup_id));
+        obj.insert(QString("pkiModulegroupID"), ::OpenAPI::toJsonValue(m_pki_modulegroup_id));
     }
     if (m_s_modulegroup_name_x_isSet) {
-        obj.insert(QString("sModulegroupNameX"), ::OpenAPI::toJsonValue(s_modulegroup_name_x));
+        obj.insert(QString("sModulegroupNameX"), ::OpenAPI::toJsonValue(m_s_modulegroup_name_x));
     }
     return obj;
 }
 
 qint32 OAIModulegroup_Response::getPkiModulegroupId() const {
-    return pki_modulegroup_id;
+    return m_pki_modulegroup_id;
 }
 void OAIModulegroup_Response::setPkiModulegroupId(const qint32 &pki_modulegroup_id) {
-    this->pki_modulegroup_id = pki_modulegroup_id;
-    this->m_pki_modulegroup_id_isSet = true;
+    m_pki_modulegroup_id = pki_modulegroup_id;
+    m_pki_modulegroup_id_isSet = true;
 }
 
 bool OAIModulegroup_Response::is_pki_modulegroup_id_Set() const{
@@ -92,11 +92,11 @@ bool OAIModulegroup_Response::is_pki_modulegroup_id_Valid() const{
 }
 
 QString OAIModulegroup_Response::getSModulegroupNameX() const {
-    return s_modulegroup_name_x;
+    return m_s_modulegroup_name_x;
 }
 void OAIModulegroup_Response::setSModulegroupNameX(const QString &s_modulegroup_name_x) {
-    this->s_modulegroup_name_x = s_modulegroup_name_x;
-    this->m_s_modulegroup_name_x_isSet = true;
+    m_s_modulegroup_name_x = s_modulegroup_name_x;
+    m_s_modulegroup_name_x_isSet = true;
 }
 
 bool OAIModulegroup_Response::is_s_modulegroup_name_x_Set() const{

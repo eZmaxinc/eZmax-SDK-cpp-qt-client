@@ -100,35 +100,35 @@ public:
 private:
     void initializeModel();
 
-    QList<OAIScim_AuthenticationScheme> authentication_schemes;
+    QList<OAIScim_AuthenticationScheme> m_authentication_schemes;
     bool m_authentication_schemes_isSet;
     bool m_authentication_schemes_isValid;
 
-    OAIScim_ServiceProviderConfig_bulk bulk;
+    OAIScim_ServiceProviderConfig_bulk m_bulk;
     bool m_bulk_isSet;
     bool m_bulk_isValid;
 
-    OAIScim_ServiceProviderConfig_changePassword change_password;
+    OAIScim_ServiceProviderConfig_changePassword m_change_password;
     bool m_change_password_isSet;
     bool m_change_password_isValid;
 
-    QString documentation_uri;
+    QString m_documentation_uri;
     bool m_documentation_uri_isSet;
     bool m_documentation_uri_isValid;
 
-    OAIScim_ServiceProviderConfig_etag etag;
+    OAIScim_ServiceProviderConfig_etag m_etag;
     bool m_etag_isSet;
     bool m_etag_isValid;
 
-    OAIScim_ServiceProviderConfig_filter filter;
+    OAIScim_ServiceProviderConfig_filter m_filter;
     bool m_filter_isSet;
     bool m_filter_isValid;
 
-    OAIScim_ServiceProviderConfig_patch patch;
+    OAIScim_ServiceProviderConfig_patch m_patch;
     bool m_patch_isSet;
     bool m_patch_isValid;
 
-    OAIScim_ServiceProviderConfig_sort sort;
+    OAIScim_ServiceProviderConfig_sort m_sort;
     bool m_sort_isSet;
     bool m_sort_isValid;
 };

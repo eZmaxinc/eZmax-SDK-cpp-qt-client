@@ -47,7 +47,7 @@ void OAIEzsigntemplatedocument_getEzsigntemplateformfieldgroups_v1_Response_mPay
 
 void OAIEzsigntemplatedocument_getEzsigntemplateformfieldgroups_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_ezsigntemplateformfieldgroup_isValid = ::OpenAPI::fromJsonValue(a_obj_ezsigntemplateformfieldgroup, json[QString("a_objEzsigntemplateformfieldgroup")]);
+    m_a_obj_ezsigntemplateformfieldgroup_isValid = ::OpenAPI::fromJsonValue(m_a_obj_ezsigntemplateformfieldgroup, json[QString("a_objEzsigntemplateformfieldgroup")]);
     m_a_obj_ezsigntemplateformfieldgroup_isSet = !json[QString("a_objEzsigntemplateformfieldgroup")].isNull() && m_a_obj_ezsigntemplateformfieldgroup_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIEzsigntemplatedocument_getEzsigntemplateformfieldgroups_v1_Response_m
 
 QJsonObject OAIEzsigntemplatedocument_getEzsigntemplateformfieldgroups_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_ezsigntemplateformfieldgroup.size() > 0) {
-        obj.insert(QString("a_objEzsigntemplateformfieldgroup"), ::OpenAPI::toJsonValue(a_obj_ezsigntemplateformfieldgroup));
+    if (m_a_obj_ezsigntemplateformfieldgroup.size() > 0) {
+        obj.insert(QString("a_objEzsigntemplateformfieldgroup"), ::OpenAPI::toJsonValue(m_a_obj_ezsigntemplateformfieldgroup));
     }
     return obj;
 }
 
 QList<OAIEzsigntemplateformfieldgroup_ResponseCompound> OAIEzsigntemplatedocument_getEzsigntemplateformfieldgroups_v1_Response_mPayload::getAObjEzsigntemplateformfieldgroup() const {
-    return a_obj_ezsigntemplateformfieldgroup;
+    return m_a_obj_ezsigntemplateformfieldgroup;
 }
 void OAIEzsigntemplatedocument_getEzsigntemplateformfieldgroups_v1_Response_mPayload::setAObjEzsigntemplateformfieldgroup(const QList<OAIEzsigntemplateformfieldgroup_ResponseCompound> &a_obj_ezsigntemplateformfieldgroup) {
-    this->a_obj_ezsigntemplateformfieldgroup = a_obj_ezsigntemplateformfieldgroup;
-    this->m_a_obj_ezsigntemplateformfieldgroup_isSet = true;
+    m_a_obj_ezsigntemplateformfieldgroup = a_obj_ezsigntemplateformfieldgroup;
+    m_a_obj_ezsigntemplateformfieldgroup_isSet = true;
 }
 
 bool OAIEzsigntemplatedocument_getEzsigntemplateformfieldgroups_v1_Response_mPayload::is_a_obj_ezsigntemplateformfieldgroup_Set() const{
@@ -85,7 +85,7 @@ bool OAIEzsigntemplatedocument_getEzsigntemplateformfieldgroups_v1_Response_mPay
 bool OAIEzsigntemplatedocument_getEzsigntemplateformfieldgroups_v1_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_ezsigntemplateformfieldgroup.size() > 0) {
+        if (m_a_obj_ezsigntemplateformfieldgroup.size() > 0) {
             isObjectUpdated = true;
             break;
         }

@@ -47,7 +47,7 @@ void OAIEzsignbulksenddocumentmapping_createObject_v1_Request::fromJson(QString 
 
 void OAIEzsignbulksenddocumentmapping_createObject_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_ezsignbulksenddocumentmapping_isValid = ::OpenAPI::fromJsonValue(a_obj_ezsignbulksenddocumentmapping, json[QString("a_objEzsignbulksenddocumentmapping")]);
+    m_a_obj_ezsignbulksenddocumentmapping_isValid = ::OpenAPI::fromJsonValue(m_a_obj_ezsignbulksenddocumentmapping, json[QString("a_objEzsignbulksenddocumentmapping")]);
     m_a_obj_ezsignbulksenddocumentmapping_isSet = !json[QString("a_objEzsignbulksenddocumentmapping")].isNull() && m_a_obj_ezsignbulksenddocumentmapping_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIEzsignbulksenddocumentmapping_createObject_v1_Request::asJson() const
 
 QJsonObject OAIEzsignbulksenddocumentmapping_createObject_v1_Request::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_ezsignbulksenddocumentmapping.size() > 0) {
-        obj.insert(QString("a_objEzsignbulksenddocumentmapping"), ::OpenAPI::toJsonValue(a_obj_ezsignbulksenddocumentmapping));
+    if (m_a_obj_ezsignbulksenddocumentmapping.size() > 0) {
+        obj.insert(QString("a_objEzsignbulksenddocumentmapping"), ::OpenAPI::toJsonValue(m_a_obj_ezsignbulksenddocumentmapping));
     }
     return obj;
 }
 
 QList<OAIEzsignbulksenddocumentmapping_RequestCompound> OAIEzsignbulksenddocumentmapping_createObject_v1_Request::getAObjEzsignbulksenddocumentmapping() const {
-    return a_obj_ezsignbulksenddocumentmapping;
+    return m_a_obj_ezsignbulksenddocumentmapping;
 }
 void OAIEzsignbulksenddocumentmapping_createObject_v1_Request::setAObjEzsignbulksenddocumentmapping(const QList<OAIEzsignbulksenddocumentmapping_RequestCompound> &a_obj_ezsignbulksenddocumentmapping) {
-    this->a_obj_ezsignbulksenddocumentmapping = a_obj_ezsignbulksenddocumentmapping;
-    this->m_a_obj_ezsignbulksenddocumentmapping_isSet = true;
+    m_a_obj_ezsignbulksenddocumentmapping = a_obj_ezsignbulksenddocumentmapping;
+    m_a_obj_ezsignbulksenddocumentmapping_isSet = true;
 }
 
 bool OAIEzsignbulksenddocumentmapping_createObject_v1_Request::is_a_obj_ezsignbulksenddocumentmapping_Set() const{
@@ -85,7 +85,7 @@ bool OAIEzsignbulksenddocumentmapping_createObject_v1_Request::is_a_obj_ezsignbu
 bool OAIEzsignbulksenddocumentmapping_createObject_v1_Request::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_ezsignbulksenddocumentmapping.size() > 0) {
+        if (m_a_obj_ezsignbulksenddocumentmapping.size() > 0) {
             isObjectUpdated = true;
             break;
         }

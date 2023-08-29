@@ -47,7 +47,7 @@ void OAITaxassignment_getAutocomplete_v2_Response_mPayload::fromJson(QString jso
 
 void OAITaxassignment_getAutocomplete_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_taxassignment_isValid = ::OpenAPI::fromJsonValue(a_obj_taxassignment, json[QString("a_objTaxassignment")]);
+    m_a_obj_taxassignment_isValid = ::OpenAPI::fromJsonValue(m_a_obj_taxassignment, json[QString("a_objTaxassignment")]);
     m_a_obj_taxassignment_isSet = !json[QString("a_objTaxassignment")].isNull() && m_a_obj_taxassignment_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAITaxassignment_getAutocomplete_v2_Response_mPayload::asJson() const {
 
 QJsonObject OAITaxassignment_getAutocomplete_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_taxassignment.size() > 0) {
-        obj.insert(QString("a_objTaxassignment"), ::OpenAPI::toJsonValue(a_obj_taxassignment));
+    if (m_a_obj_taxassignment.size() > 0) {
+        obj.insert(QString("a_objTaxassignment"), ::OpenAPI::toJsonValue(m_a_obj_taxassignment));
     }
     return obj;
 }
 
 QList<OAITaxassignment_AutocompleteElement_Response> OAITaxassignment_getAutocomplete_v2_Response_mPayload::getAObjTaxassignment() const {
-    return a_obj_taxassignment;
+    return m_a_obj_taxassignment;
 }
 void OAITaxassignment_getAutocomplete_v2_Response_mPayload::setAObjTaxassignment(const QList<OAITaxassignment_AutocompleteElement_Response> &a_obj_taxassignment) {
-    this->a_obj_taxassignment = a_obj_taxassignment;
-    this->m_a_obj_taxassignment_isSet = true;
+    m_a_obj_taxassignment = a_obj_taxassignment;
+    m_a_obj_taxassignment_isSet = true;
 }
 
 bool OAITaxassignment_getAutocomplete_v2_Response_mPayload::is_a_obj_taxassignment_Set() const{
@@ -85,7 +85,7 @@ bool OAITaxassignment_getAutocomplete_v2_Response_mPayload::is_a_obj_taxassignme
 bool OAITaxassignment_getAutocomplete_v2_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_taxassignment.size() > 0) {
+        if (m_a_obj_taxassignment.size() > 0) {
             isObjectUpdated = true;
             break;
         }

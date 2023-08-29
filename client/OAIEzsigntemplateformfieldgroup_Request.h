@@ -21,6 +21,7 @@
 
 #include <QJsonObject>
 
+#include "OAIEnum_Textvalidation.h"
 #include "OAIField_eEzsigntemplateformfieldgroupSignerrequirement.h"
 #include "OAIField_eEzsigntemplateformfieldgroupTooltipposition.h"
 #include "OAIField_eEzsigntemplateformfieldgroupType.h"
@@ -107,6 +108,11 @@ public:
     bool is_s_ezsigntemplateformfieldgroup_regexp_Set() const;
     bool is_s_ezsigntemplateformfieldgroup_regexp_Valid() const;
 
+    OAIEnum_Textvalidation getEEzsigntemplateformfieldgroupTextvalidation() const;
+    void setEEzsigntemplateformfieldgroupTextvalidation(const OAIEnum_Textvalidation &e_ezsigntemplateformfieldgroup_textvalidation);
+    bool is_e_ezsigntemplateformfieldgroup_textvalidation_Set() const;
+    bool is_e_ezsigntemplateformfieldgroup_textvalidation_Valid() const;
+
     QString getTEzsigntemplateformfieldgroupTooltip() const;
     void setTEzsigntemplateformfieldgroupTooltip(const QString &t_ezsigntemplateformfieldgroup_tooltip);
     bool is_t_ezsigntemplateformfieldgroup_tooltip_Set() const;
@@ -123,63 +129,67 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_ezsigntemplateformfieldgroup_id;
+    qint32 m_pki_ezsigntemplateformfieldgroup_id;
     bool m_pki_ezsigntemplateformfieldgroup_id_isSet;
     bool m_pki_ezsigntemplateformfieldgroup_id_isValid;
 
-    qint32 fki_ezsigntemplatedocument_id;
+    qint32 m_fki_ezsigntemplatedocument_id;
     bool m_fki_ezsigntemplatedocument_id_isSet;
     bool m_fki_ezsigntemplatedocument_id_isValid;
 
-    OAIField_eEzsigntemplateformfieldgroupType e_ezsigntemplateformfieldgroup_type;
+    OAIField_eEzsigntemplateformfieldgroupType m_e_ezsigntemplateformfieldgroup_type;
     bool m_e_ezsigntemplateformfieldgroup_type_isSet;
     bool m_e_ezsigntemplateformfieldgroup_type_isValid;
 
-    OAIField_eEzsigntemplateformfieldgroupSignerrequirement e_ezsigntemplateformfieldgroup_signerrequirement;
+    OAIField_eEzsigntemplateformfieldgroupSignerrequirement m_e_ezsigntemplateformfieldgroup_signerrequirement;
     bool m_e_ezsigntemplateformfieldgroup_signerrequirement_isSet;
     bool m_e_ezsigntemplateformfieldgroup_signerrequirement_isValid;
 
-    QString s_ezsigntemplateformfieldgroup_label;
+    QString m_s_ezsigntemplateformfieldgroup_label;
     bool m_s_ezsigntemplateformfieldgroup_label_isSet;
     bool m_s_ezsigntemplateformfieldgroup_label_isValid;
 
-    qint32 i_ezsigntemplateformfieldgroup_step;
+    qint32 m_i_ezsigntemplateformfieldgroup_step;
     bool m_i_ezsigntemplateformfieldgroup_step_isSet;
     bool m_i_ezsigntemplateformfieldgroup_step_isValid;
 
-    QString s_ezsigntemplateformfieldgroup_defaultvalue;
+    QString m_s_ezsigntemplateformfieldgroup_defaultvalue;
     bool m_s_ezsigntemplateformfieldgroup_defaultvalue_isSet;
     bool m_s_ezsigntemplateformfieldgroup_defaultvalue_isValid;
 
-    qint32 i_ezsigntemplateformfieldgroup_filledmin;
+    qint32 m_i_ezsigntemplateformfieldgroup_filledmin;
     bool m_i_ezsigntemplateformfieldgroup_filledmin_isSet;
     bool m_i_ezsigntemplateformfieldgroup_filledmin_isValid;
 
-    qint32 i_ezsigntemplateformfieldgroup_filledmax;
+    qint32 m_i_ezsigntemplateformfieldgroup_filledmax;
     bool m_i_ezsigntemplateformfieldgroup_filledmax_isSet;
     bool m_i_ezsigntemplateformfieldgroup_filledmax_isValid;
 
-    bool b_ezsigntemplateformfieldgroup_readonly;
+    bool m_b_ezsigntemplateformfieldgroup_readonly;
     bool m_b_ezsigntemplateformfieldgroup_readonly_isSet;
     bool m_b_ezsigntemplateformfieldgroup_readonly_isValid;
 
-    qint32 i_ezsigntemplateformfieldgroup_maxlength;
+    qint32 m_i_ezsigntemplateformfieldgroup_maxlength;
     bool m_i_ezsigntemplateformfieldgroup_maxlength_isSet;
     bool m_i_ezsigntemplateformfieldgroup_maxlength_isValid;
 
-    bool b_ezsigntemplateformfieldgroup_encrypted;
+    bool m_b_ezsigntemplateformfieldgroup_encrypted;
     bool m_b_ezsigntemplateformfieldgroup_encrypted_isSet;
     bool m_b_ezsigntemplateformfieldgroup_encrypted_isValid;
 
-    QString s_ezsigntemplateformfieldgroup_regexp;
+    QString m_s_ezsigntemplateformfieldgroup_regexp;
     bool m_s_ezsigntemplateformfieldgroup_regexp_isSet;
     bool m_s_ezsigntemplateformfieldgroup_regexp_isValid;
 
-    QString t_ezsigntemplateformfieldgroup_tooltip;
+    OAIEnum_Textvalidation m_e_ezsigntemplateformfieldgroup_textvalidation;
+    bool m_e_ezsigntemplateformfieldgroup_textvalidation_isSet;
+    bool m_e_ezsigntemplateformfieldgroup_textvalidation_isValid;
+
+    QString m_t_ezsigntemplateformfieldgroup_tooltip;
     bool m_t_ezsigntemplateformfieldgroup_tooltip_isSet;
     bool m_t_ezsigntemplateformfieldgroup_tooltip_isValid;
 
-    OAIField_eEzsigntemplateformfieldgroupTooltipposition e_ezsigntemplateformfieldgroup_tooltipposition;
+    OAIField_eEzsigntemplateformfieldgroupTooltipposition m_e_ezsigntemplateformfieldgroup_tooltipposition;
     bool m_e_ezsigntemplateformfieldgroup_tooltipposition_isSet;
     bool m_e_ezsigntemplateformfieldgroup_tooltipposition_isValid;
 };

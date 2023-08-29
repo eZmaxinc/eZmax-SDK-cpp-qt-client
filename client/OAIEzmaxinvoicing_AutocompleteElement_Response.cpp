@@ -53,13 +53,13 @@ void OAIEzmaxinvoicing_AutocompleteElement_Response::fromJson(QString jsonString
 
 void OAIEzmaxinvoicing_AutocompleteElement_Response::fromJsonObject(QJsonObject json) {
 
-    m_yyyymm_ezmaxinvoicing_isValid = ::OpenAPI::fromJsonValue(yyyymm_ezmaxinvoicing, json[QString("yyyymmEzmaxinvoicing")]);
+    m_yyyymm_ezmaxinvoicing_isValid = ::OpenAPI::fromJsonValue(m_yyyymm_ezmaxinvoicing, json[QString("yyyymmEzmaxinvoicing")]);
     m_yyyymm_ezmaxinvoicing_isSet = !json[QString("yyyymmEzmaxinvoicing")].isNull() && m_yyyymm_ezmaxinvoicing_isValid;
 
-    m_pki_ezmaxinvoicing_id_isValid = ::OpenAPI::fromJsonValue(pki_ezmaxinvoicing_id, json[QString("pkiEzmaxinvoicingID")]);
+    m_pki_ezmaxinvoicing_id_isValid = ::OpenAPI::fromJsonValue(m_pki_ezmaxinvoicing_id, json[QString("pkiEzmaxinvoicingID")]);
     m_pki_ezmaxinvoicing_id_isSet = !json[QString("pkiEzmaxinvoicingID")].isNull() && m_pki_ezmaxinvoicing_id_isValid;
 
-    m_b_ezmaxinvoicing_isactive_isValid = ::OpenAPI::fromJsonValue(b_ezmaxinvoicing_isactive, json[QString("bEzmaxinvoicingIsactive")]);
+    m_b_ezmaxinvoicing_isactive_isValid = ::OpenAPI::fromJsonValue(m_b_ezmaxinvoicing_isactive, json[QString("bEzmaxinvoicingIsactive")]);
     m_b_ezmaxinvoicing_isactive_isSet = !json[QString("bEzmaxinvoicingIsactive")].isNull() && m_b_ezmaxinvoicing_isactive_isValid;
 }
 
@@ -73,23 +73,23 @@ QString OAIEzmaxinvoicing_AutocompleteElement_Response::asJson() const {
 QJsonObject OAIEzmaxinvoicing_AutocompleteElement_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_yyyymm_ezmaxinvoicing_isSet) {
-        obj.insert(QString("yyyymmEzmaxinvoicing"), ::OpenAPI::toJsonValue(yyyymm_ezmaxinvoicing));
+        obj.insert(QString("yyyymmEzmaxinvoicing"), ::OpenAPI::toJsonValue(m_yyyymm_ezmaxinvoicing));
     }
     if (m_pki_ezmaxinvoicing_id_isSet) {
-        obj.insert(QString("pkiEzmaxinvoicingID"), ::OpenAPI::toJsonValue(pki_ezmaxinvoicing_id));
+        obj.insert(QString("pkiEzmaxinvoicingID"), ::OpenAPI::toJsonValue(m_pki_ezmaxinvoicing_id));
     }
     if (m_b_ezmaxinvoicing_isactive_isSet) {
-        obj.insert(QString("bEzmaxinvoicingIsactive"), ::OpenAPI::toJsonValue(b_ezmaxinvoicing_isactive));
+        obj.insert(QString("bEzmaxinvoicingIsactive"), ::OpenAPI::toJsonValue(m_b_ezmaxinvoicing_isactive));
     }
     return obj;
 }
 
 QString OAIEzmaxinvoicing_AutocompleteElement_Response::getYyyymmEzmaxinvoicing() const {
-    return yyyymm_ezmaxinvoicing;
+    return m_yyyymm_ezmaxinvoicing;
 }
 void OAIEzmaxinvoicing_AutocompleteElement_Response::setYyyymmEzmaxinvoicing(const QString &yyyymm_ezmaxinvoicing) {
-    this->yyyymm_ezmaxinvoicing = yyyymm_ezmaxinvoicing;
-    this->m_yyyymm_ezmaxinvoicing_isSet = true;
+    m_yyyymm_ezmaxinvoicing = yyyymm_ezmaxinvoicing;
+    m_yyyymm_ezmaxinvoicing_isSet = true;
 }
 
 bool OAIEzmaxinvoicing_AutocompleteElement_Response::is_yyyymm_ezmaxinvoicing_Set() const{
@@ -101,11 +101,11 @@ bool OAIEzmaxinvoicing_AutocompleteElement_Response::is_yyyymm_ezmaxinvoicing_Va
 }
 
 qint32 OAIEzmaxinvoicing_AutocompleteElement_Response::getPkiEzmaxinvoicingId() const {
-    return pki_ezmaxinvoicing_id;
+    return m_pki_ezmaxinvoicing_id;
 }
 void OAIEzmaxinvoicing_AutocompleteElement_Response::setPkiEzmaxinvoicingId(const qint32 &pki_ezmaxinvoicing_id) {
-    this->pki_ezmaxinvoicing_id = pki_ezmaxinvoicing_id;
-    this->m_pki_ezmaxinvoicing_id_isSet = true;
+    m_pki_ezmaxinvoicing_id = pki_ezmaxinvoicing_id;
+    m_pki_ezmaxinvoicing_id_isSet = true;
 }
 
 bool OAIEzmaxinvoicing_AutocompleteElement_Response::is_pki_ezmaxinvoicing_id_Set() const{
@@ -117,11 +117,11 @@ bool OAIEzmaxinvoicing_AutocompleteElement_Response::is_pki_ezmaxinvoicing_id_Va
 }
 
 bool OAIEzmaxinvoicing_AutocompleteElement_Response::isBEzmaxinvoicingIsactive() const {
-    return b_ezmaxinvoicing_isactive;
+    return m_b_ezmaxinvoicing_isactive;
 }
 void OAIEzmaxinvoicing_AutocompleteElement_Response::setBEzmaxinvoicingIsactive(const bool &b_ezmaxinvoicing_isactive) {
-    this->b_ezmaxinvoicing_isactive = b_ezmaxinvoicing_isactive;
-    this->m_b_ezmaxinvoicing_isactive_isSet = true;
+    m_b_ezmaxinvoicing_isactive = b_ezmaxinvoicing_isactive;
+    m_b_ezmaxinvoicing_isactive_isSet = true;
 }
 
 bool OAIEzmaxinvoicing_AutocompleteElement_Response::is_b_ezmaxinvoicing_isactive_Set() const{

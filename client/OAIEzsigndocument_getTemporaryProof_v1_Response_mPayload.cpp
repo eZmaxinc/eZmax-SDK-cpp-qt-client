@@ -47,7 +47,7 @@ void OAIEzsigndocument_getTemporaryProof_v1_Response_mPayload::fromJson(QString 
 
 void OAIEzsigndocument_getTemporaryProof_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_ezsigndocumentlog_isValid = ::OpenAPI::fromJsonValue(a_obj_ezsigndocumentlog, json[QString("a_objEzsigndocumentlog")]);
+    m_a_obj_ezsigndocumentlog_isValid = ::OpenAPI::fromJsonValue(m_a_obj_ezsigndocumentlog, json[QString("a_objEzsigndocumentlog")]);
     m_a_obj_ezsigndocumentlog_isSet = !json[QString("a_objEzsigndocumentlog")].isNull() && m_a_obj_ezsigndocumentlog_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIEzsigndocument_getTemporaryProof_v1_Response_mPayload::asJson() const
 
 QJsonObject OAIEzsigndocument_getTemporaryProof_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_ezsigndocumentlog.size() > 0) {
-        obj.insert(QString("a_objEzsigndocumentlog"), ::OpenAPI::toJsonValue(a_obj_ezsigndocumentlog));
+    if (m_a_obj_ezsigndocumentlog.size() > 0) {
+        obj.insert(QString("a_objEzsigndocumentlog"), ::OpenAPI::toJsonValue(m_a_obj_ezsigndocumentlog));
     }
     return obj;
 }
 
 QList<OAIEzsigndocumentlog_ResponseCompound> OAIEzsigndocument_getTemporaryProof_v1_Response_mPayload::getAObjEzsigndocumentlog() const {
-    return a_obj_ezsigndocumentlog;
+    return m_a_obj_ezsigndocumentlog;
 }
 void OAIEzsigndocument_getTemporaryProof_v1_Response_mPayload::setAObjEzsigndocumentlog(const QList<OAIEzsigndocumentlog_ResponseCompound> &a_obj_ezsigndocumentlog) {
-    this->a_obj_ezsigndocumentlog = a_obj_ezsigndocumentlog;
-    this->m_a_obj_ezsigndocumentlog_isSet = true;
+    m_a_obj_ezsigndocumentlog = a_obj_ezsigndocumentlog;
+    m_a_obj_ezsigndocumentlog_isSet = true;
 }
 
 bool OAIEzsigndocument_getTemporaryProof_v1_Response_mPayload::is_a_obj_ezsigndocumentlog_Set() const{
@@ -85,7 +85,7 @@ bool OAIEzsigndocument_getTemporaryProof_v1_Response_mPayload::is_a_obj_ezsigndo
 bool OAIEzsigndocument_getTemporaryProof_v1_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_ezsigndocumentlog.size() > 0) {
+        if (m_a_obj_ezsigndocumentlog.size() > 0) {
             isObjectUpdated = true;
             break;
         }

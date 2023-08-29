@@ -27,12 +27,15 @@
 #include "OAIUsergroup_editObject_v1_Response.h"
 #include "OAIUsergroup_editPermissions_v1_Request.h"
 #include "OAIUsergroup_editPermissions_v1_Response.h"
+#include "OAIUsergroup_editUsergroupdelegations_v1_Request.h"
+#include "OAIUsergroup_editUsergroupdelegations_v1_Response.h"
 #include "OAIUsergroup_editUsergroupmemberships_v1_Request.h"
 #include "OAIUsergroup_editUsergroupmemberships_v1_Response.h"
 #include "OAIUsergroup_getAutocomplete_v2_Response.h"
 #include "OAIUsergroup_getList_v1_Response.h"
 #include "OAIUsergroup_getObject_v2_Response.h"
 #include "OAIUsergroup_getPermissions_v1_Response.h"
+#include "OAIUsergroup_getUsergroupdelegations_v1_Response.h"
 #include "OAIUsergroup_getUsergroupmemberships_v1_Response.h"
 #include <QString>
 
@@ -91,6 +94,12 @@ public:
 
     /**
     * @param[in]  pki_usergroup_id qint32 [required]
+    * @param[in]  oai_usergroup_edit_usergroupdelegations_v1_request OAIUsergroup_editUsergroupdelegations_v1_Request [required]
+    */
+    void usergroupEditUsergroupdelegationsV1(const qint32 &pki_usergroup_id, const OAIUsergroup_editUsergroupdelegations_v1_Request &oai_usergroup_edit_usergroupdelegations_v1_request);
+
+    /**
+    * @param[in]  pki_usergroup_id qint32 [required]
     * @param[in]  oai_usergroup_edit_usergroupmemberships_v1_request OAIUsergroup_editUsergroupmemberships_v1_Request [required]
     */
     void usergroupEditUsergroupmembershipsV1(const qint32 &pki_usergroup_id, const OAIUsergroup_editUsergroupmemberships_v1_Request &oai_usergroup_edit_usergroupmemberships_v1_request);
@@ -125,6 +134,11 @@ public:
     /**
     * @param[in]  pki_usergroup_id qint32 [required]
     */
+    void usergroupGetUsergroupdelegationsV1(const qint32 &pki_usergroup_id);
+
+    /**
+    * @param[in]  pki_usergroup_id qint32 [required]
+    */
     void usergroupGetUsergroupmembershipsV1(const qint32 &pki_usergroup_id);
 
 
@@ -153,11 +167,13 @@ private:
     void usergroupCreateObjectV1Callback(OAIHttpRequestWorker *worker);
     void usergroupEditObjectV1Callback(OAIHttpRequestWorker *worker);
     void usergroupEditPermissionsV1Callback(OAIHttpRequestWorker *worker);
+    void usergroupEditUsergroupdelegationsV1Callback(OAIHttpRequestWorker *worker);
     void usergroupEditUsergroupmembershipsV1Callback(OAIHttpRequestWorker *worker);
     void usergroupGetAutocompleteV2Callback(OAIHttpRequestWorker *worker);
     void usergroupGetListV1Callback(OAIHttpRequestWorker *worker);
     void usergroupGetObjectV2Callback(OAIHttpRequestWorker *worker);
     void usergroupGetPermissionsV1Callback(OAIHttpRequestWorker *worker);
+    void usergroupGetUsergroupdelegationsV1Callback(OAIHttpRequestWorker *worker);
     void usergroupGetUsergroupmembershipsV1Callback(OAIHttpRequestWorker *worker);
 
 signals:
@@ -165,41 +181,49 @@ signals:
     void usergroupCreateObjectV1Signal(OAIUsergroup_createObject_v1_Response summary);
     void usergroupEditObjectV1Signal(OAIUsergroup_editObject_v1_Response summary);
     void usergroupEditPermissionsV1Signal(OAIUsergroup_editPermissions_v1_Response summary);
+    void usergroupEditUsergroupdelegationsV1Signal(OAIUsergroup_editUsergroupdelegations_v1_Response summary);
     void usergroupEditUsergroupmembershipsV1Signal(OAIUsergroup_editUsergroupmemberships_v1_Response summary);
     void usergroupGetAutocompleteV2Signal(OAIUsergroup_getAutocomplete_v2_Response summary);
     void usergroupGetListV1Signal(OAIUsergroup_getList_v1_Response summary);
     void usergroupGetObjectV2Signal(OAIUsergroup_getObject_v2_Response summary);
     void usergroupGetPermissionsV1Signal(OAIUsergroup_getPermissions_v1_Response summary);
+    void usergroupGetUsergroupdelegationsV1Signal(OAIUsergroup_getUsergroupdelegations_v1_Response summary);
     void usergroupGetUsergroupmembershipsV1Signal(OAIUsergroup_getUsergroupmemberships_v1_Response summary);
 
     void usergroupCreateObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIUsergroup_createObject_v1_Response summary);
     void usergroupEditObjectV1SignalFull(OAIHttpRequestWorker *worker, OAIUsergroup_editObject_v1_Response summary);
     void usergroupEditPermissionsV1SignalFull(OAIHttpRequestWorker *worker, OAIUsergroup_editPermissions_v1_Response summary);
+    void usergroupEditUsergroupdelegationsV1SignalFull(OAIHttpRequestWorker *worker, OAIUsergroup_editUsergroupdelegations_v1_Response summary);
     void usergroupEditUsergroupmembershipsV1SignalFull(OAIHttpRequestWorker *worker, OAIUsergroup_editUsergroupmemberships_v1_Response summary);
     void usergroupGetAutocompleteV2SignalFull(OAIHttpRequestWorker *worker, OAIUsergroup_getAutocomplete_v2_Response summary);
     void usergroupGetListV1SignalFull(OAIHttpRequestWorker *worker, OAIUsergroup_getList_v1_Response summary);
     void usergroupGetObjectV2SignalFull(OAIHttpRequestWorker *worker, OAIUsergroup_getObject_v2_Response summary);
     void usergroupGetPermissionsV1SignalFull(OAIHttpRequestWorker *worker, OAIUsergroup_getPermissions_v1_Response summary);
+    void usergroupGetUsergroupdelegationsV1SignalFull(OAIHttpRequestWorker *worker, OAIUsergroup_getUsergroupdelegations_v1_Response summary);
     void usergroupGetUsergroupmembershipsV1SignalFull(OAIHttpRequestWorker *worker, OAIUsergroup_getUsergroupmemberships_v1_Response summary);
 
     void usergroupCreateObjectV1SignalE(OAIUsergroup_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void usergroupEditObjectV1SignalE(OAIUsergroup_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void usergroupEditPermissionsV1SignalE(OAIUsergroup_editPermissions_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void usergroupEditUsergroupdelegationsV1SignalE(OAIUsergroup_editUsergroupdelegations_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void usergroupEditUsergroupmembershipsV1SignalE(OAIUsergroup_editUsergroupmemberships_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void usergroupGetAutocompleteV2SignalE(OAIUsergroup_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void usergroupGetListV1SignalE(OAIUsergroup_getList_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void usergroupGetObjectV2SignalE(OAIUsergroup_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void usergroupGetPermissionsV1SignalE(OAIUsergroup_getPermissions_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void usergroupGetUsergroupdelegationsV1SignalE(OAIUsergroup_getUsergroupdelegations_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void usergroupGetUsergroupmembershipsV1SignalE(OAIUsergroup_getUsergroupmemberships_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
 
     void usergroupCreateObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void usergroupEditObjectV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void usergroupEditPermissionsV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void usergroupEditUsergroupdelegationsV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void usergroupEditUsergroupmembershipsV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void usergroupGetAutocompleteV2SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void usergroupGetListV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void usergroupGetObjectV2SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void usergroupGetPermissionsV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void usergroupGetUsergroupdelegationsV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void usergroupGetUsergroupmembershipsV1SignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
 
     void abortRequestsSignal();

@@ -51,7 +51,7 @@ public:
 private:
     void initializeModel();
 
-    OAIPaymentterm_ResponseCompound obj_paymentterm;
+    OAIPaymentterm_ResponseCompound m_obj_paymentterm;
     bool m_obj_paymentterm_isSet;
     bool m_obj_paymentterm_isValid;
 };

@@ -61,15 +61,15 @@ public:
 private:
     void initializeModel();
 
-    QString e_get;
+    QString m_e_get;
     bool m_e_get_isSet;
     bool m_e_get_isValid;
 
-    bool b_word_case_sensitive;
+    bool m_b_word_case_sensitive;
     bool m_b_word_case_sensitive_isSet;
     bool m_b_word_case_sensitive_isValid;
 
-    QList<QString> a_s_word;
+    QList<QString> m_a_s_word;
     bool m_a_s_word_isSet;
     bool m_a_s_word_isValid;
 };

@@ -63,15 +63,15 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_ezsignfolder_id;
+    qint32 m_pki_ezsignfolder_id;
     bool m_pki_ezsignfolder_id_isSet;
     bool m_pki_ezsignfolder_id_isValid;
 
-    QString s_ezsignfolder_description;
+    QString m_s_ezsignfolder_description;
     bool m_s_ezsignfolder_description_isSet;
     bool m_s_ezsignfolder_description_isValid;
 
-    QList<OAICustom_FormDataDocument_Response> a_obj_form_data_document;
+    QList<OAICustom_FormDataDocument_Response> m_a_obj_form_data_document;
     bool m_a_obj_form_data_document_isSet;
     bool m_a_obj_form_data_document_isValid;
 };

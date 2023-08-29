@@ -51,7 +51,7 @@ public:
 private:
     void initializeModel();
 
-    OAIPermission_RequestCompound obj_permission;
+    OAIPermission_RequestCompound m_obj_permission;
     bool m_obj_permission_isSet;
     bool m_obj_permission_isValid;
 };

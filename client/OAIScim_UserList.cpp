@@ -59,19 +59,19 @@ void OAIScim_UserList::fromJson(QString jsonString) {
 
 void OAIScim_UserList::fromJsonObject(QJsonObject json) {
 
-    m_total_results_isValid = ::OpenAPI::fromJsonValue(total_results, json[QString("totalResults")]);
+    m_total_results_isValid = ::OpenAPI::fromJsonValue(m_total_results, json[QString("totalResults")]);
     m_total_results_isSet = !json[QString("totalResults")].isNull() && m_total_results_isValid;
 
-    m_items_per_page_isValid = ::OpenAPI::fromJsonValue(items_per_page, json[QString("itemsPerPage")]);
+    m_items_per_page_isValid = ::OpenAPI::fromJsonValue(m_items_per_page, json[QString("itemsPerPage")]);
     m_items_per_page_isSet = !json[QString("itemsPerPage")].isNull() && m_items_per_page_isValid;
 
-    m_start_index_isValid = ::OpenAPI::fromJsonValue(start_index, json[QString("startIndex")]);
+    m_start_index_isValid = ::OpenAPI::fromJsonValue(m_start_index, json[QString("startIndex")]);
     m_start_index_isSet = !json[QString("startIndex")].isNull() && m_start_index_isValid;
 
-    m_schemas_isValid = ::OpenAPI::fromJsonValue(schemas, json[QString("schemas")]);
+    m_schemas_isValid = ::OpenAPI::fromJsonValue(m_schemas, json[QString("schemas")]);
     m_schemas_isSet = !json[QString("schemas")].isNull() && m_schemas_isValid;
 
-    m_resources_isValid = ::OpenAPI::fromJsonValue(resources, json[QString("Resources")]);
+    m_resources_isValid = ::OpenAPI::fromJsonValue(m_resources, json[QString("Resources")]);
     m_resources_isSet = !json[QString("Resources")].isNull() && m_resources_isValid;
 }
 
@@ -85,29 +85,29 @@ QString OAIScim_UserList::asJson() const {
 QJsonObject OAIScim_UserList::asJsonObject() const {
     QJsonObject obj;
     if (m_total_results_isSet) {
-        obj.insert(QString("totalResults"), ::OpenAPI::toJsonValue(total_results));
+        obj.insert(QString("totalResults"), ::OpenAPI::toJsonValue(m_total_results));
     }
     if (m_items_per_page_isSet) {
-        obj.insert(QString("itemsPerPage"), ::OpenAPI::toJsonValue(items_per_page));
+        obj.insert(QString("itemsPerPage"), ::OpenAPI::toJsonValue(m_items_per_page));
     }
     if (m_start_index_isSet) {
-        obj.insert(QString("startIndex"), ::OpenAPI::toJsonValue(start_index));
+        obj.insert(QString("startIndex"), ::OpenAPI::toJsonValue(m_start_index));
     }
-    if (schemas.size() > 0) {
-        obj.insert(QString("schemas"), ::OpenAPI::toJsonValue(schemas));
+    if (m_schemas.size() > 0) {
+        obj.insert(QString("schemas"), ::OpenAPI::toJsonValue(m_schemas));
     }
-    if (resources.size() > 0) {
-        obj.insert(QString("Resources"), ::OpenAPI::toJsonValue(resources));
+    if (m_resources.size() > 0) {
+        obj.insert(QString("Resources"), ::OpenAPI::toJsonValue(m_resources));
     }
     return obj;
 }
 
 qint32 OAIScim_UserList::getTotalResults() const {
-    return total_results;
+    return m_total_results;
 }
 void OAIScim_UserList::setTotalResults(const qint32 &total_results) {
-    this->total_results = total_results;
-    this->m_total_results_isSet = true;
+    m_total_results = total_results;
+    m_total_results_isSet = true;
 }
 
 bool OAIScim_UserList::is_total_results_Set() const{
@@ -119,11 +119,11 @@ bool OAIScim_UserList::is_total_results_Valid() const{
 }
 
 qint32 OAIScim_UserList::getItemsPerPage() const {
-    return items_per_page;
+    return m_items_per_page;
 }
 void OAIScim_UserList::setItemsPerPage(const qint32 &items_per_page) {
-    this->items_per_page = items_per_page;
-    this->m_items_per_page_isSet = true;
+    m_items_per_page = items_per_page;
+    m_items_per_page_isSet = true;
 }
 
 bool OAIScim_UserList::is_items_per_page_Set() const{
@@ -135,11 +135,11 @@ bool OAIScim_UserList::is_items_per_page_Valid() const{
 }
 
 qint32 OAIScim_UserList::getStartIndex() const {
-    return start_index;
+    return m_start_index;
 }
 void OAIScim_UserList::setStartIndex(const qint32 &start_index) {
-    this->start_index = start_index;
-    this->m_start_index_isSet = true;
+    m_start_index = start_index;
+    m_start_index_isSet = true;
 }
 
 bool OAIScim_UserList::is_start_index_Set() const{
@@ -151,11 +151,11 @@ bool OAIScim_UserList::is_start_index_Valid() const{
 }
 
 QList<QString> OAIScim_UserList::getSchemas() const {
-    return schemas;
+    return m_schemas;
 }
 void OAIScim_UserList::setSchemas(const QList<QString> &schemas) {
-    this->schemas = schemas;
-    this->m_schemas_isSet = true;
+    m_schemas = schemas;
+    m_schemas_isSet = true;
 }
 
 bool OAIScim_UserList::is_schemas_Set() const{
@@ -167,11 +167,11 @@ bool OAIScim_UserList::is_schemas_Valid() const{
 }
 
 QList<OAIScim_User> OAIScim_UserList::getResources() const {
-    return resources;
+    return m_resources;
 }
 void OAIScim_UserList::setResources(const QList<OAIScim_User> &resources) {
-    this->resources = resources;
-    this->m_resources_isSet = true;
+    m_resources = resources;
+    m_resources_isSet = true;
 }
 
 bool OAIScim_UserList::is_resources_Set() const{
@@ -200,12 +200,12 @@ bool OAIScim_UserList::isSet() const {
             break;
         }
 
-        if (schemas.size() > 0) {
+        if (m_schemas.size() > 0) {
             isObjectUpdated = true;
             break;
         }
 
-        if (resources.size() > 0) {
+        if (m_resources.size() > 0) {
             isObjectUpdated = true;
             break;
         }

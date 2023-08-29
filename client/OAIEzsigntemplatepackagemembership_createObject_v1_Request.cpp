@@ -47,7 +47,7 @@ void OAIEzsigntemplatepackagemembership_createObject_v1_Request::fromJson(QStrin
 
 void OAIEzsigntemplatepackagemembership_createObject_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_ezsigntemplatepackagemembership_isValid = ::OpenAPI::fromJsonValue(a_obj_ezsigntemplatepackagemembership, json[QString("a_objEzsigntemplatepackagemembership")]);
+    m_a_obj_ezsigntemplatepackagemembership_isValid = ::OpenAPI::fromJsonValue(m_a_obj_ezsigntemplatepackagemembership, json[QString("a_objEzsigntemplatepackagemembership")]);
     m_a_obj_ezsigntemplatepackagemembership_isSet = !json[QString("a_objEzsigntemplatepackagemembership")].isNull() && m_a_obj_ezsigntemplatepackagemembership_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIEzsigntemplatepackagemembership_createObject_v1_Request::asJson() con
 
 QJsonObject OAIEzsigntemplatepackagemembership_createObject_v1_Request::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_ezsigntemplatepackagemembership.size() > 0) {
-        obj.insert(QString("a_objEzsigntemplatepackagemembership"), ::OpenAPI::toJsonValue(a_obj_ezsigntemplatepackagemembership));
+    if (m_a_obj_ezsigntemplatepackagemembership.size() > 0) {
+        obj.insert(QString("a_objEzsigntemplatepackagemembership"), ::OpenAPI::toJsonValue(m_a_obj_ezsigntemplatepackagemembership));
     }
     return obj;
 }
 
 QList<OAIEzsigntemplatepackagemembership_RequestCompound> OAIEzsigntemplatepackagemembership_createObject_v1_Request::getAObjEzsigntemplatepackagemembership() const {
-    return a_obj_ezsigntemplatepackagemembership;
+    return m_a_obj_ezsigntemplatepackagemembership;
 }
 void OAIEzsigntemplatepackagemembership_createObject_v1_Request::setAObjEzsigntemplatepackagemembership(const QList<OAIEzsigntemplatepackagemembership_RequestCompound> &a_obj_ezsigntemplatepackagemembership) {
-    this->a_obj_ezsigntemplatepackagemembership = a_obj_ezsigntemplatepackagemembership;
-    this->m_a_obj_ezsigntemplatepackagemembership_isSet = true;
+    m_a_obj_ezsigntemplatepackagemembership = a_obj_ezsigntemplatepackagemembership;
+    m_a_obj_ezsigntemplatepackagemembership_isSet = true;
 }
 
 bool OAIEzsigntemplatepackagemembership_createObject_v1_Request::is_a_obj_ezsigntemplatepackagemembership_Set() const{
@@ -85,7 +85,7 @@ bool OAIEzsigntemplatepackagemembership_createObject_v1_Request::is_a_obj_ezsign
 bool OAIEzsigntemplatepackagemembership_createObject_v1_Request::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_ezsigntemplatepackagemembership.size() > 0) {
+        if (m_a_obj_ezsigntemplatepackagemembership.size() > 0) {
             isObjectUpdated = true;
             break;
         }

@@ -63,15 +63,15 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_ezsignformfieldgroup_id;
+    qint32 m_pki_ezsignformfieldgroup_id;
     bool m_pki_ezsignformfieldgroup_id_isSet;
     bool m_pki_ezsignformfieldgroup_id_isValid;
 
-    QString s_ezsignformfieldgroup_label;
+    QString m_s_ezsignformfieldgroup_label;
     bool m_s_ezsignformfieldgroup_label_isSet;
     bool m_s_ezsignformfieldgroup_label_isValid;
 
-    QList<OAICustom_Ezsignformfield_Request> a_obj_ezsignformfield;
+    QList<OAICustom_Ezsignformfield_Request> m_a_obj_ezsignformfield;
     bool m_a_obj_ezsignformfield_isSet;
     bool m_a_obj_ezsignformfield_isValid;
 };

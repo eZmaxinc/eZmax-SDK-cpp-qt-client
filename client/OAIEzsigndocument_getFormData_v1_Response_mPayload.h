@@ -51,7 +51,7 @@ public:
 private:
     void initializeModel();
 
-    OAICustom_FormDataDocument_Response obj_form_data_document;
+    OAICustom_FormDataDocument_Response m_obj_form_data_document;
     bool m_obj_form_data_document_isSet;
     bool m_obj_form_data_document_isValid;
 };

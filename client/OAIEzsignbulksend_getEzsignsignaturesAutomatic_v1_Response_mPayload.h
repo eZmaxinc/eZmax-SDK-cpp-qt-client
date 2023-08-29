@@ -59,11 +59,11 @@ public:
 private:
     void initializeModel();
 
-    QSet<OAIField_eEzsignsignatureType> a_e_ezsignsignature_type;
+    QSet<OAIField_eEzsignsignatureType> m_a_e_ezsignsignature_type;
     bool m_a_e_ezsignsignature_type_isSet;
     bool m_a_e_ezsignsignature_type_isValid;
 
-    QList<OAICustom_EzsignfolderEzsignsignaturesAutomatic_Response> a_obj_ezsignfolder;
+    QList<OAICustom_EzsignfolderEzsignsignaturesAutomatic_Response> m_a_obj_ezsignfolder;
     bool m_a_obj_ezsignfolder_isSet;
     bool m_a_obj_ezsignfolder_isValid;
 };

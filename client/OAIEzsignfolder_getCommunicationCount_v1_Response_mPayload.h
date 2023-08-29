@@ -49,7 +49,7 @@ public:
 private:
     void initializeModel();
 
-    qint32 i_communication_count;
+    qint32 m_i_communication_count;
     bool m_i_communication_count_isSet;
     bool m_i_communication_count_isValid;
 };

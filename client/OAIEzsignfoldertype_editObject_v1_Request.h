@@ -51,7 +51,7 @@ public:
 private:
     void initializeModel();
 
-    OAIEzsignfoldertype_RequestCompound obj_ezsignfoldertype;
+    OAIEzsignfoldertype_RequestCompound m_obj_ezsignfoldertype;
     bool m_obj_ezsignfoldertype_isSet;
     bool m_obj_ezsignfoldertype_isValid;
 };

@@ -47,7 +47,7 @@ void OAIEzsigndocument_patchObject_v1_Request::fromJson(QString jsonString) {
 
 void OAIEzsigndocument_patchObject_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_obj_ezsigndocument_isValid = ::OpenAPI::fromJsonValue(obj_ezsigndocument, json[QString("objEzsigndocument")]);
+    m_obj_ezsigndocument_isValid = ::OpenAPI::fromJsonValue(m_obj_ezsigndocument, json[QString("objEzsigndocument")]);
     m_obj_ezsigndocument_isSet = !json[QString("objEzsigndocument")].isNull() && m_obj_ezsigndocument_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIEzsigndocument_patchObject_v1_Request::asJson() const {
 
 QJsonObject OAIEzsigndocument_patchObject_v1_Request::asJsonObject() const {
     QJsonObject obj;
-    if (obj_ezsigndocument.isSet()) {
-        obj.insert(QString("objEzsigndocument"), ::OpenAPI::toJsonValue(obj_ezsigndocument));
+    if (m_obj_ezsigndocument.isSet()) {
+        obj.insert(QString("objEzsigndocument"), ::OpenAPI::toJsonValue(m_obj_ezsigndocument));
     }
     return obj;
 }
 
 OAIEzsigndocument_RequestPatch OAIEzsigndocument_patchObject_v1_Request::getObjEzsigndocument() const {
-    return obj_ezsigndocument;
+    return m_obj_ezsigndocument;
 }
 void OAIEzsigndocument_patchObject_v1_Request::setObjEzsigndocument(const OAIEzsigndocument_RequestPatch &obj_ezsigndocument) {
-    this->obj_ezsigndocument = obj_ezsigndocument;
-    this->m_obj_ezsigndocument_isSet = true;
+    m_obj_ezsigndocument = obj_ezsigndocument;
+    m_obj_ezsigndocument_isSet = true;
 }
 
 bool OAIEzsigndocument_patchObject_v1_Request::is_obj_ezsigndocument_Set() const{
@@ -85,7 +85,7 @@ bool OAIEzsigndocument_patchObject_v1_Request::is_obj_ezsigndocument_Valid() con
 bool OAIEzsigndocument_patchObject_v1_Request::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (obj_ezsigndocument.isSet()) {
+        if (m_obj_ezsigndocument.isSet()) {
             isObjectUpdated = true;
             break;
         }

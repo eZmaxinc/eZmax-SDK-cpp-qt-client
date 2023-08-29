@@ -47,7 +47,7 @@ void OAIEzsignbulksend_getObject_v2_Response_mPayload::fromJson(QString jsonStri
 
 void OAIEzsignbulksend_getObject_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_obj_ezsignbulksend_isValid = ::OpenAPI::fromJsonValue(obj_ezsignbulksend, json[QString("objEzsignbulksend")]);
+    m_obj_ezsignbulksend_isValid = ::OpenAPI::fromJsonValue(m_obj_ezsignbulksend, json[QString("objEzsignbulksend")]);
     m_obj_ezsignbulksend_isSet = !json[QString("objEzsignbulksend")].isNull() && m_obj_ezsignbulksend_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIEzsignbulksend_getObject_v2_Response_mPayload::asJson() const {
 
 QJsonObject OAIEzsignbulksend_getObject_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (obj_ezsignbulksend.isSet()) {
-        obj.insert(QString("objEzsignbulksend"), ::OpenAPI::toJsonValue(obj_ezsignbulksend));
+    if (m_obj_ezsignbulksend.isSet()) {
+        obj.insert(QString("objEzsignbulksend"), ::OpenAPI::toJsonValue(m_obj_ezsignbulksend));
     }
     return obj;
 }
 
 OAIEzsignbulksend_ResponseCompound OAIEzsignbulksend_getObject_v2_Response_mPayload::getObjEzsignbulksend() const {
-    return obj_ezsignbulksend;
+    return m_obj_ezsignbulksend;
 }
 void OAIEzsignbulksend_getObject_v2_Response_mPayload::setObjEzsignbulksend(const OAIEzsignbulksend_ResponseCompound &obj_ezsignbulksend) {
-    this->obj_ezsignbulksend = obj_ezsignbulksend;
-    this->m_obj_ezsignbulksend_isSet = true;
+    m_obj_ezsignbulksend = obj_ezsignbulksend;
+    m_obj_ezsignbulksend_isSet = true;
 }
 
 bool OAIEzsignbulksend_getObject_v2_Response_mPayload::is_obj_ezsignbulksend_Set() const{
@@ -85,7 +85,7 @@ bool OAIEzsignbulksend_getObject_v2_Response_mPayload::is_obj_ezsignbulksend_Val
 bool OAIEzsignbulksend_getObject_v2_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (obj_ezsignbulksend.isSet()) {
+        if (m_obj_ezsignbulksend.isSet()) {
             isObjectUpdated = true;
             break;
         }

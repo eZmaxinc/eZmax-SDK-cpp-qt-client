@@ -55,11 +55,11 @@ public:
 private:
     void initializeModel();
 
-    QString dt_ezsigndocument_duedate;
+    QString m_dt_ezsigndocument_duedate;
     bool m_dt_ezsigndocument_duedate_isSet;
     bool m_dt_ezsigndocument_duedate_isValid;
 
-    QString s_ezsigndocument_name;
+    QString m_s_ezsigndocument_name;
     bool m_s_ezsigndocument_name_isSet;
     bool m_s_ezsigndocument_name_isValid;
 };

@@ -47,7 +47,7 @@ void OAISubnet_createObject_v1_Response_mPayload::fromJson(QString jsonString) {
 
 void OAISubnet_createObject_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_pki_subnet_id_isValid = ::OpenAPI::fromJsonValue(a_pki_subnet_id, json[QString("a_pkiSubnetID")]);
+    m_a_pki_subnet_id_isValid = ::OpenAPI::fromJsonValue(m_a_pki_subnet_id, json[QString("a_pkiSubnetID")]);
     m_a_pki_subnet_id_isSet = !json[QString("a_pkiSubnetID")].isNull() && m_a_pki_subnet_id_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAISubnet_createObject_v1_Response_mPayload::asJson() const {
 
 QJsonObject OAISubnet_createObject_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (a_pki_subnet_id.size() > 0) {
-        obj.insert(QString("a_pkiSubnetID"), ::OpenAPI::toJsonValue(a_pki_subnet_id));
+    if (m_a_pki_subnet_id.size() > 0) {
+        obj.insert(QString("a_pkiSubnetID"), ::OpenAPI::toJsonValue(m_a_pki_subnet_id));
     }
     return obj;
 }
 
 QList<qint32> OAISubnet_createObject_v1_Response_mPayload::getAPkiSubnetId() const {
-    return a_pki_subnet_id;
+    return m_a_pki_subnet_id;
 }
 void OAISubnet_createObject_v1_Response_mPayload::setAPkiSubnetId(const QList<qint32> &a_pki_subnet_id) {
-    this->a_pki_subnet_id = a_pki_subnet_id;
-    this->m_a_pki_subnet_id_isSet = true;
+    m_a_pki_subnet_id = a_pki_subnet_id;
+    m_a_pki_subnet_id_isSet = true;
 }
 
 bool OAISubnet_createObject_v1_Response_mPayload::is_a_pki_subnet_id_Set() const{
@@ -85,7 +85,7 @@ bool OAISubnet_createObject_v1_Response_mPayload::is_a_pki_subnet_id_Valid() con
 bool OAISubnet_createObject_v1_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_pki_subnet_id.size() > 0) {
+        if (m_a_pki_subnet_id.size() > 0) {
             isObjectUpdated = true;
             break;
         }

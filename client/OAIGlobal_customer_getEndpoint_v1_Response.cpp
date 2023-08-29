@@ -47,7 +47,7 @@ void OAIGlobal_customer_getEndpoint_v1_Response::fromJson(QString jsonString) {
 
 void OAIGlobal_customer_getEndpoint_v1_Response::fromJsonObject(QJsonObject json) {
 
-    m_s_endpoint_url_isValid = ::OpenAPI::fromJsonValue(s_endpoint_url, json[QString("sEndpointURL")]);
+    m_s_endpoint_url_isValid = ::OpenAPI::fromJsonValue(m_s_endpoint_url, json[QString("sEndpointURL")]);
     m_s_endpoint_url_isSet = !json[QString("sEndpointURL")].isNull() && m_s_endpoint_url_isValid;
 }
 
@@ -61,17 +61,17 @@ QString OAIGlobal_customer_getEndpoint_v1_Response::asJson() const {
 QJsonObject OAIGlobal_customer_getEndpoint_v1_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_s_endpoint_url_isSet) {
-        obj.insert(QString("sEndpointURL"), ::OpenAPI::toJsonValue(s_endpoint_url));
+        obj.insert(QString("sEndpointURL"), ::OpenAPI::toJsonValue(m_s_endpoint_url));
     }
     return obj;
 }
 
 QString OAIGlobal_customer_getEndpoint_v1_Response::getSEndpointUrl() const {
-    return s_endpoint_url;
+    return m_s_endpoint_url;
 }
 void OAIGlobal_customer_getEndpoint_v1_Response::setSEndpointUrl(const QString &s_endpoint_url) {
-    this->s_endpoint_url = s_endpoint_url;
-    this->m_s_endpoint_url_isSet = true;
+    m_s_endpoint_url = s_endpoint_url;
+    m_s_endpoint_url_isSet = true;
 }
 
 bool OAIGlobal_customer_getEndpoint_v1_Response::is_s_endpoint_url_Set() const{

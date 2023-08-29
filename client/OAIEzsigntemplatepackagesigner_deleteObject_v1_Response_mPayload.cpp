@@ -50,10 +50,10 @@ void OAIEzsigntemplatepackagesigner_deleteObject_v1_Response_mPayload::fromJson(
 
 void OAIEzsigntemplatepackagesigner_deleteObject_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_b_ezsigntemplatepackage_needvalidation_isValid = ::OpenAPI::fromJsonValue(b_ezsigntemplatepackage_needvalidation, json[QString("bEzsigntemplatepackageNeedvalidation")]);
+    m_b_ezsigntemplatepackage_needvalidation_isValid = ::OpenAPI::fromJsonValue(m_b_ezsigntemplatepackage_needvalidation, json[QString("bEzsigntemplatepackageNeedvalidation")]);
     m_b_ezsigntemplatepackage_needvalidation_isSet = !json[QString("bEzsigntemplatepackageNeedvalidation")].isNull() && m_b_ezsigntemplatepackage_needvalidation_isValid;
 
-    m_b_ezsignbulksend_needvalidation_isValid = ::OpenAPI::fromJsonValue(b_ezsignbulksend_needvalidation, json[QString("bEzsignbulksendNeedvalidation")]);
+    m_b_ezsignbulksend_needvalidation_isValid = ::OpenAPI::fromJsonValue(m_b_ezsignbulksend_needvalidation, json[QString("bEzsignbulksendNeedvalidation")]);
     m_b_ezsignbulksend_needvalidation_isSet = !json[QString("bEzsignbulksendNeedvalidation")].isNull() && m_b_ezsignbulksend_needvalidation_isValid;
 }
 
@@ -67,20 +67,20 @@ QString OAIEzsigntemplatepackagesigner_deleteObject_v1_Response_mPayload::asJson
 QJsonObject OAIEzsigntemplatepackagesigner_deleteObject_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_b_ezsigntemplatepackage_needvalidation_isSet) {
-        obj.insert(QString("bEzsigntemplatepackageNeedvalidation"), ::OpenAPI::toJsonValue(b_ezsigntemplatepackage_needvalidation));
+        obj.insert(QString("bEzsigntemplatepackageNeedvalidation"), ::OpenAPI::toJsonValue(m_b_ezsigntemplatepackage_needvalidation));
     }
     if (m_b_ezsignbulksend_needvalidation_isSet) {
-        obj.insert(QString("bEzsignbulksendNeedvalidation"), ::OpenAPI::toJsonValue(b_ezsignbulksend_needvalidation));
+        obj.insert(QString("bEzsignbulksendNeedvalidation"), ::OpenAPI::toJsonValue(m_b_ezsignbulksend_needvalidation));
     }
     return obj;
 }
 
 bool OAIEzsigntemplatepackagesigner_deleteObject_v1_Response_mPayload::isBEzsigntemplatepackageNeedvalidation() const {
-    return b_ezsigntemplatepackage_needvalidation;
+    return m_b_ezsigntemplatepackage_needvalidation;
 }
 void OAIEzsigntemplatepackagesigner_deleteObject_v1_Response_mPayload::setBEzsigntemplatepackageNeedvalidation(const bool &b_ezsigntemplatepackage_needvalidation) {
-    this->b_ezsigntemplatepackage_needvalidation = b_ezsigntemplatepackage_needvalidation;
-    this->m_b_ezsigntemplatepackage_needvalidation_isSet = true;
+    m_b_ezsigntemplatepackage_needvalidation = b_ezsigntemplatepackage_needvalidation;
+    m_b_ezsigntemplatepackage_needvalidation_isSet = true;
 }
 
 bool OAIEzsigntemplatepackagesigner_deleteObject_v1_Response_mPayload::is_b_ezsigntemplatepackage_needvalidation_Set() const{
@@ -92,11 +92,11 @@ bool OAIEzsigntemplatepackagesigner_deleteObject_v1_Response_mPayload::is_b_ezsi
 }
 
 bool OAIEzsigntemplatepackagesigner_deleteObject_v1_Response_mPayload::isBEzsignbulksendNeedvalidation() const {
-    return b_ezsignbulksend_needvalidation;
+    return m_b_ezsignbulksend_needvalidation;
 }
 void OAIEzsigntemplatepackagesigner_deleteObject_v1_Response_mPayload::setBEzsignbulksendNeedvalidation(const bool &b_ezsignbulksend_needvalidation) {
-    this->b_ezsignbulksend_needvalidation = b_ezsignbulksend_needvalidation;
-    this->m_b_ezsignbulksend_needvalidation_isSet = true;
+    m_b_ezsignbulksend_needvalidation = b_ezsignbulksend_needvalidation;
+    m_b_ezsignbulksend_needvalidation_isSet = true;
 }
 
 bool OAIEzsigntemplatepackagesigner_deleteObject_v1_Response_mPayload::is_b_ezsignbulksend_needvalidation_Set() const{

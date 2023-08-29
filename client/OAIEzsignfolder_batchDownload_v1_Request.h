@@ -56,11 +56,11 @@ public:
 private:
     void initializeModel();
 
-    QList<qint32> a_pki_ezsigndocument_id;
+    QList<qint32> m_a_pki_ezsigndocument_id;
     bool m_a_pki_ezsigndocument_id_isSet;
     bool m_a_pki_ezsigndocument_id_isValid;
 
-    QList<QString> a_e_document_type;
+    QList<QString> m_a_e_document_type;
     bool m_a_e_document_type_isSet;
     bool m_a_e_document_type_isValid;
 };

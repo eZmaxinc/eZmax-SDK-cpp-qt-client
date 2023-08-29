@@ -47,7 +47,7 @@ void OAIEzsignbulksend_getFormsData_v1_Response_mPayload::fromJson(QString jsonS
 
 void OAIEzsignbulksend_getFormsData_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_forms_data_folder_isValid = ::OpenAPI::fromJsonValue(a_obj_forms_data_folder, json[QString("a_objFormsDataFolder")]);
+    m_a_obj_forms_data_folder_isValid = ::OpenAPI::fromJsonValue(m_a_obj_forms_data_folder, json[QString("a_objFormsDataFolder")]);
     m_a_obj_forms_data_folder_isSet = !json[QString("a_objFormsDataFolder")].isNull() && m_a_obj_forms_data_folder_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIEzsignbulksend_getFormsData_v1_Response_mPayload::asJson() const {
 
 QJsonObject OAIEzsignbulksend_getFormsData_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_forms_data_folder.size() > 0) {
-        obj.insert(QString("a_objFormsDataFolder"), ::OpenAPI::toJsonValue(a_obj_forms_data_folder));
+    if (m_a_obj_forms_data_folder.size() > 0) {
+        obj.insert(QString("a_objFormsDataFolder"), ::OpenAPI::toJsonValue(m_a_obj_forms_data_folder));
     }
     return obj;
 }
 
 QList<OAICustom_FormsDataFolder_Response> OAIEzsignbulksend_getFormsData_v1_Response_mPayload::getAObjFormsDataFolder() const {
-    return a_obj_forms_data_folder;
+    return m_a_obj_forms_data_folder;
 }
 void OAIEzsignbulksend_getFormsData_v1_Response_mPayload::setAObjFormsDataFolder(const QList<OAICustom_FormsDataFolder_Response> &a_obj_forms_data_folder) {
-    this->a_obj_forms_data_folder = a_obj_forms_data_folder;
-    this->m_a_obj_forms_data_folder_isSet = true;
+    m_a_obj_forms_data_folder = a_obj_forms_data_folder;
+    m_a_obj_forms_data_folder_isSet = true;
 }
 
 bool OAIEzsignbulksend_getFormsData_v1_Response_mPayload::is_a_obj_forms_data_folder_Set() const{
@@ -85,7 +85,7 @@ bool OAIEzsignbulksend_getFormsData_v1_Response_mPayload::is_a_obj_forms_data_fo
 bool OAIEzsignbulksend_getFormsData_v1_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_forms_data_folder.size() > 0) {
+        if (m_a_obj_forms_data_folder.size() > 0) {
             isObjectUpdated = true;
             break;
         }

@@ -54,11 +54,11 @@ public:
 private:
     void initializeModel();
 
-    qint32 i_reportcell_columnspan;
+    qint32 m_i_reportcell_columnspan;
     bool m_i_reportcell_columnspan_isSet;
     bool m_i_reportcell_columnspan_isValid;
 
-    qint32 i_reportcell_rowspan;
+    qint32 m_i_reportcell_rowspan;
     bool m_i_reportcell_rowspan_isSet;
     bool m_i_reportcell_rowspan_isValid;
 };

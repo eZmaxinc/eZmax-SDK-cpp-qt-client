@@ -47,7 +47,7 @@ void OAIWebsocket_Response_Information_V1_mPayload::fromJson(QString jsonString)
 
 void OAIWebsocket_Response_Information_V1_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_s_information_message_isValid = ::OpenAPI::fromJsonValue(s_information_message, json[QString("sInformationMessage")]);
+    m_s_information_message_isValid = ::OpenAPI::fromJsonValue(m_s_information_message, json[QString("sInformationMessage")]);
     m_s_information_message_isSet = !json[QString("sInformationMessage")].isNull() && m_s_information_message_isValid;
 }
 
@@ -61,17 +61,17 @@ QString OAIWebsocket_Response_Information_V1_mPayload::asJson() const {
 QJsonObject OAIWebsocket_Response_Information_V1_mPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_s_information_message_isSet) {
-        obj.insert(QString("sInformationMessage"), ::OpenAPI::toJsonValue(s_information_message));
+        obj.insert(QString("sInformationMessage"), ::OpenAPI::toJsonValue(m_s_information_message));
     }
     return obj;
 }
 
 QString OAIWebsocket_Response_Information_V1_mPayload::getSInformationMessage() const {
-    return s_information_message;
+    return m_s_information_message;
 }
 void OAIWebsocket_Response_Information_V1_mPayload::setSInformationMessage(const QString &s_information_message) {
-    this->s_information_message = s_information_message;
-    this->m_s_information_message_isSet = true;
+    m_s_information_message = s_information_message;
+    m_s_information_message_isSet = true;
 }
 
 bool OAIWebsocket_Response_Information_V1_mPayload::is_s_information_message_Set() const{

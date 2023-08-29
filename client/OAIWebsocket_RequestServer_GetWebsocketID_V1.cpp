@@ -47,7 +47,7 @@ void OAIWebsocket_RequestServer_GetWebsocketID_V1::fromJson(QString jsonString) 
 
 void OAIWebsocket_RequestServer_GetWebsocketID_V1::fromJsonObject(QJsonObject json) {
 
-    m_e_websocket_messagetype_isValid = ::OpenAPI::fromJsonValue(e_websocket_messagetype, json[QString("eWebsocketMessagetype")]);
+    m_e_websocket_messagetype_isValid = ::OpenAPI::fromJsonValue(m_e_websocket_messagetype, json[QString("eWebsocketMessagetype")]);
     m_e_websocket_messagetype_isSet = !json[QString("eWebsocketMessagetype")].isNull() && m_e_websocket_messagetype_isValid;
 }
 
@@ -61,17 +61,17 @@ QString OAIWebsocket_RequestServer_GetWebsocketID_V1::asJson() const {
 QJsonObject OAIWebsocket_RequestServer_GetWebsocketID_V1::asJsonObject() const {
     QJsonObject obj;
     if (m_e_websocket_messagetype_isSet) {
-        obj.insert(QString("eWebsocketMessagetype"), ::OpenAPI::toJsonValue(e_websocket_messagetype));
+        obj.insert(QString("eWebsocketMessagetype"), ::OpenAPI::toJsonValue(m_e_websocket_messagetype));
     }
     return obj;
 }
 
 QString OAIWebsocket_RequestServer_GetWebsocketID_V1::getEWebsocketMessagetype() const {
-    return e_websocket_messagetype;
+    return m_e_websocket_messagetype;
 }
 void OAIWebsocket_RequestServer_GetWebsocketID_V1::setEWebsocketMessagetype(const QString &e_websocket_messagetype) {
-    this->e_websocket_messagetype = e_websocket_messagetype;
-    this->m_e_websocket_messagetype_isSet = true;
+    m_e_websocket_messagetype = e_websocket_messagetype;
+    m_e_websocket_messagetype_isSet = true;
 }
 
 bool OAIWebsocket_RequestServer_GetWebsocketID_V1::is_e_websocket_messagetype_Set() const{

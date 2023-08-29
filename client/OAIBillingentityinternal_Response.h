@@ -56,11 +56,11 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_billingentityinternal_id;
+    qint32 m_pki_billingentityinternal_id;
     bool m_pki_billingentityinternal_id_isSet;
     bool m_pki_billingentityinternal_id_isValid;
 
-    OAIMultilingual_BillingentityinternalDescription obj_billingentityinternal_description;
+    OAIMultilingual_BillingentityinternalDescription m_obj_billingentityinternal_description;
     bool m_obj_billingentityinternal_description_isSet;
     bool m_obj_billingentityinternal_description_isValid;
 };

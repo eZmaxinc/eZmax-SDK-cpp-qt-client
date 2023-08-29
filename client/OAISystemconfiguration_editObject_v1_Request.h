@@ -51,7 +51,7 @@ public:
 private:
     void initializeModel();
 
-    OAISystemconfiguration_RequestCompound obj_systemconfiguration;
+    OAISystemconfiguration_RequestCompound m_obj_systemconfiguration;
     bool m_obj_systemconfiguration_isSet;
     bool m_obj_systemconfiguration_isValid;
 };

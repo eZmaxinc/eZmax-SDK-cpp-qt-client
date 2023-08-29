@@ -50,7 +50,7 @@ public:
 private:
     void initializeModel();
 
-    QString e_websocket_messagetype;
+    QString m_e_websocket_messagetype;
     bool m_e_websocket_messagetype_isSet;
     bool m_e_websocket_messagetype_isValid;
 };

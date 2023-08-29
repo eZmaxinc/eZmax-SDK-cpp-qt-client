@@ -85,35 +85,35 @@ public:
 private:
     void initializeModel();
 
-    qint32 fki_addresstype_id;
+    qint32 m_fki_addresstype_id;
     bool m_fki_addresstype_id_isSet;
     bool m_fki_addresstype_id_isValid;
 
-    QString s_address_civic;
+    QString m_s_address_civic;
     bool m_s_address_civic_isSet;
     bool m_s_address_civic_isValid;
 
-    QString s_address_street;
+    QString m_s_address_street;
     bool m_s_address_street_isSet;
     bool m_s_address_street_isValid;
 
-    QString s_address_suite;
+    QString m_s_address_suite;
     bool m_s_address_suite_isSet;
     bool m_s_address_suite_isValid;
 
-    QString s_address_city;
+    QString m_s_address_city;
     bool m_s_address_city_isSet;
     bool m_s_address_city_isValid;
 
-    qint32 fki_province_id;
+    qint32 m_fki_province_id;
     bool m_fki_province_id_isSet;
     bool m_fki_province_id_isValid;
 
-    qint32 fki_country_id;
+    qint32 m_fki_country_id;
     bool m_fki_country_id_isSet;
     bool m_fki_country_id_isValid;
 
-    QString s_address_zip;
+    QString m_s_address_zip;
     bool m_s_address_zip_isSet;
     bool m_s_address_zip_isValid;
 };

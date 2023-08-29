@@ -52,7 +52,7 @@ public:
 private:
     void initializeModel();
 
-    QList<OAIVariableexpense_RequestCompound> a_obj_variableexpense;
+    QList<OAIVariableexpense_RequestCompound> m_a_obj_variableexpense;
     bool m_a_obj_variableexpense_isSet;
     bool m_a_obj_variableexpense_isValid;
 };

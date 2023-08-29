@@ -47,7 +47,7 @@ void OAIPeriod_getAutocomplete_v2_Response_mPayload::fromJson(QString jsonString
 
 void OAIPeriod_getAutocomplete_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_period_isValid = ::OpenAPI::fromJsonValue(a_obj_period, json[QString("a_objPeriod")]);
+    m_a_obj_period_isValid = ::OpenAPI::fromJsonValue(m_a_obj_period, json[QString("a_objPeriod")]);
     m_a_obj_period_isSet = !json[QString("a_objPeriod")].isNull() && m_a_obj_period_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIPeriod_getAutocomplete_v2_Response_mPayload::asJson() const {
 
 QJsonObject OAIPeriod_getAutocomplete_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_period.size() > 0) {
-        obj.insert(QString("a_objPeriod"), ::OpenAPI::toJsonValue(a_obj_period));
+    if (m_a_obj_period.size() > 0) {
+        obj.insert(QString("a_objPeriod"), ::OpenAPI::toJsonValue(m_a_obj_period));
     }
     return obj;
 }
 
 QList<OAIPeriod_AutocompleteElement_Response> OAIPeriod_getAutocomplete_v2_Response_mPayload::getAObjPeriod() const {
-    return a_obj_period;
+    return m_a_obj_period;
 }
 void OAIPeriod_getAutocomplete_v2_Response_mPayload::setAObjPeriod(const QList<OAIPeriod_AutocompleteElement_Response> &a_obj_period) {
-    this->a_obj_period = a_obj_period;
-    this->m_a_obj_period_isSet = true;
+    m_a_obj_period = a_obj_period;
+    m_a_obj_period_isSet = true;
 }
 
 bool OAIPeriod_getAutocomplete_v2_Response_mPayload::is_a_obj_period_Set() const{
@@ -85,7 +85,7 @@ bool OAIPeriod_getAutocomplete_v2_Response_mPayload::is_a_obj_period_Valid() con
 bool OAIPeriod_getAutocomplete_v2_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_period.size() > 0) {
+        if (m_a_obj_period.size() > 0) {
             isObjectUpdated = true;
             break;
         }

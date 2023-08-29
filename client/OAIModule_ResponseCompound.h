@@ -83,31 +83,31 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_module_id;
+    qint32 m_pki_module_id;
     bool m_pki_module_id_isSet;
     bool m_pki_module_id_isValid;
 
-    qint32 fki_modulegroup_id;
+    qint32 m_fki_modulegroup_id;
     bool m_fki_modulegroup_id_isSet;
     bool m_fki_modulegroup_id_isValid;
 
-    QString e_module_internalname;
+    QString m_e_module_internalname;
     bool m_e_module_internalname_isSet;
     bool m_e_module_internalname_isValid;
 
-    QString s_module_name_x;
+    QString m_s_module_name_x;
     bool m_s_module_name_x_isSet;
     bool m_s_module_name_x_isValid;
 
-    bool b_module_registered;
+    bool m_b_module_registered;
     bool m_b_module_registered_isSet;
     bool m_b_module_registered_isValid;
 
-    bool b_module_registeredapi;
+    bool m_b_module_registeredapi;
     bool m_b_module_registeredapi_isSet;
     bool m_b_module_registeredapi_isValid;
 
-    QList<OAIModulesection_ResponseCompound> a_obj_modulesection;
+    QList<OAIModulesection_ResponseCompound> m_a_obj_modulesection;
     bool m_a_obj_modulesection_isSet;
     bool m_a_obj_modulesection_isValid;
 };

@@ -94,39 +94,39 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_systemconfiguration_id;
+    qint32 m_pki_systemconfiguration_id;
     bool m_pki_systemconfiguration_id_isSet;
     bool m_pki_systemconfiguration_id_isValid;
 
-    OAIField_eSystemconfigurationNewexternaluseraction e_systemconfiguration_newexternaluseraction;
+    OAIField_eSystemconfigurationNewexternaluseraction m_e_systemconfiguration_newexternaluseraction;
     bool m_e_systemconfiguration_newexternaluseraction_isSet;
     bool m_e_systemconfiguration_newexternaluseraction_isValid;
 
-    OAIField_eSystemconfigurationLanguage1 e_systemconfiguration_language1;
+    OAIField_eSystemconfigurationLanguage1 m_e_systemconfiguration_language1;
     bool m_e_systemconfiguration_language1_isSet;
     bool m_e_systemconfiguration_language1_isValid;
 
-    OAIField_eSystemconfigurationLanguage2 e_systemconfiguration_language2;
+    OAIField_eSystemconfigurationLanguage2 m_e_systemconfiguration_language2;
     bool m_e_systemconfiguration_language2_isSet;
     bool m_e_systemconfiguration_language2_isValid;
 
-    OAIField_eSystemconfigurationEzsign e_systemconfiguration_ezsign;
+    OAIField_eSystemconfigurationEzsign m_e_systemconfiguration_ezsign;
     bool m_e_systemconfiguration_ezsign_isSet;
     bool m_e_systemconfiguration_ezsign_isValid;
 
-    bool b_systemconfiguration_ezsignpersonnal;
+    bool m_b_systemconfiguration_ezsignpersonnal;
     bool m_b_systemconfiguration_ezsignpersonnal_isSet;
     bool m_b_systemconfiguration_ezsignpersonnal_isValid;
 
-    bool b_systemconfiguration_sspr;
+    bool m_b_systemconfiguration_sspr;
     bool m_b_systemconfiguration_sspr_isSet;
     bool m_b_systemconfiguration_sspr_isValid;
 
-    QString dt_systemconfiguration_readonlyexpirationstart;
+    QString m_dt_systemconfiguration_readonlyexpirationstart;
     bool m_dt_systemconfiguration_readonlyexpirationstart_isSet;
     bool m_dt_systemconfiguration_readonlyexpirationstart_isValid;
 
-    QString dt_systemconfiguration_readonlyexpirationend;
+    QString m_dt_systemconfiguration_readonlyexpirationend;
     bool m_dt_systemconfiguration_readonlyexpirationend_isSet;
     bool m_dt_systemconfiguration_readonlyexpirationend_isValid;
 };

@@ -52,7 +52,7 @@ public:
 private:
     void initializeModel();
 
-    QList<OAIUser_AutocompleteElement_Response> a_obj_user;
+    QList<OAIUser_AutocompleteElement_Response> m_a_obj_user;
     bool m_a_obj_user_isSet;
     bool m_a_obj_user_isValid;
 };

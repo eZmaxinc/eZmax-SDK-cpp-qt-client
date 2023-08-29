@@ -98,43 +98,43 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_user_id;
+    qint32 m_pki_user_id;
     bool m_pki_user_id_isSet;
     bool m_pki_user_id_isValid;
 
-    QString s_user_firstname;
+    QString m_s_user_firstname;
     bool m_s_user_firstname_isSet;
     bool m_s_user_firstname_isValid;
 
-    QString s_user_lastname;
+    QString m_s_user_lastname;
     bool m_s_user_lastname_isSet;
     bool m_s_user_lastname_isValid;
 
-    QString s_user_loginname;
+    QString m_s_user_loginname;
     bool m_s_user_loginname_isSet;
     bool m_s_user_loginname_isValid;
 
-    bool b_user_isactive;
+    bool m_b_user_isactive;
     bool m_b_user_isactive_isSet;
     bool m_b_user_isactive_isValid;
 
-    OAIField_eUserType e_user_type;
+    OAIField_eUserType m_e_user_type;
     bool m_e_user_type_isSet;
     bool m_e_user_type_isValid;
 
-    OAIField_eUserOrigin e_user_origin;
+    OAIField_eUserOrigin m_e_user_origin;
     bool m_e_user_origin_isSet;
     bool m_e_user_origin_isValid;
 
-    OAIField_eUserEzsignaccess e_user_ezsignaccess;
+    OAIField_eUserEzsignaccess m_e_user_ezsignaccess;
     bool m_e_user_ezsignaccess_isSet;
     bool m_e_user_ezsignaccess_isValid;
 
-    QString dt_user_ezsignprepaidexpiration;
+    QString m_dt_user_ezsignprepaidexpiration;
     bool m_dt_user_ezsignprepaidexpiration_isSet;
     bool m_dt_user_ezsignprepaidexpiration_isValid;
 
-    QString s_email_address;
+    QString m_s_email_address;
     bool m_s_email_address_isSet;
     bool m_s_email_address_isValid;
 };

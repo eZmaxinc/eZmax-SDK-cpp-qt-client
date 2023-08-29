@@ -29,9 +29,9 @@
 #include "OAIObject.h"
 
 namespace OpenAPI {
-class OAIEzsignfolder_getEzsignfoldersignerassociations_v1_Response_mPayload;
 class OAICommon_Response_objDebugPayload;
 class OAICommon_Response_objDebug;
+class OAIEzsignfolder_getEzsignfoldersignerassociations_v1_Response_mPayload;
 
 class OAIEzsignfolder_getEzsignfoldersignerassociations_v1_Response : public OAIObject {
 public:
@@ -44,11 +44,6 @@ public:
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    OAIEzsignfolder_getEzsignfoldersignerassociations_v1_Response_mPayload getMPayload() const;
-    void setMPayload(const OAIEzsignfolder_getEzsignfoldersignerassociations_v1_Response_mPayload &m_payload);
-    bool is_m_payload_Set() const;
-    bool is_m_payload_Valid() const;
-
     OAICommon_Response_objDebugPayload getObjDebugPayload() const;
     void setObjDebugPayload(const OAICommon_Response_objDebugPayload &obj_debug_payload);
     bool is_obj_debug_payload_Set() const;
@@ -59,23 +54,28 @@ public:
     bool is_obj_debug_Set() const;
     bool is_obj_debug_Valid() const;
 
+    OAIEzsignfolder_getEzsignfoldersignerassociations_v1_Response_mPayload getMPayload() const;
+    void setMPayload(const OAIEzsignfolder_getEzsignfoldersignerassociations_v1_Response_mPayload &m_payload);
+    bool is_m_payload_Set() const;
+    bool is_m_payload_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
 private:
     void initializeModel();
 
-    OAIEzsignfolder_getEzsignfoldersignerassociations_v1_Response_mPayload m_payload;
-    bool m_m_payload_isSet;
-    bool m_m_payload_isValid;
-
-    OAICommon_Response_objDebugPayload obj_debug_payload;
+    OAICommon_Response_objDebugPayload m_obj_debug_payload;
     bool m_obj_debug_payload_isSet;
     bool m_obj_debug_payload_isValid;
 
-    OAICommon_Response_objDebug obj_debug;
+    OAICommon_Response_objDebug m_obj_debug;
     bool m_obj_debug_isSet;
     bool m_obj_debug_isValid;
+
+    OAIEzsignfolder_getEzsignfoldersignerassociations_v1_Response_mPayload m_m_payload;
+    bool m_m_payload_isSet;
+    bool m_m_payload_isValid;
 };
 
 } // namespace OpenAPI

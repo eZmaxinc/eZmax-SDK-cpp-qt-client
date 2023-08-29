@@ -60,15 +60,15 @@ public:
 private:
     void initializeModel();
 
-    QString s_contact_firstname;
+    QString m_s_contact_firstname;
     bool m_s_contact_firstname_isSet;
     bool m_s_contact_firstname_isValid;
 
-    QString s_contact_lastname;
+    QString m_s_contact_lastname;
     bool m_s_contact_lastname_isSet;
     bool m_s_contact_lastname_isValid;
 
-    QString s_contact_company;
+    QString m_s_contact_company;
     bool m_s_contact_company_isSet;
     bool m_s_contact_company_isValid;
 };

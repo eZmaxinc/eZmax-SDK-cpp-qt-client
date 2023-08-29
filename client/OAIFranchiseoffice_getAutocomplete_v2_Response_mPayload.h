@@ -52,7 +52,7 @@ public:
 private:
     void initializeModel();
 
-    QList<OAIFranchiseoffice_AutocompleteElement_Response> a_obj_franchiseoffice;
+    QList<OAIFranchiseoffice_AutocompleteElement_Response> m_a_obj_franchiseoffice;
     bool m_a_obj_franchiseoffice_isSet;
     bool m_a_obj_franchiseoffice_isValid;
 };

@@ -62,22 +62,22 @@ void OAIApikey_ListElement::fromJson(QString jsonString) {
 
 void OAIApikey_ListElement::fromJsonObject(QJsonObject json) {
 
-    m_pki_apikey_id_isValid = ::OpenAPI::fromJsonValue(pki_apikey_id, json[QString("pkiApikeyID")]);
+    m_pki_apikey_id_isValid = ::OpenAPI::fromJsonValue(m_pki_apikey_id, json[QString("pkiApikeyID")]);
     m_pki_apikey_id_isSet = !json[QString("pkiApikeyID")].isNull() && m_pki_apikey_id_isValid;
 
-    m_s_apikey_description_x_isValid = ::OpenAPI::fromJsonValue(s_apikey_description_x, json[QString("sApikeyDescriptionX")]);
+    m_s_apikey_description_x_isValid = ::OpenAPI::fromJsonValue(m_s_apikey_description_x, json[QString("sApikeyDescriptionX")]);
     m_s_apikey_description_x_isSet = !json[QString("sApikeyDescriptionX")].isNull() && m_s_apikey_description_x_isValid;
 
-    m_s_user_firstname_isValid = ::OpenAPI::fromJsonValue(s_user_firstname, json[QString("sUserFirstname")]);
+    m_s_user_firstname_isValid = ::OpenAPI::fromJsonValue(m_s_user_firstname, json[QString("sUserFirstname")]);
     m_s_user_firstname_isSet = !json[QString("sUserFirstname")].isNull() && m_s_user_firstname_isValid;
 
-    m_s_user_lastname_isValid = ::OpenAPI::fromJsonValue(s_user_lastname, json[QString("sUserLastname")]);
+    m_s_user_lastname_isValid = ::OpenAPI::fromJsonValue(m_s_user_lastname, json[QString("sUserLastname")]);
     m_s_user_lastname_isSet = !json[QString("sUserLastname")].isNull() && m_s_user_lastname_isValid;
 
-    m_b_apikey_isactive_isValid = ::OpenAPI::fromJsonValue(b_apikey_isactive, json[QString("bApikeyIsactive")]);
+    m_b_apikey_isactive_isValid = ::OpenAPI::fromJsonValue(m_b_apikey_isactive, json[QString("bApikeyIsactive")]);
     m_b_apikey_isactive_isSet = !json[QString("bApikeyIsactive")].isNull() && m_b_apikey_isactive_isValid;
 
-    m_b_apikey_issigned_isValid = ::OpenAPI::fromJsonValue(b_apikey_issigned, json[QString("bApikeyIssigned")]);
+    m_b_apikey_issigned_isValid = ::OpenAPI::fromJsonValue(m_b_apikey_issigned, json[QString("bApikeyIssigned")]);
     m_b_apikey_issigned_isSet = !json[QString("bApikeyIssigned")].isNull() && m_b_apikey_issigned_isValid;
 }
 
@@ -91,32 +91,32 @@ QString OAIApikey_ListElement::asJson() const {
 QJsonObject OAIApikey_ListElement::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_apikey_id_isSet) {
-        obj.insert(QString("pkiApikeyID"), ::OpenAPI::toJsonValue(pki_apikey_id));
+        obj.insert(QString("pkiApikeyID"), ::OpenAPI::toJsonValue(m_pki_apikey_id));
     }
     if (m_s_apikey_description_x_isSet) {
-        obj.insert(QString("sApikeyDescriptionX"), ::OpenAPI::toJsonValue(s_apikey_description_x));
+        obj.insert(QString("sApikeyDescriptionX"), ::OpenAPI::toJsonValue(m_s_apikey_description_x));
     }
     if (m_s_user_firstname_isSet) {
-        obj.insert(QString("sUserFirstname"), ::OpenAPI::toJsonValue(s_user_firstname));
+        obj.insert(QString("sUserFirstname"), ::OpenAPI::toJsonValue(m_s_user_firstname));
     }
     if (m_s_user_lastname_isSet) {
-        obj.insert(QString("sUserLastname"), ::OpenAPI::toJsonValue(s_user_lastname));
+        obj.insert(QString("sUserLastname"), ::OpenAPI::toJsonValue(m_s_user_lastname));
     }
     if (m_b_apikey_isactive_isSet) {
-        obj.insert(QString("bApikeyIsactive"), ::OpenAPI::toJsonValue(b_apikey_isactive));
+        obj.insert(QString("bApikeyIsactive"), ::OpenAPI::toJsonValue(m_b_apikey_isactive));
     }
     if (m_b_apikey_issigned_isSet) {
-        obj.insert(QString("bApikeyIssigned"), ::OpenAPI::toJsonValue(b_apikey_issigned));
+        obj.insert(QString("bApikeyIssigned"), ::OpenAPI::toJsonValue(m_b_apikey_issigned));
     }
     return obj;
 }
 
 qint32 OAIApikey_ListElement::getPkiApikeyId() const {
-    return pki_apikey_id;
+    return m_pki_apikey_id;
 }
 void OAIApikey_ListElement::setPkiApikeyId(const qint32 &pki_apikey_id) {
-    this->pki_apikey_id = pki_apikey_id;
-    this->m_pki_apikey_id_isSet = true;
+    m_pki_apikey_id = pki_apikey_id;
+    m_pki_apikey_id_isSet = true;
 }
 
 bool OAIApikey_ListElement::is_pki_apikey_id_Set() const{
@@ -128,11 +128,11 @@ bool OAIApikey_ListElement::is_pki_apikey_id_Valid() const{
 }
 
 QString OAIApikey_ListElement::getSApikeyDescriptionX() const {
-    return s_apikey_description_x;
+    return m_s_apikey_description_x;
 }
 void OAIApikey_ListElement::setSApikeyDescriptionX(const QString &s_apikey_description_x) {
-    this->s_apikey_description_x = s_apikey_description_x;
-    this->m_s_apikey_description_x_isSet = true;
+    m_s_apikey_description_x = s_apikey_description_x;
+    m_s_apikey_description_x_isSet = true;
 }
 
 bool OAIApikey_ListElement::is_s_apikey_description_x_Set() const{
@@ -144,11 +144,11 @@ bool OAIApikey_ListElement::is_s_apikey_description_x_Valid() const{
 }
 
 QString OAIApikey_ListElement::getSUserFirstname() const {
-    return s_user_firstname;
+    return m_s_user_firstname;
 }
 void OAIApikey_ListElement::setSUserFirstname(const QString &s_user_firstname) {
-    this->s_user_firstname = s_user_firstname;
-    this->m_s_user_firstname_isSet = true;
+    m_s_user_firstname = s_user_firstname;
+    m_s_user_firstname_isSet = true;
 }
 
 bool OAIApikey_ListElement::is_s_user_firstname_Set() const{
@@ -160,11 +160,11 @@ bool OAIApikey_ListElement::is_s_user_firstname_Valid() const{
 }
 
 QString OAIApikey_ListElement::getSUserLastname() const {
-    return s_user_lastname;
+    return m_s_user_lastname;
 }
 void OAIApikey_ListElement::setSUserLastname(const QString &s_user_lastname) {
-    this->s_user_lastname = s_user_lastname;
-    this->m_s_user_lastname_isSet = true;
+    m_s_user_lastname = s_user_lastname;
+    m_s_user_lastname_isSet = true;
 }
 
 bool OAIApikey_ListElement::is_s_user_lastname_Set() const{
@@ -176,11 +176,11 @@ bool OAIApikey_ListElement::is_s_user_lastname_Valid() const{
 }
 
 bool OAIApikey_ListElement::isBApikeyIsactive() const {
-    return b_apikey_isactive;
+    return m_b_apikey_isactive;
 }
 void OAIApikey_ListElement::setBApikeyIsactive(const bool &b_apikey_isactive) {
-    this->b_apikey_isactive = b_apikey_isactive;
-    this->m_b_apikey_isactive_isSet = true;
+    m_b_apikey_isactive = b_apikey_isactive;
+    m_b_apikey_isactive_isSet = true;
 }
 
 bool OAIApikey_ListElement::is_b_apikey_isactive_Set() const{
@@ -192,11 +192,11 @@ bool OAIApikey_ListElement::is_b_apikey_isactive_Valid() const{
 }
 
 bool OAIApikey_ListElement::isBApikeyIssigned() const {
-    return b_apikey_issigned;
+    return m_b_apikey_issigned;
 }
 void OAIApikey_ListElement::setBApikeyIssigned(const bool &b_apikey_issigned) {
-    this->b_apikey_issigned = b_apikey_issigned;
-    this->m_b_apikey_issigned_isSet = true;
+    m_b_apikey_issigned = b_apikey_issigned;
+    m_b_apikey_issigned_isSet = true;
 }
 
 bool OAIApikey_ListElement::is_b_apikey_issigned_Set() const{

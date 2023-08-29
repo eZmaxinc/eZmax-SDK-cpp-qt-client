@@ -47,7 +47,7 @@ void OAIWebsocket_Response_GetWebsocketID_V1_mPayload::fromJson(QString jsonStri
 
 void OAIWebsocket_Response_GetWebsocketID_V1_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_s_websocket_id_isValid = ::OpenAPI::fromJsonValue(s_websocket_id, json[QString("sWebsocketID")]);
+    m_s_websocket_id_isValid = ::OpenAPI::fromJsonValue(m_s_websocket_id, json[QString("sWebsocketID")]);
     m_s_websocket_id_isSet = !json[QString("sWebsocketID")].isNull() && m_s_websocket_id_isValid;
 }
 
@@ -61,17 +61,17 @@ QString OAIWebsocket_Response_GetWebsocketID_V1_mPayload::asJson() const {
 QJsonObject OAIWebsocket_Response_GetWebsocketID_V1_mPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_s_websocket_id_isSet) {
-        obj.insert(QString("sWebsocketID"), ::OpenAPI::toJsonValue(s_websocket_id));
+        obj.insert(QString("sWebsocketID"), ::OpenAPI::toJsonValue(m_s_websocket_id));
     }
     return obj;
 }
 
 QString OAIWebsocket_Response_GetWebsocketID_V1_mPayload::getSWebsocketId() const {
-    return s_websocket_id;
+    return m_s_websocket_id;
 }
 void OAIWebsocket_Response_GetWebsocketID_V1_mPayload::setSWebsocketId(const QString &s_websocket_id) {
-    this->s_websocket_id = s_websocket_id;
-    this->m_s_websocket_id_isSet = true;
+    m_s_websocket_id = s_websocket_id;
+    m_s_websocket_id_isSet = true;
 }
 
 bool OAIWebsocket_Response_GetWebsocketID_V1_mPayload::is_s_websocket_id_Set() const{

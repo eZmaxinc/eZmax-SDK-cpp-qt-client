@@ -47,7 +47,7 @@ void OAIEzsignsignergroup_createObject_v1_Request::fromJson(QString jsonString) 
 
 void OAIEzsignsignergroup_createObject_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_ezsignsignergroup_isValid = ::OpenAPI::fromJsonValue(a_obj_ezsignsignergroup, json[QString("a_objEzsignsignergroup")]);
+    m_a_obj_ezsignsignergroup_isValid = ::OpenAPI::fromJsonValue(m_a_obj_ezsignsignergroup, json[QString("a_objEzsignsignergroup")]);
     m_a_obj_ezsignsignergroup_isSet = !json[QString("a_objEzsignsignergroup")].isNull() && m_a_obj_ezsignsignergroup_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIEzsignsignergroup_createObject_v1_Request::asJson() const {
 
 QJsonObject OAIEzsignsignergroup_createObject_v1_Request::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_ezsignsignergroup.size() > 0) {
-        obj.insert(QString("a_objEzsignsignergroup"), ::OpenAPI::toJsonValue(a_obj_ezsignsignergroup));
+    if (m_a_obj_ezsignsignergroup.size() > 0) {
+        obj.insert(QString("a_objEzsignsignergroup"), ::OpenAPI::toJsonValue(m_a_obj_ezsignsignergroup));
     }
     return obj;
 }
 
 QList<OAIEzsignsignergroup_RequestCompound> OAIEzsignsignergroup_createObject_v1_Request::getAObjEzsignsignergroup() const {
-    return a_obj_ezsignsignergroup;
+    return m_a_obj_ezsignsignergroup;
 }
 void OAIEzsignsignergroup_createObject_v1_Request::setAObjEzsignsignergroup(const QList<OAIEzsignsignergroup_RequestCompound> &a_obj_ezsignsignergroup) {
-    this->a_obj_ezsignsignergroup = a_obj_ezsignsignergroup;
-    this->m_a_obj_ezsignsignergroup_isSet = true;
+    m_a_obj_ezsignsignergroup = a_obj_ezsignsignergroup;
+    m_a_obj_ezsignsignergroup_isSet = true;
 }
 
 bool OAIEzsignsignergroup_createObject_v1_Request::is_a_obj_ezsignsignergroup_Set() const{
@@ -85,7 +85,7 @@ bool OAIEzsignsignergroup_createObject_v1_Request::is_a_obj_ezsignsignergroup_Va
 bool OAIEzsignsignergroup_createObject_v1_Request::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_ezsignsignergroup.size() > 0) {
+        if (m_a_obj_ezsignsignergroup.size() > 0) {
             isObjectUpdated = true;
             break;
         }

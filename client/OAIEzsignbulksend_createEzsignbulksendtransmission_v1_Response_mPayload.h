@@ -51,7 +51,7 @@ public:
 private:
     void initializeModel();
 
-    OAIEzsignbulksendtransmission_Response obj_ezsignbulksendtransmission;
+    OAIEzsignbulksendtransmission_Response m_obj_ezsignbulksendtransmission;
     bool m_obj_ezsignbulksendtransmission_isSet;
     bool m_obj_ezsignbulksendtransmission_isValid;
 };

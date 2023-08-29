@@ -50,7 +50,7 @@ public:
 private:
     void initializeModel();
 
-    QString s_ezmaxclient_version;
+    QString m_s_ezmaxclient_version;
     bool m_s_ezmaxclient_version_isSet;
     bool m_s_ezmaxclient_version_isValid;
 };

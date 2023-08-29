@@ -53,13 +53,13 @@ void OAIPhonestatic_Response::fromJson(QString jsonString) {
 
 void OAIPhonestatic_Response::fromJsonObject(QJsonObject json) {
 
-    m_pki_phonestatic_id_isValid = ::OpenAPI::fromJsonValue(pki_phonestatic_id, json[QString("pkiPhonestaticID")]);
+    m_pki_phonestatic_id_isValid = ::OpenAPI::fromJsonValue(m_pki_phonestatic_id, json[QString("pkiPhonestaticID")]);
     m_pki_phonestatic_id_isSet = !json[QString("pkiPhonestaticID")].isNull() && m_pki_phonestatic_id_isValid;
 
-    m_s_phonestatic_e164_isValid = ::OpenAPI::fromJsonValue(s_phonestatic_e164, json[QString("sPhonestaticE164")]);
+    m_s_phonestatic_e164_isValid = ::OpenAPI::fromJsonValue(m_s_phonestatic_e164, json[QString("sPhonestaticE164")]);
     m_s_phonestatic_e164_isSet = !json[QString("sPhonestaticE164")].isNull() && m_s_phonestatic_e164_isValid;
 
-    m_s_phonestatic_extension_isValid = ::OpenAPI::fromJsonValue(s_phonestatic_extension, json[QString("sPhonestaticExtension")]);
+    m_s_phonestatic_extension_isValid = ::OpenAPI::fromJsonValue(m_s_phonestatic_extension, json[QString("sPhonestaticExtension")]);
     m_s_phonestatic_extension_isSet = !json[QString("sPhonestaticExtension")].isNull() && m_s_phonestatic_extension_isValid;
 }
 
@@ -73,23 +73,23 @@ QString OAIPhonestatic_Response::asJson() const {
 QJsonObject OAIPhonestatic_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_phonestatic_id_isSet) {
-        obj.insert(QString("pkiPhonestaticID"), ::OpenAPI::toJsonValue(pki_phonestatic_id));
+        obj.insert(QString("pkiPhonestaticID"), ::OpenAPI::toJsonValue(m_pki_phonestatic_id));
     }
     if (m_s_phonestatic_e164_isSet) {
-        obj.insert(QString("sPhonestaticE164"), ::OpenAPI::toJsonValue(s_phonestatic_e164));
+        obj.insert(QString("sPhonestaticE164"), ::OpenAPI::toJsonValue(m_s_phonestatic_e164));
     }
     if (m_s_phonestatic_extension_isSet) {
-        obj.insert(QString("sPhonestaticExtension"), ::OpenAPI::toJsonValue(s_phonestatic_extension));
+        obj.insert(QString("sPhonestaticExtension"), ::OpenAPI::toJsonValue(m_s_phonestatic_extension));
     }
     return obj;
 }
 
 qint32 OAIPhonestatic_Response::getPkiPhonestaticId() const {
-    return pki_phonestatic_id;
+    return m_pki_phonestatic_id;
 }
 void OAIPhonestatic_Response::setPkiPhonestaticId(const qint32 &pki_phonestatic_id) {
-    this->pki_phonestatic_id = pki_phonestatic_id;
-    this->m_pki_phonestatic_id_isSet = true;
+    m_pki_phonestatic_id = pki_phonestatic_id;
+    m_pki_phonestatic_id_isSet = true;
 }
 
 bool OAIPhonestatic_Response::is_pki_phonestatic_id_Set() const{
@@ -101,11 +101,11 @@ bool OAIPhonestatic_Response::is_pki_phonestatic_id_Valid() const{
 }
 
 QString OAIPhonestatic_Response::getSPhonestaticE164() const {
-    return s_phonestatic_e164;
+    return m_s_phonestatic_e164;
 }
 void OAIPhonestatic_Response::setSPhonestaticE164(const QString &s_phonestatic_e164) {
-    this->s_phonestatic_e164 = s_phonestatic_e164;
-    this->m_s_phonestatic_e164_isSet = true;
+    m_s_phonestatic_e164 = s_phonestatic_e164;
+    m_s_phonestatic_e164_isSet = true;
 }
 
 bool OAIPhonestatic_Response::is_s_phonestatic_e164_Set() const{
@@ -117,11 +117,11 @@ bool OAIPhonestatic_Response::is_s_phonestatic_e164_Valid() const{
 }
 
 QString OAIPhonestatic_Response::getSPhonestaticExtension() const {
-    return s_phonestatic_extension;
+    return m_s_phonestatic_extension;
 }
 void OAIPhonestatic_Response::setSPhonestaticExtension(const QString &s_phonestatic_extension) {
-    this->s_phonestatic_extension = s_phonestatic_extension;
-    this->m_s_phonestatic_extension_isSet = true;
+    m_s_phonestatic_extension = s_phonestatic_extension;
+    m_s_phonestatic_extension_isSet = true;
 }
 
 bool OAIPhonestatic_Response::is_s_phonestatic_extension_Set() const{

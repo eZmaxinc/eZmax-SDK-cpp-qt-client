@@ -49,7 +49,7 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_user_id;
+    qint32 m_pki_user_id;
     bool m_pki_user_id_isSet;
     bool m_pki_user_id_isValid;
 };

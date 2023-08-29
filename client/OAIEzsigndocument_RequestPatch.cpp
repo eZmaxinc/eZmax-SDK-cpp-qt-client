@@ -50,10 +50,10 @@ void OAIEzsigndocument_RequestPatch::fromJson(QString jsonString) {
 
 void OAIEzsigndocument_RequestPatch::fromJsonObject(QJsonObject json) {
 
-    m_dt_ezsigndocument_duedate_isValid = ::OpenAPI::fromJsonValue(dt_ezsigndocument_duedate, json[QString("dtEzsigndocumentDuedate")]);
+    m_dt_ezsigndocument_duedate_isValid = ::OpenAPI::fromJsonValue(m_dt_ezsigndocument_duedate, json[QString("dtEzsigndocumentDuedate")]);
     m_dt_ezsigndocument_duedate_isSet = !json[QString("dtEzsigndocumentDuedate")].isNull() && m_dt_ezsigndocument_duedate_isValid;
 
-    m_s_ezsigndocument_name_isValid = ::OpenAPI::fromJsonValue(s_ezsigndocument_name, json[QString("sEzsigndocumentName")]);
+    m_s_ezsigndocument_name_isValid = ::OpenAPI::fromJsonValue(m_s_ezsigndocument_name, json[QString("sEzsigndocumentName")]);
     m_s_ezsigndocument_name_isSet = !json[QString("sEzsigndocumentName")].isNull() && m_s_ezsigndocument_name_isValid;
 }
 
@@ -67,20 +67,20 @@ QString OAIEzsigndocument_RequestPatch::asJson() const {
 QJsonObject OAIEzsigndocument_RequestPatch::asJsonObject() const {
     QJsonObject obj;
     if (m_dt_ezsigndocument_duedate_isSet) {
-        obj.insert(QString("dtEzsigndocumentDuedate"), ::OpenAPI::toJsonValue(dt_ezsigndocument_duedate));
+        obj.insert(QString("dtEzsigndocumentDuedate"), ::OpenAPI::toJsonValue(m_dt_ezsigndocument_duedate));
     }
     if (m_s_ezsigndocument_name_isSet) {
-        obj.insert(QString("sEzsigndocumentName"), ::OpenAPI::toJsonValue(s_ezsigndocument_name));
+        obj.insert(QString("sEzsigndocumentName"), ::OpenAPI::toJsonValue(m_s_ezsigndocument_name));
     }
     return obj;
 }
 
 QString OAIEzsigndocument_RequestPatch::getDtEzsigndocumentDuedate() const {
-    return dt_ezsigndocument_duedate;
+    return m_dt_ezsigndocument_duedate;
 }
 void OAIEzsigndocument_RequestPatch::setDtEzsigndocumentDuedate(const QString &dt_ezsigndocument_duedate) {
-    this->dt_ezsigndocument_duedate = dt_ezsigndocument_duedate;
-    this->m_dt_ezsigndocument_duedate_isSet = true;
+    m_dt_ezsigndocument_duedate = dt_ezsigndocument_duedate;
+    m_dt_ezsigndocument_duedate_isSet = true;
 }
 
 bool OAIEzsigndocument_RequestPatch::is_dt_ezsigndocument_duedate_Set() const{
@@ -92,11 +92,11 @@ bool OAIEzsigndocument_RequestPatch::is_dt_ezsigndocument_duedate_Valid() const{
 }
 
 QString OAIEzsigndocument_RequestPatch::getSEzsigndocumentName() const {
-    return s_ezsigndocument_name;
+    return m_s_ezsigndocument_name;
 }
 void OAIEzsigndocument_RequestPatch::setSEzsigndocumentName(const QString &s_ezsigndocument_name) {
-    this->s_ezsigndocument_name = s_ezsigndocument_name;
-    this->m_s_ezsigndocument_name_isSet = true;
+    m_s_ezsigndocument_name = s_ezsigndocument_name;
+    m_s_ezsigndocument_name_isSet = true;
 }
 
 bool OAIEzsigndocument_RequestPatch::is_s_ezsigndocument_name_Set() const{

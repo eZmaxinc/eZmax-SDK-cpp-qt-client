@@ -52,7 +52,7 @@ public:
 private:
     void initializeModel();
 
-    QList<OAIEzsigntsarequirement_AutocompleteElement_Response> a_obj_ezsigntsarequirement;
+    QList<OAIEzsigntsarequirement_AutocompleteElement_Response> m_a_obj_ezsigntsarequirement;
     bool m_a_obj_ezsigntsarequirement_isSet;
     bool m_a_obj_ezsigntsarequirement_isValid;
 };

@@ -76,27 +76,27 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_paymentterm_id;
+    qint32 m_pki_paymentterm_id;
     bool m_pki_paymentterm_id_isSet;
     bool m_pki_paymentterm_id_isValid;
 
-    QString s_paymentterm_code;
+    QString m_s_paymentterm_code;
     bool m_s_paymentterm_code_isSet;
     bool m_s_paymentterm_code_isValid;
 
-    OAIField_ePaymenttermType e_paymentterm_type;
+    OAIField_ePaymenttermType m_e_paymentterm_type;
     bool m_e_paymentterm_type_isSet;
     bool m_e_paymentterm_type_isValid;
 
-    qint32 i_paymentterm_day;
+    qint32 m_i_paymentterm_day;
     bool m_i_paymentterm_day_isSet;
     bool m_i_paymentterm_day_isValid;
 
-    QString s_paymentterm_description_x;
+    QString m_s_paymentterm_description_x;
     bool m_s_paymentterm_description_x_isSet;
     bool m_s_paymentterm_description_x_isValid;
 
-    bool b_paymentterm_isactive;
+    bool m_b_paymentterm_isactive;
     bool m_b_paymentterm_isactive_isSet;
     bool m_b_paymentterm_isactive_isValid;
 };

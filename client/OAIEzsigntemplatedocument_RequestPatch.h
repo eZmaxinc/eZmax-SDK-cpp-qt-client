@@ -50,7 +50,7 @@ public:
 private:
     void initializeModel();
 
-    QString s_ezsigntemplatedocument_name;
+    QString m_s_ezsigntemplatedocument_name;
     bool m_s_ezsigntemplatedocument_name_isSet;
     bool m_s_ezsigntemplatedocument_name_isValid;
 };

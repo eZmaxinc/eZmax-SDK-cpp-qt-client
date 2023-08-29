@@ -47,7 +47,7 @@ void OAIEzsignsignergroup_getObject_v2_Response_mPayload::fromJson(QString jsonS
 
 void OAIEzsignsignergroup_getObject_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_obj_ezsignsignergroup_isValid = ::OpenAPI::fromJsonValue(obj_ezsignsignergroup, json[QString("objEzsignsignergroup")]);
+    m_obj_ezsignsignergroup_isValid = ::OpenAPI::fromJsonValue(m_obj_ezsignsignergroup, json[QString("objEzsignsignergroup")]);
     m_obj_ezsignsignergroup_isSet = !json[QString("objEzsignsignergroup")].isNull() && m_obj_ezsignsignergroup_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIEzsignsignergroup_getObject_v2_Response_mPayload::asJson() const {
 
 QJsonObject OAIEzsignsignergroup_getObject_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (obj_ezsignsignergroup.isSet()) {
-        obj.insert(QString("objEzsignsignergroup"), ::OpenAPI::toJsonValue(obj_ezsignsignergroup));
+    if (m_obj_ezsignsignergroup.isSet()) {
+        obj.insert(QString("objEzsignsignergroup"), ::OpenAPI::toJsonValue(m_obj_ezsignsignergroup));
     }
     return obj;
 }
 
 OAIEzsignsignergroup_ResponseCompound OAIEzsignsignergroup_getObject_v2_Response_mPayload::getObjEzsignsignergroup() const {
-    return obj_ezsignsignergroup;
+    return m_obj_ezsignsignergroup;
 }
 void OAIEzsignsignergroup_getObject_v2_Response_mPayload::setObjEzsignsignergroup(const OAIEzsignsignergroup_ResponseCompound &obj_ezsignsignergroup) {
-    this->obj_ezsignsignergroup = obj_ezsignsignergroup;
-    this->m_obj_ezsignsignergroup_isSet = true;
+    m_obj_ezsignsignergroup = obj_ezsignsignergroup;
+    m_obj_ezsignsignergroup_isSet = true;
 }
 
 bool OAIEzsignsignergroup_getObject_v2_Response_mPayload::is_obj_ezsignsignergroup_Set() const{
@@ -85,7 +85,7 @@ bool OAIEzsignsignergroup_getObject_v2_Response_mPayload::is_obj_ezsignsignergro
 bool OAIEzsignsignergroup_getObject_v2_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (obj_ezsignsignergroup.isSet()) {
+        if (m_obj_ezsignsignergroup.isSet()) {
             isObjectUpdated = true;
             break;
         }

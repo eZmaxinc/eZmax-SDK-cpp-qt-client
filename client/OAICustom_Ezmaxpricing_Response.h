@@ -65,19 +65,19 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_ezmaxpricing_id;
+    qint32 m_pki_ezmaxpricing_id;
     bool m_pki_ezmaxpricing_id_isSet;
     bool m_pki_ezmaxpricing_id_isValid;
 
-    QString d_ezmaxpricing_rebateezsignallagents;
+    QString m_d_ezmaxpricing_rebateezsignallagents;
     bool m_d_ezmaxpricing_rebateezsignallagents_isSet;
     bool m_d_ezmaxpricing_rebateezsignallagents_isValid;
 
-    QString dt_ezmaxpricing_start;
+    QString m_dt_ezmaxpricing_start;
     bool m_dt_ezmaxpricing_start_isSet;
     bool m_dt_ezmaxpricing_start_isValid;
 
-    QString dt_ezmaxpricing_end;
+    QString m_dt_ezmaxpricing_end;
     bool m_dt_ezmaxpricing_end_isSet;
     bool m_dt_ezmaxpricing_end_isValid;
 };

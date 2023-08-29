@@ -54,23 +54,32 @@ public:
     bool is_a_required_permission_Set() const;
     bool is_a_required_permission_Valid() const;
 
+    bool isBVersionDeprecated() const;
+    void setBVersionDeprecated(const bool &b_version_deprecated);
+    bool is_b_version_deprecated_Set() const;
+    bool is_b_version_deprecated_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
 private:
     void initializeModel();
 
-    qint32 i_version_min;
+    qint32 m_i_version_min;
     bool m_i_version_min_isSet;
     bool m_i_version_min_isValid;
 
-    qint32 i_version_max;
+    qint32 m_i_version_max;
     bool m_i_version_max_isSet;
     bool m_i_version_max_isValid;
 
-    QList<qint32> a_required_permission;
+    QList<qint32> m_a_required_permission;
     bool m_a_required_permission_isSet;
     bool m_a_required_permission_isValid;
+
+    bool m_b_version_deprecated;
+    bool m_b_version_deprecated_isSet;
+    bool m_b_version_deprecated_isValid;
 };
 
 } // namespace OpenAPI

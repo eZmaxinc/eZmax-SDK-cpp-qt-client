@@ -47,7 +47,7 @@ void OAIEzmaxinvoicing_getObject_v2_Response_mPayload::fromJson(QString jsonStri
 
 void OAIEzmaxinvoicing_getObject_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_obj_ezmaxinvoicing_isValid = ::OpenAPI::fromJsonValue(obj_ezmaxinvoicing, json[QString("objEzmaxinvoicing")]);
+    m_obj_ezmaxinvoicing_isValid = ::OpenAPI::fromJsonValue(m_obj_ezmaxinvoicing, json[QString("objEzmaxinvoicing")]);
     m_obj_ezmaxinvoicing_isSet = !json[QString("objEzmaxinvoicing")].isNull() && m_obj_ezmaxinvoicing_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIEzmaxinvoicing_getObject_v2_Response_mPayload::asJson() const {
 
 QJsonObject OAIEzmaxinvoicing_getObject_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (obj_ezmaxinvoicing.isSet()) {
-        obj.insert(QString("objEzmaxinvoicing"), ::OpenAPI::toJsonValue(obj_ezmaxinvoicing));
+    if (m_obj_ezmaxinvoicing.isSet()) {
+        obj.insert(QString("objEzmaxinvoicing"), ::OpenAPI::toJsonValue(m_obj_ezmaxinvoicing));
     }
     return obj;
 }
 
 OAIEzmaxinvoicing_ResponseCompound OAIEzmaxinvoicing_getObject_v2_Response_mPayload::getObjEzmaxinvoicing() const {
-    return obj_ezmaxinvoicing;
+    return m_obj_ezmaxinvoicing;
 }
 void OAIEzmaxinvoicing_getObject_v2_Response_mPayload::setObjEzmaxinvoicing(const OAIEzmaxinvoicing_ResponseCompound &obj_ezmaxinvoicing) {
-    this->obj_ezmaxinvoicing = obj_ezmaxinvoicing;
-    this->m_obj_ezmaxinvoicing_isSet = true;
+    m_obj_ezmaxinvoicing = obj_ezmaxinvoicing;
+    m_obj_ezmaxinvoicing_isSet = true;
 }
 
 bool OAIEzmaxinvoicing_getObject_v2_Response_mPayload::is_obj_ezmaxinvoicing_Set() const{
@@ -85,7 +85,7 @@ bool OAIEzmaxinvoicing_getObject_v2_Response_mPayload::is_obj_ezmaxinvoicing_Val
 bool OAIEzmaxinvoicing_getObject_v2_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (obj_ezmaxinvoicing.isSet()) {
+        if (m_obj_ezmaxinvoicing.isSet()) {
             isObjectUpdated = true;
             break;
         }

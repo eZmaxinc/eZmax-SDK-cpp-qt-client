@@ -50,7 +50,7 @@ public:
 private:
     void initializeModel();
 
-    QString s_endpoint_url;
+    QString m_s_endpoint_url;
     bool m_s_endpoint_url_isSet;
     bool m_s_endpoint_url_isValid;
 };

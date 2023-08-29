@@ -47,7 +47,7 @@ void OAIEzsigntemplatedocument_createObject_v1_Response_mPayload::fromJson(QStri
 
 void OAIEzsigntemplatedocument_createObject_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_pki_ezsigntemplatedocument_id_isValid = ::OpenAPI::fromJsonValue(a_pki_ezsigntemplatedocument_id, json[QString("a_pkiEzsigntemplatedocumentID")]);
+    m_a_pki_ezsigntemplatedocument_id_isValid = ::OpenAPI::fromJsonValue(m_a_pki_ezsigntemplatedocument_id, json[QString("a_pkiEzsigntemplatedocumentID")]);
     m_a_pki_ezsigntemplatedocument_id_isSet = !json[QString("a_pkiEzsigntemplatedocumentID")].isNull() && m_a_pki_ezsigntemplatedocument_id_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIEzsigntemplatedocument_createObject_v1_Response_mPayload::asJson() co
 
 QJsonObject OAIEzsigntemplatedocument_createObject_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (a_pki_ezsigntemplatedocument_id.size() > 0) {
-        obj.insert(QString("a_pkiEzsigntemplatedocumentID"), ::OpenAPI::toJsonValue(a_pki_ezsigntemplatedocument_id));
+    if (m_a_pki_ezsigntemplatedocument_id.size() > 0) {
+        obj.insert(QString("a_pkiEzsigntemplatedocumentID"), ::OpenAPI::toJsonValue(m_a_pki_ezsigntemplatedocument_id));
     }
     return obj;
 }
 
 QList<qint32> OAIEzsigntemplatedocument_createObject_v1_Response_mPayload::getAPkiEzsigntemplatedocumentId() const {
-    return a_pki_ezsigntemplatedocument_id;
+    return m_a_pki_ezsigntemplatedocument_id;
 }
 void OAIEzsigntemplatedocument_createObject_v1_Response_mPayload::setAPkiEzsigntemplatedocumentId(const QList<qint32> &a_pki_ezsigntemplatedocument_id) {
-    this->a_pki_ezsigntemplatedocument_id = a_pki_ezsigntemplatedocument_id;
-    this->m_a_pki_ezsigntemplatedocument_id_isSet = true;
+    m_a_pki_ezsigntemplatedocument_id = a_pki_ezsigntemplatedocument_id;
+    m_a_pki_ezsigntemplatedocument_id_isSet = true;
 }
 
 bool OAIEzsigntemplatedocument_createObject_v1_Response_mPayload::is_a_pki_ezsigntemplatedocument_id_Set() const{
@@ -85,7 +85,7 @@ bool OAIEzsigntemplatedocument_createObject_v1_Response_mPayload::is_a_pki_ezsig
 bool OAIEzsigntemplatedocument_createObject_v1_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_pki_ezsigntemplatedocument_id.size() > 0) {
+        if (m_a_pki_ezsigntemplatedocument_id.size() > 0) {
             isObjectUpdated = true;
             break;
         }

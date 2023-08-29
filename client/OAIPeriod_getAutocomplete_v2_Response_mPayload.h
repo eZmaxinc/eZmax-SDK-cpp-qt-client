@@ -52,7 +52,7 @@ public:
 private:
     void initializeModel();
 
-    QList<OAIPeriod_AutocompleteElement_Response> a_obj_period;
+    QList<OAIPeriod_AutocompleteElement_Response> m_a_obj_period;
     bool m_a_obj_period_isSet;
     bool m_a_obj_period_isValid;
 };

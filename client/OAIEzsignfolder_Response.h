@@ -154,87 +154,87 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_ezsignfolder_id;
+    qint32 m_pki_ezsignfolder_id;
     bool m_pki_ezsignfolder_id_isSet;
     bool m_pki_ezsignfolder_id_isValid;
 
-    qint32 fki_ezsignfoldertype_id;
+    qint32 m_fki_ezsignfoldertype_id;
     bool m_fki_ezsignfoldertype_id_isSet;
     bool m_fki_ezsignfoldertype_id_isValid;
 
-    QString s_ezsignfoldertype_name_x;
+    QString m_s_ezsignfoldertype_name_x;
     bool m_s_ezsignfoldertype_name_x_isSet;
     bool m_s_ezsignfoldertype_name_x_isValid;
 
-    qint32 fki_billingentityinternal_id;
+    qint32 m_fki_billingentityinternal_id;
     bool m_fki_billingentityinternal_id_isSet;
     bool m_fki_billingentityinternal_id_isValid;
 
-    QString s_billingentityinternal_description_x;
+    QString m_s_billingentityinternal_description_x;
     bool m_s_billingentityinternal_description_x_isSet;
     bool m_s_billingentityinternal_description_x_isValid;
 
-    qint32 fki_ezsigntsarequirement_id;
+    qint32 m_fki_ezsigntsarequirement_id;
     bool m_fki_ezsigntsarequirement_id_isSet;
     bool m_fki_ezsigntsarequirement_id_isValid;
 
-    QString s_ezsigntsarequirement_description_x;
+    QString m_s_ezsigntsarequirement_description_x;
     bool m_s_ezsigntsarequirement_description_x_isSet;
     bool m_s_ezsigntsarequirement_description_x_isValid;
 
-    QString s_ezsignfolder_description;
+    QString m_s_ezsignfolder_description;
     bool m_s_ezsignfolder_description_isSet;
     bool m_s_ezsignfolder_description_isValid;
 
-    QString t_ezsignfolder_note;
+    QString m_t_ezsignfolder_note;
     bool m_t_ezsignfolder_note_isSet;
     bool m_t_ezsignfolder_note_isValid;
 
-    bool b_ezsignfolder_isdisposable;
+    bool m_b_ezsignfolder_isdisposable;
     bool m_b_ezsignfolder_isdisposable_isSet;
     bool m_b_ezsignfolder_isdisposable_isValid;
 
-    OAIField_eEzsignfolderSendreminderfrequency e_ezsignfolder_sendreminderfrequency;
+    OAIField_eEzsignfolderSendreminderfrequency m_e_ezsignfolder_sendreminderfrequency;
     bool m_e_ezsignfolder_sendreminderfrequency_isSet;
     bool m_e_ezsignfolder_sendreminderfrequency_isValid;
 
-    QString dt_ezsignfolder_delayedsenddate;
+    QString m_dt_ezsignfolder_delayedsenddate;
     bool m_dt_ezsignfolder_delayedsenddate_isSet;
     bool m_dt_ezsignfolder_delayedsenddate_isValid;
 
-    QString dt_ezsignfolder_duedate;
+    QString m_dt_ezsignfolder_duedate;
     bool m_dt_ezsignfolder_duedate_isSet;
     bool m_dt_ezsignfolder_duedate_isValid;
 
-    QString dt_ezsignfolder_sentdate;
+    QString m_dt_ezsignfolder_sentdate;
     bool m_dt_ezsignfolder_sentdate_isSet;
     bool m_dt_ezsignfolder_sentdate_isValid;
 
-    QString dt_ezsignfolder_scheduledarchive;
+    QString m_dt_ezsignfolder_scheduledarchive;
     bool m_dt_ezsignfolder_scheduledarchive_isSet;
     bool m_dt_ezsignfolder_scheduledarchive_isValid;
 
-    QString dt_ezsignfolder_scheduleddispose;
+    QString m_dt_ezsignfolder_scheduleddispose;
     bool m_dt_ezsignfolder_scheduleddispose_isSet;
     bool m_dt_ezsignfolder_scheduleddispose_isValid;
 
-    OAIField_eEzsignfolderStep e_ezsignfolder_step;
+    OAIField_eEzsignfolderStep m_e_ezsignfolder_step;
     bool m_e_ezsignfolder_step_isSet;
     bool m_e_ezsignfolder_step_isValid;
 
-    QString dt_ezsignfolder_close;
+    QString m_dt_ezsignfolder_close;
     bool m_dt_ezsignfolder_close_isSet;
     bool m_dt_ezsignfolder_close_isValid;
 
-    QString t_ezsignfolder_message;
+    QString m_t_ezsignfolder_message;
     bool m_t_ezsignfolder_message_isSet;
     bool m_t_ezsignfolder_message_isValid;
 
-    OAICommon_Audit obj_audit;
+    OAICommon_Audit m_obj_audit;
     bool m_obj_audit_isSet;
     bool m_obj_audit_isValid;
 
-    QString s_ezsignfolder_externalid;
+    QString m_s_ezsignfolder_externalid;
     bool m_s_ezsignfolder_externalid_isSet;
     bool m_s_ezsignfolder_externalid_isValid;
 };

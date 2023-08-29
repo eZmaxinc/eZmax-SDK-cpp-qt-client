@@ -53,13 +53,13 @@ void OAIEmailtype_AutocompleteElement_Response::fromJson(QString jsonString) {
 
 void OAIEmailtype_AutocompleteElement_Response::fromJsonObject(QJsonObject json) {
 
-    m_pki_emailtype_id_isValid = ::OpenAPI::fromJsonValue(pki_emailtype_id, json[QString("pkiEmailtypeID")]);
+    m_pki_emailtype_id_isValid = ::OpenAPI::fromJsonValue(m_pki_emailtype_id, json[QString("pkiEmailtypeID")]);
     m_pki_emailtype_id_isSet = !json[QString("pkiEmailtypeID")].isNull() && m_pki_emailtype_id_isValid;
 
-    m_s_emailtype_name_x_isValid = ::OpenAPI::fromJsonValue(s_emailtype_name_x, json[QString("sEmailtypeNameX")]);
+    m_s_emailtype_name_x_isValid = ::OpenAPI::fromJsonValue(m_s_emailtype_name_x, json[QString("sEmailtypeNameX")]);
     m_s_emailtype_name_x_isSet = !json[QString("sEmailtypeNameX")].isNull() && m_s_emailtype_name_x_isValid;
 
-    m_b_emailtype_isactive_isValid = ::OpenAPI::fromJsonValue(b_emailtype_isactive, json[QString("bEmailtypeIsactive")]);
+    m_b_emailtype_isactive_isValid = ::OpenAPI::fromJsonValue(m_b_emailtype_isactive, json[QString("bEmailtypeIsactive")]);
     m_b_emailtype_isactive_isSet = !json[QString("bEmailtypeIsactive")].isNull() && m_b_emailtype_isactive_isValid;
 }
 
@@ -73,23 +73,23 @@ QString OAIEmailtype_AutocompleteElement_Response::asJson() const {
 QJsonObject OAIEmailtype_AutocompleteElement_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_emailtype_id_isSet) {
-        obj.insert(QString("pkiEmailtypeID"), ::OpenAPI::toJsonValue(pki_emailtype_id));
+        obj.insert(QString("pkiEmailtypeID"), ::OpenAPI::toJsonValue(m_pki_emailtype_id));
     }
     if (m_s_emailtype_name_x_isSet) {
-        obj.insert(QString("sEmailtypeNameX"), ::OpenAPI::toJsonValue(s_emailtype_name_x));
+        obj.insert(QString("sEmailtypeNameX"), ::OpenAPI::toJsonValue(m_s_emailtype_name_x));
     }
     if (m_b_emailtype_isactive_isSet) {
-        obj.insert(QString("bEmailtypeIsactive"), ::OpenAPI::toJsonValue(b_emailtype_isactive));
+        obj.insert(QString("bEmailtypeIsactive"), ::OpenAPI::toJsonValue(m_b_emailtype_isactive));
     }
     return obj;
 }
 
 qint32 OAIEmailtype_AutocompleteElement_Response::getPkiEmailtypeId() const {
-    return pki_emailtype_id;
+    return m_pki_emailtype_id;
 }
 void OAIEmailtype_AutocompleteElement_Response::setPkiEmailtypeId(const qint32 &pki_emailtype_id) {
-    this->pki_emailtype_id = pki_emailtype_id;
-    this->m_pki_emailtype_id_isSet = true;
+    m_pki_emailtype_id = pki_emailtype_id;
+    m_pki_emailtype_id_isSet = true;
 }
 
 bool OAIEmailtype_AutocompleteElement_Response::is_pki_emailtype_id_Set() const{
@@ -101,11 +101,11 @@ bool OAIEmailtype_AutocompleteElement_Response::is_pki_emailtype_id_Valid() cons
 }
 
 QString OAIEmailtype_AutocompleteElement_Response::getSEmailtypeNameX() const {
-    return s_emailtype_name_x;
+    return m_s_emailtype_name_x;
 }
 void OAIEmailtype_AutocompleteElement_Response::setSEmailtypeNameX(const QString &s_emailtype_name_x) {
-    this->s_emailtype_name_x = s_emailtype_name_x;
-    this->m_s_emailtype_name_x_isSet = true;
+    m_s_emailtype_name_x = s_emailtype_name_x;
+    m_s_emailtype_name_x_isSet = true;
 }
 
 bool OAIEmailtype_AutocompleteElement_Response::is_s_emailtype_name_x_Set() const{
@@ -117,11 +117,11 @@ bool OAIEmailtype_AutocompleteElement_Response::is_s_emailtype_name_x_Valid() co
 }
 
 bool OAIEmailtype_AutocompleteElement_Response::isBEmailtypeIsactive() const {
-    return b_emailtype_isactive;
+    return m_b_emailtype_isactive;
 }
 void OAIEmailtype_AutocompleteElement_Response::setBEmailtypeIsactive(const bool &b_emailtype_isactive) {
-    this->b_emailtype_isactive = b_emailtype_isactive;
-    this->m_b_emailtype_isactive_isSet = true;
+    m_b_emailtype_isactive = b_emailtype_isactive;
+    m_b_emailtype_isactive_isSet = true;
 }
 
 bool OAIEmailtype_AutocompleteElement_Response::is_b_emailtype_isactive_Set() const{

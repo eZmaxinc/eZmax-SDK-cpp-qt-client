@@ -59,11 +59,11 @@ public:
 private:
     void initializeModel();
 
-    QList<OAIEzsigntemplate_ResponseCompound> a_obj_ezsigntemplate;
+    QList<OAIEzsigntemplate_ResponseCompound> m_a_obj_ezsigntemplate;
     bool m_a_obj_ezsigntemplate_isSet;
     bool m_a_obj_ezsigntemplate_isValid;
 
-    QList<OAIEzsigntemplatepackage_ResponseCompound> a_obj_ezsigntemplatepackage;
+    QList<OAIEzsigntemplatepackage_ResponseCompound> m_a_obj_ezsigntemplatepackage;
     bool m_a_obj_ezsigntemplatepackage_isSet;
     bool m_a_obj_ezsigntemplatepackage_isValid;
 };

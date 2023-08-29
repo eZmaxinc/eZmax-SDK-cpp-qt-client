@@ -80,31 +80,31 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_ezsignpage_id;
+    qint32 m_pki_ezsignpage_id;
     bool m_pki_ezsignpage_id_isSet;
     bool m_pki_ezsignpage_id_isValid;
 
-    qint32 i_ezsignpage_widthimage;
+    qint32 m_i_ezsignpage_widthimage;
     bool m_i_ezsignpage_widthimage_isSet;
     bool m_i_ezsignpage_widthimage_isValid;
 
-    qint32 i_ezsignpage_heightimage;
+    qint32 m_i_ezsignpage_heightimage;
     bool m_i_ezsignpage_heightimage_isSet;
     bool m_i_ezsignpage_heightimage_isValid;
 
-    qint32 i_ezsignpage_widthpdf;
+    qint32 m_i_ezsignpage_widthpdf;
     bool m_i_ezsignpage_widthpdf_isSet;
     bool m_i_ezsignpage_widthpdf_isValid;
 
-    qint32 i_ezsignpage_heightpdf;
+    qint32 m_i_ezsignpage_heightpdf;
     bool m_i_ezsignpage_heightpdf_isSet;
     bool m_i_ezsignpage_heightpdf_isValid;
 
-    qint32 i_ezsignpage_pagenumber;
+    qint32 m_i_ezsignpage_pagenumber;
     bool m_i_ezsignpage_pagenumber_isSet;
     bool m_i_ezsignpage_pagenumber_isValid;
 
-    QString s_computed_imageurl;
+    QString m_s_computed_imageurl;
     bool m_s_computed_imageurl_isSet;
     bool m_s_computed_imageurl_isValid;
 };

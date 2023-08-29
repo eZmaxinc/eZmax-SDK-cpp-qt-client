@@ -55,11 +55,11 @@ public:
 private:
     void initializeModel();
 
-    QString s_label;
+    QString m_s_label;
     bool m_s_label_isSet;
     bool m_s_label_isValid;
 
-    QString s_value;
+    QString m_s_value;
     bool m_s_value_isSet;
     bool m_s_value_isValid;
 };

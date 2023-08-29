@@ -47,7 +47,7 @@ void OAIUser_getAutocomplete_v2_Response_mPayload::fromJson(QString jsonString) 
 
 void OAIUser_getAutocomplete_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_user_isValid = ::OpenAPI::fromJsonValue(a_obj_user, json[QString("a_objUser")]);
+    m_a_obj_user_isValid = ::OpenAPI::fromJsonValue(m_a_obj_user, json[QString("a_objUser")]);
     m_a_obj_user_isSet = !json[QString("a_objUser")].isNull() && m_a_obj_user_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIUser_getAutocomplete_v2_Response_mPayload::asJson() const {
 
 QJsonObject OAIUser_getAutocomplete_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_user.size() > 0) {
-        obj.insert(QString("a_objUser"), ::OpenAPI::toJsonValue(a_obj_user));
+    if (m_a_obj_user.size() > 0) {
+        obj.insert(QString("a_objUser"), ::OpenAPI::toJsonValue(m_a_obj_user));
     }
     return obj;
 }
 
 QList<OAIUser_AutocompleteElement_Response> OAIUser_getAutocomplete_v2_Response_mPayload::getAObjUser() const {
-    return a_obj_user;
+    return m_a_obj_user;
 }
 void OAIUser_getAutocomplete_v2_Response_mPayload::setAObjUser(const QList<OAIUser_AutocompleteElement_Response> &a_obj_user) {
-    this->a_obj_user = a_obj_user;
-    this->m_a_obj_user_isSet = true;
+    m_a_obj_user = a_obj_user;
+    m_a_obj_user_isSet = true;
 }
 
 bool OAIUser_getAutocomplete_v2_Response_mPayload::is_a_obj_user_Set() const{
@@ -85,7 +85,7 @@ bool OAIUser_getAutocomplete_v2_Response_mPayload::is_a_obj_user_Valid() const{
 bool OAIUser_getAutocomplete_v2_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_user.size() > 0) {
+        if (m_a_obj_user.size() > 0) {
             isObjectUpdated = true;
             break;
         }

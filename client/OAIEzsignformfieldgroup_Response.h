@@ -21,6 +21,7 @@
 
 #include <QJsonObject>
 
+#include "OAIEnum_Textvalidation.h"
 #include "OAIField_eEzsignformfieldgroupSignerrequirement.h"
 #include "OAIField_eEzsignformfieldgroupTooltipposition.h"
 #include "OAIField_eEzsignformfieldgroupType.h"
@@ -102,6 +103,11 @@ public:
     bool is_b_ezsignformfieldgroup_encrypted_Set() const;
     bool is_b_ezsignformfieldgroup_encrypted_Valid() const;
 
+    OAIEnum_Textvalidation getEEzsignformfieldgroupTextvalidation() const;
+    void setEEzsignformfieldgroupTextvalidation(const OAIEnum_Textvalidation &e_ezsignformfieldgroup_textvalidation);
+    bool is_e_ezsignformfieldgroup_textvalidation_Set() const;
+    bool is_e_ezsignformfieldgroup_textvalidation_Valid() const;
+
     QString getSEzsignformfieldgroupRegexp() const;
     void setSEzsignformfieldgroupRegexp(const QString &s_ezsignformfieldgroup_regexp);
     bool is_s_ezsignformfieldgroup_regexp_Set() const;
@@ -123,63 +129,67 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_ezsignformfieldgroup_id;
+    qint32 m_pki_ezsignformfieldgroup_id;
     bool m_pki_ezsignformfieldgroup_id_isSet;
     bool m_pki_ezsignformfieldgroup_id_isValid;
 
-    qint32 fki_ezsigndocument_id;
+    qint32 m_fki_ezsigndocument_id;
     bool m_fki_ezsigndocument_id_isSet;
     bool m_fki_ezsigndocument_id_isValid;
 
-    OAIField_eEzsignformfieldgroupType e_ezsignformfieldgroup_type;
+    OAIField_eEzsignformfieldgroupType m_e_ezsignformfieldgroup_type;
     bool m_e_ezsignformfieldgroup_type_isSet;
     bool m_e_ezsignformfieldgroup_type_isValid;
 
-    OAIField_eEzsignformfieldgroupSignerrequirement e_ezsignformfieldgroup_signerrequirement;
+    OAIField_eEzsignformfieldgroupSignerrequirement m_e_ezsignformfieldgroup_signerrequirement;
     bool m_e_ezsignformfieldgroup_signerrequirement_isSet;
     bool m_e_ezsignformfieldgroup_signerrequirement_isValid;
 
-    QString s_ezsignformfieldgroup_label;
+    QString m_s_ezsignformfieldgroup_label;
     bool m_s_ezsignformfieldgroup_label_isSet;
     bool m_s_ezsignformfieldgroup_label_isValid;
 
-    qint32 i_ezsignformfieldgroup_step;
+    qint32 m_i_ezsignformfieldgroup_step;
     bool m_i_ezsignformfieldgroup_step_isSet;
     bool m_i_ezsignformfieldgroup_step_isValid;
 
-    QString s_ezsignformfieldgroup_defaultvalue;
+    QString m_s_ezsignformfieldgroup_defaultvalue;
     bool m_s_ezsignformfieldgroup_defaultvalue_isSet;
     bool m_s_ezsignformfieldgroup_defaultvalue_isValid;
 
-    qint32 i_ezsignformfieldgroup_filledmin;
+    qint32 m_i_ezsignformfieldgroup_filledmin;
     bool m_i_ezsignformfieldgroup_filledmin_isSet;
     bool m_i_ezsignformfieldgroup_filledmin_isValid;
 
-    qint32 i_ezsignformfieldgroup_filledmax;
+    qint32 m_i_ezsignformfieldgroup_filledmax;
     bool m_i_ezsignformfieldgroup_filledmax_isSet;
     bool m_i_ezsignformfieldgroup_filledmax_isValid;
 
-    bool b_ezsignformfieldgroup_readonly;
+    bool m_b_ezsignformfieldgroup_readonly;
     bool m_b_ezsignformfieldgroup_readonly_isSet;
     bool m_b_ezsignformfieldgroup_readonly_isValid;
 
-    qint32 i_ezsignformfieldgroup_maxlength;
+    qint32 m_i_ezsignformfieldgroup_maxlength;
     bool m_i_ezsignformfieldgroup_maxlength_isSet;
     bool m_i_ezsignformfieldgroup_maxlength_isValid;
 
-    bool b_ezsignformfieldgroup_encrypted;
+    bool m_b_ezsignformfieldgroup_encrypted;
     bool m_b_ezsignformfieldgroup_encrypted_isSet;
     bool m_b_ezsignformfieldgroup_encrypted_isValid;
 
-    QString s_ezsignformfieldgroup_regexp;
+    OAIEnum_Textvalidation m_e_ezsignformfieldgroup_textvalidation;
+    bool m_e_ezsignformfieldgroup_textvalidation_isSet;
+    bool m_e_ezsignformfieldgroup_textvalidation_isValid;
+
+    QString m_s_ezsignformfieldgroup_regexp;
     bool m_s_ezsignformfieldgroup_regexp_isSet;
     bool m_s_ezsignformfieldgroup_regexp_isValid;
 
-    QString t_ezsignformfieldgroup_tooltip;
+    QString m_t_ezsignformfieldgroup_tooltip;
     bool m_t_ezsignformfieldgroup_tooltip_isSet;
     bool m_t_ezsignformfieldgroup_tooltip_isValid;
 
-    OAIField_eEzsignformfieldgroupTooltipposition e_ezsignformfieldgroup_tooltipposition;
+    OAIField_eEzsignformfieldgroupTooltipposition m_e_ezsignformfieldgroup_tooltipposition;
     bool m_e_ezsignformfieldgroup_tooltipposition_isSet;
     bool m_e_ezsignformfieldgroup_tooltipposition_isValid;
 };

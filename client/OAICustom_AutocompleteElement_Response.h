@@ -70,23 +70,23 @@ public:
 private:
     void initializeModel();
 
-    QString s_category;
+    QString m_s_category;
     bool m_s_category_isSet;
     bool m_s_category_isValid;
 
-    QString s_label;
+    QString m_s_label;
     bool m_s_label_isSet;
     bool m_s_label_isValid;
 
-    QString s_value;
+    QString m_s_value;
     bool m_s_value_isSet;
     bool m_s_value_isValid;
 
-    QString m_value;
+    QString m_m_value;
     bool m_m_value_isSet;
     bool m_m_value_isValid;
 
-    bool b_active;
+    bool m_b_active;
     bool m_b_active_isSet;
     bool m_b_active_isValid;
 };

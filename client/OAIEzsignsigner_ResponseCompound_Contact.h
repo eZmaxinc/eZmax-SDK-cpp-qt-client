@@ -85,35 +85,35 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_contact_id;
+    qint32 m_pki_contact_id;
     bool m_pki_contact_id_isSet;
     bool m_pki_contact_id_isValid;
 
-    QString s_contact_firstname;
+    QString m_s_contact_firstname;
     bool m_s_contact_firstname_isSet;
     bool m_s_contact_firstname_isValid;
 
-    QString s_contact_lastname;
+    QString m_s_contact_lastname;
     bool m_s_contact_lastname_isSet;
     bool m_s_contact_lastname_isValid;
 
-    qint32 fki_language_id;
+    qint32 m_fki_language_id;
     bool m_fki_language_id_isSet;
     bool m_fki_language_id_isValid;
 
-    QString s_email_address;
+    QString m_s_email_address;
     bool m_s_email_address_isSet;
     bool m_s_email_address_isValid;
 
-    QString s_phone_e164;
+    QString m_s_phone_e164;
     bool m_s_phone_e164_isSet;
     bool m_s_phone_e164_isValid;
 
-    QString s_phone_extension;
+    QString m_s_phone_extension;
     bool m_s_phone_extension_isSet;
     bool m_s_phone_extension_isValid;
 
-    QString s_phone_e164_cell;
+    QString m_s_phone_e164_cell;
     bool m_s_phone_e164_cell_isSet;
     bool m_s_phone_e164_cell_isValid;
 };

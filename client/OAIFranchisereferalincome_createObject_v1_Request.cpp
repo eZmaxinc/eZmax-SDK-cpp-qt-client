@@ -50,10 +50,10 @@ void OAIFranchisereferalincome_createObject_v1_Request::fromJson(QString jsonStr
 
 void OAIFranchisereferalincome_createObject_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_obj_franchisereferalincome_isValid = ::OpenAPI::fromJsonValue(obj_franchisereferalincome, json[QString("objFranchisereferalincome")]);
+    m_obj_franchisereferalincome_isValid = ::OpenAPI::fromJsonValue(m_obj_franchisereferalincome, json[QString("objFranchisereferalincome")]);
     m_obj_franchisereferalincome_isSet = !json[QString("objFranchisereferalincome")].isNull() && m_obj_franchisereferalincome_isValid;
 
-    m_obj_franchisereferalincome_compound_isValid = ::OpenAPI::fromJsonValue(obj_franchisereferalincome_compound, json[QString("objFranchisereferalincomeCompound")]);
+    m_obj_franchisereferalincome_compound_isValid = ::OpenAPI::fromJsonValue(m_obj_franchisereferalincome_compound, json[QString("objFranchisereferalincomeCompound")]);
     m_obj_franchisereferalincome_compound_isSet = !json[QString("objFranchisereferalincomeCompound")].isNull() && m_obj_franchisereferalincome_compound_isValid;
 }
 
@@ -66,21 +66,21 @@ QString OAIFranchisereferalincome_createObject_v1_Request::asJson() const {
 
 QJsonObject OAIFranchisereferalincome_createObject_v1_Request::asJsonObject() const {
     QJsonObject obj;
-    if (obj_franchisereferalincome.isSet()) {
-        obj.insert(QString("objFranchisereferalincome"), ::OpenAPI::toJsonValue(obj_franchisereferalincome));
+    if (m_obj_franchisereferalincome.isSet()) {
+        obj.insert(QString("objFranchisereferalincome"), ::OpenAPI::toJsonValue(m_obj_franchisereferalincome));
     }
-    if (obj_franchisereferalincome_compound.isSet()) {
-        obj.insert(QString("objFranchisereferalincomeCompound"), ::OpenAPI::toJsonValue(obj_franchisereferalincome_compound));
+    if (m_obj_franchisereferalincome_compound.isSet()) {
+        obj.insert(QString("objFranchisereferalincomeCompound"), ::OpenAPI::toJsonValue(m_obj_franchisereferalincome_compound));
     }
     return obj;
 }
 
 OAIFranchisereferalincome_Request OAIFranchisereferalincome_createObject_v1_Request::getObjFranchisereferalincome() const {
-    return obj_franchisereferalincome;
+    return m_obj_franchisereferalincome;
 }
 void OAIFranchisereferalincome_createObject_v1_Request::setObjFranchisereferalincome(const OAIFranchisereferalincome_Request &obj_franchisereferalincome) {
-    this->obj_franchisereferalincome = obj_franchisereferalincome;
-    this->m_obj_franchisereferalincome_isSet = true;
+    m_obj_franchisereferalincome = obj_franchisereferalincome;
+    m_obj_franchisereferalincome_isSet = true;
 }
 
 bool OAIFranchisereferalincome_createObject_v1_Request::is_obj_franchisereferalincome_Set() const{
@@ -92,11 +92,11 @@ bool OAIFranchisereferalincome_createObject_v1_Request::is_obj_franchisereferali
 }
 
 OAIFranchisereferalincome_RequestCompound OAIFranchisereferalincome_createObject_v1_Request::getObjFranchisereferalincomeCompound() const {
-    return obj_franchisereferalincome_compound;
+    return m_obj_franchisereferalincome_compound;
 }
 void OAIFranchisereferalincome_createObject_v1_Request::setObjFranchisereferalincomeCompound(const OAIFranchisereferalincome_RequestCompound &obj_franchisereferalincome_compound) {
-    this->obj_franchisereferalincome_compound = obj_franchisereferalincome_compound;
-    this->m_obj_franchisereferalincome_compound_isSet = true;
+    m_obj_franchisereferalincome_compound = obj_franchisereferalincome_compound;
+    m_obj_franchisereferalincome_compound_isSet = true;
 }
 
 bool OAIFranchisereferalincome_createObject_v1_Request::is_obj_franchisereferalincome_compound_Set() const{
@@ -110,12 +110,12 @@ bool OAIFranchisereferalincome_createObject_v1_Request::is_obj_franchisereferali
 bool OAIFranchisereferalincome_createObject_v1_Request::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (obj_franchisereferalincome.isSet()) {
+        if (m_obj_franchisereferalincome.isSet()) {
             isObjectUpdated = true;
             break;
         }
 
-        if (obj_franchisereferalincome_compound.isSet()) {
+        if (m_obj_franchisereferalincome_compound.isSet()) {
             isObjectUpdated = true;
             break;
         }

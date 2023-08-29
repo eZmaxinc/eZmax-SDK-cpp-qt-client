@@ -47,7 +47,7 @@ void OAIFranchisebroker_getAutocomplete_v2_Response_mPayload::fromJson(QString j
 
 void OAIFranchisebroker_getAutocomplete_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_franchisebroker_isValid = ::OpenAPI::fromJsonValue(a_obj_franchisebroker, json[QString("a_objFranchisebroker")]);
+    m_a_obj_franchisebroker_isValid = ::OpenAPI::fromJsonValue(m_a_obj_franchisebroker, json[QString("a_objFranchisebroker")]);
     m_a_obj_franchisebroker_isSet = !json[QString("a_objFranchisebroker")].isNull() && m_a_obj_franchisebroker_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIFranchisebroker_getAutocomplete_v2_Response_mPayload::asJson() const 
 
 QJsonObject OAIFranchisebroker_getAutocomplete_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_franchisebroker.size() > 0) {
-        obj.insert(QString("a_objFranchisebroker"), ::OpenAPI::toJsonValue(a_obj_franchisebroker));
+    if (m_a_obj_franchisebroker.size() > 0) {
+        obj.insert(QString("a_objFranchisebroker"), ::OpenAPI::toJsonValue(m_a_obj_franchisebroker));
     }
     return obj;
 }
 
 QList<OAIFranchisebroker_AutocompleteElement_Response> OAIFranchisebroker_getAutocomplete_v2_Response_mPayload::getAObjFranchisebroker() const {
-    return a_obj_franchisebroker;
+    return m_a_obj_franchisebroker;
 }
 void OAIFranchisebroker_getAutocomplete_v2_Response_mPayload::setAObjFranchisebroker(const QList<OAIFranchisebroker_AutocompleteElement_Response> &a_obj_franchisebroker) {
-    this->a_obj_franchisebroker = a_obj_franchisebroker;
-    this->m_a_obj_franchisebroker_isSet = true;
+    m_a_obj_franchisebroker = a_obj_franchisebroker;
+    m_a_obj_franchisebroker_isSet = true;
 }
 
 bool OAIFranchisebroker_getAutocomplete_v2_Response_mPayload::is_a_obj_franchisebroker_Set() const{
@@ -85,7 +85,7 @@ bool OAIFranchisebroker_getAutocomplete_v2_Response_mPayload::is_a_obj_franchise
 bool OAIFranchisebroker_getAutocomplete_v2_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_franchisebroker.size() > 0) {
+        if (m_a_obj_franchisebroker.size() > 0) {
             isObjectUpdated = true;
             break;
         }

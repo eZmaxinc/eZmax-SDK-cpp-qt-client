@@ -65,25 +65,25 @@ void OAICommon_Auditdetail::fromJson(QString jsonString) {
 
 void OAICommon_Auditdetail::fromJsonObject(QJsonObject json) {
 
-    m_fki_user_id_isValid = ::OpenAPI::fromJsonValue(fki_user_id, json[QString("fkiUserID")]);
+    m_fki_user_id_isValid = ::OpenAPI::fromJsonValue(m_fki_user_id, json[QString("fkiUserID")]);
     m_fki_user_id_isSet = !json[QString("fkiUserID")].isNull() && m_fki_user_id_isValid;
 
-    m_fki_apikey_id_isValid = ::OpenAPI::fromJsonValue(fki_apikey_id, json[QString("fkiApikeyID")]);
+    m_fki_apikey_id_isValid = ::OpenAPI::fromJsonValue(m_fki_apikey_id, json[QString("fkiApikeyID")]);
     m_fki_apikey_id_isSet = !json[QString("fkiApikeyID")].isNull() && m_fki_apikey_id_isValid;
 
-    m_s_user_loginname_isValid = ::OpenAPI::fromJsonValue(s_user_loginname, json[QString("sUserLoginname")]);
+    m_s_user_loginname_isValid = ::OpenAPI::fromJsonValue(m_s_user_loginname, json[QString("sUserLoginname")]);
     m_s_user_loginname_isSet = !json[QString("sUserLoginname")].isNull() && m_s_user_loginname_isValid;
 
-    m_s_user_lastname_isValid = ::OpenAPI::fromJsonValue(s_user_lastname, json[QString("sUserLastname")]);
+    m_s_user_lastname_isValid = ::OpenAPI::fromJsonValue(m_s_user_lastname, json[QString("sUserLastname")]);
     m_s_user_lastname_isSet = !json[QString("sUserLastname")].isNull() && m_s_user_lastname_isValid;
 
-    m_s_user_firstname_isValid = ::OpenAPI::fromJsonValue(s_user_firstname, json[QString("sUserFirstname")]);
+    m_s_user_firstname_isValid = ::OpenAPI::fromJsonValue(m_s_user_firstname, json[QString("sUserFirstname")]);
     m_s_user_firstname_isSet = !json[QString("sUserFirstname")].isNull() && m_s_user_firstname_isValid;
 
-    m_s_apikey_description_x_isValid = ::OpenAPI::fromJsonValue(s_apikey_description_x, json[QString("sApikeyDescriptionX")]);
+    m_s_apikey_description_x_isValid = ::OpenAPI::fromJsonValue(m_s_apikey_description_x, json[QString("sApikeyDescriptionX")]);
     m_s_apikey_description_x_isSet = !json[QString("sApikeyDescriptionX")].isNull() && m_s_apikey_description_x_isValid;
 
-    m_dt_auditdetail_date_isValid = ::OpenAPI::fromJsonValue(dt_auditdetail_date, json[QString("dtAuditdetailDate")]);
+    m_dt_auditdetail_date_isValid = ::OpenAPI::fromJsonValue(m_dt_auditdetail_date, json[QString("dtAuditdetailDate")]);
     m_dt_auditdetail_date_isSet = !json[QString("dtAuditdetailDate")].isNull() && m_dt_auditdetail_date_isValid;
 }
 
@@ -97,35 +97,35 @@ QString OAICommon_Auditdetail::asJson() const {
 QJsonObject OAICommon_Auditdetail::asJsonObject() const {
     QJsonObject obj;
     if (m_fki_user_id_isSet) {
-        obj.insert(QString("fkiUserID"), ::OpenAPI::toJsonValue(fki_user_id));
+        obj.insert(QString("fkiUserID"), ::OpenAPI::toJsonValue(m_fki_user_id));
     }
     if (m_fki_apikey_id_isSet) {
-        obj.insert(QString("fkiApikeyID"), ::OpenAPI::toJsonValue(fki_apikey_id));
+        obj.insert(QString("fkiApikeyID"), ::OpenAPI::toJsonValue(m_fki_apikey_id));
     }
     if (m_s_user_loginname_isSet) {
-        obj.insert(QString("sUserLoginname"), ::OpenAPI::toJsonValue(s_user_loginname));
+        obj.insert(QString("sUserLoginname"), ::OpenAPI::toJsonValue(m_s_user_loginname));
     }
     if (m_s_user_lastname_isSet) {
-        obj.insert(QString("sUserLastname"), ::OpenAPI::toJsonValue(s_user_lastname));
+        obj.insert(QString("sUserLastname"), ::OpenAPI::toJsonValue(m_s_user_lastname));
     }
     if (m_s_user_firstname_isSet) {
-        obj.insert(QString("sUserFirstname"), ::OpenAPI::toJsonValue(s_user_firstname));
+        obj.insert(QString("sUserFirstname"), ::OpenAPI::toJsonValue(m_s_user_firstname));
     }
     if (m_s_apikey_description_x_isSet) {
-        obj.insert(QString("sApikeyDescriptionX"), ::OpenAPI::toJsonValue(s_apikey_description_x));
+        obj.insert(QString("sApikeyDescriptionX"), ::OpenAPI::toJsonValue(m_s_apikey_description_x));
     }
     if (m_dt_auditdetail_date_isSet) {
-        obj.insert(QString("dtAuditdetailDate"), ::OpenAPI::toJsonValue(dt_auditdetail_date));
+        obj.insert(QString("dtAuditdetailDate"), ::OpenAPI::toJsonValue(m_dt_auditdetail_date));
     }
     return obj;
 }
 
 qint32 OAICommon_Auditdetail::getFkiUserId() const {
-    return fki_user_id;
+    return m_fki_user_id;
 }
 void OAICommon_Auditdetail::setFkiUserId(const qint32 &fki_user_id) {
-    this->fki_user_id = fki_user_id;
-    this->m_fki_user_id_isSet = true;
+    m_fki_user_id = fki_user_id;
+    m_fki_user_id_isSet = true;
 }
 
 bool OAICommon_Auditdetail::is_fki_user_id_Set() const{
@@ -137,11 +137,11 @@ bool OAICommon_Auditdetail::is_fki_user_id_Valid() const{
 }
 
 qint32 OAICommon_Auditdetail::getFkiApikeyId() const {
-    return fki_apikey_id;
+    return m_fki_apikey_id;
 }
 void OAICommon_Auditdetail::setFkiApikeyId(const qint32 &fki_apikey_id) {
-    this->fki_apikey_id = fki_apikey_id;
-    this->m_fki_apikey_id_isSet = true;
+    m_fki_apikey_id = fki_apikey_id;
+    m_fki_apikey_id_isSet = true;
 }
 
 bool OAICommon_Auditdetail::is_fki_apikey_id_Set() const{
@@ -153,11 +153,11 @@ bool OAICommon_Auditdetail::is_fki_apikey_id_Valid() const{
 }
 
 QString OAICommon_Auditdetail::getSUserLoginname() const {
-    return s_user_loginname;
+    return m_s_user_loginname;
 }
 void OAICommon_Auditdetail::setSUserLoginname(const QString &s_user_loginname) {
-    this->s_user_loginname = s_user_loginname;
-    this->m_s_user_loginname_isSet = true;
+    m_s_user_loginname = s_user_loginname;
+    m_s_user_loginname_isSet = true;
 }
 
 bool OAICommon_Auditdetail::is_s_user_loginname_Set() const{
@@ -169,11 +169,11 @@ bool OAICommon_Auditdetail::is_s_user_loginname_Valid() const{
 }
 
 QString OAICommon_Auditdetail::getSUserLastname() const {
-    return s_user_lastname;
+    return m_s_user_lastname;
 }
 void OAICommon_Auditdetail::setSUserLastname(const QString &s_user_lastname) {
-    this->s_user_lastname = s_user_lastname;
-    this->m_s_user_lastname_isSet = true;
+    m_s_user_lastname = s_user_lastname;
+    m_s_user_lastname_isSet = true;
 }
 
 bool OAICommon_Auditdetail::is_s_user_lastname_Set() const{
@@ -185,11 +185,11 @@ bool OAICommon_Auditdetail::is_s_user_lastname_Valid() const{
 }
 
 QString OAICommon_Auditdetail::getSUserFirstname() const {
-    return s_user_firstname;
+    return m_s_user_firstname;
 }
 void OAICommon_Auditdetail::setSUserFirstname(const QString &s_user_firstname) {
-    this->s_user_firstname = s_user_firstname;
-    this->m_s_user_firstname_isSet = true;
+    m_s_user_firstname = s_user_firstname;
+    m_s_user_firstname_isSet = true;
 }
 
 bool OAICommon_Auditdetail::is_s_user_firstname_Set() const{
@@ -201,11 +201,11 @@ bool OAICommon_Auditdetail::is_s_user_firstname_Valid() const{
 }
 
 QString OAICommon_Auditdetail::getSApikeyDescriptionX() const {
-    return s_apikey_description_x;
+    return m_s_apikey_description_x;
 }
 void OAICommon_Auditdetail::setSApikeyDescriptionX(const QString &s_apikey_description_x) {
-    this->s_apikey_description_x = s_apikey_description_x;
-    this->m_s_apikey_description_x_isSet = true;
+    m_s_apikey_description_x = s_apikey_description_x;
+    m_s_apikey_description_x_isSet = true;
 }
 
 bool OAICommon_Auditdetail::is_s_apikey_description_x_Set() const{
@@ -217,11 +217,11 @@ bool OAICommon_Auditdetail::is_s_apikey_description_x_Valid() const{
 }
 
 QString OAICommon_Auditdetail::getDtAuditdetailDate() const {
-    return dt_auditdetail_date;
+    return m_dt_auditdetail_date;
 }
 void OAICommon_Auditdetail::setDtAuditdetailDate(const QString &dt_auditdetail_date) {
-    this->dt_auditdetail_date = dt_auditdetail_date;
-    this->m_dt_auditdetail_date_isSet = true;
+    m_dt_auditdetail_date = dt_auditdetail_date;
+    m_dt_auditdetail_date_isSet = true;
 }
 
 bool OAICommon_Auditdetail::is_dt_auditdetail_date_Set() const{

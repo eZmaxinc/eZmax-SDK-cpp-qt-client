@@ -51,7 +51,7 @@ public:
 private:
     void initializeModel();
 
-    OAIEzsignsignergroup_ResponseCompound obj_ezsignsignergroup;
+    OAIEzsignsignergroup_ResponseCompound m_obj_ezsignsignergroup;
     bool m_obj_ezsignsignergroup_isSet;
     bool m_obj_ezsignsignergroup_isValid;
 };

@@ -59,19 +59,19 @@ void OAICustom_AutocompleteElement_Response::fromJson(QString jsonString) {
 
 void OAICustom_AutocompleteElement_Response::fromJsonObject(QJsonObject json) {
 
-    m_s_category_isValid = ::OpenAPI::fromJsonValue(s_category, json[QString("sCategory")]);
+    m_s_category_isValid = ::OpenAPI::fromJsonValue(m_s_category, json[QString("sCategory")]);
     m_s_category_isSet = !json[QString("sCategory")].isNull() && m_s_category_isValid;
 
-    m_s_label_isValid = ::OpenAPI::fromJsonValue(s_label, json[QString("sLabel")]);
+    m_s_label_isValid = ::OpenAPI::fromJsonValue(m_s_label, json[QString("sLabel")]);
     m_s_label_isSet = !json[QString("sLabel")].isNull() && m_s_label_isValid;
 
-    m_s_value_isValid = ::OpenAPI::fromJsonValue(s_value, json[QString("sValue")]);
+    m_s_value_isValid = ::OpenAPI::fromJsonValue(m_s_value, json[QString("sValue")]);
     m_s_value_isSet = !json[QString("sValue")].isNull() && m_s_value_isValid;
 
-    m_m_value_isValid = ::OpenAPI::fromJsonValue(m_value, json[QString("mValue")]);
+    m_m_value_isValid = ::OpenAPI::fromJsonValue(m_m_value, json[QString("mValue")]);
     m_m_value_isSet = !json[QString("mValue")].isNull() && m_m_value_isValid;
 
-    m_b_active_isValid = ::OpenAPI::fromJsonValue(b_active, json[QString("bActive")]);
+    m_b_active_isValid = ::OpenAPI::fromJsonValue(m_b_active, json[QString("bActive")]);
     m_b_active_isSet = !json[QString("bActive")].isNull() && m_b_active_isValid;
 }
 
@@ -85,29 +85,29 @@ QString OAICustom_AutocompleteElement_Response::asJson() const {
 QJsonObject OAICustom_AutocompleteElement_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_s_category_isSet) {
-        obj.insert(QString("sCategory"), ::OpenAPI::toJsonValue(s_category));
+        obj.insert(QString("sCategory"), ::OpenAPI::toJsonValue(m_s_category));
     }
     if (m_s_label_isSet) {
-        obj.insert(QString("sLabel"), ::OpenAPI::toJsonValue(s_label));
+        obj.insert(QString("sLabel"), ::OpenAPI::toJsonValue(m_s_label));
     }
     if (m_s_value_isSet) {
-        obj.insert(QString("sValue"), ::OpenAPI::toJsonValue(s_value));
+        obj.insert(QString("sValue"), ::OpenAPI::toJsonValue(m_s_value));
     }
     if (m_m_value_isSet) {
-        obj.insert(QString("mValue"), ::OpenAPI::toJsonValue(m_value));
+        obj.insert(QString("mValue"), ::OpenAPI::toJsonValue(m_m_value));
     }
     if (m_b_active_isSet) {
-        obj.insert(QString("bActive"), ::OpenAPI::toJsonValue(b_active));
+        obj.insert(QString("bActive"), ::OpenAPI::toJsonValue(m_b_active));
     }
     return obj;
 }
 
 QString OAICustom_AutocompleteElement_Response::getSCategory() const {
-    return s_category;
+    return m_s_category;
 }
 void OAICustom_AutocompleteElement_Response::setSCategory(const QString &s_category) {
-    this->s_category = s_category;
-    this->m_s_category_isSet = true;
+    m_s_category = s_category;
+    m_s_category_isSet = true;
 }
 
 bool OAICustom_AutocompleteElement_Response::is_s_category_Set() const{
@@ -119,11 +119,11 @@ bool OAICustom_AutocompleteElement_Response::is_s_category_Valid() const{
 }
 
 QString OAICustom_AutocompleteElement_Response::getSLabel() const {
-    return s_label;
+    return m_s_label;
 }
 void OAICustom_AutocompleteElement_Response::setSLabel(const QString &s_label) {
-    this->s_label = s_label;
-    this->m_s_label_isSet = true;
+    m_s_label = s_label;
+    m_s_label_isSet = true;
 }
 
 bool OAICustom_AutocompleteElement_Response::is_s_label_Set() const{
@@ -135,11 +135,11 @@ bool OAICustom_AutocompleteElement_Response::is_s_label_Valid() const{
 }
 
 QString OAICustom_AutocompleteElement_Response::getSValue() const {
-    return s_value;
+    return m_s_value;
 }
 void OAICustom_AutocompleteElement_Response::setSValue(const QString &s_value) {
-    this->s_value = s_value;
-    this->m_s_value_isSet = true;
+    m_s_value = s_value;
+    m_s_value_isSet = true;
 }
 
 bool OAICustom_AutocompleteElement_Response::is_s_value_Set() const{
@@ -151,11 +151,11 @@ bool OAICustom_AutocompleteElement_Response::is_s_value_Valid() const{
 }
 
 QString OAICustom_AutocompleteElement_Response::getMValue() const {
-    return m_value;
+    return m_m_value;
 }
 void OAICustom_AutocompleteElement_Response::setMValue(const QString &m_value) {
-    this->m_value = m_value;
-    this->m_m_value_isSet = true;
+    m_m_value = m_value;
+    m_m_value_isSet = true;
 }
 
 bool OAICustom_AutocompleteElement_Response::is_m_value_Set() const{
@@ -167,11 +167,11 @@ bool OAICustom_AutocompleteElement_Response::is_m_value_Valid() const{
 }
 
 bool OAICustom_AutocompleteElement_Response::isBActive() const {
-    return b_active;
+    return m_b_active;
 }
 void OAICustom_AutocompleteElement_Response::setBActive(const bool &b_active) {
-    this->b_active = b_active;
-    this->m_b_active_isSet = true;
+    m_b_active = b_active;
+    m_b_active_isSet = true;
 }
 
 bool OAICustom_AutocompleteElement_Response::is_b_active_Set() const{

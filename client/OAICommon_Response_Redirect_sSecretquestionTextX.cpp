@@ -47,7 +47,7 @@ void OAICommon_Response_Redirect_sSecretquestionTextX::fromJson(QString jsonStri
 
 void OAICommon_Response_Redirect_sSecretquestionTextX::fromJsonObject(QJsonObject json) {
 
-    m_s_secretquestion_text_x_isValid = ::OpenAPI::fromJsonValue(s_secretquestion_text_x, json[QString("sSecretquestionTextX")]);
+    m_s_secretquestion_text_x_isValid = ::OpenAPI::fromJsonValue(m_s_secretquestion_text_x, json[QString("sSecretquestionTextX")]);
     m_s_secretquestion_text_x_isSet = !json[QString("sSecretquestionTextX")].isNull() && m_s_secretquestion_text_x_isValid;
 }
 
@@ -61,17 +61,17 @@ QString OAICommon_Response_Redirect_sSecretquestionTextX::asJson() const {
 QJsonObject OAICommon_Response_Redirect_sSecretquestionTextX::asJsonObject() const {
     QJsonObject obj;
     if (m_s_secretquestion_text_x_isSet) {
-        obj.insert(QString("sSecretquestionTextX"), ::OpenAPI::toJsonValue(s_secretquestion_text_x));
+        obj.insert(QString("sSecretquestionTextX"), ::OpenAPI::toJsonValue(m_s_secretquestion_text_x));
     }
     return obj;
 }
 
 QString OAICommon_Response_Redirect_sSecretquestionTextX::getSSecretquestionTextX() const {
-    return s_secretquestion_text_x;
+    return m_s_secretquestion_text_x;
 }
 void OAICommon_Response_Redirect_sSecretquestionTextX::setSSecretquestionTextX(const QString &s_secretquestion_text_x) {
-    this->s_secretquestion_text_x = s_secretquestion_text_x;
-    this->m_s_secretquestion_text_x_isSet = true;
+    m_s_secretquestion_text_x = s_secretquestion_text_x;
+    m_s_secretquestion_text_x_isSet = true;
 }
 
 bool OAICommon_Response_Redirect_sSecretquestionTextX::is_s_secretquestion_text_x_Set() const{

@@ -50,7 +50,7 @@ public:
 private:
     void initializeModel();
 
-    QList<qint32> a_pki_ezsigntemplate_id;
+    QList<qint32> m_a_pki_ezsigntemplate_id;
     bool m_a_pki_ezsigntemplate_id_isSet;
     bool m_a_pki_ezsigntemplate_id_isValid;
 };

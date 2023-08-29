@@ -40,11 +40,6 @@ public:
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    QString getSTemporaryFileUrl() const;
-    void setSTemporaryFileUrl(const QString &s_temporary_file_url);
-    bool is_s_temporary_file_url_Set() const;
-    bool is_s_temporary_file_url_Valid() const;
-
     QString getSErrorMessage() const;
     void setSErrorMessage(const QString &s_error_message);
     bool is_s_error_message_Set() const;
@@ -55,23 +50,28 @@ public:
     bool is_e_error_code_Set() const;
     bool is_e_error_code_Valid() const;
 
+    QString getSTemporaryFileUrl() const;
+    void setSTemporaryFileUrl(const QString &s_temporary_file_url);
+    bool is_s_temporary_file_url_Set() const;
+    bool is_s_temporary_file_url_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
 private:
     void initializeModel();
 
-    QString s_temporary_file_url;
-    bool m_s_temporary_file_url_isSet;
-    bool m_s_temporary_file_url_isValid;
-
-    QString s_error_message;
+    QString m_s_error_message;
     bool m_s_error_message_isSet;
     bool m_s_error_message_isValid;
 
-    OAIField_eErrorCode e_error_code;
+    OAIField_eErrorCode m_e_error_code;
     bool m_e_error_code_isSet;
     bool m_e_error_code_isValid;
+
+    QString m_s_temporary_file_url;
+    bool m_s_temporary_file_url_isSet;
+    bool m_s_temporary_file_url_isValid;
 };
 
 } // namespace OpenAPI

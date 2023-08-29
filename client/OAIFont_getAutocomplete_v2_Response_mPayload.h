@@ -52,7 +52,7 @@ public:
 private:
     void initializeModel();
 
-    QList<OAIFont_AutocompleteElement_Response> a_obj_font;
+    QList<OAIFont_AutocompleteElement_Response> m_a_obj_font;
     bool m_a_obj_font_isSet;
     bool m_a_obj_font_isValid;
 };

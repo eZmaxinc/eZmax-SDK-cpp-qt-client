@@ -47,7 +47,7 @@ void OAIUser_editObject_v1_Request::fromJson(QString jsonString) {
 
 void OAIUser_editObject_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_obj_user_isValid = ::OpenAPI::fromJsonValue(obj_user, json[QString("objUser")]);
+    m_obj_user_isValid = ::OpenAPI::fromJsonValue(m_obj_user, json[QString("objUser")]);
     m_obj_user_isSet = !json[QString("objUser")].isNull() && m_obj_user_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIUser_editObject_v1_Request::asJson() const {
 
 QJsonObject OAIUser_editObject_v1_Request::asJsonObject() const {
     QJsonObject obj;
-    if (obj_user.isSet()) {
-        obj.insert(QString("objUser"), ::OpenAPI::toJsonValue(obj_user));
+    if (m_obj_user.isSet()) {
+        obj.insert(QString("objUser"), ::OpenAPI::toJsonValue(m_obj_user));
     }
     return obj;
 }
 
 OAIUser_RequestCompound OAIUser_editObject_v1_Request::getObjUser() const {
-    return obj_user;
+    return m_obj_user;
 }
 void OAIUser_editObject_v1_Request::setObjUser(const OAIUser_RequestCompound &obj_user) {
-    this->obj_user = obj_user;
-    this->m_obj_user_isSet = true;
+    m_obj_user = obj_user;
+    m_obj_user_isSet = true;
 }
 
 bool OAIUser_editObject_v1_Request::is_obj_user_Set() const{
@@ -85,7 +85,7 @@ bool OAIUser_editObject_v1_Request::is_obj_user_Valid() const{
 bool OAIUser_editObject_v1_Request::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (obj_user.isSet()) {
+        if (m_obj_user.isSet()) {
             isObjectUpdated = true;
             break;
         }

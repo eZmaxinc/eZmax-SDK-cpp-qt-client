@@ -58,11 +58,11 @@ public:
 private:
     void initializeModel();
 
-    OAICommon_Response_objDebugPayload obj_debug_payload;
+    OAICommon_Response_objDebugPayload m_obj_debug_payload;
     bool m_obj_debug_payload_isSet;
     bool m_obj_debug_payload_isValid;
 
-    OAICommon_Response_objDebug obj_debug;
+    OAICommon_Response_objDebug m_obj_debug;
     bool m_obj_debug_isSet;
     bool m_obj_debug_isValid;
 };

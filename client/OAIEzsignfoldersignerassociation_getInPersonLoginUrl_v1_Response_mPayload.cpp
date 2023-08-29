@@ -47,7 +47,7 @@ void OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response_mPayload::
 
 void OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_s_login_url_isValid = ::OpenAPI::fromJsonValue(s_login_url, json[QString("sLoginUrl")]);
+    m_s_login_url_isValid = ::OpenAPI::fromJsonValue(m_s_login_url, json[QString("sLoginUrl")]);
     m_s_login_url_isSet = !json[QString("sLoginUrl")].isNull() && m_s_login_url_isValid;
 }
 
@@ -61,17 +61,17 @@ QString OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response_mPayloa
 QJsonObject OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_s_login_url_isSet) {
-        obj.insert(QString("sLoginUrl"), ::OpenAPI::toJsonValue(s_login_url));
+        obj.insert(QString("sLoginUrl"), ::OpenAPI::toJsonValue(m_s_login_url));
     }
     return obj;
 }
 
 QString OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response_mPayload::getSLoginUrl() const {
-    return s_login_url;
+    return m_s_login_url;
 }
 void OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response_mPayload::setSLoginUrl(const QString &s_login_url) {
-    this->s_login_url = s_login_url;
-    this->m_s_login_url_isSet = true;
+    m_s_login_url = s_login_url;
+    m_s_login_url_isSet = true;
 }
 
 bool OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response_mPayload::is_s_login_url_Set() const{

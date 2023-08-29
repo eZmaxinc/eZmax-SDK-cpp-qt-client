@@ -65,19 +65,19 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_modulesection_id;
+    qint32 m_pki_modulesection_id;
     bool m_pki_modulesection_id_isSet;
     bool m_pki_modulesection_id_isValid;
 
-    qint32 fki_module_id;
+    qint32 m_fki_module_id;
     bool m_fki_module_id_isSet;
     bool m_fki_module_id_isValid;
 
-    QString s_modulesection_internalname;
+    QString m_s_modulesection_internalname;
     bool m_s_modulesection_internalname_isSet;
     bool m_s_modulesection_internalname_isValid;
 
-    QString s_modulesection_name_x;
+    QString m_s_modulesection_name_x;
     bool m_s_modulesection_name_x_isSet;
     bool m_s_modulesection_name_x_isValid;
 };

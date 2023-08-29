@@ -50,10 +50,10 @@ void OAIEzsigntemplateformfieldgroupsigner_Request::fromJson(QString jsonString)
 
 void OAIEzsigntemplateformfieldgroupsigner_Request::fromJsonObject(QJsonObject json) {
 
-    m_pki_ezsigntemplateformfieldgroupsigner_id_isValid = ::OpenAPI::fromJsonValue(pki_ezsigntemplateformfieldgroupsigner_id, json[QString("pkiEzsigntemplateformfieldgroupsignerID")]);
+    m_pki_ezsigntemplateformfieldgroupsigner_id_isValid = ::OpenAPI::fromJsonValue(m_pki_ezsigntemplateformfieldgroupsigner_id, json[QString("pkiEzsigntemplateformfieldgroupsignerID")]);
     m_pki_ezsigntemplateformfieldgroupsigner_id_isSet = !json[QString("pkiEzsigntemplateformfieldgroupsignerID")].isNull() && m_pki_ezsigntemplateformfieldgroupsigner_id_isValid;
 
-    m_fki_ezsigntemplatesigner_id_isValid = ::OpenAPI::fromJsonValue(fki_ezsigntemplatesigner_id, json[QString("fkiEzsigntemplatesignerID")]);
+    m_fki_ezsigntemplatesigner_id_isValid = ::OpenAPI::fromJsonValue(m_fki_ezsigntemplatesigner_id, json[QString("fkiEzsigntemplatesignerID")]);
     m_fki_ezsigntemplatesigner_id_isSet = !json[QString("fkiEzsigntemplatesignerID")].isNull() && m_fki_ezsigntemplatesigner_id_isValid;
 }
 
@@ -67,20 +67,20 @@ QString OAIEzsigntemplateformfieldgroupsigner_Request::asJson() const {
 QJsonObject OAIEzsigntemplateformfieldgroupsigner_Request::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_ezsigntemplateformfieldgroupsigner_id_isSet) {
-        obj.insert(QString("pkiEzsigntemplateformfieldgroupsignerID"), ::OpenAPI::toJsonValue(pki_ezsigntemplateformfieldgroupsigner_id));
+        obj.insert(QString("pkiEzsigntemplateformfieldgroupsignerID"), ::OpenAPI::toJsonValue(m_pki_ezsigntemplateformfieldgroupsigner_id));
     }
     if (m_fki_ezsigntemplatesigner_id_isSet) {
-        obj.insert(QString("fkiEzsigntemplatesignerID"), ::OpenAPI::toJsonValue(fki_ezsigntemplatesigner_id));
+        obj.insert(QString("fkiEzsigntemplatesignerID"), ::OpenAPI::toJsonValue(m_fki_ezsigntemplatesigner_id));
     }
     return obj;
 }
 
 qint32 OAIEzsigntemplateformfieldgroupsigner_Request::getPkiEzsigntemplateformfieldgroupsignerId() const {
-    return pki_ezsigntemplateformfieldgroupsigner_id;
+    return m_pki_ezsigntemplateformfieldgroupsigner_id;
 }
 void OAIEzsigntemplateformfieldgroupsigner_Request::setPkiEzsigntemplateformfieldgroupsignerId(const qint32 &pki_ezsigntemplateformfieldgroupsigner_id) {
-    this->pki_ezsigntemplateformfieldgroupsigner_id = pki_ezsigntemplateformfieldgroupsigner_id;
-    this->m_pki_ezsigntemplateformfieldgroupsigner_id_isSet = true;
+    m_pki_ezsigntemplateformfieldgroupsigner_id = pki_ezsigntemplateformfieldgroupsigner_id;
+    m_pki_ezsigntemplateformfieldgroupsigner_id_isSet = true;
 }
 
 bool OAIEzsigntemplateformfieldgroupsigner_Request::is_pki_ezsigntemplateformfieldgroupsigner_id_Set() const{
@@ -92,11 +92,11 @@ bool OAIEzsigntemplateformfieldgroupsigner_Request::is_pki_ezsigntemplateformfie
 }
 
 qint32 OAIEzsigntemplateformfieldgroupsigner_Request::getFkiEzsigntemplatesignerId() const {
-    return fki_ezsigntemplatesigner_id;
+    return m_fki_ezsigntemplatesigner_id;
 }
 void OAIEzsigntemplateformfieldgroupsigner_Request::setFkiEzsigntemplatesignerId(const qint32 &fki_ezsigntemplatesigner_id) {
-    this->fki_ezsigntemplatesigner_id = fki_ezsigntemplatesigner_id;
-    this->m_fki_ezsigntemplatesigner_id_isSet = true;
+    m_fki_ezsigntemplatesigner_id = fki_ezsigntemplatesigner_id;
+    m_fki_ezsigntemplatesigner_id_isSet = true;
 }
 
 bool OAIEzsigntemplateformfieldgroupsigner_Request::is_fki_ezsigntemplatesigner_id_Set() const{

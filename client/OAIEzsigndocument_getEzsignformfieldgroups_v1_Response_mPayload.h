@@ -52,7 +52,7 @@ public:
 private:
     void initializeModel();
 
-    QList<OAIEzsignformfieldgroup_ResponseCompound> a_obj_ezsignformfieldgroup;
+    QList<OAIEzsignformfieldgroup_ResponseCompound> m_a_obj_ezsignformfieldgroup;
     bool m_a_obj_ezsignformfieldgroup_isSet;
     bool m_a_obj_ezsignformfieldgroup_isValid;
 };

@@ -68,28 +68,28 @@ void OAIContactinformations_RequestCompound::fromJson(QString jsonString) {
 
 void OAIContactinformations_RequestCompound::fromJsonObject(QJsonObject json) {
 
-    m_i_address_default_isValid = ::OpenAPI::fromJsonValue(i_address_default, json[QString("iAddressDefault")]);
+    m_i_address_default_isValid = ::OpenAPI::fromJsonValue(m_i_address_default, json[QString("iAddressDefault")]);
     m_i_address_default_isSet = !json[QString("iAddressDefault")].isNull() && m_i_address_default_isValid;
 
-    m_i_phone_default_isValid = ::OpenAPI::fromJsonValue(i_phone_default, json[QString("iPhoneDefault")]);
+    m_i_phone_default_isValid = ::OpenAPI::fromJsonValue(m_i_phone_default, json[QString("iPhoneDefault")]);
     m_i_phone_default_isSet = !json[QString("iPhoneDefault")].isNull() && m_i_phone_default_isValid;
 
-    m_i_email_default_isValid = ::OpenAPI::fromJsonValue(i_email_default, json[QString("iEmailDefault")]);
+    m_i_email_default_isValid = ::OpenAPI::fromJsonValue(m_i_email_default, json[QString("iEmailDefault")]);
     m_i_email_default_isSet = !json[QString("iEmailDefault")].isNull() && m_i_email_default_isValid;
 
-    m_i_website_default_isValid = ::OpenAPI::fromJsonValue(i_website_default, json[QString("iWebsiteDefault")]);
+    m_i_website_default_isValid = ::OpenAPI::fromJsonValue(m_i_website_default, json[QString("iWebsiteDefault")]);
     m_i_website_default_isSet = !json[QString("iWebsiteDefault")].isNull() && m_i_website_default_isValid;
 
-    m_a_obj_address_isValid = ::OpenAPI::fromJsonValue(a_obj_address, json[QString("a_objAddress")]);
+    m_a_obj_address_isValid = ::OpenAPI::fromJsonValue(m_a_obj_address, json[QString("a_objAddress")]);
     m_a_obj_address_isSet = !json[QString("a_objAddress")].isNull() && m_a_obj_address_isValid;
 
-    m_a_obj_phone_isValid = ::OpenAPI::fromJsonValue(a_obj_phone, json[QString("a_objPhone")]);
+    m_a_obj_phone_isValid = ::OpenAPI::fromJsonValue(m_a_obj_phone, json[QString("a_objPhone")]);
     m_a_obj_phone_isSet = !json[QString("a_objPhone")].isNull() && m_a_obj_phone_isValid;
 
-    m_a_obj_email_isValid = ::OpenAPI::fromJsonValue(a_obj_email, json[QString("a_objEmail")]);
+    m_a_obj_email_isValid = ::OpenAPI::fromJsonValue(m_a_obj_email, json[QString("a_objEmail")]);
     m_a_obj_email_isSet = !json[QString("a_objEmail")].isNull() && m_a_obj_email_isValid;
 
-    m_a_obj_website_isValid = ::OpenAPI::fromJsonValue(a_obj_website, json[QString("a_objWebsite")]);
+    m_a_obj_website_isValid = ::OpenAPI::fromJsonValue(m_a_obj_website, json[QString("a_objWebsite")]);
     m_a_obj_website_isSet = !json[QString("a_objWebsite")].isNull() && m_a_obj_website_isValid;
 }
 
@@ -103,38 +103,38 @@ QString OAIContactinformations_RequestCompound::asJson() const {
 QJsonObject OAIContactinformations_RequestCompound::asJsonObject() const {
     QJsonObject obj;
     if (m_i_address_default_isSet) {
-        obj.insert(QString("iAddressDefault"), ::OpenAPI::toJsonValue(i_address_default));
+        obj.insert(QString("iAddressDefault"), ::OpenAPI::toJsonValue(m_i_address_default));
     }
     if (m_i_phone_default_isSet) {
-        obj.insert(QString("iPhoneDefault"), ::OpenAPI::toJsonValue(i_phone_default));
+        obj.insert(QString("iPhoneDefault"), ::OpenAPI::toJsonValue(m_i_phone_default));
     }
     if (m_i_email_default_isSet) {
-        obj.insert(QString("iEmailDefault"), ::OpenAPI::toJsonValue(i_email_default));
+        obj.insert(QString("iEmailDefault"), ::OpenAPI::toJsonValue(m_i_email_default));
     }
     if (m_i_website_default_isSet) {
-        obj.insert(QString("iWebsiteDefault"), ::OpenAPI::toJsonValue(i_website_default));
+        obj.insert(QString("iWebsiteDefault"), ::OpenAPI::toJsonValue(m_i_website_default));
     }
-    if (a_obj_address.size() > 0) {
-        obj.insert(QString("a_objAddress"), ::OpenAPI::toJsonValue(a_obj_address));
+    if (m_a_obj_address.size() > 0) {
+        obj.insert(QString("a_objAddress"), ::OpenAPI::toJsonValue(m_a_obj_address));
     }
-    if (a_obj_phone.size() > 0) {
-        obj.insert(QString("a_objPhone"), ::OpenAPI::toJsonValue(a_obj_phone));
+    if (m_a_obj_phone.size() > 0) {
+        obj.insert(QString("a_objPhone"), ::OpenAPI::toJsonValue(m_a_obj_phone));
     }
-    if (a_obj_email.size() > 0) {
-        obj.insert(QString("a_objEmail"), ::OpenAPI::toJsonValue(a_obj_email));
+    if (m_a_obj_email.size() > 0) {
+        obj.insert(QString("a_objEmail"), ::OpenAPI::toJsonValue(m_a_obj_email));
     }
-    if (a_obj_website.size() > 0) {
-        obj.insert(QString("a_objWebsite"), ::OpenAPI::toJsonValue(a_obj_website));
+    if (m_a_obj_website.size() > 0) {
+        obj.insert(QString("a_objWebsite"), ::OpenAPI::toJsonValue(m_a_obj_website));
     }
     return obj;
 }
 
 qint32 OAIContactinformations_RequestCompound::getIAddressDefault() const {
-    return i_address_default;
+    return m_i_address_default;
 }
 void OAIContactinformations_RequestCompound::setIAddressDefault(const qint32 &i_address_default) {
-    this->i_address_default = i_address_default;
-    this->m_i_address_default_isSet = true;
+    m_i_address_default = i_address_default;
+    m_i_address_default_isSet = true;
 }
 
 bool OAIContactinformations_RequestCompound::is_i_address_default_Set() const{
@@ -146,11 +146,11 @@ bool OAIContactinformations_RequestCompound::is_i_address_default_Valid() const{
 }
 
 qint32 OAIContactinformations_RequestCompound::getIPhoneDefault() const {
-    return i_phone_default;
+    return m_i_phone_default;
 }
 void OAIContactinformations_RequestCompound::setIPhoneDefault(const qint32 &i_phone_default) {
-    this->i_phone_default = i_phone_default;
-    this->m_i_phone_default_isSet = true;
+    m_i_phone_default = i_phone_default;
+    m_i_phone_default_isSet = true;
 }
 
 bool OAIContactinformations_RequestCompound::is_i_phone_default_Set() const{
@@ -162,11 +162,11 @@ bool OAIContactinformations_RequestCompound::is_i_phone_default_Valid() const{
 }
 
 qint32 OAIContactinformations_RequestCompound::getIEmailDefault() const {
-    return i_email_default;
+    return m_i_email_default;
 }
 void OAIContactinformations_RequestCompound::setIEmailDefault(const qint32 &i_email_default) {
-    this->i_email_default = i_email_default;
-    this->m_i_email_default_isSet = true;
+    m_i_email_default = i_email_default;
+    m_i_email_default_isSet = true;
 }
 
 bool OAIContactinformations_RequestCompound::is_i_email_default_Set() const{
@@ -178,11 +178,11 @@ bool OAIContactinformations_RequestCompound::is_i_email_default_Valid() const{
 }
 
 qint32 OAIContactinformations_RequestCompound::getIWebsiteDefault() const {
-    return i_website_default;
+    return m_i_website_default;
 }
 void OAIContactinformations_RequestCompound::setIWebsiteDefault(const qint32 &i_website_default) {
-    this->i_website_default = i_website_default;
-    this->m_i_website_default_isSet = true;
+    m_i_website_default = i_website_default;
+    m_i_website_default_isSet = true;
 }
 
 bool OAIContactinformations_RequestCompound::is_i_website_default_Set() const{
@@ -194,11 +194,11 @@ bool OAIContactinformations_RequestCompound::is_i_website_default_Valid() const{
 }
 
 QList<OAIAddress_RequestCompound> OAIContactinformations_RequestCompound::getAObjAddress() const {
-    return a_obj_address;
+    return m_a_obj_address;
 }
 void OAIContactinformations_RequestCompound::setAObjAddress(const QList<OAIAddress_RequestCompound> &a_obj_address) {
-    this->a_obj_address = a_obj_address;
-    this->m_a_obj_address_isSet = true;
+    m_a_obj_address = a_obj_address;
+    m_a_obj_address_isSet = true;
 }
 
 bool OAIContactinformations_RequestCompound::is_a_obj_address_Set() const{
@@ -210,11 +210,11 @@ bool OAIContactinformations_RequestCompound::is_a_obj_address_Valid() const{
 }
 
 QList<OAIPhone_RequestCompound> OAIContactinformations_RequestCompound::getAObjPhone() const {
-    return a_obj_phone;
+    return m_a_obj_phone;
 }
 void OAIContactinformations_RequestCompound::setAObjPhone(const QList<OAIPhone_RequestCompound> &a_obj_phone) {
-    this->a_obj_phone = a_obj_phone;
-    this->m_a_obj_phone_isSet = true;
+    m_a_obj_phone = a_obj_phone;
+    m_a_obj_phone_isSet = true;
 }
 
 bool OAIContactinformations_RequestCompound::is_a_obj_phone_Set() const{
@@ -226,11 +226,11 @@ bool OAIContactinformations_RequestCompound::is_a_obj_phone_Valid() const{
 }
 
 QList<OAIEmail_RequestCompound> OAIContactinformations_RequestCompound::getAObjEmail() const {
-    return a_obj_email;
+    return m_a_obj_email;
 }
 void OAIContactinformations_RequestCompound::setAObjEmail(const QList<OAIEmail_RequestCompound> &a_obj_email) {
-    this->a_obj_email = a_obj_email;
-    this->m_a_obj_email_isSet = true;
+    m_a_obj_email = a_obj_email;
+    m_a_obj_email_isSet = true;
 }
 
 bool OAIContactinformations_RequestCompound::is_a_obj_email_Set() const{
@@ -242,11 +242,11 @@ bool OAIContactinformations_RequestCompound::is_a_obj_email_Valid() const{
 }
 
 QList<OAIWebsite_RequestCompound> OAIContactinformations_RequestCompound::getAObjWebsite() const {
-    return a_obj_website;
+    return m_a_obj_website;
 }
 void OAIContactinformations_RequestCompound::setAObjWebsite(const QList<OAIWebsite_RequestCompound> &a_obj_website) {
-    this->a_obj_website = a_obj_website;
-    this->m_a_obj_website_isSet = true;
+    m_a_obj_website = a_obj_website;
+    m_a_obj_website_isSet = true;
 }
 
 bool OAIContactinformations_RequestCompound::is_a_obj_website_Set() const{
@@ -280,22 +280,22 @@ bool OAIContactinformations_RequestCompound::isSet() const {
             break;
         }
 
-        if (a_obj_address.size() > 0) {
+        if (m_a_obj_address.size() > 0) {
             isObjectUpdated = true;
             break;
         }
 
-        if (a_obj_phone.size() > 0) {
+        if (m_a_obj_phone.size() > 0) {
             isObjectUpdated = true;
             break;
         }
 
-        if (a_obj_email.size() > 0) {
+        if (m_a_obj_email.size() > 0) {
             isObjectUpdated = true;
             break;
         }
 
-        if (a_obj_website.size() > 0) {
+        if (m_a_obj_website.size() > 0) {
             isObjectUpdated = true;
             break;
         }

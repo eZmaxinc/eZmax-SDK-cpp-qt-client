@@ -45,7 +45,9 @@ public:
         HANDWRITTEN, 
         INITIALS, 
         NAME, 
-        ATTACHMENTS
+        ATTACHMENTS, 
+        FIELDTEXT, 
+        FIELDTEXTAREA
     };
     OAIField_eEzsigntemplatesignatureType::eOAIField_eEzsigntemplatesignatureType getValue() const;
     void setValue(const OAIField_eEzsigntemplatesignatureType::eOAIField_eEzsigntemplatesignatureType& value);

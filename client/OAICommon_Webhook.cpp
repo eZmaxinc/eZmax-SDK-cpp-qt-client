@@ -50,10 +50,10 @@ void OAICommon_Webhook::fromJson(QString jsonString) {
 
 void OAICommon_Webhook::fromJsonObject(QJsonObject json) {
 
-    m_obj_webhook_isValid = ::OpenAPI::fromJsonValue(obj_webhook, json[QString("objWebhook")]);
+    m_obj_webhook_isValid = ::OpenAPI::fromJsonValue(m_obj_webhook, json[QString("objWebhook")]);
     m_obj_webhook_isSet = !json[QString("objWebhook")].isNull() && m_obj_webhook_isValid;
 
-    m_a_obj_attempt_isValid = ::OpenAPI::fromJsonValue(a_obj_attempt, json[QString("a_objAttempt")]);
+    m_a_obj_attempt_isValid = ::OpenAPI::fromJsonValue(m_a_obj_attempt, json[QString("a_objAttempt")]);
     m_a_obj_attempt_isSet = !json[QString("a_objAttempt")].isNull() && m_a_obj_attempt_isValid;
 }
 
@@ -66,21 +66,21 @@ QString OAICommon_Webhook::asJson() const {
 
 QJsonObject OAICommon_Webhook::asJsonObject() const {
     QJsonObject obj;
-    if (obj_webhook.isSet()) {
-        obj.insert(QString("objWebhook"), ::OpenAPI::toJsonValue(obj_webhook));
+    if (m_obj_webhook.isSet()) {
+        obj.insert(QString("objWebhook"), ::OpenAPI::toJsonValue(m_obj_webhook));
     }
-    if (a_obj_attempt.size() > 0) {
-        obj.insert(QString("a_objAttempt"), ::OpenAPI::toJsonValue(a_obj_attempt));
+    if (m_a_obj_attempt.size() > 0) {
+        obj.insert(QString("a_objAttempt"), ::OpenAPI::toJsonValue(m_a_obj_attempt));
     }
     return obj;
 }
 
 OAICustom_Webhook_Response OAICommon_Webhook::getObjWebhook() const {
-    return obj_webhook;
+    return m_obj_webhook;
 }
 void OAICommon_Webhook::setObjWebhook(const OAICustom_Webhook_Response &obj_webhook) {
-    this->obj_webhook = obj_webhook;
-    this->m_obj_webhook_isSet = true;
+    m_obj_webhook = obj_webhook;
+    m_obj_webhook_isSet = true;
 }
 
 bool OAICommon_Webhook::is_obj_webhook_Set() const{
@@ -92,11 +92,11 @@ bool OAICommon_Webhook::is_obj_webhook_Valid() const{
 }
 
 QList<OAIAttempt_ResponseCompound> OAICommon_Webhook::getAObjAttempt() const {
-    return a_obj_attempt;
+    return m_a_obj_attempt;
 }
 void OAICommon_Webhook::setAObjAttempt(const QList<OAIAttempt_ResponseCompound> &a_obj_attempt) {
-    this->a_obj_attempt = a_obj_attempt;
-    this->m_a_obj_attempt_isSet = true;
+    m_a_obj_attempt = a_obj_attempt;
+    m_a_obj_attempt_isSet = true;
 }
 
 bool OAICommon_Webhook::is_a_obj_attempt_Set() const{
@@ -110,12 +110,12 @@ bool OAICommon_Webhook::is_a_obj_attempt_Valid() const{
 bool OAICommon_Webhook::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (obj_webhook.isSet()) {
+        if (m_obj_webhook.isSet()) {
             isObjectUpdated = true;
             break;
         }
 
-        if (a_obj_attempt.size() > 0) {
+        if (m_a_obj_attempt.size() > 0) {
             isObjectUpdated = true;
             break;
         }

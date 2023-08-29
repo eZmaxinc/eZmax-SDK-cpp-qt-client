@@ -103,47 +103,47 @@ public:
 private:
     void initializeModel();
 
-    OAIField_eActivesessionUsertype e_activesession_usertype;
+    OAIField_eActivesessionUsertype m_e_activesession_usertype;
     bool m_e_activesession_usertype_isSet;
     bool m_e_activesession_usertype_isValid;
 
-    OAIField_eActivesessionOrigin e_activesession_origin;
+    OAIField_eActivesessionOrigin m_e_activesession_origin;
     bool m_e_activesession_origin_isSet;
     bool m_e_activesession_origin_isValid;
 
-    OAIField_eActivesessionWeekdaystart e_activesession_weekdaystart;
+    OAIField_eActivesessionWeekdaystart m_e_activesession_weekdaystart;
     bool m_e_activesession_weekdaystart_isSet;
     bool m_e_activesession_weekdaystart_isValid;
 
-    qint32 fki_language_id;
+    qint32 m_fki_language_id;
     bool m_fki_language_id_isSet;
     bool m_fki_language_id_isValid;
 
-    QString s_company_name_x;
+    QString m_s_company_name_x;
     bool m_s_company_name_x_isSet;
     bool m_s_company_name_x_isValid;
 
-    QString s_department_name_x;
+    QString m_s_department_name_x;
     bool m_s_department_name_x_isSet;
     bool m_s_department_name_x_isValid;
 
-    bool b_activesession_debug;
+    bool m_b_activesession_debug;
     bool m_b_activesession_debug_isSet;
     bool m_b_activesession_debug_isValid;
 
-    bool b_activesession_issuperadmin;
+    bool m_b_activesession_issuperadmin;
     bool m_b_activesession_issuperadmin_isSet;
     bool m_b_activesession_issuperadmin_isValid;
 
-    QString pks_customer_code;
+    QString m_pks_customer_code;
     bool m_pks_customer_code_isSet;
     bool m_pks_customer_code_isValid;
 
-    qint32 fki_systemconfigurationtype_id;
+    qint32 m_fki_systemconfigurationtype_id;
     bool m_fki_systemconfigurationtype_id_isSet;
     bool m_fki_systemconfigurationtype_id_isValid;
 
-    qint32 fki_signature_id;
+    qint32 m_fki_signature_id;
     bool m_fki_signature_id_isSet;
     bool m_fki_signature_id_isValid;
 };

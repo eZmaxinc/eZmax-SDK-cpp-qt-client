@@ -52,7 +52,7 @@ public:
 private:
     void initializeModel();
 
-    QList<OAIEzsigntemplatesigner_RequestCompound> a_obj_ezsigntemplatesigner;
+    QList<OAIEzsigntemplatesigner_RequestCompound> m_a_obj_ezsigntemplatesigner;
     bool m_a_obj_ezsigntemplatesigner_isSet;
     bool m_a_obj_ezsigntemplatesigner_isValid;
 };

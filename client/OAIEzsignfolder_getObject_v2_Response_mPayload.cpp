@@ -47,7 +47,7 @@ void OAIEzsignfolder_getObject_v2_Response_mPayload::fromJson(QString jsonString
 
 void OAIEzsignfolder_getObject_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_obj_ezsignfolder_isValid = ::OpenAPI::fromJsonValue(obj_ezsignfolder, json[QString("objEzsignfolder")]);
+    m_obj_ezsignfolder_isValid = ::OpenAPI::fromJsonValue(m_obj_ezsignfolder, json[QString("objEzsignfolder")]);
     m_obj_ezsignfolder_isSet = !json[QString("objEzsignfolder")].isNull() && m_obj_ezsignfolder_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIEzsignfolder_getObject_v2_Response_mPayload::asJson() const {
 
 QJsonObject OAIEzsignfolder_getObject_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (obj_ezsignfolder.isSet()) {
-        obj.insert(QString("objEzsignfolder"), ::OpenAPI::toJsonValue(obj_ezsignfolder));
+    if (m_obj_ezsignfolder.isSet()) {
+        obj.insert(QString("objEzsignfolder"), ::OpenAPI::toJsonValue(m_obj_ezsignfolder));
     }
     return obj;
 }
 
 OAIEzsignfolder_ResponseCompound OAIEzsignfolder_getObject_v2_Response_mPayload::getObjEzsignfolder() const {
-    return obj_ezsignfolder;
+    return m_obj_ezsignfolder;
 }
 void OAIEzsignfolder_getObject_v2_Response_mPayload::setObjEzsignfolder(const OAIEzsignfolder_ResponseCompound &obj_ezsignfolder) {
-    this->obj_ezsignfolder = obj_ezsignfolder;
-    this->m_obj_ezsignfolder_isSet = true;
+    m_obj_ezsignfolder = obj_ezsignfolder;
+    m_obj_ezsignfolder_isSet = true;
 }
 
 bool OAIEzsignfolder_getObject_v2_Response_mPayload::is_obj_ezsignfolder_Set() const{
@@ -85,7 +85,7 @@ bool OAIEzsignfolder_getObject_v2_Response_mPayload::is_obj_ezsignfolder_Valid()
 bool OAIEzsignfolder_getObject_v2_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (obj_ezsignfolder.isSet()) {
+        if (m_obj_ezsignfolder.isSet()) {
             isObjectUpdated = true;
             break;
         }

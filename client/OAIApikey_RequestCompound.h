@@ -71,23 +71,23 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_apikey_id;
+    qint32 m_pki_apikey_id;
     bool m_pki_apikey_id_isSet;
     bool m_pki_apikey_id_isValid;
 
-    qint32 fki_user_id;
+    qint32 m_fki_user_id;
     bool m_fki_user_id_isSet;
     bool m_fki_user_id_isValid;
 
-    OAIMultilingual_ApikeyDescription obj_apikey_description;
+    OAIMultilingual_ApikeyDescription m_obj_apikey_description;
     bool m_obj_apikey_description_isSet;
     bool m_obj_apikey_description_isValid;
 
-    bool b_apikey_isactive;
+    bool m_b_apikey_isactive;
     bool m_b_apikey_isactive_isSet;
     bool m_b_apikey_isactive_isValid;
 
-    bool b_apikey_issigned;
+    bool m_b_apikey_issigned;
     bool m_b_apikey_issigned_isSet;
     bool m_b_apikey_issigned_isValid;
 };

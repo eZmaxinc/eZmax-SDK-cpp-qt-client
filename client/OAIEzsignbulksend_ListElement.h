@@ -100,47 +100,47 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_ezsignbulksend_id;
+    qint32 m_pki_ezsignbulksend_id;
     bool m_pki_ezsignbulksend_id_isSet;
     bool m_pki_ezsignbulksend_id_isValid;
 
-    qint32 fki_ezsignfoldertype_id;
+    qint32 m_fki_ezsignfoldertype_id;
     bool m_fki_ezsignfoldertype_id_isSet;
     bool m_fki_ezsignfoldertype_id_isValid;
 
-    QString s_ezsignbulksend_description;
+    QString m_s_ezsignbulksend_description;
     bool m_s_ezsignbulksend_description_isSet;
     bool m_s_ezsignbulksend_description_isValid;
 
-    QString s_ezsignfoldertype_name_x;
+    QString m_s_ezsignfoldertype_name_x;
     bool m_s_ezsignfoldertype_name_x_isSet;
     bool m_s_ezsignfoldertype_name_x_isValid;
 
-    bool b_ezsignbulksend_needvalidation;
+    bool m_b_ezsignbulksend_needvalidation;
     bool m_b_ezsignbulksend_needvalidation_isSet;
     bool m_b_ezsignbulksend_needvalidation_isValid;
 
-    qint32 i_ezsignbulksendtransmission;
+    qint32 m_i_ezsignbulksendtransmission;
     bool m_i_ezsignbulksendtransmission_isSet;
     bool m_i_ezsignbulksendtransmission_isValid;
 
-    qint32 i_ezsignfolder;
+    qint32 m_i_ezsignfolder;
     bool m_i_ezsignfolder_isSet;
     bool m_i_ezsignfolder_isValid;
 
-    qint32 i_ezsigndocument;
+    qint32 m_i_ezsigndocument;
     bool m_i_ezsigndocument_isSet;
     bool m_i_ezsigndocument_isValid;
 
-    qint32 i_ezsignsignature;
+    qint32 m_i_ezsignsignature;
     bool m_i_ezsignsignature_isSet;
     bool m_i_ezsignsignature_isValid;
 
-    qint32 i_ezsignsignature_signed;
+    qint32 m_i_ezsignsignature_signed;
     bool m_i_ezsignsignature_signed_isSet;
     bool m_i_ezsignsignature_signed_isValid;
 
-    bool b_ezsignbulksend_isactive;
+    bool m_b_ezsignbulksend_isactive;
     bool m_b_ezsignbulksend_isactive_isSet;
     bool m_b_ezsignbulksend_isactive_isValid;
 };

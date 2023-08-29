@@ -55,11 +55,11 @@ public:
 private:
     void initializeModel();
 
-    QString s_query;
+    QString m_s_query;
     bool m_s_query_isSet;
     bool m_s_query_isValid;
 
-    float f_duration;
+    float m_f_duration;
     bool m_f_duration_isSet;
     bool m_f_duration_isValid;
 };

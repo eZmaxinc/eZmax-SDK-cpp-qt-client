@@ -51,7 +51,7 @@ public:
 private:
     void initializeModel();
 
-    OAIBillingentityinternal_RequestCompound obj_billingentityinternal;
+    OAIBillingentityinternal_RequestCompound m_obj_billingentityinternal;
     bool m_obj_billingentityinternal_isSet;
     bool m_obj_billingentityinternal_isValid;
 };

@@ -68,19 +68,19 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_notificationtest_id;
+    qint32 m_pki_notificationtest_id;
     bool m_pki_notificationtest_id_isSet;
     bool m_pki_notificationtest_id_isValid;
 
-    QString s_notificationtest_function;
+    QString m_s_notificationtest_function;
     bool m_s_notificationtest_function_isSet;
     bool m_s_notificationtest_function_isValid;
 
-    QList<QString> a_s_variableobject_property;
+    QList<QString> m_a_s_variableobject_property;
     bool m_a_s_variableobject_property_isSet;
     bool m_a_s_variableobject_property_isValid;
 
-    QList<QMap> a_obj_variableobject;
+    QList<QMap> m_a_obj_variableobject;
     bool m_a_obj_variableobject_isSet;
     bool m_a_obj_variableobject_isValid;
 };

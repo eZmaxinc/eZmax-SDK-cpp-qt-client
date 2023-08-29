@@ -51,7 +51,7 @@ public:
 private:
     void initializeModel();
 
-    OAIApikey_ResponseCompound obj_apikey;
+    OAIApikey_ResponseCompound m_obj_apikey;
     bool m_obj_apikey_isSet;
     bool m_obj_apikey_isValid;
 };

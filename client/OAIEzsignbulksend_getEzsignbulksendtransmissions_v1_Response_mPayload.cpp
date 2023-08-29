@@ -47,7 +47,7 @@ void OAIEzsignbulksend_getEzsignbulksendtransmissions_v1_Response_mPayload::from
 
 void OAIEzsignbulksend_getEzsignbulksendtransmissions_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_ezsignbulksendtransmission_isValid = ::OpenAPI::fromJsonValue(a_obj_ezsignbulksendtransmission, json[QString("a_objEzsignbulksendtransmission")]);
+    m_a_obj_ezsignbulksendtransmission_isValid = ::OpenAPI::fromJsonValue(m_a_obj_ezsignbulksendtransmission, json[QString("a_objEzsignbulksendtransmission")]);
     m_a_obj_ezsignbulksendtransmission_isSet = !json[QString("a_objEzsignbulksendtransmission")].isNull() && m_a_obj_ezsignbulksendtransmission_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIEzsignbulksend_getEzsignbulksendtransmissions_v1_Response_mPayload::a
 
 QJsonObject OAIEzsignbulksend_getEzsignbulksendtransmissions_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_ezsignbulksendtransmission.size() > 0) {
-        obj.insert(QString("a_objEzsignbulksendtransmission"), ::OpenAPI::toJsonValue(a_obj_ezsignbulksendtransmission));
+    if (m_a_obj_ezsignbulksendtransmission.size() > 0) {
+        obj.insert(QString("a_objEzsignbulksendtransmission"), ::OpenAPI::toJsonValue(m_a_obj_ezsignbulksendtransmission));
     }
     return obj;
 }
 
 QList<OAIEzsignbulksendtransmission_ResponseCompound> OAIEzsignbulksend_getEzsignbulksendtransmissions_v1_Response_mPayload::getAObjEzsignbulksendtransmission() const {
-    return a_obj_ezsignbulksendtransmission;
+    return m_a_obj_ezsignbulksendtransmission;
 }
 void OAIEzsignbulksend_getEzsignbulksendtransmissions_v1_Response_mPayload::setAObjEzsignbulksendtransmission(const QList<OAIEzsignbulksendtransmission_ResponseCompound> &a_obj_ezsignbulksendtransmission) {
-    this->a_obj_ezsignbulksendtransmission = a_obj_ezsignbulksendtransmission;
-    this->m_a_obj_ezsignbulksendtransmission_isSet = true;
+    m_a_obj_ezsignbulksendtransmission = a_obj_ezsignbulksendtransmission;
+    m_a_obj_ezsignbulksendtransmission_isSet = true;
 }
 
 bool OAIEzsignbulksend_getEzsignbulksendtransmissions_v1_Response_mPayload::is_a_obj_ezsignbulksendtransmission_Set() const{
@@ -85,7 +85,7 @@ bool OAIEzsignbulksend_getEzsignbulksendtransmissions_v1_Response_mPayload::is_a
 bool OAIEzsignbulksend_getEzsignbulksendtransmissions_v1_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_ezsignbulksendtransmission.size() > 0) {
+        if (m_a_obj_ezsignbulksendtransmission.size() > 0) {
             isObjectUpdated = true;
             break;
         }

@@ -58,11 +58,11 @@ public:
 private:
     void initializeModel();
 
-    QString e_reportsubsectionpart_type;
+    QString m_e_reportsubsectionpart_type;
     bool m_e_reportsubsectionpart_type_isSet;
     bool m_e_reportsubsectionpart_type_isValid;
 
-    QList<OAICommon_Reportrow> a_obj_reportrow;
+    QList<OAICommon_Reportrow> m_a_obj_reportrow;
     bool m_a_obj_reportrow_isSet;
     bool m_a_obj_reportrow_isValid;
 };

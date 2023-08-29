@@ -47,7 +47,7 @@ void OAIEzsigntemplate_getAutocomplete_v2_Response_mPayload::fromJson(QString js
 
 void OAIEzsigntemplate_getAutocomplete_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_ezsigntemplate_isValid = ::OpenAPI::fromJsonValue(a_obj_ezsigntemplate, json[QString("a_objEzsigntemplate")]);
+    m_a_obj_ezsigntemplate_isValid = ::OpenAPI::fromJsonValue(m_a_obj_ezsigntemplate, json[QString("a_objEzsigntemplate")]);
     m_a_obj_ezsigntemplate_isSet = !json[QString("a_objEzsigntemplate")].isNull() && m_a_obj_ezsigntemplate_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIEzsigntemplate_getAutocomplete_v2_Response_mPayload::asJson() const {
 
 QJsonObject OAIEzsigntemplate_getAutocomplete_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_ezsigntemplate.size() > 0) {
-        obj.insert(QString("a_objEzsigntemplate"), ::OpenAPI::toJsonValue(a_obj_ezsigntemplate));
+    if (m_a_obj_ezsigntemplate.size() > 0) {
+        obj.insert(QString("a_objEzsigntemplate"), ::OpenAPI::toJsonValue(m_a_obj_ezsigntemplate));
     }
     return obj;
 }
 
 QList<OAIEzsigntemplate_AutocompleteElement_Response> OAIEzsigntemplate_getAutocomplete_v2_Response_mPayload::getAObjEzsigntemplate() const {
-    return a_obj_ezsigntemplate;
+    return m_a_obj_ezsigntemplate;
 }
 void OAIEzsigntemplate_getAutocomplete_v2_Response_mPayload::setAObjEzsigntemplate(const QList<OAIEzsigntemplate_AutocompleteElement_Response> &a_obj_ezsigntemplate) {
-    this->a_obj_ezsigntemplate = a_obj_ezsigntemplate;
-    this->m_a_obj_ezsigntemplate_isSet = true;
+    m_a_obj_ezsigntemplate = a_obj_ezsigntemplate;
+    m_a_obj_ezsigntemplate_isSet = true;
 }
 
 bool OAIEzsigntemplate_getAutocomplete_v2_Response_mPayload::is_a_obj_ezsigntemplate_Set() const{
@@ -85,7 +85,7 @@ bool OAIEzsigntemplate_getAutocomplete_v2_Response_mPayload::is_a_obj_ezsigntemp
 bool OAIEzsigntemplate_getAutocomplete_v2_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_ezsigntemplate.size() > 0) {
+        if (m_a_obj_ezsigntemplate.size() > 0) {
             isObjectUpdated = true;
             break;
         }

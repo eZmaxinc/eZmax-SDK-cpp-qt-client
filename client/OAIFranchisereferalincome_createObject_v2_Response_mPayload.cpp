@@ -47,7 +47,7 @@ void OAIFranchisereferalincome_createObject_v2_Response_mPayload::fromJson(QStri
 
 void OAIFranchisereferalincome_createObject_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_pki_franchisereferalincome_id_isValid = ::OpenAPI::fromJsonValue(a_pki_franchisereferalincome_id, json[QString("a_pkiFranchisereferalincomeID")]);
+    m_a_pki_franchisereferalincome_id_isValid = ::OpenAPI::fromJsonValue(m_a_pki_franchisereferalincome_id, json[QString("a_pkiFranchisereferalincomeID")]);
     m_a_pki_franchisereferalincome_id_isSet = !json[QString("a_pkiFranchisereferalincomeID")].isNull() && m_a_pki_franchisereferalincome_id_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIFranchisereferalincome_createObject_v2_Response_mPayload::asJson() co
 
 QJsonObject OAIFranchisereferalincome_createObject_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (a_pki_franchisereferalincome_id.size() > 0) {
-        obj.insert(QString("a_pkiFranchisereferalincomeID"), ::OpenAPI::toJsonValue(a_pki_franchisereferalincome_id));
+    if (m_a_pki_franchisereferalincome_id.size() > 0) {
+        obj.insert(QString("a_pkiFranchisereferalincomeID"), ::OpenAPI::toJsonValue(m_a_pki_franchisereferalincome_id));
     }
     return obj;
 }
 
 QList<qint32> OAIFranchisereferalincome_createObject_v2_Response_mPayload::getAPkiFranchisereferalincomeId() const {
-    return a_pki_franchisereferalincome_id;
+    return m_a_pki_franchisereferalincome_id;
 }
 void OAIFranchisereferalincome_createObject_v2_Response_mPayload::setAPkiFranchisereferalincomeId(const QList<qint32> &a_pki_franchisereferalincome_id) {
-    this->a_pki_franchisereferalincome_id = a_pki_franchisereferalincome_id;
-    this->m_a_pki_franchisereferalincome_id_isSet = true;
+    m_a_pki_franchisereferalincome_id = a_pki_franchisereferalincome_id;
+    m_a_pki_franchisereferalincome_id_isSet = true;
 }
 
 bool OAIFranchisereferalincome_createObject_v2_Response_mPayload::is_a_pki_franchisereferalincome_id_Set() const{
@@ -85,7 +85,7 @@ bool OAIFranchisereferalincome_createObject_v2_Response_mPayload::is_a_pki_franc
 bool OAIFranchisereferalincome_createObject_v2_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_pki_franchisereferalincome_id.size() > 0) {
+        if (m_a_pki_franchisereferalincome_id.size() > 0) {
             isObjectUpdated = true;
             break;
         }

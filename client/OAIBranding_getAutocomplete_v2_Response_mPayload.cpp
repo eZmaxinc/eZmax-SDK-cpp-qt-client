@@ -47,7 +47,7 @@ void OAIBranding_getAutocomplete_v2_Response_mPayload::fromJson(QString jsonStri
 
 void OAIBranding_getAutocomplete_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_branding_isValid = ::OpenAPI::fromJsonValue(a_obj_branding, json[QString("a_objBranding")]);
+    m_a_obj_branding_isValid = ::OpenAPI::fromJsonValue(m_a_obj_branding, json[QString("a_objBranding")]);
     m_a_obj_branding_isSet = !json[QString("a_objBranding")].isNull() && m_a_obj_branding_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIBranding_getAutocomplete_v2_Response_mPayload::asJson() const {
 
 QJsonObject OAIBranding_getAutocomplete_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_branding.size() > 0) {
-        obj.insert(QString("a_objBranding"), ::OpenAPI::toJsonValue(a_obj_branding));
+    if (m_a_obj_branding.size() > 0) {
+        obj.insert(QString("a_objBranding"), ::OpenAPI::toJsonValue(m_a_obj_branding));
     }
     return obj;
 }
 
 QList<OAIBranding_AutocompleteElement_Response> OAIBranding_getAutocomplete_v2_Response_mPayload::getAObjBranding() const {
-    return a_obj_branding;
+    return m_a_obj_branding;
 }
 void OAIBranding_getAutocomplete_v2_Response_mPayload::setAObjBranding(const QList<OAIBranding_AutocompleteElement_Response> &a_obj_branding) {
-    this->a_obj_branding = a_obj_branding;
-    this->m_a_obj_branding_isSet = true;
+    m_a_obj_branding = a_obj_branding;
+    m_a_obj_branding_isSet = true;
 }
 
 bool OAIBranding_getAutocomplete_v2_Response_mPayload::is_a_obj_branding_Set() const{
@@ -85,7 +85,7 @@ bool OAIBranding_getAutocomplete_v2_Response_mPayload::is_a_obj_branding_Valid()
 bool OAIBranding_getAutocomplete_v2_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_branding.size() > 0) {
+        if (m_a_obj_branding.size() > 0) {
             isObjectUpdated = true;
             break;
         }

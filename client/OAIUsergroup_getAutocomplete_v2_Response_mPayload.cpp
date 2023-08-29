@@ -47,7 +47,7 @@ void OAIUsergroup_getAutocomplete_v2_Response_mPayload::fromJson(QString jsonStr
 
 void OAIUsergroup_getAutocomplete_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_usergroup_isValid = ::OpenAPI::fromJsonValue(a_obj_usergroup, json[QString("a_objUsergroup")]);
+    m_a_obj_usergroup_isValid = ::OpenAPI::fromJsonValue(m_a_obj_usergroup, json[QString("a_objUsergroup")]);
     m_a_obj_usergroup_isSet = !json[QString("a_objUsergroup")].isNull() && m_a_obj_usergroup_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIUsergroup_getAutocomplete_v2_Response_mPayload::asJson() const {
 
 QJsonObject OAIUsergroup_getAutocomplete_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_usergroup.size() > 0) {
-        obj.insert(QString("a_objUsergroup"), ::OpenAPI::toJsonValue(a_obj_usergroup));
+    if (m_a_obj_usergroup.size() > 0) {
+        obj.insert(QString("a_objUsergroup"), ::OpenAPI::toJsonValue(m_a_obj_usergroup));
     }
     return obj;
 }
 
 QList<OAIUsergroup_AutocompleteElement_Response> OAIUsergroup_getAutocomplete_v2_Response_mPayload::getAObjUsergroup() const {
-    return a_obj_usergroup;
+    return m_a_obj_usergroup;
 }
 void OAIUsergroup_getAutocomplete_v2_Response_mPayload::setAObjUsergroup(const QList<OAIUsergroup_AutocompleteElement_Response> &a_obj_usergroup) {
-    this->a_obj_usergroup = a_obj_usergroup;
-    this->m_a_obj_usergroup_isSet = true;
+    m_a_obj_usergroup = a_obj_usergroup;
+    m_a_obj_usergroup_isSet = true;
 }
 
 bool OAIUsergroup_getAutocomplete_v2_Response_mPayload::is_a_obj_usergroup_Set() const{
@@ -85,7 +85,7 @@ bool OAIUsergroup_getAutocomplete_v2_Response_mPayload::is_a_obj_usergroup_Valid
 bool OAIUsergroup_getAutocomplete_v2_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_usergroup.size() > 0) {
+        if (m_a_obj_usergroup.size() > 0) {
             isObjectUpdated = true;
             break;
         }

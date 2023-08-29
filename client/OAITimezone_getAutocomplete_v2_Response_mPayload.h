@@ -52,7 +52,7 @@ public:
 private:
     void initializeModel();
 
-    QList<OAITimezone_AutocompleteElement_Response> a_obj_timezone;
+    QList<OAITimezone_AutocompleteElement_Response> m_a_obj_timezone;
     bool m_a_obj_timezone_isSet;
     bool m_a_obj_timezone_isValid;
 };

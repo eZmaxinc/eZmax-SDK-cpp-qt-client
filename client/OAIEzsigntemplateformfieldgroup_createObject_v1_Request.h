@@ -52,7 +52,7 @@ public:
 private:
     void initializeModel();
 
-    QList<OAIEzsigntemplateformfieldgroup_RequestCompound> a_obj_ezsigntemplateformfieldgroup;
+    QList<OAIEzsigntemplateformfieldgroup_RequestCompound> m_a_obj_ezsigntemplateformfieldgroup;
     bool m_a_obj_ezsigntemplateformfieldgroup_isSet;
     bool m_a_obj_ezsigntemplateformfieldgroup_isValid;
 };

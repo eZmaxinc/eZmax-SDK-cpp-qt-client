@@ -52,7 +52,7 @@ public:
 private:
     void initializeModel();
 
-    QList<OAIEzmaxinvoicing_AutocompleteElement_Response> a_obj_ezmaxinvoicing;
+    QList<OAIEzmaxinvoicing_AutocompleteElement_Response> m_a_obj_ezmaxinvoicing;
     bool m_a_obj_ezmaxinvoicing_isSet;
     bool m_a_obj_ezmaxinvoicing_isValid;
 };

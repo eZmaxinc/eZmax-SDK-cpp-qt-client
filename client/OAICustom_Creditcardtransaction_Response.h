@@ -66,19 +66,19 @@ public:
 private:
     void initializeModel();
 
-    OAIField_eCreditcardtypeCodename e_creditcardtype_codename;
+    OAIField_eCreditcardtypeCodename m_e_creditcardtype_codename;
     bool m_e_creditcardtype_codename_isSet;
     bool m_e_creditcardtype_codename_isValid;
 
-    QString d_creditcardtransaction_amount;
+    QString m_d_creditcardtransaction_amount;
     bool m_d_creditcardtransaction_amount_isSet;
     bool m_d_creditcardtransaction_amount_isValid;
 
-    QString s_creditcardtransaction_partiallydecryptednumber;
+    QString m_s_creditcardtransaction_partiallydecryptednumber;
     bool m_s_creditcardtransaction_partiallydecryptednumber_isSet;
     bool m_s_creditcardtransaction_partiallydecryptednumber_isValid;
 
-    QString s_creditcardtransaction_referencenumber;
+    QString m_s_creditcardtransaction_referencenumber;
     bool m_s_creditcardtransaction_referencenumber_isSet;
     bool m_s_creditcardtransaction_referencenumber_isValid;
 };

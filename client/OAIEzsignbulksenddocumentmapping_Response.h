@@ -69,23 +69,23 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_ezsignbulksenddocumentmapping_id;
+    qint32 m_pki_ezsignbulksenddocumentmapping_id;
     bool m_pki_ezsignbulksenddocumentmapping_id_isSet;
     bool m_pki_ezsignbulksenddocumentmapping_id_isValid;
 
-    qint32 fki_ezsignbulksend_id;
+    qint32 m_fki_ezsignbulksend_id;
     bool m_fki_ezsignbulksend_id_isSet;
     bool m_fki_ezsignbulksend_id_isValid;
 
-    qint32 fki_ezsigntemplatepackage_id;
+    qint32 m_fki_ezsigntemplatepackage_id;
     bool m_fki_ezsigntemplatepackage_id_isSet;
     bool m_fki_ezsigntemplatepackage_id_isValid;
 
-    qint32 fki_ezsigntemplate_id;
+    qint32 m_fki_ezsigntemplate_id;
     bool m_fki_ezsigntemplate_id_isSet;
     bool m_fki_ezsigntemplate_id_isValid;
 
-    qint32 i_ezsignbulksenddocumentmapping_order;
+    qint32 m_i_ezsignbulksenddocumentmapping_order;
     bool m_i_ezsignbulksenddocumentmapping_order_isSet;
     bool m_i_ezsignbulksenddocumentmapping_order_isValid;
 };

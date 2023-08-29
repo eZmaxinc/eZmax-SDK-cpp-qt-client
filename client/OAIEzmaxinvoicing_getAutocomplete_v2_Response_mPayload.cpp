@@ -47,7 +47,7 @@ void OAIEzmaxinvoicing_getAutocomplete_v2_Response_mPayload::fromJson(QString js
 
 void OAIEzmaxinvoicing_getAutocomplete_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_ezmaxinvoicing_isValid = ::OpenAPI::fromJsonValue(a_obj_ezmaxinvoicing, json[QString("a_objEzmaxinvoicing")]);
+    m_a_obj_ezmaxinvoicing_isValid = ::OpenAPI::fromJsonValue(m_a_obj_ezmaxinvoicing, json[QString("a_objEzmaxinvoicing")]);
     m_a_obj_ezmaxinvoicing_isSet = !json[QString("a_objEzmaxinvoicing")].isNull() && m_a_obj_ezmaxinvoicing_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIEzmaxinvoicing_getAutocomplete_v2_Response_mPayload::asJson() const {
 
 QJsonObject OAIEzmaxinvoicing_getAutocomplete_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_ezmaxinvoicing.size() > 0) {
-        obj.insert(QString("a_objEzmaxinvoicing"), ::OpenAPI::toJsonValue(a_obj_ezmaxinvoicing));
+    if (m_a_obj_ezmaxinvoicing.size() > 0) {
+        obj.insert(QString("a_objEzmaxinvoicing"), ::OpenAPI::toJsonValue(m_a_obj_ezmaxinvoicing));
     }
     return obj;
 }
 
 QList<OAIEzmaxinvoicing_AutocompleteElement_Response> OAIEzmaxinvoicing_getAutocomplete_v2_Response_mPayload::getAObjEzmaxinvoicing() const {
-    return a_obj_ezmaxinvoicing;
+    return m_a_obj_ezmaxinvoicing;
 }
 void OAIEzmaxinvoicing_getAutocomplete_v2_Response_mPayload::setAObjEzmaxinvoicing(const QList<OAIEzmaxinvoicing_AutocompleteElement_Response> &a_obj_ezmaxinvoicing) {
-    this->a_obj_ezmaxinvoicing = a_obj_ezmaxinvoicing;
-    this->m_a_obj_ezmaxinvoicing_isSet = true;
+    m_a_obj_ezmaxinvoicing = a_obj_ezmaxinvoicing;
+    m_a_obj_ezmaxinvoicing_isSet = true;
 }
 
 bool OAIEzmaxinvoicing_getAutocomplete_v2_Response_mPayload::is_a_obj_ezmaxinvoicing_Set() const{
@@ -85,7 +85,7 @@ bool OAIEzmaxinvoicing_getAutocomplete_v2_Response_mPayload::is_a_obj_ezmaxinvoi
 bool OAIEzmaxinvoicing_getAutocomplete_v2_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_ezmaxinvoicing.size() > 0) {
+        if (m_a_obj_ezmaxinvoicing.size() > 0) {
             isObjectUpdated = true;
             break;
         }

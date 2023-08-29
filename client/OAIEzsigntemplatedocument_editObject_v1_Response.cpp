@@ -53,13 +53,13 @@ void OAIEzsigntemplatedocument_editObject_v1_Response::fromJson(QString jsonStri
 
 void OAIEzsigntemplatedocument_editObject_v1_Response::fromJsonObject(QJsonObject json) {
 
-    m_obj_debug_payload_isValid = ::OpenAPI::fromJsonValue(obj_debug_payload, json[QString("objDebugPayload")]);
+    m_obj_debug_payload_isValid = ::OpenAPI::fromJsonValue(m_obj_debug_payload, json[QString("objDebugPayload")]);
     m_obj_debug_payload_isSet = !json[QString("objDebugPayload")].isNull() && m_obj_debug_payload_isValid;
 
-    m_obj_debug_isValid = ::OpenAPI::fromJsonValue(obj_debug, json[QString("objDebug")]);
+    m_obj_debug_isValid = ::OpenAPI::fromJsonValue(m_obj_debug, json[QString("objDebug")]);
     m_obj_debug_isSet = !json[QString("objDebug")].isNull() && m_obj_debug_isValid;
 
-    m_a_obj_warning_isValid = ::OpenAPI::fromJsonValue(a_obj_warning, json[QString("a_objWarning")]);
+    m_a_obj_warning_isValid = ::OpenAPI::fromJsonValue(m_a_obj_warning, json[QString("a_objWarning")]);
     m_a_obj_warning_isSet = !json[QString("a_objWarning")].isNull() && m_a_obj_warning_isValid;
 }
 
@@ -72,24 +72,24 @@ QString OAIEzsigntemplatedocument_editObject_v1_Response::asJson() const {
 
 QJsonObject OAIEzsigntemplatedocument_editObject_v1_Response::asJsonObject() const {
     QJsonObject obj;
-    if (obj_debug_payload.isSet()) {
-        obj.insert(QString("objDebugPayload"), ::OpenAPI::toJsonValue(obj_debug_payload));
+    if (m_obj_debug_payload.isSet()) {
+        obj.insert(QString("objDebugPayload"), ::OpenAPI::toJsonValue(m_obj_debug_payload));
     }
-    if (obj_debug.isSet()) {
-        obj.insert(QString("objDebug"), ::OpenAPI::toJsonValue(obj_debug));
+    if (m_obj_debug.isSet()) {
+        obj.insert(QString("objDebug"), ::OpenAPI::toJsonValue(m_obj_debug));
     }
-    if (a_obj_warning.size() > 0) {
-        obj.insert(QString("a_objWarning"), ::OpenAPI::toJsonValue(a_obj_warning));
+    if (m_a_obj_warning.size() > 0) {
+        obj.insert(QString("a_objWarning"), ::OpenAPI::toJsonValue(m_a_obj_warning));
     }
     return obj;
 }
 
 OAICommon_Response_objDebugPayload OAIEzsigntemplatedocument_editObject_v1_Response::getObjDebugPayload() const {
-    return obj_debug_payload;
+    return m_obj_debug_payload;
 }
 void OAIEzsigntemplatedocument_editObject_v1_Response::setObjDebugPayload(const OAICommon_Response_objDebugPayload &obj_debug_payload) {
-    this->obj_debug_payload = obj_debug_payload;
-    this->m_obj_debug_payload_isSet = true;
+    m_obj_debug_payload = obj_debug_payload;
+    m_obj_debug_payload_isSet = true;
 }
 
 bool OAIEzsigntemplatedocument_editObject_v1_Response::is_obj_debug_payload_Set() const{
@@ -101,11 +101,11 @@ bool OAIEzsigntemplatedocument_editObject_v1_Response::is_obj_debug_payload_Vali
 }
 
 OAICommon_Response_objDebug OAIEzsigntemplatedocument_editObject_v1_Response::getObjDebug() const {
-    return obj_debug;
+    return m_obj_debug;
 }
 void OAIEzsigntemplatedocument_editObject_v1_Response::setObjDebug(const OAICommon_Response_objDebug &obj_debug) {
-    this->obj_debug = obj_debug;
-    this->m_obj_debug_isSet = true;
+    m_obj_debug = obj_debug;
+    m_obj_debug_isSet = true;
 }
 
 bool OAIEzsigntemplatedocument_editObject_v1_Response::is_obj_debug_Set() const{
@@ -117,11 +117,11 @@ bool OAIEzsigntemplatedocument_editObject_v1_Response::is_obj_debug_Valid() cons
 }
 
 QList<OAICommon_Response_Warning> OAIEzsigntemplatedocument_editObject_v1_Response::getAObjWarning() const {
-    return a_obj_warning;
+    return m_a_obj_warning;
 }
 void OAIEzsigntemplatedocument_editObject_v1_Response::setAObjWarning(const QList<OAICommon_Response_Warning> &a_obj_warning) {
-    this->a_obj_warning = a_obj_warning;
-    this->m_a_obj_warning_isSet = true;
+    m_a_obj_warning = a_obj_warning;
+    m_a_obj_warning_isSet = true;
 }
 
 bool OAIEzsigntemplatedocument_editObject_v1_Response::is_a_obj_warning_Set() const{
@@ -135,17 +135,17 @@ bool OAIEzsigntemplatedocument_editObject_v1_Response::is_a_obj_warning_Valid() 
 bool OAIEzsigntemplatedocument_editObject_v1_Response::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (obj_debug_payload.isSet()) {
+        if (m_obj_debug_payload.isSet()) {
             isObjectUpdated = true;
             break;
         }
 
-        if (obj_debug.isSet()) {
+        if (m_obj_debug.isSet()) {
             isObjectUpdated = true;
             break;
         }
 
-        if (a_obj_warning.size() > 0) {
+        if (m_a_obj_warning.size() > 0) {
             isObjectUpdated = true;
             break;
         }
@@ -155,7 +155,7 @@ bool OAIEzsigntemplatedocument_editObject_v1_Response::isSet() const {
 
 bool OAIEzsigntemplatedocument_editObject_v1_Response::isValid() const {
     // only required properties are required for the object to be considered valid
-    return true;
+    return m_obj_debug_payload_isValid && true;
 }
 
 } // namespace OpenAPI

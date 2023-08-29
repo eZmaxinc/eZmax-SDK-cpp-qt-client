@@ -68,28 +68,28 @@ void OAITextstylestatic_ResponseCompound::fromJson(QString jsonString) {
 
 void OAITextstylestatic_ResponseCompound::fromJsonObject(QJsonObject json) {
 
-    m_pki_textstylestatic_id_isValid = ::OpenAPI::fromJsonValue(pki_textstylestatic_id, json[QString("pkiTextstylestaticID")]);
+    m_pki_textstylestatic_id_isValid = ::OpenAPI::fromJsonValue(m_pki_textstylestatic_id, json[QString("pkiTextstylestaticID")]);
     m_pki_textstylestatic_id_isSet = !json[QString("pkiTextstylestaticID")].isNull() && m_pki_textstylestatic_id_isValid;
 
-    m_fki_font_id_isValid = ::OpenAPI::fromJsonValue(fki_font_id, json[QString("fkiFontID")]);
+    m_fki_font_id_isValid = ::OpenAPI::fromJsonValue(m_fki_font_id, json[QString("fkiFontID")]);
     m_fki_font_id_isSet = !json[QString("fkiFontID")].isNull() && m_fki_font_id_isValid;
 
-    m_b_textstylestatic_bold_isValid = ::OpenAPI::fromJsonValue(b_textstylestatic_bold, json[QString("bTextstylestaticBold")]);
+    m_b_textstylestatic_bold_isValid = ::OpenAPI::fromJsonValue(m_b_textstylestatic_bold, json[QString("bTextstylestaticBold")]);
     m_b_textstylestatic_bold_isSet = !json[QString("bTextstylestaticBold")].isNull() && m_b_textstylestatic_bold_isValid;
 
-    m_b_textstylestatic_underline_isValid = ::OpenAPI::fromJsonValue(b_textstylestatic_underline, json[QString("bTextstylestaticUnderline")]);
+    m_b_textstylestatic_underline_isValid = ::OpenAPI::fromJsonValue(m_b_textstylestatic_underline, json[QString("bTextstylestaticUnderline")]);
     m_b_textstylestatic_underline_isSet = !json[QString("bTextstylestaticUnderline")].isNull() && m_b_textstylestatic_underline_isValid;
 
-    m_b_textstylestatic_italic_isValid = ::OpenAPI::fromJsonValue(b_textstylestatic_italic, json[QString("bTextstylestaticItalic")]);
+    m_b_textstylestatic_italic_isValid = ::OpenAPI::fromJsonValue(m_b_textstylestatic_italic, json[QString("bTextstylestaticItalic")]);
     m_b_textstylestatic_italic_isSet = !json[QString("bTextstylestaticItalic")].isNull() && m_b_textstylestatic_italic_isValid;
 
-    m_b_textstylestatic_strikethrough_isValid = ::OpenAPI::fromJsonValue(b_textstylestatic_strikethrough, json[QString("bTextstylestaticStrikethrough")]);
+    m_b_textstylestatic_strikethrough_isValid = ::OpenAPI::fromJsonValue(m_b_textstylestatic_strikethrough, json[QString("bTextstylestaticStrikethrough")]);
     m_b_textstylestatic_strikethrough_isSet = !json[QString("bTextstylestaticStrikethrough")].isNull() && m_b_textstylestatic_strikethrough_isValid;
 
-    m_i_textstylestatic_fontcolor_isValid = ::OpenAPI::fromJsonValue(i_textstylestatic_fontcolor, json[QString("iTextstylestaticFontcolor")]);
+    m_i_textstylestatic_fontcolor_isValid = ::OpenAPI::fromJsonValue(m_i_textstylestatic_fontcolor, json[QString("iTextstylestaticFontcolor")]);
     m_i_textstylestatic_fontcolor_isSet = !json[QString("iTextstylestaticFontcolor")].isNull() && m_i_textstylestatic_fontcolor_isValid;
 
-    m_i_textstylestatic_size_isValid = ::OpenAPI::fromJsonValue(i_textstylestatic_size, json[QString("iTextstylestaticSize")]);
+    m_i_textstylestatic_size_isValid = ::OpenAPI::fromJsonValue(m_i_textstylestatic_size, json[QString("iTextstylestaticSize")]);
     m_i_textstylestatic_size_isSet = !json[QString("iTextstylestaticSize")].isNull() && m_i_textstylestatic_size_isValid;
 }
 
@@ -103,38 +103,38 @@ QString OAITextstylestatic_ResponseCompound::asJson() const {
 QJsonObject OAITextstylestatic_ResponseCompound::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_textstylestatic_id_isSet) {
-        obj.insert(QString("pkiTextstylestaticID"), ::OpenAPI::toJsonValue(pki_textstylestatic_id));
+        obj.insert(QString("pkiTextstylestaticID"), ::OpenAPI::toJsonValue(m_pki_textstylestatic_id));
     }
     if (m_fki_font_id_isSet) {
-        obj.insert(QString("fkiFontID"), ::OpenAPI::toJsonValue(fki_font_id));
+        obj.insert(QString("fkiFontID"), ::OpenAPI::toJsonValue(m_fki_font_id));
     }
     if (m_b_textstylestatic_bold_isSet) {
-        obj.insert(QString("bTextstylestaticBold"), ::OpenAPI::toJsonValue(b_textstylestatic_bold));
+        obj.insert(QString("bTextstylestaticBold"), ::OpenAPI::toJsonValue(m_b_textstylestatic_bold));
     }
     if (m_b_textstylestatic_underline_isSet) {
-        obj.insert(QString("bTextstylestaticUnderline"), ::OpenAPI::toJsonValue(b_textstylestatic_underline));
+        obj.insert(QString("bTextstylestaticUnderline"), ::OpenAPI::toJsonValue(m_b_textstylestatic_underline));
     }
     if (m_b_textstylestatic_italic_isSet) {
-        obj.insert(QString("bTextstylestaticItalic"), ::OpenAPI::toJsonValue(b_textstylestatic_italic));
+        obj.insert(QString("bTextstylestaticItalic"), ::OpenAPI::toJsonValue(m_b_textstylestatic_italic));
     }
     if (m_b_textstylestatic_strikethrough_isSet) {
-        obj.insert(QString("bTextstylestaticStrikethrough"), ::OpenAPI::toJsonValue(b_textstylestatic_strikethrough));
+        obj.insert(QString("bTextstylestaticStrikethrough"), ::OpenAPI::toJsonValue(m_b_textstylestatic_strikethrough));
     }
     if (m_i_textstylestatic_fontcolor_isSet) {
-        obj.insert(QString("iTextstylestaticFontcolor"), ::OpenAPI::toJsonValue(i_textstylestatic_fontcolor));
+        obj.insert(QString("iTextstylestaticFontcolor"), ::OpenAPI::toJsonValue(m_i_textstylestatic_fontcolor));
     }
     if (m_i_textstylestatic_size_isSet) {
-        obj.insert(QString("iTextstylestaticSize"), ::OpenAPI::toJsonValue(i_textstylestatic_size));
+        obj.insert(QString("iTextstylestaticSize"), ::OpenAPI::toJsonValue(m_i_textstylestatic_size));
     }
     return obj;
 }
 
 qint32 OAITextstylestatic_ResponseCompound::getPkiTextstylestaticId() const {
-    return pki_textstylestatic_id;
+    return m_pki_textstylestatic_id;
 }
 void OAITextstylestatic_ResponseCompound::setPkiTextstylestaticId(const qint32 &pki_textstylestatic_id) {
-    this->pki_textstylestatic_id = pki_textstylestatic_id;
-    this->m_pki_textstylestatic_id_isSet = true;
+    m_pki_textstylestatic_id = pki_textstylestatic_id;
+    m_pki_textstylestatic_id_isSet = true;
 }
 
 bool OAITextstylestatic_ResponseCompound::is_pki_textstylestatic_id_Set() const{
@@ -146,11 +146,11 @@ bool OAITextstylestatic_ResponseCompound::is_pki_textstylestatic_id_Valid() cons
 }
 
 qint32 OAITextstylestatic_ResponseCompound::getFkiFontId() const {
-    return fki_font_id;
+    return m_fki_font_id;
 }
 void OAITextstylestatic_ResponseCompound::setFkiFontId(const qint32 &fki_font_id) {
-    this->fki_font_id = fki_font_id;
-    this->m_fki_font_id_isSet = true;
+    m_fki_font_id = fki_font_id;
+    m_fki_font_id_isSet = true;
 }
 
 bool OAITextstylestatic_ResponseCompound::is_fki_font_id_Set() const{
@@ -162,11 +162,11 @@ bool OAITextstylestatic_ResponseCompound::is_fki_font_id_Valid() const{
 }
 
 bool OAITextstylestatic_ResponseCompound::isBTextstylestaticBold() const {
-    return b_textstylestatic_bold;
+    return m_b_textstylestatic_bold;
 }
 void OAITextstylestatic_ResponseCompound::setBTextstylestaticBold(const bool &b_textstylestatic_bold) {
-    this->b_textstylestatic_bold = b_textstylestatic_bold;
-    this->m_b_textstylestatic_bold_isSet = true;
+    m_b_textstylestatic_bold = b_textstylestatic_bold;
+    m_b_textstylestatic_bold_isSet = true;
 }
 
 bool OAITextstylestatic_ResponseCompound::is_b_textstylestatic_bold_Set() const{
@@ -178,11 +178,11 @@ bool OAITextstylestatic_ResponseCompound::is_b_textstylestatic_bold_Valid() cons
 }
 
 bool OAITextstylestatic_ResponseCompound::isBTextstylestaticUnderline() const {
-    return b_textstylestatic_underline;
+    return m_b_textstylestatic_underline;
 }
 void OAITextstylestatic_ResponseCompound::setBTextstylestaticUnderline(const bool &b_textstylestatic_underline) {
-    this->b_textstylestatic_underline = b_textstylestatic_underline;
-    this->m_b_textstylestatic_underline_isSet = true;
+    m_b_textstylestatic_underline = b_textstylestatic_underline;
+    m_b_textstylestatic_underline_isSet = true;
 }
 
 bool OAITextstylestatic_ResponseCompound::is_b_textstylestatic_underline_Set() const{
@@ -194,11 +194,11 @@ bool OAITextstylestatic_ResponseCompound::is_b_textstylestatic_underline_Valid()
 }
 
 bool OAITextstylestatic_ResponseCompound::isBTextstylestaticItalic() const {
-    return b_textstylestatic_italic;
+    return m_b_textstylestatic_italic;
 }
 void OAITextstylestatic_ResponseCompound::setBTextstylestaticItalic(const bool &b_textstylestatic_italic) {
-    this->b_textstylestatic_italic = b_textstylestatic_italic;
-    this->m_b_textstylestatic_italic_isSet = true;
+    m_b_textstylestatic_italic = b_textstylestatic_italic;
+    m_b_textstylestatic_italic_isSet = true;
 }
 
 bool OAITextstylestatic_ResponseCompound::is_b_textstylestatic_italic_Set() const{
@@ -210,11 +210,11 @@ bool OAITextstylestatic_ResponseCompound::is_b_textstylestatic_italic_Valid() co
 }
 
 bool OAITextstylestatic_ResponseCompound::isBTextstylestaticStrikethrough() const {
-    return b_textstylestatic_strikethrough;
+    return m_b_textstylestatic_strikethrough;
 }
 void OAITextstylestatic_ResponseCompound::setBTextstylestaticStrikethrough(const bool &b_textstylestatic_strikethrough) {
-    this->b_textstylestatic_strikethrough = b_textstylestatic_strikethrough;
-    this->m_b_textstylestatic_strikethrough_isSet = true;
+    m_b_textstylestatic_strikethrough = b_textstylestatic_strikethrough;
+    m_b_textstylestatic_strikethrough_isSet = true;
 }
 
 bool OAITextstylestatic_ResponseCompound::is_b_textstylestatic_strikethrough_Set() const{
@@ -226,11 +226,11 @@ bool OAITextstylestatic_ResponseCompound::is_b_textstylestatic_strikethrough_Val
 }
 
 qint32 OAITextstylestatic_ResponseCompound::getITextstylestaticFontcolor() const {
-    return i_textstylestatic_fontcolor;
+    return m_i_textstylestatic_fontcolor;
 }
 void OAITextstylestatic_ResponseCompound::setITextstylestaticFontcolor(const qint32 &i_textstylestatic_fontcolor) {
-    this->i_textstylestatic_fontcolor = i_textstylestatic_fontcolor;
-    this->m_i_textstylestatic_fontcolor_isSet = true;
+    m_i_textstylestatic_fontcolor = i_textstylestatic_fontcolor;
+    m_i_textstylestatic_fontcolor_isSet = true;
 }
 
 bool OAITextstylestatic_ResponseCompound::is_i_textstylestatic_fontcolor_Set() const{
@@ -242,11 +242,11 @@ bool OAITextstylestatic_ResponseCompound::is_i_textstylestatic_fontcolor_Valid()
 }
 
 qint32 OAITextstylestatic_ResponseCompound::getITextstylestaticSize() const {
-    return i_textstylestatic_size;
+    return m_i_textstylestatic_size;
 }
 void OAITextstylestatic_ResponseCompound::setITextstylestaticSize(const qint32 &i_textstylestatic_size) {
-    this->i_textstylestatic_size = i_textstylestatic_size;
-    this->m_i_textstylestatic_size_isSet = true;
+    m_i_textstylestatic_size = i_textstylestatic_size;
+    m_i_textstylestatic_size_isSet = true;
 }
 
 bool OAITextstylestatic_ResponseCompound::is_i_textstylestatic_size_Set() const{

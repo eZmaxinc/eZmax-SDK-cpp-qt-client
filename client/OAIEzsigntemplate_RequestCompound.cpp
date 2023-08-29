@@ -59,19 +59,19 @@ void OAIEzsigntemplate_RequestCompound::fromJson(QString jsonString) {
 
 void OAIEzsigntemplate_RequestCompound::fromJsonObject(QJsonObject json) {
 
-    m_pki_ezsigntemplate_id_isValid = ::OpenAPI::fromJsonValue(pki_ezsigntemplate_id, json[QString("pkiEzsigntemplateID")]);
+    m_pki_ezsigntemplate_id_isValid = ::OpenAPI::fromJsonValue(m_pki_ezsigntemplate_id, json[QString("pkiEzsigntemplateID")]);
     m_pki_ezsigntemplate_id_isSet = !json[QString("pkiEzsigntemplateID")].isNull() && m_pki_ezsigntemplate_id_isValid;
 
-    m_fki_ezsignfoldertype_id_isValid = ::OpenAPI::fromJsonValue(fki_ezsignfoldertype_id, json[QString("fkiEzsignfoldertypeID")]);
+    m_fki_ezsignfoldertype_id_isValid = ::OpenAPI::fromJsonValue(m_fki_ezsignfoldertype_id, json[QString("fkiEzsignfoldertypeID")]);
     m_fki_ezsignfoldertype_id_isSet = !json[QString("fkiEzsignfoldertypeID")].isNull() && m_fki_ezsignfoldertype_id_isValid;
 
-    m_fki_language_id_isValid = ::OpenAPI::fromJsonValue(fki_language_id, json[QString("fkiLanguageID")]);
+    m_fki_language_id_isValid = ::OpenAPI::fromJsonValue(m_fki_language_id, json[QString("fkiLanguageID")]);
     m_fki_language_id_isSet = !json[QString("fkiLanguageID")].isNull() && m_fki_language_id_isValid;
 
-    m_s_ezsigntemplate_description_isValid = ::OpenAPI::fromJsonValue(s_ezsigntemplate_description, json[QString("sEzsigntemplateDescription")]);
+    m_s_ezsigntemplate_description_isValid = ::OpenAPI::fromJsonValue(m_s_ezsigntemplate_description, json[QString("sEzsigntemplateDescription")]);
     m_s_ezsigntemplate_description_isSet = !json[QString("sEzsigntemplateDescription")].isNull() && m_s_ezsigntemplate_description_isValid;
 
-    m_b_ezsigntemplate_adminonly_isValid = ::OpenAPI::fromJsonValue(b_ezsigntemplate_adminonly, json[QString("bEzsigntemplateAdminonly")]);
+    m_b_ezsigntemplate_adminonly_isValid = ::OpenAPI::fromJsonValue(m_b_ezsigntemplate_adminonly, json[QString("bEzsigntemplateAdminonly")]);
     m_b_ezsigntemplate_adminonly_isSet = !json[QString("bEzsigntemplateAdminonly")].isNull() && m_b_ezsigntemplate_adminonly_isValid;
 }
 
@@ -85,29 +85,29 @@ QString OAIEzsigntemplate_RequestCompound::asJson() const {
 QJsonObject OAIEzsigntemplate_RequestCompound::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_ezsigntemplate_id_isSet) {
-        obj.insert(QString("pkiEzsigntemplateID"), ::OpenAPI::toJsonValue(pki_ezsigntemplate_id));
+        obj.insert(QString("pkiEzsigntemplateID"), ::OpenAPI::toJsonValue(m_pki_ezsigntemplate_id));
     }
     if (m_fki_ezsignfoldertype_id_isSet) {
-        obj.insert(QString("fkiEzsignfoldertypeID"), ::OpenAPI::toJsonValue(fki_ezsignfoldertype_id));
+        obj.insert(QString("fkiEzsignfoldertypeID"), ::OpenAPI::toJsonValue(m_fki_ezsignfoldertype_id));
     }
     if (m_fki_language_id_isSet) {
-        obj.insert(QString("fkiLanguageID"), ::OpenAPI::toJsonValue(fki_language_id));
+        obj.insert(QString("fkiLanguageID"), ::OpenAPI::toJsonValue(m_fki_language_id));
     }
     if (m_s_ezsigntemplate_description_isSet) {
-        obj.insert(QString("sEzsigntemplateDescription"), ::OpenAPI::toJsonValue(s_ezsigntemplate_description));
+        obj.insert(QString("sEzsigntemplateDescription"), ::OpenAPI::toJsonValue(m_s_ezsigntemplate_description));
     }
     if (m_b_ezsigntemplate_adminonly_isSet) {
-        obj.insert(QString("bEzsigntemplateAdminonly"), ::OpenAPI::toJsonValue(b_ezsigntemplate_adminonly));
+        obj.insert(QString("bEzsigntemplateAdminonly"), ::OpenAPI::toJsonValue(m_b_ezsigntemplate_adminonly));
     }
     return obj;
 }
 
 qint32 OAIEzsigntemplate_RequestCompound::getPkiEzsigntemplateId() const {
-    return pki_ezsigntemplate_id;
+    return m_pki_ezsigntemplate_id;
 }
 void OAIEzsigntemplate_RequestCompound::setPkiEzsigntemplateId(const qint32 &pki_ezsigntemplate_id) {
-    this->pki_ezsigntemplate_id = pki_ezsigntemplate_id;
-    this->m_pki_ezsigntemplate_id_isSet = true;
+    m_pki_ezsigntemplate_id = pki_ezsigntemplate_id;
+    m_pki_ezsigntemplate_id_isSet = true;
 }
 
 bool OAIEzsigntemplate_RequestCompound::is_pki_ezsigntemplate_id_Set() const{
@@ -119,11 +119,11 @@ bool OAIEzsigntemplate_RequestCompound::is_pki_ezsigntemplate_id_Valid() const{
 }
 
 qint32 OAIEzsigntemplate_RequestCompound::getFkiEzsignfoldertypeId() const {
-    return fki_ezsignfoldertype_id;
+    return m_fki_ezsignfoldertype_id;
 }
 void OAIEzsigntemplate_RequestCompound::setFkiEzsignfoldertypeId(const qint32 &fki_ezsignfoldertype_id) {
-    this->fki_ezsignfoldertype_id = fki_ezsignfoldertype_id;
-    this->m_fki_ezsignfoldertype_id_isSet = true;
+    m_fki_ezsignfoldertype_id = fki_ezsignfoldertype_id;
+    m_fki_ezsignfoldertype_id_isSet = true;
 }
 
 bool OAIEzsigntemplate_RequestCompound::is_fki_ezsignfoldertype_id_Set() const{
@@ -135,11 +135,11 @@ bool OAIEzsigntemplate_RequestCompound::is_fki_ezsignfoldertype_id_Valid() const
 }
 
 qint32 OAIEzsigntemplate_RequestCompound::getFkiLanguageId() const {
-    return fki_language_id;
+    return m_fki_language_id;
 }
 void OAIEzsigntemplate_RequestCompound::setFkiLanguageId(const qint32 &fki_language_id) {
-    this->fki_language_id = fki_language_id;
-    this->m_fki_language_id_isSet = true;
+    m_fki_language_id = fki_language_id;
+    m_fki_language_id_isSet = true;
 }
 
 bool OAIEzsigntemplate_RequestCompound::is_fki_language_id_Set() const{
@@ -151,11 +151,11 @@ bool OAIEzsigntemplate_RequestCompound::is_fki_language_id_Valid() const{
 }
 
 QString OAIEzsigntemplate_RequestCompound::getSEzsigntemplateDescription() const {
-    return s_ezsigntemplate_description;
+    return m_s_ezsigntemplate_description;
 }
 void OAIEzsigntemplate_RequestCompound::setSEzsigntemplateDescription(const QString &s_ezsigntemplate_description) {
-    this->s_ezsigntemplate_description = s_ezsigntemplate_description;
-    this->m_s_ezsigntemplate_description_isSet = true;
+    m_s_ezsigntemplate_description = s_ezsigntemplate_description;
+    m_s_ezsigntemplate_description_isSet = true;
 }
 
 bool OAIEzsigntemplate_RequestCompound::is_s_ezsigntemplate_description_Set() const{
@@ -167,11 +167,11 @@ bool OAIEzsigntemplate_RequestCompound::is_s_ezsigntemplate_description_Valid() 
 }
 
 bool OAIEzsigntemplate_RequestCompound::isBEzsigntemplateAdminonly() const {
-    return b_ezsigntemplate_adminonly;
+    return m_b_ezsigntemplate_adminonly;
 }
 void OAIEzsigntemplate_RequestCompound::setBEzsigntemplateAdminonly(const bool &b_ezsigntemplate_adminonly) {
-    this->b_ezsigntemplate_adminonly = b_ezsigntemplate_adminonly;
-    this->m_b_ezsigntemplate_adminonly_isSet = true;
+    m_b_ezsigntemplate_adminonly = b_ezsigntemplate_adminonly;
+    m_b_ezsigntemplate_adminonly_isSet = true;
 }
 
 bool OAIEzsigntemplate_RequestCompound::is_b_ezsigntemplate_adminonly_Set() const{

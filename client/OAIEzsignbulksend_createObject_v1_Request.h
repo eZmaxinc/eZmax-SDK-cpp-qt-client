@@ -52,7 +52,7 @@ public:
 private:
     void initializeModel();
 
-    QList<OAIEzsignbulksend_RequestCompound> a_obj_ezsignbulksend;
+    QList<OAIEzsignbulksend_RequestCompound> m_a_obj_ezsignbulksend;
     bool m_a_obj_ezsignbulksend_isSet;
     bool m_a_obj_ezsignbulksend_isValid;
 };

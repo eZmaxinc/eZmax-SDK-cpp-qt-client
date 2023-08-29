@@ -54,11 +54,11 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_ezsignfoldersignerassociation_id;
+    qint32 m_pki_ezsignfoldersignerassociation_id;
     bool m_pki_ezsignfoldersignerassociation_id_isSet;
     bool m_pki_ezsignfoldersignerassociation_id_isValid;
 
-    qint32 fki_ezsignfolder_id;
+    qint32 m_fki_ezsignfolder_id;
     bool m_fki_ezsignfolder_id_isSet;
     bool m_fki_ezsignfolder_id_isValid;
 };

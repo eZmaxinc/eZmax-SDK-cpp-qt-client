@@ -52,7 +52,7 @@ public:
 private:
     void initializeModel();
 
-    QList<OAIFranchisereferalincome_RequestCompound> a_obj_franchisereferalincome;
+    QList<OAIFranchisereferalincome_RequestCompound> m_a_obj_franchisereferalincome;
     bool m_a_obj_franchisereferalincome_isSet;
     bool m_a_obj_franchisereferalincome_isValid;
 };

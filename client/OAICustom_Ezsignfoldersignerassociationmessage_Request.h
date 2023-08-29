@@ -55,11 +55,11 @@ public:
 private:
     void initializeModel();
 
-    qint32 fki_ezsignfoldersignerassociation_id;
+    qint32 m_fki_ezsignfoldersignerassociation_id;
     bool m_fki_ezsignfoldersignerassociation_id_isSet;
     bool m_fki_ezsignfoldersignerassociation_id_isValid;
 
-    QString t_ezsignfoldersignerassociation_message;
+    QString m_t_ezsignfoldersignerassociation_message;
     bool m_t_ezsignfoldersignerassociation_message_isSet;
     bool m_t_ezsignfoldersignerassociation_message_isValid;
 };

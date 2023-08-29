@@ -47,7 +47,7 @@ void OAICors_getObject_v2_Response_mPayload::fromJson(QString jsonString) {
 
 void OAICors_getObject_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_obj_cors_isValid = ::OpenAPI::fromJsonValue(obj_cors, json[QString("objCors")]);
+    m_obj_cors_isValid = ::OpenAPI::fromJsonValue(m_obj_cors, json[QString("objCors")]);
     m_obj_cors_isSet = !json[QString("objCors")].isNull() && m_obj_cors_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAICors_getObject_v2_Response_mPayload::asJson() const {
 
 QJsonObject OAICors_getObject_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (obj_cors.isSet()) {
-        obj.insert(QString("objCors"), ::OpenAPI::toJsonValue(obj_cors));
+    if (m_obj_cors.isSet()) {
+        obj.insert(QString("objCors"), ::OpenAPI::toJsonValue(m_obj_cors));
     }
     return obj;
 }
 
 OAICors_ResponseCompound OAICors_getObject_v2_Response_mPayload::getObjCors() const {
-    return obj_cors;
+    return m_obj_cors;
 }
 void OAICors_getObject_v2_Response_mPayload::setObjCors(const OAICors_ResponseCompound &obj_cors) {
-    this->obj_cors = obj_cors;
-    this->m_obj_cors_isSet = true;
+    m_obj_cors = obj_cors;
+    m_obj_cors_isSet = true;
 }
 
 bool OAICors_getObject_v2_Response_mPayload::is_obj_cors_Set() const{
@@ -85,7 +85,7 @@ bool OAICors_getObject_v2_Response_mPayload::is_obj_cors_Valid() const{
 bool OAICors_getObject_v2_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (obj_cors.isSet()) {
+        if (m_obj_cors.isSet()) {
             isObjectUpdated = true;
             break;
         }

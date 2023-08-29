@@ -52,7 +52,7 @@ public:
 private:
     void initializeModel();
 
-    QList<OAICors_RequestCompound> a_obj_cors;
+    QList<OAICors_RequestCompound> m_a_obj_cors;
     bool m_a_obj_cors_isSet;
     bool m_a_obj_cors_isValid;
 };

@@ -47,7 +47,7 @@ void OAIPaymentterm_getAutocomplete_v2_Response_mPayload::fromJson(QString jsonS
 
 void OAIPaymentterm_getAutocomplete_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_paymentterm_isValid = ::OpenAPI::fromJsonValue(a_obj_paymentterm, json[QString("a_objPaymentterm")]);
+    m_a_obj_paymentterm_isValid = ::OpenAPI::fromJsonValue(m_a_obj_paymentterm, json[QString("a_objPaymentterm")]);
     m_a_obj_paymentterm_isSet = !json[QString("a_objPaymentterm")].isNull() && m_a_obj_paymentterm_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIPaymentterm_getAutocomplete_v2_Response_mPayload::asJson() const {
 
 QJsonObject OAIPaymentterm_getAutocomplete_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_paymentterm.size() > 0) {
-        obj.insert(QString("a_objPaymentterm"), ::OpenAPI::toJsonValue(a_obj_paymentterm));
+    if (m_a_obj_paymentterm.size() > 0) {
+        obj.insert(QString("a_objPaymentterm"), ::OpenAPI::toJsonValue(m_a_obj_paymentterm));
     }
     return obj;
 }
 
 QList<OAIPaymentterm_AutocompleteElement_Response> OAIPaymentterm_getAutocomplete_v2_Response_mPayload::getAObjPaymentterm() const {
-    return a_obj_paymentterm;
+    return m_a_obj_paymentterm;
 }
 void OAIPaymentterm_getAutocomplete_v2_Response_mPayload::setAObjPaymentterm(const QList<OAIPaymentterm_AutocompleteElement_Response> &a_obj_paymentterm) {
-    this->a_obj_paymentterm = a_obj_paymentterm;
-    this->m_a_obj_paymentterm_isSet = true;
+    m_a_obj_paymentterm = a_obj_paymentterm;
+    m_a_obj_paymentterm_isSet = true;
 }
 
 bool OAIPaymentterm_getAutocomplete_v2_Response_mPayload::is_a_obj_paymentterm_Set() const{
@@ -85,7 +85,7 @@ bool OAIPaymentterm_getAutocomplete_v2_Response_mPayload::is_a_obj_paymentterm_V
 bool OAIPaymentterm_getAutocomplete_v2_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_paymentterm.size() > 0) {
+        if (m_a_obj_paymentterm.size() > 0) {
             isObjectUpdated = true;
             break;
         }

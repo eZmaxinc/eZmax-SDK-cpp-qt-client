@@ -60,15 +60,15 @@ public:
 private:
     void initializeModel();
 
-    QString s_usergroup_name_x;
+    QString m_s_usergroup_name_x;
     bool m_s_usergroup_name_x_isSet;
     bool m_s_usergroup_name_x_isValid;
 
-    qint32 pki_usergroup_id;
+    qint32 m_pki_usergroup_id;
     bool m_pki_usergroup_id_isSet;
     bool m_pki_usergroup_id_isValid;
 
-    bool b_usergroup_isactive;
+    bool m_b_usergroup_isactive;
     bool m_b_usergroup_isactive_isSet;
     bool m_b_usergroup_isactive_isValid;
 };

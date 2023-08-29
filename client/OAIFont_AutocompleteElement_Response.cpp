@@ -53,13 +53,13 @@ void OAIFont_AutocompleteElement_Response::fromJson(QString jsonString) {
 
 void OAIFont_AutocompleteElement_Response::fromJsonObject(QJsonObject json) {
 
-    m_s_font_name_isValid = ::OpenAPI::fromJsonValue(s_font_name, json[QString("sFontName")]);
+    m_s_font_name_isValid = ::OpenAPI::fromJsonValue(m_s_font_name, json[QString("sFontName")]);
     m_s_font_name_isSet = !json[QString("sFontName")].isNull() && m_s_font_name_isValid;
 
-    m_pki_font_id_isValid = ::OpenAPI::fromJsonValue(pki_font_id, json[QString("pkiFontID")]);
+    m_pki_font_id_isValid = ::OpenAPI::fromJsonValue(m_pki_font_id, json[QString("pkiFontID")]);
     m_pki_font_id_isSet = !json[QString("pkiFontID")].isNull() && m_pki_font_id_isValid;
 
-    m_b_font_isactive_isValid = ::OpenAPI::fromJsonValue(b_font_isactive, json[QString("bFontIsactive")]);
+    m_b_font_isactive_isValid = ::OpenAPI::fromJsonValue(m_b_font_isactive, json[QString("bFontIsactive")]);
     m_b_font_isactive_isSet = !json[QString("bFontIsactive")].isNull() && m_b_font_isactive_isValid;
 }
 
@@ -73,23 +73,23 @@ QString OAIFont_AutocompleteElement_Response::asJson() const {
 QJsonObject OAIFont_AutocompleteElement_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_s_font_name_isSet) {
-        obj.insert(QString("sFontName"), ::OpenAPI::toJsonValue(s_font_name));
+        obj.insert(QString("sFontName"), ::OpenAPI::toJsonValue(m_s_font_name));
     }
     if (m_pki_font_id_isSet) {
-        obj.insert(QString("pkiFontID"), ::OpenAPI::toJsonValue(pki_font_id));
+        obj.insert(QString("pkiFontID"), ::OpenAPI::toJsonValue(m_pki_font_id));
     }
     if (m_b_font_isactive_isSet) {
-        obj.insert(QString("bFontIsactive"), ::OpenAPI::toJsonValue(b_font_isactive));
+        obj.insert(QString("bFontIsactive"), ::OpenAPI::toJsonValue(m_b_font_isactive));
     }
     return obj;
 }
 
 QString OAIFont_AutocompleteElement_Response::getSFontName() const {
-    return s_font_name;
+    return m_s_font_name;
 }
 void OAIFont_AutocompleteElement_Response::setSFontName(const QString &s_font_name) {
-    this->s_font_name = s_font_name;
-    this->m_s_font_name_isSet = true;
+    m_s_font_name = s_font_name;
+    m_s_font_name_isSet = true;
 }
 
 bool OAIFont_AutocompleteElement_Response::is_s_font_name_Set() const{
@@ -101,11 +101,11 @@ bool OAIFont_AutocompleteElement_Response::is_s_font_name_Valid() const{
 }
 
 qint32 OAIFont_AutocompleteElement_Response::getPkiFontId() const {
-    return pki_font_id;
+    return m_pki_font_id;
 }
 void OAIFont_AutocompleteElement_Response::setPkiFontId(const qint32 &pki_font_id) {
-    this->pki_font_id = pki_font_id;
-    this->m_pki_font_id_isSet = true;
+    m_pki_font_id = pki_font_id;
+    m_pki_font_id_isSet = true;
 }
 
 bool OAIFont_AutocompleteElement_Response::is_pki_font_id_Set() const{
@@ -117,11 +117,11 @@ bool OAIFont_AutocompleteElement_Response::is_pki_font_id_Valid() const{
 }
 
 bool OAIFont_AutocompleteElement_Response::isBFontIsactive() const {
-    return b_font_isactive;
+    return m_b_font_isactive;
 }
 void OAIFont_AutocompleteElement_Response::setBFontIsactive(const bool &b_font_isactive) {
-    this->b_font_isactive = b_font_isactive;
-    this->m_b_font_isactive_isSet = true;
+    m_b_font_isactive = b_font_isactive;
+    m_b_font_isactive_isSet = true;
 }
 
 bool OAIFont_AutocompleteElement_Response::is_b_font_isactive_Set() const{

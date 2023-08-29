@@ -62,15 +62,15 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_ezsignsignergroup_id;
+    qint32 m_pki_ezsignsignergroup_id;
     bool m_pki_ezsignsignergroup_id_isSet;
     bool m_pki_ezsignsignergroup_id_isValid;
 
-    OAIMultilingual_EzsignsignergroupDescription obj_ezsignsignergroup_description;
+    OAIMultilingual_EzsignsignergroupDescription m_obj_ezsignsignergroup_description;
     bool m_obj_ezsignsignergroup_description_isSet;
     bool m_obj_ezsignsignergroup_description_isValid;
 
-    QString s_ezsignsignergroup_description_x;
+    QString m_s_ezsignsignergroup_description_x;
     bool m_s_ezsignsignergroup_description_x_isSet;
     bool m_s_ezsignsignergroup_description_x_isValid;
 };

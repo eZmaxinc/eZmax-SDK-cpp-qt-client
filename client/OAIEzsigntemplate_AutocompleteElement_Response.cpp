@@ -56,16 +56,16 @@ void OAIEzsigntemplate_AutocompleteElement_Response::fromJson(QString jsonString
 
 void OAIEzsigntemplate_AutocompleteElement_Response::fromJsonObject(QJsonObject json) {
 
-    m_e_ezsignfoldertype_privacylevel_isValid = ::OpenAPI::fromJsonValue(e_ezsignfoldertype_privacylevel, json[QString("eEzsignfoldertypePrivacylevel")]);
+    m_e_ezsignfoldertype_privacylevel_isValid = ::OpenAPI::fromJsonValue(m_e_ezsignfoldertype_privacylevel, json[QString("eEzsignfoldertypePrivacylevel")]);
     m_e_ezsignfoldertype_privacylevel_isSet = !json[QString("eEzsignfoldertypePrivacylevel")].isNull() && m_e_ezsignfoldertype_privacylevel_isValid;
 
-    m_s_ezsigntemplate_description_isValid = ::OpenAPI::fromJsonValue(s_ezsigntemplate_description, json[QString("sEzsigntemplateDescription")]);
+    m_s_ezsigntemplate_description_isValid = ::OpenAPI::fromJsonValue(m_s_ezsigntemplate_description, json[QString("sEzsigntemplateDescription")]);
     m_s_ezsigntemplate_description_isSet = !json[QString("sEzsigntemplateDescription")].isNull() && m_s_ezsigntemplate_description_isValid;
 
-    m_pki_ezsigntemplate_id_isValid = ::OpenAPI::fromJsonValue(pki_ezsigntemplate_id, json[QString("pkiEzsigntemplateID")]);
+    m_pki_ezsigntemplate_id_isValid = ::OpenAPI::fromJsonValue(m_pki_ezsigntemplate_id, json[QString("pkiEzsigntemplateID")]);
     m_pki_ezsigntemplate_id_isSet = !json[QString("pkiEzsigntemplateID")].isNull() && m_pki_ezsigntemplate_id_isValid;
 
-    m_b_ezsigntemplate_isactive_isValid = ::OpenAPI::fromJsonValue(b_ezsigntemplate_isactive, json[QString("bEzsigntemplateIsactive")]);
+    m_b_ezsigntemplate_isactive_isValid = ::OpenAPI::fromJsonValue(m_b_ezsigntemplate_isactive, json[QString("bEzsigntemplateIsactive")]);
     m_b_ezsigntemplate_isactive_isSet = !json[QString("bEzsigntemplateIsactive")].isNull() && m_b_ezsigntemplate_isactive_isValid;
 }
 
@@ -78,27 +78,27 @@ QString OAIEzsigntemplate_AutocompleteElement_Response::asJson() const {
 
 QJsonObject OAIEzsigntemplate_AutocompleteElement_Response::asJsonObject() const {
     QJsonObject obj;
-    if (e_ezsignfoldertype_privacylevel.isSet()) {
-        obj.insert(QString("eEzsignfoldertypePrivacylevel"), ::OpenAPI::toJsonValue(e_ezsignfoldertype_privacylevel));
+    if (m_e_ezsignfoldertype_privacylevel.isSet()) {
+        obj.insert(QString("eEzsignfoldertypePrivacylevel"), ::OpenAPI::toJsonValue(m_e_ezsignfoldertype_privacylevel));
     }
     if (m_s_ezsigntemplate_description_isSet) {
-        obj.insert(QString("sEzsigntemplateDescription"), ::OpenAPI::toJsonValue(s_ezsigntemplate_description));
+        obj.insert(QString("sEzsigntemplateDescription"), ::OpenAPI::toJsonValue(m_s_ezsigntemplate_description));
     }
     if (m_pki_ezsigntemplate_id_isSet) {
-        obj.insert(QString("pkiEzsigntemplateID"), ::OpenAPI::toJsonValue(pki_ezsigntemplate_id));
+        obj.insert(QString("pkiEzsigntemplateID"), ::OpenAPI::toJsonValue(m_pki_ezsigntemplate_id));
     }
     if (m_b_ezsigntemplate_isactive_isSet) {
-        obj.insert(QString("bEzsigntemplateIsactive"), ::OpenAPI::toJsonValue(b_ezsigntemplate_isactive));
+        obj.insert(QString("bEzsigntemplateIsactive"), ::OpenAPI::toJsonValue(m_b_ezsigntemplate_isactive));
     }
     return obj;
 }
 
 OAIField_eEzsignfoldertypePrivacylevel OAIEzsigntemplate_AutocompleteElement_Response::getEEzsignfoldertypePrivacylevel() const {
-    return e_ezsignfoldertype_privacylevel;
+    return m_e_ezsignfoldertype_privacylevel;
 }
 void OAIEzsigntemplate_AutocompleteElement_Response::setEEzsignfoldertypePrivacylevel(const OAIField_eEzsignfoldertypePrivacylevel &e_ezsignfoldertype_privacylevel) {
-    this->e_ezsignfoldertype_privacylevel = e_ezsignfoldertype_privacylevel;
-    this->m_e_ezsignfoldertype_privacylevel_isSet = true;
+    m_e_ezsignfoldertype_privacylevel = e_ezsignfoldertype_privacylevel;
+    m_e_ezsignfoldertype_privacylevel_isSet = true;
 }
 
 bool OAIEzsigntemplate_AutocompleteElement_Response::is_e_ezsignfoldertype_privacylevel_Set() const{
@@ -110,11 +110,11 @@ bool OAIEzsigntemplate_AutocompleteElement_Response::is_e_ezsignfoldertype_priva
 }
 
 QString OAIEzsigntemplate_AutocompleteElement_Response::getSEzsigntemplateDescription() const {
-    return s_ezsigntemplate_description;
+    return m_s_ezsigntemplate_description;
 }
 void OAIEzsigntemplate_AutocompleteElement_Response::setSEzsigntemplateDescription(const QString &s_ezsigntemplate_description) {
-    this->s_ezsigntemplate_description = s_ezsigntemplate_description;
-    this->m_s_ezsigntemplate_description_isSet = true;
+    m_s_ezsigntemplate_description = s_ezsigntemplate_description;
+    m_s_ezsigntemplate_description_isSet = true;
 }
 
 bool OAIEzsigntemplate_AutocompleteElement_Response::is_s_ezsigntemplate_description_Set() const{
@@ -126,11 +126,11 @@ bool OAIEzsigntemplate_AutocompleteElement_Response::is_s_ezsigntemplate_descrip
 }
 
 qint32 OAIEzsigntemplate_AutocompleteElement_Response::getPkiEzsigntemplateId() const {
-    return pki_ezsigntemplate_id;
+    return m_pki_ezsigntemplate_id;
 }
 void OAIEzsigntemplate_AutocompleteElement_Response::setPkiEzsigntemplateId(const qint32 &pki_ezsigntemplate_id) {
-    this->pki_ezsigntemplate_id = pki_ezsigntemplate_id;
-    this->m_pki_ezsigntemplate_id_isSet = true;
+    m_pki_ezsigntemplate_id = pki_ezsigntemplate_id;
+    m_pki_ezsigntemplate_id_isSet = true;
 }
 
 bool OAIEzsigntemplate_AutocompleteElement_Response::is_pki_ezsigntemplate_id_Set() const{
@@ -142,11 +142,11 @@ bool OAIEzsigntemplate_AutocompleteElement_Response::is_pki_ezsigntemplate_id_Va
 }
 
 bool OAIEzsigntemplate_AutocompleteElement_Response::isBEzsigntemplateIsactive() const {
-    return b_ezsigntemplate_isactive;
+    return m_b_ezsigntemplate_isactive;
 }
 void OAIEzsigntemplate_AutocompleteElement_Response::setBEzsigntemplateIsactive(const bool &b_ezsigntemplate_isactive) {
-    this->b_ezsigntemplate_isactive = b_ezsigntemplate_isactive;
-    this->m_b_ezsigntemplate_isactive_isSet = true;
+    m_b_ezsigntemplate_isactive = b_ezsigntemplate_isactive;
+    m_b_ezsigntemplate_isactive_isSet = true;
 }
 
 bool OAIEzsigntemplate_AutocompleteElement_Response::is_b_ezsigntemplate_isactive_Set() const{
@@ -160,7 +160,7 @@ bool OAIEzsigntemplate_AutocompleteElement_Response::is_b_ezsigntemplate_isactiv
 bool OAIEzsigntemplate_AutocompleteElement_Response::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (e_ezsignfoldertype_privacylevel.isSet()) {
+        if (m_e_ezsignfoldertype_privacylevel.isSet()) {
             isObjectUpdated = true;
             break;
         }

@@ -49,7 +49,7 @@ public:
 private:
     void initializeModel();
 
-    qint32 fki_user_id;
+    qint32 m_fki_user_id;
     bool m_fki_user_id_isSet;
     bool m_fki_user_id_isValid;
 };

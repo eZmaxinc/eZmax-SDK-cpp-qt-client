@@ -50,10 +50,10 @@ void OAIEzsign_suggestTemplates_v1_Response_mPayload::fromJson(QString jsonStrin
 
 void OAIEzsign_suggestTemplates_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_ezsigntemplate_isValid = ::OpenAPI::fromJsonValue(a_obj_ezsigntemplate, json[QString("a_objEzsigntemplate")]);
+    m_a_obj_ezsigntemplate_isValid = ::OpenAPI::fromJsonValue(m_a_obj_ezsigntemplate, json[QString("a_objEzsigntemplate")]);
     m_a_obj_ezsigntemplate_isSet = !json[QString("a_objEzsigntemplate")].isNull() && m_a_obj_ezsigntemplate_isValid;
 
-    m_a_obj_ezsigntemplatepackage_isValid = ::OpenAPI::fromJsonValue(a_obj_ezsigntemplatepackage, json[QString("a_objEzsigntemplatepackage")]);
+    m_a_obj_ezsigntemplatepackage_isValid = ::OpenAPI::fromJsonValue(m_a_obj_ezsigntemplatepackage, json[QString("a_objEzsigntemplatepackage")]);
     m_a_obj_ezsigntemplatepackage_isSet = !json[QString("a_objEzsigntemplatepackage")].isNull() && m_a_obj_ezsigntemplatepackage_isValid;
 }
 
@@ -66,21 +66,21 @@ QString OAIEzsign_suggestTemplates_v1_Response_mPayload::asJson() const {
 
 QJsonObject OAIEzsign_suggestTemplates_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_ezsigntemplate.size() > 0) {
-        obj.insert(QString("a_objEzsigntemplate"), ::OpenAPI::toJsonValue(a_obj_ezsigntemplate));
+    if (m_a_obj_ezsigntemplate.size() > 0) {
+        obj.insert(QString("a_objEzsigntemplate"), ::OpenAPI::toJsonValue(m_a_obj_ezsigntemplate));
     }
-    if (a_obj_ezsigntemplatepackage.size() > 0) {
-        obj.insert(QString("a_objEzsigntemplatepackage"), ::OpenAPI::toJsonValue(a_obj_ezsigntemplatepackage));
+    if (m_a_obj_ezsigntemplatepackage.size() > 0) {
+        obj.insert(QString("a_objEzsigntemplatepackage"), ::OpenAPI::toJsonValue(m_a_obj_ezsigntemplatepackage));
     }
     return obj;
 }
 
 QList<OAIEzsigntemplate_ResponseCompound> OAIEzsign_suggestTemplates_v1_Response_mPayload::getAObjEzsigntemplate() const {
-    return a_obj_ezsigntemplate;
+    return m_a_obj_ezsigntemplate;
 }
 void OAIEzsign_suggestTemplates_v1_Response_mPayload::setAObjEzsigntemplate(const QList<OAIEzsigntemplate_ResponseCompound> &a_obj_ezsigntemplate) {
-    this->a_obj_ezsigntemplate = a_obj_ezsigntemplate;
-    this->m_a_obj_ezsigntemplate_isSet = true;
+    m_a_obj_ezsigntemplate = a_obj_ezsigntemplate;
+    m_a_obj_ezsigntemplate_isSet = true;
 }
 
 bool OAIEzsign_suggestTemplates_v1_Response_mPayload::is_a_obj_ezsigntemplate_Set() const{
@@ -92,11 +92,11 @@ bool OAIEzsign_suggestTemplates_v1_Response_mPayload::is_a_obj_ezsigntemplate_Va
 }
 
 QList<OAIEzsigntemplatepackage_ResponseCompound> OAIEzsign_suggestTemplates_v1_Response_mPayload::getAObjEzsigntemplatepackage() const {
-    return a_obj_ezsigntemplatepackage;
+    return m_a_obj_ezsigntemplatepackage;
 }
 void OAIEzsign_suggestTemplates_v1_Response_mPayload::setAObjEzsigntemplatepackage(const QList<OAIEzsigntemplatepackage_ResponseCompound> &a_obj_ezsigntemplatepackage) {
-    this->a_obj_ezsigntemplatepackage = a_obj_ezsigntemplatepackage;
-    this->m_a_obj_ezsigntemplatepackage_isSet = true;
+    m_a_obj_ezsigntemplatepackage = a_obj_ezsigntemplatepackage;
+    m_a_obj_ezsigntemplatepackage_isSet = true;
 }
 
 bool OAIEzsign_suggestTemplates_v1_Response_mPayload::is_a_obj_ezsigntemplatepackage_Set() const{
@@ -110,12 +110,12 @@ bool OAIEzsign_suggestTemplates_v1_Response_mPayload::is_a_obj_ezsigntemplatepac
 bool OAIEzsign_suggestTemplates_v1_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_ezsigntemplate.size() > 0) {
+        if (m_a_obj_ezsigntemplate.size() > 0) {
             isObjectUpdated = true;
             break;
         }
 
-        if (a_obj_ezsigntemplatepackage.size() > 0) {
+        if (m_a_obj_ezsigntemplatepackage.size() > 0) {
             isObjectUpdated = true;
             break;
         }

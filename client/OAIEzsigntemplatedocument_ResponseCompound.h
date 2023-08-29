@@ -75,27 +75,27 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_ezsigntemplatedocument_id;
+    qint32 m_pki_ezsigntemplatedocument_id;
     bool m_pki_ezsigntemplatedocument_id_isSet;
     bool m_pki_ezsigntemplatedocument_id_isValid;
 
-    qint32 fki_ezsigntemplate_id;
+    qint32 m_fki_ezsigntemplate_id;
     bool m_fki_ezsigntemplate_id_isSet;
     bool m_fki_ezsigntemplate_id_isValid;
 
-    QString s_ezsigntemplatedocument_name;
+    QString m_s_ezsigntemplatedocument_name;
     bool m_s_ezsigntemplatedocument_name_isSet;
     bool m_s_ezsigntemplatedocument_name_isValid;
 
-    qint32 i_ezsigntemplatedocument_pagetotal;
+    qint32 m_i_ezsigntemplatedocument_pagetotal;
     bool m_i_ezsigntemplatedocument_pagetotal_isSet;
     bool m_i_ezsigntemplatedocument_pagetotal_isValid;
 
-    qint32 i_ezsigntemplatedocument_signaturetotal;
+    qint32 m_i_ezsigntemplatedocument_signaturetotal;
     bool m_i_ezsigntemplatedocument_signaturetotal_isSet;
     bool m_i_ezsigntemplatedocument_signaturetotal_isValid;
 
-    bool b_ezsigntemplatedocument_hassignedsignatures;
+    bool m_b_ezsigntemplatedocument_hassignedsignatures;
     bool m_b_ezsigntemplatedocument_hassignedsignatures_isSet;
     bool m_b_ezsigntemplatedocument_hassignedsignatures_isValid;
 };

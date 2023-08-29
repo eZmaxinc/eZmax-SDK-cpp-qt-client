@@ -93,39 +93,39 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_communication_id;
+    qint32 m_pki_communication_id;
     bool m_pki_communication_id_isSet;
     bool m_pki_communication_id_isValid;
 
-    QString dt_created_date;
+    QString m_dt_created_date;
     bool m_dt_created_date_isSet;
     bool m_dt_created_date_isValid;
 
-    OAIComputed_eCommunicationDirection e_communication_direction;
+    OAIComputed_eCommunicationDirection m_e_communication_direction;
     bool m_e_communication_direction_isSet;
     bool m_e_communication_direction_isValid;
 
-    OAIField_eCommunicationImportance e_communication_importance;
+    OAIField_eCommunicationImportance m_e_communication_importance;
     bool m_e_communication_importance_isSet;
     bool m_e_communication_importance_isValid;
 
-    OAIField_eCommunicationType e_communication_type;
+    OAIField_eCommunicationType m_e_communication_type;
     bool m_e_communication_type_isSet;
     bool m_e_communication_type_isValid;
 
-    qint32 i_communicationrecipient_count;
+    qint32 m_i_communicationrecipient_count;
     bool m_i_communicationrecipient_count_isSet;
     bool m_i_communicationrecipient_count_isValid;
 
-    QString s_communication_subject;
+    QString m_s_communication_subject;
     bool m_s_communication_subject_isSet;
     bool m_s_communication_subject_isValid;
 
-    QString s_communication_sender;
+    QString m_s_communication_sender;
     bool m_s_communication_sender_isSet;
     bool m_s_communication_sender_isValid;
 
-    QString s_communication_recipient;
+    QString m_s_communication_recipient;
     bool m_s_communication_recipient_isSet;
     bool m_s_communication_recipient_isValid;
 };

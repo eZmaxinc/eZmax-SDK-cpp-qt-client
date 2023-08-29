@@ -47,7 +47,7 @@ void OAIPaymentterm_createObject_v1_Request::fromJson(QString jsonString) {
 
 void OAIPaymentterm_createObject_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_paymentterm_isValid = ::OpenAPI::fromJsonValue(a_obj_paymentterm, json[QString("a_objPaymentterm")]);
+    m_a_obj_paymentterm_isValid = ::OpenAPI::fromJsonValue(m_a_obj_paymentterm, json[QString("a_objPaymentterm")]);
     m_a_obj_paymentterm_isSet = !json[QString("a_objPaymentterm")].isNull() && m_a_obj_paymentterm_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIPaymentterm_createObject_v1_Request::asJson() const {
 
 QJsonObject OAIPaymentterm_createObject_v1_Request::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_paymentterm.size() > 0) {
-        obj.insert(QString("a_objPaymentterm"), ::OpenAPI::toJsonValue(a_obj_paymentterm));
+    if (m_a_obj_paymentterm.size() > 0) {
+        obj.insert(QString("a_objPaymentterm"), ::OpenAPI::toJsonValue(m_a_obj_paymentterm));
     }
     return obj;
 }
 
 QList<OAIPaymentterm_RequestCompound> OAIPaymentterm_createObject_v1_Request::getAObjPaymentterm() const {
-    return a_obj_paymentterm;
+    return m_a_obj_paymentterm;
 }
 void OAIPaymentterm_createObject_v1_Request::setAObjPaymentterm(const QList<OAIPaymentterm_RequestCompound> &a_obj_paymentterm) {
-    this->a_obj_paymentterm = a_obj_paymentterm;
-    this->m_a_obj_paymentterm_isSet = true;
+    m_a_obj_paymentterm = a_obj_paymentterm;
+    m_a_obj_paymentterm_isSet = true;
 }
 
 bool OAIPaymentterm_createObject_v1_Request::is_a_obj_paymentterm_Set() const{
@@ -85,7 +85,7 @@ bool OAIPaymentterm_createObject_v1_Request::is_a_obj_paymentterm_Valid() const{
 bool OAIPaymentterm_createObject_v1_Request::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_paymentterm.size() > 0) {
+        if (m_a_obj_paymentterm.size() > 0) {
             isObjectUpdated = true;
             break;
         }

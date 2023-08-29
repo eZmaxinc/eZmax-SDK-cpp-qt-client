@@ -59,19 +59,19 @@ void OAICommunicationexternalrecipient_Response::fromJson(QString jsonString) {
 
 void OAICommunicationexternalrecipient_Response::fromJsonObject(QJsonObject json) {
 
-    m_pki_communicationexternalrecipient_id_isValid = ::OpenAPI::fromJsonValue(pki_communicationexternalrecipient_id, json[QString("pkiCommunicationexternalrecipientID")]);
+    m_pki_communicationexternalrecipient_id_isValid = ::OpenAPI::fromJsonValue(m_pki_communicationexternalrecipient_id, json[QString("pkiCommunicationexternalrecipientID")]);
     m_pki_communicationexternalrecipient_id_isSet = !json[QString("pkiCommunicationexternalrecipientID")].isNull() && m_pki_communicationexternalrecipient_id_isValid;
 
-    m_e_communicationexternalrecipient_type_isValid = ::OpenAPI::fromJsonValue(e_communicationexternalrecipient_type, json[QString("eCommunicationexternalrecipientType")]);
+    m_e_communicationexternalrecipient_type_isValid = ::OpenAPI::fromJsonValue(m_e_communicationexternalrecipient_type, json[QString("eCommunicationexternalrecipientType")]);
     m_e_communicationexternalrecipient_type_isSet = !json[QString("eCommunicationexternalrecipientType")].isNull() && m_e_communicationexternalrecipient_type_isValid;
 
-    m_obj_descriptionstatic_isValid = ::OpenAPI::fromJsonValue(obj_descriptionstatic, json[QString("objDescriptionstatic")]);
+    m_obj_descriptionstatic_isValid = ::OpenAPI::fromJsonValue(m_obj_descriptionstatic, json[QString("objDescriptionstatic")]);
     m_obj_descriptionstatic_isSet = !json[QString("objDescriptionstatic")].isNull() && m_obj_descriptionstatic_isValid;
 
-    m_obj_emailstatic_isValid = ::OpenAPI::fromJsonValue(obj_emailstatic, json[QString("objEmailstatic")]);
+    m_obj_emailstatic_isValid = ::OpenAPI::fromJsonValue(m_obj_emailstatic, json[QString("objEmailstatic")]);
     m_obj_emailstatic_isSet = !json[QString("objEmailstatic")].isNull() && m_obj_emailstatic_isValid;
 
-    m_obj_phonestatic_isValid = ::OpenAPI::fromJsonValue(obj_phonestatic, json[QString("objPhonestatic")]);
+    m_obj_phonestatic_isValid = ::OpenAPI::fromJsonValue(m_obj_phonestatic, json[QString("objPhonestatic")]);
     m_obj_phonestatic_isSet = !json[QString("objPhonestatic")].isNull() && m_obj_phonestatic_isValid;
 }
 
@@ -85,29 +85,29 @@ QString OAICommunicationexternalrecipient_Response::asJson() const {
 QJsonObject OAICommunicationexternalrecipient_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_communicationexternalrecipient_id_isSet) {
-        obj.insert(QString("pkiCommunicationexternalrecipientID"), ::OpenAPI::toJsonValue(pki_communicationexternalrecipient_id));
+        obj.insert(QString("pkiCommunicationexternalrecipientID"), ::OpenAPI::toJsonValue(m_pki_communicationexternalrecipient_id));
     }
-    if (e_communicationexternalrecipient_type.isSet()) {
-        obj.insert(QString("eCommunicationexternalrecipientType"), ::OpenAPI::toJsonValue(e_communicationexternalrecipient_type));
+    if (m_e_communicationexternalrecipient_type.isSet()) {
+        obj.insert(QString("eCommunicationexternalrecipientType"), ::OpenAPI::toJsonValue(m_e_communicationexternalrecipient_type));
     }
-    if (obj_descriptionstatic.isSet()) {
-        obj.insert(QString("objDescriptionstatic"), ::OpenAPI::toJsonValue(obj_descriptionstatic));
+    if (m_obj_descriptionstatic.isSet()) {
+        obj.insert(QString("objDescriptionstatic"), ::OpenAPI::toJsonValue(m_obj_descriptionstatic));
     }
-    if (obj_emailstatic.isSet()) {
-        obj.insert(QString("objEmailstatic"), ::OpenAPI::toJsonValue(obj_emailstatic));
+    if (m_obj_emailstatic.isSet()) {
+        obj.insert(QString("objEmailstatic"), ::OpenAPI::toJsonValue(m_obj_emailstatic));
     }
-    if (obj_phonestatic.isSet()) {
-        obj.insert(QString("objPhonestatic"), ::OpenAPI::toJsonValue(obj_phonestatic));
+    if (m_obj_phonestatic.isSet()) {
+        obj.insert(QString("objPhonestatic"), ::OpenAPI::toJsonValue(m_obj_phonestatic));
     }
     return obj;
 }
 
 qint32 OAICommunicationexternalrecipient_Response::getPkiCommunicationexternalrecipientId() const {
-    return pki_communicationexternalrecipient_id;
+    return m_pki_communicationexternalrecipient_id;
 }
 void OAICommunicationexternalrecipient_Response::setPkiCommunicationexternalrecipientId(const qint32 &pki_communicationexternalrecipient_id) {
-    this->pki_communicationexternalrecipient_id = pki_communicationexternalrecipient_id;
-    this->m_pki_communicationexternalrecipient_id_isSet = true;
+    m_pki_communicationexternalrecipient_id = pki_communicationexternalrecipient_id;
+    m_pki_communicationexternalrecipient_id_isSet = true;
 }
 
 bool OAICommunicationexternalrecipient_Response::is_pki_communicationexternalrecipient_id_Set() const{
@@ -119,11 +119,11 @@ bool OAICommunicationexternalrecipient_Response::is_pki_communicationexternalrec
 }
 
 OAIField_eCommunicationexternalrecipientType OAICommunicationexternalrecipient_Response::getECommunicationexternalrecipientType() const {
-    return e_communicationexternalrecipient_type;
+    return m_e_communicationexternalrecipient_type;
 }
 void OAICommunicationexternalrecipient_Response::setECommunicationexternalrecipientType(const OAIField_eCommunicationexternalrecipientType &e_communicationexternalrecipient_type) {
-    this->e_communicationexternalrecipient_type = e_communicationexternalrecipient_type;
-    this->m_e_communicationexternalrecipient_type_isSet = true;
+    m_e_communicationexternalrecipient_type = e_communicationexternalrecipient_type;
+    m_e_communicationexternalrecipient_type_isSet = true;
 }
 
 bool OAICommunicationexternalrecipient_Response::is_e_communicationexternalrecipient_type_Set() const{
@@ -135,11 +135,11 @@ bool OAICommunicationexternalrecipient_Response::is_e_communicationexternalrecip
 }
 
 OAIDescriptionstatic_ResponseCompound OAICommunicationexternalrecipient_Response::getObjDescriptionstatic() const {
-    return obj_descriptionstatic;
+    return m_obj_descriptionstatic;
 }
 void OAICommunicationexternalrecipient_Response::setObjDescriptionstatic(const OAIDescriptionstatic_ResponseCompound &obj_descriptionstatic) {
-    this->obj_descriptionstatic = obj_descriptionstatic;
-    this->m_obj_descriptionstatic_isSet = true;
+    m_obj_descriptionstatic = obj_descriptionstatic;
+    m_obj_descriptionstatic_isSet = true;
 }
 
 bool OAICommunicationexternalrecipient_Response::is_obj_descriptionstatic_Set() const{
@@ -151,11 +151,11 @@ bool OAICommunicationexternalrecipient_Response::is_obj_descriptionstatic_Valid(
 }
 
 OAIEmailstatic_ResponseCompound OAICommunicationexternalrecipient_Response::getObjEmailstatic() const {
-    return obj_emailstatic;
+    return m_obj_emailstatic;
 }
 void OAICommunicationexternalrecipient_Response::setObjEmailstatic(const OAIEmailstatic_ResponseCompound &obj_emailstatic) {
-    this->obj_emailstatic = obj_emailstatic;
-    this->m_obj_emailstatic_isSet = true;
+    m_obj_emailstatic = obj_emailstatic;
+    m_obj_emailstatic_isSet = true;
 }
 
 bool OAICommunicationexternalrecipient_Response::is_obj_emailstatic_Set() const{
@@ -167,11 +167,11 @@ bool OAICommunicationexternalrecipient_Response::is_obj_emailstatic_Valid() cons
 }
 
 OAIPhonestatic_ResponseCompound OAICommunicationexternalrecipient_Response::getObjPhonestatic() const {
-    return obj_phonestatic;
+    return m_obj_phonestatic;
 }
 void OAICommunicationexternalrecipient_Response::setObjPhonestatic(const OAIPhonestatic_ResponseCompound &obj_phonestatic) {
-    this->obj_phonestatic = obj_phonestatic;
-    this->m_obj_phonestatic_isSet = true;
+    m_obj_phonestatic = obj_phonestatic;
+    m_obj_phonestatic_isSet = true;
 }
 
 bool OAICommunicationexternalrecipient_Response::is_obj_phonestatic_Set() const{
@@ -190,22 +190,22 @@ bool OAICommunicationexternalrecipient_Response::isSet() const {
             break;
         }
 
-        if (e_communicationexternalrecipient_type.isSet()) {
+        if (m_e_communicationexternalrecipient_type.isSet()) {
             isObjectUpdated = true;
             break;
         }
 
-        if (obj_descriptionstatic.isSet()) {
+        if (m_obj_descriptionstatic.isSet()) {
             isObjectUpdated = true;
             break;
         }
 
-        if (obj_emailstatic.isSet()) {
+        if (m_obj_emailstatic.isSet()) {
             isObjectUpdated = true;
             break;
         }
 
-        if (obj_phonestatic.isSet()) {
+        if (m_obj_phonestatic.isSet()) {
             isObjectUpdated = true;
             break;
         }

@@ -50,10 +50,10 @@ void OAISignature_ResponseCompound::fromJson(QString jsonString) {
 
 void OAISignature_ResponseCompound::fromJsonObject(QJsonObject json) {
 
-    m_pki_signature_id_isValid = ::OpenAPI::fromJsonValue(pki_signature_id, json[QString("pkiSignatureID")]);
+    m_pki_signature_id_isValid = ::OpenAPI::fromJsonValue(m_pki_signature_id, json[QString("pkiSignatureID")]);
     m_pki_signature_id_isSet = !json[QString("pkiSignatureID")].isNull() && m_pki_signature_id_isValid;
 
-    m_s_signature_url_isValid = ::OpenAPI::fromJsonValue(s_signature_url, json[QString("sSignatureUrl")]);
+    m_s_signature_url_isValid = ::OpenAPI::fromJsonValue(m_s_signature_url, json[QString("sSignatureUrl")]);
     m_s_signature_url_isSet = !json[QString("sSignatureUrl")].isNull() && m_s_signature_url_isValid;
 }
 
@@ -67,20 +67,20 @@ QString OAISignature_ResponseCompound::asJson() const {
 QJsonObject OAISignature_ResponseCompound::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_signature_id_isSet) {
-        obj.insert(QString("pkiSignatureID"), ::OpenAPI::toJsonValue(pki_signature_id));
+        obj.insert(QString("pkiSignatureID"), ::OpenAPI::toJsonValue(m_pki_signature_id));
     }
     if (m_s_signature_url_isSet) {
-        obj.insert(QString("sSignatureUrl"), ::OpenAPI::toJsonValue(s_signature_url));
+        obj.insert(QString("sSignatureUrl"), ::OpenAPI::toJsonValue(m_s_signature_url));
     }
     return obj;
 }
 
 qint32 OAISignature_ResponseCompound::getPkiSignatureId() const {
-    return pki_signature_id;
+    return m_pki_signature_id;
 }
 void OAISignature_ResponseCompound::setPkiSignatureId(const qint32 &pki_signature_id) {
-    this->pki_signature_id = pki_signature_id;
-    this->m_pki_signature_id_isSet = true;
+    m_pki_signature_id = pki_signature_id;
+    m_pki_signature_id_isSet = true;
 }
 
 bool OAISignature_ResponseCompound::is_pki_signature_id_Set() const{
@@ -92,11 +92,11 @@ bool OAISignature_ResponseCompound::is_pki_signature_id_Valid() const{
 }
 
 QString OAISignature_ResponseCompound::getSSignatureUrl() const {
-    return s_signature_url;
+    return m_s_signature_url;
 }
 void OAISignature_ResponseCompound::setSSignatureUrl(const QString &s_signature_url) {
-    this->s_signature_url = s_signature_url;
-    this->m_s_signature_url_isSet = true;
+    m_s_signature_url = s_signature_url;
+    m_s_signature_url_isSet = true;
 }
 
 bool OAISignature_ResponseCompound::is_s_signature_url_Set() const{

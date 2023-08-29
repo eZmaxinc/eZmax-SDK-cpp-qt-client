@@ -88,35 +88,35 @@ public:
 private:
     void initializeModel();
 
-    bool b_reportcellstyle_bordertop;
+    bool m_b_reportcellstyle_bordertop;
     bool m_b_reportcellstyle_bordertop_isSet;
     bool m_b_reportcellstyle_bordertop_isValid;
 
-    bool b_reportcellstyle_borderbottom;
+    bool m_b_reportcellstyle_borderbottom;
     bool m_b_reportcellstyle_borderbottom_isSet;
     bool m_b_reportcellstyle_borderbottom_isValid;
 
-    bool b_reportcellstyle_borderleft;
+    bool m_b_reportcellstyle_borderleft;
     bool m_b_reportcellstyle_borderleft_isSet;
     bool m_b_reportcellstyle_borderleft_isValid;
 
-    bool b_reportcellstyle_borderright;
+    bool m_b_reportcellstyle_borderright;
     bool m_b_reportcellstyle_borderright_isSet;
     bool m_b_reportcellstyle_borderright_isValid;
 
-    OAIEnum_Horizontalalignment e_reportcell_horizontalalignment;
+    OAIEnum_Horizontalalignment m_e_reportcell_horizontalalignment;
     bool m_e_reportcell_horizontalalignment_isSet;
     bool m_e_reportcell_horizontalalignment_isValid;
 
-    OAIEnum_Verticalalignment e_reportcell_verticalalignment;
+    OAIEnum_Verticalalignment m_e_reportcell_verticalalignment;
     bool m_e_reportcell_verticalalignment_isSet;
     bool m_e_reportcell_verticalalignment_isValid;
 
-    OAIEnum_Fontweight e_reportcell_fontweight;
+    OAIEnum_Fontweight m_e_reportcell_fontweight;
     bool m_e_reportcell_fontweight_isSet;
     bool m_e_reportcell_fontweight_isValid;
 
-    OAIEnum_Fontunderline e_reportcell_fontunderline;
+    OAIEnum_Fontunderline m_e_reportcell_fontunderline;
     bool m_e_reportcell_fontunderline_isSet;
     bool m_e_reportcell_fontunderline_isValid;
 };

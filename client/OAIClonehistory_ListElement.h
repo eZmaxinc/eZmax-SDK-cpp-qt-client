@@ -100,47 +100,47 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_clonehistory_id;
+    qint32 m_pki_clonehistory_id;
     bool m_pki_clonehistory_id_isSet;
     bool m_pki_clonehistory_id_isValid;
 
-    qint32 fki_user_id_cloning;
+    qint32 m_fki_user_id_cloning;
     bool m_fki_user_id_cloning_isSet;
     bool m_fki_user_id_cloning_isValid;
 
-    qint32 fki_user_id_cloned;
+    qint32 m_fki_user_id_cloned;
     bool m_fki_user_id_cloned_isSet;
     bool m_fki_user_id_cloned_isValid;
 
-    QString dt_clonehistory_firsthit;
+    QString m_dt_clonehistory_firsthit;
     bool m_dt_clonehistory_firsthit_isSet;
     bool m_dt_clonehistory_firsthit_isValid;
 
-    QString dt_clonehistory_lasthit;
+    QString m_dt_clonehistory_lasthit;
     bool m_dt_clonehistory_lasthit_isSet;
     bool m_dt_clonehistory_lasthit_isValid;
 
-    QString s_user_loginname_cloning;
+    QString m_s_user_loginname_cloning;
     bool m_s_user_loginname_cloning_isSet;
     bool m_s_user_loginname_cloning_isValid;
 
-    QString s_user_firstname_cloning;
+    QString m_s_user_firstname_cloning;
     bool m_s_user_firstname_cloning_isSet;
     bool m_s_user_firstname_cloning_isValid;
 
-    QString s_user_lastname_cloning;
+    QString m_s_user_lastname_cloning;
     bool m_s_user_lastname_cloning_isSet;
     bool m_s_user_lastname_cloning_isValid;
 
-    QString s_user_loginname_cloned;
+    QString m_s_user_loginname_cloned;
     bool m_s_user_loginname_cloned_isSet;
     bool m_s_user_loginname_cloned_isValid;
 
-    QString s_user_firstname_cloned;
+    QString m_s_user_firstname_cloned;
     bool m_s_user_firstname_cloned_isSet;
     bool m_s_user_firstname_cloned_isValid;
 
-    QString s_user_lastname_cloned;
+    QString m_s_user_lastname_cloned;
     bool m_s_user_lastname_cloned_isSet;
     bool m_s_user_lastname_cloned_isValid;
 };

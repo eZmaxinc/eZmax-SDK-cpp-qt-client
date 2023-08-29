@@ -73,23 +73,23 @@ public:
 private:
     void initializeModel();
 
-    qint32 fki_ezsignfoldersignerassociation_id;
+    qint32 m_fki_ezsignfoldersignerassociation_id;
     bool m_fki_ezsignfoldersignerassociation_id_isSet;
     bool m_fki_ezsignfoldersignerassociation_id_isValid;
 
-    qint32 fki_user_id;
+    qint32 m_fki_user_id;
     bool m_fki_user_id_isSet;
     bool m_fki_user_id_isValid;
 
-    QString s_contact_firstname;
+    QString m_s_contact_firstname;
     bool m_s_contact_firstname_isSet;
     bool m_s_contact_firstname_isValid;
 
-    QString s_contact_lastname;
+    QString m_s_contact_lastname;
     bool m_s_contact_lastname_isSet;
     bool m_s_contact_lastname_isValid;
 
-    QList<OAICustom_FormDataEzsignformfieldgroup_Response> a_obj_ezsignformfieldgroup;
+    QList<OAICustom_FormDataEzsignformfieldgroup_Response> m_a_obj_ezsignformfieldgroup;
     bool m_a_obj_ezsignformfieldgroup_isSet;
     bool m_a_obj_ezsignformfieldgroup_isValid;
 };

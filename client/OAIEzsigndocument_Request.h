@@ -121,63 +121,63 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_ezsigndocument_id;
+    qint32 m_pki_ezsigndocument_id;
     bool m_pki_ezsigndocument_id_isSet;
     bool m_pki_ezsigndocument_id_isValid;
 
-    qint32 fki_ezsignfolder_id;
+    qint32 m_fki_ezsignfolder_id;
     bool m_fki_ezsignfolder_id_isSet;
     bool m_fki_ezsignfolder_id_isValid;
 
-    qint32 fki_ezsigntemplate_id;
+    qint32 m_fki_ezsigntemplate_id;
     bool m_fki_ezsigntemplate_id_isSet;
     bool m_fki_ezsigntemplate_id_isValid;
 
-    qint32 fki_ezsignfoldersignerassociation_id;
+    qint32 m_fki_ezsignfoldersignerassociation_id;
     bool m_fki_ezsignfoldersignerassociation_id_isSet;
     bool m_fki_ezsignfoldersignerassociation_id_isValid;
 
-    qint32 fki_language_id;
+    qint32 m_fki_language_id;
     bool m_fki_language_id_isSet;
     bool m_fki_language_id_isValid;
 
-    QString e_ezsigndocument_source;
+    QString m_e_ezsigndocument_source;
     bool m_e_ezsigndocument_source_isSet;
     bool m_e_ezsigndocument_source_isValid;
 
-    QString e_ezsigndocument_format;
+    QString m_e_ezsigndocument_format;
     bool m_e_ezsigndocument_format_isSet;
     bool m_e_ezsigndocument_format_isValid;
 
-    QByteArray s_ezsigndocument_base64;
+    QByteArray m_s_ezsigndocument_base64;
     bool m_s_ezsigndocument_base64_isSet;
     bool m_s_ezsigndocument_base64_isValid;
 
-    QString s_ezsigndocument_url;
+    QString m_s_ezsigndocument_url;
     bool m_s_ezsigndocument_url_isSet;
     bool m_s_ezsigndocument_url_isValid;
 
-    bool b_ezsigndocument_forcerepair;
+    bool m_b_ezsigndocument_forcerepair;
     bool m_b_ezsigndocument_forcerepair_isSet;
     bool m_b_ezsigndocument_forcerepair_isValid;
 
-    QString s_ezsigndocument_password;
+    QString m_s_ezsigndocument_password;
     bool m_s_ezsigndocument_password_isSet;
     bool m_s_ezsigndocument_password_isValid;
 
-    QString e_ezsigndocument_form;
+    QString m_e_ezsigndocument_form;
     bool m_e_ezsigndocument_form_isSet;
     bool m_e_ezsigndocument_form_isValid;
 
-    QString dt_ezsigndocument_duedate;
+    QString m_dt_ezsigndocument_duedate;
     bool m_dt_ezsigndocument_duedate_isSet;
     bool m_dt_ezsigndocument_duedate_isValid;
 
-    QString s_ezsigndocument_name;
+    QString m_s_ezsigndocument_name;
     bool m_s_ezsigndocument_name_isSet;
     bool m_s_ezsigndocument_name_isValid;
 
-    QString s_ezsigndocument_externalid;
+    QString m_s_ezsigndocument_externalid;
     bool m_s_ezsigndocument_externalid_isSet;
     bool m_s_ezsigndocument_externalid_isValid;
 };

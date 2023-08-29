@@ -47,7 +47,7 @@ void OAIApikey_regenerate_v1_Request::fromJson(QString jsonString) {
 
 void OAIApikey_regenerate_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_b_apikey_issigned_isValid = ::OpenAPI::fromJsonValue(b_apikey_issigned, json[QString("bApikeyIssigned")]);
+    m_b_apikey_issigned_isValid = ::OpenAPI::fromJsonValue(m_b_apikey_issigned, json[QString("bApikeyIssigned")]);
     m_b_apikey_issigned_isSet = !json[QString("bApikeyIssigned")].isNull() && m_b_apikey_issigned_isValid;
 }
 
@@ -61,17 +61,17 @@ QString OAIApikey_regenerate_v1_Request::asJson() const {
 QJsonObject OAIApikey_regenerate_v1_Request::asJsonObject() const {
     QJsonObject obj;
     if (m_b_apikey_issigned_isSet) {
-        obj.insert(QString("bApikeyIssigned"), ::OpenAPI::toJsonValue(b_apikey_issigned));
+        obj.insert(QString("bApikeyIssigned"), ::OpenAPI::toJsonValue(m_b_apikey_issigned));
     }
     return obj;
 }
 
 bool OAIApikey_regenerate_v1_Request::isBApikeyIssigned() const {
-    return b_apikey_issigned;
+    return m_b_apikey_issigned;
 }
 void OAIApikey_regenerate_v1_Request::setBApikeyIssigned(const bool &b_apikey_issigned) {
-    this->b_apikey_issigned = b_apikey_issigned;
-    this->m_b_apikey_issigned_isSet = true;
+    m_b_apikey_issigned = b_apikey_issigned;
+    m_b_apikey_issigned_isSet = true;
 }
 
 bool OAIApikey_regenerate_v1_Request::is_b_apikey_issigned_Set() const{

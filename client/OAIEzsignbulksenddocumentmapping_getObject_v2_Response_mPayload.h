@@ -51,7 +51,7 @@ public:
 private:
     void initializeModel();
 
-    OAIEzsignbulksenddocumentmapping_ResponseCompound obj_ezsignbulksenddocumentmapping;
+    OAIEzsignbulksenddocumentmapping_ResponseCompound m_obj_ezsignbulksenddocumentmapping;
     bool m_obj_ezsignbulksenddocumentmapping_isSet;
     bool m_obj_ezsignbulksenddocumentmapping_isValid;
 };

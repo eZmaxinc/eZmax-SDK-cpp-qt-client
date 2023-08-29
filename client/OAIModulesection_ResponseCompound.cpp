@@ -59,19 +59,19 @@ void OAIModulesection_ResponseCompound::fromJson(QString jsonString) {
 
 void OAIModulesection_ResponseCompound::fromJsonObject(QJsonObject json) {
 
-    m_pki_modulesection_id_isValid = ::OpenAPI::fromJsonValue(pki_modulesection_id, json[QString("pkiModulesectionID")]);
+    m_pki_modulesection_id_isValid = ::OpenAPI::fromJsonValue(m_pki_modulesection_id, json[QString("pkiModulesectionID")]);
     m_pki_modulesection_id_isSet = !json[QString("pkiModulesectionID")].isNull() && m_pki_modulesection_id_isValid;
 
-    m_fki_module_id_isValid = ::OpenAPI::fromJsonValue(fki_module_id, json[QString("fkiModuleID")]);
+    m_fki_module_id_isValid = ::OpenAPI::fromJsonValue(m_fki_module_id, json[QString("fkiModuleID")]);
     m_fki_module_id_isSet = !json[QString("fkiModuleID")].isNull() && m_fki_module_id_isValid;
 
-    m_s_modulesection_internalname_isValid = ::OpenAPI::fromJsonValue(s_modulesection_internalname, json[QString("sModulesectionInternalname")]);
+    m_s_modulesection_internalname_isValid = ::OpenAPI::fromJsonValue(m_s_modulesection_internalname, json[QString("sModulesectionInternalname")]);
     m_s_modulesection_internalname_isSet = !json[QString("sModulesectionInternalname")].isNull() && m_s_modulesection_internalname_isValid;
 
-    m_s_modulesection_name_x_isValid = ::OpenAPI::fromJsonValue(s_modulesection_name_x, json[QString("sModulesectionNameX")]);
+    m_s_modulesection_name_x_isValid = ::OpenAPI::fromJsonValue(m_s_modulesection_name_x, json[QString("sModulesectionNameX")]);
     m_s_modulesection_name_x_isSet = !json[QString("sModulesectionNameX")].isNull() && m_s_modulesection_name_x_isValid;
 
-    m_a_obj_permission_isValid = ::OpenAPI::fromJsonValue(a_obj_permission, json[QString("a_objPermission")]);
+    m_a_obj_permission_isValid = ::OpenAPI::fromJsonValue(m_a_obj_permission, json[QString("a_objPermission")]);
     m_a_obj_permission_isSet = !json[QString("a_objPermission")].isNull() && m_a_obj_permission_isValid;
 }
 
@@ -85,29 +85,29 @@ QString OAIModulesection_ResponseCompound::asJson() const {
 QJsonObject OAIModulesection_ResponseCompound::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_modulesection_id_isSet) {
-        obj.insert(QString("pkiModulesectionID"), ::OpenAPI::toJsonValue(pki_modulesection_id));
+        obj.insert(QString("pkiModulesectionID"), ::OpenAPI::toJsonValue(m_pki_modulesection_id));
     }
     if (m_fki_module_id_isSet) {
-        obj.insert(QString("fkiModuleID"), ::OpenAPI::toJsonValue(fki_module_id));
+        obj.insert(QString("fkiModuleID"), ::OpenAPI::toJsonValue(m_fki_module_id));
     }
     if (m_s_modulesection_internalname_isSet) {
-        obj.insert(QString("sModulesectionInternalname"), ::OpenAPI::toJsonValue(s_modulesection_internalname));
+        obj.insert(QString("sModulesectionInternalname"), ::OpenAPI::toJsonValue(m_s_modulesection_internalname));
     }
     if (m_s_modulesection_name_x_isSet) {
-        obj.insert(QString("sModulesectionNameX"), ::OpenAPI::toJsonValue(s_modulesection_name_x));
+        obj.insert(QString("sModulesectionNameX"), ::OpenAPI::toJsonValue(m_s_modulesection_name_x));
     }
-    if (a_obj_permission.size() > 0) {
-        obj.insert(QString("a_objPermission"), ::OpenAPI::toJsonValue(a_obj_permission));
+    if (m_a_obj_permission.size() > 0) {
+        obj.insert(QString("a_objPermission"), ::OpenAPI::toJsonValue(m_a_obj_permission));
     }
     return obj;
 }
 
 qint32 OAIModulesection_ResponseCompound::getPkiModulesectionId() const {
-    return pki_modulesection_id;
+    return m_pki_modulesection_id;
 }
 void OAIModulesection_ResponseCompound::setPkiModulesectionId(const qint32 &pki_modulesection_id) {
-    this->pki_modulesection_id = pki_modulesection_id;
-    this->m_pki_modulesection_id_isSet = true;
+    m_pki_modulesection_id = pki_modulesection_id;
+    m_pki_modulesection_id_isSet = true;
 }
 
 bool OAIModulesection_ResponseCompound::is_pki_modulesection_id_Set() const{
@@ -119,11 +119,11 @@ bool OAIModulesection_ResponseCompound::is_pki_modulesection_id_Valid() const{
 }
 
 qint32 OAIModulesection_ResponseCompound::getFkiModuleId() const {
-    return fki_module_id;
+    return m_fki_module_id;
 }
 void OAIModulesection_ResponseCompound::setFkiModuleId(const qint32 &fki_module_id) {
-    this->fki_module_id = fki_module_id;
-    this->m_fki_module_id_isSet = true;
+    m_fki_module_id = fki_module_id;
+    m_fki_module_id_isSet = true;
 }
 
 bool OAIModulesection_ResponseCompound::is_fki_module_id_Set() const{
@@ -135,11 +135,11 @@ bool OAIModulesection_ResponseCompound::is_fki_module_id_Valid() const{
 }
 
 QString OAIModulesection_ResponseCompound::getSModulesectionInternalname() const {
-    return s_modulesection_internalname;
+    return m_s_modulesection_internalname;
 }
 void OAIModulesection_ResponseCompound::setSModulesectionInternalname(const QString &s_modulesection_internalname) {
-    this->s_modulesection_internalname = s_modulesection_internalname;
-    this->m_s_modulesection_internalname_isSet = true;
+    m_s_modulesection_internalname = s_modulesection_internalname;
+    m_s_modulesection_internalname_isSet = true;
 }
 
 bool OAIModulesection_ResponseCompound::is_s_modulesection_internalname_Set() const{
@@ -151,11 +151,11 @@ bool OAIModulesection_ResponseCompound::is_s_modulesection_internalname_Valid() 
 }
 
 QString OAIModulesection_ResponseCompound::getSModulesectionNameX() const {
-    return s_modulesection_name_x;
+    return m_s_modulesection_name_x;
 }
 void OAIModulesection_ResponseCompound::setSModulesectionNameX(const QString &s_modulesection_name_x) {
-    this->s_modulesection_name_x = s_modulesection_name_x;
-    this->m_s_modulesection_name_x_isSet = true;
+    m_s_modulesection_name_x = s_modulesection_name_x;
+    m_s_modulesection_name_x_isSet = true;
 }
 
 bool OAIModulesection_ResponseCompound::is_s_modulesection_name_x_Set() const{
@@ -167,11 +167,11 @@ bool OAIModulesection_ResponseCompound::is_s_modulesection_name_x_Valid() const{
 }
 
 QList<OAIPermission_ResponseCompound> OAIModulesection_ResponseCompound::getAObjPermission() const {
-    return a_obj_permission;
+    return m_a_obj_permission;
 }
 void OAIModulesection_ResponseCompound::setAObjPermission(const QList<OAIPermission_ResponseCompound> &a_obj_permission) {
-    this->a_obj_permission = a_obj_permission;
-    this->m_a_obj_permission_isSet = true;
+    m_a_obj_permission = a_obj_permission;
+    m_a_obj_permission_isSet = true;
 }
 
 bool OAIModulesection_ResponseCompound::is_a_obj_permission_Set() const{
@@ -205,7 +205,7 @@ bool OAIModulesection_ResponseCompound::isSet() const {
             break;
         }
 
-        if (a_obj_permission.size() > 0) {
+        if (m_a_obj_permission.size() > 0) {
             isObjectUpdated = true;
             break;
         }

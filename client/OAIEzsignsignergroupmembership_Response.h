@@ -69,23 +69,23 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_ezsignsignergroupmembership_id;
+    qint32 m_pki_ezsignsignergroupmembership_id;
     bool m_pki_ezsignsignergroupmembership_id_isSet;
     bool m_pki_ezsignsignergroupmembership_id_isValid;
 
-    qint32 fki_ezsignsignergroup_id;
+    qint32 m_fki_ezsignsignergroup_id;
     bool m_fki_ezsignsignergroup_id_isSet;
     bool m_fki_ezsignsignergroup_id_isValid;
 
-    qint32 fki_ezsignsigner_id;
+    qint32 m_fki_ezsignsigner_id;
     bool m_fki_ezsignsigner_id_isSet;
     bool m_fki_ezsignsigner_id_isValid;
 
-    qint32 fki_user_id;
+    qint32 m_fki_user_id;
     bool m_fki_user_id_isSet;
     bool m_fki_user_id_isValid;
 
-    qint32 fki_usergroup_id;
+    qint32 m_fki_usergroup_id;
     bool m_fki_usergroup_id_isSet;
     bool m_fki_usergroup_id_isValid;
 };

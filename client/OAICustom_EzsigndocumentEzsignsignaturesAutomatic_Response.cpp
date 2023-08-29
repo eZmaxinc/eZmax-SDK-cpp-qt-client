@@ -53,13 +53,13 @@ void OAICustom_EzsigndocumentEzsignsignaturesAutomatic_Response::fromJson(QStrin
 
 void OAICustom_EzsigndocumentEzsignsignaturesAutomatic_Response::fromJsonObject(QJsonObject json) {
 
-    m_pki_ezsigndocument_id_isValid = ::OpenAPI::fromJsonValue(pki_ezsigndocument_id, json[QString("pkiEzsigndocumentID")]);
+    m_pki_ezsigndocument_id_isValid = ::OpenAPI::fromJsonValue(m_pki_ezsigndocument_id, json[QString("pkiEzsigndocumentID")]);
     m_pki_ezsigndocument_id_isSet = !json[QString("pkiEzsigndocumentID")].isNull() && m_pki_ezsigndocument_id_isValid;
 
-    m_s_ezsigndocument_name_isValid = ::OpenAPI::fromJsonValue(s_ezsigndocument_name, json[QString("sEzsigndocumentName")]);
+    m_s_ezsigndocument_name_isValid = ::OpenAPI::fromJsonValue(m_s_ezsigndocument_name, json[QString("sEzsigndocumentName")]);
     m_s_ezsigndocument_name_isSet = !json[QString("sEzsigndocumentName")].isNull() && m_s_ezsigndocument_name_isValid;
 
-    m_a_obj_ezsignsignature_isValid = ::OpenAPI::fromJsonValue(a_obj_ezsignsignature, json[QString("a_objEzsignsignature")]);
+    m_a_obj_ezsignsignature_isValid = ::OpenAPI::fromJsonValue(m_a_obj_ezsignsignature, json[QString("a_objEzsignsignature")]);
     m_a_obj_ezsignsignature_isSet = !json[QString("a_objEzsignsignature")].isNull() && m_a_obj_ezsignsignature_isValid;
 }
 
@@ -73,23 +73,23 @@ QString OAICustom_EzsigndocumentEzsignsignaturesAutomatic_Response::asJson() con
 QJsonObject OAICustom_EzsigndocumentEzsignsignaturesAutomatic_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_ezsigndocument_id_isSet) {
-        obj.insert(QString("pkiEzsigndocumentID"), ::OpenAPI::toJsonValue(pki_ezsigndocument_id));
+        obj.insert(QString("pkiEzsigndocumentID"), ::OpenAPI::toJsonValue(m_pki_ezsigndocument_id));
     }
     if (m_s_ezsigndocument_name_isSet) {
-        obj.insert(QString("sEzsigndocumentName"), ::OpenAPI::toJsonValue(s_ezsigndocument_name));
+        obj.insert(QString("sEzsigndocumentName"), ::OpenAPI::toJsonValue(m_s_ezsigndocument_name));
     }
-    if (a_obj_ezsignsignature.size() > 0) {
-        obj.insert(QString("a_objEzsignsignature"), ::OpenAPI::toJsonValue(a_obj_ezsignsignature));
+    if (m_a_obj_ezsignsignature.size() > 0) {
+        obj.insert(QString("a_objEzsignsignature"), ::OpenAPI::toJsonValue(m_a_obj_ezsignsignature));
     }
     return obj;
 }
 
 qint32 OAICustom_EzsigndocumentEzsignsignaturesAutomatic_Response::getPkiEzsigndocumentId() const {
-    return pki_ezsigndocument_id;
+    return m_pki_ezsigndocument_id;
 }
 void OAICustom_EzsigndocumentEzsignsignaturesAutomatic_Response::setPkiEzsigndocumentId(const qint32 &pki_ezsigndocument_id) {
-    this->pki_ezsigndocument_id = pki_ezsigndocument_id;
-    this->m_pki_ezsigndocument_id_isSet = true;
+    m_pki_ezsigndocument_id = pki_ezsigndocument_id;
+    m_pki_ezsigndocument_id_isSet = true;
 }
 
 bool OAICustom_EzsigndocumentEzsignsignaturesAutomatic_Response::is_pki_ezsigndocument_id_Set() const{
@@ -101,11 +101,11 @@ bool OAICustom_EzsigndocumentEzsignsignaturesAutomatic_Response::is_pki_ezsigndo
 }
 
 QString OAICustom_EzsigndocumentEzsignsignaturesAutomatic_Response::getSEzsigndocumentName() const {
-    return s_ezsigndocument_name;
+    return m_s_ezsigndocument_name;
 }
 void OAICustom_EzsigndocumentEzsignsignaturesAutomatic_Response::setSEzsigndocumentName(const QString &s_ezsigndocument_name) {
-    this->s_ezsigndocument_name = s_ezsigndocument_name;
-    this->m_s_ezsigndocument_name_isSet = true;
+    m_s_ezsigndocument_name = s_ezsigndocument_name;
+    m_s_ezsigndocument_name_isSet = true;
 }
 
 bool OAICustom_EzsigndocumentEzsignsignaturesAutomatic_Response::is_s_ezsigndocument_name_Set() const{
@@ -117,11 +117,11 @@ bool OAICustom_EzsigndocumentEzsignsignaturesAutomatic_Response::is_s_ezsigndocu
 }
 
 QList<OAICustom_EzsignsignatureEzsignsignaturesAutomatic_Response> OAICustom_EzsigndocumentEzsignsignaturesAutomatic_Response::getAObjEzsignsignature() const {
-    return a_obj_ezsignsignature;
+    return m_a_obj_ezsignsignature;
 }
 void OAICustom_EzsigndocumentEzsignsignaturesAutomatic_Response::setAObjEzsignsignature(const QList<OAICustom_EzsignsignatureEzsignsignaturesAutomatic_Response> &a_obj_ezsignsignature) {
-    this->a_obj_ezsignsignature = a_obj_ezsignsignature;
-    this->m_a_obj_ezsignsignature_isSet = true;
+    m_a_obj_ezsignsignature = a_obj_ezsignsignature;
+    m_a_obj_ezsignsignature_isSet = true;
 }
 
 bool OAICustom_EzsigndocumentEzsignsignaturesAutomatic_Response::is_a_obj_ezsignsignature_Set() const{
@@ -145,7 +145,7 @@ bool OAICustom_EzsigndocumentEzsignsignaturesAutomatic_Response::isSet() const {
             break;
         }
 
-        if (a_obj_ezsignsignature.size() > 0) {
+        if (m_a_obj_ezsignsignature.size() > 0) {
             isObjectUpdated = true;
             break;
         }

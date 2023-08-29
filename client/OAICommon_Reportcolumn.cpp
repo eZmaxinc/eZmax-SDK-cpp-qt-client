@@ -50,10 +50,10 @@ void OAICommon_Reportcolumn::fromJson(QString jsonString) {
 
 void OAICommon_Reportcolumn::fromJsonObject(QJsonObject json) {
 
-    m_obj_reportcellstyle_default_isValid = ::OpenAPI::fromJsonValue(obj_reportcellstyle_default, json[QString("objReportcellstyleDefault")]);
+    m_obj_reportcellstyle_default_isValid = ::OpenAPI::fromJsonValue(m_obj_reportcellstyle_default, json[QString("objReportcellstyleDefault")]);
     m_obj_reportcellstyle_default_isSet = !json[QString("objReportcellstyleDefault")].isNull() && m_obj_reportcellstyle_default_isValid;
 
-    m_i_reportcolumn_width_isValid = ::OpenAPI::fromJsonValue(i_reportcolumn_width, json[QString("iReportcolumnWidth")]);
+    m_i_reportcolumn_width_isValid = ::OpenAPI::fromJsonValue(m_i_reportcolumn_width, json[QString("iReportcolumnWidth")]);
     m_i_reportcolumn_width_isSet = !json[QString("iReportcolumnWidth")].isNull() && m_i_reportcolumn_width_isValid;
 }
 
@@ -66,21 +66,21 @@ QString OAICommon_Reportcolumn::asJson() const {
 
 QJsonObject OAICommon_Reportcolumn::asJsonObject() const {
     QJsonObject obj;
-    if (obj_reportcellstyle_default.isSet()) {
-        obj.insert(QString("objReportcellstyleDefault"), ::OpenAPI::toJsonValue(obj_reportcellstyle_default));
+    if (m_obj_reportcellstyle_default.isSet()) {
+        obj.insert(QString("objReportcellstyleDefault"), ::OpenAPI::toJsonValue(m_obj_reportcellstyle_default));
     }
     if (m_i_reportcolumn_width_isSet) {
-        obj.insert(QString("iReportcolumnWidth"), ::OpenAPI::toJsonValue(i_reportcolumn_width));
+        obj.insert(QString("iReportcolumnWidth"), ::OpenAPI::toJsonValue(m_i_reportcolumn_width));
     }
     return obj;
 }
 
 OAICommon_Reportcellstyle OAICommon_Reportcolumn::getObjReportcellstyleDefault() const {
-    return obj_reportcellstyle_default;
+    return m_obj_reportcellstyle_default;
 }
 void OAICommon_Reportcolumn::setObjReportcellstyleDefault(const OAICommon_Reportcellstyle &obj_reportcellstyle_default) {
-    this->obj_reportcellstyle_default = obj_reportcellstyle_default;
-    this->m_obj_reportcellstyle_default_isSet = true;
+    m_obj_reportcellstyle_default = obj_reportcellstyle_default;
+    m_obj_reportcellstyle_default_isSet = true;
 }
 
 bool OAICommon_Reportcolumn::is_obj_reportcellstyle_default_Set() const{
@@ -92,11 +92,11 @@ bool OAICommon_Reportcolumn::is_obj_reportcellstyle_default_Valid() const{
 }
 
 qint32 OAICommon_Reportcolumn::getIReportcolumnWidth() const {
-    return i_reportcolumn_width;
+    return m_i_reportcolumn_width;
 }
 void OAICommon_Reportcolumn::setIReportcolumnWidth(const qint32 &i_reportcolumn_width) {
-    this->i_reportcolumn_width = i_reportcolumn_width;
-    this->m_i_reportcolumn_width_isSet = true;
+    m_i_reportcolumn_width = i_reportcolumn_width;
+    m_i_reportcolumn_width_isSet = true;
 }
 
 bool OAICommon_Reportcolumn::is_i_reportcolumn_width_Set() const{
@@ -110,7 +110,7 @@ bool OAICommon_Reportcolumn::is_i_reportcolumn_width_Valid() const{
 bool OAICommon_Reportcolumn::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (obj_reportcellstyle_default.isSet()) {
+        if (m_obj_reportcellstyle_default.isSet()) {
             isObjectUpdated = true;
             break;
         }

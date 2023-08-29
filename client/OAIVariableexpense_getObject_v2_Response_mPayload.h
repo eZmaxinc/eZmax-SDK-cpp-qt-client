@@ -51,7 +51,7 @@ public:
 private:
     void initializeModel();
 
-    OAIVariableexpense_ResponseCompound obj_variableexpense;
+    OAIVariableexpense_ResponseCompound m_obj_variableexpense;
     bool m_obj_variableexpense_isSet;
     bool m_obj_variableexpense_isValid;
 };

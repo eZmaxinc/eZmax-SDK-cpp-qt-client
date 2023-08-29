@@ -62,22 +62,22 @@ void OAIEzsignsignature_sign_v1_Request::fromJson(QString jsonString) {
 
 void OAIEzsignsignature_sign_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_s_value_isValid = ::OpenAPI::fromJsonValue(s_value, json[QString("sValue")]);
+    m_s_value_isValid = ::OpenAPI::fromJsonValue(m_s_value, json[QString("sValue")]);
     m_s_value_isSet = !json[QString("sValue")].isNull() && m_s_value_isValid;
 
-    m_e_attachments_confirmation_decision_isValid = ::OpenAPI::fromJsonValue(e_attachments_confirmation_decision, json[QString("eAttachmentsConfirmationDecision")]);
+    m_e_attachments_confirmation_decision_isValid = ::OpenAPI::fromJsonValue(m_e_attachments_confirmation_decision, json[QString("eAttachmentsConfirmationDecision")]);
     m_e_attachments_confirmation_decision_isSet = !json[QString("eAttachmentsConfirmationDecision")].isNull() && m_e_attachments_confirmation_decision_isValid;
 
-    m_s_attachments_refusal_reason_isValid = ::OpenAPI::fromJsonValue(s_attachments_refusal_reason, json[QString("sAttachmentsRefusalReason")]);
+    m_s_attachments_refusal_reason_isValid = ::OpenAPI::fromJsonValue(m_s_attachments_refusal_reason, json[QString("sAttachmentsRefusalReason")]);
     m_s_attachments_refusal_reason_isSet = !json[QString("sAttachmentsRefusalReason")].isNull() && m_s_attachments_refusal_reason_isValid;
 
-    m_s_svg_isValid = ::OpenAPI::fromJsonValue(s_svg, json[QString("sSvg")]);
+    m_s_svg_isValid = ::OpenAPI::fromJsonValue(m_s_svg, json[QString("sSvg")]);
     m_s_svg_isSet = !json[QString("sSvg")].isNull() && m_s_svg_isValid;
 
-    m_a_obj_file_isValid = ::OpenAPI::fromJsonValue(a_obj_file, json[QString("a_objFile")]);
+    m_a_obj_file_isValid = ::OpenAPI::fromJsonValue(m_a_obj_file, json[QString("a_objFile")]);
     m_a_obj_file_isSet = !json[QString("a_objFile")].isNull() && m_a_obj_file_isValid;
 
-    m_b_is_automatic_isValid = ::OpenAPI::fromJsonValue(b_is_automatic, json[QString("bIsAutomatic")]);
+    m_b_is_automatic_isValid = ::OpenAPI::fromJsonValue(m_b_is_automatic, json[QString("bIsAutomatic")]);
     m_b_is_automatic_isSet = !json[QString("bIsAutomatic")].isNull() && m_b_is_automatic_isValid;
 }
 
@@ -91,32 +91,32 @@ QString OAIEzsignsignature_sign_v1_Request::asJson() const {
 QJsonObject OAIEzsignsignature_sign_v1_Request::asJsonObject() const {
     QJsonObject obj;
     if (m_s_value_isSet) {
-        obj.insert(QString("sValue"), ::OpenAPI::toJsonValue(s_value));
+        obj.insert(QString("sValue"), ::OpenAPI::toJsonValue(m_s_value));
     }
     if (m_e_attachments_confirmation_decision_isSet) {
-        obj.insert(QString("eAttachmentsConfirmationDecision"), ::OpenAPI::toJsonValue(e_attachments_confirmation_decision));
+        obj.insert(QString("eAttachmentsConfirmationDecision"), ::OpenAPI::toJsonValue(m_e_attachments_confirmation_decision));
     }
     if (m_s_attachments_refusal_reason_isSet) {
-        obj.insert(QString("sAttachmentsRefusalReason"), ::OpenAPI::toJsonValue(s_attachments_refusal_reason));
+        obj.insert(QString("sAttachmentsRefusalReason"), ::OpenAPI::toJsonValue(m_s_attachments_refusal_reason));
     }
     if (m_s_svg_isSet) {
-        obj.insert(QString("sSvg"), ::OpenAPI::toJsonValue(s_svg));
+        obj.insert(QString("sSvg"), ::OpenAPI::toJsonValue(m_s_svg));
     }
-    if (a_obj_file.size() > 0) {
-        obj.insert(QString("a_objFile"), ::OpenAPI::toJsonValue(a_obj_file));
+    if (m_a_obj_file.size() > 0) {
+        obj.insert(QString("a_objFile"), ::OpenAPI::toJsonValue(m_a_obj_file));
     }
     if (m_b_is_automatic_isSet) {
-        obj.insert(QString("bIsAutomatic"), ::OpenAPI::toJsonValue(b_is_automatic));
+        obj.insert(QString("bIsAutomatic"), ::OpenAPI::toJsonValue(m_b_is_automatic));
     }
     return obj;
 }
 
 QString OAIEzsignsignature_sign_v1_Request::getSValue() const {
-    return s_value;
+    return m_s_value;
 }
 void OAIEzsignsignature_sign_v1_Request::setSValue(const QString &s_value) {
-    this->s_value = s_value;
-    this->m_s_value_isSet = true;
+    m_s_value = s_value;
+    m_s_value_isSet = true;
 }
 
 bool OAIEzsignsignature_sign_v1_Request::is_s_value_Set() const{
@@ -128,11 +128,11 @@ bool OAIEzsignsignature_sign_v1_Request::is_s_value_Valid() const{
 }
 
 QString OAIEzsignsignature_sign_v1_Request::getEAttachmentsConfirmationDecision() const {
-    return e_attachments_confirmation_decision;
+    return m_e_attachments_confirmation_decision;
 }
 void OAIEzsignsignature_sign_v1_Request::setEAttachmentsConfirmationDecision(const QString &e_attachments_confirmation_decision) {
-    this->e_attachments_confirmation_decision = e_attachments_confirmation_decision;
-    this->m_e_attachments_confirmation_decision_isSet = true;
+    m_e_attachments_confirmation_decision = e_attachments_confirmation_decision;
+    m_e_attachments_confirmation_decision_isSet = true;
 }
 
 bool OAIEzsignsignature_sign_v1_Request::is_e_attachments_confirmation_decision_Set() const{
@@ -144,11 +144,11 @@ bool OAIEzsignsignature_sign_v1_Request::is_e_attachments_confirmation_decision_
 }
 
 QString OAIEzsignsignature_sign_v1_Request::getSAttachmentsRefusalReason() const {
-    return s_attachments_refusal_reason;
+    return m_s_attachments_refusal_reason;
 }
 void OAIEzsignsignature_sign_v1_Request::setSAttachmentsRefusalReason(const QString &s_attachments_refusal_reason) {
-    this->s_attachments_refusal_reason = s_attachments_refusal_reason;
-    this->m_s_attachments_refusal_reason_isSet = true;
+    m_s_attachments_refusal_reason = s_attachments_refusal_reason;
+    m_s_attachments_refusal_reason_isSet = true;
 }
 
 bool OAIEzsignsignature_sign_v1_Request::is_s_attachments_refusal_reason_Set() const{
@@ -160,11 +160,11 @@ bool OAIEzsignsignature_sign_v1_Request::is_s_attachments_refusal_reason_Valid()
 }
 
 QString OAIEzsignsignature_sign_v1_Request::getSSvg() const {
-    return s_svg;
+    return m_s_svg;
 }
 void OAIEzsignsignature_sign_v1_Request::setSSvg(const QString &s_svg) {
-    this->s_svg = s_svg;
-    this->m_s_svg_isSet = true;
+    m_s_svg = s_svg;
+    m_s_svg_isSet = true;
 }
 
 bool OAIEzsignsignature_sign_v1_Request::is_s_svg_Set() const{
@@ -176,11 +176,11 @@ bool OAIEzsignsignature_sign_v1_Request::is_s_svg_Valid() const{
 }
 
 QList<OAICommon_File> OAIEzsignsignature_sign_v1_Request::getAObjFile() const {
-    return a_obj_file;
+    return m_a_obj_file;
 }
 void OAIEzsignsignature_sign_v1_Request::setAObjFile(const QList<OAICommon_File> &a_obj_file) {
-    this->a_obj_file = a_obj_file;
-    this->m_a_obj_file_isSet = true;
+    m_a_obj_file = a_obj_file;
+    m_a_obj_file_isSet = true;
 }
 
 bool OAIEzsignsignature_sign_v1_Request::is_a_obj_file_Set() const{
@@ -192,11 +192,11 @@ bool OAIEzsignsignature_sign_v1_Request::is_a_obj_file_Valid() const{
 }
 
 bool OAIEzsignsignature_sign_v1_Request::isBIsAutomatic() const {
-    return b_is_automatic;
+    return m_b_is_automatic;
 }
 void OAIEzsignsignature_sign_v1_Request::setBIsAutomatic(const bool &b_is_automatic) {
-    this->b_is_automatic = b_is_automatic;
-    this->m_b_is_automatic_isSet = true;
+    m_b_is_automatic = b_is_automatic;
+    m_b_is_automatic_isSet = true;
 }
 
 bool OAIEzsignsignature_sign_v1_Request::is_b_is_automatic_Set() const{
@@ -230,7 +230,7 @@ bool OAIEzsignsignature_sign_v1_Request::isSet() const {
             break;
         }
 
-        if (a_obj_file.size() > 0) {
+        if (m_a_obj_file.size() > 0) {
             isObjectUpdated = true;
             break;
         }

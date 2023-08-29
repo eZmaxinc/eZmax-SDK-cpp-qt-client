@@ -68,28 +68,28 @@ void OAICommon_Reportcellstyle::fromJson(QString jsonString) {
 
 void OAICommon_Reportcellstyle::fromJsonObject(QJsonObject json) {
 
-    m_b_reportcellstyle_bordertop_isValid = ::OpenAPI::fromJsonValue(b_reportcellstyle_bordertop, json[QString("bReportcellstyleBordertop")]);
+    m_b_reportcellstyle_bordertop_isValid = ::OpenAPI::fromJsonValue(m_b_reportcellstyle_bordertop, json[QString("bReportcellstyleBordertop")]);
     m_b_reportcellstyle_bordertop_isSet = !json[QString("bReportcellstyleBordertop")].isNull() && m_b_reportcellstyle_bordertop_isValid;
 
-    m_b_reportcellstyle_borderbottom_isValid = ::OpenAPI::fromJsonValue(b_reportcellstyle_borderbottom, json[QString("bReportcellstyleBorderbottom")]);
+    m_b_reportcellstyle_borderbottom_isValid = ::OpenAPI::fromJsonValue(m_b_reportcellstyle_borderbottom, json[QString("bReportcellstyleBorderbottom")]);
     m_b_reportcellstyle_borderbottom_isSet = !json[QString("bReportcellstyleBorderbottom")].isNull() && m_b_reportcellstyle_borderbottom_isValid;
 
-    m_b_reportcellstyle_borderleft_isValid = ::OpenAPI::fromJsonValue(b_reportcellstyle_borderleft, json[QString("bReportcellstyleBorderleft")]);
+    m_b_reportcellstyle_borderleft_isValid = ::OpenAPI::fromJsonValue(m_b_reportcellstyle_borderleft, json[QString("bReportcellstyleBorderleft")]);
     m_b_reportcellstyle_borderleft_isSet = !json[QString("bReportcellstyleBorderleft")].isNull() && m_b_reportcellstyle_borderleft_isValid;
 
-    m_b_reportcellstyle_borderright_isValid = ::OpenAPI::fromJsonValue(b_reportcellstyle_borderright, json[QString("bReportcellstyleBorderright")]);
+    m_b_reportcellstyle_borderright_isValid = ::OpenAPI::fromJsonValue(m_b_reportcellstyle_borderright, json[QString("bReportcellstyleBorderright")]);
     m_b_reportcellstyle_borderright_isSet = !json[QString("bReportcellstyleBorderright")].isNull() && m_b_reportcellstyle_borderright_isValid;
 
-    m_e_reportcell_horizontalalignment_isValid = ::OpenAPI::fromJsonValue(e_reportcell_horizontalalignment, json[QString("eReportcellHorizontalalignment")]);
+    m_e_reportcell_horizontalalignment_isValid = ::OpenAPI::fromJsonValue(m_e_reportcell_horizontalalignment, json[QString("eReportcellHorizontalalignment")]);
     m_e_reportcell_horizontalalignment_isSet = !json[QString("eReportcellHorizontalalignment")].isNull() && m_e_reportcell_horizontalalignment_isValid;
 
-    m_e_reportcell_verticalalignment_isValid = ::OpenAPI::fromJsonValue(e_reportcell_verticalalignment, json[QString("eReportcellVerticalalignment")]);
+    m_e_reportcell_verticalalignment_isValid = ::OpenAPI::fromJsonValue(m_e_reportcell_verticalalignment, json[QString("eReportcellVerticalalignment")]);
     m_e_reportcell_verticalalignment_isSet = !json[QString("eReportcellVerticalalignment")].isNull() && m_e_reportcell_verticalalignment_isValid;
 
-    m_e_reportcell_fontweight_isValid = ::OpenAPI::fromJsonValue(e_reportcell_fontweight, json[QString("eReportcellFontweight")]);
+    m_e_reportcell_fontweight_isValid = ::OpenAPI::fromJsonValue(m_e_reportcell_fontweight, json[QString("eReportcellFontweight")]);
     m_e_reportcell_fontweight_isSet = !json[QString("eReportcellFontweight")].isNull() && m_e_reportcell_fontweight_isValid;
 
-    m_e_reportcell_fontunderline_isValid = ::OpenAPI::fromJsonValue(e_reportcell_fontunderline, json[QString("eReportcellFontunderline")]);
+    m_e_reportcell_fontunderline_isValid = ::OpenAPI::fromJsonValue(m_e_reportcell_fontunderline, json[QString("eReportcellFontunderline")]);
     m_e_reportcell_fontunderline_isSet = !json[QString("eReportcellFontunderline")].isNull() && m_e_reportcell_fontunderline_isValid;
 }
 
@@ -103,38 +103,38 @@ QString OAICommon_Reportcellstyle::asJson() const {
 QJsonObject OAICommon_Reportcellstyle::asJsonObject() const {
     QJsonObject obj;
     if (m_b_reportcellstyle_bordertop_isSet) {
-        obj.insert(QString("bReportcellstyleBordertop"), ::OpenAPI::toJsonValue(b_reportcellstyle_bordertop));
+        obj.insert(QString("bReportcellstyleBordertop"), ::OpenAPI::toJsonValue(m_b_reportcellstyle_bordertop));
     }
     if (m_b_reportcellstyle_borderbottom_isSet) {
-        obj.insert(QString("bReportcellstyleBorderbottom"), ::OpenAPI::toJsonValue(b_reportcellstyle_borderbottom));
+        obj.insert(QString("bReportcellstyleBorderbottom"), ::OpenAPI::toJsonValue(m_b_reportcellstyle_borderbottom));
     }
     if (m_b_reportcellstyle_borderleft_isSet) {
-        obj.insert(QString("bReportcellstyleBorderleft"), ::OpenAPI::toJsonValue(b_reportcellstyle_borderleft));
+        obj.insert(QString("bReportcellstyleBorderleft"), ::OpenAPI::toJsonValue(m_b_reportcellstyle_borderleft));
     }
     if (m_b_reportcellstyle_borderright_isSet) {
-        obj.insert(QString("bReportcellstyleBorderright"), ::OpenAPI::toJsonValue(b_reportcellstyle_borderright));
+        obj.insert(QString("bReportcellstyleBorderright"), ::OpenAPI::toJsonValue(m_b_reportcellstyle_borderright));
     }
-    if (e_reportcell_horizontalalignment.isSet()) {
-        obj.insert(QString("eReportcellHorizontalalignment"), ::OpenAPI::toJsonValue(e_reportcell_horizontalalignment));
+    if (m_e_reportcell_horizontalalignment.isSet()) {
+        obj.insert(QString("eReportcellHorizontalalignment"), ::OpenAPI::toJsonValue(m_e_reportcell_horizontalalignment));
     }
-    if (e_reportcell_verticalalignment.isSet()) {
-        obj.insert(QString("eReportcellVerticalalignment"), ::OpenAPI::toJsonValue(e_reportcell_verticalalignment));
+    if (m_e_reportcell_verticalalignment.isSet()) {
+        obj.insert(QString("eReportcellVerticalalignment"), ::OpenAPI::toJsonValue(m_e_reportcell_verticalalignment));
     }
-    if (e_reportcell_fontweight.isSet()) {
-        obj.insert(QString("eReportcellFontweight"), ::OpenAPI::toJsonValue(e_reportcell_fontweight));
+    if (m_e_reportcell_fontweight.isSet()) {
+        obj.insert(QString("eReportcellFontweight"), ::OpenAPI::toJsonValue(m_e_reportcell_fontweight));
     }
-    if (e_reportcell_fontunderline.isSet()) {
-        obj.insert(QString("eReportcellFontunderline"), ::OpenAPI::toJsonValue(e_reportcell_fontunderline));
+    if (m_e_reportcell_fontunderline.isSet()) {
+        obj.insert(QString("eReportcellFontunderline"), ::OpenAPI::toJsonValue(m_e_reportcell_fontunderline));
     }
     return obj;
 }
 
 bool OAICommon_Reportcellstyle::isBReportcellstyleBordertop() const {
-    return b_reportcellstyle_bordertop;
+    return m_b_reportcellstyle_bordertop;
 }
 void OAICommon_Reportcellstyle::setBReportcellstyleBordertop(const bool &b_reportcellstyle_bordertop) {
-    this->b_reportcellstyle_bordertop = b_reportcellstyle_bordertop;
-    this->m_b_reportcellstyle_bordertop_isSet = true;
+    m_b_reportcellstyle_bordertop = b_reportcellstyle_bordertop;
+    m_b_reportcellstyle_bordertop_isSet = true;
 }
 
 bool OAICommon_Reportcellstyle::is_b_reportcellstyle_bordertop_Set() const{
@@ -146,11 +146,11 @@ bool OAICommon_Reportcellstyle::is_b_reportcellstyle_bordertop_Valid() const{
 }
 
 bool OAICommon_Reportcellstyle::isBReportcellstyleBorderbottom() const {
-    return b_reportcellstyle_borderbottom;
+    return m_b_reportcellstyle_borderbottom;
 }
 void OAICommon_Reportcellstyle::setBReportcellstyleBorderbottom(const bool &b_reportcellstyle_borderbottom) {
-    this->b_reportcellstyle_borderbottom = b_reportcellstyle_borderbottom;
-    this->m_b_reportcellstyle_borderbottom_isSet = true;
+    m_b_reportcellstyle_borderbottom = b_reportcellstyle_borderbottom;
+    m_b_reportcellstyle_borderbottom_isSet = true;
 }
 
 bool OAICommon_Reportcellstyle::is_b_reportcellstyle_borderbottom_Set() const{
@@ -162,11 +162,11 @@ bool OAICommon_Reportcellstyle::is_b_reportcellstyle_borderbottom_Valid() const{
 }
 
 bool OAICommon_Reportcellstyle::isBReportcellstyleBorderleft() const {
-    return b_reportcellstyle_borderleft;
+    return m_b_reportcellstyle_borderleft;
 }
 void OAICommon_Reportcellstyle::setBReportcellstyleBorderleft(const bool &b_reportcellstyle_borderleft) {
-    this->b_reportcellstyle_borderleft = b_reportcellstyle_borderleft;
-    this->m_b_reportcellstyle_borderleft_isSet = true;
+    m_b_reportcellstyle_borderleft = b_reportcellstyle_borderleft;
+    m_b_reportcellstyle_borderleft_isSet = true;
 }
 
 bool OAICommon_Reportcellstyle::is_b_reportcellstyle_borderleft_Set() const{
@@ -178,11 +178,11 @@ bool OAICommon_Reportcellstyle::is_b_reportcellstyle_borderleft_Valid() const{
 }
 
 bool OAICommon_Reportcellstyle::isBReportcellstyleBorderright() const {
-    return b_reportcellstyle_borderright;
+    return m_b_reportcellstyle_borderright;
 }
 void OAICommon_Reportcellstyle::setBReportcellstyleBorderright(const bool &b_reportcellstyle_borderright) {
-    this->b_reportcellstyle_borderright = b_reportcellstyle_borderright;
-    this->m_b_reportcellstyle_borderright_isSet = true;
+    m_b_reportcellstyle_borderright = b_reportcellstyle_borderright;
+    m_b_reportcellstyle_borderright_isSet = true;
 }
 
 bool OAICommon_Reportcellstyle::is_b_reportcellstyle_borderright_Set() const{
@@ -194,11 +194,11 @@ bool OAICommon_Reportcellstyle::is_b_reportcellstyle_borderright_Valid() const{
 }
 
 OAIEnum_Horizontalalignment OAICommon_Reportcellstyle::getEReportcellHorizontalalignment() const {
-    return e_reportcell_horizontalalignment;
+    return m_e_reportcell_horizontalalignment;
 }
 void OAICommon_Reportcellstyle::setEReportcellHorizontalalignment(const OAIEnum_Horizontalalignment &e_reportcell_horizontalalignment) {
-    this->e_reportcell_horizontalalignment = e_reportcell_horizontalalignment;
-    this->m_e_reportcell_horizontalalignment_isSet = true;
+    m_e_reportcell_horizontalalignment = e_reportcell_horizontalalignment;
+    m_e_reportcell_horizontalalignment_isSet = true;
 }
 
 bool OAICommon_Reportcellstyle::is_e_reportcell_horizontalalignment_Set() const{
@@ -210,11 +210,11 @@ bool OAICommon_Reportcellstyle::is_e_reportcell_horizontalalignment_Valid() cons
 }
 
 OAIEnum_Verticalalignment OAICommon_Reportcellstyle::getEReportcellVerticalalignment() const {
-    return e_reportcell_verticalalignment;
+    return m_e_reportcell_verticalalignment;
 }
 void OAICommon_Reportcellstyle::setEReportcellVerticalalignment(const OAIEnum_Verticalalignment &e_reportcell_verticalalignment) {
-    this->e_reportcell_verticalalignment = e_reportcell_verticalalignment;
-    this->m_e_reportcell_verticalalignment_isSet = true;
+    m_e_reportcell_verticalalignment = e_reportcell_verticalalignment;
+    m_e_reportcell_verticalalignment_isSet = true;
 }
 
 bool OAICommon_Reportcellstyle::is_e_reportcell_verticalalignment_Set() const{
@@ -226,11 +226,11 @@ bool OAICommon_Reportcellstyle::is_e_reportcell_verticalalignment_Valid() const{
 }
 
 OAIEnum_Fontweight OAICommon_Reportcellstyle::getEReportcellFontweight() const {
-    return e_reportcell_fontweight;
+    return m_e_reportcell_fontweight;
 }
 void OAICommon_Reportcellstyle::setEReportcellFontweight(const OAIEnum_Fontweight &e_reportcell_fontweight) {
-    this->e_reportcell_fontweight = e_reportcell_fontweight;
-    this->m_e_reportcell_fontweight_isSet = true;
+    m_e_reportcell_fontweight = e_reportcell_fontweight;
+    m_e_reportcell_fontweight_isSet = true;
 }
 
 bool OAICommon_Reportcellstyle::is_e_reportcell_fontweight_Set() const{
@@ -242,11 +242,11 @@ bool OAICommon_Reportcellstyle::is_e_reportcell_fontweight_Valid() const{
 }
 
 OAIEnum_Fontunderline OAICommon_Reportcellstyle::getEReportcellFontunderline() const {
-    return e_reportcell_fontunderline;
+    return m_e_reportcell_fontunderline;
 }
 void OAICommon_Reportcellstyle::setEReportcellFontunderline(const OAIEnum_Fontunderline &e_reportcell_fontunderline) {
-    this->e_reportcell_fontunderline = e_reportcell_fontunderline;
-    this->m_e_reportcell_fontunderline_isSet = true;
+    m_e_reportcell_fontunderline = e_reportcell_fontunderline;
+    m_e_reportcell_fontunderline_isSet = true;
 }
 
 bool OAICommon_Reportcellstyle::is_e_reportcell_fontunderline_Set() const{
@@ -280,22 +280,22 @@ bool OAICommon_Reportcellstyle::isSet() const {
             break;
         }
 
-        if (e_reportcell_horizontalalignment.isSet()) {
+        if (m_e_reportcell_horizontalalignment.isSet()) {
             isObjectUpdated = true;
             break;
         }
 
-        if (e_reportcell_verticalalignment.isSet()) {
+        if (m_e_reportcell_verticalalignment.isSet()) {
             isObjectUpdated = true;
             break;
         }
 
-        if (e_reportcell_fontweight.isSet()) {
+        if (m_e_reportcell_fontweight.isSet()) {
             isObjectUpdated = true;
             break;
         }
 
-        if (e_reportcell_fontunderline.isSet()) {
+        if (m_e_reportcell_fontunderline.isSet()) {
             isObjectUpdated = true;
             break;
         }

@@ -64,19 +64,19 @@ public:
 private:
     void initializeModel();
 
-    qint32 i_address_default;
+    qint32 m_i_address_default;
     bool m_i_address_default_isSet;
     bool m_i_address_default_isValid;
 
-    qint32 i_phone_default;
+    qint32 m_i_phone_default;
     bool m_i_phone_default_isSet;
     bool m_i_phone_default_isValid;
 
-    qint32 i_email_default;
+    qint32 m_i_email_default;
     bool m_i_email_default_isSet;
     bool m_i_email_default_isValid;
 
-    qint32 i_website_default;
+    qint32 m_i_website_default;
     bool m_i_website_default_isSet;
     bool m_i_website_default_isValid;
 };

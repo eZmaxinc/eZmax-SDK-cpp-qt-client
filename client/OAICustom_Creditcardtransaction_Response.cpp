@@ -56,16 +56,16 @@ void OAICustom_Creditcardtransaction_Response::fromJson(QString jsonString) {
 
 void OAICustom_Creditcardtransaction_Response::fromJsonObject(QJsonObject json) {
 
-    m_e_creditcardtype_codename_isValid = ::OpenAPI::fromJsonValue(e_creditcardtype_codename, json[QString("eCreditcardtypeCodename")]);
+    m_e_creditcardtype_codename_isValid = ::OpenAPI::fromJsonValue(m_e_creditcardtype_codename, json[QString("eCreditcardtypeCodename")]);
     m_e_creditcardtype_codename_isSet = !json[QString("eCreditcardtypeCodename")].isNull() && m_e_creditcardtype_codename_isValid;
 
-    m_d_creditcardtransaction_amount_isValid = ::OpenAPI::fromJsonValue(d_creditcardtransaction_amount, json[QString("dCreditcardtransactionAmount")]);
+    m_d_creditcardtransaction_amount_isValid = ::OpenAPI::fromJsonValue(m_d_creditcardtransaction_amount, json[QString("dCreditcardtransactionAmount")]);
     m_d_creditcardtransaction_amount_isSet = !json[QString("dCreditcardtransactionAmount")].isNull() && m_d_creditcardtransaction_amount_isValid;
 
-    m_s_creditcardtransaction_partiallydecryptednumber_isValid = ::OpenAPI::fromJsonValue(s_creditcardtransaction_partiallydecryptednumber, json[QString("sCreditcardtransactionPartiallydecryptednumber")]);
+    m_s_creditcardtransaction_partiallydecryptednumber_isValid = ::OpenAPI::fromJsonValue(m_s_creditcardtransaction_partiallydecryptednumber, json[QString("sCreditcardtransactionPartiallydecryptednumber")]);
     m_s_creditcardtransaction_partiallydecryptednumber_isSet = !json[QString("sCreditcardtransactionPartiallydecryptednumber")].isNull() && m_s_creditcardtransaction_partiallydecryptednumber_isValid;
 
-    m_s_creditcardtransaction_referencenumber_isValid = ::OpenAPI::fromJsonValue(s_creditcardtransaction_referencenumber, json[QString("sCreditcardtransactionReferencenumber")]);
+    m_s_creditcardtransaction_referencenumber_isValid = ::OpenAPI::fromJsonValue(m_s_creditcardtransaction_referencenumber, json[QString("sCreditcardtransactionReferencenumber")]);
     m_s_creditcardtransaction_referencenumber_isSet = !json[QString("sCreditcardtransactionReferencenumber")].isNull() && m_s_creditcardtransaction_referencenumber_isValid;
 }
 
@@ -78,27 +78,27 @@ QString OAICustom_Creditcardtransaction_Response::asJson() const {
 
 QJsonObject OAICustom_Creditcardtransaction_Response::asJsonObject() const {
     QJsonObject obj;
-    if (e_creditcardtype_codename.isSet()) {
-        obj.insert(QString("eCreditcardtypeCodename"), ::OpenAPI::toJsonValue(e_creditcardtype_codename));
+    if (m_e_creditcardtype_codename.isSet()) {
+        obj.insert(QString("eCreditcardtypeCodename"), ::OpenAPI::toJsonValue(m_e_creditcardtype_codename));
     }
     if (m_d_creditcardtransaction_amount_isSet) {
-        obj.insert(QString("dCreditcardtransactionAmount"), ::OpenAPI::toJsonValue(d_creditcardtransaction_amount));
+        obj.insert(QString("dCreditcardtransactionAmount"), ::OpenAPI::toJsonValue(m_d_creditcardtransaction_amount));
     }
     if (m_s_creditcardtransaction_partiallydecryptednumber_isSet) {
-        obj.insert(QString("sCreditcardtransactionPartiallydecryptednumber"), ::OpenAPI::toJsonValue(s_creditcardtransaction_partiallydecryptednumber));
+        obj.insert(QString("sCreditcardtransactionPartiallydecryptednumber"), ::OpenAPI::toJsonValue(m_s_creditcardtransaction_partiallydecryptednumber));
     }
     if (m_s_creditcardtransaction_referencenumber_isSet) {
-        obj.insert(QString("sCreditcardtransactionReferencenumber"), ::OpenAPI::toJsonValue(s_creditcardtransaction_referencenumber));
+        obj.insert(QString("sCreditcardtransactionReferencenumber"), ::OpenAPI::toJsonValue(m_s_creditcardtransaction_referencenumber));
     }
     return obj;
 }
 
 OAIField_eCreditcardtypeCodename OAICustom_Creditcardtransaction_Response::getECreditcardtypeCodename() const {
-    return e_creditcardtype_codename;
+    return m_e_creditcardtype_codename;
 }
 void OAICustom_Creditcardtransaction_Response::setECreditcardtypeCodename(const OAIField_eCreditcardtypeCodename &e_creditcardtype_codename) {
-    this->e_creditcardtype_codename = e_creditcardtype_codename;
-    this->m_e_creditcardtype_codename_isSet = true;
+    m_e_creditcardtype_codename = e_creditcardtype_codename;
+    m_e_creditcardtype_codename_isSet = true;
 }
 
 bool OAICustom_Creditcardtransaction_Response::is_e_creditcardtype_codename_Set() const{
@@ -110,11 +110,11 @@ bool OAICustom_Creditcardtransaction_Response::is_e_creditcardtype_codename_Vali
 }
 
 QString OAICustom_Creditcardtransaction_Response::getDCreditcardtransactionAmount() const {
-    return d_creditcardtransaction_amount;
+    return m_d_creditcardtransaction_amount;
 }
 void OAICustom_Creditcardtransaction_Response::setDCreditcardtransactionAmount(const QString &d_creditcardtransaction_amount) {
-    this->d_creditcardtransaction_amount = d_creditcardtransaction_amount;
-    this->m_d_creditcardtransaction_amount_isSet = true;
+    m_d_creditcardtransaction_amount = d_creditcardtransaction_amount;
+    m_d_creditcardtransaction_amount_isSet = true;
 }
 
 bool OAICustom_Creditcardtransaction_Response::is_d_creditcardtransaction_amount_Set() const{
@@ -126,11 +126,11 @@ bool OAICustom_Creditcardtransaction_Response::is_d_creditcardtransaction_amount
 }
 
 QString OAICustom_Creditcardtransaction_Response::getSCreditcardtransactionPartiallydecryptednumber() const {
-    return s_creditcardtransaction_partiallydecryptednumber;
+    return m_s_creditcardtransaction_partiallydecryptednumber;
 }
 void OAICustom_Creditcardtransaction_Response::setSCreditcardtransactionPartiallydecryptednumber(const QString &s_creditcardtransaction_partiallydecryptednumber) {
-    this->s_creditcardtransaction_partiallydecryptednumber = s_creditcardtransaction_partiallydecryptednumber;
-    this->m_s_creditcardtransaction_partiallydecryptednumber_isSet = true;
+    m_s_creditcardtransaction_partiallydecryptednumber = s_creditcardtransaction_partiallydecryptednumber;
+    m_s_creditcardtransaction_partiallydecryptednumber_isSet = true;
 }
 
 bool OAICustom_Creditcardtransaction_Response::is_s_creditcardtransaction_partiallydecryptednumber_Set() const{
@@ -142,11 +142,11 @@ bool OAICustom_Creditcardtransaction_Response::is_s_creditcardtransaction_partia
 }
 
 QString OAICustom_Creditcardtransaction_Response::getSCreditcardtransactionReferencenumber() const {
-    return s_creditcardtransaction_referencenumber;
+    return m_s_creditcardtransaction_referencenumber;
 }
 void OAICustom_Creditcardtransaction_Response::setSCreditcardtransactionReferencenumber(const QString &s_creditcardtransaction_referencenumber) {
-    this->s_creditcardtransaction_referencenumber = s_creditcardtransaction_referencenumber;
-    this->m_s_creditcardtransaction_referencenumber_isSet = true;
+    m_s_creditcardtransaction_referencenumber = s_creditcardtransaction_referencenumber;
+    m_s_creditcardtransaction_referencenumber_isSet = true;
 }
 
 bool OAICustom_Creditcardtransaction_Response::is_s_creditcardtransaction_referencenumber_Set() const{
@@ -160,7 +160,7 @@ bool OAICustom_Creditcardtransaction_Response::is_s_creditcardtransaction_refere
 bool OAICustom_Creditcardtransaction_Response::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (e_creditcardtype_codename.isSet()) {
+        if (m_e_creditcardtype_codename.isSet()) {
             isObjectUpdated = true;
             break;
         }

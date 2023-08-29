@@ -50,10 +50,10 @@ void OAIEzsignsignature_getEzsignsignaturesAutomatic_v1_Response_mPayload::fromJ
 
 void OAIEzsignsignature_getEzsignsignaturesAutomatic_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_e_ezsignsignature_type_isValid = ::OpenAPI::fromJsonValue(a_e_ezsignsignature_type, json[QString("a_eEzsignsignatureType")]);
+    m_a_e_ezsignsignature_type_isValid = ::OpenAPI::fromJsonValue(m_a_e_ezsignsignature_type, json[QString("a_eEzsignsignatureType")]);
     m_a_e_ezsignsignature_type_isSet = !json[QString("a_eEzsignsignatureType")].isNull() && m_a_e_ezsignsignature_type_isValid;
 
-    m_a_obj_ezsignfolder_isValid = ::OpenAPI::fromJsonValue(a_obj_ezsignfolder, json[QString("a_objEzsignfolder")]);
+    m_a_obj_ezsignfolder_isValid = ::OpenAPI::fromJsonValue(m_a_obj_ezsignfolder, json[QString("a_objEzsignfolder")]);
     m_a_obj_ezsignfolder_isSet = !json[QString("a_objEzsignfolder")].isNull() && m_a_obj_ezsignfolder_isValid;
 }
 
@@ -66,21 +66,21 @@ QString OAIEzsignsignature_getEzsignsignaturesAutomatic_v1_Response_mPayload::as
 
 QJsonObject OAIEzsignsignature_getEzsignsignaturesAutomatic_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (a_e_ezsignsignature_type.size() > 0) {
-        obj.insert(QString("a_eEzsignsignatureType"), ::OpenAPI::toJsonValue(a_e_ezsignsignature_type));
+    if (m_a_e_ezsignsignature_type.size() > 0) {
+        obj.insert(QString("a_eEzsignsignatureType"), ::OpenAPI::toJsonValue(m_a_e_ezsignsignature_type));
     }
-    if (a_obj_ezsignfolder.size() > 0) {
-        obj.insert(QString("a_objEzsignfolder"), ::OpenAPI::toJsonValue(a_obj_ezsignfolder));
+    if (m_a_obj_ezsignfolder.size() > 0) {
+        obj.insert(QString("a_objEzsignfolder"), ::OpenAPI::toJsonValue(m_a_obj_ezsignfolder));
     }
     return obj;
 }
 
 QSet<OAIField_eEzsignsignatureType> OAIEzsignsignature_getEzsignsignaturesAutomatic_v1_Response_mPayload::getAEEzsignsignatureType() const {
-    return a_e_ezsignsignature_type;
+    return m_a_e_ezsignsignature_type;
 }
 void OAIEzsignsignature_getEzsignsignaturesAutomatic_v1_Response_mPayload::setAEEzsignsignatureType(const QSet<OAIField_eEzsignsignatureType> &a_e_ezsignsignature_type) {
-    this->a_e_ezsignsignature_type = a_e_ezsignsignature_type;
-    this->m_a_e_ezsignsignature_type_isSet = true;
+    m_a_e_ezsignsignature_type = a_e_ezsignsignature_type;
+    m_a_e_ezsignsignature_type_isSet = true;
 }
 
 bool OAIEzsignsignature_getEzsignsignaturesAutomatic_v1_Response_mPayload::is_a_e_ezsignsignature_type_Set() const{
@@ -92,11 +92,11 @@ bool OAIEzsignsignature_getEzsignsignaturesAutomatic_v1_Response_mPayload::is_a_
 }
 
 QList<OAICustom_EzsignfolderEzsignsignaturesAutomatic_Response> OAIEzsignsignature_getEzsignsignaturesAutomatic_v1_Response_mPayload::getAObjEzsignfolder() const {
-    return a_obj_ezsignfolder;
+    return m_a_obj_ezsignfolder;
 }
 void OAIEzsignsignature_getEzsignsignaturesAutomatic_v1_Response_mPayload::setAObjEzsignfolder(const QList<OAICustom_EzsignfolderEzsignsignaturesAutomatic_Response> &a_obj_ezsignfolder) {
-    this->a_obj_ezsignfolder = a_obj_ezsignfolder;
-    this->m_a_obj_ezsignfolder_isSet = true;
+    m_a_obj_ezsignfolder = a_obj_ezsignfolder;
+    m_a_obj_ezsignfolder_isSet = true;
 }
 
 bool OAIEzsignsignature_getEzsignsignaturesAutomatic_v1_Response_mPayload::is_a_obj_ezsignfolder_Set() const{
@@ -110,12 +110,12 @@ bool OAIEzsignsignature_getEzsignsignaturesAutomatic_v1_Response_mPayload::is_a_
 bool OAIEzsignsignature_getEzsignsignaturesAutomatic_v1_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_e_ezsignsignature_type.size() > 0) {
+        if (m_a_e_ezsignsignature_type.size() > 0) {
             isObjectUpdated = true;
             break;
         }
 
-        if (a_obj_ezsignfolder.size() > 0) {
+        if (m_a_obj_ezsignfolder.size() > 0) {
             isObjectUpdated = true;
             break;
         }

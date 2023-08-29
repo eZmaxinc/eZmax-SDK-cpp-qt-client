@@ -49,7 +49,7 @@ public:
 private:
     void initializeModel();
 
-    bool supported;
+    bool m_supported;
     bool m_supported_isSet;
     bool m_supported_isValid;
 };

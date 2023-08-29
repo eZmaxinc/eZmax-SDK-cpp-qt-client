@@ -47,7 +47,7 @@ void OAIEzsigndocument_declineToSign_v1_Request::fromJson(QString jsonString) {
 
 void OAIEzsigndocument_declineToSign_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_s_reason_isValid = ::OpenAPI::fromJsonValue(s_reason, json[QString("sReason")]);
+    m_s_reason_isValid = ::OpenAPI::fromJsonValue(m_s_reason, json[QString("sReason")]);
     m_s_reason_isSet = !json[QString("sReason")].isNull() && m_s_reason_isValid;
 }
 
@@ -61,17 +61,17 @@ QString OAIEzsigndocument_declineToSign_v1_Request::asJson() const {
 QJsonObject OAIEzsigndocument_declineToSign_v1_Request::asJsonObject() const {
     QJsonObject obj;
     if (m_s_reason_isSet) {
-        obj.insert(QString("sReason"), ::OpenAPI::toJsonValue(s_reason));
+        obj.insert(QString("sReason"), ::OpenAPI::toJsonValue(m_s_reason));
     }
     return obj;
 }
 
 QString OAIEzsigndocument_declineToSign_v1_Request::getSReason() const {
-    return s_reason;
+    return m_s_reason;
 }
 void OAIEzsigndocument_declineToSign_v1_Request::setSReason(const QString &s_reason) {
-    this->s_reason = s_reason;
-    this->m_s_reason_isSet = true;
+    m_s_reason = s_reason;
+    m_s_reason_isSet = true;
 }
 
 bool OAIEzsigndocument_declineToSign_v1_Request::is_s_reason_Set() const{

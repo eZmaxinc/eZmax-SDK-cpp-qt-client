@@ -50,10 +50,10 @@ void OAIMultilingual_EzsignsignergroupDescription::fromJson(QString jsonString) 
 
 void OAIMultilingual_EzsignsignergroupDescription::fromJsonObject(QJsonObject json) {
 
-    m_s_ezsignsignergroup_description1_isValid = ::OpenAPI::fromJsonValue(s_ezsignsignergroup_description1, json[QString("sEzsignsignergroupDescription1")]);
+    m_s_ezsignsignergroup_description1_isValid = ::OpenAPI::fromJsonValue(m_s_ezsignsignergroup_description1, json[QString("sEzsignsignergroupDescription1")]);
     m_s_ezsignsignergroup_description1_isSet = !json[QString("sEzsignsignergroupDescription1")].isNull() && m_s_ezsignsignergroup_description1_isValid;
 
-    m_s_ezsignsignergroup_description2_isValid = ::OpenAPI::fromJsonValue(s_ezsignsignergroup_description2, json[QString("sEzsignsignergroupDescription2")]);
+    m_s_ezsignsignergroup_description2_isValid = ::OpenAPI::fromJsonValue(m_s_ezsignsignergroup_description2, json[QString("sEzsignsignergroupDescription2")]);
     m_s_ezsignsignergroup_description2_isSet = !json[QString("sEzsignsignergroupDescription2")].isNull() && m_s_ezsignsignergroup_description2_isValid;
 }
 
@@ -67,20 +67,20 @@ QString OAIMultilingual_EzsignsignergroupDescription::asJson() const {
 QJsonObject OAIMultilingual_EzsignsignergroupDescription::asJsonObject() const {
     QJsonObject obj;
     if (m_s_ezsignsignergroup_description1_isSet) {
-        obj.insert(QString("sEzsignsignergroupDescription1"), ::OpenAPI::toJsonValue(s_ezsignsignergroup_description1));
+        obj.insert(QString("sEzsignsignergroupDescription1"), ::OpenAPI::toJsonValue(m_s_ezsignsignergroup_description1));
     }
     if (m_s_ezsignsignergroup_description2_isSet) {
-        obj.insert(QString("sEzsignsignergroupDescription2"), ::OpenAPI::toJsonValue(s_ezsignsignergroup_description2));
+        obj.insert(QString("sEzsignsignergroupDescription2"), ::OpenAPI::toJsonValue(m_s_ezsignsignergroup_description2));
     }
     return obj;
 }
 
 QString OAIMultilingual_EzsignsignergroupDescription::getSEzsignsignergroupDescription1() const {
-    return s_ezsignsignergroup_description1;
+    return m_s_ezsignsignergroup_description1;
 }
 void OAIMultilingual_EzsignsignergroupDescription::setSEzsignsignergroupDescription1(const QString &s_ezsignsignergroup_description1) {
-    this->s_ezsignsignergroup_description1 = s_ezsignsignergroup_description1;
-    this->m_s_ezsignsignergroup_description1_isSet = true;
+    m_s_ezsignsignergroup_description1 = s_ezsignsignergroup_description1;
+    m_s_ezsignsignergroup_description1_isSet = true;
 }
 
 bool OAIMultilingual_EzsignsignergroupDescription::is_s_ezsignsignergroup_description1_Set() const{
@@ -92,11 +92,11 @@ bool OAIMultilingual_EzsignsignergroupDescription::is_s_ezsignsignergroup_descri
 }
 
 QString OAIMultilingual_EzsignsignergroupDescription::getSEzsignsignergroupDescription2() const {
-    return s_ezsignsignergroup_description2;
+    return m_s_ezsignsignergroup_description2;
 }
 void OAIMultilingual_EzsignsignergroupDescription::setSEzsignsignergroupDescription2(const QString &s_ezsignsignergroup_description2) {
-    this->s_ezsignsignergroup_description2 = s_ezsignsignergroup_description2;
-    this->m_s_ezsignsignergroup_description2_isSet = true;
+    m_s_ezsignsignergroup_description2 = s_ezsignsignergroup_description2;
+    m_s_ezsignsignergroup_description2_isSet = true;
 }
 
 bool OAIMultilingual_EzsignsignergroupDescription::is_s_ezsignsignergroup_description2_Set() const{

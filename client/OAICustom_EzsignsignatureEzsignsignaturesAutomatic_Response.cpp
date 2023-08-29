@@ -53,13 +53,13 @@ void OAICustom_EzsignsignatureEzsignsignaturesAutomatic_Response::fromJson(QStri
 
 void OAICustom_EzsignsignatureEzsignsignaturesAutomatic_Response::fromJsonObject(QJsonObject json) {
 
-    m_pki_ezsignsignature_id_isValid = ::OpenAPI::fromJsonValue(pki_ezsignsignature_id, json[QString("pkiEzsignsignatureID")]);
+    m_pki_ezsignsignature_id_isValid = ::OpenAPI::fromJsonValue(m_pki_ezsignsignature_id, json[QString("pkiEzsignsignatureID")]);
     m_pki_ezsignsignature_id_isSet = !json[QString("pkiEzsignsignatureID")].isNull() && m_pki_ezsignsignature_id_isValid;
 
-    m_e_ezsignsignature_type_isValid = ::OpenAPI::fromJsonValue(e_ezsignsignature_type, json[QString("eEzsignsignatureType")]);
+    m_e_ezsignsignature_type_isValid = ::OpenAPI::fromJsonValue(m_e_ezsignsignature_type, json[QString("eEzsignsignatureType")]);
     m_e_ezsignsignature_type_isSet = !json[QString("eEzsignsignatureType")].isNull() && m_e_ezsignsignature_type_isValid;
 
-    m_i_ezsignpage_pagenumber_isValid = ::OpenAPI::fromJsonValue(i_ezsignpage_pagenumber, json[QString("iEzsignpagePagenumber")]);
+    m_i_ezsignpage_pagenumber_isValid = ::OpenAPI::fromJsonValue(m_i_ezsignpage_pagenumber, json[QString("iEzsignpagePagenumber")]);
     m_i_ezsignpage_pagenumber_isSet = !json[QString("iEzsignpagePagenumber")].isNull() && m_i_ezsignpage_pagenumber_isValid;
 }
 
@@ -73,23 +73,23 @@ QString OAICustom_EzsignsignatureEzsignsignaturesAutomatic_Response::asJson() co
 QJsonObject OAICustom_EzsignsignatureEzsignsignaturesAutomatic_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_ezsignsignature_id_isSet) {
-        obj.insert(QString("pkiEzsignsignatureID"), ::OpenAPI::toJsonValue(pki_ezsignsignature_id));
+        obj.insert(QString("pkiEzsignsignatureID"), ::OpenAPI::toJsonValue(m_pki_ezsignsignature_id));
     }
-    if (e_ezsignsignature_type.isSet()) {
-        obj.insert(QString("eEzsignsignatureType"), ::OpenAPI::toJsonValue(e_ezsignsignature_type));
+    if (m_e_ezsignsignature_type.isSet()) {
+        obj.insert(QString("eEzsignsignatureType"), ::OpenAPI::toJsonValue(m_e_ezsignsignature_type));
     }
     if (m_i_ezsignpage_pagenumber_isSet) {
-        obj.insert(QString("iEzsignpagePagenumber"), ::OpenAPI::toJsonValue(i_ezsignpage_pagenumber));
+        obj.insert(QString("iEzsignpagePagenumber"), ::OpenAPI::toJsonValue(m_i_ezsignpage_pagenumber));
     }
     return obj;
 }
 
 qint32 OAICustom_EzsignsignatureEzsignsignaturesAutomatic_Response::getPkiEzsignsignatureId() const {
-    return pki_ezsignsignature_id;
+    return m_pki_ezsignsignature_id;
 }
 void OAICustom_EzsignsignatureEzsignsignaturesAutomatic_Response::setPkiEzsignsignatureId(const qint32 &pki_ezsignsignature_id) {
-    this->pki_ezsignsignature_id = pki_ezsignsignature_id;
-    this->m_pki_ezsignsignature_id_isSet = true;
+    m_pki_ezsignsignature_id = pki_ezsignsignature_id;
+    m_pki_ezsignsignature_id_isSet = true;
 }
 
 bool OAICustom_EzsignsignatureEzsignsignaturesAutomatic_Response::is_pki_ezsignsignature_id_Set() const{
@@ -101,11 +101,11 @@ bool OAICustom_EzsignsignatureEzsignsignaturesAutomatic_Response::is_pki_ezsigns
 }
 
 OAIField_eEzsignsignatureType OAICustom_EzsignsignatureEzsignsignaturesAutomatic_Response::getEEzsignsignatureType() const {
-    return e_ezsignsignature_type;
+    return m_e_ezsignsignature_type;
 }
 void OAICustom_EzsignsignatureEzsignsignaturesAutomatic_Response::setEEzsignsignatureType(const OAIField_eEzsignsignatureType &e_ezsignsignature_type) {
-    this->e_ezsignsignature_type = e_ezsignsignature_type;
-    this->m_e_ezsignsignature_type_isSet = true;
+    m_e_ezsignsignature_type = e_ezsignsignature_type;
+    m_e_ezsignsignature_type_isSet = true;
 }
 
 bool OAICustom_EzsignsignatureEzsignsignaturesAutomatic_Response::is_e_ezsignsignature_type_Set() const{
@@ -117,11 +117,11 @@ bool OAICustom_EzsignsignatureEzsignsignaturesAutomatic_Response::is_e_ezsignsig
 }
 
 qint32 OAICustom_EzsignsignatureEzsignsignaturesAutomatic_Response::getIEzsignpagePagenumber() const {
-    return i_ezsignpage_pagenumber;
+    return m_i_ezsignpage_pagenumber;
 }
 void OAICustom_EzsignsignatureEzsignsignaturesAutomatic_Response::setIEzsignpagePagenumber(const qint32 &i_ezsignpage_pagenumber) {
-    this->i_ezsignpage_pagenumber = i_ezsignpage_pagenumber;
-    this->m_i_ezsignpage_pagenumber_isSet = true;
+    m_i_ezsignpage_pagenumber = i_ezsignpage_pagenumber;
+    m_i_ezsignpage_pagenumber_isSet = true;
 }
 
 bool OAICustom_EzsignsignatureEzsignsignaturesAutomatic_Response::is_i_ezsignpage_pagenumber_Set() const{
@@ -140,7 +140,7 @@ bool OAICustom_EzsignsignatureEzsignsignaturesAutomatic_Response::isSet() const 
             break;
         }
 
-        if (e_ezsignsignature_type.isSet()) {
+        if (m_e_ezsignsignature_type.isSet()) {
             isObjectUpdated = true;
             break;
         }

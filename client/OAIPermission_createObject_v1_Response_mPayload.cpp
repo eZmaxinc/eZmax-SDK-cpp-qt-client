@@ -47,7 +47,7 @@ void OAIPermission_createObject_v1_Response_mPayload::fromJson(QString jsonStrin
 
 void OAIPermission_createObject_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_pki_permission_id_isValid = ::OpenAPI::fromJsonValue(a_pki_permission_id, json[QString("a_pkiPermissionID")]);
+    m_a_pki_permission_id_isValid = ::OpenAPI::fromJsonValue(m_a_pki_permission_id, json[QString("a_pkiPermissionID")]);
     m_a_pki_permission_id_isSet = !json[QString("a_pkiPermissionID")].isNull() && m_a_pki_permission_id_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIPermission_createObject_v1_Response_mPayload::asJson() const {
 
 QJsonObject OAIPermission_createObject_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (a_pki_permission_id.size() > 0) {
-        obj.insert(QString("a_pkiPermissionID"), ::OpenAPI::toJsonValue(a_pki_permission_id));
+    if (m_a_pki_permission_id.size() > 0) {
+        obj.insert(QString("a_pkiPermissionID"), ::OpenAPI::toJsonValue(m_a_pki_permission_id));
     }
     return obj;
 }
 
 QList<qint32> OAIPermission_createObject_v1_Response_mPayload::getAPkiPermissionId() const {
-    return a_pki_permission_id;
+    return m_a_pki_permission_id;
 }
 void OAIPermission_createObject_v1_Response_mPayload::setAPkiPermissionId(const QList<qint32> &a_pki_permission_id) {
-    this->a_pki_permission_id = a_pki_permission_id;
-    this->m_a_pki_permission_id_isSet = true;
+    m_a_pki_permission_id = a_pki_permission_id;
+    m_a_pki_permission_id_isSet = true;
 }
 
 bool OAIPermission_createObject_v1_Response_mPayload::is_a_pki_permission_id_Set() const{
@@ -85,7 +85,7 @@ bool OAIPermission_createObject_v1_Response_mPayload::is_a_pki_permission_id_Val
 bool OAIPermission_createObject_v1_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_pki_permission_id.size() > 0) {
+        if (m_a_pki_permission_id.size() > 0) {
             isObjectUpdated = true;
             break;
         }

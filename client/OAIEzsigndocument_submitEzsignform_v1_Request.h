@@ -57,11 +57,11 @@ public:
 private:
     void initializeModel();
 
-    bool b_ezsignform_isdraft;
+    bool m_b_ezsignform_isdraft;
     bool m_b_ezsignform_isdraft_isSet;
     bool m_b_ezsignform_isdraft_isValid;
 
-    QList<OAICustom_Ezsignformfieldgroup_Request> a_obj_ezsignformfieldgroup;
+    QList<OAICustom_Ezsignformfieldgroup_Request> m_a_obj_ezsignformfieldgroup;
     bool m_a_obj_ezsignformfieldgroup_isSet;
     bool m_a_obj_ezsignformfieldgroup_isValid;
 };

@@ -47,7 +47,7 @@ void OAISignature_createObject_v1_Response_mPayload::fromJson(QString jsonString
 
 void OAISignature_createObject_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_pki_signature_id_isValid = ::OpenAPI::fromJsonValue(a_pki_signature_id, json[QString("a_pkiSignatureID")]);
+    m_a_pki_signature_id_isValid = ::OpenAPI::fromJsonValue(m_a_pki_signature_id, json[QString("a_pkiSignatureID")]);
     m_a_pki_signature_id_isSet = !json[QString("a_pkiSignatureID")].isNull() && m_a_pki_signature_id_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAISignature_createObject_v1_Response_mPayload::asJson() const {
 
 QJsonObject OAISignature_createObject_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (a_pki_signature_id.size() > 0) {
-        obj.insert(QString("a_pkiSignatureID"), ::OpenAPI::toJsonValue(a_pki_signature_id));
+    if (m_a_pki_signature_id.size() > 0) {
+        obj.insert(QString("a_pkiSignatureID"), ::OpenAPI::toJsonValue(m_a_pki_signature_id));
     }
     return obj;
 }
 
 QList<qint32> OAISignature_createObject_v1_Response_mPayload::getAPkiSignatureId() const {
-    return a_pki_signature_id;
+    return m_a_pki_signature_id;
 }
 void OAISignature_createObject_v1_Response_mPayload::setAPkiSignatureId(const QList<qint32> &a_pki_signature_id) {
-    this->a_pki_signature_id = a_pki_signature_id;
-    this->m_a_pki_signature_id_isSet = true;
+    m_a_pki_signature_id = a_pki_signature_id;
+    m_a_pki_signature_id_isSet = true;
 }
 
 bool OAISignature_createObject_v1_Response_mPayload::is_a_pki_signature_id_Set() const{
@@ -85,7 +85,7 @@ bool OAISignature_createObject_v1_Response_mPayload::is_a_pki_signature_id_Valid
 bool OAISignature_createObject_v1_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_pki_signature_id.size() > 0) {
+        if (m_a_pki_signature_id.size() > 0) {
             isObjectUpdated = true;
             break;
         }

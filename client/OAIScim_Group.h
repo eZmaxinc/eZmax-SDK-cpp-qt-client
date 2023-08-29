@@ -63,15 +63,15 @@ public:
 private:
     void initializeModel();
 
-    QString id;
+    QString m_id;
     bool m_id_isSet;
     bool m_id_isValid;
 
-    QString display_name;
+    QString m_display_name;
     bool m_display_name_isSet;
     bool m_display_name_isValid;
 
-    QList<OAIScim_GroupMember> members;
+    QList<OAIScim_GroupMember> m_members;
     bool m_members_isSet;
     bool m_members_isValid;
 };

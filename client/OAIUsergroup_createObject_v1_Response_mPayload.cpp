@@ -47,7 +47,7 @@ void OAIUsergroup_createObject_v1_Response_mPayload::fromJson(QString jsonString
 
 void OAIUsergroup_createObject_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_pki_usergroup_id_isValid = ::OpenAPI::fromJsonValue(a_pki_usergroup_id, json[QString("a_pkiUsergroupID")]);
+    m_a_pki_usergroup_id_isValid = ::OpenAPI::fromJsonValue(m_a_pki_usergroup_id, json[QString("a_pkiUsergroupID")]);
     m_a_pki_usergroup_id_isSet = !json[QString("a_pkiUsergroupID")].isNull() && m_a_pki_usergroup_id_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIUsergroup_createObject_v1_Response_mPayload::asJson() const {
 
 QJsonObject OAIUsergroup_createObject_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (a_pki_usergroup_id.size() > 0) {
-        obj.insert(QString("a_pkiUsergroupID"), ::OpenAPI::toJsonValue(a_pki_usergroup_id));
+    if (m_a_pki_usergroup_id.size() > 0) {
+        obj.insert(QString("a_pkiUsergroupID"), ::OpenAPI::toJsonValue(m_a_pki_usergroup_id));
     }
     return obj;
 }
 
 QList<qint32> OAIUsergroup_createObject_v1_Response_mPayload::getAPkiUsergroupId() const {
-    return a_pki_usergroup_id;
+    return m_a_pki_usergroup_id;
 }
 void OAIUsergroup_createObject_v1_Response_mPayload::setAPkiUsergroupId(const QList<qint32> &a_pki_usergroup_id) {
-    this->a_pki_usergroup_id = a_pki_usergroup_id;
-    this->m_a_pki_usergroup_id_isSet = true;
+    m_a_pki_usergroup_id = a_pki_usergroup_id;
+    m_a_pki_usergroup_id_isSet = true;
 }
 
 bool OAIUsergroup_createObject_v1_Response_mPayload::is_a_pki_usergroup_id_Set() const{
@@ -85,7 +85,7 @@ bool OAIUsergroup_createObject_v1_Response_mPayload::is_a_pki_usergroup_id_Valid
 bool OAIUsergroup_createObject_v1_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_pki_usergroup_id.size() > 0) {
+        if (m_a_pki_usergroup_id.size() > 0) {
             isObjectUpdated = true;
             break;
         }

@@ -60,15 +60,15 @@ public:
 private:
     void initializeModel();
 
-    QList<qint32> a_pki_ezsigntemplatepackagemembership_id;
+    QList<qint32> m_a_pki_ezsigntemplatepackagemembership_id;
     bool m_a_pki_ezsigntemplatepackagemembership_id_isSet;
     bool m_a_pki_ezsigntemplatepackagemembership_id_isValid;
 
-    bool b_ezsigntemplatepackage_needvalidation;
+    bool m_b_ezsigntemplatepackage_needvalidation;
     bool m_b_ezsigntemplatepackage_needvalidation_isSet;
     bool m_b_ezsigntemplatepackage_needvalidation_isValid;
 
-    bool b_ezsignbulksend_needvalidation;
+    bool m_b_ezsignbulksend_needvalidation;
     bool m_b_ezsignbulksend_needvalidation_isSet;
     bool m_b_ezsignbulksend_needvalidation_isValid;
 };

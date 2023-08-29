@@ -75,27 +75,27 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_communicationattachment_id;
+    qint32 m_pki_communicationattachment_id;
     bool m_pki_communicationattachment_id_isSet;
     bool m_pki_communicationattachment_id_isValid;
 
-    qint32 fki_attachment_id;
+    qint32 m_fki_attachment_id;
     bool m_fki_attachment_id_isSet;
     bool m_fki_attachment_id_isValid;
 
-    qint32 fki_invoice_id;
+    qint32 m_fki_invoice_id;
     bool m_fki_invoice_id_isSet;
     bool m_fki_invoice_id_isValid;
 
-    qint32 fki_salarypreparation_id;
+    qint32 m_fki_salarypreparation_id;
     bool m_fki_salarypreparation_id_isSet;
     bool m_fki_salarypreparation_id_isValid;
 
-    QString s_communicationattachment_name;
+    QString m_s_communicationattachment_name;
     bool m_s_communicationattachment_name_isSet;
     bool m_s_communicationattachment_name_isValid;
 
-    QString s_download_url;
+    QString m_s_download_url;
     bool m_s_download_url_isSet;
     bool m_s_download_url_isValid;
 };

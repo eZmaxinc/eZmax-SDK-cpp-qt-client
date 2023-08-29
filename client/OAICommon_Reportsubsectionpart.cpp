@@ -50,10 +50,10 @@ void OAICommon_Reportsubsectionpart::fromJson(QString jsonString) {
 
 void OAICommon_Reportsubsectionpart::fromJsonObject(QJsonObject json) {
 
-    m_e_reportsubsectionpart_type_isValid = ::OpenAPI::fromJsonValue(e_reportsubsectionpart_type, json[QString("eReportsubsectionpartType")]);
+    m_e_reportsubsectionpart_type_isValid = ::OpenAPI::fromJsonValue(m_e_reportsubsectionpart_type, json[QString("eReportsubsectionpartType")]);
     m_e_reportsubsectionpart_type_isSet = !json[QString("eReportsubsectionpartType")].isNull() && m_e_reportsubsectionpart_type_isValid;
 
-    m_a_obj_reportrow_isValid = ::OpenAPI::fromJsonValue(a_obj_reportrow, json[QString("a_objReportrow")]);
+    m_a_obj_reportrow_isValid = ::OpenAPI::fromJsonValue(m_a_obj_reportrow, json[QString("a_objReportrow")]);
     m_a_obj_reportrow_isSet = !json[QString("a_objReportrow")].isNull() && m_a_obj_reportrow_isValid;
 }
 
@@ -67,20 +67,20 @@ QString OAICommon_Reportsubsectionpart::asJson() const {
 QJsonObject OAICommon_Reportsubsectionpart::asJsonObject() const {
     QJsonObject obj;
     if (m_e_reportsubsectionpart_type_isSet) {
-        obj.insert(QString("eReportsubsectionpartType"), ::OpenAPI::toJsonValue(e_reportsubsectionpart_type));
+        obj.insert(QString("eReportsubsectionpartType"), ::OpenAPI::toJsonValue(m_e_reportsubsectionpart_type));
     }
-    if (a_obj_reportrow.size() > 0) {
-        obj.insert(QString("a_objReportrow"), ::OpenAPI::toJsonValue(a_obj_reportrow));
+    if (m_a_obj_reportrow.size() > 0) {
+        obj.insert(QString("a_objReportrow"), ::OpenAPI::toJsonValue(m_a_obj_reportrow));
     }
     return obj;
 }
 
 QString OAICommon_Reportsubsectionpart::getEReportsubsectionpartType() const {
-    return e_reportsubsectionpart_type;
+    return m_e_reportsubsectionpart_type;
 }
 void OAICommon_Reportsubsectionpart::setEReportsubsectionpartType(const QString &e_reportsubsectionpart_type) {
-    this->e_reportsubsectionpart_type = e_reportsubsectionpart_type;
-    this->m_e_reportsubsectionpart_type_isSet = true;
+    m_e_reportsubsectionpart_type = e_reportsubsectionpart_type;
+    m_e_reportsubsectionpart_type_isSet = true;
 }
 
 bool OAICommon_Reportsubsectionpart::is_e_reportsubsectionpart_type_Set() const{
@@ -92,11 +92,11 @@ bool OAICommon_Reportsubsectionpart::is_e_reportsubsectionpart_type_Valid() cons
 }
 
 QList<OAICommon_Reportrow> OAICommon_Reportsubsectionpart::getAObjReportrow() const {
-    return a_obj_reportrow;
+    return m_a_obj_reportrow;
 }
 void OAICommon_Reportsubsectionpart::setAObjReportrow(const QList<OAICommon_Reportrow> &a_obj_reportrow) {
-    this->a_obj_reportrow = a_obj_reportrow;
-    this->m_a_obj_reportrow_isSet = true;
+    m_a_obj_reportrow = a_obj_reportrow;
+    m_a_obj_reportrow_isSet = true;
 }
 
 bool OAICommon_Reportsubsectionpart::is_a_obj_reportrow_Set() const{
@@ -115,7 +115,7 @@ bool OAICommon_Reportsubsectionpart::isSet() const {
             break;
         }
 
-        if (a_obj_reportrow.size() > 0) {
+        if (m_a_obj_reportrow.size() > 0) {
             isObjectUpdated = true;
             break;
         }

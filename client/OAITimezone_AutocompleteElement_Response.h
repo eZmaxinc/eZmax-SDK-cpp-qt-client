@@ -60,15 +60,15 @@ public:
 private:
     void initializeModel();
 
-    QString s_timezone_name;
+    QString m_s_timezone_name;
     bool m_s_timezone_name_isSet;
     bool m_s_timezone_name_isValid;
 
-    qint32 pki_timezone_id;
+    qint32 m_pki_timezone_id;
     bool m_pki_timezone_id_isSet;
     bool m_pki_timezone_id_isValid;
 
-    bool b_timezone_isactive;
+    bool m_b_timezone_isactive;
     bool m_b_timezone_isactive_isSet;
     bool m_b_timezone_isactive_isValid;
 };

@@ -77,37 +77,37 @@ void OAISystemconfiguration_ResponseCompound::fromJson(QString jsonString) {
 
 void OAISystemconfiguration_ResponseCompound::fromJsonObject(QJsonObject json) {
 
-    m_pki_systemconfiguration_id_isValid = ::OpenAPI::fromJsonValue(pki_systemconfiguration_id, json[QString("pkiSystemconfigurationID")]);
+    m_pki_systemconfiguration_id_isValid = ::OpenAPI::fromJsonValue(m_pki_systemconfiguration_id, json[QString("pkiSystemconfigurationID")]);
     m_pki_systemconfiguration_id_isSet = !json[QString("pkiSystemconfigurationID")].isNull() && m_pki_systemconfiguration_id_isValid;
 
-    m_fki_systemconfigurationtype_id_isValid = ::OpenAPI::fromJsonValue(fki_systemconfigurationtype_id, json[QString("fkiSystemconfigurationtypeID")]);
+    m_fki_systemconfigurationtype_id_isValid = ::OpenAPI::fromJsonValue(m_fki_systemconfigurationtype_id, json[QString("fkiSystemconfigurationtypeID")]);
     m_fki_systemconfigurationtype_id_isSet = !json[QString("fkiSystemconfigurationtypeID")].isNull() && m_fki_systemconfigurationtype_id_isValid;
 
-    m_s_systemconfigurationtype_description_x_isValid = ::OpenAPI::fromJsonValue(s_systemconfigurationtype_description_x, json[QString("sSystemconfigurationtypeDescriptionX")]);
+    m_s_systemconfigurationtype_description_x_isValid = ::OpenAPI::fromJsonValue(m_s_systemconfigurationtype_description_x, json[QString("sSystemconfigurationtypeDescriptionX")]);
     m_s_systemconfigurationtype_description_x_isSet = !json[QString("sSystemconfigurationtypeDescriptionX")].isNull() && m_s_systemconfigurationtype_description_x_isValid;
 
-    m_e_systemconfiguration_newexternaluseraction_isValid = ::OpenAPI::fromJsonValue(e_systemconfiguration_newexternaluseraction, json[QString("eSystemconfigurationNewexternaluseraction")]);
+    m_e_systemconfiguration_newexternaluseraction_isValid = ::OpenAPI::fromJsonValue(m_e_systemconfiguration_newexternaluseraction, json[QString("eSystemconfigurationNewexternaluseraction")]);
     m_e_systemconfiguration_newexternaluseraction_isSet = !json[QString("eSystemconfigurationNewexternaluseraction")].isNull() && m_e_systemconfiguration_newexternaluseraction_isValid;
 
-    m_e_systemconfiguration_language1_isValid = ::OpenAPI::fromJsonValue(e_systemconfiguration_language1, json[QString("eSystemconfigurationLanguage1")]);
+    m_e_systemconfiguration_language1_isValid = ::OpenAPI::fromJsonValue(m_e_systemconfiguration_language1, json[QString("eSystemconfigurationLanguage1")]);
     m_e_systemconfiguration_language1_isSet = !json[QString("eSystemconfigurationLanguage1")].isNull() && m_e_systemconfiguration_language1_isValid;
 
-    m_e_systemconfiguration_language2_isValid = ::OpenAPI::fromJsonValue(e_systemconfiguration_language2, json[QString("eSystemconfigurationLanguage2")]);
+    m_e_systemconfiguration_language2_isValid = ::OpenAPI::fromJsonValue(m_e_systemconfiguration_language2, json[QString("eSystemconfigurationLanguage2")]);
     m_e_systemconfiguration_language2_isSet = !json[QString("eSystemconfigurationLanguage2")].isNull() && m_e_systemconfiguration_language2_isValid;
 
-    m_e_systemconfiguration_ezsign_isValid = ::OpenAPI::fromJsonValue(e_systemconfiguration_ezsign, json[QString("eSystemconfigurationEzsign")]);
+    m_e_systemconfiguration_ezsign_isValid = ::OpenAPI::fromJsonValue(m_e_systemconfiguration_ezsign, json[QString("eSystemconfigurationEzsign")]);
     m_e_systemconfiguration_ezsign_isSet = !json[QString("eSystemconfigurationEzsign")].isNull() && m_e_systemconfiguration_ezsign_isValid;
 
-    m_b_systemconfiguration_ezsignpersonnal_isValid = ::OpenAPI::fromJsonValue(b_systemconfiguration_ezsignpersonnal, json[QString("bSystemconfigurationEzsignpersonnal")]);
+    m_b_systemconfiguration_ezsignpersonnal_isValid = ::OpenAPI::fromJsonValue(m_b_systemconfiguration_ezsignpersonnal, json[QString("bSystemconfigurationEzsignpersonnal")]);
     m_b_systemconfiguration_ezsignpersonnal_isSet = !json[QString("bSystemconfigurationEzsignpersonnal")].isNull() && m_b_systemconfiguration_ezsignpersonnal_isValid;
 
-    m_b_systemconfiguration_sspr_isValid = ::OpenAPI::fromJsonValue(b_systemconfiguration_sspr, json[QString("bSystemconfigurationSspr")]);
+    m_b_systemconfiguration_sspr_isValid = ::OpenAPI::fromJsonValue(m_b_systemconfiguration_sspr, json[QString("bSystemconfigurationSspr")]);
     m_b_systemconfiguration_sspr_isSet = !json[QString("bSystemconfigurationSspr")].isNull() && m_b_systemconfiguration_sspr_isValid;
 
-    m_dt_systemconfiguration_readonlyexpirationstart_isValid = ::OpenAPI::fromJsonValue(dt_systemconfiguration_readonlyexpirationstart, json[QString("dtSystemconfigurationReadonlyexpirationstart")]);
+    m_dt_systemconfiguration_readonlyexpirationstart_isValid = ::OpenAPI::fromJsonValue(m_dt_systemconfiguration_readonlyexpirationstart, json[QString("dtSystemconfigurationReadonlyexpirationstart")]);
     m_dt_systemconfiguration_readonlyexpirationstart_isSet = !json[QString("dtSystemconfigurationReadonlyexpirationstart")].isNull() && m_dt_systemconfiguration_readonlyexpirationstart_isValid;
 
-    m_dt_systemconfiguration_readonlyexpirationend_isValid = ::OpenAPI::fromJsonValue(dt_systemconfiguration_readonlyexpirationend, json[QString("dtSystemconfigurationReadonlyexpirationend")]);
+    m_dt_systemconfiguration_readonlyexpirationend_isValid = ::OpenAPI::fromJsonValue(m_dt_systemconfiguration_readonlyexpirationend, json[QString("dtSystemconfigurationReadonlyexpirationend")]);
     m_dt_systemconfiguration_readonlyexpirationend_isSet = !json[QString("dtSystemconfigurationReadonlyexpirationend")].isNull() && m_dt_systemconfiguration_readonlyexpirationend_isValid;
 }
 
@@ -121,47 +121,47 @@ QString OAISystemconfiguration_ResponseCompound::asJson() const {
 QJsonObject OAISystemconfiguration_ResponseCompound::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_systemconfiguration_id_isSet) {
-        obj.insert(QString("pkiSystemconfigurationID"), ::OpenAPI::toJsonValue(pki_systemconfiguration_id));
+        obj.insert(QString("pkiSystemconfigurationID"), ::OpenAPI::toJsonValue(m_pki_systemconfiguration_id));
     }
     if (m_fki_systemconfigurationtype_id_isSet) {
-        obj.insert(QString("fkiSystemconfigurationtypeID"), ::OpenAPI::toJsonValue(fki_systemconfigurationtype_id));
+        obj.insert(QString("fkiSystemconfigurationtypeID"), ::OpenAPI::toJsonValue(m_fki_systemconfigurationtype_id));
     }
     if (m_s_systemconfigurationtype_description_x_isSet) {
-        obj.insert(QString("sSystemconfigurationtypeDescriptionX"), ::OpenAPI::toJsonValue(s_systemconfigurationtype_description_x));
+        obj.insert(QString("sSystemconfigurationtypeDescriptionX"), ::OpenAPI::toJsonValue(m_s_systemconfigurationtype_description_x));
     }
-    if (e_systemconfiguration_newexternaluseraction.isSet()) {
-        obj.insert(QString("eSystemconfigurationNewexternaluseraction"), ::OpenAPI::toJsonValue(e_systemconfiguration_newexternaluseraction));
+    if (m_e_systemconfiguration_newexternaluseraction.isSet()) {
+        obj.insert(QString("eSystemconfigurationNewexternaluseraction"), ::OpenAPI::toJsonValue(m_e_systemconfiguration_newexternaluseraction));
     }
-    if (e_systemconfiguration_language1.isSet()) {
-        obj.insert(QString("eSystemconfigurationLanguage1"), ::OpenAPI::toJsonValue(e_systemconfiguration_language1));
+    if (m_e_systemconfiguration_language1.isSet()) {
+        obj.insert(QString("eSystemconfigurationLanguage1"), ::OpenAPI::toJsonValue(m_e_systemconfiguration_language1));
     }
-    if (e_systemconfiguration_language2.isSet()) {
-        obj.insert(QString("eSystemconfigurationLanguage2"), ::OpenAPI::toJsonValue(e_systemconfiguration_language2));
+    if (m_e_systemconfiguration_language2.isSet()) {
+        obj.insert(QString("eSystemconfigurationLanguage2"), ::OpenAPI::toJsonValue(m_e_systemconfiguration_language2));
     }
-    if (e_systemconfiguration_ezsign.isSet()) {
-        obj.insert(QString("eSystemconfigurationEzsign"), ::OpenAPI::toJsonValue(e_systemconfiguration_ezsign));
+    if (m_e_systemconfiguration_ezsign.isSet()) {
+        obj.insert(QString("eSystemconfigurationEzsign"), ::OpenAPI::toJsonValue(m_e_systemconfiguration_ezsign));
     }
     if (m_b_systemconfiguration_ezsignpersonnal_isSet) {
-        obj.insert(QString("bSystemconfigurationEzsignpersonnal"), ::OpenAPI::toJsonValue(b_systemconfiguration_ezsignpersonnal));
+        obj.insert(QString("bSystemconfigurationEzsignpersonnal"), ::OpenAPI::toJsonValue(m_b_systemconfiguration_ezsignpersonnal));
     }
     if (m_b_systemconfiguration_sspr_isSet) {
-        obj.insert(QString("bSystemconfigurationSspr"), ::OpenAPI::toJsonValue(b_systemconfiguration_sspr));
+        obj.insert(QString("bSystemconfigurationSspr"), ::OpenAPI::toJsonValue(m_b_systemconfiguration_sspr));
     }
     if (m_dt_systemconfiguration_readonlyexpirationstart_isSet) {
-        obj.insert(QString("dtSystemconfigurationReadonlyexpirationstart"), ::OpenAPI::toJsonValue(dt_systemconfiguration_readonlyexpirationstart));
+        obj.insert(QString("dtSystemconfigurationReadonlyexpirationstart"), ::OpenAPI::toJsonValue(m_dt_systemconfiguration_readonlyexpirationstart));
     }
     if (m_dt_systemconfiguration_readonlyexpirationend_isSet) {
-        obj.insert(QString("dtSystemconfigurationReadonlyexpirationend"), ::OpenAPI::toJsonValue(dt_systemconfiguration_readonlyexpirationend));
+        obj.insert(QString("dtSystemconfigurationReadonlyexpirationend"), ::OpenAPI::toJsonValue(m_dt_systemconfiguration_readonlyexpirationend));
     }
     return obj;
 }
 
 qint32 OAISystemconfiguration_ResponseCompound::getPkiSystemconfigurationId() const {
-    return pki_systemconfiguration_id;
+    return m_pki_systemconfiguration_id;
 }
 void OAISystemconfiguration_ResponseCompound::setPkiSystemconfigurationId(const qint32 &pki_systemconfiguration_id) {
-    this->pki_systemconfiguration_id = pki_systemconfiguration_id;
-    this->m_pki_systemconfiguration_id_isSet = true;
+    m_pki_systemconfiguration_id = pki_systemconfiguration_id;
+    m_pki_systemconfiguration_id_isSet = true;
 }
 
 bool OAISystemconfiguration_ResponseCompound::is_pki_systemconfiguration_id_Set() const{
@@ -173,11 +173,11 @@ bool OAISystemconfiguration_ResponseCompound::is_pki_systemconfiguration_id_Vali
 }
 
 qint32 OAISystemconfiguration_ResponseCompound::getFkiSystemconfigurationtypeId() const {
-    return fki_systemconfigurationtype_id;
+    return m_fki_systemconfigurationtype_id;
 }
 void OAISystemconfiguration_ResponseCompound::setFkiSystemconfigurationtypeId(const qint32 &fki_systemconfigurationtype_id) {
-    this->fki_systemconfigurationtype_id = fki_systemconfigurationtype_id;
-    this->m_fki_systemconfigurationtype_id_isSet = true;
+    m_fki_systemconfigurationtype_id = fki_systemconfigurationtype_id;
+    m_fki_systemconfigurationtype_id_isSet = true;
 }
 
 bool OAISystemconfiguration_ResponseCompound::is_fki_systemconfigurationtype_id_Set() const{
@@ -189,11 +189,11 @@ bool OAISystemconfiguration_ResponseCompound::is_fki_systemconfigurationtype_id_
 }
 
 QString OAISystemconfiguration_ResponseCompound::getSSystemconfigurationtypeDescriptionX() const {
-    return s_systemconfigurationtype_description_x;
+    return m_s_systemconfigurationtype_description_x;
 }
 void OAISystemconfiguration_ResponseCompound::setSSystemconfigurationtypeDescriptionX(const QString &s_systemconfigurationtype_description_x) {
-    this->s_systemconfigurationtype_description_x = s_systemconfigurationtype_description_x;
-    this->m_s_systemconfigurationtype_description_x_isSet = true;
+    m_s_systemconfigurationtype_description_x = s_systemconfigurationtype_description_x;
+    m_s_systemconfigurationtype_description_x_isSet = true;
 }
 
 bool OAISystemconfiguration_ResponseCompound::is_s_systemconfigurationtype_description_x_Set() const{
@@ -205,11 +205,11 @@ bool OAISystemconfiguration_ResponseCompound::is_s_systemconfigurationtype_descr
 }
 
 OAIField_eSystemconfigurationNewexternaluseraction OAISystemconfiguration_ResponseCompound::getESystemconfigurationNewexternaluseraction() const {
-    return e_systemconfiguration_newexternaluseraction;
+    return m_e_systemconfiguration_newexternaluseraction;
 }
 void OAISystemconfiguration_ResponseCompound::setESystemconfigurationNewexternaluseraction(const OAIField_eSystemconfigurationNewexternaluseraction &e_systemconfiguration_newexternaluseraction) {
-    this->e_systemconfiguration_newexternaluseraction = e_systemconfiguration_newexternaluseraction;
-    this->m_e_systemconfiguration_newexternaluseraction_isSet = true;
+    m_e_systemconfiguration_newexternaluseraction = e_systemconfiguration_newexternaluseraction;
+    m_e_systemconfiguration_newexternaluseraction_isSet = true;
 }
 
 bool OAISystemconfiguration_ResponseCompound::is_e_systemconfiguration_newexternaluseraction_Set() const{
@@ -221,11 +221,11 @@ bool OAISystemconfiguration_ResponseCompound::is_e_systemconfiguration_newextern
 }
 
 OAIField_eSystemconfigurationLanguage1 OAISystemconfiguration_ResponseCompound::getESystemconfigurationLanguage1() const {
-    return e_systemconfiguration_language1;
+    return m_e_systemconfiguration_language1;
 }
 void OAISystemconfiguration_ResponseCompound::setESystemconfigurationLanguage1(const OAIField_eSystemconfigurationLanguage1 &e_systemconfiguration_language1) {
-    this->e_systemconfiguration_language1 = e_systemconfiguration_language1;
-    this->m_e_systemconfiguration_language1_isSet = true;
+    m_e_systemconfiguration_language1 = e_systemconfiguration_language1;
+    m_e_systemconfiguration_language1_isSet = true;
 }
 
 bool OAISystemconfiguration_ResponseCompound::is_e_systemconfiguration_language1_Set() const{
@@ -237,11 +237,11 @@ bool OAISystemconfiguration_ResponseCompound::is_e_systemconfiguration_language1
 }
 
 OAIField_eSystemconfigurationLanguage2 OAISystemconfiguration_ResponseCompound::getESystemconfigurationLanguage2() const {
-    return e_systemconfiguration_language2;
+    return m_e_systemconfiguration_language2;
 }
 void OAISystemconfiguration_ResponseCompound::setESystemconfigurationLanguage2(const OAIField_eSystemconfigurationLanguage2 &e_systemconfiguration_language2) {
-    this->e_systemconfiguration_language2 = e_systemconfiguration_language2;
-    this->m_e_systemconfiguration_language2_isSet = true;
+    m_e_systemconfiguration_language2 = e_systemconfiguration_language2;
+    m_e_systemconfiguration_language2_isSet = true;
 }
 
 bool OAISystemconfiguration_ResponseCompound::is_e_systemconfiguration_language2_Set() const{
@@ -253,11 +253,11 @@ bool OAISystemconfiguration_ResponseCompound::is_e_systemconfiguration_language2
 }
 
 OAIField_eSystemconfigurationEzsign OAISystemconfiguration_ResponseCompound::getESystemconfigurationEzsign() const {
-    return e_systemconfiguration_ezsign;
+    return m_e_systemconfiguration_ezsign;
 }
 void OAISystemconfiguration_ResponseCompound::setESystemconfigurationEzsign(const OAIField_eSystemconfigurationEzsign &e_systemconfiguration_ezsign) {
-    this->e_systemconfiguration_ezsign = e_systemconfiguration_ezsign;
-    this->m_e_systemconfiguration_ezsign_isSet = true;
+    m_e_systemconfiguration_ezsign = e_systemconfiguration_ezsign;
+    m_e_systemconfiguration_ezsign_isSet = true;
 }
 
 bool OAISystemconfiguration_ResponseCompound::is_e_systemconfiguration_ezsign_Set() const{
@@ -269,11 +269,11 @@ bool OAISystemconfiguration_ResponseCompound::is_e_systemconfiguration_ezsign_Va
 }
 
 bool OAISystemconfiguration_ResponseCompound::isBSystemconfigurationEzsignpersonnal() const {
-    return b_systemconfiguration_ezsignpersonnal;
+    return m_b_systemconfiguration_ezsignpersonnal;
 }
 void OAISystemconfiguration_ResponseCompound::setBSystemconfigurationEzsignpersonnal(const bool &b_systemconfiguration_ezsignpersonnal) {
-    this->b_systemconfiguration_ezsignpersonnal = b_systemconfiguration_ezsignpersonnal;
-    this->m_b_systemconfiguration_ezsignpersonnal_isSet = true;
+    m_b_systemconfiguration_ezsignpersonnal = b_systemconfiguration_ezsignpersonnal;
+    m_b_systemconfiguration_ezsignpersonnal_isSet = true;
 }
 
 bool OAISystemconfiguration_ResponseCompound::is_b_systemconfiguration_ezsignpersonnal_Set() const{
@@ -285,11 +285,11 @@ bool OAISystemconfiguration_ResponseCompound::is_b_systemconfiguration_ezsignper
 }
 
 bool OAISystemconfiguration_ResponseCompound::isBSystemconfigurationSspr() const {
-    return b_systemconfiguration_sspr;
+    return m_b_systemconfiguration_sspr;
 }
 void OAISystemconfiguration_ResponseCompound::setBSystemconfigurationSspr(const bool &b_systemconfiguration_sspr) {
-    this->b_systemconfiguration_sspr = b_systemconfiguration_sspr;
-    this->m_b_systemconfiguration_sspr_isSet = true;
+    m_b_systemconfiguration_sspr = b_systemconfiguration_sspr;
+    m_b_systemconfiguration_sspr_isSet = true;
 }
 
 bool OAISystemconfiguration_ResponseCompound::is_b_systemconfiguration_sspr_Set() const{
@@ -301,11 +301,11 @@ bool OAISystemconfiguration_ResponseCompound::is_b_systemconfiguration_sspr_Vali
 }
 
 QString OAISystemconfiguration_ResponseCompound::getDtSystemconfigurationReadonlyexpirationstart() const {
-    return dt_systemconfiguration_readonlyexpirationstart;
+    return m_dt_systemconfiguration_readonlyexpirationstart;
 }
 void OAISystemconfiguration_ResponseCompound::setDtSystemconfigurationReadonlyexpirationstart(const QString &dt_systemconfiguration_readonlyexpirationstart) {
-    this->dt_systemconfiguration_readonlyexpirationstart = dt_systemconfiguration_readonlyexpirationstart;
-    this->m_dt_systemconfiguration_readonlyexpirationstart_isSet = true;
+    m_dt_systemconfiguration_readonlyexpirationstart = dt_systemconfiguration_readonlyexpirationstart;
+    m_dt_systemconfiguration_readonlyexpirationstart_isSet = true;
 }
 
 bool OAISystemconfiguration_ResponseCompound::is_dt_systemconfiguration_readonlyexpirationstart_Set() const{
@@ -317,11 +317,11 @@ bool OAISystemconfiguration_ResponseCompound::is_dt_systemconfiguration_readonly
 }
 
 QString OAISystemconfiguration_ResponseCompound::getDtSystemconfigurationReadonlyexpirationend() const {
-    return dt_systemconfiguration_readonlyexpirationend;
+    return m_dt_systemconfiguration_readonlyexpirationend;
 }
 void OAISystemconfiguration_ResponseCompound::setDtSystemconfigurationReadonlyexpirationend(const QString &dt_systemconfiguration_readonlyexpirationend) {
-    this->dt_systemconfiguration_readonlyexpirationend = dt_systemconfiguration_readonlyexpirationend;
-    this->m_dt_systemconfiguration_readonlyexpirationend_isSet = true;
+    m_dt_systemconfiguration_readonlyexpirationend = dt_systemconfiguration_readonlyexpirationend;
+    m_dt_systemconfiguration_readonlyexpirationend_isSet = true;
 }
 
 bool OAISystemconfiguration_ResponseCompound::is_dt_systemconfiguration_readonlyexpirationend_Set() const{
@@ -350,22 +350,22 @@ bool OAISystemconfiguration_ResponseCompound::isSet() const {
             break;
         }
 
-        if (e_systemconfiguration_newexternaluseraction.isSet()) {
+        if (m_e_systemconfiguration_newexternaluseraction.isSet()) {
             isObjectUpdated = true;
             break;
         }
 
-        if (e_systemconfiguration_language1.isSet()) {
+        if (m_e_systemconfiguration_language1.isSet()) {
             isObjectUpdated = true;
             break;
         }
 
-        if (e_systemconfiguration_language2.isSet()) {
+        if (m_e_systemconfiguration_language2.isSet()) {
             isObjectUpdated = true;
             break;
         }
 
-        if (e_systemconfiguration_ezsign.isSet()) {
+        if (m_e_systemconfiguration_ezsign.isSet()) {
             isObjectUpdated = true;
             break;
         }

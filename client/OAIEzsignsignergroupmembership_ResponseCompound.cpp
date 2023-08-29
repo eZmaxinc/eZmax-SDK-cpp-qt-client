@@ -59,19 +59,19 @@ void OAIEzsignsignergroupmembership_ResponseCompound::fromJson(QString jsonStrin
 
 void OAIEzsignsignergroupmembership_ResponseCompound::fromJsonObject(QJsonObject json) {
 
-    m_pki_ezsignsignergroupmembership_id_isValid = ::OpenAPI::fromJsonValue(pki_ezsignsignergroupmembership_id, json[QString("pkiEzsignsignergroupmembershipID")]);
+    m_pki_ezsignsignergroupmembership_id_isValid = ::OpenAPI::fromJsonValue(m_pki_ezsignsignergroupmembership_id, json[QString("pkiEzsignsignergroupmembershipID")]);
     m_pki_ezsignsignergroupmembership_id_isSet = !json[QString("pkiEzsignsignergroupmembershipID")].isNull() && m_pki_ezsignsignergroupmembership_id_isValid;
 
-    m_fki_ezsignsignergroup_id_isValid = ::OpenAPI::fromJsonValue(fki_ezsignsignergroup_id, json[QString("fkiEzsignsignergroupID")]);
+    m_fki_ezsignsignergroup_id_isValid = ::OpenAPI::fromJsonValue(m_fki_ezsignsignergroup_id, json[QString("fkiEzsignsignergroupID")]);
     m_fki_ezsignsignergroup_id_isSet = !json[QString("fkiEzsignsignergroupID")].isNull() && m_fki_ezsignsignergroup_id_isValid;
 
-    m_fki_ezsignsigner_id_isValid = ::OpenAPI::fromJsonValue(fki_ezsignsigner_id, json[QString("fkiEzsignsignerID")]);
+    m_fki_ezsignsigner_id_isValid = ::OpenAPI::fromJsonValue(m_fki_ezsignsigner_id, json[QString("fkiEzsignsignerID")]);
     m_fki_ezsignsigner_id_isSet = !json[QString("fkiEzsignsignerID")].isNull() && m_fki_ezsignsigner_id_isValid;
 
-    m_fki_user_id_isValid = ::OpenAPI::fromJsonValue(fki_user_id, json[QString("fkiUserID")]);
+    m_fki_user_id_isValid = ::OpenAPI::fromJsonValue(m_fki_user_id, json[QString("fkiUserID")]);
     m_fki_user_id_isSet = !json[QString("fkiUserID")].isNull() && m_fki_user_id_isValid;
 
-    m_fki_usergroup_id_isValid = ::OpenAPI::fromJsonValue(fki_usergroup_id, json[QString("fkiUsergroupID")]);
+    m_fki_usergroup_id_isValid = ::OpenAPI::fromJsonValue(m_fki_usergroup_id, json[QString("fkiUsergroupID")]);
     m_fki_usergroup_id_isSet = !json[QString("fkiUsergroupID")].isNull() && m_fki_usergroup_id_isValid;
 }
 
@@ -85,29 +85,29 @@ QString OAIEzsignsignergroupmembership_ResponseCompound::asJson() const {
 QJsonObject OAIEzsignsignergroupmembership_ResponseCompound::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_ezsignsignergroupmembership_id_isSet) {
-        obj.insert(QString("pkiEzsignsignergroupmembershipID"), ::OpenAPI::toJsonValue(pki_ezsignsignergroupmembership_id));
+        obj.insert(QString("pkiEzsignsignergroupmembershipID"), ::OpenAPI::toJsonValue(m_pki_ezsignsignergroupmembership_id));
     }
     if (m_fki_ezsignsignergroup_id_isSet) {
-        obj.insert(QString("fkiEzsignsignergroupID"), ::OpenAPI::toJsonValue(fki_ezsignsignergroup_id));
+        obj.insert(QString("fkiEzsignsignergroupID"), ::OpenAPI::toJsonValue(m_fki_ezsignsignergroup_id));
     }
     if (m_fki_ezsignsigner_id_isSet) {
-        obj.insert(QString("fkiEzsignsignerID"), ::OpenAPI::toJsonValue(fki_ezsignsigner_id));
+        obj.insert(QString("fkiEzsignsignerID"), ::OpenAPI::toJsonValue(m_fki_ezsignsigner_id));
     }
     if (m_fki_user_id_isSet) {
-        obj.insert(QString("fkiUserID"), ::OpenAPI::toJsonValue(fki_user_id));
+        obj.insert(QString("fkiUserID"), ::OpenAPI::toJsonValue(m_fki_user_id));
     }
     if (m_fki_usergroup_id_isSet) {
-        obj.insert(QString("fkiUsergroupID"), ::OpenAPI::toJsonValue(fki_usergroup_id));
+        obj.insert(QString("fkiUsergroupID"), ::OpenAPI::toJsonValue(m_fki_usergroup_id));
     }
     return obj;
 }
 
 qint32 OAIEzsignsignergroupmembership_ResponseCompound::getPkiEzsignsignergroupmembershipId() const {
-    return pki_ezsignsignergroupmembership_id;
+    return m_pki_ezsignsignergroupmembership_id;
 }
 void OAIEzsignsignergroupmembership_ResponseCompound::setPkiEzsignsignergroupmembershipId(const qint32 &pki_ezsignsignergroupmembership_id) {
-    this->pki_ezsignsignergroupmembership_id = pki_ezsignsignergroupmembership_id;
-    this->m_pki_ezsignsignergroupmembership_id_isSet = true;
+    m_pki_ezsignsignergroupmembership_id = pki_ezsignsignergroupmembership_id;
+    m_pki_ezsignsignergroupmembership_id_isSet = true;
 }
 
 bool OAIEzsignsignergroupmembership_ResponseCompound::is_pki_ezsignsignergroupmembership_id_Set() const{
@@ -119,11 +119,11 @@ bool OAIEzsignsignergroupmembership_ResponseCompound::is_pki_ezsignsignergroupme
 }
 
 qint32 OAIEzsignsignergroupmembership_ResponseCompound::getFkiEzsignsignergroupId() const {
-    return fki_ezsignsignergroup_id;
+    return m_fki_ezsignsignergroup_id;
 }
 void OAIEzsignsignergroupmembership_ResponseCompound::setFkiEzsignsignergroupId(const qint32 &fki_ezsignsignergroup_id) {
-    this->fki_ezsignsignergroup_id = fki_ezsignsignergroup_id;
-    this->m_fki_ezsignsignergroup_id_isSet = true;
+    m_fki_ezsignsignergroup_id = fki_ezsignsignergroup_id;
+    m_fki_ezsignsignergroup_id_isSet = true;
 }
 
 bool OAIEzsignsignergroupmembership_ResponseCompound::is_fki_ezsignsignergroup_id_Set() const{
@@ -135,11 +135,11 @@ bool OAIEzsignsignergroupmembership_ResponseCompound::is_fki_ezsignsignergroup_i
 }
 
 qint32 OAIEzsignsignergroupmembership_ResponseCompound::getFkiEzsignsignerId() const {
-    return fki_ezsignsigner_id;
+    return m_fki_ezsignsigner_id;
 }
 void OAIEzsignsignergroupmembership_ResponseCompound::setFkiEzsignsignerId(const qint32 &fki_ezsignsigner_id) {
-    this->fki_ezsignsigner_id = fki_ezsignsigner_id;
-    this->m_fki_ezsignsigner_id_isSet = true;
+    m_fki_ezsignsigner_id = fki_ezsignsigner_id;
+    m_fki_ezsignsigner_id_isSet = true;
 }
 
 bool OAIEzsignsignergroupmembership_ResponseCompound::is_fki_ezsignsigner_id_Set() const{
@@ -151,11 +151,11 @@ bool OAIEzsignsignergroupmembership_ResponseCompound::is_fki_ezsignsigner_id_Val
 }
 
 qint32 OAIEzsignsignergroupmembership_ResponseCompound::getFkiUserId() const {
-    return fki_user_id;
+    return m_fki_user_id;
 }
 void OAIEzsignsignergroupmembership_ResponseCompound::setFkiUserId(const qint32 &fki_user_id) {
-    this->fki_user_id = fki_user_id;
-    this->m_fki_user_id_isSet = true;
+    m_fki_user_id = fki_user_id;
+    m_fki_user_id_isSet = true;
 }
 
 bool OAIEzsignsignergroupmembership_ResponseCompound::is_fki_user_id_Set() const{
@@ -167,11 +167,11 @@ bool OAIEzsignsignergroupmembership_ResponseCompound::is_fki_user_id_Valid() con
 }
 
 qint32 OAIEzsignsignergroupmembership_ResponseCompound::getFkiUsergroupId() const {
-    return fki_usergroup_id;
+    return m_fki_usergroup_id;
 }
 void OAIEzsignsignergroupmembership_ResponseCompound::setFkiUsergroupId(const qint32 &fki_usergroup_id) {
-    this->fki_usergroup_id = fki_usergroup_id;
-    this->m_fki_usergroup_id_isSet = true;
+    m_fki_usergroup_id = fki_usergroup_id;
+    m_fki_usergroup_id_isSet = true;
 }
 
 bool OAIEzsignsignergroupmembership_ResponseCompound::is_fki_usergroup_id_Set() const{
@@ -215,7 +215,7 @@ bool OAIEzsignsignergroupmembership_ResponseCompound::isSet() const {
 
 bool OAIEzsignsignergroupmembership_ResponseCompound::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_pki_ezsignsignergroupmembership_id_isValid && m_fki_ezsignsignergroup_id_isValid && m_fki_ezsignsigner_id_isValid && m_fki_user_id_isValid && m_fki_usergroup_id_isValid && true;
+    return m_pki_ezsignsignergroupmembership_id_isValid && m_fki_ezsignsignergroup_id_isValid && true;
 }
 
 } // namespace OpenAPI

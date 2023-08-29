@@ -47,7 +47,7 @@ void OAIEzsignfolder_importEzsignfoldersignerassociations_v1_Request::fromJson(Q
 
 void OAIEzsignfolder_importEzsignfoldersignerassociations_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_a_fki_ezsignfoldersignerassociation_id_isValid = ::OpenAPI::fromJsonValue(a_fki_ezsignfoldersignerassociation_id, json[QString("a_fkiEzsignfoldersignerassociationID")]);
+    m_a_fki_ezsignfoldersignerassociation_id_isValid = ::OpenAPI::fromJsonValue(m_a_fki_ezsignfoldersignerassociation_id, json[QString("a_fkiEzsignfoldersignerassociationID")]);
     m_a_fki_ezsignfoldersignerassociation_id_isSet = !json[QString("a_fkiEzsignfoldersignerassociationID")].isNull() && m_a_fki_ezsignfoldersignerassociation_id_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIEzsignfolder_importEzsignfoldersignerassociations_v1_Request::asJson(
 
 QJsonObject OAIEzsignfolder_importEzsignfoldersignerassociations_v1_Request::asJsonObject() const {
     QJsonObject obj;
-    if (a_fki_ezsignfoldersignerassociation_id.size() > 0) {
-        obj.insert(QString("a_fkiEzsignfoldersignerassociationID"), ::OpenAPI::toJsonValue(a_fki_ezsignfoldersignerassociation_id));
+    if (m_a_fki_ezsignfoldersignerassociation_id.size() > 0) {
+        obj.insert(QString("a_fkiEzsignfoldersignerassociationID"), ::OpenAPI::toJsonValue(m_a_fki_ezsignfoldersignerassociation_id));
     }
     return obj;
 }
 
 QSet<qint32> OAIEzsignfolder_importEzsignfoldersignerassociations_v1_Request::getAFkiEzsignfoldersignerassociationId() const {
-    return a_fki_ezsignfoldersignerassociation_id;
+    return m_a_fki_ezsignfoldersignerassociation_id;
 }
 void OAIEzsignfolder_importEzsignfoldersignerassociations_v1_Request::setAFkiEzsignfoldersignerassociationId(const QSet<qint32> &a_fki_ezsignfoldersignerassociation_id) {
-    this->a_fki_ezsignfoldersignerassociation_id = a_fki_ezsignfoldersignerassociation_id;
-    this->m_a_fki_ezsignfoldersignerassociation_id_isSet = true;
+    m_a_fki_ezsignfoldersignerassociation_id = a_fki_ezsignfoldersignerassociation_id;
+    m_a_fki_ezsignfoldersignerassociation_id_isSet = true;
 }
 
 bool OAIEzsignfolder_importEzsignfoldersignerassociations_v1_Request::is_a_fki_ezsignfoldersignerassociation_id_Set() const{
@@ -85,7 +85,7 @@ bool OAIEzsignfolder_importEzsignfoldersignerassociations_v1_Request::is_a_fki_e
 bool OAIEzsignfolder_importEzsignfoldersignerassociations_v1_Request::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_fki_ezsignfoldersignerassociation_id.size() > 0) {
+        if (m_a_fki_ezsignfoldersignerassociation_id.size() > 0) {
             isObjectUpdated = true;
             break;
         }

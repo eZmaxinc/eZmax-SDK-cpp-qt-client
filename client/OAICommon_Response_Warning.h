@@ -55,11 +55,11 @@ public:
 private:
     void initializeModel();
 
-    QString s_warning_message;
+    QString m_s_warning_message;
     bool m_s_warning_message_isSet;
     bool m_s_warning_message_isValid;
 
-    QString e_warning_code;
+    QString m_e_warning_code;
     bool m_e_warning_code_isSet;
     bool m_e_warning_code_isValid;
 };

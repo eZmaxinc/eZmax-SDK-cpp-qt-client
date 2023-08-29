@@ -76,23 +76,23 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_communicationexternalrecipient_id;
+    qint32 m_pki_communicationexternalrecipient_id;
     bool m_pki_communicationexternalrecipient_id_isSet;
     bool m_pki_communicationexternalrecipient_id_isValid;
 
-    OAIField_eCommunicationexternalrecipientType e_communicationexternalrecipient_type;
+    OAIField_eCommunicationexternalrecipientType m_e_communicationexternalrecipient_type;
     bool m_e_communicationexternalrecipient_type_isSet;
     bool m_e_communicationexternalrecipient_type_isValid;
 
-    OAIDescriptionstatic_ResponseCompound obj_descriptionstatic;
+    OAIDescriptionstatic_ResponseCompound m_obj_descriptionstatic;
     bool m_obj_descriptionstatic_isSet;
     bool m_obj_descriptionstatic_isValid;
 
-    OAIEmailstatic_ResponseCompound obj_emailstatic;
+    OAIEmailstatic_ResponseCompound m_obj_emailstatic;
     bool m_obj_emailstatic_isSet;
     bool m_obj_emailstatic_isValid;
 
-    OAIPhonestatic_ResponseCompound obj_phonestatic;
+    OAIPhonestatic_ResponseCompound m_obj_phonestatic;
     bool m_obj_phonestatic_isSet;
     bool m_obj_phonestatic_isValid;
 };

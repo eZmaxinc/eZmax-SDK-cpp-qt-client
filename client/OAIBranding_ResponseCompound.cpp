@@ -89,49 +89,49 @@ void OAIBranding_ResponseCompound::fromJson(QString jsonString) {
 
 void OAIBranding_ResponseCompound::fromJsonObject(QJsonObject json) {
 
-    m_pki_branding_id_isValid = ::OpenAPI::fromJsonValue(pki_branding_id, json[QString("pkiBrandingID")]);
+    m_pki_branding_id_isValid = ::OpenAPI::fromJsonValue(m_pki_branding_id, json[QString("pkiBrandingID")]);
     m_pki_branding_id_isSet = !json[QString("pkiBrandingID")].isNull() && m_pki_branding_id_isValid;
 
-    m_fki_email_id_isValid = ::OpenAPI::fromJsonValue(fki_email_id, json[QString("fkiEmailID")]);
+    m_fki_email_id_isValid = ::OpenAPI::fromJsonValue(m_fki_email_id, json[QString("fkiEmailID")]);
     m_fki_email_id_isSet = !json[QString("fkiEmailID")].isNull() && m_fki_email_id_isValid;
 
-    m_obj_branding_description_isValid = ::OpenAPI::fromJsonValue(obj_branding_description, json[QString("objBrandingDescription")]);
+    m_obj_branding_description_isValid = ::OpenAPI::fromJsonValue(m_obj_branding_description, json[QString("objBrandingDescription")]);
     m_obj_branding_description_isSet = !json[QString("objBrandingDescription")].isNull() && m_obj_branding_description_isValid;
 
-    m_s_branding_description_x_isValid = ::OpenAPI::fromJsonValue(s_branding_description_x, json[QString("sBrandingDescriptionX")]);
+    m_s_branding_description_x_isValid = ::OpenAPI::fromJsonValue(m_s_branding_description_x, json[QString("sBrandingDescriptionX")]);
     m_s_branding_description_x_isSet = !json[QString("sBrandingDescriptionX")].isNull() && m_s_branding_description_x_isValid;
 
-    m_s_branding_name_isValid = ::OpenAPI::fromJsonValue(s_branding_name, json[QString("sBrandingName")]);
+    m_s_branding_name_isValid = ::OpenAPI::fromJsonValue(m_s_branding_name, json[QString("sBrandingName")]);
     m_s_branding_name_isSet = !json[QString("sBrandingName")].isNull() && m_s_branding_name_isValid;
 
-    m_s_email_address_isValid = ::OpenAPI::fromJsonValue(s_email_address, json[QString("sEmailAddress")]);
+    m_s_email_address_isValid = ::OpenAPI::fromJsonValue(m_s_email_address, json[QString("sEmailAddress")]);
     m_s_email_address_isSet = !json[QString("sEmailAddress")].isNull() && m_s_email_address_isValid;
 
-    m_e_branding_logo_isValid = ::OpenAPI::fromJsonValue(e_branding_logo, json[QString("eBrandingLogo")]);
+    m_e_branding_logo_isValid = ::OpenAPI::fromJsonValue(m_e_branding_logo, json[QString("eBrandingLogo")]);
     m_e_branding_logo_isSet = !json[QString("eBrandingLogo")].isNull() && m_e_branding_logo_isValid;
 
-    m_i_branding_colortext_isValid = ::OpenAPI::fromJsonValue(i_branding_colortext, json[QString("iBrandingColortext")]);
+    m_i_branding_colortext_isValid = ::OpenAPI::fromJsonValue(m_i_branding_colortext, json[QString("iBrandingColortext")]);
     m_i_branding_colortext_isSet = !json[QString("iBrandingColortext")].isNull() && m_i_branding_colortext_isValid;
 
-    m_i_branding_colortextlinkbox_isValid = ::OpenAPI::fromJsonValue(i_branding_colortextlinkbox, json[QString("iBrandingColortextlinkbox")]);
+    m_i_branding_colortextlinkbox_isValid = ::OpenAPI::fromJsonValue(m_i_branding_colortextlinkbox, json[QString("iBrandingColortextlinkbox")]);
     m_i_branding_colortextlinkbox_isSet = !json[QString("iBrandingColortextlinkbox")].isNull() && m_i_branding_colortextlinkbox_isValid;
 
-    m_i_branding_colortextbutton_isValid = ::OpenAPI::fromJsonValue(i_branding_colortextbutton, json[QString("iBrandingColortextbutton")]);
+    m_i_branding_colortextbutton_isValid = ::OpenAPI::fromJsonValue(m_i_branding_colortextbutton, json[QString("iBrandingColortextbutton")]);
     m_i_branding_colortextbutton_isSet = !json[QString("iBrandingColortextbutton")].isNull() && m_i_branding_colortextbutton_isValid;
 
-    m_i_branding_colorbackground_isValid = ::OpenAPI::fromJsonValue(i_branding_colorbackground, json[QString("iBrandingColorbackground")]);
+    m_i_branding_colorbackground_isValid = ::OpenAPI::fromJsonValue(m_i_branding_colorbackground, json[QString("iBrandingColorbackground")]);
     m_i_branding_colorbackground_isSet = !json[QString("iBrandingColorbackground")].isNull() && m_i_branding_colorbackground_isValid;
 
-    m_i_branding_colorbackgroundbutton_isValid = ::OpenAPI::fromJsonValue(i_branding_colorbackgroundbutton, json[QString("iBrandingColorbackgroundbutton")]);
+    m_i_branding_colorbackgroundbutton_isValid = ::OpenAPI::fromJsonValue(m_i_branding_colorbackgroundbutton, json[QString("iBrandingColorbackgroundbutton")]);
     m_i_branding_colorbackgroundbutton_isSet = !json[QString("iBrandingColorbackgroundbutton")].isNull() && m_i_branding_colorbackgroundbutton_isValid;
 
-    m_i_branding_colorbackgroundsmallbox_isValid = ::OpenAPI::fromJsonValue(i_branding_colorbackgroundsmallbox, json[QString("iBrandingColorbackgroundsmallbox")]);
+    m_i_branding_colorbackgroundsmallbox_isValid = ::OpenAPI::fromJsonValue(m_i_branding_colorbackgroundsmallbox, json[QString("iBrandingColorbackgroundsmallbox")]);
     m_i_branding_colorbackgroundsmallbox_isSet = !json[QString("iBrandingColorbackgroundsmallbox")].isNull() && m_i_branding_colorbackgroundsmallbox_isValid;
 
-    m_b_branding_isactive_isValid = ::OpenAPI::fromJsonValue(b_branding_isactive, json[QString("bBrandingIsactive")]);
+    m_b_branding_isactive_isValid = ::OpenAPI::fromJsonValue(m_b_branding_isactive, json[QString("bBrandingIsactive")]);
     m_b_branding_isactive_isSet = !json[QString("bBrandingIsactive")].isNull() && m_b_branding_isactive_isValid;
 
-    m_s_branding_logourl_isValid = ::OpenAPI::fromJsonValue(s_branding_logourl, json[QString("sBrandingLogourl")]);
+    m_s_branding_logourl_isValid = ::OpenAPI::fromJsonValue(m_s_branding_logourl, json[QString("sBrandingLogourl")]);
     m_s_branding_logourl_isSet = !json[QString("sBrandingLogourl")].isNull() && m_s_branding_logourl_isValid;
 }
 
@@ -145,59 +145,59 @@ QString OAIBranding_ResponseCompound::asJson() const {
 QJsonObject OAIBranding_ResponseCompound::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_branding_id_isSet) {
-        obj.insert(QString("pkiBrandingID"), ::OpenAPI::toJsonValue(pki_branding_id));
+        obj.insert(QString("pkiBrandingID"), ::OpenAPI::toJsonValue(m_pki_branding_id));
     }
     if (m_fki_email_id_isSet) {
-        obj.insert(QString("fkiEmailID"), ::OpenAPI::toJsonValue(fki_email_id));
+        obj.insert(QString("fkiEmailID"), ::OpenAPI::toJsonValue(m_fki_email_id));
     }
-    if (obj_branding_description.isSet()) {
-        obj.insert(QString("objBrandingDescription"), ::OpenAPI::toJsonValue(obj_branding_description));
+    if (m_obj_branding_description.isSet()) {
+        obj.insert(QString("objBrandingDescription"), ::OpenAPI::toJsonValue(m_obj_branding_description));
     }
     if (m_s_branding_description_x_isSet) {
-        obj.insert(QString("sBrandingDescriptionX"), ::OpenAPI::toJsonValue(s_branding_description_x));
+        obj.insert(QString("sBrandingDescriptionX"), ::OpenAPI::toJsonValue(m_s_branding_description_x));
     }
     if (m_s_branding_name_isSet) {
-        obj.insert(QString("sBrandingName"), ::OpenAPI::toJsonValue(s_branding_name));
+        obj.insert(QString("sBrandingName"), ::OpenAPI::toJsonValue(m_s_branding_name));
     }
     if (m_s_email_address_isSet) {
-        obj.insert(QString("sEmailAddress"), ::OpenAPI::toJsonValue(s_email_address));
+        obj.insert(QString("sEmailAddress"), ::OpenAPI::toJsonValue(m_s_email_address));
     }
-    if (e_branding_logo.isSet()) {
-        obj.insert(QString("eBrandingLogo"), ::OpenAPI::toJsonValue(e_branding_logo));
+    if (m_e_branding_logo.isSet()) {
+        obj.insert(QString("eBrandingLogo"), ::OpenAPI::toJsonValue(m_e_branding_logo));
     }
     if (m_i_branding_colortext_isSet) {
-        obj.insert(QString("iBrandingColortext"), ::OpenAPI::toJsonValue(i_branding_colortext));
+        obj.insert(QString("iBrandingColortext"), ::OpenAPI::toJsonValue(m_i_branding_colortext));
     }
     if (m_i_branding_colortextlinkbox_isSet) {
-        obj.insert(QString("iBrandingColortextlinkbox"), ::OpenAPI::toJsonValue(i_branding_colortextlinkbox));
+        obj.insert(QString("iBrandingColortextlinkbox"), ::OpenAPI::toJsonValue(m_i_branding_colortextlinkbox));
     }
     if (m_i_branding_colortextbutton_isSet) {
-        obj.insert(QString("iBrandingColortextbutton"), ::OpenAPI::toJsonValue(i_branding_colortextbutton));
+        obj.insert(QString("iBrandingColortextbutton"), ::OpenAPI::toJsonValue(m_i_branding_colortextbutton));
     }
     if (m_i_branding_colorbackground_isSet) {
-        obj.insert(QString("iBrandingColorbackground"), ::OpenAPI::toJsonValue(i_branding_colorbackground));
+        obj.insert(QString("iBrandingColorbackground"), ::OpenAPI::toJsonValue(m_i_branding_colorbackground));
     }
     if (m_i_branding_colorbackgroundbutton_isSet) {
-        obj.insert(QString("iBrandingColorbackgroundbutton"), ::OpenAPI::toJsonValue(i_branding_colorbackgroundbutton));
+        obj.insert(QString("iBrandingColorbackgroundbutton"), ::OpenAPI::toJsonValue(m_i_branding_colorbackgroundbutton));
     }
     if (m_i_branding_colorbackgroundsmallbox_isSet) {
-        obj.insert(QString("iBrandingColorbackgroundsmallbox"), ::OpenAPI::toJsonValue(i_branding_colorbackgroundsmallbox));
+        obj.insert(QString("iBrandingColorbackgroundsmallbox"), ::OpenAPI::toJsonValue(m_i_branding_colorbackgroundsmallbox));
     }
     if (m_b_branding_isactive_isSet) {
-        obj.insert(QString("bBrandingIsactive"), ::OpenAPI::toJsonValue(b_branding_isactive));
+        obj.insert(QString("bBrandingIsactive"), ::OpenAPI::toJsonValue(m_b_branding_isactive));
     }
     if (m_s_branding_logourl_isSet) {
-        obj.insert(QString("sBrandingLogourl"), ::OpenAPI::toJsonValue(s_branding_logourl));
+        obj.insert(QString("sBrandingLogourl"), ::OpenAPI::toJsonValue(m_s_branding_logourl));
     }
     return obj;
 }
 
 qint32 OAIBranding_ResponseCompound::getPkiBrandingId() const {
-    return pki_branding_id;
+    return m_pki_branding_id;
 }
 void OAIBranding_ResponseCompound::setPkiBrandingId(const qint32 &pki_branding_id) {
-    this->pki_branding_id = pki_branding_id;
-    this->m_pki_branding_id_isSet = true;
+    m_pki_branding_id = pki_branding_id;
+    m_pki_branding_id_isSet = true;
 }
 
 bool OAIBranding_ResponseCompound::is_pki_branding_id_Set() const{
@@ -209,11 +209,11 @@ bool OAIBranding_ResponseCompound::is_pki_branding_id_Valid() const{
 }
 
 qint32 OAIBranding_ResponseCompound::getFkiEmailId() const {
-    return fki_email_id;
+    return m_fki_email_id;
 }
 void OAIBranding_ResponseCompound::setFkiEmailId(const qint32 &fki_email_id) {
-    this->fki_email_id = fki_email_id;
-    this->m_fki_email_id_isSet = true;
+    m_fki_email_id = fki_email_id;
+    m_fki_email_id_isSet = true;
 }
 
 bool OAIBranding_ResponseCompound::is_fki_email_id_Set() const{
@@ -225,11 +225,11 @@ bool OAIBranding_ResponseCompound::is_fki_email_id_Valid() const{
 }
 
 OAIMultilingual_BrandingDescription OAIBranding_ResponseCompound::getObjBrandingDescription() const {
-    return obj_branding_description;
+    return m_obj_branding_description;
 }
 void OAIBranding_ResponseCompound::setObjBrandingDescription(const OAIMultilingual_BrandingDescription &obj_branding_description) {
-    this->obj_branding_description = obj_branding_description;
-    this->m_obj_branding_description_isSet = true;
+    m_obj_branding_description = obj_branding_description;
+    m_obj_branding_description_isSet = true;
 }
 
 bool OAIBranding_ResponseCompound::is_obj_branding_description_Set() const{
@@ -241,11 +241,11 @@ bool OAIBranding_ResponseCompound::is_obj_branding_description_Valid() const{
 }
 
 QString OAIBranding_ResponseCompound::getSBrandingDescriptionX() const {
-    return s_branding_description_x;
+    return m_s_branding_description_x;
 }
 void OAIBranding_ResponseCompound::setSBrandingDescriptionX(const QString &s_branding_description_x) {
-    this->s_branding_description_x = s_branding_description_x;
-    this->m_s_branding_description_x_isSet = true;
+    m_s_branding_description_x = s_branding_description_x;
+    m_s_branding_description_x_isSet = true;
 }
 
 bool OAIBranding_ResponseCompound::is_s_branding_description_x_Set() const{
@@ -257,11 +257,11 @@ bool OAIBranding_ResponseCompound::is_s_branding_description_x_Valid() const{
 }
 
 QString OAIBranding_ResponseCompound::getSBrandingName() const {
-    return s_branding_name;
+    return m_s_branding_name;
 }
 void OAIBranding_ResponseCompound::setSBrandingName(const QString &s_branding_name) {
-    this->s_branding_name = s_branding_name;
-    this->m_s_branding_name_isSet = true;
+    m_s_branding_name = s_branding_name;
+    m_s_branding_name_isSet = true;
 }
 
 bool OAIBranding_ResponseCompound::is_s_branding_name_Set() const{
@@ -273,11 +273,11 @@ bool OAIBranding_ResponseCompound::is_s_branding_name_Valid() const{
 }
 
 QString OAIBranding_ResponseCompound::getSEmailAddress() const {
-    return s_email_address;
+    return m_s_email_address;
 }
 void OAIBranding_ResponseCompound::setSEmailAddress(const QString &s_email_address) {
-    this->s_email_address = s_email_address;
-    this->m_s_email_address_isSet = true;
+    m_s_email_address = s_email_address;
+    m_s_email_address_isSet = true;
 }
 
 bool OAIBranding_ResponseCompound::is_s_email_address_Set() const{
@@ -289,11 +289,11 @@ bool OAIBranding_ResponseCompound::is_s_email_address_Valid() const{
 }
 
 OAIField_eBrandingLogo OAIBranding_ResponseCompound::getEBrandingLogo() const {
-    return e_branding_logo;
+    return m_e_branding_logo;
 }
 void OAIBranding_ResponseCompound::setEBrandingLogo(const OAIField_eBrandingLogo &e_branding_logo) {
-    this->e_branding_logo = e_branding_logo;
-    this->m_e_branding_logo_isSet = true;
+    m_e_branding_logo = e_branding_logo;
+    m_e_branding_logo_isSet = true;
 }
 
 bool OAIBranding_ResponseCompound::is_e_branding_logo_Set() const{
@@ -305,11 +305,11 @@ bool OAIBranding_ResponseCompound::is_e_branding_logo_Valid() const{
 }
 
 qint32 OAIBranding_ResponseCompound::getIBrandingColortext() const {
-    return i_branding_colortext;
+    return m_i_branding_colortext;
 }
 void OAIBranding_ResponseCompound::setIBrandingColortext(const qint32 &i_branding_colortext) {
-    this->i_branding_colortext = i_branding_colortext;
-    this->m_i_branding_colortext_isSet = true;
+    m_i_branding_colortext = i_branding_colortext;
+    m_i_branding_colortext_isSet = true;
 }
 
 bool OAIBranding_ResponseCompound::is_i_branding_colortext_Set() const{
@@ -321,11 +321,11 @@ bool OAIBranding_ResponseCompound::is_i_branding_colortext_Valid() const{
 }
 
 qint32 OAIBranding_ResponseCompound::getIBrandingColortextlinkbox() const {
-    return i_branding_colortextlinkbox;
+    return m_i_branding_colortextlinkbox;
 }
 void OAIBranding_ResponseCompound::setIBrandingColortextlinkbox(const qint32 &i_branding_colortextlinkbox) {
-    this->i_branding_colortextlinkbox = i_branding_colortextlinkbox;
-    this->m_i_branding_colortextlinkbox_isSet = true;
+    m_i_branding_colortextlinkbox = i_branding_colortextlinkbox;
+    m_i_branding_colortextlinkbox_isSet = true;
 }
 
 bool OAIBranding_ResponseCompound::is_i_branding_colortextlinkbox_Set() const{
@@ -337,11 +337,11 @@ bool OAIBranding_ResponseCompound::is_i_branding_colortextlinkbox_Valid() const{
 }
 
 qint32 OAIBranding_ResponseCompound::getIBrandingColortextbutton() const {
-    return i_branding_colortextbutton;
+    return m_i_branding_colortextbutton;
 }
 void OAIBranding_ResponseCompound::setIBrandingColortextbutton(const qint32 &i_branding_colortextbutton) {
-    this->i_branding_colortextbutton = i_branding_colortextbutton;
-    this->m_i_branding_colortextbutton_isSet = true;
+    m_i_branding_colortextbutton = i_branding_colortextbutton;
+    m_i_branding_colortextbutton_isSet = true;
 }
 
 bool OAIBranding_ResponseCompound::is_i_branding_colortextbutton_Set() const{
@@ -353,11 +353,11 @@ bool OAIBranding_ResponseCompound::is_i_branding_colortextbutton_Valid() const{
 }
 
 qint32 OAIBranding_ResponseCompound::getIBrandingColorbackground() const {
-    return i_branding_colorbackground;
+    return m_i_branding_colorbackground;
 }
 void OAIBranding_ResponseCompound::setIBrandingColorbackground(const qint32 &i_branding_colorbackground) {
-    this->i_branding_colorbackground = i_branding_colorbackground;
-    this->m_i_branding_colorbackground_isSet = true;
+    m_i_branding_colorbackground = i_branding_colorbackground;
+    m_i_branding_colorbackground_isSet = true;
 }
 
 bool OAIBranding_ResponseCompound::is_i_branding_colorbackground_Set() const{
@@ -369,11 +369,11 @@ bool OAIBranding_ResponseCompound::is_i_branding_colorbackground_Valid() const{
 }
 
 qint32 OAIBranding_ResponseCompound::getIBrandingColorbackgroundbutton() const {
-    return i_branding_colorbackgroundbutton;
+    return m_i_branding_colorbackgroundbutton;
 }
 void OAIBranding_ResponseCompound::setIBrandingColorbackgroundbutton(const qint32 &i_branding_colorbackgroundbutton) {
-    this->i_branding_colorbackgroundbutton = i_branding_colorbackgroundbutton;
-    this->m_i_branding_colorbackgroundbutton_isSet = true;
+    m_i_branding_colorbackgroundbutton = i_branding_colorbackgroundbutton;
+    m_i_branding_colorbackgroundbutton_isSet = true;
 }
 
 bool OAIBranding_ResponseCompound::is_i_branding_colorbackgroundbutton_Set() const{
@@ -385,11 +385,11 @@ bool OAIBranding_ResponseCompound::is_i_branding_colorbackgroundbutton_Valid() c
 }
 
 qint32 OAIBranding_ResponseCompound::getIBrandingColorbackgroundsmallbox() const {
-    return i_branding_colorbackgroundsmallbox;
+    return m_i_branding_colorbackgroundsmallbox;
 }
 void OAIBranding_ResponseCompound::setIBrandingColorbackgroundsmallbox(const qint32 &i_branding_colorbackgroundsmallbox) {
-    this->i_branding_colorbackgroundsmallbox = i_branding_colorbackgroundsmallbox;
-    this->m_i_branding_colorbackgroundsmallbox_isSet = true;
+    m_i_branding_colorbackgroundsmallbox = i_branding_colorbackgroundsmallbox;
+    m_i_branding_colorbackgroundsmallbox_isSet = true;
 }
 
 bool OAIBranding_ResponseCompound::is_i_branding_colorbackgroundsmallbox_Set() const{
@@ -401,11 +401,11 @@ bool OAIBranding_ResponseCompound::is_i_branding_colorbackgroundsmallbox_Valid()
 }
 
 bool OAIBranding_ResponseCompound::isBBrandingIsactive() const {
-    return b_branding_isactive;
+    return m_b_branding_isactive;
 }
 void OAIBranding_ResponseCompound::setBBrandingIsactive(const bool &b_branding_isactive) {
-    this->b_branding_isactive = b_branding_isactive;
-    this->m_b_branding_isactive_isSet = true;
+    m_b_branding_isactive = b_branding_isactive;
+    m_b_branding_isactive_isSet = true;
 }
 
 bool OAIBranding_ResponseCompound::is_b_branding_isactive_Set() const{
@@ -417,11 +417,11 @@ bool OAIBranding_ResponseCompound::is_b_branding_isactive_Valid() const{
 }
 
 QString OAIBranding_ResponseCompound::getSBrandingLogourl() const {
-    return s_branding_logourl;
+    return m_s_branding_logourl;
 }
 void OAIBranding_ResponseCompound::setSBrandingLogourl(const QString &s_branding_logourl) {
-    this->s_branding_logourl = s_branding_logourl;
-    this->m_s_branding_logourl_isSet = true;
+    m_s_branding_logourl = s_branding_logourl;
+    m_s_branding_logourl_isSet = true;
 }
 
 bool OAIBranding_ResponseCompound::is_s_branding_logourl_Set() const{
@@ -445,7 +445,7 @@ bool OAIBranding_ResponseCompound::isSet() const {
             break;
         }
 
-        if (obj_branding_description.isSet()) {
+        if (m_obj_branding_description.isSet()) {
             isObjectUpdated = true;
             break;
         }
@@ -465,7 +465,7 @@ bool OAIBranding_ResponseCompound::isSet() const {
             break;
         }
 
-        if (e_branding_logo.isSet()) {
+        if (m_e_branding_logo.isSet()) {
             isObjectUpdated = true;
             break;
         }

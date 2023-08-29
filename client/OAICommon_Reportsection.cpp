@@ -59,19 +59,19 @@ void OAICommon_Reportsection::fromJson(QString jsonString) {
 
 void OAICommon_Reportsection::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_reportsubsection_isValid = ::OpenAPI::fromJsonValue(a_obj_reportsubsection, json[QString("a_objReportsubsection")]);
+    m_a_obj_reportsubsection_isValid = ::OpenAPI::fromJsonValue(m_a_obj_reportsubsection, json[QString("a_objReportsubsection")]);
     m_a_obj_reportsubsection_isSet = !json[QString("a_objReportsubsection")].isNull() && m_a_obj_reportsubsection_isValid;
 
-    m_a_obj_reportcolumn_isValid = ::OpenAPI::fromJsonValue(a_obj_reportcolumn, json[QString("a_objReportcolumn")]);
+    m_a_obj_reportcolumn_isValid = ::OpenAPI::fromJsonValue(m_a_obj_reportcolumn, json[QString("a_objReportcolumn")]);
     m_a_obj_reportcolumn_isSet = !json[QString("a_objReportcolumn")].isNull() && m_a_obj_reportcolumn_isValid;
 
-    m_e_reportsection_horizontalalignment_isValid = ::OpenAPI::fromJsonValue(e_reportsection_horizontalalignment, json[QString("eReportsectionHorizontalalignment")]);
+    m_e_reportsection_horizontalalignment_isValid = ::OpenAPI::fromJsonValue(m_e_reportsection_horizontalalignment, json[QString("eReportsectionHorizontalalignment")]);
     m_e_reportsection_horizontalalignment_isSet = !json[QString("eReportsectionHorizontalalignment")].isNull() && m_e_reportsection_horizontalalignment_isValid;
 
-    m_i_reportsection_columncount_isValid = ::OpenAPI::fromJsonValue(i_reportsection_columncount, json[QString("iReportsectionColumncount")]);
+    m_i_reportsection_columncount_isValid = ::OpenAPI::fromJsonValue(m_i_reportsection_columncount, json[QString("iReportsectionColumncount")]);
     m_i_reportsection_columncount_isSet = !json[QString("iReportsectionColumncount")].isNull() && m_i_reportsection_columncount_isValid;
 
-    m_i_reportsection_width_isValid = ::OpenAPI::fromJsonValue(i_reportsection_width, json[QString("iReportsectionWidth")]);
+    m_i_reportsection_width_isValid = ::OpenAPI::fromJsonValue(m_i_reportsection_width, json[QString("iReportsectionWidth")]);
     m_i_reportsection_width_isSet = !json[QString("iReportsectionWidth")].isNull() && m_i_reportsection_width_isValid;
 }
 
@@ -84,30 +84,30 @@ QString OAICommon_Reportsection::asJson() const {
 
 QJsonObject OAICommon_Reportsection::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_reportsubsection.size() > 0) {
-        obj.insert(QString("a_objReportsubsection"), ::OpenAPI::toJsonValue(a_obj_reportsubsection));
+    if (m_a_obj_reportsubsection.size() > 0) {
+        obj.insert(QString("a_objReportsubsection"), ::OpenAPI::toJsonValue(m_a_obj_reportsubsection));
     }
-    if (a_obj_reportcolumn.size() > 0) {
-        obj.insert(QString("a_objReportcolumn"), ::OpenAPI::toJsonValue(a_obj_reportcolumn));
+    if (m_a_obj_reportcolumn.size() > 0) {
+        obj.insert(QString("a_objReportcolumn"), ::OpenAPI::toJsonValue(m_a_obj_reportcolumn));
     }
-    if (e_reportsection_horizontalalignment.isSet()) {
-        obj.insert(QString("eReportsectionHorizontalalignment"), ::OpenAPI::toJsonValue(e_reportsection_horizontalalignment));
+    if (m_e_reportsection_horizontalalignment.isSet()) {
+        obj.insert(QString("eReportsectionHorizontalalignment"), ::OpenAPI::toJsonValue(m_e_reportsection_horizontalalignment));
     }
     if (m_i_reportsection_columncount_isSet) {
-        obj.insert(QString("iReportsectionColumncount"), ::OpenAPI::toJsonValue(i_reportsection_columncount));
+        obj.insert(QString("iReportsectionColumncount"), ::OpenAPI::toJsonValue(m_i_reportsection_columncount));
     }
     if (m_i_reportsection_width_isSet) {
-        obj.insert(QString("iReportsectionWidth"), ::OpenAPI::toJsonValue(i_reportsection_width));
+        obj.insert(QString("iReportsectionWidth"), ::OpenAPI::toJsonValue(m_i_reportsection_width));
     }
     return obj;
 }
 
 QList<OAICommon_Reportsubsection> OAICommon_Reportsection::getAObjReportsubsection() const {
-    return a_obj_reportsubsection;
+    return m_a_obj_reportsubsection;
 }
 void OAICommon_Reportsection::setAObjReportsubsection(const QList<OAICommon_Reportsubsection> &a_obj_reportsubsection) {
-    this->a_obj_reportsubsection = a_obj_reportsubsection;
-    this->m_a_obj_reportsubsection_isSet = true;
+    m_a_obj_reportsubsection = a_obj_reportsubsection;
+    m_a_obj_reportsubsection_isSet = true;
 }
 
 bool OAICommon_Reportsection::is_a_obj_reportsubsection_Set() const{
@@ -119,11 +119,11 @@ bool OAICommon_Reportsection::is_a_obj_reportsubsection_Valid() const{
 }
 
 QList<OAICommon_Reportcolumn> OAICommon_Reportsection::getAObjReportcolumn() const {
-    return a_obj_reportcolumn;
+    return m_a_obj_reportcolumn;
 }
 void OAICommon_Reportsection::setAObjReportcolumn(const QList<OAICommon_Reportcolumn> &a_obj_reportcolumn) {
-    this->a_obj_reportcolumn = a_obj_reportcolumn;
-    this->m_a_obj_reportcolumn_isSet = true;
+    m_a_obj_reportcolumn = a_obj_reportcolumn;
+    m_a_obj_reportcolumn_isSet = true;
 }
 
 bool OAICommon_Reportsection::is_a_obj_reportcolumn_Set() const{
@@ -135,11 +135,11 @@ bool OAICommon_Reportsection::is_a_obj_reportcolumn_Valid() const{
 }
 
 OAIEnum_Horizontalalignment OAICommon_Reportsection::getEReportsectionHorizontalalignment() const {
-    return e_reportsection_horizontalalignment;
+    return m_e_reportsection_horizontalalignment;
 }
 void OAICommon_Reportsection::setEReportsectionHorizontalalignment(const OAIEnum_Horizontalalignment &e_reportsection_horizontalalignment) {
-    this->e_reportsection_horizontalalignment = e_reportsection_horizontalalignment;
-    this->m_e_reportsection_horizontalalignment_isSet = true;
+    m_e_reportsection_horizontalalignment = e_reportsection_horizontalalignment;
+    m_e_reportsection_horizontalalignment_isSet = true;
 }
 
 bool OAICommon_Reportsection::is_e_reportsection_horizontalalignment_Set() const{
@@ -151,11 +151,11 @@ bool OAICommon_Reportsection::is_e_reportsection_horizontalalignment_Valid() con
 }
 
 qint32 OAICommon_Reportsection::getIReportsectionColumncount() const {
-    return i_reportsection_columncount;
+    return m_i_reportsection_columncount;
 }
 void OAICommon_Reportsection::setIReportsectionColumncount(const qint32 &i_reportsection_columncount) {
-    this->i_reportsection_columncount = i_reportsection_columncount;
-    this->m_i_reportsection_columncount_isSet = true;
+    m_i_reportsection_columncount = i_reportsection_columncount;
+    m_i_reportsection_columncount_isSet = true;
 }
 
 bool OAICommon_Reportsection::is_i_reportsection_columncount_Set() const{
@@ -167,11 +167,11 @@ bool OAICommon_Reportsection::is_i_reportsection_columncount_Valid() const{
 }
 
 qint32 OAICommon_Reportsection::getIReportsectionWidth() const {
-    return i_reportsection_width;
+    return m_i_reportsection_width;
 }
 void OAICommon_Reportsection::setIReportsectionWidth(const qint32 &i_reportsection_width) {
-    this->i_reportsection_width = i_reportsection_width;
-    this->m_i_reportsection_width_isSet = true;
+    m_i_reportsection_width = i_reportsection_width;
+    m_i_reportsection_width_isSet = true;
 }
 
 bool OAICommon_Reportsection::is_i_reportsection_width_Set() const{
@@ -185,17 +185,17 @@ bool OAICommon_Reportsection::is_i_reportsection_width_Valid() const{
 bool OAICommon_Reportsection::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_reportsubsection.size() > 0) {
+        if (m_a_obj_reportsubsection.size() > 0) {
             isObjectUpdated = true;
             break;
         }
 
-        if (a_obj_reportcolumn.size() > 0) {
+        if (m_a_obj_reportcolumn.size() > 0) {
             isObjectUpdated = true;
             break;
         }
 
-        if (e_reportsection_horizontalalignment.isSet()) {
+        if (m_e_reportsection_horizontalalignment.isSet()) {
             isObjectUpdated = true;
             break;
         }

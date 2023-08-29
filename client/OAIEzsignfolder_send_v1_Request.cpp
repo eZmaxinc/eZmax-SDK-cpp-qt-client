@@ -47,7 +47,7 @@ void OAIEzsignfolder_send_v1_Request::fromJson(QString jsonString) {
 
 void OAIEzsignfolder_send_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_t_extra_message_isValid = ::OpenAPI::fromJsonValue(t_extra_message, json[QString("tExtraMessage")]);
+    m_t_extra_message_isValid = ::OpenAPI::fromJsonValue(m_t_extra_message, json[QString("tExtraMessage")]);
     m_t_extra_message_isSet = !json[QString("tExtraMessage")].isNull() && m_t_extra_message_isValid;
 }
 
@@ -61,17 +61,17 @@ QString OAIEzsignfolder_send_v1_Request::asJson() const {
 QJsonObject OAIEzsignfolder_send_v1_Request::asJsonObject() const {
     QJsonObject obj;
     if (m_t_extra_message_isSet) {
-        obj.insert(QString("tExtraMessage"), ::OpenAPI::toJsonValue(t_extra_message));
+        obj.insert(QString("tExtraMessage"), ::OpenAPI::toJsonValue(m_t_extra_message));
     }
     return obj;
 }
 
 QString OAIEzsignfolder_send_v1_Request::getTExtraMessage() const {
-    return t_extra_message;
+    return m_t_extra_message;
 }
 void OAIEzsignfolder_send_v1_Request::setTExtraMessage(const QString &t_extra_message) {
-    this->t_extra_message = t_extra_message;
-    this->m_t_extra_message_isSet = true;
+    m_t_extra_message = t_extra_message;
+    m_t_extra_message_isSet = true;
 }
 
 bool OAIEzsignfolder_send_v1_Request::is_t_extra_message_Set() const{

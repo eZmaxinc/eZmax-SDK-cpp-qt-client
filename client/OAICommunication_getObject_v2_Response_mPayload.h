@@ -51,7 +51,7 @@ public:
 private:
     void initializeModel();
 
-    OAICommunication_ResponseCompound obj_communication;
+    OAICommunication_ResponseCompound m_obj_communication;
     bool m_obj_communication_isSet;
     bool m_obj_communication_isValid;
 };

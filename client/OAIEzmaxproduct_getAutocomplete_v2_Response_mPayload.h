@@ -52,7 +52,7 @@ public:
 private:
     void initializeModel();
 
-    QList<OAIEzmaxproduct_AutocompleteElement_Response> a_obj_ezmaxproduct;
+    QList<OAIEzmaxproduct_AutocompleteElement_Response> m_a_obj_ezmaxproduct;
     bool m_a_obj_ezmaxproduct_isSet;
     bool m_a_obj_ezmaxproduct_isValid;
 };

@@ -56,16 +56,16 @@ void OAIScim_User::fromJson(QString jsonString) {
 
 void OAIScim_User::fromJsonObject(QJsonObject json) {
 
-    m_id_isValid = ::OpenAPI::fromJsonValue(id, json[QString("id")]);
+    m_id_isValid = ::OpenAPI::fromJsonValue(m_id, json[QString("id")]);
     m_id_isSet = !json[QString("id")].isNull() && m_id_isValid;
 
-    m_user_name_isValid = ::OpenAPI::fromJsonValue(user_name, json[QString("userName")]);
+    m_user_name_isValid = ::OpenAPI::fromJsonValue(m_user_name, json[QString("userName")]);
     m_user_name_isSet = !json[QString("userName")].isNull() && m_user_name_isValid;
 
-    m_display_name_isValid = ::OpenAPI::fromJsonValue(display_name, json[QString("displayName")]);
+    m_display_name_isValid = ::OpenAPI::fromJsonValue(m_display_name, json[QString("displayName")]);
     m_display_name_isSet = !json[QString("displayName")].isNull() && m_display_name_isValid;
 
-    m_emails_isValid = ::OpenAPI::fromJsonValue(emails, json[QString("emails")]);
+    m_emails_isValid = ::OpenAPI::fromJsonValue(m_emails, json[QString("emails")]);
     m_emails_isSet = !json[QString("emails")].isNull() && m_emails_isValid;
 }
 
@@ -79,26 +79,26 @@ QString OAIScim_User::asJson() const {
 QJsonObject OAIScim_User::asJsonObject() const {
     QJsonObject obj;
     if (m_id_isSet) {
-        obj.insert(QString("id"), ::OpenAPI::toJsonValue(id));
+        obj.insert(QString("id"), ::OpenAPI::toJsonValue(m_id));
     }
     if (m_user_name_isSet) {
-        obj.insert(QString("userName"), ::OpenAPI::toJsonValue(user_name));
+        obj.insert(QString("userName"), ::OpenAPI::toJsonValue(m_user_name));
     }
     if (m_display_name_isSet) {
-        obj.insert(QString("displayName"), ::OpenAPI::toJsonValue(display_name));
+        obj.insert(QString("displayName"), ::OpenAPI::toJsonValue(m_display_name));
     }
-    if (emails.size() > 0) {
-        obj.insert(QString("emails"), ::OpenAPI::toJsonValue(emails));
+    if (m_emails.size() > 0) {
+        obj.insert(QString("emails"), ::OpenAPI::toJsonValue(m_emails));
     }
     return obj;
 }
 
 QString OAIScim_User::getId() const {
-    return id;
+    return m_id;
 }
 void OAIScim_User::setId(const QString &id) {
-    this->id = id;
-    this->m_id_isSet = true;
+    m_id = id;
+    m_id_isSet = true;
 }
 
 bool OAIScim_User::is_id_Set() const{
@@ -110,11 +110,11 @@ bool OAIScim_User::is_id_Valid() const{
 }
 
 QString OAIScim_User::getUserName() const {
-    return user_name;
+    return m_user_name;
 }
 void OAIScim_User::setUserName(const QString &user_name) {
-    this->user_name = user_name;
-    this->m_user_name_isSet = true;
+    m_user_name = user_name;
+    m_user_name_isSet = true;
 }
 
 bool OAIScim_User::is_user_name_Set() const{
@@ -126,11 +126,11 @@ bool OAIScim_User::is_user_name_Valid() const{
 }
 
 QString OAIScim_User::getDisplayName() const {
-    return display_name;
+    return m_display_name;
 }
 void OAIScim_User::setDisplayName(const QString &display_name) {
-    this->display_name = display_name;
-    this->m_display_name_isSet = true;
+    m_display_name = display_name;
+    m_display_name_isSet = true;
 }
 
 bool OAIScim_User::is_display_name_Set() const{
@@ -142,11 +142,11 @@ bool OAIScim_User::is_display_name_Valid() const{
 }
 
 QList<OAIScim_Email> OAIScim_User::getEmails() const {
-    return emails;
+    return m_emails;
 }
 void OAIScim_User::setEmails(const QList<OAIScim_Email> &emails) {
-    this->emails = emails;
-    this->m_emails_isSet = true;
+    m_emails = emails;
+    m_emails_isSet = true;
 }
 
 bool OAIScim_User::is_emails_Set() const{
@@ -175,7 +175,7 @@ bool OAIScim_User::isSet() const {
             break;
         }
 
-        if (emails.size() > 0) {
+        if (m_emails.size() > 0) {
             isObjectUpdated = true;
             break;
         }

@@ -59,19 +59,19 @@ void OAIEzsigntemplatepackage_AutocompleteElement_Response::fromJson(QString jso
 
 void OAIEzsigntemplatepackage_AutocompleteElement_Response::fromJsonObject(QJsonObject json) {
 
-    m_e_ezsignfoldertype_privacylevel_isValid = ::OpenAPI::fromJsonValue(e_ezsignfoldertype_privacylevel, json[QString("eEzsignfoldertypePrivacylevel")]);
+    m_e_ezsignfoldertype_privacylevel_isValid = ::OpenAPI::fromJsonValue(m_e_ezsignfoldertype_privacylevel, json[QString("eEzsignfoldertypePrivacylevel")]);
     m_e_ezsignfoldertype_privacylevel_isSet = !json[QString("eEzsignfoldertypePrivacylevel")].isNull() && m_e_ezsignfoldertype_privacylevel_isValid;
 
-    m_s_ezsigntemplatepackage_description_isValid = ::OpenAPI::fromJsonValue(s_ezsigntemplatepackage_description, json[QString("sEzsigntemplatepackageDescription")]);
+    m_s_ezsigntemplatepackage_description_isValid = ::OpenAPI::fromJsonValue(m_s_ezsigntemplatepackage_description, json[QString("sEzsigntemplatepackageDescription")]);
     m_s_ezsigntemplatepackage_description_isSet = !json[QString("sEzsigntemplatepackageDescription")].isNull() && m_s_ezsigntemplatepackage_description_isValid;
 
-    m_pki_ezsigntemplatepackage_id_isValid = ::OpenAPI::fromJsonValue(pki_ezsigntemplatepackage_id, json[QString("pkiEzsigntemplatepackageID")]);
+    m_pki_ezsigntemplatepackage_id_isValid = ::OpenAPI::fromJsonValue(m_pki_ezsigntemplatepackage_id, json[QString("pkiEzsigntemplatepackageID")]);
     m_pki_ezsigntemplatepackage_id_isSet = !json[QString("pkiEzsigntemplatepackageID")].isNull() && m_pki_ezsigntemplatepackage_id_isValid;
 
-    m_b_ezsigntemplatepackage_isactive_isValid = ::OpenAPI::fromJsonValue(b_ezsigntemplatepackage_isactive, json[QString("bEzsigntemplatepackageIsactive")]);
+    m_b_ezsigntemplatepackage_isactive_isValid = ::OpenAPI::fromJsonValue(m_b_ezsigntemplatepackage_isactive, json[QString("bEzsigntemplatepackageIsactive")]);
     m_b_ezsigntemplatepackage_isactive_isSet = !json[QString("bEzsigntemplatepackageIsactive")].isNull() && m_b_ezsigntemplatepackage_isactive_isValid;
 
-    m_b_disabled_isValid = ::OpenAPI::fromJsonValue(b_disabled, json[QString("bDisabled")]);
+    m_b_disabled_isValid = ::OpenAPI::fromJsonValue(m_b_disabled, json[QString("bDisabled")]);
     m_b_disabled_isSet = !json[QString("bDisabled")].isNull() && m_b_disabled_isValid;
 }
 
@@ -84,30 +84,30 @@ QString OAIEzsigntemplatepackage_AutocompleteElement_Response::asJson() const {
 
 QJsonObject OAIEzsigntemplatepackage_AutocompleteElement_Response::asJsonObject() const {
     QJsonObject obj;
-    if (e_ezsignfoldertype_privacylevel.isSet()) {
-        obj.insert(QString("eEzsignfoldertypePrivacylevel"), ::OpenAPI::toJsonValue(e_ezsignfoldertype_privacylevel));
+    if (m_e_ezsignfoldertype_privacylevel.isSet()) {
+        obj.insert(QString("eEzsignfoldertypePrivacylevel"), ::OpenAPI::toJsonValue(m_e_ezsignfoldertype_privacylevel));
     }
     if (m_s_ezsigntemplatepackage_description_isSet) {
-        obj.insert(QString("sEzsigntemplatepackageDescription"), ::OpenAPI::toJsonValue(s_ezsigntemplatepackage_description));
+        obj.insert(QString("sEzsigntemplatepackageDescription"), ::OpenAPI::toJsonValue(m_s_ezsigntemplatepackage_description));
     }
     if (m_pki_ezsigntemplatepackage_id_isSet) {
-        obj.insert(QString("pkiEzsigntemplatepackageID"), ::OpenAPI::toJsonValue(pki_ezsigntemplatepackage_id));
+        obj.insert(QString("pkiEzsigntemplatepackageID"), ::OpenAPI::toJsonValue(m_pki_ezsigntemplatepackage_id));
     }
     if (m_b_ezsigntemplatepackage_isactive_isSet) {
-        obj.insert(QString("bEzsigntemplatepackageIsactive"), ::OpenAPI::toJsonValue(b_ezsigntemplatepackage_isactive));
+        obj.insert(QString("bEzsigntemplatepackageIsactive"), ::OpenAPI::toJsonValue(m_b_ezsigntemplatepackage_isactive));
     }
     if (m_b_disabled_isSet) {
-        obj.insert(QString("bDisabled"), ::OpenAPI::toJsonValue(b_disabled));
+        obj.insert(QString("bDisabled"), ::OpenAPI::toJsonValue(m_b_disabled));
     }
     return obj;
 }
 
 OAIField_eEzsignfoldertypePrivacylevel OAIEzsigntemplatepackage_AutocompleteElement_Response::getEEzsignfoldertypePrivacylevel() const {
-    return e_ezsignfoldertype_privacylevel;
+    return m_e_ezsignfoldertype_privacylevel;
 }
 void OAIEzsigntemplatepackage_AutocompleteElement_Response::setEEzsignfoldertypePrivacylevel(const OAIField_eEzsignfoldertypePrivacylevel &e_ezsignfoldertype_privacylevel) {
-    this->e_ezsignfoldertype_privacylevel = e_ezsignfoldertype_privacylevel;
-    this->m_e_ezsignfoldertype_privacylevel_isSet = true;
+    m_e_ezsignfoldertype_privacylevel = e_ezsignfoldertype_privacylevel;
+    m_e_ezsignfoldertype_privacylevel_isSet = true;
 }
 
 bool OAIEzsigntemplatepackage_AutocompleteElement_Response::is_e_ezsignfoldertype_privacylevel_Set() const{
@@ -119,11 +119,11 @@ bool OAIEzsigntemplatepackage_AutocompleteElement_Response::is_e_ezsignfoldertyp
 }
 
 QString OAIEzsigntemplatepackage_AutocompleteElement_Response::getSEzsigntemplatepackageDescription() const {
-    return s_ezsigntemplatepackage_description;
+    return m_s_ezsigntemplatepackage_description;
 }
 void OAIEzsigntemplatepackage_AutocompleteElement_Response::setSEzsigntemplatepackageDescription(const QString &s_ezsigntemplatepackage_description) {
-    this->s_ezsigntemplatepackage_description = s_ezsigntemplatepackage_description;
-    this->m_s_ezsigntemplatepackage_description_isSet = true;
+    m_s_ezsigntemplatepackage_description = s_ezsigntemplatepackage_description;
+    m_s_ezsigntemplatepackage_description_isSet = true;
 }
 
 bool OAIEzsigntemplatepackage_AutocompleteElement_Response::is_s_ezsigntemplatepackage_description_Set() const{
@@ -135,11 +135,11 @@ bool OAIEzsigntemplatepackage_AutocompleteElement_Response::is_s_ezsigntemplatep
 }
 
 qint32 OAIEzsigntemplatepackage_AutocompleteElement_Response::getPkiEzsigntemplatepackageId() const {
-    return pki_ezsigntemplatepackage_id;
+    return m_pki_ezsigntemplatepackage_id;
 }
 void OAIEzsigntemplatepackage_AutocompleteElement_Response::setPkiEzsigntemplatepackageId(const qint32 &pki_ezsigntemplatepackage_id) {
-    this->pki_ezsigntemplatepackage_id = pki_ezsigntemplatepackage_id;
-    this->m_pki_ezsigntemplatepackage_id_isSet = true;
+    m_pki_ezsigntemplatepackage_id = pki_ezsigntemplatepackage_id;
+    m_pki_ezsigntemplatepackage_id_isSet = true;
 }
 
 bool OAIEzsigntemplatepackage_AutocompleteElement_Response::is_pki_ezsigntemplatepackage_id_Set() const{
@@ -151,11 +151,11 @@ bool OAIEzsigntemplatepackage_AutocompleteElement_Response::is_pki_ezsigntemplat
 }
 
 bool OAIEzsigntemplatepackage_AutocompleteElement_Response::isBEzsigntemplatepackageIsactive() const {
-    return b_ezsigntemplatepackage_isactive;
+    return m_b_ezsigntemplatepackage_isactive;
 }
 void OAIEzsigntemplatepackage_AutocompleteElement_Response::setBEzsigntemplatepackageIsactive(const bool &b_ezsigntemplatepackage_isactive) {
-    this->b_ezsigntemplatepackage_isactive = b_ezsigntemplatepackage_isactive;
-    this->m_b_ezsigntemplatepackage_isactive_isSet = true;
+    m_b_ezsigntemplatepackage_isactive = b_ezsigntemplatepackage_isactive;
+    m_b_ezsigntemplatepackage_isactive_isSet = true;
 }
 
 bool OAIEzsigntemplatepackage_AutocompleteElement_Response::is_b_ezsigntemplatepackage_isactive_Set() const{
@@ -167,11 +167,11 @@ bool OAIEzsigntemplatepackage_AutocompleteElement_Response::is_b_ezsigntemplatep
 }
 
 bool OAIEzsigntemplatepackage_AutocompleteElement_Response::isBDisabled() const {
-    return b_disabled;
+    return m_b_disabled;
 }
 void OAIEzsigntemplatepackage_AutocompleteElement_Response::setBDisabled(const bool &b_disabled) {
-    this->b_disabled = b_disabled;
-    this->m_b_disabled_isSet = true;
+    m_b_disabled = b_disabled;
+    m_b_disabled_isSet = true;
 }
 
 bool OAIEzsigntemplatepackage_AutocompleteElement_Response::is_b_disabled_Set() const{
@@ -185,7 +185,7 @@ bool OAIEzsigntemplatepackage_AutocompleteElement_Response::is_b_disabled_Valid(
 bool OAIEzsigntemplatepackage_AutocompleteElement_Response::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (e_ezsignfoldertype_privacylevel.isSet()) {
+        if (m_e_ezsignfoldertype_privacylevel.isSet()) {
             isObjectUpdated = true;
             break;
         }

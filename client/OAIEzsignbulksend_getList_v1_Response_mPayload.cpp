@@ -34,14 +34,14 @@ OAIEzsignbulksend_getList_v1_Response_mPayload::~OAIEzsignbulksend_getList_v1_Re
 
 void OAIEzsignbulksend_getList_v1_Response_mPayload::initializeModel() {
 
-    m_a_obj_ezsignbulksend_isSet = false;
-    m_a_obj_ezsignbulksend_isValid = false;
-
     m_i_row_returned_isSet = false;
     m_i_row_returned_isValid = false;
 
     m_i_row_filtered_isSet = false;
     m_i_row_filtered_isValid = false;
+
+    m_a_obj_ezsignbulksend_isSet = false;
+    m_a_obj_ezsignbulksend_isValid = false;
 }
 
 void OAIEzsignbulksend_getList_v1_Response_mPayload::fromJson(QString jsonString) {
@@ -53,14 +53,14 @@ void OAIEzsignbulksend_getList_v1_Response_mPayload::fromJson(QString jsonString
 
 void OAIEzsignbulksend_getList_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_ezsignbulksend_isValid = ::OpenAPI::fromJsonValue(a_obj_ezsignbulksend, json[QString("a_objEzsignbulksend")]);
-    m_a_obj_ezsignbulksend_isSet = !json[QString("a_objEzsignbulksend")].isNull() && m_a_obj_ezsignbulksend_isValid;
-
-    m_i_row_returned_isValid = ::OpenAPI::fromJsonValue(i_row_returned, json[QString("iRowReturned")]);
+    m_i_row_returned_isValid = ::OpenAPI::fromJsonValue(m_i_row_returned, json[QString("iRowReturned")]);
     m_i_row_returned_isSet = !json[QString("iRowReturned")].isNull() && m_i_row_returned_isValid;
 
-    m_i_row_filtered_isValid = ::OpenAPI::fromJsonValue(i_row_filtered, json[QString("iRowFiltered")]);
+    m_i_row_filtered_isValid = ::OpenAPI::fromJsonValue(m_i_row_filtered, json[QString("iRowFiltered")]);
     m_i_row_filtered_isSet = !json[QString("iRowFiltered")].isNull() && m_i_row_filtered_isValid;
+
+    m_a_obj_ezsignbulksend_isValid = ::OpenAPI::fromJsonValue(m_a_obj_ezsignbulksend, json[QString("a_objEzsignbulksend")]);
+    m_a_obj_ezsignbulksend_isSet = !json[QString("a_objEzsignbulksend")].isNull() && m_a_obj_ezsignbulksend_isValid;
 }
 
 QString OAIEzsignbulksend_getList_v1_Response_mPayload::asJson() const {
@@ -72,40 +72,24 @@ QString OAIEzsignbulksend_getList_v1_Response_mPayload::asJson() const {
 
 QJsonObject OAIEzsignbulksend_getList_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_ezsignbulksend.size() > 0) {
-        obj.insert(QString("a_objEzsignbulksend"), ::OpenAPI::toJsonValue(a_obj_ezsignbulksend));
-    }
     if (m_i_row_returned_isSet) {
-        obj.insert(QString("iRowReturned"), ::OpenAPI::toJsonValue(i_row_returned));
+        obj.insert(QString("iRowReturned"), ::OpenAPI::toJsonValue(m_i_row_returned));
     }
     if (m_i_row_filtered_isSet) {
-        obj.insert(QString("iRowFiltered"), ::OpenAPI::toJsonValue(i_row_filtered));
+        obj.insert(QString("iRowFiltered"), ::OpenAPI::toJsonValue(m_i_row_filtered));
+    }
+    if (m_a_obj_ezsignbulksend.size() > 0) {
+        obj.insert(QString("a_objEzsignbulksend"), ::OpenAPI::toJsonValue(m_a_obj_ezsignbulksend));
     }
     return obj;
 }
 
-QList<OAIEzsignbulksend_ListElement> OAIEzsignbulksend_getList_v1_Response_mPayload::getAObjEzsignbulksend() const {
-    return a_obj_ezsignbulksend;
-}
-void OAIEzsignbulksend_getList_v1_Response_mPayload::setAObjEzsignbulksend(const QList<OAIEzsignbulksend_ListElement> &a_obj_ezsignbulksend) {
-    this->a_obj_ezsignbulksend = a_obj_ezsignbulksend;
-    this->m_a_obj_ezsignbulksend_isSet = true;
-}
-
-bool OAIEzsignbulksend_getList_v1_Response_mPayload::is_a_obj_ezsignbulksend_Set() const{
-    return m_a_obj_ezsignbulksend_isSet;
-}
-
-bool OAIEzsignbulksend_getList_v1_Response_mPayload::is_a_obj_ezsignbulksend_Valid() const{
-    return m_a_obj_ezsignbulksend_isValid;
-}
-
 qint32 OAIEzsignbulksend_getList_v1_Response_mPayload::getIRowReturned() const {
-    return i_row_returned;
+    return m_i_row_returned;
 }
 void OAIEzsignbulksend_getList_v1_Response_mPayload::setIRowReturned(const qint32 &i_row_returned) {
-    this->i_row_returned = i_row_returned;
-    this->m_i_row_returned_isSet = true;
+    m_i_row_returned = i_row_returned;
+    m_i_row_returned_isSet = true;
 }
 
 bool OAIEzsignbulksend_getList_v1_Response_mPayload::is_i_row_returned_Set() const{
@@ -117,11 +101,11 @@ bool OAIEzsignbulksend_getList_v1_Response_mPayload::is_i_row_returned_Valid() c
 }
 
 qint32 OAIEzsignbulksend_getList_v1_Response_mPayload::getIRowFiltered() const {
-    return i_row_filtered;
+    return m_i_row_filtered;
 }
 void OAIEzsignbulksend_getList_v1_Response_mPayload::setIRowFiltered(const qint32 &i_row_filtered) {
-    this->i_row_filtered = i_row_filtered;
-    this->m_i_row_filtered_isSet = true;
+    m_i_row_filtered = i_row_filtered;
+    m_i_row_filtered_isSet = true;
 }
 
 bool OAIEzsignbulksend_getList_v1_Response_mPayload::is_i_row_filtered_Set() const{
@@ -132,14 +116,25 @@ bool OAIEzsignbulksend_getList_v1_Response_mPayload::is_i_row_filtered_Valid() c
     return m_i_row_filtered_isValid;
 }
 
+QList<OAIEzsignbulksend_ListElement> OAIEzsignbulksend_getList_v1_Response_mPayload::getAObjEzsignbulksend() const {
+    return m_a_obj_ezsignbulksend;
+}
+void OAIEzsignbulksend_getList_v1_Response_mPayload::setAObjEzsignbulksend(const QList<OAIEzsignbulksend_ListElement> &a_obj_ezsignbulksend) {
+    m_a_obj_ezsignbulksend = a_obj_ezsignbulksend;
+    m_a_obj_ezsignbulksend_isSet = true;
+}
+
+bool OAIEzsignbulksend_getList_v1_Response_mPayload::is_a_obj_ezsignbulksend_Set() const{
+    return m_a_obj_ezsignbulksend_isSet;
+}
+
+bool OAIEzsignbulksend_getList_v1_Response_mPayload::is_a_obj_ezsignbulksend_Valid() const{
+    return m_a_obj_ezsignbulksend_isValid;
+}
+
 bool OAIEzsignbulksend_getList_v1_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_ezsignbulksend.size() > 0) {
-            isObjectUpdated = true;
-            break;
-        }
-
         if (m_i_row_returned_isSet) {
             isObjectUpdated = true;
             break;
@@ -149,13 +144,18 @@ bool OAIEzsignbulksend_getList_v1_Response_mPayload::isSet() const {
             isObjectUpdated = true;
             break;
         }
+
+        if (m_a_obj_ezsignbulksend.size() > 0) {
+            isObjectUpdated = true;
+            break;
+        }
     } while (false);
     return isObjectUpdated;
 }
 
 bool OAIEzsignbulksend_getList_v1_Response_mPayload::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_a_obj_ezsignbulksend_isValid && m_i_row_returned_isValid && m_i_row_filtered_isValid && true;
+    return m_i_row_returned_isValid && m_i_row_filtered_isValid && m_a_obj_ezsignbulksend_isValid && true;
 }
 
 } // namespace OpenAPI

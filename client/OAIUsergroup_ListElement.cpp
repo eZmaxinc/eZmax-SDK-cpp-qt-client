@@ -53,13 +53,13 @@ void OAIUsergroup_ListElement::fromJson(QString jsonString) {
 
 void OAIUsergroup_ListElement::fromJsonObject(QJsonObject json) {
 
-    m_pki_usergroup_id_isValid = ::OpenAPI::fromJsonValue(pki_usergroup_id, json[QString("pkiUsergroupID")]);
+    m_pki_usergroup_id_isValid = ::OpenAPI::fromJsonValue(m_pki_usergroup_id, json[QString("pkiUsergroupID")]);
     m_pki_usergroup_id_isSet = !json[QString("pkiUsergroupID")].isNull() && m_pki_usergroup_id_isValid;
 
-    m_s_usergroup_name_x_isValid = ::OpenAPI::fromJsonValue(s_usergroup_name_x, json[QString("sUsergroupNameX")]);
+    m_s_usergroup_name_x_isValid = ::OpenAPI::fromJsonValue(m_s_usergroup_name_x, json[QString("sUsergroupNameX")]);
     m_s_usergroup_name_x_isSet = !json[QString("sUsergroupNameX")].isNull() && m_s_usergroup_name_x_isValid;
 
-    m_i_count_user_isValid = ::OpenAPI::fromJsonValue(i_count_user, json[QString("iCountUser")]);
+    m_i_count_user_isValid = ::OpenAPI::fromJsonValue(m_i_count_user, json[QString("iCountUser")]);
     m_i_count_user_isSet = !json[QString("iCountUser")].isNull() && m_i_count_user_isValid;
 }
 
@@ -73,23 +73,23 @@ QString OAIUsergroup_ListElement::asJson() const {
 QJsonObject OAIUsergroup_ListElement::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_usergroup_id_isSet) {
-        obj.insert(QString("pkiUsergroupID"), ::OpenAPI::toJsonValue(pki_usergroup_id));
+        obj.insert(QString("pkiUsergroupID"), ::OpenAPI::toJsonValue(m_pki_usergroup_id));
     }
     if (m_s_usergroup_name_x_isSet) {
-        obj.insert(QString("sUsergroupNameX"), ::OpenAPI::toJsonValue(s_usergroup_name_x));
+        obj.insert(QString("sUsergroupNameX"), ::OpenAPI::toJsonValue(m_s_usergroup_name_x));
     }
     if (m_i_count_user_isSet) {
-        obj.insert(QString("iCountUser"), ::OpenAPI::toJsonValue(i_count_user));
+        obj.insert(QString("iCountUser"), ::OpenAPI::toJsonValue(m_i_count_user));
     }
     return obj;
 }
 
 qint32 OAIUsergroup_ListElement::getPkiUsergroupId() const {
-    return pki_usergroup_id;
+    return m_pki_usergroup_id;
 }
 void OAIUsergroup_ListElement::setPkiUsergroupId(const qint32 &pki_usergroup_id) {
-    this->pki_usergroup_id = pki_usergroup_id;
-    this->m_pki_usergroup_id_isSet = true;
+    m_pki_usergroup_id = pki_usergroup_id;
+    m_pki_usergroup_id_isSet = true;
 }
 
 bool OAIUsergroup_ListElement::is_pki_usergroup_id_Set() const{
@@ -101,11 +101,11 @@ bool OAIUsergroup_ListElement::is_pki_usergroup_id_Valid() const{
 }
 
 QString OAIUsergroup_ListElement::getSUsergroupNameX() const {
-    return s_usergroup_name_x;
+    return m_s_usergroup_name_x;
 }
 void OAIUsergroup_ListElement::setSUsergroupNameX(const QString &s_usergroup_name_x) {
-    this->s_usergroup_name_x = s_usergroup_name_x;
-    this->m_s_usergroup_name_x_isSet = true;
+    m_s_usergroup_name_x = s_usergroup_name_x;
+    m_s_usergroup_name_x_isSet = true;
 }
 
 bool OAIUsergroup_ListElement::is_s_usergroup_name_x_Set() const{
@@ -117,11 +117,11 @@ bool OAIUsergroup_ListElement::is_s_usergroup_name_x_Valid() const{
 }
 
 qint32 OAIUsergroup_ListElement::getICountUser() const {
-    return i_count_user;
+    return m_i_count_user;
 }
 void OAIUsergroup_ListElement::setICountUser(const qint32 &i_count_user) {
-    this->i_count_user = i_count_user;
-    this->m_i_count_user_isSet = true;
+    m_i_count_user = i_count_user;
+    m_i_count_user_isSet = true;
 }
 
 bool OAIUsergroup_ListElement::is_i_count_user_Set() const{

@@ -93,39 +93,39 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_ezmaxinvoicingcontract_id;
+    qint32 m_pki_ezmaxinvoicingcontract_id;
     bool m_pki_ezmaxinvoicingcontract_id_isSet;
     bool m_pki_ezmaxinvoicingcontract_id_isValid;
 
-    OAIField_eEzmaxinvoicingcontractPaymenttype e_ezmaxinvoicingcontract_paymenttype;
+    OAIField_eEzmaxinvoicingcontractPaymenttype m_e_ezmaxinvoicingcontract_paymenttype;
     bool m_e_ezmaxinvoicingcontract_paymenttype_isSet;
     bool m_e_ezmaxinvoicingcontract_paymenttype_isValid;
 
-    qint32 i_ezmaxinvoicingcontract_length;
+    qint32 m_i_ezmaxinvoicingcontract_length;
     bool m_i_ezmaxinvoicingcontract_length_isSet;
     bool m_i_ezmaxinvoicingcontract_length_isValid;
 
-    QString dt_ezmaxinvoicingcontract_start;
+    QString m_dt_ezmaxinvoicingcontract_start;
     bool m_dt_ezmaxinvoicingcontract_start_isSet;
     bool m_dt_ezmaxinvoicingcontract_start_isValid;
 
-    QString dt_ezmaxinvoicingcontract_end;
+    QString m_dt_ezmaxinvoicingcontract_end;
     bool m_dt_ezmaxinvoicingcontract_end_isSet;
     bool m_dt_ezmaxinvoicingcontract_end_isValid;
 
-    QString d_ezmaxinvoicingcontract_license;
+    QString m_d_ezmaxinvoicingcontract_license;
     bool m_d_ezmaxinvoicingcontract_license_isSet;
     bool m_d_ezmaxinvoicingcontract_license_isValid;
 
-    QString d_ezmaxinvoicingcontract121qa;
+    QString m_d_ezmaxinvoicingcontract121qa;
     bool m_d_ezmaxinvoicingcontract121qa_isSet;
     bool m_d_ezmaxinvoicingcontract121qa_isValid;
 
-    bool b_ezmaxinvoicingcontract_ezsignallagents;
+    bool m_b_ezmaxinvoicingcontract_ezsignallagents;
     bool m_b_ezmaxinvoicingcontract_ezsignallagents_isSet;
     bool m_b_ezmaxinvoicingcontract_ezsignallagents_isValid;
 
-    OAICommon_Audit obj_audit;
+    OAICommon_Audit m_obj_audit;
     bool m_obj_audit_isSet;
     bool m_obj_audit_isValid;
 };

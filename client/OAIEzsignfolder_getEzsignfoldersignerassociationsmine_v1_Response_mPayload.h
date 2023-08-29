@@ -52,7 +52,7 @@ public:
 private:
     void initializeModel();
 
-    QList<OAICustom_Ezsignfoldersignerassociationmine_Response> a_obj_ezsignfoldersignerassociation;
+    QList<OAICustom_Ezsignfoldersignerassociationmine_Response> m_a_obj_ezsignfoldersignerassociation;
     bool m_a_obj_ezsignfoldersignerassociation_isSet;
     bool m_a_obj_ezsignfoldersignerassociation_isValid;
 };

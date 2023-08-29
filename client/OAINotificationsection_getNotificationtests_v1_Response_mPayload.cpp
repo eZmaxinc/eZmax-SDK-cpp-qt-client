@@ -47,7 +47,7 @@ void OAINotificationsection_getNotificationtests_v1_Response_mPayload::fromJson(
 
 void OAINotificationsection_getNotificationtests_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_notificationsubsection_isValid = ::OpenAPI::fromJsonValue(a_obj_notificationsubsection, json[QString("a_objNotificationsubsection")]);
+    m_a_obj_notificationsubsection_isValid = ::OpenAPI::fromJsonValue(m_a_obj_notificationsubsection, json[QString("a_objNotificationsubsection")]);
     m_a_obj_notificationsubsection_isSet = !json[QString("a_objNotificationsubsection")].isNull() && m_a_obj_notificationsubsection_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAINotificationsection_getNotificationtests_v1_Response_mPayload::asJson
 
 QJsonObject OAINotificationsection_getNotificationtests_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_notificationsubsection.size() > 0) {
-        obj.insert(QString("a_objNotificationsubsection"), ::OpenAPI::toJsonValue(a_obj_notificationsubsection));
+    if (m_a_obj_notificationsubsection.size() > 0) {
+        obj.insert(QString("a_objNotificationsubsection"), ::OpenAPI::toJsonValue(m_a_obj_notificationsubsection));
     }
     return obj;
 }
 
 QList<OAICustom_Notificationsubsectiongetnotificationtests_Response> OAINotificationsection_getNotificationtests_v1_Response_mPayload::getAObjNotificationsubsection() const {
-    return a_obj_notificationsubsection;
+    return m_a_obj_notificationsubsection;
 }
 void OAINotificationsection_getNotificationtests_v1_Response_mPayload::setAObjNotificationsubsection(const QList<OAICustom_Notificationsubsectiongetnotificationtests_Response> &a_obj_notificationsubsection) {
-    this->a_obj_notificationsubsection = a_obj_notificationsubsection;
-    this->m_a_obj_notificationsubsection_isSet = true;
+    m_a_obj_notificationsubsection = a_obj_notificationsubsection;
+    m_a_obj_notificationsubsection_isSet = true;
 }
 
 bool OAINotificationsection_getNotificationtests_v1_Response_mPayload::is_a_obj_notificationsubsection_Set() const{
@@ -85,7 +85,7 @@ bool OAINotificationsection_getNotificationtests_v1_Response_mPayload::is_a_obj_
 bool OAINotificationsection_getNotificationtests_v1_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_notificationsubsection.size() > 0) {
+        if (m_a_obj_notificationsubsection.size() > 0) {
             isObjectUpdated = true;
             break;
         }

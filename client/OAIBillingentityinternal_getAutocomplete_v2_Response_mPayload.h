@@ -52,7 +52,7 @@ public:
 private:
     void initializeModel();
 
-    QList<OAIBillingentityinternal_AutocompleteElement_Response> a_obj_billingentityinternal;
+    QList<OAIBillingentityinternal_AutocompleteElement_Response> m_a_obj_billingentityinternal;
     bool m_a_obj_billingentityinternal_isSet;
     bool m_a_obj_billingentityinternal_isValid;
 };

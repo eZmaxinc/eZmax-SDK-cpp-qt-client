@@ -52,7 +52,7 @@ public:
 private:
     void initializeModel();
 
-    QList<OAIEzsigndocument_ResponseCompound> a_obj_ezsigndocument;
+    QList<OAIEzsigndocument_ResponseCompound> m_a_obj_ezsigndocument;
     bool m_a_obj_ezsigndocument_isSet;
     bool m_a_obj_ezsigndocument_isValid;
 };

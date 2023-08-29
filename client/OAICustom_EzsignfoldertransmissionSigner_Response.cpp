@@ -53,13 +53,13 @@ void OAICustom_EzsignfoldertransmissionSigner_Response::fromJson(QString jsonStr
 
 void OAICustom_EzsignfoldertransmissionSigner_Response::fromJsonObject(QJsonObject json) {
 
-    m_fki_user_id_isValid = ::OpenAPI::fromJsonValue(fki_user_id, json[QString("fkiUserID")]);
+    m_fki_user_id_isValid = ::OpenAPI::fromJsonValue(m_fki_user_id, json[QString("fkiUserID")]);
     m_fki_user_id_isSet = !json[QString("fkiUserID")].isNull() && m_fki_user_id_isValid;
 
-    m_s_contact_firstname_isValid = ::OpenAPI::fromJsonValue(s_contact_firstname, json[QString("sContactFirstname")]);
+    m_s_contact_firstname_isValid = ::OpenAPI::fromJsonValue(m_s_contact_firstname, json[QString("sContactFirstname")]);
     m_s_contact_firstname_isSet = !json[QString("sContactFirstname")].isNull() && m_s_contact_firstname_isValid;
 
-    m_s_contact_lastname_isValid = ::OpenAPI::fromJsonValue(s_contact_lastname, json[QString("sContactLastname")]);
+    m_s_contact_lastname_isValid = ::OpenAPI::fromJsonValue(m_s_contact_lastname, json[QString("sContactLastname")]);
     m_s_contact_lastname_isSet = !json[QString("sContactLastname")].isNull() && m_s_contact_lastname_isValid;
 }
 
@@ -73,23 +73,23 @@ QString OAICustom_EzsignfoldertransmissionSigner_Response::asJson() const {
 QJsonObject OAICustom_EzsignfoldertransmissionSigner_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_fki_user_id_isSet) {
-        obj.insert(QString("fkiUserID"), ::OpenAPI::toJsonValue(fki_user_id));
+        obj.insert(QString("fkiUserID"), ::OpenAPI::toJsonValue(m_fki_user_id));
     }
     if (m_s_contact_firstname_isSet) {
-        obj.insert(QString("sContactFirstname"), ::OpenAPI::toJsonValue(s_contact_firstname));
+        obj.insert(QString("sContactFirstname"), ::OpenAPI::toJsonValue(m_s_contact_firstname));
     }
     if (m_s_contact_lastname_isSet) {
-        obj.insert(QString("sContactLastname"), ::OpenAPI::toJsonValue(s_contact_lastname));
+        obj.insert(QString("sContactLastname"), ::OpenAPI::toJsonValue(m_s_contact_lastname));
     }
     return obj;
 }
 
 qint32 OAICustom_EzsignfoldertransmissionSigner_Response::getFkiUserId() const {
-    return fki_user_id;
+    return m_fki_user_id;
 }
 void OAICustom_EzsignfoldertransmissionSigner_Response::setFkiUserId(const qint32 &fki_user_id) {
-    this->fki_user_id = fki_user_id;
-    this->m_fki_user_id_isSet = true;
+    m_fki_user_id = fki_user_id;
+    m_fki_user_id_isSet = true;
 }
 
 bool OAICustom_EzsignfoldertransmissionSigner_Response::is_fki_user_id_Set() const{
@@ -101,11 +101,11 @@ bool OAICustom_EzsignfoldertransmissionSigner_Response::is_fki_user_id_Valid() c
 }
 
 QString OAICustom_EzsignfoldertransmissionSigner_Response::getSContactFirstname() const {
-    return s_contact_firstname;
+    return m_s_contact_firstname;
 }
 void OAICustom_EzsignfoldertransmissionSigner_Response::setSContactFirstname(const QString &s_contact_firstname) {
-    this->s_contact_firstname = s_contact_firstname;
-    this->m_s_contact_firstname_isSet = true;
+    m_s_contact_firstname = s_contact_firstname;
+    m_s_contact_firstname_isSet = true;
 }
 
 bool OAICustom_EzsignfoldertransmissionSigner_Response::is_s_contact_firstname_Set() const{
@@ -117,11 +117,11 @@ bool OAICustom_EzsignfoldertransmissionSigner_Response::is_s_contact_firstname_V
 }
 
 QString OAICustom_EzsignfoldertransmissionSigner_Response::getSContactLastname() const {
-    return s_contact_lastname;
+    return m_s_contact_lastname;
 }
 void OAICustom_EzsignfoldertransmissionSigner_Response::setSContactLastname(const QString &s_contact_lastname) {
-    this->s_contact_lastname = s_contact_lastname;
-    this->m_s_contact_lastname_isSet = true;
+    m_s_contact_lastname = s_contact_lastname;
+    m_s_contact_lastname_isSet = true;
 }
 
 bool OAICustom_EzsignfoldertransmissionSigner_Response::is_s_contact_lastname_Set() const{

@@ -57,11 +57,11 @@ public:
 private:
     void initializeModel();
 
-    QList<OAICommon_Reportcell> a_obj_reportcell;
+    QList<OAICommon_Reportcell> m_a_obj_reportcell;
     bool m_a_obj_reportcell_isSet;
     bool m_a_obj_reportcell_isValid;
 
-    qint32 i_reportrow_height;
+    qint32 m_i_reportrow_height;
     bool m_i_reportrow_height_isSet;
     bool m_i_reportrow_height_isValid;
 };

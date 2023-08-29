@@ -55,11 +55,11 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_descriptionstatic_id;
+    qint32 m_pki_descriptionstatic_id;
     bool m_pki_descriptionstatic_id_isSet;
     bool m_pki_descriptionstatic_id_isValid;
 
-    QString s_descriptionstatic_description;
+    QString m_s_descriptionstatic_description;
     bool m_s_descriptionstatic_description_isSet;
     bool m_s_descriptionstatic_description_isValid;
 };

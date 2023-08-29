@@ -75,27 +75,27 @@ public:
 private:
     void initializeModel();
 
-    qint32 fki_ezsignfolder_id;
+    qint32 m_fki_ezsignfolder_id;
     bool m_fki_ezsignfolder_id_isSet;
     bool m_fki_ezsignfolder_id_isValid;
 
-    QString s_ezsignfolder_description;
+    QString m_s_ezsignfolder_description;
     bool m_s_ezsignfolder_description_isSet;
     bool m_s_ezsignfolder_description_isValid;
 
-    bool b_ezsigntsarequirement_billable;
+    bool m_b_ezsigntsarequirement_billable;
     bool m_b_ezsigntsarequirement_billable_isSet;
     bool m_b_ezsigntsarequirement_billable_isValid;
 
-    bool b_ezsignfolder_mfaused;
+    bool m_b_ezsignfolder_mfaused;
     bool m_b_ezsignfolder_mfaused_isSet;
     bool m_b_ezsignfolder_mfaused_isValid;
 
-    bool b_ezsignfolder_paymentused;
+    bool m_b_ezsignfolder_paymentused;
     bool m_b_ezsignfolder_paymentused_isSet;
     bool m_b_ezsignfolder_paymentused_isValid;
 
-    bool b_ezsignfolder_allowed;
+    bool m_b_ezsignfolder_allowed;
     bool m_b_ezsignfolder_allowed_isSet;
     bool m_b_ezsignfolder_allowed_isValid;
 };

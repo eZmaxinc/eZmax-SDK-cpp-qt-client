@@ -50,7 +50,7 @@ public:
 private:
     void initializeModel();
 
-    QString t_ezsignfoldersignerassociation_message;
+    QString m_t_ezsignfoldersignerassociation_message;
     bool m_t_ezsignfoldersignerassociation_message_isSet;
     bool m_t_ezsignfoldersignerassociation_message_isValid;
 };

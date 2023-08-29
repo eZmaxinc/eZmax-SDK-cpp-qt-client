@@ -53,13 +53,13 @@ void OAIUsergroup_AutocompleteElement_Response::fromJson(QString jsonString) {
 
 void OAIUsergroup_AutocompleteElement_Response::fromJsonObject(QJsonObject json) {
 
-    m_s_usergroup_name_x_isValid = ::OpenAPI::fromJsonValue(s_usergroup_name_x, json[QString("sUsergroupNameX")]);
+    m_s_usergroup_name_x_isValid = ::OpenAPI::fromJsonValue(m_s_usergroup_name_x, json[QString("sUsergroupNameX")]);
     m_s_usergroup_name_x_isSet = !json[QString("sUsergroupNameX")].isNull() && m_s_usergroup_name_x_isValid;
 
-    m_pki_usergroup_id_isValid = ::OpenAPI::fromJsonValue(pki_usergroup_id, json[QString("pkiUsergroupID")]);
+    m_pki_usergroup_id_isValid = ::OpenAPI::fromJsonValue(m_pki_usergroup_id, json[QString("pkiUsergroupID")]);
     m_pki_usergroup_id_isSet = !json[QString("pkiUsergroupID")].isNull() && m_pki_usergroup_id_isValid;
 
-    m_b_usergroup_isactive_isValid = ::OpenAPI::fromJsonValue(b_usergroup_isactive, json[QString("bUsergroupIsactive")]);
+    m_b_usergroup_isactive_isValid = ::OpenAPI::fromJsonValue(m_b_usergroup_isactive, json[QString("bUsergroupIsactive")]);
     m_b_usergroup_isactive_isSet = !json[QString("bUsergroupIsactive")].isNull() && m_b_usergroup_isactive_isValid;
 }
 
@@ -73,23 +73,23 @@ QString OAIUsergroup_AutocompleteElement_Response::asJson() const {
 QJsonObject OAIUsergroup_AutocompleteElement_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_s_usergroup_name_x_isSet) {
-        obj.insert(QString("sUsergroupNameX"), ::OpenAPI::toJsonValue(s_usergroup_name_x));
+        obj.insert(QString("sUsergroupNameX"), ::OpenAPI::toJsonValue(m_s_usergroup_name_x));
     }
     if (m_pki_usergroup_id_isSet) {
-        obj.insert(QString("pkiUsergroupID"), ::OpenAPI::toJsonValue(pki_usergroup_id));
+        obj.insert(QString("pkiUsergroupID"), ::OpenAPI::toJsonValue(m_pki_usergroup_id));
     }
     if (m_b_usergroup_isactive_isSet) {
-        obj.insert(QString("bUsergroupIsactive"), ::OpenAPI::toJsonValue(b_usergroup_isactive));
+        obj.insert(QString("bUsergroupIsactive"), ::OpenAPI::toJsonValue(m_b_usergroup_isactive));
     }
     return obj;
 }
 
 QString OAIUsergroup_AutocompleteElement_Response::getSUsergroupNameX() const {
-    return s_usergroup_name_x;
+    return m_s_usergroup_name_x;
 }
 void OAIUsergroup_AutocompleteElement_Response::setSUsergroupNameX(const QString &s_usergroup_name_x) {
-    this->s_usergroup_name_x = s_usergroup_name_x;
-    this->m_s_usergroup_name_x_isSet = true;
+    m_s_usergroup_name_x = s_usergroup_name_x;
+    m_s_usergroup_name_x_isSet = true;
 }
 
 bool OAIUsergroup_AutocompleteElement_Response::is_s_usergroup_name_x_Set() const{
@@ -101,11 +101,11 @@ bool OAIUsergroup_AutocompleteElement_Response::is_s_usergroup_name_x_Valid() co
 }
 
 qint32 OAIUsergroup_AutocompleteElement_Response::getPkiUsergroupId() const {
-    return pki_usergroup_id;
+    return m_pki_usergroup_id;
 }
 void OAIUsergroup_AutocompleteElement_Response::setPkiUsergroupId(const qint32 &pki_usergroup_id) {
-    this->pki_usergroup_id = pki_usergroup_id;
-    this->m_pki_usergroup_id_isSet = true;
+    m_pki_usergroup_id = pki_usergroup_id;
+    m_pki_usergroup_id_isSet = true;
 }
 
 bool OAIUsergroup_AutocompleteElement_Response::is_pki_usergroup_id_Set() const{
@@ -117,11 +117,11 @@ bool OAIUsergroup_AutocompleteElement_Response::is_pki_usergroup_id_Valid() cons
 }
 
 bool OAIUsergroup_AutocompleteElement_Response::isBUsergroupIsactive() const {
-    return b_usergroup_isactive;
+    return m_b_usergroup_isactive;
 }
 void OAIUsergroup_AutocompleteElement_Response::setBUsergroupIsactive(const bool &b_usergroup_isactive) {
-    this->b_usergroup_isactive = b_usergroup_isactive;
-    this->m_b_usergroup_isactive_isSet = true;
+    m_b_usergroup_isactive = b_usergroup_isactive;
+    m_b_usergroup_isactive_isSet = true;
 }
 
 bool OAIUsergroup_AutocompleteElement_Response::is_b_usergroup_isactive_Set() const{

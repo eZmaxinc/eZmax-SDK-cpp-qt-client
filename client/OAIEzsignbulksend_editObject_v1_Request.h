@@ -51,7 +51,7 @@ public:
 private:
     void initializeModel();
 
-    OAIEzsignbulksend_RequestCompound obj_ezsignbulksend;
+    OAIEzsignbulksend_RequestCompound m_obj_ezsignbulksend;
     bool m_obj_ezsignbulksend_isSet;
     bool m_obj_ezsignbulksend_isValid;
 };

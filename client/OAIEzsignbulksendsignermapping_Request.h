@@ -65,19 +65,19 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_ezsignbulksendsignermapping_id;
+    qint32 m_pki_ezsignbulksendsignermapping_id;
     bool m_pki_ezsignbulksendsignermapping_id_isSet;
     bool m_pki_ezsignbulksendsignermapping_id_isValid;
 
-    qint32 fki_ezsignbulksend_id;
+    qint32 m_fki_ezsignbulksend_id;
     bool m_fki_ezsignbulksend_id_isSet;
     bool m_fki_ezsignbulksend_id_isValid;
 
-    qint32 fki_user_id;
+    qint32 m_fki_user_id;
     bool m_fki_user_id_isSet;
     bool m_fki_user_id_isValid;
 
-    QString s_ezsignbulksendsignermapping_description;
+    QString m_s_ezsignbulksendsignermapping_description;
     bool m_s_ezsignbulksendsignermapping_description_isSet;
     bool m_s_ezsignbulksendsignermapping_description_isValid;
 };

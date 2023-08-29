@@ -60,15 +60,15 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_billingentityinternal_id;
+    qint32 m_pki_billingentityinternal_id;
     bool m_pki_billingentityinternal_id_isSet;
     bool m_pki_billingentityinternal_id_isValid;
 
-    QString s_billingentityinternal_description_x;
+    QString m_s_billingentityinternal_description_x;
     bool m_s_billingentityinternal_description_x_isSet;
     bool m_s_billingentityinternal_description_x_isValid;
 
-    bool b_billingentityinternal_isactive;
+    bool m_b_billingentityinternal_isactive;
     bool m_b_billingentityinternal_isactive_isSet;
     bool m_b_billingentityinternal_isactive_isValid;
 };

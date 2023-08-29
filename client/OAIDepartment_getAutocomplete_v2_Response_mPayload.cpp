@@ -47,7 +47,7 @@ void OAIDepartment_getAutocomplete_v2_Response_mPayload::fromJson(QString jsonSt
 
 void OAIDepartment_getAutocomplete_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_department_isValid = ::OpenAPI::fromJsonValue(a_obj_department, json[QString("a_objDepartment")]);
+    m_a_obj_department_isValid = ::OpenAPI::fromJsonValue(m_a_obj_department, json[QString("a_objDepartment")]);
     m_a_obj_department_isSet = !json[QString("a_objDepartment")].isNull() && m_a_obj_department_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIDepartment_getAutocomplete_v2_Response_mPayload::asJson() const {
 
 QJsonObject OAIDepartment_getAutocomplete_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_department.size() > 0) {
-        obj.insert(QString("a_objDepartment"), ::OpenAPI::toJsonValue(a_obj_department));
+    if (m_a_obj_department.size() > 0) {
+        obj.insert(QString("a_objDepartment"), ::OpenAPI::toJsonValue(m_a_obj_department));
     }
     return obj;
 }
 
 QList<OAIDepartment_AutocompleteElement_Response> OAIDepartment_getAutocomplete_v2_Response_mPayload::getAObjDepartment() const {
-    return a_obj_department;
+    return m_a_obj_department;
 }
 void OAIDepartment_getAutocomplete_v2_Response_mPayload::setAObjDepartment(const QList<OAIDepartment_AutocompleteElement_Response> &a_obj_department) {
-    this->a_obj_department = a_obj_department;
-    this->m_a_obj_department_isSet = true;
+    m_a_obj_department = a_obj_department;
+    m_a_obj_department_isSet = true;
 }
 
 bool OAIDepartment_getAutocomplete_v2_Response_mPayload::is_a_obj_department_Set() const{
@@ -85,7 +85,7 @@ bool OAIDepartment_getAutocomplete_v2_Response_mPayload::is_a_obj_department_Val
 bool OAIDepartment_getAutocomplete_v2_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_department.size() > 0) {
+        if (m_a_obj_department.size() > 0) {
             isObjectUpdated = true;
             break;
         }

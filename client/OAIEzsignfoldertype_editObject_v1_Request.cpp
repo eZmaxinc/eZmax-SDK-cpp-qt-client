@@ -47,7 +47,7 @@ void OAIEzsignfoldertype_editObject_v1_Request::fromJson(QString jsonString) {
 
 void OAIEzsignfoldertype_editObject_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_obj_ezsignfoldertype_isValid = ::OpenAPI::fromJsonValue(obj_ezsignfoldertype, json[QString("objEzsignfoldertype")]);
+    m_obj_ezsignfoldertype_isValid = ::OpenAPI::fromJsonValue(m_obj_ezsignfoldertype, json[QString("objEzsignfoldertype")]);
     m_obj_ezsignfoldertype_isSet = !json[QString("objEzsignfoldertype")].isNull() && m_obj_ezsignfoldertype_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIEzsignfoldertype_editObject_v1_Request::asJson() const {
 
 QJsonObject OAIEzsignfoldertype_editObject_v1_Request::asJsonObject() const {
     QJsonObject obj;
-    if (obj_ezsignfoldertype.isSet()) {
-        obj.insert(QString("objEzsignfoldertype"), ::OpenAPI::toJsonValue(obj_ezsignfoldertype));
+    if (m_obj_ezsignfoldertype.isSet()) {
+        obj.insert(QString("objEzsignfoldertype"), ::OpenAPI::toJsonValue(m_obj_ezsignfoldertype));
     }
     return obj;
 }
 
 OAIEzsignfoldertype_RequestCompound OAIEzsignfoldertype_editObject_v1_Request::getObjEzsignfoldertype() const {
-    return obj_ezsignfoldertype;
+    return m_obj_ezsignfoldertype;
 }
 void OAIEzsignfoldertype_editObject_v1_Request::setObjEzsignfoldertype(const OAIEzsignfoldertype_RequestCompound &obj_ezsignfoldertype) {
-    this->obj_ezsignfoldertype = obj_ezsignfoldertype;
-    this->m_obj_ezsignfoldertype_isSet = true;
+    m_obj_ezsignfoldertype = obj_ezsignfoldertype;
+    m_obj_ezsignfoldertype_isSet = true;
 }
 
 bool OAIEzsignfoldertype_editObject_v1_Request::is_obj_ezsignfoldertype_Set() const{
@@ -85,7 +85,7 @@ bool OAIEzsignfoldertype_editObject_v1_Request::is_obj_ezsignfoldertype_Valid() 
 bool OAIEzsignfoldertype_editObject_v1_Request::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (obj_ezsignfoldertype.isSet()) {
+        if (m_obj_ezsignfoldertype.isSet()) {
             isObjectUpdated = true;
             break;
         }

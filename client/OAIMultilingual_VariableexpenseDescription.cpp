@@ -50,10 +50,10 @@ void OAIMultilingual_VariableexpenseDescription::fromJson(QString jsonString) {
 
 void OAIMultilingual_VariableexpenseDescription::fromJsonObject(QJsonObject json) {
 
-    m_s_variableexpense_description1_isValid = ::OpenAPI::fromJsonValue(s_variableexpense_description1, json[QString("sVariableexpenseDescription1")]);
+    m_s_variableexpense_description1_isValid = ::OpenAPI::fromJsonValue(m_s_variableexpense_description1, json[QString("sVariableexpenseDescription1")]);
     m_s_variableexpense_description1_isSet = !json[QString("sVariableexpenseDescription1")].isNull() && m_s_variableexpense_description1_isValid;
 
-    m_s_variableexpense_description2_isValid = ::OpenAPI::fromJsonValue(s_variableexpense_description2, json[QString("sVariableexpenseDescription2")]);
+    m_s_variableexpense_description2_isValid = ::OpenAPI::fromJsonValue(m_s_variableexpense_description2, json[QString("sVariableexpenseDescription2")]);
     m_s_variableexpense_description2_isSet = !json[QString("sVariableexpenseDescription2")].isNull() && m_s_variableexpense_description2_isValid;
 }
 
@@ -67,20 +67,20 @@ QString OAIMultilingual_VariableexpenseDescription::asJson() const {
 QJsonObject OAIMultilingual_VariableexpenseDescription::asJsonObject() const {
     QJsonObject obj;
     if (m_s_variableexpense_description1_isSet) {
-        obj.insert(QString("sVariableexpenseDescription1"), ::OpenAPI::toJsonValue(s_variableexpense_description1));
+        obj.insert(QString("sVariableexpenseDescription1"), ::OpenAPI::toJsonValue(m_s_variableexpense_description1));
     }
     if (m_s_variableexpense_description2_isSet) {
-        obj.insert(QString("sVariableexpenseDescription2"), ::OpenAPI::toJsonValue(s_variableexpense_description2));
+        obj.insert(QString("sVariableexpenseDescription2"), ::OpenAPI::toJsonValue(m_s_variableexpense_description2));
     }
     return obj;
 }
 
 QString OAIMultilingual_VariableexpenseDescription::getSVariableexpenseDescription1() const {
-    return s_variableexpense_description1;
+    return m_s_variableexpense_description1;
 }
 void OAIMultilingual_VariableexpenseDescription::setSVariableexpenseDescription1(const QString &s_variableexpense_description1) {
-    this->s_variableexpense_description1 = s_variableexpense_description1;
-    this->m_s_variableexpense_description1_isSet = true;
+    m_s_variableexpense_description1 = s_variableexpense_description1;
+    m_s_variableexpense_description1_isSet = true;
 }
 
 bool OAIMultilingual_VariableexpenseDescription::is_s_variableexpense_description1_Set() const{
@@ -92,11 +92,11 @@ bool OAIMultilingual_VariableexpenseDescription::is_s_variableexpense_descriptio
 }
 
 QString OAIMultilingual_VariableexpenseDescription::getSVariableexpenseDescription2() const {
-    return s_variableexpense_description2;
+    return m_s_variableexpense_description2;
 }
 void OAIMultilingual_VariableexpenseDescription::setSVariableexpenseDescription2(const QString &s_variableexpense_description2) {
-    this->s_variableexpense_description2 = s_variableexpense_description2;
-    this->m_s_variableexpense_description2_isSet = true;
+    m_s_variableexpense_description2 = s_variableexpense_description2;
+    m_s_variableexpense_description2_isSet = true;
 }
 
 bool OAIMultilingual_VariableexpenseDescription::is_s_variableexpense_description2_Set() const{

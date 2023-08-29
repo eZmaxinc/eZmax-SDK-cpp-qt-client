@@ -47,7 +47,7 @@ void OAIWebhook_createObject_v1_Response_mPayload::fromJson(QString jsonString) 
 
 void OAIWebhook_createObject_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_pki_webhook_id_isValid = ::OpenAPI::fromJsonValue(a_pki_webhook_id, json[QString("a_pkiWebhookID")]);
+    m_a_pki_webhook_id_isValid = ::OpenAPI::fromJsonValue(m_a_pki_webhook_id, json[QString("a_pkiWebhookID")]);
     m_a_pki_webhook_id_isSet = !json[QString("a_pkiWebhookID")].isNull() && m_a_pki_webhook_id_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIWebhook_createObject_v1_Response_mPayload::asJson() const {
 
 QJsonObject OAIWebhook_createObject_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (a_pki_webhook_id.size() > 0) {
-        obj.insert(QString("a_pkiWebhookID"), ::OpenAPI::toJsonValue(a_pki_webhook_id));
+    if (m_a_pki_webhook_id.size() > 0) {
+        obj.insert(QString("a_pkiWebhookID"), ::OpenAPI::toJsonValue(m_a_pki_webhook_id));
     }
     return obj;
 }
 
 QList<qint32> OAIWebhook_createObject_v1_Response_mPayload::getAPkiWebhookId() const {
-    return a_pki_webhook_id;
+    return m_a_pki_webhook_id;
 }
 void OAIWebhook_createObject_v1_Response_mPayload::setAPkiWebhookId(const QList<qint32> &a_pki_webhook_id) {
-    this->a_pki_webhook_id = a_pki_webhook_id;
-    this->m_a_pki_webhook_id_isSet = true;
+    m_a_pki_webhook_id = a_pki_webhook_id;
+    m_a_pki_webhook_id_isSet = true;
 }
 
 bool OAIWebhook_createObject_v1_Response_mPayload::is_a_pki_webhook_id_Set() const{
@@ -85,7 +85,7 @@ bool OAIWebhook_createObject_v1_Response_mPayload::is_a_pki_webhook_id_Valid() c
 bool OAIWebhook_createObject_v1_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_pki_webhook_id.size() > 0) {
+        if (m_a_pki_webhook_id.size() > 0) {
             isObjectUpdated = true;
             break;
         }

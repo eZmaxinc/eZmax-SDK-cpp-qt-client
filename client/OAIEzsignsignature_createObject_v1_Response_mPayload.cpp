@@ -47,7 +47,7 @@ void OAIEzsignsignature_createObject_v1_Response_mPayload::fromJson(QString json
 
 void OAIEzsignsignature_createObject_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_pki_ezsignsignature_id_isValid = ::OpenAPI::fromJsonValue(a_pki_ezsignsignature_id, json[QString("a_pkiEzsignsignatureID")]);
+    m_a_pki_ezsignsignature_id_isValid = ::OpenAPI::fromJsonValue(m_a_pki_ezsignsignature_id, json[QString("a_pkiEzsignsignatureID")]);
     m_a_pki_ezsignsignature_id_isSet = !json[QString("a_pkiEzsignsignatureID")].isNull() && m_a_pki_ezsignsignature_id_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIEzsignsignature_createObject_v1_Response_mPayload::asJson() const {
 
 QJsonObject OAIEzsignsignature_createObject_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (a_pki_ezsignsignature_id.size() > 0) {
-        obj.insert(QString("a_pkiEzsignsignatureID"), ::OpenAPI::toJsonValue(a_pki_ezsignsignature_id));
+    if (m_a_pki_ezsignsignature_id.size() > 0) {
+        obj.insert(QString("a_pkiEzsignsignatureID"), ::OpenAPI::toJsonValue(m_a_pki_ezsignsignature_id));
     }
     return obj;
 }
 
 QList<qint32> OAIEzsignsignature_createObject_v1_Response_mPayload::getAPkiEzsignsignatureId() const {
-    return a_pki_ezsignsignature_id;
+    return m_a_pki_ezsignsignature_id;
 }
 void OAIEzsignsignature_createObject_v1_Response_mPayload::setAPkiEzsignsignatureId(const QList<qint32> &a_pki_ezsignsignature_id) {
-    this->a_pki_ezsignsignature_id = a_pki_ezsignsignature_id;
-    this->m_a_pki_ezsignsignature_id_isSet = true;
+    m_a_pki_ezsignsignature_id = a_pki_ezsignsignature_id;
+    m_a_pki_ezsignsignature_id_isSet = true;
 }
 
 bool OAIEzsignsignature_createObject_v1_Response_mPayload::is_a_pki_ezsignsignature_id_Set() const{
@@ -85,7 +85,7 @@ bool OAIEzsignsignature_createObject_v1_Response_mPayload::is_a_pki_ezsignsignat
 bool OAIEzsignsignature_createObject_v1_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_pki_ezsignsignature_id.size() > 0) {
+        if (m_a_pki_ezsignsignature_id.size() > 0) {
             isObjectUpdated = true;
             break;
         }

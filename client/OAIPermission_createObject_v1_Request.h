@@ -52,7 +52,7 @@ public:
 private:
     void initializeModel();
 
-    QList<OAIPermission_RequestCompound> a_obj_permission;
+    QList<OAIPermission_RequestCompound> m_a_obj_permission;
     bool m_a_obj_permission_isSet;
     bool m_a_obj_permission_isValid;
 };

@@ -65,25 +65,25 @@ void OAIEzsignbulksenddocumentmapping_ResponseCompound::fromJson(QString jsonStr
 
 void OAIEzsignbulksenddocumentmapping_ResponseCompound::fromJsonObject(QJsonObject json) {
 
-    m_pki_ezsignbulksenddocumentmapping_id_isValid = ::OpenAPI::fromJsonValue(pki_ezsignbulksenddocumentmapping_id, json[QString("pkiEzsignbulksenddocumentmappingID")]);
+    m_pki_ezsignbulksenddocumentmapping_id_isValid = ::OpenAPI::fromJsonValue(m_pki_ezsignbulksenddocumentmapping_id, json[QString("pkiEzsignbulksenddocumentmappingID")]);
     m_pki_ezsignbulksenddocumentmapping_id_isSet = !json[QString("pkiEzsignbulksenddocumentmappingID")].isNull() && m_pki_ezsignbulksenddocumentmapping_id_isValid;
 
-    m_fki_ezsignbulksend_id_isValid = ::OpenAPI::fromJsonValue(fki_ezsignbulksend_id, json[QString("fkiEzsignbulksendID")]);
+    m_fki_ezsignbulksend_id_isValid = ::OpenAPI::fromJsonValue(m_fki_ezsignbulksend_id, json[QString("fkiEzsignbulksendID")]);
     m_fki_ezsignbulksend_id_isSet = !json[QString("fkiEzsignbulksendID")].isNull() && m_fki_ezsignbulksend_id_isValid;
 
-    m_fki_ezsigntemplatepackage_id_isValid = ::OpenAPI::fromJsonValue(fki_ezsigntemplatepackage_id, json[QString("fkiEzsigntemplatepackageID")]);
+    m_fki_ezsigntemplatepackage_id_isValid = ::OpenAPI::fromJsonValue(m_fki_ezsigntemplatepackage_id, json[QString("fkiEzsigntemplatepackageID")]);
     m_fki_ezsigntemplatepackage_id_isSet = !json[QString("fkiEzsigntemplatepackageID")].isNull() && m_fki_ezsigntemplatepackage_id_isValid;
 
-    m_fki_ezsigntemplate_id_isValid = ::OpenAPI::fromJsonValue(fki_ezsigntemplate_id, json[QString("fkiEzsigntemplateID")]);
+    m_fki_ezsigntemplate_id_isValid = ::OpenAPI::fromJsonValue(m_fki_ezsigntemplate_id, json[QString("fkiEzsigntemplateID")]);
     m_fki_ezsigntemplate_id_isSet = !json[QString("fkiEzsigntemplateID")].isNull() && m_fki_ezsigntemplate_id_isValid;
 
-    m_i_ezsignbulksenddocumentmapping_order_isValid = ::OpenAPI::fromJsonValue(i_ezsignbulksenddocumentmapping_order, json[QString("iEzsignbulksenddocumentmappingOrder")]);
+    m_i_ezsignbulksenddocumentmapping_order_isValid = ::OpenAPI::fromJsonValue(m_i_ezsignbulksenddocumentmapping_order, json[QString("iEzsignbulksenddocumentmappingOrder")]);
     m_i_ezsignbulksenddocumentmapping_order_isSet = !json[QString("iEzsignbulksenddocumentmappingOrder")].isNull() && m_i_ezsignbulksenddocumentmapping_order_isValid;
 
-    m_obj_ezsigntemplate_isValid = ::OpenAPI::fromJsonValue(obj_ezsigntemplate, json[QString("objEzsigntemplate")]);
+    m_obj_ezsigntemplate_isValid = ::OpenAPI::fromJsonValue(m_obj_ezsigntemplate, json[QString("objEzsigntemplate")]);
     m_obj_ezsigntemplate_isSet = !json[QString("objEzsigntemplate")].isNull() && m_obj_ezsigntemplate_isValid;
 
-    m_obj_ezsigntemplatepackage_isValid = ::OpenAPI::fromJsonValue(obj_ezsigntemplatepackage, json[QString("objEzsigntemplatepackage")]);
+    m_obj_ezsigntemplatepackage_isValid = ::OpenAPI::fromJsonValue(m_obj_ezsigntemplatepackage, json[QString("objEzsigntemplatepackage")]);
     m_obj_ezsigntemplatepackage_isSet = !json[QString("objEzsigntemplatepackage")].isNull() && m_obj_ezsigntemplatepackage_isValid;
 }
 
@@ -97,35 +97,35 @@ QString OAIEzsignbulksenddocumentmapping_ResponseCompound::asJson() const {
 QJsonObject OAIEzsignbulksenddocumentmapping_ResponseCompound::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_ezsignbulksenddocumentmapping_id_isSet) {
-        obj.insert(QString("pkiEzsignbulksenddocumentmappingID"), ::OpenAPI::toJsonValue(pki_ezsignbulksenddocumentmapping_id));
+        obj.insert(QString("pkiEzsignbulksenddocumentmappingID"), ::OpenAPI::toJsonValue(m_pki_ezsignbulksenddocumentmapping_id));
     }
     if (m_fki_ezsignbulksend_id_isSet) {
-        obj.insert(QString("fkiEzsignbulksendID"), ::OpenAPI::toJsonValue(fki_ezsignbulksend_id));
+        obj.insert(QString("fkiEzsignbulksendID"), ::OpenAPI::toJsonValue(m_fki_ezsignbulksend_id));
     }
     if (m_fki_ezsigntemplatepackage_id_isSet) {
-        obj.insert(QString("fkiEzsigntemplatepackageID"), ::OpenAPI::toJsonValue(fki_ezsigntemplatepackage_id));
+        obj.insert(QString("fkiEzsigntemplatepackageID"), ::OpenAPI::toJsonValue(m_fki_ezsigntemplatepackage_id));
     }
     if (m_fki_ezsigntemplate_id_isSet) {
-        obj.insert(QString("fkiEzsigntemplateID"), ::OpenAPI::toJsonValue(fki_ezsigntemplate_id));
+        obj.insert(QString("fkiEzsigntemplateID"), ::OpenAPI::toJsonValue(m_fki_ezsigntemplate_id));
     }
     if (m_i_ezsignbulksenddocumentmapping_order_isSet) {
-        obj.insert(QString("iEzsignbulksenddocumentmappingOrder"), ::OpenAPI::toJsonValue(i_ezsignbulksenddocumentmapping_order));
+        obj.insert(QString("iEzsignbulksenddocumentmappingOrder"), ::OpenAPI::toJsonValue(m_i_ezsignbulksenddocumentmapping_order));
     }
-    if (obj_ezsigntemplate.isSet()) {
-        obj.insert(QString("objEzsigntemplate"), ::OpenAPI::toJsonValue(obj_ezsigntemplate));
+    if (m_obj_ezsigntemplate.isSet()) {
+        obj.insert(QString("objEzsigntemplate"), ::OpenAPI::toJsonValue(m_obj_ezsigntemplate));
     }
-    if (obj_ezsigntemplatepackage.isSet()) {
-        obj.insert(QString("objEzsigntemplatepackage"), ::OpenAPI::toJsonValue(obj_ezsigntemplatepackage));
+    if (m_obj_ezsigntemplatepackage.isSet()) {
+        obj.insert(QString("objEzsigntemplatepackage"), ::OpenAPI::toJsonValue(m_obj_ezsigntemplatepackage));
     }
     return obj;
 }
 
 qint32 OAIEzsignbulksenddocumentmapping_ResponseCompound::getPkiEzsignbulksenddocumentmappingId() const {
-    return pki_ezsignbulksenddocumentmapping_id;
+    return m_pki_ezsignbulksenddocumentmapping_id;
 }
 void OAIEzsignbulksenddocumentmapping_ResponseCompound::setPkiEzsignbulksenddocumentmappingId(const qint32 &pki_ezsignbulksenddocumentmapping_id) {
-    this->pki_ezsignbulksenddocumentmapping_id = pki_ezsignbulksenddocumentmapping_id;
-    this->m_pki_ezsignbulksenddocumentmapping_id_isSet = true;
+    m_pki_ezsignbulksenddocumentmapping_id = pki_ezsignbulksenddocumentmapping_id;
+    m_pki_ezsignbulksenddocumentmapping_id_isSet = true;
 }
 
 bool OAIEzsignbulksenddocumentmapping_ResponseCompound::is_pki_ezsignbulksenddocumentmapping_id_Set() const{
@@ -137,11 +137,11 @@ bool OAIEzsignbulksenddocumentmapping_ResponseCompound::is_pki_ezsignbulksenddoc
 }
 
 qint32 OAIEzsignbulksenddocumentmapping_ResponseCompound::getFkiEzsignbulksendId() const {
-    return fki_ezsignbulksend_id;
+    return m_fki_ezsignbulksend_id;
 }
 void OAIEzsignbulksenddocumentmapping_ResponseCompound::setFkiEzsignbulksendId(const qint32 &fki_ezsignbulksend_id) {
-    this->fki_ezsignbulksend_id = fki_ezsignbulksend_id;
-    this->m_fki_ezsignbulksend_id_isSet = true;
+    m_fki_ezsignbulksend_id = fki_ezsignbulksend_id;
+    m_fki_ezsignbulksend_id_isSet = true;
 }
 
 bool OAIEzsignbulksenddocumentmapping_ResponseCompound::is_fki_ezsignbulksend_id_Set() const{
@@ -153,11 +153,11 @@ bool OAIEzsignbulksenddocumentmapping_ResponseCompound::is_fki_ezsignbulksend_id
 }
 
 qint32 OAIEzsignbulksenddocumentmapping_ResponseCompound::getFkiEzsigntemplatepackageId() const {
-    return fki_ezsigntemplatepackage_id;
+    return m_fki_ezsigntemplatepackage_id;
 }
 void OAIEzsignbulksenddocumentmapping_ResponseCompound::setFkiEzsigntemplatepackageId(const qint32 &fki_ezsigntemplatepackage_id) {
-    this->fki_ezsigntemplatepackage_id = fki_ezsigntemplatepackage_id;
-    this->m_fki_ezsigntemplatepackage_id_isSet = true;
+    m_fki_ezsigntemplatepackage_id = fki_ezsigntemplatepackage_id;
+    m_fki_ezsigntemplatepackage_id_isSet = true;
 }
 
 bool OAIEzsignbulksenddocumentmapping_ResponseCompound::is_fki_ezsigntemplatepackage_id_Set() const{
@@ -169,11 +169,11 @@ bool OAIEzsignbulksenddocumentmapping_ResponseCompound::is_fki_ezsigntemplatepac
 }
 
 qint32 OAIEzsignbulksenddocumentmapping_ResponseCompound::getFkiEzsigntemplateId() const {
-    return fki_ezsigntemplate_id;
+    return m_fki_ezsigntemplate_id;
 }
 void OAIEzsignbulksenddocumentmapping_ResponseCompound::setFkiEzsigntemplateId(const qint32 &fki_ezsigntemplate_id) {
-    this->fki_ezsigntemplate_id = fki_ezsigntemplate_id;
-    this->m_fki_ezsigntemplate_id_isSet = true;
+    m_fki_ezsigntemplate_id = fki_ezsigntemplate_id;
+    m_fki_ezsigntemplate_id_isSet = true;
 }
 
 bool OAIEzsignbulksenddocumentmapping_ResponseCompound::is_fki_ezsigntemplate_id_Set() const{
@@ -185,11 +185,11 @@ bool OAIEzsignbulksenddocumentmapping_ResponseCompound::is_fki_ezsigntemplate_id
 }
 
 qint32 OAIEzsignbulksenddocumentmapping_ResponseCompound::getIEzsignbulksenddocumentmappingOrder() const {
-    return i_ezsignbulksenddocumentmapping_order;
+    return m_i_ezsignbulksenddocumentmapping_order;
 }
 void OAIEzsignbulksenddocumentmapping_ResponseCompound::setIEzsignbulksenddocumentmappingOrder(const qint32 &i_ezsignbulksenddocumentmapping_order) {
-    this->i_ezsignbulksenddocumentmapping_order = i_ezsignbulksenddocumentmapping_order;
-    this->m_i_ezsignbulksenddocumentmapping_order_isSet = true;
+    m_i_ezsignbulksenddocumentmapping_order = i_ezsignbulksenddocumentmapping_order;
+    m_i_ezsignbulksenddocumentmapping_order_isSet = true;
 }
 
 bool OAIEzsignbulksenddocumentmapping_ResponseCompound::is_i_ezsignbulksenddocumentmapping_order_Set() const{
@@ -201,11 +201,11 @@ bool OAIEzsignbulksenddocumentmapping_ResponseCompound::is_i_ezsignbulksenddocum
 }
 
 OAIEzsigntemplate_ResponseCompound OAIEzsignbulksenddocumentmapping_ResponseCompound::getObjEzsigntemplate() const {
-    return obj_ezsigntemplate;
+    return m_obj_ezsigntemplate;
 }
 void OAIEzsignbulksenddocumentmapping_ResponseCompound::setObjEzsigntemplate(const OAIEzsigntemplate_ResponseCompound &obj_ezsigntemplate) {
-    this->obj_ezsigntemplate = obj_ezsigntemplate;
-    this->m_obj_ezsigntemplate_isSet = true;
+    m_obj_ezsigntemplate = obj_ezsigntemplate;
+    m_obj_ezsigntemplate_isSet = true;
 }
 
 bool OAIEzsignbulksenddocumentmapping_ResponseCompound::is_obj_ezsigntemplate_Set() const{
@@ -217,11 +217,11 @@ bool OAIEzsignbulksenddocumentmapping_ResponseCompound::is_obj_ezsigntemplate_Va
 }
 
 OAIEzsigntemplatepackage_ResponseCompound OAIEzsignbulksenddocumentmapping_ResponseCompound::getObjEzsigntemplatepackage() const {
-    return obj_ezsigntemplatepackage;
+    return m_obj_ezsigntemplatepackage;
 }
 void OAIEzsignbulksenddocumentmapping_ResponseCompound::setObjEzsigntemplatepackage(const OAIEzsigntemplatepackage_ResponseCompound &obj_ezsigntemplatepackage) {
-    this->obj_ezsigntemplatepackage = obj_ezsigntemplatepackage;
-    this->m_obj_ezsigntemplatepackage_isSet = true;
+    m_obj_ezsigntemplatepackage = obj_ezsigntemplatepackage;
+    m_obj_ezsigntemplatepackage_isSet = true;
 }
 
 bool OAIEzsignbulksenddocumentmapping_ResponseCompound::is_obj_ezsigntemplatepackage_Set() const{
@@ -260,12 +260,12 @@ bool OAIEzsignbulksenddocumentmapping_ResponseCompound::isSet() const {
             break;
         }
 
-        if (obj_ezsigntemplate.isSet()) {
+        if (m_obj_ezsigntemplate.isSet()) {
             isObjectUpdated = true;
             break;
         }
 
-        if (obj_ezsigntemplatepackage.isSet()) {
+        if (m_obj_ezsigntemplatepackage.isSet()) {
             isObjectUpdated = true;
             break;
         }

@@ -157,87 +157,87 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_communicationrecipient_id;
+    qint32 m_pki_communicationrecipient_id;
     bool m_pki_communicationrecipient_id_isSet;
     bool m_pki_communicationrecipient_id_isValid;
 
-    OAIField_eCommunicationrecipientObjecttype e_communicationrecipient_objecttype;
+    OAIField_eCommunicationrecipientObjecttype m_e_communicationrecipient_objecttype;
     bool m_e_communicationrecipient_objecttype_isSet;
     bool m_e_communicationrecipient_objecttype_isValid;
 
-    qint32 fki_agent_id;
+    qint32 m_fki_agent_id;
     bool m_fki_agent_id_isSet;
     bool m_fki_agent_id_isValid;
 
-    qint32 fki_broker_id;
+    qint32 m_fki_broker_id;
     bool m_fki_broker_id_isSet;
     bool m_fki_broker_id_isValid;
 
-    qint32 fki_contact_id;
+    qint32 m_fki_contact_id;
     bool m_fki_contact_id_isSet;
     bool m_fki_contact_id_isValid;
 
-    qint32 fki_customer_id;
+    qint32 m_fki_customer_id;
     bool m_fki_customer_id_isSet;
     bool m_fki_customer_id_isValid;
 
-    qint32 fki_employee_id;
+    qint32 m_fki_employee_id;
     bool m_fki_employee_id_isSet;
     bool m_fki_employee_id_isValid;
 
-    qint32 fki_ezsignsigner_id;
+    qint32 m_fki_ezsignsigner_id;
     bool m_fki_ezsignsigner_id_isSet;
     bool m_fki_ezsignsigner_id_isValid;
 
-    qint32 fki_franchiseoffice_id;
+    qint32 m_fki_franchiseoffice_id;
     bool m_fki_franchiseoffice_id_isSet;
     bool m_fki_franchiseoffice_id_isValid;
 
-    qint32 fki_user_id;
+    qint32 m_fki_user_id;
     bool m_fki_user_id_isSet;
     bool m_fki_user_id_isValid;
 
-    qint32 fki_agentincorporation_id;
+    qint32 m_fki_agentincorporation_id;
     bool m_fki_agentincorporation_id_isSet;
     bool m_fki_agentincorporation_id_isValid;
 
-    qint32 fki_assistant_id;
+    qint32 m_fki_assistant_id;
     bool m_fki_assistant_id_isSet;
     bool m_fki_assistant_id_isValid;
 
-    qint32 fki_externalbroker_id;
+    qint32 m_fki_externalbroker_id;
     bool m_fki_externalbroker_id_isSet;
     bool m_fki_externalbroker_id_isValid;
 
-    qint32 fki_ezcomagent_id;
+    qint32 m_fki_ezcomagent_id;
     bool m_fki_ezcomagent_id_isSet;
     bool m_fki_ezcomagent_id_isValid;
 
-    qint32 fki_notary_id;
+    qint32 m_fki_notary_id;
     bool m_fki_notary_id_isSet;
     bool m_fki_notary_id_isValid;
 
-    qint32 fki_rewardmember_id;
+    qint32 m_fki_rewardmember_id;
     bool m_fki_rewardmember_id_isSet;
     bool m_fki_rewardmember_id_isValid;
 
-    qint32 fki_supplier_id;
+    qint32 m_fki_supplier_id;
     bool m_fki_supplier_id_isSet;
     bool m_fki_supplier_id_isValid;
 
-    OAIField_eCommunicationrecipientType e_communicationrecipient_type;
+    OAIField_eCommunicationrecipientType m_e_communicationrecipient_type;
     bool m_e_communicationrecipient_type_isSet;
     bool m_e_communicationrecipient_type_isValid;
 
-    OAIDescriptionstatic_ResponseCompound obj_descriptionstatic;
+    OAIDescriptionstatic_ResponseCompound m_obj_descriptionstatic;
     bool m_obj_descriptionstatic_isSet;
     bool m_obj_descriptionstatic_isValid;
 
-    OAIEmailstatic_ResponseCompound obj_emailstatic;
+    OAIEmailstatic_ResponseCompound m_obj_emailstatic;
     bool m_obj_emailstatic_isSet;
     bool m_obj_emailstatic_isValid;
 
-    OAIPhonestatic_ResponseCompound obj_phonestatic;
+    OAIPhonestatic_ResponseCompound m_obj_phonestatic;
     bool m_obj_phonestatic_isSet;
     bool m_obj_phonestatic_isValid;
 };

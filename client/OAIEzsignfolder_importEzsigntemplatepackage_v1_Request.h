@@ -63,15 +63,15 @@ public:
 private:
     void initializeModel();
 
-    qint32 fki_ezsigntemplatepackage_id;
+    qint32 m_fki_ezsigntemplatepackage_id;
     bool m_fki_ezsigntemplatepackage_id_isSet;
     bool m_fki_ezsigntemplatepackage_id_isValid;
 
-    QString dt_ezsigndocument_duedate;
+    QString m_dt_ezsigndocument_duedate;
     bool m_dt_ezsigndocument_duedate_isSet;
     bool m_dt_ezsigndocument_duedate_isValid;
 
-    QList<OAICustom_ImportEzsigntemplatepackageRelation_Request> a_obj_import_ezsigntemplatepackage_relation;
+    QList<OAICustom_ImportEzsigntemplatepackageRelation_Request> m_a_obj_import_ezsigntemplatepackage_relation;
     bool m_a_obj_import_ezsigntemplatepackage_relation_isSet;
     bool m_a_obj_import_ezsigntemplatepackage_relation_isValid;
 };

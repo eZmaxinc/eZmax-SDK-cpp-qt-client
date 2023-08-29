@@ -52,7 +52,7 @@ public:
 private:
     void initializeModel();
 
-    QList<OAIWebhook_RequestCompound> a_obj_webhook;
+    QList<OAIWebhook_RequestCompound> m_a_obj_webhook;
     bool m_a_obj_webhook_isSet;
     bool m_a_obj_webhook_isValid;
 };

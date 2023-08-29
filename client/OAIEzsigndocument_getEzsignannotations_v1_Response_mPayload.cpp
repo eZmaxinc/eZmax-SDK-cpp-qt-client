@@ -47,7 +47,7 @@ void OAIEzsigndocument_getEzsignannotations_v1_Response_mPayload::fromJson(QStri
 
 void OAIEzsigndocument_getEzsignannotations_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_ezsignannotation_isValid = ::OpenAPI::fromJsonValue(a_obj_ezsignannotation, json[QString("a_objEzsignannotation")]);
+    m_a_obj_ezsignannotation_isValid = ::OpenAPI::fromJsonValue(m_a_obj_ezsignannotation, json[QString("a_objEzsignannotation")]);
     m_a_obj_ezsignannotation_isSet = !json[QString("a_objEzsignannotation")].isNull() && m_a_obj_ezsignannotation_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIEzsigndocument_getEzsignannotations_v1_Response_mPayload::asJson() co
 
 QJsonObject OAIEzsigndocument_getEzsignannotations_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_ezsignannotation.size() > 0) {
-        obj.insert(QString("a_objEzsignannotation"), ::OpenAPI::toJsonValue(a_obj_ezsignannotation));
+    if (m_a_obj_ezsignannotation.size() > 0) {
+        obj.insert(QString("a_objEzsignannotation"), ::OpenAPI::toJsonValue(m_a_obj_ezsignannotation));
     }
     return obj;
 }
 
 QList<OAIEzsignannotation_ResponseCompound> OAIEzsigndocument_getEzsignannotations_v1_Response_mPayload::getAObjEzsignannotation() const {
-    return a_obj_ezsignannotation;
+    return m_a_obj_ezsignannotation;
 }
 void OAIEzsigndocument_getEzsignannotations_v1_Response_mPayload::setAObjEzsignannotation(const QList<OAIEzsignannotation_ResponseCompound> &a_obj_ezsignannotation) {
-    this->a_obj_ezsignannotation = a_obj_ezsignannotation;
-    this->m_a_obj_ezsignannotation_isSet = true;
+    m_a_obj_ezsignannotation = a_obj_ezsignannotation;
+    m_a_obj_ezsignannotation_isSet = true;
 }
 
 bool OAIEzsigndocument_getEzsignannotations_v1_Response_mPayload::is_a_obj_ezsignannotation_Set() const{
@@ -85,7 +85,7 @@ bool OAIEzsigndocument_getEzsignannotations_v1_Response_mPayload::is_a_obj_ezsig
 bool OAIEzsigndocument_getEzsignannotations_v1_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_ezsignannotation.size() > 0) {
+        if (m_a_obj_ezsignannotation.size() > 0) {
             isObjectUpdated = true;
             break;
         }

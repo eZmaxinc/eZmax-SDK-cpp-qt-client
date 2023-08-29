@@ -47,7 +47,7 @@ void OAIBillingentityinternal_editObject_v1_Request::fromJson(QString jsonString
 
 void OAIBillingentityinternal_editObject_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_obj_billingentityinternal_isValid = ::OpenAPI::fromJsonValue(obj_billingentityinternal, json[QString("objBillingentityinternal")]);
+    m_obj_billingentityinternal_isValid = ::OpenAPI::fromJsonValue(m_obj_billingentityinternal, json[QString("objBillingentityinternal")]);
     m_obj_billingentityinternal_isSet = !json[QString("objBillingentityinternal")].isNull() && m_obj_billingentityinternal_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIBillingentityinternal_editObject_v1_Request::asJson() const {
 
 QJsonObject OAIBillingentityinternal_editObject_v1_Request::asJsonObject() const {
     QJsonObject obj;
-    if (obj_billingentityinternal.isSet()) {
-        obj.insert(QString("objBillingentityinternal"), ::OpenAPI::toJsonValue(obj_billingentityinternal));
+    if (m_obj_billingentityinternal.isSet()) {
+        obj.insert(QString("objBillingentityinternal"), ::OpenAPI::toJsonValue(m_obj_billingentityinternal));
     }
     return obj;
 }
 
 OAIBillingentityinternal_RequestCompound OAIBillingentityinternal_editObject_v1_Request::getObjBillingentityinternal() const {
-    return obj_billingentityinternal;
+    return m_obj_billingentityinternal;
 }
 void OAIBillingentityinternal_editObject_v1_Request::setObjBillingentityinternal(const OAIBillingentityinternal_RequestCompound &obj_billingentityinternal) {
-    this->obj_billingentityinternal = obj_billingentityinternal;
-    this->m_obj_billingentityinternal_isSet = true;
+    m_obj_billingentityinternal = obj_billingentityinternal;
+    m_obj_billingentityinternal_isSet = true;
 }
 
 bool OAIBillingentityinternal_editObject_v1_Request::is_obj_billingentityinternal_Set() const{
@@ -85,7 +85,7 @@ bool OAIBillingentityinternal_editObject_v1_Request::is_obj_billingentityinterna
 bool OAIBillingentityinternal_editObject_v1_Request::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (obj_billingentityinternal.isSet()) {
+        if (m_obj_billingentityinternal.isSet()) {
             isObjectUpdated = true;
             break;
         }

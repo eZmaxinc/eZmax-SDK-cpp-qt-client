@@ -58,11 +58,11 @@ public:
 private:
     void initializeModel();
 
-    OAIFranchisereferalincome_Request obj_franchisereferalincome;
+    OAIFranchisereferalincome_Request m_obj_franchisereferalincome;
     bool m_obj_franchisereferalincome_isSet;
     bool m_obj_franchisereferalincome_isValid;
 
-    OAIFranchisereferalincome_RequestCompound obj_franchisereferalincome_compound;
+    OAIFranchisereferalincome_RequestCompound m_obj_franchisereferalincome_compound;
     bool m_obj_franchisereferalincome_compound_isSet;
     bool m_obj_franchisereferalincome_compound_isValid;
 };

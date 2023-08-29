@@ -52,7 +52,8 @@ public:
         INACTIVE, 
         INVALIDUSER, 
         BADUSERTYPE, 
-        BADIP
+        BADIP, 
+        FORCEDLOGOFF
     };
     OAIField_eSessionhistoryEndby::eOAIField_eSessionhistoryEndby getValue() const;
     void setValue(const OAIField_eSessionhistoryEndby::eOAIField_eSessionhistoryEndby& value);

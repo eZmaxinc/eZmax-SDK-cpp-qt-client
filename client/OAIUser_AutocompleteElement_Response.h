@@ -66,19 +66,19 @@ public:
 private:
     void initializeModel();
 
-    OAIField_eUserType e_user_type;
+    OAIField_eUserType m_e_user_type;
     bool m_e_user_type_isSet;
     bool m_e_user_type_isValid;
 
-    QString s_user_name;
+    QString m_s_user_name;
     bool m_s_user_name_isSet;
     bool m_s_user_name_isValid;
 
-    qint32 pki_user_id;
+    qint32 m_pki_user_id;
     bool m_pki_user_id_isSet;
     bool m_pki_user_id_isValid;
 
-    bool b_user_isactive;
+    bool m_b_user_isactive;
     bool m_b_user_isactive_isSet;
     bool m_b_user_isactive_isValid;
 };

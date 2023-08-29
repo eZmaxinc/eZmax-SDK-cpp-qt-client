@@ -60,15 +60,15 @@ public:
 private:
     void initializeModel();
 
-    QString s_branding_description_x;
+    QString m_s_branding_description_x;
     bool m_s_branding_description_x_isSet;
     bool m_s_branding_description_x_isValid;
 
-    qint32 pki_branding_id;
+    qint32 m_pki_branding_id;
     bool m_pki_branding_id_isSet;
     bool m_pki_branding_id_isValid;
 
-    bool b_branding_isactive;
+    bool m_b_branding_isactive;
     bool m_b_branding_isactive_isSet;
     bool m_b_branding_isactive_isValid;
 };

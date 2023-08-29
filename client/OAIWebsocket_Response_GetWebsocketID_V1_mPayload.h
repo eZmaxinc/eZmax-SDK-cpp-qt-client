@@ -50,7 +50,7 @@ public:
 private:
     void initializeModel();
 
-    QString s_websocket_id;
+    QString m_s_websocket_id;
     bool m_s_websocket_id_isSet;
     bool m_s_websocket_id_isValid;
 };

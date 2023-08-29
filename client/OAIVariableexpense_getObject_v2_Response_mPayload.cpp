@@ -47,7 +47,7 @@ void OAIVariableexpense_getObject_v2_Response_mPayload::fromJson(QString jsonStr
 
 void OAIVariableexpense_getObject_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_obj_variableexpense_isValid = ::OpenAPI::fromJsonValue(obj_variableexpense, json[QString("objVariableexpense")]);
+    m_obj_variableexpense_isValid = ::OpenAPI::fromJsonValue(m_obj_variableexpense, json[QString("objVariableexpense")]);
     m_obj_variableexpense_isSet = !json[QString("objVariableexpense")].isNull() && m_obj_variableexpense_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIVariableexpense_getObject_v2_Response_mPayload::asJson() const {
 
 QJsonObject OAIVariableexpense_getObject_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (obj_variableexpense.isSet()) {
-        obj.insert(QString("objVariableexpense"), ::OpenAPI::toJsonValue(obj_variableexpense));
+    if (m_obj_variableexpense.isSet()) {
+        obj.insert(QString("objVariableexpense"), ::OpenAPI::toJsonValue(m_obj_variableexpense));
     }
     return obj;
 }
 
 OAIVariableexpense_ResponseCompound OAIVariableexpense_getObject_v2_Response_mPayload::getObjVariableexpense() const {
-    return obj_variableexpense;
+    return m_obj_variableexpense;
 }
 void OAIVariableexpense_getObject_v2_Response_mPayload::setObjVariableexpense(const OAIVariableexpense_ResponseCompound &obj_variableexpense) {
-    this->obj_variableexpense = obj_variableexpense;
-    this->m_obj_variableexpense_isSet = true;
+    m_obj_variableexpense = obj_variableexpense;
+    m_obj_variableexpense_isSet = true;
 }
 
 bool OAIVariableexpense_getObject_v2_Response_mPayload::is_obj_variableexpense_Set() const{
@@ -85,7 +85,7 @@ bool OAIVariableexpense_getObject_v2_Response_mPayload::is_obj_variableexpense_V
 bool OAIVariableexpense_getObject_v2_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (obj_variableexpense.isSet()) {
+        if (m_obj_variableexpense.isSet()) {
             isObjectUpdated = true;
             break;
         }

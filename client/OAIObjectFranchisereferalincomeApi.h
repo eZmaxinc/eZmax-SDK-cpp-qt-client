@@ -22,7 +22,6 @@
 #include "OAIFranchisereferalincome_createObject_v1_Response.h"
 #include "OAIFranchisereferalincome_createObject_v2_Request.h"
 #include "OAIFranchisereferalincome_createObject_v2_Response.h"
-#include <QList>
 #include <QString>
 
 #include <QObject>

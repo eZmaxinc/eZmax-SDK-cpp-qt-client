@@ -47,7 +47,7 @@ void OAIEzsigntemplateformfieldgroup_createObject_v1_Request::fromJson(QString j
 
 void OAIEzsigntemplateformfieldgroup_createObject_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_ezsigntemplateformfieldgroup_isValid = ::OpenAPI::fromJsonValue(a_obj_ezsigntemplateformfieldgroup, json[QString("a_objEzsigntemplateformfieldgroup")]);
+    m_a_obj_ezsigntemplateformfieldgroup_isValid = ::OpenAPI::fromJsonValue(m_a_obj_ezsigntemplateformfieldgroup, json[QString("a_objEzsigntemplateformfieldgroup")]);
     m_a_obj_ezsigntemplateformfieldgroup_isSet = !json[QString("a_objEzsigntemplateformfieldgroup")].isNull() && m_a_obj_ezsigntemplateformfieldgroup_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIEzsigntemplateformfieldgroup_createObject_v1_Request::asJson() const 
 
 QJsonObject OAIEzsigntemplateformfieldgroup_createObject_v1_Request::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_ezsigntemplateformfieldgroup.size() > 0) {
-        obj.insert(QString("a_objEzsigntemplateformfieldgroup"), ::OpenAPI::toJsonValue(a_obj_ezsigntemplateformfieldgroup));
+    if (m_a_obj_ezsigntemplateformfieldgroup.size() > 0) {
+        obj.insert(QString("a_objEzsigntemplateformfieldgroup"), ::OpenAPI::toJsonValue(m_a_obj_ezsigntemplateformfieldgroup));
     }
     return obj;
 }
 
 QList<OAIEzsigntemplateformfieldgroup_RequestCompound> OAIEzsigntemplateformfieldgroup_createObject_v1_Request::getAObjEzsigntemplateformfieldgroup() const {
-    return a_obj_ezsigntemplateformfieldgroup;
+    return m_a_obj_ezsigntemplateformfieldgroup;
 }
 void OAIEzsigntemplateformfieldgroup_createObject_v1_Request::setAObjEzsigntemplateformfieldgroup(const QList<OAIEzsigntemplateformfieldgroup_RequestCompound> &a_obj_ezsigntemplateformfieldgroup) {
-    this->a_obj_ezsigntemplateformfieldgroup = a_obj_ezsigntemplateformfieldgroup;
-    this->m_a_obj_ezsigntemplateformfieldgroup_isSet = true;
+    m_a_obj_ezsigntemplateformfieldgroup = a_obj_ezsigntemplateformfieldgroup;
+    m_a_obj_ezsigntemplateformfieldgroup_isSet = true;
 }
 
 bool OAIEzsigntemplateformfieldgroup_createObject_v1_Request::is_a_obj_ezsigntemplateformfieldgroup_Set() const{
@@ -85,7 +85,7 @@ bool OAIEzsigntemplateformfieldgroup_createObject_v1_Request::is_a_obj_ezsigntem
 bool OAIEzsigntemplateformfieldgroup_createObject_v1_Request::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_ezsigntemplateformfieldgroup.size() > 0) {
+        if (m_a_obj_ezsigntemplateformfieldgroup.size() > 0) {
             isObjectUpdated = true;
             break;
         }

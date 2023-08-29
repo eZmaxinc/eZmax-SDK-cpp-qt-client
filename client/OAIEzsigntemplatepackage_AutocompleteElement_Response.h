@@ -71,23 +71,23 @@ public:
 private:
     void initializeModel();
 
-    OAIField_eEzsignfoldertypePrivacylevel e_ezsignfoldertype_privacylevel;
+    OAIField_eEzsignfoldertypePrivacylevel m_e_ezsignfoldertype_privacylevel;
     bool m_e_ezsignfoldertype_privacylevel_isSet;
     bool m_e_ezsignfoldertype_privacylevel_isValid;
 
-    QString s_ezsigntemplatepackage_description;
+    QString m_s_ezsigntemplatepackage_description;
     bool m_s_ezsigntemplatepackage_description_isSet;
     bool m_s_ezsigntemplatepackage_description_isValid;
 
-    qint32 pki_ezsigntemplatepackage_id;
+    qint32 m_pki_ezsigntemplatepackage_id;
     bool m_pki_ezsigntemplatepackage_id_isSet;
     bool m_pki_ezsigntemplatepackage_id_isValid;
 
-    bool b_ezsigntemplatepackage_isactive;
+    bool m_b_ezsigntemplatepackage_isactive;
     bool m_b_ezsigntemplatepackage_isactive_isSet;
     bool m_b_ezsigntemplatepackage_isactive_isValid;
 
-    bool b_disabled;
+    bool m_b_disabled;
     bool m_b_disabled_isSet;
     bool m_b_disabled_isValid;
 };

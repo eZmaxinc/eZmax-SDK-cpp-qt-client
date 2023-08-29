@@ -64,19 +64,19 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_ezsigntemplatepackagemembership_id;
+    qint32 m_pki_ezsigntemplatepackagemembership_id;
     bool m_pki_ezsigntemplatepackagemembership_id_isSet;
     bool m_pki_ezsigntemplatepackagemembership_id_isValid;
 
-    qint32 fki_ezsigntemplatepackage_id;
+    qint32 m_fki_ezsigntemplatepackage_id;
     bool m_fki_ezsigntemplatepackage_id_isSet;
     bool m_fki_ezsigntemplatepackage_id_isValid;
 
-    qint32 fki_ezsigntemplate_id;
+    qint32 m_fki_ezsigntemplate_id;
     bool m_fki_ezsigntemplate_id_isSet;
     bool m_fki_ezsigntemplate_id_isValid;
 
-    qint32 i_ezsigntemplatepackagemembership_order;
+    qint32 m_i_ezsigntemplatepackagemembership_order;
     bool m_i_ezsigntemplatepackagemembership_order_isSet;
     bool m_i_ezsigntemplatepackagemembership_order_isValid;
 };

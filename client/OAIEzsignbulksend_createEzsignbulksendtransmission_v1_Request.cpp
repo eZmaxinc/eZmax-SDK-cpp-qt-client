@@ -65,25 +65,25 @@ void OAIEzsignbulksend_createEzsignbulksendtransmission_v1_Request::fromJson(QSt
 
 void OAIEzsignbulksend_createEzsignbulksendtransmission_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_fki_userlogintype_id_isValid = ::OpenAPI::fromJsonValue(fki_userlogintype_id, json[QString("fkiUserlogintypeID")]);
+    m_fki_userlogintype_id_isValid = ::OpenAPI::fromJsonValue(m_fki_userlogintype_id, json[QString("fkiUserlogintypeID")]);
     m_fki_userlogintype_id_isSet = !json[QString("fkiUserlogintypeID")].isNull() && m_fki_userlogintype_id_isValid;
 
-    m_fki_ezsigntsarequirement_id_isValid = ::OpenAPI::fromJsonValue(fki_ezsigntsarequirement_id, json[QString("fkiEzsigntsarequirementID")]);
+    m_fki_ezsigntsarequirement_id_isValid = ::OpenAPI::fromJsonValue(m_fki_ezsigntsarequirement_id, json[QString("fkiEzsigntsarequirementID")]);
     m_fki_ezsigntsarequirement_id_isSet = !json[QString("fkiEzsigntsarequirementID")].isNull() && m_fki_ezsigntsarequirement_id_isValid;
 
-    m_s_ezsignbulksendtransmission_description_isValid = ::OpenAPI::fromJsonValue(s_ezsignbulksendtransmission_description, json[QString("sEzsignbulksendtransmissionDescription")]);
+    m_s_ezsignbulksendtransmission_description_isValid = ::OpenAPI::fromJsonValue(m_s_ezsignbulksendtransmission_description, json[QString("sEzsignbulksendtransmissionDescription")]);
     m_s_ezsignbulksendtransmission_description_isSet = !json[QString("sEzsignbulksendtransmissionDescription")].isNull() && m_s_ezsignbulksendtransmission_description_isValid;
 
-    m_dt_ezsigndocument_duedate_isValid = ::OpenAPI::fromJsonValue(dt_ezsigndocument_duedate, json[QString("dtEzsigndocumentDuedate")]);
+    m_dt_ezsigndocument_duedate_isValid = ::OpenAPI::fromJsonValue(m_dt_ezsigndocument_duedate, json[QString("dtEzsigndocumentDuedate")]);
     m_dt_ezsigndocument_duedate_isSet = !json[QString("dtEzsigndocumentDuedate")].isNull() && m_dt_ezsigndocument_duedate_isValid;
 
-    m_e_ezsignfolder_sendreminderfrequency_isValid = ::OpenAPI::fromJsonValue(e_ezsignfolder_sendreminderfrequency, json[QString("eEzsignfolderSendreminderfrequency")]);
+    m_e_ezsignfolder_sendreminderfrequency_isValid = ::OpenAPI::fromJsonValue(m_e_ezsignfolder_sendreminderfrequency, json[QString("eEzsignfolderSendreminderfrequency")]);
     m_e_ezsignfolder_sendreminderfrequency_isSet = !json[QString("eEzsignfolderSendreminderfrequency")].isNull() && m_e_ezsignfolder_sendreminderfrequency_isValid;
 
-    m_t_extra_message_isValid = ::OpenAPI::fromJsonValue(t_extra_message, json[QString("tExtraMessage")]);
+    m_t_extra_message_isValid = ::OpenAPI::fromJsonValue(m_t_extra_message, json[QString("tExtraMessage")]);
     m_t_extra_message_isSet = !json[QString("tExtraMessage")].isNull() && m_t_extra_message_isValid;
 
-    m_s_csv_base64_isValid = ::OpenAPI::fromJsonValue(s_csv_base64, json[QString("sCsvBase64")]);
+    m_s_csv_base64_isValid = ::OpenAPI::fromJsonValue(m_s_csv_base64, json[QString("sCsvBase64")]);
     m_s_csv_base64_isSet = !json[QString("sCsvBase64")].isNull() && m_s_csv_base64_isValid;
 }
 
@@ -97,35 +97,35 @@ QString OAIEzsignbulksend_createEzsignbulksendtransmission_v1_Request::asJson() 
 QJsonObject OAIEzsignbulksend_createEzsignbulksendtransmission_v1_Request::asJsonObject() const {
     QJsonObject obj;
     if (m_fki_userlogintype_id_isSet) {
-        obj.insert(QString("fkiUserlogintypeID"), ::OpenAPI::toJsonValue(fki_userlogintype_id));
+        obj.insert(QString("fkiUserlogintypeID"), ::OpenAPI::toJsonValue(m_fki_userlogintype_id));
     }
     if (m_fki_ezsigntsarequirement_id_isSet) {
-        obj.insert(QString("fkiEzsigntsarequirementID"), ::OpenAPI::toJsonValue(fki_ezsigntsarequirement_id));
+        obj.insert(QString("fkiEzsigntsarequirementID"), ::OpenAPI::toJsonValue(m_fki_ezsigntsarequirement_id));
     }
     if (m_s_ezsignbulksendtransmission_description_isSet) {
-        obj.insert(QString("sEzsignbulksendtransmissionDescription"), ::OpenAPI::toJsonValue(s_ezsignbulksendtransmission_description));
+        obj.insert(QString("sEzsignbulksendtransmissionDescription"), ::OpenAPI::toJsonValue(m_s_ezsignbulksendtransmission_description));
     }
     if (m_dt_ezsigndocument_duedate_isSet) {
-        obj.insert(QString("dtEzsigndocumentDuedate"), ::OpenAPI::toJsonValue(dt_ezsigndocument_duedate));
+        obj.insert(QString("dtEzsigndocumentDuedate"), ::OpenAPI::toJsonValue(m_dt_ezsigndocument_duedate));
     }
-    if (e_ezsignfolder_sendreminderfrequency.isSet()) {
-        obj.insert(QString("eEzsignfolderSendreminderfrequency"), ::OpenAPI::toJsonValue(e_ezsignfolder_sendreminderfrequency));
+    if (m_e_ezsignfolder_sendreminderfrequency.isSet()) {
+        obj.insert(QString("eEzsignfolderSendreminderfrequency"), ::OpenAPI::toJsonValue(m_e_ezsignfolder_sendreminderfrequency));
     }
     if (m_t_extra_message_isSet) {
-        obj.insert(QString("tExtraMessage"), ::OpenAPI::toJsonValue(t_extra_message));
+        obj.insert(QString("tExtraMessage"), ::OpenAPI::toJsonValue(m_t_extra_message));
     }
     if (m_s_csv_base64_isSet) {
-        obj.insert(QString("sCsvBase64"), ::OpenAPI::toJsonValue(s_csv_base64));
+        obj.insert(QString("sCsvBase64"), ::OpenAPI::toJsonValue(m_s_csv_base64));
     }
     return obj;
 }
 
 qint32 OAIEzsignbulksend_createEzsignbulksendtransmission_v1_Request::getFkiUserlogintypeId() const {
-    return fki_userlogintype_id;
+    return m_fki_userlogintype_id;
 }
 void OAIEzsignbulksend_createEzsignbulksendtransmission_v1_Request::setFkiUserlogintypeId(const qint32 &fki_userlogintype_id) {
-    this->fki_userlogintype_id = fki_userlogintype_id;
-    this->m_fki_userlogintype_id_isSet = true;
+    m_fki_userlogintype_id = fki_userlogintype_id;
+    m_fki_userlogintype_id_isSet = true;
 }
 
 bool OAIEzsignbulksend_createEzsignbulksendtransmission_v1_Request::is_fki_userlogintype_id_Set() const{
@@ -137,11 +137,11 @@ bool OAIEzsignbulksend_createEzsignbulksendtransmission_v1_Request::is_fki_userl
 }
 
 qint32 OAIEzsignbulksend_createEzsignbulksendtransmission_v1_Request::getFkiEzsigntsarequirementId() const {
-    return fki_ezsigntsarequirement_id;
+    return m_fki_ezsigntsarequirement_id;
 }
 void OAIEzsignbulksend_createEzsignbulksendtransmission_v1_Request::setFkiEzsigntsarequirementId(const qint32 &fki_ezsigntsarequirement_id) {
-    this->fki_ezsigntsarequirement_id = fki_ezsigntsarequirement_id;
-    this->m_fki_ezsigntsarequirement_id_isSet = true;
+    m_fki_ezsigntsarequirement_id = fki_ezsigntsarequirement_id;
+    m_fki_ezsigntsarequirement_id_isSet = true;
 }
 
 bool OAIEzsignbulksend_createEzsignbulksendtransmission_v1_Request::is_fki_ezsigntsarequirement_id_Set() const{
@@ -153,11 +153,11 @@ bool OAIEzsignbulksend_createEzsignbulksendtransmission_v1_Request::is_fki_ezsig
 }
 
 QString OAIEzsignbulksend_createEzsignbulksendtransmission_v1_Request::getSEzsignbulksendtransmissionDescription() const {
-    return s_ezsignbulksendtransmission_description;
+    return m_s_ezsignbulksendtransmission_description;
 }
 void OAIEzsignbulksend_createEzsignbulksendtransmission_v1_Request::setSEzsignbulksendtransmissionDescription(const QString &s_ezsignbulksendtransmission_description) {
-    this->s_ezsignbulksendtransmission_description = s_ezsignbulksendtransmission_description;
-    this->m_s_ezsignbulksendtransmission_description_isSet = true;
+    m_s_ezsignbulksendtransmission_description = s_ezsignbulksendtransmission_description;
+    m_s_ezsignbulksendtransmission_description_isSet = true;
 }
 
 bool OAIEzsignbulksend_createEzsignbulksendtransmission_v1_Request::is_s_ezsignbulksendtransmission_description_Set() const{
@@ -169,11 +169,11 @@ bool OAIEzsignbulksend_createEzsignbulksendtransmission_v1_Request::is_s_ezsignb
 }
 
 QString OAIEzsignbulksend_createEzsignbulksendtransmission_v1_Request::getDtEzsigndocumentDuedate() const {
-    return dt_ezsigndocument_duedate;
+    return m_dt_ezsigndocument_duedate;
 }
 void OAIEzsignbulksend_createEzsignbulksendtransmission_v1_Request::setDtEzsigndocumentDuedate(const QString &dt_ezsigndocument_duedate) {
-    this->dt_ezsigndocument_duedate = dt_ezsigndocument_duedate;
-    this->m_dt_ezsigndocument_duedate_isSet = true;
+    m_dt_ezsigndocument_duedate = dt_ezsigndocument_duedate;
+    m_dt_ezsigndocument_duedate_isSet = true;
 }
 
 bool OAIEzsignbulksend_createEzsignbulksendtransmission_v1_Request::is_dt_ezsigndocument_duedate_Set() const{
@@ -185,11 +185,11 @@ bool OAIEzsignbulksend_createEzsignbulksendtransmission_v1_Request::is_dt_ezsign
 }
 
 OAIField_eEzsignfolderSendreminderfrequency OAIEzsignbulksend_createEzsignbulksendtransmission_v1_Request::getEEzsignfolderSendreminderfrequency() const {
-    return e_ezsignfolder_sendreminderfrequency;
+    return m_e_ezsignfolder_sendreminderfrequency;
 }
 void OAIEzsignbulksend_createEzsignbulksendtransmission_v1_Request::setEEzsignfolderSendreminderfrequency(const OAIField_eEzsignfolderSendreminderfrequency &e_ezsignfolder_sendreminderfrequency) {
-    this->e_ezsignfolder_sendreminderfrequency = e_ezsignfolder_sendreminderfrequency;
-    this->m_e_ezsignfolder_sendreminderfrequency_isSet = true;
+    m_e_ezsignfolder_sendreminderfrequency = e_ezsignfolder_sendreminderfrequency;
+    m_e_ezsignfolder_sendreminderfrequency_isSet = true;
 }
 
 bool OAIEzsignbulksend_createEzsignbulksendtransmission_v1_Request::is_e_ezsignfolder_sendreminderfrequency_Set() const{
@@ -201,11 +201,11 @@ bool OAIEzsignbulksend_createEzsignbulksendtransmission_v1_Request::is_e_ezsignf
 }
 
 QString OAIEzsignbulksend_createEzsignbulksendtransmission_v1_Request::getTExtraMessage() const {
-    return t_extra_message;
+    return m_t_extra_message;
 }
 void OAIEzsignbulksend_createEzsignbulksendtransmission_v1_Request::setTExtraMessage(const QString &t_extra_message) {
-    this->t_extra_message = t_extra_message;
-    this->m_t_extra_message_isSet = true;
+    m_t_extra_message = t_extra_message;
+    m_t_extra_message_isSet = true;
 }
 
 bool OAIEzsignbulksend_createEzsignbulksendtransmission_v1_Request::is_t_extra_message_Set() const{
@@ -217,11 +217,11 @@ bool OAIEzsignbulksend_createEzsignbulksendtransmission_v1_Request::is_t_extra_m
 }
 
 QByteArray OAIEzsignbulksend_createEzsignbulksendtransmission_v1_Request::getSCsvBase64() const {
-    return s_csv_base64;
+    return m_s_csv_base64;
 }
 void OAIEzsignbulksend_createEzsignbulksendtransmission_v1_Request::setSCsvBase64(const QByteArray &s_csv_base64) {
-    this->s_csv_base64 = s_csv_base64;
-    this->m_s_csv_base64_isSet = true;
+    m_s_csv_base64 = s_csv_base64;
+    m_s_csv_base64_isSet = true;
 }
 
 bool OAIEzsignbulksend_createEzsignbulksendtransmission_v1_Request::is_s_csv_base64_Set() const{
@@ -255,7 +255,7 @@ bool OAIEzsignbulksend_createEzsignbulksendtransmission_v1_Request::isSet() cons
             break;
         }
 
-        if (e_ezsignfolder_sendreminderfrequency.isSet()) {
+        if (m_e_ezsignfolder_sendreminderfrequency.isSet()) {
             isObjectUpdated = true;
             break;
         }

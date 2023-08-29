@@ -50,10 +50,10 @@ void OAICustom_Ezsignformfielderror_Response::fromJson(QString jsonString) {
 
 void OAICustom_Ezsignformfielderror_Response::fromJsonObject(QJsonObject json) {
 
-    m_s_ezsignformfield_label_isValid = ::OpenAPI::fromJsonValue(s_ezsignformfield_label, json[QString("sEzsignformfieldLabel")]);
+    m_s_ezsignformfield_label_isValid = ::OpenAPI::fromJsonValue(m_s_ezsignformfield_label, json[QString("sEzsignformfieldLabel")]);
     m_s_ezsignformfield_label_isSet = !json[QString("sEzsignformfieldLabel")].isNull() && m_s_ezsignformfield_label_isValid;
 
-    m_a_obj_ezsignformfielderrortest_isValid = ::OpenAPI::fromJsonValue(a_obj_ezsignformfielderrortest, json[QString("a_objEzsignformfielderrortest")]);
+    m_a_obj_ezsignformfielderrortest_isValid = ::OpenAPI::fromJsonValue(m_a_obj_ezsignformfielderrortest, json[QString("a_objEzsignformfielderrortest")]);
     m_a_obj_ezsignformfielderrortest_isSet = !json[QString("a_objEzsignformfielderrortest")].isNull() && m_a_obj_ezsignformfielderrortest_isValid;
 }
 
@@ -67,20 +67,20 @@ QString OAICustom_Ezsignformfielderror_Response::asJson() const {
 QJsonObject OAICustom_Ezsignformfielderror_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_s_ezsignformfield_label_isSet) {
-        obj.insert(QString("sEzsignformfieldLabel"), ::OpenAPI::toJsonValue(s_ezsignformfield_label));
+        obj.insert(QString("sEzsignformfieldLabel"), ::OpenAPI::toJsonValue(m_s_ezsignformfield_label));
     }
-    if (a_obj_ezsignformfielderrortest.size() > 0) {
-        obj.insert(QString("a_objEzsignformfielderrortest"), ::OpenAPI::toJsonValue(a_obj_ezsignformfielderrortest));
+    if (m_a_obj_ezsignformfielderrortest.size() > 0) {
+        obj.insert(QString("a_objEzsignformfielderrortest"), ::OpenAPI::toJsonValue(m_a_obj_ezsignformfielderrortest));
     }
     return obj;
 }
 
 QString OAICustom_Ezsignformfielderror_Response::getSEzsignformfieldLabel() const {
-    return s_ezsignformfield_label;
+    return m_s_ezsignformfield_label;
 }
 void OAICustom_Ezsignformfielderror_Response::setSEzsignformfieldLabel(const QString &s_ezsignformfield_label) {
-    this->s_ezsignformfield_label = s_ezsignformfield_label;
-    this->m_s_ezsignformfield_label_isSet = true;
+    m_s_ezsignformfield_label = s_ezsignformfield_label;
+    m_s_ezsignformfield_label_isSet = true;
 }
 
 bool OAICustom_Ezsignformfielderror_Response::is_s_ezsignformfield_label_Set() const{
@@ -92,11 +92,11 @@ bool OAICustom_Ezsignformfielderror_Response::is_s_ezsignformfield_label_Valid()
 }
 
 QList<OAICustom_Ezsignformfielderrortest_Response> OAICustom_Ezsignformfielderror_Response::getAObjEzsignformfielderrortest() const {
-    return a_obj_ezsignformfielderrortest;
+    return m_a_obj_ezsignformfielderrortest;
 }
 void OAICustom_Ezsignformfielderror_Response::setAObjEzsignformfielderrortest(const QList<OAICustom_Ezsignformfielderrortest_Response> &a_obj_ezsignformfielderrortest) {
-    this->a_obj_ezsignformfielderrortest = a_obj_ezsignformfielderrortest;
-    this->m_a_obj_ezsignformfielderrortest_isSet = true;
+    m_a_obj_ezsignformfielderrortest = a_obj_ezsignformfielderrortest;
+    m_a_obj_ezsignformfielderrortest_isSet = true;
 }
 
 bool OAICustom_Ezsignformfielderror_Response::is_a_obj_ezsignformfielderrortest_Set() const{
@@ -115,7 +115,7 @@ bool OAICustom_Ezsignformfielderror_Response::isSet() const {
             break;
         }
 
-        if (a_obj_ezsignformfielderrortest.size() > 0) {
+        if (m_a_obj_ezsignformfielderrortest.size() > 0) {
             isObjectUpdated = true;
             break;
         }

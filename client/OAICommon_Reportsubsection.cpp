@@ -53,13 +53,13 @@ void OAICommon_Reportsubsection::fromJson(QString jsonString) {
 
 void OAICommon_Reportsubsection::fromJsonObject(QJsonObject json) {
 
-    m_obj_reportsubsectionpart_header_isValid = ::OpenAPI::fromJsonValue(obj_reportsubsectionpart_header, json[QString("objReportsubsectionpartHeader")]);
+    m_obj_reportsubsectionpart_header_isValid = ::OpenAPI::fromJsonValue(m_obj_reportsubsectionpart_header, json[QString("objReportsubsectionpartHeader")]);
     m_obj_reportsubsectionpart_header_isSet = !json[QString("objReportsubsectionpartHeader")].isNull() && m_obj_reportsubsectionpart_header_isValid;
 
-    m_obj_reportsubsectionpart_body_isValid = ::OpenAPI::fromJsonValue(obj_reportsubsectionpart_body, json[QString("objReportsubsectionpartBody")]);
+    m_obj_reportsubsectionpart_body_isValid = ::OpenAPI::fromJsonValue(m_obj_reportsubsectionpart_body, json[QString("objReportsubsectionpartBody")]);
     m_obj_reportsubsectionpart_body_isSet = !json[QString("objReportsubsectionpartBody")].isNull() && m_obj_reportsubsectionpart_body_isValid;
 
-    m_obj_reportsubsectionpart_footer_isValid = ::OpenAPI::fromJsonValue(obj_reportsubsectionpart_footer, json[QString("objReportsubsectionpartFooter")]);
+    m_obj_reportsubsectionpart_footer_isValid = ::OpenAPI::fromJsonValue(m_obj_reportsubsectionpart_footer, json[QString("objReportsubsectionpartFooter")]);
     m_obj_reportsubsectionpart_footer_isSet = !json[QString("objReportsubsectionpartFooter")].isNull() && m_obj_reportsubsectionpart_footer_isValid;
 }
 
@@ -72,24 +72,24 @@ QString OAICommon_Reportsubsection::asJson() const {
 
 QJsonObject OAICommon_Reportsubsection::asJsonObject() const {
     QJsonObject obj;
-    if (obj_reportsubsectionpart_header.isSet()) {
-        obj.insert(QString("objReportsubsectionpartHeader"), ::OpenAPI::toJsonValue(obj_reportsubsectionpart_header));
+    if (m_obj_reportsubsectionpart_header.isSet()) {
+        obj.insert(QString("objReportsubsectionpartHeader"), ::OpenAPI::toJsonValue(m_obj_reportsubsectionpart_header));
     }
-    if (obj_reportsubsectionpart_body.isSet()) {
-        obj.insert(QString("objReportsubsectionpartBody"), ::OpenAPI::toJsonValue(obj_reportsubsectionpart_body));
+    if (m_obj_reportsubsectionpart_body.isSet()) {
+        obj.insert(QString("objReportsubsectionpartBody"), ::OpenAPI::toJsonValue(m_obj_reportsubsectionpart_body));
     }
-    if (obj_reportsubsectionpart_footer.isSet()) {
-        obj.insert(QString("objReportsubsectionpartFooter"), ::OpenAPI::toJsonValue(obj_reportsubsectionpart_footer));
+    if (m_obj_reportsubsectionpart_footer.isSet()) {
+        obj.insert(QString("objReportsubsectionpartFooter"), ::OpenAPI::toJsonValue(m_obj_reportsubsectionpart_footer));
     }
     return obj;
 }
 
 OAICommon_Reportsubsectionpart OAICommon_Reportsubsection::getObjReportsubsectionpartHeader() const {
-    return obj_reportsubsectionpart_header;
+    return m_obj_reportsubsectionpart_header;
 }
 void OAICommon_Reportsubsection::setObjReportsubsectionpartHeader(const OAICommon_Reportsubsectionpart &obj_reportsubsectionpart_header) {
-    this->obj_reportsubsectionpart_header = obj_reportsubsectionpart_header;
-    this->m_obj_reportsubsectionpart_header_isSet = true;
+    m_obj_reportsubsectionpart_header = obj_reportsubsectionpart_header;
+    m_obj_reportsubsectionpart_header_isSet = true;
 }
 
 bool OAICommon_Reportsubsection::is_obj_reportsubsectionpart_header_Set() const{
@@ -101,11 +101,11 @@ bool OAICommon_Reportsubsection::is_obj_reportsubsectionpart_header_Valid() cons
 }
 
 OAICommon_Reportsubsectionpart OAICommon_Reportsubsection::getObjReportsubsectionpartBody() const {
-    return obj_reportsubsectionpart_body;
+    return m_obj_reportsubsectionpart_body;
 }
 void OAICommon_Reportsubsection::setObjReportsubsectionpartBody(const OAICommon_Reportsubsectionpart &obj_reportsubsectionpart_body) {
-    this->obj_reportsubsectionpart_body = obj_reportsubsectionpart_body;
-    this->m_obj_reportsubsectionpart_body_isSet = true;
+    m_obj_reportsubsectionpart_body = obj_reportsubsectionpart_body;
+    m_obj_reportsubsectionpart_body_isSet = true;
 }
 
 bool OAICommon_Reportsubsection::is_obj_reportsubsectionpart_body_Set() const{
@@ -117,11 +117,11 @@ bool OAICommon_Reportsubsection::is_obj_reportsubsectionpart_body_Valid() const{
 }
 
 OAICommon_Reportsubsectionpart OAICommon_Reportsubsection::getObjReportsubsectionpartFooter() const {
-    return obj_reportsubsectionpart_footer;
+    return m_obj_reportsubsectionpart_footer;
 }
 void OAICommon_Reportsubsection::setObjReportsubsectionpartFooter(const OAICommon_Reportsubsectionpart &obj_reportsubsectionpart_footer) {
-    this->obj_reportsubsectionpart_footer = obj_reportsubsectionpart_footer;
-    this->m_obj_reportsubsectionpart_footer_isSet = true;
+    m_obj_reportsubsectionpart_footer = obj_reportsubsectionpart_footer;
+    m_obj_reportsubsectionpart_footer_isSet = true;
 }
 
 bool OAICommon_Reportsubsection::is_obj_reportsubsectionpart_footer_Set() const{
@@ -135,17 +135,17 @@ bool OAICommon_Reportsubsection::is_obj_reportsubsectionpart_footer_Valid() cons
 bool OAICommon_Reportsubsection::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (obj_reportsubsectionpart_header.isSet()) {
+        if (m_obj_reportsubsectionpart_header.isSet()) {
             isObjectUpdated = true;
             break;
         }
 
-        if (obj_reportsubsectionpart_body.isSet()) {
+        if (m_obj_reportsubsectionpart_body.isSet()) {
             isObjectUpdated = true;
             break;
         }
 
-        if (obj_reportsubsectionpart_footer.isSet()) {
+        if (m_obj_reportsubsectionpart_footer.isSet()) {
             isObjectUpdated = true;
             break;
         }

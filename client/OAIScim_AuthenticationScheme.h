@@ -60,15 +60,15 @@ public:
 private:
     void initializeModel();
 
-    QString description;
+    QString m_description;
     bool m_description_isSet;
     bool m_description_isValid;
 
-    QString name;
+    QString m_name;
     bool m_name_isSet;
     bool m_name_isValid;
 
-    QString type;
+    QString m_type;
     bool m_type_isSet;
     bool m_type_isValid;
 };

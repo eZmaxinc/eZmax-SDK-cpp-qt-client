@@ -103,47 +103,47 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_ezsignbulksend_id;
+    qint32 m_pki_ezsignbulksend_id;
     bool m_pki_ezsignbulksend_id_isSet;
     bool m_pki_ezsignbulksend_id_isValid;
 
-    qint32 fki_ezsignfoldertype_id;
+    qint32 m_fki_ezsignfoldertype_id;
     bool m_fki_ezsignfoldertype_id_isSet;
     bool m_fki_ezsignfoldertype_id_isValid;
 
-    qint32 fki_language_id;
+    qint32 m_fki_language_id;
     bool m_fki_language_id_isSet;
     bool m_fki_language_id_isValid;
 
-    QString s_language_name_x;
+    QString m_s_language_name_x;
     bool m_s_language_name_x_isSet;
     bool m_s_language_name_x_isValid;
 
-    OAIField_eEzsignfoldertypePrivacylevel e_ezsignfoldertype_privacylevel;
+    OAIField_eEzsignfoldertypePrivacylevel m_e_ezsignfoldertype_privacylevel;
     bool m_e_ezsignfoldertype_privacylevel_isSet;
     bool m_e_ezsignfoldertype_privacylevel_isValid;
 
-    QString s_ezsignfoldertype_name_x;
+    QString m_s_ezsignfoldertype_name_x;
     bool m_s_ezsignfoldertype_name_x_isSet;
     bool m_s_ezsignfoldertype_name_x_isValid;
 
-    QString s_ezsignbulksend_description;
+    QString m_s_ezsignbulksend_description;
     bool m_s_ezsignbulksend_description_isSet;
     bool m_s_ezsignbulksend_description_isValid;
 
-    QString t_ezsignbulksend_note;
+    QString m_t_ezsignbulksend_note;
     bool m_t_ezsignbulksend_note_isSet;
     bool m_t_ezsignbulksend_note_isValid;
 
-    bool b_ezsignbulksend_needvalidation;
+    bool m_b_ezsignbulksend_needvalidation;
     bool m_b_ezsignbulksend_needvalidation_isSet;
     bool m_b_ezsignbulksend_needvalidation_isValid;
 
-    bool b_ezsignbulksend_isactive;
+    bool m_b_ezsignbulksend_isactive;
     bool m_b_ezsignbulksend_isactive_isSet;
     bool m_b_ezsignbulksend_isactive_isValid;
 
-    OAICommon_Audit obj_audit;
+    OAICommon_Audit m_obj_audit;
     bool m_obj_audit_isSet;
     bool m_obj_audit_isValid;
 };

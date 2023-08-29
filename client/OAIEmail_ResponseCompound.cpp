@@ -53,13 +53,13 @@ void OAIEmail_ResponseCompound::fromJson(QString jsonString) {
 
 void OAIEmail_ResponseCompound::fromJsonObject(QJsonObject json) {
 
-    m_pki_email_id_isValid = ::OpenAPI::fromJsonValue(pki_email_id, json[QString("pkiEmailID")]);
+    m_pki_email_id_isValid = ::OpenAPI::fromJsonValue(m_pki_email_id, json[QString("pkiEmailID")]);
     m_pki_email_id_isSet = !json[QString("pkiEmailID")].isNull() && m_pki_email_id_isValid;
 
-    m_fki_emailtype_id_isValid = ::OpenAPI::fromJsonValue(fki_emailtype_id, json[QString("fkiEmailtypeID")]);
+    m_fki_emailtype_id_isValid = ::OpenAPI::fromJsonValue(m_fki_emailtype_id, json[QString("fkiEmailtypeID")]);
     m_fki_emailtype_id_isSet = !json[QString("fkiEmailtypeID")].isNull() && m_fki_emailtype_id_isValid;
 
-    m_s_email_address_isValid = ::OpenAPI::fromJsonValue(s_email_address, json[QString("sEmailAddress")]);
+    m_s_email_address_isValid = ::OpenAPI::fromJsonValue(m_s_email_address, json[QString("sEmailAddress")]);
     m_s_email_address_isSet = !json[QString("sEmailAddress")].isNull() && m_s_email_address_isValid;
 }
 
@@ -73,23 +73,23 @@ QString OAIEmail_ResponseCompound::asJson() const {
 QJsonObject OAIEmail_ResponseCompound::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_email_id_isSet) {
-        obj.insert(QString("pkiEmailID"), ::OpenAPI::toJsonValue(pki_email_id));
+        obj.insert(QString("pkiEmailID"), ::OpenAPI::toJsonValue(m_pki_email_id));
     }
     if (m_fki_emailtype_id_isSet) {
-        obj.insert(QString("fkiEmailtypeID"), ::OpenAPI::toJsonValue(fki_emailtype_id));
+        obj.insert(QString("fkiEmailtypeID"), ::OpenAPI::toJsonValue(m_fki_emailtype_id));
     }
     if (m_s_email_address_isSet) {
-        obj.insert(QString("sEmailAddress"), ::OpenAPI::toJsonValue(s_email_address));
+        obj.insert(QString("sEmailAddress"), ::OpenAPI::toJsonValue(m_s_email_address));
     }
     return obj;
 }
 
 qint32 OAIEmail_ResponseCompound::getPkiEmailId() const {
-    return pki_email_id;
+    return m_pki_email_id;
 }
 void OAIEmail_ResponseCompound::setPkiEmailId(const qint32 &pki_email_id) {
-    this->pki_email_id = pki_email_id;
-    this->m_pki_email_id_isSet = true;
+    m_pki_email_id = pki_email_id;
+    m_pki_email_id_isSet = true;
 }
 
 bool OAIEmail_ResponseCompound::is_pki_email_id_Set() const{
@@ -101,11 +101,11 @@ bool OAIEmail_ResponseCompound::is_pki_email_id_Valid() const{
 }
 
 qint32 OAIEmail_ResponseCompound::getFkiEmailtypeId() const {
-    return fki_emailtype_id;
+    return m_fki_emailtype_id;
 }
 void OAIEmail_ResponseCompound::setFkiEmailtypeId(const qint32 &fki_emailtype_id) {
-    this->fki_emailtype_id = fki_emailtype_id;
-    this->m_fki_emailtype_id_isSet = true;
+    m_fki_emailtype_id = fki_emailtype_id;
+    m_fki_emailtype_id_isSet = true;
 }
 
 bool OAIEmail_ResponseCompound::is_fki_emailtype_id_Set() const{
@@ -117,11 +117,11 @@ bool OAIEmail_ResponseCompound::is_fki_emailtype_id_Valid() const{
 }
 
 QString OAIEmail_ResponseCompound::getSEmailAddress() const {
-    return s_email_address;
+    return m_s_email_address;
 }
 void OAIEmail_ResponseCompound::setSEmailAddress(const QString &s_email_address) {
-    this->s_email_address = s_email_address;
-    this->m_s_email_address_isSet = true;
+    m_s_email_address = s_email_address;
+    m_s_email_address_isSet = true;
 }
 
 bool OAIEmail_ResponseCompound::is_s_email_address_Set() const{

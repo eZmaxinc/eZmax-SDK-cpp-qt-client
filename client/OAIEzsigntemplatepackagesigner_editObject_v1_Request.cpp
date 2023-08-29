@@ -47,7 +47,7 @@ void OAIEzsigntemplatepackagesigner_editObject_v1_Request::fromJson(QString json
 
 void OAIEzsigntemplatepackagesigner_editObject_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_obj_ezsigntemplatepackagesigner_isValid = ::OpenAPI::fromJsonValue(obj_ezsigntemplatepackagesigner, json[QString("objEzsigntemplatepackagesigner")]);
+    m_obj_ezsigntemplatepackagesigner_isValid = ::OpenAPI::fromJsonValue(m_obj_ezsigntemplatepackagesigner, json[QString("objEzsigntemplatepackagesigner")]);
     m_obj_ezsigntemplatepackagesigner_isSet = !json[QString("objEzsigntemplatepackagesigner")].isNull() && m_obj_ezsigntemplatepackagesigner_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIEzsigntemplatepackagesigner_editObject_v1_Request::asJson() const {
 
 QJsonObject OAIEzsigntemplatepackagesigner_editObject_v1_Request::asJsonObject() const {
     QJsonObject obj;
-    if (obj_ezsigntemplatepackagesigner.isSet()) {
-        obj.insert(QString("objEzsigntemplatepackagesigner"), ::OpenAPI::toJsonValue(obj_ezsigntemplatepackagesigner));
+    if (m_obj_ezsigntemplatepackagesigner.isSet()) {
+        obj.insert(QString("objEzsigntemplatepackagesigner"), ::OpenAPI::toJsonValue(m_obj_ezsigntemplatepackagesigner));
     }
     return obj;
 }
 
 OAIEzsigntemplatepackagesigner_RequestCompound OAIEzsigntemplatepackagesigner_editObject_v1_Request::getObjEzsigntemplatepackagesigner() const {
-    return obj_ezsigntemplatepackagesigner;
+    return m_obj_ezsigntemplatepackagesigner;
 }
 void OAIEzsigntemplatepackagesigner_editObject_v1_Request::setObjEzsigntemplatepackagesigner(const OAIEzsigntemplatepackagesigner_RequestCompound &obj_ezsigntemplatepackagesigner) {
-    this->obj_ezsigntemplatepackagesigner = obj_ezsigntemplatepackagesigner;
-    this->m_obj_ezsigntemplatepackagesigner_isSet = true;
+    m_obj_ezsigntemplatepackagesigner = obj_ezsigntemplatepackagesigner;
+    m_obj_ezsigntemplatepackagesigner_isSet = true;
 }
 
 bool OAIEzsigntemplatepackagesigner_editObject_v1_Request::is_obj_ezsigntemplatepackagesigner_Set() const{
@@ -85,7 +85,7 @@ bool OAIEzsigntemplatepackagesigner_editObject_v1_Request::is_obj_ezsigntemplate
 bool OAIEzsigntemplatepackagesigner_editObject_v1_Request::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (obj_ezsigntemplatepackagesigner.isSet()) {
+        if (m_obj_ezsigntemplatepackagesigner.isSet()) {
             isObjectUpdated = true;
             break;
         }

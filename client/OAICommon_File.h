@@ -66,19 +66,19 @@ public:
 private:
     void initializeModel();
 
-    QString s_file_name;
+    QString m_s_file_name;
     bool m_s_file_name_isSet;
     bool m_s_file_name_isValid;
 
-    QString s_file_url;
+    QString m_s_file_url;
     bool m_s_file_url_isSet;
     bool m_s_file_url_isValid;
 
-    QByteArray s_file_base64;
+    QByteArray m_s_file_base64;
     bool m_s_file_base64_isSet;
     bool m_s_file_base64_isValid;
 
-    QString e_file_source;
+    QString m_e_file_source;
     bool m_e_file_source_isSet;
     bool m_e_file_source_isValid;
 };

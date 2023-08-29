@@ -60,15 +60,15 @@ public:
 private:
     void initializeModel();
 
-    QString yyyymm_ezmaxinvoicing;
+    QString m_yyyymm_ezmaxinvoicing;
     bool m_yyyymm_ezmaxinvoicing_isSet;
     bool m_yyyymm_ezmaxinvoicing_isValid;
 
-    qint32 pki_ezmaxinvoicing_id;
+    qint32 m_pki_ezmaxinvoicing_id;
     bool m_pki_ezmaxinvoicing_id_isSet;
     bool m_pki_ezmaxinvoicing_id_isValid;
 
-    bool b_ezmaxinvoicing_isactive;
+    bool m_b_ezmaxinvoicing_isactive;
     bool m_b_ezmaxinvoicing_isactive_isSet;
     bool m_b_ezmaxinvoicing_isactive_isValid;
 };

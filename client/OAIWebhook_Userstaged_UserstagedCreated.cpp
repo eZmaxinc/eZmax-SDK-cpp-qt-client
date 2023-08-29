@@ -34,14 +34,14 @@ OAIWebhook_Userstaged_UserstagedCreated::~OAIWebhook_Userstaged_UserstagedCreate
 
 void OAIWebhook_Userstaged_UserstagedCreated::initializeModel() {
 
-    m_obj_userstaged_isSet = false;
-    m_obj_userstaged_isValid = false;
-
     m_obj_webhook_isSet = false;
     m_obj_webhook_isValid = false;
 
     m_a_obj_attempt_isSet = false;
     m_a_obj_attempt_isValid = false;
+
+    m_obj_userstaged_isSet = false;
+    m_obj_userstaged_isValid = false;
 }
 
 void OAIWebhook_Userstaged_UserstagedCreated::fromJson(QString jsonString) {
@@ -53,14 +53,14 @@ void OAIWebhook_Userstaged_UserstagedCreated::fromJson(QString jsonString) {
 
 void OAIWebhook_Userstaged_UserstagedCreated::fromJsonObject(QJsonObject json) {
 
-    m_obj_userstaged_isValid = ::OpenAPI::fromJsonValue(obj_userstaged, json[QString("objUserstaged")]);
-    m_obj_userstaged_isSet = !json[QString("objUserstaged")].isNull() && m_obj_userstaged_isValid;
-
-    m_obj_webhook_isValid = ::OpenAPI::fromJsonValue(obj_webhook, json[QString("objWebhook")]);
+    m_obj_webhook_isValid = ::OpenAPI::fromJsonValue(m_obj_webhook, json[QString("objWebhook")]);
     m_obj_webhook_isSet = !json[QString("objWebhook")].isNull() && m_obj_webhook_isValid;
 
-    m_a_obj_attempt_isValid = ::OpenAPI::fromJsonValue(a_obj_attempt, json[QString("a_objAttempt")]);
+    m_a_obj_attempt_isValid = ::OpenAPI::fromJsonValue(m_a_obj_attempt, json[QString("a_objAttempt")]);
     m_a_obj_attempt_isSet = !json[QString("a_objAttempt")].isNull() && m_a_obj_attempt_isValid;
+
+    m_obj_userstaged_isValid = ::OpenAPI::fromJsonValue(m_obj_userstaged, json[QString("objUserstaged")]);
+    m_obj_userstaged_isSet = !json[QString("objUserstaged")].isNull() && m_obj_userstaged_isValid;
 }
 
 QString OAIWebhook_Userstaged_UserstagedCreated::asJson() const {
@@ -72,40 +72,24 @@ QString OAIWebhook_Userstaged_UserstagedCreated::asJson() const {
 
 QJsonObject OAIWebhook_Userstaged_UserstagedCreated::asJsonObject() const {
     QJsonObject obj;
-    if (obj_userstaged.isSet()) {
-        obj.insert(QString("objUserstaged"), ::OpenAPI::toJsonValue(obj_userstaged));
+    if (m_obj_webhook.isSet()) {
+        obj.insert(QString("objWebhook"), ::OpenAPI::toJsonValue(m_obj_webhook));
     }
-    if (obj_webhook.isSet()) {
-        obj.insert(QString("objWebhook"), ::OpenAPI::toJsonValue(obj_webhook));
+    if (m_a_obj_attempt.size() > 0) {
+        obj.insert(QString("a_objAttempt"), ::OpenAPI::toJsonValue(m_a_obj_attempt));
     }
-    if (a_obj_attempt.size() > 0) {
-        obj.insert(QString("a_objAttempt"), ::OpenAPI::toJsonValue(a_obj_attempt));
+    if (m_obj_userstaged.isSet()) {
+        obj.insert(QString("objUserstaged"), ::OpenAPI::toJsonValue(m_obj_userstaged));
     }
     return obj;
 }
 
-OAIUserstaged_ResponseCompound OAIWebhook_Userstaged_UserstagedCreated::getObjUserstaged() const {
-    return obj_userstaged;
-}
-void OAIWebhook_Userstaged_UserstagedCreated::setObjUserstaged(const OAIUserstaged_ResponseCompound &obj_userstaged) {
-    this->obj_userstaged = obj_userstaged;
-    this->m_obj_userstaged_isSet = true;
-}
-
-bool OAIWebhook_Userstaged_UserstagedCreated::is_obj_userstaged_Set() const{
-    return m_obj_userstaged_isSet;
-}
-
-bool OAIWebhook_Userstaged_UserstagedCreated::is_obj_userstaged_Valid() const{
-    return m_obj_userstaged_isValid;
-}
-
 OAICustom_Webhook_Response OAIWebhook_Userstaged_UserstagedCreated::getObjWebhook() const {
-    return obj_webhook;
+    return m_obj_webhook;
 }
 void OAIWebhook_Userstaged_UserstagedCreated::setObjWebhook(const OAICustom_Webhook_Response &obj_webhook) {
-    this->obj_webhook = obj_webhook;
-    this->m_obj_webhook_isSet = true;
+    m_obj_webhook = obj_webhook;
+    m_obj_webhook_isSet = true;
 }
 
 bool OAIWebhook_Userstaged_UserstagedCreated::is_obj_webhook_Set() const{
@@ -117,11 +101,11 @@ bool OAIWebhook_Userstaged_UserstagedCreated::is_obj_webhook_Valid() const{
 }
 
 QList<OAIAttempt_ResponseCompound> OAIWebhook_Userstaged_UserstagedCreated::getAObjAttempt() const {
-    return a_obj_attempt;
+    return m_a_obj_attempt;
 }
 void OAIWebhook_Userstaged_UserstagedCreated::setAObjAttempt(const QList<OAIAttempt_ResponseCompound> &a_obj_attempt) {
-    this->a_obj_attempt = a_obj_attempt;
-    this->m_a_obj_attempt_isSet = true;
+    m_a_obj_attempt = a_obj_attempt;
+    m_a_obj_attempt_isSet = true;
 }
 
 bool OAIWebhook_Userstaged_UserstagedCreated::is_a_obj_attempt_Set() const{
@@ -132,20 +116,36 @@ bool OAIWebhook_Userstaged_UserstagedCreated::is_a_obj_attempt_Valid() const{
     return m_a_obj_attempt_isValid;
 }
 
+OAIUserstaged_ResponseCompound OAIWebhook_Userstaged_UserstagedCreated::getObjUserstaged() const {
+    return m_obj_userstaged;
+}
+void OAIWebhook_Userstaged_UserstagedCreated::setObjUserstaged(const OAIUserstaged_ResponseCompound &obj_userstaged) {
+    m_obj_userstaged = obj_userstaged;
+    m_obj_userstaged_isSet = true;
+}
+
+bool OAIWebhook_Userstaged_UserstagedCreated::is_obj_userstaged_Set() const{
+    return m_obj_userstaged_isSet;
+}
+
+bool OAIWebhook_Userstaged_UserstagedCreated::is_obj_userstaged_Valid() const{
+    return m_obj_userstaged_isValid;
+}
+
 bool OAIWebhook_Userstaged_UserstagedCreated::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (obj_userstaged.isSet()) {
+        if (m_obj_webhook.isSet()) {
             isObjectUpdated = true;
             break;
         }
 
-        if (obj_webhook.isSet()) {
+        if (m_a_obj_attempt.size() > 0) {
             isObjectUpdated = true;
             break;
         }
 
-        if (a_obj_attempt.size() > 0) {
+        if (m_obj_userstaged.isSet()) {
             isObjectUpdated = true;
             break;
         }
@@ -155,7 +155,7 @@ bool OAIWebhook_Userstaged_UserstagedCreated::isSet() const {
 
 bool OAIWebhook_Userstaged_UserstagedCreated::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_obj_userstaged_isValid && m_obj_webhook_isValid && m_a_obj_attempt_isValid && true;
+    return m_obj_webhook_isValid && m_a_obj_attempt_isValid && m_obj_userstaged_isValid && true;
 }
 
 } // namespace OpenAPI

@@ -47,7 +47,7 @@ void OAIEzsigndocument_getFormData_v1_Response_mPayload::fromJson(QString jsonSt
 
 void OAIEzsigndocument_getFormData_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_obj_form_data_document_isValid = ::OpenAPI::fromJsonValue(obj_form_data_document, json[QString("objFormDataDocument")]);
+    m_obj_form_data_document_isValid = ::OpenAPI::fromJsonValue(m_obj_form_data_document, json[QString("objFormDataDocument")]);
     m_obj_form_data_document_isSet = !json[QString("objFormDataDocument")].isNull() && m_obj_form_data_document_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIEzsigndocument_getFormData_v1_Response_mPayload::asJson() const {
 
 QJsonObject OAIEzsigndocument_getFormData_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (obj_form_data_document.isSet()) {
-        obj.insert(QString("objFormDataDocument"), ::OpenAPI::toJsonValue(obj_form_data_document));
+    if (m_obj_form_data_document.isSet()) {
+        obj.insert(QString("objFormDataDocument"), ::OpenAPI::toJsonValue(m_obj_form_data_document));
     }
     return obj;
 }
 
 OAICustom_FormDataDocument_Response OAIEzsigndocument_getFormData_v1_Response_mPayload::getObjFormDataDocument() const {
-    return obj_form_data_document;
+    return m_obj_form_data_document;
 }
 void OAIEzsigndocument_getFormData_v1_Response_mPayload::setObjFormDataDocument(const OAICustom_FormDataDocument_Response &obj_form_data_document) {
-    this->obj_form_data_document = obj_form_data_document;
-    this->m_obj_form_data_document_isSet = true;
+    m_obj_form_data_document = obj_form_data_document;
+    m_obj_form_data_document_isSet = true;
 }
 
 bool OAIEzsigndocument_getFormData_v1_Response_mPayload::is_obj_form_data_document_Set() const{
@@ -85,7 +85,7 @@ bool OAIEzsigndocument_getFormData_v1_Response_mPayload::is_obj_form_data_docume
 bool OAIEzsigndocument_getFormData_v1_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (obj_form_data_document.isSet()) {
+        if (m_obj_form_data_document.isSet()) {
             isObjectUpdated = true;
             break;
         }

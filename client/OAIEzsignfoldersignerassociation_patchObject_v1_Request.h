@@ -51,7 +51,7 @@ public:
 private:
     void initializeModel();
 
-    OAIEzsignfoldersignerassociation_RequestPatch obj_ezsignfoldersignerassociation;
+    OAIEzsignfoldersignerassociation_RequestPatch m_obj_ezsignfoldersignerassociation;
     bool m_obj_ezsignfoldersignerassociation_isSet;
     bool m_obj_ezsignfoldersignerassociation_isValid;
 };

@@ -47,7 +47,7 @@ void OAIEzsigntemplatedocument_getEzsigntemplatesignatures_v1_Response_mPayload:
 
 void OAIEzsigntemplatedocument_getEzsigntemplatesignatures_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_ezsigntemplatesignature_isValid = ::OpenAPI::fromJsonValue(a_obj_ezsigntemplatesignature, json[QString("a_objEzsigntemplatesignature")]);
+    m_a_obj_ezsigntemplatesignature_isValid = ::OpenAPI::fromJsonValue(m_a_obj_ezsigntemplatesignature, json[QString("a_objEzsigntemplatesignature")]);
     m_a_obj_ezsigntemplatesignature_isSet = !json[QString("a_objEzsigntemplatesignature")].isNull() && m_a_obj_ezsigntemplatesignature_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIEzsigntemplatedocument_getEzsigntemplatesignatures_v1_Response_mPaylo
 
 QJsonObject OAIEzsigntemplatedocument_getEzsigntemplatesignatures_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_ezsigntemplatesignature.size() > 0) {
-        obj.insert(QString("a_objEzsigntemplatesignature"), ::OpenAPI::toJsonValue(a_obj_ezsigntemplatesignature));
+    if (m_a_obj_ezsigntemplatesignature.size() > 0) {
+        obj.insert(QString("a_objEzsigntemplatesignature"), ::OpenAPI::toJsonValue(m_a_obj_ezsigntemplatesignature));
     }
     return obj;
 }
 
 QList<OAIEzsigntemplatesignature_ResponseCompound> OAIEzsigntemplatedocument_getEzsigntemplatesignatures_v1_Response_mPayload::getAObjEzsigntemplatesignature() const {
-    return a_obj_ezsigntemplatesignature;
+    return m_a_obj_ezsigntemplatesignature;
 }
 void OAIEzsigntemplatedocument_getEzsigntemplatesignatures_v1_Response_mPayload::setAObjEzsigntemplatesignature(const QList<OAIEzsigntemplatesignature_ResponseCompound> &a_obj_ezsigntemplatesignature) {
-    this->a_obj_ezsigntemplatesignature = a_obj_ezsigntemplatesignature;
-    this->m_a_obj_ezsigntemplatesignature_isSet = true;
+    m_a_obj_ezsigntemplatesignature = a_obj_ezsigntemplatesignature;
+    m_a_obj_ezsigntemplatesignature_isSet = true;
 }
 
 bool OAIEzsigntemplatedocument_getEzsigntemplatesignatures_v1_Response_mPayload::is_a_obj_ezsigntemplatesignature_Set() const{
@@ -85,7 +85,7 @@ bool OAIEzsigntemplatedocument_getEzsigntemplatesignatures_v1_Response_mPayload:
 bool OAIEzsigntemplatedocument_getEzsigntemplatesignatures_v1_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_ezsigntemplatesignature.size() > 0) {
+        if (m_a_obj_ezsigntemplatesignature.size() > 0) {
             isObjectUpdated = true;
             break;
         }

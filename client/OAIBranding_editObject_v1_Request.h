@@ -51,7 +51,7 @@ public:
 private:
     void initializeModel();
 
-    OAIBranding_RequestCompound obj_branding;
+    OAIBranding_RequestCompound m_obj_branding;
     bool m_obj_branding_isSet;
     bool m_obj_branding_isValid;
 };

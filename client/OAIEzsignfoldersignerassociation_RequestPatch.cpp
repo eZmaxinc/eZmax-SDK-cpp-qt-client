@@ -47,7 +47,7 @@ void OAIEzsignfoldersignerassociation_RequestPatch::fromJson(QString jsonString)
 
 void OAIEzsignfoldersignerassociation_RequestPatch::fromJsonObject(QJsonObject json) {
 
-    m_t_ezsignfoldersignerassociation_message_isValid = ::OpenAPI::fromJsonValue(t_ezsignfoldersignerassociation_message, json[QString("tEzsignfoldersignerassociationMessage")]);
+    m_t_ezsignfoldersignerassociation_message_isValid = ::OpenAPI::fromJsonValue(m_t_ezsignfoldersignerassociation_message, json[QString("tEzsignfoldersignerassociationMessage")]);
     m_t_ezsignfoldersignerassociation_message_isSet = !json[QString("tEzsignfoldersignerassociationMessage")].isNull() && m_t_ezsignfoldersignerassociation_message_isValid;
 }
 
@@ -61,17 +61,17 @@ QString OAIEzsignfoldersignerassociation_RequestPatch::asJson() const {
 QJsonObject OAIEzsignfoldersignerassociation_RequestPatch::asJsonObject() const {
     QJsonObject obj;
     if (m_t_ezsignfoldersignerassociation_message_isSet) {
-        obj.insert(QString("tEzsignfoldersignerassociationMessage"), ::OpenAPI::toJsonValue(t_ezsignfoldersignerassociation_message));
+        obj.insert(QString("tEzsignfoldersignerassociationMessage"), ::OpenAPI::toJsonValue(m_t_ezsignfoldersignerassociation_message));
     }
     return obj;
 }
 
 QString OAIEzsignfoldersignerassociation_RequestPatch::getTEzsignfoldersignerassociationMessage() const {
-    return t_ezsignfoldersignerassociation_message;
+    return m_t_ezsignfoldersignerassociation_message;
 }
 void OAIEzsignfoldersignerassociation_RequestPatch::setTEzsignfoldersignerassociationMessage(const QString &t_ezsignfoldersignerassociation_message) {
-    this->t_ezsignfoldersignerassociation_message = t_ezsignfoldersignerassociation_message;
-    this->m_t_ezsignfoldersignerassociation_message_isSet = true;
+    m_t_ezsignfoldersignerassociation_message = t_ezsignfoldersignerassociation_message;
+    m_t_ezsignfoldersignerassociation_message_isSet = true;
 }
 
 bool OAIEzsignfoldersignerassociation_RequestPatch::is_t_ezsignfoldersignerassociation_message_Set() const{

@@ -53,13 +53,13 @@ void OAIEzsignfolder_send_v3_Request::fromJson(QString jsonString) {
 
 void OAIEzsignfolder_send_v3_Request::fromJsonObject(QJsonObject json) {
 
-    m_t_ezsignfolder_message_isValid = ::OpenAPI::fromJsonValue(t_ezsignfolder_message, json[QString("tEzsignfolderMessage")]);
+    m_t_ezsignfolder_message_isValid = ::OpenAPI::fromJsonValue(m_t_ezsignfolder_message, json[QString("tEzsignfolderMessage")]);
     m_t_ezsignfolder_message_isSet = !json[QString("tEzsignfolderMessage")].isNull() && m_t_ezsignfolder_message_isValid;
 
-    m_dt_ezsignfolder_delayedsenddate_isValid = ::OpenAPI::fromJsonValue(dt_ezsignfolder_delayedsenddate, json[QString("dtEzsignfolderDelayedsenddate")]);
+    m_dt_ezsignfolder_delayedsenddate_isValid = ::OpenAPI::fromJsonValue(m_dt_ezsignfolder_delayedsenddate, json[QString("dtEzsignfolderDelayedsenddate")]);
     m_dt_ezsignfolder_delayedsenddate_isSet = !json[QString("dtEzsignfolderDelayedsenddate")].isNull() && m_dt_ezsignfolder_delayedsenddate_isValid;
 
-    m_a_fki_ezsignfoldersignerassociation_id_isValid = ::OpenAPI::fromJsonValue(a_fki_ezsignfoldersignerassociation_id, json[QString("a_fkiEzsignfoldersignerassociationID")]);
+    m_a_fki_ezsignfoldersignerassociation_id_isValid = ::OpenAPI::fromJsonValue(m_a_fki_ezsignfoldersignerassociation_id, json[QString("a_fkiEzsignfoldersignerassociationID")]);
     m_a_fki_ezsignfoldersignerassociation_id_isSet = !json[QString("a_fkiEzsignfoldersignerassociationID")].isNull() && m_a_fki_ezsignfoldersignerassociation_id_isValid;
 }
 
@@ -73,23 +73,23 @@ QString OAIEzsignfolder_send_v3_Request::asJson() const {
 QJsonObject OAIEzsignfolder_send_v3_Request::asJsonObject() const {
     QJsonObject obj;
     if (m_t_ezsignfolder_message_isSet) {
-        obj.insert(QString("tEzsignfolderMessage"), ::OpenAPI::toJsonValue(t_ezsignfolder_message));
+        obj.insert(QString("tEzsignfolderMessage"), ::OpenAPI::toJsonValue(m_t_ezsignfolder_message));
     }
     if (m_dt_ezsignfolder_delayedsenddate_isSet) {
-        obj.insert(QString("dtEzsignfolderDelayedsenddate"), ::OpenAPI::toJsonValue(dt_ezsignfolder_delayedsenddate));
+        obj.insert(QString("dtEzsignfolderDelayedsenddate"), ::OpenAPI::toJsonValue(m_dt_ezsignfolder_delayedsenddate));
     }
-    if (a_fki_ezsignfoldersignerassociation_id.size() > 0) {
-        obj.insert(QString("a_fkiEzsignfoldersignerassociationID"), ::OpenAPI::toJsonValue(a_fki_ezsignfoldersignerassociation_id));
+    if (m_a_fki_ezsignfoldersignerassociation_id.size() > 0) {
+        obj.insert(QString("a_fkiEzsignfoldersignerassociationID"), ::OpenAPI::toJsonValue(m_a_fki_ezsignfoldersignerassociation_id));
     }
     return obj;
 }
 
 QString OAIEzsignfolder_send_v3_Request::getTEzsignfolderMessage() const {
-    return t_ezsignfolder_message;
+    return m_t_ezsignfolder_message;
 }
 void OAIEzsignfolder_send_v3_Request::setTEzsignfolderMessage(const QString &t_ezsignfolder_message) {
-    this->t_ezsignfolder_message = t_ezsignfolder_message;
-    this->m_t_ezsignfolder_message_isSet = true;
+    m_t_ezsignfolder_message = t_ezsignfolder_message;
+    m_t_ezsignfolder_message_isSet = true;
 }
 
 bool OAIEzsignfolder_send_v3_Request::is_t_ezsignfolder_message_Set() const{
@@ -101,11 +101,11 @@ bool OAIEzsignfolder_send_v3_Request::is_t_ezsignfolder_message_Valid() const{
 }
 
 QString OAIEzsignfolder_send_v3_Request::getDtEzsignfolderDelayedsenddate() const {
-    return dt_ezsignfolder_delayedsenddate;
+    return m_dt_ezsignfolder_delayedsenddate;
 }
 void OAIEzsignfolder_send_v3_Request::setDtEzsignfolderDelayedsenddate(const QString &dt_ezsignfolder_delayedsenddate) {
-    this->dt_ezsignfolder_delayedsenddate = dt_ezsignfolder_delayedsenddate;
-    this->m_dt_ezsignfolder_delayedsenddate_isSet = true;
+    m_dt_ezsignfolder_delayedsenddate = dt_ezsignfolder_delayedsenddate;
+    m_dt_ezsignfolder_delayedsenddate_isSet = true;
 }
 
 bool OAIEzsignfolder_send_v3_Request::is_dt_ezsignfolder_delayedsenddate_Set() const{
@@ -117,11 +117,11 @@ bool OAIEzsignfolder_send_v3_Request::is_dt_ezsignfolder_delayedsenddate_Valid()
 }
 
 QList<qint32> OAIEzsignfolder_send_v3_Request::getAFkiEzsignfoldersignerassociationId() const {
-    return a_fki_ezsignfoldersignerassociation_id;
+    return m_a_fki_ezsignfoldersignerassociation_id;
 }
 void OAIEzsignfolder_send_v3_Request::setAFkiEzsignfoldersignerassociationId(const QList<qint32> &a_fki_ezsignfoldersignerassociation_id) {
-    this->a_fki_ezsignfoldersignerassociation_id = a_fki_ezsignfoldersignerassociation_id;
-    this->m_a_fki_ezsignfoldersignerassociation_id_isSet = true;
+    m_a_fki_ezsignfoldersignerassociation_id = a_fki_ezsignfoldersignerassociation_id;
+    m_a_fki_ezsignfoldersignerassociation_id_isSet = true;
 }
 
 bool OAIEzsignfolder_send_v3_Request::is_a_fki_ezsignfoldersignerassociation_id_Set() const{
@@ -145,7 +145,7 @@ bool OAIEzsignfolder_send_v3_Request::isSet() const {
             break;
         }
 
-        if (a_fki_ezsignfoldersignerassociation_id.size() > 0) {
+        if (m_a_fki_ezsignfoldersignerassociation_id.size() > 0) {
             isObjectUpdated = true;
             break;
         }

@@ -134,6 +134,11 @@ public:
     bool is_i_ezsignsignature_validationstep_Set() const;
     bool is_i_ezsignsignature_validationstep_Valid() const;
 
+    qint32 getIEzsignsignatureMaxlength() const;
+    void setIEzsignsignatureMaxlength(const qint32 &i_ezsignsignature_maxlength);
+    bool is_i_ezsignsignature_maxlength_Set() const;
+    bool is_i_ezsignsignature_maxlength_Valid() const;
+
     OAIEnum_Textvalidation getEEzsignsignatureTextvalidation() const;
     void setEEzsignsignatureTextvalidation(const OAIEnum_Textvalidation &e_ezsignsignature_textvalidation);
     bool is_e_ezsignsignature_textvalidation_Set() const;
@@ -150,83 +155,87 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_ezsignsignature_id;
+    qint32 m_pki_ezsignsignature_id;
     bool m_pki_ezsignsignature_id_isSet;
     bool m_pki_ezsignsignature_id_isValid;
 
-    qint32 fki_ezsignfoldersignerassociation_id;
+    qint32 m_fki_ezsignfoldersignerassociation_id;
     bool m_fki_ezsignfoldersignerassociation_id_isSet;
     bool m_fki_ezsignfoldersignerassociation_id_isValid;
 
-    qint32 i_ezsignpage_pagenumber;
+    qint32 m_i_ezsignpage_pagenumber;
     bool m_i_ezsignpage_pagenumber_isSet;
     bool m_i_ezsignpage_pagenumber_isValid;
 
-    qint32 i_ezsignsignature_x;
+    qint32 m_i_ezsignsignature_x;
     bool m_i_ezsignsignature_x_isSet;
     bool m_i_ezsignsignature_x_isValid;
 
-    qint32 i_ezsignsignature_y;
+    qint32 m_i_ezsignsignature_y;
     bool m_i_ezsignsignature_y_isSet;
     bool m_i_ezsignsignature_y_isValid;
 
-    qint32 i_ezsignsignature_width;
+    qint32 m_i_ezsignsignature_width;
     bool m_i_ezsignsignature_width_isSet;
     bool m_i_ezsignsignature_width_isValid;
 
-    qint32 i_ezsignsignature_height;
+    qint32 m_i_ezsignsignature_height;
     bool m_i_ezsignsignature_height_isSet;
     bool m_i_ezsignsignature_height_isValid;
 
-    qint32 i_ezsignsignature_step;
+    qint32 m_i_ezsignsignature_step;
     bool m_i_ezsignsignature_step_isSet;
     bool m_i_ezsignsignature_step_isValid;
 
-    OAIField_eEzsignsignatureType e_ezsignsignature_type;
+    OAIField_eEzsignsignatureType m_e_ezsignsignature_type;
     bool m_e_ezsignsignature_type_isSet;
     bool m_e_ezsignsignature_type_isValid;
 
-    qint32 fki_ezsigndocument_id;
+    qint32 m_fki_ezsigndocument_id;
     bool m_fki_ezsigndocument_id_isSet;
     bool m_fki_ezsigndocument_id_isValid;
 
-    QString t_ezsignsignature_tooltip;
+    QString m_t_ezsignsignature_tooltip;
     bool m_t_ezsignsignature_tooltip_isSet;
     bool m_t_ezsignsignature_tooltip_isValid;
 
-    OAIField_eEzsignsignatureTooltipposition e_ezsignsignature_tooltipposition;
+    OAIField_eEzsignsignatureTooltipposition m_e_ezsignsignature_tooltipposition;
     bool m_e_ezsignsignature_tooltipposition_isSet;
     bool m_e_ezsignsignature_tooltipposition_isValid;
 
-    OAIField_eEzsignsignatureFont e_ezsignsignature_font;
+    OAIField_eEzsignsignatureFont m_e_ezsignsignature_font;
     bool m_e_ezsignsignature_font_isSet;
     bool m_e_ezsignsignature_font_isValid;
 
-    qint32 fki_ezsignfoldersignerassociation_id_validation;
+    qint32 m_fki_ezsignfoldersignerassociation_id_validation;
     bool m_fki_ezsignfoldersignerassociation_id_validation_isSet;
     bool m_fki_ezsignfoldersignerassociation_id_validation_isValid;
 
-    bool b_ezsignsignature_required;
+    bool m_b_ezsignsignature_required;
     bool m_b_ezsignsignature_required_isSet;
     bool m_b_ezsignsignature_required_isValid;
 
-    OAIField_eEzsignsignatureAttachmentnamesource e_ezsignsignature_attachmentnamesource;
+    OAIField_eEzsignsignatureAttachmentnamesource m_e_ezsignsignature_attachmentnamesource;
     bool m_e_ezsignsignature_attachmentnamesource_isSet;
     bool m_e_ezsignsignature_attachmentnamesource_isValid;
 
-    QString s_ezsignsignature_attachmentdescription;
+    QString m_s_ezsignsignature_attachmentdescription;
     bool m_s_ezsignsignature_attachmentdescription_isSet;
     bool m_s_ezsignsignature_attachmentdescription_isValid;
 
-    qint32 i_ezsignsignature_validationstep;
+    qint32 m_i_ezsignsignature_validationstep;
     bool m_i_ezsignsignature_validationstep_isSet;
     bool m_i_ezsignsignature_validationstep_isValid;
 
-    OAIEnum_Textvalidation e_ezsignsignature_textvalidation;
+    qint32 m_i_ezsignsignature_maxlength;
+    bool m_i_ezsignsignature_maxlength_isSet;
+    bool m_i_ezsignsignature_maxlength_isValid;
+
+    OAIEnum_Textvalidation m_e_ezsignsignature_textvalidation;
     bool m_e_ezsignsignature_textvalidation_isSet;
     bool m_e_ezsignsignature_textvalidation_isValid;
 
-    QString s_ezsignsignature_regexp;
+    QString m_s_ezsignsignature_regexp;
     bool m_s_ezsignsignature_regexp_isSet;
     bool m_s_ezsignsignature_regexp_isValid;
 };

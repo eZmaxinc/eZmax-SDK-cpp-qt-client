@@ -50,10 +50,10 @@ void OAIMultilingual_UsergroupName::fromJson(QString jsonString) {
 
 void OAIMultilingual_UsergroupName::fromJsonObject(QJsonObject json) {
 
-    m_s_usergroup_name1_isValid = ::OpenAPI::fromJsonValue(s_usergroup_name1, json[QString("sUsergroupName1")]);
+    m_s_usergroup_name1_isValid = ::OpenAPI::fromJsonValue(m_s_usergroup_name1, json[QString("sUsergroupName1")]);
     m_s_usergroup_name1_isSet = !json[QString("sUsergroupName1")].isNull() && m_s_usergroup_name1_isValid;
 
-    m_s_usergroup_name2_isValid = ::OpenAPI::fromJsonValue(s_usergroup_name2, json[QString("sUsergroupName2")]);
+    m_s_usergroup_name2_isValid = ::OpenAPI::fromJsonValue(m_s_usergroup_name2, json[QString("sUsergroupName2")]);
     m_s_usergroup_name2_isSet = !json[QString("sUsergroupName2")].isNull() && m_s_usergroup_name2_isValid;
 }
 
@@ -67,20 +67,20 @@ QString OAIMultilingual_UsergroupName::asJson() const {
 QJsonObject OAIMultilingual_UsergroupName::asJsonObject() const {
     QJsonObject obj;
     if (m_s_usergroup_name1_isSet) {
-        obj.insert(QString("sUsergroupName1"), ::OpenAPI::toJsonValue(s_usergroup_name1));
+        obj.insert(QString("sUsergroupName1"), ::OpenAPI::toJsonValue(m_s_usergroup_name1));
     }
     if (m_s_usergroup_name2_isSet) {
-        obj.insert(QString("sUsergroupName2"), ::OpenAPI::toJsonValue(s_usergroup_name2));
+        obj.insert(QString("sUsergroupName2"), ::OpenAPI::toJsonValue(m_s_usergroup_name2));
     }
     return obj;
 }
 
 QString OAIMultilingual_UsergroupName::getSUsergroupName1() const {
-    return s_usergroup_name1;
+    return m_s_usergroup_name1;
 }
 void OAIMultilingual_UsergroupName::setSUsergroupName1(const QString &s_usergroup_name1) {
-    this->s_usergroup_name1 = s_usergroup_name1;
-    this->m_s_usergroup_name1_isSet = true;
+    m_s_usergroup_name1 = s_usergroup_name1;
+    m_s_usergroup_name1_isSet = true;
 }
 
 bool OAIMultilingual_UsergroupName::is_s_usergroup_name1_Set() const{
@@ -92,11 +92,11 @@ bool OAIMultilingual_UsergroupName::is_s_usergroup_name1_Valid() const{
 }
 
 QString OAIMultilingual_UsergroupName::getSUsergroupName2() const {
-    return s_usergroup_name2;
+    return m_s_usergroup_name2;
 }
 void OAIMultilingual_UsergroupName::setSUsergroupName2(const QString &s_usergroup_name2) {
-    this->s_usergroup_name2 = s_usergroup_name2;
-    this->m_s_usergroup_name2_isSet = true;
+    m_s_usergroup_name2 = s_usergroup_name2;
+    m_s_usergroup_name2_isSet = true;
 }
 
 bool OAIMultilingual_UsergroupName::is_s_usergroup_name2_Set() const{

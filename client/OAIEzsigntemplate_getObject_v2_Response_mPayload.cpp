@@ -47,7 +47,7 @@ void OAIEzsigntemplate_getObject_v2_Response_mPayload::fromJson(QString jsonStri
 
 void OAIEzsigntemplate_getObject_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_obj_ezsigntemplate_isValid = ::OpenAPI::fromJsonValue(obj_ezsigntemplate, json[QString("objEzsigntemplate")]);
+    m_obj_ezsigntemplate_isValid = ::OpenAPI::fromJsonValue(m_obj_ezsigntemplate, json[QString("objEzsigntemplate")]);
     m_obj_ezsigntemplate_isSet = !json[QString("objEzsigntemplate")].isNull() && m_obj_ezsigntemplate_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIEzsigntemplate_getObject_v2_Response_mPayload::asJson() const {
 
 QJsonObject OAIEzsigntemplate_getObject_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (obj_ezsigntemplate.isSet()) {
-        obj.insert(QString("objEzsigntemplate"), ::OpenAPI::toJsonValue(obj_ezsigntemplate));
+    if (m_obj_ezsigntemplate.isSet()) {
+        obj.insert(QString("objEzsigntemplate"), ::OpenAPI::toJsonValue(m_obj_ezsigntemplate));
     }
     return obj;
 }
 
 OAIEzsigntemplate_ResponseCompound OAIEzsigntemplate_getObject_v2_Response_mPayload::getObjEzsigntemplate() const {
-    return obj_ezsigntemplate;
+    return m_obj_ezsigntemplate;
 }
 void OAIEzsigntemplate_getObject_v2_Response_mPayload::setObjEzsigntemplate(const OAIEzsigntemplate_ResponseCompound &obj_ezsigntemplate) {
-    this->obj_ezsigntemplate = obj_ezsigntemplate;
-    this->m_obj_ezsigntemplate_isSet = true;
+    m_obj_ezsigntemplate = obj_ezsigntemplate;
+    m_obj_ezsigntemplate_isSet = true;
 }
 
 bool OAIEzsigntemplate_getObject_v2_Response_mPayload::is_obj_ezsigntemplate_Set() const{
@@ -85,7 +85,7 @@ bool OAIEzsigntemplate_getObject_v2_Response_mPayload::is_obj_ezsigntemplate_Val
 bool OAIEzsigntemplate_getObject_v2_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (obj_ezsigntemplate.isSet()) {
+        if (m_obj_ezsigntemplate.isSet()) {
             isObjectUpdated = true;
             break;
         }

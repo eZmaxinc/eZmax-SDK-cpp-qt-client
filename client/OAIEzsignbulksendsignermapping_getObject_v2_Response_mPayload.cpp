@@ -47,7 +47,7 @@ void OAIEzsignbulksendsignermapping_getObject_v2_Response_mPayload::fromJson(QSt
 
 void OAIEzsignbulksendsignermapping_getObject_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_obj_ezsignbulksendsignermapping_isValid = ::OpenAPI::fromJsonValue(obj_ezsignbulksendsignermapping, json[QString("objEzsignbulksendsignermapping")]);
+    m_obj_ezsignbulksendsignermapping_isValid = ::OpenAPI::fromJsonValue(m_obj_ezsignbulksendsignermapping, json[QString("objEzsignbulksendsignermapping")]);
     m_obj_ezsignbulksendsignermapping_isSet = !json[QString("objEzsignbulksendsignermapping")].isNull() && m_obj_ezsignbulksendsignermapping_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIEzsignbulksendsignermapping_getObject_v2_Response_mPayload::asJson() 
 
 QJsonObject OAIEzsignbulksendsignermapping_getObject_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (obj_ezsignbulksendsignermapping.isSet()) {
-        obj.insert(QString("objEzsignbulksendsignermapping"), ::OpenAPI::toJsonValue(obj_ezsignbulksendsignermapping));
+    if (m_obj_ezsignbulksendsignermapping.isSet()) {
+        obj.insert(QString("objEzsignbulksendsignermapping"), ::OpenAPI::toJsonValue(m_obj_ezsignbulksendsignermapping));
     }
     return obj;
 }
 
 OAIEzsignbulksendsignermapping_ResponseCompound OAIEzsignbulksendsignermapping_getObject_v2_Response_mPayload::getObjEzsignbulksendsignermapping() const {
-    return obj_ezsignbulksendsignermapping;
+    return m_obj_ezsignbulksendsignermapping;
 }
 void OAIEzsignbulksendsignermapping_getObject_v2_Response_mPayload::setObjEzsignbulksendsignermapping(const OAIEzsignbulksendsignermapping_ResponseCompound &obj_ezsignbulksendsignermapping) {
-    this->obj_ezsignbulksendsignermapping = obj_ezsignbulksendsignermapping;
-    this->m_obj_ezsignbulksendsignermapping_isSet = true;
+    m_obj_ezsignbulksendsignermapping = obj_ezsignbulksendsignermapping;
+    m_obj_ezsignbulksendsignermapping_isSet = true;
 }
 
 bool OAIEzsignbulksendsignermapping_getObject_v2_Response_mPayload::is_obj_ezsignbulksendsignermapping_Set() const{
@@ -85,7 +85,7 @@ bool OAIEzsignbulksendsignermapping_getObject_v2_Response_mPayload::is_obj_ezsig
 bool OAIEzsignbulksendsignermapping_getObject_v2_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (obj_ezsignbulksendsignermapping.isSet()) {
+        if (m_obj_ezsignbulksendsignermapping.isSet()) {
             isObjectUpdated = true;
             break;
         }

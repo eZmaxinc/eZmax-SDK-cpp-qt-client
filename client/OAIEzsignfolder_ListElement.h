@@ -112,55 +112,55 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_ezsignfolder_id;
+    qint32 m_pki_ezsignfolder_id;
     bool m_pki_ezsignfolder_id_isSet;
     bool m_pki_ezsignfolder_id_isValid;
 
-    qint32 fki_ezsignfoldertype_id;
+    qint32 m_fki_ezsignfoldertype_id;
     bool m_fki_ezsignfoldertype_id_isSet;
     bool m_fki_ezsignfoldertype_id_isValid;
 
-    OAIField_eEzsignfoldertypePrivacylevel e_ezsignfoldertype_privacylevel;
+    OAIField_eEzsignfoldertypePrivacylevel m_e_ezsignfoldertype_privacylevel;
     bool m_e_ezsignfoldertype_privacylevel_isSet;
     bool m_e_ezsignfoldertype_privacylevel_isValid;
 
-    QString s_ezsignfoldertype_name_x;
+    QString m_s_ezsignfoldertype_name_x;
     bool m_s_ezsignfoldertype_name_x_isSet;
     bool m_s_ezsignfoldertype_name_x_isValid;
 
-    QString s_ezsignfolder_description;
+    QString m_s_ezsignfolder_description;
     bool m_s_ezsignfolder_description_isSet;
     bool m_s_ezsignfolder_description_isValid;
 
-    OAIField_eEzsignfolderStep e_ezsignfolder_step;
+    OAIField_eEzsignfolderStep m_e_ezsignfolder_step;
     bool m_e_ezsignfolder_step_isSet;
     bool m_e_ezsignfolder_step_isValid;
 
-    QString dt_created_date;
+    QString m_dt_created_date;
     bool m_dt_created_date_isSet;
     bool m_dt_created_date_isValid;
 
-    QString dt_ezsignfolder_sentdate;
+    QString m_dt_ezsignfolder_sentdate;
     bool m_dt_ezsignfolder_sentdate_isSet;
     bool m_dt_ezsignfolder_sentdate_isValid;
 
-    QString dt_ezsignfolder_duedate;
+    QString m_dt_ezsignfolder_duedate;
     bool m_dt_ezsignfolder_duedate_isSet;
     bool m_dt_ezsignfolder_duedate_isValid;
 
-    qint32 i_ezsigndocument;
+    qint32 m_i_ezsigndocument;
     bool m_i_ezsigndocument_isSet;
     bool m_i_ezsigndocument_isValid;
 
-    qint32 i_ezsigndocument_edm;
+    qint32 m_i_ezsigndocument_edm;
     bool m_i_ezsigndocument_edm_isSet;
     bool m_i_ezsigndocument_edm_isValid;
 
-    qint32 i_ezsignsignature;
+    qint32 m_i_ezsignsignature;
     bool m_i_ezsignsignature_isSet;
     bool m_i_ezsignsignature_isValid;
 
-    qint32 i_ezsignsignature_signed;
+    qint32 m_i_ezsignsignature_signed;
     bool m_i_ezsignsignature_signed_isSet;
     bool m_i_ezsignsignature_signed_isValid;
 };

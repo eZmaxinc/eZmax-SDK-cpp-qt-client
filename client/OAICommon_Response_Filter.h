@@ -56,11 +56,11 @@ public:
 private:
     void initializeModel();
 
-    QMap<QString, QString> a_auto_type;
+    QMap<QString, QString> m_a_auto_type;
     bool m_a_auto_type_isSet;
     bool m_a_auto_type_isValid;
 
-    QMap<QString, QMap<QString, QString>> a_enum;
+    QMap<QString, QMap<QString, QString>> m_a_enum;
     bool m_a_enum_isSet;
     bool m_a_enum_isValid;
 };

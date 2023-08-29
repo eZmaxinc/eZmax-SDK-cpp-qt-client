@@ -60,15 +60,15 @@ public:
 private:
     void initializeModel();
 
-    QString dt_attempt_start;
+    QString m_dt_attempt_start;
     bool m_dt_attempt_start_isSet;
     bool m_dt_attempt_start_isValid;
 
-    QString s_attempt_result;
+    QString m_s_attempt_result;
     bool m_s_attempt_result_isSet;
     bool m_s_attempt_result_isValid;
 
-    qint32 i_attempt_duration;
+    qint32 m_i_attempt_duration;
     bool m_i_attempt_duration_isSet;
     bool m_i_attempt_duration_isValid;
 };

@@ -106,51 +106,51 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_ezsigntemplatedocument_id;
+    qint32 m_pki_ezsigntemplatedocument_id;
     bool m_pki_ezsigntemplatedocument_id_isSet;
     bool m_pki_ezsigntemplatedocument_id_isValid;
 
-    qint32 fki_ezsigntemplate_id;
+    qint32 m_fki_ezsigntemplate_id;
     bool m_fki_ezsigntemplate_id_isSet;
     bool m_fki_ezsigntemplate_id_isValid;
 
-    qint32 fki_ezsigndocument_id;
+    qint32 m_fki_ezsigndocument_id;
     bool m_fki_ezsigndocument_id_isSet;
     bool m_fki_ezsigndocument_id_isValid;
 
-    qint32 fki_ezsigntemplatesigner_id;
+    qint32 m_fki_ezsigntemplatesigner_id;
     bool m_fki_ezsigntemplatesigner_id_isSet;
     bool m_fki_ezsigntemplatesigner_id_isValid;
 
-    QString s_ezsigntemplatedocument_name;
+    QString m_s_ezsigntemplatedocument_name;
     bool m_s_ezsigntemplatedocument_name_isSet;
     bool m_s_ezsigntemplatedocument_name_isValid;
 
-    QString e_ezsigntemplatedocument_source;
+    QString m_e_ezsigntemplatedocument_source;
     bool m_e_ezsigntemplatedocument_source_isSet;
     bool m_e_ezsigntemplatedocument_source_isValid;
 
-    QString e_ezsigntemplatedocument_format;
+    QString m_e_ezsigntemplatedocument_format;
     bool m_e_ezsigntemplatedocument_format_isSet;
     bool m_e_ezsigntemplatedocument_format_isValid;
 
-    QByteArray s_ezsigntemplatedocument_base64;
+    QByteArray m_s_ezsigntemplatedocument_base64;
     bool m_s_ezsigntemplatedocument_base64_isSet;
     bool m_s_ezsigntemplatedocument_base64_isValid;
 
-    QString s_ezsigntemplatedocument_url;
+    QString m_s_ezsigntemplatedocument_url;
     bool m_s_ezsigntemplatedocument_url_isSet;
     bool m_s_ezsigntemplatedocument_url_isValid;
 
-    bool b_ezsigntemplatedocument_forcerepair;
+    bool m_b_ezsigntemplatedocument_forcerepair;
     bool m_b_ezsigntemplatedocument_forcerepair_isSet;
     bool m_b_ezsigntemplatedocument_forcerepair_isValid;
 
-    QString e_ezsigntemplatedocument_form;
+    QString m_e_ezsigntemplatedocument_form;
     bool m_e_ezsigntemplatedocument_form_isSet;
     bool m_e_ezsigntemplatedocument_form_isValid;
 
-    QString s_ezsigntemplatedocument_password;
+    QString m_s_ezsigntemplatedocument_password;
     bool m_s_ezsigntemplatedocument_password_isSet;
     bool m_s_ezsigntemplatedocument_password_isValid;
 };

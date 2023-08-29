@@ -76,27 +76,27 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_subnet_id;
+    qint32 m_pki_subnet_id;
     bool m_pki_subnet_id_isSet;
     bool m_pki_subnet_id_isValid;
 
-    qint32 fki_user_id;
+    qint32 m_fki_user_id;
     bool m_fki_user_id_isSet;
     bool m_fki_user_id_isValid;
 
-    qint32 fki_apikey_id;
+    qint32 m_fki_apikey_id;
     bool m_fki_apikey_id_isSet;
     bool m_fki_apikey_id_isValid;
 
-    OAIMultilingual_SubnetDescription obj_subnet_description;
+    OAIMultilingual_SubnetDescription m_obj_subnet_description;
     bool m_obj_subnet_description_isSet;
     bool m_obj_subnet_description_isValid;
 
-    qint64 i_subnet_network;
+    qint64 m_i_subnet_network;
     bool m_i_subnet_network_isSet;
     bool m_i_subnet_network_isValid;
 
-    qint64 i_subnet_mask;
+    qint64 m_i_subnet_mask;
     bool m_i_subnet_mask_isSet;
     bool m_i_subnet_mask_isValid;
 };

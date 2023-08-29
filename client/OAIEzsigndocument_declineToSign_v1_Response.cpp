@@ -50,10 +50,10 @@ void OAIEzsigndocument_declineToSign_v1_Response::fromJson(QString jsonString) {
 
 void OAIEzsigndocument_declineToSign_v1_Response::fromJsonObject(QJsonObject json) {
 
-    m_obj_debug_payload_isValid = ::OpenAPI::fromJsonValue(obj_debug_payload, json[QString("objDebugPayload")]);
+    m_obj_debug_payload_isValid = ::OpenAPI::fromJsonValue(m_obj_debug_payload, json[QString("objDebugPayload")]);
     m_obj_debug_payload_isSet = !json[QString("objDebugPayload")].isNull() && m_obj_debug_payload_isValid;
 
-    m_obj_debug_isValid = ::OpenAPI::fromJsonValue(obj_debug, json[QString("objDebug")]);
+    m_obj_debug_isValid = ::OpenAPI::fromJsonValue(m_obj_debug, json[QString("objDebug")]);
     m_obj_debug_isSet = !json[QString("objDebug")].isNull() && m_obj_debug_isValid;
 }
 
@@ -66,21 +66,21 @@ QString OAIEzsigndocument_declineToSign_v1_Response::asJson() const {
 
 QJsonObject OAIEzsigndocument_declineToSign_v1_Response::asJsonObject() const {
     QJsonObject obj;
-    if (obj_debug_payload.isSet()) {
-        obj.insert(QString("objDebugPayload"), ::OpenAPI::toJsonValue(obj_debug_payload));
+    if (m_obj_debug_payload.isSet()) {
+        obj.insert(QString("objDebugPayload"), ::OpenAPI::toJsonValue(m_obj_debug_payload));
     }
-    if (obj_debug.isSet()) {
-        obj.insert(QString("objDebug"), ::OpenAPI::toJsonValue(obj_debug));
+    if (m_obj_debug.isSet()) {
+        obj.insert(QString("objDebug"), ::OpenAPI::toJsonValue(m_obj_debug));
     }
     return obj;
 }
 
 OAICommon_Response_objDebugPayload OAIEzsigndocument_declineToSign_v1_Response::getObjDebugPayload() const {
-    return obj_debug_payload;
+    return m_obj_debug_payload;
 }
 void OAIEzsigndocument_declineToSign_v1_Response::setObjDebugPayload(const OAICommon_Response_objDebugPayload &obj_debug_payload) {
-    this->obj_debug_payload = obj_debug_payload;
-    this->m_obj_debug_payload_isSet = true;
+    m_obj_debug_payload = obj_debug_payload;
+    m_obj_debug_payload_isSet = true;
 }
 
 bool OAIEzsigndocument_declineToSign_v1_Response::is_obj_debug_payload_Set() const{
@@ -92,11 +92,11 @@ bool OAIEzsigndocument_declineToSign_v1_Response::is_obj_debug_payload_Valid() c
 }
 
 OAICommon_Response_objDebug OAIEzsigndocument_declineToSign_v1_Response::getObjDebug() const {
-    return obj_debug;
+    return m_obj_debug;
 }
 void OAIEzsigndocument_declineToSign_v1_Response::setObjDebug(const OAICommon_Response_objDebug &obj_debug) {
-    this->obj_debug = obj_debug;
-    this->m_obj_debug_isSet = true;
+    m_obj_debug = obj_debug;
+    m_obj_debug_isSet = true;
 }
 
 bool OAIEzsigndocument_declineToSign_v1_Response::is_obj_debug_Set() const{
@@ -110,12 +110,12 @@ bool OAIEzsigndocument_declineToSign_v1_Response::is_obj_debug_Valid() const{
 bool OAIEzsigndocument_declineToSign_v1_Response::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (obj_debug_payload.isSet()) {
+        if (m_obj_debug_payload.isSet()) {
             isObjectUpdated = true;
             break;
         }
 
-        if (obj_debug.isSet()) {
+        if (m_obj_debug.isSet()) {
             isObjectUpdated = true;
             break;
         }
@@ -125,7 +125,7 @@ bool OAIEzsigndocument_declineToSign_v1_Response::isSet() const {
 
 bool OAIEzsigndocument_declineToSign_v1_Response::isValid() const {
     // only required properties are required for the object to be considered valid
-    return true;
+    return m_obj_debug_payload_isValid && true;
 }
 
 } // namespace OpenAPI

@@ -47,7 +47,7 @@ void OAIEzsigntemplatedocument_createObject_v1_Request::fromJson(QString jsonStr
 
 void OAIEzsigntemplatedocument_createObject_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_ezsigntemplatedocument_isValid = ::OpenAPI::fromJsonValue(a_obj_ezsigntemplatedocument, json[QString("a_objEzsigntemplatedocument")]);
+    m_a_obj_ezsigntemplatedocument_isValid = ::OpenAPI::fromJsonValue(m_a_obj_ezsigntemplatedocument, json[QString("a_objEzsigntemplatedocument")]);
     m_a_obj_ezsigntemplatedocument_isSet = !json[QString("a_objEzsigntemplatedocument")].isNull() && m_a_obj_ezsigntemplatedocument_isValid;
 }
 
@@ -60,18 +60,18 @@ QString OAIEzsigntemplatedocument_createObject_v1_Request::asJson() const {
 
 QJsonObject OAIEzsigntemplatedocument_createObject_v1_Request::asJsonObject() const {
     QJsonObject obj;
-    if (a_obj_ezsigntemplatedocument.size() > 0) {
-        obj.insert(QString("a_objEzsigntemplatedocument"), ::OpenAPI::toJsonValue(a_obj_ezsigntemplatedocument));
+    if (m_a_obj_ezsigntemplatedocument.size() > 0) {
+        obj.insert(QString("a_objEzsigntemplatedocument"), ::OpenAPI::toJsonValue(m_a_obj_ezsigntemplatedocument));
     }
     return obj;
 }
 
 QList<OAIEzsigntemplatedocument_RequestCompound> OAIEzsigntemplatedocument_createObject_v1_Request::getAObjEzsigntemplatedocument() const {
-    return a_obj_ezsigntemplatedocument;
+    return m_a_obj_ezsigntemplatedocument;
 }
 void OAIEzsigntemplatedocument_createObject_v1_Request::setAObjEzsigntemplatedocument(const QList<OAIEzsigntemplatedocument_RequestCompound> &a_obj_ezsigntemplatedocument) {
-    this->a_obj_ezsigntemplatedocument = a_obj_ezsigntemplatedocument;
-    this->m_a_obj_ezsigntemplatedocument_isSet = true;
+    m_a_obj_ezsigntemplatedocument = a_obj_ezsigntemplatedocument;
+    m_a_obj_ezsigntemplatedocument_isSet = true;
 }
 
 bool OAIEzsigntemplatedocument_createObject_v1_Request::is_a_obj_ezsigntemplatedocument_Set() const{
@@ -85,7 +85,7 @@ bool OAIEzsigntemplatedocument_createObject_v1_Request::is_a_obj_ezsigntemplated
 bool OAIEzsigntemplatedocument_createObject_v1_Request::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (a_obj_ezsigntemplatedocument.size() > 0) {
+        if (m_a_obj_ezsigntemplatedocument.size() > 0) {
             isObjectUpdated = true;
             break;
         }

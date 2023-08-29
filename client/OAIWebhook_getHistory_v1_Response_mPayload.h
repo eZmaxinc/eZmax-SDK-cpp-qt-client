@@ -52,7 +52,7 @@ public:
 private:
     void initializeModel();
 
-    QList<OAICustom_Webhooklog_Response> a_obj_webhooklog;
+    QList<OAICustom_Webhooklog_Response> m_a_obj_webhooklog;
     bool m_a_obj_webhooklog_isSet;
     bool m_a_obj_webhooklog_isValid;
 };

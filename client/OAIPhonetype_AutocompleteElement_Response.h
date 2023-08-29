@@ -60,15 +60,15 @@ public:
 private:
     void initializeModel();
 
-    qint32 pki_phonetype_id;
+    qint32 m_pki_phonetype_id;
     bool m_pki_phonetype_id_isSet;
     bool m_pki_phonetype_id_isValid;
 
-    QString s_phonetype_name_x;
+    QString m_s_phonetype_name_x;
     bool m_s_phonetype_name_x_isSet;
     bool m_s_phonetype_name_x_isValid;
 
-    bool b_phonetype_isactive;
+    bool m_b_phonetype_isactive;
     bool m_b_phonetype_isactive_isSet;
     bool m_b_phonetype_isactive_isValid;
 };
