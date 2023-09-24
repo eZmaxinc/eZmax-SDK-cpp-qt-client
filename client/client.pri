@@ -165,6 +165,7 @@ HEADERS += \
     $${PWD}/OAICustom_Ezsignfoldersignerassociationstatus_Response.h \
     $${PWD}/OAICustom_EzsignfoldertransmissionSigner_Response.h \
     $${PWD}/OAICustom_Ezsignfoldertransmission_Response.h \
+    $${PWD}/OAICustom_Ezsignfoldertype_Response.h \
     $${PWD}/OAICustom_Ezsignformfield_Request.h \
     $${PWD}/OAICustom_Ezsignformfielderror_Response.h \
     $${PWD}/OAICustom_Ezsignformfielderrortest_Response.h \
@@ -1298,6 +1299,7 @@ SOURCES += \
     $${PWD}/OAICustom_Ezsignfoldersignerassociationstatus_Response.cpp \
     $${PWD}/OAICustom_EzsignfoldertransmissionSigner_Response.cpp \
     $${PWD}/OAICustom_Ezsignfoldertransmission_Response.cpp \
+    $${PWD}/OAICustom_Ezsignfoldertype_Response.cpp \
     $${PWD}/OAICustom_Ezsignformfield_Request.cpp \
     $${PWD}/OAICustom_Ezsignformfielderror_Response.cpp \
     $${PWD}/OAICustom_Ezsignformfielderrortest_Response.cpp \

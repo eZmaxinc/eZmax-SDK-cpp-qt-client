@@ -171,6 +171,7 @@ add_library(${PROJECT_NAME}
   OAICustom_Ezsignfoldersignerassociationstatus_Response.h
   OAICustom_EzsignfoldertransmissionSigner_Response.h
   OAICustom_Ezsignfoldertransmission_Response.h
+  OAICustom_Ezsignfoldertype_Response.h
   OAICustom_Ezsignformfield_Request.h
   OAICustom_Ezsignformfielderror_Response.h
   OAICustom_Ezsignformfielderrortest_Response.h
@@ -1299,6 +1300,7 @@ add_library(${PROJECT_NAME}
   OAICustom_Ezsignfoldersignerassociationstatus_Response.cpp
   OAICustom_EzsignfoldertransmissionSigner_Response.cpp
   OAICustom_Ezsignfoldertransmission_Response.cpp
+  OAICustom_Ezsignfoldertype_Response.cpp
   OAICustom_Ezsignformfield_Request.cpp
   OAICustom_Ezsignformfielderror_Response.cpp
   OAICustom_Ezsignformfielderrortest_Response.cpp
