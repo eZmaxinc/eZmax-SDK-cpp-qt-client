@@ -15,7 +15,7 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIObjectSystemconfigurationApi::OAIObjectSystemconfigurationApi(const int timeOut)
     : _timeOut(timeOut),
@@ -257,7 +257,7 @@ void OAIObjectSystemconfigurationApi::systemconfigurationEditObjectV1(const qint
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiSystemconfigurationID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiSystemconfigurationID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_systemconfiguration_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_systemconfiguration_id)));
+        fullPath.replace(pki_systemconfiguration_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_systemconfiguration_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -329,7 +329,7 @@ void OAIObjectSystemconfigurationApi::systemconfigurationGetObjectV2(const qint3
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiSystemconfigurationID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiSystemconfigurationID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_systemconfiguration_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_systemconfiguration_id)));
+        fullPath.replace(pki_systemconfiguration_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_systemconfiguration_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -426,4 +426,4 @@ void OAIObjectSystemconfigurationApi::tokenAvailable(){
         break;
     }
 }
-} // namespace OpenAPI
+} // namespace Ezmaxapi

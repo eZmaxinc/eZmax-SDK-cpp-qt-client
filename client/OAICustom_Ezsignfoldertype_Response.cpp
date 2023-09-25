@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAICustom_Ezsignfoldertype_Response::OAICustom_Ezsignfoldertype_Response(QString json) {
     this->initializeModel();
@@ -62,22 +62,22 @@ void OAICustom_Ezsignfoldertype_Response::fromJson(QString jsonString) {
 
 void OAICustom_Ezsignfoldertype_Response::fromJsonObject(QJsonObject json) {
 
-    m_pki_ezsignfoldertype_id_isValid = ::OpenAPI::fromJsonValue(m_pki_ezsignfoldertype_id, json[QString("pkiEzsignfoldertypeID")]);
+    m_pki_ezsignfoldertype_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_ezsignfoldertype_id, json[QString("pkiEzsignfoldertypeID")]);
     m_pki_ezsignfoldertype_id_isSet = !json[QString("pkiEzsignfoldertypeID")].isNull() && m_pki_ezsignfoldertype_id_isValid;
 
-    m_s_ezsignfoldertype_name_x_isValid = ::OpenAPI::fromJsonValue(m_s_ezsignfoldertype_name_x, json[QString("sEzsignfoldertypeNameX")]);
+    m_s_ezsignfoldertype_name_x_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsignfoldertype_name_x, json[QString("sEzsignfoldertypeNameX")]);
     m_s_ezsignfoldertype_name_x_isSet = !json[QString("sEzsignfoldertypeNameX")].isNull() && m_s_ezsignfoldertype_name_x_isValid;
 
-    m_b_ezsignfoldertype_includeproofsigner_isValid = ::OpenAPI::fromJsonValue(m_b_ezsignfoldertype_includeproofsigner, json[QString("bEzsignfoldertypeIncludeproofsigner")]);
+    m_b_ezsignfoldertype_includeproofsigner_isValid = ::Ezmaxapi::fromJsonValue(m_b_ezsignfoldertype_includeproofsigner, json[QString("bEzsignfoldertypeIncludeproofsigner")]);
     m_b_ezsignfoldertype_includeproofsigner_isSet = !json[QString("bEzsignfoldertypeIncludeproofsigner")].isNull() && m_b_ezsignfoldertype_includeproofsigner_isValid;
 
-    m_b_ezsignfoldertype_includeproofuser_isValid = ::OpenAPI::fromJsonValue(m_b_ezsignfoldertype_includeproofuser, json[QString("bEzsignfoldertypeIncludeproofuser")]);
+    m_b_ezsignfoldertype_includeproofuser_isValid = ::Ezmaxapi::fromJsonValue(m_b_ezsignfoldertype_includeproofuser, json[QString("bEzsignfoldertypeIncludeproofuser")]);
     m_b_ezsignfoldertype_includeproofuser_isSet = !json[QString("bEzsignfoldertypeIncludeproofuser")].isNull() && m_b_ezsignfoldertype_includeproofuser_isValid;
 
-    m_b_ezsignfoldertype_delegate_isValid = ::OpenAPI::fromJsonValue(m_b_ezsignfoldertype_delegate, json[QString("bEzsignfoldertypeDelegate")]);
+    m_b_ezsignfoldertype_delegate_isValid = ::Ezmaxapi::fromJsonValue(m_b_ezsignfoldertype_delegate, json[QString("bEzsignfoldertypeDelegate")]);
     m_b_ezsignfoldertype_delegate_isSet = !json[QString("bEzsignfoldertypeDelegate")].isNull() && m_b_ezsignfoldertype_delegate_isValid;
 
-    m_b_ezsignfoldertype_reassign_isValid = ::OpenAPI::fromJsonValue(m_b_ezsignfoldertype_reassign, json[QString("bEzsignfoldertypeReassign")]);
+    m_b_ezsignfoldertype_reassign_isValid = ::Ezmaxapi::fromJsonValue(m_b_ezsignfoldertype_reassign, json[QString("bEzsignfoldertypeReassign")]);
     m_b_ezsignfoldertype_reassign_isSet = !json[QString("bEzsignfoldertypeReassign")].isNull() && m_b_ezsignfoldertype_reassign_isValid;
 }
 
@@ -91,22 +91,22 @@ QString OAICustom_Ezsignfoldertype_Response::asJson() const {
 QJsonObject OAICustom_Ezsignfoldertype_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_ezsignfoldertype_id_isSet) {
-        obj.insert(QString("pkiEzsignfoldertypeID"), ::OpenAPI::toJsonValue(m_pki_ezsignfoldertype_id));
+        obj.insert(QString("pkiEzsignfoldertypeID"), ::Ezmaxapi::toJsonValue(m_pki_ezsignfoldertype_id));
     }
     if (m_s_ezsignfoldertype_name_x_isSet) {
-        obj.insert(QString("sEzsignfoldertypeNameX"), ::OpenAPI::toJsonValue(m_s_ezsignfoldertype_name_x));
+        obj.insert(QString("sEzsignfoldertypeNameX"), ::Ezmaxapi::toJsonValue(m_s_ezsignfoldertype_name_x));
     }
     if (m_b_ezsignfoldertype_includeproofsigner_isSet) {
-        obj.insert(QString("bEzsignfoldertypeIncludeproofsigner"), ::OpenAPI::toJsonValue(m_b_ezsignfoldertype_includeproofsigner));
+        obj.insert(QString("bEzsignfoldertypeIncludeproofsigner"), ::Ezmaxapi::toJsonValue(m_b_ezsignfoldertype_includeproofsigner));
     }
     if (m_b_ezsignfoldertype_includeproofuser_isSet) {
-        obj.insert(QString("bEzsignfoldertypeIncludeproofuser"), ::OpenAPI::toJsonValue(m_b_ezsignfoldertype_includeproofuser));
+        obj.insert(QString("bEzsignfoldertypeIncludeproofuser"), ::Ezmaxapi::toJsonValue(m_b_ezsignfoldertype_includeproofuser));
     }
     if (m_b_ezsignfoldertype_delegate_isSet) {
-        obj.insert(QString("bEzsignfoldertypeDelegate"), ::OpenAPI::toJsonValue(m_b_ezsignfoldertype_delegate));
+        obj.insert(QString("bEzsignfoldertypeDelegate"), ::Ezmaxapi::toJsonValue(m_b_ezsignfoldertype_delegate));
     }
     if (m_b_ezsignfoldertype_reassign_isSet) {
-        obj.insert(QString("bEzsignfoldertypeReassign"), ::OpenAPI::toJsonValue(m_b_ezsignfoldertype_reassign));
+        obj.insert(QString("bEzsignfoldertypeReassign"), ::Ezmaxapi::toJsonValue(m_b_ezsignfoldertype_reassign));
     }
     return obj;
 }
@@ -248,4 +248,4 @@ bool OAICustom_Ezsignfoldertype_Response::isValid() const {
     return m_pki_ezsignfoldertype_id_isValid && m_s_ezsignfoldertype_name_x_isValid && m_b_ezsignfoldertype_includeproofsigner_isValid && m_b_ezsignfoldertype_includeproofuser_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

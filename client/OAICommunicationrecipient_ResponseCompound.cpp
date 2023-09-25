@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAICommunicationrecipient_ResponseCompound::OAICommunicationrecipient_ResponseCompound(QString json) {
     this->initializeModel();
@@ -107,67 +107,67 @@ void OAICommunicationrecipient_ResponseCompound::fromJson(QString jsonString) {
 
 void OAICommunicationrecipient_ResponseCompound::fromJsonObject(QJsonObject json) {
 
-    m_pki_communicationrecipient_id_isValid = ::OpenAPI::fromJsonValue(m_pki_communicationrecipient_id, json[QString("pkiCommunicationrecipientID")]);
+    m_pki_communicationrecipient_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_communicationrecipient_id, json[QString("pkiCommunicationrecipientID")]);
     m_pki_communicationrecipient_id_isSet = !json[QString("pkiCommunicationrecipientID")].isNull() && m_pki_communicationrecipient_id_isValid;
 
-    m_e_communicationrecipient_objecttype_isValid = ::OpenAPI::fromJsonValue(m_e_communicationrecipient_objecttype, json[QString("eCommunicationrecipientObjecttype")]);
+    m_e_communicationrecipient_objecttype_isValid = ::Ezmaxapi::fromJsonValue(m_e_communicationrecipient_objecttype, json[QString("eCommunicationrecipientObjecttype")]);
     m_e_communicationrecipient_objecttype_isSet = !json[QString("eCommunicationrecipientObjecttype")].isNull() && m_e_communicationrecipient_objecttype_isValid;
 
-    m_fki_agent_id_isValid = ::OpenAPI::fromJsonValue(m_fki_agent_id, json[QString("fkiAgentID")]);
+    m_fki_agent_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_agent_id, json[QString("fkiAgentID")]);
     m_fki_agent_id_isSet = !json[QString("fkiAgentID")].isNull() && m_fki_agent_id_isValid;
 
-    m_fki_broker_id_isValid = ::OpenAPI::fromJsonValue(m_fki_broker_id, json[QString("fkiBrokerID")]);
+    m_fki_broker_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_broker_id, json[QString("fkiBrokerID")]);
     m_fki_broker_id_isSet = !json[QString("fkiBrokerID")].isNull() && m_fki_broker_id_isValid;
 
-    m_fki_contact_id_isValid = ::OpenAPI::fromJsonValue(m_fki_contact_id, json[QString("fkiContactID")]);
+    m_fki_contact_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_contact_id, json[QString("fkiContactID")]);
     m_fki_contact_id_isSet = !json[QString("fkiContactID")].isNull() && m_fki_contact_id_isValid;
 
-    m_fki_customer_id_isValid = ::OpenAPI::fromJsonValue(m_fki_customer_id, json[QString("fkiCustomerID")]);
+    m_fki_customer_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_customer_id, json[QString("fkiCustomerID")]);
     m_fki_customer_id_isSet = !json[QString("fkiCustomerID")].isNull() && m_fki_customer_id_isValid;
 
-    m_fki_employee_id_isValid = ::OpenAPI::fromJsonValue(m_fki_employee_id, json[QString("fkiEmployeeID")]);
+    m_fki_employee_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_employee_id, json[QString("fkiEmployeeID")]);
     m_fki_employee_id_isSet = !json[QString("fkiEmployeeID")].isNull() && m_fki_employee_id_isValid;
 
-    m_fki_ezsignsigner_id_isValid = ::OpenAPI::fromJsonValue(m_fki_ezsignsigner_id, json[QString("fkiEzsignsignerID")]);
+    m_fki_ezsignsigner_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_ezsignsigner_id, json[QString("fkiEzsignsignerID")]);
     m_fki_ezsignsigner_id_isSet = !json[QString("fkiEzsignsignerID")].isNull() && m_fki_ezsignsigner_id_isValid;
 
-    m_fki_franchiseoffice_id_isValid = ::OpenAPI::fromJsonValue(m_fki_franchiseoffice_id, json[QString("fkiFranchiseofficeID")]);
+    m_fki_franchiseoffice_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_franchiseoffice_id, json[QString("fkiFranchiseofficeID")]);
     m_fki_franchiseoffice_id_isSet = !json[QString("fkiFranchiseofficeID")].isNull() && m_fki_franchiseoffice_id_isValid;
 
-    m_fki_user_id_isValid = ::OpenAPI::fromJsonValue(m_fki_user_id, json[QString("fkiUserID")]);
+    m_fki_user_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_user_id, json[QString("fkiUserID")]);
     m_fki_user_id_isSet = !json[QString("fkiUserID")].isNull() && m_fki_user_id_isValid;
 
-    m_fki_agentincorporation_id_isValid = ::OpenAPI::fromJsonValue(m_fki_agentincorporation_id, json[QString("fkiAgentincorporationID")]);
+    m_fki_agentincorporation_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_agentincorporation_id, json[QString("fkiAgentincorporationID")]);
     m_fki_agentincorporation_id_isSet = !json[QString("fkiAgentincorporationID")].isNull() && m_fki_agentincorporation_id_isValid;
 
-    m_fki_assistant_id_isValid = ::OpenAPI::fromJsonValue(m_fki_assistant_id, json[QString("fkiAssistantID")]);
+    m_fki_assistant_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_assistant_id, json[QString("fkiAssistantID")]);
     m_fki_assistant_id_isSet = !json[QString("fkiAssistantID")].isNull() && m_fki_assistant_id_isValid;
 
-    m_fki_externalbroker_id_isValid = ::OpenAPI::fromJsonValue(m_fki_externalbroker_id, json[QString("fkiExternalbrokerID")]);
+    m_fki_externalbroker_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_externalbroker_id, json[QString("fkiExternalbrokerID")]);
     m_fki_externalbroker_id_isSet = !json[QString("fkiExternalbrokerID")].isNull() && m_fki_externalbroker_id_isValid;
 
-    m_fki_ezcomagent_id_isValid = ::OpenAPI::fromJsonValue(m_fki_ezcomagent_id, json[QString("fkiEzcomagentID")]);
+    m_fki_ezcomagent_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_ezcomagent_id, json[QString("fkiEzcomagentID")]);
     m_fki_ezcomagent_id_isSet = !json[QString("fkiEzcomagentID")].isNull() && m_fki_ezcomagent_id_isValid;
 
-    m_fki_notary_id_isValid = ::OpenAPI::fromJsonValue(m_fki_notary_id, json[QString("fkiNotaryID")]);
+    m_fki_notary_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_notary_id, json[QString("fkiNotaryID")]);
     m_fki_notary_id_isSet = !json[QString("fkiNotaryID")].isNull() && m_fki_notary_id_isValid;
 
-    m_fki_rewardmember_id_isValid = ::OpenAPI::fromJsonValue(m_fki_rewardmember_id, json[QString("fkiRewardmemberID")]);
+    m_fki_rewardmember_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_rewardmember_id, json[QString("fkiRewardmemberID")]);
     m_fki_rewardmember_id_isSet = !json[QString("fkiRewardmemberID")].isNull() && m_fki_rewardmember_id_isValid;
 
-    m_fki_supplier_id_isValid = ::OpenAPI::fromJsonValue(m_fki_supplier_id, json[QString("fkiSupplierID")]);
+    m_fki_supplier_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_supplier_id, json[QString("fkiSupplierID")]);
     m_fki_supplier_id_isSet = !json[QString("fkiSupplierID")].isNull() && m_fki_supplier_id_isValid;
 
-    m_e_communicationrecipient_type_isValid = ::OpenAPI::fromJsonValue(m_e_communicationrecipient_type, json[QString("eCommunicationrecipientType")]);
+    m_e_communicationrecipient_type_isValid = ::Ezmaxapi::fromJsonValue(m_e_communicationrecipient_type, json[QString("eCommunicationrecipientType")]);
     m_e_communicationrecipient_type_isSet = !json[QString("eCommunicationrecipientType")].isNull() && m_e_communicationrecipient_type_isValid;
 
-    m_obj_descriptionstatic_isValid = ::OpenAPI::fromJsonValue(m_obj_descriptionstatic, json[QString("objDescriptionstatic")]);
+    m_obj_descriptionstatic_isValid = ::Ezmaxapi::fromJsonValue(m_obj_descriptionstatic, json[QString("objDescriptionstatic")]);
     m_obj_descriptionstatic_isSet = !json[QString("objDescriptionstatic")].isNull() && m_obj_descriptionstatic_isValid;
 
-    m_obj_emailstatic_isValid = ::OpenAPI::fromJsonValue(m_obj_emailstatic, json[QString("objEmailstatic")]);
+    m_obj_emailstatic_isValid = ::Ezmaxapi::fromJsonValue(m_obj_emailstatic, json[QString("objEmailstatic")]);
     m_obj_emailstatic_isSet = !json[QString("objEmailstatic")].isNull() && m_obj_emailstatic_isValid;
 
-    m_obj_phonestatic_isValid = ::OpenAPI::fromJsonValue(m_obj_phonestatic, json[QString("objPhonestatic")]);
+    m_obj_phonestatic_isValid = ::Ezmaxapi::fromJsonValue(m_obj_phonestatic, json[QString("objPhonestatic")]);
     m_obj_phonestatic_isSet = !json[QString("objPhonestatic")].isNull() && m_obj_phonestatic_isValid;
 }
 
@@ -181,67 +181,67 @@ QString OAICommunicationrecipient_ResponseCompound::asJson() const {
 QJsonObject OAICommunicationrecipient_ResponseCompound::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_communicationrecipient_id_isSet) {
-        obj.insert(QString("pkiCommunicationrecipientID"), ::OpenAPI::toJsonValue(m_pki_communicationrecipient_id));
+        obj.insert(QString("pkiCommunicationrecipientID"), ::Ezmaxapi::toJsonValue(m_pki_communicationrecipient_id));
     }
     if (m_e_communicationrecipient_objecttype.isSet()) {
-        obj.insert(QString("eCommunicationrecipientObjecttype"), ::OpenAPI::toJsonValue(m_e_communicationrecipient_objecttype));
+        obj.insert(QString("eCommunicationrecipientObjecttype"), ::Ezmaxapi::toJsonValue(m_e_communicationrecipient_objecttype));
     }
     if (m_fki_agent_id_isSet) {
-        obj.insert(QString("fkiAgentID"), ::OpenAPI::toJsonValue(m_fki_agent_id));
+        obj.insert(QString("fkiAgentID"), ::Ezmaxapi::toJsonValue(m_fki_agent_id));
     }
     if (m_fki_broker_id_isSet) {
-        obj.insert(QString("fkiBrokerID"), ::OpenAPI::toJsonValue(m_fki_broker_id));
+        obj.insert(QString("fkiBrokerID"), ::Ezmaxapi::toJsonValue(m_fki_broker_id));
     }
     if (m_fki_contact_id_isSet) {
-        obj.insert(QString("fkiContactID"), ::OpenAPI::toJsonValue(m_fki_contact_id));
+        obj.insert(QString("fkiContactID"), ::Ezmaxapi::toJsonValue(m_fki_contact_id));
     }
     if (m_fki_customer_id_isSet) {
-        obj.insert(QString("fkiCustomerID"), ::OpenAPI::toJsonValue(m_fki_customer_id));
+        obj.insert(QString("fkiCustomerID"), ::Ezmaxapi::toJsonValue(m_fki_customer_id));
     }
     if (m_fki_employee_id_isSet) {
-        obj.insert(QString("fkiEmployeeID"), ::OpenAPI::toJsonValue(m_fki_employee_id));
+        obj.insert(QString("fkiEmployeeID"), ::Ezmaxapi::toJsonValue(m_fki_employee_id));
     }
     if (m_fki_ezsignsigner_id_isSet) {
-        obj.insert(QString("fkiEzsignsignerID"), ::OpenAPI::toJsonValue(m_fki_ezsignsigner_id));
+        obj.insert(QString("fkiEzsignsignerID"), ::Ezmaxapi::toJsonValue(m_fki_ezsignsigner_id));
     }
     if (m_fki_franchiseoffice_id_isSet) {
-        obj.insert(QString("fkiFranchiseofficeID"), ::OpenAPI::toJsonValue(m_fki_franchiseoffice_id));
+        obj.insert(QString("fkiFranchiseofficeID"), ::Ezmaxapi::toJsonValue(m_fki_franchiseoffice_id));
     }
     if (m_fki_user_id_isSet) {
-        obj.insert(QString("fkiUserID"), ::OpenAPI::toJsonValue(m_fki_user_id));
+        obj.insert(QString("fkiUserID"), ::Ezmaxapi::toJsonValue(m_fki_user_id));
     }
     if (m_fki_agentincorporation_id_isSet) {
-        obj.insert(QString("fkiAgentincorporationID"), ::OpenAPI::toJsonValue(m_fki_agentincorporation_id));
+        obj.insert(QString("fkiAgentincorporationID"), ::Ezmaxapi::toJsonValue(m_fki_agentincorporation_id));
     }
     if (m_fki_assistant_id_isSet) {
-        obj.insert(QString("fkiAssistantID"), ::OpenAPI::toJsonValue(m_fki_assistant_id));
+        obj.insert(QString("fkiAssistantID"), ::Ezmaxapi::toJsonValue(m_fki_assistant_id));
     }
     if (m_fki_externalbroker_id_isSet) {
-        obj.insert(QString("fkiExternalbrokerID"), ::OpenAPI::toJsonValue(m_fki_externalbroker_id));
+        obj.insert(QString("fkiExternalbrokerID"), ::Ezmaxapi::toJsonValue(m_fki_externalbroker_id));
     }
     if (m_fki_ezcomagent_id_isSet) {
-        obj.insert(QString("fkiEzcomagentID"), ::OpenAPI::toJsonValue(m_fki_ezcomagent_id));
+        obj.insert(QString("fkiEzcomagentID"), ::Ezmaxapi::toJsonValue(m_fki_ezcomagent_id));
     }
     if (m_fki_notary_id_isSet) {
-        obj.insert(QString("fkiNotaryID"), ::OpenAPI::toJsonValue(m_fki_notary_id));
+        obj.insert(QString("fkiNotaryID"), ::Ezmaxapi::toJsonValue(m_fki_notary_id));
     }
     if (m_fki_rewardmember_id_isSet) {
-        obj.insert(QString("fkiRewardmemberID"), ::OpenAPI::toJsonValue(m_fki_rewardmember_id));
+        obj.insert(QString("fkiRewardmemberID"), ::Ezmaxapi::toJsonValue(m_fki_rewardmember_id));
     }
     if (m_fki_supplier_id_isSet) {
-        obj.insert(QString("fkiSupplierID"), ::OpenAPI::toJsonValue(m_fki_supplier_id));
+        obj.insert(QString("fkiSupplierID"), ::Ezmaxapi::toJsonValue(m_fki_supplier_id));
     }
     if (m_e_communicationrecipient_type.isSet()) {
-        obj.insert(QString("eCommunicationrecipientType"), ::OpenAPI::toJsonValue(m_e_communicationrecipient_type));
+        obj.insert(QString("eCommunicationrecipientType"), ::Ezmaxapi::toJsonValue(m_e_communicationrecipient_type));
     }
     if (m_obj_descriptionstatic.isSet()) {
-        obj.insert(QString("objDescriptionstatic"), ::OpenAPI::toJsonValue(m_obj_descriptionstatic));
+        obj.insert(QString("objDescriptionstatic"), ::Ezmaxapi::toJsonValue(m_obj_descriptionstatic));
     }
     if (m_obj_emailstatic.isSet()) {
-        obj.insert(QString("objEmailstatic"), ::OpenAPI::toJsonValue(m_obj_emailstatic));
+        obj.insert(QString("objEmailstatic"), ::Ezmaxapi::toJsonValue(m_obj_emailstatic));
     }
     if (m_obj_phonestatic.isSet()) {
-        obj.insert(QString("objPhonestatic"), ::OpenAPI::toJsonValue(m_obj_phonestatic));
+        obj.insert(QString("objPhonestatic"), ::Ezmaxapi::toJsonValue(m_obj_phonestatic));
     }
     return obj;
 }
@@ -698,4 +698,4 @@ bool OAICommunicationrecipient_ResponseCompound::isValid() const {
     return m_pki_communicationrecipient_id_isValid && m_e_communicationrecipient_type_isValid && m_obj_descriptionstatic_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

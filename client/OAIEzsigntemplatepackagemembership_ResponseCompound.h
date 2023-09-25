@@ -28,7 +28,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 class OAIEzsigntemplate_ResponseCompound;
 class OAIEzsigntemplatepackagesignermembership_ResponseCompound;
 
@@ -104,8 +104,8 @@ private:
     bool m_a_obj_ezsigntemplatepackagesignermembership_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIEzsigntemplatepackagemembership_ResponseCompound)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIEzsigntemplatepackagemembership_ResponseCompound)
 
 #endif // OAIEzsigntemplatepackagemembership_ResponseCompound_H

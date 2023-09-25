@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIContactinformations_RequestCompound::OAIContactinformations_RequestCompound(QString json) {
     this->initializeModel();
@@ -68,28 +68,28 @@ void OAIContactinformations_RequestCompound::fromJson(QString jsonString) {
 
 void OAIContactinformations_RequestCompound::fromJsonObject(QJsonObject json) {
 
-    m_i_address_default_isValid = ::OpenAPI::fromJsonValue(m_i_address_default, json[QString("iAddressDefault")]);
+    m_i_address_default_isValid = ::Ezmaxapi::fromJsonValue(m_i_address_default, json[QString("iAddressDefault")]);
     m_i_address_default_isSet = !json[QString("iAddressDefault")].isNull() && m_i_address_default_isValid;
 
-    m_i_phone_default_isValid = ::OpenAPI::fromJsonValue(m_i_phone_default, json[QString("iPhoneDefault")]);
+    m_i_phone_default_isValid = ::Ezmaxapi::fromJsonValue(m_i_phone_default, json[QString("iPhoneDefault")]);
     m_i_phone_default_isSet = !json[QString("iPhoneDefault")].isNull() && m_i_phone_default_isValid;
 
-    m_i_email_default_isValid = ::OpenAPI::fromJsonValue(m_i_email_default, json[QString("iEmailDefault")]);
+    m_i_email_default_isValid = ::Ezmaxapi::fromJsonValue(m_i_email_default, json[QString("iEmailDefault")]);
     m_i_email_default_isSet = !json[QString("iEmailDefault")].isNull() && m_i_email_default_isValid;
 
-    m_i_website_default_isValid = ::OpenAPI::fromJsonValue(m_i_website_default, json[QString("iWebsiteDefault")]);
+    m_i_website_default_isValid = ::Ezmaxapi::fromJsonValue(m_i_website_default, json[QString("iWebsiteDefault")]);
     m_i_website_default_isSet = !json[QString("iWebsiteDefault")].isNull() && m_i_website_default_isValid;
 
-    m_a_obj_address_isValid = ::OpenAPI::fromJsonValue(m_a_obj_address, json[QString("a_objAddress")]);
+    m_a_obj_address_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_address, json[QString("a_objAddress")]);
     m_a_obj_address_isSet = !json[QString("a_objAddress")].isNull() && m_a_obj_address_isValid;
 
-    m_a_obj_phone_isValid = ::OpenAPI::fromJsonValue(m_a_obj_phone, json[QString("a_objPhone")]);
+    m_a_obj_phone_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_phone, json[QString("a_objPhone")]);
     m_a_obj_phone_isSet = !json[QString("a_objPhone")].isNull() && m_a_obj_phone_isValid;
 
-    m_a_obj_email_isValid = ::OpenAPI::fromJsonValue(m_a_obj_email, json[QString("a_objEmail")]);
+    m_a_obj_email_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_email, json[QString("a_objEmail")]);
     m_a_obj_email_isSet = !json[QString("a_objEmail")].isNull() && m_a_obj_email_isValid;
 
-    m_a_obj_website_isValid = ::OpenAPI::fromJsonValue(m_a_obj_website, json[QString("a_objWebsite")]);
+    m_a_obj_website_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_website, json[QString("a_objWebsite")]);
     m_a_obj_website_isSet = !json[QString("a_objWebsite")].isNull() && m_a_obj_website_isValid;
 }
 
@@ -103,28 +103,28 @@ QString OAIContactinformations_RequestCompound::asJson() const {
 QJsonObject OAIContactinformations_RequestCompound::asJsonObject() const {
     QJsonObject obj;
     if (m_i_address_default_isSet) {
-        obj.insert(QString("iAddressDefault"), ::OpenAPI::toJsonValue(m_i_address_default));
+        obj.insert(QString("iAddressDefault"), ::Ezmaxapi::toJsonValue(m_i_address_default));
     }
     if (m_i_phone_default_isSet) {
-        obj.insert(QString("iPhoneDefault"), ::OpenAPI::toJsonValue(m_i_phone_default));
+        obj.insert(QString("iPhoneDefault"), ::Ezmaxapi::toJsonValue(m_i_phone_default));
     }
     if (m_i_email_default_isSet) {
-        obj.insert(QString("iEmailDefault"), ::OpenAPI::toJsonValue(m_i_email_default));
+        obj.insert(QString("iEmailDefault"), ::Ezmaxapi::toJsonValue(m_i_email_default));
     }
     if (m_i_website_default_isSet) {
-        obj.insert(QString("iWebsiteDefault"), ::OpenAPI::toJsonValue(m_i_website_default));
+        obj.insert(QString("iWebsiteDefault"), ::Ezmaxapi::toJsonValue(m_i_website_default));
     }
     if (m_a_obj_address.size() > 0) {
-        obj.insert(QString("a_objAddress"), ::OpenAPI::toJsonValue(m_a_obj_address));
+        obj.insert(QString("a_objAddress"), ::Ezmaxapi::toJsonValue(m_a_obj_address));
     }
     if (m_a_obj_phone.size() > 0) {
-        obj.insert(QString("a_objPhone"), ::OpenAPI::toJsonValue(m_a_obj_phone));
+        obj.insert(QString("a_objPhone"), ::Ezmaxapi::toJsonValue(m_a_obj_phone));
     }
     if (m_a_obj_email.size() > 0) {
-        obj.insert(QString("a_objEmail"), ::OpenAPI::toJsonValue(m_a_obj_email));
+        obj.insert(QString("a_objEmail"), ::Ezmaxapi::toJsonValue(m_a_obj_email));
     }
     if (m_a_obj_website.size() > 0) {
-        obj.insert(QString("a_objWebsite"), ::OpenAPI::toJsonValue(m_a_obj_website));
+        obj.insert(QString("a_objWebsite"), ::Ezmaxapi::toJsonValue(m_a_obj_website));
     }
     return obj;
 }
@@ -308,4 +308,4 @@ bool OAIContactinformations_RequestCompound::isValid() const {
     return m_i_address_default_isValid && m_i_phone_default_isValid && m_i_email_default_isValid && m_i_website_default_isValid && m_a_obj_address_isValid && m_a_obj_phone_isValid && m_a_obj_email_isValid && m_a_obj_website_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIPeriod_AutocompleteElement_Response::OAIPeriod_AutocompleteElement_Response(QString json) {
     this->initializeModel();
@@ -53,13 +53,13 @@ void OAIPeriod_AutocompleteElement_Response::fromJson(QString jsonString) {
 
 void OAIPeriod_AutocompleteElement_Response::fromJsonObject(QJsonObject json) {
 
-    m_s_period_yyyymm_isValid = ::OpenAPI::fromJsonValue(m_s_period_yyyymm, json[QString("sPeriodYYYYMM")]);
+    m_s_period_yyyymm_isValid = ::Ezmaxapi::fromJsonValue(m_s_period_yyyymm, json[QString("sPeriodYYYYMM")]);
     m_s_period_yyyymm_isSet = !json[QString("sPeriodYYYYMM")].isNull() && m_s_period_yyyymm_isValid;
 
-    m_pki_period_id_isValid = ::OpenAPI::fromJsonValue(m_pki_period_id, json[QString("pkiPeriodID")]);
+    m_pki_period_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_period_id, json[QString("pkiPeriodID")]);
     m_pki_period_id_isSet = !json[QString("pkiPeriodID")].isNull() && m_pki_period_id_isValid;
 
-    m_b_period_isactive_isValid = ::OpenAPI::fromJsonValue(m_b_period_isactive, json[QString("bPeriodIsactive")]);
+    m_b_period_isactive_isValid = ::Ezmaxapi::fromJsonValue(m_b_period_isactive, json[QString("bPeriodIsactive")]);
     m_b_period_isactive_isSet = !json[QString("bPeriodIsactive")].isNull() && m_b_period_isactive_isValid;
 }
 
@@ -73,13 +73,13 @@ QString OAIPeriod_AutocompleteElement_Response::asJson() const {
 QJsonObject OAIPeriod_AutocompleteElement_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_s_period_yyyymm_isSet) {
-        obj.insert(QString("sPeriodYYYYMM"), ::OpenAPI::toJsonValue(m_s_period_yyyymm));
+        obj.insert(QString("sPeriodYYYYMM"), ::Ezmaxapi::toJsonValue(m_s_period_yyyymm));
     }
     if (m_pki_period_id_isSet) {
-        obj.insert(QString("pkiPeriodID"), ::OpenAPI::toJsonValue(m_pki_period_id));
+        obj.insert(QString("pkiPeriodID"), ::Ezmaxapi::toJsonValue(m_pki_period_id));
     }
     if (m_b_period_isactive_isSet) {
-        obj.insert(QString("bPeriodIsactive"), ::OpenAPI::toJsonValue(m_b_period_isactive));
+        obj.insert(QString("bPeriodIsactive"), ::Ezmaxapi::toJsonValue(m_b_period_isactive));
     }
     return obj;
 }
@@ -158,4 +158,4 @@ bool OAIPeriod_AutocompleteElement_Response::isValid() const {
     return m_s_period_yyyymm_isValid && m_pki_period_id_isValid && m_b_period_isactive_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

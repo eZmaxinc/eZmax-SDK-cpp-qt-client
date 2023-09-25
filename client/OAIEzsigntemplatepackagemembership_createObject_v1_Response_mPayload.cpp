@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzsigntemplatepackagemembership_createObject_v1_Response_mPayload::OAIEzsigntemplatepackagemembership_createObject_v1_Response_mPayload(QString json) {
     this->initializeModel();
@@ -53,13 +53,13 @@ void OAIEzsigntemplatepackagemembership_createObject_v1_Response_mPayload::fromJ
 
 void OAIEzsigntemplatepackagemembership_createObject_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_pki_ezsigntemplatepackagemembership_id_isValid = ::OpenAPI::fromJsonValue(m_a_pki_ezsigntemplatepackagemembership_id, json[QString("a_pkiEzsigntemplatepackagemembershipID")]);
+    m_a_pki_ezsigntemplatepackagemembership_id_isValid = ::Ezmaxapi::fromJsonValue(m_a_pki_ezsigntemplatepackagemembership_id, json[QString("a_pkiEzsigntemplatepackagemembershipID")]);
     m_a_pki_ezsigntemplatepackagemembership_id_isSet = !json[QString("a_pkiEzsigntemplatepackagemembershipID")].isNull() && m_a_pki_ezsigntemplatepackagemembership_id_isValid;
 
-    m_b_ezsigntemplatepackage_needvalidation_isValid = ::OpenAPI::fromJsonValue(m_b_ezsigntemplatepackage_needvalidation, json[QString("bEzsigntemplatepackageNeedvalidation")]);
+    m_b_ezsigntemplatepackage_needvalidation_isValid = ::Ezmaxapi::fromJsonValue(m_b_ezsigntemplatepackage_needvalidation, json[QString("bEzsigntemplatepackageNeedvalidation")]);
     m_b_ezsigntemplatepackage_needvalidation_isSet = !json[QString("bEzsigntemplatepackageNeedvalidation")].isNull() && m_b_ezsigntemplatepackage_needvalidation_isValid;
 
-    m_b_ezsignbulksend_needvalidation_isValid = ::OpenAPI::fromJsonValue(m_b_ezsignbulksend_needvalidation, json[QString("bEzsignbulksendNeedvalidation")]);
+    m_b_ezsignbulksend_needvalidation_isValid = ::Ezmaxapi::fromJsonValue(m_b_ezsignbulksend_needvalidation, json[QString("bEzsignbulksendNeedvalidation")]);
     m_b_ezsignbulksend_needvalidation_isSet = !json[QString("bEzsignbulksendNeedvalidation")].isNull() && m_b_ezsignbulksend_needvalidation_isValid;
 }
 
@@ -73,13 +73,13 @@ QString OAIEzsigntemplatepackagemembership_createObject_v1_Response_mPayload::as
 QJsonObject OAIEzsigntemplatepackagemembership_createObject_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_a_pki_ezsigntemplatepackagemembership_id.size() > 0) {
-        obj.insert(QString("a_pkiEzsigntemplatepackagemembershipID"), ::OpenAPI::toJsonValue(m_a_pki_ezsigntemplatepackagemembership_id));
+        obj.insert(QString("a_pkiEzsigntemplatepackagemembershipID"), ::Ezmaxapi::toJsonValue(m_a_pki_ezsigntemplatepackagemembership_id));
     }
     if (m_b_ezsigntemplatepackage_needvalidation_isSet) {
-        obj.insert(QString("bEzsigntemplatepackageNeedvalidation"), ::OpenAPI::toJsonValue(m_b_ezsigntemplatepackage_needvalidation));
+        obj.insert(QString("bEzsigntemplatepackageNeedvalidation"), ::Ezmaxapi::toJsonValue(m_b_ezsigntemplatepackage_needvalidation));
     }
     if (m_b_ezsignbulksend_needvalidation_isSet) {
-        obj.insert(QString("bEzsignbulksendNeedvalidation"), ::OpenAPI::toJsonValue(m_b_ezsignbulksend_needvalidation));
+        obj.insert(QString("bEzsignbulksendNeedvalidation"), ::Ezmaxapi::toJsonValue(m_b_ezsignbulksend_needvalidation));
     }
     return obj;
 }
@@ -158,4 +158,4 @@ bool OAIEzsigntemplatepackagemembership_createObject_v1_Response_mPayload::isVal
     return m_a_pki_ezsigntemplatepackagemembership_id_isValid && m_b_ezsigntemplatepackage_needvalidation_isValid && m_b_ezsignbulksend_needvalidation_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

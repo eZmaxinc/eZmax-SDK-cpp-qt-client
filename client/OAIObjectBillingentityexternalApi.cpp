@@ -15,7 +15,7 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIObjectBillingentityexternalApi::OAIObjectBillingentityexternalApi(const int timeOut)
     : _timeOut(timeOut),
@@ -236,7 +236,7 @@ QString OAIObjectBillingentityexternalApi::getParamStyleDelimiter(const QString 
     }
 }
 
-void OAIObjectBillingentityexternalApi::billingentityexternalGetAutocompleteV2(const QString &s_selector, const ::OpenAPI::OptionalParam<QString> &e_filter_active, const ::OpenAPI::OptionalParam<QString> &s_query, const ::OpenAPI::OptionalParam<OAIHeader_Accept_Language> &accept_language) {
+void OAIObjectBillingentityexternalApi::billingentityexternalGetAutocompleteV2(const QString &s_selector, const ::Ezmaxapi::OptionalParam<QString> &e_filter_active, const ::Ezmaxapi::OptionalParam<QString> &s_query, const ::Ezmaxapi::OptionalParam<OAIHeader_Accept_Language> &accept_language) {
     QString fullPath = QString(_serverConfigs["billingentityexternalGetAutocompleteV2"][_serverIndices.value("billingentityexternalGetAutocompleteV2")].URL()+"/2/object/billingentityexternal/getAutocomplete/{sSelector}");
     
     if (_apiKeys.contains("Authorization")) {
@@ -255,7 +255,7 @@ void OAIObjectBillingentityexternalApi::billingentityexternalGetAutocompleteV2(c
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "sSelector", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"sSelector"+pathSuffix : pathPrefix;
-        fullPath.replace(s_selectorPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(s_selector)));
+        fullPath.replace(s_selectorPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_selector)));
     }
     QString queryPrefix, querySuffix, queryDelimiter, queryStyle;
     if (e_filter_active.hasValue())
@@ -271,7 +271,7 @@ void OAIObjectBillingentityexternalApi::billingentityexternalGetAutocompleteV2(c
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("eFilterActive")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(e_filter_active.value())));
+        fullPath.append(QUrl::toPercentEncoding("eFilterActive")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(e_filter_active.value())));
     }
     if (s_query.hasValue())
     {
@@ -286,7 +286,7 @@ void OAIObjectBillingentityexternalApi::billingentityexternalGetAutocompleteV2(c
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(s_query.value())));
+        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_query.value())));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -427,4 +427,4 @@ void OAIObjectBillingentityexternalApi::tokenAvailable(){
         break;
     }
 }
-} // namespace OpenAPI
+} // namespace Ezmaxapi

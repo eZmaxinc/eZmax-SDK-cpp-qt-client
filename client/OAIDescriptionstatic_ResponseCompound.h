@@ -26,7 +26,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIDescriptionstatic_ResponseCompound : public OAIObject {
 public:
@@ -64,8 +64,8 @@ private:
     bool m_s_descriptionstatic_description_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIDescriptionstatic_ResponseCompound)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIDescriptionstatic_ResponseCompound)
 
 #endif // OAIDescriptionstatic_ResponseCompound_H

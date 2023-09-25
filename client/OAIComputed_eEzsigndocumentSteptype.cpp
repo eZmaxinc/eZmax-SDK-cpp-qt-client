@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIComputed_eEzsigndocumentSteptype::OAIComputed_eEzsigndocumentSteptype(QString json) {
     this->initializeModel();
@@ -102,4 +102,4 @@ bool OAIComputed_eEzsigndocumentSteptype::isValid() const {
     return m_value_isValid;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

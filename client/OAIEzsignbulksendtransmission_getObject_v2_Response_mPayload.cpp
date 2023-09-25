@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzsignbulksendtransmission_getObject_v2_Response_mPayload::OAIEzsignbulksendtransmission_getObject_v2_Response_mPayload(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAIEzsignbulksendtransmission_getObject_v2_Response_mPayload::fromJson(QStr
 
 void OAIEzsignbulksendtransmission_getObject_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_obj_ezsignbulksendtransmission_isValid = ::OpenAPI::fromJsonValue(m_obj_ezsignbulksendtransmission, json[QString("objEzsignbulksendtransmission")]);
+    m_obj_ezsignbulksendtransmission_isValid = ::Ezmaxapi::fromJsonValue(m_obj_ezsignbulksendtransmission, json[QString("objEzsignbulksendtransmission")]);
     m_obj_ezsignbulksendtransmission_isSet = !json[QString("objEzsignbulksendtransmission")].isNull() && m_obj_ezsignbulksendtransmission_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAIEzsignbulksendtransmission_getObject_v2_Response_mPayload::asJson() c
 QJsonObject OAIEzsignbulksendtransmission_getObject_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_obj_ezsignbulksendtransmission.isSet()) {
-        obj.insert(QString("objEzsignbulksendtransmission"), ::OpenAPI::toJsonValue(m_obj_ezsignbulksendtransmission));
+        obj.insert(QString("objEzsignbulksendtransmission"), ::Ezmaxapi::toJsonValue(m_obj_ezsignbulksendtransmission));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAIEzsignbulksendtransmission_getObject_v2_Response_mPayload::isValid() con
     return m_obj_ezsignbulksendtransmission_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

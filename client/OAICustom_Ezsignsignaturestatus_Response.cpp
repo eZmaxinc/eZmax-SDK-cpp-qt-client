@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAICustom_Ezsignsignaturestatus_Response::OAICustom_Ezsignsignaturestatus_Response(QString json) {
     this->initializeModel();
@@ -56,16 +56,16 @@ void OAICustom_Ezsignsignaturestatus_Response::fromJson(QString jsonString) {
 
 void OAICustom_Ezsignsignaturestatus_Response::fromJsonObject(QJsonObject json) {
 
-    m_e_ezsignsignaturestatus_steptype_isValid = ::OpenAPI::fromJsonValue(m_e_ezsignsignaturestatus_steptype, json[QString("eEzsignsignaturestatusSteptype")]);
+    m_e_ezsignsignaturestatus_steptype_isValid = ::Ezmaxapi::fromJsonValue(m_e_ezsignsignaturestatus_steptype, json[QString("eEzsignsignaturestatusSteptype")]);
     m_e_ezsignsignaturestatus_steptype_isSet = !json[QString("eEzsignsignaturestatusSteptype")].isNull() && m_e_ezsignsignaturestatus_steptype_isValid;
 
-    m_i_ezsignsignaturestatus_step_isValid = ::OpenAPI::fromJsonValue(m_i_ezsignsignaturestatus_step, json[QString("iEzsignsignaturestatusStep")]);
+    m_i_ezsignsignaturestatus_step_isValid = ::Ezmaxapi::fromJsonValue(m_i_ezsignsignaturestatus_step, json[QString("iEzsignsignaturestatusStep")]);
     m_i_ezsignsignaturestatus_step_isSet = !json[QString("iEzsignsignaturestatusStep")].isNull() && m_i_ezsignsignaturestatus_step_isValid;
 
-    m_i_ezsignsignaturestatus_total_isValid = ::OpenAPI::fromJsonValue(m_i_ezsignsignaturestatus_total, json[QString("iEzsignsignaturestatusTotal")]);
+    m_i_ezsignsignaturestatus_total_isValid = ::Ezmaxapi::fromJsonValue(m_i_ezsignsignaturestatus_total, json[QString("iEzsignsignaturestatusTotal")]);
     m_i_ezsignsignaturestatus_total_isSet = !json[QString("iEzsignsignaturestatusTotal")].isNull() && m_i_ezsignsignaturestatus_total_isValid;
 
-    m_i_ezsignsignaturestatus_signed_isValid = ::OpenAPI::fromJsonValue(m_i_ezsignsignaturestatus_signed, json[QString("iEzsignsignaturestatusSigned")]);
+    m_i_ezsignsignaturestatus_signed_isValid = ::Ezmaxapi::fromJsonValue(m_i_ezsignsignaturestatus_signed, json[QString("iEzsignsignaturestatusSigned")]);
     m_i_ezsignsignaturestatus_signed_isSet = !json[QString("iEzsignsignaturestatusSigned")].isNull() && m_i_ezsignsignaturestatus_signed_isValid;
 }
 
@@ -79,16 +79,16 @@ QString OAICustom_Ezsignsignaturestatus_Response::asJson() const {
 QJsonObject OAICustom_Ezsignsignaturestatus_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_e_ezsignsignaturestatus_steptype_isSet) {
-        obj.insert(QString("eEzsignsignaturestatusSteptype"), ::OpenAPI::toJsonValue(m_e_ezsignsignaturestatus_steptype));
+        obj.insert(QString("eEzsignsignaturestatusSteptype"), ::Ezmaxapi::toJsonValue(m_e_ezsignsignaturestatus_steptype));
     }
     if (m_i_ezsignsignaturestatus_step_isSet) {
-        obj.insert(QString("iEzsignsignaturestatusStep"), ::OpenAPI::toJsonValue(m_i_ezsignsignaturestatus_step));
+        obj.insert(QString("iEzsignsignaturestatusStep"), ::Ezmaxapi::toJsonValue(m_i_ezsignsignaturestatus_step));
     }
     if (m_i_ezsignsignaturestatus_total_isSet) {
-        obj.insert(QString("iEzsignsignaturestatusTotal"), ::OpenAPI::toJsonValue(m_i_ezsignsignaturestatus_total));
+        obj.insert(QString("iEzsignsignaturestatusTotal"), ::Ezmaxapi::toJsonValue(m_i_ezsignsignaturestatus_total));
     }
     if (m_i_ezsignsignaturestatus_signed_isSet) {
-        obj.insert(QString("iEzsignsignaturestatusSigned"), ::OpenAPI::toJsonValue(m_i_ezsignsignaturestatus_signed));
+        obj.insert(QString("iEzsignsignaturestatusSigned"), ::Ezmaxapi::toJsonValue(m_i_ezsignsignaturestatus_signed));
     }
     return obj;
 }
@@ -188,4 +188,4 @@ bool OAICustom_Ezsignsignaturestatus_Response::isValid() const {
     return m_e_ezsignsignaturestatus_steptype_isValid && m_i_ezsignsignaturestatus_step_isValid && m_i_ezsignsignaturestatus_total_isValid && m_i_ezsignsignaturestatus_signed_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

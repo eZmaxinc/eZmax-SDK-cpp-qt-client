@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIPaymentterm_Response::OAIPaymentterm_Response(QString json) {
     this->initializeModel();
@@ -65,25 +65,25 @@ void OAIPaymentterm_Response::fromJson(QString jsonString) {
 
 void OAIPaymentterm_Response::fromJsonObject(QJsonObject json) {
 
-    m_pki_paymentterm_id_isValid = ::OpenAPI::fromJsonValue(m_pki_paymentterm_id, json[QString("pkiPaymenttermID")]);
+    m_pki_paymentterm_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_paymentterm_id, json[QString("pkiPaymenttermID")]);
     m_pki_paymentterm_id_isSet = !json[QString("pkiPaymenttermID")].isNull() && m_pki_paymentterm_id_isValid;
 
-    m_s_paymentterm_code_isValid = ::OpenAPI::fromJsonValue(m_s_paymentterm_code, json[QString("sPaymenttermCode")]);
+    m_s_paymentterm_code_isValid = ::Ezmaxapi::fromJsonValue(m_s_paymentterm_code, json[QString("sPaymenttermCode")]);
     m_s_paymentterm_code_isSet = !json[QString("sPaymenttermCode")].isNull() && m_s_paymentterm_code_isValid;
 
-    m_e_paymentterm_type_isValid = ::OpenAPI::fromJsonValue(m_e_paymentterm_type, json[QString("ePaymenttermType")]);
+    m_e_paymentterm_type_isValid = ::Ezmaxapi::fromJsonValue(m_e_paymentterm_type, json[QString("ePaymenttermType")]);
     m_e_paymentterm_type_isSet = !json[QString("ePaymenttermType")].isNull() && m_e_paymentterm_type_isValid;
 
-    m_i_paymentterm_day_isValid = ::OpenAPI::fromJsonValue(m_i_paymentterm_day, json[QString("iPaymenttermDay")]);
+    m_i_paymentterm_day_isValid = ::Ezmaxapi::fromJsonValue(m_i_paymentterm_day, json[QString("iPaymenttermDay")]);
     m_i_paymentterm_day_isSet = !json[QString("iPaymenttermDay")].isNull() && m_i_paymentterm_day_isValid;
 
-    m_obj_paymentterm_description_isValid = ::OpenAPI::fromJsonValue(m_obj_paymentterm_description, json[QString("objPaymenttermDescription")]);
+    m_obj_paymentterm_description_isValid = ::Ezmaxapi::fromJsonValue(m_obj_paymentterm_description, json[QString("objPaymenttermDescription")]);
     m_obj_paymentterm_description_isSet = !json[QString("objPaymenttermDescription")].isNull() && m_obj_paymentterm_description_isValid;
 
-    m_b_paymentterm_isactive_isValid = ::OpenAPI::fromJsonValue(m_b_paymentterm_isactive, json[QString("bPaymenttermIsactive")]);
+    m_b_paymentterm_isactive_isValid = ::Ezmaxapi::fromJsonValue(m_b_paymentterm_isactive, json[QString("bPaymenttermIsactive")]);
     m_b_paymentterm_isactive_isSet = !json[QString("bPaymenttermIsactive")].isNull() && m_b_paymentterm_isactive_isValid;
 
-    m_obj_audit_isValid = ::OpenAPI::fromJsonValue(m_obj_audit, json[QString("objAudit")]);
+    m_obj_audit_isValid = ::Ezmaxapi::fromJsonValue(m_obj_audit, json[QString("objAudit")]);
     m_obj_audit_isSet = !json[QString("objAudit")].isNull() && m_obj_audit_isValid;
 }
 
@@ -97,25 +97,25 @@ QString OAIPaymentterm_Response::asJson() const {
 QJsonObject OAIPaymentterm_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_paymentterm_id_isSet) {
-        obj.insert(QString("pkiPaymenttermID"), ::OpenAPI::toJsonValue(m_pki_paymentterm_id));
+        obj.insert(QString("pkiPaymenttermID"), ::Ezmaxapi::toJsonValue(m_pki_paymentterm_id));
     }
     if (m_s_paymentterm_code_isSet) {
-        obj.insert(QString("sPaymenttermCode"), ::OpenAPI::toJsonValue(m_s_paymentterm_code));
+        obj.insert(QString("sPaymenttermCode"), ::Ezmaxapi::toJsonValue(m_s_paymentterm_code));
     }
     if (m_e_paymentterm_type.isSet()) {
-        obj.insert(QString("ePaymenttermType"), ::OpenAPI::toJsonValue(m_e_paymentterm_type));
+        obj.insert(QString("ePaymenttermType"), ::Ezmaxapi::toJsonValue(m_e_paymentterm_type));
     }
     if (m_i_paymentterm_day_isSet) {
-        obj.insert(QString("iPaymenttermDay"), ::OpenAPI::toJsonValue(m_i_paymentterm_day));
+        obj.insert(QString("iPaymenttermDay"), ::Ezmaxapi::toJsonValue(m_i_paymentterm_day));
     }
     if (m_obj_paymentterm_description.isSet()) {
-        obj.insert(QString("objPaymenttermDescription"), ::OpenAPI::toJsonValue(m_obj_paymentterm_description));
+        obj.insert(QString("objPaymenttermDescription"), ::Ezmaxapi::toJsonValue(m_obj_paymentterm_description));
     }
     if (m_b_paymentterm_isactive_isSet) {
-        obj.insert(QString("bPaymenttermIsactive"), ::OpenAPI::toJsonValue(m_b_paymentterm_isactive));
+        obj.insert(QString("bPaymenttermIsactive"), ::Ezmaxapi::toJsonValue(m_b_paymentterm_isactive));
     }
     if (m_obj_audit.isSet()) {
-        obj.insert(QString("objAudit"), ::OpenAPI::toJsonValue(m_obj_audit));
+        obj.insert(QString("objAudit"), ::Ezmaxapi::toJsonValue(m_obj_audit));
     }
     return obj;
 }
@@ -278,4 +278,4 @@ bool OAIPaymentterm_Response::isValid() const {
     return m_pki_paymentterm_id_isValid && m_s_paymentterm_code_isValid && m_e_paymentterm_type_isValid && m_i_paymentterm_day_isValid && m_obj_paymentterm_description_isValid && m_b_paymentterm_isactive_isValid && m_obj_audit_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

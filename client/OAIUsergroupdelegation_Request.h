@@ -25,7 +25,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIUsergroupdelegation_Request : public OAIObject {
 public:
@@ -72,8 +72,8 @@ private:
     bool m_fki_user_id_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIUsergroupdelegation_Request)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIUsergroupdelegation_Request)
 
 #endif // OAIUsergroupdelegation_Request_H

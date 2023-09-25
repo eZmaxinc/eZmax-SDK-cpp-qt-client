@@ -28,7 +28,7 @@
 #include <QList>
 #include <QNetworkAccessManager>
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIScimUsersApi : public QObject {
     Q_OBJECT
@@ -77,7 +77,7 @@ public:
     /**
     * @param[in]  filter QString [optional]
     */
-    void usersGetListScimV2(const ::OpenAPI::OptionalParam<QString> &filter = ::OpenAPI::OptionalParam<QString>());
+    void usersGetListScimV2(const ::Ezmaxapi::OptionalParam<QString> &filter = ::Ezmaxapi::OptionalParam<QString>());
 
     /**
     * @param[in]  user_id QString [required]
@@ -147,5 +147,5 @@ public slots:
     
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 #endif

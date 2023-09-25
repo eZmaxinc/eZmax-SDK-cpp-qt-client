@@ -26,7 +26,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIEzsignsignatureattachment_Response : public OAIObject {
 public:
@@ -91,8 +91,8 @@ private:
     bool m_s_download_url_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIEzsignsignatureattachment_Response)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIEzsignsignatureattachment_Response)
 
 #endif // OAIEzsignsignatureattachment_Response_H

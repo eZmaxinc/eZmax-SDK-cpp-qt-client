@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIWebhook_createObject_v1_Request::OAIWebhook_createObject_v1_Request(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAIWebhook_createObject_v1_Request::fromJson(QString jsonString) {
 
 void OAIWebhook_createObject_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_webhook_isValid = ::OpenAPI::fromJsonValue(m_a_obj_webhook, json[QString("a_objWebhook")]);
+    m_a_obj_webhook_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_webhook, json[QString("a_objWebhook")]);
     m_a_obj_webhook_isSet = !json[QString("a_objWebhook")].isNull() && m_a_obj_webhook_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAIWebhook_createObject_v1_Request::asJson() const {
 QJsonObject OAIWebhook_createObject_v1_Request::asJsonObject() const {
     QJsonObject obj;
     if (m_a_obj_webhook.size() > 0) {
-        obj.insert(QString("a_objWebhook"), ::OpenAPI::toJsonValue(m_a_obj_webhook));
+        obj.insert(QString("a_objWebhook"), ::Ezmaxapi::toJsonValue(m_a_obj_webhook));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAIWebhook_createObject_v1_Request::isValid() const {
     return m_a_obj_webhook_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

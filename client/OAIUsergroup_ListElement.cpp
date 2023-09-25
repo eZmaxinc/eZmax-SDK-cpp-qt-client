@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIUsergroup_ListElement::OAIUsergroup_ListElement(QString json) {
     this->initializeModel();
@@ -53,13 +53,13 @@ void OAIUsergroup_ListElement::fromJson(QString jsonString) {
 
 void OAIUsergroup_ListElement::fromJsonObject(QJsonObject json) {
 
-    m_pki_usergroup_id_isValid = ::OpenAPI::fromJsonValue(m_pki_usergroup_id, json[QString("pkiUsergroupID")]);
+    m_pki_usergroup_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_usergroup_id, json[QString("pkiUsergroupID")]);
     m_pki_usergroup_id_isSet = !json[QString("pkiUsergroupID")].isNull() && m_pki_usergroup_id_isValid;
 
-    m_s_usergroup_name_x_isValid = ::OpenAPI::fromJsonValue(m_s_usergroup_name_x, json[QString("sUsergroupNameX")]);
+    m_s_usergroup_name_x_isValid = ::Ezmaxapi::fromJsonValue(m_s_usergroup_name_x, json[QString("sUsergroupNameX")]);
     m_s_usergroup_name_x_isSet = !json[QString("sUsergroupNameX")].isNull() && m_s_usergroup_name_x_isValid;
 
-    m_i_count_user_isValid = ::OpenAPI::fromJsonValue(m_i_count_user, json[QString("iCountUser")]);
+    m_i_count_user_isValid = ::Ezmaxapi::fromJsonValue(m_i_count_user, json[QString("iCountUser")]);
     m_i_count_user_isSet = !json[QString("iCountUser")].isNull() && m_i_count_user_isValid;
 }
 
@@ -73,13 +73,13 @@ QString OAIUsergroup_ListElement::asJson() const {
 QJsonObject OAIUsergroup_ListElement::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_usergroup_id_isSet) {
-        obj.insert(QString("pkiUsergroupID"), ::OpenAPI::toJsonValue(m_pki_usergroup_id));
+        obj.insert(QString("pkiUsergroupID"), ::Ezmaxapi::toJsonValue(m_pki_usergroup_id));
     }
     if (m_s_usergroup_name_x_isSet) {
-        obj.insert(QString("sUsergroupNameX"), ::OpenAPI::toJsonValue(m_s_usergroup_name_x));
+        obj.insert(QString("sUsergroupNameX"), ::Ezmaxapi::toJsonValue(m_s_usergroup_name_x));
     }
     if (m_i_count_user_isSet) {
-        obj.insert(QString("iCountUser"), ::OpenAPI::toJsonValue(m_i_count_user));
+        obj.insert(QString("iCountUser"), ::Ezmaxapi::toJsonValue(m_i_count_user));
     }
     return obj;
 }
@@ -158,4 +158,4 @@ bool OAIUsergroup_ListElement::isValid() const {
     return m_pki_usergroup_id_isValid && m_s_usergroup_name_x_isValid && m_i_count_user_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

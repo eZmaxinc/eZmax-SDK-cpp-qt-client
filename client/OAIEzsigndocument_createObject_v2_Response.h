@@ -28,7 +28,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 class OAICommon_Response_objDebugPayload;
 class OAICommon_Response_objDebug;
 class OAIEzsigndocument_createObject_v2_Response_mPayload;
@@ -78,8 +78,8 @@ private:
     bool m_m_payload_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIEzsigndocument_createObject_v2_Response)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIEzsigndocument_createObject_v2_Response)
 
 #endif // OAIEzsigndocument_createObject_v2_Response_H

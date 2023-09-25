@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIWebhook_Ezsign_EzsignsignerConnect::OAIWebhook_Ezsign_EzsignsignerConnect(QString json) {
     this->initializeModel();
@@ -56,16 +56,16 @@ void OAIWebhook_Ezsign_EzsignsignerConnect::fromJson(QString jsonString) {
 
 void OAIWebhook_Ezsign_EzsignsignerConnect::fromJsonObject(QJsonObject json) {
 
-    m_obj_webhook_isValid = ::OpenAPI::fromJsonValue(m_obj_webhook, json[QString("objWebhook")]);
+    m_obj_webhook_isValid = ::Ezmaxapi::fromJsonValue(m_obj_webhook, json[QString("objWebhook")]);
     m_obj_webhook_isSet = !json[QString("objWebhook")].isNull() && m_obj_webhook_isValid;
 
-    m_a_obj_attempt_isValid = ::OpenAPI::fromJsonValue(m_a_obj_attempt, json[QString("a_objAttempt")]);
+    m_a_obj_attempt_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_attempt, json[QString("a_objAttempt")]);
     m_a_obj_attempt_isSet = !json[QString("a_objAttempt")].isNull() && m_a_obj_attempt_isValid;
 
-    m_obj_ezsignfolder_isValid = ::OpenAPI::fromJsonValue(m_obj_ezsignfolder, json[QString("objEzsignfolder")]);
+    m_obj_ezsignfolder_isValid = ::Ezmaxapi::fromJsonValue(m_obj_ezsignfolder, json[QString("objEzsignfolder")]);
     m_obj_ezsignfolder_isSet = !json[QString("objEzsignfolder")].isNull() && m_obj_ezsignfolder_isValid;
 
-    m_obj_ezsignfoldersignerassociation_isValid = ::OpenAPI::fromJsonValue(m_obj_ezsignfoldersignerassociation, json[QString("objEzsignfoldersignerassociation")]);
+    m_obj_ezsignfoldersignerassociation_isValid = ::Ezmaxapi::fromJsonValue(m_obj_ezsignfoldersignerassociation, json[QString("objEzsignfoldersignerassociation")]);
     m_obj_ezsignfoldersignerassociation_isSet = !json[QString("objEzsignfoldersignerassociation")].isNull() && m_obj_ezsignfoldersignerassociation_isValid;
 }
 
@@ -79,16 +79,16 @@ QString OAIWebhook_Ezsign_EzsignsignerConnect::asJson() const {
 QJsonObject OAIWebhook_Ezsign_EzsignsignerConnect::asJsonObject() const {
     QJsonObject obj;
     if (m_obj_webhook.isSet()) {
-        obj.insert(QString("objWebhook"), ::OpenAPI::toJsonValue(m_obj_webhook));
+        obj.insert(QString("objWebhook"), ::Ezmaxapi::toJsonValue(m_obj_webhook));
     }
     if (m_a_obj_attempt.size() > 0) {
-        obj.insert(QString("a_objAttempt"), ::OpenAPI::toJsonValue(m_a_obj_attempt));
+        obj.insert(QString("a_objAttempt"), ::Ezmaxapi::toJsonValue(m_a_obj_attempt));
     }
     if (m_obj_ezsignfolder.isSet()) {
-        obj.insert(QString("objEzsignfolder"), ::OpenAPI::toJsonValue(m_obj_ezsignfolder));
+        obj.insert(QString("objEzsignfolder"), ::Ezmaxapi::toJsonValue(m_obj_ezsignfolder));
     }
     if (m_obj_ezsignfoldersignerassociation.isSet()) {
-        obj.insert(QString("objEzsignfoldersignerassociation"), ::OpenAPI::toJsonValue(m_obj_ezsignfoldersignerassociation));
+        obj.insert(QString("objEzsignfoldersignerassociation"), ::Ezmaxapi::toJsonValue(m_obj_ezsignfoldersignerassociation));
     }
     return obj;
 }
@@ -188,4 +188,4 @@ bool OAIWebhook_Ezsign_EzsignsignerConnect::isValid() const {
     return m_obj_webhook_isValid && m_a_obj_attempt_isValid && m_obj_ezsignfoldersignerassociation_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIScim_User::OAIScim_User(QString json) {
     this->initializeModel();
@@ -56,16 +56,16 @@ void OAIScim_User::fromJson(QString jsonString) {
 
 void OAIScim_User::fromJsonObject(QJsonObject json) {
 
-    m_id_isValid = ::OpenAPI::fromJsonValue(m_id, json[QString("id")]);
+    m_id_isValid = ::Ezmaxapi::fromJsonValue(m_id, json[QString("id")]);
     m_id_isSet = !json[QString("id")].isNull() && m_id_isValid;
 
-    m_user_name_isValid = ::OpenAPI::fromJsonValue(m_user_name, json[QString("userName")]);
+    m_user_name_isValid = ::Ezmaxapi::fromJsonValue(m_user_name, json[QString("userName")]);
     m_user_name_isSet = !json[QString("userName")].isNull() && m_user_name_isValid;
 
-    m_display_name_isValid = ::OpenAPI::fromJsonValue(m_display_name, json[QString("displayName")]);
+    m_display_name_isValid = ::Ezmaxapi::fromJsonValue(m_display_name, json[QString("displayName")]);
     m_display_name_isSet = !json[QString("displayName")].isNull() && m_display_name_isValid;
 
-    m_emails_isValid = ::OpenAPI::fromJsonValue(m_emails, json[QString("emails")]);
+    m_emails_isValid = ::Ezmaxapi::fromJsonValue(m_emails, json[QString("emails")]);
     m_emails_isSet = !json[QString("emails")].isNull() && m_emails_isValid;
 }
 
@@ -79,16 +79,16 @@ QString OAIScim_User::asJson() const {
 QJsonObject OAIScim_User::asJsonObject() const {
     QJsonObject obj;
     if (m_id_isSet) {
-        obj.insert(QString("id"), ::OpenAPI::toJsonValue(m_id));
+        obj.insert(QString("id"), ::Ezmaxapi::toJsonValue(m_id));
     }
     if (m_user_name_isSet) {
-        obj.insert(QString("userName"), ::OpenAPI::toJsonValue(m_user_name));
+        obj.insert(QString("userName"), ::Ezmaxapi::toJsonValue(m_user_name));
     }
     if (m_display_name_isSet) {
-        obj.insert(QString("displayName"), ::OpenAPI::toJsonValue(m_display_name));
+        obj.insert(QString("displayName"), ::Ezmaxapi::toJsonValue(m_display_name));
     }
     if (m_emails.size() > 0) {
-        obj.insert(QString("emails"), ::OpenAPI::toJsonValue(m_emails));
+        obj.insert(QString("emails"), ::Ezmaxapi::toJsonValue(m_emails));
     }
     return obj;
 }
@@ -188,4 +188,4 @@ bool OAIScim_User::isValid() const {
     return m_user_name_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

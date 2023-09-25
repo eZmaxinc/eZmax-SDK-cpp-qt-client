@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAICommon_Response_objDebugPayload::OAICommon_Response_objDebugPayload(QString json) {
     this->initializeModel();
@@ -56,16 +56,16 @@ void OAICommon_Response_objDebugPayload::fromJson(QString jsonString) {
 
 void OAICommon_Response_objDebugPayload::fromJsonObject(QJsonObject json) {
 
-    m_i_version_min_isValid = ::OpenAPI::fromJsonValue(m_i_version_min, json[QString("iVersionMin")]);
+    m_i_version_min_isValid = ::Ezmaxapi::fromJsonValue(m_i_version_min, json[QString("iVersionMin")]);
     m_i_version_min_isSet = !json[QString("iVersionMin")].isNull() && m_i_version_min_isValid;
 
-    m_i_version_max_isValid = ::OpenAPI::fromJsonValue(m_i_version_max, json[QString("iVersionMax")]);
+    m_i_version_max_isValid = ::Ezmaxapi::fromJsonValue(m_i_version_max, json[QString("iVersionMax")]);
     m_i_version_max_isSet = !json[QString("iVersionMax")].isNull() && m_i_version_max_isValid;
 
-    m_a_required_permission_isValid = ::OpenAPI::fromJsonValue(m_a_required_permission, json[QString("a_RequiredPermission")]);
+    m_a_required_permission_isValid = ::Ezmaxapi::fromJsonValue(m_a_required_permission, json[QString("a_RequiredPermission")]);
     m_a_required_permission_isSet = !json[QString("a_RequiredPermission")].isNull() && m_a_required_permission_isValid;
 
-    m_b_version_deprecated_isValid = ::OpenAPI::fromJsonValue(m_b_version_deprecated, json[QString("bVersionDeprecated")]);
+    m_b_version_deprecated_isValid = ::Ezmaxapi::fromJsonValue(m_b_version_deprecated, json[QString("bVersionDeprecated")]);
     m_b_version_deprecated_isSet = !json[QString("bVersionDeprecated")].isNull() && m_b_version_deprecated_isValid;
 }
 
@@ -79,16 +79,16 @@ QString OAICommon_Response_objDebugPayload::asJson() const {
 QJsonObject OAICommon_Response_objDebugPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_i_version_min_isSet) {
-        obj.insert(QString("iVersionMin"), ::OpenAPI::toJsonValue(m_i_version_min));
+        obj.insert(QString("iVersionMin"), ::Ezmaxapi::toJsonValue(m_i_version_min));
     }
     if (m_i_version_max_isSet) {
-        obj.insert(QString("iVersionMax"), ::OpenAPI::toJsonValue(m_i_version_max));
+        obj.insert(QString("iVersionMax"), ::Ezmaxapi::toJsonValue(m_i_version_max));
     }
     if (m_a_required_permission.size() > 0) {
-        obj.insert(QString("a_RequiredPermission"), ::OpenAPI::toJsonValue(m_a_required_permission));
+        obj.insert(QString("a_RequiredPermission"), ::Ezmaxapi::toJsonValue(m_a_required_permission));
     }
     if (m_b_version_deprecated_isSet) {
-        obj.insert(QString("bVersionDeprecated"), ::OpenAPI::toJsonValue(m_b_version_deprecated));
+        obj.insert(QString("bVersionDeprecated"), ::Ezmaxapi::toJsonValue(m_b_version_deprecated));
     }
     return obj;
 }
@@ -188,4 +188,4 @@ bool OAICommon_Response_objDebugPayload::isValid() const {
     return m_i_version_min_isValid && m_i_version_max_isValid && m_a_required_permission_isValid && m_b_version_deprecated_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

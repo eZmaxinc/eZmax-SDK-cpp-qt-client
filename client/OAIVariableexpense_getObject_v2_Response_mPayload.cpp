@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIVariableexpense_getObject_v2_Response_mPayload::OAIVariableexpense_getObject_v2_Response_mPayload(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAIVariableexpense_getObject_v2_Response_mPayload::fromJson(QString jsonStr
 
 void OAIVariableexpense_getObject_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_obj_variableexpense_isValid = ::OpenAPI::fromJsonValue(m_obj_variableexpense, json[QString("objVariableexpense")]);
+    m_obj_variableexpense_isValid = ::Ezmaxapi::fromJsonValue(m_obj_variableexpense, json[QString("objVariableexpense")]);
     m_obj_variableexpense_isSet = !json[QString("objVariableexpense")].isNull() && m_obj_variableexpense_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAIVariableexpense_getObject_v2_Response_mPayload::asJson() const {
 QJsonObject OAIVariableexpense_getObject_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_obj_variableexpense.isSet()) {
-        obj.insert(QString("objVariableexpense"), ::OpenAPI::toJsonValue(m_obj_variableexpense));
+        obj.insert(QString("objVariableexpense"), ::Ezmaxapi::toJsonValue(m_obj_variableexpense));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAIVariableexpense_getObject_v2_Response_mPayload::isValid() const {
     return m_obj_variableexpense_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

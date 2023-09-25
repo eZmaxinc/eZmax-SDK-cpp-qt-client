@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIUser_ListElement::OAIUser_ListElement(QString json) {
     this->initializeModel();
@@ -74,34 +74,34 @@ void OAIUser_ListElement::fromJson(QString jsonString) {
 
 void OAIUser_ListElement::fromJsonObject(QJsonObject json) {
 
-    m_pki_user_id_isValid = ::OpenAPI::fromJsonValue(m_pki_user_id, json[QString("pkiUserID")]);
+    m_pki_user_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_user_id, json[QString("pkiUserID")]);
     m_pki_user_id_isSet = !json[QString("pkiUserID")].isNull() && m_pki_user_id_isValid;
 
-    m_s_user_firstname_isValid = ::OpenAPI::fromJsonValue(m_s_user_firstname, json[QString("sUserFirstname")]);
+    m_s_user_firstname_isValid = ::Ezmaxapi::fromJsonValue(m_s_user_firstname, json[QString("sUserFirstname")]);
     m_s_user_firstname_isSet = !json[QString("sUserFirstname")].isNull() && m_s_user_firstname_isValid;
 
-    m_s_user_lastname_isValid = ::OpenAPI::fromJsonValue(m_s_user_lastname, json[QString("sUserLastname")]);
+    m_s_user_lastname_isValid = ::Ezmaxapi::fromJsonValue(m_s_user_lastname, json[QString("sUserLastname")]);
     m_s_user_lastname_isSet = !json[QString("sUserLastname")].isNull() && m_s_user_lastname_isValid;
 
-    m_s_user_loginname_isValid = ::OpenAPI::fromJsonValue(m_s_user_loginname, json[QString("sUserLoginname")]);
+    m_s_user_loginname_isValid = ::Ezmaxapi::fromJsonValue(m_s_user_loginname, json[QString("sUserLoginname")]);
     m_s_user_loginname_isSet = !json[QString("sUserLoginname")].isNull() && m_s_user_loginname_isValid;
 
-    m_b_user_isactive_isValid = ::OpenAPI::fromJsonValue(m_b_user_isactive, json[QString("bUserIsactive")]);
+    m_b_user_isactive_isValid = ::Ezmaxapi::fromJsonValue(m_b_user_isactive, json[QString("bUserIsactive")]);
     m_b_user_isactive_isSet = !json[QString("bUserIsactive")].isNull() && m_b_user_isactive_isValid;
 
-    m_e_user_type_isValid = ::OpenAPI::fromJsonValue(m_e_user_type, json[QString("eUserType")]);
+    m_e_user_type_isValid = ::Ezmaxapi::fromJsonValue(m_e_user_type, json[QString("eUserType")]);
     m_e_user_type_isSet = !json[QString("eUserType")].isNull() && m_e_user_type_isValid;
 
-    m_e_user_origin_isValid = ::OpenAPI::fromJsonValue(m_e_user_origin, json[QString("eUserOrigin")]);
+    m_e_user_origin_isValid = ::Ezmaxapi::fromJsonValue(m_e_user_origin, json[QString("eUserOrigin")]);
     m_e_user_origin_isSet = !json[QString("eUserOrigin")].isNull() && m_e_user_origin_isValid;
 
-    m_e_user_ezsignaccess_isValid = ::OpenAPI::fromJsonValue(m_e_user_ezsignaccess, json[QString("eUserEzsignaccess")]);
+    m_e_user_ezsignaccess_isValid = ::Ezmaxapi::fromJsonValue(m_e_user_ezsignaccess, json[QString("eUserEzsignaccess")]);
     m_e_user_ezsignaccess_isSet = !json[QString("eUserEzsignaccess")].isNull() && m_e_user_ezsignaccess_isValid;
 
-    m_dt_user_ezsignprepaidexpiration_isValid = ::OpenAPI::fromJsonValue(m_dt_user_ezsignprepaidexpiration, json[QString("dtUserEzsignprepaidexpiration")]);
+    m_dt_user_ezsignprepaidexpiration_isValid = ::Ezmaxapi::fromJsonValue(m_dt_user_ezsignprepaidexpiration, json[QString("dtUserEzsignprepaidexpiration")]);
     m_dt_user_ezsignprepaidexpiration_isSet = !json[QString("dtUserEzsignprepaidexpiration")].isNull() && m_dt_user_ezsignprepaidexpiration_isValid;
 
-    m_s_email_address_isValid = ::OpenAPI::fromJsonValue(m_s_email_address, json[QString("sEmailAddress")]);
+    m_s_email_address_isValid = ::Ezmaxapi::fromJsonValue(m_s_email_address, json[QString("sEmailAddress")]);
     m_s_email_address_isSet = !json[QString("sEmailAddress")].isNull() && m_s_email_address_isValid;
 }
 
@@ -115,34 +115,34 @@ QString OAIUser_ListElement::asJson() const {
 QJsonObject OAIUser_ListElement::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_user_id_isSet) {
-        obj.insert(QString("pkiUserID"), ::OpenAPI::toJsonValue(m_pki_user_id));
+        obj.insert(QString("pkiUserID"), ::Ezmaxapi::toJsonValue(m_pki_user_id));
     }
     if (m_s_user_firstname_isSet) {
-        obj.insert(QString("sUserFirstname"), ::OpenAPI::toJsonValue(m_s_user_firstname));
+        obj.insert(QString("sUserFirstname"), ::Ezmaxapi::toJsonValue(m_s_user_firstname));
     }
     if (m_s_user_lastname_isSet) {
-        obj.insert(QString("sUserLastname"), ::OpenAPI::toJsonValue(m_s_user_lastname));
+        obj.insert(QString("sUserLastname"), ::Ezmaxapi::toJsonValue(m_s_user_lastname));
     }
     if (m_s_user_loginname_isSet) {
-        obj.insert(QString("sUserLoginname"), ::OpenAPI::toJsonValue(m_s_user_loginname));
+        obj.insert(QString("sUserLoginname"), ::Ezmaxapi::toJsonValue(m_s_user_loginname));
     }
     if (m_b_user_isactive_isSet) {
-        obj.insert(QString("bUserIsactive"), ::OpenAPI::toJsonValue(m_b_user_isactive));
+        obj.insert(QString("bUserIsactive"), ::Ezmaxapi::toJsonValue(m_b_user_isactive));
     }
     if (m_e_user_type.isSet()) {
-        obj.insert(QString("eUserType"), ::OpenAPI::toJsonValue(m_e_user_type));
+        obj.insert(QString("eUserType"), ::Ezmaxapi::toJsonValue(m_e_user_type));
     }
     if (m_e_user_origin.isSet()) {
-        obj.insert(QString("eUserOrigin"), ::OpenAPI::toJsonValue(m_e_user_origin));
+        obj.insert(QString("eUserOrigin"), ::Ezmaxapi::toJsonValue(m_e_user_origin));
     }
     if (m_e_user_ezsignaccess.isSet()) {
-        obj.insert(QString("eUserEzsignaccess"), ::OpenAPI::toJsonValue(m_e_user_ezsignaccess));
+        obj.insert(QString("eUserEzsignaccess"), ::Ezmaxapi::toJsonValue(m_e_user_ezsignaccess));
     }
     if (m_dt_user_ezsignprepaidexpiration_isSet) {
-        obj.insert(QString("dtUserEzsignprepaidexpiration"), ::OpenAPI::toJsonValue(m_dt_user_ezsignprepaidexpiration));
+        obj.insert(QString("dtUserEzsignprepaidexpiration"), ::Ezmaxapi::toJsonValue(m_dt_user_ezsignprepaidexpiration));
     }
     if (m_s_email_address_isSet) {
-        obj.insert(QString("sEmailAddress"), ::OpenAPI::toJsonValue(m_s_email_address));
+        obj.insert(QString("sEmailAddress"), ::Ezmaxapi::toJsonValue(m_s_email_address));
     }
     return obj;
 }
@@ -368,4 +368,4 @@ bool OAIUser_ListElement::isValid() const {
     return m_pki_user_id_isValid && m_s_user_firstname_isValid && m_s_user_lastname_isValid && m_s_user_loginname_isValid && m_b_user_isactive_isValid && m_e_user_type_isValid && m_e_user_origin_isValid && m_e_user_ezsignaccess_isValid && m_s_email_address_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

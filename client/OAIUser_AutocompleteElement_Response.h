@@ -27,7 +27,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIUser_AutocompleteElement_Response : public OAIObject {
 public:
@@ -83,8 +83,8 @@ private:
     bool m_b_user_isactive_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIUser_AutocompleteElement_Response)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIUser_AutocompleteElement_Response)
 
 #endif // OAIUser_AutocompleteElement_Response_H

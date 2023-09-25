@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzsignsigner_ResponseCompound_Contact::OAIEzsignsigner_ResponseCompound_Contact(QString json) {
     this->initializeModel();
@@ -68,28 +68,28 @@ void OAIEzsignsigner_ResponseCompound_Contact::fromJson(QString jsonString) {
 
 void OAIEzsignsigner_ResponseCompound_Contact::fromJsonObject(QJsonObject json) {
 
-    m_pki_contact_id_isValid = ::OpenAPI::fromJsonValue(m_pki_contact_id, json[QString("pkiContactID")]);
+    m_pki_contact_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_contact_id, json[QString("pkiContactID")]);
     m_pki_contact_id_isSet = !json[QString("pkiContactID")].isNull() && m_pki_contact_id_isValid;
 
-    m_s_contact_firstname_isValid = ::OpenAPI::fromJsonValue(m_s_contact_firstname, json[QString("sContactFirstname")]);
+    m_s_contact_firstname_isValid = ::Ezmaxapi::fromJsonValue(m_s_contact_firstname, json[QString("sContactFirstname")]);
     m_s_contact_firstname_isSet = !json[QString("sContactFirstname")].isNull() && m_s_contact_firstname_isValid;
 
-    m_s_contact_lastname_isValid = ::OpenAPI::fromJsonValue(m_s_contact_lastname, json[QString("sContactLastname")]);
+    m_s_contact_lastname_isValid = ::Ezmaxapi::fromJsonValue(m_s_contact_lastname, json[QString("sContactLastname")]);
     m_s_contact_lastname_isSet = !json[QString("sContactLastname")].isNull() && m_s_contact_lastname_isValid;
 
-    m_fki_language_id_isValid = ::OpenAPI::fromJsonValue(m_fki_language_id, json[QString("fkiLanguageID")]);
+    m_fki_language_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_language_id, json[QString("fkiLanguageID")]);
     m_fki_language_id_isSet = !json[QString("fkiLanguageID")].isNull() && m_fki_language_id_isValid;
 
-    m_s_email_address_isValid = ::OpenAPI::fromJsonValue(m_s_email_address, json[QString("sEmailAddress")]);
+    m_s_email_address_isValid = ::Ezmaxapi::fromJsonValue(m_s_email_address, json[QString("sEmailAddress")]);
     m_s_email_address_isSet = !json[QString("sEmailAddress")].isNull() && m_s_email_address_isValid;
 
-    m_s_phone_e164_isValid = ::OpenAPI::fromJsonValue(m_s_phone_e164, json[QString("sPhoneE164")]);
+    m_s_phone_e164_isValid = ::Ezmaxapi::fromJsonValue(m_s_phone_e164, json[QString("sPhoneE164")]);
     m_s_phone_e164_isSet = !json[QString("sPhoneE164")].isNull() && m_s_phone_e164_isValid;
 
-    m_s_phone_extension_isValid = ::OpenAPI::fromJsonValue(m_s_phone_extension, json[QString("sPhoneExtension")]);
+    m_s_phone_extension_isValid = ::Ezmaxapi::fromJsonValue(m_s_phone_extension, json[QString("sPhoneExtension")]);
     m_s_phone_extension_isSet = !json[QString("sPhoneExtension")].isNull() && m_s_phone_extension_isValid;
 
-    m_s_phone_e164_cell_isValid = ::OpenAPI::fromJsonValue(m_s_phone_e164_cell, json[QString("sPhoneE164Cell")]);
+    m_s_phone_e164_cell_isValid = ::Ezmaxapi::fromJsonValue(m_s_phone_e164_cell, json[QString("sPhoneE164Cell")]);
     m_s_phone_e164_cell_isSet = !json[QString("sPhoneE164Cell")].isNull() && m_s_phone_e164_cell_isValid;
 }
 
@@ -103,28 +103,28 @@ QString OAIEzsignsigner_ResponseCompound_Contact::asJson() const {
 QJsonObject OAIEzsignsigner_ResponseCompound_Contact::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_contact_id_isSet) {
-        obj.insert(QString("pkiContactID"), ::OpenAPI::toJsonValue(m_pki_contact_id));
+        obj.insert(QString("pkiContactID"), ::Ezmaxapi::toJsonValue(m_pki_contact_id));
     }
     if (m_s_contact_firstname_isSet) {
-        obj.insert(QString("sContactFirstname"), ::OpenAPI::toJsonValue(m_s_contact_firstname));
+        obj.insert(QString("sContactFirstname"), ::Ezmaxapi::toJsonValue(m_s_contact_firstname));
     }
     if (m_s_contact_lastname_isSet) {
-        obj.insert(QString("sContactLastname"), ::OpenAPI::toJsonValue(m_s_contact_lastname));
+        obj.insert(QString("sContactLastname"), ::Ezmaxapi::toJsonValue(m_s_contact_lastname));
     }
     if (m_fki_language_id_isSet) {
-        obj.insert(QString("fkiLanguageID"), ::OpenAPI::toJsonValue(m_fki_language_id));
+        obj.insert(QString("fkiLanguageID"), ::Ezmaxapi::toJsonValue(m_fki_language_id));
     }
     if (m_s_email_address_isSet) {
-        obj.insert(QString("sEmailAddress"), ::OpenAPI::toJsonValue(m_s_email_address));
+        obj.insert(QString("sEmailAddress"), ::Ezmaxapi::toJsonValue(m_s_email_address));
     }
     if (m_s_phone_e164_isSet) {
-        obj.insert(QString("sPhoneE164"), ::OpenAPI::toJsonValue(m_s_phone_e164));
+        obj.insert(QString("sPhoneE164"), ::Ezmaxapi::toJsonValue(m_s_phone_e164));
     }
     if (m_s_phone_extension_isSet) {
-        obj.insert(QString("sPhoneExtension"), ::OpenAPI::toJsonValue(m_s_phone_extension));
+        obj.insert(QString("sPhoneExtension"), ::Ezmaxapi::toJsonValue(m_s_phone_extension));
     }
     if (m_s_phone_e164_cell_isSet) {
-        obj.insert(QString("sPhoneE164Cell"), ::OpenAPI::toJsonValue(m_s_phone_e164_cell));
+        obj.insert(QString("sPhoneE164Cell"), ::Ezmaxapi::toJsonValue(m_s_phone_e164_cell));
     }
     return obj;
 }
@@ -308,4 +308,4 @@ bool OAIEzsignsigner_ResponseCompound_Contact::isValid() const {
     return m_pki_contact_id_isValid && m_s_contact_firstname_isValid && m_s_contact_lastname_isValid && m_fki_language_id_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

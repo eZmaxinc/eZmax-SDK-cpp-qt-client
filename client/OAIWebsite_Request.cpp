@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIWebsite_Request::OAIWebsite_Request(QString json) {
     this->initializeModel();
@@ -50,10 +50,10 @@ void OAIWebsite_Request::fromJson(QString jsonString) {
 
 void OAIWebsite_Request::fromJsonObject(QJsonObject json) {
 
-    m_fki_websitetype_id_isValid = ::OpenAPI::fromJsonValue(m_fki_websitetype_id, json[QString("fkiWebsitetypeID")]);
+    m_fki_websitetype_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_websitetype_id, json[QString("fkiWebsitetypeID")]);
     m_fki_websitetype_id_isSet = !json[QString("fkiWebsitetypeID")].isNull() && m_fki_websitetype_id_isValid;
 
-    m_s_website_address_isValid = ::OpenAPI::fromJsonValue(m_s_website_address, json[QString("sWebsiteAddress")]);
+    m_s_website_address_isValid = ::Ezmaxapi::fromJsonValue(m_s_website_address, json[QString("sWebsiteAddress")]);
     m_s_website_address_isSet = !json[QString("sWebsiteAddress")].isNull() && m_s_website_address_isValid;
 }
 
@@ -67,10 +67,10 @@ QString OAIWebsite_Request::asJson() const {
 QJsonObject OAIWebsite_Request::asJsonObject() const {
     QJsonObject obj;
     if (m_fki_websitetype_id_isSet) {
-        obj.insert(QString("fkiWebsitetypeID"), ::OpenAPI::toJsonValue(m_fki_websitetype_id));
+        obj.insert(QString("fkiWebsitetypeID"), ::Ezmaxapi::toJsonValue(m_fki_websitetype_id));
     }
     if (m_s_website_address_isSet) {
-        obj.insert(QString("sWebsiteAddress"), ::OpenAPI::toJsonValue(m_s_website_address));
+        obj.insert(QString("sWebsiteAddress"), ::Ezmaxapi::toJsonValue(m_s_website_address));
     }
     return obj;
 }
@@ -128,4 +128,4 @@ bool OAIWebsite_Request::isValid() const {
     return m_fki_websitetype_id_isValid && m_s_website_address_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

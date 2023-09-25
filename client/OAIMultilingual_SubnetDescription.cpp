@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIMultilingual_SubnetDescription::OAIMultilingual_SubnetDescription(QString json) {
     this->initializeModel();
@@ -50,10 +50,10 @@ void OAIMultilingual_SubnetDescription::fromJson(QString jsonString) {
 
 void OAIMultilingual_SubnetDescription::fromJsonObject(QJsonObject json) {
 
-    m_s_subnet_description1_isValid = ::OpenAPI::fromJsonValue(m_s_subnet_description1, json[QString("sSubnetDescription1")]);
+    m_s_subnet_description1_isValid = ::Ezmaxapi::fromJsonValue(m_s_subnet_description1, json[QString("sSubnetDescription1")]);
     m_s_subnet_description1_isSet = !json[QString("sSubnetDescription1")].isNull() && m_s_subnet_description1_isValid;
 
-    m_s_subnet_description2_isValid = ::OpenAPI::fromJsonValue(m_s_subnet_description2, json[QString("sSubnetDescription2")]);
+    m_s_subnet_description2_isValid = ::Ezmaxapi::fromJsonValue(m_s_subnet_description2, json[QString("sSubnetDescription2")]);
     m_s_subnet_description2_isSet = !json[QString("sSubnetDescription2")].isNull() && m_s_subnet_description2_isValid;
 }
 
@@ -67,10 +67,10 @@ QString OAIMultilingual_SubnetDescription::asJson() const {
 QJsonObject OAIMultilingual_SubnetDescription::asJsonObject() const {
     QJsonObject obj;
     if (m_s_subnet_description1_isSet) {
-        obj.insert(QString("sSubnetDescription1"), ::OpenAPI::toJsonValue(m_s_subnet_description1));
+        obj.insert(QString("sSubnetDescription1"), ::Ezmaxapi::toJsonValue(m_s_subnet_description1));
     }
     if (m_s_subnet_description2_isSet) {
-        obj.insert(QString("sSubnetDescription2"), ::OpenAPI::toJsonValue(m_s_subnet_description2));
+        obj.insert(QString("sSubnetDescription2"), ::Ezmaxapi::toJsonValue(m_s_subnet_description2));
     }
     return obj;
 }
@@ -128,4 +128,4 @@ bool OAIMultilingual_SubnetDescription::isValid() const {
     return true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

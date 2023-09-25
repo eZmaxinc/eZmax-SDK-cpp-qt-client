@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAITimezone_getAutocomplete_v2_Response_mPayload::OAITimezone_getAutocomplete_v2_Response_mPayload(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAITimezone_getAutocomplete_v2_Response_mPayload::fromJson(QString jsonStri
 
 void OAITimezone_getAutocomplete_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_timezone_isValid = ::OpenAPI::fromJsonValue(m_a_obj_timezone, json[QString("a_objTimezone")]);
+    m_a_obj_timezone_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_timezone, json[QString("a_objTimezone")]);
     m_a_obj_timezone_isSet = !json[QString("a_objTimezone")].isNull() && m_a_obj_timezone_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAITimezone_getAutocomplete_v2_Response_mPayload::asJson() const {
 QJsonObject OAITimezone_getAutocomplete_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_a_obj_timezone.size() > 0) {
-        obj.insert(QString("a_objTimezone"), ::OpenAPI::toJsonValue(m_a_obj_timezone));
+        obj.insert(QString("a_objTimezone"), ::Ezmaxapi::toJsonValue(m_a_obj_timezone));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAITimezone_getAutocomplete_v2_Response_mPayload::isValid() const {
     return m_a_obj_timezone_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

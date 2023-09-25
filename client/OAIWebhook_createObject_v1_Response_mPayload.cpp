@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIWebhook_createObject_v1_Response_mPayload::OAIWebhook_createObject_v1_Response_mPayload(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAIWebhook_createObject_v1_Response_mPayload::fromJson(QString jsonString) 
 
 void OAIWebhook_createObject_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_pki_webhook_id_isValid = ::OpenAPI::fromJsonValue(m_a_pki_webhook_id, json[QString("a_pkiWebhookID")]);
+    m_a_pki_webhook_id_isValid = ::Ezmaxapi::fromJsonValue(m_a_pki_webhook_id, json[QString("a_pkiWebhookID")]);
     m_a_pki_webhook_id_isSet = !json[QString("a_pkiWebhookID")].isNull() && m_a_pki_webhook_id_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAIWebhook_createObject_v1_Response_mPayload::asJson() const {
 QJsonObject OAIWebhook_createObject_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_a_pki_webhook_id.size() > 0) {
-        obj.insert(QString("a_pkiWebhookID"), ::OpenAPI::toJsonValue(m_a_pki_webhook_id));
+        obj.insert(QString("a_pkiWebhookID"), ::Ezmaxapi::toJsonValue(m_a_pki_webhook_id));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAIWebhook_createObject_v1_Response_mPayload::isValid() const {
     return m_a_pki_webhook_id_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

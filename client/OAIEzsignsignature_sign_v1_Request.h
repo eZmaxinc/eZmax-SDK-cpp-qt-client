@@ -28,7 +28,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 class OAICommon_File;
 
 class OAIEzsignsignature_sign_v1_Request : public OAIObject {
@@ -103,8 +103,8 @@ private:
     bool m_b_is_automatic_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIEzsignsignature_sign_v1_Request)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIEzsignsignature_sign_v1_Request)
 
 #endif // OAIEzsignsignature_sign_v1_Request_H

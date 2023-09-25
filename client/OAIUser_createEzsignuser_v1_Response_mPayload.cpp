@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIUser_createEzsignuser_v1_Response_mPayload::OAIUser_createEzsignuser_v1_Response_mPayload(QString json) {
     this->initializeModel();
@@ -50,10 +50,10 @@ void OAIUser_createEzsignuser_v1_Response_mPayload::fromJson(QString jsonString)
 
 void OAIUser_createEzsignuser_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_s_email_address_success_isValid = ::OpenAPI::fromJsonValue(m_a_s_email_address_success, json[QString("a_sEmailAddressSuccess")]);
+    m_a_s_email_address_success_isValid = ::Ezmaxapi::fromJsonValue(m_a_s_email_address_success, json[QString("a_sEmailAddressSuccess")]);
     m_a_s_email_address_success_isSet = !json[QString("a_sEmailAddressSuccess")].isNull() && m_a_s_email_address_success_isValid;
 
-    m_a_s_email_address_failure_isValid = ::OpenAPI::fromJsonValue(m_a_s_email_address_failure, json[QString("a_sEmailAddressFailure")]);
+    m_a_s_email_address_failure_isValid = ::Ezmaxapi::fromJsonValue(m_a_s_email_address_failure, json[QString("a_sEmailAddressFailure")]);
     m_a_s_email_address_failure_isSet = !json[QString("a_sEmailAddressFailure")].isNull() && m_a_s_email_address_failure_isValid;
 }
 
@@ -67,10 +67,10 @@ QString OAIUser_createEzsignuser_v1_Response_mPayload::asJson() const {
 QJsonObject OAIUser_createEzsignuser_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_a_s_email_address_success.size() > 0) {
-        obj.insert(QString("a_sEmailAddressSuccess"), ::OpenAPI::toJsonValue(m_a_s_email_address_success));
+        obj.insert(QString("a_sEmailAddressSuccess"), ::Ezmaxapi::toJsonValue(m_a_s_email_address_success));
     }
     if (m_a_s_email_address_failure.size() > 0) {
-        obj.insert(QString("a_sEmailAddressFailure"), ::OpenAPI::toJsonValue(m_a_s_email_address_failure));
+        obj.insert(QString("a_sEmailAddressFailure"), ::Ezmaxapi::toJsonValue(m_a_s_email_address_failure));
     }
     return obj;
 }
@@ -128,4 +128,4 @@ bool OAIUser_createEzsignuser_v1_Response_mPayload::isValid() const {
     return m_a_s_email_address_success_isValid && m_a_s_email_address_failure_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

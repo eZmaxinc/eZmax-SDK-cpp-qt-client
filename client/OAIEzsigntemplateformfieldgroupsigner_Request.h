@@ -25,7 +25,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIEzsigntemplateformfieldgroupsigner_Request : public OAIObject {
 public:
@@ -63,8 +63,8 @@ private:
     bool m_fki_ezsigntemplatesigner_id_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIEzsigntemplateformfieldgroupsigner_Request)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIEzsigntemplateformfieldgroupsigner_Request)
 
 #endif // OAIEzsigntemplateformfieldgroupsigner_Request_H

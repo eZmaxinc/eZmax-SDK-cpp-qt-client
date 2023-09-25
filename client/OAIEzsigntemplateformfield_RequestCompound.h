@@ -26,7 +26,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIEzsigntemplateformfield_RequestCompound : public OAIObject {
 public:
@@ -127,8 +127,8 @@ private:
     bool m_b_ezsigntemplateformfield_selected_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIEzsigntemplateformfield_RequestCompound)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIEzsigntemplateformfield_RequestCompound)
 
 #endif // OAIEzsigntemplateformfield_RequestCompound_H

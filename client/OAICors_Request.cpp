@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAICors_Request::OAICors_Request(QString json) {
     this->initializeModel();
@@ -53,13 +53,13 @@ void OAICors_Request::fromJson(QString jsonString) {
 
 void OAICors_Request::fromJsonObject(QJsonObject json) {
 
-    m_pki_cors_id_isValid = ::OpenAPI::fromJsonValue(m_pki_cors_id, json[QString("pkiCorsID")]);
+    m_pki_cors_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_cors_id, json[QString("pkiCorsID")]);
     m_pki_cors_id_isSet = !json[QString("pkiCorsID")].isNull() && m_pki_cors_id_isValid;
 
-    m_fki_apikey_id_isValid = ::OpenAPI::fromJsonValue(m_fki_apikey_id, json[QString("fkiApikeyID")]);
+    m_fki_apikey_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_apikey_id, json[QString("fkiApikeyID")]);
     m_fki_apikey_id_isSet = !json[QString("fkiApikeyID")].isNull() && m_fki_apikey_id_isValid;
 
-    m_s_cors_entryurl_isValid = ::OpenAPI::fromJsonValue(m_s_cors_entryurl, json[QString("sCorsEntryurl")]);
+    m_s_cors_entryurl_isValid = ::Ezmaxapi::fromJsonValue(m_s_cors_entryurl, json[QString("sCorsEntryurl")]);
     m_s_cors_entryurl_isSet = !json[QString("sCorsEntryurl")].isNull() && m_s_cors_entryurl_isValid;
 }
 
@@ -73,13 +73,13 @@ QString OAICors_Request::asJson() const {
 QJsonObject OAICors_Request::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_cors_id_isSet) {
-        obj.insert(QString("pkiCorsID"), ::OpenAPI::toJsonValue(m_pki_cors_id));
+        obj.insert(QString("pkiCorsID"), ::Ezmaxapi::toJsonValue(m_pki_cors_id));
     }
     if (m_fki_apikey_id_isSet) {
-        obj.insert(QString("fkiApikeyID"), ::OpenAPI::toJsonValue(m_fki_apikey_id));
+        obj.insert(QString("fkiApikeyID"), ::Ezmaxapi::toJsonValue(m_fki_apikey_id));
     }
     if (m_s_cors_entryurl_isSet) {
-        obj.insert(QString("sCorsEntryurl"), ::OpenAPI::toJsonValue(m_s_cors_entryurl));
+        obj.insert(QString("sCorsEntryurl"), ::Ezmaxapi::toJsonValue(m_s_cors_entryurl));
     }
     return obj;
 }
@@ -158,4 +158,4 @@ bool OAICors_Request::isValid() const {
     return m_fki_apikey_id_isValid && m_s_cors_entryurl_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

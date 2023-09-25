@@ -26,7 +26,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 class OAIEzsignbulksendtransmission_Response;
 
 class OAIEzsignbulksend_createEzsignbulksendtransmission_v1_Response_mPayload : public OAIObject {
@@ -56,8 +56,8 @@ private:
     bool m_obj_ezsignbulksendtransmission_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIEzsignbulksend_createEzsignbulksendtransmission_v1_Response_mPayload)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIEzsignbulksend_createEzsignbulksendtransmission_v1_Response_mPayload)
 
 #endif // OAIEzsignbulksend_createEzsignbulksendtransmission_v1_Response_mPayload_H

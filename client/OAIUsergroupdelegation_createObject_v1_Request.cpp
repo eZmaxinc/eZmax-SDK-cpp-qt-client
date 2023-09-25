@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIUsergroupdelegation_createObject_v1_Request::OAIUsergroupdelegation_createObject_v1_Request(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAIUsergroupdelegation_createObject_v1_Request::fromJson(QString jsonString
 
 void OAIUsergroupdelegation_createObject_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_usergroupdelegation_isValid = ::OpenAPI::fromJsonValue(m_a_obj_usergroupdelegation, json[QString("a_objUsergroupdelegation")]);
+    m_a_obj_usergroupdelegation_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_usergroupdelegation, json[QString("a_objUsergroupdelegation")]);
     m_a_obj_usergroupdelegation_isSet = !json[QString("a_objUsergroupdelegation")].isNull() && m_a_obj_usergroupdelegation_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAIUsergroupdelegation_createObject_v1_Request::asJson() const {
 QJsonObject OAIUsergroupdelegation_createObject_v1_Request::asJsonObject() const {
     QJsonObject obj;
     if (m_a_obj_usergroupdelegation.size() > 0) {
-        obj.insert(QString("a_objUsergroupdelegation"), ::OpenAPI::toJsonValue(m_a_obj_usergroupdelegation));
+        obj.insert(QString("a_objUsergroupdelegation"), ::Ezmaxapi::toJsonValue(m_a_obj_usergroupdelegation));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAIUsergroupdelegation_createObject_v1_Request::isValid() const {
     return m_a_obj_usergroupdelegation_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

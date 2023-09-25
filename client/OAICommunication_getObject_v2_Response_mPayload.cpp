@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAICommunication_getObject_v2_Response_mPayload::OAICommunication_getObject_v2_Response_mPayload(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAICommunication_getObject_v2_Response_mPayload::fromJson(QString jsonStrin
 
 void OAICommunication_getObject_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_obj_communication_isValid = ::OpenAPI::fromJsonValue(m_obj_communication, json[QString("objCommunication")]);
+    m_obj_communication_isValid = ::Ezmaxapi::fromJsonValue(m_obj_communication, json[QString("objCommunication")]);
     m_obj_communication_isSet = !json[QString("objCommunication")].isNull() && m_obj_communication_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAICommunication_getObject_v2_Response_mPayload::asJson() const {
 QJsonObject OAICommunication_getObject_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_obj_communication.isSet()) {
-        obj.insert(QString("objCommunication"), ::OpenAPI::toJsonValue(m_obj_communication));
+        obj.insert(QString("objCommunication"), ::Ezmaxapi::toJsonValue(m_obj_communication));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAICommunication_getObject_v2_Response_mPayload::isValid() const {
     return m_obj_communication_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

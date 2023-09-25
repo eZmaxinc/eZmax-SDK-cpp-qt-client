@@ -25,7 +25,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIEzsigntemplatepackagesigner_deleteObject_v1_Response_mPayload : public OAIObject {
 public:
@@ -63,8 +63,8 @@ private:
     bool m_b_ezsignbulksend_needvalidation_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIEzsigntemplatepackagesigner_deleteObject_v1_Response_mPayload)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIEzsigntemplatepackagesigner_deleteObject_v1_Response_mPayload)
 
 #endif // OAIEzsigntemplatepackagesigner_deleteObject_v1_Response_mPayload_H

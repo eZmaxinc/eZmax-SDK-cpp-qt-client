@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAITimezone_AutocompleteElement_Response::OAITimezone_AutocompleteElement_Response(QString json) {
     this->initializeModel();
@@ -53,13 +53,13 @@ void OAITimezone_AutocompleteElement_Response::fromJson(QString jsonString) {
 
 void OAITimezone_AutocompleteElement_Response::fromJsonObject(QJsonObject json) {
 
-    m_s_timezone_name_isValid = ::OpenAPI::fromJsonValue(m_s_timezone_name, json[QString("sTimezoneName")]);
+    m_s_timezone_name_isValid = ::Ezmaxapi::fromJsonValue(m_s_timezone_name, json[QString("sTimezoneName")]);
     m_s_timezone_name_isSet = !json[QString("sTimezoneName")].isNull() && m_s_timezone_name_isValid;
 
-    m_pki_timezone_id_isValid = ::OpenAPI::fromJsonValue(m_pki_timezone_id, json[QString("pkiTimezoneID")]);
+    m_pki_timezone_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_timezone_id, json[QString("pkiTimezoneID")]);
     m_pki_timezone_id_isSet = !json[QString("pkiTimezoneID")].isNull() && m_pki_timezone_id_isValid;
 
-    m_b_timezone_isactive_isValid = ::OpenAPI::fromJsonValue(m_b_timezone_isactive, json[QString("bTimezoneIsactive")]);
+    m_b_timezone_isactive_isValid = ::Ezmaxapi::fromJsonValue(m_b_timezone_isactive, json[QString("bTimezoneIsactive")]);
     m_b_timezone_isactive_isSet = !json[QString("bTimezoneIsactive")].isNull() && m_b_timezone_isactive_isValid;
 }
 
@@ -73,13 +73,13 @@ QString OAITimezone_AutocompleteElement_Response::asJson() const {
 QJsonObject OAITimezone_AutocompleteElement_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_s_timezone_name_isSet) {
-        obj.insert(QString("sTimezoneName"), ::OpenAPI::toJsonValue(m_s_timezone_name));
+        obj.insert(QString("sTimezoneName"), ::Ezmaxapi::toJsonValue(m_s_timezone_name));
     }
     if (m_pki_timezone_id_isSet) {
-        obj.insert(QString("pkiTimezoneID"), ::OpenAPI::toJsonValue(m_pki_timezone_id));
+        obj.insert(QString("pkiTimezoneID"), ::Ezmaxapi::toJsonValue(m_pki_timezone_id));
     }
     if (m_b_timezone_isactive_isSet) {
-        obj.insert(QString("bTimezoneIsactive"), ::OpenAPI::toJsonValue(m_b_timezone_isactive));
+        obj.insert(QString("bTimezoneIsactive"), ::Ezmaxapi::toJsonValue(m_b_timezone_isactive));
     }
     return obj;
 }
@@ -158,4 +158,4 @@ bool OAITimezone_AutocompleteElement_Response::isValid() const {
     return m_s_timezone_name_isValid && m_pki_timezone_id_isValid && m_b_timezone_isactive_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

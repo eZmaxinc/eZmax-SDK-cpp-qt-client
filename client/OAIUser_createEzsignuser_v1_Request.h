@@ -26,7 +26,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIUser_createEzsignuser_v1_Request : public OAIObject {
 public:
@@ -118,8 +118,8 @@ private:
     bool m_s_phone_extension_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIUser_createEzsignuser_v1_Request)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIUser_createEzsignuser_v1_Request)
 
 #endif // OAIUser_createEzsignuser_v1_Request_H

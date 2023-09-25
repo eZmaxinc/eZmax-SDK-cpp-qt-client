@@ -30,7 +30,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 class OAITextstylestatic_ResponseCompound;
 
 class OAIEzsignannotation_ResponseCompound : public OAIObject {
@@ -159,8 +159,8 @@ private:
     bool m_obj_textstylestatic_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIEzsignannotation_ResponseCompound)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIEzsignannotation_ResponseCompound)
 
 #endif // OAIEzsignannotation_ResponseCompound_H

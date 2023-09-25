@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIWebhook_getHistory_v1_Response_mPayload::OAIWebhook_getHistory_v1_Response_mPayload(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAIWebhook_getHistory_v1_Response_mPayload::fromJson(QString jsonString) {
 
 void OAIWebhook_getHistory_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_webhooklog_isValid = ::OpenAPI::fromJsonValue(m_a_obj_webhooklog, json[QString("a_objWebhooklog")]);
+    m_a_obj_webhooklog_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_webhooklog, json[QString("a_objWebhooklog")]);
     m_a_obj_webhooklog_isSet = !json[QString("a_objWebhooklog")].isNull() && m_a_obj_webhooklog_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAIWebhook_getHistory_v1_Response_mPayload::asJson() const {
 QJsonObject OAIWebhook_getHistory_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_a_obj_webhooklog.size() > 0) {
-        obj.insert(QString("a_objWebhooklog"), ::OpenAPI::toJsonValue(m_a_obj_webhooklog));
+        obj.insert(QString("a_objWebhooklog"), ::Ezmaxapi::toJsonValue(m_a_obj_webhooklog));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAIWebhook_getHistory_v1_Response_mPayload::isValid() const {
     return m_a_obj_webhooklog_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

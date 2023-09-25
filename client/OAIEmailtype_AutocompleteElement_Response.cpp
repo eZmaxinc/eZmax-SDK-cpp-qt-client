@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEmailtype_AutocompleteElement_Response::OAIEmailtype_AutocompleteElement_Response(QString json) {
     this->initializeModel();
@@ -53,13 +53,13 @@ void OAIEmailtype_AutocompleteElement_Response::fromJson(QString jsonString) {
 
 void OAIEmailtype_AutocompleteElement_Response::fromJsonObject(QJsonObject json) {
 
-    m_pki_emailtype_id_isValid = ::OpenAPI::fromJsonValue(m_pki_emailtype_id, json[QString("pkiEmailtypeID")]);
+    m_pki_emailtype_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_emailtype_id, json[QString("pkiEmailtypeID")]);
     m_pki_emailtype_id_isSet = !json[QString("pkiEmailtypeID")].isNull() && m_pki_emailtype_id_isValid;
 
-    m_s_emailtype_name_x_isValid = ::OpenAPI::fromJsonValue(m_s_emailtype_name_x, json[QString("sEmailtypeNameX")]);
+    m_s_emailtype_name_x_isValid = ::Ezmaxapi::fromJsonValue(m_s_emailtype_name_x, json[QString("sEmailtypeNameX")]);
     m_s_emailtype_name_x_isSet = !json[QString("sEmailtypeNameX")].isNull() && m_s_emailtype_name_x_isValid;
 
-    m_b_emailtype_isactive_isValid = ::OpenAPI::fromJsonValue(m_b_emailtype_isactive, json[QString("bEmailtypeIsactive")]);
+    m_b_emailtype_isactive_isValid = ::Ezmaxapi::fromJsonValue(m_b_emailtype_isactive, json[QString("bEmailtypeIsactive")]);
     m_b_emailtype_isactive_isSet = !json[QString("bEmailtypeIsactive")].isNull() && m_b_emailtype_isactive_isValid;
 }
 
@@ -73,13 +73,13 @@ QString OAIEmailtype_AutocompleteElement_Response::asJson() const {
 QJsonObject OAIEmailtype_AutocompleteElement_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_emailtype_id_isSet) {
-        obj.insert(QString("pkiEmailtypeID"), ::OpenAPI::toJsonValue(m_pki_emailtype_id));
+        obj.insert(QString("pkiEmailtypeID"), ::Ezmaxapi::toJsonValue(m_pki_emailtype_id));
     }
     if (m_s_emailtype_name_x_isSet) {
-        obj.insert(QString("sEmailtypeNameX"), ::OpenAPI::toJsonValue(m_s_emailtype_name_x));
+        obj.insert(QString("sEmailtypeNameX"), ::Ezmaxapi::toJsonValue(m_s_emailtype_name_x));
     }
     if (m_b_emailtype_isactive_isSet) {
-        obj.insert(QString("bEmailtypeIsactive"), ::OpenAPI::toJsonValue(m_b_emailtype_isactive));
+        obj.insert(QString("bEmailtypeIsactive"), ::Ezmaxapi::toJsonValue(m_b_emailtype_isactive));
     }
     return obj;
 }
@@ -158,4 +158,4 @@ bool OAIEmailtype_AutocompleteElement_Response::isValid() const {
     return m_pki_emailtype_id_isValid && m_s_emailtype_name_x_isValid && m_b_emailtype_isactive_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

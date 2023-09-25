@@ -15,7 +15,7 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIModuleEzsignApi::OAIModuleEzsignApi(const int timeOut)
     : _timeOut(timeOut),
@@ -291,7 +291,7 @@ void OAIModuleEzsignApi::ezsignSuggestSignersV1Callback(OAIHttpRequestWorker *wo
     }
 }
 
-void OAIModuleEzsignApi::ezsignSuggestTemplatesV1(const ::OpenAPI::OptionalParam<qint32> &fki_ezsignfoldertype_id) {
+void OAIModuleEzsignApi::ezsignSuggestTemplatesV1(const ::Ezmaxapi::OptionalParam<qint32> &fki_ezsignfoldertype_id) {
     QString fullPath = QString(_serverConfigs["ezsignSuggestTemplatesV1"][_serverIndices.value("ezsignSuggestTemplatesV1")].URL()+"/1/module/ezsign/suggestTemplates");
     
     if (_apiKeys.contains("Authorization")) {
@@ -312,7 +312,7 @@ void OAIModuleEzsignApi::ezsignSuggestTemplatesV1(const ::OpenAPI::OptionalParam
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("fkiEzsignfoldertypeID")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(fki_ezsignfoldertype_id.value())));
+        fullPath.append(QUrl::toPercentEncoding("fkiEzsignfoldertypeID")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(fki_ezsignfoldertype_id.value())));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -409,4 +409,4 @@ void OAIModuleEzsignApi::tokenAvailable(){
         break;
     }
 }
-} // namespace OpenAPI
+} // namespace Ezmaxapi

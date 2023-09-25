@@ -15,7 +15,7 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIScimServiceProviderConfigApi::OAIScimServiceProviderConfigApi(const int timeOut)
     : _timeOut(timeOut),
@@ -334,4 +334,4 @@ void OAIScimServiceProviderConfigApi::tokenAvailable(){
         break;
     }
 }
-} // namespace OpenAPI
+} // namespace Ezmaxapi

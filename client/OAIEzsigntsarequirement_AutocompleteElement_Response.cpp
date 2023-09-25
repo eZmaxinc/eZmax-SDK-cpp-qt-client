@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzsigntsarequirement_AutocompleteElement_Response::OAIEzsigntsarequirement_AutocompleteElement_Response(QString json) {
     this->initializeModel();
@@ -56,16 +56,16 @@ void OAIEzsigntsarequirement_AutocompleteElement_Response::fromJson(QString json
 
 void OAIEzsigntsarequirement_AutocompleteElement_Response::fromJsonObject(QJsonObject json) {
 
-    m_s_ezsigntsarequirement_description_x_isValid = ::OpenAPI::fromJsonValue(m_s_ezsigntsarequirement_description_x, json[QString("sEzsigntsarequirementDescriptionX")]);
+    m_s_ezsigntsarequirement_description_x_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsigntsarequirement_description_x, json[QString("sEzsigntsarequirementDescriptionX")]);
     m_s_ezsigntsarequirement_description_x_isSet = !json[QString("sEzsigntsarequirementDescriptionX")].isNull() && m_s_ezsigntsarequirement_description_x_isValid;
 
-    m_pki_ezsigntsarequirement_id_isValid = ::OpenAPI::fromJsonValue(m_pki_ezsigntsarequirement_id, json[QString("pkiEzsigntsarequirementID")]);
+    m_pki_ezsigntsarequirement_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_ezsigntsarequirement_id, json[QString("pkiEzsigntsarequirementID")]);
     m_pki_ezsigntsarequirement_id_isSet = !json[QString("pkiEzsigntsarequirementID")].isNull() && m_pki_ezsigntsarequirement_id_isValid;
 
-    m_b_ezsigntsarequirement_isactive_isValid = ::OpenAPI::fromJsonValue(m_b_ezsigntsarequirement_isactive, json[QString("bEzsigntsarequirementIsactive")]);
+    m_b_ezsigntsarequirement_isactive_isValid = ::Ezmaxapi::fromJsonValue(m_b_ezsigntsarequirement_isactive, json[QString("bEzsigntsarequirementIsactive")]);
     m_b_ezsigntsarequirement_isactive_isSet = !json[QString("bEzsigntsarequirementIsactive")].isNull() && m_b_ezsigntsarequirement_isactive_isValid;
 
-    m_b_disabled_isValid = ::OpenAPI::fromJsonValue(m_b_disabled, json[QString("bDisabled")]);
+    m_b_disabled_isValid = ::Ezmaxapi::fromJsonValue(m_b_disabled, json[QString("bDisabled")]);
     m_b_disabled_isSet = !json[QString("bDisabled")].isNull() && m_b_disabled_isValid;
 }
 
@@ -79,16 +79,16 @@ QString OAIEzsigntsarequirement_AutocompleteElement_Response::asJson() const {
 QJsonObject OAIEzsigntsarequirement_AutocompleteElement_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_s_ezsigntsarequirement_description_x_isSet) {
-        obj.insert(QString("sEzsigntsarequirementDescriptionX"), ::OpenAPI::toJsonValue(m_s_ezsigntsarequirement_description_x));
+        obj.insert(QString("sEzsigntsarequirementDescriptionX"), ::Ezmaxapi::toJsonValue(m_s_ezsigntsarequirement_description_x));
     }
     if (m_pki_ezsigntsarequirement_id_isSet) {
-        obj.insert(QString("pkiEzsigntsarequirementID"), ::OpenAPI::toJsonValue(m_pki_ezsigntsarequirement_id));
+        obj.insert(QString("pkiEzsigntsarequirementID"), ::Ezmaxapi::toJsonValue(m_pki_ezsigntsarequirement_id));
     }
     if (m_b_ezsigntsarequirement_isactive_isSet) {
-        obj.insert(QString("bEzsigntsarequirementIsactive"), ::OpenAPI::toJsonValue(m_b_ezsigntsarequirement_isactive));
+        obj.insert(QString("bEzsigntsarequirementIsactive"), ::Ezmaxapi::toJsonValue(m_b_ezsigntsarequirement_isactive));
     }
     if (m_b_disabled_isSet) {
-        obj.insert(QString("bDisabled"), ::OpenAPI::toJsonValue(m_b_disabled));
+        obj.insert(QString("bDisabled"), ::Ezmaxapi::toJsonValue(m_b_disabled));
     }
     return obj;
 }
@@ -188,4 +188,4 @@ bool OAIEzsigntsarequirement_AutocompleteElement_Response::isValid() const {
     return m_s_ezsigntsarequirement_description_x_isValid && m_pki_ezsigntsarequirement_id_isValid && m_b_ezsigntsarequirement_isactive_isValid && m_b_disabled_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

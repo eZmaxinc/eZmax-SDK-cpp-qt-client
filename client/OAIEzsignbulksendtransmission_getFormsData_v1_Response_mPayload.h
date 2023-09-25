@@ -27,7 +27,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 class OAICustom_FormsDataFolder_Response;
 
 class OAIEzsignbulksendtransmission_getFormsData_v1_Response_mPayload : public OAIObject {
@@ -57,8 +57,8 @@ private:
     bool m_a_obj_forms_data_folder_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIEzsignbulksendtransmission_getFormsData_v1_Response_mPayload)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIEzsignbulksendtransmission_getFormsData_v1_Response_mPayload)
 
 #endif // OAIEzsignbulksendtransmission_getFormsData_v1_Response_mPayload_H

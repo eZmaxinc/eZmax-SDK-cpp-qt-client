@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIScim_ServiceProviderConfig::OAIScim_ServiceProviderConfig(QString json) {
     this->initializeModel();
@@ -68,28 +68,28 @@ void OAIScim_ServiceProviderConfig::fromJson(QString jsonString) {
 
 void OAIScim_ServiceProviderConfig::fromJsonObject(QJsonObject json) {
 
-    m_authentication_schemes_isValid = ::OpenAPI::fromJsonValue(m_authentication_schemes, json[QString("authenticationSchemes")]);
+    m_authentication_schemes_isValid = ::Ezmaxapi::fromJsonValue(m_authentication_schemes, json[QString("authenticationSchemes")]);
     m_authentication_schemes_isSet = !json[QString("authenticationSchemes")].isNull() && m_authentication_schemes_isValid;
 
-    m_bulk_isValid = ::OpenAPI::fromJsonValue(m_bulk, json[QString("bulk")]);
+    m_bulk_isValid = ::Ezmaxapi::fromJsonValue(m_bulk, json[QString("bulk")]);
     m_bulk_isSet = !json[QString("bulk")].isNull() && m_bulk_isValid;
 
-    m_change_password_isValid = ::OpenAPI::fromJsonValue(m_change_password, json[QString("changePassword")]);
+    m_change_password_isValid = ::Ezmaxapi::fromJsonValue(m_change_password, json[QString("changePassword")]);
     m_change_password_isSet = !json[QString("changePassword")].isNull() && m_change_password_isValid;
 
-    m_documentation_uri_isValid = ::OpenAPI::fromJsonValue(m_documentation_uri, json[QString("documentationUri")]);
+    m_documentation_uri_isValid = ::Ezmaxapi::fromJsonValue(m_documentation_uri, json[QString("documentationUri")]);
     m_documentation_uri_isSet = !json[QString("documentationUri")].isNull() && m_documentation_uri_isValid;
 
-    m_etag_isValid = ::OpenAPI::fromJsonValue(m_etag, json[QString("etag")]);
+    m_etag_isValid = ::Ezmaxapi::fromJsonValue(m_etag, json[QString("etag")]);
     m_etag_isSet = !json[QString("etag")].isNull() && m_etag_isValid;
 
-    m_filter_isValid = ::OpenAPI::fromJsonValue(m_filter, json[QString("filter")]);
+    m_filter_isValid = ::Ezmaxapi::fromJsonValue(m_filter, json[QString("filter")]);
     m_filter_isSet = !json[QString("filter")].isNull() && m_filter_isValid;
 
-    m_patch_isValid = ::OpenAPI::fromJsonValue(m_patch, json[QString("patch")]);
+    m_patch_isValid = ::Ezmaxapi::fromJsonValue(m_patch, json[QString("patch")]);
     m_patch_isSet = !json[QString("patch")].isNull() && m_patch_isValid;
 
-    m_sort_isValid = ::OpenAPI::fromJsonValue(m_sort, json[QString("sort")]);
+    m_sort_isValid = ::Ezmaxapi::fromJsonValue(m_sort, json[QString("sort")]);
     m_sort_isSet = !json[QString("sort")].isNull() && m_sort_isValid;
 }
 
@@ -103,28 +103,28 @@ QString OAIScim_ServiceProviderConfig::asJson() const {
 QJsonObject OAIScim_ServiceProviderConfig::asJsonObject() const {
     QJsonObject obj;
     if (m_authentication_schemes.size() > 0) {
-        obj.insert(QString("authenticationSchemes"), ::OpenAPI::toJsonValue(m_authentication_schemes));
+        obj.insert(QString("authenticationSchemes"), ::Ezmaxapi::toJsonValue(m_authentication_schemes));
     }
     if (m_bulk.isSet()) {
-        obj.insert(QString("bulk"), ::OpenAPI::toJsonValue(m_bulk));
+        obj.insert(QString("bulk"), ::Ezmaxapi::toJsonValue(m_bulk));
     }
     if (m_change_password.isSet()) {
-        obj.insert(QString("changePassword"), ::OpenAPI::toJsonValue(m_change_password));
+        obj.insert(QString("changePassword"), ::Ezmaxapi::toJsonValue(m_change_password));
     }
     if (m_documentation_uri_isSet) {
-        obj.insert(QString("documentationUri"), ::OpenAPI::toJsonValue(m_documentation_uri));
+        obj.insert(QString("documentationUri"), ::Ezmaxapi::toJsonValue(m_documentation_uri));
     }
     if (m_etag.isSet()) {
-        obj.insert(QString("etag"), ::OpenAPI::toJsonValue(m_etag));
+        obj.insert(QString("etag"), ::Ezmaxapi::toJsonValue(m_etag));
     }
     if (m_filter.isSet()) {
-        obj.insert(QString("filter"), ::OpenAPI::toJsonValue(m_filter));
+        obj.insert(QString("filter"), ::Ezmaxapi::toJsonValue(m_filter));
     }
     if (m_patch.isSet()) {
-        obj.insert(QString("patch"), ::OpenAPI::toJsonValue(m_patch));
+        obj.insert(QString("patch"), ::Ezmaxapi::toJsonValue(m_patch));
     }
     if (m_sort.isSet()) {
-        obj.insert(QString("sort"), ::OpenAPI::toJsonValue(m_sort));
+        obj.insert(QString("sort"), ::Ezmaxapi::toJsonValue(m_sort));
     }
     return obj;
 }
@@ -308,4 +308,4 @@ bool OAIScim_ServiceProviderConfig::isValid() const {
     return m_authentication_schemes_isValid && m_bulk_isValid && m_change_password_isValid && m_documentation_uri_isValid && m_etag_isValid && m_filter_isValid && m_patch_isValid && m_sort_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

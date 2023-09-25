@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIFont_AutocompleteElement_Response::OAIFont_AutocompleteElement_Response(QString json) {
     this->initializeModel();
@@ -53,13 +53,13 @@ void OAIFont_AutocompleteElement_Response::fromJson(QString jsonString) {
 
 void OAIFont_AutocompleteElement_Response::fromJsonObject(QJsonObject json) {
 
-    m_s_font_name_isValid = ::OpenAPI::fromJsonValue(m_s_font_name, json[QString("sFontName")]);
+    m_s_font_name_isValid = ::Ezmaxapi::fromJsonValue(m_s_font_name, json[QString("sFontName")]);
     m_s_font_name_isSet = !json[QString("sFontName")].isNull() && m_s_font_name_isValid;
 
-    m_pki_font_id_isValid = ::OpenAPI::fromJsonValue(m_pki_font_id, json[QString("pkiFontID")]);
+    m_pki_font_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_font_id, json[QString("pkiFontID")]);
     m_pki_font_id_isSet = !json[QString("pkiFontID")].isNull() && m_pki_font_id_isValid;
 
-    m_b_font_isactive_isValid = ::OpenAPI::fromJsonValue(m_b_font_isactive, json[QString("bFontIsactive")]);
+    m_b_font_isactive_isValid = ::Ezmaxapi::fromJsonValue(m_b_font_isactive, json[QString("bFontIsactive")]);
     m_b_font_isactive_isSet = !json[QString("bFontIsactive")].isNull() && m_b_font_isactive_isValid;
 }
 
@@ -73,13 +73,13 @@ QString OAIFont_AutocompleteElement_Response::asJson() const {
 QJsonObject OAIFont_AutocompleteElement_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_s_font_name_isSet) {
-        obj.insert(QString("sFontName"), ::OpenAPI::toJsonValue(m_s_font_name));
+        obj.insert(QString("sFontName"), ::Ezmaxapi::toJsonValue(m_s_font_name));
     }
     if (m_pki_font_id_isSet) {
-        obj.insert(QString("pkiFontID"), ::OpenAPI::toJsonValue(m_pki_font_id));
+        obj.insert(QString("pkiFontID"), ::Ezmaxapi::toJsonValue(m_pki_font_id));
     }
     if (m_b_font_isactive_isSet) {
-        obj.insert(QString("bFontIsactive"), ::OpenAPI::toJsonValue(m_b_font_isactive));
+        obj.insert(QString("bFontIsactive"), ::Ezmaxapi::toJsonValue(m_b_font_isactive));
     }
     return obj;
 }
@@ -158,4 +158,4 @@ bool OAIFont_AutocompleteElement_Response::isValid() const {
     return m_s_font_name_isValid && m_pki_font_id_isValid && m_b_font_isactive_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

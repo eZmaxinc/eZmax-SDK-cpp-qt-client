@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAICustom_FormDataEzsignformfield_Response::OAICustom_FormDataEzsignformfield_Response(QString json) {
     this->initializeModel();
@@ -50,10 +50,10 @@ void OAICustom_FormDataEzsignformfield_Response::fromJson(QString jsonString) {
 
 void OAICustom_FormDataEzsignformfield_Response::fromJsonObject(QJsonObject json) {
 
-    m_s_ezsignformfield_label_isValid = ::OpenAPI::fromJsonValue(m_s_ezsignformfield_label, json[QString("sEzsignformfieldLabel")]);
+    m_s_ezsignformfield_label_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsignformfield_label, json[QString("sEzsignformfieldLabel")]);
     m_s_ezsignformfield_label_isSet = !json[QString("sEzsignformfieldLabel")].isNull() && m_s_ezsignformfield_label_isValid;
 
-    m_s_ezsignformfield_value_isValid = ::OpenAPI::fromJsonValue(m_s_ezsignformfield_value, json[QString("sEzsignformfieldValue")]);
+    m_s_ezsignformfield_value_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsignformfield_value, json[QString("sEzsignformfieldValue")]);
     m_s_ezsignformfield_value_isSet = !json[QString("sEzsignformfieldValue")].isNull() && m_s_ezsignformfield_value_isValid;
 }
 
@@ -67,10 +67,10 @@ QString OAICustom_FormDataEzsignformfield_Response::asJson() const {
 QJsonObject OAICustom_FormDataEzsignformfield_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_s_ezsignformfield_label_isSet) {
-        obj.insert(QString("sEzsignformfieldLabel"), ::OpenAPI::toJsonValue(m_s_ezsignformfield_label));
+        obj.insert(QString("sEzsignformfieldLabel"), ::Ezmaxapi::toJsonValue(m_s_ezsignformfield_label));
     }
     if (m_s_ezsignformfield_value_isSet) {
-        obj.insert(QString("sEzsignformfieldValue"), ::OpenAPI::toJsonValue(m_s_ezsignformfield_value));
+        obj.insert(QString("sEzsignformfieldValue"), ::Ezmaxapi::toJsonValue(m_s_ezsignformfield_value));
     }
     return obj;
 }
@@ -128,4 +128,4 @@ bool OAICustom_FormDataEzsignformfield_Response::isValid() const {
     return m_s_ezsignformfield_label_isValid && m_s_ezsignformfield_value_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

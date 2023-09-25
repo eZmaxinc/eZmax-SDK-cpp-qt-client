@@ -26,7 +26,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIMultilingual_ApikeyDescription : public OAIObject {
 public:
@@ -64,8 +64,8 @@ private:
     bool m_s_apikey_description2_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIMultilingual_ApikeyDescription)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIMultilingual_ApikeyDescription)
 
 #endif // OAIMultilingual_ApikeyDescription_H

@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAISecretquestion_AutocompleteElement_Response::OAISecretquestion_AutocompleteElement_Response(QString json) {
     this->initializeModel();
@@ -53,13 +53,13 @@ void OAISecretquestion_AutocompleteElement_Response::fromJson(QString jsonString
 
 void OAISecretquestion_AutocompleteElement_Response::fromJsonObject(QJsonObject json) {
 
-    m_s_secretquestion_text_x_isValid = ::OpenAPI::fromJsonValue(m_s_secretquestion_text_x, json[QString("sSecretquestionTextX")]);
+    m_s_secretquestion_text_x_isValid = ::Ezmaxapi::fromJsonValue(m_s_secretquestion_text_x, json[QString("sSecretquestionTextX")]);
     m_s_secretquestion_text_x_isSet = !json[QString("sSecretquestionTextX")].isNull() && m_s_secretquestion_text_x_isValid;
 
-    m_pki_secretquestion_id_isValid = ::OpenAPI::fromJsonValue(m_pki_secretquestion_id, json[QString("pkiSecretquestionID")]);
+    m_pki_secretquestion_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_secretquestion_id, json[QString("pkiSecretquestionID")]);
     m_pki_secretquestion_id_isSet = !json[QString("pkiSecretquestionID")].isNull() && m_pki_secretquestion_id_isValid;
 
-    m_b_secretquestion_isactive_isValid = ::OpenAPI::fromJsonValue(m_b_secretquestion_isactive, json[QString("bSecretquestionIsactive")]);
+    m_b_secretquestion_isactive_isValid = ::Ezmaxapi::fromJsonValue(m_b_secretquestion_isactive, json[QString("bSecretquestionIsactive")]);
     m_b_secretquestion_isactive_isSet = !json[QString("bSecretquestionIsactive")].isNull() && m_b_secretquestion_isactive_isValid;
 }
 
@@ -73,13 +73,13 @@ QString OAISecretquestion_AutocompleteElement_Response::asJson() const {
 QJsonObject OAISecretquestion_AutocompleteElement_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_s_secretquestion_text_x_isSet) {
-        obj.insert(QString("sSecretquestionTextX"), ::OpenAPI::toJsonValue(m_s_secretquestion_text_x));
+        obj.insert(QString("sSecretquestionTextX"), ::Ezmaxapi::toJsonValue(m_s_secretquestion_text_x));
     }
     if (m_pki_secretquestion_id_isSet) {
-        obj.insert(QString("pkiSecretquestionID"), ::OpenAPI::toJsonValue(m_pki_secretquestion_id));
+        obj.insert(QString("pkiSecretquestionID"), ::Ezmaxapi::toJsonValue(m_pki_secretquestion_id));
     }
     if (m_b_secretquestion_isactive_isSet) {
-        obj.insert(QString("bSecretquestionIsactive"), ::OpenAPI::toJsonValue(m_b_secretquestion_isactive));
+        obj.insert(QString("bSecretquestionIsactive"), ::Ezmaxapi::toJsonValue(m_b_secretquestion_isactive));
     }
     return obj;
 }
@@ -158,4 +158,4 @@ bool OAISecretquestion_AutocompleteElement_Response::isValid() const {
     return m_s_secretquestion_text_x_isValid && m_pki_secretquestion_id_isValid && m_b_secretquestion_isactive_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

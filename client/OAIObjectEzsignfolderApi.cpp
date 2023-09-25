@@ -15,7 +15,7 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIObjectEzsignfolderApi::OAIObjectEzsignfolderApi(const int timeOut)
     : _timeOut(timeOut),
@@ -305,7 +305,7 @@ void OAIObjectEzsignfolderApi::ezsignfolderArchiveV1(const qint32 &pki_ezsignfol
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignfolderID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignfolderID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsignfolder_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsignfolder_id)));
+        fullPath.replace(pki_ezsignfolder_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsignfolder_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -377,7 +377,7 @@ void OAIObjectEzsignfolderApi::ezsignfolderBatchDownloadV1(const qint32 &pki_ezs
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignfolderID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignfolderID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsignfolder_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsignfolder_id)));
+        fullPath.replace(pki_ezsignfolder_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsignfolder_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -443,7 +443,7 @@ void OAIObjectEzsignfolderApi::ezsignfolderCreateObjectV1(const QList<OAIEzsignf
     OAIHttpRequestInput input(fullPath, "POST");
 
     {
-        QJsonDocument doc(::OpenAPI::toJsonValue(oai_ezsignfolder_create_object_v1_request).toArray());
+        QJsonDocument doc(::Ezmaxapi::toJsonValue(oai_ezsignfolder_create_object_v1_request).toArray());
         QByteArray bytes = doc.toJson();
         input.request_body.append(bytes);
     }
@@ -564,7 +564,7 @@ void OAIObjectEzsignfolderApi::ezsignfolderDeleteObjectV1(const qint32 &pki_ezsi
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignfolderID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignfolderID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsignfolder_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsignfolder_id)));
+        fullPath.replace(pki_ezsignfolder_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsignfolder_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -689,7 +689,7 @@ void OAIObjectEzsignfolderApi::ezsignfolderDisposeV1(const qint32 &pki_ezsignfol
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignfolderID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignfolderID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsignfolder_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsignfolder_id)));
+        fullPath.replace(pki_ezsignfolder_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsignfolder_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -761,7 +761,7 @@ void OAIObjectEzsignfolderApi::ezsignfolderEditObjectV1(const qint32 &pki_ezsign
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignfolderID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignfolderID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsignfolder_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsignfolder_id)));
+        fullPath.replace(pki_ezsignfolder_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsignfolder_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -833,7 +833,7 @@ void OAIObjectEzsignfolderApi::ezsignfolderGetActionableElementsV1(const qint32 
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignfolderID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignfolderID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsignfolder_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsignfolder_id)));
+        fullPath.replace(pki_ezsignfolder_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsignfolder_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -900,7 +900,7 @@ void OAIObjectEzsignfolderApi::ezsignfolderGetCommunicationCountV1(const qint32 
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignfolderID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignfolderID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsignfolder_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsignfolder_id)));
+        fullPath.replace(pki_ezsignfolder_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsignfolder_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -967,7 +967,7 @@ void OAIObjectEzsignfolderApi::ezsignfolderGetCommunicationListV1(const qint32 &
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignfolderID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignfolderID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsignfolder_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsignfolder_id)));
+        fullPath.replace(pki_ezsignfolder_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsignfolder_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -1034,7 +1034,7 @@ void OAIObjectEzsignfolderApi::ezsignfolderGetEzsigndocumentsV1(const qint32 &pk
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignfolderID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignfolderID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsignfolder_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsignfolder_id)));
+        fullPath.replace(pki_ezsignfolder_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsignfolder_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -1101,7 +1101,7 @@ void OAIObjectEzsignfolderApi::ezsignfolderGetEzsignfoldersignerassociationsV1(c
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignfolderID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignfolderID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsignfolder_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsignfolder_id)));
+        fullPath.replace(pki_ezsignfolder_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsignfolder_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -1168,7 +1168,7 @@ void OAIObjectEzsignfolderApi::ezsignfolderGetEzsignfoldersignerassociationsmine
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignfolderID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignfolderID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsignfolder_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsignfolder_id)));
+        fullPath.replace(pki_ezsignfolder_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsignfolder_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -1235,7 +1235,7 @@ void OAIObjectEzsignfolderApi::ezsignfolderGetEzsignsignaturesAutomaticV1(const 
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignfolderID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignfolderID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsignfolder_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsignfolder_id)));
+        fullPath.replace(pki_ezsignfolder_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsignfolder_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -1302,7 +1302,7 @@ void OAIObjectEzsignfolderApi::ezsignfolderGetFormsDataV1(const qint32 &pki_ezsi
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignfolderID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignfolderID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsignfolder_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsignfolder_id)));
+        fullPath.replace(pki_ezsignfolder_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsignfolder_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -1350,7 +1350,7 @@ void OAIObjectEzsignfolderApi::ezsignfolderGetFormsDataV1Callback(OAIHttpRequest
     }
 }
 
-void OAIObjectEzsignfolderApi::ezsignfolderGetListV1(const ::OpenAPI::OptionalParam<QString> &e_order_by, const ::OpenAPI::OptionalParam<qint32> &i_row_max, const ::OpenAPI::OptionalParam<qint32> &i_row_offset, const ::OpenAPI::OptionalParam<OAIHeader_Accept_Language> &accept_language, const ::OpenAPI::OptionalParam<QString> &s_filter) {
+void OAIObjectEzsignfolderApi::ezsignfolderGetListV1(const ::Ezmaxapi::OptionalParam<QString> &e_order_by, const ::Ezmaxapi::OptionalParam<qint32> &i_row_max, const ::Ezmaxapi::OptionalParam<qint32> &i_row_offset, const ::Ezmaxapi::OptionalParam<OAIHeader_Accept_Language> &accept_language, const ::Ezmaxapi::OptionalParam<QString> &s_filter) {
     QString fullPath = QString(_serverConfigs["ezsignfolderGetListV1"][_serverIndices.value("ezsignfolderGetListV1")].URL()+"/1/object/ezsignfolder/getList");
     
     if (_apiKeys.contains("Authorization")) {
@@ -1371,7 +1371,7 @@ void OAIObjectEzsignfolderApi::ezsignfolderGetListV1(const ::OpenAPI::OptionalPa
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("eOrderBy")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(e_order_by.value())));
+        fullPath.append(QUrl::toPercentEncoding("eOrderBy")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(e_order_by.value())));
     }
     if (i_row_max.hasValue())
     {
@@ -1386,7 +1386,7 @@ void OAIObjectEzsignfolderApi::ezsignfolderGetListV1(const ::OpenAPI::OptionalPa
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("iRowMax")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(i_row_max.value())));
+        fullPath.append(QUrl::toPercentEncoding("iRowMax")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(i_row_max.value())));
     }
     if (i_row_offset.hasValue())
     {
@@ -1401,7 +1401,7 @@ void OAIObjectEzsignfolderApi::ezsignfolderGetListV1(const ::OpenAPI::OptionalPa
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("iRowOffset")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(i_row_offset.value())));
+        fullPath.append(QUrl::toPercentEncoding("iRowOffset")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(i_row_offset.value())));
     }
     if (s_filter.hasValue())
     {
@@ -1416,7 +1416,7 @@ void OAIObjectEzsignfolderApi::ezsignfolderGetListV1(const ::OpenAPI::OptionalPa
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("sFilter")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(s_filter.value())));
+        fullPath.append(QUrl::toPercentEncoding("sFilter")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_filter.value())));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -1527,7 +1527,7 @@ void OAIObjectEzsignfolderApi::ezsignfolderGetObjectV1(const qint32 &pki_ezsignf
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignfolderID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignfolderID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsignfolder_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsignfolder_id)));
+        fullPath.replace(pki_ezsignfolder_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsignfolder_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -1594,7 +1594,7 @@ void OAIObjectEzsignfolderApi::ezsignfolderGetObjectV2(const qint32 &pki_ezsignf
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignfolderID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignfolderID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsignfolder_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsignfolder_id)));
+        fullPath.replace(pki_ezsignfolder_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsignfolder_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -1661,7 +1661,7 @@ void OAIObjectEzsignfolderApi::ezsignfolderImportEzsignfoldersignerassociationsV
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignfolderID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignfolderID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsignfolder_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsignfolder_id)));
+        fullPath.replace(pki_ezsignfolder_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsignfolder_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -1733,7 +1733,7 @@ void OAIObjectEzsignfolderApi::ezsignfolderImportEzsigntemplatepackageV1(const q
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignfolderID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignfolderID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsignfolder_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsignfolder_id)));
+        fullPath.replace(pki_ezsignfolder_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsignfolder_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -1805,7 +1805,7 @@ void OAIObjectEzsignfolderApi::ezsignfolderReorderV1(const qint32 &pki_ezsignfol
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignfolderID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignfolderID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsignfolder_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsignfolder_id)));
+        fullPath.replace(pki_ezsignfolder_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsignfolder_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -1877,7 +1877,7 @@ void OAIObjectEzsignfolderApi::ezsignfolderSendV1(const qint32 &pki_ezsignfolder
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignfolderID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignfolderID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsignfolder_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsignfolder_id)));
+        fullPath.replace(pki_ezsignfolder_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsignfolder_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -1949,7 +1949,7 @@ void OAIObjectEzsignfolderApi::ezsignfolderSendV2(const qint32 &pki_ezsignfolder
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignfolderID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignfolderID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsignfolder_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsignfolder_id)));
+        fullPath.replace(pki_ezsignfolder_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsignfolder_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -2021,7 +2021,7 @@ void OAIObjectEzsignfolderApi::ezsignfolderSendV3(const qint32 &pki_ezsignfolder
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignfolderID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignfolderID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsignfolder_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsignfolder_id)));
+        fullPath.replace(pki_ezsignfolder_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsignfolder_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -2093,7 +2093,7 @@ void OAIObjectEzsignfolderApi::ezsignfolderUnsendV1(const qint32 &pki_ezsignfold
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignfolderID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignfolderID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsignfolder_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsignfolder_id)));
+        fullPath.replace(pki_ezsignfolder_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsignfolder_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -2195,4 +2195,4 @@ void OAIObjectEzsignfolderApi::tokenAvailable(){
         break;
     }
 }
-} // namespace OpenAPI
+} // namespace Ezmaxapi

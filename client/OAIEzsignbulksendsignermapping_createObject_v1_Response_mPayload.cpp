@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzsignbulksendsignermapping_createObject_v1_Response_mPayload::OAIEzsignbulksendsignermapping_createObject_v1_Response_mPayload(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAIEzsignbulksendsignermapping_createObject_v1_Response_mPayload::fromJson(
 
 void OAIEzsignbulksendsignermapping_createObject_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_pki_ezsignbulksendsignermapping_id_isValid = ::OpenAPI::fromJsonValue(m_a_pki_ezsignbulksendsignermapping_id, json[QString("a_pkiEzsignbulksendsignermappingID")]);
+    m_a_pki_ezsignbulksendsignermapping_id_isValid = ::Ezmaxapi::fromJsonValue(m_a_pki_ezsignbulksendsignermapping_id, json[QString("a_pkiEzsignbulksendsignermappingID")]);
     m_a_pki_ezsignbulksendsignermapping_id_isSet = !json[QString("a_pkiEzsignbulksendsignermappingID")].isNull() && m_a_pki_ezsignbulksendsignermapping_id_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAIEzsignbulksendsignermapping_createObject_v1_Response_mPayload::asJson
 QJsonObject OAIEzsignbulksendsignermapping_createObject_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_a_pki_ezsignbulksendsignermapping_id.size() > 0) {
-        obj.insert(QString("a_pkiEzsignbulksendsignermappingID"), ::OpenAPI::toJsonValue(m_a_pki_ezsignbulksendsignermapping_id));
+        obj.insert(QString("a_pkiEzsignbulksendsignermappingID"), ::Ezmaxapi::toJsonValue(m_a_pki_ezsignbulksendsignermapping_id));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAIEzsignbulksendsignermapping_createObject_v1_Response_mPayload::isValid()
     return m_a_pki_ezsignbulksendsignermapping_id_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

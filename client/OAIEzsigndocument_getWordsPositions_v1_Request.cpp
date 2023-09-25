@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzsigndocument_getWordsPositions_v1_Request::OAIEzsigndocument_getWordsPositions_v1_Request(QString json) {
     this->initializeModel();
@@ -53,13 +53,13 @@ void OAIEzsigndocument_getWordsPositions_v1_Request::fromJson(QString jsonString
 
 void OAIEzsigndocument_getWordsPositions_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_e_get_isValid = ::OpenAPI::fromJsonValue(m_e_get, json[QString("eGet")]);
+    m_e_get_isValid = ::Ezmaxapi::fromJsonValue(m_e_get, json[QString("eGet")]);
     m_e_get_isSet = !json[QString("eGet")].isNull() && m_e_get_isValid;
 
-    m_b_word_case_sensitive_isValid = ::OpenAPI::fromJsonValue(m_b_word_case_sensitive, json[QString("bWordCaseSensitive")]);
+    m_b_word_case_sensitive_isValid = ::Ezmaxapi::fromJsonValue(m_b_word_case_sensitive, json[QString("bWordCaseSensitive")]);
     m_b_word_case_sensitive_isSet = !json[QString("bWordCaseSensitive")].isNull() && m_b_word_case_sensitive_isValid;
 
-    m_a_s_word_isValid = ::OpenAPI::fromJsonValue(m_a_s_word, json[QString("a_sWord")]);
+    m_a_s_word_isValid = ::Ezmaxapi::fromJsonValue(m_a_s_word, json[QString("a_sWord")]);
     m_a_s_word_isSet = !json[QString("a_sWord")].isNull() && m_a_s_word_isValid;
 }
 
@@ -73,13 +73,13 @@ QString OAIEzsigndocument_getWordsPositions_v1_Request::asJson() const {
 QJsonObject OAIEzsigndocument_getWordsPositions_v1_Request::asJsonObject() const {
     QJsonObject obj;
     if (m_e_get_isSet) {
-        obj.insert(QString("eGet"), ::OpenAPI::toJsonValue(m_e_get));
+        obj.insert(QString("eGet"), ::Ezmaxapi::toJsonValue(m_e_get));
     }
     if (m_b_word_case_sensitive_isSet) {
-        obj.insert(QString("bWordCaseSensitive"), ::OpenAPI::toJsonValue(m_b_word_case_sensitive));
+        obj.insert(QString("bWordCaseSensitive"), ::Ezmaxapi::toJsonValue(m_b_word_case_sensitive));
     }
     if (m_a_s_word.size() > 0) {
-        obj.insert(QString("a_sWord"), ::OpenAPI::toJsonValue(m_a_s_word));
+        obj.insert(QString("a_sWord"), ::Ezmaxapi::toJsonValue(m_a_s_word));
     }
     return obj;
 }
@@ -158,4 +158,4 @@ bool OAIEzsigndocument_getWordsPositions_v1_Request::isValid() const {
     return m_e_get_isValid && m_b_word_case_sensitive_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

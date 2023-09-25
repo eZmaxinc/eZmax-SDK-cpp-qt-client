@@ -25,7 +25,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIEzsigntemplatepackagesignermembership_RequestCompound : public OAIObject {
 public:
@@ -90,8 +90,8 @@ private:
     bool m_i_ezsigntemplatepackagesignermembership_copy_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIEzsigntemplatepackagesignermembership_RequestCompound)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIEzsigntemplatepackagesignermembership_RequestCompound)
 
 #endif // OAIEzsigntemplatepackagesignermembership_RequestCompound_H

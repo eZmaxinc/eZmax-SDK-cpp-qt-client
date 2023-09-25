@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzsignbulksend_createEzsignbulksendtransmission_v1_Request::OAIEzsignbulksend_createEzsignbulksendtransmission_v1_Request(QString json) {
     this->initializeModel();
@@ -65,25 +65,25 @@ void OAIEzsignbulksend_createEzsignbulksendtransmission_v1_Request::fromJson(QSt
 
 void OAIEzsignbulksend_createEzsignbulksendtransmission_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_fki_userlogintype_id_isValid = ::OpenAPI::fromJsonValue(m_fki_userlogintype_id, json[QString("fkiUserlogintypeID")]);
+    m_fki_userlogintype_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_userlogintype_id, json[QString("fkiUserlogintypeID")]);
     m_fki_userlogintype_id_isSet = !json[QString("fkiUserlogintypeID")].isNull() && m_fki_userlogintype_id_isValid;
 
-    m_fki_ezsigntsarequirement_id_isValid = ::OpenAPI::fromJsonValue(m_fki_ezsigntsarequirement_id, json[QString("fkiEzsigntsarequirementID")]);
+    m_fki_ezsigntsarequirement_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_ezsigntsarequirement_id, json[QString("fkiEzsigntsarequirementID")]);
     m_fki_ezsigntsarequirement_id_isSet = !json[QString("fkiEzsigntsarequirementID")].isNull() && m_fki_ezsigntsarequirement_id_isValid;
 
-    m_s_ezsignbulksendtransmission_description_isValid = ::OpenAPI::fromJsonValue(m_s_ezsignbulksendtransmission_description, json[QString("sEzsignbulksendtransmissionDescription")]);
+    m_s_ezsignbulksendtransmission_description_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsignbulksendtransmission_description, json[QString("sEzsignbulksendtransmissionDescription")]);
     m_s_ezsignbulksendtransmission_description_isSet = !json[QString("sEzsignbulksendtransmissionDescription")].isNull() && m_s_ezsignbulksendtransmission_description_isValid;
 
-    m_dt_ezsigndocument_duedate_isValid = ::OpenAPI::fromJsonValue(m_dt_ezsigndocument_duedate, json[QString("dtEzsigndocumentDuedate")]);
+    m_dt_ezsigndocument_duedate_isValid = ::Ezmaxapi::fromJsonValue(m_dt_ezsigndocument_duedate, json[QString("dtEzsigndocumentDuedate")]);
     m_dt_ezsigndocument_duedate_isSet = !json[QString("dtEzsigndocumentDuedate")].isNull() && m_dt_ezsigndocument_duedate_isValid;
 
-    m_e_ezsignfolder_sendreminderfrequency_isValid = ::OpenAPI::fromJsonValue(m_e_ezsignfolder_sendreminderfrequency, json[QString("eEzsignfolderSendreminderfrequency")]);
+    m_e_ezsignfolder_sendreminderfrequency_isValid = ::Ezmaxapi::fromJsonValue(m_e_ezsignfolder_sendreminderfrequency, json[QString("eEzsignfolderSendreminderfrequency")]);
     m_e_ezsignfolder_sendreminderfrequency_isSet = !json[QString("eEzsignfolderSendreminderfrequency")].isNull() && m_e_ezsignfolder_sendreminderfrequency_isValid;
 
-    m_t_extra_message_isValid = ::OpenAPI::fromJsonValue(m_t_extra_message, json[QString("tExtraMessage")]);
+    m_t_extra_message_isValid = ::Ezmaxapi::fromJsonValue(m_t_extra_message, json[QString("tExtraMessage")]);
     m_t_extra_message_isSet = !json[QString("tExtraMessage")].isNull() && m_t_extra_message_isValid;
 
-    m_s_csv_base64_isValid = ::OpenAPI::fromJsonValue(m_s_csv_base64, json[QString("sCsvBase64")]);
+    m_s_csv_base64_isValid = ::Ezmaxapi::fromJsonValue(m_s_csv_base64, json[QString("sCsvBase64")]);
     m_s_csv_base64_isSet = !json[QString("sCsvBase64")].isNull() && m_s_csv_base64_isValid;
 }
 
@@ -97,25 +97,25 @@ QString OAIEzsignbulksend_createEzsignbulksendtransmission_v1_Request::asJson() 
 QJsonObject OAIEzsignbulksend_createEzsignbulksendtransmission_v1_Request::asJsonObject() const {
     QJsonObject obj;
     if (m_fki_userlogintype_id_isSet) {
-        obj.insert(QString("fkiUserlogintypeID"), ::OpenAPI::toJsonValue(m_fki_userlogintype_id));
+        obj.insert(QString("fkiUserlogintypeID"), ::Ezmaxapi::toJsonValue(m_fki_userlogintype_id));
     }
     if (m_fki_ezsigntsarequirement_id_isSet) {
-        obj.insert(QString("fkiEzsigntsarequirementID"), ::OpenAPI::toJsonValue(m_fki_ezsigntsarequirement_id));
+        obj.insert(QString("fkiEzsigntsarequirementID"), ::Ezmaxapi::toJsonValue(m_fki_ezsigntsarequirement_id));
     }
     if (m_s_ezsignbulksendtransmission_description_isSet) {
-        obj.insert(QString("sEzsignbulksendtransmissionDescription"), ::OpenAPI::toJsonValue(m_s_ezsignbulksendtransmission_description));
+        obj.insert(QString("sEzsignbulksendtransmissionDescription"), ::Ezmaxapi::toJsonValue(m_s_ezsignbulksendtransmission_description));
     }
     if (m_dt_ezsigndocument_duedate_isSet) {
-        obj.insert(QString("dtEzsigndocumentDuedate"), ::OpenAPI::toJsonValue(m_dt_ezsigndocument_duedate));
+        obj.insert(QString("dtEzsigndocumentDuedate"), ::Ezmaxapi::toJsonValue(m_dt_ezsigndocument_duedate));
     }
     if (m_e_ezsignfolder_sendreminderfrequency.isSet()) {
-        obj.insert(QString("eEzsignfolderSendreminderfrequency"), ::OpenAPI::toJsonValue(m_e_ezsignfolder_sendreminderfrequency));
+        obj.insert(QString("eEzsignfolderSendreminderfrequency"), ::Ezmaxapi::toJsonValue(m_e_ezsignfolder_sendreminderfrequency));
     }
     if (m_t_extra_message_isSet) {
-        obj.insert(QString("tExtraMessage"), ::OpenAPI::toJsonValue(m_t_extra_message));
+        obj.insert(QString("tExtraMessage"), ::Ezmaxapi::toJsonValue(m_t_extra_message));
     }
     if (m_s_csv_base64_isSet) {
-        obj.insert(QString("sCsvBase64"), ::OpenAPI::toJsonValue(m_s_csv_base64));
+        obj.insert(QString("sCsvBase64"), ::Ezmaxapi::toJsonValue(m_s_csv_base64));
     }
     return obj;
 }
@@ -278,4 +278,4 @@ bool OAIEzsignbulksend_createEzsignbulksendtransmission_v1_Request::isValid() co
     return m_fki_userlogintype_id_isValid && m_s_ezsignbulksendtransmission_description_isValid && m_dt_ezsigndocument_duedate_isValid && m_e_ezsignfolder_sendreminderfrequency_isValid && m_t_extra_message_isValid && m_s_csv_base64_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

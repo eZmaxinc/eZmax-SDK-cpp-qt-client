@@ -27,7 +27,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIWebsocket_Response_Error_V1_mPayload : public OAIObject {
 public:
@@ -65,8 +65,8 @@ private:
     bool m_e_error_code_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIWebsocket_Response_Error_V1_mPayload)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIWebsocket_Response_Error_V1_mPayload)
 
 #endif // OAIWebsocket_Response_Error_V1_mPayload_H

@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIWebhook_Ezsign_DocumentCompleted::OAIWebhook_Ezsign_DocumentCompleted(QString json) {
     this->initializeModel();
@@ -53,13 +53,13 @@ void OAIWebhook_Ezsign_DocumentCompleted::fromJson(QString jsonString) {
 
 void OAIWebhook_Ezsign_DocumentCompleted::fromJsonObject(QJsonObject json) {
 
-    m_obj_webhook_isValid = ::OpenAPI::fromJsonValue(m_obj_webhook, json[QString("objWebhook")]);
+    m_obj_webhook_isValid = ::Ezmaxapi::fromJsonValue(m_obj_webhook, json[QString("objWebhook")]);
     m_obj_webhook_isSet = !json[QString("objWebhook")].isNull() && m_obj_webhook_isValid;
 
-    m_a_obj_attempt_isValid = ::OpenAPI::fromJsonValue(m_a_obj_attempt, json[QString("a_objAttempt")]);
+    m_a_obj_attempt_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_attempt, json[QString("a_objAttempt")]);
     m_a_obj_attempt_isSet = !json[QString("a_objAttempt")].isNull() && m_a_obj_attempt_isValid;
 
-    m_obj_ezsigndocument_isValid = ::OpenAPI::fromJsonValue(m_obj_ezsigndocument, json[QString("objEzsigndocument")]);
+    m_obj_ezsigndocument_isValid = ::Ezmaxapi::fromJsonValue(m_obj_ezsigndocument, json[QString("objEzsigndocument")]);
     m_obj_ezsigndocument_isSet = !json[QString("objEzsigndocument")].isNull() && m_obj_ezsigndocument_isValid;
 }
 
@@ -73,13 +73,13 @@ QString OAIWebhook_Ezsign_DocumentCompleted::asJson() const {
 QJsonObject OAIWebhook_Ezsign_DocumentCompleted::asJsonObject() const {
     QJsonObject obj;
     if (m_obj_webhook.isSet()) {
-        obj.insert(QString("objWebhook"), ::OpenAPI::toJsonValue(m_obj_webhook));
+        obj.insert(QString("objWebhook"), ::Ezmaxapi::toJsonValue(m_obj_webhook));
     }
     if (m_a_obj_attempt.size() > 0) {
-        obj.insert(QString("a_objAttempt"), ::OpenAPI::toJsonValue(m_a_obj_attempt));
+        obj.insert(QString("a_objAttempt"), ::Ezmaxapi::toJsonValue(m_a_obj_attempt));
     }
     if (m_obj_ezsigndocument.isSet()) {
-        obj.insert(QString("objEzsigndocument"), ::OpenAPI::toJsonValue(m_obj_ezsigndocument));
+        obj.insert(QString("objEzsigndocument"), ::Ezmaxapi::toJsonValue(m_obj_ezsigndocument));
     }
     return obj;
 }
@@ -158,4 +158,4 @@ bool OAIWebhook_Ezsign_DocumentCompleted::isValid() const {
     return m_obj_webhook_isValid && m_a_obj_attempt_isValid && m_obj_ezsigndocument_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

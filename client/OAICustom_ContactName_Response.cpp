@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAICustom_ContactName_Response::OAICustom_ContactName_Response(QString json) {
     this->initializeModel();
@@ -53,13 +53,13 @@ void OAICustom_ContactName_Response::fromJson(QString jsonString) {
 
 void OAICustom_ContactName_Response::fromJsonObject(QJsonObject json) {
 
-    m_s_contact_firstname_isValid = ::OpenAPI::fromJsonValue(m_s_contact_firstname, json[QString("sContactFirstname")]);
+    m_s_contact_firstname_isValid = ::Ezmaxapi::fromJsonValue(m_s_contact_firstname, json[QString("sContactFirstname")]);
     m_s_contact_firstname_isSet = !json[QString("sContactFirstname")].isNull() && m_s_contact_firstname_isValid;
 
-    m_s_contact_lastname_isValid = ::OpenAPI::fromJsonValue(m_s_contact_lastname, json[QString("sContactLastname")]);
+    m_s_contact_lastname_isValid = ::Ezmaxapi::fromJsonValue(m_s_contact_lastname, json[QString("sContactLastname")]);
     m_s_contact_lastname_isSet = !json[QString("sContactLastname")].isNull() && m_s_contact_lastname_isValid;
 
-    m_s_contact_company_isValid = ::OpenAPI::fromJsonValue(m_s_contact_company, json[QString("sContactCompany")]);
+    m_s_contact_company_isValid = ::Ezmaxapi::fromJsonValue(m_s_contact_company, json[QString("sContactCompany")]);
     m_s_contact_company_isSet = !json[QString("sContactCompany")].isNull() && m_s_contact_company_isValid;
 }
 
@@ -73,13 +73,13 @@ QString OAICustom_ContactName_Response::asJson() const {
 QJsonObject OAICustom_ContactName_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_s_contact_firstname_isSet) {
-        obj.insert(QString("sContactFirstname"), ::OpenAPI::toJsonValue(m_s_contact_firstname));
+        obj.insert(QString("sContactFirstname"), ::Ezmaxapi::toJsonValue(m_s_contact_firstname));
     }
     if (m_s_contact_lastname_isSet) {
-        obj.insert(QString("sContactLastname"), ::OpenAPI::toJsonValue(m_s_contact_lastname));
+        obj.insert(QString("sContactLastname"), ::Ezmaxapi::toJsonValue(m_s_contact_lastname));
     }
     if (m_s_contact_company_isSet) {
-        obj.insert(QString("sContactCompany"), ::OpenAPI::toJsonValue(m_s_contact_company));
+        obj.insert(QString("sContactCompany"), ::Ezmaxapi::toJsonValue(m_s_contact_company));
     }
     return obj;
 }
@@ -158,4 +158,4 @@ bool OAICustom_ContactName_Response::isValid() const {
     return true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

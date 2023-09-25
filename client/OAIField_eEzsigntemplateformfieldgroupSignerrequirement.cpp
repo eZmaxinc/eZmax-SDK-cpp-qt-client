@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIField_eEzsigntemplateformfieldgroupSignerrequirement::OAIField_eEzsigntemplateformfieldgroupSignerrequirement(QString json) {
     this->initializeModel();
@@ -95,4 +95,4 @@ bool OAIField_eEzsigntemplateformfieldgroupSignerrequirement::isValid() const {
     return m_value_isValid;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIPaymentterm_AutocompleteElement_Response::OAIPaymentterm_AutocompleteElement_Response(QString json) {
     this->initializeModel();
@@ -53,13 +53,13 @@ void OAIPaymentterm_AutocompleteElement_Response::fromJson(QString jsonString) {
 
 void OAIPaymentterm_AutocompleteElement_Response::fromJsonObject(QJsonObject json) {
 
-    m_pki_paymentterm_id_isValid = ::OpenAPI::fromJsonValue(m_pki_paymentterm_id, json[QString("pkiPaymenttermID")]);
+    m_pki_paymentterm_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_paymentterm_id, json[QString("pkiPaymenttermID")]);
     m_pki_paymentterm_id_isSet = !json[QString("pkiPaymenttermID")].isNull() && m_pki_paymentterm_id_isValid;
 
-    m_s_paymentterm_description_x_isValid = ::OpenAPI::fromJsonValue(m_s_paymentterm_description_x, json[QString("sPaymenttermDescriptionX")]);
+    m_s_paymentterm_description_x_isValid = ::Ezmaxapi::fromJsonValue(m_s_paymentterm_description_x, json[QString("sPaymenttermDescriptionX")]);
     m_s_paymentterm_description_x_isSet = !json[QString("sPaymenttermDescriptionX")].isNull() && m_s_paymentterm_description_x_isValid;
 
-    m_b_paymentterm_isactive_isValid = ::OpenAPI::fromJsonValue(m_b_paymentterm_isactive, json[QString("bPaymenttermIsactive")]);
+    m_b_paymentterm_isactive_isValid = ::Ezmaxapi::fromJsonValue(m_b_paymentterm_isactive, json[QString("bPaymenttermIsactive")]);
     m_b_paymentterm_isactive_isSet = !json[QString("bPaymenttermIsactive")].isNull() && m_b_paymentterm_isactive_isValid;
 }
 
@@ -73,13 +73,13 @@ QString OAIPaymentterm_AutocompleteElement_Response::asJson() const {
 QJsonObject OAIPaymentterm_AutocompleteElement_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_paymentterm_id_isSet) {
-        obj.insert(QString("pkiPaymenttermID"), ::OpenAPI::toJsonValue(m_pki_paymentterm_id));
+        obj.insert(QString("pkiPaymenttermID"), ::Ezmaxapi::toJsonValue(m_pki_paymentterm_id));
     }
     if (m_s_paymentterm_description_x_isSet) {
-        obj.insert(QString("sPaymenttermDescriptionX"), ::OpenAPI::toJsonValue(m_s_paymentterm_description_x));
+        obj.insert(QString("sPaymenttermDescriptionX"), ::Ezmaxapi::toJsonValue(m_s_paymentterm_description_x));
     }
     if (m_b_paymentterm_isactive_isSet) {
-        obj.insert(QString("bPaymenttermIsactive"), ::OpenAPI::toJsonValue(m_b_paymentterm_isactive));
+        obj.insert(QString("bPaymenttermIsactive"), ::Ezmaxapi::toJsonValue(m_b_paymentterm_isactive));
     }
     return obj;
 }
@@ -158,4 +158,4 @@ bool OAIPaymentterm_AutocompleteElement_Response::isValid() const {
     return m_pki_paymentterm_id_isValid && m_s_paymentterm_description_x_isValid && m_b_paymentterm_isactive_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

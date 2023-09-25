@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAICustom_FormsDataFolder_Response::OAICustom_FormsDataFolder_Response(QString json) {
     this->initializeModel();
@@ -53,13 +53,13 @@ void OAICustom_FormsDataFolder_Response::fromJson(QString jsonString) {
 
 void OAICustom_FormsDataFolder_Response::fromJsonObject(QJsonObject json) {
 
-    m_pki_ezsignfolder_id_isValid = ::OpenAPI::fromJsonValue(m_pki_ezsignfolder_id, json[QString("pkiEzsignfolderID")]);
+    m_pki_ezsignfolder_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_ezsignfolder_id, json[QString("pkiEzsignfolderID")]);
     m_pki_ezsignfolder_id_isSet = !json[QString("pkiEzsignfolderID")].isNull() && m_pki_ezsignfolder_id_isValid;
 
-    m_s_ezsignfolder_description_isValid = ::OpenAPI::fromJsonValue(m_s_ezsignfolder_description, json[QString("sEzsignfolderDescription")]);
+    m_s_ezsignfolder_description_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsignfolder_description, json[QString("sEzsignfolderDescription")]);
     m_s_ezsignfolder_description_isSet = !json[QString("sEzsignfolderDescription")].isNull() && m_s_ezsignfolder_description_isValid;
 
-    m_a_obj_form_data_document_isValid = ::OpenAPI::fromJsonValue(m_a_obj_form_data_document, json[QString("a_objFormDataDocument")]);
+    m_a_obj_form_data_document_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_form_data_document, json[QString("a_objFormDataDocument")]);
     m_a_obj_form_data_document_isSet = !json[QString("a_objFormDataDocument")].isNull() && m_a_obj_form_data_document_isValid;
 }
 
@@ -73,13 +73,13 @@ QString OAICustom_FormsDataFolder_Response::asJson() const {
 QJsonObject OAICustom_FormsDataFolder_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_ezsignfolder_id_isSet) {
-        obj.insert(QString("pkiEzsignfolderID"), ::OpenAPI::toJsonValue(m_pki_ezsignfolder_id));
+        obj.insert(QString("pkiEzsignfolderID"), ::Ezmaxapi::toJsonValue(m_pki_ezsignfolder_id));
     }
     if (m_s_ezsignfolder_description_isSet) {
-        obj.insert(QString("sEzsignfolderDescription"), ::OpenAPI::toJsonValue(m_s_ezsignfolder_description));
+        obj.insert(QString("sEzsignfolderDescription"), ::Ezmaxapi::toJsonValue(m_s_ezsignfolder_description));
     }
     if (m_a_obj_form_data_document.size() > 0) {
-        obj.insert(QString("a_objFormDataDocument"), ::OpenAPI::toJsonValue(m_a_obj_form_data_document));
+        obj.insert(QString("a_objFormDataDocument"), ::Ezmaxapi::toJsonValue(m_a_obj_form_data_document));
     }
     return obj;
 }
@@ -158,4 +158,4 @@ bool OAICustom_FormsDataFolder_Response::isValid() const {
     return m_pki_ezsignfolder_id_isValid && m_s_ezsignfolder_description_isValid && m_a_obj_form_data_document_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

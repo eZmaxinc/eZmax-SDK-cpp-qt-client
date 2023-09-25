@@ -26,7 +26,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIClonehistory_ListElement : public OAIObject {
 public:
@@ -145,8 +145,8 @@ private:
     bool m_s_user_lastname_cloned_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIClonehistory_ListElement)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIClonehistory_ListElement)
 
 #endif // OAIClonehistory_ListElement_H

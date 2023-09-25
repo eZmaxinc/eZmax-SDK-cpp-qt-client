@@ -25,7 +25,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIUserstaged_createUser_v1_Response_mPayload : public OAIObject {
 public:
@@ -54,8 +54,8 @@ private:
     bool m_pki_user_id_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIUserstaged_createUser_v1_Response_mPayload)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIUserstaged_createUser_v1_Response_mPayload)
 
 #endif // OAIUserstaged_createUser_v1_Response_mPayload_H

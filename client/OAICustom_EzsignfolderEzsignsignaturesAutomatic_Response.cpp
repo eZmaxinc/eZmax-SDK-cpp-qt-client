@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAICustom_EzsignfolderEzsignsignaturesAutomatic_Response::OAICustom_EzsignfolderEzsignsignaturesAutomatic_Response(QString json) {
     this->initializeModel();
@@ -53,13 +53,13 @@ void OAICustom_EzsignfolderEzsignsignaturesAutomatic_Response::fromJson(QString 
 
 void OAICustom_EzsignfolderEzsignsignaturesAutomatic_Response::fromJsonObject(QJsonObject json) {
 
-    m_pki_ezsignfolder_id_isValid = ::OpenAPI::fromJsonValue(m_pki_ezsignfolder_id, json[QString("pkiEzsignfolderID")]);
+    m_pki_ezsignfolder_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_ezsignfolder_id, json[QString("pkiEzsignfolderID")]);
     m_pki_ezsignfolder_id_isSet = !json[QString("pkiEzsignfolderID")].isNull() && m_pki_ezsignfolder_id_isValid;
 
-    m_s_ezsignfolder_description_isValid = ::OpenAPI::fromJsonValue(m_s_ezsignfolder_description, json[QString("sEzsignfolderDescription")]);
+    m_s_ezsignfolder_description_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsignfolder_description, json[QString("sEzsignfolderDescription")]);
     m_s_ezsignfolder_description_isSet = !json[QString("sEzsignfolderDescription")].isNull() && m_s_ezsignfolder_description_isValid;
 
-    m_a_obj_ezsigndocument_isValid = ::OpenAPI::fromJsonValue(m_a_obj_ezsigndocument, json[QString("a_objEzsigndocument")]);
+    m_a_obj_ezsigndocument_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_ezsigndocument, json[QString("a_objEzsigndocument")]);
     m_a_obj_ezsigndocument_isSet = !json[QString("a_objEzsigndocument")].isNull() && m_a_obj_ezsigndocument_isValid;
 }
 
@@ -73,13 +73,13 @@ QString OAICustom_EzsignfolderEzsignsignaturesAutomatic_Response::asJson() const
 QJsonObject OAICustom_EzsignfolderEzsignsignaturesAutomatic_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_ezsignfolder_id_isSet) {
-        obj.insert(QString("pkiEzsignfolderID"), ::OpenAPI::toJsonValue(m_pki_ezsignfolder_id));
+        obj.insert(QString("pkiEzsignfolderID"), ::Ezmaxapi::toJsonValue(m_pki_ezsignfolder_id));
     }
     if (m_s_ezsignfolder_description_isSet) {
-        obj.insert(QString("sEzsignfolderDescription"), ::OpenAPI::toJsonValue(m_s_ezsignfolder_description));
+        obj.insert(QString("sEzsignfolderDescription"), ::Ezmaxapi::toJsonValue(m_s_ezsignfolder_description));
     }
     if (m_a_obj_ezsigndocument.size() > 0) {
-        obj.insert(QString("a_objEzsigndocument"), ::OpenAPI::toJsonValue(m_a_obj_ezsigndocument));
+        obj.insert(QString("a_objEzsigndocument"), ::Ezmaxapi::toJsonValue(m_a_obj_ezsigndocument));
     }
     return obj;
 }
@@ -158,4 +158,4 @@ bool OAICustom_EzsignfolderEzsignsignaturesAutomatic_Response::isValid() const {
     return m_pki_ezsignfolder_id_isValid && m_s_ezsignfolder_description_isValid && m_a_obj_ezsigndocument_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

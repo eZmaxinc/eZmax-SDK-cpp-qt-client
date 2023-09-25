@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIFont_getAutocomplete_v2_Response_mPayload::OAIFont_getAutocomplete_v2_Response_mPayload(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAIFont_getAutocomplete_v2_Response_mPayload::fromJson(QString jsonString) 
 
 void OAIFont_getAutocomplete_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_font_isValid = ::OpenAPI::fromJsonValue(m_a_obj_font, json[QString("a_objFont")]);
+    m_a_obj_font_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_font, json[QString("a_objFont")]);
     m_a_obj_font_isSet = !json[QString("a_objFont")].isNull() && m_a_obj_font_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAIFont_getAutocomplete_v2_Response_mPayload::asJson() const {
 QJsonObject OAIFont_getAutocomplete_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_a_obj_font.size() > 0) {
-        obj.insert(QString("a_objFont"), ::OpenAPI::toJsonValue(m_a_obj_font));
+        obj.insert(QString("a_objFont"), ::Ezmaxapi::toJsonValue(m_a_obj_font));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAIFont_getAutocomplete_v2_Response_mPayload::isValid() const {
     return true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

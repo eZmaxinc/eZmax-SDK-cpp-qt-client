@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAICommon_Reportcolumn::OAICommon_Reportcolumn(QString json) {
     this->initializeModel();
@@ -50,10 +50,10 @@ void OAICommon_Reportcolumn::fromJson(QString jsonString) {
 
 void OAICommon_Reportcolumn::fromJsonObject(QJsonObject json) {
 
-    m_obj_reportcellstyle_default_isValid = ::OpenAPI::fromJsonValue(m_obj_reportcellstyle_default, json[QString("objReportcellstyleDefault")]);
+    m_obj_reportcellstyle_default_isValid = ::Ezmaxapi::fromJsonValue(m_obj_reportcellstyle_default, json[QString("objReportcellstyleDefault")]);
     m_obj_reportcellstyle_default_isSet = !json[QString("objReportcellstyleDefault")].isNull() && m_obj_reportcellstyle_default_isValid;
 
-    m_i_reportcolumn_width_isValid = ::OpenAPI::fromJsonValue(m_i_reportcolumn_width, json[QString("iReportcolumnWidth")]);
+    m_i_reportcolumn_width_isValid = ::Ezmaxapi::fromJsonValue(m_i_reportcolumn_width, json[QString("iReportcolumnWidth")]);
     m_i_reportcolumn_width_isSet = !json[QString("iReportcolumnWidth")].isNull() && m_i_reportcolumn_width_isValid;
 }
 
@@ -67,10 +67,10 @@ QString OAICommon_Reportcolumn::asJson() const {
 QJsonObject OAICommon_Reportcolumn::asJsonObject() const {
     QJsonObject obj;
     if (m_obj_reportcellstyle_default.isSet()) {
-        obj.insert(QString("objReportcellstyleDefault"), ::OpenAPI::toJsonValue(m_obj_reportcellstyle_default));
+        obj.insert(QString("objReportcellstyleDefault"), ::Ezmaxapi::toJsonValue(m_obj_reportcellstyle_default));
     }
     if (m_i_reportcolumn_width_isSet) {
-        obj.insert(QString("iReportcolumnWidth"), ::OpenAPI::toJsonValue(m_i_reportcolumn_width));
+        obj.insert(QString("iReportcolumnWidth"), ::Ezmaxapi::toJsonValue(m_i_reportcolumn_width));
     }
     return obj;
 }
@@ -128,4 +128,4 @@ bool OAICommon_Reportcolumn::isValid() const {
     return m_obj_reportcellstyle_default_isValid && m_i_reportcolumn_width_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

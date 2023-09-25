@@ -29,7 +29,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 class OAICommon_Audit;
 class OAICustom_Ezsignfoldertransmission_Response;
 
@@ -105,8 +105,8 @@ private:
     bool m_a_obj_ezsignfoldertransmission_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIEzsignbulksendtransmission_ResponseCompound)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIEzsignbulksendtransmission_ResponseCompound)
 
 #endif // OAIEzsignbulksendtransmission_ResponseCompound_H

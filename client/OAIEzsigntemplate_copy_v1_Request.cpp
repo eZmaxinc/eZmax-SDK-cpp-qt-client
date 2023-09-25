@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzsigntemplate_copy_v1_Request::OAIEzsigntemplate_copy_v1_Request(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAIEzsigntemplate_copy_v1_Request::fromJson(QString jsonString) {
 
 void OAIEzsigntemplate_copy_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_a_fki_ezsignfoldertype_id_isValid = ::OpenAPI::fromJsonValue(m_a_fki_ezsignfoldertype_id, json[QString("a_fkiEzsignfoldertypeID")]);
+    m_a_fki_ezsignfoldertype_id_isValid = ::Ezmaxapi::fromJsonValue(m_a_fki_ezsignfoldertype_id, json[QString("a_fkiEzsignfoldertypeID")]);
     m_a_fki_ezsignfoldertype_id_isSet = !json[QString("a_fkiEzsignfoldertypeID")].isNull() && m_a_fki_ezsignfoldertype_id_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAIEzsigntemplate_copy_v1_Request::asJson() const {
 QJsonObject OAIEzsigntemplate_copy_v1_Request::asJsonObject() const {
     QJsonObject obj;
     if (m_a_fki_ezsignfoldertype_id.size() > 0) {
-        obj.insert(QString("a_fkiEzsignfoldertypeID"), ::OpenAPI::toJsonValue(m_a_fki_ezsignfoldertype_id));
+        obj.insert(QString("a_fkiEzsignfoldertypeID"), ::Ezmaxapi::toJsonValue(m_a_fki_ezsignfoldertype_id));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAIEzsigntemplate_copy_v1_Request::isValid() const {
     return m_a_fki_ezsignfoldertype_id_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

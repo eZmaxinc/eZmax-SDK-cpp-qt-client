@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIMultilingual_EzsignsignergroupDescription::OAIMultilingual_EzsignsignergroupDescription(QString json) {
     this->initializeModel();
@@ -50,10 +50,10 @@ void OAIMultilingual_EzsignsignergroupDescription::fromJson(QString jsonString) 
 
 void OAIMultilingual_EzsignsignergroupDescription::fromJsonObject(QJsonObject json) {
 
-    m_s_ezsignsignergroup_description1_isValid = ::OpenAPI::fromJsonValue(m_s_ezsignsignergroup_description1, json[QString("sEzsignsignergroupDescription1")]);
+    m_s_ezsignsignergroup_description1_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsignsignergroup_description1, json[QString("sEzsignsignergroupDescription1")]);
     m_s_ezsignsignergroup_description1_isSet = !json[QString("sEzsignsignergroupDescription1")].isNull() && m_s_ezsignsignergroup_description1_isValid;
 
-    m_s_ezsignsignergroup_description2_isValid = ::OpenAPI::fromJsonValue(m_s_ezsignsignergroup_description2, json[QString("sEzsignsignergroupDescription2")]);
+    m_s_ezsignsignergroup_description2_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsignsignergroup_description2, json[QString("sEzsignsignergroupDescription2")]);
     m_s_ezsignsignergroup_description2_isSet = !json[QString("sEzsignsignergroupDescription2")].isNull() && m_s_ezsignsignergroup_description2_isValid;
 }
 
@@ -67,10 +67,10 @@ QString OAIMultilingual_EzsignsignergroupDescription::asJson() const {
 QJsonObject OAIMultilingual_EzsignsignergroupDescription::asJsonObject() const {
     QJsonObject obj;
     if (m_s_ezsignsignergroup_description1_isSet) {
-        obj.insert(QString("sEzsignsignergroupDescription1"), ::OpenAPI::toJsonValue(m_s_ezsignsignergroup_description1));
+        obj.insert(QString("sEzsignsignergroupDescription1"), ::Ezmaxapi::toJsonValue(m_s_ezsignsignergroup_description1));
     }
     if (m_s_ezsignsignergroup_description2_isSet) {
-        obj.insert(QString("sEzsignsignergroupDescription2"), ::OpenAPI::toJsonValue(m_s_ezsignsignergroup_description2));
+        obj.insert(QString("sEzsignsignergroupDescription2"), ::Ezmaxapi::toJsonValue(m_s_ezsignsignergroup_description2));
     }
     return obj;
 }
@@ -128,4 +128,4 @@ bool OAIMultilingual_EzsignsignergroupDescription::isValid() const {
     return true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

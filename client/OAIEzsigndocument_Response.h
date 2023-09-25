@@ -28,7 +28,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 class OAICommon_Audit;
 
 class OAIEzsigndocument_Response : public OAIObject {
@@ -238,8 +238,8 @@ private:
     bool m_s_ezsigndocument_externalid_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIEzsigndocument_Response)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIEzsigndocument_Response)
 
 #endif // OAIEzsigndocument_Response_H

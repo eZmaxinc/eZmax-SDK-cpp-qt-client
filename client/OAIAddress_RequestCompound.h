@@ -26,7 +26,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIAddress_RequestCompound : public OAIObject {
 public:
@@ -118,8 +118,8 @@ private:
     bool m_s_address_zip_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIAddress_RequestCompound)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIAddress_RequestCompound)
 
 #endif // OAIAddress_RequestCompound_H

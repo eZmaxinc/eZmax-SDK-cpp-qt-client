@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzsignbulksend_editObject_v1_Request::OAIEzsignbulksend_editObject_v1_Request(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAIEzsignbulksend_editObject_v1_Request::fromJson(QString jsonString) {
 
 void OAIEzsignbulksend_editObject_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_obj_ezsignbulksend_isValid = ::OpenAPI::fromJsonValue(m_obj_ezsignbulksend, json[QString("objEzsignbulksend")]);
+    m_obj_ezsignbulksend_isValid = ::Ezmaxapi::fromJsonValue(m_obj_ezsignbulksend, json[QString("objEzsignbulksend")]);
     m_obj_ezsignbulksend_isSet = !json[QString("objEzsignbulksend")].isNull() && m_obj_ezsignbulksend_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAIEzsignbulksend_editObject_v1_Request::asJson() const {
 QJsonObject OAIEzsignbulksend_editObject_v1_Request::asJsonObject() const {
     QJsonObject obj;
     if (m_obj_ezsignbulksend.isSet()) {
-        obj.insert(QString("objEzsignbulksend"), ::OpenAPI::toJsonValue(m_obj_ezsignbulksend));
+        obj.insert(QString("objEzsignbulksend"), ::Ezmaxapi::toJsonValue(m_obj_ezsignbulksend));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAIEzsignbulksend_editObject_v1_Request::isValid() const {
     return m_obj_ezsignbulksend_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

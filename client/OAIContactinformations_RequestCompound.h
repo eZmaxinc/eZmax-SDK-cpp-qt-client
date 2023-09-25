@@ -30,7 +30,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 class OAIAddress_RequestCompound;
 class OAIPhone_RequestCompound;
 class OAIEmail_RequestCompound;
@@ -126,8 +126,8 @@ private:
     bool m_a_obj_website_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIContactinformations_RequestCompound)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIContactinformations_RequestCompound)
 
 #endif // OAIContactinformations_RequestCompound_H

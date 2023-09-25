@@ -30,7 +30,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAISystemconfiguration_ResponseCompound : public OAIObject {
 public:
@@ -149,8 +149,8 @@ private:
     bool m_dt_systemconfiguration_readonlyexpirationend_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAISystemconfiguration_ResponseCompound)
+Q_DECLARE_METATYPE(Ezmaxapi::OAISystemconfiguration_ResponseCompound)
 
 #endif // OAISystemconfiguration_ResponseCompound_H

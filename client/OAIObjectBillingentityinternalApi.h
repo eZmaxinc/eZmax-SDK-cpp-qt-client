@@ -36,7 +36,7 @@
 #include <QList>
 #include <QNetworkAccessManager>
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIObjectBillingentityinternalApi : public QObject {
     Q_OBJECT
@@ -83,7 +83,7 @@ public:
     * @param[in]  s_query QString [optional]
     * @param[in]  accept_language OAIHeader_Accept_Language [optional]
     */
-    void billingentityinternalGetAutocompleteV2(const QString &s_selector, const ::OpenAPI::OptionalParam<QString> &e_filter_active = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &s_query = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<OAIHeader_Accept_Language> &accept_language = ::OpenAPI::OptionalParam<OAIHeader_Accept_Language>());
+    void billingentityinternalGetAutocompleteV2(const QString &s_selector, const ::Ezmaxapi::OptionalParam<QString> &e_filter_active = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<QString> &s_query = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<OAIHeader_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<OAIHeader_Accept_Language>());
 
     /**
     * @param[in]  e_order_by QString [optional]
@@ -92,7 +92,7 @@ public:
     * @param[in]  accept_language OAIHeader_Accept_Language [optional]
     * @param[in]  s_filter QString [optional]
     */
-    void billingentityinternalGetListV1(const ::OpenAPI::OptionalParam<QString> &e_order_by = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<qint32> &i_row_max = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<qint32> &i_row_offset = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<OAIHeader_Accept_Language> &accept_language = ::OpenAPI::OptionalParam<OAIHeader_Accept_Language>(), const ::OpenAPI::OptionalParam<QString> &s_filter = ::OpenAPI::OptionalParam<QString>());
+    void billingentityinternalGetListV1(const ::Ezmaxapi::OptionalParam<QString> &e_order_by = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<qint32> &i_row_max = ::Ezmaxapi::OptionalParam<qint32>(), const ::Ezmaxapi::OptionalParam<qint32> &i_row_offset = ::Ezmaxapi::OptionalParam<qint32>(), const ::Ezmaxapi::OptionalParam<OAIHeader_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<OAIHeader_Accept_Language>(), const ::Ezmaxapi::OptionalParam<QString> &s_filter = ::Ezmaxapi::OptionalParam<QString>());
 
     /**
     * @param[in]  pki_billingentityinternal_id qint32 [required]
@@ -162,5 +162,5 @@ public slots:
     
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 #endif

@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIApikey_ListElement::OAIApikey_ListElement(QString json) {
     this->initializeModel();
@@ -62,22 +62,22 @@ void OAIApikey_ListElement::fromJson(QString jsonString) {
 
 void OAIApikey_ListElement::fromJsonObject(QJsonObject json) {
 
-    m_pki_apikey_id_isValid = ::OpenAPI::fromJsonValue(m_pki_apikey_id, json[QString("pkiApikeyID")]);
+    m_pki_apikey_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_apikey_id, json[QString("pkiApikeyID")]);
     m_pki_apikey_id_isSet = !json[QString("pkiApikeyID")].isNull() && m_pki_apikey_id_isValid;
 
-    m_s_apikey_description_x_isValid = ::OpenAPI::fromJsonValue(m_s_apikey_description_x, json[QString("sApikeyDescriptionX")]);
+    m_s_apikey_description_x_isValid = ::Ezmaxapi::fromJsonValue(m_s_apikey_description_x, json[QString("sApikeyDescriptionX")]);
     m_s_apikey_description_x_isSet = !json[QString("sApikeyDescriptionX")].isNull() && m_s_apikey_description_x_isValid;
 
-    m_s_user_firstname_isValid = ::OpenAPI::fromJsonValue(m_s_user_firstname, json[QString("sUserFirstname")]);
+    m_s_user_firstname_isValid = ::Ezmaxapi::fromJsonValue(m_s_user_firstname, json[QString("sUserFirstname")]);
     m_s_user_firstname_isSet = !json[QString("sUserFirstname")].isNull() && m_s_user_firstname_isValid;
 
-    m_s_user_lastname_isValid = ::OpenAPI::fromJsonValue(m_s_user_lastname, json[QString("sUserLastname")]);
+    m_s_user_lastname_isValid = ::Ezmaxapi::fromJsonValue(m_s_user_lastname, json[QString("sUserLastname")]);
     m_s_user_lastname_isSet = !json[QString("sUserLastname")].isNull() && m_s_user_lastname_isValid;
 
-    m_b_apikey_isactive_isValid = ::OpenAPI::fromJsonValue(m_b_apikey_isactive, json[QString("bApikeyIsactive")]);
+    m_b_apikey_isactive_isValid = ::Ezmaxapi::fromJsonValue(m_b_apikey_isactive, json[QString("bApikeyIsactive")]);
     m_b_apikey_isactive_isSet = !json[QString("bApikeyIsactive")].isNull() && m_b_apikey_isactive_isValid;
 
-    m_b_apikey_issigned_isValid = ::OpenAPI::fromJsonValue(m_b_apikey_issigned, json[QString("bApikeyIssigned")]);
+    m_b_apikey_issigned_isValid = ::Ezmaxapi::fromJsonValue(m_b_apikey_issigned, json[QString("bApikeyIssigned")]);
     m_b_apikey_issigned_isSet = !json[QString("bApikeyIssigned")].isNull() && m_b_apikey_issigned_isValid;
 }
 
@@ -91,22 +91,22 @@ QString OAIApikey_ListElement::asJson() const {
 QJsonObject OAIApikey_ListElement::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_apikey_id_isSet) {
-        obj.insert(QString("pkiApikeyID"), ::OpenAPI::toJsonValue(m_pki_apikey_id));
+        obj.insert(QString("pkiApikeyID"), ::Ezmaxapi::toJsonValue(m_pki_apikey_id));
     }
     if (m_s_apikey_description_x_isSet) {
-        obj.insert(QString("sApikeyDescriptionX"), ::OpenAPI::toJsonValue(m_s_apikey_description_x));
+        obj.insert(QString("sApikeyDescriptionX"), ::Ezmaxapi::toJsonValue(m_s_apikey_description_x));
     }
     if (m_s_user_firstname_isSet) {
-        obj.insert(QString("sUserFirstname"), ::OpenAPI::toJsonValue(m_s_user_firstname));
+        obj.insert(QString("sUserFirstname"), ::Ezmaxapi::toJsonValue(m_s_user_firstname));
     }
     if (m_s_user_lastname_isSet) {
-        obj.insert(QString("sUserLastname"), ::OpenAPI::toJsonValue(m_s_user_lastname));
+        obj.insert(QString("sUserLastname"), ::Ezmaxapi::toJsonValue(m_s_user_lastname));
     }
     if (m_b_apikey_isactive_isSet) {
-        obj.insert(QString("bApikeyIsactive"), ::OpenAPI::toJsonValue(m_b_apikey_isactive));
+        obj.insert(QString("bApikeyIsactive"), ::Ezmaxapi::toJsonValue(m_b_apikey_isactive));
     }
     if (m_b_apikey_issigned_isSet) {
-        obj.insert(QString("bApikeyIssigned"), ::OpenAPI::toJsonValue(m_b_apikey_issigned));
+        obj.insert(QString("bApikeyIssigned"), ::Ezmaxapi::toJsonValue(m_b_apikey_issigned));
     }
     return obj;
 }
@@ -248,4 +248,4 @@ bool OAIApikey_ListElement::isValid() const {
     return m_pki_apikey_id_isValid && m_s_apikey_description_x_isValid && m_s_user_firstname_isValid && m_s_user_lastname_isValid && m_b_apikey_isactive_isValid && m_b_apikey_issigned_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIBillingentityexternal_AutocompleteElement_Response::OAIBillingentityexternal_AutocompleteElement_Response(QString json) {
     this->initializeModel();
@@ -53,13 +53,13 @@ void OAIBillingentityexternal_AutocompleteElement_Response::fromJson(QString jso
 
 void OAIBillingentityexternal_AutocompleteElement_Response::fromJsonObject(QJsonObject json) {
 
-    m_pki_billingentityexternal_id_isValid = ::OpenAPI::fromJsonValue(m_pki_billingentityexternal_id, json[QString("pkiBillingentityexternalID")]);
+    m_pki_billingentityexternal_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_billingentityexternal_id, json[QString("pkiBillingentityexternalID")]);
     m_pki_billingentityexternal_id_isSet = !json[QString("pkiBillingentityexternalID")].isNull() && m_pki_billingentityexternal_id_isValid;
 
-    m_s_billingentityexternal_description_isValid = ::OpenAPI::fromJsonValue(m_s_billingentityexternal_description, json[QString("sBillingentityexternalDescription")]);
+    m_s_billingentityexternal_description_isValid = ::Ezmaxapi::fromJsonValue(m_s_billingentityexternal_description, json[QString("sBillingentityexternalDescription")]);
     m_s_billingentityexternal_description_isSet = !json[QString("sBillingentityexternalDescription")].isNull() && m_s_billingentityexternal_description_isValid;
 
-    m_b_billingentityexternal_isactive_isValid = ::OpenAPI::fromJsonValue(m_b_billingentityexternal_isactive, json[QString("bBillingentityexternalIsactive")]);
+    m_b_billingentityexternal_isactive_isValid = ::Ezmaxapi::fromJsonValue(m_b_billingentityexternal_isactive, json[QString("bBillingentityexternalIsactive")]);
     m_b_billingentityexternal_isactive_isSet = !json[QString("bBillingentityexternalIsactive")].isNull() && m_b_billingentityexternal_isactive_isValid;
 }
 
@@ -73,13 +73,13 @@ QString OAIBillingentityexternal_AutocompleteElement_Response::asJson() const {
 QJsonObject OAIBillingentityexternal_AutocompleteElement_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_billingentityexternal_id_isSet) {
-        obj.insert(QString("pkiBillingentityexternalID"), ::OpenAPI::toJsonValue(m_pki_billingentityexternal_id));
+        obj.insert(QString("pkiBillingentityexternalID"), ::Ezmaxapi::toJsonValue(m_pki_billingentityexternal_id));
     }
     if (m_s_billingentityexternal_description_isSet) {
-        obj.insert(QString("sBillingentityexternalDescription"), ::OpenAPI::toJsonValue(m_s_billingentityexternal_description));
+        obj.insert(QString("sBillingentityexternalDescription"), ::Ezmaxapi::toJsonValue(m_s_billingentityexternal_description));
     }
     if (m_b_billingentityexternal_isactive_isSet) {
-        obj.insert(QString("bBillingentityexternalIsactive"), ::OpenAPI::toJsonValue(m_b_billingentityexternal_isactive));
+        obj.insert(QString("bBillingentityexternalIsactive"), ::Ezmaxapi::toJsonValue(m_b_billingentityexternal_isactive));
     }
     return obj;
 }
@@ -158,4 +158,4 @@ bool OAIBillingentityexternal_AutocompleteElement_Response::isValid() const {
     return m_pki_billingentityexternal_id_isValid && m_s_billingentityexternal_description_isValid && m_b_billingentityexternal_isactive_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

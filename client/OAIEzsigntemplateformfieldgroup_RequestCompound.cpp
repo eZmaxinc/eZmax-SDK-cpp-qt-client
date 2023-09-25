@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzsigntemplateformfieldgroup_RequestCompound::OAIEzsigntemplateformfieldgroup_RequestCompound(QString json) {
     this->initializeModel();
@@ -101,61 +101,61 @@ void OAIEzsigntemplateformfieldgroup_RequestCompound::fromJson(QString jsonStrin
 
 void OAIEzsigntemplateformfieldgroup_RequestCompound::fromJsonObject(QJsonObject json) {
 
-    m_pki_ezsigntemplateformfieldgroup_id_isValid = ::OpenAPI::fromJsonValue(m_pki_ezsigntemplateformfieldgroup_id, json[QString("pkiEzsigntemplateformfieldgroupID")]);
+    m_pki_ezsigntemplateformfieldgroup_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_ezsigntemplateformfieldgroup_id, json[QString("pkiEzsigntemplateformfieldgroupID")]);
     m_pki_ezsigntemplateformfieldgroup_id_isSet = !json[QString("pkiEzsigntemplateformfieldgroupID")].isNull() && m_pki_ezsigntemplateformfieldgroup_id_isValid;
 
-    m_fki_ezsigntemplatedocument_id_isValid = ::OpenAPI::fromJsonValue(m_fki_ezsigntemplatedocument_id, json[QString("fkiEzsigntemplatedocumentID")]);
+    m_fki_ezsigntemplatedocument_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_ezsigntemplatedocument_id, json[QString("fkiEzsigntemplatedocumentID")]);
     m_fki_ezsigntemplatedocument_id_isSet = !json[QString("fkiEzsigntemplatedocumentID")].isNull() && m_fki_ezsigntemplatedocument_id_isValid;
 
-    m_e_ezsigntemplateformfieldgroup_type_isValid = ::OpenAPI::fromJsonValue(m_e_ezsigntemplateformfieldgroup_type, json[QString("eEzsigntemplateformfieldgroupType")]);
+    m_e_ezsigntemplateformfieldgroup_type_isValid = ::Ezmaxapi::fromJsonValue(m_e_ezsigntemplateformfieldgroup_type, json[QString("eEzsigntemplateformfieldgroupType")]);
     m_e_ezsigntemplateformfieldgroup_type_isSet = !json[QString("eEzsigntemplateformfieldgroupType")].isNull() && m_e_ezsigntemplateformfieldgroup_type_isValid;
 
-    m_e_ezsigntemplateformfieldgroup_signerrequirement_isValid = ::OpenAPI::fromJsonValue(m_e_ezsigntemplateformfieldgroup_signerrequirement, json[QString("eEzsigntemplateformfieldgroupSignerrequirement")]);
+    m_e_ezsigntemplateformfieldgroup_signerrequirement_isValid = ::Ezmaxapi::fromJsonValue(m_e_ezsigntemplateformfieldgroup_signerrequirement, json[QString("eEzsigntemplateformfieldgroupSignerrequirement")]);
     m_e_ezsigntemplateformfieldgroup_signerrequirement_isSet = !json[QString("eEzsigntemplateformfieldgroupSignerrequirement")].isNull() && m_e_ezsigntemplateformfieldgroup_signerrequirement_isValid;
 
-    m_s_ezsigntemplateformfieldgroup_label_isValid = ::OpenAPI::fromJsonValue(m_s_ezsigntemplateformfieldgroup_label, json[QString("sEzsigntemplateformfieldgroupLabel")]);
+    m_s_ezsigntemplateformfieldgroup_label_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsigntemplateformfieldgroup_label, json[QString("sEzsigntemplateformfieldgroupLabel")]);
     m_s_ezsigntemplateformfieldgroup_label_isSet = !json[QString("sEzsigntemplateformfieldgroupLabel")].isNull() && m_s_ezsigntemplateformfieldgroup_label_isValid;
 
-    m_i_ezsigntemplateformfieldgroup_step_isValid = ::OpenAPI::fromJsonValue(m_i_ezsigntemplateformfieldgroup_step, json[QString("iEzsigntemplateformfieldgroupStep")]);
+    m_i_ezsigntemplateformfieldgroup_step_isValid = ::Ezmaxapi::fromJsonValue(m_i_ezsigntemplateformfieldgroup_step, json[QString("iEzsigntemplateformfieldgroupStep")]);
     m_i_ezsigntemplateformfieldgroup_step_isSet = !json[QString("iEzsigntemplateformfieldgroupStep")].isNull() && m_i_ezsigntemplateformfieldgroup_step_isValid;
 
-    m_s_ezsigntemplateformfieldgroup_defaultvalue_isValid = ::OpenAPI::fromJsonValue(m_s_ezsigntemplateformfieldgroup_defaultvalue, json[QString("sEzsigntemplateformfieldgroupDefaultvalue")]);
+    m_s_ezsigntemplateformfieldgroup_defaultvalue_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsigntemplateformfieldgroup_defaultvalue, json[QString("sEzsigntemplateformfieldgroupDefaultvalue")]);
     m_s_ezsigntemplateformfieldgroup_defaultvalue_isSet = !json[QString("sEzsigntemplateformfieldgroupDefaultvalue")].isNull() && m_s_ezsigntemplateformfieldgroup_defaultvalue_isValid;
 
-    m_i_ezsigntemplateformfieldgroup_filledmin_isValid = ::OpenAPI::fromJsonValue(m_i_ezsigntemplateformfieldgroup_filledmin, json[QString("iEzsigntemplateformfieldgroupFilledmin")]);
+    m_i_ezsigntemplateformfieldgroup_filledmin_isValid = ::Ezmaxapi::fromJsonValue(m_i_ezsigntemplateformfieldgroup_filledmin, json[QString("iEzsigntemplateformfieldgroupFilledmin")]);
     m_i_ezsigntemplateformfieldgroup_filledmin_isSet = !json[QString("iEzsigntemplateformfieldgroupFilledmin")].isNull() && m_i_ezsigntemplateformfieldgroup_filledmin_isValid;
 
-    m_i_ezsigntemplateformfieldgroup_filledmax_isValid = ::OpenAPI::fromJsonValue(m_i_ezsigntemplateformfieldgroup_filledmax, json[QString("iEzsigntemplateformfieldgroupFilledmax")]);
+    m_i_ezsigntemplateformfieldgroup_filledmax_isValid = ::Ezmaxapi::fromJsonValue(m_i_ezsigntemplateformfieldgroup_filledmax, json[QString("iEzsigntemplateformfieldgroupFilledmax")]);
     m_i_ezsigntemplateformfieldgroup_filledmax_isSet = !json[QString("iEzsigntemplateformfieldgroupFilledmax")].isNull() && m_i_ezsigntemplateformfieldgroup_filledmax_isValid;
 
-    m_b_ezsigntemplateformfieldgroup_readonly_isValid = ::OpenAPI::fromJsonValue(m_b_ezsigntemplateformfieldgroup_readonly, json[QString("bEzsigntemplateformfieldgroupReadonly")]);
+    m_b_ezsigntemplateformfieldgroup_readonly_isValid = ::Ezmaxapi::fromJsonValue(m_b_ezsigntemplateformfieldgroup_readonly, json[QString("bEzsigntemplateformfieldgroupReadonly")]);
     m_b_ezsigntemplateformfieldgroup_readonly_isSet = !json[QString("bEzsigntemplateformfieldgroupReadonly")].isNull() && m_b_ezsigntemplateformfieldgroup_readonly_isValid;
 
-    m_i_ezsigntemplateformfieldgroup_maxlength_isValid = ::OpenAPI::fromJsonValue(m_i_ezsigntemplateformfieldgroup_maxlength, json[QString("iEzsigntemplateformfieldgroupMaxlength")]);
+    m_i_ezsigntemplateformfieldgroup_maxlength_isValid = ::Ezmaxapi::fromJsonValue(m_i_ezsigntemplateformfieldgroup_maxlength, json[QString("iEzsigntemplateformfieldgroupMaxlength")]);
     m_i_ezsigntemplateformfieldgroup_maxlength_isSet = !json[QString("iEzsigntemplateformfieldgroupMaxlength")].isNull() && m_i_ezsigntemplateformfieldgroup_maxlength_isValid;
 
-    m_b_ezsigntemplateformfieldgroup_encrypted_isValid = ::OpenAPI::fromJsonValue(m_b_ezsigntemplateformfieldgroup_encrypted, json[QString("bEzsigntemplateformfieldgroupEncrypted")]);
+    m_b_ezsigntemplateformfieldgroup_encrypted_isValid = ::Ezmaxapi::fromJsonValue(m_b_ezsigntemplateformfieldgroup_encrypted, json[QString("bEzsigntemplateformfieldgroupEncrypted")]);
     m_b_ezsigntemplateformfieldgroup_encrypted_isSet = !json[QString("bEzsigntemplateformfieldgroupEncrypted")].isNull() && m_b_ezsigntemplateformfieldgroup_encrypted_isValid;
 
-    m_s_ezsigntemplateformfieldgroup_regexp_isValid = ::OpenAPI::fromJsonValue(m_s_ezsigntemplateformfieldgroup_regexp, json[QString("sEzsigntemplateformfieldgroupRegexp")]);
+    m_s_ezsigntemplateformfieldgroup_regexp_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsigntemplateformfieldgroup_regexp, json[QString("sEzsigntemplateformfieldgroupRegexp")]);
     m_s_ezsigntemplateformfieldgroup_regexp_isSet = !json[QString("sEzsigntemplateformfieldgroupRegexp")].isNull() && m_s_ezsigntemplateformfieldgroup_regexp_isValid;
 
-    m_e_ezsigntemplateformfieldgroup_textvalidation_isValid = ::OpenAPI::fromJsonValue(m_e_ezsigntemplateformfieldgroup_textvalidation, json[QString("eEzsigntemplateformfieldgroupTextvalidation")]);
+    m_e_ezsigntemplateformfieldgroup_textvalidation_isValid = ::Ezmaxapi::fromJsonValue(m_e_ezsigntemplateformfieldgroup_textvalidation, json[QString("eEzsigntemplateformfieldgroupTextvalidation")]);
     m_e_ezsigntemplateformfieldgroup_textvalidation_isSet = !json[QString("eEzsigntemplateformfieldgroupTextvalidation")].isNull() && m_e_ezsigntemplateformfieldgroup_textvalidation_isValid;
 
-    m_t_ezsigntemplateformfieldgroup_tooltip_isValid = ::OpenAPI::fromJsonValue(m_t_ezsigntemplateformfieldgroup_tooltip, json[QString("tEzsigntemplateformfieldgroupTooltip")]);
+    m_t_ezsigntemplateformfieldgroup_tooltip_isValid = ::Ezmaxapi::fromJsonValue(m_t_ezsigntemplateformfieldgroup_tooltip, json[QString("tEzsigntemplateformfieldgroupTooltip")]);
     m_t_ezsigntemplateformfieldgroup_tooltip_isSet = !json[QString("tEzsigntemplateformfieldgroupTooltip")].isNull() && m_t_ezsigntemplateformfieldgroup_tooltip_isValid;
 
-    m_e_ezsigntemplateformfieldgroup_tooltipposition_isValid = ::OpenAPI::fromJsonValue(m_e_ezsigntemplateformfieldgroup_tooltipposition, json[QString("eEzsigntemplateformfieldgroupTooltipposition")]);
+    m_e_ezsigntemplateformfieldgroup_tooltipposition_isValid = ::Ezmaxapi::fromJsonValue(m_e_ezsigntemplateformfieldgroup_tooltipposition, json[QString("eEzsigntemplateformfieldgroupTooltipposition")]);
     m_e_ezsigntemplateformfieldgroup_tooltipposition_isSet = !json[QString("eEzsigntemplateformfieldgroupTooltipposition")].isNull() && m_e_ezsigntemplateformfieldgroup_tooltipposition_isValid;
 
-    m_a_obj_ezsigntemplateformfieldgroupsigner_isValid = ::OpenAPI::fromJsonValue(m_a_obj_ezsigntemplateformfieldgroupsigner, json[QString("a_objEzsigntemplateformfieldgroupsigner")]);
+    m_a_obj_ezsigntemplateformfieldgroupsigner_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_ezsigntemplateformfieldgroupsigner, json[QString("a_objEzsigntemplateformfieldgroupsigner")]);
     m_a_obj_ezsigntemplateformfieldgroupsigner_isSet = !json[QString("a_objEzsigntemplateformfieldgroupsigner")].isNull() && m_a_obj_ezsigntemplateformfieldgroupsigner_isValid;
 
-    m_a_obj_dropdown_element_isValid = ::OpenAPI::fromJsonValue(m_a_obj_dropdown_element, json[QString("a_objDropdownElement")]);
+    m_a_obj_dropdown_element_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_dropdown_element, json[QString("a_objDropdownElement")]);
     m_a_obj_dropdown_element_isSet = !json[QString("a_objDropdownElement")].isNull() && m_a_obj_dropdown_element_isValid;
 
-    m_a_obj_ezsigntemplateformfield_isValid = ::OpenAPI::fromJsonValue(m_a_obj_ezsigntemplateformfield, json[QString("a_objEzsigntemplateformfield")]);
+    m_a_obj_ezsigntemplateformfield_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_ezsigntemplateformfield, json[QString("a_objEzsigntemplateformfield")]);
     m_a_obj_ezsigntemplateformfield_isSet = !json[QString("a_objEzsigntemplateformfield")].isNull() && m_a_obj_ezsigntemplateformfield_isValid;
 }
 
@@ -169,61 +169,61 @@ QString OAIEzsigntemplateformfieldgroup_RequestCompound::asJson() const {
 QJsonObject OAIEzsigntemplateformfieldgroup_RequestCompound::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_ezsigntemplateformfieldgroup_id_isSet) {
-        obj.insert(QString("pkiEzsigntemplateformfieldgroupID"), ::OpenAPI::toJsonValue(m_pki_ezsigntemplateformfieldgroup_id));
+        obj.insert(QString("pkiEzsigntemplateformfieldgroupID"), ::Ezmaxapi::toJsonValue(m_pki_ezsigntemplateformfieldgroup_id));
     }
     if (m_fki_ezsigntemplatedocument_id_isSet) {
-        obj.insert(QString("fkiEzsigntemplatedocumentID"), ::OpenAPI::toJsonValue(m_fki_ezsigntemplatedocument_id));
+        obj.insert(QString("fkiEzsigntemplatedocumentID"), ::Ezmaxapi::toJsonValue(m_fki_ezsigntemplatedocument_id));
     }
     if (m_e_ezsigntemplateformfieldgroup_type.isSet()) {
-        obj.insert(QString("eEzsigntemplateformfieldgroupType"), ::OpenAPI::toJsonValue(m_e_ezsigntemplateformfieldgroup_type));
+        obj.insert(QString("eEzsigntemplateformfieldgroupType"), ::Ezmaxapi::toJsonValue(m_e_ezsigntemplateformfieldgroup_type));
     }
     if (m_e_ezsigntemplateformfieldgroup_signerrequirement.isSet()) {
-        obj.insert(QString("eEzsigntemplateformfieldgroupSignerrequirement"), ::OpenAPI::toJsonValue(m_e_ezsigntemplateformfieldgroup_signerrequirement));
+        obj.insert(QString("eEzsigntemplateformfieldgroupSignerrequirement"), ::Ezmaxapi::toJsonValue(m_e_ezsigntemplateformfieldgroup_signerrequirement));
     }
     if (m_s_ezsigntemplateformfieldgroup_label_isSet) {
-        obj.insert(QString("sEzsigntemplateformfieldgroupLabel"), ::OpenAPI::toJsonValue(m_s_ezsigntemplateformfieldgroup_label));
+        obj.insert(QString("sEzsigntemplateformfieldgroupLabel"), ::Ezmaxapi::toJsonValue(m_s_ezsigntemplateformfieldgroup_label));
     }
     if (m_i_ezsigntemplateformfieldgroup_step_isSet) {
-        obj.insert(QString("iEzsigntemplateformfieldgroupStep"), ::OpenAPI::toJsonValue(m_i_ezsigntemplateformfieldgroup_step));
+        obj.insert(QString("iEzsigntemplateformfieldgroupStep"), ::Ezmaxapi::toJsonValue(m_i_ezsigntemplateformfieldgroup_step));
     }
     if (m_s_ezsigntemplateformfieldgroup_defaultvalue_isSet) {
-        obj.insert(QString("sEzsigntemplateformfieldgroupDefaultvalue"), ::OpenAPI::toJsonValue(m_s_ezsigntemplateformfieldgroup_defaultvalue));
+        obj.insert(QString("sEzsigntemplateformfieldgroupDefaultvalue"), ::Ezmaxapi::toJsonValue(m_s_ezsigntemplateformfieldgroup_defaultvalue));
     }
     if (m_i_ezsigntemplateformfieldgroup_filledmin_isSet) {
-        obj.insert(QString("iEzsigntemplateformfieldgroupFilledmin"), ::OpenAPI::toJsonValue(m_i_ezsigntemplateformfieldgroup_filledmin));
+        obj.insert(QString("iEzsigntemplateformfieldgroupFilledmin"), ::Ezmaxapi::toJsonValue(m_i_ezsigntemplateformfieldgroup_filledmin));
     }
     if (m_i_ezsigntemplateformfieldgroup_filledmax_isSet) {
-        obj.insert(QString("iEzsigntemplateformfieldgroupFilledmax"), ::OpenAPI::toJsonValue(m_i_ezsigntemplateformfieldgroup_filledmax));
+        obj.insert(QString("iEzsigntemplateformfieldgroupFilledmax"), ::Ezmaxapi::toJsonValue(m_i_ezsigntemplateformfieldgroup_filledmax));
     }
     if (m_b_ezsigntemplateformfieldgroup_readonly_isSet) {
-        obj.insert(QString("bEzsigntemplateformfieldgroupReadonly"), ::OpenAPI::toJsonValue(m_b_ezsigntemplateformfieldgroup_readonly));
+        obj.insert(QString("bEzsigntemplateformfieldgroupReadonly"), ::Ezmaxapi::toJsonValue(m_b_ezsigntemplateformfieldgroup_readonly));
     }
     if (m_i_ezsigntemplateformfieldgroup_maxlength_isSet) {
-        obj.insert(QString("iEzsigntemplateformfieldgroupMaxlength"), ::OpenAPI::toJsonValue(m_i_ezsigntemplateformfieldgroup_maxlength));
+        obj.insert(QString("iEzsigntemplateformfieldgroupMaxlength"), ::Ezmaxapi::toJsonValue(m_i_ezsigntemplateformfieldgroup_maxlength));
     }
     if (m_b_ezsigntemplateformfieldgroup_encrypted_isSet) {
-        obj.insert(QString("bEzsigntemplateformfieldgroupEncrypted"), ::OpenAPI::toJsonValue(m_b_ezsigntemplateformfieldgroup_encrypted));
+        obj.insert(QString("bEzsigntemplateformfieldgroupEncrypted"), ::Ezmaxapi::toJsonValue(m_b_ezsigntemplateformfieldgroup_encrypted));
     }
     if (m_s_ezsigntemplateformfieldgroup_regexp_isSet) {
-        obj.insert(QString("sEzsigntemplateformfieldgroupRegexp"), ::OpenAPI::toJsonValue(m_s_ezsigntemplateformfieldgroup_regexp));
+        obj.insert(QString("sEzsigntemplateformfieldgroupRegexp"), ::Ezmaxapi::toJsonValue(m_s_ezsigntemplateformfieldgroup_regexp));
     }
     if (m_e_ezsigntemplateformfieldgroup_textvalidation.isSet()) {
-        obj.insert(QString("eEzsigntemplateformfieldgroupTextvalidation"), ::OpenAPI::toJsonValue(m_e_ezsigntemplateformfieldgroup_textvalidation));
+        obj.insert(QString("eEzsigntemplateformfieldgroupTextvalidation"), ::Ezmaxapi::toJsonValue(m_e_ezsigntemplateformfieldgroup_textvalidation));
     }
     if (m_t_ezsigntemplateformfieldgroup_tooltip_isSet) {
-        obj.insert(QString("tEzsigntemplateformfieldgroupTooltip"), ::OpenAPI::toJsonValue(m_t_ezsigntemplateformfieldgroup_tooltip));
+        obj.insert(QString("tEzsigntemplateformfieldgroupTooltip"), ::Ezmaxapi::toJsonValue(m_t_ezsigntemplateformfieldgroup_tooltip));
     }
     if (m_e_ezsigntemplateformfieldgroup_tooltipposition.isSet()) {
-        obj.insert(QString("eEzsigntemplateformfieldgroupTooltipposition"), ::OpenAPI::toJsonValue(m_e_ezsigntemplateformfieldgroup_tooltipposition));
+        obj.insert(QString("eEzsigntemplateformfieldgroupTooltipposition"), ::Ezmaxapi::toJsonValue(m_e_ezsigntemplateformfieldgroup_tooltipposition));
     }
     if (m_a_obj_ezsigntemplateformfieldgroupsigner.size() > 0) {
-        obj.insert(QString("a_objEzsigntemplateformfieldgroupsigner"), ::OpenAPI::toJsonValue(m_a_obj_ezsigntemplateformfieldgroupsigner));
+        obj.insert(QString("a_objEzsigntemplateformfieldgroupsigner"), ::Ezmaxapi::toJsonValue(m_a_obj_ezsigntemplateformfieldgroupsigner));
     }
     if (m_a_obj_dropdown_element.size() > 0) {
-        obj.insert(QString("a_objDropdownElement"), ::OpenAPI::toJsonValue(m_a_obj_dropdown_element));
+        obj.insert(QString("a_objDropdownElement"), ::Ezmaxapi::toJsonValue(m_a_obj_dropdown_element));
     }
     if (m_a_obj_ezsigntemplateformfield.size() > 0) {
-        obj.insert(QString("a_objEzsigntemplateformfield"), ::OpenAPI::toJsonValue(m_a_obj_ezsigntemplateformfield));
+        obj.insert(QString("a_objEzsigntemplateformfield"), ::Ezmaxapi::toJsonValue(m_a_obj_ezsigntemplateformfield));
     }
     return obj;
 }
@@ -638,4 +638,4 @@ bool OAIEzsigntemplateformfieldgroup_RequestCompound::isValid() const {
     return m_fki_ezsigntemplatedocument_id_isValid && m_e_ezsigntemplateformfieldgroup_type_isValid && m_e_ezsigntemplateformfieldgroup_signerrequirement_isValid && m_s_ezsigntemplateformfieldgroup_label_isValid && m_i_ezsigntemplateformfieldgroup_step_isValid && m_s_ezsigntemplateformfieldgroup_defaultvalue_isValid && m_i_ezsigntemplateformfieldgroup_filledmin_isValid && m_i_ezsigntemplateformfieldgroup_filledmax_isValid && m_b_ezsigntemplateformfieldgroup_readonly_isValid && m_a_obj_ezsigntemplateformfieldgroupsigner_isValid && m_a_obj_ezsigntemplateformfield_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

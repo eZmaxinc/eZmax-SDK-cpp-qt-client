@@ -26,7 +26,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 class OAISubnet_RequestCompound;
 
 class OAISubnet_editObject_v1_Request : public OAIObject {
@@ -56,8 +56,8 @@ private:
     bool m_obj_subnet_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAISubnet_editObject_v1_Request)
+Q_DECLARE_METATYPE(Ezmaxapi::OAISubnet_editObject_v1_Request)
 
 #endif // OAISubnet_editObject_v1_Request_H

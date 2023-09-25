@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzsignsignergroupmembership_createObject_v1_Response_mPayload::OAIEzsignsignergroupmembership_createObject_v1_Response_mPayload(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAIEzsignsignergroupmembership_createObject_v1_Response_mPayload::fromJson(
 
 void OAIEzsignsignergroupmembership_createObject_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_pki_ezsignsignergroupmembership_id_isValid = ::OpenAPI::fromJsonValue(m_a_pki_ezsignsignergroupmembership_id, json[QString("a_pkiEzsignsignergroupmembershipID")]);
+    m_a_pki_ezsignsignergroupmembership_id_isValid = ::Ezmaxapi::fromJsonValue(m_a_pki_ezsignsignergroupmembership_id, json[QString("a_pkiEzsignsignergroupmembershipID")]);
     m_a_pki_ezsignsignergroupmembership_id_isSet = !json[QString("a_pkiEzsignsignergroupmembershipID")].isNull() && m_a_pki_ezsignsignergroupmembership_id_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAIEzsignsignergroupmembership_createObject_v1_Response_mPayload::asJson
 QJsonObject OAIEzsignsignergroupmembership_createObject_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_a_pki_ezsignsignergroupmembership_id.size() > 0) {
-        obj.insert(QString("a_pkiEzsignsignergroupmembershipID"), ::OpenAPI::toJsonValue(m_a_pki_ezsignsignergroupmembership_id));
+        obj.insert(QString("a_pkiEzsignsignergroupmembershipID"), ::Ezmaxapi::toJsonValue(m_a_pki_ezsignsignergroupmembership_id));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAIEzsignsignergroupmembership_createObject_v1_Response_mPayload::isValid()
     return m_a_pki_ezsignsignergroupmembership_id_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

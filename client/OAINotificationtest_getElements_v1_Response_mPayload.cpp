@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAINotificationtest_getElements_v1_Response_mPayload::OAINotificationtest_getElements_v1_Response_mPayload(QString json) {
     this->initializeModel();
@@ -56,13 +56,13 @@ void OAINotificationtest_getElements_v1_Response_mPayload::fromJson(QString json
 
 void OAINotificationtest_getElements_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_pki_notificationtest_id_isValid = ::OpenAPI::fromJsonValue(m_pki_notificationtest_id, json[QString("pkiNotificationtestID")]);
+    m_pki_notificationtest_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_notificationtest_id, json[QString("pkiNotificationtestID")]);
     m_pki_notificationtest_id_isSet = !json[QString("pkiNotificationtestID")].isNull() && m_pki_notificationtest_id_isValid;
 
-    m_s_notificationtest_function_isValid = ::OpenAPI::fromJsonValue(m_s_notificationtest_function, json[QString("sNotificationtestFunction")]);
+    m_s_notificationtest_function_isValid = ::Ezmaxapi::fromJsonValue(m_s_notificationtest_function, json[QString("sNotificationtestFunction")]);
     m_s_notificationtest_function_isSet = !json[QString("sNotificationtestFunction")].isNull() && m_s_notificationtest_function_isValid;
 
-    m_a_s_variableobject_property_isValid = ::OpenAPI::fromJsonValue(m_a_s_variableobject_property, json[QString("a_sVariableobjectProperty")]);
+    m_a_s_variableobject_property_isValid = ::Ezmaxapi::fromJsonValue(m_a_s_variableobject_property, json[QString("a_sVariableobjectProperty")]);
     m_a_s_variableobject_property_isSet = !json[QString("a_sVariableobjectProperty")].isNull() && m_a_s_variableobject_property_isValid;
 
     if(json["a_objVariableobject"].isArray()){
@@ -71,7 +71,7 @@ void OAINotificationtest_getElements_v1_Response_mPayload::fromJsonObject(QJsonO
         if(arr.count() > 0) {
             for (const QJsonValue jval : arr) {
                 QMap<QString, QJsonValue> item;
-                m_a_obj_variableobject_isValid &= ::OpenAPI::fromJsonValue(item, jval);
+                m_a_obj_variableobject_isValid &= ::Ezmaxapi::fromJsonValue(item, jval);
                 m_a_obj_variableobject_isSet = !jval.isNull() && m_a_obj_variableobject_isValid;
                 m_a_obj_variableobject.push_back(item);
             }
@@ -89,13 +89,13 @@ QString OAINotificationtest_getElements_v1_Response_mPayload::asJson() const {
 QJsonObject OAINotificationtest_getElements_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_notificationtest_id_isSet) {
-        obj.insert(QString("pkiNotificationtestID"), ::OpenAPI::toJsonValue(m_pki_notificationtest_id));
+        obj.insert(QString("pkiNotificationtestID"), ::Ezmaxapi::toJsonValue(m_pki_notificationtest_id));
     }
     if (m_s_notificationtest_function_isSet) {
-        obj.insert(QString("sNotificationtestFunction"), ::OpenAPI::toJsonValue(m_s_notificationtest_function));
+        obj.insert(QString("sNotificationtestFunction"), ::Ezmaxapi::toJsonValue(m_s_notificationtest_function));
     }
     if (m_a_s_variableobject_property.size() > 0) {
-        obj.insert(QString("a_sVariableobjectProperty"), ::OpenAPI::toJsonValue(m_a_s_variableobject_property));
+        obj.insert(QString("a_sVariableobjectProperty"), ::Ezmaxapi::toJsonValue(m_a_s_variableobject_property));
     }
     if (m_a_obj_variableobject.size() > 0) {
         
@@ -199,4 +199,4 @@ bool OAINotificationtest_getElements_v1_Response_mPayload::isValid() const {
     return m_pki_notificationtest_id_isValid && m_s_notificationtest_function_isValid && m_a_obj_variableobject_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

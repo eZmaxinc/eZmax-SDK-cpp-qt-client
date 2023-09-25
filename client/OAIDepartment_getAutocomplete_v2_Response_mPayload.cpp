@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIDepartment_getAutocomplete_v2_Response_mPayload::OAIDepartment_getAutocomplete_v2_Response_mPayload(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAIDepartment_getAutocomplete_v2_Response_mPayload::fromJson(QString jsonSt
 
 void OAIDepartment_getAutocomplete_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_department_isValid = ::OpenAPI::fromJsonValue(m_a_obj_department, json[QString("a_objDepartment")]);
+    m_a_obj_department_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_department, json[QString("a_objDepartment")]);
     m_a_obj_department_isSet = !json[QString("a_objDepartment")].isNull() && m_a_obj_department_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAIDepartment_getAutocomplete_v2_Response_mPayload::asJson() const {
 QJsonObject OAIDepartment_getAutocomplete_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_a_obj_department.size() > 0) {
-        obj.insert(QString("a_objDepartment"), ::OpenAPI::toJsonValue(m_a_obj_department));
+        obj.insert(QString("a_objDepartment"), ::Ezmaxapi::toJsonValue(m_a_obj_department));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAIDepartment_getAutocomplete_v2_Response_mPayload::isValid() const {
     return m_a_obj_department_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

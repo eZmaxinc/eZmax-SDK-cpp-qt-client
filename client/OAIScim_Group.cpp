@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIScim_Group::OAIScim_Group(QString json) {
     this->initializeModel();
@@ -53,13 +53,13 @@ void OAIScim_Group::fromJson(QString jsonString) {
 
 void OAIScim_Group::fromJsonObject(QJsonObject json) {
 
-    m_id_isValid = ::OpenAPI::fromJsonValue(m_id, json[QString("id")]);
+    m_id_isValid = ::Ezmaxapi::fromJsonValue(m_id, json[QString("id")]);
     m_id_isSet = !json[QString("id")].isNull() && m_id_isValid;
 
-    m_display_name_isValid = ::OpenAPI::fromJsonValue(m_display_name, json[QString("displayName")]);
+    m_display_name_isValid = ::Ezmaxapi::fromJsonValue(m_display_name, json[QString("displayName")]);
     m_display_name_isSet = !json[QString("displayName")].isNull() && m_display_name_isValid;
 
-    m_members_isValid = ::OpenAPI::fromJsonValue(m_members, json[QString("members")]);
+    m_members_isValid = ::Ezmaxapi::fromJsonValue(m_members, json[QString("members")]);
     m_members_isSet = !json[QString("members")].isNull() && m_members_isValid;
 }
 
@@ -73,13 +73,13 @@ QString OAIScim_Group::asJson() const {
 QJsonObject OAIScim_Group::asJsonObject() const {
     QJsonObject obj;
     if (m_id_isSet) {
-        obj.insert(QString("id"), ::OpenAPI::toJsonValue(m_id));
+        obj.insert(QString("id"), ::Ezmaxapi::toJsonValue(m_id));
     }
     if (m_display_name_isSet) {
-        obj.insert(QString("displayName"), ::OpenAPI::toJsonValue(m_display_name));
+        obj.insert(QString("displayName"), ::Ezmaxapi::toJsonValue(m_display_name));
     }
     if (m_members.size() > 0) {
-        obj.insert(QString("members"), ::OpenAPI::toJsonValue(m_members));
+        obj.insert(QString("members"), ::Ezmaxapi::toJsonValue(m_members));
     }
     return obj;
 }
@@ -158,4 +158,4 @@ bool OAIScim_Group::isValid() const {
     return m_display_name_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

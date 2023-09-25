@@ -25,7 +25,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIUserstaged_map_v1_Request : public OAIObject {
 public:
@@ -54,8 +54,8 @@ private:
     bool m_fki_user_id_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIUserstaged_map_v1_Request)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIUserstaged_map_v1_Request)
 
 #endif // OAIUserstaged_map_v1_Request_H

@@ -26,7 +26,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response_mPayload : public OAIObject {
 public:
@@ -55,8 +55,8 @@ private:
     bool m_s_login_url_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response_mPayload)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response_mPayload)
 
 #endif // OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response_mPayload_H

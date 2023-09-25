@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAICustom_Ezsignfoldersignerassociationmine_Response::OAICustom_Ezsignfoldersignerassociationmine_Response(QString json) {
     this->initializeModel();
@@ -50,10 +50,10 @@ void OAICustom_Ezsignfoldersignerassociationmine_Response::fromJson(QString json
 
 void OAICustom_Ezsignfoldersignerassociationmine_Response::fromJsonObject(QJsonObject json) {
 
-    m_pki_ezsignfoldersignerassociation_id_isValid = ::OpenAPI::fromJsonValue(m_pki_ezsignfoldersignerassociation_id, json[QString("pkiEzsignfoldersignerassociationID")]);
+    m_pki_ezsignfoldersignerassociation_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_ezsignfoldersignerassociation_id, json[QString("pkiEzsignfoldersignerassociationID")]);
     m_pki_ezsignfoldersignerassociation_id_isSet = !json[QString("pkiEzsignfoldersignerassociationID")].isNull() && m_pki_ezsignfoldersignerassociation_id_isValid;
 
-    m_fki_ezsignfolder_id_isValid = ::OpenAPI::fromJsonValue(m_fki_ezsignfolder_id, json[QString("fkiEzsignfolderID")]);
+    m_fki_ezsignfolder_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_ezsignfolder_id, json[QString("fkiEzsignfolderID")]);
     m_fki_ezsignfolder_id_isSet = !json[QString("fkiEzsignfolderID")].isNull() && m_fki_ezsignfolder_id_isValid;
 }
 
@@ -67,10 +67,10 @@ QString OAICustom_Ezsignfoldersignerassociationmine_Response::asJson() const {
 QJsonObject OAICustom_Ezsignfoldersignerassociationmine_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_ezsignfoldersignerassociation_id_isSet) {
-        obj.insert(QString("pkiEzsignfoldersignerassociationID"), ::OpenAPI::toJsonValue(m_pki_ezsignfoldersignerassociation_id));
+        obj.insert(QString("pkiEzsignfoldersignerassociationID"), ::Ezmaxapi::toJsonValue(m_pki_ezsignfoldersignerassociation_id));
     }
     if (m_fki_ezsignfolder_id_isSet) {
-        obj.insert(QString("fkiEzsignfolderID"), ::OpenAPI::toJsonValue(m_fki_ezsignfolder_id));
+        obj.insert(QString("fkiEzsignfolderID"), ::Ezmaxapi::toJsonValue(m_fki_ezsignfolder_id));
     }
     return obj;
 }
@@ -128,4 +128,4 @@ bool OAICustom_Ezsignfoldersignerassociationmine_Response::isValid() const {
     return m_pki_ezsignfoldersignerassociation_id_isValid && m_fki_ezsignfolder_id_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

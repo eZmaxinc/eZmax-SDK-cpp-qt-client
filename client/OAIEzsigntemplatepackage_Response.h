@@ -26,7 +26,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIEzsigntemplatepackage_Response : public OAIObject {
 public:
@@ -127,8 +127,8 @@ private:
     bool m_s_ezsignfoldertype_name_x_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIEzsigntemplatepackage_Response)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIEzsigntemplatepackage_Response)
 
 #endif // OAIEzsigntemplatepackage_Response_H

@@ -27,7 +27,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 class OAISubnet_ResponseCompound;
 
 class OAIUser_getSubnets_v1_Response_mPayload : public OAIObject {
@@ -57,8 +57,8 @@ private:
     bool m_a_obj_subnet_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIUser_getSubnets_v1_Response_mPayload)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIUser_getSubnets_v1_Response_mPayload)
 
 #endif // OAIUser_getSubnets_v1_Response_mPayload_H

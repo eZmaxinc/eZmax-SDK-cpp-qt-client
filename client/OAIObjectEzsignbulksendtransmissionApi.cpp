@@ -15,7 +15,7 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIObjectEzsignbulksendtransmissionApi::OAIObjectEzsignbulksendtransmissionApi(const int timeOut)
     : _timeOut(timeOut),
@@ -261,7 +261,7 @@ void OAIObjectEzsignbulksendtransmissionApi::ezsignbulksendtransmissionGetCsvErr
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignbulksendtransmissionID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignbulksendtransmissionID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsignbulksendtransmission_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsignbulksendtransmission_id)));
+        fullPath.replace(pki_ezsignbulksendtransmission_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsignbulksendtransmission_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -298,7 +298,7 @@ void OAIObjectEzsignbulksendtransmissionApi::ezsignbulksendtransmissionGetCsvErr
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
     QString output;
-    ::OpenAPI::fromStringValue(QString(worker->response), output);
+    ::Ezmaxapi::fromStringValue(QString(worker->response), output);
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -329,7 +329,7 @@ void OAIObjectEzsignbulksendtransmissionApi::ezsignbulksendtransmissionGetEzsign
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignbulksendtransmissionID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignbulksendtransmissionID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsignbulksendtransmission_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsignbulksendtransmission_id)));
+        fullPath.replace(pki_ezsignbulksendtransmission_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsignbulksendtransmission_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -396,7 +396,7 @@ void OAIObjectEzsignbulksendtransmissionApi::ezsignbulksendtransmissionGetFormsD
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignbulksendtransmissionID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignbulksendtransmissionID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsignbulksendtransmission_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsignbulksendtransmission_id)));
+        fullPath.replace(pki_ezsignbulksendtransmission_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsignbulksendtransmission_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -463,7 +463,7 @@ void OAIObjectEzsignbulksendtransmissionApi::ezsignbulksendtransmissionGetObject
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignbulksendtransmissionID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignbulksendtransmissionID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsignbulksendtransmission_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsignbulksendtransmission_id)));
+        fullPath.replace(pki_ezsignbulksendtransmission_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsignbulksendtransmission_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -560,4 +560,4 @@ void OAIObjectEzsignbulksendtransmissionApi::tokenAvailable(){
         break;
     }
 }
-} // namespace OpenAPI
+} // namespace Ezmaxapi

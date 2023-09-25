@@ -25,7 +25,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIField_eVariableexpenseTaxable : public OAIEnum {
 public:
@@ -57,8 +57,8 @@ private:
     bool m_value_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIField_eVariableexpenseTaxable)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIField_eVariableexpenseTaxable)
 
 #endif // OAIField_eVariableexpenseTaxable_H

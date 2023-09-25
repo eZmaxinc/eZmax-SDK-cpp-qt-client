@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAISubnet_getObject_v2_Response_mPayload::OAISubnet_getObject_v2_Response_mPayload(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAISubnet_getObject_v2_Response_mPayload::fromJson(QString jsonString) {
 
 void OAISubnet_getObject_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_obj_subnet_isValid = ::OpenAPI::fromJsonValue(m_obj_subnet, json[QString("objSubnet")]);
+    m_obj_subnet_isValid = ::Ezmaxapi::fromJsonValue(m_obj_subnet, json[QString("objSubnet")]);
     m_obj_subnet_isSet = !json[QString("objSubnet")].isNull() && m_obj_subnet_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAISubnet_getObject_v2_Response_mPayload::asJson() const {
 QJsonObject OAISubnet_getObject_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_obj_subnet.isSet()) {
-        obj.insert(QString("objSubnet"), ::OpenAPI::toJsonValue(m_obj_subnet));
+        obj.insert(QString("objSubnet"), ::Ezmaxapi::toJsonValue(m_obj_subnet));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAISubnet_getObject_v2_Response_mPayload::isValid() const {
     return m_obj_subnet_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

@@ -28,7 +28,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 class OAIEzmaxinvoicingcommission_ResponseCompound;
 
 class OAIEzmaxinvoicingsummaryglobal_ResponseCompound : public OAIObject {
@@ -229,8 +229,8 @@ private:
     bool m_a_obj_ezmaxinvoicingcommission_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIEzmaxinvoicingsummaryglobal_ResponseCompound)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIEzmaxinvoicingsummaryglobal_ResponseCompound)
 
 #endif // OAIEzmaxinvoicingsummaryglobal_ResponseCompound_H

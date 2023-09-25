@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzsigntemplatedocument_getEzsigntemplateformfieldgroups_v1_Response_mPayload::OAIEzsigntemplatedocument_getEzsigntemplateformfieldgroups_v1_Response_mPayload(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAIEzsigntemplatedocument_getEzsigntemplateformfieldgroups_v1_Response_mPay
 
 void OAIEzsigntemplatedocument_getEzsigntemplateformfieldgroups_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_ezsigntemplateformfieldgroup_isValid = ::OpenAPI::fromJsonValue(m_a_obj_ezsigntemplateformfieldgroup, json[QString("a_objEzsigntemplateformfieldgroup")]);
+    m_a_obj_ezsigntemplateformfieldgroup_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_ezsigntemplateformfieldgroup, json[QString("a_objEzsigntemplateformfieldgroup")]);
     m_a_obj_ezsigntemplateformfieldgroup_isSet = !json[QString("a_objEzsigntemplateformfieldgroup")].isNull() && m_a_obj_ezsigntemplateformfieldgroup_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAIEzsigntemplatedocument_getEzsigntemplateformfieldgroups_v1_Response_m
 QJsonObject OAIEzsigntemplatedocument_getEzsigntemplateformfieldgroups_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_a_obj_ezsigntemplateformfieldgroup.size() > 0) {
-        obj.insert(QString("a_objEzsigntemplateformfieldgroup"), ::OpenAPI::toJsonValue(m_a_obj_ezsigntemplateformfieldgroup));
+        obj.insert(QString("a_objEzsigntemplateformfieldgroup"), ::Ezmaxapi::toJsonValue(m_a_obj_ezsigntemplateformfieldgroup));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAIEzsigntemplatedocument_getEzsigntemplateformfieldgroups_v1_Response_mPay
     return m_a_obj_ezsigntemplateformfieldgroup_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

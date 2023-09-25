@@ -28,7 +28,7 @@
 #include <QList>
 #include <QNetworkAccessManager>
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIModuleEzsignApi : public QObject {
     Q_OBJECT
@@ -64,7 +64,7 @@ public:
     /**
     * @param[in]  fki_ezsignfoldertype_id qint32 [optional]
     */
-    void ezsignSuggestTemplatesV1(const ::OpenAPI::OptionalParam<qint32> &fki_ezsignfoldertype_id = ::OpenAPI::OptionalParam<qint32>());
+    void ezsignSuggestTemplatesV1(const ::Ezmaxapi::OptionalParam<qint32> &fki_ezsignfoldertype_id = ::Ezmaxapi::OptionalParam<qint32>());
 
 
 private:
@@ -114,5 +114,5 @@ public slots:
     
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 #endif

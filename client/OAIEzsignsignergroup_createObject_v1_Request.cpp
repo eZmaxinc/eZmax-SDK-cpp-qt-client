@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzsignsignergroup_createObject_v1_Request::OAIEzsignsignergroup_createObject_v1_Request(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAIEzsignsignergroup_createObject_v1_Request::fromJson(QString jsonString) 
 
 void OAIEzsignsignergroup_createObject_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_ezsignsignergroup_isValid = ::OpenAPI::fromJsonValue(m_a_obj_ezsignsignergroup, json[QString("a_objEzsignsignergroup")]);
+    m_a_obj_ezsignsignergroup_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_ezsignsignergroup, json[QString("a_objEzsignsignergroup")]);
     m_a_obj_ezsignsignergroup_isSet = !json[QString("a_objEzsignsignergroup")].isNull() && m_a_obj_ezsignsignergroup_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAIEzsignsignergroup_createObject_v1_Request::asJson() const {
 QJsonObject OAIEzsignsignergroup_createObject_v1_Request::asJsonObject() const {
     QJsonObject obj;
     if (m_a_obj_ezsignsignergroup.size() > 0) {
-        obj.insert(QString("a_objEzsignsignergroup"), ::OpenAPI::toJsonValue(m_a_obj_ezsignsignergroup));
+        obj.insert(QString("a_objEzsignsignergroup"), ::Ezmaxapi::toJsonValue(m_a_obj_ezsignsignergroup));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAIEzsignsignergroup_createObject_v1_Request::isValid() const {
     return m_a_obj_ezsignsignergroup_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

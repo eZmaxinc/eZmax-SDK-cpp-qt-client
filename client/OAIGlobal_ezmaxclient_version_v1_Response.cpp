@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIGlobal_ezmaxclient_version_v1_Response::OAIGlobal_ezmaxclient_version_v1_Response(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAIGlobal_ezmaxclient_version_v1_Response::fromJson(QString jsonString) {
 
 void OAIGlobal_ezmaxclient_version_v1_Response::fromJsonObject(QJsonObject json) {
 
-    m_s_ezmaxclient_version_isValid = ::OpenAPI::fromJsonValue(m_s_ezmaxclient_version, json[QString("sEzmaxclientVersion")]);
+    m_s_ezmaxclient_version_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezmaxclient_version, json[QString("sEzmaxclientVersion")]);
     m_s_ezmaxclient_version_isSet = !json[QString("sEzmaxclientVersion")].isNull() && m_s_ezmaxclient_version_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAIGlobal_ezmaxclient_version_v1_Response::asJson() const {
 QJsonObject OAIGlobal_ezmaxclient_version_v1_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_s_ezmaxclient_version_isSet) {
-        obj.insert(QString("sEzmaxclientVersion"), ::OpenAPI::toJsonValue(m_s_ezmaxclient_version));
+        obj.insert(QString("sEzmaxclientVersion"), ::Ezmaxapi::toJsonValue(m_s_ezmaxclient_version));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAIGlobal_ezmaxclient_version_v1_Response::isValid() const {
     return m_s_ezmaxclient_version_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

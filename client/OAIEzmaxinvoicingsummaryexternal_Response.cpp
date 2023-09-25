@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzmaxinvoicingsummaryexternal_Response::OAIEzmaxinvoicingsummaryexternal_Response(QString json) {
     this->initializeModel();
@@ -59,19 +59,19 @@ void OAIEzmaxinvoicingsummaryexternal_Response::fromJson(QString jsonString) {
 
 void OAIEzmaxinvoicingsummaryexternal_Response::fromJsonObject(QJsonObject json) {
 
-    m_pki_ezmaxinvoicingsummaryexternal_id_isValid = ::OpenAPI::fromJsonValue(m_pki_ezmaxinvoicingsummaryexternal_id, json[QString("pkiEzmaxinvoicingsummaryexternalID")]);
+    m_pki_ezmaxinvoicingsummaryexternal_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_ezmaxinvoicingsummaryexternal_id, json[QString("pkiEzmaxinvoicingsummaryexternalID")]);
     m_pki_ezmaxinvoicingsummaryexternal_id_isSet = !json[QString("pkiEzmaxinvoicingsummaryexternalID")].isNull() && m_pki_ezmaxinvoicingsummaryexternal_id_isValid;
 
-    m_fki_ezmaxinvoicing_id_isValid = ::OpenAPI::fromJsonValue(m_fki_ezmaxinvoicing_id, json[QString("fkiEzmaxinvoicingID")]);
+    m_fki_ezmaxinvoicing_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_ezmaxinvoicing_id, json[QString("fkiEzmaxinvoicingID")]);
     m_fki_ezmaxinvoicing_id_isSet = !json[QString("fkiEzmaxinvoicingID")].isNull() && m_fki_ezmaxinvoicing_id_isValid;
 
-    m_fki_billingentityexternal_id_isValid = ::OpenAPI::fromJsonValue(m_fki_billingentityexternal_id, json[QString("fkiBillingentityexternalID")]);
+    m_fki_billingentityexternal_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_billingentityexternal_id, json[QString("fkiBillingentityexternalID")]);
     m_fki_billingentityexternal_id_isSet = !json[QString("fkiBillingentityexternalID")].isNull() && m_fki_billingentityexternal_id_isValid;
 
-    m_s_billingentityexternal_description_isValid = ::OpenAPI::fromJsonValue(m_s_billingentityexternal_description, json[QString("sBillingentityexternalDescription")]);
+    m_s_billingentityexternal_description_isValid = ::Ezmaxapi::fromJsonValue(m_s_billingentityexternal_description, json[QString("sBillingentityexternalDescription")]);
     m_s_billingentityexternal_description_isSet = !json[QString("sBillingentityexternalDescription")].isNull() && m_s_billingentityexternal_description_isValid;
 
-    m_s_ezmaxinvoicingsummaryexternal_description_isValid = ::OpenAPI::fromJsonValue(m_s_ezmaxinvoicingsummaryexternal_description, json[QString("sEzmaxinvoicingsummaryexternalDescription")]);
+    m_s_ezmaxinvoicingsummaryexternal_description_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezmaxinvoicingsummaryexternal_description, json[QString("sEzmaxinvoicingsummaryexternalDescription")]);
     m_s_ezmaxinvoicingsummaryexternal_description_isSet = !json[QString("sEzmaxinvoicingsummaryexternalDescription")].isNull() && m_s_ezmaxinvoicingsummaryexternal_description_isValid;
 }
 
@@ -85,19 +85,19 @@ QString OAIEzmaxinvoicingsummaryexternal_Response::asJson() const {
 QJsonObject OAIEzmaxinvoicingsummaryexternal_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_ezmaxinvoicingsummaryexternal_id_isSet) {
-        obj.insert(QString("pkiEzmaxinvoicingsummaryexternalID"), ::OpenAPI::toJsonValue(m_pki_ezmaxinvoicingsummaryexternal_id));
+        obj.insert(QString("pkiEzmaxinvoicingsummaryexternalID"), ::Ezmaxapi::toJsonValue(m_pki_ezmaxinvoicingsummaryexternal_id));
     }
     if (m_fki_ezmaxinvoicing_id_isSet) {
-        obj.insert(QString("fkiEzmaxinvoicingID"), ::OpenAPI::toJsonValue(m_fki_ezmaxinvoicing_id));
+        obj.insert(QString("fkiEzmaxinvoicingID"), ::Ezmaxapi::toJsonValue(m_fki_ezmaxinvoicing_id));
     }
     if (m_fki_billingentityexternal_id_isSet) {
-        obj.insert(QString("fkiBillingentityexternalID"), ::OpenAPI::toJsonValue(m_fki_billingentityexternal_id));
+        obj.insert(QString("fkiBillingentityexternalID"), ::Ezmaxapi::toJsonValue(m_fki_billingentityexternal_id));
     }
     if (m_s_billingentityexternal_description_isSet) {
-        obj.insert(QString("sBillingentityexternalDescription"), ::OpenAPI::toJsonValue(m_s_billingentityexternal_description));
+        obj.insert(QString("sBillingentityexternalDescription"), ::Ezmaxapi::toJsonValue(m_s_billingentityexternal_description));
     }
     if (m_s_ezmaxinvoicingsummaryexternal_description_isSet) {
-        obj.insert(QString("sEzmaxinvoicingsummaryexternalDescription"), ::OpenAPI::toJsonValue(m_s_ezmaxinvoicingsummaryexternal_description));
+        obj.insert(QString("sEzmaxinvoicingsummaryexternalDescription"), ::Ezmaxapi::toJsonValue(m_s_ezmaxinvoicingsummaryexternal_description));
     }
     return obj;
 }
@@ -218,4 +218,4 @@ bool OAIEzmaxinvoicingsummaryexternal_Response::isValid() const {
     return m_fki_billingentityexternal_id_isValid && m_s_billingentityexternal_description_isValid && m_s_ezmaxinvoicingsummaryexternal_description_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzsignsigner_RequestCompound::OAIEzsignsigner_RequestCompound(QString json) {
     this->initializeModel();
@@ -62,22 +62,22 @@ void OAIEzsignsigner_RequestCompound::fromJson(QString jsonString) {
 
 void OAIEzsignsigner_RequestCompound::fromJsonObject(QJsonObject json) {
 
-    m_fki_userlogintype_id_isValid = ::OpenAPI::fromJsonValue(m_fki_userlogintype_id, json[QString("fkiUserlogintypeID")]);
+    m_fki_userlogintype_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_userlogintype_id, json[QString("fkiUserlogintypeID")]);
     m_fki_userlogintype_id_isSet = !json[QString("fkiUserlogintypeID")].isNull() && m_fki_userlogintype_id_isValid;
 
-    m_fki_taxassignment_id_isValid = ::OpenAPI::fromJsonValue(m_fki_taxassignment_id, json[QString("fkiTaxassignmentID")]);
+    m_fki_taxassignment_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_taxassignment_id, json[QString("fkiTaxassignmentID")]);
     m_fki_taxassignment_id_isSet = !json[QString("fkiTaxassignmentID")].isNull() && m_fki_taxassignment_id_isValid;
 
-    m_fki_secretquestion_id_isValid = ::OpenAPI::fromJsonValue(m_fki_secretquestion_id, json[QString("fkiSecretquestionID")]);
+    m_fki_secretquestion_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_secretquestion_id, json[QString("fkiSecretquestionID")]);
     m_fki_secretquestion_id_isSet = !json[QString("fkiSecretquestionID")].isNull() && m_fki_secretquestion_id_isValid;
 
-    m_e_ezsignsigner_logintype_isValid = ::OpenAPI::fromJsonValue(m_e_ezsignsigner_logintype, json[QString("eEzsignsignerLogintype")]);
+    m_e_ezsignsigner_logintype_isValid = ::Ezmaxapi::fromJsonValue(m_e_ezsignsigner_logintype, json[QString("eEzsignsignerLogintype")]);
     m_e_ezsignsigner_logintype_isSet = !json[QString("eEzsignsignerLogintype")].isNull() && m_e_ezsignsigner_logintype_isValid;
 
-    m_s_ezsignsigner_secretanswer_isValid = ::OpenAPI::fromJsonValue(m_s_ezsignsigner_secretanswer, json[QString("sEzsignsignerSecretanswer")]);
+    m_s_ezsignsigner_secretanswer_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsignsigner_secretanswer, json[QString("sEzsignsignerSecretanswer")]);
     m_s_ezsignsigner_secretanswer_isSet = !json[QString("sEzsignsignerSecretanswer")].isNull() && m_s_ezsignsigner_secretanswer_isValid;
 
-    m_obj_contact_isValid = ::OpenAPI::fromJsonValue(m_obj_contact, json[QString("objContact")]);
+    m_obj_contact_isValid = ::Ezmaxapi::fromJsonValue(m_obj_contact, json[QString("objContact")]);
     m_obj_contact_isSet = !json[QString("objContact")].isNull() && m_obj_contact_isValid;
 }
 
@@ -91,22 +91,22 @@ QString OAIEzsignsigner_RequestCompound::asJson() const {
 QJsonObject OAIEzsignsigner_RequestCompound::asJsonObject() const {
     QJsonObject obj;
     if (m_fki_userlogintype_id_isSet) {
-        obj.insert(QString("fkiUserlogintypeID"), ::OpenAPI::toJsonValue(m_fki_userlogintype_id));
+        obj.insert(QString("fkiUserlogintypeID"), ::Ezmaxapi::toJsonValue(m_fki_userlogintype_id));
     }
     if (m_fki_taxassignment_id_isSet) {
-        obj.insert(QString("fkiTaxassignmentID"), ::OpenAPI::toJsonValue(m_fki_taxassignment_id));
+        obj.insert(QString("fkiTaxassignmentID"), ::Ezmaxapi::toJsonValue(m_fki_taxassignment_id));
     }
     if (m_fki_secretquestion_id_isSet) {
-        obj.insert(QString("fkiSecretquestionID"), ::OpenAPI::toJsonValue(m_fki_secretquestion_id));
+        obj.insert(QString("fkiSecretquestionID"), ::Ezmaxapi::toJsonValue(m_fki_secretquestion_id));
     }
     if (m_e_ezsignsigner_logintype_isSet) {
-        obj.insert(QString("eEzsignsignerLogintype"), ::OpenAPI::toJsonValue(m_e_ezsignsigner_logintype));
+        obj.insert(QString("eEzsignsignerLogintype"), ::Ezmaxapi::toJsonValue(m_e_ezsignsigner_logintype));
     }
     if (m_s_ezsignsigner_secretanswer_isSet) {
-        obj.insert(QString("sEzsignsignerSecretanswer"), ::OpenAPI::toJsonValue(m_s_ezsignsigner_secretanswer));
+        obj.insert(QString("sEzsignsignerSecretanswer"), ::Ezmaxapi::toJsonValue(m_s_ezsignsigner_secretanswer));
     }
     if (m_obj_contact.isSet()) {
-        obj.insert(QString("objContact"), ::OpenAPI::toJsonValue(m_obj_contact));
+        obj.insert(QString("objContact"), ::Ezmaxapi::toJsonValue(m_obj_contact));
     }
     return obj;
 }
@@ -248,4 +248,4 @@ bool OAIEzsignsigner_RequestCompound::isValid() const {
     return m_fki_taxassignment_id_isValid && m_obj_contact_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

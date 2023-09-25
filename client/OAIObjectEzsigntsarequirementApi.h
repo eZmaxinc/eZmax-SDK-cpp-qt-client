@@ -28,7 +28,7 @@
 #include <QList>
 #include <QNetworkAccessManager>
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIObjectEzsigntsarequirementApi : public QObject {
     Q_OBJECT
@@ -65,7 +65,7 @@ public:
     * @param[in]  s_query QString [optional]
     * @param[in]  accept_language OAIHeader_Accept_Language [optional]
     */
-    void ezsigntsarequirementGetAutocompleteV2(const QString &s_selector, const ::OpenAPI::OptionalParam<qint32> &fki_ezsignfoldertype_id = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<QString> &e_filter_active = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &s_query = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<OAIHeader_Accept_Language> &accept_language = ::OpenAPI::OptionalParam<OAIHeader_Accept_Language>());
+    void ezsigntsarequirementGetAutocompleteV2(const QString &s_selector, const ::Ezmaxapi::OptionalParam<qint32> &fki_ezsignfoldertype_id = ::Ezmaxapi::OptionalParam<qint32>(), const ::Ezmaxapi::OptionalParam<QString> &e_filter_active = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<QString> &s_query = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<OAIHeader_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<OAIHeader_Accept_Language>());
 
 
 private:
@@ -110,5 +110,5 @@ public slots:
     
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 #endif

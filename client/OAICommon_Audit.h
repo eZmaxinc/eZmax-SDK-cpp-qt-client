@@ -26,7 +26,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 class OAICommon_Auditdetail;
 
 class OAICommon_Audit : public OAIObject {
@@ -65,8 +65,8 @@ private:
     bool m_obj_auditdetail_modified_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAICommon_Audit)
+Q_DECLARE_METATYPE(Ezmaxapi::OAICommon_Audit)
 
 #endif // OAICommon_Audit_H

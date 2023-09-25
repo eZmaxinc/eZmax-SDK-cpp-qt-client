@@ -26,7 +26,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAICustom_Ezsignformfielderrortest_Response : public OAIObject {
 public:
@@ -64,8 +64,8 @@ private:
     bool m_s_ezsignformfielderrortest_detail_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAICustom_Ezsignformfielderrortest_Response)
+Q_DECLARE_METATYPE(Ezmaxapi::OAICustom_Ezsignformfielderrortest_Response)
 
 #endif // OAICustom_Ezsignformfielderrortest_Response_H

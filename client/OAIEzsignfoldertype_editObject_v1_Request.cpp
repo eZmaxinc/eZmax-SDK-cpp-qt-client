@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzsignfoldertype_editObject_v1_Request::OAIEzsignfoldertype_editObject_v1_Request(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAIEzsignfoldertype_editObject_v1_Request::fromJson(QString jsonString) {
 
 void OAIEzsignfoldertype_editObject_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_obj_ezsignfoldertype_isValid = ::OpenAPI::fromJsonValue(m_obj_ezsignfoldertype, json[QString("objEzsignfoldertype")]);
+    m_obj_ezsignfoldertype_isValid = ::Ezmaxapi::fromJsonValue(m_obj_ezsignfoldertype, json[QString("objEzsignfoldertype")]);
     m_obj_ezsignfoldertype_isSet = !json[QString("objEzsignfoldertype")].isNull() && m_obj_ezsignfoldertype_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAIEzsignfoldertype_editObject_v1_Request::asJson() const {
 QJsonObject OAIEzsignfoldertype_editObject_v1_Request::asJsonObject() const {
     QJsonObject obj;
     if (m_obj_ezsignfoldertype.isSet()) {
-        obj.insert(QString("objEzsignfoldertype"), ::OpenAPI::toJsonValue(m_obj_ezsignfoldertype));
+        obj.insert(QString("objEzsignfoldertype"), ::Ezmaxapi::toJsonValue(m_obj_ezsignfoldertype));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAIEzsignfoldertype_editObject_v1_Request::isValid() const {
     return m_obj_ezsignfoldertype_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

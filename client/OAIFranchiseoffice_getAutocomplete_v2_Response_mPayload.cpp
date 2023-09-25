@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIFranchiseoffice_getAutocomplete_v2_Response_mPayload::OAIFranchiseoffice_getAutocomplete_v2_Response_mPayload(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAIFranchiseoffice_getAutocomplete_v2_Response_mPayload::fromJson(QString j
 
 void OAIFranchiseoffice_getAutocomplete_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_franchiseoffice_isValid = ::OpenAPI::fromJsonValue(m_a_obj_franchiseoffice, json[QString("a_objFranchiseoffice")]);
+    m_a_obj_franchiseoffice_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_franchiseoffice, json[QString("a_objFranchiseoffice")]);
     m_a_obj_franchiseoffice_isSet = !json[QString("a_objFranchiseoffice")].isNull() && m_a_obj_franchiseoffice_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAIFranchiseoffice_getAutocomplete_v2_Response_mPayload::asJson() const 
 QJsonObject OAIFranchiseoffice_getAutocomplete_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_a_obj_franchiseoffice.size() > 0) {
-        obj.insert(QString("a_objFranchiseoffice"), ::OpenAPI::toJsonValue(m_a_obj_franchiseoffice));
+        obj.insert(QString("a_objFranchiseoffice"), ::Ezmaxapi::toJsonValue(m_a_obj_franchiseoffice));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAIFranchiseoffice_getAutocomplete_v2_Response_mPayload::isValid() const {
     return true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

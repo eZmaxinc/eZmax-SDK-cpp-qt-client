@@ -26,7 +26,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIGlobal_customer_getEndpoint_v1_Response : public OAIObject {
 public:
@@ -55,8 +55,8 @@ private:
     bool m_s_endpoint_url_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIGlobal_customer_getEndpoint_v1_Response)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIGlobal_customer_getEndpoint_v1_Response)
 
 #endif // OAIGlobal_customer_getEndpoint_v1_Response_H

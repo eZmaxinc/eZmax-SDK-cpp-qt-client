@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIUserstaged_Response::OAIUserstaged_Response(QString json) {
     this->initializeModel();
@@ -62,22 +62,22 @@ void OAIUserstaged_Response::fromJson(QString jsonString) {
 
 void OAIUserstaged_Response::fromJsonObject(QJsonObject json) {
 
-    m_pki_userstaged_id_isValid = ::OpenAPI::fromJsonValue(m_pki_userstaged_id, json[QString("pkiUserstagedID")]);
+    m_pki_userstaged_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_userstaged_id, json[QString("pkiUserstagedID")]);
     m_pki_userstaged_id_isSet = !json[QString("pkiUserstagedID")].isNull() && m_pki_userstaged_id_isValid;
 
-    m_fki_email_id_isValid = ::OpenAPI::fromJsonValue(m_fki_email_id, json[QString("fkiEmailID")]);
+    m_fki_email_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_email_id, json[QString("fkiEmailID")]);
     m_fki_email_id_isSet = !json[QString("fkiEmailID")].isNull() && m_fki_email_id_isValid;
 
-    m_s_email_address_isValid = ::OpenAPI::fromJsonValue(m_s_email_address, json[QString("sEmailAddress")]);
+    m_s_email_address_isValid = ::Ezmaxapi::fromJsonValue(m_s_email_address, json[QString("sEmailAddress")]);
     m_s_email_address_isSet = !json[QString("sEmailAddress")].isNull() && m_s_email_address_isValid;
 
-    m_s_userstaged_firstname_isValid = ::OpenAPI::fromJsonValue(m_s_userstaged_firstname, json[QString("sUserstagedFirstname")]);
+    m_s_userstaged_firstname_isValid = ::Ezmaxapi::fromJsonValue(m_s_userstaged_firstname, json[QString("sUserstagedFirstname")]);
     m_s_userstaged_firstname_isSet = !json[QString("sUserstagedFirstname")].isNull() && m_s_userstaged_firstname_isValid;
 
-    m_s_userstaged_lastname_isValid = ::OpenAPI::fromJsonValue(m_s_userstaged_lastname, json[QString("sUserstagedLastname")]);
+    m_s_userstaged_lastname_isValid = ::Ezmaxapi::fromJsonValue(m_s_userstaged_lastname, json[QString("sUserstagedLastname")]);
     m_s_userstaged_lastname_isSet = !json[QString("sUserstagedLastname")].isNull() && m_s_userstaged_lastname_isValid;
 
-    m_s_userstaged_externalid_isValid = ::OpenAPI::fromJsonValue(m_s_userstaged_externalid, json[QString("sUserstagedExternalid")]);
+    m_s_userstaged_externalid_isValid = ::Ezmaxapi::fromJsonValue(m_s_userstaged_externalid, json[QString("sUserstagedExternalid")]);
     m_s_userstaged_externalid_isSet = !json[QString("sUserstagedExternalid")].isNull() && m_s_userstaged_externalid_isValid;
 }
 
@@ -91,22 +91,22 @@ QString OAIUserstaged_Response::asJson() const {
 QJsonObject OAIUserstaged_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_userstaged_id_isSet) {
-        obj.insert(QString("pkiUserstagedID"), ::OpenAPI::toJsonValue(m_pki_userstaged_id));
+        obj.insert(QString("pkiUserstagedID"), ::Ezmaxapi::toJsonValue(m_pki_userstaged_id));
     }
     if (m_fki_email_id_isSet) {
-        obj.insert(QString("fkiEmailID"), ::OpenAPI::toJsonValue(m_fki_email_id));
+        obj.insert(QString("fkiEmailID"), ::Ezmaxapi::toJsonValue(m_fki_email_id));
     }
     if (m_s_email_address_isSet) {
-        obj.insert(QString("sEmailAddress"), ::OpenAPI::toJsonValue(m_s_email_address));
+        obj.insert(QString("sEmailAddress"), ::Ezmaxapi::toJsonValue(m_s_email_address));
     }
     if (m_s_userstaged_firstname_isSet) {
-        obj.insert(QString("sUserstagedFirstname"), ::OpenAPI::toJsonValue(m_s_userstaged_firstname));
+        obj.insert(QString("sUserstagedFirstname"), ::Ezmaxapi::toJsonValue(m_s_userstaged_firstname));
     }
     if (m_s_userstaged_lastname_isSet) {
-        obj.insert(QString("sUserstagedLastname"), ::OpenAPI::toJsonValue(m_s_userstaged_lastname));
+        obj.insert(QString("sUserstagedLastname"), ::Ezmaxapi::toJsonValue(m_s_userstaged_lastname));
     }
     if (m_s_userstaged_externalid_isSet) {
-        obj.insert(QString("sUserstagedExternalid"), ::OpenAPI::toJsonValue(m_s_userstaged_externalid));
+        obj.insert(QString("sUserstagedExternalid"), ::Ezmaxapi::toJsonValue(m_s_userstaged_externalid));
     }
     return obj;
 }
@@ -248,4 +248,4 @@ bool OAIUserstaged_Response::isValid() const {
     return m_pki_userstaged_id_isValid && m_fki_email_id_isValid && m_s_email_address_isValid && m_s_userstaged_firstname_isValid && m_s_userstaged_lastname_isValid && m_s_userstaged_externalid_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

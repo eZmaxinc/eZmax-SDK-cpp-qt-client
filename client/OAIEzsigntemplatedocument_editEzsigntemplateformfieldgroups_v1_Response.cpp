@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzsigntemplatedocument_editEzsigntemplateformfieldgroups_v1_Response::OAIEzsigntemplatedocument_editEzsigntemplateformfieldgroups_v1_Response(QString json) {
     this->initializeModel();
@@ -53,13 +53,13 @@ void OAIEzsigntemplatedocument_editEzsigntemplateformfieldgroups_v1_Response::fr
 
 void OAIEzsigntemplatedocument_editEzsigntemplateformfieldgroups_v1_Response::fromJsonObject(QJsonObject json) {
 
-    m_obj_debug_payload_isValid = ::OpenAPI::fromJsonValue(m_obj_debug_payload, json[QString("objDebugPayload")]);
+    m_obj_debug_payload_isValid = ::Ezmaxapi::fromJsonValue(m_obj_debug_payload, json[QString("objDebugPayload")]);
     m_obj_debug_payload_isSet = !json[QString("objDebugPayload")].isNull() && m_obj_debug_payload_isValid;
 
-    m_obj_debug_isValid = ::OpenAPI::fromJsonValue(m_obj_debug, json[QString("objDebug")]);
+    m_obj_debug_isValid = ::Ezmaxapi::fromJsonValue(m_obj_debug, json[QString("objDebug")]);
     m_obj_debug_isSet = !json[QString("objDebug")].isNull() && m_obj_debug_isValid;
 
-    m_m_payload_isValid = ::OpenAPI::fromJsonValue(m_m_payload, json[QString("mPayload")]);
+    m_m_payload_isValid = ::Ezmaxapi::fromJsonValue(m_m_payload, json[QString("mPayload")]);
     m_m_payload_isSet = !json[QString("mPayload")].isNull() && m_m_payload_isValid;
 }
 
@@ -73,13 +73,13 @@ QString OAIEzsigntemplatedocument_editEzsigntemplateformfieldgroups_v1_Response:
 QJsonObject OAIEzsigntemplatedocument_editEzsigntemplateformfieldgroups_v1_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_obj_debug_payload.isSet()) {
-        obj.insert(QString("objDebugPayload"), ::OpenAPI::toJsonValue(m_obj_debug_payload));
+        obj.insert(QString("objDebugPayload"), ::Ezmaxapi::toJsonValue(m_obj_debug_payload));
     }
     if (m_obj_debug.isSet()) {
-        obj.insert(QString("objDebug"), ::OpenAPI::toJsonValue(m_obj_debug));
+        obj.insert(QString("objDebug"), ::Ezmaxapi::toJsonValue(m_obj_debug));
     }
     if (m_m_payload.isSet()) {
-        obj.insert(QString("mPayload"), ::OpenAPI::toJsonValue(m_m_payload));
+        obj.insert(QString("mPayload"), ::Ezmaxapi::toJsonValue(m_m_payload));
     }
     return obj;
 }
@@ -158,4 +158,4 @@ bool OAIEzsigntemplatedocument_editEzsigntemplateformfieldgroups_v1_Response::is
     return m_obj_debug_payload_isValid && m_m_payload_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

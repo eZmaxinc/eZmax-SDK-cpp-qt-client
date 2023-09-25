@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzsigntemplateformfieldgroupsigner_Response::OAIEzsigntemplateformfieldgroupsigner_Response(QString json) {
     this->initializeModel();
@@ -50,10 +50,10 @@ void OAIEzsigntemplateformfieldgroupsigner_Response::fromJson(QString jsonString
 
 void OAIEzsigntemplateformfieldgroupsigner_Response::fromJsonObject(QJsonObject json) {
 
-    m_pki_ezsigntemplateformfieldgroupsigner_id_isValid = ::OpenAPI::fromJsonValue(m_pki_ezsigntemplateformfieldgroupsigner_id, json[QString("pkiEzsigntemplateformfieldgroupsignerID")]);
+    m_pki_ezsigntemplateformfieldgroupsigner_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_ezsigntemplateformfieldgroupsigner_id, json[QString("pkiEzsigntemplateformfieldgroupsignerID")]);
     m_pki_ezsigntemplateformfieldgroupsigner_id_isSet = !json[QString("pkiEzsigntemplateformfieldgroupsignerID")].isNull() && m_pki_ezsigntemplateformfieldgroupsigner_id_isValid;
 
-    m_fki_ezsigntemplatesigner_id_isValid = ::OpenAPI::fromJsonValue(m_fki_ezsigntemplatesigner_id, json[QString("fkiEzsigntemplatesignerID")]);
+    m_fki_ezsigntemplatesigner_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_ezsigntemplatesigner_id, json[QString("fkiEzsigntemplatesignerID")]);
     m_fki_ezsigntemplatesigner_id_isSet = !json[QString("fkiEzsigntemplatesignerID")].isNull() && m_fki_ezsigntemplatesigner_id_isValid;
 }
 
@@ -67,10 +67,10 @@ QString OAIEzsigntemplateformfieldgroupsigner_Response::asJson() const {
 QJsonObject OAIEzsigntemplateformfieldgroupsigner_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_ezsigntemplateformfieldgroupsigner_id_isSet) {
-        obj.insert(QString("pkiEzsigntemplateformfieldgroupsignerID"), ::OpenAPI::toJsonValue(m_pki_ezsigntemplateformfieldgroupsigner_id));
+        obj.insert(QString("pkiEzsigntemplateformfieldgroupsignerID"), ::Ezmaxapi::toJsonValue(m_pki_ezsigntemplateformfieldgroupsigner_id));
     }
     if (m_fki_ezsigntemplatesigner_id_isSet) {
-        obj.insert(QString("fkiEzsigntemplatesignerID"), ::OpenAPI::toJsonValue(m_fki_ezsigntemplatesigner_id));
+        obj.insert(QString("fkiEzsigntemplatesignerID"), ::Ezmaxapi::toJsonValue(m_fki_ezsigntemplatesigner_id));
     }
     return obj;
 }
@@ -128,4 +128,4 @@ bool OAIEzsigntemplateformfieldgroupsigner_Response::isValid() const {
     return m_pki_ezsigntemplateformfieldgroupsigner_id_isValid && m_fki_ezsigntemplatesigner_id_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

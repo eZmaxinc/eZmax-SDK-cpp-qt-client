@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIPermission_Request::OAIPermission_Request(QString json) {
     this->initializeModel();
@@ -62,22 +62,22 @@ void OAIPermission_Request::fromJson(QString jsonString) {
 
 void OAIPermission_Request::fromJsonObject(QJsonObject json) {
 
-    m_pki_permission_id_isValid = ::OpenAPI::fromJsonValue(m_pki_permission_id, json[QString("pkiPermissionID")]);
+    m_pki_permission_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_permission_id, json[QString("pkiPermissionID")]);
     m_pki_permission_id_isSet = !json[QString("pkiPermissionID")].isNull() && m_pki_permission_id_isValid;
 
-    m_fki_user_id_isValid = ::OpenAPI::fromJsonValue(m_fki_user_id, json[QString("fkiUserID")]);
+    m_fki_user_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_user_id, json[QString("fkiUserID")]);
     m_fki_user_id_isSet = !json[QString("fkiUserID")].isNull() && m_fki_user_id_isValid;
 
-    m_fki_apikey_id_isValid = ::OpenAPI::fromJsonValue(m_fki_apikey_id, json[QString("fkiApikeyID")]);
+    m_fki_apikey_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_apikey_id, json[QString("fkiApikeyID")]);
     m_fki_apikey_id_isSet = !json[QString("fkiApikeyID")].isNull() && m_fki_apikey_id_isValid;
 
-    m_fki_usergroup_id_isValid = ::OpenAPI::fromJsonValue(m_fki_usergroup_id, json[QString("fkiUsergroupID")]);
+    m_fki_usergroup_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_usergroup_id, json[QString("fkiUsergroupID")]);
     m_fki_usergroup_id_isSet = !json[QString("fkiUsergroupID")].isNull() && m_fki_usergroup_id_isValid;
 
-    m_fki_company_id_isValid = ::OpenAPI::fromJsonValue(m_fki_company_id, json[QString("fkiCompanyID")]);
+    m_fki_company_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_company_id, json[QString("fkiCompanyID")]);
     m_fki_company_id_isSet = !json[QString("fkiCompanyID")].isNull() && m_fki_company_id_isValid;
 
-    m_fki_modulesection_id_isValid = ::OpenAPI::fromJsonValue(m_fki_modulesection_id, json[QString("fkiModulesectionID")]);
+    m_fki_modulesection_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_modulesection_id, json[QString("fkiModulesectionID")]);
     m_fki_modulesection_id_isSet = !json[QString("fkiModulesectionID")].isNull() && m_fki_modulesection_id_isValid;
 }
 
@@ -91,22 +91,22 @@ QString OAIPermission_Request::asJson() const {
 QJsonObject OAIPermission_Request::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_permission_id_isSet) {
-        obj.insert(QString("pkiPermissionID"), ::OpenAPI::toJsonValue(m_pki_permission_id));
+        obj.insert(QString("pkiPermissionID"), ::Ezmaxapi::toJsonValue(m_pki_permission_id));
     }
     if (m_fki_user_id_isSet) {
-        obj.insert(QString("fkiUserID"), ::OpenAPI::toJsonValue(m_fki_user_id));
+        obj.insert(QString("fkiUserID"), ::Ezmaxapi::toJsonValue(m_fki_user_id));
     }
     if (m_fki_apikey_id_isSet) {
-        obj.insert(QString("fkiApikeyID"), ::OpenAPI::toJsonValue(m_fki_apikey_id));
+        obj.insert(QString("fkiApikeyID"), ::Ezmaxapi::toJsonValue(m_fki_apikey_id));
     }
     if (m_fki_usergroup_id_isSet) {
-        obj.insert(QString("fkiUsergroupID"), ::OpenAPI::toJsonValue(m_fki_usergroup_id));
+        obj.insert(QString("fkiUsergroupID"), ::Ezmaxapi::toJsonValue(m_fki_usergroup_id));
     }
     if (m_fki_company_id_isSet) {
-        obj.insert(QString("fkiCompanyID"), ::OpenAPI::toJsonValue(m_fki_company_id));
+        obj.insert(QString("fkiCompanyID"), ::Ezmaxapi::toJsonValue(m_fki_company_id));
     }
     if (m_fki_modulesection_id_isSet) {
-        obj.insert(QString("fkiModulesectionID"), ::OpenAPI::toJsonValue(m_fki_modulesection_id));
+        obj.insert(QString("fkiModulesectionID"), ::Ezmaxapi::toJsonValue(m_fki_modulesection_id));
     }
     return obj;
 }
@@ -248,4 +248,4 @@ bool OAIPermission_Request::isValid() const {
     return m_fki_modulesection_id_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

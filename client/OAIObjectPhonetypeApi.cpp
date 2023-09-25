@@ -15,7 +15,7 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIObjectPhonetypeApi::OAIObjectPhonetypeApi(const int timeOut)
     : _timeOut(timeOut),
@@ -236,7 +236,7 @@ QString OAIObjectPhonetypeApi::getParamStyleDelimiter(const QString &style, cons
     }
 }
 
-void OAIObjectPhonetypeApi::phonetypeGetAutocompleteV2(const QString &s_selector, const ::OpenAPI::OptionalParam<QString> &e_filter_active, const ::OpenAPI::OptionalParam<QString> &s_query, const ::OpenAPI::OptionalParam<OAIHeader_Accept_Language> &accept_language) {
+void OAIObjectPhonetypeApi::phonetypeGetAutocompleteV2(const QString &s_selector, const ::Ezmaxapi::OptionalParam<QString> &e_filter_active, const ::Ezmaxapi::OptionalParam<QString> &s_query, const ::Ezmaxapi::OptionalParam<OAIHeader_Accept_Language> &accept_language) {
     QString fullPath = QString(_serverConfigs["phonetypeGetAutocompleteV2"][_serverIndices.value("phonetypeGetAutocompleteV2")].URL()+"/2/object/phonetype/getAutocomplete/{sSelector}");
     
     if (_apiKeys.contains("Authorization")) {
@@ -255,7 +255,7 @@ void OAIObjectPhonetypeApi::phonetypeGetAutocompleteV2(const QString &s_selector
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "sSelector", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"sSelector"+pathSuffix : pathPrefix;
-        fullPath.replace(s_selectorPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(s_selector)));
+        fullPath.replace(s_selectorPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_selector)));
     }
     QString queryPrefix, querySuffix, queryDelimiter, queryStyle;
     if (e_filter_active.hasValue())
@@ -271,7 +271,7 @@ void OAIObjectPhonetypeApi::phonetypeGetAutocompleteV2(const QString &s_selector
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("eFilterActive")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(e_filter_active.value())));
+        fullPath.append(QUrl::toPercentEncoding("eFilterActive")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(e_filter_active.value())));
     }
     if (s_query.hasValue())
     {
@@ -286,7 +286,7 @@ void OAIObjectPhonetypeApi::phonetypeGetAutocompleteV2(const QString &s_selector
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(s_query.value())));
+        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_query.value())));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -427,4 +427,4 @@ void OAIObjectPhonetypeApi::tokenAvailable(){
         break;
     }
 }
-} // namespace OpenAPI
+} // namespace Ezmaxapi

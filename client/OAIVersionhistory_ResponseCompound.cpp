@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIVersionhistory_ResponseCompound::OAIVersionhistory_ResponseCompound(QString json) {
     this->initializeModel();
@@ -77,37 +77,37 @@ void OAIVersionhistory_ResponseCompound::fromJson(QString jsonString) {
 
 void OAIVersionhistory_ResponseCompound::fromJsonObject(QJsonObject json) {
 
-    m_pki_versionhistory_id_isValid = ::OpenAPI::fromJsonValue(m_pki_versionhistory_id, json[QString("pkiVersionhistoryID")]);
+    m_pki_versionhistory_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_versionhistory_id, json[QString("pkiVersionhistoryID")]);
     m_pki_versionhistory_id_isSet = !json[QString("pkiVersionhistoryID")].isNull() && m_pki_versionhistory_id_isValid;
 
-    m_fki_module_id_isValid = ::OpenAPI::fromJsonValue(m_fki_module_id, json[QString("fkiModuleID")]);
+    m_fki_module_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_module_id, json[QString("fkiModuleID")]);
     m_fki_module_id_isSet = !json[QString("fkiModuleID")].isNull() && m_fki_module_id_isValid;
 
-    m_fki_modulesection_id_isValid = ::OpenAPI::fromJsonValue(m_fki_modulesection_id, json[QString("fkiModulesectionID")]);
+    m_fki_modulesection_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_modulesection_id, json[QString("fkiModulesectionID")]);
     m_fki_modulesection_id_isSet = !json[QString("fkiModulesectionID")].isNull() && m_fki_modulesection_id_isValid;
 
-    m_s_module_name_x_isValid = ::OpenAPI::fromJsonValue(m_s_module_name_x, json[QString("sModuleNameX")]);
+    m_s_module_name_x_isValid = ::Ezmaxapi::fromJsonValue(m_s_module_name_x, json[QString("sModuleNameX")]);
     m_s_module_name_x_isSet = !json[QString("sModuleNameX")].isNull() && m_s_module_name_x_isValid;
 
-    m_s_modulesection_name_x_isValid = ::OpenAPI::fromJsonValue(m_s_modulesection_name_x, json[QString("sModulesectionNameX")]);
+    m_s_modulesection_name_x_isValid = ::Ezmaxapi::fromJsonValue(m_s_modulesection_name_x, json[QString("sModulesectionNameX")]);
     m_s_modulesection_name_x_isSet = !json[QString("sModulesectionNameX")].isNull() && m_s_modulesection_name_x_isValid;
 
-    m_e_versionhistory_usertype_isValid = ::OpenAPI::fromJsonValue(m_e_versionhistory_usertype, json[QString("eVersionhistoryUsertype")]);
+    m_e_versionhistory_usertype_isValid = ::Ezmaxapi::fromJsonValue(m_e_versionhistory_usertype, json[QString("eVersionhistoryUsertype")]);
     m_e_versionhistory_usertype_isSet = !json[QString("eVersionhistoryUsertype")].isNull() && m_e_versionhistory_usertype_isValid;
 
-    m_obj_versionhistory_detail_isValid = ::OpenAPI::fromJsonValue(m_obj_versionhistory_detail, json[QString("objVersionhistoryDetail")]);
+    m_obj_versionhistory_detail_isValid = ::Ezmaxapi::fromJsonValue(m_obj_versionhistory_detail, json[QString("objVersionhistoryDetail")]);
     m_obj_versionhistory_detail_isSet = !json[QString("objVersionhistoryDetail")].isNull() && m_obj_versionhistory_detail_isValid;
 
-    m_dt_versionhistory_date_isValid = ::OpenAPI::fromJsonValue(m_dt_versionhistory_date, json[QString("dtVersionhistoryDate")]);
+    m_dt_versionhistory_date_isValid = ::Ezmaxapi::fromJsonValue(m_dt_versionhistory_date, json[QString("dtVersionhistoryDate")]);
     m_dt_versionhistory_date_isSet = !json[QString("dtVersionhistoryDate")].isNull() && m_dt_versionhistory_date_isValid;
 
-    m_dt_versionhistory_dateend_isValid = ::OpenAPI::fromJsonValue(m_dt_versionhistory_dateend, json[QString("dtVersionhistoryDateend")]);
+    m_dt_versionhistory_dateend_isValid = ::Ezmaxapi::fromJsonValue(m_dt_versionhistory_dateend, json[QString("dtVersionhistoryDateend")]);
     m_dt_versionhistory_dateend_isSet = !json[QString("dtVersionhistoryDateend")].isNull() && m_dt_versionhistory_dateend_isValid;
 
-    m_e_versionhistory_type_isValid = ::OpenAPI::fromJsonValue(m_e_versionhistory_type, json[QString("eVersionhistoryType")]);
+    m_e_versionhistory_type_isValid = ::Ezmaxapi::fromJsonValue(m_e_versionhistory_type, json[QString("eVersionhistoryType")]);
     m_e_versionhistory_type_isSet = !json[QString("eVersionhistoryType")].isNull() && m_e_versionhistory_type_isValid;
 
-    m_b_versionhistory_draft_isValid = ::OpenAPI::fromJsonValue(m_b_versionhistory_draft, json[QString("bVersionhistoryDraft")]);
+    m_b_versionhistory_draft_isValid = ::Ezmaxapi::fromJsonValue(m_b_versionhistory_draft, json[QString("bVersionhistoryDraft")]);
     m_b_versionhistory_draft_isSet = !json[QString("bVersionhistoryDraft")].isNull() && m_b_versionhistory_draft_isValid;
 }
 
@@ -121,37 +121,37 @@ QString OAIVersionhistory_ResponseCompound::asJson() const {
 QJsonObject OAIVersionhistory_ResponseCompound::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_versionhistory_id_isSet) {
-        obj.insert(QString("pkiVersionhistoryID"), ::OpenAPI::toJsonValue(m_pki_versionhistory_id));
+        obj.insert(QString("pkiVersionhistoryID"), ::Ezmaxapi::toJsonValue(m_pki_versionhistory_id));
     }
     if (m_fki_module_id_isSet) {
-        obj.insert(QString("fkiModuleID"), ::OpenAPI::toJsonValue(m_fki_module_id));
+        obj.insert(QString("fkiModuleID"), ::Ezmaxapi::toJsonValue(m_fki_module_id));
     }
     if (m_fki_modulesection_id_isSet) {
-        obj.insert(QString("fkiModulesectionID"), ::OpenAPI::toJsonValue(m_fki_modulesection_id));
+        obj.insert(QString("fkiModulesectionID"), ::Ezmaxapi::toJsonValue(m_fki_modulesection_id));
     }
     if (m_s_module_name_x_isSet) {
-        obj.insert(QString("sModuleNameX"), ::OpenAPI::toJsonValue(m_s_module_name_x));
+        obj.insert(QString("sModuleNameX"), ::Ezmaxapi::toJsonValue(m_s_module_name_x));
     }
     if (m_s_modulesection_name_x_isSet) {
-        obj.insert(QString("sModulesectionNameX"), ::OpenAPI::toJsonValue(m_s_modulesection_name_x));
+        obj.insert(QString("sModulesectionNameX"), ::Ezmaxapi::toJsonValue(m_s_modulesection_name_x));
     }
     if (m_e_versionhistory_usertype.isSet()) {
-        obj.insert(QString("eVersionhistoryUsertype"), ::OpenAPI::toJsonValue(m_e_versionhistory_usertype));
+        obj.insert(QString("eVersionhistoryUsertype"), ::Ezmaxapi::toJsonValue(m_e_versionhistory_usertype));
     }
     if (m_obj_versionhistory_detail.isSet()) {
-        obj.insert(QString("objVersionhistoryDetail"), ::OpenAPI::toJsonValue(m_obj_versionhistory_detail));
+        obj.insert(QString("objVersionhistoryDetail"), ::Ezmaxapi::toJsonValue(m_obj_versionhistory_detail));
     }
     if (m_dt_versionhistory_date_isSet) {
-        obj.insert(QString("dtVersionhistoryDate"), ::OpenAPI::toJsonValue(m_dt_versionhistory_date));
+        obj.insert(QString("dtVersionhistoryDate"), ::Ezmaxapi::toJsonValue(m_dt_versionhistory_date));
     }
     if (m_dt_versionhistory_dateend_isSet) {
-        obj.insert(QString("dtVersionhistoryDateend"), ::OpenAPI::toJsonValue(m_dt_versionhistory_dateend));
+        obj.insert(QString("dtVersionhistoryDateend"), ::Ezmaxapi::toJsonValue(m_dt_versionhistory_dateend));
     }
     if (m_e_versionhistory_type.isSet()) {
-        obj.insert(QString("eVersionhistoryType"), ::OpenAPI::toJsonValue(m_e_versionhistory_type));
+        obj.insert(QString("eVersionhistoryType"), ::Ezmaxapi::toJsonValue(m_e_versionhistory_type));
     }
     if (m_b_versionhistory_draft_isSet) {
-        obj.insert(QString("bVersionhistoryDraft"), ::OpenAPI::toJsonValue(m_b_versionhistory_draft));
+        obj.insert(QString("bVersionhistoryDraft"), ::Ezmaxapi::toJsonValue(m_b_versionhistory_draft));
     }
     return obj;
 }
@@ -398,4 +398,4 @@ bool OAIVersionhistory_ResponseCompound::isValid() const {
     return m_pki_versionhistory_id_isValid && m_obj_versionhistory_detail_isValid && m_dt_versionhistory_date_isValid && m_e_versionhistory_type_isValid && m_b_versionhistory_draft_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

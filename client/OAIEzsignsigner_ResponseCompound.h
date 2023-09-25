@@ -27,7 +27,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 class OAIEzsignsigner_ResponseCompound_Contact;
 
 class OAIEzsignsigner_ResponseCompound : public OAIObject {
@@ -102,8 +102,8 @@ private:
     bool m_obj_contact_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIEzsignsigner_ResponseCompound)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIEzsignsigner_ResponseCompound)
 
 #endif // OAIEzsignsigner_ResponseCompound_H

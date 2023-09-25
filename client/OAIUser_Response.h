@@ -33,7 +33,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 class OAIEmail_ResponseCompound;
 class OAIPhone_ResponseCompound;
 class OAICommon_Audit;
@@ -389,8 +389,8 @@ private:
     bool m_obj_audit_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIUser_Response)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIUser_Response)
 
 #endif // OAIUser_Response_H

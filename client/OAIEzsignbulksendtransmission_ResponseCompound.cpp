@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzsignbulksendtransmission_ResponseCompound::OAIEzsignbulksendtransmission_ResponseCompound(QString json) {
     this->initializeModel();
@@ -62,22 +62,22 @@ void OAIEzsignbulksendtransmission_ResponseCompound::fromJson(QString jsonString
 
 void OAIEzsignbulksendtransmission_ResponseCompound::fromJsonObject(QJsonObject json) {
 
-    m_pki_ezsignbulksendtransmission_id_isValid = ::OpenAPI::fromJsonValue(m_pki_ezsignbulksendtransmission_id, json[QString("pkiEzsignbulksendtransmissionID")]);
+    m_pki_ezsignbulksendtransmission_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_ezsignbulksendtransmission_id, json[QString("pkiEzsignbulksendtransmissionID")]);
     m_pki_ezsignbulksendtransmission_id_isSet = !json[QString("pkiEzsignbulksendtransmissionID")].isNull() && m_pki_ezsignbulksendtransmission_id_isValid;
 
-    m_fki_ezsignbulksend_id_isValid = ::OpenAPI::fromJsonValue(m_fki_ezsignbulksend_id, json[QString("fkiEzsignbulksendID")]);
+    m_fki_ezsignbulksend_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_ezsignbulksend_id, json[QString("fkiEzsignbulksendID")]);
     m_fki_ezsignbulksend_id_isSet = !json[QString("fkiEzsignbulksendID")].isNull() && m_fki_ezsignbulksend_id_isValid;
 
-    m_s_ezsignbulksendtransmission_description_isValid = ::OpenAPI::fromJsonValue(m_s_ezsignbulksendtransmission_description, json[QString("sEzsignbulksendtransmissionDescription")]);
+    m_s_ezsignbulksendtransmission_description_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsignbulksendtransmission_description, json[QString("sEzsignbulksendtransmissionDescription")]);
     m_s_ezsignbulksendtransmission_description_isSet = !json[QString("sEzsignbulksendtransmissionDescription")].isNull() && m_s_ezsignbulksendtransmission_description_isValid;
 
-    m_i_ezsignbulksendtransmission_errors_isValid = ::OpenAPI::fromJsonValue(m_i_ezsignbulksendtransmission_errors, json[QString("iEzsignbulksendtransmissionErrors")]);
+    m_i_ezsignbulksendtransmission_errors_isValid = ::Ezmaxapi::fromJsonValue(m_i_ezsignbulksendtransmission_errors, json[QString("iEzsignbulksendtransmissionErrors")]);
     m_i_ezsignbulksendtransmission_errors_isSet = !json[QString("iEzsignbulksendtransmissionErrors")].isNull() && m_i_ezsignbulksendtransmission_errors_isValid;
 
-    m_obj_audit_isValid = ::OpenAPI::fromJsonValue(m_obj_audit, json[QString("objAudit")]);
+    m_obj_audit_isValid = ::Ezmaxapi::fromJsonValue(m_obj_audit, json[QString("objAudit")]);
     m_obj_audit_isSet = !json[QString("objAudit")].isNull() && m_obj_audit_isValid;
 
-    m_a_obj_ezsignfoldertransmission_isValid = ::OpenAPI::fromJsonValue(m_a_obj_ezsignfoldertransmission, json[QString("a_objEzsignfoldertransmission")]);
+    m_a_obj_ezsignfoldertransmission_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_ezsignfoldertransmission, json[QString("a_objEzsignfoldertransmission")]);
     m_a_obj_ezsignfoldertransmission_isSet = !json[QString("a_objEzsignfoldertransmission")].isNull() && m_a_obj_ezsignfoldertransmission_isValid;
 }
 
@@ -91,22 +91,22 @@ QString OAIEzsignbulksendtransmission_ResponseCompound::asJson() const {
 QJsonObject OAIEzsignbulksendtransmission_ResponseCompound::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_ezsignbulksendtransmission_id_isSet) {
-        obj.insert(QString("pkiEzsignbulksendtransmissionID"), ::OpenAPI::toJsonValue(m_pki_ezsignbulksendtransmission_id));
+        obj.insert(QString("pkiEzsignbulksendtransmissionID"), ::Ezmaxapi::toJsonValue(m_pki_ezsignbulksendtransmission_id));
     }
     if (m_fki_ezsignbulksend_id_isSet) {
-        obj.insert(QString("fkiEzsignbulksendID"), ::OpenAPI::toJsonValue(m_fki_ezsignbulksend_id));
+        obj.insert(QString("fkiEzsignbulksendID"), ::Ezmaxapi::toJsonValue(m_fki_ezsignbulksend_id));
     }
     if (m_s_ezsignbulksendtransmission_description_isSet) {
-        obj.insert(QString("sEzsignbulksendtransmissionDescription"), ::OpenAPI::toJsonValue(m_s_ezsignbulksendtransmission_description));
+        obj.insert(QString("sEzsignbulksendtransmissionDescription"), ::Ezmaxapi::toJsonValue(m_s_ezsignbulksendtransmission_description));
     }
     if (m_i_ezsignbulksendtransmission_errors_isSet) {
-        obj.insert(QString("iEzsignbulksendtransmissionErrors"), ::OpenAPI::toJsonValue(m_i_ezsignbulksendtransmission_errors));
+        obj.insert(QString("iEzsignbulksendtransmissionErrors"), ::Ezmaxapi::toJsonValue(m_i_ezsignbulksendtransmission_errors));
     }
     if (m_obj_audit.isSet()) {
-        obj.insert(QString("objAudit"), ::OpenAPI::toJsonValue(m_obj_audit));
+        obj.insert(QString("objAudit"), ::Ezmaxapi::toJsonValue(m_obj_audit));
     }
     if (m_a_obj_ezsignfoldertransmission.size() > 0) {
-        obj.insert(QString("a_objEzsignfoldertransmission"), ::OpenAPI::toJsonValue(m_a_obj_ezsignfoldertransmission));
+        obj.insert(QString("a_objEzsignfoldertransmission"), ::Ezmaxapi::toJsonValue(m_a_obj_ezsignfoldertransmission));
     }
     return obj;
 }
@@ -248,4 +248,4 @@ bool OAIEzsignbulksendtransmission_ResponseCompound::isValid() const {
     return m_pki_ezsignbulksendtransmission_id_isValid && m_fki_ezsignbulksend_id_isValid && m_s_ezsignbulksendtransmission_description_isValid && m_i_ezsignbulksendtransmission_errors_isValid && m_obj_audit_isValid && m_a_obj_ezsignfoldertransmission_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

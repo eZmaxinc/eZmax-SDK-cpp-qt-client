@@ -25,7 +25,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIPermission_Request : public OAIObject {
 public:
@@ -99,8 +99,8 @@ private:
     bool m_fki_modulesection_id_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIPermission_Request)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIPermission_Request)
 
 #endif // OAIPermission_Request_H

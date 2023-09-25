@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIClonehistory_ListElement::OAIClonehistory_ListElement(QString json) {
     this->initializeModel();
@@ -77,37 +77,37 @@ void OAIClonehistory_ListElement::fromJson(QString jsonString) {
 
 void OAIClonehistory_ListElement::fromJsonObject(QJsonObject json) {
 
-    m_pki_clonehistory_id_isValid = ::OpenAPI::fromJsonValue(m_pki_clonehistory_id, json[QString("pkiClonehistoryID")]);
+    m_pki_clonehistory_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_clonehistory_id, json[QString("pkiClonehistoryID")]);
     m_pki_clonehistory_id_isSet = !json[QString("pkiClonehistoryID")].isNull() && m_pki_clonehistory_id_isValid;
 
-    m_fki_user_id_cloning_isValid = ::OpenAPI::fromJsonValue(m_fki_user_id_cloning, json[QString("fkiUserIDCloning")]);
+    m_fki_user_id_cloning_isValid = ::Ezmaxapi::fromJsonValue(m_fki_user_id_cloning, json[QString("fkiUserIDCloning")]);
     m_fki_user_id_cloning_isSet = !json[QString("fkiUserIDCloning")].isNull() && m_fki_user_id_cloning_isValid;
 
-    m_fki_user_id_cloned_isValid = ::OpenAPI::fromJsonValue(m_fki_user_id_cloned, json[QString("fkiUserIDCloned")]);
+    m_fki_user_id_cloned_isValid = ::Ezmaxapi::fromJsonValue(m_fki_user_id_cloned, json[QString("fkiUserIDCloned")]);
     m_fki_user_id_cloned_isSet = !json[QString("fkiUserIDCloned")].isNull() && m_fki_user_id_cloned_isValid;
 
-    m_dt_clonehistory_firsthit_isValid = ::OpenAPI::fromJsonValue(m_dt_clonehistory_firsthit, json[QString("dtClonehistoryFirsthit")]);
+    m_dt_clonehistory_firsthit_isValid = ::Ezmaxapi::fromJsonValue(m_dt_clonehistory_firsthit, json[QString("dtClonehistoryFirsthit")]);
     m_dt_clonehistory_firsthit_isSet = !json[QString("dtClonehistoryFirsthit")].isNull() && m_dt_clonehistory_firsthit_isValid;
 
-    m_dt_clonehistory_lasthit_isValid = ::OpenAPI::fromJsonValue(m_dt_clonehistory_lasthit, json[QString("dtClonehistoryLasthit")]);
+    m_dt_clonehistory_lasthit_isValid = ::Ezmaxapi::fromJsonValue(m_dt_clonehistory_lasthit, json[QString("dtClonehistoryLasthit")]);
     m_dt_clonehistory_lasthit_isSet = !json[QString("dtClonehistoryLasthit")].isNull() && m_dt_clonehistory_lasthit_isValid;
 
-    m_s_user_loginname_cloning_isValid = ::OpenAPI::fromJsonValue(m_s_user_loginname_cloning, json[QString("sUserLoginnameCloning")]);
+    m_s_user_loginname_cloning_isValid = ::Ezmaxapi::fromJsonValue(m_s_user_loginname_cloning, json[QString("sUserLoginnameCloning")]);
     m_s_user_loginname_cloning_isSet = !json[QString("sUserLoginnameCloning")].isNull() && m_s_user_loginname_cloning_isValid;
 
-    m_s_user_firstname_cloning_isValid = ::OpenAPI::fromJsonValue(m_s_user_firstname_cloning, json[QString("sUserFirstnameCloning")]);
+    m_s_user_firstname_cloning_isValid = ::Ezmaxapi::fromJsonValue(m_s_user_firstname_cloning, json[QString("sUserFirstnameCloning")]);
     m_s_user_firstname_cloning_isSet = !json[QString("sUserFirstnameCloning")].isNull() && m_s_user_firstname_cloning_isValid;
 
-    m_s_user_lastname_cloning_isValid = ::OpenAPI::fromJsonValue(m_s_user_lastname_cloning, json[QString("sUserLastnameCloning")]);
+    m_s_user_lastname_cloning_isValid = ::Ezmaxapi::fromJsonValue(m_s_user_lastname_cloning, json[QString("sUserLastnameCloning")]);
     m_s_user_lastname_cloning_isSet = !json[QString("sUserLastnameCloning")].isNull() && m_s_user_lastname_cloning_isValid;
 
-    m_s_user_loginname_cloned_isValid = ::OpenAPI::fromJsonValue(m_s_user_loginname_cloned, json[QString("sUserLoginnameCloned")]);
+    m_s_user_loginname_cloned_isValid = ::Ezmaxapi::fromJsonValue(m_s_user_loginname_cloned, json[QString("sUserLoginnameCloned")]);
     m_s_user_loginname_cloned_isSet = !json[QString("sUserLoginnameCloned")].isNull() && m_s_user_loginname_cloned_isValid;
 
-    m_s_user_firstname_cloned_isValid = ::OpenAPI::fromJsonValue(m_s_user_firstname_cloned, json[QString("sUserFirstnameCloned")]);
+    m_s_user_firstname_cloned_isValid = ::Ezmaxapi::fromJsonValue(m_s_user_firstname_cloned, json[QString("sUserFirstnameCloned")]);
     m_s_user_firstname_cloned_isSet = !json[QString("sUserFirstnameCloned")].isNull() && m_s_user_firstname_cloned_isValid;
 
-    m_s_user_lastname_cloned_isValid = ::OpenAPI::fromJsonValue(m_s_user_lastname_cloned, json[QString("sUserLastnameCloned")]);
+    m_s_user_lastname_cloned_isValid = ::Ezmaxapi::fromJsonValue(m_s_user_lastname_cloned, json[QString("sUserLastnameCloned")]);
     m_s_user_lastname_cloned_isSet = !json[QString("sUserLastnameCloned")].isNull() && m_s_user_lastname_cloned_isValid;
 }
 
@@ -121,37 +121,37 @@ QString OAIClonehistory_ListElement::asJson() const {
 QJsonObject OAIClonehistory_ListElement::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_clonehistory_id_isSet) {
-        obj.insert(QString("pkiClonehistoryID"), ::OpenAPI::toJsonValue(m_pki_clonehistory_id));
+        obj.insert(QString("pkiClonehistoryID"), ::Ezmaxapi::toJsonValue(m_pki_clonehistory_id));
     }
     if (m_fki_user_id_cloning_isSet) {
-        obj.insert(QString("fkiUserIDCloning"), ::OpenAPI::toJsonValue(m_fki_user_id_cloning));
+        obj.insert(QString("fkiUserIDCloning"), ::Ezmaxapi::toJsonValue(m_fki_user_id_cloning));
     }
     if (m_fki_user_id_cloned_isSet) {
-        obj.insert(QString("fkiUserIDCloned"), ::OpenAPI::toJsonValue(m_fki_user_id_cloned));
+        obj.insert(QString("fkiUserIDCloned"), ::Ezmaxapi::toJsonValue(m_fki_user_id_cloned));
     }
     if (m_dt_clonehistory_firsthit_isSet) {
-        obj.insert(QString("dtClonehistoryFirsthit"), ::OpenAPI::toJsonValue(m_dt_clonehistory_firsthit));
+        obj.insert(QString("dtClonehistoryFirsthit"), ::Ezmaxapi::toJsonValue(m_dt_clonehistory_firsthit));
     }
     if (m_dt_clonehistory_lasthit_isSet) {
-        obj.insert(QString("dtClonehistoryLasthit"), ::OpenAPI::toJsonValue(m_dt_clonehistory_lasthit));
+        obj.insert(QString("dtClonehistoryLasthit"), ::Ezmaxapi::toJsonValue(m_dt_clonehistory_lasthit));
     }
     if (m_s_user_loginname_cloning_isSet) {
-        obj.insert(QString("sUserLoginnameCloning"), ::OpenAPI::toJsonValue(m_s_user_loginname_cloning));
+        obj.insert(QString("sUserLoginnameCloning"), ::Ezmaxapi::toJsonValue(m_s_user_loginname_cloning));
     }
     if (m_s_user_firstname_cloning_isSet) {
-        obj.insert(QString("sUserFirstnameCloning"), ::OpenAPI::toJsonValue(m_s_user_firstname_cloning));
+        obj.insert(QString("sUserFirstnameCloning"), ::Ezmaxapi::toJsonValue(m_s_user_firstname_cloning));
     }
     if (m_s_user_lastname_cloning_isSet) {
-        obj.insert(QString("sUserLastnameCloning"), ::OpenAPI::toJsonValue(m_s_user_lastname_cloning));
+        obj.insert(QString("sUserLastnameCloning"), ::Ezmaxapi::toJsonValue(m_s_user_lastname_cloning));
     }
     if (m_s_user_loginname_cloned_isSet) {
-        obj.insert(QString("sUserLoginnameCloned"), ::OpenAPI::toJsonValue(m_s_user_loginname_cloned));
+        obj.insert(QString("sUserLoginnameCloned"), ::Ezmaxapi::toJsonValue(m_s_user_loginname_cloned));
     }
     if (m_s_user_firstname_cloned_isSet) {
-        obj.insert(QString("sUserFirstnameCloned"), ::OpenAPI::toJsonValue(m_s_user_firstname_cloned));
+        obj.insert(QString("sUserFirstnameCloned"), ::Ezmaxapi::toJsonValue(m_s_user_firstname_cloned));
     }
     if (m_s_user_lastname_cloned_isSet) {
-        obj.insert(QString("sUserLastnameCloned"), ::OpenAPI::toJsonValue(m_s_user_lastname_cloned));
+        obj.insert(QString("sUserLastnameCloned"), ::Ezmaxapi::toJsonValue(m_s_user_lastname_cloned));
     }
     return obj;
 }
@@ -398,4 +398,4 @@ bool OAIClonehistory_ListElement::isValid() const {
     return m_pki_clonehistory_id_isValid && m_fki_user_id_cloning_isValid && m_fki_user_id_cloned_isValid && m_dt_clonehistory_firsthit_isValid && m_s_user_loginname_cloning_isValid && m_s_user_firstname_cloning_isValid && m_s_user_lastname_cloning_isValid && m_s_user_loginname_cloned_isValid && m_s_user_firstname_cloned_isValid && m_s_user_lastname_cloned_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

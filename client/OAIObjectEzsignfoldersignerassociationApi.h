@@ -41,7 +41,7 @@
 #include <QList>
 #include <QNetworkAccessManager>
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIObjectEzsignfoldersignerassociationApi : public QObject {
     Q_OBJECT
@@ -202,5 +202,5 @@ public slots:
     
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 #endif

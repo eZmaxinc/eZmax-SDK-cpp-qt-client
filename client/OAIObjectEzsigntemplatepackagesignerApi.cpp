@@ -15,7 +15,7 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIObjectEzsigntemplatepackagesignerApi::OAIObjectEzsigntemplatepackagesignerApi(const int timeOut)
     : _timeOut(timeOut),
@@ -319,7 +319,7 @@ void OAIObjectEzsigntemplatepackagesignerApi::ezsigntemplatepackagesignerDeleteO
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsigntemplatepackagesignerID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsigntemplatepackagesignerID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsigntemplatepackagesigner_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsigntemplatepackagesigner_id)));
+        fullPath.replace(pki_ezsigntemplatepackagesigner_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsigntemplatepackagesigner_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -386,7 +386,7 @@ void OAIObjectEzsigntemplatepackagesignerApi::ezsigntemplatepackagesignerEditObj
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsigntemplatepackagesignerID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsigntemplatepackagesignerID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsigntemplatepackagesigner_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsigntemplatepackagesigner_id)));
+        fullPath.replace(pki_ezsigntemplatepackagesigner_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsigntemplatepackagesigner_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -458,7 +458,7 @@ void OAIObjectEzsigntemplatepackagesignerApi::ezsigntemplatepackagesignerGetObje
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsigntemplatepackagesignerID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsigntemplatepackagesignerID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsigntemplatepackagesigner_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsigntemplatepackagesigner_id)));
+        fullPath.replace(pki_ezsigntemplatepackagesigner_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsigntemplatepackagesigner_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -555,4 +555,4 @@ void OAIObjectEzsigntemplatepackagesignerApi::tokenAvailable(){
         break;
     }
 }
-} // namespace OpenAPI
+} // namespace Ezmaxapi

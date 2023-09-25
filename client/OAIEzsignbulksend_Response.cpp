@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzsignbulksend_Response::OAIEzsignbulksend_Response(QString json) {
     this->initializeModel();
@@ -77,37 +77,37 @@ void OAIEzsignbulksend_Response::fromJson(QString jsonString) {
 
 void OAIEzsignbulksend_Response::fromJsonObject(QJsonObject json) {
 
-    m_pki_ezsignbulksend_id_isValid = ::OpenAPI::fromJsonValue(m_pki_ezsignbulksend_id, json[QString("pkiEzsignbulksendID")]);
+    m_pki_ezsignbulksend_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_ezsignbulksend_id, json[QString("pkiEzsignbulksendID")]);
     m_pki_ezsignbulksend_id_isSet = !json[QString("pkiEzsignbulksendID")].isNull() && m_pki_ezsignbulksend_id_isValid;
 
-    m_fki_ezsignfoldertype_id_isValid = ::OpenAPI::fromJsonValue(m_fki_ezsignfoldertype_id, json[QString("fkiEzsignfoldertypeID")]);
+    m_fki_ezsignfoldertype_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_ezsignfoldertype_id, json[QString("fkiEzsignfoldertypeID")]);
     m_fki_ezsignfoldertype_id_isSet = !json[QString("fkiEzsignfoldertypeID")].isNull() && m_fki_ezsignfoldertype_id_isValid;
 
-    m_fki_language_id_isValid = ::OpenAPI::fromJsonValue(m_fki_language_id, json[QString("fkiLanguageID")]);
+    m_fki_language_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_language_id, json[QString("fkiLanguageID")]);
     m_fki_language_id_isSet = !json[QString("fkiLanguageID")].isNull() && m_fki_language_id_isValid;
 
-    m_s_language_name_x_isValid = ::OpenAPI::fromJsonValue(m_s_language_name_x, json[QString("sLanguageNameX")]);
+    m_s_language_name_x_isValid = ::Ezmaxapi::fromJsonValue(m_s_language_name_x, json[QString("sLanguageNameX")]);
     m_s_language_name_x_isSet = !json[QString("sLanguageNameX")].isNull() && m_s_language_name_x_isValid;
 
-    m_e_ezsignfoldertype_privacylevel_isValid = ::OpenAPI::fromJsonValue(m_e_ezsignfoldertype_privacylevel, json[QString("eEzsignfoldertypePrivacylevel")]);
+    m_e_ezsignfoldertype_privacylevel_isValid = ::Ezmaxapi::fromJsonValue(m_e_ezsignfoldertype_privacylevel, json[QString("eEzsignfoldertypePrivacylevel")]);
     m_e_ezsignfoldertype_privacylevel_isSet = !json[QString("eEzsignfoldertypePrivacylevel")].isNull() && m_e_ezsignfoldertype_privacylevel_isValid;
 
-    m_s_ezsignfoldertype_name_x_isValid = ::OpenAPI::fromJsonValue(m_s_ezsignfoldertype_name_x, json[QString("sEzsignfoldertypeNameX")]);
+    m_s_ezsignfoldertype_name_x_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsignfoldertype_name_x, json[QString("sEzsignfoldertypeNameX")]);
     m_s_ezsignfoldertype_name_x_isSet = !json[QString("sEzsignfoldertypeNameX")].isNull() && m_s_ezsignfoldertype_name_x_isValid;
 
-    m_s_ezsignbulksend_description_isValid = ::OpenAPI::fromJsonValue(m_s_ezsignbulksend_description, json[QString("sEzsignbulksendDescription")]);
+    m_s_ezsignbulksend_description_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsignbulksend_description, json[QString("sEzsignbulksendDescription")]);
     m_s_ezsignbulksend_description_isSet = !json[QString("sEzsignbulksendDescription")].isNull() && m_s_ezsignbulksend_description_isValid;
 
-    m_t_ezsignbulksend_note_isValid = ::OpenAPI::fromJsonValue(m_t_ezsignbulksend_note, json[QString("tEzsignbulksendNote")]);
+    m_t_ezsignbulksend_note_isValid = ::Ezmaxapi::fromJsonValue(m_t_ezsignbulksend_note, json[QString("tEzsignbulksendNote")]);
     m_t_ezsignbulksend_note_isSet = !json[QString("tEzsignbulksendNote")].isNull() && m_t_ezsignbulksend_note_isValid;
 
-    m_b_ezsignbulksend_needvalidation_isValid = ::OpenAPI::fromJsonValue(m_b_ezsignbulksend_needvalidation, json[QString("bEzsignbulksendNeedvalidation")]);
+    m_b_ezsignbulksend_needvalidation_isValid = ::Ezmaxapi::fromJsonValue(m_b_ezsignbulksend_needvalidation, json[QString("bEzsignbulksendNeedvalidation")]);
     m_b_ezsignbulksend_needvalidation_isSet = !json[QString("bEzsignbulksendNeedvalidation")].isNull() && m_b_ezsignbulksend_needvalidation_isValid;
 
-    m_b_ezsignbulksend_isactive_isValid = ::OpenAPI::fromJsonValue(m_b_ezsignbulksend_isactive, json[QString("bEzsignbulksendIsactive")]);
+    m_b_ezsignbulksend_isactive_isValid = ::Ezmaxapi::fromJsonValue(m_b_ezsignbulksend_isactive, json[QString("bEzsignbulksendIsactive")]);
     m_b_ezsignbulksend_isactive_isSet = !json[QString("bEzsignbulksendIsactive")].isNull() && m_b_ezsignbulksend_isactive_isValid;
 
-    m_obj_audit_isValid = ::OpenAPI::fromJsonValue(m_obj_audit, json[QString("objAudit")]);
+    m_obj_audit_isValid = ::Ezmaxapi::fromJsonValue(m_obj_audit, json[QString("objAudit")]);
     m_obj_audit_isSet = !json[QString("objAudit")].isNull() && m_obj_audit_isValid;
 }
 
@@ -121,37 +121,37 @@ QString OAIEzsignbulksend_Response::asJson() const {
 QJsonObject OAIEzsignbulksend_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_ezsignbulksend_id_isSet) {
-        obj.insert(QString("pkiEzsignbulksendID"), ::OpenAPI::toJsonValue(m_pki_ezsignbulksend_id));
+        obj.insert(QString("pkiEzsignbulksendID"), ::Ezmaxapi::toJsonValue(m_pki_ezsignbulksend_id));
     }
     if (m_fki_ezsignfoldertype_id_isSet) {
-        obj.insert(QString("fkiEzsignfoldertypeID"), ::OpenAPI::toJsonValue(m_fki_ezsignfoldertype_id));
+        obj.insert(QString("fkiEzsignfoldertypeID"), ::Ezmaxapi::toJsonValue(m_fki_ezsignfoldertype_id));
     }
     if (m_fki_language_id_isSet) {
-        obj.insert(QString("fkiLanguageID"), ::OpenAPI::toJsonValue(m_fki_language_id));
+        obj.insert(QString("fkiLanguageID"), ::Ezmaxapi::toJsonValue(m_fki_language_id));
     }
     if (m_s_language_name_x_isSet) {
-        obj.insert(QString("sLanguageNameX"), ::OpenAPI::toJsonValue(m_s_language_name_x));
+        obj.insert(QString("sLanguageNameX"), ::Ezmaxapi::toJsonValue(m_s_language_name_x));
     }
     if (m_e_ezsignfoldertype_privacylevel.isSet()) {
-        obj.insert(QString("eEzsignfoldertypePrivacylevel"), ::OpenAPI::toJsonValue(m_e_ezsignfoldertype_privacylevel));
+        obj.insert(QString("eEzsignfoldertypePrivacylevel"), ::Ezmaxapi::toJsonValue(m_e_ezsignfoldertype_privacylevel));
     }
     if (m_s_ezsignfoldertype_name_x_isSet) {
-        obj.insert(QString("sEzsignfoldertypeNameX"), ::OpenAPI::toJsonValue(m_s_ezsignfoldertype_name_x));
+        obj.insert(QString("sEzsignfoldertypeNameX"), ::Ezmaxapi::toJsonValue(m_s_ezsignfoldertype_name_x));
     }
     if (m_s_ezsignbulksend_description_isSet) {
-        obj.insert(QString("sEzsignbulksendDescription"), ::OpenAPI::toJsonValue(m_s_ezsignbulksend_description));
+        obj.insert(QString("sEzsignbulksendDescription"), ::Ezmaxapi::toJsonValue(m_s_ezsignbulksend_description));
     }
     if (m_t_ezsignbulksend_note_isSet) {
-        obj.insert(QString("tEzsignbulksendNote"), ::OpenAPI::toJsonValue(m_t_ezsignbulksend_note));
+        obj.insert(QString("tEzsignbulksendNote"), ::Ezmaxapi::toJsonValue(m_t_ezsignbulksend_note));
     }
     if (m_b_ezsignbulksend_needvalidation_isSet) {
-        obj.insert(QString("bEzsignbulksendNeedvalidation"), ::OpenAPI::toJsonValue(m_b_ezsignbulksend_needvalidation));
+        obj.insert(QString("bEzsignbulksendNeedvalidation"), ::Ezmaxapi::toJsonValue(m_b_ezsignbulksend_needvalidation));
     }
     if (m_b_ezsignbulksend_isactive_isSet) {
-        obj.insert(QString("bEzsignbulksendIsactive"), ::OpenAPI::toJsonValue(m_b_ezsignbulksend_isactive));
+        obj.insert(QString("bEzsignbulksendIsactive"), ::Ezmaxapi::toJsonValue(m_b_ezsignbulksend_isactive));
     }
     if (m_obj_audit.isSet()) {
-        obj.insert(QString("objAudit"), ::OpenAPI::toJsonValue(m_obj_audit));
+        obj.insert(QString("objAudit"), ::Ezmaxapi::toJsonValue(m_obj_audit));
     }
     return obj;
 }
@@ -398,4 +398,4 @@ bool OAIEzsignbulksend_Response::isValid() const {
     return m_pki_ezsignbulksend_id_isValid && m_fki_ezsignfoldertype_id_isValid && m_fki_language_id_isValid && m_s_language_name_x_isValid && m_e_ezsignfoldertype_privacylevel_isValid && m_s_ezsignfoldertype_name_x_isValid && m_s_ezsignbulksend_description_isValid && m_t_ezsignbulksend_note_isValid && m_b_ezsignbulksend_needvalidation_isValid && m_b_ezsignbulksend_isactive_isValid && m_obj_audit_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

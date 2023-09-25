@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAICustom_Creditcardtransaction_Response::OAICustom_Creditcardtransaction_Response(QString json) {
     this->initializeModel();
@@ -56,16 +56,16 @@ void OAICustom_Creditcardtransaction_Response::fromJson(QString jsonString) {
 
 void OAICustom_Creditcardtransaction_Response::fromJsonObject(QJsonObject json) {
 
-    m_e_creditcardtype_codename_isValid = ::OpenAPI::fromJsonValue(m_e_creditcardtype_codename, json[QString("eCreditcardtypeCodename")]);
+    m_e_creditcardtype_codename_isValid = ::Ezmaxapi::fromJsonValue(m_e_creditcardtype_codename, json[QString("eCreditcardtypeCodename")]);
     m_e_creditcardtype_codename_isSet = !json[QString("eCreditcardtypeCodename")].isNull() && m_e_creditcardtype_codename_isValid;
 
-    m_d_creditcardtransaction_amount_isValid = ::OpenAPI::fromJsonValue(m_d_creditcardtransaction_amount, json[QString("dCreditcardtransactionAmount")]);
+    m_d_creditcardtransaction_amount_isValid = ::Ezmaxapi::fromJsonValue(m_d_creditcardtransaction_amount, json[QString("dCreditcardtransactionAmount")]);
     m_d_creditcardtransaction_amount_isSet = !json[QString("dCreditcardtransactionAmount")].isNull() && m_d_creditcardtransaction_amount_isValid;
 
-    m_s_creditcardtransaction_partiallydecryptednumber_isValid = ::OpenAPI::fromJsonValue(m_s_creditcardtransaction_partiallydecryptednumber, json[QString("sCreditcardtransactionPartiallydecryptednumber")]);
+    m_s_creditcardtransaction_partiallydecryptednumber_isValid = ::Ezmaxapi::fromJsonValue(m_s_creditcardtransaction_partiallydecryptednumber, json[QString("sCreditcardtransactionPartiallydecryptednumber")]);
     m_s_creditcardtransaction_partiallydecryptednumber_isSet = !json[QString("sCreditcardtransactionPartiallydecryptednumber")].isNull() && m_s_creditcardtransaction_partiallydecryptednumber_isValid;
 
-    m_s_creditcardtransaction_referencenumber_isValid = ::OpenAPI::fromJsonValue(m_s_creditcardtransaction_referencenumber, json[QString("sCreditcardtransactionReferencenumber")]);
+    m_s_creditcardtransaction_referencenumber_isValid = ::Ezmaxapi::fromJsonValue(m_s_creditcardtransaction_referencenumber, json[QString("sCreditcardtransactionReferencenumber")]);
     m_s_creditcardtransaction_referencenumber_isSet = !json[QString("sCreditcardtransactionReferencenumber")].isNull() && m_s_creditcardtransaction_referencenumber_isValid;
 }
 
@@ -79,16 +79,16 @@ QString OAICustom_Creditcardtransaction_Response::asJson() const {
 QJsonObject OAICustom_Creditcardtransaction_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_e_creditcardtype_codename.isSet()) {
-        obj.insert(QString("eCreditcardtypeCodename"), ::OpenAPI::toJsonValue(m_e_creditcardtype_codename));
+        obj.insert(QString("eCreditcardtypeCodename"), ::Ezmaxapi::toJsonValue(m_e_creditcardtype_codename));
     }
     if (m_d_creditcardtransaction_amount_isSet) {
-        obj.insert(QString("dCreditcardtransactionAmount"), ::OpenAPI::toJsonValue(m_d_creditcardtransaction_amount));
+        obj.insert(QString("dCreditcardtransactionAmount"), ::Ezmaxapi::toJsonValue(m_d_creditcardtransaction_amount));
     }
     if (m_s_creditcardtransaction_partiallydecryptednumber_isSet) {
-        obj.insert(QString("sCreditcardtransactionPartiallydecryptednumber"), ::OpenAPI::toJsonValue(m_s_creditcardtransaction_partiallydecryptednumber));
+        obj.insert(QString("sCreditcardtransactionPartiallydecryptednumber"), ::Ezmaxapi::toJsonValue(m_s_creditcardtransaction_partiallydecryptednumber));
     }
     if (m_s_creditcardtransaction_referencenumber_isSet) {
-        obj.insert(QString("sCreditcardtransactionReferencenumber"), ::OpenAPI::toJsonValue(m_s_creditcardtransaction_referencenumber));
+        obj.insert(QString("sCreditcardtransactionReferencenumber"), ::Ezmaxapi::toJsonValue(m_s_creditcardtransaction_referencenumber));
     }
     return obj;
 }
@@ -188,4 +188,4 @@ bool OAICustom_Creditcardtransaction_Response::isValid() const {
     return m_d_creditcardtransaction_amount_isValid && m_s_creditcardtransaction_partiallydecryptednumber_isValid && m_s_creditcardtransaction_referencenumber_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

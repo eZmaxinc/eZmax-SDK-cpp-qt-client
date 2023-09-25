@@ -29,7 +29,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIEzsignannotation_Response : public OAIObject {
 public:
@@ -148,8 +148,8 @@ private:
     bool m_i_ezsignpage_pagenumber_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIEzsignannotation_Response)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIEzsignannotation_Response)
 
 #endif // OAIEzsignannotation_Response_H

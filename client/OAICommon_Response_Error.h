@@ -27,7 +27,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAICommon_Response_Error : public OAIObject {
 public:
@@ -65,8 +65,8 @@ private:
     bool m_e_error_code_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAICommon_Response_Error)
+Q_DECLARE_METATYPE(Ezmaxapi::OAICommon_Response_Error)
 
 #endif // OAICommon_Response_Error_H

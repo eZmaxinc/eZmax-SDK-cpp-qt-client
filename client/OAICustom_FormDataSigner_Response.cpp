@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAICustom_FormDataSigner_Response::OAICustom_FormDataSigner_Response(QString json) {
     this->initializeModel();
@@ -59,19 +59,19 @@ void OAICustom_FormDataSigner_Response::fromJson(QString jsonString) {
 
 void OAICustom_FormDataSigner_Response::fromJsonObject(QJsonObject json) {
 
-    m_fki_ezsignfoldersignerassociation_id_isValid = ::OpenAPI::fromJsonValue(m_fki_ezsignfoldersignerassociation_id, json[QString("fkiEzsignfoldersignerassociationID")]);
+    m_fki_ezsignfoldersignerassociation_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_ezsignfoldersignerassociation_id, json[QString("fkiEzsignfoldersignerassociationID")]);
     m_fki_ezsignfoldersignerassociation_id_isSet = !json[QString("fkiEzsignfoldersignerassociationID")].isNull() && m_fki_ezsignfoldersignerassociation_id_isValid;
 
-    m_fki_user_id_isValid = ::OpenAPI::fromJsonValue(m_fki_user_id, json[QString("fkiUserID")]);
+    m_fki_user_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_user_id, json[QString("fkiUserID")]);
     m_fki_user_id_isSet = !json[QString("fkiUserID")].isNull() && m_fki_user_id_isValid;
 
-    m_s_contact_firstname_isValid = ::OpenAPI::fromJsonValue(m_s_contact_firstname, json[QString("sContactFirstname")]);
+    m_s_contact_firstname_isValid = ::Ezmaxapi::fromJsonValue(m_s_contact_firstname, json[QString("sContactFirstname")]);
     m_s_contact_firstname_isSet = !json[QString("sContactFirstname")].isNull() && m_s_contact_firstname_isValid;
 
-    m_s_contact_lastname_isValid = ::OpenAPI::fromJsonValue(m_s_contact_lastname, json[QString("sContactLastname")]);
+    m_s_contact_lastname_isValid = ::Ezmaxapi::fromJsonValue(m_s_contact_lastname, json[QString("sContactLastname")]);
     m_s_contact_lastname_isSet = !json[QString("sContactLastname")].isNull() && m_s_contact_lastname_isValid;
 
-    m_a_obj_ezsignformfieldgroup_isValid = ::OpenAPI::fromJsonValue(m_a_obj_ezsignformfieldgroup, json[QString("a_objEzsignformfieldgroup")]);
+    m_a_obj_ezsignformfieldgroup_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_ezsignformfieldgroup, json[QString("a_objEzsignformfieldgroup")]);
     m_a_obj_ezsignformfieldgroup_isSet = !json[QString("a_objEzsignformfieldgroup")].isNull() && m_a_obj_ezsignformfieldgroup_isValid;
 }
 
@@ -85,19 +85,19 @@ QString OAICustom_FormDataSigner_Response::asJson() const {
 QJsonObject OAICustom_FormDataSigner_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_fki_ezsignfoldersignerassociation_id_isSet) {
-        obj.insert(QString("fkiEzsignfoldersignerassociationID"), ::OpenAPI::toJsonValue(m_fki_ezsignfoldersignerassociation_id));
+        obj.insert(QString("fkiEzsignfoldersignerassociationID"), ::Ezmaxapi::toJsonValue(m_fki_ezsignfoldersignerassociation_id));
     }
     if (m_fki_user_id_isSet) {
-        obj.insert(QString("fkiUserID"), ::OpenAPI::toJsonValue(m_fki_user_id));
+        obj.insert(QString("fkiUserID"), ::Ezmaxapi::toJsonValue(m_fki_user_id));
     }
     if (m_s_contact_firstname_isSet) {
-        obj.insert(QString("sContactFirstname"), ::OpenAPI::toJsonValue(m_s_contact_firstname));
+        obj.insert(QString("sContactFirstname"), ::Ezmaxapi::toJsonValue(m_s_contact_firstname));
     }
     if (m_s_contact_lastname_isSet) {
-        obj.insert(QString("sContactLastname"), ::OpenAPI::toJsonValue(m_s_contact_lastname));
+        obj.insert(QString("sContactLastname"), ::Ezmaxapi::toJsonValue(m_s_contact_lastname));
     }
     if (m_a_obj_ezsignformfieldgroup.size() > 0) {
-        obj.insert(QString("a_objEzsignformfieldgroup"), ::OpenAPI::toJsonValue(m_a_obj_ezsignformfieldgroup));
+        obj.insert(QString("a_objEzsignformfieldgroup"), ::Ezmaxapi::toJsonValue(m_a_obj_ezsignformfieldgroup));
     }
     return obj;
 }
@@ -218,4 +218,4 @@ bool OAICustom_FormDataSigner_Response::isValid() const {
     return m_fki_ezsignfoldersignerassociation_id_isValid && m_s_contact_firstname_isValid && m_s_contact_lastname_isValid && m_a_obj_ezsignformfieldgroup_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

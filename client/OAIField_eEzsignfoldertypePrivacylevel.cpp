@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIField_eEzsignfoldertypePrivacylevel::OAIField_eEzsignfoldertypePrivacylevel(QString json) {
     this->initializeModel();
@@ -95,4 +95,4 @@ bool OAIField_eEzsignfoldertypePrivacylevel::isValid() const {
     return m_value_isValid;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

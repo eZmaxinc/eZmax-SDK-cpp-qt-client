@@ -26,7 +26,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAICustom_DropdownElement_Response : public OAIObject {
 public:
@@ -64,8 +64,8 @@ private:
     bool m_s_value_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAICustom_DropdownElement_Response)
+Q_DECLARE_METATYPE(Ezmaxapi::OAICustom_DropdownElement_Response)
 
 #endif // OAICustom_DropdownElement_Response_H

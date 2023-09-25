@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIFranchisebroker_getAutocomplete_v2_Response_mPayload::OAIFranchisebroker_getAutocomplete_v2_Response_mPayload(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAIFranchisebroker_getAutocomplete_v2_Response_mPayload::fromJson(QString j
 
 void OAIFranchisebroker_getAutocomplete_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_franchisebroker_isValid = ::OpenAPI::fromJsonValue(m_a_obj_franchisebroker, json[QString("a_objFranchisebroker")]);
+    m_a_obj_franchisebroker_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_franchisebroker, json[QString("a_objFranchisebroker")]);
     m_a_obj_franchisebroker_isSet = !json[QString("a_objFranchisebroker")].isNull() && m_a_obj_franchisebroker_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAIFranchisebroker_getAutocomplete_v2_Response_mPayload::asJson() const 
 QJsonObject OAIFranchisebroker_getAutocomplete_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_a_obj_franchisebroker.size() > 0) {
-        obj.insert(QString("a_objFranchisebroker"), ::OpenAPI::toJsonValue(m_a_obj_franchisebroker));
+        obj.insert(QString("a_objFranchisebroker"), ::Ezmaxapi::toJsonValue(m_a_obj_franchisebroker));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAIFranchisebroker_getAutocomplete_v2_Response_mPayload::isValid() const {
     return true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

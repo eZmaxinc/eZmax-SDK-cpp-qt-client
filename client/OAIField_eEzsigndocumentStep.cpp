@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIField_eEzsigndocumentStep::OAIField_eEzsigndocumentStep(QString json) {
     this->initializeModel();
@@ -130,4 +130,4 @@ bool OAIField_eEzsigndocumentStep::isValid() const {
     return m_value_isValid;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

@@ -15,7 +15,7 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIModuleReportApi::OAIModuleReportApi(const int timeOut)
     : _timeOut(timeOut),
@@ -263,7 +263,7 @@ void OAIModuleReportApi::reportGetReportFromCacheV1(const QString &s_reportgroup
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "sReportgroupCacheID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"sReportgroupCacheID"+pathSuffix : pathPrefix;
-        fullPath.replace(s_reportgroup_cache_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(s_reportgroup_cache_id)));
+        fullPath.replace(s_reportgroup_cache_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_reportgroup_cache_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -360,4 +360,4 @@ void OAIModuleReportApi::tokenAvailable(){
         break;
     }
 }
-} // namespace OpenAPI
+} // namespace Ezmaxapi

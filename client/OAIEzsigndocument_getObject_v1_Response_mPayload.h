@@ -31,7 +31,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 class OAICommon_Audit;
 class OAICustom_Ezsignfoldersignerassociationstatus_Response;
 
@@ -296,8 +296,8 @@ private:
     bool m_a_obj_ezsignfoldersignerassociationstatus_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIEzsigndocument_getObject_v1_Response_mPayload)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIEzsigndocument_getObject_v1_Response_mPayload)
 
 #endif // OAIEzsigndocument_getObject_v1_Response_mPayload_H

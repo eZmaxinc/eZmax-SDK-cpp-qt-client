@@ -26,7 +26,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIUser_editPermissions_v1_Response_mPayload : public OAIObject {
 public:
@@ -55,8 +55,8 @@ private:
     bool m_a_pki_permission_id_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIUser_editPermissions_v1_Response_mPayload)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIUser_editPermissions_v1_Response_mPayload)
 
 #endif // OAIUser_editPermissions_v1_Response_mPayload_H

@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIField_eEzsigndocumentlogType::OAIField_eEzsigndocumentlogType(QString json) {
     this->initializeModel();
@@ -263,4 +263,4 @@ bool OAIField_eEzsigndocumentlogType::isValid() const {
     return m_value_isValid;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

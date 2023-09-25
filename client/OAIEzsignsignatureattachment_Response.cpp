@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzsignsignatureattachment_Response::OAIEzsignsignatureattachment_Response(QString json) {
     this->initializeModel();
@@ -59,19 +59,19 @@ void OAIEzsignsignatureattachment_Response::fromJson(QString jsonString) {
 
 void OAIEzsignsignatureattachment_Response::fromJsonObject(QJsonObject json) {
 
-    m_pki_ezsignsignatureattachment_id_isValid = ::OpenAPI::fromJsonValue(m_pki_ezsignsignatureattachment_id, json[QString("pkiEzsignsignatureattachmentID")]);
+    m_pki_ezsignsignatureattachment_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_ezsignsignatureattachment_id, json[QString("pkiEzsignsignatureattachmentID")]);
     m_pki_ezsignsignatureattachment_id_isSet = !json[QString("pkiEzsignsignatureattachmentID")].isNull() && m_pki_ezsignsignatureattachment_id_isValid;
 
-    m_fki_ezsignsignature_id_isValid = ::OpenAPI::fromJsonValue(m_fki_ezsignsignature_id, json[QString("fkiEzsignsignatureID")]);
+    m_fki_ezsignsignature_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_ezsignsignature_id, json[QString("fkiEzsignsignatureID")]);
     m_fki_ezsignsignature_id_isSet = !json[QString("fkiEzsignsignatureID")].isNull() && m_fki_ezsignsignature_id_isValid;
 
-    m_bin_ezsignsignatureattachment_md5_isValid = ::OpenAPI::fromJsonValue(m_bin_ezsignsignatureattachment_md5, json[QString("binEzsignsignatureattachmentMD5")]);
+    m_bin_ezsignsignatureattachment_md5_isValid = ::Ezmaxapi::fromJsonValue(m_bin_ezsignsignatureattachment_md5, json[QString("binEzsignsignatureattachmentMD5")]);
     m_bin_ezsignsignatureattachment_md5_isSet = !json[QString("binEzsignsignatureattachmentMD5")].isNull() && m_bin_ezsignsignatureattachment_md5_isValid;
 
-    m_s_ezsignsignatureattachment_name_isValid = ::OpenAPI::fromJsonValue(m_s_ezsignsignatureattachment_name, json[QString("sEzsignsignatureattachmentName")]);
+    m_s_ezsignsignatureattachment_name_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsignsignatureattachment_name, json[QString("sEzsignsignatureattachmentName")]);
     m_s_ezsignsignatureattachment_name_isSet = !json[QString("sEzsignsignatureattachmentName")].isNull() && m_s_ezsignsignatureattachment_name_isValid;
 
-    m_s_download_url_isValid = ::OpenAPI::fromJsonValue(m_s_download_url, json[QString("sDownloadUrl")]);
+    m_s_download_url_isValid = ::Ezmaxapi::fromJsonValue(m_s_download_url, json[QString("sDownloadUrl")]);
     m_s_download_url_isSet = !json[QString("sDownloadUrl")].isNull() && m_s_download_url_isValid;
 }
 
@@ -85,19 +85,19 @@ QString OAIEzsignsignatureattachment_Response::asJson() const {
 QJsonObject OAIEzsignsignatureattachment_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_ezsignsignatureattachment_id_isSet) {
-        obj.insert(QString("pkiEzsignsignatureattachmentID"), ::OpenAPI::toJsonValue(m_pki_ezsignsignatureattachment_id));
+        obj.insert(QString("pkiEzsignsignatureattachmentID"), ::Ezmaxapi::toJsonValue(m_pki_ezsignsignatureattachment_id));
     }
     if (m_fki_ezsignsignature_id_isSet) {
-        obj.insert(QString("fkiEzsignsignatureID"), ::OpenAPI::toJsonValue(m_fki_ezsignsignature_id));
+        obj.insert(QString("fkiEzsignsignatureID"), ::Ezmaxapi::toJsonValue(m_fki_ezsignsignature_id));
     }
     if (m_bin_ezsignsignatureattachment_md5_isSet) {
-        obj.insert(QString("binEzsignsignatureattachmentMD5"), ::OpenAPI::toJsonValue(m_bin_ezsignsignatureattachment_md5));
+        obj.insert(QString("binEzsignsignatureattachmentMD5"), ::Ezmaxapi::toJsonValue(m_bin_ezsignsignatureattachment_md5));
     }
     if (m_s_ezsignsignatureattachment_name_isSet) {
-        obj.insert(QString("sEzsignsignatureattachmentName"), ::OpenAPI::toJsonValue(m_s_ezsignsignatureattachment_name));
+        obj.insert(QString("sEzsignsignatureattachmentName"), ::Ezmaxapi::toJsonValue(m_s_ezsignsignatureattachment_name));
     }
     if (m_s_download_url_isSet) {
-        obj.insert(QString("sDownloadUrl"), ::OpenAPI::toJsonValue(m_s_download_url));
+        obj.insert(QString("sDownloadUrl"), ::Ezmaxapi::toJsonValue(m_s_download_url));
     }
     return obj;
 }
@@ -218,4 +218,4 @@ bool OAIEzsignsignatureattachment_Response::isValid() const {
     return m_pki_ezsignsignatureattachment_id_isValid && m_fki_ezsignsignature_id_isValid && m_bin_ezsignsignatureattachment_md5_isValid && m_s_ezsignsignatureattachment_name_isValid && m_s_download_url_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

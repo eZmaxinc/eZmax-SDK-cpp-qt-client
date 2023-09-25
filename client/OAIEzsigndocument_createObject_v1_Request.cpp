@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzsigndocument_createObject_v1_Request::OAIEzsigndocument_createObject_v1_Request(QString json) {
     this->initializeModel();
@@ -50,10 +50,10 @@ void OAIEzsigndocument_createObject_v1_Request::fromJson(QString jsonString) {
 
 void OAIEzsigndocument_createObject_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_obj_ezsigndocument_isValid = ::OpenAPI::fromJsonValue(m_obj_ezsigndocument, json[QString("objEzsigndocument")]);
+    m_obj_ezsigndocument_isValid = ::Ezmaxapi::fromJsonValue(m_obj_ezsigndocument, json[QString("objEzsigndocument")]);
     m_obj_ezsigndocument_isSet = !json[QString("objEzsigndocument")].isNull() && m_obj_ezsigndocument_isValid;
 
-    m_obj_ezsigndocument_compound_isValid = ::OpenAPI::fromJsonValue(m_obj_ezsigndocument_compound, json[QString("objEzsigndocumentCompound")]);
+    m_obj_ezsigndocument_compound_isValid = ::Ezmaxapi::fromJsonValue(m_obj_ezsigndocument_compound, json[QString("objEzsigndocumentCompound")]);
     m_obj_ezsigndocument_compound_isSet = !json[QString("objEzsigndocumentCompound")].isNull() && m_obj_ezsigndocument_compound_isValid;
 }
 
@@ -67,10 +67,10 @@ QString OAIEzsigndocument_createObject_v1_Request::asJson() const {
 QJsonObject OAIEzsigndocument_createObject_v1_Request::asJsonObject() const {
     QJsonObject obj;
     if (m_obj_ezsigndocument.isSet()) {
-        obj.insert(QString("objEzsigndocument"), ::OpenAPI::toJsonValue(m_obj_ezsigndocument));
+        obj.insert(QString("objEzsigndocument"), ::Ezmaxapi::toJsonValue(m_obj_ezsigndocument));
     }
     if (m_obj_ezsigndocument_compound.isSet()) {
-        obj.insert(QString("objEzsigndocumentCompound"), ::OpenAPI::toJsonValue(m_obj_ezsigndocument_compound));
+        obj.insert(QString("objEzsigndocumentCompound"), ::Ezmaxapi::toJsonValue(m_obj_ezsigndocument_compound));
     }
     return obj;
 }
@@ -128,4 +128,4 @@ bool OAIEzsigndocument_createObject_v1_Request::isValid() const {
     return true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

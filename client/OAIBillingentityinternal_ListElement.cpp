@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIBillingentityinternal_ListElement::OAIBillingentityinternal_ListElement(QString json) {
     this->initializeModel();
@@ -50,10 +50,10 @@ void OAIBillingentityinternal_ListElement::fromJson(QString jsonString) {
 
 void OAIBillingentityinternal_ListElement::fromJsonObject(QJsonObject json) {
 
-    m_pki_billingentityinternal_id_isValid = ::OpenAPI::fromJsonValue(m_pki_billingentityinternal_id, json[QString("pkiBillingentityinternalID")]);
+    m_pki_billingentityinternal_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_billingentityinternal_id, json[QString("pkiBillingentityinternalID")]);
     m_pki_billingentityinternal_id_isSet = !json[QString("pkiBillingentityinternalID")].isNull() && m_pki_billingentityinternal_id_isValid;
 
-    m_s_billingentityinternal_description_x_isValid = ::OpenAPI::fromJsonValue(m_s_billingentityinternal_description_x, json[QString("sBillingentityinternalDescriptionX")]);
+    m_s_billingentityinternal_description_x_isValid = ::Ezmaxapi::fromJsonValue(m_s_billingentityinternal_description_x, json[QString("sBillingentityinternalDescriptionX")]);
     m_s_billingentityinternal_description_x_isSet = !json[QString("sBillingentityinternalDescriptionX")].isNull() && m_s_billingentityinternal_description_x_isValid;
 }
 
@@ -67,10 +67,10 @@ QString OAIBillingentityinternal_ListElement::asJson() const {
 QJsonObject OAIBillingentityinternal_ListElement::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_billingentityinternal_id_isSet) {
-        obj.insert(QString("pkiBillingentityinternalID"), ::OpenAPI::toJsonValue(m_pki_billingentityinternal_id));
+        obj.insert(QString("pkiBillingentityinternalID"), ::Ezmaxapi::toJsonValue(m_pki_billingentityinternal_id));
     }
     if (m_s_billingentityinternal_description_x_isSet) {
-        obj.insert(QString("sBillingentityinternalDescriptionX"), ::OpenAPI::toJsonValue(m_s_billingentityinternal_description_x));
+        obj.insert(QString("sBillingentityinternalDescriptionX"), ::Ezmaxapi::toJsonValue(m_s_billingentityinternal_description_x));
     }
     return obj;
 }
@@ -128,4 +128,4 @@ bool OAIBillingentityinternal_ListElement::isValid() const {
     return m_pki_billingentityinternal_id_isValid && m_s_billingentityinternal_description_x_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

@@ -28,7 +28,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 class OAICustom_FormDataSigner_Response;
 
 class OAICustom_FormDataDocument_Response : public OAIObject {
@@ -94,8 +94,8 @@ private:
     bool m_a_obj_form_data_signer_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAICustom_FormDataDocument_Response)
+Q_DECLARE_METATYPE(Ezmaxapi::OAICustom_FormDataDocument_Response)
 
 #endif // OAICustom_FormDataDocument_Response_H

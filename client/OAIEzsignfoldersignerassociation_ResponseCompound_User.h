@@ -26,7 +26,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIEzsignfoldersignerassociation_ResponseCompound_User : public OAIObject {
 public:
@@ -91,8 +91,8 @@ private:
     bool m_s_email_address_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIEzsignfoldersignerassociation_ResponseCompound_User)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIEzsignfoldersignerassociation_ResponseCompound_User)
 
 #endif // OAIEzsignfoldersignerassociation_ResponseCompound_User_H

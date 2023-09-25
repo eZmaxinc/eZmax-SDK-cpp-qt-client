@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAISessionhistory_ListElement::OAISessionhistory_ListElement(QString json) {
     this->initializeModel();
@@ -74,34 +74,34 @@ void OAISessionhistory_ListElement::fromJson(QString jsonString) {
 
 void OAISessionhistory_ListElement::fromJsonObject(QJsonObject json) {
 
-    m_pki_sessionhistory_id_isValid = ::OpenAPI::fromJsonValue(m_pki_sessionhistory_id, json[QString("pkiSessionhistoryID")]);
+    m_pki_sessionhistory_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_sessionhistory_id, json[QString("pkiSessionhistoryID")]);
     m_pki_sessionhistory_id_isSet = !json[QString("pkiSessionhistoryID")].isNull() && m_pki_sessionhistory_id_isValid;
 
-    m_fki_computer_id_isValid = ::OpenAPI::fromJsonValue(m_fki_computer_id, json[QString("fkiComputerID")]);
+    m_fki_computer_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_computer_id, json[QString("fkiComputerID")]);
     m_fki_computer_id_isSet = !json[QString("fkiComputerID")].isNull() && m_fki_computer_id_isValid;
 
-    m_fki_user_id_isValid = ::OpenAPI::fromJsonValue(m_fki_user_id, json[QString("fkiUserID")]);
+    m_fki_user_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_user_id, json[QString("fkiUserID")]);
     m_fki_user_id_isSet = !json[QString("fkiUserID")].isNull() && m_fki_user_id_isValid;
 
-    m_dt_sessionhistory_firsthit_isValid = ::OpenAPI::fromJsonValue(m_dt_sessionhistory_firsthit, json[QString("dtSessionhistoryFirsthit")]);
+    m_dt_sessionhistory_firsthit_isValid = ::Ezmaxapi::fromJsonValue(m_dt_sessionhistory_firsthit, json[QString("dtSessionhistoryFirsthit")]);
     m_dt_sessionhistory_firsthit_isSet = !json[QString("dtSessionhistoryFirsthit")].isNull() && m_dt_sessionhistory_firsthit_isValid;
 
-    m_dt_sessionhistory_lasthit_isValid = ::OpenAPI::fromJsonValue(m_dt_sessionhistory_lasthit, json[QString("dtSessionhistoryLasthit")]);
+    m_dt_sessionhistory_lasthit_isValid = ::Ezmaxapi::fromJsonValue(m_dt_sessionhistory_lasthit, json[QString("dtSessionhistoryLasthit")]);
     m_dt_sessionhistory_lasthit_isSet = !json[QString("dtSessionhistoryLasthit")].isNull() && m_dt_sessionhistory_lasthit_isValid;
 
-    m_e_sessionhistory_endby_isValid = ::OpenAPI::fromJsonValue(m_e_sessionhistory_endby, json[QString("eSessionhistoryEndby")]);
+    m_e_sessionhistory_endby_isValid = ::Ezmaxapi::fromJsonValue(m_e_sessionhistory_endby, json[QString("eSessionhistoryEndby")]);
     m_e_sessionhistory_endby_isSet = !json[QString("eSessionhistoryEndby")].isNull() && m_e_sessionhistory_endby_isValid;
 
-    m_s_computer_description_isValid = ::OpenAPI::fromJsonValue(m_s_computer_description, json[QString("sComputerDescription")]);
+    m_s_computer_description_isValid = ::Ezmaxapi::fromJsonValue(m_s_computer_description, json[QString("sComputerDescription")]);
     m_s_computer_description_isSet = !json[QString("sComputerDescription")].isNull() && m_s_computer_description_isValid;
 
-    m_s_sessionhistory_duration_isValid = ::OpenAPI::fromJsonValue(m_s_sessionhistory_duration, json[QString("sSessionhistoryDuration")]);
+    m_s_sessionhistory_duration_isValid = ::Ezmaxapi::fromJsonValue(m_s_sessionhistory_duration, json[QString("sSessionhistoryDuration")]);
     m_s_sessionhistory_duration_isSet = !json[QString("sSessionhistoryDuration")].isNull() && m_s_sessionhistory_duration_isValid;
 
-    m_s_sessionhistory_ip_isValid = ::OpenAPI::fromJsonValue(m_s_sessionhistory_ip, json[QString("sSessionhistoryIP")]);
+    m_s_sessionhistory_ip_isValid = ::Ezmaxapi::fromJsonValue(m_s_sessionhistory_ip, json[QString("sSessionhistoryIP")]);
     m_s_sessionhistory_ip_isSet = !json[QString("sSessionhistoryIP")].isNull() && m_s_sessionhistory_ip_isValid;
 
-    m_s_user_loginname_isValid = ::OpenAPI::fromJsonValue(m_s_user_loginname, json[QString("sUserLoginname")]);
+    m_s_user_loginname_isValid = ::Ezmaxapi::fromJsonValue(m_s_user_loginname, json[QString("sUserLoginname")]);
     m_s_user_loginname_isSet = !json[QString("sUserLoginname")].isNull() && m_s_user_loginname_isValid;
 }
 
@@ -115,34 +115,34 @@ QString OAISessionhistory_ListElement::asJson() const {
 QJsonObject OAISessionhistory_ListElement::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_sessionhistory_id_isSet) {
-        obj.insert(QString("pkiSessionhistoryID"), ::OpenAPI::toJsonValue(m_pki_sessionhistory_id));
+        obj.insert(QString("pkiSessionhistoryID"), ::Ezmaxapi::toJsonValue(m_pki_sessionhistory_id));
     }
     if (m_fki_computer_id_isSet) {
-        obj.insert(QString("fkiComputerID"), ::OpenAPI::toJsonValue(m_fki_computer_id));
+        obj.insert(QString("fkiComputerID"), ::Ezmaxapi::toJsonValue(m_fki_computer_id));
     }
     if (m_fki_user_id_isSet) {
-        obj.insert(QString("fkiUserID"), ::OpenAPI::toJsonValue(m_fki_user_id));
+        obj.insert(QString("fkiUserID"), ::Ezmaxapi::toJsonValue(m_fki_user_id));
     }
     if (m_dt_sessionhistory_firsthit_isSet) {
-        obj.insert(QString("dtSessionhistoryFirsthit"), ::OpenAPI::toJsonValue(m_dt_sessionhistory_firsthit));
+        obj.insert(QString("dtSessionhistoryFirsthit"), ::Ezmaxapi::toJsonValue(m_dt_sessionhistory_firsthit));
     }
     if (m_dt_sessionhistory_lasthit_isSet) {
-        obj.insert(QString("dtSessionhistoryLasthit"), ::OpenAPI::toJsonValue(m_dt_sessionhistory_lasthit));
+        obj.insert(QString("dtSessionhistoryLasthit"), ::Ezmaxapi::toJsonValue(m_dt_sessionhistory_lasthit));
     }
     if (m_e_sessionhistory_endby.isSet()) {
-        obj.insert(QString("eSessionhistoryEndby"), ::OpenAPI::toJsonValue(m_e_sessionhistory_endby));
+        obj.insert(QString("eSessionhistoryEndby"), ::Ezmaxapi::toJsonValue(m_e_sessionhistory_endby));
     }
     if (m_s_computer_description_isSet) {
-        obj.insert(QString("sComputerDescription"), ::OpenAPI::toJsonValue(m_s_computer_description));
+        obj.insert(QString("sComputerDescription"), ::Ezmaxapi::toJsonValue(m_s_computer_description));
     }
     if (m_s_sessionhistory_duration_isSet) {
-        obj.insert(QString("sSessionhistoryDuration"), ::OpenAPI::toJsonValue(m_s_sessionhistory_duration));
+        obj.insert(QString("sSessionhistoryDuration"), ::Ezmaxapi::toJsonValue(m_s_sessionhistory_duration));
     }
     if (m_s_sessionhistory_ip_isSet) {
-        obj.insert(QString("sSessionhistoryIP"), ::OpenAPI::toJsonValue(m_s_sessionhistory_ip));
+        obj.insert(QString("sSessionhistoryIP"), ::Ezmaxapi::toJsonValue(m_s_sessionhistory_ip));
     }
     if (m_s_user_loginname_isSet) {
-        obj.insert(QString("sUserLoginname"), ::OpenAPI::toJsonValue(m_s_user_loginname));
+        obj.insert(QString("sUserLoginname"), ::Ezmaxapi::toJsonValue(m_s_user_loginname));
     }
     return obj;
 }
@@ -368,4 +368,4 @@ bool OAISessionhistory_ListElement::isValid() const {
     return m_pki_sessionhistory_id_isValid && m_dt_sessionhistory_firsthit_isValid && m_dt_sessionhistory_lasthit_isValid && m_e_sessionhistory_endby_isValid && m_s_sessionhistory_duration_isValid && m_s_sessionhistory_ip_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

@@ -26,7 +26,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAICustom_EzsignfoldertransmissionSigner_Response : public OAIObject {
 public:
@@ -73,8 +73,8 @@ private:
     bool m_s_contact_lastname_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAICustom_EzsignfoldertransmissionSigner_Response)
+Q_DECLARE_METATYPE(Ezmaxapi::OAICustom_EzsignfoldertransmissionSigner_Response)
 
 #endif // OAICustom_EzsignfoldertransmissionSigner_Response_H

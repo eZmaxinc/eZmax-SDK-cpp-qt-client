@@ -28,7 +28,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 class OAIScim_User;
 
 class OAIScim_UserList : public OAIObject {
@@ -94,8 +94,8 @@ private:
     bool m_resources_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIScim_UserList)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIScim_UserList)
 
 #endif // OAIScim_UserList_H

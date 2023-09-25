@@ -26,7 +26,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIFranchisereferalincome_Request : public OAIObject {
 public:
@@ -154,8 +154,8 @@ private:
     bool m_s_franchisereferalincome_remoteid_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIFranchisereferalincome_Request)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIFranchisereferalincome_Request)
 
 #endif // OAIFranchisereferalincome_Request_H

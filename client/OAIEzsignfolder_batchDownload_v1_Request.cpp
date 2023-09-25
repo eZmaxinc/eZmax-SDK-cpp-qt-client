@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzsignfolder_batchDownload_v1_Request::OAIEzsignfolder_batchDownload_v1_Request(QString json) {
     this->initializeModel();
@@ -50,10 +50,10 @@ void OAIEzsignfolder_batchDownload_v1_Request::fromJson(QString jsonString) {
 
 void OAIEzsignfolder_batchDownload_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_a_pki_ezsigndocument_id_isValid = ::OpenAPI::fromJsonValue(m_a_pki_ezsigndocument_id, json[QString("a_pkiEzsigndocumentID")]);
+    m_a_pki_ezsigndocument_id_isValid = ::Ezmaxapi::fromJsonValue(m_a_pki_ezsigndocument_id, json[QString("a_pkiEzsigndocumentID")]);
     m_a_pki_ezsigndocument_id_isSet = !json[QString("a_pkiEzsigndocumentID")].isNull() && m_a_pki_ezsigndocument_id_isValid;
 
-    m_a_e_document_type_isValid = ::OpenAPI::fromJsonValue(m_a_e_document_type, json[QString("a_eDocumentType")]);
+    m_a_e_document_type_isValid = ::Ezmaxapi::fromJsonValue(m_a_e_document_type, json[QString("a_eDocumentType")]);
     m_a_e_document_type_isSet = !json[QString("a_eDocumentType")].isNull() && m_a_e_document_type_isValid;
 }
 
@@ -67,10 +67,10 @@ QString OAIEzsignfolder_batchDownload_v1_Request::asJson() const {
 QJsonObject OAIEzsignfolder_batchDownload_v1_Request::asJsonObject() const {
     QJsonObject obj;
     if (m_a_pki_ezsigndocument_id.size() > 0) {
-        obj.insert(QString("a_pkiEzsigndocumentID"), ::OpenAPI::toJsonValue(m_a_pki_ezsigndocument_id));
+        obj.insert(QString("a_pkiEzsigndocumentID"), ::Ezmaxapi::toJsonValue(m_a_pki_ezsigndocument_id));
     }
     if (m_a_e_document_type.size() > 0) {
-        obj.insert(QString("a_eDocumentType"), ::OpenAPI::toJsonValue(m_a_e_document_type));
+        obj.insert(QString("a_eDocumentType"), ::Ezmaxapi::toJsonValue(m_a_e_document_type));
     }
     return obj;
 }
@@ -128,4 +128,4 @@ bool OAIEzsignfolder_batchDownload_v1_Request::isValid() const {
     return m_a_pki_ezsigndocument_id_isValid && m_a_e_document_type_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

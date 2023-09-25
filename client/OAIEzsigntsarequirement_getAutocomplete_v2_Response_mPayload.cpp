@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzsigntsarequirement_getAutocomplete_v2_Response_mPayload::OAIEzsigntsarequirement_getAutocomplete_v2_Response_mPayload(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAIEzsigntsarequirement_getAutocomplete_v2_Response_mPayload::fromJson(QStr
 
 void OAIEzsigntsarequirement_getAutocomplete_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_ezsigntsarequirement_isValid = ::OpenAPI::fromJsonValue(m_a_obj_ezsigntsarequirement, json[QString("a_objEzsigntsarequirement")]);
+    m_a_obj_ezsigntsarequirement_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_ezsigntsarequirement, json[QString("a_objEzsigntsarequirement")]);
     m_a_obj_ezsigntsarequirement_isSet = !json[QString("a_objEzsigntsarequirement")].isNull() && m_a_obj_ezsigntsarequirement_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAIEzsigntsarequirement_getAutocomplete_v2_Response_mPayload::asJson() c
 QJsonObject OAIEzsigntsarequirement_getAutocomplete_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_a_obj_ezsigntsarequirement.size() > 0) {
-        obj.insert(QString("a_objEzsigntsarequirement"), ::OpenAPI::toJsonValue(m_a_obj_ezsigntsarequirement));
+        obj.insert(QString("a_objEzsigntsarequirement"), ::Ezmaxapi::toJsonValue(m_a_obj_ezsigntsarequirement));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAIEzsigntsarequirement_getAutocomplete_v2_Response_mPayload::isValid() con
     return m_a_obj_ezsigntsarequirement_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

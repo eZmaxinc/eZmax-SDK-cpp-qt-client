@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIScim_ServiceProviderConfig_bulk::OAIScim_ServiceProviderConfig_bulk(QString json) {
     this->initializeModel();
@@ -53,13 +53,13 @@ void OAIScim_ServiceProviderConfig_bulk::fromJson(QString jsonString) {
 
 void OAIScim_ServiceProviderConfig_bulk::fromJsonObject(QJsonObject json) {
 
-    m_supported_isValid = ::OpenAPI::fromJsonValue(m_supported, json[QString("supported")]);
+    m_supported_isValid = ::Ezmaxapi::fromJsonValue(m_supported, json[QString("supported")]);
     m_supported_isSet = !json[QString("supported")].isNull() && m_supported_isValid;
 
-    m_max_operations_isValid = ::OpenAPI::fromJsonValue(m_max_operations, json[QString("maxOperations")]);
+    m_max_operations_isValid = ::Ezmaxapi::fromJsonValue(m_max_operations, json[QString("maxOperations")]);
     m_max_operations_isSet = !json[QString("maxOperations")].isNull() && m_max_operations_isValid;
 
-    m_max_payload_size_isValid = ::OpenAPI::fromJsonValue(m_max_payload_size, json[QString("maxPayloadSize")]);
+    m_max_payload_size_isValid = ::Ezmaxapi::fromJsonValue(m_max_payload_size, json[QString("maxPayloadSize")]);
     m_max_payload_size_isSet = !json[QString("maxPayloadSize")].isNull() && m_max_payload_size_isValid;
 }
 
@@ -73,13 +73,13 @@ QString OAIScim_ServiceProviderConfig_bulk::asJson() const {
 QJsonObject OAIScim_ServiceProviderConfig_bulk::asJsonObject() const {
     QJsonObject obj;
     if (m_supported_isSet) {
-        obj.insert(QString("supported"), ::OpenAPI::toJsonValue(m_supported));
+        obj.insert(QString("supported"), ::Ezmaxapi::toJsonValue(m_supported));
     }
     if (m_max_operations_isSet) {
-        obj.insert(QString("maxOperations"), ::OpenAPI::toJsonValue(m_max_operations));
+        obj.insert(QString("maxOperations"), ::Ezmaxapi::toJsonValue(m_max_operations));
     }
     if (m_max_payload_size_isSet) {
-        obj.insert(QString("maxPayloadSize"), ::OpenAPI::toJsonValue(m_max_payload_size));
+        obj.insert(QString("maxPayloadSize"), ::Ezmaxapi::toJsonValue(m_max_payload_size));
     }
     return obj;
 }
@@ -158,4 +158,4 @@ bool OAIScim_ServiceProviderConfig_bulk::isValid() const {
     return m_supported_isValid && m_max_operations_isValid && m_max_payload_size_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

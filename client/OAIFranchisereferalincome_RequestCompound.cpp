@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIFranchisereferalincome_RequestCompound::OAIFranchisereferalincome_RequestCompound(QString json) {
     this->initializeModel();
@@ -86,46 +86,46 @@ void OAIFranchisereferalincome_RequestCompound::fromJson(QString jsonString) {
 
 void OAIFranchisereferalincome_RequestCompound::fromJsonObject(QJsonObject json) {
 
-    m_pki_franchisereferalincome_id_isValid = ::OpenAPI::fromJsonValue(m_pki_franchisereferalincome_id, json[QString("pkiFranchisereferalincomeID")]);
+    m_pki_franchisereferalincome_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_franchisereferalincome_id, json[QString("pkiFranchisereferalincomeID")]);
     m_pki_franchisereferalincome_id_isSet = !json[QString("pkiFranchisereferalincomeID")].isNull() && m_pki_franchisereferalincome_id_isValid;
 
-    m_fki_franchisebroker_id_isValid = ::OpenAPI::fromJsonValue(m_fki_franchisebroker_id, json[QString("fkiFranchisebrokerID")]);
+    m_fki_franchisebroker_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_franchisebroker_id, json[QString("fkiFranchisebrokerID")]);
     m_fki_franchisebroker_id_isSet = !json[QString("fkiFranchisebrokerID")].isNull() && m_fki_franchisebroker_id_isValid;
 
-    m_fki_franchisereferalincomeprogram_id_isValid = ::OpenAPI::fromJsonValue(m_fki_franchisereferalincomeprogram_id, json[QString("fkiFranchisereferalincomeprogramID")]);
+    m_fki_franchisereferalincomeprogram_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_franchisereferalincomeprogram_id, json[QString("fkiFranchisereferalincomeprogramID")]);
     m_fki_franchisereferalincomeprogram_id_isSet = !json[QString("fkiFranchisereferalincomeprogramID")].isNull() && m_fki_franchisereferalincomeprogram_id_isValid;
 
-    m_fki_period_id_isValid = ::OpenAPI::fromJsonValue(m_fki_period_id, json[QString("fkiPeriodID")]);
+    m_fki_period_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_period_id, json[QString("fkiPeriodID")]);
     m_fki_period_id_isSet = !json[QString("fkiPeriodID")].isNull() && m_fki_period_id_isValid;
 
-    m_d_franchisereferalincome_loan_isValid = ::OpenAPI::fromJsonValue(m_d_franchisereferalincome_loan, json[QString("dFranchisereferalincomeLoan")]);
+    m_d_franchisereferalincome_loan_isValid = ::Ezmaxapi::fromJsonValue(m_d_franchisereferalincome_loan, json[QString("dFranchisereferalincomeLoan")]);
     m_d_franchisereferalincome_loan_isSet = !json[QString("dFranchisereferalincomeLoan")].isNull() && m_d_franchisereferalincome_loan_isValid;
 
-    m_d_franchisereferalincome_franchiseamount_isValid = ::OpenAPI::fromJsonValue(m_d_franchisereferalincome_franchiseamount, json[QString("dFranchisereferalincomeFranchiseamount")]);
+    m_d_franchisereferalincome_franchiseamount_isValid = ::Ezmaxapi::fromJsonValue(m_d_franchisereferalincome_franchiseamount, json[QString("dFranchisereferalincomeFranchiseamount")]);
     m_d_franchisereferalincome_franchiseamount_isSet = !json[QString("dFranchisereferalincomeFranchiseamount")].isNull() && m_d_franchisereferalincome_franchiseamount_isValid;
 
-    m_d_franchisereferalincome_franchisoramount_isValid = ::OpenAPI::fromJsonValue(m_d_franchisereferalincome_franchisoramount, json[QString("dFranchisereferalincomeFranchisoramount")]);
+    m_d_franchisereferalincome_franchisoramount_isValid = ::Ezmaxapi::fromJsonValue(m_d_franchisereferalincome_franchisoramount, json[QString("dFranchisereferalincomeFranchisoramount")]);
     m_d_franchisereferalincome_franchisoramount_isSet = !json[QString("dFranchisereferalincomeFranchisoramount")].isNull() && m_d_franchisereferalincome_franchisoramount_isValid;
 
-    m_d_franchisereferalincome_agentamount_isValid = ::OpenAPI::fromJsonValue(m_d_franchisereferalincome_agentamount, json[QString("dFranchisereferalincomeAgentamount")]);
+    m_d_franchisereferalincome_agentamount_isValid = ::Ezmaxapi::fromJsonValue(m_d_franchisereferalincome_agentamount, json[QString("dFranchisereferalincomeAgentamount")]);
     m_d_franchisereferalincome_agentamount_isSet = !json[QString("dFranchisereferalincomeAgentamount")].isNull() && m_d_franchisereferalincome_agentamount_isValid;
 
-    m_dt_franchisereferalincome_disbursed_isValid = ::OpenAPI::fromJsonValue(m_dt_franchisereferalincome_disbursed, json[QString("dtFranchisereferalincomeDisbursed")]);
+    m_dt_franchisereferalincome_disbursed_isValid = ::Ezmaxapi::fromJsonValue(m_dt_franchisereferalincome_disbursed, json[QString("dtFranchisereferalincomeDisbursed")]);
     m_dt_franchisereferalincome_disbursed_isSet = !json[QString("dtFranchisereferalincomeDisbursed")].isNull() && m_dt_franchisereferalincome_disbursed_isValid;
 
-    m_t_franchisereferalincome_comment_isValid = ::OpenAPI::fromJsonValue(m_t_franchisereferalincome_comment, json[QString("tFranchisereferalincomeComment")]);
+    m_t_franchisereferalincome_comment_isValid = ::Ezmaxapi::fromJsonValue(m_t_franchisereferalincome_comment, json[QString("tFranchisereferalincomeComment")]);
     m_t_franchisereferalincome_comment_isSet = !json[QString("tFranchisereferalincomeComment")].isNull() && m_t_franchisereferalincome_comment_isValid;
 
-    m_fki_franchiseoffice_id_isValid = ::OpenAPI::fromJsonValue(m_fki_franchiseoffice_id, json[QString("fkiFranchiseofficeID")]);
+    m_fki_franchiseoffice_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_franchiseoffice_id, json[QString("fkiFranchiseofficeID")]);
     m_fki_franchiseoffice_id_isSet = !json[QString("fkiFranchiseofficeID")].isNull() && m_fki_franchiseoffice_id_isValid;
 
-    m_s_franchisereferalincome_remoteid_isValid = ::OpenAPI::fromJsonValue(m_s_franchisereferalincome_remoteid, json[QString("sFranchisereferalincomeRemoteid")]);
+    m_s_franchisereferalincome_remoteid_isValid = ::Ezmaxapi::fromJsonValue(m_s_franchisereferalincome_remoteid, json[QString("sFranchisereferalincomeRemoteid")]);
     m_s_franchisereferalincome_remoteid_isSet = !json[QString("sFranchisereferalincomeRemoteid")].isNull() && m_s_franchisereferalincome_remoteid_isValid;
 
-    m_obj_address_isValid = ::OpenAPI::fromJsonValue(m_obj_address, json[QString("objAddress")]);
+    m_obj_address_isValid = ::Ezmaxapi::fromJsonValue(m_obj_address, json[QString("objAddress")]);
     m_obj_address_isSet = !json[QString("objAddress")].isNull() && m_obj_address_isValid;
 
-    m_a_obj_contact_isValid = ::OpenAPI::fromJsonValue(m_a_obj_contact, json[QString("a_objContact")]);
+    m_a_obj_contact_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_contact, json[QString("a_objContact")]);
     m_a_obj_contact_isSet = !json[QString("a_objContact")].isNull() && m_a_obj_contact_isValid;
 }
 
@@ -139,46 +139,46 @@ QString OAIFranchisereferalincome_RequestCompound::asJson() const {
 QJsonObject OAIFranchisereferalincome_RequestCompound::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_franchisereferalincome_id_isSet) {
-        obj.insert(QString("pkiFranchisereferalincomeID"), ::OpenAPI::toJsonValue(m_pki_franchisereferalincome_id));
+        obj.insert(QString("pkiFranchisereferalincomeID"), ::Ezmaxapi::toJsonValue(m_pki_franchisereferalincome_id));
     }
     if (m_fki_franchisebroker_id_isSet) {
-        obj.insert(QString("fkiFranchisebrokerID"), ::OpenAPI::toJsonValue(m_fki_franchisebroker_id));
+        obj.insert(QString("fkiFranchisebrokerID"), ::Ezmaxapi::toJsonValue(m_fki_franchisebroker_id));
     }
     if (m_fki_franchisereferalincomeprogram_id_isSet) {
-        obj.insert(QString("fkiFranchisereferalincomeprogramID"), ::OpenAPI::toJsonValue(m_fki_franchisereferalincomeprogram_id));
+        obj.insert(QString("fkiFranchisereferalincomeprogramID"), ::Ezmaxapi::toJsonValue(m_fki_franchisereferalincomeprogram_id));
     }
     if (m_fki_period_id_isSet) {
-        obj.insert(QString("fkiPeriodID"), ::OpenAPI::toJsonValue(m_fki_period_id));
+        obj.insert(QString("fkiPeriodID"), ::Ezmaxapi::toJsonValue(m_fki_period_id));
     }
     if (m_d_franchisereferalincome_loan_isSet) {
-        obj.insert(QString("dFranchisereferalincomeLoan"), ::OpenAPI::toJsonValue(m_d_franchisereferalincome_loan));
+        obj.insert(QString("dFranchisereferalincomeLoan"), ::Ezmaxapi::toJsonValue(m_d_franchisereferalincome_loan));
     }
     if (m_d_franchisereferalincome_franchiseamount_isSet) {
-        obj.insert(QString("dFranchisereferalincomeFranchiseamount"), ::OpenAPI::toJsonValue(m_d_franchisereferalincome_franchiseamount));
+        obj.insert(QString("dFranchisereferalincomeFranchiseamount"), ::Ezmaxapi::toJsonValue(m_d_franchisereferalincome_franchiseamount));
     }
     if (m_d_franchisereferalincome_franchisoramount_isSet) {
-        obj.insert(QString("dFranchisereferalincomeFranchisoramount"), ::OpenAPI::toJsonValue(m_d_franchisereferalincome_franchisoramount));
+        obj.insert(QString("dFranchisereferalincomeFranchisoramount"), ::Ezmaxapi::toJsonValue(m_d_franchisereferalincome_franchisoramount));
     }
     if (m_d_franchisereferalincome_agentamount_isSet) {
-        obj.insert(QString("dFranchisereferalincomeAgentamount"), ::OpenAPI::toJsonValue(m_d_franchisereferalincome_agentamount));
+        obj.insert(QString("dFranchisereferalincomeAgentamount"), ::Ezmaxapi::toJsonValue(m_d_franchisereferalincome_agentamount));
     }
     if (m_dt_franchisereferalincome_disbursed_isSet) {
-        obj.insert(QString("dtFranchisereferalincomeDisbursed"), ::OpenAPI::toJsonValue(m_dt_franchisereferalincome_disbursed));
+        obj.insert(QString("dtFranchisereferalincomeDisbursed"), ::Ezmaxapi::toJsonValue(m_dt_franchisereferalincome_disbursed));
     }
     if (m_t_franchisereferalincome_comment_isSet) {
-        obj.insert(QString("tFranchisereferalincomeComment"), ::OpenAPI::toJsonValue(m_t_franchisereferalincome_comment));
+        obj.insert(QString("tFranchisereferalincomeComment"), ::Ezmaxapi::toJsonValue(m_t_franchisereferalincome_comment));
     }
     if (m_fki_franchiseoffice_id_isSet) {
-        obj.insert(QString("fkiFranchiseofficeID"), ::OpenAPI::toJsonValue(m_fki_franchiseoffice_id));
+        obj.insert(QString("fkiFranchiseofficeID"), ::Ezmaxapi::toJsonValue(m_fki_franchiseoffice_id));
     }
     if (m_s_franchisereferalincome_remoteid_isSet) {
-        obj.insert(QString("sFranchisereferalincomeRemoteid"), ::OpenAPI::toJsonValue(m_s_franchisereferalincome_remoteid));
+        obj.insert(QString("sFranchisereferalincomeRemoteid"), ::Ezmaxapi::toJsonValue(m_s_franchisereferalincome_remoteid));
     }
     if (m_obj_address.isSet()) {
-        obj.insert(QString("objAddress"), ::OpenAPI::toJsonValue(m_obj_address));
+        obj.insert(QString("objAddress"), ::Ezmaxapi::toJsonValue(m_obj_address));
     }
     if (m_a_obj_contact.size() > 0) {
-        obj.insert(QString("a_objContact"), ::OpenAPI::toJsonValue(m_a_obj_contact));
+        obj.insert(QString("a_objContact"), ::Ezmaxapi::toJsonValue(m_a_obj_contact));
     }
     return obj;
 }
@@ -488,4 +488,4 @@ bool OAIFranchisereferalincome_RequestCompound::isValid() const {
     return m_fki_franchisebroker_id_isValid && m_fki_franchisereferalincomeprogram_id_isValid && m_fki_period_id_isValid && m_d_franchisereferalincome_loan_isValid && m_d_franchisereferalincome_franchiseamount_isValid && m_d_franchisereferalincome_franchisoramount_isValid && m_d_franchisereferalincome_agentamount_isValid && m_dt_franchisereferalincome_disbursed_isValid && m_t_franchisereferalincome_comment_isValid && m_fki_franchiseoffice_id_isValid && m_s_franchisereferalincome_remoteid_isValid && m_obj_address_isValid && m_a_obj_contact_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

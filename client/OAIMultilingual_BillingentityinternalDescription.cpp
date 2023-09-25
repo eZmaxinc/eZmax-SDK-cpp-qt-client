@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIMultilingual_BillingentityinternalDescription::OAIMultilingual_BillingentityinternalDescription(QString json) {
     this->initializeModel();
@@ -50,10 +50,10 @@ void OAIMultilingual_BillingentityinternalDescription::fromJson(QString jsonStri
 
 void OAIMultilingual_BillingentityinternalDescription::fromJsonObject(QJsonObject json) {
 
-    m_s_billingentityinternal_description1_isValid = ::OpenAPI::fromJsonValue(m_s_billingentityinternal_description1, json[QString("sBillingentityinternalDescription1")]);
+    m_s_billingentityinternal_description1_isValid = ::Ezmaxapi::fromJsonValue(m_s_billingentityinternal_description1, json[QString("sBillingentityinternalDescription1")]);
     m_s_billingentityinternal_description1_isSet = !json[QString("sBillingentityinternalDescription1")].isNull() && m_s_billingentityinternal_description1_isValid;
 
-    m_s_billingentityinternal_description2_isValid = ::OpenAPI::fromJsonValue(m_s_billingentityinternal_description2, json[QString("sBillingentityinternalDescription2")]);
+    m_s_billingentityinternal_description2_isValid = ::Ezmaxapi::fromJsonValue(m_s_billingentityinternal_description2, json[QString("sBillingentityinternalDescription2")]);
     m_s_billingentityinternal_description2_isSet = !json[QString("sBillingentityinternalDescription2")].isNull() && m_s_billingentityinternal_description2_isValid;
 }
 
@@ -67,10 +67,10 @@ QString OAIMultilingual_BillingentityinternalDescription::asJson() const {
 QJsonObject OAIMultilingual_BillingentityinternalDescription::asJsonObject() const {
     QJsonObject obj;
     if (m_s_billingentityinternal_description1_isSet) {
-        obj.insert(QString("sBillingentityinternalDescription1"), ::OpenAPI::toJsonValue(m_s_billingentityinternal_description1));
+        obj.insert(QString("sBillingentityinternalDescription1"), ::Ezmaxapi::toJsonValue(m_s_billingentityinternal_description1));
     }
     if (m_s_billingentityinternal_description2_isSet) {
-        obj.insert(QString("sBillingentityinternalDescription2"), ::OpenAPI::toJsonValue(m_s_billingentityinternal_description2));
+        obj.insert(QString("sBillingentityinternalDescription2"), ::Ezmaxapi::toJsonValue(m_s_billingentityinternal_description2));
     }
     return obj;
 }
@@ -128,4 +128,4 @@ bool OAIMultilingual_BillingentityinternalDescription::isValid() const {
     return true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

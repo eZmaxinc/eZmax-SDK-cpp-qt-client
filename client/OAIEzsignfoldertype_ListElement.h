@@ -27,7 +27,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIEzsignfoldertype_ListElement : public OAIObject {
 public:
@@ -83,8 +83,8 @@ private:
     bool m_b_ezsignfoldertype_isactive_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIEzsignfoldertype_ListElement)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIEzsignfoldertype_ListElement)
 
 #endif // OAIEzsignfoldertype_ListElement_H

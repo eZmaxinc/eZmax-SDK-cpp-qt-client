@@ -27,7 +27,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 class OAIEzmaxinvoicing_AutocompleteElement_Response;
 
 class OAIEzmaxinvoicing_getAutocomplete_v2_Response_mPayload : public OAIObject {
@@ -57,8 +57,8 @@ private:
     bool m_a_obj_ezmaxinvoicing_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIEzmaxinvoicing_getAutocomplete_v2_Response_mPayload)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIEzmaxinvoicing_getAutocomplete_v2_Response_mPayload)
 
 #endif // OAIEzmaxinvoicing_getAutocomplete_v2_Response_mPayload_H

@@ -25,7 +25,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIField_eCommunicationrecipientObjecttype : public OAIEnum {
 public:
@@ -70,8 +70,8 @@ private:
     bool m_value_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIField_eCommunicationrecipientObjecttype)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIField_eCommunicationrecipientObjecttype)
 
 #endif // OAIField_eCommunicationrecipientObjecttype_H

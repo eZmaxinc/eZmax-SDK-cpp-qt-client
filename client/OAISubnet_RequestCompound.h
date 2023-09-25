@@ -26,7 +26,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 class OAIMultilingual_SubnetDescription;
 
 class OAISubnet_RequestCompound : public OAIObject {
@@ -101,8 +101,8 @@ private:
     bool m_i_subnet_mask_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAISubnet_RequestCompound)
+Q_DECLARE_METATYPE(Ezmaxapi::OAISubnet_RequestCompound)
 
 #endif // OAISubnet_RequestCompound_H

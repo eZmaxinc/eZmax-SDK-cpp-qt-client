@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzsigntemplatesignaturecustomdate_Request::OAIEzsigntemplatesignaturecustomdate_Request(QString json) {
     this->initializeModel();
@@ -56,16 +56,16 @@ void OAIEzsigntemplatesignaturecustomdate_Request::fromJson(QString jsonString) 
 
 void OAIEzsigntemplatesignaturecustomdate_Request::fromJsonObject(QJsonObject json) {
 
-    m_pki_ezsigntemplatesignaturecustomdate_id_isValid = ::OpenAPI::fromJsonValue(m_pki_ezsigntemplatesignaturecustomdate_id, json[QString("pkiEzsigntemplatesignaturecustomdateID")]);
+    m_pki_ezsigntemplatesignaturecustomdate_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_ezsigntemplatesignaturecustomdate_id, json[QString("pkiEzsigntemplatesignaturecustomdateID")]);
     m_pki_ezsigntemplatesignaturecustomdate_id_isSet = !json[QString("pkiEzsigntemplatesignaturecustomdateID")].isNull() && m_pki_ezsigntemplatesignaturecustomdate_id_isValid;
 
-    m_i_ezsigntemplatesignaturecustomdate_x_isValid = ::OpenAPI::fromJsonValue(m_i_ezsigntemplatesignaturecustomdate_x, json[QString("iEzsigntemplatesignaturecustomdateX")]);
+    m_i_ezsigntemplatesignaturecustomdate_x_isValid = ::Ezmaxapi::fromJsonValue(m_i_ezsigntemplatesignaturecustomdate_x, json[QString("iEzsigntemplatesignaturecustomdateX")]);
     m_i_ezsigntemplatesignaturecustomdate_x_isSet = !json[QString("iEzsigntemplatesignaturecustomdateX")].isNull() && m_i_ezsigntemplatesignaturecustomdate_x_isValid;
 
-    m_i_ezsigntemplatesignaturecustomdate_y_isValid = ::OpenAPI::fromJsonValue(m_i_ezsigntemplatesignaturecustomdate_y, json[QString("iEzsigntemplatesignaturecustomdateY")]);
+    m_i_ezsigntemplatesignaturecustomdate_y_isValid = ::Ezmaxapi::fromJsonValue(m_i_ezsigntemplatesignaturecustomdate_y, json[QString("iEzsigntemplatesignaturecustomdateY")]);
     m_i_ezsigntemplatesignaturecustomdate_y_isSet = !json[QString("iEzsigntemplatesignaturecustomdateY")].isNull() && m_i_ezsigntemplatesignaturecustomdate_y_isValid;
 
-    m_s_ezsigntemplatesignaturecustomdate_format_isValid = ::OpenAPI::fromJsonValue(m_s_ezsigntemplatesignaturecustomdate_format, json[QString("sEzsigntemplatesignaturecustomdateFormat")]);
+    m_s_ezsigntemplatesignaturecustomdate_format_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsigntemplatesignaturecustomdate_format, json[QString("sEzsigntemplatesignaturecustomdateFormat")]);
     m_s_ezsigntemplatesignaturecustomdate_format_isSet = !json[QString("sEzsigntemplatesignaturecustomdateFormat")].isNull() && m_s_ezsigntemplatesignaturecustomdate_format_isValid;
 }
 
@@ -79,16 +79,16 @@ QString OAIEzsigntemplatesignaturecustomdate_Request::asJson() const {
 QJsonObject OAIEzsigntemplatesignaturecustomdate_Request::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_ezsigntemplatesignaturecustomdate_id_isSet) {
-        obj.insert(QString("pkiEzsigntemplatesignaturecustomdateID"), ::OpenAPI::toJsonValue(m_pki_ezsigntemplatesignaturecustomdate_id));
+        obj.insert(QString("pkiEzsigntemplatesignaturecustomdateID"), ::Ezmaxapi::toJsonValue(m_pki_ezsigntemplatesignaturecustomdate_id));
     }
     if (m_i_ezsigntemplatesignaturecustomdate_x_isSet) {
-        obj.insert(QString("iEzsigntemplatesignaturecustomdateX"), ::OpenAPI::toJsonValue(m_i_ezsigntemplatesignaturecustomdate_x));
+        obj.insert(QString("iEzsigntemplatesignaturecustomdateX"), ::Ezmaxapi::toJsonValue(m_i_ezsigntemplatesignaturecustomdate_x));
     }
     if (m_i_ezsigntemplatesignaturecustomdate_y_isSet) {
-        obj.insert(QString("iEzsigntemplatesignaturecustomdateY"), ::OpenAPI::toJsonValue(m_i_ezsigntemplatesignaturecustomdate_y));
+        obj.insert(QString("iEzsigntemplatesignaturecustomdateY"), ::Ezmaxapi::toJsonValue(m_i_ezsigntemplatesignaturecustomdate_y));
     }
     if (m_s_ezsigntemplatesignaturecustomdate_format_isSet) {
-        obj.insert(QString("sEzsigntemplatesignaturecustomdateFormat"), ::OpenAPI::toJsonValue(m_s_ezsigntemplatesignaturecustomdate_format));
+        obj.insert(QString("sEzsigntemplatesignaturecustomdateFormat"), ::Ezmaxapi::toJsonValue(m_s_ezsigntemplatesignaturecustomdate_format));
     }
     return obj;
 }
@@ -188,4 +188,4 @@ bool OAIEzsigntemplatesignaturecustomdate_Request::isValid() const {
     return m_i_ezsigntemplatesignaturecustomdate_x_isValid && m_i_ezsigntemplatesignaturecustomdate_y_isValid && m_s_ezsigntemplatesignaturecustomdate_format_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

@@ -29,7 +29,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 class OAIAddress_Request;
 class OAIContact_RequestCompound;
 
@@ -177,8 +177,8 @@ private:
     bool m_a_obj_contact_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIFranchisereferalincome_RequestCompound)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIFranchisereferalincome_RequestCompound)
 
 #endif // OAIFranchisereferalincome_RequestCompound_H

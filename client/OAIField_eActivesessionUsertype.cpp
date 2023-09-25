@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIField_eActivesessionUsertype::OAIField_eActivesessionUsertype(QString json) {
     this->initializeModel();
@@ -116,4 +116,4 @@ bool OAIField_eActivesessionUsertype::isValid() const {
     return m_value_isValid;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

@@ -15,7 +15,7 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIObjectSubnetApi::OAIObjectSubnetApi(const int timeOut)
     : _timeOut(timeOut),
@@ -319,7 +319,7 @@ void OAIObjectSubnetApi::subnetDeleteObjectV1(const qint32 &pki_subnet_id) {
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiSubnetID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiSubnetID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_subnet_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_subnet_id)));
+        fullPath.replace(pki_subnet_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_subnet_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -386,7 +386,7 @@ void OAIObjectSubnetApi::subnetEditObjectV1(const qint32 &pki_subnet_id, const O
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiSubnetID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiSubnetID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_subnet_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_subnet_id)));
+        fullPath.replace(pki_subnet_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_subnet_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -458,7 +458,7 @@ void OAIObjectSubnetApi::subnetGetObjectV2(const qint32 &pki_subnet_id) {
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiSubnetID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiSubnetID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_subnet_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_subnet_id)));
+        fullPath.replace(pki_subnet_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_subnet_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -555,4 +555,4 @@ void OAIObjectSubnetApi::tokenAvailable(){
         break;
     }
 }
-} // namespace OpenAPI
+} // namespace Ezmaxapi

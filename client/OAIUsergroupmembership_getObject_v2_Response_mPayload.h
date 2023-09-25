@@ -26,7 +26,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 class OAIUsergroupmembership_ResponseCompound;
 
 class OAIUsergroupmembership_getObject_v2_Response_mPayload : public OAIObject {
@@ -56,8 +56,8 @@ private:
     bool m_obj_usergroupmembership_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIUsergroupmembership_getObject_v2_Response_mPayload)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIUsergroupmembership_getObject_v2_Response_mPayload)
 
 #endif // OAIUsergroupmembership_getObject_v2_Response_mPayload_H

@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzsign_suggestTemplates_v1_Response_mPayload::OAIEzsign_suggestTemplates_v1_Response_mPayload(QString json) {
     this->initializeModel();
@@ -50,10 +50,10 @@ void OAIEzsign_suggestTemplates_v1_Response_mPayload::fromJson(QString jsonStrin
 
 void OAIEzsign_suggestTemplates_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_ezsigntemplate_isValid = ::OpenAPI::fromJsonValue(m_a_obj_ezsigntemplate, json[QString("a_objEzsigntemplate")]);
+    m_a_obj_ezsigntemplate_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_ezsigntemplate, json[QString("a_objEzsigntemplate")]);
     m_a_obj_ezsigntemplate_isSet = !json[QString("a_objEzsigntemplate")].isNull() && m_a_obj_ezsigntemplate_isValid;
 
-    m_a_obj_ezsigntemplatepackage_isValid = ::OpenAPI::fromJsonValue(m_a_obj_ezsigntemplatepackage, json[QString("a_objEzsigntemplatepackage")]);
+    m_a_obj_ezsigntemplatepackage_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_ezsigntemplatepackage, json[QString("a_objEzsigntemplatepackage")]);
     m_a_obj_ezsigntemplatepackage_isSet = !json[QString("a_objEzsigntemplatepackage")].isNull() && m_a_obj_ezsigntemplatepackage_isValid;
 }
 
@@ -67,10 +67,10 @@ QString OAIEzsign_suggestTemplates_v1_Response_mPayload::asJson() const {
 QJsonObject OAIEzsign_suggestTemplates_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_a_obj_ezsigntemplate.size() > 0) {
-        obj.insert(QString("a_objEzsigntemplate"), ::OpenAPI::toJsonValue(m_a_obj_ezsigntemplate));
+        obj.insert(QString("a_objEzsigntemplate"), ::Ezmaxapi::toJsonValue(m_a_obj_ezsigntemplate));
     }
     if (m_a_obj_ezsigntemplatepackage.size() > 0) {
-        obj.insert(QString("a_objEzsigntemplatepackage"), ::OpenAPI::toJsonValue(m_a_obj_ezsigntemplatepackage));
+        obj.insert(QString("a_objEzsigntemplatepackage"), ::Ezmaxapi::toJsonValue(m_a_obj_ezsigntemplatepackage));
     }
     return obj;
 }
@@ -128,4 +128,4 @@ bool OAIEzsign_suggestTemplates_v1_Response_mPayload::isValid() const {
     return m_a_obj_ezsigntemplate_isValid && m_a_obj_ezsigntemplatepackage_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

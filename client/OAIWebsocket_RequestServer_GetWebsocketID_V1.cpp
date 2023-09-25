@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIWebsocket_RequestServer_GetWebsocketID_V1::OAIWebsocket_RequestServer_GetWebsocketID_V1(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAIWebsocket_RequestServer_GetWebsocketID_V1::fromJson(QString jsonString) 
 
 void OAIWebsocket_RequestServer_GetWebsocketID_V1::fromJsonObject(QJsonObject json) {
 
-    m_e_websocket_messagetype_isValid = ::OpenAPI::fromJsonValue(m_e_websocket_messagetype, json[QString("eWebsocketMessagetype")]);
+    m_e_websocket_messagetype_isValid = ::Ezmaxapi::fromJsonValue(m_e_websocket_messagetype, json[QString("eWebsocketMessagetype")]);
     m_e_websocket_messagetype_isSet = !json[QString("eWebsocketMessagetype")].isNull() && m_e_websocket_messagetype_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAIWebsocket_RequestServer_GetWebsocketID_V1::asJson() const {
 QJsonObject OAIWebsocket_RequestServer_GetWebsocketID_V1::asJsonObject() const {
     QJsonObject obj;
     if (m_e_websocket_messagetype_isSet) {
-        obj.insert(QString("eWebsocketMessagetype"), ::OpenAPI::toJsonValue(m_e_websocket_messagetype));
+        obj.insert(QString("eWebsocketMessagetype"), ::Ezmaxapi::toJsonValue(m_e_websocket_messagetype));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAIWebsocket_RequestServer_GetWebsocketID_V1::isValid() const {
     return m_e_websocket_messagetype_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

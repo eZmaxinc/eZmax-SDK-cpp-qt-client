@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAISecretquestion_getAutocomplete_v2_Response_mPayload::OAISecretquestion_getAutocomplete_v2_Response_mPayload(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAISecretquestion_getAutocomplete_v2_Response_mPayload::fromJson(QString js
 
 void OAISecretquestion_getAutocomplete_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_secretquestion_isValid = ::OpenAPI::fromJsonValue(m_a_obj_secretquestion, json[QString("a_objSecretquestion")]);
+    m_a_obj_secretquestion_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_secretquestion, json[QString("a_objSecretquestion")]);
     m_a_obj_secretquestion_isSet = !json[QString("a_objSecretquestion")].isNull() && m_a_obj_secretquestion_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAISecretquestion_getAutocomplete_v2_Response_mPayload::asJson() const {
 QJsonObject OAISecretquestion_getAutocomplete_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_a_obj_secretquestion.size() > 0) {
-        obj.insert(QString("a_objSecretquestion"), ::OpenAPI::toJsonValue(m_a_obj_secretquestion));
+        obj.insert(QString("a_objSecretquestion"), ::Ezmaxapi::toJsonValue(m_a_obj_secretquestion));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAISecretquestion_getAutocomplete_v2_Response_mPayload::isValid() const {
     return m_a_obj_secretquestion_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

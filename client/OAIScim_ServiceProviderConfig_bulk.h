@@ -25,7 +25,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIScim_ServiceProviderConfig_bulk : public OAIObject {
 public:
@@ -72,8 +72,8 @@ private:
     bool m_max_payload_size_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIScim_ServiceProviderConfig_bulk)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIScim_ServiceProviderConfig_bulk)
 
 #endif // OAIScim_ServiceProviderConfig_bulk_H

@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAICors_createObject_v1_Response_mPayload::OAICors_createObject_v1_Response_mPayload(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAICors_createObject_v1_Response_mPayload::fromJson(QString jsonString) {
 
 void OAICors_createObject_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_pki_cors_id_isValid = ::OpenAPI::fromJsonValue(m_a_pki_cors_id, json[QString("a_pkiCorsID")]);
+    m_a_pki_cors_id_isValid = ::Ezmaxapi::fromJsonValue(m_a_pki_cors_id, json[QString("a_pkiCorsID")]);
     m_a_pki_cors_id_isSet = !json[QString("a_pkiCorsID")].isNull() && m_a_pki_cors_id_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAICors_createObject_v1_Response_mPayload::asJson() const {
 QJsonObject OAICors_createObject_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_a_pki_cors_id.size() > 0) {
-        obj.insert(QString("a_pkiCorsID"), ::OpenAPI::toJsonValue(m_a_pki_cors_id));
+        obj.insert(QString("a_pkiCorsID"), ::Ezmaxapi::toJsonValue(m_a_pki_cors_id));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAICors_createObject_v1_Response_mPayload::isValid() const {
     return m_a_pki_cors_id_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

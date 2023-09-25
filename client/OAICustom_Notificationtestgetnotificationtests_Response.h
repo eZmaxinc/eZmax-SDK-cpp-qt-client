@@ -28,7 +28,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 class OAIMultilingual_NotificationtestName;
 
 class OAICustom_Notificationtestgetnotificationtests_Response : public OAIObject {
@@ -112,8 +112,8 @@ private:
     bool m_i_notificationtest_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAICustom_Notificationtestgetnotificationtests_Response)
+Q_DECLARE_METATYPE(Ezmaxapi::OAICustom_Notificationtestgetnotificationtests_Response)
 
 #endif // OAICustom_Notificationtestgetnotificationtests_Response_H

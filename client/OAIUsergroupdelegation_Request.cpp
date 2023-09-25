@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIUsergroupdelegation_Request::OAIUsergroupdelegation_Request(QString json) {
     this->initializeModel();
@@ -53,13 +53,13 @@ void OAIUsergroupdelegation_Request::fromJson(QString jsonString) {
 
 void OAIUsergroupdelegation_Request::fromJsonObject(QJsonObject json) {
 
-    m_pki_usergroupdelegation_id_isValid = ::OpenAPI::fromJsonValue(m_pki_usergroupdelegation_id, json[QString("pkiUsergroupdelegationID")]);
+    m_pki_usergroupdelegation_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_usergroupdelegation_id, json[QString("pkiUsergroupdelegationID")]);
     m_pki_usergroupdelegation_id_isSet = !json[QString("pkiUsergroupdelegationID")].isNull() && m_pki_usergroupdelegation_id_isValid;
 
-    m_fki_usergroup_id_isValid = ::OpenAPI::fromJsonValue(m_fki_usergroup_id, json[QString("fkiUsergroupID")]);
+    m_fki_usergroup_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_usergroup_id, json[QString("fkiUsergroupID")]);
     m_fki_usergroup_id_isSet = !json[QString("fkiUsergroupID")].isNull() && m_fki_usergroup_id_isValid;
 
-    m_fki_user_id_isValid = ::OpenAPI::fromJsonValue(m_fki_user_id, json[QString("fkiUserID")]);
+    m_fki_user_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_user_id, json[QString("fkiUserID")]);
     m_fki_user_id_isSet = !json[QString("fkiUserID")].isNull() && m_fki_user_id_isValid;
 }
 
@@ -73,13 +73,13 @@ QString OAIUsergroupdelegation_Request::asJson() const {
 QJsonObject OAIUsergroupdelegation_Request::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_usergroupdelegation_id_isSet) {
-        obj.insert(QString("pkiUsergroupdelegationID"), ::OpenAPI::toJsonValue(m_pki_usergroupdelegation_id));
+        obj.insert(QString("pkiUsergroupdelegationID"), ::Ezmaxapi::toJsonValue(m_pki_usergroupdelegation_id));
     }
     if (m_fki_usergroup_id_isSet) {
-        obj.insert(QString("fkiUsergroupID"), ::OpenAPI::toJsonValue(m_fki_usergroup_id));
+        obj.insert(QString("fkiUsergroupID"), ::Ezmaxapi::toJsonValue(m_fki_usergroup_id));
     }
     if (m_fki_user_id_isSet) {
-        obj.insert(QString("fkiUserID"), ::OpenAPI::toJsonValue(m_fki_user_id));
+        obj.insert(QString("fkiUserID"), ::Ezmaxapi::toJsonValue(m_fki_user_id));
     }
     return obj;
 }
@@ -158,4 +158,4 @@ bool OAIUsergroupdelegation_Request::isValid() const {
     return m_fki_usergroup_id_isValid && m_fki_user_id_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

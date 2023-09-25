@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIComputed_eCommunicationDirection::OAIComputed_eCommunicationDirection(QString json) {
     this->initializeModel();
@@ -95,4 +95,4 @@ bool OAIComputed_eCommunicationDirection::isValid() const {
     return m_value_isValid;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

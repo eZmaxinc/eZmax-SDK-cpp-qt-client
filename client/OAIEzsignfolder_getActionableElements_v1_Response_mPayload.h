@@ -28,7 +28,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 class OAIEzsignsignature_ResponseCompound;
 class OAIEzsignformfieldgroup_ResponseCompound;
 
@@ -68,8 +68,8 @@ private:
     bool m_a_obj_ezsignformfieldgroup_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIEzsignfolder_getActionableElements_v1_Response_mPayload)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIEzsignfolder_getActionableElements_v1_Response_mPayload)
 
 #endif // OAIEzsignfolder_getActionableElements_v1_Response_mPayload_H

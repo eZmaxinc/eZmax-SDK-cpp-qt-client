@@ -29,7 +29,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 class OAIMultilingual_VersionhistoryDetail;
 
 class OAIVersionhistory_Response : public OAIObject {
@@ -149,8 +149,8 @@ private:
     bool m_b_versionhistory_draft_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIVersionhistory_Response)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIVersionhistory_Response)
 
 #endif // OAIVersionhistory_Response_H

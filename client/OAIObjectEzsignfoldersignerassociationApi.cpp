@@ -15,7 +15,7 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIObjectEzsignfoldersignerassociationApi::OAIObjectEzsignfoldersignerassociationApi(const int timeOut)
     : _timeOut(timeOut),
@@ -265,7 +265,7 @@ void OAIObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationCre
     OAIHttpRequestInput input(fullPath, "POST");
 
     {
-        QJsonDocument doc(::OpenAPI::toJsonValue(oai_ezsignfoldersignerassociation_create_object_v1_request).toArray());
+        QJsonDocument doc(::Ezmaxapi::toJsonValue(oai_ezsignfoldersignerassociation_create_object_v1_request).toArray());
         QByteArray bytes = doc.toJson();
         input.request_body.append(bytes);
     }
@@ -386,7 +386,7 @@ void OAIObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationDel
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignfoldersignerassociationID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignfoldersignerassociationID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsignfoldersignerassociation_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsignfoldersignerassociation_id)));
+        fullPath.replace(pki_ezsignfoldersignerassociation_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsignfoldersignerassociation_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -453,7 +453,7 @@ void OAIObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationEdi
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignfoldersignerassociationID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignfoldersignerassociationID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsignfoldersignerassociation_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsignfoldersignerassociation_id)));
+        fullPath.replace(pki_ezsignfoldersignerassociation_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsignfoldersignerassociation_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -525,7 +525,7 @@ void OAIObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationFor
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignfoldersignerassociationID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignfoldersignerassociationID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsignfoldersignerassociation_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsignfoldersignerassociation_id)));
+        fullPath.replace(pki_ezsignfoldersignerassociation_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsignfoldersignerassociation_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -597,7 +597,7 @@ void OAIObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationGet
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignfoldersignerassociationID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignfoldersignerassociationID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsignfoldersignerassociation_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsignfoldersignerassociation_id)));
+        fullPath.replace(pki_ezsignfoldersignerassociation_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsignfoldersignerassociation_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -664,7 +664,7 @@ void OAIObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationGet
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignfoldersignerassociationID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignfoldersignerassociationID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsignfoldersignerassociation_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsignfoldersignerassociation_id)));
+        fullPath.replace(pki_ezsignfoldersignerassociation_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsignfoldersignerassociation_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -731,7 +731,7 @@ void OAIObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationGet
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignfoldersignerassociationID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignfoldersignerassociationID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsignfoldersignerassociation_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsignfoldersignerassociation_id)));
+        fullPath.replace(pki_ezsignfoldersignerassociation_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsignfoldersignerassociation_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -798,7 +798,7 @@ void OAIObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationPat
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignfoldersignerassociationID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignfoldersignerassociationID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsignfoldersignerassociation_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsignfoldersignerassociation_id)));
+        fullPath.replace(pki_ezsignfoldersignerassociation_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsignfoldersignerassociation_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -900,4 +900,4 @@ void OAIObjectEzsignfoldersignerassociationApi::tokenAvailable(){
         break;
     }
 }
-} // namespace OpenAPI
+} // namespace Ezmaxapi

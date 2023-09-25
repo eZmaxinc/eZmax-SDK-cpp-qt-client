@@ -26,7 +26,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 class OAICors_ResponseCompound;
 
 class OAICors_getObject_v2_Response_mPayload : public OAIObject {
@@ -56,8 +56,8 @@ private:
     bool m_obj_cors_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAICors_getObject_v2_Response_mPayload)
+Q_DECLARE_METATYPE(Ezmaxapi::OAICors_getObject_v2_Response_mPayload)
 
 #endif // OAICors_getObject_v2_Response_mPayload_H

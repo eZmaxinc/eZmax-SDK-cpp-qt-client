@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzsigndocument_getEzsignannotations_v1_Response_mPayload::OAIEzsigndocument_getEzsignannotations_v1_Response_mPayload(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAIEzsigndocument_getEzsignannotations_v1_Response_mPayload::fromJson(QStri
 
 void OAIEzsigndocument_getEzsignannotations_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_ezsignannotation_isValid = ::OpenAPI::fromJsonValue(m_a_obj_ezsignannotation, json[QString("a_objEzsignannotation")]);
+    m_a_obj_ezsignannotation_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_ezsignannotation, json[QString("a_objEzsignannotation")]);
     m_a_obj_ezsignannotation_isSet = !json[QString("a_objEzsignannotation")].isNull() && m_a_obj_ezsignannotation_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAIEzsigndocument_getEzsignannotations_v1_Response_mPayload::asJson() co
 QJsonObject OAIEzsigndocument_getEzsignannotations_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_a_obj_ezsignannotation.size() > 0) {
-        obj.insert(QString("a_objEzsignannotation"), ::OpenAPI::toJsonValue(m_a_obj_ezsignannotation));
+        obj.insert(QString("a_objEzsignannotation"), ::Ezmaxapi::toJsonValue(m_a_obj_ezsignannotation));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAIEzsigndocument_getEzsignannotations_v1_Response_mPayload::isValid() cons
     return m_a_obj_ezsignannotation_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

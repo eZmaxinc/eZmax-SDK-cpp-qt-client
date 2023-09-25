@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response_mPayload::OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response_mPayload(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response_mPayload::
 
 void OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_s_login_url_isValid = ::OpenAPI::fromJsonValue(m_s_login_url, json[QString("sLoginUrl")]);
+    m_s_login_url_isValid = ::Ezmaxapi::fromJsonValue(m_s_login_url, json[QString("sLoginUrl")]);
     m_s_login_url_isSet = !json[QString("sLoginUrl")].isNull() && m_s_login_url_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response_mPayloa
 QJsonObject OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_s_login_url_isSet) {
-        obj.insert(QString("sLoginUrl"), ::OpenAPI::toJsonValue(m_s_login_url));
+        obj.insert(QString("sLoginUrl"), ::Ezmaxapi::toJsonValue(m_s_login_url));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAIEzsignfoldersignerassociation_getInPersonLoginUrl_v1_Response_mPayload::
     return m_s_login_url_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

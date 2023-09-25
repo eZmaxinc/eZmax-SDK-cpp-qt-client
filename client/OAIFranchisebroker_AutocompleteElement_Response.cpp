@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIFranchisebroker_AutocompleteElement_Response::OAIFranchisebroker_AutocompleteElement_Response(QString json) {
     this->initializeModel();
@@ -53,13 +53,13 @@ void OAIFranchisebroker_AutocompleteElement_Response::fromJson(QString jsonStrin
 
 void OAIFranchisebroker_AutocompleteElement_Response::fromJsonObject(QJsonObject json) {
 
-    m_s_franchisebroker_name_isValid = ::OpenAPI::fromJsonValue(m_s_franchisebroker_name, json[QString("sFranchisebrokerName")]);
+    m_s_franchisebroker_name_isValid = ::Ezmaxapi::fromJsonValue(m_s_franchisebroker_name, json[QString("sFranchisebrokerName")]);
     m_s_franchisebroker_name_isSet = !json[QString("sFranchisebrokerName")].isNull() && m_s_franchisebroker_name_isValid;
 
-    m_pki_franchisebroker_id_isValid = ::OpenAPI::fromJsonValue(m_pki_franchisebroker_id, json[QString("pkiFranchisebrokerID")]);
+    m_pki_franchisebroker_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_franchisebroker_id, json[QString("pkiFranchisebrokerID")]);
     m_pki_franchisebroker_id_isSet = !json[QString("pkiFranchisebrokerID")].isNull() && m_pki_franchisebroker_id_isValid;
 
-    m_b_franchisebroker_isactive_isValid = ::OpenAPI::fromJsonValue(m_b_franchisebroker_isactive, json[QString("bFranchisebrokerIsactive")]);
+    m_b_franchisebroker_isactive_isValid = ::Ezmaxapi::fromJsonValue(m_b_franchisebroker_isactive, json[QString("bFranchisebrokerIsactive")]);
     m_b_franchisebroker_isactive_isSet = !json[QString("bFranchisebrokerIsactive")].isNull() && m_b_franchisebroker_isactive_isValid;
 }
 
@@ -73,13 +73,13 @@ QString OAIFranchisebroker_AutocompleteElement_Response::asJson() const {
 QJsonObject OAIFranchisebroker_AutocompleteElement_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_s_franchisebroker_name_isSet) {
-        obj.insert(QString("sFranchisebrokerName"), ::OpenAPI::toJsonValue(m_s_franchisebroker_name));
+        obj.insert(QString("sFranchisebrokerName"), ::Ezmaxapi::toJsonValue(m_s_franchisebroker_name));
     }
     if (m_pki_franchisebroker_id_isSet) {
-        obj.insert(QString("pkiFranchisebrokerID"), ::OpenAPI::toJsonValue(m_pki_franchisebroker_id));
+        obj.insert(QString("pkiFranchisebrokerID"), ::Ezmaxapi::toJsonValue(m_pki_franchisebroker_id));
     }
     if (m_b_franchisebroker_isactive_isSet) {
-        obj.insert(QString("bFranchisebrokerIsactive"), ::OpenAPI::toJsonValue(m_b_franchisebroker_isactive));
+        obj.insert(QString("bFranchisebrokerIsactive"), ::Ezmaxapi::toJsonValue(m_b_franchisebroker_isactive));
     }
     return obj;
 }
@@ -158,4 +158,4 @@ bool OAIFranchisebroker_AutocompleteElement_Response::isValid() const {
     return m_s_franchisebroker_name_isValid && m_pki_franchisebroker_id_isValid && m_b_franchisebroker_isactive_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

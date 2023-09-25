@@ -26,7 +26,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIEzsignfolder_send_v1_Request : public OAIObject {
 public:
@@ -55,8 +55,8 @@ private:
     bool m_t_extra_message_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIEzsignfolder_send_v1_Request)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIEzsignfolder_send_v1_Request)
 
 #endif // OAIEzsignfolder_send_v1_Request_H

@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIWebsocket_Response_GetWebsocketID_V1_mPayload::OAIWebsocket_Response_GetWebsocketID_V1_mPayload(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAIWebsocket_Response_GetWebsocketID_V1_mPayload::fromJson(QString jsonStri
 
 void OAIWebsocket_Response_GetWebsocketID_V1_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_s_websocket_id_isValid = ::OpenAPI::fromJsonValue(m_s_websocket_id, json[QString("sWebsocketID")]);
+    m_s_websocket_id_isValid = ::Ezmaxapi::fromJsonValue(m_s_websocket_id, json[QString("sWebsocketID")]);
     m_s_websocket_id_isSet = !json[QString("sWebsocketID")].isNull() && m_s_websocket_id_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAIWebsocket_Response_GetWebsocketID_V1_mPayload::asJson() const {
 QJsonObject OAIWebsocket_Response_GetWebsocketID_V1_mPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_s_websocket_id_isSet) {
-        obj.insert(QString("sWebsocketID"), ::OpenAPI::toJsonValue(m_s_websocket_id));
+        obj.insert(QString("sWebsocketID"), ::Ezmaxapi::toJsonValue(m_s_websocket_id));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAIWebsocket_Response_GetWebsocketID_V1_mPayload::isValid() const {
     return m_s_websocket_id_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

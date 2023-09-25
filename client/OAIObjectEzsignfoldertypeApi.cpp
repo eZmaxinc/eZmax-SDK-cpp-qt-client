@@ -15,7 +15,7 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIObjectEzsignfoldertypeApi::OAIObjectEzsignfoldertypeApi(const int timeOut)
     : _timeOut(timeOut),
@@ -323,7 +323,7 @@ void OAIObjectEzsignfoldertypeApi::ezsignfoldertypeEditObjectV1(const qint32 &pk
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignfoldertypeID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignfoldertypeID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsignfoldertype_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsignfoldertype_id)));
+        fullPath.replace(pki_ezsignfoldertype_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsignfoldertype_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -376,7 +376,7 @@ void OAIObjectEzsignfoldertypeApi::ezsignfoldertypeEditObjectV1Callback(OAIHttpR
     }
 }
 
-void OAIObjectEzsignfoldertypeApi::ezsignfoldertypeGetAutocompleteV1(const QString &s_selector, const ::OpenAPI::OptionalParam<QString> &e_filter_active, const ::OpenAPI::OptionalParam<QString> &s_query, const ::OpenAPI::OptionalParam<OAIHeader_Accept_Language> &accept_language) {
+void OAIObjectEzsignfoldertypeApi::ezsignfoldertypeGetAutocompleteV1(const QString &s_selector, const ::Ezmaxapi::OptionalParam<QString> &e_filter_active, const ::Ezmaxapi::OptionalParam<QString> &s_query, const ::Ezmaxapi::OptionalParam<OAIHeader_Accept_Language> &accept_language) {
     QString fullPath = QString(_serverConfigs["ezsignfoldertypeGetAutocompleteV1"][_serverIndices.value("ezsignfoldertypeGetAutocompleteV1")].URL()+"/1/object/ezsignfoldertype/getAutocomplete/{sSelector}");
     
     if (_apiKeys.contains("Authorization")) {
@@ -395,7 +395,7 @@ void OAIObjectEzsignfoldertypeApi::ezsignfoldertypeGetAutocompleteV1(const QStri
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "sSelector", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"sSelector"+pathSuffix : pathPrefix;
-        fullPath.replace(s_selectorPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(s_selector)));
+        fullPath.replace(s_selectorPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_selector)));
     }
     QString queryPrefix, querySuffix, queryDelimiter, queryStyle;
     if (e_filter_active.hasValue())
@@ -411,7 +411,7 @@ void OAIObjectEzsignfoldertypeApi::ezsignfoldertypeGetAutocompleteV1(const QStri
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("eFilterActive")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(e_filter_active.value())));
+        fullPath.append(QUrl::toPercentEncoding("eFilterActive")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(e_filter_active.value())));
     }
     if (s_query.hasValue())
     {
@@ -426,7 +426,7 @@ void OAIObjectEzsignfoldertypeApi::ezsignfoldertypeGetAutocompleteV1(const QStri
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(s_query.value())));
+        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_query.value())));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -518,7 +518,7 @@ void OAIObjectEzsignfoldertypeApi::ezsignfoldertypeGetAutocompleteV1Callback(OAI
     }
 }
 
-void OAIObjectEzsignfoldertypeApi::ezsignfoldertypeGetAutocompleteV2(const QString &s_selector, const ::OpenAPI::OptionalParam<QString> &e_filter_active, const ::OpenAPI::OptionalParam<QString> &s_query, const ::OpenAPI::OptionalParam<OAIHeader_Accept_Language> &accept_language) {
+void OAIObjectEzsignfoldertypeApi::ezsignfoldertypeGetAutocompleteV2(const QString &s_selector, const ::Ezmaxapi::OptionalParam<QString> &e_filter_active, const ::Ezmaxapi::OptionalParam<QString> &s_query, const ::Ezmaxapi::OptionalParam<OAIHeader_Accept_Language> &accept_language) {
     QString fullPath = QString(_serverConfigs["ezsignfoldertypeGetAutocompleteV2"][_serverIndices.value("ezsignfoldertypeGetAutocompleteV2")].URL()+"/2/object/ezsignfoldertype/getAutocomplete/{sSelector}");
     
     if (_apiKeys.contains("Authorization")) {
@@ -537,7 +537,7 @@ void OAIObjectEzsignfoldertypeApi::ezsignfoldertypeGetAutocompleteV2(const QStri
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "sSelector", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"sSelector"+pathSuffix : pathPrefix;
-        fullPath.replace(s_selectorPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(s_selector)));
+        fullPath.replace(s_selectorPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_selector)));
     }
     QString queryPrefix, querySuffix, queryDelimiter, queryStyle;
     if (e_filter_active.hasValue())
@@ -553,7 +553,7 @@ void OAIObjectEzsignfoldertypeApi::ezsignfoldertypeGetAutocompleteV2(const QStri
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("eFilterActive")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(e_filter_active.value())));
+        fullPath.append(QUrl::toPercentEncoding("eFilterActive")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(e_filter_active.value())));
     }
     if (s_query.hasValue())
     {
@@ -568,7 +568,7 @@ void OAIObjectEzsignfoldertypeApi::ezsignfoldertypeGetAutocompleteV2(const QStri
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(s_query.value())));
+        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_query.value())));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -660,7 +660,7 @@ void OAIObjectEzsignfoldertypeApi::ezsignfoldertypeGetAutocompleteV2Callback(OAI
     }
 }
 
-void OAIObjectEzsignfoldertypeApi::ezsignfoldertypeGetListV1(const ::OpenAPI::OptionalParam<QString> &e_order_by, const ::OpenAPI::OptionalParam<qint32> &i_row_max, const ::OpenAPI::OptionalParam<qint32> &i_row_offset, const ::OpenAPI::OptionalParam<OAIHeader_Accept_Language> &accept_language, const ::OpenAPI::OptionalParam<QString> &s_filter) {
+void OAIObjectEzsignfoldertypeApi::ezsignfoldertypeGetListV1(const ::Ezmaxapi::OptionalParam<QString> &e_order_by, const ::Ezmaxapi::OptionalParam<qint32> &i_row_max, const ::Ezmaxapi::OptionalParam<qint32> &i_row_offset, const ::Ezmaxapi::OptionalParam<OAIHeader_Accept_Language> &accept_language, const ::Ezmaxapi::OptionalParam<QString> &s_filter) {
     QString fullPath = QString(_serverConfigs["ezsignfoldertypeGetListV1"][_serverIndices.value("ezsignfoldertypeGetListV1")].URL()+"/1/object/ezsignfoldertype/getList");
     
     if (_apiKeys.contains("Authorization")) {
@@ -681,7 +681,7 @@ void OAIObjectEzsignfoldertypeApi::ezsignfoldertypeGetListV1(const ::OpenAPI::Op
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("eOrderBy")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(e_order_by.value())));
+        fullPath.append(QUrl::toPercentEncoding("eOrderBy")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(e_order_by.value())));
     }
     if (i_row_max.hasValue())
     {
@@ -696,7 +696,7 @@ void OAIObjectEzsignfoldertypeApi::ezsignfoldertypeGetListV1(const ::OpenAPI::Op
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("iRowMax")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(i_row_max.value())));
+        fullPath.append(QUrl::toPercentEncoding("iRowMax")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(i_row_max.value())));
     }
     if (i_row_offset.hasValue())
     {
@@ -711,7 +711,7 @@ void OAIObjectEzsignfoldertypeApi::ezsignfoldertypeGetListV1(const ::OpenAPI::Op
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("iRowOffset")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(i_row_offset.value())));
+        fullPath.append(QUrl::toPercentEncoding("iRowOffset")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(i_row_offset.value())));
     }
     if (s_filter.hasValue())
     {
@@ -726,7 +726,7 @@ void OAIObjectEzsignfoldertypeApi::ezsignfoldertypeGetListV1(const ::OpenAPI::Op
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("sFilter")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(s_filter.value())));
+        fullPath.append(QUrl::toPercentEncoding("sFilter")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_filter.value())));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -837,7 +837,7 @@ void OAIObjectEzsignfoldertypeApi::ezsignfoldertypeGetObjectV2(const qint32 &pki
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignfoldertypeID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignfoldertypeID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsignfoldertype_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsignfoldertype_id)));
+        fullPath.replace(pki_ezsignfoldertype_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsignfoldertype_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -934,4 +934,4 @@ void OAIObjectEzsignfoldertypeApi::tokenAvailable(){
         break;
     }
 }
-} // namespace OpenAPI
+} // namespace Ezmaxapi

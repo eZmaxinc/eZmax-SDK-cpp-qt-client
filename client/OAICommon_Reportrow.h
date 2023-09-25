@@ -27,7 +27,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 class OAICommon_Reportcell;
 
 class OAICommon_Reportrow : public OAIObject {
@@ -66,8 +66,8 @@ private:
     bool m_i_reportrow_height_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAICommon_Reportrow)
+Q_DECLARE_METATYPE(Ezmaxapi::OAICommon_Reportrow)
 
 #endif // OAICommon_Reportrow_H

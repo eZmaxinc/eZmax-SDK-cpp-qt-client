@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAICommon_Response_Error_sTemporaryFileUrl::OAICommon_Response_Error_sTemporaryFileUrl(QString json) {
     this->initializeModel();
@@ -53,13 +53,13 @@ void OAICommon_Response_Error_sTemporaryFileUrl::fromJson(QString jsonString) {
 
 void OAICommon_Response_Error_sTemporaryFileUrl::fromJsonObject(QJsonObject json) {
 
-    m_s_error_message_isValid = ::OpenAPI::fromJsonValue(m_s_error_message, json[QString("sErrorMessage")]);
+    m_s_error_message_isValid = ::Ezmaxapi::fromJsonValue(m_s_error_message, json[QString("sErrorMessage")]);
     m_s_error_message_isSet = !json[QString("sErrorMessage")].isNull() && m_s_error_message_isValid;
 
-    m_e_error_code_isValid = ::OpenAPI::fromJsonValue(m_e_error_code, json[QString("eErrorCode")]);
+    m_e_error_code_isValid = ::Ezmaxapi::fromJsonValue(m_e_error_code, json[QString("eErrorCode")]);
     m_e_error_code_isSet = !json[QString("eErrorCode")].isNull() && m_e_error_code_isValid;
 
-    m_s_temporary_file_url_isValid = ::OpenAPI::fromJsonValue(m_s_temporary_file_url, json[QString("sTemporaryFileUrl")]);
+    m_s_temporary_file_url_isValid = ::Ezmaxapi::fromJsonValue(m_s_temporary_file_url, json[QString("sTemporaryFileUrl")]);
     m_s_temporary_file_url_isSet = !json[QString("sTemporaryFileUrl")].isNull() && m_s_temporary_file_url_isValid;
 }
 
@@ -73,13 +73,13 @@ QString OAICommon_Response_Error_sTemporaryFileUrl::asJson() const {
 QJsonObject OAICommon_Response_Error_sTemporaryFileUrl::asJsonObject() const {
     QJsonObject obj;
     if (m_s_error_message_isSet) {
-        obj.insert(QString("sErrorMessage"), ::OpenAPI::toJsonValue(m_s_error_message));
+        obj.insert(QString("sErrorMessage"), ::Ezmaxapi::toJsonValue(m_s_error_message));
     }
     if (m_e_error_code.isSet()) {
-        obj.insert(QString("eErrorCode"), ::OpenAPI::toJsonValue(m_e_error_code));
+        obj.insert(QString("eErrorCode"), ::Ezmaxapi::toJsonValue(m_e_error_code));
     }
     if (m_s_temporary_file_url_isSet) {
-        obj.insert(QString("sTemporaryFileUrl"), ::OpenAPI::toJsonValue(m_s_temporary_file_url));
+        obj.insert(QString("sTemporaryFileUrl"), ::Ezmaxapi::toJsonValue(m_s_temporary_file_url));
     }
     return obj;
 }
@@ -158,4 +158,4 @@ bool OAICommon_Response_Error_sTemporaryFileUrl::isValid() const {
     return m_s_error_message_isValid && m_e_error_code_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

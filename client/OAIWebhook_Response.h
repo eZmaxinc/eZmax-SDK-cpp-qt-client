@@ -29,7 +29,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIWebhook_Response : public OAIObject {
 public:
@@ -148,8 +148,8 @@ private:
     bool m_b_webhook_skipsslvalidation_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIWebhook_Response)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIWebhook_Response)
 
 #endif // OAIWebhook_Response_H

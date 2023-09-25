@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzsignfoldersignerassociation_getObject_v2_Response_mPayload::OAIEzsignfoldersignerassociation_getObject_v2_Response_mPayload(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAIEzsignfoldersignerassociation_getObject_v2_Response_mPayload::fromJson(Q
 
 void OAIEzsignfoldersignerassociation_getObject_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_obj_ezsignfoldersignerassociation_isValid = ::OpenAPI::fromJsonValue(m_obj_ezsignfoldersignerassociation, json[QString("objEzsignfoldersignerassociation")]);
+    m_obj_ezsignfoldersignerassociation_isValid = ::Ezmaxapi::fromJsonValue(m_obj_ezsignfoldersignerassociation, json[QString("objEzsignfoldersignerassociation")]);
     m_obj_ezsignfoldersignerassociation_isSet = !json[QString("objEzsignfoldersignerassociation")].isNull() && m_obj_ezsignfoldersignerassociation_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAIEzsignfoldersignerassociation_getObject_v2_Response_mPayload::asJson(
 QJsonObject OAIEzsignfoldersignerassociation_getObject_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_obj_ezsignfoldersignerassociation.isSet()) {
-        obj.insert(QString("objEzsignfoldersignerassociation"), ::OpenAPI::toJsonValue(m_obj_ezsignfoldersignerassociation));
+        obj.insert(QString("objEzsignfoldersignerassociation"), ::Ezmaxapi::toJsonValue(m_obj_ezsignfoldersignerassociation));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAIEzsignfoldersignerassociation_getObject_v2_Response_mPayload::isValid() 
     return m_obj_ezsignfoldersignerassociation_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

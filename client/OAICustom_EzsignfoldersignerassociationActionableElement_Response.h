@@ -29,7 +29,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 class OAIEzsignsignergroup_ResponseCompound;
 class OAIEzsignfoldersignerassociation_ResponseCompound_User;
 class OAIEzsignsigner_ResponseCompound;
@@ -142,8 +142,8 @@ private:
     bool m_b_ezsignfoldersignerassociation_hasactionableelements_future_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAICustom_EzsignfoldersignerassociationActionableElement_Response)
+Q_DECLARE_METATYPE(Ezmaxapi::OAICustom_EzsignfoldersignerassociationActionableElement_Response)
 
 #endif // OAICustom_EzsignfoldersignerassociationActionableElement_Response_H

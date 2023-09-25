@@ -29,7 +29,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 class OAIMultilingual_EzmaxinvoicingsummaryinternalDescription;
 class OAIEzmaxinvoicingsummaryinternaldetail_ResponseCompound;
 
@@ -114,8 +114,8 @@ private:
     bool m_a_obj_ezmaxinvoicingsummaryinternaldetail_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIEzmaxinvoicingsummaryinternal_ResponseCompound)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIEzmaxinvoicingsummaryinternal_ResponseCompound)
 
 #endif // OAIEzmaxinvoicingsummaryinternal_ResponseCompound_H

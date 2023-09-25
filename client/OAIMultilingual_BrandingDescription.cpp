@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIMultilingual_BrandingDescription::OAIMultilingual_BrandingDescription(QString json) {
     this->initializeModel();
@@ -50,10 +50,10 @@ void OAIMultilingual_BrandingDescription::fromJson(QString jsonString) {
 
 void OAIMultilingual_BrandingDescription::fromJsonObject(QJsonObject json) {
 
-    m_s_branding_description1_isValid = ::OpenAPI::fromJsonValue(m_s_branding_description1, json[QString("sBrandingDescription1")]);
+    m_s_branding_description1_isValid = ::Ezmaxapi::fromJsonValue(m_s_branding_description1, json[QString("sBrandingDescription1")]);
     m_s_branding_description1_isSet = !json[QString("sBrandingDescription1")].isNull() && m_s_branding_description1_isValid;
 
-    m_s_branding_description2_isValid = ::OpenAPI::fromJsonValue(m_s_branding_description2, json[QString("sBrandingDescription2")]);
+    m_s_branding_description2_isValid = ::Ezmaxapi::fromJsonValue(m_s_branding_description2, json[QString("sBrandingDescription2")]);
     m_s_branding_description2_isSet = !json[QString("sBrandingDescription2")].isNull() && m_s_branding_description2_isValid;
 }
 
@@ -67,10 +67,10 @@ QString OAIMultilingual_BrandingDescription::asJson() const {
 QJsonObject OAIMultilingual_BrandingDescription::asJsonObject() const {
     QJsonObject obj;
     if (m_s_branding_description1_isSet) {
-        obj.insert(QString("sBrandingDescription1"), ::OpenAPI::toJsonValue(m_s_branding_description1));
+        obj.insert(QString("sBrandingDescription1"), ::Ezmaxapi::toJsonValue(m_s_branding_description1));
     }
     if (m_s_branding_description2_isSet) {
-        obj.insert(QString("sBrandingDescription2"), ::OpenAPI::toJsonValue(m_s_branding_description2));
+        obj.insert(QString("sBrandingDescription2"), ::Ezmaxapi::toJsonValue(m_s_branding_description2));
     }
     return obj;
 }
@@ -128,4 +128,4 @@ bool OAIMultilingual_BrandingDescription::isValid() const {
     return true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

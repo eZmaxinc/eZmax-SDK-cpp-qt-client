@@ -28,7 +28,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 class OAICommon_Audit;
 
 class OAIEzsignbulksend_Response : public OAIObject {
@@ -148,8 +148,8 @@ private:
     bool m_obj_audit_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIEzsignbulksend_Response)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIEzsignbulksend_Response)
 
 #endif // OAIEzsignbulksend_Response_H

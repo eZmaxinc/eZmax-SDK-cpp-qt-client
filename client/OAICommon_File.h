@@ -27,7 +27,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAICommon_File : public OAIObject {
 public:
@@ -83,8 +83,8 @@ private:
     bool m_e_file_source_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAICommon_File)
+Q_DECLARE_METATYPE(Ezmaxapi::OAICommon_File)
 
 #endif // OAICommon_File_H

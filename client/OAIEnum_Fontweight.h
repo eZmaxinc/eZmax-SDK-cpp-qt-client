@@ -25,7 +25,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIEnum_Fontweight : public OAIEnum {
 public:
@@ -56,8 +56,8 @@ private:
     bool m_value_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIEnum_Fontweight)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIEnum_Fontweight)
 
 #endif // OAIEnum_Fontweight_H

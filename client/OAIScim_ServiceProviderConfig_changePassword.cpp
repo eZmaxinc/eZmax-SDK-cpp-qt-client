@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIScim_ServiceProviderConfig_changePassword::OAIScim_ServiceProviderConfig_changePassword(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAIScim_ServiceProviderConfig_changePassword::fromJson(QString jsonString) 
 
 void OAIScim_ServiceProviderConfig_changePassword::fromJsonObject(QJsonObject json) {
 
-    m_supported_isValid = ::OpenAPI::fromJsonValue(m_supported, json[QString("supported")]);
+    m_supported_isValid = ::Ezmaxapi::fromJsonValue(m_supported, json[QString("supported")]);
     m_supported_isSet = !json[QString("supported")].isNull() && m_supported_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAIScim_ServiceProviderConfig_changePassword::asJson() const {
 QJsonObject OAIScim_ServiceProviderConfig_changePassword::asJsonObject() const {
     QJsonObject obj;
     if (m_supported_isSet) {
-        obj.insert(QString("supported"), ::OpenAPI::toJsonValue(m_supported));
+        obj.insert(QString("supported"), ::Ezmaxapi::toJsonValue(m_supported));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAIScim_ServiceProviderConfig_changePassword::isValid() const {
     return m_supported_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

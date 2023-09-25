@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIScim_GroupMember::OAIScim_GroupMember(QString json) {
     this->initializeModel();
@@ -56,16 +56,16 @@ void OAIScim_GroupMember::fromJson(QString jsonString) {
 
 void OAIScim_GroupMember::fromJsonObject(QJsonObject json) {
 
-    m_value_isValid = ::OpenAPI::fromJsonValue(m_value, json[QString("value")]);
+    m_value_isValid = ::Ezmaxapi::fromJsonValue(m_value, json[QString("value")]);
     m_value_isSet = !json[QString("value")].isNull() && m_value_isValid;
 
-    m_display_isValid = ::OpenAPI::fromJsonValue(m_display, json[QString("display")]);
+    m_display_isValid = ::Ezmaxapi::fromJsonValue(m_display, json[QString("display")]);
     m_display_isSet = !json[QString("display")].isNull() && m_display_isValid;
 
-    m_type_isValid = ::OpenAPI::fromJsonValue(m_type, json[QString("type")]);
+    m_type_isValid = ::Ezmaxapi::fromJsonValue(m_type, json[QString("type")]);
     m_type_isSet = !json[QString("type")].isNull() && m_type_isValid;
 
-    m_ref_isValid = ::OpenAPI::fromJsonValue(m_ref, json[QString("$ref")]);
+    m_ref_isValid = ::Ezmaxapi::fromJsonValue(m_ref, json[QString("$ref")]);
     m_ref_isSet = !json[QString("$ref")].isNull() && m_ref_isValid;
 }
 
@@ -79,16 +79,16 @@ QString OAIScim_GroupMember::asJson() const {
 QJsonObject OAIScim_GroupMember::asJsonObject() const {
     QJsonObject obj;
     if (m_value_isSet) {
-        obj.insert(QString("value"), ::OpenAPI::toJsonValue(m_value));
+        obj.insert(QString("value"), ::Ezmaxapi::toJsonValue(m_value));
     }
     if (m_display_isSet) {
-        obj.insert(QString("display"), ::OpenAPI::toJsonValue(m_display));
+        obj.insert(QString("display"), ::Ezmaxapi::toJsonValue(m_display));
     }
     if (m_type_isSet) {
-        obj.insert(QString("type"), ::OpenAPI::toJsonValue(m_type));
+        obj.insert(QString("type"), ::Ezmaxapi::toJsonValue(m_type));
     }
     if (m_ref_isSet) {
-        obj.insert(QString("$ref"), ::OpenAPI::toJsonValue(m_ref));
+        obj.insert(QString("$ref"), ::Ezmaxapi::toJsonValue(m_ref));
     }
     return obj;
 }
@@ -188,4 +188,4 @@ bool OAIScim_GroupMember::isValid() const {
     return true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

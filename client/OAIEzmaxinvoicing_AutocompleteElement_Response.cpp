@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzmaxinvoicing_AutocompleteElement_Response::OAIEzmaxinvoicing_AutocompleteElement_Response(QString json) {
     this->initializeModel();
@@ -53,13 +53,13 @@ void OAIEzmaxinvoicing_AutocompleteElement_Response::fromJson(QString jsonString
 
 void OAIEzmaxinvoicing_AutocompleteElement_Response::fromJsonObject(QJsonObject json) {
 
-    m_yyyymm_ezmaxinvoicing_isValid = ::OpenAPI::fromJsonValue(m_yyyymm_ezmaxinvoicing, json[QString("yyyymmEzmaxinvoicing")]);
+    m_yyyymm_ezmaxinvoicing_isValid = ::Ezmaxapi::fromJsonValue(m_yyyymm_ezmaxinvoicing, json[QString("yyyymmEzmaxinvoicing")]);
     m_yyyymm_ezmaxinvoicing_isSet = !json[QString("yyyymmEzmaxinvoicing")].isNull() && m_yyyymm_ezmaxinvoicing_isValid;
 
-    m_pki_ezmaxinvoicing_id_isValid = ::OpenAPI::fromJsonValue(m_pki_ezmaxinvoicing_id, json[QString("pkiEzmaxinvoicingID")]);
+    m_pki_ezmaxinvoicing_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_ezmaxinvoicing_id, json[QString("pkiEzmaxinvoicingID")]);
     m_pki_ezmaxinvoicing_id_isSet = !json[QString("pkiEzmaxinvoicingID")].isNull() && m_pki_ezmaxinvoicing_id_isValid;
 
-    m_b_ezmaxinvoicing_isactive_isValid = ::OpenAPI::fromJsonValue(m_b_ezmaxinvoicing_isactive, json[QString("bEzmaxinvoicingIsactive")]);
+    m_b_ezmaxinvoicing_isactive_isValid = ::Ezmaxapi::fromJsonValue(m_b_ezmaxinvoicing_isactive, json[QString("bEzmaxinvoicingIsactive")]);
     m_b_ezmaxinvoicing_isactive_isSet = !json[QString("bEzmaxinvoicingIsactive")].isNull() && m_b_ezmaxinvoicing_isactive_isValid;
 }
 
@@ -73,13 +73,13 @@ QString OAIEzmaxinvoicing_AutocompleteElement_Response::asJson() const {
 QJsonObject OAIEzmaxinvoicing_AutocompleteElement_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_yyyymm_ezmaxinvoicing_isSet) {
-        obj.insert(QString("yyyymmEzmaxinvoicing"), ::OpenAPI::toJsonValue(m_yyyymm_ezmaxinvoicing));
+        obj.insert(QString("yyyymmEzmaxinvoicing"), ::Ezmaxapi::toJsonValue(m_yyyymm_ezmaxinvoicing));
     }
     if (m_pki_ezmaxinvoicing_id_isSet) {
-        obj.insert(QString("pkiEzmaxinvoicingID"), ::OpenAPI::toJsonValue(m_pki_ezmaxinvoicing_id));
+        obj.insert(QString("pkiEzmaxinvoicingID"), ::Ezmaxapi::toJsonValue(m_pki_ezmaxinvoicing_id));
     }
     if (m_b_ezmaxinvoicing_isactive_isSet) {
-        obj.insert(QString("bEzmaxinvoicingIsactive"), ::OpenAPI::toJsonValue(m_b_ezmaxinvoicing_isactive));
+        obj.insert(QString("bEzmaxinvoicingIsactive"), ::Ezmaxapi::toJsonValue(m_b_ezmaxinvoicing_isactive));
     }
     return obj;
 }
@@ -158,4 +158,4 @@ bool OAIEzmaxinvoicing_AutocompleteElement_Response::isValid() const {
     return m_yyyymm_ezmaxinvoicing_isValid && m_pki_ezmaxinvoicing_id_isValid && m_b_ezmaxinvoicing_isactive_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

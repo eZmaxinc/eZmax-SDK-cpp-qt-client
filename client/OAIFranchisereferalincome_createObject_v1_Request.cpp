@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIFranchisereferalincome_createObject_v1_Request::OAIFranchisereferalincome_createObject_v1_Request(QString json) {
     this->initializeModel();
@@ -50,10 +50,10 @@ void OAIFranchisereferalincome_createObject_v1_Request::fromJson(QString jsonStr
 
 void OAIFranchisereferalincome_createObject_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_obj_franchisereferalincome_isValid = ::OpenAPI::fromJsonValue(m_obj_franchisereferalincome, json[QString("objFranchisereferalincome")]);
+    m_obj_franchisereferalincome_isValid = ::Ezmaxapi::fromJsonValue(m_obj_franchisereferalincome, json[QString("objFranchisereferalincome")]);
     m_obj_franchisereferalincome_isSet = !json[QString("objFranchisereferalincome")].isNull() && m_obj_franchisereferalincome_isValid;
 
-    m_obj_franchisereferalincome_compound_isValid = ::OpenAPI::fromJsonValue(m_obj_franchisereferalincome_compound, json[QString("objFranchisereferalincomeCompound")]);
+    m_obj_franchisereferalincome_compound_isValid = ::Ezmaxapi::fromJsonValue(m_obj_franchisereferalincome_compound, json[QString("objFranchisereferalincomeCompound")]);
     m_obj_franchisereferalincome_compound_isSet = !json[QString("objFranchisereferalincomeCompound")].isNull() && m_obj_franchisereferalincome_compound_isValid;
 }
 
@@ -67,10 +67,10 @@ QString OAIFranchisereferalincome_createObject_v1_Request::asJson() const {
 QJsonObject OAIFranchisereferalincome_createObject_v1_Request::asJsonObject() const {
     QJsonObject obj;
     if (m_obj_franchisereferalincome.isSet()) {
-        obj.insert(QString("objFranchisereferalincome"), ::OpenAPI::toJsonValue(m_obj_franchisereferalincome));
+        obj.insert(QString("objFranchisereferalincome"), ::Ezmaxapi::toJsonValue(m_obj_franchisereferalincome));
     }
     if (m_obj_franchisereferalincome_compound.isSet()) {
-        obj.insert(QString("objFranchisereferalincomeCompound"), ::OpenAPI::toJsonValue(m_obj_franchisereferalincome_compound));
+        obj.insert(QString("objFranchisereferalincomeCompound"), ::Ezmaxapi::toJsonValue(m_obj_franchisereferalincome_compound));
     }
     return obj;
 }
@@ -128,4 +128,4 @@ bool OAIFranchisereferalincome_createObject_v1_Request::isValid() const {
     return true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

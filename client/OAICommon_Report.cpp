@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAICommon_Report::OAICommon_Report(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAICommon_Report::fromJson(QString jsonString) {
 
 void OAICommon_Report::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_reportsection_isValid = ::OpenAPI::fromJsonValue(m_a_obj_reportsection, json[QString("a_objReportsection")]);
+    m_a_obj_reportsection_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_reportsection, json[QString("a_objReportsection")]);
     m_a_obj_reportsection_isSet = !json[QString("a_objReportsection")].isNull() && m_a_obj_reportsection_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAICommon_Report::asJson() const {
 QJsonObject OAICommon_Report::asJsonObject() const {
     QJsonObject obj;
     if (m_a_obj_reportsection.size() > 0) {
-        obj.insert(QString("a_objReportsection"), ::OpenAPI::toJsonValue(m_a_obj_reportsection));
+        obj.insert(QString("a_objReportsection"), ::Ezmaxapi::toJsonValue(m_a_obj_reportsection));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAICommon_Report::isValid() const {
     return m_a_obj_reportsection_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

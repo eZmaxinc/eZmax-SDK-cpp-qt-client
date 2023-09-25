@@ -27,7 +27,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAICustom_Creditcardtransaction_Response : public OAIObject {
 public:
@@ -83,8 +83,8 @@ private:
     bool m_s_creditcardtransaction_referencenumber_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAICustom_Creditcardtransaction_Response)
+Q_DECLARE_METATYPE(Ezmaxapi::OAICustom_Creditcardtransaction_Response)
 
 #endif // OAICustom_Creditcardtransaction_Response_H

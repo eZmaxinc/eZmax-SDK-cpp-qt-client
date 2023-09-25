@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzsigntemplatesigner_createObject_v1_Request::OAIEzsigntemplatesigner_createObject_v1_Request(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAIEzsigntemplatesigner_createObject_v1_Request::fromJson(QString jsonStrin
 
 void OAIEzsigntemplatesigner_createObject_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_ezsigntemplatesigner_isValid = ::OpenAPI::fromJsonValue(m_a_obj_ezsigntemplatesigner, json[QString("a_objEzsigntemplatesigner")]);
+    m_a_obj_ezsigntemplatesigner_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_ezsigntemplatesigner, json[QString("a_objEzsigntemplatesigner")]);
     m_a_obj_ezsigntemplatesigner_isSet = !json[QString("a_objEzsigntemplatesigner")].isNull() && m_a_obj_ezsigntemplatesigner_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAIEzsigntemplatesigner_createObject_v1_Request::asJson() const {
 QJsonObject OAIEzsigntemplatesigner_createObject_v1_Request::asJsonObject() const {
     QJsonObject obj;
     if (m_a_obj_ezsigntemplatesigner.size() > 0) {
-        obj.insert(QString("a_objEzsigntemplatesigner"), ::OpenAPI::toJsonValue(m_a_obj_ezsigntemplatesigner));
+        obj.insert(QString("a_objEzsigntemplatesigner"), ::Ezmaxapi::toJsonValue(m_a_obj_ezsigntemplatesigner));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAIEzsigntemplatesigner_createObject_v1_Request::isValid() const {
     return m_a_obj_ezsigntemplatesigner_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

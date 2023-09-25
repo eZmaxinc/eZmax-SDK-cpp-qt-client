@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIUsergroup_AutocompleteElement_Response::OAIUsergroup_AutocompleteElement_Response(QString json) {
     this->initializeModel();
@@ -53,13 +53,13 @@ void OAIUsergroup_AutocompleteElement_Response::fromJson(QString jsonString) {
 
 void OAIUsergroup_AutocompleteElement_Response::fromJsonObject(QJsonObject json) {
 
-    m_s_usergroup_name_x_isValid = ::OpenAPI::fromJsonValue(m_s_usergroup_name_x, json[QString("sUsergroupNameX")]);
+    m_s_usergroup_name_x_isValid = ::Ezmaxapi::fromJsonValue(m_s_usergroup_name_x, json[QString("sUsergroupNameX")]);
     m_s_usergroup_name_x_isSet = !json[QString("sUsergroupNameX")].isNull() && m_s_usergroup_name_x_isValid;
 
-    m_pki_usergroup_id_isValid = ::OpenAPI::fromJsonValue(m_pki_usergroup_id, json[QString("pkiUsergroupID")]);
+    m_pki_usergroup_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_usergroup_id, json[QString("pkiUsergroupID")]);
     m_pki_usergroup_id_isSet = !json[QString("pkiUsergroupID")].isNull() && m_pki_usergroup_id_isValid;
 
-    m_b_usergroup_isactive_isValid = ::OpenAPI::fromJsonValue(m_b_usergroup_isactive, json[QString("bUsergroupIsactive")]);
+    m_b_usergroup_isactive_isValid = ::Ezmaxapi::fromJsonValue(m_b_usergroup_isactive, json[QString("bUsergroupIsactive")]);
     m_b_usergroup_isactive_isSet = !json[QString("bUsergroupIsactive")].isNull() && m_b_usergroup_isactive_isValid;
 }
 
@@ -73,13 +73,13 @@ QString OAIUsergroup_AutocompleteElement_Response::asJson() const {
 QJsonObject OAIUsergroup_AutocompleteElement_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_s_usergroup_name_x_isSet) {
-        obj.insert(QString("sUsergroupNameX"), ::OpenAPI::toJsonValue(m_s_usergroup_name_x));
+        obj.insert(QString("sUsergroupNameX"), ::Ezmaxapi::toJsonValue(m_s_usergroup_name_x));
     }
     if (m_pki_usergroup_id_isSet) {
-        obj.insert(QString("pkiUsergroupID"), ::OpenAPI::toJsonValue(m_pki_usergroup_id));
+        obj.insert(QString("pkiUsergroupID"), ::Ezmaxapi::toJsonValue(m_pki_usergroup_id));
     }
     if (m_b_usergroup_isactive_isSet) {
-        obj.insert(QString("bUsergroupIsactive"), ::OpenAPI::toJsonValue(m_b_usergroup_isactive));
+        obj.insert(QString("bUsergroupIsactive"), ::Ezmaxapi::toJsonValue(m_b_usergroup_isactive));
     }
     return obj;
 }
@@ -158,4 +158,4 @@ bool OAIUsergroup_AutocompleteElement_Response::isValid() const {
     return m_s_usergroup_name_x_isValid && m_pki_usergroup_id_isValid && m_b_usergroup_isactive_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

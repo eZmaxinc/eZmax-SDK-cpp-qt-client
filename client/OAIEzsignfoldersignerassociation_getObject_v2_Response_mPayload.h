@@ -26,7 +26,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 class OAIEzsignfoldersignerassociation_ResponseCompound;
 
 class OAIEzsignfoldersignerassociation_getObject_v2_Response_mPayload : public OAIObject {
@@ -56,8 +56,8 @@ private:
     bool m_obj_ezsignfoldersignerassociation_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIEzsignfoldersignerassociation_getObject_v2_Response_mPayload)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIEzsignfoldersignerassociation_getObject_v2_Response_mPayload)
 
 #endif // OAIEzsignfoldersignerassociation_getObject_v2_Response_mPayload_H

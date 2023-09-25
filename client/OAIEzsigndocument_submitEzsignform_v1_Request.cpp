@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzsigndocument_submitEzsignform_v1_Request::OAIEzsigndocument_submitEzsignform_v1_Request(QString json) {
     this->initializeModel();
@@ -50,10 +50,10 @@ void OAIEzsigndocument_submitEzsignform_v1_Request::fromJson(QString jsonString)
 
 void OAIEzsigndocument_submitEzsignform_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_b_ezsignform_isdraft_isValid = ::OpenAPI::fromJsonValue(m_b_ezsignform_isdraft, json[QString("bEzsignformIsdraft")]);
+    m_b_ezsignform_isdraft_isValid = ::Ezmaxapi::fromJsonValue(m_b_ezsignform_isdraft, json[QString("bEzsignformIsdraft")]);
     m_b_ezsignform_isdraft_isSet = !json[QString("bEzsignformIsdraft")].isNull() && m_b_ezsignform_isdraft_isValid;
 
-    m_a_obj_ezsignformfieldgroup_isValid = ::OpenAPI::fromJsonValue(m_a_obj_ezsignformfieldgroup, json[QString("a_objEzsignformfieldgroup")]);
+    m_a_obj_ezsignformfieldgroup_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_ezsignformfieldgroup, json[QString("a_objEzsignformfieldgroup")]);
     m_a_obj_ezsignformfieldgroup_isSet = !json[QString("a_objEzsignformfieldgroup")].isNull() && m_a_obj_ezsignformfieldgroup_isValid;
 }
 
@@ -67,10 +67,10 @@ QString OAIEzsigndocument_submitEzsignform_v1_Request::asJson() const {
 QJsonObject OAIEzsigndocument_submitEzsignform_v1_Request::asJsonObject() const {
     QJsonObject obj;
     if (m_b_ezsignform_isdraft_isSet) {
-        obj.insert(QString("bEzsignformIsdraft"), ::OpenAPI::toJsonValue(m_b_ezsignform_isdraft));
+        obj.insert(QString("bEzsignformIsdraft"), ::Ezmaxapi::toJsonValue(m_b_ezsignform_isdraft));
     }
     if (m_a_obj_ezsignformfieldgroup.size() > 0) {
-        obj.insert(QString("a_objEzsignformfieldgroup"), ::OpenAPI::toJsonValue(m_a_obj_ezsignformfieldgroup));
+        obj.insert(QString("a_objEzsignformfieldgroup"), ::Ezmaxapi::toJsonValue(m_a_obj_ezsignformfieldgroup));
     }
     return obj;
 }
@@ -128,4 +128,4 @@ bool OAIEzsigndocument_submitEzsignform_v1_Request::isValid() const {
     return m_b_ezsignform_isdraft_isValid && m_a_obj_ezsignformfieldgroup_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

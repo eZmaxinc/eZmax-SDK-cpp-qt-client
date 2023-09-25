@@ -27,7 +27,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAICommon_Response_Error_sTemporaryFileUrl : public OAIObject {
 public:
@@ -74,8 +74,8 @@ private:
     bool m_s_temporary_file_url_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAICommon_Response_Error_sTemporaryFileUrl)
+Q_DECLARE_METATYPE(Ezmaxapi::OAICommon_Response_Error_sTemporaryFileUrl)
 
 #endif // OAICommon_Response_Error_sTemporaryFileUrl_H

@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAICommon_Audit::OAICommon_Audit(QString json) {
     this->initializeModel();
@@ -50,10 +50,10 @@ void OAICommon_Audit::fromJson(QString jsonString) {
 
 void OAICommon_Audit::fromJsonObject(QJsonObject json) {
 
-    m_obj_auditdetail_created_isValid = ::OpenAPI::fromJsonValue(m_obj_auditdetail_created, json[QString("objAuditdetailCreated")]);
+    m_obj_auditdetail_created_isValid = ::Ezmaxapi::fromJsonValue(m_obj_auditdetail_created, json[QString("objAuditdetailCreated")]);
     m_obj_auditdetail_created_isSet = !json[QString("objAuditdetailCreated")].isNull() && m_obj_auditdetail_created_isValid;
 
-    m_obj_auditdetail_modified_isValid = ::OpenAPI::fromJsonValue(m_obj_auditdetail_modified, json[QString("objAuditdetailModified")]);
+    m_obj_auditdetail_modified_isValid = ::Ezmaxapi::fromJsonValue(m_obj_auditdetail_modified, json[QString("objAuditdetailModified")]);
     m_obj_auditdetail_modified_isSet = !json[QString("objAuditdetailModified")].isNull() && m_obj_auditdetail_modified_isValid;
 }
 
@@ -67,10 +67,10 @@ QString OAICommon_Audit::asJson() const {
 QJsonObject OAICommon_Audit::asJsonObject() const {
     QJsonObject obj;
     if (m_obj_auditdetail_created.isSet()) {
-        obj.insert(QString("objAuditdetailCreated"), ::OpenAPI::toJsonValue(m_obj_auditdetail_created));
+        obj.insert(QString("objAuditdetailCreated"), ::Ezmaxapi::toJsonValue(m_obj_auditdetail_created));
     }
     if (m_obj_auditdetail_modified.isSet()) {
-        obj.insert(QString("objAuditdetailModified"), ::OpenAPI::toJsonValue(m_obj_auditdetail_modified));
+        obj.insert(QString("objAuditdetailModified"), ::Ezmaxapi::toJsonValue(m_obj_auditdetail_modified));
     }
     return obj;
 }
@@ -128,4 +128,4 @@ bool OAICommon_Audit::isValid() const {
     return m_obj_auditdetail_created_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

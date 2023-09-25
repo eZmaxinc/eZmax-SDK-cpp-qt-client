@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIActivesession_Response::OAIActivesession_Response(QString json) {
     this->initializeModel();
@@ -77,37 +77,37 @@ void OAIActivesession_Response::fromJson(QString jsonString) {
 
 void OAIActivesession_Response::fromJsonObject(QJsonObject json) {
 
-    m_e_activesession_usertype_isValid = ::OpenAPI::fromJsonValue(m_e_activesession_usertype, json[QString("eActivesessionUsertype")]);
+    m_e_activesession_usertype_isValid = ::Ezmaxapi::fromJsonValue(m_e_activesession_usertype, json[QString("eActivesessionUsertype")]);
     m_e_activesession_usertype_isSet = !json[QString("eActivesessionUsertype")].isNull() && m_e_activesession_usertype_isValid;
 
-    m_e_activesession_origin_isValid = ::OpenAPI::fromJsonValue(m_e_activesession_origin, json[QString("eActivesessionOrigin")]);
+    m_e_activesession_origin_isValid = ::Ezmaxapi::fromJsonValue(m_e_activesession_origin, json[QString("eActivesessionOrigin")]);
     m_e_activesession_origin_isSet = !json[QString("eActivesessionOrigin")].isNull() && m_e_activesession_origin_isValid;
 
-    m_e_activesession_weekdaystart_isValid = ::OpenAPI::fromJsonValue(m_e_activesession_weekdaystart, json[QString("eActivesessionWeekdaystart")]);
+    m_e_activesession_weekdaystart_isValid = ::Ezmaxapi::fromJsonValue(m_e_activesession_weekdaystart, json[QString("eActivesessionWeekdaystart")]);
     m_e_activesession_weekdaystart_isSet = !json[QString("eActivesessionWeekdaystart")].isNull() && m_e_activesession_weekdaystart_isValid;
 
-    m_fki_language_id_isValid = ::OpenAPI::fromJsonValue(m_fki_language_id, json[QString("fkiLanguageID")]);
+    m_fki_language_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_language_id, json[QString("fkiLanguageID")]);
     m_fki_language_id_isSet = !json[QString("fkiLanguageID")].isNull() && m_fki_language_id_isValid;
 
-    m_s_company_name_x_isValid = ::OpenAPI::fromJsonValue(m_s_company_name_x, json[QString("sCompanyNameX")]);
+    m_s_company_name_x_isValid = ::Ezmaxapi::fromJsonValue(m_s_company_name_x, json[QString("sCompanyNameX")]);
     m_s_company_name_x_isSet = !json[QString("sCompanyNameX")].isNull() && m_s_company_name_x_isValid;
 
-    m_s_department_name_x_isValid = ::OpenAPI::fromJsonValue(m_s_department_name_x, json[QString("sDepartmentNameX")]);
+    m_s_department_name_x_isValid = ::Ezmaxapi::fromJsonValue(m_s_department_name_x, json[QString("sDepartmentNameX")]);
     m_s_department_name_x_isSet = !json[QString("sDepartmentNameX")].isNull() && m_s_department_name_x_isValid;
 
-    m_b_activesession_debug_isValid = ::OpenAPI::fromJsonValue(m_b_activesession_debug, json[QString("bActivesessionDebug")]);
+    m_b_activesession_debug_isValid = ::Ezmaxapi::fromJsonValue(m_b_activesession_debug, json[QString("bActivesessionDebug")]);
     m_b_activesession_debug_isSet = !json[QString("bActivesessionDebug")].isNull() && m_b_activesession_debug_isValid;
 
-    m_b_activesession_issuperadmin_isValid = ::OpenAPI::fromJsonValue(m_b_activesession_issuperadmin, json[QString("bActivesessionIssuperadmin")]);
+    m_b_activesession_issuperadmin_isValid = ::Ezmaxapi::fromJsonValue(m_b_activesession_issuperadmin, json[QString("bActivesessionIssuperadmin")]);
     m_b_activesession_issuperadmin_isSet = !json[QString("bActivesessionIssuperadmin")].isNull() && m_b_activesession_issuperadmin_isValid;
 
-    m_pks_customer_code_isValid = ::OpenAPI::fromJsonValue(m_pks_customer_code, json[QString("pksCustomerCode")]);
+    m_pks_customer_code_isValid = ::Ezmaxapi::fromJsonValue(m_pks_customer_code, json[QString("pksCustomerCode")]);
     m_pks_customer_code_isSet = !json[QString("pksCustomerCode")].isNull() && m_pks_customer_code_isValid;
 
-    m_fki_systemconfigurationtype_id_isValid = ::OpenAPI::fromJsonValue(m_fki_systemconfigurationtype_id, json[QString("fkiSystemconfigurationtypeID")]);
+    m_fki_systemconfigurationtype_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_systemconfigurationtype_id, json[QString("fkiSystemconfigurationtypeID")]);
     m_fki_systemconfigurationtype_id_isSet = !json[QString("fkiSystemconfigurationtypeID")].isNull() && m_fki_systemconfigurationtype_id_isValid;
 
-    m_fki_signature_id_isValid = ::OpenAPI::fromJsonValue(m_fki_signature_id, json[QString("fkiSignatureID")]);
+    m_fki_signature_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_signature_id, json[QString("fkiSignatureID")]);
     m_fki_signature_id_isSet = !json[QString("fkiSignatureID")].isNull() && m_fki_signature_id_isValid;
 }
 
@@ -121,37 +121,37 @@ QString OAIActivesession_Response::asJson() const {
 QJsonObject OAIActivesession_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_e_activesession_usertype.isSet()) {
-        obj.insert(QString("eActivesessionUsertype"), ::OpenAPI::toJsonValue(m_e_activesession_usertype));
+        obj.insert(QString("eActivesessionUsertype"), ::Ezmaxapi::toJsonValue(m_e_activesession_usertype));
     }
     if (m_e_activesession_origin.isSet()) {
-        obj.insert(QString("eActivesessionOrigin"), ::OpenAPI::toJsonValue(m_e_activesession_origin));
+        obj.insert(QString("eActivesessionOrigin"), ::Ezmaxapi::toJsonValue(m_e_activesession_origin));
     }
     if (m_e_activesession_weekdaystart.isSet()) {
-        obj.insert(QString("eActivesessionWeekdaystart"), ::OpenAPI::toJsonValue(m_e_activesession_weekdaystart));
+        obj.insert(QString("eActivesessionWeekdaystart"), ::Ezmaxapi::toJsonValue(m_e_activesession_weekdaystart));
     }
     if (m_fki_language_id_isSet) {
-        obj.insert(QString("fkiLanguageID"), ::OpenAPI::toJsonValue(m_fki_language_id));
+        obj.insert(QString("fkiLanguageID"), ::Ezmaxapi::toJsonValue(m_fki_language_id));
     }
     if (m_s_company_name_x_isSet) {
-        obj.insert(QString("sCompanyNameX"), ::OpenAPI::toJsonValue(m_s_company_name_x));
+        obj.insert(QString("sCompanyNameX"), ::Ezmaxapi::toJsonValue(m_s_company_name_x));
     }
     if (m_s_department_name_x_isSet) {
-        obj.insert(QString("sDepartmentNameX"), ::OpenAPI::toJsonValue(m_s_department_name_x));
+        obj.insert(QString("sDepartmentNameX"), ::Ezmaxapi::toJsonValue(m_s_department_name_x));
     }
     if (m_b_activesession_debug_isSet) {
-        obj.insert(QString("bActivesessionDebug"), ::OpenAPI::toJsonValue(m_b_activesession_debug));
+        obj.insert(QString("bActivesessionDebug"), ::Ezmaxapi::toJsonValue(m_b_activesession_debug));
     }
     if (m_b_activesession_issuperadmin_isSet) {
-        obj.insert(QString("bActivesessionIssuperadmin"), ::OpenAPI::toJsonValue(m_b_activesession_issuperadmin));
+        obj.insert(QString("bActivesessionIssuperadmin"), ::Ezmaxapi::toJsonValue(m_b_activesession_issuperadmin));
     }
     if (m_pks_customer_code_isSet) {
-        obj.insert(QString("pksCustomerCode"), ::OpenAPI::toJsonValue(m_pks_customer_code));
+        obj.insert(QString("pksCustomerCode"), ::Ezmaxapi::toJsonValue(m_pks_customer_code));
     }
     if (m_fki_systemconfigurationtype_id_isSet) {
-        obj.insert(QString("fkiSystemconfigurationtypeID"), ::OpenAPI::toJsonValue(m_fki_systemconfigurationtype_id));
+        obj.insert(QString("fkiSystemconfigurationtypeID"), ::Ezmaxapi::toJsonValue(m_fki_systemconfigurationtype_id));
     }
     if (m_fki_signature_id_isSet) {
-        obj.insert(QString("fkiSignatureID"), ::OpenAPI::toJsonValue(m_fki_signature_id));
+        obj.insert(QString("fkiSignatureID"), ::Ezmaxapi::toJsonValue(m_fki_signature_id));
     }
     return obj;
 }
@@ -398,4 +398,4 @@ bool OAIActivesession_Response::isValid() const {
     return m_e_activesession_usertype_isValid && m_e_activesession_origin_isValid && m_e_activesession_weekdaystart_isValid && m_fki_language_id_isValid && m_s_company_name_x_isValid && m_s_department_name_x_isValid && m_b_activesession_debug_isValid && m_b_activesession_issuperadmin_isValid && m_pks_customer_code_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

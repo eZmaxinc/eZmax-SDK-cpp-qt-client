@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIApikey_editObject_v1_Request::OAIApikey_editObject_v1_Request(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAIApikey_editObject_v1_Request::fromJson(QString jsonString) {
 
 void OAIApikey_editObject_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_obj_apikey_isValid = ::OpenAPI::fromJsonValue(m_obj_apikey, json[QString("objApikey")]);
+    m_obj_apikey_isValid = ::Ezmaxapi::fromJsonValue(m_obj_apikey, json[QString("objApikey")]);
     m_obj_apikey_isSet = !json[QString("objApikey")].isNull() && m_obj_apikey_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAIApikey_editObject_v1_Request::asJson() const {
 QJsonObject OAIApikey_editObject_v1_Request::asJsonObject() const {
     QJsonObject obj;
     if (m_obj_apikey.isSet()) {
-        obj.insert(QString("objApikey"), ::OpenAPI::toJsonValue(m_obj_apikey));
+        obj.insert(QString("objApikey"), ::Ezmaxapi::toJsonValue(m_obj_apikey));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAIApikey_editObject_v1_Request::isValid() const {
     return m_obj_apikey_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

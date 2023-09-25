@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAITaxassignment_getAutocomplete_v2_Response_mPayload::OAITaxassignment_getAutocomplete_v2_Response_mPayload(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAITaxassignment_getAutocomplete_v2_Response_mPayload::fromJson(QString jso
 
 void OAITaxassignment_getAutocomplete_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_taxassignment_isValid = ::OpenAPI::fromJsonValue(m_a_obj_taxassignment, json[QString("a_objTaxassignment")]);
+    m_a_obj_taxassignment_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_taxassignment, json[QString("a_objTaxassignment")]);
     m_a_obj_taxassignment_isSet = !json[QString("a_objTaxassignment")].isNull() && m_a_obj_taxassignment_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAITaxassignment_getAutocomplete_v2_Response_mPayload::asJson() const {
 QJsonObject OAITaxassignment_getAutocomplete_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_a_obj_taxassignment.size() > 0) {
-        obj.insert(QString("a_objTaxassignment"), ::OpenAPI::toJsonValue(m_a_obj_taxassignment));
+        obj.insert(QString("a_objTaxassignment"), ::Ezmaxapi::toJsonValue(m_a_obj_taxassignment));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAITaxassignment_getAutocomplete_v2_Response_mPayload::isValid() const {
     return m_a_obj_taxassignment_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

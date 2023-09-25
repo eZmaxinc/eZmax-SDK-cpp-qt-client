@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIField_eEzsigntemplatesignatureTooltipposition::OAIField_eEzsigntemplatesignatureTooltipposition(QString json) {
     this->initializeModel();
@@ -137,4 +137,4 @@ bool OAIField_eEzsigntemplatesignatureTooltipposition::isValid() const {
     return m_value_isValid;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

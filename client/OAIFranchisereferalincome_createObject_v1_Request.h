@@ -27,7 +27,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 class OAIFranchisereferalincome_Request;
 class OAIFranchisereferalincome_RequestCompound;
 
@@ -67,8 +67,8 @@ private:
     bool m_obj_franchisereferalincome_compound_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIFranchisereferalincome_createObject_v1_Request)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIFranchisereferalincome_createObject_v1_Request)
 
 #endif // OAIFranchisereferalincome_createObject_v1_Request_H

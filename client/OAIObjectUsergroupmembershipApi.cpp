@@ -15,7 +15,7 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIObjectUsergroupmembershipApi::OAIObjectUsergroupmembershipApi(const int timeOut)
     : _timeOut(timeOut),
@@ -319,7 +319,7 @@ void OAIObjectUsergroupmembershipApi::usergroupmembershipDeleteObjectV1(const qi
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiUsergroupmembershipID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiUsergroupmembershipID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_usergroupmembership_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_usergroupmembership_id)));
+        fullPath.replace(pki_usergroupmembership_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_usergroupmembership_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -386,7 +386,7 @@ void OAIObjectUsergroupmembershipApi::usergroupmembershipEditObjectV1(const qint
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiUsergroupmembershipID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiUsergroupmembershipID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_usergroupmembership_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_usergroupmembership_id)));
+        fullPath.replace(pki_usergroupmembership_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_usergroupmembership_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -458,7 +458,7 @@ void OAIObjectUsergroupmembershipApi::usergroupmembershipGetObjectV2(const qint3
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiUsergroupmembershipID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiUsergroupmembershipID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_usergroupmembership_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_usergroupmembership_id)));
+        fullPath.replace(pki_usergroupmembership_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_usergroupmembership_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -555,4 +555,4 @@ void OAIObjectUsergroupmembershipApi::tokenAvailable(){
         break;
     }
 }
-} // namespace OpenAPI
+} // namespace Ezmaxapi

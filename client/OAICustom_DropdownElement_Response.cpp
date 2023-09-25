@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAICustom_DropdownElement_Response::OAICustom_DropdownElement_Response(QString json) {
     this->initializeModel();
@@ -50,10 +50,10 @@ void OAICustom_DropdownElement_Response::fromJson(QString jsonString) {
 
 void OAICustom_DropdownElement_Response::fromJsonObject(QJsonObject json) {
 
-    m_s_label_isValid = ::OpenAPI::fromJsonValue(m_s_label, json[QString("sLabel")]);
+    m_s_label_isValid = ::Ezmaxapi::fromJsonValue(m_s_label, json[QString("sLabel")]);
     m_s_label_isSet = !json[QString("sLabel")].isNull() && m_s_label_isValid;
 
-    m_s_value_isValid = ::OpenAPI::fromJsonValue(m_s_value, json[QString("sValue")]);
+    m_s_value_isValid = ::Ezmaxapi::fromJsonValue(m_s_value, json[QString("sValue")]);
     m_s_value_isSet = !json[QString("sValue")].isNull() && m_s_value_isValid;
 }
 
@@ -67,10 +67,10 @@ QString OAICustom_DropdownElement_Response::asJson() const {
 QJsonObject OAICustom_DropdownElement_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_s_label_isSet) {
-        obj.insert(QString("sLabel"), ::OpenAPI::toJsonValue(m_s_label));
+        obj.insert(QString("sLabel"), ::Ezmaxapi::toJsonValue(m_s_label));
     }
     if (m_s_value_isSet) {
-        obj.insert(QString("sValue"), ::OpenAPI::toJsonValue(m_s_value));
+        obj.insert(QString("sValue"), ::Ezmaxapi::toJsonValue(m_s_value));
     }
     return obj;
 }
@@ -128,4 +128,4 @@ bool OAICustom_DropdownElement_Response::isValid() const {
     return m_s_label_isValid && m_s_value_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

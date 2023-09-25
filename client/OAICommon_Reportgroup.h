@@ -28,7 +28,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 class OAICommon_Report;
 class OAICommon_Reportcellstyle;
 
@@ -68,8 +68,8 @@ private:
     bool m_a_obj_reportcellstyle_custom_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAICommon_Reportgroup)
+Q_DECLARE_METATYPE(Ezmaxapi::OAICommon_Reportgroup)
 
 #endif // OAICommon_Reportgroup_H

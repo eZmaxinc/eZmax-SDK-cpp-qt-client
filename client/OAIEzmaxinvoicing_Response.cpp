@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzmaxinvoicing_Response::OAIEzmaxinvoicing_Response(QString json) {
     this->initializeModel();
@@ -83,43 +83,43 @@ void OAIEzmaxinvoicing_Response::fromJson(QString jsonString) {
 
 void OAIEzmaxinvoicing_Response::fromJsonObject(QJsonObject json) {
 
-    m_pki_ezmaxinvoicing_id_isValid = ::OpenAPI::fromJsonValue(m_pki_ezmaxinvoicing_id, json[QString("pkiEzmaxinvoicingID")]);
+    m_pki_ezmaxinvoicing_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_ezmaxinvoicing_id, json[QString("pkiEzmaxinvoicingID")]);
     m_pki_ezmaxinvoicing_id_isSet = !json[QString("pkiEzmaxinvoicingID")].isNull() && m_pki_ezmaxinvoicing_id_isValid;
 
-    m_fki_ezmaxinvoicingcontract_id_isValid = ::OpenAPI::fromJsonValue(m_fki_ezmaxinvoicingcontract_id, json[QString("fkiEzmaxinvoicingcontractID")]);
+    m_fki_ezmaxinvoicingcontract_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_ezmaxinvoicingcontract_id, json[QString("fkiEzmaxinvoicingcontractID")]);
     m_fki_ezmaxinvoicingcontract_id_isSet = !json[QString("fkiEzmaxinvoicingcontractID")].isNull() && m_fki_ezmaxinvoicingcontract_id_isValid;
 
-    m_fki_ezmaxpricing_id_isValid = ::OpenAPI::fromJsonValue(m_fki_ezmaxpricing_id, json[QString("fkiEzmaxpricingID")]);
+    m_fki_ezmaxpricing_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_ezmaxpricing_id, json[QString("fkiEzmaxpricingID")]);
     m_fki_ezmaxpricing_id_isSet = !json[QString("fkiEzmaxpricingID")].isNull() && m_fki_ezmaxpricing_id_isValid;
 
-    m_fki_systemconfigurationtype_id_isValid = ::OpenAPI::fromJsonValue(m_fki_systemconfigurationtype_id, json[QString("fkiSystemconfigurationtypeID")]);
+    m_fki_systemconfigurationtype_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_systemconfigurationtype_id, json[QString("fkiSystemconfigurationtypeID")]);
     m_fki_systemconfigurationtype_id_isSet = !json[QString("fkiSystemconfigurationtypeID")].isNull() && m_fki_systemconfigurationtype_id_isValid;
 
-    m_s_systemconfigurationtype_description_x_isValid = ::OpenAPI::fromJsonValue(m_s_systemconfigurationtype_description_x, json[QString("sSystemconfigurationtypeDescriptionX")]);
+    m_s_systemconfigurationtype_description_x_isValid = ::Ezmaxapi::fromJsonValue(m_s_systemconfigurationtype_description_x, json[QString("sSystemconfigurationtypeDescriptionX")]);
     m_s_systemconfigurationtype_description_x_isSet = !json[QString("sSystemconfigurationtypeDescriptionX")].isNull() && m_s_systemconfigurationtype_description_x_isValid;
 
-    m_yyyymm_ezmaxinvoicing_isValid = ::OpenAPI::fromJsonValue(m_yyyymm_ezmaxinvoicing, json[QString("yyyymmEzmaxinvoicing")]);
+    m_yyyymm_ezmaxinvoicing_isValid = ::Ezmaxapi::fromJsonValue(m_yyyymm_ezmaxinvoicing, json[QString("yyyymmEzmaxinvoicing")]);
     m_yyyymm_ezmaxinvoicing_isSet = !json[QString("yyyymmEzmaxinvoicing")].isNull() && m_yyyymm_ezmaxinvoicing_isValid;
 
-    m_i_ezmaxinvoicing_days_isValid = ::OpenAPI::fromJsonValue(m_i_ezmaxinvoicing_days, json[QString("iEzmaxinvoicingDays")]);
+    m_i_ezmaxinvoicing_days_isValid = ::Ezmaxapi::fromJsonValue(m_i_ezmaxinvoicing_days, json[QString("iEzmaxinvoicingDays")]);
     m_i_ezmaxinvoicing_days_isSet = !json[QString("iEzmaxinvoicingDays")].isNull() && m_i_ezmaxinvoicing_days_isValid;
 
-    m_e_ezmaxinvoicing_paymenttype_isValid = ::OpenAPI::fromJsonValue(m_e_ezmaxinvoicing_paymenttype, json[QString("eEzmaxinvoicingPaymenttype")]);
+    m_e_ezmaxinvoicing_paymenttype_isValid = ::Ezmaxapi::fromJsonValue(m_e_ezmaxinvoicing_paymenttype, json[QString("eEzmaxinvoicingPaymenttype")]);
     m_e_ezmaxinvoicing_paymenttype_isSet = !json[QString("eEzmaxinvoicingPaymenttype")].isNull() && m_e_ezmaxinvoicing_paymenttype_isValid;
 
-    m_d_ezmaxinvoicing_rebatepaymenttype_isValid = ::OpenAPI::fromJsonValue(m_d_ezmaxinvoicing_rebatepaymenttype, json[QString("dEzmaxinvoicingRebatepaymenttype")]);
+    m_d_ezmaxinvoicing_rebatepaymenttype_isValid = ::Ezmaxapi::fromJsonValue(m_d_ezmaxinvoicing_rebatepaymenttype, json[QString("dEzmaxinvoicingRebatepaymenttype")]);
     m_d_ezmaxinvoicing_rebatepaymenttype_isSet = !json[QString("dEzmaxinvoicingRebatepaymenttype")].isNull() && m_d_ezmaxinvoicing_rebatepaymenttype_isValid;
 
-    m_i_ezmaxinvoicing_contractlength_isValid = ::OpenAPI::fromJsonValue(m_i_ezmaxinvoicing_contractlength, json[QString("iEzmaxinvoicingContractlength")]);
+    m_i_ezmaxinvoicing_contractlength_isValid = ::Ezmaxapi::fromJsonValue(m_i_ezmaxinvoicing_contractlength, json[QString("iEzmaxinvoicingContractlength")]);
     m_i_ezmaxinvoicing_contractlength_isSet = !json[QString("iEzmaxinvoicingContractlength")].isNull() && m_i_ezmaxinvoicing_contractlength_isValid;
 
-    m_d_ezmaxinvoicing_rebatecontractlength_isValid = ::OpenAPI::fromJsonValue(m_d_ezmaxinvoicing_rebatecontractlength, json[QString("dEzmaxinvoicingRebatecontractlength")]);
+    m_d_ezmaxinvoicing_rebatecontractlength_isValid = ::Ezmaxapi::fromJsonValue(m_d_ezmaxinvoicing_rebatecontractlength, json[QString("dEzmaxinvoicingRebatecontractlength")]);
     m_d_ezmaxinvoicing_rebatecontractlength_isSet = !json[QString("dEzmaxinvoicingRebatecontractlength")].isNull() && m_d_ezmaxinvoicing_rebatecontractlength_isValid;
 
-    m_b_ezmaxinvoicing_rebate_ezsignallagents_isValid = ::OpenAPI::fromJsonValue(m_b_ezmaxinvoicing_rebate_ezsignallagents, json[QString("bEzmaxinvoicingRebateEzsignallagents")]);
+    m_b_ezmaxinvoicing_rebate_ezsignallagents_isValid = ::Ezmaxapi::fromJsonValue(m_b_ezmaxinvoicing_rebate_ezsignallagents, json[QString("bEzmaxinvoicingRebateEzsignallagents")]);
     m_b_ezmaxinvoicing_rebate_ezsignallagents_isSet = !json[QString("bEzmaxinvoicingRebateEzsignallagents")].isNull() && m_b_ezmaxinvoicing_rebate_ezsignallagents_isValid;
 
-    m_obj_audit_isValid = ::OpenAPI::fromJsonValue(m_obj_audit, json[QString("objAudit")]);
+    m_obj_audit_isValid = ::Ezmaxapi::fromJsonValue(m_obj_audit, json[QString("objAudit")]);
     m_obj_audit_isSet = !json[QString("objAudit")].isNull() && m_obj_audit_isValid;
 }
 
@@ -133,43 +133,43 @@ QString OAIEzmaxinvoicing_Response::asJson() const {
 QJsonObject OAIEzmaxinvoicing_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_ezmaxinvoicing_id_isSet) {
-        obj.insert(QString("pkiEzmaxinvoicingID"), ::OpenAPI::toJsonValue(m_pki_ezmaxinvoicing_id));
+        obj.insert(QString("pkiEzmaxinvoicingID"), ::Ezmaxapi::toJsonValue(m_pki_ezmaxinvoicing_id));
     }
     if (m_fki_ezmaxinvoicingcontract_id_isSet) {
-        obj.insert(QString("fkiEzmaxinvoicingcontractID"), ::OpenAPI::toJsonValue(m_fki_ezmaxinvoicingcontract_id));
+        obj.insert(QString("fkiEzmaxinvoicingcontractID"), ::Ezmaxapi::toJsonValue(m_fki_ezmaxinvoicingcontract_id));
     }
     if (m_fki_ezmaxpricing_id_isSet) {
-        obj.insert(QString("fkiEzmaxpricingID"), ::OpenAPI::toJsonValue(m_fki_ezmaxpricing_id));
+        obj.insert(QString("fkiEzmaxpricingID"), ::Ezmaxapi::toJsonValue(m_fki_ezmaxpricing_id));
     }
     if (m_fki_systemconfigurationtype_id_isSet) {
-        obj.insert(QString("fkiSystemconfigurationtypeID"), ::OpenAPI::toJsonValue(m_fki_systemconfigurationtype_id));
+        obj.insert(QString("fkiSystemconfigurationtypeID"), ::Ezmaxapi::toJsonValue(m_fki_systemconfigurationtype_id));
     }
     if (m_s_systemconfigurationtype_description_x_isSet) {
-        obj.insert(QString("sSystemconfigurationtypeDescriptionX"), ::OpenAPI::toJsonValue(m_s_systemconfigurationtype_description_x));
+        obj.insert(QString("sSystemconfigurationtypeDescriptionX"), ::Ezmaxapi::toJsonValue(m_s_systemconfigurationtype_description_x));
     }
     if (m_yyyymm_ezmaxinvoicing_isSet) {
-        obj.insert(QString("yyyymmEzmaxinvoicing"), ::OpenAPI::toJsonValue(m_yyyymm_ezmaxinvoicing));
+        obj.insert(QString("yyyymmEzmaxinvoicing"), ::Ezmaxapi::toJsonValue(m_yyyymm_ezmaxinvoicing));
     }
     if (m_i_ezmaxinvoicing_days_isSet) {
-        obj.insert(QString("iEzmaxinvoicingDays"), ::OpenAPI::toJsonValue(m_i_ezmaxinvoicing_days));
+        obj.insert(QString("iEzmaxinvoicingDays"), ::Ezmaxapi::toJsonValue(m_i_ezmaxinvoicing_days));
     }
     if (m_e_ezmaxinvoicing_paymenttype.isSet()) {
-        obj.insert(QString("eEzmaxinvoicingPaymenttype"), ::OpenAPI::toJsonValue(m_e_ezmaxinvoicing_paymenttype));
+        obj.insert(QString("eEzmaxinvoicingPaymenttype"), ::Ezmaxapi::toJsonValue(m_e_ezmaxinvoicing_paymenttype));
     }
     if (m_d_ezmaxinvoicing_rebatepaymenttype_isSet) {
-        obj.insert(QString("dEzmaxinvoicingRebatepaymenttype"), ::OpenAPI::toJsonValue(m_d_ezmaxinvoicing_rebatepaymenttype));
+        obj.insert(QString("dEzmaxinvoicingRebatepaymenttype"), ::Ezmaxapi::toJsonValue(m_d_ezmaxinvoicing_rebatepaymenttype));
     }
     if (m_i_ezmaxinvoicing_contractlength_isSet) {
-        obj.insert(QString("iEzmaxinvoicingContractlength"), ::OpenAPI::toJsonValue(m_i_ezmaxinvoicing_contractlength));
+        obj.insert(QString("iEzmaxinvoicingContractlength"), ::Ezmaxapi::toJsonValue(m_i_ezmaxinvoicing_contractlength));
     }
     if (m_d_ezmaxinvoicing_rebatecontractlength_isSet) {
-        obj.insert(QString("dEzmaxinvoicingRebatecontractlength"), ::OpenAPI::toJsonValue(m_d_ezmaxinvoicing_rebatecontractlength));
+        obj.insert(QString("dEzmaxinvoicingRebatecontractlength"), ::Ezmaxapi::toJsonValue(m_d_ezmaxinvoicing_rebatecontractlength));
     }
     if (m_b_ezmaxinvoicing_rebate_ezsignallagents_isSet) {
-        obj.insert(QString("bEzmaxinvoicingRebateEzsignallagents"), ::OpenAPI::toJsonValue(m_b_ezmaxinvoicing_rebate_ezsignallagents));
+        obj.insert(QString("bEzmaxinvoicingRebateEzsignallagents"), ::Ezmaxapi::toJsonValue(m_b_ezmaxinvoicing_rebate_ezsignallagents));
     }
     if (m_obj_audit.isSet()) {
-        obj.insert(QString("objAudit"), ::OpenAPI::toJsonValue(m_obj_audit));
+        obj.insert(QString("objAudit"), ::Ezmaxapi::toJsonValue(m_obj_audit));
     }
     return obj;
 }
@@ -458,4 +458,4 @@ bool OAIEzmaxinvoicing_Response::isValid() const {
     return m_fki_ezmaxinvoicingcontract_id_isValid && m_fki_ezmaxpricing_id_isValid && m_fki_systemconfigurationtype_id_isValid && m_s_systemconfigurationtype_description_x_isValid && m_yyyymm_ezmaxinvoicing_isValid && m_i_ezmaxinvoicing_days_isValid && m_e_ezmaxinvoicing_paymenttype_isValid && m_d_ezmaxinvoicing_rebatepaymenttype_isValid && m_i_ezmaxinvoicing_contractlength_isValid && m_d_ezmaxinvoicing_rebatecontractlength_isValid && m_b_ezmaxinvoicing_rebate_ezsignallagents_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

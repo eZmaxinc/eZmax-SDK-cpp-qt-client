@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIGlobal_ezmaxcustomer_getConfiguration_v1_Response::OAIGlobal_ezmaxcustomer_getConfiguration_v1_Response(QString json) {
     this->initializeModel();
@@ -59,19 +59,19 @@ void OAIGlobal_ezmaxcustomer_getConfiguration_v1_Response::fromJson(QString json
 
 void OAIGlobal_ezmaxcustomer_getConfiguration_v1_Response::fromJsonObject(QJsonObject json) {
 
-    m_s_infrastructureregion_code_isValid = ::OpenAPI::fromJsonValue(m_s_infrastructureregion_code, json[QString("sInfrastructureregionCode")]);
+    m_s_infrastructureregion_code_isValid = ::Ezmaxapi::fromJsonValue(m_s_infrastructureregion_code, json[QString("sInfrastructureregionCode")]);
     m_s_infrastructureregion_code_isSet = !json[QString("sInfrastructureregionCode")].isNull() && m_s_infrastructureregion_code_isValid;
 
-    m_s_infrastructureregion_code_web_isValid = ::OpenAPI::fromJsonValue(m_s_infrastructureregion_code_web, json[QString("sInfrastructureregionCodeWeb")]);
+    m_s_infrastructureregion_code_web_isValid = ::Ezmaxapi::fromJsonValue(m_s_infrastructureregion_code_web, json[QString("sInfrastructureregionCodeWeb")]);
     m_s_infrastructureregion_code_web_isSet = !json[QString("sInfrastructureregionCodeWeb")].isNull() && m_s_infrastructureregion_code_web_isValid;
 
-    m_s_infrastructureenvironmenttype_description_isValid = ::OpenAPI::fromJsonValue(m_s_infrastructureenvironmenttype_description, json[QString("sInfrastructureenvironmenttypeDescription")]);
+    m_s_infrastructureenvironmenttype_description_isValid = ::Ezmaxapi::fromJsonValue(m_s_infrastructureenvironmenttype_description, json[QString("sInfrastructureenvironmenttypeDescription")]);
     m_s_infrastructureenvironmenttype_description_isSet = !json[QString("sInfrastructureenvironmenttypeDescription")].isNull() && m_s_infrastructureenvironmenttype_description_isValid;
 
-    m_s_cognito_client_id_external_isValid = ::OpenAPI::fromJsonValue(m_s_cognito_client_id_external, json[QString("sCognitoClientIDExternal")]);
+    m_s_cognito_client_id_external_isValid = ::Ezmaxapi::fromJsonValue(m_s_cognito_client_id_external, json[QString("sCognitoClientIDExternal")]);
     m_s_cognito_client_id_external_isSet = !json[QString("sCognitoClientIDExternal")].isNull() && m_s_cognito_client_id_external_isValid;
 
-    m_s_cognito_client_id_ezmaxpublic_isValid = ::OpenAPI::fromJsonValue(m_s_cognito_client_id_ezmaxpublic, json[QString("sCognitoClientIDEzmaxpublic")]);
+    m_s_cognito_client_id_ezmaxpublic_isValid = ::Ezmaxapi::fromJsonValue(m_s_cognito_client_id_ezmaxpublic, json[QString("sCognitoClientIDEzmaxpublic")]);
     m_s_cognito_client_id_ezmaxpublic_isSet = !json[QString("sCognitoClientIDEzmaxpublic")].isNull() && m_s_cognito_client_id_ezmaxpublic_isValid;
 }
 
@@ -85,19 +85,19 @@ QString OAIGlobal_ezmaxcustomer_getConfiguration_v1_Response::asJson() const {
 QJsonObject OAIGlobal_ezmaxcustomer_getConfiguration_v1_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_s_infrastructureregion_code_isSet) {
-        obj.insert(QString("sInfrastructureregionCode"), ::OpenAPI::toJsonValue(m_s_infrastructureregion_code));
+        obj.insert(QString("sInfrastructureregionCode"), ::Ezmaxapi::toJsonValue(m_s_infrastructureregion_code));
     }
     if (m_s_infrastructureregion_code_web_isSet) {
-        obj.insert(QString("sInfrastructureregionCodeWeb"), ::OpenAPI::toJsonValue(m_s_infrastructureregion_code_web));
+        obj.insert(QString("sInfrastructureregionCodeWeb"), ::Ezmaxapi::toJsonValue(m_s_infrastructureregion_code_web));
     }
     if (m_s_infrastructureenvironmenttype_description_isSet) {
-        obj.insert(QString("sInfrastructureenvironmenttypeDescription"), ::OpenAPI::toJsonValue(m_s_infrastructureenvironmenttype_description));
+        obj.insert(QString("sInfrastructureenvironmenttypeDescription"), ::Ezmaxapi::toJsonValue(m_s_infrastructureenvironmenttype_description));
     }
     if (m_s_cognito_client_id_external_isSet) {
-        obj.insert(QString("sCognitoClientIDExternal"), ::OpenAPI::toJsonValue(m_s_cognito_client_id_external));
+        obj.insert(QString("sCognitoClientIDExternal"), ::Ezmaxapi::toJsonValue(m_s_cognito_client_id_external));
     }
     if (m_s_cognito_client_id_ezmaxpublic_isSet) {
-        obj.insert(QString("sCognitoClientIDEzmaxpublic"), ::OpenAPI::toJsonValue(m_s_cognito_client_id_ezmaxpublic));
+        obj.insert(QString("sCognitoClientIDEzmaxpublic"), ::Ezmaxapi::toJsonValue(m_s_cognito_client_id_ezmaxpublic));
     }
     return obj;
 }
@@ -218,4 +218,4 @@ bool OAIGlobal_ezmaxcustomer_getConfiguration_v1_Response::isValid() const {
     return m_s_infrastructureregion_code_isValid && m_s_infrastructureregion_code_web_isValid && m_s_infrastructureenvironmenttype_description_isValid && m_s_cognito_client_id_ezmaxpublic_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

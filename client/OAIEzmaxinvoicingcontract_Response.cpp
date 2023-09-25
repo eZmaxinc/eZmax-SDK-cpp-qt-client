@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzmaxinvoicingcontract_Response::OAIEzmaxinvoicingcontract_Response(QString json) {
     this->initializeModel();
@@ -71,31 +71,31 @@ void OAIEzmaxinvoicingcontract_Response::fromJson(QString jsonString) {
 
 void OAIEzmaxinvoicingcontract_Response::fromJsonObject(QJsonObject json) {
 
-    m_pki_ezmaxinvoicingcontract_id_isValid = ::OpenAPI::fromJsonValue(m_pki_ezmaxinvoicingcontract_id, json[QString("pkiEzmaxinvoicingcontractID")]);
+    m_pki_ezmaxinvoicingcontract_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_ezmaxinvoicingcontract_id, json[QString("pkiEzmaxinvoicingcontractID")]);
     m_pki_ezmaxinvoicingcontract_id_isSet = !json[QString("pkiEzmaxinvoicingcontractID")].isNull() && m_pki_ezmaxinvoicingcontract_id_isValid;
 
-    m_e_ezmaxinvoicingcontract_paymenttype_isValid = ::OpenAPI::fromJsonValue(m_e_ezmaxinvoicingcontract_paymenttype, json[QString("eEzmaxinvoicingcontractPaymenttype")]);
+    m_e_ezmaxinvoicingcontract_paymenttype_isValid = ::Ezmaxapi::fromJsonValue(m_e_ezmaxinvoicingcontract_paymenttype, json[QString("eEzmaxinvoicingcontractPaymenttype")]);
     m_e_ezmaxinvoicingcontract_paymenttype_isSet = !json[QString("eEzmaxinvoicingcontractPaymenttype")].isNull() && m_e_ezmaxinvoicingcontract_paymenttype_isValid;
 
-    m_i_ezmaxinvoicingcontract_length_isValid = ::OpenAPI::fromJsonValue(m_i_ezmaxinvoicingcontract_length, json[QString("iEzmaxinvoicingcontractLength")]);
+    m_i_ezmaxinvoicingcontract_length_isValid = ::Ezmaxapi::fromJsonValue(m_i_ezmaxinvoicingcontract_length, json[QString("iEzmaxinvoicingcontractLength")]);
     m_i_ezmaxinvoicingcontract_length_isSet = !json[QString("iEzmaxinvoicingcontractLength")].isNull() && m_i_ezmaxinvoicingcontract_length_isValid;
 
-    m_dt_ezmaxinvoicingcontract_start_isValid = ::OpenAPI::fromJsonValue(m_dt_ezmaxinvoicingcontract_start, json[QString("dtEzmaxinvoicingcontractStart")]);
+    m_dt_ezmaxinvoicingcontract_start_isValid = ::Ezmaxapi::fromJsonValue(m_dt_ezmaxinvoicingcontract_start, json[QString("dtEzmaxinvoicingcontractStart")]);
     m_dt_ezmaxinvoicingcontract_start_isSet = !json[QString("dtEzmaxinvoicingcontractStart")].isNull() && m_dt_ezmaxinvoicingcontract_start_isValid;
 
-    m_dt_ezmaxinvoicingcontract_end_isValid = ::OpenAPI::fromJsonValue(m_dt_ezmaxinvoicingcontract_end, json[QString("dtEzmaxinvoicingcontractEnd")]);
+    m_dt_ezmaxinvoicingcontract_end_isValid = ::Ezmaxapi::fromJsonValue(m_dt_ezmaxinvoicingcontract_end, json[QString("dtEzmaxinvoicingcontractEnd")]);
     m_dt_ezmaxinvoicingcontract_end_isSet = !json[QString("dtEzmaxinvoicingcontractEnd")].isNull() && m_dt_ezmaxinvoicingcontract_end_isValid;
 
-    m_d_ezmaxinvoicingcontract_license_isValid = ::OpenAPI::fromJsonValue(m_d_ezmaxinvoicingcontract_license, json[QString("dEzmaxinvoicingcontractLicense")]);
+    m_d_ezmaxinvoicingcontract_license_isValid = ::Ezmaxapi::fromJsonValue(m_d_ezmaxinvoicingcontract_license, json[QString("dEzmaxinvoicingcontractLicense")]);
     m_d_ezmaxinvoicingcontract_license_isSet = !json[QString("dEzmaxinvoicingcontractLicense")].isNull() && m_d_ezmaxinvoicingcontract_license_isValid;
 
-    m_d_ezmaxinvoicingcontract121qa_isValid = ::OpenAPI::fromJsonValue(m_d_ezmaxinvoicingcontract121qa, json[QString("dEzmaxinvoicingcontract121qa")]);
+    m_d_ezmaxinvoicingcontract121qa_isValid = ::Ezmaxapi::fromJsonValue(m_d_ezmaxinvoicingcontract121qa, json[QString("dEzmaxinvoicingcontract121qa")]);
     m_d_ezmaxinvoicingcontract121qa_isSet = !json[QString("dEzmaxinvoicingcontract121qa")].isNull() && m_d_ezmaxinvoicingcontract121qa_isValid;
 
-    m_b_ezmaxinvoicingcontract_ezsignallagents_isValid = ::OpenAPI::fromJsonValue(m_b_ezmaxinvoicingcontract_ezsignallagents, json[QString("bEzmaxinvoicingcontractEzsignallagents")]);
+    m_b_ezmaxinvoicingcontract_ezsignallagents_isValid = ::Ezmaxapi::fromJsonValue(m_b_ezmaxinvoicingcontract_ezsignallagents, json[QString("bEzmaxinvoicingcontractEzsignallagents")]);
     m_b_ezmaxinvoicingcontract_ezsignallagents_isSet = !json[QString("bEzmaxinvoicingcontractEzsignallagents")].isNull() && m_b_ezmaxinvoicingcontract_ezsignallagents_isValid;
 
-    m_obj_audit_isValid = ::OpenAPI::fromJsonValue(m_obj_audit, json[QString("objAudit")]);
+    m_obj_audit_isValid = ::Ezmaxapi::fromJsonValue(m_obj_audit, json[QString("objAudit")]);
     m_obj_audit_isSet = !json[QString("objAudit")].isNull() && m_obj_audit_isValid;
 }
 
@@ -109,31 +109,31 @@ QString OAIEzmaxinvoicingcontract_Response::asJson() const {
 QJsonObject OAIEzmaxinvoicingcontract_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_ezmaxinvoicingcontract_id_isSet) {
-        obj.insert(QString("pkiEzmaxinvoicingcontractID"), ::OpenAPI::toJsonValue(m_pki_ezmaxinvoicingcontract_id));
+        obj.insert(QString("pkiEzmaxinvoicingcontractID"), ::Ezmaxapi::toJsonValue(m_pki_ezmaxinvoicingcontract_id));
     }
     if (m_e_ezmaxinvoicingcontract_paymenttype.isSet()) {
-        obj.insert(QString("eEzmaxinvoicingcontractPaymenttype"), ::OpenAPI::toJsonValue(m_e_ezmaxinvoicingcontract_paymenttype));
+        obj.insert(QString("eEzmaxinvoicingcontractPaymenttype"), ::Ezmaxapi::toJsonValue(m_e_ezmaxinvoicingcontract_paymenttype));
     }
     if (m_i_ezmaxinvoicingcontract_length_isSet) {
-        obj.insert(QString("iEzmaxinvoicingcontractLength"), ::OpenAPI::toJsonValue(m_i_ezmaxinvoicingcontract_length));
+        obj.insert(QString("iEzmaxinvoicingcontractLength"), ::Ezmaxapi::toJsonValue(m_i_ezmaxinvoicingcontract_length));
     }
     if (m_dt_ezmaxinvoicingcontract_start_isSet) {
-        obj.insert(QString("dtEzmaxinvoicingcontractStart"), ::OpenAPI::toJsonValue(m_dt_ezmaxinvoicingcontract_start));
+        obj.insert(QString("dtEzmaxinvoicingcontractStart"), ::Ezmaxapi::toJsonValue(m_dt_ezmaxinvoicingcontract_start));
     }
     if (m_dt_ezmaxinvoicingcontract_end_isSet) {
-        obj.insert(QString("dtEzmaxinvoicingcontractEnd"), ::OpenAPI::toJsonValue(m_dt_ezmaxinvoicingcontract_end));
+        obj.insert(QString("dtEzmaxinvoicingcontractEnd"), ::Ezmaxapi::toJsonValue(m_dt_ezmaxinvoicingcontract_end));
     }
     if (m_d_ezmaxinvoicingcontract_license_isSet) {
-        obj.insert(QString("dEzmaxinvoicingcontractLicense"), ::OpenAPI::toJsonValue(m_d_ezmaxinvoicingcontract_license));
+        obj.insert(QString("dEzmaxinvoicingcontractLicense"), ::Ezmaxapi::toJsonValue(m_d_ezmaxinvoicingcontract_license));
     }
     if (m_d_ezmaxinvoicingcontract121qa_isSet) {
-        obj.insert(QString("dEzmaxinvoicingcontract121qa"), ::OpenAPI::toJsonValue(m_d_ezmaxinvoicingcontract121qa));
+        obj.insert(QString("dEzmaxinvoicingcontract121qa"), ::Ezmaxapi::toJsonValue(m_d_ezmaxinvoicingcontract121qa));
     }
     if (m_b_ezmaxinvoicingcontract_ezsignallagents_isSet) {
-        obj.insert(QString("bEzmaxinvoicingcontractEzsignallagents"), ::OpenAPI::toJsonValue(m_b_ezmaxinvoicingcontract_ezsignallagents));
+        obj.insert(QString("bEzmaxinvoicingcontractEzsignallagents"), ::Ezmaxapi::toJsonValue(m_b_ezmaxinvoicingcontract_ezsignallagents));
     }
     if (m_obj_audit.isSet()) {
-        obj.insert(QString("objAudit"), ::OpenAPI::toJsonValue(m_obj_audit));
+        obj.insert(QString("objAudit"), ::Ezmaxapi::toJsonValue(m_obj_audit));
     }
     return obj;
 }
@@ -338,4 +338,4 @@ bool OAIEzmaxinvoicingcontract_Response::isValid() const {
     return m_pki_ezmaxinvoicingcontract_id_isValid && m_e_ezmaxinvoicingcontract_paymenttype_isValid && m_i_ezmaxinvoicingcontract_length_isValid && m_dt_ezmaxinvoicingcontract_start_isValid && m_dt_ezmaxinvoicingcontract_end_isValid && m_d_ezmaxinvoicingcontract_license_isValid && m_d_ezmaxinvoicingcontract121qa_isValid && m_b_ezmaxinvoicingcontract_ezsignallagents_isValid && m_obj_audit_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

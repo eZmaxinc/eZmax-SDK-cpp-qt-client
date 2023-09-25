@@ -26,7 +26,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAICommon_Response_objDebugPayload : public OAIObject {
 public:
@@ -82,8 +82,8 @@ private:
     bool m_b_version_deprecated_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAICommon_Response_objDebugPayload)
+Q_DECLARE_METATYPE(Ezmaxapi::OAICommon_Response_objDebugPayload)
 
 #endif // OAICommon_Response_objDebugPayload_H

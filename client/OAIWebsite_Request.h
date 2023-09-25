@@ -26,7 +26,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIWebsite_Request : public OAIObject {
 public:
@@ -64,8 +64,8 @@ private:
     bool m_s_website_address_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIWebsite_Request)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIWebsite_Request)
 
 #endif // OAIWebsite_Request_H

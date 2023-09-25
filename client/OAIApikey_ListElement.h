@@ -26,7 +26,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIApikey_ListElement : public OAIObject {
 public:
@@ -100,8 +100,8 @@ private:
     bool m_b_apikey_issigned_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIApikey_ListElement)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIApikey_ListElement)
 
 #endif // OAIApikey_ListElement_H

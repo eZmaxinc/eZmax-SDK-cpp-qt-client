@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzsigndocument_getDownloadUrl_v1_Response_mPayload::OAIEzsigndocument_getDownloadUrl_v1_Response_mPayload(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAIEzsigndocument_getDownloadUrl_v1_Response_mPayload::fromJson(QString jso
 
 void OAIEzsigndocument_getDownloadUrl_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_s_download_url_isValid = ::OpenAPI::fromJsonValue(m_s_download_url, json[QString("sDownloadUrl")]);
+    m_s_download_url_isValid = ::Ezmaxapi::fromJsonValue(m_s_download_url, json[QString("sDownloadUrl")]);
     m_s_download_url_isSet = !json[QString("sDownloadUrl")].isNull() && m_s_download_url_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAIEzsigndocument_getDownloadUrl_v1_Response_mPayload::asJson() const {
 QJsonObject OAIEzsigndocument_getDownloadUrl_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_s_download_url_isSet) {
-        obj.insert(QString("sDownloadUrl"), ::OpenAPI::toJsonValue(m_s_download_url));
+        obj.insert(QString("sDownloadUrl"), ::Ezmaxapi::toJsonValue(m_s_download_url));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAIEzsigndocument_getDownloadUrl_v1_Response_mPayload::isValid() const {
     return m_s_download_url_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

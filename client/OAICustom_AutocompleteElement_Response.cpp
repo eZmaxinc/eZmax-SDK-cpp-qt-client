@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAICustom_AutocompleteElement_Response::OAICustom_AutocompleteElement_Response(QString json) {
     this->initializeModel();
@@ -59,19 +59,19 @@ void OAICustom_AutocompleteElement_Response::fromJson(QString jsonString) {
 
 void OAICustom_AutocompleteElement_Response::fromJsonObject(QJsonObject json) {
 
-    m_s_category_isValid = ::OpenAPI::fromJsonValue(m_s_category, json[QString("sCategory")]);
+    m_s_category_isValid = ::Ezmaxapi::fromJsonValue(m_s_category, json[QString("sCategory")]);
     m_s_category_isSet = !json[QString("sCategory")].isNull() && m_s_category_isValid;
 
-    m_s_label_isValid = ::OpenAPI::fromJsonValue(m_s_label, json[QString("sLabel")]);
+    m_s_label_isValid = ::Ezmaxapi::fromJsonValue(m_s_label, json[QString("sLabel")]);
     m_s_label_isSet = !json[QString("sLabel")].isNull() && m_s_label_isValid;
 
-    m_s_value_isValid = ::OpenAPI::fromJsonValue(m_s_value, json[QString("sValue")]);
+    m_s_value_isValid = ::Ezmaxapi::fromJsonValue(m_s_value, json[QString("sValue")]);
     m_s_value_isSet = !json[QString("sValue")].isNull() && m_s_value_isValid;
 
-    m_m_value_isValid = ::OpenAPI::fromJsonValue(m_m_value, json[QString("mValue")]);
+    m_m_value_isValid = ::Ezmaxapi::fromJsonValue(m_m_value, json[QString("mValue")]);
     m_m_value_isSet = !json[QString("mValue")].isNull() && m_m_value_isValid;
 
-    m_b_active_isValid = ::OpenAPI::fromJsonValue(m_b_active, json[QString("bActive")]);
+    m_b_active_isValid = ::Ezmaxapi::fromJsonValue(m_b_active, json[QString("bActive")]);
     m_b_active_isSet = !json[QString("bActive")].isNull() && m_b_active_isValid;
 }
 
@@ -85,19 +85,19 @@ QString OAICustom_AutocompleteElement_Response::asJson() const {
 QJsonObject OAICustom_AutocompleteElement_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_s_category_isSet) {
-        obj.insert(QString("sCategory"), ::OpenAPI::toJsonValue(m_s_category));
+        obj.insert(QString("sCategory"), ::Ezmaxapi::toJsonValue(m_s_category));
     }
     if (m_s_label_isSet) {
-        obj.insert(QString("sLabel"), ::OpenAPI::toJsonValue(m_s_label));
+        obj.insert(QString("sLabel"), ::Ezmaxapi::toJsonValue(m_s_label));
     }
     if (m_s_value_isSet) {
-        obj.insert(QString("sValue"), ::OpenAPI::toJsonValue(m_s_value));
+        obj.insert(QString("sValue"), ::Ezmaxapi::toJsonValue(m_s_value));
     }
     if (m_m_value_isSet) {
-        obj.insert(QString("mValue"), ::OpenAPI::toJsonValue(m_m_value));
+        obj.insert(QString("mValue"), ::Ezmaxapi::toJsonValue(m_m_value));
     }
     if (m_b_active_isSet) {
-        obj.insert(QString("bActive"), ::OpenAPI::toJsonValue(m_b_active));
+        obj.insert(QString("bActive"), ::Ezmaxapi::toJsonValue(m_b_active));
     }
     return obj;
 }
@@ -218,4 +218,4 @@ bool OAICustom_AutocompleteElement_Response::isValid() const {
     return m_s_category_isValid && m_s_label_isValid && m_s_value_isValid && m_b_active_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

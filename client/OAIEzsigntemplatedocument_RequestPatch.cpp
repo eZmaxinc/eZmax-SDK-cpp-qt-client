@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzsigntemplatedocument_RequestPatch::OAIEzsigntemplatedocument_RequestPatch(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAIEzsigntemplatedocument_RequestPatch::fromJson(QString jsonString) {
 
 void OAIEzsigntemplatedocument_RequestPatch::fromJsonObject(QJsonObject json) {
 
-    m_s_ezsigntemplatedocument_name_isValid = ::OpenAPI::fromJsonValue(m_s_ezsigntemplatedocument_name, json[QString("sEzsigntemplatedocumentName")]);
+    m_s_ezsigntemplatedocument_name_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsigntemplatedocument_name, json[QString("sEzsigntemplatedocumentName")]);
     m_s_ezsigntemplatedocument_name_isSet = !json[QString("sEzsigntemplatedocumentName")].isNull() && m_s_ezsigntemplatedocument_name_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAIEzsigntemplatedocument_RequestPatch::asJson() const {
 QJsonObject OAIEzsigntemplatedocument_RequestPatch::asJsonObject() const {
     QJsonObject obj;
     if (m_s_ezsigntemplatedocument_name_isSet) {
-        obj.insert(QString("sEzsigntemplatedocumentName"), ::OpenAPI::toJsonValue(m_s_ezsigntemplatedocument_name));
+        obj.insert(QString("sEzsigntemplatedocumentName"), ::Ezmaxapi::toJsonValue(m_s_ezsigntemplatedocument_name));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAIEzsigntemplatedocument_RequestPatch::isValid() const {
     return true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

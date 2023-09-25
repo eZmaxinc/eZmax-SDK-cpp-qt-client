@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAICustom_Ezsignformfielderror_Response::OAICustom_Ezsignformfielderror_Response(QString json) {
     this->initializeModel();
@@ -50,10 +50,10 @@ void OAICustom_Ezsignformfielderror_Response::fromJson(QString jsonString) {
 
 void OAICustom_Ezsignformfielderror_Response::fromJsonObject(QJsonObject json) {
 
-    m_s_ezsignformfield_label_isValid = ::OpenAPI::fromJsonValue(m_s_ezsignformfield_label, json[QString("sEzsignformfieldLabel")]);
+    m_s_ezsignformfield_label_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsignformfield_label, json[QString("sEzsignformfieldLabel")]);
     m_s_ezsignformfield_label_isSet = !json[QString("sEzsignformfieldLabel")].isNull() && m_s_ezsignformfield_label_isValid;
 
-    m_a_obj_ezsignformfielderrortest_isValid = ::OpenAPI::fromJsonValue(m_a_obj_ezsignformfielderrortest, json[QString("a_objEzsignformfielderrortest")]);
+    m_a_obj_ezsignformfielderrortest_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_ezsignformfielderrortest, json[QString("a_objEzsignformfielderrortest")]);
     m_a_obj_ezsignformfielderrortest_isSet = !json[QString("a_objEzsignformfielderrortest")].isNull() && m_a_obj_ezsignformfielderrortest_isValid;
 }
 
@@ -67,10 +67,10 @@ QString OAICustom_Ezsignformfielderror_Response::asJson() const {
 QJsonObject OAICustom_Ezsignformfielderror_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_s_ezsignformfield_label_isSet) {
-        obj.insert(QString("sEzsignformfieldLabel"), ::OpenAPI::toJsonValue(m_s_ezsignformfield_label));
+        obj.insert(QString("sEzsignformfieldLabel"), ::Ezmaxapi::toJsonValue(m_s_ezsignformfield_label));
     }
     if (m_a_obj_ezsignformfielderrortest.size() > 0) {
-        obj.insert(QString("a_objEzsignformfielderrortest"), ::OpenAPI::toJsonValue(m_a_obj_ezsignformfielderrortest));
+        obj.insert(QString("a_objEzsignformfielderrortest"), ::Ezmaxapi::toJsonValue(m_a_obj_ezsignformfielderrortest));
     }
     return obj;
 }
@@ -128,4 +128,4 @@ bool OAICustom_Ezsignformfielderror_Response::isValid() const {
     return m_s_ezsignformfield_label_isValid && m_a_obj_ezsignformfielderrortest_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

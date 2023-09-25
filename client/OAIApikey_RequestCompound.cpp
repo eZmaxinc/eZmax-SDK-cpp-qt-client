@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIApikey_RequestCompound::OAIApikey_RequestCompound(QString json) {
     this->initializeModel();
@@ -59,19 +59,19 @@ void OAIApikey_RequestCompound::fromJson(QString jsonString) {
 
 void OAIApikey_RequestCompound::fromJsonObject(QJsonObject json) {
 
-    m_pki_apikey_id_isValid = ::OpenAPI::fromJsonValue(m_pki_apikey_id, json[QString("pkiApikeyID")]);
+    m_pki_apikey_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_apikey_id, json[QString("pkiApikeyID")]);
     m_pki_apikey_id_isSet = !json[QString("pkiApikeyID")].isNull() && m_pki_apikey_id_isValid;
 
-    m_fki_user_id_isValid = ::OpenAPI::fromJsonValue(m_fki_user_id, json[QString("fkiUserID")]);
+    m_fki_user_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_user_id, json[QString("fkiUserID")]);
     m_fki_user_id_isSet = !json[QString("fkiUserID")].isNull() && m_fki_user_id_isValid;
 
-    m_obj_apikey_description_isValid = ::OpenAPI::fromJsonValue(m_obj_apikey_description, json[QString("objApikeyDescription")]);
+    m_obj_apikey_description_isValid = ::Ezmaxapi::fromJsonValue(m_obj_apikey_description, json[QString("objApikeyDescription")]);
     m_obj_apikey_description_isSet = !json[QString("objApikeyDescription")].isNull() && m_obj_apikey_description_isValid;
 
-    m_b_apikey_isactive_isValid = ::OpenAPI::fromJsonValue(m_b_apikey_isactive, json[QString("bApikeyIsactive")]);
+    m_b_apikey_isactive_isValid = ::Ezmaxapi::fromJsonValue(m_b_apikey_isactive, json[QString("bApikeyIsactive")]);
     m_b_apikey_isactive_isSet = !json[QString("bApikeyIsactive")].isNull() && m_b_apikey_isactive_isValid;
 
-    m_b_apikey_issigned_isValid = ::OpenAPI::fromJsonValue(m_b_apikey_issigned, json[QString("bApikeyIssigned")]);
+    m_b_apikey_issigned_isValid = ::Ezmaxapi::fromJsonValue(m_b_apikey_issigned, json[QString("bApikeyIssigned")]);
     m_b_apikey_issigned_isSet = !json[QString("bApikeyIssigned")].isNull() && m_b_apikey_issigned_isValid;
 }
 
@@ -85,19 +85,19 @@ QString OAIApikey_RequestCompound::asJson() const {
 QJsonObject OAIApikey_RequestCompound::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_apikey_id_isSet) {
-        obj.insert(QString("pkiApikeyID"), ::OpenAPI::toJsonValue(m_pki_apikey_id));
+        obj.insert(QString("pkiApikeyID"), ::Ezmaxapi::toJsonValue(m_pki_apikey_id));
     }
     if (m_fki_user_id_isSet) {
-        obj.insert(QString("fkiUserID"), ::OpenAPI::toJsonValue(m_fki_user_id));
+        obj.insert(QString("fkiUserID"), ::Ezmaxapi::toJsonValue(m_fki_user_id));
     }
     if (m_obj_apikey_description.isSet()) {
-        obj.insert(QString("objApikeyDescription"), ::OpenAPI::toJsonValue(m_obj_apikey_description));
+        obj.insert(QString("objApikeyDescription"), ::Ezmaxapi::toJsonValue(m_obj_apikey_description));
     }
     if (m_b_apikey_isactive_isSet) {
-        obj.insert(QString("bApikeyIsactive"), ::OpenAPI::toJsonValue(m_b_apikey_isactive));
+        obj.insert(QString("bApikeyIsactive"), ::Ezmaxapi::toJsonValue(m_b_apikey_isactive));
     }
     if (m_b_apikey_issigned_isSet) {
-        obj.insert(QString("bApikeyIssigned"), ::OpenAPI::toJsonValue(m_b_apikey_issigned));
+        obj.insert(QString("bApikeyIssigned"), ::Ezmaxapi::toJsonValue(m_b_apikey_issigned));
     }
     return obj;
 }
@@ -218,4 +218,4 @@ bool OAIApikey_RequestCompound::isValid() const {
     return m_fki_user_id_isValid && m_obj_apikey_description_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

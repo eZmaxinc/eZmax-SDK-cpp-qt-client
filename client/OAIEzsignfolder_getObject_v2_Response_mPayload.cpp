@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzsignfolder_getObject_v2_Response_mPayload::OAIEzsignfolder_getObject_v2_Response_mPayload(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAIEzsignfolder_getObject_v2_Response_mPayload::fromJson(QString jsonString
 
 void OAIEzsignfolder_getObject_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_obj_ezsignfolder_isValid = ::OpenAPI::fromJsonValue(m_obj_ezsignfolder, json[QString("objEzsignfolder")]);
+    m_obj_ezsignfolder_isValid = ::Ezmaxapi::fromJsonValue(m_obj_ezsignfolder, json[QString("objEzsignfolder")]);
     m_obj_ezsignfolder_isSet = !json[QString("objEzsignfolder")].isNull() && m_obj_ezsignfolder_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAIEzsignfolder_getObject_v2_Response_mPayload::asJson() const {
 QJsonObject OAIEzsignfolder_getObject_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_obj_ezsignfolder.isSet()) {
-        obj.insert(QString("objEzsignfolder"), ::OpenAPI::toJsonValue(m_obj_ezsignfolder));
+        obj.insert(QString("objEzsignfolder"), ::Ezmaxapi::toJsonValue(m_obj_ezsignfolder));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAIEzsignfolder_getObject_v2_Response_mPayload::isValid() const {
     return m_obj_ezsignfolder_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

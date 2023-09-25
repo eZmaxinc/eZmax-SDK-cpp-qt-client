@@ -30,7 +30,7 @@
 #include <QList>
 #include <QNetworkAccessManager>
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIObjectFranchisereferalincomeApi : public QObject {
     Q_OBJECT
@@ -118,5 +118,5 @@ public slots:
     
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 #endif

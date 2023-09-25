@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzsigndocumentlog_ResponseCompound::OAIEzsigndocumentlog_ResponseCompound(QString json) {
     this->initializeModel();
@@ -68,28 +68,28 @@ void OAIEzsigndocumentlog_ResponseCompound::fromJson(QString jsonString) {
 
 void OAIEzsigndocumentlog_ResponseCompound::fromJsonObject(QJsonObject json) {
 
-    m_fki_user_id_isValid = ::OpenAPI::fromJsonValue(m_fki_user_id, json[QString("fkiUserID")]);
+    m_fki_user_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_user_id, json[QString("fkiUserID")]);
     m_fki_user_id_isSet = !json[QString("fkiUserID")].isNull() && m_fki_user_id_isValid;
 
-    m_fki_ezsignsigner_id_isValid = ::OpenAPI::fromJsonValue(m_fki_ezsignsigner_id, json[QString("fkiEzsignsignerID")]);
+    m_fki_ezsignsigner_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_ezsignsigner_id, json[QString("fkiEzsignsignerID")]);
     m_fki_ezsignsigner_id_isSet = !json[QString("fkiEzsignsignerID")].isNull() && m_fki_ezsignsigner_id_isValid;
 
-    m_dt_ezsigndocumentlog_datetime_isValid = ::OpenAPI::fromJsonValue(m_dt_ezsigndocumentlog_datetime, json[QString("dtEzsigndocumentlogDatetime")]);
+    m_dt_ezsigndocumentlog_datetime_isValid = ::Ezmaxapi::fromJsonValue(m_dt_ezsigndocumentlog_datetime, json[QString("dtEzsigndocumentlogDatetime")]);
     m_dt_ezsigndocumentlog_datetime_isSet = !json[QString("dtEzsigndocumentlogDatetime")].isNull() && m_dt_ezsigndocumentlog_datetime_isValid;
 
-    m_e_ezsigndocumentlog_type_isValid = ::OpenAPI::fromJsonValue(m_e_ezsigndocumentlog_type, json[QString("eEzsigndocumentlogType")]);
+    m_e_ezsigndocumentlog_type_isValid = ::Ezmaxapi::fromJsonValue(m_e_ezsigndocumentlog_type, json[QString("eEzsigndocumentlogType")]);
     m_e_ezsigndocumentlog_type_isSet = !json[QString("eEzsigndocumentlogType")].isNull() && m_e_ezsigndocumentlog_type_isValid;
 
-    m_s_ezsigndocumentlog_detail_isValid = ::OpenAPI::fromJsonValue(m_s_ezsigndocumentlog_detail, json[QString("sEzsigndocumentlogDetail")]);
+    m_s_ezsigndocumentlog_detail_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsigndocumentlog_detail, json[QString("sEzsigndocumentlogDetail")]);
     m_s_ezsigndocumentlog_detail_isSet = !json[QString("sEzsigndocumentlogDetail")].isNull() && m_s_ezsigndocumentlog_detail_isValid;
 
-    m_s_ezsigndocumentlog_lastname_isValid = ::OpenAPI::fromJsonValue(m_s_ezsigndocumentlog_lastname, json[QString("sEzsigndocumentlogLastname")]);
+    m_s_ezsigndocumentlog_lastname_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsigndocumentlog_lastname, json[QString("sEzsigndocumentlogLastname")]);
     m_s_ezsigndocumentlog_lastname_isSet = !json[QString("sEzsigndocumentlogLastname")].isNull() && m_s_ezsigndocumentlog_lastname_isValid;
 
-    m_s_ezsigndocumentlog_firstname_isValid = ::OpenAPI::fromJsonValue(m_s_ezsigndocumentlog_firstname, json[QString("sEzsigndocumentlogFirstname")]);
+    m_s_ezsigndocumentlog_firstname_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsigndocumentlog_firstname, json[QString("sEzsigndocumentlogFirstname")]);
     m_s_ezsigndocumentlog_firstname_isSet = !json[QString("sEzsigndocumentlogFirstname")].isNull() && m_s_ezsigndocumentlog_firstname_isValid;
 
-    m_s_ezsigndocumentlog_ip_isValid = ::OpenAPI::fromJsonValue(m_s_ezsigndocumentlog_ip, json[QString("sEzsigndocumentlogIP")]);
+    m_s_ezsigndocumentlog_ip_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsigndocumentlog_ip, json[QString("sEzsigndocumentlogIP")]);
     m_s_ezsigndocumentlog_ip_isSet = !json[QString("sEzsigndocumentlogIP")].isNull() && m_s_ezsigndocumentlog_ip_isValid;
 }
 
@@ -103,28 +103,28 @@ QString OAIEzsigndocumentlog_ResponseCompound::asJson() const {
 QJsonObject OAIEzsigndocumentlog_ResponseCompound::asJsonObject() const {
     QJsonObject obj;
     if (m_fki_user_id_isSet) {
-        obj.insert(QString("fkiUserID"), ::OpenAPI::toJsonValue(m_fki_user_id));
+        obj.insert(QString("fkiUserID"), ::Ezmaxapi::toJsonValue(m_fki_user_id));
     }
     if (m_fki_ezsignsigner_id_isSet) {
-        obj.insert(QString("fkiEzsignsignerID"), ::OpenAPI::toJsonValue(m_fki_ezsignsigner_id));
+        obj.insert(QString("fkiEzsignsignerID"), ::Ezmaxapi::toJsonValue(m_fki_ezsignsigner_id));
     }
     if (m_dt_ezsigndocumentlog_datetime_isSet) {
-        obj.insert(QString("dtEzsigndocumentlogDatetime"), ::OpenAPI::toJsonValue(m_dt_ezsigndocumentlog_datetime));
+        obj.insert(QString("dtEzsigndocumentlogDatetime"), ::Ezmaxapi::toJsonValue(m_dt_ezsigndocumentlog_datetime));
     }
     if (m_e_ezsigndocumentlog_type.isSet()) {
-        obj.insert(QString("eEzsigndocumentlogType"), ::OpenAPI::toJsonValue(m_e_ezsigndocumentlog_type));
+        obj.insert(QString("eEzsigndocumentlogType"), ::Ezmaxapi::toJsonValue(m_e_ezsigndocumentlog_type));
     }
     if (m_s_ezsigndocumentlog_detail_isSet) {
-        obj.insert(QString("sEzsigndocumentlogDetail"), ::OpenAPI::toJsonValue(m_s_ezsigndocumentlog_detail));
+        obj.insert(QString("sEzsigndocumentlogDetail"), ::Ezmaxapi::toJsonValue(m_s_ezsigndocumentlog_detail));
     }
     if (m_s_ezsigndocumentlog_lastname_isSet) {
-        obj.insert(QString("sEzsigndocumentlogLastname"), ::OpenAPI::toJsonValue(m_s_ezsigndocumentlog_lastname));
+        obj.insert(QString("sEzsigndocumentlogLastname"), ::Ezmaxapi::toJsonValue(m_s_ezsigndocumentlog_lastname));
     }
     if (m_s_ezsigndocumentlog_firstname_isSet) {
-        obj.insert(QString("sEzsigndocumentlogFirstname"), ::OpenAPI::toJsonValue(m_s_ezsigndocumentlog_firstname));
+        obj.insert(QString("sEzsigndocumentlogFirstname"), ::Ezmaxapi::toJsonValue(m_s_ezsigndocumentlog_firstname));
     }
     if (m_s_ezsigndocumentlog_ip_isSet) {
-        obj.insert(QString("sEzsigndocumentlogIP"), ::OpenAPI::toJsonValue(m_s_ezsigndocumentlog_ip));
+        obj.insert(QString("sEzsigndocumentlogIP"), ::Ezmaxapi::toJsonValue(m_s_ezsigndocumentlog_ip));
     }
     return obj;
 }
@@ -308,4 +308,4 @@ bool OAIEzsigndocumentlog_ResponseCompound::isValid() const {
     return m_dt_ezsigndocumentlog_datetime_isValid && m_e_ezsigndocumentlog_type_isValid && m_s_ezsigndocumentlog_detail_isValid && m_s_ezsigndocumentlog_lastname_isValid && m_s_ezsigndocumentlog_firstname_isValid && m_s_ezsigndocumentlog_ip_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzsigntemplatepackagesignermembership_getObject_v2_Response_mPayload::OAIEzsigntemplatepackagesignermembership_getObject_v2_Response_mPayload(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAIEzsigntemplatepackagesignermembership_getObject_v2_Response_mPayload::fr
 
 void OAIEzsigntemplatepackagesignermembership_getObject_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_obj_ezsigntemplatepackagesignermembership_isValid = ::OpenAPI::fromJsonValue(m_obj_ezsigntemplatepackagesignermembership, json[QString("objEzsigntemplatepackagesignermembership")]);
+    m_obj_ezsigntemplatepackagesignermembership_isValid = ::Ezmaxapi::fromJsonValue(m_obj_ezsigntemplatepackagesignermembership, json[QString("objEzsigntemplatepackagesignermembership")]);
     m_obj_ezsigntemplatepackagesignermembership_isSet = !json[QString("objEzsigntemplatepackagesignermembership")].isNull() && m_obj_ezsigntemplatepackagesignermembership_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAIEzsigntemplatepackagesignermembership_getObject_v2_Response_mPayload:
 QJsonObject OAIEzsigntemplatepackagesignermembership_getObject_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_obj_ezsigntemplatepackagesignermembership.isSet()) {
-        obj.insert(QString("objEzsigntemplatepackagesignermembership"), ::OpenAPI::toJsonValue(m_obj_ezsigntemplatepackagesignermembership));
+        obj.insert(QString("objEzsigntemplatepackagesignermembership"), ::Ezmaxapi::toJsonValue(m_obj_ezsigntemplatepackagesignermembership));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAIEzsigntemplatepackagesignermembership_getObject_v2_Response_mPayload::is
     return m_obj_ezsigntemplatepackagesignermembership_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

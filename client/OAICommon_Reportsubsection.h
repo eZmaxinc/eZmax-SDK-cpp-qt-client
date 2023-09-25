@@ -26,7 +26,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 class OAICommon_Reportsubsectionpart;
 
 class OAICommon_Reportsubsection : public OAIObject {
@@ -74,8 +74,8 @@ private:
     bool m_obj_reportsubsectionpart_footer_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAICommon_Reportsubsection)
+Q_DECLARE_METATYPE(Ezmaxapi::OAICommon_Reportsubsection)
 
 #endif // OAICommon_Reportsubsection_H

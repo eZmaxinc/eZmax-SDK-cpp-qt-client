@@ -27,7 +27,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 class OAIFranchisebroker_AutocompleteElement_Response;
 
 class OAIFranchisebroker_getAutocomplete_v2_Response_mPayload : public OAIObject {
@@ -57,8 +57,8 @@ private:
     bool m_a_obj_franchisebroker_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIFranchisebroker_getAutocomplete_v2_Response_mPayload)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIFranchisebroker_getAutocomplete_v2_Response_mPayload)
 
 #endif // OAIFranchisebroker_getAutocomplete_v2_Response_mPayload_H

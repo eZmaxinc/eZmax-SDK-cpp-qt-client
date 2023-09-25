@@ -25,7 +25,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIComputed_eCommunicationDirection : public OAIEnum {
 public:
@@ -56,8 +56,8 @@ private:
     bool m_value_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIComputed_eCommunicationDirection)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIComputed_eCommunicationDirection)
 
 #endif // OAIComputed_eCommunicationDirection_H

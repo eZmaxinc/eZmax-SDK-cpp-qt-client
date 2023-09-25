@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAICustom_Ezsignformfielderrortest_Response::OAICustom_Ezsignformfielderrortest_Response(QString json) {
     this->initializeModel();
@@ -50,10 +50,10 @@ void OAICustom_Ezsignformfielderrortest_Response::fromJson(QString jsonString) {
 
 void OAICustom_Ezsignformfielderrortest_Response::fromJsonObject(QJsonObject json) {
 
-    m_s_ezsignformfielderrortest_name_isValid = ::OpenAPI::fromJsonValue(m_s_ezsignformfielderrortest_name, json[QString("sEzsignformfielderrortestName")]);
+    m_s_ezsignformfielderrortest_name_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsignformfielderrortest_name, json[QString("sEzsignformfielderrortestName")]);
     m_s_ezsignformfielderrortest_name_isSet = !json[QString("sEzsignformfielderrortestName")].isNull() && m_s_ezsignformfielderrortest_name_isValid;
 
-    m_s_ezsignformfielderrortest_detail_isValid = ::OpenAPI::fromJsonValue(m_s_ezsignformfielderrortest_detail, json[QString("sEzsignformfielderrortestDetail")]);
+    m_s_ezsignformfielderrortest_detail_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsignformfielderrortest_detail, json[QString("sEzsignformfielderrortestDetail")]);
     m_s_ezsignformfielderrortest_detail_isSet = !json[QString("sEzsignformfielderrortestDetail")].isNull() && m_s_ezsignformfielderrortest_detail_isValid;
 }
 
@@ -67,10 +67,10 @@ QString OAICustom_Ezsignformfielderrortest_Response::asJson() const {
 QJsonObject OAICustom_Ezsignformfielderrortest_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_s_ezsignformfielderrortest_name_isSet) {
-        obj.insert(QString("sEzsignformfielderrortestName"), ::OpenAPI::toJsonValue(m_s_ezsignformfielderrortest_name));
+        obj.insert(QString("sEzsignformfielderrortestName"), ::Ezmaxapi::toJsonValue(m_s_ezsignformfielderrortest_name));
     }
     if (m_s_ezsignformfielderrortest_detail_isSet) {
-        obj.insert(QString("sEzsignformfielderrortestDetail"), ::OpenAPI::toJsonValue(m_s_ezsignformfielderrortest_detail));
+        obj.insert(QString("sEzsignformfielderrortestDetail"), ::Ezmaxapi::toJsonValue(m_s_ezsignformfielderrortest_detail));
     }
     return obj;
 }
@@ -128,4 +128,4 @@ bool OAICustom_Ezsignformfielderrortest_Response::isValid() const {
     return m_s_ezsignformfielderrortest_name_isValid && m_s_ezsignformfielderrortest_detail_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

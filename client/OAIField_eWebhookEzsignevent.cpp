@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIField_eWebhookEzsignevent::OAIField_eWebhookEzsignevent(QString json) {
     this->initializeModel();
@@ -109,4 +109,4 @@ bool OAIField_eWebhookEzsignevent::isValid() const {
     return m_value_isValid;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

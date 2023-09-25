@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIMultilingual_VariableexpenseDescription::OAIMultilingual_VariableexpenseDescription(QString json) {
     this->initializeModel();
@@ -50,10 +50,10 @@ void OAIMultilingual_VariableexpenseDescription::fromJson(QString jsonString) {
 
 void OAIMultilingual_VariableexpenseDescription::fromJsonObject(QJsonObject json) {
 
-    m_s_variableexpense_description1_isValid = ::OpenAPI::fromJsonValue(m_s_variableexpense_description1, json[QString("sVariableexpenseDescription1")]);
+    m_s_variableexpense_description1_isValid = ::Ezmaxapi::fromJsonValue(m_s_variableexpense_description1, json[QString("sVariableexpenseDescription1")]);
     m_s_variableexpense_description1_isSet = !json[QString("sVariableexpenseDescription1")].isNull() && m_s_variableexpense_description1_isValid;
 
-    m_s_variableexpense_description2_isValid = ::OpenAPI::fromJsonValue(m_s_variableexpense_description2, json[QString("sVariableexpenseDescription2")]);
+    m_s_variableexpense_description2_isValid = ::Ezmaxapi::fromJsonValue(m_s_variableexpense_description2, json[QString("sVariableexpenseDescription2")]);
     m_s_variableexpense_description2_isSet = !json[QString("sVariableexpenseDescription2")].isNull() && m_s_variableexpense_description2_isValid;
 }
 
@@ -67,10 +67,10 @@ QString OAIMultilingual_VariableexpenseDescription::asJson() const {
 QJsonObject OAIMultilingual_VariableexpenseDescription::asJsonObject() const {
     QJsonObject obj;
     if (m_s_variableexpense_description1_isSet) {
-        obj.insert(QString("sVariableexpenseDescription1"), ::OpenAPI::toJsonValue(m_s_variableexpense_description1));
+        obj.insert(QString("sVariableexpenseDescription1"), ::Ezmaxapi::toJsonValue(m_s_variableexpense_description1));
     }
     if (m_s_variableexpense_description2_isSet) {
-        obj.insert(QString("sVariableexpenseDescription2"), ::OpenAPI::toJsonValue(m_s_variableexpense_description2));
+        obj.insert(QString("sVariableexpenseDescription2"), ::Ezmaxapi::toJsonValue(m_s_variableexpense_description2));
     }
     return obj;
 }
@@ -128,4 +128,4 @@ bool OAIMultilingual_VariableexpenseDescription::isValid() const {
     return true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

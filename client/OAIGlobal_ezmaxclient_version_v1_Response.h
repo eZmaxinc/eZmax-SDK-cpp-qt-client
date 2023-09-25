@@ -26,7 +26,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIGlobal_ezmaxclient_version_v1_Response : public OAIObject {
 public:
@@ -55,8 +55,8 @@ private:
     bool m_s_ezmaxclient_version_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIGlobal_ezmaxclient_version_v1_Response)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIGlobal_ezmaxclient_version_v1_Response)
 
 #endif // OAIGlobal_ezmaxclient_version_v1_Response_H

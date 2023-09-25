@@ -25,7 +25,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIEnum_Horizontalalignment : public OAIEnum {
 public:
@@ -57,8 +57,8 @@ private:
     bool m_value_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIEnum_Horizontalalignment)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIEnum_Horizontalalignment)
 
 #endif // OAIEnum_Horizontalalignment_H

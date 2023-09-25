@@ -15,7 +15,7 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIObjectEzsignformfieldgroupApi::OAIObjectEzsignformfieldgroupApi(const int timeOut)
     : _timeOut(timeOut),
@@ -319,7 +319,7 @@ void OAIObjectEzsignformfieldgroupApi::ezsignformfieldgroupDeleteObjectV1(const 
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignformfieldgroupID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignformfieldgroupID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsignformfieldgroup_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsignformfieldgroup_id)));
+        fullPath.replace(pki_ezsignformfieldgroup_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsignformfieldgroup_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -386,7 +386,7 @@ void OAIObjectEzsignformfieldgroupApi::ezsignformfieldgroupEditObjectV1(const qi
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignformfieldgroupID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignformfieldgroupID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsignformfieldgroup_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsignformfieldgroup_id)));
+        fullPath.replace(pki_ezsignformfieldgroup_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsignformfieldgroup_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -458,7 +458,7 @@ void OAIObjectEzsignformfieldgroupApi::ezsignformfieldgroupGetObjectV2(const qin
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignformfieldgroupID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignformfieldgroupID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsignformfieldgroup_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsignformfieldgroup_id)));
+        fullPath.replace(pki_ezsignformfieldgroup_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsignformfieldgroup_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -555,4 +555,4 @@ void OAIObjectEzsignformfieldgroupApi::tokenAvailable(){
         break;
     }
 }
-} // namespace OpenAPI
+} // namespace Ezmaxapi

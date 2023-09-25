@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIField_eCommunicationrecipientObjecttype::OAIField_eCommunicationrecipientObjecttype(QString json) {
     this->initializeModel();
@@ -193,4 +193,4 @@ bool OAIField_eCommunicationrecipientObjecttype::isValid() const {
     return m_value_isValid;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

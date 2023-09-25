@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAISystemconfiguration_getObject_v2_Response_mPayload::OAISystemconfiguration_getObject_v2_Response_mPayload(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAISystemconfiguration_getObject_v2_Response_mPayload::fromJson(QString jso
 
 void OAISystemconfiguration_getObject_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_obj_systemconfiguration_isValid = ::OpenAPI::fromJsonValue(m_obj_systemconfiguration, json[QString("objSystemconfiguration")]);
+    m_obj_systemconfiguration_isValid = ::Ezmaxapi::fromJsonValue(m_obj_systemconfiguration, json[QString("objSystemconfiguration")]);
     m_obj_systemconfiguration_isSet = !json[QString("objSystemconfiguration")].isNull() && m_obj_systemconfiguration_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAISystemconfiguration_getObject_v2_Response_mPayload::asJson() const {
 QJsonObject OAISystemconfiguration_getObject_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_obj_systemconfiguration.isSet()) {
-        obj.insert(QString("objSystemconfiguration"), ::OpenAPI::toJsonValue(m_obj_systemconfiguration));
+        obj.insert(QString("objSystemconfiguration"), ::Ezmaxapi::toJsonValue(m_obj_systemconfiguration));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAISystemconfiguration_getObject_v2_Response_mPayload::isValid() const {
     return m_obj_systemconfiguration_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

@@ -31,7 +31,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 class OAIMultilingual_EzsignfoldertypeName;
 
 class OAIEzsignfoldertype_RequestCompound : public OAIObject {
@@ -349,8 +349,8 @@ private:
     bool m_a_fki_user_id_summary_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIEzsignfoldertype_RequestCompound)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIEzsignfoldertype_RequestCompound)
 
 #endif // OAIEzsignfoldertype_RequestCompound_H

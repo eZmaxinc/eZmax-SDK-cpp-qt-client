@@ -32,7 +32,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 class OAIActivesession_ResponseCompound_User;
 class OAIActivesession_ResponseCompound_Apikey;
 
@@ -198,8 +198,8 @@ private:
     bool m_a_e_module_internalname_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIActivesession_getCurrent_v1_Response_mPayload)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIActivesession_getCurrent_v1_Response_mPayload)
 
 #endif // OAIActivesession_getCurrent_v1_Response_mPayload_H

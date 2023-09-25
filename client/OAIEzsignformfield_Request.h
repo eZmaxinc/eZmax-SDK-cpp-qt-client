@@ -26,7 +26,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIEzsignformfield_Request : public OAIObject {
 public:
@@ -136,8 +136,8 @@ private:
     bool m_s_ezsignformfield_enteredvalue_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIEzsignformfield_Request)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIEzsignformfield_Request)
 
 #endif // OAIEzsignformfield_Request_H

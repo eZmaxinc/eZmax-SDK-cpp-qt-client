@@ -23,7 +23,7 @@
 #include <stdexcept>
 #include "OAIServerVariable.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIServerConfiguration {
 public:
@@ -78,6 +78,6 @@ public:
 
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
 #endif // OAI_SERVERVCONFIGURATION_H

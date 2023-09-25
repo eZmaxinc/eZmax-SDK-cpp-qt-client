@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzsigntemplate_getList_v1_Response_mPayload::OAIEzsigntemplate_getList_v1_Response_mPayload(QString json) {
     this->initializeModel();
@@ -53,13 +53,13 @@ void OAIEzsigntemplate_getList_v1_Response_mPayload::fromJson(QString jsonString
 
 void OAIEzsigntemplate_getList_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_i_row_returned_isValid = ::OpenAPI::fromJsonValue(m_i_row_returned, json[QString("iRowReturned")]);
+    m_i_row_returned_isValid = ::Ezmaxapi::fromJsonValue(m_i_row_returned, json[QString("iRowReturned")]);
     m_i_row_returned_isSet = !json[QString("iRowReturned")].isNull() && m_i_row_returned_isValid;
 
-    m_i_row_filtered_isValid = ::OpenAPI::fromJsonValue(m_i_row_filtered, json[QString("iRowFiltered")]);
+    m_i_row_filtered_isValid = ::Ezmaxapi::fromJsonValue(m_i_row_filtered, json[QString("iRowFiltered")]);
     m_i_row_filtered_isSet = !json[QString("iRowFiltered")].isNull() && m_i_row_filtered_isValid;
 
-    m_a_obj_ezsigntemplate_isValid = ::OpenAPI::fromJsonValue(m_a_obj_ezsigntemplate, json[QString("a_objEzsigntemplate")]);
+    m_a_obj_ezsigntemplate_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_ezsigntemplate, json[QString("a_objEzsigntemplate")]);
     m_a_obj_ezsigntemplate_isSet = !json[QString("a_objEzsigntemplate")].isNull() && m_a_obj_ezsigntemplate_isValid;
 }
 
@@ -73,13 +73,13 @@ QString OAIEzsigntemplate_getList_v1_Response_mPayload::asJson() const {
 QJsonObject OAIEzsigntemplate_getList_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_i_row_returned_isSet) {
-        obj.insert(QString("iRowReturned"), ::OpenAPI::toJsonValue(m_i_row_returned));
+        obj.insert(QString("iRowReturned"), ::Ezmaxapi::toJsonValue(m_i_row_returned));
     }
     if (m_i_row_filtered_isSet) {
-        obj.insert(QString("iRowFiltered"), ::OpenAPI::toJsonValue(m_i_row_filtered));
+        obj.insert(QString("iRowFiltered"), ::Ezmaxapi::toJsonValue(m_i_row_filtered));
     }
     if (m_a_obj_ezsigntemplate.size() > 0) {
-        obj.insert(QString("a_objEzsigntemplate"), ::OpenAPI::toJsonValue(m_a_obj_ezsigntemplate));
+        obj.insert(QString("a_objEzsigntemplate"), ::Ezmaxapi::toJsonValue(m_a_obj_ezsigntemplate));
     }
     return obj;
 }
@@ -158,4 +158,4 @@ bool OAIEzsigntemplate_getList_v1_Response_mPayload::isValid() const {
     return m_i_row_returned_isValid && m_i_row_filtered_isValid && m_a_obj_ezsigntemplate_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

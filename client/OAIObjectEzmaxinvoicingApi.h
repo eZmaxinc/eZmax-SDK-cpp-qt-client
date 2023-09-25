@@ -32,7 +32,7 @@
 #include <QList>
 #include <QNetworkAccessManager>
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIObjectEzmaxinvoicingApi : public QObject {
     Q_OBJECT
@@ -68,7 +68,7 @@ public:
     * @param[in]  s_query QString [optional]
     * @param[in]  accept_language OAIHeader_Accept_Language [optional]
     */
-    Q_DECL_DEPRECATED void ezmaxinvoicingGetAutocompleteV1(const QString &s_selector, const ::OpenAPI::OptionalParam<QString> &e_filter_active = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &s_query = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<OAIHeader_Accept_Language> &accept_language = ::OpenAPI::OptionalParam<OAIHeader_Accept_Language>());
+    Q_DECL_DEPRECATED void ezmaxinvoicingGetAutocompleteV1(const QString &s_selector, const ::Ezmaxapi::OptionalParam<QString> &e_filter_active = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<QString> &s_query = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<OAIHeader_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<OAIHeader_Accept_Language>());
 
     /**
     * @param[in]  s_selector QString [required]
@@ -76,7 +76,7 @@ public:
     * @param[in]  s_query QString [optional]
     * @param[in]  accept_language OAIHeader_Accept_Language [optional]
     */
-    void ezmaxinvoicingGetAutocompleteV2(const QString &s_selector, const ::OpenAPI::OptionalParam<QString> &e_filter_active = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &s_query = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<OAIHeader_Accept_Language> &accept_language = ::OpenAPI::OptionalParam<OAIHeader_Accept_Language>());
+    void ezmaxinvoicingGetAutocompleteV2(const QString &s_selector, const ::Ezmaxapi::OptionalParam<QString> &e_filter_active = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<QString> &s_query = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<OAIHeader_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<OAIHeader_Accept_Language>());
 
     /**
     * @param[in]  pki_ezmaxinvoicing_id qint32 [required]
@@ -144,5 +144,5 @@ public slots:
     
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 #endif

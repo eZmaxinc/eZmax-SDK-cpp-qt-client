@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAISignature_Request::OAISignature_Request(QString json) {
     this->initializeModel();
@@ -50,10 +50,10 @@ void OAISignature_Request::fromJson(QString jsonString) {
 
 void OAISignature_Request::fromJsonObject(QJsonObject json) {
 
-    m_pki_signature_id_isValid = ::OpenAPI::fromJsonValue(m_pki_signature_id, json[QString("pkiSignatureID")]);
+    m_pki_signature_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_signature_id, json[QString("pkiSignatureID")]);
     m_pki_signature_id_isSet = !json[QString("pkiSignatureID")].isNull() && m_pki_signature_id_isValid;
 
-    m_t_signature_svg_isValid = ::OpenAPI::fromJsonValue(m_t_signature_svg, json[QString("tSignatureSvg")]);
+    m_t_signature_svg_isValid = ::Ezmaxapi::fromJsonValue(m_t_signature_svg, json[QString("tSignatureSvg")]);
     m_t_signature_svg_isSet = !json[QString("tSignatureSvg")].isNull() && m_t_signature_svg_isValid;
 }
 
@@ -67,10 +67,10 @@ QString OAISignature_Request::asJson() const {
 QJsonObject OAISignature_Request::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_signature_id_isSet) {
-        obj.insert(QString("pkiSignatureID"), ::OpenAPI::toJsonValue(m_pki_signature_id));
+        obj.insert(QString("pkiSignatureID"), ::Ezmaxapi::toJsonValue(m_pki_signature_id));
     }
     if (m_t_signature_svg_isSet) {
-        obj.insert(QString("tSignatureSvg"), ::OpenAPI::toJsonValue(m_t_signature_svg));
+        obj.insert(QString("tSignatureSvg"), ::Ezmaxapi::toJsonValue(m_t_signature_svg));
     }
     return obj;
 }
@@ -128,4 +128,4 @@ bool OAISignature_Request::isValid() const {
     return m_t_signature_svg_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

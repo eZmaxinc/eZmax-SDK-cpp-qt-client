@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIMultilingual_NotificationsubsectionName::OAIMultilingual_NotificationsubsectionName(QString json) {
     this->initializeModel();
@@ -50,10 +50,10 @@ void OAIMultilingual_NotificationsubsectionName::fromJson(QString jsonString) {
 
 void OAIMultilingual_NotificationsubsectionName::fromJsonObject(QJsonObject json) {
 
-    m_s_notificationsubsection_name1_isValid = ::OpenAPI::fromJsonValue(m_s_notificationsubsection_name1, json[QString("sNotificationsubsectionName1")]);
+    m_s_notificationsubsection_name1_isValid = ::Ezmaxapi::fromJsonValue(m_s_notificationsubsection_name1, json[QString("sNotificationsubsectionName1")]);
     m_s_notificationsubsection_name1_isSet = !json[QString("sNotificationsubsectionName1")].isNull() && m_s_notificationsubsection_name1_isValid;
 
-    m_s_notificationsubsection_name2_isValid = ::OpenAPI::fromJsonValue(m_s_notificationsubsection_name2, json[QString("sNotificationsubsectionName2")]);
+    m_s_notificationsubsection_name2_isValid = ::Ezmaxapi::fromJsonValue(m_s_notificationsubsection_name2, json[QString("sNotificationsubsectionName2")]);
     m_s_notificationsubsection_name2_isSet = !json[QString("sNotificationsubsectionName2")].isNull() && m_s_notificationsubsection_name2_isValid;
 }
 
@@ -67,10 +67,10 @@ QString OAIMultilingual_NotificationsubsectionName::asJson() const {
 QJsonObject OAIMultilingual_NotificationsubsectionName::asJsonObject() const {
     QJsonObject obj;
     if (m_s_notificationsubsection_name1_isSet) {
-        obj.insert(QString("sNotificationsubsectionName1"), ::OpenAPI::toJsonValue(m_s_notificationsubsection_name1));
+        obj.insert(QString("sNotificationsubsectionName1"), ::Ezmaxapi::toJsonValue(m_s_notificationsubsection_name1));
     }
     if (m_s_notificationsubsection_name2_isSet) {
-        obj.insert(QString("sNotificationsubsectionName2"), ::OpenAPI::toJsonValue(m_s_notificationsubsection_name2));
+        obj.insert(QString("sNotificationsubsectionName2"), ::Ezmaxapi::toJsonValue(m_s_notificationsubsection_name2));
     }
     return obj;
 }
@@ -128,4 +128,4 @@ bool OAIMultilingual_NotificationsubsectionName::isValid() const {
     return true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

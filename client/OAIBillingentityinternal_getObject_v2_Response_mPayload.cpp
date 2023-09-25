@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIBillingentityinternal_getObject_v2_Response_mPayload::OAIBillingentityinternal_getObject_v2_Response_mPayload(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAIBillingentityinternal_getObject_v2_Response_mPayload::fromJson(QString j
 
 void OAIBillingentityinternal_getObject_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_obj_billingentityinternal_isValid = ::OpenAPI::fromJsonValue(m_obj_billingentityinternal, json[QString("objBillingentityinternal")]);
+    m_obj_billingentityinternal_isValid = ::Ezmaxapi::fromJsonValue(m_obj_billingentityinternal, json[QString("objBillingentityinternal")]);
     m_obj_billingentityinternal_isSet = !json[QString("objBillingentityinternal")].isNull() && m_obj_billingentityinternal_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAIBillingentityinternal_getObject_v2_Response_mPayload::asJson() const 
 QJsonObject OAIBillingentityinternal_getObject_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_obj_billingentityinternal.isSet()) {
-        obj.insert(QString("objBillingentityinternal"), ::OpenAPI::toJsonValue(m_obj_billingentityinternal));
+        obj.insert(QString("objBillingentityinternal"), ::Ezmaxapi::toJsonValue(m_obj_billingentityinternal));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAIBillingentityinternal_getObject_v2_Response_mPayload::isValid() const {
     return m_obj_billingentityinternal_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

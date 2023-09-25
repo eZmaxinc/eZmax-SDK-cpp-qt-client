@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAISignature_getObject_v2_Response_mPayload::OAISignature_getObject_v2_Response_mPayload(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAISignature_getObject_v2_Response_mPayload::fromJson(QString jsonString) {
 
 void OAISignature_getObject_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_obj_signature_isValid = ::OpenAPI::fromJsonValue(m_obj_signature, json[QString("objSignature")]);
+    m_obj_signature_isValid = ::Ezmaxapi::fromJsonValue(m_obj_signature, json[QString("objSignature")]);
     m_obj_signature_isSet = !json[QString("objSignature")].isNull() && m_obj_signature_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAISignature_getObject_v2_Response_mPayload::asJson() const {
 QJsonObject OAISignature_getObject_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_obj_signature.isSet()) {
-        obj.insert(QString("objSignature"), ::OpenAPI::toJsonValue(m_obj_signature));
+        obj.insert(QString("objSignature"), ::Ezmaxapi::toJsonValue(m_obj_signature));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAISignature_getObject_v2_Response_mPayload::isValid() const {
     return m_obj_signature_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

@@ -28,7 +28,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 class OAIMultilingual_BrandingDescription;
 
 class OAIBranding_ResponseCompound : public OAIObject {
@@ -184,8 +184,8 @@ private:
     bool m_s_branding_logourl_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIBranding_ResponseCompound)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIBranding_ResponseCompound)
 
 #endif // OAIBranding_ResponseCompound_H

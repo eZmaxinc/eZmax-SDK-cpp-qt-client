@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEmail_Response::OAIEmail_Response(QString json) {
     this->initializeModel();
@@ -53,13 +53,13 @@ void OAIEmail_Response::fromJson(QString jsonString) {
 
 void OAIEmail_Response::fromJsonObject(QJsonObject json) {
 
-    m_pki_email_id_isValid = ::OpenAPI::fromJsonValue(m_pki_email_id, json[QString("pkiEmailID")]);
+    m_pki_email_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_email_id, json[QString("pkiEmailID")]);
     m_pki_email_id_isSet = !json[QString("pkiEmailID")].isNull() && m_pki_email_id_isValid;
 
-    m_fki_emailtype_id_isValid = ::OpenAPI::fromJsonValue(m_fki_emailtype_id, json[QString("fkiEmailtypeID")]);
+    m_fki_emailtype_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_emailtype_id, json[QString("fkiEmailtypeID")]);
     m_fki_emailtype_id_isSet = !json[QString("fkiEmailtypeID")].isNull() && m_fki_emailtype_id_isValid;
 
-    m_s_email_address_isValid = ::OpenAPI::fromJsonValue(m_s_email_address, json[QString("sEmailAddress")]);
+    m_s_email_address_isValid = ::Ezmaxapi::fromJsonValue(m_s_email_address, json[QString("sEmailAddress")]);
     m_s_email_address_isSet = !json[QString("sEmailAddress")].isNull() && m_s_email_address_isValid;
 }
 
@@ -73,13 +73,13 @@ QString OAIEmail_Response::asJson() const {
 QJsonObject OAIEmail_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_email_id_isSet) {
-        obj.insert(QString("pkiEmailID"), ::OpenAPI::toJsonValue(m_pki_email_id));
+        obj.insert(QString("pkiEmailID"), ::Ezmaxapi::toJsonValue(m_pki_email_id));
     }
     if (m_fki_emailtype_id_isSet) {
-        obj.insert(QString("fkiEmailtypeID"), ::OpenAPI::toJsonValue(m_fki_emailtype_id));
+        obj.insert(QString("fkiEmailtypeID"), ::Ezmaxapi::toJsonValue(m_fki_emailtype_id));
     }
     if (m_s_email_address_isSet) {
-        obj.insert(QString("sEmailAddress"), ::OpenAPI::toJsonValue(m_s_email_address));
+        obj.insert(QString("sEmailAddress"), ::Ezmaxapi::toJsonValue(m_s_email_address));
     }
     return obj;
 }
@@ -158,4 +158,4 @@ bool OAIEmail_Response::isValid() const {
     return m_pki_email_id_isValid && m_fki_emailtype_id_isValid && m_s_email_address_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

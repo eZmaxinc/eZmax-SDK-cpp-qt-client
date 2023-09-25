@@ -15,7 +15,7 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIGlobalEzmaxcustomerApi::OAIGlobalEzmaxcustomerApi(const int timeOut)
     : _timeOut(timeOut),
@@ -251,7 +251,7 @@ void OAIGlobalEzmaxcustomerApi::globalEzmaxcustomerGetConfigurationV1(const QStr
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pksEzmaxcustomerCode", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pksEzmaxcustomerCode"+pathSuffix : pathPrefix;
-        fullPath.replace(pks_ezmaxcustomer_codePathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pks_ezmaxcustomer_code)));
+        fullPath.replace(pks_ezmaxcustomer_codePathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pks_ezmaxcustomer_code)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -348,4 +348,4 @@ void OAIGlobalEzmaxcustomerApi::tokenAvailable(){
         break;
     }
 }
-} // namespace OpenAPI
+} // namespace Ezmaxapi

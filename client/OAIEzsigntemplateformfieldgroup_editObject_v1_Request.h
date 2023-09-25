@@ -26,7 +26,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 class OAIEzsigntemplateformfieldgroup_RequestCompound;
 
 class OAIEzsigntemplateformfieldgroup_editObject_v1_Request : public OAIObject {
@@ -56,8 +56,8 @@ private:
     bool m_obj_ezsigntemplateformfieldgroup_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIEzsigntemplateformfieldgroup_editObject_v1_Request)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIEzsigntemplateformfieldgroup_editObject_v1_Request)
 
 #endif // OAIEzsigntemplateformfieldgroup_editObject_v1_Request_H

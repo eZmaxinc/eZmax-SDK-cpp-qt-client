@@ -28,7 +28,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIEzsignfolder_ListElement : public OAIObject {
 public:
@@ -165,8 +165,8 @@ private:
     bool m_i_ezsignsignature_signed_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIEzsignfolder_ListElement)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIEzsignfolder_ListElement)
 
 #endif // OAIEzsignfolder_ListElement_H

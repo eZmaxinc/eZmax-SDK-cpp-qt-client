@@ -25,7 +25,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIField_eEzsigntemplatesignatureTooltipposition : public OAIEnum {
 public:
@@ -62,8 +62,8 @@ private:
     bool m_value_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIField_eEzsigntemplatesignatureTooltipposition)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIField_eEzsigntemplatesignatureTooltipposition)
 
 #endif // OAIField_eEzsigntemplatesignatureTooltipposition_H

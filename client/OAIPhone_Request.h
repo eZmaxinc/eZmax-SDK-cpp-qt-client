@@ -27,7 +27,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIPhone_Request : public OAIObject {
 public:
@@ -128,8 +128,8 @@ private:
     bool m_s_phone_e164_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIPhone_Request)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIPhone_Request)
 
 #endif // OAIPhone_Request_H

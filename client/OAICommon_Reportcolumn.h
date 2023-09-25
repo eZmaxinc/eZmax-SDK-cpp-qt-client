@@ -26,7 +26,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 class OAICommon_Reportcellstyle;
 
 class OAICommon_Reportcolumn : public OAIObject {
@@ -65,8 +65,8 @@ private:
     bool m_i_reportcolumn_width_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAICommon_Reportcolumn)
+Q_DECLARE_METATYPE(Ezmaxapi::OAICommon_Reportcolumn)
 
 #endif // OAICommon_Reportcolumn_H

@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAICustom_FormDataDocument_Response::OAICustom_FormDataDocument_Response(QString json) {
     this->initializeModel();
@@ -59,19 +59,19 @@ void OAICustom_FormDataDocument_Response::fromJson(QString jsonString) {
 
 void OAICustom_FormDataDocument_Response::fromJsonObject(QJsonObject json) {
 
-    m_pki_ezsigndocument_id_isValid = ::OpenAPI::fromJsonValue(m_pki_ezsigndocument_id, json[QString("pkiEzsigndocumentID")]);
+    m_pki_ezsigndocument_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_ezsigndocument_id, json[QString("pkiEzsigndocumentID")]);
     m_pki_ezsigndocument_id_isSet = !json[QString("pkiEzsigndocumentID")].isNull() && m_pki_ezsigndocument_id_isValid;
 
-    m_fki_ezsignfolder_id_isValid = ::OpenAPI::fromJsonValue(m_fki_ezsignfolder_id, json[QString("fkiEzsignfolderID")]);
+    m_fki_ezsignfolder_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_ezsignfolder_id, json[QString("fkiEzsignfolderID")]);
     m_fki_ezsignfolder_id_isSet = !json[QString("fkiEzsignfolderID")].isNull() && m_fki_ezsignfolder_id_isValid;
 
-    m_s_ezsigndocument_name_isValid = ::OpenAPI::fromJsonValue(m_s_ezsigndocument_name, json[QString("sEzsigndocumentName")]);
+    m_s_ezsigndocument_name_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsigndocument_name, json[QString("sEzsigndocumentName")]);
     m_s_ezsigndocument_name_isSet = !json[QString("sEzsigndocumentName")].isNull() && m_s_ezsigndocument_name_isValid;
 
-    m_dt_modified_date_isValid = ::OpenAPI::fromJsonValue(m_dt_modified_date, json[QString("dtModifiedDate")]);
+    m_dt_modified_date_isValid = ::Ezmaxapi::fromJsonValue(m_dt_modified_date, json[QString("dtModifiedDate")]);
     m_dt_modified_date_isSet = !json[QString("dtModifiedDate")].isNull() && m_dt_modified_date_isValid;
 
-    m_a_obj_form_data_signer_isValid = ::OpenAPI::fromJsonValue(m_a_obj_form_data_signer, json[QString("a_objFormDataSigner")]);
+    m_a_obj_form_data_signer_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_form_data_signer, json[QString("a_objFormDataSigner")]);
     m_a_obj_form_data_signer_isSet = !json[QString("a_objFormDataSigner")].isNull() && m_a_obj_form_data_signer_isValid;
 }
 
@@ -85,19 +85,19 @@ QString OAICustom_FormDataDocument_Response::asJson() const {
 QJsonObject OAICustom_FormDataDocument_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_ezsigndocument_id_isSet) {
-        obj.insert(QString("pkiEzsigndocumentID"), ::OpenAPI::toJsonValue(m_pki_ezsigndocument_id));
+        obj.insert(QString("pkiEzsigndocumentID"), ::Ezmaxapi::toJsonValue(m_pki_ezsigndocument_id));
     }
     if (m_fki_ezsignfolder_id_isSet) {
-        obj.insert(QString("fkiEzsignfolderID"), ::OpenAPI::toJsonValue(m_fki_ezsignfolder_id));
+        obj.insert(QString("fkiEzsignfolderID"), ::Ezmaxapi::toJsonValue(m_fki_ezsignfolder_id));
     }
     if (m_s_ezsigndocument_name_isSet) {
-        obj.insert(QString("sEzsigndocumentName"), ::OpenAPI::toJsonValue(m_s_ezsigndocument_name));
+        obj.insert(QString("sEzsigndocumentName"), ::Ezmaxapi::toJsonValue(m_s_ezsigndocument_name));
     }
     if (m_dt_modified_date_isSet) {
-        obj.insert(QString("dtModifiedDate"), ::OpenAPI::toJsonValue(m_dt_modified_date));
+        obj.insert(QString("dtModifiedDate"), ::Ezmaxapi::toJsonValue(m_dt_modified_date));
     }
     if (m_a_obj_form_data_signer.size() > 0) {
-        obj.insert(QString("a_objFormDataSigner"), ::OpenAPI::toJsonValue(m_a_obj_form_data_signer));
+        obj.insert(QString("a_objFormDataSigner"), ::Ezmaxapi::toJsonValue(m_a_obj_form_data_signer));
     }
     return obj;
 }
@@ -218,4 +218,4 @@ bool OAICustom_FormDataDocument_Response::isValid() const {
     return m_pki_ezsigndocument_id_isValid && m_fki_ezsignfolder_id_isValid && m_s_ezsigndocument_name_isValid && m_dt_modified_date_isValid && m_a_obj_form_data_signer_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

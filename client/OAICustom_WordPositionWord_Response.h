@@ -28,7 +28,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 class OAICustom_WordPositionOccurence_Response;
 
 class OAICustom_WordPositionWord_Response : public OAIObject {
@@ -67,8 +67,8 @@ private:
     bool m_a_obj_word_position_occurence_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAICustom_WordPositionWord_Response)
+Q_DECLARE_METATYPE(Ezmaxapi::OAICustom_WordPositionWord_Response)
 
 #endif // OAICustom_WordPositionWord_Response_H

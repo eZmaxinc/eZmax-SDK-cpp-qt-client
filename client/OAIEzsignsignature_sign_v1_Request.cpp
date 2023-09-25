@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzsignsignature_sign_v1_Request::OAIEzsignsignature_sign_v1_Request(QString json) {
     this->initializeModel();
@@ -62,22 +62,22 @@ void OAIEzsignsignature_sign_v1_Request::fromJson(QString jsonString) {
 
 void OAIEzsignsignature_sign_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_s_value_isValid = ::OpenAPI::fromJsonValue(m_s_value, json[QString("sValue")]);
+    m_s_value_isValid = ::Ezmaxapi::fromJsonValue(m_s_value, json[QString("sValue")]);
     m_s_value_isSet = !json[QString("sValue")].isNull() && m_s_value_isValid;
 
-    m_e_attachments_confirmation_decision_isValid = ::OpenAPI::fromJsonValue(m_e_attachments_confirmation_decision, json[QString("eAttachmentsConfirmationDecision")]);
+    m_e_attachments_confirmation_decision_isValid = ::Ezmaxapi::fromJsonValue(m_e_attachments_confirmation_decision, json[QString("eAttachmentsConfirmationDecision")]);
     m_e_attachments_confirmation_decision_isSet = !json[QString("eAttachmentsConfirmationDecision")].isNull() && m_e_attachments_confirmation_decision_isValid;
 
-    m_s_attachments_refusal_reason_isValid = ::OpenAPI::fromJsonValue(m_s_attachments_refusal_reason, json[QString("sAttachmentsRefusalReason")]);
+    m_s_attachments_refusal_reason_isValid = ::Ezmaxapi::fromJsonValue(m_s_attachments_refusal_reason, json[QString("sAttachmentsRefusalReason")]);
     m_s_attachments_refusal_reason_isSet = !json[QString("sAttachmentsRefusalReason")].isNull() && m_s_attachments_refusal_reason_isValid;
 
-    m_s_svg_isValid = ::OpenAPI::fromJsonValue(m_s_svg, json[QString("sSvg")]);
+    m_s_svg_isValid = ::Ezmaxapi::fromJsonValue(m_s_svg, json[QString("sSvg")]);
     m_s_svg_isSet = !json[QString("sSvg")].isNull() && m_s_svg_isValid;
 
-    m_a_obj_file_isValid = ::OpenAPI::fromJsonValue(m_a_obj_file, json[QString("a_objFile")]);
+    m_a_obj_file_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_file, json[QString("a_objFile")]);
     m_a_obj_file_isSet = !json[QString("a_objFile")].isNull() && m_a_obj_file_isValid;
 
-    m_b_is_automatic_isValid = ::OpenAPI::fromJsonValue(m_b_is_automatic, json[QString("bIsAutomatic")]);
+    m_b_is_automatic_isValid = ::Ezmaxapi::fromJsonValue(m_b_is_automatic, json[QString("bIsAutomatic")]);
     m_b_is_automatic_isSet = !json[QString("bIsAutomatic")].isNull() && m_b_is_automatic_isValid;
 }
 
@@ -91,22 +91,22 @@ QString OAIEzsignsignature_sign_v1_Request::asJson() const {
 QJsonObject OAIEzsignsignature_sign_v1_Request::asJsonObject() const {
     QJsonObject obj;
     if (m_s_value_isSet) {
-        obj.insert(QString("sValue"), ::OpenAPI::toJsonValue(m_s_value));
+        obj.insert(QString("sValue"), ::Ezmaxapi::toJsonValue(m_s_value));
     }
     if (m_e_attachments_confirmation_decision_isSet) {
-        obj.insert(QString("eAttachmentsConfirmationDecision"), ::OpenAPI::toJsonValue(m_e_attachments_confirmation_decision));
+        obj.insert(QString("eAttachmentsConfirmationDecision"), ::Ezmaxapi::toJsonValue(m_e_attachments_confirmation_decision));
     }
     if (m_s_attachments_refusal_reason_isSet) {
-        obj.insert(QString("sAttachmentsRefusalReason"), ::OpenAPI::toJsonValue(m_s_attachments_refusal_reason));
+        obj.insert(QString("sAttachmentsRefusalReason"), ::Ezmaxapi::toJsonValue(m_s_attachments_refusal_reason));
     }
     if (m_s_svg_isSet) {
-        obj.insert(QString("sSvg"), ::OpenAPI::toJsonValue(m_s_svg));
+        obj.insert(QString("sSvg"), ::Ezmaxapi::toJsonValue(m_s_svg));
     }
     if (m_a_obj_file.size() > 0) {
-        obj.insert(QString("a_objFile"), ::OpenAPI::toJsonValue(m_a_obj_file));
+        obj.insert(QString("a_objFile"), ::Ezmaxapi::toJsonValue(m_a_obj_file));
     }
     if (m_b_is_automatic_isSet) {
-        obj.insert(QString("bIsAutomatic"), ::OpenAPI::toJsonValue(m_b_is_automatic));
+        obj.insert(QString("bIsAutomatic"), ::Ezmaxapi::toJsonValue(m_b_is_automatic));
     }
     return obj;
 }
@@ -248,4 +248,4 @@ bool OAIEzsignsignature_sign_v1_Request::isValid() const {
     return m_b_is_automatic_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

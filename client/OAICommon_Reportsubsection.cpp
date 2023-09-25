@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAICommon_Reportsubsection::OAICommon_Reportsubsection(QString json) {
     this->initializeModel();
@@ -53,13 +53,13 @@ void OAICommon_Reportsubsection::fromJson(QString jsonString) {
 
 void OAICommon_Reportsubsection::fromJsonObject(QJsonObject json) {
 
-    m_obj_reportsubsectionpart_header_isValid = ::OpenAPI::fromJsonValue(m_obj_reportsubsectionpart_header, json[QString("objReportsubsectionpartHeader")]);
+    m_obj_reportsubsectionpart_header_isValid = ::Ezmaxapi::fromJsonValue(m_obj_reportsubsectionpart_header, json[QString("objReportsubsectionpartHeader")]);
     m_obj_reportsubsectionpart_header_isSet = !json[QString("objReportsubsectionpartHeader")].isNull() && m_obj_reportsubsectionpart_header_isValid;
 
-    m_obj_reportsubsectionpart_body_isValid = ::OpenAPI::fromJsonValue(m_obj_reportsubsectionpart_body, json[QString("objReportsubsectionpartBody")]);
+    m_obj_reportsubsectionpart_body_isValid = ::Ezmaxapi::fromJsonValue(m_obj_reportsubsectionpart_body, json[QString("objReportsubsectionpartBody")]);
     m_obj_reportsubsectionpart_body_isSet = !json[QString("objReportsubsectionpartBody")].isNull() && m_obj_reportsubsectionpart_body_isValid;
 
-    m_obj_reportsubsectionpart_footer_isValid = ::OpenAPI::fromJsonValue(m_obj_reportsubsectionpart_footer, json[QString("objReportsubsectionpartFooter")]);
+    m_obj_reportsubsectionpart_footer_isValid = ::Ezmaxapi::fromJsonValue(m_obj_reportsubsectionpart_footer, json[QString("objReportsubsectionpartFooter")]);
     m_obj_reportsubsectionpart_footer_isSet = !json[QString("objReportsubsectionpartFooter")].isNull() && m_obj_reportsubsectionpart_footer_isValid;
 }
 
@@ -73,13 +73,13 @@ QString OAICommon_Reportsubsection::asJson() const {
 QJsonObject OAICommon_Reportsubsection::asJsonObject() const {
     QJsonObject obj;
     if (m_obj_reportsubsectionpart_header.isSet()) {
-        obj.insert(QString("objReportsubsectionpartHeader"), ::OpenAPI::toJsonValue(m_obj_reportsubsectionpart_header));
+        obj.insert(QString("objReportsubsectionpartHeader"), ::Ezmaxapi::toJsonValue(m_obj_reportsubsectionpart_header));
     }
     if (m_obj_reportsubsectionpart_body.isSet()) {
-        obj.insert(QString("objReportsubsectionpartBody"), ::OpenAPI::toJsonValue(m_obj_reportsubsectionpart_body));
+        obj.insert(QString("objReportsubsectionpartBody"), ::Ezmaxapi::toJsonValue(m_obj_reportsubsectionpart_body));
     }
     if (m_obj_reportsubsectionpart_footer.isSet()) {
-        obj.insert(QString("objReportsubsectionpartFooter"), ::OpenAPI::toJsonValue(m_obj_reportsubsectionpart_footer));
+        obj.insert(QString("objReportsubsectionpartFooter"), ::Ezmaxapi::toJsonValue(m_obj_reportsubsectionpart_footer));
     }
     return obj;
 }
@@ -158,4 +158,4 @@ bool OAICommon_Reportsubsection::isValid() const {
     return m_obj_reportsubsectionpart_header_isValid && m_obj_reportsubsectionpart_body_isValid && m_obj_reportsubsectionpart_footer_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

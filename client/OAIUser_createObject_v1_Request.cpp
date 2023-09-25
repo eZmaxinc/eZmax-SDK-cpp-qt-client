@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIUser_createObject_v1_Request::OAIUser_createObject_v1_Request(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAIUser_createObject_v1_Request::fromJson(QString jsonString) {
 
 void OAIUser_createObject_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_user_isValid = ::OpenAPI::fromJsonValue(m_a_obj_user, json[QString("a_objUser")]);
+    m_a_obj_user_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_user, json[QString("a_objUser")]);
     m_a_obj_user_isSet = !json[QString("a_objUser")].isNull() && m_a_obj_user_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAIUser_createObject_v1_Request::asJson() const {
 QJsonObject OAIUser_createObject_v1_Request::asJsonObject() const {
     QJsonObject obj;
     if (m_a_obj_user.size() > 0) {
-        obj.insert(QString("a_objUser"), ::OpenAPI::toJsonValue(m_a_obj_user));
+        obj.insert(QString("a_objUser"), ::Ezmaxapi::toJsonValue(m_a_obj_user));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAIUser_createObject_v1_Request::isValid() const {
     return m_a_obj_user_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

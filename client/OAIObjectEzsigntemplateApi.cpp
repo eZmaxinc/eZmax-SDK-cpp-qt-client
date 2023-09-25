@@ -15,7 +15,7 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIObjectEzsigntemplateApi::OAIObjectEzsigntemplateApi(const int timeOut)
     : _timeOut(timeOut),
@@ -269,7 +269,7 @@ void OAIObjectEzsigntemplateApi::ezsigntemplateCopyV1(const qint32 &pki_ezsignte
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsigntemplateID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsigntemplateID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsigntemplate_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsigntemplate_id)));
+        fullPath.replace(pki_ezsigntemplate_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsigntemplate_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -399,7 +399,7 @@ void OAIObjectEzsigntemplateApi::ezsigntemplateDeleteObjectV1(const qint32 &pki_
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsigntemplateID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsigntemplateID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsigntemplate_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsigntemplate_id)));
+        fullPath.replace(pki_ezsigntemplate_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsigntemplate_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -466,7 +466,7 @@ void OAIObjectEzsigntemplateApi::ezsigntemplateEditObjectV1(const qint32 &pki_ez
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsigntemplateID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsigntemplateID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsigntemplate_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsigntemplate_id)));
+        fullPath.replace(pki_ezsigntemplate_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsigntemplate_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -519,7 +519,7 @@ void OAIObjectEzsigntemplateApi::ezsigntemplateEditObjectV1Callback(OAIHttpReque
     }
 }
 
-void OAIObjectEzsigntemplateApi::ezsigntemplateGetAutocompleteV2(const QString &s_selector, const ::OpenAPI::OptionalParam<QString> &e_filter_active, const ::OpenAPI::OptionalParam<QString> &s_query, const ::OpenAPI::OptionalParam<OAIHeader_Accept_Language> &accept_language) {
+void OAIObjectEzsigntemplateApi::ezsigntemplateGetAutocompleteV2(const QString &s_selector, const ::Ezmaxapi::OptionalParam<QString> &e_filter_active, const ::Ezmaxapi::OptionalParam<QString> &s_query, const ::Ezmaxapi::OptionalParam<OAIHeader_Accept_Language> &accept_language) {
     QString fullPath = QString(_serverConfigs["ezsigntemplateGetAutocompleteV2"][_serverIndices.value("ezsigntemplateGetAutocompleteV2")].URL()+"/2/object/ezsigntemplate/getAutocomplete/{sSelector}");
     
     if (_apiKeys.contains("Authorization")) {
@@ -538,7 +538,7 @@ void OAIObjectEzsigntemplateApi::ezsigntemplateGetAutocompleteV2(const QString &
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "sSelector", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"sSelector"+pathSuffix : pathPrefix;
-        fullPath.replace(s_selectorPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(s_selector)));
+        fullPath.replace(s_selectorPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_selector)));
     }
     QString queryPrefix, querySuffix, queryDelimiter, queryStyle;
     if (e_filter_active.hasValue())
@@ -554,7 +554,7 @@ void OAIObjectEzsigntemplateApi::ezsigntemplateGetAutocompleteV2(const QString &
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("eFilterActive")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(e_filter_active.value())));
+        fullPath.append(QUrl::toPercentEncoding("eFilterActive")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(e_filter_active.value())));
     }
     if (s_query.hasValue())
     {
@@ -569,7 +569,7 @@ void OAIObjectEzsigntemplateApi::ezsigntemplateGetAutocompleteV2(const QString &
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(s_query.value())));
+        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_query.value())));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -661,7 +661,7 @@ void OAIObjectEzsigntemplateApi::ezsigntemplateGetAutocompleteV2Callback(OAIHttp
     }
 }
 
-void OAIObjectEzsigntemplateApi::ezsigntemplateGetListV1(const ::OpenAPI::OptionalParam<QString> &e_order_by, const ::OpenAPI::OptionalParam<qint32> &i_row_max, const ::OpenAPI::OptionalParam<qint32> &i_row_offset, const ::OpenAPI::OptionalParam<OAIHeader_Accept_Language> &accept_language, const ::OpenAPI::OptionalParam<QString> &s_filter) {
+void OAIObjectEzsigntemplateApi::ezsigntemplateGetListV1(const ::Ezmaxapi::OptionalParam<QString> &e_order_by, const ::Ezmaxapi::OptionalParam<qint32> &i_row_max, const ::Ezmaxapi::OptionalParam<qint32> &i_row_offset, const ::Ezmaxapi::OptionalParam<OAIHeader_Accept_Language> &accept_language, const ::Ezmaxapi::OptionalParam<QString> &s_filter) {
     QString fullPath = QString(_serverConfigs["ezsigntemplateGetListV1"][_serverIndices.value("ezsigntemplateGetListV1")].URL()+"/1/object/ezsigntemplate/getList");
     
     if (_apiKeys.contains("Authorization")) {
@@ -682,7 +682,7 @@ void OAIObjectEzsigntemplateApi::ezsigntemplateGetListV1(const ::OpenAPI::Option
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("eOrderBy")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(e_order_by.value())));
+        fullPath.append(QUrl::toPercentEncoding("eOrderBy")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(e_order_by.value())));
     }
     if (i_row_max.hasValue())
     {
@@ -697,7 +697,7 @@ void OAIObjectEzsigntemplateApi::ezsigntemplateGetListV1(const ::OpenAPI::Option
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("iRowMax")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(i_row_max.value())));
+        fullPath.append(QUrl::toPercentEncoding("iRowMax")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(i_row_max.value())));
     }
     if (i_row_offset.hasValue())
     {
@@ -712,7 +712,7 @@ void OAIObjectEzsigntemplateApi::ezsigntemplateGetListV1(const ::OpenAPI::Option
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("iRowOffset")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(i_row_offset.value())));
+        fullPath.append(QUrl::toPercentEncoding("iRowOffset")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(i_row_offset.value())));
     }
     if (s_filter.hasValue())
     {
@@ -727,7 +727,7 @@ void OAIObjectEzsigntemplateApi::ezsigntemplateGetListV1(const ::OpenAPI::Option
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("sFilter")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(s_filter.value())));
+        fullPath.append(QUrl::toPercentEncoding("sFilter")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_filter.value())));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -838,7 +838,7 @@ void OAIObjectEzsigntemplateApi::ezsigntemplateGetObjectV1(const qint32 &pki_ezs
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsigntemplateID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsigntemplateID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsigntemplate_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsigntemplate_id)));
+        fullPath.replace(pki_ezsigntemplate_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsigntemplate_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -905,7 +905,7 @@ void OAIObjectEzsigntemplateApi::ezsigntemplateGetObjectV2(const qint32 &pki_ezs
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsigntemplateID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsigntemplateID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsigntemplate_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsigntemplate_id)));
+        fullPath.replace(pki_ezsigntemplate_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsigntemplate_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -1002,4 +1002,4 @@ void OAIObjectEzsigntemplateApi::tokenAvailable(){
         break;
     }
 }
-} // namespace OpenAPI
+} // namespace Ezmaxapi

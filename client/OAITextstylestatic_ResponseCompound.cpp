@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAITextstylestatic_ResponseCompound::OAITextstylestatic_ResponseCompound(QString json) {
     this->initializeModel();
@@ -68,28 +68,28 @@ void OAITextstylestatic_ResponseCompound::fromJson(QString jsonString) {
 
 void OAITextstylestatic_ResponseCompound::fromJsonObject(QJsonObject json) {
 
-    m_pki_textstylestatic_id_isValid = ::OpenAPI::fromJsonValue(m_pki_textstylestatic_id, json[QString("pkiTextstylestaticID")]);
+    m_pki_textstylestatic_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_textstylestatic_id, json[QString("pkiTextstylestaticID")]);
     m_pki_textstylestatic_id_isSet = !json[QString("pkiTextstylestaticID")].isNull() && m_pki_textstylestatic_id_isValid;
 
-    m_fki_font_id_isValid = ::OpenAPI::fromJsonValue(m_fki_font_id, json[QString("fkiFontID")]);
+    m_fki_font_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_font_id, json[QString("fkiFontID")]);
     m_fki_font_id_isSet = !json[QString("fkiFontID")].isNull() && m_fki_font_id_isValid;
 
-    m_b_textstylestatic_bold_isValid = ::OpenAPI::fromJsonValue(m_b_textstylestatic_bold, json[QString("bTextstylestaticBold")]);
+    m_b_textstylestatic_bold_isValid = ::Ezmaxapi::fromJsonValue(m_b_textstylestatic_bold, json[QString("bTextstylestaticBold")]);
     m_b_textstylestatic_bold_isSet = !json[QString("bTextstylestaticBold")].isNull() && m_b_textstylestatic_bold_isValid;
 
-    m_b_textstylestatic_underline_isValid = ::OpenAPI::fromJsonValue(m_b_textstylestatic_underline, json[QString("bTextstylestaticUnderline")]);
+    m_b_textstylestatic_underline_isValid = ::Ezmaxapi::fromJsonValue(m_b_textstylestatic_underline, json[QString("bTextstylestaticUnderline")]);
     m_b_textstylestatic_underline_isSet = !json[QString("bTextstylestaticUnderline")].isNull() && m_b_textstylestatic_underline_isValid;
 
-    m_b_textstylestatic_italic_isValid = ::OpenAPI::fromJsonValue(m_b_textstylestatic_italic, json[QString("bTextstylestaticItalic")]);
+    m_b_textstylestatic_italic_isValid = ::Ezmaxapi::fromJsonValue(m_b_textstylestatic_italic, json[QString("bTextstylestaticItalic")]);
     m_b_textstylestatic_italic_isSet = !json[QString("bTextstylestaticItalic")].isNull() && m_b_textstylestatic_italic_isValid;
 
-    m_b_textstylestatic_strikethrough_isValid = ::OpenAPI::fromJsonValue(m_b_textstylestatic_strikethrough, json[QString("bTextstylestaticStrikethrough")]);
+    m_b_textstylestatic_strikethrough_isValid = ::Ezmaxapi::fromJsonValue(m_b_textstylestatic_strikethrough, json[QString("bTextstylestaticStrikethrough")]);
     m_b_textstylestatic_strikethrough_isSet = !json[QString("bTextstylestaticStrikethrough")].isNull() && m_b_textstylestatic_strikethrough_isValid;
 
-    m_i_textstylestatic_fontcolor_isValid = ::OpenAPI::fromJsonValue(m_i_textstylestatic_fontcolor, json[QString("iTextstylestaticFontcolor")]);
+    m_i_textstylestatic_fontcolor_isValid = ::Ezmaxapi::fromJsonValue(m_i_textstylestatic_fontcolor, json[QString("iTextstylestaticFontcolor")]);
     m_i_textstylestatic_fontcolor_isSet = !json[QString("iTextstylestaticFontcolor")].isNull() && m_i_textstylestatic_fontcolor_isValid;
 
-    m_i_textstylestatic_size_isValid = ::OpenAPI::fromJsonValue(m_i_textstylestatic_size, json[QString("iTextstylestaticSize")]);
+    m_i_textstylestatic_size_isValid = ::Ezmaxapi::fromJsonValue(m_i_textstylestatic_size, json[QString("iTextstylestaticSize")]);
     m_i_textstylestatic_size_isSet = !json[QString("iTextstylestaticSize")].isNull() && m_i_textstylestatic_size_isValid;
 }
 
@@ -103,28 +103,28 @@ QString OAITextstylestatic_ResponseCompound::asJson() const {
 QJsonObject OAITextstylestatic_ResponseCompound::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_textstylestatic_id_isSet) {
-        obj.insert(QString("pkiTextstylestaticID"), ::OpenAPI::toJsonValue(m_pki_textstylestatic_id));
+        obj.insert(QString("pkiTextstylestaticID"), ::Ezmaxapi::toJsonValue(m_pki_textstylestatic_id));
     }
     if (m_fki_font_id_isSet) {
-        obj.insert(QString("fkiFontID"), ::OpenAPI::toJsonValue(m_fki_font_id));
+        obj.insert(QString("fkiFontID"), ::Ezmaxapi::toJsonValue(m_fki_font_id));
     }
     if (m_b_textstylestatic_bold_isSet) {
-        obj.insert(QString("bTextstylestaticBold"), ::OpenAPI::toJsonValue(m_b_textstylestatic_bold));
+        obj.insert(QString("bTextstylestaticBold"), ::Ezmaxapi::toJsonValue(m_b_textstylestatic_bold));
     }
     if (m_b_textstylestatic_underline_isSet) {
-        obj.insert(QString("bTextstylestaticUnderline"), ::OpenAPI::toJsonValue(m_b_textstylestatic_underline));
+        obj.insert(QString("bTextstylestaticUnderline"), ::Ezmaxapi::toJsonValue(m_b_textstylestatic_underline));
     }
     if (m_b_textstylestatic_italic_isSet) {
-        obj.insert(QString("bTextstylestaticItalic"), ::OpenAPI::toJsonValue(m_b_textstylestatic_italic));
+        obj.insert(QString("bTextstylestaticItalic"), ::Ezmaxapi::toJsonValue(m_b_textstylestatic_italic));
     }
     if (m_b_textstylestatic_strikethrough_isSet) {
-        obj.insert(QString("bTextstylestaticStrikethrough"), ::OpenAPI::toJsonValue(m_b_textstylestatic_strikethrough));
+        obj.insert(QString("bTextstylestaticStrikethrough"), ::Ezmaxapi::toJsonValue(m_b_textstylestatic_strikethrough));
     }
     if (m_i_textstylestatic_fontcolor_isSet) {
-        obj.insert(QString("iTextstylestaticFontcolor"), ::OpenAPI::toJsonValue(m_i_textstylestatic_fontcolor));
+        obj.insert(QString("iTextstylestaticFontcolor"), ::Ezmaxapi::toJsonValue(m_i_textstylestatic_fontcolor));
     }
     if (m_i_textstylestatic_size_isSet) {
-        obj.insert(QString("iTextstylestaticSize"), ::OpenAPI::toJsonValue(m_i_textstylestatic_size));
+        obj.insert(QString("iTextstylestaticSize"), ::Ezmaxapi::toJsonValue(m_i_textstylestatic_size));
     }
     return obj;
 }
@@ -308,4 +308,4 @@ bool OAITextstylestatic_ResponseCompound::isValid() const {
     return m_fki_font_id_isValid && m_b_textstylestatic_bold_isValid && m_b_textstylestatic_underline_isValid && m_b_textstylestatic_italic_isValid && m_b_textstylestatic_strikethrough_isValid && m_i_textstylestatic_fontcolor_isValid && m_i_textstylestatic_size_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

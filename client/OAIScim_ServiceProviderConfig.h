@@ -34,7 +34,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 class OAIScim_AuthenticationScheme;
 class OAIScim_ServiceProviderConfig_bulk;
 class OAIScim_ServiceProviderConfig_changePassword;
@@ -133,8 +133,8 @@ private:
     bool m_sort_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIScim_ServiceProviderConfig)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIScim_ServiceProviderConfig)
 
 #endif // OAIScim_ServiceProviderConfig_H

@@ -15,7 +15,7 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIObjectActivesessionApi::OAIObjectActivesessionApi(const int timeOut)
     : _timeOut(timeOut),
@@ -291,7 +291,7 @@ void OAIObjectActivesessionApi::activesessionGetCurrentV1Callback(OAIHttpRequest
     }
 }
 
-void OAIObjectActivesessionApi::activesessionGetListV1(const ::OpenAPI::OptionalParam<QString> &e_order_by, const ::OpenAPI::OptionalParam<qint32> &i_row_max, const ::OpenAPI::OptionalParam<qint32> &i_row_offset, const ::OpenAPI::OptionalParam<OAIHeader_Accept_Language> &accept_language, const ::OpenAPI::OptionalParam<QString> &s_filter) {
+void OAIObjectActivesessionApi::activesessionGetListV1(const ::Ezmaxapi::OptionalParam<QString> &e_order_by, const ::Ezmaxapi::OptionalParam<qint32> &i_row_max, const ::Ezmaxapi::OptionalParam<qint32> &i_row_offset, const ::Ezmaxapi::OptionalParam<OAIHeader_Accept_Language> &accept_language, const ::Ezmaxapi::OptionalParam<QString> &s_filter) {
     QString fullPath = QString(_serverConfigs["activesessionGetListV1"][_serverIndices.value("activesessionGetListV1")].URL()+"/1/object/activesession/getList");
     
     if (_apiKeys.contains("Authorization")) {
@@ -312,7 +312,7 @@ void OAIObjectActivesessionApi::activesessionGetListV1(const ::OpenAPI::Optional
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("eOrderBy")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(e_order_by.value())));
+        fullPath.append(QUrl::toPercentEncoding("eOrderBy")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(e_order_by.value())));
     }
     if (i_row_max.hasValue())
     {
@@ -327,7 +327,7 @@ void OAIObjectActivesessionApi::activesessionGetListV1(const ::OpenAPI::Optional
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("iRowMax")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(i_row_max.value())));
+        fullPath.append(QUrl::toPercentEncoding("iRowMax")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(i_row_max.value())));
     }
     if (i_row_offset.hasValue())
     {
@@ -342,7 +342,7 @@ void OAIObjectActivesessionApi::activesessionGetListV1(const ::OpenAPI::Optional
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("iRowOffset")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(i_row_offset.value())));
+        fullPath.append(QUrl::toPercentEncoding("iRowOffset")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(i_row_offset.value())));
     }
     if (s_filter.hasValue())
     {
@@ -357,7 +357,7 @@ void OAIObjectActivesessionApi::activesessionGetListV1(const ::OpenAPI::Optional
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("sFilter")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(s_filter.value())));
+        fullPath.append(QUrl::toPercentEncoding("sFilter")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_filter.value())));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -498,4 +498,4 @@ void OAIObjectActivesessionApi::tokenAvailable(){
         break;
     }
 }
-} // namespace OpenAPI
+} // namespace Ezmaxapi

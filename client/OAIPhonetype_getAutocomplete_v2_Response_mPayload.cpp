@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIPhonetype_getAutocomplete_v2_Response_mPayload::OAIPhonetype_getAutocomplete_v2_Response_mPayload(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAIPhonetype_getAutocomplete_v2_Response_mPayload::fromJson(QString jsonStr
 
 void OAIPhonetype_getAutocomplete_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_phonetype_isValid = ::OpenAPI::fromJsonValue(m_a_obj_phonetype, json[QString("a_objPhonetype")]);
+    m_a_obj_phonetype_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_phonetype, json[QString("a_objPhonetype")]);
     m_a_obj_phonetype_isSet = !json[QString("a_objPhonetype")].isNull() && m_a_obj_phonetype_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAIPhonetype_getAutocomplete_v2_Response_mPayload::asJson() const {
 QJsonObject OAIPhonetype_getAutocomplete_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_a_obj_phonetype.size() > 0) {
-        obj.insert(QString("a_objPhonetype"), ::OpenAPI::toJsonValue(m_a_obj_phonetype));
+        obj.insert(QString("a_objPhonetype"), ::Ezmaxapi::toJsonValue(m_a_obj_phonetype));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAIPhonetype_getAutocomplete_v2_Response_mPayload::isValid() const {
     return true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

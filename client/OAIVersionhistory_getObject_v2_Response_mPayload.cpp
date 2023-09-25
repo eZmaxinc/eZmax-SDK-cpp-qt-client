@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIVersionhistory_getObject_v2_Response_mPayload::OAIVersionhistory_getObject_v2_Response_mPayload(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAIVersionhistory_getObject_v2_Response_mPayload::fromJson(QString jsonStri
 
 void OAIVersionhistory_getObject_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_obj_versionhistory_isValid = ::OpenAPI::fromJsonValue(m_obj_versionhistory, json[QString("objVersionhistory")]);
+    m_obj_versionhistory_isValid = ::Ezmaxapi::fromJsonValue(m_obj_versionhistory, json[QString("objVersionhistory")]);
     m_obj_versionhistory_isSet = !json[QString("objVersionhistory")].isNull() && m_obj_versionhistory_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAIVersionhistory_getObject_v2_Response_mPayload::asJson() const {
 QJsonObject OAIVersionhistory_getObject_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_obj_versionhistory.isSet()) {
-        obj.insert(QString("objVersionhistory"), ::OpenAPI::toJsonValue(m_obj_versionhistory));
+        obj.insert(QString("objVersionhistory"), ::Ezmaxapi::toJsonValue(m_obj_versionhistory));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAIVersionhistory_getObject_v2_Response_mPayload::isValid() const {
     return m_obj_versionhistory_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

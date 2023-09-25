@@ -26,7 +26,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIScim_AuthenticationScheme : public OAIObject {
 public:
@@ -73,8 +73,8 @@ private:
     bool m_type_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIScim_AuthenticationScheme)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIScim_AuthenticationScheme)
 
 #endif // OAIScim_AuthenticationScheme_H

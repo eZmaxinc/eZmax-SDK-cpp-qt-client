@@ -26,7 +26,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIScim_GroupMember : public OAIObject {
 public:
@@ -82,8 +82,8 @@ private:
     bool m_ref_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIScim_GroupMember)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIScim_GroupMember)
 
 #endif // OAIScim_GroupMember_H

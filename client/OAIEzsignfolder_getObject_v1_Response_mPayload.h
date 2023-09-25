@@ -30,7 +30,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 class OAICustom_Ezsignfoldertype_Response;
 class OAICommon_Audit;
 
@@ -250,8 +250,8 @@ private:
     bool m_s_ezsignfolder_externalid_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIEzsignfolder_getObject_v1_Response_mPayload)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIEzsignfolder_getObject_v1_Response_mPayload)
 
 #endif // OAIEzsignfolder_getObject_v1_Response_mPayload_H

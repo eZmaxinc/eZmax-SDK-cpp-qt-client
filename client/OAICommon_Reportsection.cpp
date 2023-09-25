@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAICommon_Reportsection::OAICommon_Reportsection(QString json) {
     this->initializeModel();
@@ -59,19 +59,19 @@ void OAICommon_Reportsection::fromJson(QString jsonString) {
 
 void OAICommon_Reportsection::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_reportsubsection_isValid = ::OpenAPI::fromJsonValue(m_a_obj_reportsubsection, json[QString("a_objReportsubsection")]);
+    m_a_obj_reportsubsection_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_reportsubsection, json[QString("a_objReportsubsection")]);
     m_a_obj_reportsubsection_isSet = !json[QString("a_objReportsubsection")].isNull() && m_a_obj_reportsubsection_isValid;
 
-    m_a_obj_reportcolumn_isValid = ::OpenAPI::fromJsonValue(m_a_obj_reportcolumn, json[QString("a_objReportcolumn")]);
+    m_a_obj_reportcolumn_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_reportcolumn, json[QString("a_objReportcolumn")]);
     m_a_obj_reportcolumn_isSet = !json[QString("a_objReportcolumn")].isNull() && m_a_obj_reportcolumn_isValid;
 
-    m_e_reportsection_horizontalalignment_isValid = ::OpenAPI::fromJsonValue(m_e_reportsection_horizontalalignment, json[QString("eReportsectionHorizontalalignment")]);
+    m_e_reportsection_horizontalalignment_isValid = ::Ezmaxapi::fromJsonValue(m_e_reportsection_horizontalalignment, json[QString("eReportsectionHorizontalalignment")]);
     m_e_reportsection_horizontalalignment_isSet = !json[QString("eReportsectionHorizontalalignment")].isNull() && m_e_reportsection_horizontalalignment_isValid;
 
-    m_i_reportsection_columncount_isValid = ::OpenAPI::fromJsonValue(m_i_reportsection_columncount, json[QString("iReportsectionColumncount")]);
+    m_i_reportsection_columncount_isValid = ::Ezmaxapi::fromJsonValue(m_i_reportsection_columncount, json[QString("iReportsectionColumncount")]);
     m_i_reportsection_columncount_isSet = !json[QString("iReportsectionColumncount")].isNull() && m_i_reportsection_columncount_isValid;
 
-    m_i_reportsection_width_isValid = ::OpenAPI::fromJsonValue(m_i_reportsection_width, json[QString("iReportsectionWidth")]);
+    m_i_reportsection_width_isValid = ::Ezmaxapi::fromJsonValue(m_i_reportsection_width, json[QString("iReportsectionWidth")]);
     m_i_reportsection_width_isSet = !json[QString("iReportsectionWidth")].isNull() && m_i_reportsection_width_isValid;
 }
 
@@ -85,19 +85,19 @@ QString OAICommon_Reportsection::asJson() const {
 QJsonObject OAICommon_Reportsection::asJsonObject() const {
     QJsonObject obj;
     if (m_a_obj_reportsubsection.size() > 0) {
-        obj.insert(QString("a_objReportsubsection"), ::OpenAPI::toJsonValue(m_a_obj_reportsubsection));
+        obj.insert(QString("a_objReportsubsection"), ::Ezmaxapi::toJsonValue(m_a_obj_reportsubsection));
     }
     if (m_a_obj_reportcolumn.size() > 0) {
-        obj.insert(QString("a_objReportcolumn"), ::OpenAPI::toJsonValue(m_a_obj_reportcolumn));
+        obj.insert(QString("a_objReportcolumn"), ::Ezmaxapi::toJsonValue(m_a_obj_reportcolumn));
     }
     if (m_e_reportsection_horizontalalignment.isSet()) {
-        obj.insert(QString("eReportsectionHorizontalalignment"), ::OpenAPI::toJsonValue(m_e_reportsection_horizontalalignment));
+        obj.insert(QString("eReportsectionHorizontalalignment"), ::Ezmaxapi::toJsonValue(m_e_reportsection_horizontalalignment));
     }
     if (m_i_reportsection_columncount_isSet) {
-        obj.insert(QString("iReportsectionColumncount"), ::OpenAPI::toJsonValue(m_i_reportsection_columncount));
+        obj.insert(QString("iReportsectionColumncount"), ::Ezmaxapi::toJsonValue(m_i_reportsection_columncount));
     }
     if (m_i_reportsection_width_isSet) {
-        obj.insert(QString("iReportsectionWidth"), ::OpenAPI::toJsonValue(m_i_reportsection_width));
+        obj.insert(QString("iReportsectionWidth"), ::Ezmaxapi::toJsonValue(m_i_reportsection_width));
     }
     return obj;
 }
@@ -218,4 +218,4 @@ bool OAICommon_Reportsection::isValid() const {
     return m_a_obj_reportsubsection_isValid && m_a_obj_reportcolumn_isValid && m_e_reportsection_horizontalalignment_isValid && m_i_reportsection_columncount_isValid && m_i_reportsection_width_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

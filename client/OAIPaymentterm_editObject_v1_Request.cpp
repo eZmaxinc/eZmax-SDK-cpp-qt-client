@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIPaymentterm_editObject_v1_Request::OAIPaymentterm_editObject_v1_Request(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAIPaymentterm_editObject_v1_Request::fromJson(QString jsonString) {
 
 void OAIPaymentterm_editObject_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_obj_paymentterm_isValid = ::OpenAPI::fromJsonValue(m_obj_paymentterm, json[QString("objPaymentterm")]);
+    m_obj_paymentterm_isValid = ::Ezmaxapi::fromJsonValue(m_obj_paymentterm, json[QString("objPaymentterm")]);
     m_obj_paymentterm_isSet = !json[QString("objPaymentterm")].isNull() && m_obj_paymentterm_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAIPaymentterm_editObject_v1_Request::asJson() const {
 QJsonObject OAIPaymentterm_editObject_v1_Request::asJsonObject() const {
     QJsonObject obj;
     if (m_obj_paymentterm.isSet()) {
-        obj.insert(QString("objPaymentterm"), ::OpenAPI::toJsonValue(m_obj_paymentterm));
+        obj.insert(QString("objPaymentterm"), ::Ezmaxapi::toJsonValue(m_obj_paymentterm));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAIPaymentterm_editObject_v1_Request::isValid() const {
     return m_obj_paymentterm_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

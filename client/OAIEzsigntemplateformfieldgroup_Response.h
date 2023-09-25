@@ -30,7 +30,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIEzsigntemplateformfieldgroup_Response : public OAIObject {
 public:
@@ -194,8 +194,8 @@ private:
     bool m_e_ezsigntemplateformfieldgroup_tooltipposition_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIEzsigntemplateformfieldgroup_Response)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIEzsigntemplateformfieldgroup_Response)
 
 #endif // OAIEzsigntemplateformfieldgroup_Response_H

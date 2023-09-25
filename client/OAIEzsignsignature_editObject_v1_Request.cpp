@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzsignsignature_editObject_v1_Request::OAIEzsignsignature_editObject_v1_Request(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAIEzsignsignature_editObject_v1_Request::fromJson(QString jsonString) {
 
 void OAIEzsignsignature_editObject_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_obj_ezsignsignature_isValid = ::OpenAPI::fromJsonValue(m_obj_ezsignsignature, json[QString("objEzsignsignature")]);
+    m_obj_ezsignsignature_isValid = ::Ezmaxapi::fromJsonValue(m_obj_ezsignsignature, json[QString("objEzsignsignature")]);
     m_obj_ezsignsignature_isSet = !json[QString("objEzsignsignature")].isNull() && m_obj_ezsignsignature_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAIEzsignsignature_editObject_v1_Request::asJson() const {
 QJsonObject OAIEzsignsignature_editObject_v1_Request::asJsonObject() const {
     QJsonObject obj;
     if (m_obj_ezsignsignature.isSet()) {
-        obj.insert(QString("objEzsignsignature"), ::OpenAPI::toJsonValue(m_obj_ezsignsignature));
+        obj.insert(QString("objEzsignsignature"), ::Ezmaxapi::toJsonValue(m_obj_ezsignsignature));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAIEzsignsignature_editObject_v1_Request::isValid() const {
     return m_obj_ezsignsignature_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

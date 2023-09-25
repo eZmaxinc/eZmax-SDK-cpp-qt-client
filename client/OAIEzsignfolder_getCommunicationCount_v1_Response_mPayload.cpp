@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzsignfolder_getCommunicationCount_v1_Response_mPayload::OAIEzsignfolder_getCommunicationCount_v1_Response_mPayload(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAIEzsignfolder_getCommunicationCount_v1_Response_mPayload::fromJson(QStrin
 
 void OAIEzsignfolder_getCommunicationCount_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_i_communication_count_isValid = ::OpenAPI::fromJsonValue(m_i_communication_count, json[QString("iCommunicationCount")]);
+    m_i_communication_count_isValid = ::Ezmaxapi::fromJsonValue(m_i_communication_count, json[QString("iCommunicationCount")]);
     m_i_communication_count_isSet = !json[QString("iCommunicationCount")].isNull() && m_i_communication_count_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAIEzsignfolder_getCommunicationCount_v1_Response_mPayload::asJson() con
 QJsonObject OAIEzsignfolder_getCommunicationCount_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_i_communication_count_isSet) {
-        obj.insert(QString("iCommunicationCount"), ::OpenAPI::toJsonValue(m_i_communication_count));
+        obj.insert(QString("iCommunicationCount"), ::Ezmaxapi::toJsonValue(m_i_communication_count));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAIEzsignfolder_getCommunicationCount_v1_Response_mPayload::isValid() const
     return m_i_communication_count_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

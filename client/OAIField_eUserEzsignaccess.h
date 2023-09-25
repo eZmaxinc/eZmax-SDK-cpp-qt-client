@@ -25,7 +25,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIField_eUserEzsignaccess : public OAIEnum {
 public:
@@ -58,8 +58,8 @@ private:
     bool m_value_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIField_eUserEzsignaccess)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIField_eUserEzsignaccess)
 
 #endif // OAIField_eUserEzsignaccess_H

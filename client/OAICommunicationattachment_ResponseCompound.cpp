@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAICommunicationattachment_ResponseCompound::OAICommunicationattachment_ResponseCompound(QString json) {
     this->initializeModel();
@@ -62,22 +62,22 @@ void OAICommunicationattachment_ResponseCompound::fromJson(QString jsonString) {
 
 void OAICommunicationattachment_ResponseCompound::fromJsonObject(QJsonObject json) {
 
-    m_pki_communicationattachment_id_isValid = ::OpenAPI::fromJsonValue(m_pki_communicationattachment_id, json[QString("pkiCommunicationattachmentID")]);
+    m_pki_communicationattachment_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_communicationattachment_id, json[QString("pkiCommunicationattachmentID")]);
     m_pki_communicationattachment_id_isSet = !json[QString("pkiCommunicationattachmentID")].isNull() && m_pki_communicationattachment_id_isValid;
 
-    m_fki_attachment_id_isValid = ::OpenAPI::fromJsonValue(m_fki_attachment_id, json[QString("fkiAttachmentID")]);
+    m_fki_attachment_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_attachment_id, json[QString("fkiAttachmentID")]);
     m_fki_attachment_id_isSet = !json[QString("fkiAttachmentID")].isNull() && m_fki_attachment_id_isValid;
 
-    m_fki_invoice_id_isValid = ::OpenAPI::fromJsonValue(m_fki_invoice_id, json[QString("fkiInvoiceID")]);
+    m_fki_invoice_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_invoice_id, json[QString("fkiInvoiceID")]);
     m_fki_invoice_id_isSet = !json[QString("fkiInvoiceID")].isNull() && m_fki_invoice_id_isValid;
 
-    m_fki_salarypreparation_id_isValid = ::OpenAPI::fromJsonValue(m_fki_salarypreparation_id, json[QString("fkiSalarypreparationID")]);
+    m_fki_salarypreparation_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_salarypreparation_id, json[QString("fkiSalarypreparationID")]);
     m_fki_salarypreparation_id_isSet = !json[QString("fkiSalarypreparationID")].isNull() && m_fki_salarypreparation_id_isValid;
 
-    m_s_communicationattachment_name_isValid = ::OpenAPI::fromJsonValue(m_s_communicationattachment_name, json[QString("sCommunicationattachmentName")]);
+    m_s_communicationattachment_name_isValid = ::Ezmaxapi::fromJsonValue(m_s_communicationattachment_name, json[QString("sCommunicationattachmentName")]);
     m_s_communicationattachment_name_isSet = !json[QString("sCommunicationattachmentName")].isNull() && m_s_communicationattachment_name_isValid;
 
-    m_s_download_url_isValid = ::OpenAPI::fromJsonValue(m_s_download_url, json[QString("sDownloadUrl")]);
+    m_s_download_url_isValid = ::Ezmaxapi::fromJsonValue(m_s_download_url, json[QString("sDownloadUrl")]);
     m_s_download_url_isSet = !json[QString("sDownloadUrl")].isNull() && m_s_download_url_isValid;
 }
 
@@ -91,22 +91,22 @@ QString OAICommunicationattachment_ResponseCompound::asJson() const {
 QJsonObject OAICommunicationattachment_ResponseCompound::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_communicationattachment_id_isSet) {
-        obj.insert(QString("pkiCommunicationattachmentID"), ::OpenAPI::toJsonValue(m_pki_communicationattachment_id));
+        obj.insert(QString("pkiCommunicationattachmentID"), ::Ezmaxapi::toJsonValue(m_pki_communicationattachment_id));
     }
     if (m_fki_attachment_id_isSet) {
-        obj.insert(QString("fkiAttachmentID"), ::OpenAPI::toJsonValue(m_fki_attachment_id));
+        obj.insert(QString("fkiAttachmentID"), ::Ezmaxapi::toJsonValue(m_fki_attachment_id));
     }
     if (m_fki_invoice_id_isSet) {
-        obj.insert(QString("fkiInvoiceID"), ::OpenAPI::toJsonValue(m_fki_invoice_id));
+        obj.insert(QString("fkiInvoiceID"), ::Ezmaxapi::toJsonValue(m_fki_invoice_id));
     }
     if (m_fki_salarypreparation_id_isSet) {
-        obj.insert(QString("fkiSalarypreparationID"), ::OpenAPI::toJsonValue(m_fki_salarypreparation_id));
+        obj.insert(QString("fkiSalarypreparationID"), ::Ezmaxapi::toJsonValue(m_fki_salarypreparation_id));
     }
     if (m_s_communicationattachment_name_isSet) {
-        obj.insert(QString("sCommunicationattachmentName"), ::OpenAPI::toJsonValue(m_s_communicationattachment_name));
+        obj.insert(QString("sCommunicationattachmentName"), ::Ezmaxapi::toJsonValue(m_s_communicationattachment_name));
     }
     if (m_s_download_url_isSet) {
-        obj.insert(QString("sDownloadUrl"), ::OpenAPI::toJsonValue(m_s_download_url));
+        obj.insert(QString("sDownloadUrl"), ::Ezmaxapi::toJsonValue(m_s_download_url));
     }
     return obj;
 }
@@ -248,4 +248,4 @@ bool OAICommunicationattachment_ResponseCompound::isValid() const {
     return m_pki_communicationattachment_id_isValid && m_s_communicationattachment_name_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

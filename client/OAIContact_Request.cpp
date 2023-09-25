@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIContact_Request::OAIContact_Request(QString json) {
     this->initializeModel();
@@ -62,22 +62,22 @@ void OAIContact_Request::fromJson(QString jsonString) {
 
 void OAIContact_Request::fromJsonObject(QJsonObject json) {
 
-    m_fki_contacttitle_id_isValid = ::OpenAPI::fromJsonValue(m_fki_contacttitle_id, json[QString("fkiContacttitleID")]);
+    m_fki_contacttitle_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_contacttitle_id, json[QString("fkiContacttitleID")]);
     m_fki_contacttitle_id_isSet = !json[QString("fkiContacttitleID")].isNull() && m_fki_contacttitle_id_isValid;
 
-    m_fki_language_id_isValid = ::OpenAPI::fromJsonValue(m_fki_language_id, json[QString("fkiLanguageID")]);
+    m_fki_language_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_language_id, json[QString("fkiLanguageID")]);
     m_fki_language_id_isSet = !json[QString("fkiLanguageID")].isNull() && m_fki_language_id_isValid;
 
-    m_s_contact_firstname_isValid = ::OpenAPI::fromJsonValue(m_s_contact_firstname, json[QString("sContactFirstname")]);
+    m_s_contact_firstname_isValid = ::Ezmaxapi::fromJsonValue(m_s_contact_firstname, json[QString("sContactFirstname")]);
     m_s_contact_firstname_isSet = !json[QString("sContactFirstname")].isNull() && m_s_contact_firstname_isValid;
 
-    m_s_contact_lastname_isValid = ::OpenAPI::fromJsonValue(m_s_contact_lastname, json[QString("sContactLastname")]);
+    m_s_contact_lastname_isValid = ::Ezmaxapi::fromJsonValue(m_s_contact_lastname, json[QString("sContactLastname")]);
     m_s_contact_lastname_isSet = !json[QString("sContactLastname")].isNull() && m_s_contact_lastname_isValid;
 
-    m_s_contact_company_isValid = ::OpenAPI::fromJsonValue(m_s_contact_company, json[QString("sContactCompany")]);
+    m_s_contact_company_isValid = ::Ezmaxapi::fromJsonValue(m_s_contact_company, json[QString("sContactCompany")]);
     m_s_contact_company_isSet = !json[QString("sContactCompany")].isNull() && m_s_contact_company_isValid;
 
-    m_dt_contact_birthdate_isValid = ::OpenAPI::fromJsonValue(m_dt_contact_birthdate, json[QString("dtContactBirthdate")]);
+    m_dt_contact_birthdate_isValid = ::Ezmaxapi::fromJsonValue(m_dt_contact_birthdate, json[QString("dtContactBirthdate")]);
     m_dt_contact_birthdate_isSet = !json[QString("dtContactBirthdate")].isNull() && m_dt_contact_birthdate_isValid;
 }
 
@@ -91,22 +91,22 @@ QString OAIContact_Request::asJson() const {
 QJsonObject OAIContact_Request::asJsonObject() const {
     QJsonObject obj;
     if (m_fki_contacttitle_id_isSet) {
-        obj.insert(QString("fkiContacttitleID"), ::OpenAPI::toJsonValue(m_fki_contacttitle_id));
+        obj.insert(QString("fkiContacttitleID"), ::Ezmaxapi::toJsonValue(m_fki_contacttitle_id));
     }
     if (m_fki_language_id_isSet) {
-        obj.insert(QString("fkiLanguageID"), ::OpenAPI::toJsonValue(m_fki_language_id));
+        obj.insert(QString("fkiLanguageID"), ::Ezmaxapi::toJsonValue(m_fki_language_id));
     }
     if (m_s_contact_firstname_isSet) {
-        obj.insert(QString("sContactFirstname"), ::OpenAPI::toJsonValue(m_s_contact_firstname));
+        obj.insert(QString("sContactFirstname"), ::Ezmaxapi::toJsonValue(m_s_contact_firstname));
     }
     if (m_s_contact_lastname_isSet) {
-        obj.insert(QString("sContactLastname"), ::OpenAPI::toJsonValue(m_s_contact_lastname));
+        obj.insert(QString("sContactLastname"), ::Ezmaxapi::toJsonValue(m_s_contact_lastname));
     }
     if (m_s_contact_company_isSet) {
-        obj.insert(QString("sContactCompany"), ::OpenAPI::toJsonValue(m_s_contact_company));
+        obj.insert(QString("sContactCompany"), ::Ezmaxapi::toJsonValue(m_s_contact_company));
     }
     if (m_dt_contact_birthdate_isSet) {
-        obj.insert(QString("dtContactBirthdate"), ::OpenAPI::toJsonValue(m_dt_contact_birthdate));
+        obj.insert(QString("dtContactBirthdate"), ::Ezmaxapi::toJsonValue(m_dt_contact_birthdate));
     }
     return obj;
 }
@@ -248,4 +248,4 @@ bool OAIContact_Request::isValid() const {
     return m_fki_contacttitle_id_isValid && m_fki_language_id_isValid && m_s_contact_firstname_isValid && m_s_contact_lastname_isValid && m_s_contact_company_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

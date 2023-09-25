@@ -26,7 +26,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIMultilingual_BrandingDescription : public OAIObject {
 public:
@@ -64,8 +64,8 @@ private:
     bool m_s_branding_description2_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIMultilingual_BrandingDescription)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIMultilingual_BrandingDescription)
 
 #endif // OAIMultilingual_BrandingDescription_H

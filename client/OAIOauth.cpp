@@ -1,6 +1,6 @@
 #include "OAIOauth.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 /*
  * Base class to perform oauth2 flows
@@ -342,4 +342,4 @@ void ReplyServer::read()
     emit dataReceived(queryParams);
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

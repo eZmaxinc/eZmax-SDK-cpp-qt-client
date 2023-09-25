@@ -29,7 +29,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 class OAICustom_ContactName_Response;
 
 class OAIEzmaxinvoicingagent_ResponseCompound : public OAIObject {
@@ -239,8 +239,8 @@ private:
     bool m_obj_contact_name_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIEzmaxinvoicingagent_ResponseCompound)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIEzmaxinvoicingagent_ResponseCompound)
 
 #endif // OAIEzmaxinvoicingagent_ResponseCompound_H

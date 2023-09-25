@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIField_eUserType::OAIField_eUserType(QString json) {
     this->initializeModel();
@@ -116,4 +116,4 @@ bool OAIField_eUserType::isValid() const {
     return m_value_isValid;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

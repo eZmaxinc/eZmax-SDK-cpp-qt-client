@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIPhonetype_AutocompleteElement_Response::OAIPhonetype_AutocompleteElement_Response(QString json) {
     this->initializeModel();
@@ -53,13 +53,13 @@ void OAIPhonetype_AutocompleteElement_Response::fromJson(QString jsonString) {
 
 void OAIPhonetype_AutocompleteElement_Response::fromJsonObject(QJsonObject json) {
 
-    m_pki_phonetype_id_isValid = ::OpenAPI::fromJsonValue(m_pki_phonetype_id, json[QString("pkiPhonetypeID")]);
+    m_pki_phonetype_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_phonetype_id, json[QString("pkiPhonetypeID")]);
     m_pki_phonetype_id_isSet = !json[QString("pkiPhonetypeID")].isNull() && m_pki_phonetype_id_isValid;
 
-    m_s_phonetype_name_x_isValid = ::OpenAPI::fromJsonValue(m_s_phonetype_name_x, json[QString("sPhonetypeNameX")]);
+    m_s_phonetype_name_x_isValid = ::Ezmaxapi::fromJsonValue(m_s_phonetype_name_x, json[QString("sPhonetypeNameX")]);
     m_s_phonetype_name_x_isSet = !json[QString("sPhonetypeNameX")].isNull() && m_s_phonetype_name_x_isValid;
 
-    m_b_phonetype_isactive_isValid = ::OpenAPI::fromJsonValue(m_b_phonetype_isactive, json[QString("bPhonetypeIsactive")]);
+    m_b_phonetype_isactive_isValid = ::Ezmaxapi::fromJsonValue(m_b_phonetype_isactive, json[QString("bPhonetypeIsactive")]);
     m_b_phonetype_isactive_isSet = !json[QString("bPhonetypeIsactive")].isNull() && m_b_phonetype_isactive_isValid;
 }
 
@@ -73,13 +73,13 @@ QString OAIPhonetype_AutocompleteElement_Response::asJson() const {
 QJsonObject OAIPhonetype_AutocompleteElement_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_phonetype_id_isSet) {
-        obj.insert(QString("pkiPhonetypeID"), ::OpenAPI::toJsonValue(m_pki_phonetype_id));
+        obj.insert(QString("pkiPhonetypeID"), ::Ezmaxapi::toJsonValue(m_pki_phonetype_id));
     }
     if (m_s_phonetype_name_x_isSet) {
-        obj.insert(QString("sPhonetypeNameX"), ::OpenAPI::toJsonValue(m_s_phonetype_name_x));
+        obj.insert(QString("sPhonetypeNameX"), ::Ezmaxapi::toJsonValue(m_s_phonetype_name_x));
     }
     if (m_b_phonetype_isactive_isSet) {
-        obj.insert(QString("bPhonetypeIsactive"), ::OpenAPI::toJsonValue(m_b_phonetype_isactive));
+        obj.insert(QString("bPhonetypeIsactive"), ::Ezmaxapi::toJsonValue(m_b_phonetype_isactive));
     }
     return obj;
 }
@@ -158,4 +158,4 @@ bool OAIPhonetype_AutocompleteElement_Response::isValid() const {
     return m_pki_phonetype_id_isValid && m_s_phonetype_name_x_isValid && m_b_phonetype_isactive_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

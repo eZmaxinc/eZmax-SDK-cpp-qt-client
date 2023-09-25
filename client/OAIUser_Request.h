@@ -31,7 +31,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 class OAIEmail_RequestCompound;
 class OAIPhone_RequestCompound;
 
@@ -296,8 +296,8 @@ private:
     bool m_b_user_changepassword_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIUser_Request)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIUser_Request)
 
 #endif // OAIUser_Request_H

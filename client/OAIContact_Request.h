@@ -26,7 +26,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIContact_Request : public OAIObject {
 public:
@@ -100,8 +100,8 @@ private:
     bool m_dt_contact_birthdate_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIContact_Request)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIContact_Request)
 
 #endif // OAIContact_Request_H

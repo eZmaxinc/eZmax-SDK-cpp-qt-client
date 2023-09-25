@@ -15,7 +15,7 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIObjectEzsignbulksendApi::OAIObjectEzsignbulksendApi(const int timeOut)
     : _timeOut(timeOut),
@@ -275,7 +275,7 @@ void OAIObjectEzsignbulksendApi::ezsignbulksendCreateEzsignbulksendtransmissionV
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignbulksendID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignbulksendID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsignbulksend_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsignbulksend_id)));
+        fullPath.replace(pki_ezsignbulksend_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsignbulksend_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -405,7 +405,7 @@ void OAIObjectEzsignbulksendApi::ezsignbulksendDeleteObjectV1(const qint32 &pki_
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignbulksendID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignbulksendID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsignbulksend_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsignbulksend_id)));
+        fullPath.replace(pki_ezsignbulksend_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsignbulksend_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -472,7 +472,7 @@ void OAIObjectEzsignbulksendApi::ezsignbulksendEditObjectV1(const qint32 &pki_ez
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignbulksendID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignbulksendID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsignbulksend_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsignbulksend_id)));
+        fullPath.replace(pki_ezsignbulksend_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsignbulksend_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -544,7 +544,7 @@ void OAIObjectEzsignbulksendApi::ezsignbulksendGetCsvTemplateV1(const qint32 &pk
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignbulksendID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignbulksendID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsignbulksend_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsignbulksend_id)));
+        fullPath.replace(pki_ezsignbulksend_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsignbulksend_id)));
     }
     QString queryPrefix, querySuffix, queryDelimiter, queryStyle;
     
@@ -560,7 +560,7 @@ void OAIObjectEzsignbulksendApi::ezsignbulksendGetCsvTemplateV1(const qint32 &pk
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("eCsvSeparator")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(e_csv_separator)));
+        fullPath.append(QUrl::toPercentEncoding("eCsvSeparator")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(e_csv_separator)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -597,7 +597,7 @@ void OAIObjectEzsignbulksendApi::ezsignbulksendGetCsvTemplateV1Callback(OAIHttpR
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
     QString output;
-    ::OpenAPI::fromStringValue(QString(worker->response), output);
+    ::Ezmaxapi::fromStringValue(QString(worker->response), output);
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -628,7 +628,7 @@ void OAIObjectEzsignbulksendApi::ezsignbulksendGetEzsignbulksendtransmissionsV1(
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignbulksendID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignbulksendID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsignbulksend_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsignbulksend_id)));
+        fullPath.replace(pki_ezsignbulksend_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsignbulksend_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -695,7 +695,7 @@ void OAIObjectEzsignbulksendApi::ezsignbulksendGetEzsignsignaturesAutomaticV1(co
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignbulksendID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignbulksendID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsignbulksend_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsignbulksend_id)));
+        fullPath.replace(pki_ezsignbulksend_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsignbulksend_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -762,7 +762,7 @@ void OAIObjectEzsignbulksendApi::ezsignbulksendGetFormsDataV1(const qint32 &pki_
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignbulksendID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignbulksendID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsignbulksend_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsignbulksend_id)));
+        fullPath.replace(pki_ezsignbulksend_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsignbulksend_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -810,7 +810,7 @@ void OAIObjectEzsignbulksendApi::ezsignbulksendGetFormsDataV1Callback(OAIHttpReq
     }
 }
 
-void OAIObjectEzsignbulksendApi::ezsignbulksendGetListV1(const ::OpenAPI::OptionalParam<QString> &e_order_by, const ::OpenAPI::OptionalParam<qint32> &i_row_max, const ::OpenAPI::OptionalParam<qint32> &i_row_offset, const ::OpenAPI::OptionalParam<OAIHeader_Accept_Language> &accept_language, const ::OpenAPI::OptionalParam<QString> &s_filter) {
+void OAIObjectEzsignbulksendApi::ezsignbulksendGetListV1(const ::Ezmaxapi::OptionalParam<QString> &e_order_by, const ::Ezmaxapi::OptionalParam<qint32> &i_row_max, const ::Ezmaxapi::OptionalParam<qint32> &i_row_offset, const ::Ezmaxapi::OptionalParam<OAIHeader_Accept_Language> &accept_language, const ::Ezmaxapi::OptionalParam<QString> &s_filter) {
     QString fullPath = QString(_serverConfigs["ezsignbulksendGetListV1"][_serverIndices.value("ezsignbulksendGetListV1")].URL()+"/1/object/ezsignbulksend/getList");
     
     if (_apiKeys.contains("Authorization")) {
@@ -831,7 +831,7 @@ void OAIObjectEzsignbulksendApi::ezsignbulksendGetListV1(const ::OpenAPI::Option
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("eOrderBy")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(e_order_by.value())));
+        fullPath.append(QUrl::toPercentEncoding("eOrderBy")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(e_order_by.value())));
     }
     if (i_row_max.hasValue())
     {
@@ -846,7 +846,7 @@ void OAIObjectEzsignbulksendApi::ezsignbulksendGetListV1(const ::OpenAPI::Option
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("iRowMax")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(i_row_max.value())));
+        fullPath.append(QUrl::toPercentEncoding("iRowMax")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(i_row_max.value())));
     }
     if (i_row_offset.hasValue())
     {
@@ -861,7 +861,7 @@ void OAIObjectEzsignbulksendApi::ezsignbulksendGetListV1(const ::OpenAPI::Option
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("iRowOffset")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(i_row_offset.value())));
+        fullPath.append(QUrl::toPercentEncoding("iRowOffset")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(i_row_offset.value())));
     }
     if (s_filter.hasValue())
     {
@@ -876,7 +876,7 @@ void OAIObjectEzsignbulksendApi::ezsignbulksendGetListV1(const ::OpenAPI::Option
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("sFilter")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(s_filter.value())));
+        fullPath.append(QUrl::toPercentEncoding("sFilter")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_filter.value())));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -987,7 +987,7 @@ void OAIObjectEzsignbulksendApi::ezsignbulksendGetObjectV2(const qint32 &pki_ezs
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignbulksendID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignbulksendID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsignbulksend_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsignbulksend_id)));
+        fullPath.replace(pki_ezsignbulksend_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsignbulksend_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -1054,7 +1054,7 @@ void OAIObjectEzsignbulksendApi::ezsignbulksendReorderV1(const qint32 &pki_ezsig
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignbulksendID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignbulksendID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsignbulksend_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsignbulksend_id)));
+        fullPath.replace(pki_ezsignbulksend_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsignbulksend_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -1156,4 +1156,4 @@ void OAIObjectEzsignbulksendApi::tokenAvailable(){
         break;
     }
 }
-} // namespace OpenAPI
+} // namespace Ezmaxapi

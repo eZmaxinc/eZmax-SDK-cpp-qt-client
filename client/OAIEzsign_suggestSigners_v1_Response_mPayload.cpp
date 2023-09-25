@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzsign_suggestSigners_v1_Response_mPayload::OAIEzsign_suggestSigners_v1_Response_mPayload(QString json) {
     this->initializeModel();
@@ -53,13 +53,13 @@ void OAIEzsign_suggestSigners_v1_Response_mPayload::fromJson(QString jsonString)
 
 void OAIEzsign_suggestSigners_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_ezsignfoldersignerassociation_isValid = ::OpenAPI::fromJsonValue(m_a_obj_ezsignfoldersignerassociation, json[QString("a_objEzsignfoldersignerassociation")]);
+    m_a_obj_ezsignfoldersignerassociation_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_ezsignfoldersignerassociation, json[QString("a_objEzsignfoldersignerassociation")]);
     m_a_obj_ezsignfoldersignerassociation_isSet = !json[QString("a_objEzsignfoldersignerassociation")].isNull() && m_a_obj_ezsignfoldersignerassociation_isValid;
 
-    m_a_obj_user_team_isValid = ::OpenAPI::fromJsonValue(m_a_obj_user_team, json[QString("a_objUserTeam")]);
+    m_a_obj_user_team_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_user_team, json[QString("a_objUserTeam")]);
     m_a_obj_user_team_isSet = !json[QString("a_objUserTeam")].isNull() && m_a_obj_user_team_isValid;
 
-    m_a_obj_user_isValid = ::OpenAPI::fromJsonValue(m_a_obj_user, json[QString("a_objUser")]);
+    m_a_obj_user_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_user, json[QString("a_objUser")]);
     m_a_obj_user_isSet = !json[QString("a_objUser")].isNull() && m_a_obj_user_isValid;
 }
 
@@ -73,13 +73,13 @@ QString OAIEzsign_suggestSigners_v1_Response_mPayload::asJson() const {
 QJsonObject OAIEzsign_suggestSigners_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_a_obj_ezsignfoldersignerassociation.size() > 0) {
-        obj.insert(QString("a_objEzsignfoldersignerassociation"), ::OpenAPI::toJsonValue(m_a_obj_ezsignfoldersignerassociation));
+        obj.insert(QString("a_objEzsignfoldersignerassociation"), ::Ezmaxapi::toJsonValue(m_a_obj_ezsignfoldersignerassociation));
     }
     if (m_a_obj_user_team.size() > 0) {
-        obj.insert(QString("a_objUserTeam"), ::OpenAPI::toJsonValue(m_a_obj_user_team));
+        obj.insert(QString("a_objUserTeam"), ::Ezmaxapi::toJsonValue(m_a_obj_user_team));
     }
     if (m_a_obj_user.size() > 0) {
-        obj.insert(QString("a_objUser"), ::OpenAPI::toJsonValue(m_a_obj_user));
+        obj.insert(QString("a_objUser"), ::Ezmaxapi::toJsonValue(m_a_obj_user));
     }
     return obj;
 }
@@ -158,4 +158,4 @@ bool OAIEzsign_suggestSigners_v1_Response_mPayload::isValid() const {
     return m_a_obj_ezsignfoldersignerassociation_isValid && m_a_obj_user_team_isValid && m_a_obj_user_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

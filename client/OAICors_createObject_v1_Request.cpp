@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAICors_createObject_v1_Request::OAICors_createObject_v1_Request(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAICors_createObject_v1_Request::fromJson(QString jsonString) {
 
 void OAICors_createObject_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_cors_isValid = ::OpenAPI::fromJsonValue(m_a_obj_cors, json[QString("a_objCors")]);
+    m_a_obj_cors_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_cors, json[QString("a_objCors")]);
     m_a_obj_cors_isSet = !json[QString("a_objCors")].isNull() && m_a_obj_cors_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAICors_createObject_v1_Request::asJson() const {
 QJsonObject OAICors_createObject_v1_Request::asJsonObject() const {
     QJsonObject obj;
     if (m_a_obj_cors.size() > 0) {
-        obj.insert(QString("a_objCors"), ::OpenAPI::toJsonValue(m_a_obj_cors));
+        obj.insert(QString("a_objCors"), ::Ezmaxapi::toJsonValue(m_a_obj_cors));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAICors_createObject_v1_Request::isValid() const {
     return m_a_obj_cors_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzsigntemplatepackage_getObject_v2_Response_mPayload::OAIEzsigntemplatepackage_getObject_v2_Response_mPayload(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAIEzsigntemplatepackage_getObject_v2_Response_mPayload::fromJson(QString j
 
 void OAIEzsigntemplatepackage_getObject_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_obj_ezsigntemplatepackage_isValid = ::OpenAPI::fromJsonValue(m_obj_ezsigntemplatepackage, json[QString("objEzsigntemplatepackage")]);
+    m_obj_ezsigntemplatepackage_isValid = ::Ezmaxapi::fromJsonValue(m_obj_ezsigntemplatepackage, json[QString("objEzsigntemplatepackage")]);
     m_obj_ezsigntemplatepackage_isSet = !json[QString("objEzsigntemplatepackage")].isNull() && m_obj_ezsigntemplatepackage_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAIEzsigntemplatepackage_getObject_v2_Response_mPayload::asJson() const 
 QJsonObject OAIEzsigntemplatepackage_getObject_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_obj_ezsigntemplatepackage.isSet()) {
-        obj.insert(QString("objEzsigntemplatepackage"), ::OpenAPI::toJsonValue(m_obj_ezsigntemplatepackage));
+        obj.insert(QString("objEzsigntemplatepackage"), ::Ezmaxapi::toJsonValue(m_obj_ezsigntemplatepackage));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAIEzsigntemplatepackage_getObject_v2_Response_mPayload::isValid() const {
     return m_obj_ezsigntemplatepackage_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

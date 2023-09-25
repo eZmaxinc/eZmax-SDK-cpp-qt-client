@@ -25,7 +25,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIEzsignfolder_getCommunicationCount_v1_Response_mPayload : public OAIObject {
 public:
@@ -54,8 +54,8 @@ private:
     bool m_i_communication_count_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIEzsignfolder_getCommunicationCount_v1_Response_mPayload)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIEzsignfolder_getCommunicationCount_v1_Response_mPayload)
 
 #endif // OAIEzsignfolder_getCommunicationCount_v1_Response_mPayload_H

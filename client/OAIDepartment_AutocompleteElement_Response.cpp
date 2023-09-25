@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIDepartment_AutocompleteElement_Response::OAIDepartment_AutocompleteElement_Response(QString json) {
     this->initializeModel();
@@ -56,16 +56,16 @@ void OAIDepartment_AutocompleteElement_Response::fromJson(QString jsonString) {
 
 void OAIDepartment_AutocompleteElement_Response::fromJsonObject(QJsonObject json) {
 
-    m_s_company_name_x_isValid = ::OpenAPI::fromJsonValue(m_s_company_name_x, json[QString("sCompanyNameX")]);
+    m_s_company_name_x_isValid = ::Ezmaxapi::fromJsonValue(m_s_company_name_x, json[QString("sCompanyNameX")]);
     m_s_company_name_x_isSet = !json[QString("sCompanyNameX")].isNull() && m_s_company_name_x_isValid;
 
-    m_s_department_name_x_isValid = ::OpenAPI::fromJsonValue(m_s_department_name_x, json[QString("sDepartmentNameX")]);
+    m_s_department_name_x_isValid = ::Ezmaxapi::fromJsonValue(m_s_department_name_x, json[QString("sDepartmentNameX")]);
     m_s_department_name_x_isSet = !json[QString("sDepartmentNameX")].isNull() && m_s_department_name_x_isValid;
 
-    m_pki_department_id_isValid = ::OpenAPI::fromJsonValue(m_pki_department_id, json[QString("pkiDepartmentID")]);
+    m_pki_department_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_department_id, json[QString("pkiDepartmentID")]);
     m_pki_department_id_isSet = !json[QString("pkiDepartmentID")].isNull() && m_pki_department_id_isValid;
 
-    m_b_department_isactive_isValid = ::OpenAPI::fromJsonValue(m_b_department_isactive, json[QString("bDepartmentIsactive")]);
+    m_b_department_isactive_isValid = ::Ezmaxapi::fromJsonValue(m_b_department_isactive, json[QString("bDepartmentIsactive")]);
     m_b_department_isactive_isSet = !json[QString("bDepartmentIsactive")].isNull() && m_b_department_isactive_isValid;
 }
 
@@ -79,16 +79,16 @@ QString OAIDepartment_AutocompleteElement_Response::asJson() const {
 QJsonObject OAIDepartment_AutocompleteElement_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_s_company_name_x_isSet) {
-        obj.insert(QString("sCompanyNameX"), ::OpenAPI::toJsonValue(m_s_company_name_x));
+        obj.insert(QString("sCompanyNameX"), ::Ezmaxapi::toJsonValue(m_s_company_name_x));
     }
     if (m_s_department_name_x_isSet) {
-        obj.insert(QString("sDepartmentNameX"), ::OpenAPI::toJsonValue(m_s_department_name_x));
+        obj.insert(QString("sDepartmentNameX"), ::Ezmaxapi::toJsonValue(m_s_department_name_x));
     }
     if (m_pki_department_id_isSet) {
-        obj.insert(QString("pkiDepartmentID"), ::OpenAPI::toJsonValue(m_pki_department_id));
+        obj.insert(QString("pkiDepartmentID"), ::Ezmaxapi::toJsonValue(m_pki_department_id));
     }
     if (m_b_department_isactive_isSet) {
-        obj.insert(QString("bDepartmentIsactive"), ::OpenAPI::toJsonValue(m_b_department_isactive));
+        obj.insert(QString("bDepartmentIsactive"), ::Ezmaxapi::toJsonValue(m_b_department_isactive));
     }
     return obj;
 }
@@ -188,4 +188,4 @@ bool OAIDepartment_AutocompleteElement_Response::isValid() const {
     return m_s_company_name_x_isValid && m_s_department_name_x_isValid && m_pki_department_id_isValid && m_b_department_isactive_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

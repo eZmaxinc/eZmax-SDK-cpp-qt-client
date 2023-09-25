@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIMultilingual_UsergroupName::OAIMultilingual_UsergroupName(QString json) {
     this->initializeModel();
@@ -50,10 +50,10 @@ void OAIMultilingual_UsergroupName::fromJson(QString jsonString) {
 
 void OAIMultilingual_UsergroupName::fromJsonObject(QJsonObject json) {
 
-    m_s_usergroup_name1_isValid = ::OpenAPI::fromJsonValue(m_s_usergroup_name1, json[QString("sUsergroupName1")]);
+    m_s_usergroup_name1_isValid = ::Ezmaxapi::fromJsonValue(m_s_usergroup_name1, json[QString("sUsergroupName1")]);
     m_s_usergroup_name1_isSet = !json[QString("sUsergroupName1")].isNull() && m_s_usergroup_name1_isValid;
 
-    m_s_usergroup_name2_isValid = ::OpenAPI::fromJsonValue(m_s_usergroup_name2, json[QString("sUsergroupName2")]);
+    m_s_usergroup_name2_isValid = ::Ezmaxapi::fromJsonValue(m_s_usergroup_name2, json[QString("sUsergroupName2")]);
     m_s_usergroup_name2_isSet = !json[QString("sUsergroupName2")].isNull() && m_s_usergroup_name2_isValid;
 }
 
@@ -67,10 +67,10 @@ QString OAIMultilingual_UsergroupName::asJson() const {
 QJsonObject OAIMultilingual_UsergroupName::asJsonObject() const {
     QJsonObject obj;
     if (m_s_usergroup_name1_isSet) {
-        obj.insert(QString("sUsergroupName1"), ::OpenAPI::toJsonValue(m_s_usergroup_name1));
+        obj.insert(QString("sUsergroupName1"), ::Ezmaxapi::toJsonValue(m_s_usergroup_name1));
     }
     if (m_s_usergroup_name2_isSet) {
-        obj.insert(QString("sUsergroupName2"), ::OpenAPI::toJsonValue(m_s_usergroup_name2));
+        obj.insert(QString("sUsergroupName2"), ::Ezmaxapi::toJsonValue(m_s_usergroup_name2));
     }
     return obj;
 }
@@ -128,4 +128,4 @@ bool OAIMultilingual_UsergroupName::isValid() const {
     return true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

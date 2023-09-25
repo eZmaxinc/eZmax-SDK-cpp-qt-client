@@ -26,7 +26,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAICommunicationattachment_Response : public OAIObject {
 public:
@@ -100,8 +100,8 @@ private:
     bool m_s_download_url_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAICommunicationattachment_Response)
+Q_DECLARE_METATYPE(Ezmaxapi::OAICommunicationattachment_Response)
 
 #endif // OAICommunicationattachment_Response_H

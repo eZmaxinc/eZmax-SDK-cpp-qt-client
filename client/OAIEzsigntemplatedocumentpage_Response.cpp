@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzsigntemplatedocumentpage_Response::OAIEzsigntemplatedocumentpage_Response(QString json) {
     this->initializeModel();
@@ -65,25 +65,25 @@ void OAIEzsigntemplatedocumentpage_Response::fromJson(QString jsonString) {
 
 void OAIEzsigntemplatedocumentpage_Response::fromJsonObject(QJsonObject json) {
 
-    m_pki_ezsigntemplatedocumentpage_id_isValid = ::OpenAPI::fromJsonValue(m_pki_ezsigntemplatedocumentpage_id, json[QString("pkiEzsigntemplatedocumentpageID")]);
+    m_pki_ezsigntemplatedocumentpage_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_ezsigntemplatedocumentpage_id, json[QString("pkiEzsigntemplatedocumentpageID")]);
     m_pki_ezsigntemplatedocumentpage_id_isSet = !json[QString("pkiEzsigntemplatedocumentpageID")].isNull() && m_pki_ezsigntemplatedocumentpage_id_isValid;
 
-    m_i_ezsigntemplatedocumentpage_widthimage_isValid = ::OpenAPI::fromJsonValue(m_i_ezsigntemplatedocumentpage_widthimage, json[QString("iEzsigntemplatedocumentpageWidthimage")]);
+    m_i_ezsigntemplatedocumentpage_widthimage_isValid = ::Ezmaxapi::fromJsonValue(m_i_ezsigntemplatedocumentpage_widthimage, json[QString("iEzsigntemplatedocumentpageWidthimage")]);
     m_i_ezsigntemplatedocumentpage_widthimage_isSet = !json[QString("iEzsigntemplatedocumentpageWidthimage")].isNull() && m_i_ezsigntemplatedocumentpage_widthimage_isValid;
 
-    m_i_ezsigntemplatedocumentpage_heightimage_isValid = ::OpenAPI::fromJsonValue(m_i_ezsigntemplatedocumentpage_heightimage, json[QString("iEzsigntemplatedocumentpageHeightimage")]);
+    m_i_ezsigntemplatedocumentpage_heightimage_isValid = ::Ezmaxapi::fromJsonValue(m_i_ezsigntemplatedocumentpage_heightimage, json[QString("iEzsigntemplatedocumentpageHeightimage")]);
     m_i_ezsigntemplatedocumentpage_heightimage_isSet = !json[QString("iEzsigntemplatedocumentpageHeightimage")].isNull() && m_i_ezsigntemplatedocumentpage_heightimage_isValid;
 
-    m_i_ezsigntemplatedocumentpage_widthpdf_isValid = ::OpenAPI::fromJsonValue(m_i_ezsigntemplatedocumentpage_widthpdf, json[QString("iEzsigntemplatedocumentpageWidthpdf")]);
+    m_i_ezsigntemplatedocumentpage_widthpdf_isValid = ::Ezmaxapi::fromJsonValue(m_i_ezsigntemplatedocumentpage_widthpdf, json[QString("iEzsigntemplatedocumentpageWidthpdf")]);
     m_i_ezsigntemplatedocumentpage_widthpdf_isSet = !json[QString("iEzsigntemplatedocumentpageWidthpdf")].isNull() && m_i_ezsigntemplatedocumentpage_widthpdf_isValid;
 
-    m_i_ezsigntemplatedocumentpage_heightpdf_isValid = ::OpenAPI::fromJsonValue(m_i_ezsigntemplatedocumentpage_heightpdf, json[QString("iEzsigntemplatedocumentpageHeightpdf")]);
+    m_i_ezsigntemplatedocumentpage_heightpdf_isValid = ::Ezmaxapi::fromJsonValue(m_i_ezsigntemplatedocumentpage_heightpdf, json[QString("iEzsigntemplatedocumentpageHeightpdf")]);
     m_i_ezsigntemplatedocumentpage_heightpdf_isSet = !json[QString("iEzsigntemplatedocumentpageHeightpdf")].isNull() && m_i_ezsigntemplatedocumentpage_heightpdf_isValid;
 
-    m_i_ezsigntemplatedocumentpage_pagenumber_isValid = ::OpenAPI::fromJsonValue(m_i_ezsigntemplatedocumentpage_pagenumber, json[QString("iEzsigntemplatedocumentpagePagenumber")]);
+    m_i_ezsigntemplatedocumentpage_pagenumber_isValid = ::Ezmaxapi::fromJsonValue(m_i_ezsigntemplatedocumentpage_pagenumber, json[QString("iEzsigntemplatedocumentpagePagenumber")]);
     m_i_ezsigntemplatedocumentpage_pagenumber_isSet = !json[QString("iEzsigntemplatedocumentpagePagenumber")].isNull() && m_i_ezsigntemplatedocumentpage_pagenumber_isValid;
 
-    m_s_computed_imageurl_isValid = ::OpenAPI::fromJsonValue(m_s_computed_imageurl, json[QString("sComputedImageurl")]);
+    m_s_computed_imageurl_isValid = ::Ezmaxapi::fromJsonValue(m_s_computed_imageurl, json[QString("sComputedImageurl")]);
     m_s_computed_imageurl_isSet = !json[QString("sComputedImageurl")].isNull() && m_s_computed_imageurl_isValid;
 }
 
@@ -97,25 +97,25 @@ QString OAIEzsigntemplatedocumentpage_Response::asJson() const {
 QJsonObject OAIEzsigntemplatedocumentpage_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_ezsigntemplatedocumentpage_id_isSet) {
-        obj.insert(QString("pkiEzsigntemplatedocumentpageID"), ::OpenAPI::toJsonValue(m_pki_ezsigntemplatedocumentpage_id));
+        obj.insert(QString("pkiEzsigntemplatedocumentpageID"), ::Ezmaxapi::toJsonValue(m_pki_ezsigntemplatedocumentpage_id));
     }
     if (m_i_ezsigntemplatedocumentpage_widthimage_isSet) {
-        obj.insert(QString("iEzsigntemplatedocumentpageWidthimage"), ::OpenAPI::toJsonValue(m_i_ezsigntemplatedocumentpage_widthimage));
+        obj.insert(QString("iEzsigntemplatedocumentpageWidthimage"), ::Ezmaxapi::toJsonValue(m_i_ezsigntemplatedocumentpage_widthimage));
     }
     if (m_i_ezsigntemplatedocumentpage_heightimage_isSet) {
-        obj.insert(QString("iEzsigntemplatedocumentpageHeightimage"), ::OpenAPI::toJsonValue(m_i_ezsigntemplatedocumentpage_heightimage));
+        obj.insert(QString("iEzsigntemplatedocumentpageHeightimage"), ::Ezmaxapi::toJsonValue(m_i_ezsigntemplatedocumentpage_heightimage));
     }
     if (m_i_ezsigntemplatedocumentpage_widthpdf_isSet) {
-        obj.insert(QString("iEzsigntemplatedocumentpageWidthpdf"), ::OpenAPI::toJsonValue(m_i_ezsigntemplatedocumentpage_widthpdf));
+        obj.insert(QString("iEzsigntemplatedocumentpageWidthpdf"), ::Ezmaxapi::toJsonValue(m_i_ezsigntemplatedocumentpage_widthpdf));
     }
     if (m_i_ezsigntemplatedocumentpage_heightpdf_isSet) {
-        obj.insert(QString("iEzsigntemplatedocumentpageHeightpdf"), ::OpenAPI::toJsonValue(m_i_ezsigntemplatedocumentpage_heightpdf));
+        obj.insert(QString("iEzsigntemplatedocumentpageHeightpdf"), ::Ezmaxapi::toJsonValue(m_i_ezsigntemplatedocumentpage_heightpdf));
     }
     if (m_i_ezsigntemplatedocumentpage_pagenumber_isSet) {
-        obj.insert(QString("iEzsigntemplatedocumentpagePagenumber"), ::OpenAPI::toJsonValue(m_i_ezsigntemplatedocumentpage_pagenumber));
+        obj.insert(QString("iEzsigntemplatedocumentpagePagenumber"), ::Ezmaxapi::toJsonValue(m_i_ezsigntemplatedocumentpage_pagenumber));
     }
     if (m_s_computed_imageurl_isSet) {
-        obj.insert(QString("sComputedImageurl"), ::OpenAPI::toJsonValue(m_s_computed_imageurl));
+        obj.insert(QString("sComputedImageurl"), ::Ezmaxapi::toJsonValue(m_s_computed_imageurl));
     }
     return obj;
 }
@@ -278,4 +278,4 @@ bool OAIEzsigntemplatedocumentpage_Response::isValid() const {
     return m_pki_ezsigntemplatedocumentpage_id_isValid && m_i_ezsigntemplatedocumentpage_widthimage_isValid && m_i_ezsigntemplatedocumentpage_heightimage_isValid && m_i_ezsigntemplatedocumentpage_widthpdf_isValid && m_i_ezsigntemplatedocumentpage_heightpdf_isValid && m_i_ezsigntemplatedocumentpage_pagenumber_isValid && m_s_computed_imageurl_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

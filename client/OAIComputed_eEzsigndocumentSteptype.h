@@ -25,7 +25,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIComputed_eEzsigndocumentSteptype : public OAIEnum {
 public:
@@ -57,8 +57,8 @@ private:
     bool m_value_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIComputed_eEzsigndocumentSteptype)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIComputed_eEzsigndocumentSteptype)
 
 #endif // OAIComputed_eEzsigndocumentSteptype_H

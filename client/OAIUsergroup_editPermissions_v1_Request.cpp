@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIUsergroup_editPermissions_v1_Request::OAIUsergroup_editPermissions_v1_Request(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAIUsergroup_editPermissions_v1_Request::fromJson(QString jsonString) {
 
 void OAIUsergroup_editPermissions_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_permission_isValid = ::OpenAPI::fromJsonValue(m_a_obj_permission, json[QString("a_objPermission")]);
+    m_a_obj_permission_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_permission, json[QString("a_objPermission")]);
     m_a_obj_permission_isSet = !json[QString("a_objPermission")].isNull() && m_a_obj_permission_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAIUsergroup_editPermissions_v1_Request::asJson() const {
 QJsonObject OAIUsergroup_editPermissions_v1_Request::asJsonObject() const {
     QJsonObject obj;
     if (m_a_obj_permission.size() > 0) {
-        obj.insert(QString("a_objPermission"), ::OpenAPI::toJsonValue(m_a_obj_permission));
+        obj.insert(QString("a_objPermission"), ::Ezmaxapi::toJsonValue(m_a_obj_permission));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAIUsergroup_editPermissions_v1_Request::isValid() const {
     return m_a_obj_permission_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

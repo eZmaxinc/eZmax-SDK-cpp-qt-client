@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIVariableexpense_ListElement::OAIVariableexpense_ListElement(QString json) {
     this->initializeModel();
@@ -59,19 +59,19 @@ void OAIVariableexpense_ListElement::fromJson(QString jsonString) {
 
 void OAIVariableexpense_ListElement::fromJsonObject(QJsonObject json) {
 
-    m_pki_variableexpense_id_isValid = ::OpenAPI::fromJsonValue(m_pki_variableexpense_id, json[QString("pkiVariableexpenseID")]);
+    m_pki_variableexpense_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_variableexpense_id, json[QString("pkiVariableexpenseID")]);
     m_pki_variableexpense_id_isSet = !json[QString("pkiVariableexpenseID")].isNull() && m_pki_variableexpense_id_isValid;
 
-    m_s_variableexpense_code_isValid = ::OpenAPI::fromJsonValue(m_s_variableexpense_code, json[QString("sVariableexpenseCode")]);
+    m_s_variableexpense_code_isValid = ::Ezmaxapi::fromJsonValue(m_s_variableexpense_code, json[QString("sVariableexpenseCode")]);
     m_s_variableexpense_code_isSet = !json[QString("sVariableexpenseCode")].isNull() && m_s_variableexpense_code_isValid;
 
-    m_s_variableexpense_description_x_isValid = ::OpenAPI::fromJsonValue(m_s_variableexpense_description_x, json[QString("sVariableexpenseDescriptionX")]);
+    m_s_variableexpense_description_x_isValid = ::Ezmaxapi::fromJsonValue(m_s_variableexpense_description_x, json[QString("sVariableexpenseDescriptionX")]);
     m_s_variableexpense_description_x_isSet = !json[QString("sVariableexpenseDescriptionX")].isNull() && m_s_variableexpense_description_x_isValid;
 
-    m_e_variableexpense_taxable_isValid = ::OpenAPI::fromJsonValue(m_e_variableexpense_taxable, json[QString("eVariableexpenseTaxable")]);
+    m_e_variableexpense_taxable_isValid = ::Ezmaxapi::fromJsonValue(m_e_variableexpense_taxable, json[QString("eVariableexpenseTaxable")]);
     m_e_variableexpense_taxable_isSet = !json[QString("eVariableexpenseTaxable")].isNull() && m_e_variableexpense_taxable_isValid;
 
-    m_b_variableexpense_isactive_isValid = ::OpenAPI::fromJsonValue(m_b_variableexpense_isactive, json[QString("bVariableexpenseIsactive")]);
+    m_b_variableexpense_isactive_isValid = ::Ezmaxapi::fromJsonValue(m_b_variableexpense_isactive, json[QString("bVariableexpenseIsactive")]);
     m_b_variableexpense_isactive_isSet = !json[QString("bVariableexpenseIsactive")].isNull() && m_b_variableexpense_isactive_isValid;
 }
 
@@ -85,19 +85,19 @@ QString OAIVariableexpense_ListElement::asJson() const {
 QJsonObject OAIVariableexpense_ListElement::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_variableexpense_id_isSet) {
-        obj.insert(QString("pkiVariableexpenseID"), ::OpenAPI::toJsonValue(m_pki_variableexpense_id));
+        obj.insert(QString("pkiVariableexpenseID"), ::Ezmaxapi::toJsonValue(m_pki_variableexpense_id));
     }
     if (m_s_variableexpense_code_isSet) {
-        obj.insert(QString("sVariableexpenseCode"), ::OpenAPI::toJsonValue(m_s_variableexpense_code));
+        obj.insert(QString("sVariableexpenseCode"), ::Ezmaxapi::toJsonValue(m_s_variableexpense_code));
     }
     if (m_s_variableexpense_description_x_isSet) {
-        obj.insert(QString("sVariableexpenseDescriptionX"), ::OpenAPI::toJsonValue(m_s_variableexpense_description_x));
+        obj.insert(QString("sVariableexpenseDescriptionX"), ::Ezmaxapi::toJsonValue(m_s_variableexpense_description_x));
     }
     if (m_e_variableexpense_taxable.isSet()) {
-        obj.insert(QString("eVariableexpenseTaxable"), ::OpenAPI::toJsonValue(m_e_variableexpense_taxable));
+        obj.insert(QString("eVariableexpenseTaxable"), ::Ezmaxapi::toJsonValue(m_e_variableexpense_taxable));
     }
     if (m_b_variableexpense_isactive_isSet) {
-        obj.insert(QString("bVariableexpenseIsactive"), ::OpenAPI::toJsonValue(m_b_variableexpense_isactive));
+        obj.insert(QString("bVariableexpenseIsactive"), ::Ezmaxapi::toJsonValue(m_b_variableexpense_isactive));
     }
     return obj;
 }
@@ -218,4 +218,4 @@ bool OAIVariableexpense_ListElement::isValid() const {
     return m_pki_variableexpense_id_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

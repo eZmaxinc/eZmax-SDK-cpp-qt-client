@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIHeader_Accept_Language::OAIHeader_Accept_Language(QString json) {
     this->initializeModel();
@@ -102,4 +102,4 @@ bool OAIHeader_Accept_Language::isValid() const {
     return m_value_isValid;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

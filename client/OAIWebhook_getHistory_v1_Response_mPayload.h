@@ -27,7 +27,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 class OAICustom_Webhooklog_Response;
 
 class OAIWebhook_getHistory_v1_Response_mPayload : public OAIObject {
@@ -57,8 +57,8 @@ private:
     bool m_a_obj_webhooklog_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIWebhook_getHistory_v1_Response_mPayload)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIWebhook_getHistory_v1_Response_mPayload)
 
 #endif // OAIWebhook_getHistory_v1_Response_mPayload_H

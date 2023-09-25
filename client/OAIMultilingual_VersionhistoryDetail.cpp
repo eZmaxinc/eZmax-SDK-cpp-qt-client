@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIMultilingual_VersionhistoryDetail::OAIMultilingual_VersionhistoryDetail(QString json) {
     this->initializeModel();
@@ -50,10 +50,10 @@ void OAIMultilingual_VersionhistoryDetail::fromJson(QString jsonString) {
 
 void OAIMultilingual_VersionhistoryDetail::fromJsonObject(QJsonObject json) {
 
-    m_t_versionhistory_detail1_isValid = ::OpenAPI::fromJsonValue(m_t_versionhistory_detail1, json[QString("tVersionhistoryDetail1")]);
+    m_t_versionhistory_detail1_isValid = ::Ezmaxapi::fromJsonValue(m_t_versionhistory_detail1, json[QString("tVersionhistoryDetail1")]);
     m_t_versionhistory_detail1_isSet = !json[QString("tVersionhistoryDetail1")].isNull() && m_t_versionhistory_detail1_isValid;
 
-    m_t_versionhistory_detail2_isValid = ::OpenAPI::fromJsonValue(m_t_versionhistory_detail2, json[QString("tVersionhistoryDetail2")]);
+    m_t_versionhistory_detail2_isValid = ::Ezmaxapi::fromJsonValue(m_t_versionhistory_detail2, json[QString("tVersionhistoryDetail2")]);
     m_t_versionhistory_detail2_isSet = !json[QString("tVersionhistoryDetail2")].isNull() && m_t_versionhistory_detail2_isValid;
 }
 
@@ -67,10 +67,10 @@ QString OAIMultilingual_VersionhistoryDetail::asJson() const {
 QJsonObject OAIMultilingual_VersionhistoryDetail::asJsonObject() const {
     QJsonObject obj;
     if (m_t_versionhistory_detail1_isSet) {
-        obj.insert(QString("tVersionhistoryDetail1"), ::OpenAPI::toJsonValue(m_t_versionhistory_detail1));
+        obj.insert(QString("tVersionhistoryDetail1"), ::Ezmaxapi::toJsonValue(m_t_versionhistory_detail1));
     }
     if (m_t_versionhistory_detail2_isSet) {
-        obj.insert(QString("tVersionhistoryDetail2"), ::OpenAPI::toJsonValue(m_t_versionhistory_detail2));
+        obj.insert(QString("tVersionhistoryDetail2"), ::Ezmaxapi::toJsonValue(m_t_versionhistory_detail2));
     }
     return obj;
 }
@@ -128,4 +128,4 @@ bool OAIMultilingual_VersionhistoryDetail::isValid() const {
     return true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

@@ -26,7 +26,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIAttempt_ResponseCompound : public OAIObject {
 public:
@@ -73,8 +73,8 @@ private:
     bool m_i_attempt_duration_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIAttempt_ResponseCompound)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIAttempt_ResponseCompound)
 
 #endif // OAIAttempt_ResponseCompound_H

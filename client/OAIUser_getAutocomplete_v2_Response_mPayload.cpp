@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIUser_getAutocomplete_v2_Response_mPayload::OAIUser_getAutocomplete_v2_Response_mPayload(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAIUser_getAutocomplete_v2_Response_mPayload::fromJson(QString jsonString) 
 
 void OAIUser_getAutocomplete_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_user_isValid = ::OpenAPI::fromJsonValue(m_a_obj_user, json[QString("a_objUser")]);
+    m_a_obj_user_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_user, json[QString("a_objUser")]);
     m_a_obj_user_isSet = !json[QString("a_objUser")].isNull() && m_a_obj_user_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAIUser_getAutocomplete_v2_Response_mPayload::asJson() const {
 QJsonObject OAIUser_getAutocomplete_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_a_obj_user.size() > 0) {
-        obj.insert(QString("a_objUser"), ::OpenAPI::toJsonValue(m_a_obj_user));
+        obj.insert(QString("a_objUser"), ::Ezmaxapi::toJsonValue(m_a_obj_user));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAIUser_getAutocomplete_v2_Response_mPayload::isValid() const {
     return m_a_obj_user_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

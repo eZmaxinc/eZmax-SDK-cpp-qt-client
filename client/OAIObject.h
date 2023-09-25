@@ -17,7 +17,7 @@
 #include <QJsonObject>
 #include <QMetaType>
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIObject {
 public:
@@ -73,8 +73,8 @@ qHash(const OAIObject& obj, uint seed = 0) noexcept{
     return qHash(obj.asJsonObject(), seed);
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIObject)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIObject)
 
 #endif // OAI_OBJECT_H

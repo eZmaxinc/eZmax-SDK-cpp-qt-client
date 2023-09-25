@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIUser_AutocompleteElement_Response::OAIUser_AutocompleteElement_Response(QString json) {
     this->initializeModel();
@@ -56,16 +56,16 @@ void OAIUser_AutocompleteElement_Response::fromJson(QString jsonString) {
 
 void OAIUser_AutocompleteElement_Response::fromJsonObject(QJsonObject json) {
 
-    m_e_user_type_isValid = ::OpenAPI::fromJsonValue(m_e_user_type, json[QString("eUserType")]);
+    m_e_user_type_isValid = ::Ezmaxapi::fromJsonValue(m_e_user_type, json[QString("eUserType")]);
     m_e_user_type_isSet = !json[QString("eUserType")].isNull() && m_e_user_type_isValid;
 
-    m_s_user_name_isValid = ::OpenAPI::fromJsonValue(m_s_user_name, json[QString("sUserName")]);
+    m_s_user_name_isValid = ::Ezmaxapi::fromJsonValue(m_s_user_name, json[QString("sUserName")]);
     m_s_user_name_isSet = !json[QString("sUserName")].isNull() && m_s_user_name_isValid;
 
-    m_pki_user_id_isValid = ::OpenAPI::fromJsonValue(m_pki_user_id, json[QString("pkiUserID")]);
+    m_pki_user_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_user_id, json[QString("pkiUserID")]);
     m_pki_user_id_isSet = !json[QString("pkiUserID")].isNull() && m_pki_user_id_isValid;
 
-    m_b_user_isactive_isValid = ::OpenAPI::fromJsonValue(m_b_user_isactive, json[QString("bUserIsactive")]);
+    m_b_user_isactive_isValid = ::Ezmaxapi::fromJsonValue(m_b_user_isactive, json[QString("bUserIsactive")]);
     m_b_user_isactive_isSet = !json[QString("bUserIsactive")].isNull() && m_b_user_isactive_isValid;
 }
 
@@ -79,16 +79,16 @@ QString OAIUser_AutocompleteElement_Response::asJson() const {
 QJsonObject OAIUser_AutocompleteElement_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_e_user_type.isSet()) {
-        obj.insert(QString("eUserType"), ::OpenAPI::toJsonValue(m_e_user_type));
+        obj.insert(QString("eUserType"), ::Ezmaxapi::toJsonValue(m_e_user_type));
     }
     if (m_s_user_name_isSet) {
-        obj.insert(QString("sUserName"), ::OpenAPI::toJsonValue(m_s_user_name));
+        obj.insert(QString("sUserName"), ::Ezmaxapi::toJsonValue(m_s_user_name));
     }
     if (m_pki_user_id_isSet) {
-        obj.insert(QString("pkiUserID"), ::OpenAPI::toJsonValue(m_pki_user_id));
+        obj.insert(QString("pkiUserID"), ::Ezmaxapi::toJsonValue(m_pki_user_id));
     }
     if (m_b_user_isactive_isSet) {
-        obj.insert(QString("bUserIsactive"), ::OpenAPI::toJsonValue(m_b_user_isactive));
+        obj.insert(QString("bUserIsactive"), ::Ezmaxapi::toJsonValue(m_b_user_isactive));
     }
     return obj;
 }
@@ -188,4 +188,4 @@ bool OAIUser_AutocompleteElement_Response::isValid() const {
     return m_e_user_type_isValid && m_s_user_name_isValid && m_pki_user_id_isValid && m_b_user_isactive_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

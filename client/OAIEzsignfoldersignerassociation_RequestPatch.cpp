@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzsignfoldersignerassociation_RequestPatch::OAIEzsignfoldersignerassociation_RequestPatch(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAIEzsignfoldersignerassociation_RequestPatch::fromJson(QString jsonString)
 
 void OAIEzsignfoldersignerassociation_RequestPatch::fromJsonObject(QJsonObject json) {
 
-    m_t_ezsignfoldersignerassociation_message_isValid = ::OpenAPI::fromJsonValue(m_t_ezsignfoldersignerassociation_message, json[QString("tEzsignfoldersignerassociationMessage")]);
+    m_t_ezsignfoldersignerassociation_message_isValid = ::Ezmaxapi::fromJsonValue(m_t_ezsignfoldersignerassociation_message, json[QString("tEzsignfoldersignerassociationMessage")]);
     m_t_ezsignfoldersignerassociation_message_isSet = !json[QString("tEzsignfoldersignerassociationMessage")].isNull() && m_t_ezsignfoldersignerassociation_message_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAIEzsignfoldersignerassociation_RequestPatch::asJson() const {
 QJsonObject OAIEzsignfoldersignerassociation_RequestPatch::asJsonObject() const {
     QJsonObject obj;
     if (m_t_ezsignfoldersignerassociation_message_isSet) {
-        obj.insert(QString("tEzsignfoldersignerassociationMessage"), ::OpenAPI::toJsonValue(m_t_ezsignfoldersignerassociation_message));
+        obj.insert(QString("tEzsignfoldersignerassociationMessage"), ::Ezmaxapi::toJsonValue(m_t_ezsignfoldersignerassociation_message));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAIEzsignfoldersignerassociation_RequestPatch::isValid() const {
     return true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIAttempt_Response::OAIAttempt_Response(QString json) {
     this->initializeModel();
@@ -53,13 +53,13 @@ void OAIAttempt_Response::fromJson(QString jsonString) {
 
 void OAIAttempt_Response::fromJsonObject(QJsonObject json) {
 
-    m_dt_attempt_start_isValid = ::OpenAPI::fromJsonValue(m_dt_attempt_start, json[QString("dtAttemptStart")]);
+    m_dt_attempt_start_isValid = ::Ezmaxapi::fromJsonValue(m_dt_attempt_start, json[QString("dtAttemptStart")]);
     m_dt_attempt_start_isSet = !json[QString("dtAttemptStart")].isNull() && m_dt_attempt_start_isValid;
 
-    m_s_attempt_result_isValid = ::OpenAPI::fromJsonValue(m_s_attempt_result, json[QString("sAttemptResult")]);
+    m_s_attempt_result_isValid = ::Ezmaxapi::fromJsonValue(m_s_attempt_result, json[QString("sAttemptResult")]);
     m_s_attempt_result_isSet = !json[QString("sAttemptResult")].isNull() && m_s_attempt_result_isValid;
 
-    m_i_attempt_duration_isValid = ::OpenAPI::fromJsonValue(m_i_attempt_duration, json[QString("iAttemptDuration")]);
+    m_i_attempt_duration_isValid = ::Ezmaxapi::fromJsonValue(m_i_attempt_duration, json[QString("iAttemptDuration")]);
     m_i_attempt_duration_isSet = !json[QString("iAttemptDuration")].isNull() && m_i_attempt_duration_isValid;
 }
 
@@ -73,13 +73,13 @@ QString OAIAttempt_Response::asJson() const {
 QJsonObject OAIAttempt_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_dt_attempt_start_isSet) {
-        obj.insert(QString("dtAttemptStart"), ::OpenAPI::toJsonValue(m_dt_attempt_start));
+        obj.insert(QString("dtAttemptStart"), ::Ezmaxapi::toJsonValue(m_dt_attempt_start));
     }
     if (m_s_attempt_result_isSet) {
-        obj.insert(QString("sAttemptResult"), ::OpenAPI::toJsonValue(m_s_attempt_result));
+        obj.insert(QString("sAttemptResult"), ::Ezmaxapi::toJsonValue(m_s_attempt_result));
     }
     if (m_i_attempt_duration_isSet) {
-        obj.insert(QString("iAttemptDuration"), ::OpenAPI::toJsonValue(m_i_attempt_duration));
+        obj.insert(QString("iAttemptDuration"), ::Ezmaxapi::toJsonValue(m_i_attempt_duration));
     }
     return obj;
 }
@@ -158,4 +158,4 @@ bool OAIAttempt_Response::isValid() const {
     return m_dt_attempt_start_isValid && m_s_attempt_result_isValid && m_i_attempt_duration_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

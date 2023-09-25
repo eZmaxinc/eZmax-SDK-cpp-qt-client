@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzmaxinvoicingsummaryglobal_Response::OAIEzmaxinvoicingsummaryglobal_Response(QString json) {
     this->initializeModel();
@@ -101,61 +101,61 @@ void OAIEzmaxinvoicingsummaryglobal_Response::fromJson(QString jsonString) {
 
 void OAIEzmaxinvoicingsummaryglobal_Response::fromJsonObject(QJsonObject json) {
 
-    m_pki_ezmaxinvoicingsummaryglobal_id_isValid = ::OpenAPI::fromJsonValue(m_pki_ezmaxinvoicingsummaryglobal_id, json[QString("pkiEzmaxinvoicingsummaryglobalID")]);
+    m_pki_ezmaxinvoicingsummaryglobal_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_ezmaxinvoicingsummaryglobal_id, json[QString("pkiEzmaxinvoicingsummaryglobalID")]);
     m_pki_ezmaxinvoicingsummaryglobal_id_isSet = !json[QString("pkiEzmaxinvoicingsummaryglobalID")].isNull() && m_pki_ezmaxinvoicingsummaryglobal_id_isValid;
 
-    m_fki_ezmaxinvoicing_id_isValid = ::OpenAPI::fromJsonValue(m_fki_ezmaxinvoicing_id, json[QString("fkiEzmaxinvoicingID")]);
+    m_fki_ezmaxinvoicing_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_ezmaxinvoicing_id, json[QString("fkiEzmaxinvoicingID")]);
     m_fki_ezmaxinvoicing_id_isSet = !json[QString("fkiEzmaxinvoicingID")].isNull() && m_fki_ezmaxinvoicing_id_isValid;
 
-    m_fki_ezmaxproduct_id_isValid = ::OpenAPI::fromJsonValue(m_fki_ezmaxproduct_id, json[QString("fkiEzmaxproductID")]);
+    m_fki_ezmaxproduct_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_ezmaxproduct_id, json[QString("fkiEzmaxproductID")]);
     m_fki_ezmaxproduct_id_isSet = !json[QString("fkiEzmaxproductID")].isNull() && m_fki_ezmaxproduct_id_isValid;
 
-    m_s_ezmaxproduct_description_x_isValid = ::OpenAPI::fromJsonValue(m_s_ezmaxproduct_description_x, json[QString("sEzmaxproductDescriptionX")]);
+    m_s_ezmaxproduct_description_x_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezmaxproduct_description_x, json[QString("sEzmaxproductDescriptionX")]);
     m_s_ezmaxproduct_description_x_isSet = !json[QString("sEzmaxproductDescriptionX")].isNull() && m_s_ezmaxproduct_description_x_isValid;
 
-    m_dt_ezmaxinvoicingsummaryglobal_start_isValid = ::OpenAPI::fromJsonValue(m_dt_ezmaxinvoicingsummaryglobal_start, json[QString("dtEzmaxinvoicingsummaryglobalStart")]);
+    m_dt_ezmaxinvoicingsummaryglobal_start_isValid = ::Ezmaxapi::fromJsonValue(m_dt_ezmaxinvoicingsummaryglobal_start, json[QString("dtEzmaxinvoicingsummaryglobalStart")]);
     m_dt_ezmaxinvoicingsummaryglobal_start_isSet = !json[QString("dtEzmaxinvoicingsummaryglobalStart")].isNull() && m_dt_ezmaxinvoicingsummaryglobal_start_isValid;
 
-    m_dt_ezmaxinvoicingsummaryglobal_end_isValid = ::OpenAPI::fromJsonValue(m_dt_ezmaxinvoicingsummaryglobal_end, json[QString("dtEzmaxinvoicingsummaryglobalEnd")]);
+    m_dt_ezmaxinvoicingsummaryglobal_end_isValid = ::Ezmaxapi::fromJsonValue(m_dt_ezmaxinvoicingsummaryglobal_end, json[QString("dtEzmaxinvoicingsummaryglobalEnd")]);
     m_dt_ezmaxinvoicingsummaryglobal_end_isSet = !json[QString("dtEzmaxinvoicingsummaryglobalEnd")].isNull() && m_dt_ezmaxinvoicingsummaryglobal_end_isValid;
 
-    m_i_ezmaxinvoicingsummaryglobal_days_isValid = ::OpenAPI::fromJsonValue(m_i_ezmaxinvoicingsummaryglobal_days, json[QString("iEzmaxinvoicingsummaryglobalDays")]);
+    m_i_ezmaxinvoicingsummaryglobal_days_isValid = ::Ezmaxapi::fromJsonValue(m_i_ezmaxinvoicingsummaryglobal_days, json[QString("iEzmaxinvoicingsummaryglobalDays")]);
     m_i_ezmaxinvoicingsummaryglobal_days_isSet = !json[QString("iEzmaxinvoicingsummaryglobalDays")].isNull() && m_i_ezmaxinvoicingsummaryglobal_days_isValid;
 
-    m_d_ezmaxinvoicingsummaryglobal_countreal_isValid = ::OpenAPI::fromJsonValue(m_d_ezmaxinvoicingsummaryglobal_countreal, json[QString("dEzmaxinvoicingsummaryglobalCountreal")]);
+    m_d_ezmaxinvoicingsummaryglobal_countreal_isValid = ::Ezmaxapi::fromJsonValue(m_d_ezmaxinvoicingsummaryglobal_countreal, json[QString("dEzmaxinvoicingsummaryglobalCountreal")]);
     m_d_ezmaxinvoicingsummaryglobal_countreal_isSet = !json[QString("dEzmaxinvoicingsummaryglobalCountreal")].isNull() && m_d_ezmaxinvoicingsummaryglobal_countreal_isValid;
 
-    m_d_ezmaxinvoicingsummaryglobal_countbilled_isValid = ::OpenAPI::fromJsonValue(m_d_ezmaxinvoicingsummaryglobal_countbilled, json[QString("dEzmaxinvoicingsummaryglobalCountbilled")]);
+    m_d_ezmaxinvoicingsummaryglobal_countbilled_isValid = ::Ezmaxapi::fromJsonValue(m_d_ezmaxinvoicingsummaryglobal_countbilled, json[QString("dEzmaxinvoicingsummaryglobalCountbilled")]);
     m_d_ezmaxinvoicingsummaryglobal_countbilled_isSet = !json[QString("dEzmaxinvoicingsummaryglobalCountbilled")].isNull() && m_d_ezmaxinvoicingsummaryglobal_countbilled_isValid;
 
-    m_d_ezmaxinvoicingsummaryglobal_subtotal_isValid = ::OpenAPI::fromJsonValue(m_d_ezmaxinvoicingsummaryglobal_subtotal, json[QString("dEzmaxinvoicingsummaryglobalSubtotal")]);
+    m_d_ezmaxinvoicingsummaryglobal_subtotal_isValid = ::Ezmaxapi::fromJsonValue(m_d_ezmaxinvoicingsummaryglobal_subtotal, json[QString("dEzmaxinvoicingsummaryglobalSubtotal")]);
     m_d_ezmaxinvoicingsummaryglobal_subtotal_isSet = !json[QString("dEzmaxinvoicingsummaryglobalSubtotal")].isNull() && m_d_ezmaxinvoicingsummaryglobal_subtotal_isValid;
 
-    m_d_ezmaxinvoicingsummaryglobal_rebateamount_isValid = ::OpenAPI::fromJsonValue(m_d_ezmaxinvoicingsummaryglobal_rebateamount, json[QString("dEzmaxinvoicingsummaryglobalRebateamount")]);
+    m_d_ezmaxinvoicingsummaryglobal_rebateamount_isValid = ::Ezmaxapi::fromJsonValue(m_d_ezmaxinvoicingsummaryglobal_rebateamount, json[QString("dEzmaxinvoicingsummaryglobalRebateamount")]);
     m_d_ezmaxinvoicingsummaryglobal_rebateamount_isSet = !json[QString("dEzmaxinvoicingsummaryglobalRebateamount")].isNull() && m_d_ezmaxinvoicingsummaryglobal_rebateamount_isValid;
 
-    m_d_ezmaxinvoicingsummaryglobal_rebatepercent_isValid = ::OpenAPI::fromJsonValue(m_d_ezmaxinvoicingsummaryglobal_rebatepercent, json[QString("dEzmaxinvoicingsummaryglobalRebatepercent")]);
+    m_d_ezmaxinvoicingsummaryglobal_rebatepercent_isValid = ::Ezmaxapi::fromJsonValue(m_d_ezmaxinvoicingsummaryglobal_rebatepercent, json[QString("dEzmaxinvoicingsummaryglobalRebatepercent")]);
     m_d_ezmaxinvoicingsummaryglobal_rebatepercent_isSet = !json[QString("dEzmaxinvoicingsummaryglobalRebatepercent")].isNull() && m_d_ezmaxinvoicingsummaryglobal_rebatepercent_isValid;
 
-    m_d_ezmaxinvoicingsummaryglobal_rebatetotal_isValid = ::OpenAPI::fromJsonValue(m_d_ezmaxinvoicingsummaryglobal_rebatetotal, json[QString("dEzmaxinvoicingsummaryglobalRebatetotal")]);
+    m_d_ezmaxinvoicingsummaryglobal_rebatetotal_isValid = ::Ezmaxapi::fromJsonValue(m_d_ezmaxinvoicingsummaryglobal_rebatetotal, json[QString("dEzmaxinvoicingsummaryglobalRebatetotal")]);
     m_d_ezmaxinvoicingsummaryglobal_rebatetotal_isSet = !json[QString("dEzmaxinvoicingsummaryglobalRebatetotal")].isNull() && m_d_ezmaxinvoicingsummaryglobal_rebatetotal_isValid;
 
-    m_d_ezmaxinvoicingsummaryglobal_total_isValid = ::OpenAPI::fromJsonValue(m_d_ezmaxinvoicingsummaryglobal_total, json[QString("dEzmaxinvoicingsummaryglobalTotal")]);
+    m_d_ezmaxinvoicingsummaryglobal_total_isValid = ::Ezmaxapi::fromJsonValue(m_d_ezmaxinvoicingsummaryglobal_total, json[QString("dEzmaxinvoicingsummaryglobalTotal")]);
     m_d_ezmaxinvoicingsummaryglobal_total_isSet = !json[QString("dEzmaxinvoicingsummaryglobalTotal")].isNull() && m_d_ezmaxinvoicingsummaryglobal_total_isValid;
 
-    m_d_ezmaxinvoicingsummaryglobal_representative_isValid = ::OpenAPI::fromJsonValue(m_d_ezmaxinvoicingsummaryglobal_representative, json[QString("dEzmaxinvoicingsummaryglobalRepresentative")]);
+    m_d_ezmaxinvoicingsummaryglobal_representative_isValid = ::Ezmaxapi::fromJsonValue(m_d_ezmaxinvoicingsummaryglobal_representative, json[QString("dEzmaxinvoicingsummaryglobalRepresentative")]);
     m_d_ezmaxinvoicingsummaryglobal_representative_isSet = !json[QString("dEzmaxinvoicingsummaryglobalRepresentative")].isNull() && m_d_ezmaxinvoicingsummaryglobal_representative_isValid;
 
-    m_d_ezmaxinvoicingsummaryglobal_partner_isValid = ::OpenAPI::fromJsonValue(m_d_ezmaxinvoicingsummaryglobal_partner, json[QString("dEzmaxinvoicingsummaryglobalPartner")]);
+    m_d_ezmaxinvoicingsummaryglobal_partner_isValid = ::Ezmaxapi::fromJsonValue(m_d_ezmaxinvoicingsummaryglobal_partner, json[QString("dEzmaxinvoicingsummaryglobalPartner")]);
     m_d_ezmaxinvoicingsummaryglobal_partner_isSet = !json[QString("dEzmaxinvoicingsummaryglobalPartner")].isNull() && m_d_ezmaxinvoicingsummaryglobal_partner_isValid;
 
-    m_d_ezmaxinvoicingsummaryglobal_net_isValid = ::OpenAPI::fromJsonValue(m_d_ezmaxinvoicingsummaryglobal_net, json[QString("dEzmaxinvoicingsummaryglobalNet")]);
+    m_d_ezmaxinvoicingsummaryglobal_net_isValid = ::Ezmaxapi::fromJsonValue(m_d_ezmaxinvoicingsummaryglobal_net, json[QString("dEzmaxinvoicingsummaryglobalNet")]);
     m_d_ezmaxinvoicingsummaryglobal_net_isSet = !json[QString("dEzmaxinvoicingsummaryglobalNet")].isNull() && m_d_ezmaxinvoicingsummaryglobal_net_isValid;
 
-    m_b_ezmaxinvoicingsummaryglobal_adjustment_isValid = ::OpenAPI::fromJsonValue(m_b_ezmaxinvoicingsummaryglobal_adjustment, json[QString("bEzmaxinvoicingsummaryglobalAdjustment")]);
+    m_b_ezmaxinvoicingsummaryglobal_adjustment_isValid = ::Ezmaxapi::fromJsonValue(m_b_ezmaxinvoicingsummaryglobal_adjustment, json[QString("bEzmaxinvoicingsummaryglobalAdjustment")]);
     m_b_ezmaxinvoicingsummaryglobal_adjustment_isSet = !json[QString("bEzmaxinvoicingsummaryglobalAdjustment")].isNull() && m_b_ezmaxinvoicingsummaryglobal_adjustment_isValid;
 
-    m_t_ezmaxproduct_help_x_isValid = ::OpenAPI::fromJsonValue(m_t_ezmaxproduct_help_x, json[QString("tEzmaxproductHelpX")]);
+    m_t_ezmaxproduct_help_x_isValid = ::Ezmaxapi::fromJsonValue(m_t_ezmaxproduct_help_x, json[QString("tEzmaxproductHelpX")]);
     m_t_ezmaxproduct_help_x_isSet = !json[QString("tEzmaxproductHelpX")].isNull() && m_t_ezmaxproduct_help_x_isValid;
 }
 
@@ -169,61 +169,61 @@ QString OAIEzmaxinvoicingsummaryglobal_Response::asJson() const {
 QJsonObject OAIEzmaxinvoicingsummaryglobal_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_ezmaxinvoicingsummaryglobal_id_isSet) {
-        obj.insert(QString("pkiEzmaxinvoicingsummaryglobalID"), ::OpenAPI::toJsonValue(m_pki_ezmaxinvoicingsummaryglobal_id));
+        obj.insert(QString("pkiEzmaxinvoicingsummaryglobalID"), ::Ezmaxapi::toJsonValue(m_pki_ezmaxinvoicingsummaryglobal_id));
     }
     if (m_fki_ezmaxinvoicing_id_isSet) {
-        obj.insert(QString("fkiEzmaxinvoicingID"), ::OpenAPI::toJsonValue(m_fki_ezmaxinvoicing_id));
+        obj.insert(QString("fkiEzmaxinvoicingID"), ::Ezmaxapi::toJsonValue(m_fki_ezmaxinvoicing_id));
     }
     if (m_fki_ezmaxproduct_id_isSet) {
-        obj.insert(QString("fkiEzmaxproductID"), ::OpenAPI::toJsonValue(m_fki_ezmaxproduct_id));
+        obj.insert(QString("fkiEzmaxproductID"), ::Ezmaxapi::toJsonValue(m_fki_ezmaxproduct_id));
     }
     if (m_s_ezmaxproduct_description_x_isSet) {
-        obj.insert(QString("sEzmaxproductDescriptionX"), ::OpenAPI::toJsonValue(m_s_ezmaxproduct_description_x));
+        obj.insert(QString("sEzmaxproductDescriptionX"), ::Ezmaxapi::toJsonValue(m_s_ezmaxproduct_description_x));
     }
     if (m_dt_ezmaxinvoicingsummaryglobal_start_isSet) {
-        obj.insert(QString("dtEzmaxinvoicingsummaryglobalStart"), ::OpenAPI::toJsonValue(m_dt_ezmaxinvoicingsummaryglobal_start));
+        obj.insert(QString("dtEzmaxinvoicingsummaryglobalStart"), ::Ezmaxapi::toJsonValue(m_dt_ezmaxinvoicingsummaryglobal_start));
     }
     if (m_dt_ezmaxinvoicingsummaryglobal_end_isSet) {
-        obj.insert(QString("dtEzmaxinvoicingsummaryglobalEnd"), ::OpenAPI::toJsonValue(m_dt_ezmaxinvoicingsummaryglobal_end));
+        obj.insert(QString("dtEzmaxinvoicingsummaryglobalEnd"), ::Ezmaxapi::toJsonValue(m_dt_ezmaxinvoicingsummaryglobal_end));
     }
     if (m_i_ezmaxinvoicingsummaryglobal_days_isSet) {
-        obj.insert(QString("iEzmaxinvoicingsummaryglobalDays"), ::OpenAPI::toJsonValue(m_i_ezmaxinvoicingsummaryglobal_days));
+        obj.insert(QString("iEzmaxinvoicingsummaryglobalDays"), ::Ezmaxapi::toJsonValue(m_i_ezmaxinvoicingsummaryglobal_days));
     }
     if (m_d_ezmaxinvoicingsummaryglobal_countreal_isSet) {
-        obj.insert(QString("dEzmaxinvoicingsummaryglobalCountreal"), ::OpenAPI::toJsonValue(m_d_ezmaxinvoicingsummaryglobal_countreal));
+        obj.insert(QString("dEzmaxinvoicingsummaryglobalCountreal"), ::Ezmaxapi::toJsonValue(m_d_ezmaxinvoicingsummaryglobal_countreal));
     }
     if (m_d_ezmaxinvoicingsummaryglobal_countbilled_isSet) {
-        obj.insert(QString("dEzmaxinvoicingsummaryglobalCountbilled"), ::OpenAPI::toJsonValue(m_d_ezmaxinvoicingsummaryglobal_countbilled));
+        obj.insert(QString("dEzmaxinvoicingsummaryglobalCountbilled"), ::Ezmaxapi::toJsonValue(m_d_ezmaxinvoicingsummaryglobal_countbilled));
     }
     if (m_d_ezmaxinvoicingsummaryglobal_subtotal_isSet) {
-        obj.insert(QString("dEzmaxinvoicingsummaryglobalSubtotal"), ::OpenAPI::toJsonValue(m_d_ezmaxinvoicingsummaryglobal_subtotal));
+        obj.insert(QString("dEzmaxinvoicingsummaryglobalSubtotal"), ::Ezmaxapi::toJsonValue(m_d_ezmaxinvoicingsummaryglobal_subtotal));
     }
     if (m_d_ezmaxinvoicingsummaryglobal_rebateamount_isSet) {
-        obj.insert(QString("dEzmaxinvoicingsummaryglobalRebateamount"), ::OpenAPI::toJsonValue(m_d_ezmaxinvoicingsummaryglobal_rebateamount));
+        obj.insert(QString("dEzmaxinvoicingsummaryglobalRebateamount"), ::Ezmaxapi::toJsonValue(m_d_ezmaxinvoicingsummaryglobal_rebateamount));
     }
     if (m_d_ezmaxinvoicingsummaryglobal_rebatepercent_isSet) {
-        obj.insert(QString("dEzmaxinvoicingsummaryglobalRebatepercent"), ::OpenAPI::toJsonValue(m_d_ezmaxinvoicingsummaryglobal_rebatepercent));
+        obj.insert(QString("dEzmaxinvoicingsummaryglobalRebatepercent"), ::Ezmaxapi::toJsonValue(m_d_ezmaxinvoicingsummaryglobal_rebatepercent));
     }
     if (m_d_ezmaxinvoicingsummaryglobal_rebatetotal_isSet) {
-        obj.insert(QString("dEzmaxinvoicingsummaryglobalRebatetotal"), ::OpenAPI::toJsonValue(m_d_ezmaxinvoicingsummaryglobal_rebatetotal));
+        obj.insert(QString("dEzmaxinvoicingsummaryglobalRebatetotal"), ::Ezmaxapi::toJsonValue(m_d_ezmaxinvoicingsummaryglobal_rebatetotal));
     }
     if (m_d_ezmaxinvoicingsummaryglobal_total_isSet) {
-        obj.insert(QString("dEzmaxinvoicingsummaryglobalTotal"), ::OpenAPI::toJsonValue(m_d_ezmaxinvoicingsummaryglobal_total));
+        obj.insert(QString("dEzmaxinvoicingsummaryglobalTotal"), ::Ezmaxapi::toJsonValue(m_d_ezmaxinvoicingsummaryglobal_total));
     }
     if (m_d_ezmaxinvoicingsummaryglobal_representative_isSet) {
-        obj.insert(QString("dEzmaxinvoicingsummaryglobalRepresentative"), ::OpenAPI::toJsonValue(m_d_ezmaxinvoicingsummaryglobal_representative));
+        obj.insert(QString("dEzmaxinvoicingsummaryglobalRepresentative"), ::Ezmaxapi::toJsonValue(m_d_ezmaxinvoicingsummaryglobal_representative));
     }
     if (m_d_ezmaxinvoicingsummaryglobal_partner_isSet) {
-        obj.insert(QString("dEzmaxinvoicingsummaryglobalPartner"), ::OpenAPI::toJsonValue(m_d_ezmaxinvoicingsummaryglobal_partner));
+        obj.insert(QString("dEzmaxinvoicingsummaryglobalPartner"), ::Ezmaxapi::toJsonValue(m_d_ezmaxinvoicingsummaryglobal_partner));
     }
     if (m_d_ezmaxinvoicingsummaryglobal_net_isSet) {
-        obj.insert(QString("dEzmaxinvoicingsummaryglobalNet"), ::OpenAPI::toJsonValue(m_d_ezmaxinvoicingsummaryglobal_net));
+        obj.insert(QString("dEzmaxinvoicingsummaryglobalNet"), ::Ezmaxapi::toJsonValue(m_d_ezmaxinvoicingsummaryglobal_net));
     }
     if (m_b_ezmaxinvoicingsummaryglobal_adjustment_isSet) {
-        obj.insert(QString("bEzmaxinvoicingsummaryglobalAdjustment"), ::OpenAPI::toJsonValue(m_b_ezmaxinvoicingsummaryglobal_adjustment));
+        obj.insert(QString("bEzmaxinvoicingsummaryglobalAdjustment"), ::Ezmaxapi::toJsonValue(m_b_ezmaxinvoicingsummaryglobal_adjustment));
     }
     if (m_t_ezmaxproduct_help_x_isSet) {
-        obj.insert(QString("tEzmaxproductHelpX"), ::OpenAPI::toJsonValue(m_t_ezmaxproduct_help_x));
+        obj.insert(QString("tEzmaxproductHelpX"), ::Ezmaxapi::toJsonValue(m_t_ezmaxproduct_help_x));
     }
     return obj;
 }
@@ -638,4 +638,4 @@ bool OAIEzmaxinvoicingsummaryglobal_Response::isValid() const {
     return m_fki_ezmaxproduct_id_isValid && m_s_ezmaxproduct_description_x_isValid && m_dt_ezmaxinvoicingsummaryglobal_start_isValid && m_dt_ezmaxinvoicingsummaryglobal_end_isValid && m_i_ezmaxinvoicingsummaryglobal_days_isValid && m_d_ezmaxinvoicingsummaryglobal_countreal_isValid && m_d_ezmaxinvoicingsummaryglobal_countbilled_isValid && m_d_ezmaxinvoicingsummaryglobal_subtotal_isValid && m_d_ezmaxinvoicingsummaryglobal_rebateamount_isValid && m_d_ezmaxinvoicingsummaryglobal_rebatepercent_isValid && m_d_ezmaxinvoicingsummaryglobal_rebatetotal_isValid && m_d_ezmaxinvoicingsummaryglobal_total_isValid && m_b_ezmaxinvoicingsummaryglobal_adjustment_isValid && m_t_ezmaxproduct_help_x_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

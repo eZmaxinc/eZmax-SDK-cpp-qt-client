@@ -26,7 +26,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIBillingentityinternalproduct_Response : public OAIObject {
 public:
@@ -109,8 +109,8 @@ private:
     bool m_s_billingentityexternal_description_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIBillingentityinternalproduct_Response)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIBillingentityinternalproduct_Response)
 
 #endif // OAIBillingentityinternalproduct_Response_H

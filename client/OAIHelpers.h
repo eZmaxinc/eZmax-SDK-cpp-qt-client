@@ -28,7 +28,7 @@
 #include "OAIHttpFileElement.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 template <typename T>
 class OptionalParam {
@@ -273,6 +273,6 @@ bool fromJsonValue(QMap<QString, T> &val, const QJsonValue &jval) {
     return ok;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
 #endif // OAI_HELPERS_H

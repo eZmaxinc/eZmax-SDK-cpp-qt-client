@@ -26,7 +26,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIWebsocket_RequestServer_GetWebsocketID_V1 : public OAIObject {
 public:
@@ -55,8 +55,8 @@ private:
     bool m_e_websocket_messagetype_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIWebsocket_RequestServer_GetWebsocketID_V1)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIWebsocket_RequestServer_GetWebsocketID_V1)
 
 #endif // OAIWebsocket_RequestServer_GetWebsocketID_V1_H

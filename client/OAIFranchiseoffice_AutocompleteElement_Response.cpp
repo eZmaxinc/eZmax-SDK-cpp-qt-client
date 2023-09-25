@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIFranchiseoffice_AutocompleteElement_Response::OAIFranchiseoffice_AutocompleteElement_Response(QString json) {
     this->initializeModel();
@@ -53,13 +53,13 @@ void OAIFranchiseoffice_AutocompleteElement_Response::fromJson(QString jsonStrin
 
 void OAIFranchiseoffice_AutocompleteElement_Response::fromJsonObject(QJsonObject json) {
 
-    m_s_franchiseoffice_description_isValid = ::OpenAPI::fromJsonValue(m_s_franchiseoffice_description, json[QString("sFranchiseofficeDescription")]);
+    m_s_franchiseoffice_description_isValid = ::Ezmaxapi::fromJsonValue(m_s_franchiseoffice_description, json[QString("sFranchiseofficeDescription")]);
     m_s_franchiseoffice_description_isSet = !json[QString("sFranchiseofficeDescription")].isNull() && m_s_franchiseoffice_description_isValid;
 
-    m_pki_franchiseoffice_id_isValid = ::OpenAPI::fromJsonValue(m_pki_franchiseoffice_id, json[QString("pkiFranchiseofficeID")]);
+    m_pki_franchiseoffice_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_franchiseoffice_id, json[QString("pkiFranchiseofficeID")]);
     m_pki_franchiseoffice_id_isSet = !json[QString("pkiFranchiseofficeID")].isNull() && m_pki_franchiseoffice_id_isValid;
 
-    m_b_franchiseoffice_isactive_isValid = ::OpenAPI::fromJsonValue(m_b_franchiseoffice_isactive, json[QString("bFranchiseofficeIsactive")]);
+    m_b_franchiseoffice_isactive_isValid = ::Ezmaxapi::fromJsonValue(m_b_franchiseoffice_isactive, json[QString("bFranchiseofficeIsactive")]);
     m_b_franchiseoffice_isactive_isSet = !json[QString("bFranchiseofficeIsactive")].isNull() && m_b_franchiseoffice_isactive_isValid;
 }
 
@@ -73,13 +73,13 @@ QString OAIFranchiseoffice_AutocompleteElement_Response::asJson() const {
 QJsonObject OAIFranchiseoffice_AutocompleteElement_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_s_franchiseoffice_description_isSet) {
-        obj.insert(QString("sFranchiseofficeDescription"), ::OpenAPI::toJsonValue(m_s_franchiseoffice_description));
+        obj.insert(QString("sFranchiseofficeDescription"), ::Ezmaxapi::toJsonValue(m_s_franchiseoffice_description));
     }
     if (m_pki_franchiseoffice_id_isSet) {
-        obj.insert(QString("pkiFranchiseofficeID"), ::OpenAPI::toJsonValue(m_pki_franchiseoffice_id));
+        obj.insert(QString("pkiFranchiseofficeID"), ::Ezmaxapi::toJsonValue(m_pki_franchiseoffice_id));
     }
     if (m_b_franchiseoffice_isactive_isSet) {
-        obj.insert(QString("bFranchiseofficeIsactive"), ::OpenAPI::toJsonValue(m_b_franchiseoffice_isactive));
+        obj.insert(QString("bFranchiseofficeIsactive"), ::Ezmaxapi::toJsonValue(m_b_franchiseoffice_isactive));
     }
     return obj;
 }
@@ -158,4 +158,4 @@ bool OAIFranchiseoffice_AutocompleteElement_Response::isValid() const {
     return m_s_franchiseoffice_description_isValid && m_pki_franchiseoffice_id_isValid && m_b_franchiseoffice_isactive_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

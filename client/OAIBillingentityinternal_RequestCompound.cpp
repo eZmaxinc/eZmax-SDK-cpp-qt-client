@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIBillingentityinternal_RequestCompound::OAIBillingentityinternal_RequestCompound(QString json) {
     this->initializeModel();
@@ -53,13 +53,13 @@ void OAIBillingentityinternal_RequestCompound::fromJson(QString jsonString) {
 
 void OAIBillingentityinternal_RequestCompound::fromJsonObject(QJsonObject json) {
 
-    m_pki_billingentityinternal_id_isValid = ::OpenAPI::fromJsonValue(m_pki_billingentityinternal_id, json[QString("pkiBillingentityinternalID")]);
+    m_pki_billingentityinternal_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_billingentityinternal_id, json[QString("pkiBillingentityinternalID")]);
     m_pki_billingentityinternal_id_isSet = !json[QString("pkiBillingentityinternalID")].isNull() && m_pki_billingentityinternal_id_isValid;
 
-    m_obj_billingentityinternal_description_isValid = ::OpenAPI::fromJsonValue(m_obj_billingentityinternal_description, json[QString("objBillingentityinternalDescription")]);
+    m_obj_billingentityinternal_description_isValid = ::Ezmaxapi::fromJsonValue(m_obj_billingentityinternal_description, json[QString("objBillingentityinternalDescription")]);
     m_obj_billingentityinternal_description_isSet = !json[QString("objBillingentityinternalDescription")].isNull() && m_obj_billingentityinternal_description_isValid;
 
-    m_a_obj_billingentityinternalproduct_isValid = ::OpenAPI::fromJsonValue(m_a_obj_billingentityinternalproduct, json[QString("a_objBillingentityinternalproduct")]);
+    m_a_obj_billingentityinternalproduct_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_billingentityinternalproduct, json[QString("a_objBillingentityinternalproduct")]);
     m_a_obj_billingentityinternalproduct_isSet = !json[QString("a_objBillingentityinternalproduct")].isNull() && m_a_obj_billingentityinternalproduct_isValid;
 }
 
@@ -73,13 +73,13 @@ QString OAIBillingentityinternal_RequestCompound::asJson() const {
 QJsonObject OAIBillingentityinternal_RequestCompound::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_billingentityinternal_id_isSet) {
-        obj.insert(QString("pkiBillingentityinternalID"), ::OpenAPI::toJsonValue(m_pki_billingentityinternal_id));
+        obj.insert(QString("pkiBillingentityinternalID"), ::Ezmaxapi::toJsonValue(m_pki_billingentityinternal_id));
     }
     if (m_obj_billingentityinternal_description.isSet()) {
-        obj.insert(QString("objBillingentityinternalDescription"), ::OpenAPI::toJsonValue(m_obj_billingentityinternal_description));
+        obj.insert(QString("objBillingentityinternalDescription"), ::Ezmaxapi::toJsonValue(m_obj_billingentityinternal_description));
     }
     if (m_a_obj_billingentityinternalproduct.size() > 0) {
-        obj.insert(QString("a_objBillingentityinternalproduct"), ::OpenAPI::toJsonValue(m_a_obj_billingentityinternalproduct));
+        obj.insert(QString("a_objBillingentityinternalproduct"), ::Ezmaxapi::toJsonValue(m_a_obj_billingentityinternalproduct));
     }
     return obj;
 }
@@ -158,4 +158,4 @@ bool OAIBillingentityinternal_RequestCompound::isValid() const {
     return m_obj_billingentityinternal_description_isValid && m_a_obj_billingentityinternalproduct_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

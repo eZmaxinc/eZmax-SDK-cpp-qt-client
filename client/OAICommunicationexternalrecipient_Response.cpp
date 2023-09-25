@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAICommunicationexternalrecipient_Response::OAICommunicationexternalrecipient_Response(QString json) {
     this->initializeModel();
@@ -59,19 +59,19 @@ void OAICommunicationexternalrecipient_Response::fromJson(QString jsonString) {
 
 void OAICommunicationexternalrecipient_Response::fromJsonObject(QJsonObject json) {
 
-    m_pki_communicationexternalrecipient_id_isValid = ::OpenAPI::fromJsonValue(m_pki_communicationexternalrecipient_id, json[QString("pkiCommunicationexternalrecipientID")]);
+    m_pki_communicationexternalrecipient_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_communicationexternalrecipient_id, json[QString("pkiCommunicationexternalrecipientID")]);
     m_pki_communicationexternalrecipient_id_isSet = !json[QString("pkiCommunicationexternalrecipientID")].isNull() && m_pki_communicationexternalrecipient_id_isValid;
 
-    m_e_communicationexternalrecipient_type_isValid = ::OpenAPI::fromJsonValue(m_e_communicationexternalrecipient_type, json[QString("eCommunicationexternalrecipientType")]);
+    m_e_communicationexternalrecipient_type_isValid = ::Ezmaxapi::fromJsonValue(m_e_communicationexternalrecipient_type, json[QString("eCommunicationexternalrecipientType")]);
     m_e_communicationexternalrecipient_type_isSet = !json[QString("eCommunicationexternalrecipientType")].isNull() && m_e_communicationexternalrecipient_type_isValid;
 
-    m_obj_descriptionstatic_isValid = ::OpenAPI::fromJsonValue(m_obj_descriptionstatic, json[QString("objDescriptionstatic")]);
+    m_obj_descriptionstatic_isValid = ::Ezmaxapi::fromJsonValue(m_obj_descriptionstatic, json[QString("objDescriptionstatic")]);
     m_obj_descriptionstatic_isSet = !json[QString("objDescriptionstatic")].isNull() && m_obj_descriptionstatic_isValid;
 
-    m_obj_emailstatic_isValid = ::OpenAPI::fromJsonValue(m_obj_emailstatic, json[QString("objEmailstatic")]);
+    m_obj_emailstatic_isValid = ::Ezmaxapi::fromJsonValue(m_obj_emailstatic, json[QString("objEmailstatic")]);
     m_obj_emailstatic_isSet = !json[QString("objEmailstatic")].isNull() && m_obj_emailstatic_isValid;
 
-    m_obj_phonestatic_isValid = ::OpenAPI::fromJsonValue(m_obj_phonestatic, json[QString("objPhonestatic")]);
+    m_obj_phonestatic_isValid = ::Ezmaxapi::fromJsonValue(m_obj_phonestatic, json[QString("objPhonestatic")]);
     m_obj_phonestatic_isSet = !json[QString("objPhonestatic")].isNull() && m_obj_phonestatic_isValid;
 }
 
@@ -85,19 +85,19 @@ QString OAICommunicationexternalrecipient_Response::asJson() const {
 QJsonObject OAICommunicationexternalrecipient_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_communicationexternalrecipient_id_isSet) {
-        obj.insert(QString("pkiCommunicationexternalrecipientID"), ::OpenAPI::toJsonValue(m_pki_communicationexternalrecipient_id));
+        obj.insert(QString("pkiCommunicationexternalrecipientID"), ::Ezmaxapi::toJsonValue(m_pki_communicationexternalrecipient_id));
     }
     if (m_e_communicationexternalrecipient_type.isSet()) {
-        obj.insert(QString("eCommunicationexternalrecipientType"), ::OpenAPI::toJsonValue(m_e_communicationexternalrecipient_type));
+        obj.insert(QString("eCommunicationexternalrecipientType"), ::Ezmaxapi::toJsonValue(m_e_communicationexternalrecipient_type));
     }
     if (m_obj_descriptionstatic.isSet()) {
-        obj.insert(QString("objDescriptionstatic"), ::OpenAPI::toJsonValue(m_obj_descriptionstatic));
+        obj.insert(QString("objDescriptionstatic"), ::Ezmaxapi::toJsonValue(m_obj_descriptionstatic));
     }
     if (m_obj_emailstatic.isSet()) {
-        obj.insert(QString("objEmailstatic"), ::OpenAPI::toJsonValue(m_obj_emailstatic));
+        obj.insert(QString("objEmailstatic"), ::Ezmaxapi::toJsonValue(m_obj_emailstatic));
     }
     if (m_obj_phonestatic.isSet()) {
-        obj.insert(QString("objPhonestatic"), ::OpenAPI::toJsonValue(m_obj_phonestatic));
+        obj.insert(QString("objPhonestatic"), ::Ezmaxapi::toJsonValue(m_obj_phonestatic));
     }
     return obj;
 }
@@ -218,4 +218,4 @@ bool OAICommunicationexternalrecipient_Response::isValid() const {
     return m_pki_communicationexternalrecipient_id_isValid && m_e_communicationexternalrecipient_type_isValid && m_obj_descriptionstatic_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

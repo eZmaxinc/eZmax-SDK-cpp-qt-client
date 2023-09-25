@@ -30,7 +30,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 class OAIMultilingual_EzsignfoldertypeName;
 
 class OAIEzsignfoldertype_Request : public OAIObject {
@@ -330,8 +330,8 @@ private:
     bool m_b_ezsignfoldertype_isactive_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIEzsignfoldertype_Request)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIEzsignfoldertype_Request)
 
 #endif // OAIEzsignfoldertype_Request_H

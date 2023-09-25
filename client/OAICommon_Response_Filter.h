@@ -27,7 +27,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAICommon_Response_Filter : public OAIObject {
 public:
@@ -74,8 +74,8 @@ private:
     bool m_a_enum_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAICommon_Response_Filter)
+Q_DECLARE_METATYPE(Ezmaxapi::OAICommon_Response_Filter)
 
 #endif // OAICommon_Response_Filter_H

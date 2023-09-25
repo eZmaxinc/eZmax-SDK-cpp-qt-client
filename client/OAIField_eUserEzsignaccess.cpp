@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIField_eUserEzsignaccess::OAIField_eUserEzsignaccess(QString json) {
     this->initializeModel();
@@ -109,4 +109,4 @@ bool OAIField_eUserEzsignaccess::isValid() const {
     return m_value_isValid;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzsignsignergroupmembership_Request::OAIEzsignsignergroupmembership_Request(QString json) {
     this->initializeModel();
@@ -59,19 +59,19 @@ void OAIEzsignsignergroupmembership_Request::fromJson(QString jsonString) {
 
 void OAIEzsignsignergroupmembership_Request::fromJsonObject(QJsonObject json) {
 
-    m_pki_ezsignsignergroupmembership_id_isValid = ::OpenAPI::fromJsonValue(m_pki_ezsignsignergroupmembership_id, json[QString("pkiEzsignsignergroupmembershipID")]);
+    m_pki_ezsignsignergroupmembership_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_ezsignsignergroupmembership_id, json[QString("pkiEzsignsignergroupmembershipID")]);
     m_pki_ezsignsignergroupmembership_id_isSet = !json[QString("pkiEzsignsignergroupmembershipID")].isNull() && m_pki_ezsignsignergroupmembership_id_isValid;
 
-    m_fki_ezsignsignergroup_id_isValid = ::OpenAPI::fromJsonValue(m_fki_ezsignsignergroup_id, json[QString("fkiEzsignsignergroupID")]);
+    m_fki_ezsignsignergroup_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_ezsignsignergroup_id, json[QString("fkiEzsignsignergroupID")]);
     m_fki_ezsignsignergroup_id_isSet = !json[QString("fkiEzsignsignergroupID")].isNull() && m_fki_ezsignsignergroup_id_isValid;
 
-    m_fki_ezsignsigner_id_isValid = ::OpenAPI::fromJsonValue(m_fki_ezsignsigner_id, json[QString("fkiEzsignsignerID")]);
+    m_fki_ezsignsigner_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_ezsignsigner_id, json[QString("fkiEzsignsignerID")]);
     m_fki_ezsignsigner_id_isSet = !json[QString("fkiEzsignsignerID")].isNull() && m_fki_ezsignsigner_id_isValid;
 
-    m_fki_user_id_isValid = ::OpenAPI::fromJsonValue(m_fki_user_id, json[QString("fkiUserID")]);
+    m_fki_user_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_user_id, json[QString("fkiUserID")]);
     m_fki_user_id_isSet = !json[QString("fkiUserID")].isNull() && m_fki_user_id_isValid;
 
-    m_fki_usergroup_id_isValid = ::OpenAPI::fromJsonValue(m_fki_usergroup_id, json[QString("fkiUsergroupID")]);
+    m_fki_usergroup_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_usergroup_id, json[QString("fkiUsergroupID")]);
     m_fki_usergroup_id_isSet = !json[QString("fkiUsergroupID")].isNull() && m_fki_usergroup_id_isValid;
 }
 
@@ -85,19 +85,19 @@ QString OAIEzsignsignergroupmembership_Request::asJson() const {
 QJsonObject OAIEzsignsignergroupmembership_Request::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_ezsignsignergroupmembership_id_isSet) {
-        obj.insert(QString("pkiEzsignsignergroupmembershipID"), ::OpenAPI::toJsonValue(m_pki_ezsignsignergroupmembership_id));
+        obj.insert(QString("pkiEzsignsignergroupmembershipID"), ::Ezmaxapi::toJsonValue(m_pki_ezsignsignergroupmembership_id));
     }
     if (m_fki_ezsignsignergroup_id_isSet) {
-        obj.insert(QString("fkiEzsignsignergroupID"), ::OpenAPI::toJsonValue(m_fki_ezsignsignergroup_id));
+        obj.insert(QString("fkiEzsignsignergroupID"), ::Ezmaxapi::toJsonValue(m_fki_ezsignsignergroup_id));
     }
     if (m_fki_ezsignsigner_id_isSet) {
-        obj.insert(QString("fkiEzsignsignerID"), ::OpenAPI::toJsonValue(m_fki_ezsignsigner_id));
+        obj.insert(QString("fkiEzsignsignerID"), ::Ezmaxapi::toJsonValue(m_fki_ezsignsigner_id));
     }
     if (m_fki_user_id_isSet) {
-        obj.insert(QString("fkiUserID"), ::OpenAPI::toJsonValue(m_fki_user_id));
+        obj.insert(QString("fkiUserID"), ::Ezmaxapi::toJsonValue(m_fki_user_id));
     }
     if (m_fki_usergroup_id_isSet) {
-        obj.insert(QString("fkiUsergroupID"), ::OpenAPI::toJsonValue(m_fki_usergroup_id));
+        obj.insert(QString("fkiUsergroupID"), ::Ezmaxapi::toJsonValue(m_fki_usergroup_id));
     }
     return obj;
 }
@@ -218,4 +218,4 @@ bool OAIEzsignsignergroupmembership_Request::isValid() const {
     return m_fki_ezsignsignergroup_id_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzsigndocument_editEzsignformfieldgroups_v1_Request::OAIEzsigndocument_editEzsignformfieldgroups_v1_Request(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAIEzsigndocument_editEzsignformfieldgroups_v1_Request::fromJson(QString js
 
 void OAIEzsigndocument_editEzsignformfieldgroups_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_ezsignformfieldgroup_isValid = ::OpenAPI::fromJsonValue(m_a_obj_ezsignformfieldgroup, json[QString("a_objEzsignformfieldgroup")]);
+    m_a_obj_ezsignformfieldgroup_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_ezsignformfieldgroup, json[QString("a_objEzsignformfieldgroup")]);
     m_a_obj_ezsignformfieldgroup_isSet = !json[QString("a_objEzsignformfieldgroup")].isNull() && m_a_obj_ezsignformfieldgroup_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAIEzsigndocument_editEzsignformfieldgroups_v1_Request::asJson() const {
 QJsonObject OAIEzsigndocument_editEzsignformfieldgroups_v1_Request::asJsonObject() const {
     QJsonObject obj;
     if (m_a_obj_ezsignformfieldgroup.size() > 0) {
-        obj.insert(QString("a_objEzsignformfieldgroup"), ::OpenAPI::toJsonValue(m_a_obj_ezsignformfieldgroup));
+        obj.insert(QString("a_objEzsignformfieldgroup"), ::Ezmaxapi::toJsonValue(m_a_obj_ezsignformfieldgroup));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAIEzsigndocument_editEzsignformfieldgroups_v1_Request::isValid() const {
     return m_a_obj_ezsignformfieldgroup_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

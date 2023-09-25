@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIUser_editObject_v1_Request::OAIUser_editObject_v1_Request(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAIUser_editObject_v1_Request::fromJson(QString jsonString) {
 
 void OAIUser_editObject_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_obj_user_isValid = ::OpenAPI::fromJsonValue(m_obj_user, json[QString("objUser")]);
+    m_obj_user_isValid = ::Ezmaxapi::fromJsonValue(m_obj_user, json[QString("objUser")]);
     m_obj_user_isSet = !json[QString("objUser")].isNull() && m_obj_user_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAIUser_editObject_v1_Request::asJson() const {
 QJsonObject OAIUser_editObject_v1_Request::asJsonObject() const {
     QJsonObject obj;
     if (m_obj_user.isSet()) {
-        obj.insert(QString("objUser"), ::OpenAPI::toJsonValue(m_obj_user));
+        obj.insert(QString("objUser"), ::Ezmaxapi::toJsonValue(m_obj_user));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAIUser_editObject_v1_Request::isValid() const {
     return m_obj_user_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

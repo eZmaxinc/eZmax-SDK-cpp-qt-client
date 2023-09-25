@@ -27,7 +27,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIEzsigndocumentlog_ResponseCompound : public OAIObject {
 public:
@@ -119,8 +119,8 @@ private:
     bool m_s_ezsigndocumentlog_ip_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIEzsigndocumentlog_ResponseCompound)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIEzsigndocumentlog_ResponseCompound)
 
 #endif // OAIEzsigndocumentlog_ResponseCompound_H

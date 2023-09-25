@@ -29,7 +29,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIWebhook_ListElement : public OAIObject {
 public:
@@ -130,8 +130,8 @@ private:
     bool m_b_webhook_isactive_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIWebhook_ListElement)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIWebhook_ListElement)
 
 #endif // OAIWebhook_ListElement_H

@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzsignfoldertype_getAutocomplete_v2_Response_mPayload::OAIEzsignfoldertype_getAutocomplete_v2_Response_mPayload(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAIEzsignfoldertype_getAutocomplete_v2_Response_mPayload::fromJson(QString 
 
 void OAIEzsignfoldertype_getAutocomplete_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_ezsignfoldertype_isValid = ::OpenAPI::fromJsonValue(m_a_obj_ezsignfoldertype, json[QString("a_objEzsignfoldertype")]);
+    m_a_obj_ezsignfoldertype_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_ezsignfoldertype, json[QString("a_objEzsignfoldertype")]);
     m_a_obj_ezsignfoldertype_isSet = !json[QString("a_objEzsignfoldertype")].isNull() && m_a_obj_ezsignfoldertype_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAIEzsignfoldertype_getAutocomplete_v2_Response_mPayload::asJson() const
 QJsonObject OAIEzsignfoldertype_getAutocomplete_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_a_obj_ezsignfoldertype.size() > 0) {
-        obj.insert(QString("a_objEzsignfoldertype"), ::OpenAPI::toJsonValue(m_a_obj_ezsignfoldertype));
+        obj.insert(QString("a_objEzsignfoldertype"), ::Ezmaxapi::toJsonValue(m_a_obj_ezsignfoldertype));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAIEzsignfoldertype_getAutocomplete_v2_Response_mPayload::isValid() const {
     return m_a_obj_ezsignfoldertype_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

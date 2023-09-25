@@ -27,7 +27,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 class OAIApikey_ResponseCompound;
 
 class OAIUser_getApikeys_v1_Response_mPayload : public OAIObject {
@@ -57,8 +57,8 @@ private:
     bool m_a_obj_apikey_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIUser_getApikeys_v1_Response_mPayload)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIUser_getApikeys_v1_Response_mPayload)
 
 #endif // OAIUser_getApikeys_v1_Response_mPayload_H

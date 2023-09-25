@@ -27,7 +27,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 class OAICustom_Notificationsubsectiongetnotificationtests_Response;
 
 class OAINotificationsection_getNotificationtests_v1_Response_mPayload : public OAIObject {
@@ -57,8 +57,8 @@ private:
     bool m_a_obj_notificationsubsection_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAINotificationsection_getNotificationtests_v1_Response_mPayload)
+Q_DECLARE_METATYPE(Ezmaxapi::OAINotificationsection_getNotificationtests_v1_Response_mPayload)
 
 #endif // OAINotificationsection_getNotificationtests_v1_Response_mPayload_H

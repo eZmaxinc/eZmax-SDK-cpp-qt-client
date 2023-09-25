@@ -25,7 +25,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAITextstylestatic_ResponseCompound : public OAIObject {
 public:
@@ -117,8 +117,8 @@ private:
     bool m_i_textstylestatic_size_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAITextstylestatic_ResponseCompound)
+Q_DECLARE_METATYPE(Ezmaxapi::OAITextstylestatic_ResponseCompound)
 
 #endif // OAITextstylestatic_ResponseCompound_H

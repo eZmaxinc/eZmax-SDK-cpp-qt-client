@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzsignfolder_getFormsData_v1_Response_mPayload::OAIEzsignfolder_getFormsData_v1_Response_mPayload(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAIEzsignfolder_getFormsData_v1_Response_mPayload::fromJson(QString jsonStr
 
 void OAIEzsignfolder_getFormsData_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_obj_forms_data_folder_isValid = ::OpenAPI::fromJsonValue(m_obj_forms_data_folder, json[QString("objFormsDataFolder")]);
+    m_obj_forms_data_folder_isValid = ::Ezmaxapi::fromJsonValue(m_obj_forms_data_folder, json[QString("objFormsDataFolder")]);
     m_obj_forms_data_folder_isSet = !json[QString("objFormsDataFolder")].isNull() && m_obj_forms_data_folder_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAIEzsignfolder_getFormsData_v1_Response_mPayload::asJson() const {
 QJsonObject OAIEzsignfolder_getFormsData_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_obj_forms_data_folder.isSet()) {
-        obj.insert(QString("objFormsDataFolder"), ::OpenAPI::toJsonValue(m_obj_forms_data_folder));
+        obj.insert(QString("objFormsDataFolder"), ::Ezmaxapi::toJsonValue(m_obj_forms_data_folder));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAIEzsignfolder_getFormsData_v1_Response_mPayload::isValid() const {
     return m_obj_forms_data_folder_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzsignsignature_createObject_v1_Request::OAIEzsignsignature_createObject_v1_Request(QString json) {
     this->initializeModel();
@@ -50,10 +50,10 @@ void OAIEzsignsignature_createObject_v1_Request::fromJson(QString jsonString) {
 
 void OAIEzsignsignature_createObject_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_obj_ezsignsignature_isValid = ::OpenAPI::fromJsonValue(m_obj_ezsignsignature, json[QString("objEzsignsignature")]);
+    m_obj_ezsignsignature_isValid = ::Ezmaxapi::fromJsonValue(m_obj_ezsignsignature, json[QString("objEzsignsignature")]);
     m_obj_ezsignsignature_isSet = !json[QString("objEzsignsignature")].isNull() && m_obj_ezsignsignature_isValid;
 
-    m_obj_ezsignsignature_compound_isValid = ::OpenAPI::fromJsonValue(m_obj_ezsignsignature_compound, json[QString("objEzsignsignatureCompound")]);
+    m_obj_ezsignsignature_compound_isValid = ::Ezmaxapi::fromJsonValue(m_obj_ezsignsignature_compound, json[QString("objEzsignsignatureCompound")]);
     m_obj_ezsignsignature_compound_isSet = !json[QString("objEzsignsignatureCompound")].isNull() && m_obj_ezsignsignature_compound_isValid;
 }
 
@@ -67,10 +67,10 @@ QString OAIEzsignsignature_createObject_v1_Request::asJson() const {
 QJsonObject OAIEzsignsignature_createObject_v1_Request::asJsonObject() const {
     QJsonObject obj;
     if (m_obj_ezsignsignature.isSet()) {
-        obj.insert(QString("objEzsignsignature"), ::OpenAPI::toJsonValue(m_obj_ezsignsignature));
+        obj.insert(QString("objEzsignsignature"), ::Ezmaxapi::toJsonValue(m_obj_ezsignsignature));
     }
     if (m_obj_ezsignsignature_compound.isSet()) {
-        obj.insert(QString("objEzsignsignatureCompound"), ::OpenAPI::toJsonValue(m_obj_ezsignsignature_compound));
+        obj.insert(QString("objEzsignsignatureCompound"), ::Ezmaxapi::toJsonValue(m_obj_ezsignsignature_compound));
     }
     return obj;
 }
@@ -128,4 +128,4 @@ bool OAIEzsignsignature_createObject_v1_Request::isValid() const {
     return true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

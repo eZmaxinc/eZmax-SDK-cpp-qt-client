@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIField_eEzsignfolderStep::OAIField_eEzsignfolderStep(QString json) {
     this->initializeModel();
@@ -137,4 +137,4 @@ bool OAIField_eEzsignfolderStep::isValid() const {
     return m_value_isValid;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

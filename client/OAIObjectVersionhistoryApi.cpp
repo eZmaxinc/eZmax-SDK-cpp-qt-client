@@ -15,7 +15,7 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIObjectVersionhistoryApi::OAIObjectVersionhistoryApi(const int timeOut)
     : _timeOut(timeOut),
@@ -255,7 +255,7 @@ void OAIObjectVersionhistoryApi::versionhistoryGetObjectV2(const qint32 &pki_ver
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiVersionhistoryID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiVersionhistoryID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_versionhistory_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_versionhistory_id)));
+        fullPath.replace(pki_versionhistory_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_versionhistory_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -352,4 +352,4 @@ void OAIObjectVersionhistoryApi::tokenAvailable(){
         break;
     }
 }
-} // namespace OpenAPI
+} // namespace Ezmaxapi

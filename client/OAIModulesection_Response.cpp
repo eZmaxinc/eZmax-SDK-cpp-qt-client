@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIModulesection_Response::OAIModulesection_Response(QString json) {
     this->initializeModel();
@@ -56,16 +56,16 @@ void OAIModulesection_Response::fromJson(QString jsonString) {
 
 void OAIModulesection_Response::fromJsonObject(QJsonObject json) {
 
-    m_pki_modulesection_id_isValid = ::OpenAPI::fromJsonValue(m_pki_modulesection_id, json[QString("pkiModulesectionID")]);
+    m_pki_modulesection_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_modulesection_id, json[QString("pkiModulesectionID")]);
     m_pki_modulesection_id_isSet = !json[QString("pkiModulesectionID")].isNull() && m_pki_modulesection_id_isValid;
 
-    m_fki_module_id_isValid = ::OpenAPI::fromJsonValue(m_fki_module_id, json[QString("fkiModuleID")]);
+    m_fki_module_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_module_id, json[QString("fkiModuleID")]);
     m_fki_module_id_isSet = !json[QString("fkiModuleID")].isNull() && m_fki_module_id_isValid;
 
-    m_s_modulesection_internalname_isValid = ::OpenAPI::fromJsonValue(m_s_modulesection_internalname, json[QString("sModulesectionInternalname")]);
+    m_s_modulesection_internalname_isValid = ::Ezmaxapi::fromJsonValue(m_s_modulesection_internalname, json[QString("sModulesectionInternalname")]);
     m_s_modulesection_internalname_isSet = !json[QString("sModulesectionInternalname")].isNull() && m_s_modulesection_internalname_isValid;
 
-    m_s_modulesection_name_x_isValid = ::OpenAPI::fromJsonValue(m_s_modulesection_name_x, json[QString("sModulesectionNameX")]);
+    m_s_modulesection_name_x_isValid = ::Ezmaxapi::fromJsonValue(m_s_modulesection_name_x, json[QString("sModulesectionNameX")]);
     m_s_modulesection_name_x_isSet = !json[QString("sModulesectionNameX")].isNull() && m_s_modulesection_name_x_isValid;
 }
 
@@ -79,16 +79,16 @@ QString OAIModulesection_Response::asJson() const {
 QJsonObject OAIModulesection_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_modulesection_id_isSet) {
-        obj.insert(QString("pkiModulesectionID"), ::OpenAPI::toJsonValue(m_pki_modulesection_id));
+        obj.insert(QString("pkiModulesectionID"), ::Ezmaxapi::toJsonValue(m_pki_modulesection_id));
     }
     if (m_fki_module_id_isSet) {
-        obj.insert(QString("fkiModuleID"), ::OpenAPI::toJsonValue(m_fki_module_id));
+        obj.insert(QString("fkiModuleID"), ::Ezmaxapi::toJsonValue(m_fki_module_id));
     }
     if (m_s_modulesection_internalname_isSet) {
-        obj.insert(QString("sModulesectionInternalname"), ::OpenAPI::toJsonValue(m_s_modulesection_internalname));
+        obj.insert(QString("sModulesectionInternalname"), ::Ezmaxapi::toJsonValue(m_s_modulesection_internalname));
     }
     if (m_s_modulesection_name_x_isSet) {
-        obj.insert(QString("sModulesectionNameX"), ::OpenAPI::toJsonValue(m_s_modulesection_name_x));
+        obj.insert(QString("sModulesectionNameX"), ::Ezmaxapi::toJsonValue(m_s_modulesection_name_x));
     }
     return obj;
 }
@@ -188,4 +188,4 @@ bool OAIModulesection_Response::isValid() const {
     return m_pki_modulesection_id_isValid && m_fki_module_id_isValid && m_s_modulesection_internalname_isValid && m_s_modulesection_name_x_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

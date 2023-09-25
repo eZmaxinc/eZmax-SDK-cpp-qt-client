@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzmaxproduct_AutocompleteElement_Response::OAIEzmaxproduct_AutocompleteElement_Response(QString json) {
     this->initializeModel();
@@ -53,13 +53,13 @@ void OAIEzmaxproduct_AutocompleteElement_Response::fromJson(QString jsonString) 
 
 void OAIEzmaxproduct_AutocompleteElement_Response::fromJsonObject(QJsonObject json) {
 
-    m_pki_ezmaxproduct_id_isValid = ::OpenAPI::fromJsonValue(m_pki_ezmaxproduct_id, json[QString("pkiEzmaxproductID")]);
+    m_pki_ezmaxproduct_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_ezmaxproduct_id, json[QString("pkiEzmaxproductID")]);
     m_pki_ezmaxproduct_id_isSet = !json[QString("pkiEzmaxproductID")].isNull() && m_pki_ezmaxproduct_id_isValid;
 
-    m_s_ezmaxproduct_description_x_isValid = ::OpenAPI::fromJsonValue(m_s_ezmaxproduct_description_x, json[QString("sEzmaxproductDescriptionX")]);
+    m_s_ezmaxproduct_description_x_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezmaxproduct_description_x, json[QString("sEzmaxproductDescriptionX")]);
     m_s_ezmaxproduct_description_x_isSet = !json[QString("sEzmaxproductDescriptionX")].isNull() && m_s_ezmaxproduct_description_x_isValid;
 
-    m_b_ezmaxproduct_isactive_isValid = ::OpenAPI::fromJsonValue(m_b_ezmaxproduct_isactive, json[QString("bEzmaxproductIsactive")]);
+    m_b_ezmaxproduct_isactive_isValid = ::Ezmaxapi::fromJsonValue(m_b_ezmaxproduct_isactive, json[QString("bEzmaxproductIsactive")]);
     m_b_ezmaxproduct_isactive_isSet = !json[QString("bEzmaxproductIsactive")].isNull() && m_b_ezmaxproduct_isactive_isValid;
 }
 
@@ -73,13 +73,13 @@ QString OAIEzmaxproduct_AutocompleteElement_Response::asJson() const {
 QJsonObject OAIEzmaxproduct_AutocompleteElement_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_ezmaxproduct_id_isSet) {
-        obj.insert(QString("pkiEzmaxproductID"), ::OpenAPI::toJsonValue(m_pki_ezmaxproduct_id));
+        obj.insert(QString("pkiEzmaxproductID"), ::Ezmaxapi::toJsonValue(m_pki_ezmaxproduct_id));
     }
     if (m_s_ezmaxproduct_description_x_isSet) {
-        obj.insert(QString("sEzmaxproductDescriptionX"), ::OpenAPI::toJsonValue(m_s_ezmaxproduct_description_x));
+        obj.insert(QString("sEzmaxproductDescriptionX"), ::Ezmaxapi::toJsonValue(m_s_ezmaxproduct_description_x));
     }
     if (m_b_ezmaxproduct_isactive_isSet) {
-        obj.insert(QString("bEzmaxproductIsactive"), ::OpenAPI::toJsonValue(m_b_ezmaxproduct_isactive));
+        obj.insert(QString("bEzmaxproductIsactive"), ::Ezmaxapi::toJsonValue(m_b_ezmaxproduct_isactive));
     }
     return obj;
 }
@@ -158,4 +158,4 @@ bool OAIEzmaxproduct_AutocompleteElement_Response::isValid() const {
     return m_pki_ezmaxproduct_id_isValid && m_s_ezmaxproduct_description_x_isValid && m_b_ezmaxproduct_isactive_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

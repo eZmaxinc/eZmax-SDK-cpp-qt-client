@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIBranding_createObject_v1_Response_mPayload::OAIBranding_createObject_v1_Response_mPayload(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAIBranding_createObject_v1_Response_mPayload::fromJson(QString jsonString)
 
 void OAIBranding_createObject_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_pki_branding_id_isValid = ::OpenAPI::fromJsonValue(m_a_pki_branding_id, json[QString("a_pkiBrandingID")]);
+    m_a_pki_branding_id_isValid = ::Ezmaxapi::fromJsonValue(m_a_pki_branding_id, json[QString("a_pkiBrandingID")]);
     m_a_pki_branding_id_isSet = !json[QString("a_pkiBrandingID")].isNull() && m_a_pki_branding_id_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAIBranding_createObject_v1_Response_mPayload::asJson() const {
 QJsonObject OAIBranding_createObject_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_a_pki_branding_id.size() > 0) {
-        obj.insert(QString("a_pkiBrandingID"), ::OpenAPI::toJsonValue(m_a_pki_branding_id));
+        obj.insert(QString("a_pkiBrandingID"), ::Ezmaxapi::toJsonValue(m_a_pki_branding_id));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAIBranding_createObject_v1_Response_mPayload::isValid() const {
     return m_a_pki_branding_id_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

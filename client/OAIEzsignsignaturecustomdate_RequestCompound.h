@@ -26,7 +26,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIEzsignsignaturecustomdate_RequestCompound : public OAIObject {
 public:
@@ -82,8 +82,8 @@ private:
     bool m_s_ezsignsignaturecustomdate_format_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIEzsignsignaturecustomdate_RequestCompound)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIEzsignsignaturecustomdate_RequestCompound)
 
 #endif // OAIEzsignsignaturecustomdate_RequestCompound_H

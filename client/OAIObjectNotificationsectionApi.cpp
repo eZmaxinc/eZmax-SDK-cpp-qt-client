@@ -15,7 +15,7 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIObjectNotificationsectionApi::OAIObjectNotificationsectionApi(const int timeOut)
     : _timeOut(timeOut),
@@ -255,7 +255,7 @@ void OAIObjectNotificationsectionApi::notificationsectionGetNotificationtestsV1(
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiNotificationsectionID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiNotificationsectionID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_notificationsection_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_notificationsection_id)));
+        fullPath.replace(pki_notificationsection_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_notificationsection_id)));
     }
     QString queryPrefix, querySuffix, queryDelimiter, queryStyle;
     
@@ -271,7 +271,7 @@ void OAIObjectNotificationsectionApi::notificationsectionGetNotificationtestsV1(
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("bShowHidden")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(b_show_hidden)));
+        fullPath.append(QUrl::toPercentEncoding("bShowHidden")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(b_show_hidden)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -368,4 +368,4 @@ void OAIObjectNotificationsectionApi::tokenAvailable(){
         break;
     }
 }
-} // namespace OpenAPI
+} // namespace Ezmaxapi

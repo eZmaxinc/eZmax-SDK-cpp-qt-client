@@ -36,7 +36,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 class OAICustom_ContactName_Response;
 class OAISignature_ResponseCompound;
 class OAIEzsignsignaturecustomdate_ResponseCompound;
@@ -330,8 +330,8 @@ private:
     bool m_obj_creditcardtransaction_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIEzsignsignature_ResponseCompound)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIEzsignsignature_ResponseCompound)
 
 #endif // OAIEzsignsignature_ResponseCompound_H

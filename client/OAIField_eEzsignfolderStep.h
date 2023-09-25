@@ -25,7 +25,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIField_eEzsignfolderStep : public OAIEnum {
 public:
@@ -62,8 +62,8 @@ private:
     bool m_value_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIField_eEzsignfolderStep)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIField_eEzsignfolderStep)
 
 #endif // OAIField_eEzsignfolderStep_H

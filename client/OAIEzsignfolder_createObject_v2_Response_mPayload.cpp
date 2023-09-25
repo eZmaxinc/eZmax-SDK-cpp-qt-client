@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzsignfolder_createObject_v2_Response_mPayload::OAIEzsignfolder_createObject_v2_Response_mPayload(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAIEzsignfolder_createObject_v2_Response_mPayload::fromJson(QString jsonStr
 
 void OAIEzsignfolder_createObject_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_pki_ezsignfolder_id_isValid = ::OpenAPI::fromJsonValue(m_a_pki_ezsignfolder_id, json[QString("a_pkiEzsignfolderID")]);
+    m_a_pki_ezsignfolder_id_isValid = ::Ezmaxapi::fromJsonValue(m_a_pki_ezsignfolder_id, json[QString("a_pkiEzsignfolderID")]);
     m_a_pki_ezsignfolder_id_isSet = !json[QString("a_pkiEzsignfolderID")].isNull() && m_a_pki_ezsignfolder_id_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAIEzsignfolder_createObject_v2_Response_mPayload::asJson() const {
 QJsonObject OAIEzsignfolder_createObject_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_a_pki_ezsignfolder_id.size() > 0) {
-        obj.insert(QString("a_pkiEzsignfolderID"), ::OpenAPI::toJsonValue(m_a_pki_ezsignfolder_id));
+        obj.insert(QString("a_pkiEzsignfolderID"), ::Ezmaxapi::toJsonValue(m_a_pki_ezsignfolder_id));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAIEzsignfolder_createObject_v2_Response_mPayload::isValid() const {
     return m_a_pki_ezsignfolder_id_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

@@ -27,7 +27,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 class OAIMultilingual_NotificationsubsectionName;
 
 class OAINotificationsubsection_Response : public OAIObject {
@@ -93,8 +93,8 @@ private:
     bool m_s_notificationsubsection_name_x_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAINotificationsubsection_Response)
+Q_DECLARE_METATYPE(Ezmaxapi::OAINotificationsubsection_Response)
 
 #endif // OAINotificationsubsection_Response_H

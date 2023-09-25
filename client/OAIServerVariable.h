@@ -18,7 +18,7 @@
 #include <QString>
 #include <QSet>
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIServerVariable {
 public:
@@ -54,6 +54,6 @@ public:
 
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
 #endif // OAI_SERVERVARIABLE_H

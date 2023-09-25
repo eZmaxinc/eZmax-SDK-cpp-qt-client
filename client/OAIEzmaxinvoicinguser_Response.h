@@ -27,7 +27,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIEzmaxinvoicinguser_Response : public OAIObject {
 public:
@@ -128,8 +128,8 @@ private:
     bool m_e_ezmaxinvoicinguser_variationezsign_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIEzmaxinvoicinguser_Response)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIEzmaxinvoicinguser_Response)
 
 #endif // OAIEzmaxinvoicinguser_Response_H

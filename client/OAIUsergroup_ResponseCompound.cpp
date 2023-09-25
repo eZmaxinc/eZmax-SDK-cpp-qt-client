@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIUsergroup_ResponseCompound::OAIUsergroup_ResponseCompound(QString json) {
     this->initializeModel();
@@ -50,10 +50,10 @@ void OAIUsergroup_ResponseCompound::fromJson(QString jsonString) {
 
 void OAIUsergroup_ResponseCompound::fromJsonObject(QJsonObject json) {
 
-    m_pki_usergroup_id_isValid = ::OpenAPI::fromJsonValue(m_pki_usergroup_id, json[QString("pkiUsergroupID")]);
+    m_pki_usergroup_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_usergroup_id, json[QString("pkiUsergroupID")]);
     m_pki_usergroup_id_isSet = !json[QString("pkiUsergroupID")].isNull() && m_pki_usergroup_id_isValid;
 
-    m_obj_usergroup_name_isValid = ::OpenAPI::fromJsonValue(m_obj_usergroup_name, json[QString("objUsergroupName")]);
+    m_obj_usergroup_name_isValid = ::Ezmaxapi::fromJsonValue(m_obj_usergroup_name, json[QString("objUsergroupName")]);
     m_obj_usergroup_name_isSet = !json[QString("objUsergroupName")].isNull() && m_obj_usergroup_name_isValid;
 }
 
@@ -67,10 +67,10 @@ QString OAIUsergroup_ResponseCompound::asJson() const {
 QJsonObject OAIUsergroup_ResponseCompound::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_usergroup_id_isSet) {
-        obj.insert(QString("pkiUsergroupID"), ::OpenAPI::toJsonValue(m_pki_usergroup_id));
+        obj.insert(QString("pkiUsergroupID"), ::Ezmaxapi::toJsonValue(m_pki_usergroup_id));
     }
     if (m_obj_usergroup_name.isSet()) {
-        obj.insert(QString("objUsergroupName"), ::OpenAPI::toJsonValue(m_obj_usergroup_name));
+        obj.insert(QString("objUsergroupName"), ::Ezmaxapi::toJsonValue(m_obj_usergroup_name));
     }
     return obj;
 }
@@ -128,4 +128,4 @@ bool OAIUsergroup_ResponseCompound::isValid() const {
     return m_pki_usergroup_id_isValid && m_obj_usergroup_name_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

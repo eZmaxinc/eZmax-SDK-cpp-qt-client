@@ -29,7 +29,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 class OAICommon_Response_Filter;
 
 class OAICommon_Response_objDebugPayload_getList : public OAIObject {
@@ -122,8 +122,8 @@ private:
     bool m_i_row_offset_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAICommon_Response_objDebugPayload_getList)
+Q_DECLARE_METATYPE(Ezmaxapi::OAICommon_Response_objDebugPayload_getList)
 
 #endif // OAICommon_Response_objDebugPayload_getList_H

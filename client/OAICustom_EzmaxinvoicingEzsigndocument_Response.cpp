@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAICustom_EzmaxinvoicingEzsigndocument_Response::OAICustom_EzmaxinvoicingEzsigndocument_Response(QString json) {
     this->initializeModel();
@@ -59,19 +59,19 @@ void OAICustom_EzmaxinvoicingEzsigndocument_Response::fromJson(QString jsonStrin
 
 void OAICustom_EzmaxinvoicingEzsigndocument_Response::fromJsonObject(QJsonObject json) {
 
-    m_fki_ezsignfolder_id_isValid = ::OpenAPI::fromJsonValue(m_fki_ezsignfolder_id, json[QString("fkiEzsignfolderID")]);
+    m_fki_ezsignfolder_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_ezsignfolder_id, json[QString("fkiEzsignfolderID")]);
     m_fki_ezsignfolder_id_isSet = !json[QString("fkiEzsignfolderID")].isNull() && m_fki_ezsignfolder_id_isValid;
 
-    m_s_name_isValid = ::OpenAPI::fromJsonValue(m_s_name, json[QString("sName")]);
+    m_s_name_isValid = ::Ezmaxapi::fromJsonValue(m_s_name, json[QString("sName")]);
     m_s_name_isSet = !json[QString("sName")].isNull() && m_s_name_isValid;
 
-    m_s_ezsignfolder_description_isValid = ::OpenAPI::fromJsonValue(m_s_ezsignfolder_description, json[QString("sEzsignfolderDescription")]);
+    m_s_ezsignfolder_description_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsignfolder_description, json[QString("sEzsignfolderDescription")]);
     m_s_ezsignfolder_description_isSet = !json[QString("sEzsignfolderDescription")].isNull() && m_s_ezsignfolder_description_isValid;
 
-    m_s_ezsigndocument_name_isValid = ::OpenAPI::fromJsonValue(m_s_ezsigndocument_name, json[QString("sEzsigndocumentName")]);
+    m_s_ezsigndocument_name_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsigndocument_name, json[QString("sEzsigndocumentName")]);
     m_s_ezsigndocument_name_isSet = !json[QString("sEzsigndocumentName")].isNull() && m_s_ezsigndocument_name_isValid;
 
-    m_b_ezsignfolder_allowed_isValid = ::OpenAPI::fromJsonValue(m_b_ezsignfolder_allowed, json[QString("bEzsignfolderAllowed")]);
+    m_b_ezsignfolder_allowed_isValid = ::Ezmaxapi::fromJsonValue(m_b_ezsignfolder_allowed, json[QString("bEzsignfolderAllowed")]);
     m_b_ezsignfolder_allowed_isSet = !json[QString("bEzsignfolderAllowed")].isNull() && m_b_ezsignfolder_allowed_isValid;
 }
 
@@ -85,19 +85,19 @@ QString OAICustom_EzmaxinvoicingEzsigndocument_Response::asJson() const {
 QJsonObject OAICustom_EzmaxinvoicingEzsigndocument_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_fki_ezsignfolder_id_isSet) {
-        obj.insert(QString("fkiEzsignfolderID"), ::OpenAPI::toJsonValue(m_fki_ezsignfolder_id));
+        obj.insert(QString("fkiEzsignfolderID"), ::Ezmaxapi::toJsonValue(m_fki_ezsignfolder_id));
     }
     if (m_s_name_isSet) {
-        obj.insert(QString("sName"), ::OpenAPI::toJsonValue(m_s_name));
+        obj.insert(QString("sName"), ::Ezmaxapi::toJsonValue(m_s_name));
     }
     if (m_s_ezsignfolder_description_isSet) {
-        obj.insert(QString("sEzsignfolderDescription"), ::OpenAPI::toJsonValue(m_s_ezsignfolder_description));
+        obj.insert(QString("sEzsignfolderDescription"), ::Ezmaxapi::toJsonValue(m_s_ezsignfolder_description));
     }
     if (m_s_ezsigndocument_name_isSet) {
-        obj.insert(QString("sEzsigndocumentName"), ::OpenAPI::toJsonValue(m_s_ezsigndocument_name));
+        obj.insert(QString("sEzsigndocumentName"), ::Ezmaxapi::toJsonValue(m_s_ezsigndocument_name));
     }
     if (m_b_ezsignfolder_allowed_isSet) {
-        obj.insert(QString("bEzsignfolderAllowed"), ::OpenAPI::toJsonValue(m_b_ezsignfolder_allowed));
+        obj.insert(QString("bEzsignfolderAllowed"), ::Ezmaxapi::toJsonValue(m_b_ezsignfolder_allowed));
     }
     return obj;
 }
@@ -218,4 +218,4 @@ bool OAICustom_EzmaxinvoicingEzsigndocument_Response::isValid() const {
     return m_fki_ezsignfolder_id_isValid && m_s_name_isValid && m_s_ezsignfolder_description_isValid && m_s_ezsigndocument_name_isValid && m_b_ezsignfolder_allowed_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

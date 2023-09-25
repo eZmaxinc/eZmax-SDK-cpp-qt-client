@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAICommon_Response_objDebug::OAICommon_Response_objDebug(QString json) {
     this->initializeModel();
@@ -59,19 +59,19 @@ void OAICommon_Response_objDebug::fromJson(QString jsonString) {
 
 void OAICommon_Response_objDebug::fromJsonObject(QJsonObject json) {
 
-    m_s_memory_usage_isValid = ::OpenAPI::fromJsonValue(m_s_memory_usage, json[QString("sMemoryUsage")]);
+    m_s_memory_usage_isValid = ::Ezmaxapi::fromJsonValue(m_s_memory_usage, json[QString("sMemoryUsage")]);
     m_s_memory_usage_isSet = !json[QString("sMemoryUsage")].isNull() && m_s_memory_usage_isValid;
 
-    m_s_run_time_isValid = ::OpenAPI::fromJsonValue(m_s_run_time, json[QString("sRunTime")]);
+    m_s_run_time_isValid = ::Ezmaxapi::fromJsonValue(m_s_run_time, json[QString("sRunTime")]);
     m_s_run_time_isSet = !json[QString("sRunTime")].isNull() && m_s_run_time_isValid;
 
-    m_i_sql_selects_isValid = ::OpenAPI::fromJsonValue(m_i_sql_selects, json[QString("iSQLSelects")]);
+    m_i_sql_selects_isValid = ::Ezmaxapi::fromJsonValue(m_i_sql_selects, json[QString("iSQLSelects")]);
     m_i_sql_selects_isSet = !json[QString("iSQLSelects")].isNull() && m_i_sql_selects_isValid;
 
-    m_i_sql_queries_isValid = ::OpenAPI::fromJsonValue(m_i_sql_queries, json[QString("iSQLQueries")]);
+    m_i_sql_queries_isValid = ::Ezmaxapi::fromJsonValue(m_i_sql_queries, json[QString("iSQLQueries")]);
     m_i_sql_queries_isSet = !json[QString("iSQLQueries")].isNull() && m_i_sql_queries_isValid;
 
-    m_a_obj_sql_query_isValid = ::OpenAPI::fromJsonValue(m_a_obj_sql_query, json[QString("a_objSQLQuery")]);
+    m_a_obj_sql_query_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_sql_query, json[QString("a_objSQLQuery")]);
     m_a_obj_sql_query_isSet = !json[QString("a_objSQLQuery")].isNull() && m_a_obj_sql_query_isValid;
 }
 
@@ -85,19 +85,19 @@ QString OAICommon_Response_objDebug::asJson() const {
 QJsonObject OAICommon_Response_objDebug::asJsonObject() const {
     QJsonObject obj;
     if (m_s_memory_usage_isSet) {
-        obj.insert(QString("sMemoryUsage"), ::OpenAPI::toJsonValue(m_s_memory_usage));
+        obj.insert(QString("sMemoryUsage"), ::Ezmaxapi::toJsonValue(m_s_memory_usage));
     }
     if (m_s_run_time_isSet) {
-        obj.insert(QString("sRunTime"), ::OpenAPI::toJsonValue(m_s_run_time));
+        obj.insert(QString("sRunTime"), ::Ezmaxapi::toJsonValue(m_s_run_time));
     }
     if (m_i_sql_selects_isSet) {
-        obj.insert(QString("iSQLSelects"), ::OpenAPI::toJsonValue(m_i_sql_selects));
+        obj.insert(QString("iSQLSelects"), ::Ezmaxapi::toJsonValue(m_i_sql_selects));
     }
     if (m_i_sql_queries_isSet) {
-        obj.insert(QString("iSQLQueries"), ::OpenAPI::toJsonValue(m_i_sql_queries));
+        obj.insert(QString("iSQLQueries"), ::Ezmaxapi::toJsonValue(m_i_sql_queries));
     }
     if (m_a_obj_sql_query.size() > 0) {
-        obj.insert(QString("a_objSQLQuery"), ::OpenAPI::toJsonValue(m_a_obj_sql_query));
+        obj.insert(QString("a_objSQLQuery"), ::Ezmaxapi::toJsonValue(m_a_obj_sql_query));
     }
     return obj;
 }
@@ -218,4 +218,4 @@ bool OAICommon_Response_objDebug::isValid() const {
     return m_s_memory_usage_isValid && m_s_run_time_isValid && m_i_sql_selects_isValid && m_i_sql_queries_isValid && m_a_obj_sql_query_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

@@ -27,7 +27,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIEzsigndocument_getWordsPositions_v1_Request : public OAIObject {
 public:
@@ -74,8 +74,8 @@ private:
     bool m_a_s_word_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIEzsigndocument_getWordsPositions_v1_Request)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIEzsigndocument_getWordsPositions_v1_Request)
 
 #endif // OAIEzsigndocument_getWordsPositions_v1_Request_H

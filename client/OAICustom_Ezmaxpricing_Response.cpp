@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAICustom_Ezmaxpricing_Response::OAICustom_Ezmaxpricing_Response(QString json) {
     this->initializeModel();
@@ -56,16 +56,16 @@ void OAICustom_Ezmaxpricing_Response::fromJson(QString jsonString) {
 
 void OAICustom_Ezmaxpricing_Response::fromJsonObject(QJsonObject json) {
 
-    m_pki_ezmaxpricing_id_isValid = ::OpenAPI::fromJsonValue(m_pki_ezmaxpricing_id, json[QString("pkiEzmaxpricingID")]);
+    m_pki_ezmaxpricing_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_ezmaxpricing_id, json[QString("pkiEzmaxpricingID")]);
     m_pki_ezmaxpricing_id_isSet = !json[QString("pkiEzmaxpricingID")].isNull() && m_pki_ezmaxpricing_id_isValid;
 
-    m_d_ezmaxpricing_rebateezsignallagents_isValid = ::OpenAPI::fromJsonValue(m_d_ezmaxpricing_rebateezsignallagents, json[QString("dEzmaxpricingRebateezsignallagents")]);
+    m_d_ezmaxpricing_rebateezsignallagents_isValid = ::Ezmaxapi::fromJsonValue(m_d_ezmaxpricing_rebateezsignallagents, json[QString("dEzmaxpricingRebateezsignallagents")]);
     m_d_ezmaxpricing_rebateezsignallagents_isSet = !json[QString("dEzmaxpricingRebateezsignallagents")].isNull() && m_d_ezmaxpricing_rebateezsignallagents_isValid;
 
-    m_dt_ezmaxpricing_start_isValid = ::OpenAPI::fromJsonValue(m_dt_ezmaxpricing_start, json[QString("dtEzmaxpricingStart")]);
+    m_dt_ezmaxpricing_start_isValid = ::Ezmaxapi::fromJsonValue(m_dt_ezmaxpricing_start, json[QString("dtEzmaxpricingStart")]);
     m_dt_ezmaxpricing_start_isSet = !json[QString("dtEzmaxpricingStart")].isNull() && m_dt_ezmaxpricing_start_isValid;
 
-    m_dt_ezmaxpricing_end_isValid = ::OpenAPI::fromJsonValue(m_dt_ezmaxpricing_end, json[QString("dtEzmaxpricingEnd")]);
+    m_dt_ezmaxpricing_end_isValid = ::Ezmaxapi::fromJsonValue(m_dt_ezmaxpricing_end, json[QString("dtEzmaxpricingEnd")]);
     m_dt_ezmaxpricing_end_isSet = !json[QString("dtEzmaxpricingEnd")].isNull() && m_dt_ezmaxpricing_end_isValid;
 }
 
@@ -79,16 +79,16 @@ QString OAICustom_Ezmaxpricing_Response::asJson() const {
 QJsonObject OAICustom_Ezmaxpricing_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_ezmaxpricing_id_isSet) {
-        obj.insert(QString("pkiEzmaxpricingID"), ::OpenAPI::toJsonValue(m_pki_ezmaxpricing_id));
+        obj.insert(QString("pkiEzmaxpricingID"), ::Ezmaxapi::toJsonValue(m_pki_ezmaxpricing_id));
     }
     if (m_d_ezmaxpricing_rebateezsignallagents_isSet) {
-        obj.insert(QString("dEzmaxpricingRebateezsignallagents"), ::OpenAPI::toJsonValue(m_d_ezmaxpricing_rebateezsignallagents));
+        obj.insert(QString("dEzmaxpricingRebateezsignallagents"), ::Ezmaxapi::toJsonValue(m_d_ezmaxpricing_rebateezsignallagents));
     }
     if (m_dt_ezmaxpricing_start_isSet) {
-        obj.insert(QString("dtEzmaxpricingStart"), ::OpenAPI::toJsonValue(m_dt_ezmaxpricing_start));
+        obj.insert(QString("dtEzmaxpricingStart"), ::Ezmaxapi::toJsonValue(m_dt_ezmaxpricing_start));
     }
     if (m_dt_ezmaxpricing_end_isSet) {
-        obj.insert(QString("dtEzmaxpricingEnd"), ::OpenAPI::toJsonValue(m_dt_ezmaxpricing_end));
+        obj.insert(QString("dtEzmaxpricingEnd"), ::Ezmaxapi::toJsonValue(m_dt_ezmaxpricing_end));
     }
     return obj;
 }
@@ -188,4 +188,4 @@ bool OAICustom_Ezmaxpricing_Response::isValid() const {
     return m_pki_ezmaxpricing_id_isValid && m_d_ezmaxpricing_rebateezsignallagents_isValid && m_dt_ezmaxpricing_start_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

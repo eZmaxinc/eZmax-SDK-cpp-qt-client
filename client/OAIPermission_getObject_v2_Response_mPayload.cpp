@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIPermission_getObject_v2_Response_mPayload::OAIPermission_getObject_v2_Response_mPayload(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAIPermission_getObject_v2_Response_mPayload::fromJson(QString jsonString) 
 
 void OAIPermission_getObject_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_obj_permission_isValid = ::OpenAPI::fromJsonValue(m_obj_permission, json[QString("objPermission")]);
+    m_obj_permission_isValid = ::Ezmaxapi::fromJsonValue(m_obj_permission, json[QString("objPermission")]);
     m_obj_permission_isSet = !json[QString("objPermission")].isNull() && m_obj_permission_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAIPermission_getObject_v2_Response_mPayload::asJson() const {
 QJsonObject OAIPermission_getObject_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_obj_permission.isSet()) {
-        obj.insert(QString("objPermission"), ::OpenAPI::toJsonValue(m_obj_permission));
+        obj.insert(QString("objPermission"), ::Ezmaxapi::toJsonValue(m_obj_permission));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAIPermission_getObject_v2_Response_mPayload::isValid() const {
     return m_obj_permission_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

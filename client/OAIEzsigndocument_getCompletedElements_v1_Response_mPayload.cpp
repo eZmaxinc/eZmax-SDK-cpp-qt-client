@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzsigndocument_getCompletedElements_v1_Response_mPayload::OAIEzsigndocument_getCompletedElements_v1_Response_mPayload(QString json) {
     this->initializeModel();
@@ -50,10 +50,10 @@ void OAIEzsigndocument_getCompletedElements_v1_Response_mPayload::fromJson(QStri
 
 void OAIEzsigndocument_getCompletedElements_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_ezsignsignature_isValid = ::OpenAPI::fromJsonValue(m_a_obj_ezsignsignature, json[QString("a_objEzsignsignature")]);
+    m_a_obj_ezsignsignature_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_ezsignsignature, json[QString("a_objEzsignsignature")]);
     m_a_obj_ezsignsignature_isSet = !json[QString("a_objEzsignsignature")].isNull() && m_a_obj_ezsignsignature_isValid;
 
-    m_a_obj_ezsignformfieldgroup_isValid = ::OpenAPI::fromJsonValue(m_a_obj_ezsignformfieldgroup, json[QString("a_objEzsignformfieldgroup")]);
+    m_a_obj_ezsignformfieldgroup_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_ezsignformfieldgroup, json[QString("a_objEzsignformfieldgroup")]);
     m_a_obj_ezsignformfieldgroup_isSet = !json[QString("a_objEzsignformfieldgroup")].isNull() && m_a_obj_ezsignformfieldgroup_isValid;
 }
 
@@ -67,10 +67,10 @@ QString OAIEzsigndocument_getCompletedElements_v1_Response_mPayload::asJson() co
 QJsonObject OAIEzsigndocument_getCompletedElements_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_a_obj_ezsignsignature.size() > 0) {
-        obj.insert(QString("a_objEzsignsignature"), ::OpenAPI::toJsonValue(m_a_obj_ezsignsignature));
+        obj.insert(QString("a_objEzsignsignature"), ::Ezmaxapi::toJsonValue(m_a_obj_ezsignsignature));
     }
     if (m_a_obj_ezsignformfieldgroup.size() > 0) {
-        obj.insert(QString("a_objEzsignformfieldgroup"), ::OpenAPI::toJsonValue(m_a_obj_ezsignformfieldgroup));
+        obj.insert(QString("a_objEzsignformfieldgroup"), ::Ezmaxapi::toJsonValue(m_a_obj_ezsignformfieldgroup));
     }
     return obj;
 }
@@ -128,4 +128,4 @@ bool OAIEzsigndocument_getCompletedElements_v1_Response_mPayload::isValid() cons
     return m_a_obj_ezsignsignature_isValid && m_a_obj_ezsignformfieldgroup_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

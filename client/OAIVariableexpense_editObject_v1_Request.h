@@ -26,7 +26,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 class OAIVariableexpense_RequestCompound;
 
 class OAIVariableexpense_editObject_v1_Request : public OAIObject {
@@ -56,8 +56,8 @@ private:
     bool m_obj_variableexpense_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIVariableexpense_editObject_v1_Request)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIVariableexpense_editObject_v1_Request)
 
 #endif // OAIVariableexpense_editObject_v1_Request_H

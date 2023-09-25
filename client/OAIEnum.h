@@ -17,7 +17,7 @@
 #include <QMetaType>
 #include <QString>
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIEnum {
 public:
@@ -57,8 +57,8 @@ private:
     QString jstr;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIEnum)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIEnum)
 
 #endif // OAI_ENUM_H

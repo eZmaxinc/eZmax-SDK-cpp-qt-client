@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzsigndocument_declineToSign_v1_Request::OAIEzsigndocument_declineToSign_v1_Request(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAIEzsigndocument_declineToSign_v1_Request::fromJson(QString jsonString) {
 
 void OAIEzsigndocument_declineToSign_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_s_reason_isValid = ::OpenAPI::fromJsonValue(m_s_reason, json[QString("sReason")]);
+    m_s_reason_isValid = ::Ezmaxapi::fromJsonValue(m_s_reason, json[QString("sReason")]);
     m_s_reason_isSet = !json[QString("sReason")].isNull() && m_s_reason_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAIEzsigndocument_declineToSign_v1_Request::asJson() const {
 QJsonObject OAIEzsigndocument_declineToSign_v1_Request::asJsonObject() const {
     QJsonObject obj;
     if (m_s_reason_isSet) {
-        obj.insert(QString("sReason"), ::OpenAPI::toJsonValue(m_s_reason));
+        obj.insert(QString("sReason"), ::Ezmaxapi::toJsonValue(m_s_reason));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAIEzsigndocument_declineToSign_v1_Request::isValid() const {
     return m_s_reason_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

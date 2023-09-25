@@ -28,7 +28,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 class OAIModule_ResponseCompound;
 
 class OAIModulegroup_ResponseCompound : public OAIObject {
@@ -76,8 +76,8 @@ private:
     bool m_a_obj_module_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIModulegroup_ResponseCompound)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIModulegroup_ResponseCompound)
 
 #endif // OAIModulegroup_ResponseCompound_H

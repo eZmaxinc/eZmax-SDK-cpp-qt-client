@@ -15,7 +15,7 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIGlobalCustomerApi::OAIGlobalCustomerApi(const int timeOut)
     : _timeOut(timeOut),
@@ -236,7 +236,7 @@ QString OAIGlobalCustomerApi::getParamStyleDelimiter(const QString &style, const
     }
 }
 
-void OAIGlobalCustomerApi::globalCustomerGetEndpointV1(const QString &pks_customer_code, const ::OpenAPI::OptionalParam<QString> &s_infrastructureproduct_code) {
+void OAIGlobalCustomerApi::globalCustomerGetEndpointV1(const QString &pks_customer_code, const ::Ezmaxapi::OptionalParam<QString> &s_infrastructureproduct_code) {
     QString fullPath = QString(_serverConfigs["globalCustomerGetEndpointV1"][_serverIndices.value("globalCustomerGetEndpointV1")].URL()+"/1/customer/{pksCustomerCode}/endpoint");
     
     
@@ -251,7 +251,7 @@ void OAIGlobalCustomerApi::globalCustomerGetEndpointV1(const QString &pks_custom
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pksCustomerCode", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pksCustomerCode"+pathSuffix : pathPrefix;
-        fullPath.replace(pks_customer_codePathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pks_customer_code)));
+        fullPath.replace(pks_customer_codePathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pks_customer_code)));
     }
     QString queryPrefix, querySuffix, queryDelimiter, queryStyle;
     if (s_infrastructureproduct_code.hasValue())
@@ -267,7 +267,7 @@ void OAIGlobalCustomerApi::globalCustomerGetEndpointV1(const QString &pks_custom
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("sInfrastructureproductCode")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(s_infrastructureproduct_code.value())));
+        fullPath.append(QUrl::toPercentEncoding("sInfrastructureproductCode")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_infrastructureproduct_code.value())));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -364,4 +364,4 @@ void OAIGlobalCustomerApi::tokenAvailable(){
         break;
     }
 }
-} // namespace OpenAPI
+} // namespace Ezmaxapi

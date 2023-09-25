@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAICustom_Webhooklog_Response::OAICustom_Webhooklog_Response(QString json) {
     this->initializeModel();
@@ -50,10 +50,10 @@ void OAICustom_Webhooklog_Response::fromJson(QString jsonString) {
 
 void OAICustom_Webhooklog_Response::fromJsonObject(QJsonObject json) {
 
-    m_dt_webhooklog_date_isValid = ::OpenAPI::fromJsonValue(m_dt_webhooklog_date, json[QString("dtWebhooklogDate")]);
+    m_dt_webhooklog_date_isValid = ::Ezmaxapi::fromJsonValue(m_dt_webhooklog_date, json[QString("dtWebhooklogDate")]);
     m_dt_webhooklog_date_isSet = !json[QString("dtWebhooklogDate")].isNull() && m_dt_webhooklog_date_isValid;
 
-    m_t_webhooklog_json_isValid = ::OpenAPI::fromJsonValue(m_t_webhooklog_json, json[QString("tWebhooklogJson")]);
+    m_t_webhooklog_json_isValid = ::Ezmaxapi::fromJsonValue(m_t_webhooklog_json, json[QString("tWebhooklogJson")]);
     m_t_webhooklog_json_isSet = !json[QString("tWebhooklogJson")].isNull() && m_t_webhooklog_json_isValid;
 }
 
@@ -67,10 +67,10 @@ QString OAICustom_Webhooklog_Response::asJson() const {
 QJsonObject OAICustom_Webhooklog_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_dt_webhooklog_date_isSet) {
-        obj.insert(QString("dtWebhooklogDate"), ::OpenAPI::toJsonValue(m_dt_webhooklog_date));
+        obj.insert(QString("dtWebhooklogDate"), ::Ezmaxapi::toJsonValue(m_dt_webhooklog_date));
     }
     if (m_t_webhooklog_json_isSet) {
-        obj.insert(QString("tWebhooklogJson"), ::OpenAPI::toJsonValue(m_t_webhooklog_json));
+        obj.insert(QString("tWebhooklogJson"), ::Ezmaxapi::toJsonValue(m_t_webhooklog_json));
     }
     return obj;
 }
@@ -128,4 +128,4 @@ bool OAICustom_Webhooklog_Response::isValid() const {
     return m_dt_webhooklog_date_isValid && m_t_webhooklog_json_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

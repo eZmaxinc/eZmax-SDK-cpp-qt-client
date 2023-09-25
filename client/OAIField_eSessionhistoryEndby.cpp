@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIField_eSessionhistoryEndby::OAIField_eSessionhistoryEndby(QString json) {
     this->initializeModel();
@@ -179,4 +179,4 @@ bool OAIField_eSessionhistoryEndby::isValid() const {
     return m_value_isValid;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

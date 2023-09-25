@@ -26,7 +26,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAICustom_User_Response : public OAIObject {
 public:
@@ -82,8 +82,8 @@ private:
     bool m_s_email_address_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAICustom_User_Response)
+Q_DECLARE_METATYPE(Ezmaxapi::OAICustom_User_Response)
 
 #endif // OAICustom_User_Response_H

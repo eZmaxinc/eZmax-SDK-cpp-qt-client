@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIUserstaged_createUser_v1_Response_mPayload::OAIUserstaged_createUser_v1_Response_mPayload(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAIUserstaged_createUser_v1_Response_mPayload::fromJson(QString jsonString)
 
 void OAIUserstaged_createUser_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_pki_user_id_isValid = ::OpenAPI::fromJsonValue(m_pki_user_id, json[QString("pkiUserID")]);
+    m_pki_user_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_user_id, json[QString("pkiUserID")]);
     m_pki_user_id_isSet = !json[QString("pkiUserID")].isNull() && m_pki_user_id_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAIUserstaged_createUser_v1_Response_mPayload::asJson() const {
 QJsonObject OAIUserstaged_createUser_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_user_id_isSet) {
-        obj.insert(QString("pkiUserID"), ::OpenAPI::toJsonValue(m_pki_user_id));
+        obj.insert(QString("pkiUserID"), ::Ezmaxapi::toJsonValue(m_pki_user_id));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAIUserstaged_createUser_v1_Response_mPayload::isValid() const {
     return m_pki_user_id_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

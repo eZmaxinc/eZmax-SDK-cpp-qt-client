@@ -28,7 +28,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIEzsignbulksend_createEzsignbulksendtransmission_v1_Request : public OAIObject {
 public:
@@ -111,8 +111,8 @@ private:
     bool m_s_csv_base64_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIEzsignbulksend_createEzsignbulksendtransmission_v1_Request)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIEzsignbulksend_createEzsignbulksendtransmission_v1_Request)
 
 #endif // OAIEzsignbulksend_createEzsignbulksendtransmission_v1_Request_H

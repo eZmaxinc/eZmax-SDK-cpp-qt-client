@@ -27,7 +27,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 class OAIPermission_RequestCompound;
 
 class OAIPermission_createObject_v1_Request : public OAIObject {
@@ -57,8 +57,8 @@ private:
     bool m_a_obj_permission_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIPermission_createObject_v1_Request)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIPermission_createObject_v1_Request)
 
 #endif // OAIPermission_createObject_v1_Request_H

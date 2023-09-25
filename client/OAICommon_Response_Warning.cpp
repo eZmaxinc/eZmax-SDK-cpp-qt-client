@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAICommon_Response_Warning::OAICommon_Response_Warning(QString json) {
     this->initializeModel();
@@ -50,10 +50,10 @@ void OAICommon_Response_Warning::fromJson(QString jsonString) {
 
 void OAICommon_Response_Warning::fromJsonObject(QJsonObject json) {
 
-    m_s_warning_message_isValid = ::OpenAPI::fromJsonValue(m_s_warning_message, json[QString("sWarningMessage")]);
+    m_s_warning_message_isValid = ::Ezmaxapi::fromJsonValue(m_s_warning_message, json[QString("sWarningMessage")]);
     m_s_warning_message_isSet = !json[QString("sWarningMessage")].isNull() && m_s_warning_message_isValid;
 
-    m_e_warning_code_isValid = ::OpenAPI::fromJsonValue(m_e_warning_code, json[QString("eWarningCode")]);
+    m_e_warning_code_isValid = ::Ezmaxapi::fromJsonValue(m_e_warning_code, json[QString("eWarningCode")]);
     m_e_warning_code_isSet = !json[QString("eWarningCode")].isNull() && m_e_warning_code_isValid;
 }
 
@@ -67,10 +67,10 @@ QString OAICommon_Response_Warning::asJson() const {
 QJsonObject OAICommon_Response_Warning::asJsonObject() const {
     QJsonObject obj;
     if (m_s_warning_message_isSet) {
-        obj.insert(QString("sWarningMessage"), ::OpenAPI::toJsonValue(m_s_warning_message));
+        obj.insert(QString("sWarningMessage"), ::Ezmaxapi::toJsonValue(m_s_warning_message));
     }
     if (m_e_warning_code_isSet) {
-        obj.insert(QString("eWarningCode"), ::OpenAPI::toJsonValue(m_e_warning_code));
+        obj.insert(QString("eWarningCode"), ::Ezmaxapi::toJsonValue(m_e_warning_code));
     }
     return obj;
 }
@@ -128,4 +128,4 @@ bool OAICommon_Response_Warning::isValid() const {
     return m_s_warning_message_isValid && m_e_warning_code_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

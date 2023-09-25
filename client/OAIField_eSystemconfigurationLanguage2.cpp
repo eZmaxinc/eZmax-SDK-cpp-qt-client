@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIField_eSystemconfigurationLanguage2::OAIField_eSystemconfigurationLanguage2(QString json) {
     this->initializeModel();
@@ -102,4 +102,4 @@ bool OAIField_eSystemconfigurationLanguage2::isValid() const {
     return m_value_isValid;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

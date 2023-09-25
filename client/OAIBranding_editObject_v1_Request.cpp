@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIBranding_editObject_v1_Request::OAIBranding_editObject_v1_Request(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAIBranding_editObject_v1_Request::fromJson(QString jsonString) {
 
 void OAIBranding_editObject_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_obj_branding_isValid = ::OpenAPI::fromJsonValue(m_obj_branding, json[QString("objBranding")]);
+    m_obj_branding_isValid = ::Ezmaxapi::fromJsonValue(m_obj_branding, json[QString("objBranding")]);
     m_obj_branding_isSet = !json[QString("objBranding")].isNull() && m_obj_branding_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAIBranding_editObject_v1_Request::asJson() const {
 QJsonObject OAIBranding_editObject_v1_Request::asJsonObject() const {
     QJsonObject obj;
     if (m_obj_branding.isSet()) {
-        obj.insert(QString("objBranding"), ::OpenAPI::toJsonValue(m_obj_branding));
+        obj.insert(QString("objBranding"), ::Ezmaxapi::toJsonValue(m_obj_branding));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAIBranding_editObject_v1_Request::isValid() const {
     return m_obj_branding_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

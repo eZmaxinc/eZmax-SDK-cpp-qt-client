@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIPaymentterm_getAutocomplete_v2_Response_mPayload::OAIPaymentterm_getAutocomplete_v2_Response_mPayload(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAIPaymentterm_getAutocomplete_v2_Response_mPayload::fromJson(QString jsonS
 
 void OAIPaymentterm_getAutocomplete_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_paymentterm_isValid = ::OpenAPI::fromJsonValue(m_a_obj_paymentterm, json[QString("a_objPaymentterm")]);
+    m_a_obj_paymentterm_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_paymentterm, json[QString("a_objPaymentterm")]);
     m_a_obj_paymentterm_isSet = !json[QString("a_objPaymentterm")].isNull() && m_a_obj_paymentterm_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAIPaymentterm_getAutocomplete_v2_Response_mPayload::asJson() const {
 QJsonObject OAIPaymentterm_getAutocomplete_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_a_obj_paymentterm.size() > 0) {
-        obj.insert(QString("a_objPaymentterm"), ::OpenAPI::toJsonValue(m_a_obj_paymentterm));
+        obj.insert(QString("a_objPaymentterm"), ::Ezmaxapi::toJsonValue(m_a_obj_paymentterm));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAIPaymentterm_getAutocomplete_v2_Response_mPayload::isValid() const {
     return true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

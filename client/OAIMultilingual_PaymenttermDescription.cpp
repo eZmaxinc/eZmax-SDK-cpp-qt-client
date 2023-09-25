@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIMultilingual_PaymenttermDescription::OAIMultilingual_PaymenttermDescription(QString json) {
     this->initializeModel();
@@ -50,10 +50,10 @@ void OAIMultilingual_PaymenttermDescription::fromJson(QString jsonString) {
 
 void OAIMultilingual_PaymenttermDescription::fromJsonObject(QJsonObject json) {
 
-    m_s_paymentterm_description1_isValid = ::OpenAPI::fromJsonValue(m_s_paymentterm_description1, json[QString("sPaymenttermDescription1")]);
+    m_s_paymentterm_description1_isValid = ::Ezmaxapi::fromJsonValue(m_s_paymentterm_description1, json[QString("sPaymenttermDescription1")]);
     m_s_paymentterm_description1_isSet = !json[QString("sPaymenttermDescription1")].isNull() && m_s_paymentterm_description1_isValid;
 
-    m_s_paymentterm_description2_isValid = ::OpenAPI::fromJsonValue(m_s_paymentterm_description2, json[QString("sPaymenttermDescription2")]);
+    m_s_paymentterm_description2_isValid = ::Ezmaxapi::fromJsonValue(m_s_paymentterm_description2, json[QString("sPaymenttermDescription2")]);
     m_s_paymentterm_description2_isSet = !json[QString("sPaymenttermDescription2")].isNull() && m_s_paymentterm_description2_isValid;
 }
 
@@ -67,10 +67,10 @@ QString OAIMultilingual_PaymenttermDescription::asJson() const {
 QJsonObject OAIMultilingual_PaymenttermDescription::asJsonObject() const {
     QJsonObject obj;
     if (m_s_paymentterm_description1_isSet) {
-        obj.insert(QString("sPaymenttermDescription1"), ::OpenAPI::toJsonValue(m_s_paymentterm_description1));
+        obj.insert(QString("sPaymenttermDescription1"), ::Ezmaxapi::toJsonValue(m_s_paymentterm_description1));
     }
     if (m_s_paymentterm_description2_isSet) {
-        obj.insert(QString("sPaymenttermDescription2"), ::OpenAPI::toJsonValue(m_s_paymentterm_description2));
+        obj.insert(QString("sPaymenttermDescription2"), ::Ezmaxapi::toJsonValue(m_s_paymentterm_description2));
     }
     return obj;
 }
@@ -128,4 +128,4 @@ bool OAIMultilingual_PaymenttermDescription::isValid() const {
     return true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

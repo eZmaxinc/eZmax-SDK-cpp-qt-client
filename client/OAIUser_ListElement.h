@@ -29,7 +29,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIUser_ListElement : public OAIObject {
 public:
@@ -139,8 +139,8 @@ private:
     bool m_s_email_address_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIUser_ListElement)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIUser_ListElement)
 
 #endif // OAIUser_ListElement_H

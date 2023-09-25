@@ -26,7 +26,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIEzsignpage_ResponseCompound : public OAIObject {
 public:
@@ -109,8 +109,8 @@ private:
     bool m_s_computed_imageurl_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIEzsignpage_ResponseCompound)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIEzsignpage_ResponseCompound)
 
 #endif // OAIEzsignpage_ResponseCompound_H

@@ -15,7 +15,7 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIScimGroupsApi::OAIScimGroupsApi(const int timeOut)
     : _timeOut(timeOut),
@@ -319,7 +319,7 @@ void OAIScimGroupsApi::groupsDeleteObjectScimV2(const QString &group_id) {
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "groupId", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"groupId"+pathSuffix : pathPrefix;
-        fullPath.replace(group_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(group_id)));
+        fullPath.replace(group_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(group_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -384,7 +384,7 @@ void OAIScimGroupsApi::groupsEditObjectScimV2(const QString &group_id, const OAI
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "groupId", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"groupId"+pathSuffix : pathPrefix;
-        fullPath.replace(group_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(group_id)));
+        fullPath.replace(group_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(group_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -437,7 +437,7 @@ void OAIScimGroupsApi::groupsEditObjectScimV2Callback(OAIHttpRequestWorker *work
     }
 }
 
-void OAIScimGroupsApi::groupsGetListScimV2(const ::OpenAPI::OptionalParam<QString> &filter) {
+void OAIScimGroupsApi::groupsGetListScimV2(const ::Ezmaxapi::OptionalParam<QString> &filter) {
     QString fullPath = QString(_serverConfigs["groupsGetListScimV2"][_serverIndices.value("groupsGetListScimV2")].URL()+"/2/scim/Groups");
     
     if (!_bearerToken.isEmpty())
@@ -457,7 +457,7 @@ void OAIScimGroupsApi::groupsGetListScimV2(const ::OpenAPI::OptionalParam<QStrin
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("filter")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(filter.value())));
+        fullPath.append(QUrl::toPercentEncoding("filter")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(filter.value())));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -523,7 +523,7 @@ void OAIScimGroupsApi::groupsGetObjectScimV2(const QString &group_id) {
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "groupId", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"groupId"+pathSuffix : pathPrefix;
-        fullPath.replace(group_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(group_id)));
+        fullPath.replace(group_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(group_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -620,4 +620,4 @@ void OAIScimGroupsApi::tokenAvailable(){
         break;
     }
 }
-} // namespace OpenAPI
+} // namespace Ezmaxapi

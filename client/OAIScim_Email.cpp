@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIScim_Email::OAIScim_Email(QString json) {
     this->initializeModel();
@@ -50,10 +50,10 @@ void OAIScim_Email::fromJson(QString jsonString) {
 
 void OAIScim_Email::fromJsonObject(QJsonObject json) {
 
-    m_value_isValid = ::OpenAPI::fromJsonValue(m_value, json[QString("value")]);
+    m_value_isValid = ::Ezmaxapi::fromJsonValue(m_value, json[QString("value")]);
     m_value_isSet = !json[QString("value")].isNull() && m_value_isValid;
 
-    m_primary_isValid = ::OpenAPI::fromJsonValue(m_primary, json[QString("primary")]);
+    m_primary_isValid = ::Ezmaxapi::fromJsonValue(m_primary, json[QString("primary")]);
     m_primary_isSet = !json[QString("primary")].isNull() && m_primary_isValid;
 }
 
@@ -67,10 +67,10 @@ QString OAIScim_Email::asJson() const {
 QJsonObject OAIScim_Email::asJsonObject() const {
     QJsonObject obj;
     if (m_value_isSet) {
-        obj.insert(QString("value"), ::OpenAPI::toJsonValue(m_value));
+        obj.insert(QString("value"), ::Ezmaxapi::toJsonValue(m_value));
     }
     if (m_primary_isSet) {
-        obj.insert(QString("primary"), ::OpenAPI::toJsonValue(m_primary));
+        obj.insert(QString("primary"), ::Ezmaxapi::toJsonValue(m_primary));
     }
     return obj;
 }
@@ -128,4 +128,4 @@ bool OAIScim_Email::isValid() const {
     return true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

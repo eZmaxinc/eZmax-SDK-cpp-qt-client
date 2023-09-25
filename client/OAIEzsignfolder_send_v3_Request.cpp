@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzsignfolder_send_v3_Request::OAIEzsignfolder_send_v3_Request(QString json) {
     this->initializeModel();
@@ -53,13 +53,13 @@ void OAIEzsignfolder_send_v3_Request::fromJson(QString jsonString) {
 
 void OAIEzsignfolder_send_v3_Request::fromJsonObject(QJsonObject json) {
 
-    m_t_ezsignfolder_message_isValid = ::OpenAPI::fromJsonValue(m_t_ezsignfolder_message, json[QString("tEzsignfolderMessage")]);
+    m_t_ezsignfolder_message_isValid = ::Ezmaxapi::fromJsonValue(m_t_ezsignfolder_message, json[QString("tEzsignfolderMessage")]);
     m_t_ezsignfolder_message_isSet = !json[QString("tEzsignfolderMessage")].isNull() && m_t_ezsignfolder_message_isValid;
 
-    m_dt_ezsignfolder_delayedsenddate_isValid = ::OpenAPI::fromJsonValue(m_dt_ezsignfolder_delayedsenddate, json[QString("dtEzsignfolderDelayedsenddate")]);
+    m_dt_ezsignfolder_delayedsenddate_isValid = ::Ezmaxapi::fromJsonValue(m_dt_ezsignfolder_delayedsenddate, json[QString("dtEzsignfolderDelayedsenddate")]);
     m_dt_ezsignfolder_delayedsenddate_isSet = !json[QString("dtEzsignfolderDelayedsenddate")].isNull() && m_dt_ezsignfolder_delayedsenddate_isValid;
 
-    m_a_fki_ezsignfoldersignerassociation_id_isValid = ::OpenAPI::fromJsonValue(m_a_fki_ezsignfoldersignerassociation_id, json[QString("a_fkiEzsignfoldersignerassociationID")]);
+    m_a_fki_ezsignfoldersignerassociation_id_isValid = ::Ezmaxapi::fromJsonValue(m_a_fki_ezsignfoldersignerassociation_id, json[QString("a_fkiEzsignfoldersignerassociationID")]);
     m_a_fki_ezsignfoldersignerassociation_id_isSet = !json[QString("a_fkiEzsignfoldersignerassociationID")].isNull() && m_a_fki_ezsignfoldersignerassociation_id_isValid;
 }
 
@@ -73,13 +73,13 @@ QString OAIEzsignfolder_send_v3_Request::asJson() const {
 QJsonObject OAIEzsignfolder_send_v3_Request::asJsonObject() const {
     QJsonObject obj;
     if (m_t_ezsignfolder_message_isSet) {
-        obj.insert(QString("tEzsignfolderMessage"), ::OpenAPI::toJsonValue(m_t_ezsignfolder_message));
+        obj.insert(QString("tEzsignfolderMessage"), ::Ezmaxapi::toJsonValue(m_t_ezsignfolder_message));
     }
     if (m_dt_ezsignfolder_delayedsenddate_isSet) {
-        obj.insert(QString("dtEzsignfolderDelayedsenddate"), ::OpenAPI::toJsonValue(m_dt_ezsignfolder_delayedsenddate));
+        obj.insert(QString("dtEzsignfolderDelayedsenddate"), ::Ezmaxapi::toJsonValue(m_dt_ezsignfolder_delayedsenddate));
     }
     if (m_a_fki_ezsignfoldersignerassociation_id.size() > 0) {
-        obj.insert(QString("a_fkiEzsignfoldersignerassociationID"), ::OpenAPI::toJsonValue(m_a_fki_ezsignfoldersignerassociation_id));
+        obj.insert(QString("a_fkiEzsignfoldersignerassociationID"), ::Ezmaxapi::toJsonValue(m_a_fki_ezsignfoldersignerassociation_id));
     }
     return obj;
 }
@@ -158,4 +158,4 @@ bool OAIEzsignfolder_send_v3_Request::isValid() const {
     return m_t_ezsignfolder_message_isValid && m_a_fki_ezsignfoldersignerassociation_id_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

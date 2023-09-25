@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAISignature_createObject_v1_Request::OAISignature_createObject_v1_Request(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAISignature_createObject_v1_Request::fromJson(QString jsonString) {
 
 void OAISignature_createObject_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_signature_isValid = ::OpenAPI::fromJsonValue(m_a_obj_signature, json[QString("a_objSignature")]);
+    m_a_obj_signature_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_signature, json[QString("a_objSignature")]);
     m_a_obj_signature_isSet = !json[QString("a_objSignature")].isNull() && m_a_obj_signature_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAISignature_createObject_v1_Request::asJson() const {
 QJsonObject OAISignature_createObject_v1_Request::asJsonObject() const {
     QJsonObject obj;
     if (m_a_obj_signature.size() > 0) {
-        obj.insert(QString("a_objSignature"), ::OpenAPI::toJsonValue(m_a_obj_signature));
+        obj.insert(QString("a_objSignature"), ::Ezmaxapi::toJsonValue(m_a_obj_signature));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAISignature_createObject_v1_Request::isValid() const {
     return m_a_obj_signature_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

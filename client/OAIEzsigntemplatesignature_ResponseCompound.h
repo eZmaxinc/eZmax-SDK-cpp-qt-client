@@ -33,7 +33,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 class OAIEzsigntemplatesignaturecustomdate_ResponseCompound;
 
 class OAIEzsigntemplatesignature_ResponseCompound : public OAIObject {
@@ -261,8 +261,8 @@ private:
     bool m_a_obj_ezsigntemplatesignaturecustomdate_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIEzsigntemplatesignature_ResponseCompound)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIEzsigntemplatesignature_ResponseCompound)
 
 #endif // OAIEzsigntemplatesignature_ResponseCompound_H

@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAICommon_Reportsubsectionpart::OAICommon_Reportsubsectionpart(QString json) {
     this->initializeModel();
@@ -50,10 +50,10 @@ void OAICommon_Reportsubsectionpart::fromJson(QString jsonString) {
 
 void OAICommon_Reportsubsectionpart::fromJsonObject(QJsonObject json) {
 
-    m_e_reportsubsectionpart_type_isValid = ::OpenAPI::fromJsonValue(m_e_reportsubsectionpart_type, json[QString("eReportsubsectionpartType")]);
+    m_e_reportsubsectionpart_type_isValid = ::Ezmaxapi::fromJsonValue(m_e_reportsubsectionpart_type, json[QString("eReportsubsectionpartType")]);
     m_e_reportsubsectionpart_type_isSet = !json[QString("eReportsubsectionpartType")].isNull() && m_e_reportsubsectionpart_type_isValid;
 
-    m_a_obj_reportrow_isValid = ::OpenAPI::fromJsonValue(m_a_obj_reportrow, json[QString("a_objReportrow")]);
+    m_a_obj_reportrow_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_reportrow, json[QString("a_objReportrow")]);
     m_a_obj_reportrow_isSet = !json[QString("a_objReportrow")].isNull() && m_a_obj_reportrow_isValid;
 }
 
@@ -67,10 +67,10 @@ QString OAICommon_Reportsubsectionpart::asJson() const {
 QJsonObject OAICommon_Reportsubsectionpart::asJsonObject() const {
     QJsonObject obj;
     if (m_e_reportsubsectionpart_type_isSet) {
-        obj.insert(QString("eReportsubsectionpartType"), ::OpenAPI::toJsonValue(m_e_reportsubsectionpart_type));
+        obj.insert(QString("eReportsubsectionpartType"), ::Ezmaxapi::toJsonValue(m_e_reportsubsectionpart_type));
     }
     if (m_a_obj_reportrow.size() > 0) {
-        obj.insert(QString("a_objReportrow"), ::OpenAPI::toJsonValue(m_a_obj_reportrow));
+        obj.insert(QString("a_objReportrow"), ::Ezmaxapi::toJsonValue(m_a_obj_reportrow));
     }
     return obj;
 }
@@ -128,4 +128,4 @@ bool OAICommon_Reportsubsectionpart::isValid() const {
     return m_e_reportsubsectionpart_type_isValid && m_a_obj_reportrow_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

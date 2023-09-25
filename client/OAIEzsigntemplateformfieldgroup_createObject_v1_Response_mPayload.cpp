@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzsigntemplateformfieldgroup_createObject_v1_Response_mPayload::OAIEzsigntemplateformfieldgroup_createObject_v1_Response_mPayload(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAIEzsigntemplateformfieldgroup_createObject_v1_Response_mPayload::fromJson
 
 void OAIEzsigntemplateformfieldgroup_createObject_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_pki_ezsigntemplateformfieldgroup_id_isValid = ::OpenAPI::fromJsonValue(m_a_pki_ezsigntemplateformfieldgroup_id, json[QString("a_pkiEzsigntemplateformfieldgroupID")]);
+    m_a_pki_ezsigntemplateformfieldgroup_id_isValid = ::Ezmaxapi::fromJsonValue(m_a_pki_ezsigntemplateformfieldgroup_id, json[QString("a_pkiEzsigntemplateformfieldgroupID")]);
     m_a_pki_ezsigntemplateformfieldgroup_id_isSet = !json[QString("a_pkiEzsigntemplateformfieldgroupID")].isNull() && m_a_pki_ezsigntemplateformfieldgroup_id_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAIEzsigntemplateformfieldgroup_createObject_v1_Response_mPayload::asJso
 QJsonObject OAIEzsigntemplateformfieldgroup_createObject_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_a_pki_ezsigntemplateformfieldgroup_id.size() > 0) {
-        obj.insert(QString("a_pkiEzsigntemplateformfieldgroupID"), ::OpenAPI::toJsonValue(m_a_pki_ezsigntemplateformfieldgroup_id));
+        obj.insert(QString("a_pkiEzsigntemplateformfieldgroupID"), ::Ezmaxapi::toJsonValue(m_a_pki_ezsigntemplateformfieldgroup_id));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAIEzsigntemplateformfieldgroup_createObject_v1_Response_mPayload::isValid(
     return m_a_pki_ezsigntemplateformfieldgroup_id_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

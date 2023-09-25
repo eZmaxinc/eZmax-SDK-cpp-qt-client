@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAICustom_CommunicationListElement_Response::OAICustom_CommunicationListElement_Response(QString json) {
     this->initializeModel();
@@ -71,31 +71,31 @@ void OAICustom_CommunicationListElement_Response::fromJson(QString jsonString) {
 
 void OAICustom_CommunicationListElement_Response::fromJsonObject(QJsonObject json) {
 
-    m_pki_communication_id_isValid = ::OpenAPI::fromJsonValue(m_pki_communication_id, json[QString("pkiCommunicationID")]);
+    m_pki_communication_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_communication_id, json[QString("pkiCommunicationID")]);
     m_pki_communication_id_isSet = !json[QString("pkiCommunicationID")].isNull() && m_pki_communication_id_isValid;
 
-    m_dt_created_date_isValid = ::OpenAPI::fromJsonValue(m_dt_created_date, json[QString("dtCreatedDate")]);
+    m_dt_created_date_isValid = ::Ezmaxapi::fromJsonValue(m_dt_created_date, json[QString("dtCreatedDate")]);
     m_dt_created_date_isSet = !json[QString("dtCreatedDate")].isNull() && m_dt_created_date_isValid;
 
-    m_e_communication_direction_isValid = ::OpenAPI::fromJsonValue(m_e_communication_direction, json[QString("eCommunicationDirection")]);
+    m_e_communication_direction_isValid = ::Ezmaxapi::fromJsonValue(m_e_communication_direction, json[QString("eCommunicationDirection")]);
     m_e_communication_direction_isSet = !json[QString("eCommunicationDirection")].isNull() && m_e_communication_direction_isValid;
 
-    m_e_communication_importance_isValid = ::OpenAPI::fromJsonValue(m_e_communication_importance, json[QString("eCommunicationImportance")]);
+    m_e_communication_importance_isValid = ::Ezmaxapi::fromJsonValue(m_e_communication_importance, json[QString("eCommunicationImportance")]);
     m_e_communication_importance_isSet = !json[QString("eCommunicationImportance")].isNull() && m_e_communication_importance_isValid;
 
-    m_e_communication_type_isValid = ::OpenAPI::fromJsonValue(m_e_communication_type, json[QString("eCommunicationType")]);
+    m_e_communication_type_isValid = ::Ezmaxapi::fromJsonValue(m_e_communication_type, json[QString("eCommunicationType")]);
     m_e_communication_type_isSet = !json[QString("eCommunicationType")].isNull() && m_e_communication_type_isValid;
 
-    m_i_communicationrecipient_count_isValid = ::OpenAPI::fromJsonValue(m_i_communicationrecipient_count, json[QString("iCommunicationrecipientCount")]);
+    m_i_communicationrecipient_count_isValid = ::Ezmaxapi::fromJsonValue(m_i_communicationrecipient_count, json[QString("iCommunicationrecipientCount")]);
     m_i_communicationrecipient_count_isSet = !json[QString("iCommunicationrecipientCount")].isNull() && m_i_communicationrecipient_count_isValid;
 
-    m_s_communication_subject_isValid = ::OpenAPI::fromJsonValue(m_s_communication_subject, json[QString("sCommunicationSubject")]);
+    m_s_communication_subject_isValid = ::Ezmaxapi::fromJsonValue(m_s_communication_subject, json[QString("sCommunicationSubject")]);
     m_s_communication_subject_isSet = !json[QString("sCommunicationSubject")].isNull() && m_s_communication_subject_isValid;
 
-    m_s_communication_sender_isValid = ::OpenAPI::fromJsonValue(m_s_communication_sender, json[QString("sCommunicationSender")]);
+    m_s_communication_sender_isValid = ::Ezmaxapi::fromJsonValue(m_s_communication_sender, json[QString("sCommunicationSender")]);
     m_s_communication_sender_isSet = !json[QString("sCommunicationSender")].isNull() && m_s_communication_sender_isValid;
 
-    m_s_communication_recipient_isValid = ::OpenAPI::fromJsonValue(m_s_communication_recipient, json[QString("sCommunicationRecipient")]);
+    m_s_communication_recipient_isValid = ::Ezmaxapi::fromJsonValue(m_s_communication_recipient, json[QString("sCommunicationRecipient")]);
     m_s_communication_recipient_isSet = !json[QString("sCommunicationRecipient")].isNull() && m_s_communication_recipient_isValid;
 }
 
@@ -109,31 +109,31 @@ QString OAICustom_CommunicationListElement_Response::asJson() const {
 QJsonObject OAICustom_CommunicationListElement_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_communication_id_isSet) {
-        obj.insert(QString("pkiCommunicationID"), ::OpenAPI::toJsonValue(m_pki_communication_id));
+        obj.insert(QString("pkiCommunicationID"), ::Ezmaxapi::toJsonValue(m_pki_communication_id));
     }
     if (m_dt_created_date_isSet) {
-        obj.insert(QString("dtCreatedDate"), ::OpenAPI::toJsonValue(m_dt_created_date));
+        obj.insert(QString("dtCreatedDate"), ::Ezmaxapi::toJsonValue(m_dt_created_date));
     }
     if (m_e_communication_direction.isSet()) {
-        obj.insert(QString("eCommunicationDirection"), ::OpenAPI::toJsonValue(m_e_communication_direction));
+        obj.insert(QString("eCommunicationDirection"), ::Ezmaxapi::toJsonValue(m_e_communication_direction));
     }
     if (m_e_communication_importance.isSet()) {
-        obj.insert(QString("eCommunicationImportance"), ::OpenAPI::toJsonValue(m_e_communication_importance));
+        obj.insert(QString("eCommunicationImportance"), ::Ezmaxapi::toJsonValue(m_e_communication_importance));
     }
     if (m_e_communication_type.isSet()) {
-        obj.insert(QString("eCommunicationType"), ::OpenAPI::toJsonValue(m_e_communication_type));
+        obj.insert(QString("eCommunicationType"), ::Ezmaxapi::toJsonValue(m_e_communication_type));
     }
     if (m_i_communicationrecipient_count_isSet) {
-        obj.insert(QString("iCommunicationrecipientCount"), ::OpenAPI::toJsonValue(m_i_communicationrecipient_count));
+        obj.insert(QString("iCommunicationrecipientCount"), ::Ezmaxapi::toJsonValue(m_i_communicationrecipient_count));
     }
     if (m_s_communication_subject_isSet) {
-        obj.insert(QString("sCommunicationSubject"), ::OpenAPI::toJsonValue(m_s_communication_subject));
+        obj.insert(QString("sCommunicationSubject"), ::Ezmaxapi::toJsonValue(m_s_communication_subject));
     }
     if (m_s_communication_sender_isSet) {
-        obj.insert(QString("sCommunicationSender"), ::OpenAPI::toJsonValue(m_s_communication_sender));
+        obj.insert(QString("sCommunicationSender"), ::Ezmaxapi::toJsonValue(m_s_communication_sender));
     }
     if (m_s_communication_recipient_isSet) {
-        obj.insert(QString("sCommunicationRecipient"), ::OpenAPI::toJsonValue(m_s_communication_recipient));
+        obj.insert(QString("sCommunicationRecipient"), ::Ezmaxapi::toJsonValue(m_s_communication_recipient));
     }
     return obj;
 }
@@ -338,4 +338,4 @@ bool OAICustom_CommunicationListElement_Response::isValid() const {
     return m_pki_communication_id_isValid && m_dt_created_date_isValid && m_e_communication_direction_isValid && m_e_communication_importance_isValid && m_e_communication_type_isValid && m_i_communicationrecipient_count_isValid && m_s_communication_subject_isValid && m_s_communication_sender_isValid && m_s_communication_recipient_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

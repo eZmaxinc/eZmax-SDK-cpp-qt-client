@@ -34,7 +34,7 @@
 #include <QDateTime>
 #include <time.h>
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class oauthToken
 {
@@ -177,5 +177,5 @@ public slots:
 };
 
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 #endif // OAI_OAUTH2_H

@@ -26,7 +26,7 @@
 
 #include "OAIHttpRequest.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIHttpRequestInput::OAIHttpRequestInput() {
     initialize();
@@ -503,4 +503,4 @@ QByteArray OAIHttpRequestWorker::compress(const QByteArray& input, int level, OA
 
 QSslConfiguration *OAIHttpRequestWorker::sslDefaultConfiguration;
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

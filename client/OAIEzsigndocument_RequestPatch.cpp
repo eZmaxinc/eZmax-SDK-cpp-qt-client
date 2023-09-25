@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzsigndocument_RequestPatch::OAIEzsigndocument_RequestPatch(QString json) {
     this->initializeModel();
@@ -50,10 +50,10 @@ void OAIEzsigndocument_RequestPatch::fromJson(QString jsonString) {
 
 void OAIEzsigndocument_RequestPatch::fromJsonObject(QJsonObject json) {
 
-    m_dt_ezsigndocument_duedate_isValid = ::OpenAPI::fromJsonValue(m_dt_ezsigndocument_duedate, json[QString("dtEzsigndocumentDuedate")]);
+    m_dt_ezsigndocument_duedate_isValid = ::Ezmaxapi::fromJsonValue(m_dt_ezsigndocument_duedate, json[QString("dtEzsigndocumentDuedate")]);
     m_dt_ezsigndocument_duedate_isSet = !json[QString("dtEzsigndocumentDuedate")].isNull() && m_dt_ezsigndocument_duedate_isValid;
 
-    m_s_ezsigndocument_name_isValid = ::OpenAPI::fromJsonValue(m_s_ezsigndocument_name, json[QString("sEzsigndocumentName")]);
+    m_s_ezsigndocument_name_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsigndocument_name, json[QString("sEzsigndocumentName")]);
     m_s_ezsigndocument_name_isSet = !json[QString("sEzsigndocumentName")].isNull() && m_s_ezsigndocument_name_isValid;
 }
 
@@ -67,10 +67,10 @@ QString OAIEzsigndocument_RequestPatch::asJson() const {
 QJsonObject OAIEzsigndocument_RequestPatch::asJsonObject() const {
     QJsonObject obj;
     if (m_dt_ezsigndocument_duedate_isSet) {
-        obj.insert(QString("dtEzsigndocumentDuedate"), ::OpenAPI::toJsonValue(m_dt_ezsigndocument_duedate));
+        obj.insert(QString("dtEzsigndocumentDuedate"), ::Ezmaxapi::toJsonValue(m_dt_ezsigndocument_duedate));
     }
     if (m_s_ezsigndocument_name_isSet) {
-        obj.insert(QString("sEzsigndocumentName"), ::OpenAPI::toJsonValue(m_s_ezsigndocument_name));
+        obj.insert(QString("sEzsigndocumentName"), ::Ezmaxapi::toJsonValue(m_s_ezsigndocument_name));
     }
     return obj;
 }
@@ -128,4 +128,4 @@ bool OAIEzsigndocument_RequestPatch::isValid() const {
     return true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

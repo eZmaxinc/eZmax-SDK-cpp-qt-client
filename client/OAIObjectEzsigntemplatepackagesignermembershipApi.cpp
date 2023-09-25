@@ -15,7 +15,7 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIObjectEzsigntemplatepackagesignermembershipApi::OAIObjectEzsigntemplatepackagesignermembershipApi(const int timeOut)
     : _timeOut(timeOut),
@@ -317,7 +317,7 @@ void OAIObjectEzsigntemplatepackagesignermembershipApi::ezsigntemplatepackagesig
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsigntemplatepackagesignermembershipID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsigntemplatepackagesignermembershipID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsigntemplatepackagesignermembership_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsigntemplatepackagesignermembership_id)));
+        fullPath.replace(pki_ezsigntemplatepackagesignermembership_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsigntemplatepackagesignermembership_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -384,7 +384,7 @@ void OAIObjectEzsigntemplatepackagesignermembershipApi::ezsigntemplatepackagesig
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsigntemplatepackagesignermembershipID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsigntemplatepackagesignermembershipID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsigntemplatepackagesignermembership_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsigntemplatepackagesignermembership_id)));
+        fullPath.replace(pki_ezsigntemplatepackagesignermembership_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsigntemplatepackagesignermembership_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -481,4 +481,4 @@ void OAIObjectEzsigntemplatepackagesignermembershipApi::tokenAvailable(){
         break;
     }
 }
-} // namespace OpenAPI
+} // namespace Ezmaxapi

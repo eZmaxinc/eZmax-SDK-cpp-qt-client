@@ -25,7 +25,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIField_eActivesessionUsertype : public OAIEnum {
 public:
@@ -59,8 +59,8 @@ private:
     bool m_value_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIField_eActivesessionUsertype)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIField_eActivesessionUsertype)
 
 #endif // OAIField_eActivesessionUsertype_H

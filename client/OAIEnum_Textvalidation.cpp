@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEnum_Textvalidation::OAIEnum_Textvalidation(QString json) {
     this->initializeModel();
@@ -172,4 +172,4 @@ bool OAIEnum_Textvalidation::isValid() const {
     return m_value_isValid;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

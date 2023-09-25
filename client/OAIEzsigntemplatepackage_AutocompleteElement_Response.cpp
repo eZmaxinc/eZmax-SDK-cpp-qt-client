@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzsigntemplatepackage_AutocompleteElement_Response::OAIEzsigntemplatepackage_AutocompleteElement_Response(QString json) {
     this->initializeModel();
@@ -59,19 +59,19 @@ void OAIEzsigntemplatepackage_AutocompleteElement_Response::fromJson(QString jso
 
 void OAIEzsigntemplatepackage_AutocompleteElement_Response::fromJsonObject(QJsonObject json) {
 
-    m_e_ezsignfoldertype_privacylevel_isValid = ::OpenAPI::fromJsonValue(m_e_ezsignfoldertype_privacylevel, json[QString("eEzsignfoldertypePrivacylevel")]);
+    m_e_ezsignfoldertype_privacylevel_isValid = ::Ezmaxapi::fromJsonValue(m_e_ezsignfoldertype_privacylevel, json[QString("eEzsignfoldertypePrivacylevel")]);
     m_e_ezsignfoldertype_privacylevel_isSet = !json[QString("eEzsignfoldertypePrivacylevel")].isNull() && m_e_ezsignfoldertype_privacylevel_isValid;
 
-    m_s_ezsigntemplatepackage_description_isValid = ::OpenAPI::fromJsonValue(m_s_ezsigntemplatepackage_description, json[QString("sEzsigntemplatepackageDescription")]);
+    m_s_ezsigntemplatepackage_description_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsigntemplatepackage_description, json[QString("sEzsigntemplatepackageDescription")]);
     m_s_ezsigntemplatepackage_description_isSet = !json[QString("sEzsigntemplatepackageDescription")].isNull() && m_s_ezsigntemplatepackage_description_isValid;
 
-    m_pki_ezsigntemplatepackage_id_isValid = ::OpenAPI::fromJsonValue(m_pki_ezsigntemplatepackage_id, json[QString("pkiEzsigntemplatepackageID")]);
+    m_pki_ezsigntemplatepackage_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_ezsigntemplatepackage_id, json[QString("pkiEzsigntemplatepackageID")]);
     m_pki_ezsigntemplatepackage_id_isSet = !json[QString("pkiEzsigntemplatepackageID")].isNull() && m_pki_ezsigntemplatepackage_id_isValid;
 
-    m_b_ezsigntemplatepackage_isactive_isValid = ::OpenAPI::fromJsonValue(m_b_ezsigntemplatepackage_isactive, json[QString("bEzsigntemplatepackageIsactive")]);
+    m_b_ezsigntemplatepackage_isactive_isValid = ::Ezmaxapi::fromJsonValue(m_b_ezsigntemplatepackage_isactive, json[QString("bEzsigntemplatepackageIsactive")]);
     m_b_ezsigntemplatepackage_isactive_isSet = !json[QString("bEzsigntemplatepackageIsactive")].isNull() && m_b_ezsigntemplatepackage_isactive_isValid;
 
-    m_b_disabled_isValid = ::OpenAPI::fromJsonValue(m_b_disabled, json[QString("bDisabled")]);
+    m_b_disabled_isValid = ::Ezmaxapi::fromJsonValue(m_b_disabled, json[QString("bDisabled")]);
     m_b_disabled_isSet = !json[QString("bDisabled")].isNull() && m_b_disabled_isValid;
 }
 
@@ -85,19 +85,19 @@ QString OAIEzsigntemplatepackage_AutocompleteElement_Response::asJson() const {
 QJsonObject OAIEzsigntemplatepackage_AutocompleteElement_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_e_ezsignfoldertype_privacylevel.isSet()) {
-        obj.insert(QString("eEzsignfoldertypePrivacylevel"), ::OpenAPI::toJsonValue(m_e_ezsignfoldertype_privacylevel));
+        obj.insert(QString("eEzsignfoldertypePrivacylevel"), ::Ezmaxapi::toJsonValue(m_e_ezsignfoldertype_privacylevel));
     }
     if (m_s_ezsigntemplatepackage_description_isSet) {
-        obj.insert(QString("sEzsigntemplatepackageDescription"), ::OpenAPI::toJsonValue(m_s_ezsigntemplatepackage_description));
+        obj.insert(QString("sEzsigntemplatepackageDescription"), ::Ezmaxapi::toJsonValue(m_s_ezsigntemplatepackage_description));
     }
     if (m_pki_ezsigntemplatepackage_id_isSet) {
-        obj.insert(QString("pkiEzsigntemplatepackageID"), ::OpenAPI::toJsonValue(m_pki_ezsigntemplatepackage_id));
+        obj.insert(QString("pkiEzsigntemplatepackageID"), ::Ezmaxapi::toJsonValue(m_pki_ezsigntemplatepackage_id));
     }
     if (m_b_ezsigntemplatepackage_isactive_isSet) {
-        obj.insert(QString("bEzsigntemplatepackageIsactive"), ::OpenAPI::toJsonValue(m_b_ezsigntemplatepackage_isactive));
+        obj.insert(QString("bEzsigntemplatepackageIsactive"), ::Ezmaxapi::toJsonValue(m_b_ezsigntemplatepackage_isactive));
     }
     if (m_b_disabled_isSet) {
-        obj.insert(QString("bDisabled"), ::OpenAPI::toJsonValue(m_b_disabled));
+        obj.insert(QString("bDisabled"), ::Ezmaxapi::toJsonValue(m_b_disabled));
     }
     return obj;
 }
@@ -218,4 +218,4 @@ bool OAIEzsigntemplatepackage_AutocompleteElement_Response::isValid() const {
     return m_e_ezsignfoldertype_privacylevel_isValid && m_s_ezsigntemplatepackage_description_isValid && m_pki_ezsigntemplatepackage_id_isValid && m_b_ezsigntemplatepackage_isactive_isValid && m_b_disabled_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

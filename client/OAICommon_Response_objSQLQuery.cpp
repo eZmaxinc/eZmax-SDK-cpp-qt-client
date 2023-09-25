@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAICommon_Response_objSQLQuery::OAICommon_Response_objSQLQuery(QString json) {
     this->initializeModel();
@@ -50,10 +50,10 @@ void OAICommon_Response_objSQLQuery::fromJson(QString jsonString) {
 
 void OAICommon_Response_objSQLQuery::fromJsonObject(QJsonObject json) {
 
-    m_s_query_isValid = ::OpenAPI::fromJsonValue(m_s_query, json[QString("sQuery")]);
+    m_s_query_isValid = ::Ezmaxapi::fromJsonValue(m_s_query, json[QString("sQuery")]);
     m_s_query_isSet = !json[QString("sQuery")].isNull() && m_s_query_isValid;
 
-    m_f_duration_isValid = ::OpenAPI::fromJsonValue(m_f_duration, json[QString("fDuration")]);
+    m_f_duration_isValid = ::Ezmaxapi::fromJsonValue(m_f_duration, json[QString("fDuration")]);
     m_f_duration_isSet = !json[QString("fDuration")].isNull() && m_f_duration_isValid;
 }
 
@@ -67,10 +67,10 @@ QString OAICommon_Response_objSQLQuery::asJson() const {
 QJsonObject OAICommon_Response_objSQLQuery::asJsonObject() const {
     QJsonObject obj;
     if (m_s_query_isSet) {
-        obj.insert(QString("sQuery"), ::OpenAPI::toJsonValue(m_s_query));
+        obj.insert(QString("sQuery"), ::Ezmaxapi::toJsonValue(m_s_query));
     }
     if (m_f_duration_isSet) {
-        obj.insert(QString("fDuration"), ::OpenAPI::toJsonValue(m_f_duration));
+        obj.insert(QString("fDuration"), ::Ezmaxapi::toJsonValue(m_f_duration));
     }
     return obj;
 }
@@ -128,4 +128,4 @@ bool OAICommon_Response_objSQLQuery::isValid() const {
     return m_s_query_isValid && m_f_duration_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

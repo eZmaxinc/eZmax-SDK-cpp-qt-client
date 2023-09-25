@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIWebhook_Response::OAIWebhook_Response(QString json) {
     this->initializeModel();
@@ -77,37 +77,37 @@ void OAIWebhook_Response::fromJson(QString jsonString) {
 
 void OAIWebhook_Response::fromJsonObject(QJsonObject json) {
 
-    m_pki_webhook_id_isValid = ::OpenAPI::fromJsonValue(m_pki_webhook_id, json[QString("pkiWebhookID")]);
+    m_pki_webhook_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_webhook_id, json[QString("pkiWebhookID")]);
     m_pki_webhook_id_isSet = !json[QString("pkiWebhookID")].isNull() && m_pki_webhook_id_isValid;
 
-    m_s_webhook_description_isValid = ::OpenAPI::fromJsonValue(m_s_webhook_description, json[QString("sWebhookDescription")]);
+    m_s_webhook_description_isValid = ::Ezmaxapi::fromJsonValue(m_s_webhook_description, json[QString("sWebhookDescription")]);
     m_s_webhook_description_isSet = !json[QString("sWebhookDescription")].isNull() && m_s_webhook_description_isValid;
 
-    m_fki_ezsignfoldertype_id_isValid = ::OpenAPI::fromJsonValue(m_fki_ezsignfoldertype_id, json[QString("fkiEzsignfoldertypeID")]);
+    m_fki_ezsignfoldertype_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_ezsignfoldertype_id, json[QString("fkiEzsignfoldertypeID")]);
     m_fki_ezsignfoldertype_id_isSet = !json[QString("fkiEzsignfoldertypeID")].isNull() && m_fki_ezsignfoldertype_id_isValid;
 
-    m_s_ezsignfoldertype_name_x_isValid = ::OpenAPI::fromJsonValue(m_s_ezsignfoldertype_name_x, json[QString("sEzsignfoldertypeNameX")]);
+    m_s_ezsignfoldertype_name_x_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsignfoldertype_name_x, json[QString("sEzsignfoldertypeNameX")]);
     m_s_ezsignfoldertype_name_x_isSet = !json[QString("sEzsignfoldertypeNameX")].isNull() && m_s_ezsignfoldertype_name_x_isValid;
 
-    m_e_webhook_module_isValid = ::OpenAPI::fromJsonValue(m_e_webhook_module, json[QString("eWebhookModule")]);
+    m_e_webhook_module_isValid = ::Ezmaxapi::fromJsonValue(m_e_webhook_module, json[QString("eWebhookModule")]);
     m_e_webhook_module_isSet = !json[QString("eWebhookModule")].isNull() && m_e_webhook_module_isValid;
 
-    m_e_webhook_ezsignevent_isValid = ::OpenAPI::fromJsonValue(m_e_webhook_ezsignevent, json[QString("eWebhookEzsignevent")]);
+    m_e_webhook_ezsignevent_isValid = ::Ezmaxapi::fromJsonValue(m_e_webhook_ezsignevent, json[QString("eWebhookEzsignevent")]);
     m_e_webhook_ezsignevent_isSet = !json[QString("eWebhookEzsignevent")].isNull() && m_e_webhook_ezsignevent_isValid;
 
-    m_e_webhook_managementevent_isValid = ::OpenAPI::fromJsonValue(m_e_webhook_managementevent, json[QString("eWebhookManagementevent")]);
+    m_e_webhook_managementevent_isValid = ::Ezmaxapi::fromJsonValue(m_e_webhook_managementevent, json[QString("eWebhookManagementevent")]);
     m_e_webhook_managementevent_isSet = !json[QString("eWebhookManagementevent")].isNull() && m_e_webhook_managementevent_isValid;
 
-    m_s_webhook_url_isValid = ::OpenAPI::fromJsonValue(m_s_webhook_url, json[QString("sWebhookUrl")]);
+    m_s_webhook_url_isValid = ::Ezmaxapi::fromJsonValue(m_s_webhook_url, json[QString("sWebhookUrl")]);
     m_s_webhook_url_isSet = !json[QString("sWebhookUrl")].isNull() && m_s_webhook_url_isValid;
 
-    m_s_webhook_emailfailed_isValid = ::OpenAPI::fromJsonValue(m_s_webhook_emailfailed, json[QString("sWebhookEmailfailed")]);
+    m_s_webhook_emailfailed_isValid = ::Ezmaxapi::fromJsonValue(m_s_webhook_emailfailed, json[QString("sWebhookEmailfailed")]);
     m_s_webhook_emailfailed_isSet = !json[QString("sWebhookEmailfailed")].isNull() && m_s_webhook_emailfailed_isValid;
 
-    m_b_webhook_isactive_isValid = ::OpenAPI::fromJsonValue(m_b_webhook_isactive, json[QString("bWebhookIsactive")]);
+    m_b_webhook_isactive_isValid = ::Ezmaxapi::fromJsonValue(m_b_webhook_isactive, json[QString("bWebhookIsactive")]);
     m_b_webhook_isactive_isSet = !json[QString("bWebhookIsactive")].isNull() && m_b_webhook_isactive_isValid;
 
-    m_b_webhook_skipsslvalidation_isValid = ::OpenAPI::fromJsonValue(m_b_webhook_skipsslvalidation, json[QString("bWebhookSkipsslvalidation")]);
+    m_b_webhook_skipsslvalidation_isValid = ::Ezmaxapi::fromJsonValue(m_b_webhook_skipsslvalidation, json[QString("bWebhookSkipsslvalidation")]);
     m_b_webhook_skipsslvalidation_isSet = !json[QString("bWebhookSkipsslvalidation")].isNull() && m_b_webhook_skipsslvalidation_isValid;
 }
 
@@ -121,37 +121,37 @@ QString OAIWebhook_Response::asJson() const {
 QJsonObject OAIWebhook_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_webhook_id_isSet) {
-        obj.insert(QString("pkiWebhookID"), ::OpenAPI::toJsonValue(m_pki_webhook_id));
+        obj.insert(QString("pkiWebhookID"), ::Ezmaxapi::toJsonValue(m_pki_webhook_id));
     }
     if (m_s_webhook_description_isSet) {
-        obj.insert(QString("sWebhookDescription"), ::OpenAPI::toJsonValue(m_s_webhook_description));
+        obj.insert(QString("sWebhookDescription"), ::Ezmaxapi::toJsonValue(m_s_webhook_description));
     }
     if (m_fki_ezsignfoldertype_id_isSet) {
-        obj.insert(QString("fkiEzsignfoldertypeID"), ::OpenAPI::toJsonValue(m_fki_ezsignfoldertype_id));
+        obj.insert(QString("fkiEzsignfoldertypeID"), ::Ezmaxapi::toJsonValue(m_fki_ezsignfoldertype_id));
     }
     if (m_s_ezsignfoldertype_name_x_isSet) {
-        obj.insert(QString("sEzsignfoldertypeNameX"), ::OpenAPI::toJsonValue(m_s_ezsignfoldertype_name_x));
+        obj.insert(QString("sEzsignfoldertypeNameX"), ::Ezmaxapi::toJsonValue(m_s_ezsignfoldertype_name_x));
     }
     if (m_e_webhook_module.isSet()) {
-        obj.insert(QString("eWebhookModule"), ::OpenAPI::toJsonValue(m_e_webhook_module));
+        obj.insert(QString("eWebhookModule"), ::Ezmaxapi::toJsonValue(m_e_webhook_module));
     }
     if (m_e_webhook_ezsignevent.isSet()) {
-        obj.insert(QString("eWebhookEzsignevent"), ::OpenAPI::toJsonValue(m_e_webhook_ezsignevent));
+        obj.insert(QString("eWebhookEzsignevent"), ::Ezmaxapi::toJsonValue(m_e_webhook_ezsignevent));
     }
     if (m_e_webhook_managementevent.isSet()) {
-        obj.insert(QString("eWebhookManagementevent"), ::OpenAPI::toJsonValue(m_e_webhook_managementevent));
+        obj.insert(QString("eWebhookManagementevent"), ::Ezmaxapi::toJsonValue(m_e_webhook_managementevent));
     }
     if (m_s_webhook_url_isSet) {
-        obj.insert(QString("sWebhookUrl"), ::OpenAPI::toJsonValue(m_s_webhook_url));
+        obj.insert(QString("sWebhookUrl"), ::Ezmaxapi::toJsonValue(m_s_webhook_url));
     }
     if (m_s_webhook_emailfailed_isSet) {
-        obj.insert(QString("sWebhookEmailfailed"), ::OpenAPI::toJsonValue(m_s_webhook_emailfailed));
+        obj.insert(QString("sWebhookEmailfailed"), ::Ezmaxapi::toJsonValue(m_s_webhook_emailfailed));
     }
     if (m_b_webhook_isactive_isSet) {
-        obj.insert(QString("bWebhookIsactive"), ::OpenAPI::toJsonValue(m_b_webhook_isactive));
+        obj.insert(QString("bWebhookIsactive"), ::Ezmaxapi::toJsonValue(m_b_webhook_isactive));
     }
     if (m_b_webhook_skipsslvalidation_isSet) {
-        obj.insert(QString("bWebhookSkipsslvalidation"), ::OpenAPI::toJsonValue(m_b_webhook_skipsslvalidation));
+        obj.insert(QString("bWebhookSkipsslvalidation"), ::Ezmaxapi::toJsonValue(m_b_webhook_skipsslvalidation));
     }
     return obj;
 }
@@ -398,4 +398,4 @@ bool OAIWebhook_Response::isValid() const {
     return m_pki_webhook_id_isValid && m_s_webhook_description_isValid && m_e_webhook_module_isValid && m_s_webhook_url_isValid && m_s_webhook_emailfailed_isValid && m_b_webhook_skipsslvalidation_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

@@ -26,7 +26,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 class OAIEzsignbulksendsignermapping_ResponseCompound;
 
 class OAIEzsignbulksendsignermapping_getObject_v2_Response_mPayload : public OAIObject {
@@ -56,8 +56,8 @@ private:
     bool m_obj_ezsignbulksendsignermapping_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIEzsignbulksendsignermapping_getObject_v2_Response_mPayload)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIEzsignbulksendsignermapping_getObject_v2_Response_mPayload)
 
 #endif // OAIEzsignbulksendsignermapping_getObject_v2_Response_mPayload_H

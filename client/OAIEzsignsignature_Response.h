@@ -33,7 +33,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 class OAICustom_ContactName_Response;
 class OAISignature_ResponseCompound;
 
@@ -298,8 +298,8 @@ private:
     bool m_obj_signature_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIEzsignsignature_Response)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIEzsignsignature_Response)
 
 #endif // OAIEzsignsignature_Response_H

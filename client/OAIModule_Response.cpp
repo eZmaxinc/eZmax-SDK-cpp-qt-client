@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIModule_Response::OAIModule_Response(QString json) {
     this->initializeModel();
@@ -62,22 +62,22 @@ void OAIModule_Response::fromJson(QString jsonString) {
 
 void OAIModule_Response::fromJsonObject(QJsonObject json) {
 
-    m_pki_module_id_isValid = ::OpenAPI::fromJsonValue(m_pki_module_id, json[QString("pkiModuleID")]);
+    m_pki_module_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_module_id, json[QString("pkiModuleID")]);
     m_pki_module_id_isSet = !json[QString("pkiModuleID")].isNull() && m_pki_module_id_isValid;
 
-    m_fki_modulegroup_id_isValid = ::OpenAPI::fromJsonValue(m_fki_modulegroup_id, json[QString("fkiModulegroupID")]);
+    m_fki_modulegroup_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_modulegroup_id, json[QString("fkiModulegroupID")]);
     m_fki_modulegroup_id_isSet = !json[QString("fkiModulegroupID")].isNull() && m_fki_modulegroup_id_isValid;
 
-    m_e_module_internalname_isValid = ::OpenAPI::fromJsonValue(m_e_module_internalname, json[QString("eModuleInternalname")]);
+    m_e_module_internalname_isValid = ::Ezmaxapi::fromJsonValue(m_e_module_internalname, json[QString("eModuleInternalname")]);
     m_e_module_internalname_isSet = !json[QString("eModuleInternalname")].isNull() && m_e_module_internalname_isValid;
 
-    m_s_module_name_x_isValid = ::OpenAPI::fromJsonValue(m_s_module_name_x, json[QString("sModuleNameX")]);
+    m_s_module_name_x_isValid = ::Ezmaxapi::fromJsonValue(m_s_module_name_x, json[QString("sModuleNameX")]);
     m_s_module_name_x_isSet = !json[QString("sModuleNameX")].isNull() && m_s_module_name_x_isValid;
 
-    m_b_module_registered_isValid = ::OpenAPI::fromJsonValue(m_b_module_registered, json[QString("bModuleRegistered")]);
+    m_b_module_registered_isValid = ::Ezmaxapi::fromJsonValue(m_b_module_registered, json[QString("bModuleRegistered")]);
     m_b_module_registered_isSet = !json[QString("bModuleRegistered")].isNull() && m_b_module_registered_isValid;
 
-    m_b_module_registeredapi_isValid = ::OpenAPI::fromJsonValue(m_b_module_registeredapi, json[QString("bModuleRegisteredapi")]);
+    m_b_module_registeredapi_isValid = ::Ezmaxapi::fromJsonValue(m_b_module_registeredapi, json[QString("bModuleRegisteredapi")]);
     m_b_module_registeredapi_isSet = !json[QString("bModuleRegisteredapi")].isNull() && m_b_module_registeredapi_isValid;
 }
 
@@ -91,22 +91,22 @@ QString OAIModule_Response::asJson() const {
 QJsonObject OAIModule_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_module_id_isSet) {
-        obj.insert(QString("pkiModuleID"), ::OpenAPI::toJsonValue(m_pki_module_id));
+        obj.insert(QString("pkiModuleID"), ::Ezmaxapi::toJsonValue(m_pki_module_id));
     }
     if (m_fki_modulegroup_id_isSet) {
-        obj.insert(QString("fkiModulegroupID"), ::OpenAPI::toJsonValue(m_fki_modulegroup_id));
+        obj.insert(QString("fkiModulegroupID"), ::Ezmaxapi::toJsonValue(m_fki_modulegroup_id));
     }
     if (m_e_module_internalname_isSet) {
-        obj.insert(QString("eModuleInternalname"), ::OpenAPI::toJsonValue(m_e_module_internalname));
+        obj.insert(QString("eModuleInternalname"), ::Ezmaxapi::toJsonValue(m_e_module_internalname));
     }
     if (m_s_module_name_x_isSet) {
-        obj.insert(QString("sModuleNameX"), ::OpenAPI::toJsonValue(m_s_module_name_x));
+        obj.insert(QString("sModuleNameX"), ::Ezmaxapi::toJsonValue(m_s_module_name_x));
     }
     if (m_b_module_registered_isSet) {
-        obj.insert(QString("bModuleRegistered"), ::OpenAPI::toJsonValue(m_b_module_registered));
+        obj.insert(QString("bModuleRegistered"), ::Ezmaxapi::toJsonValue(m_b_module_registered));
     }
     if (m_b_module_registeredapi_isSet) {
-        obj.insert(QString("bModuleRegisteredapi"), ::OpenAPI::toJsonValue(m_b_module_registeredapi));
+        obj.insert(QString("bModuleRegisteredapi"), ::Ezmaxapi::toJsonValue(m_b_module_registeredapi));
     }
     return obj;
 }
@@ -248,4 +248,4 @@ bool OAIModule_Response::isValid() const {
     return m_pki_module_id_isValid && m_fki_modulegroup_id_isValid && m_e_module_internalname_isValid && m_s_module_name_x_isValid && m_b_module_registered_isValid && m_b_module_registeredapi_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

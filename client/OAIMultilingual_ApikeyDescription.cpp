@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIMultilingual_ApikeyDescription::OAIMultilingual_ApikeyDescription(QString json) {
     this->initializeModel();
@@ -50,10 +50,10 @@ void OAIMultilingual_ApikeyDescription::fromJson(QString jsonString) {
 
 void OAIMultilingual_ApikeyDescription::fromJsonObject(QJsonObject json) {
 
-    m_s_apikey_description1_isValid = ::OpenAPI::fromJsonValue(m_s_apikey_description1, json[QString("sApikeyDescription1")]);
+    m_s_apikey_description1_isValid = ::Ezmaxapi::fromJsonValue(m_s_apikey_description1, json[QString("sApikeyDescription1")]);
     m_s_apikey_description1_isSet = !json[QString("sApikeyDescription1")].isNull() && m_s_apikey_description1_isValid;
 
-    m_s_apikey_description2_isValid = ::OpenAPI::fromJsonValue(m_s_apikey_description2, json[QString("sApikeyDescription2")]);
+    m_s_apikey_description2_isValid = ::Ezmaxapi::fromJsonValue(m_s_apikey_description2, json[QString("sApikeyDescription2")]);
     m_s_apikey_description2_isSet = !json[QString("sApikeyDescription2")].isNull() && m_s_apikey_description2_isValid;
 }
 
@@ -67,10 +67,10 @@ QString OAIMultilingual_ApikeyDescription::asJson() const {
 QJsonObject OAIMultilingual_ApikeyDescription::asJsonObject() const {
     QJsonObject obj;
     if (m_s_apikey_description1_isSet) {
-        obj.insert(QString("sApikeyDescription1"), ::OpenAPI::toJsonValue(m_s_apikey_description1));
+        obj.insert(QString("sApikeyDescription1"), ::Ezmaxapi::toJsonValue(m_s_apikey_description1));
     }
     if (m_s_apikey_description2_isSet) {
-        obj.insert(QString("sApikeyDescription2"), ::OpenAPI::toJsonValue(m_s_apikey_description2));
+        obj.insert(QString("sApikeyDescription2"), ::Ezmaxapi::toJsonValue(m_s_apikey_description2));
     }
     return obj;
 }
@@ -128,4 +128,4 @@ bool OAIMultilingual_ApikeyDescription::isValid() const {
     return true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

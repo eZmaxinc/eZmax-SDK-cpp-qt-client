@@ -26,7 +26,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAICustom_Webhooklog_Response : public OAIObject {
 public:
@@ -64,8 +64,8 @@ private:
     bool m_t_webhooklog_json_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAICustom_Webhooklog_Response)
+Q_DECLARE_METATYPE(Ezmaxapi::OAICustom_Webhooklog_Response)
 
 #endif // OAICustom_Webhooklog_Response_H

@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzsignfolder_send_v2_Response::OAIEzsignfolder_send_v2_Response(QString json) {
     this->initializeModel();
@@ -50,10 +50,10 @@ void OAIEzsignfolder_send_v2_Response::fromJson(QString jsonString) {
 
 void OAIEzsignfolder_send_v2_Response::fromJsonObject(QJsonObject json) {
 
-    m_obj_debug_payload_isValid = ::OpenAPI::fromJsonValue(m_obj_debug_payload, json[QString("objDebugPayload")]);
+    m_obj_debug_payload_isValid = ::Ezmaxapi::fromJsonValue(m_obj_debug_payload, json[QString("objDebugPayload")]);
     m_obj_debug_payload_isSet = !json[QString("objDebugPayload")].isNull() && m_obj_debug_payload_isValid;
 
-    m_obj_debug_isValid = ::OpenAPI::fromJsonValue(m_obj_debug, json[QString("objDebug")]);
+    m_obj_debug_isValid = ::Ezmaxapi::fromJsonValue(m_obj_debug, json[QString("objDebug")]);
     m_obj_debug_isSet = !json[QString("objDebug")].isNull() && m_obj_debug_isValid;
 }
 
@@ -67,10 +67,10 @@ QString OAIEzsignfolder_send_v2_Response::asJson() const {
 QJsonObject OAIEzsignfolder_send_v2_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_obj_debug_payload.isSet()) {
-        obj.insert(QString("objDebugPayload"), ::OpenAPI::toJsonValue(m_obj_debug_payload));
+        obj.insert(QString("objDebugPayload"), ::Ezmaxapi::toJsonValue(m_obj_debug_payload));
     }
     if (m_obj_debug.isSet()) {
-        obj.insert(QString("objDebug"), ::OpenAPI::toJsonValue(m_obj_debug));
+        obj.insert(QString("objDebug"), ::Ezmaxapi::toJsonValue(m_obj_debug));
     }
     return obj;
 }
@@ -128,4 +128,4 @@ bool OAIEzsignfolder_send_v2_Response::isValid() const {
     return m_obj_debug_payload_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

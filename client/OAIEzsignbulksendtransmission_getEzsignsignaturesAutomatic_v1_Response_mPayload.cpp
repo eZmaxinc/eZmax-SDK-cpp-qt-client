@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzsignbulksendtransmission_getEzsignsignaturesAutomatic_v1_Response_mPayload::OAIEzsignbulksendtransmission_getEzsignsignaturesAutomatic_v1_Response_mPayload(QString json) {
     this->initializeModel();
@@ -50,10 +50,10 @@ void OAIEzsignbulksendtransmission_getEzsignsignaturesAutomatic_v1_Response_mPay
 
 void OAIEzsignbulksendtransmission_getEzsignsignaturesAutomatic_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_e_ezsignsignature_type_isValid = ::OpenAPI::fromJsonValue(m_a_e_ezsignsignature_type, json[QString("a_eEzsignsignatureType")]);
+    m_a_e_ezsignsignature_type_isValid = ::Ezmaxapi::fromJsonValue(m_a_e_ezsignsignature_type, json[QString("a_eEzsignsignatureType")]);
     m_a_e_ezsignsignature_type_isSet = !json[QString("a_eEzsignsignatureType")].isNull() && m_a_e_ezsignsignature_type_isValid;
 
-    m_a_obj_ezsignfolder_isValid = ::OpenAPI::fromJsonValue(m_a_obj_ezsignfolder, json[QString("a_objEzsignfolder")]);
+    m_a_obj_ezsignfolder_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_ezsignfolder, json[QString("a_objEzsignfolder")]);
     m_a_obj_ezsignfolder_isSet = !json[QString("a_objEzsignfolder")].isNull() && m_a_obj_ezsignfolder_isValid;
 }
 
@@ -67,10 +67,10 @@ QString OAIEzsignbulksendtransmission_getEzsignsignaturesAutomatic_v1_Response_m
 QJsonObject OAIEzsignbulksendtransmission_getEzsignsignaturesAutomatic_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_a_e_ezsignsignature_type.size() > 0) {
-        obj.insert(QString("a_eEzsignsignatureType"), ::OpenAPI::toJsonValue(m_a_e_ezsignsignature_type));
+        obj.insert(QString("a_eEzsignsignatureType"), ::Ezmaxapi::toJsonValue(m_a_e_ezsignsignature_type));
     }
     if (m_a_obj_ezsignfolder.size() > 0) {
-        obj.insert(QString("a_objEzsignfolder"), ::OpenAPI::toJsonValue(m_a_obj_ezsignfolder));
+        obj.insert(QString("a_objEzsignfolder"), ::Ezmaxapi::toJsonValue(m_a_obj_ezsignfolder));
     }
     return obj;
 }
@@ -128,4 +128,4 @@ bool OAIEzsignbulksendtransmission_getEzsignsignaturesAutomatic_v1_Response_mPay
     return m_a_e_ezsignsignature_type_isValid && m_a_obj_ezsignfolder_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

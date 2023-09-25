@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIDescriptionstatic_ResponseCompound::OAIDescriptionstatic_ResponseCompound(QString json) {
     this->initializeModel();
@@ -50,10 +50,10 @@ void OAIDescriptionstatic_ResponseCompound::fromJson(QString jsonString) {
 
 void OAIDescriptionstatic_ResponseCompound::fromJsonObject(QJsonObject json) {
 
-    m_pki_descriptionstatic_id_isValid = ::OpenAPI::fromJsonValue(m_pki_descriptionstatic_id, json[QString("pkiDescriptionstaticID")]);
+    m_pki_descriptionstatic_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_descriptionstatic_id, json[QString("pkiDescriptionstaticID")]);
     m_pki_descriptionstatic_id_isSet = !json[QString("pkiDescriptionstaticID")].isNull() && m_pki_descriptionstatic_id_isValid;
 
-    m_s_descriptionstatic_description_isValid = ::OpenAPI::fromJsonValue(m_s_descriptionstatic_description, json[QString("sDescriptionstaticDescription")]);
+    m_s_descriptionstatic_description_isValid = ::Ezmaxapi::fromJsonValue(m_s_descriptionstatic_description, json[QString("sDescriptionstaticDescription")]);
     m_s_descriptionstatic_description_isSet = !json[QString("sDescriptionstaticDescription")].isNull() && m_s_descriptionstatic_description_isValid;
 }
 
@@ -67,10 +67,10 @@ QString OAIDescriptionstatic_ResponseCompound::asJson() const {
 QJsonObject OAIDescriptionstatic_ResponseCompound::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_descriptionstatic_id_isSet) {
-        obj.insert(QString("pkiDescriptionstaticID"), ::OpenAPI::toJsonValue(m_pki_descriptionstatic_id));
+        obj.insert(QString("pkiDescriptionstaticID"), ::Ezmaxapi::toJsonValue(m_pki_descriptionstatic_id));
     }
     if (m_s_descriptionstatic_description_isSet) {
-        obj.insert(QString("sDescriptionstaticDescription"), ::OpenAPI::toJsonValue(m_s_descriptionstatic_description));
+        obj.insert(QString("sDescriptionstaticDescription"), ::Ezmaxapi::toJsonValue(m_s_descriptionstatic_description));
     }
     return obj;
 }
@@ -128,4 +128,4 @@ bool OAIDescriptionstatic_ResponseCompound::isValid() const {
     return m_pki_descriptionstatic_id_isValid && m_s_descriptionstatic_description_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIActivesession_ResponseCompound_User::OAIActivesession_ResponseCompound_User(QString json) {
     this->initializeModel();
@@ -74,34 +74,34 @@ void OAIActivesession_ResponseCompound_User::fromJson(QString jsonString) {
 
 void OAIActivesession_ResponseCompound_User::fromJsonObject(QJsonObject json) {
 
-    m_pki_user_id_isValid = ::OpenAPI::fromJsonValue(m_pki_user_id, json[QString("pkiUserID")]);
+    m_pki_user_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_user_id, json[QString("pkiUserID")]);
     m_pki_user_id_isSet = !json[QString("pkiUserID")].isNull() && m_pki_user_id_isValid;
 
-    m_fki_timezone_id_isValid = ::OpenAPI::fromJsonValue(m_fki_timezone_id, json[QString("fkiTimezoneID")]);
+    m_fki_timezone_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_timezone_id, json[QString("fkiTimezoneID")]);
     m_fki_timezone_id_isSet = !json[QString("fkiTimezoneID")].isNull() && m_fki_timezone_id_isValid;
 
-    m_s_avatar_url_isValid = ::OpenAPI::fromJsonValue(m_s_avatar_url, json[QString("sAvatarUrl")]);
+    m_s_avatar_url_isValid = ::Ezmaxapi::fromJsonValue(m_s_avatar_url, json[QString("sAvatarUrl")]);
     m_s_avatar_url_isSet = !json[QString("sAvatarUrl")].isNull() && m_s_avatar_url_isValid;
 
-    m_s_user_firstname_isValid = ::OpenAPI::fromJsonValue(m_s_user_firstname, json[QString("sUserFirstname")]);
+    m_s_user_firstname_isValid = ::Ezmaxapi::fromJsonValue(m_s_user_firstname, json[QString("sUserFirstname")]);
     m_s_user_firstname_isSet = !json[QString("sUserFirstname")].isNull() && m_s_user_firstname_isValid;
 
-    m_s_user_lastname_isValid = ::OpenAPI::fromJsonValue(m_s_user_lastname, json[QString("sUserLastname")]);
+    m_s_user_lastname_isValid = ::Ezmaxapi::fromJsonValue(m_s_user_lastname, json[QString("sUserLastname")]);
     m_s_user_lastname_isSet = !json[QString("sUserLastname")].isNull() && m_s_user_lastname_isValid;
 
-    m_s_email_address_isValid = ::OpenAPI::fromJsonValue(m_s_email_address, json[QString("sEmailAddress")]);
+    m_s_email_address_isValid = ::Ezmaxapi::fromJsonValue(m_s_email_address, json[QString("sEmailAddress")]);
     m_s_email_address_isSet = !json[QString("sEmailAddress")].isNull() && m_s_email_address_isValid;
 
-    m_e_user_ezsignsendreminderfrequency_isValid = ::OpenAPI::fromJsonValue(m_e_user_ezsignsendreminderfrequency, json[QString("eUserEzsignsendreminderfrequency")]);
+    m_e_user_ezsignsendreminderfrequency_isValid = ::Ezmaxapi::fromJsonValue(m_e_user_ezsignsendreminderfrequency, json[QString("eUserEzsignsendreminderfrequency")]);
     m_e_user_ezsignsendreminderfrequency_isSet = !json[QString("eUserEzsignsendreminderfrequency")].isNull() && m_e_user_ezsignsendreminderfrequency_isValid;
 
-    m_i_user_interfacecolor_isValid = ::OpenAPI::fromJsonValue(m_i_user_interfacecolor, json[QString("iUserInterfacecolor")]);
+    m_i_user_interfacecolor_isValid = ::Ezmaxapi::fromJsonValue(m_i_user_interfacecolor, json[QString("iUserInterfacecolor")]);
     m_i_user_interfacecolor_isSet = !json[QString("iUserInterfacecolor")].isNull() && m_i_user_interfacecolor_isValid;
 
-    m_b_user_interfacedark_isValid = ::OpenAPI::fromJsonValue(m_b_user_interfacedark, json[QString("bUserInterfacedark")]);
+    m_b_user_interfacedark_isValid = ::Ezmaxapi::fromJsonValue(m_b_user_interfacedark, json[QString("bUserInterfacedark")]);
     m_b_user_interfacedark_isSet = !json[QString("bUserInterfacedark")].isNull() && m_b_user_interfacedark_isValid;
 
-    m_i_user_listresult_isValid = ::OpenAPI::fromJsonValue(m_i_user_listresult, json[QString("iUserListresult")]);
+    m_i_user_listresult_isValid = ::Ezmaxapi::fromJsonValue(m_i_user_listresult, json[QString("iUserListresult")]);
     m_i_user_listresult_isSet = !json[QString("iUserListresult")].isNull() && m_i_user_listresult_isValid;
 }
 
@@ -115,34 +115,34 @@ QString OAIActivesession_ResponseCompound_User::asJson() const {
 QJsonObject OAIActivesession_ResponseCompound_User::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_user_id_isSet) {
-        obj.insert(QString("pkiUserID"), ::OpenAPI::toJsonValue(m_pki_user_id));
+        obj.insert(QString("pkiUserID"), ::Ezmaxapi::toJsonValue(m_pki_user_id));
     }
     if (m_fki_timezone_id_isSet) {
-        obj.insert(QString("fkiTimezoneID"), ::OpenAPI::toJsonValue(m_fki_timezone_id));
+        obj.insert(QString("fkiTimezoneID"), ::Ezmaxapi::toJsonValue(m_fki_timezone_id));
     }
     if (m_s_avatar_url_isSet) {
-        obj.insert(QString("sAvatarUrl"), ::OpenAPI::toJsonValue(m_s_avatar_url));
+        obj.insert(QString("sAvatarUrl"), ::Ezmaxapi::toJsonValue(m_s_avatar_url));
     }
     if (m_s_user_firstname_isSet) {
-        obj.insert(QString("sUserFirstname"), ::OpenAPI::toJsonValue(m_s_user_firstname));
+        obj.insert(QString("sUserFirstname"), ::Ezmaxapi::toJsonValue(m_s_user_firstname));
     }
     if (m_s_user_lastname_isSet) {
-        obj.insert(QString("sUserLastname"), ::OpenAPI::toJsonValue(m_s_user_lastname));
+        obj.insert(QString("sUserLastname"), ::Ezmaxapi::toJsonValue(m_s_user_lastname));
     }
     if (m_s_email_address_isSet) {
-        obj.insert(QString("sEmailAddress"), ::OpenAPI::toJsonValue(m_s_email_address));
+        obj.insert(QString("sEmailAddress"), ::Ezmaxapi::toJsonValue(m_s_email_address));
     }
     if (m_e_user_ezsignsendreminderfrequency.isSet()) {
-        obj.insert(QString("eUserEzsignsendreminderfrequency"), ::OpenAPI::toJsonValue(m_e_user_ezsignsendreminderfrequency));
+        obj.insert(QString("eUserEzsignsendreminderfrequency"), ::Ezmaxapi::toJsonValue(m_e_user_ezsignsendreminderfrequency));
     }
     if (m_i_user_interfacecolor_isSet) {
-        obj.insert(QString("iUserInterfacecolor"), ::OpenAPI::toJsonValue(m_i_user_interfacecolor));
+        obj.insert(QString("iUserInterfacecolor"), ::Ezmaxapi::toJsonValue(m_i_user_interfacecolor));
     }
     if (m_b_user_interfacedark_isSet) {
-        obj.insert(QString("bUserInterfacedark"), ::OpenAPI::toJsonValue(m_b_user_interfacedark));
+        obj.insert(QString("bUserInterfacedark"), ::Ezmaxapi::toJsonValue(m_b_user_interfacedark));
     }
     if (m_i_user_listresult_isSet) {
-        obj.insert(QString("iUserListresult"), ::OpenAPI::toJsonValue(m_i_user_listresult));
+        obj.insert(QString("iUserListresult"), ::Ezmaxapi::toJsonValue(m_i_user_listresult));
     }
     return obj;
 }
@@ -368,4 +368,4 @@ bool OAIActivesession_ResponseCompound_User::isValid() const {
     return m_pki_user_id_isValid && m_fki_timezone_id_isValid && m_s_avatar_url_isValid && m_s_user_firstname_isValid && m_s_user_lastname_isValid && m_s_email_address_isValid && m_e_user_ezsignsendreminderfrequency_isValid && m_i_user_interfacecolor_isValid && m_b_user_interfacedark_isValid && m_i_user_listresult_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

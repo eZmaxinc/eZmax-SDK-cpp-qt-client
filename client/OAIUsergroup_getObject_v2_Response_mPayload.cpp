@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIUsergroup_getObject_v2_Response_mPayload::OAIUsergroup_getObject_v2_Response_mPayload(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAIUsergroup_getObject_v2_Response_mPayload::fromJson(QString jsonString) {
 
 void OAIUsergroup_getObject_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_obj_usergroup_isValid = ::OpenAPI::fromJsonValue(m_obj_usergroup, json[QString("objUsergroup")]);
+    m_obj_usergroup_isValid = ::Ezmaxapi::fromJsonValue(m_obj_usergroup, json[QString("objUsergroup")]);
     m_obj_usergroup_isSet = !json[QString("objUsergroup")].isNull() && m_obj_usergroup_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAIUsergroup_getObject_v2_Response_mPayload::asJson() const {
 QJsonObject OAIUsergroup_getObject_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_obj_usergroup.isSet()) {
-        obj.insert(QString("objUsergroup"), ::OpenAPI::toJsonValue(m_obj_usergroup));
+        obj.insert(QString("objUsergroup"), ::Ezmaxapi::toJsonValue(m_obj_usergroup));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAIUsergroup_getObject_v2_Response_mPayload::isValid() const {
     return m_obj_usergroup_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

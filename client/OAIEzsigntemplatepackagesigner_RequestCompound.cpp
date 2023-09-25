@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzsigntemplatepackagesigner_RequestCompound::OAIEzsigntemplatepackagesigner_RequestCompound(QString json) {
     this->initializeModel();
@@ -53,13 +53,13 @@ void OAIEzsigntemplatepackagesigner_RequestCompound::fromJson(QString jsonString
 
 void OAIEzsigntemplatepackagesigner_RequestCompound::fromJsonObject(QJsonObject json) {
 
-    m_pki_ezsigntemplatepackagesigner_id_isValid = ::OpenAPI::fromJsonValue(m_pki_ezsigntemplatepackagesigner_id, json[QString("pkiEzsigntemplatepackagesignerID")]);
+    m_pki_ezsigntemplatepackagesigner_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_ezsigntemplatepackagesigner_id, json[QString("pkiEzsigntemplatepackagesignerID")]);
     m_pki_ezsigntemplatepackagesigner_id_isSet = !json[QString("pkiEzsigntemplatepackagesignerID")].isNull() && m_pki_ezsigntemplatepackagesigner_id_isValid;
 
-    m_fki_ezsigntemplatepackage_id_isValid = ::OpenAPI::fromJsonValue(m_fki_ezsigntemplatepackage_id, json[QString("fkiEzsigntemplatepackageID")]);
+    m_fki_ezsigntemplatepackage_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_ezsigntemplatepackage_id, json[QString("fkiEzsigntemplatepackageID")]);
     m_fki_ezsigntemplatepackage_id_isSet = !json[QString("fkiEzsigntemplatepackageID")].isNull() && m_fki_ezsigntemplatepackage_id_isValid;
 
-    m_s_ezsigntemplatepackagesigner_description_isValid = ::OpenAPI::fromJsonValue(m_s_ezsigntemplatepackagesigner_description, json[QString("sEzsigntemplatepackagesignerDescription")]);
+    m_s_ezsigntemplatepackagesigner_description_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsigntemplatepackagesigner_description, json[QString("sEzsigntemplatepackagesignerDescription")]);
     m_s_ezsigntemplatepackagesigner_description_isSet = !json[QString("sEzsigntemplatepackagesignerDescription")].isNull() && m_s_ezsigntemplatepackagesigner_description_isValid;
 }
 
@@ -73,13 +73,13 @@ QString OAIEzsigntemplatepackagesigner_RequestCompound::asJson() const {
 QJsonObject OAIEzsigntemplatepackagesigner_RequestCompound::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_ezsigntemplatepackagesigner_id_isSet) {
-        obj.insert(QString("pkiEzsigntemplatepackagesignerID"), ::OpenAPI::toJsonValue(m_pki_ezsigntemplatepackagesigner_id));
+        obj.insert(QString("pkiEzsigntemplatepackagesignerID"), ::Ezmaxapi::toJsonValue(m_pki_ezsigntemplatepackagesigner_id));
     }
     if (m_fki_ezsigntemplatepackage_id_isSet) {
-        obj.insert(QString("fkiEzsigntemplatepackageID"), ::OpenAPI::toJsonValue(m_fki_ezsigntemplatepackage_id));
+        obj.insert(QString("fkiEzsigntemplatepackageID"), ::Ezmaxapi::toJsonValue(m_fki_ezsigntemplatepackage_id));
     }
     if (m_s_ezsigntemplatepackagesigner_description_isSet) {
-        obj.insert(QString("sEzsigntemplatepackagesignerDescription"), ::OpenAPI::toJsonValue(m_s_ezsigntemplatepackagesigner_description));
+        obj.insert(QString("sEzsigntemplatepackagesignerDescription"), ::Ezmaxapi::toJsonValue(m_s_ezsigntemplatepackagesigner_description));
     }
     return obj;
 }
@@ -158,4 +158,4 @@ bool OAIEzsigntemplatepackagesigner_RequestCompound::isValid() const {
     return m_fki_ezsigntemplatepackage_id_isValid && m_s_ezsigntemplatepackagesigner_description_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

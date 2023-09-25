@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIPeriod_getAutocomplete_v2_Response_mPayload::OAIPeriod_getAutocomplete_v2_Response_mPayload(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAIPeriod_getAutocomplete_v2_Response_mPayload::fromJson(QString jsonString
 
 void OAIPeriod_getAutocomplete_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_period_isValid = ::OpenAPI::fromJsonValue(m_a_obj_period, json[QString("a_objPeriod")]);
+    m_a_obj_period_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_period, json[QString("a_objPeriod")]);
     m_a_obj_period_isSet = !json[QString("a_objPeriod")].isNull() && m_a_obj_period_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAIPeriod_getAutocomplete_v2_Response_mPayload::asJson() const {
 QJsonObject OAIPeriod_getAutocomplete_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_a_obj_period.size() > 0) {
-        obj.insert(QString("a_objPeriod"), ::OpenAPI::toJsonValue(m_a_obj_period));
+        obj.insert(QString("a_objPeriod"), ::Ezmaxapi::toJsonValue(m_a_obj_period));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAIPeriod_getAutocomplete_v2_Response_mPayload::isValid() const {
     return true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

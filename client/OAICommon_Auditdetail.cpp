@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAICommon_Auditdetail::OAICommon_Auditdetail(QString json) {
     this->initializeModel();
@@ -65,25 +65,25 @@ void OAICommon_Auditdetail::fromJson(QString jsonString) {
 
 void OAICommon_Auditdetail::fromJsonObject(QJsonObject json) {
 
-    m_fki_user_id_isValid = ::OpenAPI::fromJsonValue(m_fki_user_id, json[QString("fkiUserID")]);
+    m_fki_user_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_user_id, json[QString("fkiUserID")]);
     m_fki_user_id_isSet = !json[QString("fkiUserID")].isNull() && m_fki_user_id_isValid;
 
-    m_fki_apikey_id_isValid = ::OpenAPI::fromJsonValue(m_fki_apikey_id, json[QString("fkiApikeyID")]);
+    m_fki_apikey_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_apikey_id, json[QString("fkiApikeyID")]);
     m_fki_apikey_id_isSet = !json[QString("fkiApikeyID")].isNull() && m_fki_apikey_id_isValid;
 
-    m_s_user_loginname_isValid = ::OpenAPI::fromJsonValue(m_s_user_loginname, json[QString("sUserLoginname")]);
+    m_s_user_loginname_isValid = ::Ezmaxapi::fromJsonValue(m_s_user_loginname, json[QString("sUserLoginname")]);
     m_s_user_loginname_isSet = !json[QString("sUserLoginname")].isNull() && m_s_user_loginname_isValid;
 
-    m_s_user_lastname_isValid = ::OpenAPI::fromJsonValue(m_s_user_lastname, json[QString("sUserLastname")]);
+    m_s_user_lastname_isValid = ::Ezmaxapi::fromJsonValue(m_s_user_lastname, json[QString("sUserLastname")]);
     m_s_user_lastname_isSet = !json[QString("sUserLastname")].isNull() && m_s_user_lastname_isValid;
 
-    m_s_user_firstname_isValid = ::OpenAPI::fromJsonValue(m_s_user_firstname, json[QString("sUserFirstname")]);
+    m_s_user_firstname_isValid = ::Ezmaxapi::fromJsonValue(m_s_user_firstname, json[QString("sUserFirstname")]);
     m_s_user_firstname_isSet = !json[QString("sUserFirstname")].isNull() && m_s_user_firstname_isValid;
 
-    m_s_apikey_description_x_isValid = ::OpenAPI::fromJsonValue(m_s_apikey_description_x, json[QString("sApikeyDescriptionX")]);
+    m_s_apikey_description_x_isValid = ::Ezmaxapi::fromJsonValue(m_s_apikey_description_x, json[QString("sApikeyDescriptionX")]);
     m_s_apikey_description_x_isSet = !json[QString("sApikeyDescriptionX")].isNull() && m_s_apikey_description_x_isValid;
 
-    m_dt_auditdetail_date_isValid = ::OpenAPI::fromJsonValue(m_dt_auditdetail_date, json[QString("dtAuditdetailDate")]);
+    m_dt_auditdetail_date_isValid = ::Ezmaxapi::fromJsonValue(m_dt_auditdetail_date, json[QString("dtAuditdetailDate")]);
     m_dt_auditdetail_date_isSet = !json[QString("dtAuditdetailDate")].isNull() && m_dt_auditdetail_date_isValid;
 }
 
@@ -97,25 +97,25 @@ QString OAICommon_Auditdetail::asJson() const {
 QJsonObject OAICommon_Auditdetail::asJsonObject() const {
     QJsonObject obj;
     if (m_fki_user_id_isSet) {
-        obj.insert(QString("fkiUserID"), ::OpenAPI::toJsonValue(m_fki_user_id));
+        obj.insert(QString("fkiUserID"), ::Ezmaxapi::toJsonValue(m_fki_user_id));
     }
     if (m_fki_apikey_id_isSet) {
-        obj.insert(QString("fkiApikeyID"), ::OpenAPI::toJsonValue(m_fki_apikey_id));
+        obj.insert(QString("fkiApikeyID"), ::Ezmaxapi::toJsonValue(m_fki_apikey_id));
     }
     if (m_s_user_loginname_isSet) {
-        obj.insert(QString("sUserLoginname"), ::OpenAPI::toJsonValue(m_s_user_loginname));
+        obj.insert(QString("sUserLoginname"), ::Ezmaxapi::toJsonValue(m_s_user_loginname));
     }
     if (m_s_user_lastname_isSet) {
-        obj.insert(QString("sUserLastname"), ::OpenAPI::toJsonValue(m_s_user_lastname));
+        obj.insert(QString("sUserLastname"), ::Ezmaxapi::toJsonValue(m_s_user_lastname));
     }
     if (m_s_user_firstname_isSet) {
-        obj.insert(QString("sUserFirstname"), ::OpenAPI::toJsonValue(m_s_user_firstname));
+        obj.insert(QString("sUserFirstname"), ::Ezmaxapi::toJsonValue(m_s_user_firstname));
     }
     if (m_s_apikey_description_x_isSet) {
-        obj.insert(QString("sApikeyDescriptionX"), ::OpenAPI::toJsonValue(m_s_apikey_description_x));
+        obj.insert(QString("sApikeyDescriptionX"), ::Ezmaxapi::toJsonValue(m_s_apikey_description_x));
     }
     if (m_dt_auditdetail_date_isSet) {
-        obj.insert(QString("dtAuditdetailDate"), ::OpenAPI::toJsonValue(m_dt_auditdetail_date));
+        obj.insert(QString("dtAuditdetailDate"), ::Ezmaxapi::toJsonValue(m_dt_auditdetail_date));
     }
     return obj;
 }
@@ -278,4 +278,4 @@ bool OAICommon_Auditdetail::isValid() const {
     return m_fki_user_id_isValid && m_s_user_loginname_isValid && m_s_user_lastname_isValid && m_s_user_firstname_isValid && m_dt_auditdetail_date_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

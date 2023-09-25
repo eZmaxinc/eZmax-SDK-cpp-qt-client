@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzsignfolder_send_v1_Request::OAIEzsignfolder_send_v1_Request(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAIEzsignfolder_send_v1_Request::fromJson(QString jsonString) {
 
 void OAIEzsignfolder_send_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_t_extra_message_isValid = ::OpenAPI::fromJsonValue(m_t_extra_message, json[QString("tExtraMessage")]);
+    m_t_extra_message_isValid = ::Ezmaxapi::fromJsonValue(m_t_extra_message, json[QString("tExtraMessage")]);
     m_t_extra_message_isSet = !json[QString("tExtraMessage")].isNull() && m_t_extra_message_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAIEzsignfolder_send_v1_Request::asJson() const {
 QJsonObject OAIEzsignfolder_send_v1_Request::asJsonObject() const {
     QJsonObject obj;
     if (m_t_extra_message_isSet) {
-        obj.insert(QString("tExtraMessage"), ::OpenAPI::toJsonValue(m_t_extra_message));
+        obj.insert(QString("tExtraMessage"), ::Ezmaxapi::toJsonValue(m_t_extra_message));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAIEzsignfolder_send_v1_Request::isValid() const {
     return m_t_extra_message_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

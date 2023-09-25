@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzsignfolder_importEzsignfoldersignerassociations_v1_Response_mPayload::OAIEzsignfolder_importEzsignfoldersignerassociations_v1_Response_mPayload(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAIEzsignfolder_importEzsignfoldersignerassociations_v1_Response_mPayload::
 
 void OAIEzsignfolder_importEzsignfoldersignerassociations_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_pki_ezsignfoldersignerassociation_id_isValid = ::OpenAPI::fromJsonValue(m_a_pki_ezsignfoldersignerassociation_id, json[QString("a_pkiEzsignfoldersignerassociationID")]);
+    m_a_pki_ezsignfoldersignerassociation_id_isValid = ::Ezmaxapi::fromJsonValue(m_a_pki_ezsignfoldersignerassociation_id, json[QString("a_pkiEzsignfoldersignerassociationID")]);
     m_a_pki_ezsignfoldersignerassociation_id_isSet = !json[QString("a_pkiEzsignfoldersignerassociationID")].isNull() && m_a_pki_ezsignfoldersignerassociation_id_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAIEzsignfolder_importEzsignfoldersignerassociations_v1_Response_mPayloa
 QJsonObject OAIEzsignfolder_importEzsignfoldersignerassociations_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_a_pki_ezsignfoldersignerassociation_id.size() > 0) {
-        obj.insert(QString("a_pkiEzsignfoldersignerassociationID"), ::OpenAPI::toJsonValue(m_a_pki_ezsignfoldersignerassociation_id));
+        obj.insert(QString("a_pkiEzsignfoldersignerassociationID"), ::Ezmaxapi::toJsonValue(m_a_pki_ezsignfoldersignerassociation_id));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAIEzsignfolder_importEzsignfoldersignerassociations_v1_Response_mPayload::
     return m_a_pki_ezsignfoldersignerassociation_id_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAICustom_FormDataEzsignformfieldgroup_Response::OAICustom_FormDataEzsignformfieldgroup_Response(QString json) {
     this->initializeModel();
@@ -50,10 +50,10 @@ void OAICustom_FormDataEzsignformfieldgroup_Response::fromJson(QString jsonStrin
 
 void OAICustom_FormDataEzsignformfieldgroup_Response::fromJsonObject(QJsonObject json) {
 
-    m_s_ezsignformfieldgroup_label_isValid = ::OpenAPI::fromJsonValue(m_s_ezsignformfieldgroup_label, json[QString("sEzsignformfieldgroupLabel")]);
+    m_s_ezsignformfieldgroup_label_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsignformfieldgroup_label, json[QString("sEzsignformfieldgroupLabel")]);
     m_s_ezsignformfieldgroup_label_isSet = !json[QString("sEzsignformfieldgroupLabel")].isNull() && m_s_ezsignformfieldgroup_label_isValid;
 
-    m_a_obj_ezsignformfield_isValid = ::OpenAPI::fromJsonValue(m_a_obj_ezsignformfield, json[QString("a_objEzsignformfield")]);
+    m_a_obj_ezsignformfield_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_ezsignformfield, json[QString("a_objEzsignformfield")]);
     m_a_obj_ezsignformfield_isSet = !json[QString("a_objEzsignformfield")].isNull() && m_a_obj_ezsignformfield_isValid;
 }
 
@@ -67,10 +67,10 @@ QString OAICustom_FormDataEzsignformfieldgroup_Response::asJson() const {
 QJsonObject OAICustom_FormDataEzsignformfieldgroup_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_s_ezsignformfieldgroup_label_isSet) {
-        obj.insert(QString("sEzsignformfieldgroupLabel"), ::OpenAPI::toJsonValue(m_s_ezsignformfieldgroup_label));
+        obj.insert(QString("sEzsignformfieldgroupLabel"), ::Ezmaxapi::toJsonValue(m_s_ezsignformfieldgroup_label));
     }
     if (m_a_obj_ezsignformfield.size() > 0) {
-        obj.insert(QString("a_objEzsignformfield"), ::OpenAPI::toJsonValue(m_a_obj_ezsignformfield));
+        obj.insert(QString("a_objEzsignformfield"), ::Ezmaxapi::toJsonValue(m_a_obj_ezsignformfield));
     }
     return obj;
 }
@@ -128,4 +128,4 @@ bool OAICustom_FormDataEzsignformfieldgroup_Response::isValid() const {
     return m_s_ezsignformfieldgroup_label_isValid && m_a_obj_ezsignformfield_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

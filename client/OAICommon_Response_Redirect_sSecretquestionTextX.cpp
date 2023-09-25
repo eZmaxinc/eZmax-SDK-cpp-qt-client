@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAICommon_Response_Redirect_sSecretquestionTextX::OAICommon_Response_Redirect_sSecretquestionTextX(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAICommon_Response_Redirect_sSecretquestionTextX::fromJson(QString jsonStri
 
 void OAICommon_Response_Redirect_sSecretquestionTextX::fromJsonObject(QJsonObject json) {
 
-    m_s_secretquestion_text_x_isValid = ::OpenAPI::fromJsonValue(m_s_secretquestion_text_x, json[QString("sSecretquestionTextX")]);
+    m_s_secretquestion_text_x_isValid = ::Ezmaxapi::fromJsonValue(m_s_secretquestion_text_x, json[QString("sSecretquestionTextX")]);
     m_s_secretquestion_text_x_isSet = !json[QString("sSecretquestionTextX")].isNull() && m_s_secretquestion_text_x_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAICommon_Response_Redirect_sSecretquestionTextX::asJson() const {
 QJsonObject OAICommon_Response_Redirect_sSecretquestionTextX::asJsonObject() const {
     QJsonObject obj;
     if (m_s_secretquestion_text_x_isSet) {
-        obj.insert(QString("sSecretquestionTextX"), ::OpenAPI::toJsonValue(m_s_secretquestion_text_x));
+        obj.insert(QString("sSecretquestionTextX"), ::Ezmaxapi::toJsonValue(m_s_secretquestion_text_x));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAICommon_Response_Redirect_sSecretquestionTextX::isValid() const {
     return m_s_secretquestion_text_x_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

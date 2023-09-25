@@ -15,7 +15,7 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIScimUsersApi::OAIScimUsersApi(const int timeOut)
     : _timeOut(timeOut),
@@ -319,7 +319,7 @@ void OAIScimUsersApi::usersDeleteObjectScimV2(const QString &user_id) {
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "userId", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"userId"+pathSuffix : pathPrefix;
-        fullPath.replace(user_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(user_id)));
+        fullPath.replace(user_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(user_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -384,7 +384,7 @@ void OAIScimUsersApi::usersEditObjectScimV2(const QString &user_id, const OAISci
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "userId", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"userId"+pathSuffix : pathPrefix;
-        fullPath.replace(user_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(user_id)));
+        fullPath.replace(user_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(user_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -437,7 +437,7 @@ void OAIScimUsersApi::usersEditObjectScimV2Callback(OAIHttpRequestWorker *worker
     }
 }
 
-void OAIScimUsersApi::usersGetListScimV2(const ::OpenAPI::OptionalParam<QString> &filter) {
+void OAIScimUsersApi::usersGetListScimV2(const ::Ezmaxapi::OptionalParam<QString> &filter) {
     QString fullPath = QString(_serverConfigs["usersGetListScimV2"][_serverIndices.value("usersGetListScimV2")].URL()+"/2/scim/Users");
     
     if (!_bearerToken.isEmpty())
@@ -457,7 +457,7 @@ void OAIScimUsersApi::usersGetListScimV2(const ::OpenAPI::OptionalParam<QString>
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("filter")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(filter.value())));
+        fullPath.append(QUrl::toPercentEncoding("filter")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(filter.value())));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -523,7 +523,7 @@ void OAIScimUsersApi::usersGetObjectScimV2(const QString &user_id) {
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "userId", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"userId"+pathSuffix : pathPrefix;
-        fullPath.replace(user_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(user_id)));
+        fullPath.replace(user_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(user_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -620,4 +620,4 @@ void OAIScimUsersApi::tokenAvailable(){
         break;
     }
 }
-} // namespace OpenAPI
+} // namespace Ezmaxapi

@@ -29,7 +29,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIActivesession_Response : public OAIObject {
 public:
@@ -148,8 +148,8 @@ private:
     bool m_fki_signature_id_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIActivesession_Response)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIActivesession_Response)
 
 #endif // OAIActivesession_Response_H

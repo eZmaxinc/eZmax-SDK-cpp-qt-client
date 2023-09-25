@@ -27,7 +27,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 class OAIEzsigntemplatedocumentpage_ResponseCompound;
 
 class OAIEzsigntemplatedocument_getEzsigntemplatedocumentpages_v1_Response_mPayload : public OAIObject {
@@ -57,8 +57,8 @@ private:
     bool m_a_obj_ezsigntemplatedocumentpage_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIEzsigntemplatedocument_getEzsigntemplatedocumentpages_v1_Response_mPayload)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIEzsigntemplatedocument_getEzsigntemplatedocumentpages_v1_Response_mPayload)
 
 #endif // OAIEzsigntemplatedocument_getEzsigntemplatedocumentpages_v1_Response_mPayload_H

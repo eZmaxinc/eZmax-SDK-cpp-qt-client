@@ -28,7 +28,7 @@
 #include <QList>
 #include <QNetworkAccessManager>
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIGlobalCustomerApi : public QObject {
     Q_OBJECT
@@ -62,7 +62,7 @@ public:
     * @param[in]  pks_customer_code QString [required]
     * @param[in]  s_infrastructureproduct_code QString [optional]
     */
-    Q_DECL_DEPRECATED void globalCustomerGetEndpointV1(const QString &pks_customer_code, const ::OpenAPI::OptionalParam<QString> &s_infrastructureproduct_code = ::OpenAPI::OptionalParam<QString>());
+    Q_DECL_DEPRECATED void globalCustomerGetEndpointV1(const QString &pks_customer_code, const ::Ezmaxapi::OptionalParam<QString> &s_infrastructureproduct_code = ::Ezmaxapi::OptionalParam<QString>());
 
 
 private:
@@ -107,5 +107,5 @@ public slots:
     
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 #endif

@@ -31,7 +31,7 @@
 
 #include "OAIHttpFileElement.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 enum OAIHttpRequestVarLayout {
     NOT_SET,
@@ -109,6 +109,6 @@ private:
     QByteArray compress(const QByteArray& input, int level, OAICompressionType compressType);
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
 #endif // OAI_HTTPREQUESTWORKER_H

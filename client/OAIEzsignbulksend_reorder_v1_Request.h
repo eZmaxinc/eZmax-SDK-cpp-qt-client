@@ -26,7 +26,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIEzsignbulksend_reorder_v1_Request : public OAIObject {
 public:
@@ -55,8 +55,8 @@ private:
     bool m_a_pki_ezsignbulksenddocumentmapping_id_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIEzsignbulksend_reorder_v1_Request)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIEzsignbulksend_reorder_v1_Request)
 
 #endif // OAIEzsignbulksend_reorder_v1_Request_H

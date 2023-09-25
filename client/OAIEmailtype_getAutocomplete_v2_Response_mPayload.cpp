@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEmailtype_getAutocomplete_v2_Response_mPayload::OAIEmailtype_getAutocomplete_v2_Response_mPayload(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAIEmailtype_getAutocomplete_v2_Response_mPayload::fromJson(QString jsonStr
 
 void OAIEmailtype_getAutocomplete_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_emailtype_isValid = ::OpenAPI::fromJsonValue(m_a_obj_emailtype, json[QString("a_objEmailtype")]);
+    m_a_obj_emailtype_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_emailtype, json[QString("a_objEmailtype")]);
     m_a_obj_emailtype_isSet = !json[QString("a_objEmailtype")].isNull() && m_a_obj_emailtype_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAIEmailtype_getAutocomplete_v2_Response_mPayload::asJson() const {
 QJsonObject OAIEmailtype_getAutocomplete_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_a_obj_emailtype.size() > 0) {
-        obj.insert(QString("a_objEmailtype"), ::OpenAPI::toJsonValue(m_a_obj_emailtype));
+        obj.insert(QString("a_objEmailtype"), ::Ezmaxapi::toJsonValue(m_a_obj_emailtype));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAIEmailtype_getAutocomplete_v2_Response_mPayload::isValid() const {
     return true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

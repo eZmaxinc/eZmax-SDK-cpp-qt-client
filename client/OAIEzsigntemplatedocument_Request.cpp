@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzsigntemplatedocument_Request::OAIEzsigntemplatedocument_Request(QString json) {
     this->initializeModel();
@@ -80,40 +80,40 @@ void OAIEzsigntemplatedocument_Request::fromJson(QString jsonString) {
 
 void OAIEzsigntemplatedocument_Request::fromJsonObject(QJsonObject json) {
 
-    m_pki_ezsigntemplatedocument_id_isValid = ::OpenAPI::fromJsonValue(m_pki_ezsigntemplatedocument_id, json[QString("pkiEzsigntemplatedocumentID")]);
+    m_pki_ezsigntemplatedocument_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_ezsigntemplatedocument_id, json[QString("pkiEzsigntemplatedocumentID")]);
     m_pki_ezsigntemplatedocument_id_isSet = !json[QString("pkiEzsigntemplatedocumentID")].isNull() && m_pki_ezsigntemplatedocument_id_isValid;
 
-    m_fki_ezsigntemplate_id_isValid = ::OpenAPI::fromJsonValue(m_fki_ezsigntemplate_id, json[QString("fkiEzsigntemplateID")]);
+    m_fki_ezsigntemplate_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_ezsigntemplate_id, json[QString("fkiEzsigntemplateID")]);
     m_fki_ezsigntemplate_id_isSet = !json[QString("fkiEzsigntemplateID")].isNull() && m_fki_ezsigntemplate_id_isValid;
 
-    m_fki_ezsigndocument_id_isValid = ::OpenAPI::fromJsonValue(m_fki_ezsigndocument_id, json[QString("fkiEzsigndocumentID")]);
+    m_fki_ezsigndocument_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_ezsigndocument_id, json[QString("fkiEzsigndocumentID")]);
     m_fki_ezsigndocument_id_isSet = !json[QString("fkiEzsigndocumentID")].isNull() && m_fki_ezsigndocument_id_isValid;
 
-    m_fki_ezsigntemplatesigner_id_isValid = ::OpenAPI::fromJsonValue(m_fki_ezsigntemplatesigner_id, json[QString("fkiEzsigntemplatesignerID")]);
+    m_fki_ezsigntemplatesigner_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_ezsigntemplatesigner_id, json[QString("fkiEzsigntemplatesignerID")]);
     m_fki_ezsigntemplatesigner_id_isSet = !json[QString("fkiEzsigntemplatesignerID")].isNull() && m_fki_ezsigntemplatesigner_id_isValid;
 
-    m_s_ezsigntemplatedocument_name_isValid = ::OpenAPI::fromJsonValue(m_s_ezsigntemplatedocument_name, json[QString("sEzsigntemplatedocumentName")]);
+    m_s_ezsigntemplatedocument_name_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsigntemplatedocument_name, json[QString("sEzsigntemplatedocumentName")]);
     m_s_ezsigntemplatedocument_name_isSet = !json[QString("sEzsigntemplatedocumentName")].isNull() && m_s_ezsigntemplatedocument_name_isValid;
 
-    m_e_ezsigntemplatedocument_source_isValid = ::OpenAPI::fromJsonValue(m_e_ezsigntemplatedocument_source, json[QString("eEzsigntemplatedocumentSource")]);
+    m_e_ezsigntemplatedocument_source_isValid = ::Ezmaxapi::fromJsonValue(m_e_ezsigntemplatedocument_source, json[QString("eEzsigntemplatedocumentSource")]);
     m_e_ezsigntemplatedocument_source_isSet = !json[QString("eEzsigntemplatedocumentSource")].isNull() && m_e_ezsigntemplatedocument_source_isValid;
 
-    m_e_ezsigntemplatedocument_format_isValid = ::OpenAPI::fromJsonValue(m_e_ezsigntemplatedocument_format, json[QString("eEzsigntemplatedocumentFormat")]);
+    m_e_ezsigntemplatedocument_format_isValid = ::Ezmaxapi::fromJsonValue(m_e_ezsigntemplatedocument_format, json[QString("eEzsigntemplatedocumentFormat")]);
     m_e_ezsigntemplatedocument_format_isSet = !json[QString("eEzsigntemplatedocumentFormat")].isNull() && m_e_ezsigntemplatedocument_format_isValid;
 
-    m_s_ezsigntemplatedocument_base64_isValid = ::OpenAPI::fromJsonValue(m_s_ezsigntemplatedocument_base64, json[QString("sEzsigntemplatedocumentBase64")]);
+    m_s_ezsigntemplatedocument_base64_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsigntemplatedocument_base64, json[QString("sEzsigntemplatedocumentBase64")]);
     m_s_ezsigntemplatedocument_base64_isSet = !json[QString("sEzsigntemplatedocumentBase64")].isNull() && m_s_ezsigntemplatedocument_base64_isValid;
 
-    m_s_ezsigntemplatedocument_url_isValid = ::OpenAPI::fromJsonValue(m_s_ezsigntemplatedocument_url, json[QString("sEzsigntemplatedocumentUrl")]);
+    m_s_ezsigntemplatedocument_url_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsigntemplatedocument_url, json[QString("sEzsigntemplatedocumentUrl")]);
     m_s_ezsigntemplatedocument_url_isSet = !json[QString("sEzsigntemplatedocumentUrl")].isNull() && m_s_ezsigntemplatedocument_url_isValid;
 
-    m_b_ezsigntemplatedocument_forcerepair_isValid = ::OpenAPI::fromJsonValue(m_b_ezsigntemplatedocument_forcerepair, json[QString("bEzsigntemplatedocumentForcerepair")]);
+    m_b_ezsigntemplatedocument_forcerepair_isValid = ::Ezmaxapi::fromJsonValue(m_b_ezsigntemplatedocument_forcerepair, json[QString("bEzsigntemplatedocumentForcerepair")]);
     m_b_ezsigntemplatedocument_forcerepair_isSet = !json[QString("bEzsigntemplatedocumentForcerepair")].isNull() && m_b_ezsigntemplatedocument_forcerepair_isValid;
 
-    m_e_ezsigntemplatedocument_form_isValid = ::OpenAPI::fromJsonValue(m_e_ezsigntemplatedocument_form, json[QString("eEzsigntemplatedocumentForm")]);
+    m_e_ezsigntemplatedocument_form_isValid = ::Ezmaxapi::fromJsonValue(m_e_ezsigntemplatedocument_form, json[QString("eEzsigntemplatedocumentForm")]);
     m_e_ezsigntemplatedocument_form_isSet = !json[QString("eEzsigntemplatedocumentForm")].isNull() && m_e_ezsigntemplatedocument_form_isValid;
 
-    m_s_ezsigntemplatedocument_password_isValid = ::OpenAPI::fromJsonValue(m_s_ezsigntemplatedocument_password, json[QString("sEzsigntemplatedocumentPassword")]);
+    m_s_ezsigntemplatedocument_password_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsigntemplatedocument_password, json[QString("sEzsigntemplatedocumentPassword")]);
     m_s_ezsigntemplatedocument_password_isSet = !json[QString("sEzsigntemplatedocumentPassword")].isNull() && m_s_ezsigntemplatedocument_password_isValid;
 }
 
@@ -127,40 +127,40 @@ QString OAIEzsigntemplatedocument_Request::asJson() const {
 QJsonObject OAIEzsigntemplatedocument_Request::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_ezsigntemplatedocument_id_isSet) {
-        obj.insert(QString("pkiEzsigntemplatedocumentID"), ::OpenAPI::toJsonValue(m_pki_ezsigntemplatedocument_id));
+        obj.insert(QString("pkiEzsigntemplatedocumentID"), ::Ezmaxapi::toJsonValue(m_pki_ezsigntemplatedocument_id));
     }
     if (m_fki_ezsigntemplate_id_isSet) {
-        obj.insert(QString("fkiEzsigntemplateID"), ::OpenAPI::toJsonValue(m_fki_ezsigntemplate_id));
+        obj.insert(QString("fkiEzsigntemplateID"), ::Ezmaxapi::toJsonValue(m_fki_ezsigntemplate_id));
     }
     if (m_fki_ezsigndocument_id_isSet) {
-        obj.insert(QString("fkiEzsigndocumentID"), ::OpenAPI::toJsonValue(m_fki_ezsigndocument_id));
+        obj.insert(QString("fkiEzsigndocumentID"), ::Ezmaxapi::toJsonValue(m_fki_ezsigndocument_id));
     }
     if (m_fki_ezsigntemplatesigner_id_isSet) {
-        obj.insert(QString("fkiEzsigntemplatesignerID"), ::OpenAPI::toJsonValue(m_fki_ezsigntemplatesigner_id));
+        obj.insert(QString("fkiEzsigntemplatesignerID"), ::Ezmaxapi::toJsonValue(m_fki_ezsigntemplatesigner_id));
     }
     if (m_s_ezsigntemplatedocument_name_isSet) {
-        obj.insert(QString("sEzsigntemplatedocumentName"), ::OpenAPI::toJsonValue(m_s_ezsigntemplatedocument_name));
+        obj.insert(QString("sEzsigntemplatedocumentName"), ::Ezmaxapi::toJsonValue(m_s_ezsigntemplatedocument_name));
     }
     if (m_e_ezsigntemplatedocument_source_isSet) {
-        obj.insert(QString("eEzsigntemplatedocumentSource"), ::OpenAPI::toJsonValue(m_e_ezsigntemplatedocument_source));
+        obj.insert(QString("eEzsigntemplatedocumentSource"), ::Ezmaxapi::toJsonValue(m_e_ezsigntemplatedocument_source));
     }
     if (m_e_ezsigntemplatedocument_format_isSet) {
-        obj.insert(QString("eEzsigntemplatedocumentFormat"), ::OpenAPI::toJsonValue(m_e_ezsigntemplatedocument_format));
+        obj.insert(QString("eEzsigntemplatedocumentFormat"), ::Ezmaxapi::toJsonValue(m_e_ezsigntemplatedocument_format));
     }
     if (m_s_ezsigntemplatedocument_base64_isSet) {
-        obj.insert(QString("sEzsigntemplatedocumentBase64"), ::OpenAPI::toJsonValue(m_s_ezsigntemplatedocument_base64));
+        obj.insert(QString("sEzsigntemplatedocumentBase64"), ::Ezmaxapi::toJsonValue(m_s_ezsigntemplatedocument_base64));
     }
     if (m_s_ezsigntemplatedocument_url_isSet) {
-        obj.insert(QString("sEzsigntemplatedocumentUrl"), ::OpenAPI::toJsonValue(m_s_ezsigntemplatedocument_url));
+        obj.insert(QString("sEzsigntemplatedocumentUrl"), ::Ezmaxapi::toJsonValue(m_s_ezsigntemplatedocument_url));
     }
     if (m_b_ezsigntemplatedocument_forcerepair_isSet) {
-        obj.insert(QString("bEzsigntemplatedocumentForcerepair"), ::OpenAPI::toJsonValue(m_b_ezsigntemplatedocument_forcerepair));
+        obj.insert(QString("bEzsigntemplatedocumentForcerepair"), ::Ezmaxapi::toJsonValue(m_b_ezsigntemplatedocument_forcerepair));
     }
     if (m_e_ezsigntemplatedocument_form_isSet) {
-        obj.insert(QString("eEzsigntemplatedocumentForm"), ::OpenAPI::toJsonValue(m_e_ezsigntemplatedocument_form));
+        obj.insert(QString("eEzsigntemplatedocumentForm"), ::Ezmaxapi::toJsonValue(m_e_ezsigntemplatedocument_form));
     }
     if (m_s_ezsigntemplatedocument_password_isSet) {
-        obj.insert(QString("sEzsigntemplatedocumentPassword"), ::OpenAPI::toJsonValue(m_s_ezsigntemplatedocument_password));
+        obj.insert(QString("sEzsigntemplatedocumentPassword"), ::Ezmaxapi::toJsonValue(m_s_ezsigntemplatedocument_password));
     }
     return obj;
 }
@@ -428,4 +428,4 @@ bool OAIEzsigntemplatedocument_Request::isValid() const {
     return m_fki_ezsigntemplate_id_isValid && m_s_ezsigntemplatedocument_name_isValid && m_e_ezsigntemplatedocument_source_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

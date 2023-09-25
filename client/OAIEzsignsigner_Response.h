@@ -26,7 +26,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIEzsignsigner_Response : public OAIObject {
 public:
@@ -91,8 +91,8 @@ private:
     bool m_s_userlogintype_description_x_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIEzsignsigner_Response)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIEzsignsigner_Response)
 
 #endif // OAIEzsignsigner_Response_H

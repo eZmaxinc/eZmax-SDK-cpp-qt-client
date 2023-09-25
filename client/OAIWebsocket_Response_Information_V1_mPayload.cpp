@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIWebsocket_Response_Information_V1_mPayload::OAIWebsocket_Response_Information_V1_mPayload(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAIWebsocket_Response_Information_V1_mPayload::fromJson(QString jsonString)
 
 void OAIWebsocket_Response_Information_V1_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_s_information_message_isValid = ::OpenAPI::fromJsonValue(m_s_information_message, json[QString("sInformationMessage")]);
+    m_s_information_message_isValid = ::Ezmaxapi::fromJsonValue(m_s_information_message, json[QString("sInformationMessage")]);
     m_s_information_message_isSet = !json[QString("sInformationMessage")].isNull() && m_s_information_message_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAIWebsocket_Response_Information_V1_mPayload::asJson() const {
 QJsonObject OAIWebsocket_Response_Information_V1_mPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_s_information_message_isSet) {
-        obj.insert(QString("sInformationMessage"), ::OpenAPI::toJsonValue(m_s_information_message));
+        obj.insert(QString("sInformationMessage"), ::Ezmaxapi::toJsonValue(m_s_information_message));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAIWebsocket_Response_Information_V1_mPayload::isValid() const {
     return m_s_information_message_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

@@ -15,7 +15,7 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIObjectPeriodApi::OAIObjectPeriodApi(const int timeOut)
     : _timeOut(timeOut),
@@ -238,7 +238,7 @@ QString OAIObjectPeriodApi::getParamStyleDelimiter(const QString &style, const Q
     }
 }
 
-void OAIObjectPeriodApi::periodGetAutocompleteV1(const QString &s_selector, const ::OpenAPI::OptionalParam<QString> &e_filter_active, const ::OpenAPI::OptionalParam<QString> &s_query, const ::OpenAPI::OptionalParam<OAIHeader_Accept_Language> &accept_language) {
+void OAIObjectPeriodApi::periodGetAutocompleteV1(const QString &s_selector, const ::Ezmaxapi::OptionalParam<QString> &e_filter_active, const ::Ezmaxapi::OptionalParam<QString> &s_query, const ::Ezmaxapi::OptionalParam<OAIHeader_Accept_Language> &accept_language) {
     QString fullPath = QString(_serverConfigs["periodGetAutocompleteV1"][_serverIndices.value("periodGetAutocompleteV1")].URL()+"/1/object/period/getAutocomplete/{sSelector}");
     
     if (_apiKeys.contains("Authorization")) {
@@ -257,7 +257,7 @@ void OAIObjectPeriodApi::periodGetAutocompleteV1(const QString &s_selector, cons
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "sSelector", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"sSelector"+pathSuffix : pathPrefix;
-        fullPath.replace(s_selectorPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(s_selector)));
+        fullPath.replace(s_selectorPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_selector)));
     }
     QString queryPrefix, querySuffix, queryDelimiter, queryStyle;
     if (e_filter_active.hasValue())
@@ -273,7 +273,7 @@ void OAIObjectPeriodApi::periodGetAutocompleteV1(const QString &s_selector, cons
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("eFilterActive")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(e_filter_active.value())));
+        fullPath.append(QUrl::toPercentEncoding("eFilterActive")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(e_filter_active.value())));
     }
     if (s_query.hasValue())
     {
@@ -288,7 +288,7 @@ void OAIObjectPeriodApi::periodGetAutocompleteV1(const QString &s_selector, cons
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(s_query.value())));
+        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_query.value())));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -380,7 +380,7 @@ void OAIObjectPeriodApi::periodGetAutocompleteV1Callback(OAIHttpRequestWorker *w
     }
 }
 
-void OAIObjectPeriodApi::periodGetAutocompleteV2(const QString &s_selector, const ::OpenAPI::OptionalParam<QString> &e_filter_active, const ::OpenAPI::OptionalParam<QString> &s_query, const ::OpenAPI::OptionalParam<OAIHeader_Accept_Language> &accept_language) {
+void OAIObjectPeriodApi::periodGetAutocompleteV2(const QString &s_selector, const ::Ezmaxapi::OptionalParam<QString> &e_filter_active, const ::Ezmaxapi::OptionalParam<QString> &s_query, const ::Ezmaxapi::OptionalParam<OAIHeader_Accept_Language> &accept_language) {
     QString fullPath = QString(_serverConfigs["periodGetAutocompleteV2"][_serverIndices.value("periodGetAutocompleteV2")].URL()+"/2/object/period/getAutocomplete/{sSelector}");
     
     if (_apiKeys.contains("Authorization")) {
@@ -399,7 +399,7 @@ void OAIObjectPeriodApi::periodGetAutocompleteV2(const QString &s_selector, cons
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "sSelector", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"sSelector"+pathSuffix : pathPrefix;
-        fullPath.replace(s_selectorPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(s_selector)));
+        fullPath.replace(s_selectorPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_selector)));
     }
     QString queryPrefix, querySuffix, queryDelimiter, queryStyle;
     if (e_filter_active.hasValue())
@@ -415,7 +415,7 @@ void OAIObjectPeriodApi::periodGetAutocompleteV2(const QString &s_selector, cons
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("eFilterActive")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(e_filter_active.value())));
+        fullPath.append(QUrl::toPercentEncoding("eFilterActive")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(e_filter_active.value())));
     }
     if (s_query.hasValue())
     {
@@ -430,7 +430,7 @@ void OAIObjectPeriodApi::periodGetAutocompleteV2(const QString &s_selector, cons
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(s_query.value())));
+        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_query.value())));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -571,4 +571,4 @@ void OAIObjectPeriodApi::tokenAvailable(){
         break;
     }
 }
-} // namespace OpenAPI
+} // namespace Ezmaxapi

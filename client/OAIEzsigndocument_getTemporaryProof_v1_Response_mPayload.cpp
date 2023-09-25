@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzsigndocument_getTemporaryProof_v1_Response_mPayload::OAIEzsigndocument_getTemporaryProof_v1_Response_mPayload(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAIEzsigndocument_getTemporaryProof_v1_Response_mPayload::fromJson(QString 
 
 void OAIEzsigndocument_getTemporaryProof_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_ezsigndocumentlog_isValid = ::OpenAPI::fromJsonValue(m_a_obj_ezsigndocumentlog, json[QString("a_objEzsigndocumentlog")]);
+    m_a_obj_ezsigndocumentlog_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_ezsigndocumentlog, json[QString("a_objEzsigndocumentlog")]);
     m_a_obj_ezsigndocumentlog_isSet = !json[QString("a_objEzsigndocumentlog")].isNull() && m_a_obj_ezsigndocumentlog_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAIEzsigndocument_getTemporaryProof_v1_Response_mPayload::asJson() const
 QJsonObject OAIEzsigndocument_getTemporaryProof_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_a_obj_ezsigndocumentlog.size() > 0) {
-        obj.insert(QString("a_objEzsigndocumentlog"), ::OpenAPI::toJsonValue(m_a_obj_ezsigndocumentlog));
+        obj.insert(QString("a_objEzsigndocumentlog"), ::Ezmaxapi::toJsonValue(m_a_obj_ezsigndocumentlog));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAIEzsigndocument_getTemporaryProof_v1_Response_mPayload::isValid() const {
     return m_a_obj_ezsigndocumentlog_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

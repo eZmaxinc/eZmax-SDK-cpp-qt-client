@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIUsergroupmembership_editObject_v1_Request::OAIUsergroupmembership_editObject_v1_Request(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAIUsergroupmembership_editObject_v1_Request::fromJson(QString jsonString) 
 
 void OAIUsergroupmembership_editObject_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_obj_usergroupmembership_isValid = ::OpenAPI::fromJsonValue(m_obj_usergroupmembership, json[QString("objUsergroupmembership")]);
+    m_obj_usergroupmembership_isValid = ::Ezmaxapi::fromJsonValue(m_obj_usergroupmembership, json[QString("objUsergroupmembership")]);
     m_obj_usergroupmembership_isSet = !json[QString("objUsergroupmembership")].isNull() && m_obj_usergroupmembership_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAIUsergroupmembership_editObject_v1_Request::asJson() const {
 QJsonObject OAIUsergroupmembership_editObject_v1_Request::asJsonObject() const {
     QJsonObject obj;
     if (m_obj_usergroupmembership.isSet()) {
-        obj.insert(QString("objUsergroupmembership"), ::OpenAPI::toJsonValue(m_obj_usergroupmembership));
+        obj.insert(QString("objUsergroupmembership"), ::Ezmaxapi::toJsonValue(m_obj_usergroupmembership));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAIUsergroupmembership_editObject_v1_Request::isValid() const {
     return m_obj_usergroupmembership_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

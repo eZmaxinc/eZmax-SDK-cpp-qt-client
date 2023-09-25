@@ -30,7 +30,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 class OAICustom_Webhook_Response;
 class OAIAttempt_ResponseCompound;
 class OAIEzsignfolder_Response;
@@ -90,8 +90,8 @@ private:
     bool m_obj_ezsignfoldersignerassociation_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIWebhook_Ezsign_EzsignsignerConnect)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIWebhook_Ezsign_EzsignsignerConnect)
 
 #endif // OAIWebhook_Ezsign_EzsignsignerConnect_H

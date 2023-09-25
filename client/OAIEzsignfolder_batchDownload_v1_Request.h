@@ -27,7 +27,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIEzsignfolder_batchDownload_v1_Request : public OAIObject {
 public:
@@ -65,8 +65,8 @@ private:
     bool m_a_e_document_type_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIEzsignfolder_batchDownload_v1_Request)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIEzsignfolder_batchDownload_v1_Request)
 
 #endif // OAIEzsignfolder_batchDownload_v1_Request_H

@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAITaxassignment_AutocompleteElement_Response::OAITaxassignment_AutocompleteElement_Response(QString json) {
     this->initializeModel();
@@ -53,13 +53,13 @@ void OAITaxassignment_AutocompleteElement_Response::fromJson(QString jsonString)
 
 void OAITaxassignment_AutocompleteElement_Response::fromJsonObject(QJsonObject json) {
 
-    m_s_taxassignment_description_x_isValid = ::OpenAPI::fromJsonValue(m_s_taxassignment_description_x, json[QString("sTaxassignmentDescriptionX")]);
+    m_s_taxassignment_description_x_isValid = ::Ezmaxapi::fromJsonValue(m_s_taxassignment_description_x, json[QString("sTaxassignmentDescriptionX")]);
     m_s_taxassignment_description_x_isSet = !json[QString("sTaxassignmentDescriptionX")].isNull() && m_s_taxassignment_description_x_isValid;
 
-    m_pki_taxassignment_id_isValid = ::OpenAPI::fromJsonValue(m_pki_taxassignment_id, json[QString("pkiTaxassignmentID")]);
+    m_pki_taxassignment_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_taxassignment_id, json[QString("pkiTaxassignmentID")]);
     m_pki_taxassignment_id_isSet = !json[QString("pkiTaxassignmentID")].isNull() && m_pki_taxassignment_id_isValid;
 
-    m_b_taxassignment_isactive_isValid = ::OpenAPI::fromJsonValue(m_b_taxassignment_isactive, json[QString("bTaxassignmentIsactive")]);
+    m_b_taxassignment_isactive_isValid = ::Ezmaxapi::fromJsonValue(m_b_taxassignment_isactive, json[QString("bTaxassignmentIsactive")]);
     m_b_taxassignment_isactive_isSet = !json[QString("bTaxassignmentIsactive")].isNull() && m_b_taxassignment_isactive_isValid;
 }
 
@@ -73,13 +73,13 @@ QString OAITaxassignment_AutocompleteElement_Response::asJson() const {
 QJsonObject OAITaxassignment_AutocompleteElement_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_s_taxassignment_description_x_isSet) {
-        obj.insert(QString("sTaxassignmentDescriptionX"), ::OpenAPI::toJsonValue(m_s_taxassignment_description_x));
+        obj.insert(QString("sTaxassignmentDescriptionX"), ::Ezmaxapi::toJsonValue(m_s_taxassignment_description_x));
     }
     if (m_pki_taxassignment_id_isSet) {
-        obj.insert(QString("pkiTaxassignmentID"), ::OpenAPI::toJsonValue(m_pki_taxassignment_id));
+        obj.insert(QString("pkiTaxassignmentID"), ::Ezmaxapi::toJsonValue(m_pki_taxassignment_id));
     }
     if (m_b_taxassignment_isactive_isSet) {
-        obj.insert(QString("bTaxassignmentIsactive"), ::OpenAPI::toJsonValue(m_b_taxassignment_isactive));
+        obj.insert(QString("bTaxassignmentIsactive"), ::Ezmaxapi::toJsonValue(m_b_taxassignment_isactive));
     }
     return obj;
 }
@@ -158,4 +158,4 @@ bool OAITaxassignment_AutocompleteElement_Response::isValid() const {
     return m_s_taxassignment_description_x_isValid && m_pki_taxassignment_id_isValid && m_b_taxassignment_isactive_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

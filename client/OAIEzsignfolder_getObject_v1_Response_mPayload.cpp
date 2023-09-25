@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzsignfolder_getObject_v1_Response_mPayload::OAIEzsignfolder_getObject_v1_Response_mPayload(QString json) {
     this->initializeModel();
@@ -110,70 +110,70 @@ void OAIEzsignfolder_getObject_v1_Response_mPayload::fromJson(QString jsonString
 
 void OAIEzsignfolder_getObject_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_pki_ezsignfolder_id_isValid = ::OpenAPI::fromJsonValue(m_pki_ezsignfolder_id, json[QString("pkiEzsignfolderID")]);
+    m_pki_ezsignfolder_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_ezsignfolder_id, json[QString("pkiEzsignfolderID")]);
     m_pki_ezsignfolder_id_isSet = !json[QString("pkiEzsignfolderID")].isNull() && m_pki_ezsignfolder_id_isValid;
 
-    m_fki_ezsignfoldertype_id_isValid = ::OpenAPI::fromJsonValue(m_fki_ezsignfoldertype_id, json[QString("fkiEzsignfoldertypeID")]);
+    m_fki_ezsignfoldertype_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_ezsignfoldertype_id, json[QString("fkiEzsignfoldertypeID")]);
     m_fki_ezsignfoldertype_id_isSet = !json[QString("fkiEzsignfoldertypeID")].isNull() && m_fki_ezsignfoldertype_id_isValid;
 
-    m_obj_ezsignfoldertype_isValid = ::OpenAPI::fromJsonValue(m_obj_ezsignfoldertype, json[QString("objEzsignfoldertype")]);
+    m_obj_ezsignfoldertype_isValid = ::Ezmaxapi::fromJsonValue(m_obj_ezsignfoldertype, json[QString("objEzsignfoldertype")]);
     m_obj_ezsignfoldertype_isSet = !json[QString("objEzsignfoldertype")].isNull() && m_obj_ezsignfoldertype_isValid;
 
-    m_s_ezsignfoldertype_name_x_isValid = ::OpenAPI::fromJsonValue(m_s_ezsignfoldertype_name_x, json[QString("sEzsignfoldertypeNameX")]);
+    m_s_ezsignfoldertype_name_x_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsignfoldertype_name_x, json[QString("sEzsignfoldertypeNameX")]);
     m_s_ezsignfoldertype_name_x_isSet = !json[QString("sEzsignfoldertypeNameX")].isNull() && m_s_ezsignfoldertype_name_x_isValid;
 
-    m_fki_billingentityinternal_id_isValid = ::OpenAPI::fromJsonValue(m_fki_billingentityinternal_id, json[QString("fkiBillingentityinternalID")]);
+    m_fki_billingentityinternal_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_billingentityinternal_id, json[QString("fkiBillingentityinternalID")]);
     m_fki_billingentityinternal_id_isSet = !json[QString("fkiBillingentityinternalID")].isNull() && m_fki_billingentityinternal_id_isValid;
 
-    m_s_billingentityinternal_description_x_isValid = ::OpenAPI::fromJsonValue(m_s_billingentityinternal_description_x, json[QString("sBillingentityinternalDescriptionX")]);
+    m_s_billingentityinternal_description_x_isValid = ::Ezmaxapi::fromJsonValue(m_s_billingentityinternal_description_x, json[QString("sBillingentityinternalDescriptionX")]);
     m_s_billingentityinternal_description_x_isSet = !json[QString("sBillingentityinternalDescriptionX")].isNull() && m_s_billingentityinternal_description_x_isValid;
 
-    m_fki_ezsigntsarequirement_id_isValid = ::OpenAPI::fromJsonValue(m_fki_ezsigntsarequirement_id, json[QString("fkiEzsigntsarequirementID")]);
+    m_fki_ezsigntsarequirement_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_ezsigntsarequirement_id, json[QString("fkiEzsigntsarequirementID")]);
     m_fki_ezsigntsarequirement_id_isSet = !json[QString("fkiEzsigntsarequirementID")].isNull() && m_fki_ezsigntsarequirement_id_isValid;
 
-    m_s_ezsigntsarequirement_description_x_isValid = ::OpenAPI::fromJsonValue(m_s_ezsigntsarequirement_description_x, json[QString("sEzsigntsarequirementDescriptionX")]);
+    m_s_ezsigntsarequirement_description_x_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsigntsarequirement_description_x, json[QString("sEzsigntsarequirementDescriptionX")]);
     m_s_ezsigntsarequirement_description_x_isSet = !json[QString("sEzsigntsarequirementDescriptionX")].isNull() && m_s_ezsigntsarequirement_description_x_isValid;
 
-    m_s_ezsignfolder_description_isValid = ::OpenAPI::fromJsonValue(m_s_ezsignfolder_description, json[QString("sEzsignfolderDescription")]);
+    m_s_ezsignfolder_description_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsignfolder_description, json[QString("sEzsignfolderDescription")]);
     m_s_ezsignfolder_description_isSet = !json[QString("sEzsignfolderDescription")].isNull() && m_s_ezsignfolder_description_isValid;
 
-    m_t_ezsignfolder_note_isValid = ::OpenAPI::fromJsonValue(m_t_ezsignfolder_note, json[QString("tEzsignfolderNote")]);
+    m_t_ezsignfolder_note_isValid = ::Ezmaxapi::fromJsonValue(m_t_ezsignfolder_note, json[QString("tEzsignfolderNote")]);
     m_t_ezsignfolder_note_isSet = !json[QString("tEzsignfolderNote")].isNull() && m_t_ezsignfolder_note_isValid;
 
-    m_b_ezsignfolder_isdisposable_isValid = ::OpenAPI::fromJsonValue(m_b_ezsignfolder_isdisposable, json[QString("bEzsignfolderIsdisposable")]);
+    m_b_ezsignfolder_isdisposable_isValid = ::Ezmaxapi::fromJsonValue(m_b_ezsignfolder_isdisposable, json[QString("bEzsignfolderIsdisposable")]);
     m_b_ezsignfolder_isdisposable_isSet = !json[QString("bEzsignfolderIsdisposable")].isNull() && m_b_ezsignfolder_isdisposable_isValid;
 
-    m_e_ezsignfolder_sendreminderfrequency_isValid = ::OpenAPI::fromJsonValue(m_e_ezsignfolder_sendreminderfrequency, json[QString("eEzsignfolderSendreminderfrequency")]);
+    m_e_ezsignfolder_sendreminderfrequency_isValid = ::Ezmaxapi::fromJsonValue(m_e_ezsignfolder_sendreminderfrequency, json[QString("eEzsignfolderSendreminderfrequency")]);
     m_e_ezsignfolder_sendreminderfrequency_isSet = !json[QString("eEzsignfolderSendreminderfrequency")].isNull() && m_e_ezsignfolder_sendreminderfrequency_isValid;
 
-    m_dt_ezsignfolder_delayedsenddate_isValid = ::OpenAPI::fromJsonValue(m_dt_ezsignfolder_delayedsenddate, json[QString("dtEzsignfolderDelayedsenddate")]);
+    m_dt_ezsignfolder_delayedsenddate_isValid = ::Ezmaxapi::fromJsonValue(m_dt_ezsignfolder_delayedsenddate, json[QString("dtEzsignfolderDelayedsenddate")]);
     m_dt_ezsignfolder_delayedsenddate_isSet = !json[QString("dtEzsignfolderDelayedsenddate")].isNull() && m_dt_ezsignfolder_delayedsenddate_isValid;
 
-    m_dt_ezsignfolder_duedate_isValid = ::OpenAPI::fromJsonValue(m_dt_ezsignfolder_duedate, json[QString("dtEzsignfolderDuedate")]);
+    m_dt_ezsignfolder_duedate_isValid = ::Ezmaxapi::fromJsonValue(m_dt_ezsignfolder_duedate, json[QString("dtEzsignfolderDuedate")]);
     m_dt_ezsignfolder_duedate_isSet = !json[QString("dtEzsignfolderDuedate")].isNull() && m_dt_ezsignfolder_duedate_isValid;
 
-    m_dt_ezsignfolder_sentdate_isValid = ::OpenAPI::fromJsonValue(m_dt_ezsignfolder_sentdate, json[QString("dtEzsignfolderSentdate")]);
+    m_dt_ezsignfolder_sentdate_isValid = ::Ezmaxapi::fromJsonValue(m_dt_ezsignfolder_sentdate, json[QString("dtEzsignfolderSentdate")]);
     m_dt_ezsignfolder_sentdate_isSet = !json[QString("dtEzsignfolderSentdate")].isNull() && m_dt_ezsignfolder_sentdate_isValid;
 
-    m_dt_ezsignfolder_scheduledarchive_isValid = ::OpenAPI::fromJsonValue(m_dt_ezsignfolder_scheduledarchive, json[QString("dtEzsignfolderScheduledarchive")]);
+    m_dt_ezsignfolder_scheduledarchive_isValid = ::Ezmaxapi::fromJsonValue(m_dt_ezsignfolder_scheduledarchive, json[QString("dtEzsignfolderScheduledarchive")]);
     m_dt_ezsignfolder_scheduledarchive_isSet = !json[QString("dtEzsignfolderScheduledarchive")].isNull() && m_dt_ezsignfolder_scheduledarchive_isValid;
 
-    m_dt_ezsignfolder_scheduleddispose_isValid = ::OpenAPI::fromJsonValue(m_dt_ezsignfolder_scheduleddispose, json[QString("dtEzsignfolderScheduleddispose")]);
+    m_dt_ezsignfolder_scheduleddispose_isValid = ::Ezmaxapi::fromJsonValue(m_dt_ezsignfolder_scheduleddispose, json[QString("dtEzsignfolderScheduleddispose")]);
     m_dt_ezsignfolder_scheduleddispose_isSet = !json[QString("dtEzsignfolderScheduleddispose")].isNull() && m_dt_ezsignfolder_scheduleddispose_isValid;
 
-    m_e_ezsignfolder_step_isValid = ::OpenAPI::fromJsonValue(m_e_ezsignfolder_step, json[QString("eEzsignfolderStep")]);
+    m_e_ezsignfolder_step_isValid = ::Ezmaxapi::fromJsonValue(m_e_ezsignfolder_step, json[QString("eEzsignfolderStep")]);
     m_e_ezsignfolder_step_isSet = !json[QString("eEzsignfolderStep")].isNull() && m_e_ezsignfolder_step_isValid;
 
-    m_dt_ezsignfolder_close_isValid = ::OpenAPI::fromJsonValue(m_dt_ezsignfolder_close, json[QString("dtEzsignfolderClose")]);
+    m_dt_ezsignfolder_close_isValid = ::Ezmaxapi::fromJsonValue(m_dt_ezsignfolder_close, json[QString("dtEzsignfolderClose")]);
     m_dt_ezsignfolder_close_isSet = !json[QString("dtEzsignfolderClose")].isNull() && m_dt_ezsignfolder_close_isValid;
 
-    m_t_ezsignfolder_message_isValid = ::OpenAPI::fromJsonValue(m_t_ezsignfolder_message, json[QString("tEzsignfolderMessage")]);
+    m_t_ezsignfolder_message_isValid = ::Ezmaxapi::fromJsonValue(m_t_ezsignfolder_message, json[QString("tEzsignfolderMessage")]);
     m_t_ezsignfolder_message_isSet = !json[QString("tEzsignfolderMessage")].isNull() && m_t_ezsignfolder_message_isValid;
 
-    m_obj_audit_isValid = ::OpenAPI::fromJsonValue(m_obj_audit, json[QString("objAudit")]);
+    m_obj_audit_isValid = ::Ezmaxapi::fromJsonValue(m_obj_audit, json[QString("objAudit")]);
     m_obj_audit_isSet = !json[QString("objAudit")].isNull() && m_obj_audit_isValid;
 
-    m_s_ezsignfolder_externalid_isValid = ::OpenAPI::fromJsonValue(m_s_ezsignfolder_externalid, json[QString("sEzsignfolderExternalid")]);
+    m_s_ezsignfolder_externalid_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsignfolder_externalid, json[QString("sEzsignfolderExternalid")]);
     m_s_ezsignfolder_externalid_isSet = !json[QString("sEzsignfolderExternalid")].isNull() && m_s_ezsignfolder_externalid_isValid;
 }
 
@@ -187,70 +187,70 @@ QString OAIEzsignfolder_getObject_v1_Response_mPayload::asJson() const {
 QJsonObject OAIEzsignfolder_getObject_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_ezsignfolder_id_isSet) {
-        obj.insert(QString("pkiEzsignfolderID"), ::OpenAPI::toJsonValue(m_pki_ezsignfolder_id));
+        obj.insert(QString("pkiEzsignfolderID"), ::Ezmaxapi::toJsonValue(m_pki_ezsignfolder_id));
     }
     if (m_fki_ezsignfoldertype_id_isSet) {
-        obj.insert(QString("fkiEzsignfoldertypeID"), ::OpenAPI::toJsonValue(m_fki_ezsignfoldertype_id));
+        obj.insert(QString("fkiEzsignfoldertypeID"), ::Ezmaxapi::toJsonValue(m_fki_ezsignfoldertype_id));
     }
     if (m_obj_ezsignfoldertype.isSet()) {
-        obj.insert(QString("objEzsignfoldertype"), ::OpenAPI::toJsonValue(m_obj_ezsignfoldertype));
+        obj.insert(QString("objEzsignfoldertype"), ::Ezmaxapi::toJsonValue(m_obj_ezsignfoldertype));
     }
     if (m_s_ezsignfoldertype_name_x_isSet) {
-        obj.insert(QString("sEzsignfoldertypeNameX"), ::OpenAPI::toJsonValue(m_s_ezsignfoldertype_name_x));
+        obj.insert(QString("sEzsignfoldertypeNameX"), ::Ezmaxapi::toJsonValue(m_s_ezsignfoldertype_name_x));
     }
     if (m_fki_billingentityinternal_id_isSet) {
-        obj.insert(QString("fkiBillingentityinternalID"), ::OpenAPI::toJsonValue(m_fki_billingentityinternal_id));
+        obj.insert(QString("fkiBillingentityinternalID"), ::Ezmaxapi::toJsonValue(m_fki_billingentityinternal_id));
     }
     if (m_s_billingentityinternal_description_x_isSet) {
-        obj.insert(QString("sBillingentityinternalDescriptionX"), ::OpenAPI::toJsonValue(m_s_billingentityinternal_description_x));
+        obj.insert(QString("sBillingentityinternalDescriptionX"), ::Ezmaxapi::toJsonValue(m_s_billingentityinternal_description_x));
     }
     if (m_fki_ezsigntsarequirement_id_isSet) {
-        obj.insert(QString("fkiEzsigntsarequirementID"), ::OpenAPI::toJsonValue(m_fki_ezsigntsarequirement_id));
+        obj.insert(QString("fkiEzsigntsarequirementID"), ::Ezmaxapi::toJsonValue(m_fki_ezsigntsarequirement_id));
     }
     if (m_s_ezsigntsarequirement_description_x_isSet) {
-        obj.insert(QString("sEzsigntsarequirementDescriptionX"), ::OpenAPI::toJsonValue(m_s_ezsigntsarequirement_description_x));
+        obj.insert(QString("sEzsigntsarequirementDescriptionX"), ::Ezmaxapi::toJsonValue(m_s_ezsigntsarequirement_description_x));
     }
     if (m_s_ezsignfolder_description_isSet) {
-        obj.insert(QString("sEzsignfolderDescription"), ::OpenAPI::toJsonValue(m_s_ezsignfolder_description));
+        obj.insert(QString("sEzsignfolderDescription"), ::Ezmaxapi::toJsonValue(m_s_ezsignfolder_description));
     }
     if (m_t_ezsignfolder_note_isSet) {
-        obj.insert(QString("tEzsignfolderNote"), ::OpenAPI::toJsonValue(m_t_ezsignfolder_note));
+        obj.insert(QString("tEzsignfolderNote"), ::Ezmaxapi::toJsonValue(m_t_ezsignfolder_note));
     }
     if (m_b_ezsignfolder_isdisposable_isSet) {
-        obj.insert(QString("bEzsignfolderIsdisposable"), ::OpenAPI::toJsonValue(m_b_ezsignfolder_isdisposable));
+        obj.insert(QString("bEzsignfolderIsdisposable"), ::Ezmaxapi::toJsonValue(m_b_ezsignfolder_isdisposable));
     }
     if (m_e_ezsignfolder_sendreminderfrequency.isSet()) {
-        obj.insert(QString("eEzsignfolderSendreminderfrequency"), ::OpenAPI::toJsonValue(m_e_ezsignfolder_sendreminderfrequency));
+        obj.insert(QString("eEzsignfolderSendreminderfrequency"), ::Ezmaxapi::toJsonValue(m_e_ezsignfolder_sendreminderfrequency));
     }
     if (m_dt_ezsignfolder_delayedsenddate_isSet) {
-        obj.insert(QString("dtEzsignfolderDelayedsenddate"), ::OpenAPI::toJsonValue(m_dt_ezsignfolder_delayedsenddate));
+        obj.insert(QString("dtEzsignfolderDelayedsenddate"), ::Ezmaxapi::toJsonValue(m_dt_ezsignfolder_delayedsenddate));
     }
     if (m_dt_ezsignfolder_duedate_isSet) {
-        obj.insert(QString("dtEzsignfolderDuedate"), ::OpenAPI::toJsonValue(m_dt_ezsignfolder_duedate));
+        obj.insert(QString("dtEzsignfolderDuedate"), ::Ezmaxapi::toJsonValue(m_dt_ezsignfolder_duedate));
     }
     if (m_dt_ezsignfolder_sentdate_isSet) {
-        obj.insert(QString("dtEzsignfolderSentdate"), ::OpenAPI::toJsonValue(m_dt_ezsignfolder_sentdate));
+        obj.insert(QString("dtEzsignfolderSentdate"), ::Ezmaxapi::toJsonValue(m_dt_ezsignfolder_sentdate));
     }
     if (m_dt_ezsignfolder_scheduledarchive_isSet) {
-        obj.insert(QString("dtEzsignfolderScheduledarchive"), ::OpenAPI::toJsonValue(m_dt_ezsignfolder_scheduledarchive));
+        obj.insert(QString("dtEzsignfolderScheduledarchive"), ::Ezmaxapi::toJsonValue(m_dt_ezsignfolder_scheduledarchive));
     }
     if (m_dt_ezsignfolder_scheduleddispose_isSet) {
-        obj.insert(QString("dtEzsignfolderScheduleddispose"), ::OpenAPI::toJsonValue(m_dt_ezsignfolder_scheduleddispose));
+        obj.insert(QString("dtEzsignfolderScheduleddispose"), ::Ezmaxapi::toJsonValue(m_dt_ezsignfolder_scheduleddispose));
     }
     if (m_e_ezsignfolder_step.isSet()) {
-        obj.insert(QString("eEzsignfolderStep"), ::OpenAPI::toJsonValue(m_e_ezsignfolder_step));
+        obj.insert(QString("eEzsignfolderStep"), ::Ezmaxapi::toJsonValue(m_e_ezsignfolder_step));
     }
     if (m_dt_ezsignfolder_close_isSet) {
-        obj.insert(QString("dtEzsignfolderClose"), ::OpenAPI::toJsonValue(m_dt_ezsignfolder_close));
+        obj.insert(QString("dtEzsignfolderClose"), ::Ezmaxapi::toJsonValue(m_dt_ezsignfolder_close));
     }
     if (m_t_ezsignfolder_message_isSet) {
-        obj.insert(QString("tEzsignfolderMessage"), ::OpenAPI::toJsonValue(m_t_ezsignfolder_message));
+        obj.insert(QString("tEzsignfolderMessage"), ::Ezmaxapi::toJsonValue(m_t_ezsignfolder_message));
     }
     if (m_obj_audit.isSet()) {
-        obj.insert(QString("objAudit"), ::OpenAPI::toJsonValue(m_obj_audit));
+        obj.insert(QString("objAudit"), ::Ezmaxapi::toJsonValue(m_obj_audit));
     }
     if (m_s_ezsignfolder_externalid_isSet) {
-        obj.insert(QString("sEzsignfolderExternalid"), ::OpenAPI::toJsonValue(m_s_ezsignfolder_externalid));
+        obj.insert(QString("sEzsignfolderExternalid"), ::Ezmaxapi::toJsonValue(m_s_ezsignfolder_externalid));
     }
     return obj;
 }
@@ -728,4 +728,4 @@ bool OAIEzsignfolder_getObject_v1_Response_mPayload::isValid() const {
     return m_pki_ezsignfolder_id_isValid && m_s_ezsignfolder_description_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIFranchisereferalincome_createObject_v2_Request::OAIFranchisereferalincome_createObject_v2_Request(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAIFranchisereferalincome_createObject_v2_Request::fromJson(QString jsonStr
 
 void OAIFranchisereferalincome_createObject_v2_Request::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_franchisereferalincome_isValid = ::OpenAPI::fromJsonValue(m_a_obj_franchisereferalincome, json[QString("a_objFranchisereferalincome")]);
+    m_a_obj_franchisereferalincome_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_franchisereferalincome, json[QString("a_objFranchisereferalincome")]);
     m_a_obj_franchisereferalincome_isSet = !json[QString("a_objFranchisereferalincome")].isNull() && m_a_obj_franchisereferalincome_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAIFranchisereferalincome_createObject_v2_Request::asJson() const {
 QJsonObject OAIFranchisereferalincome_createObject_v2_Request::asJsonObject() const {
     QJsonObject obj;
     if (m_a_obj_franchisereferalincome.size() > 0) {
-        obj.insert(QString("a_objFranchisereferalincome"), ::OpenAPI::toJsonValue(m_a_obj_franchisereferalincome));
+        obj.insert(QString("a_objFranchisereferalincome"), ::Ezmaxapi::toJsonValue(m_a_obj_franchisereferalincome));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAIFranchisereferalincome_createObject_v2_Request::isValid() const {
     return m_a_obj_franchisereferalincome_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

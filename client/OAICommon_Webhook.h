@@ -28,7 +28,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 class OAICustom_Webhook_Response;
 class OAIAttempt_ResponseCompound;
 
@@ -68,8 +68,8 @@ private:
     bool m_a_obj_attempt_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAICommon_Webhook)
+Q_DECLARE_METATYPE(Ezmaxapi::OAICommon_Webhook)
 
 #endif // OAICommon_Webhook_H

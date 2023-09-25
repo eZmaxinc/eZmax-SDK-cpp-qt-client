@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIScim_AuthenticationScheme::OAIScim_AuthenticationScheme(QString json) {
     this->initializeModel();
@@ -53,13 +53,13 @@ void OAIScim_AuthenticationScheme::fromJson(QString jsonString) {
 
 void OAIScim_AuthenticationScheme::fromJsonObject(QJsonObject json) {
 
-    m_description_isValid = ::OpenAPI::fromJsonValue(m_description, json[QString("description")]);
+    m_description_isValid = ::Ezmaxapi::fromJsonValue(m_description, json[QString("description")]);
     m_description_isSet = !json[QString("description")].isNull() && m_description_isValid;
 
-    m_name_isValid = ::OpenAPI::fromJsonValue(m_name, json[QString("name")]);
+    m_name_isValid = ::Ezmaxapi::fromJsonValue(m_name, json[QString("name")]);
     m_name_isSet = !json[QString("name")].isNull() && m_name_isValid;
 
-    m_type_isValid = ::OpenAPI::fromJsonValue(m_type, json[QString("type")]);
+    m_type_isValid = ::Ezmaxapi::fromJsonValue(m_type, json[QString("type")]);
     m_type_isSet = !json[QString("type")].isNull() && m_type_isValid;
 }
 
@@ -73,13 +73,13 @@ QString OAIScim_AuthenticationScheme::asJson() const {
 QJsonObject OAIScim_AuthenticationScheme::asJsonObject() const {
     QJsonObject obj;
     if (m_description_isSet) {
-        obj.insert(QString("description"), ::OpenAPI::toJsonValue(m_description));
+        obj.insert(QString("description"), ::Ezmaxapi::toJsonValue(m_description));
     }
     if (m_name_isSet) {
-        obj.insert(QString("name"), ::OpenAPI::toJsonValue(m_name));
+        obj.insert(QString("name"), ::Ezmaxapi::toJsonValue(m_name));
     }
     if (m_type_isSet) {
-        obj.insert(QString("type"), ::OpenAPI::toJsonValue(m_type));
+        obj.insert(QString("type"), ::Ezmaxapi::toJsonValue(m_type));
     }
     return obj;
 }
@@ -158,4 +158,4 @@ bool OAIScim_AuthenticationScheme::isValid() const {
     return m_description_isValid && m_name_isValid && m_type_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

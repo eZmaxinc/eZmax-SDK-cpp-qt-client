@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAICommon_Reportcellstyle::OAICommon_Reportcellstyle(QString json) {
     this->initializeModel();
@@ -68,28 +68,28 @@ void OAICommon_Reportcellstyle::fromJson(QString jsonString) {
 
 void OAICommon_Reportcellstyle::fromJsonObject(QJsonObject json) {
 
-    m_b_reportcellstyle_bordertop_isValid = ::OpenAPI::fromJsonValue(m_b_reportcellstyle_bordertop, json[QString("bReportcellstyleBordertop")]);
+    m_b_reportcellstyle_bordertop_isValid = ::Ezmaxapi::fromJsonValue(m_b_reportcellstyle_bordertop, json[QString("bReportcellstyleBordertop")]);
     m_b_reportcellstyle_bordertop_isSet = !json[QString("bReportcellstyleBordertop")].isNull() && m_b_reportcellstyle_bordertop_isValid;
 
-    m_b_reportcellstyle_borderbottom_isValid = ::OpenAPI::fromJsonValue(m_b_reportcellstyle_borderbottom, json[QString("bReportcellstyleBorderbottom")]);
+    m_b_reportcellstyle_borderbottom_isValid = ::Ezmaxapi::fromJsonValue(m_b_reportcellstyle_borderbottom, json[QString("bReportcellstyleBorderbottom")]);
     m_b_reportcellstyle_borderbottom_isSet = !json[QString("bReportcellstyleBorderbottom")].isNull() && m_b_reportcellstyle_borderbottom_isValid;
 
-    m_b_reportcellstyle_borderleft_isValid = ::OpenAPI::fromJsonValue(m_b_reportcellstyle_borderleft, json[QString("bReportcellstyleBorderleft")]);
+    m_b_reportcellstyle_borderleft_isValid = ::Ezmaxapi::fromJsonValue(m_b_reportcellstyle_borderleft, json[QString("bReportcellstyleBorderleft")]);
     m_b_reportcellstyle_borderleft_isSet = !json[QString("bReportcellstyleBorderleft")].isNull() && m_b_reportcellstyle_borderleft_isValid;
 
-    m_b_reportcellstyle_borderright_isValid = ::OpenAPI::fromJsonValue(m_b_reportcellstyle_borderright, json[QString("bReportcellstyleBorderright")]);
+    m_b_reportcellstyle_borderright_isValid = ::Ezmaxapi::fromJsonValue(m_b_reportcellstyle_borderright, json[QString("bReportcellstyleBorderright")]);
     m_b_reportcellstyle_borderright_isSet = !json[QString("bReportcellstyleBorderright")].isNull() && m_b_reportcellstyle_borderright_isValid;
 
-    m_e_reportcell_horizontalalignment_isValid = ::OpenAPI::fromJsonValue(m_e_reportcell_horizontalalignment, json[QString("eReportcellHorizontalalignment")]);
+    m_e_reportcell_horizontalalignment_isValid = ::Ezmaxapi::fromJsonValue(m_e_reportcell_horizontalalignment, json[QString("eReportcellHorizontalalignment")]);
     m_e_reportcell_horizontalalignment_isSet = !json[QString("eReportcellHorizontalalignment")].isNull() && m_e_reportcell_horizontalalignment_isValid;
 
-    m_e_reportcell_verticalalignment_isValid = ::OpenAPI::fromJsonValue(m_e_reportcell_verticalalignment, json[QString("eReportcellVerticalalignment")]);
+    m_e_reportcell_verticalalignment_isValid = ::Ezmaxapi::fromJsonValue(m_e_reportcell_verticalalignment, json[QString("eReportcellVerticalalignment")]);
     m_e_reportcell_verticalalignment_isSet = !json[QString("eReportcellVerticalalignment")].isNull() && m_e_reportcell_verticalalignment_isValid;
 
-    m_e_reportcell_fontweight_isValid = ::OpenAPI::fromJsonValue(m_e_reportcell_fontweight, json[QString("eReportcellFontweight")]);
+    m_e_reportcell_fontweight_isValid = ::Ezmaxapi::fromJsonValue(m_e_reportcell_fontweight, json[QString("eReportcellFontweight")]);
     m_e_reportcell_fontweight_isSet = !json[QString("eReportcellFontweight")].isNull() && m_e_reportcell_fontweight_isValid;
 
-    m_e_reportcell_fontunderline_isValid = ::OpenAPI::fromJsonValue(m_e_reportcell_fontunderline, json[QString("eReportcellFontunderline")]);
+    m_e_reportcell_fontunderline_isValid = ::Ezmaxapi::fromJsonValue(m_e_reportcell_fontunderline, json[QString("eReportcellFontunderline")]);
     m_e_reportcell_fontunderline_isSet = !json[QString("eReportcellFontunderline")].isNull() && m_e_reportcell_fontunderline_isValid;
 }
 
@@ -103,28 +103,28 @@ QString OAICommon_Reportcellstyle::asJson() const {
 QJsonObject OAICommon_Reportcellstyle::asJsonObject() const {
     QJsonObject obj;
     if (m_b_reportcellstyle_bordertop_isSet) {
-        obj.insert(QString("bReportcellstyleBordertop"), ::OpenAPI::toJsonValue(m_b_reportcellstyle_bordertop));
+        obj.insert(QString("bReportcellstyleBordertop"), ::Ezmaxapi::toJsonValue(m_b_reportcellstyle_bordertop));
     }
     if (m_b_reportcellstyle_borderbottom_isSet) {
-        obj.insert(QString("bReportcellstyleBorderbottom"), ::OpenAPI::toJsonValue(m_b_reportcellstyle_borderbottom));
+        obj.insert(QString("bReportcellstyleBorderbottom"), ::Ezmaxapi::toJsonValue(m_b_reportcellstyle_borderbottom));
     }
     if (m_b_reportcellstyle_borderleft_isSet) {
-        obj.insert(QString("bReportcellstyleBorderleft"), ::OpenAPI::toJsonValue(m_b_reportcellstyle_borderleft));
+        obj.insert(QString("bReportcellstyleBorderleft"), ::Ezmaxapi::toJsonValue(m_b_reportcellstyle_borderleft));
     }
     if (m_b_reportcellstyle_borderright_isSet) {
-        obj.insert(QString("bReportcellstyleBorderright"), ::OpenAPI::toJsonValue(m_b_reportcellstyle_borderright));
+        obj.insert(QString("bReportcellstyleBorderright"), ::Ezmaxapi::toJsonValue(m_b_reportcellstyle_borderright));
     }
     if (m_e_reportcell_horizontalalignment.isSet()) {
-        obj.insert(QString("eReportcellHorizontalalignment"), ::OpenAPI::toJsonValue(m_e_reportcell_horizontalalignment));
+        obj.insert(QString("eReportcellHorizontalalignment"), ::Ezmaxapi::toJsonValue(m_e_reportcell_horizontalalignment));
     }
     if (m_e_reportcell_verticalalignment.isSet()) {
-        obj.insert(QString("eReportcellVerticalalignment"), ::OpenAPI::toJsonValue(m_e_reportcell_verticalalignment));
+        obj.insert(QString("eReportcellVerticalalignment"), ::Ezmaxapi::toJsonValue(m_e_reportcell_verticalalignment));
     }
     if (m_e_reportcell_fontweight.isSet()) {
-        obj.insert(QString("eReportcellFontweight"), ::OpenAPI::toJsonValue(m_e_reportcell_fontweight));
+        obj.insert(QString("eReportcellFontweight"), ::Ezmaxapi::toJsonValue(m_e_reportcell_fontweight));
     }
     if (m_e_reportcell_fontunderline.isSet()) {
-        obj.insert(QString("eReportcellFontunderline"), ::OpenAPI::toJsonValue(m_e_reportcell_fontunderline));
+        obj.insert(QString("eReportcellFontunderline"), ::Ezmaxapi::toJsonValue(m_e_reportcell_fontunderline));
     }
     return obj;
 }
@@ -308,4 +308,4 @@ bool OAICommon_Reportcellstyle::isValid() const {
     return m_b_reportcellstyle_bordertop_isValid && m_b_reportcellstyle_borderbottom_isValid && m_b_reportcellstyle_borderleft_isValid && m_b_reportcellstyle_borderright_isValid && m_e_reportcell_horizontalalignment_isValid && m_e_reportcell_verticalalignment_isValid && m_e_reportcell_fontweight_isValid && m_e_reportcell_fontunderline_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

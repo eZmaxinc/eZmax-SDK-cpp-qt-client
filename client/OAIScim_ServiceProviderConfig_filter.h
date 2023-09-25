@@ -25,7 +25,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIScim_ServiceProviderConfig_filter : public OAIObject {
 public:
@@ -63,8 +63,8 @@ private:
     bool m_max_results_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIScim_ServiceProviderConfig_filter)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIScim_ServiceProviderConfig_filter)
 
 #endif // OAIScim_ServiceProviderConfig_filter_H

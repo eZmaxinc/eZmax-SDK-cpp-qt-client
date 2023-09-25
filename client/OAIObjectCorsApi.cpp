@@ -15,7 +15,7 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIObjectCorsApi::OAIObjectCorsApi(const int timeOut)
     : _timeOut(timeOut),
@@ -319,7 +319,7 @@ void OAIObjectCorsApi::corsDeleteObjectV1(const qint32 &pki_cors_id) {
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiCorsID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiCorsID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_cors_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_cors_id)));
+        fullPath.replace(pki_cors_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_cors_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -386,7 +386,7 @@ void OAIObjectCorsApi::corsEditObjectV1(const qint32 &pki_cors_id, const OAICors
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiCorsID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiCorsID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_cors_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_cors_id)));
+        fullPath.replace(pki_cors_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_cors_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -458,7 +458,7 @@ void OAIObjectCorsApi::corsGetObjectV2(const qint32 &pki_cors_id) {
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiCorsID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiCorsID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_cors_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_cors_id)));
+        fullPath.replace(pki_cors_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_cors_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -555,4 +555,4 @@ void OAIObjectCorsApi::tokenAvailable(){
         break;
     }
 }
-} // namespace OpenAPI
+} // namespace Ezmaxapi

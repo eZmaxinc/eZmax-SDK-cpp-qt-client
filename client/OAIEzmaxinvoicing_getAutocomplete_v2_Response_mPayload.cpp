@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzmaxinvoicing_getAutocomplete_v2_Response_mPayload::OAIEzmaxinvoicing_getAutocomplete_v2_Response_mPayload(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAIEzmaxinvoicing_getAutocomplete_v2_Response_mPayload::fromJson(QString js
 
 void OAIEzmaxinvoicing_getAutocomplete_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_ezmaxinvoicing_isValid = ::OpenAPI::fromJsonValue(m_a_obj_ezmaxinvoicing, json[QString("a_objEzmaxinvoicing")]);
+    m_a_obj_ezmaxinvoicing_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_ezmaxinvoicing, json[QString("a_objEzmaxinvoicing")]);
     m_a_obj_ezmaxinvoicing_isSet = !json[QString("a_objEzmaxinvoicing")].isNull() && m_a_obj_ezmaxinvoicing_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAIEzmaxinvoicing_getAutocomplete_v2_Response_mPayload::asJson() const {
 QJsonObject OAIEzmaxinvoicing_getAutocomplete_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_a_obj_ezmaxinvoicing.size() > 0) {
-        obj.insert(QString("a_objEzmaxinvoicing"), ::OpenAPI::toJsonValue(m_a_obj_ezmaxinvoicing));
+        obj.insert(QString("a_objEzmaxinvoicing"), ::Ezmaxapi::toJsonValue(m_a_obj_ezmaxinvoicing));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAIEzmaxinvoicing_getAutocomplete_v2_Response_mPayload::isValid() const {
     return m_a_obj_ezmaxinvoicing_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

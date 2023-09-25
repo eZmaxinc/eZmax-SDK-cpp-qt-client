@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIPhonestatic_ResponseCompound::OAIPhonestatic_ResponseCompound(QString json) {
     this->initializeModel();
@@ -53,13 +53,13 @@ void OAIPhonestatic_ResponseCompound::fromJson(QString jsonString) {
 
 void OAIPhonestatic_ResponseCompound::fromJsonObject(QJsonObject json) {
 
-    m_pki_phonestatic_id_isValid = ::OpenAPI::fromJsonValue(m_pki_phonestatic_id, json[QString("pkiPhonestaticID")]);
+    m_pki_phonestatic_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_phonestatic_id, json[QString("pkiPhonestaticID")]);
     m_pki_phonestatic_id_isSet = !json[QString("pkiPhonestaticID")].isNull() && m_pki_phonestatic_id_isValid;
 
-    m_s_phonestatic_e164_isValid = ::OpenAPI::fromJsonValue(m_s_phonestatic_e164, json[QString("sPhonestaticE164")]);
+    m_s_phonestatic_e164_isValid = ::Ezmaxapi::fromJsonValue(m_s_phonestatic_e164, json[QString("sPhonestaticE164")]);
     m_s_phonestatic_e164_isSet = !json[QString("sPhonestaticE164")].isNull() && m_s_phonestatic_e164_isValid;
 
-    m_s_phonestatic_extension_isValid = ::OpenAPI::fromJsonValue(m_s_phonestatic_extension, json[QString("sPhonestaticExtension")]);
+    m_s_phonestatic_extension_isValid = ::Ezmaxapi::fromJsonValue(m_s_phonestatic_extension, json[QString("sPhonestaticExtension")]);
     m_s_phonestatic_extension_isSet = !json[QString("sPhonestaticExtension")].isNull() && m_s_phonestatic_extension_isValid;
 }
 
@@ -73,13 +73,13 @@ QString OAIPhonestatic_ResponseCompound::asJson() const {
 QJsonObject OAIPhonestatic_ResponseCompound::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_phonestatic_id_isSet) {
-        obj.insert(QString("pkiPhonestaticID"), ::OpenAPI::toJsonValue(m_pki_phonestatic_id));
+        obj.insert(QString("pkiPhonestaticID"), ::Ezmaxapi::toJsonValue(m_pki_phonestatic_id));
     }
     if (m_s_phonestatic_e164_isSet) {
-        obj.insert(QString("sPhonestaticE164"), ::OpenAPI::toJsonValue(m_s_phonestatic_e164));
+        obj.insert(QString("sPhonestaticE164"), ::Ezmaxapi::toJsonValue(m_s_phonestatic_e164));
     }
     if (m_s_phonestatic_extension_isSet) {
-        obj.insert(QString("sPhonestaticExtension"), ::OpenAPI::toJsonValue(m_s_phonestatic_extension));
+        obj.insert(QString("sPhonestaticExtension"), ::Ezmaxapi::toJsonValue(m_s_phonestatic_extension));
     }
     return obj;
 }
@@ -158,4 +158,4 @@ bool OAIPhonestatic_ResponseCompound::isValid() const {
     return m_pki_phonestatic_id_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

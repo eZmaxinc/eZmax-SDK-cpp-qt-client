@@ -27,7 +27,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 class OAIPaymentterm_RequestCompound;
 
 class OAIPaymentterm_createObject_v1_Request : public OAIObject {
@@ -57,8 +57,8 @@ private:
     bool m_a_obj_paymentterm_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIPaymentterm_createObject_v1_Request)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIPaymentterm_createObject_v1_Request)
 
 #endif // OAIPaymentterm_createObject_v1_Request_H

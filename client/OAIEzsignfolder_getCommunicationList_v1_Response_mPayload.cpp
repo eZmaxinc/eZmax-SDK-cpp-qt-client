@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzsignfolder_getCommunicationList_v1_Response_mPayload::OAIEzsignfolder_getCommunicationList_v1_Response_mPayload(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAIEzsignfolder_getCommunicationList_v1_Response_mPayload::fromJson(QString
 
 void OAIEzsignfolder_getCommunicationList_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_communication_isValid = ::OpenAPI::fromJsonValue(m_a_obj_communication, json[QString("a_objCommunication")]);
+    m_a_obj_communication_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_communication, json[QString("a_objCommunication")]);
     m_a_obj_communication_isSet = !json[QString("a_objCommunication")].isNull() && m_a_obj_communication_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAIEzsignfolder_getCommunicationList_v1_Response_mPayload::asJson() cons
 QJsonObject OAIEzsignfolder_getCommunicationList_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_a_obj_communication.size() > 0) {
-        obj.insert(QString("a_objCommunication"), ::OpenAPI::toJsonValue(m_a_obj_communication));
+        obj.insert(QString("a_objCommunication"), ::Ezmaxapi::toJsonValue(m_a_obj_communication));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAIEzsignfolder_getCommunicationList_v1_Response_mPayload::isValid() const 
     return m_a_obj_communication_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

@@ -31,7 +31,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 class OAICommon_Audit;
 class OAIEzsignbulksenddocumentmapping_ResponseCompound;
 class OAIEzsignbulksendsignermapping_Response;
@@ -171,8 +171,8 @@ private:
     bool m_a_obj_ezsignbulksendsignermapping_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIEzsignbulksend_ResponseCompound)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIEzsignbulksend_ResponseCompound)
 
 #endif // OAIEzsignbulksend_ResponseCompound_H

@@ -15,7 +15,7 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIGlobalEzmaxclientApi::OAIGlobalEzmaxclientApi(const int timeOut)
     : _timeOut(timeOut),
@@ -388,4 +388,4 @@ void OAIGlobalEzmaxclientApi::tokenAvailable(){
         break;
     }
 }
-} // namespace OpenAPI
+} // namespace Ezmaxapi

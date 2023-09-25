@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIApikey_getCors_v1_Response_mPayload::OAIApikey_getCors_v1_Response_mPayload(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAIApikey_getCors_v1_Response_mPayload::fromJson(QString jsonString) {
 
 void OAIApikey_getCors_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_cors_isValid = ::OpenAPI::fromJsonValue(m_a_obj_cors, json[QString("a_objCors")]);
+    m_a_obj_cors_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_cors, json[QString("a_objCors")]);
     m_a_obj_cors_isSet = !json[QString("a_objCors")].isNull() && m_a_obj_cors_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAIApikey_getCors_v1_Response_mPayload::asJson() const {
 QJsonObject OAIApikey_getCors_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_a_obj_cors.size() > 0) {
-        obj.insert(QString("a_objCors"), ::OpenAPI::toJsonValue(m_a_obj_cors));
+        obj.insert(QString("a_objCors"), ::Ezmaxapi::toJsonValue(m_a_obj_cors));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAIApikey_getCors_v1_Response_mPayload::isValid() const {
     return m_a_obj_cors_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

@@ -26,7 +26,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIActivesession_ResponseCompound_Apikey : public OAIObject {
 public:
@@ -64,8 +64,8 @@ private:
     bool m_s_apikey_description_x_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIActivesession_ResponseCompound_Apikey)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIActivesession_ResponseCompound_Apikey)
 
 #endif // OAIActivesession_ResponseCompound_Apikey_H

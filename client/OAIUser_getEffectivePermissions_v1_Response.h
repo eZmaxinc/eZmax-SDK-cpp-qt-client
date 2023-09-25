@@ -28,7 +28,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 class OAICommon_Response_objDebugPayload;
 class OAICommon_Response_objDebug;
 class OAIUser_getEffectivePermissions_v1_Response_mPayload;
@@ -78,8 +78,8 @@ private:
     bool m_m_payload_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIUser_getEffectivePermissions_v1_Response)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIUser_getEffectivePermissions_v1_Response)
 
 #endif // OAIUser_getEffectivePermissions_v1_Response_H

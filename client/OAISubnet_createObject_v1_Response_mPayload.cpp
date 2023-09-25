@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAISubnet_createObject_v1_Response_mPayload::OAISubnet_createObject_v1_Response_mPayload(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAISubnet_createObject_v1_Response_mPayload::fromJson(QString jsonString) {
 
 void OAISubnet_createObject_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_pki_subnet_id_isValid = ::OpenAPI::fromJsonValue(m_a_pki_subnet_id, json[QString("a_pkiSubnetID")]);
+    m_a_pki_subnet_id_isValid = ::Ezmaxapi::fromJsonValue(m_a_pki_subnet_id, json[QString("a_pkiSubnetID")]);
     m_a_pki_subnet_id_isSet = !json[QString("a_pkiSubnetID")].isNull() && m_a_pki_subnet_id_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAISubnet_createObject_v1_Response_mPayload::asJson() const {
 QJsonObject OAISubnet_createObject_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_a_pki_subnet_id.size() > 0) {
-        obj.insert(QString("a_pkiSubnetID"), ::OpenAPI::toJsonValue(m_a_pki_subnet_id));
+        obj.insert(QString("a_pkiSubnetID"), ::Ezmaxapi::toJsonValue(m_a_pki_subnet_id));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAISubnet_createObject_v1_Response_mPayload::isValid() const {
     return m_a_pki_subnet_id_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

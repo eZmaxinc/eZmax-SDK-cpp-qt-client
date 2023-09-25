@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAICommon_Reportgroup::OAICommon_Reportgroup(QString json) {
     this->initializeModel();
@@ -50,10 +50,10 @@ void OAICommon_Reportgroup::fromJson(QString jsonString) {
 
 void OAICommon_Reportgroup::fromJsonObject(QJsonObject json) {
 
-    m_a_obj_report_isValid = ::OpenAPI::fromJsonValue(m_a_obj_report, json[QString("a_objReport")]);
+    m_a_obj_report_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_report, json[QString("a_objReport")]);
     m_a_obj_report_isSet = !json[QString("a_objReport")].isNull() && m_a_obj_report_isValid;
 
-    m_a_obj_reportcellstyle_custom_isValid = ::OpenAPI::fromJsonValue(m_a_obj_reportcellstyle_custom, json[QString("a_objReportcellstyleCustom")]);
+    m_a_obj_reportcellstyle_custom_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_reportcellstyle_custom, json[QString("a_objReportcellstyleCustom")]);
     m_a_obj_reportcellstyle_custom_isSet = !json[QString("a_objReportcellstyleCustom")].isNull() && m_a_obj_reportcellstyle_custom_isValid;
 }
 
@@ -67,10 +67,10 @@ QString OAICommon_Reportgroup::asJson() const {
 QJsonObject OAICommon_Reportgroup::asJsonObject() const {
     QJsonObject obj;
     if (m_a_obj_report.size() > 0) {
-        obj.insert(QString("a_objReport"), ::OpenAPI::toJsonValue(m_a_obj_report));
+        obj.insert(QString("a_objReport"), ::Ezmaxapi::toJsonValue(m_a_obj_report));
     }
     if (m_a_obj_reportcellstyle_custom.size() > 0) {
-        obj.insert(QString("a_objReportcellstyleCustom"), ::OpenAPI::toJsonValue(m_a_obj_reportcellstyle_custom));
+        obj.insert(QString("a_objReportcellstyleCustom"), ::Ezmaxapi::toJsonValue(m_a_obj_reportcellstyle_custom));
     }
     return obj;
 }
@@ -128,4 +128,4 @@ bool OAICommon_Reportgroup::isValid() const {
     return m_a_obj_report_isValid && m_a_obj_reportcellstyle_custom_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

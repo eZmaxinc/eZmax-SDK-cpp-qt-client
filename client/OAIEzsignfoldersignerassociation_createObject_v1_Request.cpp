@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzsignfoldersignerassociation_createObject_v1_Request::OAIEzsignfoldersignerassociation_createObject_v1_Request(QString json) {
     this->initializeModel();
@@ -50,10 +50,10 @@ void OAIEzsignfoldersignerassociation_createObject_v1_Request::fromJson(QString 
 
 void OAIEzsignfoldersignerassociation_createObject_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_obj_ezsignfoldersignerassociation_isValid = ::OpenAPI::fromJsonValue(m_obj_ezsignfoldersignerassociation, json[QString("objEzsignfoldersignerassociation")]);
+    m_obj_ezsignfoldersignerassociation_isValid = ::Ezmaxapi::fromJsonValue(m_obj_ezsignfoldersignerassociation, json[QString("objEzsignfoldersignerassociation")]);
     m_obj_ezsignfoldersignerassociation_isSet = !json[QString("objEzsignfoldersignerassociation")].isNull() && m_obj_ezsignfoldersignerassociation_isValid;
 
-    m_obj_ezsignfoldersignerassociation_compound_isValid = ::OpenAPI::fromJsonValue(m_obj_ezsignfoldersignerassociation_compound, json[QString("objEzsignfoldersignerassociationCompound")]);
+    m_obj_ezsignfoldersignerassociation_compound_isValid = ::Ezmaxapi::fromJsonValue(m_obj_ezsignfoldersignerassociation_compound, json[QString("objEzsignfoldersignerassociationCompound")]);
     m_obj_ezsignfoldersignerassociation_compound_isSet = !json[QString("objEzsignfoldersignerassociationCompound")].isNull() && m_obj_ezsignfoldersignerassociation_compound_isValid;
 }
 
@@ -67,10 +67,10 @@ QString OAIEzsignfoldersignerassociation_createObject_v1_Request::asJson() const
 QJsonObject OAIEzsignfoldersignerassociation_createObject_v1_Request::asJsonObject() const {
     QJsonObject obj;
     if (m_obj_ezsignfoldersignerassociation.isSet()) {
-        obj.insert(QString("objEzsignfoldersignerassociation"), ::OpenAPI::toJsonValue(m_obj_ezsignfoldersignerassociation));
+        obj.insert(QString("objEzsignfoldersignerassociation"), ::Ezmaxapi::toJsonValue(m_obj_ezsignfoldersignerassociation));
     }
     if (m_obj_ezsignfoldersignerassociation_compound.isSet()) {
-        obj.insert(QString("objEzsignfoldersignerassociationCompound"), ::OpenAPI::toJsonValue(m_obj_ezsignfoldersignerassociation_compound));
+        obj.insert(QString("objEzsignfoldersignerassociationCompound"), ::Ezmaxapi::toJsonValue(m_obj_ezsignfoldersignerassociation_compound));
     }
     return obj;
 }
@@ -128,4 +128,4 @@ bool OAIEzsignfoldersignerassociation_createObject_v1_Request::isValid() const {
     return true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

@@ -26,7 +26,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIUserstaged_ResponseCompound : public OAIObject {
 public:
@@ -100,8 +100,8 @@ private:
     bool m_s_userstaged_externalid_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIUserstaged_ResponseCompound)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIUserstaged_ResponseCompound)
 
 #endif // OAIUserstaged_ResponseCompound_H

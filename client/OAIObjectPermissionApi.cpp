@@ -15,7 +15,7 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIObjectPermissionApi::OAIObjectPermissionApi(const int timeOut)
     : _timeOut(timeOut),
@@ -319,7 +319,7 @@ void OAIObjectPermissionApi::permissionDeleteObjectV1(const qint32 &pki_permissi
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiPermissionID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiPermissionID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_permission_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_permission_id)));
+        fullPath.replace(pki_permission_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_permission_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -386,7 +386,7 @@ void OAIObjectPermissionApi::permissionEditObjectV1(const qint32 &pki_permission
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiPermissionID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiPermissionID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_permission_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_permission_id)));
+        fullPath.replace(pki_permission_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_permission_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -458,7 +458,7 @@ void OAIObjectPermissionApi::permissionGetObjectV2(const qint32 &pki_permission_
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiPermissionID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiPermissionID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_permission_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_permission_id)));
+        fullPath.replace(pki_permission_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_permission_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -555,4 +555,4 @@ void OAIObjectPermissionApi::tokenAvailable(){
         break;
     }
 }
-} // namespace OpenAPI
+} // namespace Ezmaxapi

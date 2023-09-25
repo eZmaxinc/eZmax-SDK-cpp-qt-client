@@ -15,7 +15,7 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIObjectUsergroupdelegationApi::OAIObjectUsergroupdelegationApi(const int timeOut)
     : _timeOut(timeOut),
@@ -319,7 +319,7 @@ void OAIObjectUsergroupdelegationApi::usergroupdelegationDeleteObjectV1(const qi
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiUsergroupdelegationID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiUsergroupdelegationID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_usergroupdelegation_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_usergroupdelegation_id)));
+        fullPath.replace(pki_usergroupdelegation_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_usergroupdelegation_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -386,7 +386,7 @@ void OAIObjectUsergroupdelegationApi::usergroupdelegationEditObjectV1(const qint
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiUsergroupdelegationID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiUsergroupdelegationID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_usergroupdelegation_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_usergroupdelegation_id)));
+        fullPath.replace(pki_usergroupdelegation_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_usergroupdelegation_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -458,7 +458,7 @@ void OAIObjectUsergroupdelegationApi::usergroupdelegationGetObjectV2(const qint3
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiUsergroupdelegationID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiUsergroupdelegationID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_usergroupdelegation_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_usergroupdelegation_id)));
+        fullPath.replace(pki_usergroupdelegation_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_usergroupdelegation_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -555,4 +555,4 @@ void OAIObjectUsergroupdelegationApi::tokenAvailable(){
         break;
     }
 }
-} // namespace OpenAPI
+} // namespace Ezmaxapi

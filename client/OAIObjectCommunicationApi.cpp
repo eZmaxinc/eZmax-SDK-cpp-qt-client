@@ -15,7 +15,7 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIObjectCommunicationApi::OAIObjectCommunicationApi(const int timeOut)
     : _timeOut(timeOut),
@@ -255,7 +255,7 @@ void OAIObjectCommunicationApi::communicationGetObjectV2(const qint32 &pki_commu
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiCommunicationID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiCommunicationID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_communication_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_communication_id)));
+        fullPath.replace(pki_communication_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_communication_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -352,4 +352,4 @@ void OAIObjectCommunicationApi::tokenAvailable(){
         break;
     }
 }
-} // namespace OpenAPI
+} // namespace Ezmaxapi

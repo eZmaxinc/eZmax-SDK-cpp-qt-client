@@ -15,7 +15,7 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIObjectEzsignbulksendsignermappingApi::OAIObjectEzsignbulksendsignermappingApi(const int timeOut)
     : _timeOut(timeOut),
@@ -317,7 +317,7 @@ void OAIObjectEzsignbulksendsignermappingApi::ezsignbulksendsignermappingDeleteO
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignbulksendsignermappingID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignbulksendsignermappingID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsignbulksendsignermapping_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsignbulksendsignermapping_id)));
+        fullPath.replace(pki_ezsignbulksendsignermapping_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsignbulksendsignermapping_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -384,7 +384,7 @@ void OAIObjectEzsignbulksendsignermappingApi::ezsignbulksendsignermappingGetObje
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignbulksendsignermappingID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignbulksendsignermappingID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsignbulksendsignermapping_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsignbulksendsignermapping_id)));
+        fullPath.replace(pki_ezsignbulksendsignermapping_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsignbulksendsignermapping_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -481,4 +481,4 @@ void OAIObjectEzsignbulksendsignermappingApi::tokenAvailable(){
         break;
     }
 }
-} // namespace OpenAPI
+} // namespace Ezmaxapi

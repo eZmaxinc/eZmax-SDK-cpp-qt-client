@@ -25,7 +25,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIApikey_regenerate_v1_Request : public OAIObject {
 public:
@@ -54,8 +54,8 @@ private:
     bool m_b_apikey_issigned_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIApikey_regenerate_v1_Request)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIApikey_regenerate_v1_Request)
 
 #endif // OAIApikey_regenerate_v1_Request_H

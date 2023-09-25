@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIModulegroup_ResponseCompound::OAIModulegroup_ResponseCompound(QString json) {
     this->initializeModel();
@@ -53,13 +53,13 @@ void OAIModulegroup_ResponseCompound::fromJson(QString jsonString) {
 
 void OAIModulegroup_ResponseCompound::fromJsonObject(QJsonObject json) {
 
-    m_pki_modulegroup_id_isValid = ::OpenAPI::fromJsonValue(m_pki_modulegroup_id, json[QString("pkiModulegroupID")]);
+    m_pki_modulegroup_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_modulegroup_id, json[QString("pkiModulegroupID")]);
     m_pki_modulegroup_id_isSet = !json[QString("pkiModulegroupID")].isNull() && m_pki_modulegroup_id_isValid;
 
-    m_s_modulegroup_name_x_isValid = ::OpenAPI::fromJsonValue(m_s_modulegroup_name_x, json[QString("sModulegroupNameX")]);
+    m_s_modulegroup_name_x_isValid = ::Ezmaxapi::fromJsonValue(m_s_modulegroup_name_x, json[QString("sModulegroupNameX")]);
     m_s_modulegroup_name_x_isSet = !json[QString("sModulegroupNameX")].isNull() && m_s_modulegroup_name_x_isValid;
 
-    m_a_obj_module_isValid = ::OpenAPI::fromJsonValue(m_a_obj_module, json[QString("a_objModule")]);
+    m_a_obj_module_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_module, json[QString("a_objModule")]);
     m_a_obj_module_isSet = !json[QString("a_objModule")].isNull() && m_a_obj_module_isValid;
 }
 
@@ -73,13 +73,13 @@ QString OAIModulegroup_ResponseCompound::asJson() const {
 QJsonObject OAIModulegroup_ResponseCompound::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_modulegroup_id_isSet) {
-        obj.insert(QString("pkiModulegroupID"), ::OpenAPI::toJsonValue(m_pki_modulegroup_id));
+        obj.insert(QString("pkiModulegroupID"), ::Ezmaxapi::toJsonValue(m_pki_modulegroup_id));
     }
     if (m_s_modulegroup_name_x_isSet) {
-        obj.insert(QString("sModulegroupNameX"), ::OpenAPI::toJsonValue(m_s_modulegroup_name_x));
+        obj.insert(QString("sModulegroupNameX"), ::Ezmaxapi::toJsonValue(m_s_modulegroup_name_x));
     }
     if (m_a_obj_module.size() > 0) {
-        obj.insert(QString("a_objModule"), ::OpenAPI::toJsonValue(m_a_obj_module));
+        obj.insert(QString("a_objModule"), ::Ezmaxapi::toJsonValue(m_a_obj_module));
     }
     return obj;
 }
@@ -158,4 +158,4 @@ bool OAIModulegroup_ResponseCompound::isValid() const {
     return m_pki_modulegroup_id_isValid && m_s_modulegroup_name_x_isValid && m_a_obj_module_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

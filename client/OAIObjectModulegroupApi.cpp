@@ -15,7 +15,7 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIObjectModulegroupApi::OAIObjectModulegroupApi(const int timeOut)
     : _timeOut(timeOut),
@@ -255,7 +255,7 @@ void OAIObjectModulegroupApi::modulegroupGetAllV1(const QString &e_context) {
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "eContext", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"eContext"+pathSuffix : pathPrefix;
-        fullPath.replace(e_contextPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(e_context)));
+        fullPath.replace(e_contextPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(e_context)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -352,4 +352,4 @@ void OAIObjectModulegroupApi::tokenAvailable(){
         break;
     }
 }
-} // namespace OpenAPI
+} // namespace Ezmaxapi

@@ -26,7 +26,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAICustom_Ezmaxpricing_Response : public OAIObject {
 public:
@@ -82,8 +82,8 @@ private:
     bool m_dt_ezmaxpricing_end_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAICustom_Ezmaxpricing_Response)
+Q_DECLARE_METATYPE(Ezmaxapi::OAICustom_Ezmaxpricing_Response)
 
 #endif // OAICustom_Ezmaxpricing_Response_H

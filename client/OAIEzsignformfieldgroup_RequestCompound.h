@@ -34,7 +34,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 class OAIEzsignformfieldgroupsigner_RequestCompound;
 class OAICustom_DropdownElement_RequestCompound;
 class OAIEzsignformfield_RequestCompound;
@@ -228,8 +228,8 @@ private:
     bool m_a_obj_ezsignformfield_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIEzsignformfieldgroup_RequestCompound)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIEzsignformfieldgroup_RequestCompound)
 
 #endif // OAIEzsignformfieldgroup_RequestCompound_H

@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAICommon_getReport_v1_Response_mPayload::OAICommon_getReport_v1_Response_mPayload(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAICommon_getReport_v1_Response_mPayload::fromJson(QString jsonString) {
 
 void OAICommon_getReport_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_obj_reportgroup_isValid = ::OpenAPI::fromJsonValue(m_obj_reportgroup, json[QString("objReportgroup")]);
+    m_obj_reportgroup_isValid = ::Ezmaxapi::fromJsonValue(m_obj_reportgroup, json[QString("objReportgroup")]);
     m_obj_reportgroup_isSet = !json[QString("objReportgroup")].isNull() && m_obj_reportgroup_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAICommon_getReport_v1_Response_mPayload::asJson() const {
 QJsonObject OAICommon_getReport_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_obj_reportgroup.isSet()) {
-        obj.insert(QString("objReportgroup"), ::OpenAPI::toJsonValue(m_obj_reportgroup));
+        obj.insert(QString("objReportgroup"), ::Ezmaxapi::toJsonValue(m_obj_reportgroup));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAICommon_getReport_v1_Response_mPayload::isValid() const {
     return m_obj_reportgroup_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

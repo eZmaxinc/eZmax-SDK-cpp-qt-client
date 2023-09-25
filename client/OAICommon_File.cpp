@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAICommon_File::OAICommon_File(QString json) {
     this->initializeModel();
@@ -56,16 +56,16 @@ void OAICommon_File::fromJson(QString jsonString) {
 
 void OAICommon_File::fromJsonObject(QJsonObject json) {
 
-    m_s_file_name_isValid = ::OpenAPI::fromJsonValue(m_s_file_name, json[QString("sFileName")]);
+    m_s_file_name_isValid = ::Ezmaxapi::fromJsonValue(m_s_file_name, json[QString("sFileName")]);
     m_s_file_name_isSet = !json[QString("sFileName")].isNull() && m_s_file_name_isValid;
 
-    m_s_file_url_isValid = ::OpenAPI::fromJsonValue(m_s_file_url, json[QString("sFileUrl")]);
+    m_s_file_url_isValid = ::Ezmaxapi::fromJsonValue(m_s_file_url, json[QString("sFileUrl")]);
     m_s_file_url_isSet = !json[QString("sFileUrl")].isNull() && m_s_file_url_isValid;
 
-    m_s_file_base64_isValid = ::OpenAPI::fromJsonValue(m_s_file_base64, json[QString("sFileBase64")]);
+    m_s_file_base64_isValid = ::Ezmaxapi::fromJsonValue(m_s_file_base64, json[QString("sFileBase64")]);
     m_s_file_base64_isSet = !json[QString("sFileBase64")].isNull() && m_s_file_base64_isValid;
 
-    m_e_file_source_isValid = ::OpenAPI::fromJsonValue(m_e_file_source, json[QString("eFileSource")]);
+    m_e_file_source_isValid = ::Ezmaxapi::fromJsonValue(m_e_file_source, json[QString("eFileSource")]);
     m_e_file_source_isSet = !json[QString("eFileSource")].isNull() && m_e_file_source_isValid;
 }
 
@@ -79,16 +79,16 @@ QString OAICommon_File::asJson() const {
 QJsonObject OAICommon_File::asJsonObject() const {
     QJsonObject obj;
     if (m_s_file_name_isSet) {
-        obj.insert(QString("sFileName"), ::OpenAPI::toJsonValue(m_s_file_name));
+        obj.insert(QString("sFileName"), ::Ezmaxapi::toJsonValue(m_s_file_name));
     }
     if (m_s_file_url_isSet) {
-        obj.insert(QString("sFileUrl"), ::OpenAPI::toJsonValue(m_s_file_url));
+        obj.insert(QString("sFileUrl"), ::Ezmaxapi::toJsonValue(m_s_file_url));
     }
     if (m_s_file_base64_isSet) {
-        obj.insert(QString("sFileBase64"), ::OpenAPI::toJsonValue(m_s_file_base64));
+        obj.insert(QString("sFileBase64"), ::Ezmaxapi::toJsonValue(m_s_file_base64));
     }
     if (m_e_file_source_isSet) {
-        obj.insert(QString("eFileSource"), ::OpenAPI::toJsonValue(m_e_file_source));
+        obj.insert(QString("eFileSource"), ::Ezmaxapi::toJsonValue(m_e_file_source));
     }
     return obj;
 }
@@ -188,4 +188,4 @@ bool OAICommon_File::isValid() const {
     return m_s_file_name_isValid && m_e_file_source_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

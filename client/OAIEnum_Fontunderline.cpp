@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEnum_Fontunderline::OAIEnum_Fontunderline(QString json) {
     this->initializeModel();
@@ -102,4 +102,4 @@ bool OAIEnum_Fontunderline::isValid() const {
     return m_value_isValid;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

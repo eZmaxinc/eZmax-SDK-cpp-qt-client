@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEzsignsigner_Response::OAIEzsignsigner_Response(QString json) {
     this->initializeModel();
@@ -59,19 +59,19 @@ void OAIEzsignsigner_Response::fromJson(QString jsonString) {
 
 void OAIEzsignsigner_Response::fromJsonObject(QJsonObject json) {
 
-    m_pki_ezsignsigner_id_isValid = ::OpenAPI::fromJsonValue(m_pki_ezsignsigner_id, json[QString("pkiEzsignsignerID")]);
+    m_pki_ezsignsigner_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_ezsignsigner_id, json[QString("pkiEzsignsignerID")]);
     m_pki_ezsignsigner_id_isSet = !json[QString("pkiEzsignsignerID")].isNull() && m_pki_ezsignsigner_id_isValid;
 
-    m_fki_taxassignment_id_isValid = ::OpenAPI::fromJsonValue(m_fki_taxassignment_id, json[QString("fkiTaxassignmentID")]);
+    m_fki_taxassignment_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_taxassignment_id, json[QString("fkiTaxassignmentID")]);
     m_fki_taxassignment_id_isSet = !json[QString("fkiTaxassignmentID")].isNull() && m_fki_taxassignment_id_isValid;
 
-    m_fki_secretquestion_id_isValid = ::OpenAPI::fromJsonValue(m_fki_secretquestion_id, json[QString("fkiSecretquestionID")]);
+    m_fki_secretquestion_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_secretquestion_id, json[QString("fkiSecretquestionID")]);
     m_fki_secretquestion_id_isSet = !json[QString("fkiSecretquestionID")].isNull() && m_fki_secretquestion_id_isValid;
 
-    m_fki_userlogintype_id_isValid = ::OpenAPI::fromJsonValue(m_fki_userlogintype_id, json[QString("fkiUserlogintypeID")]);
+    m_fki_userlogintype_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_userlogintype_id, json[QString("fkiUserlogintypeID")]);
     m_fki_userlogintype_id_isSet = !json[QString("fkiUserlogintypeID")].isNull() && m_fki_userlogintype_id_isValid;
 
-    m_s_userlogintype_description_x_isValid = ::OpenAPI::fromJsonValue(m_s_userlogintype_description_x, json[QString("sUserlogintypeDescriptionX")]);
+    m_s_userlogintype_description_x_isValid = ::Ezmaxapi::fromJsonValue(m_s_userlogintype_description_x, json[QString("sUserlogintypeDescriptionX")]);
     m_s_userlogintype_description_x_isSet = !json[QString("sUserlogintypeDescriptionX")].isNull() && m_s_userlogintype_description_x_isValid;
 }
 
@@ -85,19 +85,19 @@ QString OAIEzsignsigner_Response::asJson() const {
 QJsonObject OAIEzsignsigner_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_ezsignsigner_id_isSet) {
-        obj.insert(QString("pkiEzsignsignerID"), ::OpenAPI::toJsonValue(m_pki_ezsignsigner_id));
+        obj.insert(QString("pkiEzsignsignerID"), ::Ezmaxapi::toJsonValue(m_pki_ezsignsigner_id));
     }
     if (m_fki_taxassignment_id_isSet) {
-        obj.insert(QString("fkiTaxassignmentID"), ::OpenAPI::toJsonValue(m_fki_taxassignment_id));
+        obj.insert(QString("fkiTaxassignmentID"), ::Ezmaxapi::toJsonValue(m_fki_taxassignment_id));
     }
     if (m_fki_secretquestion_id_isSet) {
-        obj.insert(QString("fkiSecretquestionID"), ::OpenAPI::toJsonValue(m_fki_secretquestion_id));
+        obj.insert(QString("fkiSecretquestionID"), ::Ezmaxapi::toJsonValue(m_fki_secretquestion_id));
     }
     if (m_fki_userlogintype_id_isSet) {
-        obj.insert(QString("fkiUserlogintypeID"), ::OpenAPI::toJsonValue(m_fki_userlogintype_id));
+        obj.insert(QString("fkiUserlogintypeID"), ::Ezmaxapi::toJsonValue(m_fki_userlogintype_id));
     }
     if (m_s_userlogintype_description_x_isSet) {
-        obj.insert(QString("sUserlogintypeDescriptionX"), ::OpenAPI::toJsonValue(m_s_userlogintype_description_x));
+        obj.insert(QString("sUserlogintypeDescriptionX"), ::Ezmaxapi::toJsonValue(m_s_userlogintype_description_x));
     }
     return obj;
 }
@@ -218,4 +218,4 @@ bool OAIEzsignsigner_Response::isValid() const {
     return m_pki_ezsignsigner_id_isValid && m_fki_taxassignment_id_isValid && m_fki_userlogintype_id_isValid && m_s_userlogintype_description_x_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

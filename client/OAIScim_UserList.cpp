@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIScim_UserList::OAIScim_UserList(QString json) {
     this->initializeModel();
@@ -59,19 +59,19 @@ void OAIScim_UserList::fromJson(QString jsonString) {
 
 void OAIScim_UserList::fromJsonObject(QJsonObject json) {
 
-    m_total_results_isValid = ::OpenAPI::fromJsonValue(m_total_results, json[QString("totalResults")]);
+    m_total_results_isValid = ::Ezmaxapi::fromJsonValue(m_total_results, json[QString("totalResults")]);
     m_total_results_isSet = !json[QString("totalResults")].isNull() && m_total_results_isValid;
 
-    m_items_per_page_isValid = ::OpenAPI::fromJsonValue(m_items_per_page, json[QString("itemsPerPage")]);
+    m_items_per_page_isValid = ::Ezmaxapi::fromJsonValue(m_items_per_page, json[QString("itemsPerPage")]);
     m_items_per_page_isSet = !json[QString("itemsPerPage")].isNull() && m_items_per_page_isValid;
 
-    m_start_index_isValid = ::OpenAPI::fromJsonValue(m_start_index, json[QString("startIndex")]);
+    m_start_index_isValid = ::Ezmaxapi::fromJsonValue(m_start_index, json[QString("startIndex")]);
     m_start_index_isSet = !json[QString("startIndex")].isNull() && m_start_index_isValid;
 
-    m_schemas_isValid = ::OpenAPI::fromJsonValue(m_schemas, json[QString("schemas")]);
+    m_schemas_isValid = ::Ezmaxapi::fromJsonValue(m_schemas, json[QString("schemas")]);
     m_schemas_isSet = !json[QString("schemas")].isNull() && m_schemas_isValid;
 
-    m_resources_isValid = ::OpenAPI::fromJsonValue(m_resources, json[QString("Resources")]);
+    m_resources_isValid = ::Ezmaxapi::fromJsonValue(m_resources, json[QString("Resources")]);
     m_resources_isSet = !json[QString("Resources")].isNull() && m_resources_isValid;
 }
 
@@ -85,19 +85,19 @@ QString OAIScim_UserList::asJson() const {
 QJsonObject OAIScim_UserList::asJsonObject() const {
     QJsonObject obj;
     if (m_total_results_isSet) {
-        obj.insert(QString("totalResults"), ::OpenAPI::toJsonValue(m_total_results));
+        obj.insert(QString("totalResults"), ::Ezmaxapi::toJsonValue(m_total_results));
     }
     if (m_items_per_page_isSet) {
-        obj.insert(QString("itemsPerPage"), ::OpenAPI::toJsonValue(m_items_per_page));
+        obj.insert(QString("itemsPerPage"), ::Ezmaxapi::toJsonValue(m_items_per_page));
     }
     if (m_start_index_isSet) {
-        obj.insert(QString("startIndex"), ::OpenAPI::toJsonValue(m_start_index));
+        obj.insert(QString("startIndex"), ::Ezmaxapi::toJsonValue(m_start_index));
     }
     if (m_schemas.size() > 0) {
-        obj.insert(QString("schemas"), ::OpenAPI::toJsonValue(m_schemas));
+        obj.insert(QString("schemas"), ::Ezmaxapi::toJsonValue(m_schemas));
     }
     if (m_resources.size() > 0) {
-        obj.insert(QString("Resources"), ::OpenAPI::toJsonValue(m_resources));
+        obj.insert(QString("Resources"), ::Ezmaxapi::toJsonValue(m_resources));
     }
     return obj;
 }
@@ -218,4 +218,4 @@ bool OAIScim_UserList::isValid() const {
     return true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIMultilingual_EzmaxinvoicingsummaryinternalDescription::OAIMultilingual_EzmaxinvoicingsummaryinternalDescription(QString json) {
     this->initializeModel();
@@ -50,10 +50,10 @@ void OAIMultilingual_EzmaxinvoicingsummaryinternalDescription::fromJson(QString 
 
 void OAIMultilingual_EzmaxinvoicingsummaryinternalDescription::fromJsonObject(QJsonObject json) {
 
-    m_s_ezmaxinvoicingsummaryinternal_description1_isValid = ::OpenAPI::fromJsonValue(m_s_ezmaxinvoicingsummaryinternal_description1, json[QString("sEzmaxinvoicingsummaryinternalDescription1")]);
+    m_s_ezmaxinvoicingsummaryinternal_description1_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezmaxinvoicingsummaryinternal_description1, json[QString("sEzmaxinvoicingsummaryinternalDescription1")]);
     m_s_ezmaxinvoicingsummaryinternal_description1_isSet = !json[QString("sEzmaxinvoicingsummaryinternalDescription1")].isNull() && m_s_ezmaxinvoicingsummaryinternal_description1_isValid;
 
-    m_s_ezmaxinvoicingsummaryinternal_description2_isValid = ::OpenAPI::fromJsonValue(m_s_ezmaxinvoicingsummaryinternal_description2, json[QString("sEzmaxinvoicingsummaryinternalDescription2")]);
+    m_s_ezmaxinvoicingsummaryinternal_description2_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezmaxinvoicingsummaryinternal_description2, json[QString("sEzmaxinvoicingsummaryinternalDescription2")]);
     m_s_ezmaxinvoicingsummaryinternal_description2_isSet = !json[QString("sEzmaxinvoicingsummaryinternalDescription2")].isNull() && m_s_ezmaxinvoicingsummaryinternal_description2_isValid;
 }
 
@@ -67,10 +67,10 @@ QString OAIMultilingual_EzmaxinvoicingsummaryinternalDescription::asJson() const
 QJsonObject OAIMultilingual_EzmaxinvoicingsummaryinternalDescription::asJsonObject() const {
     QJsonObject obj;
     if (m_s_ezmaxinvoicingsummaryinternal_description1_isSet) {
-        obj.insert(QString("sEzmaxinvoicingsummaryinternalDescription1"), ::OpenAPI::toJsonValue(m_s_ezmaxinvoicingsummaryinternal_description1));
+        obj.insert(QString("sEzmaxinvoicingsummaryinternalDescription1"), ::Ezmaxapi::toJsonValue(m_s_ezmaxinvoicingsummaryinternal_description1));
     }
     if (m_s_ezmaxinvoicingsummaryinternal_description2_isSet) {
-        obj.insert(QString("sEzmaxinvoicingsummaryinternalDescription2"), ::OpenAPI::toJsonValue(m_s_ezmaxinvoicingsummaryinternal_description2));
+        obj.insert(QString("sEzmaxinvoicingsummaryinternalDescription2"), ::Ezmaxapi::toJsonValue(m_s_ezmaxinvoicingsummaryinternal_description2));
     }
     return obj;
 }
@@ -128,4 +128,4 @@ bool OAIMultilingual_EzmaxinvoicingsummaryinternalDescription::isValid() const {
     return true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

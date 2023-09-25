@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAICustom_WordPositionOccurence_Response::OAICustom_WordPositionOccurence_Response(QString json) {
     this->initializeModel();
@@ -53,13 +53,13 @@ void OAICustom_WordPositionOccurence_Response::fromJson(QString jsonString) {
 
 void OAICustom_WordPositionOccurence_Response::fromJsonObject(QJsonObject json) {
 
-    m_i_page_isValid = ::OpenAPI::fromJsonValue(m_i_page, json[QString("iPage")]);
+    m_i_page_isValid = ::Ezmaxapi::fromJsonValue(m_i_page, json[QString("iPage")]);
     m_i_page_isSet = !json[QString("iPage")].isNull() && m_i_page_isValid;
 
-    m_i_x_isValid = ::OpenAPI::fromJsonValue(m_i_x, json[QString("iX")]);
+    m_i_x_isValid = ::Ezmaxapi::fromJsonValue(m_i_x, json[QString("iX")]);
     m_i_x_isSet = !json[QString("iX")].isNull() && m_i_x_isValid;
 
-    m_i_y_isValid = ::OpenAPI::fromJsonValue(m_i_y, json[QString("iY")]);
+    m_i_y_isValid = ::Ezmaxapi::fromJsonValue(m_i_y, json[QString("iY")]);
     m_i_y_isSet = !json[QString("iY")].isNull() && m_i_y_isValid;
 }
 
@@ -73,13 +73,13 @@ QString OAICustom_WordPositionOccurence_Response::asJson() const {
 QJsonObject OAICustom_WordPositionOccurence_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_i_page_isSet) {
-        obj.insert(QString("iPage"), ::OpenAPI::toJsonValue(m_i_page));
+        obj.insert(QString("iPage"), ::Ezmaxapi::toJsonValue(m_i_page));
     }
     if (m_i_x_isSet) {
-        obj.insert(QString("iX"), ::OpenAPI::toJsonValue(m_i_x));
+        obj.insert(QString("iX"), ::Ezmaxapi::toJsonValue(m_i_x));
     }
     if (m_i_y_isSet) {
-        obj.insert(QString("iY"), ::OpenAPI::toJsonValue(m_i_y));
+        obj.insert(QString("iY"), ::Ezmaxapi::toJsonValue(m_i_y));
     }
     return obj;
 }
@@ -158,4 +158,4 @@ bool OAICustom_WordPositionOccurence_Response::isValid() const {
     return true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

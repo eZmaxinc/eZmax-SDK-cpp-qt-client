@@ -26,7 +26,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAICommon_Response_Warning : public OAIObject {
 public:
@@ -64,8 +64,8 @@ private:
     bool m_e_warning_code_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAICommon_Response_Warning)
+Q_DECLARE_METATYPE(Ezmaxapi::OAICommon_Response_Warning)
 
 #endif // OAICommon_Response_Warning_H

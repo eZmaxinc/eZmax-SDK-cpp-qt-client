@@ -37,7 +37,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 class OAIDescriptionstatic_Response;
 class OAIEmailstatic_Response;
 class OAIPhonestatic_Response;
@@ -199,8 +199,8 @@ private:
     bool m_a_obj_communicationexternalrecipient_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAICommunication_ResponseCompound)
+Q_DECLARE_METATYPE(Ezmaxapi::OAICommunication_ResponseCompound)
 
 #endif // OAICommunication_ResponseCompound_H

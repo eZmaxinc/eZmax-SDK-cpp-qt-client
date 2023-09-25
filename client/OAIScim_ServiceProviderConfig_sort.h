@@ -25,7 +25,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIScim_ServiceProviderConfig_sort : public OAIObject {
 public:
@@ -54,8 +54,8 @@ private:
     bool m_supported_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIScim_ServiceProviderConfig_sort)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIScim_ServiceProviderConfig_sort)
 
 #endif // OAIScim_ServiceProviderConfig_sort_H

@@ -30,7 +30,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 class OAICommon_Audit;
 class OAIEzsigntemplatedocument_Response;
 class OAIEzsigntemplatesigner_ResponseCompound;
@@ -152,8 +152,8 @@ private:
     bool m_a_obj_ezsigntemplatesigner_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIEzsigntemplate_ResponseCompound)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIEzsigntemplate_ResponseCompound)
 
 #endif // OAIEzsigntemplate_ResponseCompound_H

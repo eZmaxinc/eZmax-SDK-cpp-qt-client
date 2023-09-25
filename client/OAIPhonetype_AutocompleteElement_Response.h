@@ -26,7 +26,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIPhonetype_AutocompleteElement_Response : public OAIObject {
 public:
@@ -73,8 +73,8 @@ private:
     bool m_b_phonetype_isactive_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIPhonetype_AutocompleteElement_Response)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIPhonetype_AutocompleteElement_Response)
 
 #endif // OAIPhonetype_AutocompleteElement_Response_H

@@ -25,7 +25,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIEnum_Textvalidation : public OAIEnum {
 public:
@@ -67,8 +67,8 @@ private:
     bool m_value_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIEnum_Textvalidation)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIEnum_Textvalidation)
 
 #endif // OAIEnum_Textvalidation_H

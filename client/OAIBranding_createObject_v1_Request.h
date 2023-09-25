@@ -27,7 +27,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 class OAIBranding_RequestCompound;
 
 class OAIBranding_createObject_v1_Request : public OAIObject {
@@ -57,8 +57,8 @@ private:
     bool m_a_obj_branding_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIBranding_createObject_v1_Request)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIBranding_createObject_v1_Request)
 
 #endif // OAIBranding_createObject_v1_Request_H

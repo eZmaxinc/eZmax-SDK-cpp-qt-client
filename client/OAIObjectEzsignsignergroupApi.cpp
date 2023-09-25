@@ -15,7 +15,7 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIObjectEzsignsignergroupApi::OAIObjectEzsignsignergroupApi(const int timeOut)
     : _timeOut(timeOut),
@@ -323,7 +323,7 @@ void OAIObjectEzsignsignergroupApi::ezsignsignergroupDeleteObjectV1(const qint32
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignsignergroupID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignsignergroupID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsignsignergroup_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsignsignergroup_id)));
+        fullPath.replace(pki_ezsignsignergroup_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsignsignergroup_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -390,7 +390,7 @@ void OAIObjectEzsignsignergroupApi::ezsignsignergroupEditEzsignsignergroupmember
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignsignergroupID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignsignergroupID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsignsignergroup_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsignsignergroup_id)));
+        fullPath.replace(pki_ezsignsignergroup_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsignsignergroup_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -462,7 +462,7 @@ void OAIObjectEzsignsignergroupApi::ezsignsignergroupEditObjectV1(const qint32 &
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignsignergroupID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignsignergroupID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsignsignergroup_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsignsignergroup_id)));
+        fullPath.replace(pki_ezsignsignergroup_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsignsignergroup_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -534,7 +534,7 @@ void OAIObjectEzsignsignergroupApi::ezsignsignergroupGetEzsignsignergroupmembers
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignsignergroupID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignsignergroupID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsignsignergroup_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsignsignergroup_id)));
+        fullPath.replace(pki_ezsignsignergroup_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsignsignergroup_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -601,7 +601,7 @@ void OAIObjectEzsignsignergroupApi::ezsignsignergroupGetObjectV2(const qint32 &p
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignsignergroupID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignsignergroupID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsignsignergroup_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsignsignergroup_id)));
+        fullPath.replace(pki_ezsignsignergroup_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsignsignergroup_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -698,4 +698,4 @@ void OAIObjectEzsignsignergroupApi::tokenAvailable(){
         break;
     }
 }
-} // namespace OpenAPI
+} // namespace Ezmaxapi

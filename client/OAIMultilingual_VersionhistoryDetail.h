@@ -26,7 +26,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIMultilingual_VersionhistoryDetail : public OAIObject {
 public:
@@ -64,8 +64,8 @@ private:
     bool m_t_versionhistory_detail2_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIMultilingual_VersionhistoryDetail)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIMultilingual_VersionhistoryDetail)
 
 #endif // OAIMultilingual_VersionhistoryDetail_H

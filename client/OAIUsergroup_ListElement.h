@@ -26,7 +26,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIUsergroup_ListElement : public OAIObject {
 public:
@@ -73,8 +73,8 @@ private:
     bool m_i_count_user_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIUsergroup_ListElement)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIUsergroup_ListElement)
 
 #endif // OAIUsergroup_ListElement_H

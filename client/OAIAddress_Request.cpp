@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIAddress_Request::OAIAddress_Request(QString json) {
     this->initializeModel();
@@ -68,28 +68,28 @@ void OAIAddress_Request::fromJson(QString jsonString) {
 
 void OAIAddress_Request::fromJsonObject(QJsonObject json) {
 
-    m_fki_addresstype_id_isValid = ::OpenAPI::fromJsonValue(m_fki_addresstype_id, json[QString("fkiAddresstypeID")]);
+    m_fki_addresstype_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_addresstype_id, json[QString("fkiAddresstypeID")]);
     m_fki_addresstype_id_isSet = !json[QString("fkiAddresstypeID")].isNull() && m_fki_addresstype_id_isValid;
 
-    m_s_address_civic_isValid = ::OpenAPI::fromJsonValue(m_s_address_civic, json[QString("sAddressCivic")]);
+    m_s_address_civic_isValid = ::Ezmaxapi::fromJsonValue(m_s_address_civic, json[QString("sAddressCivic")]);
     m_s_address_civic_isSet = !json[QString("sAddressCivic")].isNull() && m_s_address_civic_isValid;
 
-    m_s_address_street_isValid = ::OpenAPI::fromJsonValue(m_s_address_street, json[QString("sAddressStreet")]);
+    m_s_address_street_isValid = ::Ezmaxapi::fromJsonValue(m_s_address_street, json[QString("sAddressStreet")]);
     m_s_address_street_isSet = !json[QString("sAddressStreet")].isNull() && m_s_address_street_isValid;
 
-    m_s_address_suite_isValid = ::OpenAPI::fromJsonValue(m_s_address_suite, json[QString("sAddressSuite")]);
+    m_s_address_suite_isValid = ::Ezmaxapi::fromJsonValue(m_s_address_suite, json[QString("sAddressSuite")]);
     m_s_address_suite_isSet = !json[QString("sAddressSuite")].isNull() && m_s_address_suite_isValid;
 
-    m_s_address_city_isValid = ::OpenAPI::fromJsonValue(m_s_address_city, json[QString("sAddressCity")]);
+    m_s_address_city_isValid = ::Ezmaxapi::fromJsonValue(m_s_address_city, json[QString("sAddressCity")]);
     m_s_address_city_isSet = !json[QString("sAddressCity")].isNull() && m_s_address_city_isValid;
 
-    m_fki_province_id_isValid = ::OpenAPI::fromJsonValue(m_fki_province_id, json[QString("fkiProvinceID")]);
+    m_fki_province_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_province_id, json[QString("fkiProvinceID")]);
     m_fki_province_id_isSet = !json[QString("fkiProvinceID")].isNull() && m_fki_province_id_isValid;
 
-    m_fki_country_id_isValid = ::OpenAPI::fromJsonValue(m_fki_country_id, json[QString("fkiCountryID")]);
+    m_fki_country_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_country_id, json[QString("fkiCountryID")]);
     m_fki_country_id_isSet = !json[QString("fkiCountryID")].isNull() && m_fki_country_id_isValid;
 
-    m_s_address_zip_isValid = ::OpenAPI::fromJsonValue(m_s_address_zip, json[QString("sAddressZip")]);
+    m_s_address_zip_isValid = ::Ezmaxapi::fromJsonValue(m_s_address_zip, json[QString("sAddressZip")]);
     m_s_address_zip_isSet = !json[QString("sAddressZip")].isNull() && m_s_address_zip_isValid;
 }
 
@@ -103,28 +103,28 @@ QString OAIAddress_Request::asJson() const {
 QJsonObject OAIAddress_Request::asJsonObject() const {
     QJsonObject obj;
     if (m_fki_addresstype_id_isSet) {
-        obj.insert(QString("fkiAddresstypeID"), ::OpenAPI::toJsonValue(m_fki_addresstype_id));
+        obj.insert(QString("fkiAddresstypeID"), ::Ezmaxapi::toJsonValue(m_fki_addresstype_id));
     }
     if (m_s_address_civic_isSet) {
-        obj.insert(QString("sAddressCivic"), ::OpenAPI::toJsonValue(m_s_address_civic));
+        obj.insert(QString("sAddressCivic"), ::Ezmaxapi::toJsonValue(m_s_address_civic));
     }
     if (m_s_address_street_isSet) {
-        obj.insert(QString("sAddressStreet"), ::OpenAPI::toJsonValue(m_s_address_street));
+        obj.insert(QString("sAddressStreet"), ::Ezmaxapi::toJsonValue(m_s_address_street));
     }
     if (m_s_address_suite_isSet) {
-        obj.insert(QString("sAddressSuite"), ::OpenAPI::toJsonValue(m_s_address_suite));
+        obj.insert(QString("sAddressSuite"), ::Ezmaxapi::toJsonValue(m_s_address_suite));
     }
     if (m_s_address_city_isSet) {
-        obj.insert(QString("sAddressCity"), ::OpenAPI::toJsonValue(m_s_address_city));
+        obj.insert(QString("sAddressCity"), ::Ezmaxapi::toJsonValue(m_s_address_city));
     }
     if (m_fki_province_id_isSet) {
-        obj.insert(QString("fkiProvinceID"), ::OpenAPI::toJsonValue(m_fki_province_id));
+        obj.insert(QString("fkiProvinceID"), ::Ezmaxapi::toJsonValue(m_fki_province_id));
     }
     if (m_fki_country_id_isSet) {
-        obj.insert(QString("fkiCountryID"), ::OpenAPI::toJsonValue(m_fki_country_id));
+        obj.insert(QString("fkiCountryID"), ::Ezmaxapi::toJsonValue(m_fki_country_id));
     }
     if (m_s_address_zip_isSet) {
-        obj.insert(QString("sAddressZip"), ::OpenAPI::toJsonValue(m_s_address_zip));
+        obj.insert(QString("sAddressZip"), ::Ezmaxapi::toJsonValue(m_s_address_zip));
     }
     return obj;
 }
@@ -308,4 +308,4 @@ bool OAIAddress_Request::isValid() const {
     return m_fki_addresstype_id_isValid && m_s_address_civic_isValid && m_s_address_street_isValid && m_s_address_suite_isValid && m_s_address_city_isValid && m_fki_province_id_isValid && m_fki_country_id_isValid && m_s_address_zip_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

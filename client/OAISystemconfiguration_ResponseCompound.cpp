@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAISystemconfiguration_ResponseCompound::OAISystemconfiguration_ResponseCompound(QString json) {
     this->initializeModel();
@@ -77,37 +77,37 @@ void OAISystemconfiguration_ResponseCompound::fromJson(QString jsonString) {
 
 void OAISystemconfiguration_ResponseCompound::fromJsonObject(QJsonObject json) {
 
-    m_pki_systemconfiguration_id_isValid = ::OpenAPI::fromJsonValue(m_pki_systemconfiguration_id, json[QString("pkiSystemconfigurationID")]);
+    m_pki_systemconfiguration_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_systemconfiguration_id, json[QString("pkiSystemconfigurationID")]);
     m_pki_systemconfiguration_id_isSet = !json[QString("pkiSystemconfigurationID")].isNull() && m_pki_systemconfiguration_id_isValid;
 
-    m_fki_systemconfigurationtype_id_isValid = ::OpenAPI::fromJsonValue(m_fki_systemconfigurationtype_id, json[QString("fkiSystemconfigurationtypeID")]);
+    m_fki_systemconfigurationtype_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_systemconfigurationtype_id, json[QString("fkiSystemconfigurationtypeID")]);
     m_fki_systemconfigurationtype_id_isSet = !json[QString("fkiSystemconfigurationtypeID")].isNull() && m_fki_systemconfigurationtype_id_isValid;
 
-    m_s_systemconfigurationtype_description_x_isValid = ::OpenAPI::fromJsonValue(m_s_systemconfigurationtype_description_x, json[QString("sSystemconfigurationtypeDescriptionX")]);
+    m_s_systemconfigurationtype_description_x_isValid = ::Ezmaxapi::fromJsonValue(m_s_systemconfigurationtype_description_x, json[QString("sSystemconfigurationtypeDescriptionX")]);
     m_s_systemconfigurationtype_description_x_isSet = !json[QString("sSystemconfigurationtypeDescriptionX")].isNull() && m_s_systemconfigurationtype_description_x_isValid;
 
-    m_e_systemconfiguration_newexternaluseraction_isValid = ::OpenAPI::fromJsonValue(m_e_systemconfiguration_newexternaluseraction, json[QString("eSystemconfigurationNewexternaluseraction")]);
+    m_e_systemconfiguration_newexternaluseraction_isValid = ::Ezmaxapi::fromJsonValue(m_e_systemconfiguration_newexternaluseraction, json[QString("eSystemconfigurationNewexternaluseraction")]);
     m_e_systemconfiguration_newexternaluseraction_isSet = !json[QString("eSystemconfigurationNewexternaluseraction")].isNull() && m_e_systemconfiguration_newexternaluseraction_isValid;
 
-    m_e_systemconfiguration_language1_isValid = ::OpenAPI::fromJsonValue(m_e_systemconfiguration_language1, json[QString("eSystemconfigurationLanguage1")]);
+    m_e_systemconfiguration_language1_isValid = ::Ezmaxapi::fromJsonValue(m_e_systemconfiguration_language1, json[QString("eSystemconfigurationLanguage1")]);
     m_e_systemconfiguration_language1_isSet = !json[QString("eSystemconfigurationLanguage1")].isNull() && m_e_systemconfiguration_language1_isValid;
 
-    m_e_systemconfiguration_language2_isValid = ::OpenAPI::fromJsonValue(m_e_systemconfiguration_language2, json[QString("eSystemconfigurationLanguage2")]);
+    m_e_systemconfiguration_language2_isValid = ::Ezmaxapi::fromJsonValue(m_e_systemconfiguration_language2, json[QString("eSystemconfigurationLanguage2")]);
     m_e_systemconfiguration_language2_isSet = !json[QString("eSystemconfigurationLanguage2")].isNull() && m_e_systemconfiguration_language2_isValid;
 
-    m_e_systemconfiguration_ezsign_isValid = ::OpenAPI::fromJsonValue(m_e_systemconfiguration_ezsign, json[QString("eSystemconfigurationEzsign")]);
+    m_e_systemconfiguration_ezsign_isValid = ::Ezmaxapi::fromJsonValue(m_e_systemconfiguration_ezsign, json[QString("eSystemconfigurationEzsign")]);
     m_e_systemconfiguration_ezsign_isSet = !json[QString("eSystemconfigurationEzsign")].isNull() && m_e_systemconfiguration_ezsign_isValid;
 
-    m_b_systemconfiguration_ezsignpersonnal_isValid = ::OpenAPI::fromJsonValue(m_b_systemconfiguration_ezsignpersonnal, json[QString("bSystemconfigurationEzsignpersonnal")]);
+    m_b_systemconfiguration_ezsignpersonnal_isValid = ::Ezmaxapi::fromJsonValue(m_b_systemconfiguration_ezsignpersonnal, json[QString("bSystemconfigurationEzsignpersonnal")]);
     m_b_systemconfiguration_ezsignpersonnal_isSet = !json[QString("bSystemconfigurationEzsignpersonnal")].isNull() && m_b_systemconfiguration_ezsignpersonnal_isValid;
 
-    m_b_systemconfiguration_sspr_isValid = ::OpenAPI::fromJsonValue(m_b_systemconfiguration_sspr, json[QString("bSystemconfigurationSspr")]);
+    m_b_systemconfiguration_sspr_isValid = ::Ezmaxapi::fromJsonValue(m_b_systemconfiguration_sspr, json[QString("bSystemconfigurationSspr")]);
     m_b_systemconfiguration_sspr_isSet = !json[QString("bSystemconfigurationSspr")].isNull() && m_b_systemconfiguration_sspr_isValid;
 
-    m_dt_systemconfiguration_readonlyexpirationstart_isValid = ::OpenAPI::fromJsonValue(m_dt_systemconfiguration_readonlyexpirationstart, json[QString("dtSystemconfigurationReadonlyexpirationstart")]);
+    m_dt_systemconfiguration_readonlyexpirationstart_isValid = ::Ezmaxapi::fromJsonValue(m_dt_systemconfiguration_readonlyexpirationstart, json[QString("dtSystemconfigurationReadonlyexpirationstart")]);
     m_dt_systemconfiguration_readonlyexpirationstart_isSet = !json[QString("dtSystemconfigurationReadonlyexpirationstart")].isNull() && m_dt_systemconfiguration_readonlyexpirationstart_isValid;
 
-    m_dt_systemconfiguration_readonlyexpirationend_isValid = ::OpenAPI::fromJsonValue(m_dt_systemconfiguration_readonlyexpirationend, json[QString("dtSystemconfigurationReadonlyexpirationend")]);
+    m_dt_systemconfiguration_readonlyexpirationend_isValid = ::Ezmaxapi::fromJsonValue(m_dt_systemconfiguration_readonlyexpirationend, json[QString("dtSystemconfigurationReadonlyexpirationend")]);
     m_dt_systemconfiguration_readonlyexpirationend_isSet = !json[QString("dtSystemconfigurationReadonlyexpirationend")].isNull() && m_dt_systemconfiguration_readonlyexpirationend_isValid;
 }
 
@@ -121,37 +121,37 @@ QString OAISystemconfiguration_ResponseCompound::asJson() const {
 QJsonObject OAISystemconfiguration_ResponseCompound::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_systemconfiguration_id_isSet) {
-        obj.insert(QString("pkiSystemconfigurationID"), ::OpenAPI::toJsonValue(m_pki_systemconfiguration_id));
+        obj.insert(QString("pkiSystemconfigurationID"), ::Ezmaxapi::toJsonValue(m_pki_systemconfiguration_id));
     }
     if (m_fki_systemconfigurationtype_id_isSet) {
-        obj.insert(QString("fkiSystemconfigurationtypeID"), ::OpenAPI::toJsonValue(m_fki_systemconfigurationtype_id));
+        obj.insert(QString("fkiSystemconfigurationtypeID"), ::Ezmaxapi::toJsonValue(m_fki_systemconfigurationtype_id));
     }
     if (m_s_systemconfigurationtype_description_x_isSet) {
-        obj.insert(QString("sSystemconfigurationtypeDescriptionX"), ::OpenAPI::toJsonValue(m_s_systemconfigurationtype_description_x));
+        obj.insert(QString("sSystemconfigurationtypeDescriptionX"), ::Ezmaxapi::toJsonValue(m_s_systemconfigurationtype_description_x));
     }
     if (m_e_systemconfiguration_newexternaluseraction.isSet()) {
-        obj.insert(QString("eSystemconfigurationNewexternaluseraction"), ::OpenAPI::toJsonValue(m_e_systemconfiguration_newexternaluseraction));
+        obj.insert(QString("eSystemconfigurationNewexternaluseraction"), ::Ezmaxapi::toJsonValue(m_e_systemconfiguration_newexternaluseraction));
     }
     if (m_e_systemconfiguration_language1.isSet()) {
-        obj.insert(QString("eSystemconfigurationLanguage1"), ::OpenAPI::toJsonValue(m_e_systemconfiguration_language1));
+        obj.insert(QString("eSystemconfigurationLanguage1"), ::Ezmaxapi::toJsonValue(m_e_systemconfiguration_language1));
     }
     if (m_e_systemconfiguration_language2.isSet()) {
-        obj.insert(QString("eSystemconfigurationLanguage2"), ::OpenAPI::toJsonValue(m_e_systemconfiguration_language2));
+        obj.insert(QString("eSystemconfigurationLanguage2"), ::Ezmaxapi::toJsonValue(m_e_systemconfiguration_language2));
     }
     if (m_e_systemconfiguration_ezsign.isSet()) {
-        obj.insert(QString("eSystemconfigurationEzsign"), ::OpenAPI::toJsonValue(m_e_systemconfiguration_ezsign));
+        obj.insert(QString("eSystemconfigurationEzsign"), ::Ezmaxapi::toJsonValue(m_e_systemconfiguration_ezsign));
     }
     if (m_b_systemconfiguration_ezsignpersonnal_isSet) {
-        obj.insert(QString("bSystemconfigurationEzsignpersonnal"), ::OpenAPI::toJsonValue(m_b_systemconfiguration_ezsignpersonnal));
+        obj.insert(QString("bSystemconfigurationEzsignpersonnal"), ::Ezmaxapi::toJsonValue(m_b_systemconfiguration_ezsignpersonnal));
     }
     if (m_b_systemconfiguration_sspr_isSet) {
-        obj.insert(QString("bSystemconfigurationSspr"), ::OpenAPI::toJsonValue(m_b_systemconfiguration_sspr));
+        obj.insert(QString("bSystemconfigurationSspr"), ::Ezmaxapi::toJsonValue(m_b_systemconfiguration_sspr));
     }
     if (m_dt_systemconfiguration_readonlyexpirationstart_isSet) {
-        obj.insert(QString("dtSystemconfigurationReadonlyexpirationstart"), ::OpenAPI::toJsonValue(m_dt_systemconfiguration_readonlyexpirationstart));
+        obj.insert(QString("dtSystemconfigurationReadonlyexpirationstart"), ::Ezmaxapi::toJsonValue(m_dt_systemconfiguration_readonlyexpirationstart));
     }
     if (m_dt_systemconfiguration_readonlyexpirationend_isSet) {
-        obj.insert(QString("dtSystemconfigurationReadonlyexpirationend"), ::OpenAPI::toJsonValue(m_dt_systemconfiguration_readonlyexpirationend));
+        obj.insert(QString("dtSystemconfigurationReadonlyexpirationend"), ::Ezmaxapi::toJsonValue(m_dt_systemconfiguration_readonlyexpirationend));
     }
     return obj;
 }
@@ -398,4 +398,4 @@ bool OAISystemconfiguration_ResponseCompound::isValid() const {
     return m_pki_systemconfiguration_id_isValid && m_fki_systemconfigurationtype_id_isValid && m_s_systemconfigurationtype_description_x_isValid && m_e_systemconfiguration_newexternaluseraction_isValid && m_e_systemconfiguration_language1_isValid && m_e_systemconfiguration_language2_isValid && m_e_systemconfiguration_ezsign_isValid && m_b_systemconfiguration_ezsignpersonnal_isValid && m_b_systemconfiguration_sspr_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

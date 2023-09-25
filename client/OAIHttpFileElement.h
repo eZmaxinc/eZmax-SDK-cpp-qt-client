@@ -17,7 +17,7 @@
 #include <QMetaType>
 #include <QString>
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIHttpFileElement {
 
@@ -41,8 +41,8 @@ public:
     QByteArray loadFromFile(const QString &variable_name, const QString &local_filename, const QString &request_filename, const QString &mime);
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIHttpFileElement)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIHttpFileElement)
 
 #endif // OAI_HTTP_FILE_ELEMENT_H

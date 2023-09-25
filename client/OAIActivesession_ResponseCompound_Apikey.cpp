@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIActivesession_ResponseCompound_Apikey::OAIActivesession_ResponseCompound_Apikey(QString json) {
     this->initializeModel();
@@ -50,10 +50,10 @@ void OAIActivesession_ResponseCompound_Apikey::fromJson(QString jsonString) {
 
 void OAIActivesession_ResponseCompound_Apikey::fromJsonObject(QJsonObject json) {
 
-    m_pki_apikey_id_isValid = ::OpenAPI::fromJsonValue(m_pki_apikey_id, json[QString("pkiApikeyID")]);
+    m_pki_apikey_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_apikey_id, json[QString("pkiApikeyID")]);
     m_pki_apikey_id_isSet = !json[QString("pkiApikeyID")].isNull() && m_pki_apikey_id_isValid;
 
-    m_s_apikey_description_x_isValid = ::OpenAPI::fromJsonValue(m_s_apikey_description_x, json[QString("sApikeyDescriptionX")]);
+    m_s_apikey_description_x_isValid = ::Ezmaxapi::fromJsonValue(m_s_apikey_description_x, json[QString("sApikeyDescriptionX")]);
     m_s_apikey_description_x_isSet = !json[QString("sApikeyDescriptionX")].isNull() && m_s_apikey_description_x_isValid;
 }
 
@@ -67,10 +67,10 @@ QString OAIActivesession_ResponseCompound_Apikey::asJson() const {
 QJsonObject OAIActivesession_ResponseCompound_Apikey::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_apikey_id_isSet) {
-        obj.insert(QString("pkiApikeyID"), ::OpenAPI::toJsonValue(m_pki_apikey_id));
+        obj.insert(QString("pkiApikeyID"), ::Ezmaxapi::toJsonValue(m_pki_apikey_id));
     }
     if (m_s_apikey_description_x_isSet) {
-        obj.insert(QString("sApikeyDescriptionX"), ::OpenAPI::toJsonValue(m_s_apikey_description_x));
+        obj.insert(QString("sApikeyDescriptionX"), ::Ezmaxapi::toJsonValue(m_s_apikey_description_x));
     }
     return obj;
 }
@@ -128,4 +128,4 @@ bool OAIActivesession_ResponseCompound_Apikey::isValid() const {
     return m_pki_apikey_id_isValid && m_s_apikey_description_x_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

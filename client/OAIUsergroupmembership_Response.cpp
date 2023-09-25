@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIUsergroupmembership_Response::OAIUsergroupmembership_Response(QString json) {
     this->initializeModel();
@@ -68,28 +68,28 @@ void OAIUsergroupmembership_Response::fromJson(QString jsonString) {
 
 void OAIUsergroupmembership_Response::fromJsonObject(QJsonObject json) {
 
-    m_pki_usergroupmembership_id_isValid = ::OpenAPI::fromJsonValue(m_pki_usergroupmembership_id, json[QString("pkiUsergroupmembershipID")]);
+    m_pki_usergroupmembership_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_usergroupmembership_id, json[QString("pkiUsergroupmembershipID")]);
     m_pki_usergroupmembership_id_isSet = !json[QString("pkiUsergroupmembershipID")].isNull() && m_pki_usergroupmembership_id_isValid;
 
-    m_fki_usergroup_id_isValid = ::OpenAPI::fromJsonValue(m_fki_usergroup_id, json[QString("fkiUsergroupID")]);
+    m_fki_usergroup_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_usergroup_id, json[QString("fkiUsergroupID")]);
     m_fki_usergroup_id_isSet = !json[QString("fkiUsergroupID")].isNull() && m_fki_usergroup_id_isValid;
 
-    m_fki_user_id_isValid = ::OpenAPI::fromJsonValue(m_fki_user_id, json[QString("fkiUserID")]);
+    m_fki_user_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_user_id, json[QString("fkiUserID")]);
     m_fki_user_id_isSet = !json[QString("fkiUserID")].isNull() && m_fki_user_id_isValid;
 
-    m_s_user_firstname_isValid = ::OpenAPI::fromJsonValue(m_s_user_firstname, json[QString("sUserFirstname")]);
+    m_s_user_firstname_isValid = ::Ezmaxapi::fromJsonValue(m_s_user_firstname, json[QString("sUserFirstname")]);
     m_s_user_firstname_isSet = !json[QString("sUserFirstname")].isNull() && m_s_user_firstname_isValid;
 
-    m_s_user_lastname_isValid = ::OpenAPI::fromJsonValue(m_s_user_lastname, json[QString("sUserLastname")]);
+    m_s_user_lastname_isValid = ::Ezmaxapi::fromJsonValue(m_s_user_lastname, json[QString("sUserLastname")]);
     m_s_user_lastname_isSet = !json[QString("sUserLastname")].isNull() && m_s_user_lastname_isValid;
 
-    m_s_user_loginname_isValid = ::OpenAPI::fromJsonValue(m_s_user_loginname, json[QString("sUserLoginname")]);
+    m_s_user_loginname_isValid = ::Ezmaxapi::fromJsonValue(m_s_user_loginname, json[QString("sUserLoginname")]);
     m_s_user_loginname_isSet = !json[QString("sUserLoginname")].isNull() && m_s_user_loginname_isValid;
 
-    m_s_email_address_isValid = ::OpenAPI::fromJsonValue(m_s_email_address, json[QString("sEmailAddress")]);
+    m_s_email_address_isValid = ::Ezmaxapi::fromJsonValue(m_s_email_address, json[QString("sEmailAddress")]);
     m_s_email_address_isSet = !json[QString("sEmailAddress")].isNull() && m_s_email_address_isValid;
 
-    m_s_usergroup_name_x_isValid = ::OpenAPI::fromJsonValue(m_s_usergroup_name_x, json[QString("sUsergroupNameX")]);
+    m_s_usergroup_name_x_isValid = ::Ezmaxapi::fromJsonValue(m_s_usergroup_name_x, json[QString("sUsergroupNameX")]);
     m_s_usergroup_name_x_isSet = !json[QString("sUsergroupNameX")].isNull() && m_s_usergroup_name_x_isValid;
 }
 
@@ -103,28 +103,28 @@ QString OAIUsergroupmembership_Response::asJson() const {
 QJsonObject OAIUsergroupmembership_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_usergroupmembership_id_isSet) {
-        obj.insert(QString("pkiUsergroupmembershipID"), ::OpenAPI::toJsonValue(m_pki_usergroupmembership_id));
+        obj.insert(QString("pkiUsergroupmembershipID"), ::Ezmaxapi::toJsonValue(m_pki_usergroupmembership_id));
     }
     if (m_fki_usergroup_id_isSet) {
-        obj.insert(QString("fkiUsergroupID"), ::OpenAPI::toJsonValue(m_fki_usergroup_id));
+        obj.insert(QString("fkiUsergroupID"), ::Ezmaxapi::toJsonValue(m_fki_usergroup_id));
     }
     if (m_fki_user_id_isSet) {
-        obj.insert(QString("fkiUserID"), ::OpenAPI::toJsonValue(m_fki_user_id));
+        obj.insert(QString("fkiUserID"), ::Ezmaxapi::toJsonValue(m_fki_user_id));
     }
     if (m_s_user_firstname_isSet) {
-        obj.insert(QString("sUserFirstname"), ::OpenAPI::toJsonValue(m_s_user_firstname));
+        obj.insert(QString("sUserFirstname"), ::Ezmaxapi::toJsonValue(m_s_user_firstname));
     }
     if (m_s_user_lastname_isSet) {
-        obj.insert(QString("sUserLastname"), ::OpenAPI::toJsonValue(m_s_user_lastname));
+        obj.insert(QString("sUserLastname"), ::Ezmaxapi::toJsonValue(m_s_user_lastname));
     }
     if (m_s_user_loginname_isSet) {
-        obj.insert(QString("sUserLoginname"), ::OpenAPI::toJsonValue(m_s_user_loginname));
+        obj.insert(QString("sUserLoginname"), ::Ezmaxapi::toJsonValue(m_s_user_loginname));
     }
     if (m_s_email_address_isSet) {
-        obj.insert(QString("sEmailAddress"), ::OpenAPI::toJsonValue(m_s_email_address));
+        obj.insert(QString("sEmailAddress"), ::Ezmaxapi::toJsonValue(m_s_email_address));
     }
     if (m_s_usergroup_name_x_isSet) {
-        obj.insert(QString("sUsergroupNameX"), ::OpenAPI::toJsonValue(m_s_usergroup_name_x));
+        obj.insert(QString("sUsergroupNameX"), ::Ezmaxapi::toJsonValue(m_s_usergroup_name_x));
     }
     return obj;
 }
@@ -308,4 +308,4 @@ bool OAIUsergroupmembership_Response::isValid() const {
     return m_pki_usergroupmembership_id_isValid && m_fki_usergroup_id_isValid && m_fki_user_id_isValid && m_s_user_firstname_isValid && m_s_user_lastname_isValid && m_s_user_loginname_isValid && m_s_usergroup_name_x_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

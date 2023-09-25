@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAICustom_WordPositionWord_Response::OAICustom_WordPositionWord_Response(QString json) {
     this->initializeModel();
@@ -50,10 +50,10 @@ void OAICustom_WordPositionWord_Response::fromJson(QString jsonString) {
 
 void OAICustom_WordPositionWord_Response::fromJsonObject(QJsonObject json) {
 
-    m_s_word_isValid = ::OpenAPI::fromJsonValue(m_s_word, json[QString("sWord")]);
+    m_s_word_isValid = ::Ezmaxapi::fromJsonValue(m_s_word, json[QString("sWord")]);
     m_s_word_isSet = !json[QString("sWord")].isNull() && m_s_word_isValid;
 
-    m_a_obj_word_position_occurence_isValid = ::OpenAPI::fromJsonValue(m_a_obj_word_position_occurence, json[QString("a_objWordPositionOccurence")]);
+    m_a_obj_word_position_occurence_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_word_position_occurence, json[QString("a_objWordPositionOccurence")]);
     m_a_obj_word_position_occurence_isSet = !json[QString("a_objWordPositionOccurence")].isNull() && m_a_obj_word_position_occurence_isValid;
 }
 
@@ -67,10 +67,10 @@ QString OAICustom_WordPositionWord_Response::asJson() const {
 QJsonObject OAICustom_WordPositionWord_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_s_word_isSet) {
-        obj.insert(QString("sWord"), ::OpenAPI::toJsonValue(m_s_word));
+        obj.insert(QString("sWord"), ::Ezmaxapi::toJsonValue(m_s_word));
     }
     if (m_a_obj_word_position_occurence.size() > 0) {
-        obj.insert(QString("a_objWordPositionOccurence"), ::OpenAPI::toJsonValue(m_a_obj_word_position_occurence));
+        obj.insert(QString("a_objWordPositionOccurence"), ::Ezmaxapi::toJsonValue(m_a_obj_word_position_occurence));
     }
     return obj;
 }
@@ -128,4 +128,4 @@ bool OAICustom_WordPositionWord_Response::isValid() const {
     return m_s_word_isValid && m_a_obj_word_position_occurence_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

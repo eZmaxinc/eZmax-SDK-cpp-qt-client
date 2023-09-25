@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAICommon_Reportcell::OAICommon_Reportcell(QString json) {
     this->initializeModel();
@@ -50,10 +50,10 @@ void OAICommon_Reportcell::fromJson(QString jsonString) {
 
 void OAICommon_Reportcell::fromJsonObject(QJsonObject json) {
 
-    m_i_reportcell_columnspan_isValid = ::OpenAPI::fromJsonValue(m_i_reportcell_columnspan, json[QString("iReportcellColumnspan")]);
+    m_i_reportcell_columnspan_isValid = ::Ezmaxapi::fromJsonValue(m_i_reportcell_columnspan, json[QString("iReportcellColumnspan")]);
     m_i_reportcell_columnspan_isSet = !json[QString("iReportcellColumnspan")].isNull() && m_i_reportcell_columnspan_isValid;
 
-    m_i_reportcell_rowspan_isValid = ::OpenAPI::fromJsonValue(m_i_reportcell_rowspan, json[QString("iReportcellRowspan")]);
+    m_i_reportcell_rowspan_isValid = ::Ezmaxapi::fromJsonValue(m_i_reportcell_rowspan, json[QString("iReportcellRowspan")]);
     m_i_reportcell_rowspan_isSet = !json[QString("iReportcellRowspan")].isNull() && m_i_reportcell_rowspan_isValid;
 }
 
@@ -67,10 +67,10 @@ QString OAICommon_Reportcell::asJson() const {
 QJsonObject OAICommon_Reportcell::asJsonObject() const {
     QJsonObject obj;
     if (m_i_reportcell_columnspan_isSet) {
-        obj.insert(QString("iReportcellColumnspan"), ::OpenAPI::toJsonValue(m_i_reportcell_columnspan));
+        obj.insert(QString("iReportcellColumnspan"), ::Ezmaxapi::toJsonValue(m_i_reportcell_columnspan));
     }
     if (m_i_reportcell_rowspan_isSet) {
-        obj.insert(QString("iReportcellRowspan"), ::OpenAPI::toJsonValue(m_i_reportcell_rowspan));
+        obj.insert(QString("iReportcellRowspan"), ::Ezmaxapi::toJsonValue(m_i_reportcell_rowspan));
     }
     return obj;
 }
@@ -128,4 +128,4 @@ bool OAICommon_Reportcell::isValid() const {
     return m_i_reportcell_columnspan_isValid && m_i_reportcell_rowspan_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

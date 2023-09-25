@@ -15,7 +15,7 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIObjectEzsigntemplatepackagemembershipApi::OAIObjectEzsigntemplatepackagemembershipApi(const int timeOut)
     : _timeOut(timeOut),
@@ -317,7 +317,7 @@ void OAIObjectEzsigntemplatepackagemembershipApi::ezsigntemplatepackagemembershi
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsigntemplatepackagemembershipID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsigntemplatepackagemembershipID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsigntemplatepackagemembership_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsigntemplatepackagemembership_id)));
+        fullPath.replace(pki_ezsigntemplatepackagemembership_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsigntemplatepackagemembership_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -384,7 +384,7 @@ void OAIObjectEzsigntemplatepackagemembershipApi::ezsigntemplatepackagemembershi
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsigntemplatepackagemembershipID", false);
         QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsigntemplatepackagemembershipID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsigntemplatepackagemembership_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pki_ezsigntemplatepackagemembership_id)));
+        fullPath.replace(pki_ezsigntemplatepackagemembership_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsigntemplatepackagemembership_id)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -481,4 +481,4 @@ void OAIObjectEzsigntemplatepackagemembershipApi::tokenAvailable(){
         break;
     }
 }
-} // namespace OpenAPI
+} // namespace Ezmaxapi

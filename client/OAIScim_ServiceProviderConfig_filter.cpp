@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIScim_ServiceProviderConfig_filter::OAIScim_ServiceProviderConfig_filter(QString json) {
     this->initializeModel();
@@ -50,10 +50,10 @@ void OAIScim_ServiceProviderConfig_filter::fromJson(QString jsonString) {
 
 void OAIScim_ServiceProviderConfig_filter::fromJsonObject(QJsonObject json) {
 
-    m_supported_isValid = ::OpenAPI::fromJsonValue(m_supported, json[QString("supported")]);
+    m_supported_isValid = ::Ezmaxapi::fromJsonValue(m_supported, json[QString("supported")]);
     m_supported_isSet = !json[QString("supported")].isNull() && m_supported_isValid;
 
-    m_max_results_isValid = ::OpenAPI::fromJsonValue(m_max_results, json[QString("maxResults")]);
+    m_max_results_isValid = ::Ezmaxapi::fromJsonValue(m_max_results, json[QString("maxResults")]);
     m_max_results_isSet = !json[QString("maxResults")].isNull() && m_max_results_isValid;
 }
 
@@ -67,10 +67,10 @@ QString OAIScim_ServiceProviderConfig_filter::asJson() const {
 QJsonObject OAIScim_ServiceProviderConfig_filter::asJsonObject() const {
     QJsonObject obj;
     if (m_supported_isSet) {
-        obj.insert(QString("supported"), ::OpenAPI::toJsonValue(m_supported));
+        obj.insert(QString("supported"), ::Ezmaxapi::toJsonValue(m_supported));
     }
     if (m_max_results_isSet) {
-        obj.insert(QString("maxResults"), ::OpenAPI::toJsonValue(m_max_results));
+        obj.insert(QString("maxResults"), ::Ezmaxapi::toJsonValue(m_max_results));
     }
     return obj;
 }
@@ -128,4 +128,4 @@ bool OAIScim_ServiceProviderConfig_filter::isValid() const {
     return m_supported_isValid && m_max_results_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

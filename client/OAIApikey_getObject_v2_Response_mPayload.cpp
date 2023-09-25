@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIApikey_getObject_v2_Response_mPayload::OAIApikey_getObject_v2_Response_mPayload(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAIApikey_getObject_v2_Response_mPayload::fromJson(QString jsonString) {
 
 void OAIApikey_getObject_v2_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_obj_apikey_isValid = ::OpenAPI::fromJsonValue(m_obj_apikey, json[QString("objApikey")]);
+    m_obj_apikey_isValid = ::Ezmaxapi::fromJsonValue(m_obj_apikey, json[QString("objApikey")]);
     m_obj_apikey_isSet = !json[QString("objApikey")].isNull() && m_obj_apikey_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAIApikey_getObject_v2_Response_mPayload::asJson() const {
 QJsonObject OAIApikey_getObject_v2_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_obj_apikey.isSet()) {
-        obj.insert(QString("objApikey"), ::OpenAPI::toJsonValue(m_obj_apikey));
+        obj.insert(QString("objApikey"), ::Ezmaxapi::toJsonValue(m_obj_apikey));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAIApikey_getObject_v2_Response_mPayload::isValid() const {
     return m_obj_apikey_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

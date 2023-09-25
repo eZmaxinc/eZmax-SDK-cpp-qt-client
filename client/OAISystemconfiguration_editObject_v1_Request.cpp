@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAISystemconfiguration_editObject_v1_Request::OAISystemconfiguration_editObject_v1_Request(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAISystemconfiguration_editObject_v1_Request::fromJson(QString jsonString) 
 
 void OAISystemconfiguration_editObject_v1_Request::fromJsonObject(QJsonObject json) {
 
-    m_obj_systemconfiguration_isValid = ::OpenAPI::fromJsonValue(m_obj_systemconfiguration, json[QString("objSystemconfiguration")]);
+    m_obj_systemconfiguration_isValid = ::Ezmaxapi::fromJsonValue(m_obj_systemconfiguration, json[QString("objSystemconfiguration")]);
     m_obj_systemconfiguration_isSet = !json[QString("objSystemconfiguration")].isNull() && m_obj_systemconfiguration_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAISystemconfiguration_editObject_v1_Request::asJson() const {
 QJsonObject OAISystemconfiguration_editObject_v1_Request::asJsonObject() const {
     QJsonObject obj;
     if (m_obj_systemconfiguration.isSet()) {
-        obj.insert(QString("objSystemconfiguration"), ::OpenAPI::toJsonValue(m_obj_systemconfiguration));
+        obj.insert(QString("objSystemconfiguration"), ::Ezmaxapi::toJsonValue(m_obj_systemconfiguration));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAISystemconfiguration_editObject_v1_Request::isValid() const {
     return m_obj_systemconfiguration_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

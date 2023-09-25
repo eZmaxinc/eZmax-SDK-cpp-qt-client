@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIBranding_ListElement::OAIBranding_ListElement(QString json) {
     this->initializeModel();
@@ -71,31 +71,31 @@ void OAIBranding_ListElement::fromJson(QString jsonString) {
 
 void OAIBranding_ListElement::fromJsonObject(QJsonObject json) {
 
-    m_pki_branding_id_isValid = ::OpenAPI::fromJsonValue(m_pki_branding_id, json[QString("pkiBrandingID")]);
+    m_pki_branding_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_branding_id, json[QString("pkiBrandingID")]);
     m_pki_branding_id_isSet = !json[QString("pkiBrandingID")].isNull() && m_pki_branding_id_isValid;
 
-    m_s_branding_description_x_isValid = ::OpenAPI::fromJsonValue(m_s_branding_description_x, json[QString("sBrandingDescriptionX")]);
+    m_s_branding_description_x_isValid = ::Ezmaxapi::fromJsonValue(m_s_branding_description_x, json[QString("sBrandingDescriptionX")]);
     m_s_branding_description_x_isSet = !json[QString("sBrandingDescriptionX")].isNull() && m_s_branding_description_x_isValid;
 
-    m_i_branding_colortext_isValid = ::OpenAPI::fromJsonValue(m_i_branding_colortext, json[QString("iBrandingColortext")]);
+    m_i_branding_colortext_isValid = ::Ezmaxapi::fromJsonValue(m_i_branding_colortext, json[QString("iBrandingColortext")]);
     m_i_branding_colortext_isSet = !json[QString("iBrandingColortext")].isNull() && m_i_branding_colortext_isValid;
 
-    m_i_branding_colortextlinkbox_isValid = ::OpenAPI::fromJsonValue(m_i_branding_colortextlinkbox, json[QString("iBrandingColortextlinkbox")]);
+    m_i_branding_colortextlinkbox_isValid = ::Ezmaxapi::fromJsonValue(m_i_branding_colortextlinkbox, json[QString("iBrandingColortextlinkbox")]);
     m_i_branding_colortextlinkbox_isSet = !json[QString("iBrandingColortextlinkbox")].isNull() && m_i_branding_colortextlinkbox_isValid;
 
-    m_i_branding_colortextbutton_isValid = ::OpenAPI::fromJsonValue(m_i_branding_colortextbutton, json[QString("iBrandingColortextbutton")]);
+    m_i_branding_colortextbutton_isValid = ::Ezmaxapi::fromJsonValue(m_i_branding_colortextbutton, json[QString("iBrandingColortextbutton")]);
     m_i_branding_colortextbutton_isSet = !json[QString("iBrandingColortextbutton")].isNull() && m_i_branding_colortextbutton_isValid;
 
-    m_i_branding_colorbackground_isValid = ::OpenAPI::fromJsonValue(m_i_branding_colorbackground, json[QString("iBrandingColorbackground")]);
+    m_i_branding_colorbackground_isValid = ::Ezmaxapi::fromJsonValue(m_i_branding_colorbackground, json[QString("iBrandingColorbackground")]);
     m_i_branding_colorbackground_isSet = !json[QString("iBrandingColorbackground")].isNull() && m_i_branding_colorbackground_isValid;
 
-    m_i_branding_colorbackgroundbutton_isValid = ::OpenAPI::fromJsonValue(m_i_branding_colorbackgroundbutton, json[QString("iBrandingColorbackgroundbutton")]);
+    m_i_branding_colorbackgroundbutton_isValid = ::Ezmaxapi::fromJsonValue(m_i_branding_colorbackgroundbutton, json[QString("iBrandingColorbackgroundbutton")]);
     m_i_branding_colorbackgroundbutton_isSet = !json[QString("iBrandingColorbackgroundbutton")].isNull() && m_i_branding_colorbackgroundbutton_isValid;
 
-    m_i_branding_colorbackgroundsmallbox_isValid = ::OpenAPI::fromJsonValue(m_i_branding_colorbackgroundsmallbox, json[QString("iBrandingColorbackgroundsmallbox")]);
+    m_i_branding_colorbackgroundsmallbox_isValid = ::Ezmaxapi::fromJsonValue(m_i_branding_colorbackgroundsmallbox, json[QString("iBrandingColorbackgroundsmallbox")]);
     m_i_branding_colorbackgroundsmallbox_isSet = !json[QString("iBrandingColorbackgroundsmallbox")].isNull() && m_i_branding_colorbackgroundsmallbox_isValid;
 
-    m_b_branding_isactive_isValid = ::OpenAPI::fromJsonValue(m_b_branding_isactive, json[QString("bBrandingIsactive")]);
+    m_b_branding_isactive_isValid = ::Ezmaxapi::fromJsonValue(m_b_branding_isactive, json[QString("bBrandingIsactive")]);
     m_b_branding_isactive_isSet = !json[QString("bBrandingIsactive")].isNull() && m_b_branding_isactive_isValid;
 }
 
@@ -109,31 +109,31 @@ QString OAIBranding_ListElement::asJson() const {
 QJsonObject OAIBranding_ListElement::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_branding_id_isSet) {
-        obj.insert(QString("pkiBrandingID"), ::OpenAPI::toJsonValue(m_pki_branding_id));
+        obj.insert(QString("pkiBrandingID"), ::Ezmaxapi::toJsonValue(m_pki_branding_id));
     }
     if (m_s_branding_description_x_isSet) {
-        obj.insert(QString("sBrandingDescriptionX"), ::OpenAPI::toJsonValue(m_s_branding_description_x));
+        obj.insert(QString("sBrandingDescriptionX"), ::Ezmaxapi::toJsonValue(m_s_branding_description_x));
     }
     if (m_i_branding_colortext_isSet) {
-        obj.insert(QString("iBrandingColortext"), ::OpenAPI::toJsonValue(m_i_branding_colortext));
+        obj.insert(QString("iBrandingColortext"), ::Ezmaxapi::toJsonValue(m_i_branding_colortext));
     }
     if (m_i_branding_colortextlinkbox_isSet) {
-        obj.insert(QString("iBrandingColortextlinkbox"), ::OpenAPI::toJsonValue(m_i_branding_colortextlinkbox));
+        obj.insert(QString("iBrandingColortextlinkbox"), ::Ezmaxapi::toJsonValue(m_i_branding_colortextlinkbox));
     }
     if (m_i_branding_colortextbutton_isSet) {
-        obj.insert(QString("iBrandingColortextbutton"), ::OpenAPI::toJsonValue(m_i_branding_colortextbutton));
+        obj.insert(QString("iBrandingColortextbutton"), ::Ezmaxapi::toJsonValue(m_i_branding_colortextbutton));
     }
     if (m_i_branding_colorbackground_isSet) {
-        obj.insert(QString("iBrandingColorbackground"), ::OpenAPI::toJsonValue(m_i_branding_colorbackground));
+        obj.insert(QString("iBrandingColorbackground"), ::Ezmaxapi::toJsonValue(m_i_branding_colorbackground));
     }
     if (m_i_branding_colorbackgroundbutton_isSet) {
-        obj.insert(QString("iBrandingColorbackgroundbutton"), ::OpenAPI::toJsonValue(m_i_branding_colorbackgroundbutton));
+        obj.insert(QString("iBrandingColorbackgroundbutton"), ::Ezmaxapi::toJsonValue(m_i_branding_colorbackgroundbutton));
     }
     if (m_i_branding_colorbackgroundsmallbox_isSet) {
-        obj.insert(QString("iBrandingColorbackgroundsmallbox"), ::OpenAPI::toJsonValue(m_i_branding_colorbackgroundsmallbox));
+        obj.insert(QString("iBrandingColorbackgroundsmallbox"), ::Ezmaxapi::toJsonValue(m_i_branding_colorbackgroundsmallbox));
     }
     if (m_b_branding_isactive_isSet) {
-        obj.insert(QString("bBrandingIsactive"), ::OpenAPI::toJsonValue(m_b_branding_isactive));
+        obj.insert(QString("bBrandingIsactive"), ::Ezmaxapi::toJsonValue(m_b_branding_isactive));
     }
     return obj;
 }
@@ -338,4 +338,4 @@ bool OAIBranding_ListElement::isValid() const {
     return m_pki_branding_id_isValid && m_s_branding_description_x_isValid && m_i_branding_colortext_isValid && m_i_branding_colortextlinkbox_isValid && m_i_branding_colortextbutton_isValid && m_i_branding_colorbackground_isValid && m_i_branding_colorbackgroundbutton_isValid && m_i_branding_colorbackgroundsmallbox_isValid && m_b_branding_isactive_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

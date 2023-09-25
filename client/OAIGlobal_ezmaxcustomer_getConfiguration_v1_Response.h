@@ -26,7 +26,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIGlobal_ezmaxcustomer_getConfiguration_v1_Response : public OAIObject {
 public:
@@ -91,8 +91,8 @@ private:
     bool m_s_cognito_client_id_ezmaxpublic_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIGlobal_ezmaxcustomer_getConfiguration_v1_Response)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIGlobal_ezmaxcustomer_getConfiguration_v1_Response)
 
 #endif // OAIGlobal_ezmaxcustomer_getConfiguration_v1_Response_H

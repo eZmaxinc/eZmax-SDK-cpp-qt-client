@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAISubnet_Response::OAISubnet_Response(QString json) {
     this->initializeModel();
@@ -62,22 +62,22 @@ void OAISubnet_Response::fromJson(QString jsonString) {
 
 void OAISubnet_Response::fromJsonObject(QJsonObject json) {
 
-    m_pki_subnet_id_isValid = ::OpenAPI::fromJsonValue(m_pki_subnet_id, json[QString("pkiSubnetID")]);
+    m_pki_subnet_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_subnet_id, json[QString("pkiSubnetID")]);
     m_pki_subnet_id_isSet = !json[QString("pkiSubnetID")].isNull() && m_pki_subnet_id_isValid;
 
-    m_fki_user_id_isValid = ::OpenAPI::fromJsonValue(m_fki_user_id, json[QString("fkiUserID")]);
+    m_fki_user_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_user_id, json[QString("fkiUserID")]);
     m_fki_user_id_isSet = !json[QString("fkiUserID")].isNull() && m_fki_user_id_isValid;
 
-    m_fki_apikey_id_isValid = ::OpenAPI::fromJsonValue(m_fki_apikey_id, json[QString("fkiApikeyID")]);
+    m_fki_apikey_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_apikey_id, json[QString("fkiApikeyID")]);
     m_fki_apikey_id_isSet = !json[QString("fkiApikeyID")].isNull() && m_fki_apikey_id_isValid;
 
-    m_obj_subnet_description_isValid = ::OpenAPI::fromJsonValue(m_obj_subnet_description, json[QString("objSubnetDescription")]);
+    m_obj_subnet_description_isValid = ::Ezmaxapi::fromJsonValue(m_obj_subnet_description, json[QString("objSubnetDescription")]);
     m_obj_subnet_description_isSet = !json[QString("objSubnetDescription")].isNull() && m_obj_subnet_description_isValid;
 
-    m_i_subnet_network_isValid = ::OpenAPI::fromJsonValue(m_i_subnet_network, json[QString("iSubnetNetwork")]);
+    m_i_subnet_network_isValid = ::Ezmaxapi::fromJsonValue(m_i_subnet_network, json[QString("iSubnetNetwork")]);
     m_i_subnet_network_isSet = !json[QString("iSubnetNetwork")].isNull() && m_i_subnet_network_isValid;
 
-    m_i_subnet_mask_isValid = ::OpenAPI::fromJsonValue(m_i_subnet_mask, json[QString("iSubnetMask")]);
+    m_i_subnet_mask_isValid = ::Ezmaxapi::fromJsonValue(m_i_subnet_mask, json[QString("iSubnetMask")]);
     m_i_subnet_mask_isSet = !json[QString("iSubnetMask")].isNull() && m_i_subnet_mask_isValid;
 }
 
@@ -91,22 +91,22 @@ QString OAISubnet_Response::asJson() const {
 QJsonObject OAISubnet_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_subnet_id_isSet) {
-        obj.insert(QString("pkiSubnetID"), ::OpenAPI::toJsonValue(m_pki_subnet_id));
+        obj.insert(QString("pkiSubnetID"), ::Ezmaxapi::toJsonValue(m_pki_subnet_id));
     }
     if (m_fki_user_id_isSet) {
-        obj.insert(QString("fkiUserID"), ::OpenAPI::toJsonValue(m_fki_user_id));
+        obj.insert(QString("fkiUserID"), ::Ezmaxapi::toJsonValue(m_fki_user_id));
     }
     if (m_fki_apikey_id_isSet) {
-        obj.insert(QString("fkiApikeyID"), ::OpenAPI::toJsonValue(m_fki_apikey_id));
+        obj.insert(QString("fkiApikeyID"), ::Ezmaxapi::toJsonValue(m_fki_apikey_id));
     }
     if (m_obj_subnet_description.isSet()) {
-        obj.insert(QString("objSubnetDescription"), ::OpenAPI::toJsonValue(m_obj_subnet_description));
+        obj.insert(QString("objSubnetDescription"), ::Ezmaxapi::toJsonValue(m_obj_subnet_description));
     }
     if (m_i_subnet_network_isSet) {
-        obj.insert(QString("iSubnetNetwork"), ::OpenAPI::toJsonValue(m_i_subnet_network));
+        obj.insert(QString("iSubnetNetwork"), ::Ezmaxapi::toJsonValue(m_i_subnet_network));
     }
     if (m_i_subnet_mask_isSet) {
-        obj.insert(QString("iSubnetMask"), ::OpenAPI::toJsonValue(m_i_subnet_mask));
+        obj.insert(QString("iSubnetMask"), ::Ezmaxapi::toJsonValue(m_i_subnet_mask));
     }
     return obj;
 }
@@ -248,4 +248,4 @@ bool OAISubnet_Response::isValid() const {
     return m_pki_subnet_id_isValid && m_obj_subnet_description_isValid && m_i_subnet_network_isValid && m_i_subnet_mask_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

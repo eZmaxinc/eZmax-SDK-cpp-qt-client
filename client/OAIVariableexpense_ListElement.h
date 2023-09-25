@@ -27,7 +27,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIVariableexpense_ListElement : public OAIObject {
 public:
@@ -92,8 +92,8 @@ private:
     bool m_b_variableexpense_isactive_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIVariableexpense_ListElement)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIVariableexpense_ListElement)
 
 #endif // OAIVariableexpense_ListElement_H

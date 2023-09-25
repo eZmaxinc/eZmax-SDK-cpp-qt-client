@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIField_eEzsignfoldertypeSendreminderfrequency::OAIField_eEzsignfoldertypeSendreminderfrequency(QString json) {
     this->initializeModel();
@@ -102,4 +102,4 @@ bool OAIField_eEzsignfoldertypeSendreminderfrequency::isValid() const {
     return m_value_isValid;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

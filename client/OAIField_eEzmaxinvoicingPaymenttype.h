@@ -25,7 +25,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIField_eEzmaxinvoicingPaymenttype : public OAIEnum {
 public:
@@ -57,8 +57,8 @@ private:
     bool m_value_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIField_eEzmaxinvoicingPaymenttype)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIField_eEzmaxinvoicingPaymenttype)
 
 #endif // OAIField_eEzmaxinvoicingPaymenttype_H

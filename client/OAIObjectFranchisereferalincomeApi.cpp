@@ -15,7 +15,7 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIObjectFranchisereferalincomeApi::OAIObjectFranchisereferalincomeApi(const int timeOut)
     : _timeOut(timeOut),
@@ -251,7 +251,7 @@ void OAIObjectFranchisereferalincomeApi::franchisereferalincomeCreateObjectV1(co
     OAIHttpRequestInput input(fullPath, "POST");
 
     {
-        QJsonDocument doc(::OpenAPI::toJsonValue(oai_franchisereferalincome_create_object_v1_request).toArray());
+        QJsonDocument doc(::Ezmaxapi::toJsonValue(oai_franchisereferalincome_create_object_v1_request).toArray());
         QByteArray bytes = doc.toJson();
         input.request_body.append(bytes);
     }
@@ -402,4 +402,4 @@ void OAIObjectFranchisereferalincomeApi::tokenAvailable(){
         break;
     }
 }
-} // namespace OpenAPI
+} // namespace Ezmaxapi

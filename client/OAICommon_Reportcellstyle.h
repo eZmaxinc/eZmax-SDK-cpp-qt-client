@@ -29,7 +29,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAICommon_Reportcellstyle : public OAIObject {
 public:
@@ -121,8 +121,8 @@ private:
     bool m_e_reportcell_fontunderline_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAICommon_Reportcellstyle)
+Q_DECLARE_METATYPE(Ezmaxapi::OAICommon_Reportcellstyle)
 
 #endif // OAICommon_Reportcellstyle_H

@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIVariableexpense_createObject_v1_Response_mPayload::OAIVariableexpense_createObject_v1_Response_mPayload(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAIVariableexpense_createObject_v1_Response_mPayload::fromJson(QString json
 
 void OAIVariableexpense_createObject_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_pki_variableexpense_id_isValid = ::OpenAPI::fromJsonValue(m_a_pki_variableexpense_id, json[QString("a_pkiVariableexpenseID")]);
+    m_a_pki_variableexpense_id_isValid = ::Ezmaxapi::fromJsonValue(m_a_pki_variableexpense_id, json[QString("a_pkiVariableexpenseID")]);
     m_a_pki_variableexpense_id_isSet = !json[QString("a_pkiVariableexpenseID")].isNull() && m_a_pki_variableexpense_id_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAIVariableexpense_createObject_v1_Response_mPayload::asJson() const {
 QJsonObject OAIVariableexpense_createObject_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
     if (m_a_pki_variableexpense_id.size() > 0) {
-        obj.insert(QString("a_pkiVariableexpenseID"), ::OpenAPI::toJsonValue(m_a_pki_variableexpense_id));
+        obj.insert(QString("a_pkiVariableexpenseID"), ::Ezmaxapi::toJsonValue(m_a_pki_variableexpense_id));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAIVariableexpense_createObject_v1_Response_mPayload::isValid() const {
     return m_a_pki_variableexpense_id_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIGlobal_customer_getEndpoint_v1_Response::OAIGlobal_customer_getEndpoint_v1_Response(QString json) {
     this->initializeModel();
@@ -47,7 +47,7 @@ void OAIGlobal_customer_getEndpoint_v1_Response::fromJson(QString jsonString) {
 
 void OAIGlobal_customer_getEndpoint_v1_Response::fromJsonObject(QJsonObject json) {
 
-    m_s_endpoint_url_isValid = ::OpenAPI::fromJsonValue(m_s_endpoint_url, json[QString("sEndpointURL")]);
+    m_s_endpoint_url_isValid = ::Ezmaxapi::fromJsonValue(m_s_endpoint_url, json[QString("sEndpointURL")]);
     m_s_endpoint_url_isSet = !json[QString("sEndpointURL")].isNull() && m_s_endpoint_url_isValid;
 }
 
@@ -61,7 +61,7 @@ QString OAIGlobal_customer_getEndpoint_v1_Response::asJson() const {
 QJsonObject OAIGlobal_customer_getEndpoint_v1_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_s_endpoint_url_isSet) {
-        obj.insert(QString("sEndpointURL"), ::OpenAPI::toJsonValue(m_s_endpoint_url));
+        obj.insert(QString("sEndpointURL"), ::Ezmaxapi::toJsonValue(m_s_endpoint_url));
     }
     return obj;
 }
@@ -98,4 +98,4 @@ bool OAIGlobal_customer_getEndpoint_v1_Response::isValid() const {
     return m_s_endpoint_url_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

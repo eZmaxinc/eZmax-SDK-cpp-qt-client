@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEnum_Verticalalignment::OAIEnum_Verticalalignment(QString json) {
     this->initializeModel();
@@ -102,4 +102,4 @@ bool OAIEnum_Verticalalignment::isValid() const {
     return m_value_isValid;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

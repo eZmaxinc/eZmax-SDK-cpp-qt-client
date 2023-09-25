@@ -31,7 +31,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIEzsigntemplatesignature_Response : public OAIObject {
 public:
@@ -240,8 +240,8 @@ private:
     bool m_e_ezsigntemplatesignature_textvalidation_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIEzsigntemplatesignature_Response)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIEzsigntemplatesignature_Response)
 
 #endif // OAIEzsigntemplatesignature_Response_H

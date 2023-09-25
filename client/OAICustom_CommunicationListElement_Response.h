@@ -29,7 +29,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAICustom_CommunicationListElement_Response : public OAIObject {
 public:
@@ -130,8 +130,8 @@ private:
     bool m_s_communication_recipient_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAICustom_CommunicationListElement_Response)
+Q_DECLARE_METATYPE(Ezmaxapi::OAICustom_CommunicationListElement_Response)
 
 #endif // OAICustom_CommunicationListElement_Response_H

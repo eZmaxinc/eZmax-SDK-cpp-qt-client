@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIBranding_AutocompleteElement_Response::OAIBranding_AutocompleteElement_Response(QString json) {
     this->initializeModel();
@@ -53,13 +53,13 @@ void OAIBranding_AutocompleteElement_Response::fromJson(QString jsonString) {
 
 void OAIBranding_AutocompleteElement_Response::fromJsonObject(QJsonObject json) {
 
-    m_s_branding_description_x_isValid = ::OpenAPI::fromJsonValue(m_s_branding_description_x, json[QString("sBrandingDescriptionX")]);
+    m_s_branding_description_x_isValid = ::Ezmaxapi::fromJsonValue(m_s_branding_description_x, json[QString("sBrandingDescriptionX")]);
     m_s_branding_description_x_isSet = !json[QString("sBrandingDescriptionX")].isNull() && m_s_branding_description_x_isValid;
 
-    m_pki_branding_id_isValid = ::OpenAPI::fromJsonValue(m_pki_branding_id, json[QString("pkiBrandingID")]);
+    m_pki_branding_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_branding_id, json[QString("pkiBrandingID")]);
     m_pki_branding_id_isSet = !json[QString("pkiBrandingID")].isNull() && m_pki_branding_id_isValid;
 
-    m_b_branding_isactive_isValid = ::OpenAPI::fromJsonValue(m_b_branding_isactive, json[QString("bBrandingIsactive")]);
+    m_b_branding_isactive_isValid = ::Ezmaxapi::fromJsonValue(m_b_branding_isactive, json[QString("bBrandingIsactive")]);
     m_b_branding_isactive_isSet = !json[QString("bBrandingIsactive")].isNull() && m_b_branding_isactive_isValid;
 }
 
@@ -73,13 +73,13 @@ QString OAIBranding_AutocompleteElement_Response::asJson() const {
 QJsonObject OAIBranding_AutocompleteElement_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_s_branding_description_x_isSet) {
-        obj.insert(QString("sBrandingDescriptionX"), ::OpenAPI::toJsonValue(m_s_branding_description_x));
+        obj.insert(QString("sBrandingDescriptionX"), ::Ezmaxapi::toJsonValue(m_s_branding_description_x));
     }
     if (m_pki_branding_id_isSet) {
-        obj.insert(QString("pkiBrandingID"), ::OpenAPI::toJsonValue(m_pki_branding_id));
+        obj.insert(QString("pkiBrandingID"), ::Ezmaxapi::toJsonValue(m_pki_branding_id));
     }
     if (m_b_branding_isactive_isSet) {
-        obj.insert(QString("bBrandingIsactive"), ::OpenAPI::toJsonValue(m_b_branding_isactive));
+        obj.insert(QString("bBrandingIsactive"), ::Ezmaxapi::toJsonValue(m_b_branding_isactive));
     }
     return obj;
 }
@@ -158,4 +158,4 @@ bool OAIBranding_AutocompleteElement_Response::isValid() const {
     return m_s_branding_description_x_isValid && m_pki_branding_id_isValid && m_b_branding_isactive_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

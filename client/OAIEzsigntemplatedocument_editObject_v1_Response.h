@@ -29,7 +29,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 class OAICommon_Response_objDebugPayload;
 class OAICommon_Response_objDebug;
 class OAICommon_Response_Warning;
@@ -79,8 +79,8 @@ private:
     bool m_a_obj_warning_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIEzsigntemplatedocument_editObject_v1_Response)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIEzsigntemplatedocument_editObject_v1_Response)
 
 #endif // OAIEzsigntemplatedocument_editObject_v1_Response_H

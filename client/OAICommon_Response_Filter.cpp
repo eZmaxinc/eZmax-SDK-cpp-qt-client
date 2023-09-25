@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAICommon_Response_Filter::OAICommon_Response_Filter(QString json) {
     this->initializeModel();
@@ -53,10 +53,10 @@ void OAICommon_Response_Filter::fromJson(QString jsonString) {
 
 void OAICommon_Response_Filter::fromJsonObject(QJsonObject json) {
 
-    m_a_auto_type_isValid = ::OpenAPI::fromJsonValue(m_a_auto_type, json[QString("a_AutoType")]);
+    m_a_auto_type_isValid = ::Ezmaxapi::fromJsonValue(m_a_auto_type, json[QString("a_AutoType")]);
     m_a_auto_type_isSet = !json[QString("a_AutoType")].isNull() && m_a_auto_type_isValid;
 
-    m_a_auto_type_having_isValid = ::OpenAPI::fromJsonValue(m_a_auto_type_having, json[QString("a_AutoTypeHaving")]);
+    m_a_auto_type_having_isValid = ::Ezmaxapi::fromJsonValue(m_a_auto_type_having, json[QString("a_AutoTypeHaving")]);
     m_a_auto_type_having_isSet = !json[QString("a_AutoTypeHaving")].isNull() && m_a_auto_type_having_isValid;
 
     if(json["a_Enum"].isObject()){
@@ -66,7 +66,7 @@ void OAICommon_Response_Filter::fromJsonObject(QJsonObject json) {
             for(auto val : varmap.keys()){
                 QMap<QString, QString> item;
                 auto jval = QJsonValue::fromVariant(varmap.value(val));
-                m_a_enum_isValid &= ::OpenAPI::fromJsonValue(item, jval);
+                m_a_enum_isValid &= ::Ezmaxapi::fromJsonValue(item, jval);
                 m_a_enum_isSet &= !jval.isNull() && m_a_enum_isValid;
                 m_a_enum.insert(m_a_enum.end(), val, item);
             }
@@ -84,10 +84,10 @@ QString OAICommon_Response_Filter::asJson() const {
 QJsonObject OAICommon_Response_Filter::asJsonObject() const {
     QJsonObject obj;
     if (m_a_auto_type.size() > 0) {
-        obj.insert(QString("a_AutoType"), ::OpenAPI::toJsonValue(m_a_auto_type));
+        obj.insert(QString("a_AutoType"), ::Ezmaxapi::toJsonValue(m_a_auto_type));
     }
     if (m_a_auto_type_having.size() > 0) {
-        obj.insert(QString("a_AutoTypeHaving"), ::OpenAPI::toJsonValue(m_a_auto_type_having));
+        obj.insert(QString("a_AutoTypeHaving"), ::Ezmaxapi::toJsonValue(m_a_auto_type_having));
     }
     if (m_a_enum.size() > 0) {
         
@@ -170,4 +170,4 @@ bool OAICommon_Response_Filter::isValid() const {
     return true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAICommon_Response_Error_EzsignformValidation::OAICommon_Response_Error_EzsignformValidation(QString json) {
     this->initializeModel();
@@ -53,13 +53,13 @@ void OAICommon_Response_Error_EzsignformValidation::fromJson(QString jsonString)
 
 void OAICommon_Response_Error_EzsignformValidation::fromJsonObject(QJsonObject json) {
 
-    m_s_error_message_isValid = ::OpenAPI::fromJsonValue(m_s_error_message, json[QString("sErrorMessage")]);
+    m_s_error_message_isValid = ::Ezmaxapi::fromJsonValue(m_s_error_message, json[QString("sErrorMessage")]);
     m_s_error_message_isSet = !json[QString("sErrorMessage")].isNull() && m_s_error_message_isValid;
 
-    m_e_error_code_isValid = ::OpenAPI::fromJsonValue(m_e_error_code, json[QString("eErrorCode")]);
+    m_e_error_code_isValid = ::Ezmaxapi::fromJsonValue(m_e_error_code, json[QString("eErrorCode")]);
     m_e_error_code_isSet = !json[QString("eErrorCode")].isNull() && m_e_error_code_isValid;
 
-    m_a_obj_ezsignformfielderror_isValid = ::OpenAPI::fromJsonValue(m_a_obj_ezsignformfielderror, json[QString("a_objEzsignformfielderror")]);
+    m_a_obj_ezsignformfielderror_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_ezsignformfielderror, json[QString("a_objEzsignformfielderror")]);
     m_a_obj_ezsignformfielderror_isSet = !json[QString("a_objEzsignformfielderror")].isNull() && m_a_obj_ezsignformfielderror_isValid;
 }
 
@@ -73,13 +73,13 @@ QString OAICommon_Response_Error_EzsignformValidation::asJson() const {
 QJsonObject OAICommon_Response_Error_EzsignformValidation::asJsonObject() const {
     QJsonObject obj;
     if (m_s_error_message_isSet) {
-        obj.insert(QString("sErrorMessage"), ::OpenAPI::toJsonValue(m_s_error_message));
+        obj.insert(QString("sErrorMessage"), ::Ezmaxapi::toJsonValue(m_s_error_message));
     }
     if (m_e_error_code.isSet()) {
-        obj.insert(QString("eErrorCode"), ::OpenAPI::toJsonValue(m_e_error_code));
+        obj.insert(QString("eErrorCode"), ::Ezmaxapi::toJsonValue(m_e_error_code));
     }
     if (m_a_obj_ezsignformfielderror.size() > 0) {
-        obj.insert(QString("a_objEzsignformfielderror"), ::OpenAPI::toJsonValue(m_a_obj_ezsignformfielderror));
+        obj.insert(QString("a_objEzsignformfielderror"), ::Ezmaxapi::toJsonValue(m_a_obj_ezsignformfielderror));
     }
     return obj;
 }
@@ -158,4 +158,4 @@ bool OAICommon_Response_Error_EzsignformValidation::isValid() const {
     return m_s_error_message_isValid && m_e_error_code_isValid && m_a_obj_ezsignformfielderror_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

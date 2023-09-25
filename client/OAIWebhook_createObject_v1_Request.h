@@ -27,7 +27,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 class OAIWebhook_RequestCompound;
 
 class OAIWebhook_createObject_v1_Request : public OAIObject {
@@ -57,8 +57,8 @@ private:
     bool m_a_obj_webhook_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIWebhook_createObject_v1_Request)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIWebhook_createObject_v1_Request)
 
 #endif // OAIWebhook_createObject_v1_Request_H

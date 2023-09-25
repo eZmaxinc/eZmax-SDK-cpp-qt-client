@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIField_eEzsigntemplatesignatureType::OAIField_eEzsigntemplatesignatureType(QString json) {
     this->initializeModel();
@@ -137,4 +137,4 @@ bool OAIField_eEzsigntemplatesignatureType::isValid() const {
     return m_value_isValid;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

@@ -29,7 +29,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 class OAICommon_Reportsubsection;
 class OAICommon_Reportcolumn;
 
@@ -96,8 +96,8 @@ private:
     bool m_i_reportsection_width_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAICommon_Reportsection)
+Q_DECLARE_METATYPE(Ezmaxapi::OAICommon_Reportsection)
 
 #endif // OAICommon_Reportsection_H

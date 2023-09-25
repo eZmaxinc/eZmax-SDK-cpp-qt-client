@@ -15,7 +15,7 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIModuleUserApi::OAIModuleUserApi(const int timeOut)
     : _timeOut(timeOut),
@@ -249,7 +249,7 @@ void OAIModuleUserApi::userCreateEzsignuserV1(const QList<OAIUser_createEzsignus
     OAIHttpRequestInput input(fullPath, "POST");
 
     {
-        QJsonDocument doc(::OpenAPI::toJsonValue(oai_user_create_ezsignuser_v1_request).toArray());
+        QJsonDocument doc(::Ezmaxapi::toJsonValue(oai_user_create_ezsignuser_v1_request).toArray());
         QByteArray bytes = doc.toJson();
         input.request_body.append(bytes);
     }
@@ -342,4 +342,4 @@ void OAIModuleUserApi::tokenAvailable(){
         break;
     }
 }
-} // namespace OpenAPI
+} // namespace Ezmaxapi

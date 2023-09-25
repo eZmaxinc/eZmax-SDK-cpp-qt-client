@@ -19,7 +19,7 @@
 
 #include "OAIHelpers.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 OAIEmailstatic_ResponseCompound::OAIEmailstatic_ResponseCompound(QString json) {
     this->initializeModel();
@@ -50,10 +50,10 @@ void OAIEmailstatic_ResponseCompound::fromJson(QString jsonString) {
 
 void OAIEmailstatic_ResponseCompound::fromJsonObject(QJsonObject json) {
 
-    m_pki_emailstatic_id_isValid = ::OpenAPI::fromJsonValue(m_pki_emailstatic_id, json[QString("pkiEmailstaticID")]);
+    m_pki_emailstatic_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_emailstatic_id, json[QString("pkiEmailstaticID")]);
     m_pki_emailstatic_id_isSet = !json[QString("pkiEmailstaticID")].isNull() && m_pki_emailstatic_id_isValid;
 
-    m_s_emailstatic_address_isValid = ::OpenAPI::fromJsonValue(m_s_emailstatic_address, json[QString("sEmailstaticAddress")]);
+    m_s_emailstatic_address_isValid = ::Ezmaxapi::fromJsonValue(m_s_emailstatic_address, json[QString("sEmailstaticAddress")]);
     m_s_emailstatic_address_isSet = !json[QString("sEmailstaticAddress")].isNull() && m_s_emailstatic_address_isValid;
 }
 
@@ -67,10 +67,10 @@ QString OAIEmailstatic_ResponseCompound::asJson() const {
 QJsonObject OAIEmailstatic_ResponseCompound::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_emailstatic_id_isSet) {
-        obj.insert(QString("pkiEmailstaticID"), ::OpenAPI::toJsonValue(m_pki_emailstatic_id));
+        obj.insert(QString("pkiEmailstaticID"), ::Ezmaxapi::toJsonValue(m_pki_emailstatic_id));
     }
     if (m_s_emailstatic_address_isSet) {
-        obj.insert(QString("sEmailstaticAddress"), ::OpenAPI::toJsonValue(m_s_emailstatic_address));
+        obj.insert(QString("sEmailstaticAddress"), ::Ezmaxapi::toJsonValue(m_s_emailstatic_address));
     }
     return obj;
 }
@@ -128,4 +128,4 @@ bool OAIEmailstatic_ResponseCompound::isValid() const {
     return m_pki_emailstatic_id_isValid && m_s_emailstatic_address_isValid && true;
 }
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi

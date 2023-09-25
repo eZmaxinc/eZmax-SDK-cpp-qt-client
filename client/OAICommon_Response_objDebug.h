@@ -28,7 +28,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 class OAICommon_Response_objSQLQuery;
 
 class OAICommon_Response_objDebug : public OAIObject {
@@ -94,8 +94,8 @@ private:
     bool m_a_obj_sql_query_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAICommon_Response_objDebug)
+Q_DECLARE_METATYPE(Ezmaxapi::OAICommon_Response_objDebug)
 
 #endif // OAICommon_Response_objDebug_H

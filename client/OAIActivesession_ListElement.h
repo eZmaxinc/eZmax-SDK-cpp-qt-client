@@ -26,7 +26,7 @@
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
-namespace OpenAPI {
+namespace Ezmaxapi {
 
 class OAIActivesession_ListElement : public OAIObject {
 public:
@@ -154,8 +154,8 @@ private:
     bool m_s_activesession_ip_isValid;
 };
 
-} // namespace OpenAPI
+} // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(OpenAPI::OAIActivesession_ListElement)
+Q_DECLARE_METATYPE(Ezmaxapi::OAIActivesession_ListElement)
 
 #endif // OAIActivesession_ListElement_H
