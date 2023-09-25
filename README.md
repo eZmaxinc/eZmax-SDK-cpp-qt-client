@@ -27,7 +27,7 @@ example.h:
 ```c++
 
 #include <iostream>
-#include "../client/OAIGlobalCustomerApi.h"
+#include "../client/GlobalCustomerApi.h"
 
 using namespace test_namespace;
 
@@ -44,7 +44,7 @@ public slots:
 example.cpp:
 ```c++
 
-#include "../client/OAIGlobalCustomerApi.h"
+#include "../client/GlobalCustomerApi.h"
 #include "example.h"
 #include <QTimer>
 #include <QEventLoop>
@@ -57,13 +57,13 @@ QString Example::create(){
 }
 
 void Example::exampleFunction1(){
-     OAIGlobalCustomerApi apiInstance;
+     GlobalCustomerApi apiInstance;
      
       QEventLoop loop;
-      connect(&apiInstance, &OAIGlobalCustomerApi::globalCustomerGetEndpointV1Signal, [&]() {
+      connect(&apiInstance, &GlobalCustomerApi::globalCustomerGetEndpointV1Signal, [&]() {
           loop.quit();
       });
-      connect(&apiInstance, &OAIGlobalCustomerApi::globalCustomerGetEndpointV1SignalE, [&](QNetworkReply::NetworkError, QString error_str) {
+      connect(&apiInstance, &GlobalCustomerApi::globalCustomerGetEndpointV1SignalE, [&](QNetworkReply::NetworkError, QString error_str) {
           qDebug() << "Error happened while issuing request : " << error_str;
           loop.quit();
       });
@@ -71,10 +71,10 @@ void Example::exampleFunction1(){
       QString pks_customer_code = create(); // QString | 
 
       QEventLoop loop;
-      connect(&apiInstance, &OAIGlobalCustomerApi::globalCustomerGetEndpointV1Signal, [&]() {
+      connect(&apiInstance, &GlobalCustomerApi::globalCustomerGetEndpointV1Signal, [&]() {
           loop.quit();
       });
-      connect(&apiInstance, &OAIGlobalCustomerApi::globalCustomerGetEndpointV1SignalE, [&](QNetworkReply::NetworkError, QString error_str) {
+      connect(&apiInstance, &GlobalCustomerApi::globalCustomerGetEndpointV1SignalE, [&](QNetworkReply::NetworkError, QString error_str) {
           qDebug() << "Error happened while issuing request : " << error_str;
           loop.quit();
       });
