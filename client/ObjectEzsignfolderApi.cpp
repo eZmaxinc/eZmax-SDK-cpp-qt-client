@@ -85,8 +85,6 @@ void ObjectEzsignfolderApi::initializeServerConfigs() {
     _serverIndices.insert("ezsignfolderGetEzsigndocumentsV1", 0);
     _serverConfigs.insert("ezsignfolderGetEzsignfoldersignerassociationsV1", defaultConf);
     _serverIndices.insert("ezsignfolderGetEzsignfoldersignerassociationsV1", 0);
-    _serverConfigs.insert("ezsignfolderGetEzsignfoldersignerassociationsmineV1", defaultConf);
-    _serverIndices.insert("ezsignfolderGetEzsignfoldersignerassociationsmineV1", 0);
     _serverConfigs.insert("ezsignfolderGetEzsignsignaturesAutomaticV1", defaultConf);
     _serverIndices.insert("ezsignfolderGetEzsignsignaturesAutomaticV1", 0);
     _serverConfigs.insert("ezsignfolderGetFormsDataV1", defaultConf);
@@ -1146,73 +1144,6 @@ void ObjectEzsignfolderApi::ezsignfolderGetEzsignfoldersignerassociationsV1Callb
     } else {
         emit ezsignfolderGetEzsignfoldersignerassociationsV1SignalE(output, error_type, error_str);
         emit ezsignfolderGetEzsignfoldersignerassociationsV1SignalEFull(worker, error_type, error_str);
-    }
-}
-
-void ObjectEzsignfolderApi::ezsignfolderGetEzsignfoldersignerassociationsmineV1(const qint32 &pki_ezsignfolder_id) {
-    QString fullPath = QString(_serverConfigs["ezsignfolderGetEzsignfoldersignerassociationsmineV1"][_serverIndices.value("ezsignfolderGetEzsignfoldersignerassociationsmineV1")].URL()+"/1/object/ezsignfolder/{pkiEzsignfolderID}/getEzsignfoldersignerassociationsmine");
-    
-    if (_apiKeys.contains("Authorization")) {
-        addHeaders("Authorization",_apiKeys.find("Authorization").value());
-    }
-    
-    
-    {
-        QString pki_ezsignfolder_idPathParam("{");
-        pki_ezsignfolder_idPathParam.append("pkiEzsignfolderID").append("}");
-        QString pathPrefix, pathSuffix, pathDelimiter;
-        QString pathStyle = "simple";
-        if (pathStyle == "")
-            pathStyle = "simple";
-        pathPrefix = getParamStylePrefix(pathStyle);
-        pathSuffix = getParamStyleSuffix(pathStyle);
-        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignfolderID", false);
-        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignfolderID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsignfolder_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsignfolder_id)));
-    }
-    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
-    worker->setTimeOut(_timeOut);
-    worker->setWorkingDirectory(_workingDirectory);
-    HttpRequestInput input(fullPath, "GET");
-
-
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
-    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
-        input.headers.insert(keyValueIt->first, keyValueIt->second);
-    }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
-
-    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignfolderApi::ezsignfolderGetEzsignfoldersignerassociationsmineV1Callback);
-    connect(this, &ObjectEzsignfolderApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
-        if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
-        }
-    });
-
-    worker->execute(&input);
-}
-
-void ObjectEzsignfolderApi::ezsignfolderGetEzsignfoldersignerassociationsmineV1Callback(HttpRequestWorker *worker) {
-    QString error_str = worker->error_str;
-    QNetworkReply::NetworkError error_type = worker->error_type;
-
-    if (worker->error_type != QNetworkReply::NoError) {
-        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
-    }
-    Ezsignfolder_getEzsignfoldersignerassociationsmine_v1_Response output(QString(worker->response));
-    worker->deleteLater();
-
-    if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsignfolderGetEzsignfoldersignerassociationsmineV1Signal(output);
-        emit ezsignfolderGetEzsignfoldersignerassociationsmineV1SignalFull(worker, output);
-    } else {
-        emit ezsignfolderGetEzsignfoldersignerassociationsmineV1SignalE(output, error_type, error_str);
-        emit ezsignfolderGetEzsignfoldersignerassociationsmineV1SignalEFull(worker, error_type, error_str);
     }
 }
 

@@ -245,7 +245,7 @@ bool Custom_Ezsignfoldertype_Response::isSet() const {
 
 bool Custom_Ezsignfoldertype_Response::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_pki_ezsignfoldertype_id_isValid && m_s_ezsignfoldertype_name_x_isValid && m_b_ezsignfoldertype_includeproofsigner_isValid && m_b_ezsignfoldertype_includeproofuser_isValid && true;
+    return m_pki_ezsignfoldertype_id_isValid && true;
 }
 
 } // namespace Ezmaxapi

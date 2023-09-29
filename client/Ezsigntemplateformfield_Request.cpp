@@ -58,6 +58,9 @@ void Ezsigntemplateformfield_Request::initializeModel() {
     m_i_ezsigntemplateformfield_height_isSet = false;
     m_i_ezsigntemplateformfield_height_isValid = false;
 
+    m_b_ezsigntemplateformfield_autocomplete_isSet = false;
+    m_b_ezsigntemplateformfield_autocomplete_isValid = false;
+
     m_b_ezsigntemplateformfield_selected_isSet = false;
     m_b_ezsigntemplateformfield_selected_isValid = false;
 }
@@ -95,6 +98,9 @@ void Ezsigntemplateformfield_Request::fromJsonObject(QJsonObject json) {
     m_i_ezsigntemplateformfield_height_isValid = ::Ezmaxapi::fromJsonValue(m_i_ezsigntemplateformfield_height, json[QString("iEzsigntemplateformfieldHeight")]);
     m_i_ezsigntemplateformfield_height_isSet = !json[QString("iEzsigntemplateformfieldHeight")].isNull() && m_i_ezsigntemplateformfield_height_isValid;
 
+    m_b_ezsigntemplateformfield_autocomplete_isValid = ::Ezmaxapi::fromJsonValue(m_b_ezsigntemplateformfield_autocomplete, json[QString("bEzsigntemplateformfieldAutocomplete")]);
+    m_b_ezsigntemplateformfield_autocomplete_isSet = !json[QString("bEzsigntemplateformfieldAutocomplete")].isNull() && m_b_ezsigntemplateformfield_autocomplete_isValid;
+
     m_b_ezsigntemplateformfield_selected_isValid = ::Ezmaxapi::fromJsonValue(m_b_ezsigntemplateformfield_selected, json[QString("bEzsigntemplateformfieldSelected")]);
     m_b_ezsigntemplateformfield_selected_isSet = !json[QString("bEzsigntemplateformfieldSelected")].isNull() && m_b_ezsigntemplateformfield_selected_isValid;
 }
@@ -131,6 +137,9 @@ QJsonObject Ezsigntemplateformfield_Request::asJsonObject() const {
     }
     if (m_i_ezsigntemplateformfield_height_isSet) {
         obj.insert(QString("iEzsigntemplateformfieldHeight"), ::Ezmaxapi::toJsonValue(m_i_ezsigntemplateformfield_height));
+    }
+    if (m_b_ezsigntemplateformfield_autocomplete_isSet) {
+        obj.insert(QString("bEzsigntemplateformfieldAutocomplete"), ::Ezmaxapi::toJsonValue(m_b_ezsigntemplateformfield_autocomplete));
     }
     if (m_b_ezsigntemplateformfield_selected_isSet) {
         obj.insert(QString("bEzsigntemplateformfieldSelected"), ::Ezmaxapi::toJsonValue(m_b_ezsigntemplateformfield_selected));
@@ -266,6 +275,22 @@ bool Ezsigntemplateformfield_Request::is_i_ezsigntemplateformfield_height_Valid(
     return m_i_ezsigntemplateformfield_height_isValid;
 }
 
+bool Ezsigntemplateformfield_Request::isBEzsigntemplateformfieldAutocomplete() const {
+    return m_b_ezsigntemplateformfield_autocomplete;
+}
+void Ezsigntemplateformfield_Request::setBEzsigntemplateformfieldAutocomplete(const bool &b_ezsigntemplateformfield_autocomplete) {
+    m_b_ezsigntemplateformfield_autocomplete = b_ezsigntemplateformfield_autocomplete;
+    m_b_ezsigntemplateformfield_autocomplete_isSet = true;
+}
+
+bool Ezsigntemplateformfield_Request::is_b_ezsigntemplateformfield_autocomplete_Set() const{
+    return m_b_ezsigntemplateformfield_autocomplete_isSet;
+}
+
+bool Ezsigntemplateformfield_Request::is_b_ezsigntemplateformfield_autocomplete_Valid() const{
+    return m_b_ezsigntemplateformfield_autocomplete_isValid;
+}
+
 bool Ezsigntemplateformfield_Request::isBEzsigntemplateformfieldSelected() const {
     return m_b_ezsigntemplateformfield_selected;
 }
@@ -321,6 +346,11 @@ bool Ezsigntemplateformfield_Request::isSet() const {
         }
 
         if (m_i_ezsigntemplateformfield_height_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_b_ezsigntemplateformfield_autocomplete_isSet) {
             isObjectUpdated = true;
             break;
         }

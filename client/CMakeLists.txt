@@ -167,7 +167,6 @@ add_library(${PROJECT_NAME}
   Custom_EzsignfolderEzsignsignaturesAutomatic_Response.h
   Custom_EzsignfoldersignerassociationActionableElement_Response.h
   Custom_Ezsignfoldersignerassociationmessage_Request.h
-  Custom_Ezsignfoldersignerassociationmine_Response.h
   Custom_Ezsignfoldersignerassociationstatus_Response.h
   Custom_EzsignfoldertransmissionSigner_Response.h
   Custom_Ezsignfoldertransmission_Response.h
@@ -388,8 +387,6 @@ add_library(${PROJECT_NAME}
   Ezsignfolder_getEzsigndocuments_v1_Response_mPayload.h
   Ezsignfolder_getEzsignfoldersignerassociations_v1_Response.h
   Ezsignfolder_getEzsignfoldersignerassociations_v1_Response_mPayload.h
-  Ezsignfolder_getEzsignfoldersignerassociationsmine_v1_Response.h
-  Ezsignfolder_getEzsignfoldersignerassociationsmine_v1_Response_mPayload.h
   Ezsignfolder_getEzsignsignaturesAutomatic_v1_Response.h
   Ezsignfolder_getEzsignsignaturesAutomatic_v1_Response_mPayload.h
   Ezsignfolder_getFormsData_v1_Response.h
@@ -1296,7 +1293,6 @@ add_library(${PROJECT_NAME}
   Custom_EzsignfolderEzsignsignaturesAutomatic_Response.cpp
   Custom_EzsignfoldersignerassociationActionableElement_Response.cpp
   Custom_Ezsignfoldersignerassociationmessage_Request.cpp
-  Custom_Ezsignfoldersignerassociationmine_Response.cpp
   Custom_Ezsignfoldersignerassociationstatus_Response.cpp
   Custom_EzsignfoldertransmissionSigner_Response.cpp
   Custom_Ezsignfoldertransmission_Response.cpp
@@ -1517,8 +1513,6 @@ add_library(${PROJECT_NAME}
   Ezsignfolder_getEzsigndocuments_v1_Response_mPayload.cpp
   Ezsignfolder_getEzsignfoldersignerassociations_v1_Response.cpp
   Ezsignfolder_getEzsignfoldersignerassociations_v1_Response_mPayload.cpp
-  Ezsignfolder_getEzsignfoldersignerassociationsmine_v1_Response.cpp
-  Ezsignfolder_getEzsignfoldersignerassociationsmine_v1_Response_mPayload.cpp
   Ezsignfolder_getEzsignsignaturesAutomatic_v1_Response.cpp
   Ezsignfolder_getEzsignsignaturesAutomatic_v1_Response_mPayload.cpp
   Ezsignfolder_getFormsData_v1_Response.cpp

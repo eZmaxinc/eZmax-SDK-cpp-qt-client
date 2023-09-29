@@ -161,7 +161,6 @@ HEADERS += \
     $${PWD}/Custom_EzsignfolderEzsignsignaturesAutomatic_Response.h \
     $${PWD}/Custom_EzsignfoldersignerassociationActionableElement_Response.h \
     $${PWD}/Custom_Ezsignfoldersignerassociationmessage_Request.h \
-    $${PWD}/Custom_Ezsignfoldersignerassociationmine_Response.h \
     $${PWD}/Custom_Ezsignfoldersignerassociationstatus_Response.h \
     $${PWD}/Custom_EzsignfoldertransmissionSigner_Response.h \
     $${PWD}/Custom_Ezsignfoldertransmission_Response.h \
@@ -382,8 +381,6 @@ HEADERS += \
     $${PWD}/Ezsignfolder_getEzsigndocuments_v1_Response_mPayload.h \
     $${PWD}/Ezsignfolder_getEzsignfoldersignerassociations_v1_Response.h \
     $${PWD}/Ezsignfolder_getEzsignfoldersignerassociations_v1_Response_mPayload.h \
-    $${PWD}/Ezsignfolder_getEzsignfoldersignerassociationsmine_v1_Response.h \
-    $${PWD}/Ezsignfolder_getEzsignfoldersignerassociationsmine_v1_Response_mPayload.h \
     $${PWD}/Ezsignfolder_getEzsignsignaturesAutomatic_v1_Response.h \
     $${PWD}/Ezsignfolder_getEzsignsignaturesAutomatic_v1_Response_mPayload.h \
     $${PWD}/Ezsignfolder_getFormsData_v1_Response.h \
@@ -1295,7 +1292,6 @@ SOURCES += \
     $${PWD}/Custom_EzsignfolderEzsignsignaturesAutomatic_Response.cpp \
     $${PWD}/Custom_EzsignfoldersignerassociationActionableElement_Response.cpp \
     $${PWD}/Custom_Ezsignfoldersignerassociationmessage_Request.cpp \
-    $${PWD}/Custom_Ezsignfoldersignerassociationmine_Response.cpp \
     $${PWD}/Custom_Ezsignfoldersignerassociationstatus_Response.cpp \
     $${PWD}/Custom_EzsignfoldertransmissionSigner_Response.cpp \
     $${PWD}/Custom_Ezsignfoldertransmission_Response.cpp \
@@ -1516,8 +1512,6 @@ SOURCES += \
     $${PWD}/Ezsignfolder_getEzsigndocuments_v1_Response_mPayload.cpp \
     $${PWD}/Ezsignfolder_getEzsignfoldersignerassociations_v1_Response.cpp \
     $${PWD}/Ezsignfolder_getEzsignfoldersignerassociations_v1_Response_mPayload.cpp \
-    $${PWD}/Ezsignfolder_getEzsignfoldersignerassociationsmine_v1_Response.cpp \
-    $${PWD}/Ezsignfolder_getEzsignfoldersignerassociationsmine_v1_Response_mPayload.cpp \
     $${PWD}/Ezsignfolder_getEzsignsignaturesAutomatic_v1_Response.cpp \
     $${PWD}/Ezsignfolder_getEzsignsignaturesAutomatic_v1_Response_mPayload.cpp \
     $${PWD}/Ezsignfolder_getFormsData_v1_Response.cpp \

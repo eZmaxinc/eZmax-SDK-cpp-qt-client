@@ -79,6 +79,11 @@ public:
     bool is_i_ezsigntemplateformfield_height_Set() const;
     bool is_i_ezsigntemplateformfield_height_Valid() const;
 
+    bool isBEzsigntemplateformfieldAutocomplete() const;
+    void setBEzsigntemplateformfieldAutocomplete(const bool &b_ezsigntemplateformfield_autocomplete);
+    bool is_b_ezsigntemplateformfield_autocomplete_Set() const;
+    bool is_b_ezsigntemplateformfield_autocomplete_Valid() const;
+
     bool isBEzsigntemplateformfieldSelected() const;
     void setBEzsigntemplateformfieldSelected(const bool &b_ezsigntemplateformfield_selected);
     bool is_b_ezsigntemplateformfield_selected_Set() const;
@@ -121,6 +126,10 @@ private:
     qint32 m_i_ezsigntemplateformfield_height;
     bool m_i_ezsigntemplateformfield_height_isSet;
     bool m_i_ezsigntemplateformfield_height_isValid;
+
+    bool m_b_ezsigntemplateformfield_autocomplete;
+    bool m_b_ezsigntemplateformfield_autocomplete_isSet;
+    bool m_b_ezsigntemplateformfield_autocomplete_isValid;
 
     bool m_b_ezsigntemplateformfield_selected;
     bool m_b_ezsigntemplateformfield_selected_isSet;

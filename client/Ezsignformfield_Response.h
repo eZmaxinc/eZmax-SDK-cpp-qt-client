@@ -79,6 +79,11 @@ public:
     bool is_i_ezsignformfield_height_Set() const;
     bool is_i_ezsignformfield_height_Valid() const;
 
+    bool isBEzsignformfieldAutocomplete() const;
+    void setBEzsignformfieldAutocomplete(const bool &b_ezsignformfield_autocomplete);
+    bool is_b_ezsignformfield_autocomplete_Set() const;
+    bool is_b_ezsignformfield_autocomplete_Valid() const;
+
     bool isBEzsignformfieldSelected() const;
     void setBEzsignformfieldSelected(const bool &b_ezsignformfield_selected);
     bool is_b_ezsignformfield_selected_Set() const;
@@ -126,6 +131,10 @@ private:
     qint32 m_i_ezsignformfield_height;
     bool m_i_ezsignformfield_height_isSet;
     bool m_i_ezsignformfield_height_isValid;
+
+    bool m_b_ezsignformfield_autocomplete;
+    bool m_b_ezsignformfield_autocomplete_isSet;
+    bool m_b_ezsignformfield_autocomplete_isValid;
 
     bool m_b_ezsignformfield_selected;
     bool m_b_ezsignformfield_selected_isSet;

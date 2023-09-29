@@ -58,6 +58,9 @@ void Ezsignformfield_ResponseCompound::initializeModel() {
     m_i_ezsignformfield_height_isSet = false;
     m_i_ezsignformfield_height_isValid = false;
 
+    m_b_ezsignformfield_autocomplete_isSet = false;
+    m_b_ezsignformfield_autocomplete_isValid = false;
+
     m_b_ezsignformfield_selected_isSet = false;
     m_b_ezsignformfield_selected_isValid = false;
 
@@ -98,6 +101,9 @@ void Ezsignformfield_ResponseCompound::fromJsonObject(QJsonObject json) {
     m_i_ezsignformfield_height_isValid = ::Ezmaxapi::fromJsonValue(m_i_ezsignformfield_height, json[QString("iEzsignformfieldHeight")]);
     m_i_ezsignformfield_height_isSet = !json[QString("iEzsignformfieldHeight")].isNull() && m_i_ezsignformfield_height_isValid;
 
+    m_b_ezsignformfield_autocomplete_isValid = ::Ezmaxapi::fromJsonValue(m_b_ezsignformfield_autocomplete, json[QString("bEzsignformfieldAutocomplete")]);
+    m_b_ezsignformfield_autocomplete_isSet = !json[QString("bEzsignformfieldAutocomplete")].isNull() && m_b_ezsignformfield_autocomplete_isValid;
+
     m_b_ezsignformfield_selected_isValid = ::Ezmaxapi::fromJsonValue(m_b_ezsignformfield_selected, json[QString("bEzsignformfieldSelected")]);
     m_b_ezsignformfield_selected_isSet = !json[QString("bEzsignformfieldSelected")].isNull() && m_b_ezsignformfield_selected_isValid;
 
@@ -137,6 +143,9 @@ QJsonObject Ezsignformfield_ResponseCompound::asJsonObject() const {
     }
     if (m_i_ezsignformfield_height_isSet) {
         obj.insert(QString("iEzsignformfieldHeight"), ::Ezmaxapi::toJsonValue(m_i_ezsignformfield_height));
+    }
+    if (m_b_ezsignformfield_autocomplete_isSet) {
+        obj.insert(QString("bEzsignformfieldAutocomplete"), ::Ezmaxapi::toJsonValue(m_b_ezsignformfield_autocomplete));
     }
     if (m_b_ezsignformfield_selected_isSet) {
         obj.insert(QString("bEzsignformfieldSelected"), ::Ezmaxapi::toJsonValue(m_b_ezsignformfield_selected));
@@ -275,6 +284,22 @@ bool Ezsignformfield_ResponseCompound::is_i_ezsignformfield_height_Valid() const
     return m_i_ezsignformfield_height_isValid;
 }
 
+bool Ezsignformfield_ResponseCompound::isBEzsignformfieldAutocomplete() const {
+    return m_b_ezsignformfield_autocomplete;
+}
+void Ezsignformfield_ResponseCompound::setBEzsignformfieldAutocomplete(const bool &b_ezsignformfield_autocomplete) {
+    m_b_ezsignformfield_autocomplete = b_ezsignformfield_autocomplete;
+    m_b_ezsignformfield_autocomplete_isSet = true;
+}
+
+bool Ezsignformfield_ResponseCompound::is_b_ezsignformfield_autocomplete_Set() const{
+    return m_b_ezsignformfield_autocomplete_isSet;
+}
+
+bool Ezsignformfield_ResponseCompound::is_b_ezsignformfield_autocomplete_Valid() const{
+    return m_b_ezsignformfield_autocomplete_isValid;
+}
+
 bool Ezsignformfield_ResponseCompound::isBEzsignformfieldSelected() const {
     return m_b_ezsignformfield_selected;
 }
@@ -346,6 +371,11 @@ bool Ezsignformfield_ResponseCompound::isSet() const {
         }
 
         if (m_i_ezsignformfield_height_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_b_ezsignformfield_autocomplete_isSet) {
             isObjectUpdated = true;
             break;
         }
