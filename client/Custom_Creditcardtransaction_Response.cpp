@@ -185,7 +185,7 @@ bool Custom_Creditcardtransaction_Response::isSet() const {
 
 bool Custom_Creditcardtransaction_Response::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_d_creditcardtransaction_amount_isValid && m_s_creditcardtransaction_partiallydecryptednumber_isValid && m_s_creditcardtransaction_referencenumber_isValid && true;
+    return m_e_creditcardtype_codename_isValid && m_d_creditcardtransaction_amount_isValid && m_s_creditcardtransaction_partiallydecryptednumber_isValid && m_s_creditcardtransaction_referencenumber_isValid && true;
 }
 
 } // namespace Ezmaxapi

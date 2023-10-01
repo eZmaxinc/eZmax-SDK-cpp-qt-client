@@ -365,7 +365,7 @@ bool Custom_EzsignfoldersignerassociationActionableElement_Response::isSet() con
 
 bool Custom_EzsignfoldersignerassociationActionableElement_Response::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_pki_ezsignfoldersignerassociation_id_isValid && m_fki_ezsignfolder_id_isValid && m_b_ezsignfoldersignerassociation_delayedsend_isValid && m_b_ezsignfoldersignerassociation_receivecopy_isValid && m_t_ezsignfoldersignerassociation_message_isValid && m_b_ezsignfoldersignerassociation_hasactionableelements_current_isValid && true;
+    return m_pki_ezsignfoldersignerassociation_id_isValid && m_fki_ezsignfolder_id_isValid && m_b_ezsignfoldersignerassociation_delayedsend_isValid && m_b_ezsignfoldersignerassociation_receivecopy_isValid && m_t_ezsignfoldersignerassociation_message_isValid && m_b_ezsignfoldersignerassociation_hasactionableelements_current_isValid && m_b_ezsignfoldersignerassociation_hasactionableelements_future_isValid && true;
 }
 
 } // namespace Ezmaxapi

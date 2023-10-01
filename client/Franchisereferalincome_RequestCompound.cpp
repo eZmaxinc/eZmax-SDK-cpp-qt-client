@@ -485,7 +485,7 @@ bool Franchisereferalincome_RequestCompound::isSet() const {
 
 bool Franchisereferalincome_RequestCompound::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_fki_franchisebroker_id_isValid && m_fki_franchisereferalincomeprogram_id_isValid && m_fki_period_id_isValid && m_d_franchisereferalincome_loan_isValid && m_d_franchisereferalincome_franchiseamount_isValid && m_d_franchisereferalincome_franchisoramount_isValid && m_d_franchisereferalincome_agentamount_isValid && m_dt_franchisereferalincome_disbursed_isValid && m_t_franchisereferalincome_comment_isValid && m_fki_franchiseoffice_id_isValid && m_s_franchisereferalincome_remoteid_isValid && m_obj_address_isValid && m_a_obj_contact_isValid && true;
+    return m_fki_franchisebroker_id_isValid && m_fki_franchisereferalincomeprogram_id_isValid && m_fki_period_id_isValid && m_d_franchisereferalincome_loan_isValid && m_d_franchisereferalincome_franchiseamount_isValid && m_d_franchisereferalincome_franchisoramount_isValid && m_d_franchisereferalincome_agentamount_isValid && m_dt_franchisereferalincome_disbursed_isValid && m_t_franchisereferalincome_comment_isValid && m_fki_franchiseoffice_id_isValid && m_s_franchisereferalincome_remoteid_isValid && m_a_obj_contact_isValid && true;
 }
 
 } // namespace Ezmaxapi

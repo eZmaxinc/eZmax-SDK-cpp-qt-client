@@ -155,7 +155,7 @@ bool Modulegroup_ResponseCompound::isSet() const {
 
 bool Modulegroup_ResponseCompound::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_pki_modulegroup_id_isValid && m_s_modulegroup_name_x_isValid && m_a_obj_module_isValid && true;
+    return m_pki_modulegroup_id_isValid && m_s_modulegroup_name_x_isValid && true;
 }
 
 } // namespace Ezmaxapi

@@ -13,7 +13,7 @@
 /*
  * Common_Response_Error_EzsignformValidation.h
  *
- * 
+ * Generic Error Message
  */
 
 #ifndef Common_Response_Error_EzsignformValidation_H

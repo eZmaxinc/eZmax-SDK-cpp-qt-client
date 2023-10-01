@@ -95,7 +95,7 @@ bool Period_getAutocomplete_v2_Response_mPayload::isSet() const {
 
 bool Period_getAutocomplete_v2_Response_mPayload::isValid() const {
     // only required properties are required for the object to be considered valid
-    return true;
+    return m_a_obj_period_isValid && true;
 }
 
 } // namespace Ezmaxapi

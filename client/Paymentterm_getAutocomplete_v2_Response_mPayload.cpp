@@ -95,7 +95,7 @@ bool Paymentterm_getAutocomplete_v2_Response_mPayload::isSet() const {
 
 bool Paymentterm_getAutocomplete_v2_Response_mPayload::isValid() const {
     // only required properties are required for the object to be considered valid
-    return true;
+    return m_a_obj_paymentterm_isValid && true;
 }
 
 } // namespace Ezmaxapi

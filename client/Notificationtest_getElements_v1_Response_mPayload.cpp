@@ -196,7 +196,7 @@ bool Notificationtest_getElements_v1_Response_mPayload::isSet() const {
 
 bool Notificationtest_getElements_v1_Response_mPayload::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_pki_notificationtest_id_isValid && m_s_notificationtest_function_isValid && m_a_obj_variableobject_isValid && true;
+    return m_pki_notificationtest_id_isValid && m_s_notificationtest_function_isValid && m_a_s_variableobject_property_isValid && m_a_obj_variableobject_isValid && true;
 }
 
 } // namespace Ezmaxapi

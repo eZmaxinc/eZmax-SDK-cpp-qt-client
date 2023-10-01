@@ -335,7 +335,7 @@ bool Ezmaxinvoicingcommission_ResponseCompound::isSet() const {
 
 bool Ezmaxinvoicingcommission_ResponseCompound::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_dt_ezmaxinvoicingcommission_start_isValid && m_dt_ezmaxinvoicingcommission_end_isValid && m_i_ezmaxinvoicingcommission_days_isValid && m_d_ezmaxinvoicingcommission_amount_isValid && m_obj_contact_name_isValid && true;
+    return m_dt_ezmaxinvoicingcommission_start_isValid && m_dt_ezmaxinvoicingcommission_end_isValid && m_i_ezmaxinvoicingcommission_days_isValid && m_d_ezmaxinvoicingcommission_amount_isValid && true;
 }
 
 } // namespace Ezmaxapi

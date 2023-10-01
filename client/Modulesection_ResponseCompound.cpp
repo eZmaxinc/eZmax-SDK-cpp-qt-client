@@ -215,7 +215,7 @@ bool Modulesection_ResponseCompound::isSet() const {
 
 bool Modulesection_ResponseCompound::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_pki_modulesection_id_isValid && m_fki_module_id_isValid && m_s_modulesection_internalname_isValid && m_s_modulesection_name_x_isValid && m_a_obj_permission_isValid && true;
+    return m_pki_modulesection_id_isValid && m_fki_module_id_isValid && m_s_modulesection_internalname_isValid && m_s_modulesection_name_x_isValid && true;
 }
 
 } // namespace Ezmaxapi

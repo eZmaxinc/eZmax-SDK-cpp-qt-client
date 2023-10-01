@@ -275,7 +275,7 @@ bool Module_ResponseCompound::isSet() const {
 
 bool Module_ResponseCompound::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_pki_module_id_isValid && m_fki_modulegroup_id_isValid && m_e_module_internalname_isValid && m_s_module_name_x_isValid && m_b_module_registered_isValid && m_b_module_registeredapi_isValid && m_a_obj_modulesection_isValid && true;
+    return m_pki_module_id_isValid && m_fki_modulegroup_id_isValid && m_e_module_internalname_isValid && m_s_module_name_x_isValid && m_b_module_registered_isValid && m_b_module_registeredapi_isValid && true;
 }
 
 } // namespace Ezmaxapi
