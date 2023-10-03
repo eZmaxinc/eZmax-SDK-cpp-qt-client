@@ -155,7 +155,7 @@ bool Ezsignfolder_send_v3_Request::isSet() const {
 
 bool Ezsignfolder_send_v3_Request::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_t_ezsignfolder_message_isValid && m_a_fki_ezsignfoldersignerassociation_id_isValid && true;
+    return m_a_fki_ezsignfoldersignerassociation_id_isValid && true;
 }
 
 } // namespace Ezmaxapi

@@ -275,7 +275,7 @@ bool Ezsignfolder_RequestCompound::isSet() const {
 
 bool Ezsignfolder_RequestCompound::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_fki_ezsignfoldertype_id_isValid && m_s_ezsignfolder_description_isValid && m_t_ezsignfolder_note_isValid && m_e_ezsignfolder_sendreminderfrequency_isValid && true;
+    return m_fki_ezsignfoldertype_id_isValid && m_s_ezsignfolder_description_isValid && m_e_ezsignfolder_sendreminderfrequency_isValid && true;
 }
 
 } // namespace Ezmaxapi
