@@ -790,6 +790,9 @@ add_library(${PROJECT_NAME}
   Global_ezmaxclient_version_v1_Response.h
   Global_ezmaxcustomer_getConfiguration_v1_Response.h
   Header_Accept_Language.h
+  Language_AutocompleteElement_Response.h
+  Language_getAutocomplete_v2_Response.h
+  Language_getAutocomplete_v2_Response_mPayload.h
   Module_Response.h
   Module_ResponseCompound.h
   Modulegroup_Response.h
@@ -1117,6 +1120,7 @@ add_library(${PROJECT_NAME}
   ObjectFranchisebrokerApi.h
   ObjectFranchiseofficeApi.h
   ObjectFranchisereferalincomeApi.h
+  ObjectLanguageApi.h
   ObjectModulegroupApi.h
   ObjectNotificationsectionApi.h
   ObjectNotificationtestApi.h
@@ -1932,6 +1936,9 @@ add_library(${PROJECT_NAME}
   Global_ezmaxclient_version_v1_Response.cpp
   Global_ezmaxcustomer_getConfiguration_v1_Response.cpp
   Header_Accept_Language.cpp
+  Language_AutocompleteElement_Response.cpp
+  Language_getAutocomplete_v2_Response.cpp
+  Language_getAutocomplete_v2_Response_mPayload.cpp
   Module_Response.cpp
   Module_ResponseCompound.cpp
   Modulegroup_Response.cpp
@@ -2259,6 +2266,7 @@ add_library(${PROJECT_NAME}
   ObjectFranchisebrokerApi.cpp
   ObjectFranchiseofficeApi.cpp
   ObjectFranchisereferalincomeApi.cpp
+  ObjectLanguageApi.cpp
   ObjectModulegroupApi.cpp
   ObjectNotificationsectionApi.cpp
   ObjectNotificationtestApi.cpp

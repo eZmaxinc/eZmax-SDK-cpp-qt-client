@@ -1579,6 +1579,12 @@ client/HttpFileElement.cpp
 client/HttpFileElement.h
 client/HttpRequest.cpp
 client/HttpRequest.h
+client/Language_AutocompleteElement_Response.cpp
+client/Language_AutocompleteElement_Response.h
+client/Language_getAutocomplete_v2_Response.cpp
+client/Language_getAutocomplete_v2_Response.h
+client/Language_getAutocomplete_v2_Response_mPayload.cpp
+client/Language_getAutocomplete_v2_Response_mPayload.h
 client/ModuleEzsignApi.cpp
 client/ModuleEzsignApi.h
 client/ModuleReportApi.cpp
@@ -1722,6 +1728,8 @@ client/ObjectFranchiseofficeApi.cpp
 client/ObjectFranchiseofficeApi.h
 client/ObjectFranchisereferalincomeApi.cpp
 client/ObjectFranchisereferalincomeApi.h
+client/ObjectLanguageApi.cpp
+client/ObjectLanguageApi.h
 client/ObjectModulegroupApi.cpp
 client/ObjectModulegroupApi.h
 client/ObjectNotificationsectionApi.cpp

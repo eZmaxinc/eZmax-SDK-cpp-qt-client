@@ -784,6 +784,9 @@ HEADERS += \
     $${PWD}/Global_ezmaxclient_version_v1_Response.h \
     $${PWD}/Global_ezmaxcustomer_getConfiguration_v1_Response.h \
     $${PWD}/Header_Accept_Language.h \
+    $${PWD}/Language_AutocompleteElement_Response.h \
+    $${PWD}/Language_getAutocomplete_v2_Response.h \
+    $${PWD}/Language_getAutocomplete_v2_Response_mPayload.h \
     $${PWD}/Module_Response.h \
     $${PWD}/Module_ResponseCompound.h \
     $${PWD}/Modulegroup_Response.h \
@@ -1112,6 +1115,7 @@ HEADERS += \
     $${PWD}/ObjectFranchisebrokerApi.h \
     $${PWD}/ObjectFranchiseofficeApi.h \
     $${PWD}/ObjectFranchisereferalincomeApi.h \
+    $${PWD}/ObjectLanguageApi.h \
     $${PWD}/ObjectModulegroupApi.h \
     $${PWD}/ObjectNotificationsectionApi.h \
     $${PWD}/ObjectNotificationtestApi.h \
@@ -1931,6 +1935,9 @@ SOURCES += \
     $${PWD}/Global_ezmaxclient_version_v1_Response.cpp \
     $${PWD}/Global_ezmaxcustomer_getConfiguration_v1_Response.cpp \
     $${PWD}/Header_Accept_Language.cpp \
+    $${PWD}/Language_AutocompleteElement_Response.cpp \
+    $${PWD}/Language_getAutocomplete_v2_Response.cpp \
+    $${PWD}/Language_getAutocomplete_v2_Response_mPayload.cpp \
     $${PWD}/Module_Response.cpp \
     $${PWD}/Module_ResponseCompound.cpp \
     $${PWD}/Modulegroup_Response.cpp \
@@ -2259,6 +2266,7 @@ SOURCES += \
     $${PWD}/ObjectFranchisebrokerApi.cpp \
     $${PWD}/ObjectFranchiseofficeApi.cpp \
     $${PWD}/ObjectFranchisereferalincomeApi.cpp \
+    $${PWD}/ObjectLanguageApi.cpp \
     $${PWD}/ObjectModulegroupApi.cpp \
     $${PWD}/ObjectNotificationsectionApi.cpp \
     $${PWD}/ObjectNotificationtestApi.cpp \
