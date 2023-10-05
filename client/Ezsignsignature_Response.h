@@ -24,6 +24,7 @@
 #include "Custom_ContactName_Response.h"
 #include "Enum_Textvalidation.h"
 #include "Field_eEzsignsignatureAttachmentnamesource.h"
+#include "Field_eEzsignsignatureDependencyrequirement.h"
 #include "Field_eEzsignsignatureFont.h"
 #include "Field_eEzsignsignatureTooltipposition.h"
 #include "Field_eEzsignsignatureType.h"
@@ -163,6 +164,11 @@ public:
     bool is_e_ezsignsignature_textvalidation_Set() const;
     bool is_e_ezsignsignature_textvalidation_Valid() const;
 
+    Field_eEzsignsignatureDependencyrequirement getEEzsignsignatureDependencyrequirement() const;
+    void setEEzsignsignatureDependencyrequirement(const Field_eEzsignsignatureDependencyrequirement &e_ezsignsignature_dependencyrequirement);
+    bool is_e_ezsignsignature_dependencyrequirement_Set() const;
+    bool is_e_ezsignsignature_dependencyrequirement_Valid() const;
+
     QString getSEzsignsignatureRegexp() const;
     void setSEzsignsignatureRegexp(const QString &s_ezsignsignature_regexp);
     bool is_s_ezsignsignature_regexp_Set() const;
@@ -280,6 +286,10 @@ private:
     Enum_Textvalidation m_e_ezsignsignature_textvalidation;
     bool m_e_ezsignsignature_textvalidation_isSet;
     bool m_e_ezsignsignature_textvalidation_isValid;
+
+    Field_eEzsignsignatureDependencyrequirement m_e_ezsignsignature_dependencyrequirement;
+    bool m_e_ezsignsignature_dependencyrequirement_isSet;
+    bool m_e_ezsignsignature_dependencyrequirement_isValid;
 
     QString m_s_ezsignsignature_regexp;
     bool m_s_ezsignsignature_regexp_isSet;

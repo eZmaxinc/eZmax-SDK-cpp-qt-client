@@ -21,6 +21,7 @@
 
 #include <QJsonObject>
 
+#include "Field_eEzsignformfieldDependencyrequirement.h"
 #include <QString>
 
 #include "Enum.h"
@@ -94,6 +95,11 @@ public:
     bool is_s_ezsignformfield_enteredvalue_Set() const;
     bool is_s_ezsignformfield_enteredvalue_Valid() const;
 
+    Field_eEzsignformfieldDependencyrequirement getEEzsignformfieldDependencyrequirement() const;
+    void setEEzsignformfieldDependencyrequirement(const Field_eEzsignformfieldDependencyrequirement &e_ezsignformfield_dependencyrequirement);
+    bool is_e_ezsignformfield_dependencyrequirement_Set() const;
+    bool is_e_ezsignformfield_dependencyrequirement_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -143,6 +149,10 @@ private:
     QString m_s_ezsignformfield_enteredvalue;
     bool m_s_ezsignformfield_enteredvalue_isSet;
     bool m_s_ezsignformfield_enteredvalue_isValid;
+
+    Field_eEzsignformfieldDependencyrequirement m_e_ezsignformfield_dependencyrequirement;
+    bool m_e_ezsignformfield_dependencyrequirement_isSet;
+    bool m_e_ezsignformfield_dependencyrequirement_isValid;
 };
 
 } // namespace Ezmaxapi

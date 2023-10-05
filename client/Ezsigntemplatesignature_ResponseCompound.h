@@ -22,8 +22,10 @@
 #include <QJsonObject>
 
 #include "Enum_Textvalidation.h"
+#include "Ezsigntemplateelementdependency_ResponseCompound.h"
 #include "Ezsigntemplatesignaturecustomdate_ResponseCompound.h"
 #include "Field_eEzsigntemplatesignatureAttachmentnamesource.h"
+#include "Field_eEzsigntemplatesignatureDependencyrequirement.h"
 #include "Field_eEzsigntemplatesignatureFont.h"
 #include "Field_eEzsigntemplatesignatureTooltipposition.h"
 #include "Field_eEzsigntemplatesignatureType.h"
@@ -35,6 +37,7 @@
 
 namespace Ezmaxapi {
 class Ezsigntemplatesignaturecustomdate_ResponseCompound;
+class Ezsigntemplateelementdependency_ResponseCompound;
 
 class Ezsigntemplatesignature_ResponseCompound : public Object {
 public:
@@ -152,6 +155,11 @@ public:
     bool is_e_ezsigntemplatesignature_textvalidation_Set() const;
     bool is_e_ezsigntemplatesignature_textvalidation_Valid() const;
 
+    Field_eEzsigntemplatesignatureDependencyrequirement getEEzsigntemplatesignatureDependencyrequirement() const;
+    void setEEzsigntemplatesignatureDependencyrequirement(const Field_eEzsigntemplatesignatureDependencyrequirement &e_ezsigntemplatesignature_dependencyrequirement);
+    bool is_e_ezsigntemplatesignature_dependencyrequirement_Set() const;
+    bool is_e_ezsigntemplatesignature_dependencyrequirement_Valid() const;
+
     bool isBEzsigntemplatesignatureCustomdate() const;
     void setBEzsigntemplatesignatureCustomdate(const bool &b_ezsigntemplatesignature_customdate);
     bool is_b_ezsigntemplatesignature_customdate_Set() const;
@@ -161,6 +169,11 @@ public:
     void setAObjEzsigntemplatesignaturecustomdate(const QList<Ezsigntemplatesignaturecustomdate_ResponseCompound> &a_obj_ezsigntemplatesignaturecustomdate);
     bool is_a_obj_ezsigntemplatesignaturecustomdate_Set() const;
     bool is_a_obj_ezsigntemplatesignaturecustomdate_Valid() const;
+
+    QList<Ezsigntemplateelementdependency_ResponseCompound> getAObjEzsigntemplateelementdependency() const;
+    void setAObjEzsigntemplateelementdependency(const QList<Ezsigntemplateelementdependency_ResponseCompound> &a_obj_ezsigntemplateelementdependency);
+    bool is_a_obj_ezsigntemplateelementdependency_Set() const;
+    bool is_a_obj_ezsigntemplateelementdependency_Valid() const;
 
     virtual bool isSet() const override;
     virtual bool isValid() const override;
@@ -252,6 +265,10 @@ private:
     bool m_e_ezsigntemplatesignature_textvalidation_isSet;
     bool m_e_ezsigntemplatesignature_textvalidation_isValid;
 
+    Field_eEzsigntemplatesignatureDependencyrequirement m_e_ezsigntemplatesignature_dependencyrequirement;
+    bool m_e_ezsigntemplatesignature_dependencyrequirement_isSet;
+    bool m_e_ezsigntemplatesignature_dependencyrequirement_isValid;
+
     bool m_b_ezsigntemplatesignature_customdate;
     bool m_b_ezsigntemplatesignature_customdate_isSet;
     bool m_b_ezsigntemplatesignature_customdate_isValid;
@@ -259,6 +276,10 @@ private:
     QList<Ezsigntemplatesignaturecustomdate_ResponseCompound> m_a_obj_ezsigntemplatesignaturecustomdate;
     bool m_a_obj_ezsigntemplatesignaturecustomdate_isSet;
     bool m_a_obj_ezsigntemplatesignaturecustomdate_isValid;
+
+    QList<Ezsigntemplateelementdependency_ResponseCompound> m_a_obj_ezsigntemplateelementdependency;
+    bool m_a_obj_ezsigntemplateelementdependency_isSet;
+    bool m_a_obj_ezsigntemplateelementdependency_isValid;
 };
 
 } // namespace Ezmaxapi

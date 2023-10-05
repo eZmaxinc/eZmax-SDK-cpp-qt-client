@@ -21,6 +21,7 @@
 
 #include <QJsonObject>
 
+#include "Field_eEzsigntemplateformfieldDependencyrequirement.h"
 #include <QString>
 
 #include "Enum.h"
@@ -89,6 +90,11 @@ public:
     bool is_b_ezsigntemplateformfield_selected_Set() const;
     bool is_b_ezsigntemplateformfield_selected_Valid() const;
 
+    Field_eEzsigntemplateformfieldDependencyrequirement getEEzsigntemplateformfieldDependencyrequirement() const;
+    void setEEzsigntemplateformfieldDependencyrequirement(const Field_eEzsigntemplateformfieldDependencyrequirement &e_ezsigntemplateformfield_dependencyrequirement);
+    bool is_e_ezsigntemplateformfield_dependencyrequirement_Set() const;
+    bool is_e_ezsigntemplateformfield_dependencyrequirement_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -134,6 +140,10 @@ private:
     bool m_b_ezsigntemplateformfield_selected;
     bool m_b_ezsigntemplateformfield_selected_isSet;
     bool m_b_ezsigntemplateformfield_selected_isValid;
+
+    Field_eEzsigntemplateformfieldDependencyrequirement m_e_ezsigntemplateformfield_dependencyrequirement;
+    bool m_e_ezsigntemplateformfield_dependencyrequirement_isSet;
+    bool m_e_ezsigntemplateformfield_dependencyrequirement_isValid;
 };
 
 } // namespace Ezmaxapi

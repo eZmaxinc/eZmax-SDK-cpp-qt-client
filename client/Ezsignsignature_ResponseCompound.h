@@ -24,8 +24,10 @@
 #include "Custom_ContactName_Response.h"
 #include "Custom_Creditcardtransaction_Response.h"
 #include "Enum_Textvalidation.h"
+#include "Ezsignelementdependency_ResponseCompound.h"
 #include "Ezsignsignaturecustomdate_ResponseCompound.h"
 #include "Field_eEzsignsignatureAttachmentnamesource.h"
+#include "Field_eEzsignsignatureDependencyrequirement.h"
 #include "Field_eEzsignsignatureFont.h"
 #include "Field_eEzsignsignatureTooltipposition.h"
 #include "Field_eEzsignsignatureType.h"
@@ -41,6 +43,7 @@ class Custom_ContactName_Response;
 class Signature_ResponseCompound;
 class Ezsignsignaturecustomdate_ResponseCompound;
 class Custom_Creditcardtransaction_Response;
+class Ezsignelementdependency_ResponseCompound;
 
 class Ezsignsignature_ResponseCompound : public Object {
 public:
@@ -168,6 +171,11 @@ public:
     bool is_e_ezsignsignature_textvalidation_Set() const;
     bool is_e_ezsignsignature_textvalidation_Valid() const;
 
+    Field_eEzsignsignatureDependencyrequirement getEEzsignsignatureDependencyrequirement() const;
+    void setEEzsignsignatureDependencyrequirement(const Field_eEzsignsignatureDependencyrequirement &e_ezsignsignature_dependencyrequirement);
+    bool is_e_ezsignsignature_dependencyrequirement_Set() const;
+    bool is_e_ezsignsignature_dependencyrequirement_Valid() const;
+
     QString getSEzsignsignatureRegexp() const;
     void setSEzsignsignatureRegexp(const QString &s_ezsignsignature_regexp);
     bool is_s_ezsignsignature_regexp_Set() const;
@@ -202,6 +210,11 @@ public:
     void setObjCreditcardtransaction(const Custom_Creditcardtransaction_Response &obj_creditcardtransaction);
     bool is_obj_creditcardtransaction_Set() const;
     bool is_obj_creditcardtransaction_Valid() const;
+
+    QList<Ezsignelementdependency_ResponseCompound> getAObjEzsignelementdependency() const;
+    void setAObjEzsignelementdependency(const QList<Ezsignelementdependency_ResponseCompound> &a_obj_ezsignelementdependency);
+    bool is_a_obj_ezsignelementdependency_Set() const;
+    bool is_a_obj_ezsignelementdependency_Valid() const;
 
     virtual bool isSet() const override;
     virtual bool isValid() const override;
@@ -301,6 +314,10 @@ private:
     bool m_e_ezsignsignature_textvalidation_isSet;
     bool m_e_ezsignsignature_textvalidation_isValid;
 
+    Field_eEzsignsignatureDependencyrequirement m_e_ezsignsignature_dependencyrequirement;
+    bool m_e_ezsignsignature_dependencyrequirement_isSet;
+    bool m_e_ezsignsignature_dependencyrequirement_isValid;
+
     QString m_s_ezsignsignature_regexp;
     bool m_s_ezsignsignature_regexp_isSet;
     bool m_s_ezsignsignature_regexp_isValid;
@@ -328,6 +345,10 @@ private:
     Custom_Creditcardtransaction_Response m_obj_creditcardtransaction;
     bool m_obj_creditcardtransaction_isSet;
     bool m_obj_creditcardtransaction_isValid;
+
+    QList<Ezsignelementdependency_ResponseCompound> m_a_obj_ezsignelementdependency;
+    bool m_a_obj_ezsignelementdependency_isSet;
+    bool m_a_obj_ezsignelementdependency_isValid;
 };
 
 } // namespace Ezmaxapi

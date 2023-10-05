@@ -65,7 +65,8 @@ public:
         DECLINEDTOSIGN, 
         DELAYEDSENDEMAIL, 
         REGENERATEPAGE, 
-        REGENERATEPAGEFORM
+        REGENERATEPAGEFORM, 
+        REASSIGN
     };
     Field_eEzsigndocumentlogType::eField_eEzsigndocumentlogType getValue() const;
     void setValue(const Field_eEzsigndocumentlogType::eField_eEzsigndocumentlogType& value);

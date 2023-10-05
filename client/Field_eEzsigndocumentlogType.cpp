@@ -145,6 +145,10 @@ void Field_eEzsigndocumentlogType::fromJson(QString jsonString) {
         m_value = eField_eEzsigndocumentlogType::REGENERATEPAGEFORM;
         m_value_isSet = m_value_isValid = true;
     }
+    else if ( jsonString.compare("Reassign", Qt::CaseInsensitive) == 0) {
+        m_value = eField_eEzsigndocumentlogType::REASSIGN;
+        m_value_isSet = m_value_isValid = true;
+    }
 }
 
 void Field_eEzsigndocumentlogType::fromJsonValue(QJsonValue json) {
@@ -232,6 +236,9 @@ QString Field_eEzsigndocumentlogType::asJson() const {
             break;
         case eField_eEzsigndocumentlogType::REGENERATEPAGEFORM:
             val = "RegeneratePageForm";
+            break;
+        case eField_eEzsigndocumentlogType::REASSIGN:
+            val = "Reassign";
             break;
         default:
             break;

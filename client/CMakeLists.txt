@@ -358,6 +358,10 @@ add_library(${PROJECT_NAME}
   Ezsigndocument_unsend_v1_Response.h
   Ezsigndocumentlog_Response.h
   Ezsigndocumentlog_ResponseCompound.h
+  Ezsignelementdependency_Request.h
+  Ezsignelementdependency_RequestCompound.h
+  Ezsignelementdependency_Response.h
+  Ezsignelementdependency_ResponseCompound.h
   Ezsignfolder_ListElement.h
   Ezsignfolder_Request.h
   Ezsignfolder_RequestCompound.h
@@ -589,6 +593,10 @@ add_library(${PROJECT_NAME}
   Ezsigntemplatedocument_patchObject_v1_Response.h
   Ezsigntemplatedocumentpage_Response.h
   Ezsigntemplatedocumentpage_ResponseCompound.h
+  Ezsigntemplateelementdependency_Request.h
+  Ezsigntemplateelementdependency_RequestCompound.h
+  Ezsigntemplateelementdependency_Response.h
+  Ezsigntemplateelementdependency_ResponseCompound.h
   Ezsigntemplateformfield_Request.h
   Ezsigntemplateformfield_RequestCompound.h
   Ezsigntemplateformfield_Response.h
@@ -714,22 +722,30 @@ add_library(${PROJECT_NAME}
   Field_eEzsignannotationType.h
   Field_eEzsigndocumentStep.h
   Field_eEzsigndocumentlogType.h
+  Field_eEzsignelementdependencyOperator.h
+  Field_eEzsignelementdependencyValidation.h
   Field_eEzsignfolderSendreminderfrequency.h
   Field_eEzsignfolderStep.h
   Field_eEzsignfoldertypeDisposal.h
   Field_eEzsignfoldertypePrivacylevel.h
   Field_eEzsignfoldertypeSendreminderfrequency.h
+  Field_eEzsignformfieldDependencyrequirement.h
   Field_eEzsignformfieldgroupSignerrequirement.h
   Field_eEzsignformfieldgroupTooltipposition.h
   Field_eEzsignformfieldgroupType.h
   Field_eEzsignsignatureAttachmentnamesource.h
+  Field_eEzsignsignatureDependencyrequirement.h
   Field_eEzsignsignatureFont.h
   Field_eEzsignsignatureTooltipposition.h
   Field_eEzsignsignatureType.h
+  Field_eEzsigntemplateelementdependencyOperator.h
+  Field_eEzsigntemplateelementdependencyValidation.h
+  Field_eEzsigntemplateformfieldDependencyrequirement.h
   Field_eEzsigntemplateformfieldgroupSignerrequirement.h
   Field_eEzsigntemplateformfieldgroupTooltipposition.h
   Field_eEzsigntemplateformfieldgroupType.h
   Field_eEzsigntemplatesignatureAttachmentnamesource.h
+  Field_eEzsigntemplatesignatureDependencyrequirement.h
   Field_eEzsigntemplatesignatureFont.h
   Field_eEzsigntemplatesignatureTooltipposition.h
   Field_eEzsigntemplatesignatureType.h
@@ -1484,6 +1500,10 @@ add_library(${PROJECT_NAME}
   Ezsigndocument_unsend_v1_Response.cpp
   Ezsigndocumentlog_Response.cpp
   Ezsigndocumentlog_ResponseCompound.cpp
+  Ezsignelementdependency_Request.cpp
+  Ezsignelementdependency_RequestCompound.cpp
+  Ezsignelementdependency_Response.cpp
+  Ezsignelementdependency_ResponseCompound.cpp
   Ezsignfolder_ListElement.cpp
   Ezsignfolder_Request.cpp
   Ezsignfolder_RequestCompound.cpp
@@ -1715,6 +1735,10 @@ add_library(${PROJECT_NAME}
   Ezsigntemplatedocument_patchObject_v1_Response.cpp
   Ezsigntemplatedocumentpage_Response.cpp
   Ezsigntemplatedocumentpage_ResponseCompound.cpp
+  Ezsigntemplateelementdependency_Request.cpp
+  Ezsigntemplateelementdependency_RequestCompound.cpp
+  Ezsigntemplateelementdependency_Response.cpp
+  Ezsigntemplateelementdependency_ResponseCompound.cpp
   Ezsigntemplateformfield_Request.cpp
   Ezsigntemplateformfield_RequestCompound.cpp
   Ezsigntemplateformfield_Response.cpp
@@ -1840,22 +1864,30 @@ add_library(${PROJECT_NAME}
   Field_eEzsignannotationType.cpp
   Field_eEzsigndocumentStep.cpp
   Field_eEzsigndocumentlogType.cpp
+  Field_eEzsignelementdependencyOperator.cpp
+  Field_eEzsignelementdependencyValidation.cpp
   Field_eEzsignfolderSendreminderfrequency.cpp
   Field_eEzsignfolderStep.cpp
   Field_eEzsignfoldertypeDisposal.cpp
   Field_eEzsignfoldertypePrivacylevel.cpp
   Field_eEzsignfoldertypeSendreminderfrequency.cpp
+  Field_eEzsignformfieldDependencyrequirement.cpp
   Field_eEzsignformfieldgroupSignerrequirement.cpp
   Field_eEzsignformfieldgroupTooltipposition.cpp
   Field_eEzsignformfieldgroupType.cpp
   Field_eEzsignsignatureAttachmentnamesource.cpp
+  Field_eEzsignsignatureDependencyrequirement.cpp
   Field_eEzsignsignatureFont.cpp
   Field_eEzsignsignatureTooltipposition.cpp
   Field_eEzsignsignatureType.cpp
+  Field_eEzsigntemplateelementdependencyOperator.cpp
+  Field_eEzsigntemplateelementdependencyValidation.cpp
+  Field_eEzsigntemplateformfieldDependencyrequirement.cpp
   Field_eEzsigntemplateformfieldgroupSignerrequirement.cpp
   Field_eEzsigntemplateformfieldgroupTooltipposition.cpp
   Field_eEzsigntemplateformfieldgroupType.cpp
   Field_eEzsigntemplatesignatureAttachmentnamesource.cpp
+  Field_eEzsigntemplatesignatureDependencyrequirement.cpp
   Field_eEzsigntemplatesignatureFont.cpp
   Field_eEzsigntemplatesignatureTooltipposition.cpp
   Field_eEzsigntemplatesignatureType.cpp

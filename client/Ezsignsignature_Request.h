@@ -23,6 +23,7 @@
 
 #include "Enum_Textvalidation.h"
 #include "Field_eEzsignsignatureAttachmentnamesource.h"
+#include "Field_eEzsignsignatureDependencyrequirement.h"
 #include "Field_eEzsignsignatureFont.h"
 #include "Field_eEzsignsignatureTooltipposition.h"
 #include "Field_eEzsignsignatureType.h"
@@ -149,6 +150,11 @@ public:
     bool is_s_ezsignsignature_regexp_Set() const;
     bool is_s_ezsignsignature_regexp_Valid() const;
 
+    Field_eEzsignsignatureDependencyrequirement getEEzsignsignatureDependencyrequirement() const;
+    void setEEzsignsignatureDependencyrequirement(const Field_eEzsignsignatureDependencyrequirement &e_ezsignsignature_dependencyrequirement);
+    bool is_e_ezsignsignature_dependencyrequirement_Set() const;
+    bool is_e_ezsignsignature_dependencyrequirement_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -238,6 +244,10 @@ private:
     QString m_s_ezsignsignature_regexp;
     bool m_s_ezsignsignature_regexp_isSet;
     bool m_s_ezsignsignature_regexp_isValid;
+
+    Field_eEzsignsignatureDependencyrequirement m_e_ezsignsignature_dependencyrequirement;
+    bool m_e_ezsignsignature_dependencyrequirement_isSet;
+    bool m_e_ezsignsignature_dependencyrequirement_isValid;
 };
 
 } // namespace Ezmaxapi

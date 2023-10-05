@@ -22,8 +22,10 @@
 #include <QJsonObject>
 
 #include "Enum_Textvalidation.h"
+#include "Ezsignelementdependency_RequestCompound.h"
 #include "Ezsignsignaturecustomdate_RequestCompound.h"
 #include "Field_eEzsignsignatureAttachmentnamesource.h"
+#include "Field_eEzsignsignatureDependencyrequirement.h"
 #include "Field_eEzsignsignatureFont.h"
 #include "Field_eEzsignsignatureTooltipposition.h"
 #include "Field_eEzsignsignatureType.h"
@@ -35,6 +37,7 @@
 
 namespace Ezmaxapi {
 class Ezsignsignaturecustomdate_RequestCompound;
+class Ezsignelementdependency_RequestCompound;
 
 class Ezsignsignature_RequestCompound : public Object {
 public:
@@ -152,6 +155,11 @@ public:
     bool is_s_ezsignsignature_regexp_Set() const;
     bool is_s_ezsignsignature_regexp_Valid() const;
 
+    Field_eEzsignsignatureDependencyrequirement getEEzsignsignatureDependencyrequirement() const;
+    void setEEzsignsignatureDependencyrequirement(const Field_eEzsignsignatureDependencyrequirement &e_ezsignsignature_dependencyrequirement);
+    bool is_e_ezsignsignature_dependencyrequirement_Set() const;
+    bool is_e_ezsignsignature_dependencyrequirement_Valid() const;
+
     bool isBEzsignsignatureCustomdate() const;
     void setBEzsignsignatureCustomdate(const bool &b_ezsignsignature_customdate);
     bool is_b_ezsignsignature_customdate_Set() const;
@@ -161,6 +169,11 @@ public:
     void setAObjEzsignsignaturecustomdate(const QList<Ezsignsignaturecustomdate_RequestCompound> &a_obj_ezsignsignaturecustomdate);
     bool is_a_obj_ezsignsignaturecustomdate_Set() const;
     bool is_a_obj_ezsignsignaturecustomdate_Valid() const;
+
+    QList<Ezsignelementdependency_RequestCompound> getAObjEzsignelementdependency() const;
+    void setAObjEzsignelementdependency(const QList<Ezsignelementdependency_RequestCompound> &a_obj_ezsignelementdependency);
+    bool is_a_obj_ezsignelementdependency_Set() const;
+    bool is_a_obj_ezsignelementdependency_Valid() const;
 
     virtual bool isSet() const override;
     virtual bool isValid() const override;
@@ -252,6 +265,10 @@ private:
     bool m_s_ezsignsignature_regexp_isSet;
     bool m_s_ezsignsignature_regexp_isValid;
 
+    Field_eEzsignsignatureDependencyrequirement m_e_ezsignsignature_dependencyrequirement;
+    bool m_e_ezsignsignature_dependencyrequirement_isSet;
+    bool m_e_ezsignsignature_dependencyrequirement_isValid;
+
     bool m_b_ezsignsignature_customdate;
     bool m_b_ezsignsignature_customdate_isSet;
     bool m_b_ezsignsignature_customdate_isValid;
@@ -259,6 +276,10 @@ private:
     QList<Ezsignsignaturecustomdate_RequestCompound> m_a_obj_ezsignsignaturecustomdate;
     bool m_a_obj_ezsignsignaturecustomdate_isSet;
     bool m_a_obj_ezsignsignaturecustomdate_isValid;
+
+    QList<Ezsignelementdependency_RequestCompound> m_a_obj_ezsignelementdependency;
+    bool m_a_obj_ezsignelementdependency_isSet;
+    bool m_a_obj_ezsignelementdependency_isValid;
 };
 
 } // namespace Ezmaxapi

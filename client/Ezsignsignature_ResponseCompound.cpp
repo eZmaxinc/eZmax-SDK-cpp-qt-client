@@ -103,6 +103,9 @@ void Ezsignsignature_ResponseCompound::initializeModel() {
     m_e_ezsignsignature_textvalidation_isSet = false;
     m_e_ezsignsignature_textvalidation_isValid = false;
 
+    m_e_ezsignsignature_dependencyrequirement_isSet = false;
+    m_e_ezsignsignature_dependencyrequirement_isValid = false;
+
     m_s_ezsignsignature_regexp_isSet = false;
     m_s_ezsignsignature_regexp_isValid = false;
 
@@ -123,6 +126,9 @@ void Ezsignsignature_ResponseCompound::initializeModel() {
 
     m_obj_creditcardtransaction_isSet = false;
     m_obj_creditcardtransaction_isValid = false;
+
+    m_a_obj_ezsignelementdependency_isSet = false;
+    m_a_obj_ezsignelementdependency_isValid = false;
 }
 
 void Ezsignsignature_ResponseCompound::fromJson(QString jsonString) {
@@ -203,6 +209,9 @@ void Ezsignsignature_ResponseCompound::fromJsonObject(QJsonObject json) {
     m_e_ezsignsignature_textvalidation_isValid = ::Ezmaxapi::fromJsonValue(m_e_ezsignsignature_textvalidation, json[QString("eEzsignsignatureTextvalidation")]);
     m_e_ezsignsignature_textvalidation_isSet = !json[QString("eEzsignsignatureTextvalidation")].isNull() && m_e_ezsignsignature_textvalidation_isValid;
 
+    m_e_ezsignsignature_dependencyrequirement_isValid = ::Ezmaxapi::fromJsonValue(m_e_ezsignsignature_dependencyrequirement, json[QString("eEzsignsignatureDependencyrequirement")]);
+    m_e_ezsignsignature_dependencyrequirement_isSet = !json[QString("eEzsignsignatureDependencyrequirement")].isNull() && m_e_ezsignsignature_dependencyrequirement_isValid;
+
     m_s_ezsignsignature_regexp_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsignsignature_regexp, json[QString("sEzsignsignatureRegexp")]);
     m_s_ezsignsignature_regexp_isSet = !json[QString("sEzsignsignatureRegexp")].isNull() && m_s_ezsignsignature_regexp_isValid;
 
@@ -223,6 +232,9 @@ void Ezsignsignature_ResponseCompound::fromJsonObject(QJsonObject json) {
 
     m_obj_creditcardtransaction_isValid = ::Ezmaxapi::fromJsonValue(m_obj_creditcardtransaction, json[QString("objCreditcardtransaction")]);
     m_obj_creditcardtransaction_isSet = !json[QString("objCreditcardtransaction")].isNull() && m_obj_creditcardtransaction_isValid;
+
+    m_a_obj_ezsignelementdependency_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_ezsignelementdependency, json[QString("a_objEzsignelementdependency")]);
+    m_a_obj_ezsignelementdependency_isSet = !json[QString("a_objEzsignelementdependency")].isNull() && m_a_obj_ezsignelementdependency_isValid;
 }
 
 QString Ezsignsignature_ResponseCompound::asJson() const {
@@ -303,6 +315,9 @@ QJsonObject Ezsignsignature_ResponseCompound::asJsonObject() const {
     if (m_e_ezsignsignature_textvalidation.isSet()) {
         obj.insert(QString("eEzsignsignatureTextvalidation"), ::Ezmaxapi::toJsonValue(m_e_ezsignsignature_textvalidation));
     }
+    if (m_e_ezsignsignature_dependencyrequirement.isSet()) {
+        obj.insert(QString("eEzsignsignatureDependencyrequirement"), ::Ezmaxapi::toJsonValue(m_e_ezsignsignature_dependencyrequirement));
+    }
     if (m_s_ezsignsignature_regexp_isSet) {
         obj.insert(QString("sEzsignsignatureRegexp"), ::Ezmaxapi::toJsonValue(m_s_ezsignsignature_regexp));
     }
@@ -323,6 +338,9 @@ QJsonObject Ezsignsignature_ResponseCompound::asJsonObject() const {
     }
     if (m_obj_creditcardtransaction.isSet()) {
         obj.insert(QString("objCreditcardtransaction"), ::Ezmaxapi::toJsonValue(m_obj_creditcardtransaction));
+    }
+    if (m_a_obj_ezsignelementdependency.size() > 0) {
+        obj.insert(QString("a_objEzsignelementdependency"), ::Ezmaxapi::toJsonValue(m_a_obj_ezsignelementdependency));
     }
     return obj;
 }
@@ -695,6 +713,22 @@ bool Ezsignsignature_ResponseCompound::is_e_ezsignsignature_textvalidation_Valid
     return m_e_ezsignsignature_textvalidation_isValid;
 }
 
+Field_eEzsignsignatureDependencyrequirement Ezsignsignature_ResponseCompound::getEEzsignsignatureDependencyrequirement() const {
+    return m_e_ezsignsignature_dependencyrequirement;
+}
+void Ezsignsignature_ResponseCompound::setEEzsignsignatureDependencyrequirement(const Field_eEzsignsignatureDependencyrequirement &e_ezsignsignature_dependencyrequirement) {
+    m_e_ezsignsignature_dependencyrequirement = e_ezsignsignature_dependencyrequirement;
+    m_e_ezsignsignature_dependencyrequirement_isSet = true;
+}
+
+bool Ezsignsignature_ResponseCompound::is_e_ezsignsignature_dependencyrequirement_Set() const{
+    return m_e_ezsignsignature_dependencyrequirement_isSet;
+}
+
+bool Ezsignsignature_ResponseCompound::is_e_ezsignsignature_dependencyrequirement_Valid() const{
+    return m_e_ezsignsignature_dependencyrequirement_isValid;
+}
+
 QString Ezsignsignature_ResponseCompound::getSEzsignsignatureRegexp() const {
     return m_s_ezsignsignature_regexp;
 }
@@ -805,6 +839,22 @@ bool Ezsignsignature_ResponseCompound::is_obj_creditcardtransaction_Set() const{
 
 bool Ezsignsignature_ResponseCompound::is_obj_creditcardtransaction_Valid() const{
     return m_obj_creditcardtransaction_isValid;
+}
+
+QList<Ezsignelementdependency_ResponseCompound> Ezsignsignature_ResponseCompound::getAObjEzsignelementdependency() const {
+    return m_a_obj_ezsignelementdependency;
+}
+void Ezsignsignature_ResponseCompound::setAObjEzsignelementdependency(const QList<Ezsignelementdependency_ResponseCompound> &a_obj_ezsignelementdependency) {
+    m_a_obj_ezsignelementdependency = a_obj_ezsignelementdependency;
+    m_a_obj_ezsignelementdependency_isSet = true;
+}
+
+bool Ezsignsignature_ResponseCompound::is_a_obj_ezsignelementdependency_Set() const{
+    return m_a_obj_ezsignelementdependency_isSet;
+}
+
+bool Ezsignsignature_ResponseCompound::is_a_obj_ezsignelementdependency_Valid() const{
+    return m_a_obj_ezsignelementdependency_isValid;
 }
 
 bool Ezsignsignature_ResponseCompound::isSet() const {
@@ -925,6 +975,11 @@ bool Ezsignsignature_ResponseCompound::isSet() const {
             break;
         }
 
+        if (m_e_ezsignsignature_dependencyrequirement.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (m_s_ezsignsignature_regexp_isSet) {
             isObjectUpdated = true;
             break;
@@ -956,6 +1011,11 @@ bool Ezsignsignature_ResponseCompound::isSet() const {
         }
 
         if (m_obj_creditcardtransaction.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_a_obj_ezsignelementdependency.size() > 0) {
             isObjectUpdated = true;
             break;
         }

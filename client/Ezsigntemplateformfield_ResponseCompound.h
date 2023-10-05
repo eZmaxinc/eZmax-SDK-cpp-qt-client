@@ -21,12 +21,16 @@
 
 #include <QJsonObject>
 
+#include "Ezsigntemplateelementdependency_ResponseCompound.h"
+#include "Field_eEzsigntemplateformfieldDependencyrequirement.h"
+#include <QList>
 #include <QString>
 
 #include "Enum.h"
 #include "Object.h"
 
 namespace Ezmaxapi {
+class Ezsigntemplateelementdependency_ResponseCompound;
 
 class Ezsigntemplateformfield_ResponseCompound : public Object {
 public:
@@ -89,6 +93,16 @@ public:
     bool is_b_ezsigntemplateformfield_selected_Set() const;
     bool is_b_ezsigntemplateformfield_selected_Valid() const;
 
+    Field_eEzsigntemplateformfieldDependencyrequirement getEEzsigntemplateformfieldDependencyrequirement() const;
+    void setEEzsigntemplateformfieldDependencyrequirement(const Field_eEzsigntemplateformfieldDependencyrequirement &e_ezsigntemplateformfield_dependencyrequirement);
+    bool is_e_ezsigntemplateformfield_dependencyrequirement_Set() const;
+    bool is_e_ezsigntemplateformfield_dependencyrequirement_Valid() const;
+
+    QList<Ezsigntemplateelementdependency_ResponseCompound> getAObjEzsigntemplateelementdependency() const;
+    void setAObjEzsigntemplateelementdependency(const QList<Ezsigntemplateelementdependency_ResponseCompound> &a_obj_ezsigntemplateelementdependency);
+    bool is_a_obj_ezsigntemplateelementdependency_Set() const;
+    bool is_a_obj_ezsigntemplateelementdependency_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -134,6 +148,14 @@ private:
     bool m_b_ezsigntemplateformfield_selected;
     bool m_b_ezsigntemplateformfield_selected_isSet;
     bool m_b_ezsigntemplateformfield_selected_isValid;
+
+    Field_eEzsigntemplateformfieldDependencyrequirement m_e_ezsigntemplateformfield_dependencyrequirement;
+    bool m_e_ezsigntemplateformfield_dependencyrequirement_isSet;
+    bool m_e_ezsigntemplateformfield_dependencyrequirement_isValid;
+
+    QList<Ezsigntemplateelementdependency_ResponseCompound> m_a_obj_ezsigntemplateelementdependency;
+    bool m_a_obj_ezsigntemplateelementdependency_isSet;
+    bool m_a_obj_ezsigntemplateelementdependency_isValid;
 };
 
 } // namespace Ezmaxapi

@@ -352,6 +352,10 @@ HEADERS += \
     $${PWD}/Ezsigndocument_unsend_v1_Response.h \
     $${PWD}/Ezsigndocumentlog_Response.h \
     $${PWD}/Ezsigndocumentlog_ResponseCompound.h \
+    $${PWD}/Ezsignelementdependency_Request.h \
+    $${PWD}/Ezsignelementdependency_RequestCompound.h \
+    $${PWD}/Ezsignelementdependency_Response.h \
+    $${PWD}/Ezsignelementdependency_ResponseCompound.h \
     $${PWD}/Ezsignfolder_ListElement.h \
     $${PWD}/Ezsignfolder_Request.h \
     $${PWD}/Ezsignfolder_RequestCompound.h \
@@ -583,6 +587,10 @@ HEADERS += \
     $${PWD}/Ezsigntemplatedocument_patchObject_v1_Response.h \
     $${PWD}/Ezsigntemplatedocumentpage_Response.h \
     $${PWD}/Ezsigntemplatedocumentpage_ResponseCompound.h \
+    $${PWD}/Ezsigntemplateelementdependency_Request.h \
+    $${PWD}/Ezsigntemplateelementdependency_RequestCompound.h \
+    $${PWD}/Ezsigntemplateelementdependency_Response.h \
+    $${PWD}/Ezsigntemplateelementdependency_ResponseCompound.h \
     $${PWD}/Ezsigntemplateformfield_Request.h \
     $${PWD}/Ezsigntemplateformfield_RequestCompound.h \
     $${PWD}/Ezsigntemplateformfield_Response.h \
@@ -708,22 +716,30 @@ HEADERS += \
     $${PWD}/Field_eEzsignannotationType.h \
     $${PWD}/Field_eEzsigndocumentStep.h \
     $${PWD}/Field_eEzsigndocumentlogType.h \
+    $${PWD}/Field_eEzsignelementdependencyOperator.h \
+    $${PWD}/Field_eEzsignelementdependencyValidation.h \
     $${PWD}/Field_eEzsignfolderSendreminderfrequency.h \
     $${PWD}/Field_eEzsignfolderStep.h \
     $${PWD}/Field_eEzsignfoldertypeDisposal.h \
     $${PWD}/Field_eEzsignfoldertypePrivacylevel.h \
     $${PWD}/Field_eEzsignfoldertypeSendreminderfrequency.h \
+    $${PWD}/Field_eEzsignformfieldDependencyrequirement.h \
     $${PWD}/Field_eEzsignformfieldgroupSignerrequirement.h \
     $${PWD}/Field_eEzsignformfieldgroupTooltipposition.h \
     $${PWD}/Field_eEzsignformfieldgroupType.h \
     $${PWD}/Field_eEzsignsignatureAttachmentnamesource.h \
+    $${PWD}/Field_eEzsignsignatureDependencyrequirement.h \
     $${PWD}/Field_eEzsignsignatureFont.h \
     $${PWD}/Field_eEzsignsignatureTooltipposition.h \
     $${PWD}/Field_eEzsignsignatureType.h \
+    $${PWD}/Field_eEzsigntemplateelementdependencyOperator.h \
+    $${PWD}/Field_eEzsigntemplateelementdependencyValidation.h \
+    $${PWD}/Field_eEzsigntemplateformfieldDependencyrequirement.h \
     $${PWD}/Field_eEzsigntemplateformfieldgroupSignerrequirement.h \
     $${PWD}/Field_eEzsigntemplateformfieldgroupTooltipposition.h \
     $${PWD}/Field_eEzsigntemplateformfieldgroupType.h \
     $${PWD}/Field_eEzsigntemplatesignatureAttachmentnamesource.h \
+    $${PWD}/Field_eEzsigntemplatesignatureDependencyrequirement.h \
     $${PWD}/Field_eEzsigntemplatesignatureFont.h \
     $${PWD}/Field_eEzsigntemplatesignatureTooltipposition.h \
     $${PWD}/Field_eEzsigntemplatesignatureType.h \
@@ -1483,6 +1499,10 @@ SOURCES += \
     $${PWD}/Ezsigndocument_unsend_v1_Response.cpp \
     $${PWD}/Ezsigndocumentlog_Response.cpp \
     $${PWD}/Ezsigndocumentlog_ResponseCompound.cpp \
+    $${PWD}/Ezsignelementdependency_Request.cpp \
+    $${PWD}/Ezsignelementdependency_RequestCompound.cpp \
+    $${PWD}/Ezsignelementdependency_Response.cpp \
+    $${PWD}/Ezsignelementdependency_ResponseCompound.cpp \
     $${PWD}/Ezsignfolder_ListElement.cpp \
     $${PWD}/Ezsignfolder_Request.cpp \
     $${PWD}/Ezsignfolder_RequestCompound.cpp \
@@ -1714,6 +1734,10 @@ SOURCES += \
     $${PWD}/Ezsigntemplatedocument_patchObject_v1_Response.cpp \
     $${PWD}/Ezsigntemplatedocumentpage_Response.cpp \
     $${PWD}/Ezsigntemplatedocumentpage_ResponseCompound.cpp \
+    $${PWD}/Ezsigntemplateelementdependency_Request.cpp \
+    $${PWD}/Ezsigntemplateelementdependency_RequestCompound.cpp \
+    $${PWD}/Ezsigntemplateelementdependency_Response.cpp \
+    $${PWD}/Ezsigntemplateelementdependency_ResponseCompound.cpp \
     $${PWD}/Ezsigntemplateformfield_Request.cpp \
     $${PWD}/Ezsigntemplateformfield_RequestCompound.cpp \
     $${PWD}/Ezsigntemplateformfield_Response.cpp \
@@ -1839,22 +1863,30 @@ SOURCES += \
     $${PWD}/Field_eEzsignannotationType.cpp \
     $${PWD}/Field_eEzsigndocumentStep.cpp \
     $${PWD}/Field_eEzsigndocumentlogType.cpp \
+    $${PWD}/Field_eEzsignelementdependencyOperator.cpp \
+    $${PWD}/Field_eEzsignelementdependencyValidation.cpp \
     $${PWD}/Field_eEzsignfolderSendreminderfrequency.cpp \
     $${PWD}/Field_eEzsignfolderStep.cpp \
     $${PWD}/Field_eEzsignfoldertypeDisposal.cpp \
     $${PWD}/Field_eEzsignfoldertypePrivacylevel.cpp \
     $${PWD}/Field_eEzsignfoldertypeSendreminderfrequency.cpp \
+    $${PWD}/Field_eEzsignformfieldDependencyrequirement.cpp \
     $${PWD}/Field_eEzsignformfieldgroupSignerrequirement.cpp \
     $${PWD}/Field_eEzsignformfieldgroupTooltipposition.cpp \
     $${PWD}/Field_eEzsignformfieldgroupType.cpp \
     $${PWD}/Field_eEzsignsignatureAttachmentnamesource.cpp \
+    $${PWD}/Field_eEzsignsignatureDependencyrequirement.cpp \
     $${PWD}/Field_eEzsignsignatureFont.cpp \
     $${PWD}/Field_eEzsignsignatureTooltipposition.cpp \
     $${PWD}/Field_eEzsignsignatureType.cpp \
+    $${PWD}/Field_eEzsigntemplateelementdependencyOperator.cpp \
+    $${PWD}/Field_eEzsigntemplateelementdependencyValidation.cpp \
+    $${PWD}/Field_eEzsigntemplateformfieldDependencyrequirement.cpp \
     $${PWD}/Field_eEzsigntemplateformfieldgroupSignerrequirement.cpp \
     $${PWD}/Field_eEzsigntemplateformfieldgroupTooltipposition.cpp \
     $${PWD}/Field_eEzsigntemplateformfieldgroupType.cpp \
     $${PWD}/Field_eEzsigntemplatesignatureAttachmentnamesource.cpp \
+    $${PWD}/Field_eEzsigntemplatesignatureDependencyrequirement.cpp \
     $${PWD}/Field_eEzsigntemplatesignatureFont.cpp \
     $${PWD}/Field_eEzsigntemplatesignatureTooltipposition.cpp \
     $${PWD}/Field_eEzsigntemplatesignatureType.cpp \

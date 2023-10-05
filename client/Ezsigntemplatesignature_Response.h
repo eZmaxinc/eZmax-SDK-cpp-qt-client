@@ -23,6 +23,7 @@
 
 #include "Enum_Textvalidation.h"
 #include "Field_eEzsigntemplatesignatureAttachmentnamesource.h"
+#include "Field_eEzsigntemplatesignatureDependencyrequirement.h"
 #include "Field_eEzsigntemplatesignatureFont.h"
 #include "Field_eEzsigntemplatesignatureTooltipposition.h"
 #include "Field_eEzsigntemplatesignatureType.h"
@@ -149,6 +150,11 @@ public:
     bool is_e_ezsigntemplatesignature_textvalidation_Set() const;
     bool is_e_ezsigntemplatesignature_textvalidation_Valid() const;
 
+    Field_eEzsigntemplatesignatureDependencyrequirement getEEzsigntemplatesignatureDependencyrequirement() const;
+    void setEEzsigntemplatesignatureDependencyrequirement(const Field_eEzsigntemplatesignatureDependencyrequirement &e_ezsigntemplatesignature_dependencyrequirement);
+    bool is_e_ezsigntemplatesignature_dependencyrequirement_Set() const;
+    bool is_e_ezsigntemplatesignature_dependencyrequirement_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -238,6 +244,10 @@ private:
     Enum_Textvalidation m_e_ezsigntemplatesignature_textvalidation;
     bool m_e_ezsigntemplatesignature_textvalidation_isSet;
     bool m_e_ezsigntemplatesignature_textvalidation_isValid;
+
+    Field_eEzsigntemplatesignatureDependencyrequirement m_e_ezsigntemplatesignature_dependencyrequirement;
+    bool m_e_ezsigntemplatesignature_dependencyrequirement_isSet;
+    bool m_e_ezsigntemplatesignature_dependencyrequirement_isValid;
 };
 
 } // namespace Ezmaxapi

@@ -21,12 +21,16 @@
 
 #include <QJsonObject>
 
+#include "Ezsignelementdependency_ResponseCompound.h"
+#include "Field_eEzsignformfieldDependencyrequirement.h"
+#include <QList>
 #include <QString>
 
 #include "Enum.h"
 #include "Object.h"
 
 namespace Ezmaxapi {
+class Ezsignelementdependency_ResponseCompound;
 
 class Ezsignformfield_ResponseCompound : public Object {
 public:
@@ -94,6 +98,16 @@ public:
     bool is_s_ezsignformfield_enteredvalue_Set() const;
     bool is_s_ezsignformfield_enteredvalue_Valid() const;
 
+    Field_eEzsignformfieldDependencyrequirement getEEzsignformfieldDependencyrequirement() const;
+    void setEEzsignformfieldDependencyrequirement(const Field_eEzsignformfieldDependencyrequirement &e_ezsignformfield_dependencyrequirement);
+    bool is_e_ezsignformfield_dependencyrequirement_Set() const;
+    bool is_e_ezsignformfield_dependencyrequirement_Valid() const;
+
+    QList<Ezsignelementdependency_ResponseCompound> getAObjEzsignelementdependency() const;
+    void setAObjEzsignelementdependency(const QList<Ezsignelementdependency_ResponseCompound> &a_obj_ezsignelementdependency);
+    bool is_a_obj_ezsignelementdependency_Set() const;
+    bool is_a_obj_ezsignelementdependency_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -143,6 +157,14 @@ private:
     QString m_s_ezsignformfield_enteredvalue;
     bool m_s_ezsignformfield_enteredvalue_isSet;
     bool m_s_ezsignformfield_enteredvalue_isValid;
+
+    Field_eEzsignformfieldDependencyrequirement m_e_ezsignformfield_dependencyrequirement;
+    bool m_e_ezsignformfield_dependencyrequirement_isSet;
+    bool m_e_ezsignformfield_dependencyrequirement_isValid;
+
+    QList<Ezsignelementdependency_ResponseCompound> m_a_obj_ezsignelementdependency;
+    bool m_a_obj_ezsignelementdependency_isSet;
+    bool m_a_obj_ezsignelementdependency_isValid;
 };
 
 } // namespace Ezmaxapi

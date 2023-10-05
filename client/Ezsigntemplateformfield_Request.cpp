@@ -63,6 +63,9 @@ void Ezsigntemplateformfield_Request::initializeModel() {
 
     m_b_ezsigntemplateformfield_selected_isSet = false;
     m_b_ezsigntemplateformfield_selected_isValid = false;
+
+    m_e_ezsigntemplateformfield_dependencyrequirement_isSet = false;
+    m_e_ezsigntemplateformfield_dependencyrequirement_isValid = false;
 }
 
 void Ezsigntemplateformfield_Request::fromJson(QString jsonString) {
@@ -103,6 +106,9 @@ void Ezsigntemplateformfield_Request::fromJsonObject(QJsonObject json) {
 
     m_b_ezsigntemplateformfield_selected_isValid = ::Ezmaxapi::fromJsonValue(m_b_ezsigntemplateformfield_selected, json[QString("bEzsigntemplateformfieldSelected")]);
     m_b_ezsigntemplateformfield_selected_isSet = !json[QString("bEzsigntemplateformfieldSelected")].isNull() && m_b_ezsigntemplateformfield_selected_isValid;
+
+    m_e_ezsigntemplateformfield_dependencyrequirement_isValid = ::Ezmaxapi::fromJsonValue(m_e_ezsigntemplateformfield_dependencyrequirement, json[QString("eEzsigntemplateformfieldDependencyrequirement")]);
+    m_e_ezsigntemplateformfield_dependencyrequirement_isSet = !json[QString("eEzsigntemplateformfieldDependencyrequirement")].isNull() && m_e_ezsigntemplateformfield_dependencyrequirement_isValid;
 }
 
 QString Ezsigntemplateformfield_Request::asJson() const {
@@ -143,6 +149,9 @@ QJsonObject Ezsigntemplateformfield_Request::asJsonObject() const {
     }
     if (m_b_ezsigntemplateformfield_selected_isSet) {
         obj.insert(QString("bEzsigntemplateformfieldSelected"), ::Ezmaxapi::toJsonValue(m_b_ezsigntemplateformfield_selected));
+    }
+    if (m_e_ezsigntemplateformfield_dependencyrequirement.isSet()) {
+        obj.insert(QString("eEzsigntemplateformfieldDependencyrequirement"), ::Ezmaxapi::toJsonValue(m_e_ezsigntemplateformfield_dependencyrequirement));
     }
     return obj;
 }
@@ -307,6 +316,22 @@ bool Ezsigntemplateformfield_Request::is_b_ezsigntemplateformfield_selected_Vali
     return m_b_ezsigntemplateformfield_selected_isValid;
 }
 
+Field_eEzsigntemplateformfieldDependencyrequirement Ezsigntemplateformfield_Request::getEEzsigntemplateformfieldDependencyrequirement() const {
+    return m_e_ezsigntemplateformfield_dependencyrequirement;
+}
+void Ezsigntemplateformfield_Request::setEEzsigntemplateformfieldDependencyrequirement(const Field_eEzsigntemplateformfieldDependencyrequirement &e_ezsigntemplateformfield_dependencyrequirement) {
+    m_e_ezsigntemplateformfield_dependencyrequirement = e_ezsigntemplateformfield_dependencyrequirement;
+    m_e_ezsigntemplateformfield_dependencyrequirement_isSet = true;
+}
+
+bool Ezsigntemplateformfield_Request::is_e_ezsigntemplateformfield_dependencyrequirement_Set() const{
+    return m_e_ezsigntemplateformfield_dependencyrequirement_isSet;
+}
+
+bool Ezsigntemplateformfield_Request::is_e_ezsigntemplateformfield_dependencyrequirement_Valid() const{
+    return m_e_ezsigntemplateformfield_dependencyrequirement_isValid;
+}
+
 bool Ezsigntemplateformfield_Request::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -356,6 +381,11 @@ bool Ezsigntemplateformfield_Request::isSet() const {
         }
 
         if (m_b_ezsigntemplateformfield_selected_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_e_ezsigntemplateformfield_dependencyrequirement.isSet()) {
             isObjectUpdated = true;
             break;
         }

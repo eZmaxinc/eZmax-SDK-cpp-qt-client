@@ -97,11 +97,17 @@ void Ezsignsignature_RequestCompound::initializeModel() {
     m_s_ezsignsignature_regexp_isSet = false;
     m_s_ezsignsignature_regexp_isValid = false;
 
+    m_e_ezsignsignature_dependencyrequirement_isSet = false;
+    m_e_ezsignsignature_dependencyrequirement_isValid = false;
+
     m_b_ezsignsignature_customdate_isSet = false;
     m_b_ezsignsignature_customdate_isValid = false;
 
     m_a_obj_ezsignsignaturecustomdate_isSet = false;
     m_a_obj_ezsignsignaturecustomdate_isValid = false;
+
+    m_a_obj_ezsignelementdependency_isSet = false;
+    m_a_obj_ezsignelementdependency_isValid = false;
 }
 
 void Ezsignsignature_RequestCompound::fromJson(QString jsonString) {
@@ -176,11 +182,17 @@ void Ezsignsignature_RequestCompound::fromJsonObject(QJsonObject json) {
     m_s_ezsignsignature_regexp_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsignsignature_regexp, json[QString("sEzsignsignatureRegexp")]);
     m_s_ezsignsignature_regexp_isSet = !json[QString("sEzsignsignatureRegexp")].isNull() && m_s_ezsignsignature_regexp_isValid;
 
+    m_e_ezsignsignature_dependencyrequirement_isValid = ::Ezmaxapi::fromJsonValue(m_e_ezsignsignature_dependencyrequirement, json[QString("eEzsignsignatureDependencyrequirement")]);
+    m_e_ezsignsignature_dependencyrequirement_isSet = !json[QString("eEzsignsignatureDependencyrequirement")].isNull() && m_e_ezsignsignature_dependencyrequirement_isValid;
+
     m_b_ezsignsignature_customdate_isValid = ::Ezmaxapi::fromJsonValue(m_b_ezsignsignature_customdate, json[QString("bEzsignsignatureCustomdate")]);
     m_b_ezsignsignature_customdate_isSet = !json[QString("bEzsignsignatureCustomdate")].isNull() && m_b_ezsignsignature_customdate_isValid;
 
     m_a_obj_ezsignsignaturecustomdate_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_ezsignsignaturecustomdate, json[QString("a_objEzsignsignaturecustomdate")]);
     m_a_obj_ezsignsignaturecustomdate_isSet = !json[QString("a_objEzsignsignaturecustomdate")].isNull() && m_a_obj_ezsignsignaturecustomdate_isValid;
+
+    m_a_obj_ezsignelementdependency_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_ezsignelementdependency, json[QString("a_objEzsignelementdependency")]);
+    m_a_obj_ezsignelementdependency_isSet = !json[QString("a_objEzsignelementdependency")].isNull() && m_a_obj_ezsignelementdependency_isValid;
 }
 
 QString Ezsignsignature_RequestCompound::asJson() const {
@@ -255,11 +267,17 @@ QJsonObject Ezsignsignature_RequestCompound::asJsonObject() const {
     if (m_s_ezsignsignature_regexp_isSet) {
         obj.insert(QString("sEzsignsignatureRegexp"), ::Ezmaxapi::toJsonValue(m_s_ezsignsignature_regexp));
     }
+    if (m_e_ezsignsignature_dependencyrequirement.isSet()) {
+        obj.insert(QString("eEzsignsignatureDependencyrequirement"), ::Ezmaxapi::toJsonValue(m_e_ezsignsignature_dependencyrequirement));
+    }
     if (m_b_ezsignsignature_customdate_isSet) {
         obj.insert(QString("bEzsignsignatureCustomdate"), ::Ezmaxapi::toJsonValue(m_b_ezsignsignature_customdate));
     }
     if (m_a_obj_ezsignsignaturecustomdate.size() > 0) {
         obj.insert(QString("a_objEzsignsignaturecustomdate"), ::Ezmaxapi::toJsonValue(m_a_obj_ezsignsignaturecustomdate));
+    }
+    if (m_a_obj_ezsignelementdependency.size() > 0) {
+        obj.insert(QString("a_objEzsignelementdependency"), ::Ezmaxapi::toJsonValue(m_a_obj_ezsignelementdependency));
     }
     return obj;
 }
@@ -600,6 +618,22 @@ bool Ezsignsignature_RequestCompound::is_s_ezsignsignature_regexp_Valid() const{
     return m_s_ezsignsignature_regexp_isValid;
 }
 
+Field_eEzsignsignatureDependencyrequirement Ezsignsignature_RequestCompound::getEEzsignsignatureDependencyrequirement() const {
+    return m_e_ezsignsignature_dependencyrequirement;
+}
+void Ezsignsignature_RequestCompound::setEEzsignsignatureDependencyrequirement(const Field_eEzsignsignatureDependencyrequirement &e_ezsignsignature_dependencyrequirement) {
+    m_e_ezsignsignature_dependencyrequirement = e_ezsignsignature_dependencyrequirement;
+    m_e_ezsignsignature_dependencyrequirement_isSet = true;
+}
+
+bool Ezsignsignature_RequestCompound::is_e_ezsignsignature_dependencyrequirement_Set() const{
+    return m_e_ezsignsignature_dependencyrequirement_isSet;
+}
+
+bool Ezsignsignature_RequestCompound::is_e_ezsignsignature_dependencyrequirement_Valid() const{
+    return m_e_ezsignsignature_dependencyrequirement_isValid;
+}
+
 bool Ezsignsignature_RequestCompound::isBEzsignsignatureCustomdate() const {
     return m_b_ezsignsignature_customdate;
 }
@@ -630,6 +664,22 @@ bool Ezsignsignature_RequestCompound::is_a_obj_ezsignsignaturecustomdate_Set() c
 
 bool Ezsignsignature_RequestCompound::is_a_obj_ezsignsignaturecustomdate_Valid() const{
     return m_a_obj_ezsignsignaturecustomdate_isValid;
+}
+
+QList<Ezsignelementdependency_RequestCompound> Ezsignsignature_RequestCompound::getAObjEzsignelementdependency() const {
+    return m_a_obj_ezsignelementdependency;
+}
+void Ezsignsignature_RequestCompound::setAObjEzsignelementdependency(const QList<Ezsignelementdependency_RequestCompound> &a_obj_ezsignelementdependency) {
+    m_a_obj_ezsignelementdependency = a_obj_ezsignelementdependency;
+    m_a_obj_ezsignelementdependency_isSet = true;
+}
+
+bool Ezsignsignature_RequestCompound::is_a_obj_ezsignelementdependency_Set() const{
+    return m_a_obj_ezsignelementdependency_isSet;
+}
+
+bool Ezsignsignature_RequestCompound::is_a_obj_ezsignelementdependency_Valid() const{
+    return m_a_obj_ezsignelementdependency_isValid;
 }
 
 bool Ezsignsignature_RequestCompound::isSet() const {
@@ -740,12 +790,22 @@ bool Ezsignsignature_RequestCompound::isSet() const {
             break;
         }
 
+        if (m_e_ezsignsignature_dependencyrequirement.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (m_b_ezsignsignature_customdate_isSet) {
             isObjectUpdated = true;
             break;
         }
 
         if (m_a_obj_ezsignsignaturecustomdate.size() > 0) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_a_obj_ezsignelementdependency.size() > 0) {
             isObjectUpdated = true;
             break;
         }

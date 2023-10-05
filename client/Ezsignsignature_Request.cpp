@@ -96,6 +96,9 @@ void Ezsignsignature_Request::initializeModel() {
 
     m_s_ezsignsignature_regexp_isSet = false;
     m_s_ezsignsignature_regexp_isValid = false;
+
+    m_e_ezsignsignature_dependencyrequirement_isSet = false;
+    m_e_ezsignsignature_dependencyrequirement_isValid = false;
 }
 
 void Ezsignsignature_Request::fromJson(QString jsonString) {
@@ -169,6 +172,9 @@ void Ezsignsignature_Request::fromJsonObject(QJsonObject json) {
 
     m_s_ezsignsignature_regexp_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsignsignature_regexp, json[QString("sEzsignsignatureRegexp")]);
     m_s_ezsignsignature_regexp_isSet = !json[QString("sEzsignsignatureRegexp")].isNull() && m_s_ezsignsignature_regexp_isValid;
+
+    m_e_ezsignsignature_dependencyrequirement_isValid = ::Ezmaxapi::fromJsonValue(m_e_ezsignsignature_dependencyrequirement, json[QString("eEzsignsignatureDependencyrequirement")]);
+    m_e_ezsignsignature_dependencyrequirement_isSet = !json[QString("eEzsignsignatureDependencyrequirement")].isNull() && m_e_ezsignsignature_dependencyrequirement_isValid;
 }
 
 QString Ezsignsignature_Request::asJson() const {
@@ -242,6 +248,9 @@ QJsonObject Ezsignsignature_Request::asJsonObject() const {
     }
     if (m_s_ezsignsignature_regexp_isSet) {
         obj.insert(QString("sEzsignsignatureRegexp"), ::Ezmaxapi::toJsonValue(m_s_ezsignsignature_regexp));
+    }
+    if (m_e_ezsignsignature_dependencyrequirement.isSet()) {
+        obj.insert(QString("eEzsignsignatureDependencyrequirement"), ::Ezmaxapi::toJsonValue(m_e_ezsignsignature_dependencyrequirement));
     }
     return obj;
 }
@@ -582,6 +591,22 @@ bool Ezsignsignature_Request::is_s_ezsignsignature_regexp_Valid() const{
     return m_s_ezsignsignature_regexp_isValid;
 }
 
+Field_eEzsignsignatureDependencyrequirement Ezsignsignature_Request::getEEzsignsignatureDependencyrequirement() const {
+    return m_e_ezsignsignature_dependencyrequirement;
+}
+void Ezsignsignature_Request::setEEzsignsignatureDependencyrequirement(const Field_eEzsignsignatureDependencyrequirement &e_ezsignsignature_dependencyrequirement) {
+    m_e_ezsignsignature_dependencyrequirement = e_ezsignsignature_dependencyrequirement;
+    m_e_ezsignsignature_dependencyrequirement_isSet = true;
+}
+
+bool Ezsignsignature_Request::is_e_ezsignsignature_dependencyrequirement_Set() const{
+    return m_e_ezsignsignature_dependencyrequirement_isSet;
+}
+
+bool Ezsignsignature_Request::is_e_ezsignsignature_dependencyrequirement_Valid() const{
+    return m_e_ezsignsignature_dependencyrequirement_isValid;
+}
+
 bool Ezsignsignature_Request::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -686,6 +711,11 @@ bool Ezsignsignature_Request::isSet() const {
         }
 
         if (m_s_ezsignsignature_regexp_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_e_ezsignsignature_dependencyrequirement.isSet()) {
             isObjectUpdated = true;
             break;
         }

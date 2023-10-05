@@ -66,6 +66,9 @@ void Ezsignformfield_Response::initializeModel() {
 
     m_s_ezsignformfield_enteredvalue_isSet = false;
     m_s_ezsignformfield_enteredvalue_isValid = false;
+
+    m_e_ezsignformfield_dependencyrequirement_isSet = false;
+    m_e_ezsignformfield_dependencyrequirement_isValid = false;
 }
 
 void Ezsignformfield_Response::fromJson(QString jsonString) {
@@ -109,6 +112,9 @@ void Ezsignformfield_Response::fromJsonObject(QJsonObject json) {
 
     m_s_ezsignformfield_enteredvalue_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsignformfield_enteredvalue, json[QString("sEzsignformfieldEnteredvalue")]);
     m_s_ezsignformfield_enteredvalue_isSet = !json[QString("sEzsignformfieldEnteredvalue")].isNull() && m_s_ezsignformfield_enteredvalue_isValid;
+
+    m_e_ezsignformfield_dependencyrequirement_isValid = ::Ezmaxapi::fromJsonValue(m_e_ezsignformfield_dependencyrequirement, json[QString("eEzsignformfieldDependencyrequirement")]);
+    m_e_ezsignformfield_dependencyrequirement_isSet = !json[QString("eEzsignformfieldDependencyrequirement")].isNull() && m_e_ezsignformfield_dependencyrequirement_isValid;
 }
 
 QString Ezsignformfield_Response::asJson() const {
@@ -152,6 +158,9 @@ QJsonObject Ezsignformfield_Response::asJsonObject() const {
     }
     if (m_s_ezsignformfield_enteredvalue_isSet) {
         obj.insert(QString("sEzsignformfieldEnteredvalue"), ::Ezmaxapi::toJsonValue(m_s_ezsignformfield_enteredvalue));
+    }
+    if (m_e_ezsignformfield_dependencyrequirement.isSet()) {
+        obj.insert(QString("eEzsignformfieldDependencyrequirement"), ::Ezmaxapi::toJsonValue(m_e_ezsignformfield_dependencyrequirement));
     }
     return obj;
 }
@@ -332,6 +341,22 @@ bool Ezsignformfield_Response::is_s_ezsignformfield_enteredvalue_Valid() const{
     return m_s_ezsignformfield_enteredvalue_isValid;
 }
 
+Field_eEzsignformfieldDependencyrequirement Ezsignformfield_Response::getEEzsignformfieldDependencyrequirement() const {
+    return m_e_ezsignformfield_dependencyrequirement;
+}
+void Ezsignformfield_Response::setEEzsignformfieldDependencyrequirement(const Field_eEzsignformfieldDependencyrequirement &e_ezsignformfield_dependencyrequirement) {
+    m_e_ezsignformfield_dependencyrequirement = e_ezsignformfield_dependencyrequirement;
+    m_e_ezsignformfield_dependencyrequirement_isSet = true;
+}
+
+bool Ezsignformfield_Response::is_e_ezsignformfield_dependencyrequirement_Set() const{
+    return m_e_ezsignformfield_dependencyrequirement_isSet;
+}
+
+bool Ezsignformfield_Response::is_e_ezsignformfield_dependencyrequirement_Valid() const{
+    return m_e_ezsignformfield_dependencyrequirement_isValid;
+}
+
 bool Ezsignformfield_Response::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -386,6 +411,11 @@ bool Ezsignformfield_Response::isSet() const {
         }
 
         if (m_s_ezsignformfield_enteredvalue_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_e_ezsignformfield_dependencyrequirement.isSet()) {
             isObjectUpdated = true;
             break;
         }
