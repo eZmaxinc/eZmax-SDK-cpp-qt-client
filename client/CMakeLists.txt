@@ -1008,6 +1008,9 @@ add_library(${PROJECT_NAME}
   Usergroupmembership_editObject_v1_Response.h
   Usergroupmembership_getObject_v2_Response.h
   Usergroupmembership_getObject_v2_Response_mPayload.h
+  Userlogintype_AutocompleteElement_Response.h
+  Userlogintype_getAutocomplete_v2_Response.h
+  Userlogintype_getAutocomplete_v2_Response_mPayload.h
   Userstaged_ListElement.h
   Userstaged_Response.h
   Userstaged_ResponseCompound.h
@@ -1139,6 +1142,7 @@ add_library(${PROJECT_NAME}
   ObjectUsergroupApi.h
   ObjectUsergroupdelegationApi.h
   ObjectUsergroupmembershipApi.h
+  ObjectUserlogintypeApi.h
   ObjectUserstagedApi.h
   ObjectVariableexpenseApi.h
   ObjectVersionhistoryApi.h
@@ -2154,6 +2158,9 @@ add_library(${PROJECT_NAME}
   Usergroupmembership_editObject_v1_Response.cpp
   Usergroupmembership_getObject_v2_Response.cpp
   Usergroupmembership_getObject_v2_Response_mPayload.cpp
+  Userlogintype_AutocompleteElement_Response.cpp
+  Userlogintype_getAutocomplete_v2_Response.cpp
+  Userlogintype_getAutocomplete_v2_Response_mPayload.cpp
   Userstaged_ListElement.cpp
   Userstaged_Response.cpp
   Userstaged_ResponseCompound.cpp
@@ -2285,6 +2292,7 @@ add_library(${PROJECT_NAME}
   ObjectUsergroupApi.cpp
   ObjectUsergroupdelegationApi.cpp
   ObjectUsergroupmembershipApi.cpp
+  ObjectUserlogintypeApi.cpp
   ObjectUserstagedApi.cpp
   ObjectVariableexpenseApi.cpp
   ObjectVersionhistoryApi.cpp

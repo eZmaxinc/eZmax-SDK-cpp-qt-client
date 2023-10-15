@@ -1002,6 +1002,9 @@ HEADERS += \
     $${PWD}/Usergroupmembership_editObject_v1_Response.h \
     $${PWD}/Usergroupmembership_getObject_v2_Response.h \
     $${PWD}/Usergroupmembership_getObject_v2_Response_mPayload.h \
+    $${PWD}/Userlogintype_AutocompleteElement_Response.h \
+    $${PWD}/Userlogintype_getAutocomplete_v2_Response.h \
+    $${PWD}/Userlogintype_getAutocomplete_v2_Response_mPayload.h \
     $${PWD}/Userstaged_ListElement.h \
     $${PWD}/Userstaged_Response.h \
     $${PWD}/Userstaged_ResponseCompound.h \
@@ -1134,6 +1137,7 @@ HEADERS += \
     $${PWD}/ObjectUsergroupApi.h \
     $${PWD}/ObjectUsergroupdelegationApi.h \
     $${PWD}/ObjectUsergroupmembershipApi.h \
+    $${PWD}/ObjectUserlogintypeApi.h \
     $${PWD}/ObjectUserstagedApi.h \
     $${PWD}/ObjectVariableexpenseApi.h \
     $${PWD}/ObjectVersionhistoryApi.h \
@@ -2153,6 +2157,9 @@ SOURCES += \
     $${PWD}/Usergroupmembership_editObject_v1_Response.cpp \
     $${PWD}/Usergroupmembership_getObject_v2_Response.cpp \
     $${PWD}/Usergroupmembership_getObject_v2_Response_mPayload.cpp \
+    $${PWD}/Userlogintype_AutocompleteElement_Response.cpp \
+    $${PWD}/Userlogintype_getAutocomplete_v2_Response.cpp \
+    $${PWD}/Userlogintype_getAutocomplete_v2_Response_mPayload.cpp \
     $${PWD}/Userstaged_ListElement.cpp \
     $${PWD}/Userstaged_Response.cpp \
     $${PWD}/Userstaged_ResponseCompound.cpp \
@@ -2285,6 +2292,7 @@ SOURCES += \
     $${PWD}/ObjectUsergroupApi.cpp \
     $${PWD}/ObjectUsergroupdelegationApi.cpp \
     $${PWD}/ObjectUsergroupmembershipApi.cpp \
+    $${PWD}/ObjectUserlogintypeApi.cpp \
     $${PWD}/ObjectUserstagedApi.cpp \
     $${PWD}/ObjectVariableexpenseApi.cpp \
     $${PWD}/ObjectVersionhistoryApi.cpp \

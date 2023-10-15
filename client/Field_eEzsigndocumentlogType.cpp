@@ -61,6 +61,14 @@ void Field_eEzsigndocumentlogType::fromJson(QString jsonString) {
         m_value = eField_eEzsigndocumentlogType::GOODCODE;
         m_value_isSet = m_value_isValid = true;
     }
+    else if ( jsonString.compare("Badresponse", Qt::CaseInsensitive) == 0) {
+        m_value = eField_eEzsigndocumentlogType::BADRESPONSE;
+        m_value_isSet = m_value_isValid = true;
+    }
+    else if ( jsonString.compare("Goodresponse", Qt::CaseInsensitive) == 0) {
+        m_value = eField_eEzsigndocumentlogType::GOODRESPONSE;
+        m_value_isSet = m_value_isValid = true;
+    }
     else if ( jsonString.compare("Authentication", Qt::CaseInsensitive) == 0) {
         m_value = eField_eEzsigndocumentlogType::AUTHENTICATION;
         m_value_isSet = m_value_isValid = true;
@@ -137,6 +145,14 @@ void Field_eEzsigndocumentlogType::fromJson(QString jsonString) {
         m_value = eField_eEzsigndocumentlogType::DELAYEDSENDEMAIL;
         m_value_isSet = m_value_isValid = true;
     }
+    else if ( jsonString.compare("AnnotationAdded", Qt::CaseInsensitive) == 0) {
+        m_value = eField_eEzsigndocumentlogType::ANNOTATIONADDED;
+        m_value_isSet = m_value_isValid = true;
+    }
+    else if ( jsonString.compare("Flatten", Qt::CaseInsensitive) == 0) {
+        m_value = eField_eEzsigndocumentlogType::FLATTEN;
+        m_value_isSet = m_value_isValid = true;
+    }
     else if ( jsonString.compare("RegeneratePage", Qt::CaseInsensitive) == 0) {
         m_value = eField_eEzsigndocumentlogType::REGENERATEPAGE;
         m_value_isSet = m_value_isValid = true;
@@ -173,6 +189,12 @@ QString Field_eEzsigndocumentlogType::asJson() const {
             break;
         case eField_eEzsigndocumentlogType::GOODCODE:
             val = "Goodcode";
+            break;
+        case eField_eEzsigndocumentlogType::BADRESPONSE:
+            val = "Badresponse";
+            break;
+        case eField_eEzsigndocumentlogType::GOODRESPONSE:
+            val = "Goodresponse";
             break;
         case eField_eEzsigndocumentlogType::AUTHENTICATION:
             val = "Authentication";
@@ -230,6 +252,12 @@ QString Field_eEzsigndocumentlogType::asJson() const {
             break;
         case eField_eEzsigndocumentlogType::DELAYEDSENDEMAIL:
             val = "DelayedSendEmail";
+            break;
+        case eField_eEzsigndocumentlogType::ANNOTATIONADDED:
+            val = "AnnotationAdded";
+            break;
+        case eField_eEzsigndocumentlogType::FLATTEN:
+            val = "Flatten";
             break;
         case eField_eEzsigndocumentlogType::REGENERATEPAGE:
             val = "RegeneratePage";

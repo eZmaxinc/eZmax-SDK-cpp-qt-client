@@ -45,6 +45,8 @@ public:
         SENDCODE, 
         BADCODE, 
         GOODCODE, 
+        BADRESPONSE, 
+        GOODRESPONSE, 
         AUTHENTICATION, 
         CREATEPAGE, 
         DOWNLOAD, 
@@ -64,6 +66,8 @@ public:
         SIGNATUREATTACHMENTDELETED, 
         DECLINEDTOSIGN, 
         DELAYEDSENDEMAIL, 
+        ANNOTATIONADDED, 
+        FLATTEN, 
         REGENERATEPAGE, 
         REGENERATEPAGEFORM, 
         REASSIGN

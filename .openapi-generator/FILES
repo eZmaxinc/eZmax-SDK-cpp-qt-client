@@ -1766,6 +1766,8 @@ client/ObjectUsergroupdelegationApi.cpp
 client/ObjectUsergroupdelegationApi.h
 client/ObjectUsergroupmembershipApi.cpp
 client/ObjectUsergroupmembershipApi.h
+client/ObjectUserlogintypeApi.cpp
+client/ObjectUserlogintypeApi.h
 client/ObjectUserstagedApi.cpp
 client/ObjectUserstagedApi.h
 client/ObjectVariableexpenseApi.cpp
@@ -2158,6 +2160,12 @@ client/Usergroupmembership_getObject_v2_Response.cpp
 client/Usergroupmembership_getObject_v2_Response.h
 client/Usergroupmembership_getObject_v2_Response_mPayload.cpp
 client/Usergroupmembership_getObject_v2_Response_mPayload.h
+client/Userlogintype_AutocompleteElement_Response.cpp
+client/Userlogintype_AutocompleteElement_Response.h
+client/Userlogintype_getAutocomplete_v2_Response.cpp
+client/Userlogintype_getAutocomplete_v2_Response.h
+client/Userlogintype_getAutocomplete_v2_Response_mPayload.cpp
+client/Userlogintype_getAutocomplete_v2_Response_mPayload.h
 client/Userstaged_ListElement.cpp
 client/Userstaged_ListElement.h
 client/Userstaged_Response.cpp
