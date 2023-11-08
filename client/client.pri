@@ -39,6 +39,7 @@ HEADERS += \
     $${PWD}/Apikey_regenerate_v1_Request.h \
     $${PWD}/Apikey_regenerate_v1_Response.h \
     $${PWD}/Apikey_regenerate_v1_Response_mPayload.h \
+    $${PWD}/Attachment_download_v1_Response.h \
     $${PWD}/Attempt_Response.h \
     $${PWD}/Attempt_ResponseCompound.h \
     $${PWD}/Billingentityexternal_AutocompleteElement_Response.h \
@@ -82,6 +83,8 @@ HEADERS += \
     $${PWD}/Branding_getList_v1_Response_mPayload.h \
     $${PWD}/Branding_getObject_v2_Response.h \
     $${PWD}/Branding_getObject_v2_Response_mPayload.h \
+    $${PWD}/Buyercontract_getCommunicationList_v1_Response.h \
+    $${PWD}/Buyercontract_getCommunicationList_v1_Response_mPayload.h \
     $${PWD}/Clonehistory_ListElement.h \
     $${PWD}/Clonehistory_getList_v1_Response.h \
     $${PWD}/Clonehistory_getList_v1_Response_mPayload.h \
@@ -115,16 +118,19 @@ HEADERS += \
     $${PWD}/Common_getList_v1_Response_mPayload.h \
     $${PWD}/Common_getReport_v1_Response.h \
     $${PWD}/Common_getReport_v1_Response_mPayload.h \
-    $${PWD}/Communication_Response.h \
-    $${PWD}/Communication_ResponseCompound.h \
-    $${PWD}/Communication_getObject_v2_Response.h \
-    $${PWD}/Communication_getObject_v2_Response_mPayload.h \
-    $${PWD}/Communicationattachment_Response.h \
-    $${PWD}/Communicationattachment_ResponseCompound.h \
-    $${PWD}/Communicationexternalrecipient_Response.h \
-    $${PWD}/Communicationexternalrecipient_ResponseCompound.h \
-    $${PWD}/Communicationrecipient_Response.h \
-    $${PWD}/Communicationrecipient_ResponseCompound.h \
+    $${PWD}/Communication_Request.h \
+    $${PWD}/Communication_RequestCompound.h \
+    $${PWD}/Communication_createObject_v1_Response_mPayload.h \
+    $${PWD}/Communication_send_v1_Request.h \
+    $${PWD}/Communication_send_v1_Response.h \
+    $${PWD}/Communicationattachment_Request.h \
+    $${PWD}/Communicationattachment_RequestCompound.h \
+    $${PWD}/Communicationexternalrecipient_Request.h \
+    $${PWD}/Communicationexternalrecipient_RequestCompound.h \
+    $${PWD}/Communicationrecipient_Request.h \
+    $${PWD}/Communicationrecipient_RequestCompound.h \
+    $${PWD}/Communicationreference_Request.h \
+    $${PWD}/Communicationreference_RequestCompound.h \
     $${PWD}/Company_AutocompleteElement_Response.h \
     $${PWD}/Company_getAutocomplete_v2_Response.h \
     $${PWD}/Company_getAutocomplete_v2_Response_mPayload.h \
@@ -148,6 +154,11 @@ HEADERS += \
     $${PWD}/Cors_getObject_v2_Response_mPayload.h \
     $${PWD}/Custom_AutocompleteElement_Response.h \
     $${PWD}/Custom_CommunicationListElement_Response.h \
+    $${PWD}/Custom_Communicationattachment_Request.h \
+    $${PWD}/Custom_Communicationrecipientsgroup_Response.h \
+    $${PWD}/Custom_Communicationrecipientsrecipient_Response.h \
+    $${PWD}/Custom_Communicationsender_Request.h \
+    $${PWD}/Custom_Communicationsender_Response.h \
     $${PWD}/Custom_ContactName_Response.h \
     $${PWD}/Custom_Creditcardtransaction_Response.h \
     $${PWD}/Custom_DropdownElement_Request.h \
@@ -187,14 +198,12 @@ HEADERS += \
     $${PWD}/Department_AutocompleteElement_Response.h \
     $${PWD}/Department_getAutocomplete_v2_Response.h \
     $${PWD}/Department_getAutocomplete_v2_Response_mPayload.h \
-    $${PWD}/Descriptionstatic_Response.h \
-    $${PWD}/Descriptionstatic_ResponseCompound.h \
+    $${PWD}/Electronicfundstransfer_getCommunicationList_v1_Response.h \
+    $${PWD}/Electronicfundstransfer_getCommunicationList_v1_Response_mPayload.h \
     $${PWD}/Email_Request.h \
     $${PWD}/Email_RequestCompound.h \
     $${PWD}/Email_Response.h \
     $${PWD}/Email_ResponseCompound.h \
-    $${PWD}/Emailstatic_Response.h \
-    $${PWD}/Emailstatic_ResponseCompound.h \
     $${PWD}/Emailtype_AutocompleteElement_Response.h \
     $${PWD}/Emailtype_getAutocomplete_v2_Response.h \
     $${PWD}/Emailtype_getAutocomplete_v2_Response_mPayload.h \
@@ -381,6 +390,10 @@ HEADERS += \
     $${PWD}/Ezsignfolder_getCommunicationCount_v1_Response_mPayload.h \
     $${PWD}/Ezsignfolder_getCommunicationList_v1_Response.h \
     $${PWD}/Ezsignfolder_getCommunicationList_v1_Response_mPayload.h \
+    $${PWD}/Ezsignfolder_getCommunicationrecipients_v1_Response.h \
+    $${PWD}/Ezsignfolder_getCommunicationrecipients_v1_Response_mPayload.h \
+    $${PWD}/Ezsignfolder_getCommunicationsenders_v1_Response.h \
+    $${PWD}/Ezsignfolder_getCommunicationsenders_v1_Response_mPayload.h \
     $${PWD}/Ezsignfolder_getEzsigndocuments_v1_Response.h \
     $${PWD}/Ezsignfolder_getEzsigndocuments_v1_Response_mPayload.h \
     $${PWD}/Ezsignfolder_getEzsignfoldersignerassociations_v1_Response.h \
@@ -704,7 +717,6 @@ HEADERS += \
     $${PWD}/Field_eCommunicationImportance.h \
     $${PWD}/Field_eCommunicationType.h \
     $${PWD}/Field_eCommunicationexternalrecipientType.h \
-    $${PWD}/Field_eCommunicationrecipientObjecttype.h \
     $${PWD}/Field_eCommunicationrecipientType.h \
     $${PWD}/Field_eCreditcardtypeCodename.h \
     $${PWD}/Field_eErrorCode.h \
@@ -784,6 +796,14 @@ HEADERS += \
     $${PWD}/Global_ezmaxclient_version_v1_Response.h \
     $${PWD}/Global_ezmaxcustomer_getConfiguration_v1_Response.h \
     $${PWD}/Header_Accept_Language.h \
+    $${PWD}/Inscription_getCommunicationList_v1_Response.h \
+    $${PWD}/Inscription_getCommunicationList_v1_Response_mPayload.h \
+    $${PWD}/Inscriptionnotauthenticated_getCommunicationList_v1_Response.h \
+    $${PWD}/Inscriptionnotauthenticated_getCommunicationList_v1_Response_mPayload.h \
+    $${PWD}/Inscriptiontemp_getCommunicationList_v1_Response.h \
+    $${PWD}/Inscriptiontemp_getCommunicationList_v1_Response_mPayload.h \
+    $${PWD}/Invoice_getCommunicationList_v1_Response.h \
+    $${PWD}/Invoice_getCommunicationList_v1_Response_mPayload.h \
     $${PWD}/Language_AutocompleteElement_Response.h \
     $${PWD}/Language_getAutocomplete_v2_Response.h \
     $${PWD}/Language_getAutocomplete_v2_Response_mPayload.h \
@@ -814,6 +834,8 @@ HEADERS += \
     $${PWD}/Notificationtest_Response.h \
     $${PWD}/Notificationtest_getElements_v1_Response.h \
     $${PWD}/Notificationtest_getElements_v1_Response_mPayload.h \
+    $${PWD}/Otherincome_getCommunicationList_v1_Response.h \
+    $${PWD}/Otherincome_getCommunicationList_v1_Response_mPayload.h \
     $${PWD}/Paymentterm_AutocompleteElement_Response.h \
     $${PWD}/Paymentterm_ListElement.h \
     $${PWD}/Paymentterm_Request.h \
@@ -850,11 +872,11 @@ HEADERS += \
     $${PWD}/Phone_RequestCompound.h \
     $${PWD}/Phone_Response.h \
     $${PWD}/Phone_ResponseCompound.h \
-    $${PWD}/Phonestatic_Response.h \
-    $${PWD}/Phonestatic_ResponseCompound.h \
     $${PWD}/Phonetype_AutocompleteElement_Response.h \
     $${PWD}/Phonetype_getAutocomplete_v2_Response.h \
     $${PWD}/Phonetype_getAutocomplete_v2_Response_mPayload.h \
+    $${PWD}/Rejectedoffertopurchase_getCommunicationList_v1_Response.h \
+    $${PWD}/Rejectedoffertopurchase_getCommunicationList_v1_Response_mPayload.h \
     $${PWD}/Scim_AuthenticationScheme.h \
     $${PWD}/Scim_Email.h \
     $${PWD}/Scim_Group.h \
@@ -1080,14 +1102,17 @@ HEADERS += \
     $${PWD}/ModuleUserApi.h \
     $${PWD}/ObjectActivesessionApi.h \
     $${PWD}/ObjectApikeyApi.h \
+    $${PWD}/ObjectAttachmentApi.h \
     $${PWD}/ObjectBillingentityexternalApi.h \
     $${PWD}/ObjectBillingentityinternalApi.h \
     $${PWD}/ObjectBrandingApi.h \
+    $${PWD}/ObjectBuyercontractApi.h \
     $${PWD}/ObjectClonehistoryApi.h \
     $${PWD}/ObjectCommunicationApi.h \
     $${PWD}/ObjectCompanyApi.h \
     $${PWD}/ObjectCorsApi.h \
     $${PWD}/ObjectDepartmentApi.h \
+    $${PWD}/ObjectElectronicfundstransferApi.h \
     $${PWD}/ObjectEmailtypeApi.h \
     $${PWD}/ObjectEzmaxinvoicingApi.h \
     $${PWD}/ObjectEzmaxproductApi.h \
@@ -1118,14 +1143,20 @@ HEADERS += \
     $${PWD}/ObjectFranchisebrokerApi.h \
     $${PWD}/ObjectFranchiseofficeApi.h \
     $${PWD}/ObjectFranchisereferalincomeApi.h \
+    $${PWD}/ObjectInscriptionApi.h \
+    $${PWD}/ObjectInscriptionnotauthenticatedApi.h \
+    $${PWD}/ObjectInscriptiontempApi.h \
+    $${PWD}/ObjectInvoiceApi.h \
     $${PWD}/ObjectLanguageApi.h \
     $${PWD}/ObjectModulegroupApi.h \
     $${PWD}/ObjectNotificationsectionApi.h \
     $${PWD}/ObjectNotificationtestApi.h \
+    $${PWD}/ObjectOtherincomeApi.h \
     $${PWD}/ObjectPaymenttermApi.h \
     $${PWD}/ObjectPeriodApi.h \
     $${PWD}/ObjectPermissionApi.h \
     $${PWD}/ObjectPhonetypeApi.h \
+    $${PWD}/ObjectRejectedoffertopurchaseApi.h \
     $${PWD}/ObjectSecretquestionApi.h \
     $${PWD}/ObjectSessionhistoryApi.h \
     $${PWD}/ObjectSignatureApi.h \
@@ -1194,6 +1225,7 @@ SOURCES += \
     $${PWD}/Apikey_regenerate_v1_Request.cpp \
     $${PWD}/Apikey_regenerate_v1_Response.cpp \
     $${PWD}/Apikey_regenerate_v1_Response_mPayload.cpp \
+    $${PWD}/Attachment_download_v1_Response.cpp \
     $${PWD}/Attempt_Response.cpp \
     $${PWD}/Attempt_ResponseCompound.cpp \
     $${PWD}/Billingentityexternal_AutocompleteElement_Response.cpp \
@@ -1237,6 +1269,8 @@ SOURCES += \
     $${PWD}/Branding_getList_v1_Response_mPayload.cpp \
     $${PWD}/Branding_getObject_v2_Response.cpp \
     $${PWD}/Branding_getObject_v2_Response_mPayload.cpp \
+    $${PWD}/Buyercontract_getCommunicationList_v1_Response.cpp \
+    $${PWD}/Buyercontract_getCommunicationList_v1_Response_mPayload.cpp \
     $${PWD}/Clonehistory_ListElement.cpp \
     $${PWD}/Clonehistory_getList_v1_Response.cpp \
     $${PWD}/Clonehistory_getList_v1_Response_mPayload.cpp \
@@ -1270,16 +1304,19 @@ SOURCES += \
     $${PWD}/Common_getList_v1_Response_mPayload.cpp \
     $${PWD}/Common_getReport_v1_Response.cpp \
     $${PWD}/Common_getReport_v1_Response_mPayload.cpp \
-    $${PWD}/Communication_Response.cpp \
-    $${PWD}/Communication_ResponseCompound.cpp \
-    $${PWD}/Communication_getObject_v2_Response.cpp \
-    $${PWD}/Communication_getObject_v2_Response_mPayload.cpp \
-    $${PWD}/Communicationattachment_Response.cpp \
-    $${PWD}/Communicationattachment_ResponseCompound.cpp \
-    $${PWD}/Communicationexternalrecipient_Response.cpp \
-    $${PWD}/Communicationexternalrecipient_ResponseCompound.cpp \
-    $${PWD}/Communicationrecipient_Response.cpp \
-    $${PWD}/Communicationrecipient_ResponseCompound.cpp \
+    $${PWD}/Communication_Request.cpp \
+    $${PWD}/Communication_RequestCompound.cpp \
+    $${PWD}/Communication_createObject_v1_Response_mPayload.cpp \
+    $${PWD}/Communication_send_v1_Request.cpp \
+    $${PWD}/Communication_send_v1_Response.cpp \
+    $${PWD}/Communicationattachment_Request.cpp \
+    $${PWD}/Communicationattachment_RequestCompound.cpp \
+    $${PWD}/Communicationexternalrecipient_Request.cpp \
+    $${PWD}/Communicationexternalrecipient_RequestCompound.cpp \
+    $${PWD}/Communicationrecipient_Request.cpp \
+    $${PWD}/Communicationrecipient_RequestCompound.cpp \
+    $${PWD}/Communicationreference_Request.cpp \
+    $${PWD}/Communicationreference_RequestCompound.cpp \
     $${PWD}/Company_AutocompleteElement_Response.cpp \
     $${PWD}/Company_getAutocomplete_v2_Response.cpp \
     $${PWD}/Company_getAutocomplete_v2_Response_mPayload.cpp \
@@ -1303,6 +1340,11 @@ SOURCES += \
     $${PWD}/Cors_getObject_v2_Response_mPayload.cpp \
     $${PWD}/Custom_AutocompleteElement_Response.cpp \
     $${PWD}/Custom_CommunicationListElement_Response.cpp \
+    $${PWD}/Custom_Communicationattachment_Request.cpp \
+    $${PWD}/Custom_Communicationrecipientsgroup_Response.cpp \
+    $${PWD}/Custom_Communicationrecipientsrecipient_Response.cpp \
+    $${PWD}/Custom_Communicationsender_Request.cpp \
+    $${PWD}/Custom_Communicationsender_Response.cpp \
     $${PWD}/Custom_ContactName_Response.cpp \
     $${PWD}/Custom_Creditcardtransaction_Response.cpp \
     $${PWD}/Custom_DropdownElement_Request.cpp \
@@ -1342,14 +1384,12 @@ SOURCES += \
     $${PWD}/Department_AutocompleteElement_Response.cpp \
     $${PWD}/Department_getAutocomplete_v2_Response.cpp \
     $${PWD}/Department_getAutocomplete_v2_Response_mPayload.cpp \
-    $${PWD}/Descriptionstatic_Response.cpp \
-    $${PWD}/Descriptionstatic_ResponseCompound.cpp \
+    $${PWD}/Electronicfundstransfer_getCommunicationList_v1_Response.cpp \
+    $${PWD}/Electronicfundstransfer_getCommunicationList_v1_Response_mPayload.cpp \
     $${PWD}/Email_Request.cpp \
     $${PWD}/Email_RequestCompound.cpp \
     $${PWD}/Email_Response.cpp \
     $${PWD}/Email_ResponseCompound.cpp \
-    $${PWD}/Emailstatic_Response.cpp \
-    $${PWD}/Emailstatic_ResponseCompound.cpp \
     $${PWD}/Emailtype_AutocompleteElement_Response.cpp \
     $${PWD}/Emailtype_getAutocomplete_v2_Response.cpp \
     $${PWD}/Emailtype_getAutocomplete_v2_Response_mPayload.cpp \
@@ -1536,6 +1576,10 @@ SOURCES += \
     $${PWD}/Ezsignfolder_getCommunicationCount_v1_Response_mPayload.cpp \
     $${PWD}/Ezsignfolder_getCommunicationList_v1_Response.cpp \
     $${PWD}/Ezsignfolder_getCommunicationList_v1_Response_mPayload.cpp \
+    $${PWD}/Ezsignfolder_getCommunicationrecipients_v1_Response.cpp \
+    $${PWD}/Ezsignfolder_getCommunicationrecipients_v1_Response_mPayload.cpp \
+    $${PWD}/Ezsignfolder_getCommunicationsenders_v1_Response.cpp \
+    $${PWD}/Ezsignfolder_getCommunicationsenders_v1_Response_mPayload.cpp \
     $${PWD}/Ezsignfolder_getEzsigndocuments_v1_Response.cpp \
     $${PWD}/Ezsignfolder_getEzsigndocuments_v1_Response_mPayload.cpp \
     $${PWD}/Ezsignfolder_getEzsignfoldersignerassociations_v1_Response.cpp \
@@ -1859,7 +1903,6 @@ SOURCES += \
     $${PWD}/Field_eCommunicationImportance.cpp \
     $${PWD}/Field_eCommunicationType.cpp \
     $${PWD}/Field_eCommunicationexternalrecipientType.cpp \
-    $${PWD}/Field_eCommunicationrecipientObjecttype.cpp \
     $${PWD}/Field_eCommunicationrecipientType.cpp \
     $${PWD}/Field_eCreditcardtypeCodename.cpp \
     $${PWD}/Field_eErrorCode.cpp \
@@ -1939,6 +1982,14 @@ SOURCES += \
     $${PWD}/Global_ezmaxclient_version_v1_Response.cpp \
     $${PWD}/Global_ezmaxcustomer_getConfiguration_v1_Response.cpp \
     $${PWD}/Header_Accept_Language.cpp \
+    $${PWD}/Inscription_getCommunicationList_v1_Response.cpp \
+    $${PWD}/Inscription_getCommunicationList_v1_Response_mPayload.cpp \
+    $${PWD}/Inscriptionnotauthenticated_getCommunicationList_v1_Response.cpp \
+    $${PWD}/Inscriptionnotauthenticated_getCommunicationList_v1_Response_mPayload.cpp \
+    $${PWD}/Inscriptiontemp_getCommunicationList_v1_Response.cpp \
+    $${PWD}/Inscriptiontemp_getCommunicationList_v1_Response_mPayload.cpp \
+    $${PWD}/Invoice_getCommunicationList_v1_Response.cpp \
+    $${PWD}/Invoice_getCommunicationList_v1_Response_mPayload.cpp \
     $${PWD}/Language_AutocompleteElement_Response.cpp \
     $${PWD}/Language_getAutocomplete_v2_Response.cpp \
     $${PWD}/Language_getAutocomplete_v2_Response_mPayload.cpp \
@@ -1969,6 +2020,8 @@ SOURCES += \
     $${PWD}/Notificationtest_Response.cpp \
     $${PWD}/Notificationtest_getElements_v1_Response.cpp \
     $${PWD}/Notificationtest_getElements_v1_Response_mPayload.cpp \
+    $${PWD}/Otherincome_getCommunicationList_v1_Response.cpp \
+    $${PWD}/Otherincome_getCommunicationList_v1_Response_mPayload.cpp \
     $${PWD}/Paymentterm_AutocompleteElement_Response.cpp \
     $${PWD}/Paymentterm_ListElement.cpp \
     $${PWD}/Paymentterm_Request.cpp \
@@ -2005,11 +2058,11 @@ SOURCES += \
     $${PWD}/Phone_RequestCompound.cpp \
     $${PWD}/Phone_Response.cpp \
     $${PWD}/Phone_ResponseCompound.cpp \
-    $${PWD}/Phonestatic_Response.cpp \
-    $${PWD}/Phonestatic_ResponseCompound.cpp \
     $${PWD}/Phonetype_AutocompleteElement_Response.cpp \
     $${PWD}/Phonetype_getAutocomplete_v2_Response.cpp \
     $${PWD}/Phonetype_getAutocomplete_v2_Response_mPayload.cpp \
+    $${PWD}/Rejectedoffertopurchase_getCommunicationList_v1_Response.cpp \
+    $${PWD}/Rejectedoffertopurchase_getCommunicationList_v1_Response_mPayload.cpp \
     $${PWD}/Scim_AuthenticationScheme.cpp \
     $${PWD}/Scim_Email.cpp \
     $${PWD}/Scim_Group.cpp \
@@ -2235,14 +2288,17 @@ SOURCES += \
     $${PWD}/ModuleUserApi.cpp \
     $${PWD}/ObjectActivesessionApi.cpp \
     $${PWD}/ObjectApikeyApi.cpp \
+    $${PWD}/ObjectAttachmentApi.cpp \
     $${PWD}/ObjectBillingentityexternalApi.cpp \
     $${PWD}/ObjectBillingentityinternalApi.cpp \
     $${PWD}/ObjectBrandingApi.cpp \
+    $${PWD}/ObjectBuyercontractApi.cpp \
     $${PWD}/ObjectClonehistoryApi.cpp \
     $${PWD}/ObjectCommunicationApi.cpp \
     $${PWD}/ObjectCompanyApi.cpp \
     $${PWD}/ObjectCorsApi.cpp \
     $${PWD}/ObjectDepartmentApi.cpp \
+    $${PWD}/ObjectElectronicfundstransferApi.cpp \
     $${PWD}/ObjectEmailtypeApi.cpp \
     $${PWD}/ObjectEzmaxinvoicingApi.cpp \
     $${PWD}/ObjectEzmaxproductApi.cpp \
@@ -2273,14 +2329,20 @@ SOURCES += \
     $${PWD}/ObjectFranchisebrokerApi.cpp \
     $${PWD}/ObjectFranchiseofficeApi.cpp \
     $${PWD}/ObjectFranchisereferalincomeApi.cpp \
+    $${PWD}/ObjectInscriptionApi.cpp \
+    $${PWD}/ObjectInscriptionnotauthenticatedApi.cpp \
+    $${PWD}/ObjectInscriptiontempApi.cpp \
+    $${PWD}/ObjectInvoiceApi.cpp \
     $${PWD}/ObjectLanguageApi.cpp \
     $${PWD}/ObjectModulegroupApi.cpp \
     $${PWD}/ObjectNotificationsectionApi.cpp \
     $${PWD}/ObjectNotificationtestApi.cpp \
+    $${PWD}/ObjectOtherincomeApi.cpp \
     $${PWD}/ObjectPaymenttermApi.cpp \
     $${PWD}/ObjectPeriodApi.cpp \
     $${PWD}/ObjectPermissionApi.cpp \
     $${PWD}/ObjectPhonetypeApi.cpp \
+    $${PWD}/ObjectRejectedoffertopurchaseApi.cpp \
     $${PWD}/ObjectSecretquestionApi.cpp \
     $${PWD}/ObjectSessionhistoryApi.cpp \
     $${PWD}/ObjectSignatureApi.cpp \

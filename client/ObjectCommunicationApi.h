@@ -18,8 +18,8 @@
 #include "ServerConfiguration.h"
 #include "Oauth.h"
 
-#include "Common_Response_Error.h"
-#include "Communication_getObject_v2_Response.h"
+#include "Communication_send_v1_Request.h"
+#include "Communication_send_v1_Response.h"
 #include <QString>
 
 #include <QObject>
@@ -59,9 +59,9 @@ public:
     QString getParamStyleDelimiter(const QString &style, const QString &name, bool isExplode);
 
     /**
-    * @param[in]  pki_communication_id qint32 [required]
+    * @param[in]  communication_send_v1_request Communication_send_v1_Request [required]
     */
-    void communicationGetObjectV2(const qint32 &pki_communication_id);
+    void communicationSendV1(const Communication_send_v1_Request &communication_send_v1_request);
 
 
 private:
@@ -86,17 +86,17 @@ private:
     OauthPassword _passwordFlow;
     int _OauthMethod = 0;
 
-    void communicationGetObjectV2Callback(HttpRequestWorker *worker);
+    void communicationSendV1Callback(HttpRequestWorker *worker);
 
 signals:
 
-    void communicationGetObjectV2Signal(Communication_getObject_v2_Response summary);
+    void communicationSendV1Signal(Communication_send_v1_Response summary);
 
-    void communicationGetObjectV2SignalFull(HttpRequestWorker *worker, Communication_getObject_v2_Response summary);
+    void communicationSendV1SignalFull(HttpRequestWorker *worker, Communication_send_v1_Response summary);
 
-    void communicationGetObjectV2SignalE(Communication_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void communicationSendV1SignalE(Communication_send_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
 
-    void communicationGetObjectV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void communicationSendV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();

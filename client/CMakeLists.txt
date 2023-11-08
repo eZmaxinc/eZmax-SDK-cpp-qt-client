@@ -45,6 +45,7 @@ add_library(${PROJECT_NAME}
   Apikey_regenerate_v1_Request.h
   Apikey_regenerate_v1_Response.h
   Apikey_regenerate_v1_Response_mPayload.h
+  Attachment_download_v1_Response.h
   Attempt_Response.h
   Attempt_ResponseCompound.h
   Billingentityexternal_AutocompleteElement_Response.h
@@ -88,6 +89,8 @@ add_library(${PROJECT_NAME}
   Branding_getList_v1_Response_mPayload.h
   Branding_getObject_v2_Response.h
   Branding_getObject_v2_Response_mPayload.h
+  Buyercontract_getCommunicationList_v1_Response.h
+  Buyercontract_getCommunicationList_v1_Response_mPayload.h
   Clonehistory_ListElement.h
   Clonehistory_getList_v1_Response.h
   Clonehistory_getList_v1_Response_mPayload.h
@@ -121,16 +124,19 @@ add_library(${PROJECT_NAME}
   Common_getList_v1_Response_mPayload.h
   Common_getReport_v1_Response.h
   Common_getReport_v1_Response_mPayload.h
-  Communication_Response.h
-  Communication_ResponseCompound.h
-  Communication_getObject_v2_Response.h
-  Communication_getObject_v2_Response_mPayload.h
-  Communicationattachment_Response.h
-  Communicationattachment_ResponseCompound.h
-  Communicationexternalrecipient_Response.h
-  Communicationexternalrecipient_ResponseCompound.h
-  Communicationrecipient_Response.h
-  Communicationrecipient_ResponseCompound.h
+  Communication_Request.h
+  Communication_RequestCompound.h
+  Communication_createObject_v1_Response_mPayload.h
+  Communication_send_v1_Request.h
+  Communication_send_v1_Response.h
+  Communicationattachment_Request.h
+  Communicationattachment_RequestCompound.h
+  Communicationexternalrecipient_Request.h
+  Communicationexternalrecipient_RequestCompound.h
+  Communicationrecipient_Request.h
+  Communicationrecipient_RequestCompound.h
+  Communicationreference_Request.h
+  Communicationreference_RequestCompound.h
   Company_AutocompleteElement_Response.h
   Company_getAutocomplete_v2_Response.h
   Company_getAutocomplete_v2_Response_mPayload.h
@@ -154,6 +160,11 @@ add_library(${PROJECT_NAME}
   Cors_getObject_v2_Response_mPayload.h
   Custom_AutocompleteElement_Response.h
   Custom_CommunicationListElement_Response.h
+  Custom_Communicationattachment_Request.h
+  Custom_Communicationrecipientsgroup_Response.h
+  Custom_Communicationrecipientsrecipient_Response.h
+  Custom_Communicationsender_Request.h
+  Custom_Communicationsender_Response.h
   Custom_ContactName_Response.h
   Custom_Creditcardtransaction_Response.h
   Custom_DropdownElement_Request.h
@@ -193,14 +204,12 @@ add_library(${PROJECT_NAME}
   Department_AutocompleteElement_Response.h
   Department_getAutocomplete_v2_Response.h
   Department_getAutocomplete_v2_Response_mPayload.h
-  Descriptionstatic_Response.h
-  Descriptionstatic_ResponseCompound.h
+  Electronicfundstransfer_getCommunicationList_v1_Response.h
+  Electronicfundstransfer_getCommunicationList_v1_Response_mPayload.h
   Email_Request.h
   Email_RequestCompound.h
   Email_Response.h
   Email_ResponseCompound.h
-  Emailstatic_Response.h
-  Emailstatic_ResponseCompound.h
   Emailtype_AutocompleteElement_Response.h
   Emailtype_getAutocomplete_v2_Response.h
   Emailtype_getAutocomplete_v2_Response_mPayload.h
@@ -387,6 +396,10 @@ add_library(${PROJECT_NAME}
   Ezsignfolder_getCommunicationCount_v1_Response_mPayload.h
   Ezsignfolder_getCommunicationList_v1_Response.h
   Ezsignfolder_getCommunicationList_v1_Response_mPayload.h
+  Ezsignfolder_getCommunicationrecipients_v1_Response.h
+  Ezsignfolder_getCommunicationrecipients_v1_Response_mPayload.h
+  Ezsignfolder_getCommunicationsenders_v1_Response.h
+  Ezsignfolder_getCommunicationsenders_v1_Response_mPayload.h
   Ezsignfolder_getEzsigndocuments_v1_Response.h
   Ezsignfolder_getEzsigndocuments_v1_Response_mPayload.h
   Ezsignfolder_getEzsignfoldersignerassociations_v1_Response.h
@@ -710,7 +723,6 @@ add_library(${PROJECT_NAME}
   Field_eCommunicationImportance.h
   Field_eCommunicationType.h
   Field_eCommunicationexternalrecipientType.h
-  Field_eCommunicationrecipientObjecttype.h
   Field_eCommunicationrecipientType.h
   Field_eCreditcardtypeCodename.h
   Field_eErrorCode.h
@@ -790,6 +802,14 @@ add_library(${PROJECT_NAME}
   Global_ezmaxclient_version_v1_Response.h
   Global_ezmaxcustomer_getConfiguration_v1_Response.h
   Header_Accept_Language.h
+  Inscription_getCommunicationList_v1_Response.h
+  Inscription_getCommunicationList_v1_Response_mPayload.h
+  Inscriptionnotauthenticated_getCommunicationList_v1_Response.h
+  Inscriptionnotauthenticated_getCommunicationList_v1_Response_mPayload.h
+  Inscriptiontemp_getCommunicationList_v1_Response.h
+  Inscriptiontemp_getCommunicationList_v1_Response_mPayload.h
+  Invoice_getCommunicationList_v1_Response.h
+  Invoice_getCommunicationList_v1_Response_mPayload.h
   Language_AutocompleteElement_Response.h
   Language_getAutocomplete_v2_Response.h
   Language_getAutocomplete_v2_Response_mPayload.h
@@ -820,6 +840,8 @@ add_library(${PROJECT_NAME}
   Notificationtest_Response.h
   Notificationtest_getElements_v1_Response.h
   Notificationtest_getElements_v1_Response_mPayload.h
+  Otherincome_getCommunicationList_v1_Response.h
+  Otherincome_getCommunicationList_v1_Response_mPayload.h
   Paymentterm_AutocompleteElement_Response.h
   Paymentterm_ListElement.h
   Paymentterm_Request.h
@@ -856,11 +878,11 @@ add_library(${PROJECT_NAME}
   Phone_RequestCompound.h
   Phone_Response.h
   Phone_ResponseCompound.h
-  Phonestatic_Response.h
-  Phonestatic_ResponseCompound.h
   Phonetype_AutocompleteElement_Response.h
   Phonetype_getAutocomplete_v2_Response.h
   Phonetype_getAutocomplete_v2_Response_mPayload.h
+  Rejectedoffertopurchase_getCommunicationList_v1_Response.h
+  Rejectedoffertopurchase_getCommunicationList_v1_Response_mPayload.h
   Scim_AuthenticationScheme.h
   Scim_Email.h
   Scim_Group.h
@@ -1085,14 +1107,17 @@ add_library(${PROJECT_NAME}
   ModuleUserApi.h
   ObjectActivesessionApi.h
   ObjectApikeyApi.h
+  ObjectAttachmentApi.h
   ObjectBillingentityexternalApi.h
   ObjectBillingentityinternalApi.h
   ObjectBrandingApi.h
+  ObjectBuyercontractApi.h
   ObjectClonehistoryApi.h
   ObjectCommunicationApi.h
   ObjectCompanyApi.h
   ObjectCorsApi.h
   ObjectDepartmentApi.h
+  ObjectElectronicfundstransferApi.h
   ObjectEmailtypeApi.h
   ObjectEzmaxinvoicingApi.h
   ObjectEzmaxproductApi.h
@@ -1123,14 +1148,20 @@ add_library(${PROJECT_NAME}
   ObjectFranchisebrokerApi.h
   ObjectFranchiseofficeApi.h
   ObjectFranchisereferalincomeApi.h
+  ObjectInscriptionApi.h
+  ObjectInscriptionnotauthenticatedApi.h
+  ObjectInscriptiontempApi.h
+  ObjectInvoiceApi.h
   ObjectLanguageApi.h
   ObjectModulegroupApi.h
   ObjectNotificationsectionApi.h
   ObjectNotificationtestApi.h
+  ObjectOtherincomeApi.h
   ObjectPaymenttermApi.h
   ObjectPeriodApi.h
   ObjectPermissionApi.h
   ObjectPhonetypeApi.h
+  ObjectRejectedoffertopurchaseApi.h
   ObjectSecretquestionApi.h
   ObjectSessionhistoryApi.h
   ObjectSignatureApi.h
@@ -1195,6 +1226,7 @@ add_library(${PROJECT_NAME}
   Apikey_regenerate_v1_Request.cpp
   Apikey_regenerate_v1_Response.cpp
   Apikey_regenerate_v1_Response_mPayload.cpp
+  Attachment_download_v1_Response.cpp
   Attempt_Response.cpp
   Attempt_ResponseCompound.cpp
   Billingentityexternal_AutocompleteElement_Response.cpp
@@ -1238,6 +1270,8 @@ add_library(${PROJECT_NAME}
   Branding_getList_v1_Response_mPayload.cpp
   Branding_getObject_v2_Response.cpp
   Branding_getObject_v2_Response_mPayload.cpp
+  Buyercontract_getCommunicationList_v1_Response.cpp
+  Buyercontract_getCommunicationList_v1_Response_mPayload.cpp
   Clonehistory_ListElement.cpp
   Clonehistory_getList_v1_Response.cpp
   Clonehistory_getList_v1_Response_mPayload.cpp
@@ -1271,16 +1305,19 @@ add_library(${PROJECT_NAME}
   Common_getList_v1_Response_mPayload.cpp
   Common_getReport_v1_Response.cpp
   Common_getReport_v1_Response_mPayload.cpp
-  Communication_Response.cpp
-  Communication_ResponseCompound.cpp
-  Communication_getObject_v2_Response.cpp
-  Communication_getObject_v2_Response_mPayload.cpp
-  Communicationattachment_Response.cpp
-  Communicationattachment_ResponseCompound.cpp
-  Communicationexternalrecipient_Response.cpp
-  Communicationexternalrecipient_ResponseCompound.cpp
-  Communicationrecipient_Response.cpp
-  Communicationrecipient_ResponseCompound.cpp
+  Communication_Request.cpp
+  Communication_RequestCompound.cpp
+  Communication_createObject_v1_Response_mPayload.cpp
+  Communication_send_v1_Request.cpp
+  Communication_send_v1_Response.cpp
+  Communicationattachment_Request.cpp
+  Communicationattachment_RequestCompound.cpp
+  Communicationexternalrecipient_Request.cpp
+  Communicationexternalrecipient_RequestCompound.cpp
+  Communicationrecipient_Request.cpp
+  Communicationrecipient_RequestCompound.cpp
+  Communicationreference_Request.cpp
+  Communicationreference_RequestCompound.cpp
   Company_AutocompleteElement_Response.cpp
   Company_getAutocomplete_v2_Response.cpp
   Company_getAutocomplete_v2_Response_mPayload.cpp
@@ -1304,6 +1341,11 @@ add_library(${PROJECT_NAME}
   Cors_getObject_v2_Response_mPayload.cpp
   Custom_AutocompleteElement_Response.cpp
   Custom_CommunicationListElement_Response.cpp
+  Custom_Communicationattachment_Request.cpp
+  Custom_Communicationrecipientsgroup_Response.cpp
+  Custom_Communicationrecipientsrecipient_Response.cpp
+  Custom_Communicationsender_Request.cpp
+  Custom_Communicationsender_Response.cpp
   Custom_ContactName_Response.cpp
   Custom_Creditcardtransaction_Response.cpp
   Custom_DropdownElement_Request.cpp
@@ -1343,14 +1385,12 @@ add_library(${PROJECT_NAME}
   Department_AutocompleteElement_Response.cpp
   Department_getAutocomplete_v2_Response.cpp
   Department_getAutocomplete_v2_Response_mPayload.cpp
-  Descriptionstatic_Response.cpp
-  Descriptionstatic_ResponseCompound.cpp
+  Electronicfundstransfer_getCommunicationList_v1_Response.cpp
+  Electronicfundstransfer_getCommunicationList_v1_Response_mPayload.cpp
   Email_Request.cpp
   Email_RequestCompound.cpp
   Email_Response.cpp
   Email_ResponseCompound.cpp
-  Emailstatic_Response.cpp
-  Emailstatic_ResponseCompound.cpp
   Emailtype_AutocompleteElement_Response.cpp
   Emailtype_getAutocomplete_v2_Response.cpp
   Emailtype_getAutocomplete_v2_Response_mPayload.cpp
@@ -1537,6 +1577,10 @@ add_library(${PROJECT_NAME}
   Ezsignfolder_getCommunicationCount_v1_Response_mPayload.cpp
   Ezsignfolder_getCommunicationList_v1_Response.cpp
   Ezsignfolder_getCommunicationList_v1_Response_mPayload.cpp
+  Ezsignfolder_getCommunicationrecipients_v1_Response.cpp
+  Ezsignfolder_getCommunicationrecipients_v1_Response_mPayload.cpp
+  Ezsignfolder_getCommunicationsenders_v1_Response.cpp
+  Ezsignfolder_getCommunicationsenders_v1_Response_mPayload.cpp
   Ezsignfolder_getEzsigndocuments_v1_Response.cpp
   Ezsignfolder_getEzsigndocuments_v1_Response_mPayload.cpp
   Ezsignfolder_getEzsignfoldersignerassociations_v1_Response.cpp
@@ -1860,7 +1904,6 @@ add_library(${PROJECT_NAME}
   Field_eCommunicationImportance.cpp
   Field_eCommunicationType.cpp
   Field_eCommunicationexternalrecipientType.cpp
-  Field_eCommunicationrecipientObjecttype.cpp
   Field_eCommunicationrecipientType.cpp
   Field_eCreditcardtypeCodename.cpp
   Field_eErrorCode.cpp
@@ -1940,6 +1983,14 @@ add_library(${PROJECT_NAME}
   Global_ezmaxclient_version_v1_Response.cpp
   Global_ezmaxcustomer_getConfiguration_v1_Response.cpp
   Header_Accept_Language.cpp
+  Inscription_getCommunicationList_v1_Response.cpp
+  Inscription_getCommunicationList_v1_Response_mPayload.cpp
+  Inscriptionnotauthenticated_getCommunicationList_v1_Response.cpp
+  Inscriptionnotauthenticated_getCommunicationList_v1_Response_mPayload.cpp
+  Inscriptiontemp_getCommunicationList_v1_Response.cpp
+  Inscriptiontemp_getCommunicationList_v1_Response_mPayload.cpp
+  Invoice_getCommunicationList_v1_Response.cpp
+  Invoice_getCommunicationList_v1_Response_mPayload.cpp
   Language_AutocompleteElement_Response.cpp
   Language_getAutocomplete_v2_Response.cpp
   Language_getAutocomplete_v2_Response_mPayload.cpp
@@ -1970,6 +2021,8 @@ add_library(${PROJECT_NAME}
   Notificationtest_Response.cpp
   Notificationtest_getElements_v1_Response.cpp
   Notificationtest_getElements_v1_Response_mPayload.cpp
+  Otherincome_getCommunicationList_v1_Response.cpp
+  Otherincome_getCommunicationList_v1_Response_mPayload.cpp
   Paymentterm_AutocompleteElement_Response.cpp
   Paymentterm_ListElement.cpp
   Paymentterm_Request.cpp
@@ -2006,11 +2059,11 @@ add_library(${PROJECT_NAME}
   Phone_RequestCompound.cpp
   Phone_Response.cpp
   Phone_ResponseCompound.cpp
-  Phonestatic_Response.cpp
-  Phonestatic_ResponseCompound.cpp
   Phonetype_AutocompleteElement_Response.cpp
   Phonetype_getAutocomplete_v2_Response.cpp
   Phonetype_getAutocomplete_v2_Response_mPayload.cpp
+  Rejectedoffertopurchase_getCommunicationList_v1_Response.cpp
+  Rejectedoffertopurchase_getCommunicationList_v1_Response_mPayload.cpp
   Scim_AuthenticationScheme.cpp
   Scim_Email.cpp
   Scim_Group.cpp
@@ -2235,14 +2288,17 @@ add_library(${PROJECT_NAME}
   ModuleUserApi.cpp
   ObjectActivesessionApi.cpp
   ObjectApikeyApi.cpp
+  ObjectAttachmentApi.cpp
   ObjectBillingentityexternalApi.cpp
   ObjectBillingentityinternalApi.cpp
   ObjectBrandingApi.cpp
+  ObjectBuyercontractApi.cpp
   ObjectClonehistoryApi.cpp
   ObjectCommunicationApi.cpp
   ObjectCompanyApi.cpp
   ObjectCorsApi.cpp
   ObjectDepartmentApi.cpp
+  ObjectElectronicfundstransferApi.cpp
   ObjectEmailtypeApi.cpp
   ObjectEzmaxinvoicingApi.cpp
   ObjectEzmaxproductApi.cpp
@@ -2273,14 +2329,20 @@ add_library(${PROJECT_NAME}
   ObjectFranchisebrokerApi.cpp
   ObjectFranchiseofficeApi.cpp
   ObjectFranchisereferalincomeApi.cpp
+  ObjectInscriptionApi.cpp
+  ObjectInscriptionnotauthenticatedApi.cpp
+  ObjectInscriptiontempApi.cpp
+  ObjectInvoiceApi.cpp
   ObjectLanguageApi.cpp
   ObjectModulegroupApi.cpp
   ObjectNotificationsectionApi.cpp
   ObjectNotificationtestApi.cpp
+  ObjectOtherincomeApi.cpp
   ObjectPaymenttermApi.cpp
   ObjectPeriodApi.cpp
   ObjectPermissionApi.cpp
   ObjectPhonetypeApi.cpp
+  ObjectRejectedoffertopurchaseApi.cpp
   ObjectSecretquestionApi.cpp
   ObjectSessionhistoryApi.cpp
   ObjectSignatureApi.cpp

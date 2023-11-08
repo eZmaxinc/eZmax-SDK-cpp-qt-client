@@ -59,8 +59,8 @@ void ObjectCommunicationApi::initializeServerConfigs() {
     {"sInfrastructureregionCode", ServerVariable("The region where your services are hosted.","ca-central-1",
     QSet<QString>{ {"ca-central-1"} })}, }));
     
-    _serverConfigs.insert("communicationGetObjectV2", defaultConf);
-    _serverIndices.insert("communicationGetObjectV2", 0);
+    _serverConfigs.insert("communicationSendV1", defaultConf);
+    _serverIndices.insert("communicationSendV1", 0);
 }
 
 /**
@@ -236,33 +236,24 @@ QString ObjectCommunicationApi::getParamStyleDelimiter(const QString &style, con
     }
 }
 
-void ObjectCommunicationApi::communicationGetObjectV2(const qint32 &pki_communication_id) {
-    QString fullPath = QString(_serverConfigs["communicationGetObjectV2"][_serverIndices.value("communicationGetObjectV2")].URL()+"/2/object/communication/{pkiCommunicationID}");
+void ObjectCommunicationApi::communicationSendV1(const Communication_send_v1_Request &communication_send_v1_request) {
+    QString fullPath = QString(_serverConfigs["communicationSendV1"][_serverIndices.value("communicationSendV1")].URL()+"/1/object/communication/send");
     
     if (_apiKeys.contains("Authorization")) {
         addHeaders("Authorization",_apiKeys.find("Authorization").value());
     }
     
-    
-    {
-        QString pki_communication_idPathParam("{");
-        pki_communication_idPathParam.append("pkiCommunicationID").append("}");
-        QString pathPrefix, pathSuffix, pathDelimiter;
-        QString pathStyle = "simple";
-        if (pathStyle == "")
-            pathStyle = "simple";
-        pathPrefix = getParamStylePrefix(pathStyle);
-        pathSuffix = getParamStyleSuffix(pathStyle);
-        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiCommunicationID", false);
-        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiCommunicationID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_communication_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_communication_id)));
-    }
     HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
     worker->setWorkingDirectory(_workingDirectory);
-    HttpRequestInput input(fullPath, "GET");
+    HttpRequestInput input(fullPath, "POST");
 
+    {
 
+        
+        QByteArray output = communication_send_v1_request.asJson().toUtf8();
+        input.request_body.append(output);
+    }
 #if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
@@ -273,7 +264,7 @@ void ObjectCommunicationApi::communicationGetObjectV2(const qint32 &pki_communic
     }
 #endif
 
-    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectCommunicationApi::communicationGetObjectV2Callback);
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectCommunicationApi::communicationSendV1Callback);
     connect(this, &ObjectCommunicationApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
@@ -284,22 +275,22 @@ void ObjectCommunicationApi::communicationGetObjectV2(const qint32 &pki_communic
     worker->execute(&input);
 }
 
-void ObjectCommunicationApi::communicationGetObjectV2Callback(HttpRequestWorker *worker) {
+void ObjectCommunicationApi::communicationSendV1Callback(HttpRequestWorker *worker) {
     QString error_str = worker->error_str;
     QNetworkReply::NetworkError error_type = worker->error_type;
 
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Communication_getObject_v2_Response output(QString(worker->response));
+    Communication_send_v1_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit communicationGetObjectV2Signal(output);
-        emit communicationGetObjectV2SignalFull(worker, output);
+        emit communicationSendV1Signal(output);
+        emit communicationSendV1SignalFull(worker, output);
     } else {
-        emit communicationGetObjectV2SignalE(output, error_type, error_str);
-        emit communicationGetObjectV2SignalEFull(worker, error_type, error_str);
+        emit communicationSendV1SignalE(output, error_type, error_str);
+        emit communicationSendV1SignalEFull(worker, error_type, error_str);
     }
 }
 
