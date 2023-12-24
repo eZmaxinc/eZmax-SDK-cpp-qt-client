@@ -11,18 +11,19 @@
  */
 
 /*
- * Attachment_download_v1_Response.h
+ * Webhook_createObject_v2_Response.h
  *
- * Response for POST /1/object/ezsignfolder/{pkiEzsignfolderID}/send
+ * Response for POST /2/object/webhook
  */
 
-#ifndef Attachment_download_v1_Response_H
-#define Attachment_download_v1_Response_H
+#ifndef Webhook_createObject_v2_Response_H
+#define Webhook_createObject_v2_Response_H
 
 #include <QJsonObject>
 
 #include "Common_Response_objDebug.h"
 #include "Common_Response_objDebugPayload.h"
+#include "Webhook_createObject_v2_Response_mPayload.h"
 
 #include "Enum.h"
 #include "Object.h"
@@ -30,12 +31,13 @@
 namespace Ezmaxapi {
 class Common_Response_objDebugPayload;
 class Common_Response_objDebug;
+class Webhook_createObject_v2_Response_mPayload;
 
-class Attachment_download_v1_Response : public Object {
+class Webhook_createObject_v2_Response : public Object {
 public:
-    Attachment_download_v1_Response();
-    Attachment_download_v1_Response(QString json);
-    ~Attachment_download_v1_Response() override;
+    Webhook_createObject_v2_Response();
+    Webhook_createObject_v2_Response(QString json);
+    ~Webhook_createObject_v2_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
@@ -52,6 +54,11 @@ public:
     bool is_obj_debug_Set() const;
     bool is_obj_debug_Valid() const;
 
+    Webhook_createObject_v2_Response_mPayload getMPayload() const;
+    void setMPayload(const Webhook_createObject_v2_Response_mPayload &m_payload);
+    bool is_m_payload_Set() const;
+    bool is_m_payload_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -65,10 +72,14 @@ private:
     Common_Response_objDebug m_obj_debug;
     bool m_obj_debug_isSet;
     bool m_obj_debug_isValid;
+
+    Webhook_createObject_v2_Response_mPayload m_m_payload;
+    bool m_m_payload_isSet;
+    bool m_m_payload_isValid;
 };
 
 } // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(Ezmaxapi::Attachment_download_v1_Response)
+Q_DECLARE_METATYPE(Ezmaxapi::Webhook_createObject_v2_Response)
 
-#endif // Attachment_download_v1_Response_H
+#endif // Webhook_createObject_v2_Response_H

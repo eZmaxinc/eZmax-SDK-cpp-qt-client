@@ -100,16 +100,19 @@ signals:
 
     void sessionhistoryGetListV1SignalFull(HttpRequestWorker *worker, Sessionhistory_getList_v1_Response summary);
 
+    Q_DECL_DEPRECATED_X("Use sessionhistoryGetListV1SignalError() instead")
     void sessionhistoryGetListV1SignalE(Sessionhistory_getList_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void sessionhistoryGetListV1SignalError(Sessionhistory_getList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use sessionhistoryGetListV1SignalErrorFull() instead")
     void sessionhistoryGetListV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void sessionhistoryGetListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
 public slots:
     void tokenAvailable();
-    
 };
 
 } // namespace Ezmaxapi

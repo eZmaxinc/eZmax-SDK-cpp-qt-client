@@ -37,7 +37,7 @@ void ObjectAttachmentApi::initializeServerConfigs() {
     "The server endpoint where to send your region specific API requests.",
     QMap<QString, ServerVariable>{ 
     {"sInfrastructureenvironmenttypeDescription", ServerVariable("The environment on on which to call the API. Should always be "prod" unless instructed otherwise by support.","prod",
-    QSet<QString>{ {"prod"},{"stg"},{"qa"},{"dev"} })},
+    QSet<QString>{ {"iso"},{"prod"},{"stg"},{"qa"},{"dev"} })},
     
     {"sInfrastructureregionCode", ServerVariable("The region where your services are hosted.","ca-central-1",
     QSet<QString>{ {"ca-central-1"} })}, }));
@@ -47,20 +47,24 @@ void ObjectAttachmentApi::initializeServerConfigs() {
     "The server endpoint where to send your global API requests.",
     QMap<QString, ServerVariable>{ 
     {"sInfrastructureenvironmenttypeDescription", ServerVariable("The environment on on which to call the API. Should always be "prod" unless instructed otherwise by support.","prod",
-    QSet<QString>{ {"prod"},{"stg"},{"qa"},{"dev"} })}, }));
+    QSet<QString>{ {"prod"},{"dev"} })}, }));
     
     defaultConf.append(ServerConfiguration(
     QUrl("wss://ws.{sInfrastructureregionCode}.ezmax.com/{sInfrastructureenvironmenttypeDescription}"),
     "The server endpoint where to send your websocket requests.",
     QMap<QString, ServerVariable>{ 
     {"sInfrastructureenvironmenttypeDescription", ServerVariable("The environment on on which to call the API. Should always be "prod" unless instructed otherwise by support.","prod",
-    QSet<QString>{ {"prod"},{"stg"},{"qa"},{"dev"} })},
+    QSet<QString>{ {"iso"},{"prod"},{"stg"},{"qa"},{"dev"} })},
     
     {"sInfrastructureregionCode", ServerVariable("The region where your services are hosted.","ca-central-1",
     QSet<QString>{ {"ca-central-1"} })}, }));
     
     _serverConfigs.insert("attachmentDownloadV1", defaultConf);
     _serverIndices.insert("attachmentDownloadV1", 0);
+    _serverConfigs.insert("attachmentGetAttachmentlogsV1", defaultConf);
+    _serverIndices.insert("attachmentGetAttachmentlogsV1", 0);
+    _serverConfigs.insert("attachmentGetDownloadUrlV1", defaultConf);
+    _serverIndices.insert("attachmentGetDownloadUrlV1", 0);
 }
 
 /**
@@ -243,6 +247,14 @@ void ObjectAttachmentApi::attachmentDownloadV1(const qint32 &pki_attachment_id) 
         addHeaders("Authorization",_apiKeys.find("Authorization").value());
     }
     
+    if (_apiKeys.contains("Presigned")) {
+        if (fullPath.indexOf("?") > 0)
+            fullPath.append("&");
+        else
+            fullPath.append("?");
+        fullPath.append("Presigned=").append(_apiKeys.find("Presigned").value());
+    }
+    
     
     {
         QString pki_attachment_idPathParam("{");
@@ -291,15 +303,226 @@ void ObjectAttachmentApi::attachmentDownloadV1Callback(HttpRequestWorker *worker
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Attachment_download_v1_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit attachmentDownloadV1Signal(output);
-        emit attachmentDownloadV1SignalFull(worker, output);
+        emit attachmentDownloadV1Signal();
+        emit attachmentDownloadV1SignalFull(worker);
     } else {
-        emit attachmentDownloadV1SignalE(output, error_type, error_str);
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
+        emit attachmentDownloadV1SignalE(error_type, error_str);
         emit attachmentDownloadV1SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit attachmentDownloadV1SignalError(error_type, error_str);
+        emit attachmentDownloadV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectAttachmentApi::attachmentGetAttachmentlogsV1(const qint32 &pki_attachment_id) {
+    QString fullPath = QString(_serverConfigs["attachmentGetAttachmentlogsV1"][_serverIndices.value("attachmentGetAttachmentlogsV1")].URL()+"/1/object/attachment/{pkiAttachmentID}/getAttachmentlogs");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_attachment_idPathParam("{");
+        pki_attachment_idPathParam.append("pkiAttachmentID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiAttachmentID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiAttachmentID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_attachment_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_attachment_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+#else
+    for (auto key : _defaultHeaders.keys()) {
+        input.headers.insert(key, _defaultHeaders[key]);
+    }
+#endif
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectAttachmentApi::attachmentGetAttachmentlogsV1Callback);
+    connect(this, &ObjectAttachmentApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this]() {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            emit allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectAttachmentApi::attachmentGetAttachmentlogsV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Attachment_getAttachmentlogs_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit attachmentGetAttachmentlogsV1Signal(output);
+        emit attachmentGetAttachmentlogsV1SignalFull(worker, output);
+    } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
+        emit attachmentGetAttachmentlogsV1SignalE(output, error_type, error_str);
+        emit attachmentGetAttachmentlogsV1SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit attachmentGetAttachmentlogsV1SignalError(output, error_type, error_str);
+        emit attachmentGetAttachmentlogsV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectAttachmentApi::attachmentGetDownloadUrlV1(const qint32 &pki_attachment_id) {
+    QString fullPath = QString(_serverConfigs["attachmentGetDownloadUrlV1"][_serverIndices.value("attachmentGetDownloadUrlV1")].URL()+"/1/object/attachment/{pkiAttachmentID}/getDownloadUrl");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_attachment_idPathParam("{");
+        pki_attachment_idPathParam.append("pkiAttachmentID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiAttachmentID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiAttachmentID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_attachment_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_attachment_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+#else
+    for (auto key : _defaultHeaders.keys()) {
+        input.headers.insert(key, _defaultHeaders[key]);
+    }
+#endif
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectAttachmentApi::attachmentGetDownloadUrlV1Callback);
+    connect(this, &ObjectAttachmentApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this]() {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            emit allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectAttachmentApi::attachmentGetDownloadUrlV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Attachment_getDownloadUrl_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit attachmentGetDownloadUrlV1Signal(output);
+        emit attachmentGetDownloadUrlV1SignalFull(worker, output);
+    } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
+        emit attachmentGetDownloadUrlV1SignalE(output, error_type, error_str);
+        emit attachmentGetDownloadUrlV1SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit attachmentGetDownloadUrlV1SignalError(output, error_type, error_str);
+        emit attachmentGetDownloadUrlV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

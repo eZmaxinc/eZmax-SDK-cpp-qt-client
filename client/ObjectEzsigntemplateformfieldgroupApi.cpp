@@ -37,7 +37,7 @@ void ObjectEzsigntemplateformfieldgroupApi::initializeServerConfigs() {
     "The server endpoint where to send your region specific API requests.",
     QMap<QString, ServerVariable>{ 
     {"sInfrastructureenvironmenttypeDescription", ServerVariable("The environment on on which to call the API. Should always be "prod" unless instructed otherwise by support.","prod",
-    QSet<QString>{ {"prod"},{"stg"},{"qa"},{"dev"} })},
+    QSet<QString>{ {"iso"},{"prod"},{"stg"},{"qa"},{"dev"} })},
     
     {"sInfrastructureregionCode", ServerVariable("The region where your services are hosted.","ca-central-1",
     QSet<QString>{ {"ca-central-1"} })}, }));
@@ -47,14 +47,14 @@ void ObjectEzsigntemplateformfieldgroupApi::initializeServerConfigs() {
     "The server endpoint where to send your global API requests.",
     QMap<QString, ServerVariable>{ 
     {"sInfrastructureenvironmenttypeDescription", ServerVariable("The environment on on which to call the API. Should always be "prod" unless instructed otherwise by support.","prod",
-    QSet<QString>{ {"prod"},{"stg"},{"qa"},{"dev"} })}, }));
+    QSet<QString>{ {"prod"},{"dev"} })}, }));
     
     defaultConf.append(ServerConfiguration(
     QUrl("wss://ws.{sInfrastructureregionCode}.ezmax.com/{sInfrastructureenvironmenttypeDescription}"),
     "The server endpoint where to send your websocket requests.",
     QMap<QString, ServerVariable>{ 
     {"sInfrastructureenvironmenttypeDescription", ServerVariable("The environment on on which to call the API. Should always be "prod" unless instructed otherwise by support.","prod",
-    QSet<QString>{ {"prod"},{"stg"},{"qa"},{"dev"} })},
+    QSet<QString>{ {"iso"},{"prod"},{"stg"},{"qa"},{"dev"} })},
     
     {"sInfrastructureregionCode", ServerVariable("The region where your services are hosted.","ca-central-1",
     QSet<QString>{ {"ca-central-1"} })}, }));
@@ -295,8 +295,34 @@ void ObjectEzsigntemplateformfieldgroupApi::ezsigntemplateformfieldgroupCreateOb
         emit ezsigntemplateformfieldgroupCreateObjectV1Signal(output);
         emit ezsigntemplateformfieldgroupCreateObjectV1SignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit ezsigntemplateformfieldgroupCreateObjectV1SignalE(output, error_type, error_str);
         emit ezsigntemplateformfieldgroupCreateObjectV1SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit ezsigntemplateformfieldgroupCreateObjectV1SignalError(output, error_type, error_str);
+        emit ezsigntemplateformfieldgroupCreateObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -362,8 +388,34 @@ void ObjectEzsigntemplateformfieldgroupApi::ezsigntemplateformfieldgroupDeleteOb
         emit ezsigntemplateformfieldgroupDeleteObjectV1Signal(output);
         emit ezsigntemplateformfieldgroupDeleteObjectV1SignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit ezsigntemplateformfieldgroupDeleteObjectV1SignalE(output, error_type, error_str);
         emit ezsigntemplateformfieldgroupDeleteObjectV1SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit ezsigntemplateformfieldgroupDeleteObjectV1SignalError(output, error_type, error_str);
+        emit ezsigntemplateformfieldgroupDeleteObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -434,8 +486,34 @@ void ObjectEzsigntemplateformfieldgroupApi::ezsigntemplateformfieldgroupEditObje
         emit ezsigntemplateformfieldgroupEditObjectV1Signal(output);
         emit ezsigntemplateformfieldgroupEditObjectV1SignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit ezsigntemplateformfieldgroupEditObjectV1SignalE(output, error_type, error_str);
         emit ezsigntemplateformfieldgroupEditObjectV1SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit ezsigntemplateformfieldgroupEditObjectV1SignalError(output, error_type, error_str);
+        emit ezsigntemplateformfieldgroupEditObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -501,8 +579,34 @@ void ObjectEzsigntemplateformfieldgroupApi::ezsigntemplateformfieldgroupGetObjec
         emit ezsigntemplateformfieldgroupGetObjectV2Signal(output);
         emit ezsigntemplateformfieldgroupGetObjectV2SignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit ezsigntemplateformfieldgroupGetObjectV2SignalE(output, error_type, error_str);
         emit ezsigntemplateformfieldgroupGetObjectV2SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit ezsigntemplateformfieldgroupGetObjectV2SignalError(output, error_type, error_str);
+        emit ezsigntemplateformfieldgroupGetObjectV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 

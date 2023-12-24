@@ -198,36 +198,79 @@ signals:
     void ezsigntemplatedocumentGetWordsPositionsV1SignalFull(HttpRequestWorker *worker, Ezsigntemplatedocument_getWordsPositions_v1_Response summary);
     void ezsigntemplatedocumentPatchObjectV1SignalFull(HttpRequestWorker *worker, Ezsigntemplatedocument_patchObject_v1_Response summary);
 
+    Q_DECL_DEPRECATED_X("Use ezsigntemplatedocumentCreateObjectV1SignalError() instead")
     void ezsigntemplatedocumentCreateObjectV1SignalE(Ezsigntemplatedocument_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigntemplatedocumentCreateObjectV1SignalError(Ezsigntemplatedocument_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigntemplatedocumentEditEzsigntemplateformfieldgroupsV1SignalError() instead")
     void ezsigntemplatedocumentEditEzsigntemplateformfieldgroupsV1SignalE(Ezsigntemplatedocument_editEzsigntemplateformfieldgroups_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigntemplatedocumentEditEzsigntemplateformfieldgroupsV1SignalError(Ezsigntemplatedocument_editEzsigntemplateformfieldgroups_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigntemplatedocumentEditEzsigntemplatesignaturesV1SignalError() instead")
     void ezsigntemplatedocumentEditEzsigntemplatesignaturesV1SignalE(Ezsigntemplatedocument_editEzsigntemplatesignatures_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigntemplatedocumentEditEzsigntemplatesignaturesV1SignalError(Ezsigntemplatedocument_editEzsigntemplatesignatures_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigntemplatedocumentEditObjectV1SignalError() instead")
     void ezsigntemplatedocumentEditObjectV1SignalE(Ezsigntemplatedocument_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigntemplatedocumentEditObjectV1SignalError(Ezsigntemplatedocument_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigntemplatedocumentFlattenV1SignalError() instead")
     void ezsigntemplatedocumentFlattenV1SignalE(Ezsigntemplatedocument_flatten_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigntemplatedocumentFlattenV1SignalError(Ezsigntemplatedocument_flatten_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigntemplatedocumentGetEzsigntemplatedocumentpagesV1SignalError() instead")
     void ezsigntemplatedocumentGetEzsigntemplatedocumentpagesV1SignalE(Ezsigntemplatedocument_getEzsigntemplatedocumentpages_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigntemplatedocumentGetEzsigntemplatedocumentpagesV1SignalError(Ezsigntemplatedocument_getEzsigntemplatedocumentpages_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigntemplatedocumentGetEzsigntemplateformfieldgroupsV1SignalError() instead")
     void ezsigntemplatedocumentGetEzsigntemplateformfieldgroupsV1SignalE(Ezsigntemplatedocument_getEzsigntemplateformfieldgroups_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigntemplatedocumentGetEzsigntemplateformfieldgroupsV1SignalError(Ezsigntemplatedocument_getEzsigntemplateformfieldgroups_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigntemplatedocumentGetEzsigntemplatesignaturesV1SignalError() instead")
     void ezsigntemplatedocumentGetEzsigntemplatesignaturesV1SignalE(Ezsigntemplatedocument_getEzsigntemplatesignatures_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigntemplatedocumentGetEzsigntemplatesignaturesV1SignalError(Ezsigntemplatedocument_getEzsigntemplatesignatures_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigntemplatedocumentGetObjectV2SignalError() instead")
     void ezsigntemplatedocumentGetObjectV2SignalE(Ezsigntemplatedocument_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigntemplatedocumentGetObjectV2SignalError(Ezsigntemplatedocument_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigntemplatedocumentGetWordsPositionsV1SignalError() instead")
     void ezsigntemplatedocumentGetWordsPositionsV1SignalE(Ezsigntemplatedocument_getWordsPositions_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigntemplatedocumentGetWordsPositionsV1SignalError(Ezsigntemplatedocument_getWordsPositions_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigntemplatedocumentPatchObjectV1SignalError() instead")
     void ezsigntemplatedocumentPatchObjectV1SignalE(Ezsigntemplatedocument_patchObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigntemplatedocumentPatchObjectV1SignalError(Ezsigntemplatedocument_patchObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use ezsigntemplatedocumentCreateObjectV1SignalErrorFull() instead")
     void ezsigntemplatedocumentCreateObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigntemplatedocumentCreateObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigntemplatedocumentEditEzsigntemplateformfieldgroupsV1SignalErrorFull() instead")
     void ezsigntemplatedocumentEditEzsigntemplateformfieldgroupsV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigntemplatedocumentEditEzsigntemplateformfieldgroupsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigntemplatedocumentEditEzsigntemplatesignaturesV1SignalErrorFull() instead")
     void ezsigntemplatedocumentEditEzsigntemplatesignaturesV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigntemplatedocumentEditEzsigntemplatesignaturesV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigntemplatedocumentEditObjectV1SignalErrorFull() instead")
     void ezsigntemplatedocumentEditObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigntemplatedocumentEditObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigntemplatedocumentFlattenV1SignalErrorFull() instead")
     void ezsigntemplatedocumentFlattenV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigntemplatedocumentFlattenV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigntemplatedocumentGetEzsigntemplatedocumentpagesV1SignalErrorFull() instead")
     void ezsigntemplatedocumentGetEzsigntemplatedocumentpagesV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigntemplatedocumentGetEzsigntemplatedocumentpagesV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigntemplatedocumentGetEzsigntemplateformfieldgroupsV1SignalErrorFull() instead")
     void ezsigntemplatedocumentGetEzsigntemplateformfieldgroupsV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigntemplatedocumentGetEzsigntemplateformfieldgroupsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigntemplatedocumentGetEzsigntemplatesignaturesV1SignalErrorFull() instead")
     void ezsigntemplatedocumentGetEzsigntemplatesignaturesV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigntemplatedocumentGetEzsigntemplatesignaturesV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigntemplatedocumentGetObjectV2SignalErrorFull() instead")
     void ezsigntemplatedocumentGetObjectV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigntemplatedocumentGetObjectV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigntemplatedocumentGetWordsPositionsV1SignalErrorFull() instead")
     void ezsigntemplatedocumentGetWordsPositionsV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigntemplatedocumentGetWordsPositionsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigntemplatedocumentPatchObjectV1SignalErrorFull() instead")
     void ezsigntemplatedocumentPatchObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigntemplatedocumentPatchObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
 public slots:
     void tokenAvailable();
-    
 };
 
 } // namespace Ezmaxapi

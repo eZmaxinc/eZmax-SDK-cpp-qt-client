@@ -94,16 +94,19 @@ signals:
 
     void versionhistoryGetObjectV2SignalFull(HttpRequestWorker *worker, Versionhistory_getObject_v2_Response summary);
 
+    Q_DECL_DEPRECATED_X("Use versionhistoryGetObjectV2SignalError() instead")
     void versionhistoryGetObjectV2SignalE(Versionhistory_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void versionhistoryGetObjectV2SignalError(Versionhistory_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use versionhistoryGetObjectV2SignalErrorFull() instead")
     void versionhistoryGetObjectV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void versionhistoryGetObjectV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
 public slots:
     void tokenAvailable();
-    
 };
 
 } // namespace Ezmaxapi

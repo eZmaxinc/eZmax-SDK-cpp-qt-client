@@ -36,6 +36,9 @@ void Global_ezmaxclient_version_v1_Response::initializeModel() {
 
     m_s_ezmaxclient_version_isSet = false;
     m_s_ezmaxclient_version_isValid = false;
+
+    m_s_ezmaxclient_oslatestversion_isSet = false;
+    m_s_ezmaxclient_oslatestversion_isValid = false;
 }
 
 void Global_ezmaxclient_version_v1_Response::fromJson(QString jsonString) {
@@ -49,6 +52,9 @@ void Global_ezmaxclient_version_v1_Response::fromJsonObject(QJsonObject json) {
 
     m_s_ezmaxclient_version_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezmaxclient_version, json[QString("sEzmaxclientVersion")]);
     m_s_ezmaxclient_version_isSet = !json[QString("sEzmaxclientVersion")].isNull() && m_s_ezmaxclient_version_isValid;
+
+    m_s_ezmaxclient_oslatestversion_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezmaxclient_oslatestversion, json[QString("sEzmaxclientOslatestversion")]);
+    m_s_ezmaxclient_oslatestversion_isSet = !json[QString("sEzmaxclientOslatestversion")].isNull() && m_s_ezmaxclient_oslatestversion_isValid;
 }
 
 QString Global_ezmaxclient_version_v1_Response::asJson() const {
@@ -62,6 +68,9 @@ QJsonObject Global_ezmaxclient_version_v1_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_s_ezmaxclient_version_isSet) {
         obj.insert(QString("sEzmaxclientVersion"), ::Ezmaxapi::toJsonValue(m_s_ezmaxclient_version));
+    }
+    if (m_s_ezmaxclient_oslatestversion_isSet) {
+        obj.insert(QString("sEzmaxclientOslatestversion"), ::Ezmaxapi::toJsonValue(m_s_ezmaxclient_oslatestversion));
     }
     return obj;
 }
@@ -82,10 +91,31 @@ bool Global_ezmaxclient_version_v1_Response::is_s_ezmaxclient_version_Valid() co
     return m_s_ezmaxclient_version_isValid;
 }
 
+QString Global_ezmaxclient_version_v1_Response::getSEzmaxclientOslatestversion() const {
+    return m_s_ezmaxclient_oslatestversion;
+}
+void Global_ezmaxclient_version_v1_Response::setSEzmaxclientOslatestversion(const QString &s_ezmaxclient_oslatestversion) {
+    m_s_ezmaxclient_oslatestversion = s_ezmaxclient_oslatestversion;
+    m_s_ezmaxclient_oslatestversion_isSet = true;
+}
+
+bool Global_ezmaxclient_version_v1_Response::is_s_ezmaxclient_oslatestversion_Set() const{
+    return m_s_ezmaxclient_oslatestversion_isSet;
+}
+
+bool Global_ezmaxclient_version_v1_Response::is_s_ezmaxclient_oslatestversion_Valid() const{
+    return m_s_ezmaxclient_oslatestversion_isValid;
+}
+
 bool Global_ezmaxclient_version_v1_Response::isSet() const {
     bool isObjectUpdated = false;
     do {
         if (m_s_ezmaxclient_version_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_s_ezmaxclient_oslatestversion_isSet) {
             isObjectUpdated = true;
             break;
         }
@@ -95,7 +125,7 @@ bool Global_ezmaxclient_version_v1_Response::isSet() const {
 
 bool Global_ezmaxclient_version_v1_Response::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_s_ezmaxclient_version_isValid && true;
+    return m_s_ezmaxclient_version_isValid && m_s_ezmaxclient_oslatestversion_isValid && true;
 }
 
 } // namespace Ezmaxapi

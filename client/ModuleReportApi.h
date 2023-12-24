@@ -95,16 +95,19 @@ signals:
 
     void reportGetReportFromCacheV1SignalFull(HttpRequestWorker *worker, Common_getReport_v1_Response summary);
 
+    Q_DECL_DEPRECATED_X("Use reportGetReportFromCacheV1SignalError() instead")
     void reportGetReportFromCacheV1SignalE(Common_getReport_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void reportGetReportFromCacheV1SignalError(Common_getReport_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use reportGetReportFromCacheV1SignalErrorFull() instead")
     void reportGetReportFromCacheV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void reportGetReportFromCacheV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
 public slots:
     void tokenAvailable();
-    
 };
 
 } // namespace Ezmaxapi

@@ -37,7 +37,7 @@ void ObjectApikeyApi::initializeServerConfigs() {
     "The server endpoint where to send your region specific API requests.",
     QMap<QString, ServerVariable>{ 
     {"sInfrastructureenvironmenttypeDescription", ServerVariable("The environment on on which to call the API. Should always be "prod" unless instructed otherwise by support.","prod",
-    QSet<QString>{ {"prod"},{"stg"},{"qa"},{"dev"} })},
+    QSet<QString>{ {"iso"},{"prod"},{"stg"},{"qa"},{"dev"} })},
     
     {"sInfrastructureregionCode", ServerVariable("The region where your services are hosted.","ca-central-1",
     QSet<QString>{ {"ca-central-1"} })}, }));
@@ -47,14 +47,14 @@ void ObjectApikeyApi::initializeServerConfigs() {
     "The server endpoint where to send your global API requests.",
     QMap<QString, ServerVariable>{ 
     {"sInfrastructureenvironmenttypeDescription", ServerVariable("The environment on on which to call the API. Should always be "prod" unless instructed otherwise by support.","prod",
-    QSet<QString>{ {"prod"},{"stg"},{"qa"},{"dev"} })}, }));
+    QSet<QString>{ {"prod"},{"dev"} })}, }));
     
     defaultConf.append(ServerConfiguration(
     QUrl("wss://ws.{sInfrastructureregionCode}.ezmax.com/{sInfrastructureenvironmenttypeDescription}"),
     "The server endpoint where to send your websocket requests.",
     QMap<QString, ServerVariable>{ 
     {"sInfrastructureenvironmenttypeDescription", ServerVariable("The environment on on which to call the API. Should always be "prod" unless instructed otherwise by support.","prod",
-    QSet<QString>{ {"prod"},{"stg"},{"qa"},{"dev"} })},
+    QSet<QString>{ {"iso"},{"prod"},{"stg"},{"qa"},{"dev"} })},
     
     {"sInfrastructureregionCode", ServerVariable("The region where your services are hosted.","ca-central-1",
     QSet<QString>{ {"ca-central-1"} })}, }));
@@ -305,8 +305,34 @@ void ObjectApikeyApi::apikeyCreateObjectV2Callback(HttpRequestWorker *worker) {
         emit apikeyCreateObjectV2Signal(output);
         emit apikeyCreateObjectV2SignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit apikeyCreateObjectV2SignalE(output, error_type, error_str);
         emit apikeyCreateObjectV2SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit apikeyCreateObjectV2SignalError(output, error_type, error_str);
+        emit apikeyCreateObjectV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -377,8 +403,34 @@ void ObjectApikeyApi::apikeyEditObjectV1Callback(HttpRequestWorker *worker) {
         emit apikeyEditObjectV1Signal(output);
         emit apikeyEditObjectV1SignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit apikeyEditObjectV1SignalE(output, error_type, error_str);
         emit apikeyEditObjectV1SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit apikeyEditObjectV1SignalError(output, error_type, error_str);
+        emit apikeyEditObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -449,8 +501,34 @@ void ObjectApikeyApi::apikeyEditPermissionsV1Callback(HttpRequestWorker *worker)
         emit apikeyEditPermissionsV1Signal(output);
         emit apikeyEditPermissionsV1SignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit apikeyEditPermissionsV1SignalE(output, error_type, error_str);
         emit apikeyEditPermissionsV1SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit apikeyEditPermissionsV1SignalError(output, error_type, error_str);
+        emit apikeyEditPermissionsV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -516,8 +594,34 @@ void ObjectApikeyApi::apikeyGetCorsV1Callback(HttpRequestWorker *worker) {
         emit apikeyGetCorsV1Signal(output);
         emit apikeyGetCorsV1SignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit apikeyGetCorsV1SignalE(output, error_type, error_str);
         emit apikeyGetCorsV1SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit apikeyGetCorsV1SignalError(output, error_type, error_str);
+        emit apikeyGetCorsV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -674,8 +778,34 @@ void ObjectApikeyApi::apikeyGetListV1Callback(HttpRequestWorker *worker) {
         emit apikeyGetListV1Signal(output);
         emit apikeyGetListV1SignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit apikeyGetListV1SignalE(output, error_type, error_str);
         emit apikeyGetListV1SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit apikeyGetListV1SignalError(output, error_type, error_str);
+        emit apikeyGetListV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -741,8 +871,34 @@ void ObjectApikeyApi::apikeyGetObjectV2Callback(HttpRequestWorker *worker) {
         emit apikeyGetObjectV2Signal(output);
         emit apikeyGetObjectV2SignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit apikeyGetObjectV2SignalE(output, error_type, error_str);
         emit apikeyGetObjectV2SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit apikeyGetObjectV2SignalError(output, error_type, error_str);
+        emit apikeyGetObjectV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -808,8 +964,34 @@ void ObjectApikeyApi::apikeyGetPermissionsV1Callback(HttpRequestWorker *worker) 
         emit apikeyGetPermissionsV1Signal(output);
         emit apikeyGetPermissionsV1SignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit apikeyGetPermissionsV1SignalE(output, error_type, error_str);
         emit apikeyGetPermissionsV1SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit apikeyGetPermissionsV1SignalError(output, error_type, error_str);
+        emit apikeyGetPermissionsV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -875,8 +1057,34 @@ void ObjectApikeyApi::apikeyGetSubnetsV1Callback(HttpRequestWorker *worker) {
         emit apikeyGetSubnetsV1Signal(output);
         emit apikeyGetSubnetsV1SignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit apikeyGetSubnetsV1SignalE(output, error_type, error_str);
         emit apikeyGetSubnetsV1SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit apikeyGetSubnetsV1SignalError(output, error_type, error_str);
+        emit apikeyGetSubnetsV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -947,8 +1155,34 @@ void ObjectApikeyApi::apikeyRegenerateV1Callback(HttpRequestWorker *worker) {
         emit apikeyRegenerateV1Signal(output);
         emit apikeyRegenerateV1SignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit apikeyRegenerateV1SignalE(output, error_type, error_str);
         emit apikeyRegenerateV1SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit apikeyRegenerateV1SignalError(output, error_type, error_str);
+        emit apikeyRegenerateV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

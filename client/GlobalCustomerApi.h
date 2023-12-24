@@ -95,16 +95,19 @@ signals:
 
     void globalCustomerGetEndpointV1SignalFull(HttpRequestWorker *worker, Global_customer_getEndpoint_v1_Response summary);
 
+    Q_DECL_DEPRECATED_X("Use globalCustomerGetEndpointV1SignalError() instead")
     void globalCustomerGetEndpointV1SignalE(Global_customer_getEndpoint_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void globalCustomerGetEndpointV1SignalError(Global_customer_getEndpoint_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use globalCustomerGetEndpointV1SignalErrorFull() instead")
     void globalCustomerGetEndpointV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void globalCustomerGetEndpointV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
 public slots:
     void tokenAvailable();
-    
 };
 
 } // namespace Ezmaxapi

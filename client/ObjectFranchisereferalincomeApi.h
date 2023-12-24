@@ -104,18 +104,25 @@ signals:
     void franchisereferalincomeCreateObjectV1SignalFull(HttpRequestWorker *worker, Franchisereferalincome_createObject_v1_Response summary);
     void franchisereferalincomeCreateObjectV2SignalFull(HttpRequestWorker *worker, Franchisereferalincome_createObject_v2_Response summary);
 
+    Q_DECL_DEPRECATED_X("Use franchisereferalincomeCreateObjectV1SignalError() instead")
     void franchisereferalincomeCreateObjectV1SignalE(Franchisereferalincome_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void franchisereferalincomeCreateObjectV1SignalError(Franchisereferalincome_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use franchisereferalincomeCreateObjectV2SignalError() instead")
     void franchisereferalincomeCreateObjectV2SignalE(Franchisereferalincome_createObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void franchisereferalincomeCreateObjectV2SignalError(Franchisereferalincome_createObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use franchisereferalincomeCreateObjectV1SignalErrorFull() instead")
     void franchisereferalincomeCreateObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void franchisereferalincomeCreateObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use franchisereferalincomeCreateObjectV2SignalErrorFull() instead")
     void franchisereferalincomeCreateObjectV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void franchisereferalincomeCreateObjectV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
 public slots:
     void tokenAvailable();
-    
 };
 
 } // namespace Ezmaxapi

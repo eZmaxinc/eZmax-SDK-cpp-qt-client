@@ -135,6 +135,56 @@ public:
     bool is_b_ezsignfoldertype_sendattatchmentsigner_Set() const;
     bool is_b_ezsignfoldertype_sendattatchmentsigner_Valid() const;
 
+    bool isBEzsignfoldertypeSendsignedtoezsignsigner() const;
+    void setBEzsignfoldertypeSendsignedtoezsignsigner(const bool &b_ezsignfoldertype_sendsignedtoezsignsigner);
+    bool is_b_ezsignfoldertype_sendsignedtoezsignsigner_Set() const;
+    bool is_b_ezsignfoldertype_sendsignedtoezsignsigner_Valid() const;
+
+    bool isBEzsignfoldertypeSendsignedtouser() const;
+    void setBEzsignfoldertypeSendsignedtouser(const bool &b_ezsignfoldertype_sendsignedtouser);
+    bool is_b_ezsignfoldertype_sendsignedtouser_Set() const;
+    bool is_b_ezsignfoldertype_sendsignedtouser_Valid() const;
+
+    bool isBEzsignfoldertypeSendattachmentezsignsigner() const;
+    void setBEzsignfoldertypeSendattachmentezsignsigner(const bool &b_ezsignfoldertype_sendattachmentezsignsigner);
+    bool is_b_ezsignfoldertype_sendattachmentezsignsigner_Set() const;
+    bool is_b_ezsignfoldertype_sendattachmentezsignsigner_Valid() const;
+
+    bool isBEzsignfoldertypeSendproofezsignsigner() const;
+    void setBEzsignfoldertypeSendproofezsignsigner(const bool &b_ezsignfoldertype_sendproofezsignsigner);
+    bool is_b_ezsignfoldertype_sendproofezsignsigner_Set() const;
+    bool is_b_ezsignfoldertype_sendproofezsignsigner_Valid() const;
+
+    bool isBEzsignfoldertypeSendattachmentuser() const;
+    void setBEzsignfoldertypeSendattachmentuser(const bool &b_ezsignfoldertype_sendattachmentuser);
+    bool is_b_ezsignfoldertype_sendattachmentuser_Set() const;
+    bool is_b_ezsignfoldertype_sendattachmentuser_Valid() const;
+
+    bool isBEzsignfoldertypeSendproofuser() const;
+    void setBEzsignfoldertypeSendproofuser(const bool &b_ezsignfoldertype_sendproofuser);
+    bool is_b_ezsignfoldertype_sendproofuser_Set() const;
+    bool is_b_ezsignfoldertype_sendproofuser_Valid() const;
+
+    bool isBEzsignfoldertypeSendproofemail() const;
+    void setBEzsignfoldertypeSendproofemail(const bool &b_ezsignfoldertype_sendproofemail);
+    bool is_b_ezsignfoldertype_sendproofemail_Set() const;
+    bool is_b_ezsignfoldertype_sendproofemail_Valid() const;
+
+    bool isBEzsignfoldertypeAllowdownloadattachmentezsignsigner() const;
+    void setBEzsignfoldertypeAllowdownloadattachmentezsignsigner(const bool &b_ezsignfoldertype_allowdownloadattachmentezsignsigner);
+    bool is_b_ezsignfoldertype_allowdownloadattachmentezsignsigner_Set() const;
+    bool is_b_ezsignfoldertype_allowdownloadattachmentezsignsigner_Valid() const;
+
+    bool isBEzsignfoldertypeAllowdownloadproofezsignsigner() const;
+    void setBEzsignfoldertypeAllowdownloadproofezsignsigner(const bool &b_ezsignfoldertype_allowdownloadproofezsignsigner);
+    bool is_b_ezsignfoldertype_allowdownloadproofezsignsigner_Set() const;
+    bool is_b_ezsignfoldertype_allowdownloadproofezsignsigner_Valid() const;
+
+    bool isBEzsignfoldertypeSendproofreceivealldocument() const;
+    void setBEzsignfoldertypeSendproofreceivealldocument(const bool &b_ezsignfoldertype_sendproofreceivealldocument);
+    bool is_b_ezsignfoldertype_sendproofreceivealldocument_Set() const;
+    bool is_b_ezsignfoldertype_sendproofreceivealldocument_Valid() const;
+
     bool isBEzsignfoldertypeSendsignedtodocumentowner() const;
     void setBEzsignfoldertypeSendsignedtodocumentowner(const bool &b_ezsignfoldertype_sendsignedtodocumentowner);
     bool is_b_ezsignfoldertype_sendsignedtodocumentowner_Set() const;
@@ -287,6 +337,46 @@ private:
     bool m_b_ezsignfoldertype_sendattatchmentsigner;
     bool m_b_ezsignfoldertype_sendattatchmentsigner_isSet;
     bool m_b_ezsignfoldertype_sendattatchmentsigner_isValid;
+
+    bool m_b_ezsignfoldertype_sendsignedtoezsignsigner;
+    bool m_b_ezsignfoldertype_sendsignedtoezsignsigner_isSet;
+    bool m_b_ezsignfoldertype_sendsignedtoezsignsigner_isValid;
+
+    bool m_b_ezsignfoldertype_sendsignedtouser;
+    bool m_b_ezsignfoldertype_sendsignedtouser_isSet;
+    bool m_b_ezsignfoldertype_sendsignedtouser_isValid;
+
+    bool m_b_ezsignfoldertype_sendattachmentezsignsigner;
+    bool m_b_ezsignfoldertype_sendattachmentezsignsigner_isSet;
+    bool m_b_ezsignfoldertype_sendattachmentezsignsigner_isValid;
+
+    bool m_b_ezsignfoldertype_sendproofezsignsigner;
+    bool m_b_ezsignfoldertype_sendproofezsignsigner_isSet;
+    bool m_b_ezsignfoldertype_sendproofezsignsigner_isValid;
+
+    bool m_b_ezsignfoldertype_sendattachmentuser;
+    bool m_b_ezsignfoldertype_sendattachmentuser_isSet;
+    bool m_b_ezsignfoldertype_sendattachmentuser_isValid;
+
+    bool m_b_ezsignfoldertype_sendproofuser;
+    bool m_b_ezsignfoldertype_sendproofuser_isSet;
+    bool m_b_ezsignfoldertype_sendproofuser_isValid;
+
+    bool m_b_ezsignfoldertype_sendproofemail;
+    bool m_b_ezsignfoldertype_sendproofemail_isSet;
+    bool m_b_ezsignfoldertype_sendproofemail_isValid;
+
+    bool m_b_ezsignfoldertype_allowdownloadattachmentezsignsigner;
+    bool m_b_ezsignfoldertype_allowdownloadattachmentezsignsigner_isSet;
+    bool m_b_ezsignfoldertype_allowdownloadattachmentezsignsigner_isValid;
+
+    bool m_b_ezsignfoldertype_allowdownloadproofezsignsigner;
+    bool m_b_ezsignfoldertype_allowdownloadproofezsignsigner_isSet;
+    bool m_b_ezsignfoldertype_allowdownloadproofezsignsigner_isValid;
+
+    bool m_b_ezsignfoldertype_sendproofreceivealldocument;
+    bool m_b_ezsignfoldertype_sendproofreceivealldocument_isSet;
+    bool m_b_ezsignfoldertype_sendproofreceivealldocument_isValid;
 
     bool m_b_ezsignfoldertype_sendsignedtodocumentowner;
     bool m_b_ezsignfoldertype_sendsignedtodocumentowner_isSet;

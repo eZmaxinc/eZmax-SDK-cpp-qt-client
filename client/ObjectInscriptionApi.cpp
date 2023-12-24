@@ -37,7 +37,7 @@ void ObjectInscriptionApi::initializeServerConfigs() {
     "The server endpoint where to send your region specific API requests.",
     QMap<QString, ServerVariable>{ 
     {"sInfrastructureenvironmenttypeDescription", ServerVariable("The environment on on which to call the API. Should always be "prod" unless instructed otherwise by support.","prod",
-    QSet<QString>{ {"prod"},{"stg"},{"qa"},{"dev"} })},
+    QSet<QString>{ {"iso"},{"prod"},{"stg"},{"qa"},{"dev"} })},
     
     {"sInfrastructureregionCode", ServerVariable("The region where your services are hosted.","ca-central-1",
     QSet<QString>{ {"ca-central-1"} })}, }));
@@ -47,20 +47,24 @@ void ObjectInscriptionApi::initializeServerConfigs() {
     "The server endpoint where to send your global API requests.",
     QMap<QString, ServerVariable>{ 
     {"sInfrastructureenvironmenttypeDescription", ServerVariable("The environment on on which to call the API. Should always be "prod" unless instructed otherwise by support.","prod",
-    QSet<QString>{ {"prod"},{"stg"},{"qa"},{"dev"} })}, }));
+    QSet<QString>{ {"prod"},{"dev"} })}, }));
     
     defaultConf.append(ServerConfiguration(
     QUrl("wss://ws.{sInfrastructureregionCode}.ezmax.com/{sInfrastructureenvironmenttypeDescription}"),
     "The server endpoint where to send your websocket requests.",
     QMap<QString, ServerVariable>{ 
     {"sInfrastructureenvironmenttypeDescription", ServerVariable("The environment on on which to call the API. Should always be "prod" unless instructed otherwise by support.","prod",
-    QSet<QString>{ {"prod"},{"stg"},{"qa"},{"dev"} })},
+    QSet<QString>{ {"iso"},{"prod"},{"stg"},{"qa"},{"dev"} })},
     
     {"sInfrastructureregionCode", ServerVariable("The region where your services are hosted.","ca-central-1",
     QSet<QString>{ {"ca-central-1"} })}, }));
     
+    _serverConfigs.insert("inscriptionGetAttachmentsV1", defaultConf);
+    _serverIndices.insert("inscriptionGetAttachmentsV1", 0);
     _serverConfigs.insert("inscriptionGetCommunicationListV1", defaultConf);
     _serverIndices.insert("inscriptionGetCommunicationListV1", 0);
+    _serverConfigs.insert("inscriptionGetCommunicationsendersV1", defaultConf);
+    _serverIndices.insert("inscriptionGetCommunicationsendersV1", 0);
 }
 
 /**
@@ -236,6 +240,99 @@ QString ObjectInscriptionApi::getParamStyleDelimiter(const QString &style, const
     }
 }
 
+void ObjectInscriptionApi::inscriptionGetAttachmentsV1(const qint32 &pki_inscription_id) {
+    QString fullPath = QString(_serverConfigs["inscriptionGetAttachmentsV1"][_serverIndices.value("inscriptionGetAttachmentsV1")].URL()+"/1/object/inscription/{pkiInscriptionID}/getAttachments");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_inscription_idPathParam("{");
+        pki_inscription_idPathParam.append("pkiInscriptionID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiInscriptionID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiInscriptionID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_inscription_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_inscription_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+#else
+    for (auto key : _defaultHeaders.keys()) {
+        input.headers.insert(key, _defaultHeaders[key]);
+    }
+#endif
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectInscriptionApi::inscriptionGetAttachmentsV1Callback);
+    connect(this, &ObjectInscriptionApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this]() {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            emit allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectInscriptionApi::inscriptionGetAttachmentsV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Inscription_getAttachments_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit inscriptionGetAttachmentsV1Signal(output);
+        emit inscriptionGetAttachmentsV1SignalFull(worker, output);
+    } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
+        emit inscriptionGetAttachmentsV1SignalE(output, error_type, error_str);
+        emit inscriptionGetAttachmentsV1SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit inscriptionGetAttachmentsV1SignalError(output, error_type, error_str);
+        emit inscriptionGetAttachmentsV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
 void ObjectInscriptionApi::inscriptionGetCommunicationListV1(const qint32 &pki_inscription_id) {
     QString fullPath = QString(_serverConfigs["inscriptionGetCommunicationListV1"][_serverIndices.value("inscriptionGetCommunicationListV1")].URL()+"/1/object/inscription/{pkiInscriptionID}/getCommunicationList");
     
@@ -298,8 +395,127 @@ void ObjectInscriptionApi::inscriptionGetCommunicationListV1Callback(HttpRequest
         emit inscriptionGetCommunicationListV1Signal(output);
         emit inscriptionGetCommunicationListV1SignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit inscriptionGetCommunicationListV1SignalE(output, error_type, error_str);
         emit inscriptionGetCommunicationListV1SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit inscriptionGetCommunicationListV1SignalError(output, error_type, error_str);
+        emit inscriptionGetCommunicationListV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectInscriptionApi::inscriptionGetCommunicationsendersV1(const qint32 &pki_inscription_id) {
+    QString fullPath = QString(_serverConfigs["inscriptionGetCommunicationsendersV1"][_serverIndices.value("inscriptionGetCommunicationsendersV1")].URL()+"/1/object/inscription/{pkiInscriptionID}/getCommunicationsenders");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_inscription_idPathParam("{");
+        pki_inscription_idPathParam.append("pkiInscriptionID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiInscriptionID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiInscriptionID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_inscription_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_inscription_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+#else
+    for (auto key : _defaultHeaders.keys()) {
+        input.headers.insert(key, _defaultHeaders[key]);
+    }
+#endif
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectInscriptionApi::inscriptionGetCommunicationsendersV1Callback);
+    connect(this, &ObjectInscriptionApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this]() {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            emit allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectInscriptionApi::inscriptionGetCommunicationsendersV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Inscription_getCommunicationsenders_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit inscriptionGetCommunicationsendersV1Signal(output);
+        emit inscriptionGetCommunicationsendersV1SignalFull(worker, output);
+    } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
+        emit inscriptionGetCommunicationsendersV1SignalE(output, error_type, error_str);
+        emit inscriptionGetCommunicationsendersV1SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit inscriptionGetCommunicationsendersV1SignalError(output, error_type, error_str);
+        emit inscriptionGetCommunicationsendersV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

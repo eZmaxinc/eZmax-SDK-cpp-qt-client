@@ -147,6 +147,11 @@ public:
     bool is_s_ezsigndocument_externalid_Set() const;
     bool is_s_ezsigndocument_externalid_Valid() const;
 
+    qint32 getIEzsigndocumentEzsignsignatureattachmenttotal() const;
+    void setIEzsigndocumentEzsignsignatureattachmenttotal(const qint32 &i_ezsigndocument_ezsignsignatureattachmenttotal);
+    bool is_i_ezsigndocument_ezsignsignatureattachmenttotal_Set() const;
+    bool is_i_ezsigndocument_ezsignsignatureattachmenttotal_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -236,6 +241,10 @@ private:
     QString m_s_ezsigndocument_externalid;
     bool m_s_ezsigndocument_externalid_isSet;
     bool m_s_ezsigndocument_externalid_isValid;
+
+    qint32 m_i_ezsigndocument_ezsignsignatureattachmenttotal;
+    bool m_i_ezsigndocument_ezsignsignatureattachmenttotal_isSet;
+    bool m_i_ezsigndocument_ezsignsignatureattachmenttotal_isValid;
 };
 
 } // namespace Ezmaxapi

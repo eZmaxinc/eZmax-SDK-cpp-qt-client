@@ -43,6 +43,9 @@ void Custom_Communicationsender_Request::initializeModel() {
     m_fki_mailboxshared_id_isSet = false;
     m_fki_mailboxshared_id_isValid = false;
 
+    m_fki_phonelineshared_id_isSet = false;
+    m_fki_phonelineshared_id_isValid = false;
+
     m_fki_user_id_isSet = false;
     m_fki_user_id_isValid = false;
 }
@@ -65,6 +68,9 @@ void Custom_Communicationsender_Request::fromJsonObject(QJsonObject json) {
     m_fki_mailboxshared_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_mailboxshared_id, json[QString("fkiMailboxsharedID")]);
     m_fki_mailboxshared_id_isSet = !json[QString("fkiMailboxsharedID")].isNull() && m_fki_mailboxshared_id_isValid;
 
+    m_fki_phonelineshared_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_phonelineshared_id, json[QString("fkiPhonelinesharedID")]);
+    m_fki_phonelineshared_id_isSet = !json[QString("fkiPhonelinesharedID")].isNull() && m_fki_phonelineshared_id_isValid;
+
     m_fki_user_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_user_id, json[QString("fkiUserID")]);
     m_fki_user_id_isSet = !json[QString("fkiUserID")].isNull() && m_fki_user_id_isValid;
 }
@@ -86,6 +92,9 @@ QJsonObject Custom_Communicationsender_Request::asJsonObject() const {
     }
     if (m_fki_mailboxshared_id_isSet) {
         obj.insert(QString("fkiMailboxsharedID"), ::Ezmaxapi::toJsonValue(m_fki_mailboxshared_id));
+    }
+    if (m_fki_phonelineshared_id_isSet) {
+        obj.insert(QString("fkiPhonelinesharedID"), ::Ezmaxapi::toJsonValue(m_fki_phonelineshared_id));
     }
     if (m_fki_user_id_isSet) {
         obj.insert(QString("fkiUserID"), ::Ezmaxapi::toJsonValue(m_fki_user_id));
@@ -141,6 +150,22 @@ bool Custom_Communicationsender_Request::is_fki_mailboxshared_id_Valid() const{
     return m_fki_mailboxshared_id_isValid;
 }
 
+qint32 Custom_Communicationsender_Request::getFkiPhonelinesharedId() const {
+    return m_fki_phonelineshared_id;
+}
+void Custom_Communicationsender_Request::setFkiPhonelinesharedId(const qint32 &fki_phonelineshared_id) {
+    m_fki_phonelineshared_id = fki_phonelineshared_id;
+    m_fki_phonelineshared_id_isSet = true;
+}
+
+bool Custom_Communicationsender_Request::is_fki_phonelineshared_id_Set() const{
+    return m_fki_phonelineshared_id_isSet;
+}
+
+bool Custom_Communicationsender_Request::is_fki_phonelineshared_id_Valid() const{
+    return m_fki_phonelineshared_id_isValid;
+}
+
 qint32 Custom_Communicationsender_Request::getFkiUserId() const {
     return m_fki_user_id;
 }
@@ -171,6 +196,11 @@ bool Custom_Communicationsender_Request::isSet() const {
         }
 
         if (m_fki_mailboxshared_id_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_fki_phonelineshared_id_isSet) {
             isObjectUpdated = true;
             break;
         }

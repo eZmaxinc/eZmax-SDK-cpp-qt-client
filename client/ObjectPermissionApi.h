@@ -124,22 +124,37 @@ signals:
     void permissionEditObjectV1SignalFull(HttpRequestWorker *worker, Permission_editObject_v1_Response summary);
     void permissionGetObjectV2SignalFull(HttpRequestWorker *worker, Permission_getObject_v2_Response summary);
 
+    Q_DECL_DEPRECATED_X("Use permissionCreateObjectV1SignalError() instead")
     void permissionCreateObjectV1SignalE(Permission_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void permissionCreateObjectV1SignalError(Permission_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use permissionDeleteObjectV1SignalError() instead")
     void permissionDeleteObjectV1SignalE(Permission_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void permissionDeleteObjectV1SignalError(Permission_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use permissionEditObjectV1SignalError() instead")
     void permissionEditObjectV1SignalE(Permission_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void permissionEditObjectV1SignalError(Permission_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use permissionGetObjectV2SignalError() instead")
     void permissionGetObjectV2SignalE(Permission_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void permissionGetObjectV2SignalError(Permission_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use permissionCreateObjectV1SignalErrorFull() instead")
     void permissionCreateObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void permissionCreateObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use permissionDeleteObjectV1SignalErrorFull() instead")
     void permissionDeleteObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void permissionDeleteObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use permissionEditObjectV1SignalErrorFull() instead")
     void permissionEditObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void permissionEditObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use permissionGetObjectV2SignalErrorFull() instead")
     void permissionGetObjectV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void permissionGetObjectV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
 public slots:
     void tokenAvailable();
-    
 };
 
 } // namespace Ezmaxapi

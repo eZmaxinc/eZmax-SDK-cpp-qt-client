@@ -46,6 +46,11 @@ public:
     bool is_e_websocket_messagetype_Set() const;
     bool is_e_websocket_messagetype_Valid() const;
 
+    QString getSWebsocketChannel() const;
+    void setSWebsocketChannel(const QString &s_websocket_channel);
+    bool is_s_websocket_channel_Set() const;
+    bool is_s_websocket_channel_Valid() const;
+
     Websocket_Response_Error_V1_mPayload getMPayload() const;
     void setMPayload(const Websocket_Response_Error_V1_mPayload &m_payload);
     bool is_m_payload_Set() const;
@@ -60,6 +65,10 @@ private:
     QString m_e_websocket_messagetype;
     bool m_e_websocket_messagetype_isSet;
     bool m_e_websocket_messagetype_isValid;
+
+    QString m_s_websocket_channel;
+    bool m_s_websocket_channel_isSet;
+    bool m_s_websocket_channel_isValid;
 
     Websocket_Response_Error_V1_mPayload m_m_payload;
     bool m_m_payload_isSet;

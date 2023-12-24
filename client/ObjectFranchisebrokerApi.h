@@ -109,18 +109,25 @@ signals:
     void franchisebrokerGetAutocompleteV1SignalFull(HttpRequestWorker *worker, Common_getAutocomplete_v1_Response summary);
     void franchisebrokerGetAutocompleteV2SignalFull(HttpRequestWorker *worker, Franchisebroker_getAutocomplete_v2_Response summary);
 
+    Q_DECL_DEPRECATED_X("Use franchisebrokerGetAutocompleteV1SignalError() instead")
     void franchisebrokerGetAutocompleteV1SignalE(Common_getAutocomplete_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void franchisebrokerGetAutocompleteV1SignalError(Common_getAutocomplete_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use franchisebrokerGetAutocompleteV2SignalError() instead")
     void franchisebrokerGetAutocompleteV2SignalE(Franchisebroker_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void franchisebrokerGetAutocompleteV2SignalError(Franchisebroker_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use franchisebrokerGetAutocompleteV1SignalErrorFull() instead")
     void franchisebrokerGetAutocompleteV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void franchisebrokerGetAutocompleteV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use franchisebrokerGetAutocompleteV2SignalErrorFull() instead")
     void franchisebrokerGetAutocompleteV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void franchisebrokerGetAutocompleteV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
 public slots:
     void tokenAvailable();
-    
 };
 
 } // namespace Ezmaxapi

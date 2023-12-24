@@ -40,11 +40,11 @@ void Communicationrecipient_Request::initializeModel() {
     m_fki_agent_id_isSet = false;
     m_fki_agent_id_isValid = false;
 
-    m_fki_agentincorporation_id_isSet = false;
-    m_fki_agentincorporation_id_isValid = false;
-
     m_fki_broker_id_isSet = false;
     m_fki_broker_id_isValid = false;
+
+    m_fki_contact_id_isSet = false;
+    m_fki_contact_id_isValid = false;
 
     m_fki_customer_id_isSet = false;
     m_fki_customer_id_isValid = false;
@@ -70,6 +70,12 @@ void Communicationrecipient_Request::initializeModel() {
     m_fki_user_id_isSet = false;
     m_fki_user_id_isValid = false;
 
+    m_fki_mailboxshared_id_isSet = false;
+    m_fki_mailboxshared_id_isValid = false;
+
+    m_fki_phonelineshared_id_isSet = false;
+    m_fki_phonelineshared_id_isValid = false;
+
     m_e_communicationrecipient_type_isSet = false;
     m_e_communicationrecipient_type_isValid = false;
 }
@@ -89,11 +95,11 @@ void Communicationrecipient_Request::fromJsonObject(QJsonObject json) {
     m_fki_agent_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_agent_id, json[QString("fkiAgentID")]);
     m_fki_agent_id_isSet = !json[QString("fkiAgentID")].isNull() && m_fki_agent_id_isValid;
 
-    m_fki_agentincorporation_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_agentincorporation_id, json[QString("fkiAgentincorporationID")]);
-    m_fki_agentincorporation_id_isSet = !json[QString("fkiAgentincorporationID")].isNull() && m_fki_agentincorporation_id_isValid;
-
     m_fki_broker_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_broker_id, json[QString("fkiBrokerID")]);
     m_fki_broker_id_isSet = !json[QString("fkiBrokerID")].isNull() && m_fki_broker_id_isValid;
+
+    m_fki_contact_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_contact_id, json[QString("fkiContactID")]);
+    m_fki_contact_id_isSet = !json[QString("fkiContactID")].isNull() && m_fki_contact_id_isValid;
 
     m_fki_customer_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_customer_id, json[QString("fkiCustomerID")]);
     m_fki_customer_id_isSet = !json[QString("fkiCustomerID")].isNull() && m_fki_customer_id_isValid;
@@ -119,6 +125,12 @@ void Communicationrecipient_Request::fromJsonObject(QJsonObject json) {
     m_fki_user_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_user_id, json[QString("fkiUserID")]);
     m_fki_user_id_isSet = !json[QString("fkiUserID")].isNull() && m_fki_user_id_isValid;
 
+    m_fki_mailboxshared_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_mailboxshared_id, json[QString("fkiMailboxsharedID")]);
+    m_fki_mailboxshared_id_isSet = !json[QString("fkiMailboxsharedID")].isNull() && m_fki_mailboxshared_id_isValid;
+
+    m_fki_phonelineshared_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_phonelineshared_id, json[QString("fkiPhonelinesharedID")]);
+    m_fki_phonelineshared_id_isSet = !json[QString("fkiPhonelinesharedID")].isNull() && m_fki_phonelineshared_id_isValid;
+
     m_e_communicationrecipient_type_isValid = ::Ezmaxapi::fromJsonValue(m_e_communicationrecipient_type, json[QString("eCommunicationrecipientType")]);
     m_e_communicationrecipient_type_isSet = !json[QString("eCommunicationrecipientType")].isNull() && m_e_communicationrecipient_type_isValid;
 }
@@ -138,11 +150,11 @@ QJsonObject Communicationrecipient_Request::asJsonObject() const {
     if (m_fki_agent_id_isSet) {
         obj.insert(QString("fkiAgentID"), ::Ezmaxapi::toJsonValue(m_fki_agent_id));
     }
-    if (m_fki_agentincorporation_id_isSet) {
-        obj.insert(QString("fkiAgentincorporationID"), ::Ezmaxapi::toJsonValue(m_fki_agentincorporation_id));
-    }
     if (m_fki_broker_id_isSet) {
         obj.insert(QString("fkiBrokerID"), ::Ezmaxapi::toJsonValue(m_fki_broker_id));
+    }
+    if (m_fki_contact_id_isSet) {
+        obj.insert(QString("fkiContactID"), ::Ezmaxapi::toJsonValue(m_fki_contact_id));
     }
     if (m_fki_customer_id_isSet) {
         obj.insert(QString("fkiCustomerID"), ::Ezmaxapi::toJsonValue(m_fki_customer_id));
@@ -167,6 +179,12 @@ QJsonObject Communicationrecipient_Request::asJsonObject() const {
     }
     if (m_fki_user_id_isSet) {
         obj.insert(QString("fkiUserID"), ::Ezmaxapi::toJsonValue(m_fki_user_id));
+    }
+    if (m_fki_mailboxshared_id_isSet) {
+        obj.insert(QString("fkiMailboxsharedID"), ::Ezmaxapi::toJsonValue(m_fki_mailboxshared_id));
+    }
+    if (m_fki_phonelineshared_id_isSet) {
+        obj.insert(QString("fkiPhonelinesharedID"), ::Ezmaxapi::toJsonValue(m_fki_phonelineshared_id));
     }
     if (m_e_communicationrecipient_type.isSet()) {
         obj.insert(QString("eCommunicationrecipientType"), ::Ezmaxapi::toJsonValue(m_e_communicationrecipient_type));
@@ -206,22 +224,6 @@ bool Communicationrecipient_Request::is_fki_agent_id_Valid() const{
     return m_fki_agent_id_isValid;
 }
 
-qint32 Communicationrecipient_Request::getFkiAgentincorporationId() const {
-    return m_fki_agentincorporation_id;
-}
-void Communicationrecipient_Request::setFkiAgentincorporationId(const qint32 &fki_agentincorporation_id) {
-    m_fki_agentincorporation_id = fki_agentincorporation_id;
-    m_fki_agentincorporation_id_isSet = true;
-}
-
-bool Communicationrecipient_Request::is_fki_agentincorporation_id_Set() const{
-    return m_fki_agentincorporation_id_isSet;
-}
-
-bool Communicationrecipient_Request::is_fki_agentincorporation_id_Valid() const{
-    return m_fki_agentincorporation_id_isValid;
-}
-
 qint32 Communicationrecipient_Request::getFkiBrokerId() const {
     return m_fki_broker_id;
 }
@@ -236,6 +238,22 @@ bool Communicationrecipient_Request::is_fki_broker_id_Set() const{
 
 bool Communicationrecipient_Request::is_fki_broker_id_Valid() const{
     return m_fki_broker_id_isValid;
+}
+
+qint32 Communicationrecipient_Request::getFkiContactId() const {
+    return m_fki_contact_id;
+}
+void Communicationrecipient_Request::setFkiContactId(const qint32 &fki_contact_id) {
+    m_fki_contact_id = fki_contact_id;
+    m_fki_contact_id_isSet = true;
+}
+
+bool Communicationrecipient_Request::is_fki_contact_id_Set() const{
+    return m_fki_contact_id_isSet;
+}
+
+bool Communicationrecipient_Request::is_fki_contact_id_Valid() const{
+    return m_fki_contact_id_isValid;
 }
 
 qint32 Communicationrecipient_Request::getFkiCustomerId() const {
@@ -366,6 +384,38 @@ bool Communicationrecipient_Request::is_fki_user_id_Valid() const{
     return m_fki_user_id_isValid;
 }
 
+qint32 Communicationrecipient_Request::getFkiMailboxsharedId() const {
+    return m_fki_mailboxshared_id;
+}
+void Communicationrecipient_Request::setFkiMailboxsharedId(const qint32 &fki_mailboxshared_id) {
+    m_fki_mailboxshared_id = fki_mailboxshared_id;
+    m_fki_mailboxshared_id_isSet = true;
+}
+
+bool Communicationrecipient_Request::is_fki_mailboxshared_id_Set() const{
+    return m_fki_mailboxshared_id_isSet;
+}
+
+bool Communicationrecipient_Request::is_fki_mailboxshared_id_Valid() const{
+    return m_fki_mailboxshared_id_isValid;
+}
+
+qint32 Communicationrecipient_Request::getFkiPhonelinesharedId() const {
+    return m_fki_phonelineshared_id;
+}
+void Communicationrecipient_Request::setFkiPhonelinesharedId(const qint32 &fki_phonelineshared_id) {
+    m_fki_phonelineshared_id = fki_phonelineshared_id;
+    m_fki_phonelineshared_id_isSet = true;
+}
+
+bool Communicationrecipient_Request::is_fki_phonelineshared_id_Set() const{
+    return m_fki_phonelineshared_id_isSet;
+}
+
+bool Communicationrecipient_Request::is_fki_phonelineshared_id_Valid() const{
+    return m_fki_phonelineshared_id_isValid;
+}
+
 Field_eCommunicationrecipientType Communicationrecipient_Request::getECommunicationrecipientType() const {
     return m_e_communicationrecipient_type;
 }
@@ -395,12 +445,12 @@ bool Communicationrecipient_Request::isSet() const {
             break;
         }
 
-        if (m_fki_agentincorporation_id_isSet) {
+        if (m_fki_broker_id_isSet) {
             isObjectUpdated = true;
             break;
         }
 
-        if (m_fki_broker_id_isSet) {
+        if (m_fki_contact_id_isSet) {
             isObjectUpdated = true;
             break;
         }
@@ -441,6 +491,16 @@ bool Communicationrecipient_Request::isSet() const {
         }
 
         if (m_fki_user_id_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_fki_mailboxshared_id_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_fki_phonelineshared_id_isSet) {
             isObjectUpdated = true;
             break;
         }

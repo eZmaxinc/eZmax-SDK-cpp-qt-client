@@ -65,6 +65,11 @@ public:
     bool is_s_phone_extension_Set() const;
     bool is_s_phone_extension_Valid() const;
 
+    bool isBPhoneInternational() const;
+    void setBPhoneInternational(const bool &b_phone_international);
+    bool is_b_phone_international_Set() const;
+    bool is_b_phone_international_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -90,6 +95,10 @@ private:
     QString m_s_phone_extension;
     bool m_s_phone_extension_isSet;
     bool m_s_phone_extension_isValid;
+
+    bool m_b_phone_international;
+    bool m_b_phone_international_isSet;
+    bool m_b_phone_international_isValid;
 };
 
 } // namespace Ezmaxapi

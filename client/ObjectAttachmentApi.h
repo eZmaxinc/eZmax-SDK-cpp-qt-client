@@ -18,7 +18,8 @@
 #include "ServerConfiguration.h"
 #include "Oauth.h"
 
-#include "Attachment_download_v1_Response.h"
+#include "Attachment_getAttachmentlogs_v1_Response.h"
+#include "Attachment_getDownloadUrl_v1_Response.h"
 #include "Common_Response_Error.h"
 #include <QString>
 
@@ -63,6 +64,16 @@ public:
     */
     void attachmentDownloadV1(const qint32 &pki_attachment_id);
 
+    /**
+    * @param[in]  pki_attachment_id qint32 [required]
+    */
+    void attachmentGetAttachmentlogsV1(const qint32 &pki_attachment_id);
+
+    /**
+    * @param[in]  pki_attachment_id qint32 [required]
+    */
+    void attachmentGetDownloadUrlV1(const qint32 &pki_attachment_id);
+
 
 private:
     QMap<QString,int> _serverIndices;
@@ -87,23 +98,44 @@ private:
     int _OauthMethod = 0;
 
     void attachmentDownloadV1Callback(HttpRequestWorker *worker);
+    void attachmentGetAttachmentlogsV1Callback(HttpRequestWorker *worker);
+    void attachmentGetDownloadUrlV1Callback(HttpRequestWorker *worker);
 
 signals:
 
-    void attachmentDownloadV1Signal(Attachment_download_v1_Response summary);
+    void attachmentDownloadV1Signal();
+    void attachmentGetAttachmentlogsV1Signal(Attachment_getAttachmentlogs_v1_Response summary);
+    void attachmentGetDownloadUrlV1Signal(Attachment_getDownloadUrl_v1_Response summary);
 
-    void attachmentDownloadV1SignalFull(HttpRequestWorker *worker, Attachment_download_v1_Response summary);
+    void attachmentDownloadV1SignalFull(HttpRequestWorker *worker);
+    void attachmentGetAttachmentlogsV1SignalFull(HttpRequestWorker *worker, Attachment_getAttachmentlogs_v1_Response summary);
+    void attachmentGetDownloadUrlV1SignalFull(HttpRequestWorker *worker, Attachment_getDownloadUrl_v1_Response summary);
 
-    void attachmentDownloadV1SignalE(Attachment_download_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    Q_DECL_DEPRECATED_X("Use attachmentDownloadV1SignalError() instead")
+    void attachmentDownloadV1SignalE(QNetworkReply::NetworkError error_type, QString error_str);
+    void attachmentDownloadV1SignalError(QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use attachmentGetAttachmentlogsV1SignalError() instead")
+    void attachmentGetAttachmentlogsV1SignalE(Attachment_getAttachmentlogs_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void attachmentGetAttachmentlogsV1SignalError(Attachment_getAttachmentlogs_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use attachmentGetDownloadUrlV1SignalError() instead")
+    void attachmentGetDownloadUrlV1SignalE(Attachment_getDownloadUrl_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void attachmentGetDownloadUrlV1SignalError(Attachment_getDownloadUrl_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use attachmentDownloadV1SignalErrorFull() instead")
     void attachmentDownloadV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void attachmentDownloadV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use attachmentGetAttachmentlogsV1SignalErrorFull() instead")
+    void attachmentGetAttachmentlogsV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void attachmentGetAttachmentlogsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use attachmentGetDownloadUrlV1SignalErrorFull() instead")
+    void attachmentGetDownloadUrlV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void attachmentGetDownloadUrlV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
 public slots:
     void tokenAvailable();
-    
 };
 
 } // namespace Ezmaxapi

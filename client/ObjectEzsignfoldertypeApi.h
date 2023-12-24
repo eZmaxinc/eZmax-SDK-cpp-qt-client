@@ -154,26 +154,49 @@ signals:
     void ezsignfoldertypeGetListV1SignalFull(HttpRequestWorker *worker, Ezsignfoldertype_getList_v1_Response summary);
     void ezsignfoldertypeGetObjectV2SignalFull(HttpRequestWorker *worker, Ezsignfoldertype_getObject_v2_Response summary);
 
+    Q_DECL_DEPRECATED_X("Use ezsignfoldertypeCreateObjectV1SignalError() instead")
     void ezsignfoldertypeCreateObjectV1SignalE(Ezsignfoldertype_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfoldertypeCreateObjectV1SignalError(Ezsignfoldertype_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignfoldertypeEditObjectV1SignalError() instead")
     void ezsignfoldertypeEditObjectV1SignalE(Ezsignfoldertype_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfoldertypeEditObjectV1SignalError(Ezsignfoldertype_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignfoldertypeGetAutocompleteV1SignalError() instead")
     void ezsignfoldertypeGetAutocompleteV1SignalE(Common_getAutocomplete_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfoldertypeGetAutocompleteV1SignalError(Common_getAutocomplete_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignfoldertypeGetAutocompleteV2SignalError() instead")
     void ezsignfoldertypeGetAutocompleteV2SignalE(Ezsignfoldertype_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfoldertypeGetAutocompleteV2SignalError(Ezsignfoldertype_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignfoldertypeGetListV1SignalError() instead")
     void ezsignfoldertypeGetListV1SignalE(Ezsignfoldertype_getList_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfoldertypeGetListV1SignalError(Ezsignfoldertype_getList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignfoldertypeGetObjectV2SignalError() instead")
     void ezsignfoldertypeGetObjectV2SignalE(Ezsignfoldertype_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfoldertypeGetObjectV2SignalError(Ezsignfoldertype_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use ezsignfoldertypeCreateObjectV1SignalErrorFull() instead")
     void ezsignfoldertypeCreateObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfoldertypeCreateObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignfoldertypeEditObjectV1SignalErrorFull() instead")
     void ezsignfoldertypeEditObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfoldertypeEditObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignfoldertypeGetAutocompleteV1SignalErrorFull() instead")
     void ezsignfoldertypeGetAutocompleteV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfoldertypeGetAutocompleteV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignfoldertypeGetAutocompleteV2SignalErrorFull() instead")
     void ezsignfoldertypeGetAutocompleteV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfoldertypeGetAutocompleteV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignfoldertypeGetListV1SignalErrorFull() instead")
     void ezsignfoldertypeGetListV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfoldertypeGetListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignfoldertypeGetObjectV2SignalErrorFull() instead")
     void ezsignfoldertypeGetObjectV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfoldertypeGetObjectV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
 public slots:
     void tokenAvailable();
-    
 };
 
 } // namespace Ezmaxapi

@@ -100,18 +100,25 @@ signals:
     void ezsignSuggestSignersV1SignalFull(HttpRequestWorker *worker, Ezsign_suggestSigners_v1_Response summary);
     void ezsignSuggestTemplatesV1SignalFull(HttpRequestWorker *worker, Ezsign_suggestTemplates_v1_Response summary);
 
+    Q_DECL_DEPRECATED_X("Use ezsignSuggestSignersV1SignalError() instead")
     void ezsignSuggestSignersV1SignalE(Ezsign_suggestSigners_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignSuggestSignersV1SignalError(Ezsign_suggestSigners_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignSuggestTemplatesV1SignalError() instead")
     void ezsignSuggestTemplatesV1SignalE(Ezsign_suggestTemplates_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignSuggestTemplatesV1SignalError(Ezsign_suggestTemplates_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use ezsignSuggestSignersV1SignalErrorFull() instead")
     void ezsignSuggestSignersV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignSuggestSignersV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignSuggestTemplatesV1SignalErrorFull() instead")
     void ezsignSuggestTemplatesV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignSuggestTemplatesV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
 public slots:
     void tokenAvailable();
-    
 };
 
 } // namespace Ezmaxapi

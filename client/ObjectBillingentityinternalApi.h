@@ -142,24 +142,43 @@ signals:
     void billingentityinternalGetListV1SignalFull(HttpRequestWorker *worker, Billingentityinternal_getList_v1_Response summary);
     void billingentityinternalGetObjectV2SignalFull(HttpRequestWorker *worker, Billingentityinternal_getObject_v2_Response summary);
 
+    Q_DECL_DEPRECATED_X("Use billingentityinternalCreateObjectV1SignalError() instead")
     void billingentityinternalCreateObjectV1SignalE(Billingentityinternal_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void billingentityinternalCreateObjectV1SignalError(Billingentityinternal_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use billingentityinternalEditObjectV1SignalError() instead")
     void billingentityinternalEditObjectV1SignalE(Billingentityinternal_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void billingentityinternalEditObjectV1SignalError(Billingentityinternal_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use billingentityinternalGetAutocompleteV2SignalError() instead")
     void billingentityinternalGetAutocompleteV2SignalE(Billingentityinternal_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void billingentityinternalGetAutocompleteV2SignalError(Billingentityinternal_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use billingentityinternalGetListV1SignalError() instead")
     void billingentityinternalGetListV1SignalE(Billingentityinternal_getList_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void billingentityinternalGetListV1SignalError(Billingentityinternal_getList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use billingentityinternalGetObjectV2SignalError() instead")
     void billingentityinternalGetObjectV2SignalE(Billingentityinternal_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void billingentityinternalGetObjectV2SignalError(Billingentityinternal_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use billingentityinternalCreateObjectV1SignalErrorFull() instead")
     void billingentityinternalCreateObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void billingentityinternalCreateObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use billingentityinternalEditObjectV1SignalErrorFull() instead")
     void billingentityinternalEditObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void billingentityinternalEditObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use billingentityinternalGetAutocompleteV2SignalErrorFull() instead")
     void billingentityinternalGetAutocompleteV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void billingentityinternalGetAutocompleteV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use billingentityinternalGetListV1SignalErrorFull() instead")
     void billingentityinternalGetListV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void billingentityinternalGetListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use billingentityinternalGetObjectV2SignalErrorFull() instead")
     void billingentityinternalGetObjectV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void billingentityinternalGetObjectV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
 public slots:
     void tokenAvailable();
-    
 };
 
 } // namespace Ezmaxapi

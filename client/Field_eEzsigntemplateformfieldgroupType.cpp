@@ -61,6 +61,14 @@ void Field_eEzsigntemplateformfieldgroupType::fromJson(QString jsonString) {
         m_value = eField_eEzsigntemplateformfieldgroupType::CHECKBOX;
         m_value_isSet = m_value_isValid = true;
     }
+    else if ( jsonString.compare("Number", Qt::CaseInsensitive) == 0) {
+        m_value = eField_eEzsigntemplateformfieldgroupType::NUMBER;
+        m_value_isSet = m_value_isValid = true;
+    }
+    else if ( jsonString.compare("Date", Qt::CaseInsensitive) == 0) {
+        m_value = eField_eEzsigntemplateformfieldgroupType::DATE;
+        m_value_isSet = m_value_isValid = true;
+    }
 }
 
 void Field_eEzsigntemplateformfieldgroupType::fromJsonValue(QJsonValue json) {
@@ -85,6 +93,12 @@ QString Field_eEzsigntemplateformfieldgroupType::asJson() const {
             break;
         case eField_eEzsigntemplateformfieldgroupType::CHECKBOX:
             val = "Checkbox";
+            break;
+        case eField_eEzsigntemplateformfieldgroupType::NUMBER:
+            val = "Number";
+            break;
+        case eField_eEzsigntemplateformfieldgroupType::DATE:
+            val = "Date";
             break;
         default:
             break;

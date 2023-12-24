@@ -94,16 +94,19 @@ signals:
 
     void otherincomeGetCommunicationListV1SignalFull(HttpRequestWorker *worker, Otherincome_getCommunicationList_v1_Response summary);
 
+    Q_DECL_DEPRECATED_X("Use otherincomeGetCommunicationListV1SignalError() instead")
     void otherincomeGetCommunicationListV1SignalE(Otherincome_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void otherincomeGetCommunicationListV1SignalError(Otherincome_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use otherincomeGetCommunicationListV1SignalErrorFull() instead")
     void otherincomeGetCommunicationListV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void otherincomeGetCommunicationListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
 public slots:
     void tokenAvailable();
-    
 };
 
 } // namespace Ezmaxapi

@@ -61,6 +61,10 @@ void Field_eEzsigntemplatesignatureType::fromJson(QString jsonString) {
         m_value = eField_eEzsigntemplatesignatureType::NAME;
         m_value_isSet = m_value_isValid = true;
     }
+    else if ( jsonString.compare("NameReason", Qt::CaseInsensitive) == 0) {
+        m_value = eField_eEzsigntemplatesignatureType::NAMEREASON;
+        m_value_isSet = m_value_isValid = true;
+    }
     else if ( jsonString.compare("Attachments", Qt::CaseInsensitive) == 0) {
         m_value = eField_eEzsigntemplatesignatureType::ATTACHMENTS;
         m_value_isSet = m_value_isValid = true;
@@ -97,6 +101,9 @@ QString Field_eEzsigntemplatesignatureType::asJson() const {
             break;
         case eField_eEzsigntemplatesignatureType::NAME:
             val = "Name";
+            break;
+        case eField_eEzsigntemplatesignatureType::NAMEREASON:
+            val = "NameReason";
             break;
         case eField_eEzsigntemplatesignatureType::ATTACHMENTS:
             val = "Attachments";

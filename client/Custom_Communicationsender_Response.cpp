@@ -46,17 +46,23 @@ void Custom_Communicationsender_Response::initializeModel() {
     m_fki_mailboxshared_id_isSet = false;
     m_fki_mailboxshared_id_isValid = false;
 
+    m_fki_phonelineshared_id_isSet = false;
+    m_fki_phonelineshared_id_isValid = false;
+
     m_e_communicationsender_objecttype_isSet = false;
     m_e_communicationsender_objecttype_isValid = false;
 
     m_obj_contact_name_isSet = false;
     m_obj_contact_name_isValid = false;
 
-    m_s_email_address_isSet = false;
-    m_s_email_address_isValid = false;
+    m_obj_email_isSet = false;
+    m_obj_email_isValid = false;
 
-    m_s_phone_e164_isSet = false;
-    m_s_phone_e164_isValid = false;
+    m_obj_phone_fax_isSet = false;
+    m_obj_phone_fax_isValid = false;
+
+    m_obj_phone_sms_isSet = false;
+    m_obj_phone_sms_isValid = false;
 }
 
 void Custom_Communicationsender_Response::fromJson(QString jsonString) {
@@ -80,17 +86,23 @@ void Custom_Communicationsender_Response::fromJsonObject(QJsonObject json) {
     m_fki_mailboxshared_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_mailboxshared_id, json[QString("fkiMailboxsharedID")]);
     m_fki_mailboxshared_id_isSet = !json[QString("fkiMailboxsharedID")].isNull() && m_fki_mailboxshared_id_isValid;
 
+    m_fki_phonelineshared_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_phonelineshared_id, json[QString("fkiPhonelinesharedID")]);
+    m_fki_phonelineshared_id_isSet = !json[QString("fkiPhonelinesharedID")].isNull() && m_fki_phonelineshared_id_isValid;
+
     m_e_communicationsender_objecttype_isValid = ::Ezmaxapi::fromJsonValue(m_e_communicationsender_objecttype, json[QString("eCommunicationsenderObjecttype")]);
     m_e_communicationsender_objecttype_isSet = !json[QString("eCommunicationsenderObjecttype")].isNull() && m_e_communicationsender_objecttype_isValid;
 
     m_obj_contact_name_isValid = ::Ezmaxapi::fromJsonValue(m_obj_contact_name, json[QString("objContactName")]);
     m_obj_contact_name_isSet = !json[QString("objContactName")].isNull() && m_obj_contact_name_isValid;
 
-    m_s_email_address_isValid = ::Ezmaxapi::fromJsonValue(m_s_email_address, json[QString("sEmailAddress")]);
-    m_s_email_address_isSet = !json[QString("sEmailAddress")].isNull() && m_s_email_address_isValid;
+    m_obj_email_isValid = ::Ezmaxapi::fromJsonValue(m_obj_email, json[QString("objEmail")]);
+    m_obj_email_isSet = !json[QString("objEmail")].isNull() && m_obj_email_isValid;
 
-    m_s_phone_e164_isValid = ::Ezmaxapi::fromJsonValue(m_s_phone_e164, json[QString("sPhoneE164")]);
-    m_s_phone_e164_isSet = !json[QString("sPhoneE164")].isNull() && m_s_phone_e164_isValid;
+    m_obj_phone_fax_isValid = ::Ezmaxapi::fromJsonValue(m_obj_phone_fax, json[QString("objPhoneFax")]);
+    m_obj_phone_fax_isSet = !json[QString("objPhoneFax")].isNull() && m_obj_phone_fax_isValid;
+
+    m_obj_phone_sms_isValid = ::Ezmaxapi::fromJsonValue(m_obj_phone_sms, json[QString("objPhoneSMS")]);
+    m_obj_phone_sms_isSet = !json[QString("objPhoneSMS")].isNull() && m_obj_phone_sms_isValid;
 }
 
 QString Custom_Communicationsender_Response::asJson() const {
@@ -114,17 +126,23 @@ QJsonObject Custom_Communicationsender_Response::asJsonObject() const {
     if (m_fki_mailboxshared_id_isSet) {
         obj.insert(QString("fkiMailboxsharedID"), ::Ezmaxapi::toJsonValue(m_fki_mailboxshared_id));
     }
+    if (m_fki_phonelineshared_id_isSet) {
+        obj.insert(QString("fkiPhonelinesharedID"), ::Ezmaxapi::toJsonValue(m_fki_phonelineshared_id));
+    }
     if (m_e_communicationsender_objecttype_isSet) {
         obj.insert(QString("eCommunicationsenderObjecttype"), ::Ezmaxapi::toJsonValue(m_e_communicationsender_objecttype));
     }
     if (m_obj_contact_name.isSet()) {
         obj.insert(QString("objContactName"), ::Ezmaxapi::toJsonValue(m_obj_contact_name));
     }
-    if (m_s_email_address_isSet) {
-        obj.insert(QString("sEmailAddress"), ::Ezmaxapi::toJsonValue(m_s_email_address));
+    if (m_obj_email.isSet()) {
+        obj.insert(QString("objEmail"), ::Ezmaxapi::toJsonValue(m_obj_email));
     }
-    if (m_s_phone_e164_isSet) {
-        obj.insert(QString("sPhoneE164"), ::Ezmaxapi::toJsonValue(m_s_phone_e164));
+    if (m_obj_phone_fax.isSet()) {
+        obj.insert(QString("objPhoneFax"), ::Ezmaxapi::toJsonValue(m_obj_phone_fax));
+    }
+    if (m_obj_phone_sms.isSet()) {
+        obj.insert(QString("objPhoneSMS"), ::Ezmaxapi::toJsonValue(m_obj_phone_sms));
     }
     return obj;
 }
@@ -193,6 +211,22 @@ bool Custom_Communicationsender_Response::is_fki_mailboxshared_id_Valid() const{
     return m_fki_mailboxshared_id_isValid;
 }
 
+qint32 Custom_Communicationsender_Response::getFkiPhonelinesharedId() const {
+    return m_fki_phonelineshared_id;
+}
+void Custom_Communicationsender_Response::setFkiPhonelinesharedId(const qint32 &fki_phonelineshared_id) {
+    m_fki_phonelineshared_id = fki_phonelineshared_id;
+    m_fki_phonelineshared_id_isSet = true;
+}
+
+bool Custom_Communicationsender_Response::is_fki_phonelineshared_id_Set() const{
+    return m_fki_phonelineshared_id_isSet;
+}
+
+bool Custom_Communicationsender_Response::is_fki_phonelineshared_id_Valid() const{
+    return m_fki_phonelineshared_id_isValid;
+}
+
 QString Custom_Communicationsender_Response::getECommunicationsenderObjecttype() const {
     return m_e_communicationsender_objecttype;
 }
@@ -225,36 +259,52 @@ bool Custom_Communicationsender_Response::is_obj_contact_name_Valid() const{
     return m_obj_contact_name_isValid;
 }
 
-QString Custom_Communicationsender_Response::getSEmailAddress() const {
-    return m_s_email_address;
+Email_ResponseCompound Custom_Communicationsender_Response::getObjEmail() const {
+    return m_obj_email;
 }
-void Custom_Communicationsender_Response::setSEmailAddress(const QString &s_email_address) {
-    m_s_email_address = s_email_address;
-    m_s_email_address_isSet = true;
-}
-
-bool Custom_Communicationsender_Response::is_s_email_address_Set() const{
-    return m_s_email_address_isSet;
+void Custom_Communicationsender_Response::setObjEmail(const Email_ResponseCompound &obj_email) {
+    m_obj_email = obj_email;
+    m_obj_email_isSet = true;
 }
 
-bool Custom_Communicationsender_Response::is_s_email_address_Valid() const{
-    return m_s_email_address_isValid;
+bool Custom_Communicationsender_Response::is_obj_email_Set() const{
+    return m_obj_email_isSet;
 }
 
-QString Custom_Communicationsender_Response::getSPhoneE164() const {
-    return m_s_phone_e164;
-}
-void Custom_Communicationsender_Response::setSPhoneE164(const QString &s_phone_e164) {
-    m_s_phone_e164 = s_phone_e164;
-    m_s_phone_e164_isSet = true;
+bool Custom_Communicationsender_Response::is_obj_email_Valid() const{
+    return m_obj_email_isValid;
 }
 
-bool Custom_Communicationsender_Response::is_s_phone_e164_Set() const{
-    return m_s_phone_e164_isSet;
+Phone_ResponseCompound Custom_Communicationsender_Response::getObjPhoneFax() const {
+    return m_obj_phone_fax;
+}
+void Custom_Communicationsender_Response::setObjPhoneFax(const Phone_ResponseCompound &obj_phone_fax) {
+    m_obj_phone_fax = obj_phone_fax;
+    m_obj_phone_fax_isSet = true;
 }
 
-bool Custom_Communicationsender_Response::is_s_phone_e164_Valid() const{
-    return m_s_phone_e164_isValid;
+bool Custom_Communicationsender_Response::is_obj_phone_fax_Set() const{
+    return m_obj_phone_fax_isSet;
+}
+
+bool Custom_Communicationsender_Response::is_obj_phone_fax_Valid() const{
+    return m_obj_phone_fax_isValid;
+}
+
+Phone_ResponseCompound Custom_Communicationsender_Response::getObjPhoneSms() const {
+    return m_obj_phone_sms;
+}
+void Custom_Communicationsender_Response::setObjPhoneSms(const Phone_ResponseCompound &obj_phone_sms) {
+    m_obj_phone_sms = obj_phone_sms;
+    m_obj_phone_sms_isSet = true;
+}
+
+bool Custom_Communicationsender_Response::is_obj_phone_sms_Set() const{
+    return m_obj_phone_sms_isSet;
+}
+
+bool Custom_Communicationsender_Response::is_obj_phone_sms_Valid() const{
+    return m_obj_phone_sms_isValid;
 }
 
 bool Custom_Communicationsender_Response::isSet() const {
@@ -280,6 +330,11 @@ bool Custom_Communicationsender_Response::isSet() const {
             break;
         }
 
+        if (m_fki_phonelineshared_id_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (m_e_communicationsender_objecttype_isSet) {
             isObjectUpdated = true;
             break;
@@ -290,12 +345,17 @@ bool Custom_Communicationsender_Response::isSet() const {
             break;
         }
 
-        if (m_s_email_address_isSet) {
+        if (m_obj_email.isSet()) {
             isObjectUpdated = true;
             break;
         }
 
-        if (m_s_phone_e164_isSet) {
+        if (m_obj_phone_fax.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_obj_phone_sms.isSet()) {
             isObjectUpdated = true;
             break;
         }

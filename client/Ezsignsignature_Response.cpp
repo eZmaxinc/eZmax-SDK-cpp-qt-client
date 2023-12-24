@@ -43,6 +43,12 @@ void Ezsignsignature_Response::initializeModel() {
     m_fki_ezsignfoldersignerassociation_id_isSet = false;
     m_fki_ezsignfoldersignerassociation_id_isValid = false;
 
+    m_fki_ezsignsigningreason_id_isSet = false;
+    m_fki_ezsignsigningreason_id_isValid = false;
+
+    m_s_ezsignsigningreason_description_x_isSet = false;
+    m_s_ezsignsigningreason_description_x_isValid = false;
+
     m_i_ezsignpage_pagenumber_isSet = false;
     m_i_ezsignpage_pagenumber_isValid = false;
 
@@ -137,6 +143,12 @@ void Ezsignsignature_Response::fromJsonObject(QJsonObject json) {
     m_fki_ezsignfoldersignerassociation_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_ezsignfoldersignerassociation_id, json[QString("fkiEzsignfoldersignerassociationID")]);
     m_fki_ezsignfoldersignerassociation_id_isSet = !json[QString("fkiEzsignfoldersignerassociationID")].isNull() && m_fki_ezsignfoldersignerassociation_id_isValid;
 
+    m_fki_ezsignsigningreason_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_ezsignsigningreason_id, json[QString("fkiEzsignsigningreasonID")]);
+    m_fki_ezsignsigningreason_id_isSet = !json[QString("fkiEzsignsigningreasonID")].isNull() && m_fki_ezsignsigningreason_id_isValid;
+
+    m_s_ezsignsigningreason_description_x_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsignsigningreason_description_x, json[QString("sEzsignsigningreasonDescriptionX")]);
+    m_s_ezsignsigningreason_description_x_isSet = !json[QString("sEzsignsigningreasonDescriptionX")].isNull() && m_s_ezsignsigningreason_description_x_isValid;
+
     m_i_ezsignpage_pagenumber_isValid = ::Ezmaxapi::fromJsonValue(m_i_ezsignpage_pagenumber, json[QString("iEzsignpagePagenumber")]);
     m_i_ezsignpage_pagenumber_isSet = !json[QString("iEzsignpagePagenumber")].isNull() && m_i_ezsignpage_pagenumber_isValid;
 
@@ -230,6 +242,12 @@ QJsonObject Ezsignsignature_Response::asJsonObject() const {
     }
     if (m_fki_ezsignfoldersignerassociation_id_isSet) {
         obj.insert(QString("fkiEzsignfoldersignerassociationID"), ::Ezmaxapi::toJsonValue(m_fki_ezsignfoldersignerassociation_id));
+    }
+    if (m_fki_ezsignsigningreason_id_isSet) {
+        obj.insert(QString("fkiEzsignsigningreasonID"), ::Ezmaxapi::toJsonValue(m_fki_ezsignsigningreason_id));
+    }
+    if (m_s_ezsignsigningreason_description_x_isSet) {
+        obj.insert(QString("sEzsignsigningreasonDescriptionX"), ::Ezmaxapi::toJsonValue(m_s_ezsignsigningreason_description_x));
     }
     if (m_i_ezsignpage_pagenumber_isSet) {
         obj.insert(QString("iEzsignpagePagenumber"), ::Ezmaxapi::toJsonValue(m_i_ezsignpage_pagenumber));
@@ -355,6 +373,38 @@ bool Ezsignsignature_Response::is_fki_ezsignfoldersignerassociation_id_Set() con
 
 bool Ezsignsignature_Response::is_fki_ezsignfoldersignerassociation_id_Valid() const{
     return m_fki_ezsignfoldersignerassociation_id_isValid;
+}
+
+qint32 Ezsignsignature_Response::getFkiEzsignsigningreasonId() const {
+    return m_fki_ezsignsigningreason_id;
+}
+void Ezsignsignature_Response::setFkiEzsignsigningreasonId(const qint32 &fki_ezsignsigningreason_id) {
+    m_fki_ezsignsigningreason_id = fki_ezsignsigningreason_id;
+    m_fki_ezsignsigningreason_id_isSet = true;
+}
+
+bool Ezsignsignature_Response::is_fki_ezsignsigningreason_id_Set() const{
+    return m_fki_ezsignsigningreason_id_isSet;
+}
+
+bool Ezsignsignature_Response::is_fki_ezsignsigningreason_id_Valid() const{
+    return m_fki_ezsignsigningreason_id_isValid;
+}
+
+QString Ezsignsignature_Response::getSEzsignsigningreasonDescriptionX() const {
+    return m_s_ezsignsigningreason_description_x;
+}
+void Ezsignsignature_Response::setSEzsignsigningreasonDescriptionX(const QString &s_ezsignsigningreason_description_x) {
+    m_s_ezsignsigningreason_description_x = s_ezsignsigningreason_description_x;
+    m_s_ezsignsigningreason_description_x_isSet = true;
+}
+
+bool Ezsignsignature_Response::is_s_ezsignsigningreason_description_x_Set() const{
+    return m_s_ezsignsigningreason_description_x_isSet;
+}
+
+bool Ezsignsignature_Response::is_s_ezsignsigningreason_description_x_Valid() const{
+    return m_s_ezsignsigningreason_description_x_isValid;
 }
 
 qint32 Ezsignsignature_Response::getIEzsignpagePagenumber() const {
@@ -771,6 +821,16 @@ bool Ezsignsignature_Response::isSet() const {
         }
 
         if (m_fki_ezsignfoldersignerassociation_id_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_fki_ezsignsigningreason_id_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_s_ezsignsigningreason_description_x_isSet) {
             isObjectUpdated = true;
             break;
         }

@@ -124,22 +124,37 @@ signals:
     void usergroupdelegationEditObjectV1SignalFull(HttpRequestWorker *worker, Usergroupdelegation_editObject_v1_Response summary);
     void usergroupdelegationGetObjectV2SignalFull(HttpRequestWorker *worker, Usergroupdelegation_getObject_v2_Response summary);
 
+    Q_DECL_DEPRECATED_X("Use usergroupdelegationCreateObjectV1SignalError() instead")
     void usergroupdelegationCreateObjectV1SignalE(Usergroupdelegation_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void usergroupdelegationCreateObjectV1SignalError(Usergroupdelegation_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use usergroupdelegationDeleteObjectV1SignalError() instead")
     void usergroupdelegationDeleteObjectV1SignalE(Usergroupdelegation_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void usergroupdelegationDeleteObjectV1SignalError(Usergroupdelegation_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use usergroupdelegationEditObjectV1SignalError() instead")
     void usergroupdelegationEditObjectV1SignalE(Usergroupdelegation_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void usergroupdelegationEditObjectV1SignalError(Usergroupdelegation_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use usergroupdelegationGetObjectV2SignalError() instead")
     void usergroupdelegationGetObjectV2SignalE(Usergroupdelegation_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void usergroupdelegationGetObjectV2SignalError(Usergroupdelegation_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use usergroupdelegationCreateObjectV1SignalErrorFull() instead")
     void usergroupdelegationCreateObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void usergroupdelegationCreateObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use usergroupdelegationDeleteObjectV1SignalErrorFull() instead")
     void usergroupdelegationDeleteObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void usergroupdelegationDeleteObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use usergroupdelegationEditObjectV1SignalErrorFull() instead")
     void usergroupdelegationEditObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void usergroupdelegationEditObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use usergroupdelegationGetObjectV2SignalErrorFull() instead")
     void usergroupdelegationGetObjectV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void usergroupdelegationGetObjectV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
 public slots:
     void tokenAvailable();
-    
 };
 
 } // namespace Ezmaxapi

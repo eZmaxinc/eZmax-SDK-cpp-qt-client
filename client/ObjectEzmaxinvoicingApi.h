@@ -126,22 +126,37 @@ signals:
     void ezmaxinvoicingGetObjectV2SignalFull(HttpRequestWorker *worker, Ezmaxinvoicing_getObject_v2_Response summary);
     void ezmaxinvoicingGetProvisionalV1SignalFull(HttpRequestWorker *worker, Ezmaxinvoicing_getProvisional_v1_Response summary);
 
+    Q_DECL_DEPRECATED_X("Use ezmaxinvoicingGetAutocompleteV1SignalError() instead")
     void ezmaxinvoicingGetAutocompleteV1SignalE(Common_getAutocomplete_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezmaxinvoicingGetAutocompleteV1SignalError(Common_getAutocomplete_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezmaxinvoicingGetAutocompleteV2SignalError() instead")
     void ezmaxinvoicingGetAutocompleteV2SignalE(Ezmaxinvoicing_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezmaxinvoicingGetAutocompleteV2SignalError(Ezmaxinvoicing_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezmaxinvoicingGetObjectV2SignalError() instead")
     void ezmaxinvoicingGetObjectV2SignalE(Ezmaxinvoicing_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezmaxinvoicingGetObjectV2SignalError(Ezmaxinvoicing_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezmaxinvoicingGetProvisionalV1SignalError() instead")
     void ezmaxinvoicingGetProvisionalV1SignalE(Ezmaxinvoicing_getProvisional_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezmaxinvoicingGetProvisionalV1SignalError(Ezmaxinvoicing_getProvisional_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use ezmaxinvoicingGetAutocompleteV1SignalErrorFull() instead")
     void ezmaxinvoicingGetAutocompleteV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezmaxinvoicingGetAutocompleteV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezmaxinvoicingGetAutocompleteV2SignalErrorFull() instead")
     void ezmaxinvoicingGetAutocompleteV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezmaxinvoicingGetAutocompleteV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezmaxinvoicingGetObjectV2SignalErrorFull() instead")
     void ezmaxinvoicingGetObjectV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezmaxinvoicingGetObjectV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezmaxinvoicingGetProvisionalV1SignalErrorFull() instead")
     void ezmaxinvoicingGetProvisionalV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezmaxinvoicingGetProvisionalV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
 public slots:
     void tokenAvailable();
-    
 };
 
 } // namespace Ezmaxapi

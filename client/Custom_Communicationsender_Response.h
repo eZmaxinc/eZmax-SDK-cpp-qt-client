@@ -22,6 +22,8 @@
 #include <QJsonObject>
 
 #include "Custom_ContactName_Response.h"
+#include "Email_ResponseCompound.h"
+#include "Phone_ResponseCompound.h"
 #include <QString>
 
 #include "Enum.h"
@@ -29,6 +31,8 @@
 
 namespace Ezmaxapi {
 class Custom_ContactName_Response;
+class Email_ResponseCompound;
+class Phone_ResponseCompound;
 
 class Custom_Communicationsender_Response : public Object {
 public:
@@ -61,6 +65,11 @@ public:
     bool is_fki_mailboxshared_id_Set() const;
     bool is_fki_mailboxshared_id_Valid() const;
 
+    qint32 getFkiPhonelinesharedId() const;
+    void setFkiPhonelinesharedId(const qint32 &fki_phonelineshared_id);
+    bool is_fki_phonelineshared_id_Set() const;
+    bool is_fki_phonelineshared_id_Valid() const;
+
     QString getECommunicationsenderObjecttype() const;
     void setECommunicationsenderObjecttype(const QString &e_communicationsender_objecttype);
     bool is_e_communicationsender_objecttype_Set() const;
@@ -71,15 +80,20 @@ public:
     bool is_obj_contact_name_Set() const;
     bool is_obj_contact_name_Valid() const;
 
-    QString getSEmailAddress() const;
-    void setSEmailAddress(const QString &s_email_address);
-    bool is_s_email_address_Set() const;
-    bool is_s_email_address_Valid() const;
+    Email_ResponseCompound getObjEmail() const;
+    void setObjEmail(const Email_ResponseCompound &obj_email);
+    bool is_obj_email_Set() const;
+    bool is_obj_email_Valid() const;
 
-    QString getSPhoneE164() const;
-    void setSPhoneE164(const QString &s_phone_e164);
-    bool is_s_phone_e164_Set() const;
-    bool is_s_phone_e164_Valid() const;
+    Phone_ResponseCompound getObjPhoneFax() const;
+    void setObjPhoneFax(const Phone_ResponseCompound &obj_phone_fax);
+    bool is_obj_phone_fax_Set() const;
+    bool is_obj_phone_fax_Valid() const;
+
+    Phone_ResponseCompound getObjPhoneSms() const;
+    void setObjPhoneSms(const Phone_ResponseCompound &obj_phone_sms);
+    bool is_obj_phone_sms_Set() const;
+    bool is_obj_phone_sms_Valid() const;
 
     virtual bool isSet() const override;
     virtual bool isValid() const override;
@@ -103,6 +117,10 @@ private:
     bool m_fki_mailboxshared_id_isSet;
     bool m_fki_mailboxshared_id_isValid;
 
+    qint32 m_fki_phonelineshared_id;
+    bool m_fki_phonelineshared_id_isSet;
+    bool m_fki_phonelineshared_id_isValid;
+
     QString m_e_communicationsender_objecttype;
     bool m_e_communicationsender_objecttype_isSet;
     bool m_e_communicationsender_objecttype_isValid;
@@ -111,13 +129,17 @@ private:
     bool m_obj_contact_name_isSet;
     bool m_obj_contact_name_isValid;
 
-    QString m_s_email_address;
-    bool m_s_email_address_isSet;
-    bool m_s_email_address_isValid;
+    Email_ResponseCompound m_obj_email;
+    bool m_obj_email_isSet;
+    bool m_obj_email_isValid;
 
-    QString m_s_phone_e164;
-    bool m_s_phone_e164_isSet;
-    bool m_s_phone_e164_isValid;
+    Phone_ResponseCompound m_obj_phone_fax;
+    bool m_obj_phone_fax_isSet;
+    bool m_obj_phone_fax_isValid;
+
+    Phone_ResponseCompound m_obj_phone_sms;
+    bool m_obj_phone_sms_isSet;
+    bool m_obj_phone_sms_isValid;
 };
 
 } // namespace Ezmaxapi

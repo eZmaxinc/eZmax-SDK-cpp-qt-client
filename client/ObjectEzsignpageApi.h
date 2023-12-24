@@ -96,16 +96,19 @@ signals:
 
     void ezsignpageConsultV1SignalFull(HttpRequestWorker *worker, Ezsignpage_consult_v1_Response summary);
 
+    Q_DECL_DEPRECATED_X("Use ezsignpageConsultV1SignalError() instead")
     void ezsignpageConsultV1SignalE(Ezsignpage_consult_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignpageConsultV1SignalError(Ezsignpage_consult_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use ezsignpageConsultV1SignalErrorFull() instead")
     void ezsignpageConsultV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignpageConsultV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
 public slots:
     void tokenAvailable();
-    
 };
 
 } // namespace Ezmaxapi

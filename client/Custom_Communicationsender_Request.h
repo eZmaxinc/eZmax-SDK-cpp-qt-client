@@ -53,6 +53,11 @@ public:
     bool is_fki_mailboxshared_id_Set() const;
     bool is_fki_mailboxshared_id_Valid() const;
 
+    qint32 getFkiPhonelinesharedId() const;
+    void setFkiPhonelinesharedId(const qint32 &fki_phonelineshared_id);
+    bool is_fki_phonelineshared_id_Set() const;
+    bool is_fki_phonelineshared_id_Valid() const;
+
     qint32 getFkiUserId() const;
     void setFkiUserId(const qint32 &fki_user_id);
     bool is_fki_user_id_Set() const;
@@ -75,6 +80,10 @@ private:
     qint32 m_fki_mailboxshared_id;
     bool m_fki_mailboxshared_id_isSet;
     bool m_fki_mailboxshared_id_isValid;
+
+    qint32 m_fki_phonelineshared_id;
+    bool m_fki_phonelineshared_id_isSet;
+    bool m_fki_phonelineshared_id_isValid;
 
     qint32 m_fki_user_id;
     bool m_fki_user_id_isSet;

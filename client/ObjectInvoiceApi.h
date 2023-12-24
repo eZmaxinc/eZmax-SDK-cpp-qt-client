@@ -19,6 +19,7 @@
 #include "Oauth.h"
 
 #include "Common_Response_Error.h"
+#include "Invoice_getAttachments_v1_Response.h"
 #include "Invoice_getCommunicationList_v1_Response.h"
 #include <QString>
 
@@ -61,6 +62,11 @@ public:
     /**
     * @param[in]  pki_invoice_id qint32 [required]
     */
+    void invoiceGetAttachmentsV1(const qint32 &pki_invoice_id);
+
+    /**
+    * @param[in]  pki_invoice_id qint32 [required]
+    */
     void invoiceGetCommunicationListV1(const qint32 &pki_invoice_id);
 
 
@@ -86,24 +92,36 @@ private:
     OauthPassword _passwordFlow;
     int _OauthMethod = 0;
 
+    void invoiceGetAttachmentsV1Callback(HttpRequestWorker *worker);
     void invoiceGetCommunicationListV1Callback(HttpRequestWorker *worker);
 
 signals:
 
+    void invoiceGetAttachmentsV1Signal(Invoice_getAttachments_v1_Response summary);
     void invoiceGetCommunicationListV1Signal(Invoice_getCommunicationList_v1_Response summary);
 
+    void invoiceGetAttachmentsV1SignalFull(HttpRequestWorker *worker, Invoice_getAttachments_v1_Response summary);
     void invoiceGetCommunicationListV1SignalFull(HttpRequestWorker *worker, Invoice_getCommunicationList_v1_Response summary);
 
+    Q_DECL_DEPRECATED_X("Use invoiceGetAttachmentsV1SignalError() instead")
+    void invoiceGetAttachmentsV1SignalE(Invoice_getAttachments_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void invoiceGetAttachmentsV1SignalError(Invoice_getAttachments_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use invoiceGetCommunicationListV1SignalError() instead")
     void invoiceGetCommunicationListV1SignalE(Invoice_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void invoiceGetCommunicationListV1SignalError(Invoice_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use invoiceGetAttachmentsV1SignalErrorFull() instead")
+    void invoiceGetAttachmentsV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void invoiceGetAttachmentsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use invoiceGetCommunicationListV1SignalErrorFull() instead")
     void invoiceGetCommunicationListV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void invoiceGetCommunicationListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
 public slots:
     void tokenAvailable();
-    
 };
 
 } // namespace Ezmaxapi

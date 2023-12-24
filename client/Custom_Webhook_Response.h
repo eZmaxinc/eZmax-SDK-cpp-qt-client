@@ -87,10 +87,25 @@ public:
     bool is_s_webhook_emailfailed_Set() const;
     bool is_s_webhook_emailfailed_Valid() const;
 
+    QString getSWebhookApikey() const;
+    void setSWebhookApikey(const QString &s_webhook_apikey);
+    bool is_s_webhook_apikey_Set() const;
+    bool is_s_webhook_apikey_Valid() const;
+
+    QString getSWebhookSecret() const;
+    void setSWebhookSecret(const QString &s_webhook_secret);
+    bool is_s_webhook_secret_Set() const;
+    bool is_s_webhook_secret_Valid() const;
+
     bool isBWebhookIsactive() const;
     void setBWebhookIsactive(const bool &b_webhook_isactive);
     bool is_b_webhook_isactive_Set() const;
     bool is_b_webhook_isactive_Valid() const;
+
+    bool isBWebhookIssigned() const;
+    void setBWebhookIssigned(const bool &b_webhook_issigned);
+    bool is_b_webhook_issigned_Set() const;
+    bool is_b_webhook_issigned_Valid() const;
 
     bool isBWebhookSkipsslvalidation() const;
     void setBWebhookSkipsslvalidation(const bool &b_webhook_skipsslvalidation);
@@ -149,9 +164,21 @@ private:
     bool m_s_webhook_emailfailed_isSet;
     bool m_s_webhook_emailfailed_isValid;
 
+    QString m_s_webhook_apikey;
+    bool m_s_webhook_apikey_isSet;
+    bool m_s_webhook_apikey_isValid;
+
+    QString m_s_webhook_secret;
+    bool m_s_webhook_secret_isSet;
+    bool m_s_webhook_secret_isValid;
+
     bool m_b_webhook_isactive;
     bool m_b_webhook_isactive_isSet;
     bool m_b_webhook_isactive_isValid;
+
+    bool m_b_webhook_issigned;
+    bool m_b_webhook_issigned_isSet;
+    bool m_b_webhook_issigned_isValid;
 
     bool m_b_webhook_skipsslvalidation;
     bool m_b_webhook_skipsslvalidation_isSet;

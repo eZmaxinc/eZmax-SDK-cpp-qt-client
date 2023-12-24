@@ -37,7 +37,7 @@ void ObjectEzsignbulksendApi::initializeServerConfigs() {
     "The server endpoint where to send your region specific API requests.",
     QMap<QString, ServerVariable>{ 
     {"sInfrastructureenvironmenttypeDescription", ServerVariable("The environment on on which to call the API. Should always be "prod" unless instructed otherwise by support.","prod",
-    QSet<QString>{ {"prod"},{"stg"},{"qa"},{"dev"} })},
+    QSet<QString>{ {"iso"},{"prod"},{"stg"},{"qa"},{"dev"} })},
     
     {"sInfrastructureregionCode", ServerVariable("The region where your services are hosted.","ca-central-1",
     QSet<QString>{ {"ca-central-1"} })}, }));
@@ -47,14 +47,14 @@ void ObjectEzsignbulksendApi::initializeServerConfigs() {
     "The server endpoint where to send your global API requests.",
     QMap<QString, ServerVariable>{ 
     {"sInfrastructureenvironmenttypeDescription", ServerVariable("The environment on on which to call the API. Should always be "prod" unless instructed otherwise by support.","prod",
-    QSet<QString>{ {"prod"},{"stg"},{"qa"},{"dev"} })}, }));
+    QSet<QString>{ {"prod"},{"dev"} })}, }));
     
     defaultConf.append(ServerConfiguration(
     QUrl("wss://ws.{sInfrastructureregionCode}.ezmax.com/{sInfrastructureenvironmenttypeDescription}"),
     "The server endpoint where to send your websocket requests.",
     QMap<QString, ServerVariable>{ 
     {"sInfrastructureenvironmenttypeDescription", ServerVariable("The environment on on which to call the API. Should always be "prod" unless instructed otherwise by support.","prod",
-    QSet<QString>{ {"prod"},{"stg"},{"qa"},{"dev"} })},
+    QSet<QString>{ {"iso"},{"prod"},{"stg"},{"qa"},{"dev"} })},
     
     {"sInfrastructureregionCode", ServerVariable("The region where your services are hosted.","ca-central-1",
     QSet<QString>{ {"ca-central-1"} })}, }));
@@ -323,8 +323,34 @@ void ObjectEzsignbulksendApi::ezsignbulksendCreateEzsignbulksendtransmissionV1Ca
         emit ezsignbulksendCreateEzsignbulksendtransmissionV1Signal(output);
         emit ezsignbulksendCreateEzsignbulksendtransmissionV1SignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit ezsignbulksendCreateEzsignbulksendtransmissionV1SignalE(output, error_type, error_str);
         emit ezsignbulksendCreateEzsignbulksendtransmissionV1SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit ezsignbulksendCreateEzsignbulksendtransmissionV1SignalError(output, error_type, error_str);
+        emit ezsignbulksendCreateEzsignbulksendtransmissionV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -381,8 +407,34 @@ void ObjectEzsignbulksendApi::ezsignbulksendCreateObjectV1Callback(HttpRequestWo
         emit ezsignbulksendCreateObjectV1Signal(output);
         emit ezsignbulksendCreateObjectV1SignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit ezsignbulksendCreateObjectV1SignalE(output, error_type, error_str);
         emit ezsignbulksendCreateObjectV1SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit ezsignbulksendCreateObjectV1SignalError(output, error_type, error_str);
+        emit ezsignbulksendCreateObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -448,8 +500,34 @@ void ObjectEzsignbulksendApi::ezsignbulksendDeleteObjectV1Callback(HttpRequestWo
         emit ezsignbulksendDeleteObjectV1Signal(output);
         emit ezsignbulksendDeleteObjectV1SignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit ezsignbulksendDeleteObjectV1SignalE(output, error_type, error_str);
         emit ezsignbulksendDeleteObjectV1SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit ezsignbulksendDeleteObjectV1SignalError(output, error_type, error_str);
+        emit ezsignbulksendDeleteObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -520,8 +598,34 @@ void ObjectEzsignbulksendApi::ezsignbulksendEditObjectV1Callback(HttpRequestWork
         emit ezsignbulksendEditObjectV1Signal(output);
         emit ezsignbulksendEditObjectV1SignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit ezsignbulksendEditObjectV1SignalE(output, error_type, error_str);
         emit ezsignbulksendEditObjectV1SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit ezsignbulksendEditObjectV1SignalError(output, error_type, error_str);
+        emit ezsignbulksendEditObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -604,8 +708,34 @@ void ObjectEzsignbulksendApi::ezsignbulksendGetCsvTemplateV1Callback(HttpRequest
         emit ezsignbulksendGetCsvTemplateV1Signal(output);
         emit ezsignbulksendGetCsvTemplateV1SignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit ezsignbulksendGetCsvTemplateV1SignalE(output, error_type, error_str);
         emit ezsignbulksendGetCsvTemplateV1SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit ezsignbulksendGetCsvTemplateV1SignalError(output, error_type, error_str);
+        emit ezsignbulksendGetCsvTemplateV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -671,8 +801,34 @@ void ObjectEzsignbulksendApi::ezsignbulksendGetEzsignbulksendtransmissionsV1Call
         emit ezsignbulksendGetEzsignbulksendtransmissionsV1Signal(output);
         emit ezsignbulksendGetEzsignbulksendtransmissionsV1SignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit ezsignbulksendGetEzsignbulksendtransmissionsV1SignalE(output, error_type, error_str);
         emit ezsignbulksendGetEzsignbulksendtransmissionsV1SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit ezsignbulksendGetEzsignbulksendtransmissionsV1SignalError(output, error_type, error_str);
+        emit ezsignbulksendGetEzsignbulksendtransmissionsV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -738,8 +894,34 @@ void ObjectEzsignbulksendApi::ezsignbulksendGetEzsignsignaturesAutomaticV1Callba
         emit ezsignbulksendGetEzsignsignaturesAutomaticV1Signal(output);
         emit ezsignbulksendGetEzsignsignaturesAutomaticV1SignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit ezsignbulksendGetEzsignsignaturesAutomaticV1SignalE(output, error_type, error_str);
         emit ezsignbulksendGetEzsignsignaturesAutomaticV1SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit ezsignbulksendGetEzsignsignaturesAutomaticV1SignalError(output, error_type, error_str);
+        emit ezsignbulksendGetEzsignsignaturesAutomaticV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -805,8 +987,34 @@ void ObjectEzsignbulksendApi::ezsignbulksendGetFormsDataV1Callback(HttpRequestWo
         emit ezsignbulksendGetFormsDataV1Signal(output);
         emit ezsignbulksendGetFormsDataV1SignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit ezsignbulksendGetFormsDataV1SignalE(output, error_type, error_str);
         emit ezsignbulksendGetFormsDataV1SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit ezsignbulksendGetFormsDataV1SignalError(output, error_type, error_str);
+        emit ezsignbulksendGetFormsDataV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -963,8 +1171,34 @@ void ObjectEzsignbulksendApi::ezsignbulksendGetListV1Callback(HttpRequestWorker 
         emit ezsignbulksendGetListV1Signal(output);
         emit ezsignbulksendGetListV1SignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit ezsignbulksendGetListV1SignalE(output, error_type, error_str);
         emit ezsignbulksendGetListV1SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit ezsignbulksendGetListV1SignalError(output, error_type, error_str);
+        emit ezsignbulksendGetListV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -1030,8 +1264,34 @@ void ObjectEzsignbulksendApi::ezsignbulksendGetObjectV2Callback(HttpRequestWorke
         emit ezsignbulksendGetObjectV2Signal(output);
         emit ezsignbulksendGetObjectV2SignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit ezsignbulksendGetObjectV2SignalE(output, error_type, error_str);
         emit ezsignbulksendGetObjectV2SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit ezsignbulksendGetObjectV2SignalError(output, error_type, error_str);
+        emit ezsignbulksendGetObjectV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -1102,8 +1362,34 @@ void ObjectEzsignbulksendApi::ezsignbulksendReorderV1Callback(HttpRequestWorker 
         emit ezsignbulksendReorderV1Signal(output);
         emit ezsignbulksendReorderV1SignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit ezsignbulksendReorderV1SignalE(output, error_type, error_str);
         emit ezsignbulksendReorderV1SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit ezsignbulksendReorderV1SignalError(output, error_type, error_str);
+        emit ezsignbulksendReorderV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

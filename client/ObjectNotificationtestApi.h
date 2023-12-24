@@ -94,16 +94,19 @@ signals:
 
     void notificationtestGetElementsV1SignalFull(HttpRequestWorker *worker, Notificationtest_getElements_v1_Response summary);
 
+    Q_DECL_DEPRECATED_X("Use notificationtestGetElementsV1SignalError() instead")
     void notificationtestGetElementsV1SignalE(Notificationtest_getElements_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void notificationtestGetElementsV1SignalError(Notificationtest_getElements_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use notificationtestGetElementsV1SignalErrorFull() instead")
     void notificationtestGetElementsV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void notificationtestGetElementsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
 public slots:
     void tokenAvailable();
-    
 };
 
 } // namespace Ezmaxapi

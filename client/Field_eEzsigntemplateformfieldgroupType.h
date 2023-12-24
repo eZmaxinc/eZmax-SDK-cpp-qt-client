@@ -44,7 +44,9 @@ public:
         TEXTAREA, 
         DROPDOWN, 
         RADIO, 
-        CHECKBOX
+        CHECKBOX, 
+        NUMBER, 
+        DATE
     };
     Field_eEzsigntemplateformfieldgroupType::eField_eEzsigntemplateformfieldgroupType getValue() const;
     void setValue(const Field_eEzsigntemplateformfieldgroupType::eField_eEzsigntemplateformfieldgroupType& value);

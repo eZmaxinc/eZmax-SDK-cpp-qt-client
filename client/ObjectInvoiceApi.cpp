@@ -37,7 +37,7 @@ void ObjectInvoiceApi::initializeServerConfigs() {
     "The server endpoint where to send your region specific API requests.",
     QMap<QString, ServerVariable>{ 
     {"sInfrastructureenvironmenttypeDescription", ServerVariable("The environment on on which to call the API. Should always be "prod" unless instructed otherwise by support.","prod",
-    QSet<QString>{ {"prod"},{"stg"},{"qa"},{"dev"} })},
+    QSet<QString>{ {"iso"},{"prod"},{"stg"},{"qa"},{"dev"} })},
     
     {"sInfrastructureregionCode", ServerVariable("The region where your services are hosted.","ca-central-1",
     QSet<QString>{ {"ca-central-1"} })}, }));
@@ -47,18 +47,20 @@ void ObjectInvoiceApi::initializeServerConfigs() {
     "The server endpoint where to send your global API requests.",
     QMap<QString, ServerVariable>{ 
     {"sInfrastructureenvironmenttypeDescription", ServerVariable("The environment on on which to call the API. Should always be "prod" unless instructed otherwise by support.","prod",
-    QSet<QString>{ {"prod"},{"stg"},{"qa"},{"dev"} })}, }));
+    QSet<QString>{ {"prod"},{"dev"} })}, }));
     
     defaultConf.append(ServerConfiguration(
     QUrl("wss://ws.{sInfrastructureregionCode}.ezmax.com/{sInfrastructureenvironmenttypeDescription}"),
     "The server endpoint where to send your websocket requests.",
     QMap<QString, ServerVariable>{ 
     {"sInfrastructureenvironmenttypeDescription", ServerVariable("The environment on on which to call the API. Should always be "prod" unless instructed otherwise by support.","prod",
-    QSet<QString>{ {"prod"},{"stg"},{"qa"},{"dev"} })},
+    QSet<QString>{ {"iso"},{"prod"},{"stg"},{"qa"},{"dev"} })},
     
     {"sInfrastructureregionCode", ServerVariable("The region where your services are hosted.","ca-central-1",
     QSet<QString>{ {"ca-central-1"} })}, }));
     
+    _serverConfigs.insert("invoiceGetAttachmentsV1", defaultConf);
+    _serverIndices.insert("invoiceGetAttachmentsV1", 0);
     _serverConfigs.insert("invoiceGetCommunicationListV1", defaultConf);
     _serverIndices.insert("invoiceGetCommunicationListV1", 0);
 }
@@ -236,6 +238,99 @@ QString ObjectInvoiceApi::getParamStyleDelimiter(const QString &style, const QSt
     }
 }
 
+void ObjectInvoiceApi::invoiceGetAttachmentsV1(const qint32 &pki_invoice_id) {
+    QString fullPath = QString(_serverConfigs["invoiceGetAttachmentsV1"][_serverIndices.value("invoiceGetAttachmentsV1")].URL()+"/1/object/invoice/{pkiInvoiceID}/getAttachments");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_invoice_idPathParam("{");
+        pki_invoice_idPathParam.append("pkiInvoiceID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiInvoiceID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiInvoiceID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_invoice_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_invoice_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+#else
+    for (auto key : _defaultHeaders.keys()) {
+        input.headers.insert(key, _defaultHeaders[key]);
+    }
+#endif
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectInvoiceApi::invoiceGetAttachmentsV1Callback);
+    connect(this, &ObjectInvoiceApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this]() {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            emit allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectInvoiceApi::invoiceGetAttachmentsV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Invoice_getAttachments_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit invoiceGetAttachmentsV1Signal(output);
+        emit invoiceGetAttachmentsV1SignalFull(worker, output);
+    } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
+        emit invoiceGetAttachmentsV1SignalE(output, error_type, error_str);
+        emit invoiceGetAttachmentsV1SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit invoiceGetAttachmentsV1SignalError(output, error_type, error_str);
+        emit invoiceGetAttachmentsV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
 void ObjectInvoiceApi::invoiceGetCommunicationListV1(const qint32 &pki_invoice_id) {
     QString fullPath = QString(_serverConfigs["invoiceGetCommunicationListV1"][_serverIndices.value("invoiceGetCommunicationListV1")].URL()+"/1/object/invoice/{pkiInvoiceID}/getCommunicationList");
     
@@ -298,8 +393,34 @@ void ObjectInvoiceApi::invoiceGetCommunicationListV1Callback(HttpRequestWorker *
         emit invoiceGetCommunicationListV1Signal(output);
         emit invoiceGetCommunicationListV1SignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit invoiceGetCommunicationListV1SignalE(output, error_type, error_str);
         emit invoiceGetCommunicationListV1SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit invoiceGetCommunicationListV1SignalError(output, error_type, error_str);
+        emit invoiceGetCommunicationListV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

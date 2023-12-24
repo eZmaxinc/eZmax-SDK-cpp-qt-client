@@ -124,22 +124,37 @@ signals:
     void signatureEditObjectV1SignalFull(HttpRequestWorker *worker, Signature_editObject_v1_Response summary);
     void signatureGetObjectV2SignalFull(HttpRequestWorker *worker, Signature_getObject_v2_Response summary);
 
+    Q_DECL_DEPRECATED_X("Use signatureCreateObjectV1SignalError() instead")
     void signatureCreateObjectV1SignalE(Signature_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void signatureCreateObjectV1SignalError(Signature_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use signatureDeleteObjectV1SignalError() instead")
     void signatureDeleteObjectV1SignalE(Signature_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void signatureDeleteObjectV1SignalError(Signature_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use signatureEditObjectV1SignalError() instead")
     void signatureEditObjectV1SignalE(Signature_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void signatureEditObjectV1SignalError(Signature_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use signatureGetObjectV2SignalError() instead")
     void signatureGetObjectV2SignalE(Signature_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void signatureGetObjectV2SignalError(Signature_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use signatureCreateObjectV1SignalErrorFull() instead")
     void signatureCreateObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void signatureCreateObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use signatureDeleteObjectV1SignalErrorFull() instead")
     void signatureDeleteObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void signatureDeleteObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use signatureEditObjectV1SignalErrorFull() instead")
     void signatureEditObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void signatureEditObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use signatureGetObjectV2SignalErrorFull() instead")
     void signatureGetObjectV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void signatureGetObjectV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
 public slots:
     void tokenAvailable();
-    
 };
 
 } // namespace Ezmaxapi

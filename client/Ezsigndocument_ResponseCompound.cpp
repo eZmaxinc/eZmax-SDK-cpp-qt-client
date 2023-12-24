@@ -97,6 +97,9 @@ void Ezsigndocument_ResponseCompound::initializeModel() {
     m_s_ezsigndocument_externalid_isSet = false;
     m_s_ezsigndocument_externalid_isValid = false;
 
+    m_i_ezsigndocument_ezsignsignatureattachmenttotal_isSet = false;
+    m_i_ezsigndocument_ezsignsignatureattachmenttotal_isValid = false;
+
     m_e_ezsigndocument_steptype_isSet = false;
     m_e_ezsigndocument_steptype_isValid = false;
 
@@ -188,6 +191,9 @@ void Ezsigndocument_ResponseCompound::fromJsonObject(QJsonObject json) {
     m_s_ezsigndocument_externalid_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsigndocument_externalid, json[QString("sEzsigndocumentExternalid")]);
     m_s_ezsigndocument_externalid_isSet = !json[QString("sEzsigndocumentExternalid")].isNull() && m_s_ezsigndocument_externalid_isValid;
 
+    m_i_ezsigndocument_ezsignsignatureattachmenttotal_isValid = ::Ezmaxapi::fromJsonValue(m_i_ezsigndocument_ezsignsignatureattachmenttotal, json[QString("iEzsigndocumentEzsignsignatureattachmenttotal")]);
+    m_i_ezsigndocument_ezsignsignatureattachmenttotal_isSet = !json[QString("iEzsigndocumentEzsignsignatureattachmenttotal")].isNull() && m_i_ezsigndocument_ezsignsignatureattachmenttotal_isValid;
+
     m_e_ezsigndocument_steptype_isValid = ::Ezmaxapi::fromJsonValue(m_e_ezsigndocument_steptype, json[QString("eEzsigndocumentSteptype")]);
     m_e_ezsigndocument_steptype_isSet = !json[QString("eEzsigndocumentSteptype")].isNull() && m_e_ezsigndocument_steptype_isValid;
 
@@ -278,6 +284,9 @@ QJsonObject Ezsigndocument_ResponseCompound::asJsonObject() const {
     }
     if (m_s_ezsigndocument_externalid_isSet) {
         obj.insert(QString("sEzsigndocumentExternalid"), ::Ezmaxapi::toJsonValue(m_s_ezsigndocument_externalid));
+    }
+    if (m_i_ezsigndocument_ezsignsignatureattachmenttotal_isSet) {
+        obj.insert(QString("iEzsigndocumentEzsignsignatureattachmenttotal"), ::Ezmaxapi::toJsonValue(m_i_ezsigndocument_ezsignsignatureattachmenttotal));
     }
     if (m_e_ezsigndocument_steptype.isSet()) {
         obj.insert(QString("eEzsigndocumentSteptype"), ::Ezmaxapi::toJsonValue(m_e_ezsigndocument_steptype));
@@ -636,6 +645,22 @@ bool Ezsigndocument_ResponseCompound::is_s_ezsigndocument_externalid_Valid() con
     return m_s_ezsigndocument_externalid_isValid;
 }
 
+qint32 Ezsigndocument_ResponseCompound::getIEzsigndocumentEzsignsignatureattachmenttotal() const {
+    return m_i_ezsigndocument_ezsignsignatureattachmenttotal;
+}
+void Ezsigndocument_ResponseCompound::setIEzsigndocumentEzsignsignatureattachmenttotal(const qint32 &i_ezsigndocument_ezsignsignatureattachmenttotal) {
+    m_i_ezsigndocument_ezsignsignatureattachmenttotal = i_ezsigndocument_ezsignsignatureattachmenttotal;
+    m_i_ezsigndocument_ezsignsignatureattachmenttotal_isSet = true;
+}
+
+bool Ezsigndocument_ResponseCompound::is_i_ezsigndocument_ezsignsignatureattachmenttotal_Set() const{
+    return m_i_ezsigndocument_ezsignsignatureattachmenttotal_isSet;
+}
+
+bool Ezsigndocument_ResponseCompound::is_i_ezsigndocument_ezsignsignatureattachmenttotal_Valid() const{
+    return m_i_ezsigndocument_ezsignsignatureattachmenttotal_isValid;
+}
+
 Computed_eEzsigndocumentSteptype Ezsigndocument_ResponseCompound::getEEzsigndocumentSteptype() const {
     return m_e_ezsigndocument_steptype;
 }
@@ -840,6 +865,11 @@ bool Ezsigndocument_ResponseCompound::isSet() const {
             break;
         }
 
+        if (m_i_ezsigndocument_ezsignsignatureattachmenttotal_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (m_e_ezsigndocument_steptype.isSet()) {
             isObjectUpdated = true;
             break;
@@ -875,7 +905,7 @@ bool Ezsigndocument_ResponseCompound::isSet() const {
 
 bool Ezsigndocument_ResponseCompound::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_pki_ezsigndocument_id_isValid && m_fki_ezsignfolder_id_isValid && m_dt_ezsigndocument_duedate_isValid && m_s_ezsigndocument_name_isValid && m_e_ezsigndocument_step_isValid && m_i_ezsigndocument_order_isValid && m_i_ezsigndocument_pagetotal_isValid && m_i_ezsigndocument_signaturesigned_isValid && m_i_ezsigndocument_signaturetotal_isValid && m_e_ezsigndocument_steptype_isValid && m_i_ezsigndocument_stepformtotal_isValid && m_i_ezsigndocument_stepformcurrent_isValid && m_i_ezsigndocument_stepsignaturetotal_isValid && m_i_ezsigndocument_stepsignature_current_isValid && m_a_obj_ezsignfoldersignerassociationstatus_isValid && true;
+    return m_pki_ezsigndocument_id_isValid && m_fki_ezsignfolder_id_isValid && m_dt_ezsigndocument_duedate_isValid && m_s_ezsigndocument_name_isValid && m_e_ezsigndocument_step_isValid && m_i_ezsigndocument_order_isValid && m_i_ezsigndocument_pagetotal_isValid && m_i_ezsigndocument_signaturesigned_isValid && m_i_ezsigndocument_signaturetotal_isValid && m_i_ezsigndocument_ezsignsignatureattachmenttotal_isValid && m_e_ezsigndocument_steptype_isValid && m_i_ezsigndocument_stepformtotal_isValid && m_i_ezsigndocument_stepformcurrent_isValid && m_i_ezsigndocument_stepsignaturetotal_isValid && m_i_ezsigndocument_stepsignature_current_isValid && m_a_obj_ezsignfoldersignerassociationstatus_isValid && true;
 }
 
 } // namespace Ezmaxapi

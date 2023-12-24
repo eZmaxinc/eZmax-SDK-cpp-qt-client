@@ -25,12 +25,16 @@
 #include "Object.h"
 #include "Webhook_createObject_v1_Request.h"
 #include "Webhook_createObject_v1_Response.h"
+#include "Webhook_createObject_v2_Request.h"
+#include "Webhook_createObject_v2_Response.h"
 #include "Webhook_deleteObject_v1_Response.h"
 #include "Webhook_editObject_v1_Request.h"
 #include "Webhook_editObject_v1_Response.h"
 #include "Webhook_getHistory_v1_Response.h"
 #include "Webhook_getList_v1_Response.h"
 #include "Webhook_getObject_v2_Response.h"
+#include "Webhook_regenerateApikey_v1_Request.h"
+#include "Webhook_regenerateApikey_v1_Response.h"
 #include "Webhook_test_v1_Response.h"
 #include <QString>
 
@@ -73,7 +77,12 @@ public:
     /**
     * @param[in]  webhook_create_object_v1_request Webhook_createObject_v1_Request [required]
     */
-    void webhookCreateObjectV1(const Webhook_createObject_v1_Request &webhook_create_object_v1_request);
+    Q_DECL_DEPRECATED void webhookCreateObjectV1(const Webhook_createObject_v1_Request &webhook_create_object_v1_request);
+
+    /**
+    * @param[in]  webhook_create_object_v2_request Webhook_createObject_v2_Request [required]
+    */
+    void webhookCreateObjectV2(const Webhook_createObject_v2_Request &webhook_create_object_v2_request);
 
     /**
     * @param[in]  pki_webhook_id qint32 [required]
@@ -108,6 +117,12 @@ public:
 
     /**
     * @param[in]  pki_webhook_id qint32 [required]
+    * @param[in]  webhook_regenerate_apikey_v1_request Webhook_regenerateApikey_v1_Request [required]
+    */
+    void webhookRegenerateApikeyV1(const qint32 &pki_webhook_id, const Webhook_regenerateApikey_v1_Request &webhook_regenerate_apikey_v1_request);
+
+    /**
+    * @param[in]  pki_webhook_id qint32 [required]
     * @param[in]  body Object [required]
     */
     void webhookTestV1(const qint32 &pki_webhook_id, const Object &body);
@@ -136,53 +151,98 @@ private:
     int _OauthMethod = 0;
 
     void webhookCreateObjectV1Callback(HttpRequestWorker *worker);
+    void webhookCreateObjectV2Callback(HttpRequestWorker *worker);
     void webhookDeleteObjectV1Callback(HttpRequestWorker *worker);
     void webhookEditObjectV1Callback(HttpRequestWorker *worker);
     void webhookGetHistoryV1Callback(HttpRequestWorker *worker);
     void webhookGetListV1Callback(HttpRequestWorker *worker);
     void webhookGetObjectV2Callback(HttpRequestWorker *worker);
+    void webhookRegenerateApikeyV1Callback(HttpRequestWorker *worker);
     void webhookTestV1Callback(HttpRequestWorker *worker);
 
 signals:
 
     void webhookCreateObjectV1Signal(Webhook_createObject_v1_Response summary);
+    void webhookCreateObjectV2Signal(Webhook_createObject_v2_Response summary);
     void webhookDeleteObjectV1Signal(Webhook_deleteObject_v1_Response summary);
     void webhookEditObjectV1Signal(Webhook_editObject_v1_Response summary);
     void webhookGetHistoryV1Signal(Webhook_getHistory_v1_Response summary);
     void webhookGetListV1Signal(Webhook_getList_v1_Response summary);
     void webhookGetObjectV2Signal(Webhook_getObject_v2_Response summary);
+    void webhookRegenerateApikeyV1Signal(Webhook_regenerateApikey_v1_Response summary);
     void webhookTestV1Signal(Webhook_test_v1_Response summary);
 
     void webhookCreateObjectV1SignalFull(HttpRequestWorker *worker, Webhook_createObject_v1_Response summary);
+    void webhookCreateObjectV2SignalFull(HttpRequestWorker *worker, Webhook_createObject_v2_Response summary);
     void webhookDeleteObjectV1SignalFull(HttpRequestWorker *worker, Webhook_deleteObject_v1_Response summary);
     void webhookEditObjectV1SignalFull(HttpRequestWorker *worker, Webhook_editObject_v1_Response summary);
     void webhookGetHistoryV1SignalFull(HttpRequestWorker *worker, Webhook_getHistory_v1_Response summary);
     void webhookGetListV1SignalFull(HttpRequestWorker *worker, Webhook_getList_v1_Response summary);
     void webhookGetObjectV2SignalFull(HttpRequestWorker *worker, Webhook_getObject_v2_Response summary);
+    void webhookRegenerateApikeyV1SignalFull(HttpRequestWorker *worker, Webhook_regenerateApikey_v1_Response summary);
     void webhookTestV1SignalFull(HttpRequestWorker *worker, Webhook_test_v1_Response summary);
 
+    Q_DECL_DEPRECATED_X("Use webhookCreateObjectV1SignalError() instead")
     void webhookCreateObjectV1SignalE(Webhook_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void webhookCreateObjectV1SignalError(Webhook_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use webhookCreateObjectV2SignalError() instead")
+    void webhookCreateObjectV2SignalE(Webhook_createObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void webhookCreateObjectV2SignalError(Webhook_createObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use webhookDeleteObjectV1SignalError() instead")
     void webhookDeleteObjectV1SignalE(Webhook_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void webhookDeleteObjectV1SignalError(Webhook_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use webhookEditObjectV1SignalError() instead")
     void webhookEditObjectV1SignalE(Webhook_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void webhookEditObjectV1SignalError(Webhook_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use webhookGetHistoryV1SignalError() instead")
     void webhookGetHistoryV1SignalE(Webhook_getHistory_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void webhookGetHistoryV1SignalError(Webhook_getHistory_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use webhookGetListV1SignalError() instead")
     void webhookGetListV1SignalE(Webhook_getList_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void webhookGetListV1SignalError(Webhook_getList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use webhookGetObjectV2SignalError() instead")
     void webhookGetObjectV2SignalE(Webhook_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void webhookGetObjectV2SignalError(Webhook_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use webhookRegenerateApikeyV1SignalError() instead")
+    void webhookRegenerateApikeyV1SignalE(Webhook_regenerateApikey_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void webhookRegenerateApikeyV1SignalError(Webhook_regenerateApikey_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use webhookTestV1SignalError() instead")
     void webhookTestV1SignalE(Webhook_test_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void webhookTestV1SignalError(Webhook_test_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use webhookCreateObjectV1SignalErrorFull() instead")
     void webhookCreateObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void webhookCreateObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use webhookCreateObjectV2SignalErrorFull() instead")
+    void webhookCreateObjectV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void webhookCreateObjectV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use webhookDeleteObjectV1SignalErrorFull() instead")
     void webhookDeleteObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void webhookDeleteObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use webhookEditObjectV1SignalErrorFull() instead")
     void webhookEditObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void webhookEditObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use webhookGetHistoryV1SignalErrorFull() instead")
     void webhookGetHistoryV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void webhookGetHistoryV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use webhookGetListV1SignalErrorFull() instead")
     void webhookGetListV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void webhookGetListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use webhookGetObjectV2SignalErrorFull() instead")
     void webhookGetObjectV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void webhookGetObjectV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use webhookRegenerateApikeyV1SignalErrorFull() instead")
+    void webhookRegenerateApikeyV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void webhookRegenerateApikeyV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use webhookTestV1SignalErrorFull() instead")
     void webhookTestV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void webhookTestV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
 public slots:
     void tokenAvailable();
-    
 };
 
 } // namespace Ezmaxapi

@@ -197,36 +197,79 @@ signals:
     void ezsignbulksendGetObjectV2SignalFull(HttpRequestWorker *worker, Ezsignbulksend_getObject_v2_Response summary);
     void ezsignbulksendReorderV1SignalFull(HttpRequestWorker *worker, Ezsignbulksend_reorder_v1_Response summary);
 
+    Q_DECL_DEPRECATED_X("Use ezsignbulksendCreateEzsignbulksendtransmissionV1SignalError() instead")
     void ezsignbulksendCreateEzsignbulksendtransmissionV1SignalE(Ezsignbulksend_createEzsignbulksendtransmission_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignbulksendCreateEzsignbulksendtransmissionV1SignalError(Ezsignbulksend_createEzsignbulksendtransmission_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignbulksendCreateObjectV1SignalError() instead")
     void ezsignbulksendCreateObjectV1SignalE(Ezsignbulksend_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignbulksendCreateObjectV1SignalError(Ezsignbulksend_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignbulksendDeleteObjectV1SignalError() instead")
     void ezsignbulksendDeleteObjectV1SignalE(Ezsignbulksend_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignbulksendDeleteObjectV1SignalError(Ezsignbulksend_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignbulksendEditObjectV1SignalError() instead")
     void ezsignbulksendEditObjectV1SignalE(Ezsignbulksend_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignbulksendEditObjectV1SignalError(Ezsignbulksend_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignbulksendGetCsvTemplateV1SignalError() instead")
     void ezsignbulksendGetCsvTemplateV1SignalE(QString summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignbulksendGetCsvTemplateV1SignalError(QString summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignbulksendGetEzsignbulksendtransmissionsV1SignalError() instead")
     void ezsignbulksendGetEzsignbulksendtransmissionsV1SignalE(Ezsignbulksend_getEzsignbulksendtransmissions_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignbulksendGetEzsignbulksendtransmissionsV1SignalError(Ezsignbulksend_getEzsignbulksendtransmissions_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignbulksendGetEzsignsignaturesAutomaticV1SignalError() instead")
     void ezsignbulksendGetEzsignsignaturesAutomaticV1SignalE(Ezsignbulksend_getEzsignsignaturesAutomatic_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignbulksendGetEzsignsignaturesAutomaticV1SignalError(Ezsignbulksend_getEzsignsignaturesAutomatic_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignbulksendGetFormsDataV1SignalError() instead")
     void ezsignbulksendGetFormsDataV1SignalE(Ezsignbulksend_getFormsData_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignbulksendGetFormsDataV1SignalError(Ezsignbulksend_getFormsData_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignbulksendGetListV1SignalError() instead")
     void ezsignbulksendGetListV1SignalE(Ezsignbulksend_getList_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignbulksendGetListV1SignalError(Ezsignbulksend_getList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignbulksendGetObjectV2SignalError() instead")
     void ezsignbulksendGetObjectV2SignalE(Ezsignbulksend_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignbulksendGetObjectV2SignalError(Ezsignbulksend_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignbulksendReorderV1SignalError() instead")
     void ezsignbulksendReorderV1SignalE(Ezsignbulksend_reorder_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignbulksendReorderV1SignalError(Ezsignbulksend_reorder_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use ezsignbulksendCreateEzsignbulksendtransmissionV1SignalErrorFull() instead")
     void ezsignbulksendCreateEzsignbulksendtransmissionV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignbulksendCreateEzsignbulksendtransmissionV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignbulksendCreateObjectV1SignalErrorFull() instead")
     void ezsignbulksendCreateObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignbulksendCreateObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignbulksendDeleteObjectV1SignalErrorFull() instead")
     void ezsignbulksendDeleteObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignbulksendDeleteObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignbulksendEditObjectV1SignalErrorFull() instead")
     void ezsignbulksendEditObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignbulksendEditObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignbulksendGetCsvTemplateV1SignalErrorFull() instead")
     void ezsignbulksendGetCsvTemplateV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignbulksendGetCsvTemplateV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignbulksendGetEzsignbulksendtransmissionsV1SignalErrorFull() instead")
     void ezsignbulksendGetEzsignbulksendtransmissionsV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignbulksendGetEzsignbulksendtransmissionsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignbulksendGetEzsignsignaturesAutomaticV1SignalErrorFull() instead")
     void ezsignbulksendGetEzsignsignaturesAutomaticV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignbulksendGetEzsignsignaturesAutomaticV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignbulksendGetFormsDataV1SignalErrorFull() instead")
     void ezsignbulksendGetFormsDataV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignbulksendGetFormsDataV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignbulksendGetListV1SignalErrorFull() instead")
     void ezsignbulksendGetListV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignbulksendGetListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignbulksendGetObjectV2SignalErrorFull() instead")
     void ezsignbulksendGetObjectV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignbulksendGetObjectV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignbulksendReorderV1SignalErrorFull() instead")
     void ezsignbulksendReorderV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignbulksendReorderV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
 public slots:
     void tokenAvailable();
-    
 };
 
 } // namespace Ezmaxapi

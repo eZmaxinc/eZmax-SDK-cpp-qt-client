@@ -91,16 +91,19 @@ signals:
 
     void serviceProviderConfigGetObjectScimV2SignalFull(HttpRequestWorker *worker, Scim_ServiceProviderConfig summary);
 
+    Q_DECL_DEPRECATED_X("Use serviceProviderConfigGetObjectScimV2SignalError() instead")
     void serviceProviderConfigGetObjectScimV2SignalE(Scim_ServiceProviderConfig summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void serviceProviderConfigGetObjectScimV2SignalError(Scim_ServiceProviderConfig summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use serviceProviderConfigGetObjectScimV2SignalErrorFull() instead")
     void serviceProviderConfigGetObjectScimV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void serviceProviderConfigGetObjectScimV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
 public slots:
     void tokenAvailable();
-    
 };
 
 } // namespace Ezmaxapi

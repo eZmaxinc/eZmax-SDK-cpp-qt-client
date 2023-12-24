@@ -32,6 +32,8 @@
 #include "Ezsignfolder_editObject_v1_Request.h"
 #include "Ezsignfolder_editObject_v1_Response.h"
 #include "Ezsignfolder_getActionableElements_v1_Response.h"
+#include "Ezsignfolder_getAttachmentCount_v1_Response.h"
+#include "Ezsignfolder_getAttachments_v1_Response.h"
 #include "Ezsignfolder_getCommunicationCount_v1_Response.h"
 #include "Ezsignfolder_getCommunicationList_v1_Response.h"
 #include "Ezsignfolder_getCommunicationrecipients_v1_Response.h"
@@ -145,6 +147,16 @@ public:
     * @param[in]  pki_ezsignfolder_id qint32 [required]
     */
     void ezsignfolderGetActionableElementsV1(const qint32 &pki_ezsignfolder_id);
+
+    /**
+    * @param[in]  pki_ezsignfolder_id qint32 [required]
+    */
+    void ezsignfolderGetAttachmentCountV1(const qint32 &pki_ezsignfolder_id);
+
+    /**
+    * @param[in]  pki_ezsignfolder_id qint32 [required]
+    */
+    void ezsignfolderGetAttachmentsV1(const qint32 &pki_ezsignfolder_id);
 
     /**
     * @param[in]  pki_ezsignfolder_id qint32 [required]
@@ -279,6 +291,8 @@ private:
     void ezsignfolderDisposeV1Callback(HttpRequestWorker *worker);
     void ezsignfolderEditObjectV1Callback(HttpRequestWorker *worker);
     void ezsignfolderGetActionableElementsV1Callback(HttpRequestWorker *worker);
+    void ezsignfolderGetAttachmentCountV1Callback(HttpRequestWorker *worker);
+    void ezsignfolderGetAttachmentsV1Callback(HttpRequestWorker *worker);
     void ezsignfolderGetCommunicationCountV1Callback(HttpRequestWorker *worker);
     void ezsignfolderGetCommunicationListV1Callback(HttpRequestWorker *worker);
     void ezsignfolderGetCommunicationrecipientsV1Callback(HttpRequestWorker *worker);
@@ -309,6 +323,8 @@ signals:
     void ezsignfolderDisposeV1Signal(Ezsignfolder_dispose_v1_Response summary);
     void ezsignfolderEditObjectV1Signal(Ezsignfolder_editObject_v1_Response summary);
     void ezsignfolderGetActionableElementsV1Signal(Ezsignfolder_getActionableElements_v1_Response summary);
+    void ezsignfolderGetAttachmentCountV1Signal(Ezsignfolder_getAttachmentCount_v1_Response summary);
+    void ezsignfolderGetAttachmentsV1Signal(Ezsignfolder_getAttachments_v1_Response summary);
     void ezsignfolderGetCommunicationCountV1Signal(Ezsignfolder_getCommunicationCount_v1_Response summary);
     void ezsignfolderGetCommunicationListV1Signal(Ezsignfolder_getCommunicationList_v1_Response summary);
     void ezsignfolderGetCommunicationrecipientsV1Signal(Ezsignfolder_getCommunicationrecipients_v1_Response summary);
@@ -337,6 +353,8 @@ signals:
     void ezsignfolderDisposeV1SignalFull(HttpRequestWorker *worker, Ezsignfolder_dispose_v1_Response summary);
     void ezsignfolderEditObjectV1SignalFull(HttpRequestWorker *worker, Ezsignfolder_editObject_v1_Response summary);
     void ezsignfolderGetActionableElementsV1SignalFull(HttpRequestWorker *worker, Ezsignfolder_getActionableElements_v1_Response summary);
+    void ezsignfolderGetAttachmentCountV1SignalFull(HttpRequestWorker *worker, Ezsignfolder_getAttachmentCount_v1_Response summary);
+    void ezsignfolderGetAttachmentsV1SignalFull(HttpRequestWorker *worker, Ezsignfolder_getAttachments_v1_Response summary);
     void ezsignfolderGetCommunicationCountV1SignalFull(HttpRequestWorker *worker, Ezsignfolder_getCommunicationCount_v1_Response summary);
     void ezsignfolderGetCommunicationListV1SignalFull(HttpRequestWorker *worker, Ezsignfolder_getCommunicationList_v1_Response summary);
     void ezsignfolderGetCommunicationrecipientsV1SignalFull(HttpRequestWorker *worker, Ezsignfolder_getCommunicationrecipients_v1_Response summary);
@@ -356,68 +374,187 @@ signals:
     void ezsignfolderSendV3SignalFull(HttpRequestWorker *worker, Ezsignfolder_send_v3_Response summary);
     void ezsignfolderUnsendV1SignalFull(HttpRequestWorker *worker, Ezsignfolder_unsend_v1_Response summary);
 
+    Q_DECL_DEPRECATED_X("Use ezsignfolderArchiveV1SignalError() instead")
     void ezsignfolderArchiveV1SignalE(Ezsignfolder_archive_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfolderArchiveV1SignalError(Ezsignfolder_archive_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignfolderBatchDownloadV1SignalError() instead")
     void ezsignfolderBatchDownloadV1SignalE(HttpFileElement summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfolderBatchDownloadV1SignalError(HttpFileElement summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignfolderCreateObjectV1SignalError() instead")
     void ezsignfolderCreateObjectV1SignalE(Ezsignfolder_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfolderCreateObjectV1SignalError(Ezsignfolder_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignfolderCreateObjectV2SignalError() instead")
     void ezsignfolderCreateObjectV2SignalE(Ezsignfolder_createObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfolderCreateObjectV2SignalError(Ezsignfolder_createObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignfolderDeleteObjectV1SignalError() instead")
     void ezsignfolderDeleteObjectV1SignalE(Ezsignfolder_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfolderDeleteObjectV1SignalError(Ezsignfolder_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignfolderDisposeEzsignfoldersV1SignalError() instead")
     void ezsignfolderDisposeEzsignfoldersV1SignalE(Ezsignfolder_disposeEzsignfolders_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfolderDisposeEzsignfoldersV1SignalError(Ezsignfolder_disposeEzsignfolders_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignfolderDisposeV1SignalError() instead")
     void ezsignfolderDisposeV1SignalE(Ezsignfolder_dispose_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfolderDisposeV1SignalError(Ezsignfolder_dispose_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignfolderEditObjectV1SignalError() instead")
     void ezsignfolderEditObjectV1SignalE(Ezsignfolder_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfolderEditObjectV1SignalError(Ezsignfolder_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignfolderGetActionableElementsV1SignalError() instead")
     void ezsignfolderGetActionableElementsV1SignalE(Ezsignfolder_getActionableElements_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfolderGetActionableElementsV1SignalError(Ezsignfolder_getActionableElements_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignfolderGetAttachmentCountV1SignalError() instead")
+    void ezsignfolderGetAttachmentCountV1SignalE(Ezsignfolder_getAttachmentCount_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfolderGetAttachmentCountV1SignalError(Ezsignfolder_getAttachmentCount_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignfolderGetAttachmentsV1SignalError() instead")
+    void ezsignfolderGetAttachmentsV1SignalE(Ezsignfolder_getAttachments_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfolderGetAttachmentsV1SignalError(Ezsignfolder_getAttachments_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignfolderGetCommunicationCountV1SignalError() instead")
     void ezsignfolderGetCommunicationCountV1SignalE(Ezsignfolder_getCommunicationCount_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfolderGetCommunicationCountV1SignalError(Ezsignfolder_getCommunicationCount_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignfolderGetCommunicationListV1SignalError() instead")
     void ezsignfolderGetCommunicationListV1SignalE(Ezsignfolder_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfolderGetCommunicationListV1SignalError(Ezsignfolder_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignfolderGetCommunicationrecipientsV1SignalError() instead")
     void ezsignfolderGetCommunicationrecipientsV1SignalE(Ezsignfolder_getCommunicationrecipients_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfolderGetCommunicationrecipientsV1SignalError(Ezsignfolder_getCommunicationrecipients_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignfolderGetCommunicationsendersV1SignalError() instead")
     void ezsignfolderGetCommunicationsendersV1SignalE(Ezsignfolder_getCommunicationsenders_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfolderGetCommunicationsendersV1SignalError(Ezsignfolder_getCommunicationsenders_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignfolderGetEzsigndocumentsV1SignalError() instead")
     void ezsignfolderGetEzsigndocumentsV1SignalE(Ezsignfolder_getEzsigndocuments_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfolderGetEzsigndocumentsV1SignalError(Ezsignfolder_getEzsigndocuments_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignfolderGetEzsignfoldersignerassociationsV1SignalError() instead")
     void ezsignfolderGetEzsignfoldersignerassociationsV1SignalE(Ezsignfolder_getEzsignfoldersignerassociations_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfolderGetEzsignfoldersignerassociationsV1SignalError(Ezsignfolder_getEzsignfoldersignerassociations_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignfolderGetEzsignsignaturesAutomaticV1SignalError() instead")
     void ezsignfolderGetEzsignsignaturesAutomaticV1SignalE(Ezsignfolder_getEzsignsignaturesAutomatic_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfolderGetEzsignsignaturesAutomaticV1SignalError(Ezsignfolder_getEzsignsignaturesAutomatic_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignfolderGetFormsDataV1SignalError() instead")
     void ezsignfolderGetFormsDataV1SignalE(Ezsignfolder_getFormsData_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfolderGetFormsDataV1SignalError(Ezsignfolder_getFormsData_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignfolderGetListV1SignalError() instead")
     void ezsignfolderGetListV1SignalE(Ezsignfolder_getList_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfolderGetListV1SignalError(Ezsignfolder_getList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignfolderGetObjectV1SignalError() instead")
     void ezsignfolderGetObjectV1SignalE(Ezsignfolder_getObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfolderGetObjectV1SignalError(Ezsignfolder_getObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignfolderGetObjectV2SignalError() instead")
     void ezsignfolderGetObjectV2SignalE(Ezsignfolder_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfolderGetObjectV2SignalError(Ezsignfolder_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignfolderImportEzsignfoldersignerassociationsV1SignalError() instead")
     void ezsignfolderImportEzsignfoldersignerassociationsV1SignalE(Ezsignfolder_importEzsignfoldersignerassociations_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfolderImportEzsignfoldersignerassociationsV1SignalError(Ezsignfolder_importEzsignfoldersignerassociations_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignfolderImportEzsigntemplatepackageV1SignalError() instead")
     void ezsignfolderImportEzsigntemplatepackageV1SignalE(Ezsignfolder_importEzsigntemplatepackage_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfolderImportEzsigntemplatepackageV1SignalError(Ezsignfolder_importEzsigntemplatepackage_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignfolderReorderV1SignalError() instead")
     void ezsignfolderReorderV1SignalE(Ezsignfolder_reorder_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfolderReorderV1SignalError(Ezsignfolder_reorder_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignfolderSendV1SignalError() instead")
     void ezsignfolderSendV1SignalE(Ezsignfolder_send_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfolderSendV1SignalError(Ezsignfolder_send_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignfolderSendV2SignalError() instead")
     void ezsignfolderSendV2SignalE(Ezsignfolder_send_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfolderSendV2SignalError(Ezsignfolder_send_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignfolderSendV3SignalError() instead")
     void ezsignfolderSendV3SignalE(Ezsignfolder_send_v3_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfolderSendV3SignalError(Ezsignfolder_send_v3_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignfolderUnsendV1SignalError() instead")
     void ezsignfolderUnsendV1SignalE(Ezsignfolder_unsend_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfolderUnsendV1SignalError(Ezsignfolder_unsend_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use ezsignfolderArchiveV1SignalErrorFull() instead")
     void ezsignfolderArchiveV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfolderArchiveV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignfolderBatchDownloadV1SignalErrorFull() instead")
     void ezsignfolderBatchDownloadV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfolderBatchDownloadV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignfolderCreateObjectV1SignalErrorFull() instead")
     void ezsignfolderCreateObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfolderCreateObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignfolderCreateObjectV2SignalErrorFull() instead")
     void ezsignfolderCreateObjectV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfolderCreateObjectV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignfolderDeleteObjectV1SignalErrorFull() instead")
     void ezsignfolderDeleteObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfolderDeleteObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignfolderDisposeEzsignfoldersV1SignalErrorFull() instead")
     void ezsignfolderDisposeEzsignfoldersV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfolderDisposeEzsignfoldersV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignfolderDisposeV1SignalErrorFull() instead")
     void ezsignfolderDisposeV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfolderDisposeV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignfolderEditObjectV1SignalErrorFull() instead")
     void ezsignfolderEditObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfolderEditObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignfolderGetActionableElementsV1SignalErrorFull() instead")
     void ezsignfolderGetActionableElementsV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfolderGetActionableElementsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignfolderGetAttachmentCountV1SignalErrorFull() instead")
+    void ezsignfolderGetAttachmentCountV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfolderGetAttachmentCountV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignfolderGetAttachmentsV1SignalErrorFull() instead")
+    void ezsignfolderGetAttachmentsV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfolderGetAttachmentsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignfolderGetCommunicationCountV1SignalErrorFull() instead")
     void ezsignfolderGetCommunicationCountV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfolderGetCommunicationCountV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignfolderGetCommunicationListV1SignalErrorFull() instead")
     void ezsignfolderGetCommunicationListV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfolderGetCommunicationListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignfolderGetCommunicationrecipientsV1SignalErrorFull() instead")
     void ezsignfolderGetCommunicationrecipientsV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfolderGetCommunicationrecipientsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignfolderGetCommunicationsendersV1SignalErrorFull() instead")
     void ezsignfolderGetCommunicationsendersV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfolderGetCommunicationsendersV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignfolderGetEzsigndocumentsV1SignalErrorFull() instead")
     void ezsignfolderGetEzsigndocumentsV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfolderGetEzsigndocumentsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignfolderGetEzsignfoldersignerassociationsV1SignalErrorFull() instead")
     void ezsignfolderGetEzsignfoldersignerassociationsV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfolderGetEzsignfoldersignerassociationsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignfolderGetEzsignsignaturesAutomaticV1SignalErrorFull() instead")
     void ezsignfolderGetEzsignsignaturesAutomaticV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfolderGetEzsignsignaturesAutomaticV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignfolderGetFormsDataV1SignalErrorFull() instead")
     void ezsignfolderGetFormsDataV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfolderGetFormsDataV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignfolderGetListV1SignalErrorFull() instead")
     void ezsignfolderGetListV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfolderGetListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignfolderGetObjectV1SignalErrorFull() instead")
     void ezsignfolderGetObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfolderGetObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignfolderGetObjectV2SignalErrorFull() instead")
     void ezsignfolderGetObjectV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfolderGetObjectV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignfolderImportEzsignfoldersignerassociationsV1SignalErrorFull() instead")
     void ezsignfolderImportEzsignfoldersignerassociationsV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfolderImportEzsignfoldersignerassociationsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignfolderImportEzsigntemplatepackageV1SignalErrorFull() instead")
     void ezsignfolderImportEzsigntemplatepackageV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfolderImportEzsigntemplatepackageV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignfolderReorderV1SignalErrorFull() instead")
     void ezsignfolderReorderV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfolderReorderV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignfolderSendV1SignalErrorFull() instead")
     void ezsignfolderSendV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfolderSendV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignfolderSendV2SignalErrorFull() instead")
     void ezsignfolderSendV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfolderSendV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignfolderSendV3SignalErrorFull() instead")
     void ezsignfolderSendV3SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfolderSendV3SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignfolderUnsendV1SignalErrorFull() instead")
     void ezsignfolderUnsendV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfolderUnsendV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
 public slots:
     void tokenAvailable();
-    
 };
 
 } // namespace Ezmaxapi

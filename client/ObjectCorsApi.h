@@ -124,22 +124,37 @@ signals:
     void corsEditObjectV1SignalFull(HttpRequestWorker *worker, Cors_editObject_v1_Response summary);
     void corsGetObjectV2SignalFull(HttpRequestWorker *worker, Cors_getObject_v2_Response summary);
 
+    Q_DECL_DEPRECATED_X("Use corsCreateObjectV1SignalError() instead")
     void corsCreateObjectV1SignalE(Cors_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void corsCreateObjectV1SignalError(Cors_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use corsDeleteObjectV1SignalError() instead")
     void corsDeleteObjectV1SignalE(Cors_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void corsDeleteObjectV1SignalError(Cors_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use corsEditObjectV1SignalError() instead")
     void corsEditObjectV1SignalE(Cors_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void corsEditObjectV1SignalError(Cors_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use corsGetObjectV2SignalError() instead")
     void corsGetObjectV2SignalE(Cors_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void corsGetObjectV2SignalError(Cors_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use corsCreateObjectV1SignalErrorFull() instead")
     void corsCreateObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void corsCreateObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use corsDeleteObjectV1SignalErrorFull() instead")
     void corsDeleteObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void corsDeleteObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use corsEditObjectV1SignalErrorFull() instead")
     void corsEditObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void corsEditObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use corsGetObjectV2SignalErrorFull() instead")
     void corsGetObjectV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void corsGetObjectV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
 public slots:
     void tokenAvailable();
-    
 };
 
 } // namespace Ezmaxapi

@@ -60,6 +60,9 @@ void Webhook_ListElement::initializeModel() {
 
     m_b_webhook_isactive_isSet = false;
     m_b_webhook_isactive_isValid = false;
+
+    m_b_webhook_issigned_isSet = false;
+    m_b_webhook_issigned_isValid = false;
 }
 
 void Webhook_ListElement::fromJson(QString jsonString) {
@@ -97,6 +100,9 @@ void Webhook_ListElement::fromJsonObject(QJsonObject json) {
 
     m_b_webhook_isactive_isValid = ::Ezmaxapi::fromJsonValue(m_b_webhook_isactive, json[QString("bWebhookIsactive")]);
     m_b_webhook_isactive_isSet = !json[QString("bWebhookIsactive")].isNull() && m_b_webhook_isactive_isValid;
+
+    m_b_webhook_issigned_isValid = ::Ezmaxapi::fromJsonValue(m_b_webhook_issigned, json[QString("bWebhookIssigned")]);
+    m_b_webhook_issigned_isSet = !json[QString("bWebhookIssigned")].isNull() && m_b_webhook_issigned_isValid;
 }
 
 QString Webhook_ListElement::asJson() const {
@@ -134,6 +140,9 @@ QJsonObject Webhook_ListElement::asJsonObject() const {
     }
     if (m_b_webhook_isactive_isSet) {
         obj.insert(QString("bWebhookIsactive"), ::Ezmaxapi::toJsonValue(m_b_webhook_isactive));
+    }
+    if (m_b_webhook_issigned_isSet) {
+        obj.insert(QString("bWebhookIssigned"), ::Ezmaxapi::toJsonValue(m_b_webhook_issigned));
     }
     return obj;
 }
@@ -282,6 +291,22 @@ bool Webhook_ListElement::is_b_webhook_isactive_Valid() const{
     return m_b_webhook_isactive_isValid;
 }
 
+bool Webhook_ListElement::isBWebhookIssigned() const {
+    return m_b_webhook_issigned;
+}
+void Webhook_ListElement::setBWebhookIssigned(const bool &b_webhook_issigned) {
+    m_b_webhook_issigned = b_webhook_issigned;
+    m_b_webhook_issigned_isSet = true;
+}
+
+bool Webhook_ListElement::is_b_webhook_issigned_Set() const{
+    return m_b_webhook_issigned_isSet;
+}
+
+bool Webhook_ListElement::is_b_webhook_issigned_Valid() const{
+    return m_b_webhook_issigned_isValid;
+}
+
 bool Webhook_ListElement::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -329,13 +354,18 @@ bool Webhook_ListElement::isSet() const {
             isObjectUpdated = true;
             break;
         }
+
+        if (m_b_webhook_issigned_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
     } while (false);
     return isObjectUpdated;
 }
 
 bool Webhook_ListElement::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_pki_webhook_id_isValid && m_s_webhook_description_isValid && m_s_webhook_url_isValid && m_s_webhook_event_isValid && m_s_webhook_emailfailed_isValid && m_e_webhook_module_isValid && m_b_webhook_isactive_isValid && true;
+    return m_pki_webhook_id_isValid && m_s_webhook_description_isValid && m_s_webhook_url_isValid && m_s_webhook_event_isValid && m_s_webhook_emailfailed_isValid && m_e_webhook_module_isValid && m_b_webhook_isactive_isValid && m_b_webhook_issigned_isValid && true;
 }
 
 } // namespace Ezmaxapi

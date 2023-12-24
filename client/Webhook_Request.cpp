@@ -61,6 +61,9 @@ void Webhook_Request::initializeModel() {
     m_b_webhook_isactive_isSet = false;
     m_b_webhook_isactive_isValid = false;
 
+    m_b_webhook_issigned_isSet = false;
+    m_b_webhook_issigned_isValid = false;
+
     m_b_webhook_skipsslvalidation_isSet = false;
     m_b_webhook_skipsslvalidation_isValid = false;
 }
@@ -101,6 +104,9 @@ void Webhook_Request::fromJsonObject(QJsonObject json) {
     m_b_webhook_isactive_isValid = ::Ezmaxapi::fromJsonValue(m_b_webhook_isactive, json[QString("bWebhookIsactive")]);
     m_b_webhook_isactive_isSet = !json[QString("bWebhookIsactive")].isNull() && m_b_webhook_isactive_isValid;
 
+    m_b_webhook_issigned_isValid = ::Ezmaxapi::fromJsonValue(m_b_webhook_issigned, json[QString("bWebhookIssigned")]);
+    m_b_webhook_issigned_isSet = !json[QString("bWebhookIssigned")].isNull() && m_b_webhook_issigned_isValid;
+
     m_b_webhook_skipsslvalidation_isValid = ::Ezmaxapi::fromJsonValue(m_b_webhook_skipsslvalidation, json[QString("bWebhookSkipsslvalidation")]);
     m_b_webhook_skipsslvalidation_isSet = !json[QString("bWebhookSkipsslvalidation")].isNull() && m_b_webhook_skipsslvalidation_isValid;
 }
@@ -140,6 +146,9 @@ QJsonObject Webhook_Request::asJsonObject() const {
     }
     if (m_b_webhook_isactive_isSet) {
         obj.insert(QString("bWebhookIsactive"), ::Ezmaxapi::toJsonValue(m_b_webhook_isactive));
+    }
+    if (m_b_webhook_issigned_isSet) {
+        obj.insert(QString("bWebhookIssigned"), ::Ezmaxapi::toJsonValue(m_b_webhook_issigned));
     }
     if (m_b_webhook_skipsslvalidation_isSet) {
         obj.insert(QString("bWebhookSkipsslvalidation"), ::Ezmaxapi::toJsonValue(m_b_webhook_skipsslvalidation));
@@ -291,6 +300,22 @@ bool Webhook_Request::is_b_webhook_isactive_Valid() const{
     return m_b_webhook_isactive_isValid;
 }
 
+bool Webhook_Request::isBWebhookIssigned() const {
+    return m_b_webhook_issigned;
+}
+void Webhook_Request::setBWebhookIssigned(const bool &b_webhook_issigned) {
+    m_b_webhook_issigned = b_webhook_issigned;
+    m_b_webhook_issigned_isSet = true;
+}
+
+bool Webhook_Request::is_b_webhook_issigned_Set() const{
+    return m_b_webhook_issigned_isSet;
+}
+
+bool Webhook_Request::is_b_webhook_issigned_Valid() const{
+    return m_b_webhook_issigned_isValid;
+}
+
 bool Webhook_Request::isBWebhookSkipsslvalidation() const {
     return m_b_webhook_skipsslvalidation;
 }
@@ -351,6 +376,11 @@ bool Webhook_Request::isSet() const {
         }
 
         if (m_b_webhook_isactive_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_b_webhook_issigned_isSet) {
             isObjectUpdated = true;
             break;
         }

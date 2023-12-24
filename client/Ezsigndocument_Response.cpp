@@ -96,6 +96,9 @@ void Ezsigndocument_Response::initializeModel() {
 
     m_s_ezsigndocument_externalid_isSet = false;
     m_s_ezsigndocument_externalid_isValid = false;
+
+    m_i_ezsigndocument_ezsignsignatureattachmenttotal_isSet = false;
+    m_i_ezsigndocument_ezsignsignatureattachmenttotal_isValid = false;
 }
 
 void Ezsigndocument_Response::fromJson(QString jsonString) {
@@ -169,6 +172,9 @@ void Ezsigndocument_Response::fromJsonObject(QJsonObject json) {
 
     m_s_ezsigndocument_externalid_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsigndocument_externalid, json[QString("sEzsigndocumentExternalid")]);
     m_s_ezsigndocument_externalid_isSet = !json[QString("sEzsigndocumentExternalid")].isNull() && m_s_ezsigndocument_externalid_isValid;
+
+    m_i_ezsigndocument_ezsignsignatureattachmenttotal_isValid = ::Ezmaxapi::fromJsonValue(m_i_ezsigndocument_ezsignsignatureattachmenttotal, json[QString("iEzsigndocumentEzsignsignatureattachmenttotal")]);
+    m_i_ezsigndocument_ezsignsignatureattachmenttotal_isSet = !json[QString("iEzsigndocumentEzsignsignatureattachmenttotal")].isNull() && m_i_ezsigndocument_ezsignsignatureattachmenttotal_isValid;
 }
 
 QString Ezsigndocument_Response::asJson() const {
@@ -242,6 +248,9 @@ QJsonObject Ezsigndocument_Response::asJsonObject() const {
     }
     if (m_s_ezsigndocument_externalid_isSet) {
         obj.insert(QString("sEzsigndocumentExternalid"), ::Ezmaxapi::toJsonValue(m_s_ezsigndocument_externalid));
+    }
+    if (m_i_ezsigndocument_ezsignsignatureattachmenttotal_isSet) {
+        obj.insert(QString("iEzsigndocumentEzsignsignatureattachmenttotal"), ::Ezmaxapi::toJsonValue(m_i_ezsigndocument_ezsignsignatureattachmenttotal));
     }
     return obj;
 }
@@ -582,6 +591,22 @@ bool Ezsigndocument_Response::is_s_ezsigndocument_externalid_Valid() const{
     return m_s_ezsigndocument_externalid_isValid;
 }
 
+qint32 Ezsigndocument_Response::getIEzsigndocumentEzsignsignatureattachmenttotal() const {
+    return m_i_ezsigndocument_ezsignsignatureattachmenttotal;
+}
+void Ezsigndocument_Response::setIEzsigndocumentEzsignsignatureattachmenttotal(const qint32 &i_ezsigndocument_ezsignsignatureattachmenttotal) {
+    m_i_ezsigndocument_ezsignsignatureattachmenttotal = i_ezsigndocument_ezsignsignatureattachmenttotal;
+    m_i_ezsigndocument_ezsignsignatureattachmenttotal_isSet = true;
+}
+
+bool Ezsigndocument_Response::is_i_ezsigndocument_ezsignsignatureattachmenttotal_Set() const{
+    return m_i_ezsigndocument_ezsignsignatureattachmenttotal_isSet;
+}
+
+bool Ezsigndocument_Response::is_i_ezsigndocument_ezsignsignatureattachmenttotal_Valid() const{
+    return m_i_ezsigndocument_ezsignsignatureattachmenttotal_isValid;
+}
+
 bool Ezsigndocument_Response::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -689,13 +714,18 @@ bool Ezsigndocument_Response::isSet() const {
             isObjectUpdated = true;
             break;
         }
+
+        if (m_i_ezsigndocument_ezsignsignatureattachmenttotal_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
     } while (false);
     return isObjectUpdated;
 }
 
 bool Ezsigndocument_Response::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_pki_ezsigndocument_id_isValid && m_fki_ezsignfolder_id_isValid && m_dt_ezsigndocument_duedate_isValid && m_s_ezsigndocument_name_isValid && m_e_ezsigndocument_step_isValid && m_i_ezsigndocument_order_isValid && m_i_ezsigndocument_pagetotal_isValid && m_i_ezsigndocument_signaturesigned_isValid && m_i_ezsigndocument_signaturetotal_isValid && true;
+    return m_pki_ezsigndocument_id_isValid && m_fki_ezsignfolder_id_isValid && m_dt_ezsigndocument_duedate_isValid && m_s_ezsigndocument_name_isValid && m_e_ezsigndocument_step_isValid && m_i_ezsigndocument_order_isValid && m_i_ezsigndocument_pagetotal_isValid && m_i_ezsigndocument_signaturesigned_isValid && m_i_ezsigndocument_signaturetotal_isValid && m_i_ezsigndocument_ezsignsignatureattachmenttotal_isValid && true;
 }
 
 } // namespace Ezmaxapi

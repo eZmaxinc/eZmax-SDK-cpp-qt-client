@@ -97,16 +97,19 @@ signals:
 
     void ezmaxproductGetAutocompleteV2SignalFull(HttpRequestWorker *worker, Ezmaxproduct_getAutocomplete_v2_Response summary);
 
+    Q_DECL_DEPRECATED_X("Use ezmaxproductGetAutocompleteV2SignalError() instead")
     void ezmaxproductGetAutocompleteV2SignalE(Ezmaxproduct_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezmaxproductGetAutocompleteV2SignalError(Ezmaxproduct_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use ezmaxproductGetAutocompleteV2SignalErrorFull() instead")
     void ezmaxproductGetAutocompleteV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezmaxproductGetAutocompleteV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
 public slots:
     void tokenAvailable();
-    
 };
 
 } // namespace Ezmaxapi

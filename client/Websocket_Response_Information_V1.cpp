@@ -37,6 +37,9 @@ void Websocket_Response_Information_V1::initializeModel() {
     m_e_websocket_messagetype_isSet = false;
     m_e_websocket_messagetype_isValid = false;
 
+    m_s_websocket_channel_isSet = false;
+    m_s_websocket_channel_isValid = false;
+
     m_m_payload_isSet = false;
     m_m_payload_isValid = false;
 }
@@ -53,6 +56,9 @@ void Websocket_Response_Information_V1::fromJsonObject(QJsonObject json) {
     m_e_websocket_messagetype_isValid = ::Ezmaxapi::fromJsonValue(m_e_websocket_messagetype, json[QString("eWebsocketMessagetype")]);
     m_e_websocket_messagetype_isSet = !json[QString("eWebsocketMessagetype")].isNull() && m_e_websocket_messagetype_isValid;
 
+    m_s_websocket_channel_isValid = ::Ezmaxapi::fromJsonValue(m_s_websocket_channel, json[QString("sWebsocketChannel")]);
+    m_s_websocket_channel_isSet = !json[QString("sWebsocketChannel")].isNull() && m_s_websocket_channel_isValid;
+
     m_m_payload_isValid = ::Ezmaxapi::fromJsonValue(m_m_payload, json[QString("mPayload")]);
     m_m_payload_isSet = !json[QString("mPayload")].isNull() && m_m_payload_isValid;
 }
@@ -68,6 +74,9 @@ QJsonObject Websocket_Response_Information_V1::asJsonObject() const {
     QJsonObject obj;
     if (m_e_websocket_messagetype_isSet) {
         obj.insert(QString("eWebsocketMessagetype"), ::Ezmaxapi::toJsonValue(m_e_websocket_messagetype));
+    }
+    if (m_s_websocket_channel_isSet) {
+        obj.insert(QString("sWebsocketChannel"), ::Ezmaxapi::toJsonValue(m_s_websocket_channel));
     }
     if (m_m_payload.isSet()) {
         obj.insert(QString("mPayload"), ::Ezmaxapi::toJsonValue(m_m_payload));
@@ -89,6 +98,22 @@ bool Websocket_Response_Information_V1::is_e_websocket_messagetype_Set() const{
 
 bool Websocket_Response_Information_V1::is_e_websocket_messagetype_Valid() const{
     return m_e_websocket_messagetype_isValid;
+}
+
+QString Websocket_Response_Information_V1::getSWebsocketChannel() const {
+    return m_s_websocket_channel;
+}
+void Websocket_Response_Information_V1::setSWebsocketChannel(const QString &s_websocket_channel) {
+    m_s_websocket_channel = s_websocket_channel;
+    m_s_websocket_channel_isSet = true;
+}
+
+bool Websocket_Response_Information_V1::is_s_websocket_channel_Set() const{
+    return m_s_websocket_channel_isSet;
+}
+
+bool Websocket_Response_Information_V1::is_s_websocket_channel_Valid() const{
+    return m_s_websocket_channel_isValid;
 }
 
 Websocket_Response_Information_V1_mPayload Websocket_Response_Information_V1::getMPayload() const {
@@ -115,6 +140,11 @@ bool Websocket_Response_Information_V1::isSet() const {
             break;
         }
 
+        if (m_s_websocket_channel_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (m_m_payload.isSet()) {
             isObjectUpdated = true;
             break;
@@ -125,7 +155,7 @@ bool Websocket_Response_Information_V1::isSet() const {
 
 bool Websocket_Response_Information_V1::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_e_websocket_messagetype_isValid && m_m_payload_isValid && true;
+    return m_e_websocket_messagetype_isValid && m_s_websocket_channel_isValid && m_m_payload_isValid && true;
 }
 
 } // namespace Ezmaxapi

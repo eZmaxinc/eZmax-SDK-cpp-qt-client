@@ -19,7 +19,9 @@
 #include "Oauth.h"
 
 #include "Common_Response_Error.h"
+#include "Inscription_getAttachments_v1_Response.h"
 #include "Inscription_getCommunicationList_v1_Response.h"
+#include "Inscription_getCommunicationsenders_v1_Response.h"
 #include <QString>
 
 #include <QObject>
@@ -61,7 +63,17 @@ public:
     /**
     * @param[in]  pki_inscription_id qint32 [required]
     */
+    void inscriptionGetAttachmentsV1(const qint32 &pki_inscription_id);
+
+    /**
+    * @param[in]  pki_inscription_id qint32 [required]
+    */
     void inscriptionGetCommunicationListV1(const qint32 &pki_inscription_id);
+
+    /**
+    * @param[in]  pki_inscription_id qint32 [required]
+    */
+    void inscriptionGetCommunicationsendersV1(const qint32 &pki_inscription_id);
 
 
 private:
@@ -86,24 +98,45 @@ private:
     OauthPassword _passwordFlow;
     int _OauthMethod = 0;
 
+    void inscriptionGetAttachmentsV1Callback(HttpRequestWorker *worker);
     void inscriptionGetCommunicationListV1Callback(HttpRequestWorker *worker);
+    void inscriptionGetCommunicationsendersV1Callback(HttpRequestWorker *worker);
 
 signals:
 
+    void inscriptionGetAttachmentsV1Signal(Inscription_getAttachments_v1_Response summary);
     void inscriptionGetCommunicationListV1Signal(Inscription_getCommunicationList_v1_Response summary);
+    void inscriptionGetCommunicationsendersV1Signal(Inscription_getCommunicationsenders_v1_Response summary);
 
+    void inscriptionGetAttachmentsV1SignalFull(HttpRequestWorker *worker, Inscription_getAttachments_v1_Response summary);
     void inscriptionGetCommunicationListV1SignalFull(HttpRequestWorker *worker, Inscription_getCommunicationList_v1_Response summary);
+    void inscriptionGetCommunicationsendersV1SignalFull(HttpRequestWorker *worker, Inscription_getCommunicationsenders_v1_Response summary);
 
+    Q_DECL_DEPRECATED_X("Use inscriptionGetAttachmentsV1SignalError() instead")
+    void inscriptionGetAttachmentsV1SignalE(Inscription_getAttachments_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void inscriptionGetAttachmentsV1SignalError(Inscription_getAttachments_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use inscriptionGetCommunicationListV1SignalError() instead")
     void inscriptionGetCommunicationListV1SignalE(Inscription_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void inscriptionGetCommunicationListV1SignalError(Inscription_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use inscriptionGetCommunicationsendersV1SignalError() instead")
+    void inscriptionGetCommunicationsendersV1SignalE(Inscription_getCommunicationsenders_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void inscriptionGetCommunicationsendersV1SignalError(Inscription_getCommunicationsenders_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use inscriptionGetAttachmentsV1SignalErrorFull() instead")
+    void inscriptionGetAttachmentsV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void inscriptionGetAttachmentsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use inscriptionGetCommunicationListV1SignalErrorFull() instead")
     void inscriptionGetCommunicationListV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void inscriptionGetCommunicationListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use inscriptionGetCommunicationsendersV1SignalErrorFull() instead")
+    void inscriptionGetCommunicationsendersV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void inscriptionGetCommunicationsendersV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
 public slots:
     void tokenAvailable();
-    
 };
 
 } // namespace Ezmaxapi

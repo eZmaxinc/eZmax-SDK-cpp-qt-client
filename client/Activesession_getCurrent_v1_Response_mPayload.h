@@ -26,6 +26,8 @@
 #include "Field_eActivesessionOrigin.h"
 #include "Field_eActivesessionUsertype.h"
 #include "Field_eActivesessionWeekdaystart.h"
+#include "Field_eUserEzsignaccess.h"
+#include "Field_eUserEzsignprepaid.h"
 #include <QList>
 #include <QString>
 
@@ -102,6 +104,21 @@ public:
     bool is_fki_signature_id_Set() const;
     bool is_fki_signature_id_Valid() const;
 
+    Field_eUserEzsignaccess getEUserEzsignaccess() const;
+    void setEUserEzsignaccess(const Field_eUserEzsignaccess &e_user_ezsignaccess);
+    bool is_e_user_ezsignaccess_Set() const;
+    bool is_e_user_ezsignaccess_Valid() const;
+
+    Field_eUserEzsignprepaid getEUserEzsignprepaid() const;
+    void setEUserEzsignprepaid(const Field_eUserEzsignprepaid &e_user_ezsignprepaid);
+    bool is_e_user_ezsignprepaid_Set() const;
+    bool is_e_user_ezsignprepaid_Valid() const;
+
+    QString getDtUserEzsignprepaidexpiration() const;
+    void setDtUserEzsignprepaidexpiration(const QString &dt_user_ezsignprepaidexpiration);
+    bool is_dt_user_ezsignprepaidexpiration_Set() const;
+    bool is_dt_user_ezsignprepaidexpiration_Valid() const;
+
     QList<qint32> getAPkiPermissionId() const;
     void setAPkiPermissionId(const QList<qint32> &a_pki_permission_id);
     bool is_a_pki_permission_id_Set() const;
@@ -176,6 +193,18 @@ private:
     qint32 m_fki_signature_id;
     bool m_fki_signature_id_isSet;
     bool m_fki_signature_id_isValid;
+
+    Field_eUserEzsignaccess m_e_user_ezsignaccess;
+    bool m_e_user_ezsignaccess_isSet;
+    bool m_e_user_ezsignaccess_isValid;
+
+    Field_eUserEzsignprepaid m_e_user_ezsignprepaid;
+    bool m_e_user_ezsignprepaid_isSet;
+    bool m_e_user_ezsignprepaid_isValid;
+
+    QString m_dt_user_ezsignprepaidexpiration;
+    bool m_dt_user_ezsignprepaidexpiration_isSet;
+    bool m_dt_user_ezsignprepaidexpiration_isValid;
 
     QList<qint32> m_a_pki_permission_id;
     bool m_a_pki_permission_id_isSet;

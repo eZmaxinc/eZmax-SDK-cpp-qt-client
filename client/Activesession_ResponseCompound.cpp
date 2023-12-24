@@ -67,6 +67,15 @@ void Activesession_ResponseCompound::initializeModel() {
     m_fki_signature_id_isSet = false;
     m_fki_signature_id_isValid = false;
 
+    m_e_user_ezsignaccess_isSet = false;
+    m_e_user_ezsignaccess_isValid = false;
+
+    m_e_user_ezsignprepaid_isSet = false;
+    m_e_user_ezsignprepaid_isValid = false;
+
+    m_dt_user_ezsignprepaidexpiration_isSet = false;
+    m_dt_user_ezsignprepaidexpiration_isValid = false;
+
     m_a_pki_permission_id_isSet = false;
     m_a_pki_permission_id_isValid = false;
 
@@ -125,6 +134,15 @@ void Activesession_ResponseCompound::fromJsonObject(QJsonObject json) {
     m_fki_signature_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_signature_id, json[QString("fkiSignatureID")]);
     m_fki_signature_id_isSet = !json[QString("fkiSignatureID")].isNull() && m_fki_signature_id_isValid;
 
+    m_e_user_ezsignaccess_isValid = ::Ezmaxapi::fromJsonValue(m_e_user_ezsignaccess, json[QString("eUserEzsignaccess")]);
+    m_e_user_ezsignaccess_isSet = !json[QString("eUserEzsignaccess")].isNull() && m_e_user_ezsignaccess_isValid;
+
+    m_e_user_ezsignprepaid_isValid = ::Ezmaxapi::fromJsonValue(m_e_user_ezsignprepaid, json[QString("eUserEzsignprepaid")]);
+    m_e_user_ezsignprepaid_isSet = !json[QString("eUserEzsignprepaid")].isNull() && m_e_user_ezsignprepaid_isValid;
+
+    m_dt_user_ezsignprepaidexpiration_isValid = ::Ezmaxapi::fromJsonValue(m_dt_user_ezsignprepaidexpiration, json[QString("dtUserEzsignprepaidexpiration")]);
+    m_dt_user_ezsignprepaidexpiration_isSet = !json[QString("dtUserEzsignprepaidexpiration")].isNull() && m_dt_user_ezsignprepaidexpiration_isValid;
+
     m_a_pki_permission_id_isValid = ::Ezmaxapi::fromJsonValue(m_a_pki_permission_id, json[QString("a_pkiPermissionID")]);
     m_a_pki_permission_id_isSet = !json[QString("a_pkiPermissionID")].isNull() && m_a_pki_permission_id_isValid;
 
@@ -182,6 +200,15 @@ QJsonObject Activesession_ResponseCompound::asJsonObject() const {
     }
     if (m_fki_signature_id_isSet) {
         obj.insert(QString("fkiSignatureID"), ::Ezmaxapi::toJsonValue(m_fki_signature_id));
+    }
+    if (m_e_user_ezsignaccess.isSet()) {
+        obj.insert(QString("eUserEzsignaccess"), ::Ezmaxapi::toJsonValue(m_e_user_ezsignaccess));
+    }
+    if (m_e_user_ezsignprepaid.isSet()) {
+        obj.insert(QString("eUserEzsignprepaid"), ::Ezmaxapi::toJsonValue(m_e_user_ezsignprepaid));
+    }
+    if (m_dt_user_ezsignprepaidexpiration_isSet) {
+        obj.insert(QString("dtUserEzsignprepaidexpiration"), ::Ezmaxapi::toJsonValue(m_dt_user_ezsignprepaidexpiration));
     }
     if (m_a_pki_permission_id.size() > 0) {
         obj.insert(QString("a_pkiPermissionID"), ::Ezmaxapi::toJsonValue(m_a_pki_permission_id));
@@ -377,6 +404,54 @@ bool Activesession_ResponseCompound::is_fki_signature_id_Valid() const{
     return m_fki_signature_id_isValid;
 }
 
+Field_eUserEzsignaccess Activesession_ResponseCompound::getEUserEzsignaccess() const {
+    return m_e_user_ezsignaccess;
+}
+void Activesession_ResponseCompound::setEUserEzsignaccess(const Field_eUserEzsignaccess &e_user_ezsignaccess) {
+    m_e_user_ezsignaccess = e_user_ezsignaccess;
+    m_e_user_ezsignaccess_isSet = true;
+}
+
+bool Activesession_ResponseCompound::is_e_user_ezsignaccess_Set() const{
+    return m_e_user_ezsignaccess_isSet;
+}
+
+bool Activesession_ResponseCompound::is_e_user_ezsignaccess_Valid() const{
+    return m_e_user_ezsignaccess_isValid;
+}
+
+Field_eUserEzsignprepaid Activesession_ResponseCompound::getEUserEzsignprepaid() const {
+    return m_e_user_ezsignprepaid;
+}
+void Activesession_ResponseCompound::setEUserEzsignprepaid(const Field_eUserEzsignprepaid &e_user_ezsignprepaid) {
+    m_e_user_ezsignprepaid = e_user_ezsignprepaid;
+    m_e_user_ezsignprepaid_isSet = true;
+}
+
+bool Activesession_ResponseCompound::is_e_user_ezsignprepaid_Set() const{
+    return m_e_user_ezsignprepaid_isSet;
+}
+
+bool Activesession_ResponseCompound::is_e_user_ezsignprepaid_Valid() const{
+    return m_e_user_ezsignprepaid_isValid;
+}
+
+QString Activesession_ResponseCompound::getDtUserEzsignprepaidexpiration() const {
+    return m_dt_user_ezsignprepaidexpiration;
+}
+void Activesession_ResponseCompound::setDtUserEzsignprepaidexpiration(const QString &dt_user_ezsignprepaidexpiration) {
+    m_dt_user_ezsignprepaidexpiration = dt_user_ezsignprepaidexpiration;
+    m_dt_user_ezsignprepaidexpiration_isSet = true;
+}
+
+bool Activesession_ResponseCompound::is_dt_user_ezsignprepaidexpiration_Set() const{
+    return m_dt_user_ezsignprepaidexpiration_isSet;
+}
+
+bool Activesession_ResponseCompound::is_dt_user_ezsignprepaidexpiration_Valid() const{
+    return m_dt_user_ezsignprepaidexpiration_isValid;
+}
+
 QList<qint32> Activesession_ResponseCompound::getAPkiPermissionId() const {
     return m_a_pki_permission_id;
 }
@@ -515,6 +590,21 @@ bool Activesession_ResponseCompound::isSet() const {
             break;
         }
 
+        if (m_e_user_ezsignaccess.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_e_user_ezsignprepaid.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_dt_user_ezsignprepaidexpiration_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (m_a_pki_permission_id.size() > 0) {
             isObjectUpdated = true;
             break;
@@ -545,7 +635,7 @@ bool Activesession_ResponseCompound::isSet() const {
 
 bool Activesession_ResponseCompound::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_e_activesession_usertype_isValid && m_e_activesession_origin_isValid && m_e_activesession_weekdaystart_isValid && m_fki_language_id_isValid && m_s_company_name_x_isValid && m_s_department_name_x_isValid && m_b_activesession_debug_isValid && m_b_activesession_issuperadmin_isValid && m_pks_customer_code_isValid && m_fki_systemconfigurationtype_id_isValid && m_a_pki_permission_id_isValid && m_obj_user_real_isValid && m_a_e_module_internalname_isValid && true;
+    return m_e_activesession_usertype_isValid && m_e_activesession_origin_isValid && m_e_activesession_weekdaystart_isValid && m_fki_language_id_isValid && m_s_company_name_x_isValid && m_s_department_name_x_isValid && m_b_activesession_debug_isValid && m_b_activesession_issuperadmin_isValid && m_pks_customer_code_isValid && m_fki_systemconfigurationtype_id_isValid && m_e_user_ezsignaccess_isValid && m_a_pki_permission_id_isValid && m_obj_user_real_isValid && m_a_e_module_internalname_isValid && true;
 }
 
 } // namespace Ezmaxapi

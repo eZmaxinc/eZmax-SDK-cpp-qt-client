@@ -49,15 +49,15 @@ public:
     bool is_fki_agent_id_Set() const;
     bool is_fki_agent_id_Valid() const;
 
-    qint32 getFkiAgentincorporationId() const;
-    void setFkiAgentincorporationId(const qint32 &fki_agentincorporation_id);
-    bool is_fki_agentincorporation_id_Set() const;
-    bool is_fki_agentincorporation_id_Valid() const;
-
     qint32 getFkiBrokerId() const;
     void setFkiBrokerId(const qint32 &fki_broker_id);
     bool is_fki_broker_id_Set() const;
     bool is_fki_broker_id_Valid() const;
+
+    qint32 getFkiContactId() const;
+    void setFkiContactId(const qint32 &fki_contact_id);
+    bool is_fki_contact_id_Set() const;
+    bool is_fki_contact_id_Valid() const;
 
     qint32 getFkiCustomerId() const;
     void setFkiCustomerId(const qint32 &fki_customer_id);
@@ -99,6 +99,16 @@ public:
     bool is_fki_user_id_Set() const;
     bool is_fki_user_id_Valid() const;
 
+    qint32 getFkiMailboxsharedId() const;
+    void setFkiMailboxsharedId(const qint32 &fki_mailboxshared_id);
+    bool is_fki_mailboxshared_id_Set() const;
+    bool is_fki_mailboxshared_id_Valid() const;
+
+    qint32 getFkiPhonelinesharedId() const;
+    void setFkiPhonelinesharedId(const qint32 &fki_phonelineshared_id);
+    bool is_fki_phonelineshared_id_Set() const;
+    bool is_fki_phonelineshared_id_Valid() const;
+
     Field_eCommunicationrecipientType getECommunicationrecipientType() const;
     void setECommunicationrecipientType(const Field_eCommunicationrecipientType &e_communicationrecipient_type);
     bool is_e_communicationrecipient_type_Set() const;
@@ -118,13 +128,13 @@ private:
     bool m_fki_agent_id_isSet;
     bool m_fki_agent_id_isValid;
 
-    qint32 m_fki_agentincorporation_id;
-    bool m_fki_agentincorporation_id_isSet;
-    bool m_fki_agentincorporation_id_isValid;
-
     qint32 m_fki_broker_id;
     bool m_fki_broker_id_isSet;
     bool m_fki_broker_id_isValid;
+
+    qint32 m_fki_contact_id;
+    bool m_fki_contact_id_isSet;
+    bool m_fki_contact_id_isValid;
 
     qint32 m_fki_customer_id;
     bool m_fki_customer_id_isSet;
@@ -157,6 +167,14 @@ private:
     qint32 m_fki_user_id;
     bool m_fki_user_id_isSet;
     bool m_fki_user_id_isValid;
+
+    qint32 m_fki_mailboxshared_id;
+    bool m_fki_mailboxshared_id_isSet;
+    bool m_fki_mailboxshared_id_isValid;
+
+    qint32 m_fki_phonelineshared_id;
+    bool m_fki_phonelineshared_id_isSet;
+    bool m_fki_phonelineshared_id_isValid;
 
     Field_eCommunicationrecipientType m_e_communicationrecipient_type;
     bool m_e_communicationrecipient_type_isSet;

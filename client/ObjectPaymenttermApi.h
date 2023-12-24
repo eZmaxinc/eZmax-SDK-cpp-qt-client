@@ -142,24 +142,43 @@ signals:
     void paymenttermGetListV1SignalFull(HttpRequestWorker *worker, Paymentterm_getList_v1_Response summary);
     void paymenttermGetObjectV2SignalFull(HttpRequestWorker *worker, Paymentterm_getObject_v2_Response summary);
 
+    Q_DECL_DEPRECATED_X("Use paymenttermCreateObjectV1SignalError() instead")
     void paymenttermCreateObjectV1SignalE(Paymentterm_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void paymenttermCreateObjectV1SignalError(Paymentterm_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use paymenttermEditObjectV1SignalError() instead")
     void paymenttermEditObjectV1SignalE(Paymentterm_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void paymenttermEditObjectV1SignalError(Paymentterm_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use paymenttermGetAutocompleteV2SignalError() instead")
     void paymenttermGetAutocompleteV2SignalE(Paymentterm_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void paymenttermGetAutocompleteV2SignalError(Paymentterm_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use paymenttermGetListV1SignalError() instead")
     void paymenttermGetListV1SignalE(Paymentterm_getList_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void paymenttermGetListV1SignalError(Paymentterm_getList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use paymenttermGetObjectV2SignalError() instead")
     void paymenttermGetObjectV2SignalE(Paymentterm_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void paymenttermGetObjectV2SignalError(Paymentterm_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use paymenttermCreateObjectV1SignalErrorFull() instead")
     void paymenttermCreateObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void paymenttermCreateObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use paymenttermEditObjectV1SignalErrorFull() instead")
     void paymenttermEditObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void paymenttermEditObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use paymenttermGetAutocompleteV2SignalErrorFull() instead")
     void paymenttermGetAutocompleteV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void paymenttermGetAutocompleteV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use paymenttermGetListV1SignalErrorFull() instead")
     void paymenttermGetListV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void paymenttermGetListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use paymenttermGetObjectV2SignalErrorFull() instead")
     void paymenttermGetObjectV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void paymenttermGetObjectV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
 public slots:
     void tokenAvailable();
-    
 };
 
 } // namespace Ezmaxapi

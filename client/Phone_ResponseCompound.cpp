@@ -48,6 +48,9 @@ void Phone_ResponseCompound::initializeModel() {
 
     m_s_phone_extension_isSet = false;
     m_s_phone_extension_isValid = false;
+
+    m_b_phone_international_isSet = false;
+    m_b_phone_international_isValid = false;
 }
 
 void Phone_ResponseCompound::fromJson(QString jsonString) {
@@ -73,6 +76,9 @@ void Phone_ResponseCompound::fromJsonObject(QJsonObject json) {
 
     m_s_phone_extension_isValid = ::Ezmaxapi::fromJsonValue(m_s_phone_extension, json[QString("sPhoneExtension")]);
     m_s_phone_extension_isSet = !json[QString("sPhoneExtension")].isNull() && m_s_phone_extension_isValid;
+
+    m_b_phone_international_isValid = ::Ezmaxapi::fromJsonValue(m_b_phone_international, json[QString("bPhoneInternational")]);
+    m_b_phone_international_isSet = !json[QString("bPhoneInternational")].isNull() && m_b_phone_international_isValid;
 }
 
 QString Phone_ResponseCompound::asJson() const {
@@ -98,6 +104,9 @@ QJsonObject Phone_ResponseCompound::asJsonObject() const {
     }
     if (m_s_phone_extension_isSet) {
         obj.insert(QString("sPhoneExtension"), ::Ezmaxapi::toJsonValue(m_s_phone_extension));
+    }
+    if (m_b_phone_international_isSet) {
+        obj.insert(QString("bPhoneInternational"), ::Ezmaxapi::toJsonValue(m_b_phone_international));
     }
     return obj;
 }
@@ -182,6 +191,22 @@ bool Phone_ResponseCompound::is_s_phone_extension_Valid() const{
     return m_s_phone_extension_isValid;
 }
 
+bool Phone_ResponseCompound::isBPhoneInternational() const {
+    return m_b_phone_international;
+}
+void Phone_ResponseCompound::setBPhoneInternational(const bool &b_phone_international) {
+    m_b_phone_international = b_phone_international;
+    m_b_phone_international_isSet = true;
+}
+
+bool Phone_ResponseCompound::is_b_phone_international_Set() const{
+    return m_b_phone_international_isSet;
+}
+
+bool Phone_ResponseCompound::is_b_phone_international_Valid() const{
+    return m_b_phone_international_isValid;
+}
+
 bool Phone_ResponseCompound::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -206,6 +231,11 @@ bool Phone_ResponseCompound::isSet() const {
         }
 
         if (m_s_phone_extension_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_b_phone_international_isSet) {
             isObjectUpdated = true;
             break;
         }

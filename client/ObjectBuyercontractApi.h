@@ -94,16 +94,19 @@ signals:
 
     void buyercontractGetCommunicationListV1SignalFull(HttpRequestWorker *worker, Buyercontract_getCommunicationList_v1_Response summary);
 
+    Q_DECL_DEPRECATED_X("Use buyercontractGetCommunicationListV1SignalError() instead")
     void buyercontractGetCommunicationListV1SignalE(Buyercontract_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void buyercontractGetCommunicationListV1SignalError(Buyercontract_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use buyercontractGetCommunicationListV1SignalErrorFull() instead")
     void buyercontractGetCommunicationListV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void buyercontractGetCommunicationListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
 public slots:
     void tokenAvailable();
-    
 };
 
 } // namespace Ezmaxapi

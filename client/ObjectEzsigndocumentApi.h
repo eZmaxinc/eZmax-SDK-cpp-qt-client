@@ -39,6 +39,7 @@
 #include "Ezsigndocument_endPrematurely_v1_Response.h"
 #include "Ezsigndocument_flatten_v1_Response.h"
 #include "Ezsigndocument_getActionableElements_v1_Response.h"
+#include "Ezsigndocument_getAttachments_v1_Response.h"
 #include "Ezsigndocument_getCompletedElements_v1_Response.h"
 #include "Ezsigndocument_getDownloadUrl_v1_Response.h"
 #include "Ezsigndocument_getEzsignannotations_v1_Response.h"
@@ -162,6 +163,11 @@ public:
     /**
     * @param[in]  pki_ezsigndocument_id qint32 [required]
     */
+    void ezsigndocumentGetAttachmentsV1(const qint32 &pki_ezsigndocument_id);
+
+    /**
+    * @param[in]  pki_ezsigndocument_id qint32 [required]
+    */
     void ezsigndocumentGetCompletedElementsV1(const qint32 &pki_ezsigndocument_id);
 
     /**
@@ -273,6 +279,7 @@ private:
     void ezsigndocumentEndPrematurelyV1Callback(HttpRequestWorker *worker);
     void ezsigndocumentFlattenV1Callback(HttpRequestWorker *worker);
     void ezsigndocumentGetActionableElementsV1Callback(HttpRequestWorker *worker);
+    void ezsigndocumentGetAttachmentsV1Callback(HttpRequestWorker *worker);
     void ezsigndocumentGetCompletedElementsV1Callback(HttpRequestWorker *worker);
     void ezsigndocumentGetDownloadUrlV1Callback(HttpRequestWorker *worker);
     void ezsigndocumentGetEzsignannotationsV1Callback(HttpRequestWorker *worker);
@@ -302,6 +309,7 @@ signals:
     void ezsigndocumentEndPrematurelyV1Signal(Ezsigndocument_endPrematurely_v1_Response summary);
     void ezsigndocumentFlattenV1Signal(Ezsigndocument_flatten_v1_Response summary);
     void ezsigndocumentGetActionableElementsV1Signal(Ezsigndocument_getActionableElements_v1_Response summary);
+    void ezsigndocumentGetAttachmentsV1Signal(Ezsigndocument_getAttachments_v1_Response summary);
     void ezsigndocumentGetCompletedElementsV1Signal(Ezsigndocument_getCompletedElements_v1_Response summary);
     void ezsigndocumentGetDownloadUrlV1Signal(Ezsigndocument_getDownloadUrl_v1_Response summary);
     void ezsigndocumentGetEzsignannotationsV1Signal(Ezsigndocument_getEzsignannotations_v1_Response summary);
@@ -329,6 +337,7 @@ signals:
     void ezsigndocumentEndPrematurelyV1SignalFull(HttpRequestWorker *worker, Ezsigndocument_endPrematurely_v1_Response summary);
     void ezsigndocumentFlattenV1SignalFull(HttpRequestWorker *worker, Ezsigndocument_flatten_v1_Response summary);
     void ezsigndocumentGetActionableElementsV1SignalFull(HttpRequestWorker *worker, Ezsigndocument_getActionableElements_v1_Response summary);
+    void ezsigndocumentGetAttachmentsV1SignalFull(HttpRequestWorker *worker, Ezsigndocument_getAttachments_v1_Response summary);
     void ezsigndocumentGetCompletedElementsV1SignalFull(HttpRequestWorker *worker, Ezsigndocument_getCompletedElements_v1_Response summary);
     void ezsigndocumentGetDownloadUrlV1SignalFull(HttpRequestWorker *worker, Ezsigndocument_getDownloadUrl_v1_Response summary);
     void ezsigndocumentGetEzsignannotationsV1SignalFull(HttpRequestWorker *worker, Ezsigndocument_getEzsignannotations_v1_Response summary);
@@ -345,66 +354,175 @@ signals:
     void ezsigndocumentSubmitEzsignformV1SignalFull(HttpRequestWorker *worker, Ezsigndocument_submitEzsignform_v1_Response summary);
     void ezsigndocumentUnsendV1SignalFull(HttpRequestWorker *worker, Ezsigndocument_unsend_v1_Response summary);
 
+    Q_DECL_DEPRECATED_X("Use ezsigndocumentApplyEzsigntemplateV1SignalError() instead")
     void ezsigndocumentApplyEzsigntemplateV1SignalE(Ezsigndocument_applyEzsigntemplate_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentApplyEzsigntemplateV1SignalError(Ezsigndocument_applyEzsigntemplate_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigndocumentApplyEzsigntemplateV2SignalError() instead")
     void ezsigndocumentApplyEzsigntemplateV2SignalE(Ezsigndocument_applyEzsigntemplate_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentApplyEzsigntemplateV2SignalError(Ezsigndocument_applyEzsigntemplate_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigndocumentCreateObjectV1SignalError() instead")
     void ezsigndocumentCreateObjectV1SignalE(Ezsigndocument_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentCreateObjectV1SignalError(Ezsigndocument_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigndocumentCreateObjectV2SignalError() instead")
     void ezsigndocumentCreateObjectV2SignalE(Ezsigndocument_createObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentCreateObjectV2SignalError(Ezsigndocument_createObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigndocumentDeclineToSignV1SignalError() instead")
     void ezsigndocumentDeclineToSignV1SignalE(Ezsigndocument_declineToSign_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentDeclineToSignV1SignalError(Ezsigndocument_declineToSign_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigndocumentDeleteObjectV1SignalError() instead")
     void ezsigndocumentDeleteObjectV1SignalE(Ezsigndocument_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentDeleteObjectV1SignalError(Ezsigndocument_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigndocumentEditEzsignformfieldgroupsV1SignalError() instead")
     void ezsigndocumentEditEzsignformfieldgroupsV1SignalE(Ezsigndocument_editEzsignformfieldgroups_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentEditEzsignformfieldgroupsV1SignalError(Ezsigndocument_editEzsignformfieldgroups_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigndocumentEditEzsignsignaturesV1SignalError() instead")
     void ezsigndocumentEditEzsignsignaturesV1SignalE(Ezsigndocument_editEzsignsignatures_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentEditEzsignsignaturesV1SignalError(Ezsigndocument_editEzsignsignatures_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigndocumentEndPrematurelyV1SignalError() instead")
     void ezsigndocumentEndPrematurelyV1SignalE(Ezsigndocument_endPrematurely_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentEndPrematurelyV1SignalError(Ezsigndocument_endPrematurely_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigndocumentFlattenV1SignalError() instead")
     void ezsigndocumentFlattenV1SignalE(Ezsigndocument_flatten_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentFlattenV1SignalError(Ezsigndocument_flatten_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigndocumentGetActionableElementsV1SignalError() instead")
     void ezsigndocumentGetActionableElementsV1SignalE(Ezsigndocument_getActionableElements_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentGetActionableElementsV1SignalError(Ezsigndocument_getActionableElements_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigndocumentGetAttachmentsV1SignalError() instead")
+    void ezsigndocumentGetAttachmentsV1SignalE(Ezsigndocument_getAttachments_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentGetAttachmentsV1SignalError(Ezsigndocument_getAttachments_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigndocumentGetCompletedElementsV1SignalError() instead")
     void ezsigndocumentGetCompletedElementsV1SignalE(Ezsigndocument_getCompletedElements_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentGetCompletedElementsV1SignalError(Ezsigndocument_getCompletedElements_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigndocumentGetDownloadUrlV1SignalError() instead")
     void ezsigndocumentGetDownloadUrlV1SignalE(Ezsigndocument_getDownloadUrl_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentGetDownloadUrlV1SignalError(Ezsigndocument_getDownloadUrl_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigndocumentGetEzsignannotationsV1SignalError() instead")
     void ezsigndocumentGetEzsignannotationsV1SignalE(Ezsigndocument_getEzsignannotations_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentGetEzsignannotationsV1SignalError(Ezsigndocument_getEzsignannotations_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigndocumentGetEzsignformfieldgroupsV1SignalError() instead")
     void ezsigndocumentGetEzsignformfieldgroupsV1SignalE(Ezsigndocument_getEzsignformfieldgroups_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentGetEzsignformfieldgroupsV1SignalError(Ezsigndocument_getEzsignformfieldgroups_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigndocumentGetEzsignpagesV1SignalError() instead")
     void ezsigndocumentGetEzsignpagesV1SignalE(Ezsigndocument_getEzsignpages_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentGetEzsignpagesV1SignalError(Ezsigndocument_getEzsignpages_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigndocumentGetEzsignsignaturesAutomaticV1SignalError() instead")
     void ezsigndocumentGetEzsignsignaturesAutomaticV1SignalE(Ezsigndocument_getEzsignsignaturesAutomatic_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentGetEzsignsignaturesAutomaticV1SignalError(Ezsigndocument_getEzsignsignaturesAutomatic_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigndocumentGetEzsignsignaturesV1SignalError() instead")
     void ezsigndocumentGetEzsignsignaturesV1SignalE(Ezsigndocument_getEzsignsignatures_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentGetEzsignsignaturesV1SignalError(Ezsigndocument_getEzsignsignatures_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigndocumentGetFormDataV1SignalError() instead")
     void ezsigndocumentGetFormDataV1SignalE(Ezsigndocument_getFormData_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentGetFormDataV1SignalError(Ezsigndocument_getFormData_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigndocumentGetObjectV1SignalError() instead")
     void ezsigndocumentGetObjectV1SignalE(Ezsigndocument_getObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentGetObjectV1SignalError(Ezsigndocument_getObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigndocumentGetObjectV2SignalError() instead")
     void ezsigndocumentGetObjectV2SignalE(Ezsigndocument_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentGetObjectV2SignalError(Ezsigndocument_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigndocumentGetTemporaryProofV1SignalError() instead")
     void ezsigndocumentGetTemporaryProofV1SignalE(Ezsigndocument_getTemporaryProof_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentGetTemporaryProofV1SignalError(Ezsigndocument_getTemporaryProof_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigndocumentGetWordsPositionsV1SignalError() instead")
     void ezsigndocumentGetWordsPositionsV1SignalE(Ezsigndocument_getWordsPositions_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentGetWordsPositionsV1SignalError(Ezsigndocument_getWordsPositions_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigndocumentPatchObjectV1SignalError() instead")
     void ezsigndocumentPatchObjectV1SignalE(Ezsigndocument_patchObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentPatchObjectV1SignalError(Ezsigndocument_patchObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigndocumentSubmitEzsignformV1SignalError() instead")
     void ezsigndocumentSubmitEzsignformV1SignalE(Ezsigndocument_submitEzsignform_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentSubmitEzsignformV1SignalError(Ezsigndocument_submitEzsignform_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigndocumentUnsendV1SignalError() instead")
     void ezsigndocumentUnsendV1SignalE(Ezsigndocument_unsend_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentUnsendV1SignalError(Ezsigndocument_unsend_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use ezsigndocumentApplyEzsigntemplateV1SignalErrorFull() instead")
     void ezsigndocumentApplyEzsigntemplateV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentApplyEzsigntemplateV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigndocumentApplyEzsigntemplateV2SignalErrorFull() instead")
     void ezsigndocumentApplyEzsigntemplateV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentApplyEzsigntemplateV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigndocumentCreateObjectV1SignalErrorFull() instead")
     void ezsigndocumentCreateObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentCreateObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigndocumentCreateObjectV2SignalErrorFull() instead")
     void ezsigndocumentCreateObjectV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentCreateObjectV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigndocumentDeclineToSignV1SignalErrorFull() instead")
     void ezsigndocumentDeclineToSignV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentDeclineToSignV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigndocumentDeleteObjectV1SignalErrorFull() instead")
     void ezsigndocumentDeleteObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentDeleteObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigndocumentEditEzsignformfieldgroupsV1SignalErrorFull() instead")
     void ezsigndocumentEditEzsignformfieldgroupsV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentEditEzsignformfieldgroupsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigndocumentEditEzsignsignaturesV1SignalErrorFull() instead")
     void ezsigndocumentEditEzsignsignaturesV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentEditEzsignsignaturesV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigndocumentEndPrematurelyV1SignalErrorFull() instead")
     void ezsigndocumentEndPrematurelyV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentEndPrematurelyV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigndocumentFlattenV1SignalErrorFull() instead")
     void ezsigndocumentFlattenV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentFlattenV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigndocumentGetActionableElementsV1SignalErrorFull() instead")
     void ezsigndocumentGetActionableElementsV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentGetActionableElementsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigndocumentGetAttachmentsV1SignalErrorFull() instead")
+    void ezsigndocumentGetAttachmentsV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentGetAttachmentsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigndocumentGetCompletedElementsV1SignalErrorFull() instead")
     void ezsigndocumentGetCompletedElementsV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentGetCompletedElementsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigndocumentGetDownloadUrlV1SignalErrorFull() instead")
     void ezsigndocumentGetDownloadUrlV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentGetDownloadUrlV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigndocumentGetEzsignannotationsV1SignalErrorFull() instead")
     void ezsigndocumentGetEzsignannotationsV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentGetEzsignannotationsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigndocumentGetEzsignformfieldgroupsV1SignalErrorFull() instead")
     void ezsigndocumentGetEzsignformfieldgroupsV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentGetEzsignformfieldgroupsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigndocumentGetEzsignpagesV1SignalErrorFull() instead")
     void ezsigndocumentGetEzsignpagesV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentGetEzsignpagesV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigndocumentGetEzsignsignaturesAutomaticV1SignalErrorFull() instead")
     void ezsigndocumentGetEzsignsignaturesAutomaticV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentGetEzsignsignaturesAutomaticV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigndocumentGetEzsignsignaturesV1SignalErrorFull() instead")
     void ezsigndocumentGetEzsignsignaturesV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentGetEzsignsignaturesV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigndocumentGetFormDataV1SignalErrorFull() instead")
     void ezsigndocumentGetFormDataV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentGetFormDataV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigndocumentGetObjectV1SignalErrorFull() instead")
     void ezsigndocumentGetObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentGetObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigndocumentGetObjectV2SignalErrorFull() instead")
     void ezsigndocumentGetObjectV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentGetObjectV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigndocumentGetTemporaryProofV1SignalErrorFull() instead")
     void ezsigndocumentGetTemporaryProofV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentGetTemporaryProofV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigndocumentGetWordsPositionsV1SignalErrorFull() instead")
     void ezsigndocumentGetWordsPositionsV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentGetWordsPositionsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigndocumentPatchObjectV1SignalErrorFull() instead")
     void ezsigndocumentPatchObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentPatchObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigndocumentSubmitEzsignformV1SignalErrorFull() instead")
     void ezsigndocumentSubmitEzsignformV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentSubmitEzsignformV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigndocumentUnsendV1SignalErrorFull() instead")
     void ezsigndocumentUnsendV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentUnsendV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
 public slots:
     void tokenAvailable();
-    
 };
 
 } // namespace Ezmaxapi

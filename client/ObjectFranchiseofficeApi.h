@@ -97,16 +97,19 @@ signals:
 
     void franchiseofficeGetAutocompleteV2SignalFull(HttpRequestWorker *worker, Franchiseoffice_getAutocomplete_v2_Response summary);
 
+    Q_DECL_DEPRECATED_X("Use franchiseofficeGetAutocompleteV2SignalError() instead")
     void franchiseofficeGetAutocompleteV2SignalE(Franchiseoffice_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void franchiseofficeGetAutocompleteV2SignalError(Franchiseoffice_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use franchiseofficeGetAutocompleteV2SignalErrorFull() instead")
     void franchiseofficeGetAutocompleteV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void franchiseofficeGetAutocompleteV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
 public slots:
     void tokenAvailable();
-    
 };
 
 } // namespace Ezmaxapi

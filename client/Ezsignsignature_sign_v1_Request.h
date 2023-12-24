@@ -42,6 +42,11 @@ public:
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
+    qint32 getFkiEzsignsigningreasonId() const;
+    void setFkiEzsignsigningreasonId(const qint32 &fki_ezsignsigningreason_id);
+    bool is_fki_ezsignsigningreason_id_Set() const;
+    bool is_fki_ezsignsigningreason_id_Valid() const;
+
     QString getSValue() const;
     void setSValue(const QString &s_value);
     bool is_s_value_Set() const;
@@ -77,6 +82,10 @@ public:
 
 private:
     void initializeModel();
+
+    qint32 m_fki_ezsignsigningreason_id;
+    bool m_fki_ezsignsigningreason_id_isSet;
+    bool m_fki_ezsignsigningreason_id_isValid;
 
     QString m_s_value;
     bool m_s_value_isSet;

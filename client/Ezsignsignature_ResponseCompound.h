@@ -71,6 +71,16 @@ public:
     bool is_fki_ezsignfoldersignerassociation_id_Set() const;
     bool is_fki_ezsignfoldersignerassociation_id_Valid() const;
 
+    qint32 getFkiEzsignsigningreasonId() const;
+    void setFkiEzsignsigningreasonId(const qint32 &fki_ezsignsigningreason_id);
+    bool is_fki_ezsignsigningreason_id_Set() const;
+    bool is_fki_ezsignsigningreason_id_Valid() const;
+
+    QString getSEzsignsigningreasonDescriptionX() const;
+    void setSEzsignsigningreasonDescriptionX(const QString &s_ezsignsigningreason_description_x);
+    bool is_s_ezsignsigningreason_description_x_Set() const;
+    bool is_s_ezsignsigningreason_description_x_Valid() const;
+
     qint32 getIEzsignpagePagenumber() const;
     void setIEzsignpagePagenumber(const qint32 &i_ezsignpage_pagenumber);
     bool is_i_ezsignpage_pagenumber_Set() const;
@@ -233,6 +243,14 @@ private:
     qint32 m_fki_ezsignfoldersignerassociation_id;
     bool m_fki_ezsignfoldersignerassociation_id_isSet;
     bool m_fki_ezsignfoldersignerassociation_id_isValid;
+
+    qint32 m_fki_ezsignsigningreason_id;
+    bool m_fki_ezsignsigningreason_id_isSet;
+    bool m_fki_ezsignsigningreason_id_isValid;
+
+    QString m_s_ezsignsigningreason_description_x;
+    bool m_s_ezsignsigningreason_description_x_isSet;
+    bool m_s_ezsignsigningreason_description_x_isValid;
 
     qint32 m_i_ezsignpage_pagenumber;
     bool m_i_ezsignpage_pagenumber_isSet;

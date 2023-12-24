@@ -37,7 +37,7 @@ void ObjectEzsigntemplatepackageApi::initializeServerConfigs() {
     "The server endpoint where to send your region specific API requests.",
     QMap<QString, ServerVariable>{ 
     {"sInfrastructureenvironmenttypeDescription", ServerVariable("The environment on on which to call the API. Should always be "prod" unless instructed otherwise by support.","prod",
-    QSet<QString>{ {"prod"},{"stg"},{"qa"},{"dev"} })},
+    QSet<QString>{ {"iso"},{"prod"},{"stg"},{"qa"},{"dev"} })},
     
     {"sInfrastructureregionCode", ServerVariable("The region where your services are hosted.","ca-central-1",
     QSet<QString>{ {"ca-central-1"} })}, }));
@@ -47,14 +47,14 @@ void ObjectEzsigntemplatepackageApi::initializeServerConfigs() {
     "The server endpoint where to send your global API requests.",
     QMap<QString, ServerVariable>{ 
     {"sInfrastructureenvironmenttypeDescription", ServerVariable("The environment on on which to call the API. Should always be "prod" unless instructed otherwise by support.","prod",
-    QSet<QString>{ {"prod"},{"stg"},{"qa"},{"dev"} })}, }));
+    QSet<QString>{ {"prod"},{"dev"} })}, }));
     
     defaultConf.append(ServerConfiguration(
     QUrl("wss://ws.{sInfrastructureregionCode}.ezmax.com/{sInfrastructureenvironmenttypeDescription}"),
     "The server endpoint where to send your websocket requests.",
     QMap<QString, ServerVariable>{ 
     {"sInfrastructureenvironmenttypeDescription", ServerVariable("The environment on on which to call the API. Should always be "prod" unless instructed otherwise by support.","prod",
-    QSet<QString>{ {"prod"},{"stg"},{"qa"},{"dev"} })},
+    QSet<QString>{ {"iso"},{"prod"},{"stg"},{"qa"},{"dev"} })},
     
     {"sInfrastructureregionCode", ServerVariable("The region where your services are hosted.","ca-central-1",
     QSet<QString>{ {"ca-central-1"} })}, }));
@@ -301,8 +301,34 @@ void ObjectEzsigntemplatepackageApi::ezsigntemplatepackageCreateObjectV1Callback
         emit ezsigntemplatepackageCreateObjectV1Signal(output);
         emit ezsigntemplatepackageCreateObjectV1SignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit ezsigntemplatepackageCreateObjectV1SignalE(output, error_type, error_str);
         emit ezsigntemplatepackageCreateObjectV1SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit ezsigntemplatepackageCreateObjectV1SignalError(output, error_type, error_str);
+        emit ezsigntemplatepackageCreateObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -368,8 +394,34 @@ void ObjectEzsigntemplatepackageApi::ezsigntemplatepackageDeleteObjectV1Callback
         emit ezsigntemplatepackageDeleteObjectV1Signal(output);
         emit ezsigntemplatepackageDeleteObjectV1SignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit ezsigntemplatepackageDeleteObjectV1SignalE(output, error_type, error_str);
         emit ezsigntemplatepackageDeleteObjectV1SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit ezsigntemplatepackageDeleteObjectV1SignalError(output, error_type, error_str);
+        emit ezsigntemplatepackageDeleteObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -440,8 +492,34 @@ void ObjectEzsigntemplatepackageApi::ezsigntemplatepackageEditEzsigntemplatepack
         emit ezsigntemplatepackageEditEzsigntemplatepackagesignersV1Signal(output);
         emit ezsigntemplatepackageEditEzsigntemplatepackagesignersV1SignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit ezsigntemplatepackageEditEzsigntemplatepackagesignersV1SignalE(output, error_type, error_str);
         emit ezsigntemplatepackageEditEzsigntemplatepackagesignersV1SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit ezsigntemplatepackageEditEzsigntemplatepackagesignersV1SignalError(output, error_type, error_str);
+        emit ezsigntemplatepackageEditEzsigntemplatepackagesignersV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -512,8 +590,34 @@ void ObjectEzsigntemplatepackageApi::ezsigntemplatepackageEditObjectV1Callback(H
         emit ezsigntemplatepackageEditObjectV1Signal(output);
         emit ezsigntemplatepackageEditObjectV1SignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit ezsigntemplatepackageEditObjectV1SignalE(output, error_type, error_str);
         emit ezsigntemplatepackageEditObjectV1SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit ezsigntemplatepackageEditObjectV1SignalError(output, error_type, error_str);
+        emit ezsigntemplatepackageEditObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -654,8 +758,34 @@ void ObjectEzsigntemplatepackageApi::ezsigntemplatepackageGetAutocompleteV2Callb
         emit ezsigntemplatepackageGetAutocompleteV2Signal(output);
         emit ezsigntemplatepackageGetAutocompleteV2SignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit ezsigntemplatepackageGetAutocompleteV2SignalE(output, error_type, error_str);
         emit ezsigntemplatepackageGetAutocompleteV2SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit ezsigntemplatepackageGetAutocompleteV2SignalError(output, error_type, error_str);
+        emit ezsigntemplatepackageGetAutocompleteV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -812,8 +942,34 @@ void ObjectEzsigntemplatepackageApi::ezsigntemplatepackageGetListV1Callback(Http
         emit ezsigntemplatepackageGetListV1Signal(output);
         emit ezsigntemplatepackageGetListV1SignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit ezsigntemplatepackageGetListV1SignalE(output, error_type, error_str);
         emit ezsigntemplatepackageGetListV1SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit ezsigntemplatepackageGetListV1SignalError(output, error_type, error_str);
+        emit ezsigntemplatepackageGetListV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -879,8 +1035,34 @@ void ObjectEzsigntemplatepackageApi::ezsigntemplatepackageGetObjectV2Callback(Ht
         emit ezsigntemplatepackageGetObjectV2Signal(output);
         emit ezsigntemplatepackageGetObjectV2SignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit ezsigntemplatepackageGetObjectV2SignalE(output, error_type, error_str);
         emit ezsigntemplatepackageGetObjectV2SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit ezsigntemplatepackageGetObjectV2SignalError(output, error_type, error_str);
+        emit ezsigntemplatepackageGetObjectV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 

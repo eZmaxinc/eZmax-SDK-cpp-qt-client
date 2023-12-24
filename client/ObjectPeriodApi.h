@@ -109,18 +109,25 @@ signals:
     void periodGetAutocompleteV1SignalFull(HttpRequestWorker *worker, Common_getAutocomplete_v1_Response summary);
     void periodGetAutocompleteV2SignalFull(HttpRequestWorker *worker, Period_getAutocomplete_v2_Response summary);
 
+    Q_DECL_DEPRECATED_X("Use periodGetAutocompleteV1SignalError() instead")
     void periodGetAutocompleteV1SignalE(Common_getAutocomplete_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void periodGetAutocompleteV1SignalError(Common_getAutocomplete_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use periodGetAutocompleteV2SignalError() instead")
     void periodGetAutocompleteV2SignalE(Period_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void periodGetAutocompleteV2SignalError(Period_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use periodGetAutocompleteV1SignalErrorFull() instead")
     void periodGetAutocompleteV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void periodGetAutocompleteV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use periodGetAutocompleteV2SignalErrorFull() instead")
     void periodGetAutocompleteV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void periodGetAutocompleteV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
 public slots:
     void tokenAvailable();
-    
 };
 
 } // namespace Ezmaxapi

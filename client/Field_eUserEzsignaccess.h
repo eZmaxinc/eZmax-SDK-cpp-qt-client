@@ -13,7 +13,7 @@
 /*
  * Field_eUserEzsignaccess.h
  *
- * The type or eZsign access the User has
+ * The type of eZsign access the User has
  */
 
 #ifndef Field_eUserEzsignaccess_H

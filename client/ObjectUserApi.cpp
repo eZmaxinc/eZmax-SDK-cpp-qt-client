@@ -37,7 +37,7 @@ void ObjectUserApi::initializeServerConfigs() {
     "The server endpoint where to send your region specific API requests.",
     QMap<QString, ServerVariable>{ 
     {"sInfrastructureenvironmenttypeDescription", ServerVariable("The environment on on which to call the API. Should always be "prod" unless instructed otherwise by support.","prod",
-    QSet<QString>{ {"prod"},{"stg"},{"qa"},{"dev"} })},
+    QSet<QString>{ {"iso"},{"prod"},{"stg"},{"qa"},{"dev"} })},
     
     {"sInfrastructureregionCode", ServerVariable("The region where your services are hosted.","ca-central-1",
     QSet<QString>{ {"ca-central-1"} })}, }));
@@ -47,14 +47,14 @@ void ObjectUserApi::initializeServerConfigs() {
     "The server endpoint where to send your global API requests.",
     QMap<QString, ServerVariable>{ 
     {"sInfrastructureenvironmenttypeDescription", ServerVariable("The environment on on which to call the API. Should always be "prod" unless instructed otherwise by support.","prod",
-    QSet<QString>{ {"prod"},{"stg"},{"qa"},{"dev"} })}, }));
+    QSet<QString>{ {"prod"},{"dev"} })}, }));
     
     defaultConf.append(ServerConfiguration(
     QUrl("wss://ws.{sInfrastructureregionCode}.ezmax.com/{sInfrastructureenvironmenttypeDescription}"),
     "The server endpoint where to send your websocket requests.",
     QMap<QString, ServerVariable>{ 
     {"sInfrastructureenvironmenttypeDescription", ServerVariable("The environment on on which to call the API. Should always be "prod" unless instructed otherwise by support.","prod",
-    QSet<QString>{ {"prod"},{"stg"},{"qa"},{"dev"} })},
+    QSet<QString>{ {"iso"},{"prod"},{"stg"},{"qa"},{"dev"} })},
     
     {"sInfrastructureregionCode", ServerVariable("The region where your services are hosted.","ca-central-1",
     QSet<QString>{ {"ca-central-1"} })}, }));
@@ -309,8 +309,34 @@ void ObjectUserApi::userCreateObjectV1Callback(HttpRequestWorker *worker) {
         emit userCreateObjectV1Signal(output);
         emit userCreateObjectV1SignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit userCreateObjectV1SignalE(output, error_type, error_str);
         emit userCreateObjectV1SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit userCreateObjectV1SignalError(output, error_type, error_str);
+        emit userCreateObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -381,8 +407,34 @@ void ObjectUserApi::userEditObjectV1Callback(HttpRequestWorker *worker) {
         emit userEditObjectV1Signal(output);
         emit userEditObjectV1SignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit userEditObjectV1SignalE(output, error_type, error_str);
         emit userEditObjectV1SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit userEditObjectV1SignalError(output, error_type, error_str);
+        emit userEditObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -453,8 +505,34 @@ void ObjectUserApi::userEditPermissionsV1Callback(HttpRequestWorker *worker) {
         emit userEditPermissionsV1Signal(output);
         emit userEditPermissionsV1SignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit userEditPermissionsV1SignalE(output, error_type, error_str);
         emit userEditPermissionsV1SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit userEditPermissionsV1SignalError(output, error_type, error_str);
+        emit userEditPermissionsV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -520,8 +598,34 @@ void ObjectUserApi::userGetApikeysV1Callback(HttpRequestWorker *worker) {
         emit userGetApikeysV1Signal(output);
         emit userGetApikeysV1SignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit userGetApikeysV1SignalE(output, error_type, error_str);
         emit userGetApikeysV1SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit userGetApikeysV1SignalError(output, error_type, error_str);
+        emit userGetApikeysV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -662,8 +766,34 @@ void ObjectUserApi::userGetAutocompleteV2Callback(HttpRequestWorker *worker) {
         emit userGetAutocompleteV2Signal(output);
         emit userGetAutocompleteV2SignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit userGetAutocompleteV2SignalE(output, error_type, error_str);
         emit userGetAutocompleteV2SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit userGetAutocompleteV2SignalError(output, error_type, error_str);
+        emit userGetAutocompleteV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -729,8 +859,34 @@ void ObjectUserApi::userGetEffectivePermissionsV1Callback(HttpRequestWorker *wor
         emit userGetEffectivePermissionsV1Signal(output);
         emit userGetEffectivePermissionsV1SignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit userGetEffectivePermissionsV1SignalE(output, error_type, error_str);
         emit userGetEffectivePermissionsV1SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit userGetEffectivePermissionsV1SignalError(output, error_type, error_str);
+        emit userGetEffectivePermissionsV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -887,8 +1043,34 @@ void ObjectUserApi::userGetListV1Callback(HttpRequestWorker *worker) {
         emit userGetListV1Signal(output);
         emit userGetListV1SignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit userGetListV1SignalE(output, error_type, error_str);
         emit userGetListV1SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit userGetListV1SignalError(output, error_type, error_str);
+        emit userGetListV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -954,8 +1136,34 @@ void ObjectUserApi::userGetObjectV2Callback(HttpRequestWorker *worker) {
         emit userGetObjectV2Signal(output);
         emit userGetObjectV2SignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit userGetObjectV2SignalE(output, error_type, error_str);
         emit userGetObjectV2SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit userGetObjectV2SignalError(output, error_type, error_str);
+        emit userGetObjectV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -1021,8 +1229,34 @@ void ObjectUserApi::userGetPermissionsV1Callback(HttpRequestWorker *worker) {
         emit userGetPermissionsV1Signal(output);
         emit userGetPermissionsV1SignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit userGetPermissionsV1SignalE(output, error_type, error_str);
         emit userGetPermissionsV1SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit userGetPermissionsV1SignalError(output, error_type, error_str);
+        emit userGetPermissionsV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -1088,8 +1322,34 @@ void ObjectUserApi::userGetSubnetsV1Callback(HttpRequestWorker *worker) {
         emit userGetSubnetsV1Signal(output);
         emit userGetSubnetsV1SignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit userGetSubnetsV1SignalE(output, error_type, error_str);
         emit userGetSubnetsV1SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit userGetSubnetsV1SignalError(output, error_type, error_str);
+        emit userGetSubnetsV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -1160,8 +1420,34 @@ void ObjectUserApi::userSendPasswordResetV1Callback(HttpRequestWorker *worker) {
         emit userSendPasswordResetV1Signal(output);
         emit userSendPasswordResetV1SignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit userSendPasswordResetV1SignalE(output, error_type, error_str);
         emit userSendPasswordResetV1SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit userSendPasswordResetV1SignalError(output, error_type, error_str);
+        emit userSendPasswordResetV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

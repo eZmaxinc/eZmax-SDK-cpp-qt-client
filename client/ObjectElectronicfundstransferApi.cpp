@@ -37,7 +37,7 @@ void ObjectElectronicfundstransferApi::initializeServerConfigs() {
     "The server endpoint where to send your region specific API requests.",
     QMap<QString, ServerVariable>{ 
     {"sInfrastructureenvironmenttypeDescription", ServerVariable("The environment on on which to call the API. Should always be "prod" unless instructed otherwise by support.","prod",
-    QSet<QString>{ {"prod"},{"stg"},{"qa"},{"dev"} })},
+    QSet<QString>{ {"iso"},{"prod"},{"stg"},{"qa"},{"dev"} })},
     
     {"sInfrastructureregionCode", ServerVariable("The region where your services are hosted.","ca-central-1",
     QSet<QString>{ {"ca-central-1"} })}, }));
@@ -47,20 +47,20 @@ void ObjectElectronicfundstransferApi::initializeServerConfigs() {
     "The server endpoint where to send your global API requests.",
     QMap<QString, ServerVariable>{ 
     {"sInfrastructureenvironmenttypeDescription", ServerVariable("The environment on on which to call the API. Should always be "prod" unless instructed otherwise by support.","prod",
-    QSet<QString>{ {"prod"},{"stg"},{"qa"},{"dev"} })}, }));
+    QSet<QString>{ {"prod"},{"dev"} })}, }));
     
     defaultConf.append(ServerConfiguration(
     QUrl("wss://ws.{sInfrastructureregionCode}.ezmax.com/{sInfrastructureenvironmenttypeDescription}"),
     "The server endpoint where to send your websocket requests.",
     QMap<QString, ServerVariable>{ 
     {"sInfrastructureenvironmenttypeDescription", ServerVariable("The environment on on which to call the API. Should always be "prod" unless instructed otherwise by support.","prod",
-    QSet<QString>{ {"prod"},{"stg"},{"qa"},{"dev"} })},
+    QSet<QString>{ {"iso"},{"prod"},{"stg"},{"qa"},{"dev"} })},
     
     {"sInfrastructureregionCode", ServerVariable("The region where your services are hosted.","ca-central-1",
     QSet<QString>{ {"ca-central-1"} })}, }));
     
-    _serverConfigs.insert("eletronicfundstransferGetCommunicationListV1", defaultConf);
-    _serverIndices.insert("eletronicfundstransferGetCommunicationListV1", 0);
+    _serverConfigs.insert("electronicfundstransferGetCommunicationListV1", defaultConf);
+    _serverIndices.insert("electronicfundstransferGetCommunicationListV1", 0);
 }
 
 /**
@@ -236,8 +236,8 @@ QString ObjectElectronicfundstransferApi::getParamStyleDelimiter(const QString &
     }
 }
 
-void ObjectElectronicfundstransferApi::eletronicfundstransferGetCommunicationListV1(const qint32 &pki_electronicfundstransfer_id) {
-    QString fullPath = QString(_serverConfigs["eletronicfundstransferGetCommunicationListV1"][_serverIndices.value("eletronicfundstransferGetCommunicationListV1")].URL()+"/1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/getCommunicationList");
+void ObjectElectronicfundstransferApi::electronicfundstransferGetCommunicationListV1(const qint32 &pki_electronicfundstransfer_id) {
+    QString fullPath = QString(_serverConfigs["electronicfundstransferGetCommunicationListV1"][_serverIndices.value("electronicfundstransferGetCommunicationListV1")].URL()+"/1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/getCommunicationList");
     
     if (_apiKeys.contains("Authorization")) {
         addHeaders("Authorization",_apiKeys.find("Authorization").value());
@@ -273,7 +273,7 @@ void ObjectElectronicfundstransferApi::eletronicfundstransferGetCommunicationLis
     }
 #endif
 
-    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectElectronicfundstransferApi::eletronicfundstransferGetCommunicationListV1Callback);
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectElectronicfundstransferApi::electronicfundstransferGetCommunicationListV1Callback);
     connect(this, &ObjectElectronicfundstransferApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
@@ -284,7 +284,7 @@ void ObjectElectronicfundstransferApi::eletronicfundstransferGetCommunicationLis
     worker->execute(&input);
 }
 
-void ObjectElectronicfundstransferApi::eletronicfundstransferGetCommunicationListV1Callback(HttpRequestWorker *worker) {
+void ObjectElectronicfundstransferApi::electronicfundstransferGetCommunicationListV1Callback(HttpRequestWorker *worker) {
     QString error_str = worker->error_str;
     QNetworkReply::NetworkError error_type = worker->error_type;
 
@@ -295,11 +295,37 @@ void ObjectElectronicfundstransferApi::eletronicfundstransferGetCommunicationLis
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit eletronicfundstransferGetCommunicationListV1Signal(output);
-        emit eletronicfundstransferGetCommunicationListV1SignalFull(worker, output);
+        emit electronicfundstransferGetCommunicationListV1Signal(output);
+        emit electronicfundstransferGetCommunicationListV1SignalFull(worker, output);
     } else {
-        emit eletronicfundstransferGetCommunicationListV1SignalE(output, error_type, error_str);
-        emit eletronicfundstransferGetCommunicationListV1SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
+        emit electronicfundstransferGetCommunicationListV1SignalE(output, error_type, error_str);
+        emit electronicfundstransferGetCommunicationListV1SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit electronicfundstransferGetCommunicationListV1SignalError(output, error_type, error_str);
+        emit electronicfundstransferGetCommunicationListV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

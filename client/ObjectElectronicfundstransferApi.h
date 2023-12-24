@@ -61,7 +61,7 @@ public:
     /**
     * @param[in]  pki_electronicfundstransfer_id qint32 [required]
     */
-    void eletronicfundstransferGetCommunicationListV1(const qint32 &pki_electronicfundstransfer_id);
+    void electronicfundstransferGetCommunicationListV1(const qint32 &pki_electronicfundstransfer_id);
 
 
 private:
@@ -86,24 +86,27 @@ private:
     OauthPassword _passwordFlow;
     int _OauthMethod = 0;
 
-    void eletronicfundstransferGetCommunicationListV1Callback(HttpRequestWorker *worker);
+    void electronicfundstransferGetCommunicationListV1Callback(HttpRequestWorker *worker);
 
 signals:
 
-    void eletronicfundstransferGetCommunicationListV1Signal(Electronicfundstransfer_getCommunicationList_v1_Response summary);
+    void electronicfundstransferGetCommunicationListV1Signal(Electronicfundstransfer_getCommunicationList_v1_Response summary);
 
-    void eletronicfundstransferGetCommunicationListV1SignalFull(HttpRequestWorker *worker, Electronicfundstransfer_getCommunicationList_v1_Response summary);
+    void electronicfundstransferGetCommunicationListV1SignalFull(HttpRequestWorker *worker, Electronicfundstransfer_getCommunicationList_v1_Response summary);
 
-    void eletronicfundstransferGetCommunicationListV1SignalE(Electronicfundstransfer_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    Q_DECL_DEPRECATED_X("Use electronicfundstransferGetCommunicationListV1SignalError() instead")
+    void electronicfundstransferGetCommunicationListV1SignalE(Electronicfundstransfer_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void electronicfundstransferGetCommunicationListV1SignalError(Electronicfundstransfer_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
-    void eletronicfundstransferGetCommunicationListV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    Q_DECL_DEPRECATED_X("Use electronicfundstransferGetCommunicationListV1SignalErrorFull() instead")
+    void electronicfundstransferGetCommunicationListV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void electronicfundstransferGetCommunicationListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
 public slots:
     void tokenAvailable();
-    
 };
 
 } // namespace Ezmaxapi

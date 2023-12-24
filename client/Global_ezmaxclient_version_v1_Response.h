@@ -44,6 +44,11 @@ public:
     bool is_s_ezmaxclient_version_Set() const;
     bool is_s_ezmaxclient_version_Valid() const;
 
+    QString getSEzmaxclientOslatestversion() const;
+    void setSEzmaxclientOslatestversion(const QString &s_ezmaxclient_oslatestversion);
+    bool is_s_ezmaxclient_oslatestversion_Set() const;
+    bool is_s_ezmaxclient_oslatestversion_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -53,6 +58,10 @@ private:
     QString m_s_ezmaxclient_version;
     bool m_s_ezmaxclient_version_isSet;
     bool m_s_ezmaxclient_version_isValid;
+
+    QString m_s_ezmaxclient_oslatestversion;
+    bool m_s_ezmaxclient_oslatestversion_isSet;
+    bool m_s_ezmaxclient_oslatestversion_isValid;
 };
 
 } // namespace Ezmaxapi

@@ -97,16 +97,19 @@ signals:
 
     void timezoneGetAutocompleteV2SignalFull(HttpRequestWorker *worker, Timezone_getAutocomplete_v2_Response summary);
 
+    Q_DECL_DEPRECATED_X("Use timezoneGetAutocompleteV2SignalError() instead")
     void timezoneGetAutocompleteV2SignalE(Timezone_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void timezoneGetAutocompleteV2SignalError(Timezone_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use timezoneGetAutocompleteV2SignalErrorFull() instead")
     void timezoneGetAutocompleteV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void timezoneGetAutocompleteV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
 public slots:
     void tokenAvailable();
-    
 };
 
 } // namespace Ezmaxapi

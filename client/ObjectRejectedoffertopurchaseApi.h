@@ -94,16 +94,19 @@ signals:
 
     void rejectedoffertopurchaseGetCommunicationListV1SignalFull(HttpRequestWorker *worker, Rejectedoffertopurchase_getCommunicationList_v1_Response summary);
 
+    Q_DECL_DEPRECATED_X("Use rejectedoffertopurchaseGetCommunicationListV1SignalError() instead")
     void rejectedoffertopurchaseGetCommunicationListV1SignalE(Rejectedoffertopurchase_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void rejectedoffertopurchaseGetCommunicationListV1SignalError(Rejectedoffertopurchase_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use rejectedoffertopurchaseGetCommunicationListV1SignalErrorFull() instead")
     void rejectedoffertopurchaseGetCommunicationListV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void rejectedoffertopurchaseGetCommunicationListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
 public slots:
     void tokenAvailable();
-    
 };
 
 } // namespace Ezmaxapi

@@ -37,7 +37,7 @@ void ScimGroupsApi::initializeServerConfigs() {
     "The server endpoint where to send your region specific API requests.",
     QMap<QString, ServerVariable>{ 
     {"sInfrastructureenvironmenttypeDescription", ServerVariable("The environment on on which to call the API. Should always be "prod" unless instructed otherwise by support.","prod",
-    QSet<QString>{ {"prod"},{"stg"},{"qa"},{"dev"} })},
+    QSet<QString>{ {"iso"},{"prod"},{"stg"},{"qa"},{"dev"} })},
     
     {"sInfrastructureregionCode", ServerVariable("The region where your services are hosted.","ca-central-1",
     QSet<QString>{ {"ca-central-1"} })}, }));
@@ -47,14 +47,14 @@ void ScimGroupsApi::initializeServerConfigs() {
     "The server endpoint where to send your global API requests.",
     QMap<QString, ServerVariable>{ 
     {"sInfrastructureenvironmenttypeDescription", ServerVariable("The environment on on which to call the API. Should always be "prod" unless instructed otherwise by support.","prod",
-    QSet<QString>{ {"prod"},{"stg"},{"qa"},{"dev"} })}, }));
+    QSet<QString>{ {"prod"},{"dev"} })}, }));
     
     defaultConf.append(ServerConfiguration(
     QUrl("wss://ws.{sInfrastructureregionCode}.ezmax.com/{sInfrastructureenvironmenttypeDescription}"),
     "The server endpoint where to send your websocket requests.",
     QMap<QString, ServerVariable>{ 
     {"sInfrastructureenvironmenttypeDescription", ServerVariable("The environment on on which to call the API. Should always be "prod" unless instructed otherwise by support.","prod",
-    QSet<QString>{ {"prod"},{"stg"},{"qa"},{"dev"} })},
+    QSet<QString>{ {"iso"},{"prod"},{"stg"},{"qa"},{"dev"} })},
     
     {"sInfrastructureregionCode", ServerVariable("The region where your services are hosted.","ca-central-1",
     QSet<QString>{ {"ca-central-1"} })}, }));
@@ -296,8 +296,34 @@ void ScimGroupsApi::groupsCreateObjectScimV2Callback(HttpRequestWorker *worker) 
         emit groupsCreateObjectScimV2Signal(output);
         emit groupsCreateObjectScimV2SignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit groupsCreateObjectScimV2SignalE(output, error_type, error_str);
         emit groupsCreateObjectScimV2SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit groupsCreateObjectScimV2SignalError(output, error_type, error_str);
+        emit groupsCreateObjectScimV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -361,8 +387,34 @@ void ScimGroupsApi::groupsDeleteObjectScimV2Callback(HttpRequestWorker *worker) 
         emit groupsDeleteObjectScimV2Signal();
         emit groupsDeleteObjectScimV2SignalFull(worker);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit groupsDeleteObjectScimV2SignalE(error_type, error_str);
         emit groupsDeleteObjectScimV2SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit groupsDeleteObjectScimV2SignalError(error_type, error_str);
+        emit groupsDeleteObjectScimV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -432,8 +484,34 @@ void ScimGroupsApi::groupsEditObjectScimV2Callback(HttpRequestWorker *worker) {
         emit groupsEditObjectScimV2Signal(output);
         emit groupsEditObjectScimV2SignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit groupsEditObjectScimV2SignalE(output, error_type, error_str);
         emit groupsEditObjectScimV2SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit groupsEditObjectScimV2SignalError(output, error_type, error_str);
+        emit groupsEditObjectScimV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -500,8 +578,34 @@ void ScimGroupsApi::groupsGetListScimV2Callback(HttpRequestWorker *worker) {
         emit groupsGetListScimV2Signal(output);
         emit groupsGetListScimV2SignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit groupsGetListScimV2SignalE(output, error_type, error_str);
         emit groupsGetListScimV2SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit groupsGetListScimV2SignalError(output, error_type, error_str);
+        emit groupsGetListScimV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -566,8 +670,34 @@ void ScimGroupsApi::groupsGetObjectScimV2Callback(HttpRequestWorker *worker) {
         emit groupsGetObjectScimV2Signal(output);
         emit groupsGetObjectScimV2SignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit groupsGetObjectScimV2SignalE(output, error_type, error_str);
         emit groupsGetObjectScimV2SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit groupsGetObjectScimV2SignalError(output, error_type, error_str);
+        emit groupsGetObjectScimV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 

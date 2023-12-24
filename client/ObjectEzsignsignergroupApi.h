@@ -144,26 +144,49 @@ signals:
     void ezsignsignergroupGetEzsignsignergroupmembershipsV1SignalFull(HttpRequestWorker *worker, Ezsignsignergroup_getEzsignsignergroupmemberships_v1_Response summary);
     void ezsignsignergroupGetObjectV2SignalFull(HttpRequestWorker *worker, Ezsignsignergroup_getObject_v2_Response summary);
 
+    Q_DECL_DEPRECATED_X("Use ezsignsignergroupCreateObjectV1SignalError() instead")
     void ezsignsignergroupCreateObjectV1SignalE(Ezsignsignergroup_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignsignergroupCreateObjectV1SignalError(Ezsignsignergroup_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignsignergroupDeleteObjectV1SignalError() instead")
     void ezsignsignergroupDeleteObjectV1SignalE(Ezsignsignergroup_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignsignergroupDeleteObjectV1SignalError(Ezsignsignergroup_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignsignergroupEditEzsignsignergroupmembershipsV1SignalError() instead")
     void ezsignsignergroupEditEzsignsignergroupmembershipsV1SignalE(Ezsignsignergroup_editEzsignsignergroupmemberships_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignsignergroupEditEzsignsignergroupmembershipsV1SignalError(Ezsignsignergroup_editEzsignsignergroupmemberships_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignsignergroupEditObjectV1SignalError() instead")
     void ezsignsignergroupEditObjectV1SignalE(Ezsignsignergroup_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignsignergroupEditObjectV1SignalError(Ezsignsignergroup_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignsignergroupGetEzsignsignergroupmembershipsV1SignalError() instead")
     void ezsignsignergroupGetEzsignsignergroupmembershipsV1SignalE(Ezsignsignergroup_getEzsignsignergroupmemberships_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignsignergroupGetEzsignsignergroupmembershipsV1SignalError(Ezsignsignergroup_getEzsignsignergroupmemberships_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignsignergroupGetObjectV2SignalError() instead")
     void ezsignsignergroupGetObjectV2SignalE(Ezsignsignergroup_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignsignergroupGetObjectV2SignalError(Ezsignsignergroup_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use ezsignsignergroupCreateObjectV1SignalErrorFull() instead")
     void ezsignsignergroupCreateObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignsignergroupCreateObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignsignergroupDeleteObjectV1SignalErrorFull() instead")
     void ezsignsignergroupDeleteObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignsignergroupDeleteObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignsignergroupEditEzsignsignergroupmembershipsV1SignalErrorFull() instead")
     void ezsignsignergroupEditEzsignsignergroupmembershipsV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignsignergroupEditEzsignsignergroupmembershipsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignsignergroupEditObjectV1SignalErrorFull() instead")
     void ezsignsignergroupEditObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignsignergroupEditObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignsignergroupGetEzsignsignergroupmembershipsV1SignalErrorFull() instead")
     void ezsignsignergroupGetEzsignsignergroupmembershipsV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignsignergroupGetEzsignsignergroupmembershipsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignsignergroupGetObjectV2SignalErrorFull() instead")
     void ezsignsignergroupGetObjectV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignsignergroupGetObjectV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
 public slots:
     void tokenAvailable();
-    
 };
 
 } // namespace Ezmaxapi

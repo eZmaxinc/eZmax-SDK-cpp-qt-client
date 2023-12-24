@@ -88,6 +88,36 @@ void Ezsignfoldertype_Request::initializeModel() {
     m_b_ezsignfoldertype_sendattatchmentsigner_isSet = false;
     m_b_ezsignfoldertype_sendattatchmentsigner_isValid = false;
 
+    m_b_ezsignfoldertype_sendsignedtoezsignsigner_isSet = false;
+    m_b_ezsignfoldertype_sendsignedtoezsignsigner_isValid = false;
+
+    m_b_ezsignfoldertype_sendsignedtouser_isSet = false;
+    m_b_ezsignfoldertype_sendsignedtouser_isValid = false;
+
+    m_b_ezsignfoldertype_sendattachmentezsignsigner_isSet = false;
+    m_b_ezsignfoldertype_sendattachmentezsignsigner_isValid = false;
+
+    m_b_ezsignfoldertype_sendproofezsignsigner_isSet = false;
+    m_b_ezsignfoldertype_sendproofezsignsigner_isValid = false;
+
+    m_b_ezsignfoldertype_sendattachmentuser_isSet = false;
+    m_b_ezsignfoldertype_sendattachmentuser_isValid = false;
+
+    m_b_ezsignfoldertype_sendproofuser_isSet = false;
+    m_b_ezsignfoldertype_sendproofuser_isValid = false;
+
+    m_b_ezsignfoldertype_sendproofemail_isSet = false;
+    m_b_ezsignfoldertype_sendproofemail_isValid = false;
+
+    m_b_ezsignfoldertype_allowdownloadattachmentezsignsigner_isSet = false;
+    m_b_ezsignfoldertype_allowdownloadattachmentezsignsigner_isValid = false;
+
+    m_b_ezsignfoldertype_allowdownloadproofezsignsigner_isSet = false;
+    m_b_ezsignfoldertype_allowdownloadproofezsignsigner_isValid = false;
+
+    m_b_ezsignfoldertype_sendproofreceivealldocument_isSet = false;
+    m_b_ezsignfoldertype_sendproofreceivealldocument_isValid = false;
+
     m_b_ezsignfoldertype_sendsignedtodocumentowner_isSet = false;
     m_b_ezsignfoldertype_sendsignedtodocumentowner_isValid = false;
 
@@ -191,6 +221,36 @@ void Ezsignfoldertype_Request::fromJsonObject(QJsonObject json) {
     m_b_ezsignfoldertype_sendattatchmentsigner_isValid = ::Ezmaxapi::fromJsonValue(m_b_ezsignfoldertype_sendattatchmentsigner, json[QString("bEzsignfoldertypeSendattatchmentsigner")]);
     m_b_ezsignfoldertype_sendattatchmentsigner_isSet = !json[QString("bEzsignfoldertypeSendattatchmentsigner")].isNull() && m_b_ezsignfoldertype_sendattatchmentsigner_isValid;
 
+    m_b_ezsignfoldertype_sendsignedtoezsignsigner_isValid = ::Ezmaxapi::fromJsonValue(m_b_ezsignfoldertype_sendsignedtoezsignsigner, json[QString("bEzsignfoldertypeSendsignedtoezsignsigner")]);
+    m_b_ezsignfoldertype_sendsignedtoezsignsigner_isSet = !json[QString("bEzsignfoldertypeSendsignedtoezsignsigner")].isNull() && m_b_ezsignfoldertype_sendsignedtoezsignsigner_isValid;
+
+    m_b_ezsignfoldertype_sendsignedtouser_isValid = ::Ezmaxapi::fromJsonValue(m_b_ezsignfoldertype_sendsignedtouser, json[QString("bEzsignfoldertypeSendsignedtouser")]);
+    m_b_ezsignfoldertype_sendsignedtouser_isSet = !json[QString("bEzsignfoldertypeSendsignedtouser")].isNull() && m_b_ezsignfoldertype_sendsignedtouser_isValid;
+
+    m_b_ezsignfoldertype_sendattachmentezsignsigner_isValid = ::Ezmaxapi::fromJsonValue(m_b_ezsignfoldertype_sendattachmentezsignsigner, json[QString("bEzsignfoldertypeSendattachmentezsignsigner")]);
+    m_b_ezsignfoldertype_sendattachmentezsignsigner_isSet = !json[QString("bEzsignfoldertypeSendattachmentezsignsigner")].isNull() && m_b_ezsignfoldertype_sendattachmentezsignsigner_isValid;
+
+    m_b_ezsignfoldertype_sendproofezsignsigner_isValid = ::Ezmaxapi::fromJsonValue(m_b_ezsignfoldertype_sendproofezsignsigner, json[QString("bEzsignfoldertypeSendproofezsignsigner")]);
+    m_b_ezsignfoldertype_sendproofezsignsigner_isSet = !json[QString("bEzsignfoldertypeSendproofezsignsigner")].isNull() && m_b_ezsignfoldertype_sendproofezsignsigner_isValid;
+
+    m_b_ezsignfoldertype_sendattachmentuser_isValid = ::Ezmaxapi::fromJsonValue(m_b_ezsignfoldertype_sendattachmentuser, json[QString("bEzsignfoldertypeSendattachmentuser")]);
+    m_b_ezsignfoldertype_sendattachmentuser_isSet = !json[QString("bEzsignfoldertypeSendattachmentuser")].isNull() && m_b_ezsignfoldertype_sendattachmentuser_isValid;
+
+    m_b_ezsignfoldertype_sendproofuser_isValid = ::Ezmaxapi::fromJsonValue(m_b_ezsignfoldertype_sendproofuser, json[QString("bEzsignfoldertypeSendproofuser")]);
+    m_b_ezsignfoldertype_sendproofuser_isSet = !json[QString("bEzsignfoldertypeSendproofuser")].isNull() && m_b_ezsignfoldertype_sendproofuser_isValid;
+
+    m_b_ezsignfoldertype_sendproofemail_isValid = ::Ezmaxapi::fromJsonValue(m_b_ezsignfoldertype_sendproofemail, json[QString("bEzsignfoldertypeSendproofemail")]);
+    m_b_ezsignfoldertype_sendproofemail_isSet = !json[QString("bEzsignfoldertypeSendproofemail")].isNull() && m_b_ezsignfoldertype_sendproofemail_isValid;
+
+    m_b_ezsignfoldertype_allowdownloadattachmentezsignsigner_isValid = ::Ezmaxapi::fromJsonValue(m_b_ezsignfoldertype_allowdownloadattachmentezsignsigner, json[QString("bEzsignfoldertypeAllowdownloadattachmentezsignsigner")]);
+    m_b_ezsignfoldertype_allowdownloadattachmentezsignsigner_isSet = !json[QString("bEzsignfoldertypeAllowdownloadattachmentezsignsigner")].isNull() && m_b_ezsignfoldertype_allowdownloadattachmentezsignsigner_isValid;
+
+    m_b_ezsignfoldertype_allowdownloadproofezsignsigner_isValid = ::Ezmaxapi::fromJsonValue(m_b_ezsignfoldertype_allowdownloadproofezsignsigner, json[QString("bEzsignfoldertypeAllowdownloadproofezsignsigner")]);
+    m_b_ezsignfoldertype_allowdownloadproofezsignsigner_isSet = !json[QString("bEzsignfoldertypeAllowdownloadproofezsignsigner")].isNull() && m_b_ezsignfoldertype_allowdownloadproofezsignsigner_isValid;
+
+    m_b_ezsignfoldertype_sendproofreceivealldocument_isValid = ::Ezmaxapi::fromJsonValue(m_b_ezsignfoldertype_sendproofreceivealldocument, json[QString("bEzsignfoldertypeSendproofreceivealldocument")]);
+    m_b_ezsignfoldertype_sendproofreceivealldocument_isSet = !json[QString("bEzsignfoldertypeSendproofreceivealldocument")].isNull() && m_b_ezsignfoldertype_sendproofreceivealldocument_isValid;
+
     m_b_ezsignfoldertype_sendsignedtodocumentowner_isValid = ::Ezmaxapi::fromJsonValue(m_b_ezsignfoldertype_sendsignedtodocumentowner, json[QString("bEzsignfoldertypeSendsignedtodocumentowner")]);
     m_b_ezsignfoldertype_sendsignedtodocumentowner_isSet = !json[QString("bEzsignfoldertypeSendsignedtodocumentowner")].isNull() && m_b_ezsignfoldertype_sendsignedtodocumentowner_isValid;
 
@@ -293,6 +353,36 @@ QJsonObject Ezsignfoldertype_Request::asJsonObject() const {
     }
     if (m_b_ezsignfoldertype_sendattatchmentsigner_isSet) {
         obj.insert(QString("bEzsignfoldertypeSendattatchmentsigner"), ::Ezmaxapi::toJsonValue(m_b_ezsignfoldertype_sendattatchmentsigner));
+    }
+    if (m_b_ezsignfoldertype_sendsignedtoezsignsigner_isSet) {
+        obj.insert(QString("bEzsignfoldertypeSendsignedtoezsignsigner"), ::Ezmaxapi::toJsonValue(m_b_ezsignfoldertype_sendsignedtoezsignsigner));
+    }
+    if (m_b_ezsignfoldertype_sendsignedtouser_isSet) {
+        obj.insert(QString("bEzsignfoldertypeSendsignedtouser"), ::Ezmaxapi::toJsonValue(m_b_ezsignfoldertype_sendsignedtouser));
+    }
+    if (m_b_ezsignfoldertype_sendattachmentezsignsigner_isSet) {
+        obj.insert(QString("bEzsignfoldertypeSendattachmentezsignsigner"), ::Ezmaxapi::toJsonValue(m_b_ezsignfoldertype_sendattachmentezsignsigner));
+    }
+    if (m_b_ezsignfoldertype_sendproofezsignsigner_isSet) {
+        obj.insert(QString("bEzsignfoldertypeSendproofezsignsigner"), ::Ezmaxapi::toJsonValue(m_b_ezsignfoldertype_sendproofezsignsigner));
+    }
+    if (m_b_ezsignfoldertype_sendattachmentuser_isSet) {
+        obj.insert(QString("bEzsignfoldertypeSendattachmentuser"), ::Ezmaxapi::toJsonValue(m_b_ezsignfoldertype_sendattachmentuser));
+    }
+    if (m_b_ezsignfoldertype_sendproofuser_isSet) {
+        obj.insert(QString("bEzsignfoldertypeSendproofuser"), ::Ezmaxapi::toJsonValue(m_b_ezsignfoldertype_sendproofuser));
+    }
+    if (m_b_ezsignfoldertype_sendproofemail_isSet) {
+        obj.insert(QString("bEzsignfoldertypeSendproofemail"), ::Ezmaxapi::toJsonValue(m_b_ezsignfoldertype_sendproofemail));
+    }
+    if (m_b_ezsignfoldertype_allowdownloadattachmentezsignsigner_isSet) {
+        obj.insert(QString("bEzsignfoldertypeAllowdownloadattachmentezsignsigner"), ::Ezmaxapi::toJsonValue(m_b_ezsignfoldertype_allowdownloadattachmentezsignsigner));
+    }
+    if (m_b_ezsignfoldertype_allowdownloadproofezsignsigner_isSet) {
+        obj.insert(QString("bEzsignfoldertypeAllowdownloadproofezsignsigner"), ::Ezmaxapi::toJsonValue(m_b_ezsignfoldertype_allowdownloadproofezsignsigner));
+    }
+    if (m_b_ezsignfoldertype_sendproofreceivealldocument_isSet) {
+        obj.insert(QString("bEzsignfoldertypeSendproofreceivealldocument"), ::Ezmaxapi::toJsonValue(m_b_ezsignfoldertype_sendproofreceivealldocument));
     }
     if (m_b_ezsignfoldertype_sendsignedtodocumentowner_isSet) {
         obj.insert(QString("bEzsignfoldertypeSendsignedtodocumentowner"), ::Ezmaxapi::toJsonValue(m_b_ezsignfoldertype_sendsignedtodocumentowner));
@@ -624,6 +714,166 @@ bool Ezsignfoldertype_Request::is_b_ezsignfoldertype_sendattatchmentsigner_Valid
     return m_b_ezsignfoldertype_sendattatchmentsigner_isValid;
 }
 
+bool Ezsignfoldertype_Request::isBEzsignfoldertypeSendsignedtoezsignsigner() const {
+    return m_b_ezsignfoldertype_sendsignedtoezsignsigner;
+}
+void Ezsignfoldertype_Request::setBEzsignfoldertypeSendsignedtoezsignsigner(const bool &b_ezsignfoldertype_sendsignedtoezsignsigner) {
+    m_b_ezsignfoldertype_sendsignedtoezsignsigner = b_ezsignfoldertype_sendsignedtoezsignsigner;
+    m_b_ezsignfoldertype_sendsignedtoezsignsigner_isSet = true;
+}
+
+bool Ezsignfoldertype_Request::is_b_ezsignfoldertype_sendsignedtoezsignsigner_Set() const{
+    return m_b_ezsignfoldertype_sendsignedtoezsignsigner_isSet;
+}
+
+bool Ezsignfoldertype_Request::is_b_ezsignfoldertype_sendsignedtoezsignsigner_Valid() const{
+    return m_b_ezsignfoldertype_sendsignedtoezsignsigner_isValid;
+}
+
+bool Ezsignfoldertype_Request::isBEzsignfoldertypeSendsignedtouser() const {
+    return m_b_ezsignfoldertype_sendsignedtouser;
+}
+void Ezsignfoldertype_Request::setBEzsignfoldertypeSendsignedtouser(const bool &b_ezsignfoldertype_sendsignedtouser) {
+    m_b_ezsignfoldertype_sendsignedtouser = b_ezsignfoldertype_sendsignedtouser;
+    m_b_ezsignfoldertype_sendsignedtouser_isSet = true;
+}
+
+bool Ezsignfoldertype_Request::is_b_ezsignfoldertype_sendsignedtouser_Set() const{
+    return m_b_ezsignfoldertype_sendsignedtouser_isSet;
+}
+
+bool Ezsignfoldertype_Request::is_b_ezsignfoldertype_sendsignedtouser_Valid() const{
+    return m_b_ezsignfoldertype_sendsignedtouser_isValid;
+}
+
+bool Ezsignfoldertype_Request::isBEzsignfoldertypeSendattachmentezsignsigner() const {
+    return m_b_ezsignfoldertype_sendattachmentezsignsigner;
+}
+void Ezsignfoldertype_Request::setBEzsignfoldertypeSendattachmentezsignsigner(const bool &b_ezsignfoldertype_sendattachmentezsignsigner) {
+    m_b_ezsignfoldertype_sendattachmentezsignsigner = b_ezsignfoldertype_sendattachmentezsignsigner;
+    m_b_ezsignfoldertype_sendattachmentezsignsigner_isSet = true;
+}
+
+bool Ezsignfoldertype_Request::is_b_ezsignfoldertype_sendattachmentezsignsigner_Set() const{
+    return m_b_ezsignfoldertype_sendattachmentezsignsigner_isSet;
+}
+
+bool Ezsignfoldertype_Request::is_b_ezsignfoldertype_sendattachmentezsignsigner_Valid() const{
+    return m_b_ezsignfoldertype_sendattachmentezsignsigner_isValid;
+}
+
+bool Ezsignfoldertype_Request::isBEzsignfoldertypeSendproofezsignsigner() const {
+    return m_b_ezsignfoldertype_sendproofezsignsigner;
+}
+void Ezsignfoldertype_Request::setBEzsignfoldertypeSendproofezsignsigner(const bool &b_ezsignfoldertype_sendproofezsignsigner) {
+    m_b_ezsignfoldertype_sendproofezsignsigner = b_ezsignfoldertype_sendproofezsignsigner;
+    m_b_ezsignfoldertype_sendproofezsignsigner_isSet = true;
+}
+
+bool Ezsignfoldertype_Request::is_b_ezsignfoldertype_sendproofezsignsigner_Set() const{
+    return m_b_ezsignfoldertype_sendproofezsignsigner_isSet;
+}
+
+bool Ezsignfoldertype_Request::is_b_ezsignfoldertype_sendproofezsignsigner_Valid() const{
+    return m_b_ezsignfoldertype_sendproofezsignsigner_isValid;
+}
+
+bool Ezsignfoldertype_Request::isBEzsignfoldertypeSendattachmentuser() const {
+    return m_b_ezsignfoldertype_sendattachmentuser;
+}
+void Ezsignfoldertype_Request::setBEzsignfoldertypeSendattachmentuser(const bool &b_ezsignfoldertype_sendattachmentuser) {
+    m_b_ezsignfoldertype_sendattachmentuser = b_ezsignfoldertype_sendattachmentuser;
+    m_b_ezsignfoldertype_sendattachmentuser_isSet = true;
+}
+
+bool Ezsignfoldertype_Request::is_b_ezsignfoldertype_sendattachmentuser_Set() const{
+    return m_b_ezsignfoldertype_sendattachmentuser_isSet;
+}
+
+bool Ezsignfoldertype_Request::is_b_ezsignfoldertype_sendattachmentuser_Valid() const{
+    return m_b_ezsignfoldertype_sendattachmentuser_isValid;
+}
+
+bool Ezsignfoldertype_Request::isBEzsignfoldertypeSendproofuser() const {
+    return m_b_ezsignfoldertype_sendproofuser;
+}
+void Ezsignfoldertype_Request::setBEzsignfoldertypeSendproofuser(const bool &b_ezsignfoldertype_sendproofuser) {
+    m_b_ezsignfoldertype_sendproofuser = b_ezsignfoldertype_sendproofuser;
+    m_b_ezsignfoldertype_sendproofuser_isSet = true;
+}
+
+bool Ezsignfoldertype_Request::is_b_ezsignfoldertype_sendproofuser_Set() const{
+    return m_b_ezsignfoldertype_sendproofuser_isSet;
+}
+
+bool Ezsignfoldertype_Request::is_b_ezsignfoldertype_sendproofuser_Valid() const{
+    return m_b_ezsignfoldertype_sendproofuser_isValid;
+}
+
+bool Ezsignfoldertype_Request::isBEzsignfoldertypeSendproofemail() const {
+    return m_b_ezsignfoldertype_sendproofemail;
+}
+void Ezsignfoldertype_Request::setBEzsignfoldertypeSendproofemail(const bool &b_ezsignfoldertype_sendproofemail) {
+    m_b_ezsignfoldertype_sendproofemail = b_ezsignfoldertype_sendproofemail;
+    m_b_ezsignfoldertype_sendproofemail_isSet = true;
+}
+
+bool Ezsignfoldertype_Request::is_b_ezsignfoldertype_sendproofemail_Set() const{
+    return m_b_ezsignfoldertype_sendproofemail_isSet;
+}
+
+bool Ezsignfoldertype_Request::is_b_ezsignfoldertype_sendproofemail_Valid() const{
+    return m_b_ezsignfoldertype_sendproofemail_isValid;
+}
+
+bool Ezsignfoldertype_Request::isBEzsignfoldertypeAllowdownloadattachmentezsignsigner() const {
+    return m_b_ezsignfoldertype_allowdownloadattachmentezsignsigner;
+}
+void Ezsignfoldertype_Request::setBEzsignfoldertypeAllowdownloadattachmentezsignsigner(const bool &b_ezsignfoldertype_allowdownloadattachmentezsignsigner) {
+    m_b_ezsignfoldertype_allowdownloadattachmentezsignsigner = b_ezsignfoldertype_allowdownloadattachmentezsignsigner;
+    m_b_ezsignfoldertype_allowdownloadattachmentezsignsigner_isSet = true;
+}
+
+bool Ezsignfoldertype_Request::is_b_ezsignfoldertype_allowdownloadattachmentezsignsigner_Set() const{
+    return m_b_ezsignfoldertype_allowdownloadattachmentezsignsigner_isSet;
+}
+
+bool Ezsignfoldertype_Request::is_b_ezsignfoldertype_allowdownloadattachmentezsignsigner_Valid() const{
+    return m_b_ezsignfoldertype_allowdownloadattachmentezsignsigner_isValid;
+}
+
+bool Ezsignfoldertype_Request::isBEzsignfoldertypeAllowdownloadproofezsignsigner() const {
+    return m_b_ezsignfoldertype_allowdownloadproofezsignsigner;
+}
+void Ezsignfoldertype_Request::setBEzsignfoldertypeAllowdownloadproofezsignsigner(const bool &b_ezsignfoldertype_allowdownloadproofezsignsigner) {
+    m_b_ezsignfoldertype_allowdownloadproofezsignsigner = b_ezsignfoldertype_allowdownloadproofezsignsigner;
+    m_b_ezsignfoldertype_allowdownloadproofezsignsigner_isSet = true;
+}
+
+bool Ezsignfoldertype_Request::is_b_ezsignfoldertype_allowdownloadproofezsignsigner_Set() const{
+    return m_b_ezsignfoldertype_allowdownloadproofezsignsigner_isSet;
+}
+
+bool Ezsignfoldertype_Request::is_b_ezsignfoldertype_allowdownloadproofezsignsigner_Valid() const{
+    return m_b_ezsignfoldertype_allowdownloadproofezsignsigner_isValid;
+}
+
+bool Ezsignfoldertype_Request::isBEzsignfoldertypeSendproofreceivealldocument() const {
+    return m_b_ezsignfoldertype_sendproofreceivealldocument;
+}
+void Ezsignfoldertype_Request::setBEzsignfoldertypeSendproofreceivealldocument(const bool &b_ezsignfoldertype_sendproofreceivealldocument) {
+    m_b_ezsignfoldertype_sendproofreceivealldocument = b_ezsignfoldertype_sendproofreceivealldocument;
+    m_b_ezsignfoldertype_sendproofreceivealldocument_isSet = true;
+}
+
+bool Ezsignfoldertype_Request::is_b_ezsignfoldertype_sendproofreceivealldocument_Set() const{
+    return m_b_ezsignfoldertype_sendproofreceivealldocument_isSet;
+}
+
+bool Ezsignfoldertype_Request::is_b_ezsignfoldertype_sendproofreceivealldocument_Valid() const{
+    return m_b_ezsignfoldertype_sendproofreceivealldocument_isValid;
+}
+
 bool Ezsignfoldertype_Request::isBEzsignfoldertypeSendsignedtodocumentowner() const {
     return m_b_ezsignfoldertype_sendsignedtodocumentowner;
 }
@@ -925,6 +1175,56 @@ bool Ezsignfoldertype_Request::isSet() const {
             break;
         }
 
+        if (m_b_ezsignfoldertype_sendsignedtoezsignsigner_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_b_ezsignfoldertype_sendsignedtouser_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_b_ezsignfoldertype_sendattachmentezsignsigner_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_b_ezsignfoldertype_sendproofezsignsigner_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_b_ezsignfoldertype_sendattachmentuser_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_b_ezsignfoldertype_sendproofuser_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_b_ezsignfoldertype_sendproofemail_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_b_ezsignfoldertype_allowdownloadattachmentezsignsigner_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_b_ezsignfoldertype_allowdownloadproofezsignsigner_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_b_ezsignfoldertype_sendproofreceivealldocument_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (m_b_ezsignfoldertype_sendsignedtodocumentowner_isSet) {
             isObjectUpdated = true;
             break;
@@ -995,7 +1295,7 @@ bool Ezsignfoldertype_Request::isSet() const {
 
 bool Ezsignfoldertype_Request::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_obj_ezsignfoldertype_name_isValid && m_fki_branding_id_isValid && m_e_ezsignfoldertype_privacylevel_isValid && m_i_ezsignfoldertype_archivaldays_isValid && m_e_ezsignfoldertype_disposal_isValid && m_i_ezsignfoldertype_deadlinedays_isValid && m_b_ezsignfoldertype_sendattatchmentsigner_isValid && m_b_ezsignfoldertype_sendsignedtodocumentowner_isValid && m_b_ezsignfoldertype_sendsignedtofolderowner_isValid && m_b_ezsignfoldertype_sendsignedtocolleague_isValid && m_b_ezsignfoldertype_sendsummarytodocumentowner_isValid && m_b_ezsignfoldertype_sendsummarytofolderowner_isValid && m_b_ezsignfoldertype_sendsummarytocolleague_isValid && m_b_ezsignfoldertype_includeproofsigner_isValid && m_b_ezsignfoldertype_includeproofuser_isValid && m_b_ezsignfoldertype_isactive_isValid && true;
+    return m_obj_ezsignfoldertype_name_isValid && m_fki_branding_id_isValid && m_e_ezsignfoldertype_privacylevel_isValid && m_i_ezsignfoldertype_archivaldays_isValid && m_e_ezsignfoldertype_disposal_isValid && m_i_ezsignfoldertype_deadlinedays_isValid && m_b_ezsignfoldertype_sendsignedtodocumentowner_isValid && m_b_ezsignfoldertype_sendsignedtofolderowner_isValid && m_b_ezsignfoldertype_sendsignedtocolleague_isValid && m_b_ezsignfoldertype_sendsummarytodocumentowner_isValid && m_b_ezsignfoldertype_sendsummarytofolderowner_isValid && m_b_ezsignfoldertype_sendsummarytocolleague_isValid && m_b_ezsignfoldertype_includeproofuser_isValid && m_b_ezsignfoldertype_isactive_isValid && true;
 }
 
 } // namespace Ezmaxapi

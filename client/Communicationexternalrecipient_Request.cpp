@@ -215,7 +215,7 @@ bool Communicationexternalrecipient_Request::isSet() const {
 
 bool Communicationexternalrecipient_Request::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_s_communicationexternalrecipient_name_isValid && true;
+    return true;
 }
 
 } // namespace Ezmaxapi

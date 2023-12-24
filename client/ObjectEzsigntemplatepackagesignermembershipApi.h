@@ -113,20 +113,31 @@ signals:
     void ezsigntemplatepackagesignermembershipDeleteObjectV1SignalFull(HttpRequestWorker *worker, Ezsigntemplatepackagesignermembership_deleteObject_v1_Response summary);
     void ezsigntemplatepackagesignermembershipGetObjectV2SignalFull(HttpRequestWorker *worker, Ezsigntemplatepackagesignermembership_getObject_v2_Response summary);
 
+    Q_DECL_DEPRECATED_X("Use ezsigntemplatepackagesignermembershipCreateObjectV1SignalError() instead")
     void ezsigntemplatepackagesignermembershipCreateObjectV1SignalE(Ezsigntemplatepackagesignermembership_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigntemplatepackagesignermembershipCreateObjectV1SignalError(Ezsigntemplatepackagesignermembership_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigntemplatepackagesignermembershipDeleteObjectV1SignalError() instead")
     void ezsigntemplatepackagesignermembershipDeleteObjectV1SignalE(Ezsigntemplatepackagesignermembership_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigntemplatepackagesignermembershipDeleteObjectV1SignalError(Ezsigntemplatepackagesignermembership_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigntemplatepackagesignermembershipGetObjectV2SignalError() instead")
     void ezsigntemplatepackagesignermembershipGetObjectV2SignalE(Ezsigntemplatepackagesignermembership_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigntemplatepackagesignermembershipGetObjectV2SignalError(Ezsigntemplatepackagesignermembership_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use ezsigntemplatepackagesignermembershipCreateObjectV1SignalErrorFull() instead")
     void ezsigntemplatepackagesignermembershipCreateObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigntemplatepackagesignermembershipCreateObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigntemplatepackagesignermembershipDeleteObjectV1SignalErrorFull() instead")
     void ezsigntemplatepackagesignermembershipDeleteObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigntemplatepackagesignermembershipDeleteObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigntemplatepackagesignermembershipGetObjectV2SignalErrorFull() instead")
     void ezsigntemplatepackagesignermembershipGetObjectV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigntemplatepackagesignermembershipGetObjectV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
 public slots:
     void tokenAvailable();
-    
 };
 
 } // namespace Ezmaxapi

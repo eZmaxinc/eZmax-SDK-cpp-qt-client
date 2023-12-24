@@ -37,7 +37,7 @@ void ObjectWebhookApi::initializeServerConfigs() {
     "The server endpoint where to send your region specific API requests.",
     QMap<QString, ServerVariable>{ 
     {"sInfrastructureenvironmenttypeDescription", ServerVariable("The environment on on which to call the API. Should always be "prod" unless instructed otherwise by support.","prod",
-    QSet<QString>{ {"prod"},{"stg"},{"qa"},{"dev"} })},
+    QSet<QString>{ {"iso"},{"prod"},{"stg"},{"qa"},{"dev"} })},
     
     {"sInfrastructureregionCode", ServerVariable("The region where your services are hosted.","ca-central-1",
     QSet<QString>{ {"ca-central-1"} })}, }));
@@ -47,20 +47,22 @@ void ObjectWebhookApi::initializeServerConfigs() {
     "The server endpoint where to send your global API requests.",
     QMap<QString, ServerVariable>{ 
     {"sInfrastructureenvironmenttypeDescription", ServerVariable("The environment on on which to call the API. Should always be "prod" unless instructed otherwise by support.","prod",
-    QSet<QString>{ {"prod"},{"stg"},{"qa"},{"dev"} })}, }));
+    QSet<QString>{ {"prod"},{"dev"} })}, }));
     
     defaultConf.append(ServerConfiguration(
     QUrl("wss://ws.{sInfrastructureregionCode}.ezmax.com/{sInfrastructureenvironmenttypeDescription}"),
     "The server endpoint where to send your websocket requests.",
     QMap<QString, ServerVariable>{ 
     {"sInfrastructureenvironmenttypeDescription", ServerVariable("The environment on on which to call the API. Should always be "prod" unless instructed otherwise by support.","prod",
-    QSet<QString>{ {"prod"},{"stg"},{"qa"},{"dev"} })},
+    QSet<QString>{ {"iso"},{"prod"},{"stg"},{"qa"},{"dev"} })},
     
     {"sInfrastructureregionCode", ServerVariable("The region where your services are hosted.","ca-central-1",
     QSet<QString>{ {"ca-central-1"} })}, }));
     
     _serverConfigs.insert("webhookCreateObjectV1", defaultConf);
     _serverIndices.insert("webhookCreateObjectV1", 0);
+    _serverConfigs.insert("webhookCreateObjectV2", defaultConf);
+    _serverIndices.insert("webhookCreateObjectV2", 0);
     _serverConfigs.insert("webhookDeleteObjectV1", defaultConf);
     _serverIndices.insert("webhookDeleteObjectV1", 0);
     _serverConfigs.insert("webhookEditObjectV1", defaultConf);
@@ -71,6 +73,8 @@ void ObjectWebhookApi::initializeServerConfigs() {
     _serverIndices.insert("webhookGetListV1", 0);
     _serverConfigs.insert("webhookGetObjectV2", defaultConf);
     _serverIndices.insert("webhookGetObjectV2", 0);
+    _serverConfigs.insert("webhookRegenerateApikeyV1", defaultConf);
+    _serverIndices.insert("webhookRegenerateApikeyV1", 0);
     _serverConfigs.insert("webhookTestV1", defaultConf);
     _serverIndices.insert("webhookTestV1", 0);
 }
@@ -301,8 +305,118 @@ void ObjectWebhookApi::webhookCreateObjectV1Callback(HttpRequestWorker *worker) 
         emit webhookCreateObjectV1Signal(output);
         emit webhookCreateObjectV1SignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit webhookCreateObjectV1SignalE(output, error_type, error_str);
         emit webhookCreateObjectV1SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit webhookCreateObjectV1SignalError(output, error_type, error_str);
+        emit webhookCreateObjectV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectWebhookApi::webhookCreateObjectV2(const Webhook_createObject_v2_Request &webhook_create_object_v2_request) {
+    QString fullPath = QString(_serverConfigs["webhookCreateObjectV2"][_serverIndices.value("webhookCreateObjectV2")].URL()+"/2/object/webhook");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "POST");
+
+    {
+
+        
+        QByteArray output = webhook_create_object_v2_request.asJson().toUtf8();
+        input.request_body.append(output);
+    }
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+#else
+    for (auto key : _defaultHeaders.keys()) {
+        input.headers.insert(key, _defaultHeaders[key]);
+    }
+#endif
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectWebhookApi::webhookCreateObjectV2Callback);
+    connect(this, &ObjectWebhookApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this]() {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            emit allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectWebhookApi::webhookCreateObjectV2Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Webhook_createObject_v2_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit webhookCreateObjectV2Signal(output);
+        emit webhookCreateObjectV2SignalFull(worker, output);
+    } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
+        emit webhookCreateObjectV2SignalE(output, error_type, error_str);
+        emit webhookCreateObjectV2SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit webhookCreateObjectV2SignalError(output, error_type, error_str);
+        emit webhookCreateObjectV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -368,8 +482,34 @@ void ObjectWebhookApi::webhookDeleteObjectV1Callback(HttpRequestWorker *worker) 
         emit webhookDeleteObjectV1Signal(output);
         emit webhookDeleteObjectV1SignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit webhookDeleteObjectV1SignalE(output, error_type, error_str);
         emit webhookDeleteObjectV1SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit webhookDeleteObjectV1SignalError(output, error_type, error_str);
+        emit webhookDeleteObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -440,8 +580,34 @@ void ObjectWebhookApi::webhookEditObjectV1Callback(HttpRequestWorker *worker) {
         emit webhookEditObjectV1Signal(output);
         emit webhookEditObjectV1SignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit webhookEditObjectV1SignalE(output, error_type, error_str);
         emit webhookEditObjectV1SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit webhookEditObjectV1SignalError(output, error_type, error_str);
+        emit webhookEditObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -523,8 +689,34 @@ void ObjectWebhookApi::webhookGetHistoryV1Callback(HttpRequestWorker *worker) {
         emit webhookGetHistoryV1Signal(output);
         emit webhookGetHistoryV1SignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit webhookGetHistoryV1SignalE(output, error_type, error_str);
         emit webhookGetHistoryV1SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit webhookGetHistoryV1SignalError(output, error_type, error_str);
+        emit webhookGetHistoryV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -681,8 +873,34 @@ void ObjectWebhookApi::webhookGetListV1Callback(HttpRequestWorker *worker) {
         emit webhookGetListV1Signal(output);
         emit webhookGetListV1SignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit webhookGetListV1SignalE(output, error_type, error_str);
         emit webhookGetListV1SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit webhookGetListV1SignalError(output, error_type, error_str);
+        emit webhookGetListV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -748,8 +966,132 @@ void ObjectWebhookApi::webhookGetObjectV2Callback(HttpRequestWorker *worker) {
         emit webhookGetObjectV2Signal(output);
         emit webhookGetObjectV2SignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit webhookGetObjectV2SignalE(output, error_type, error_str);
         emit webhookGetObjectV2SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit webhookGetObjectV2SignalError(output, error_type, error_str);
+        emit webhookGetObjectV2SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectWebhookApi::webhookRegenerateApikeyV1(const qint32 &pki_webhook_id, const Webhook_regenerateApikey_v1_Request &webhook_regenerate_apikey_v1_request) {
+    QString fullPath = QString(_serverConfigs["webhookRegenerateApikeyV1"][_serverIndices.value("webhookRegenerateApikeyV1")].URL()+"/1/object/webhook/{pkiWebhookID}/regenerateApikey");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_webhook_idPathParam("{");
+        pki_webhook_idPathParam.append("pkiWebhookID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiWebhookID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiWebhookID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_webhook_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_webhook_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "POST");
+
+    {
+
+        
+        QByteArray output = webhook_regenerate_apikey_v1_request.asJson().toUtf8();
+        input.request_body.append(output);
+    }
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+#else
+    for (auto key : _defaultHeaders.keys()) {
+        input.headers.insert(key, _defaultHeaders[key]);
+    }
+#endif
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectWebhookApi::webhookRegenerateApikeyV1Callback);
+    connect(this, &ObjectWebhookApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this]() {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            emit allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectWebhookApi::webhookRegenerateApikeyV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Webhook_regenerateApikey_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit webhookRegenerateApikeyV1Signal(output);
+        emit webhookRegenerateApikeyV1SignalFull(worker, output);
+    } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
+        emit webhookRegenerateApikeyV1SignalE(output, error_type, error_str);
+        emit webhookRegenerateApikeyV1SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit webhookRegenerateApikeyV1SignalError(output, error_type, error_str);
+        emit webhookRegenerateApikeyV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -820,8 +1162,34 @@ void ObjectWebhookApi::webhookTestV1Callback(HttpRequestWorker *worker) {
         emit webhookTestV1Signal(output);
         emit webhookTestV1SignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit webhookTestV1SignalE(output, error_type, error_str);
         emit webhookTestV1SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit webhookTestV1SignalError(output, error_type, error_str);
+        emit webhookTestV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

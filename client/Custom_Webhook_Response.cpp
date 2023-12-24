@@ -61,8 +61,17 @@ void Custom_Webhook_Response::initializeModel() {
     m_s_webhook_emailfailed_isSet = false;
     m_s_webhook_emailfailed_isValid = false;
 
+    m_s_webhook_apikey_isSet = false;
+    m_s_webhook_apikey_isValid = false;
+
+    m_s_webhook_secret_isSet = false;
+    m_s_webhook_secret_isValid = false;
+
     m_b_webhook_isactive_isSet = false;
     m_b_webhook_isactive_isValid = false;
+
+    m_b_webhook_issigned_isSet = false;
+    m_b_webhook_issigned_isValid = false;
 
     m_b_webhook_skipsslvalidation_isSet = false;
     m_b_webhook_skipsslvalidation_isValid = false;
@@ -110,8 +119,17 @@ void Custom_Webhook_Response::fromJsonObject(QJsonObject json) {
     m_s_webhook_emailfailed_isValid = ::Ezmaxapi::fromJsonValue(m_s_webhook_emailfailed, json[QString("sWebhookEmailfailed")]);
     m_s_webhook_emailfailed_isSet = !json[QString("sWebhookEmailfailed")].isNull() && m_s_webhook_emailfailed_isValid;
 
+    m_s_webhook_apikey_isValid = ::Ezmaxapi::fromJsonValue(m_s_webhook_apikey, json[QString("sWebhookApikey")]);
+    m_s_webhook_apikey_isSet = !json[QString("sWebhookApikey")].isNull() && m_s_webhook_apikey_isValid;
+
+    m_s_webhook_secret_isValid = ::Ezmaxapi::fromJsonValue(m_s_webhook_secret, json[QString("sWebhookSecret")]);
+    m_s_webhook_secret_isSet = !json[QString("sWebhookSecret")].isNull() && m_s_webhook_secret_isValid;
+
     m_b_webhook_isactive_isValid = ::Ezmaxapi::fromJsonValue(m_b_webhook_isactive, json[QString("bWebhookIsactive")]);
     m_b_webhook_isactive_isSet = !json[QString("bWebhookIsactive")].isNull() && m_b_webhook_isactive_isValid;
+
+    m_b_webhook_issigned_isValid = ::Ezmaxapi::fromJsonValue(m_b_webhook_issigned, json[QString("bWebhookIssigned")]);
+    m_b_webhook_issigned_isSet = !json[QString("bWebhookIssigned")].isNull() && m_b_webhook_issigned_isValid;
 
     m_b_webhook_skipsslvalidation_isValid = ::Ezmaxapi::fromJsonValue(m_b_webhook_skipsslvalidation, json[QString("bWebhookSkipsslvalidation")]);
     m_b_webhook_skipsslvalidation_isSet = !json[QString("bWebhookSkipsslvalidation")].isNull() && m_b_webhook_skipsslvalidation_isValid;
@@ -159,8 +177,17 @@ QJsonObject Custom_Webhook_Response::asJsonObject() const {
     if (m_s_webhook_emailfailed_isSet) {
         obj.insert(QString("sWebhookEmailfailed"), ::Ezmaxapi::toJsonValue(m_s_webhook_emailfailed));
     }
+    if (m_s_webhook_apikey_isSet) {
+        obj.insert(QString("sWebhookApikey"), ::Ezmaxapi::toJsonValue(m_s_webhook_apikey));
+    }
+    if (m_s_webhook_secret_isSet) {
+        obj.insert(QString("sWebhookSecret"), ::Ezmaxapi::toJsonValue(m_s_webhook_secret));
+    }
     if (m_b_webhook_isactive_isSet) {
         obj.insert(QString("bWebhookIsactive"), ::Ezmaxapi::toJsonValue(m_b_webhook_isactive));
+    }
+    if (m_b_webhook_issigned_isSet) {
+        obj.insert(QString("bWebhookIssigned"), ::Ezmaxapi::toJsonValue(m_b_webhook_issigned));
     }
     if (m_b_webhook_skipsslvalidation_isSet) {
         obj.insert(QString("bWebhookSkipsslvalidation"), ::Ezmaxapi::toJsonValue(m_b_webhook_skipsslvalidation));
@@ -318,6 +345,38 @@ bool Custom_Webhook_Response::is_s_webhook_emailfailed_Valid() const{
     return m_s_webhook_emailfailed_isValid;
 }
 
+QString Custom_Webhook_Response::getSWebhookApikey() const {
+    return m_s_webhook_apikey;
+}
+void Custom_Webhook_Response::setSWebhookApikey(const QString &s_webhook_apikey) {
+    m_s_webhook_apikey = s_webhook_apikey;
+    m_s_webhook_apikey_isSet = true;
+}
+
+bool Custom_Webhook_Response::is_s_webhook_apikey_Set() const{
+    return m_s_webhook_apikey_isSet;
+}
+
+bool Custom_Webhook_Response::is_s_webhook_apikey_Valid() const{
+    return m_s_webhook_apikey_isValid;
+}
+
+QString Custom_Webhook_Response::getSWebhookSecret() const {
+    return m_s_webhook_secret;
+}
+void Custom_Webhook_Response::setSWebhookSecret(const QString &s_webhook_secret) {
+    m_s_webhook_secret = s_webhook_secret;
+    m_s_webhook_secret_isSet = true;
+}
+
+bool Custom_Webhook_Response::is_s_webhook_secret_Set() const{
+    return m_s_webhook_secret_isSet;
+}
+
+bool Custom_Webhook_Response::is_s_webhook_secret_Valid() const{
+    return m_s_webhook_secret_isValid;
+}
+
 bool Custom_Webhook_Response::isBWebhookIsactive() const {
     return m_b_webhook_isactive;
 }
@@ -332,6 +391,22 @@ bool Custom_Webhook_Response::is_b_webhook_isactive_Set() const{
 
 bool Custom_Webhook_Response::is_b_webhook_isactive_Valid() const{
     return m_b_webhook_isactive_isValid;
+}
+
+bool Custom_Webhook_Response::isBWebhookIssigned() const {
+    return m_b_webhook_issigned;
+}
+void Custom_Webhook_Response::setBWebhookIssigned(const bool &b_webhook_issigned) {
+    m_b_webhook_issigned = b_webhook_issigned;
+    m_b_webhook_issigned_isSet = true;
+}
+
+bool Custom_Webhook_Response::is_b_webhook_issigned_Set() const{
+    return m_b_webhook_issigned_isSet;
+}
+
+bool Custom_Webhook_Response::is_b_webhook_issigned_Valid() const{
+    return m_b_webhook_issigned_isValid;
 }
 
 bool Custom_Webhook_Response::isBWebhookSkipsslvalidation() const {
@@ -430,7 +505,22 @@ bool Custom_Webhook_Response::isSet() const {
             break;
         }
 
+        if (m_s_webhook_apikey_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_s_webhook_secret_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (m_b_webhook_isactive_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_b_webhook_issigned_isSet) {
             isObjectUpdated = true;
             break;
         }
@@ -455,7 +545,7 @@ bool Custom_Webhook_Response::isSet() const {
 
 bool Custom_Webhook_Response::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_pki_webhook_id_isValid && m_s_webhook_description_isValid && m_e_webhook_module_isValid && m_s_webhook_url_isValid && m_s_webhook_emailfailed_isValid && m_b_webhook_isactive_isValid && m_b_webhook_skipsslvalidation_isValid && m_pks_customer_code_isValid && m_b_webhook_test_isValid && true;
+    return m_pki_webhook_id_isValid && m_s_webhook_description_isValid && m_e_webhook_module_isValid && m_s_webhook_url_isValid && m_s_webhook_emailfailed_isValid && m_b_webhook_isactive_isValid && m_b_webhook_issigned_isValid && m_b_webhook_skipsslvalidation_isValid && m_pks_customer_code_isValid && m_b_webhook_test_isValid && true;
 }
 
 } // namespace Ezmaxapi

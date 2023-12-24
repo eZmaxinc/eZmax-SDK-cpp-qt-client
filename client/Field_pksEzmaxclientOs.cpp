@@ -45,6 +45,10 @@ void Field_pksEzmaxclientOs::fromJson(QString jsonString) {
         m_value = eField_pksEzmaxclientOs::IOS;
         m_value_isSet = m_value_isValid = true;
     }
+    else if ( jsonString.compare("iPadOS", Qt::CaseInsensitive) == 0) {
+        m_value = eField_pksEzmaxclientOs::IPADOS;
+        m_value_isSet = m_value_isValid = true;
+    }
     else if ( jsonString.compare("macOS", Qt::CaseInsensitive) == 0) {
         m_value = eField_pksEzmaxclientOs::MACOS;
         m_value_isSet = m_value_isValid = true;
@@ -65,6 +69,9 @@ QString Field_pksEzmaxclientOs::asJson() const {
     switch (m_value){
         case eField_pksEzmaxclientOs::IOS:
             val = "iOS";
+            break;
+        case eField_pksEzmaxclientOs::IPADOS:
+            val = "iPadOS";
             break;
         case eField_pksEzmaxclientOs::MACOS:
             val = "macOS";

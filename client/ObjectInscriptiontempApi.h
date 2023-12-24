@@ -94,16 +94,19 @@ signals:
 
     void inscriptiontempGetCommunicationListV1SignalFull(HttpRequestWorker *worker, Inscriptiontemp_getCommunicationList_v1_Response summary);
 
+    Q_DECL_DEPRECATED_X("Use inscriptiontempGetCommunicationListV1SignalError() instead")
     void inscriptiontempGetCommunicationListV1SignalE(Inscriptiontemp_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void inscriptiontempGetCommunicationListV1SignalError(Inscriptiontemp_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use inscriptiontempGetCommunicationListV1SignalErrorFull() instead")
     void inscriptiontempGetCommunicationListV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void inscriptiontempGetCommunicationListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
 public slots:
     void tokenAvailable();
-    
 };
 
 } // namespace Ezmaxapi

@@ -37,7 +37,7 @@ void ObjectEzmaxinvoicingApi::initializeServerConfigs() {
     "The server endpoint where to send your region specific API requests.",
     QMap<QString, ServerVariable>{ 
     {"sInfrastructureenvironmenttypeDescription", ServerVariable("The environment on on which to call the API. Should always be "prod" unless instructed otherwise by support.","prod",
-    QSet<QString>{ {"prod"},{"stg"},{"qa"},{"dev"} })},
+    QSet<QString>{ {"iso"},{"prod"},{"stg"},{"qa"},{"dev"} })},
     
     {"sInfrastructureregionCode", ServerVariable("The region where your services are hosted.","ca-central-1",
     QSet<QString>{ {"ca-central-1"} })}, }));
@@ -47,14 +47,14 @@ void ObjectEzmaxinvoicingApi::initializeServerConfigs() {
     "The server endpoint where to send your global API requests.",
     QMap<QString, ServerVariable>{ 
     {"sInfrastructureenvironmenttypeDescription", ServerVariable("The environment on on which to call the API. Should always be "prod" unless instructed otherwise by support.","prod",
-    QSet<QString>{ {"prod"},{"stg"},{"qa"},{"dev"} })}, }));
+    QSet<QString>{ {"prod"},{"dev"} })}, }));
     
     defaultConf.append(ServerConfiguration(
     QUrl("wss://ws.{sInfrastructureregionCode}.ezmax.com/{sInfrastructureenvironmenttypeDescription}"),
     "The server endpoint where to send your websocket requests.",
     QMap<QString, ServerVariable>{ 
     {"sInfrastructureenvironmenttypeDescription", ServerVariable("The environment on on which to call the API. Should always be "prod" unless instructed otherwise by support.","prod",
-    QSet<QString>{ {"prod"},{"stg"},{"qa"},{"dev"} })},
+    QSet<QString>{ {"iso"},{"prod"},{"stg"},{"qa"},{"dev"} })},
     
     {"sInfrastructureregionCode", ServerVariable("The region where your services are hosted.","ca-central-1",
     QSet<QString>{ {"ca-central-1"} })}, }));
@@ -379,8 +379,34 @@ void ObjectEzmaxinvoicingApi::ezmaxinvoicingGetAutocompleteV1Callback(HttpReques
         emit ezmaxinvoicingGetAutocompleteV1Signal(output);
         emit ezmaxinvoicingGetAutocompleteV1SignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit ezmaxinvoicingGetAutocompleteV1SignalE(output, error_type, error_str);
         emit ezmaxinvoicingGetAutocompleteV1SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit ezmaxinvoicingGetAutocompleteV1SignalError(output, error_type, error_str);
+        emit ezmaxinvoicingGetAutocompleteV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -521,8 +547,34 @@ void ObjectEzmaxinvoicingApi::ezmaxinvoicingGetAutocompleteV2Callback(HttpReques
         emit ezmaxinvoicingGetAutocompleteV2Signal(output);
         emit ezmaxinvoicingGetAutocompleteV2SignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit ezmaxinvoicingGetAutocompleteV2SignalE(output, error_type, error_str);
         emit ezmaxinvoicingGetAutocompleteV2SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit ezmaxinvoicingGetAutocompleteV2SignalError(output, error_type, error_str);
+        emit ezmaxinvoicingGetAutocompleteV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -588,8 +640,34 @@ void ObjectEzmaxinvoicingApi::ezmaxinvoicingGetObjectV2Callback(HttpRequestWorke
         emit ezmaxinvoicingGetObjectV2Signal(output);
         emit ezmaxinvoicingGetObjectV2SignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit ezmaxinvoicingGetObjectV2SignalE(output, error_type, error_str);
         emit ezmaxinvoicingGetObjectV2SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit ezmaxinvoicingGetObjectV2SignalError(output, error_type, error_str);
+        emit ezmaxinvoicingGetObjectV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -641,8 +719,34 @@ void ObjectEzmaxinvoicingApi::ezmaxinvoicingGetProvisionalV1Callback(HttpRequest
         emit ezmaxinvoicingGetProvisionalV1Signal(output);
         emit ezmaxinvoicingGetProvisionalV1SignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit ezmaxinvoicingGetProvisionalV1SignalE(output, error_type, error_str);
         emit ezmaxinvoicingGetProvisionalV1SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit ezmaxinvoicingGetProvisionalV1SignalError(output, error_type, error_str);
+        emit ezmaxinvoicingGetProvisionalV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

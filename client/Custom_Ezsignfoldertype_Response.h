@@ -49,6 +49,11 @@ public:
     bool is_s_ezsignfoldertype_name_x_Set() const;
     bool is_s_ezsignfoldertype_name_x_Valid() const;
 
+    bool isBEzsignfoldertypeSendproofezsignsigner() const;
+    void setBEzsignfoldertypeSendproofezsignsigner(const bool &b_ezsignfoldertype_sendproofezsignsigner);
+    bool is_b_ezsignfoldertype_sendproofezsignsigner_Set() const;
+    bool is_b_ezsignfoldertype_sendproofezsignsigner_Valid() const;
+
     bool isBEzsignfoldertypeIncludeproofsigner() const;
     void setBEzsignfoldertypeIncludeproofsigner(const bool &b_ezsignfoldertype_includeproofsigner);
     bool is_b_ezsignfoldertype_includeproofsigner_Set() const;
@@ -58,6 +63,16 @@ public:
     void setBEzsignfoldertypeIncludeproofuser(const bool &b_ezsignfoldertype_includeproofuser);
     bool is_b_ezsignfoldertype_includeproofuser_Set() const;
     bool is_b_ezsignfoldertype_includeproofuser_Valid() const;
+
+    bool isBEzsignfoldertypeAllowdownloadattachmentezsignsigner() const;
+    void setBEzsignfoldertypeAllowdownloadattachmentezsignsigner(const bool &b_ezsignfoldertype_allowdownloadattachmentezsignsigner);
+    bool is_b_ezsignfoldertype_allowdownloadattachmentezsignsigner_Set() const;
+    bool is_b_ezsignfoldertype_allowdownloadattachmentezsignsigner_Valid() const;
+
+    bool isBEzsignfoldertypeAllowdownloadproofezsignsigner() const;
+    void setBEzsignfoldertypeAllowdownloadproofezsignsigner(const bool &b_ezsignfoldertype_allowdownloadproofezsignsigner);
+    bool is_b_ezsignfoldertype_allowdownloadproofezsignsigner_Set() const;
+    bool is_b_ezsignfoldertype_allowdownloadproofezsignsigner_Valid() const;
 
     bool isBEzsignfoldertypeDelegate() const;
     void setBEzsignfoldertypeDelegate(const bool &b_ezsignfoldertype_delegate);
@@ -83,6 +98,10 @@ private:
     bool m_s_ezsignfoldertype_name_x_isSet;
     bool m_s_ezsignfoldertype_name_x_isValid;
 
+    bool m_b_ezsignfoldertype_sendproofezsignsigner;
+    bool m_b_ezsignfoldertype_sendproofezsignsigner_isSet;
+    bool m_b_ezsignfoldertype_sendproofezsignsigner_isValid;
+
     bool m_b_ezsignfoldertype_includeproofsigner;
     bool m_b_ezsignfoldertype_includeproofsigner_isSet;
     bool m_b_ezsignfoldertype_includeproofsigner_isValid;
@@ -90,6 +109,14 @@ private:
     bool m_b_ezsignfoldertype_includeproofuser;
     bool m_b_ezsignfoldertype_includeproofuser_isSet;
     bool m_b_ezsignfoldertype_includeproofuser_isValid;
+
+    bool m_b_ezsignfoldertype_allowdownloadattachmentezsignsigner;
+    bool m_b_ezsignfoldertype_allowdownloadattachmentezsignsigner_isSet;
+    bool m_b_ezsignfoldertype_allowdownloadattachmentezsignsigner_isValid;
+
+    bool m_b_ezsignfoldertype_allowdownloadproofezsignsigner;
+    bool m_b_ezsignfoldertype_allowdownloadproofezsignsigner_isSet;
+    bool m_b_ezsignfoldertype_allowdownloadproofezsignsigner_isValid;
 
     bool m_b_ezsignfoldertype_delegate;
     bool m_b_ezsignfoldertype_delegate_isSet;

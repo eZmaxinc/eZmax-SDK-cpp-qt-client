@@ -127,24 +127,43 @@ signals:
     void usersGetListScimV2SignalFull(HttpRequestWorker *worker, Scim_UserList summary);
     void usersGetObjectScimV2SignalFull(HttpRequestWorker *worker, Scim_User summary);
 
+    Q_DECL_DEPRECATED_X("Use usersCreateObjectScimV2SignalError() instead")
     void usersCreateObjectScimV2SignalE(Scim_User summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void usersCreateObjectScimV2SignalError(Scim_User summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use usersDeleteObjectScimV2SignalError() instead")
     void usersDeleteObjectScimV2SignalE(QNetworkReply::NetworkError error_type, QString error_str);
+    void usersDeleteObjectScimV2SignalError(QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use usersEditObjectScimV2SignalError() instead")
     void usersEditObjectScimV2SignalE(Scim_User summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void usersEditObjectScimV2SignalError(Scim_User summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use usersGetListScimV2SignalError() instead")
     void usersGetListScimV2SignalE(Scim_UserList summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void usersGetListScimV2SignalError(Scim_UserList summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use usersGetObjectScimV2SignalError() instead")
     void usersGetObjectScimV2SignalE(Scim_User summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void usersGetObjectScimV2SignalError(Scim_User summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use usersCreateObjectScimV2SignalErrorFull() instead")
     void usersCreateObjectScimV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void usersCreateObjectScimV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use usersDeleteObjectScimV2SignalErrorFull() instead")
     void usersDeleteObjectScimV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void usersDeleteObjectScimV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use usersEditObjectScimV2SignalErrorFull() instead")
     void usersEditObjectScimV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void usersEditObjectScimV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use usersGetListScimV2SignalErrorFull() instead")
     void usersGetListScimV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void usersGetListScimV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use usersGetObjectScimV2SignalErrorFull() instead")
     void usersGetObjectScimV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void usersGetObjectScimV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
 public slots:
     void tokenAvailable();
-    
 };
 
 } // namespace Ezmaxapi

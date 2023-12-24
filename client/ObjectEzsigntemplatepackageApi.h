@@ -162,28 +162,55 @@ signals:
     void ezsigntemplatepackageGetListV1SignalFull(HttpRequestWorker *worker, Ezsigntemplatepackage_getList_v1_Response summary);
     void ezsigntemplatepackageGetObjectV2SignalFull(HttpRequestWorker *worker, Ezsigntemplatepackage_getObject_v2_Response summary);
 
+    Q_DECL_DEPRECATED_X("Use ezsigntemplatepackageCreateObjectV1SignalError() instead")
     void ezsigntemplatepackageCreateObjectV1SignalE(Ezsigntemplatepackage_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigntemplatepackageCreateObjectV1SignalError(Ezsigntemplatepackage_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigntemplatepackageDeleteObjectV1SignalError() instead")
     void ezsigntemplatepackageDeleteObjectV1SignalE(Ezsigntemplatepackage_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigntemplatepackageDeleteObjectV1SignalError(Ezsigntemplatepackage_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigntemplatepackageEditEzsigntemplatepackagesignersV1SignalError() instead")
     void ezsigntemplatepackageEditEzsigntemplatepackagesignersV1SignalE(Ezsigntemplatepackage_editEzsigntemplatepackagesigners_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigntemplatepackageEditEzsigntemplatepackagesignersV1SignalError(Ezsigntemplatepackage_editEzsigntemplatepackagesigners_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigntemplatepackageEditObjectV1SignalError() instead")
     void ezsigntemplatepackageEditObjectV1SignalE(Ezsigntemplatepackage_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigntemplatepackageEditObjectV1SignalError(Ezsigntemplatepackage_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigntemplatepackageGetAutocompleteV2SignalError() instead")
     void ezsigntemplatepackageGetAutocompleteV2SignalE(Ezsigntemplatepackage_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigntemplatepackageGetAutocompleteV2SignalError(Ezsigntemplatepackage_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigntemplatepackageGetListV1SignalError() instead")
     void ezsigntemplatepackageGetListV1SignalE(Ezsigntemplatepackage_getList_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigntemplatepackageGetListV1SignalError(Ezsigntemplatepackage_getList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigntemplatepackageGetObjectV2SignalError() instead")
     void ezsigntemplatepackageGetObjectV2SignalE(Ezsigntemplatepackage_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigntemplatepackageGetObjectV2SignalError(Ezsigntemplatepackage_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use ezsigntemplatepackageCreateObjectV1SignalErrorFull() instead")
     void ezsigntemplatepackageCreateObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigntemplatepackageCreateObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigntemplatepackageDeleteObjectV1SignalErrorFull() instead")
     void ezsigntemplatepackageDeleteObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigntemplatepackageDeleteObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigntemplatepackageEditEzsigntemplatepackagesignersV1SignalErrorFull() instead")
     void ezsigntemplatepackageEditEzsigntemplatepackagesignersV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigntemplatepackageEditEzsigntemplatepackagesignersV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigntemplatepackageEditObjectV1SignalErrorFull() instead")
     void ezsigntemplatepackageEditObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigntemplatepackageEditObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigntemplatepackageGetAutocompleteV2SignalErrorFull() instead")
     void ezsigntemplatepackageGetAutocompleteV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigntemplatepackageGetAutocompleteV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigntemplatepackageGetListV1SignalErrorFull() instead")
     void ezsigntemplatepackageGetListV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigntemplatepackageGetListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigntemplatepackageGetObjectV2SignalErrorFull() instead")
     void ezsigntemplatepackageGetObjectV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigntemplatepackageGetObjectV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
 public slots:
     void tokenAvailable();
-    
 };
 
 } // namespace Ezmaxapi

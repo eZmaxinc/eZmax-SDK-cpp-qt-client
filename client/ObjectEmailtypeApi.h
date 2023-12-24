@@ -97,16 +97,19 @@ signals:
 
     void emailtypeGetAutocompleteV2SignalFull(HttpRequestWorker *worker, Emailtype_getAutocomplete_v2_Response summary);
 
+    Q_DECL_DEPRECATED_X("Use emailtypeGetAutocompleteV2SignalError() instead")
     void emailtypeGetAutocompleteV2SignalE(Emailtype_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void emailtypeGetAutocompleteV2SignalError(Emailtype_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use emailtypeGetAutocompleteV2SignalErrorFull() instead")
     void emailtypeGetAutocompleteV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void emailtypeGetAutocompleteV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
 public slots:
     void tokenAvailable();
-    
 };
 
 } // namespace Ezmaxapi

@@ -87,6 +87,11 @@ public:
     bool is_b_webhook_isactive_Set() const;
     bool is_b_webhook_isactive_Valid() const;
 
+    bool isBWebhookIssigned() const;
+    void setBWebhookIssigned(const bool &b_webhook_issigned);
+    bool is_b_webhook_issigned_Set() const;
+    bool is_b_webhook_issigned_Valid() const;
+
     bool isBWebhookSkipsslvalidation() const;
     void setBWebhookSkipsslvalidation(const bool &b_webhook_skipsslvalidation);
     bool is_b_webhook_skipsslvalidation_Set() const;
@@ -133,6 +138,10 @@ private:
     bool m_b_webhook_isactive;
     bool m_b_webhook_isactive_isSet;
     bool m_b_webhook_isactive_isValid;
+
+    bool m_b_webhook_issigned;
+    bool m_b_webhook_issigned_isSet;
+    bool m_b_webhook_issigned_isValid;
 
     bool m_b_webhook_skipsslvalidation;
     bool m_b_webhook_skipsslvalidation_isSet;

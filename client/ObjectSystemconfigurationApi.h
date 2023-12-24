@@ -105,18 +105,25 @@ signals:
     void systemconfigurationEditObjectV1SignalFull(HttpRequestWorker *worker, Systemconfiguration_editObject_v1_Response summary);
     void systemconfigurationGetObjectV2SignalFull(HttpRequestWorker *worker, Systemconfiguration_getObject_v2_Response summary);
 
+    Q_DECL_DEPRECATED_X("Use systemconfigurationEditObjectV1SignalError() instead")
     void systemconfigurationEditObjectV1SignalE(Systemconfiguration_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void systemconfigurationEditObjectV1SignalError(Systemconfiguration_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use systemconfigurationGetObjectV2SignalError() instead")
     void systemconfigurationGetObjectV2SignalE(Systemconfiguration_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void systemconfigurationGetObjectV2SignalError(Systemconfiguration_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use systemconfigurationEditObjectV1SignalErrorFull() instead")
     void systemconfigurationEditObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void systemconfigurationEditObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use systemconfigurationGetObjectV2SignalErrorFull() instead")
     void systemconfigurationGetObjectV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void systemconfigurationGetObjectV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
 public slots:
     void tokenAvailable();
-    
 };
 
 } // namespace Ezmaxapi
