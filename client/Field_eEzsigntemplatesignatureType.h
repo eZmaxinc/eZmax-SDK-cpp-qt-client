@@ -48,7 +48,8 @@ public:
         NAMEREASON, 
         ATTACHMENTS, 
         FIELDTEXT, 
-        FIELDTEXTAREA
+        FIELDTEXTAREA, 
+        CONSULTATION
     };
     Field_eEzsigntemplatesignatureType::eField_eEzsigntemplatesignatureType getValue() const;
     void setValue(const Field_eEzsigntemplatesignatureType::eField_eEzsigntemplatesignatureType& value);

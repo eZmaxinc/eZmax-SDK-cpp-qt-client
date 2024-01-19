@@ -60,6 +60,12 @@ void Custom_Ezsignfoldertype_Response::initializeModel() {
 
     m_b_ezsignfoldertype_reassign_isSet = false;
     m_b_ezsignfoldertype_reassign_isValid = false;
+
+    m_b_ezsignfoldertype_reassignezsignsigner_isSet = false;
+    m_b_ezsignfoldertype_reassignezsignsigner_isValid = false;
+
+    m_b_ezsignfoldertype_reassignuser_isSet = false;
+    m_b_ezsignfoldertype_reassignuser_isValid = false;
 }
 
 void Custom_Ezsignfoldertype_Response::fromJson(QString jsonString) {
@@ -97,6 +103,12 @@ void Custom_Ezsignfoldertype_Response::fromJsonObject(QJsonObject json) {
 
     m_b_ezsignfoldertype_reassign_isValid = ::Ezmaxapi::fromJsonValue(m_b_ezsignfoldertype_reassign, json[QString("bEzsignfoldertypeReassign")]);
     m_b_ezsignfoldertype_reassign_isSet = !json[QString("bEzsignfoldertypeReassign")].isNull() && m_b_ezsignfoldertype_reassign_isValid;
+
+    m_b_ezsignfoldertype_reassignezsignsigner_isValid = ::Ezmaxapi::fromJsonValue(m_b_ezsignfoldertype_reassignezsignsigner, json[QString("bEzsignfoldertypeReassignezsignsigner")]);
+    m_b_ezsignfoldertype_reassignezsignsigner_isSet = !json[QString("bEzsignfoldertypeReassignezsignsigner")].isNull() && m_b_ezsignfoldertype_reassignezsignsigner_isValid;
+
+    m_b_ezsignfoldertype_reassignuser_isValid = ::Ezmaxapi::fromJsonValue(m_b_ezsignfoldertype_reassignuser, json[QString("bEzsignfoldertypeReassignuser")]);
+    m_b_ezsignfoldertype_reassignuser_isSet = !json[QString("bEzsignfoldertypeReassignuser")].isNull() && m_b_ezsignfoldertype_reassignuser_isValid;
 }
 
 QString Custom_Ezsignfoldertype_Response::asJson() const {
@@ -134,6 +146,12 @@ QJsonObject Custom_Ezsignfoldertype_Response::asJsonObject() const {
     }
     if (m_b_ezsignfoldertype_reassign_isSet) {
         obj.insert(QString("bEzsignfoldertypeReassign"), ::Ezmaxapi::toJsonValue(m_b_ezsignfoldertype_reassign));
+    }
+    if (m_b_ezsignfoldertype_reassignezsignsigner_isSet) {
+        obj.insert(QString("bEzsignfoldertypeReassignezsignsigner"), ::Ezmaxapi::toJsonValue(m_b_ezsignfoldertype_reassignezsignsigner));
+    }
+    if (m_b_ezsignfoldertype_reassignuser_isSet) {
+        obj.insert(QString("bEzsignfoldertypeReassignuser"), ::Ezmaxapi::toJsonValue(m_b_ezsignfoldertype_reassignuser));
     }
     return obj;
 }
@@ -282,6 +300,38 @@ bool Custom_Ezsignfoldertype_Response::is_b_ezsignfoldertype_reassign_Valid() co
     return m_b_ezsignfoldertype_reassign_isValid;
 }
 
+bool Custom_Ezsignfoldertype_Response::isBEzsignfoldertypeReassignezsignsigner() const {
+    return m_b_ezsignfoldertype_reassignezsignsigner;
+}
+void Custom_Ezsignfoldertype_Response::setBEzsignfoldertypeReassignezsignsigner(const bool &b_ezsignfoldertype_reassignezsignsigner) {
+    m_b_ezsignfoldertype_reassignezsignsigner = b_ezsignfoldertype_reassignezsignsigner;
+    m_b_ezsignfoldertype_reassignezsignsigner_isSet = true;
+}
+
+bool Custom_Ezsignfoldertype_Response::is_b_ezsignfoldertype_reassignezsignsigner_Set() const{
+    return m_b_ezsignfoldertype_reassignezsignsigner_isSet;
+}
+
+bool Custom_Ezsignfoldertype_Response::is_b_ezsignfoldertype_reassignezsignsigner_Valid() const{
+    return m_b_ezsignfoldertype_reassignezsignsigner_isValid;
+}
+
+bool Custom_Ezsignfoldertype_Response::isBEzsignfoldertypeReassignuser() const {
+    return m_b_ezsignfoldertype_reassignuser;
+}
+void Custom_Ezsignfoldertype_Response::setBEzsignfoldertypeReassignuser(const bool &b_ezsignfoldertype_reassignuser) {
+    m_b_ezsignfoldertype_reassignuser = b_ezsignfoldertype_reassignuser;
+    m_b_ezsignfoldertype_reassignuser_isSet = true;
+}
+
+bool Custom_Ezsignfoldertype_Response::is_b_ezsignfoldertype_reassignuser_Set() const{
+    return m_b_ezsignfoldertype_reassignuser_isSet;
+}
+
+bool Custom_Ezsignfoldertype_Response::is_b_ezsignfoldertype_reassignuser_Valid() const{
+    return m_b_ezsignfoldertype_reassignuser_isValid;
+}
+
 bool Custom_Ezsignfoldertype_Response::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -326,6 +376,16 @@ bool Custom_Ezsignfoldertype_Response::isSet() const {
         }
 
         if (m_b_ezsignfoldertype_reassign_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_b_ezsignfoldertype_reassignezsignsigner_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_b_ezsignfoldertype_reassignuser_isSet) {
             isObjectUpdated = true;
             break;
         }

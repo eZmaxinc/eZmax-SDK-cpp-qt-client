@@ -97,6 +97,9 @@ void User_Request::initializeModel() {
     m_s_user_loginname_isSet = false;
     m_s_user_loginname_isValid = false;
 
+    m_s_user_jobtitle_isSet = false;
+    m_s_user_jobtitle_isValid = false;
+
     m_e_user_ezsignaccess_isSet = false;
     m_e_user_ezsignaccess_isValid = false;
 
@@ -188,6 +191,9 @@ void User_Request::fromJsonObject(QJsonObject json) {
     m_s_user_loginname_isValid = ::Ezmaxapi::fromJsonValue(m_s_user_loginname, json[QString("sUserLoginname")]);
     m_s_user_loginname_isSet = !json[QString("sUserLoginname")].isNull() && m_s_user_loginname_isValid;
 
+    m_s_user_jobtitle_isValid = ::Ezmaxapi::fromJsonValue(m_s_user_jobtitle, json[QString("sUserJobtitle")]);
+    m_s_user_jobtitle_isSet = !json[QString("sUserJobtitle")].isNull() && m_s_user_jobtitle_isValid;
+
     m_e_user_ezsignaccess_isValid = ::Ezmaxapi::fromJsonValue(m_e_user_ezsignaccess, json[QString("eUserEzsignaccess")]);
     m_e_user_ezsignaccess_isSet = !json[QString("eUserEzsignaccess")].isNull() && m_e_user_ezsignaccess_isValid;
 
@@ -278,6 +284,9 @@ QJsonObject User_Request::asJsonObject() const {
     }
     if (m_s_user_loginname_isSet) {
         obj.insert(QString("sUserLoginname"), ::Ezmaxapi::toJsonValue(m_s_user_loginname));
+    }
+    if (m_s_user_jobtitle_isSet) {
+        obj.insert(QString("sUserJobtitle"), ::Ezmaxapi::toJsonValue(m_s_user_jobtitle));
     }
     if (m_e_user_ezsignaccess.isSet()) {
         obj.insert(QString("eUserEzsignaccess"), ::Ezmaxapi::toJsonValue(m_e_user_ezsignaccess));
@@ -636,6 +645,22 @@ bool User_Request::is_s_user_loginname_Valid() const{
     return m_s_user_loginname_isValid;
 }
 
+QString User_Request::getSUserJobtitle() const {
+    return m_s_user_jobtitle;
+}
+void User_Request::setSUserJobtitle(const QString &s_user_jobtitle) {
+    m_s_user_jobtitle = s_user_jobtitle;
+    m_s_user_jobtitle_isSet = true;
+}
+
+bool User_Request::is_s_user_jobtitle_Set() const{
+    return m_s_user_jobtitle_isSet;
+}
+
+bool User_Request::is_s_user_jobtitle_Valid() const{
+    return m_s_user_jobtitle_isValid;
+}
+
 Field_eUserEzsignaccess User_Request::getEUserEzsignaccess() const {
     return m_e_user_ezsignaccess;
 }
@@ -836,6 +861,11 @@ bool User_Request::isSet() const {
         }
 
         if (m_s_user_loginname_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_s_user_jobtitle_isSet) {
             isObjectUpdated = true;
             break;
         }

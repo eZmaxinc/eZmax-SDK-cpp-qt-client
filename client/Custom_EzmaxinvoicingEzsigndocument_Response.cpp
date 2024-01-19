@@ -37,6 +37,9 @@ void Custom_EzmaxinvoicingEzsigndocument_Response::initializeModel() {
     m_fki_ezsignfolder_id_isSet = false;
     m_fki_ezsignfolder_id_isValid = false;
 
+    m_fki_billingentityinternal_id_isSet = false;
+    m_fki_billingentityinternal_id_isValid = false;
+
     m_s_name_isSet = false;
     m_s_name_isValid = false;
 
@@ -62,6 +65,9 @@ void Custom_EzmaxinvoicingEzsigndocument_Response::fromJsonObject(QJsonObject js
     m_fki_ezsignfolder_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_ezsignfolder_id, json[QString("fkiEzsignfolderID")]);
     m_fki_ezsignfolder_id_isSet = !json[QString("fkiEzsignfolderID")].isNull() && m_fki_ezsignfolder_id_isValid;
 
+    m_fki_billingentityinternal_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_billingentityinternal_id, json[QString("fkiBillingentityinternalID")]);
+    m_fki_billingentityinternal_id_isSet = !json[QString("fkiBillingentityinternalID")].isNull() && m_fki_billingentityinternal_id_isValid;
+
     m_s_name_isValid = ::Ezmaxapi::fromJsonValue(m_s_name, json[QString("sName")]);
     m_s_name_isSet = !json[QString("sName")].isNull() && m_s_name_isValid;
 
@@ -86,6 +92,9 @@ QJsonObject Custom_EzmaxinvoicingEzsigndocument_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_fki_ezsignfolder_id_isSet) {
         obj.insert(QString("fkiEzsignfolderID"), ::Ezmaxapi::toJsonValue(m_fki_ezsignfolder_id));
+    }
+    if (m_fki_billingentityinternal_id_isSet) {
+        obj.insert(QString("fkiBillingentityinternalID"), ::Ezmaxapi::toJsonValue(m_fki_billingentityinternal_id));
     }
     if (m_s_name_isSet) {
         obj.insert(QString("sName"), ::Ezmaxapi::toJsonValue(m_s_name));
@@ -116,6 +125,22 @@ bool Custom_EzmaxinvoicingEzsigndocument_Response::is_fki_ezsignfolder_id_Set() 
 
 bool Custom_EzmaxinvoicingEzsigndocument_Response::is_fki_ezsignfolder_id_Valid() const{
     return m_fki_ezsignfolder_id_isValid;
+}
+
+qint32 Custom_EzmaxinvoicingEzsigndocument_Response::getFkiBillingentityinternalId() const {
+    return m_fki_billingentityinternal_id;
+}
+void Custom_EzmaxinvoicingEzsigndocument_Response::setFkiBillingentityinternalId(const qint32 &fki_billingentityinternal_id) {
+    m_fki_billingentityinternal_id = fki_billingentityinternal_id;
+    m_fki_billingentityinternal_id_isSet = true;
+}
+
+bool Custom_EzmaxinvoicingEzsigndocument_Response::is_fki_billingentityinternal_id_Set() const{
+    return m_fki_billingentityinternal_id_isSet;
+}
+
+bool Custom_EzmaxinvoicingEzsigndocument_Response::is_fki_billingentityinternal_id_Valid() const{
+    return m_fki_billingentityinternal_id_isValid;
 }
 
 QString Custom_EzmaxinvoicingEzsigndocument_Response::getSName() const {
@@ -186,6 +211,11 @@ bool Custom_EzmaxinvoicingEzsigndocument_Response::isSet() const {
     bool isObjectUpdated = false;
     do {
         if (m_fki_ezsignfolder_id_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_fki_billingentityinternal_id_isSet) {
             isObjectUpdated = true;
             break;
         }

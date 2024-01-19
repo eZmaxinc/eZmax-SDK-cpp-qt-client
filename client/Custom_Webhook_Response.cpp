@@ -76,6 +76,9 @@ void Custom_Webhook_Response::initializeModel() {
     m_b_webhook_skipsslvalidation_isSet = false;
     m_b_webhook_skipsslvalidation_isValid = false;
 
+    m_obj_audit_isSet = false;
+    m_obj_audit_isValid = false;
+
     m_pks_customer_code_isSet = false;
     m_pks_customer_code_isValid = false;
 
@@ -134,6 +137,9 @@ void Custom_Webhook_Response::fromJsonObject(QJsonObject json) {
     m_b_webhook_skipsslvalidation_isValid = ::Ezmaxapi::fromJsonValue(m_b_webhook_skipsslvalidation, json[QString("bWebhookSkipsslvalidation")]);
     m_b_webhook_skipsslvalidation_isSet = !json[QString("bWebhookSkipsslvalidation")].isNull() && m_b_webhook_skipsslvalidation_isValid;
 
+    m_obj_audit_isValid = ::Ezmaxapi::fromJsonValue(m_obj_audit, json[QString("objAudit")]);
+    m_obj_audit_isSet = !json[QString("objAudit")].isNull() && m_obj_audit_isValid;
+
     m_pks_customer_code_isValid = ::Ezmaxapi::fromJsonValue(m_pks_customer_code, json[QString("pksCustomerCode")]);
     m_pks_customer_code_isSet = !json[QString("pksCustomerCode")].isNull() && m_pks_customer_code_isValid;
 
@@ -191,6 +197,9 @@ QJsonObject Custom_Webhook_Response::asJsonObject() const {
     }
     if (m_b_webhook_skipsslvalidation_isSet) {
         obj.insert(QString("bWebhookSkipsslvalidation"), ::Ezmaxapi::toJsonValue(m_b_webhook_skipsslvalidation));
+    }
+    if (m_obj_audit.isSet()) {
+        obj.insert(QString("objAudit"), ::Ezmaxapi::toJsonValue(m_obj_audit));
     }
     if (m_pks_customer_code_isSet) {
         obj.insert(QString("pksCustomerCode"), ::Ezmaxapi::toJsonValue(m_pks_customer_code));
@@ -425,6 +434,22 @@ bool Custom_Webhook_Response::is_b_webhook_skipsslvalidation_Valid() const{
     return m_b_webhook_skipsslvalidation_isValid;
 }
 
+Common_Audit Custom_Webhook_Response::getObjAudit() const {
+    return m_obj_audit;
+}
+void Custom_Webhook_Response::setObjAudit(const Common_Audit &obj_audit) {
+    m_obj_audit = obj_audit;
+    m_obj_audit_isSet = true;
+}
+
+bool Custom_Webhook_Response::is_obj_audit_Set() const{
+    return m_obj_audit_isSet;
+}
+
+bool Custom_Webhook_Response::is_obj_audit_Valid() const{
+    return m_obj_audit_isValid;
+}
+
 QString Custom_Webhook_Response::getPksCustomerCode() const {
     return m_pks_customer_code;
 }
@@ -530,6 +555,11 @@ bool Custom_Webhook_Response::isSet() const {
             break;
         }
 
+        if (m_obj_audit.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (m_pks_customer_code_isSet) {
             isObjectUpdated = true;
             break;
@@ -545,7 +575,7 @@ bool Custom_Webhook_Response::isSet() const {
 
 bool Custom_Webhook_Response::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_pki_webhook_id_isValid && m_s_webhook_description_isValid && m_e_webhook_module_isValid && m_s_webhook_url_isValid && m_s_webhook_emailfailed_isValid && m_b_webhook_isactive_isValid && m_b_webhook_issigned_isValid && m_b_webhook_skipsslvalidation_isValid && m_pks_customer_code_isValid && m_b_webhook_test_isValid && true;
+    return m_pki_webhook_id_isValid && m_s_webhook_description_isValid && m_e_webhook_module_isValid && m_s_webhook_url_isValid && m_s_webhook_emailfailed_isValid && m_b_webhook_isactive_isValid && m_b_webhook_issigned_isValid && m_b_webhook_skipsslvalidation_isValid && m_obj_audit_isValid && m_pks_customer_code_isValid && m_b_webhook_test_isValid && true;
 }
 
 } // namespace Ezmaxapi

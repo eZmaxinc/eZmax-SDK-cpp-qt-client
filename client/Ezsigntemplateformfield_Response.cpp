@@ -37,6 +37,9 @@ void Ezsigntemplateformfield_Response::initializeModel() {
     m_pki_ezsigntemplateformfield_id_isSet = false;
     m_pki_ezsigntemplateformfield_id_isValid = false;
 
+    m_e_ezsigntemplateformfield_positioning_isSet = false;
+    m_e_ezsigntemplateformfield_positioning_isValid = false;
+
     m_i_ezsigntemplatedocumentpage_pagenumber_isSet = false;
     m_i_ezsigntemplatedocumentpage_pagenumber_isValid = false;
 
@@ -66,6 +69,18 @@ void Ezsigntemplateformfield_Response::initializeModel() {
 
     m_e_ezsigntemplateformfield_dependencyrequirement_isSet = false;
     m_e_ezsigntemplateformfield_dependencyrequirement_isValid = false;
+
+    m_s_ezsigntemplateformfield_positioningpattern_isSet = false;
+    m_s_ezsigntemplateformfield_positioningpattern_isValid = false;
+
+    m_i_ezsigntemplateformfield_positioningoffsetx_isSet = false;
+    m_i_ezsigntemplateformfield_positioningoffsetx_isValid = false;
+
+    m_i_ezsigntemplateformfield_positioningoffsety_isSet = false;
+    m_i_ezsigntemplateformfield_positioningoffsety_isValid = false;
+
+    m_e_ezsigntemplateformfield_positioningoccurence_isSet = false;
+    m_e_ezsigntemplateformfield_positioningoccurence_isValid = false;
 }
 
 void Ezsigntemplateformfield_Response::fromJson(QString jsonString) {
@@ -79,6 +94,9 @@ void Ezsigntemplateformfield_Response::fromJsonObject(QJsonObject json) {
 
     m_pki_ezsigntemplateformfield_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_ezsigntemplateformfield_id, json[QString("pkiEzsigntemplateformfieldID")]);
     m_pki_ezsigntemplateformfield_id_isSet = !json[QString("pkiEzsigntemplateformfieldID")].isNull() && m_pki_ezsigntemplateformfield_id_isValid;
+
+    m_e_ezsigntemplateformfield_positioning_isValid = ::Ezmaxapi::fromJsonValue(m_e_ezsigntemplateformfield_positioning, json[QString("eEzsigntemplateformfieldPositioning")]);
+    m_e_ezsigntemplateformfield_positioning_isSet = !json[QString("eEzsigntemplateformfieldPositioning")].isNull() && m_e_ezsigntemplateformfield_positioning_isValid;
 
     m_i_ezsigntemplatedocumentpage_pagenumber_isValid = ::Ezmaxapi::fromJsonValue(m_i_ezsigntemplatedocumentpage_pagenumber, json[QString("iEzsigntemplatedocumentpagePagenumber")]);
     m_i_ezsigntemplatedocumentpage_pagenumber_isSet = !json[QString("iEzsigntemplatedocumentpagePagenumber")].isNull() && m_i_ezsigntemplatedocumentpage_pagenumber_isValid;
@@ -109,6 +127,18 @@ void Ezsigntemplateformfield_Response::fromJsonObject(QJsonObject json) {
 
     m_e_ezsigntemplateformfield_dependencyrequirement_isValid = ::Ezmaxapi::fromJsonValue(m_e_ezsigntemplateformfield_dependencyrequirement, json[QString("eEzsigntemplateformfieldDependencyrequirement")]);
     m_e_ezsigntemplateformfield_dependencyrequirement_isSet = !json[QString("eEzsigntemplateformfieldDependencyrequirement")].isNull() && m_e_ezsigntemplateformfield_dependencyrequirement_isValid;
+
+    m_s_ezsigntemplateformfield_positioningpattern_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsigntemplateformfield_positioningpattern, json[QString("sEzsigntemplateformfieldPositioningpattern")]);
+    m_s_ezsigntemplateformfield_positioningpattern_isSet = !json[QString("sEzsigntemplateformfieldPositioningpattern")].isNull() && m_s_ezsigntemplateformfield_positioningpattern_isValid;
+
+    m_i_ezsigntemplateformfield_positioningoffsetx_isValid = ::Ezmaxapi::fromJsonValue(m_i_ezsigntemplateformfield_positioningoffsetx, json[QString("iEzsigntemplateformfieldPositioningoffsetx")]);
+    m_i_ezsigntemplateformfield_positioningoffsetx_isSet = !json[QString("iEzsigntemplateformfieldPositioningoffsetx")].isNull() && m_i_ezsigntemplateformfield_positioningoffsetx_isValid;
+
+    m_i_ezsigntemplateformfield_positioningoffsety_isValid = ::Ezmaxapi::fromJsonValue(m_i_ezsigntemplateformfield_positioningoffsety, json[QString("iEzsigntemplateformfieldPositioningoffsety")]);
+    m_i_ezsigntemplateformfield_positioningoffsety_isSet = !json[QString("iEzsigntemplateformfieldPositioningoffsety")].isNull() && m_i_ezsigntemplateformfield_positioningoffsety_isValid;
+
+    m_e_ezsigntemplateformfield_positioningoccurence_isValid = ::Ezmaxapi::fromJsonValue(m_e_ezsigntemplateformfield_positioningoccurence, json[QString("eEzsigntemplateformfieldPositioningoccurence")]);
+    m_e_ezsigntemplateformfield_positioningoccurence_isSet = !json[QString("eEzsigntemplateformfieldPositioningoccurence")].isNull() && m_e_ezsigntemplateformfield_positioningoccurence_isValid;
 }
 
 QString Ezsigntemplateformfield_Response::asJson() const {
@@ -122,6 +152,9 @@ QJsonObject Ezsigntemplateformfield_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_ezsigntemplateformfield_id_isSet) {
         obj.insert(QString("pkiEzsigntemplateformfieldID"), ::Ezmaxapi::toJsonValue(m_pki_ezsigntemplateformfield_id));
+    }
+    if (m_e_ezsigntemplateformfield_positioning.isSet()) {
+        obj.insert(QString("eEzsigntemplateformfieldPositioning"), ::Ezmaxapi::toJsonValue(m_e_ezsigntemplateformfield_positioning));
     }
     if (m_i_ezsigntemplatedocumentpage_pagenumber_isSet) {
         obj.insert(QString("iEzsigntemplatedocumentpagePagenumber"), ::Ezmaxapi::toJsonValue(m_i_ezsigntemplatedocumentpage_pagenumber));
@@ -153,6 +186,18 @@ QJsonObject Ezsigntemplateformfield_Response::asJsonObject() const {
     if (m_e_ezsigntemplateformfield_dependencyrequirement.isSet()) {
         obj.insert(QString("eEzsigntemplateformfieldDependencyrequirement"), ::Ezmaxapi::toJsonValue(m_e_ezsigntemplateformfield_dependencyrequirement));
     }
+    if (m_s_ezsigntemplateformfield_positioningpattern_isSet) {
+        obj.insert(QString("sEzsigntemplateformfieldPositioningpattern"), ::Ezmaxapi::toJsonValue(m_s_ezsigntemplateformfield_positioningpattern));
+    }
+    if (m_i_ezsigntemplateformfield_positioningoffsetx_isSet) {
+        obj.insert(QString("iEzsigntemplateformfieldPositioningoffsetx"), ::Ezmaxapi::toJsonValue(m_i_ezsigntemplateformfield_positioningoffsetx));
+    }
+    if (m_i_ezsigntemplateformfield_positioningoffsety_isSet) {
+        obj.insert(QString("iEzsigntemplateformfieldPositioningoffsety"), ::Ezmaxapi::toJsonValue(m_i_ezsigntemplateformfield_positioningoffsety));
+    }
+    if (m_e_ezsigntemplateformfield_positioningoccurence.isSet()) {
+        obj.insert(QString("eEzsigntemplateformfieldPositioningoccurence"), ::Ezmaxapi::toJsonValue(m_e_ezsigntemplateformfield_positioningoccurence));
+    }
     return obj;
 }
 
@@ -170,6 +215,22 @@ bool Ezsigntemplateformfield_Response::is_pki_ezsigntemplateformfield_id_Set() c
 
 bool Ezsigntemplateformfield_Response::is_pki_ezsigntemplateformfield_id_Valid() const{
     return m_pki_ezsigntemplateformfield_id_isValid;
+}
+
+Field_eEzsigntemplateformfieldPositioning Ezsigntemplateformfield_Response::getEEzsigntemplateformfieldPositioning() const {
+    return m_e_ezsigntemplateformfield_positioning;
+}
+void Ezsigntemplateformfield_Response::setEEzsigntemplateformfieldPositioning(const Field_eEzsigntemplateformfieldPositioning &e_ezsigntemplateformfield_positioning) {
+    m_e_ezsigntemplateformfield_positioning = e_ezsigntemplateformfield_positioning;
+    m_e_ezsigntemplateformfield_positioning_isSet = true;
+}
+
+bool Ezsigntemplateformfield_Response::is_e_ezsigntemplateformfield_positioning_Set() const{
+    return m_e_ezsigntemplateformfield_positioning_isSet;
+}
+
+bool Ezsigntemplateformfield_Response::is_e_ezsigntemplateformfield_positioning_Valid() const{
+    return m_e_ezsigntemplateformfield_positioning_isValid;
 }
 
 qint32 Ezsigntemplateformfield_Response::getIEzsigntemplatedocumentpagePagenumber() const {
@@ -332,10 +393,79 @@ bool Ezsigntemplateformfield_Response::is_e_ezsigntemplateformfield_dependencyre
     return m_e_ezsigntemplateformfield_dependencyrequirement_isValid;
 }
 
+QString Ezsigntemplateformfield_Response::getSEzsigntemplateformfieldPositioningpattern() const {
+    return m_s_ezsigntemplateformfield_positioningpattern;
+}
+void Ezsigntemplateformfield_Response::setSEzsigntemplateformfieldPositioningpattern(const QString &s_ezsigntemplateformfield_positioningpattern) {
+    m_s_ezsigntemplateformfield_positioningpattern = s_ezsigntemplateformfield_positioningpattern;
+    m_s_ezsigntemplateformfield_positioningpattern_isSet = true;
+}
+
+bool Ezsigntemplateformfield_Response::is_s_ezsigntemplateformfield_positioningpattern_Set() const{
+    return m_s_ezsigntemplateformfield_positioningpattern_isSet;
+}
+
+bool Ezsigntemplateformfield_Response::is_s_ezsigntemplateformfield_positioningpattern_Valid() const{
+    return m_s_ezsigntemplateformfield_positioningpattern_isValid;
+}
+
+qint32 Ezsigntemplateformfield_Response::getIEzsigntemplateformfieldPositioningoffsetx() const {
+    return m_i_ezsigntemplateformfield_positioningoffsetx;
+}
+void Ezsigntemplateformfield_Response::setIEzsigntemplateformfieldPositioningoffsetx(const qint32 &i_ezsigntemplateformfield_positioningoffsetx) {
+    m_i_ezsigntemplateformfield_positioningoffsetx = i_ezsigntemplateformfield_positioningoffsetx;
+    m_i_ezsigntemplateformfield_positioningoffsetx_isSet = true;
+}
+
+bool Ezsigntemplateformfield_Response::is_i_ezsigntemplateformfield_positioningoffsetx_Set() const{
+    return m_i_ezsigntemplateformfield_positioningoffsetx_isSet;
+}
+
+bool Ezsigntemplateformfield_Response::is_i_ezsigntemplateformfield_positioningoffsetx_Valid() const{
+    return m_i_ezsigntemplateformfield_positioningoffsetx_isValid;
+}
+
+qint32 Ezsigntemplateformfield_Response::getIEzsigntemplateformfieldPositioningoffsety() const {
+    return m_i_ezsigntemplateformfield_positioningoffsety;
+}
+void Ezsigntemplateformfield_Response::setIEzsigntemplateformfieldPositioningoffsety(const qint32 &i_ezsigntemplateformfield_positioningoffsety) {
+    m_i_ezsigntemplateformfield_positioningoffsety = i_ezsigntemplateformfield_positioningoffsety;
+    m_i_ezsigntemplateformfield_positioningoffsety_isSet = true;
+}
+
+bool Ezsigntemplateformfield_Response::is_i_ezsigntemplateformfield_positioningoffsety_Set() const{
+    return m_i_ezsigntemplateformfield_positioningoffsety_isSet;
+}
+
+bool Ezsigntemplateformfield_Response::is_i_ezsigntemplateformfield_positioningoffsety_Valid() const{
+    return m_i_ezsigntemplateformfield_positioningoffsety_isValid;
+}
+
+Field_eEzsigntemplateformfieldPositioningoccurence Ezsigntemplateformfield_Response::getEEzsigntemplateformfieldPositioningoccurence() const {
+    return m_e_ezsigntemplateformfield_positioningoccurence;
+}
+void Ezsigntemplateformfield_Response::setEEzsigntemplateformfieldPositioningoccurence(const Field_eEzsigntemplateformfieldPositioningoccurence &e_ezsigntemplateformfield_positioningoccurence) {
+    m_e_ezsigntemplateformfield_positioningoccurence = e_ezsigntemplateformfield_positioningoccurence;
+    m_e_ezsigntemplateformfield_positioningoccurence_isSet = true;
+}
+
+bool Ezsigntemplateformfield_Response::is_e_ezsigntemplateformfield_positioningoccurence_Set() const{
+    return m_e_ezsigntemplateformfield_positioningoccurence_isSet;
+}
+
+bool Ezsigntemplateformfield_Response::is_e_ezsigntemplateformfield_positioningoccurence_Valid() const{
+    return m_e_ezsigntemplateformfield_positioningoccurence_isValid;
+}
+
 bool Ezsigntemplateformfield_Response::isSet() const {
     bool isObjectUpdated = false;
     do {
         if (m_pki_ezsigntemplateformfield_id_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_e_ezsigntemplateformfield_positioning.isSet()) {
             isObjectUpdated = true;
             break;
         }
@@ -389,13 +519,33 @@ bool Ezsigntemplateformfield_Response::isSet() const {
             isObjectUpdated = true;
             break;
         }
+
+        if (m_s_ezsigntemplateformfield_positioningpattern_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_i_ezsigntemplateformfield_positioningoffsetx_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_i_ezsigntemplateformfield_positioningoffsety_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_e_ezsigntemplateformfield_positioningoccurence.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
     } while (false);
     return isObjectUpdated;
 }
 
 bool Ezsigntemplateformfield_Response::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_pki_ezsigntemplateformfield_id_isValid && m_i_ezsigntemplatedocumentpage_pagenumber_isValid && m_s_ezsigntemplateformfield_label_isValid && m_i_ezsigntemplateformfield_x_isValid && m_i_ezsigntemplateformfield_y_isValid && m_i_ezsigntemplateformfield_width_isValid && m_i_ezsigntemplateformfield_height_isValid && true;
+    return m_pki_ezsigntemplateformfield_id_isValid && m_i_ezsigntemplatedocumentpage_pagenumber_isValid && m_s_ezsigntemplateformfield_label_isValid && m_i_ezsigntemplateformfield_width_isValid && m_i_ezsigntemplateformfield_height_isValid && true;
 }
 
 } // namespace Ezmaxapi

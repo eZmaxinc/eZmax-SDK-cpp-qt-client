@@ -21,6 +21,7 @@
 
 #include <QJsonObject>
 
+#include "Field_eEzsignfoldertypeCompletion.h"
 #include "Field_eEzsignfoldertypeDisposal.h"
 #include "Field_eEzsignfoldertypePrivacylevel.h"
 #include "Field_eEzsignfoldertypeSendreminderfrequency.h"
@@ -110,6 +111,11 @@ public:
     bool is_e_ezsignfoldertype_disposal_Set() const;
     bool is_e_ezsignfoldertype_disposal_Valid() const;
 
+    Field_eEzsignfoldertypeCompletion getEEzsignfoldertypeCompletion() const;
+    void setEEzsignfoldertypeCompletion(const Field_eEzsignfoldertypeCompletion &e_ezsignfoldertype_completion);
+    bool is_e_ezsignfoldertype_completion_Set() const;
+    bool is_e_ezsignfoldertype_completion_Valid() const;
+
     qint32 getIEzsignfoldertypeDisposaldays() const;
     void setIEzsignfoldertypeDisposaldays(const qint32 &i_ezsignfoldertype_disposaldays);
     bool is_i_ezsignfoldertype_disposaldays_Set() const;
@@ -129,6 +135,16 @@ public:
     void setBEzsignfoldertypeReassign(const bool &b_ezsignfoldertype_reassign);
     bool is_b_ezsignfoldertype_reassign_Set() const;
     bool is_b_ezsignfoldertype_reassign_Valid() const;
+
+    bool isBEzsignfoldertypeReassignezsignsigner() const;
+    void setBEzsignfoldertypeReassignezsignsigner(const bool &b_ezsignfoldertype_reassignezsignsigner);
+    bool is_b_ezsignfoldertype_reassignezsignsigner_Set() const;
+    bool is_b_ezsignfoldertype_reassignezsignsigner_Valid() const;
+
+    bool isBEzsignfoldertypeReassignuser() const;
+    void setBEzsignfoldertypeReassignuser(const bool &b_ezsignfoldertype_reassignuser);
+    bool is_b_ezsignfoldertype_reassignuser_Set() const;
+    bool is_b_ezsignfoldertype_reassignuser_Valid() const;
 
     bool isBEzsignfoldertypeSendattatchmentsigner() const;
     void setBEzsignfoldertypeSendattatchmentsigner(const bool &b_ezsignfoldertype_sendattatchmentsigner);
@@ -318,6 +334,10 @@ private:
     bool m_e_ezsignfoldertype_disposal_isSet;
     bool m_e_ezsignfoldertype_disposal_isValid;
 
+    Field_eEzsignfoldertypeCompletion m_e_ezsignfoldertype_completion;
+    bool m_e_ezsignfoldertype_completion_isSet;
+    bool m_e_ezsignfoldertype_completion_isValid;
+
     qint32 m_i_ezsignfoldertype_disposaldays;
     bool m_i_ezsignfoldertype_disposaldays_isSet;
     bool m_i_ezsignfoldertype_disposaldays_isValid;
@@ -333,6 +353,14 @@ private:
     bool m_b_ezsignfoldertype_reassign;
     bool m_b_ezsignfoldertype_reassign_isSet;
     bool m_b_ezsignfoldertype_reassign_isValid;
+
+    bool m_b_ezsignfoldertype_reassignezsignsigner;
+    bool m_b_ezsignfoldertype_reassignezsignsigner_isSet;
+    bool m_b_ezsignfoldertype_reassignezsignsigner_isValid;
+
+    bool m_b_ezsignfoldertype_reassignuser;
+    bool m_b_ezsignfoldertype_reassignuser_isSet;
+    bool m_b_ezsignfoldertype_reassignuser_isValid;
 
     bool m_b_ezsignfoldertype_sendattatchmentsigner;
     bool m_b_ezsignfoldertype_sendattatchmentsigner_isSet;

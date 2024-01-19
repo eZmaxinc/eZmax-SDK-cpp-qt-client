@@ -44,6 +44,11 @@ public:
     bool is_fki_ezsignfolder_id_Set() const;
     bool is_fki_ezsignfolder_id_Valid() const;
 
+    qint32 getFkiBillingentityinternalId() const;
+    void setFkiBillingentityinternalId(const qint32 &fki_billingentityinternal_id);
+    bool is_fki_billingentityinternal_id_Set() const;
+    bool is_fki_billingentityinternal_id_Valid() const;
+
     QString getSEzsignfolderDescription() const;
     void setSEzsignfolderDescription(const QString &s_ezsignfolder_description);
     bool is_s_ezsignfolder_description_Set() const;
@@ -78,6 +83,10 @@ private:
     qint32 m_fki_ezsignfolder_id;
     bool m_fki_ezsignfolder_id_isSet;
     bool m_fki_ezsignfolder_id_isValid;
+
+    qint32 m_fki_billingentityinternal_id;
+    bool m_fki_billingentityinternal_id_isSet;
+    bool m_fki_billingentityinternal_id_isValid;
 
     QString m_s_ezsignfolder_description;
     bool m_s_ezsignfolder_description_isSet;

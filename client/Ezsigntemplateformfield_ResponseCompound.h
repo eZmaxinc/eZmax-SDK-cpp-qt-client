@@ -23,6 +23,8 @@
 
 #include "Ezsigntemplateelementdependency_ResponseCompound.h"
 #include "Field_eEzsigntemplateformfieldDependencyrequirement.h"
+#include "Field_eEzsigntemplateformfieldPositioning.h"
+#include "Field_eEzsigntemplateformfieldPositioningoccurence.h"
 #include <QList>
 #include <QString>
 
@@ -47,6 +49,11 @@ public:
     void setPkiEzsigntemplateformfieldId(const qint32 &pki_ezsigntemplateformfield_id);
     bool is_pki_ezsigntemplateformfield_id_Set() const;
     bool is_pki_ezsigntemplateformfield_id_Valid() const;
+
+    Field_eEzsigntemplateformfieldPositioning getEEzsigntemplateformfieldPositioning() const;
+    void setEEzsigntemplateformfieldPositioning(const Field_eEzsigntemplateformfieldPositioning &e_ezsigntemplateformfield_positioning);
+    bool is_e_ezsigntemplateformfield_positioning_Set() const;
+    bool is_e_ezsigntemplateformfield_positioning_Valid() const;
 
     qint32 getIEzsigntemplatedocumentpagePagenumber() const;
     void setIEzsigntemplatedocumentpagePagenumber(const qint32 &i_ezsigntemplatedocumentpage_pagenumber);
@@ -98,6 +105,26 @@ public:
     bool is_e_ezsigntemplateformfield_dependencyrequirement_Set() const;
     bool is_e_ezsigntemplateformfield_dependencyrequirement_Valid() const;
 
+    QString getSEzsigntemplateformfieldPositioningpattern() const;
+    void setSEzsigntemplateformfieldPositioningpattern(const QString &s_ezsigntemplateformfield_positioningpattern);
+    bool is_s_ezsigntemplateformfield_positioningpattern_Set() const;
+    bool is_s_ezsigntemplateformfield_positioningpattern_Valid() const;
+
+    qint32 getIEzsigntemplateformfieldPositioningoffsetx() const;
+    void setIEzsigntemplateformfieldPositioningoffsetx(const qint32 &i_ezsigntemplateformfield_positioningoffsetx);
+    bool is_i_ezsigntemplateformfield_positioningoffsetx_Set() const;
+    bool is_i_ezsigntemplateformfield_positioningoffsetx_Valid() const;
+
+    qint32 getIEzsigntemplateformfieldPositioningoffsety() const;
+    void setIEzsigntemplateformfieldPositioningoffsety(const qint32 &i_ezsigntemplateformfield_positioningoffsety);
+    bool is_i_ezsigntemplateformfield_positioningoffsety_Set() const;
+    bool is_i_ezsigntemplateformfield_positioningoffsety_Valid() const;
+
+    Field_eEzsigntemplateformfieldPositioningoccurence getEEzsigntemplateformfieldPositioningoccurence() const;
+    void setEEzsigntemplateformfieldPositioningoccurence(const Field_eEzsigntemplateformfieldPositioningoccurence &e_ezsigntemplateformfield_positioningoccurence);
+    bool is_e_ezsigntemplateformfield_positioningoccurence_Set() const;
+    bool is_e_ezsigntemplateformfield_positioningoccurence_Valid() const;
+
     QList<Ezsigntemplateelementdependency_ResponseCompound> getAObjEzsigntemplateelementdependency() const;
     void setAObjEzsigntemplateelementdependency(const QList<Ezsigntemplateelementdependency_ResponseCompound> &a_obj_ezsigntemplateelementdependency);
     bool is_a_obj_ezsigntemplateelementdependency_Set() const;
@@ -112,6 +139,10 @@ private:
     qint32 m_pki_ezsigntemplateformfield_id;
     bool m_pki_ezsigntemplateformfield_id_isSet;
     bool m_pki_ezsigntemplateformfield_id_isValid;
+
+    Field_eEzsigntemplateformfieldPositioning m_e_ezsigntemplateformfield_positioning;
+    bool m_e_ezsigntemplateformfield_positioning_isSet;
+    bool m_e_ezsigntemplateformfield_positioning_isValid;
 
     qint32 m_i_ezsigntemplatedocumentpage_pagenumber;
     bool m_i_ezsigntemplatedocumentpage_pagenumber_isSet;
@@ -152,6 +183,22 @@ private:
     Field_eEzsigntemplateformfieldDependencyrequirement m_e_ezsigntemplateformfield_dependencyrequirement;
     bool m_e_ezsigntemplateformfield_dependencyrequirement_isSet;
     bool m_e_ezsigntemplateformfield_dependencyrequirement_isValid;
+
+    QString m_s_ezsigntemplateformfield_positioningpattern;
+    bool m_s_ezsigntemplateformfield_positioningpattern_isSet;
+    bool m_s_ezsigntemplateformfield_positioningpattern_isValid;
+
+    qint32 m_i_ezsigntemplateformfield_positioningoffsetx;
+    bool m_i_ezsigntemplateformfield_positioningoffsetx_isSet;
+    bool m_i_ezsigntemplateformfield_positioningoffsetx_isValid;
+
+    qint32 m_i_ezsigntemplateformfield_positioningoffsety;
+    bool m_i_ezsigntemplateformfield_positioningoffsety_isSet;
+    bool m_i_ezsigntemplateformfield_positioningoffsety_isValid;
+
+    Field_eEzsigntemplateformfieldPositioningoccurence m_e_ezsigntemplateformfield_positioningoccurence;
+    bool m_e_ezsigntemplateformfield_positioningoccurence_isSet;
+    bool m_e_ezsigntemplateformfield_positioningoccurence_isValid;
 
     QList<Ezsigntemplateelementdependency_ResponseCompound> m_a_obj_ezsigntemplateelementdependency;
     bool m_a_obj_ezsigntemplateelementdependency_isSet;

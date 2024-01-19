@@ -61,6 +61,10 @@ void Field_eEzsigndocumentStep::fromJson(QString jsonString) {
         m_value = eField_eEzsigndocumentStep::PREMATURELYENDED;
         m_value_isSet = m_value_isValid = true;
     }
+    else if ( jsonString.compare("PendingCompletion", Qt::CaseInsensitive) == 0) {
+        m_value = eField_eEzsigndocumentStep::PENDINGCOMPLETION;
+        m_value_isSet = m_value_isValid = true;
+    }
     else if ( jsonString.compare("Completed", Qt::CaseInsensitive) == 0) {
         m_value = eField_eEzsigndocumentStep::COMPLETED;
         m_value_isSet = m_value_isValid = true;
@@ -93,6 +97,9 @@ QString Field_eEzsigndocumentStep::asJson() const {
             break;
         case eField_eEzsigndocumentStep::PREMATURELYENDED:
             val = "PrematurelyEnded";
+            break;
+        case eField_eEzsigndocumentStep::PENDINGCOMPLETION:
+            val = "PendingCompletion";
             break;
         case eField_eEzsigndocumentStep::COMPLETED:
             val = "Completed";

@@ -151,6 +151,11 @@ public:
     bool is_s_user_loginname_Set() const;
     bool is_s_user_loginname_Valid() const;
 
+    QString getSUserJobtitle() const;
+    void setSUserJobtitle(const QString &s_user_jobtitle);
+    bool is_s_user_jobtitle_Set() const;
+    bool is_s_user_jobtitle_Valid() const;
+
     Field_eUserEzsignaccess getEUserEzsignaccess() const;
     void setEUserEzsignaccess(const Field_eUserEzsignaccess &e_user_ezsignaccess);
     bool is_e_user_ezsignaccess_Set() const;
@@ -270,6 +275,10 @@ private:
     QString m_s_user_loginname;
     bool m_s_user_loginname_isSet;
     bool m_s_user_loginname_isValid;
+
+    QString m_s_user_jobtitle;
+    bool m_s_user_jobtitle_isSet;
+    bool m_s_user_jobtitle_isValid;
 
     Field_eUserEzsignaccess m_e_user_ezsignaccess;
     bool m_e_user_ezsignaccess_isSet;

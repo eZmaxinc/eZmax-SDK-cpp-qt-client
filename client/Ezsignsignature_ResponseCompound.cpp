@@ -67,6 +67,9 @@ void Ezsignsignature_ResponseCompound::initializeModel() {
     m_i_ezsignsignature_step_isSet = false;
     m_i_ezsignsignature_step_isValid = false;
 
+    m_i_ezsignsignature_stepadjusted_isSet = false;
+    m_i_ezsignsignature_stepadjusted_isValid = false;
+
     m_e_ezsignsignature_type_isSet = false;
     m_e_ezsignsignature_type_isValid = false;
 
@@ -179,6 +182,9 @@ void Ezsignsignature_ResponseCompound::fromJsonObject(QJsonObject json) {
     m_i_ezsignsignature_step_isValid = ::Ezmaxapi::fromJsonValue(m_i_ezsignsignature_step, json[QString("iEzsignsignatureStep")]);
     m_i_ezsignsignature_step_isSet = !json[QString("iEzsignsignatureStep")].isNull() && m_i_ezsignsignature_step_isValid;
 
+    m_i_ezsignsignature_stepadjusted_isValid = ::Ezmaxapi::fromJsonValue(m_i_ezsignsignature_stepadjusted, json[QString("iEzsignsignatureStepadjusted")]);
+    m_i_ezsignsignature_stepadjusted_isSet = !json[QString("iEzsignsignatureStepadjusted")].isNull() && m_i_ezsignsignature_stepadjusted_isValid;
+
     m_e_ezsignsignature_type_isValid = ::Ezmaxapi::fromJsonValue(m_e_ezsignsignature_type, json[QString("eEzsignsignatureType")]);
     m_e_ezsignsignature_type_isSet = !json[QString("eEzsignsignatureType")].isNull() && m_e_ezsignsignature_type_isValid;
 
@@ -290,6 +296,9 @@ QJsonObject Ezsignsignature_ResponseCompound::asJsonObject() const {
     }
     if (m_i_ezsignsignature_step_isSet) {
         obj.insert(QString("iEzsignsignatureStep"), ::Ezmaxapi::toJsonValue(m_i_ezsignsignature_step));
+    }
+    if (m_i_ezsignsignature_stepadjusted_isSet) {
+        obj.insert(QString("iEzsignsignatureStepadjusted"), ::Ezmaxapi::toJsonValue(m_i_ezsignsignature_stepadjusted));
     }
     if (m_e_ezsignsignature_type.isSet()) {
         obj.insert(QString("eEzsignsignatureType"), ::Ezmaxapi::toJsonValue(m_e_ezsignsignature_type));
@@ -537,6 +546,22 @@ bool Ezsignsignature_ResponseCompound::is_i_ezsignsignature_step_Set() const{
 
 bool Ezsignsignature_ResponseCompound::is_i_ezsignsignature_step_Valid() const{
     return m_i_ezsignsignature_step_isValid;
+}
+
+qint32 Ezsignsignature_ResponseCompound::getIEzsignsignatureStepadjusted() const {
+    return m_i_ezsignsignature_stepadjusted;
+}
+void Ezsignsignature_ResponseCompound::setIEzsignsignatureStepadjusted(const qint32 &i_ezsignsignature_stepadjusted) {
+    m_i_ezsignsignature_stepadjusted = i_ezsignsignature_stepadjusted;
+    m_i_ezsignsignature_stepadjusted_isSet = true;
+}
+
+bool Ezsignsignature_ResponseCompound::is_i_ezsignsignature_stepadjusted_Set() const{
+    return m_i_ezsignsignature_stepadjusted_isSet;
+}
+
+bool Ezsignsignature_ResponseCompound::is_i_ezsignsignature_stepadjusted_Valid() const{
+    return m_i_ezsignsignature_stepadjusted_isValid;
 }
 
 Field_eEzsignsignatureType Ezsignsignature_ResponseCompound::getEEzsignsignatureType() const {
@@ -961,6 +986,11 @@ bool Ezsignsignature_ResponseCompound::isSet() const {
         }
 
         if (m_i_ezsignsignature_step_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_i_ezsignsignature_stepadjusted_isSet) {
             isObjectUpdated = true;
             break;
         }

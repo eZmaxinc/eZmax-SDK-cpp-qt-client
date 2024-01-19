@@ -76,6 +76,11 @@ public:
     bool is_dt_created_date_Set() const;
     bool is_dt_created_date_Valid() const;
 
+    QString getDtEzsignfolderDelayedsenddate() const;
+    void setDtEzsignfolderDelayedsenddate(const QString &dt_ezsignfolder_delayedsenddate);
+    bool is_dt_ezsignfolder_delayedsenddate_Set() const;
+    bool is_dt_ezsignfolder_delayedsenddate_Valid() const;
+
     QString getDtEzsignfolderSentdate() const;
     void setDtEzsignfolderSentdate(const QString &dt_ezsignfolder_sentdate);
     bool is_dt_ezsignfolder_sentdate_Set() const;
@@ -139,6 +144,10 @@ private:
     QString m_dt_created_date;
     bool m_dt_created_date_isSet;
     bool m_dt_created_date_isValid;
+
+    QString m_dt_ezsignfolder_delayedsenddate;
+    bool m_dt_ezsignfolder_delayedsenddate_isSet;
+    bool m_dt_ezsignfolder_delayedsenddate_isValid;
 
     QString m_dt_ezsignfolder_sentdate;
     bool m_dt_ezsignfolder_sentdate_isSet;

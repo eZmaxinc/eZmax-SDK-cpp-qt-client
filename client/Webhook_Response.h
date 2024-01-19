@@ -21,6 +21,7 @@
 
 #include <QJsonObject>
 
+#include "Common_Audit.h"
 #include "Field_eWebhookEzsignevent.h"
 #include "Field_eWebhookManagementevent.h"
 #include "Field_eWebhookModule.h"
@@ -30,6 +31,7 @@
 #include "Object.h"
 
 namespace Ezmaxapi {
+class Common_Audit;
 
 class Webhook_Response : public Object {
 public:
@@ -112,6 +114,11 @@ public:
     bool is_b_webhook_skipsslvalidation_Set() const;
     bool is_b_webhook_skipsslvalidation_Valid() const;
 
+    Common_Audit getObjAudit() const;
+    void setObjAudit(const Common_Audit &obj_audit);
+    bool is_obj_audit_Set() const;
+    bool is_obj_audit_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -173,6 +180,10 @@ private:
     bool m_b_webhook_skipsslvalidation;
     bool m_b_webhook_skipsslvalidation_isSet;
     bool m_b_webhook_skipsslvalidation_isValid;
+
+    Common_Audit m_obj_audit;
+    bool m_obj_audit_isSet;
+    bool m_obj_audit_isValid;
 };
 
 } // namespace Ezmaxapi

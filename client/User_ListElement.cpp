@@ -63,6 +63,9 @@ void User_ListElement::initializeModel() {
 
     m_s_email_address_isSet = false;
     m_s_email_address_isValid = false;
+
+    m_s_user_jobtitle_isSet = false;
+    m_s_user_jobtitle_isValid = false;
 }
 
 void User_ListElement::fromJson(QString jsonString) {
@@ -103,6 +106,9 @@ void User_ListElement::fromJsonObject(QJsonObject json) {
 
     m_s_email_address_isValid = ::Ezmaxapi::fromJsonValue(m_s_email_address, json[QString("sEmailAddress")]);
     m_s_email_address_isSet = !json[QString("sEmailAddress")].isNull() && m_s_email_address_isValid;
+
+    m_s_user_jobtitle_isValid = ::Ezmaxapi::fromJsonValue(m_s_user_jobtitle, json[QString("sUserJobtitle")]);
+    m_s_user_jobtitle_isSet = !json[QString("sUserJobtitle")].isNull() && m_s_user_jobtitle_isValid;
 }
 
 QString User_ListElement::asJson() const {
@@ -143,6 +149,9 @@ QJsonObject User_ListElement::asJsonObject() const {
     }
     if (m_s_email_address_isSet) {
         obj.insert(QString("sEmailAddress"), ::Ezmaxapi::toJsonValue(m_s_email_address));
+    }
+    if (m_s_user_jobtitle_isSet) {
+        obj.insert(QString("sUserJobtitle"), ::Ezmaxapi::toJsonValue(m_s_user_jobtitle));
     }
     return obj;
 }
@@ -307,6 +316,22 @@ bool User_ListElement::is_s_email_address_Valid() const{
     return m_s_email_address_isValid;
 }
 
+QString User_ListElement::getSUserJobtitle() const {
+    return m_s_user_jobtitle;
+}
+void User_ListElement::setSUserJobtitle(const QString &s_user_jobtitle) {
+    m_s_user_jobtitle = s_user_jobtitle;
+    m_s_user_jobtitle_isSet = true;
+}
+
+bool User_ListElement::is_s_user_jobtitle_Set() const{
+    return m_s_user_jobtitle_isSet;
+}
+
+bool User_ListElement::is_s_user_jobtitle_Valid() const{
+    return m_s_user_jobtitle_isValid;
+}
+
 bool User_ListElement::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -356,6 +381,11 @@ bool User_ListElement::isSet() const {
         }
 
         if (m_s_email_address_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_s_user_jobtitle_isSet) {
             isObjectUpdated = true;
             break;
         }

@@ -23,6 +23,7 @@
 
 #include "Common_Audit.h"
 #include "Custom_Ezsignfoldertype_Response.h"
+#include "Field_eEzsignfolderCompletion.h"
 #include "Field_eEzsignfolderSendreminderfrequency.h"
 #include "Field_eEzsignfolderStep.h"
 #include <QString>
@@ -59,6 +60,11 @@ public:
     void setObjEzsignfoldertype(const Custom_Ezsignfoldertype_Response &obj_ezsignfoldertype);
     bool is_obj_ezsignfoldertype_Set() const;
     bool is_obj_ezsignfoldertype_Valid() const;
+
+    Field_eEzsignfolderCompletion getEEzsignfolderCompletion() const;
+    void setEEzsignfolderCompletion(const Field_eEzsignfolderCompletion &e_ezsignfolder_completion);
+    bool is_e_ezsignfolder_completion_Set() const;
+    bool is_e_ezsignfolder_completion_Valid() const;
 
     Q_DECL_DEPRECATED QString getSEzsignfoldertypeNameX() const;
     Q_DECL_DEPRECATED void setSEzsignfoldertypeNameX(const QString &s_ezsignfoldertype_name_x);
@@ -172,6 +178,10 @@ private:
     Custom_Ezsignfoldertype_Response m_obj_ezsignfoldertype;
     bool m_obj_ezsignfoldertype_isSet;
     bool m_obj_ezsignfoldertype_isValid;
+
+    Field_eEzsignfolderCompletion m_e_ezsignfolder_completion;
+    bool m_e_ezsignfolder_completion_isSet;
+    bool m_e_ezsignfolder_completion_isValid;
 
     QString m_s_ezsignfoldertype_name_x;
     bool m_s_ezsignfoldertype_name_x_isSet;

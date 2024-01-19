@@ -92,6 +92,11 @@ public:
     bool is_s_email_address_Set() const;
     bool is_s_email_address_Valid() const;
 
+    QString getSUserJobtitle() const;
+    void setSUserJobtitle(const QString &s_user_jobtitle);
+    bool is_s_user_jobtitle_Set() const;
+    bool is_s_user_jobtitle_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -137,6 +142,10 @@ private:
     QString m_s_email_address;
     bool m_s_email_address_isSet;
     bool m_s_email_address_isValid;
+
+    QString m_s_user_jobtitle;
+    bool m_s_user_jobtitle_isSet;
+    bool m_s_user_jobtitle_isValid;
 };
 
 } // namespace Ezmaxapi

@@ -104,6 +104,11 @@ public:
     bool is_i_ezsignsignature_step_Set() const;
     bool is_i_ezsignsignature_step_Valid() const;
 
+    qint32 getIEzsignsignatureStepadjusted() const;
+    void setIEzsignsignatureStepadjusted(const qint32 &i_ezsignsignature_stepadjusted);
+    bool is_i_ezsignsignature_stepadjusted_Set() const;
+    bool is_i_ezsignsignature_stepadjusted_Valid() const;
+
     Field_eEzsignsignatureType getEEzsignsignatureType() const;
     void setEEzsignsignatureType(const Field_eEzsignsignatureType &e_ezsignsignature_type);
     bool is_e_ezsignsignature_type_Set() const;
@@ -248,6 +253,10 @@ private:
     qint32 m_i_ezsignsignature_step;
     bool m_i_ezsignsignature_step_isSet;
     bool m_i_ezsignsignature_step_isValid;
+
+    qint32 m_i_ezsignsignature_stepadjusted;
+    bool m_i_ezsignsignature_stepadjusted_isSet;
+    bool m_i_ezsignsignature_stepadjusted_isValid;
 
     Field_eEzsignsignatureType m_e_ezsignsignature_type;
     bool m_e_ezsignsignature_type_isSet;

@@ -55,6 +55,9 @@ void Ezsignfolder_ListElement::initializeModel() {
     m_dt_created_date_isSet = false;
     m_dt_created_date_isValid = false;
 
+    m_dt_ezsignfolder_delayedsenddate_isSet = false;
+    m_dt_ezsignfolder_delayedsenddate_isValid = false;
+
     m_dt_ezsignfolder_sentdate_isSet = false;
     m_dt_ezsignfolder_sentdate_isValid = false;
 
@@ -104,6 +107,9 @@ void Ezsignfolder_ListElement::fromJsonObject(QJsonObject json) {
     m_dt_created_date_isValid = ::Ezmaxapi::fromJsonValue(m_dt_created_date, json[QString("dtCreatedDate")]);
     m_dt_created_date_isSet = !json[QString("dtCreatedDate")].isNull() && m_dt_created_date_isValid;
 
+    m_dt_ezsignfolder_delayedsenddate_isValid = ::Ezmaxapi::fromJsonValue(m_dt_ezsignfolder_delayedsenddate, json[QString("dtEzsignfolderDelayedsenddate")]);
+    m_dt_ezsignfolder_delayedsenddate_isSet = !json[QString("dtEzsignfolderDelayedsenddate")].isNull() && m_dt_ezsignfolder_delayedsenddate_isValid;
+
     m_dt_ezsignfolder_sentdate_isValid = ::Ezmaxapi::fromJsonValue(m_dt_ezsignfolder_sentdate, json[QString("dtEzsignfolderSentdate")]);
     m_dt_ezsignfolder_sentdate_isSet = !json[QString("dtEzsignfolderSentdate")].isNull() && m_dt_ezsignfolder_sentdate_isValid;
 
@@ -152,6 +158,9 @@ QJsonObject Ezsignfolder_ListElement::asJsonObject() const {
     }
     if (m_dt_created_date_isSet) {
         obj.insert(QString("dtCreatedDate"), ::Ezmaxapi::toJsonValue(m_dt_created_date));
+    }
+    if (m_dt_ezsignfolder_delayedsenddate_isSet) {
+        obj.insert(QString("dtEzsignfolderDelayedsenddate"), ::Ezmaxapi::toJsonValue(m_dt_ezsignfolder_delayedsenddate));
     }
     if (m_dt_ezsignfolder_sentdate_isSet) {
         obj.insert(QString("dtEzsignfolderSentdate"), ::Ezmaxapi::toJsonValue(m_dt_ezsignfolder_sentdate));
@@ -286,6 +295,22 @@ bool Ezsignfolder_ListElement::is_dt_created_date_Valid() const{
     return m_dt_created_date_isValid;
 }
 
+QString Ezsignfolder_ListElement::getDtEzsignfolderDelayedsenddate() const {
+    return m_dt_ezsignfolder_delayedsenddate;
+}
+void Ezsignfolder_ListElement::setDtEzsignfolderDelayedsenddate(const QString &dt_ezsignfolder_delayedsenddate) {
+    m_dt_ezsignfolder_delayedsenddate = dt_ezsignfolder_delayedsenddate;
+    m_dt_ezsignfolder_delayedsenddate_isSet = true;
+}
+
+bool Ezsignfolder_ListElement::is_dt_ezsignfolder_delayedsenddate_Set() const{
+    return m_dt_ezsignfolder_delayedsenddate_isSet;
+}
+
+bool Ezsignfolder_ListElement::is_dt_ezsignfolder_delayedsenddate_Valid() const{
+    return m_dt_ezsignfolder_delayedsenddate_isValid;
+}
+
 QString Ezsignfolder_ListElement::getDtEzsignfolderSentdate() const {
     return m_dt_ezsignfolder_sentdate;
 }
@@ -416,6 +441,11 @@ bool Ezsignfolder_ListElement::isSet() const {
         }
 
         if (m_dt_created_date_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_dt_ezsignfolder_delayedsenddate_isSet) {
             isObjectUpdated = true;
             break;
         }

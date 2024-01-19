@@ -43,6 +43,9 @@ void Ezsignfolder_Response::initializeModel() {
     m_obj_ezsignfoldertype_isSet = false;
     m_obj_ezsignfoldertype_isValid = false;
 
+    m_e_ezsignfolder_completion_isSet = false;
+    m_e_ezsignfolder_completion_isValid = false;
+
     m_s_ezsignfoldertype_name_x_isSet = false;
     m_s_ezsignfoldertype_name_x_isValid = false;
 
@@ -119,6 +122,9 @@ void Ezsignfolder_Response::fromJsonObject(QJsonObject json) {
     m_obj_ezsignfoldertype_isValid = ::Ezmaxapi::fromJsonValue(m_obj_ezsignfoldertype, json[QString("objEzsignfoldertype")]);
     m_obj_ezsignfoldertype_isSet = !json[QString("objEzsignfoldertype")].isNull() && m_obj_ezsignfoldertype_isValid;
 
+    m_e_ezsignfolder_completion_isValid = ::Ezmaxapi::fromJsonValue(m_e_ezsignfolder_completion, json[QString("eEzsignfolderCompletion")]);
+    m_e_ezsignfolder_completion_isSet = !json[QString("eEzsignfolderCompletion")].isNull() && m_e_ezsignfolder_completion_isValid;
+
     m_s_ezsignfoldertype_name_x_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsignfoldertype_name_x, json[QString("sEzsignfoldertypeNameX")]);
     m_s_ezsignfoldertype_name_x_isSet = !json[QString("sEzsignfoldertypeNameX")].isNull() && m_s_ezsignfoldertype_name_x_isValid;
 
@@ -194,6 +200,9 @@ QJsonObject Ezsignfolder_Response::asJsonObject() const {
     }
     if (m_obj_ezsignfoldertype.isSet()) {
         obj.insert(QString("objEzsignfoldertype"), ::Ezmaxapi::toJsonValue(m_obj_ezsignfoldertype));
+    }
+    if (m_e_ezsignfolder_completion.isSet()) {
+        obj.insert(QString("eEzsignfolderCompletion"), ::Ezmaxapi::toJsonValue(m_e_ezsignfolder_completion));
     }
     if (m_s_ezsignfoldertype_name_x_isSet) {
         obj.insert(QString("sEzsignfoldertypeNameX"), ::Ezmaxapi::toJsonValue(m_s_ezsignfoldertype_name_x));
@@ -301,6 +310,22 @@ bool Ezsignfolder_Response::is_obj_ezsignfoldertype_Set() const{
 
 bool Ezsignfolder_Response::is_obj_ezsignfoldertype_Valid() const{
     return m_obj_ezsignfoldertype_isValid;
+}
+
+Field_eEzsignfolderCompletion Ezsignfolder_Response::getEEzsignfolderCompletion() const {
+    return m_e_ezsignfolder_completion;
+}
+void Ezsignfolder_Response::setEEzsignfolderCompletion(const Field_eEzsignfolderCompletion &e_ezsignfolder_completion) {
+    m_e_ezsignfolder_completion = e_ezsignfolder_completion;
+    m_e_ezsignfolder_completion_isSet = true;
+}
+
+bool Ezsignfolder_Response::is_e_ezsignfolder_completion_Set() const{
+    return m_e_ezsignfolder_completion_isSet;
+}
+
+bool Ezsignfolder_Response::is_e_ezsignfolder_completion_Valid() const{
+    return m_e_ezsignfolder_completion_isValid;
 }
 
 QString Ezsignfolder_Response::getSEzsignfoldertypeNameX() const {
@@ -621,6 +646,11 @@ bool Ezsignfolder_Response::isSet() const {
         }
 
         if (m_obj_ezsignfoldertype.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_e_ezsignfolder_completion.isSet()) {
             isObjectUpdated = true;
             break;
         }

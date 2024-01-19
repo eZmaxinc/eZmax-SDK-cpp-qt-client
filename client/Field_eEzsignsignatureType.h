@@ -49,7 +49,8 @@ public:
         ATTACHMENTS, 
         ATTACHMENTSCONFIRMATION, 
         FIELDTEXT, 
-        FIELDTEXTAREA
+        FIELDTEXTAREA, 
+        CONSULTATION
     };
     Field_eEzsignsignatureType::eField_eEzsignsignatureType getValue() const;
     void setValue(const Field_eEzsignsignatureType::eField_eEzsignsignatureType& value);

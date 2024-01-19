@@ -81,6 +81,10 @@ void Field_eEzsignsignatureType::fromJson(QString jsonString) {
         m_value = eField_eEzsignsignatureType::FIELDTEXTAREA;
         m_value_isSet = m_value_isValid = true;
     }
+    else if ( jsonString.compare("Consultation", Qt::CaseInsensitive) == 0) {
+        m_value = eField_eEzsignsignatureType::CONSULTATION;
+        m_value_isSet = m_value_isValid = true;
+    }
 }
 
 void Field_eEzsignsignatureType::fromJsonValue(QJsonValue json) {
@@ -120,6 +124,9 @@ QString Field_eEzsignsignatureType::asJson() const {
             break;
         case eField_eEzsignsignatureType::FIELDTEXTAREA:
             val = "FieldTextarea";
+            break;
+        case eField_eEzsignsignatureType::CONSULTATION:
+            val = "Consultation";
             break;
         default:
             break;

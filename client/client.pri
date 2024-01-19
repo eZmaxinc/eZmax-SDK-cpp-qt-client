@@ -169,7 +169,9 @@ HEADERS += \
     $${PWD}/Custom_Communicationsender_Request.h \
     $${PWD}/Custom_Communicationsender_Response.h \
     $${PWD}/Custom_ContactName_Response.h \
+    $${PWD}/Custom_CreateEzsignelementsPositionedByWord_Request.h \
     $${PWD}/Custom_Creditcardtransaction_Response.h \
+    $${PWD}/Custom_Discussionconfiguration_Response.h \
     $${PWD}/Custom_DropdownElement_Request.h \
     $${PWD}/Custom_DropdownElement_RequestCompound.h \
     $${PWD}/Custom_DropdownElement_Response.h \
@@ -188,7 +190,9 @@ HEADERS += \
     $${PWD}/Custom_Ezsignformfield_Request.h \
     $${PWD}/Custom_Ezsignformfielderror_Response.h \
     $${PWD}/Custom_Ezsignformfielderrortest_Response.h \
+    $${PWD}/Custom_EzsignformfieldgroupCreateEzsignelementsPositionedByWord_Request.h \
     $${PWD}/Custom_Ezsignformfieldgroup_Request.h \
+    $${PWD}/Custom_EzsignsignatureCreateEzsignelementsPositionedByWord_Request.h \
     $${PWD}/Custom_EzsignsignatureEzsignsignaturesAutomatic_Response.h \
     $${PWD}/Custom_Ezsignsignaturestatus_Response.h \
     $${PWD}/Custom_FormDataDocument_Response.h \
@@ -207,6 +211,40 @@ HEADERS += \
     $${PWD}/Department_AutocompleteElement_Response.h \
     $${PWD}/Department_getAutocomplete_v2_Response.h \
     $${PWD}/Department_getAutocomplete_v2_Response_mPayload.h \
+    $${PWD}/Discussion_Request.h \
+    $${PWD}/Discussion_RequestCompound.h \
+    $${PWD}/Discussion_RequestPatch.h \
+    $${PWD}/Discussion_Response.h \
+    $${PWD}/Discussion_ResponseCompound.h \
+    $${PWD}/Discussion_createObject_v1_Request.h \
+    $${PWD}/Discussion_createObject_v1_Response.h \
+    $${PWD}/Discussion_createObject_v1_Response_mPayload.h \
+    $${PWD}/Discussion_deleteObject_v1_Response.h \
+    $${PWD}/Discussion_getObject_v2_Response.h \
+    $${PWD}/Discussion_getObject_v2_Response_mPayload.h \
+    $${PWD}/Discussion_patchObject_v1_Request.h \
+    $${PWD}/Discussion_patchObject_v1_Response.h \
+    $${PWD}/Discussion_updateDiscussionreadstatus_v1_Request.h \
+    $${PWD}/Discussion_updateDiscussionreadstatus_v1_Response.h \
+    $${PWD}/Discussionmembership_Request.h \
+    $${PWD}/Discussionmembership_RequestCompound.h \
+    $${PWD}/Discussionmembership_Response.h \
+    $${PWD}/Discussionmembership_ResponseCompound.h \
+    $${PWD}/Discussionmembership_createObject_v1_Request.h \
+    $${PWD}/Discussionmembership_createObject_v1_Response.h \
+    $${PWD}/Discussionmembership_createObject_v1_Response_mPayload.h \
+    $${PWD}/Discussionmembership_deleteObject_v1_Response.h \
+    $${PWD}/Discussionmessage_Request.h \
+    $${PWD}/Discussionmessage_RequestCompound.h \
+    $${PWD}/Discussionmessage_RequestPatch.h \
+    $${PWD}/Discussionmessage_Response.h \
+    $${PWD}/Discussionmessage_ResponseCompound.h \
+    $${PWD}/Discussionmessage_createObject_v1_Request.h \
+    $${PWD}/Discussionmessage_createObject_v1_Response.h \
+    $${PWD}/Discussionmessage_createObject_v1_Response_mPayload.h \
+    $${PWD}/Discussionmessage_deleteObject_v1_Response.h \
+    $${PWD}/Discussionmessage_patchObject_v1_Request.h \
+    $${PWD}/Discussionmessage_patchObject_v1_Response.h \
     $${PWD}/Electronicfundstransfer_getCommunicationList_v1_Response.h \
     $${PWD}/Electronicfundstransfer_getCommunicationList_v1_Response_mPayload.h \
     $${PWD}/Email_Request.h \
@@ -311,6 +349,16 @@ HEADERS += \
     $${PWD}/Ezsignbulksendtransmission_getFormsData_v1_Response_mPayload.h \
     $${PWD}/Ezsignbulksendtransmission_getObject_v2_Response.h \
     $${PWD}/Ezsignbulksendtransmission_getObject_v2_Response_mPayload.h \
+    $${PWD}/Ezsigndiscussion_Request.h \
+    $${PWD}/Ezsigndiscussion_RequestCompound.h \
+    $${PWD}/Ezsigndiscussion_Response.h \
+    $${PWD}/Ezsigndiscussion_ResponseCompound.h \
+    $${PWD}/Ezsigndiscussion_createObject_v1_Request.h \
+    $${PWD}/Ezsigndiscussion_createObject_v1_Response.h \
+    $${PWD}/Ezsigndiscussion_createObject_v1_Response_mPayload.h \
+    $${PWD}/Ezsigndiscussion_deleteObject_v1_Response.h \
+    $${PWD}/Ezsigndiscussion_getObject_v2_Response.h \
+    $${PWD}/Ezsigndiscussion_getObject_v2_Response_mPayload.h \
     $${PWD}/Ezsigndocument_Request.h \
     $${PWD}/Ezsigndocument_RequestCompound.h \
     $${PWD}/Ezsigndocument_RequestPatch.h \
@@ -320,6 +368,9 @@ HEADERS += \
     $${PWD}/Ezsigndocument_applyEzsigntemplate_v1_Response.h \
     $${PWD}/Ezsigndocument_applyEzsigntemplate_v2_Request.h \
     $${PWD}/Ezsigndocument_applyEzsigntemplate_v2_Response.h \
+    $${PWD}/Ezsigndocument_createEzsignelementsPositionedByWord_v1_Request.h \
+    $${PWD}/Ezsigndocument_createEzsignelementsPositionedByWord_v1_Response.h \
+    $${PWD}/Ezsigndocument_createEzsignelementsPositionedByWord_v1_Response_mPayload.h \
     $${PWD}/Ezsigndocument_createObject_v1_Request.h \
     $${PWD}/Ezsigndocument_createObject_v1_Response.h \
     $${PWD}/Ezsigndocument_createObject_v1_Response_mPayload.h \
@@ -347,6 +398,8 @@ HEADERS += \
     $${PWD}/Ezsigndocument_getDownloadUrl_v1_Response_mPayload.h \
     $${PWD}/Ezsigndocument_getEzsignannotations_v1_Response.h \
     $${PWD}/Ezsigndocument_getEzsignannotations_v1_Response_mPayload.h \
+    $${PWD}/Ezsigndocument_getEzsigndiscussions_v1_Response.h \
+    $${PWD}/Ezsigndocument_getEzsigndiscussions_v1_Response_mPayload.h \
     $${PWD}/Ezsigndocument_getEzsignformfieldgroups_v1_Response.h \
     $${PWD}/Ezsigndocument_getEzsignformfieldgroups_v1_Response_mPayload.h \
     $${PWD}/Ezsigndocument_getEzsignpages_v1_Response.h \
@@ -756,6 +809,7 @@ HEADERS += \
     $${PWD}/Field_eCommunicationexternalrecipientType.h \
     $${PWD}/Field_eCommunicationrecipientType.h \
     $${PWD}/Field_eCreditcardtypeCodename.h \
+    $${PWD}/Field_eDiscussionmessageStatus.h \
     $${PWD}/Field_eErrorCode.h \
     $${PWD}/Field_eEzmaxinvoicingPaymenttype.h \
     $${PWD}/Field_eEzmaxinvoicingagentVariationezmax.h \
@@ -767,8 +821,10 @@ HEADERS += \
     $${PWD}/Field_eEzsigndocumentlogType.h \
     $${PWD}/Field_eEzsignelementdependencyOperator.h \
     $${PWD}/Field_eEzsignelementdependencyValidation.h \
+    $${PWD}/Field_eEzsignfolderCompletion.h \
     $${PWD}/Field_eEzsignfolderSendreminderfrequency.h \
     $${PWD}/Field_eEzsignfolderStep.h \
+    $${PWD}/Field_eEzsignfoldertypeCompletion.h \
     $${PWD}/Field_eEzsignfoldertypeDisposal.h \
     $${PWD}/Field_eEzsignfoldertypePrivacylevel.h \
     $${PWD}/Field_eEzsignfoldertypeSendreminderfrequency.h \
@@ -784,12 +840,16 @@ HEADERS += \
     $${PWD}/Field_eEzsigntemplateelementdependencyOperator.h \
     $${PWD}/Field_eEzsigntemplateelementdependencyValidation.h \
     $${PWD}/Field_eEzsigntemplateformfieldDependencyrequirement.h \
+    $${PWD}/Field_eEzsigntemplateformfieldPositioning.h \
+    $${PWD}/Field_eEzsigntemplateformfieldPositioningoccurence.h \
     $${PWD}/Field_eEzsigntemplateformfieldgroupSignerrequirement.h \
     $${PWD}/Field_eEzsigntemplateformfieldgroupTooltipposition.h \
     $${PWD}/Field_eEzsigntemplateformfieldgroupType.h \
     $${PWD}/Field_eEzsigntemplatesignatureAttachmentnamesource.h \
     $${PWD}/Field_eEzsigntemplatesignatureDependencyrequirement.h \
     $${PWD}/Field_eEzsigntemplatesignatureFont.h \
+    $${PWD}/Field_eEzsigntemplatesignaturePositioning.h \
+    $${PWD}/Field_eEzsigntemplatesignaturePositioningoccurence.h \
     $${PWD}/Field_eEzsigntemplatesignatureTooltipposition.h \
     $${PWD}/Field_eEzsigntemplatesignatureType.h \
     $${PWD}/Field_eNotificationpreferenceStatus.h \
@@ -1163,6 +1223,9 @@ HEADERS += \
     $${PWD}/ObjectCompanyApi.h \
     $${PWD}/ObjectCorsApi.h \
     $${PWD}/ObjectDepartmentApi.h \
+    $${PWD}/ObjectDiscussionApi.h \
+    $${PWD}/ObjectDiscussionmembershipApi.h \
+    $${PWD}/ObjectDiscussionmessageApi.h \
     $${PWD}/ObjectElectronicfundstransferApi.h \
     $${PWD}/ObjectEmailtypeApi.h \
     $${PWD}/ObjectEzmaxinvoicingApi.h \
@@ -1171,6 +1234,7 @@ HEADERS += \
     $${PWD}/ObjectEzsignbulksenddocumentmappingApi.h \
     $${PWD}/ObjectEzsignbulksendsignermappingApi.h \
     $${PWD}/ObjectEzsignbulksendtransmissionApi.h \
+    $${PWD}/ObjectEzsigndiscussionApi.h \
     $${PWD}/ObjectEzsigndocumentApi.h \
     $${PWD}/ObjectEzsignfolderApi.h \
     $${PWD}/ObjectEzsignfoldersignerassociationApi.h \
@@ -1407,7 +1471,9 @@ SOURCES += \
     $${PWD}/Custom_Communicationsender_Request.cpp \
     $${PWD}/Custom_Communicationsender_Response.cpp \
     $${PWD}/Custom_ContactName_Response.cpp \
+    $${PWD}/Custom_CreateEzsignelementsPositionedByWord_Request.cpp \
     $${PWD}/Custom_Creditcardtransaction_Response.cpp \
+    $${PWD}/Custom_Discussionconfiguration_Response.cpp \
     $${PWD}/Custom_DropdownElement_Request.cpp \
     $${PWD}/Custom_DropdownElement_RequestCompound.cpp \
     $${PWD}/Custom_DropdownElement_Response.cpp \
@@ -1426,7 +1492,9 @@ SOURCES += \
     $${PWD}/Custom_Ezsignformfield_Request.cpp \
     $${PWD}/Custom_Ezsignformfielderror_Response.cpp \
     $${PWD}/Custom_Ezsignformfielderrortest_Response.cpp \
+    $${PWD}/Custom_EzsignformfieldgroupCreateEzsignelementsPositionedByWord_Request.cpp \
     $${PWD}/Custom_Ezsignformfieldgroup_Request.cpp \
+    $${PWD}/Custom_EzsignsignatureCreateEzsignelementsPositionedByWord_Request.cpp \
     $${PWD}/Custom_EzsignsignatureEzsignsignaturesAutomatic_Response.cpp \
     $${PWD}/Custom_Ezsignsignaturestatus_Response.cpp \
     $${PWD}/Custom_FormDataDocument_Response.cpp \
@@ -1445,6 +1513,40 @@ SOURCES += \
     $${PWD}/Department_AutocompleteElement_Response.cpp \
     $${PWD}/Department_getAutocomplete_v2_Response.cpp \
     $${PWD}/Department_getAutocomplete_v2_Response_mPayload.cpp \
+    $${PWD}/Discussion_Request.cpp \
+    $${PWD}/Discussion_RequestCompound.cpp \
+    $${PWD}/Discussion_RequestPatch.cpp \
+    $${PWD}/Discussion_Response.cpp \
+    $${PWD}/Discussion_ResponseCompound.cpp \
+    $${PWD}/Discussion_createObject_v1_Request.cpp \
+    $${PWD}/Discussion_createObject_v1_Response.cpp \
+    $${PWD}/Discussion_createObject_v1_Response_mPayload.cpp \
+    $${PWD}/Discussion_deleteObject_v1_Response.cpp \
+    $${PWD}/Discussion_getObject_v2_Response.cpp \
+    $${PWD}/Discussion_getObject_v2_Response_mPayload.cpp \
+    $${PWD}/Discussion_patchObject_v1_Request.cpp \
+    $${PWD}/Discussion_patchObject_v1_Response.cpp \
+    $${PWD}/Discussion_updateDiscussionreadstatus_v1_Request.cpp \
+    $${PWD}/Discussion_updateDiscussionreadstatus_v1_Response.cpp \
+    $${PWD}/Discussionmembership_Request.cpp \
+    $${PWD}/Discussionmembership_RequestCompound.cpp \
+    $${PWD}/Discussionmembership_Response.cpp \
+    $${PWD}/Discussionmembership_ResponseCompound.cpp \
+    $${PWD}/Discussionmembership_createObject_v1_Request.cpp \
+    $${PWD}/Discussionmembership_createObject_v1_Response.cpp \
+    $${PWD}/Discussionmembership_createObject_v1_Response_mPayload.cpp \
+    $${PWD}/Discussionmembership_deleteObject_v1_Response.cpp \
+    $${PWD}/Discussionmessage_Request.cpp \
+    $${PWD}/Discussionmessage_RequestCompound.cpp \
+    $${PWD}/Discussionmessage_RequestPatch.cpp \
+    $${PWD}/Discussionmessage_Response.cpp \
+    $${PWD}/Discussionmessage_ResponseCompound.cpp \
+    $${PWD}/Discussionmessage_createObject_v1_Request.cpp \
+    $${PWD}/Discussionmessage_createObject_v1_Response.cpp \
+    $${PWD}/Discussionmessage_createObject_v1_Response_mPayload.cpp \
+    $${PWD}/Discussionmessage_deleteObject_v1_Response.cpp \
+    $${PWD}/Discussionmessage_patchObject_v1_Request.cpp \
+    $${PWD}/Discussionmessage_patchObject_v1_Response.cpp \
     $${PWD}/Electronicfundstransfer_getCommunicationList_v1_Response.cpp \
     $${PWD}/Electronicfundstransfer_getCommunicationList_v1_Response_mPayload.cpp \
     $${PWD}/Email_Request.cpp \
@@ -1549,6 +1651,16 @@ SOURCES += \
     $${PWD}/Ezsignbulksendtransmission_getFormsData_v1_Response_mPayload.cpp \
     $${PWD}/Ezsignbulksendtransmission_getObject_v2_Response.cpp \
     $${PWD}/Ezsignbulksendtransmission_getObject_v2_Response_mPayload.cpp \
+    $${PWD}/Ezsigndiscussion_Request.cpp \
+    $${PWD}/Ezsigndiscussion_RequestCompound.cpp \
+    $${PWD}/Ezsigndiscussion_Response.cpp \
+    $${PWD}/Ezsigndiscussion_ResponseCompound.cpp \
+    $${PWD}/Ezsigndiscussion_createObject_v1_Request.cpp \
+    $${PWD}/Ezsigndiscussion_createObject_v1_Response.cpp \
+    $${PWD}/Ezsigndiscussion_createObject_v1_Response_mPayload.cpp \
+    $${PWD}/Ezsigndiscussion_deleteObject_v1_Response.cpp \
+    $${PWD}/Ezsigndiscussion_getObject_v2_Response.cpp \
+    $${PWD}/Ezsigndiscussion_getObject_v2_Response_mPayload.cpp \
     $${PWD}/Ezsigndocument_Request.cpp \
     $${PWD}/Ezsigndocument_RequestCompound.cpp \
     $${PWD}/Ezsigndocument_RequestPatch.cpp \
@@ -1558,6 +1670,9 @@ SOURCES += \
     $${PWD}/Ezsigndocument_applyEzsigntemplate_v1_Response.cpp \
     $${PWD}/Ezsigndocument_applyEzsigntemplate_v2_Request.cpp \
     $${PWD}/Ezsigndocument_applyEzsigntemplate_v2_Response.cpp \
+    $${PWD}/Ezsigndocument_createEzsignelementsPositionedByWord_v1_Request.cpp \
+    $${PWD}/Ezsigndocument_createEzsignelementsPositionedByWord_v1_Response.cpp \
+    $${PWD}/Ezsigndocument_createEzsignelementsPositionedByWord_v1_Response_mPayload.cpp \
     $${PWD}/Ezsigndocument_createObject_v1_Request.cpp \
     $${PWD}/Ezsigndocument_createObject_v1_Response.cpp \
     $${PWD}/Ezsigndocument_createObject_v1_Response_mPayload.cpp \
@@ -1585,6 +1700,8 @@ SOURCES += \
     $${PWD}/Ezsigndocument_getDownloadUrl_v1_Response_mPayload.cpp \
     $${PWD}/Ezsigndocument_getEzsignannotations_v1_Response.cpp \
     $${PWD}/Ezsigndocument_getEzsignannotations_v1_Response_mPayload.cpp \
+    $${PWD}/Ezsigndocument_getEzsigndiscussions_v1_Response.cpp \
+    $${PWD}/Ezsigndocument_getEzsigndiscussions_v1_Response_mPayload.cpp \
     $${PWD}/Ezsigndocument_getEzsignformfieldgroups_v1_Response.cpp \
     $${PWD}/Ezsigndocument_getEzsignformfieldgroups_v1_Response_mPayload.cpp \
     $${PWD}/Ezsigndocument_getEzsignpages_v1_Response.cpp \
@@ -1994,6 +2111,7 @@ SOURCES += \
     $${PWD}/Field_eCommunicationexternalrecipientType.cpp \
     $${PWD}/Field_eCommunicationrecipientType.cpp \
     $${PWD}/Field_eCreditcardtypeCodename.cpp \
+    $${PWD}/Field_eDiscussionmessageStatus.cpp \
     $${PWD}/Field_eErrorCode.cpp \
     $${PWD}/Field_eEzmaxinvoicingPaymenttype.cpp \
     $${PWD}/Field_eEzmaxinvoicingagentVariationezmax.cpp \
@@ -2005,8 +2123,10 @@ SOURCES += \
     $${PWD}/Field_eEzsigndocumentlogType.cpp \
     $${PWD}/Field_eEzsignelementdependencyOperator.cpp \
     $${PWD}/Field_eEzsignelementdependencyValidation.cpp \
+    $${PWD}/Field_eEzsignfolderCompletion.cpp \
     $${PWD}/Field_eEzsignfolderSendreminderfrequency.cpp \
     $${PWD}/Field_eEzsignfolderStep.cpp \
+    $${PWD}/Field_eEzsignfoldertypeCompletion.cpp \
     $${PWD}/Field_eEzsignfoldertypeDisposal.cpp \
     $${PWD}/Field_eEzsignfoldertypePrivacylevel.cpp \
     $${PWD}/Field_eEzsignfoldertypeSendreminderfrequency.cpp \
@@ -2022,12 +2142,16 @@ SOURCES += \
     $${PWD}/Field_eEzsigntemplateelementdependencyOperator.cpp \
     $${PWD}/Field_eEzsigntemplateelementdependencyValidation.cpp \
     $${PWD}/Field_eEzsigntemplateformfieldDependencyrequirement.cpp \
+    $${PWD}/Field_eEzsigntemplateformfieldPositioning.cpp \
+    $${PWD}/Field_eEzsigntemplateformfieldPositioningoccurence.cpp \
     $${PWD}/Field_eEzsigntemplateformfieldgroupSignerrequirement.cpp \
     $${PWD}/Field_eEzsigntemplateformfieldgroupTooltipposition.cpp \
     $${PWD}/Field_eEzsigntemplateformfieldgroupType.cpp \
     $${PWD}/Field_eEzsigntemplatesignatureAttachmentnamesource.cpp \
     $${PWD}/Field_eEzsigntemplatesignatureDependencyrequirement.cpp \
     $${PWD}/Field_eEzsigntemplatesignatureFont.cpp \
+    $${PWD}/Field_eEzsigntemplatesignaturePositioning.cpp \
+    $${PWD}/Field_eEzsigntemplatesignaturePositioningoccurence.cpp \
     $${PWD}/Field_eEzsigntemplatesignatureTooltipposition.cpp \
     $${PWD}/Field_eEzsigntemplatesignatureType.cpp \
     $${PWD}/Field_eNotificationpreferenceStatus.cpp \
@@ -2401,6 +2525,9 @@ SOURCES += \
     $${PWD}/ObjectCompanyApi.cpp \
     $${PWD}/ObjectCorsApi.cpp \
     $${PWD}/ObjectDepartmentApi.cpp \
+    $${PWD}/ObjectDiscussionApi.cpp \
+    $${PWD}/ObjectDiscussionmembershipApi.cpp \
+    $${PWD}/ObjectDiscussionmessageApi.cpp \
     $${PWD}/ObjectElectronicfundstransferApi.cpp \
     $${PWD}/ObjectEmailtypeApi.cpp \
     $${PWD}/ObjectEzmaxinvoicingApi.cpp \
@@ -2409,6 +2536,7 @@ SOURCES += \
     $${PWD}/ObjectEzsignbulksenddocumentmappingApi.cpp \
     $${PWD}/ObjectEzsignbulksendsignermappingApi.cpp \
     $${PWD}/ObjectEzsignbulksendtransmissionApi.cpp \
+    $${PWD}/ObjectEzsigndiscussionApi.cpp \
     $${PWD}/ObjectEzsigndocumentApi.cpp \
     $${PWD}/ObjectEzsignfolderApi.cpp \
     $${PWD}/ObjectEzsignfoldersignerassociationApi.cpp \

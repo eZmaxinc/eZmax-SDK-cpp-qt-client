@@ -25,6 +25,8 @@
 #include "Field_eEzsigntemplatesignatureAttachmentnamesource.h"
 #include "Field_eEzsigntemplatesignatureDependencyrequirement.h"
 #include "Field_eEzsigntemplatesignatureFont.h"
+#include "Field_eEzsigntemplatesignaturePositioning.h"
+#include "Field_eEzsigntemplatesignaturePositioningoccurence.h"
 #include "Field_eEzsigntemplatesignatureTooltipposition.h"
 #include "Field_eEzsigntemplatesignatureType.h"
 #include <QString>
@@ -64,6 +66,11 @@ public:
     void setFkiEzsigntemplatesignerIdValidation(const qint32 &fki_ezsigntemplatesigner_id_validation);
     bool is_fki_ezsigntemplatesigner_id_validation_Set() const;
     bool is_fki_ezsigntemplatesigner_id_validation_Valid() const;
+
+    Field_eEzsigntemplatesignaturePositioning getEEzsigntemplatesignaturePositioning() const;
+    void setEEzsigntemplatesignaturePositioning(const Field_eEzsigntemplatesignaturePositioning &e_ezsigntemplatesignature_positioning);
+    bool is_e_ezsigntemplatesignature_positioning_Set() const;
+    bool is_e_ezsigntemplatesignature_positioning_Valid() const;
 
     qint32 getIEzsigntemplatedocumentpagePagenumber() const;
     void setIEzsigntemplatedocumentpagePagenumber(const qint32 &i_ezsigntemplatedocumentpage_pagenumber);
@@ -155,6 +162,26 @@ public:
     bool is_e_ezsigntemplatesignature_dependencyrequirement_Set() const;
     bool is_e_ezsigntemplatesignature_dependencyrequirement_Valid() const;
 
+    QString getSEzsigntemplatesignaturePositioningpattern() const;
+    void setSEzsigntemplatesignaturePositioningpattern(const QString &s_ezsigntemplatesignature_positioningpattern);
+    bool is_s_ezsigntemplatesignature_positioningpattern_Set() const;
+    bool is_s_ezsigntemplatesignature_positioningpattern_Valid() const;
+
+    qint32 getIEzsigntemplatesignaturePositioningoffsetx() const;
+    void setIEzsigntemplatesignaturePositioningoffsetx(const qint32 &i_ezsigntemplatesignature_positioningoffsetx);
+    bool is_i_ezsigntemplatesignature_positioningoffsetx_Set() const;
+    bool is_i_ezsigntemplatesignature_positioningoffsetx_Valid() const;
+
+    qint32 getIEzsigntemplatesignaturePositioningoffsety() const;
+    void setIEzsigntemplatesignaturePositioningoffsety(const qint32 &i_ezsigntemplatesignature_positioningoffsety);
+    bool is_i_ezsigntemplatesignature_positioningoffsety_Set() const;
+    bool is_i_ezsigntemplatesignature_positioningoffsety_Valid() const;
+
+    Field_eEzsigntemplatesignaturePositioningoccurence getEEzsigntemplatesignaturePositioningoccurence() const;
+    void setEEzsigntemplatesignaturePositioningoccurence(const Field_eEzsigntemplatesignaturePositioningoccurence &e_ezsigntemplatesignature_positioningoccurence);
+    bool is_e_ezsigntemplatesignature_positioningoccurence_Set() const;
+    bool is_e_ezsigntemplatesignature_positioningoccurence_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -176,6 +203,10 @@ private:
     qint32 m_fki_ezsigntemplatesigner_id_validation;
     bool m_fki_ezsigntemplatesigner_id_validation_isSet;
     bool m_fki_ezsigntemplatesigner_id_validation_isValid;
+
+    Field_eEzsigntemplatesignaturePositioning m_e_ezsigntemplatesignature_positioning;
+    bool m_e_ezsigntemplatesignature_positioning_isSet;
+    bool m_e_ezsigntemplatesignature_positioning_isValid;
 
     qint32 m_i_ezsigntemplatedocumentpage_pagenumber;
     bool m_i_ezsigntemplatedocumentpage_pagenumber_isSet;
@@ -248,6 +279,22 @@ private:
     Field_eEzsigntemplatesignatureDependencyrequirement m_e_ezsigntemplatesignature_dependencyrequirement;
     bool m_e_ezsigntemplatesignature_dependencyrequirement_isSet;
     bool m_e_ezsigntemplatesignature_dependencyrequirement_isValid;
+
+    QString m_s_ezsigntemplatesignature_positioningpattern;
+    bool m_s_ezsigntemplatesignature_positioningpattern_isSet;
+    bool m_s_ezsigntemplatesignature_positioningpattern_isValid;
+
+    qint32 m_i_ezsigntemplatesignature_positioningoffsetx;
+    bool m_i_ezsigntemplatesignature_positioningoffsetx_isSet;
+    bool m_i_ezsigntemplatesignature_positioningoffsetx_isValid;
+
+    qint32 m_i_ezsigntemplatesignature_positioningoffsety;
+    bool m_i_ezsigntemplatesignature_positioningoffsety_isSet;
+    bool m_i_ezsigntemplatesignature_positioningoffsety_isValid;
+
+    Field_eEzsigntemplatesignaturePositioningoccurence m_e_ezsigntemplatesignature_positioningoccurence;
+    bool m_e_ezsigntemplatesignature_positioningoccurence_isSet;
+    bool m_e_ezsigntemplatesignature_positioningoccurence_isValid;
 };
 
 } // namespace Ezmaxapi

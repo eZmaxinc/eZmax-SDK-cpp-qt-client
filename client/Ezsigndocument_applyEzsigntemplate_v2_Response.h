@@ -21,8 +21,10 @@
 
 #include <QJsonObject>
 
+#include "Common_Response_Warning.h"
 #include "Common_Response_objDebug.h"
 #include "Common_Response_objDebugPayload.h"
+#include <QList>
 
 #include "Enum.h"
 #include "Object.h"
@@ -30,6 +32,7 @@
 namespace Ezmaxapi {
 class Common_Response_objDebugPayload;
 class Common_Response_objDebug;
+class Common_Response_Warning;
 
 class Ezsigndocument_applyEzsigntemplate_v2_Response : public Object {
 public:
@@ -52,6 +55,11 @@ public:
     bool is_obj_debug_Set() const;
     bool is_obj_debug_Valid() const;
 
+    QList<Common_Response_Warning> getAObjWarning() const;
+    void setAObjWarning(const QList<Common_Response_Warning> &a_obj_warning);
+    bool is_a_obj_warning_Set() const;
+    bool is_a_obj_warning_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -65,6 +73,10 @@ private:
     Common_Response_objDebug m_obj_debug;
     bool m_obj_debug_isSet;
     bool m_obj_debug_isValid;
+
+    QList<Common_Response_Warning> m_a_obj_warning;
+    bool m_a_obj_warning_isSet;
+    bool m_a_obj_warning_isValid;
 };
 
 } // namespace Ezmaxapi

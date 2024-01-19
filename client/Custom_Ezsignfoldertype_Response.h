@@ -84,6 +84,16 @@ public:
     bool is_b_ezsignfoldertype_reassign_Set() const;
     bool is_b_ezsignfoldertype_reassign_Valid() const;
 
+    bool isBEzsignfoldertypeReassignezsignsigner() const;
+    void setBEzsignfoldertypeReassignezsignsigner(const bool &b_ezsignfoldertype_reassignezsignsigner);
+    bool is_b_ezsignfoldertype_reassignezsignsigner_Set() const;
+    bool is_b_ezsignfoldertype_reassignezsignsigner_Valid() const;
+
+    bool isBEzsignfoldertypeReassignuser() const;
+    void setBEzsignfoldertypeReassignuser(const bool &b_ezsignfoldertype_reassignuser);
+    bool is_b_ezsignfoldertype_reassignuser_Set() const;
+    bool is_b_ezsignfoldertype_reassignuser_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -125,6 +135,14 @@ private:
     bool m_b_ezsignfoldertype_reassign;
     bool m_b_ezsignfoldertype_reassign_isSet;
     bool m_b_ezsignfoldertype_reassign_isValid;
+
+    bool m_b_ezsignfoldertype_reassignezsignsigner;
+    bool m_b_ezsignfoldertype_reassignezsignsigner_isSet;
+    bool m_b_ezsignfoldertype_reassignezsignsigner_isValid;
+
+    bool m_b_ezsignfoldertype_reassignuser;
+    bool m_b_ezsignfoldertype_reassignuser_isSet;
+    bool m_b_ezsignfoldertype_reassignuser_isValid;
 };
 
 } // namespace Ezmaxapi

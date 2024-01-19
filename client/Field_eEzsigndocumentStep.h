@@ -45,6 +45,7 @@ public:
         PARTIALLYSIGNED, 
         DECLINEDTOSIGN, 
         PREMATURELYENDED, 
+        PENDINGCOMPLETION, 
         COMPLETED, 
         DISPOSED
     };

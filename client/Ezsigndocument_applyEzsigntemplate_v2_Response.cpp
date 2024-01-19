@@ -39,6 +39,9 @@ void Ezsigndocument_applyEzsigntemplate_v2_Response::initializeModel() {
 
     m_obj_debug_isSet = false;
     m_obj_debug_isValid = false;
+
+    m_a_obj_warning_isSet = false;
+    m_a_obj_warning_isValid = false;
 }
 
 void Ezsigndocument_applyEzsigntemplate_v2_Response::fromJson(QString jsonString) {
@@ -55,6 +58,9 @@ void Ezsigndocument_applyEzsigntemplate_v2_Response::fromJsonObject(QJsonObject 
 
     m_obj_debug_isValid = ::Ezmaxapi::fromJsonValue(m_obj_debug, json[QString("objDebug")]);
     m_obj_debug_isSet = !json[QString("objDebug")].isNull() && m_obj_debug_isValid;
+
+    m_a_obj_warning_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_warning, json[QString("a_objWarning")]);
+    m_a_obj_warning_isSet = !json[QString("a_objWarning")].isNull() && m_a_obj_warning_isValid;
 }
 
 QString Ezsigndocument_applyEzsigntemplate_v2_Response::asJson() const {
@@ -71,6 +77,9 @@ QJsonObject Ezsigndocument_applyEzsigntemplate_v2_Response::asJsonObject() const
     }
     if (m_obj_debug.isSet()) {
         obj.insert(QString("objDebug"), ::Ezmaxapi::toJsonValue(m_obj_debug));
+    }
+    if (m_a_obj_warning.size() > 0) {
+        obj.insert(QString("a_objWarning"), ::Ezmaxapi::toJsonValue(m_a_obj_warning));
     }
     return obj;
 }
@@ -107,6 +116,22 @@ bool Ezsigndocument_applyEzsigntemplate_v2_Response::is_obj_debug_Valid() const{
     return m_obj_debug_isValid;
 }
 
+QList<Common_Response_Warning> Ezsigndocument_applyEzsigntemplate_v2_Response::getAObjWarning() const {
+    return m_a_obj_warning;
+}
+void Ezsigndocument_applyEzsigntemplate_v2_Response::setAObjWarning(const QList<Common_Response_Warning> &a_obj_warning) {
+    m_a_obj_warning = a_obj_warning;
+    m_a_obj_warning_isSet = true;
+}
+
+bool Ezsigndocument_applyEzsigntemplate_v2_Response::is_a_obj_warning_Set() const{
+    return m_a_obj_warning_isSet;
+}
+
+bool Ezsigndocument_applyEzsigntemplate_v2_Response::is_a_obj_warning_Valid() const{
+    return m_a_obj_warning_isValid;
+}
+
 bool Ezsigndocument_applyEzsigntemplate_v2_Response::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -116,6 +141,11 @@ bool Ezsigndocument_applyEzsigntemplate_v2_Response::isSet() const {
         }
 
         if (m_obj_debug.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_a_obj_warning.size() > 0) {
             isObjectUpdated = true;
             break;
         }
