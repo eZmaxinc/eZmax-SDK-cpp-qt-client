@@ -102,7 +102,7 @@ private:
     void inscriptionGetCommunicationListV1Callback(HttpRequestWorker *worker);
     void inscriptionGetCommunicationsendersV1Callback(HttpRequestWorker *worker);
 
-signals:
+Q_SIGNALS:
 
     void inscriptionGetAttachmentsV1Signal(Inscription_getAttachments_v1_Response summary);
     void inscriptionGetCommunicationListV1Signal(Inscription_getCommunicationList_v1_Response summary);
@@ -135,7 +135,7 @@ signals:
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
-public slots:
+public Q_SLOTS:
     void tokenAvailable();
 };
 

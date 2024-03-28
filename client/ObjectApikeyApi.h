@@ -157,7 +157,7 @@ private:
     void apikeyGetSubnetsV1Callback(HttpRequestWorker *worker);
     void apikeyRegenerateV1Callback(HttpRequestWorker *worker);
 
-signals:
+Q_SIGNALS:
 
     void apikeyCreateObjectV2Signal(Apikey_createObject_v2_Response summary);
     void apikeyEditObjectV1Signal(Apikey_editObject_v1_Response summary);
@@ -238,7 +238,7 @@ signals:
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
-public slots:
+public Q_SLOTS:
     void tokenAvailable();
 };
 

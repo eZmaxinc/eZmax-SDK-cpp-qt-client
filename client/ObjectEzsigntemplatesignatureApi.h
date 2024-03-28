@@ -112,7 +112,7 @@ private:
     void ezsigntemplatesignatureEditObjectV1Callback(HttpRequestWorker *worker);
     void ezsigntemplatesignatureGetObjectV2Callback(HttpRequestWorker *worker);
 
-signals:
+Q_SIGNALS:
 
     void ezsigntemplatesignatureCreateObjectV1Signal(Ezsigntemplatesignature_createObject_v1_Response summary);
     void ezsigntemplatesignatureDeleteObjectV1Signal(Ezsigntemplatesignature_deleteObject_v1_Response summary);
@@ -153,7 +153,7 @@ signals:
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
-public slots:
+public Q_SLOTS:
     void tokenAvailable();
 };
 

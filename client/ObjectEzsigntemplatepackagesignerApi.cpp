@@ -176,7 +176,7 @@ void ObjectEzsigntemplatepackagesignerApi::enableResponseCompression() {
 }
 
 void ObjectEzsigntemplatepackagesignerApi::abortRequests() {
-    emit abortRequestsSignal();
+    Q_EMIT abortRequestsSignal();
 }
 
 QString ObjectEzsigntemplatepackagesignerApi::getParamStylePrefix(const QString &style) {
@@ -274,7 +274,7 @@ void ObjectEzsigntemplatepackagesignerApi::ezsigntemplatepackagesignerCreateObje
     connect(this, &ObjectEzsigntemplatepackagesignerApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -292,8 +292,8 @@ void ObjectEzsigntemplatepackagesignerApi::ezsigntemplatepackagesignerCreateObje
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsigntemplatepackagesignerCreateObjectV1Signal(output);
-        emit ezsigntemplatepackagesignerCreateObjectV1SignalFull(worker, output);
+        Q_EMIT ezsigntemplatepackagesignerCreateObjectV1Signal(output);
+        Q_EMIT ezsigntemplatepackagesignerCreateObjectV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -310,8 +310,8 @@ void ObjectEzsigntemplatepackagesignerApi::ezsigntemplatepackagesignerCreateObje
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsigntemplatepackagesignerCreateObjectV1SignalE(output, error_type, error_str);
-        emit ezsigntemplatepackagesignerCreateObjectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsigntemplatepackagesignerCreateObjectV1SignalE(output, error_type, error_str);
+        Q_EMIT ezsigntemplatepackagesignerCreateObjectV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -321,8 +321,8 @@ void ObjectEzsigntemplatepackagesignerApi::ezsigntemplatepackagesignerCreateObje
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsigntemplatepackagesignerCreateObjectV1SignalError(output, error_type, error_str);
-        emit ezsigntemplatepackagesignerCreateObjectV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsigntemplatepackagesignerCreateObjectV1SignalError(output, error_type, error_str);
+        Q_EMIT ezsigntemplatepackagesignerCreateObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -367,7 +367,7 @@ void ObjectEzsigntemplatepackagesignerApi::ezsigntemplatepackagesignerDeleteObje
     connect(this, &ObjectEzsigntemplatepackagesignerApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -385,8 +385,8 @@ void ObjectEzsigntemplatepackagesignerApi::ezsigntemplatepackagesignerDeleteObje
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsigntemplatepackagesignerDeleteObjectV1Signal(output);
-        emit ezsigntemplatepackagesignerDeleteObjectV1SignalFull(worker, output);
+        Q_EMIT ezsigntemplatepackagesignerDeleteObjectV1Signal(output);
+        Q_EMIT ezsigntemplatepackagesignerDeleteObjectV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -403,8 +403,8 @@ void ObjectEzsigntemplatepackagesignerApi::ezsigntemplatepackagesignerDeleteObje
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsigntemplatepackagesignerDeleteObjectV1SignalE(output, error_type, error_str);
-        emit ezsigntemplatepackagesignerDeleteObjectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsigntemplatepackagesignerDeleteObjectV1SignalE(output, error_type, error_str);
+        Q_EMIT ezsigntemplatepackagesignerDeleteObjectV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -414,8 +414,8 @@ void ObjectEzsigntemplatepackagesignerApi::ezsigntemplatepackagesignerDeleteObje
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsigntemplatepackagesignerDeleteObjectV1SignalError(output, error_type, error_str);
-        emit ezsigntemplatepackagesignerDeleteObjectV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsigntemplatepackagesignerDeleteObjectV1SignalError(output, error_type, error_str);
+        Q_EMIT ezsigntemplatepackagesignerDeleteObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -465,7 +465,7 @@ void ObjectEzsigntemplatepackagesignerApi::ezsigntemplatepackagesignerEditObject
     connect(this, &ObjectEzsigntemplatepackagesignerApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -483,8 +483,8 @@ void ObjectEzsigntemplatepackagesignerApi::ezsigntemplatepackagesignerEditObject
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsigntemplatepackagesignerEditObjectV1Signal(output);
-        emit ezsigntemplatepackagesignerEditObjectV1SignalFull(worker, output);
+        Q_EMIT ezsigntemplatepackagesignerEditObjectV1Signal(output);
+        Q_EMIT ezsigntemplatepackagesignerEditObjectV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -501,8 +501,8 @@ void ObjectEzsigntemplatepackagesignerApi::ezsigntemplatepackagesignerEditObject
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsigntemplatepackagesignerEditObjectV1SignalE(output, error_type, error_str);
-        emit ezsigntemplatepackagesignerEditObjectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsigntemplatepackagesignerEditObjectV1SignalE(output, error_type, error_str);
+        Q_EMIT ezsigntemplatepackagesignerEditObjectV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -512,8 +512,8 @@ void ObjectEzsigntemplatepackagesignerApi::ezsigntemplatepackagesignerEditObject
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsigntemplatepackagesignerEditObjectV1SignalError(output, error_type, error_str);
-        emit ezsigntemplatepackagesignerEditObjectV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsigntemplatepackagesignerEditObjectV1SignalError(output, error_type, error_str);
+        Q_EMIT ezsigntemplatepackagesignerEditObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -558,7 +558,7 @@ void ObjectEzsigntemplatepackagesignerApi::ezsigntemplatepackagesignerGetObjectV
     connect(this, &ObjectEzsigntemplatepackagesignerApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -576,8 +576,8 @@ void ObjectEzsigntemplatepackagesignerApi::ezsigntemplatepackagesignerGetObjectV
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsigntemplatepackagesignerGetObjectV2Signal(output);
-        emit ezsigntemplatepackagesignerGetObjectV2SignalFull(worker, output);
+        Q_EMIT ezsigntemplatepackagesignerGetObjectV2Signal(output);
+        Q_EMIT ezsigntemplatepackagesignerGetObjectV2SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -594,8 +594,8 @@ void ObjectEzsigntemplatepackagesignerApi::ezsigntemplatepackagesignerGetObjectV
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsigntemplatepackagesignerGetObjectV2SignalE(output, error_type, error_str);
-        emit ezsigntemplatepackagesignerGetObjectV2SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsigntemplatepackagesignerGetObjectV2SignalE(output, error_type, error_str);
+        Q_EMIT ezsigntemplatepackagesignerGetObjectV2SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -605,8 +605,8 @@ void ObjectEzsigntemplatepackagesignerApi::ezsigntemplatepackagesignerGetObjectV
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsigntemplatepackagesignerGetObjectV2SignalError(output, error_type, error_str);
-        emit ezsigntemplatepackagesignerGetObjectV2SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsigntemplatepackagesignerGetObjectV2SignalError(output, error_type, error_str);
+        Q_EMIT ezsigntemplatepackagesignerGetObjectV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 

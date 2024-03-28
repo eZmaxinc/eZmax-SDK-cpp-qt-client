@@ -170,7 +170,7 @@ void ObjectCompanyApi::enableResponseCompression() {
 }
 
 void ObjectCompanyApi::abortRequests() {
-    emit abortRequestsSignal();
+    Q_EMIT abortRequestsSignal();
 }
 
 QString ObjectCompanyApi::getParamStylePrefix(const QString &style) {
@@ -271,7 +271,7 @@ void ObjectCompanyApi::companyGetAutocompleteV2(const QString &s_selector, const
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("eFilterActive")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(e_filter_active.value())));
+        fullPath.append(QUrl::toPercentEncoding("eFilterActive")).append(querySuffix).append(QUrl::toPercentEncoding(e_filter_active.stringValue()));
     }
     if (s_query.hasValue())
     {
@@ -286,7 +286,7 @@ void ObjectCompanyApi::companyGetAutocompleteV2(const QString &s_selector, const
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_query.value())));
+        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(s_query.stringValue()));
     }
     HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -352,7 +352,7 @@ void ObjectCompanyApi::companyGetAutocompleteV2(const QString &s_selector, const
     connect(this, &ObjectCompanyApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -370,8 +370,8 @@ void ObjectCompanyApi::companyGetAutocompleteV2Callback(HttpRequestWorker *worke
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit companyGetAutocompleteV2Signal(output);
-        emit companyGetAutocompleteV2SignalFull(worker, output);
+        Q_EMIT companyGetAutocompleteV2Signal(output);
+        Q_EMIT companyGetAutocompleteV2SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -388,8 +388,8 @@ void ObjectCompanyApi::companyGetAutocompleteV2Callback(HttpRequestWorker *worke
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit companyGetAutocompleteV2SignalE(output, error_type, error_str);
-        emit companyGetAutocompleteV2SignalEFull(worker, error_type, error_str);
+        Q_EMIT companyGetAutocompleteV2SignalE(output, error_type, error_str);
+        Q_EMIT companyGetAutocompleteV2SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -399,8 +399,8 @@ void ObjectCompanyApi::companyGetAutocompleteV2Callback(HttpRequestWorker *worke
 #pragma GCC diagnostic pop
 #endif
 
-        emit companyGetAutocompleteV2SignalError(output, error_type, error_str);
-        emit companyGetAutocompleteV2SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT companyGetAutocompleteV2SignalError(output, error_type, error_str);
+        Q_EMIT companyGetAutocompleteV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 

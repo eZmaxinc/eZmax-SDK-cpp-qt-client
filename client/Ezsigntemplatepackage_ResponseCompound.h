@@ -89,6 +89,11 @@ public:
     bool is_s_ezsignfoldertype_name_x_Set() const;
     bool is_s_ezsignfoldertype_name_x_Valid() const;
 
+    bool isBEzsigntemplatepackageEditallowed() const;
+    void setBEzsigntemplatepackageEditallowed(const bool &b_ezsigntemplatepackage_editallowed);
+    bool is_b_ezsigntemplatepackage_editallowed_Set() const;
+    bool is_b_ezsigntemplatepackage_editallowed_Valid() const;
+
     QList<Ezsigntemplatepackagesigner_ResponseCompound> getAObjEzsigntemplatepackagesigner() const;
     void setAObjEzsigntemplatepackagesigner(const QList<Ezsigntemplatepackagesigner_ResponseCompound> &a_obj_ezsigntemplatepackagesigner);
     bool is_a_obj_ezsigntemplatepackagesigner_Set() const;
@@ -140,6 +145,10 @@ private:
     QString m_s_ezsignfoldertype_name_x;
     bool m_s_ezsignfoldertype_name_x_isSet;
     bool m_s_ezsignfoldertype_name_x_isValid;
+
+    bool m_b_ezsigntemplatepackage_editallowed;
+    bool m_b_ezsigntemplatepackage_editallowed_isSet;
+    bool m_b_ezsigntemplatepackage_editallowed_isValid;
 
     QList<Ezsigntemplatepackagesigner_ResponseCompound> m_a_obj_ezsigntemplatepackagesigner;
     bool m_a_obj_ezsigntemplatepackagesigner_isSet;

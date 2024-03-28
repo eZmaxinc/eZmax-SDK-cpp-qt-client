@@ -184,7 +184,7 @@ void ObjectEzsignsignatureApi::enableResponseCompression() {
 }
 
 void ObjectEzsignsignatureApi::abortRequests() {
-    emit abortRequestsSignal();
+    Q_EMIT abortRequestsSignal();
 }
 
 QString ObjectEzsignsignatureApi::getParamStylePrefix(const QString &style) {
@@ -281,7 +281,7 @@ void ObjectEzsignsignatureApi::ezsignsignatureCreateObjectV1(const QList<Ezsigns
     connect(this, &ObjectEzsignsignatureApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -299,8 +299,8 @@ void ObjectEzsignsignatureApi::ezsignsignatureCreateObjectV1Callback(HttpRequest
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsignsignatureCreateObjectV1Signal(output);
-        emit ezsignsignatureCreateObjectV1SignalFull(worker, output);
+        Q_EMIT ezsignsignatureCreateObjectV1Signal(output);
+        Q_EMIT ezsignsignatureCreateObjectV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -317,8 +317,8 @@ void ObjectEzsignsignatureApi::ezsignsignatureCreateObjectV1Callback(HttpRequest
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsignsignatureCreateObjectV1SignalE(output, error_type, error_str);
-        emit ezsignsignatureCreateObjectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsignsignatureCreateObjectV1SignalE(output, error_type, error_str);
+        Q_EMIT ezsignsignatureCreateObjectV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -328,8 +328,8 @@ void ObjectEzsignsignatureApi::ezsignsignatureCreateObjectV1Callback(HttpRequest
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsignsignatureCreateObjectV1SignalError(output, error_type, error_str);
-        emit ezsignsignatureCreateObjectV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsignsignatureCreateObjectV1SignalError(output, error_type, error_str);
+        Q_EMIT ezsignsignatureCreateObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -365,7 +365,7 @@ void ObjectEzsignsignatureApi::ezsignsignatureCreateObjectV2(const Ezsignsignatu
     connect(this, &ObjectEzsignsignatureApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -383,8 +383,8 @@ void ObjectEzsignsignatureApi::ezsignsignatureCreateObjectV2Callback(HttpRequest
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsignsignatureCreateObjectV2Signal(output);
-        emit ezsignsignatureCreateObjectV2SignalFull(worker, output);
+        Q_EMIT ezsignsignatureCreateObjectV2Signal(output);
+        Q_EMIT ezsignsignatureCreateObjectV2SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -401,8 +401,8 @@ void ObjectEzsignsignatureApi::ezsignsignatureCreateObjectV2Callback(HttpRequest
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsignsignatureCreateObjectV2SignalE(output, error_type, error_str);
-        emit ezsignsignatureCreateObjectV2SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsignsignatureCreateObjectV2SignalE(output, error_type, error_str);
+        Q_EMIT ezsignsignatureCreateObjectV2SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -412,8 +412,8 @@ void ObjectEzsignsignatureApi::ezsignsignatureCreateObjectV2Callback(HttpRequest
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsignsignatureCreateObjectV2SignalError(output, error_type, error_str);
-        emit ezsignsignatureCreateObjectV2SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsignsignatureCreateObjectV2SignalError(output, error_type, error_str);
+        Q_EMIT ezsignsignatureCreateObjectV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -458,7 +458,7 @@ void ObjectEzsignsignatureApi::ezsignsignatureDeleteObjectV1(const qint32 &pki_e
     connect(this, &ObjectEzsignsignatureApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -476,8 +476,8 @@ void ObjectEzsignsignatureApi::ezsignsignatureDeleteObjectV1Callback(HttpRequest
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsignsignatureDeleteObjectV1Signal(output);
-        emit ezsignsignatureDeleteObjectV1SignalFull(worker, output);
+        Q_EMIT ezsignsignatureDeleteObjectV1Signal(output);
+        Q_EMIT ezsignsignatureDeleteObjectV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -494,8 +494,8 @@ void ObjectEzsignsignatureApi::ezsignsignatureDeleteObjectV1Callback(HttpRequest
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsignsignatureDeleteObjectV1SignalE(output, error_type, error_str);
-        emit ezsignsignatureDeleteObjectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsignsignatureDeleteObjectV1SignalE(output, error_type, error_str);
+        Q_EMIT ezsignsignatureDeleteObjectV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -505,8 +505,8 @@ void ObjectEzsignsignatureApi::ezsignsignatureDeleteObjectV1Callback(HttpRequest
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsignsignatureDeleteObjectV1SignalError(output, error_type, error_str);
-        emit ezsignsignatureDeleteObjectV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsignsignatureDeleteObjectV1SignalError(output, error_type, error_str);
+        Q_EMIT ezsignsignatureDeleteObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -556,7 +556,7 @@ void ObjectEzsignsignatureApi::ezsignsignatureEditObjectV1(const qint32 &pki_ezs
     connect(this, &ObjectEzsignsignatureApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -574,8 +574,8 @@ void ObjectEzsignsignatureApi::ezsignsignatureEditObjectV1Callback(HttpRequestWo
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsignsignatureEditObjectV1Signal(output);
-        emit ezsignsignatureEditObjectV1SignalFull(worker, output);
+        Q_EMIT ezsignsignatureEditObjectV1Signal(output);
+        Q_EMIT ezsignsignatureEditObjectV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -592,8 +592,8 @@ void ObjectEzsignsignatureApi::ezsignsignatureEditObjectV1Callback(HttpRequestWo
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsignsignatureEditObjectV1SignalE(output, error_type, error_str);
-        emit ezsignsignatureEditObjectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsignsignatureEditObjectV1SignalE(output, error_type, error_str);
+        Q_EMIT ezsignsignatureEditObjectV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -603,8 +603,8 @@ void ObjectEzsignsignatureApi::ezsignsignatureEditObjectV1Callback(HttpRequestWo
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsignsignatureEditObjectV1SignalError(output, error_type, error_str);
-        emit ezsignsignatureEditObjectV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsignsignatureEditObjectV1SignalError(output, error_type, error_str);
+        Q_EMIT ezsignsignatureEditObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -649,7 +649,7 @@ void ObjectEzsignsignatureApi::ezsignsignatureGetEzsignsignatureattachmentV1(con
     connect(this, &ObjectEzsignsignatureApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -667,8 +667,8 @@ void ObjectEzsignsignatureApi::ezsignsignatureGetEzsignsignatureattachmentV1Call
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsignsignatureGetEzsignsignatureattachmentV1Signal(output);
-        emit ezsignsignatureGetEzsignsignatureattachmentV1SignalFull(worker, output);
+        Q_EMIT ezsignsignatureGetEzsignsignatureattachmentV1Signal(output);
+        Q_EMIT ezsignsignatureGetEzsignsignatureattachmentV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -685,8 +685,8 @@ void ObjectEzsignsignatureApi::ezsignsignatureGetEzsignsignatureattachmentV1Call
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsignsignatureGetEzsignsignatureattachmentV1SignalE(output, error_type, error_str);
-        emit ezsignsignatureGetEzsignsignatureattachmentV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsignsignatureGetEzsignsignatureattachmentV1SignalE(output, error_type, error_str);
+        Q_EMIT ezsignsignatureGetEzsignsignatureattachmentV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -696,8 +696,8 @@ void ObjectEzsignsignatureApi::ezsignsignatureGetEzsignsignatureattachmentV1Call
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsignsignatureGetEzsignsignatureattachmentV1SignalError(output, error_type, error_str);
-        emit ezsignsignatureGetEzsignsignatureattachmentV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsignsignatureGetEzsignsignatureattachmentV1SignalError(output, error_type, error_str);
+        Q_EMIT ezsignsignatureGetEzsignsignatureattachmentV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -728,7 +728,7 @@ void ObjectEzsignsignatureApi::ezsignsignatureGetEzsignsignaturesAutomaticV1() {
     connect(this, &ObjectEzsignsignatureApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -746,8 +746,8 @@ void ObjectEzsignsignatureApi::ezsignsignatureGetEzsignsignaturesAutomaticV1Call
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsignsignatureGetEzsignsignaturesAutomaticV1Signal(output);
-        emit ezsignsignatureGetEzsignsignaturesAutomaticV1SignalFull(worker, output);
+        Q_EMIT ezsignsignatureGetEzsignsignaturesAutomaticV1Signal(output);
+        Q_EMIT ezsignsignatureGetEzsignsignaturesAutomaticV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -764,8 +764,8 @@ void ObjectEzsignsignatureApi::ezsignsignatureGetEzsignsignaturesAutomaticV1Call
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsignsignatureGetEzsignsignaturesAutomaticV1SignalE(output, error_type, error_str);
-        emit ezsignsignatureGetEzsignsignaturesAutomaticV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsignsignatureGetEzsignsignaturesAutomaticV1SignalE(output, error_type, error_str);
+        Q_EMIT ezsignsignatureGetEzsignsignaturesAutomaticV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -775,8 +775,8 @@ void ObjectEzsignsignatureApi::ezsignsignatureGetEzsignsignaturesAutomaticV1Call
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsignsignatureGetEzsignsignaturesAutomaticV1SignalError(output, error_type, error_str);
-        emit ezsignsignatureGetEzsignsignaturesAutomaticV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsignsignatureGetEzsignsignaturesAutomaticV1SignalError(output, error_type, error_str);
+        Q_EMIT ezsignsignatureGetEzsignsignaturesAutomaticV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -821,7 +821,7 @@ void ObjectEzsignsignatureApi::ezsignsignatureGetObjectV2(const qint32 &pki_ezsi
     connect(this, &ObjectEzsignsignatureApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -839,8 +839,8 @@ void ObjectEzsignsignatureApi::ezsignsignatureGetObjectV2Callback(HttpRequestWor
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsignsignatureGetObjectV2Signal(output);
-        emit ezsignsignatureGetObjectV2SignalFull(worker, output);
+        Q_EMIT ezsignsignatureGetObjectV2Signal(output);
+        Q_EMIT ezsignsignatureGetObjectV2SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -857,8 +857,8 @@ void ObjectEzsignsignatureApi::ezsignsignatureGetObjectV2Callback(HttpRequestWor
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsignsignatureGetObjectV2SignalE(output, error_type, error_str);
-        emit ezsignsignatureGetObjectV2SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsignsignatureGetObjectV2SignalE(output, error_type, error_str);
+        Q_EMIT ezsignsignatureGetObjectV2SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -868,8 +868,8 @@ void ObjectEzsignsignatureApi::ezsignsignatureGetObjectV2Callback(HttpRequestWor
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsignsignatureGetObjectV2SignalError(output, error_type, error_str);
-        emit ezsignsignatureGetObjectV2SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsignsignatureGetObjectV2SignalError(output, error_type, error_str);
+        Q_EMIT ezsignsignatureGetObjectV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -919,7 +919,7 @@ void ObjectEzsignsignatureApi::ezsignsignatureSignV1(const qint32 &pki_ezsignsig
     connect(this, &ObjectEzsignsignatureApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -937,8 +937,8 @@ void ObjectEzsignsignatureApi::ezsignsignatureSignV1Callback(HttpRequestWorker *
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsignsignatureSignV1Signal(output);
-        emit ezsignsignatureSignV1SignalFull(worker, output);
+        Q_EMIT ezsignsignatureSignV1Signal(output);
+        Q_EMIT ezsignsignatureSignV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -955,8 +955,8 @@ void ObjectEzsignsignatureApi::ezsignsignatureSignV1Callback(HttpRequestWorker *
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsignsignatureSignV1SignalE(output, error_type, error_str);
-        emit ezsignsignatureSignV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsignsignatureSignV1SignalE(output, error_type, error_str);
+        Q_EMIT ezsignsignatureSignV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -966,8 +966,8 @@ void ObjectEzsignsignatureApi::ezsignsignatureSignV1Callback(HttpRequestWorker *
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsignsignatureSignV1SignalError(output, error_type, error_str);
-        emit ezsignsignatureSignV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsignsignatureSignV1SignalError(output, error_type, error_str);
+        Q_EMIT ezsignsignatureSignV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

@@ -54,6 +54,16 @@ public:
     bool is_i_ezsignsignaturecustomdate_y_Set() const;
     bool is_i_ezsignsignaturecustomdate_y_Valid() const;
 
+    qint32 getIEzsignsignaturecustomdateOffsetx() const;
+    void setIEzsignsignaturecustomdateOffsetx(const qint32 &i_ezsignsignaturecustomdate_offsetx);
+    bool is_i_ezsignsignaturecustomdate_offsetx_Set() const;
+    bool is_i_ezsignsignaturecustomdate_offsetx_Valid() const;
+
+    qint32 getIEzsignsignaturecustomdateOffsety() const;
+    void setIEzsignsignaturecustomdateOffsety(const qint32 &i_ezsignsignaturecustomdate_offsety);
+    bool is_i_ezsignsignaturecustomdate_offsety_Set() const;
+    bool is_i_ezsignsignaturecustomdate_offsety_Valid() const;
+
     QString getSEzsignsignaturecustomdateFormat() const;
     void setSEzsignsignaturecustomdateFormat(const QString &s_ezsignsignaturecustomdate_format);
     bool is_s_ezsignsignaturecustomdate_format_Set() const;
@@ -76,6 +86,14 @@ private:
     qint32 m_i_ezsignsignaturecustomdate_y;
     bool m_i_ezsignsignaturecustomdate_y_isSet;
     bool m_i_ezsignsignaturecustomdate_y_isValid;
+
+    qint32 m_i_ezsignsignaturecustomdate_offsetx;
+    bool m_i_ezsignsignaturecustomdate_offsetx_isSet;
+    bool m_i_ezsignsignaturecustomdate_offsetx_isValid;
+
+    qint32 m_i_ezsignsignaturecustomdate_offsety;
+    bool m_i_ezsignsignaturecustomdate_offsety_isSet;
+    bool m_i_ezsignsignaturecustomdate_offsety_isValid;
 
     QString m_s_ezsignsignaturecustomdate_format;
     bool m_s_ezsignsignaturecustomdate_format_isSet;

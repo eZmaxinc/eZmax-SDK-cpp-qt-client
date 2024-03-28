@@ -41,9 +41,15 @@ public:
     enum class eField_eWebhookEzsignevent {
         INVALID_VALUE_OPENAPI_GENERATED = 0,
         DOCUMENTCOMPLETED, 
+        DOCUMENTFORMCOMPLETED, 
+        DOCUMENTUNSENT, 
         EZSIGNSIGNERACCEPTCLAUSE, 
         EZSIGNSIGNERCONNECT, 
-        FOLDERCOMPLETED
+        FOLDERCOMPLETED, 
+        FOLDERDISPOSED, 
+        FOLDERSENT, 
+        FOLDERUNSENT, 
+        SIGNATURESIGNED
     };
     Field_eWebhookEzsignevent::eField_eWebhookEzsignevent getValue() const;
     void setValue(const Field_eWebhookEzsignevent::eField_eWebhookEzsignevent& value);

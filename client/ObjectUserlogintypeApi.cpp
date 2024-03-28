@@ -170,7 +170,7 @@ void ObjectUserlogintypeApi::enableResponseCompression() {
 }
 
 void ObjectUserlogintypeApi::abortRequests() {
-    emit abortRequestsSignal();
+    Q_EMIT abortRequestsSignal();
 }
 
 QString ObjectUserlogintypeApi::getParamStylePrefix(const QString &style) {
@@ -236,7 +236,7 @@ QString ObjectUserlogintypeApi::getParamStyleDelimiter(const QString &style, con
     }
 }
 
-void ObjectUserlogintypeApi::userlogintypeGetAutocompleteV2(const QString &s_selector, const ::Ezmaxapi::OptionalParam<QString> &e_filter_active, const ::Ezmaxapi::OptionalParam<QString> &s_query, const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language) {
+void ObjectUserlogintypeApi::userlogintypeGetAutocompleteV2(const QString &s_selector, const ::Ezmaxapi::OptionalParam<qint32> &fki_ezsignfoldertype_id, const ::Ezmaxapi::OptionalParam<QString> &e_filter_active, const ::Ezmaxapi::OptionalParam<QString> &s_query, const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language) {
     QString fullPath = QString(_serverConfigs["userlogintypeGetAutocompleteV2"][_serverIndices.value("userlogintypeGetAutocompleteV2")].URL()+"/2/object/userlogintype/getAutocomplete/{sSelector}");
     
     if (_apiKeys.contains("Authorization")) {
@@ -258,6 +258,21 @@ void ObjectUserlogintypeApi::userlogintypeGetAutocompleteV2(const QString &s_sel
         fullPath.replace(s_selectorPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_selector)));
     }
     QString queryPrefix, querySuffix, queryDelimiter, queryStyle;
+    if (fki_ezsignfoldertype_id.hasValue())
+    {
+        queryStyle = "form";
+        if (queryStyle == "")
+            queryStyle = "form";
+        queryPrefix = getParamStylePrefix(queryStyle);
+        querySuffix = getParamStyleSuffix(queryStyle);
+        queryDelimiter = getParamStyleDelimiter(queryStyle, "fkiEzsignfoldertypeID", true);
+        if (fullPath.indexOf("?") > 0)
+            fullPath.append(queryPrefix);
+        else
+            fullPath.append("?");
+
+        fullPath.append(QUrl::toPercentEncoding("fkiEzsignfoldertypeID")).append(querySuffix).append(QUrl::toPercentEncoding(fki_ezsignfoldertype_id.stringValue()));
+    }
     if (e_filter_active.hasValue())
     {
         queryStyle = "form";
@@ -271,7 +286,7 @@ void ObjectUserlogintypeApi::userlogintypeGetAutocompleteV2(const QString &s_sel
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("eFilterActive")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(e_filter_active.value())));
+        fullPath.append(QUrl::toPercentEncoding("eFilterActive")).append(querySuffix).append(QUrl::toPercentEncoding(e_filter_active.stringValue()));
     }
     if (s_query.hasValue())
     {
@@ -286,7 +301,7 @@ void ObjectUserlogintypeApi::userlogintypeGetAutocompleteV2(const QString &s_sel
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_query.value())));
+        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(s_query.stringValue()));
     }
     HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -352,7 +367,7 @@ void ObjectUserlogintypeApi::userlogintypeGetAutocompleteV2(const QString &s_sel
     connect(this, &ObjectUserlogintypeApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -370,8 +385,8 @@ void ObjectUserlogintypeApi::userlogintypeGetAutocompleteV2Callback(HttpRequestW
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit userlogintypeGetAutocompleteV2Signal(output);
-        emit userlogintypeGetAutocompleteV2SignalFull(worker, output);
+        Q_EMIT userlogintypeGetAutocompleteV2Signal(output);
+        Q_EMIT userlogintypeGetAutocompleteV2SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -388,8 +403,8 @@ void ObjectUserlogintypeApi::userlogintypeGetAutocompleteV2Callback(HttpRequestW
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit userlogintypeGetAutocompleteV2SignalE(output, error_type, error_str);
-        emit userlogintypeGetAutocompleteV2SignalEFull(worker, error_type, error_str);
+        Q_EMIT userlogintypeGetAutocompleteV2SignalE(output, error_type, error_str);
+        Q_EMIT userlogintypeGetAutocompleteV2SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -399,8 +414,8 @@ void ObjectUserlogintypeApi::userlogintypeGetAutocompleteV2Callback(HttpRequestW
 #pragma GCC diagnostic pop
 #endif
 
-        emit userlogintypeGetAutocompleteV2SignalError(output, error_type, error_str);
-        emit userlogintypeGetAutocompleteV2SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT userlogintypeGetAutocompleteV2SignalError(output, error_type, error_str);
+        Q_EMIT userlogintypeGetAutocompleteV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 

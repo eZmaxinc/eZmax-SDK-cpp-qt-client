@@ -87,7 +87,7 @@ private:
 
     void modulegroupGetAllV1Callback(HttpRequestWorker *worker);
 
-signals:
+Q_SIGNALS:
 
     void modulegroupGetAllV1Signal(Modulegroup_getAll_v1_Response summary);
 
@@ -104,7 +104,7 @@ signals:
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
-public slots:
+public Q_SLOTS:
     void tokenAvailable();
 };
 

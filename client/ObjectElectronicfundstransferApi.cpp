@@ -170,7 +170,7 @@ void ObjectElectronicfundstransferApi::enableResponseCompression() {
 }
 
 void ObjectElectronicfundstransferApi::abortRequests() {
-    emit abortRequestsSignal();
+    Q_EMIT abortRequestsSignal();
 }
 
 QString ObjectElectronicfundstransferApi::getParamStylePrefix(const QString &style) {
@@ -277,7 +277,7 @@ void ObjectElectronicfundstransferApi::electronicfundstransferGetCommunicationLi
     connect(this, &ObjectElectronicfundstransferApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -295,8 +295,8 @@ void ObjectElectronicfundstransferApi::electronicfundstransferGetCommunicationLi
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit electronicfundstransferGetCommunicationListV1Signal(output);
-        emit electronicfundstransferGetCommunicationListV1SignalFull(worker, output);
+        Q_EMIT electronicfundstransferGetCommunicationListV1Signal(output);
+        Q_EMIT electronicfundstransferGetCommunicationListV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -313,8 +313,8 @@ void ObjectElectronicfundstransferApi::electronicfundstransferGetCommunicationLi
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit electronicfundstransferGetCommunicationListV1SignalE(output, error_type, error_str);
-        emit electronicfundstransferGetCommunicationListV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT electronicfundstransferGetCommunicationListV1SignalE(output, error_type, error_str);
+        Q_EMIT electronicfundstransferGetCommunicationListV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -324,8 +324,8 @@ void ObjectElectronicfundstransferApi::electronicfundstransferGetCommunicationLi
 #pragma GCC diagnostic pop
 #endif
 
-        emit electronicfundstransferGetCommunicationListV1SignalError(output, error_type, error_str);
-        emit electronicfundstransferGetCommunicationListV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT electronicfundstransferGetCommunicationListV1SignalError(output, error_type, error_str);
+        Q_EMIT electronicfundstransferGetCommunicationListV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

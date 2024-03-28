@@ -75,6 +75,8 @@ void ObjectEzsignfolderApi::initializeServerConfigs() {
     _serverIndices.insert("ezsignfolderDisposeV1", 0);
     _serverConfigs.insert("ezsignfolderEditObjectV1", defaultConf);
     _serverIndices.insert("ezsignfolderEditObjectV1", 0);
+    _serverConfigs.insert("ezsignfolderEndPrematurelyV1", defaultConf);
+    _serverIndices.insert("ezsignfolderEndPrematurelyV1", 0);
     _serverConfigs.insert("ezsignfolderGetActionableElementsV1", defaultConf);
     _serverIndices.insert("ezsignfolderGetActionableElementsV1", 0);
     _serverConfigs.insert("ezsignfolderGetAttachmentCountV1", defaultConf);
@@ -111,8 +113,6 @@ void ObjectEzsignfolderApi::initializeServerConfigs() {
     _serverIndices.insert("ezsignfolderReorderV1", 0);
     _serverConfigs.insert("ezsignfolderSendV1", defaultConf);
     _serverIndices.insert("ezsignfolderSendV1", 0);
-    _serverConfigs.insert("ezsignfolderSendV2", defaultConf);
-    _serverIndices.insert("ezsignfolderSendV2", 0);
     _serverConfigs.insert("ezsignfolderSendV3", defaultConf);
     _serverIndices.insert("ezsignfolderSendV3", 0);
     _serverConfigs.insert("ezsignfolderUnsendV1", defaultConf);
@@ -226,7 +226,7 @@ void ObjectEzsignfolderApi::enableResponseCompression() {
 }
 
 void ObjectEzsignfolderApi::abortRequests() {
-    emit abortRequestsSignal();
+    Q_EMIT abortRequestsSignal();
 }
 
 QString ObjectEzsignfolderApi::getParamStylePrefix(const QString &style) {
@@ -338,7 +338,7 @@ void ObjectEzsignfolderApi::ezsignfolderArchiveV1(const qint32 &pki_ezsignfolder
     connect(this, &ObjectEzsignfolderApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -356,8 +356,8 @@ void ObjectEzsignfolderApi::ezsignfolderArchiveV1Callback(HttpRequestWorker *wor
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsignfolderArchiveV1Signal(output);
-        emit ezsignfolderArchiveV1SignalFull(worker, output);
+        Q_EMIT ezsignfolderArchiveV1Signal(output);
+        Q_EMIT ezsignfolderArchiveV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -374,8 +374,8 @@ void ObjectEzsignfolderApi::ezsignfolderArchiveV1Callback(HttpRequestWorker *wor
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsignfolderArchiveV1SignalE(output, error_type, error_str);
-        emit ezsignfolderArchiveV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsignfolderArchiveV1SignalE(output, error_type, error_str);
+        Q_EMIT ezsignfolderArchiveV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -385,8 +385,8 @@ void ObjectEzsignfolderApi::ezsignfolderArchiveV1Callback(HttpRequestWorker *wor
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsignfolderArchiveV1SignalError(output, error_type, error_str);
-        emit ezsignfolderArchiveV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsignfolderArchiveV1SignalError(output, error_type, error_str);
+        Q_EMIT ezsignfolderArchiveV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -436,7 +436,7 @@ void ObjectEzsignfolderApi::ezsignfolderBatchDownloadV1(const qint32 &pki_ezsign
     connect(this, &ObjectEzsignfolderApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -454,8 +454,8 @@ void ObjectEzsignfolderApi::ezsignfolderBatchDownloadV1Callback(HttpRequestWorke
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsignfolderBatchDownloadV1Signal(output);
-        emit ezsignfolderBatchDownloadV1SignalFull(worker, output);
+        Q_EMIT ezsignfolderBatchDownloadV1Signal(output);
+        Q_EMIT ezsignfolderBatchDownloadV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -472,8 +472,8 @@ void ObjectEzsignfolderApi::ezsignfolderBatchDownloadV1Callback(HttpRequestWorke
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsignfolderBatchDownloadV1SignalE(output, error_type, error_str);
-        emit ezsignfolderBatchDownloadV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsignfolderBatchDownloadV1SignalE(output, error_type, error_str);
+        Q_EMIT ezsignfolderBatchDownloadV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -483,8 +483,8 @@ void ObjectEzsignfolderApi::ezsignfolderBatchDownloadV1Callback(HttpRequestWorke
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsignfolderBatchDownloadV1SignalError(output, error_type, error_str);
-        emit ezsignfolderBatchDownloadV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsignfolderBatchDownloadV1SignalError(output, error_type, error_str);
+        Q_EMIT ezsignfolderBatchDownloadV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -519,7 +519,7 @@ void ObjectEzsignfolderApi::ezsignfolderCreateObjectV1(const QList<Ezsignfolder_
     connect(this, &ObjectEzsignfolderApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -537,8 +537,8 @@ void ObjectEzsignfolderApi::ezsignfolderCreateObjectV1Callback(HttpRequestWorker
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsignfolderCreateObjectV1Signal(output);
-        emit ezsignfolderCreateObjectV1SignalFull(worker, output);
+        Q_EMIT ezsignfolderCreateObjectV1Signal(output);
+        Q_EMIT ezsignfolderCreateObjectV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -555,8 +555,8 @@ void ObjectEzsignfolderApi::ezsignfolderCreateObjectV1Callback(HttpRequestWorker
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsignfolderCreateObjectV1SignalE(output, error_type, error_str);
-        emit ezsignfolderCreateObjectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsignfolderCreateObjectV1SignalE(output, error_type, error_str);
+        Q_EMIT ezsignfolderCreateObjectV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -566,8 +566,8 @@ void ObjectEzsignfolderApi::ezsignfolderCreateObjectV1Callback(HttpRequestWorker
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsignfolderCreateObjectV1SignalError(output, error_type, error_str);
-        emit ezsignfolderCreateObjectV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsignfolderCreateObjectV1SignalError(output, error_type, error_str);
+        Q_EMIT ezsignfolderCreateObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -603,7 +603,7 @@ void ObjectEzsignfolderApi::ezsignfolderCreateObjectV2(const Ezsignfolder_create
     connect(this, &ObjectEzsignfolderApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -621,8 +621,8 @@ void ObjectEzsignfolderApi::ezsignfolderCreateObjectV2Callback(HttpRequestWorker
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsignfolderCreateObjectV2Signal(output);
-        emit ezsignfolderCreateObjectV2SignalFull(worker, output);
+        Q_EMIT ezsignfolderCreateObjectV2Signal(output);
+        Q_EMIT ezsignfolderCreateObjectV2SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -639,8 +639,8 @@ void ObjectEzsignfolderApi::ezsignfolderCreateObjectV2Callback(HttpRequestWorker
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsignfolderCreateObjectV2SignalE(output, error_type, error_str);
-        emit ezsignfolderCreateObjectV2SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsignfolderCreateObjectV2SignalE(output, error_type, error_str);
+        Q_EMIT ezsignfolderCreateObjectV2SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -650,8 +650,8 @@ void ObjectEzsignfolderApi::ezsignfolderCreateObjectV2Callback(HttpRequestWorker
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsignfolderCreateObjectV2SignalError(output, error_type, error_str);
-        emit ezsignfolderCreateObjectV2SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsignfolderCreateObjectV2SignalError(output, error_type, error_str);
+        Q_EMIT ezsignfolderCreateObjectV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -696,7 +696,7 @@ void ObjectEzsignfolderApi::ezsignfolderDeleteObjectV1(const qint32 &pki_ezsignf
     connect(this, &ObjectEzsignfolderApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -714,8 +714,8 @@ void ObjectEzsignfolderApi::ezsignfolderDeleteObjectV1Callback(HttpRequestWorker
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsignfolderDeleteObjectV1Signal(output);
-        emit ezsignfolderDeleteObjectV1SignalFull(worker, output);
+        Q_EMIT ezsignfolderDeleteObjectV1Signal(output);
+        Q_EMIT ezsignfolderDeleteObjectV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -732,8 +732,8 @@ void ObjectEzsignfolderApi::ezsignfolderDeleteObjectV1Callback(HttpRequestWorker
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsignfolderDeleteObjectV1SignalE(output, error_type, error_str);
-        emit ezsignfolderDeleteObjectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsignfolderDeleteObjectV1SignalE(output, error_type, error_str);
+        Q_EMIT ezsignfolderDeleteObjectV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -743,8 +743,8 @@ void ObjectEzsignfolderApi::ezsignfolderDeleteObjectV1Callback(HttpRequestWorker
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsignfolderDeleteObjectV1SignalError(output, error_type, error_str);
-        emit ezsignfolderDeleteObjectV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsignfolderDeleteObjectV1SignalError(output, error_type, error_str);
+        Q_EMIT ezsignfolderDeleteObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -780,7 +780,7 @@ void ObjectEzsignfolderApi::ezsignfolderDisposeEzsignfoldersV1(const Ezsignfolde
     connect(this, &ObjectEzsignfolderApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -798,8 +798,8 @@ void ObjectEzsignfolderApi::ezsignfolderDisposeEzsignfoldersV1Callback(HttpReque
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsignfolderDisposeEzsignfoldersV1Signal(output);
-        emit ezsignfolderDisposeEzsignfoldersV1SignalFull(worker, output);
+        Q_EMIT ezsignfolderDisposeEzsignfoldersV1Signal(output);
+        Q_EMIT ezsignfolderDisposeEzsignfoldersV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -816,8 +816,8 @@ void ObjectEzsignfolderApi::ezsignfolderDisposeEzsignfoldersV1Callback(HttpReque
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsignfolderDisposeEzsignfoldersV1SignalE(output, error_type, error_str);
-        emit ezsignfolderDisposeEzsignfoldersV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsignfolderDisposeEzsignfoldersV1SignalE(output, error_type, error_str);
+        Q_EMIT ezsignfolderDisposeEzsignfoldersV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -827,8 +827,8 @@ void ObjectEzsignfolderApi::ezsignfolderDisposeEzsignfoldersV1Callback(HttpReque
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsignfolderDisposeEzsignfoldersV1SignalError(output, error_type, error_str);
-        emit ezsignfolderDisposeEzsignfoldersV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsignfolderDisposeEzsignfoldersV1SignalError(output, error_type, error_str);
+        Q_EMIT ezsignfolderDisposeEzsignfoldersV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -878,7 +878,7 @@ void ObjectEzsignfolderApi::ezsignfolderDisposeV1(const qint32 &pki_ezsignfolder
     connect(this, &ObjectEzsignfolderApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -896,8 +896,8 @@ void ObjectEzsignfolderApi::ezsignfolderDisposeV1Callback(HttpRequestWorker *wor
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsignfolderDisposeV1Signal(output);
-        emit ezsignfolderDisposeV1SignalFull(worker, output);
+        Q_EMIT ezsignfolderDisposeV1Signal(output);
+        Q_EMIT ezsignfolderDisposeV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -914,8 +914,8 @@ void ObjectEzsignfolderApi::ezsignfolderDisposeV1Callback(HttpRequestWorker *wor
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsignfolderDisposeV1SignalE(output, error_type, error_str);
-        emit ezsignfolderDisposeV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsignfolderDisposeV1SignalE(output, error_type, error_str);
+        Q_EMIT ezsignfolderDisposeV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -925,8 +925,8 @@ void ObjectEzsignfolderApi::ezsignfolderDisposeV1Callback(HttpRequestWorker *wor
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsignfolderDisposeV1SignalError(output, error_type, error_str);
-        emit ezsignfolderDisposeV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsignfolderDisposeV1SignalError(output, error_type, error_str);
+        Q_EMIT ezsignfolderDisposeV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -976,7 +976,7 @@ void ObjectEzsignfolderApi::ezsignfolderEditObjectV1(const qint32 &pki_ezsignfol
     connect(this, &ObjectEzsignfolderApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -994,8 +994,8 @@ void ObjectEzsignfolderApi::ezsignfolderEditObjectV1Callback(HttpRequestWorker *
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsignfolderEditObjectV1Signal(output);
-        emit ezsignfolderEditObjectV1SignalFull(worker, output);
+        Q_EMIT ezsignfolderEditObjectV1Signal(output);
+        Q_EMIT ezsignfolderEditObjectV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -1012,8 +1012,8 @@ void ObjectEzsignfolderApi::ezsignfolderEditObjectV1Callback(HttpRequestWorker *
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsignfolderEditObjectV1SignalE(output, error_type, error_str);
-        emit ezsignfolderEditObjectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsignfolderEditObjectV1SignalE(output, error_type, error_str);
+        Q_EMIT ezsignfolderEditObjectV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -1023,8 +1023,106 @@ void ObjectEzsignfolderApi::ezsignfolderEditObjectV1Callback(HttpRequestWorker *
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsignfolderEditObjectV1SignalError(output, error_type, error_str);
-        emit ezsignfolderEditObjectV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsignfolderEditObjectV1SignalError(output, error_type, error_str);
+        Q_EMIT ezsignfolderEditObjectV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectEzsignfolderApi::ezsignfolderEndPrematurelyV1(const qint32 &pki_ezsignfolder_id, const Object &body) {
+    QString fullPath = QString(_serverConfigs["ezsignfolderEndPrematurelyV1"][_serverIndices.value("ezsignfolderEndPrematurelyV1")].URL()+"/1/object/ezsignfolder/{pkiEzsignfolderID}/endPrematurely");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_ezsignfolder_idPathParam("{");
+        pki_ezsignfolder_idPathParam.append("pkiEzsignfolderID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignfolderID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignfolderID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_ezsignfolder_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsignfolder_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "POST");
+
+    {
+
+        
+        QByteArray output = body.asJson().toUtf8();
+        input.request_body.append(output);
+    }
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+#else
+    for (auto key : _defaultHeaders.keys()) {
+        input.headers.insert(key, _defaultHeaders[key]);
+    }
+#endif
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignfolderApi::ezsignfolderEndPrematurelyV1Callback);
+    connect(this, &ObjectEzsignfolderApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this]() {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectEzsignfolderApi::ezsignfolderEndPrematurelyV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Ezsignfolder_endPrematurely_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT ezsignfolderEndPrematurelyV1Signal(output);
+        Q_EMIT ezsignfolderEndPrematurelyV1SignalFull(worker, output);
+    } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
+        Q_EMIT ezsignfolderEndPrematurelyV1SignalE(output, error_type, error_str);
+        Q_EMIT ezsignfolderEndPrematurelyV1SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        Q_EMIT ezsignfolderEndPrematurelyV1SignalError(output, error_type, error_str);
+        Q_EMIT ezsignfolderEndPrematurelyV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -1069,7 +1167,7 @@ void ObjectEzsignfolderApi::ezsignfolderGetActionableElementsV1(const qint32 &pk
     connect(this, &ObjectEzsignfolderApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -1087,8 +1185,8 @@ void ObjectEzsignfolderApi::ezsignfolderGetActionableElementsV1Callback(HttpRequ
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsignfolderGetActionableElementsV1Signal(output);
-        emit ezsignfolderGetActionableElementsV1SignalFull(worker, output);
+        Q_EMIT ezsignfolderGetActionableElementsV1Signal(output);
+        Q_EMIT ezsignfolderGetActionableElementsV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -1105,8 +1203,8 @@ void ObjectEzsignfolderApi::ezsignfolderGetActionableElementsV1Callback(HttpRequ
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsignfolderGetActionableElementsV1SignalE(output, error_type, error_str);
-        emit ezsignfolderGetActionableElementsV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsignfolderGetActionableElementsV1SignalE(output, error_type, error_str);
+        Q_EMIT ezsignfolderGetActionableElementsV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -1116,8 +1214,8 @@ void ObjectEzsignfolderApi::ezsignfolderGetActionableElementsV1Callback(HttpRequ
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsignfolderGetActionableElementsV1SignalError(output, error_type, error_str);
-        emit ezsignfolderGetActionableElementsV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsignfolderGetActionableElementsV1SignalError(output, error_type, error_str);
+        Q_EMIT ezsignfolderGetActionableElementsV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -1162,7 +1260,7 @@ void ObjectEzsignfolderApi::ezsignfolderGetAttachmentCountV1(const qint32 &pki_e
     connect(this, &ObjectEzsignfolderApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -1180,8 +1278,8 @@ void ObjectEzsignfolderApi::ezsignfolderGetAttachmentCountV1Callback(HttpRequest
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsignfolderGetAttachmentCountV1Signal(output);
-        emit ezsignfolderGetAttachmentCountV1SignalFull(worker, output);
+        Q_EMIT ezsignfolderGetAttachmentCountV1Signal(output);
+        Q_EMIT ezsignfolderGetAttachmentCountV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -1198,8 +1296,8 @@ void ObjectEzsignfolderApi::ezsignfolderGetAttachmentCountV1Callback(HttpRequest
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsignfolderGetAttachmentCountV1SignalE(output, error_type, error_str);
-        emit ezsignfolderGetAttachmentCountV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsignfolderGetAttachmentCountV1SignalE(output, error_type, error_str);
+        Q_EMIT ezsignfolderGetAttachmentCountV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -1209,8 +1307,8 @@ void ObjectEzsignfolderApi::ezsignfolderGetAttachmentCountV1Callback(HttpRequest
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsignfolderGetAttachmentCountV1SignalError(output, error_type, error_str);
-        emit ezsignfolderGetAttachmentCountV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsignfolderGetAttachmentCountV1SignalError(output, error_type, error_str);
+        Q_EMIT ezsignfolderGetAttachmentCountV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -1255,7 +1353,7 @@ void ObjectEzsignfolderApi::ezsignfolderGetAttachmentsV1(const qint32 &pki_ezsig
     connect(this, &ObjectEzsignfolderApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -1273,8 +1371,8 @@ void ObjectEzsignfolderApi::ezsignfolderGetAttachmentsV1Callback(HttpRequestWork
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsignfolderGetAttachmentsV1Signal(output);
-        emit ezsignfolderGetAttachmentsV1SignalFull(worker, output);
+        Q_EMIT ezsignfolderGetAttachmentsV1Signal(output);
+        Q_EMIT ezsignfolderGetAttachmentsV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -1291,8 +1389,8 @@ void ObjectEzsignfolderApi::ezsignfolderGetAttachmentsV1Callback(HttpRequestWork
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsignfolderGetAttachmentsV1SignalE(output, error_type, error_str);
-        emit ezsignfolderGetAttachmentsV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsignfolderGetAttachmentsV1SignalE(output, error_type, error_str);
+        Q_EMIT ezsignfolderGetAttachmentsV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -1302,8 +1400,8 @@ void ObjectEzsignfolderApi::ezsignfolderGetAttachmentsV1Callback(HttpRequestWork
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsignfolderGetAttachmentsV1SignalError(output, error_type, error_str);
-        emit ezsignfolderGetAttachmentsV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsignfolderGetAttachmentsV1SignalError(output, error_type, error_str);
+        Q_EMIT ezsignfolderGetAttachmentsV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -1348,7 +1446,7 @@ void ObjectEzsignfolderApi::ezsignfolderGetCommunicationCountV1(const qint32 &pk
     connect(this, &ObjectEzsignfolderApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -1366,8 +1464,8 @@ void ObjectEzsignfolderApi::ezsignfolderGetCommunicationCountV1Callback(HttpRequ
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsignfolderGetCommunicationCountV1Signal(output);
-        emit ezsignfolderGetCommunicationCountV1SignalFull(worker, output);
+        Q_EMIT ezsignfolderGetCommunicationCountV1Signal(output);
+        Q_EMIT ezsignfolderGetCommunicationCountV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -1384,8 +1482,8 @@ void ObjectEzsignfolderApi::ezsignfolderGetCommunicationCountV1Callback(HttpRequ
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsignfolderGetCommunicationCountV1SignalE(output, error_type, error_str);
-        emit ezsignfolderGetCommunicationCountV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsignfolderGetCommunicationCountV1SignalE(output, error_type, error_str);
+        Q_EMIT ezsignfolderGetCommunicationCountV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -1395,8 +1493,8 @@ void ObjectEzsignfolderApi::ezsignfolderGetCommunicationCountV1Callback(HttpRequ
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsignfolderGetCommunicationCountV1SignalError(output, error_type, error_str);
-        emit ezsignfolderGetCommunicationCountV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsignfolderGetCommunicationCountV1SignalError(output, error_type, error_str);
+        Q_EMIT ezsignfolderGetCommunicationCountV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -1441,7 +1539,7 @@ void ObjectEzsignfolderApi::ezsignfolderGetCommunicationListV1(const qint32 &pki
     connect(this, &ObjectEzsignfolderApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -1459,8 +1557,8 @@ void ObjectEzsignfolderApi::ezsignfolderGetCommunicationListV1Callback(HttpReque
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsignfolderGetCommunicationListV1Signal(output);
-        emit ezsignfolderGetCommunicationListV1SignalFull(worker, output);
+        Q_EMIT ezsignfolderGetCommunicationListV1Signal(output);
+        Q_EMIT ezsignfolderGetCommunicationListV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -1477,8 +1575,8 @@ void ObjectEzsignfolderApi::ezsignfolderGetCommunicationListV1Callback(HttpReque
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsignfolderGetCommunicationListV1SignalE(output, error_type, error_str);
-        emit ezsignfolderGetCommunicationListV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsignfolderGetCommunicationListV1SignalE(output, error_type, error_str);
+        Q_EMIT ezsignfolderGetCommunicationListV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -1488,8 +1586,8 @@ void ObjectEzsignfolderApi::ezsignfolderGetCommunicationListV1Callback(HttpReque
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsignfolderGetCommunicationListV1SignalError(output, error_type, error_str);
-        emit ezsignfolderGetCommunicationListV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsignfolderGetCommunicationListV1SignalError(output, error_type, error_str);
+        Q_EMIT ezsignfolderGetCommunicationListV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -1534,7 +1632,7 @@ void ObjectEzsignfolderApi::ezsignfolderGetCommunicationrecipientsV1(const qint3
     connect(this, &ObjectEzsignfolderApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -1552,8 +1650,8 @@ void ObjectEzsignfolderApi::ezsignfolderGetCommunicationrecipientsV1Callback(Htt
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsignfolderGetCommunicationrecipientsV1Signal(output);
-        emit ezsignfolderGetCommunicationrecipientsV1SignalFull(worker, output);
+        Q_EMIT ezsignfolderGetCommunicationrecipientsV1Signal(output);
+        Q_EMIT ezsignfolderGetCommunicationrecipientsV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -1570,8 +1668,8 @@ void ObjectEzsignfolderApi::ezsignfolderGetCommunicationrecipientsV1Callback(Htt
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsignfolderGetCommunicationrecipientsV1SignalE(output, error_type, error_str);
-        emit ezsignfolderGetCommunicationrecipientsV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsignfolderGetCommunicationrecipientsV1SignalE(output, error_type, error_str);
+        Q_EMIT ezsignfolderGetCommunicationrecipientsV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -1581,8 +1679,8 @@ void ObjectEzsignfolderApi::ezsignfolderGetCommunicationrecipientsV1Callback(Htt
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsignfolderGetCommunicationrecipientsV1SignalError(output, error_type, error_str);
-        emit ezsignfolderGetCommunicationrecipientsV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsignfolderGetCommunicationrecipientsV1SignalError(output, error_type, error_str);
+        Q_EMIT ezsignfolderGetCommunicationrecipientsV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -1627,7 +1725,7 @@ void ObjectEzsignfolderApi::ezsignfolderGetCommunicationsendersV1(const qint32 &
     connect(this, &ObjectEzsignfolderApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -1645,8 +1743,8 @@ void ObjectEzsignfolderApi::ezsignfolderGetCommunicationsendersV1Callback(HttpRe
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsignfolderGetCommunicationsendersV1Signal(output);
-        emit ezsignfolderGetCommunicationsendersV1SignalFull(worker, output);
+        Q_EMIT ezsignfolderGetCommunicationsendersV1Signal(output);
+        Q_EMIT ezsignfolderGetCommunicationsendersV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -1663,8 +1761,8 @@ void ObjectEzsignfolderApi::ezsignfolderGetCommunicationsendersV1Callback(HttpRe
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsignfolderGetCommunicationsendersV1SignalE(output, error_type, error_str);
-        emit ezsignfolderGetCommunicationsendersV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsignfolderGetCommunicationsendersV1SignalE(output, error_type, error_str);
+        Q_EMIT ezsignfolderGetCommunicationsendersV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -1674,8 +1772,8 @@ void ObjectEzsignfolderApi::ezsignfolderGetCommunicationsendersV1Callback(HttpRe
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsignfolderGetCommunicationsendersV1SignalError(output, error_type, error_str);
-        emit ezsignfolderGetCommunicationsendersV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsignfolderGetCommunicationsendersV1SignalError(output, error_type, error_str);
+        Q_EMIT ezsignfolderGetCommunicationsendersV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -1720,7 +1818,7 @@ void ObjectEzsignfolderApi::ezsignfolderGetEzsigndocumentsV1(const qint32 &pki_e
     connect(this, &ObjectEzsignfolderApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -1738,8 +1836,8 @@ void ObjectEzsignfolderApi::ezsignfolderGetEzsigndocumentsV1Callback(HttpRequest
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsignfolderGetEzsigndocumentsV1Signal(output);
-        emit ezsignfolderGetEzsigndocumentsV1SignalFull(worker, output);
+        Q_EMIT ezsignfolderGetEzsigndocumentsV1Signal(output);
+        Q_EMIT ezsignfolderGetEzsigndocumentsV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -1756,8 +1854,8 @@ void ObjectEzsignfolderApi::ezsignfolderGetEzsigndocumentsV1Callback(HttpRequest
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsignfolderGetEzsigndocumentsV1SignalE(output, error_type, error_str);
-        emit ezsignfolderGetEzsigndocumentsV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsignfolderGetEzsigndocumentsV1SignalE(output, error_type, error_str);
+        Q_EMIT ezsignfolderGetEzsigndocumentsV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -1767,8 +1865,8 @@ void ObjectEzsignfolderApi::ezsignfolderGetEzsigndocumentsV1Callback(HttpRequest
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsignfolderGetEzsigndocumentsV1SignalError(output, error_type, error_str);
-        emit ezsignfolderGetEzsigndocumentsV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsignfolderGetEzsigndocumentsV1SignalError(output, error_type, error_str);
+        Q_EMIT ezsignfolderGetEzsigndocumentsV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -1813,7 +1911,7 @@ void ObjectEzsignfolderApi::ezsignfolderGetEzsignfoldersignerassociationsV1(cons
     connect(this, &ObjectEzsignfolderApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -1831,8 +1929,8 @@ void ObjectEzsignfolderApi::ezsignfolderGetEzsignfoldersignerassociationsV1Callb
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsignfolderGetEzsignfoldersignerassociationsV1Signal(output);
-        emit ezsignfolderGetEzsignfoldersignerassociationsV1SignalFull(worker, output);
+        Q_EMIT ezsignfolderGetEzsignfoldersignerassociationsV1Signal(output);
+        Q_EMIT ezsignfolderGetEzsignfoldersignerassociationsV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -1849,8 +1947,8 @@ void ObjectEzsignfolderApi::ezsignfolderGetEzsignfoldersignerassociationsV1Callb
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsignfolderGetEzsignfoldersignerassociationsV1SignalE(output, error_type, error_str);
-        emit ezsignfolderGetEzsignfoldersignerassociationsV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsignfolderGetEzsignfoldersignerassociationsV1SignalE(output, error_type, error_str);
+        Q_EMIT ezsignfolderGetEzsignfoldersignerassociationsV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -1860,8 +1958,8 @@ void ObjectEzsignfolderApi::ezsignfolderGetEzsignfoldersignerassociationsV1Callb
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsignfolderGetEzsignfoldersignerassociationsV1SignalError(output, error_type, error_str);
-        emit ezsignfolderGetEzsignfoldersignerassociationsV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsignfolderGetEzsignfoldersignerassociationsV1SignalError(output, error_type, error_str);
+        Q_EMIT ezsignfolderGetEzsignfoldersignerassociationsV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -1906,7 +2004,7 @@ void ObjectEzsignfolderApi::ezsignfolderGetEzsignsignaturesAutomaticV1(const qin
     connect(this, &ObjectEzsignfolderApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -1924,8 +2022,8 @@ void ObjectEzsignfolderApi::ezsignfolderGetEzsignsignaturesAutomaticV1Callback(H
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsignfolderGetEzsignsignaturesAutomaticV1Signal(output);
-        emit ezsignfolderGetEzsignsignaturesAutomaticV1SignalFull(worker, output);
+        Q_EMIT ezsignfolderGetEzsignsignaturesAutomaticV1Signal(output);
+        Q_EMIT ezsignfolderGetEzsignsignaturesAutomaticV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -1942,8 +2040,8 @@ void ObjectEzsignfolderApi::ezsignfolderGetEzsignsignaturesAutomaticV1Callback(H
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsignfolderGetEzsignsignaturesAutomaticV1SignalE(output, error_type, error_str);
-        emit ezsignfolderGetEzsignsignaturesAutomaticV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsignfolderGetEzsignsignaturesAutomaticV1SignalE(output, error_type, error_str);
+        Q_EMIT ezsignfolderGetEzsignsignaturesAutomaticV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -1953,8 +2051,8 @@ void ObjectEzsignfolderApi::ezsignfolderGetEzsignsignaturesAutomaticV1Callback(H
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsignfolderGetEzsignsignaturesAutomaticV1SignalError(output, error_type, error_str);
-        emit ezsignfolderGetEzsignsignaturesAutomaticV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsignfolderGetEzsignsignaturesAutomaticV1SignalError(output, error_type, error_str);
+        Q_EMIT ezsignfolderGetEzsignsignaturesAutomaticV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -1999,7 +2097,7 @@ void ObjectEzsignfolderApi::ezsignfolderGetFormsDataV1(const qint32 &pki_ezsignf
     connect(this, &ObjectEzsignfolderApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -2017,8 +2115,8 @@ void ObjectEzsignfolderApi::ezsignfolderGetFormsDataV1Callback(HttpRequestWorker
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsignfolderGetFormsDataV1Signal(output);
-        emit ezsignfolderGetFormsDataV1SignalFull(worker, output);
+        Q_EMIT ezsignfolderGetFormsDataV1Signal(output);
+        Q_EMIT ezsignfolderGetFormsDataV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -2035,8 +2133,8 @@ void ObjectEzsignfolderApi::ezsignfolderGetFormsDataV1Callback(HttpRequestWorker
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsignfolderGetFormsDataV1SignalE(output, error_type, error_str);
-        emit ezsignfolderGetFormsDataV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsignfolderGetFormsDataV1SignalE(output, error_type, error_str);
+        Q_EMIT ezsignfolderGetFormsDataV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -2046,8 +2144,8 @@ void ObjectEzsignfolderApi::ezsignfolderGetFormsDataV1Callback(HttpRequestWorker
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsignfolderGetFormsDataV1SignalError(output, error_type, error_str);
-        emit ezsignfolderGetFormsDataV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsignfolderGetFormsDataV1SignalError(output, error_type, error_str);
+        Q_EMIT ezsignfolderGetFormsDataV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -2072,7 +2170,7 @@ void ObjectEzsignfolderApi::ezsignfolderGetListV1(const ::Ezmaxapi::OptionalPara
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("eOrderBy")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(e_order_by.value())));
+        fullPath.append(QUrl::toPercentEncoding("eOrderBy")).append(querySuffix).append(QUrl::toPercentEncoding(e_order_by.stringValue()));
     }
     if (i_row_max.hasValue())
     {
@@ -2087,7 +2185,7 @@ void ObjectEzsignfolderApi::ezsignfolderGetListV1(const ::Ezmaxapi::OptionalPara
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("iRowMax")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(i_row_max.value())));
+        fullPath.append(QUrl::toPercentEncoding("iRowMax")).append(querySuffix).append(QUrl::toPercentEncoding(i_row_max.stringValue()));
     }
     if (i_row_offset.hasValue())
     {
@@ -2102,7 +2200,7 @@ void ObjectEzsignfolderApi::ezsignfolderGetListV1(const ::Ezmaxapi::OptionalPara
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("iRowOffset")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(i_row_offset.value())));
+        fullPath.append(QUrl::toPercentEncoding("iRowOffset")).append(querySuffix).append(QUrl::toPercentEncoding(i_row_offset.stringValue()));
     }
     if (s_filter.hasValue())
     {
@@ -2117,7 +2215,7 @@ void ObjectEzsignfolderApi::ezsignfolderGetListV1(const ::Ezmaxapi::OptionalPara
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("sFilter")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_filter.value())));
+        fullPath.append(QUrl::toPercentEncoding("sFilter")).append(querySuffix).append(QUrl::toPercentEncoding(s_filter.stringValue()));
     }
     HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -2183,7 +2281,7 @@ void ObjectEzsignfolderApi::ezsignfolderGetListV1(const ::Ezmaxapi::OptionalPara
     connect(this, &ObjectEzsignfolderApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -2201,8 +2299,8 @@ void ObjectEzsignfolderApi::ezsignfolderGetListV1Callback(HttpRequestWorker *wor
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsignfolderGetListV1Signal(output);
-        emit ezsignfolderGetListV1SignalFull(worker, output);
+        Q_EMIT ezsignfolderGetListV1Signal(output);
+        Q_EMIT ezsignfolderGetListV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -2219,8 +2317,8 @@ void ObjectEzsignfolderApi::ezsignfolderGetListV1Callback(HttpRequestWorker *wor
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsignfolderGetListV1SignalE(output, error_type, error_str);
-        emit ezsignfolderGetListV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsignfolderGetListV1SignalE(output, error_type, error_str);
+        Q_EMIT ezsignfolderGetListV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -2230,8 +2328,8 @@ void ObjectEzsignfolderApi::ezsignfolderGetListV1Callback(HttpRequestWorker *wor
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsignfolderGetListV1SignalError(output, error_type, error_str);
-        emit ezsignfolderGetListV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsignfolderGetListV1SignalError(output, error_type, error_str);
+        Q_EMIT ezsignfolderGetListV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -2276,7 +2374,7 @@ void ObjectEzsignfolderApi::ezsignfolderGetObjectV1(const qint32 &pki_ezsignfold
     connect(this, &ObjectEzsignfolderApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -2294,8 +2392,8 @@ void ObjectEzsignfolderApi::ezsignfolderGetObjectV1Callback(HttpRequestWorker *w
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsignfolderGetObjectV1Signal(output);
-        emit ezsignfolderGetObjectV1SignalFull(worker, output);
+        Q_EMIT ezsignfolderGetObjectV1Signal(output);
+        Q_EMIT ezsignfolderGetObjectV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -2312,8 +2410,8 @@ void ObjectEzsignfolderApi::ezsignfolderGetObjectV1Callback(HttpRequestWorker *w
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsignfolderGetObjectV1SignalE(output, error_type, error_str);
-        emit ezsignfolderGetObjectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsignfolderGetObjectV1SignalE(output, error_type, error_str);
+        Q_EMIT ezsignfolderGetObjectV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -2323,8 +2421,8 @@ void ObjectEzsignfolderApi::ezsignfolderGetObjectV1Callback(HttpRequestWorker *w
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsignfolderGetObjectV1SignalError(output, error_type, error_str);
-        emit ezsignfolderGetObjectV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsignfolderGetObjectV1SignalError(output, error_type, error_str);
+        Q_EMIT ezsignfolderGetObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -2369,7 +2467,7 @@ void ObjectEzsignfolderApi::ezsignfolderGetObjectV2(const qint32 &pki_ezsignfold
     connect(this, &ObjectEzsignfolderApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -2387,8 +2485,8 @@ void ObjectEzsignfolderApi::ezsignfolderGetObjectV2Callback(HttpRequestWorker *w
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsignfolderGetObjectV2Signal(output);
-        emit ezsignfolderGetObjectV2SignalFull(worker, output);
+        Q_EMIT ezsignfolderGetObjectV2Signal(output);
+        Q_EMIT ezsignfolderGetObjectV2SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -2405,8 +2503,8 @@ void ObjectEzsignfolderApi::ezsignfolderGetObjectV2Callback(HttpRequestWorker *w
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsignfolderGetObjectV2SignalE(output, error_type, error_str);
-        emit ezsignfolderGetObjectV2SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsignfolderGetObjectV2SignalE(output, error_type, error_str);
+        Q_EMIT ezsignfolderGetObjectV2SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -2416,8 +2514,8 @@ void ObjectEzsignfolderApi::ezsignfolderGetObjectV2Callback(HttpRequestWorker *w
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsignfolderGetObjectV2SignalError(output, error_type, error_str);
-        emit ezsignfolderGetObjectV2SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsignfolderGetObjectV2SignalError(output, error_type, error_str);
+        Q_EMIT ezsignfolderGetObjectV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -2467,7 +2565,7 @@ void ObjectEzsignfolderApi::ezsignfolderImportEzsignfoldersignerassociationsV1(c
     connect(this, &ObjectEzsignfolderApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -2485,8 +2583,8 @@ void ObjectEzsignfolderApi::ezsignfolderImportEzsignfoldersignerassociationsV1Ca
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsignfolderImportEzsignfoldersignerassociationsV1Signal(output);
-        emit ezsignfolderImportEzsignfoldersignerassociationsV1SignalFull(worker, output);
+        Q_EMIT ezsignfolderImportEzsignfoldersignerassociationsV1Signal(output);
+        Q_EMIT ezsignfolderImportEzsignfoldersignerassociationsV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -2503,8 +2601,8 @@ void ObjectEzsignfolderApi::ezsignfolderImportEzsignfoldersignerassociationsV1Ca
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsignfolderImportEzsignfoldersignerassociationsV1SignalE(output, error_type, error_str);
-        emit ezsignfolderImportEzsignfoldersignerassociationsV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsignfolderImportEzsignfoldersignerassociationsV1SignalE(output, error_type, error_str);
+        Q_EMIT ezsignfolderImportEzsignfoldersignerassociationsV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -2514,8 +2612,8 @@ void ObjectEzsignfolderApi::ezsignfolderImportEzsignfoldersignerassociationsV1Ca
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsignfolderImportEzsignfoldersignerassociationsV1SignalError(output, error_type, error_str);
-        emit ezsignfolderImportEzsignfoldersignerassociationsV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsignfolderImportEzsignfoldersignerassociationsV1SignalError(output, error_type, error_str);
+        Q_EMIT ezsignfolderImportEzsignfoldersignerassociationsV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -2565,7 +2663,7 @@ void ObjectEzsignfolderApi::ezsignfolderImportEzsigntemplatepackageV1(const qint
     connect(this, &ObjectEzsignfolderApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -2583,8 +2681,8 @@ void ObjectEzsignfolderApi::ezsignfolderImportEzsigntemplatepackageV1Callback(Ht
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsignfolderImportEzsigntemplatepackageV1Signal(output);
-        emit ezsignfolderImportEzsigntemplatepackageV1SignalFull(worker, output);
+        Q_EMIT ezsignfolderImportEzsigntemplatepackageV1Signal(output);
+        Q_EMIT ezsignfolderImportEzsigntemplatepackageV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -2601,8 +2699,8 @@ void ObjectEzsignfolderApi::ezsignfolderImportEzsigntemplatepackageV1Callback(Ht
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsignfolderImportEzsigntemplatepackageV1SignalE(output, error_type, error_str);
-        emit ezsignfolderImportEzsigntemplatepackageV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsignfolderImportEzsigntemplatepackageV1SignalE(output, error_type, error_str);
+        Q_EMIT ezsignfolderImportEzsigntemplatepackageV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -2612,8 +2710,8 @@ void ObjectEzsignfolderApi::ezsignfolderImportEzsigntemplatepackageV1Callback(Ht
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsignfolderImportEzsigntemplatepackageV1SignalError(output, error_type, error_str);
-        emit ezsignfolderImportEzsigntemplatepackageV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsignfolderImportEzsigntemplatepackageV1SignalError(output, error_type, error_str);
+        Q_EMIT ezsignfolderImportEzsigntemplatepackageV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -2663,7 +2761,7 @@ void ObjectEzsignfolderApi::ezsignfolderReorderV1(const qint32 &pki_ezsignfolder
     connect(this, &ObjectEzsignfolderApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -2681,8 +2779,8 @@ void ObjectEzsignfolderApi::ezsignfolderReorderV1Callback(HttpRequestWorker *wor
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsignfolderReorderV1Signal(output);
-        emit ezsignfolderReorderV1SignalFull(worker, output);
+        Q_EMIT ezsignfolderReorderV1Signal(output);
+        Q_EMIT ezsignfolderReorderV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -2699,8 +2797,8 @@ void ObjectEzsignfolderApi::ezsignfolderReorderV1Callback(HttpRequestWorker *wor
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsignfolderReorderV1SignalE(output, error_type, error_str);
-        emit ezsignfolderReorderV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsignfolderReorderV1SignalE(output, error_type, error_str);
+        Q_EMIT ezsignfolderReorderV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -2710,8 +2808,8 @@ void ObjectEzsignfolderApi::ezsignfolderReorderV1Callback(HttpRequestWorker *wor
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsignfolderReorderV1SignalError(output, error_type, error_str);
-        emit ezsignfolderReorderV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsignfolderReorderV1SignalError(output, error_type, error_str);
+        Q_EMIT ezsignfolderReorderV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -2761,7 +2859,7 @@ void ObjectEzsignfolderApi::ezsignfolderSendV1(const qint32 &pki_ezsignfolder_id
     connect(this, &ObjectEzsignfolderApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -2779,8 +2877,8 @@ void ObjectEzsignfolderApi::ezsignfolderSendV1Callback(HttpRequestWorker *worker
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsignfolderSendV1Signal(output);
-        emit ezsignfolderSendV1SignalFull(worker, output);
+        Q_EMIT ezsignfolderSendV1Signal(output);
+        Q_EMIT ezsignfolderSendV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -2797,8 +2895,8 @@ void ObjectEzsignfolderApi::ezsignfolderSendV1Callback(HttpRequestWorker *worker
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsignfolderSendV1SignalE(output, error_type, error_str);
-        emit ezsignfolderSendV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsignfolderSendV1SignalE(output, error_type, error_str);
+        Q_EMIT ezsignfolderSendV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -2808,106 +2906,8 @@ void ObjectEzsignfolderApi::ezsignfolderSendV1Callback(HttpRequestWorker *worker
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsignfolderSendV1SignalError(output, error_type, error_str);
-        emit ezsignfolderSendV1SignalErrorFull(worker, error_type, error_str);
-    }
-}
-
-void ObjectEzsignfolderApi::ezsignfolderSendV2(const qint32 &pki_ezsignfolder_id, const Ezsignfolder_send_v2_Request &ezsignfolder_send_v2_request) {
-    QString fullPath = QString(_serverConfigs["ezsignfolderSendV2"][_serverIndices.value("ezsignfolderSendV2")].URL()+"/2/object/ezsignfolder/{pkiEzsignfolderID}/send");
-    
-    if (_apiKeys.contains("Authorization")) {
-        addHeaders("Authorization",_apiKeys.find("Authorization").value());
-    }
-    
-    
-    {
-        QString pki_ezsignfolder_idPathParam("{");
-        pki_ezsignfolder_idPathParam.append("pkiEzsignfolderID").append("}");
-        QString pathPrefix, pathSuffix, pathDelimiter;
-        QString pathStyle = "simple";
-        if (pathStyle == "")
-            pathStyle = "simple";
-        pathPrefix = getParamStylePrefix(pathStyle);
-        pathSuffix = getParamStyleSuffix(pathStyle);
-        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignfolderID", false);
-        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignfolderID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsignfolder_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsignfolder_id)));
-    }
-    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
-    worker->setTimeOut(_timeOut);
-    worker->setWorkingDirectory(_workingDirectory);
-    HttpRequestInput input(fullPath, "POST");
-
-    {
-
-        
-        QByteArray output = ezsignfolder_send_v2_request.asJson().toUtf8();
-        input.request_body.append(output);
-    }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
-    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
-        input.headers.insert(keyValueIt->first, keyValueIt->second);
-    }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
-
-    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignfolderApi::ezsignfolderSendV2Callback);
-    connect(this, &ObjectEzsignfolderApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
-        if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
-        }
-    });
-
-    worker->execute(&input);
-}
-
-void ObjectEzsignfolderApi::ezsignfolderSendV2Callback(HttpRequestWorker *worker) {
-    QString error_str = worker->error_str;
-    QNetworkReply::NetworkError error_type = worker->error_type;
-
-    if (worker->error_type != QNetworkReply::NoError) {
-        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
-    }
-    Ezsignfolder_send_v2_Response output(QString(worker->response));
-    worker->deleteLater();
-
-    if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsignfolderSendV2Signal(output);
-        emit ezsignfolderSendV2SignalFull(worker, output);
-    } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        emit ezsignfolderSendV2SignalE(output, error_type, error_str);
-        emit ezsignfolderSendV2SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
-        emit ezsignfolderSendV2SignalError(output, error_type, error_str);
-        emit ezsignfolderSendV2SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsignfolderSendV1SignalError(output, error_type, error_str);
+        Q_EMIT ezsignfolderSendV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -2957,7 +2957,7 @@ void ObjectEzsignfolderApi::ezsignfolderSendV3(const qint32 &pki_ezsignfolder_id
     connect(this, &ObjectEzsignfolderApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -2975,8 +2975,8 @@ void ObjectEzsignfolderApi::ezsignfolderSendV3Callback(HttpRequestWorker *worker
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsignfolderSendV3Signal(output);
-        emit ezsignfolderSendV3SignalFull(worker, output);
+        Q_EMIT ezsignfolderSendV3Signal(output);
+        Q_EMIT ezsignfolderSendV3SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -2993,8 +2993,8 @@ void ObjectEzsignfolderApi::ezsignfolderSendV3Callback(HttpRequestWorker *worker
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsignfolderSendV3SignalE(output, error_type, error_str);
-        emit ezsignfolderSendV3SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsignfolderSendV3SignalE(output, error_type, error_str);
+        Q_EMIT ezsignfolderSendV3SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -3004,8 +3004,8 @@ void ObjectEzsignfolderApi::ezsignfolderSendV3Callback(HttpRequestWorker *worker
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsignfolderSendV3SignalError(output, error_type, error_str);
-        emit ezsignfolderSendV3SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsignfolderSendV3SignalError(output, error_type, error_str);
+        Q_EMIT ezsignfolderSendV3SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -3055,7 +3055,7 @@ void ObjectEzsignfolderApi::ezsignfolderUnsendV1(const qint32 &pki_ezsignfolder_
     connect(this, &ObjectEzsignfolderApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -3073,8 +3073,8 @@ void ObjectEzsignfolderApi::ezsignfolderUnsendV1Callback(HttpRequestWorker *work
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsignfolderUnsendV1Signal(output);
-        emit ezsignfolderUnsendV1SignalFull(worker, output);
+        Q_EMIT ezsignfolderUnsendV1Signal(output);
+        Q_EMIT ezsignfolderUnsendV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -3091,8 +3091,8 @@ void ObjectEzsignfolderApi::ezsignfolderUnsendV1Callback(HttpRequestWorker *work
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsignfolderUnsendV1SignalE(output, error_type, error_str);
-        emit ezsignfolderUnsendV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsignfolderUnsendV1SignalE(output, error_type, error_str);
+        Q_EMIT ezsignfolderUnsendV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -3102,8 +3102,8 @@ void ObjectEzsignfolderApi::ezsignfolderUnsendV1Callback(HttpRequestWorker *work
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsignfolderUnsendV1SignalError(output, error_type, error_str);
-        emit ezsignfolderUnsendV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsignfolderUnsendV1SignalError(output, error_type, error_str);
+        Q_EMIT ezsignfolderUnsendV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

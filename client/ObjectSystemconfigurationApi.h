@@ -97,7 +97,7 @@ private:
     void systemconfigurationEditObjectV1Callback(HttpRequestWorker *worker);
     void systemconfigurationGetObjectV2Callback(HttpRequestWorker *worker);
 
-signals:
+Q_SIGNALS:
 
     void systemconfigurationEditObjectV1Signal(Systemconfiguration_editObject_v1_Response summary);
     void systemconfigurationGetObjectV2Signal(Systemconfiguration_getObject_v2_Response summary);
@@ -122,7 +122,7 @@ signals:
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
-public slots:
+public Q_SLOTS:
     void tokenAvailable();
 };
 

@@ -170,7 +170,7 @@ void ObjectModulegroupApi::enableResponseCompression() {
 }
 
 void ObjectModulegroupApi::abortRequests() {
-    emit abortRequestsSignal();
+    Q_EMIT abortRequestsSignal();
 }
 
 QString ObjectModulegroupApi::getParamStylePrefix(const QString &style) {
@@ -277,7 +277,7 @@ void ObjectModulegroupApi::modulegroupGetAllV1(const QString &e_context) {
     connect(this, &ObjectModulegroupApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -295,8 +295,8 @@ void ObjectModulegroupApi::modulegroupGetAllV1Callback(HttpRequestWorker *worker
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit modulegroupGetAllV1Signal(output);
-        emit modulegroupGetAllV1SignalFull(worker, output);
+        Q_EMIT modulegroupGetAllV1Signal(output);
+        Q_EMIT modulegroupGetAllV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -313,8 +313,8 @@ void ObjectModulegroupApi::modulegroupGetAllV1Callback(HttpRequestWorker *worker
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit modulegroupGetAllV1SignalE(output, error_type, error_str);
-        emit modulegroupGetAllV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT modulegroupGetAllV1SignalE(output, error_type, error_str);
+        Q_EMIT modulegroupGetAllV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -324,8 +324,8 @@ void ObjectModulegroupApi::modulegroupGetAllV1Callback(HttpRequestWorker *worker
 #pragma GCC diagnostic pop
 #endif
 
-        emit modulegroupGetAllV1SignalError(output, error_type, error_str);
-        emit modulegroupGetAllV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT modulegroupGetAllV1SignalError(output, error_type, error_str);
+        Q_EMIT modulegroupGetAllV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

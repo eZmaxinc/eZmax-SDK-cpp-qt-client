@@ -79,6 +79,12 @@ void Custom_Webhook_Response::initializeModel() {
     m_obj_audit_isSet = false;
     m_obj_audit_isValid = false;
 
+    m_s_webhook_event_isSet = false;
+    m_s_webhook_event_isValid = false;
+
+    m_a_obj_webhookheader_isSet = false;
+    m_a_obj_webhookheader_isValid = false;
+
     m_pks_customer_code_isSet = false;
     m_pks_customer_code_isValid = false;
 
@@ -140,6 +146,12 @@ void Custom_Webhook_Response::fromJsonObject(QJsonObject json) {
     m_obj_audit_isValid = ::Ezmaxapi::fromJsonValue(m_obj_audit, json[QString("objAudit")]);
     m_obj_audit_isSet = !json[QString("objAudit")].isNull() && m_obj_audit_isValid;
 
+    m_s_webhook_event_isValid = ::Ezmaxapi::fromJsonValue(m_s_webhook_event, json[QString("sWebhookEvent")]);
+    m_s_webhook_event_isSet = !json[QString("sWebhookEvent")].isNull() && m_s_webhook_event_isValid;
+
+    m_a_obj_webhookheader_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_webhookheader, json[QString("a_objWebhookheader")]);
+    m_a_obj_webhookheader_isSet = !json[QString("a_objWebhookheader")].isNull() && m_a_obj_webhookheader_isValid;
+
     m_pks_customer_code_isValid = ::Ezmaxapi::fromJsonValue(m_pks_customer_code, json[QString("pksCustomerCode")]);
     m_pks_customer_code_isSet = !json[QString("pksCustomerCode")].isNull() && m_pks_customer_code_isValid;
 
@@ -200,6 +212,12 @@ QJsonObject Custom_Webhook_Response::asJsonObject() const {
     }
     if (m_obj_audit.isSet()) {
         obj.insert(QString("objAudit"), ::Ezmaxapi::toJsonValue(m_obj_audit));
+    }
+    if (m_s_webhook_event_isSet) {
+        obj.insert(QString("sWebhookEvent"), ::Ezmaxapi::toJsonValue(m_s_webhook_event));
+    }
+    if (m_a_obj_webhookheader.size() > 0) {
+        obj.insert(QString("a_objWebhookheader"), ::Ezmaxapi::toJsonValue(m_a_obj_webhookheader));
     }
     if (m_pks_customer_code_isSet) {
         obj.insert(QString("pksCustomerCode"), ::Ezmaxapi::toJsonValue(m_pks_customer_code));
@@ -450,6 +468,38 @@ bool Custom_Webhook_Response::is_obj_audit_Valid() const{
     return m_obj_audit_isValid;
 }
 
+QString Custom_Webhook_Response::getSWebhookEvent() const {
+    return m_s_webhook_event;
+}
+void Custom_Webhook_Response::setSWebhookEvent(const QString &s_webhook_event) {
+    m_s_webhook_event = s_webhook_event;
+    m_s_webhook_event_isSet = true;
+}
+
+bool Custom_Webhook_Response::is_s_webhook_event_Set() const{
+    return m_s_webhook_event_isSet;
+}
+
+bool Custom_Webhook_Response::is_s_webhook_event_Valid() const{
+    return m_s_webhook_event_isValid;
+}
+
+QList<Webhookheader_ResponseCompound> Custom_Webhook_Response::getAObjWebhookheader() const {
+    return m_a_obj_webhookheader;
+}
+void Custom_Webhook_Response::setAObjWebhookheader(const QList<Webhookheader_ResponseCompound> &a_obj_webhookheader) {
+    m_a_obj_webhookheader = a_obj_webhookheader;
+    m_a_obj_webhookheader_isSet = true;
+}
+
+bool Custom_Webhook_Response::is_a_obj_webhookheader_Set() const{
+    return m_a_obj_webhookheader_isSet;
+}
+
+bool Custom_Webhook_Response::is_a_obj_webhookheader_Valid() const{
+    return m_a_obj_webhookheader_isValid;
+}
+
 QString Custom_Webhook_Response::getPksCustomerCode() const {
     return m_pks_customer_code;
 }
@@ -556,6 +606,16 @@ bool Custom_Webhook_Response::isSet() const {
         }
 
         if (m_obj_audit.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_s_webhook_event_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_a_obj_webhookheader.size() > 0) {
             isObjectUpdated = true;
             break;
         }

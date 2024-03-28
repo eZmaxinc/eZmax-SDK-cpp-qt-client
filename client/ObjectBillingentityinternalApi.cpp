@@ -178,7 +178,7 @@ void ObjectBillingentityinternalApi::enableResponseCompression() {
 }
 
 void ObjectBillingentityinternalApi::abortRequests() {
-    emit abortRequestsSignal();
+    Q_EMIT abortRequestsSignal();
 }
 
 QString ObjectBillingentityinternalApi::getParamStylePrefix(const QString &style) {
@@ -276,7 +276,7 @@ void ObjectBillingentityinternalApi::billingentityinternalCreateObjectV1(const B
     connect(this, &ObjectBillingentityinternalApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -294,8 +294,8 @@ void ObjectBillingentityinternalApi::billingentityinternalCreateObjectV1Callback
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit billingentityinternalCreateObjectV1Signal(output);
-        emit billingentityinternalCreateObjectV1SignalFull(worker, output);
+        Q_EMIT billingentityinternalCreateObjectV1Signal(output);
+        Q_EMIT billingentityinternalCreateObjectV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -312,8 +312,8 @@ void ObjectBillingentityinternalApi::billingentityinternalCreateObjectV1Callback
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit billingentityinternalCreateObjectV1SignalE(output, error_type, error_str);
-        emit billingentityinternalCreateObjectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT billingentityinternalCreateObjectV1SignalE(output, error_type, error_str);
+        Q_EMIT billingentityinternalCreateObjectV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -323,8 +323,8 @@ void ObjectBillingentityinternalApi::billingentityinternalCreateObjectV1Callback
 #pragma GCC diagnostic pop
 #endif
 
-        emit billingentityinternalCreateObjectV1SignalError(output, error_type, error_str);
-        emit billingentityinternalCreateObjectV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT billingentityinternalCreateObjectV1SignalError(output, error_type, error_str);
+        Q_EMIT billingentityinternalCreateObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -374,7 +374,7 @@ void ObjectBillingentityinternalApi::billingentityinternalEditObjectV1(const qin
     connect(this, &ObjectBillingentityinternalApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -392,8 +392,8 @@ void ObjectBillingentityinternalApi::billingentityinternalEditObjectV1Callback(H
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit billingentityinternalEditObjectV1Signal(output);
-        emit billingentityinternalEditObjectV1SignalFull(worker, output);
+        Q_EMIT billingentityinternalEditObjectV1Signal(output);
+        Q_EMIT billingentityinternalEditObjectV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -410,8 +410,8 @@ void ObjectBillingentityinternalApi::billingentityinternalEditObjectV1Callback(H
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit billingentityinternalEditObjectV1SignalE(output, error_type, error_str);
-        emit billingentityinternalEditObjectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT billingentityinternalEditObjectV1SignalE(output, error_type, error_str);
+        Q_EMIT billingentityinternalEditObjectV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -421,8 +421,8 @@ void ObjectBillingentityinternalApi::billingentityinternalEditObjectV1Callback(H
 #pragma GCC diagnostic pop
 #endif
 
-        emit billingentityinternalEditObjectV1SignalError(output, error_type, error_str);
-        emit billingentityinternalEditObjectV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT billingentityinternalEditObjectV1SignalError(output, error_type, error_str);
+        Q_EMIT billingentityinternalEditObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -461,7 +461,7 @@ void ObjectBillingentityinternalApi::billingentityinternalGetAutocompleteV2(cons
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("eFilterActive")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(e_filter_active.value())));
+        fullPath.append(QUrl::toPercentEncoding("eFilterActive")).append(querySuffix).append(QUrl::toPercentEncoding(e_filter_active.stringValue()));
     }
     if (s_query.hasValue())
     {
@@ -476,7 +476,7 @@ void ObjectBillingentityinternalApi::billingentityinternalGetAutocompleteV2(cons
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_query.value())));
+        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(s_query.stringValue()));
     }
     HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -542,7 +542,7 @@ void ObjectBillingentityinternalApi::billingentityinternalGetAutocompleteV2(cons
     connect(this, &ObjectBillingentityinternalApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -560,8 +560,8 @@ void ObjectBillingentityinternalApi::billingentityinternalGetAutocompleteV2Callb
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit billingentityinternalGetAutocompleteV2Signal(output);
-        emit billingentityinternalGetAutocompleteV2SignalFull(worker, output);
+        Q_EMIT billingentityinternalGetAutocompleteV2Signal(output);
+        Q_EMIT billingentityinternalGetAutocompleteV2SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -578,8 +578,8 @@ void ObjectBillingentityinternalApi::billingentityinternalGetAutocompleteV2Callb
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit billingentityinternalGetAutocompleteV2SignalE(output, error_type, error_str);
-        emit billingentityinternalGetAutocompleteV2SignalEFull(worker, error_type, error_str);
+        Q_EMIT billingentityinternalGetAutocompleteV2SignalE(output, error_type, error_str);
+        Q_EMIT billingentityinternalGetAutocompleteV2SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -589,8 +589,8 @@ void ObjectBillingentityinternalApi::billingentityinternalGetAutocompleteV2Callb
 #pragma GCC diagnostic pop
 #endif
 
-        emit billingentityinternalGetAutocompleteV2SignalError(output, error_type, error_str);
-        emit billingentityinternalGetAutocompleteV2SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT billingentityinternalGetAutocompleteV2SignalError(output, error_type, error_str);
+        Q_EMIT billingentityinternalGetAutocompleteV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -615,7 +615,7 @@ void ObjectBillingentityinternalApi::billingentityinternalGetListV1(const ::Ezma
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("eOrderBy")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(e_order_by.value())));
+        fullPath.append(QUrl::toPercentEncoding("eOrderBy")).append(querySuffix).append(QUrl::toPercentEncoding(e_order_by.stringValue()));
     }
     if (i_row_max.hasValue())
     {
@@ -630,7 +630,7 @@ void ObjectBillingentityinternalApi::billingentityinternalGetListV1(const ::Ezma
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("iRowMax")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(i_row_max.value())));
+        fullPath.append(QUrl::toPercentEncoding("iRowMax")).append(querySuffix).append(QUrl::toPercentEncoding(i_row_max.stringValue()));
     }
     if (i_row_offset.hasValue())
     {
@@ -645,7 +645,7 @@ void ObjectBillingentityinternalApi::billingentityinternalGetListV1(const ::Ezma
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("iRowOffset")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(i_row_offset.value())));
+        fullPath.append(QUrl::toPercentEncoding("iRowOffset")).append(querySuffix).append(QUrl::toPercentEncoding(i_row_offset.stringValue()));
     }
     if (s_filter.hasValue())
     {
@@ -660,7 +660,7 @@ void ObjectBillingentityinternalApi::billingentityinternalGetListV1(const ::Ezma
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("sFilter")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_filter.value())));
+        fullPath.append(QUrl::toPercentEncoding("sFilter")).append(querySuffix).append(QUrl::toPercentEncoding(s_filter.stringValue()));
     }
     HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -726,7 +726,7 @@ void ObjectBillingentityinternalApi::billingentityinternalGetListV1(const ::Ezma
     connect(this, &ObjectBillingentityinternalApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -744,8 +744,8 @@ void ObjectBillingentityinternalApi::billingentityinternalGetListV1Callback(Http
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit billingentityinternalGetListV1Signal(output);
-        emit billingentityinternalGetListV1SignalFull(worker, output);
+        Q_EMIT billingentityinternalGetListV1Signal(output);
+        Q_EMIT billingentityinternalGetListV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -762,8 +762,8 @@ void ObjectBillingentityinternalApi::billingentityinternalGetListV1Callback(Http
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit billingentityinternalGetListV1SignalE(output, error_type, error_str);
-        emit billingentityinternalGetListV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT billingentityinternalGetListV1SignalE(output, error_type, error_str);
+        Q_EMIT billingentityinternalGetListV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -773,8 +773,8 @@ void ObjectBillingentityinternalApi::billingentityinternalGetListV1Callback(Http
 #pragma GCC diagnostic pop
 #endif
 
-        emit billingentityinternalGetListV1SignalError(output, error_type, error_str);
-        emit billingentityinternalGetListV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT billingentityinternalGetListV1SignalError(output, error_type, error_str);
+        Q_EMIT billingentityinternalGetListV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -819,7 +819,7 @@ void ObjectBillingentityinternalApi::billingentityinternalGetObjectV2(const qint
     connect(this, &ObjectBillingentityinternalApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -837,8 +837,8 @@ void ObjectBillingentityinternalApi::billingentityinternalGetObjectV2Callback(Ht
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit billingentityinternalGetObjectV2Signal(output);
-        emit billingentityinternalGetObjectV2SignalFull(worker, output);
+        Q_EMIT billingentityinternalGetObjectV2Signal(output);
+        Q_EMIT billingentityinternalGetObjectV2SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -855,8 +855,8 @@ void ObjectBillingentityinternalApi::billingentityinternalGetObjectV2Callback(Ht
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit billingentityinternalGetObjectV2SignalE(output, error_type, error_str);
-        emit billingentityinternalGetObjectV2SignalEFull(worker, error_type, error_str);
+        Q_EMIT billingentityinternalGetObjectV2SignalE(output, error_type, error_str);
+        Q_EMIT billingentityinternalGetObjectV2SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -866,8 +866,8 @@ void ObjectBillingentityinternalApi::billingentityinternalGetObjectV2Callback(Ht
 #pragma GCC diagnostic pop
 #endif
 
-        emit billingentityinternalGetObjectV2SignalError(output, error_type, error_str);
-        emit billingentityinternalGetObjectV2SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT billingentityinternalGetObjectV2SignalError(output, error_type, error_str);
+        Q_EMIT billingentityinternalGetObjectV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 

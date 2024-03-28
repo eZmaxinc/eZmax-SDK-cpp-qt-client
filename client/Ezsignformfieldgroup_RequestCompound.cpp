@@ -635,7 +635,7 @@ bool Ezsignformfieldgroup_RequestCompound::isSet() const {
 
 bool Ezsignformfieldgroup_RequestCompound::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_fki_ezsigndocument_id_isValid && m_e_ezsignformfieldgroup_type_isValid && m_e_ezsignformfieldgroup_signerrequirement_isValid && m_s_ezsignformfieldgroup_label_isValid && m_i_ezsignformfieldgroup_step_isValid && m_i_ezsignformfieldgroup_filledmin_isValid && m_i_ezsignformfieldgroup_filledmax_isValid && m_b_ezsignformfieldgroup_readonly_isValid && m_a_obj_ezsignformfieldgroupsigner_isValid && m_a_obj_ezsignformfield_isValid && true;
+    return m_fki_ezsigndocument_id_isValid && m_e_ezsignformfieldgroup_type_isValid && m_s_ezsignformfieldgroup_label_isValid && m_i_ezsignformfieldgroup_step_isValid && m_i_ezsignformfieldgroup_filledmin_isValid && m_i_ezsignformfieldgroup_filledmax_isValid && m_b_ezsignformfieldgroup_readonly_isValid && m_a_obj_ezsignformfieldgroupsigner_isValid && m_a_obj_ezsignformfield_isValid && true;
 }
 
 } // namespace Ezmaxapi

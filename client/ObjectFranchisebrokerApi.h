@@ -18,7 +18,6 @@
 #include "ServerConfiguration.h"
 #include "Oauth.h"
 
-#include "Common_getAutocomplete_v1_Response.h"
 #include "Franchisebroker_getAutocomplete_v2_Response.h"
 #include "Header_Accept_Language.h"
 #include <QString>
@@ -65,14 +64,6 @@ public:
     * @param[in]  s_query QString [optional]
     * @param[in]  accept_language Header_Accept_Language [optional]
     */
-    Q_DECL_DEPRECATED void franchisebrokerGetAutocompleteV1(const QString &s_selector, const ::Ezmaxapi::OptionalParam<QString> &e_filter_active = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<QString> &s_query = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<Header_Accept_Language>());
-
-    /**
-    * @param[in]  s_selector QString [required]
-    * @param[in]  e_filter_active QString [optional]
-    * @param[in]  s_query QString [optional]
-    * @param[in]  accept_language Header_Accept_Language [optional]
-    */
     void franchisebrokerGetAutocompleteV2(const QString &s_selector, const ::Ezmaxapi::OptionalParam<QString> &e_filter_active = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<QString> &s_query = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<Header_Accept_Language>());
 
 
@@ -98,27 +89,18 @@ private:
     OauthPassword _passwordFlow;
     int _OauthMethod = 0;
 
-    void franchisebrokerGetAutocompleteV1Callback(HttpRequestWorker *worker);
     void franchisebrokerGetAutocompleteV2Callback(HttpRequestWorker *worker);
 
-signals:
+Q_SIGNALS:
 
-    void franchisebrokerGetAutocompleteV1Signal(Common_getAutocomplete_v1_Response summary);
     void franchisebrokerGetAutocompleteV2Signal(Franchisebroker_getAutocomplete_v2_Response summary);
 
-    void franchisebrokerGetAutocompleteV1SignalFull(HttpRequestWorker *worker, Common_getAutocomplete_v1_Response summary);
     void franchisebrokerGetAutocompleteV2SignalFull(HttpRequestWorker *worker, Franchisebroker_getAutocomplete_v2_Response summary);
 
-    Q_DECL_DEPRECATED_X("Use franchisebrokerGetAutocompleteV1SignalError() instead")
-    void franchisebrokerGetAutocompleteV1SignalE(Common_getAutocomplete_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void franchisebrokerGetAutocompleteV1SignalError(Common_getAutocomplete_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use franchisebrokerGetAutocompleteV2SignalError() instead")
     void franchisebrokerGetAutocompleteV2SignalE(Franchisebroker_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void franchisebrokerGetAutocompleteV2SignalError(Franchisebroker_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
-    Q_DECL_DEPRECATED_X("Use franchisebrokerGetAutocompleteV1SignalErrorFull() instead")
-    void franchisebrokerGetAutocompleteV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
-    void franchisebrokerGetAutocompleteV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use franchisebrokerGetAutocompleteV2SignalErrorFull() instead")
     void franchisebrokerGetAutocompleteV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void franchisebrokerGetAutocompleteV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -126,7 +108,7 @@ signals:
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
-public slots:
+public Q_SLOTS:
     void tokenAvailable();
 };
 

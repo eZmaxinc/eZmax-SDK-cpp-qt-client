@@ -170,7 +170,7 @@ void ObjectFontApi::enableResponseCompression() {
 }
 
 void ObjectFontApi::abortRequests() {
-    emit abortRequestsSignal();
+    Q_EMIT abortRequestsSignal();
 }
 
 QString ObjectFontApi::getParamStylePrefix(const QString &style) {
@@ -271,7 +271,7 @@ void ObjectFontApi::fontGetAutocompleteV2(const QString &s_selector, const ::Ezm
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("eFilterActive")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(e_filter_active.value())));
+        fullPath.append(QUrl::toPercentEncoding("eFilterActive")).append(querySuffix).append(QUrl::toPercentEncoding(e_filter_active.stringValue()));
     }
     if (s_query.hasValue())
     {
@@ -286,7 +286,7 @@ void ObjectFontApi::fontGetAutocompleteV2(const QString &s_selector, const ::Ezm
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_query.value())));
+        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(s_query.stringValue()));
     }
     HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -352,7 +352,7 @@ void ObjectFontApi::fontGetAutocompleteV2(const QString &s_selector, const ::Ezm
     connect(this, &ObjectFontApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -370,8 +370,8 @@ void ObjectFontApi::fontGetAutocompleteV2Callback(HttpRequestWorker *worker) {
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit fontGetAutocompleteV2Signal(output);
-        emit fontGetAutocompleteV2SignalFull(worker, output);
+        Q_EMIT fontGetAutocompleteV2Signal(output);
+        Q_EMIT fontGetAutocompleteV2SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -388,8 +388,8 @@ void ObjectFontApi::fontGetAutocompleteV2Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit fontGetAutocompleteV2SignalE(output, error_type, error_str);
-        emit fontGetAutocompleteV2SignalEFull(worker, error_type, error_str);
+        Q_EMIT fontGetAutocompleteV2SignalE(output, error_type, error_str);
+        Q_EMIT fontGetAutocompleteV2SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -399,8 +399,8 @@ void ObjectFontApi::fontGetAutocompleteV2Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic pop
 #endif
 
-        emit fontGetAutocompleteV2SignalError(output, error_type, error_str);
-        emit fontGetAutocompleteV2SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT fontGetAutocompleteV2SignalError(output, error_type, error_str);
+        Q_EMIT fontGetAutocompleteV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 

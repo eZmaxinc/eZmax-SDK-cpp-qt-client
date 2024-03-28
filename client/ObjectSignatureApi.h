@@ -112,7 +112,7 @@ private:
     void signatureEditObjectV1Callback(HttpRequestWorker *worker);
     void signatureGetObjectV2Callback(HttpRequestWorker *worker);
 
-signals:
+Q_SIGNALS:
 
     void signatureCreateObjectV1Signal(Signature_createObject_v1_Response summary);
     void signatureDeleteObjectV1Signal(Signature_deleteObject_v1_Response summary);
@@ -153,7 +153,7 @@ signals:
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
-public slots:
+public Q_SLOTS:
     void tokenAvailable();
 };
 

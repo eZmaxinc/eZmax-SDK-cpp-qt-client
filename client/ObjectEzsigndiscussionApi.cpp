@@ -174,7 +174,7 @@ void ObjectEzsigndiscussionApi::enableResponseCompression() {
 }
 
 void ObjectEzsigndiscussionApi::abortRequests() {
-    emit abortRequestsSignal();
+    Q_EMIT abortRequestsSignal();
 }
 
 QString ObjectEzsigndiscussionApi::getParamStylePrefix(const QString &style) {
@@ -272,7 +272,7 @@ void ObjectEzsigndiscussionApi::ezsigndiscussionCreateObjectV1(const Ezsigndiscu
     connect(this, &ObjectEzsigndiscussionApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -290,8 +290,8 @@ void ObjectEzsigndiscussionApi::ezsigndiscussionCreateObjectV1Callback(HttpReque
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsigndiscussionCreateObjectV1Signal(output);
-        emit ezsigndiscussionCreateObjectV1SignalFull(worker, output);
+        Q_EMIT ezsigndiscussionCreateObjectV1Signal(output);
+        Q_EMIT ezsigndiscussionCreateObjectV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -308,8 +308,8 @@ void ObjectEzsigndiscussionApi::ezsigndiscussionCreateObjectV1Callback(HttpReque
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsigndiscussionCreateObjectV1SignalE(output, error_type, error_str);
-        emit ezsigndiscussionCreateObjectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsigndiscussionCreateObjectV1SignalE(output, error_type, error_str);
+        Q_EMIT ezsigndiscussionCreateObjectV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -319,8 +319,8 @@ void ObjectEzsigndiscussionApi::ezsigndiscussionCreateObjectV1Callback(HttpReque
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsigndiscussionCreateObjectV1SignalError(output, error_type, error_str);
-        emit ezsigndiscussionCreateObjectV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsigndiscussionCreateObjectV1SignalError(output, error_type, error_str);
+        Q_EMIT ezsigndiscussionCreateObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -365,7 +365,7 @@ void ObjectEzsigndiscussionApi::ezsigndiscussionDeleteObjectV1(const qint32 &pki
     connect(this, &ObjectEzsigndiscussionApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -383,8 +383,8 @@ void ObjectEzsigndiscussionApi::ezsigndiscussionDeleteObjectV1Callback(HttpReque
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsigndiscussionDeleteObjectV1Signal(output);
-        emit ezsigndiscussionDeleteObjectV1SignalFull(worker, output);
+        Q_EMIT ezsigndiscussionDeleteObjectV1Signal(output);
+        Q_EMIT ezsigndiscussionDeleteObjectV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -401,8 +401,8 @@ void ObjectEzsigndiscussionApi::ezsigndiscussionDeleteObjectV1Callback(HttpReque
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsigndiscussionDeleteObjectV1SignalE(output, error_type, error_str);
-        emit ezsigndiscussionDeleteObjectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsigndiscussionDeleteObjectV1SignalE(output, error_type, error_str);
+        Q_EMIT ezsigndiscussionDeleteObjectV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -412,8 +412,8 @@ void ObjectEzsigndiscussionApi::ezsigndiscussionDeleteObjectV1Callback(HttpReque
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsigndiscussionDeleteObjectV1SignalError(output, error_type, error_str);
-        emit ezsigndiscussionDeleteObjectV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsigndiscussionDeleteObjectV1SignalError(output, error_type, error_str);
+        Q_EMIT ezsigndiscussionDeleteObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -458,7 +458,7 @@ void ObjectEzsigndiscussionApi::ezsigndiscussionGetObjectV2(const qint32 &pki_ez
     connect(this, &ObjectEzsigndiscussionApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -476,8 +476,8 @@ void ObjectEzsigndiscussionApi::ezsigndiscussionGetObjectV2Callback(HttpRequestW
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsigndiscussionGetObjectV2Signal(output);
-        emit ezsigndiscussionGetObjectV2SignalFull(worker, output);
+        Q_EMIT ezsigndiscussionGetObjectV2Signal(output);
+        Q_EMIT ezsigndiscussionGetObjectV2SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -494,8 +494,8 @@ void ObjectEzsigndiscussionApi::ezsigndiscussionGetObjectV2Callback(HttpRequestW
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsigndiscussionGetObjectV2SignalE(output, error_type, error_str);
-        emit ezsigndiscussionGetObjectV2SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsigndiscussionGetObjectV2SignalE(output, error_type, error_str);
+        Q_EMIT ezsigndiscussionGetObjectV2SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -505,8 +505,8 @@ void ObjectEzsigndiscussionApi::ezsigndiscussionGetObjectV2Callback(HttpRequestW
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsigndiscussionGetObjectV2SignalError(output, error_type, error_str);
-        emit ezsigndiscussionGetObjectV2SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsigndiscussionGetObjectV2SignalError(output, error_type, error_str);
+        Q_EMIT ezsigndiscussionGetObjectV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 

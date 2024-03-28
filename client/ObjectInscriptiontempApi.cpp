@@ -170,7 +170,7 @@ void ObjectInscriptiontempApi::enableResponseCompression() {
 }
 
 void ObjectInscriptiontempApi::abortRequests() {
-    emit abortRequestsSignal();
+    Q_EMIT abortRequestsSignal();
 }
 
 QString ObjectInscriptiontempApi::getParamStylePrefix(const QString &style) {
@@ -277,7 +277,7 @@ void ObjectInscriptiontempApi::inscriptiontempGetCommunicationListV1(const qint3
     connect(this, &ObjectInscriptiontempApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -295,8 +295,8 @@ void ObjectInscriptiontempApi::inscriptiontempGetCommunicationListV1Callback(Htt
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit inscriptiontempGetCommunicationListV1Signal(output);
-        emit inscriptiontempGetCommunicationListV1SignalFull(worker, output);
+        Q_EMIT inscriptiontempGetCommunicationListV1Signal(output);
+        Q_EMIT inscriptiontempGetCommunicationListV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -313,8 +313,8 @@ void ObjectInscriptiontempApi::inscriptiontempGetCommunicationListV1Callback(Htt
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit inscriptiontempGetCommunicationListV1SignalE(output, error_type, error_str);
-        emit inscriptiontempGetCommunicationListV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT inscriptiontempGetCommunicationListV1SignalE(output, error_type, error_str);
+        Q_EMIT inscriptiontempGetCommunicationListV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -324,8 +324,8 @@ void ObjectInscriptiontempApi::inscriptiontempGetCommunicationListV1Callback(Htt
 #pragma GCC diagnostic pop
 #endif
 
-        emit inscriptiontempGetCommunicationListV1SignalError(output, error_type, error_str);
-        emit inscriptiontempGetCommunicationListV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT inscriptiontempGetCommunicationListV1SignalError(output, error_type, error_str);
+        Q_EMIT inscriptiontempGetCommunicationListV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

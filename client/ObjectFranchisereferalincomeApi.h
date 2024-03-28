@@ -18,8 +18,6 @@
 #include "ServerConfiguration.h"
 #include "Oauth.h"
 
-#include "Franchisereferalincome_createObject_v1_Request.h"
-#include "Franchisereferalincome_createObject_v1_Response.h"
 #include "Franchisereferalincome_createObject_v2_Request.h"
 #include "Franchisereferalincome_createObject_v2_Response.h"
 #include <QString>
@@ -61,11 +59,6 @@ public:
     QString getParamStyleDelimiter(const QString &style, const QString &name, bool isExplode);
 
     /**
-    * @param[in]  franchisereferalincome_create_object_v1_request QList<Franchisereferalincome_createObject_v1_Request> [required]
-    */
-    Q_DECL_DEPRECATED void franchisereferalincomeCreateObjectV1(const QList<Franchisereferalincome_createObject_v1_Request> &franchisereferalincome_create_object_v1_request);
-
-    /**
     * @param[in]  franchisereferalincome_create_object_v2_request Franchisereferalincome_createObject_v2_Request [required]
     */
     void franchisereferalincomeCreateObjectV2(const Franchisereferalincome_createObject_v2_Request &franchisereferalincome_create_object_v2_request);
@@ -93,27 +86,18 @@ private:
     OauthPassword _passwordFlow;
     int _OauthMethod = 0;
 
-    void franchisereferalincomeCreateObjectV1Callback(HttpRequestWorker *worker);
     void franchisereferalincomeCreateObjectV2Callback(HttpRequestWorker *worker);
 
-signals:
+Q_SIGNALS:
 
-    void franchisereferalincomeCreateObjectV1Signal(Franchisereferalincome_createObject_v1_Response summary);
     void franchisereferalincomeCreateObjectV2Signal(Franchisereferalincome_createObject_v2_Response summary);
 
-    void franchisereferalincomeCreateObjectV1SignalFull(HttpRequestWorker *worker, Franchisereferalincome_createObject_v1_Response summary);
     void franchisereferalincomeCreateObjectV2SignalFull(HttpRequestWorker *worker, Franchisereferalincome_createObject_v2_Response summary);
 
-    Q_DECL_DEPRECATED_X("Use franchisereferalincomeCreateObjectV1SignalError() instead")
-    void franchisereferalincomeCreateObjectV1SignalE(Franchisereferalincome_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void franchisereferalincomeCreateObjectV1SignalError(Franchisereferalincome_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use franchisereferalincomeCreateObjectV2SignalError() instead")
     void franchisereferalincomeCreateObjectV2SignalE(Franchisereferalincome_createObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void franchisereferalincomeCreateObjectV2SignalError(Franchisereferalincome_createObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
-    Q_DECL_DEPRECATED_X("Use franchisereferalincomeCreateObjectV1SignalErrorFull() instead")
-    void franchisereferalincomeCreateObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
-    void franchisereferalincomeCreateObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use franchisereferalincomeCreateObjectV2SignalErrorFull() instead")
     void franchisereferalincomeCreateObjectV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void franchisereferalincomeCreateObjectV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -121,7 +105,7 @@ signals:
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
-public slots:
+public Q_SLOTS:
     void tokenAvailable();
 };
 

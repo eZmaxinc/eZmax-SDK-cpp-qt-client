@@ -53,6 +53,11 @@ public:
     bool is_fki_user_id_Set() const;
     bool is_fki_user_id_Valid() const;
 
+    qint32 getFkiUsergroupexternalId() const;
+    void setFkiUsergroupexternalId(const qint32 &fki_usergroupexternal_id);
+    bool is_fki_usergroupexternal_id_Set() const;
+    bool is_fki_usergroupexternal_id_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -70,6 +75,10 @@ private:
     qint32 m_fki_user_id;
     bool m_fki_user_id_isSet;
     bool m_fki_user_id_isValid;
+
+    qint32 m_fki_usergroupexternal_id;
+    bool m_fki_usergroupexternal_id_isSet;
+    bool m_fki_usergroupexternal_id_isValid;
 };
 
 } // namespace Ezmaxapi

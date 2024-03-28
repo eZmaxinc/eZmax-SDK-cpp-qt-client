@@ -22,6 +22,7 @@
 #include <QJsonObject>
 
 #include "Field_eSystemconfigurationEzsign.h"
+#include "Field_eSystemconfigurationEzsignofficeplan.h"
 #include "Field_eSystemconfigurationLanguage1.h"
 #include "Field_eSystemconfigurationLanguage2.h"
 #include "Field_eSystemconfigurationNewexternaluseraction.h"
@@ -63,10 +64,20 @@ public:
     bool is_e_systemconfiguration_language2_Set() const;
     bool is_e_systemconfiguration_language2_Valid() const;
 
-    Field_eSystemconfigurationEzsign getESystemconfigurationEzsign() const;
-    void setESystemconfigurationEzsign(const Field_eSystemconfigurationEzsign &e_systemconfiguration_ezsign);
-    bool is_e_systemconfiguration_ezsign_Set() const;
-    bool is_e_systemconfiguration_ezsign_Valid() const;
+    Q_DECL_DEPRECATED Field_eSystemconfigurationEzsign getESystemconfigurationEzsign() const;
+    Q_DECL_DEPRECATED void setESystemconfigurationEzsign(const Field_eSystemconfigurationEzsign &e_systemconfiguration_ezsign);
+    Q_DECL_DEPRECATED bool is_e_systemconfiguration_ezsign_Set() const;
+    Q_DECL_DEPRECATED bool is_e_systemconfiguration_ezsign_Valid() const;
+
+    Field_eSystemconfigurationEzsignofficeplan getESystemconfigurationEzsignofficeplan() const;
+    void setESystemconfigurationEzsignofficeplan(const Field_eSystemconfigurationEzsignofficeplan &e_systemconfiguration_ezsignofficeplan);
+    bool is_e_systemconfiguration_ezsignofficeplan_Set() const;
+    bool is_e_systemconfiguration_ezsignofficeplan_Valid() const;
+
+    bool isBSystemconfigurationEzsignpaidbyoffice() const;
+    void setBSystemconfigurationEzsignpaidbyoffice(const bool &b_systemconfiguration_ezsignpaidbyoffice);
+    bool is_b_systemconfiguration_ezsignpaidbyoffice_Set() const;
+    bool is_b_systemconfiguration_ezsignpaidbyoffice_Valid() const;
 
     bool isBSystemconfigurationEzsignpersonnal() const;
     void setBSystemconfigurationEzsignpersonnal(const bool &b_systemconfiguration_ezsignpersonnal);
@@ -113,6 +124,14 @@ private:
     Field_eSystemconfigurationEzsign m_e_systemconfiguration_ezsign;
     bool m_e_systemconfiguration_ezsign_isSet;
     bool m_e_systemconfiguration_ezsign_isValid;
+
+    Field_eSystemconfigurationEzsignofficeplan m_e_systemconfiguration_ezsignofficeplan;
+    bool m_e_systemconfiguration_ezsignofficeplan_isSet;
+    bool m_e_systemconfiguration_ezsignofficeplan_isValid;
+
+    bool m_b_systemconfiguration_ezsignpaidbyoffice;
+    bool m_b_systemconfiguration_ezsignpaidbyoffice_isSet;
+    bool m_b_systemconfiguration_ezsignpaidbyoffice_isValid;
 
     bool m_b_systemconfiguration_ezsignpersonnal;
     bool m_b_systemconfiguration_ezsignpersonnal_isSet;

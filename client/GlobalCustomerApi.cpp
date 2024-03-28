@@ -170,7 +170,7 @@ void GlobalCustomerApi::enableResponseCompression() {
 }
 
 void GlobalCustomerApi::abortRequests() {
-    emit abortRequestsSignal();
+    Q_EMIT abortRequestsSignal();
 }
 
 QString GlobalCustomerApi::getParamStylePrefix(const QString &style) {
@@ -267,7 +267,7 @@ void GlobalCustomerApi::globalCustomerGetEndpointV1(const QString &pks_customer_
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("sInfrastructureproductCode")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_infrastructureproduct_code.value())));
+        fullPath.append(QUrl::toPercentEncoding("sInfrastructureproductCode")).append(querySuffix).append(QUrl::toPercentEncoding(s_infrastructureproduct_code.stringValue()));
     }
     HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -289,7 +289,7 @@ void GlobalCustomerApi::globalCustomerGetEndpointV1(const QString &pks_customer_
     connect(this, &GlobalCustomerApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -307,8 +307,8 @@ void GlobalCustomerApi::globalCustomerGetEndpointV1Callback(HttpRequestWorker *w
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit globalCustomerGetEndpointV1Signal(output);
-        emit globalCustomerGetEndpointV1SignalFull(worker, output);
+        Q_EMIT globalCustomerGetEndpointV1Signal(output);
+        Q_EMIT globalCustomerGetEndpointV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -325,8 +325,8 @@ void GlobalCustomerApi::globalCustomerGetEndpointV1Callback(HttpRequestWorker *w
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit globalCustomerGetEndpointV1SignalE(output, error_type, error_str);
-        emit globalCustomerGetEndpointV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT globalCustomerGetEndpointV1SignalE(output, error_type, error_str);
+        Q_EMIT globalCustomerGetEndpointV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -336,8 +336,8 @@ void GlobalCustomerApi::globalCustomerGetEndpointV1Callback(HttpRequestWorker *w
 #pragma GCC diagnostic pop
 #endif
 
-        emit globalCustomerGetEndpointV1SignalError(output, error_type, error_str);
-        emit globalCustomerGetEndpointV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT globalCustomerGetEndpointV1SignalError(output, error_type, error_str);
+        Q_EMIT globalCustomerGetEndpointV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

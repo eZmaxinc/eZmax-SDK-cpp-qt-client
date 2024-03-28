@@ -59,8 +59,6 @@ void ObjectWebhookApi::initializeServerConfigs() {
     {"sInfrastructureregionCode", ServerVariable("The region where your services are hosted.","ca-central-1",
     QSet<QString>{ {"ca-central-1"} })}, }));
     
-    _serverConfigs.insert("webhookCreateObjectV1", defaultConf);
-    _serverIndices.insert("webhookCreateObjectV1", 0);
     _serverConfigs.insert("webhookCreateObjectV2", defaultConf);
     _serverIndices.insert("webhookCreateObjectV2", 0);
     _serverConfigs.insert("webhookDeleteObjectV1", defaultConf);
@@ -186,7 +184,7 @@ void ObjectWebhookApi::enableResponseCompression() {
 }
 
 void ObjectWebhookApi::abortRequests() {
-    emit abortRequestsSignal();
+    Q_EMIT abortRequestsSignal();
 }
 
 QString ObjectWebhookApi::getParamStylePrefix(const QString &style) {
@@ -252,90 +250,6 @@ QString ObjectWebhookApi::getParamStyleDelimiter(const QString &style, const QSt
     }
 }
 
-void ObjectWebhookApi::webhookCreateObjectV1(const Webhook_createObject_v1_Request &webhook_create_object_v1_request) {
-    QString fullPath = QString(_serverConfigs["webhookCreateObjectV1"][_serverIndices.value("webhookCreateObjectV1")].URL()+"/1/object/webhook");
-    
-    if (_apiKeys.contains("Authorization")) {
-        addHeaders("Authorization",_apiKeys.find("Authorization").value());
-    }
-    
-    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
-    worker->setTimeOut(_timeOut);
-    worker->setWorkingDirectory(_workingDirectory);
-    HttpRequestInput input(fullPath, "POST");
-
-    {
-
-        
-        QByteArray output = webhook_create_object_v1_request.asJson().toUtf8();
-        input.request_body.append(output);
-    }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
-    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
-        input.headers.insert(keyValueIt->first, keyValueIt->second);
-    }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
-
-    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectWebhookApi::webhookCreateObjectV1Callback);
-    connect(this, &ObjectWebhookApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
-        if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
-        }
-    });
-
-    worker->execute(&input);
-}
-
-void ObjectWebhookApi::webhookCreateObjectV1Callback(HttpRequestWorker *worker) {
-    QString error_str = worker->error_str;
-    QNetworkReply::NetworkError error_type = worker->error_type;
-
-    if (worker->error_type != QNetworkReply::NoError) {
-        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
-    }
-    Webhook_createObject_v1_Response output(QString(worker->response));
-    worker->deleteLater();
-
-    if (worker->error_type == QNetworkReply::NoError) {
-        emit webhookCreateObjectV1Signal(output);
-        emit webhookCreateObjectV1SignalFull(worker, output);
-    } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        emit webhookCreateObjectV1SignalE(output, error_type, error_str);
-        emit webhookCreateObjectV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
-        emit webhookCreateObjectV1SignalError(output, error_type, error_str);
-        emit webhookCreateObjectV1SignalErrorFull(worker, error_type, error_str);
-    }
-}
-
 void ObjectWebhookApi::webhookCreateObjectV2(const Webhook_createObject_v2_Request &webhook_create_object_v2_request) {
     QString fullPath = QString(_serverConfigs["webhookCreateObjectV2"][_serverIndices.value("webhookCreateObjectV2")].URL()+"/2/object/webhook");
     
@@ -368,7 +282,7 @@ void ObjectWebhookApi::webhookCreateObjectV2(const Webhook_createObject_v2_Reque
     connect(this, &ObjectWebhookApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -386,8 +300,8 @@ void ObjectWebhookApi::webhookCreateObjectV2Callback(HttpRequestWorker *worker) 
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit webhookCreateObjectV2Signal(output);
-        emit webhookCreateObjectV2SignalFull(worker, output);
+        Q_EMIT webhookCreateObjectV2Signal(output);
+        Q_EMIT webhookCreateObjectV2SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -404,8 +318,8 @@ void ObjectWebhookApi::webhookCreateObjectV2Callback(HttpRequestWorker *worker) 
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit webhookCreateObjectV2SignalE(output, error_type, error_str);
-        emit webhookCreateObjectV2SignalEFull(worker, error_type, error_str);
+        Q_EMIT webhookCreateObjectV2SignalE(output, error_type, error_str);
+        Q_EMIT webhookCreateObjectV2SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -415,8 +329,8 @@ void ObjectWebhookApi::webhookCreateObjectV2Callback(HttpRequestWorker *worker) 
 #pragma GCC diagnostic pop
 #endif
 
-        emit webhookCreateObjectV2SignalError(output, error_type, error_str);
-        emit webhookCreateObjectV2SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT webhookCreateObjectV2SignalError(output, error_type, error_str);
+        Q_EMIT webhookCreateObjectV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -461,7 +375,7 @@ void ObjectWebhookApi::webhookDeleteObjectV1(const qint32 &pki_webhook_id) {
     connect(this, &ObjectWebhookApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -479,8 +393,8 @@ void ObjectWebhookApi::webhookDeleteObjectV1Callback(HttpRequestWorker *worker) 
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit webhookDeleteObjectV1Signal(output);
-        emit webhookDeleteObjectV1SignalFull(worker, output);
+        Q_EMIT webhookDeleteObjectV1Signal(output);
+        Q_EMIT webhookDeleteObjectV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -497,8 +411,8 @@ void ObjectWebhookApi::webhookDeleteObjectV1Callback(HttpRequestWorker *worker) 
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit webhookDeleteObjectV1SignalE(output, error_type, error_str);
-        emit webhookDeleteObjectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT webhookDeleteObjectV1SignalE(output, error_type, error_str);
+        Q_EMIT webhookDeleteObjectV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -508,8 +422,8 @@ void ObjectWebhookApi::webhookDeleteObjectV1Callback(HttpRequestWorker *worker) 
 #pragma GCC diagnostic pop
 #endif
 
-        emit webhookDeleteObjectV1SignalError(output, error_type, error_str);
-        emit webhookDeleteObjectV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT webhookDeleteObjectV1SignalError(output, error_type, error_str);
+        Q_EMIT webhookDeleteObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -559,7 +473,7 @@ void ObjectWebhookApi::webhookEditObjectV1(const qint32 &pki_webhook_id, const W
     connect(this, &ObjectWebhookApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -577,8 +491,8 @@ void ObjectWebhookApi::webhookEditObjectV1Callback(HttpRequestWorker *worker) {
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit webhookEditObjectV1Signal(output);
-        emit webhookEditObjectV1SignalFull(worker, output);
+        Q_EMIT webhookEditObjectV1Signal(output);
+        Q_EMIT webhookEditObjectV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -595,8 +509,8 @@ void ObjectWebhookApi::webhookEditObjectV1Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit webhookEditObjectV1SignalE(output, error_type, error_str);
-        emit webhookEditObjectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT webhookEditObjectV1SignalE(output, error_type, error_str);
+        Q_EMIT webhookEditObjectV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -606,8 +520,8 @@ void ObjectWebhookApi::webhookEditObjectV1Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic pop
 #endif
 
-        emit webhookEditObjectV1SignalError(output, error_type, error_str);
-        emit webhookEditObjectV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT webhookEditObjectV1SignalError(output, error_type, error_str);
+        Q_EMIT webhookEditObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -646,7 +560,7 @@ void ObjectWebhookApi::webhookGetHistoryV1(const qint32 &pki_webhook_id, const Q
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("eWebhookHistoryinterval")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(e_webhook_historyinterval)));
+        fullPath.append(QUrl::toPercentEncoding("eWebhookHistoryinterval")).append(querySuffix).append(QUrl::toPercentEncoding(e_webhook_historyinterval));
     }
     HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -668,7 +582,7 @@ void ObjectWebhookApi::webhookGetHistoryV1(const qint32 &pki_webhook_id, const Q
     connect(this, &ObjectWebhookApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -686,8 +600,8 @@ void ObjectWebhookApi::webhookGetHistoryV1Callback(HttpRequestWorker *worker) {
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit webhookGetHistoryV1Signal(output);
-        emit webhookGetHistoryV1SignalFull(worker, output);
+        Q_EMIT webhookGetHistoryV1Signal(output);
+        Q_EMIT webhookGetHistoryV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -704,8 +618,8 @@ void ObjectWebhookApi::webhookGetHistoryV1Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit webhookGetHistoryV1SignalE(output, error_type, error_str);
-        emit webhookGetHistoryV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT webhookGetHistoryV1SignalE(output, error_type, error_str);
+        Q_EMIT webhookGetHistoryV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -715,8 +629,8 @@ void ObjectWebhookApi::webhookGetHistoryV1Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic pop
 #endif
 
-        emit webhookGetHistoryV1SignalError(output, error_type, error_str);
-        emit webhookGetHistoryV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT webhookGetHistoryV1SignalError(output, error_type, error_str);
+        Q_EMIT webhookGetHistoryV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -741,7 +655,7 @@ void ObjectWebhookApi::webhookGetListV1(const ::Ezmaxapi::OptionalParam<QString>
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("eOrderBy")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(e_order_by.value())));
+        fullPath.append(QUrl::toPercentEncoding("eOrderBy")).append(querySuffix).append(QUrl::toPercentEncoding(e_order_by.stringValue()));
     }
     if (i_row_max.hasValue())
     {
@@ -756,7 +670,7 @@ void ObjectWebhookApi::webhookGetListV1(const ::Ezmaxapi::OptionalParam<QString>
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("iRowMax")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(i_row_max.value())));
+        fullPath.append(QUrl::toPercentEncoding("iRowMax")).append(querySuffix).append(QUrl::toPercentEncoding(i_row_max.stringValue()));
     }
     if (i_row_offset.hasValue())
     {
@@ -771,7 +685,7 @@ void ObjectWebhookApi::webhookGetListV1(const ::Ezmaxapi::OptionalParam<QString>
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("iRowOffset")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(i_row_offset.value())));
+        fullPath.append(QUrl::toPercentEncoding("iRowOffset")).append(querySuffix).append(QUrl::toPercentEncoding(i_row_offset.stringValue()));
     }
     if (s_filter.hasValue())
     {
@@ -786,7 +700,7 @@ void ObjectWebhookApi::webhookGetListV1(const ::Ezmaxapi::OptionalParam<QString>
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("sFilter")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_filter.value())));
+        fullPath.append(QUrl::toPercentEncoding("sFilter")).append(querySuffix).append(QUrl::toPercentEncoding(s_filter.stringValue()));
     }
     HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -852,7 +766,7 @@ void ObjectWebhookApi::webhookGetListV1(const ::Ezmaxapi::OptionalParam<QString>
     connect(this, &ObjectWebhookApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -870,8 +784,8 @@ void ObjectWebhookApi::webhookGetListV1Callback(HttpRequestWorker *worker) {
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit webhookGetListV1Signal(output);
-        emit webhookGetListV1SignalFull(worker, output);
+        Q_EMIT webhookGetListV1Signal(output);
+        Q_EMIT webhookGetListV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -888,8 +802,8 @@ void ObjectWebhookApi::webhookGetListV1Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit webhookGetListV1SignalE(output, error_type, error_str);
-        emit webhookGetListV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT webhookGetListV1SignalE(output, error_type, error_str);
+        Q_EMIT webhookGetListV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -899,8 +813,8 @@ void ObjectWebhookApi::webhookGetListV1Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic pop
 #endif
 
-        emit webhookGetListV1SignalError(output, error_type, error_str);
-        emit webhookGetListV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT webhookGetListV1SignalError(output, error_type, error_str);
+        Q_EMIT webhookGetListV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -945,7 +859,7 @@ void ObjectWebhookApi::webhookGetObjectV2(const qint32 &pki_webhook_id) {
     connect(this, &ObjectWebhookApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -963,8 +877,8 @@ void ObjectWebhookApi::webhookGetObjectV2Callback(HttpRequestWorker *worker) {
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit webhookGetObjectV2Signal(output);
-        emit webhookGetObjectV2SignalFull(worker, output);
+        Q_EMIT webhookGetObjectV2Signal(output);
+        Q_EMIT webhookGetObjectV2SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -981,8 +895,8 @@ void ObjectWebhookApi::webhookGetObjectV2Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit webhookGetObjectV2SignalE(output, error_type, error_str);
-        emit webhookGetObjectV2SignalEFull(worker, error_type, error_str);
+        Q_EMIT webhookGetObjectV2SignalE(output, error_type, error_str);
+        Q_EMIT webhookGetObjectV2SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -992,8 +906,8 @@ void ObjectWebhookApi::webhookGetObjectV2Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic pop
 #endif
 
-        emit webhookGetObjectV2SignalError(output, error_type, error_str);
-        emit webhookGetObjectV2SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT webhookGetObjectV2SignalError(output, error_type, error_str);
+        Q_EMIT webhookGetObjectV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -1043,7 +957,7 @@ void ObjectWebhookApi::webhookRegenerateApikeyV1(const qint32 &pki_webhook_id, c
     connect(this, &ObjectWebhookApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -1061,8 +975,8 @@ void ObjectWebhookApi::webhookRegenerateApikeyV1Callback(HttpRequestWorker *work
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit webhookRegenerateApikeyV1Signal(output);
-        emit webhookRegenerateApikeyV1SignalFull(worker, output);
+        Q_EMIT webhookRegenerateApikeyV1Signal(output);
+        Q_EMIT webhookRegenerateApikeyV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -1079,8 +993,8 @@ void ObjectWebhookApi::webhookRegenerateApikeyV1Callback(HttpRequestWorker *work
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit webhookRegenerateApikeyV1SignalE(output, error_type, error_str);
-        emit webhookRegenerateApikeyV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT webhookRegenerateApikeyV1SignalE(output, error_type, error_str);
+        Q_EMIT webhookRegenerateApikeyV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -1090,8 +1004,8 @@ void ObjectWebhookApi::webhookRegenerateApikeyV1Callback(HttpRequestWorker *work
 #pragma GCC diagnostic pop
 #endif
 
-        emit webhookRegenerateApikeyV1SignalError(output, error_type, error_str);
-        emit webhookRegenerateApikeyV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT webhookRegenerateApikeyV1SignalError(output, error_type, error_str);
+        Q_EMIT webhookRegenerateApikeyV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -1141,7 +1055,7 @@ void ObjectWebhookApi::webhookTestV1(const qint32 &pki_webhook_id, const Object 
     connect(this, &ObjectWebhookApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -1159,8 +1073,8 @@ void ObjectWebhookApi::webhookTestV1Callback(HttpRequestWorker *worker) {
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit webhookTestV1Signal(output);
-        emit webhookTestV1SignalFull(worker, output);
+        Q_EMIT webhookTestV1Signal(output);
+        Q_EMIT webhookTestV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -1177,8 +1091,8 @@ void ObjectWebhookApi::webhookTestV1Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit webhookTestV1SignalE(output, error_type, error_str);
-        emit webhookTestV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT webhookTestV1SignalE(output, error_type, error_str);
+        Q_EMIT webhookTestV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -1188,8 +1102,8 @@ void ObjectWebhookApi::webhookTestV1Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic pop
 #endif
 
-        emit webhookTestV1SignalError(output, error_type, error_str);
-        emit webhookTestV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT webhookTestV1SignalError(output, error_type, error_str);
+        Q_EMIT webhookTestV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

@@ -59,8 +59,6 @@ void ObjectEzmaxinvoicingApi::initializeServerConfigs() {
     {"sInfrastructureregionCode", ServerVariable("The region where your services are hosted.","ca-central-1",
     QSet<QString>{ {"ca-central-1"} })}, }));
     
-    _serverConfigs.insert("ezmaxinvoicingGetAutocompleteV1", defaultConf);
-    _serverIndices.insert("ezmaxinvoicingGetAutocompleteV1", 0);
     _serverConfigs.insert("ezmaxinvoicingGetAutocompleteV2", defaultConf);
     _serverIndices.insert("ezmaxinvoicingGetAutocompleteV2", 0);
     _serverConfigs.insert("ezmaxinvoicingGetObjectV2", defaultConf);
@@ -176,7 +174,7 @@ void ObjectEzmaxinvoicingApi::enableResponseCompression() {
 }
 
 void ObjectEzmaxinvoicingApi::abortRequests() {
-    emit abortRequestsSignal();
+    Q_EMIT abortRequestsSignal();
 }
 
 QString ObjectEzmaxinvoicingApi::getParamStylePrefix(const QString &style) {
@@ -242,174 +240,6 @@ QString ObjectEzmaxinvoicingApi::getParamStyleDelimiter(const QString &style, co
     }
 }
 
-void ObjectEzmaxinvoicingApi::ezmaxinvoicingGetAutocompleteV1(const QString &s_selector, const ::Ezmaxapi::OptionalParam<QString> &e_filter_active, const ::Ezmaxapi::OptionalParam<QString> &s_query, const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language) {
-    QString fullPath = QString(_serverConfigs["ezmaxinvoicingGetAutocompleteV1"][_serverIndices.value("ezmaxinvoicingGetAutocompleteV1")].URL()+"/1/object/ezmaxinvoicing/getAutocomplete/{sSelector}");
-    
-    if (_apiKeys.contains("Authorization")) {
-        addHeaders("Authorization",_apiKeys.find("Authorization").value());
-    }
-    
-    
-    {
-        QString s_selectorPathParam("{");
-        s_selectorPathParam.append("sSelector").append("}");
-        QString pathPrefix, pathSuffix, pathDelimiter;
-        QString pathStyle = "simple";
-        if (pathStyle == "")
-            pathStyle = "simple";
-        pathPrefix = getParamStylePrefix(pathStyle);
-        pathSuffix = getParamStyleSuffix(pathStyle);
-        pathDelimiter = getParamStyleDelimiter(pathStyle, "sSelector", false);
-        QString paramString = (pathStyle == "matrix") ? pathPrefix+"sSelector"+pathSuffix : pathPrefix;
-        fullPath.replace(s_selectorPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_selector)));
-    }
-    QString queryPrefix, querySuffix, queryDelimiter, queryStyle;
-    if (e_filter_active.hasValue())
-    {
-        queryStyle = "form";
-        if (queryStyle == "")
-            queryStyle = "form";
-        queryPrefix = getParamStylePrefix(queryStyle);
-        querySuffix = getParamStyleSuffix(queryStyle);
-        queryDelimiter = getParamStyleDelimiter(queryStyle, "eFilterActive", true);
-        if (fullPath.indexOf("?") > 0)
-            fullPath.append(queryPrefix);
-        else
-            fullPath.append("?");
-
-        fullPath.append(QUrl::toPercentEncoding("eFilterActive")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(e_filter_active.value())));
-    }
-    if (s_query.hasValue())
-    {
-        queryStyle = "form";
-        if (queryStyle == "")
-            queryStyle = "form";
-        queryPrefix = getParamStylePrefix(queryStyle);
-        querySuffix = getParamStyleSuffix(queryStyle);
-        queryDelimiter = getParamStyleDelimiter(queryStyle, "sQuery", true);
-        if (fullPath.indexOf("?") > 0)
-            fullPath.append(queryPrefix);
-        else
-            fullPath.append("?");
-
-        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_query.value())));
-    }
-    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
-    worker->setTimeOut(_timeOut);
-    worker->setWorkingDirectory(_workingDirectory);
-    HttpRequestInput input(fullPath, "GET");
-
-
-    if (accept_language.hasValue())
-    {
-        QString headerString;
-        QJsonObject parameter = accept_language.value().asJsonObject();
-        qint32 count = 0;
-        for (const QString& key : parameter.keys()) {
-            if (count > 0) {
-                headerString.append(",");
-            }
-            QString assignOperator = (false) ? "=" : ",";
-            switch(parameter.value(key).type()) {
-                case QJsonValue::String:
-                {
-                    headerString.append(key+assignOperator+parameter.value(key).toString());
-                    break;
-                }
-                case QJsonValue::Double:
-                {
-                    headerString.append(key+assignOperator+QString::number(parameter.value(key).toDouble()));
-                    break;
-                }
-                case QJsonValue::Bool:
-                {
-                    headerString.append(key+assignOperator+QVariant(parameter.value(key).toBool()).toString());
-                    break;
-                }
-                case QJsonValue::Array:
-                {
-                    headerString.append(key+assignOperator+QVariant(parameter.value(key).toArray()).toString());
-                    break;
-                }
-                case QJsonValue::Object:
-                {
-                    headerString.append(key+assignOperator+QVariant(parameter.value(key).toObject()).toString());
-                    break;
-                }
-                case QJsonValue::Null:
-                case QJsonValue::Undefined:
-                    break;
-            }
-            count++;
-        }
-        input.headers.insert("Accept-Language", headerString);
-    }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
-    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
-        input.headers.insert(keyValueIt->first, keyValueIt->second);
-    }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
-
-    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzmaxinvoicingApi::ezmaxinvoicingGetAutocompleteV1Callback);
-    connect(this, &ObjectEzmaxinvoicingApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
-        if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
-        }
-    });
-
-    worker->execute(&input);
-}
-
-void ObjectEzmaxinvoicingApi::ezmaxinvoicingGetAutocompleteV1Callback(HttpRequestWorker *worker) {
-    QString error_str = worker->error_str;
-    QNetworkReply::NetworkError error_type = worker->error_type;
-
-    if (worker->error_type != QNetworkReply::NoError) {
-        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
-    }
-    Common_getAutocomplete_v1_Response output(QString(worker->response));
-    worker->deleteLater();
-
-    if (worker->error_type == QNetworkReply::NoError) {
-        emit ezmaxinvoicingGetAutocompleteV1Signal(output);
-        emit ezmaxinvoicingGetAutocompleteV1SignalFull(worker, output);
-    } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        emit ezmaxinvoicingGetAutocompleteV1SignalE(output, error_type, error_str);
-        emit ezmaxinvoicingGetAutocompleteV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
-        emit ezmaxinvoicingGetAutocompleteV1SignalError(output, error_type, error_str);
-        emit ezmaxinvoicingGetAutocompleteV1SignalErrorFull(worker, error_type, error_str);
-    }
-}
-
 void ObjectEzmaxinvoicingApi::ezmaxinvoicingGetAutocompleteV2(const QString &s_selector, const ::Ezmaxapi::OptionalParam<QString> &e_filter_active, const ::Ezmaxapi::OptionalParam<QString> &s_query, const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language) {
     QString fullPath = QString(_serverConfigs["ezmaxinvoicingGetAutocompleteV2"][_serverIndices.value("ezmaxinvoicingGetAutocompleteV2")].URL()+"/2/object/ezmaxinvoicing/getAutocomplete/{sSelector}");
     
@@ -445,7 +275,7 @@ void ObjectEzmaxinvoicingApi::ezmaxinvoicingGetAutocompleteV2(const QString &s_s
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("eFilterActive")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(e_filter_active.value())));
+        fullPath.append(QUrl::toPercentEncoding("eFilterActive")).append(querySuffix).append(QUrl::toPercentEncoding(e_filter_active.stringValue()));
     }
     if (s_query.hasValue())
     {
@@ -460,7 +290,7 @@ void ObjectEzmaxinvoicingApi::ezmaxinvoicingGetAutocompleteV2(const QString &s_s
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_query.value())));
+        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(s_query.stringValue()));
     }
     HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -526,7 +356,7 @@ void ObjectEzmaxinvoicingApi::ezmaxinvoicingGetAutocompleteV2(const QString &s_s
     connect(this, &ObjectEzmaxinvoicingApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -544,8 +374,8 @@ void ObjectEzmaxinvoicingApi::ezmaxinvoicingGetAutocompleteV2Callback(HttpReques
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezmaxinvoicingGetAutocompleteV2Signal(output);
-        emit ezmaxinvoicingGetAutocompleteV2SignalFull(worker, output);
+        Q_EMIT ezmaxinvoicingGetAutocompleteV2Signal(output);
+        Q_EMIT ezmaxinvoicingGetAutocompleteV2SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -562,8 +392,8 @@ void ObjectEzmaxinvoicingApi::ezmaxinvoicingGetAutocompleteV2Callback(HttpReques
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezmaxinvoicingGetAutocompleteV2SignalE(output, error_type, error_str);
-        emit ezmaxinvoicingGetAutocompleteV2SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezmaxinvoicingGetAutocompleteV2SignalE(output, error_type, error_str);
+        Q_EMIT ezmaxinvoicingGetAutocompleteV2SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -573,8 +403,8 @@ void ObjectEzmaxinvoicingApi::ezmaxinvoicingGetAutocompleteV2Callback(HttpReques
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezmaxinvoicingGetAutocompleteV2SignalError(output, error_type, error_str);
-        emit ezmaxinvoicingGetAutocompleteV2SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezmaxinvoicingGetAutocompleteV2SignalError(output, error_type, error_str);
+        Q_EMIT ezmaxinvoicingGetAutocompleteV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -619,7 +449,7 @@ void ObjectEzmaxinvoicingApi::ezmaxinvoicingGetObjectV2(const qint32 &pki_ezmaxi
     connect(this, &ObjectEzmaxinvoicingApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -637,8 +467,8 @@ void ObjectEzmaxinvoicingApi::ezmaxinvoicingGetObjectV2Callback(HttpRequestWorke
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezmaxinvoicingGetObjectV2Signal(output);
-        emit ezmaxinvoicingGetObjectV2SignalFull(worker, output);
+        Q_EMIT ezmaxinvoicingGetObjectV2Signal(output);
+        Q_EMIT ezmaxinvoicingGetObjectV2SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -655,8 +485,8 @@ void ObjectEzmaxinvoicingApi::ezmaxinvoicingGetObjectV2Callback(HttpRequestWorke
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezmaxinvoicingGetObjectV2SignalE(output, error_type, error_str);
-        emit ezmaxinvoicingGetObjectV2SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezmaxinvoicingGetObjectV2SignalE(output, error_type, error_str);
+        Q_EMIT ezmaxinvoicingGetObjectV2SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -666,8 +496,8 @@ void ObjectEzmaxinvoicingApi::ezmaxinvoicingGetObjectV2Callback(HttpRequestWorke
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezmaxinvoicingGetObjectV2SignalError(output, error_type, error_str);
-        emit ezmaxinvoicingGetObjectV2SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezmaxinvoicingGetObjectV2SignalError(output, error_type, error_str);
+        Q_EMIT ezmaxinvoicingGetObjectV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -698,7 +528,7 @@ void ObjectEzmaxinvoicingApi::ezmaxinvoicingGetProvisionalV1() {
     connect(this, &ObjectEzmaxinvoicingApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -716,8 +546,8 @@ void ObjectEzmaxinvoicingApi::ezmaxinvoicingGetProvisionalV1Callback(HttpRequest
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezmaxinvoicingGetProvisionalV1Signal(output);
-        emit ezmaxinvoicingGetProvisionalV1SignalFull(worker, output);
+        Q_EMIT ezmaxinvoicingGetProvisionalV1Signal(output);
+        Q_EMIT ezmaxinvoicingGetProvisionalV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -734,8 +564,8 @@ void ObjectEzmaxinvoicingApi::ezmaxinvoicingGetProvisionalV1Callback(HttpRequest
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezmaxinvoicingGetProvisionalV1SignalE(output, error_type, error_str);
-        emit ezmaxinvoicingGetProvisionalV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezmaxinvoicingGetProvisionalV1SignalE(output, error_type, error_str);
+        Q_EMIT ezmaxinvoicingGetProvisionalV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -745,8 +575,8 @@ void ObjectEzmaxinvoicingApi::ezmaxinvoicingGetProvisionalV1Callback(HttpRequest
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezmaxinvoicingGetProvisionalV1SignalError(output, error_type, error_str);
-        emit ezmaxinvoicingGetProvisionalV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezmaxinvoicingGetProvisionalV1SignalError(output, error_type, error_str);
+        Q_EMIT ezmaxinvoicingGetProvisionalV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

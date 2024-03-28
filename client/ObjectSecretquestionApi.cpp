@@ -170,7 +170,7 @@ void ObjectSecretquestionApi::enableResponseCompression() {
 }
 
 void ObjectSecretquestionApi::abortRequests() {
-    emit abortRequestsSignal();
+    Q_EMIT abortRequestsSignal();
 }
 
 QString ObjectSecretquestionApi::getParamStylePrefix(const QString &style) {
@@ -271,7 +271,7 @@ void ObjectSecretquestionApi::secretquestionGetAutocompleteV2(const QString &s_s
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("eFilterActive")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(e_filter_active.value())));
+        fullPath.append(QUrl::toPercentEncoding("eFilterActive")).append(querySuffix).append(QUrl::toPercentEncoding(e_filter_active.stringValue()));
     }
     if (s_query.hasValue())
     {
@@ -286,7 +286,7 @@ void ObjectSecretquestionApi::secretquestionGetAutocompleteV2(const QString &s_s
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_query.value())));
+        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(s_query.stringValue()));
     }
     HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -352,7 +352,7 @@ void ObjectSecretquestionApi::secretquestionGetAutocompleteV2(const QString &s_s
     connect(this, &ObjectSecretquestionApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -370,8 +370,8 @@ void ObjectSecretquestionApi::secretquestionGetAutocompleteV2Callback(HttpReques
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit secretquestionGetAutocompleteV2Signal(output);
-        emit secretquestionGetAutocompleteV2SignalFull(worker, output);
+        Q_EMIT secretquestionGetAutocompleteV2Signal(output);
+        Q_EMIT secretquestionGetAutocompleteV2SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -388,8 +388,8 @@ void ObjectSecretquestionApi::secretquestionGetAutocompleteV2Callback(HttpReques
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit secretquestionGetAutocompleteV2SignalE(output, error_type, error_str);
-        emit secretquestionGetAutocompleteV2SignalEFull(worker, error_type, error_str);
+        Q_EMIT secretquestionGetAutocompleteV2SignalE(output, error_type, error_str);
+        Q_EMIT secretquestionGetAutocompleteV2SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -399,8 +399,8 @@ void ObjectSecretquestionApi::secretquestionGetAutocompleteV2Callback(HttpReques
 #pragma GCC diagnostic pop
 #endif
 
-        emit secretquestionGetAutocompleteV2SignalError(output, error_type, error_str);
-        emit secretquestionGetAutocompleteV2SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT secretquestionGetAutocompleteV2SignalError(output, error_type, error_str);
+        Q_EMIT secretquestionGetAutocompleteV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 

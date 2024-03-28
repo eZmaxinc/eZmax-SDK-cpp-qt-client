@@ -66,6 +66,9 @@ void Webhook_RequestCompound::initializeModel() {
 
     m_b_webhook_skipsslvalidation_isSet = false;
     m_b_webhook_skipsslvalidation_isValid = false;
+
+    m_a_obj_webhookheader_isSet = false;
+    m_a_obj_webhookheader_isValid = false;
 }
 
 void Webhook_RequestCompound::fromJson(QString jsonString) {
@@ -109,6 +112,9 @@ void Webhook_RequestCompound::fromJsonObject(QJsonObject json) {
 
     m_b_webhook_skipsslvalidation_isValid = ::Ezmaxapi::fromJsonValue(m_b_webhook_skipsslvalidation, json[QString("bWebhookSkipsslvalidation")]);
     m_b_webhook_skipsslvalidation_isSet = !json[QString("bWebhookSkipsslvalidation")].isNull() && m_b_webhook_skipsslvalidation_isValid;
+
+    m_a_obj_webhookheader_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_webhookheader, json[QString("a_objWebhookheader")]);
+    m_a_obj_webhookheader_isSet = !json[QString("a_objWebhookheader")].isNull() && m_a_obj_webhookheader_isValid;
 }
 
 QString Webhook_RequestCompound::asJson() const {
@@ -152,6 +158,9 @@ QJsonObject Webhook_RequestCompound::asJsonObject() const {
     }
     if (m_b_webhook_skipsslvalidation_isSet) {
         obj.insert(QString("bWebhookSkipsslvalidation"), ::Ezmaxapi::toJsonValue(m_b_webhook_skipsslvalidation));
+    }
+    if (m_a_obj_webhookheader.size() > 0) {
+        obj.insert(QString("a_objWebhookheader"), ::Ezmaxapi::toJsonValue(m_a_obj_webhookheader));
     }
     return obj;
 }
@@ -332,6 +341,22 @@ bool Webhook_RequestCompound::is_b_webhook_skipsslvalidation_Valid() const{
     return m_b_webhook_skipsslvalidation_isValid;
 }
 
+QList<Webhookheader_RequestCompound> Webhook_RequestCompound::getAObjWebhookheader() const {
+    return m_a_obj_webhookheader;
+}
+void Webhook_RequestCompound::setAObjWebhookheader(const QList<Webhookheader_RequestCompound> &a_obj_webhookheader) {
+    m_a_obj_webhookheader = a_obj_webhookheader;
+    m_a_obj_webhookheader_isSet = true;
+}
+
+bool Webhook_RequestCompound::is_a_obj_webhookheader_Set() const{
+    return m_a_obj_webhookheader_isSet;
+}
+
+bool Webhook_RequestCompound::is_a_obj_webhookheader_Valid() const{
+    return m_a_obj_webhookheader_isValid;
+}
+
 bool Webhook_RequestCompound::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -386,6 +411,11 @@ bool Webhook_RequestCompound::isSet() const {
         }
 
         if (m_b_webhook_skipsslvalidation_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_a_obj_webhookheader.size() > 0) {
             isObjectUpdated = true;
             break;
         }

@@ -172,7 +172,7 @@ void ObjectActivesessionApi::enableResponseCompression() {
 }
 
 void ObjectActivesessionApi::abortRequests() {
-    emit abortRequestsSignal();
+    Q_EMIT abortRequestsSignal();
 }
 
 QString ObjectActivesessionApi::getParamStylePrefix(const QString &style) {
@@ -265,7 +265,7 @@ void ObjectActivesessionApi::activesessionGetCurrentV1() {
     connect(this, &ObjectActivesessionApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -283,8 +283,8 @@ void ObjectActivesessionApi::activesessionGetCurrentV1Callback(HttpRequestWorker
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit activesessionGetCurrentV1Signal(output);
-        emit activesessionGetCurrentV1SignalFull(worker, output);
+        Q_EMIT activesessionGetCurrentV1Signal(output);
+        Q_EMIT activesessionGetCurrentV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -301,8 +301,8 @@ void ObjectActivesessionApi::activesessionGetCurrentV1Callback(HttpRequestWorker
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit activesessionGetCurrentV1SignalE(output, error_type, error_str);
-        emit activesessionGetCurrentV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT activesessionGetCurrentV1SignalE(output, error_type, error_str);
+        Q_EMIT activesessionGetCurrentV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -312,8 +312,8 @@ void ObjectActivesessionApi::activesessionGetCurrentV1Callback(HttpRequestWorker
 #pragma GCC diagnostic pop
 #endif
 
-        emit activesessionGetCurrentV1SignalError(output, error_type, error_str);
-        emit activesessionGetCurrentV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT activesessionGetCurrentV1SignalError(output, error_type, error_str);
+        Q_EMIT activesessionGetCurrentV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -338,7 +338,7 @@ void ObjectActivesessionApi::activesessionGetListV1(const ::Ezmaxapi::OptionalPa
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("eOrderBy")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(e_order_by.value())));
+        fullPath.append(QUrl::toPercentEncoding("eOrderBy")).append(querySuffix).append(QUrl::toPercentEncoding(e_order_by.stringValue()));
     }
     if (i_row_max.hasValue())
     {
@@ -353,7 +353,7 @@ void ObjectActivesessionApi::activesessionGetListV1(const ::Ezmaxapi::OptionalPa
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("iRowMax")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(i_row_max.value())));
+        fullPath.append(QUrl::toPercentEncoding("iRowMax")).append(querySuffix).append(QUrl::toPercentEncoding(i_row_max.stringValue()));
     }
     if (i_row_offset.hasValue())
     {
@@ -368,7 +368,7 @@ void ObjectActivesessionApi::activesessionGetListV1(const ::Ezmaxapi::OptionalPa
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("iRowOffset")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(i_row_offset.value())));
+        fullPath.append(QUrl::toPercentEncoding("iRowOffset")).append(querySuffix).append(QUrl::toPercentEncoding(i_row_offset.stringValue()));
     }
     if (s_filter.hasValue())
     {
@@ -383,7 +383,7 @@ void ObjectActivesessionApi::activesessionGetListV1(const ::Ezmaxapi::OptionalPa
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("sFilter")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_filter.value())));
+        fullPath.append(QUrl::toPercentEncoding("sFilter")).append(querySuffix).append(QUrl::toPercentEncoding(s_filter.stringValue()));
     }
     HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -449,7 +449,7 @@ void ObjectActivesessionApi::activesessionGetListV1(const ::Ezmaxapi::OptionalPa
     connect(this, &ObjectActivesessionApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -467,8 +467,8 @@ void ObjectActivesessionApi::activesessionGetListV1Callback(HttpRequestWorker *w
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit activesessionGetListV1Signal(output);
-        emit activesessionGetListV1SignalFull(worker, output);
+        Q_EMIT activesessionGetListV1Signal(output);
+        Q_EMIT activesessionGetListV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -485,8 +485,8 @@ void ObjectActivesessionApi::activesessionGetListV1Callback(HttpRequestWorker *w
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit activesessionGetListV1SignalE(output, error_type, error_str);
-        emit activesessionGetListV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT activesessionGetListV1SignalE(output, error_type, error_str);
+        Q_EMIT activesessionGetListV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -496,8 +496,8 @@ void ObjectActivesessionApi::activesessionGetListV1Callback(HttpRequestWorker *w
 #pragma GCC diagnostic pop
 #endif
 
-        emit activesessionGetListV1SignalError(output, error_type, error_str);
-        emit activesessionGetListV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT activesessionGetListV1SignalError(output, error_type, error_str);
+        Q_EMIT activesessionGetListV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

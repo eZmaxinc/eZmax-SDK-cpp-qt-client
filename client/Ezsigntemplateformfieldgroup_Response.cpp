@@ -545,7 +545,7 @@ bool Ezsigntemplateformfieldgroup_Response::isSet() const {
 
 bool Ezsigntemplateformfieldgroup_Response::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_pki_ezsigntemplateformfieldgroup_id_isValid && m_fki_ezsigntemplatedocument_id_isValid && m_e_ezsigntemplateformfieldgroup_type_isValid && m_e_ezsigntemplateformfieldgroup_signerrequirement_isValid && m_s_ezsigntemplateformfieldgroup_label_isValid && m_i_ezsigntemplateformfieldgroup_step_isValid && m_i_ezsigntemplateformfieldgroup_filledmin_isValid && m_i_ezsigntemplateformfieldgroup_filledmax_isValid && m_b_ezsigntemplateformfieldgroup_readonly_isValid && true;
+    return m_pki_ezsigntemplateformfieldgroup_id_isValid && m_fki_ezsigntemplatedocument_id_isValid && m_e_ezsigntemplateformfieldgroup_type_isValid && m_s_ezsigntemplateformfieldgroup_label_isValid && m_i_ezsigntemplateformfieldgroup_step_isValid && m_i_ezsigntemplateformfieldgroup_filledmin_isValid && m_i_ezsigntemplateformfieldgroup_filledmax_isValid && m_b_ezsigntemplateformfieldgroup_readonly_isValid && true;
 }
 
 } // namespace Ezmaxapi

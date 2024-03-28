@@ -170,7 +170,7 @@ void ModuleReportApi::enableResponseCompression() {
 }
 
 void ModuleReportApi::abortRequests() {
-    emit abortRequestsSignal();
+    Q_EMIT abortRequestsSignal();
 }
 
 QString ModuleReportApi::getParamStylePrefix(const QString &style) {
@@ -285,7 +285,7 @@ void ModuleReportApi::reportGetReportFromCacheV1(const QString &s_reportgroup_ca
     connect(this, &ModuleReportApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -303,8 +303,8 @@ void ModuleReportApi::reportGetReportFromCacheV1Callback(HttpRequestWorker *work
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit reportGetReportFromCacheV1Signal(output);
-        emit reportGetReportFromCacheV1SignalFull(worker, output);
+        Q_EMIT reportGetReportFromCacheV1Signal(output);
+        Q_EMIT reportGetReportFromCacheV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -321,8 +321,8 @@ void ModuleReportApi::reportGetReportFromCacheV1Callback(HttpRequestWorker *work
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit reportGetReportFromCacheV1SignalE(output, error_type, error_str);
-        emit reportGetReportFromCacheV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT reportGetReportFromCacheV1SignalE(output, error_type, error_str);
+        Q_EMIT reportGetReportFromCacheV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -332,8 +332,8 @@ void ModuleReportApi::reportGetReportFromCacheV1Callback(HttpRequestWorker *work
 #pragma GCC diagnostic pop
 #endif
 
-        emit reportGetReportFromCacheV1SignalError(output, error_type, error_str);
-        emit reportGetReportFromCacheV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT reportGetReportFromCacheV1SignalError(output, error_type, error_str);
+        Q_EMIT reportGetReportFromCacheV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

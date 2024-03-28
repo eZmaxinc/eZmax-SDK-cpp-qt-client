@@ -176,7 +176,7 @@ void ObjectCorsApi::enableResponseCompression() {
 }
 
 void ObjectCorsApi::abortRequests() {
-    emit abortRequestsSignal();
+    Q_EMIT abortRequestsSignal();
 }
 
 QString ObjectCorsApi::getParamStylePrefix(const QString &style) {
@@ -274,7 +274,7 @@ void ObjectCorsApi::corsCreateObjectV1(const Cors_createObject_v1_Request &cors_
     connect(this, &ObjectCorsApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -292,8 +292,8 @@ void ObjectCorsApi::corsCreateObjectV1Callback(HttpRequestWorker *worker) {
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit corsCreateObjectV1Signal(output);
-        emit corsCreateObjectV1SignalFull(worker, output);
+        Q_EMIT corsCreateObjectV1Signal(output);
+        Q_EMIT corsCreateObjectV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -310,8 +310,8 @@ void ObjectCorsApi::corsCreateObjectV1Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit corsCreateObjectV1SignalE(output, error_type, error_str);
-        emit corsCreateObjectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT corsCreateObjectV1SignalE(output, error_type, error_str);
+        Q_EMIT corsCreateObjectV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -321,8 +321,8 @@ void ObjectCorsApi::corsCreateObjectV1Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic pop
 #endif
 
-        emit corsCreateObjectV1SignalError(output, error_type, error_str);
-        emit corsCreateObjectV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT corsCreateObjectV1SignalError(output, error_type, error_str);
+        Q_EMIT corsCreateObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -367,7 +367,7 @@ void ObjectCorsApi::corsDeleteObjectV1(const qint32 &pki_cors_id) {
     connect(this, &ObjectCorsApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -385,8 +385,8 @@ void ObjectCorsApi::corsDeleteObjectV1Callback(HttpRequestWorker *worker) {
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit corsDeleteObjectV1Signal(output);
-        emit corsDeleteObjectV1SignalFull(worker, output);
+        Q_EMIT corsDeleteObjectV1Signal(output);
+        Q_EMIT corsDeleteObjectV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -403,8 +403,8 @@ void ObjectCorsApi::corsDeleteObjectV1Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit corsDeleteObjectV1SignalE(output, error_type, error_str);
-        emit corsDeleteObjectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT corsDeleteObjectV1SignalE(output, error_type, error_str);
+        Q_EMIT corsDeleteObjectV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -414,8 +414,8 @@ void ObjectCorsApi::corsDeleteObjectV1Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic pop
 #endif
 
-        emit corsDeleteObjectV1SignalError(output, error_type, error_str);
-        emit corsDeleteObjectV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT corsDeleteObjectV1SignalError(output, error_type, error_str);
+        Q_EMIT corsDeleteObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -465,7 +465,7 @@ void ObjectCorsApi::corsEditObjectV1(const qint32 &pki_cors_id, const Cors_editO
     connect(this, &ObjectCorsApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -483,8 +483,8 @@ void ObjectCorsApi::corsEditObjectV1Callback(HttpRequestWorker *worker) {
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit corsEditObjectV1Signal(output);
-        emit corsEditObjectV1SignalFull(worker, output);
+        Q_EMIT corsEditObjectV1Signal(output);
+        Q_EMIT corsEditObjectV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -501,8 +501,8 @@ void ObjectCorsApi::corsEditObjectV1Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit corsEditObjectV1SignalE(output, error_type, error_str);
-        emit corsEditObjectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT corsEditObjectV1SignalE(output, error_type, error_str);
+        Q_EMIT corsEditObjectV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -512,8 +512,8 @@ void ObjectCorsApi::corsEditObjectV1Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic pop
 #endif
 
-        emit corsEditObjectV1SignalError(output, error_type, error_str);
-        emit corsEditObjectV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT corsEditObjectV1SignalError(output, error_type, error_str);
+        Q_EMIT corsEditObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -558,7 +558,7 @@ void ObjectCorsApi::corsGetObjectV2(const qint32 &pki_cors_id) {
     connect(this, &ObjectCorsApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -576,8 +576,8 @@ void ObjectCorsApi::corsGetObjectV2Callback(HttpRequestWorker *worker) {
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit corsGetObjectV2Signal(output);
-        emit corsGetObjectV2SignalFull(worker, output);
+        Q_EMIT corsGetObjectV2Signal(output);
+        Q_EMIT corsGetObjectV2SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -594,8 +594,8 @@ void ObjectCorsApi::corsGetObjectV2Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit corsGetObjectV2SignalE(output, error_type, error_str);
-        emit corsGetObjectV2SignalEFull(worker, error_type, error_str);
+        Q_EMIT corsGetObjectV2SignalE(output, error_type, error_str);
+        Q_EMIT corsGetObjectV2SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -605,8 +605,8 @@ void ObjectCorsApi::corsGetObjectV2Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic pop
 #endif
 
-        emit corsGetObjectV2SignalError(output, error_type, error_str);
-        emit corsGetObjectV2SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT corsGetObjectV2SignalError(output, error_type, error_str);
+        Q_EMIT corsGetObjectV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 

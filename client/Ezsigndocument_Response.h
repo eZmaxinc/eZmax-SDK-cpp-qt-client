@@ -152,6 +152,11 @@ public:
     bool is_i_ezsigndocument_ezsignsignatureattachmenttotal_Set() const;
     bool is_i_ezsigndocument_ezsignsignatureattachmenttotal_Valid() const;
 
+    qint32 getIEzsigndocumentEzsigndiscussiontotal() const;
+    void setIEzsigndocumentEzsigndiscussiontotal(const qint32 &i_ezsigndocument_ezsigndiscussiontotal);
+    bool is_i_ezsigndocument_ezsigndiscussiontotal_Set() const;
+    bool is_i_ezsigndocument_ezsigndiscussiontotal_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -245,6 +250,10 @@ private:
     qint32 m_i_ezsigndocument_ezsignsignatureattachmenttotal;
     bool m_i_ezsigndocument_ezsignsignatureattachmenttotal_isSet;
     bool m_i_ezsigndocument_ezsignsignatureattachmenttotal_isValid;
+
+    qint32 m_i_ezsigndocument_ezsigndiscussiontotal;
+    bool m_i_ezsigndocument_ezsigndiscussiontotal_isSet;
+    bool m_i_ezsigndocument_ezsigndiscussiontotal_isValid;
 };
 
 } // namespace Ezmaxapi

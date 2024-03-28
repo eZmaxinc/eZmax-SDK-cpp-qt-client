@@ -176,7 +176,7 @@ void ObjectEzsignbulksendtransmissionApi::enableResponseCompression() {
 }
 
 void ObjectEzsignbulksendtransmissionApi::abortRequests() {
-    emit abortRequestsSignal();
+    Q_EMIT abortRequestsSignal();
 }
 
 QString ObjectEzsignbulksendtransmissionApi::getParamStylePrefix(const QString &style) {
@@ -283,7 +283,7 @@ void ObjectEzsignbulksendtransmissionApi::ezsignbulksendtransmissionGetCsvErrors
     connect(this, &ObjectEzsignbulksendtransmissionApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -302,8 +302,8 @@ void ObjectEzsignbulksendtransmissionApi::ezsignbulksendtransmissionGetCsvErrors
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsignbulksendtransmissionGetCsvErrorsV1Signal(output);
-        emit ezsignbulksendtransmissionGetCsvErrorsV1SignalFull(worker, output);
+        Q_EMIT ezsignbulksendtransmissionGetCsvErrorsV1Signal(output);
+        Q_EMIT ezsignbulksendtransmissionGetCsvErrorsV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -320,8 +320,8 @@ void ObjectEzsignbulksendtransmissionApi::ezsignbulksendtransmissionGetCsvErrors
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsignbulksendtransmissionGetCsvErrorsV1SignalE(output, error_type, error_str);
-        emit ezsignbulksendtransmissionGetCsvErrorsV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsignbulksendtransmissionGetCsvErrorsV1SignalE(output, error_type, error_str);
+        Q_EMIT ezsignbulksendtransmissionGetCsvErrorsV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -331,8 +331,8 @@ void ObjectEzsignbulksendtransmissionApi::ezsignbulksendtransmissionGetCsvErrors
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsignbulksendtransmissionGetCsvErrorsV1SignalError(output, error_type, error_str);
-        emit ezsignbulksendtransmissionGetCsvErrorsV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsignbulksendtransmissionGetCsvErrorsV1SignalError(output, error_type, error_str);
+        Q_EMIT ezsignbulksendtransmissionGetCsvErrorsV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -377,7 +377,7 @@ void ObjectEzsignbulksendtransmissionApi::ezsignbulksendtransmissionGetEzsignsig
     connect(this, &ObjectEzsignbulksendtransmissionApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -395,8 +395,8 @@ void ObjectEzsignbulksendtransmissionApi::ezsignbulksendtransmissionGetEzsignsig
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsignbulksendtransmissionGetEzsignsignaturesAutomaticV1Signal(output);
-        emit ezsignbulksendtransmissionGetEzsignsignaturesAutomaticV1SignalFull(worker, output);
+        Q_EMIT ezsignbulksendtransmissionGetEzsignsignaturesAutomaticV1Signal(output);
+        Q_EMIT ezsignbulksendtransmissionGetEzsignsignaturesAutomaticV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -413,8 +413,8 @@ void ObjectEzsignbulksendtransmissionApi::ezsignbulksendtransmissionGetEzsignsig
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsignbulksendtransmissionGetEzsignsignaturesAutomaticV1SignalE(output, error_type, error_str);
-        emit ezsignbulksendtransmissionGetEzsignsignaturesAutomaticV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsignbulksendtransmissionGetEzsignsignaturesAutomaticV1SignalE(output, error_type, error_str);
+        Q_EMIT ezsignbulksendtransmissionGetEzsignsignaturesAutomaticV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -424,8 +424,8 @@ void ObjectEzsignbulksendtransmissionApi::ezsignbulksendtransmissionGetEzsignsig
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsignbulksendtransmissionGetEzsignsignaturesAutomaticV1SignalError(output, error_type, error_str);
-        emit ezsignbulksendtransmissionGetEzsignsignaturesAutomaticV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsignbulksendtransmissionGetEzsignsignaturesAutomaticV1SignalError(output, error_type, error_str);
+        Q_EMIT ezsignbulksendtransmissionGetEzsignsignaturesAutomaticV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -470,7 +470,7 @@ void ObjectEzsignbulksendtransmissionApi::ezsignbulksendtransmissionGetFormsData
     connect(this, &ObjectEzsignbulksendtransmissionApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -488,8 +488,8 @@ void ObjectEzsignbulksendtransmissionApi::ezsignbulksendtransmissionGetFormsData
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsignbulksendtransmissionGetFormsDataV1Signal(output);
-        emit ezsignbulksendtransmissionGetFormsDataV1SignalFull(worker, output);
+        Q_EMIT ezsignbulksendtransmissionGetFormsDataV1Signal(output);
+        Q_EMIT ezsignbulksendtransmissionGetFormsDataV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -506,8 +506,8 @@ void ObjectEzsignbulksendtransmissionApi::ezsignbulksendtransmissionGetFormsData
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsignbulksendtransmissionGetFormsDataV1SignalE(output, error_type, error_str);
-        emit ezsignbulksendtransmissionGetFormsDataV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsignbulksendtransmissionGetFormsDataV1SignalE(output, error_type, error_str);
+        Q_EMIT ezsignbulksendtransmissionGetFormsDataV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -517,8 +517,8 @@ void ObjectEzsignbulksendtransmissionApi::ezsignbulksendtransmissionGetFormsData
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsignbulksendtransmissionGetFormsDataV1SignalError(output, error_type, error_str);
-        emit ezsignbulksendtransmissionGetFormsDataV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsignbulksendtransmissionGetFormsDataV1SignalError(output, error_type, error_str);
+        Q_EMIT ezsignbulksendtransmissionGetFormsDataV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -563,7 +563,7 @@ void ObjectEzsignbulksendtransmissionApi::ezsignbulksendtransmissionGetObjectV2(
     connect(this, &ObjectEzsignbulksendtransmissionApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -581,8 +581,8 @@ void ObjectEzsignbulksendtransmissionApi::ezsignbulksendtransmissionGetObjectV2C
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsignbulksendtransmissionGetObjectV2Signal(output);
-        emit ezsignbulksendtransmissionGetObjectV2SignalFull(worker, output);
+        Q_EMIT ezsignbulksendtransmissionGetObjectV2Signal(output);
+        Q_EMIT ezsignbulksendtransmissionGetObjectV2SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -599,8 +599,8 @@ void ObjectEzsignbulksendtransmissionApi::ezsignbulksendtransmissionGetObjectV2C
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsignbulksendtransmissionGetObjectV2SignalE(output, error_type, error_str);
-        emit ezsignbulksendtransmissionGetObjectV2SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsignbulksendtransmissionGetObjectV2SignalE(output, error_type, error_str);
+        Q_EMIT ezsignbulksendtransmissionGetObjectV2SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -610,8 +610,8 @@ void ObjectEzsignbulksendtransmissionApi::ezsignbulksendtransmissionGetObjectV2C
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsignbulksendtransmissionGetObjectV2SignalError(output, error_type, error_str);
-        emit ezsignbulksendtransmissionGetObjectV2SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsignbulksendtransmissionGetObjectV2SignalError(output, error_type, error_str);
+        Q_EMIT ezsignbulksendtransmissionGetObjectV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 

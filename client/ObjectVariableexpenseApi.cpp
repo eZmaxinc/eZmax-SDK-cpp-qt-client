@@ -178,7 +178,7 @@ void ObjectVariableexpenseApi::enableResponseCompression() {
 }
 
 void ObjectVariableexpenseApi::abortRequests() {
-    emit abortRequestsSignal();
+    Q_EMIT abortRequestsSignal();
 }
 
 QString ObjectVariableexpenseApi::getParamStylePrefix(const QString &style) {
@@ -276,7 +276,7 @@ void ObjectVariableexpenseApi::variableexpenseCreateObjectV1(const Variableexpen
     connect(this, &ObjectVariableexpenseApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -294,8 +294,8 @@ void ObjectVariableexpenseApi::variableexpenseCreateObjectV1Callback(HttpRequest
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit variableexpenseCreateObjectV1Signal(output);
-        emit variableexpenseCreateObjectV1SignalFull(worker, output);
+        Q_EMIT variableexpenseCreateObjectV1Signal(output);
+        Q_EMIT variableexpenseCreateObjectV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -312,8 +312,8 @@ void ObjectVariableexpenseApi::variableexpenseCreateObjectV1Callback(HttpRequest
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit variableexpenseCreateObjectV1SignalE(output, error_type, error_str);
-        emit variableexpenseCreateObjectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT variableexpenseCreateObjectV1SignalE(output, error_type, error_str);
+        Q_EMIT variableexpenseCreateObjectV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -323,8 +323,8 @@ void ObjectVariableexpenseApi::variableexpenseCreateObjectV1Callback(HttpRequest
 #pragma GCC diagnostic pop
 #endif
 
-        emit variableexpenseCreateObjectV1SignalError(output, error_type, error_str);
-        emit variableexpenseCreateObjectV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT variableexpenseCreateObjectV1SignalError(output, error_type, error_str);
+        Q_EMIT variableexpenseCreateObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -374,7 +374,7 @@ void ObjectVariableexpenseApi::variableexpenseEditObjectV1(const qint32 &pki_var
     connect(this, &ObjectVariableexpenseApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -392,8 +392,8 @@ void ObjectVariableexpenseApi::variableexpenseEditObjectV1Callback(HttpRequestWo
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit variableexpenseEditObjectV1Signal(output);
-        emit variableexpenseEditObjectV1SignalFull(worker, output);
+        Q_EMIT variableexpenseEditObjectV1Signal(output);
+        Q_EMIT variableexpenseEditObjectV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -410,8 +410,8 @@ void ObjectVariableexpenseApi::variableexpenseEditObjectV1Callback(HttpRequestWo
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit variableexpenseEditObjectV1SignalE(output, error_type, error_str);
-        emit variableexpenseEditObjectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT variableexpenseEditObjectV1SignalE(output, error_type, error_str);
+        Q_EMIT variableexpenseEditObjectV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -421,8 +421,8 @@ void ObjectVariableexpenseApi::variableexpenseEditObjectV1Callback(HttpRequestWo
 #pragma GCC diagnostic pop
 #endif
 
-        emit variableexpenseEditObjectV1SignalError(output, error_type, error_str);
-        emit variableexpenseEditObjectV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT variableexpenseEditObjectV1SignalError(output, error_type, error_str);
+        Q_EMIT variableexpenseEditObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -461,7 +461,7 @@ void ObjectVariableexpenseApi::variableexpenseGetAutocompleteV2(const QString &s
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("eFilterActive")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(e_filter_active.value())));
+        fullPath.append(QUrl::toPercentEncoding("eFilterActive")).append(querySuffix).append(QUrl::toPercentEncoding(e_filter_active.stringValue()));
     }
     if (s_query.hasValue())
     {
@@ -476,7 +476,7 @@ void ObjectVariableexpenseApi::variableexpenseGetAutocompleteV2(const QString &s
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_query.value())));
+        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(s_query.stringValue()));
     }
     HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -542,7 +542,7 @@ void ObjectVariableexpenseApi::variableexpenseGetAutocompleteV2(const QString &s
     connect(this, &ObjectVariableexpenseApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -560,8 +560,8 @@ void ObjectVariableexpenseApi::variableexpenseGetAutocompleteV2Callback(HttpRequ
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit variableexpenseGetAutocompleteV2Signal(output);
-        emit variableexpenseGetAutocompleteV2SignalFull(worker, output);
+        Q_EMIT variableexpenseGetAutocompleteV2Signal(output);
+        Q_EMIT variableexpenseGetAutocompleteV2SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -578,8 +578,8 @@ void ObjectVariableexpenseApi::variableexpenseGetAutocompleteV2Callback(HttpRequ
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit variableexpenseGetAutocompleteV2SignalE(output, error_type, error_str);
-        emit variableexpenseGetAutocompleteV2SignalEFull(worker, error_type, error_str);
+        Q_EMIT variableexpenseGetAutocompleteV2SignalE(output, error_type, error_str);
+        Q_EMIT variableexpenseGetAutocompleteV2SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -589,8 +589,8 @@ void ObjectVariableexpenseApi::variableexpenseGetAutocompleteV2Callback(HttpRequ
 #pragma GCC diagnostic pop
 #endif
 
-        emit variableexpenseGetAutocompleteV2SignalError(output, error_type, error_str);
-        emit variableexpenseGetAutocompleteV2SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT variableexpenseGetAutocompleteV2SignalError(output, error_type, error_str);
+        Q_EMIT variableexpenseGetAutocompleteV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -615,7 +615,7 @@ void ObjectVariableexpenseApi::variableexpenseGetListV1(const ::Ezmaxapi::Option
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("eOrderBy")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(e_order_by.value())));
+        fullPath.append(QUrl::toPercentEncoding("eOrderBy")).append(querySuffix).append(QUrl::toPercentEncoding(e_order_by.stringValue()));
     }
     if (i_row_max.hasValue())
     {
@@ -630,7 +630,7 @@ void ObjectVariableexpenseApi::variableexpenseGetListV1(const ::Ezmaxapi::Option
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("iRowMax")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(i_row_max.value())));
+        fullPath.append(QUrl::toPercentEncoding("iRowMax")).append(querySuffix).append(QUrl::toPercentEncoding(i_row_max.stringValue()));
     }
     if (i_row_offset.hasValue())
     {
@@ -645,7 +645,7 @@ void ObjectVariableexpenseApi::variableexpenseGetListV1(const ::Ezmaxapi::Option
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("iRowOffset")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(i_row_offset.value())));
+        fullPath.append(QUrl::toPercentEncoding("iRowOffset")).append(querySuffix).append(QUrl::toPercentEncoding(i_row_offset.stringValue()));
     }
     if (s_filter.hasValue())
     {
@@ -660,7 +660,7 @@ void ObjectVariableexpenseApi::variableexpenseGetListV1(const ::Ezmaxapi::Option
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("sFilter")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_filter.value())));
+        fullPath.append(QUrl::toPercentEncoding("sFilter")).append(querySuffix).append(QUrl::toPercentEncoding(s_filter.stringValue()));
     }
     HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -726,7 +726,7 @@ void ObjectVariableexpenseApi::variableexpenseGetListV1(const ::Ezmaxapi::Option
     connect(this, &ObjectVariableexpenseApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -744,8 +744,8 @@ void ObjectVariableexpenseApi::variableexpenseGetListV1Callback(HttpRequestWorke
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit variableexpenseGetListV1Signal(output);
-        emit variableexpenseGetListV1SignalFull(worker, output);
+        Q_EMIT variableexpenseGetListV1Signal(output);
+        Q_EMIT variableexpenseGetListV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -762,8 +762,8 @@ void ObjectVariableexpenseApi::variableexpenseGetListV1Callback(HttpRequestWorke
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit variableexpenseGetListV1SignalE(output, error_type, error_str);
-        emit variableexpenseGetListV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT variableexpenseGetListV1SignalE(output, error_type, error_str);
+        Q_EMIT variableexpenseGetListV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -773,8 +773,8 @@ void ObjectVariableexpenseApi::variableexpenseGetListV1Callback(HttpRequestWorke
 #pragma GCC diagnostic pop
 #endif
 
-        emit variableexpenseGetListV1SignalError(output, error_type, error_str);
-        emit variableexpenseGetListV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT variableexpenseGetListV1SignalError(output, error_type, error_str);
+        Q_EMIT variableexpenseGetListV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -819,7 +819,7 @@ void ObjectVariableexpenseApi::variableexpenseGetObjectV2(const qint32 &pki_vari
     connect(this, &ObjectVariableexpenseApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -837,8 +837,8 @@ void ObjectVariableexpenseApi::variableexpenseGetObjectV2Callback(HttpRequestWor
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit variableexpenseGetObjectV2Signal(output);
-        emit variableexpenseGetObjectV2SignalFull(worker, output);
+        Q_EMIT variableexpenseGetObjectV2Signal(output);
+        Q_EMIT variableexpenseGetObjectV2SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -855,8 +855,8 @@ void ObjectVariableexpenseApi::variableexpenseGetObjectV2Callback(HttpRequestWor
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit variableexpenseGetObjectV2SignalE(output, error_type, error_str);
-        emit variableexpenseGetObjectV2SignalEFull(worker, error_type, error_str);
+        Q_EMIT variableexpenseGetObjectV2SignalE(output, error_type, error_str);
+        Q_EMIT variableexpenseGetObjectV2SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -866,8 +866,8 @@ void ObjectVariableexpenseApi::variableexpenseGetObjectV2Callback(HttpRequestWor
 #pragma GCC diagnostic pop
 #endif
 
-        emit variableexpenseGetObjectV2SignalError(output, error_type, error_str);
-        emit variableexpenseGetObjectV2SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT variableexpenseGetObjectV2SignalError(output, error_type, error_str);
+        Q_EMIT variableexpenseGetObjectV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 

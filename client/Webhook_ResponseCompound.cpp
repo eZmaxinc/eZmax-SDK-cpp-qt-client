@@ -81,6 +81,9 @@ void Webhook_ResponseCompound::initializeModel() {
 
     m_s_webhook_event_isSet = false;
     m_s_webhook_event_isValid = false;
+
+    m_a_obj_webhookheader_isSet = false;
+    m_a_obj_webhookheader_isValid = false;
 }
 
 void Webhook_ResponseCompound::fromJson(QString jsonString) {
@@ -139,6 +142,9 @@ void Webhook_ResponseCompound::fromJsonObject(QJsonObject json) {
 
     m_s_webhook_event_isValid = ::Ezmaxapi::fromJsonValue(m_s_webhook_event, json[QString("sWebhookEvent")]);
     m_s_webhook_event_isSet = !json[QString("sWebhookEvent")].isNull() && m_s_webhook_event_isValid;
+
+    m_a_obj_webhookheader_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_webhookheader, json[QString("a_objWebhookheader")]);
+    m_a_obj_webhookheader_isSet = !json[QString("a_objWebhookheader")].isNull() && m_a_obj_webhookheader_isValid;
 }
 
 QString Webhook_ResponseCompound::asJson() const {
@@ -197,6 +203,9 @@ QJsonObject Webhook_ResponseCompound::asJsonObject() const {
     }
     if (m_s_webhook_event_isSet) {
         obj.insert(QString("sWebhookEvent"), ::Ezmaxapi::toJsonValue(m_s_webhook_event));
+    }
+    if (m_a_obj_webhookheader.size() > 0) {
+        obj.insert(QString("a_objWebhookheader"), ::Ezmaxapi::toJsonValue(m_a_obj_webhookheader));
     }
     return obj;
 }
@@ -457,6 +466,22 @@ bool Webhook_ResponseCompound::is_s_webhook_event_Valid() const{
     return m_s_webhook_event_isValid;
 }
 
+QList<Webhookheader_ResponseCompound> Webhook_ResponseCompound::getAObjWebhookheader() const {
+    return m_a_obj_webhookheader;
+}
+void Webhook_ResponseCompound::setAObjWebhookheader(const QList<Webhookheader_ResponseCompound> &a_obj_webhookheader) {
+    m_a_obj_webhookheader = a_obj_webhookheader;
+    m_a_obj_webhookheader_isSet = true;
+}
+
+bool Webhook_ResponseCompound::is_a_obj_webhookheader_Set() const{
+    return m_a_obj_webhookheader_isSet;
+}
+
+bool Webhook_ResponseCompound::is_a_obj_webhookheader_Valid() const{
+    return m_a_obj_webhookheader_isValid;
+}
+
 bool Webhook_ResponseCompound::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -536,6 +561,11 @@ bool Webhook_ResponseCompound::isSet() const {
         }
 
         if (m_s_webhook_event_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_a_obj_webhookheader.size() > 0) {
             isObjectUpdated = true;
             break;
         }

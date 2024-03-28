@@ -170,7 +170,7 @@ void ObjectDepartmentApi::enableResponseCompression() {
 }
 
 void ObjectDepartmentApi::abortRequests() {
-    emit abortRequestsSignal();
+    Q_EMIT abortRequestsSignal();
 }
 
 QString ObjectDepartmentApi::getParamStylePrefix(const QString &style) {
@@ -271,7 +271,7 @@ void ObjectDepartmentApi::departmentGetAutocompleteV2(const QString &s_selector,
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("eFilterActive")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(e_filter_active.value())));
+        fullPath.append(QUrl::toPercentEncoding("eFilterActive")).append(querySuffix).append(QUrl::toPercentEncoding(e_filter_active.stringValue()));
     }
     if (s_query.hasValue())
     {
@@ -286,7 +286,7 @@ void ObjectDepartmentApi::departmentGetAutocompleteV2(const QString &s_selector,
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_query.value())));
+        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(s_query.stringValue()));
     }
     HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -352,7 +352,7 @@ void ObjectDepartmentApi::departmentGetAutocompleteV2(const QString &s_selector,
     connect(this, &ObjectDepartmentApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -370,8 +370,8 @@ void ObjectDepartmentApi::departmentGetAutocompleteV2Callback(HttpRequestWorker 
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit departmentGetAutocompleteV2Signal(output);
-        emit departmentGetAutocompleteV2SignalFull(worker, output);
+        Q_EMIT departmentGetAutocompleteV2Signal(output);
+        Q_EMIT departmentGetAutocompleteV2SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -388,8 +388,8 @@ void ObjectDepartmentApi::departmentGetAutocompleteV2Callback(HttpRequestWorker 
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit departmentGetAutocompleteV2SignalE(output, error_type, error_str);
-        emit departmentGetAutocompleteV2SignalEFull(worker, error_type, error_str);
+        Q_EMIT departmentGetAutocompleteV2SignalE(output, error_type, error_str);
+        Q_EMIT departmentGetAutocompleteV2SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -399,8 +399,8 @@ void ObjectDepartmentApi::departmentGetAutocompleteV2Callback(HttpRequestWorker 
 #pragma GCC diagnostic pop
 #endif
 
-        emit departmentGetAutocompleteV2SignalError(output, error_type, error_str);
-        emit departmentGetAutocompleteV2SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT departmentGetAutocompleteV2SignalError(output, error_type, error_str);
+        Q_EMIT departmentGetAutocompleteV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 

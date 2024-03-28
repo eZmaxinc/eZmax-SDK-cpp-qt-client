@@ -112,7 +112,7 @@ private:
     void groupsGetListScimV2Callback(HttpRequestWorker *worker);
     void groupsGetObjectScimV2Callback(HttpRequestWorker *worker);
 
-signals:
+Q_SIGNALS:
 
     void groupsCreateObjectScimV2Signal(Scim_Group summary);
     void groupsDeleteObjectScimV2Signal();
@@ -161,7 +161,7 @@ signals:
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
-public slots:
+public Q_SLOTS:
     void tokenAvailable();
 };
 

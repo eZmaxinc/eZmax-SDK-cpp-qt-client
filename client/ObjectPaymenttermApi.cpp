@@ -178,7 +178,7 @@ void ObjectPaymenttermApi::enableResponseCompression() {
 }
 
 void ObjectPaymenttermApi::abortRequests() {
-    emit abortRequestsSignal();
+    Q_EMIT abortRequestsSignal();
 }
 
 QString ObjectPaymenttermApi::getParamStylePrefix(const QString &style) {
@@ -276,7 +276,7 @@ void ObjectPaymenttermApi::paymenttermCreateObjectV1(const Paymentterm_createObj
     connect(this, &ObjectPaymenttermApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -294,8 +294,8 @@ void ObjectPaymenttermApi::paymenttermCreateObjectV1Callback(HttpRequestWorker *
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit paymenttermCreateObjectV1Signal(output);
-        emit paymenttermCreateObjectV1SignalFull(worker, output);
+        Q_EMIT paymenttermCreateObjectV1Signal(output);
+        Q_EMIT paymenttermCreateObjectV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -312,8 +312,8 @@ void ObjectPaymenttermApi::paymenttermCreateObjectV1Callback(HttpRequestWorker *
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit paymenttermCreateObjectV1SignalE(output, error_type, error_str);
-        emit paymenttermCreateObjectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT paymenttermCreateObjectV1SignalE(output, error_type, error_str);
+        Q_EMIT paymenttermCreateObjectV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -323,8 +323,8 @@ void ObjectPaymenttermApi::paymenttermCreateObjectV1Callback(HttpRequestWorker *
 #pragma GCC diagnostic pop
 #endif
 
-        emit paymenttermCreateObjectV1SignalError(output, error_type, error_str);
-        emit paymenttermCreateObjectV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT paymenttermCreateObjectV1SignalError(output, error_type, error_str);
+        Q_EMIT paymenttermCreateObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -374,7 +374,7 @@ void ObjectPaymenttermApi::paymenttermEditObjectV1(const qint32 &pki_paymentterm
     connect(this, &ObjectPaymenttermApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -392,8 +392,8 @@ void ObjectPaymenttermApi::paymenttermEditObjectV1Callback(HttpRequestWorker *wo
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit paymenttermEditObjectV1Signal(output);
-        emit paymenttermEditObjectV1SignalFull(worker, output);
+        Q_EMIT paymenttermEditObjectV1Signal(output);
+        Q_EMIT paymenttermEditObjectV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -410,8 +410,8 @@ void ObjectPaymenttermApi::paymenttermEditObjectV1Callback(HttpRequestWorker *wo
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit paymenttermEditObjectV1SignalE(output, error_type, error_str);
-        emit paymenttermEditObjectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT paymenttermEditObjectV1SignalE(output, error_type, error_str);
+        Q_EMIT paymenttermEditObjectV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -421,8 +421,8 @@ void ObjectPaymenttermApi::paymenttermEditObjectV1Callback(HttpRequestWorker *wo
 #pragma GCC diagnostic pop
 #endif
 
-        emit paymenttermEditObjectV1SignalError(output, error_type, error_str);
-        emit paymenttermEditObjectV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT paymenttermEditObjectV1SignalError(output, error_type, error_str);
+        Q_EMIT paymenttermEditObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -461,7 +461,7 @@ void ObjectPaymenttermApi::paymenttermGetAutocompleteV2(const QString &s_selecto
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("eFilterActive")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(e_filter_active.value())));
+        fullPath.append(QUrl::toPercentEncoding("eFilterActive")).append(querySuffix).append(QUrl::toPercentEncoding(e_filter_active.stringValue()));
     }
     if (s_query.hasValue())
     {
@@ -476,7 +476,7 @@ void ObjectPaymenttermApi::paymenttermGetAutocompleteV2(const QString &s_selecto
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_query.value())));
+        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(s_query.stringValue()));
     }
     HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -542,7 +542,7 @@ void ObjectPaymenttermApi::paymenttermGetAutocompleteV2(const QString &s_selecto
     connect(this, &ObjectPaymenttermApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -560,8 +560,8 @@ void ObjectPaymenttermApi::paymenttermGetAutocompleteV2Callback(HttpRequestWorke
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit paymenttermGetAutocompleteV2Signal(output);
-        emit paymenttermGetAutocompleteV2SignalFull(worker, output);
+        Q_EMIT paymenttermGetAutocompleteV2Signal(output);
+        Q_EMIT paymenttermGetAutocompleteV2SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -578,8 +578,8 @@ void ObjectPaymenttermApi::paymenttermGetAutocompleteV2Callback(HttpRequestWorke
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit paymenttermGetAutocompleteV2SignalE(output, error_type, error_str);
-        emit paymenttermGetAutocompleteV2SignalEFull(worker, error_type, error_str);
+        Q_EMIT paymenttermGetAutocompleteV2SignalE(output, error_type, error_str);
+        Q_EMIT paymenttermGetAutocompleteV2SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -589,8 +589,8 @@ void ObjectPaymenttermApi::paymenttermGetAutocompleteV2Callback(HttpRequestWorke
 #pragma GCC diagnostic pop
 #endif
 
-        emit paymenttermGetAutocompleteV2SignalError(output, error_type, error_str);
-        emit paymenttermGetAutocompleteV2SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT paymenttermGetAutocompleteV2SignalError(output, error_type, error_str);
+        Q_EMIT paymenttermGetAutocompleteV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -615,7 +615,7 @@ void ObjectPaymenttermApi::paymenttermGetListV1(const ::Ezmaxapi::OptionalParam<
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("eOrderBy")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(e_order_by.value())));
+        fullPath.append(QUrl::toPercentEncoding("eOrderBy")).append(querySuffix).append(QUrl::toPercentEncoding(e_order_by.stringValue()));
     }
     if (i_row_max.hasValue())
     {
@@ -630,7 +630,7 @@ void ObjectPaymenttermApi::paymenttermGetListV1(const ::Ezmaxapi::OptionalParam<
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("iRowMax")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(i_row_max.value())));
+        fullPath.append(QUrl::toPercentEncoding("iRowMax")).append(querySuffix).append(QUrl::toPercentEncoding(i_row_max.stringValue()));
     }
     if (i_row_offset.hasValue())
     {
@@ -645,7 +645,7 @@ void ObjectPaymenttermApi::paymenttermGetListV1(const ::Ezmaxapi::OptionalParam<
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("iRowOffset")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(i_row_offset.value())));
+        fullPath.append(QUrl::toPercentEncoding("iRowOffset")).append(querySuffix).append(QUrl::toPercentEncoding(i_row_offset.stringValue()));
     }
     if (s_filter.hasValue())
     {
@@ -660,7 +660,7 @@ void ObjectPaymenttermApi::paymenttermGetListV1(const ::Ezmaxapi::OptionalParam<
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("sFilter")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_filter.value())));
+        fullPath.append(QUrl::toPercentEncoding("sFilter")).append(querySuffix).append(QUrl::toPercentEncoding(s_filter.stringValue()));
     }
     HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -726,7 +726,7 @@ void ObjectPaymenttermApi::paymenttermGetListV1(const ::Ezmaxapi::OptionalParam<
     connect(this, &ObjectPaymenttermApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -744,8 +744,8 @@ void ObjectPaymenttermApi::paymenttermGetListV1Callback(HttpRequestWorker *worke
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit paymenttermGetListV1Signal(output);
-        emit paymenttermGetListV1SignalFull(worker, output);
+        Q_EMIT paymenttermGetListV1Signal(output);
+        Q_EMIT paymenttermGetListV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -762,8 +762,8 @@ void ObjectPaymenttermApi::paymenttermGetListV1Callback(HttpRequestWorker *worke
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit paymenttermGetListV1SignalE(output, error_type, error_str);
-        emit paymenttermGetListV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT paymenttermGetListV1SignalE(output, error_type, error_str);
+        Q_EMIT paymenttermGetListV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -773,8 +773,8 @@ void ObjectPaymenttermApi::paymenttermGetListV1Callback(HttpRequestWorker *worke
 #pragma GCC diagnostic pop
 #endif
 
-        emit paymenttermGetListV1SignalError(output, error_type, error_str);
-        emit paymenttermGetListV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT paymenttermGetListV1SignalError(output, error_type, error_str);
+        Q_EMIT paymenttermGetListV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -819,7 +819,7 @@ void ObjectPaymenttermApi::paymenttermGetObjectV2(const qint32 &pki_paymentterm_
     connect(this, &ObjectPaymenttermApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -837,8 +837,8 @@ void ObjectPaymenttermApi::paymenttermGetObjectV2Callback(HttpRequestWorker *wor
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit paymenttermGetObjectV2Signal(output);
-        emit paymenttermGetObjectV2SignalFull(worker, output);
+        Q_EMIT paymenttermGetObjectV2Signal(output);
+        Q_EMIT paymenttermGetObjectV2SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -855,8 +855,8 @@ void ObjectPaymenttermApi::paymenttermGetObjectV2Callback(HttpRequestWorker *wor
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit paymenttermGetObjectV2SignalE(output, error_type, error_str);
-        emit paymenttermGetObjectV2SignalEFull(worker, error_type, error_str);
+        Q_EMIT paymenttermGetObjectV2SignalE(output, error_type, error_str);
+        Q_EMIT paymenttermGetObjectV2SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -866,8 +866,8 @@ void ObjectPaymenttermApi::paymenttermGetObjectV2Callback(HttpRequestWorker *wor
 #pragma GCC diagnostic pop
 #endif
 
-        emit paymenttermGetObjectV2SignalError(output, error_type, error_str);
-        emit paymenttermGetObjectV2SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT paymenttermGetObjectV2SignalError(output, error_type, error_str);
+        Q_EMIT paymenttermGetObjectV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 

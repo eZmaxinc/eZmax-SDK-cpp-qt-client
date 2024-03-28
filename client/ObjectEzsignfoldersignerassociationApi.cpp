@@ -59,6 +59,8 @@ void ObjectEzsignfoldersignerassociationApi::initializeServerConfigs() {
     {"sInfrastructureregionCode", ServerVariable("The region where your services are hosted.","ca-central-1",
     QSet<QString>{ {"ca-central-1"} })}, }));
     
+    _serverConfigs.insert("ezsignfoldersignerassociationCreateEmbeddedUrlV1", defaultConf);
+    _serverIndices.insert("ezsignfoldersignerassociationCreateEmbeddedUrlV1", 0);
     _serverConfigs.insert("ezsignfoldersignerassociationCreateObjectV1", defaultConf);
     _serverIndices.insert("ezsignfoldersignerassociationCreateObjectV1", 0);
     _serverConfigs.insert("ezsignfoldersignerassociationCreateObjectV2", defaultConf);
@@ -186,7 +188,7 @@ void ObjectEzsignfoldersignerassociationApi::enableResponseCompression() {
 }
 
 void ObjectEzsignfoldersignerassociationApi::abortRequests() {
-    emit abortRequestsSignal();
+    Q_EMIT abortRequestsSignal();
 }
 
 QString ObjectEzsignfoldersignerassociationApi::getParamStylePrefix(const QString &style) {
@@ -252,6 +254,104 @@ QString ObjectEzsignfoldersignerassociationApi::getParamStyleDelimiter(const QSt
     }
 }
 
+void ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationCreateEmbeddedUrlV1(const qint32 &pki_ezsignfoldersignerassociation_id, const Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Request &ezsignfoldersignerassociation_create_embedded_url_v1_request) {
+    QString fullPath = QString(_serverConfigs["ezsignfoldersignerassociationCreateEmbeddedUrlV1"][_serverIndices.value("ezsignfoldersignerassociationCreateEmbeddedUrlV1")].URL()+"/1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID}/createEmbeddedUrl");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_ezsignfoldersignerassociation_idPathParam("{");
+        pki_ezsignfoldersignerassociation_idPathParam.append("pkiEzsignfoldersignerassociationID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignfoldersignerassociationID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignfoldersignerassociationID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_ezsignfoldersignerassociation_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsignfoldersignerassociation_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "POST");
+
+    {
+
+        
+        QByteArray output = ezsignfoldersignerassociation_create_embedded_url_v1_request.asJson().toUtf8();
+        input.request_body.append(output);
+    }
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+#else
+    for (auto key : _defaultHeaders.keys()) {
+        input.headers.insert(key, _defaultHeaders[key]);
+    }
+#endif
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationCreateEmbeddedUrlV1Callback);
+    connect(this, &ObjectEzsignfoldersignerassociationApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this]() {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationCreateEmbeddedUrlV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT ezsignfoldersignerassociationCreateEmbeddedUrlV1Signal(output);
+        Q_EMIT ezsignfoldersignerassociationCreateEmbeddedUrlV1SignalFull(worker, output);
+    } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
+        Q_EMIT ezsignfoldersignerassociationCreateEmbeddedUrlV1SignalE(output, error_type, error_str);
+        Q_EMIT ezsignfoldersignerassociationCreateEmbeddedUrlV1SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        Q_EMIT ezsignfoldersignerassociationCreateEmbeddedUrlV1SignalError(output, error_type, error_str);
+        Q_EMIT ezsignfoldersignerassociationCreateEmbeddedUrlV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
 void ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationCreateObjectV1(const QList<Ezsignfoldersignerassociation_createObject_v1_Request> &ezsignfoldersignerassociation_create_object_v1_request) {
     QString fullPath = QString(_serverConfigs["ezsignfoldersignerassociationCreateObjectV1"][_serverIndices.value("ezsignfoldersignerassociationCreateObjectV1")].URL()+"/1/object/ezsignfoldersignerassociation");
     
@@ -283,7 +383,7 @@ void ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationCreate
     connect(this, &ObjectEzsignfoldersignerassociationApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -301,8 +401,8 @@ void ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationCreate
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsignfoldersignerassociationCreateObjectV1Signal(output);
-        emit ezsignfoldersignerassociationCreateObjectV1SignalFull(worker, output);
+        Q_EMIT ezsignfoldersignerassociationCreateObjectV1Signal(output);
+        Q_EMIT ezsignfoldersignerassociationCreateObjectV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -319,8 +419,8 @@ void ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationCreate
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsignfoldersignerassociationCreateObjectV1SignalE(output, error_type, error_str);
-        emit ezsignfoldersignerassociationCreateObjectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsignfoldersignerassociationCreateObjectV1SignalE(output, error_type, error_str);
+        Q_EMIT ezsignfoldersignerassociationCreateObjectV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -330,8 +430,8 @@ void ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationCreate
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsignfoldersignerassociationCreateObjectV1SignalError(output, error_type, error_str);
-        emit ezsignfoldersignerassociationCreateObjectV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsignfoldersignerassociationCreateObjectV1SignalError(output, error_type, error_str);
+        Q_EMIT ezsignfoldersignerassociationCreateObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -367,7 +467,7 @@ void ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationCreate
     connect(this, &ObjectEzsignfoldersignerassociationApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -385,8 +485,8 @@ void ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationCreate
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsignfoldersignerassociationCreateObjectV2Signal(output);
-        emit ezsignfoldersignerassociationCreateObjectV2SignalFull(worker, output);
+        Q_EMIT ezsignfoldersignerassociationCreateObjectV2Signal(output);
+        Q_EMIT ezsignfoldersignerassociationCreateObjectV2SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -403,8 +503,8 @@ void ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationCreate
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsignfoldersignerassociationCreateObjectV2SignalE(output, error_type, error_str);
-        emit ezsignfoldersignerassociationCreateObjectV2SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsignfoldersignerassociationCreateObjectV2SignalE(output, error_type, error_str);
+        Q_EMIT ezsignfoldersignerassociationCreateObjectV2SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -414,8 +514,8 @@ void ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationCreate
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsignfoldersignerassociationCreateObjectV2SignalError(output, error_type, error_str);
-        emit ezsignfoldersignerassociationCreateObjectV2SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsignfoldersignerassociationCreateObjectV2SignalError(output, error_type, error_str);
+        Q_EMIT ezsignfoldersignerassociationCreateObjectV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -460,7 +560,7 @@ void ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationDelete
     connect(this, &ObjectEzsignfoldersignerassociationApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -478,8 +578,8 @@ void ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationDelete
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsignfoldersignerassociationDeleteObjectV1Signal(output);
-        emit ezsignfoldersignerassociationDeleteObjectV1SignalFull(worker, output);
+        Q_EMIT ezsignfoldersignerassociationDeleteObjectV1Signal(output);
+        Q_EMIT ezsignfoldersignerassociationDeleteObjectV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -496,8 +596,8 @@ void ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationDelete
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsignfoldersignerassociationDeleteObjectV1SignalE(output, error_type, error_str);
-        emit ezsignfoldersignerassociationDeleteObjectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsignfoldersignerassociationDeleteObjectV1SignalE(output, error_type, error_str);
+        Q_EMIT ezsignfoldersignerassociationDeleteObjectV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -507,8 +607,8 @@ void ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationDelete
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsignfoldersignerassociationDeleteObjectV1SignalError(output, error_type, error_str);
-        emit ezsignfoldersignerassociationDeleteObjectV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsignfoldersignerassociationDeleteObjectV1SignalError(output, error_type, error_str);
+        Q_EMIT ezsignfoldersignerassociationDeleteObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -558,7 +658,7 @@ void ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationEditOb
     connect(this, &ObjectEzsignfoldersignerassociationApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -576,8 +676,8 @@ void ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationEditOb
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsignfoldersignerassociationEditObjectV1Signal(output);
-        emit ezsignfoldersignerassociationEditObjectV1SignalFull(worker, output);
+        Q_EMIT ezsignfoldersignerassociationEditObjectV1Signal(output);
+        Q_EMIT ezsignfoldersignerassociationEditObjectV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -594,8 +694,8 @@ void ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationEditOb
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsignfoldersignerassociationEditObjectV1SignalE(output, error_type, error_str);
-        emit ezsignfoldersignerassociationEditObjectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsignfoldersignerassociationEditObjectV1SignalE(output, error_type, error_str);
+        Q_EMIT ezsignfoldersignerassociationEditObjectV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -605,8 +705,8 @@ void ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationEditOb
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsignfoldersignerassociationEditObjectV1SignalError(output, error_type, error_str);
-        emit ezsignfoldersignerassociationEditObjectV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsignfoldersignerassociationEditObjectV1SignalError(output, error_type, error_str);
+        Q_EMIT ezsignfoldersignerassociationEditObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -656,7 +756,7 @@ void ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationForceD
     connect(this, &ObjectEzsignfoldersignerassociationApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -674,8 +774,8 @@ void ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationForceD
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsignfoldersignerassociationForceDisconnectV1Signal(output);
-        emit ezsignfoldersignerassociationForceDisconnectV1SignalFull(worker, output);
+        Q_EMIT ezsignfoldersignerassociationForceDisconnectV1Signal(output);
+        Q_EMIT ezsignfoldersignerassociationForceDisconnectV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -692,8 +792,8 @@ void ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationForceD
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsignfoldersignerassociationForceDisconnectV1SignalE(output, error_type, error_str);
-        emit ezsignfoldersignerassociationForceDisconnectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsignfoldersignerassociationForceDisconnectV1SignalE(output, error_type, error_str);
+        Q_EMIT ezsignfoldersignerassociationForceDisconnectV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -703,8 +803,8 @@ void ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationForceD
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsignfoldersignerassociationForceDisconnectV1SignalError(output, error_type, error_str);
-        emit ezsignfoldersignerassociationForceDisconnectV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsignfoldersignerassociationForceDisconnectV1SignalError(output, error_type, error_str);
+        Q_EMIT ezsignfoldersignerassociationForceDisconnectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -749,7 +849,7 @@ void ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationGetInP
     connect(this, &ObjectEzsignfoldersignerassociationApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -767,8 +867,8 @@ void ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationGetInP
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsignfoldersignerassociationGetInPersonLoginUrlV1Signal(output);
-        emit ezsignfoldersignerassociationGetInPersonLoginUrlV1SignalFull(worker, output);
+        Q_EMIT ezsignfoldersignerassociationGetInPersonLoginUrlV1Signal(output);
+        Q_EMIT ezsignfoldersignerassociationGetInPersonLoginUrlV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -785,8 +885,8 @@ void ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationGetInP
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsignfoldersignerassociationGetInPersonLoginUrlV1SignalE(output, error_type, error_str);
-        emit ezsignfoldersignerassociationGetInPersonLoginUrlV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsignfoldersignerassociationGetInPersonLoginUrlV1SignalE(output, error_type, error_str);
+        Q_EMIT ezsignfoldersignerassociationGetInPersonLoginUrlV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -796,8 +896,8 @@ void ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationGetInP
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsignfoldersignerassociationGetInPersonLoginUrlV1SignalError(output, error_type, error_str);
-        emit ezsignfoldersignerassociationGetInPersonLoginUrlV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsignfoldersignerassociationGetInPersonLoginUrlV1SignalError(output, error_type, error_str);
+        Q_EMIT ezsignfoldersignerassociationGetInPersonLoginUrlV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -842,7 +942,7 @@ void ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationGetObj
     connect(this, &ObjectEzsignfoldersignerassociationApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -860,8 +960,8 @@ void ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationGetObj
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsignfoldersignerassociationGetObjectV1Signal(output);
-        emit ezsignfoldersignerassociationGetObjectV1SignalFull(worker, output);
+        Q_EMIT ezsignfoldersignerassociationGetObjectV1Signal(output);
+        Q_EMIT ezsignfoldersignerassociationGetObjectV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -878,8 +978,8 @@ void ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationGetObj
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsignfoldersignerassociationGetObjectV1SignalE(output, error_type, error_str);
-        emit ezsignfoldersignerassociationGetObjectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsignfoldersignerassociationGetObjectV1SignalE(output, error_type, error_str);
+        Q_EMIT ezsignfoldersignerassociationGetObjectV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -889,8 +989,8 @@ void ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationGetObj
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsignfoldersignerassociationGetObjectV1SignalError(output, error_type, error_str);
-        emit ezsignfoldersignerassociationGetObjectV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsignfoldersignerassociationGetObjectV1SignalError(output, error_type, error_str);
+        Q_EMIT ezsignfoldersignerassociationGetObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -935,7 +1035,7 @@ void ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationGetObj
     connect(this, &ObjectEzsignfoldersignerassociationApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -953,8 +1053,8 @@ void ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationGetObj
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsignfoldersignerassociationGetObjectV2Signal(output);
-        emit ezsignfoldersignerassociationGetObjectV2SignalFull(worker, output);
+        Q_EMIT ezsignfoldersignerassociationGetObjectV2Signal(output);
+        Q_EMIT ezsignfoldersignerassociationGetObjectV2SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -971,8 +1071,8 @@ void ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationGetObj
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsignfoldersignerassociationGetObjectV2SignalE(output, error_type, error_str);
-        emit ezsignfoldersignerassociationGetObjectV2SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsignfoldersignerassociationGetObjectV2SignalE(output, error_type, error_str);
+        Q_EMIT ezsignfoldersignerassociationGetObjectV2SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -982,8 +1082,8 @@ void ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationGetObj
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsignfoldersignerassociationGetObjectV2SignalError(output, error_type, error_str);
-        emit ezsignfoldersignerassociationGetObjectV2SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsignfoldersignerassociationGetObjectV2SignalError(output, error_type, error_str);
+        Q_EMIT ezsignfoldersignerassociationGetObjectV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -1033,7 +1133,7 @@ void ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationPatchO
     connect(this, &ObjectEzsignfoldersignerassociationApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -1051,8 +1151,8 @@ void ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationPatchO
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsignfoldersignerassociationPatchObjectV1Signal(output);
-        emit ezsignfoldersignerassociationPatchObjectV1SignalFull(worker, output);
+        Q_EMIT ezsignfoldersignerassociationPatchObjectV1Signal(output);
+        Q_EMIT ezsignfoldersignerassociationPatchObjectV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -1069,8 +1169,8 @@ void ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationPatchO
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsignfoldersignerassociationPatchObjectV1SignalE(output, error_type, error_str);
-        emit ezsignfoldersignerassociationPatchObjectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsignfoldersignerassociationPatchObjectV1SignalE(output, error_type, error_str);
+        Q_EMIT ezsignfoldersignerassociationPatchObjectV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -1080,8 +1180,8 @@ void ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationPatchO
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsignfoldersignerassociationPatchObjectV1SignalError(output, error_type, error_str);
-        emit ezsignfoldersignerassociationPatchObjectV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsignfoldersignerassociationPatchObjectV1SignalError(output, error_type, error_str);
+        Q_EMIT ezsignfoldersignerassociationPatchObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

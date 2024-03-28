@@ -24,6 +24,8 @@
 #include "Object.h"
 #include "User_createObject_v1_Request.h"
 #include "User_createObject_v1_Response.h"
+#include "User_createObject_v2_Request.h"
+#include "User_createObject_v2_Response.h"
 #include "User_editObject_v1_Request.h"
 #include "User_editObject_v1_Response.h"
 #include "User_editPermissions_v1_Request.h"
@@ -35,6 +37,8 @@
 #include "User_getObject_v2_Response.h"
 #include "User_getPermissions_v1_Response.h"
 #include "User_getSubnets_v1_Response.h"
+#include "User_getUsergroupexternals_v1_Response.h"
+#include "User_getUsergroups_v1_Response.h"
 #include "User_sendPasswordReset_v1_Response.h"
 #include <QString>
 
@@ -78,6 +82,11 @@ public:
     * @param[in]  user_create_object_v1_request User_createObject_v1_Request [required]
     */
     void userCreateObjectV1(const User_createObject_v1_Request &user_create_object_v1_request);
+
+    /**
+    * @param[in]  user_create_object_v2_request User_createObject_v2_Request [required]
+    */
+    void userCreateObjectV2(const User_createObject_v2_Request &user_create_object_v2_request);
 
     /**
     * @param[in]  pki_user_id qint32 [required]
@@ -135,6 +144,16 @@ public:
 
     /**
     * @param[in]  pki_user_id qint32 [required]
+    */
+    void userGetUsergroupexternalsV1(const qint32 &pki_user_id);
+
+    /**
+    * @param[in]  pki_user_id qint32 [required]
+    */
+    void userGetUsergroupsV1(const qint32 &pki_user_id);
+
+    /**
+    * @param[in]  pki_user_id qint32 [required]
     * @param[in]  body Object [required]
     */
     void userSendPasswordResetV1(const qint32 &pki_user_id, const Object &body);
@@ -163,6 +182,7 @@ private:
     int _OauthMethod = 0;
 
     void userCreateObjectV1Callback(HttpRequestWorker *worker);
+    void userCreateObjectV2Callback(HttpRequestWorker *worker);
     void userEditObjectV1Callback(HttpRequestWorker *worker);
     void userEditPermissionsV1Callback(HttpRequestWorker *worker);
     void userGetApikeysV1Callback(HttpRequestWorker *worker);
@@ -172,11 +192,14 @@ private:
     void userGetObjectV2Callback(HttpRequestWorker *worker);
     void userGetPermissionsV1Callback(HttpRequestWorker *worker);
     void userGetSubnetsV1Callback(HttpRequestWorker *worker);
+    void userGetUsergroupexternalsV1Callback(HttpRequestWorker *worker);
+    void userGetUsergroupsV1Callback(HttpRequestWorker *worker);
     void userSendPasswordResetV1Callback(HttpRequestWorker *worker);
 
-signals:
+Q_SIGNALS:
 
     void userCreateObjectV1Signal(User_createObject_v1_Response summary);
+    void userCreateObjectV2Signal(User_createObject_v2_Response summary);
     void userEditObjectV1Signal(User_editObject_v1_Response summary);
     void userEditPermissionsV1Signal(User_editPermissions_v1_Response summary);
     void userGetApikeysV1Signal(User_getApikeys_v1_Response summary);
@@ -186,9 +209,12 @@ signals:
     void userGetObjectV2Signal(User_getObject_v2_Response summary);
     void userGetPermissionsV1Signal(User_getPermissions_v1_Response summary);
     void userGetSubnetsV1Signal(User_getSubnets_v1_Response summary);
+    void userGetUsergroupexternalsV1Signal(User_getUsergroupexternals_v1_Response summary);
+    void userGetUsergroupsV1Signal(User_getUsergroups_v1_Response summary);
     void userSendPasswordResetV1Signal(User_sendPasswordReset_v1_Response summary);
 
     void userCreateObjectV1SignalFull(HttpRequestWorker *worker, User_createObject_v1_Response summary);
+    void userCreateObjectV2SignalFull(HttpRequestWorker *worker, User_createObject_v2_Response summary);
     void userEditObjectV1SignalFull(HttpRequestWorker *worker, User_editObject_v1_Response summary);
     void userEditPermissionsV1SignalFull(HttpRequestWorker *worker, User_editPermissions_v1_Response summary);
     void userGetApikeysV1SignalFull(HttpRequestWorker *worker, User_getApikeys_v1_Response summary);
@@ -198,11 +224,16 @@ signals:
     void userGetObjectV2SignalFull(HttpRequestWorker *worker, User_getObject_v2_Response summary);
     void userGetPermissionsV1SignalFull(HttpRequestWorker *worker, User_getPermissions_v1_Response summary);
     void userGetSubnetsV1SignalFull(HttpRequestWorker *worker, User_getSubnets_v1_Response summary);
+    void userGetUsergroupexternalsV1SignalFull(HttpRequestWorker *worker, User_getUsergroupexternals_v1_Response summary);
+    void userGetUsergroupsV1SignalFull(HttpRequestWorker *worker, User_getUsergroups_v1_Response summary);
     void userSendPasswordResetV1SignalFull(HttpRequestWorker *worker, User_sendPasswordReset_v1_Response summary);
 
     Q_DECL_DEPRECATED_X("Use userCreateObjectV1SignalError() instead")
     void userCreateObjectV1SignalE(User_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void userCreateObjectV1SignalError(User_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use userCreateObjectV2SignalError() instead")
+    void userCreateObjectV2SignalE(User_createObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void userCreateObjectV2SignalError(User_createObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use userEditObjectV1SignalError() instead")
     void userEditObjectV1SignalE(User_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void userEditObjectV1SignalError(User_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -230,6 +261,12 @@ signals:
     Q_DECL_DEPRECATED_X("Use userGetSubnetsV1SignalError() instead")
     void userGetSubnetsV1SignalE(User_getSubnets_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void userGetSubnetsV1SignalError(User_getSubnets_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use userGetUsergroupexternalsV1SignalError() instead")
+    void userGetUsergroupexternalsV1SignalE(User_getUsergroupexternals_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void userGetUsergroupexternalsV1SignalError(User_getUsergroupexternals_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use userGetUsergroupsV1SignalError() instead")
+    void userGetUsergroupsV1SignalE(User_getUsergroups_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void userGetUsergroupsV1SignalError(User_getUsergroups_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use userSendPasswordResetV1SignalError() instead")
     void userSendPasswordResetV1SignalE(User_sendPasswordReset_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void userSendPasswordResetV1SignalError(User_sendPasswordReset_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -237,6 +274,9 @@ signals:
     Q_DECL_DEPRECATED_X("Use userCreateObjectV1SignalErrorFull() instead")
     void userCreateObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void userCreateObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use userCreateObjectV2SignalErrorFull() instead")
+    void userCreateObjectV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void userCreateObjectV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use userEditObjectV1SignalErrorFull() instead")
     void userEditObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void userEditObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -264,6 +304,12 @@ signals:
     Q_DECL_DEPRECATED_X("Use userGetSubnetsV1SignalErrorFull() instead")
     void userGetSubnetsV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void userGetSubnetsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use userGetUsergroupexternalsV1SignalErrorFull() instead")
+    void userGetUsergroupexternalsV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void userGetUsergroupexternalsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use userGetUsergroupsV1SignalErrorFull() instead")
+    void userGetUsergroupsV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void userGetUsergroupsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use userSendPasswordResetV1SignalErrorFull() instead")
     void userSendPasswordResetV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void userSendPasswordResetV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -271,7 +317,7 @@ signals:
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
-public slots:
+public Q_SLOTS:
     void tokenAvailable();
 };
 

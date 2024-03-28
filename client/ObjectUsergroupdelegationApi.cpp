@@ -176,7 +176,7 @@ void ObjectUsergroupdelegationApi::enableResponseCompression() {
 }
 
 void ObjectUsergroupdelegationApi::abortRequests() {
-    emit abortRequestsSignal();
+    Q_EMIT abortRequestsSignal();
 }
 
 QString ObjectUsergroupdelegationApi::getParamStylePrefix(const QString &style) {
@@ -274,7 +274,7 @@ void ObjectUsergroupdelegationApi::usergroupdelegationCreateObjectV1(const Userg
     connect(this, &ObjectUsergroupdelegationApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -292,8 +292,8 @@ void ObjectUsergroupdelegationApi::usergroupdelegationCreateObjectV1Callback(Htt
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit usergroupdelegationCreateObjectV1Signal(output);
-        emit usergroupdelegationCreateObjectV1SignalFull(worker, output);
+        Q_EMIT usergroupdelegationCreateObjectV1Signal(output);
+        Q_EMIT usergroupdelegationCreateObjectV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -310,8 +310,8 @@ void ObjectUsergroupdelegationApi::usergroupdelegationCreateObjectV1Callback(Htt
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit usergroupdelegationCreateObjectV1SignalE(output, error_type, error_str);
-        emit usergroupdelegationCreateObjectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT usergroupdelegationCreateObjectV1SignalE(output, error_type, error_str);
+        Q_EMIT usergroupdelegationCreateObjectV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -321,8 +321,8 @@ void ObjectUsergroupdelegationApi::usergroupdelegationCreateObjectV1Callback(Htt
 #pragma GCC diagnostic pop
 #endif
 
-        emit usergroupdelegationCreateObjectV1SignalError(output, error_type, error_str);
-        emit usergroupdelegationCreateObjectV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT usergroupdelegationCreateObjectV1SignalError(output, error_type, error_str);
+        Q_EMIT usergroupdelegationCreateObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -367,7 +367,7 @@ void ObjectUsergroupdelegationApi::usergroupdelegationDeleteObjectV1(const qint3
     connect(this, &ObjectUsergroupdelegationApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -385,8 +385,8 @@ void ObjectUsergroupdelegationApi::usergroupdelegationDeleteObjectV1Callback(Htt
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit usergroupdelegationDeleteObjectV1Signal(output);
-        emit usergroupdelegationDeleteObjectV1SignalFull(worker, output);
+        Q_EMIT usergroupdelegationDeleteObjectV1Signal(output);
+        Q_EMIT usergroupdelegationDeleteObjectV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -403,8 +403,8 @@ void ObjectUsergroupdelegationApi::usergroupdelegationDeleteObjectV1Callback(Htt
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit usergroupdelegationDeleteObjectV1SignalE(output, error_type, error_str);
-        emit usergroupdelegationDeleteObjectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT usergroupdelegationDeleteObjectV1SignalE(output, error_type, error_str);
+        Q_EMIT usergroupdelegationDeleteObjectV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -414,8 +414,8 @@ void ObjectUsergroupdelegationApi::usergroupdelegationDeleteObjectV1Callback(Htt
 #pragma GCC diagnostic pop
 #endif
 
-        emit usergroupdelegationDeleteObjectV1SignalError(output, error_type, error_str);
-        emit usergroupdelegationDeleteObjectV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT usergroupdelegationDeleteObjectV1SignalError(output, error_type, error_str);
+        Q_EMIT usergroupdelegationDeleteObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -465,7 +465,7 @@ void ObjectUsergroupdelegationApi::usergroupdelegationEditObjectV1(const qint32 
     connect(this, &ObjectUsergroupdelegationApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -483,8 +483,8 @@ void ObjectUsergroupdelegationApi::usergroupdelegationEditObjectV1Callback(HttpR
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit usergroupdelegationEditObjectV1Signal(output);
-        emit usergroupdelegationEditObjectV1SignalFull(worker, output);
+        Q_EMIT usergroupdelegationEditObjectV1Signal(output);
+        Q_EMIT usergroupdelegationEditObjectV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -501,8 +501,8 @@ void ObjectUsergroupdelegationApi::usergroupdelegationEditObjectV1Callback(HttpR
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit usergroupdelegationEditObjectV1SignalE(output, error_type, error_str);
-        emit usergroupdelegationEditObjectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT usergroupdelegationEditObjectV1SignalE(output, error_type, error_str);
+        Q_EMIT usergroupdelegationEditObjectV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -512,8 +512,8 @@ void ObjectUsergroupdelegationApi::usergroupdelegationEditObjectV1Callback(HttpR
 #pragma GCC diagnostic pop
 #endif
 
-        emit usergroupdelegationEditObjectV1SignalError(output, error_type, error_str);
-        emit usergroupdelegationEditObjectV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT usergroupdelegationEditObjectV1SignalError(output, error_type, error_str);
+        Q_EMIT usergroupdelegationEditObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -558,7 +558,7 @@ void ObjectUsergroupdelegationApi::usergroupdelegationGetObjectV2(const qint32 &
     connect(this, &ObjectUsergroupdelegationApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -576,8 +576,8 @@ void ObjectUsergroupdelegationApi::usergroupdelegationGetObjectV2Callback(HttpRe
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit usergroupdelegationGetObjectV2Signal(output);
-        emit usergroupdelegationGetObjectV2SignalFull(worker, output);
+        Q_EMIT usergroupdelegationGetObjectV2Signal(output);
+        Q_EMIT usergroupdelegationGetObjectV2SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -594,8 +594,8 @@ void ObjectUsergroupdelegationApi::usergroupdelegationGetObjectV2Callback(HttpRe
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit usergroupdelegationGetObjectV2SignalE(output, error_type, error_str);
-        emit usergroupdelegationGetObjectV2SignalEFull(worker, error_type, error_str);
+        Q_EMIT usergroupdelegationGetObjectV2SignalE(output, error_type, error_str);
+        Q_EMIT usergroupdelegationGetObjectV2SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -605,8 +605,8 @@ void ObjectUsergroupdelegationApi::usergroupdelegationGetObjectV2Callback(HttpRe
 #pragma GCC diagnostic pop
 #endif
 
-        emit usergroupdelegationGetObjectV2SignalError(output, error_type, error_str);
-        emit usergroupdelegationGetObjectV2SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT usergroupdelegationGetObjectV2SignalError(output, error_type, error_str);
+        Q_EMIT usergroupdelegationGetObjectV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 

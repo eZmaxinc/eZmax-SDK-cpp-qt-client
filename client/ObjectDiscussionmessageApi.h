@@ -105,7 +105,7 @@ private:
     void discussionmessageDeleteObjectV1Callback(HttpRequestWorker *worker);
     void discussionmessagePatchObjectV1Callback(HttpRequestWorker *worker);
 
-signals:
+Q_SIGNALS:
 
     void discussionmessageCreateObjectV1Signal(Discussionmessage_createObject_v1_Response summary);
     void discussionmessageDeleteObjectV1Signal(Discussionmessage_deleteObject_v1_Response summary);
@@ -138,7 +138,7 @@ signals:
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
-public slots:
+public Q_SLOTS:
     void tokenAvailable();
 };
 

@@ -22,6 +22,7 @@
 #include <QJsonObject>
 
 #include "Multilingual_UsergroupName.h"
+#include <QString>
 
 #include "Enum.h"
 #include "Object.h"
@@ -50,6 +51,11 @@ public:
     bool is_obj_usergroup_name_Set() const;
     bool is_obj_usergroup_name_Valid() const;
 
+    QString getSUsergroupNameX() const;
+    void setSUsergroupNameX(const QString &s_usergroup_name_x);
+    bool is_s_usergroup_name_x_Set() const;
+    bool is_s_usergroup_name_x_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -63,6 +69,10 @@ private:
     Multilingual_UsergroupName m_obj_usergroup_name;
     bool m_obj_usergroup_name_isSet;
     bool m_obj_usergroup_name_isValid;
+
+    QString m_s_usergroup_name_x;
+    bool m_s_usergroup_name_x_isSet;
+    bool m_s_usergroup_name_x_isValid;
 };
 
 } // namespace Ezmaxapi

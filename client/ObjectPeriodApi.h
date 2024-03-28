@@ -18,7 +18,6 @@
 #include "ServerConfiguration.h"
 #include "Oauth.h"
 
-#include "Common_getAutocomplete_v1_Response.h"
 #include "Header_Accept_Language.h"
 #include "Period_getAutocomplete_v2_Response.h"
 #include <QString>
@@ -65,14 +64,6 @@ public:
     * @param[in]  s_query QString [optional]
     * @param[in]  accept_language Header_Accept_Language [optional]
     */
-    Q_DECL_DEPRECATED void periodGetAutocompleteV1(const QString &s_selector, const ::Ezmaxapi::OptionalParam<QString> &e_filter_active = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<QString> &s_query = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<Header_Accept_Language>());
-
-    /**
-    * @param[in]  s_selector QString [required]
-    * @param[in]  e_filter_active QString [optional]
-    * @param[in]  s_query QString [optional]
-    * @param[in]  accept_language Header_Accept_Language [optional]
-    */
     void periodGetAutocompleteV2(const QString &s_selector, const ::Ezmaxapi::OptionalParam<QString> &e_filter_active = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<QString> &s_query = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<Header_Accept_Language>());
 
 
@@ -98,27 +89,18 @@ private:
     OauthPassword _passwordFlow;
     int _OauthMethod = 0;
 
-    void periodGetAutocompleteV1Callback(HttpRequestWorker *worker);
     void periodGetAutocompleteV2Callback(HttpRequestWorker *worker);
 
-signals:
+Q_SIGNALS:
 
-    void periodGetAutocompleteV1Signal(Common_getAutocomplete_v1_Response summary);
     void periodGetAutocompleteV2Signal(Period_getAutocomplete_v2_Response summary);
 
-    void periodGetAutocompleteV1SignalFull(HttpRequestWorker *worker, Common_getAutocomplete_v1_Response summary);
     void periodGetAutocompleteV2SignalFull(HttpRequestWorker *worker, Period_getAutocomplete_v2_Response summary);
 
-    Q_DECL_DEPRECATED_X("Use periodGetAutocompleteV1SignalError() instead")
-    void periodGetAutocompleteV1SignalE(Common_getAutocomplete_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void periodGetAutocompleteV1SignalError(Common_getAutocomplete_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use periodGetAutocompleteV2SignalError() instead")
     void periodGetAutocompleteV2SignalE(Period_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void periodGetAutocompleteV2SignalError(Period_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
-    Q_DECL_DEPRECATED_X("Use periodGetAutocompleteV1SignalErrorFull() instead")
-    void periodGetAutocompleteV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
-    void periodGetAutocompleteV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use periodGetAutocompleteV2SignalErrorFull() instead")
     void periodGetAutocompleteV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void periodGetAutocompleteV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -126,7 +108,7 @@ signals:
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
-public slots:
+public Q_SLOTS:
     void tokenAvailable();
 };
 

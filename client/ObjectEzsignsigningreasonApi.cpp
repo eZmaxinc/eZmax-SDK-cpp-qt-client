@@ -178,7 +178,7 @@ void ObjectEzsignsigningreasonApi::enableResponseCompression() {
 }
 
 void ObjectEzsignsigningreasonApi::abortRequests() {
-    emit abortRequestsSignal();
+    Q_EMIT abortRequestsSignal();
 }
 
 QString ObjectEzsignsigningreasonApi::getParamStylePrefix(const QString &style) {
@@ -276,7 +276,7 @@ void ObjectEzsignsigningreasonApi::ezsignsigningreasonCreateObjectV1(const Ezsig
     connect(this, &ObjectEzsignsigningreasonApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -294,8 +294,8 @@ void ObjectEzsignsigningreasonApi::ezsignsigningreasonCreateObjectV1Callback(Htt
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsignsigningreasonCreateObjectV1Signal(output);
-        emit ezsignsigningreasonCreateObjectV1SignalFull(worker, output);
+        Q_EMIT ezsignsigningreasonCreateObjectV1Signal(output);
+        Q_EMIT ezsignsigningreasonCreateObjectV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -312,8 +312,8 @@ void ObjectEzsignsigningreasonApi::ezsignsigningreasonCreateObjectV1Callback(Htt
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsignsigningreasonCreateObjectV1SignalE(output, error_type, error_str);
-        emit ezsignsigningreasonCreateObjectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsignsigningreasonCreateObjectV1SignalE(output, error_type, error_str);
+        Q_EMIT ezsignsigningreasonCreateObjectV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -323,8 +323,8 @@ void ObjectEzsignsigningreasonApi::ezsignsigningreasonCreateObjectV1Callback(Htt
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsignsigningreasonCreateObjectV1SignalError(output, error_type, error_str);
-        emit ezsignsigningreasonCreateObjectV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsignsigningreasonCreateObjectV1SignalError(output, error_type, error_str);
+        Q_EMIT ezsignsigningreasonCreateObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -374,7 +374,7 @@ void ObjectEzsignsigningreasonApi::ezsignsigningreasonEditObjectV1(const qint32 
     connect(this, &ObjectEzsignsigningreasonApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -392,8 +392,8 @@ void ObjectEzsignsigningreasonApi::ezsignsigningreasonEditObjectV1Callback(HttpR
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsignsigningreasonEditObjectV1Signal(output);
-        emit ezsignsigningreasonEditObjectV1SignalFull(worker, output);
+        Q_EMIT ezsignsigningreasonEditObjectV1Signal(output);
+        Q_EMIT ezsignsigningreasonEditObjectV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -410,8 +410,8 @@ void ObjectEzsignsigningreasonApi::ezsignsigningreasonEditObjectV1Callback(HttpR
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsignsigningreasonEditObjectV1SignalE(output, error_type, error_str);
-        emit ezsignsigningreasonEditObjectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsignsigningreasonEditObjectV1SignalE(output, error_type, error_str);
+        Q_EMIT ezsignsigningreasonEditObjectV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -421,8 +421,8 @@ void ObjectEzsignsigningreasonApi::ezsignsigningreasonEditObjectV1Callback(HttpR
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsignsigningreasonEditObjectV1SignalError(output, error_type, error_str);
-        emit ezsignsigningreasonEditObjectV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsignsigningreasonEditObjectV1SignalError(output, error_type, error_str);
+        Q_EMIT ezsignsigningreasonEditObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -461,7 +461,7 @@ void ObjectEzsignsigningreasonApi::ezsignsigningreasonGetAutocompleteV2(const QS
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("eFilterActive")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(e_filter_active.value())));
+        fullPath.append(QUrl::toPercentEncoding("eFilterActive")).append(querySuffix).append(QUrl::toPercentEncoding(e_filter_active.stringValue()));
     }
     if (s_query.hasValue())
     {
@@ -476,7 +476,7 @@ void ObjectEzsignsigningreasonApi::ezsignsigningreasonGetAutocompleteV2(const QS
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_query.value())));
+        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(s_query.stringValue()));
     }
     HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -542,7 +542,7 @@ void ObjectEzsignsigningreasonApi::ezsignsigningreasonGetAutocompleteV2(const QS
     connect(this, &ObjectEzsignsigningreasonApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -560,8 +560,8 @@ void ObjectEzsignsigningreasonApi::ezsignsigningreasonGetAutocompleteV2Callback(
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsignsigningreasonGetAutocompleteV2Signal(output);
-        emit ezsignsigningreasonGetAutocompleteV2SignalFull(worker, output);
+        Q_EMIT ezsignsigningreasonGetAutocompleteV2Signal(output);
+        Q_EMIT ezsignsigningreasonGetAutocompleteV2SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -578,8 +578,8 @@ void ObjectEzsignsigningreasonApi::ezsignsigningreasonGetAutocompleteV2Callback(
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsignsigningreasonGetAutocompleteV2SignalE(output, error_type, error_str);
-        emit ezsignsigningreasonGetAutocompleteV2SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsignsigningreasonGetAutocompleteV2SignalE(output, error_type, error_str);
+        Q_EMIT ezsignsigningreasonGetAutocompleteV2SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -589,8 +589,8 @@ void ObjectEzsignsigningreasonApi::ezsignsigningreasonGetAutocompleteV2Callback(
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsignsigningreasonGetAutocompleteV2SignalError(output, error_type, error_str);
-        emit ezsignsigningreasonGetAutocompleteV2SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsignsigningreasonGetAutocompleteV2SignalError(output, error_type, error_str);
+        Q_EMIT ezsignsigningreasonGetAutocompleteV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -615,7 +615,7 @@ void ObjectEzsignsigningreasonApi::ezsignsigningreasonGetListV1(const ::Ezmaxapi
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("eOrderBy")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(e_order_by.value())));
+        fullPath.append(QUrl::toPercentEncoding("eOrderBy")).append(querySuffix).append(QUrl::toPercentEncoding(e_order_by.stringValue()));
     }
     if (i_row_max.hasValue())
     {
@@ -630,7 +630,7 @@ void ObjectEzsignsigningreasonApi::ezsignsigningreasonGetListV1(const ::Ezmaxapi
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("iRowMax")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(i_row_max.value())));
+        fullPath.append(QUrl::toPercentEncoding("iRowMax")).append(querySuffix).append(QUrl::toPercentEncoding(i_row_max.stringValue()));
     }
     if (i_row_offset.hasValue())
     {
@@ -645,7 +645,7 @@ void ObjectEzsignsigningreasonApi::ezsignsigningreasonGetListV1(const ::Ezmaxapi
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("iRowOffset")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(i_row_offset.value())));
+        fullPath.append(QUrl::toPercentEncoding("iRowOffset")).append(querySuffix).append(QUrl::toPercentEncoding(i_row_offset.stringValue()));
     }
     if (s_filter.hasValue())
     {
@@ -660,7 +660,7 @@ void ObjectEzsignsigningreasonApi::ezsignsigningreasonGetListV1(const ::Ezmaxapi
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("sFilter")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_filter.value())));
+        fullPath.append(QUrl::toPercentEncoding("sFilter")).append(querySuffix).append(QUrl::toPercentEncoding(s_filter.stringValue()));
     }
     HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -726,7 +726,7 @@ void ObjectEzsignsigningreasonApi::ezsignsigningreasonGetListV1(const ::Ezmaxapi
     connect(this, &ObjectEzsignsigningreasonApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -744,8 +744,8 @@ void ObjectEzsignsigningreasonApi::ezsignsigningreasonGetListV1Callback(HttpRequ
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsignsigningreasonGetListV1Signal(output);
-        emit ezsignsigningreasonGetListV1SignalFull(worker, output);
+        Q_EMIT ezsignsigningreasonGetListV1Signal(output);
+        Q_EMIT ezsignsigningreasonGetListV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -762,8 +762,8 @@ void ObjectEzsignsigningreasonApi::ezsignsigningreasonGetListV1Callback(HttpRequ
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsignsigningreasonGetListV1SignalE(output, error_type, error_str);
-        emit ezsignsigningreasonGetListV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsignsigningreasonGetListV1SignalE(output, error_type, error_str);
+        Q_EMIT ezsignsigningreasonGetListV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -773,8 +773,8 @@ void ObjectEzsignsigningreasonApi::ezsignsigningreasonGetListV1Callback(HttpRequ
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsignsigningreasonGetListV1SignalError(output, error_type, error_str);
-        emit ezsignsigningreasonGetListV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsignsigningreasonGetListV1SignalError(output, error_type, error_str);
+        Q_EMIT ezsignsigningreasonGetListV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -819,7 +819,7 @@ void ObjectEzsignsigningreasonApi::ezsignsigningreasonGetObjectV2(const qint32 &
     connect(this, &ObjectEzsignsigningreasonApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -837,8 +837,8 @@ void ObjectEzsignsigningreasonApi::ezsignsigningreasonGetObjectV2Callback(HttpRe
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsignsigningreasonGetObjectV2Signal(output);
-        emit ezsignsigningreasonGetObjectV2SignalFull(worker, output);
+        Q_EMIT ezsignsigningreasonGetObjectV2Signal(output);
+        Q_EMIT ezsignsigningreasonGetObjectV2SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -855,8 +855,8 @@ void ObjectEzsignsigningreasonApi::ezsignsigningreasonGetObjectV2Callback(HttpRe
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsignsigningreasonGetObjectV2SignalE(output, error_type, error_str);
-        emit ezsignsigningreasonGetObjectV2SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsignsigningreasonGetObjectV2SignalE(output, error_type, error_str);
+        Q_EMIT ezsignsigningreasonGetObjectV2SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -866,8 +866,8 @@ void ObjectEzsignsigningreasonApi::ezsignsigningreasonGetObjectV2Callback(HttpRe
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsignsigningreasonGetObjectV2SignalError(output, error_type, error_str);
-        emit ezsignsigningreasonGetObjectV2SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsignsigningreasonGetObjectV2SignalError(output, error_type, error_str);
+        Q_EMIT ezsignsigningreasonGetObjectV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 

@@ -61,6 +61,8 @@ void ObjectUserApi::initializeServerConfigs() {
     
     _serverConfigs.insert("userCreateObjectV1", defaultConf);
     _serverIndices.insert("userCreateObjectV1", 0);
+    _serverConfigs.insert("userCreateObjectV2", defaultConf);
+    _serverIndices.insert("userCreateObjectV2", 0);
     _serverConfigs.insert("userEditObjectV1", defaultConf);
     _serverIndices.insert("userEditObjectV1", 0);
     _serverConfigs.insert("userEditPermissionsV1", defaultConf);
@@ -79,6 +81,10 @@ void ObjectUserApi::initializeServerConfigs() {
     _serverIndices.insert("userGetPermissionsV1", 0);
     _serverConfigs.insert("userGetSubnetsV1", defaultConf);
     _serverIndices.insert("userGetSubnetsV1", 0);
+    _serverConfigs.insert("userGetUsergroupexternalsV1", defaultConf);
+    _serverIndices.insert("userGetUsergroupexternalsV1", 0);
+    _serverConfigs.insert("userGetUsergroupsV1", defaultConf);
+    _serverIndices.insert("userGetUsergroupsV1", 0);
     _serverConfigs.insert("userSendPasswordResetV1", defaultConf);
     _serverIndices.insert("userSendPasswordResetV1", 0);
 }
@@ -190,7 +196,7 @@ void ObjectUserApi::enableResponseCompression() {
 }
 
 void ObjectUserApi::abortRequests() {
-    emit abortRequestsSignal();
+    Q_EMIT abortRequestsSignal();
 }
 
 QString ObjectUserApi::getParamStylePrefix(const QString &style) {
@@ -288,7 +294,7 @@ void ObjectUserApi::userCreateObjectV1(const User_createObject_v1_Request &user_
     connect(this, &ObjectUserApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -306,8 +312,8 @@ void ObjectUserApi::userCreateObjectV1Callback(HttpRequestWorker *worker) {
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit userCreateObjectV1Signal(output);
-        emit userCreateObjectV1SignalFull(worker, output);
+        Q_EMIT userCreateObjectV1Signal(output);
+        Q_EMIT userCreateObjectV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -324,8 +330,8 @@ void ObjectUserApi::userCreateObjectV1Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit userCreateObjectV1SignalE(output, error_type, error_str);
-        emit userCreateObjectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT userCreateObjectV1SignalE(output, error_type, error_str);
+        Q_EMIT userCreateObjectV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -335,8 +341,92 @@ void ObjectUserApi::userCreateObjectV1Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic pop
 #endif
 
-        emit userCreateObjectV1SignalError(output, error_type, error_str);
-        emit userCreateObjectV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT userCreateObjectV1SignalError(output, error_type, error_str);
+        Q_EMIT userCreateObjectV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectUserApi::userCreateObjectV2(const User_createObject_v2_Request &user_create_object_v2_request) {
+    QString fullPath = QString(_serverConfigs["userCreateObjectV2"][_serverIndices.value("userCreateObjectV2")].URL()+"/2/object/user");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "POST");
+
+    {
+
+        
+        QByteArray output = user_create_object_v2_request.asJson().toUtf8();
+        input.request_body.append(output);
+    }
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+#else
+    for (auto key : _defaultHeaders.keys()) {
+        input.headers.insert(key, _defaultHeaders[key]);
+    }
+#endif
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectUserApi::userCreateObjectV2Callback);
+    connect(this, &ObjectUserApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this]() {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectUserApi::userCreateObjectV2Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    User_createObject_v2_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT userCreateObjectV2Signal(output);
+        Q_EMIT userCreateObjectV2SignalFull(worker, output);
+    } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
+        Q_EMIT userCreateObjectV2SignalE(output, error_type, error_str);
+        Q_EMIT userCreateObjectV2SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        Q_EMIT userCreateObjectV2SignalError(output, error_type, error_str);
+        Q_EMIT userCreateObjectV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -386,7 +476,7 @@ void ObjectUserApi::userEditObjectV1(const qint32 &pki_user_id, const User_editO
     connect(this, &ObjectUserApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -404,8 +494,8 @@ void ObjectUserApi::userEditObjectV1Callback(HttpRequestWorker *worker) {
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit userEditObjectV1Signal(output);
-        emit userEditObjectV1SignalFull(worker, output);
+        Q_EMIT userEditObjectV1Signal(output);
+        Q_EMIT userEditObjectV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -422,8 +512,8 @@ void ObjectUserApi::userEditObjectV1Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit userEditObjectV1SignalE(output, error_type, error_str);
-        emit userEditObjectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT userEditObjectV1SignalE(output, error_type, error_str);
+        Q_EMIT userEditObjectV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -433,8 +523,8 @@ void ObjectUserApi::userEditObjectV1Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic pop
 #endif
 
-        emit userEditObjectV1SignalError(output, error_type, error_str);
-        emit userEditObjectV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT userEditObjectV1SignalError(output, error_type, error_str);
+        Q_EMIT userEditObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -484,7 +574,7 @@ void ObjectUserApi::userEditPermissionsV1(const qint32 &pki_user_id, const User_
     connect(this, &ObjectUserApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -502,8 +592,8 @@ void ObjectUserApi::userEditPermissionsV1Callback(HttpRequestWorker *worker) {
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit userEditPermissionsV1Signal(output);
-        emit userEditPermissionsV1SignalFull(worker, output);
+        Q_EMIT userEditPermissionsV1Signal(output);
+        Q_EMIT userEditPermissionsV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -520,8 +610,8 @@ void ObjectUserApi::userEditPermissionsV1Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit userEditPermissionsV1SignalE(output, error_type, error_str);
-        emit userEditPermissionsV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT userEditPermissionsV1SignalE(output, error_type, error_str);
+        Q_EMIT userEditPermissionsV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -531,8 +621,8 @@ void ObjectUserApi::userEditPermissionsV1Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic pop
 #endif
 
-        emit userEditPermissionsV1SignalError(output, error_type, error_str);
-        emit userEditPermissionsV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT userEditPermissionsV1SignalError(output, error_type, error_str);
+        Q_EMIT userEditPermissionsV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -577,7 +667,7 @@ void ObjectUserApi::userGetApikeysV1(const qint32 &pki_user_id) {
     connect(this, &ObjectUserApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -595,8 +685,8 @@ void ObjectUserApi::userGetApikeysV1Callback(HttpRequestWorker *worker) {
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit userGetApikeysV1Signal(output);
-        emit userGetApikeysV1SignalFull(worker, output);
+        Q_EMIT userGetApikeysV1Signal(output);
+        Q_EMIT userGetApikeysV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -613,8 +703,8 @@ void ObjectUserApi::userGetApikeysV1Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit userGetApikeysV1SignalE(output, error_type, error_str);
-        emit userGetApikeysV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT userGetApikeysV1SignalE(output, error_type, error_str);
+        Q_EMIT userGetApikeysV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -624,8 +714,8 @@ void ObjectUserApi::userGetApikeysV1Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic pop
 #endif
 
-        emit userGetApikeysV1SignalError(output, error_type, error_str);
-        emit userGetApikeysV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT userGetApikeysV1SignalError(output, error_type, error_str);
+        Q_EMIT userGetApikeysV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -664,7 +754,7 @@ void ObjectUserApi::userGetAutocompleteV2(const QString &s_selector, const ::Ezm
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("eFilterActive")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(e_filter_active.value())));
+        fullPath.append(QUrl::toPercentEncoding("eFilterActive")).append(querySuffix).append(QUrl::toPercentEncoding(e_filter_active.stringValue()));
     }
     if (s_query.hasValue())
     {
@@ -679,7 +769,7 @@ void ObjectUserApi::userGetAutocompleteV2(const QString &s_selector, const ::Ezm
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_query.value())));
+        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(s_query.stringValue()));
     }
     HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -745,7 +835,7 @@ void ObjectUserApi::userGetAutocompleteV2(const QString &s_selector, const ::Ezm
     connect(this, &ObjectUserApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -763,8 +853,8 @@ void ObjectUserApi::userGetAutocompleteV2Callback(HttpRequestWorker *worker) {
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit userGetAutocompleteV2Signal(output);
-        emit userGetAutocompleteV2SignalFull(worker, output);
+        Q_EMIT userGetAutocompleteV2Signal(output);
+        Q_EMIT userGetAutocompleteV2SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -781,8 +871,8 @@ void ObjectUserApi::userGetAutocompleteV2Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit userGetAutocompleteV2SignalE(output, error_type, error_str);
-        emit userGetAutocompleteV2SignalEFull(worker, error_type, error_str);
+        Q_EMIT userGetAutocompleteV2SignalE(output, error_type, error_str);
+        Q_EMIT userGetAutocompleteV2SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -792,8 +882,8 @@ void ObjectUserApi::userGetAutocompleteV2Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic pop
 #endif
 
-        emit userGetAutocompleteV2SignalError(output, error_type, error_str);
-        emit userGetAutocompleteV2SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT userGetAutocompleteV2SignalError(output, error_type, error_str);
+        Q_EMIT userGetAutocompleteV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -838,7 +928,7 @@ void ObjectUserApi::userGetEffectivePermissionsV1(const qint32 &pki_user_id) {
     connect(this, &ObjectUserApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -856,8 +946,8 @@ void ObjectUserApi::userGetEffectivePermissionsV1Callback(HttpRequestWorker *wor
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit userGetEffectivePermissionsV1Signal(output);
-        emit userGetEffectivePermissionsV1SignalFull(worker, output);
+        Q_EMIT userGetEffectivePermissionsV1Signal(output);
+        Q_EMIT userGetEffectivePermissionsV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -874,8 +964,8 @@ void ObjectUserApi::userGetEffectivePermissionsV1Callback(HttpRequestWorker *wor
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit userGetEffectivePermissionsV1SignalE(output, error_type, error_str);
-        emit userGetEffectivePermissionsV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT userGetEffectivePermissionsV1SignalE(output, error_type, error_str);
+        Q_EMIT userGetEffectivePermissionsV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -885,8 +975,8 @@ void ObjectUserApi::userGetEffectivePermissionsV1Callback(HttpRequestWorker *wor
 #pragma GCC diagnostic pop
 #endif
 
-        emit userGetEffectivePermissionsV1SignalError(output, error_type, error_str);
-        emit userGetEffectivePermissionsV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT userGetEffectivePermissionsV1SignalError(output, error_type, error_str);
+        Q_EMIT userGetEffectivePermissionsV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -911,7 +1001,7 @@ void ObjectUserApi::userGetListV1(const ::Ezmaxapi::OptionalParam<QString> &e_or
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("eOrderBy")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(e_order_by.value())));
+        fullPath.append(QUrl::toPercentEncoding("eOrderBy")).append(querySuffix).append(QUrl::toPercentEncoding(e_order_by.stringValue()));
     }
     if (i_row_max.hasValue())
     {
@@ -926,7 +1016,7 @@ void ObjectUserApi::userGetListV1(const ::Ezmaxapi::OptionalParam<QString> &e_or
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("iRowMax")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(i_row_max.value())));
+        fullPath.append(QUrl::toPercentEncoding("iRowMax")).append(querySuffix).append(QUrl::toPercentEncoding(i_row_max.stringValue()));
     }
     if (i_row_offset.hasValue())
     {
@@ -941,7 +1031,7 @@ void ObjectUserApi::userGetListV1(const ::Ezmaxapi::OptionalParam<QString> &e_or
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("iRowOffset")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(i_row_offset.value())));
+        fullPath.append(QUrl::toPercentEncoding("iRowOffset")).append(querySuffix).append(QUrl::toPercentEncoding(i_row_offset.stringValue()));
     }
     if (s_filter.hasValue())
     {
@@ -956,7 +1046,7 @@ void ObjectUserApi::userGetListV1(const ::Ezmaxapi::OptionalParam<QString> &e_or
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("sFilter")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_filter.value())));
+        fullPath.append(QUrl::toPercentEncoding("sFilter")).append(querySuffix).append(QUrl::toPercentEncoding(s_filter.stringValue()));
     }
     HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -1022,7 +1112,7 @@ void ObjectUserApi::userGetListV1(const ::Ezmaxapi::OptionalParam<QString> &e_or
     connect(this, &ObjectUserApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -1040,8 +1130,8 @@ void ObjectUserApi::userGetListV1Callback(HttpRequestWorker *worker) {
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit userGetListV1Signal(output);
-        emit userGetListV1SignalFull(worker, output);
+        Q_EMIT userGetListV1Signal(output);
+        Q_EMIT userGetListV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -1058,8 +1148,8 @@ void ObjectUserApi::userGetListV1Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit userGetListV1SignalE(output, error_type, error_str);
-        emit userGetListV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT userGetListV1SignalE(output, error_type, error_str);
+        Q_EMIT userGetListV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -1069,8 +1159,8 @@ void ObjectUserApi::userGetListV1Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic pop
 #endif
 
-        emit userGetListV1SignalError(output, error_type, error_str);
-        emit userGetListV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT userGetListV1SignalError(output, error_type, error_str);
+        Q_EMIT userGetListV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -1115,7 +1205,7 @@ void ObjectUserApi::userGetObjectV2(const qint32 &pki_user_id) {
     connect(this, &ObjectUserApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -1133,8 +1223,8 @@ void ObjectUserApi::userGetObjectV2Callback(HttpRequestWorker *worker) {
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit userGetObjectV2Signal(output);
-        emit userGetObjectV2SignalFull(worker, output);
+        Q_EMIT userGetObjectV2Signal(output);
+        Q_EMIT userGetObjectV2SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -1151,8 +1241,8 @@ void ObjectUserApi::userGetObjectV2Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit userGetObjectV2SignalE(output, error_type, error_str);
-        emit userGetObjectV2SignalEFull(worker, error_type, error_str);
+        Q_EMIT userGetObjectV2SignalE(output, error_type, error_str);
+        Q_EMIT userGetObjectV2SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -1162,8 +1252,8 @@ void ObjectUserApi::userGetObjectV2Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic pop
 #endif
 
-        emit userGetObjectV2SignalError(output, error_type, error_str);
-        emit userGetObjectV2SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT userGetObjectV2SignalError(output, error_type, error_str);
+        Q_EMIT userGetObjectV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -1208,7 +1298,7 @@ void ObjectUserApi::userGetPermissionsV1(const qint32 &pki_user_id) {
     connect(this, &ObjectUserApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -1226,8 +1316,8 @@ void ObjectUserApi::userGetPermissionsV1Callback(HttpRequestWorker *worker) {
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit userGetPermissionsV1Signal(output);
-        emit userGetPermissionsV1SignalFull(worker, output);
+        Q_EMIT userGetPermissionsV1Signal(output);
+        Q_EMIT userGetPermissionsV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -1244,8 +1334,8 @@ void ObjectUserApi::userGetPermissionsV1Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit userGetPermissionsV1SignalE(output, error_type, error_str);
-        emit userGetPermissionsV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT userGetPermissionsV1SignalE(output, error_type, error_str);
+        Q_EMIT userGetPermissionsV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -1255,8 +1345,8 @@ void ObjectUserApi::userGetPermissionsV1Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic pop
 #endif
 
-        emit userGetPermissionsV1SignalError(output, error_type, error_str);
-        emit userGetPermissionsV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT userGetPermissionsV1SignalError(output, error_type, error_str);
+        Q_EMIT userGetPermissionsV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -1301,7 +1391,7 @@ void ObjectUserApi::userGetSubnetsV1(const qint32 &pki_user_id) {
     connect(this, &ObjectUserApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -1319,8 +1409,8 @@ void ObjectUserApi::userGetSubnetsV1Callback(HttpRequestWorker *worker) {
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit userGetSubnetsV1Signal(output);
-        emit userGetSubnetsV1SignalFull(worker, output);
+        Q_EMIT userGetSubnetsV1Signal(output);
+        Q_EMIT userGetSubnetsV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -1337,8 +1427,8 @@ void ObjectUserApi::userGetSubnetsV1Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit userGetSubnetsV1SignalE(output, error_type, error_str);
-        emit userGetSubnetsV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT userGetSubnetsV1SignalE(output, error_type, error_str);
+        Q_EMIT userGetSubnetsV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -1348,8 +1438,194 @@ void ObjectUserApi::userGetSubnetsV1Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic pop
 #endif
 
-        emit userGetSubnetsV1SignalError(output, error_type, error_str);
-        emit userGetSubnetsV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT userGetSubnetsV1SignalError(output, error_type, error_str);
+        Q_EMIT userGetSubnetsV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectUserApi::userGetUsergroupexternalsV1(const qint32 &pki_user_id) {
+    QString fullPath = QString(_serverConfigs["userGetUsergroupexternalsV1"][_serverIndices.value("userGetUsergroupexternalsV1")].URL()+"/1/object/user/{pkiUserID}/getUsergroupexternals");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_user_idPathParam("{");
+        pki_user_idPathParam.append("pkiUserID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiUserID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiUserID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_user_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_user_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+#else
+    for (auto key : _defaultHeaders.keys()) {
+        input.headers.insert(key, _defaultHeaders[key]);
+    }
+#endif
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectUserApi::userGetUsergroupexternalsV1Callback);
+    connect(this, &ObjectUserApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this]() {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectUserApi::userGetUsergroupexternalsV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    User_getUsergroupexternals_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT userGetUsergroupexternalsV1Signal(output);
+        Q_EMIT userGetUsergroupexternalsV1SignalFull(worker, output);
+    } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
+        Q_EMIT userGetUsergroupexternalsV1SignalE(output, error_type, error_str);
+        Q_EMIT userGetUsergroupexternalsV1SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        Q_EMIT userGetUsergroupexternalsV1SignalError(output, error_type, error_str);
+        Q_EMIT userGetUsergroupexternalsV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectUserApi::userGetUsergroupsV1(const qint32 &pki_user_id) {
+    QString fullPath = QString(_serverConfigs["userGetUsergroupsV1"][_serverIndices.value("userGetUsergroupsV1")].URL()+"/1/object/user/{pkiUserID}/getUsergroups");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_user_idPathParam("{");
+        pki_user_idPathParam.append("pkiUserID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiUserID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiUserID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_user_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_user_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+#else
+    for (auto key : _defaultHeaders.keys()) {
+        input.headers.insert(key, _defaultHeaders[key]);
+    }
+#endif
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectUserApi::userGetUsergroupsV1Callback);
+    connect(this, &ObjectUserApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this]() {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectUserApi::userGetUsergroupsV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    User_getUsergroups_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT userGetUsergroupsV1Signal(output);
+        Q_EMIT userGetUsergroupsV1SignalFull(worker, output);
+    } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
+        Q_EMIT userGetUsergroupsV1SignalE(output, error_type, error_str);
+        Q_EMIT userGetUsergroupsV1SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        Q_EMIT userGetUsergroupsV1SignalError(output, error_type, error_str);
+        Q_EMIT userGetUsergroupsV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -1399,7 +1675,7 @@ void ObjectUserApi::userSendPasswordResetV1(const qint32 &pki_user_id, const Obj
     connect(this, &ObjectUserApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -1417,8 +1693,8 @@ void ObjectUserApi::userSendPasswordResetV1Callback(HttpRequestWorker *worker) {
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit userSendPasswordResetV1Signal(output);
-        emit userSendPasswordResetV1SignalFull(worker, output);
+        Q_EMIT userSendPasswordResetV1Signal(output);
+        Q_EMIT userSendPasswordResetV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -1435,8 +1711,8 @@ void ObjectUserApi::userSendPasswordResetV1Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit userSendPasswordResetV1SignalE(output, error_type, error_str);
-        emit userSendPasswordResetV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT userSendPasswordResetV1SignalE(output, error_type, error_str);
+        Q_EMIT userSendPasswordResetV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -1446,8 +1722,8 @@ void ObjectUserApi::userSendPasswordResetV1Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic pop
 #endif
 
-        emit userSendPasswordResetV1SignalError(output, error_type, error_str);
-        emit userSendPasswordResetV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT userSendPasswordResetV1SignalError(output, error_type, error_str);
+        Q_EMIT userSendPasswordResetV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

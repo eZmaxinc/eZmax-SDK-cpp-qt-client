@@ -178,7 +178,7 @@ void ScimUsersApi::enableResponseCompression() {
 }
 
 void ScimUsersApi::abortRequests() {
-    emit abortRequestsSignal();
+    Q_EMIT abortRequestsSignal();
 }
 
 QString ScimUsersApi::getParamStylePrefix(const QString &style) {
@@ -275,7 +275,7 @@ void ScimUsersApi::usersCreateObjectScimV2(const Scim_User &scim_user) {
     connect(this, &ScimUsersApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -293,8 +293,8 @@ void ScimUsersApi::usersCreateObjectScimV2Callback(HttpRequestWorker *worker) {
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit usersCreateObjectScimV2Signal(output);
-        emit usersCreateObjectScimV2SignalFull(worker, output);
+        Q_EMIT usersCreateObjectScimV2Signal(output);
+        Q_EMIT usersCreateObjectScimV2SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -311,8 +311,8 @@ void ScimUsersApi::usersCreateObjectScimV2Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit usersCreateObjectScimV2SignalE(output, error_type, error_str);
-        emit usersCreateObjectScimV2SignalEFull(worker, error_type, error_str);
+        Q_EMIT usersCreateObjectScimV2SignalE(output, error_type, error_str);
+        Q_EMIT usersCreateObjectScimV2SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -322,8 +322,8 @@ void ScimUsersApi::usersCreateObjectScimV2Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic pop
 #endif
 
-        emit usersCreateObjectScimV2SignalError(output, error_type, error_str);
-        emit usersCreateObjectScimV2SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT usersCreateObjectScimV2SignalError(output, error_type, error_str);
+        Q_EMIT usersCreateObjectScimV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -367,7 +367,7 @@ void ScimUsersApi::usersDeleteObjectScimV2(const QString &user_id) {
     connect(this, &ScimUsersApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -384,8 +384,8 @@ void ScimUsersApi::usersDeleteObjectScimV2Callback(HttpRequestWorker *worker) {
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit usersDeleteObjectScimV2Signal();
-        emit usersDeleteObjectScimV2SignalFull(worker);
+        Q_EMIT usersDeleteObjectScimV2Signal();
+        Q_EMIT usersDeleteObjectScimV2SignalFull(worker);
     } else {
 
 #if defined(_MSC_VER)
@@ -402,8 +402,8 @@ void ScimUsersApi::usersDeleteObjectScimV2Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit usersDeleteObjectScimV2SignalE(error_type, error_str);
-        emit usersDeleteObjectScimV2SignalEFull(worker, error_type, error_str);
+        Q_EMIT usersDeleteObjectScimV2SignalE(error_type, error_str);
+        Q_EMIT usersDeleteObjectScimV2SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -413,8 +413,8 @@ void ScimUsersApi::usersDeleteObjectScimV2Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic pop
 #endif
 
-        emit usersDeleteObjectScimV2SignalError(error_type, error_str);
-        emit usersDeleteObjectScimV2SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT usersDeleteObjectScimV2SignalError(error_type, error_str);
+        Q_EMIT usersDeleteObjectScimV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -463,7 +463,7 @@ void ScimUsersApi::usersEditObjectScimV2(const QString &user_id, const Scim_User
     connect(this, &ScimUsersApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -481,8 +481,8 @@ void ScimUsersApi::usersEditObjectScimV2Callback(HttpRequestWorker *worker) {
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit usersEditObjectScimV2Signal(output);
-        emit usersEditObjectScimV2SignalFull(worker, output);
+        Q_EMIT usersEditObjectScimV2Signal(output);
+        Q_EMIT usersEditObjectScimV2SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -499,8 +499,8 @@ void ScimUsersApi::usersEditObjectScimV2Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit usersEditObjectScimV2SignalE(output, error_type, error_str);
-        emit usersEditObjectScimV2SignalEFull(worker, error_type, error_str);
+        Q_EMIT usersEditObjectScimV2SignalE(output, error_type, error_str);
+        Q_EMIT usersEditObjectScimV2SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -510,8 +510,8 @@ void ScimUsersApi::usersEditObjectScimV2Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic pop
 #endif
 
-        emit usersEditObjectScimV2SignalError(output, error_type, error_str);
-        emit usersEditObjectScimV2SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT usersEditObjectScimV2SignalError(output, error_type, error_str);
+        Q_EMIT usersEditObjectScimV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -535,7 +535,7 @@ void ScimUsersApi::usersGetListScimV2(const ::Ezmaxapi::OptionalParam<QString> &
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("filter")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(filter.value())));
+        fullPath.append(QUrl::toPercentEncoding("filter")).append(querySuffix).append(QUrl::toPercentEncoding(filter.stringValue()));
     }
     HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -557,7 +557,7 @@ void ScimUsersApi::usersGetListScimV2(const ::Ezmaxapi::OptionalParam<QString> &
     connect(this, &ScimUsersApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -575,8 +575,8 @@ void ScimUsersApi::usersGetListScimV2Callback(HttpRequestWorker *worker) {
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit usersGetListScimV2Signal(output);
-        emit usersGetListScimV2SignalFull(worker, output);
+        Q_EMIT usersGetListScimV2Signal(output);
+        Q_EMIT usersGetListScimV2SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -593,8 +593,8 @@ void ScimUsersApi::usersGetListScimV2Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit usersGetListScimV2SignalE(output, error_type, error_str);
-        emit usersGetListScimV2SignalEFull(worker, error_type, error_str);
+        Q_EMIT usersGetListScimV2SignalE(output, error_type, error_str);
+        Q_EMIT usersGetListScimV2SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -604,8 +604,8 @@ void ScimUsersApi::usersGetListScimV2Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic pop
 #endif
 
-        emit usersGetListScimV2SignalError(output, error_type, error_str);
-        emit usersGetListScimV2SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT usersGetListScimV2SignalError(output, error_type, error_str);
+        Q_EMIT usersGetListScimV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -649,7 +649,7 @@ void ScimUsersApi::usersGetObjectScimV2(const QString &user_id) {
     connect(this, &ScimUsersApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -667,8 +667,8 @@ void ScimUsersApi::usersGetObjectScimV2Callback(HttpRequestWorker *worker) {
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit usersGetObjectScimV2Signal(output);
-        emit usersGetObjectScimV2SignalFull(worker, output);
+        Q_EMIT usersGetObjectScimV2Signal(output);
+        Q_EMIT usersGetObjectScimV2SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -685,8 +685,8 @@ void ScimUsersApi::usersGetObjectScimV2Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit usersGetObjectScimV2SignalE(output, error_type, error_str);
-        emit usersGetObjectScimV2SignalEFull(worker, error_type, error_str);
+        Q_EMIT usersGetObjectScimV2SignalE(output, error_type, error_str);
+        Q_EMIT usersGetObjectScimV2SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -696,8 +696,8 @@ void ScimUsersApi::usersGetObjectScimV2Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic pop
 #endif
 
-        emit usersGetObjectScimV2SignalError(output, error_type, error_str);
-        emit usersGetObjectScimV2SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT usersGetObjectScimV2SignalError(output, error_type, error_str);
+        Q_EMIT usersGetObjectScimV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 

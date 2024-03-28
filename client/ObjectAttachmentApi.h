@@ -101,7 +101,7 @@ private:
     void attachmentGetAttachmentlogsV1Callback(HttpRequestWorker *worker);
     void attachmentGetDownloadUrlV1Callback(HttpRequestWorker *worker);
 
-signals:
+Q_SIGNALS:
 
     void attachmentDownloadV1Signal();
     void attachmentGetAttachmentlogsV1Signal(Attachment_getAttachmentlogs_v1_Response summary);
@@ -134,7 +134,7 @@ signals:
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
-public slots:
+public Q_SLOTS:
     void tokenAvailable();
 };
 

@@ -41,12 +41,16 @@ void Field_eUserEzsignprepaid::initializeModel() {
 
 void Field_eUserEzsignprepaid::fromJson(QString jsonString) {
     
-    if ( jsonString.compare("Basic", Qt::CaseInsensitive) == 0) {
+    if ( jsonString.compare("No", Qt::CaseInsensitive) == 0) {
+        m_value = eField_eUserEzsignprepaid::NO;
+        m_value_isSet = m_value_isValid = true;
+    }
+    else if ( jsonString.compare("Basic", Qt::CaseInsensitive) == 0) {
         m_value = eField_eUserEzsignprepaid::BASIC;
         m_value_isSet = m_value_isValid = true;
     }
-    else if ( jsonString.compare("Unlimited", Qt::CaseInsensitive) == 0) {
-        m_value = eField_eUserEzsignprepaid::UNLIMITED;
+    else if ( jsonString.compare("Standard", Qt::CaseInsensitive) == 0) {
+        m_value = eField_eUserEzsignprepaid::STANDARD;
         m_value_isSet = m_value_isValid = true;
     }
     else if ( jsonString.compare("Pro", Qt::CaseInsensitive) == 0) {
@@ -63,11 +67,14 @@ QString Field_eUserEzsignprepaid::asJson() const {
     
     QString val;
     switch (m_value){
+        case eField_eUserEzsignprepaid::NO:
+            val = "No";
+            break;
         case eField_eUserEzsignprepaid::BASIC:
             val = "Basic";
             break;
-        case eField_eUserEzsignprepaid::UNLIMITED:
-            val = "Unlimited";
+        case eField_eUserEzsignprepaid::STANDARD:
+            val = "Standard";
             break;
         case eField_eUserEzsignprepaid::PRO:
             val = "Pro";

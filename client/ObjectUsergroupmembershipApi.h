@@ -112,7 +112,7 @@ private:
     void usergroupmembershipEditObjectV1Callback(HttpRequestWorker *worker);
     void usergroupmembershipGetObjectV2Callback(HttpRequestWorker *worker);
 
-signals:
+Q_SIGNALS:
 
     void usergroupmembershipCreateObjectV1Signal(Usergroupmembership_createObject_v1_Response summary);
     void usergroupmembershipDeleteObjectV1Signal(Usergroupmembership_deleteObject_v1_Response summary);
@@ -153,7 +153,7 @@ signals:
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
-public slots:
+public Q_SLOTS:
     void tokenAvailable();
 };
 

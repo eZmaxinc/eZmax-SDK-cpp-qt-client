@@ -112,7 +112,7 @@ private:
     void permissionEditObjectV1Callback(HttpRequestWorker *worker);
     void permissionGetObjectV2Callback(HttpRequestWorker *worker);
 
-signals:
+Q_SIGNALS:
 
     void permissionCreateObjectV1Signal(Permission_createObject_v1_Response summary);
     void permissionDeleteObjectV1Signal(Permission_deleteObject_v1_Response summary);
@@ -153,7 +153,7 @@ signals:
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
-public slots:
+public Q_SLOTS:
     void tokenAvailable();
 };
 

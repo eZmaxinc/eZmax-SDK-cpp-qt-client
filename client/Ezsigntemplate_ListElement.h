@@ -21,6 +21,7 @@
 
 #include <QJsonObject>
 
+#include "Field_eEzsigntemplateType.h"
 #include <QString>
 
 #include "Enum.h"
@@ -84,6 +85,11 @@ public:
     bool is_s_ezsignfoldertype_name_x_Set() const;
     bool is_s_ezsignfoldertype_name_x_Valid() const;
 
+    Field_eEzsigntemplateType getEEzsigntemplateType() const;
+    void setEEzsigntemplateType(const Field_eEzsigntemplateType &e_ezsigntemplate_type);
+    bool is_e_ezsigntemplate_type_Set() const;
+    bool is_e_ezsigntemplate_type_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -125,6 +131,10 @@ private:
     QString m_s_ezsignfoldertype_name_x;
     bool m_s_ezsignfoldertype_name_x_isSet;
     bool m_s_ezsignfoldertype_name_x_isValid;
+
+    Field_eEzsigntemplateType m_e_ezsigntemplate_type;
+    bool m_e_ezsigntemplate_type_isSet;
+    bool m_e_ezsigntemplate_type_isValid;
 };
 
 } // namespace Ezmaxapi

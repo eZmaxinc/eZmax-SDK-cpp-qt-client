@@ -103,7 +103,7 @@ private:
     void ezsignbulksendsignermappingDeleteObjectV1Callback(HttpRequestWorker *worker);
     void ezsignbulksendsignermappingGetObjectV2Callback(HttpRequestWorker *worker);
 
-signals:
+Q_SIGNALS:
 
     void ezsignbulksendsignermappingCreateObjectV1Signal(Ezsignbulksendsignermapping_createObject_v1_Response summary);
     void ezsignbulksendsignermappingDeleteObjectV1Signal(Ezsignbulksendsignermapping_deleteObject_v1_Response summary);
@@ -136,7 +136,7 @@ signals:
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
-public slots:
+public Q_SLOTS:
     void tokenAvailable();
 };
 

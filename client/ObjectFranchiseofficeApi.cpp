@@ -170,7 +170,7 @@ void ObjectFranchiseofficeApi::enableResponseCompression() {
 }
 
 void ObjectFranchiseofficeApi::abortRequests() {
-    emit abortRequestsSignal();
+    Q_EMIT abortRequestsSignal();
 }
 
 QString ObjectFranchiseofficeApi::getParamStylePrefix(const QString &style) {
@@ -271,7 +271,7 @@ void ObjectFranchiseofficeApi::franchiseofficeGetAutocompleteV2(const QString &s
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("eFilterActive")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(e_filter_active.value())));
+        fullPath.append(QUrl::toPercentEncoding("eFilterActive")).append(querySuffix).append(QUrl::toPercentEncoding(e_filter_active.stringValue()));
     }
     if (s_query.hasValue())
     {
@@ -286,7 +286,7 @@ void ObjectFranchiseofficeApi::franchiseofficeGetAutocompleteV2(const QString &s
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_query.value())));
+        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(s_query.stringValue()));
     }
     HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -352,7 +352,7 @@ void ObjectFranchiseofficeApi::franchiseofficeGetAutocompleteV2(const QString &s
     connect(this, &ObjectFranchiseofficeApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -370,8 +370,8 @@ void ObjectFranchiseofficeApi::franchiseofficeGetAutocompleteV2Callback(HttpRequ
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit franchiseofficeGetAutocompleteV2Signal(output);
-        emit franchiseofficeGetAutocompleteV2SignalFull(worker, output);
+        Q_EMIT franchiseofficeGetAutocompleteV2Signal(output);
+        Q_EMIT franchiseofficeGetAutocompleteV2SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -388,8 +388,8 @@ void ObjectFranchiseofficeApi::franchiseofficeGetAutocompleteV2Callback(HttpRequ
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit franchiseofficeGetAutocompleteV2SignalE(output, error_type, error_str);
-        emit franchiseofficeGetAutocompleteV2SignalEFull(worker, error_type, error_str);
+        Q_EMIT franchiseofficeGetAutocompleteV2SignalE(output, error_type, error_str);
+        Q_EMIT franchiseofficeGetAutocompleteV2SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -399,8 +399,8 @@ void ObjectFranchiseofficeApi::franchiseofficeGetAutocompleteV2Callback(HttpRequ
 #pragma GCC diagnostic pop
 #endif
 
-        emit franchiseofficeGetAutocompleteV2SignalError(output, error_type, error_str);
-        emit franchiseofficeGetAutocompleteV2SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT franchiseofficeGetAutocompleteV2SignalError(output, error_type, error_str);
+        Q_EMIT franchiseofficeGetAutocompleteV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 

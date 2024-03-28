@@ -103,7 +103,7 @@ private:
     void ezsigntemplatepackagesignermembershipDeleteObjectV1Callback(HttpRequestWorker *worker);
     void ezsigntemplatepackagesignermembershipGetObjectV2Callback(HttpRequestWorker *worker);
 
-signals:
+Q_SIGNALS:
 
     void ezsigntemplatepackagesignermembershipCreateObjectV1Signal(Ezsigntemplatepackagesignermembership_createObject_v1_Response summary);
     void ezsigntemplatepackagesignermembershipDeleteObjectV1Signal(Ezsigntemplatepackagesignermembership_deleteObject_v1_Response summary);
@@ -136,7 +136,7 @@ signals:
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
-public slots:
+public Q_SLOTS:
     void tokenAvailable();
 };
 

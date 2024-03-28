@@ -170,7 +170,7 @@ void GlobalEzmaxcustomerApi::enableResponseCompression() {
 }
 
 void GlobalEzmaxcustomerApi::abortRequests() {
-    emit abortRequestsSignal();
+    Q_EMIT abortRequestsSignal();
 }
 
 QString GlobalEzmaxcustomerApi::getParamStylePrefix(const QString &style) {
@@ -273,7 +273,7 @@ void GlobalEzmaxcustomerApi::globalEzmaxcustomerGetConfigurationV1(const QString
     connect(this, &GlobalEzmaxcustomerApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -291,8 +291,8 @@ void GlobalEzmaxcustomerApi::globalEzmaxcustomerGetConfigurationV1Callback(HttpR
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit globalEzmaxcustomerGetConfigurationV1Signal(output);
-        emit globalEzmaxcustomerGetConfigurationV1SignalFull(worker, output);
+        Q_EMIT globalEzmaxcustomerGetConfigurationV1Signal(output);
+        Q_EMIT globalEzmaxcustomerGetConfigurationV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -309,8 +309,8 @@ void GlobalEzmaxcustomerApi::globalEzmaxcustomerGetConfigurationV1Callback(HttpR
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit globalEzmaxcustomerGetConfigurationV1SignalE(output, error_type, error_str);
-        emit globalEzmaxcustomerGetConfigurationV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT globalEzmaxcustomerGetConfigurationV1SignalE(output, error_type, error_str);
+        Q_EMIT globalEzmaxcustomerGetConfigurationV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -320,8 +320,8 @@ void GlobalEzmaxcustomerApi::globalEzmaxcustomerGetConfigurationV1Callback(HttpR
 #pragma GCC diagnostic pop
 #endif
 
-        emit globalEzmaxcustomerGetConfigurationV1SignalError(output, error_type, error_str);
-        emit globalEzmaxcustomerGetConfigurationV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT globalEzmaxcustomerGetConfigurationV1SignalError(output, error_type, error_str);
+        Q_EMIT globalEzmaxcustomerGetConfigurationV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

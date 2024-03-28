@@ -176,7 +176,7 @@ void ObjectPermissionApi::enableResponseCompression() {
 }
 
 void ObjectPermissionApi::abortRequests() {
-    emit abortRequestsSignal();
+    Q_EMIT abortRequestsSignal();
 }
 
 QString ObjectPermissionApi::getParamStylePrefix(const QString &style) {
@@ -274,7 +274,7 @@ void ObjectPermissionApi::permissionCreateObjectV1(const Permission_createObject
     connect(this, &ObjectPermissionApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -292,8 +292,8 @@ void ObjectPermissionApi::permissionCreateObjectV1Callback(HttpRequestWorker *wo
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit permissionCreateObjectV1Signal(output);
-        emit permissionCreateObjectV1SignalFull(worker, output);
+        Q_EMIT permissionCreateObjectV1Signal(output);
+        Q_EMIT permissionCreateObjectV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -310,8 +310,8 @@ void ObjectPermissionApi::permissionCreateObjectV1Callback(HttpRequestWorker *wo
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit permissionCreateObjectV1SignalE(output, error_type, error_str);
-        emit permissionCreateObjectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT permissionCreateObjectV1SignalE(output, error_type, error_str);
+        Q_EMIT permissionCreateObjectV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -321,8 +321,8 @@ void ObjectPermissionApi::permissionCreateObjectV1Callback(HttpRequestWorker *wo
 #pragma GCC diagnostic pop
 #endif
 
-        emit permissionCreateObjectV1SignalError(output, error_type, error_str);
-        emit permissionCreateObjectV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT permissionCreateObjectV1SignalError(output, error_type, error_str);
+        Q_EMIT permissionCreateObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -367,7 +367,7 @@ void ObjectPermissionApi::permissionDeleteObjectV1(const qint32 &pki_permission_
     connect(this, &ObjectPermissionApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -385,8 +385,8 @@ void ObjectPermissionApi::permissionDeleteObjectV1Callback(HttpRequestWorker *wo
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit permissionDeleteObjectV1Signal(output);
-        emit permissionDeleteObjectV1SignalFull(worker, output);
+        Q_EMIT permissionDeleteObjectV1Signal(output);
+        Q_EMIT permissionDeleteObjectV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -403,8 +403,8 @@ void ObjectPermissionApi::permissionDeleteObjectV1Callback(HttpRequestWorker *wo
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit permissionDeleteObjectV1SignalE(output, error_type, error_str);
-        emit permissionDeleteObjectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT permissionDeleteObjectV1SignalE(output, error_type, error_str);
+        Q_EMIT permissionDeleteObjectV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -414,8 +414,8 @@ void ObjectPermissionApi::permissionDeleteObjectV1Callback(HttpRequestWorker *wo
 #pragma GCC diagnostic pop
 #endif
 
-        emit permissionDeleteObjectV1SignalError(output, error_type, error_str);
-        emit permissionDeleteObjectV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT permissionDeleteObjectV1SignalError(output, error_type, error_str);
+        Q_EMIT permissionDeleteObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -465,7 +465,7 @@ void ObjectPermissionApi::permissionEditObjectV1(const qint32 &pki_permission_id
     connect(this, &ObjectPermissionApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -483,8 +483,8 @@ void ObjectPermissionApi::permissionEditObjectV1Callback(HttpRequestWorker *work
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit permissionEditObjectV1Signal(output);
-        emit permissionEditObjectV1SignalFull(worker, output);
+        Q_EMIT permissionEditObjectV1Signal(output);
+        Q_EMIT permissionEditObjectV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -501,8 +501,8 @@ void ObjectPermissionApi::permissionEditObjectV1Callback(HttpRequestWorker *work
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit permissionEditObjectV1SignalE(output, error_type, error_str);
-        emit permissionEditObjectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT permissionEditObjectV1SignalE(output, error_type, error_str);
+        Q_EMIT permissionEditObjectV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -512,8 +512,8 @@ void ObjectPermissionApi::permissionEditObjectV1Callback(HttpRequestWorker *work
 #pragma GCC diagnostic pop
 #endif
 
-        emit permissionEditObjectV1SignalError(output, error_type, error_str);
-        emit permissionEditObjectV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT permissionEditObjectV1SignalError(output, error_type, error_str);
+        Q_EMIT permissionEditObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -558,7 +558,7 @@ void ObjectPermissionApi::permissionGetObjectV2(const qint32 &pki_permission_id)
     connect(this, &ObjectPermissionApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -576,8 +576,8 @@ void ObjectPermissionApi::permissionGetObjectV2Callback(HttpRequestWorker *worke
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit permissionGetObjectV2Signal(output);
-        emit permissionGetObjectV2SignalFull(worker, output);
+        Q_EMIT permissionGetObjectV2Signal(output);
+        Q_EMIT permissionGetObjectV2SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -594,8 +594,8 @@ void ObjectPermissionApi::permissionGetObjectV2Callback(HttpRequestWorker *worke
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit permissionGetObjectV2SignalE(output, error_type, error_str);
-        emit permissionGetObjectV2SignalEFull(worker, error_type, error_str);
+        Q_EMIT permissionGetObjectV2SignalE(output, error_type, error_str);
+        Q_EMIT permissionGetObjectV2SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -605,8 +605,8 @@ void ObjectPermissionApi::permissionGetObjectV2Callback(HttpRequestWorker *worke
 #pragma GCC diagnostic pop
 #endif
 
-        emit permissionGetObjectV2SignalError(output, error_type, error_str);
-        emit permissionGetObjectV2SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT permissionGetObjectV2SignalError(output, error_type, error_str);
+        Q_EMIT permissionGetObjectV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 

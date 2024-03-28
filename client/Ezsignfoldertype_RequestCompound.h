@@ -131,10 +131,10 @@ public:
     bool is_b_ezsignfoldertype_delegate_Set() const;
     bool is_b_ezsignfoldertype_delegate_Valid() const;
 
-    bool isBEzsignfoldertypeReassign() const;
-    void setBEzsignfoldertypeReassign(const bool &b_ezsignfoldertype_reassign);
-    bool is_b_ezsignfoldertype_reassign_Set() const;
-    bool is_b_ezsignfoldertype_reassign_Valid() const;
+    bool isBEzsignfoldertypeDiscussion() const;
+    void setBEzsignfoldertypeDiscussion(const bool &b_ezsignfoldertype_discussion);
+    bool is_b_ezsignfoldertype_discussion_Set() const;
+    bool is_b_ezsignfoldertype_discussion_Valid() const;
 
     bool isBEzsignfoldertypeReassignezsignsigner() const;
     void setBEzsignfoldertypeReassignezsignsigner(const bool &b_ezsignfoldertype_reassignezsignsigner);
@@ -145,11 +145,6 @@ public:
     void setBEzsignfoldertypeReassignuser(const bool &b_ezsignfoldertype_reassignuser);
     bool is_b_ezsignfoldertype_reassignuser_Set() const;
     bool is_b_ezsignfoldertype_reassignuser_Valid() const;
-
-    bool isBEzsignfoldertypeSendattatchmentsigner() const;
-    void setBEzsignfoldertypeSendattatchmentsigner(const bool &b_ezsignfoldertype_sendattatchmentsigner);
-    bool is_b_ezsignfoldertype_sendattatchmentsigner_Set() const;
-    bool is_b_ezsignfoldertype_sendattatchmentsigner_Valid() const;
 
     bool isBEzsignfoldertypeSendsignedtoezsignsigner() const;
     void setBEzsignfoldertypeSendsignedtoezsignsigner(const bool &b_ezsignfoldertype_sendsignedtoezsignsigner);
@@ -251,16 +246,6 @@ public:
     bool is_b_ezsignfoldertype_sendsummarytocolleague_Set() const;
     bool is_b_ezsignfoldertype_sendsummarytocolleague_Valid() const;
 
-    bool isBEzsignfoldertypeIncludeproofsigner() const;
-    void setBEzsignfoldertypeIncludeproofsigner(const bool &b_ezsignfoldertype_includeproofsigner);
-    bool is_b_ezsignfoldertype_includeproofsigner_Set() const;
-    bool is_b_ezsignfoldertype_includeproofsigner_Valid() const;
-
-    bool isBEzsignfoldertypeIncludeproofuser() const;
-    void setBEzsignfoldertypeIncludeproofuser(const bool &b_ezsignfoldertype_includeproofuser);
-    bool is_b_ezsignfoldertype_includeproofuser_Set() const;
-    bool is_b_ezsignfoldertype_includeproofuser_Valid() const;
-
     bool isBEzsignfoldertypeIsactive() const;
     void setBEzsignfoldertypeIsactive(const bool &b_ezsignfoldertype_isactive);
     bool is_b_ezsignfoldertype_isactive_Set() const;
@@ -350,9 +335,9 @@ private:
     bool m_b_ezsignfoldertype_delegate_isSet;
     bool m_b_ezsignfoldertype_delegate_isValid;
 
-    bool m_b_ezsignfoldertype_reassign;
-    bool m_b_ezsignfoldertype_reassign_isSet;
-    bool m_b_ezsignfoldertype_reassign_isValid;
+    bool m_b_ezsignfoldertype_discussion;
+    bool m_b_ezsignfoldertype_discussion_isSet;
+    bool m_b_ezsignfoldertype_discussion_isValid;
 
     bool m_b_ezsignfoldertype_reassignezsignsigner;
     bool m_b_ezsignfoldertype_reassignezsignsigner_isSet;
@@ -361,10 +346,6 @@ private:
     bool m_b_ezsignfoldertype_reassignuser;
     bool m_b_ezsignfoldertype_reassignuser_isSet;
     bool m_b_ezsignfoldertype_reassignuser_isValid;
-
-    bool m_b_ezsignfoldertype_sendattatchmentsigner;
-    bool m_b_ezsignfoldertype_sendattatchmentsigner_isSet;
-    bool m_b_ezsignfoldertype_sendattatchmentsigner_isValid;
 
     bool m_b_ezsignfoldertype_sendsignedtoezsignsigner;
     bool m_b_ezsignfoldertype_sendsignedtoezsignsigner_isSet;
@@ -445,14 +426,6 @@ private:
     bool m_b_ezsignfoldertype_sendsummarytocolleague;
     bool m_b_ezsignfoldertype_sendsummarytocolleague_isSet;
     bool m_b_ezsignfoldertype_sendsummarytocolleague_isValid;
-
-    bool m_b_ezsignfoldertype_includeproofsigner;
-    bool m_b_ezsignfoldertype_includeproofsigner_isSet;
-    bool m_b_ezsignfoldertype_includeproofsigner_isValid;
-
-    bool m_b_ezsignfoldertype_includeproofuser;
-    bool m_b_ezsignfoldertype_includeproofuser_isSet;
-    bool m_b_ezsignfoldertype_includeproofuser_isValid;
 
     bool m_b_ezsignfoldertype_isactive;
     bool m_b_ezsignfoldertype_isactive_isSet;

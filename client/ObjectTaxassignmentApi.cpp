@@ -170,7 +170,7 @@ void ObjectTaxassignmentApi::enableResponseCompression() {
 }
 
 void ObjectTaxassignmentApi::abortRequests() {
-    emit abortRequestsSignal();
+    Q_EMIT abortRequestsSignal();
 }
 
 QString ObjectTaxassignmentApi::getParamStylePrefix(const QString &style) {
@@ -271,7 +271,7 @@ void ObjectTaxassignmentApi::taxassignmentGetAutocompleteV2(const QString &s_sel
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("eFilterActive")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(e_filter_active.value())));
+        fullPath.append(QUrl::toPercentEncoding("eFilterActive")).append(querySuffix).append(QUrl::toPercentEncoding(e_filter_active.stringValue()));
     }
     if (s_query.hasValue())
     {
@@ -286,7 +286,7 @@ void ObjectTaxassignmentApi::taxassignmentGetAutocompleteV2(const QString &s_sel
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_query.value())));
+        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(s_query.stringValue()));
     }
     HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -352,7 +352,7 @@ void ObjectTaxassignmentApi::taxassignmentGetAutocompleteV2(const QString &s_sel
     connect(this, &ObjectTaxassignmentApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -370,8 +370,8 @@ void ObjectTaxassignmentApi::taxassignmentGetAutocompleteV2Callback(HttpRequestW
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit taxassignmentGetAutocompleteV2Signal(output);
-        emit taxassignmentGetAutocompleteV2SignalFull(worker, output);
+        Q_EMIT taxassignmentGetAutocompleteV2Signal(output);
+        Q_EMIT taxassignmentGetAutocompleteV2SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -388,8 +388,8 @@ void ObjectTaxassignmentApi::taxassignmentGetAutocompleteV2Callback(HttpRequestW
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit taxassignmentGetAutocompleteV2SignalE(output, error_type, error_str);
-        emit taxassignmentGetAutocompleteV2SignalEFull(worker, error_type, error_str);
+        Q_EMIT taxassignmentGetAutocompleteV2SignalE(output, error_type, error_str);
+        Q_EMIT taxassignmentGetAutocompleteV2SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -399,8 +399,8 @@ void ObjectTaxassignmentApi::taxassignmentGetAutocompleteV2Callback(HttpRequestW
 #pragma GCC diagnostic pop
 #endif
 
-        emit taxassignmentGetAutocompleteV2SignalError(output, error_type, error_str);
-        emit taxassignmentGetAutocompleteV2SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT taxassignmentGetAutocompleteV2SignalError(output, error_type, error_str);
+        Q_EMIT taxassignmentGetAutocompleteV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 

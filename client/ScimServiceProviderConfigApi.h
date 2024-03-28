@@ -85,7 +85,7 @@ private:
 
     void serviceProviderConfigGetObjectScimV2Callback(HttpRequestWorker *worker);
 
-signals:
+Q_SIGNALS:
 
     void serviceProviderConfigGetObjectScimV2Signal(Scim_ServiceProviderConfig summary);
 
@@ -102,7 +102,7 @@ signals:
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
-public slots:
+public Q_SLOTS:
     void tokenAvailable();
 };
 

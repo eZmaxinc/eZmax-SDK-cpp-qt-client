@@ -26,6 +26,7 @@
 #include "Field_eEzsignfoldertypePrivacylevel.h"
 #include "Field_eEzsignfoldertypeSendreminderfrequency.h"
 #include "Multilingual_EzsignfoldertypeName.h"
+#include "Userlogintype_Response.h"
 #include <QList>
 #include <QString>
 
@@ -34,6 +35,7 @@
 
 namespace Ezmaxapi {
 class Multilingual_EzsignfoldertypeName;
+class Userlogintype_Response;
 
 class Ezsignfoldertype_ResponseCompound : public Object {
 public:
@@ -156,10 +158,10 @@ public:
     bool is_b_ezsignfoldertype_delegate_Set() const;
     bool is_b_ezsignfoldertype_delegate_Valid() const;
 
-    bool isBEzsignfoldertypeReassign() const;
-    void setBEzsignfoldertypeReassign(const bool &b_ezsignfoldertype_reassign);
-    bool is_b_ezsignfoldertype_reassign_Set() const;
-    bool is_b_ezsignfoldertype_reassign_Valid() const;
+    bool isBEzsignfoldertypeDiscussion() const;
+    void setBEzsignfoldertypeDiscussion(const bool &b_ezsignfoldertype_discussion);
+    bool is_b_ezsignfoldertype_discussion_Set() const;
+    bool is_b_ezsignfoldertype_discussion_Valid() const;
 
     bool isBEzsignfoldertypeReassignezsignsigner() const;
     void setBEzsignfoldertypeReassignezsignsigner(const bool &b_ezsignfoldertype_reassignezsignsigner);
@@ -170,11 +172,6 @@ public:
     void setBEzsignfoldertypeReassignuser(const bool &b_ezsignfoldertype_reassignuser);
     bool is_b_ezsignfoldertype_reassignuser_Set() const;
     bool is_b_ezsignfoldertype_reassignuser_Valid() const;
-
-    bool isBEzsignfoldertypeSendattatchmentsigner() const;
-    void setBEzsignfoldertypeSendattatchmentsigner(const bool &b_ezsignfoldertype_sendattatchmentsigner);
-    bool is_b_ezsignfoldertype_sendattatchmentsigner_Set() const;
-    bool is_b_ezsignfoldertype_sendattatchmentsigner_Valid() const;
 
     bool isBEzsignfoldertypeSendsignedtoezsignsigner() const;
     void setBEzsignfoldertypeSendsignedtoezsignsigner(const bool &b_ezsignfoldertype_sendsignedtoezsignsigner);
@@ -276,20 +273,15 @@ public:
     bool is_b_ezsignfoldertype_sendsummarytocolleague_Set() const;
     bool is_b_ezsignfoldertype_sendsummarytocolleague_Valid() const;
 
-    bool isBEzsignfoldertypeIncludeproofsigner() const;
-    void setBEzsignfoldertypeIncludeproofsigner(const bool &b_ezsignfoldertype_includeproofsigner);
-    bool is_b_ezsignfoldertype_includeproofsigner_Set() const;
-    bool is_b_ezsignfoldertype_includeproofsigner_Valid() const;
-
-    bool isBEzsignfoldertypeIncludeproofuser() const;
-    void setBEzsignfoldertypeIncludeproofuser(const bool &b_ezsignfoldertype_includeproofuser);
-    bool is_b_ezsignfoldertype_includeproofuser_Set() const;
-    bool is_b_ezsignfoldertype_includeproofuser_Valid() const;
-
     bool isBEzsignfoldertypeIsactive() const;
     void setBEzsignfoldertypeIsactive(const bool &b_ezsignfoldertype_isactive);
     bool is_b_ezsignfoldertype_isactive_Set() const;
     bool is_b_ezsignfoldertype_isactive_Valid() const;
+
+    QList<Userlogintype_Response> getAObjUserlogintype() const;
+    void setAObjUserlogintype(const QList<Userlogintype_Response> &a_obj_userlogintype);
+    bool is_a_obj_userlogintype_Set() const;
+    bool is_a_obj_userlogintype_Valid() const;
 
     QList<qint32> getAFkiUserIdSigned() const;
     void setAFkiUserIdSigned(const QList<qint32> &a_fki_user_id_signed);
@@ -395,9 +387,9 @@ private:
     bool m_b_ezsignfoldertype_delegate_isSet;
     bool m_b_ezsignfoldertype_delegate_isValid;
 
-    bool m_b_ezsignfoldertype_reassign;
-    bool m_b_ezsignfoldertype_reassign_isSet;
-    bool m_b_ezsignfoldertype_reassign_isValid;
+    bool m_b_ezsignfoldertype_discussion;
+    bool m_b_ezsignfoldertype_discussion_isSet;
+    bool m_b_ezsignfoldertype_discussion_isValid;
 
     bool m_b_ezsignfoldertype_reassignezsignsigner;
     bool m_b_ezsignfoldertype_reassignezsignsigner_isSet;
@@ -406,10 +398,6 @@ private:
     bool m_b_ezsignfoldertype_reassignuser;
     bool m_b_ezsignfoldertype_reassignuser_isSet;
     bool m_b_ezsignfoldertype_reassignuser_isValid;
-
-    bool m_b_ezsignfoldertype_sendattatchmentsigner;
-    bool m_b_ezsignfoldertype_sendattatchmentsigner_isSet;
-    bool m_b_ezsignfoldertype_sendattatchmentsigner_isValid;
 
     bool m_b_ezsignfoldertype_sendsignedtoezsignsigner;
     bool m_b_ezsignfoldertype_sendsignedtoezsignsigner_isSet;
@@ -491,17 +479,13 @@ private:
     bool m_b_ezsignfoldertype_sendsummarytocolleague_isSet;
     bool m_b_ezsignfoldertype_sendsummarytocolleague_isValid;
 
-    bool m_b_ezsignfoldertype_includeproofsigner;
-    bool m_b_ezsignfoldertype_includeproofsigner_isSet;
-    bool m_b_ezsignfoldertype_includeproofsigner_isValid;
-
-    bool m_b_ezsignfoldertype_includeproofuser;
-    bool m_b_ezsignfoldertype_includeproofuser_isSet;
-    bool m_b_ezsignfoldertype_includeproofuser_isValid;
-
     bool m_b_ezsignfoldertype_isactive;
     bool m_b_ezsignfoldertype_isactive_isSet;
     bool m_b_ezsignfoldertype_isactive_isValid;
+
+    QList<Userlogintype_Response> m_a_obj_userlogintype;
+    bool m_a_obj_userlogintype_isSet;
+    bool m_a_obj_userlogintype_isValid;
 
     QList<qint32> m_a_fki_user_id_signed;
     bool m_a_fki_user_id_signed_isSet;

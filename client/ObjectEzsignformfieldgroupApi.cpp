@@ -176,7 +176,7 @@ void ObjectEzsignformfieldgroupApi::enableResponseCompression() {
 }
 
 void ObjectEzsignformfieldgroupApi::abortRequests() {
-    emit abortRequestsSignal();
+    Q_EMIT abortRequestsSignal();
 }
 
 QString ObjectEzsignformfieldgroupApi::getParamStylePrefix(const QString &style) {
@@ -274,7 +274,7 @@ void ObjectEzsignformfieldgroupApi::ezsignformfieldgroupCreateObjectV1(const Ezs
     connect(this, &ObjectEzsignformfieldgroupApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -292,8 +292,8 @@ void ObjectEzsignformfieldgroupApi::ezsignformfieldgroupCreateObjectV1Callback(H
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsignformfieldgroupCreateObjectV1Signal(output);
-        emit ezsignformfieldgroupCreateObjectV1SignalFull(worker, output);
+        Q_EMIT ezsignformfieldgroupCreateObjectV1Signal(output);
+        Q_EMIT ezsignformfieldgroupCreateObjectV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -310,8 +310,8 @@ void ObjectEzsignformfieldgroupApi::ezsignformfieldgroupCreateObjectV1Callback(H
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsignformfieldgroupCreateObjectV1SignalE(output, error_type, error_str);
-        emit ezsignformfieldgroupCreateObjectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsignformfieldgroupCreateObjectV1SignalE(output, error_type, error_str);
+        Q_EMIT ezsignformfieldgroupCreateObjectV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -321,8 +321,8 @@ void ObjectEzsignformfieldgroupApi::ezsignformfieldgroupCreateObjectV1Callback(H
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsignformfieldgroupCreateObjectV1SignalError(output, error_type, error_str);
-        emit ezsignformfieldgroupCreateObjectV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsignformfieldgroupCreateObjectV1SignalError(output, error_type, error_str);
+        Q_EMIT ezsignformfieldgroupCreateObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -367,7 +367,7 @@ void ObjectEzsignformfieldgroupApi::ezsignformfieldgroupDeleteObjectV1(const qin
     connect(this, &ObjectEzsignformfieldgroupApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -385,8 +385,8 @@ void ObjectEzsignformfieldgroupApi::ezsignformfieldgroupDeleteObjectV1Callback(H
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsignformfieldgroupDeleteObjectV1Signal(output);
-        emit ezsignformfieldgroupDeleteObjectV1SignalFull(worker, output);
+        Q_EMIT ezsignformfieldgroupDeleteObjectV1Signal(output);
+        Q_EMIT ezsignformfieldgroupDeleteObjectV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -403,8 +403,8 @@ void ObjectEzsignformfieldgroupApi::ezsignformfieldgroupDeleteObjectV1Callback(H
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsignformfieldgroupDeleteObjectV1SignalE(output, error_type, error_str);
-        emit ezsignformfieldgroupDeleteObjectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsignformfieldgroupDeleteObjectV1SignalE(output, error_type, error_str);
+        Q_EMIT ezsignformfieldgroupDeleteObjectV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -414,8 +414,8 @@ void ObjectEzsignformfieldgroupApi::ezsignformfieldgroupDeleteObjectV1Callback(H
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsignformfieldgroupDeleteObjectV1SignalError(output, error_type, error_str);
-        emit ezsignformfieldgroupDeleteObjectV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsignformfieldgroupDeleteObjectV1SignalError(output, error_type, error_str);
+        Q_EMIT ezsignformfieldgroupDeleteObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -465,7 +465,7 @@ void ObjectEzsignformfieldgroupApi::ezsignformfieldgroupEditObjectV1(const qint3
     connect(this, &ObjectEzsignformfieldgroupApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -483,8 +483,8 @@ void ObjectEzsignformfieldgroupApi::ezsignformfieldgroupEditObjectV1Callback(Htt
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsignformfieldgroupEditObjectV1Signal(output);
-        emit ezsignformfieldgroupEditObjectV1SignalFull(worker, output);
+        Q_EMIT ezsignformfieldgroupEditObjectV1Signal(output);
+        Q_EMIT ezsignformfieldgroupEditObjectV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -501,8 +501,8 @@ void ObjectEzsignformfieldgroupApi::ezsignformfieldgroupEditObjectV1Callback(Htt
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsignformfieldgroupEditObjectV1SignalE(output, error_type, error_str);
-        emit ezsignformfieldgroupEditObjectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsignformfieldgroupEditObjectV1SignalE(output, error_type, error_str);
+        Q_EMIT ezsignformfieldgroupEditObjectV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -512,8 +512,8 @@ void ObjectEzsignformfieldgroupApi::ezsignformfieldgroupEditObjectV1Callback(Htt
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsignformfieldgroupEditObjectV1SignalError(output, error_type, error_str);
-        emit ezsignformfieldgroupEditObjectV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsignformfieldgroupEditObjectV1SignalError(output, error_type, error_str);
+        Q_EMIT ezsignformfieldgroupEditObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -558,7 +558,7 @@ void ObjectEzsignformfieldgroupApi::ezsignformfieldgroupGetObjectV2(const qint32
     connect(this, &ObjectEzsignformfieldgroupApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -576,8 +576,8 @@ void ObjectEzsignformfieldgroupApi::ezsignformfieldgroupGetObjectV2Callback(Http
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsignformfieldgroupGetObjectV2Signal(output);
-        emit ezsignformfieldgroupGetObjectV2SignalFull(worker, output);
+        Q_EMIT ezsignformfieldgroupGetObjectV2Signal(output);
+        Q_EMIT ezsignformfieldgroupGetObjectV2SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -594,8 +594,8 @@ void ObjectEzsignformfieldgroupApi::ezsignformfieldgroupGetObjectV2Callback(Http
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsignformfieldgroupGetObjectV2SignalE(output, error_type, error_str);
-        emit ezsignformfieldgroupGetObjectV2SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsignformfieldgroupGetObjectV2SignalE(output, error_type, error_str);
+        Q_EMIT ezsignformfieldgroupGetObjectV2SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -605,8 +605,8 @@ void ObjectEzsignformfieldgroupApi::ezsignformfieldgroupGetObjectV2Callback(Http
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsignformfieldgroupGetObjectV2SignalError(output, error_type, error_str);
-        emit ezsignformfieldgroupGetObjectV2SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsignformfieldgroupGetObjectV2SignalError(output, error_type, error_str);
+        Q_EMIT ezsignformfieldgroupGetObjectV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 

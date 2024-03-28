@@ -46,6 +46,9 @@ void Ezsigntemplate_RequestCompound::initializeModel() {
     m_s_ezsigntemplate_description_isSet = false;
     m_s_ezsigntemplate_description_isValid = false;
 
+    m_s_ezsigntemplate_filenamepattern_isSet = false;
+    m_s_ezsigntemplate_filenamepattern_isValid = false;
+
     m_b_ezsigntemplate_adminonly_isSet = false;
     m_b_ezsigntemplate_adminonly_isValid = false;
 }
@@ -71,6 +74,9 @@ void Ezsigntemplate_RequestCompound::fromJsonObject(QJsonObject json) {
     m_s_ezsigntemplate_description_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsigntemplate_description, json[QString("sEzsigntemplateDescription")]);
     m_s_ezsigntemplate_description_isSet = !json[QString("sEzsigntemplateDescription")].isNull() && m_s_ezsigntemplate_description_isValid;
 
+    m_s_ezsigntemplate_filenamepattern_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsigntemplate_filenamepattern, json[QString("sEzsigntemplateFilenamepattern")]);
+    m_s_ezsigntemplate_filenamepattern_isSet = !json[QString("sEzsigntemplateFilenamepattern")].isNull() && m_s_ezsigntemplate_filenamepattern_isValid;
+
     m_b_ezsigntemplate_adminonly_isValid = ::Ezmaxapi::fromJsonValue(m_b_ezsigntemplate_adminonly, json[QString("bEzsigntemplateAdminonly")]);
     m_b_ezsigntemplate_adminonly_isSet = !json[QString("bEzsigntemplateAdminonly")].isNull() && m_b_ezsigntemplate_adminonly_isValid;
 }
@@ -95,6 +101,9 @@ QJsonObject Ezsigntemplate_RequestCompound::asJsonObject() const {
     }
     if (m_s_ezsigntemplate_description_isSet) {
         obj.insert(QString("sEzsigntemplateDescription"), ::Ezmaxapi::toJsonValue(m_s_ezsigntemplate_description));
+    }
+    if (m_s_ezsigntemplate_filenamepattern_isSet) {
+        obj.insert(QString("sEzsigntemplateFilenamepattern"), ::Ezmaxapi::toJsonValue(m_s_ezsigntemplate_filenamepattern));
     }
     if (m_b_ezsigntemplate_adminonly_isSet) {
         obj.insert(QString("bEzsigntemplateAdminonly"), ::Ezmaxapi::toJsonValue(m_b_ezsigntemplate_adminonly));
@@ -166,6 +175,22 @@ bool Ezsigntemplate_RequestCompound::is_s_ezsigntemplate_description_Valid() con
     return m_s_ezsigntemplate_description_isValid;
 }
 
+QString Ezsigntemplate_RequestCompound::getSEzsigntemplateFilenamepattern() const {
+    return m_s_ezsigntemplate_filenamepattern;
+}
+void Ezsigntemplate_RequestCompound::setSEzsigntemplateFilenamepattern(const QString &s_ezsigntemplate_filenamepattern) {
+    m_s_ezsigntemplate_filenamepattern = s_ezsigntemplate_filenamepattern;
+    m_s_ezsigntemplate_filenamepattern_isSet = true;
+}
+
+bool Ezsigntemplate_RequestCompound::is_s_ezsigntemplate_filenamepattern_Set() const{
+    return m_s_ezsigntemplate_filenamepattern_isSet;
+}
+
+bool Ezsigntemplate_RequestCompound::is_s_ezsigntemplate_filenamepattern_Valid() const{
+    return m_s_ezsigntemplate_filenamepattern_isValid;
+}
+
 bool Ezsigntemplate_RequestCompound::isBEzsigntemplateAdminonly() const {
     return m_b_ezsigntemplate_adminonly;
 }
@@ -201,6 +226,11 @@ bool Ezsigntemplate_RequestCompound::isSet() const {
         }
 
         if (m_s_ezsigntemplate_description_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_s_ezsigntemplate_filenamepattern_isSet) {
             isObjectUpdated = true;
             break;
         }

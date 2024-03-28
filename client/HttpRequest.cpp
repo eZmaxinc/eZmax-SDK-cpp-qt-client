@@ -417,7 +417,7 @@ void HttpRequestWorker::on_reply_finished(QNetworkReply *reply) {
     }
     process_response(reply);
     reply->deleteLater();
-    emit on_execution_finished(this);
+    Q_EMIT on_execution_finished(this);
 }
 
 void HttpRequestWorker::on_reply_timeout(QNetworkReply *reply) {
@@ -427,7 +427,7 @@ void HttpRequestWorker::on_reply_timeout(QNetworkReply *reply) {
     disconnect(reply, nullptr, nullptr, nullptr);
     reply->abort();
     reply->deleteLater();
-    emit on_execution_finished(this);
+    Q_EMIT on_execution_finished(this);
 }
 
 void HttpRequestWorker::process_response(QNetworkReply *reply) {

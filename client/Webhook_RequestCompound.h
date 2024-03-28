@@ -24,12 +24,15 @@
 #include "Field_eWebhookEzsignevent.h"
 #include "Field_eWebhookManagementevent.h"
 #include "Field_eWebhookModule.h"
+#include "Webhookheader_RequestCompound.h"
+#include <QList>
 #include <QString>
 
 #include "Enum.h"
 #include "Object.h"
 
 namespace Ezmaxapi {
+class Webhookheader_RequestCompound;
 
 class Webhook_RequestCompound : public Object {
 public:
@@ -97,6 +100,11 @@ public:
     bool is_b_webhook_skipsslvalidation_Set() const;
     bool is_b_webhook_skipsslvalidation_Valid() const;
 
+    QList<Webhookheader_RequestCompound> getAObjWebhookheader() const;
+    void setAObjWebhookheader(const QList<Webhookheader_RequestCompound> &a_obj_webhookheader);
+    bool is_a_obj_webhookheader_Set() const;
+    bool is_a_obj_webhookheader_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -146,6 +154,10 @@ private:
     bool m_b_webhook_skipsslvalidation;
     bool m_b_webhook_skipsslvalidation_isSet;
     bool m_b_webhook_skipsslvalidation_isValid;
+
+    QList<Webhookheader_RequestCompound> m_a_obj_webhookheader;
+    bool m_a_obj_webhookheader_isSet;
+    bool m_a_obj_webhookheader_isValid;
 };
 
 } // namespace Ezmaxapi

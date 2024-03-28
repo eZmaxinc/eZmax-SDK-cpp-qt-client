@@ -22,6 +22,7 @@
 #include <QJsonObject>
 
 #include "Field_eBrandingLogo.h"
+#include "Field_eBrandingLogointerface.h"
 #include "Multilingual_BrandingDescription.h"
 #include <QByteArray>
 #include <QString>
@@ -63,6 +64,16 @@ public:
     bool is_s_branding_base64_Set() const;
     bool is_s_branding_base64_Valid() const;
 
+    Field_eBrandingLogointerface getEBrandingLogointerface() const;
+    void setEBrandingLogointerface(const Field_eBrandingLogointerface &e_branding_logointerface);
+    bool is_e_branding_logointerface_Set() const;
+    bool is_e_branding_logointerface_Valid() const;
+
+    QByteArray getSBrandingLogointerfaceBase64() const;
+    void setSBrandingLogointerfaceBase64(const QByteArray &s_branding_logointerface_base64);
+    bool is_s_branding_logointerface_base64_Set() const;
+    bool is_s_branding_logointerface_base64_Valid() const;
+
     qint32 getIBrandingColortext() const;
     void setIBrandingColortext(const qint32 &i_branding_colortext);
     bool is_i_branding_colortext_Set() const;
@@ -92,6 +103,11 @@ public:
     void setIBrandingColorbackgroundsmallbox(const qint32 &i_branding_colorbackgroundsmallbox);
     bool is_i_branding_colorbackgroundsmallbox_Set() const;
     bool is_i_branding_colorbackgroundsmallbox_Valid() const;
+
+    qint32 getIBrandingInterfacecolor() const;
+    void setIBrandingInterfacecolor(const qint32 &i_branding_interfacecolor);
+    bool is_i_branding_interfacecolor_Set() const;
+    bool is_i_branding_interfacecolor_Valid() const;
 
     QString getSBrandingName() const;
     void setSBrandingName(const QString &s_branding_name);
@@ -130,6 +146,14 @@ private:
     bool m_s_branding_base64_isSet;
     bool m_s_branding_base64_isValid;
 
+    Field_eBrandingLogointerface m_e_branding_logointerface;
+    bool m_e_branding_logointerface_isSet;
+    bool m_e_branding_logointerface_isValid;
+
+    QByteArray m_s_branding_logointerface_base64;
+    bool m_s_branding_logointerface_base64_isSet;
+    bool m_s_branding_logointerface_base64_isValid;
+
     qint32 m_i_branding_colortext;
     bool m_i_branding_colortext_isSet;
     bool m_i_branding_colortext_isValid;
@@ -153,6 +177,10 @@ private:
     qint32 m_i_branding_colorbackgroundsmallbox;
     bool m_i_branding_colorbackgroundsmallbox_isSet;
     bool m_i_branding_colorbackgroundsmallbox_isValid;
+
+    qint32 m_i_branding_interfacecolor;
+    bool m_i_branding_interfacecolor_isSet;
+    bool m_i_branding_interfacecolor_isValid;
 
     QString m_s_branding_name;
     bool m_s_branding_name_isSet;

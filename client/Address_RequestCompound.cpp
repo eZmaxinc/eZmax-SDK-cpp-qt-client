@@ -57,6 +57,12 @@ void Address_RequestCompound::initializeModel() {
 
     m_s_address_zip_isSet = false;
     m_s_address_zip_isValid = false;
+
+    m_f_address_longitude_isSet = false;
+    m_f_address_longitude_isValid = false;
+
+    m_f_address_latitude_isSet = false;
+    m_f_address_latitude_isValid = false;
 }
 
 void Address_RequestCompound::fromJson(QString jsonString) {
@@ -91,6 +97,12 @@ void Address_RequestCompound::fromJsonObject(QJsonObject json) {
 
     m_s_address_zip_isValid = ::Ezmaxapi::fromJsonValue(m_s_address_zip, json[QString("sAddressZip")]);
     m_s_address_zip_isSet = !json[QString("sAddressZip")].isNull() && m_s_address_zip_isValid;
+
+    m_f_address_longitude_isValid = ::Ezmaxapi::fromJsonValue(m_f_address_longitude, json[QString("fAddressLongitude")]);
+    m_f_address_longitude_isSet = !json[QString("fAddressLongitude")].isNull() && m_f_address_longitude_isValid;
+
+    m_f_address_latitude_isValid = ::Ezmaxapi::fromJsonValue(m_f_address_latitude, json[QString("fAddressLatitude")]);
+    m_f_address_latitude_isSet = !json[QString("fAddressLatitude")].isNull() && m_f_address_latitude_isValid;
 }
 
 QString Address_RequestCompound::asJson() const {
@@ -125,6 +137,12 @@ QJsonObject Address_RequestCompound::asJsonObject() const {
     }
     if (m_s_address_zip_isSet) {
         obj.insert(QString("sAddressZip"), ::Ezmaxapi::toJsonValue(m_s_address_zip));
+    }
+    if (m_f_address_longitude_isSet) {
+        obj.insert(QString("fAddressLongitude"), ::Ezmaxapi::toJsonValue(m_f_address_longitude));
+    }
+    if (m_f_address_latitude_isSet) {
+        obj.insert(QString("fAddressLatitude"), ::Ezmaxapi::toJsonValue(m_f_address_latitude));
     }
     return obj;
 }
@@ -257,6 +275,38 @@ bool Address_RequestCompound::is_s_address_zip_Valid() const{
     return m_s_address_zip_isValid;
 }
 
+QString Address_RequestCompound::getFAddressLongitude() const {
+    return m_f_address_longitude;
+}
+void Address_RequestCompound::setFAddressLongitude(const QString &f_address_longitude) {
+    m_f_address_longitude = f_address_longitude;
+    m_f_address_longitude_isSet = true;
+}
+
+bool Address_RequestCompound::is_f_address_longitude_Set() const{
+    return m_f_address_longitude_isSet;
+}
+
+bool Address_RequestCompound::is_f_address_longitude_Valid() const{
+    return m_f_address_longitude_isValid;
+}
+
+QString Address_RequestCompound::getFAddressLatitude() const {
+    return m_f_address_latitude;
+}
+void Address_RequestCompound::setFAddressLatitude(const QString &f_address_latitude) {
+    m_f_address_latitude = f_address_latitude;
+    m_f_address_latitude_isSet = true;
+}
+
+bool Address_RequestCompound::is_f_address_latitude_Set() const{
+    return m_f_address_latitude_isSet;
+}
+
+bool Address_RequestCompound::is_f_address_latitude_Valid() const{
+    return m_f_address_latitude_isValid;
+}
+
 bool Address_RequestCompound::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -296,6 +346,16 @@ bool Address_RequestCompound::isSet() const {
         }
 
         if (m_s_address_zip_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_f_address_longitude_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_f_address_latitude_isSet) {
             isObjectUpdated = true;
             break;
         }

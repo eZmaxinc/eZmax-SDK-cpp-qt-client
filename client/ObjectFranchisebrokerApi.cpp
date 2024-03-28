@@ -59,8 +59,6 @@ void ObjectFranchisebrokerApi::initializeServerConfigs() {
     {"sInfrastructureregionCode", ServerVariable("The region where your services are hosted.","ca-central-1",
     QSet<QString>{ {"ca-central-1"} })}, }));
     
-    _serverConfigs.insert("franchisebrokerGetAutocompleteV1", defaultConf);
-    _serverIndices.insert("franchisebrokerGetAutocompleteV1", 0);
     _serverConfigs.insert("franchisebrokerGetAutocompleteV2", defaultConf);
     _serverIndices.insert("franchisebrokerGetAutocompleteV2", 0);
 }
@@ -172,7 +170,7 @@ void ObjectFranchisebrokerApi::enableResponseCompression() {
 }
 
 void ObjectFranchisebrokerApi::abortRequests() {
-    emit abortRequestsSignal();
+    Q_EMIT abortRequestsSignal();
 }
 
 QString ObjectFranchisebrokerApi::getParamStylePrefix(const QString &style) {
@@ -238,174 +236,6 @@ QString ObjectFranchisebrokerApi::getParamStyleDelimiter(const QString &style, c
     }
 }
 
-void ObjectFranchisebrokerApi::franchisebrokerGetAutocompleteV1(const QString &s_selector, const ::Ezmaxapi::OptionalParam<QString> &e_filter_active, const ::Ezmaxapi::OptionalParam<QString> &s_query, const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language) {
-    QString fullPath = QString(_serverConfigs["franchisebrokerGetAutocompleteV1"][_serverIndices.value("franchisebrokerGetAutocompleteV1")].URL()+"/1/object/franchisebroker/getAutocomplete/{sSelector}");
-    
-    if (_apiKeys.contains("Authorization")) {
-        addHeaders("Authorization",_apiKeys.find("Authorization").value());
-    }
-    
-    
-    {
-        QString s_selectorPathParam("{");
-        s_selectorPathParam.append("sSelector").append("}");
-        QString pathPrefix, pathSuffix, pathDelimiter;
-        QString pathStyle = "simple";
-        if (pathStyle == "")
-            pathStyle = "simple";
-        pathPrefix = getParamStylePrefix(pathStyle);
-        pathSuffix = getParamStyleSuffix(pathStyle);
-        pathDelimiter = getParamStyleDelimiter(pathStyle, "sSelector", false);
-        QString paramString = (pathStyle == "matrix") ? pathPrefix+"sSelector"+pathSuffix : pathPrefix;
-        fullPath.replace(s_selectorPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_selector)));
-    }
-    QString queryPrefix, querySuffix, queryDelimiter, queryStyle;
-    if (e_filter_active.hasValue())
-    {
-        queryStyle = "form";
-        if (queryStyle == "")
-            queryStyle = "form";
-        queryPrefix = getParamStylePrefix(queryStyle);
-        querySuffix = getParamStyleSuffix(queryStyle);
-        queryDelimiter = getParamStyleDelimiter(queryStyle, "eFilterActive", true);
-        if (fullPath.indexOf("?") > 0)
-            fullPath.append(queryPrefix);
-        else
-            fullPath.append("?");
-
-        fullPath.append(QUrl::toPercentEncoding("eFilterActive")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(e_filter_active.value())));
-    }
-    if (s_query.hasValue())
-    {
-        queryStyle = "form";
-        if (queryStyle == "")
-            queryStyle = "form";
-        queryPrefix = getParamStylePrefix(queryStyle);
-        querySuffix = getParamStyleSuffix(queryStyle);
-        queryDelimiter = getParamStyleDelimiter(queryStyle, "sQuery", true);
-        if (fullPath.indexOf("?") > 0)
-            fullPath.append(queryPrefix);
-        else
-            fullPath.append("?");
-
-        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_query.value())));
-    }
-    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
-    worker->setTimeOut(_timeOut);
-    worker->setWorkingDirectory(_workingDirectory);
-    HttpRequestInput input(fullPath, "GET");
-
-
-    if (accept_language.hasValue())
-    {
-        QString headerString;
-        QJsonObject parameter = accept_language.value().asJsonObject();
-        qint32 count = 0;
-        for (const QString& key : parameter.keys()) {
-            if (count > 0) {
-                headerString.append(",");
-            }
-            QString assignOperator = (false) ? "=" : ",";
-            switch(parameter.value(key).type()) {
-                case QJsonValue::String:
-                {
-                    headerString.append(key+assignOperator+parameter.value(key).toString());
-                    break;
-                }
-                case QJsonValue::Double:
-                {
-                    headerString.append(key+assignOperator+QString::number(parameter.value(key).toDouble()));
-                    break;
-                }
-                case QJsonValue::Bool:
-                {
-                    headerString.append(key+assignOperator+QVariant(parameter.value(key).toBool()).toString());
-                    break;
-                }
-                case QJsonValue::Array:
-                {
-                    headerString.append(key+assignOperator+QVariant(parameter.value(key).toArray()).toString());
-                    break;
-                }
-                case QJsonValue::Object:
-                {
-                    headerString.append(key+assignOperator+QVariant(parameter.value(key).toObject()).toString());
-                    break;
-                }
-                case QJsonValue::Null:
-                case QJsonValue::Undefined:
-                    break;
-            }
-            count++;
-        }
-        input.headers.insert("Accept-Language", headerString);
-    }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
-    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
-        input.headers.insert(keyValueIt->first, keyValueIt->second);
-    }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
-
-    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectFranchisebrokerApi::franchisebrokerGetAutocompleteV1Callback);
-    connect(this, &ObjectFranchisebrokerApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
-        if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
-        }
-    });
-
-    worker->execute(&input);
-}
-
-void ObjectFranchisebrokerApi::franchisebrokerGetAutocompleteV1Callback(HttpRequestWorker *worker) {
-    QString error_str = worker->error_str;
-    QNetworkReply::NetworkError error_type = worker->error_type;
-
-    if (worker->error_type != QNetworkReply::NoError) {
-        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
-    }
-    Common_getAutocomplete_v1_Response output(QString(worker->response));
-    worker->deleteLater();
-
-    if (worker->error_type == QNetworkReply::NoError) {
-        emit franchisebrokerGetAutocompleteV1Signal(output);
-        emit franchisebrokerGetAutocompleteV1SignalFull(worker, output);
-    } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        emit franchisebrokerGetAutocompleteV1SignalE(output, error_type, error_str);
-        emit franchisebrokerGetAutocompleteV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
-        emit franchisebrokerGetAutocompleteV1SignalError(output, error_type, error_str);
-        emit franchisebrokerGetAutocompleteV1SignalErrorFull(worker, error_type, error_str);
-    }
-}
-
 void ObjectFranchisebrokerApi::franchisebrokerGetAutocompleteV2(const QString &s_selector, const ::Ezmaxapi::OptionalParam<QString> &e_filter_active, const ::Ezmaxapi::OptionalParam<QString> &s_query, const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language) {
     QString fullPath = QString(_serverConfigs["franchisebrokerGetAutocompleteV2"][_serverIndices.value("franchisebrokerGetAutocompleteV2")].URL()+"/2/object/franchisebroker/getAutocomplete/{sSelector}");
     
@@ -441,7 +271,7 @@ void ObjectFranchisebrokerApi::franchisebrokerGetAutocompleteV2(const QString &s
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("eFilterActive")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(e_filter_active.value())));
+        fullPath.append(QUrl::toPercentEncoding("eFilterActive")).append(querySuffix).append(QUrl::toPercentEncoding(e_filter_active.stringValue()));
     }
     if (s_query.hasValue())
     {
@@ -456,7 +286,7 @@ void ObjectFranchisebrokerApi::franchisebrokerGetAutocompleteV2(const QString &s
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_query.value())));
+        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(s_query.stringValue()));
     }
     HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -522,7 +352,7 @@ void ObjectFranchisebrokerApi::franchisebrokerGetAutocompleteV2(const QString &s
     connect(this, &ObjectFranchisebrokerApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -540,8 +370,8 @@ void ObjectFranchisebrokerApi::franchisebrokerGetAutocompleteV2Callback(HttpRequ
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit franchisebrokerGetAutocompleteV2Signal(output);
-        emit franchisebrokerGetAutocompleteV2SignalFull(worker, output);
+        Q_EMIT franchisebrokerGetAutocompleteV2Signal(output);
+        Q_EMIT franchisebrokerGetAutocompleteV2SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -558,8 +388,8 @@ void ObjectFranchisebrokerApi::franchisebrokerGetAutocompleteV2Callback(HttpRequ
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit franchisebrokerGetAutocompleteV2SignalE(output, error_type, error_str);
-        emit franchisebrokerGetAutocompleteV2SignalEFull(worker, error_type, error_str);
+        Q_EMIT franchisebrokerGetAutocompleteV2SignalE(output, error_type, error_str);
+        Q_EMIT franchisebrokerGetAutocompleteV2SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -569,8 +399,8 @@ void ObjectFranchisebrokerApi::franchisebrokerGetAutocompleteV2Callback(HttpRequ
 #pragma GCC diagnostic pop
 #endif
 
-        emit franchisebrokerGetAutocompleteV2SignalError(output, error_type, error_str);
-        emit franchisebrokerGetAutocompleteV2SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT franchisebrokerGetAutocompleteV2SignalError(output, error_type, error_str);
+        Q_EMIT franchisebrokerGetAutocompleteV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 

@@ -170,7 +170,7 @@ void ObjectBuyercontractApi::enableResponseCompression() {
 }
 
 void ObjectBuyercontractApi::abortRequests() {
-    emit abortRequestsSignal();
+    Q_EMIT abortRequestsSignal();
 }
 
 QString ObjectBuyercontractApi::getParamStylePrefix(const QString &style) {
@@ -277,7 +277,7 @@ void ObjectBuyercontractApi::buyercontractGetCommunicationListV1(const qint32 &p
     connect(this, &ObjectBuyercontractApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -295,8 +295,8 @@ void ObjectBuyercontractApi::buyercontractGetCommunicationListV1Callback(HttpReq
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit buyercontractGetCommunicationListV1Signal(output);
-        emit buyercontractGetCommunicationListV1SignalFull(worker, output);
+        Q_EMIT buyercontractGetCommunicationListV1Signal(output);
+        Q_EMIT buyercontractGetCommunicationListV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -313,8 +313,8 @@ void ObjectBuyercontractApi::buyercontractGetCommunicationListV1Callback(HttpReq
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit buyercontractGetCommunicationListV1SignalE(output, error_type, error_str);
-        emit buyercontractGetCommunicationListV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT buyercontractGetCommunicationListV1SignalE(output, error_type, error_str);
+        Q_EMIT buyercontractGetCommunicationListV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -324,8 +324,8 @@ void ObjectBuyercontractApi::buyercontractGetCommunicationListV1Callback(HttpReq
 #pragma GCC diagnostic pop
 #endif
 
-        emit buyercontractGetCommunicationListV1SignalError(output, error_type, error_str);
-        emit buyercontractGetCommunicationListV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT buyercontractGetCommunicationListV1SignalError(output, error_type, error_str);
+        Q_EMIT buyercontractGetCommunicationListV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

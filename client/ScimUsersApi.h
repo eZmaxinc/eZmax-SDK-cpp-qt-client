@@ -113,7 +113,7 @@ private:
     void usersGetListScimV2Callback(HttpRequestWorker *worker);
     void usersGetObjectScimV2Callback(HttpRequestWorker *worker);
 
-signals:
+Q_SIGNALS:
 
     void usersCreateObjectScimV2Signal(Scim_User summary);
     void usersDeleteObjectScimV2Signal();
@@ -162,7 +162,7 @@ signals:
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
-public slots:
+public Q_SLOTS:
     void tokenAvailable();
 };
 

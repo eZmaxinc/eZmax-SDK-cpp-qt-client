@@ -59,6 +59,11 @@ public:
     bool is_s_ezsigntemplate_description_Set() const;
     bool is_s_ezsigntemplate_description_Valid() const;
 
+    QString getSEzsigntemplateFilenamepattern() const;
+    void setSEzsigntemplateFilenamepattern(const QString &s_ezsigntemplate_filenamepattern);
+    bool is_s_ezsigntemplate_filenamepattern_Set() const;
+    bool is_s_ezsigntemplate_filenamepattern_Valid() const;
+
     bool isBEzsigntemplateAdminonly() const;
     void setBEzsigntemplateAdminonly(const bool &b_ezsigntemplate_adminonly);
     bool is_b_ezsigntemplate_adminonly_Set() const;
@@ -85,6 +90,10 @@ private:
     QString m_s_ezsigntemplate_description;
     bool m_s_ezsigntemplate_description_isSet;
     bool m_s_ezsigntemplate_description_isValid;
+
+    QString m_s_ezsigntemplate_filenamepattern;
+    bool m_s_ezsigntemplate_filenamepattern_isSet;
+    bool m_s_ezsigntemplate_filenamepattern_isValid;
 
     bool m_b_ezsigntemplate_adminonly;
     bool m_b_ezsigntemplate_adminonly_isSet;

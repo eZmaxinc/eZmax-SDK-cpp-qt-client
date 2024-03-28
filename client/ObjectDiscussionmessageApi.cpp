@@ -174,7 +174,7 @@ void ObjectDiscussionmessageApi::enableResponseCompression() {
 }
 
 void ObjectDiscussionmessageApi::abortRequests() {
-    emit abortRequestsSignal();
+    Q_EMIT abortRequestsSignal();
 }
 
 QString ObjectDiscussionmessageApi::getParamStylePrefix(const QString &style) {
@@ -272,7 +272,7 @@ void ObjectDiscussionmessageApi::discussionmessageCreateObjectV1(const Discussio
     connect(this, &ObjectDiscussionmessageApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -290,8 +290,8 @@ void ObjectDiscussionmessageApi::discussionmessageCreateObjectV1Callback(HttpReq
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit discussionmessageCreateObjectV1Signal(output);
-        emit discussionmessageCreateObjectV1SignalFull(worker, output);
+        Q_EMIT discussionmessageCreateObjectV1Signal(output);
+        Q_EMIT discussionmessageCreateObjectV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -308,8 +308,8 @@ void ObjectDiscussionmessageApi::discussionmessageCreateObjectV1Callback(HttpReq
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit discussionmessageCreateObjectV1SignalE(output, error_type, error_str);
-        emit discussionmessageCreateObjectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT discussionmessageCreateObjectV1SignalE(output, error_type, error_str);
+        Q_EMIT discussionmessageCreateObjectV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -319,8 +319,8 @@ void ObjectDiscussionmessageApi::discussionmessageCreateObjectV1Callback(HttpReq
 #pragma GCC diagnostic pop
 #endif
 
-        emit discussionmessageCreateObjectV1SignalError(output, error_type, error_str);
-        emit discussionmessageCreateObjectV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT discussionmessageCreateObjectV1SignalError(output, error_type, error_str);
+        Q_EMIT discussionmessageCreateObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -365,7 +365,7 @@ void ObjectDiscussionmessageApi::discussionmessageDeleteObjectV1(const qint32 &p
     connect(this, &ObjectDiscussionmessageApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -383,8 +383,8 @@ void ObjectDiscussionmessageApi::discussionmessageDeleteObjectV1Callback(HttpReq
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit discussionmessageDeleteObjectV1Signal(output);
-        emit discussionmessageDeleteObjectV1SignalFull(worker, output);
+        Q_EMIT discussionmessageDeleteObjectV1Signal(output);
+        Q_EMIT discussionmessageDeleteObjectV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -401,8 +401,8 @@ void ObjectDiscussionmessageApi::discussionmessageDeleteObjectV1Callback(HttpReq
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit discussionmessageDeleteObjectV1SignalE(output, error_type, error_str);
-        emit discussionmessageDeleteObjectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT discussionmessageDeleteObjectV1SignalE(output, error_type, error_str);
+        Q_EMIT discussionmessageDeleteObjectV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -412,8 +412,8 @@ void ObjectDiscussionmessageApi::discussionmessageDeleteObjectV1Callback(HttpReq
 #pragma GCC diagnostic pop
 #endif
 
-        emit discussionmessageDeleteObjectV1SignalError(output, error_type, error_str);
-        emit discussionmessageDeleteObjectV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT discussionmessageDeleteObjectV1SignalError(output, error_type, error_str);
+        Q_EMIT discussionmessageDeleteObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -463,7 +463,7 @@ void ObjectDiscussionmessageApi::discussionmessagePatchObjectV1(const qint32 &pk
     connect(this, &ObjectDiscussionmessageApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -481,8 +481,8 @@ void ObjectDiscussionmessageApi::discussionmessagePatchObjectV1Callback(HttpRequ
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit discussionmessagePatchObjectV1Signal(output);
-        emit discussionmessagePatchObjectV1SignalFull(worker, output);
+        Q_EMIT discussionmessagePatchObjectV1Signal(output);
+        Q_EMIT discussionmessagePatchObjectV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -499,8 +499,8 @@ void ObjectDiscussionmessageApi::discussionmessagePatchObjectV1Callback(HttpRequ
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit discussionmessagePatchObjectV1SignalE(output, error_type, error_str);
-        emit discussionmessagePatchObjectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT discussionmessagePatchObjectV1SignalE(output, error_type, error_str);
+        Q_EMIT discussionmessagePatchObjectV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -510,8 +510,8 @@ void ObjectDiscussionmessageApi::discussionmessagePatchObjectV1Callback(HttpRequ
 #pragma GCC diagnostic pop
 #endif
 
-        emit discussionmessagePatchObjectV1SignalError(output, error_type, error_str);
-        emit discussionmessagePatchObjectV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT discussionmessagePatchObjectV1SignalError(output, error_type, error_str);
+        Q_EMIT discussionmessagePatchObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

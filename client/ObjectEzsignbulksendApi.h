@@ -171,7 +171,7 @@ private:
     void ezsignbulksendGetObjectV2Callback(HttpRequestWorker *worker);
     void ezsignbulksendReorderV1Callback(HttpRequestWorker *worker);
 
-signals:
+Q_SIGNALS:
 
     void ezsignbulksendCreateEzsignbulksendtransmissionV1Signal(Ezsignbulksend_createEzsignbulksendtransmission_v1_Response summary);
     void ezsignbulksendCreateObjectV1Signal(Ezsignbulksend_createObject_v1_Response summary);
@@ -268,7 +268,7 @@ signals:
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
-public slots:
+public Q_SLOTS:
     void tokenAvailable();
 };
 

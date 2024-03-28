@@ -26,6 +26,7 @@
 #include "Field_eActivesessionOrigin.h"
 #include "Field_eActivesessionUsertype.h"
 #include "Field_eActivesessionWeekdaystart.h"
+#include "Field_eSystemconfigurationEzsignofficeplan.h"
 #include "Field_eUserEzsignaccess.h"
 #include "Field_eUserEzsignprepaid.h"
 #include <QList>
@@ -103,6 +104,16 @@ public:
     void setFkiSignatureId(const qint32 &fki_signature_id);
     bool is_fki_signature_id_Set() const;
     bool is_fki_signature_id_Valid() const;
+
+    bool isBSystemconfigurationEzsignpaidbyoffice() const;
+    void setBSystemconfigurationEzsignpaidbyoffice(const bool &b_systemconfiguration_ezsignpaidbyoffice);
+    bool is_b_systemconfiguration_ezsignpaidbyoffice_Set() const;
+    bool is_b_systemconfiguration_ezsignpaidbyoffice_Valid() const;
+
+    Field_eSystemconfigurationEzsignofficeplan getESystemconfigurationEzsignofficeplan() const;
+    void setESystemconfigurationEzsignofficeplan(const Field_eSystemconfigurationEzsignofficeplan &e_systemconfiguration_ezsignofficeplan);
+    bool is_e_systemconfiguration_ezsignofficeplan_Set() const;
+    bool is_e_systemconfiguration_ezsignofficeplan_Valid() const;
 
     Field_eUserEzsignaccess getEUserEzsignaccess() const;
     void setEUserEzsignaccess(const Field_eUserEzsignaccess &e_user_ezsignaccess);
@@ -193,6 +204,14 @@ private:
     qint32 m_fki_signature_id;
     bool m_fki_signature_id_isSet;
     bool m_fki_signature_id_isValid;
+
+    bool m_b_systemconfiguration_ezsignpaidbyoffice;
+    bool m_b_systemconfiguration_ezsignpaidbyoffice_isSet;
+    bool m_b_systemconfiguration_ezsignpaidbyoffice_isValid;
+
+    Field_eSystemconfigurationEzsignofficeplan m_e_systemconfiguration_ezsignofficeplan;
+    bool m_e_systemconfiguration_ezsignofficeplan_isSet;
+    bool m_e_systemconfiguration_ezsignofficeplan_isValid;
 
     Field_eUserEzsignaccess m_e_user_ezsignaccess;
     bool m_e_user_ezsignaccess_isSet;

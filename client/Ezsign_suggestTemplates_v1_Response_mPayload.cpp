@@ -39,6 +39,9 @@ void Ezsign_suggestTemplates_v1_Response_mPayload::initializeModel() {
 
     m_a_obj_ezsigntemplatepackage_isSet = false;
     m_a_obj_ezsigntemplatepackage_isValid = false;
+
+    m_a_obj_ezsigntemplateglobal_isSet = false;
+    m_a_obj_ezsigntemplateglobal_isValid = false;
 }
 
 void Ezsign_suggestTemplates_v1_Response_mPayload::fromJson(QString jsonString) {
@@ -55,6 +58,9 @@ void Ezsign_suggestTemplates_v1_Response_mPayload::fromJsonObject(QJsonObject js
 
     m_a_obj_ezsigntemplatepackage_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_ezsigntemplatepackage, json[QString("a_objEzsigntemplatepackage")]);
     m_a_obj_ezsigntemplatepackage_isSet = !json[QString("a_objEzsigntemplatepackage")].isNull() && m_a_obj_ezsigntemplatepackage_isValid;
+
+    m_a_obj_ezsigntemplateglobal_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_ezsigntemplateglobal, json[QString("a_objEzsigntemplateglobal")]);
+    m_a_obj_ezsigntemplateglobal_isSet = !json[QString("a_objEzsigntemplateglobal")].isNull() && m_a_obj_ezsigntemplateglobal_isValid;
 }
 
 QString Ezsign_suggestTemplates_v1_Response_mPayload::asJson() const {
@@ -71,6 +77,9 @@ QJsonObject Ezsign_suggestTemplates_v1_Response_mPayload::asJsonObject() const {
     }
     if (m_a_obj_ezsigntemplatepackage.size() > 0) {
         obj.insert(QString("a_objEzsigntemplatepackage"), ::Ezmaxapi::toJsonValue(m_a_obj_ezsigntemplatepackage));
+    }
+    if (m_a_obj_ezsigntemplateglobal.size() > 0) {
+        obj.insert(QString("a_objEzsigntemplateglobal"), ::Ezmaxapi::toJsonValue(m_a_obj_ezsigntemplateglobal));
     }
     return obj;
 }
@@ -107,6 +116,22 @@ bool Ezsign_suggestTemplates_v1_Response_mPayload::is_a_obj_ezsigntemplatepackag
     return m_a_obj_ezsigntemplatepackage_isValid;
 }
 
+QList<Ezsigntemplateglobal_ResponseCompound> Ezsign_suggestTemplates_v1_Response_mPayload::getAObjEzsigntemplateglobal() const {
+    return m_a_obj_ezsigntemplateglobal;
+}
+void Ezsign_suggestTemplates_v1_Response_mPayload::setAObjEzsigntemplateglobal(const QList<Ezsigntemplateglobal_ResponseCompound> &a_obj_ezsigntemplateglobal) {
+    m_a_obj_ezsigntemplateglobal = a_obj_ezsigntemplateglobal;
+    m_a_obj_ezsigntemplateglobal_isSet = true;
+}
+
+bool Ezsign_suggestTemplates_v1_Response_mPayload::is_a_obj_ezsigntemplateglobal_Set() const{
+    return m_a_obj_ezsigntemplateglobal_isSet;
+}
+
+bool Ezsign_suggestTemplates_v1_Response_mPayload::is_a_obj_ezsigntemplateglobal_Valid() const{
+    return m_a_obj_ezsigntemplateglobal_isValid;
+}
+
 bool Ezsign_suggestTemplates_v1_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -119,13 +144,18 @@ bool Ezsign_suggestTemplates_v1_Response_mPayload::isSet() const {
             isObjectUpdated = true;
             break;
         }
+
+        if (m_a_obj_ezsigntemplateglobal.size() > 0) {
+            isObjectUpdated = true;
+            break;
+        }
     } while (false);
     return isObjectUpdated;
 }
 
 bool Ezsign_suggestTemplates_v1_Response_mPayload::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_a_obj_ezsigntemplate_isValid && m_a_obj_ezsigntemplatepackage_isValid && true;
+    return m_a_obj_ezsigntemplate_isValid && m_a_obj_ezsigntemplatepackage_isValid && m_a_obj_ezsigntemplateglobal_isValid && true;
 }
 
 } // namespace Ezmaxapi

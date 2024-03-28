@@ -55,8 +55,17 @@ void Systemconfiguration_Response::initializeModel() {
     m_e_systemconfiguration_ezsign_isSet = false;
     m_e_systemconfiguration_ezsign_isValid = false;
 
+    m_e_systemconfiguration_ezsignofficeplan_isSet = false;
+    m_e_systemconfiguration_ezsignofficeplan_isValid = false;
+
+    m_b_systemconfiguration_ezsignpaidbyoffice_isSet = false;
+    m_b_systemconfiguration_ezsignpaidbyoffice_isValid = false;
+
     m_b_systemconfiguration_ezsignpersonnal_isSet = false;
     m_b_systemconfiguration_ezsignpersonnal_isValid = false;
+
+    m_b_systemconfiguration_isdisposalactive_isSet = false;
+    m_b_systemconfiguration_isdisposalactive_isValid = false;
 
     m_b_systemconfiguration_sspr_isSet = false;
     m_b_systemconfiguration_sspr_isValid = false;
@@ -98,8 +107,17 @@ void Systemconfiguration_Response::fromJsonObject(QJsonObject json) {
     m_e_systemconfiguration_ezsign_isValid = ::Ezmaxapi::fromJsonValue(m_e_systemconfiguration_ezsign, json[QString("eSystemconfigurationEzsign")]);
     m_e_systemconfiguration_ezsign_isSet = !json[QString("eSystemconfigurationEzsign")].isNull() && m_e_systemconfiguration_ezsign_isValid;
 
+    m_e_systemconfiguration_ezsignofficeplan_isValid = ::Ezmaxapi::fromJsonValue(m_e_systemconfiguration_ezsignofficeplan, json[QString("eSystemconfigurationEzsignofficeplan")]);
+    m_e_systemconfiguration_ezsignofficeplan_isSet = !json[QString("eSystemconfigurationEzsignofficeplan")].isNull() && m_e_systemconfiguration_ezsignofficeplan_isValid;
+
+    m_b_systemconfiguration_ezsignpaidbyoffice_isValid = ::Ezmaxapi::fromJsonValue(m_b_systemconfiguration_ezsignpaidbyoffice, json[QString("bSystemconfigurationEzsignpaidbyoffice")]);
+    m_b_systemconfiguration_ezsignpaidbyoffice_isSet = !json[QString("bSystemconfigurationEzsignpaidbyoffice")].isNull() && m_b_systemconfiguration_ezsignpaidbyoffice_isValid;
+
     m_b_systemconfiguration_ezsignpersonnal_isValid = ::Ezmaxapi::fromJsonValue(m_b_systemconfiguration_ezsignpersonnal, json[QString("bSystemconfigurationEzsignpersonnal")]);
     m_b_systemconfiguration_ezsignpersonnal_isSet = !json[QString("bSystemconfigurationEzsignpersonnal")].isNull() && m_b_systemconfiguration_ezsignpersonnal_isValid;
+
+    m_b_systemconfiguration_isdisposalactive_isValid = ::Ezmaxapi::fromJsonValue(m_b_systemconfiguration_isdisposalactive, json[QString("bSystemconfigurationIsdisposalactive")]);
+    m_b_systemconfiguration_isdisposalactive_isSet = !json[QString("bSystemconfigurationIsdisposalactive")].isNull() && m_b_systemconfiguration_isdisposalactive_isValid;
 
     m_b_systemconfiguration_sspr_isValid = ::Ezmaxapi::fromJsonValue(m_b_systemconfiguration_sspr, json[QString("bSystemconfigurationSspr")]);
     m_b_systemconfiguration_sspr_isSet = !json[QString("bSystemconfigurationSspr")].isNull() && m_b_systemconfiguration_sspr_isValid;
@@ -141,8 +159,17 @@ QJsonObject Systemconfiguration_Response::asJsonObject() const {
     if (m_e_systemconfiguration_ezsign.isSet()) {
         obj.insert(QString("eSystemconfigurationEzsign"), ::Ezmaxapi::toJsonValue(m_e_systemconfiguration_ezsign));
     }
+    if (m_e_systemconfiguration_ezsignofficeplan.isSet()) {
+        obj.insert(QString("eSystemconfigurationEzsignofficeplan"), ::Ezmaxapi::toJsonValue(m_e_systemconfiguration_ezsignofficeplan));
+    }
+    if (m_b_systemconfiguration_ezsignpaidbyoffice_isSet) {
+        obj.insert(QString("bSystemconfigurationEzsignpaidbyoffice"), ::Ezmaxapi::toJsonValue(m_b_systemconfiguration_ezsignpaidbyoffice));
+    }
     if (m_b_systemconfiguration_ezsignpersonnal_isSet) {
         obj.insert(QString("bSystemconfigurationEzsignpersonnal"), ::Ezmaxapi::toJsonValue(m_b_systemconfiguration_ezsignpersonnal));
+    }
+    if (m_b_systemconfiguration_isdisposalactive_isSet) {
+        obj.insert(QString("bSystemconfigurationIsdisposalactive"), ::Ezmaxapi::toJsonValue(m_b_systemconfiguration_isdisposalactive));
     }
     if (m_b_systemconfiguration_sspr_isSet) {
         obj.insert(QString("bSystemconfigurationSspr"), ::Ezmaxapi::toJsonValue(m_b_systemconfiguration_sspr));
@@ -268,6 +295,38 @@ bool Systemconfiguration_Response::is_e_systemconfiguration_ezsign_Valid() const
     return m_e_systemconfiguration_ezsign_isValid;
 }
 
+Field_eSystemconfigurationEzsignofficeplan Systemconfiguration_Response::getESystemconfigurationEzsignofficeplan() const {
+    return m_e_systemconfiguration_ezsignofficeplan;
+}
+void Systemconfiguration_Response::setESystemconfigurationEzsignofficeplan(const Field_eSystemconfigurationEzsignofficeplan &e_systemconfiguration_ezsignofficeplan) {
+    m_e_systemconfiguration_ezsignofficeplan = e_systemconfiguration_ezsignofficeplan;
+    m_e_systemconfiguration_ezsignofficeplan_isSet = true;
+}
+
+bool Systemconfiguration_Response::is_e_systemconfiguration_ezsignofficeplan_Set() const{
+    return m_e_systemconfiguration_ezsignofficeplan_isSet;
+}
+
+bool Systemconfiguration_Response::is_e_systemconfiguration_ezsignofficeplan_Valid() const{
+    return m_e_systemconfiguration_ezsignofficeplan_isValid;
+}
+
+bool Systemconfiguration_Response::isBSystemconfigurationEzsignpaidbyoffice() const {
+    return m_b_systemconfiguration_ezsignpaidbyoffice;
+}
+void Systemconfiguration_Response::setBSystemconfigurationEzsignpaidbyoffice(const bool &b_systemconfiguration_ezsignpaidbyoffice) {
+    m_b_systemconfiguration_ezsignpaidbyoffice = b_systemconfiguration_ezsignpaidbyoffice;
+    m_b_systemconfiguration_ezsignpaidbyoffice_isSet = true;
+}
+
+bool Systemconfiguration_Response::is_b_systemconfiguration_ezsignpaidbyoffice_Set() const{
+    return m_b_systemconfiguration_ezsignpaidbyoffice_isSet;
+}
+
+bool Systemconfiguration_Response::is_b_systemconfiguration_ezsignpaidbyoffice_Valid() const{
+    return m_b_systemconfiguration_ezsignpaidbyoffice_isValid;
+}
+
 bool Systemconfiguration_Response::isBSystemconfigurationEzsignpersonnal() const {
     return m_b_systemconfiguration_ezsignpersonnal;
 }
@@ -282,6 +341,22 @@ bool Systemconfiguration_Response::is_b_systemconfiguration_ezsignpersonnal_Set(
 
 bool Systemconfiguration_Response::is_b_systemconfiguration_ezsignpersonnal_Valid() const{
     return m_b_systemconfiguration_ezsignpersonnal_isValid;
+}
+
+bool Systemconfiguration_Response::isBSystemconfigurationIsdisposalactive() const {
+    return m_b_systemconfiguration_isdisposalactive;
+}
+void Systemconfiguration_Response::setBSystemconfigurationIsdisposalactive(const bool &b_systemconfiguration_isdisposalactive) {
+    m_b_systemconfiguration_isdisposalactive = b_systemconfiguration_isdisposalactive;
+    m_b_systemconfiguration_isdisposalactive_isSet = true;
+}
+
+bool Systemconfiguration_Response::is_b_systemconfiguration_isdisposalactive_Set() const{
+    return m_b_systemconfiguration_isdisposalactive_isSet;
+}
+
+bool Systemconfiguration_Response::is_b_systemconfiguration_isdisposalactive_Valid() const{
+    return m_b_systemconfiguration_isdisposalactive_isValid;
 }
 
 bool Systemconfiguration_Response::isBSystemconfigurationSspr() const {
@@ -370,7 +445,22 @@ bool Systemconfiguration_Response::isSet() const {
             break;
         }
 
+        if (m_e_systemconfiguration_ezsignofficeplan.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_b_systemconfiguration_ezsignpaidbyoffice_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (m_b_systemconfiguration_ezsignpersonnal_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_b_systemconfiguration_isdisposalactive_isSet) {
             isObjectUpdated = true;
             break;
         }
@@ -395,7 +485,7 @@ bool Systemconfiguration_Response::isSet() const {
 
 bool Systemconfiguration_Response::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_pki_systemconfiguration_id_isValid && m_fki_systemconfigurationtype_id_isValid && m_s_systemconfigurationtype_description_x_isValid && m_e_systemconfiguration_newexternaluseraction_isValid && m_e_systemconfiguration_language1_isValid && m_e_systemconfiguration_language2_isValid && m_e_systemconfiguration_ezsign_isValid && m_b_systemconfiguration_ezsignpersonnal_isValid && m_b_systemconfiguration_sspr_isValid && true;
+    return m_pki_systemconfiguration_id_isValid && m_fki_systemconfigurationtype_id_isValid && m_s_systemconfigurationtype_description_x_isValid && m_e_systemconfiguration_newexternaluseraction_isValid && m_e_systemconfiguration_language1_isValid && m_e_systemconfiguration_language2_isValid && m_b_systemconfiguration_ezsignpersonnal_isValid && m_b_systemconfiguration_sspr_isValid && true;
 }
 
 } // namespace Ezmaxapi

@@ -174,7 +174,7 @@ void ObjectAttachmentApi::enableResponseCompression() {
 }
 
 void ObjectAttachmentApi::abortRequests() {
-    emit abortRequestsSignal();
+    Q_EMIT abortRequestsSignal();
 }
 
 QString ObjectAttachmentApi::getParamStylePrefix(const QString &style) {
@@ -289,7 +289,7 @@ void ObjectAttachmentApi::attachmentDownloadV1(const qint32 &pki_attachment_id) 
     connect(this, &ObjectAttachmentApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -306,8 +306,8 @@ void ObjectAttachmentApi::attachmentDownloadV1Callback(HttpRequestWorker *worker
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit attachmentDownloadV1Signal();
-        emit attachmentDownloadV1SignalFull(worker);
+        Q_EMIT attachmentDownloadV1Signal();
+        Q_EMIT attachmentDownloadV1SignalFull(worker);
     } else {
 
 #if defined(_MSC_VER)
@@ -324,8 +324,8 @@ void ObjectAttachmentApi::attachmentDownloadV1Callback(HttpRequestWorker *worker
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit attachmentDownloadV1SignalE(error_type, error_str);
-        emit attachmentDownloadV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT attachmentDownloadV1SignalE(error_type, error_str);
+        Q_EMIT attachmentDownloadV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -335,8 +335,8 @@ void ObjectAttachmentApi::attachmentDownloadV1Callback(HttpRequestWorker *worker
 #pragma GCC diagnostic pop
 #endif
 
-        emit attachmentDownloadV1SignalError(error_type, error_str);
-        emit attachmentDownloadV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT attachmentDownloadV1SignalError(error_type, error_str);
+        Q_EMIT attachmentDownloadV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -381,7 +381,7 @@ void ObjectAttachmentApi::attachmentGetAttachmentlogsV1(const qint32 &pki_attach
     connect(this, &ObjectAttachmentApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -399,8 +399,8 @@ void ObjectAttachmentApi::attachmentGetAttachmentlogsV1Callback(HttpRequestWorke
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit attachmentGetAttachmentlogsV1Signal(output);
-        emit attachmentGetAttachmentlogsV1SignalFull(worker, output);
+        Q_EMIT attachmentGetAttachmentlogsV1Signal(output);
+        Q_EMIT attachmentGetAttachmentlogsV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -417,8 +417,8 @@ void ObjectAttachmentApi::attachmentGetAttachmentlogsV1Callback(HttpRequestWorke
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit attachmentGetAttachmentlogsV1SignalE(output, error_type, error_str);
-        emit attachmentGetAttachmentlogsV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT attachmentGetAttachmentlogsV1SignalE(output, error_type, error_str);
+        Q_EMIT attachmentGetAttachmentlogsV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -428,8 +428,8 @@ void ObjectAttachmentApi::attachmentGetAttachmentlogsV1Callback(HttpRequestWorke
 #pragma GCC diagnostic pop
 #endif
 
-        emit attachmentGetAttachmentlogsV1SignalError(output, error_type, error_str);
-        emit attachmentGetAttachmentlogsV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT attachmentGetAttachmentlogsV1SignalError(output, error_type, error_str);
+        Q_EMIT attachmentGetAttachmentlogsV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -474,7 +474,7 @@ void ObjectAttachmentApi::attachmentGetDownloadUrlV1(const qint32 &pki_attachmen
     connect(this, &ObjectAttachmentApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -492,8 +492,8 @@ void ObjectAttachmentApi::attachmentGetDownloadUrlV1Callback(HttpRequestWorker *
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit attachmentGetDownloadUrlV1Signal(output);
-        emit attachmentGetDownloadUrlV1SignalFull(worker, output);
+        Q_EMIT attachmentGetDownloadUrlV1Signal(output);
+        Q_EMIT attachmentGetDownloadUrlV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -510,8 +510,8 @@ void ObjectAttachmentApi::attachmentGetDownloadUrlV1Callback(HttpRequestWorker *
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit attachmentGetDownloadUrlV1SignalE(output, error_type, error_str);
-        emit attachmentGetDownloadUrlV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT attachmentGetDownloadUrlV1SignalE(output, error_type, error_str);
+        Q_EMIT attachmentGetDownloadUrlV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -521,8 +521,8 @@ void ObjectAttachmentApi::attachmentGetDownloadUrlV1Callback(HttpRequestWorker *
 #pragma GCC diagnostic pop
 #endif
 
-        emit attachmentGetDownloadUrlV1SignalError(output, error_type, error_str);
-        emit attachmentGetDownloadUrlV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT attachmentGetDownloadUrlV1SignalError(output, error_type, error_str);
+        Q_EMIT attachmentGetDownloadUrlV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

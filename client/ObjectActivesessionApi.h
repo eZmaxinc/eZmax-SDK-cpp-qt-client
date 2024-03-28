@@ -100,7 +100,7 @@ private:
     void activesessionGetCurrentV1Callback(HttpRequestWorker *worker);
     void activesessionGetListV1Callback(HttpRequestWorker *worker);
 
-signals:
+Q_SIGNALS:
 
     void activesessionGetCurrentV1Signal(Activesession_getCurrent_v1_Response summary);
     void activesessionGetListV1Signal(Activesession_getList_v1_Response summary);
@@ -125,7 +125,7 @@ signals:
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
-public slots:
+public Q_SLOTS:
     void tokenAvailable();
 };
 

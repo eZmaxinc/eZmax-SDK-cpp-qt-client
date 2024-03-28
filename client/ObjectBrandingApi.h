@@ -128,7 +128,7 @@ private:
     void brandingGetListV1Callback(HttpRequestWorker *worker);
     void brandingGetObjectV2Callback(HttpRequestWorker *worker);
 
-signals:
+Q_SIGNALS:
 
     void brandingCreateObjectV1Signal(Branding_createObject_v1_Response summary);
     void brandingEditObjectV1Signal(Branding_editObject_v1_Response summary);
@@ -177,7 +177,7 @@ signals:
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
-public slots:
+public Q_SLOTS:
     void tokenAvailable();
 };
 

@@ -112,7 +112,7 @@ private:
     void corsEditObjectV1Callback(HttpRequestWorker *worker);
     void corsGetObjectV2Callback(HttpRequestWorker *worker);
 
-signals:
+Q_SIGNALS:
 
     void corsCreateObjectV1Signal(Cors_createObject_v1_Response summary);
     void corsDeleteObjectV1Signal(Cors_deleteObject_v1_Response summary);
@@ -153,7 +153,7 @@ signals:
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
-public slots:
+public Q_SLOTS:
     void tokenAvailable();
 };
 

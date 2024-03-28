@@ -170,7 +170,7 @@ void ObjectVersionhistoryApi::enableResponseCompression() {
 }
 
 void ObjectVersionhistoryApi::abortRequests() {
-    emit abortRequestsSignal();
+    Q_EMIT abortRequestsSignal();
 }
 
 QString ObjectVersionhistoryApi::getParamStylePrefix(const QString &style) {
@@ -277,7 +277,7 @@ void ObjectVersionhistoryApi::versionhistoryGetObjectV2(const qint32 &pki_versio
     connect(this, &ObjectVersionhistoryApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -295,8 +295,8 @@ void ObjectVersionhistoryApi::versionhistoryGetObjectV2Callback(HttpRequestWorke
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit versionhistoryGetObjectV2Signal(output);
-        emit versionhistoryGetObjectV2SignalFull(worker, output);
+        Q_EMIT versionhistoryGetObjectV2Signal(output);
+        Q_EMIT versionhistoryGetObjectV2SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -313,8 +313,8 @@ void ObjectVersionhistoryApi::versionhistoryGetObjectV2Callback(HttpRequestWorke
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit versionhistoryGetObjectV2SignalE(output, error_type, error_str);
-        emit versionhistoryGetObjectV2SignalEFull(worker, error_type, error_str);
+        Q_EMIT versionhistoryGetObjectV2SignalE(output, error_type, error_str);
+        Q_EMIT versionhistoryGetObjectV2SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -324,8 +324,8 @@ void ObjectVersionhistoryApi::versionhistoryGetObjectV2Callback(HttpRequestWorke
 #pragma GCC diagnostic pop
 #endif
 
-        emit versionhistoryGetObjectV2SignalError(output, error_type, error_str);
-        emit versionhistoryGetObjectV2SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT versionhistoryGetObjectV2SignalError(output, error_type, error_str);
+        Q_EMIT versionhistoryGetObjectV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 

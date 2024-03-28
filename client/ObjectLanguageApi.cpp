@@ -170,7 +170,7 @@ void ObjectLanguageApi::enableResponseCompression() {
 }
 
 void ObjectLanguageApi::abortRequests() {
-    emit abortRequestsSignal();
+    Q_EMIT abortRequestsSignal();
 }
 
 QString ObjectLanguageApi::getParamStylePrefix(const QString &style) {
@@ -271,7 +271,7 @@ void ObjectLanguageApi::languageGetAutocompleteV2(const QString &s_selector, con
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("eFilterActive")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(e_filter_active.value())));
+        fullPath.append(QUrl::toPercentEncoding("eFilterActive")).append(querySuffix).append(QUrl::toPercentEncoding(e_filter_active.stringValue()));
     }
     if (s_query.hasValue())
     {
@@ -286,7 +286,7 @@ void ObjectLanguageApi::languageGetAutocompleteV2(const QString &s_selector, con
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_query.value())));
+        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(s_query.stringValue()));
     }
     HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -352,7 +352,7 @@ void ObjectLanguageApi::languageGetAutocompleteV2(const QString &s_selector, con
     connect(this, &ObjectLanguageApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -370,8 +370,8 @@ void ObjectLanguageApi::languageGetAutocompleteV2Callback(HttpRequestWorker *wor
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit languageGetAutocompleteV2Signal(output);
-        emit languageGetAutocompleteV2SignalFull(worker, output);
+        Q_EMIT languageGetAutocompleteV2Signal(output);
+        Q_EMIT languageGetAutocompleteV2SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -388,8 +388,8 @@ void ObjectLanguageApi::languageGetAutocompleteV2Callback(HttpRequestWorker *wor
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit languageGetAutocompleteV2SignalE(output, error_type, error_str);
-        emit languageGetAutocompleteV2SignalEFull(worker, error_type, error_str);
+        Q_EMIT languageGetAutocompleteV2SignalE(output, error_type, error_str);
+        Q_EMIT languageGetAutocompleteV2SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -399,8 +399,8 @@ void ObjectLanguageApi::languageGetAutocompleteV2Callback(HttpRequestWorker *wor
 #pragma GCC diagnostic pop
 #endif
 
-        emit languageGetAutocompleteV2SignalError(output, error_type, error_str);
-        emit languageGetAutocompleteV2SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT languageGetAutocompleteV2SignalError(output, error_type, error_str);
+        Q_EMIT languageGetAutocompleteV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 

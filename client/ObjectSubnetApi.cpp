@@ -176,7 +176,7 @@ void ObjectSubnetApi::enableResponseCompression() {
 }
 
 void ObjectSubnetApi::abortRequests() {
-    emit abortRequestsSignal();
+    Q_EMIT abortRequestsSignal();
 }
 
 QString ObjectSubnetApi::getParamStylePrefix(const QString &style) {
@@ -274,7 +274,7 @@ void ObjectSubnetApi::subnetCreateObjectV1(const Subnet_createObject_v1_Request 
     connect(this, &ObjectSubnetApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -292,8 +292,8 @@ void ObjectSubnetApi::subnetCreateObjectV1Callback(HttpRequestWorker *worker) {
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit subnetCreateObjectV1Signal(output);
-        emit subnetCreateObjectV1SignalFull(worker, output);
+        Q_EMIT subnetCreateObjectV1Signal(output);
+        Q_EMIT subnetCreateObjectV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -310,8 +310,8 @@ void ObjectSubnetApi::subnetCreateObjectV1Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit subnetCreateObjectV1SignalE(output, error_type, error_str);
-        emit subnetCreateObjectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT subnetCreateObjectV1SignalE(output, error_type, error_str);
+        Q_EMIT subnetCreateObjectV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -321,8 +321,8 @@ void ObjectSubnetApi::subnetCreateObjectV1Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic pop
 #endif
 
-        emit subnetCreateObjectV1SignalError(output, error_type, error_str);
-        emit subnetCreateObjectV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT subnetCreateObjectV1SignalError(output, error_type, error_str);
+        Q_EMIT subnetCreateObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -367,7 +367,7 @@ void ObjectSubnetApi::subnetDeleteObjectV1(const qint32 &pki_subnet_id) {
     connect(this, &ObjectSubnetApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -385,8 +385,8 @@ void ObjectSubnetApi::subnetDeleteObjectV1Callback(HttpRequestWorker *worker) {
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit subnetDeleteObjectV1Signal(output);
-        emit subnetDeleteObjectV1SignalFull(worker, output);
+        Q_EMIT subnetDeleteObjectV1Signal(output);
+        Q_EMIT subnetDeleteObjectV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -403,8 +403,8 @@ void ObjectSubnetApi::subnetDeleteObjectV1Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit subnetDeleteObjectV1SignalE(output, error_type, error_str);
-        emit subnetDeleteObjectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT subnetDeleteObjectV1SignalE(output, error_type, error_str);
+        Q_EMIT subnetDeleteObjectV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -414,8 +414,8 @@ void ObjectSubnetApi::subnetDeleteObjectV1Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic pop
 #endif
 
-        emit subnetDeleteObjectV1SignalError(output, error_type, error_str);
-        emit subnetDeleteObjectV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT subnetDeleteObjectV1SignalError(output, error_type, error_str);
+        Q_EMIT subnetDeleteObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -465,7 +465,7 @@ void ObjectSubnetApi::subnetEditObjectV1(const qint32 &pki_subnet_id, const Subn
     connect(this, &ObjectSubnetApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -483,8 +483,8 @@ void ObjectSubnetApi::subnetEditObjectV1Callback(HttpRequestWorker *worker) {
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit subnetEditObjectV1Signal(output);
-        emit subnetEditObjectV1SignalFull(worker, output);
+        Q_EMIT subnetEditObjectV1Signal(output);
+        Q_EMIT subnetEditObjectV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -501,8 +501,8 @@ void ObjectSubnetApi::subnetEditObjectV1Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit subnetEditObjectV1SignalE(output, error_type, error_str);
-        emit subnetEditObjectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT subnetEditObjectV1SignalE(output, error_type, error_str);
+        Q_EMIT subnetEditObjectV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -512,8 +512,8 @@ void ObjectSubnetApi::subnetEditObjectV1Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic pop
 #endif
 
-        emit subnetEditObjectV1SignalError(output, error_type, error_str);
-        emit subnetEditObjectV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT subnetEditObjectV1SignalError(output, error_type, error_str);
+        Q_EMIT subnetEditObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -558,7 +558,7 @@ void ObjectSubnetApi::subnetGetObjectV2(const qint32 &pki_subnet_id) {
     connect(this, &ObjectSubnetApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -576,8 +576,8 @@ void ObjectSubnetApi::subnetGetObjectV2Callback(HttpRequestWorker *worker) {
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit subnetGetObjectV2Signal(output);
-        emit subnetGetObjectV2SignalFull(worker, output);
+        Q_EMIT subnetGetObjectV2Signal(output);
+        Q_EMIT subnetGetObjectV2SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -594,8 +594,8 @@ void ObjectSubnetApi::subnetGetObjectV2Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit subnetGetObjectV2SignalE(output, error_type, error_str);
-        emit subnetGetObjectV2SignalEFull(worker, error_type, error_str);
+        Q_EMIT subnetGetObjectV2SignalE(output, error_type, error_str);
+        Q_EMIT subnetGetObjectV2SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -605,8 +605,8 @@ void ObjectSubnetApi::subnetGetObjectV2Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic pop
 #endif
 
-        emit subnetGetObjectV2SignalError(output, error_type, error_str);
-        emit subnetGetObjectV2SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT subnetGetObjectV2SignalError(output, error_type, error_str);
+        Q_EMIT subnetGetObjectV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 

@@ -94,7 +94,7 @@ private:
 
     void clonehistoryGetListV1Callback(HttpRequestWorker *worker);
 
-signals:
+Q_SIGNALS:
 
     void clonehistoryGetListV1Signal(Clonehistory_getList_v1_Response summary);
 
@@ -111,7 +111,7 @@ signals:
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
-public slots:
+public Q_SLOTS:
     void tokenAvailable();
 };
 

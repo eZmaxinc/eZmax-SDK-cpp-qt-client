@@ -19,7 +19,6 @@
 #include "Oauth.h"
 
 #include "Common_Response_Error.h"
-#include "Common_getAutocomplete_v1_Response.h"
 #include "Ezmaxinvoicing_getAutocomplete_v2_Response.h"
 #include "Ezmaxinvoicing_getObject_v2_Response.h"
 #include "Ezmaxinvoicing_getProvisional_v1_Response.h"
@@ -68,14 +67,6 @@ public:
     * @param[in]  s_query QString [optional]
     * @param[in]  accept_language Header_Accept_Language [optional]
     */
-    Q_DECL_DEPRECATED void ezmaxinvoicingGetAutocompleteV1(const QString &s_selector, const ::Ezmaxapi::OptionalParam<QString> &e_filter_active = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<QString> &s_query = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<Header_Accept_Language>());
-
-    /**
-    * @param[in]  s_selector QString [required]
-    * @param[in]  e_filter_active QString [optional]
-    * @param[in]  s_query QString [optional]
-    * @param[in]  accept_language Header_Accept_Language [optional]
-    */
     void ezmaxinvoicingGetAutocompleteV2(const QString &s_selector, const ::Ezmaxapi::OptionalParam<QString> &e_filter_active = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<QString> &s_query = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<Header_Accept_Language>());
 
     /**
@@ -109,26 +100,20 @@ private:
     OauthPassword _passwordFlow;
     int _OauthMethod = 0;
 
-    void ezmaxinvoicingGetAutocompleteV1Callback(HttpRequestWorker *worker);
     void ezmaxinvoicingGetAutocompleteV2Callback(HttpRequestWorker *worker);
     void ezmaxinvoicingGetObjectV2Callback(HttpRequestWorker *worker);
     void ezmaxinvoicingGetProvisionalV1Callback(HttpRequestWorker *worker);
 
-signals:
+Q_SIGNALS:
 
-    void ezmaxinvoicingGetAutocompleteV1Signal(Common_getAutocomplete_v1_Response summary);
     void ezmaxinvoicingGetAutocompleteV2Signal(Ezmaxinvoicing_getAutocomplete_v2_Response summary);
     void ezmaxinvoicingGetObjectV2Signal(Ezmaxinvoicing_getObject_v2_Response summary);
     void ezmaxinvoicingGetProvisionalV1Signal(Ezmaxinvoicing_getProvisional_v1_Response summary);
 
-    void ezmaxinvoicingGetAutocompleteV1SignalFull(HttpRequestWorker *worker, Common_getAutocomplete_v1_Response summary);
     void ezmaxinvoicingGetAutocompleteV2SignalFull(HttpRequestWorker *worker, Ezmaxinvoicing_getAutocomplete_v2_Response summary);
     void ezmaxinvoicingGetObjectV2SignalFull(HttpRequestWorker *worker, Ezmaxinvoicing_getObject_v2_Response summary);
     void ezmaxinvoicingGetProvisionalV1SignalFull(HttpRequestWorker *worker, Ezmaxinvoicing_getProvisional_v1_Response summary);
 
-    Q_DECL_DEPRECATED_X("Use ezmaxinvoicingGetAutocompleteV1SignalError() instead")
-    void ezmaxinvoicingGetAutocompleteV1SignalE(Common_getAutocomplete_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void ezmaxinvoicingGetAutocompleteV1SignalError(Common_getAutocomplete_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezmaxinvoicingGetAutocompleteV2SignalError() instead")
     void ezmaxinvoicingGetAutocompleteV2SignalE(Ezmaxinvoicing_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezmaxinvoicingGetAutocompleteV2SignalError(Ezmaxinvoicing_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -139,9 +124,6 @@ signals:
     void ezmaxinvoicingGetProvisionalV1SignalE(Ezmaxinvoicing_getProvisional_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezmaxinvoicingGetProvisionalV1SignalError(Ezmaxinvoicing_getProvisional_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
-    Q_DECL_DEPRECATED_X("Use ezmaxinvoicingGetAutocompleteV1SignalErrorFull() instead")
-    void ezmaxinvoicingGetAutocompleteV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
-    void ezmaxinvoicingGetAutocompleteV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezmaxinvoicingGetAutocompleteV2SignalErrorFull() instead")
     void ezmaxinvoicingGetAutocompleteV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezmaxinvoicingGetAutocompleteV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -155,7 +137,7 @@ signals:
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
-public slots:
+public Q_SLOTS:
     void tokenAvailable();
 };
 

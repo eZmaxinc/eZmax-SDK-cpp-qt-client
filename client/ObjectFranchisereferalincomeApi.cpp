@@ -59,8 +59,6 @@ void ObjectFranchisereferalincomeApi::initializeServerConfigs() {
     {"sInfrastructureregionCode", ServerVariable("The region where your services are hosted.","ca-central-1",
     QSet<QString>{ {"ca-central-1"} })}, }));
     
-    _serverConfigs.insert("franchisereferalincomeCreateObjectV1", defaultConf);
-    _serverIndices.insert("franchisereferalincomeCreateObjectV1", 0);
     _serverConfigs.insert("franchisereferalincomeCreateObjectV2", defaultConf);
     _serverIndices.insert("franchisereferalincomeCreateObjectV2", 0);
 }
@@ -172,7 +170,7 @@ void ObjectFranchisereferalincomeApi::enableResponseCompression() {
 }
 
 void ObjectFranchisereferalincomeApi::abortRequests() {
-    emit abortRequestsSignal();
+    Q_EMIT abortRequestsSignal();
 }
 
 QString ObjectFranchisereferalincomeApi::getParamStylePrefix(const QString &style) {
@@ -238,89 +236,6 @@ QString ObjectFranchisereferalincomeApi::getParamStyleDelimiter(const QString &s
     }
 }
 
-void ObjectFranchisereferalincomeApi::franchisereferalincomeCreateObjectV1(const QList<Franchisereferalincome_createObject_v1_Request> &franchisereferalincome_create_object_v1_request) {
-    QString fullPath = QString(_serverConfigs["franchisereferalincomeCreateObjectV1"][_serverIndices.value("franchisereferalincomeCreateObjectV1")].URL()+"/1/object/franchisereferalincome");
-    
-    if (_apiKeys.contains("Authorization")) {
-        addHeaders("Authorization",_apiKeys.find("Authorization").value());
-    }
-    
-    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
-    worker->setTimeOut(_timeOut);
-    worker->setWorkingDirectory(_workingDirectory);
-    HttpRequestInput input(fullPath, "POST");
-
-    {
-        QJsonDocument doc(::Ezmaxapi::toJsonValue(franchisereferalincome_create_object_v1_request).toArray());
-        QByteArray bytes = doc.toJson();
-        input.request_body.append(bytes);
-    }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
-    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
-        input.headers.insert(keyValueIt->first, keyValueIt->second);
-    }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
-
-    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectFranchisereferalincomeApi::franchisereferalincomeCreateObjectV1Callback);
-    connect(this, &ObjectFranchisereferalincomeApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
-        if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
-        }
-    });
-
-    worker->execute(&input);
-}
-
-void ObjectFranchisereferalincomeApi::franchisereferalincomeCreateObjectV1Callback(HttpRequestWorker *worker) {
-    QString error_str = worker->error_str;
-    QNetworkReply::NetworkError error_type = worker->error_type;
-
-    if (worker->error_type != QNetworkReply::NoError) {
-        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
-    }
-    Franchisereferalincome_createObject_v1_Response output(QString(worker->response));
-    worker->deleteLater();
-
-    if (worker->error_type == QNetworkReply::NoError) {
-        emit franchisereferalincomeCreateObjectV1Signal(output);
-        emit franchisereferalincomeCreateObjectV1SignalFull(worker, output);
-    } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        emit franchisereferalincomeCreateObjectV1SignalE(output, error_type, error_str);
-        emit franchisereferalincomeCreateObjectV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
-        emit franchisereferalincomeCreateObjectV1SignalError(output, error_type, error_str);
-        emit franchisereferalincomeCreateObjectV1SignalErrorFull(worker, error_type, error_str);
-    }
-}
-
 void ObjectFranchisereferalincomeApi::franchisereferalincomeCreateObjectV2(const Franchisereferalincome_createObject_v2_Request &franchisereferalincome_create_object_v2_request) {
     QString fullPath = QString(_serverConfigs["franchisereferalincomeCreateObjectV2"][_serverIndices.value("franchisereferalincomeCreateObjectV2")].URL()+"/2/object/franchisereferalincome");
     
@@ -353,7 +268,7 @@ void ObjectFranchisereferalincomeApi::franchisereferalincomeCreateObjectV2(const
     connect(this, &ObjectFranchisereferalincomeApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -371,8 +286,8 @@ void ObjectFranchisereferalincomeApi::franchisereferalincomeCreateObjectV2Callba
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit franchisereferalincomeCreateObjectV2Signal(output);
-        emit franchisereferalincomeCreateObjectV2SignalFull(worker, output);
+        Q_EMIT franchisereferalincomeCreateObjectV2Signal(output);
+        Q_EMIT franchisereferalincomeCreateObjectV2SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -389,8 +304,8 @@ void ObjectFranchisereferalincomeApi::franchisereferalincomeCreateObjectV2Callba
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit franchisereferalincomeCreateObjectV2SignalE(output, error_type, error_str);
-        emit franchisereferalincomeCreateObjectV2SignalEFull(worker, error_type, error_str);
+        Q_EMIT franchisereferalincomeCreateObjectV2SignalE(output, error_type, error_str);
+        Q_EMIT franchisereferalincomeCreateObjectV2SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -400,8 +315,8 @@ void ObjectFranchisereferalincomeApi::franchisereferalincomeCreateObjectV2Callba
 #pragma GCC diagnostic pop
 #endif
 
-        emit franchisereferalincomeCreateObjectV2SignalError(output, error_type, error_str);
-        emit franchisereferalincomeCreateObjectV2SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT franchisereferalincomeCreateObjectV2SignalError(output, error_type, error_str);
+        Q_EMIT franchisereferalincomeCreateObjectV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 

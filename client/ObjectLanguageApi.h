@@ -91,7 +91,7 @@ private:
 
     void languageGetAutocompleteV2Callback(HttpRequestWorker *worker);
 
-signals:
+Q_SIGNALS:
 
     void languageGetAutocompleteV2Signal(Language_getAutocomplete_v2_Response summary);
 
@@ -108,7 +108,7 @@ signals:
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
-public slots:
+public Q_SLOTS:
     void tokenAvailable();
 };
 

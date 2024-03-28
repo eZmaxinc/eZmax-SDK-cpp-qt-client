@@ -112,7 +112,7 @@ private:
     void ezsignformfieldgroupEditObjectV1Callback(HttpRequestWorker *worker);
     void ezsignformfieldgroupGetObjectV2Callback(HttpRequestWorker *worker);
 
-signals:
+Q_SIGNALS:
 
     void ezsignformfieldgroupCreateObjectV1Signal(Ezsignformfieldgroup_createObject_v1_Response summary);
     void ezsignformfieldgroupDeleteObjectV1Signal(Ezsignformfieldgroup_deleteObject_v1_Response summary);
@@ -153,7 +153,7 @@ signals:
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
-public slots:
+public Q_SLOTS:
     void tokenAvailable();
 };
 

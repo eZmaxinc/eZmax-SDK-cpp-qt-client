@@ -100,6 +100,9 @@ void Ezsigndocument_getObject_v1_Response_mPayload::initializeModel() {
     m_i_ezsigndocument_ezsignsignatureattachmenttotal_isSet = false;
     m_i_ezsigndocument_ezsignsignatureattachmenttotal_isValid = false;
 
+    m_i_ezsigndocument_ezsigndiscussiontotal_isSet = false;
+    m_i_ezsigndocument_ezsigndiscussiontotal_isValid = false;
+
     m_e_ezsigndocument_steptype_isSet = false;
     m_e_ezsigndocument_steptype_isValid = false;
 
@@ -194,6 +197,9 @@ void Ezsigndocument_getObject_v1_Response_mPayload::fromJsonObject(QJsonObject j
     m_i_ezsigndocument_ezsignsignatureattachmenttotal_isValid = ::Ezmaxapi::fromJsonValue(m_i_ezsigndocument_ezsignsignatureattachmenttotal, json[QString("iEzsigndocumentEzsignsignatureattachmenttotal")]);
     m_i_ezsigndocument_ezsignsignatureattachmenttotal_isSet = !json[QString("iEzsigndocumentEzsignsignatureattachmenttotal")].isNull() && m_i_ezsigndocument_ezsignsignatureattachmenttotal_isValid;
 
+    m_i_ezsigndocument_ezsigndiscussiontotal_isValid = ::Ezmaxapi::fromJsonValue(m_i_ezsigndocument_ezsigndiscussiontotal, json[QString("iEzsigndocumentEzsigndiscussiontotal")]);
+    m_i_ezsigndocument_ezsigndiscussiontotal_isSet = !json[QString("iEzsigndocumentEzsigndiscussiontotal")].isNull() && m_i_ezsigndocument_ezsigndiscussiontotal_isValid;
+
     m_e_ezsigndocument_steptype_isValid = ::Ezmaxapi::fromJsonValue(m_e_ezsigndocument_steptype, json[QString("eEzsigndocumentSteptype")]);
     m_e_ezsigndocument_steptype_isSet = !json[QString("eEzsigndocumentSteptype")].isNull() && m_e_ezsigndocument_steptype_isValid;
 
@@ -287,6 +293,9 @@ QJsonObject Ezsigndocument_getObject_v1_Response_mPayload::asJsonObject() const 
     }
     if (m_i_ezsigndocument_ezsignsignatureattachmenttotal_isSet) {
         obj.insert(QString("iEzsigndocumentEzsignsignatureattachmenttotal"), ::Ezmaxapi::toJsonValue(m_i_ezsigndocument_ezsignsignatureattachmenttotal));
+    }
+    if (m_i_ezsigndocument_ezsigndiscussiontotal_isSet) {
+        obj.insert(QString("iEzsigndocumentEzsigndiscussiontotal"), ::Ezmaxapi::toJsonValue(m_i_ezsigndocument_ezsigndiscussiontotal));
     }
     if (m_e_ezsigndocument_steptype.isSet()) {
         obj.insert(QString("eEzsigndocumentSteptype"), ::Ezmaxapi::toJsonValue(m_e_ezsigndocument_steptype));
@@ -661,6 +670,22 @@ bool Ezsigndocument_getObject_v1_Response_mPayload::is_i_ezsigndocument_ezsignsi
     return m_i_ezsigndocument_ezsignsignatureattachmenttotal_isValid;
 }
 
+qint32 Ezsigndocument_getObject_v1_Response_mPayload::getIEzsigndocumentEzsigndiscussiontotal() const {
+    return m_i_ezsigndocument_ezsigndiscussiontotal;
+}
+void Ezsigndocument_getObject_v1_Response_mPayload::setIEzsigndocumentEzsigndiscussiontotal(const qint32 &i_ezsigndocument_ezsigndiscussiontotal) {
+    m_i_ezsigndocument_ezsigndiscussiontotal = i_ezsigndocument_ezsigndiscussiontotal;
+    m_i_ezsigndocument_ezsigndiscussiontotal_isSet = true;
+}
+
+bool Ezsigndocument_getObject_v1_Response_mPayload::is_i_ezsigndocument_ezsigndiscussiontotal_Set() const{
+    return m_i_ezsigndocument_ezsigndiscussiontotal_isSet;
+}
+
+bool Ezsigndocument_getObject_v1_Response_mPayload::is_i_ezsigndocument_ezsigndiscussiontotal_Valid() const{
+    return m_i_ezsigndocument_ezsigndiscussiontotal_isValid;
+}
+
 Computed_eEzsigndocumentSteptype Ezsigndocument_getObject_v1_Response_mPayload::getEEzsigndocumentSteptype() const {
     return m_e_ezsigndocument_steptype;
 }
@@ -870,6 +895,11 @@ bool Ezsigndocument_getObject_v1_Response_mPayload::isSet() const {
             break;
         }
 
+        if (m_i_ezsigndocument_ezsigndiscussiontotal_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (m_e_ezsigndocument_steptype.isSet()) {
             isObjectUpdated = true;
             break;
@@ -905,7 +935,7 @@ bool Ezsigndocument_getObject_v1_Response_mPayload::isSet() const {
 
 bool Ezsigndocument_getObject_v1_Response_mPayload::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_pki_ezsigndocument_id_isValid && m_fki_ezsignfolder_id_isValid && m_dt_ezsigndocument_duedate_isValid && m_s_ezsigndocument_name_isValid && m_e_ezsigndocument_step_isValid && m_i_ezsigndocument_order_isValid && m_i_ezsigndocument_pagetotal_isValid && m_i_ezsigndocument_signaturesigned_isValid && m_i_ezsigndocument_signaturetotal_isValid && m_i_ezsigndocument_ezsignsignatureattachmenttotal_isValid && m_e_ezsigndocument_steptype_isValid && m_i_ezsigndocument_stepformtotal_isValid && m_i_ezsigndocument_stepformcurrent_isValid && m_i_ezsigndocument_stepsignaturetotal_isValid && m_i_ezsigndocument_stepsignature_current_isValid && m_a_obj_ezsignfoldersignerassociationstatus_isValid && true;
+    return m_pki_ezsigndocument_id_isValid && m_fki_ezsignfolder_id_isValid && m_dt_ezsigndocument_duedate_isValid && m_s_ezsigndocument_name_isValid && m_e_ezsigndocument_step_isValid && m_i_ezsigndocument_order_isValid && m_i_ezsigndocument_pagetotal_isValid && m_i_ezsigndocument_signaturesigned_isValid && m_i_ezsigndocument_signaturetotal_isValid && m_i_ezsigndocument_ezsignsignatureattachmenttotal_isValid && m_i_ezsigndocument_ezsigndiscussiontotal_isValid && m_e_ezsigndocument_steptype_isValid && m_i_ezsigndocument_stepformtotal_isValid && m_i_ezsigndocument_stepformcurrent_isValid && m_i_ezsigndocument_stepsignaturetotal_isValid && m_i_ezsigndocument_stepsignature_current_isValid && m_a_obj_ezsignfoldersignerassociationstatus_isValid && true;
 }
 
 } // namespace Ezmaxapi

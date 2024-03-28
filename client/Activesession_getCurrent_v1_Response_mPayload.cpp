@@ -67,6 +67,12 @@ void Activesession_getCurrent_v1_Response_mPayload::initializeModel() {
     m_fki_signature_id_isSet = false;
     m_fki_signature_id_isValid = false;
 
+    m_b_systemconfiguration_ezsignpaidbyoffice_isSet = false;
+    m_b_systemconfiguration_ezsignpaidbyoffice_isValid = false;
+
+    m_e_systemconfiguration_ezsignofficeplan_isSet = false;
+    m_e_systemconfiguration_ezsignofficeplan_isValid = false;
+
     m_e_user_ezsignaccess_isSet = false;
     m_e_user_ezsignaccess_isValid = false;
 
@@ -134,6 +140,12 @@ void Activesession_getCurrent_v1_Response_mPayload::fromJsonObject(QJsonObject j
     m_fki_signature_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_signature_id, json[QString("fkiSignatureID")]);
     m_fki_signature_id_isSet = !json[QString("fkiSignatureID")].isNull() && m_fki_signature_id_isValid;
 
+    m_b_systemconfiguration_ezsignpaidbyoffice_isValid = ::Ezmaxapi::fromJsonValue(m_b_systemconfiguration_ezsignpaidbyoffice, json[QString("bSystemconfigurationEzsignpaidbyoffice")]);
+    m_b_systemconfiguration_ezsignpaidbyoffice_isSet = !json[QString("bSystemconfigurationEzsignpaidbyoffice")].isNull() && m_b_systemconfiguration_ezsignpaidbyoffice_isValid;
+
+    m_e_systemconfiguration_ezsignofficeplan_isValid = ::Ezmaxapi::fromJsonValue(m_e_systemconfiguration_ezsignofficeplan, json[QString("eSystemconfigurationEzsignofficeplan")]);
+    m_e_systemconfiguration_ezsignofficeplan_isSet = !json[QString("eSystemconfigurationEzsignofficeplan")].isNull() && m_e_systemconfiguration_ezsignofficeplan_isValid;
+
     m_e_user_ezsignaccess_isValid = ::Ezmaxapi::fromJsonValue(m_e_user_ezsignaccess, json[QString("eUserEzsignaccess")]);
     m_e_user_ezsignaccess_isSet = !json[QString("eUserEzsignaccess")].isNull() && m_e_user_ezsignaccess_isValid;
 
@@ -200,6 +212,12 @@ QJsonObject Activesession_getCurrent_v1_Response_mPayload::asJsonObject() const 
     }
     if (m_fki_signature_id_isSet) {
         obj.insert(QString("fkiSignatureID"), ::Ezmaxapi::toJsonValue(m_fki_signature_id));
+    }
+    if (m_b_systemconfiguration_ezsignpaidbyoffice_isSet) {
+        obj.insert(QString("bSystemconfigurationEzsignpaidbyoffice"), ::Ezmaxapi::toJsonValue(m_b_systemconfiguration_ezsignpaidbyoffice));
+    }
+    if (m_e_systemconfiguration_ezsignofficeplan.isSet()) {
+        obj.insert(QString("eSystemconfigurationEzsignofficeplan"), ::Ezmaxapi::toJsonValue(m_e_systemconfiguration_ezsignofficeplan));
     }
     if (m_e_user_ezsignaccess.isSet()) {
         obj.insert(QString("eUserEzsignaccess"), ::Ezmaxapi::toJsonValue(m_e_user_ezsignaccess));
@@ -404,6 +422,38 @@ bool Activesession_getCurrent_v1_Response_mPayload::is_fki_signature_id_Valid() 
     return m_fki_signature_id_isValid;
 }
 
+bool Activesession_getCurrent_v1_Response_mPayload::isBSystemconfigurationEzsignpaidbyoffice() const {
+    return m_b_systemconfiguration_ezsignpaidbyoffice;
+}
+void Activesession_getCurrent_v1_Response_mPayload::setBSystemconfigurationEzsignpaidbyoffice(const bool &b_systemconfiguration_ezsignpaidbyoffice) {
+    m_b_systemconfiguration_ezsignpaidbyoffice = b_systemconfiguration_ezsignpaidbyoffice;
+    m_b_systemconfiguration_ezsignpaidbyoffice_isSet = true;
+}
+
+bool Activesession_getCurrent_v1_Response_mPayload::is_b_systemconfiguration_ezsignpaidbyoffice_Set() const{
+    return m_b_systemconfiguration_ezsignpaidbyoffice_isSet;
+}
+
+bool Activesession_getCurrent_v1_Response_mPayload::is_b_systemconfiguration_ezsignpaidbyoffice_Valid() const{
+    return m_b_systemconfiguration_ezsignpaidbyoffice_isValid;
+}
+
+Field_eSystemconfigurationEzsignofficeplan Activesession_getCurrent_v1_Response_mPayload::getESystemconfigurationEzsignofficeplan() const {
+    return m_e_systemconfiguration_ezsignofficeplan;
+}
+void Activesession_getCurrent_v1_Response_mPayload::setESystemconfigurationEzsignofficeplan(const Field_eSystemconfigurationEzsignofficeplan &e_systemconfiguration_ezsignofficeplan) {
+    m_e_systemconfiguration_ezsignofficeplan = e_systemconfiguration_ezsignofficeplan;
+    m_e_systemconfiguration_ezsignofficeplan_isSet = true;
+}
+
+bool Activesession_getCurrent_v1_Response_mPayload::is_e_systemconfiguration_ezsignofficeplan_Set() const{
+    return m_e_systemconfiguration_ezsignofficeplan_isSet;
+}
+
+bool Activesession_getCurrent_v1_Response_mPayload::is_e_systemconfiguration_ezsignofficeplan_Valid() const{
+    return m_e_systemconfiguration_ezsignofficeplan_isValid;
+}
+
 Field_eUserEzsignaccess Activesession_getCurrent_v1_Response_mPayload::getEUserEzsignaccess() const {
     return m_e_user_ezsignaccess;
 }
@@ -586,6 +636,16 @@ bool Activesession_getCurrent_v1_Response_mPayload::isSet() const {
         }
 
         if (m_fki_signature_id_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_b_systemconfiguration_ezsignpaidbyoffice_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_e_systemconfiguration_ezsignofficeplan.isSet()) {
             isObjectUpdated = true;
             break;
         }

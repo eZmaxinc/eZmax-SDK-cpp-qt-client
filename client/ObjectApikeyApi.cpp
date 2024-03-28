@@ -186,7 +186,7 @@ void ObjectApikeyApi::enableResponseCompression() {
 }
 
 void ObjectApikeyApi::abortRequests() {
-    emit abortRequestsSignal();
+    Q_EMIT abortRequestsSignal();
 }
 
 QString ObjectApikeyApi::getParamStylePrefix(const QString &style) {
@@ -284,7 +284,7 @@ void ObjectApikeyApi::apikeyCreateObjectV2(const Apikey_createObject_v2_Request 
     connect(this, &ObjectApikeyApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -302,8 +302,8 @@ void ObjectApikeyApi::apikeyCreateObjectV2Callback(HttpRequestWorker *worker) {
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit apikeyCreateObjectV2Signal(output);
-        emit apikeyCreateObjectV2SignalFull(worker, output);
+        Q_EMIT apikeyCreateObjectV2Signal(output);
+        Q_EMIT apikeyCreateObjectV2SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -320,8 +320,8 @@ void ObjectApikeyApi::apikeyCreateObjectV2Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit apikeyCreateObjectV2SignalE(output, error_type, error_str);
-        emit apikeyCreateObjectV2SignalEFull(worker, error_type, error_str);
+        Q_EMIT apikeyCreateObjectV2SignalE(output, error_type, error_str);
+        Q_EMIT apikeyCreateObjectV2SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -331,8 +331,8 @@ void ObjectApikeyApi::apikeyCreateObjectV2Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic pop
 #endif
 
-        emit apikeyCreateObjectV2SignalError(output, error_type, error_str);
-        emit apikeyCreateObjectV2SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT apikeyCreateObjectV2SignalError(output, error_type, error_str);
+        Q_EMIT apikeyCreateObjectV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -382,7 +382,7 @@ void ObjectApikeyApi::apikeyEditObjectV1(const qint32 &pki_apikey_id, const Apik
     connect(this, &ObjectApikeyApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -400,8 +400,8 @@ void ObjectApikeyApi::apikeyEditObjectV1Callback(HttpRequestWorker *worker) {
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit apikeyEditObjectV1Signal(output);
-        emit apikeyEditObjectV1SignalFull(worker, output);
+        Q_EMIT apikeyEditObjectV1Signal(output);
+        Q_EMIT apikeyEditObjectV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -418,8 +418,8 @@ void ObjectApikeyApi::apikeyEditObjectV1Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit apikeyEditObjectV1SignalE(output, error_type, error_str);
-        emit apikeyEditObjectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT apikeyEditObjectV1SignalE(output, error_type, error_str);
+        Q_EMIT apikeyEditObjectV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -429,8 +429,8 @@ void ObjectApikeyApi::apikeyEditObjectV1Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic pop
 #endif
 
-        emit apikeyEditObjectV1SignalError(output, error_type, error_str);
-        emit apikeyEditObjectV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT apikeyEditObjectV1SignalError(output, error_type, error_str);
+        Q_EMIT apikeyEditObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -480,7 +480,7 @@ void ObjectApikeyApi::apikeyEditPermissionsV1(const qint32 &pki_apikey_id, const
     connect(this, &ObjectApikeyApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -498,8 +498,8 @@ void ObjectApikeyApi::apikeyEditPermissionsV1Callback(HttpRequestWorker *worker)
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit apikeyEditPermissionsV1Signal(output);
-        emit apikeyEditPermissionsV1SignalFull(worker, output);
+        Q_EMIT apikeyEditPermissionsV1Signal(output);
+        Q_EMIT apikeyEditPermissionsV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -516,8 +516,8 @@ void ObjectApikeyApi::apikeyEditPermissionsV1Callback(HttpRequestWorker *worker)
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit apikeyEditPermissionsV1SignalE(output, error_type, error_str);
-        emit apikeyEditPermissionsV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT apikeyEditPermissionsV1SignalE(output, error_type, error_str);
+        Q_EMIT apikeyEditPermissionsV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -527,8 +527,8 @@ void ObjectApikeyApi::apikeyEditPermissionsV1Callback(HttpRequestWorker *worker)
 #pragma GCC diagnostic pop
 #endif
 
-        emit apikeyEditPermissionsV1SignalError(output, error_type, error_str);
-        emit apikeyEditPermissionsV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT apikeyEditPermissionsV1SignalError(output, error_type, error_str);
+        Q_EMIT apikeyEditPermissionsV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -573,7 +573,7 @@ void ObjectApikeyApi::apikeyGetCorsV1(const qint32 &pki_apikey_id) {
     connect(this, &ObjectApikeyApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -591,8 +591,8 @@ void ObjectApikeyApi::apikeyGetCorsV1Callback(HttpRequestWorker *worker) {
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit apikeyGetCorsV1Signal(output);
-        emit apikeyGetCorsV1SignalFull(worker, output);
+        Q_EMIT apikeyGetCorsV1Signal(output);
+        Q_EMIT apikeyGetCorsV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -609,8 +609,8 @@ void ObjectApikeyApi::apikeyGetCorsV1Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit apikeyGetCorsV1SignalE(output, error_type, error_str);
-        emit apikeyGetCorsV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT apikeyGetCorsV1SignalE(output, error_type, error_str);
+        Q_EMIT apikeyGetCorsV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -620,8 +620,8 @@ void ObjectApikeyApi::apikeyGetCorsV1Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic pop
 #endif
 
-        emit apikeyGetCorsV1SignalError(output, error_type, error_str);
-        emit apikeyGetCorsV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT apikeyGetCorsV1SignalError(output, error_type, error_str);
+        Q_EMIT apikeyGetCorsV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -646,7 +646,7 @@ void ObjectApikeyApi::apikeyGetListV1(const ::Ezmaxapi::OptionalParam<QString> &
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("eOrderBy")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(e_order_by.value())));
+        fullPath.append(QUrl::toPercentEncoding("eOrderBy")).append(querySuffix).append(QUrl::toPercentEncoding(e_order_by.stringValue()));
     }
     if (i_row_max.hasValue())
     {
@@ -661,7 +661,7 @@ void ObjectApikeyApi::apikeyGetListV1(const ::Ezmaxapi::OptionalParam<QString> &
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("iRowMax")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(i_row_max.value())));
+        fullPath.append(QUrl::toPercentEncoding("iRowMax")).append(querySuffix).append(QUrl::toPercentEncoding(i_row_max.stringValue()));
     }
     if (i_row_offset.hasValue())
     {
@@ -676,7 +676,7 @@ void ObjectApikeyApi::apikeyGetListV1(const ::Ezmaxapi::OptionalParam<QString> &
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("iRowOffset")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(i_row_offset.value())));
+        fullPath.append(QUrl::toPercentEncoding("iRowOffset")).append(querySuffix).append(QUrl::toPercentEncoding(i_row_offset.stringValue()));
     }
     if (s_filter.hasValue())
     {
@@ -691,7 +691,7 @@ void ObjectApikeyApi::apikeyGetListV1(const ::Ezmaxapi::OptionalParam<QString> &
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("sFilter")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_filter.value())));
+        fullPath.append(QUrl::toPercentEncoding("sFilter")).append(querySuffix).append(QUrl::toPercentEncoding(s_filter.stringValue()));
     }
     HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -757,7 +757,7 @@ void ObjectApikeyApi::apikeyGetListV1(const ::Ezmaxapi::OptionalParam<QString> &
     connect(this, &ObjectApikeyApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -775,8 +775,8 @@ void ObjectApikeyApi::apikeyGetListV1Callback(HttpRequestWorker *worker) {
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit apikeyGetListV1Signal(output);
-        emit apikeyGetListV1SignalFull(worker, output);
+        Q_EMIT apikeyGetListV1Signal(output);
+        Q_EMIT apikeyGetListV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -793,8 +793,8 @@ void ObjectApikeyApi::apikeyGetListV1Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit apikeyGetListV1SignalE(output, error_type, error_str);
-        emit apikeyGetListV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT apikeyGetListV1SignalE(output, error_type, error_str);
+        Q_EMIT apikeyGetListV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -804,8 +804,8 @@ void ObjectApikeyApi::apikeyGetListV1Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic pop
 #endif
 
-        emit apikeyGetListV1SignalError(output, error_type, error_str);
-        emit apikeyGetListV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT apikeyGetListV1SignalError(output, error_type, error_str);
+        Q_EMIT apikeyGetListV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -850,7 +850,7 @@ void ObjectApikeyApi::apikeyGetObjectV2(const qint32 &pki_apikey_id) {
     connect(this, &ObjectApikeyApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -868,8 +868,8 @@ void ObjectApikeyApi::apikeyGetObjectV2Callback(HttpRequestWorker *worker) {
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit apikeyGetObjectV2Signal(output);
-        emit apikeyGetObjectV2SignalFull(worker, output);
+        Q_EMIT apikeyGetObjectV2Signal(output);
+        Q_EMIT apikeyGetObjectV2SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -886,8 +886,8 @@ void ObjectApikeyApi::apikeyGetObjectV2Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit apikeyGetObjectV2SignalE(output, error_type, error_str);
-        emit apikeyGetObjectV2SignalEFull(worker, error_type, error_str);
+        Q_EMIT apikeyGetObjectV2SignalE(output, error_type, error_str);
+        Q_EMIT apikeyGetObjectV2SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -897,8 +897,8 @@ void ObjectApikeyApi::apikeyGetObjectV2Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic pop
 #endif
 
-        emit apikeyGetObjectV2SignalError(output, error_type, error_str);
-        emit apikeyGetObjectV2SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT apikeyGetObjectV2SignalError(output, error_type, error_str);
+        Q_EMIT apikeyGetObjectV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -943,7 +943,7 @@ void ObjectApikeyApi::apikeyGetPermissionsV1(const qint32 &pki_apikey_id) {
     connect(this, &ObjectApikeyApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -961,8 +961,8 @@ void ObjectApikeyApi::apikeyGetPermissionsV1Callback(HttpRequestWorker *worker) 
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit apikeyGetPermissionsV1Signal(output);
-        emit apikeyGetPermissionsV1SignalFull(worker, output);
+        Q_EMIT apikeyGetPermissionsV1Signal(output);
+        Q_EMIT apikeyGetPermissionsV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -979,8 +979,8 @@ void ObjectApikeyApi::apikeyGetPermissionsV1Callback(HttpRequestWorker *worker) 
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit apikeyGetPermissionsV1SignalE(output, error_type, error_str);
-        emit apikeyGetPermissionsV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT apikeyGetPermissionsV1SignalE(output, error_type, error_str);
+        Q_EMIT apikeyGetPermissionsV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -990,8 +990,8 @@ void ObjectApikeyApi::apikeyGetPermissionsV1Callback(HttpRequestWorker *worker) 
 #pragma GCC diagnostic pop
 #endif
 
-        emit apikeyGetPermissionsV1SignalError(output, error_type, error_str);
-        emit apikeyGetPermissionsV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT apikeyGetPermissionsV1SignalError(output, error_type, error_str);
+        Q_EMIT apikeyGetPermissionsV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -1036,7 +1036,7 @@ void ObjectApikeyApi::apikeyGetSubnetsV1(const qint32 &pki_apikey_id) {
     connect(this, &ObjectApikeyApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -1054,8 +1054,8 @@ void ObjectApikeyApi::apikeyGetSubnetsV1Callback(HttpRequestWorker *worker) {
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit apikeyGetSubnetsV1Signal(output);
-        emit apikeyGetSubnetsV1SignalFull(worker, output);
+        Q_EMIT apikeyGetSubnetsV1Signal(output);
+        Q_EMIT apikeyGetSubnetsV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -1072,8 +1072,8 @@ void ObjectApikeyApi::apikeyGetSubnetsV1Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit apikeyGetSubnetsV1SignalE(output, error_type, error_str);
-        emit apikeyGetSubnetsV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT apikeyGetSubnetsV1SignalE(output, error_type, error_str);
+        Q_EMIT apikeyGetSubnetsV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -1083,8 +1083,8 @@ void ObjectApikeyApi::apikeyGetSubnetsV1Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic pop
 #endif
 
-        emit apikeyGetSubnetsV1SignalError(output, error_type, error_str);
-        emit apikeyGetSubnetsV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT apikeyGetSubnetsV1SignalError(output, error_type, error_str);
+        Q_EMIT apikeyGetSubnetsV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -1134,7 +1134,7 @@ void ObjectApikeyApi::apikeyRegenerateV1(const qint32 &pki_apikey_id, const Apik
     connect(this, &ObjectApikeyApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -1152,8 +1152,8 @@ void ObjectApikeyApi::apikeyRegenerateV1Callback(HttpRequestWorker *worker) {
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit apikeyRegenerateV1Signal(output);
-        emit apikeyRegenerateV1SignalFull(worker, output);
+        Q_EMIT apikeyRegenerateV1Signal(output);
+        Q_EMIT apikeyRegenerateV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -1170,8 +1170,8 @@ void ObjectApikeyApi::apikeyRegenerateV1Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit apikeyRegenerateV1SignalE(output, error_type, error_str);
-        emit apikeyRegenerateV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT apikeyRegenerateV1SignalE(output, error_type, error_str);
+        Q_EMIT apikeyRegenerateV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -1181,8 +1181,8 @@ void ObjectApikeyApi::apikeyRegenerateV1Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic pop
 #endif
 
-        emit apikeyRegenerateV1SignalError(output, error_type, error_str);
-        emit apikeyRegenerateV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT apikeyRegenerateV1SignalError(output, error_type, error_str);
+        Q_EMIT apikeyRegenerateV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

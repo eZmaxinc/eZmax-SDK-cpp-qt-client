@@ -170,7 +170,7 @@ void ObjectNotificationsectionApi::enableResponseCompression() {
 }
 
 void ObjectNotificationsectionApi::abortRequests() {
-    emit abortRequestsSignal();
+    Q_EMIT abortRequestsSignal();
 }
 
 QString ObjectNotificationsectionApi::getParamStylePrefix(const QString &style) {
@@ -271,7 +271,7 @@ void ObjectNotificationsectionApi::notificationsectionGetNotificationtestsV1(con
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("bShowHidden")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(b_show_hidden)));
+        fullPath.append(QUrl::toPercentEncoding("bShowHidden")).append(querySuffix).append(QUrl::toPercentEncoding(b_show_hidden));
     }
     HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -293,7 +293,7 @@ void ObjectNotificationsectionApi::notificationsectionGetNotificationtestsV1(con
     connect(this, &ObjectNotificationsectionApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -311,8 +311,8 @@ void ObjectNotificationsectionApi::notificationsectionGetNotificationtestsV1Call
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit notificationsectionGetNotificationtestsV1Signal(output);
-        emit notificationsectionGetNotificationtestsV1SignalFull(worker, output);
+        Q_EMIT notificationsectionGetNotificationtestsV1Signal(output);
+        Q_EMIT notificationsectionGetNotificationtestsV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -329,8 +329,8 @@ void ObjectNotificationsectionApi::notificationsectionGetNotificationtestsV1Call
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit notificationsectionGetNotificationtestsV1SignalE(output, error_type, error_str);
-        emit notificationsectionGetNotificationtestsV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT notificationsectionGetNotificationtestsV1SignalE(output, error_type, error_str);
+        Q_EMIT notificationsectionGetNotificationtestsV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -340,8 +340,8 @@ void ObjectNotificationsectionApi::notificationsectionGetNotificationtestsV1Call
 #pragma GCC diagnostic pop
 #endif
 
-        emit notificationsectionGetNotificationtestsV1SignalError(output, error_type, error_str);
-        emit notificationsectionGetNotificationtestsV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT notificationsectionGetNotificationtestsV1SignalError(output, error_type, error_str);
+        Q_EMIT notificationsectionGetNotificationtestsV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

@@ -91,7 +91,7 @@ private:
 
     void departmentGetAutocompleteV2Callback(HttpRequestWorker *worker);
 
-signals:
+Q_SIGNALS:
 
     void departmentGetAutocompleteV2Signal(Department_getAutocomplete_v2_Response summary);
 
@@ -108,7 +108,7 @@ signals:
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
-public slots:
+public Q_SLOTS:
     void tokenAvailable();
 };
 

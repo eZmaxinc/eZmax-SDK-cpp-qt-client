@@ -42,6 +42,9 @@ void Usergroupmembership_Request::initializeModel() {
 
     m_fki_user_id_isSet = false;
     m_fki_user_id_isValid = false;
+
+    m_fki_usergroupexternal_id_isSet = false;
+    m_fki_usergroupexternal_id_isValid = false;
 }
 
 void Usergroupmembership_Request::fromJson(QString jsonString) {
@@ -61,6 +64,9 @@ void Usergroupmembership_Request::fromJsonObject(QJsonObject json) {
 
     m_fki_user_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_user_id, json[QString("fkiUserID")]);
     m_fki_user_id_isSet = !json[QString("fkiUserID")].isNull() && m_fki_user_id_isValid;
+
+    m_fki_usergroupexternal_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_usergroupexternal_id, json[QString("fkiUsergroupexternalID")]);
+    m_fki_usergroupexternal_id_isSet = !json[QString("fkiUsergroupexternalID")].isNull() && m_fki_usergroupexternal_id_isValid;
 }
 
 QString Usergroupmembership_Request::asJson() const {
@@ -80,6 +86,9 @@ QJsonObject Usergroupmembership_Request::asJsonObject() const {
     }
     if (m_fki_user_id_isSet) {
         obj.insert(QString("fkiUserID"), ::Ezmaxapi::toJsonValue(m_fki_user_id));
+    }
+    if (m_fki_usergroupexternal_id_isSet) {
+        obj.insert(QString("fkiUsergroupexternalID"), ::Ezmaxapi::toJsonValue(m_fki_usergroupexternal_id));
     }
     return obj;
 }
@@ -132,6 +141,22 @@ bool Usergroupmembership_Request::is_fki_user_id_Valid() const{
     return m_fki_user_id_isValid;
 }
 
+qint32 Usergroupmembership_Request::getFkiUsergroupexternalId() const {
+    return m_fki_usergroupexternal_id;
+}
+void Usergroupmembership_Request::setFkiUsergroupexternalId(const qint32 &fki_usergroupexternal_id) {
+    m_fki_usergroupexternal_id = fki_usergroupexternal_id;
+    m_fki_usergroupexternal_id_isSet = true;
+}
+
+bool Usergroupmembership_Request::is_fki_usergroupexternal_id_Set() const{
+    return m_fki_usergroupexternal_id_isSet;
+}
+
+bool Usergroupmembership_Request::is_fki_usergroupexternal_id_Valid() const{
+    return m_fki_usergroupexternal_id_isValid;
+}
+
 bool Usergroupmembership_Request::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -149,13 +174,18 @@ bool Usergroupmembership_Request::isSet() const {
             isObjectUpdated = true;
             break;
         }
+
+        if (m_fki_usergroupexternal_id_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
     } while (false);
     return isObjectUpdated;
 }
 
 bool Usergroupmembership_Request::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_fki_usergroup_id_isValid && m_fki_user_id_isValid && true;
+    return m_fki_usergroup_id_isValid && true;
 }
 
 } // namespace Ezmaxapi

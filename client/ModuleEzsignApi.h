@@ -92,7 +92,7 @@ private:
     void ezsignSuggestSignersV1Callback(HttpRequestWorker *worker);
     void ezsignSuggestTemplatesV1Callback(HttpRequestWorker *worker);
 
-signals:
+Q_SIGNALS:
 
     void ezsignSuggestSignersV1Signal(Ezsign_suggestSigners_v1_Response summary);
     void ezsignSuggestTemplatesV1Signal(Ezsign_suggestTemplates_v1_Response summary);
@@ -117,7 +117,7 @@ signals:
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
-public slots:
+public Q_SLOTS:
     void tokenAvailable();
 };
 

@@ -22,6 +22,7 @@
 #include <QJsonObject>
 
 #include "Field_eBrandingLogo.h"
+#include "Field_eBrandingLogointerface.h"
 #include "Multilingual_BrandingDescription.h"
 #include <QString>
 
@@ -77,6 +78,11 @@ public:
     bool is_e_branding_logo_Set() const;
     bool is_e_branding_logo_Valid() const;
 
+    Field_eBrandingLogointerface getEBrandingLogointerface() const;
+    void setEBrandingLogointerface(const Field_eBrandingLogointerface &e_branding_logointerface);
+    bool is_e_branding_logointerface_Set() const;
+    bool is_e_branding_logointerface_Valid() const;
+
     qint32 getIBrandingColortext() const;
     void setIBrandingColortext(const qint32 &i_branding_colortext);
     bool is_i_branding_colortext_Set() const;
@@ -107,6 +113,11 @@ public:
     bool is_i_branding_colorbackgroundsmallbox_Set() const;
     bool is_i_branding_colorbackgroundsmallbox_Valid() const;
 
+    qint32 getIBrandingInterfacecolor() const;
+    void setIBrandingInterfacecolor(const qint32 &i_branding_interfacecolor);
+    bool is_i_branding_interfacecolor_Set() const;
+    bool is_i_branding_interfacecolor_Valid() const;
+
     bool isBBrandingIsactive() const;
     void setBBrandingIsactive(const bool &b_branding_isactive);
     bool is_b_branding_isactive_Set() const;
@@ -116,6 +127,11 @@ public:
     void setSBrandingLogourl(const QString &s_branding_logourl);
     bool is_s_branding_logourl_Set() const;
     bool is_s_branding_logourl_Valid() const;
+
+    QString getSBrandingLogointerfaceurl() const;
+    void setSBrandingLogointerfaceurl(const QString &s_branding_logointerfaceurl);
+    bool is_s_branding_logointerfaceurl_Set() const;
+    bool is_s_branding_logointerfaceurl_Valid() const;
 
     virtual bool isSet() const override;
     virtual bool isValid() const override;
@@ -151,6 +167,10 @@ private:
     bool m_e_branding_logo_isSet;
     bool m_e_branding_logo_isValid;
 
+    Field_eBrandingLogointerface m_e_branding_logointerface;
+    bool m_e_branding_logointerface_isSet;
+    bool m_e_branding_logointerface_isValid;
+
     qint32 m_i_branding_colortext;
     bool m_i_branding_colortext_isSet;
     bool m_i_branding_colortext_isValid;
@@ -175,6 +195,10 @@ private:
     bool m_i_branding_colorbackgroundsmallbox_isSet;
     bool m_i_branding_colorbackgroundsmallbox_isValid;
 
+    qint32 m_i_branding_interfacecolor;
+    bool m_i_branding_interfacecolor_isSet;
+    bool m_i_branding_interfacecolor_isValid;
+
     bool m_b_branding_isactive;
     bool m_b_branding_isactive_isSet;
     bool m_b_branding_isactive_isValid;
@@ -182,6 +206,10 @@ private:
     QString m_s_branding_logourl;
     bool m_s_branding_logourl_isSet;
     bool m_s_branding_logourl_isValid;
+
+    QString m_s_branding_logointerfaceurl;
+    bool m_s_branding_logointerfaceurl_isSet;
+    bool m_s_branding_logointerfaceurl_isValid;
 };
 
 } // namespace Ezmaxapi

@@ -65,10 +65,10 @@ public:
     bool is_e_ezsigntemplateformfieldgroup_type_Set() const;
     bool is_e_ezsigntemplateformfieldgroup_type_Valid() const;
 
-    Field_eEzsigntemplateformfieldgroupSignerrequirement getEEzsigntemplateformfieldgroupSignerrequirement() const;
-    void setEEzsigntemplateformfieldgroupSignerrequirement(const Field_eEzsigntemplateformfieldgroupSignerrequirement &e_ezsigntemplateformfieldgroup_signerrequirement);
-    bool is_e_ezsigntemplateformfieldgroup_signerrequirement_Set() const;
-    bool is_e_ezsigntemplateformfieldgroup_signerrequirement_Valid() const;
+    Q_DECL_DEPRECATED Field_eEzsigntemplateformfieldgroupSignerrequirement getEEzsigntemplateformfieldgroupSignerrequirement() const;
+    Q_DECL_DEPRECATED void setEEzsigntemplateformfieldgroupSignerrequirement(const Field_eEzsigntemplateformfieldgroupSignerrequirement &e_ezsigntemplateformfieldgroup_signerrequirement);
+    Q_DECL_DEPRECATED bool is_e_ezsigntemplateformfieldgroup_signerrequirement_Set() const;
+    Q_DECL_DEPRECATED bool is_e_ezsigntemplateformfieldgroup_signerrequirement_Valid() const;
 
     QString getSEzsigntemplateformfieldgroupLabel() const;
     void setSEzsigntemplateformfieldgroupLabel(const QString &s_ezsigntemplateformfieldgroup_label);

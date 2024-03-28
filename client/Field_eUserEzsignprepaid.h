@@ -40,8 +40,9 @@ public:
 
     enum class eField_eUserEzsignprepaid {
         INVALID_VALUE_OPENAPI_GENERATED = 0,
+        NO, 
         BASIC, 
-        UNLIMITED, 
+        STANDARD, 
         PRO
     };
     Field_eUserEzsignprepaid::eField_eUserEzsignprepaid getValue() const;

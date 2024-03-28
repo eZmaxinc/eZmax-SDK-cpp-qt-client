@@ -178,7 +178,7 @@ void ObjectDiscussionApi::enableResponseCompression() {
 }
 
 void ObjectDiscussionApi::abortRequests() {
-    emit abortRequestsSignal();
+    Q_EMIT abortRequestsSignal();
 }
 
 QString ObjectDiscussionApi::getParamStylePrefix(const QString &style) {
@@ -276,7 +276,7 @@ void ObjectDiscussionApi::discussionCreateObjectV1(const Discussion_createObject
     connect(this, &ObjectDiscussionApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -294,8 +294,8 @@ void ObjectDiscussionApi::discussionCreateObjectV1Callback(HttpRequestWorker *wo
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit discussionCreateObjectV1Signal(output);
-        emit discussionCreateObjectV1SignalFull(worker, output);
+        Q_EMIT discussionCreateObjectV1Signal(output);
+        Q_EMIT discussionCreateObjectV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -312,8 +312,8 @@ void ObjectDiscussionApi::discussionCreateObjectV1Callback(HttpRequestWorker *wo
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit discussionCreateObjectV1SignalE(output, error_type, error_str);
-        emit discussionCreateObjectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT discussionCreateObjectV1SignalE(output, error_type, error_str);
+        Q_EMIT discussionCreateObjectV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -323,8 +323,8 @@ void ObjectDiscussionApi::discussionCreateObjectV1Callback(HttpRequestWorker *wo
 #pragma GCC diagnostic pop
 #endif
 
-        emit discussionCreateObjectV1SignalError(output, error_type, error_str);
-        emit discussionCreateObjectV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT discussionCreateObjectV1SignalError(output, error_type, error_str);
+        Q_EMIT discussionCreateObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -369,7 +369,7 @@ void ObjectDiscussionApi::discussionDeleteObjectV1(const qint32 &pki_discussion_
     connect(this, &ObjectDiscussionApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -387,8 +387,8 @@ void ObjectDiscussionApi::discussionDeleteObjectV1Callback(HttpRequestWorker *wo
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit discussionDeleteObjectV1Signal(output);
-        emit discussionDeleteObjectV1SignalFull(worker, output);
+        Q_EMIT discussionDeleteObjectV1Signal(output);
+        Q_EMIT discussionDeleteObjectV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -405,8 +405,8 @@ void ObjectDiscussionApi::discussionDeleteObjectV1Callback(HttpRequestWorker *wo
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit discussionDeleteObjectV1SignalE(output, error_type, error_str);
-        emit discussionDeleteObjectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT discussionDeleteObjectV1SignalE(output, error_type, error_str);
+        Q_EMIT discussionDeleteObjectV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -416,8 +416,8 @@ void ObjectDiscussionApi::discussionDeleteObjectV1Callback(HttpRequestWorker *wo
 #pragma GCC diagnostic pop
 #endif
 
-        emit discussionDeleteObjectV1SignalError(output, error_type, error_str);
-        emit discussionDeleteObjectV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT discussionDeleteObjectV1SignalError(output, error_type, error_str);
+        Q_EMIT discussionDeleteObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -462,7 +462,7 @@ void ObjectDiscussionApi::discussionGetObjectV2(const qint32 &pki_discussion_id)
     connect(this, &ObjectDiscussionApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -480,8 +480,8 @@ void ObjectDiscussionApi::discussionGetObjectV2Callback(HttpRequestWorker *worke
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit discussionGetObjectV2Signal(output);
-        emit discussionGetObjectV2SignalFull(worker, output);
+        Q_EMIT discussionGetObjectV2Signal(output);
+        Q_EMIT discussionGetObjectV2SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -498,8 +498,8 @@ void ObjectDiscussionApi::discussionGetObjectV2Callback(HttpRequestWorker *worke
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit discussionGetObjectV2SignalE(output, error_type, error_str);
-        emit discussionGetObjectV2SignalEFull(worker, error_type, error_str);
+        Q_EMIT discussionGetObjectV2SignalE(output, error_type, error_str);
+        Q_EMIT discussionGetObjectV2SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -509,8 +509,8 @@ void ObjectDiscussionApi::discussionGetObjectV2Callback(HttpRequestWorker *worke
 #pragma GCC diagnostic pop
 #endif
 
-        emit discussionGetObjectV2SignalError(output, error_type, error_str);
-        emit discussionGetObjectV2SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT discussionGetObjectV2SignalError(output, error_type, error_str);
+        Q_EMIT discussionGetObjectV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -560,7 +560,7 @@ void ObjectDiscussionApi::discussionPatchObjectV1(const qint32 &pki_discussion_i
     connect(this, &ObjectDiscussionApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -578,8 +578,8 @@ void ObjectDiscussionApi::discussionPatchObjectV1Callback(HttpRequestWorker *wor
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit discussionPatchObjectV1Signal(output);
-        emit discussionPatchObjectV1SignalFull(worker, output);
+        Q_EMIT discussionPatchObjectV1Signal(output);
+        Q_EMIT discussionPatchObjectV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -596,8 +596,8 @@ void ObjectDiscussionApi::discussionPatchObjectV1Callback(HttpRequestWorker *wor
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit discussionPatchObjectV1SignalE(output, error_type, error_str);
-        emit discussionPatchObjectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT discussionPatchObjectV1SignalE(output, error_type, error_str);
+        Q_EMIT discussionPatchObjectV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -607,8 +607,8 @@ void ObjectDiscussionApi::discussionPatchObjectV1Callback(HttpRequestWorker *wor
 #pragma GCC diagnostic pop
 #endif
 
-        emit discussionPatchObjectV1SignalError(output, error_type, error_str);
-        emit discussionPatchObjectV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT discussionPatchObjectV1SignalError(output, error_type, error_str);
+        Q_EMIT discussionPatchObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -658,7 +658,7 @@ void ObjectDiscussionApi::discussionUpdateDiscussionreadstatusV1(const qint32 &p
     connect(this, &ObjectDiscussionApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -676,8 +676,8 @@ void ObjectDiscussionApi::discussionUpdateDiscussionreadstatusV1Callback(HttpReq
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit discussionUpdateDiscussionreadstatusV1Signal(output);
-        emit discussionUpdateDiscussionreadstatusV1SignalFull(worker, output);
+        Q_EMIT discussionUpdateDiscussionreadstatusV1Signal(output);
+        Q_EMIT discussionUpdateDiscussionreadstatusV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -694,8 +694,8 @@ void ObjectDiscussionApi::discussionUpdateDiscussionreadstatusV1Callback(HttpReq
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit discussionUpdateDiscussionreadstatusV1SignalE(output, error_type, error_str);
-        emit discussionUpdateDiscussionreadstatusV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT discussionUpdateDiscussionreadstatusV1SignalE(output, error_type, error_str);
+        Q_EMIT discussionUpdateDiscussionreadstatusV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -705,8 +705,8 @@ void ObjectDiscussionApi::discussionUpdateDiscussionreadstatusV1Callback(HttpReq
 #pragma GCC diagnostic pop
 #endif
 
-        emit discussionUpdateDiscussionreadstatusV1SignalError(output, error_type, error_str);
-        emit discussionUpdateDiscussionreadstatusV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT discussionUpdateDiscussionreadstatusV1SignalError(output, error_type, error_str);
+        Q_EMIT discussionUpdateDiscussionreadstatusV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

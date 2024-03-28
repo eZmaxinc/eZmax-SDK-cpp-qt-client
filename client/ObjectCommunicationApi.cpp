@@ -170,7 +170,7 @@ void ObjectCommunicationApi::enableResponseCompression() {
 }
 
 void ObjectCommunicationApi::abortRequests() {
-    emit abortRequestsSignal();
+    Q_EMIT abortRequestsSignal();
 }
 
 QString ObjectCommunicationApi::getParamStylePrefix(const QString &style) {
@@ -268,7 +268,7 @@ void ObjectCommunicationApi::communicationSendV1(const Communication_send_v1_Req
     connect(this, &ObjectCommunicationApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -286,8 +286,8 @@ void ObjectCommunicationApi::communicationSendV1Callback(HttpRequestWorker *work
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit communicationSendV1Signal(output);
-        emit communicationSendV1SignalFull(worker, output);
+        Q_EMIT communicationSendV1Signal(output);
+        Q_EMIT communicationSendV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -304,8 +304,8 @@ void ObjectCommunicationApi::communicationSendV1Callback(HttpRequestWorker *work
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit communicationSendV1SignalE(output, error_type, error_str);
-        emit communicationSendV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT communicationSendV1SignalE(output, error_type, error_str);
+        Q_EMIT communicationSendV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -315,8 +315,8 @@ void ObjectCommunicationApi::communicationSendV1Callback(HttpRequestWorker *work
 #pragma GCC diagnostic pop
 #endif
 
-        emit communicationSendV1SignalError(output, error_type, error_str);
-        emit communicationSendV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT communicationSendV1SignalError(output, error_type, error_str);
+        Q_EMIT communicationSendV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

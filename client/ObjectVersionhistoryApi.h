@@ -88,7 +88,7 @@ private:
 
     void versionhistoryGetObjectV2Callback(HttpRequestWorker *worker);
 
-signals:
+Q_SIGNALS:
 
     void versionhistoryGetObjectV2Signal(Versionhistory_getObject_v2_Response summary);
 
@@ -105,7 +105,7 @@ signals:
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
-public slots:
+public Q_SLOTS:
     void tokenAvailable();
 };
 

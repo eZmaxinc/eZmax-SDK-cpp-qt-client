@@ -5,6 +5,7 @@
 eZmax API Definition (Full)
 
 - API version: 1.2.0
+- Generator version: 7.4.0
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
@@ -35,7 +36,7 @@ class Example : public QObject {
     Q_OBJECT
     QString create();
     QString create();
-public slots:
+public Q_SLOTS:
    void exampleFunction1();
 };
 

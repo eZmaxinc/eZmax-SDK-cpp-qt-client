@@ -89,7 +89,7 @@ private:
 
     void globalEzmaxclientVersionV1Callback(HttpRequestWorker *worker);
 
-signals:
+Q_SIGNALS:
 
     void globalEzmaxclientVersionV1Signal(Global_ezmaxclient_version_v1_Response summary);
 
@@ -106,7 +106,7 @@ signals:
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
-public slots:
+public Q_SLOTS:
     void tokenAvailable();
 };
 

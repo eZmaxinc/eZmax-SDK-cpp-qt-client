@@ -172,7 +172,7 @@ void ModuleEzsignApi::enableResponseCompression() {
 }
 
 void ModuleEzsignApi::abortRequests() {
-    emit abortRequestsSignal();
+    Q_EMIT abortRequestsSignal();
 }
 
 QString ModuleEzsignApi::getParamStylePrefix(const QString &style) {
@@ -265,7 +265,7 @@ void ModuleEzsignApi::ezsignSuggestSignersV1() {
     connect(this, &ModuleEzsignApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -283,8 +283,8 @@ void ModuleEzsignApi::ezsignSuggestSignersV1Callback(HttpRequestWorker *worker) 
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsignSuggestSignersV1Signal(output);
-        emit ezsignSuggestSignersV1SignalFull(worker, output);
+        Q_EMIT ezsignSuggestSignersV1Signal(output);
+        Q_EMIT ezsignSuggestSignersV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -301,8 +301,8 @@ void ModuleEzsignApi::ezsignSuggestSignersV1Callback(HttpRequestWorker *worker) 
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsignSuggestSignersV1SignalE(output, error_type, error_str);
-        emit ezsignSuggestSignersV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsignSuggestSignersV1SignalE(output, error_type, error_str);
+        Q_EMIT ezsignSuggestSignersV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -312,8 +312,8 @@ void ModuleEzsignApi::ezsignSuggestSignersV1Callback(HttpRequestWorker *worker) 
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsignSuggestSignersV1SignalError(output, error_type, error_str);
-        emit ezsignSuggestSignersV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsignSuggestSignersV1SignalError(output, error_type, error_str);
+        Q_EMIT ezsignSuggestSignersV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -338,7 +338,7 @@ void ModuleEzsignApi::ezsignSuggestTemplatesV1(const ::Ezmaxapi::OptionalParam<q
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("fkiEzsignfoldertypeID")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(fki_ezsignfoldertype_id.value())));
+        fullPath.append(QUrl::toPercentEncoding("fkiEzsignfoldertypeID")).append(querySuffix).append(QUrl::toPercentEncoding(fki_ezsignfoldertype_id.stringValue()));
     }
     HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -360,7 +360,7 @@ void ModuleEzsignApi::ezsignSuggestTemplatesV1(const ::Ezmaxapi::OptionalParam<q
     connect(this, &ModuleEzsignApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -378,8 +378,8 @@ void ModuleEzsignApi::ezsignSuggestTemplatesV1Callback(HttpRequestWorker *worker
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsignSuggestTemplatesV1Signal(output);
-        emit ezsignSuggestTemplatesV1SignalFull(worker, output);
+        Q_EMIT ezsignSuggestTemplatesV1Signal(output);
+        Q_EMIT ezsignSuggestTemplatesV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -396,8 +396,8 @@ void ModuleEzsignApi::ezsignSuggestTemplatesV1Callback(HttpRequestWorker *worker
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsignSuggestTemplatesV1SignalE(output, error_type, error_str);
-        emit ezsignSuggestTemplatesV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsignSuggestTemplatesV1SignalE(output, error_type, error_str);
+        Q_EMIT ezsignSuggestTemplatesV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -407,8 +407,8 @@ void ModuleEzsignApi::ezsignSuggestTemplatesV1Callback(HttpRequestWorker *worker
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsignSuggestTemplatesV1SignalError(output, error_type, error_str);
-        emit ezsignSuggestTemplatesV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsignSuggestTemplatesV1SignalError(output, error_type, error_str);
+        Q_EMIT ezsignSuggestTemplatesV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

@@ -60,11 +60,12 @@ public:
 
     /**
     * @param[in]  s_selector QString [required]
+    * @param[in]  fki_ezsignfoldertype_id qint32 [optional]
     * @param[in]  e_filter_active QString [optional]
     * @param[in]  s_query QString [optional]
     * @param[in]  accept_language Header_Accept_Language [optional]
     */
-    void userlogintypeGetAutocompleteV2(const QString &s_selector, const ::Ezmaxapi::OptionalParam<QString> &e_filter_active = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<QString> &s_query = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<Header_Accept_Language>());
+    void userlogintypeGetAutocompleteV2(const QString &s_selector, const ::Ezmaxapi::OptionalParam<qint32> &fki_ezsignfoldertype_id = ::Ezmaxapi::OptionalParam<qint32>(), const ::Ezmaxapi::OptionalParam<QString> &e_filter_active = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<QString> &s_query = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<Header_Accept_Language>());
 
 
 private:
@@ -91,7 +92,7 @@ private:
 
     void userlogintypeGetAutocompleteV2Callback(HttpRequestWorker *worker);
 
-signals:
+Q_SIGNALS:
 
     void userlogintypeGetAutocompleteV2Signal(Userlogintype_getAutocomplete_v2_Response summary);
 
@@ -108,7 +109,7 @@ signals:
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
-public slots:
+public Q_SLOTS:
     void tokenAvailable();
 };
 

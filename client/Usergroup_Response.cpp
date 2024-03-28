@@ -39,6 +39,9 @@ void Usergroup_Response::initializeModel() {
 
     m_obj_usergroup_name_isSet = false;
     m_obj_usergroup_name_isValid = false;
+
+    m_s_usergroup_name_x_isSet = false;
+    m_s_usergroup_name_x_isValid = false;
 }
 
 void Usergroup_Response::fromJson(QString jsonString) {
@@ -55,6 +58,9 @@ void Usergroup_Response::fromJsonObject(QJsonObject json) {
 
     m_obj_usergroup_name_isValid = ::Ezmaxapi::fromJsonValue(m_obj_usergroup_name, json[QString("objUsergroupName")]);
     m_obj_usergroup_name_isSet = !json[QString("objUsergroupName")].isNull() && m_obj_usergroup_name_isValid;
+
+    m_s_usergroup_name_x_isValid = ::Ezmaxapi::fromJsonValue(m_s_usergroup_name_x, json[QString("sUsergroupNameX")]);
+    m_s_usergroup_name_x_isSet = !json[QString("sUsergroupNameX")].isNull() && m_s_usergroup_name_x_isValid;
 }
 
 QString Usergroup_Response::asJson() const {
@@ -71,6 +77,9 @@ QJsonObject Usergroup_Response::asJsonObject() const {
     }
     if (m_obj_usergroup_name.isSet()) {
         obj.insert(QString("objUsergroupName"), ::Ezmaxapi::toJsonValue(m_obj_usergroup_name));
+    }
+    if (m_s_usergroup_name_x_isSet) {
+        obj.insert(QString("sUsergroupNameX"), ::Ezmaxapi::toJsonValue(m_s_usergroup_name_x));
     }
     return obj;
 }
@@ -107,6 +116,22 @@ bool Usergroup_Response::is_obj_usergroup_name_Valid() const{
     return m_obj_usergroup_name_isValid;
 }
 
+QString Usergroup_Response::getSUsergroupNameX() const {
+    return m_s_usergroup_name_x;
+}
+void Usergroup_Response::setSUsergroupNameX(const QString &s_usergroup_name_x) {
+    m_s_usergroup_name_x = s_usergroup_name_x;
+    m_s_usergroup_name_x_isSet = true;
+}
+
+bool Usergroup_Response::is_s_usergroup_name_x_Set() const{
+    return m_s_usergroup_name_x_isSet;
+}
+
+bool Usergroup_Response::is_s_usergroup_name_x_Valid() const{
+    return m_s_usergroup_name_x_isValid;
+}
+
 bool Usergroup_Response::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -116,6 +141,11 @@ bool Usergroup_Response::isSet() const {
         }
 
         if (m_obj_usergroup_name.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_s_usergroup_name_x_isSet) {
             isObjectUpdated = true;
             break;
         }

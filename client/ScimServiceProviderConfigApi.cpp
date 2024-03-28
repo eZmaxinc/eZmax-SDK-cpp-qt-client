@@ -170,7 +170,7 @@ void ScimServiceProviderConfigApi::enableResponseCompression() {
 }
 
 void ScimServiceProviderConfigApi::abortRequests() {
-    emit abortRequestsSignal();
+    Q_EMIT abortRequestsSignal();
 }
 
 QString ScimServiceProviderConfigApi::getParamStylePrefix(const QString &style) {
@@ -259,7 +259,7 @@ void ScimServiceProviderConfigApi::serviceProviderConfigGetObjectScimV2() {
     connect(this, &ScimServiceProviderConfigApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -277,8 +277,8 @@ void ScimServiceProviderConfigApi::serviceProviderConfigGetObjectScimV2Callback(
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit serviceProviderConfigGetObjectScimV2Signal(output);
-        emit serviceProviderConfigGetObjectScimV2SignalFull(worker, output);
+        Q_EMIT serviceProviderConfigGetObjectScimV2Signal(output);
+        Q_EMIT serviceProviderConfigGetObjectScimV2SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -295,8 +295,8 @@ void ScimServiceProviderConfigApi::serviceProviderConfigGetObjectScimV2Callback(
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit serviceProviderConfigGetObjectScimV2SignalE(output, error_type, error_str);
-        emit serviceProviderConfigGetObjectScimV2SignalEFull(worker, error_type, error_str);
+        Q_EMIT serviceProviderConfigGetObjectScimV2SignalE(output, error_type, error_str);
+        Q_EMIT serviceProviderConfigGetObjectScimV2SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -306,8 +306,8 @@ void ScimServiceProviderConfigApi::serviceProviderConfigGetObjectScimV2Callback(
 #pragma GCC diagnostic pop
 #endif
 
-        emit serviceProviderConfigGetObjectScimV2SignalError(output, error_type, error_str);
-        emit serviceProviderConfigGetObjectScimV2SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT serviceProviderConfigGetObjectScimV2SignalError(output, error_type, error_str);
+        Q_EMIT serviceProviderConfigGetObjectScimV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 

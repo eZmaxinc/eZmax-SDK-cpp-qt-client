@@ -190,7 +190,7 @@ void ObjectUsergroupApi::enableResponseCompression() {
 }
 
 void ObjectUsergroupApi::abortRequests() {
-    emit abortRequestsSignal();
+    Q_EMIT abortRequestsSignal();
 }
 
 QString ObjectUsergroupApi::getParamStylePrefix(const QString &style) {
@@ -288,7 +288,7 @@ void ObjectUsergroupApi::usergroupCreateObjectV1(const Usergroup_createObject_v1
     connect(this, &ObjectUsergroupApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -306,8 +306,8 @@ void ObjectUsergroupApi::usergroupCreateObjectV1Callback(HttpRequestWorker *work
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit usergroupCreateObjectV1Signal(output);
-        emit usergroupCreateObjectV1SignalFull(worker, output);
+        Q_EMIT usergroupCreateObjectV1Signal(output);
+        Q_EMIT usergroupCreateObjectV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -324,8 +324,8 @@ void ObjectUsergroupApi::usergroupCreateObjectV1Callback(HttpRequestWorker *work
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit usergroupCreateObjectV1SignalE(output, error_type, error_str);
-        emit usergroupCreateObjectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT usergroupCreateObjectV1SignalE(output, error_type, error_str);
+        Q_EMIT usergroupCreateObjectV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -335,8 +335,8 @@ void ObjectUsergroupApi::usergroupCreateObjectV1Callback(HttpRequestWorker *work
 #pragma GCC diagnostic pop
 #endif
 
-        emit usergroupCreateObjectV1SignalError(output, error_type, error_str);
-        emit usergroupCreateObjectV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT usergroupCreateObjectV1SignalError(output, error_type, error_str);
+        Q_EMIT usergroupCreateObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -386,7 +386,7 @@ void ObjectUsergroupApi::usergroupEditObjectV1(const qint32 &pki_usergroup_id, c
     connect(this, &ObjectUsergroupApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -404,8 +404,8 @@ void ObjectUsergroupApi::usergroupEditObjectV1Callback(HttpRequestWorker *worker
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit usergroupEditObjectV1Signal(output);
-        emit usergroupEditObjectV1SignalFull(worker, output);
+        Q_EMIT usergroupEditObjectV1Signal(output);
+        Q_EMIT usergroupEditObjectV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -422,8 +422,8 @@ void ObjectUsergroupApi::usergroupEditObjectV1Callback(HttpRequestWorker *worker
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit usergroupEditObjectV1SignalE(output, error_type, error_str);
-        emit usergroupEditObjectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT usergroupEditObjectV1SignalE(output, error_type, error_str);
+        Q_EMIT usergroupEditObjectV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -433,8 +433,8 @@ void ObjectUsergroupApi::usergroupEditObjectV1Callback(HttpRequestWorker *worker
 #pragma GCC diagnostic pop
 #endif
 
-        emit usergroupEditObjectV1SignalError(output, error_type, error_str);
-        emit usergroupEditObjectV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT usergroupEditObjectV1SignalError(output, error_type, error_str);
+        Q_EMIT usergroupEditObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -484,7 +484,7 @@ void ObjectUsergroupApi::usergroupEditPermissionsV1(const qint32 &pki_usergroup_
     connect(this, &ObjectUsergroupApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -502,8 +502,8 @@ void ObjectUsergroupApi::usergroupEditPermissionsV1Callback(HttpRequestWorker *w
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit usergroupEditPermissionsV1Signal(output);
-        emit usergroupEditPermissionsV1SignalFull(worker, output);
+        Q_EMIT usergroupEditPermissionsV1Signal(output);
+        Q_EMIT usergroupEditPermissionsV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -520,8 +520,8 @@ void ObjectUsergroupApi::usergroupEditPermissionsV1Callback(HttpRequestWorker *w
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit usergroupEditPermissionsV1SignalE(output, error_type, error_str);
-        emit usergroupEditPermissionsV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT usergroupEditPermissionsV1SignalE(output, error_type, error_str);
+        Q_EMIT usergroupEditPermissionsV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -531,8 +531,8 @@ void ObjectUsergroupApi::usergroupEditPermissionsV1Callback(HttpRequestWorker *w
 #pragma GCC diagnostic pop
 #endif
 
-        emit usergroupEditPermissionsV1SignalError(output, error_type, error_str);
-        emit usergroupEditPermissionsV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT usergroupEditPermissionsV1SignalError(output, error_type, error_str);
+        Q_EMIT usergroupEditPermissionsV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -582,7 +582,7 @@ void ObjectUsergroupApi::usergroupEditUsergroupdelegationsV1(const qint32 &pki_u
     connect(this, &ObjectUsergroupApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -600,8 +600,8 @@ void ObjectUsergroupApi::usergroupEditUsergroupdelegationsV1Callback(HttpRequest
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit usergroupEditUsergroupdelegationsV1Signal(output);
-        emit usergroupEditUsergroupdelegationsV1SignalFull(worker, output);
+        Q_EMIT usergroupEditUsergroupdelegationsV1Signal(output);
+        Q_EMIT usergroupEditUsergroupdelegationsV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -618,8 +618,8 @@ void ObjectUsergroupApi::usergroupEditUsergroupdelegationsV1Callback(HttpRequest
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit usergroupEditUsergroupdelegationsV1SignalE(output, error_type, error_str);
-        emit usergroupEditUsergroupdelegationsV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT usergroupEditUsergroupdelegationsV1SignalE(output, error_type, error_str);
+        Q_EMIT usergroupEditUsergroupdelegationsV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -629,8 +629,8 @@ void ObjectUsergroupApi::usergroupEditUsergroupdelegationsV1Callback(HttpRequest
 #pragma GCC diagnostic pop
 #endif
 
-        emit usergroupEditUsergroupdelegationsV1SignalError(output, error_type, error_str);
-        emit usergroupEditUsergroupdelegationsV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT usergroupEditUsergroupdelegationsV1SignalError(output, error_type, error_str);
+        Q_EMIT usergroupEditUsergroupdelegationsV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -680,7 +680,7 @@ void ObjectUsergroupApi::usergroupEditUsergroupmembershipsV1(const qint32 &pki_u
     connect(this, &ObjectUsergroupApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -698,8 +698,8 @@ void ObjectUsergroupApi::usergroupEditUsergroupmembershipsV1Callback(HttpRequest
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit usergroupEditUsergroupmembershipsV1Signal(output);
-        emit usergroupEditUsergroupmembershipsV1SignalFull(worker, output);
+        Q_EMIT usergroupEditUsergroupmembershipsV1Signal(output);
+        Q_EMIT usergroupEditUsergroupmembershipsV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -716,8 +716,8 @@ void ObjectUsergroupApi::usergroupEditUsergroupmembershipsV1Callback(HttpRequest
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit usergroupEditUsergroupmembershipsV1SignalE(output, error_type, error_str);
-        emit usergroupEditUsergroupmembershipsV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT usergroupEditUsergroupmembershipsV1SignalE(output, error_type, error_str);
+        Q_EMIT usergroupEditUsergroupmembershipsV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -727,8 +727,8 @@ void ObjectUsergroupApi::usergroupEditUsergroupmembershipsV1Callback(HttpRequest
 #pragma GCC diagnostic pop
 #endif
 
-        emit usergroupEditUsergroupmembershipsV1SignalError(output, error_type, error_str);
-        emit usergroupEditUsergroupmembershipsV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT usergroupEditUsergroupmembershipsV1SignalError(output, error_type, error_str);
+        Q_EMIT usergroupEditUsergroupmembershipsV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -767,7 +767,7 @@ void ObjectUsergroupApi::usergroupGetAutocompleteV2(const QString &s_selector, c
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("eFilterActive")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(e_filter_active.value())));
+        fullPath.append(QUrl::toPercentEncoding("eFilterActive")).append(querySuffix).append(QUrl::toPercentEncoding(e_filter_active.stringValue()));
     }
     if (s_query.hasValue())
     {
@@ -782,7 +782,7 @@ void ObjectUsergroupApi::usergroupGetAutocompleteV2(const QString &s_selector, c
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_query.value())));
+        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(s_query.stringValue()));
     }
     HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -848,7 +848,7 @@ void ObjectUsergroupApi::usergroupGetAutocompleteV2(const QString &s_selector, c
     connect(this, &ObjectUsergroupApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -866,8 +866,8 @@ void ObjectUsergroupApi::usergroupGetAutocompleteV2Callback(HttpRequestWorker *w
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit usergroupGetAutocompleteV2Signal(output);
-        emit usergroupGetAutocompleteV2SignalFull(worker, output);
+        Q_EMIT usergroupGetAutocompleteV2Signal(output);
+        Q_EMIT usergroupGetAutocompleteV2SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -884,8 +884,8 @@ void ObjectUsergroupApi::usergroupGetAutocompleteV2Callback(HttpRequestWorker *w
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit usergroupGetAutocompleteV2SignalE(output, error_type, error_str);
-        emit usergroupGetAutocompleteV2SignalEFull(worker, error_type, error_str);
+        Q_EMIT usergroupGetAutocompleteV2SignalE(output, error_type, error_str);
+        Q_EMIT usergroupGetAutocompleteV2SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -895,8 +895,8 @@ void ObjectUsergroupApi::usergroupGetAutocompleteV2Callback(HttpRequestWorker *w
 #pragma GCC diagnostic pop
 #endif
 
-        emit usergroupGetAutocompleteV2SignalError(output, error_type, error_str);
-        emit usergroupGetAutocompleteV2SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT usergroupGetAutocompleteV2SignalError(output, error_type, error_str);
+        Q_EMIT usergroupGetAutocompleteV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -921,7 +921,7 @@ void ObjectUsergroupApi::usergroupGetListV1(const ::Ezmaxapi::OptionalParam<QStr
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("eOrderBy")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(e_order_by.value())));
+        fullPath.append(QUrl::toPercentEncoding("eOrderBy")).append(querySuffix).append(QUrl::toPercentEncoding(e_order_by.stringValue()));
     }
     if (i_row_max.hasValue())
     {
@@ -936,7 +936,7 @@ void ObjectUsergroupApi::usergroupGetListV1(const ::Ezmaxapi::OptionalParam<QStr
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("iRowMax")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(i_row_max.value())));
+        fullPath.append(QUrl::toPercentEncoding("iRowMax")).append(querySuffix).append(QUrl::toPercentEncoding(i_row_max.stringValue()));
     }
     if (i_row_offset.hasValue())
     {
@@ -951,7 +951,7 @@ void ObjectUsergroupApi::usergroupGetListV1(const ::Ezmaxapi::OptionalParam<QStr
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("iRowOffset")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(i_row_offset.value())));
+        fullPath.append(QUrl::toPercentEncoding("iRowOffset")).append(querySuffix).append(QUrl::toPercentEncoding(i_row_offset.stringValue()));
     }
     if (s_filter.hasValue())
     {
@@ -966,7 +966,7 @@ void ObjectUsergroupApi::usergroupGetListV1(const ::Ezmaxapi::OptionalParam<QStr
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("sFilter")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_filter.value())));
+        fullPath.append(QUrl::toPercentEncoding("sFilter")).append(querySuffix).append(QUrl::toPercentEncoding(s_filter.stringValue()));
     }
     HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -1032,7 +1032,7 @@ void ObjectUsergroupApi::usergroupGetListV1(const ::Ezmaxapi::OptionalParam<QStr
     connect(this, &ObjectUsergroupApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -1050,8 +1050,8 @@ void ObjectUsergroupApi::usergroupGetListV1Callback(HttpRequestWorker *worker) {
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit usergroupGetListV1Signal(output);
-        emit usergroupGetListV1SignalFull(worker, output);
+        Q_EMIT usergroupGetListV1Signal(output);
+        Q_EMIT usergroupGetListV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -1068,8 +1068,8 @@ void ObjectUsergroupApi::usergroupGetListV1Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit usergroupGetListV1SignalE(output, error_type, error_str);
-        emit usergroupGetListV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT usergroupGetListV1SignalE(output, error_type, error_str);
+        Q_EMIT usergroupGetListV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -1079,8 +1079,8 @@ void ObjectUsergroupApi::usergroupGetListV1Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic pop
 #endif
 
-        emit usergroupGetListV1SignalError(output, error_type, error_str);
-        emit usergroupGetListV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT usergroupGetListV1SignalError(output, error_type, error_str);
+        Q_EMIT usergroupGetListV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -1125,7 +1125,7 @@ void ObjectUsergroupApi::usergroupGetObjectV2(const qint32 &pki_usergroup_id) {
     connect(this, &ObjectUsergroupApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -1143,8 +1143,8 @@ void ObjectUsergroupApi::usergroupGetObjectV2Callback(HttpRequestWorker *worker)
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit usergroupGetObjectV2Signal(output);
-        emit usergroupGetObjectV2SignalFull(worker, output);
+        Q_EMIT usergroupGetObjectV2Signal(output);
+        Q_EMIT usergroupGetObjectV2SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -1161,8 +1161,8 @@ void ObjectUsergroupApi::usergroupGetObjectV2Callback(HttpRequestWorker *worker)
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit usergroupGetObjectV2SignalE(output, error_type, error_str);
-        emit usergroupGetObjectV2SignalEFull(worker, error_type, error_str);
+        Q_EMIT usergroupGetObjectV2SignalE(output, error_type, error_str);
+        Q_EMIT usergroupGetObjectV2SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -1172,8 +1172,8 @@ void ObjectUsergroupApi::usergroupGetObjectV2Callback(HttpRequestWorker *worker)
 #pragma GCC diagnostic pop
 #endif
 
-        emit usergroupGetObjectV2SignalError(output, error_type, error_str);
-        emit usergroupGetObjectV2SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT usergroupGetObjectV2SignalError(output, error_type, error_str);
+        Q_EMIT usergroupGetObjectV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -1218,7 +1218,7 @@ void ObjectUsergroupApi::usergroupGetPermissionsV1(const qint32 &pki_usergroup_i
     connect(this, &ObjectUsergroupApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -1236,8 +1236,8 @@ void ObjectUsergroupApi::usergroupGetPermissionsV1Callback(HttpRequestWorker *wo
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit usergroupGetPermissionsV1Signal(output);
-        emit usergroupGetPermissionsV1SignalFull(worker, output);
+        Q_EMIT usergroupGetPermissionsV1Signal(output);
+        Q_EMIT usergroupGetPermissionsV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -1254,8 +1254,8 @@ void ObjectUsergroupApi::usergroupGetPermissionsV1Callback(HttpRequestWorker *wo
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit usergroupGetPermissionsV1SignalE(output, error_type, error_str);
-        emit usergroupGetPermissionsV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT usergroupGetPermissionsV1SignalE(output, error_type, error_str);
+        Q_EMIT usergroupGetPermissionsV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -1265,8 +1265,8 @@ void ObjectUsergroupApi::usergroupGetPermissionsV1Callback(HttpRequestWorker *wo
 #pragma GCC diagnostic pop
 #endif
 
-        emit usergroupGetPermissionsV1SignalError(output, error_type, error_str);
-        emit usergroupGetPermissionsV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT usergroupGetPermissionsV1SignalError(output, error_type, error_str);
+        Q_EMIT usergroupGetPermissionsV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -1311,7 +1311,7 @@ void ObjectUsergroupApi::usergroupGetUsergroupdelegationsV1(const qint32 &pki_us
     connect(this, &ObjectUsergroupApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -1329,8 +1329,8 @@ void ObjectUsergroupApi::usergroupGetUsergroupdelegationsV1Callback(HttpRequestW
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit usergroupGetUsergroupdelegationsV1Signal(output);
-        emit usergroupGetUsergroupdelegationsV1SignalFull(worker, output);
+        Q_EMIT usergroupGetUsergroupdelegationsV1Signal(output);
+        Q_EMIT usergroupGetUsergroupdelegationsV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -1347,8 +1347,8 @@ void ObjectUsergroupApi::usergroupGetUsergroupdelegationsV1Callback(HttpRequestW
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit usergroupGetUsergroupdelegationsV1SignalE(output, error_type, error_str);
-        emit usergroupGetUsergroupdelegationsV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT usergroupGetUsergroupdelegationsV1SignalE(output, error_type, error_str);
+        Q_EMIT usergroupGetUsergroupdelegationsV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -1358,8 +1358,8 @@ void ObjectUsergroupApi::usergroupGetUsergroupdelegationsV1Callback(HttpRequestW
 #pragma GCC diagnostic pop
 #endif
 
-        emit usergroupGetUsergroupdelegationsV1SignalError(output, error_type, error_str);
-        emit usergroupGetUsergroupdelegationsV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT usergroupGetUsergroupdelegationsV1SignalError(output, error_type, error_str);
+        Q_EMIT usergroupGetUsergroupdelegationsV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -1404,7 +1404,7 @@ void ObjectUsergroupApi::usergroupGetUsergroupmembershipsV1(const qint32 &pki_us
     connect(this, &ObjectUsergroupApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -1422,8 +1422,8 @@ void ObjectUsergroupApi::usergroupGetUsergroupmembershipsV1Callback(HttpRequestW
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit usergroupGetUsergroupmembershipsV1Signal(output);
-        emit usergroupGetUsergroupmembershipsV1SignalFull(worker, output);
+        Q_EMIT usergroupGetUsergroupmembershipsV1Signal(output);
+        Q_EMIT usergroupGetUsergroupmembershipsV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -1440,8 +1440,8 @@ void ObjectUsergroupApi::usergroupGetUsergroupmembershipsV1Callback(HttpRequestW
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit usergroupGetUsergroupmembershipsV1SignalE(output, error_type, error_str);
-        emit usergroupGetUsergroupmembershipsV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT usergroupGetUsergroupmembershipsV1SignalE(output, error_type, error_str);
+        Q_EMIT usergroupGetUsergroupmembershipsV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -1451,8 +1451,8 @@ void ObjectUsergroupApi::usergroupGetUsergroupmembershipsV1Callback(HttpRequestW
 #pragma GCC diagnostic pop
 #endif
 
-        emit usergroupGetUsergroupmembershipsV1SignalError(output, error_type, error_str);
-        emit usergroupGetUsergroupmembershipsV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT usergroupGetUsergroupmembershipsV1SignalError(output, error_type, error_str);
+        Q_EMIT usergroupGetUsergroupmembershipsV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

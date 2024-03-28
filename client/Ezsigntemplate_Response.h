@@ -22,6 +22,7 @@
 #include <QJsonObject>
 
 #include "Common_Audit.h"
+#include "Field_eEzsigntemplateType.h"
 #include <QString>
 
 #include "Enum.h"
@@ -71,6 +72,11 @@ public:
     bool is_s_ezsigntemplate_description_Set() const;
     bool is_s_ezsigntemplate_description_Valid() const;
 
+    QString getSEzsigntemplateFilenamepattern() const;
+    void setSEzsigntemplateFilenamepattern(const QString &s_ezsigntemplate_filenamepattern);
+    bool is_s_ezsigntemplate_filenamepattern_Set() const;
+    bool is_s_ezsigntemplate_filenamepattern_Valid() const;
+
     bool isBEzsigntemplateAdminonly() const;
     void setBEzsigntemplateAdminonly(const bool &b_ezsigntemplate_adminonly);
     bool is_b_ezsigntemplate_adminonly_Set() const;
@@ -85,6 +91,16 @@ public:
     void setObjAudit(const Common_Audit &obj_audit);
     bool is_obj_audit_Set() const;
     bool is_obj_audit_Valid() const;
+
+    bool isBEzsigntemplateEditallowed() const;
+    void setBEzsigntemplateEditallowed(const bool &b_ezsigntemplate_editallowed);
+    bool is_b_ezsigntemplate_editallowed_Set() const;
+    bool is_b_ezsigntemplate_editallowed_Valid() const;
+
+    Field_eEzsigntemplateType getEEzsigntemplateType() const;
+    void setEEzsigntemplateType(const Field_eEzsigntemplateType &e_ezsigntemplate_type);
+    bool is_e_ezsigntemplate_type_Set() const;
+    bool is_e_ezsigntemplate_type_Valid() const;
 
     virtual bool isSet() const override;
     virtual bool isValid() const override;
@@ -116,6 +132,10 @@ private:
     bool m_s_ezsigntemplate_description_isSet;
     bool m_s_ezsigntemplate_description_isValid;
 
+    QString m_s_ezsigntemplate_filenamepattern;
+    bool m_s_ezsigntemplate_filenamepattern_isSet;
+    bool m_s_ezsigntemplate_filenamepattern_isValid;
+
     bool m_b_ezsigntemplate_adminonly;
     bool m_b_ezsigntemplate_adminonly_isSet;
     bool m_b_ezsigntemplate_adminonly_isValid;
@@ -127,6 +147,14 @@ private:
     Common_Audit m_obj_audit;
     bool m_obj_audit_isSet;
     bool m_obj_audit_isValid;
+
+    bool m_b_ezsigntemplate_editallowed;
+    bool m_b_ezsigntemplate_editallowed_isSet;
+    bool m_b_ezsigntemplate_editallowed_isValid;
+
+    Field_eEzsigntemplateType m_e_ezsigntemplate_type;
+    bool m_e_ezsigntemplate_type_isSet;
+    bool m_e_ezsigntemplate_type_isValid;
 };
 
 } // namespace Ezmaxapi

@@ -170,7 +170,7 @@ void ObjectEzsignpageApi::enableResponseCompression() {
 }
 
 void ObjectEzsignpageApi::abortRequests() {
-    emit abortRequestsSignal();
+    Q_EMIT abortRequestsSignal();
 }
 
 QString ObjectEzsignpageApi::getParamStylePrefix(const QString &style) {
@@ -282,7 +282,7 @@ void ObjectEzsignpageApi::ezsignpageConsultV1(const qint32 &pki_ezsignpage_id, c
     connect(this, &ObjectEzsignpageApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -300,8 +300,8 @@ void ObjectEzsignpageApi::ezsignpageConsultV1Callback(HttpRequestWorker *worker)
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsignpageConsultV1Signal(output);
-        emit ezsignpageConsultV1SignalFull(worker, output);
+        Q_EMIT ezsignpageConsultV1Signal(output);
+        Q_EMIT ezsignpageConsultV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -318,8 +318,8 @@ void ObjectEzsignpageApi::ezsignpageConsultV1Callback(HttpRequestWorker *worker)
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsignpageConsultV1SignalE(output, error_type, error_str);
-        emit ezsignpageConsultV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsignpageConsultV1SignalE(output, error_type, error_str);
+        Q_EMIT ezsignpageConsultV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -329,8 +329,8 @@ void ObjectEzsignpageApi::ezsignpageConsultV1Callback(HttpRequestWorker *worker)
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsignpageConsultV1SignalError(output, error_type, error_str);
-        emit ezsignpageConsultV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsignpageConsultV1SignalError(output, error_type, error_str);
+        Q_EMIT ezsignpageConsultV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

@@ -128,7 +128,7 @@ private:
     void paymenttermGetListV1Callback(HttpRequestWorker *worker);
     void paymenttermGetObjectV2Callback(HttpRequestWorker *worker);
 
-signals:
+Q_SIGNALS:
 
     void paymenttermCreateObjectV1Signal(Paymentterm_createObject_v1_Response summary);
     void paymenttermEditObjectV1Signal(Paymentterm_editObject_v1_Response summary);
@@ -177,7 +177,7 @@ signals:
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
-public slots:
+public Q_SLOTS:
     void tokenAvailable();
 };
 

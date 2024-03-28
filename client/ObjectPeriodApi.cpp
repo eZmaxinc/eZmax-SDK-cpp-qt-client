@@ -59,8 +59,6 @@ void ObjectPeriodApi::initializeServerConfigs() {
     {"sInfrastructureregionCode", ServerVariable("The region where your services are hosted.","ca-central-1",
     QSet<QString>{ {"ca-central-1"} })}, }));
     
-    _serverConfigs.insert("periodGetAutocompleteV1", defaultConf);
-    _serverIndices.insert("periodGetAutocompleteV1", 0);
     _serverConfigs.insert("periodGetAutocompleteV2", defaultConf);
     _serverIndices.insert("periodGetAutocompleteV2", 0);
 }
@@ -172,7 +170,7 @@ void ObjectPeriodApi::enableResponseCompression() {
 }
 
 void ObjectPeriodApi::abortRequests() {
-    emit abortRequestsSignal();
+    Q_EMIT abortRequestsSignal();
 }
 
 QString ObjectPeriodApi::getParamStylePrefix(const QString &style) {
@@ -238,174 +236,6 @@ QString ObjectPeriodApi::getParamStyleDelimiter(const QString &style, const QStr
     }
 }
 
-void ObjectPeriodApi::periodGetAutocompleteV1(const QString &s_selector, const ::Ezmaxapi::OptionalParam<QString> &e_filter_active, const ::Ezmaxapi::OptionalParam<QString> &s_query, const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language) {
-    QString fullPath = QString(_serverConfigs["periodGetAutocompleteV1"][_serverIndices.value("periodGetAutocompleteV1")].URL()+"/1/object/period/getAutocomplete/{sSelector}");
-    
-    if (_apiKeys.contains("Authorization")) {
-        addHeaders("Authorization",_apiKeys.find("Authorization").value());
-    }
-    
-    
-    {
-        QString s_selectorPathParam("{");
-        s_selectorPathParam.append("sSelector").append("}");
-        QString pathPrefix, pathSuffix, pathDelimiter;
-        QString pathStyle = "simple";
-        if (pathStyle == "")
-            pathStyle = "simple";
-        pathPrefix = getParamStylePrefix(pathStyle);
-        pathSuffix = getParamStyleSuffix(pathStyle);
-        pathDelimiter = getParamStyleDelimiter(pathStyle, "sSelector", false);
-        QString paramString = (pathStyle == "matrix") ? pathPrefix+"sSelector"+pathSuffix : pathPrefix;
-        fullPath.replace(s_selectorPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_selector)));
-    }
-    QString queryPrefix, querySuffix, queryDelimiter, queryStyle;
-    if (e_filter_active.hasValue())
-    {
-        queryStyle = "form";
-        if (queryStyle == "")
-            queryStyle = "form";
-        queryPrefix = getParamStylePrefix(queryStyle);
-        querySuffix = getParamStyleSuffix(queryStyle);
-        queryDelimiter = getParamStyleDelimiter(queryStyle, "eFilterActive", true);
-        if (fullPath.indexOf("?") > 0)
-            fullPath.append(queryPrefix);
-        else
-            fullPath.append("?");
-
-        fullPath.append(QUrl::toPercentEncoding("eFilterActive")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(e_filter_active.value())));
-    }
-    if (s_query.hasValue())
-    {
-        queryStyle = "form";
-        if (queryStyle == "")
-            queryStyle = "form";
-        queryPrefix = getParamStylePrefix(queryStyle);
-        querySuffix = getParamStyleSuffix(queryStyle);
-        queryDelimiter = getParamStyleDelimiter(queryStyle, "sQuery", true);
-        if (fullPath.indexOf("?") > 0)
-            fullPath.append(queryPrefix);
-        else
-            fullPath.append("?");
-
-        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_query.value())));
-    }
-    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
-    worker->setTimeOut(_timeOut);
-    worker->setWorkingDirectory(_workingDirectory);
-    HttpRequestInput input(fullPath, "GET");
-
-
-    if (accept_language.hasValue())
-    {
-        QString headerString;
-        QJsonObject parameter = accept_language.value().asJsonObject();
-        qint32 count = 0;
-        for (const QString& key : parameter.keys()) {
-            if (count > 0) {
-                headerString.append(",");
-            }
-            QString assignOperator = (false) ? "=" : ",";
-            switch(parameter.value(key).type()) {
-                case QJsonValue::String:
-                {
-                    headerString.append(key+assignOperator+parameter.value(key).toString());
-                    break;
-                }
-                case QJsonValue::Double:
-                {
-                    headerString.append(key+assignOperator+QString::number(parameter.value(key).toDouble()));
-                    break;
-                }
-                case QJsonValue::Bool:
-                {
-                    headerString.append(key+assignOperator+QVariant(parameter.value(key).toBool()).toString());
-                    break;
-                }
-                case QJsonValue::Array:
-                {
-                    headerString.append(key+assignOperator+QVariant(parameter.value(key).toArray()).toString());
-                    break;
-                }
-                case QJsonValue::Object:
-                {
-                    headerString.append(key+assignOperator+QVariant(parameter.value(key).toObject()).toString());
-                    break;
-                }
-                case QJsonValue::Null:
-                case QJsonValue::Undefined:
-                    break;
-            }
-            count++;
-        }
-        input.headers.insert("Accept-Language", headerString);
-    }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
-    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
-        input.headers.insert(keyValueIt->first, keyValueIt->second);
-    }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
-
-    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectPeriodApi::periodGetAutocompleteV1Callback);
-    connect(this, &ObjectPeriodApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
-        if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
-        }
-    });
-
-    worker->execute(&input);
-}
-
-void ObjectPeriodApi::periodGetAutocompleteV1Callback(HttpRequestWorker *worker) {
-    QString error_str = worker->error_str;
-    QNetworkReply::NetworkError error_type = worker->error_type;
-
-    if (worker->error_type != QNetworkReply::NoError) {
-        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
-    }
-    Common_getAutocomplete_v1_Response output(QString(worker->response));
-    worker->deleteLater();
-
-    if (worker->error_type == QNetworkReply::NoError) {
-        emit periodGetAutocompleteV1Signal(output);
-        emit periodGetAutocompleteV1SignalFull(worker, output);
-    } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        emit periodGetAutocompleteV1SignalE(output, error_type, error_str);
-        emit periodGetAutocompleteV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
-        emit periodGetAutocompleteV1SignalError(output, error_type, error_str);
-        emit periodGetAutocompleteV1SignalErrorFull(worker, error_type, error_str);
-    }
-}
-
 void ObjectPeriodApi::periodGetAutocompleteV2(const QString &s_selector, const ::Ezmaxapi::OptionalParam<QString> &e_filter_active, const ::Ezmaxapi::OptionalParam<QString> &s_query, const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language) {
     QString fullPath = QString(_serverConfigs["periodGetAutocompleteV2"][_serverIndices.value("periodGetAutocompleteV2")].URL()+"/2/object/period/getAutocomplete/{sSelector}");
     
@@ -441,7 +271,7 @@ void ObjectPeriodApi::periodGetAutocompleteV2(const QString &s_selector, const :
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("eFilterActive")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(e_filter_active.value())));
+        fullPath.append(QUrl::toPercentEncoding("eFilterActive")).append(querySuffix).append(QUrl::toPercentEncoding(e_filter_active.stringValue()));
     }
     if (s_query.hasValue())
     {
@@ -456,7 +286,7 @@ void ObjectPeriodApi::periodGetAutocompleteV2(const QString &s_selector, const :
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_query.value())));
+        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(s_query.stringValue()));
     }
     HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -522,7 +352,7 @@ void ObjectPeriodApi::periodGetAutocompleteV2(const QString &s_selector, const :
     connect(this, &ObjectPeriodApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -540,8 +370,8 @@ void ObjectPeriodApi::periodGetAutocompleteV2Callback(HttpRequestWorker *worker)
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit periodGetAutocompleteV2Signal(output);
-        emit periodGetAutocompleteV2SignalFull(worker, output);
+        Q_EMIT periodGetAutocompleteV2Signal(output);
+        Q_EMIT periodGetAutocompleteV2SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -558,8 +388,8 @@ void ObjectPeriodApi::periodGetAutocompleteV2Callback(HttpRequestWorker *worker)
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit periodGetAutocompleteV2SignalE(output, error_type, error_str);
-        emit periodGetAutocompleteV2SignalEFull(worker, error_type, error_str);
+        Q_EMIT periodGetAutocompleteV2SignalE(output, error_type, error_str);
+        Q_EMIT periodGetAutocompleteV2SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -569,8 +399,8 @@ void ObjectPeriodApi::periodGetAutocompleteV2Callback(HttpRequestWorker *worker)
 #pragma GCC diagnostic pop
 #endif
 
-        emit periodGetAutocompleteV2SignalError(output, error_type, error_str);
-        emit periodGetAutocompleteV2SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT periodGetAutocompleteV2SignalError(output, error_type, error_str);
+        Q_EMIT periodGetAutocompleteV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 

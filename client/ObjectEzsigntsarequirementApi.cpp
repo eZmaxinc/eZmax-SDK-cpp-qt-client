@@ -170,7 +170,7 @@ void ObjectEzsigntsarequirementApi::enableResponseCompression() {
 }
 
 void ObjectEzsigntsarequirementApi::abortRequests() {
-    emit abortRequestsSignal();
+    Q_EMIT abortRequestsSignal();
 }
 
 QString ObjectEzsigntsarequirementApi::getParamStylePrefix(const QString &style) {
@@ -271,7 +271,7 @@ void ObjectEzsigntsarequirementApi::ezsigntsarequirementGetAutocompleteV2(const 
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("fkiEzsignfoldertypeID")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(fki_ezsignfoldertype_id.value())));
+        fullPath.append(QUrl::toPercentEncoding("fkiEzsignfoldertypeID")).append(querySuffix).append(QUrl::toPercentEncoding(fki_ezsignfoldertype_id.stringValue()));
     }
     if (e_filter_active.hasValue())
     {
@@ -286,7 +286,7 @@ void ObjectEzsigntsarequirementApi::ezsigntsarequirementGetAutocompleteV2(const 
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("eFilterActive")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(e_filter_active.value())));
+        fullPath.append(QUrl::toPercentEncoding("eFilterActive")).append(querySuffix).append(QUrl::toPercentEncoding(e_filter_active.stringValue()));
     }
     if (s_query.hasValue())
     {
@@ -301,7 +301,7 @@ void ObjectEzsigntsarequirementApi::ezsigntsarequirementGetAutocompleteV2(const 
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_query.value())));
+        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(s_query.stringValue()));
     }
     HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -367,7 +367,7 @@ void ObjectEzsigntsarequirementApi::ezsigntsarequirementGetAutocompleteV2(const 
     connect(this, &ObjectEzsigntsarequirementApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -385,8 +385,8 @@ void ObjectEzsigntsarequirementApi::ezsigntsarequirementGetAutocompleteV2Callbac
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsigntsarequirementGetAutocompleteV2Signal(output);
-        emit ezsigntsarequirementGetAutocompleteV2SignalFull(worker, output);
+        Q_EMIT ezsigntsarequirementGetAutocompleteV2Signal(output);
+        Q_EMIT ezsigntsarequirementGetAutocompleteV2SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -403,8 +403,8 @@ void ObjectEzsigntsarequirementApi::ezsigntsarequirementGetAutocompleteV2Callbac
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsigntsarequirementGetAutocompleteV2SignalE(output, error_type, error_str);
-        emit ezsigntsarequirementGetAutocompleteV2SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsigntsarequirementGetAutocompleteV2SignalE(output, error_type, error_str);
+        Q_EMIT ezsigntsarequirementGetAutocompleteV2SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -414,8 +414,8 @@ void ObjectEzsigntsarequirementApi::ezsigntsarequirementGetAutocompleteV2Callbac
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsigntsarequirementGetAutocompleteV2SignalError(output, error_type, error_str);
-        emit ezsigntsarequirementGetAutocompleteV2SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsigntsarequirementGetAutocompleteV2SignalError(output, error_type, error_str);
+        Q_EMIT ezsigntsarequirementGetAutocompleteV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 

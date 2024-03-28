@@ -128,7 +128,7 @@ private:
     void ezsignsigningreasonGetListV1Callback(HttpRequestWorker *worker);
     void ezsignsigningreasonGetObjectV2Callback(HttpRequestWorker *worker);
 
-signals:
+Q_SIGNALS:
 
     void ezsignsigningreasonCreateObjectV1Signal(Ezsignsigningreason_createObject_v1_Response summary);
     void ezsignsigningreasonEditObjectV1Signal(Ezsignsigningreason_editObject_v1_Response summary);
@@ -177,7 +177,7 @@ signals:
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
-public slots:
+public Q_SLOTS:
     void tokenAvailable();
 };
 

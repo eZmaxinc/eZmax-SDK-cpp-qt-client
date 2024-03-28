@@ -79,6 +79,16 @@ public:
     bool is_s_address_zip_Set() const;
     bool is_s_address_zip_Valid() const;
 
+    QString getFAddressLongitude() const;
+    void setFAddressLongitude(const QString &f_address_longitude);
+    bool is_f_address_longitude_Set() const;
+    bool is_f_address_longitude_Valid() const;
+
+    QString getFAddressLatitude() const;
+    void setFAddressLatitude(const QString &f_address_latitude);
+    bool is_f_address_latitude_Set() const;
+    bool is_f_address_latitude_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -116,6 +126,14 @@ private:
     QString m_s_address_zip;
     bool m_s_address_zip_isSet;
     bool m_s_address_zip_isValid;
+
+    QString m_f_address_longitude;
+    bool m_f_address_longitude_isSet;
+    bool m_f_address_longitude_isValid;
+
+    QString m_f_address_latitude;
+    bool m_f_address_latitude_isSet;
+    bool m_f_address_latitude_isValid;
 };
 
 } // namespace Ezmaxapi

@@ -128,7 +128,7 @@ private:
     void ezsignsignergroupGetEzsignsignergroupmembershipsV1Callback(HttpRequestWorker *worker);
     void ezsignsignergroupGetObjectV2Callback(HttpRequestWorker *worker);
 
-signals:
+Q_SIGNALS:
 
     void ezsignsignergroupCreateObjectV1Signal(Ezsignsignergroup_createObject_v1_Response summary);
     void ezsignsignergroupDeleteObjectV1Signal(Ezsignsignergroup_deleteObject_v1_Response summary);
@@ -185,7 +185,7 @@ signals:
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
-public slots:
+public Q_SLOTS:
     void tokenAvailable();
 };
 

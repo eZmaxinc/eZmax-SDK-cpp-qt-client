@@ -89,7 +89,7 @@ private:
 
     void globalCustomerGetEndpointV1Callback(HttpRequestWorker *worker);
 
-signals:
+Q_SIGNALS:
 
     void globalCustomerGetEndpointV1Signal(Global_customer_getEndpoint_v1_Response summary);
 
@@ -106,7 +106,7 @@ signals:
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
-public slots:
+public Q_SLOTS:
     void tokenAvailable();
 };
 

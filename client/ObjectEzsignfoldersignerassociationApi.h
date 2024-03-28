@@ -19,6 +19,8 @@
 #include "Oauth.h"
 
 #include "Common_Response_Error.h"
+#include "Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Request.h"
+#include "Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Response.h"
 #include "Ezsignfoldersignerassociation_createObject_v1_Request.h"
 #include "Ezsignfoldersignerassociation_createObject_v1_Response.h"
 #include "Ezsignfoldersignerassociation_createObject_v2_Request.h"
@@ -70,6 +72,12 @@ public:
     QString getParamStylePrefix(const QString &style);
     QString getParamStyleSuffix(const QString &style);
     QString getParamStyleDelimiter(const QString &style, const QString &name, bool isExplode);
+
+    /**
+    * @param[in]  pki_ezsignfoldersignerassociation_id qint32 [required]
+    * @param[in]  ezsignfoldersignerassociation_create_embedded_url_v1_request Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Request [required]
+    */
+    void ezsignfoldersignerassociationCreateEmbeddedUrlV1(const qint32 &pki_ezsignfoldersignerassociation_id, const Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Request &ezsignfoldersignerassociation_create_embedded_url_v1_request);
 
     /**
     * @param[in]  ezsignfoldersignerassociation_create_object_v1_request QList<Ezsignfoldersignerassociation_createObject_v1_Request> [required]
@@ -142,6 +150,7 @@ private:
     OauthPassword _passwordFlow;
     int _OauthMethod = 0;
 
+    void ezsignfoldersignerassociationCreateEmbeddedUrlV1Callback(HttpRequestWorker *worker);
     void ezsignfoldersignerassociationCreateObjectV1Callback(HttpRequestWorker *worker);
     void ezsignfoldersignerassociationCreateObjectV2Callback(HttpRequestWorker *worker);
     void ezsignfoldersignerassociationDeleteObjectV1Callback(HttpRequestWorker *worker);
@@ -152,8 +161,9 @@ private:
     void ezsignfoldersignerassociationGetObjectV2Callback(HttpRequestWorker *worker);
     void ezsignfoldersignerassociationPatchObjectV1Callback(HttpRequestWorker *worker);
 
-signals:
+Q_SIGNALS:
 
+    void ezsignfoldersignerassociationCreateEmbeddedUrlV1Signal(Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Response summary);
     void ezsignfoldersignerassociationCreateObjectV1Signal(Ezsignfoldersignerassociation_createObject_v1_Response summary);
     void ezsignfoldersignerassociationCreateObjectV2Signal(Ezsignfoldersignerassociation_createObject_v2_Response summary);
     void ezsignfoldersignerassociationDeleteObjectV1Signal(Ezsignfoldersignerassociation_deleteObject_v1_Response summary);
@@ -164,6 +174,7 @@ signals:
     void ezsignfoldersignerassociationGetObjectV2Signal(Ezsignfoldersignerassociation_getObject_v2_Response summary);
     void ezsignfoldersignerassociationPatchObjectV1Signal(Ezsignfoldersignerassociation_patchObject_v1_Response summary);
 
+    void ezsignfoldersignerassociationCreateEmbeddedUrlV1SignalFull(HttpRequestWorker *worker, Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Response summary);
     void ezsignfoldersignerassociationCreateObjectV1SignalFull(HttpRequestWorker *worker, Ezsignfoldersignerassociation_createObject_v1_Response summary);
     void ezsignfoldersignerassociationCreateObjectV2SignalFull(HttpRequestWorker *worker, Ezsignfoldersignerassociation_createObject_v2_Response summary);
     void ezsignfoldersignerassociationDeleteObjectV1SignalFull(HttpRequestWorker *worker, Ezsignfoldersignerassociation_deleteObject_v1_Response summary);
@@ -174,6 +185,9 @@ signals:
     void ezsignfoldersignerassociationGetObjectV2SignalFull(HttpRequestWorker *worker, Ezsignfoldersignerassociation_getObject_v2_Response summary);
     void ezsignfoldersignerassociationPatchObjectV1SignalFull(HttpRequestWorker *worker, Ezsignfoldersignerassociation_patchObject_v1_Response summary);
 
+    Q_DECL_DEPRECATED_X("Use ezsignfoldersignerassociationCreateEmbeddedUrlV1SignalError() instead")
+    void ezsignfoldersignerassociationCreateEmbeddedUrlV1SignalE(Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfoldersignerassociationCreateEmbeddedUrlV1SignalError(Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsignfoldersignerassociationCreateObjectV1SignalError() instead")
     void ezsignfoldersignerassociationCreateObjectV1SignalE(Ezsignfoldersignerassociation_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfoldersignerassociationCreateObjectV1SignalError(Ezsignfoldersignerassociation_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -202,6 +216,9 @@ signals:
     void ezsignfoldersignerassociationPatchObjectV1SignalE(Ezsignfoldersignerassociation_patchObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfoldersignerassociationPatchObjectV1SignalError(Ezsignfoldersignerassociation_patchObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use ezsignfoldersignerassociationCreateEmbeddedUrlV1SignalErrorFull() instead")
+    void ezsignfoldersignerassociationCreateEmbeddedUrlV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfoldersignerassociationCreateEmbeddedUrlV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsignfoldersignerassociationCreateObjectV1SignalErrorFull() instead")
     void ezsignfoldersignerassociationCreateObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfoldersignerassociationCreateObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -233,7 +250,7 @@ signals:
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
-public slots:
+public Q_SLOTS:
     void tokenAvailable();
 };
 

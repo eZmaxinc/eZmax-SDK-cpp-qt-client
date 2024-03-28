@@ -25,6 +25,8 @@
 #include "Field_eWebhookEzsignevent.h"
 #include "Field_eWebhookManagementevent.h"
 #include "Field_eWebhookModule.h"
+#include "Webhookheader_ResponseCompound.h"
+#include <QList>
 #include <QString>
 
 #include "Enum.h"
@@ -32,6 +34,7 @@
 
 namespace Ezmaxapi {
 class Common_Audit;
+class Webhookheader_ResponseCompound;
 
 class Custom_Webhook_Response : public Object {
 public:
@@ -119,6 +122,16 @@ public:
     bool is_obj_audit_Set() const;
     bool is_obj_audit_Valid() const;
 
+    QString getSWebhookEvent() const;
+    void setSWebhookEvent(const QString &s_webhook_event);
+    bool is_s_webhook_event_Set() const;
+    bool is_s_webhook_event_Valid() const;
+
+    QList<Webhookheader_ResponseCompound> getAObjWebhookheader() const;
+    void setAObjWebhookheader(const QList<Webhookheader_ResponseCompound> &a_obj_webhookheader);
+    bool is_a_obj_webhookheader_Set() const;
+    bool is_a_obj_webhookheader_Valid() const;
+
     QString getPksCustomerCode() const;
     void setPksCustomerCode(const QString &pks_customer_code);
     bool is_pks_customer_code_Set() const;
@@ -194,6 +207,14 @@ private:
     Common_Audit m_obj_audit;
     bool m_obj_audit_isSet;
     bool m_obj_audit_isValid;
+
+    QString m_s_webhook_event;
+    bool m_s_webhook_event_isSet;
+    bool m_s_webhook_event_isValid;
+
+    QList<Webhookheader_ResponseCompound> m_a_obj_webhookheader;
+    bool m_a_obj_webhookheader_isSet;
+    bool m_a_obj_webhookheader_isValid;
 
     QString m_pks_customer_code;
     bool m_pks_customer_code_isSet;

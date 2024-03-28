@@ -170,7 +170,7 @@ void ObjectNotificationtestApi::enableResponseCompression() {
 }
 
 void ObjectNotificationtestApi::abortRequests() {
-    emit abortRequestsSignal();
+    Q_EMIT abortRequestsSignal();
 }
 
 QString ObjectNotificationtestApi::getParamStylePrefix(const QString &style) {
@@ -277,7 +277,7 @@ void ObjectNotificationtestApi::notificationtestGetElementsV1(const qint32 &pki_
     connect(this, &ObjectNotificationtestApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -295,8 +295,8 @@ void ObjectNotificationtestApi::notificationtestGetElementsV1Callback(HttpReques
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit notificationtestGetElementsV1Signal(output);
-        emit notificationtestGetElementsV1SignalFull(worker, output);
+        Q_EMIT notificationtestGetElementsV1Signal(output);
+        Q_EMIT notificationtestGetElementsV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -313,8 +313,8 @@ void ObjectNotificationtestApi::notificationtestGetElementsV1Callback(HttpReques
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit notificationtestGetElementsV1SignalE(output, error_type, error_str);
-        emit notificationtestGetElementsV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT notificationtestGetElementsV1SignalE(output, error_type, error_str);
+        Q_EMIT notificationtestGetElementsV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -324,8 +324,8 @@ void ObjectNotificationtestApi::notificationtestGetElementsV1Callback(HttpReques
 #pragma GCC diagnostic pop
 #endif
 
-        emit notificationtestGetElementsV1SignalError(output, error_type, error_str);
-        emit notificationtestGetElementsV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT notificationtestGetElementsV1SignalError(output, error_type, error_str);
+        Q_EMIT notificationtestGetElementsV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

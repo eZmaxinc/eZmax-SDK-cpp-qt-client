@@ -43,6 +43,12 @@ void Ezsignsignaturecustomdate_ResponseCompound::initializeModel() {
     m_i_ezsignsignaturecustomdate_y_isSet = false;
     m_i_ezsignsignaturecustomdate_y_isValid = false;
 
+    m_i_ezsignsignaturecustomdate_offsetx_isSet = false;
+    m_i_ezsignsignaturecustomdate_offsetx_isValid = false;
+
+    m_i_ezsignsignaturecustomdate_offsety_isSet = false;
+    m_i_ezsignsignaturecustomdate_offsety_isValid = false;
+
     m_s_ezsignsignaturecustomdate_format_isSet = false;
     m_s_ezsignsignaturecustomdate_format_isValid = false;
 }
@@ -65,6 +71,12 @@ void Ezsignsignaturecustomdate_ResponseCompound::fromJsonObject(QJsonObject json
     m_i_ezsignsignaturecustomdate_y_isValid = ::Ezmaxapi::fromJsonValue(m_i_ezsignsignaturecustomdate_y, json[QString("iEzsignsignaturecustomdateY")]);
     m_i_ezsignsignaturecustomdate_y_isSet = !json[QString("iEzsignsignaturecustomdateY")].isNull() && m_i_ezsignsignaturecustomdate_y_isValid;
 
+    m_i_ezsignsignaturecustomdate_offsetx_isValid = ::Ezmaxapi::fromJsonValue(m_i_ezsignsignaturecustomdate_offsetx, json[QString("iEzsignsignaturecustomdateOffsetx")]);
+    m_i_ezsignsignaturecustomdate_offsetx_isSet = !json[QString("iEzsignsignaturecustomdateOffsetx")].isNull() && m_i_ezsignsignaturecustomdate_offsetx_isValid;
+
+    m_i_ezsignsignaturecustomdate_offsety_isValid = ::Ezmaxapi::fromJsonValue(m_i_ezsignsignaturecustomdate_offsety, json[QString("iEzsignsignaturecustomdateOffsety")]);
+    m_i_ezsignsignaturecustomdate_offsety_isSet = !json[QString("iEzsignsignaturecustomdateOffsety")].isNull() && m_i_ezsignsignaturecustomdate_offsety_isValid;
+
     m_s_ezsignsignaturecustomdate_format_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsignsignaturecustomdate_format, json[QString("sEzsignsignaturecustomdateFormat")]);
     m_s_ezsignsignaturecustomdate_format_isSet = !json[QString("sEzsignsignaturecustomdateFormat")].isNull() && m_s_ezsignsignaturecustomdate_format_isValid;
 }
@@ -86,6 +98,12 @@ QJsonObject Ezsignsignaturecustomdate_ResponseCompound::asJsonObject() const {
     }
     if (m_i_ezsignsignaturecustomdate_y_isSet) {
         obj.insert(QString("iEzsignsignaturecustomdateY"), ::Ezmaxapi::toJsonValue(m_i_ezsignsignaturecustomdate_y));
+    }
+    if (m_i_ezsignsignaturecustomdate_offsetx_isSet) {
+        obj.insert(QString("iEzsignsignaturecustomdateOffsetx"), ::Ezmaxapi::toJsonValue(m_i_ezsignsignaturecustomdate_offsetx));
+    }
+    if (m_i_ezsignsignaturecustomdate_offsety_isSet) {
+        obj.insert(QString("iEzsignsignaturecustomdateOffsety"), ::Ezmaxapi::toJsonValue(m_i_ezsignsignaturecustomdate_offsety));
     }
     if (m_s_ezsignsignaturecustomdate_format_isSet) {
         obj.insert(QString("sEzsignsignaturecustomdateFormat"), ::Ezmaxapi::toJsonValue(m_s_ezsignsignaturecustomdate_format));
@@ -141,6 +159,38 @@ bool Ezsignsignaturecustomdate_ResponseCompound::is_i_ezsignsignaturecustomdate_
     return m_i_ezsignsignaturecustomdate_y_isValid;
 }
 
+qint32 Ezsignsignaturecustomdate_ResponseCompound::getIEzsignsignaturecustomdateOffsetx() const {
+    return m_i_ezsignsignaturecustomdate_offsetx;
+}
+void Ezsignsignaturecustomdate_ResponseCompound::setIEzsignsignaturecustomdateOffsetx(const qint32 &i_ezsignsignaturecustomdate_offsetx) {
+    m_i_ezsignsignaturecustomdate_offsetx = i_ezsignsignaturecustomdate_offsetx;
+    m_i_ezsignsignaturecustomdate_offsetx_isSet = true;
+}
+
+bool Ezsignsignaturecustomdate_ResponseCompound::is_i_ezsignsignaturecustomdate_offsetx_Set() const{
+    return m_i_ezsignsignaturecustomdate_offsetx_isSet;
+}
+
+bool Ezsignsignaturecustomdate_ResponseCompound::is_i_ezsignsignaturecustomdate_offsetx_Valid() const{
+    return m_i_ezsignsignaturecustomdate_offsetx_isValid;
+}
+
+qint32 Ezsignsignaturecustomdate_ResponseCompound::getIEzsignsignaturecustomdateOffsety() const {
+    return m_i_ezsignsignaturecustomdate_offsety;
+}
+void Ezsignsignaturecustomdate_ResponseCompound::setIEzsignsignaturecustomdateOffsety(const qint32 &i_ezsignsignaturecustomdate_offsety) {
+    m_i_ezsignsignaturecustomdate_offsety = i_ezsignsignaturecustomdate_offsety;
+    m_i_ezsignsignaturecustomdate_offsety_isSet = true;
+}
+
+bool Ezsignsignaturecustomdate_ResponseCompound::is_i_ezsignsignaturecustomdate_offsety_Set() const{
+    return m_i_ezsignsignaturecustomdate_offsety_isSet;
+}
+
+bool Ezsignsignaturecustomdate_ResponseCompound::is_i_ezsignsignaturecustomdate_offsety_Valid() const{
+    return m_i_ezsignsignaturecustomdate_offsety_isValid;
+}
+
 QString Ezsignsignaturecustomdate_ResponseCompound::getSEzsignsignaturecustomdateFormat() const {
     return m_s_ezsignsignaturecustomdate_format;
 }
@@ -175,6 +225,16 @@ bool Ezsignsignaturecustomdate_ResponseCompound::isSet() const {
             break;
         }
 
+        if (m_i_ezsignsignaturecustomdate_offsetx_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_i_ezsignsignaturecustomdate_offsety_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (m_s_ezsignsignaturecustomdate_format_isSet) {
             isObjectUpdated = true;
             break;
@@ -185,7 +245,7 @@ bool Ezsignsignaturecustomdate_ResponseCompound::isSet() const {
 
 bool Ezsignsignaturecustomdate_ResponseCompound::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_pki_ezsignsignaturecustomdate_id_isValid && m_i_ezsignsignaturecustomdate_x_isValid && m_i_ezsignsignaturecustomdate_y_isValid && m_s_ezsignsignaturecustomdate_format_isValid && true;
+    return m_pki_ezsignsignaturecustomdate_id_isValid && m_s_ezsignsignaturecustomdate_format_isValid && true;
 }
 
 } // namespace Ezmaxapi

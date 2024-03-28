@@ -52,6 +52,9 @@ void Ezsigntemplate_ResponseCompound::initializeModel() {
     m_s_ezsigntemplate_description_isSet = false;
     m_s_ezsigntemplate_description_isValid = false;
 
+    m_s_ezsigntemplate_filenamepattern_isSet = false;
+    m_s_ezsigntemplate_filenamepattern_isValid = false;
+
     m_b_ezsigntemplate_adminonly_isSet = false;
     m_b_ezsigntemplate_adminonly_isValid = false;
 
@@ -60,6 +63,12 @@ void Ezsigntemplate_ResponseCompound::initializeModel() {
 
     m_obj_audit_isSet = false;
     m_obj_audit_isValid = false;
+
+    m_b_ezsigntemplate_editallowed_isSet = false;
+    m_b_ezsigntemplate_editallowed_isValid = false;
+
+    m_e_ezsigntemplate_type_isSet = false;
+    m_e_ezsigntemplate_type_isValid = false;
 
     m_obj_ezsigntemplatedocument_isSet = false;
     m_obj_ezsigntemplatedocument_isValid = false;
@@ -95,6 +104,9 @@ void Ezsigntemplate_ResponseCompound::fromJsonObject(QJsonObject json) {
     m_s_ezsigntemplate_description_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsigntemplate_description, json[QString("sEzsigntemplateDescription")]);
     m_s_ezsigntemplate_description_isSet = !json[QString("sEzsigntemplateDescription")].isNull() && m_s_ezsigntemplate_description_isValid;
 
+    m_s_ezsigntemplate_filenamepattern_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsigntemplate_filenamepattern, json[QString("sEzsigntemplateFilenamepattern")]);
+    m_s_ezsigntemplate_filenamepattern_isSet = !json[QString("sEzsigntemplateFilenamepattern")].isNull() && m_s_ezsigntemplate_filenamepattern_isValid;
+
     m_b_ezsigntemplate_adminonly_isValid = ::Ezmaxapi::fromJsonValue(m_b_ezsigntemplate_adminonly, json[QString("bEzsigntemplateAdminonly")]);
     m_b_ezsigntemplate_adminonly_isSet = !json[QString("bEzsigntemplateAdminonly")].isNull() && m_b_ezsigntemplate_adminonly_isValid;
 
@@ -103,6 +115,12 @@ void Ezsigntemplate_ResponseCompound::fromJsonObject(QJsonObject json) {
 
     m_obj_audit_isValid = ::Ezmaxapi::fromJsonValue(m_obj_audit, json[QString("objAudit")]);
     m_obj_audit_isSet = !json[QString("objAudit")].isNull() && m_obj_audit_isValid;
+
+    m_b_ezsigntemplate_editallowed_isValid = ::Ezmaxapi::fromJsonValue(m_b_ezsigntemplate_editallowed, json[QString("bEzsigntemplateEditallowed")]);
+    m_b_ezsigntemplate_editallowed_isSet = !json[QString("bEzsigntemplateEditallowed")].isNull() && m_b_ezsigntemplate_editallowed_isValid;
+
+    m_e_ezsigntemplate_type_isValid = ::Ezmaxapi::fromJsonValue(m_e_ezsigntemplate_type, json[QString("eEzsigntemplateType")]);
+    m_e_ezsigntemplate_type_isSet = !json[QString("eEzsigntemplateType")].isNull() && m_e_ezsigntemplate_type_isValid;
 
     m_obj_ezsigntemplatedocument_isValid = ::Ezmaxapi::fromJsonValue(m_obj_ezsigntemplatedocument, json[QString("objEzsigntemplatedocument")]);
     m_obj_ezsigntemplatedocument_isSet = !json[QString("objEzsigntemplatedocument")].isNull() && m_obj_ezsigntemplatedocument_isValid;
@@ -138,6 +156,9 @@ QJsonObject Ezsigntemplate_ResponseCompound::asJsonObject() const {
     if (m_s_ezsigntemplate_description_isSet) {
         obj.insert(QString("sEzsigntemplateDescription"), ::Ezmaxapi::toJsonValue(m_s_ezsigntemplate_description));
     }
+    if (m_s_ezsigntemplate_filenamepattern_isSet) {
+        obj.insert(QString("sEzsigntemplateFilenamepattern"), ::Ezmaxapi::toJsonValue(m_s_ezsigntemplate_filenamepattern));
+    }
     if (m_b_ezsigntemplate_adminonly_isSet) {
         obj.insert(QString("bEzsigntemplateAdminonly"), ::Ezmaxapi::toJsonValue(m_b_ezsigntemplate_adminonly));
     }
@@ -146,6 +167,12 @@ QJsonObject Ezsigntemplate_ResponseCompound::asJsonObject() const {
     }
     if (m_obj_audit.isSet()) {
         obj.insert(QString("objAudit"), ::Ezmaxapi::toJsonValue(m_obj_audit));
+    }
+    if (m_b_ezsigntemplate_editallowed_isSet) {
+        obj.insert(QString("bEzsigntemplateEditallowed"), ::Ezmaxapi::toJsonValue(m_b_ezsigntemplate_editallowed));
+    }
+    if (m_e_ezsigntemplate_type.isSet()) {
+        obj.insert(QString("eEzsigntemplateType"), ::Ezmaxapi::toJsonValue(m_e_ezsigntemplate_type));
     }
     if (m_obj_ezsigntemplatedocument.isSet()) {
         obj.insert(QString("objEzsigntemplatedocument"), ::Ezmaxapi::toJsonValue(m_obj_ezsigntemplatedocument));
@@ -252,6 +279,22 @@ bool Ezsigntemplate_ResponseCompound::is_s_ezsigntemplate_description_Valid() co
     return m_s_ezsigntemplate_description_isValid;
 }
 
+QString Ezsigntemplate_ResponseCompound::getSEzsigntemplateFilenamepattern() const {
+    return m_s_ezsigntemplate_filenamepattern;
+}
+void Ezsigntemplate_ResponseCompound::setSEzsigntemplateFilenamepattern(const QString &s_ezsigntemplate_filenamepattern) {
+    m_s_ezsigntemplate_filenamepattern = s_ezsigntemplate_filenamepattern;
+    m_s_ezsigntemplate_filenamepattern_isSet = true;
+}
+
+bool Ezsigntemplate_ResponseCompound::is_s_ezsigntemplate_filenamepattern_Set() const{
+    return m_s_ezsigntemplate_filenamepattern_isSet;
+}
+
+bool Ezsigntemplate_ResponseCompound::is_s_ezsigntemplate_filenamepattern_Valid() const{
+    return m_s_ezsigntemplate_filenamepattern_isValid;
+}
+
 bool Ezsigntemplate_ResponseCompound::isBEzsigntemplateAdminonly() const {
     return m_b_ezsigntemplate_adminonly;
 }
@@ -298,6 +341,38 @@ bool Ezsigntemplate_ResponseCompound::is_obj_audit_Set() const{
 
 bool Ezsigntemplate_ResponseCompound::is_obj_audit_Valid() const{
     return m_obj_audit_isValid;
+}
+
+bool Ezsigntemplate_ResponseCompound::isBEzsigntemplateEditallowed() const {
+    return m_b_ezsigntemplate_editallowed;
+}
+void Ezsigntemplate_ResponseCompound::setBEzsigntemplateEditallowed(const bool &b_ezsigntemplate_editallowed) {
+    m_b_ezsigntemplate_editallowed = b_ezsigntemplate_editallowed;
+    m_b_ezsigntemplate_editallowed_isSet = true;
+}
+
+bool Ezsigntemplate_ResponseCompound::is_b_ezsigntemplate_editallowed_Set() const{
+    return m_b_ezsigntemplate_editallowed_isSet;
+}
+
+bool Ezsigntemplate_ResponseCompound::is_b_ezsigntemplate_editallowed_Valid() const{
+    return m_b_ezsigntemplate_editallowed_isValid;
+}
+
+Field_eEzsigntemplateType Ezsigntemplate_ResponseCompound::getEEzsigntemplateType() const {
+    return m_e_ezsigntemplate_type;
+}
+void Ezsigntemplate_ResponseCompound::setEEzsigntemplateType(const Field_eEzsigntemplateType &e_ezsigntemplate_type) {
+    m_e_ezsigntemplate_type = e_ezsigntemplate_type;
+    m_e_ezsigntemplate_type_isSet = true;
+}
+
+bool Ezsigntemplate_ResponseCompound::is_e_ezsigntemplate_type_Set() const{
+    return m_e_ezsigntemplate_type_isSet;
+}
+
+bool Ezsigntemplate_ResponseCompound::is_e_ezsigntemplate_type_Valid() const{
+    return m_e_ezsigntemplate_type_isValid;
 }
 
 Ezsigntemplatedocument_Response Ezsigntemplate_ResponseCompound::getObjEzsigntemplatedocument() const {
@@ -365,6 +440,11 @@ bool Ezsigntemplate_ResponseCompound::isSet() const {
             break;
         }
 
+        if (m_s_ezsigntemplate_filenamepattern_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (m_b_ezsigntemplate_adminonly_isSet) {
             isObjectUpdated = true;
             break;
@@ -376,6 +456,16 @@ bool Ezsigntemplate_ResponseCompound::isSet() const {
         }
 
         if (m_obj_audit.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_b_ezsigntemplate_editallowed_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_e_ezsigntemplate_type.isSet()) {
             isObjectUpdated = true;
             break;
         }
@@ -395,7 +485,7 @@ bool Ezsigntemplate_ResponseCompound::isSet() const {
 
 bool Ezsigntemplate_ResponseCompound::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_pki_ezsigntemplate_id_isValid && m_fki_ezsignfoldertype_id_isValid && m_fki_language_id_isValid && m_s_language_name_x_isValid && m_s_ezsigntemplate_description_isValid && m_b_ezsigntemplate_adminonly_isValid && m_s_ezsignfoldertype_name_x_isValid && m_obj_audit_isValid && m_a_obj_ezsigntemplatesigner_isValid && true;
+    return m_pki_ezsigntemplate_id_isValid && m_fki_language_id_isValid && m_s_language_name_x_isValid && m_s_ezsigntemplate_description_isValid && m_b_ezsigntemplate_adminonly_isValid && m_obj_audit_isValid && m_b_ezsigntemplate_editallowed_isValid && m_a_obj_ezsigntemplatesigner_isValid && true;
 }
 
 } // namespace Ezmaxapi

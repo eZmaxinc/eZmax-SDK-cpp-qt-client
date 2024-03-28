@@ -91,7 +91,7 @@ private:
 
     void billingentityexternalGetAutocompleteV2Callback(HttpRequestWorker *worker);
 
-signals:
+Q_SIGNALS:
 
     void billingentityexternalGetAutocompleteV2Signal(Billingentityexternal_getAutocomplete_v2_Response summary);
 
@@ -108,7 +108,7 @@ signals:
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
-public slots:
+public Q_SLOTS:
     void tokenAvailable();
 };
 

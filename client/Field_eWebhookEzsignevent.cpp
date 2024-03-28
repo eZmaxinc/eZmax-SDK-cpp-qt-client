@@ -45,6 +45,14 @@ void Field_eWebhookEzsignevent::fromJson(QString jsonString) {
         m_value = eField_eWebhookEzsignevent::DOCUMENTCOMPLETED;
         m_value_isSet = m_value_isValid = true;
     }
+    else if ( jsonString.compare("DocumentFormCompleted", Qt::CaseInsensitive) == 0) {
+        m_value = eField_eWebhookEzsignevent::DOCUMENTFORMCOMPLETED;
+        m_value_isSet = m_value_isValid = true;
+    }
+    else if ( jsonString.compare("DocumentUnsent", Qt::CaseInsensitive) == 0) {
+        m_value = eField_eWebhookEzsignevent::DOCUMENTUNSENT;
+        m_value_isSet = m_value_isValid = true;
+    }
     else if ( jsonString.compare("EzsignsignerAcceptclause", Qt::CaseInsensitive) == 0) {
         m_value = eField_eWebhookEzsignevent::EZSIGNSIGNERACCEPTCLAUSE;
         m_value_isSet = m_value_isValid = true;
@@ -55,6 +63,22 @@ void Field_eWebhookEzsignevent::fromJson(QString jsonString) {
     }
     else if ( jsonString.compare("FolderCompleted", Qt::CaseInsensitive) == 0) {
         m_value = eField_eWebhookEzsignevent::FOLDERCOMPLETED;
+        m_value_isSet = m_value_isValid = true;
+    }
+    else if ( jsonString.compare("FolderDisposed", Qt::CaseInsensitive) == 0) {
+        m_value = eField_eWebhookEzsignevent::FOLDERDISPOSED;
+        m_value_isSet = m_value_isValid = true;
+    }
+    else if ( jsonString.compare("FolderSent", Qt::CaseInsensitive) == 0) {
+        m_value = eField_eWebhookEzsignevent::FOLDERSENT;
+        m_value_isSet = m_value_isValid = true;
+    }
+    else if ( jsonString.compare("FolderUnsent", Qt::CaseInsensitive) == 0) {
+        m_value = eField_eWebhookEzsignevent::FOLDERUNSENT;
+        m_value_isSet = m_value_isValid = true;
+    }
+    else if ( jsonString.compare("SignatureSigned", Qt::CaseInsensitive) == 0) {
+        m_value = eField_eWebhookEzsignevent::SIGNATURESIGNED;
         m_value_isSet = m_value_isValid = true;
     }
 }
@@ -70,6 +94,12 @@ QString Field_eWebhookEzsignevent::asJson() const {
         case eField_eWebhookEzsignevent::DOCUMENTCOMPLETED:
             val = "DocumentCompleted";
             break;
+        case eField_eWebhookEzsignevent::DOCUMENTFORMCOMPLETED:
+            val = "DocumentFormCompleted";
+            break;
+        case eField_eWebhookEzsignevent::DOCUMENTUNSENT:
+            val = "DocumentUnsent";
+            break;
         case eField_eWebhookEzsignevent::EZSIGNSIGNERACCEPTCLAUSE:
             val = "EzsignsignerAcceptclause";
             break;
@@ -78,6 +108,18 @@ QString Field_eWebhookEzsignevent::asJson() const {
             break;
         case eField_eWebhookEzsignevent::FOLDERCOMPLETED:
             val = "FolderCompleted";
+            break;
+        case eField_eWebhookEzsignevent::FOLDERDISPOSED:
+            val = "FolderDisposed";
+            break;
+        case eField_eWebhookEzsignevent::FOLDERSENT:
+            val = "FolderSent";
+            break;
+        case eField_eWebhookEzsignevent::FOLDERUNSENT:
+            val = "FolderUnsent";
+            break;
+        case eField_eWebhookEzsignevent::SIGNATURESIGNED:
+            val = "SignatureSigned";
             break;
         default:
             break;

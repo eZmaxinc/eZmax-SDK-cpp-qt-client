@@ -49,6 +49,12 @@ void Systemconfiguration_RequestCompound::initializeModel() {
     m_e_systemconfiguration_ezsign_isSet = false;
     m_e_systemconfiguration_ezsign_isValid = false;
 
+    m_e_systemconfiguration_ezsignofficeplan_isSet = false;
+    m_e_systemconfiguration_ezsignofficeplan_isValid = false;
+
+    m_b_systemconfiguration_ezsignpaidbyoffice_isSet = false;
+    m_b_systemconfiguration_ezsignpaidbyoffice_isValid = false;
+
     m_b_systemconfiguration_ezsignpersonnal_isSet = false;
     m_b_systemconfiguration_ezsignpersonnal_isValid = false;
 
@@ -86,6 +92,12 @@ void Systemconfiguration_RequestCompound::fromJsonObject(QJsonObject json) {
     m_e_systemconfiguration_ezsign_isValid = ::Ezmaxapi::fromJsonValue(m_e_systemconfiguration_ezsign, json[QString("eSystemconfigurationEzsign")]);
     m_e_systemconfiguration_ezsign_isSet = !json[QString("eSystemconfigurationEzsign")].isNull() && m_e_systemconfiguration_ezsign_isValid;
 
+    m_e_systemconfiguration_ezsignofficeplan_isValid = ::Ezmaxapi::fromJsonValue(m_e_systemconfiguration_ezsignofficeplan, json[QString("eSystemconfigurationEzsignofficeplan")]);
+    m_e_systemconfiguration_ezsignofficeplan_isSet = !json[QString("eSystemconfigurationEzsignofficeplan")].isNull() && m_e_systemconfiguration_ezsignofficeplan_isValid;
+
+    m_b_systemconfiguration_ezsignpaidbyoffice_isValid = ::Ezmaxapi::fromJsonValue(m_b_systemconfiguration_ezsignpaidbyoffice, json[QString("bSystemconfigurationEzsignpaidbyoffice")]);
+    m_b_systemconfiguration_ezsignpaidbyoffice_isSet = !json[QString("bSystemconfigurationEzsignpaidbyoffice")].isNull() && m_b_systemconfiguration_ezsignpaidbyoffice_isValid;
+
     m_b_systemconfiguration_ezsignpersonnal_isValid = ::Ezmaxapi::fromJsonValue(m_b_systemconfiguration_ezsignpersonnal, json[QString("bSystemconfigurationEzsignpersonnal")]);
     m_b_systemconfiguration_ezsignpersonnal_isSet = !json[QString("bSystemconfigurationEzsignpersonnal")].isNull() && m_b_systemconfiguration_ezsignpersonnal_isValid;
 
@@ -122,6 +134,12 @@ QJsonObject Systemconfiguration_RequestCompound::asJsonObject() const {
     }
     if (m_e_systemconfiguration_ezsign.isSet()) {
         obj.insert(QString("eSystemconfigurationEzsign"), ::Ezmaxapi::toJsonValue(m_e_systemconfiguration_ezsign));
+    }
+    if (m_e_systemconfiguration_ezsignofficeplan.isSet()) {
+        obj.insert(QString("eSystemconfigurationEzsignofficeplan"), ::Ezmaxapi::toJsonValue(m_e_systemconfiguration_ezsignofficeplan));
+    }
+    if (m_b_systemconfiguration_ezsignpaidbyoffice_isSet) {
+        obj.insert(QString("bSystemconfigurationEzsignpaidbyoffice"), ::Ezmaxapi::toJsonValue(m_b_systemconfiguration_ezsignpaidbyoffice));
     }
     if (m_b_systemconfiguration_ezsignpersonnal_isSet) {
         obj.insert(QString("bSystemconfigurationEzsignpersonnal"), ::Ezmaxapi::toJsonValue(m_b_systemconfiguration_ezsignpersonnal));
@@ -218,6 +236,38 @@ bool Systemconfiguration_RequestCompound::is_e_systemconfiguration_ezsign_Valid(
     return m_e_systemconfiguration_ezsign_isValid;
 }
 
+Field_eSystemconfigurationEzsignofficeplan Systemconfiguration_RequestCompound::getESystemconfigurationEzsignofficeplan() const {
+    return m_e_systemconfiguration_ezsignofficeplan;
+}
+void Systemconfiguration_RequestCompound::setESystemconfigurationEzsignofficeplan(const Field_eSystemconfigurationEzsignofficeplan &e_systemconfiguration_ezsignofficeplan) {
+    m_e_systemconfiguration_ezsignofficeplan = e_systemconfiguration_ezsignofficeplan;
+    m_e_systemconfiguration_ezsignofficeplan_isSet = true;
+}
+
+bool Systemconfiguration_RequestCompound::is_e_systemconfiguration_ezsignofficeplan_Set() const{
+    return m_e_systemconfiguration_ezsignofficeplan_isSet;
+}
+
+bool Systemconfiguration_RequestCompound::is_e_systemconfiguration_ezsignofficeplan_Valid() const{
+    return m_e_systemconfiguration_ezsignofficeplan_isValid;
+}
+
+bool Systemconfiguration_RequestCompound::isBSystemconfigurationEzsignpaidbyoffice() const {
+    return m_b_systemconfiguration_ezsignpaidbyoffice;
+}
+void Systemconfiguration_RequestCompound::setBSystemconfigurationEzsignpaidbyoffice(const bool &b_systemconfiguration_ezsignpaidbyoffice) {
+    m_b_systemconfiguration_ezsignpaidbyoffice = b_systemconfiguration_ezsignpaidbyoffice;
+    m_b_systemconfiguration_ezsignpaidbyoffice_isSet = true;
+}
+
+bool Systemconfiguration_RequestCompound::is_b_systemconfiguration_ezsignpaidbyoffice_Set() const{
+    return m_b_systemconfiguration_ezsignpaidbyoffice_isSet;
+}
+
+bool Systemconfiguration_RequestCompound::is_b_systemconfiguration_ezsignpaidbyoffice_Valid() const{
+    return m_b_systemconfiguration_ezsignpaidbyoffice_isValid;
+}
+
 bool Systemconfiguration_RequestCompound::isBSystemconfigurationEzsignpersonnal() const {
     return m_b_systemconfiguration_ezsignpersonnal;
 }
@@ -306,6 +356,16 @@ bool Systemconfiguration_RequestCompound::isSet() const {
         }
 
         if (m_e_systemconfiguration_ezsign.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_e_systemconfiguration_ezsignofficeplan.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_b_systemconfiguration_ezsignpaidbyoffice_isSet) {
             isObjectUpdated = true;
             break;
         }

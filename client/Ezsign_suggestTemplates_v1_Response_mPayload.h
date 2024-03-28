@@ -22,6 +22,7 @@
 #include <QJsonObject>
 
 #include "Ezsigntemplate_ResponseCompound.h"
+#include "Ezsigntemplateglobal_ResponseCompound.h"
 #include "Ezsigntemplatepackage_ResponseCompound.h"
 #include <QList>
 
@@ -31,6 +32,7 @@
 namespace Ezmaxapi {
 class Ezsigntemplate_ResponseCompound;
 class Ezsigntemplatepackage_ResponseCompound;
+class Ezsigntemplateglobal_ResponseCompound;
 
 class Ezsign_suggestTemplates_v1_Response_mPayload : public Object {
 public:
@@ -53,6 +55,11 @@ public:
     bool is_a_obj_ezsigntemplatepackage_Set() const;
     bool is_a_obj_ezsigntemplatepackage_Valid() const;
 
+    QList<Ezsigntemplateglobal_ResponseCompound> getAObjEzsigntemplateglobal() const;
+    void setAObjEzsigntemplateglobal(const QList<Ezsigntemplateglobal_ResponseCompound> &a_obj_ezsigntemplateglobal);
+    bool is_a_obj_ezsigntemplateglobal_Set() const;
+    bool is_a_obj_ezsigntemplateglobal_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -66,6 +73,10 @@ private:
     QList<Ezsigntemplatepackage_ResponseCompound> m_a_obj_ezsigntemplatepackage;
     bool m_a_obj_ezsigntemplatepackage_isSet;
     bool m_a_obj_ezsigntemplatepackage_isValid;
+
+    QList<Ezsigntemplateglobal_ResponseCompound> m_a_obj_ezsigntemplateglobal;
+    bool m_a_obj_ezsigntemplateglobal_isSet;
+    bool m_a_obj_ezsigntemplateglobal_isValid;
 };
 
 } // namespace Ezmaxapi

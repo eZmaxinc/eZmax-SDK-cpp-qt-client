@@ -176,7 +176,7 @@ void ObjectSignatureApi::enableResponseCompression() {
 }
 
 void ObjectSignatureApi::abortRequests() {
-    emit abortRequestsSignal();
+    Q_EMIT abortRequestsSignal();
 }
 
 QString ObjectSignatureApi::getParamStylePrefix(const QString &style) {
@@ -274,7 +274,7 @@ void ObjectSignatureApi::signatureCreateObjectV1(const Signature_createObject_v1
     connect(this, &ObjectSignatureApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -292,8 +292,8 @@ void ObjectSignatureApi::signatureCreateObjectV1Callback(HttpRequestWorker *work
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit signatureCreateObjectV1Signal(output);
-        emit signatureCreateObjectV1SignalFull(worker, output);
+        Q_EMIT signatureCreateObjectV1Signal(output);
+        Q_EMIT signatureCreateObjectV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -310,8 +310,8 @@ void ObjectSignatureApi::signatureCreateObjectV1Callback(HttpRequestWorker *work
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit signatureCreateObjectV1SignalE(output, error_type, error_str);
-        emit signatureCreateObjectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT signatureCreateObjectV1SignalE(output, error_type, error_str);
+        Q_EMIT signatureCreateObjectV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -321,8 +321,8 @@ void ObjectSignatureApi::signatureCreateObjectV1Callback(HttpRequestWorker *work
 #pragma GCC diagnostic pop
 #endif
 
-        emit signatureCreateObjectV1SignalError(output, error_type, error_str);
-        emit signatureCreateObjectV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT signatureCreateObjectV1SignalError(output, error_type, error_str);
+        Q_EMIT signatureCreateObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -367,7 +367,7 @@ void ObjectSignatureApi::signatureDeleteObjectV1(const qint32 &pki_signature_id)
     connect(this, &ObjectSignatureApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -385,8 +385,8 @@ void ObjectSignatureApi::signatureDeleteObjectV1Callback(HttpRequestWorker *work
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit signatureDeleteObjectV1Signal(output);
-        emit signatureDeleteObjectV1SignalFull(worker, output);
+        Q_EMIT signatureDeleteObjectV1Signal(output);
+        Q_EMIT signatureDeleteObjectV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -403,8 +403,8 @@ void ObjectSignatureApi::signatureDeleteObjectV1Callback(HttpRequestWorker *work
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit signatureDeleteObjectV1SignalE(output, error_type, error_str);
-        emit signatureDeleteObjectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT signatureDeleteObjectV1SignalE(output, error_type, error_str);
+        Q_EMIT signatureDeleteObjectV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -414,8 +414,8 @@ void ObjectSignatureApi::signatureDeleteObjectV1Callback(HttpRequestWorker *work
 #pragma GCC diagnostic pop
 #endif
 
-        emit signatureDeleteObjectV1SignalError(output, error_type, error_str);
-        emit signatureDeleteObjectV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT signatureDeleteObjectV1SignalError(output, error_type, error_str);
+        Q_EMIT signatureDeleteObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -465,7 +465,7 @@ void ObjectSignatureApi::signatureEditObjectV1(const qint32 &pki_signature_id, c
     connect(this, &ObjectSignatureApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -483,8 +483,8 @@ void ObjectSignatureApi::signatureEditObjectV1Callback(HttpRequestWorker *worker
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit signatureEditObjectV1Signal(output);
-        emit signatureEditObjectV1SignalFull(worker, output);
+        Q_EMIT signatureEditObjectV1Signal(output);
+        Q_EMIT signatureEditObjectV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -501,8 +501,8 @@ void ObjectSignatureApi::signatureEditObjectV1Callback(HttpRequestWorker *worker
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit signatureEditObjectV1SignalE(output, error_type, error_str);
-        emit signatureEditObjectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT signatureEditObjectV1SignalE(output, error_type, error_str);
+        Q_EMIT signatureEditObjectV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -512,8 +512,8 @@ void ObjectSignatureApi::signatureEditObjectV1Callback(HttpRequestWorker *worker
 #pragma GCC diagnostic pop
 #endif
 
-        emit signatureEditObjectV1SignalError(output, error_type, error_str);
-        emit signatureEditObjectV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT signatureEditObjectV1SignalError(output, error_type, error_str);
+        Q_EMIT signatureEditObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -558,7 +558,7 @@ void ObjectSignatureApi::signatureGetObjectV2(const qint32 &pki_signature_id) {
     connect(this, &ObjectSignatureApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -576,8 +576,8 @@ void ObjectSignatureApi::signatureGetObjectV2Callback(HttpRequestWorker *worker)
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit signatureGetObjectV2Signal(output);
-        emit signatureGetObjectV2SignalFull(worker, output);
+        Q_EMIT signatureGetObjectV2Signal(output);
+        Q_EMIT signatureGetObjectV2SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -594,8 +594,8 @@ void ObjectSignatureApi::signatureGetObjectV2Callback(HttpRequestWorker *worker)
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit signatureGetObjectV2SignalE(output, error_type, error_str);
-        emit signatureGetObjectV2SignalEFull(worker, error_type, error_str);
+        Q_EMIT signatureGetObjectV2SignalE(output, error_type, error_str);
+        Q_EMIT signatureGetObjectV2SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -605,8 +605,8 @@ void ObjectSignatureApi::signatureGetObjectV2Callback(HttpRequestWorker *worker)
 #pragma GCC diagnostic pop
 #endif
 
-        emit signatureGetObjectV2SignalError(output, error_type, error_str);
-        emit signatureGetObjectV2SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT signatureGetObjectV2SignalError(output, error_type, error_str);
+        Q_EMIT signatureGetObjectV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 

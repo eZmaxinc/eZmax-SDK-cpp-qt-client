@@ -178,7 +178,7 @@ void ScimGroupsApi::enableResponseCompression() {
 }
 
 void ScimGroupsApi::abortRequests() {
-    emit abortRequestsSignal();
+    Q_EMIT abortRequestsSignal();
 }
 
 QString ScimGroupsApi::getParamStylePrefix(const QString &style) {
@@ -275,7 +275,7 @@ void ScimGroupsApi::groupsCreateObjectScimV2(const Scim_Group &scim_group) {
     connect(this, &ScimGroupsApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -293,8 +293,8 @@ void ScimGroupsApi::groupsCreateObjectScimV2Callback(HttpRequestWorker *worker) 
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit groupsCreateObjectScimV2Signal(output);
-        emit groupsCreateObjectScimV2SignalFull(worker, output);
+        Q_EMIT groupsCreateObjectScimV2Signal(output);
+        Q_EMIT groupsCreateObjectScimV2SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -311,8 +311,8 @@ void ScimGroupsApi::groupsCreateObjectScimV2Callback(HttpRequestWorker *worker) 
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit groupsCreateObjectScimV2SignalE(output, error_type, error_str);
-        emit groupsCreateObjectScimV2SignalEFull(worker, error_type, error_str);
+        Q_EMIT groupsCreateObjectScimV2SignalE(output, error_type, error_str);
+        Q_EMIT groupsCreateObjectScimV2SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -322,8 +322,8 @@ void ScimGroupsApi::groupsCreateObjectScimV2Callback(HttpRequestWorker *worker) 
 #pragma GCC diagnostic pop
 #endif
 
-        emit groupsCreateObjectScimV2SignalError(output, error_type, error_str);
-        emit groupsCreateObjectScimV2SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT groupsCreateObjectScimV2SignalError(output, error_type, error_str);
+        Q_EMIT groupsCreateObjectScimV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -367,7 +367,7 @@ void ScimGroupsApi::groupsDeleteObjectScimV2(const QString &group_id) {
     connect(this, &ScimGroupsApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -384,8 +384,8 @@ void ScimGroupsApi::groupsDeleteObjectScimV2Callback(HttpRequestWorker *worker) 
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit groupsDeleteObjectScimV2Signal();
-        emit groupsDeleteObjectScimV2SignalFull(worker);
+        Q_EMIT groupsDeleteObjectScimV2Signal();
+        Q_EMIT groupsDeleteObjectScimV2SignalFull(worker);
     } else {
 
 #if defined(_MSC_VER)
@@ -402,8 +402,8 @@ void ScimGroupsApi::groupsDeleteObjectScimV2Callback(HttpRequestWorker *worker) 
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit groupsDeleteObjectScimV2SignalE(error_type, error_str);
-        emit groupsDeleteObjectScimV2SignalEFull(worker, error_type, error_str);
+        Q_EMIT groupsDeleteObjectScimV2SignalE(error_type, error_str);
+        Q_EMIT groupsDeleteObjectScimV2SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -413,8 +413,8 @@ void ScimGroupsApi::groupsDeleteObjectScimV2Callback(HttpRequestWorker *worker) 
 #pragma GCC diagnostic pop
 #endif
 
-        emit groupsDeleteObjectScimV2SignalError(error_type, error_str);
-        emit groupsDeleteObjectScimV2SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT groupsDeleteObjectScimV2SignalError(error_type, error_str);
+        Q_EMIT groupsDeleteObjectScimV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -463,7 +463,7 @@ void ScimGroupsApi::groupsEditObjectScimV2(const QString &group_id, const Scim_G
     connect(this, &ScimGroupsApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -481,8 +481,8 @@ void ScimGroupsApi::groupsEditObjectScimV2Callback(HttpRequestWorker *worker) {
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit groupsEditObjectScimV2Signal(output);
-        emit groupsEditObjectScimV2SignalFull(worker, output);
+        Q_EMIT groupsEditObjectScimV2Signal(output);
+        Q_EMIT groupsEditObjectScimV2SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -499,8 +499,8 @@ void ScimGroupsApi::groupsEditObjectScimV2Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit groupsEditObjectScimV2SignalE(output, error_type, error_str);
-        emit groupsEditObjectScimV2SignalEFull(worker, error_type, error_str);
+        Q_EMIT groupsEditObjectScimV2SignalE(output, error_type, error_str);
+        Q_EMIT groupsEditObjectScimV2SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -510,8 +510,8 @@ void ScimGroupsApi::groupsEditObjectScimV2Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic pop
 #endif
 
-        emit groupsEditObjectScimV2SignalError(output, error_type, error_str);
-        emit groupsEditObjectScimV2SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT groupsEditObjectScimV2SignalError(output, error_type, error_str);
+        Q_EMIT groupsEditObjectScimV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -535,7 +535,7 @@ void ScimGroupsApi::groupsGetListScimV2(const ::Ezmaxapi::OptionalParam<QString>
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("filter")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(filter.value())));
+        fullPath.append(QUrl::toPercentEncoding("filter")).append(querySuffix).append(QUrl::toPercentEncoding(filter.stringValue()));
     }
     HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -557,7 +557,7 @@ void ScimGroupsApi::groupsGetListScimV2(const ::Ezmaxapi::OptionalParam<QString>
     connect(this, &ScimGroupsApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -575,8 +575,8 @@ void ScimGroupsApi::groupsGetListScimV2Callback(HttpRequestWorker *worker) {
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit groupsGetListScimV2Signal(output);
-        emit groupsGetListScimV2SignalFull(worker, output);
+        Q_EMIT groupsGetListScimV2Signal(output);
+        Q_EMIT groupsGetListScimV2SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -593,8 +593,8 @@ void ScimGroupsApi::groupsGetListScimV2Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit groupsGetListScimV2SignalE(output, error_type, error_str);
-        emit groupsGetListScimV2SignalEFull(worker, error_type, error_str);
+        Q_EMIT groupsGetListScimV2SignalE(output, error_type, error_str);
+        Q_EMIT groupsGetListScimV2SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -604,8 +604,8 @@ void ScimGroupsApi::groupsGetListScimV2Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic pop
 #endif
 
-        emit groupsGetListScimV2SignalError(output, error_type, error_str);
-        emit groupsGetListScimV2SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT groupsGetListScimV2SignalError(output, error_type, error_str);
+        Q_EMIT groupsGetListScimV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -649,7 +649,7 @@ void ScimGroupsApi::groupsGetObjectScimV2(const QString &group_id) {
     connect(this, &ScimGroupsApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -667,8 +667,8 @@ void ScimGroupsApi::groupsGetObjectScimV2Callback(HttpRequestWorker *worker) {
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit groupsGetObjectScimV2Signal(output);
-        emit groupsGetObjectScimV2SignalFull(worker, output);
+        Q_EMIT groupsGetObjectScimV2Signal(output);
+        Q_EMIT groupsGetObjectScimV2SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -685,8 +685,8 @@ void ScimGroupsApi::groupsGetObjectScimV2Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit groupsGetObjectScimV2SignalE(output, error_type, error_str);
-        emit groupsGetObjectScimV2SignalEFull(worker, error_type, error_str);
+        Q_EMIT groupsGetObjectScimV2SignalE(output, error_type, error_str);
+        Q_EMIT groupsGetObjectScimV2SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -696,8 +696,8 @@ void ScimGroupsApi::groupsGetObjectScimV2Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic pop
 #endif
 
-        emit groupsGetObjectScimV2SignalError(output, error_type, error_str);
-        emit groupsGetObjectScimV2SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT groupsGetObjectScimV2SignalError(output, error_type, error_str);
+        Q_EMIT groupsGetObjectScimV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 

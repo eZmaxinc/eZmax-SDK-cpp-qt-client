@@ -46,6 +46,12 @@ void Branding_RequestCompound::initializeModel() {
     m_s_branding_base64_isSet = false;
     m_s_branding_base64_isValid = false;
 
+    m_e_branding_logointerface_isSet = false;
+    m_e_branding_logointerface_isValid = false;
+
+    m_s_branding_logointerface_base64_isSet = false;
+    m_s_branding_logointerface_base64_isValid = false;
+
     m_i_branding_colortext_isSet = false;
     m_i_branding_colortext_isValid = false;
 
@@ -63,6 +69,9 @@ void Branding_RequestCompound::initializeModel() {
 
     m_i_branding_colorbackgroundsmallbox_isSet = false;
     m_i_branding_colorbackgroundsmallbox_isValid = false;
+
+    m_i_branding_interfacecolor_isSet = false;
+    m_i_branding_interfacecolor_isValid = false;
 
     m_s_branding_name_isSet = false;
     m_s_branding_name_isValid = false;
@@ -95,6 +104,12 @@ void Branding_RequestCompound::fromJsonObject(QJsonObject json) {
     m_s_branding_base64_isValid = ::Ezmaxapi::fromJsonValue(m_s_branding_base64, json[QString("sBrandingBase64")]);
     m_s_branding_base64_isSet = !json[QString("sBrandingBase64")].isNull() && m_s_branding_base64_isValid;
 
+    m_e_branding_logointerface_isValid = ::Ezmaxapi::fromJsonValue(m_e_branding_logointerface, json[QString("eBrandingLogointerface")]);
+    m_e_branding_logointerface_isSet = !json[QString("eBrandingLogointerface")].isNull() && m_e_branding_logointerface_isValid;
+
+    m_s_branding_logointerface_base64_isValid = ::Ezmaxapi::fromJsonValue(m_s_branding_logointerface_base64, json[QString("sBrandingLogointerfaceBase64")]);
+    m_s_branding_logointerface_base64_isSet = !json[QString("sBrandingLogointerfaceBase64")].isNull() && m_s_branding_logointerface_base64_isValid;
+
     m_i_branding_colortext_isValid = ::Ezmaxapi::fromJsonValue(m_i_branding_colortext, json[QString("iBrandingColortext")]);
     m_i_branding_colortext_isSet = !json[QString("iBrandingColortext")].isNull() && m_i_branding_colortext_isValid;
 
@@ -112,6 +127,9 @@ void Branding_RequestCompound::fromJsonObject(QJsonObject json) {
 
     m_i_branding_colorbackgroundsmallbox_isValid = ::Ezmaxapi::fromJsonValue(m_i_branding_colorbackgroundsmallbox, json[QString("iBrandingColorbackgroundsmallbox")]);
     m_i_branding_colorbackgroundsmallbox_isSet = !json[QString("iBrandingColorbackgroundsmallbox")].isNull() && m_i_branding_colorbackgroundsmallbox_isValid;
+
+    m_i_branding_interfacecolor_isValid = ::Ezmaxapi::fromJsonValue(m_i_branding_interfacecolor, json[QString("iBrandingInterfacecolor")]);
+    m_i_branding_interfacecolor_isSet = !json[QString("iBrandingInterfacecolor")].isNull() && m_i_branding_interfacecolor_isValid;
 
     m_s_branding_name_isValid = ::Ezmaxapi::fromJsonValue(m_s_branding_name, json[QString("sBrandingName")]);
     m_s_branding_name_isSet = !json[QString("sBrandingName")].isNull() && m_s_branding_name_isValid;
@@ -144,6 +162,12 @@ QJsonObject Branding_RequestCompound::asJsonObject() const {
     if (m_s_branding_base64_isSet) {
         obj.insert(QString("sBrandingBase64"), ::Ezmaxapi::toJsonValue(m_s_branding_base64));
     }
+    if (m_e_branding_logointerface.isSet()) {
+        obj.insert(QString("eBrandingLogointerface"), ::Ezmaxapi::toJsonValue(m_e_branding_logointerface));
+    }
+    if (m_s_branding_logointerface_base64_isSet) {
+        obj.insert(QString("sBrandingLogointerfaceBase64"), ::Ezmaxapi::toJsonValue(m_s_branding_logointerface_base64));
+    }
     if (m_i_branding_colortext_isSet) {
         obj.insert(QString("iBrandingColortext"), ::Ezmaxapi::toJsonValue(m_i_branding_colortext));
     }
@@ -161,6 +185,9 @@ QJsonObject Branding_RequestCompound::asJsonObject() const {
     }
     if (m_i_branding_colorbackgroundsmallbox_isSet) {
         obj.insert(QString("iBrandingColorbackgroundsmallbox"), ::Ezmaxapi::toJsonValue(m_i_branding_colorbackgroundsmallbox));
+    }
+    if (m_i_branding_interfacecolor_isSet) {
+        obj.insert(QString("iBrandingInterfacecolor"), ::Ezmaxapi::toJsonValue(m_i_branding_interfacecolor));
     }
     if (m_s_branding_name_isSet) {
         obj.insert(QString("sBrandingName"), ::Ezmaxapi::toJsonValue(m_s_branding_name));
@@ -236,6 +263,38 @@ bool Branding_RequestCompound::is_s_branding_base64_Set() const{
 
 bool Branding_RequestCompound::is_s_branding_base64_Valid() const{
     return m_s_branding_base64_isValid;
+}
+
+Field_eBrandingLogointerface Branding_RequestCompound::getEBrandingLogointerface() const {
+    return m_e_branding_logointerface;
+}
+void Branding_RequestCompound::setEBrandingLogointerface(const Field_eBrandingLogointerface &e_branding_logointerface) {
+    m_e_branding_logointerface = e_branding_logointerface;
+    m_e_branding_logointerface_isSet = true;
+}
+
+bool Branding_RequestCompound::is_e_branding_logointerface_Set() const{
+    return m_e_branding_logointerface_isSet;
+}
+
+bool Branding_RequestCompound::is_e_branding_logointerface_Valid() const{
+    return m_e_branding_logointerface_isValid;
+}
+
+QByteArray Branding_RequestCompound::getSBrandingLogointerfaceBase64() const {
+    return m_s_branding_logointerface_base64;
+}
+void Branding_RequestCompound::setSBrandingLogointerfaceBase64(const QByteArray &s_branding_logointerface_base64) {
+    m_s_branding_logointerface_base64 = s_branding_logointerface_base64;
+    m_s_branding_logointerface_base64_isSet = true;
+}
+
+bool Branding_RequestCompound::is_s_branding_logointerface_base64_Set() const{
+    return m_s_branding_logointerface_base64_isSet;
+}
+
+bool Branding_RequestCompound::is_s_branding_logointerface_base64_Valid() const{
+    return m_s_branding_logointerface_base64_isValid;
 }
 
 qint32 Branding_RequestCompound::getIBrandingColortext() const {
@@ -334,6 +393,22 @@ bool Branding_RequestCompound::is_i_branding_colorbackgroundsmallbox_Valid() con
     return m_i_branding_colorbackgroundsmallbox_isValid;
 }
 
+qint32 Branding_RequestCompound::getIBrandingInterfacecolor() const {
+    return m_i_branding_interfacecolor;
+}
+void Branding_RequestCompound::setIBrandingInterfacecolor(const qint32 &i_branding_interfacecolor) {
+    m_i_branding_interfacecolor = i_branding_interfacecolor;
+    m_i_branding_interfacecolor_isSet = true;
+}
+
+bool Branding_RequestCompound::is_i_branding_interfacecolor_Set() const{
+    return m_i_branding_interfacecolor_isSet;
+}
+
+bool Branding_RequestCompound::is_i_branding_interfacecolor_Valid() const{
+    return m_i_branding_interfacecolor_isValid;
+}
+
 QString Branding_RequestCompound::getSBrandingName() const {
     return m_s_branding_name;
 }
@@ -405,6 +480,16 @@ bool Branding_RequestCompound::isSet() const {
             break;
         }
 
+        if (m_e_branding_logointerface.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_s_branding_logointerface_base64_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (m_i_branding_colortext_isSet) {
             isObjectUpdated = true;
             break;
@@ -431,6 +516,11 @@ bool Branding_RequestCompound::isSet() const {
         }
 
         if (m_i_branding_colorbackgroundsmallbox_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_i_branding_interfacecolor_isSet) {
             isObjectUpdated = true;
             break;
         }

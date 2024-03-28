@@ -170,7 +170,7 @@ void ModuleUserApi::enableResponseCompression() {
 }
 
 void ModuleUserApi::abortRequests() {
-    emit abortRequestsSignal();
+    Q_EMIT abortRequestsSignal();
 }
 
 QString ModuleUserApi::getParamStylePrefix(const QString &style) {
@@ -267,7 +267,7 @@ void ModuleUserApi::userCreateEzsignuserV1(const QList<User_createEzsignuser_v1_
     connect(this, &ModuleUserApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -285,8 +285,8 @@ void ModuleUserApi::userCreateEzsignuserV1Callback(HttpRequestWorker *worker) {
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit userCreateEzsignuserV1Signal(output);
-        emit userCreateEzsignuserV1SignalFull(worker, output);
+        Q_EMIT userCreateEzsignuserV1Signal(output);
+        Q_EMIT userCreateEzsignuserV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -303,8 +303,8 @@ void ModuleUserApi::userCreateEzsignuserV1Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit userCreateEzsignuserV1SignalE(output, error_type, error_str);
-        emit userCreateEzsignuserV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT userCreateEzsignuserV1SignalE(output, error_type, error_str);
+        Q_EMIT userCreateEzsignuserV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -314,8 +314,8 @@ void ModuleUserApi::userCreateEzsignuserV1Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic pop
 #endif
 
-        emit userCreateEzsignuserV1SignalError(output, error_type, error_str);
-        emit userCreateEzsignuserV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT userCreateEzsignuserV1SignalError(output, error_type, error_str);
+        Q_EMIT userCreateEzsignuserV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

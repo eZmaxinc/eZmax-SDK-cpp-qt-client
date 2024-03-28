@@ -43,6 +43,9 @@ void Usergroupmembership_Response::initializeModel() {
     m_fki_user_id_isSet = false;
     m_fki_user_id_isValid = false;
 
+    m_fki_usergroupexternal_id_isSet = false;
+    m_fki_usergroupexternal_id_isValid = false;
+
     m_s_user_firstname_isSet = false;
     m_s_user_firstname_isValid = false;
 
@@ -57,6 +60,9 @@ void Usergroupmembership_Response::initializeModel() {
 
     m_s_usergroup_name_x_isSet = false;
     m_s_usergroup_name_x_isValid = false;
+
+    m_s_usergroupexternal_name_isSet = false;
+    m_s_usergroupexternal_name_isValid = false;
 }
 
 void Usergroupmembership_Response::fromJson(QString jsonString) {
@@ -77,6 +83,9 @@ void Usergroupmembership_Response::fromJsonObject(QJsonObject json) {
     m_fki_user_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_user_id, json[QString("fkiUserID")]);
     m_fki_user_id_isSet = !json[QString("fkiUserID")].isNull() && m_fki_user_id_isValid;
 
+    m_fki_usergroupexternal_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_usergroupexternal_id, json[QString("fkiUsergroupexternalID")]);
+    m_fki_usergroupexternal_id_isSet = !json[QString("fkiUsergroupexternalID")].isNull() && m_fki_usergroupexternal_id_isValid;
+
     m_s_user_firstname_isValid = ::Ezmaxapi::fromJsonValue(m_s_user_firstname, json[QString("sUserFirstname")]);
     m_s_user_firstname_isSet = !json[QString("sUserFirstname")].isNull() && m_s_user_firstname_isValid;
 
@@ -91,6 +100,9 @@ void Usergroupmembership_Response::fromJsonObject(QJsonObject json) {
 
     m_s_usergroup_name_x_isValid = ::Ezmaxapi::fromJsonValue(m_s_usergroup_name_x, json[QString("sUsergroupNameX")]);
     m_s_usergroup_name_x_isSet = !json[QString("sUsergroupNameX")].isNull() && m_s_usergroup_name_x_isValid;
+
+    m_s_usergroupexternal_name_isValid = ::Ezmaxapi::fromJsonValue(m_s_usergroupexternal_name, json[QString("sUsergroupexternalName")]);
+    m_s_usergroupexternal_name_isSet = !json[QString("sUsergroupexternalName")].isNull() && m_s_usergroupexternal_name_isValid;
 }
 
 QString Usergroupmembership_Response::asJson() const {
@@ -111,6 +123,9 @@ QJsonObject Usergroupmembership_Response::asJsonObject() const {
     if (m_fki_user_id_isSet) {
         obj.insert(QString("fkiUserID"), ::Ezmaxapi::toJsonValue(m_fki_user_id));
     }
+    if (m_fki_usergroupexternal_id_isSet) {
+        obj.insert(QString("fkiUsergroupexternalID"), ::Ezmaxapi::toJsonValue(m_fki_usergroupexternal_id));
+    }
     if (m_s_user_firstname_isSet) {
         obj.insert(QString("sUserFirstname"), ::Ezmaxapi::toJsonValue(m_s_user_firstname));
     }
@@ -125,6 +140,9 @@ QJsonObject Usergroupmembership_Response::asJsonObject() const {
     }
     if (m_s_usergroup_name_x_isSet) {
         obj.insert(QString("sUsergroupNameX"), ::Ezmaxapi::toJsonValue(m_s_usergroup_name_x));
+    }
+    if (m_s_usergroupexternal_name_isSet) {
+        obj.insert(QString("sUsergroupexternalName"), ::Ezmaxapi::toJsonValue(m_s_usergroupexternal_name));
     }
     return obj;
 }
@@ -175,6 +193,22 @@ bool Usergroupmembership_Response::is_fki_user_id_Set() const{
 
 bool Usergroupmembership_Response::is_fki_user_id_Valid() const{
     return m_fki_user_id_isValid;
+}
+
+qint32 Usergroupmembership_Response::getFkiUsergroupexternalId() const {
+    return m_fki_usergroupexternal_id;
+}
+void Usergroupmembership_Response::setFkiUsergroupexternalId(const qint32 &fki_usergroupexternal_id) {
+    m_fki_usergroupexternal_id = fki_usergroupexternal_id;
+    m_fki_usergroupexternal_id_isSet = true;
+}
+
+bool Usergroupmembership_Response::is_fki_usergroupexternal_id_Set() const{
+    return m_fki_usergroupexternal_id_isSet;
+}
+
+bool Usergroupmembership_Response::is_fki_usergroupexternal_id_Valid() const{
+    return m_fki_usergroupexternal_id_isValid;
 }
 
 QString Usergroupmembership_Response::getSUserFirstname() const {
@@ -257,6 +291,22 @@ bool Usergroupmembership_Response::is_s_usergroup_name_x_Valid() const{
     return m_s_usergroup_name_x_isValid;
 }
 
+QString Usergroupmembership_Response::getSUsergroupexternalName() const {
+    return m_s_usergroupexternal_name;
+}
+void Usergroupmembership_Response::setSUsergroupexternalName(const QString &s_usergroupexternal_name) {
+    m_s_usergroupexternal_name = s_usergroupexternal_name;
+    m_s_usergroupexternal_name_isSet = true;
+}
+
+bool Usergroupmembership_Response::is_s_usergroupexternal_name_Set() const{
+    return m_s_usergroupexternal_name_isSet;
+}
+
+bool Usergroupmembership_Response::is_s_usergroupexternal_name_Valid() const{
+    return m_s_usergroupexternal_name_isValid;
+}
+
 bool Usergroupmembership_Response::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -271,6 +321,11 @@ bool Usergroupmembership_Response::isSet() const {
         }
 
         if (m_fki_user_id_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_fki_usergroupexternal_id_isSet) {
             isObjectUpdated = true;
             break;
         }
@@ -299,13 +354,18 @@ bool Usergroupmembership_Response::isSet() const {
             isObjectUpdated = true;
             break;
         }
+
+        if (m_s_usergroupexternal_name_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
     } while (false);
     return isObjectUpdated;
 }
 
 bool Usergroupmembership_Response::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_pki_usergroupmembership_id_isValid && m_fki_usergroup_id_isValid && m_fki_user_id_isValid && m_s_user_firstname_isValid && m_s_user_lastname_isValid && m_s_user_loginname_isValid && m_s_usergroup_name_x_isValid && true;
+    return m_pki_usergroupmembership_id_isValid && m_fki_usergroup_id_isValid && m_s_usergroup_name_x_isValid && true;
 }
 
 } // namespace Ezmaxapi

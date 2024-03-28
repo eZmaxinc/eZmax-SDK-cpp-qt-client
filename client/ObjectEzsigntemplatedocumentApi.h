@@ -172,7 +172,7 @@ private:
     void ezsigntemplatedocumentGetWordsPositionsV1Callback(HttpRequestWorker *worker);
     void ezsigntemplatedocumentPatchObjectV1Callback(HttpRequestWorker *worker);
 
-signals:
+Q_SIGNALS:
 
     void ezsigntemplatedocumentCreateObjectV1Signal(Ezsigntemplatedocument_createObject_v1_Response summary);
     void ezsigntemplatedocumentEditEzsigntemplateformfieldgroupsV1Signal(Ezsigntemplatedocument_editEzsigntemplateformfieldgroups_v1_Response summary);
@@ -269,7 +269,7 @@ signals:
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
-public slots:
+public Q_SLOTS:
     void tokenAvailable();
 };
 

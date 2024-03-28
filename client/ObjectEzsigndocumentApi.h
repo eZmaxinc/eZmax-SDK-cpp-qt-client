@@ -25,6 +25,8 @@
 #include "Ezsigndocument_applyEzsigntemplate_v1_Response.h"
 #include "Ezsigndocument_applyEzsigntemplate_v2_Request.h"
 #include "Ezsigndocument_applyEzsigntemplate_v2_Response.h"
+#include "Ezsigndocument_applyEzsigntemplateglobal_v1_Request.h"
+#include "Ezsigndocument_applyEzsigntemplateglobal_v1_Response.h"
 #include "Ezsigndocument_createEzsignelementsPositionedByWord_v1_Request.h"
 #include "Ezsigndocument_createEzsignelementsPositionedByWord_v1_Response.h"
 #include "Ezsigndocument_createObject_v1_Request.h"
@@ -112,6 +114,12 @@ public:
     * @param[in]  ezsigndocument_apply_ezsigntemplate_v2_request Ezsigndocument_applyEzsigntemplate_v2_Request [required]
     */
     void ezsigndocumentApplyEzsigntemplateV2(const qint32 &pki_ezsigndocument_id, const Ezsigndocument_applyEzsigntemplate_v2_Request &ezsigndocument_apply_ezsigntemplate_v2_request);
+
+    /**
+    * @param[in]  pki_ezsigndocument_id qint32 [required]
+    * @param[in]  ezsigndocument_apply_ezsigntemplateglobal_v1_request Ezsigndocument_applyEzsigntemplateglobal_v1_Request [required]
+    */
+    void ezsigndocumentApplyEzsigntemplateglobalV1(const qint32 &pki_ezsigndocument_id, const Ezsigndocument_applyEzsigntemplateglobal_v1_Request &ezsigndocument_apply_ezsigntemplateglobal_v1_request);
 
     /**
     * @param[in]  pki_ezsigndocument_id qint32 [required]
@@ -284,6 +292,7 @@ private:
 
     void ezsigndocumentApplyEzsigntemplateV1Callback(HttpRequestWorker *worker);
     void ezsigndocumentApplyEzsigntemplateV2Callback(HttpRequestWorker *worker);
+    void ezsigndocumentApplyEzsigntemplateglobalV1Callback(HttpRequestWorker *worker);
     void ezsigndocumentCreateEzsignelementsPositionedByWordV1Callback(HttpRequestWorker *worker);
     void ezsigndocumentCreateObjectV1Callback(HttpRequestWorker *worker);
     void ezsigndocumentCreateObjectV2Callback(HttpRequestWorker *worker);
@@ -312,10 +321,11 @@ private:
     void ezsigndocumentSubmitEzsignformV1Callback(HttpRequestWorker *worker);
     void ezsigndocumentUnsendV1Callback(HttpRequestWorker *worker);
 
-signals:
+Q_SIGNALS:
 
     void ezsigndocumentApplyEzsigntemplateV1Signal(Ezsigndocument_applyEzsigntemplate_v1_Response summary);
     void ezsigndocumentApplyEzsigntemplateV2Signal(Ezsigndocument_applyEzsigntemplate_v2_Response summary);
+    void ezsigndocumentApplyEzsigntemplateglobalV1Signal(Ezsigndocument_applyEzsigntemplateglobal_v1_Response summary);
     void ezsigndocumentCreateEzsignelementsPositionedByWordV1Signal(Ezsigndocument_createEzsignelementsPositionedByWord_v1_Response summary);
     void ezsigndocumentCreateObjectV1Signal(Ezsigndocument_createObject_v1_Response summary);
     void ezsigndocumentCreateObjectV2Signal(Ezsigndocument_createObject_v2_Response summary);
@@ -346,6 +356,7 @@ signals:
 
     void ezsigndocumentApplyEzsigntemplateV1SignalFull(HttpRequestWorker *worker, Ezsigndocument_applyEzsigntemplate_v1_Response summary);
     void ezsigndocumentApplyEzsigntemplateV2SignalFull(HttpRequestWorker *worker, Ezsigndocument_applyEzsigntemplate_v2_Response summary);
+    void ezsigndocumentApplyEzsigntemplateglobalV1SignalFull(HttpRequestWorker *worker, Ezsigndocument_applyEzsigntemplateglobal_v1_Response summary);
     void ezsigndocumentCreateEzsignelementsPositionedByWordV1SignalFull(HttpRequestWorker *worker, Ezsigndocument_createEzsignelementsPositionedByWord_v1_Response summary);
     void ezsigndocumentCreateObjectV1SignalFull(HttpRequestWorker *worker, Ezsigndocument_createObject_v1_Response summary);
     void ezsigndocumentCreateObjectV2SignalFull(HttpRequestWorker *worker, Ezsigndocument_createObject_v2_Response summary);
@@ -380,6 +391,9 @@ signals:
     Q_DECL_DEPRECATED_X("Use ezsigndocumentApplyEzsigntemplateV2SignalError() instead")
     void ezsigndocumentApplyEzsigntemplateV2SignalE(Ezsigndocument_applyEzsigntemplate_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigndocumentApplyEzsigntemplateV2SignalError(Ezsigndocument_applyEzsigntemplate_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigndocumentApplyEzsigntemplateglobalV1SignalError() instead")
+    void ezsigndocumentApplyEzsigntemplateglobalV1SignalE(Ezsigndocument_applyEzsigntemplateglobal_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentApplyEzsigntemplateglobalV1SignalError(Ezsigndocument_applyEzsigntemplateglobal_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsigndocumentCreateEzsignelementsPositionedByWordV1SignalError() instead")
     void ezsigndocumentCreateEzsignelementsPositionedByWordV1SignalE(Ezsigndocument_createEzsignelementsPositionedByWord_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigndocumentCreateEzsignelementsPositionedByWordV1SignalError(Ezsigndocument_createEzsignelementsPositionedByWord_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -468,6 +482,9 @@ signals:
     Q_DECL_DEPRECATED_X("Use ezsigndocumentApplyEzsigntemplateV2SignalErrorFull() instead")
     void ezsigndocumentApplyEzsigntemplateV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigndocumentApplyEzsigntemplateV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigndocumentApplyEzsigntemplateglobalV1SignalErrorFull() instead")
+    void ezsigndocumentApplyEzsigntemplateglobalV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentApplyEzsigntemplateglobalV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsigndocumentCreateEzsignelementsPositionedByWordV1SignalErrorFull() instead")
     void ezsigndocumentCreateEzsignelementsPositionedByWordV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigndocumentCreateEzsignelementsPositionedByWordV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -553,7 +570,7 @@ signals:
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
-public slots:
+public Q_SLOTS:
     void tokenAvailable();
 };
 

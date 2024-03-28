@@ -103,7 +103,7 @@ private:
     void ezsigndiscussionDeleteObjectV1Callback(HttpRequestWorker *worker);
     void ezsigndiscussionGetObjectV2Callback(HttpRequestWorker *worker);
 
-signals:
+Q_SIGNALS:
 
     void ezsigndiscussionCreateObjectV1Signal(Ezsigndiscussion_createObject_v1_Response summary);
     void ezsigndiscussionDeleteObjectV1Signal(Ezsigndiscussion_deleteObject_v1_Response summary);
@@ -136,7 +136,7 @@ signals:
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
-public slots:
+public Q_SLOTS:
     void tokenAvailable();
 };
 

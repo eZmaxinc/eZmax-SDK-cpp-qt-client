@@ -126,7 +126,7 @@ private:
     void userstagedGetObjectV2Callback(HttpRequestWorker *worker);
     void userstagedMapV1Callback(HttpRequestWorker *worker);
 
-signals:
+Q_SIGNALS:
 
     void userstagedCreateUserV1Signal(Userstaged_createUser_v1_Response summary);
     void userstagedDeleteObjectV1Signal(Userstaged_deleteObject_v1_Response summary);
@@ -175,7 +175,7 @@ signals:
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
-public slots:
+public Q_SLOTS:
     void tokenAvailable();
 };
 

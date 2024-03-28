@@ -95,7 +95,7 @@ private:
     void invoiceGetAttachmentsV1Callback(HttpRequestWorker *worker);
     void invoiceGetCommunicationListV1Callback(HttpRequestWorker *worker);
 
-signals:
+Q_SIGNALS:
 
     void invoiceGetAttachmentsV1Signal(Invoice_getAttachments_v1_Response summary);
     void invoiceGetCommunicationListV1Signal(Invoice_getCommunicationList_v1_Response summary);
@@ -120,7 +120,7 @@ signals:
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
-public slots:
+public Q_SLOTS:
     void tokenAvailable();
 };
 

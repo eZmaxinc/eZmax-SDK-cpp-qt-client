@@ -178,7 +178,7 @@ void ObjectBrandingApi::enableResponseCompression() {
 }
 
 void ObjectBrandingApi::abortRequests() {
-    emit abortRequestsSignal();
+    Q_EMIT abortRequestsSignal();
 }
 
 QString ObjectBrandingApi::getParamStylePrefix(const QString &style) {
@@ -276,7 +276,7 @@ void ObjectBrandingApi::brandingCreateObjectV1(const Branding_createObject_v1_Re
     connect(this, &ObjectBrandingApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -294,8 +294,8 @@ void ObjectBrandingApi::brandingCreateObjectV1Callback(HttpRequestWorker *worker
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit brandingCreateObjectV1Signal(output);
-        emit brandingCreateObjectV1SignalFull(worker, output);
+        Q_EMIT brandingCreateObjectV1Signal(output);
+        Q_EMIT brandingCreateObjectV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -312,8 +312,8 @@ void ObjectBrandingApi::brandingCreateObjectV1Callback(HttpRequestWorker *worker
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit brandingCreateObjectV1SignalE(output, error_type, error_str);
-        emit brandingCreateObjectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT brandingCreateObjectV1SignalE(output, error_type, error_str);
+        Q_EMIT brandingCreateObjectV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -323,8 +323,8 @@ void ObjectBrandingApi::brandingCreateObjectV1Callback(HttpRequestWorker *worker
 #pragma GCC diagnostic pop
 #endif
 
-        emit brandingCreateObjectV1SignalError(output, error_type, error_str);
-        emit brandingCreateObjectV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT brandingCreateObjectV1SignalError(output, error_type, error_str);
+        Q_EMIT brandingCreateObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -374,7 +374,7 @@ void ObjectBrandingApi::brandingEditObjectV1(const qint32 &pki_branding_id, cons
     connect(this, &ObjectBrandingApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -392,8 +392,8 @@ void ObjectBrandingApi::brandingEditObjectV1Callback(HttpRequestWorker *worker) 
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit brandingEditObjectV1Signal(output);
-        emit brandingEditObjectV1SignalFull(worker, output);
+        Q_EMIT brandingEditObjectV1Signal(output);
+        Q_EMIT brandingEditObjectV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -410,8 +410,8 @@ void ObjectBrandingApi::brandingEditObjectV1Callback(HttpRequestWorker *worker) 
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit brandingEditObjectV1SignalE(output, error_type, error_str);
-        emit brandingEditObjectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT brandingEditObjectV1SignalE(output, error_type, error_str);
+        Q_EMIT brandingEditObjectV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -421,8 +421,8 @@ void ObjectBrandingApi::brandingEditObjectV1Callback(HttpRequestWorker *worker) 
 #pragma GCC diagnostic pop
 #endif
 
-        emit brandingEditObjectV1SignalError(output, error_type, error_str);
-        emit brandingEditObjectV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT brandingEditObjectV1SignalError(output, error_type, error_str);
+        Q_EMIT brandingEditObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -461,7 +461,7 @@ void ObjectBrandingApi::brandingGetAutocompleteV2(const QString &s_selector, con
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("eFilterActive")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(e_filter_active.value())));
+        fullPath.append(QUrl::toPercentEncoding("eFilterActive")).append(querySuffix).append(QUrl::toPercentEncoding(e_filter_active.stringValue()));
     }
     if (s_query.hasValue())
     {
@@ -476,7 +476,7 @@ void ObjectBrandingApi::brandingGetAutocompleteV2(const QString &s_selector, con
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_query.value())));
+        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(s_query.stringValue()));
     }
     HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -542,7 +542,7 @@ void ObjectBrandingApi::brandingGetAutocompleteV2(const QString &s_selector, con
     connect(this, &ObjectBrandingApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -560,8 +560,8 @@ void ObjectBrandingApi::brandingGetAutocompleteV2Callback(HttpRequestWorker *wor
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit brandingGetAutocompleteV2Signal(output);
-        emit brandingGetAutocompleteV2SignalFull(worker, output);
+        Q_EMIT brandingGetAutocompleteV2Signal(output);
+        Q_EMIT brandingGetAutocompleteV2SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -578,8 +578,8 @@ void ObjectBrandingApi::brandingGetAutocompleteV2Callback(HttpRequestWorker *wor
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit brandingGetAutocompleteV2SignalE(output, error_type, error_str);
-        emit brandingGetAutocompleteV2SignalEFull(worker, error_type, error_str);
+        Q_EMIT brandingGetAutocompleteV2SignalE(output, error_type, error_str);
+        Q_EMIT brandingGetAutocompleteV2SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -589,8 +589,8 @@ void ObjectBrandingApi::brandingGetAutocompleteV2Callback(HttpRequestWorker *wor
 #pragma GCC diagnostic pop
 #endif
 
-        emit brandingGetAutocompleteV2SignalError(output, error_type, error_str);
-        emit brandingGetAutocompleteV2SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT brandingGetAutocompleteV2SignalError(output, error_type, error_str);
+        Q_EMIT brandingGetAutocompleteV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -615,7 +615,7 @@ void ObjectBrandingApi::brandingGetListV1(const ::Ezmaxapi::OptionalParam<QStrin
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("eOrderBy")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(e_order_by.value())));
+        fullPath.append(QUrl::toPercentEncoding("eOrderBy")).append(querySuffix).append(QUrl::toPercentEncoding(e_order_by.stringValue()));
     }
     if (i_row_max.hasValue())
     {
@@ -630,7 +630,7 @@ void ObjectBrandingApi::brandingGetListV1(const ::Ezmaxapi::OptionalParam<QStrin
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("iRowMax")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(i_row_max.value())));
+        fullPath.append(QUrl::toPercentEncoding("iRowMax")).append(querySuffix).append(QUrl::toPercentEncoding(i_row_max.stringValue()));
     }
     if (i_row_offset.hasValue())
     {
@@ -645,7 +645,7 @@ void ObjectBrandingApi::brandingGetListV1(const ::Ezmaxapi::OptionalParam<QStrin
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("iRowOffset")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(i_row_offset.value())));
+        fullPath.append(QUrl::toPercentEncoding("iRowOffset")).append(querySuffix).append(QUrl::toPercentEncoding(i_row_offset.stringValue()));
     }
     if (s_filter.hasValue())
     {
@@ -660,7 +660,7 @@ void ObjectBrandingApi::brandingGetListV1(const ::Ezmaxapi::OptionalParam<QStrin
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("sFilter")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_filter.value())));
+        fullPath.append(QUrl::toPercentEncoding("sFilter")).append(querySuffix).append(QUrl::toPercentEncoding(s_filter.stringValue()));
     }
     HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -726,7 +726,7 @@ void ObjectBrandingApi::brandingGetListV1(const ::Ezmaxapi::OptionalParam<QStrin
     connect(this, &ObjectBrandingApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -744,8 +744,8 @@ void ObjectBrandingApi::brandingGetListV1Callback(HttpRequestWorker *worker) {
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit brandingGetListV1Signal(output);
-        emit brandingGetListV1SignalFull(worker, output);
+        Q_EMIT brandingGetListV1Signal(output);
+        Q_EMIT brandingGetListV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -762,8 +762,8 @@ void ObjectBrandingApi::brandingGetListV1Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit brandingGetListV1SignalE(output, error_type, error_str);
-        emit brandingGetListV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT brandingGetListV1SignalE(output, error_type, error_str);
+        Q_EMIT brandingGetListV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -773,8 +773,8 @@ void ObjectBrandingApi::brandingGetListV1Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic pop
 #endif
 
-        emit brandingGetListV1SignalError(output, error_type, error_str);
-        emit brandingGetListV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT brandingGetListV1SignalError(output, error_type, error_str);
+        Q_EMIT brandingGetListV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -819,7 +819,7 @@ void ObjectBrandingApi::brandingGetObjectV2(const qint32 &pki_branding_id) {
     connect(this, &ObjectBrandingApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -837,8 +837,8 @@ void ObjectBrandingApi::brandingGetObjectV2Callback(HttpRequestWorker *worker) {
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit brandingGetObjectV2Signal(output);
-        emit brandingGetObjectV2SignalFull(worker, output);
+        Q_EMIT brandingGetObjectV2Signal(output);
+        Q_EMIT brandingGetObjectV2SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -855,8 +855,8 @@ void ObjectBrandingApi::brandingGetObjectV2Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit brandingGetObjectV2SignalE(output, error_type, error_str);
-        emit brandingGetObjectV2SignalEFull(worker, error_type, error_str);
+        Q_EMIT brandingGetObjectV2SignalE(output, error_type, error_str);
+        Q_EMIT brandingGetObjectV2SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -866,8 +866,8 @@ void ObjectBrandingApi::brandingGetObjectV2Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic pop
 #endif
 
-        emit brandingGetObjectV2SignalError(output, error_type, error_str);
-        emit brandingGetObjectV2SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT brandingGetObjectV2SignalError(output, error_type, error_str);
+        Q_EMIT brandingGetObjectV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 

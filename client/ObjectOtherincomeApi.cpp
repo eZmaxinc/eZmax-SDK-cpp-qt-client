@@ -170,7 +170,7 @@ void ObjectOtherincomeApi::enableResponseCompression() {
 }
 
 void ObjectOtherincomeApi::abortRequests() {
-    emit abortRequestsSignal();
+    Q_EMIT abortRequestsSignal();
 }
 
 QString ObjectOtherincomeApi::getParamStylePrefix(const QString &style) {
@@ -277,7 +277,7 @@ void ObjectOtherincomeApi::otherincomeGetCommunicationListV1(const qint32 &pki_o
     connect(this, &ObjectOtherincomeApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -295,8 +295,8 @@ void ObjectOtherincomeApi::otherincomeGetCommunicationListV1Callback(HttpRequest
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit otherincomeGetCommunicationListV1Signal(output);
-        emit otherincomeGetCommunicationListV1SignalFull(worker, output);
+        Q_EMIT otherincomeGetCommunicationListV1Signal(output);
+        Q_EMIT otherincomeGetCommunicationListV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -313,8 +313,8 @@ void ObjectOtherincomeApi::otherincomeGetCommunicationListV1Callback(HttpRequest
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit otherincomeGetCommunicationListV1SignalE(output, error_type, error_str);
-        emit otherincomeGetCommunicationListV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT otherincomeGetCommunicationListV1SignalE(output, error_type, error_str);
+        Q_EMIT otherincomeGetCommunicationListV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -324,8 +324,8 @@ void ObjectOtherincomeApi::otherincomeGetCommunicationListV1Callback(HttpRequest
 #pragma GCC diagnostic pop
 #endif
 
-        emit otherincomeGetCommunicationListV1SignalError(output, error_type, error_str);
-        emit otherincomeGetCommunicationListV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT otherincomeGetCommunicationListV1SignalError(output, error_type, error_str);
+        Q_EMIT otherincomeGetCommunicationListV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

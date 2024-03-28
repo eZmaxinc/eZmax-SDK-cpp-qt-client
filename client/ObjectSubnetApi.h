@@ -112,7 +112,7 @@ private:
     void subnetEditObjectV1Callback(HttpRequestWorker *worker);
     void subnetGetObjectV2Callback(HttpRequestWorker *worker);
 
-signals:
+Q_SIGNALS:
 
     void subnetCreateObjectV1Signal(Subnet_createObject_v1_Response summary);
     void subnetDeleteObjectV1Signal(Subnet_deleteObject_v1_Response summary);
@@ -153,7 +153,7 @@ signals:
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
-public slots:
+public Q_SLOTS:
     void tokenAvailable();
 };
 

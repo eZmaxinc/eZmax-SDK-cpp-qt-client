@@ -172,7 +172,7 @@ void ObjectInvoiceApi::enableResponseCompression() {
 }
 
 void ObjectInvoiceApi::abortRequests() {
-    emit abortRequestsSignal();
+    Q_EMIT abortRequestsSignal();
 }
 
 QString ObjectInvoiceApi::getParamStylePrefix(const QString &style) {
@@ -279,7 +279,7 @@ void ObjectInvoiceApi::invoiceGetAttachmentsV1(const qint32 &pki_invoice_id) {
     connect(this, &ObjectInvoiceApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -297,8 +297,8 @@ void ObjectInvoiceApi::invoiceGetAttachmentsV1Callback(HttpRequestWorker *worker
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit invoiceGetAttachmentsV1Signal(output);
-        emit invoiceGetAttachmentsV1SignalFull(worker, output);
+        Q_EMIT invoiceGetAttachmentsV1Signal(output);
+        Q_EMIT invoiceGetAttachmentsV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -315,8 +315,8 @@ void ObjectInvoiceApi::invoiceGetAttachmentsV1Callback(HttpRequestWorker *worker
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit invoiceGetAttachmentsV1SignalE(output, error_type, error_str);
-        emit invoiceGetAttachmentsV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT invoiceGetAttachmentsV1SignalE(output, error_type, error_str);
+        Q_EMIT invoiceGetAttachmentsV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -326,8 +326,8 @@ void ObjectInvoiceApi::invoiceGetAttachmentsV1Callback(HttpRequestWorker *worker
 #pragma GCC diagnostic pop
 #endif
 
-        emit invoiceGetAttachmentsV1SignalError(output, error_type, error_str);
-        emit invoiceGetAttachmentsV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT invoiceGetAttachmentsV1SignalError(output, error_type, error_str);
+        Q_EMIT invoiceGetAttachmentsV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -372,7 +372,7 @@ void ObjectInvoiceApi::invoiceGetCommunicationListV1(const qint32 &pki_invoice_i
     connect(this, &ObjectInvoiceApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -390,8 +390,8 @@ void ObjectInvoiceApi::invoiceGetCommunicationListV1Callback(HttpRequestWorker *
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit invoiceGetCommunicationListV1Signal(output);
-        emit invoiceGetCommunicationListV1SignalFull(worker, output);
+        Q_EMIT invoiceGetCommunicationListV1Signal(output);
+        Q_EMIT invoiceGetCommunicationListV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -408,8 +408,8 @@ void ObjectInvoiceApi::invoiceGetCommunicationListV1Callback(HttpRequestWorker *
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit invoiceGetCommunicationListV1SignalE(output, error_type, error_str);
-        emit invoiceGetCommunicationListV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT invoiceGetCommunicationListV1SignalE(output, error_type, error_str);
+        Q_EMIT invoiceGetCommunicationListV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -419,8 +419,8 @@ void ObjectInvoiceApi::invoiceGetCommunicationListV1Callback(HttpRequestWorker *
 #pragma GCC diagnostic pop
 #endif
 
-        emit invoiceGetCommunicationListV1SignalError(output, error_type, error_str);
-        emit invoiceGetCommunicationListV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT invoiceGetCommunicationListV1SignalError(output, error_type, error_str);
+        Q_EMIT invoiceGetCommunicationListV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

@@ -128,7 +128,7 @@ private:
     void billingentityinternalGetListV1Callback(HttpRequestWorker *worker);
     void billingentityinternalGetObjectV2Callback(HttpRequestWorker *worker);
 
-signals:
+Q_SIGNALS:
 
     void billingentityinternalCreateObjectV1Signal(Billingentityinternal_createObject_v1_Response summary);
     void billingentityinternalEditObjectV1Signal(Billingentityinternal_editObject_v1_Response summary);
@@ -177,7 +177,7 @@ signals:
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
-public slots:
+public Q_SLOTS:
     void tokenAvailable();
 };
 

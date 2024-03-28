@@ -170,7 +170,7 @@ void ObjectInscriptionnotauthenticatedApi::enableResponseCompression() {
 }
 
 void ObjectInscriptionnotauthenticatedApi::abortRequests() {
-    emit abortRequestsSignal();
+    Q_EMIT abortRequestsSignal();
 }
 
 QString ObjectInscriptionnotauthenticatedApi::getParamStylePrefix(const QString &style) {
@@ -277,7 +277,7 @@ void ObjectInscriptionnotauthenticatedApi::inscriptionnotauthenticatedGetCommuni
     connect(this, &ObjectInscriptionnotauthenticatedApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -295,8 +295,8 @@ void ObjectInscriptionnotauthenticatedApi::inscriptionnotauthenticatedGetCommuni
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit inscriptionnotauthenticatedGetCommunicationListV1Signal(output);
-        emit inscriptionnotauthenticatedGetCommunicationListV1SignalFull(worker, output);
+        Q_EMIT inscriptionnotauthenticatedGetCommunicationListV1Signal(output);
+        Q_EMIT inscriptionnotauthenticatedGetCommunicationListV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -313,8 +313,8 @@ void ObjectInscriptionnotauthenticatedApi::inscriptionnotauthenticatedGetCommuni
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit inscriptionnotauthenticatedGetCommunicationListV1SignalE(output, error_type, error_str);
-        emit inscriptionnotauthenticatedGetCommunicationListV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT inscriptionnotauthenticatedGetCommunicationListV1SignalE(output, error_type, error_str);
+        Q_EMIT inscriptionnotauthenticatedGetCommunicationListV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -324,8 +324,8 @@ void ObjectInscriptionnotauthenticatedApi::inscriptionnotauthenticatedGetCommuni
 #pragma GCC diagnostic pop
 #endif
 
-        emit inscriptionnotauthenticatedGetCommunicationListV1SignalError(output, error_type, error_str);
-        emit inscriptionnotauthenticatedGetCommunicationListV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT inscriptionnotauthenticatedGetCommunicationListV1SignalError(output, error_type, error_str);
+        Q_EMIT inscriptionnotauthenticatedGetCommunicationListV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

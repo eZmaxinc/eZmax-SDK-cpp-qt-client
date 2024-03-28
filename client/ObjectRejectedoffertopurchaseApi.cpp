@@ -170,7 +170,7 @@ void ObjectRejectedoffertopurchaseApi::enableResponseCompression() {
 }
 
 void ObjectRejectedoffertopurchaseApi::abortRequests() {
-    emit abortRequestsSignal();
+    Q_EMIT abortRequestsSignal();
 }
 
 QString ObjectRejectedoffertopurchaseApi::getParamStylePrefix(const QString &style) {
@@ -277,7 +277,7 @@ void ObjectRejectedoffertopurchaseApi::rejectedoffertopurchaseGetCommunicationLi
     connect(this, &ObjectRejectedoffertopurchaseApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -295,8 +295,8 @@ void ObjectRejectedoffertopurchaseApi::rejectedoffertopurchaseGetCommunicationLi
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit rejectedoffertopurchaseGetCommunicationListV1Signal(output);
-        emit rejectedoffertopurchaseGetCommunicationListV1SignalFull(worker, output);
+        Q_EMIT rejectedoffertopurchaseGetCommunicationListV1Signal(output);
+        Q_EMIT rejectedoffertopurchaseGetCommunicationListV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -313,8 +313,8 @@ void ObjectRejectedoffertopurchaseApi::rejectedoffertopurchaseGetCommunicationLi
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit rejectedoffertopurchaseGetCommunicationListV1SignalE(output, error_type, error_str);
-        emit rejectedoffertopurchaseGetCommunicationListV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT rejectedoffertopurchaseGetCommunicationListV1SignalE(output, error_type, error_str);
+        Q_EMIT rejectedoffertopurchaseGetCommunicationListV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -324,8 +324,8 @@ void ObjectRejectedoffertopurchaseApi::rejectedoffertopurchaseGetCommunicationLi
 #pragma GCC diagnostic pop
 #endif
 
-        emit rejectedoffertopurchaseGetCommunicationListV1SignalError(output, error_type, error_str);
-        emit rejectedoffertopurchaseGetCommunicationListV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT rejectedoffertopurchaseGetCommunicationListV1SignalError(output, error_type, error_str);
+        Q_EMIT rejectedoffertopurchaseGetCommunicationListV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

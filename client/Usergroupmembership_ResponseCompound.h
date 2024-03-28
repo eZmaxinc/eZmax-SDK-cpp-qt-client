@@ -54,6 +54,11 @@ public:
     bool is_fki_user_id_Set() const;
     bool is_fki_user_id_Valid() const;
 
+    qint32 getFkiUsergroupexternalId() const;
+    void setFkiUsergroupexternalId(const qint32 &fki_usergroupexternal_id);
+    bool is_fki_usergroupexternal_id_Set() const;
+    bool is_fki_usergroupexternal_id_Valid() const;
+
     QString getSUserFirstname() const;
     void setSUserFirstname(const QString &s_user_firstname);
     bool is_s_user_firstname_Set() const;
@@ -79,6 +84,11 @@ public:
     bool is_s_usergroup_name_x_Set() const;
     bool is_s_usergroup_name_x_Valid() const;
 
+    QString getSUsergroupexternalName() const;
+    void setSUsergroupexternalName(const QString &s_usergroupexternal_name);
+    bool is_s_usergroupexternal_name_Set() const;
+    bool is_s_usergroupexternal_name_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -96,6 +106,10 @@ private:
     qint32 m_fki_user_id;
     bool m_fki_user_id_isSet;
     bool m_fki_user_id_isValid;
+
+    qint32 m_fki_usergroupexternal_id;
+    bool m_fki_usergroupexternal_id_isSet;
+    bool m_fki_usergroupexternal_id_isValid;
 
     QString m_s_user_firstname;
     bool m_s_user_firstname_isSet;
@@ -116,6 +130,10 @@ private:
     QString m_s_usergroup_name_x;
     bool m_s_usergroup_name_x_isSet;
     bool m_s_usergroup_name_x_isValid;
+
+    QString m_s_usergroupexternal_name;
+    bool m_s_usergroupexternal_name_isSet;
+    bool m_s_usergroupexternal_name_isValid;
 };
 
 } // namespace Ezmaxapi

@@ -170,7 +170,7 @@ void ObjectBillingentityexternalApi::enableResponseCompression() {
 }
 
 void ObjectBillingentityexternalApi::abortRequests() {
-    emit abortRequestsSignal();
+    Q_EMIT abortRequestsSignal();
 }
 
 QString ObjectBillingentityexternalApi::getParamStylePrefix(const QString &style) {
@@ -271,7 +271,7 @@ void ObjectBillingentityexternalApi::billingentityexternalGetAutocompleteV2(cons
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("eFilterActive")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(e_filter_active.value())));
+        fullPath.append(QUrl::toPercentEncoding("eFilterActive")).append(querySuffix).append(QUrl::toPercentEncoding(e_filter_active.stringValue()));
     }
     if (s_query.hasValue())
     {
@@ -286,7 +286,7 @@ void ObjectBillingentityexternalApi::billingentityexternalGetAutocompleteV2(cons
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_query.value())));
+        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(s_query.stringValue()));
     }
     HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -352,7 +352,7 @@ void ObjectBillingentityexternalApi::billingentityexternalGetAutocompleteV2(cons
     connect(this, &ObjectBillingentityexternalApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -370,8 +370,8 @@ void ObjectBillingentityexternalApi::billingentityexternalGetAutocompleteV2Callb
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit billingentityexternalGetAutocompleteV2Signal(output);
-        emit billingentityexternalGetAutocompleteV2SignalFull(worker, output);
+        Q_EMIT billingentityexternalGetAutocompleteV2Signal(output);
+        Q_EMIT billingentityexternalGetAutocompleteV2SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -388,8 +388,8 @@ void ObjectBillingentityexternalApi::billingentityexternalGetAutocompleteV2Callb
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit billingentityexternalGetAutocompleteV2SignalE(output, error_type, error_str);
-        emit billingentityexternalGetAutocompleteV2SignalEFull(worker, error_type, error_str);
+        Q_EMIT billingentityexternalGetAutocompleteV2SignalE(output, error_type, error_str);
+        Q_EMIT billingentityexternalGetAutocompleteV2SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -399,8 +399,8 @@ void ObjectBillingentityexternalApi::billingentityexternalGetAutocompleteV2Callb
 #pragma GCC diagnostic pop
 #endif
 
-        emit billingentityexternalGetAutocompleteV2SignalError(output, error_type, error_str);
-        emit billingentityexternalGetAutocompleteV2SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT billingentityexternalGetAutocompleteV2SignalError(output, error_type, error_str);
+        Q_EMIT billingentityexternalGetAutocompleteV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 

@@ -365,7 +365,7 @@ bool Activesession_ResponseCompound_User::isSet() const {
 
 bool Activesession_ResponseCompound_User::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_pki_user_id_isValid && m_fki_timezone_id_isValid && m_s_avatar_url_isValid && m_s_user_firstname_isValid && m_s_user_lastname_isValid && m_s_email_address_isValid && m_e_user_ezsignsendreminderfrequency_isValid && m_i_user_interfacecolor_isValid && m_b_user_interfacedark_isValid && m_i_user_listresult_isValid && true;
+    return m_pki_user_id_isValid && m_fki_timezone_id_isValid && m_s_user_firstname_isValid && m_s_user_lastname_isValid && m_e_user_ezsignsendreminderfrequency_isValid && m_i_user_interfacecolor_isValid && m_b_user_interfacedark_isValid && m_i_user_listresult_isValid && true;
 }
 
 } // namespace Ezmaxapi

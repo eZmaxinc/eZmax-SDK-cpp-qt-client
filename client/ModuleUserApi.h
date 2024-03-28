@@ -88,7 +88,7 @@ private:
 
     void userCreateEzsignuserV1Callback(HttpRequestWorker *worker);
 
-signals:
+Q_SIGNALS:
 
     void userCreateEzsignuserV1Signal(User_createEzsignuser_v1_Response summary);
 
@@ -105,7 +105,7 @@ signals:
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
-public slots:
+public Q_SLOTS:
     void tokenAvailable();
 };
 

@@ -172,7 +172,7 @@ void ObjectSystemconfigurationApi::enableResponseCompression() {
 }
 
 void ObjectSystemconfigurationApi::abortRequests() {
-    emit abortRequestsSignal();
+    Q_EMIT abortRequestsSignal();
 }
 
 QString ObjectSystemconfigurationApi::getParamStylePrefix(const QString &style) {
@@ -284,7 +284,7 @@ void ObjectSystemconfigurationApi::systemconfigurationEditObjectV1(const qint32 
     connect(this, &ObjectSystemconfigurationApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -302,8 +302,8 @@ void ObjectSystemconfigurationApi::systemconfigurationEditObjectV1Callback(HttpR
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit systemconfigurationEditObjectV1Signal(output);
-        emit systemconfigurationEditObjectV1SignalFull(worker, output);
+        Q_EMIT systemconfigurationEditObjectV1Signal(output);
+        Q_EMIT systemconfigurationEditObjectV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -320,8 +320,8 @@ void ObjectSystemconfigurationApi::systemconfigurationEditObjectV1Callback(HttpR
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit systemconfigurationEditObjectV1SignalE(output, error_type, error_str);
-        emit systemconfigurationEditObjectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT systemconfigurationEditObjectV1SignalE(output, error_type, error_str);
+        Q_EMIT systemconfigurationEditObjectV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -331,8 +331,8 @@ void ObjectSystemconfigurationApi::systemconfigurationEditObjectV1Callback(HttpR
 #pragma GCC diagnostic pop
 #endif
 
-        emit systemconfigurationEditObjectV1SignalError(output, error_type, error_str);
-        emit systemconfigurationEditObjectV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT systemconfigurationEditObjectV1SignalError(output, error_type, error_str);
+        Q_EMIT systemconfigurationEditObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -377,7 +377,7 @@ void ObjectSystemconfigurationApi::systemconfigurationGetObjectV2(const qint32 &
     connect(this, &ObjectSystemconfigurationApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -395,8 +395,8 @@ void ObjectSystemconfigurationApi::systemconfigurationGetObjectV2Callback(HttpRe
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit systemconfigurationGetObjectV2Signal(output);
-        emit systemconfigurationGetObjectV2SignalFull(worker, output);
+        Q_EMIT systemconfigurationGetObjectV2Signal(output);
+        Q_EMIT systemconfigurationGetObjectV2SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -413,8 +413,8 @@ void ObjectSystemconfigurationApi::systemconfigurationGetObjectV2Callback(HttpRe
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit systemconfigurationGetObjectV2SignalE(output, error_type, error_str);
-        emit systemconfigurationGetObjectV2SignalEFull(worker, error_type, error_str);
+        Q_EMIT systemconfigurationGetObjectV2SignalE(output, error_type, error_str);
+        Q_EMIT systemconfigurationGetObjectV2SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -424,8 +424,8 @@ void ObjectSystemconfigurationApi::systemconfigurationGetObjectV2Callback(HttpRe
 #pragma GCC diagnostic pop
 #endif
 
-        emit systemconfigurationGetObjectV2SignalError(output, error_type, error_str);
-        emit systemconfigurationGetObjectV2SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT systemconfigurationGetObjectV2SignalError(output, error_type, error_str);
+        Q_EMIT systemconfigurationGetObjectV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 

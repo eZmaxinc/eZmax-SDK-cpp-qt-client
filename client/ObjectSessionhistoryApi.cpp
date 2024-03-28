@@ -170,7 +170,7 @@ void ObjectSessionhistoryApi::enableResponseCompression() {
 }
 
 void ObjectSessionhistoryApi::abortRequests() {
-    emit abortRequestsSignal();
+    Q_EMIT abortRequestsSignal();
 }
 
 QString ObjectSessionhistoryApi::getParamStylePrefix(const QString &style) {
@@ -257,7 +257,7 @@ void ObjectSessionhistoryApi::sessionhistoryGetListV1(const ::Ezmaxapi::Optional
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("eOrderBy")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(e_order_by.value())));
+        fullPath.append(QUrl::toPercentEncoding("eOrderBy")).append(querySuffix).append(QUrl::toPercentEncoding(e_order_by.stringValue()));
     }
     if (i_row_max.hasValue())
     {
@@ -272,7 +272,7 @@ void ObjectSessionhistoryApi::sessionhistoryGetListV1(const ::Ezmaxapi::Optional
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("iRowMax")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(i_row_max.value())));
+        fullPath.append(QUrl::toPercentEncoding("iRowMax")).append(querySuffix).append(QUrl::toPercentEncoding(i_row_max.stringValue()));
     }
     if (i_row_offset.hasValue())
     {
@@ -287,7 +287,7 @@ void ObjectSessionhistoryApi::sessionhistoryGetListV1(const ::Ezmaxapi::Optional
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("iRowOffset")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(i_row_offset.value())));
+        fullPath.append(QUrl::toPercentEncoding("iRowOffset")).append(querySuffix).append(QUrl::toPercentEncoding(i_row_offset.stringValue()));
     }
     if (s_filter.hasValue())
     {
@@ -302,7 +302,7 @@ void ObjectSessionhistoryApi::sessionhistoryGetListV1(const ::Ezmaxapi::Optional
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("sFilter")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_filter.value())));
+        fullPath.append(QUrl::toPercentEncoding("sFilter")).append(querySuffix).append(QUrl::toPercentEncoding(s_filter.stringValue()));
     }
     HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -368,7 +368,7 @@ void ObjectSessionhistoryApi::sessionhistoryGetListV1(const ::Ezmaxapi::Optional
     connect(this, &ObjectSessionhistoryApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -386,8 +386,8 @@ void ObjectSessionhistoryApi::sessionhistoryGetListV1Callback(HttpRequestWorker 
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit sessionhistoryGetListV1Signal(output);
-        emit sessionhistoryGetListV1SignalFull(worker, output);
+        Q_EMIT sessionhistoryGetListV1Signal(output);
+        Q_EMIT sessionhistoryGetListV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -404,8 +404,8 @@ void ObjectSessionhistoryApi::sessionhistoryGetListV1Callback(HttpRequestWorker 
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit sessionhistoryGetListV1SignalE(output, error_type, error_str);
-        emit sessionhistoryGetListV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT sessionhistoryGetListV1SignalE(output, error_type, error_str);
+        Q_EMIT sessionhistoryGetListV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -415,8 +415,8 @@ void ObjectSessionhistoryApi::sessionhistoryGetListV1Callback(HttpRequestWorker 
 #pragma GCC diagnostic pop
 #endif
 
-        emit sessionhistoryGetListV1SignalError(output, error_type, error_str);
-        emit sessionhistoryGetListV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT sessionhistoryGetListV1SignalError(output, error_type, error_str);
+        Q_EMIT sessionhistoryGetListV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

@@ -88,7 +88,7 @@ private:
 
     void electronicfundstransferGetCommunicationListV1Callback(HttpRequestWorker *worker);
 
-signals:
+Q_SIGNALS:
 
     void electronicfundstransferGetCommunicationListV1Signal(Electronicfundstransfer_getCommunicationList_v1_Response summary);
 
@@ -105,7 +105,7 @@ signals:
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
-public slots:
+public Q_SLOTS:
     void tokenAvailable();
 };
 

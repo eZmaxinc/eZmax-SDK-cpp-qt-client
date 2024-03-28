@@ -176,7 +176,7 @@ void ObjectEzsigntemplateformfieldgroupApi::enableResponseCompression() {
 }
 
 void ObjectEzsigntemplateformfieldgroupApi::abortRequests() {
-    emit abortRequestsSignal();
+    Q_EMIT abortRequestsSignal();
 }
 
 QString ObjectEzsigntemplateformfieldgroupApi::getParamStylePrefix(const QString &style) {
@@ -274,7 +274,7 @@ void ObjectEzsigntemplateformfieldgroupApi::ezsigntemplateformfieldgroupCreateOb
     connect(this, &ObjectEzsigntemplateformfieldgroupApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -292,8 +292,8 @@ void ObjectEzsigntemplateformfieldgroupApi::ezsigntemplateformfieldgroupCreateOb
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsigntemplateformfieldgroupCreateObjectV1Signal(output);
-        emit ezsigntemplateformfieldgroupCreateObjectV1SignalFull(worker, output);
+        Q_EMIT ezsigntemplateformfieldgroupCreateObjectV1Signal(output);
+        Q_EMIT ezsigntemplateformfieldgroupCreateObjectV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -310,8 +310,8 @@ void ObjectEzsigntemplateformfieldgroupApi::ezsigntemplateformfieldgroupCreateOb
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsigntemplateformfieldgroupCreateObjectV1SignalE(output, error_type, error_str);
-        emit ezsigntemplateformfieldgroupCreateObjectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsigntemplateformfieldgroupCreateObjectV1SignalE(output, error_type, error_str);
+        Q_EMIT ezsigntemplateformfieldgroupCreateObjectV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -321,8 +321,8 @@ void ObjectEzsigntemplateformfieldgroupApi::ezsigntemplateformfieldgroupCreateOb
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsigntemplateformfieldgroupCreateObjectV1SignalError(output, error_type, error_str);
-        emit ezsigntemplateformfieldgroupCreateObjectV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsigntemplateformfieldgroupCreateObjectV1SignalError(output, error_type, error_str);
+        Q_EMIT ezsigntemplateformfieldgroupCreateObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -367,7 +367,7 @@ void ObjectEzsigntemplateformfieldgroupApi::ezsigntemplateformfieldgroupDeleteOb
     connect(this, &ObjectEzsigntemplateformfieldgroupApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -385,8 +385,8 @@ void ObjectEzsigntemplateformfieldgroupApi::ezsigntemplateformfieldgroupDeleteOb
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsigntemplateformfieldgroupDeleteObjectV1Signal(output);
-        emit ezsigntemplateformfieldgroupDeleteObjectV1SignalFull(worker, output);
+        Q_EMIT ezsigntemplateformfieldgroupDeleteObjectV1Signal(output);
+        Q_EMIT ezsigntemplateformfieldgroupDeleteObjectV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -403,8 +403,8 @@ void ObjectEzsigntemplateformfieldgroupApi::ezsigntemplateformfieldgroupDeleteOb
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsigntemplateformfieldgroupDeleteObjectV1SignalE(output, error_type, error_str);
-        emit ezsigntemplateformfieldgroupDeleteObjectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsigntemplateformfieldgroupDeleteObjectV1SignalE(output, error_type, error_str);
+        Q_EMIT ezsigntemplateformfieldgroupDeleteObjectV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -414,8 +414,8 @@ void ObjectEzsigntemplateformfieldgroupApi::ezsigntemplateformfieldgroupDeleteOb
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsigntemplateformfieldgroupDeleteObjectV1SignalError(output, error_type, error_str);
-        emit ezsigntemplateformfieldgroupDeleteObjectV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsigntemplateformfieldgroupDeleteObjectV1SignalError(output, error_type, error_str);
+        Q_EMIT ezsigntemplateformfieldgroupDeleteObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -465,7 +465,7 @@ void ObjectEzsigntemplateformfieldgroupApi::ezsigntemplateformfieldgroupEditObje
     connect(this, &ObjectEzsigntemplateformfieldgroupApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -483,8 +483,8 @@ void ObjectEzsigntemplateformfieldgroupApi::ezsigntemplateformfieldgroupEditObje
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsigntemplateformfieldgroupEditObjectV1Signal(output);
-        emit ezsigntemplateformfieldgroupEditObjectV1SignalFull(worker, output);
+        Q_EMIT ezsigntemplateformfieldgroupEditObjectV1Signal(output);
+        Q_EMIT ezsigntemplateformfieldgroupEditObjectV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -501,8 +501,8 @@ void ObjectEzsigntemplateformfieldgroupApi::ezsigntemplateformfieldgroupEditObje
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsigntemplateformfieldgroupEditObjectV1SignalE(output, error_type, error_str);
-        emit ezsigntemplateformfieldgroupEditObjectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsigntemplateformfieldgroupEditObjectV1SignalE(output, error_type, error_str);
+        Q_EMIT ezsigntemplateformfieldgroupEditObjectV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -512,8 +512,8 @@ void ObjectEzsigntemplateformfieldgroupApi::ezsigntemplateformfieldgroupEditObje
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsigntemplateformfieldgroupEditObjectV1SignalError(output, error_type, error_str);
-        emit ezsigntemplateformfieldgroupEditObjectV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsigntemplateformfieldgroupEditObjectV1SignalError(output, error_type, error_str);
+        Q_EMIT ezsigntemplateformfieldgroupEditObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -558,7 +558,7 @@ void ObjectEzsigntemplateformfieldgroupApi::ezsigntemplateformfieldgroupGetObjec
     connect(this, &ObjectEzsigntemplateformfieldgroupApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -576,8 +576,8 @@ void ObjectEzsigntemplateformfieldgroupApi::ezsigntemplateformfieldgroupGetObjec
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsigntemplateformfieldgroupGetObjectV2Signal(output);
-        emit ezsigntemplateformfieldgroupGetObjectV2SignalFull(worker, output);
+        Q_EMIT ezsigntemplateformfieldgroupGetObjectV2Signal(output);
+        Q_EMIT ezsigntemplateformfieldgroupGetObjectV2SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -594,8 +594,8 @@ void ObjectEzsigntemplateformfieldgroupApi::ezsigntemplateformfieldgroupGetObjec
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsigntemplateformfieldgroupGetObjectV2SignalE(output, error_type, error_str);
-        emit ezsigntemplateformfieldgroupGetObjectV2SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsigntemplateformfieldgroupGetObjectV2SignalE(output, error_type, error_str);
+        Q_EMIT ezsigntemplateformfieldgroupGetObjectV2SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -605,8 +605,8 @@ void ObjectEzsigntemplateformfieldgroupApi::ezsigntemplateformfieldgroupGetObjec
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsigntemplateformfieldgroupGetObjectV2SignalError(output, error_type, error_str);
-        emit ezsigntemplateformfieldgroupGetObjectV2SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsigntemplateformfieldgroupGetObjectV2SignalError(output, error_type, error_str);
+        Q_EMIT ezsigntemplateformfieldgroupGetObjectV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 

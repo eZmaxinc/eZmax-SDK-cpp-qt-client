@@ -112,7 +112,7 @@ private:
     void usergroupdelegationEditObjectV1Callback(HttpRequestWorker *worker);
     void usergroupdelegationGetObjectV2Callback(HttpRequestWorker *worker);
 
-signals:
+Q_SIGNALS:
 
     void usergroupdelegationCreateObjectV1Signal(Usergroupdelegation_createObject_v1_Response summary);
     void usergroupdelegationDeleteObjectV1Signal(Usergroupdelegation_deleteObject_v1_Response summary);
@@ -153,7 +153,7 @@ signals:
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
-public slots:
+public Q_SLOTS:
     void tokenAvailable();
 };
 

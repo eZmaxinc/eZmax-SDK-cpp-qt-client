@@ -128,7 +128,7 @@ private:
     void variableexpenseGetListV1Callback(HttpRequestWorker *worker);
     void variableexpenseGetObjectV2Callback(HttpRequestWorker *worker);
 
-signals:
+Q_SIGNALS:
 
     void variableexpenseCreateObjectV1Signal(Variableexpense_createObject_v1_Response summary);
     void variableexpenseEditObjectV1Signal(Variableexpense_editObject_v1_Response summary);
@@ -177,7 +177,7 @@ signals:
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
-public slots:
+public Q_SLOTS:
     void tokenAvailable();
 };
 

@@ -174,7 +174,7 @@ void ObjectEzsignbulksendsignermappingApi::enableResponseCompression() {
 }
 
 void ObjectEzsignbulksendsignermappingApi::abortRequests() {
-    emit abortRequestsSignal();
+    Q_EMIT abortRequestsSignal();
 }
 
 QString ObjectEzsignbulksendsignermappingApi::getParamStylePrefix(const QString &style) {
@@ -272,7 +272,7 @@ void ObjectEzsignbulksendsignermappingApi::ezsignbulksendsignermappingCreateObje
     connect(this, &ObjectEzsignbulksendsignermappingApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -290,8 +290,8 @@ void ObjectEzsignbulksendsignermappingApi::ezsignbulksendsignermappingCreateObje
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsignbulksendsignermappingCreateObjectV1Signal(output);
-        emit ezsignbulksendsignermappingCreateObjectV1SignalFull(worker, output);
+        Q_EMIT ezsignbulksendsignermappingCreateObjectV1Signal(output);
+        Q_EMIT ezsignbulksendsignermappingCreateObjectV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -308,8 +308,8 @@ void ObjectEzsignbulksendsignermappingApi::ezsignbulksendsignermappingCreateObje
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsignbulksendsignermappingCreateObjectV1SignalE(output, error_type, error_str);
-        emit ezsignbulksendsignermappingCreateObjectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsignbulksendsignermappingCreateObjectV1SignalE(output, error_type, error_str);
+        Q_EMIT ezsignbulksendsignermappingCreateObjectV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -319,8 +319,8 @@ void ObjectEzsignbulksendsignermappingApi::ezsignbulksendsignermappingCreateObje
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsignbulksendsignermappingCreateObjectV1SignalError(output, error_type, error_str);
-        emit ezsignbulksendsignermappingCreateObjectV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsignbulksendsignermappingCreateObjectV1SignalError(output, error_type, error_str);
+        Q_EMIT ezsignbulksendsignermappingCreateObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -365,7 +365,7 @@ void ObjectEzsignbulksendsignermappingApi::ezsignbulksendsignermappingDeleteObje
     connect(this, &ObjectEzsignbulksendsignermappingApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -383,8 +383,8 @@ void ObjectEzsignbulksendsignermappingApi::ezsignbulksendsignermappingDeleteObje
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsignbulksendsignermappingDeleteObjectV1Signal(output);
-        emit ezsignbulksendsignermappingDeleteObjectV1SignalFull(worker, output);
+        Q_EMIT ezsignbulksendsignermappingDeleteObjectV1Signal(output);
+        Q_EMIT ezsignbulksendsignermappingDeleteObjectV1SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -401,8 +401,8 @@ void ObjectEzsignbulksendsignermappingApi::ezsignbulksendsignermappingDeleteObje
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsignbulksendsignermappingDeleteObjectV1SignalE(output, error_type, error_str);
-        emit ezsignbulksendsignermappingDeleteObjectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsignbulksendsignermappingDeleteObjectV1SignalE(output, error_type, error_str);
+        Q_EMIT ezsignbulksendsignermappingDeleteObjectV1SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -412,8 +412,8 @@ void ObjectEzsignbulksendsignermappingApi::ezsignbulksendsignermappingDeleteObje
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsignbulksendsignermappingDeleteObjectV1SignalError(output, error_type, error_str);
-        emit ezsignbulksendsignermappingDeleteObjectV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsignbulksendsignermappingDeleteObjectV1SignalError(output, error_type, error_str);
+        Q_EMIT ezsignbulksendsignermappingDeleteObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -458,7 +458,7 @@ void ObjectEzsignbulksendsignermappingApi::ezsignbulksendsignermappingGetObjectV
     connect(this, &ObjectEzsignbulksendsignermappingApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -476,8 +476,8 @@ void ObjectEzsignbulksendsignermappingApi::ezsignbulksendsignermappingGetObjectV
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit ezsignbulksendsignermappingGetObjectV2Signal(output);
-        emit ezsignbulksendsignermappingGetObjectV2SignalFull(worker, output);
+        Q_EMIT ezsignbulksendsignermappingGetObjectV2Signal(output);
+        Q_EMIT ezsignbulksendsignermappingGetObjectV2SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -494,8 +494,8 @@ void ObjectEzsignbulksendsignermappingApi::ezsignbulksendsignermappingGetObjectV
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        emit ezsignbulksendsignermappingGetObjectV2SignalE(output, error_type, error_str);
-        emit ezsignbulksendsignermappingGetObjectV2SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsignbulksendsignermappingGetObjectV2SignalE(output, error_type, error_str);
+        Q_EMIT ezsignbulksendsignermappingGetObjectV2SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -505,8 +505,8 @@ void ObjectEzsignbulksendsignermappingApi::ezsignbulksendsignermappingGetObjectV
 #pragma GCC diagnostic pop
 #endif
 
-        emit ezsignbulksendsignermappingGetObjectV2SignalError(output, error_type, error_str);
-        emit ezsignbulksendsignermappingGetObjectV2SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsignbulksendsignermappingGetObjectV2SignalError(output, error_type, error_str);
+        Q_EMIT ezsignbulksendsignermappingGetObjectV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 
