@@ -49,10 +49,10 @@ public:
     bool is_s_iframedomain_Set() const;
     bool is_s_iframedomain_Valid() const;
 
-    bool isBIsiframe() const;
-    void setBIsiframe(const bool &b_isiframe);
-    bool is_b_isiframe_Set() const;
-    bool is_b_isiframe_Valid() const;
+    bool isBIsIframe() const;
+    void setBIsIframe(const bool &b_is_iframe);
+    bool is_b_is_iframe_Set() const;
+    bool is_b_is_iframe_Valid() const;
 
     virtual bool isSet() const override;
     virtual bool isValid() const override;
@@ -68,9 +68,9 @@ private:
     bool m_s_iframedomain_isSet;
     bool m_s_iframedomain_isValid;
 
-    bool m_b_isiframe;
-    bool m_b_isiframe_isSet;
-    bool m_b_isiframe_isValid;
+    bool m_b_is_iframe;
+    bool m_b_is_iframe_isSet;
+    bool m_b_is_iframe_isValid;
 };
 
 } // namespace Ezmaxapi

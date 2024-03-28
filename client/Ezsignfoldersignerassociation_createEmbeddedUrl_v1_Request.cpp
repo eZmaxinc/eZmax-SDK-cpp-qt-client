@@ -40,8 +40,8 @@ void Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Request::initializeModel
     m_s_iframedomain_isSet = false;
     m_s_iframedomain_isValid = false;
 
-    m_b_isiframe_isSet = false;
-    m_b_isiframe_isValid = false;
+    m_b_is_iframe_isSet = false;
+    m_b_is_iframe_isValid = false;
 }
 
 void Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Request::fromJson(QString jsonString) {
@@ -59,8 +59,8 @@ void Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Request::fromJsonObject(
     m_s_iframedomain_isValid = ::Ezmaxapi::fromJsonValue(m_s_iframedomain, json[QString("sIframedomain")]);
     m_s_iframedomain_isSet = !json[QString("sIframedomain")].isNull() && m_s_iframedomain_isValid;
 
-    m_b_isiframe_isValid = ::Ezmaxapi::fromJsonValue(m_b_isiframe, json[QString("bIsiframe")]);
-    m_b_isiframe_isSet = !json[QString("bIsiframe")].isNull() && m_b_isiframe_isValid;
+    m_b_is_iframe_isValid = ::Ezmaxapi::fromJsonValue(m_b_is_iframe, json[QString("bIsIframe")]);
+    m_b_is_iframe_isSet = !json[QString("bIsIframe")].isNull() && m_b_is_iframe_isValid;
 }
 
 QString Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Request::asJson() const {
@@ -78,8 +78,8 @@ QJsonObject Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Request::asJsonOb
     if (m_s_iframedomain_isSet) {
         obj.insert(QString("sIframedomain"), ::Ezmaxapi::toJsonValue(m_s_iframedomain));
     }
-    if (m_b_isiframe_isSet) {
-        obj.insert(QString("bIsiframe"), ::Ezmaxapi::toJsonValue(m_b_isiframe));
+    if (m_b_is_iframe_isSet) {
+        obj.insert(QString("bIsIframe"), ::Ezmaxapi::toJsonValue(m_b_is_iframe));
     }
     return obj;
 }
@@ -116,20 +116,20 @@ bool Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Request::is_s_iframedoma
     return m_s_iframedomain_isValid;
 }
 
-bool Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Request::isBIsiframe() const {
-    return m_b_isiframe;
+bool Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Request::isBIsIframe() const {
+    return m_b_is_iframe;
 }
-void Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Request::setBIsiframe(const bool &b_isiframe) {
-    m_b_isiframe = b_isiframe;
-    m_b_isiframe_isSet = true;
-}
-
-bool Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Request::is_b_isiframe_Set() const{
-    return m_b_isiframe_isSet;
+void Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Request::setBIsIframe(const bool &b_is_iframe) {
+    m_b_is_iframe = b_is_iframe;
+    m_b_is_iframe_isSet = true;
 }
 
-bool Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Request::is_b_isiframe_Valid() const{
-    return m_b_isiframe_isValid;
+bool Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Request::is_b_is_iframe_Set() const{
+    return m_b_is_iframe_isSet;
+}
+
+bool Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Request::is_b_is_iframe_Valid() const{
+    return m_b_is_iframe_isValid;
 }
 
 bool Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Request::isSet() const {
@@ -145,7 +145,7 @@ bool Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Request::isSet() const {
             break;
         }
 
-        if (m_b_isiframe_isSet) {
+        if (m_b_is_iframe_isSet) {
             isObjectUpdated = true;
             break;
         }
