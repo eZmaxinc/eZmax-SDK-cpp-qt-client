@@ -161,6 +161,30 @@ HEADERS += \
     $${PWD}/Country_AutocompleteElement_Response.h \
     $${PWD}/Country_getAutocomplete_v2_Response.h \
     $${PWD}/Country_getAutocomplete_v2_Response_mPayload.h \
+    $${PWD}/Creditcardclient_AutocompleteElement_Response.h \
+    $${PWD}/Creditcardclient_ListElement.h \
+    $${PWD}/Creditcardclient_Request.h \
+    $${PWD}/Creditcardclient_RequestCompound.h \
+    $${PWD}/Creditcardclient_Response.h \
+    $${PWD}/Creditcardclient_ResponseCompound.h \
+    $${PWD}/Creditcardclient_createObject_v1_Request.h \
+    $${PWD}/Creditcardclient_createObject_v1_Response.h \
+    $${PWD}/Creditcardclient_createObject_v1_Response_mPayload.h \
+    $${PWD}/Creditcardclient_deleteObject_v1_Response.h \
+    $${PWD}/Creditcardclient_editObject_v1_Request.h \
+    $${PWD}/Creditcardclient_editObject_v1_Response.h \
+    $${PWD}/Creditcardclient_getAutocomplete_v2_Response.h \
+    $${PWD}/Creditcardclient_getAutocomplete_v2_Response_mPayload.h \
+    $${PWD}/Creditcardclient_getList_v1_Response.h \
+    $${PWD}/Creditcardclient_getList_v1_Response_mPayload.h \
+    $${PWD}/Creditcardclient_getObject_v2_Response.h \
+    $${PWD}/Creditcardclient_getObject_v2_Response_mPayload.h \
+    $${PWD}/Creditcarddetail_Request.h \
+    $${PWD}/Creditcarddetail_Response.h \
+    $${PWD}/Creditcarddetail_ResponseCompound.h \
+    $${PWD}/Creditcardtype_AutocompleteElement_Response.h \
+    $${PWD}/Creditcardtype_getAutocomplete_v2_Response.h \
+    $${PWD}/Creditcardtype_getAutocomplete_v2_Response_mPayload.h \
     $${PWD}/Custom_Attachment_Response.h \
     $${PWD}/Custom_Attachmentdocumenttype_Response.h \
     $${PWD}/Custom_CommunicationListElement_Response.h \
@@ -1304,6 +1328,8 @@ HEADERS += \
     $${PWD}/ObjectCompanyApi.h \
     $${PWD}/ObjectCorsApi.h \
     $${PWD}/ObjectCountryApi.h \
+    $${PWD}/ObjectCreditcardclientApi.h \
+    $${PWD}/ObjectCreditcardtypeApi.h \
     $${PWD}/ObjectDepartmentApi.h \
     $${PWD}/ObjectDiscussionApi.h \
     $${PWD}/ObjectDiscussionmembershipApi.h \
@@ -1549,6 +1575,30 @@ SOURCES += \
     $${PWD}/Country_AutocompleteElement_Response.cpp \
     $${PWD}/Country_getAutocomplete_v2_Response.cpp \
     $${PWD}/Country_getAutocomplete_v2_Response_mPayload.cpp \
+    $${PWD}/Creditcardclient_AutocompleteElement_Response.cpp \
+    $${PWD}/Creditcardclient_ListElement.cpp \
+    $${PWD}/Creditcardclient_Request.cpp \
+    $${PWD}/Creditcardclient_RequestCompound.cpp \
+    $${PWD}/Creditcardclient_Response.cpp \
+    $${PWD}/Creditcardclient_ResponseCompound.cpp \
+    $${PWD}/Creditcardclient_createObject_v1_Request.cpp \
+    $${PWD}/Creditcardclient_createObject_v1_Response.cpp \
+    $${PWD}/Creditcardclient_createObject_v1_Response_mPayload.cpp \
+    $${PWD}/Creditcardclient_deleteObject_v1_Response.cpp \
+    $${PWD}/Creditcardclient_editObject_v1_Request.cpp \
+    $${PWD}/Creditcardclient_editObject_v1_Response.cpp \
+    $${PWD}/Creditcardclient_getAutocomplete_v2_Response.cpp \
+    $${PWD}/Creditcardclient_getAutocomplete_v2_Response_mPayload.cpp \
+    $${PWD}/Creditcardclient_getList_v1_Response.cpp \
+    $${PWD}/Creditcardclient_getList_v1_Response_mPayload.cpp \
+    $${PWD}/Creditcardclient_getObject_v2_Response.cpp \
+    $${PWD}/Creditcardclient_getObject_v2_Response_mPayload.cpp \
+    $${PWD}/Creditcarddetail_Request.cpp \
+    $${PWD}/Creditcarddetail_Response.cpp \
+    $${PWD}/Creditcarddetail_ResponseCompound.cpp \
+    $${PWD}/Creditcardtype_AutocompleteElement_Response.cpp \
+    $${PWD}/Creditcardtype_getAutocomplete_v2_Response.cpp \
+    $${PWD}/Creditcardtype_getAutocomplete_v2_Response_mPayload.cpp \
     $${PWD}/Custom_Attachment_Response.cpp \
     $${PWD}/Custom_Attachmentdocumenttype_Response.cpp \
     $${PWD}/Custom_CommunicationListElement_Response.cpp \
@@ -2692,6 +2742,8 @@ SOURCES += \
     $${PWD}/ObjectCompanyApi.cpp \
     $${PWD}/ObjectCorsApi.cpp \
     $${PWD}/ObjectCountryApi.cpp \
+    $${PWD}/ObjectCreditcardclientApi.cpp \
+    $${PWD}/ObjectCreditcardtypeApi.cpp \
     $${PWD}/ObjectDepartmentApi.cpp \
     $${PWD}/ObjectDiscussionApi.cpp \
     $${PWD}/ObjectDiscussionmembershipApi.cpp \

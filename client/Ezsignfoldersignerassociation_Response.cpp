@@ -48,6 +48,9 @@ void Ezsignfoldersignerassociation_Response::initializeModel() {
 
     m_t_ezsignfoldersignerassociation_message_isSet = false;
     m_t_ezsignfoldersignerassociation_message_isValid = false;
+
+    m_b_ezsignfoldersignerassociation_allowsigninginperson_isSet = false;
+    m_b_ezsignfoldersignerassociation_allowsigninginperson_isValid = false;
 }
 
 void Ezsignfoldersignerassociation_Response::fromJson(QString jsonString) {
@@ -73,6 +76,9 @@ void Ezsignfoldersignerassociation_Response::fromJsonObject(QJsonObject json) {
 
     m_t_ezsignfoldersignerassociation_message_isValid = ::Ezmaxapi::fromJsonValue(m_t_ezsignfoldersignerassociation_message, json[QString("tEzsignfoldersignerassociationMessage")]);
     m_t_ezsignfoldersignerassociation_message_isSet = !json[QString("tEzsignfoldersignerassociationMessage")].isNull() && m_t_ezsignfoldersignerassociation_message_isValid;
+
+    m_b_ezsignfoldersignerassociation_allowsigninginperson_isValid = ::Ezmaxapi::fromJsonValue(m_b_ezsignfoldersignerassociation_allowsigninginperson, json[QString("bEzsignfoldersignerassociationAllowsigninginperson")]);
+    m_b_ezsignfoldersignerassociation_allowsigninginperson_isSet = !json[QString("bEzsignfoldersignerassociationAllowsigninginperson")].isNull() && m_b_ezsignfoldersignerassociation_allowsigninginperson_isValid;
 }
 
 QString Ezsignfoldersignerassociation_Response::asJson() const {
@@ -98,6 +104,9 @@ QJsonObject Ezsignfoldersignerassociation_Response::asJsonObject() const {
     }
     if (m_t_ezsignfoldersignerassociation_message_isSet) {
         obj.insert(QString("tEzsignfoldersignerassociationMessage"), ::Ezmaxapi::toJsonValue(m_t_ezsignfoldersignerassociation_message));
+    }
+    if (m_b_ezsignfoldersignerassociation_allowsigninginperson_isSet) {
+        obj.insert(QString("bEzsignfoldersignerassociationAllowsigninginperson"), ::Ezmaxapi::toJsonValue(m_b_ezsignfoldersignerassociation_allowsigninginperson));
     }
     return obj;
 }
@@ -182,6 +191,22 @@ bool Ezsignfoldersignerassociation_Response::is_t_ezsignfoldersignerassociation_
     return m_t_ezsignfoldersignerassociation_message_isValid;
 }
 
+bool Ezsignfoldersignerassociation_Response::isBEzsignfoldersignerassociationAllowsigninginperson() const {
+    return m_b_ezsignfoldersignerassociation_allowsigninginperson;
+}
+void Ezsignfoldersignerassociation_Response::setBEzsignfoldersignerassociationAllowsigninginperson(const bool &b_ezsignfoldersignerassociation_allowsigninginperson) {
+    m_b_ezsignfoldersignerassociation_allowsigninginperson = b_ezsignfoldersignerassociation_allowsigninginperson;
+    m_b_ezsignfoldersignerassociation_allowsigninginperson_isSet = true;
+}
+
+bool Ezsignfoldersignerassociation_Response::is_b_ezsignfoldersignerassociation_allowsigninginperson_Set() const{
+    return m_b_ezsignfoldersignerassociation_allowsigninginperson_isSet;
+}
+
+bool Ezsignfoldersignerassociation_Response::is_b_ezsignfoldersignerassociation_allowsigninginperson_Valid() const{
+    return m_b_ezsignfoldersignerassociation_allowsigninginperson_isValid;
+}
+
 bool Ezsignfoldersignerassociation_Response::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -209,13 +234,18 @@ bool Ezsignfoldersignerassociation_Response::isSet() const {
             isObjectUpdated = true;
             break;
         }
+
+        if (m_b_ezsignfoldersignerassociation_allowsigninginperson_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
     } while (false);
     return isObjectUpdated;
 }
 
 bool Ezsignfoldersignerassociation_Response::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_pki_ezsignfoldersignerassociation_id_isValid && m_fki_ezsignfolder_id_isValid && m_b_ezsignfoldersignerassociation_delayedsend_isValid && m_b_ezsignfoldersignerassociation_receivecopy_isValid && m_t_ezsignfoldersignerassociation_message_isValid && true;
+    return m_pki_ezsignfoldersignerassociation_id_isValid && m_fki_ezsignfolder_id_isValid && m_b_ezsignfoldersignerassociation_delayedsend_isValid && m_b_ezsignfoldersignerassociation_receivecopy_isValid && m_t_ezsignfoldersignerassociation_message_isValid && m_b_ezsignfoldersignerassociation_allowsigninginperson_isValid && true;
 }
 
 } // namespace Ezmaxapi

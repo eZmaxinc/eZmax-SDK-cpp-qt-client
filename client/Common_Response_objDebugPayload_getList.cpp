@@ -46,6 +46,9 @@ void Common_Response_objDebugPayload_getList::initializeModel() {
     m_b_version_deprecated_isSet = false;
     m_b_version_deprecated_isValid = false;
 
+    m_dt_response_date_isSet = false;
+    m_dt_response_date_isValid = false;
+
     m_a_filter_isSet = false;
     m_a_filter_isValid = false;
 
@@ -80,6 +83,9 @@ void Common_Response_objDebugPayload_getList::fromJsonObject(QJsonObject json) {
     m_b_version_deprecated_isValid = ::Ezmaxapi::fromJsonValue(m_b_version_deprecated, json[QString("bVersionDeprecated")]);
     m_b_version_deprecated_isSet = !json[QString("bVersionDeprecated")].isNull() && m_b_version_deprecated_isValid;
 
+    m_dt_response_date_isValid = ::Ezmaxapi::fromJsonValue(m_dt_response_date, json[QString("dtResponseDate")]);
+    m_dt_response_date_isSet = !json[QString("dtResponseDate")].isNull() && m_dt_response_date_isValid;
+
     m_a_filter_isValid = ::Ezmaxapi::fromJsonValue(m_a_filter, json[QString("a_Filter")]);
     m_a_filter_isSet = !json[QString("a_Filter")].isNull() && m_a_filter_isValid;
 
@@ -113,6 +119,9 @@ QJsonObject Common_Response_objDebugPayload_getList::asJsonObject() const {
     }
     if (m_b_version_deprecated_isSet) {
         obj.insert(QString("bVersionDeprecated"), ::Ezmaxapi::toJsonValue(m_b_version_deprecated));
+    }
+    if (m_dt_response_date_isSet) {
+        obj.insert(QString("dtResponseDate"), ::Ezmaxapi::toJsonValue(m_dt_response_date));
     }
     if (m_a_filter.isSet()) {
         obj.insert(QString("a_Filter"), ::Ezmaxapi::toJsonValue(m_a_filter));
@@ -191,6 +200,22 @@ bool Common_Response_objDebugPayload_getList::is_b_version_deprecated_Set() cons
 
 bool Common_Response_objDebugPayload_getList::is_b_version_deprecated_Valid() const{
     return m_b_version_deprecated_isValid;
+}
+
+QString Common_Response_objDebugPayload_getList::getDtResponseDate() const {
+    return m_dt_response_date;
+}
+void Common_Response_objDebugPayload_getList::setDtResponseDate(const QString &dt_response_date) {
+    m_dt_response_date = dt_response_date;
+    m_dt_response_date_isSet = true;
+}
+
+bool Common_Response_objDebugPayload_getList::is_dt_response_date_Set() const{
+    return m_dt_response_date_isSet;
+}
+
+bool Common_Response_objDebugPayload_getList::is_dt_response_date_Valid() const{
+    return m_dt_response_date_isValid;
 }
 
 Common_Response_Filter Common_Response_objDebugPayload_getList::getAFilter() const {
@@ -280,6 +305,11 @@ bool Common_Response_objDebugPayload_getList::isSet() const {
             break;
         }
 
+        if (m_dt_response_date_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (m_a_filter.isSet()) {
             isObjectUpdated = true;
             break;
@@ -305,7 +335,7 @@ bool Common_Response_objDebugPayload_getList::isSet() const {
 
 bool Common_Response_objDebugPayload_getList::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_i_version_min_isValid && m_i_version_max_isValid && m_a_required_permission_isValid && m_b_version_deprecated_isValid && m_a_filter_isValid && m_a_order_by_isValid && m_i_row_max_isValid && m_i_row_offset_isValid && true;
+    return m_i_version_min_isValid && m_i_version_max_isValid && m_a_required_permission_isValid && m_b_version_deprecated_isValid && m_dt_response_date_isValid && m_a_filter_isValid && m_a_order_by_isValid && m_i_row_max_isValid && m_i_row_offset_isValid && true;
 }
 
 } // namespace Ezmaxapi

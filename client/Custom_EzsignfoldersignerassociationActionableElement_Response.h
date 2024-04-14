@@ -70,6 +70,11 @@ public:
     bool is_t_ezsignfoldersignerassociation_message_Set() const;
     bool is_t_ezsignfoldersignerassociation_message_Valid() const;
 
+    bool isBEzsignfoldersignerassociationAllowsigninginperson() const;
+    void setBEzsignfoldersignerassociationAllowsigninginperson(const bool &b_ezsignfoldersignerassociation_allowsigninginperson);
+    bool is_b_ezsignfoldersignerassociation_allowsigninginperson_Set() const;
+    bool is_b_ezsignfoldersignerassociation_allowsigninginperson_Valid() const;
+
     Ezsignsignergroup_ResponseCompound getObjEzsignsignergroup() const;
     void setObjEzsignsignergroup(const Ezsignsignergroup_ResponseCompound &obj_ezsignsignergroup);
     bool is_obj_ezsignsignergroup_Set() const;
@@ -120,6 +125,10 @@ private:
     QString m_t_ezsignfoldersignerassociation_message;
     bool m_t_ezsignfoldersignerassociation_message_isSet;
     bool m_t_ezsignfoldersignerassociation_message_isValid;
+
+    bool m_b_ezsignfoldersignerassociation_allowsigninginperson;
+    bool m_b_ezsignfoldersignerassociation_allowsigninginperson_isSet;
+    bool m_b_ezsignfoldersignerassociation_allowsigninginperson_isValid;
 
     Ezsignsignergroup_ResponseCompound m_obj_ezsignsignergroup;
     bool m_obj_ezsignsignergroup_isSet;

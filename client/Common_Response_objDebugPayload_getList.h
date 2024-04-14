@@ -63,6 +63,11 @@ public:
     bool is_b_version_deprecated_Set() const;
     bool is_b_version_deprecated_Valid() const;
 
+    QString getDtResponseDate() const;
+    void setDtResponseDate(const QString &dt_response_date);
+    bool is_dt_response_date_Set() const;
+    bool is_dt_response_date_Valid() const;
+
     Common_Response_Filter getAFilter() const;
     void setAFilter(const Common_Response_Filter &a_filter);
     bool is_a_filter_Set() const;
@@ -104,6 +109,10 @@ private:
     bool m_b_version_deprecated;
     bool m_b_version_deprecated_isSet;
     bool m_b_version_deprecated_isValid;
+
+    QString m_dt_response_date;
+    bool m_dt_response_date_isSet;
+    bool m_dt_response_date_isValid;
 
     Common_Response_Filter m_a_filter;
     bool m_a_filter_isSet;

@@ -45,6 +45,9 @@ void Common_Response_objDebugPayload::initializeModel() {
 
     m_b_version_deprecated_isSet = false;
     m_b_version_deprecated_isValid = false;
+
+    m_dt_response_date_isSet = false;
+    m_dt_response_date_isValid = false;
 }
 
 void Common_Response_objDebugPayload::fromJson(QString jsonString) {
@@ -67,6 +70,9 @@ void Common_Response_objDebugPayload::fromJsonObject(QJsonObject json) {
 
     m_b_version_deprecated_isValid = ::Ezmaxapi::fromJsonValue(m_b_version_deprecated, json[QString("bVersionDeprecated")]);
     m_b_version_deprecated_isSet = !json[QString("bVersionDeprecated")].isNull() && m_b_version_deprecated_isValid;
+
+    m_dt_response_date_isValid = ::Ezmaxapi::fromJsonValue(m_dt_response_date, json[QString("dtResponseDate")]);
+    m_dt_response_date_isSet = !json[QString("dtResponseDate")].isNull() && m_dt_response_date_isValid;
 }
 
 QString Common_Response_objDebugPayload::asJson() const {
@@ -89,6 +95,9 @@ QJsonObject Common_Response_objDebugPayload::asJsonObject() const {
     }
     if (m_b_version_deprecated_isSet) {
         obj.insert(QString("bVersionDeprecated"), ::Ezmaxapi::toJsonValue(m_b_version_deprecated));
+    }
+    if (m_dt_response_date_isSet) {
+        obj.insert(QString("dtResponseDate"), ::Ezmaxapi::toJsonValue(m_dt_response_date));
     }
     return obj;
 }
@@ -157,6 +166,22 @@ bool Common_Response_objDebugPayload::is_b_version_deprecated_Valid() const{
     return m_b_version_deprecated_isValid;
 }
 
+QString Common_Response_objDebugPayload::getDtResponseDate() const {
+    return m_dt_response_date;
+}
+void Common_Response_objDebugPayload::setDtResponseDate(const QString &dt_response_date) {
+    m_dt_response_date = dt_response_date;
+    m_dt_response_date_isSet = true;
+}
+
+bool Common_Response_objDebugPayload::is_dt_response_date_Set() const{
+    return m_dt_response_date_isSet;
+}
+
+bool Common_Response_objDebugPayload::is_dt_response_date_Valid() const{
+    return m_dt_response_date_isValid;
+}
+
 bool Common_Response_objDebugPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -179,13 +204,18 @@ bool Common_Response_objDebugPayload::isSet() const {
             isObjectUpdated = true;
             break;
         }
+
+        if (m_dt_response_date_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
     } while (false);
     return isObjectUpdated;
 }
 
 bool Common_Response_objDebugPayload::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_i_version_min_isValid && m_i_version_max_isValid && m_a_required_permission_isValid && m_b_version_deprecated_isValid && true;
+    return m_i_version_min_isValid && m_i_version_max_isValid && m_a_required_permission_isValid && m_b_version_deprecated_isValid && m_dt_response_date_isValid && true;
 }
 
 } // namespace Ezmaxapi

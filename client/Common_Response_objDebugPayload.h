@@ -22,6 +22,7 @@
 #include <QJsonObject>
 
 #include <QList>
+#include <QString>
 
 #include "Enum.h"
 #include "Object.h"
@@ -59,6 +60,11 @@ public:
     bool is_b_version_deprecated_Set() const;
     bool is_b_version_deprecated_Valid() const;
 
+    QString getDtResponseDate() const;
+    void setDtResponseDate(const QString &dt_response_date);
+    bool is_dt_response_date_Set() const;
+    bool is_dt_response_date_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -80,6 +86,10 @@ private:
     bool m_b_version_deprecated;
     bool m_b_version_deprecated_isSet;
     bool m_b_version_deprecated_isValid;
+
+    QString m_dt_response_date;
+    bool m_dt_response_date_isSet;
+    bool m_dt_response_date_isValid;
 };
 
 } // namespace Ezmaxapi

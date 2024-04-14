@@ -170,6 +170,30 @@ add_library(${PROJECT_NAME}
   Country_AutocompleteElement_Response.h
   Country_getAutocomplete_v2_Response.h
   Country_getAutocomplete_v2_Response_mPayload.h
+  Creditcardclient_AutocompleteElement_Response.h
+  Creditcardclient_ListElement.h
+  Creditcardclient_Request.h
+  Creditcardclient_RequestCompound.h
+  Creditcardclient_Response.h
+  Creditcardclient_ResponseCompound.h
+  Creditcardclient_createObject_v1_Request.h
+  Creditcardclient_createObject_v1_Response.h
+  Creditcardclient_createObject_v1_Response_mPayload.h
+  Creditcardclient_deleteObject_v1_Response.h
+  Creditcardclient_editObject_v1_Request.h
+  Creditcardclient_editObject_v1_Response.h
+  Creditcardclient_getAutocomplete_v2_Response.h
+  Creditcardclient_getAutocomplete_v2_Response_mPayload.h
+  Creditcardclient_getList_v1_Response.h
+  Creditcardclient_getList_v1_Response_mPayload.h
+  Creditcardclient_getObject_v2_Response.h
+  Creditcardclient_getObject_v2_Response_mPayload.h
+  Creditcarddetail_Request.h
+  Creditcarddetail_Response.h
+  Creditcarddetail_ResponseCompound.h
+  Creditcardtype_AutocompleteElement_Response.h
+  Creditcardtype_getAutocomplete_v2_Response.h
+  Creditcardtype_getAutocomplete_v2_Response_mPayload.h
   Custom_Attachment_Response.h
   Custom_Attachmentdocumenttype_Response.h
   Custom_CommunicationListElement_Response.h
@@ -1312,6 +1336,8 @@ add_library(${PROJECT_NAME}
   ObjectCompanyApi.h
   ObjectCorsApi.h
   ObjectCountryApi.h
+  ObjectCreditcardclientApi.h
+  ObjectCreditcardtypeApi.h
   ObjectDepartmentApi.h
   ObjectDiscussionApi.h
   ObjectDiscussionmembershipApi.h
@@ -1553,6 +1579,30 @@ add_library(${PROJECT_NAME}
   Country_AutocompleteElement_Response.cpp
   Country_getAutocomplete_v2_Response.cpp
   Country_getAutocomplete_v2_Response_mPayload.cpp
+  Creditcardclient_AutocompleteElement_Response.cpp
+  Creditcardclient_ListElement.cpp
+  Creditcardclient_Request.cpp
+  Creditcardclient_RequestCompound.cpp
+  Creditcardclient_Response.cpp
+  Creditcardclient_ResponseCompound.cpp
+  Creditcardclient_createObject_v1_Request.cpp
+  Creditcardclient_createObject_v1_Response.cpp
+  Creditcardclient_createObject_v1_Response_mPayload.cpp
+  Creditcardclient_deleteObject_v1_Response.cpp
+  Creditcardclient_editObject_v1_Request.cpp
+  Creditcardclient_editObject_v1_Response.cpp
+  Creditcardclient_getAutocomplete_v2_Response.cpp
+  Creditcardclient_getAutocomplete_v2_Response_mPayload.cpp
+  Creditcardclient_getList_v1_Response.cpp
+  Creditcardclient_getList_v1_Response_mPayload.cpp
+  Creditcardclient_getObject_v2_Response.cpp
+  Creditcardclient_getObject_v2_Response_mPayload.cpp
+  Creditcarddetail_Request.cpp
+  Creditcarddetail_Response.cpp
+  Creditcarddetail_ResponseCompound.cpp
+  Creditcardtype_AutocompleteElement_Response.cpp
+  Creditcardtype_getAutocomplete_v2_Response.cpp
+  Creditcardtype_getAutocomplete_v2_Response_mPayload.cpp
   Custom_Attachment_Response.cpp
   Custom_Attachmentdocumenttype_Response.cpp
   Custom_CommunicationListElement_Response.cpp
@@ -2695,6 +2745,8 @@ add_library(${PROJECT_NAME}
   ObjectCompanyApi.cpp
   ObjectCorsApi.cpp
   ObjectCountryApi.cpp
+  ObjectCreditcardclientApi.cpp
+  ObjectCreditcardtypeApi.cpp
   ObjectDepartmentApi.cpp
   ObjectDiscussionApi.cpp
   ObjectDiscussionmembershipApi.cpp
