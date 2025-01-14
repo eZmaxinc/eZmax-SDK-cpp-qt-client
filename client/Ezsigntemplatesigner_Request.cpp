@@ -40,6 +40,21 @@ void Ezsigntemplatesigner_Request::initializeModel() {
     m_fki_ezsigntemplate_id_isSet = false;
     m_fki_ezsigntemplate_id_isValid = false;
 
+    m_fki_user_id_isSet = false;
+    m_fki_user_id_isValid = false;
+
+    m_fki_usergroup_id_isSet = false;
+    m_fki_usergroup_id_isValid = false;
+
+    m_fki_ezdoctemplatedocument_id_isSet = false;
+    m_fki_ezdoctemplatedocument_id_isValid = false;
+
+    m_b_ezsigntemplatesigner_receivecopy_isSet = false;
+    m_b_ezsigntemplatesigner_receivecopy_isValid = false;
+
+    m_e_ezsigntemplatesigner_mapping_isSet = false;
+    m_e_ezsigntemplatesigner_mapping_isValid = false;
+
     m_s_ezsigntemplatesigner_description_isSet = false;
     m_s_ezsigntemplatesigner_description_isValid = false;
 }
@@ -59,6 +74,21 @@ void Ezsigntemplatesigner_Request::fromJsonObject(QJsonObject json) {
     m_fki_ezsigntemplate_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_ezsigntemplate_id, json[QString("fkiEzsigntemplateID")]);
     m_fki_ezsigntemplate_id_isSet = !json[QString("fkiEzsigntemplateID")].isNull() && m_fki_ezsigntemplate_id_isValid;
 
+    m_fki_user_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_user_id, json[QString("fkiUserID")]);
+    m_fki_user_id_isSet = !json[QString("fkiUserID")].isNull() && m_fki_user_id_isValid;
+
+    m_fki_usergroup_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_usergroup_id, json[QString("fkiUsergroupID")]);
+    m_fki_usergroup_id_isSet = !json[QString("fkiUsergroupID")].isNull() && m_fki_usergroup_id_isValid;
+
+    m_fki_ezdoctemplatedocument_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_ezdoctemplatedocument_id, json[QString("fkiEzdoctemplatedocumentID")]);
+    m_fki_ezdoctemplatedocument_id_isSet = !json[QString("fkiEzdoctemplatedocumentID")].isNull() && m_fki_ezdoctemplatedocument_id_isValid;
+
+    m_b_ezsigntemplatesigner_receivecopy_isValid = ::Ezmaxapi::fromJsonValue(m_b_ezsigntemplatesigner_receivecopy, json[QString("bEzsigntemplatesignerReceivecopy")]);
+    m_b_ezsigntemplatesigner_receivecopy_isSet = !json[QString("bEzsigntemplatesignerReceivecopy")].isNull() && m_b_ezsigntemplatesigner_receivecopy_isValid;
+
+    m_e_ezsigntemplatesigner_mapping_isValid = ::Ezmaxapi::fromJsonValue(m_e_ezsigntemplatesigner_mapping, json[QString("eEzsigntemplatesignerMapping")]);
+    m_e_ezsigntemplatesigner_mapping_isSet = !json[QString("eEzsigntemplatesignerMapping")].isNull() && m_e_ezsigntemplatesigner_mapping_isValid;
+
     m_s_ezsigntemplatesigner_description_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsigntemplatesigner_description, json[QString("sEzsigntemplatesignerDescription")]);
     m_s_ezsigntemplatesigner_description_isSet = !json[QString("sEzsigntemplatesignerDescription")].isNull() && m_s_ezsigntemplatesigner_description_isValid;
 }
@@ -77,6 +107,21 @@ QJsonObject Ezsigntemplatesigner_Request::asJsonObject() const {
     }
     if (m_fki_ezsigntemplate_id_isSet) {
         obj.insert(QString("fkiEzsigntemplateID"), ::Ezmaxapi::toJsonValue(m_fki_ezsigntemplate_id));
+    }
+    if (m_fki_user_id_isSet) {
+        obj.insert(QString("fkiUserID"), ::Ezmaxapi::toJsonValue(m_fki_user_id));
+    }
+    if (m_fki_usergroup_id_isSet) {
+        obj.insert(QString("fkiUsergroupID"), ::Ezmaxapi::toJsonValue(m_fki_usergroup_id));
+    }
+    if (m_fki_ezdoctemplatedocument_id_isSet) {
+        obj.insert(QString("fkiEzdoctemplatedocumentID"), ::Ezmaxapi::toJsonValue(m_fki_ezdoctemplatedocument_id));
+    }
+    if (m_b_ezsigntemplatesigner_receivecopy_isSet) {
+        obj.insert(QString("bEzsigntemplatesignerReceivecopy"), ::Ezmaxapi::toJsonValue(m_b_ezsigntemplatesigner_receivecopy));
+    }
+    if (m_e_ezsigntemplatesigner_mapping.isSet()) {
+        obj.insert(QString("eEzsigntemplatesignerMapping"), ::Ezmaxapi::toJsonValue(m_e_ezsigntemplatesigner_mapping));
     }
     if (m_s_ezsigntemplatesigner_description_isSet) {
         obj.insert(QString("sEzsigntemplatesignerDescription"), ::Ezmaxapi::toJsonValue(m_s_ezsigntemplatesigner_description));
@@ -116,6 +161,86 @@ bool Ezsigntemplatesigner_Request::is_fki_ezsigntemplate_id_Valid() const{
     return m_fki_ezsigntemplate_id_isValid;
 }
 
+qint32 Ezsigntemplatesigner_Request::getFkiUserId() const {
+    return m_fki_user_id;
+}
+void Ezsigntemplatesigner_Request::setFkiUserId(const qint32 &fki_user_id) {
+    m_fki_user_id = fki_user_id;
+    m_fki_user_id_isSet = true;
+}
+
+bool Ezsigntemplatesigner_Request::is_fki_user_id_Set() const{
+    return m_fki_user_id_isSet;
+}
+
+bool Ezsigntemplatesigner_Request::is_fki_user_id_Valid() const{
+    return m_fki_user_id_isValid;
+}
+
+qint32 Ezsigntemplatesigner_Request::getFkiUsergroupId() const {
+    return m_fki_usergroup_id;
+}
+void Ezsigntemplatesigner_Request::setFkiUsergroupId(const qint32 &fki_usergroup_id) {
+    m_fki_usergroup_id = fki_usergroup_id;
+    m_fki_usergroup_id_isSet = true;
+}
+
+bool Ezsigntemplatesigner_Request::is_fki_usergroup_id_Set() const{
+    return m_fki_usergroup_id_isSet;
+}
+
+bool Ezsigntemplatesigner_Request::is_fki_usergroup_id_Valid() const{
+    return m_fki_usergroup_id_isValid;
+}
+
+qint32 Ezsigntemplatesigner_Request::getFkiEzdoctemplatedocumentId() const {
+    return m_fki_ezdoctemplatedocument_id;
+}
+void Ezsigntemplatesigner_Request::setFkiEzdoctemplatedocumentId(const qint32 &fki_ezdoctemplatedocument_id) {
+    m_fki_ezdoctemplatedocument_id = fki_ezdoctemplatedocument_id;
+    m_fki_ezdoctemplatedocument_id_isSet = true;
+}
+
+bool Ezsigntemplatesigner_Request::is_fki_ezdoctemplatedocument_id_Set() const{
+    return m_fki_ezdoctemplatedocument_id_isSet;
+}
+
+bool Ezsigntemplatesigner_Request::is_fki_ezdoctemplatedocument_id_Valid() const{
+    return m_fki_ezdoctemplatedocument_id_isValid;
+}
+
+bool Ezsigntemplatesigner_Request::isBEzsigntemplatesignerReceivecopy() const {
+    return m_b_ezsigntemplatesigner_receivecopy;
+}
+void Ezsigntemplatesigner_Request::setBEzsigntemplatesignerReceivecopy(const bool &b_ezsigntemplatesigner_receivecopy) {
+    m_b_ezsigntemplatesigner_receivecopy = b_ezsigntemplatesigner_receivecopy;
+    m_b_ezsigntemplatesigner_receivecopy_isSet = true;
+}
+
+bool Ezsigntemplatesigner_Request::is_b_ezsigntemplatesigner_receivecopy_Set() const{
+    return m_b_ezsigntemplatesigner_receivecopy_isSet;
+}
+
+bool Ezsigntemplatesigner_Request::is_b_ezsigntemplatesigner_receivecopy_Valid() const{
+    return m_b_ezsigntemplatesigner_receivecopy_isValid;
+}
+
+Field_eEzsigntemplatesignerMapping Ezsigntemplatesigner_Request::getEEzsigntemplatesignerMapping() const {
+    return m_e_ezsigntemplatesigner_mapping;
+}
+void Ezsigntemplatesigner_Request::setEEzsigntemplatesignerMapping(const Field_eEzsigntemplatesignerMapping &e_ezsigntemplatesigner_mapping) {
+    m_e_ezsigntemplatesigner_mapping = e_ezsigntemplatesigner_mapping;
+    m_e_ezsigntemplatesigner_mapping_isSet = true;
+}
+
+bool Ezsigntemplatesigner_Request::is_e_ezsigntemplatesigner_mapping_Set() const{
+    return m_e_ezsigntemplatesigner_mapping_isSet;
+}
+
+bool Ezsigntemplatesigner_Request::is_e_ezsigntemplatesigner_mapping_Valid() const{
+    return m_e_ezsigntemplatesigner_mapping_isValid;
+}
+
 QString Ezsigntemplatesigner_Request::getSEzsigntemplatesignerDescription() const {
     return m_s_ezsigntemplatesigner_description;
 }
@@ -141,6 +266,31 @@ bool Ezsigntemplatesigner_Request::isSet() const {
         }
 
         if (m_fki_ezsigntemplate_id_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_fki_user_id_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_fki_usergroup_id_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_fki_ezdoctemplatedocument_id_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_b_ezsigntemplatesigner_receivecopy_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_e_ezsigntemplatesigner_mapping.isSet()) {
             isObjectUpdated = true;
             break;
         }

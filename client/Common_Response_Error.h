@@ -22,6 +22,7 @@
 #include <QJsonObject>
 
 #include "Field_eErrorCode.h"
+#include <QList>
 #include <QString>
 
 #include "Enum.h"
@@ -50,6 +51,11 @@ public:
     bool is_e_error_code_Set() const;
     bool is_e_error_code_Valid() const;
 
+    QList<QString> getASErrorMessagedetail() const;
+    void setASErrorMessagedetail(const QList<QString> &a_s_error_messagedetail);
+    bool is_a_s_error_messagedetail_Set() const;
+    bool is_a_s_error_messagedetail_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -63,6 +69,10 @@ private:
     Field_eErrorCode m_e_error_code;
     bool m_e_error_code_isSet;
     bool m_e_error_code_isValid;
+
+    QList<QString> m_a_s_error_messagedetail;
+    bool m_a_s_error_messagedetail_isSet;
+    bool m_a_s_error_messagedetail_isValid;
 };
 
 } // namespace Ezmaxapi

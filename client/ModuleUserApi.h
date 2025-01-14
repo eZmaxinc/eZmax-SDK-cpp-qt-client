@@ -61,7 +61,7 @@ public:
     /**
     * @param[in]  user_create_ezsignuser_v1_request QList<User_createEzsignuser_v1_Request> [required]
     */
-    void userCreateEzsignuserV1(const QList<User_createEzsignuser_v1_Request> &user_create_ezsignuser_v1_request);
+    virtual void userCreateEzsignuserV1(const QList<User_createEzsignuser_v1_Request> &user_create_ezsignuser_v1_request);
 
 
 private:
@@ -91,6 +91,7 @@ private:
 Q_SIGNALS:
 
     void userCreateEzsignuserV1Signal(User_createEzsignuser_v1_Response summary);
+
 
     void userCreateEzsignuserV1SignalFull(HttpRequestWorker *worker, User_createEzsignuser_v1_Response summary);
 

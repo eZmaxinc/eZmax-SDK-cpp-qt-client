@@ -113,12 +113,20 @@ void Field_eEzsigndocumentlogType::fromJson(QString jsonString) {
         m_value = eField_eEzsigndocumentlogType::IMPORTFROMINSTANET;
         m_value_isSet = m_value_isValid = true;
     }
+    else if ( jsonString.compare("CreatedFromEzsigntemplatepublic", Qt::CaseInsensitive) == 0) {
+        m_value = eField_eEzsigndocumentlogType::CREATEDFROMEZSIGNTEMPLATEPUBLIC;
+        m_value_isSet = m_value_isValid = true;
+    }
     else if ( jsonString.compare("SendEmail", Qt::CaseInsensitive) == 0) {
         m_value = eField_eEzsigndocumentlogType::SENDEMAIL;
         m_value_isSet = m_value_isValid = true;
     }
     else if ( jsonString.compare("FormCompletion", Qt::CaseInsensitive) == 0) {
         m_value = eField_eEzsigndocumentlogType::FORMCOMPLETION;
+        m_value_isSet = m_value_isValid = true;
+    }
+    else if ( jsonString.compare("FormSaveAsDraft", Qt::CaseInsensitive) == 0) {
+        m_value = eField_eEzsigndocumentlogType::FORMSAVEASDRAFT;
         m_value_isSet = m_value_isValid = true;
     }
     else if ( jsonString.compare("SignatureAttachmentAdd", Qt::CaseInsensitive) == 0) {
@@ -163,6 +171,10 @@ void Field_eEzsigndocumentlogType::fromJson(QString jsonString) {
     }
     else if ( jsonString.compare("Reassign", Qt::CaseInsensitive) == 0) {
         m_value = eField_eEzsigndocumentlogType::REASSIGN;
+        m_value_isSet = m_value_isValid = true;
+    }
+    else if ( jsonString.compare("DocumentCompletion", Qt::CaseInsensitive) == 0) {
+        m_value = eField_eEzsigndocumentlogType::DOCUMENTCOMPLETION;
         m_value_isSet = m_value_isValid = true;
     }
 }
@@ -229,11 +241,17 @@ QString Field_eEzsigndocumentlogType::asJson() const {
         case eField_eEzsigndocumentlogType::IMPORTFROMINSTANET:
             val = "ImportFromInstanet";
             break;
+        case eField_eEzsigndocumentlogType::CREATEDFROMEZSIGNTEMPLATEPUBLIC:
+            val = "CreatedFromEzsigntemplatepublic";
+            break;
         case eField_eEzsigndocumentlogType::SENDEMAIL:
             val = "SendEmail";
             break;
         case eField_eEzsigndocumentlogType::FORMCOMPLETION:
             val = "FormCompletion";
+            break;
+        case eField_eEzsigndocumentlogType::FORMSAVEASDRAFT:
+            val = "FormSaveAsDraft";
             break;
         case eField_eEzsigndocumentlogType::SIGNATUREATTACHMENTADD:
             val = "SignatureAttachmentAdd";
@@ -267,6 +285,9 @@ QString Field_eEzsigndocumentlogType::asJson() const {
             break;
         case eField_eEzsigndocumentlogType::REASSIGN:
             val = "Reassign";
+            break;
+        case eField_eEzsigndocumentlogType::DOCUMENTCOMPLETION:
+            val = "DocumentCompletion";
             break;
         default:
             break;

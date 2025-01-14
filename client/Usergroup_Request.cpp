@@ -37,6 +37,9 @@ void Usergroup_Request::initializeModel() {
     m_pki_usergroup_id_isSet = false;
     m_pki_usergroup_id_isValid = false;
 
+    m_obj_email_isSet = false;
+    m_obj_email_isValid = false;
+
     m_obj_usergroup_name_isSet = false;
     m_obj_usergroup_name_isValid = false;
 }
@@ -53,6 +56,9 @@ void Usergroup_Request::fromJsonObject(QJsonObject json) {
     m_pki_usergroup_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_usergroup_id, json[QString("pkiUsergroupID")]);
     m_pki_usergroup_id_isSet = !json[QString("pkiUsergroupID")].isNull() && m_pki_usergroup_id_isValid;
 
+    m_obj_email_isValid = ::Ezmaxapi::fromJsonValue(m_obj_email, json[QString("objEmail")]);
+    m_obj_email_isSet = !json[QString("objEmail")].isNull() && m_obj_email_isValid;
+
     m_obj_usergroup_name_isValid = ::Ezmaxapi::fromJsonValue(m_obj_usergroup_name, json[QString("objUsergroupName")]);
     m_obj_usergroup_name_isSet = !json[QString("objUsergroupName")].isNull() && m_obj_usergroup_name_isValid;
 }
@@ -68,6 +74,9 @@ QJsonObject Usergroup_Request::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_usergroup_id_isSet) {
         obj.insert(QString("pkiUsergroupID"), ::Ezmaxapi::toJsonValue(m_pki_usergroup_id));
+    }
+    if (m_obj_email.isSet()) {
+        obj.insert(QString("objEmail"), ::Ezmaxapi::toJsonValue(m_obj_email));
     }
     if (m_obj_usergroup_name.isSet()) {
         obj.insert(QString("objUsergroupName"), ::Ezmaxapi::toJsonValue(m_obj_usergroup_name));
@@ -91,6 +100,22 @@ bool Usergroup_Request::is_pki_usergroup_id_Valid() const{
     return m_pki_usergroup_id_isValid;
 }
 
+Email_Request Usergroup_Request::getObjEmail() const {
+    return m_obj_email;
+}
+void Usergroup_Request::setObjEmail(const Email_Request &obj_email) {
+    m_obj_email = obj_email;
+    m_obj_email_isSet = true;
+}
+
+bool Usergroup_Request::is_obj_email_Set() const{
+    return m_obj_email_isSet;
+}
+
+bool Usergroup_Request::is_obj_email_Valid() const{
+    return m_obj_email_isValid;
+}
+
 Multilingual_UsergroupName Usergroup_Request::getObjUsergroupName() const {
     return m_obj_usergroup_name;
 }
@@ -111,6 +136,11 @@ bool Usergroup_Request::isSet() const {
     bool isObjectUpdated = false;
     do {
         if (m_pki_usergroup_id_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_obj_email.isSet()) {
             isObjectUpdated = true;
             break;
         }

@@ -18,6 +18,8 @@
 #include "ServerConfiguration.h"
 #include "Oauth.h"
 
+#include "Activesession_generateFederationToken_v1_Request.h"
+#include "Activesession_generateFederationToken_v1_Response.h"
 #include "Activesession_getCurrent_v1_Response.h"
 #include "Activesession_getList_v1_Response.h"
 #include "Common_Response_Error.h"
@@ -62,8 +64,13 @@ public:
     QString getParamStyleSuffix(const QString &style);
     QString getParamStyleDelimiter(const QString &style, const QString &name, bool isExplode);
 
+    /**
+    * @param[in]  activesession_generate_federation_token_v1_request Activesession_generateFederationToken_v1_Request [required]
+    */
+    virtual void activesessionGenerateFederationTokenV1(const Activesession_generateFederationToken_v1_Request &activesession_generate_federation_token_v1_request);
 
-    void activesessionGetCurrentV1();
+
+    virtual void activesessionGetCurrentV1();
 
     /**
     * @param[in]  e_order_by QString [optional]
@@ -72,7 +79,7 @@ public:
     * @param[in]  accept_language Header_Accept_Language [optional]
     * @param[in]  s_filter QString [optional]
     */
-    void activesessionGetListV1(const ::Ezmaxapi::OptionalParam<QString> &e_order_by = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<qint32> &i_row_max = ::Ezmaxapi::OptionalParam<qint32>(), const ::Ezmaxapi::OptionalParam<qint32> &i_row_offset = ::Ezmaxapi::OptionalParam<qint32>(), const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<Header_Accept_Language>(), const ::Ezmaxapi::OptionalParam<QString> &s_filter = ::Ezmaxapi::OptionalParam<QString>());
+    virtual void activesessionGetListV1(const ::Ezmaxapi::OptionalParam<QString> &e_order_by = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<qint32> &i_row_max = ::Ezmaxapi::OptionalParam<qint32>(), const ::Ezmaxapi::OptionalParam<qint32> &i_row_offset = ::Ezmaxapi::OptionalParam<qint32>(), const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<Header_Accept_Language>(), const ::Ezmaxapi::OptionalParam<QString> &s_filter = ::Ezmaxapi::OptionalParam<QString>());
 
 
 private:
@@ -97,17 +104,24 @@ private:
     OauthPassword _passwordFlow;
     int _OauthMethod = 0;
 
+    void activesessionGenerateFederationTokenV1Callback(HttpRequestWorker *worker);
     void activesessionGetCurrentV1Callback(HttpRequestWorker *worker);
     void activesessionGetListV1Callback(HttpRequestWorker *worker);
 
 Q_SIGNALS:
 
+    void activesessionGenerateFederationTokenV1Signal(Activesession_generateFederationToken_v1_Response summary);
     void activesessionGetCurrentV1Signal(Activesession_getCurrent_v1_Response summary);
     void activesessionGetListV1Signal(Activesession_getList_v1_Response summary);
 
+
+    void activesessionGenerateFederationTokenV1SignalFull(HttpRequestWorker *worker, Activesession_generateFederationToken_v1_Response summary);
     void activesessionGetCurrentV1SignalFull(HttpRequestWorker *worker, Activesession_getCurrent_v1_Response summary);
     void activesessionGetListV1SignalFull(HttpRequestWorker *worker, Activesession_getList_v1_Response summary);
 
+    Q_DECL_DEPRECATED_X("Use activesessionGenerateFederationTokenV1SignalError() instead")
+    void activesessionGenerateFederationTokenV1SignalE(Activesession_generateFederationToken_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void activesessionGenerateFederationTokenV1SignalError(Activesession_generateFederationToken_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use activesessionGetCurrentV1SignalError() instead")
     void activesessionGetCurrentV1SignalE(Activesession_getCurrent_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void activesessionGetCurrentV1SignalError(Activesession_getCurrent_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -115,6 +129,9 @@ Q_SIGNALS:
     void activesessionGetListV1SignalE(Activesession_getList_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void activesessionGetListV1SignalError(Activesession_getList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use activesessionGenerateFederationTokenV1SignalErrorFull() instead")
+    void activesessionGenerateFederationTokenV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void activesessionGenerateFederationTokenV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use activesessionGetCurrentV1SignalErrorFull() instead")
     void activesessionGetCurrentV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void activesessionGetCurrentV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);

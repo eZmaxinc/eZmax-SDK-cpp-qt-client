@@ -21,10 +21,12 @@
 
 #include <QJsonObject>
 
+#include "Enum_Horizontalalignment.h"
 #include "Ezsigntemplateelementdependency_ResponseCompound.h"
 #include "Field_eEzsigntemplateformfieldDependencyrequirement.h"
 #include "Field_eEzsigntemplateformfieldPositioning.h"
 #include "Field_eEzsigntemplateformfieldPositioningoccurence.h"
+#include "Textstylestatic_ResponseCompound.h"
 #include <QList>
 #include <QString>
 
@@ -32,6 +34,7 @@
 #include "Object.h"
 
 namespace Ezmaxapi {
+class Textstylestatic_ResponseCompound;
 class Ezsigntemplateelementdependency_ResponseCompound;
 
 class Ezsigntemplateformfield_ResponseCompound : public Object {
@@ -125,6 +128,16 @@ public:
     bool is_e_ezsigntemplateformfield_positioningoccurence_Set() const;
     bool is_e_ezsigntemplateformfield_positioningoccurence_Valid() const;
 
+    Enum_Horizontalalignment getEEzsigntemplateformfieldHorizontalalignment() const;
+    void setEEzsigntemplateformfieldHorizontalalignment(const Enum_Horizontalalignment &e_ezsigntemplateformfield_horizontalalignment);
+    bool is_e_ezsigntemplateformfield_horizontalalignment_Set() const;
+    bool is_e_ezsigntemplateformfield_horizontalalignment_Valid() const;
+
+    Textstylestatic_ResponseCompound getObjTextstylestatic() const;
+    void setObjTextstylestatic(const Textstylestatic_ResponseCompound &obj_textstylestatic);
+    bool is_obj_textstylestatic_Set() const;
+    bool is_obj_textstylestatic_Valid() const;
+
     QList<Ezsigntemplateelementdependency_ResponseCompound> getAObjEzsigntemplateelementdependency() const;
     void setAObjEzsigntemplateelementdependency(const QList<Ezsigntemplateelementdependency_ResponseCompound> &a_obj_ezsigntemplateelementdependency);
     bool is_a_obj_ezsigntemplateelementdependency_Set() const;
@@ -199,6 +212,14 @@ private:
     Field_eEzsigntemplateformfieldPositioningoccurence m_e_ezsigntemplateformfield_positioningoccurence;
     bool m_e_ezsigntemplateformfield_positioningoccurence_isSet;
     bool m_e_ezsigntemplateformfield_positioningoccurence_isValid;
+
+    Enum_Horizontalalignment m_e_ezsigntemplateformfield_horizontalalignment;
+    bool m_e_ezsigntemplateformfield_horizontalalignment_isSet;
+    bool m_e_ezsigntemplateformfield_horizontalalignment_isValid;
+
+    Textstylestatic_ResponseCompound m_obj_textstylestatic;
+    bool m_obj_textstylestatic_isSet;
+    bool m_obj_textstylestatic_isValid;
 
     QList<Ezsigntemplateelementdependency_ResponseCompound> m_a_obj_ezsigntemplateelementdependency;
     bool m_a_obj_ezsigntemplateelementdependency_isSet;

@@ -144,15 +144,9 @@ int ScimUsersApi::addServerConfiguration(const QString &operation, const QUrl &u
     * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
     */
 void ScimUsersApi::setNewServerForAllOperations(const QUrl &url, const QString &description, const QMap<QString, ServerVariable> &variables) {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
     for (auto keyIt = _serverIndices.keyBegin(); keyIt != _serverIndices.keyEnd(); keyIt++) {
         setServerIndex(*keyIt, addServerConfiguration(*keyIt, url, description, variables));
     }
-#else
-    for (auto &e : _serverIndices.keys()) {
-        setServerIndex(e, addServerConfiguration(e, url, description, variables));
-    }
-#endif
 }
 
 /**
@@ -261,15 +255,10 @@ void ScimUsersApi::usersCreateObjectScimV2(const Scim_User &scim_user) {
         QByteArray output = scim_user.asJson().toUtf8();
         input.request_body.append(output);
     }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ScimUsersApi::usersCreateObjectScimV2Callback);
     connect(this, &ScimUsersApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -353,15 +342,10 @@ void ScimUsersApi::usersDeleteObjectScimV2(const QString &user_id) {
     HttpRequestInput input(fullPath, "DELETE");
 
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ScimUsersApi::usersDeleteObjectScimV2Callback);
     connect(this, &ScimUsersApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -449,15 +433,10 @@ void ScimUsersApi::usersEditObjectScimV2(const QString &user_id, const Scim_User
         QByteArray output = scim_user.asJson().toUtf8();
         input.request_body.append(output);
     }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ScimUsersApi::usersEditObjectScimV2Callback);
     connect(this, &ScimUsersApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -543,15 +522,10 @@ void ScimUsersApi::usersGetListScimV2(const ::Ezmaxapi::OptionalParam<QString> &
     HttpRequestInput input(fullPath, "GET");
 
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ScimUsersApi::usersGetListScimV2Callback);
     connect(this, &ScimUsersApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -635,15 +609,10 @@ void ScimUsersApi::usersGetObjectScimV2(const QString &user_id) {
     HttpRequestInput input(fullPath, "GET");
 
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ScimUsersApi::usersGetObjectScimV2Callback);
     connect(this, &ScimUsersApi::abortRequestsSignal, worker, &QObject::deleteLater);

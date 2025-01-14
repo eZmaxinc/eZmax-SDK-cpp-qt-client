@@ -23,10 +23,12 @@
 
 #include "Custom_ContactName_Response.h"
 #include "Custom_Creditcardtransaction_Response.h"
+#include "Custom_TimezoneWithCode_Response.h"
 #include "Enum_Textvalidation.h"
 #include "Ezsignelementdependency_ResponseCompound.h"
 #include "Ezsignsignaturecustomdate_ResponseCompound.h"
 #include "Field_eEzsignsignatureAttachmentnamesource.h"
+#include "Field_eEzsignsignatureConsultationtrigger.h"
 #include "Field_eEzsignsignatureDependencyrequirement.h"
 #include "Field_eEzsignsignatureFont.h"
 #include "Field_eEzsignsignatureTooltipposition.h"
@@ -44,6 +46,7 @@ class Signature_ResponseCompound;
 class Ezsignsignaturecustomdate_ResponseCompound;
 class Custom_Creditcardtransaction_Response;
 class Ezsignelementdependency_ResponseCompound;
+class Custom_TimezoneWithCode_Response;
 
 class Ezsignsignature_ResponseCompound : public Object {
 public:
@@ -75,6 +78,11 @@ public:
     void setFkiEzsignsigningreasonId(const qint32 &fki_ezsignsigningreason_id);
     bool is_fki_ezsignsigningreason_id_Set() const;
     bool is_fki_ezsignsigningreason_id_Valid() const;
+
+    qint32 getFkiFontId() const;
+    void setFkiFontId(const qint32 &fki_font_id);
+    bool is_fki_font_id_Set() const;
+    bool is_fki_font_id_Valid() const;
 
     QString getSEzsignsigningreasonDescriptionX() const;
     void setSEzsignsigningreasonDescriptionX(const QString &s_ezsignsigningreason_description_x);
@@ -151,6 +159,21 @@ public:
     bool is_e_ezsignsignature_attachmentnamesource_Set() const;
     bool is_e_ezsignsignature_attachmentnamesource_Valid() const;
 
+    Field_eEzsignsignatureConsultationtrigger getEEzsignsignatureConsultationtrigger() const;
+    void setEEzsignsignatureConsultationtrigger(const Field_eEzsignsignatureConsultationtrigger &e_ezsignsignature_consultationtrigger);
+    bool is_e_ezsignsignature_consultationtrigger_Set() const;
+    bool is_e_ezsignsignature_consultationtrigger_Valid() const;
+
+    bool isBEzsignsignatureHandwritten() const;
+    void setBEzsignsignatureHandwritten(const bool &b_ezsignsignature_handwritten);
+    bool is_b_ezsignsignature_handwritten_Set() const;
+    bool is_b_ezsignsignature_handwritten_Valid() const;
+
+    bool isBEzsignsignatureReason() const;
+    void setBEzsignsignatureReason(const bool &b_ezsignsignature_reason);
+    bool is_b_ezsignsignature_reason_Set() const;
+    bool is_b_ezsignsignature_reason_Valid() const;
+
     bool isBEzsignsignatureRequired() const;
     void setBEzsignsignatureRequired(const bool &b_ezsignsignature_required);
     bool is_b_ezsignsignature_required_Set() const;
@@ -186,10 +209,20 @@ public:
     bool is_e_ezsignsignature_textvalidation_Set() const;
     bool is_e_ezsignsignature_textvalidation_Valid() const;
 
+    QString getSEzsignsignatureTextvalidationcustommessage() const;
+    void setSEzsignsignatureTextvalidationcustommessage(const QString &s_ezsignsignature_textvalidationcustommessage);
+    bool is_s_ezsignsignature_textvalidationcustommessage_Set() const;
+    bool is_s_ezsignsignature_textvalidationcustommessage_Valid() const;
+
     Field_eEzsignsignatureDependencyrequirement getEEzsignsignatureDependencyrequirement() const;
     void setEEzsignsignatureDependencyrequirement(const Field_eEzsignsignatureDependencyrequirement &e_ezsignsignature_dependencyrequirement);
     bool is_e_ezsignsignature_dependencyrequirement_Set() const;
     bool is_e_ezsignsignature_dependencyrequirement_Valid() const;
+
+    QString getSEzsignsignatureDefaultvalue() const;
+    void setSEzsignsignatureDefaultvalue(const QString &s_ezsignsignature_defaultvalue);
+    bool is_s_ezsignsignature_defaultvalue_Set() const;
+    bool is_s_ezsignsignature_defaultvalue_Valid() const;
 
     QString getSEzsignsignatureRegexp() const;
     void setSEzsignsignatureRegexp(const QString &s_ezsignsignature_regexp);
@@ -211,6 +244,11 @@ public:
     bool is_obj_signature_Set() const;
     bool is_obj_signature_Valid() const;
 
+    QString getDtEzsignsignatureDateInFolderTimezone() const;
+    void setDtEzsignsignatureDateInFolderTimezone(const QString &dt_ezsignsignature_date_in_folder_timezone);
+    bool is_dt_ezsignsignature_date_in_folder_timezone_Set() const;
+    bool is_dt_ezsignsignature_date_in_folder_timezone_Valid() const;
+
     bool isBEzsignsignatureCustomdate() const;
     void setBEzsignsignatureCustomdate(const bool &b_ezsignsignature_customdate);
     bool is_b_ezsignsignature_customdate_Set() const;
@@ -230,6 +268,11 @@ public:
     void setAObjEzsignelementdependency(const QList<Ezsignelementdependency_ResponseCompound> &a_obj_ezsignelementdependency);
     bool is_a_obj_ezsignelementdependency_Set() const;
     bool is_a_obj_ezsignelementdependency_Valid() const;
+
+    Custom_TimezoneWithCode_Response getObjTimezone() const;
+    void setObjTimezone(const Custom_TimezoneWithCode_Response &obj_timezone);
+    bool is_obj_timezone_Set() const;
+    bool is_obj_timezone_Valid() const;
 
     virtual bool isSet() const override;
     virtual bool isValid() const override;
@@ -252,6 +295,10 @@ private:
     qint32 m_fki_ezsignsigningreason_id;
     bool m_fki_ezsignsigningreason_id_isSet;
     bool m_fki_ezsignsigningreason_id_isValid;
+
+    qint32 m_fki_font_id;
+    bool m_fki_font_id_isSet;
+    bool m_fki_font_id_isValid;
 
     QString m_s_ezsignsigningreason_description_x;
     bool m_s_ezsignsigningreason_description_x_isSet;
@@ -313,6 +360,18 @@ private:
     bool m_e_ezsignsignature_attachmentnamesource_isSet;
     bool m_e_ezsignsignature_attachmentnamesource_isValid;
 
+    Field_eEzsignsignatureConsultationtrigger m_e_ezsignsignature_consultationtrigger;
+    bool m_e_ezsignsignature_consultationtrigger_isSet;
+    bool m_e_ezsignsignature_consultationtrigger_isValid;
+
+    bool m_b_ezsignsignature_handwritten;
+    bool m_b_ezsignsignature_handwritten_isSet;
+    bool m_b_ezsignsignature_handwritten_isValid;
+
+    bool m_b_ezsignsignature_reason;
+    bool m_b_ezsignsignature_reason_isSet;
+    bool m_b_ezsignsignature_reason_isValid;
+
     bool m_b_ezsignsignature_required;
     bool m_b_ezsignsignature_required_isSet;
     bool m_b_ezsignsignature_required_isValid;
@@ -341,9 +400,17 @@ private:
     bool m_e_ezsignsignature_textvalidation_isSet;
     bool m_e_ezsignsignature_textvalidation_isValid;
 
+    QString m_s_ezsignsignature_textvalidationcustommessage;
+    bool m_s_ezsignsignature_textvalidationcustommessage_isSet;
+    bool m_s_ezsignsignature_textvalidationcustommessage_isValid;
+
     Field_eEzsignsignatureDependencyrequirement m_e_ezsignsignature_dependencyrequirement;
     bool m_e_ezsignsignature_dependencyrequirement_isSet;
     bool m_e_ezsignsignature_dependencyrequirement_isValid;
+
+    QString m_s_ezsignsignature_defaultvalue;
+    bool m_s_ezsignsignature_defaultvalue_isSet;
+    bool m_s_ezsignsignature_defaultvalue_isValid;
 
     QString m_s_ezsignsignature_regexp;
     bool m_s_ezsignsignature_regexp_isSet;
@@ -361,6 +428,10 @@ private:
     bool m_obj_signature_isSet;
     bool m_obj_signature_isValid;
 
+    QString m_dt_ezsignsignature_date_in_folder_timezone;
+    bool m_dt_ezsignsignature_date_in_folder_timezone_isSet;
+    bool m_dt_ezsignsignature_date_in_folder_timezone_isValid;
+
     bool m_b_ezsignsignature_customdate;
     bool m_b_ezsignsignature_customdate_isSet;
     bool m_b_ezsignsignature_customdate_isValid;
@@ -376,6 +447,10 @@ private:
     QList<Ezsignelementdependency_ResponseCompound> m_a_obj_ezsignelementdependency;
     bool m_a_obj_ezsignelementdependency_isSet;
     bool m_a_obj_ezsignelementdependency_isValid;
+
+    Custom_TimezoneWithCode_Response m_obj_timezone;
+    bool m_obj_timezone_isSet;
+    bool m_obj_timezone_isValid;
 };
 
 } // namespace Ezmaxapi

@@ -7,12 +7,17 @@ HEADERS += \
     $${PWD}/Activesession_ResponseCompound.h \
     $${PWD}/Activesession_ResponseCompound_Apikey.h \
     $${PWD}/Activesession_ResponseCompound_User.h \
+    $${PWD}/Activesession_generateFederationToken_v1_Request.h \
+    $${PWD}/Activesession_generateFederationToken_v1_Response.h \
+    $${PWD}/Activesession_generateFederationToken_v1_Response_mPayload.h \
     $${PWD}/Activesession_getCurrent_v1_Response.h \
     $${PWD}/Activesession_getCurrent_v1_Response_mPayload.h \
     $${PWD}/Activesession_getList_v1_Response.h \
     $${PWD}/Activesession_getList_v1_Response_mPayload.h \
     $${PWD}/Address_Request.h \
     $${PWD}/Address_RequestCompound.h \
+    $${PWD}/Address_Response.h \
+    $${PWD}/Address_ResponseCompound.h \
     $${PWD}/Apikey_ListElement.h \
     $${PWD}/Apikey_Request.h \
     $${PWD}/Apikey_RequestCompound.h \
@@ -26,6 +31,9 @@ HEADERS += \
     $${PWD}/Apikey_editPermissions_v1_Request.h \
     $${PWD}/Apikey_editPermissions_v1_Response.h \
     $${PWD}/Apikey_editPermissions_v1_Response_mPayload.h \
+    $${PWD}/Apikey_generateDelegatedCredentials_v1_Request.h \
+    $${PWD}/Apikey_generateDelegatedCredentials_v1_Response.h \
+    $${PWD}/Apikey_generateDelegatedCredentials_v1_Response_mPayload.h \
     $${PWD}/Apikey_getCors_v1_Response.h \
     $${PWD}/Apikey_getCors_v1_Response_mPayload.h \
     $${PWD}/Apikey_getList_v1_Response.h \
@@ -43,13 +51,33 @@ HEADERS += \
     $${PWD}/Attachment_ResponseCompound.h \
     $${PWD}/Attachment_getAttachmentlogs_v1_Response.h \
     $${PWD}/Attachment_getAttachmentlogs_v1_Response_mPayload.h \
-    $${PWD}/Attachment_getDownloadUrl_v1_Response.h \
-    $${PWD}/Attachment_getDownloadUrl_v1_Response_mPayload.h \
     $${PWD}/Attachmentlog_Response.h \
     $${PWD}/Attachmentlog_ResponseCompound.h \
     $${PWD}/Attempt_Response.h \
     $${PWD}/Attempt_ResponseCompound.h \
+    $${PWD}/Authenticationexternal_AutocompleteElement_Response.h \
+    $${PWD}/Authenticationexternal_ListElement.h \
+    $${PWD}/Authenticationexternal_Request.h \
+    $${PWD}/Authenticationexternal_RequestCompound.h \
+    $${PWD}/Authenticationexternal_Response.h \
+    $${PWD}/Authenticationexternal_ResponseCompound.h \
+    $${PWD}/Authenticationexternal_createObject_v1_Request.h \
+    $${PWD}/Authenticationexternal_createObject_v1_Response.h \
+    $${PWD}/Authenticationexternal_createObject_v1_Response_mPayload.h \
+    $${PWD}/Authenticationexternal_deleteObject_v1_Response.h \
+    $${PWD}/Authenticationexternal_editObject_v1_Request.h \
+    $${PWD}/Authenticationexternal_editObject_v1_Response.h \
+    $${PWD}/Authenticationexternal_getAutocomplete_v2_Response.h \
+    $${PWD}/Authenticationexternal_getAutocomplete_v2_Response_mPayload.h \
+    $${PWD}/Authenticationexternal_getList_v1_Response.h \
+    $${PWD}/Authenticationexternal_getList_v1_Response_mPayload.h \
+    $${PWD}/Authenticationexternal_getObject_v2_Response.h \
+    $${PWD}/Authenticationexternal_getObject_v2_Response_mPayload.h \
+    $${PWD}/Authenticationexternal_resetAuthorization_v1_Response.h \
     $${PWD}/Billingentityexternal_AutocompleteElement_Response.h \
+    $${PWD}/Billingentityexternal_generateFederationToken_v1_Request.h \
+    $${PWD}/Billingentityexternal_generateFederationToken_v1_Response.h \
+    $${PWD}/Billingentityexternal_generateFederationToken_v1_Response_mPayload.h \
     $${PWD}/Billingentityexternal_getAutocomplete_v2_Response.h \
     $${PWD}/Billingentityexternal_getAutocomplete_v2_Response_mPayload.h \
     $${PWD}/Billingentityinternal_AutocompleteElement_Response.h \
@@ -75,26 +103,36 @@ HEADERS += \
     $${PWD}/Billingentityinternalproduct_ResponseCompound.h \
     $${PWD}/Branding_AutocompleteElement_Response.h \
     $${PWD}/Branding_ListElement.h \
-    $${PWD}/Branding_Request.h \
-    $${PWD}/Branding_RequestCompound.h \
-    $${PWD}/Branding_Response.h \
-    $${PWD}/Branding_ResponseCompound.h \
-    $${PWD}/Branding_createObject_v1_Request.h \
-    $${PWD}/Branding_createObject_v1_Response.h \
-    $${PWD}/Branding_createObject_v1_Response_mPayload.h \
-    $${PWD}/Branding_editObject_v1_Request.h \
-    $${PWD}/Branding_editObject_v1_Response.h \
+    $${PWD}/Branding_RequestCompoundV2.h \
+    $${PWD}/Branding_RequestV2.h \
+    $${PWD}/Branding_ResponseCompoundV3.h \
+    $${PWD}/Branding_ResponseV3.h \
+    $${PWD}/Branding_createObject_v2_Request.h \
+    $${PWD}/Branding_createObject_v2_Response.h \
+    $${PWD}/Branding_createObject_v2_Response_mPayload.h \
+    $${PWD}/Branding_editObject_v2_Request.h \
+    $${PWD}/Branding_editObject_v2_Response.h \
     $${PWD}/Branding_getAutocomplete_v2_Response.h \
     $${PWD}/Branding_getAutocomplete_v2_Response_mPayload.h \
     $${PWD}/Branding_getList_v1_Response.h \
     $${PWD}/Branding_getList_v1_Response_mPayload.h \
-    $${PWD}/Branding_getObject_v2_Response.h \
-    $${PWD}/Branding_getObject_v2_Response_mPayload.h \
+    $${PWD}/Branding_getObject_v3_Response.h \
+    $${PWD}/Branding_getObject_v3_Response_mPayload.h \
+    $${PWD}/Buyercontract_getCommunicationCount_v1_Response.h \
+    $${PWD}/Buyercontract_getCommunicationCount_v1_Response_mPayload.h \
     $${PWD}/Buyercontract_getCommunicationList_v1_Response.h \
     $${PWD}/Buyercontract_getCommunicationList_v1_Response_mPayload.h \
+    $${PWD}/Buyercontract_getCommunicationrecipients_v1_Response.h \
+    $${PWD}/Buyercontract_getCommunicationrecipients_v1_Response_mPayload.h \
+    $${PWD}/Buyercontract_getCommunicationsenders_v1_Response.h \
+    $${PWD}/Buyercontract_getCommunicationsenders_v1_Response_mPayload.h \
     $${PWD}/Clonehistory_ListElement.h \
     $${PWD}/Clonehistory_getList_v1_Response.h \
     $${PWD}/Clonehistory_getList_v1_Response_mPayload.h \
+    $${PWD}/Colleague_RequestCompoundV2.h \
+    $${PWD}/Colleague_RequestV2.h \
+    $${PWD}/Colleague_ResponseCompoundV2.h \
+    $${PWD}/Colleague_ResponseV2.h \
     $${PWD}/Common_Audit.h \
     $${PWD}/Common_Auditdetail.h \
     $${PWD}/Common_File.h \
@@ -109,8 +147,10 @@ HEADERS += \
     $${PWD}/Common_Reportsubsectionpart.h \
     $${PWD}/Common_Response.h \
     $${PWD}/Common_Response_Error.h \
+    $${PWD}/Common_Response_Error_CreditcardValidation.h \
     $${PWD}/Common_Response_Error_EzsignformValidation.h \
     $${PWD}/Common_Response_Error_TooManyRequests.h \
+    $${PWD}/Common_Response_Error_WrongFranchiseoffice.h \
     $${PWD}/Common_Response_Error_sTemporaryFileUrl.h \
     $${PWD}/Common_Response_Filter.h \
     $${PWD}/Common_Response_Redirect_sSecretquestionTextX.h \
@@ -126,9 +166,9 @@ HEADERS += \
     $${PWD}/Common_getReport_v1_Response_mPayload.h \
     $${PWD}/Communication_Request.h \
     $${PWD}/Communication_RequestCompound.h \
-    $${PWD}/Communication_createObject_v1_Response_mPayload.h \
     $${PWD}/Communication_send_v1_Request.h \
     $${PWD}/Communication_send_v1_Response.h \
+    $${PWD}/Communication_send_v1_Response_mPayload.h \
     $${PWD}/Communicationattachment_Request.h \
     $${PWD}/Communicationattachment_RequestCompound.h \
     $${PWD}/Communicationexternalrecipient_Request.h \
@@ -142,10 +182,22 @@ HEADERS += \
     $${PWD}/Company_getAutocomplete_v2_Response_mPayload.h \
     $${PWD}/Computed_eCommunicationDirection.h \
     $${PWD}/Computed_eEzsigndocumentSteptype.h \
+    $${PWD}/Computed_eEzsignfolderAccess.h \
     $${PWD}/Contact_Request.h \
     $${PWD}/Contact_RequestCompound.h \
+    $${PWD}/Contact_RequestCompoundV2.h \
+    $${PWD}/Contact_RequestV2.h \
+    $${PWD}/Contact_Response.h \
+    $${PWD}/Contact_ResponseCompound.h \
     $${PWD}/Contactinformations_Request.h \
     $${PWD}/Contactinformations_RequestCompound.h \
+    $${PWD}/Contactinformations_RequestCompoundV2.h \
+    $${PWD}/Contactinformations_RequestV2.h \
+    $${PWD}/Contactinformations_Response.h \
+    $${PWD}/Contactinformations_ResponseCompound.h \
+    $${PWD}/Contacttitle_AutocompleteElement_Response.h \
+    $${PWD}/Contacttitle_getAutocomplete_v2_Response.h \
+    $${PWD}/Contacttitle_getAutocomplete_v2_Response_mPayload.h \
     $${PWD}/Cors_Request.h \
     $${PWD}/Cors_RequestCompound.h \
     $${PWD}/Cors_Response.h \
@@ -165,6 +217,7 @@ HEADERS += \
     $${PWD}/Creditcardclient_ListElement.h \
     $${PWD}/Creditcardclient_Request.h \
     $${PWD}/Creditcardclient_RequestCompound.h \
+    $${PWD}/Creditcardclient_RequestPatch.h \
     $${PWD}/Creditcardclient_Response.h \
     $${PWD}/Creditcardclient_ResponseCompound.h \
     $${PWD}/Creditcardclient_createObject_v1_Request.h \
@@ -179,14 +232,19 @@ HEADERS += \
     $${PWD}/Creditcardclient_getList_v1_Response_mPayload.h \
     $${PWD}/Creditcardclient_getObject_v2_Response.h \
     $${PWD}/Creditcardclient_getObject_v2_Response_mPayload.h \
+    $${PWD}/Creditcardclient_patchObject_v1_Request.h \
+    $${PWD}/Creditcardclient_patchObject_v1_Response.h \
     $${PWD}/Creditcarddetail_Request.h \
     $${PWD}/Creditcarddetail_Response.h \
     $${PWD}/Creditcarddetail_ResponseCompound.h \
     $${PWD}/Creditcardtype_AutocompleteElement_Response.h \
     $${PWD}/Creditcardtype_getAutocomplete_v2_Response.h \
     $${PWD}/Creditcardtype_getAutocomplete_v2_Response_mPayload.h \
+    $${PWD}/Custom_Apikey.h \
+    $${PWD}/Custom_Apikeyfederation.h \
     $${PWD}/Custom_Attachment_Response.h \
     $${PWD}/Custom_Attachmentdocumenttype_Response.h \
+    $${PWD}/Custom_Branding_Response.h \
     $${PWD}/Custom_CommunicationListElement_Response.h \
     $${PWD}/Custom_Communicationattachment_Request.h \
     $${PWD}/Custom_Communicationrecipientsgroup_Response.h \
@@ -196,7 +254,9 @@ HEADERS += \
     $${PWD}/Custom_ContactName_Response.h \
     $${PWD}/Custom_CreateEzsignelementsPositionedByWord_Request.h \
     $${PWD}/Custom_Creditcardtransaction_Response.h \
+    $${PWD}/Custom_Creditcardtransactionresponse_Response.h \
     $${PWD}/Custom_Discussionconfiguration_Response.h \
+    $${PWD}/Custom_Dnsrecord_Response.h \
     $${PWD}/Custom_DropdownElement_Request.h \
     $${PWD}/Custom_DropdownElement_RequestCompound.h \
     $${PWD}/Custom_DropdownElement_Response.h \
@@ -205,7 +265,10 @@ HEADERS += \
     $${PWD}/Custom_EzmaxinvoicingEzsignfolder_Response.h \
     $${PWD}/Custom_Ezmaxpricing_Response.h \
     $${PWD}/Custom_EzsigndocumentEzsignsignaturesAutomatic_Response.h \
+    $${PWD}/Custom_Ezsigndocument_Request.h \
     $${PWD}/Custom_EzsignfolderEzsignsignaturesAutomatic_Response.h \
+    $${PWD}/Custom_EzsignfolderezsigntemplatepublicSigner_Response.h \
+    $${PWD}/Custom_Ezsignfolderezsigntemplatepublic_Response.h \
     $${PWD}/Custom_EzsignfoldersignerassociationActionableElement_Response.h \
     $${PWD}/Custom_Ezsignfoldersignerassociationstatus_Response.h \
     $${PWD}/Custom_EzsignfoldertransmissionSigner_Response.h \
@@ -227,11 +290,22 @@ HEADERS += \
     $${PWD}/Custom_ImportEzsigntemplatepackageRelation_Request.h \
     $${PWD}/Custom_Notificationsubsectiongetnotificationtests_Response.h \
     $${PWD}/Custom_Notificationtestgetnotificationtests_Response.h \
-    $${PWD}/Custom_User_Response.h \
+    $${PWD}/Custom_TimezoneWithCode_Response.h \
+    $${PWD}/Custom_UserName_Response.h \
     $${PWD}/Custom_Webhook_Response.h \
     $${PWD}/Custom_Webhooklog_Response.h \
     $${PWD}/Custom_WordPositionOccurence_Response.h \
     $${PWD}/Custom_WordPositionWord_Response.h \
+    $${PWD}/Custom_eWebhookEzsignevent.h \
+    $${PWD}/Customer_Request.h \
+    $${PWD}/Customer_RequestCompound.h \
+    $${PWD}/Customer_Response.h \
+    $${PWD}/Customer_ResponseCompound.h \
+    $${PWD}/Customer_createObject_v1_Request.h \
+    $${PWD}/Customer_createObject_v1_Response.h \
+    $${PWD}/Customer_createObject_v1_Response_mPayload.h \
+    $${PWD}/Customer_getObject_v2_Response.h \
+    $${PWD}/Customer_getObject_v2_Response_mPayload.h \
     $${PWD}/Department_AutocompleteElement_Response.h \
     $${PWD}/Department_getAutocomplete_v2_Response.h \
     $${PWD}/Department_getAutocomplete_v2_Response_mPayload.h \
@@ -269,8 +343,27 @@ HEADERS += \
     $${PWD}/Discussionmessage_deleteObject_v1_Response.h \
     $${PWD}/Discussionmessage_patchObject_v1_Request.h \
     $${PWD}/Discussionmessage_patchObject_v1_Response.h \
+    $${PWD}/Domain_ListElement.h \
+    $${PWD}/Domain_Request.h \
+    $${PWD}/Domain_RequestCompound.h \
+    $${PWD}/Domain_Response.h \
+    $${PWD}/Domain_ResponseCompound.h \
+    $${PWD}/Domain_createObject_v1_Request.h \
+    $${PWD}/Domain_createObject_v1_Response.h \
+    $${PWD}/Domain_createObject_v1_Response_mPayload.h \
+    $${PWD}/Domain_deleteObject_v1_Response.h \
+    $${PWD}/Domain_getList_v1_Response.h \
+    $${PWD}/Domain_getList_v1_Response_mPayload.h \
+    $${PWD}/Domain_getObject_v2_Response.h \
+    $${PWD}/Domain_getObject_v2_Response_mPayload.h \
+    $${PWD}/Electronicfundstransfer_getCommunicationCount_v1_Response.h \
+    $${PWD}/Electronicfundstransfer_getCommunicationCount_v1_Response_mPayload.h \
     $${PWD}/Electronicfundstransfer_getCommunicationList_v1_Response.h \
     $${PWD}/Electronicfundstransfer_getCommunicationList_v1_Response_mPayload.h \
+    $${PWD}/Electronicfundstransfer_getCommunicationrecipients_v1_Response.h \
+    $${PWD}/Electronicfundstransfer_getCommunicationrecipients_v1_Response_mPayload.h \
+    $${PWD}/Electronicfundstransfer_getCommunicationsenders_v1_Response.h \
+    $${PWD}/Electronicfundstransfer_getCommunicationsenders_v1_Response_mPayload.h \
     $${PWD}/Email_Request.h \
     $${PWD}/Email_RequestCompound.h \
     $${PWD}/Email_Response.h \
@@ -283,6 +376,32 @@ HEADERS += \
     $${PWD}/Enum_Horizontalalignment.h \
     $${PWD}/Enum_Textvalidation.h \
     $${PWD}/Enum_Verticalalignment.h \
+    $${PWD}/Ezdoctemplatedocument_AutocompleteElement_Response.h \
+    $${PWD}/Ezdoctemplatedocument_ListElement.h \
+    $${PWD}/Ezdoctemplatedocument_Request.h \
+    $${PWD}/Ezdoctemplatedocument_RequestCompound.h \
+    $${PWD}/Ezdoctemplatedocument_RequestPatch.h \
+    $${PWD}/Ezdoctemplatedocument_Response.h \
+    $${PWD}/Ezdoctemplatedocument_ResponseCompound.h \
+    $${PWD}/Ezdoctemplatedocument_createObject_v1_Request.h \
+    $${PWD}/Ezdoctemplatedocument_createObject_v1_Response.h \
+    $${PWD}/Ezdoctemplatedocument_createObject_v1_Response_mPayload.h \
+    $${PWD}/Ezdoctemplatedocument_editObject_v1_Request.h \
+    $${PWD}/Ezdoctemplatedocument_editObject_v1_Response.h \
+    $${PWD}/Ezdoctemplatedocument_getAutocomplete_v2_Response.h \
+    $${PWD}/Ezdoctemplatedocument_getAutocomplete_v2_Response_mPayload.h \
+    $${PWD}/Ezdoctemplatedocument_getList_v1_Response.h \
+    $${PWD}/Ezdoctemplatedocument_getList_v1_Response_mPayload.h \
+    $${PWD}/Ezdoctemplatedocument_getObject_v2_Response.h \
+    $${PWD}/Ezdoctemplatedocument_getObject_v2_Response_mPayload.h \
+    $${PWD}/Ezdoctemplatedocument_patchObject_v1_Request.h \
+    $${PWD}/Ezdoctemplatedocument_patchObject_v1_Response.h \
+    $${PWD}/Ezdoctemplatefieldtypecategory_AutocompleteElement_Response.h \
+    $${PWD}/Ezdoctemplatefieldtypecategory_getAutocomplete_v2_Response.h \
+    $${PWD}/Ezdoctemplatefieldtypecategory_getAutocomplete_v2_Response_mPayload.h \
+    $${PWD}/Ezdoctemplatetype_AutocompleteElement_Response.h \
+    $${PWD}/Ezdoctemplatetype_getAutocomplete_v2_Response.h \
+    $${PWD}/Ezdoctemplatetype_getAutocomplete_v2_Response_mPayload.h \
     $${PWD}/Ezmaxinvoicing_AutocompleteElement_Response.h \
     $${PWD}/Ezmaxinvoicing_Response.h \
     $${PWD}/Ezmaxinvoicing_ResponseCompound.h \
@@ -313,20 +432,26 @@ HEADERS += \
     $${PWD}/Ezmaxproduct_AutocompleteElement_Response.h \
     $${PWD}/Ezmaxproduct_getAutocomplete_v2_Response.h \
     $${PWD}/Ezmaxproduct_getAutocomplete_v2_Response_mPayload.h \
-    $${PWD}/Ezsign_suggestSigners_v1_Response.h \
-    $${PWD}/Ezsign_suggestSigners_v1_Response_mPayload.h \
-    $${PWD}/Ezsign_suggestTemplates_v1_Response.h \
-    $${PWD}/Ezsign_suggestTemplates_v1_Response_mPayload.h \
+    $${PWD}/Ezsignannotation_Request.h \
+    $${PWD}/Ezsignannotation_RequestCompound.h \
     $${PWD}/Ezsignannotation_Response.h \
     $${PWD}/Ezsignannotation_ResponseCompound.h \
+    $${PWD}/Ezsignannotation_createObject_v1_Request.h \
+    $${PWD}/Ezsignannotation_createObject_v1_Response.h \
+    $${PWD}/Ezsignannotation_createObject_v1_Response_mPayload.h \
+    $${PWD}/Ezsignannotation_deleteObject_v1_Response.h \
+    $${PWD}/Ezsignannotation_editObject_v1_Request.h \
+    $${PWD}/Ezsignannotation_editObject_v1_Response.h \
+    $${PWD}/Ezsignannotation_getObject_v2_Response.h \
+    $${PWD}/Ezsignannotation_getObject_v2_Response_mPayload.h \
     $${PWD}/Ezsignbulksend_ListElement.h \
     $${PWD}/Ezsignbulksend_Request.h \
     $${PWD}/Ezsignbulksend_RequestCompound.h \
     $${PWD}/Ezsignbulksend_Response.h \
     $${PWD}/Ezsignbulksend_ResponseCompound.h \
-    $${PWD}/Ezsignbulksend_createEzsignbulksendtransmission_v1_Request.h \
-    $${PWD}/Ezsignbulksend_createEzsignbulksendtransmission_v1_Response.h \
-    $${PWD}/Ezsignbulksend_createEzsignbulksendtransmission_v1_Response_mPayload.h \
+    $${PWD}/Ezsignbulksend_createEzsignbulksendtransmission_v2_Request.h \
+    $${PWD}/Ezsignbulksend_createEzsignbulksendtransmission_v2_Response.h \
+    $${PWD}/Ezsignbulksend_createEzsignbulksendtransmission_v2_Response_mPayload.h \
     $${PWD}/Ezsignbulksend_createObject_v1_Request.h \
     $${PWD}/Ezsignbulksend_createObject_v1_Response.h \
     $${PWD}/Ezsignbulksend_createObject_v1_Response_mPayload.h \
@@ -394,6 +519,7 @@ HEADERS += \
     $${PWD}/Ezsigndocument_applyEzsigntemplate_v2_Response.h \
     $${PWD}/Ezsigndocument_applyEzsigntemplateglobal_v1_Request.h \
     $${PWD}/Ezsigndocument_applyEzsigntemplateglobal_v1_Response.h \
+    $${PWD}/Ezsigndocument_createElement_v3_Response.h \
     $${PWD}/Ezsigndocument_createEzsignelementsPositionedByWord_v1_Request.h \
     $${PWD}/Ezsigndocument_createEzsignelementsPositionedByWord_v1_Response.h \
     $${PWD}/Ezsigndocument_createEzsignelementsPositionedByWord_v1_Response_mPayload.h \
@@ -403,16 +529,27 @@ HEADERS += \
     $${PWD}/Ezsigndocument_createObject_v2_Request.h \
     $${PWD}/Ezsigndocument_createObject_v2_Response.h \
     $${PWD}/Ezsigndocument_createObject_v2_Response_mPayload.h \
+    $${PWD}/Ezsigndocument_createObject_v3_Request.h \
+    $${PWD}/Ezsigndocument_createObject_v3_Response.h \
+    $${PWD}/Ezsigndocument_createObject_v3_Response_mPayload.h \
     $${PWD}/Ezsigndocument_declineToSign_v1_Request.h \
     $${PWD}/Ezsigndocument_declineToSign_v1_Response.h \
     $${PWD}/Ezsigndocument_deleteObject_v1_Response.h \
+    $${PWD}/Ezsigndocument_editEzsignannotations_v1_Request.h \
+    $${PWD}/Ezsigndocument_editEzsignannotations_v1_Response.h \
+    $${PWD}/Ezsigndocument_editEzsignannotations_v1_Response_mPayload.h \
     $${PWD}/Ezsigndocument_editEzsignformfieldgroups_v1_Request.h \
     $${PWD}/Ezsigndocument_editEzsignformfieldgroups_v1_Response.h \
     $${PWD}/Ezsigndocument_editEzsignformfieldgroups_v1_Response_mPayload.h \
     $${PWD}/Ezsigndocument_editEzsignsignatures_v1_Request.h \
     $${PWD}/Ezsigndocument_editEzsignsignatures_v1_Response.h \
     $${PWD}/Ezsigndocument_editEzsignsignatures_v1_Response_mPayload.h \
+    $${PWD}/Ezsigndocument_editObject_v1_Request.h \
+    $${PWD}/Ezsigndocument_editObject_v1_Response.h \
     $${PWD}/Ezsigndocument_endPrematurely_v1_Response.h \
+    $${PWD}/Ezsigndocument_extractText_v1_Request.h \
+    $${PWD}/Ezsigndocument_extractText_v1_Response.h \
+    $${PWD}/Ezsigndocument_extractText_v1_Response_mPayload.h \
     $${PWD}/Ezsigndocument_flatten_v1_Response.h \
     $${PWD}/Ezsigndocument_getActionableElements_v1_Response.h \
     $${PWD}/Ezsigndocument_getActionableElements_v1_Response_mPayload.h \
@@ -444,11 +581,15 @@ HEADERS += \
     $${PWD}/Ezsigndocument_getTemporaryProof_v1_Response_mPayload.h \
     $${PWD}/Ezsigndocument_getWordsPositions_v1_Request.h \
     $${PWD}/Ezsigndocument_getWordsPositions_v1_Response.h \
+    $${PWD}/Ezsigndocument_matchingtemplate_v3_Response.h \
     $${PWD}/Ezsigndocument_patchObject_v1_Request.h \
     $${PWD}/Ezsigndocument_patchObject_v1_Response.h \
     $${PWD}/Ezsigndocument_submitEzsignform_v1_Request.h \
     $${PWD}/Ezsigndocument_submitEzsignform_v1_Response.h \
     $${PWD}/Ezsigndocument_unsend_v1_Response.h \
+    $${PWD}/Ezsigndocumentdependency_Request.h \
+    $${PWD}/Ezsigndocumentdependency_RequestCompound.h \
+    $${PWD}/Ezsigndocumentdependency_Response.h \
     $${PWD}/Ezsigndocumentlog_Response.h \
     $${PWD}/Ezsigndocumentlog_ResponseCompound.h \
     $${PWD}/Ezsignelementdependency_Request.h \
@@ -458,8 +599,12 @@ HEADERS += \
     $${PWD}/Ezsignfolder_ListElement.h \
     $${PWD}/Ezsignfolder_Request.h \
     $${PWD}/Ezsignfolder_RequestCompound.h \
+    $${PWD}/Ezsignfolder_RequestCompoundV3.h \
+    $${PWD}/Ezsignfolder_RequestV3.h \
     $${PWD}/Ezsignfolder_Response.h \
     $${PWD}/Ezsignfolder_ResponseCompound.h \
+    $${PWD}/Ezsignfolder_ResponseCompoundV3.h \
+    $${PWD}/Ezsignfolder_ResponseV3.h \
     $${PWD}/Ezsignfolder_archive_v1_Response.h \
     $${PWD}/Ezsignfolder_batchDownload_v1_Request.h \
     $${PWD}/Ezsignfolder_createObject_v1_Request.h \
@@ -468,12 +613,15 @@ HEADERS += \
     $${PWD}/Ezsignfolder_createObject_v2_Request.h \
     $${PWD}/Ezsignfolder_createObject_v2_Response.h \
     $${PWD}/Ezsignfolder_createObject_v2_Response_mPayload.h \
+    $${PWD}/Ezsignfolder_createObject_v3_Request.h \
+    $${PWD}/Ezsignfolder_createObject_v3_Response.h \
+    $${PWD}/Ezsignfolder_createObject_v3_Response_mPayload.h \
     $${PWD}/Ezsignfolder_deleteObject_v1_Response.h \
     $${PWD}/Ezsignfolder_disposeEzsignfolders_v1_Request.h \
     $${PWD}/Ezsignfolder_disposeEzsignfolders_v1_Response.h \
     $${PWD}/Ezsignfolder_dispose_v1_Response.h \
-    $${PWD}/Ezsignfolder_editObject_v1_Request.h \
-    $${PWD}/Ezsignfolder_editObject_v1_Response.h \
+    $${PWD}/Ezsignfolder_editObject_v3_Request.h \
+    $${PWD}/Ezsignfolder_editObject_v3_Response.h \
     $${PWD}/Ezsignfolder_endPrematurely_v1_Response.h \
     $${PWD}/Ezsignfolder_getActionableElements_v1_Response.h \
     $${PWD}/Ezsignfolder_getActionableElements_v1_Response_mPayload.h \
@@ -503,6 +651,8 @@ HEADERS += \
     $${PWD}/Ezsignfolder_getObject_v1_Response_mPayload.h \
     $${PWD}/Ezsignfolder_getObject_v2_Response.h \
     $${PWD}/Ezsignfolder_getObject_v2_Response_mPayload.h \
+    $${PWD}/Ezsignfolder_getObject_v3_Response.h \
+    $${PWD}/Ezsignfolder_getObject_v3_Response_mPayload.h \
     $${PWD}/Ezsignfolder_importEzsignfoldersignerassociations_v1_Request.h \
     $${PWD}/Ezsignfolder_importEzsignfoldersignerassociations_v1_Response.h \
     $${PWD}/Ezsignfolder_importEzsignfoldersignerassociations_v1_Response_mPayload.h \
@@ -511,6 +661,8 @@ HEADERS += \
     $${PWD}/Ezsignfolder_importEzsigntemplatepackage_v1_Response_mPayload.h \
     $${PWD}/Ezsignfolder_reorder_v1_Request.h \
     $${PWD}/Ezsignfolder_reorder_v1_Response.h \
+    $${PWD}/Ezsignfolder_reorder_v2_Request.h \
+    $${PWD}/Ezsignfolder_reorder_v2_Response.h \
     $${PWD}/Ezsignfolder_send_v1_Request.h \
     $${PWD}/Ezsignfolder_send_v1_Response.h \
     $${PWD}/Ezsignfolder_send_v3_Request.h \
@@ -543,31 +695,29 @@ HEADERS += \
     $${PWD}/Ezsignfoldersignerassociation_getObject_v2_Response_mPayload.h \
     $${PWD}/Ezsignfoldersignerassociation_patchObject_v1_Request.h \
     $${PWD}/Ezsignfoldersignerassociation_patchObject_v1_Response.h \
+    $${PWD}/Ezsignfoldersignerassociation_reassign_v1_Request.h \
+    $${PWD}/Ezsignfoldersignerassociation_reassign_v1_Response.h \
     $${PWD}/Ezsignfoldertype_AutocompleteElement_Response.h \
     $${PWD}/Ezsignfoldertype_ListElement.h \
-    $${PWD}/Ezsignfoldertype_Request.h \
-    $${PWD}/Ezsignfoldertype_RequestCompound.h \
-    $${PWD}/Ezsignfoldertype_RequestCompoundV2.h \
-    $${PWD}/Ezsignfoldertype_RequestV2.h \
+    $${PWD}/Ezsignfoldertype_RequestCompoundV3.h \
+    $${PWD}/Ezsignfoldertype_RequestV3.h \
     $${PWD}/Ezsignfoldertype_Response.h \
     $${PWD}/Ezsignfoldertype_ResponseCompound.h \
-    $${PWD}/Ezsignfoldertype_ResponseCompoundV3.h \
-    $${PWD}/Ezsignfoldertype_ResponseV3.h \
-    $${PWD}/Ezsignfoldertype_createObject_v2_Request.h \
-    $${PWD}/Ezsignfoldertype_createObject_v2_Response.h \
-    $${PWD}/Ezsignfoldertype_createObject_v2_Response_mPayload.h \
-    $${PWD}/Ezsignfoldertype_editObject_v1_Request.h \
-    $${PWD}/Ezsignfoldertype_editObject_v1_Response.h \
-    $${PWD}/Ezsignfoldertype_editObject_v2_Request.h \
-    $${PWD}/Ezsignfoldertype_editObject_v2_Response.h \
+    $${PWD}/Ezsignfoldertype_ResponseCompoundV4.h \
+    $${PWD}/Ezsignfoldertype_ResponseV4.h \
+    $${PWD}/Ezsignfoldertype_createObject_v3_Request.h \
+    $${PWD}/Ezsignfoldertype_createObject_v3_Response.h \
+    $${PWD}/Ezsignfoldertype_createObject_v3_Response_mPayload.h \
+    $${PWD}/Ezsignfoldertype_editObject_v3_Request.h \
+    $${PWD}/Ezsignfoldertype_editObject_v3_Response.h \
     $${PWD}/Ezsignfoldertype_getAutocomplete_v2_Response.h \
     $${PWD}/Ezsignfoldertype_getAutocomplete_v2_Response_mPayload.h \
     $${PWD}/Ezsignfoldertype_getList_v1_Response.h \
     $${PWD}/Ezsignfoldertype_getList_v1_Response_mPayload.h \
     $${PWD}/Ezsignfoldertype_getObject_v2_Response.h \
     $${PWD}/Ezsignfoldertype_getObject_v2_Response_mPayload.h \
-    $${PWD}/Ezsignfoldertype_getObject_v3_Response.h \
-    $${PWD}/Ezsignfoldertype_getObject_v3_Response_mPayload.h \
+    $${PWD}/Ezsignfoldertype_getObject_v4_Response.h \
+    $${PWD}/Ezsignfoldertype_getObject_v4_Response_mPayload.h \
     $${PWD}/Ezsignformfield_Request.h \
     $${PWD}/Ezsignformfield_RequestCompound.h \
     $${PWD}/Ezsignformfield_Response.h \
@@ -593,30 +743,40 @@ HEADERS += \
     $${PWD}/Ezsignpage_consult_v1_Response.h \
     $${PWD}/Ezsignsignature_Request.h \
     $${PWD}/Ezsignsignature_RequestCompound.h \
+    $${PWD}/Ezsignsignature_RequestCompoundV2.h \
     $${PWD}/Ezsignsignature_Response.h \
     $${PWD}/Ezsignsignature_ResponseCompound.h \
+    $${PWD}/Ezsignsignature_ResponseCompoundV3.h \
     $${PWD}/Ezsignsignature_createObject_v1_Request.h \
     $${PWD}/Ezsignsignature_createObject_v1_Response.h \
     $${PWD}/Ezsignsignature_createObject_v1_Response_mPayload.h \
     $${PWD}/Ezsignsignature_createObject_v2_Request.h \
     $${PWD}/Ezsignsignature_createObject_v2_Response.h \
     $${PWD}/Ezsignsignature_createObject_v2_Response_mPayload.h \
+    $${PWD}/Ezsignsignature_createObject_v3_Request.h \
+    $${PWD}/Ezsignsignature_createObject_v3_Response.h \
+    $${PWD}/Ezsignsignature_createObject_v3_Response_mPayload.h \
     $${PWD}/Ezsignsignature_deleteObject_v1_Response.h \
-    $${PWD}/Ezsignsignature_editObject_v1_Request.h \
-    $${PWD}/Ezsignsignature_editObject_v1_Response.h \
+    $${PWD}/Ezsignsignature_editObject_v2_Request.h \
+    $${PWD}/Ezsignsignature_editObject_v2_Response.h \
     $${PWD}/Ezsignsignature_getEzsignsignatureattachment_v1_Response.h \
     $${PWD}/Ezsignsignature_getEzsignsignatureattachment_v1_Response_mPayload.h \
     $${PWD}/Ezsignsignature_getEzsignsignaturesAutomatic_v1_Response.h \
     $${PWD}/Ezsignsignature_getEzsignsignaturesAutomatic_v1_Response_mPayload.h \
-    $${PWD}/Ezsignsignature_getObject_v2_Response.h \
-    $${PWD}/Ezsignsignature_getObject_v2_Response_mPayload.h \
+    $${PWD}/Ezsignsignature_getObject_v3_Response.h \
+    $${PWD}/Ezsignsignature_getObject_v3_Response_mPayload.h \
     $${PWD}/Ezsignsignature_sign_v1_Request.h \
     $${PWD}/Ezsignsignature_sign_v1_Response.h \
+    $${PWD}/Ezsignsignature_sign_v1_Response_mPayload.h \
     $${PWD}/Ezsignsignatureattachment_Response.h \
     $${PWD}/Ezsignsignaturecustomdate_Request.h \
     $${PWD}/Ezsignsignaturecustomdate_RequestCompound.h \
+    $${PWD}/Ezsignsignaturecustomdate_RequestCompoundV2.h \
+    $${PWD}/Ezsignsignaturecustomdate_RequestV2.h \
     $${PWD}/Ezsignsignaturecustomdate_Response.h \
     $${PWD}/Ezsignsignaturecustomdate_ResponseCompound.h \
+    $${PWD}/Ezsignsignaturecustomdate_ResponseCompoundV2.h \
+    $${PWD}/Ezsignsignaturecustomdate_ResponseV2.h \
     $${PWD}/Ezsignsigner_Request.h \
     $${PWD}/Ezsignsigner_RequestCompound.h \
     $${PWD}/Ezsignsigner_RequestCompound_Contact.h \
@@ -669,34 +829,27 @@ HEADERS += \
     $${PWD}/Ezsignsigningreason_getObject_v2_Response_mPayload.h \
     $${PWD}/Ezsigntemplate_AutocompleteElement_Response.h \
     $${PWD}/Ezsigntemplate_ListElement.h \
-    $${PWD}/Ezsigntemplate_Request.h \
-    $${PWD}/Ezsigntemplate_RequestCompound.h \
-    $${PWD}/Ezsigntemplate_RequestCompoundV2.h \
-    $${PWD}/Ezsigntemplate_RequestV2.h \
+    $${PWD}/Ezsigntemplate_RequestCompoundV3.h \
+    $${PWD}/Ezsigntemplate_RequestV3.h \
     $${PWD}/Ezsigntemplate_Response.h \
     $${PWD}/Ezsigntemplate_ResponseCompound.h \
+    $${PWD}/Ezsigntemplate_ResponseCompoundV3.h \
+    $${PWD}/Ezsigntemplate_ResponseV3.h \
     $${PWD}/Ezsigntemplate_copy_v1_Request.h \
     $${PWD}/Ezsigntemplate_copy_v1_Response.h \
     $${PWD}/Ezsigntemplate_copy_v1_Response_mPayload.h \
-    $${PWD}/Ezsigntemplate_createObject_v1_Request.h \
-    $${PWD}/Ezsigntemplate_createObject_v1_Response.h \
-    $${PWD}/Ezsigntemplate_createObject_v1_Response_mPayload.h \
-    $${PWD}/Ezsigntemplate_createObject_v2_Request.h \
-    $${PWD}/Ezsigntemplate_createObject_v2_Response.h \
-    $${PWD}/Ezsigntemplate_createObject_v2_Response_mPayload.h \
+    $${PWD}/Ezsigntemplate_createObject_v3_Request.h \
+    $${PWD}/Ezsigntemplate_createObject_v3_Response.h \
+    $${PWD}/Ezsigntemplate_createObject_v3_Response_mPayload.h \
     $${PWD}/Ezsigntemplate_deleteObject_v1_Response.h \
-    $${PWD}/Ezsigntemplate_editObject_v1_Request.h \
-    $${PWD}/Ezsigntemplate_editObject_v1_Response.h \
-    $${PWD}/Ezsigntemplate_editObject_v2_Request.h \
-    $${PWD}/Ezsigntemplate_editObject_v2_Response.h \
+    $${PWD}/Ezsigntemplate_editObject_v3_Request.h \
+    $${PWD}/Ezsigntemplate_editObject_v3_Response.h \
     $${PWD}/Ezsigntemplate_getAutocomplete_v2_Response.h \
     $${PWD}/Ezsigntemplate_getAutocomplete_v2_Response_mPayload.h \
     $${PWD}/Ezsigntemplate_getList_v1_Response.h \
     $${PWD}/Ezsigntemplate_getList_v1_Response_mPayload.h \
-    $${PWD}/Ezsigntemplate_getObject_v1_Response.h \
-    $${PWD}/Ezsigntemplate_getObject_v1_Response_mPayload.h \
-    $${PWD}/Ezsigntemplate_getObject_v2_Response.h \
-    $${PWD}/Ezsigntemplate_getObject_v2_Response_mPayload.h \
+    $${PWD}/Ezsigntemplate_getObject_v3_Response.h \
+    $${PWD}/Ezsigntemplate_getObject_v3_Response_mPayload.h \
     $${PWD}/Ezsigntemplatedocument_Request.h \
     $${PWD}/Ezsigntemplatedocument_RequestCompound.h \
     $${PWD}/Ezsigntemplatedocument_RequestPatch.h \
@@ -705,6 +858,9 @@ HEADERS += \
     $${PWD}/Ezsigntemplatedocument_createObject_v1_Request.h \
     $${PWD}/Ezsigntemplatedocument_createObject_v1_Response.h \
     $${PWD}/Ezsigntemplatedocument_createObject_v1_Response_mPayload.h \
+    $${PWD}/Ezsigntemplatedocument_editEzsigntemplatedocumentpagerecognitions_v1_Request.h \
+    $${PWD}/Ezsigntemplatedocument_editEzsigntemplatedocumentpagerecognitions_v1_Response.h \
+    $${PWD}/Ezsigntemplatedocument_editEzsigntemplatedocumentpagerecognitions_v1_Response_mPayload.h \
     $${PWD}/Ezsigntemplatedocument_editEzsigntemplateformfieldgroups_v1_Request.h \
     $${PWD}/Ezsigntemplatedocument_editEzsigntemplateformfieldgroups_v1_Response.h \
     $${PWD}/Ezsigntemplatedocument_editEzsigntemplateformfieldgroups_v1_Response_mPayload.h \
@@ -713,7 +869,12 @@ HEADERS += \
     $${PWD}/Ezsigntemplatedocument_editEzsigntemplatesignatures_v1_Response_mPayload.h \
     $${PWD}/Ezsigntemplatedocument_editObject_v1_Request.h \
     $${PWD}/Ezsigntemplatedocument_editObject_v1_Response.h \
+    $${PWD}/Ezsigntemplatedocument_extractText_v1_Request.h \
+    $${PWD}/Ezsigntemplatedocument_extractText_v1_Response.h \
+    $${PWD}/Ezsigntemplatedocument_extractText_v1_Response_mPayload.h \
     $${PWD}/Ezsigntemplatedocument_flatten_v1_Response.h \
+    $${PWD}/Ezsigntemplatedocument_getEzsigntemplatedocumentpagerecognitions_v1_Response.h \
+    $${PWD}/Ezsigntemplatedocument_getEzsigntemplatedocumentpagerecognitions_v1_Response_mPayload.h \
     $${PWD}/Ezsigntemplatedocument_getEzsigntemplatedocumentpages_v1_Response.h \
     $${PWD}/Ezsigntemplatedocument_getEzsigntemplatedocumentpages_v1_Response_mPayload.h \
     $${PWD}/Ezsigntemplatedocument_getEzsigntemplateformfieldgroups_v1_Response.h \
@@ -728,6 +889,18 @@ HEADERS += \
     $${PWD}/Ezsigntemplatedocument_patchObject_v1_Response.h \
     $${PWD}/Ezsigntemplatedocumentpage_Response.h \
     $${PWD}/Ezsigntemplatedocumentpage_ResponseCompound.h \
+    $${PWD}/Ezsigntemplatedocumentpagerecognition_Request.h \
+    $${PWD}/Ezsigntemplatedocumentpagerecognition_RequestCompound.h \
+    $${PWD}/Ezsigntemplatedocumentpagerecognition_Response.h \
+    $${PWD}/Ezsigntemplatedocumentpagerecognition_ResponseCompound.h \
+    $${PWD}/Ezsigntemplatedocumentpagerecognition_createObject_v1_Request.h \
+    $${PWD}/Ezsigntemplatedocumentpagerecognition_createObject_v1_Response.h \
+    $${PWD}/Ezsigntemplatedocumentpagerecognition_createObject_v1_Response_mPayload.h \
+    $${PWD}/Ezsigntemplatedocumentpagerecognition_deleteObject_v1_Response.h \
+    $${PWD}/Ezsigntemplatedocumentpagerecognition_editObject_v1_Request.h \
+    $${PWD}/Ezsigntemplatedocumentpagerecognition_editObject_v1_Response.h \
+    $${PWD}/Ezsigntemplatedocumentpagerecognition_getObject_v2_Response.h \
+    $${PWD}/Ezsigntemplatedocumentpagerecognition_getObject_v2_Response_mPayload.h \
     $${PWD}/Ezsigntemplateelementdependency_Request.h \
     $${PWD}/Ezsigntemplateelementdependency_RequestCompound.h \
     $${PWD}/Ezsigntemplateelementdependency_Response.h \
@@ -817,22 +990,54 @@ HEADERS += \
     $${PWD}/Ezsigntemplatepackagesignermembership_deleteObject_v1_Response_mPayload.h \
     $${PWD}/Ezsigntemplatepackagesignermembership_getObject_v2_Response.h \
     $${PWD}/Ezsigntemplatepackagesignermembership_getObject_v2_Response_mPayload.h \
+    $${PWD}/Ezsigntemplatepublic_ListElement.h \
+    $${PWD}/Ezsigntemplatepublic_Request.h \
+    $${PWD}/Ezsigntemplatepublic_RequestCompound.h \
+    $${PWD}/Ezsigntemplatepublic_Response.h \
+    $${PWD}/Ezsigntemplatepublic_ResponseCompound.h \
+    $${PWD}/Ezsigntemplatepublic_createEzsignfolder_v1_Request.h \
+    $${PWD}/Ezsigntemplatepublic_createEzsignfolder_v1_Response.h \
+    $${PWD}/Ezsigntemplatepublic_createEzsignfolder_v1_Response_mPayload.h \
+    $${PWD}/Ezsigntemplatepublic_createObject_v1_Request.h \
+    $${PWD}/Ezsigntemplatepublic_createObject_v1_Response.h \
+    $${PWD}/Ezsigntemplatepublic_createObject_v1_Response_mPayload.h \
+    $${PWD}/Ezsigntemplatepublic_editObject_v1_Request.h \
+    $${PWD}/Ezsigntemplatepublic_editObject_v1_Response.h \
+    $${PWD}/Ezsigntemplatepublic_getEzsigntemplatepublicDetails_v1_Request.h \
+    $${PWD}/Ezsigntemplatepublic_getEzsigntemplatepublicDetails_v1_Response.h \
+    $${PWD}/Ezsigntemplatepublic_getEzsigntemplatepublicDetails_v1_Response_mPayload.h \
+    $${PWD}/Ezsigntemplatepublic_getFormsData_v1_Response.h \
+    $${PWD}/Ezsigntemplatepublic_getFormsData_v1_Response_mPayload.h \
+    $${PWD}/Ezsigntemplatepublic_getList_v1_Response.h \
+    $${PWD}/Ezsigntemplatepublic_getList_v1_Response_mPayload.h \
+    $${PWD}/Ezsigntemplatepublic_getObject_v2_Response.h \
+    $${PWD}/Ezsigntemplatepublic_getObject_v2_Response_mPayload.h \
+    $${PWD}/Ezsigntemplatepublic_resetLimitExceededCounter_v1_Response.h \
+    $${PWD}/Ezsigntemplatepublic_resetLimitExceededCounter_v1_Response_mPayload.h \
+    $${PWD}/Ezsigntemplatepublic_resetUrl_v1_Response.h \
+    $${PWD}/Ezsigntemplatepublic_resetUrl_v1_Response_mPayload.h \
     $${PWD}/Ezsigntemplatesignature_Request.h \
     $${PWD}/Ezsigntemplatesignature_RequestCompound.h \
+    $${PWD}/Ezsigntemplatesignature_RequestCompoundV2.h \
     $${PWD}/Ezsigntemplatesignature_Response.h \
     $${PWD}/Ezsigntemplatesignature_ResponseCompound.h \
-    $${PWD}/Ezsigntemplatesignature_createObject_v1_Request.h \
-    $${PWD}/Ezsigntemplatesignature_createObject_v1_Response.h \
-    $${PWD}/Ezsigntemplatesignature_createObject_v1_Response_mPayload.h \
+    $${PWD}/Ezsigntemplatesignature_ResponseCompoundV3.h \
+    $${PWD}/Ezsigntemplatesignature_createObject_v2_Request.h \
+    $${PWD}/Ezsigntemplatesignature_createObject_v2_Response.h \
+    $${PWD}/Ezsigntemplatesignature_createObject_v2_Response_mPayload.h \
     $${PWD}/Ezsigntemplatesignature_deleteObject_v1_Response.h \
-    $${PWD}/Ezsigntemplatesignature_editObject_v1_Request.h \
-    $${PWD}/Ezsigntemplatesignature_editObject_v1_Response.h \
-    $${PWD}/Ezsigntemplatesignature_getObject_v2_Response.h \
-    $${PWD}/Ezsigntemplatesignature_getObject_v2_Response_mPayload.h \
+    $${PWD}/Ezsigntemplatesignature_editObject_v2_Request.h \
+    $${PWD}/Ezsigntemplatesignature_editObject_v2_Response.h \
+    $${PWD}/Ezsigntemplatesignature_getObject_v3_Response.h \
+    $${PWD}/Ezsigntemplatesignature_getObject_v3_Response_mPayload.h \
     $${PWD}/Ezsigntemplatesignaturecustomdate_Request.h \
     $${PWD}/Ezsigntemplatesignaturecustomdate_RequestCompound.h \
+    $${PWD}/Ezsigntemplatesignaturecustomdate_RequestCompoundV2.h \
+    $${PWD}/Ezsigntemplatesignaturecustomdate_RequestV2.h \
     $${PWD}/Ezsigntemplatesignaturecustomdate_Response.h \
     $${PWD}/Ezsigntemplatesignaturecustomdate_ResponseCompound.h \
+    $${PWD}/Ezsigntemplatesignaturecustomdate_ResponseCompoundV2.h \
+    $${PWD}/Ezsigntemplatesignaturecustomdate_ResponseV2.h \
     $${PWD}/Ezsigntemplatesigner_Request.h \
     $${PWD}/Ezsigntemplatesigner_RequestCompound.h \
     $${PWD}/Ezsigntemplatesigner_Response.h \
@@ -848,7 +1053,19 @@ HEADERS += \
     $${PWD}/Ezsigntsarequirement_AutocompleteElement_Response.h \
     $${PWD}/Ezsigntsarequirement_getAutocomplete_v2_Response.h \
     $${PWD}/Ezsigntsarequirement_getAutocomplete_v2_Response_mPayload.h \
+    $${PWD}/Ezsignuser_Request.h \
+    $${PWD}/Ezsignuser_RequestCompound.h \
+    $${PWD}/Ezsignuser_Response.h \
+    $${PWD}/Ezsignuser_ResponseCompound.h \
+    $${PWD}/Ezsignuser_editObject_v1_Request.h \
+    $${PWD}/Ezsignuser_editObject_v1_Response.h \
+    $${PWD}/Ezsignuser_getObject_v2_Response.h \
+    $${PWD}/Ezsignuser_getObject_v2_Response_mPayload.h \
+    $${PWD}/Field_eActivesessionEzsign.h \
+    $${PWD}/Field_eActivesessionEzsignaccess.h \
+    $${PWD}/Field_eActivesessionEzsignprepaid.h \
     $${PWD}/Field_eActivesessionOrigin.h \
+    $${PWD}/Field_eActivesessionRealestateinprogress.h \
     $${PWD}/Field_eActivesessionUsertype.h \
     $${PWD}/Field_eActivesessionWeekdaystart.h \
     $${PWD}/Field_eAttachmentDocumenttype.h \
@@ -856,15 +1073,25 @@ HEADERS += \
     $${PWD}/Field_eAttachmentType.h \
     $${PWD}/Field_eAttachmentVerified.h \
     $${PWD}/Field_eAttachmentlogType.h \
+    $${PWD}/Field_eAuthenticationexternalType.h \
+    $${PWD}/Field_eBrandingAlignlogo.h \
     $${PWD}/Field_eBrandingLogo.h \
-    $${PWD}/Field_eBrandingLogointerface.h \
+    $${PWD}/Field_eColleagueEzsign.h \
+    $${PWD}/Field_eColleagueRealestateinprogess.h \
     $${PWD}/Field_eCommunicationImportance.h \
     $${PWD}/Field_eCommunicationType.h \
     $${PWD}/Field_eCommunicationexternalrecipientType.h \
     $${PWD}/Field_eCommunicationrecipientType.h \
+    $${PWD}/Field_eContactType.h \
+    $${PWD}/Field_eContactinformationsType.h \
+    $${PWD}/Field_eCreditcardtransactionAvsresult.h \
+    $${PWD}/Field_eCreditcardtransactionCvdresult.h \
     $${PWD}/Field_eCreditcardtypeCodename.h \
+    $${PWD}/Field_eCustomerMarketingcorrespondence.h \
+    $${PWD}/Field_eCustomerType.h \
     $${PWD}/Field_eDiscussionmessageStatus.h \
     $${PWD}/Field_eErrorCode.h \
+    $${PWD}/Field_eEzdoctemplatedocumentPrivacylevel.h \
     $${PWD}/Field_eEzmaxinvoicingPaymenttype.h \
     $${PWD}/Field_eEzmaxinvoicingagentVariationezmax.h \
     $${PWD}/Field_eEzmaxinvoicingagentVariationezsign.h \
@@ -876,22 +1103,32 @@ HEADERS += \
     $${PWD}/Field_eEzsignelementdependencyOperator.h \
     $${PWD}/Field_eEzsignelementdependencyValidation.h \
     $${PWD}/Field_eEzsignfolderCompletion.h \
+    $${PWD}/Field_eEzsignfolderDocumentdependency.h \
+    $${PWD}/Field_eEzsignfolderMessageorder.h \
     $${PWD}/Field_eEzsignfolderSendreminderfrequency.h \
     $${PWD}/Field_eEzsignfolderStep.h \
     $${PWD}/Field_eEzsignfoldertypeCompletion.h \
     $${PWD}/Field_eEzsignfoldertypeDisposal.h \
+    $${PWD}/Field_eEzsignfoldertypeDocumentdependency.h \
+    $${PWD}/Field_eEzsignfoldertypePdfanoncompliantaction.h \
+    $${PWD}/Field_eEzsignfoldertypePdfarequirement.h \
     $${PWD}/Field_eEzsignfoldertypePrivacylevel.h \
     $${PWD}/Field_eEzsignfoldertypeSendreminderfrequency.h \
+    $${PWD}/Field_eEzsignfoldertypeSigneraccess.h \
     $${PWD}/Field_eEzsignformfieldDependencyrequirement.h \
     $${PWD}/Field_eEzsignformfieldgroupSignerrequirement.h \
     $${PWD}/Field_eEzsignformfieldgroupTooltipposition.h \
     $${PWD}/Field_eEzsignformfieldgroupType.h \
     $${PWD}/Field_eEzsignsignatureAttachmentnamesource.h \
+    $${PWD}/Field_eEzsignsignatureConsultationtrigger.h \
     $${PWD}/Field_eEzsignsignatureDependencyrequirement.h \
     $${PWD}/Field_eEzsignsignatureFont.h \
     $${PWD}/Field_eEzsignsignatureTooltipposition.h \
     $${PWD}/Field_eEzsignsignatureType.h \
+    $${PWD}/Field_eEzsigntemplateRecognition.h \
     $${PWD}/Field_eEzsigntemplateType.h \
+    $${PWD}/Field_eEzsigntemplatedocumentpagerecognitionOperator.h \
+    $${PWD}/Field_eEzsigntemplatedocumentpagerecognitionSection.h \
     $${PWD}/Field_eEzsigntemplateelementdependencyOperator.h \
     $${PWD}/Field_eEzsigntemplateelementdependencyValidation.h \
     $${PWD}/Field_eEzsigntemplateformfieldDependencyrequirement.h \
@@ -902,17 +1139,22 @@ HEADERS += \
     $${PWD}/Field_eEzsigntemplateformfieldgroupType.h \
     $${PWD}/Field_eEzsigntemplateglobalModule.h \
     $${PWD}/Field_eEzsigntemplateglobalSupplier.h \
+    $${PWD}/Field_eEzsigntemplatepackagesignerMapping.h \
+    $${PWD}/Field_eEzsigntemplatepublicLimittype.h \
     $${PWD}/Field_eEzsigntemplatesignatureAttachmentnamesource.h \
+    $${PWD}/Field_eEzsigntemplatesignatureConsultationtrigger.h \
     $${PWD}/Field_eEzsigntemplatesignatureDependencyrequirement.h \
     $${PWD}/Field_eEzsigntemplatesignatureFont.h \
     $${PWD}/Field_eEzsigntemplatesignaturePositioning.h \
     $${PWD}/Field_eEzsigntemplatesignaturePositioningoccurence.h \
     $${PWD}/Field_eEzsigntemplatesignatureTooltipposition.h \
     $${PWD}/Field_eEzsigntemplatesignatureType.h \
+    $${PWD}/Field_eEzsigntemplatesignerMapping.h \
     $${PWD}/Field_eNotificationpreferenceStatus.h \
     $${PWD}/Field_ePaymenttermType.h \
     $${PWD}/Field_ePhoneType.h \
     $${PWD}/Field_eSessionhistoryEndby.h \
+    $${PWD}/Field_eSignaturePreference.h \
     $${PWD}/Field_eSystemconfigurationEzsign.h \
     $${PWD}/Field_eSystemconfigurationEzsignofficeplan.h \
     $${PWD}/Field_eSystemconfigurationLanguage1.h \
@@ -945,24 +1187,52 @@ HEADERS += \
     $${PWD}/Franchisereferalincome_createObject_v2_Request.h \
     $${PWD}/Franchisereferalincome_createObject_v2_Response.h \
     $${PWD}/Franchisereferalincome_createObject_v2_Response_mPayload.h \
+    $${PWD}/Glaccount_AutocompleteElement_Response.h \
+    $${PWD}/Glaccount_getAutocomplete_v2_Response.h \
+    $${PWD}/Glaccount_getAutocomplete_v2_Response_mPayload.h \
+    $${PWD}/Glaccountcontainer_AutocompleteElement_Response.h \
+    $${PWD}/Glaccountcontainer_getAutocomplete_v2_Response.h \
+    $${PWD}/Glaccountcontainer_getAutocomplete_v2_Response_mPayload.h \
     $${PWD}/Global_customer_getEndpoint_v1_Response.h \
     $${PWD}/Global_ezmaxclient_version_v1_Response.h \
     $${PWD}/Global_ezmaxcustomer_getConfiguration_v1_Response.h \
     $${PWD}/Header_Accept_Language.h \
     $${PWD}/Inscription_getAttachments_v1_Response.h \
     $${PWD}/Inscription_getAttachments_v1_Response_mPayload.h \
+    $${PWD}/Inscription_getCommunicationCount_v1_Response.h \
+    $${PWD}/Inscription_getCommunicationCount_v1_Response_mPayload.h \
     $${PWD}/Inscription_getCommunicationList_v1_Response.h \
     $${PWD}/Inscription_getCommunicationList_v1_Response_mPayload.h \
+    $${PWD}/Inscription_getCommunicationrecipients_v1_Response.h \
+    $${PWD}/Inscription_getCommunicationrecipients_v1_Response_mPayload.h \
     $${PWD}/Inscription_getCommunicationsenders_v1_Response.h \
     $${PWD}/Inscription_getCommunicationsenders_v1_Response_mPayload.h \
+    $${PWD}/Inscriptionnotauthenticated_getCommunicationCount_v1_Response.h \
+    $${PWD}/Inscriptionnotauthenticated_getCommunicationCount_v1_Response_mPayload.h \
     $${PWD}/Inscriptionnotauthenticated_getCommunicationList_v1_Response.h \
     $${PWD}/Inscriptionnotauthenticated_getCommunicationList_v1_Response_mPayload.h \
+    $${PWD}/Inscriptionnotauthenticated_getCommunicationrecipients_v1_Response.h \
+    $${PWD}/Inscriptionnotauthenticated_getCommunicationrecipients_v1_Response_mPayload.h \
+    $${PWD}/Inscriptionnotauthenticated_getCommunicationsenders_v1_Response.h \
+    $${PWD}/Inscriptionnotauthenticated_getCommunicationsenders_v1_Response_mPayload.h \
+    $${PWD}/Inscriptiontemp_getCommunicationCount_v1_Response.h \
+    $${PWD}/Inscriptiontemp_getCommunicationCount_v1_Response_mPayload.h \
     $${PWD}/Inscriptiontemp_getCommunicationList_v1_Response.h \
     $${PWD}/Inscriptiontemp_getCommunicationList_v1_Response_mPayload.h \
+    $${PWD}/Inscriptiontemp_getCommunicationrecipients_v1_Response.h \
+    $${PWD}/Inscriptiontemp_getCommunicationrecipients_v1_Response_mPayload.h \
+    $${PWD}/Inscriptiontemp_getCommunicationsenders_v1_Response.h \
+    $${PWD}/Inscriptiontemp_getCommunicationsenders_v1_Response_mPayload.h \
     $${PWD}/Invoice_getAttachments_v1_Response.h \
     $${PWD}/Invoice_getAttachments_v1_Response_mPayload.h \
+    $${PWD}/Invoice_getCommunicationCount_v1_Response.h \
+    $${PWD}/Invoice_getCommunicationCount_v1_Response_mPayload.h \
     $${PWD}/Invoice_getCommunicationList_v1_Response.h \
     $${PWD}/Invoice_getCommunicationList_v1_Response_mPayload.h \
+    $${PWD}/Invoice_getCommunicationrecipients_v1_Response.h \
+    $${PWD}/Invoice_getCommunicationrecipients_v1_Response_mPayload.h \
+    $${PWD}/Invoice_getCommunicationsenders_v1_Response.h \
+    $${PWD}/Invoice_getCommunicationsenders_v1_Response_mPayload.h \
     $${PWD}/Language_AutocompleteElement_Response.h \
     $${PWD}/Language_getAutocomplete_v2_Response.h \
     $${PWD}/Language_getAutocomplete_v2_Response_mPayload.h \
@@ -980,6 +1250,7 @@ HEADERS += \
     $${PWD}/Multilingual_ApikeyDescription.h \
     $${PWD}/Multilingual_BillingentityinternalDescription.h \
     $${PWD}/Multilingual_BrandingDescription.h \
+    $${PWD}/Multilingual_EzdoctemplatedocumentName.h \
     $${PWD}/Multilingual_EzmaxinvoicingsummaryinternalDescription.h \
     $${PWD}/Multilingual_EzsignfoldertypeName.h \
     $${PWD}/Multilingual_EzsignsignergroupDescription.h \
@@ -988,6 +1259,7 @@ HEADERS += \
     $${PWD}/Multilingual_NotificationtestName.h \
     $${PWD}/Multilingual_PaymenttermDescription.h \
     $${PWD}/Multilingual_SubnetDescription.h \
+    $${PWD}/Multilingual_SupplyDescription.h \
     $${PWD}/Multilingual_UsergroupName.h \
     $${PWD}/Multilingual_UserlogintypeDescription.h \
     $${PWD}/Multilingual_VariableexpenseDescription.h \
@@ -998,8 +1270,14 @@ HEADERS += \
     $${PWD}/Notificationtest_Response.h \
     $${PWD}/Notificationtest_getElements_v1_Response.h \
     $${PWD}/Notificationtest_getElements_v1_Response_mPayload.h \
+    $${PWD}/Otherincome_getCommunicationCount_v1_Response.h \
+    $${PWD}/Otherincome_getCommunicationCount_v1_Response_mPayload.h \
     $${PWD}/Otherincome_getCommunicationList_v1_Response.h \
     $${PWD}/Otherincome_getCommunicationList_v1_Response_mPayload.h \
+    $${PWD}/Otherincome_getCommunicationrecipients_v1_Response.h \
+    $${PWD}/Otherincome_getCommunicationrecipients_v1_Response_mPayload.h \
+    $${PWD}/Otherincome_getCommunicationsenders_v1_Response.h \
+    $${PWD}/Otherincome_getCommunicationsenders_v1_Response_mPayload.h \
     $${PWD}/Paymentterm_AutocompleteElement_Response.h \
     $${PWD}/Paymentterm_ListElement.h \
     $${PWD}/Paymentterm_Request.h \
@@ -1017,6 +1295,9 @@ HEADERS += \
     $${PWD}/Paymentterm_getList_v1_Response_mPayload.h \
     $${PWD}/Paymentterm_getObject_v2_Response.h \
     $${PWD}/Paymentterm_getObject_v2_Response_mPayload.h \
+    $${PWD}/Pdfalevel_AutocompleteElement_Response.h \
+    $${PWD}/Pdfalevel_getAutocomplete_v2_Response.h \
+    $${PWD}/Pdfalevel_getAutocomplete_v2_Response_mPayload.h \
     $${PWD}/Period_AutocompleteElement_Response.h \
     $${PWD}/Period_getAutocomplete_v2_Response.h \
     $${PWD}/Period_getAutocomplete_v2_Response_mPayload.h \
@@ -1044,8 +1325,14 @@ HEADERS += \
     $${PWD}/Province_AutocompleteElement_Response.h \
     $${PWD}/Province_getAutocomplete_v2_Response.h \
     $${PWD}/Province_getAutocomplete_v2_Response_mPayload.h \
+    $${PWD}/Rejectedoffertopurchase_getCommunicationCount_v1_Response.h \
+    $${PWD}/Rejectedoffertopurchase_getCommunicationCount_v1_Response_mPayload.h \
     $${PWD}/Rejectedoffertopurchase_getCommunicationList_v1_Response.h \
     $${PWD}/Rejectedoffertopurchase_getCommunicationList_v1_Response_mPayload.h \
+    $${PWD}/Rejectedoffertopurchase_getCommunicationrecipients_v1_Response.h \
+    $${PWD}/Rejectedoffertopurchase_getCommunicationrecipients_v1_Response_mPayload.h \
+    $${PWD}/Rejectedoffertopurchase_getCommunicationsenders_v1_Response.h \
+    $${PWD}/Rejectedoffertopurchase_getCommunicationsenders_v1_Response_mPayload.h \
     $${PWD}/Scim_AuthenticationScheme.h \
     $${PWD}/Scim_Email.h \
     $${PWD}/Scim_Group.h \
@@ -1069,6 +1356,8 @@ HEADERS += \
     $${PWD}/Signature_RequestCompound.h \
     $${PWD}/Signature_Response.h \
     $${PWD}/Signature_ResponseCompound.h \
+    $${PWD}/Signature_ResponseCompoundV3.h \
+    $${PWD}/Signature_ResponseV3.h \
     $${PWD}/Signature_createObject_v1_Request.h \
     $${PWD}/Signature_createObject_v1_Response.h \
     $${PWD}/Signature_createObject_v1_Response_mPayload.h \
@@ -1077,6 +1366,8 @@ HEADERS += \
     $${PWD}/Signature_editObject_v1_Response.h \
     $${PWD}/Signature_getObject_v2_Response.h \
     $${PWD}/Signature_getObject_v2_Response_mPayload.h \
+    $${PWD}/Signature_getObject_v3_Response.h \
+    $${PWD}/Signature_getObject_v3_Response_mPayload.h \
     $${PWD}/Subnet_Request.h \
     $${PWD}/Subnet_RequestCompound.h \
     $${PWD}/Subnet_Response.h \
@@ -1089,6 +1380,24 @@ HEADERS += \
     $${PWD}/Subnet_editObject_v1_Response.h \
     $${PWD}/Subnet_getObject_v2_Response.h \
     $${PWD}/Subnet_getObject_v2_Response_mPayload.h \
+    $${PWD}/Supply_AutocompleteElement_Response.h \
+    $${PWD}/Supply_ListElement.h \
+    $${PWD}/Supply_Request.h \
+    $${PWD}/Supply_RequestCompound.h \
+    $${PWD}/Supply_Response.h \
+    $${PWD}/Supply_ResponseCompound.h \
+    $${PWD}/Supply_createObject_v1_Request.h \
+    $${PWD}/Supply_createObject_v1_Response.h \
+    $${PWD}/Supply_createObject_v1_Response_mPayload.h \
+    $${PWD}/Supply_deleteObject_v1_Response.h \
+    $${PWD}/Supply_editObject_v1_Request.h \
+    $${PWD}/Supply_editObject_v1_Response.h \
+    $${PWD}/Supply_getAutocomplete_v2_Response.h \
+    $${PWD}/Supply_getAutocomplete_v2_Response_mPayload.h \
+    $${PWD}/Supply_getList_v1_Response.h \
+    $${PWD}/Supply_getList_v1_Response_mPayload.h \
+    $${PWD}/Supply_getObject_v2_Response.h \
+    $${PWD}/Supply_getObject_v2_Response_mPayload.h \
     $${PWD}/Systemconfiguration_Request.h \
     $${PWD}/Systemconfiguration_RequestCompound.h \
     $${PWD}/Systemconfiguration_Response.h \
@@ -1100,11 +1409,21 @@ HEADERS += \
     $${PWD}/Taxassignment_AutocompleteElement_Response.h \
     $${PWD}/Taxassignment_getAutocomplete_v2_Response.h \
     $${PWD}/Taxassignment_getAutocomplete_v2_Response_mPayload.h \
+    $${PWD}/Textstylestatic_Request.h \
+    $${PWD}/Textstylestatic_RequestCompound.h \
     $${PWD}/Textstylestatic_Response.h \
     $${PWD}/Textstylestatic_ResponseCompound.h \
     $${PWD}/Timezone_AutocompleteElement_Response.h \
     $${PWD}/Timezone_getAutocomplete_v2_Response.h \
     $${PWD}/Timezone_getAutocomplete_v2_Response_mPayload.h \
+    $${PWD}/Tranqcontract_getCommunicationCount_v1_Response.h \
+    $${PWD}/Tranqcontract_getCommunicationCount_v1_Response_mPayload.h \
+    $${PWD}/Tranqcontract_getCommunicationList_v1_Response.h \
+    $${PWD}/Tranqcontract_getCommunicationList_v1_Response_mPayload.h \
+    $${PWD}/Tranqcontract_getCommunicationrecipients_v1_Response.h \
+    $${PWD}/Tranqcontract_getCommunicationrecipients_v1_Response_mPayload.h \
+    $${PWD}/Tranqcontract_getCommunicationsenders_v1_Response.h \
+    $${PWD}/Tranqcontract_getCommunicationsenders_v1_Response_mPayload.h \
     $${PWD}/User_AutocompleteElement_Response.h \
     $${PWD}/User_ListElement.h \
     $${PWD}/User_Request.h \
@@ -1122,6 +1441,9 @@ HEADERS += \
     $${PWD}/User_createObject_v2_Request.h \
     $${PWD}/User_createObject_v2_Response.h \
     $${PWD}/User_createObject_v2_Response_mPayload.h \
+    $${PWD}/User_editColleagues_v2_Request.h \
+    $${PWD}/User_editColleagues_v2_Response.h \
+    $${PWD}/User_editColleagues_v2_Response_mPayload.h \
     $${PWD}/User_editObject_v1_Request.h \
     $${PWD}/User_editObject_v1_Response.h \
     $${PWD}/User_editPermissions_v1_Request.h \
@@ -1131,6 +1453,8 @@ HEADERS += \
     $${PWD}/User_getApikeys_v1_Response_mPayload.h \
     $${PWD}/User_getAutocomplete_v2_Response.h \
     $${PWD}/User_getAutocomplete_v2_Response_mPayload.h \
+    $${PWD}/User_getColleagues_v2_Response.h \
+    $${PWD}/User_getColleagues_v2_Response_mPayload.h \
     $${PWD}/User_getEffectivePermissions_v1_Response.h \
     $${PWD}/User_getEffectivePermissions_v1_Response_mPayload.h \
     $${PWD}/User_getList_v1_Response.h \
@@ -1295,6 +1619,8 @@ HEADERS += \
     $${PWD}/Webhook_regenerateApikey_v1_Request.h \
     $${PWD}/Webhook_regenerateApikey_v1_Response.h \
     $${PWD}/Webhook_regenerateApikey_v1_Response_mPayload.h \
+    $${PWD}/Webhook_sendWebhook_v1_Request.h \
+    $${PWD}/Webhook_sendWebhook_v1_Response.h \
     $${PWD}/Webhook_test_v1_Response.h \
     $${PWD}/Webhookheader_Request.h \
     $${PWD}/Webhookheader_RequestCompound.h \
@@ -1302,6 +1628,8 @@ HEADERS += \
     $${PWD}/Webhookheader_ResponseCompound.h \
     $${PWD}/Website_Request.h \
     $${PWD}/Website_RequestCompound.h \
+    $${PWD}/Website_Response.h \
+    $${PWD}/Website_ResponseCompound.h \
     $${PWD}/Websocket_RequestServer_GetWebsocketID_V1.h \
     $${PWD}/Websocket_Response_Error_V1.h \
     $${PWD}/Websocket_Response_Error_V1_mPayload.h \
@@ -1313,12 +1641,12 @@ HEADERS += \
     $${PWD}/GlobalCustomerApi.h \
     $${PWD}/GlobalEzmaxclientApi.h \
     $${PWD}/GlobalEzmaxcustomerApi.h \
-    $${PWD}/ModuleEzsignApi.h \
     $${PWD}/ModuleReportApi.h \
     $${PWD}/ModuleUserApi.h \
     $${PWD}/ObjectActivesessionApi.h \
     $${PWD}/ObjectApikeyApi.h \
     $${PWD}/ObjectAttachmentApi.h \
+    $${PWD}/ObjectAuthenticationexternalApi.h \
     $${PWD}/ObjectBillingentityexternalApi.h \
     $${PWD}/ObjectBillingentityinternalApi.h \
     $${PWD}/ObjectBrandingApi.h \
@@ -1326,18 +1654,25 @@ HEADERS += \
     $${PWD}/ObjectClonehistoryApi.h \
     $${PWD}/ObjectCommunicationApi.h \
     $${PWD}/ObjectCompanyApi.h \
+    $${PWD}/ObjectContacttitleApi.h \
     $${PWD}/ObjectCorsApi.h \
     $${PWD}/ObjectCountryApi.h \
     $${PWD}/ObjectCreditcardclientApi.h \
     $${PWD}/ObjectCreditcardtypeApi.h \
+    $${PWD}/ObjectCustomerApi.h \
     $${PWD}/ObjectDepartmentApi.h \
     $${PWD}/ObjectDiscussionApi.h \
     $${PWD}/ObjectDiscussionmembershipApi.h \
     $${PWD}/ObjectDiscussionmessageApi.h \
+    $${PWD}/ObjectDomainApi.h \
     $${PWD}/ObjectElectronicfundstransferApi.h \
     $${PWD}/ObjectEmailtypeApi.h \
+    $${PWD}/ObjectEzdoctemplatedocumentApi.h \
+    $${PWD}/ObjectEzdoctemplatefieldtypecategoryApi.h \
+    $${PWD}/ObjectEzdoctemplatetypeApi.h \
     $${PWD}/ObjectEzmaxinvoicingApi.h \
     $${PWD}/ObjectEzmaxproductApi.h \
+    $${PWD}/ObjectEzsignannotationApi.h \
     $${PWD}/ObjectEzsignbulksendApi.h \
     $${PWD}/ObjectEzsignbulksenddocumentmappingApi.h \
     $${PWD}/ObjectEzsignbulksendsignermappingApi.h \
@@ -1355,19 +1690,24 @@ HEADERS += \
     $${PWD}/ObjectEzsignsigningreasonApi.h \
     $${PWD}/ObjectEzsigntemplateApi.h \
     $${PWD}/ObjectEzsigntemplatedocumentApi.h \
+    $${PWD}/ObjectEzsigntemplatedocumentpagerecognitionApi.h \
     $${PWD}/ObjectEzsigntemplateformfieldgroupApi.h \
     $${PWD}/ObjectEzsigntemplateglobalApi.h \
     $${PWD}/ObjectEzsigntemplatepackageApi.h \
     $${PWD}/ObjectEzsigntemplatepackagemembershipApi.h \
     $${PWD}/ObjectEzsigntemplatepackagesignerApi.h \
     $${PWD}/ObjectEzsigntemplatepackagesignermembershipApi.h \
+    $${PWD}/ObjectEzsigntemplatepublicApi.h \
     $${PWD}/ObjectEzsigntemplatesignatureApi.h \
     $${PWD}/ObjectEzsigntemplatesignerApi.h \
     $${PWD}/ObjectEzsigntsarequirementApi.h \
+    $${PWD}/ObjectEzsignuserApi.h \
     $${PWD}/ObjectFontApi.h \
     $${PWD}/ObjectFranchisebrokerApi.h \
     $${PWD}/ObjectFranchiseofficeApi.h \
     $${PWD}/ObjectFranchisereferalincomeApi.h \
+    $${PWD}/ObjectGlaccountApi.h \
+    $${PWD}/ObjectGlaccountcontainerApi.h \
     $${PWD}/ObjectInscriptionApi.h \
     $${PWD}/ObjectInscriptionnotauthenticatedApi.h \
     $${PWD}/ObjectInscriptiontempApi.h \
@@ -1379,6 +1719,7 @@ HEADERS += \
     $${PWD}/ObjectNotificationtestApi.h \
     $${PWD}/ObjectOtherincomeApi.h \
     $${PWD}/ObjectPaymenttermApi.h \
+    $${PWD}/ObjectPdfalevelApi.h \
     $${PWD}/ObjectPeriodApi.h \
     $${PWD}/ObjectPermissionApi.h \
     $${PWD}/ObjectPhonetypeApi.h \
@@ -1388,9 +1729,11 @@ HEADERS += \
     $${PWD}/ObjectSessionhistoryApi.h \
     $${PWD}/ObjectSignatureApi.h \
     $${PWD}/ObjectSubnetApi.h \
+    $${PWD}/ObjectSupplyApi.h \
     $${PWD}/ObjectSystemconfigurationApi.h \
     $${PWD}/ObjectTaxassignmentApi.h \
     $${PWD}/ObjectTimezoneApi.h \
+    $${PWD}/ObjectTranqcontractApi.h \
     $${PWD}/ObjectUserApi.h \
     $${PWD}/ObjectUsergroupApi.h \
     $${PWD}/ObjectUsergroupdelegationApi.h \
@@ -1421,12 +1764,17 @@ SOURCES += \
     $${PWD}/Activesession_ResponseCompound.cpp \
     $${PWD}/Activesession_ResponseCompound_Apikey.cpp \
     $${PWD}/Activesession_ResponseCompound_User.cpp \
+    $${PWD}/Activesession_generateFederationToken_v1_Request.cpp \
+    $${PWD}/Activesession_generateFederationToken_v1_Response.cpp \
+    $${PWD}/Activesession_generateFederationToken_v1_Response_mPayload.cpp \
     $${PWD}/Activesession_getCurrent_v1_Response.cpp \
     $${PWD}/Activesession_getCurrent_v1_Response_mPayload.cpp \
     $${PWD}/Activesession_getList_v1_Response.cpp \
     $${PWD}/Activesession_getList_v1_Response_mPayload.cpp \
     $${PWD}/Address_Request.cpp \
     $${PWD}/Address_RequestCompound.cpp \
+    $${PWD}/Address_Response.cpp \
+    $${PWD}/Address_ResponseCompound.cpp \
     $${PWD}/Apikey_ListElement.cpp \
     $${PWD}/Apikey_Request.cpp \
     $${PWD}/Apikey_RequestCompound.cpp \
@@ -1440,6 +1788,9 @@ SOURCES += \
     $${PWD}/Apikey_editPermissions_v1_Request.cpp \
     $${PWD}/Apikey_editPermissions_v1_Response.cpp \
     $${PWD}/Apikey_editPermissions_v1_Response_mPayload.cpp \
+    $${PWD}/Apikey_generateDelegatedCredentials_v1_Request.cpp \
+    $${PWD}/Apikey_generateDelegatedCredentials_v1_Response.cpp \
+    $${PWD}/Apikey_generateDelegatedCredentials_v1_Response_mPayload.cpp \
     $${PWD}/Apikey_getCors_v1_Response.cpp \
     $${PWD}/Apikey_getCors_v1_Response_mPayload.cpp \
     $${PWD}/Apikey_getList_v1_Response.cpp \
@@ -1457,13 +1808,33 @@ SOURCES += \
     $${PWD}/Attachment_ResponseCompound.cpp \
     $${PWD}/Attachment_getAttachmentlogs_v1_Response.cpp \
     $${PWD}/Attachment_getAttachmentlogs_v1_Response_mPayload.cpp \
-    $${PWD}/Attachment_getDownloadUrl_v1_Response.cpp \
-    $${PWD}/Attachment_getDownloadUrl_v1_Response_mPayload.cpp \
     $${PWD}/Attachmentlog_Response.cpp \
     $${PWD}/Attachmentlog_ResponseCompound.cpp \
     $${PWD}/Attempt_Response.cpp \
     $${PWD}/Attempt_ResponseCompound.cpp \
+    $${PWD}/Authenticationexternal_AutocompleteElement_Response.cpp \
+    $${PWD}/Authenticationexternal_ListElement.cpp \
+    $${PWD}/Authenticationexternal_Request.cpp \
+    $${PWD}/Authenticationexternal_RequestCompound.cpp \
+    $${PWD}/Authenticationexternal_Response.cpp \
+    $${PWD}/Authenticationexternal_ResponseCompound.cpp \
+    $${PWD}/Authenticationexternal_createObject_v1_Request.cpp \
+    $${PWD}/Authenticationexternal_createObject_v1_Response.cpp \
+    $${PWD}/Authenticationexternal_createObject_v1_Response_mPayload.cpp \
+    $${PWD}/Authenticationexternal_deleteObject_v1_Response.cpp \
+    $${PWD}/Authenticationexternal_editObject_v1_Request.cpp \
+    $${PWD}/Authenticationexternal_editObject_v1_Response.cpp \
+    $${PWD}/Authenticationexternal_getAutocomplete_v2_Response.cpp \
+    $${PWD}/Authenticationexternal_getAutocomplete_v2_Response_mPayload.cpp \
+    $${PWD}/Authenticationexternal_getList_v1_Response.cpp \
+    $${PWD}/Authenticationexternal_getList_v1_Response_mPayload.cpp \
+    $${PWD}/Authenticationexternal_getObject_v2_Response.cpp \
+    $${PWD}/Authenticationexternal_getObject_v2_Response_mPayload.cpp \
+    $${PWD}/Authenticationexternal_resetAuthorization_v1_Response.cpp \
     $${PWD}/Billingentityexternal_AutocompleteElement_Response.cpp \
+    $${PWD}/Billingentityexternal_generateFederationToken_v1_Request.cpp \
+    $${PWD}/Billingentityexternal_generateFederationToken_v1_Response.cpp \
+    $${PWD}/Billingentityexternal_generateFederationToken_v1_Response_mPayload.cpp \
     $${PWD}/Billingentityexternal_getAutocomplete_v2_Response.cpp \
     $${PWD}/Billingentityexternal_getAutocomplete_v2_Response_mPayload.cpp \
     $${PWD}/Billingentityinternal_AutocompleteElement_Response.cpp \
@@ -1489,26 +1860,36 @@ SOURCES += \
     $${PWD}/Billingentityinternalproduct_ResponseCompound.cpp \
     $${PWD}/Branding_AutocompleteElement_Response.cpp \
     $${PWD}/Branding_ListElement.cpp \
-    $${PWD}/Branding_Request.cpp \
-    $${PWD}/Branding_RequestCompound.cpp \
-    $${PWD}/Branding_Response.cpp \
-    $${PWD}/Branding_ResponseCompound.cpp \
-    $${PWD}/Branding_createObject_v1_Request.cpp \
-    $${PWD}/Branding_createObject_v1_Response.cpp \
-    $${PWD}/Branding_createObject_v1_Response_mPayload.cpp \
-    $${PWD}/Branding_editObject_v1_Request.cpp \
-    $${PWD}/Branding_editObject_v1_Response.cpp \
+    $${PWD}/Branding_RequestCompoundV2.cpp \
+    $${PWD}/Branding_RequestV2.cpp \
+    $${PWD}/Branding_ResponseCompoundV3.cpp \
+    $${PWD}/Branding_ResponseV3.cpp \
+    $${PWD}/Branding_createObject_v2_Request.cpp \
+    $${PWD}/Branding_createObject_v2_Response.cpp \
+    $${PWD}/Branding_createObject_v2_Response_mPayload.cpp \
+    $${PWD}/Branding_editObject_v2_Request.cpp \
+    $${PWD}/Branding_editObject_v2_Response.cpp \
     $${PWD}/Branding_getAutocomplete_v2_Response.cpp \
     $${PWD}/Branding_getAutocomplete_v2_Response_mPayload.cpp \
     $${PWD}/Branding_getList_v1_Response.cpp \
     $${PWD}/Branding_getList_v1_Response_mPayload.cpp \
-    $${PWD}/Branding_getObject_v2_Response.cpp \
-    $${PWD}/Branding_getObject_v2_Response_mPayload.cpp \
+    $${PWD}/Branding_getObject_v3_Response.cpp \
+    $${PWD}/Branding_getObject_v3_Response_mPayload.cpp \
+    $${PWD}/Buyercontract_getCommunicationCount_v1_Response.cpp \
+    $${PWD}/Buyercontract_getCommunicationCount_v1_Response_mPayload.cpp \
     $${PWD}/Buyercontract_getCommunicationList_v1_Response.cpp \
     $${PWD}/Buyercontract_getCommunicationList_v1_Response_mPayload.cpp \
+    $${PWD}/Buyercontract_getCommunicationrecipients_v1_Response.cpp \
+    $${PWD}/Buyercontract_getCommunicationrecipients_v1_Response_mPayload.cpp \
+    $${PWD}/Buyercontract_getCommunicationsenders_v1_Response.cpp \
+    $${PWD}/Buyercontract_getCommunicationsenders_v1_Response_mPayload.cpp \
     $${PWD}/Clonehistory_ListElement.cpp \
     $${PWD}/Clonehistory_getList_v1_Response.cpp \
     $${PWD}/Clonehistory_getList_v1_Response_mPayload.cpp \
+    $${PWD}/Colleague_RequestCompoundV2.cpp \
+    $${PWD}/Colleague_RequestV2.cpp \
+    $${PWD}/Colleague_ResponseCompoundV2.cpp \
+    $${PWD}/Colleague_ResponseV2.cpp \
     $${PWD}/Common_Audit.cpp \
     $${PWD}/Common_Auditdetail.cpp \
     $${PWD}/Common_File.cpp \
@@ -1523,8 +1904,10 @@ SOURCES += \
     $${PWD}/Common_Reportsubsectionpart.cpp \
     $${PWD}/Common_Response.cpp \
     $${PWD}/Common_Response_Error.cpp \
+    $${PWD}/Common_Response_Error_CreditcardValidation.cpp \
     $${PWD}/Common_Response_Error_EzsignformValidation.cpp \
     $${PWD}/Common_Response_Error_TooManyRequests.cpp \
+    $${PWD}/Common_Response_Error_WrongFranchiseoffice.cpp \
     $${PWD}/Common_Response_Error_sTemporaryFileUrl.cpp \
     $${PWD}/Common_Response_Filter.cpp \
     $${PWD}/Common_Response_Redirect_sSecretquestionTextX.cpp \
@@ -1540,9 +1923,9 @@ SOURCES += \
     $${PWD}/Common_getReport_v1_Response_mPayload.cpp \
     $${PWD}/Communication_Request.cpp \
     $${PWD}/Communication_RequestCompound.cpp \
-    $${PWD}/Communication_createObject_v1_Response_mPayload.cpp \
     $${PWD}/Communication_send_v1_Request.cpp \
     $${PWD}/Communication_send_v1_Response.cpp \
+    $${PWD}/Communication_send_v1_Response_mPayload.cpp \
     $${PWD}/Communicationattachment_Request.cpp \
     $${PWD}/Communicationattachment_RequestCompound.cpp \
     $${PWD}/Communicationexternalrecipient_Request.cpp \
@@ -1556,10 +1939,22 @@ SOURCES += \
     $${PWD}/Company_getAutocomplete_v2_Response_mPayload.cpp \
     $${PWD}/Computed_eCommunicationDirection.cpp \
     $${PWD}/Computed_eEzsigndocumentSteptype.cpp \
+    $${PWD}/Computed_eEzsignfolderAccess.cpp \
     $${PWD}/Contact_Request.cpp \
     $${PWD}/Contact_RequestCompound.cpp \
+    $${PWD}/Contact_RequestCompoundV2.cpp \
+    $${PWD}/Contact_RequestV2.cpp \
+    $${PWD}/Contact_Response.cpp \
+    $${PWD}/Contact_ResponseCompound.cpp \
     $${PWD}/Contactinformations_Request.cpp \
     $${PWD}/Contactinformations_RequestCompound.cpp \
+    $${PWD}/Contactinformations_RequestCompoundV2.cpp \
+    $${PWD}/Contactinformations_RequestV2.cpp \
+    $${PWD}/Contactinformations_Response.cpp \
+    $${PWD}/Contactinformations_ResponseCompound.cpp \
+    $${PWD}/Contacttitle_AutocompleteElement_Response.cpp \
+    $${PWD}/Contacttitle_getAutocomplete_v2_Response.cpp \
+    $${PWD}/Contacttitle_getAutocomplete_v2_Response_mPayload.cpp \
     $${PWD}/Cors_Request.cpp \
     $${PWD}/Cors_RequestCompound.cpp \
     $${PWD}/Cors_Response.cpp \
@@ -1579,6 +1974,7 @@ SOURCES += \
     $${PWD}/Creditcardclient_ListElement.cpp \
     $${PWD}/Creditcardclient_Request.cpp \
     $${PWD}/Creditcardclient_RequestCompound.cpp \
+    $${PWD}/Creditcardclient_RequestPatch.cpp \
     $${PWD}/Creditcardclient_Response.cpp \
     $${PWD}/Creditcardclient_ResponseCompound.cpp \
     $${PWD}/Creditcardclient_createObject_v1_Request.cpp \
@@ -1593,14 +1989,19 @@ SOURCES += \
     $${PWD}/Creditcardclient_getList_v1_Response_mPayload.cpp \
     $${PWD}/Creditcardclient_getObject_v2_Response.cpp \
     $${PWD}/Creditcardclient_getObject_v2_Response_mPayload.cpp \
+    $${PWD}/Creditcardclient_patchObject_v1_Request.cpp \
+    $${PWD}/Creditcardclient_patchObject_v1_Response.cpp \
     $${PWD}/Creditcarddetail_Request.cpp \
     $${PWD}/Creditcarddetail_Response.cpp \
     $${PWD}/Creditcarddetail_ResponseCompound.cpp \
     $${PWD}/Creditcardtype_AutocompleteElement_Response.cpp \
     $${PWD}/Creditcardtype_getAutocomplete_v2_Response.cpp \
     $${PWD}/Creditcardtype_getAutocomplete_v2_Response_mPayload.cpp \
+    $${PWD}/Custom_Apikey.cpp \
+    $${PWD}/Custom_Apikeyfederation.cpp \
     $${PWD}/Custom_Attachment_Response.cpp \
     $${PWD}/Custom_Attachmentdocumenttype_Response.cpp \
+    $${PWD}/Custom_Branding_Response.cpp \
     $${PWD}/Custom_CommunicationListElement_Response.cpp \
     $${PWD}/Custom_Communicationattachment_Request.cpp \
     $${PWD}/Custom_Communicationrecipientsgroup_Response.cpp \
@@ -1610,7 +2011,9 @@ SOURCES += \
     $${PWD}/Custom_ContactName_Response.cpp \
     $${PWD}/Custom_CreateEzsignelementsPositionedByWord_Request.cpp \
     $${PWD}/Custom_Creditcardtransaction_Response.cpp \
+    $${PWD}/Custom_Creditcardtransactionresponse_Response.cpp \
     $${PWD}/Custom_Discussionconfiguration_Response.cpp \
+    $${PWD}/Custom_Dnsrecord_Response.cpp \
     $${PWD}/Custom_DropdownElement_Request.cpp \
     $${PWD}/Custom_DropdownElement_RequestCompound.cpp \
     $${PWD}/Custom_DropdownElement_Response.cpp \
@@ -1619,7 +2022,10 @@ SOURCES += \
     $${PWD}/Custom_EzmaxinvoicingEzsignfolder_Response.cpp \
     $${PWD}/Custom_Ezmaxpricing_Response.cpp \
     $${PWD}/Custom_EzsigndocumentEzsignsignaturesAutomatic_Response.cpp \
+    $${PWD}/Custom_Ezsigndocument_Request.cpp \
     $${PWD}/Custom_EzsignfolderEzsignsignaturesAutomatic_Response.cpp \
+    $${PWD}/Custom_EzsignfolderezsigntemplatepublicSigner_Response.cpp \
+    $${PWD}/Custom_Ezsignfolderezsigntemplatepublic_Response.cpp \
     $${PWD}/Custom_EzsignfoldersignerassociationActionableElement_Response.cpp \
     $${PWD}/Custom_Ezsignfoldersignerassociationstatus_Response.cpp \
     $${PWD}/Custom_EzsignfoldertransmissionSigner_Response.cpp \
@@ -1641,11 +2047,22 @@ SOURCES += \
     $${PWD}/Custom_ImportEzsigntemplatepackageRelation_Request.cpp \
     $${PWD}/Custom_Notificationsubsectiongetnotificationtests_Response.cpp \
     $${PWD}/Custom_Notificationtestgetnotificationtests_Response.cpp \
-    $${PWD}/Custom_User_Response.cpp \
+    $${PWD}/Custom_TimezoneWithCode_Response.cpp \
+    $${PWD}/Custom_UserName_Response.cpp \
     $${PWD}/Custom_Webhook_Response.cpp \
     $${PWD}/Custom_Webhooklog_Response.cpp \
     $${PWD}/Custom_WordPositionOccurence_Response.cpp \
     $${PWD}/Custom_WordPositionWord_Response.cpp \
+    $${PWD}/Custom_eWebhookEzsignevent.cpp \
+    $${PWD}/Customer_Request.cpp \
+    $${PWD}/Customer_RequestCompound.cpp \
+    $${PWD}/Customer_Response.cpp \
+    $${PWD}/Customer_ResponseCompound.cpp \
+    $${PWD}/Customer_createObject_v1_Request.cpp \
+    $${PWD}/Customer_createObject_v1_Response.cpp \
+    $${PWD}/Customer_createObject_v1_Response_mPayload.cpp \
+    $${PWD}/Customer_getObject_v2_Response.cpp \
+    $${PWD}/Customer_getObject_v2_Response_mPayload.cpp \
     $${PWD}/Department_AutocompleteElement_Response.cpp \
     $${PWD}/Department_getAutocomplete_v2_Response.cpp \
     $${PWD}/Department_getAutocomplete_v2_Response_mPayload.cpp \
@@ -1683,8 +2100,27 @@ SOURCES += \
     $${PWD}/Discussionmessage_deleteObject_v1_Response.cpp \
     $${PWD}/Discussionmessage_patchObject_v1_Request.cpp \
     $${PWD}/Discussionmessage_patchObject_v1_Response.cpp \
+    $${PWD}/Domain_ListElement.cpp \
+    $${PWD}/Domain_Request.cpp \
+    $${PWD}/Domain_RequestCompound.cpp \
+    $${PWD}/Domain_Response.cpp \
+    $${PWD}/Domain_ResponseCompound.cpp \
+    $${PWD}/Domain_createObject_v1_Request.cpp \
+    $${PWD}/Domain_createObject_v1_Response.cpp \
+    $${PWD}/Domain_createObject_v1_Response_mPayload.cpp \
+    $${PWD}/Domain_deleteObject_v1_Response.cpp \
+    $${PWD}/Domain_getList_v1_Response.cpp \
+    $${PWD}/Domain_getList_v1_Response_mPayload.cpp \
+    $${PWD}/Domain_getObject_v2_Response.cpp \
+    $${PWD}/Domain_getObject_v2_Response_mPayload.cpp \
+    $${PWD}/Electronicfundstransfer_getCommunicationCount_v1_Response.cpp \
+    $${PWD}/Electronicfundstransfer_getCommunicationCount_v1_Response_mPayload.cpp \
     $${PWD}/Electronicfundstransfer_getCommunicationList_v1_Response.cpp \
     $${PWD}/Electronicfundstransfer_getCommunicationList_v1_Response_mPayload.cpp \
+    $${PWD}/Electronicfundstransfer_getCommunicationrecipients_v1_Response.cpp \
+    $${PWD}/Electronicfundstransfer_getCommunicationrecipients_v1_Response_mPayload.cpp \
+    $${PWD}/Electronicfundstransfer_getCommunicationsenders_v1_Response.cpp \
+    $${PWD}/Electronicfundstransfer_getCommunicationsenders_v1_Response_mPayload.cpp \
     $${PWD}/Email_Request.cpp \
     $${PWD}/Email_RequestCompound.cpp \
     $${PWD}/Email_Response.cpp \
@@ -1697,6 +2133,32 @@ SOURCES += \
     $${PWD}/Enum_Horizontalalignment.cpp \
     $${PWD}/Enum_Textvalidation.cpp \
     $${PWD}/Enum_Verticalalignment.cpp \
+    $${PWD}/Ezdoctemplatedocument_AutocompleteElement_Response.cpp \
+    $${PWD}/Ezdoctemplatedocument_ListElement.cpp \
+    $${PWD}/Ezdoctemplatedocument_Request.cpp \
+    $${PWD}/Ezdoctemplatedocument_RequestCompound.cpp \
+    $${PWD}/Ezdoctemplatedocument_RequestPatch.cpp \
+    $${PWD}/Ezdoctemplatedocument_Response.cpp \
+    $${PWD}/Ezdoctemplatedocument_ResponseCompound.cpp \
+    $${PWD}/Ezdoctemplatedocument_createObject_v1_Request.cpp \
+    $${PWD}/Ezdoctemplatedocument_createObject_v1_Response.cpp \
+    $${PWD}/Ezdoctemplatedocument_createObject_v1_Response_mPayload.cpp \
+    $${PWD}/Ezdoctemplatedocument_editObject_v1_Request.cpp \
+    $${PWD}/Ezdoctemplatedocument_editObject_v1_Response.cpp \
+    $${PWD}/Ezdoctemplatedocument_getAutocomplete_v2_Response.cpp \
+    $${PWD}/Ezdoctemplatedocument_getAutocomplete_v2_Response_mPayload.cpp \
+    $${PWD}/Ezdoctemplatedocument_getList_v1_Response.cpp \
+    $${PWD}/Ezdoctemplatedocument_getList_v1_Response_mPayload.cpp \
+    $${PWD}/Ezdoctemplatedocument_getObject_v2_Response.cpp \
+    $${PWD}/Ezdoctemplatedocument_getObject_v2_Response_mPayload.cpp \
+    $${PWD}/Ezdoctemplatedocument_patchObject_v1_Request.cpp \
+    $${PWD}/Ezdoctemplatedocument_patchObject_v1_Response.cpp \
+    $${PWD}/Ezdoctemplatefieldtypecategory_AutocompleteElement_Response.cpp \
+    $${PWD}/Ezdoctemplatefieldtypecategory_getAutocomplete_v2_Response.cpp \
+    $${PWD}/Ezdoctemplatefieldtypecategory_getAutocomplete_v2_Response_mPayload.cpp \
+    $${PWD}/Ezdoctemplatetype_AutocompleteElement_Response.cpp \
+    $${PWD}/Ezdoctemplatetype_getAutocomplete_v2_Response.cpp \
+    $${PWD}/Ezdoctemplatetype_getAutocomplete_v2_Response_mPayload.cpp \
     $${PWD}/Ezmaxinvoicing_AutocompleteElement_Response.cpp \
     $${PWD}/Ezmaxinvoicing_Response.cpp \
     $${PWD}/Ezmaxinvoicing_ResponseCompound.cpp \
@@ -1727,20 +2189,26 @@ SOURCES += \
     $${PWD}/Ezmaxproduct_AutocompleteElement_Response.cpp \
     $${PWD}/Ezmaxproduct_getAutocomplete_v2_Response.cpp \
     $${PWD}/Ezmaxproduct_getAutocomplete_v2_Response_mPayload.cpp \
-    $${PWD}/Ezsign_suggestSigners_v1_Response.cpp \
-    $${PWD}/Ezsign_suggestSigners_v1_Response_mPayload.cpp \
-    $${PWD}/Ezsign_suggestTemplates_v1_Response.cpp \
-    $${PWD}/Ezsign_suggestTemplates_v1_Response_mPayload.cpp \
+    $${PWD}/Ezsignannotation_Request.cpp \
+    $${PWD}/Ezsignannotation_RequestCompound.cpp \
     $${PWD}/Ezsignannotation_Response.cpp \
     $${PWD}/Ezsignannotation_ResponseCompound.cpp \
+    $${PWD}/Ezsignannotation_createObject_v1_Request.cpp \
+    $${PWD}/Ezsignannotation_createObject_v1_Response.cpp \
+    $${PWD}/Ezsignannotation_createObject_v1_Response_mPayload.cpp \
+    $${PWD}/Ezsignannotation_deleteObject_v1_Response.cpp \
+    $${PWD}/Ezsignannotation_editObject_v1_Request.cpp \
+    $${PWD}/Ezsignannotation_editObject_v1_Response.cpp \
+    $${PWD}/Ezsignannotation_getObject_v2_Response.cpp \
+    $${PWD}/Ezsignannotation_getObject_v2_Response_mPayload.cpp \
     $${PWD}/Ezsignbulksend_ListElement.cpp \
     $${PWD}/Ezsignbulksend_Request.cpp \
     $${PWD}/Ezsignbulksend_RequestCompound.cpp \
     $${PWD}/Ezsignbulksend_Response.cpp \
     $${PWD}/Ezsignbulksend_ResponseCompound.cpp \
-    $${PWD}/Ezsignbulksend_createEzsignbulksendtransmission_v1_Request.cpp \
-    $${PWD}/Ezsignbulksend_createEzsignbulksendtransmission_v1_Response.cpp \
-    $${PWD}/Ezsignbulksend_createEzsignbulksendtransmission_v1_Response_mPayload.cpp \
+    $${PWD}/Ezsignbulksend_createEzsignbulksendtransmission_v2_Request.cpp \
+    $${PWD}/Ezsignbulksend_createEzsignbulksendtransmission_v2_Response.cpp \
+    $${PWD}/Ezsignbulksend_createEzsignbulksendtransmission_v2_Response_mPayload.cpp \
     $${PWD}/Ezsignbulksend_createObject_v1_Request.cpp \
     $${PWD}/Ezsignbulksend_createObject_v1_Response.cpp \
     $${PWD}/Ezsignbulksend_createObject_v1_Response_mPayload.cpp \
@@ -1808,6 +2276,7 @@ SOURCES += \
     $${PWD}/Ezsigndocument_applyEzsigntemplate_v2_Response.cpp \
     $${PWD}/Ezsigndocument_applyEzsigntemplateglobal_v1_Request.cpp \
     $${PWD}/Ezsigndocument_applyEzsigntemplateglobal_v1_Response.cpp \
+    $${PWD}/Ezsigndocument_createElement_v3_Response.cpp \
     $${PWD}/Ezsigndocument_createEzsignelementsPositionedByWord_v1_Request.cpp \
     $${PWD}/Ezsigndocument_createEzsignelementsPositionedByWord_v1_Response.cpp \
     $${PWD}/Ezsigndocument_createEzsignelementsPositionedByWord_v1_Response_mPayload.cpp \
@@ -1817,16 +2286,27 @@ SOURCES += \
     $${PWD}/Ezsigndocument_createObject_v2_Request.cpp \
     $${PWD}/Ezsigndocument_createObject_v2_Response.cpp \
     $${PWD}/Ezsigndocument_createObject_v2_Response_mPayload.cpp \
+    $${PWD}/Ezsigndocument_createObject_v3_Request.cpp \
+    $${PWD}/Ezsigndocument_createObject_v3_Response.cpp \
+    $${PWD}/Ezsigndocument_createObject_v3_Response_mPayload.cpp \
     $${PWD}/Ezsigndocument_declineToSign_v1_Request.cpp \
     $${PWD}/Ezsigndocument_declineToSign_v1_Response.cpp \
     $${PWD}/Ezsigndocument_deleteObject_v1_Response.cpp \
+    $${PWD}/Ezsigndocument_editEzsignannotations_v1_Request.cpp \
+    $${PWD}/Ezsigndocument_editEzsignannotations_v1_Response.cpp \
+    $${PWD}/Ezsigndocument_editEzsignannotations_v1_Response_mPayload.cpp \
     $${PWD}/Ezsigndocument_editEzsignformfieldgroups_v1_Request.cpp \
     $${PWD}/Ezsigndocument_editEzsignformfieldgroups_v1_Response.cpp \
     $${PWD}/Ezsigndocument_editEzsignformfieldgroups_v1_Response_mPayload.cpp \
     $${PWD}/Ezsigndocument_editEzsignsignatures_v1_Request.cpp \
     $${PWD}/Ezsigndocument_editEzsignsignatures_v1_Response.cpp \
     $${PWD}/Ezsigndocument_editEzsignsignatures_v1_Response_mPayload.cpp \
+    $${PWD}/Ezsigndocument_editObject_v1_Request.cpp \
+    $${PWD}/Ezsigndocument_editObject_v1_Response.cpp \
     $${PWD}/Ezsigndocument_endPrematurely_v1_Response.cpp \
+    $${PWD}/Ezsigndocument_extractText_v1_Request.cpp \
+    $${PWD}/Ezsigndocument_extractText_v1_Response.cpp \
+    $${PWD}/Ezsigndocument_extractText_v1_Response_mPayload.cpp \
     $${PWD}/Ezsigndocument_flatten_v1_Response.cpp \
     $${PWD}/Ezsigndocument_getActionableElements_v1_Response.cpp \
     $${PWD}/Ezsigndocument_getActionableElements_v1_Response_mPayload.cpp \
@@ -1858,11 +2338,15 @@ SOURCES += \
     $${PWD}/Ezsigndocument_getTemporaryProof_v1_Response_mPayload.cpp \
     $${PWD}/Ezsigndocument_getWordsPositions_v1_Request.cpp \
     $${PWD}/Ezsigndocument_getWordsPositions_v1_Response.cpp \
+    $${PWD}/Ezsigndocument_matchingtemplate_v3_Response.cpp \
     $${PWD}/Ezsigndocument_patchObject_v1_Request.cpp \
     $${PWD}/Ezsigndocument_patchObject_v1_Response.cpp \
     $${PWD}/Ezsigndocument_submitEzsignform_v1_Request.cpp \
     $${PWD}/Ezsigndocument_submitEzsignform_v1_Response.cpp \
     $${PWD}/Ezsigndocument_unsend_v1_Response.cpp \
+    $${PWD}/Ezsigndocumentdependency_Request.cpp \
+    $${PWD}/Ezsigndocumentdependency_RequestCompound.cpp \
+    $${PWD}/Ezsigndocumentdependency_Response.cpp \
     $${PWD}/Ezsigndocumentlog_Response.cpp \
     $${PWD}/Ezsigndocumentlog_ResponseCompound.cpp \
     $${PWD}/Ezsignelementdependency_Request.cpp \
@@ -1872,8 +2356,12 @@ SOURCES += \
     $${PWD}/Ezsignfolder_ListElement.cpp \
     $${PWD}/Ezsignfolder_Request.cpp \
     $${PWD}/Ezsignfolder_RequestCompound.cpp \
+    $${PWD}/Ezsignfolder_RequestCompoundV3.cpp \
+    $${PWD}/Ezsignfolder_RequestV3.cpp \
     $${PWD}/Ezsignfolder_Response.cpp \
     $${PWD}/Ezsignfolder_ResponseCompound.cpp \
+    $${PWD}/Ezsignfolder_ResponseCompoundV3.cpp \
+    $${PWD}/Ezsignfolder_ResponseV3.cpp \
     $${PWD}/Ezsignfolder_archive_v1_Response.cpp \
     $${PWD}/Ezsignfolder_batchDownload_v1_Request.cpp \
     $${PWD}/Ezsignfolder_createObject_v1_Request.cpp \
@@ -1882,12 +2370,15 @@ SOURCES += \
     $${PWD}/Ezsignfolder_createObject_v2_Request.cpp \
     $${PWD}/Ezsignfolder_createObject_v2_Response.cpp \
     $${PWD}/Ezsignfolder_createObject_v2_Response_mPayload.cpp \
+    $${PWD}/Ezsignfolder_createObject_v3_Request.cpp \
+    $${PWD}/Ezsignfolder_createObject_v3_Response.cpp \
+    $${PWD}/Ezsignfolder_createObject_v3_Response_mPayload.cpp \
     $${PWD}/Ezsignfolder_deleteObject_v1_Response.cpp \
     $${PWD}/Ezsignfolder_disposeEzsignfolders_v1_Request.cpp \
     $${PWD}/Ezsignfolder_disposeEzsignfolders_v1_Response.cpp \
     $${PWD}/Ezsignfolder_dispose_v1_Response.cpp \
-    $${PWD}/Ezsignfolder_editObject_v1_Request.cpp \
-    $${PWD}/Ezsignfolder_editObject_v1_Response.cpp \
+    $${PWD}/Ezsignfolder_editObject_v3_Request.cpp \
+    $${PWD}/Ezsignfolder_editObject_v3_Response.cpp \
     $${PWD}/Ezsignfolder_endPrematurely_v1_Response.cpp \
     $${PWD}/Ezsignfolder_getActionableElements_v1_Response.cpp \
     $${PWD}/Ezsignfolder_getActionableElements_v1_Response_mPayload.cpp \
@@ -1917,6 +2408,8 @@ SOURCES += \
     $${PWD}/Ezsignfolder_getObject_v1_Response_mPayload.cpp \
     $${PWD}/Ezsignfolder_getObject_v2_Response.cpp \
     $${PWD}/Ezsignfolder_getObject_v2_Response_mPayload.cpp \
+    $${PWD}/Ezsignfolder_getObject_v3_Response.cpp \
+    $${PWD}/Ezsignfolder_getObject_v3_Response_mPayload.cpp \
     $${PWD}/Ezsignfolder_importEzsignfoldersignerassociations_v1_Request.cpp \
     $${PWD}/Ezsignfolder_importEzsignfoldersignerassociations_v1_Response.cpp \
     $${PWD}/Ezsignfolder_importEzsignfoldersignerassociations_v1_Response_mPayload.cpp \
@@ -1925,6 +2418,8 @@ SOURCES += \
     $${PWD}/Ezsignfolder_importEzsigntemplatepackage_v1_Response_mPayload.cpp \
     $${PWD}/Ezsignfolder_reorder_v1_Request.cpp \
     $${PWD}/Ezsignfolder_reorder_v1_Response.cpp \
+    $${PWD}/Ezsignfolder_reorder_v2_Request.cpp \
+    $${PWD}/Ezsignfolder_reorder_v2_Response.cpp \
     $${PWD}/Ezsignfolder_send_v1_Request.cpp \
     $${PWD}/Ezsignfolder_send_v1_Response.cpp \
     $${PWD}/Ezsignfolder_send_v3_Request.cpp \
@@ -1957,31 +2452,29 @@ SOURCES += \
     $${PWD}/Ezsignfoldersignerassociation_getObject_v2_Response_mPayload.cpp \
     $${PWD}/Ezsignfoldersignerassociation_patchObject_v1_Request.cpp \
     $${PWD}/Ezsignfoldersignerassociation_patchObject_v1_Response.cpp \
+    $${PWD}/Ezsignfoldersignerassociation_reassign_v1_Request.cpp \
+    $${PWD}/Ezsignfoldersignerassociation_reassign_v1_Response.cpp \
     $${PWD}/Ezsignfoldertype_AutocompleteElement_Response.cpp \
     $${PWD}/Ezsignfoldertype_ListElement.cpp \
-    $${PWD}/Ezsignfoldertype_Request.cpp \
-    $${PWD}/Ezsignfoldertype_RequestCompound.cpp \
-    $${PWD}/Ezsignfoldertype_RequestCompoundV2.cpp \
-    $${PWD}/Ezsignfoldertype_RequestV2.cpp \
+    $${PWD}/Ezsignfoldertype_RequestCompoundV3.cpp \
+    $${PWD}/Ezsignfoldertype_RequestV3.cpp \
     $${PWD}/Ezsignfoldertype_Response.cpp \
     $${PWD}/Ezsignfoldertype_ResponseCompound.cpp \
-    $${PWD}/Ezsignfoldertype_ResponseCompoundV3.cpp \
-    $${PWD}/Ezsignfoldertype_ResponseV3.cpp \
-    $${PWD}/Ezsignfoldertype_createObject_v2_Request.cpp \
-    $${PWD}/Ezsignfoldertype_createObject_v2_Response.cpp \
-    $${PWD}/Ezsignfoldertype_createObject_v2_Response_mPayload.cpp \
-    $${PWD}/Ezsignfoldertype_editObject_v1_Request.cpp \
-    $${PWD}/Ezsignfoldertype_editObject_v1_Response.cpp \
-    $${PWD}/Ezsignfoldertype_editObject_v2_Request.cpp \
-    $${PWD}/Ezsignfoldertype_editObject_v2_Response.cpp \
+    $${PWD}/Ezsignfoldertype_ResponseCompoundV4.cpp \
+    $${PWD}/Ezsignfoldertype_ResponseV4.cpp \
+    $${PWD}/Ezsignfoldertype_createObject_v3_Request.cpp \
+    $${PWD}/Ezsignfoldertype_createObject_v3_Response.cpp \
+    $${PWD}/Ezsignfoldertype_createObject_v3_Response_mPayload.cpp \
+    $${PWD}/Ezsignfoldertype_editObject_v3_Request.cpp \
+    $${PWD}/Ezsignfoldertype_editObject_v3_Response.cpp \
     $${PWD}/Ezsignfoldertype_getAutocomplete_v2_Response.cpp \
     $${PWD}/Ezsignfoldertype_getAutocomplete_v2_Response_mPayload.cpp \
     $${PWD}/Ezsignfoldertype_getList_v1_Response.cpp \
     $${PWD}/Ezsignfoldertype_getList_v1_Response_mPayload.cpp \
     $${PWD}/Ezsignfoldertype_getObject_v2_Response.cpp \
     $${PWD}/Ezsignfoldertype_getObject_v2_Response_mPayload.cpp \
-    $${PWD}/Ezsignfoldertype_getObject_v3_Response.cpp \
-    $${PWD}/Ezsignfoldertype_getObject_v3_Response_mPayload.cpp \
+    $${PWD}/Ezsignfoldertype_getObject_v4_Response.cpp \
+    $${PWD}/Ezsignfoldertype_getObject_v4_Response_mPayload.cpp \
     $${PWD}/Ezsignformfield_Request.cpp \
     $${PWD}/Ezsignformfield_RequestCompound.cpp \
     $${PWD}/Ezsignformfield_Response.cpp \
@@ -2007,30 +2500,40 @@ SOURCES += \
     $${PWD}/Ezsignpage_consult_v1_Response.cpp \
     $${PWD}/Ezsignsignature_Request.cpp \
     $${PWD}/Ezsignsignature_RequestCompound.cpp \
+    $${PWD}/Ezsignsignature_RequestCompoundV2.cpp \
     $${PWD}/Ezsignsignature_Response.cpp \
     $${PWD}/Ezsignsignature_ResponseCompound.cpp \
+    $${PWD}/Ezsignsignature_ResponseCompoundV3.cpp \
     $${PWD}/Ezsignsignature_createObject_v1_Request.cpp \
     $${PWD}/Ezsignsignature_createObject_v1_Response.cpp \
     $${PWD}/Ezsignsignature_createObject_v1_Response_mPayload.cpp \
     $${PWD}/Ezsignsignature_createObject_v2_Request.cpp \
     $${PWD}/Ezsignsignature_createObject_v2_Response.cpp \
     $${PWD}/Ezsignsignature_createObject_v2_Response_mPayload.cpp \
+    $${PWD}/Ezsignsignature_createObject_v3_Request.cpp \
+    $${PWD}/Ezsignsignature_createObject_v3_Response.cpp \
+    $${PWD}/Ezsignsignature_createObject_v3_Response_mPayload.cpp \
     $${PWD}/Ezsignsignature_deleteObject_v1_Response.cpp \
-    $${PWD}/Ezsignsignature_editObject_v1_Request.cpp \
-    $${PWD}/Ezsignsignature_editObject_v1_Response.cpp \
+    $${PWD}/Ezsignsignature_editObject_v2_Request.cpp \
+    $${PWD}/Ezsignsignature_editObject_v2_Response.cpp \
     $${PWD}/Ezsignsignature_getEzsignsignatureattachment_v1_Response.cpp \
     $${PWD}/Ezsignsignature_getEzsignsignatureattachment_v1_Response_mPayload.cpp \
     $${PWD}/Ezsignsignature_getEzsignsignaturesAutomatic_v1_Response.cpp \
     $${PWD}/Ezsignsignature_getEzsignsignaturesAutomatic_v1_Response_mPayload.cpp \
-    $${PWD}/Ezsignsignature_getObject_v2_Response.cpp \
-    $${PWD}/Ezsignsignature_getObject_v2_Response_mPayload.cpp \
+    $${PWD}/Ezsignsignature_getObject_v3_Response.cpp \
+    $${PWD}/Ezsignsignature_getObject_v3_Response_mPayload.cpp \
     $${PWD}/Ezsignsignature_sign_v1_Request.cpp \
     $${PWD}/Ezsignsignature_sign_v1_Response.cpp \
+    $${PWD}/Ezsignsignature_sign_v1_Response_mPayload.cpp \
     $${PWD}/Ezsignsignatureattachment_Response.cpp \
     $${PWD}/Ezsignsignaturecustomdate_Request.cpp \
     $${PWD}/Ezsignsignaturecustomdate_RequestCompound.cpp \
+    $${PWD}/Ezsignsignaturecustomdate_RequestCompoundV2.cpp \
+    $${PWD}/Ezsignsignaturecustomdate_RequestV2.cpp \
     $${PWD}/Ezsignsignaturecustomdate_Response.cpp \
     $${PWD}/Ezsignsignaturecustomdate_ResponseCompound.cpp \
+    $${PWD}/Ezsignsignaturecustomdate_ResponseCompoundV2.cpp \
+    $${PWD}/Ezsignsignaturecustomdate_ResponseV2.cpp \
     $${PWD}/Ezsignsigner_Request.cpp \
     $${PWD}/Ezsignsigner_RequestCompound.cpp \
     $${PWD}/Ezsignsigner_RequestCompound_Contact.cpp \
@@ -2083,34 +2586,27 @@ SOURCES += \
     $${PWD}/Ezsignsigningreason_getObject_v2_Response_mPayload.cpp \
     $${PWD}/Ezsigntemplate_AutocompleteElement_Response.cpp \
     $${PWD}/Ezsigntemplate_ListElement.cpp \
-    $${PWD}/Ezsigntemplate_Request.cpp \
-    $${PWD}/Ezsigntemplate_RequestCompound.cpp \
-    $${PWD}/Ezsigntemplate_RequestCompoundV2.cpp \
-    $${PWD}/Ezsigntemplate_RequestV2.cpp \
+    $${PWD}/Ezsigntemplate_RequestCompoundV3.cpp \
+    $${PWD}/Ezsigntemplate_RequestV3.cpp \
     $${PWD}/Ezsigntemplate_Response.cpp \
     $${PWD}/Ezsigntemplate_ResponseCompound.cpp \
+    $${PWD}/Ezsigntemplate_ResponseCompoundV3.cpp \
+    $${PWD}/Ezsigntemplate_ResponseV3.cpp \
     $${PWD}/Ezsigntemplate_copy_v1_Request.cpp \
     $${PWD}/Ezsigntemplate_copy_v1_Response.cpp \
     $${PWD}/Ezsigntemplate_copy_v1_Response_mPayload.cpp \
-    $${PWD}/Ezsigntemplate_createObject_v1_Request.cpp \
-    $${PWD}/Ezsigntemplate_createObject_v1_Response.cpp \
-    $${PWD}/Ezsigntemplate_createObject_v1_Response_mPayload.cpp \
-    $${PWD}/Ezsigntemplate_createObject_v2_Request.cpp \
-    $${PWD}/Ezsigntemplate_createObject_v2_Response.cpp \
-    $${PWD}/Ezsigntemplate_createObject_v2_Response_mPayload.cpp \
+    $${PWD}/Ezsigntemplate_createObject_v3_Request.cpp \
+    $${PWD}/Ezsigntemplate_createObject_v3_Response.cpp \
+    $${PWD}/Ezsigntemplate_createObject_v3_Response_mPayload.cpp \
     $${PWD}/Ezsigntemplate_deleteObject_v1_Response.cpp \
-    $${PWD}/Ezsigntemplate_editObject_v1_Request.cpp \
-    $${PWD}/Ezsigntemplate_editObject_v1_Response.cpp \
-    $${PWD}/Ezsigntemplate_editObject_v2_Request.cpp \
-    $${PWD}/Ezsigntemplate_editObject_v2_Response.cpp \
+    $${PWD}/Ezsigntemplate_editObject_v3_Request.cpp \
+    $${PWD}/Ezsigntemplate_editObject_v3_Response.cpp \
     $${PWD}/Ezsigntemplate_getAutocomplete_v2_Response.cpp \
     $${PWD}/Ezsigntemplate_getAutocomplete_v2_Response_mPayload.cpp \
     $${PWD}/Ezsigntemplate_getList_v1_Response.cpp \
     $${PWD}/Ezsigntemplate_getList_v1_Response_mPayload.cpp \
-    $${PWD}/Ezsigntemplate_getObject_v1_Response.cpp \
-    $${PWD}/Ezsigntemplate_getObject_v1_Response_mPayload.cpp \
-    $${PWD}/Ezsigntemplate_getObject_v2_Response.cpp \
-    $${PWD}/Ezsigntemplate_getObject_v2_Response_mPayload.cpp \
+    $${PWD}/Ezsigntemplate_getObject_v3_Response.cpp \
+    $${PWD}/Ezsigntemplate_getObject_v3_Response_mPayload.cpp \
     $${PWD}/Ezsigntemplatedocument_Request.cpp \
     $${PWD}/Ezsigntemplatedocument_RequestCompound.cpp \
     $${PWD}/Ezsigntemplatedocument_RequestPatch.cpp \
@@ -2119,6 +2615,9 @@ SOURCES += \
     $${PWD}/Ezsigntemplatedocument_createObject_v1_Request.cpp \
     $${PWD}/Ezsigntemplatedocument_createObject_v1_Response.cpp \
     $${PWD}/Ezsigntemplatedocument_createObject_v1_Response_mPayload.cpp \
+    $${PWD}/Ezsigntemplatedocument_editEzsigntemplatedocumentpagerecognitions_v1_Request.cpp \
+    $${PWD}/Ezsigntemplatedocument_editEzsigntemplatedocumentpagerecognitions_v1_Response.cpp \
+    $${PWD}/Ezsigntemplatedocument_editEzsigntemplatedocumentpagerecognitions_v1_Response_mPayload.cpp \
     $${PWD}/Ezsigntemplatedocument_editEzsigntemplateformfieldgroups_v1_Request.cpp \
     $${PWD}/Ezsigntemplatedocument_editEzsigntemplateformfieldgroups_v1_Response.cpp \
     $${PWD}/Ezsigntemplatedocument_editEzsigntemplateformfieldgroups_v1_Response_mPayload.cpp \
@@ -2127,7 +2626,12 @@ SOURCES += \
     $${PWD}/Ezsigntemplatedocument_editEzsigntemplatesignatures_v1_Response_mPayload.cpp \
     $${PWD}/Ezsigntemplatedocument_editObject_v1_Request.cpp \
     $${PWD}/Ezsigntemplatedocument_editObject_v1_Response.cpp \
+    $${PWD}/Ezsigntemplatedocument_extractText_v1_Request.cpp \
+    $${PWD}/Ezsigntemplatedocument_extractText_v1_Response.cpp \
+    $${PWD}/Ezsigntemplatedocument_extractText_v1_Response_mPayload.cpp \
     $${PWD}/Ezsigntemplatedocument_flatten_v1_Response.cpp \
+    $${PWD}/Ezsigntemplatedocument_getEzsigntemplatedocumentpagerecognitions_v1_Response.cpp \
+    $${PWD}/Ezsigntemplatedocument_getEzsigntemplatedocumentpagerecognitions_v1_Response_mPayload.cpp \
     $${PWD}/Ezsigntemplatedocument_getEzsigntemplatedocumentpages_v1_Response.cpp \
     $${PWD}/Ezsigntemplatedocument_getEzsigntemplatedocumentpages_v1_Response_mPayload.cpp \
     $${PWD}/Ezsigntemplatedocument_getEzsigntemplateformfieldgroups_v1_Response.cpp \
@@ -2142,6 +2646,18 @@ SOURCES += \
     $${PWD}/Ezsigntemplatedocument_patchObject_v1_Response.cpp \
     $${PWD}/Ezsigntemplatedocumentpage_Response.cpp \
     $${PWD}/Ezsigntemplatedocumentpage_ResponseCompound.cpp \
+    $${PWD}/Ezsigntemplatedocumentpagerecognition_Request.cpp \
+    $${PWD}/Ezsigntemplatedocumentpagerecognition_RequestCompound.cpp \
+    $${PWD}/Ezsigntemplatedocumentpagerecognition_Response.cpp \
+    $${PWD}/Ezsigntemplatedocumentpagerecognition_ResponseCompound.cpp \
+    $${PWD}/Ezsigntemplatedocumentpagerecognition_createObject_v1_Request.cpp \
+    $${PWD}/Ezsigntemplatedocumentpagerecognition_createObject_v1_Response.cpp \
+    $${PWD}/Ezsigntemplatedocumentpagerecognition_createObject_v1_Response_mPayload.cpp \
+    $${PWD}/Ezsigntemplatedocumentpagerecognition_deleteObject_v1_Response.cpp \
+    $${PWD}/Ezsigntemplatedocumentpagerecognition_editObject_v1_Request.cpp \
+    $${PWD}/Ezsigntemplatedocumentpagerecognition_editObject_v1_Response.cpp \
+    $${PWD}/Ezsigntemplatedocumentpagerecognition_getObject_v2_Response.cpp \
+    $${PWD}/Ezsigntemplatedocumentpagerecognition_getObject_v2_Response_mPayload.cpp \
     $${PWD}/Ezsigntemplateelementdependency_Request.cpp \
     $${PWD}/Ezsigntemplateelementdependency_RequestCompound.cpp \
     $${PWD}/Ezsigntemplateelementdependency_Response.cpp \
@@ -2231,22 +2747,54 @@ SOURCES += \
     $${PWD}/Ezsigntemplatepackagesignermembership_deleteObject_v1_Response_mPayload.cpp \
     $${PWD}/Ezsigntemplatepackagesignermembership_getObject_v2_Response.cpp \
     $${PWD}/Ezsigntemplatepackagesignermembership_getObject_v2_Response_mPayload.cpp \
+    $${PWD}/Ezsigntemplatepublic_ListElement.cpp \
+    $${PWD}/Ezsigntemplatepublic_Request.cpp \
+    $${PWD}/Ezsigntemplatepublic_RequestCompound.cpp \
+    $${PWD}/Ezsigntemplatepublic_Response.cpp \
+    $${PWD}/Ezsigntemplatepublic_ResponseCompound.cpp \
+    $${PWD}/Ezsigntemplatepublic_createEzsignfolder_v1_Request.cpp \
+    $${PWD}/Ezsigntemplatepublic_createEzsignfolder_v1_Response.cpp \
+    $${PWD}/Ezsigntemplatepublic_createEzsignfolder_v1_Response_mPayload.cpp \
+    $${PWD}/Ezsigntemplatepublic_createObject_v1_Request.cpp \
+    $${PWD}/Ezsigntemplatepublic_createObject_v1_Response.cpp \
+    $${PWD}/Ezsigntemplatepublic_createObject_v1_Response_mPayload.cpp \
+    $${PWD}/Ezsigntemplatepublic_editObject_v1_Request.cpp \
+    $${PWD}/Ezsigntemplatepublic_editObject_v1_Response.cpp \
+    $${PWD}/Ezsigntemplatepublic_getEzsigntemplatepublicDetails_v1_Request.cpp \
+    $${PWD}/Ezsigntemplatepublic_getEzsigntemplatepublicDetails_v1_Response.cpp \
+    $${PWD}/Ezsigntemplatepublic_getEzsigntemplatepublicDetails_v1_Response_mPayload.cpp \
+    $${PWD}/Ezsigntemplatepublic_getFormsData_v1_Response.cpp \
+    $${PWD}/Ezsigntemplatepublic_getFormsData_v1_Response_mPayload.cpp \
+    $${PWD}/Ezsigntemplatepublic_getList_v1_Response.cpp \
+    $${PWD}/Ezsigntemplatepublic_getList_v1_Response_mPayload.cpp \
+    $${PWD}/Ezsigntemplatepublic_getObject_v2_Response.cpp \
+    $${PWD}/Ezsigntemplatepublic_getObject_v2_Response_mPayload.cpp \
+    $${PWD}/Ezsigntemplatepublic_resetLimitExceededCounter_v1_Response.cpp \
+    $${PWD}/Ezsigntemplatepublic_resetLimitExceededCounter_v1_Response_mPayload.cpp \
+    $${PWD}/Ezsigntemplatepublic_resetUrl_v1_Response.cpp \
+    $${PWD}/Ezsigntemplatepublic_resetUrl_v1_Response_mPayload.cpp \
     $${PWD}/Ezsigntemplatesignature_Request.cpp \
     $${PWD}/Ezsigntemplatesignature_RequestCompound.cpp \
+    $${PWD}/Ezsigntemplatesignature_RequestCompoundV2.cpp \
     $${PWD}/Ezsigntemplatesignature_Response.cpp \
     $${PWD}/Ezsigntemplatesignature_ResponseCompound.cpp \
-    $${PWD}/Ezsigntemplatesignature_createObject_v1_Request.cpp \
-    $${PWD}/Ezsigntemplatesignature_createObject_v1_Response.cpp \
-    $${PWD}/Ezsigntemplatesignature_createObject_v1_Response_mPayload.cpp \
+    $${PWD}/Ezsigntemplatesignature_ResponseCompoundV3.cpp \
+    $${PWD}/Ezsigntemplatesignature_createObject_v2_Request.cpp \
+    $${PWD}/Ezsigntemplatesignature_createObject_v2_Response.cpp \
+    $${PWD}/Ezsigntemplatesignature_createObject_v2_Response_mPayload.cpp \
     $${PWD}/Ezsigntemplatesignature_deleteObject_v1_Response.cpp \
-    $${PWD}/Ezsigntemplatesignature_editObject_v1_Request.cpp \
-    $${PWD}/Ezsigntemplatesignature_editObject_v1_Response.cpp \
-    $${PWD}/Ezsigntemplatesignature_getObject_v2_Response.cpp \
-    $${PWD}/Ezsigntemplatesignature_getObject_v2_Response_mPayload.cpp \
+    $${PWD}/Ezsigntemplatesignature_editObject_v2_Request.cpp \
+    $${PWD}/Ezsigntemplatesignature_editObject_v2_Response.cpp \
+    $${PWD}/Ezsigntemplatesignature_getObject_v3_Response.cpp \
+    $${PWD}/Ezsigntemplatesignature_getObject_v3_Response_mPayload.cpp \
     $${PWD}/Ezsigntemplatesignaturecustomdate_Request.cpp \
     $${PWD}/Ezsigntemplatesignaturecustomdate_RequestCompound.cpp \
+    $${PWD}/Ezsigntemplatesignaturecustomdate_RequestCompoundV2.cpp \
+    $${PWD}/Ezsigntemplatesignaturecustomdate_RequestV2.cpp \
     $${PWD}/Ezsigntemplatesignaturecustomdate_Response.cpp \
     $${PWD}/Ezsigntemplatesignaturecustomdate_ResponseCompound.cpp \
+    $${PWD}/Ezsigntemplatesignaturecustomdate_ResponseCompoundV2.cpp \
+    $${PWD}/Ezsigntemplatesignaturecustomdate_ResponseV2.cpp \
     $${PWD}/Ezsigntemplatesigner_Request.cpp \
     $${PWD}/Ezsigntemplatesigner_RequestCompound.cpp \
     $${PWD}/Ezsigntemplatesigner_Response.cpp \
@@ -2262,7 +2810,19 @@ SOURCES += \
     $${PWD}/Ezsigntsarequirement_AutocompleteElement_Response.cpp \
     $${PWD}/Ezsigntsarequirement_getAutocomplete_v2_Response.cpp \
     $${PWD}/Ezsigntsarequirement_getAutocomplete_v2_Response_mPayload.cpp \
+    $${PWD}/Ezsignuser_Request.cpp \
+    $${PWD}/Ezsignuser_RequestCompound.cpp \
+    $${PWD}/Ezsignuser_Response.cpp \
+    $${PWD}/Ezsignuser_ResponseCompound.cpp \
+    $${PWD}/Ezsignuser_editObject_v1_Request.cpp \
+    $${PWD}/Ezsignuser_editObject_v1_Response.cpp \
+    $${PWD}/Ezsignuser_getObject_v2_Response.cpp \
+    $${PWD}/Ezsignuser_getObject_v2_Response_mPayload.cpp \
+    $${PWD}/Field_eActivesessionEzsign.cpp \
+    $${PWD}/Field_eActivesessionEzsignaccess.cpp \
+    $${PWD}/Field_eActivesessionEzsignprepaid.cpp \
     $${PWD}/Field_eActivesessionOrigin.cpp \
+    $${PWD}/Field_eActivesessionRealestateinprogress.cpp \
     $${PWD}/Field_eActivesessionUsertype.cpp \
     $${PWD}/Field_eActivesessionWeekdaystart.cpp \
     $${PWD}/Field_eAttachmentDocumenttype.cpp \
@@ -2270,15 +2830,25 @@ SOURCES += \
     $${PWD}/Field_eAttachmentType.cpp \
     $${PWD}/Field_eAttachmentVerified.cpp \
     $${PWD}/Field_eAttachmentlogType.cpp \
+    $${PWD}/Field_eAuthenticationexternalType.cpp \
+    $${PWD}/Field_eBrandingAlignlogo.cpp \
     $${PWD}/Field_eBrandingLogo.cpp \
-    $${PWD}/Field_eBrandingLogointerface.cpp \
+    $${PWD}/Field_eColleagueEzsign.cpp \
+    $${PWD}/Field_eColleagueRealestateinprogess.cpp \
     $${PWD}/Field_eCommunicationImportance.cpp \
     $${PWD}/Field_eCommunicationType.cpp \
     $${PWD}/Field_eCommunicationexternalrecipientType.cpp \
     $${PWD}/Field_eCommunicationrecipientType.cpp \
+    $${PWD}/Field_eContactType.cpp \
+    $${PWD}/Field_eContactinformationsType.cpp \
+    $${PWD}/Field_eCreditcardtransactionAvsresult.cpp \
+    $${PWD}/Field_eCreditcardtransactionCvdresult.cpp \
     $${PWD}/Field_eCreditcardtypeCodename.cpp \
+    $${PWD}/Field_eCustomerMarketingcorrespondence.cpp \
+    $${PWD}/Field_eCustomerType.cpp \
     $${PWD}/Field_eDiscussionmessageStatus.cpp \
     $${PWD}/Field_eErrorCode.cpp \
+    $${PWD}/Field_eEzdoctemplatedocumentPrivacylevel.cpp \
     $${PWD}/Field_eEzmaxinvoicingPaymenttype.cpp \
     $${PWD}/Field_eEzmaxinvoicingagentVariationezmax.cpp \
     $${PWD}/Field_eEzmaxinvoicingagentVariationezsign.cpp \
@@ -2290,22 +2860,32 @@ SOURCES += \
     $${PWD}/Field_eEzsignelementdependencyOperator.cpp \
     $${PWD}/Field_eEzsignelementdependencyValidation.cpp \
     $${PWD}/Field_eEzsignfolderCompletion.cpp \
+    $${PWD}/Field_eEzsignfolderDocumentdependency.cpp \
+    $${PWD}/Field_eEzsignfolderMessageorder.cpp \
     $${PWD}/Field_eEzsignfolderSendreminderfrequency.cpp \
     $${PWD}/Field_eEzsignfolderStep.cpp \
     $${PWD}/Field_eEzsignfoldertypeCompletion.cpp \
     $${PWD}/Field_eEzsignfoldertypeDisposal.cpp \
+    $${PWD}/Field_eEzsignfoldertypeDocumentdependency.cpp \
+    $${PWD}/Field_eEzsignfoldertypePdfanoncompliantaction.cpp \
+    $${PWD}/Field_eEzsignfoldertypePdfarequirement.cpp \
     $${PWD}/Field_eEzsignfoldertypePrivacylevel.cpp \
     $${PWD}/Field_eEzsignfoldertypeSendreminderfrequency.cpp \
+    $${PWD}/Field_eEzsignfoldertypeSigneraccess.cpp \
     $${PWD}/Field_eEzsignformfieldDependencyrequirement.cpp \
     $${PWD}/Field_eEzsignformfieldgroupSignerrequirement.cpp \
     $${PWD}/Field_eEzsignformfieldgroupTooltipposition.cpp \
     $${PWD}/Field_eEzsignformfieldgroupType.cpp \
     $${PWD}/Field_eEzsignsignatureAttachmentnamesource.cpp \
+    $${PWD}/Field_eEzsignsignatureConsultationtrigger.cpp \
     $${PWD}/Field_eEzsignsignatureDependencyrequirement.cpp \
     $${PWD}/Field_eEzsignsignatureFont.cpp \
     $${PWD}/Field_eEzsignsignatureTooltipposition.cpp \
     $${PWD}/Field_eEzsignsignatureType.cpp \
+    $${PWD}/Field_eEzsigntemplateRecognition.cpp \
     $${PWD}/Field_eEzsigntemplateType.cpp \
+    $${PWD}/Field_eEzsigntemplatedocumentpagerecognitionOperator.cpp \
+    $${PWD}/Field_eEzsigntemplatedocumentpagerecognitionSection.cpp \
     $${PWD}/Field_eEzsigntemplateelementdependencyOperator.cpp \
     $${PWD}/Field_eEzsigntemplateelementdependencyValidation.cpp \
     $${PWD}/Field_eEzsigntemplateformfieldDependencyrequirement.cpp \
@@ -2316,17 +2896,22 @@ SOURCES += \
     $${PWD}/Field_eEzsigntemplateformfieldgroupType.cpp \
     $${PWD}/Field_eEzsigntemplateglobalModule.cpp \
     $${PWD}/Field_eEzsigntemplateglobalSupplier.cpp \
+    $${PWD}/Field_eEzsigntemplatepackagesignerMapping.cpp \
+    $${PWD}/Field_eEzsigntemplatepublicLimittype.cpp \
     $${PWD}/Field_eEzsigntemplatesignatureAttachmentnamesource.cpp \
+    $${PWD}/Field_eEzsigntemplatesignatureConsultationtrigger.cpp \
     $${PWD}/Field_eEzsigntemplatesignatureDependencyrequirement.cpp \
     $${PWD}/Field_eEzsigntemplatesignatureFont.cpp \
     $${PWD}/Field_eEzsigntemplatesignaturePositioning.cpp \
     $${PWD}/Field_eEzsigntemplatesignaturePositioningoccurence.cpp \
     $${PWD}/Field_eEzsigntemplatesignatureTooltipposition.cpp \
     $${PWD}/Field_eEzsigntemplatesignatureType.cpp \
+    $${PWD}/Field_eEzsigntemplatesignerMapping.cpp \
     $${PWD}/Field_eNotificationpreferenceStatus.cpp \
     $${PWD}/Field_ePaymenttermType.cpp \
     $${PWD}/Field_ePhoneType.cpp \
     $${PWD}/Field_eSessionhistoryEndby.cpp \
+    $${PWD}/Field_eSignaturePreference.cpp \
     $${PWD}/Field_eSystemconfigurationEzsign.cpp \
     $${PWD}/Field_eSystemconfigurationEzsignofficeplan.cpp \
     $${PWD}/Field_eSystemconfigurationLanguage1.cpp \
@@ -2359,24 +2944,52 @@ SOURCES += \
     $${PWD}/Franchisereferalincome_createObject_v2_Request.cpp \
     $${PWD}/Franchisereferalincome_createObject_v2_Response.cpp \
     $${PWD}/Franchisereferalincome_createObject_v2_Response_mPayload.cpp \
+    $${PWD}/Glaccount_AutocompleteElement_Response.cpp \
+    $${PWD}/Glaccount_getAutocomplete_v2_Response.cpp \
+    $${PWD}/Glaccount_getAutocomplete_v2_Response_mPayload.cpp \
+    $${PWD}/Glaccountcontainer_AutocompleteElement_Response.cpp \
+    $${PWD}/Glaccountcontainer_getAutocomplete_v2_Response.cpp \
+    $${PWD}/Glaccountcontainer_getAutocomplete_v2_Response_mPayload.cpp \
     $${PWD}/Global_customer_getEndpoint_v1_Response.cpp \
     $${PWD}/Global_ezmaxclient_version_v1_Response.cpp \
     $${PWD}/Global_ezmaxcustomer_getConfiguration_v1_Response.cpp \
     $${PWD}/Header_Accept_Language.cpp \
     $${PWD}/Inscription_getAttachments_v1_Response.cpp \
     $${PWD}/Inscription_getAttachments_v1_Response_mPayload.cpp \
+    $${PWD}/Inscription_getCommunicationCount_v1_Response.cpp \
+    $${PWD}/Inscription_getCommunicationCount_v1_Response_mPayload.cpp \
     $${PWD}/Inscription_getCommunicationList_v1_Response.cpp \
     $${PWD}/Inscription_getCommunicationList_v1_Response_mPayload.cpp \
+    $${PWD}/Inscription_getCommunicationrecipients_v1_Response.cpp \
+    $${PWD}/Inscription_getCommunicationrecipients_v1_Response_mPayload.cpp \
     $${PWD}/Inscription_getCommunicationsenders_v1_Response.cpp \
     $${PWD}/Inscription_getCommunicationsenders_v1_Response_mPayload.cpp \
+    $${PWD}/Inscriptionnotauthenticated_getCommunicationCount_v1_Response.cpp \
+    $${PWD}/Inscriptionnotauthenticated_getCommunicationCount_v1_Response_mPayload.cpp \
     $${PWD}/Inscriptionnotauthenticated_getCommunicationList_v1_Response.cpp \
     $${PWD}/Inscriptionnotauthenticated_getCommunicationList_v1_Response_mPayload.cpp \
+    $${PWD}/Inscriptionnotauthenticated_getCommunicationrecipients_v1_Response.cpp \
+    $${PWD}/Inscriptionnotauthenticated_getCommunicationrecipients_v1_Response_mPayload.cpp \
+    $${PWD}/Inscriptionnotauthenticated_getCommunicationsenders_v1_Response.cpp \
+    $${PWD}/Inscriptionnotauthenticated_getCommunicationsenders_v1_Response_mPayload.cpp \
+    $${PWD}/Inscriptiontemp_getCommunicationCount_v1_Response.cpp \
+    $${PWD}/Inscriptiontemp_getCommunicationCount_v1_Response_mPayload.cpp \
     $${PWD}/Inscriptiontemp_getCommunicationList_v1_Response.cpp \
     $${PWD}/Inscriptiontemp_getCommunicationList_v1_Response_mPayload.cpp \
+    $${PWD}/Inscriptiontemp_getCommunicationrecipients_v1_Response.cpp \
+    $${PWD}/Inscriptiontemp_getCommunicationrecipients_v1_Response_mPayload.cpp \
+    $${PWD}/Inscriptiontemp_getCommunicationsenders_v1_Response.cpp \
+    $${PWD}/Inscriptiontemp_getCommunicationsenders_v1_Response_mPayload.cpp \
     $${PWD}/Invoice_getAttachments_v1_Response.cpp \
     $${PWD}/Invoice_getAttachments_v1_Response_mPayload.cpp \
+    $${PWD}/Invoice_getCommunicationCount_v1_Response.cpp \
+    $${PWD}/Invoice_getCommunicationCount_v1_Response_mPayload.cpp \
     $${PWD}/Invoice_getCommunicationList_v1_Response.cpp \
     $${PWD}/Invoice_getCommunicationList_v1_Response_mPayload.cpp \
+    $${PWD}/Invoice_getCommunicationrecipients_v1_Response.cpp \
+    $${PWD}/Invoice_getCommunicationrecipients_v1_Response_mPayload.cpp \
+    $${PWD}/Invoice_getCommunicationsenders_v1_Response.cpp \
+    $${PWD}/Invoice_getCommunicationsenders_v1_Response_mPayload.cpp \
     $${PWD}/Language_AutocompleteElement_Response.cpp \
     $${PWD}/Language_getAutocomplete_v2_Response.cpp \
     $${PWD}/Language_getAutocomplete_v2_Response_mPayload.cpp \
@@ -2394,6 +3007,7 @@ SOURCES += \
     $${PWD}/Multilingual_ApikeyDescription.cpp \
     $${PWD}/Multilingual_BillingentityinternalDescription.cpp \
     $${PWD}/Multilingual_BrandingDescription.cpp \
+    $${PWD}/Multilingual_EzdoctemplatedocumentName.cpp \
     $${PWD}/Multilingual_EzmaxinvoicingsummaryinternalDescription.cpp \
     $${PWD}/Multilingual_EzsignfoldertypeName.cpp \
     $${PWD}/Multilingual_EzsignsignergroupDescription.cpp \
@@ -2402,6 +3016,7 @@ SOURCES += \
     $${PWD}/Multilingual_NotificationtestName.cpp \
     $${PWD}/Multilingual_PaymenttermDescription.cpp \
     $${PWD}/Multilingual_SubnetDescription.cpp \
+    $${PWD}/Multilingual_SupplyDescription.cpp \
     $${PWD}/Multilingual_UsergroupName.cpp \
     $${PWD}/Multilingual_UserlogintypeDescription.cpp \
     $${PWD}/Multilingual_VariableexpenseDescription.cpp \
@@ -2412,8 +3027,14 @@ SOURCES += \
     $${PWD}/Notificationtest_Response.cpp \
     $${PWD}/Notificationtest_getElements_v1_Response.cpp \
     $${PWD}/Notificationtest_getElements_v1_Response_mPayload.cpp \
+    $${PWD}/Otherincome_getCommunicationCount_v1_Response.cpp \
+    $${PWD}/Otherincome_getCommunicationCount_v1_Response_mPayload.cpp \
     $${PWD}/Otherincome_getCommunicationList_v1_Response.cpp \
     $${PWD}/Otherincome_getCommunicationList_v1_Response_mPayload.cpp \
+    $${PWD}/Otherincome_getCommunicationrecipients_v1_Response.cpp \
+    $${PWD}/Otherincome_getCommunicationrecipients_v1_Response_mPayload.cpp \
+    $${PWD}/Otherincome_getCommunicationsenders_v1_Response.cpp \
+    $${PWD}/Otherincome_getCommunicationsenders_v1_Response_mPayload.cpp \
     $${PWD}/Paymentterm_AutocompleteElement_Response.cpp \
     $${PWD}/Paymentterm_ListElement.cpp \
     $${PWD}/Paymentterm_Request.cpp \
@@ -2431,6 +3052,9 @@ SOURCES += \
     $${PWD}/Paymentterm_getList_v1_Response_mPayload.cpp \
     $${PWD}/Paymentterm_getObject_v2_Response.cpp \
     $${PWD}/Paymentterm_getObject_v2_Response_mPayload.cpp \
+    $${PWD}/Pdfalevel_AutocompleteElement_Response.cpp \
+    $${PWD}/Pdfalevel_getAutocomplete_v2_Response.cpp \
+    $${PWD}/Pdfalevel_getAutocomplete_v2_Response_mPayload.cpp \
     $${PWD}/Period_AutocompleteElement_Response.cpp \
     $${PWD}/Period_getAutocomplete_v2_Response.cpp \
     $${PWD}/Period_getAutocomplete_v2_Response_mPayload.cpp \
@@ -2458,8 +3082,14 @@ SOURCES += \
     $${PWD}/Province_AutocompleteElement_Response.cpp \
     $${PWD}/Province_getAutocomplete_v2_Response.cpp \
     $${PWD}/Province_getAutocomplete_v2_Response_mPayload.cpp \
+    $${PWD}/Rejectedoffertopurchase_getCommunicationCount_v1_Response.cpp \
+    $${PWD}/Rejectedoffertopurchase_getCommunicationCount_v1_Response_mPayload.cpp \
     $${PWD}/Rejectedoffertopurchase_getCommunicationList_v1_Response.cpp \
     $${PWD}/Rejectedoffertopurchase_getCommunicationList_v1_Response_mPayload.cpp \
+    $${PWD}/Rejectedoffertopurchase_getCommunicationrecipients_v1_Response.cpp \
+    $${PWD}/Rejectedoffertopurchase_getCommunicationrecipients_v1_Response_mPayload.cpp \
+    $${PWD}/Rejectedoffertopurchase_getCommunicationsenders_v1_Response.cpp \
+    $${PWD}/Rejectedoffertopurchase_getCommunicationsenders_v1_Response_mPayload.cpp \
     $${PWD}/Scim_AuthenticationScheme.cpp \
     $${PWD}/Scim_Email.cpp \
     $${PWD}/Scim_Group.cpp \
@@ -2483,6 +3113,8 @@ SOURCES += \
     $${PWD}/Signature_RequestCompound.cpp \
     $${PWD}/Signature_Response.cpp \
     $${PWD}/Signature_ResponseCompound.cpp \
+    $${PWD}/Signature_ResponseCompoundV3.cpp \
+    $${PWD}/Signature_ResponseV3.cpp \
     $${PWD}/Signature_createObject_v1_Request.cpp \
     $${PWD}/Signature_createObject_v1_Response.cpp \
     $${PWD}/Signature_createObject_v1_Response_mPayload.cpp \
@@ -2491,6 +3123,8 @@ SOURCES += \
     $${PWD}/Signature_editObject_v1_Response.cpp \
     $${PWD}/Signature_getObject_v2_Response.cpp \
     $${PWD}/Signature_getObject_v2_Response_mPayload.cpp \
+    $${PWD}/Signature_getObject_v3_Response.cpp \
+    $${PWD}/Signature_getObject_v3_Response_mPayload.cpp \
     $${PWD}/Subnet_Request.cpp \
     $${PWD}/Subnet_RequestCompound.cpp \
     $${PWD}/Subnet_Response.cpp \
@@ -2503,6 +3137,24 @@ SOURCES += \
     $${PWD}/Subnet_editObject_v1_Response.cpp \
     $${PWD}/Subnet_getObject_v2_Response.cpp \
     $${PWD}/Subnet_getObject_v2_Response_mPayload.cpp \
+    $${PWD}/Supply_AutocompleteElement_Response.cpp \
+    $${PWD}/Supply_ListElement.cpp \
+    $${PWD}/Supply_Request.cpp \
+    $${PWD}/Supply_RequestCompound.cpp \
+    $${PWD}/Supply_Response.cpp \
+    $${PWD}/Supply_ResponseCompound.cpp \
+    $${PWD}/Supply_createObject_v1_Request.cpp \
+    $${PWD}/Supply_createObject_v1_Response.cpp \
+    $${PWD}/Supply_createObject_v1_Response_mPayload.cpp \
+    $${PWD}/Supply_deleteObject_v1_Response.cpp \
+    $${PWD}/Supply_editObject_v1_Request.cpp \
+    $${PWD}/Supply_editObject_v1_Response.cpp \
+    $${PWD}/Supply_getAutocomplete_v2_Response.cpp \
+    $${PWD}/Supply_getAutocomplete_v2_Response_mPayload.cpp \
+    $${PWD}/Supply_getList_v1_Response.cpp \
+    $${PWD}/Supply_getList_v1_Response_mPayload.cpp \
+    $${PWD}/Supply_getObject_v2_Response.cpp \
+    $${PWD}/Supply_getObject_v2_Response_mPayload.cpp \
     $${PWD}/Systemconfiguration_Request.cpp \
     $${PWD}/Systemconfiguration_RequestCompound.cpp \
     $${PWD}/Systemconfiguration_Response.cpp \
@@ -2514,11 +3166,21 @@ SOURCES += \
     $${PWD}/Taxassignment_AutocompleteElement_Response.cpp \
     $${PWD}/Taxassignment_getAutocomplete_v2_Response.cpp \
     $${PWD}/Taxassignment_getAutocomplete_v2_Response_mPayload.cpp \
+    $${PWD}/Textstylestatic_Request.cpp \
+    $${PWD}/Textstylestatic_RequestCompound.cpp \
     $${PWD}/Textstylestatic_Response.cpp \
     $${PWD}/Textstylestatic_ResponseCompound.cpp \
     $${PWD}/Timezone_AutocompleteElement_Response.cpp \
     $${PWD}/Timezone_getAutocomplete_v2_Response.cpp \
     $${PWD}/Timezone_getAutocomplete_v2_Response_mPayload.cpp \
+    $${PWD}/Tranqcontract_getCommunicationCount_v1_Response.cpp \
+    $${PWD}/Tranqcontract_getCommunicationCount_v1_Response_mPayload.cpp \
+    $${PWD}/Tranqcontract_getCommunicationList_v1_Response.cpp \
+    $${PWD}/Tranqcontract_getCommunicationList_v1_Response_mPayload.cpp \
+    $${PWD}/Tranqcontract_getCommunicationrecipients_v1_Response.cpp \
+    $${PWD}/Tranqcontract_getCommunicationrecipients_v1_Response_mPayload.cpp \
+    $${PWD}/Tranqcontract_getCommunicationsenders_v1_Response.cpp \
+    $${PWD}/Tranqcontract_getCommunicationsenders_v1_Response_mPayload.cpp \
     $${PWD}/User_AutocompleteElement_Response.cpp \
     $${PWD}/User_ListElement.cpp \
     $${PWD}/User_Request.cpp \
@@ -2536,6 +3198,9 @@ SOURCES += \
     $${PWD}/User_createObject_v2_Request.cpp \
     $${PWD}/User_createObject_v2_Response.cpp \
     $${PWD}/User_createObject_v2_Response_mPayload.cpp \
+    $${PWD}/User_editColleagues_v2_Request.cpp \
+    $${PWD}/User_editColleagues_v2_Response.cpp \
+    $${PWD}/User_editColleagues_v2_Response_mPayload.cpp \
     $${PWD}/User_editObject_v1_Request.cpp \
     $${PWD}/User_editObject_v1_Response.cpp \
     $${PWD}/User_editPermissions_v1_Request.cpp \
@@ -2545,6 +3210,8 @@ SOURCES += \
     $${PWD}/User_getApikeys_v1_Response_mPayload.cpp \
     $${PWD}/User_getAutocomplete_v2_Response.cpp \
     $${PWD}/User_getAutocomplete_v2_Response_mPayload.cpp \
+    $${PWD}/User_getColleagues_v2_Response.cpp \
+    $${PWD}/User_getColleagues_v2_Response_mPayload.cpp \
     $${PWD}/User_getEffectivePermissions_v1_Response.cpp \
     $${PWD}/User_getEffectivePermissions_v1_Response_mPayload.cpp \
     $${PWD}/User_getList_v1_Response.cpp \
@@ -2709,6 +3376,8 @@ SOURCES += \
     $${PWD}/Webhook_regenerateApikey_v1_Request.cpp \
     $${PWD}/Webhook_regenerateApikey_v1_Response.cpp \
     $${PWD}/Webhook_regenerateApikey_v1_Response_mPayload.cpp \
+    $${PWD}/Webhook_sendWebhook_v1_Request.cpp \
+    $${PWD}/Webhook_sendWebhook_v1_Response.cpp \
     $${PWD}/Webhook_test_v1_Response.cpp \
     $${PWD}/Webhookheader_Request.cpp \
     $${PWD}/Webhookheader_RequestCompound.cpp \
@@ -2716,6 +3385,8 @@ SOURCES += \
     $${PWD}/Webhookheader_ResponseCompound.cpp \
     $${PWD}/Website_Request.cpp \
     $${PWD}/Website_RequestCompound.cpp \
+    $${PWD}/Website_Response.cpp \
+    $${PWD}/Website_ResponseCompound.cpp \
     $${PWD}/Websocket_RequestServer_GetWebsocketID_V1.cpp \
     $${PWD}/Websocket_Response_Error_V1.cpp \
     $${PWD}/Websocket_Response_Error_V1_mPayload.cpp \
@@ -2727,12 +3398,12 @@ SOURCES += \
     $${PWD}/GlobalCustomerApi.cpp \
     $${PWD}/GlobalEzmaxclientApi.cpp \
     $${PWD}/GlobalEzmaxcustomerApi.cpp \
-    $${PWD}/ModuleEzsignApi.cpp \
     $${PWD}/ModuleReportApi.cpp \
     $${PWD}/ModuleUserApi.cpp \
     $${PWD}/ObjectActivesessionApi.cpp \
     $${PWD}/ObjectApikeyApi.cpp \
     $${PWD}/ObjectAttachmentApi.cpp \
+    $${PWD}/ObjectAuthenticationexternalApi.cpp \
     $${PWD}/ObjectBillingentityexternalApi.cpp \
     $${PWD}/ObjectBillingentityinternalApi.cpp \
     $${PWD}/ObjectBrandingApi.cpp \
@@ -2740,18 +3411,25 @@ SOURCES += \
     $${PWD}/ObjectClonehistoryApi.cpp \
     $${PWD}/ObjectCommunicationApi.cpp \
     $${PWD}/ObjectCompanyApi.cpp \
+    $${PWD}/ObjectContacttitleApi.cpp \
     $${PWD}/ObjectCorsApi.cpp \
     $${PWD}/ObjectCountryApi.cpp \
     $${PWD}/ObjectCreditcardclientApi.cpp \
     $${PWD}/ObjectCreditcardtypeApi.cpp \
+    $${PWD}/ObjectCustomerApi.cpp \
     $${PWD}/ObjectDepartmentApi.cpp \
     $${PWD}/ObjectDiscussionApi.cpp \
     $${PWD}/ObjectDiscussionmembershipApi.cpp \
     $${PWD}/ObjectDiscussionmessageApi.cpp \
+    $${PWD}/ObjectDomainApi.cpp \
     $${PWD}/ObjectElectronicfundstransferApi.cpp \
     $${PWD}/ObjectEmailtypeApi.cpp \
+    $${PWD}/ObjectEzdoctemplatedocumentApi.cpp \
+    $${PWD}/ObjectEzdoctemplatefieldtypecategoryApi.cpp \
+    $${PWD}/ObjectEzdoctemplatetypeApi.cpp \
     $${PWD}/ObjectEzmaxinvoicingApi.cpp \
     $${PWD}/ObjectEzmaxproductApi.cpp \
+    $${PWD}/ObjectEzsignannotationApi.cpp \
     $${PWD}/ObjectEzsignbulksendApi.cpp \
     $${PWD}/ObjectEzsignbulksenddocumentmappingApi.cpp \
     $${PWD}/ObjectEzsignbulksendsignermappingApi.cpp \
@@ -2769,19 +3447,24 @@ SOURCES += \
     $${PWD}/ObjectEzsignsigningreasonApi.cpp \
     $${PWD}/ObjectEzsigntemplateApi.cpp \
     $${PWD}/ObjectEzsigntemplatedocumentApi.cpp \
+    $${PWD}/ObjectEzsigntemplatedocumentpagerecognitionApi.cpp \
     $${PWD}/ObjectEzsigntemplateformfieldgroupApi.cpp \
     $${PWD}/ObjectEzsigntemplateglobalApi.cpp \
     $${PWD}/ObjectEzsigntemplatepackageApi.cpp \
     $${PWD}/ObjectEzsigntemplatepackagemembershipApi.cpp \
     $${PWD}/ObjectEzsigntemplatepackagesignerApi.cpp \
     $${PWD}/ObjectEzsigntemplatepackagesignermembershipApi.cpp \
+    $${PWD}/ObjectEzsigntemplatepublicApi.cpp \
     $${PWD}/ObjectEzsigntemplatesignatureApi.cpp \
     $${PWD}/ObjectEzsigntemplatesignerApi.cpp \
     $${PWD}/ObjectEzsigntsarequirementApi.cpp \
+    $${PWD}/ObjectEzsignuserApi.cpp \
     $${PWD}/ObjectFontApi.cpp \
     $${PWD}/ObjectFranchisebrokerApi.cpp \
     $${PWD}/ObjectFranchiseofficeApi.cpp \
     $${PWD}/ObjectFranchisereferalincomeApi.cpp \
+    $${PWD}/ObjectGlaccountApi.cpp \
+    $${PWD}/ObjectGlaccountcontainerApi.cpp \
     $${PWD}/ObjectInscriptionApi.cpp \
     $${PWD}/ObjectInscriptionnotauthenticatedApi.cpp \
     $${PWD}/ObjectInscriptiontempApi.cpp \
@@ -2793,6 +3476,7 @@ SOURCES += \
     $${PWD}/ObjectNotificationtestApi.cpp \
     $${PWD}/ObjectOtherincomeApi.cpp \
     $${PWD}/ObjectPaymenttermApi.cpp \
+    $${PWD}/ObjectPdfalevelApi.cpp \
     $${PWD}/ObjectPeriodApi.cpp \
     $${PWD}/ObjectPermissionApi.cpp \
     $${PWD}/ObjectPhonetypeApi.cpp \
@@ -2802,9 +3486,11 @@ SOURCES += \
     $${PWD}/ObjectSessionhistoryApi.cpp \
     $${PWD}/ObjectSignatureApi.cpp \
     $${PWD}/ObjectSubnetApi.cpp \
+    $${PWD}/ObjectSupplyApi.cpp \
     $${PWD}/ObjectSystemconfigurationApi.cpp \
     $${PWD}/ObjectTaxassignmentApi.cpp \
     $${PWD}/ObjectTimezoneApi.cpp \
+    $${PWD}/ObjectTranqcontractApi.cpp \
     $${PWD}/ObjectUserApi.cpp \
     $${PWD}/ObjectUsergroupApi.cpp \
     $${PWD}/ObjectUsergroupdelegationApi.cpp \

@@ -142,15 +142,9 @@ int ObjectCorsApi::addServerConfiguration(const QString &operation, const QUrl &
     * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
     */
 void ObjectCorsApi::setNewServerForAllOperations(const QUrl &url, const QString &description, const QMap<QString, ServerVariable> &variables) {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
     for (auto keyIt = _serverIndices.keyBegin(); keyIt != _serverIndices.keyEnd(); keyIt++) {
         setServerIndex(*keyIt, addServerConfiguration(*keyIt, url, description, variables));
     }
-#else
-    for (auto &e : _serverIndices.keys()) {
-        setServerIndex(e, addServerConfiguration(e, url, description, variables));
-    }
-#endif
 }
 
 /**
@@ -260,15 +254,10 @@ void ObjectCorsApi::corsCreateObjectV1(const Cors_createObject_v1_Request &cors_
         QByteArray output = cors_create_object_v1_request.asJson().toUtf8();
         input.request_body.append(output);
     }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectCorsApi::corsCreateObjectV1Callback);
     connect(this, &ObjectCorsApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -353,15 +342,10 @@ void ObjectCorsApi::corsDeleteObjectV1(const qint32 &pki_cors_id) {
     HttpRequestInput input(fullPath, "DELETE");
 
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectCorsApi::corsDeleteObjectV1Callback);
     connect(this, &ObjectCorsApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -451,15 +435,10 @@ void ObjectCorsApi::corsEditObjectV1(const qint32 &pki_cors_id, const Cors_editO
         QByteArray output = cors_edit_object_v1_request.asJson().toUtf8();
         input.request_body.append(output);
     }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectCorsApi::corsEditObjectV1Callback);
     connect(this, &ObjectCorsApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -544,15 +523,10 @@ void ObjectCorsApi::corsGetObjectV2(const qint32 &pki_cors_id) {
     HttpRequestInput input(fullPath, "GET");
 
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectCorsApi::corsGetObjectV2Callback);
     connect(this, &ObjectCorsApi::abortRequestsSignal, worker, &QObject::deleteLater);

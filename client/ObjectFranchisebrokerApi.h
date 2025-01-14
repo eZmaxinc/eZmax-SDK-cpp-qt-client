@@ -64,7 +64,7 @@ public:
     * @param[in]  s_query QString [optional]
     * @param[in]  accept_language Header_Accept_Language [optional]
     */
-    void franchisebrokerGetAutocompleteV2(const QString &s_selector, const ::Ezmaxapi::OptionalParam<QString> &e_filter_active = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<QString> &s_query = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<Header_Accept_Language>());
+    virtual void franchisebrokerGetAutocompleteV2(const QString &s_selector, const ::Ezmaxapi::OptionalParam<QString> &e_filter_active = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<QString> &s_query = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<Header_Accept_Language>());
 
 
 private:
@@ -94,6 +94,7 @@ private:
 Q_SIGNALS:
 
     void franchisebrokerGetAutocompleteV2Signal(Franchisebroker_getAutocomplete_v2_Response summary);
+
 
     void franchisebrokerGetAutocompleteV2SignalFull(HttpRequestWorker *worker, Franchisebroker_getAutocomplete_v2_Response summary);
 

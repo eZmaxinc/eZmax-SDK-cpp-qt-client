@@ -58,6 +58,30 @@ void Activesession_Response::initializeModel() {
     m_b_activesession_issuperadmin_isSet = false;
     m_b_activesession_issuperadmin_isValid = false;
 
+    m_b_activesession_attachment_isSet = false;
+    m_b_activesession_attachment_isValid = false;
+
+    m_b_activesession_canafe_isSet = false;
+    m_b_activesession_canafe_isValid = false;
+
+    m_b_activesession_financial_isSet = false;
+    m_b_activesession_financial_isValid = false;
+
+    m_b_activesession_realestatecompleted_isSet = false;
+    m_b_activesession_realestatecompleted_isValid = false;
+
+    m_e_activesession_ezsign_isSet = false;
+    m_e_activesession_ezsign_isValid = false;
+
+    m_e_activesession_ezsignaccess_isSet = false;
+    m_e_activesession_ezsignaccess_isValid = false;
+
+    m_e_activesession_ezsignprepaid_isSet = false;
+    m_e_activesession_ezsignprepaid_isValid = false;
+
+    m_e_activesession_realestateinprogress_isSet = false;
+    m_e_activesession_realestateinprogress_isValid = false;
+
     m_pks_customer_code_isSet = false;
     m_pks_customer_code_isValid = false;
 
@@ -101,6 +125,30 @@ void Activesession_Response::fromJsonObject(QJsonObject json) {
     m_b_activesession_issuperadmin_isValid = ::Ezmaxapi::fromJsonValue(m_b_activesession_issuperadmin, json[QString("bActivesessionIssuperadmin")]);
     m_b_activesession_issuperadmin_isSet = !json[QString("bActivesessionIssuperadmin")].isNull() && m_b_activesession_issuperadmin_isValid;
 
+    m_b_activesession_attachment_isValid = ::Ezmaxapi::fromJsonValue(m_b_activesession_attachment, json[QString("bActivesessionAttachment")]);
+    m_b_activesession_attachment_isSet = !json[QString("bActivesessionAttachment")].isNull() && m_b_activesession_attachment_isValid;
+
+    m_b_activesession_canafe_isValid = ::Ezmaxapi::fromJsonValue(m_b_activesession_canafe, json[QString("bActivesessionCanafe")]);
+    m_b_activesession_canafe_isSet = !json[QString("bActivesessionCanafe")].isNull() && m_b_activesession_canafe_isValid;
+
+    m_b_activesession_financial_isValid = ::Ezmaxapi::fromJsonValue(m_b_activesession_financial, json[QString("bActivesessionFinancial")]);
+    m_b_activesession_financial_isSet = !json[QString("bActivesessionFinancial")].isNull() && m_b_activesession_financial_isValid;
+
+    m_b_activesession_realestatecompleted_isValid = ::Ezmaxapi::fromJsonValue(m_b_activesession_realestatecompleted, json[QString("bActivesessionRealestatecompleted")]);
+    m_b_activesession_realestatecompleted_isSet = !json[QString("bActivesessionRealestatecompleted")].isNull() && m_b_activesession_realestatecompleted_isValid;
+
+    m_e_activesession_ezsign_isValid = ::Ezmaxapi::fromJsonValue(m_e_activesession_ezsign, json[QString("eActivesessionEzsign")]);
+    m_e_activesession_ezsign_isSet = !json[QString("eActivesessionEzsign")].isNull() && m_e_activesession_ezsign_isValid;
+
+    m_e_activesession_ezsignaccess_isValid = ::Ezmaxapi::fromJsonValue(m_e_activesession_ezsignaccess, json[QString("eActivesessionEzsignaccess")]);
+    m_e_activesession_ezsignaccess_isSet = !json[QString("eActivesessionEzsignaccess")].isNull() && m_e_activesession_ezsignaccess_isValid;
+
+    m_e_activesession_ezsignprepaid_isValid = ::Ezmaxapi::fromJsonValue(m_e_activesession_ezsignprepaid, json[QString("eActivesessionEzsignprepaid")]);
+    m_e_activesession_ezsignprepaid_isSet = !json[QString("eActivesessionEzsignprepaid")].isNull() && m_e_activesession_ezsignprepaid_isValid;
+
+    m_e_activesession_realestateinprogress_isValid = ::Ezmaxapi::fromJsonValue(m_e_activesession_realestateinprogress, json[QString("eActivesessionRealestateinprogress")]);
+    m_e_activesession_realestateinprogress_isSet = !json[QString("eActivesessionRealestateinprogress")].isNull() && m_e_activesession_realestateinprogress_isValid;
+
     m_pks_customer_code_isValid = ::Ezmaxapi::fromJsonValue(m_pks_customer_code, json[QString("pksCustomerCode")]);
     m_pks_customer_code_isSet = !json[QString("pksCustomerCode")].isNull() && m_pks_customer_code_isValid;
 
@@ -143,6 +191,30 @@ QJsonObject Activesession_Response::asJsonObject() const {
     }
     if (m_b_activesession_issuperadmin_isSet) {
         obj.insert(QString("bActivesessionIssuperadmin"), ::Ezmaxapi::toJsonValue(m_b_activesession_issuperadmin));
+    }
+    if (m_b_activesession_attachment_isSet) {
+        obj.insert(QString("bActivesessionAttachment"), ::Ezmaxapi::toJsonValue(m_b_activesession_attachment));
+    }
+    if (m_b_activesession_canafe_isSet) {
+        obj.insert(QString("bActivesessionCanafe"), ::Ezmaxapi::toJsonValue(m_b_activesession_canafe));
+    }
+    if (m_b_activesession_financial_isSet) {
+        obj.insert(QString("bActivesessionFinancial"), ::Ezmaxapi::toJsonValue(m_b_activesession_financial));
+    }
+    if (m_b_activesession_realestatecompleted_isSet) {
+        obj.insert(QString("bActivesessionRealestatecompleted"), ::Ezmaxapi::toJsonValue(m_b_activesession_realestatecompleted));
+    }
+    if (m_e_activesession_ezsign.isSet()) {
+        obj.insert(QString("eActivesessionEzsign"), ::Ezmaxapi::toJsonValue(m_e_activesession_ezsign));
+    }
+    if (m_e_activesession_ezsignaccess.isSet()) {
+        obj.insert(QString("eActivesessionEzsignaccess"), ::Ezmaxapi::toJsonValue(m_e_activesession_ezsignaccess));
+    }
+    if (m_e_activesession_ezsignprepaid.isSet()) {
+        obj.insert(QString("eActivesessionEzsignprepaid"), ::Ezmaxapi::toJsonValue(m_e_activesession_ezsignprepaid));
+    }
+    if (m_e_activesession_realestateinprogress.isSet()) {
+        obj.insert(QString("eActivesessionRealestateinprogress"), ::Ezmaxapi::toJsonValue(m_e_activesession_realestateinprogress));
     }
     if (m_pks_customer_code_isSet) {
         obj.insert(QString("pksCustomerCode"), ::Ezmaxapi::toJsonValue(m_pks_customer_code));
@@ -284,6 +356,134 @@ bool Activesession_Response::is_b_activesession_issuperadmin_Valid() const{
     return m_b_activesession_issuperadmin_isValid;
 }
 
+bool Activesession_Response::isBActivesessionAttachment() const {
+    return m_b_activesession_attachment;
+}
+void Activesession_Response::setBActivesessionAttachment(const bool &b_activesession_attachment) {
+    m_b_activesession_attachment = b_activesession_attachment;
+    m_b_activesession_attachment_isSet = true;
+}
+
+bool Activesession_Response::is_b_activesession_attachment_Set() const{
+    return m_b_activesession_attachment_isSet;
+}
+
+bool Activesession_Response::is_b_activesession_attachment_Valid() const{
+    return m_b_activesession_attachment_isValid;
+}
+
+bool Activesession_Response::isBActivesessionCanafe() const {
+    return m_b_activesession_canafe;
+}
+void Activesession_Response::setBActivesessionCanafe(const bool &b_activesession_canafe) {
+    m_b_activesession_canafe = b_activesession_canafe;
+    m_b_activesession_canafe_isSet = true;
+}
+
+bool Activesession_Response::is_b_activesession_canafe_Set() const{
+    return m_b_activesession_canafe_isSet;
+}
+
+bool Activesession_Response::is_b_activesession_canafe_Valid() const{
+    return m_b_activesession_canafe_isValid;
+}
+
+bool Activesession_Response::isBActivesessionFinancial() const {
+    return m_b_activesession_financial;
+}
+void Activesession_Response::setBActivesessionFinancial(const bool &b_activesession_financial) {
+    m_b_activesession_financial = b_activesession_financial;
+    m_b_activesession_financial_isSet = true;
+}
+
+bool Activesession_Response::is_b_activesession_financial_Set() const{
+    return m_b_activesession_financial_isSet;
+}
+
+bool Activesession_Response::is_b_activesession_financial_Valid() const{
+    return m_b_activesession_financial_isValid;
+}
+
+bool Activesession_Response::isBActivesessionRealestatecompleted() const {
+    return m_b_activesession_realestatecompleted;
+}
+void Activesession_Response::setBActivesessionRealestatecompleted(const bool &b_activesession_realestatecompleted) {
+    m_b_activesession_realestatecompleted = b_activesession_realestatecompleted;
+    m_b_activesession_realestatecompleted_isSet = true;
+}
+
+bool Activesession_Response::is_b_activesession_realestatecompleted_Set() const{
+    return m_b_activesession_realestatecompleted_isSet;
+}
+
+bool Activesession_Response::is_b_activesession_realestatecompleted_Valid() const{
+    return m_b_activesession_realestatecompleted_isValid;
+}
+
+Field_eActivesessionEzsign Activesession_Response::getEActivesessionEzsign() const {
+    return m_e_activesession_ezsign;
+}
+void Activesession_Response::setEActivesessionEzsign(const Field_eActivesessionEzsign &e_activesession_ezsign) {
+    m_e_activesession_ezsign = e_activesession_ezsign;
+    m_e_activesession_ezsign_isSet = true;
+}
+
+bool Activesession_Response::is_e_activesession_ezsign_Set() const{
+    return m_e_activesession_ezsign_isSet;
+}
+
+bool Activesession_Response::is_e_activesession_ezsign_Valid() const{
+    return m_e_activesession_ezsign_isValid;
+}
+
+Field_eActivesessionEzsignaccess Activesession_Response::getEActivesessionEzsignaccess() const {
+    return m_e_activesession_ezsignaccess;
+}
+void Activesession_Response::setEActivesessionEzsignaccess(const Field_eActivesessionEzsignaccess &e_activesession_ezsignaccess) {
+    m_e_activesession_ezsignaccess = e_activesession_ezsignaccess;
+    m_e_activesession_ezsignaccess_isSet = true;
+}
+
+bool Activesession_Response::is_e_activesession_ezsignaccess_Set() const{
+    return m_e_activesession_ezsignaccess_isSet;
+}
+
+bool Activesession_Response::is_e_activesession_ezsignaccess_Valid() const{
+    return m_e_activesession_ezsignaccess_isValid;
+}
+
+Field_eActivesessionEzsignprepaid Activesession_Response::getEActivesessionEzsignprepaid() const {
+    return m_e_activesession_ezsignprepaid;
+}
+void Activesession_Response::setEActivesessionEzsignprepaid(const Field_eActivesessionEzsignprepaid &e_activesession_ezsignprepaid) {
+    m_e_activesession_ezsignprepaid = e_activesession_ezsignprepaid;
+    m_e_activesession_ezsignprepaid_isSet = true;
+}
+
+bool Activesession_Response::is_e_activesession_ezsignprepaid_Set() const{
+    return m_e_activesession_ezsignprepaid_isSet;
+}
+
+bool Activesession_Response::is_e_activesession_ezsignprepaid_Valid() const{
+    return m_e_activesession_ezsignprepaid_isValid;
+}
+
+Field_eActivesessionRealestateinprogress Activesession_Response::getEActivesessionRealestateinprogress() const {
+    return m_e_activesession_realestateinprogress;
+}
+void Activesession_Response::setEActivesessionRealestateinprogress(const Field_eActivesessionRealestateinprogress &e_activesession_realestateinprogress) {
+    m_e_activesession_realestateinprogress = e_activesession_realestateinprogress;
+    m_e_activesession_realestateinprogress_isSet = true;
+}
+
+bool Activesession_Response::is_e_activesession_realestateinprogress_Set() const{
+    return m_e_activesession_realestateinprogress_isSet;
+}
+
+bool Activesession_Response::is_e_activesession_realestateinprogress_Valid() const{
+    return m_e_activesession_realestateinprogress_isValid;
+}
+
 QString Activesession_Response::getPksCustomerCode() const {
     return m_pks_customer_code;
 }
@@ -375,6 +575,46 @@ bool Activesession_Response::isSet() const {
             break;
         }
 
+        if (m_b_activesession_attachment_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_b_activesession_canafe_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_b_activesession_financial_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_b_activesession_realestatecompleted_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_e_activesession_ezsign.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_e_activesession_ezsignaccess.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_e_activesession_ezsignprepaid.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_e_activesession_realestateinprogress.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (m_pks_customer_code_isSet) {
             isObjectUpdated = true;
             break;
@@ -395,7 +635,7 @@ bool Activesession_Response::isSet() const {
 
 bool Activesession_Response::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_e_activesession_usertype_isValid && m_e_activesession_origin_isValid && m_e_activesession_weekdaystart_isValid && m_fki_language_id_isValid && m_s_company_name_x_isValid && m_s_department_name_x_isValid && m_b_activesession_debug_isValid && m_b_activesession_issuperadmin_isValid && m_pks_customer_code_isValid && m_fki_systemconfigurationtype_id_isValid && true;
+    return m_e_activesession_usertype_isValid && m_e_activesession_origin_isValid && m_e_activesession_weekdaystart_isValid && m_fki_language_id_isValid && m_s_company_name_x_isValid && m_s_department_name_x_isValid && m_b_activesession_debug_isValid && m_b_activesession_issuperadmin_isValid && m_e_activesession_ezsignaccess_isValid && m_pks_customer_code_isValid && m_fki_systemconfigurationtype_id_isValid && true;
 }
 
 } // namespace Ezmaxapi

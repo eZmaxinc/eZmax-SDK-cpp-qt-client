@@ -65,18 +65,18 @@ public:
     /**
     * @param[in]  discussionmessage_create_object_v1_request Discussionmessage_createObject_v1_Request [required]
     */
-    void discussionmessageCreateObjectV1(const Discussionmessage_createObject_v1_Request &discussionmessage_create_object_v1_request);
+    virtual void discussionmessageCreateObjectV1(const Discussionmessage_createObject_v1_Request &discussionmessage_create_object_v1_request);
 
     /**
     * @param[in]  pki_discussionmessage_id qint32 [required]
     */
-    void discussionmessageDeleteObjectV1(const qint32 &pki_discussionmessage_id);
+    virtual void discussionmessageDeleteObjectV1(const qint32 &pki_discussionmessage_id);
 
     /**
     * @param[in]  pki_discussionmessage_id qint32 [required]
     * @param[in]  discussionmessage_patch_object_v1_request Discussionmessage_patchObject_v1_Request [required]
     */
-    void discussionmessagePatchObjectV1(const qint32 &pki_discussionmessage_id, const Discussionmessage_patchObject_v1_Request &discussionmessage_patch_object_v1_request);
+    virtual void discussionmessagePatchObjectV1(const qint32 &pki_discussionmessage_id, const Discussionmessage_patchObject_v1_Request &discussionmessage_patch_object_v1_request);
 
 
 private:
@@ -110,6 +110,7 @@ Q_SIGNALS:
     void discussionmessageCreateObjectV1Signal(Discussionmessage_createObject_v1_Response summary);
     void discussionmessageDeleteObjectV1Signal(Discussionmessage_deleteObject_v1_Response summary);
     void discussionmessagePatchObjectV1Signal(Discussionmessage_patchObject_v1_Response summary);
+
 
     void discussionmessageCreateObjectV1SignalFull(HttpRequestWorker *worker, Discussionmessage_createObject_v1_Response summary);
     void discussionmessageDeleteObjectV1SignalFull(HttpRequestWorker *worker, Discussionmessage_deleteObject_v1_Response summary);

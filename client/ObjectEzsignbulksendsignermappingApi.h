@@ -64,17 +64,17 @@ public:
     /**
     * @param[in]  ezsignbulksendsignermapping_create_object_v1_request Ezsignbulksendsignermapping_createObject_v1_Request [required]
     */
-    void ezsignbulksendsignermappingCreateObjectV1(const Ezsignbulksendsignermapping_createObject_v1_Request &ezsignbulksendsignermapping_create_object_v1_request);
+    virtual void ezsignbulksendsignermappingCreateObjectV1(const Ezsignbulksendsignermapping_createObject_v1_Request &ezsignbulksendsignermapping_create_object_v1_request);
 
     /**
     * @param[in]  pki_ezsignbulksendsignermapping_id qint32 [required]
     */
-    void ezsignbulksendsignermappingDeleteObjectV1(const qint32 &pki_ezsignbulksendsignermapping_id);
+    virtual void ezsignbulksendsignermappingDeleteObjectV1(const qint32 &pki_ezsignbulksendsignermapping_id);
 
     /**
     * @param[in]  pki_ezsignbulksendsignermapping_id qint32 [required]
     */
-    void ezsignbulksendsignermappingGetObjectV2(const qint32 &pki_ezsignbulksendsignermapping_id);
+    virtual void ezsignbulksendsignermappingGetObjectV2(const qint32 &pki_ezsignbulksendsignermapping_id);
 
 
 private:
@@ -108,6 +108,7 @@ Q_SIGNALS:
     void ezsignbulksendsignermappingCreateObjectV1Signal(Ezsignbulksendsignermapping_createObject_v1_Response summary);
     void ezsignbulksendsignermappingDeleteObjectV1Signal(Ezsignbulksendsignermapping_deleteObject_v1_Response summary);
     void ezsignbulksendsignermappingGetObjectV2Signal(Ezsignbulksendsignermapping_getObject_v2_Response summary);
+
 
     void ezsignbulksendsignermappingCreateObjectV1SignalFull(HttpRequestWorker *worker, Ezsignbulksendsignermapping_createObject_v1_Response summary);
     void ezsignbulksendsignermappingDeleteObjectV1SignalFull(HttpRequestWorker *worker, Ezsignbulksendsignermapping_deleteObject_v1_Response summary);

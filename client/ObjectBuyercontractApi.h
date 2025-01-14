@@ -18,7 +18,10 @@
 #include "ServerConfiguration.h"
 #include "Oauth.h"
 
+#include "Buyercontract_getCommunicationCount_v1_Response.h"
 #include "Buyercontract_getCommunicationList_v1_Response.h"
+#include "Buyercontract_getCommunicationrecipients_v1_Response.h"
+#include "Buyercontract_getCommunicationsenders_v1_Response.h"
 #include "Common_Response_Error.h"
 #include <QString>
 
@@ -61,7 +64,22 @@ public:
     /**
     * @param[in]  pki_buyercontract_id qint32 [required]
     */
-    void buyercontractGetCommunicationListV1(const qint32 &pki_buyercontract_id);
+    virtual void buyercontractGetCommunicationCountV1(const qint32 &pki_buyercontract_id);
+
+    /**
+    * @param[in]  pki_buyercontract_id qint32 [required]
+    */
+    virtual void buyercontractGetCommunicationListV1(const qint32 &pki_buyercontract_id);
+
+    /**
+    * @param[in]  pki_buyercontract_id qint32 [required]
+    */
+    virtual void buyercontractGetCommunicationrecipientsV1(const qint32 &pki_buyercontract_id);
+
+    /**
+    * @param[in]  pki_buyercontract_id qint32 [required]
+    */
+    virtual void buyercontractGetCommunicationsendersV1(const qint32 &pki_buyercontract_id);
 
 
 private:
@@ -86,21 +104,49 @@ private:
     OauthPassword _passwordFlow;
     int _OauthMethod = 0;
 
+    void buyercontractGetCommunicationCountV1Callback(HttpRequestWorker *worker);
     void buyercontractGetCommunicationListV1Callback(HttpRequestWorker *worker);
+    void buyercontractGetCommunicationrecipientsV1Callback(HttpRequestWorker *worker);
+    void buyercontractGetCommunicationsendersV1Callback(HttpRequestWorker *worker);
 
 Q_SIGNALS:
 
+    void buyercontractGetCommunicationCountV1Signal(Buyercontract_getCommunicationCount_v1_Response summary);
     void buyercontractGetCommunicationListV1Signal(Buyercontract_getCommunicationList_v1_Response summary);
+    void buyercontractGetCommunicationrecipientsV1Signal(Buyercontract_getCommunicationrecipients_v1_Response summary);
+    void buyercontractGetCommunicationsendersV1Signal(Buyercontract_getCommunicationsenders_v1_Response summary);
 
+
+    void buyercontractGetCommunicationCountV1SignalFull(HttpRequestWorker *worker, Buyercontract_getCommunicationCount_v1_Response summary);
     void buyercontractGetCommunicationListV1SignalFull(HttpRequestWorker *worker, Buyercontract_getCommunicationList_v1_Response summary);
+    void buyercontractGetCommunicationrecipientsV1SignalFull(HttpRequestWorker *worker, Buyercontract_getCommunicationrecipients_v1_Response summary);
+    void buyercontractGetCommunicationsendersV1SignalFull(HttpRequestWorker *worker, Buyercontract_getCommunicationsenders_v1_Response summary);
 
+    Q_DECL_DEPRECATED_X("Use buyercontractGetCommunicationCountV1SignalError() instead")
+    void buyercontractGetCommunicationCountV1SignalE(Buyercontract_getCommunicationCount_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void buyercontractGetCommunicationCountV1SignalError(Buyercontract_getCommunicationCount_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use buyercontractGetCommunicationListV1SignalError() instead")
     void buyercontractGetCommunicationListV1SignalE(Buyercontract_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void buyercontractGetCommunicationListV1SignalError(Buyercontract_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use buyercontractGetCommunicationrecipientsV1SignalError() instead")
+    void buyercontractGetCommunicationrecipientsV1SignalE(Buyercontract_getCommunicationrecipients_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void buyercontractGetCommunicationrecipientsV1SignalError(Buyercontract_getCommunicationrecipients_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use buyercontractGetCommunicationsendersV1SignalError() instead")
+    void buyercontractGetCommunicationsendersV1SignalE(Buyercontract_getCommunicationsenders_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void buyercontractGetCommunicationsendersV1SignalError(Buyercontract_getCommunicationsenders_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use buyercontractGetCommunicationCountV1SignalErrorFull() instead")
+    void buyercontractGetCommunicationCountV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void buyercontractGetCommunicationCountV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use buyercontractGetCommunicationListV1SignalErrorFull() instead")
     void buyercontractGetCommunicationListV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void buyercontractGetCommunicationListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use buyercontractGetCommunicationrecipientsV1SignalErrorFull() instead")
+    void buyercontractGetCommunicationrecipientsV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void buyercontractGetCommunicationrecipientsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use buyercontractGetCommunicationsendersV1SignalErrorFull() instead")
+    void buyercontractGetCommunicationsendersV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void buyercontractGetCommunicationsendersV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();

@@ -18,6 +18,7 @@
 #include "ServerConfiguration.h"
 #include "Oauth.h"
 
+#include "Common_Response_Error_WrongFranchiseoffice.h"
 #include "Franchisereferalincome_createObject_v2_Request.h"
 #include "Franchisereferalincome_createObject_v2_Response.h"
 #include <QString>
@@ -61,7 +62,7 @@ public:
     /**
     * @param[in]  franchisereferalincome_create_object_v2_request Franchisereferalincome_createObject_v2_Request [required]
     */
-    void franchisereferalincomeCreateObjectV2(const Franchisereferalincome_createObject_v2_Request &franchisereferalincome_create_object_v2_request);
+    virtual void franchisereferalincomeCreateObjectV2(const Franchisereferalincome_createObject_v2_Request &franchisereferalincome_create_object_v2_request);
 
 
 private:
@@ -91,6 +92,7 @@ private:
 Q_SIGNALS:
 
     void franchisereferalincomeCreateObjectV2Signal(Franchisereferalincome_createObject_v2_Response summary);
+
 
     void franchisereferalincomeCreateObjectV2SignalFull(HttpRequestWorker *worker, Franchisereferalincome_createObject_v2_Response summary);
 

@@ -26,6 +26,7 @@
 #include "Ezsignelementdependency_RequestCompound.h"
 #include "Ezsignsignaturecustomdate_RequestCompound.h"
 #include "Field_eEzsignsignatureAttachmentnamesource.h"
+#include "Field_eEzsignsignatureConsultationtrigger.h"
 #include "Field_eEzsignsignatureDependencyrequirement.h"
 #include "Field_eEzsignsignatureFont.h"
 #include "Field_eEzsignsignatureTooltipposition.h"
@@ -122,6 +123,16 @@ public:
     bool is_fki_ezsignfoldersignerassociation_id_validation_Set() const;
     bool is_fki_ezsignfoldersignerassociation_id_validation_Valid() const;
 
+    bool isBEzsignsignatureHandwritten() const;
+    void setBEzsignsignatureHandwritten(const bool &b_ezsignsignature_handwritten);
+    bool is_b_ezsignsignature_handwritten_Set() const;
+    bool is_b_ezsignsignature_handwritten_Valid() const;
+
+    bool isBEzsignsignatureReason() const;
+    void setBEzsignsignatureReason(const bool &b_ezsignsignature_reason);
+    bool is_b_ezsignsignature_reason_Set() const;
+    bool is_b_ezsignsignature_reason_Valid() const;
+
     bool isBEzsignsignatureRequired() const;
     void setBEzsignsignatureRequired(const bool &b_ezsignsignature_required);
     bool is_b_ezsignsignature_required_Set() const;
@@ -137,6 +148,11 @@ public:
     bool is_s_ezsignsignature_attachmentdescription_Set() const;
     bool is_s_ezsignsignature_attachmentdescription_Valid() const;
 
+    Field_eEzsignsignatureConsultationtrigger getEEzsignsignatureConsultationtrigger() const;
+    void setEEzsignsignatureConsultationtrigger(const Field_eEzsignsignatureConsultationtrigger &e_ezsignsignature_consultationtrigger);
+    bool is_e_ezsignsignature_consultationtrigger_Set() const;
+    bool is_e_ezsignsignature_consultationtrigger_Valid() const;
+
     qint32 getIEzsignsignatureValidationstep() const;
     void setIEzsignsignatureValidationstep(const qint32 &i_ezsignsignature_validationstep);
     bool is_i_ezsignsignature_validationstep_Set() const;
@@ -147,10 +163,20 @@ public:
     bool is_i_ezsignsignature_maxlength_Set() const;
     bool is_i_ezsignsignature_maxlength_Valid() const;
 
+    QString getSEzsignsignatureDefaultvalue() const;
+    void setSEzsignsignatureDefaultvalue(const QString &s_ezsignsignature_defaultvalue);
+    bool is_s_ezsignsignature_defaultvalue_Set() const;
+    bool is_s_ezsignsignature_defaultvalue_Valid() const;
+
     Enum_Textvalidation getEEzsignsignatureTextvalidation() const;
     void setEEzsignsignatureTextvalidation(const Enum_Textvalidation &e_ezsignsignature_textvalidation);
     bool is_e_ezsignsignature_textvalidation_Set() const;
     bool is_e_ezsignsignature_textvalidation_Valid() const;
+
+    QString getSEzsignsignatureTextvalidationcustommessage() const;
+    void setSEzsignsignatureTextvalidationcustommessage(const QString &s_ezsignsignature_textvalidationcustommessage);
+    bool is_s_ezsignsignature_textvalidationcustommessage_Set() const;
+    bool is_s_ezsignsignature_textvalidationcustommessage_Valid() const;
 
     QString getSEzsignsignatureRegexp() const;
     void setSEzsignsignatureRegexp(const QString &s_ezsignsignature_regexp);
@@ -244,6 +270,14 @@ private:
     bool m_fki_ezsignfoldersignerassociation_id_validation_isSet;
     bool m_fki_ezsignfoldersignerassociation_id_validation_isValid;
 
+    bool m_b_ezsignsignature_handwritten;
+    bool m_b_ezsignsignature_handwritten_isSet;
+    bool m_b_ezsignsignature_handwritten_isValid;
+
+    bool m_b_ezsignsignature_reason;
+    bool m_b_ezsignsignature_reason_isSet;
+    bool m_b_ezsignsignature_reason_isValid;
+
     bool m_b_ezsignsignature_required;
     bool m_b_ezsignsignature_required_isSet;
     bool m_b_ezsignsignature_required_isValid;
@@ -256,6 +290,10 @@ private:
     bool m_s_ezsignsignature_attachmentdescription_isSet;
     bool m_s_ezsignsignature_attachmentdescription_isValid;
 
+    Field_eEzsignsignatureConsultationtrigger m_e_ezsignsignature_consultationtrigger;
+    bool m_e_ezsignsignature_consultationtrigger_isSet;
+    bool m_e_ezsignsignature_consultationtrigger_isValid;
+
     qint32 m_i_ezsignsignature_validationstep;
     bool m_i_ezsignsignature_validationstep_isSet;
     bool m_i_ezsignsignature_validationstep_isValid;
@@ -264,9 +302,17 @@ private:
     bool m_i_ezsignsignature_maxlength_isSet;
     bool m_i_ezsignsignature_maxlength_isValid;
 
+    QString m_s_ezsignsignature_defaultvalue;
+    bool m_s_ezsignsignature_defaultvalue_isSet;
+    bool m_s_ezsignsignature_defaultvalue_isValid;
+
     Enum_Textvalidation m_e_ezsignsignature_textvalidation;
     bool m_e_ezsignsignature_textvalidation_isSet;
     bool m_e_ezsignsignature_textvalidation_isValid;
+
+    QString m_s_ezsignsignature_textvalidationcustommessage;
+    bool m_s_ezsignsignature_textvalidationcustommessage_isSet;
+    bool m_s_ezsignsignature_textvalidationcustommessage_isValid;
 
     QString m_s_ezsignsignature_regexp;
     bool m_s_ezsignsignature_regexp_isSet;

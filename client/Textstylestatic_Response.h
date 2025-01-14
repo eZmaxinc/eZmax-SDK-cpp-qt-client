@@ -21,6 +21,7 @@
 
 #include <QJsonObject>
 
+#include <QString>
 
 #include "Enum.h"
 #include "Object.h"
@@ -47,6 +48,11 @@ public:
     void setFkiFontId(const qint32 &fki_font_id);
     bool is_fki_font_id_Set() const;
     bool is_fki_font_id_Valid() const;
+
+    QString getSFontName() const;
+    void setSFontName(const QString &s_font_name);
+    bool is_s_font_name_Set() const;
+    bool is_s_font_name_Valid() const;
 
     bool isBTextstylestaticBold() const;
     void setBTextstylestaticBold(const bool &b_textstylestatic_bold);
@@ -91,6 +97,10 @@ private:
     qint32 m_fki_font_id;
     bool m_fki_font_id_isSet;
     bool m_fki_font_id_isValid;
+
+    QString m_s_font_name;
+    bool m_s_font_name_isSet;
+    bool m_s_font_name_isValid;
 
     bool m_b_textstylestatic_bold;
     bool m_b_textstylestatic_bold_isSet;

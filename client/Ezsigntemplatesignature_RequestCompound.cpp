@@ -46,6 +46,12 @@ void Ezsigntemplatesignature_RequestCompound::initializeModel() {
     m_fki_ezsigntemplatesigner_id_validation_isSet = false;
     m_fki_ezsigntemplatesigner_id_validation_isValid = false;
 
+    m_b_ezsigntemplatesignature_handwritten_isSet = false;
+    m_b_ezsigntemplatesignature_handwritten_isValid = false;
+
+    m_b_ezsigntemplatesignature_reason_isSet = false;
+    m_b_ezsigntemplatesignature_reason_isValid = false;
+
     m_e_ezsigntemplatesignature_positioning_isSet = false;
     m_e_ezsigntemplatesignature_positioning_isValid = false;
 
@@ -69,6 +75,9 @@ void Ezsigntemplatesignature_RequestCompound::initializeModel() {
 
     m_e_ezsigntemplatesignature_type_isSet = false;
     m_e_ezsigntemplatesignature_type_isValid = false;
+
+    m_e_ezsigntemplatesignature_consultationtrigger_isSet = false;
+    m_e_ezsigntemplatesignature_consultationtrigger_isValid = false;
 
     m_t_ezsigntemplatesignature_tooltip_isSet = false;
     m_t_ezsigntemplatesignature_tooltip_isValid = false;
@@ -94,11 +103,17 @@ void Ezsigntemplatesignature_RequestCompound::initializeModel() {
     m_i_ezsigntemplatesignature_maxlength_isSet = false;
     m_i_ezsigntemplatesignature_maxlength_isValid = false;
 
+    m_s_ezsigntemplatesignature_defaultvalue_isSet = false;
+    m_s_ezsigntemplatesignature_defaultvalue_isValid = false;
+
     m_s_ezsigntemplatesignature_regexp_isSet = false;
     m_s_ezsigntemplatesignature_regexp_isValid = false;
 
     m_e_ezsigntemplatesignature_textvalidation_isSet = false;
     m_e_ezsigntemplatesignature_textvalidation_isValid = false;
+
+    m_s_ezsigntemplatesignature_textvalidationcustommessage_isSet = false;
+    m_s_ezsigntemplatesignature_textvalidationcustommessage_isValid = false;
 
     m_e_ezsigntemplatesignature_dependencyrequirement_isSet = false;
     m_e_ezsigntemplatesignature_dependencyrequirement_isValid = false;
@@ -146,6 +161,12 @@ void Ezsigntemplatesignature_RequestCompound::fromJsonObject(QJsonObject json) {
     m_fki_ezsigntemplatesigner_id_validation_isValid = ::Ezmaxapi::fromJsonValue(m_fki_ezsigntemplatesigner_id_validation, json[QString("fkiEzsigntemplatesignerIDValidation")]);
     m_fki_ezsigntemplatesigner_id_validation_isSet = !json[QString("fkiEzsigntemplatesignerIDValidation")].isNull() && m_fki_ezsigntemplatesigner_id_validation_isValid;
 
+    m_b_ezsigntemplatesignature_handwritten_isValid = ::Ezmaxapi::fromJsonValue(m_b_ezsigntemplatesignature_handwritten, json[QString("bEzsigntemplatesignatureHandwritten")]);
+    m_b_ezsigntemplatesignature_handwritten_isSet = !json[QString("bEzsigntemplatesignatureHandwritten")].isNull() && m_b_ezsigntemplatesignature_handwritten_isValid;
+
+    m_b_ezsigntemplatesignature_reason_isValid = ::Ezmaxapi::fromJsonValue(m_b_ezsigntemplatesignature_reason, json[QString("bEzsigntemplatesignatureReason")]);
+    m_b_ezsigntemplatesignature_reason_isSet = !json[QString("bEzsigntemplatesignatureReason")].isNull() && m_b_ezsigntemplatesignature_reason_isValid;
+
     m_e_ezsigntemplatesignature_positioning_isValid = ::Ezmaxapi::fromJsonValue(m_e_ezsigntemplatesignature_positioning, json[QString("eEzsigntemplatesignaturePositioning")]);
     m_e_ezsigntemplatesignature_positioning_isSet = !json[QString("eEzsigntemplatesignaturePositioning")].isNull() && m_e_ezsigntemplatesignature_positioning_isValid;
 
@@ -169,6 +190,9 @@ void Ezsigntemplatesignature_RequestCompound::fromJsonObject(QJsonObject json) {
 
     m_e_ezsigntemplatesignature_type_isValid = ::Ezmaxapi::fromJsonValue(m_e_ezsigntemplatesignature_type, json[QString("eEzsigntemplatesignatureType")]);
     m_e_ezsigntemplatesignature_type_isSet = !json[QString("eEzsigntemplatesignatureType")].isNull() && m_e_ezsigntemplatesignature_type_isValid;
+
+    m_e_ezsigntemplatesignature_consultationtrigger_isValid = ::Ezmaxapi::fromJsonValue(m_e_ezsigntemplatesignature_consultationtrigger, json[QString("eEzsigntemplatesignatureConsultationtrigger")]);
+    m_e_ezsigntemplatesignature_consultationtrigger_isSet = !json[QString("eEzsigntemplatesignatureConsultationtrigger")].isNull() && m_e_ezsigntemplatesignature_consultationtrigger_isValid;
 
     m_t_ezsigntemplatesignature_tooltip_isValid = ::Ezmaxapi::fromJsonValue(m_t_ezsigntemplatesignature_tooltip, json[QString("tEzsigntemplatesignatureTooltip")]);
     m_t_ezsigntemplatesignature_tooltip_isSet = !json[QString("tEzsigntemplatesignatureTooltip")].isNull() && m_t_ezsigntemplatesignature_tooltip_isValid;
@@ -194,11 +218,17 @@ void Ezsigntemplatesignature_RequestCompound::fromJsonObject(QJsonObject json) {
     m_i_ezsigntemplatesignature_maxlength_isValid = ::Ezmaxapi::fromJsonValue(m_i_ezsigntemplatesignature_maxlength, json[QString("iEzsigntemplatesignatureMaxlength")]);
     m_i_ezsigntemplatesignature_maxlength_isSet = !json[QString("iEzsigntemplatesignatureMaxlength")].isNull() && m_i_ezsigntemplatesignature_maxlength_isValid;
 
+    m_s_ezsigntemplatesignature_defaultvalue_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsigntemplatesignature_defaultvalue, json[QString("sEzsigntemplatesignatureDefaultvalue")]);
+    m_s_ezsigntemplatesignature_defaultvalue_isSet = !json[QString("sEzsigntemplatesignatureDefaultvalue")].isNull() && m_s_ezsigntemplatesignature_defaultvalue_isValid;
+
     m_s_ezsigntemplatesignature_regexp_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsigntemplatesignature_regexp, json[QString("sEzsigntemplatesignatureRegexp")]);
     m_s_ezsigntemplatesignature_regexp_isSet = !json[QString("sEzsigntemplatesignatureRegexp")].isNull() && m_s_ezsigntemplatesignature_regexp_isValid;
 
     m_e_ezsigntemplatesignature_textvalidation_isValid = ::Ezmaxapi::fromJsonValue(m_e_ezsigntemplatesignature_textvalidation, json[QString("eEzsigntemplatesignatureTextvalidation")]);
     m_e_ezsigntemplatesignature_textvalidation_isSet = !json[QString("eEzsigntemplatesignatureTextvalidation")].isNull() && m_e_ezsigntemplatesignature_textvalidation_isValid;
+
+    m_s_ezsigntemplatesignature_textvalidationcustommessage_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsigntemplatesignature_textvalidationcustommessage, json[QString("sEzsigntemplatesignatureTextvalidationcustommessage")]);
+    m_s_ezsigntemplatesignature_textvalidationcustommessage_isSet = !json[QString("sEzsigntemplatesignatureTextvalidationcustommessage")].isNull() && m_s_ezsigntemplatesignature_textvalidationcustommessage_isValid;
 
     m_e_ezsigntemplatesignature_dependencyrequirement_isValid = ::Ezmaxapi::fromJsonValue(m_e_ezsigntemplatesignature_dependencyrequirement, json[QString("eEzsigntemplatesignatureDependencyrequirement")]);
     m_e_ezsigntemplatesignature_dependencyrequirement_isSet = !json[QString("eEzsigntemplatesignatureDependencyrequirement")].isNull() && m_e_ezsigntemplatesignature_dependencyrequirement_isValid;
@@ -246,6 +276,12 @@ QJsonObject Ezsigntemplatesignature_RequestCompound::asJsonObject() const {
     if (m_fki_ezsigntemplatesigner_id_validation_isSet) {
         obj.insert(QString("fkiEzsigntemplatesignerIDValidation"), ::Ezmaxapi::toJsonValue(m_fki_ezsigntemplatesigner_id_validation));
     }
+    if (m_b_ezsigntemplatesignature_handwritten_isSet) {
+        obj.insert(QString("bEzsigntemplatesignatureHandwritten"), ::Ezmaxapi::toJsonValue(m_b_ezsigntemplatesignature_handwritten));
+    }
+    if (m_b_ezsigntemplatesignature_reason_isSet) {
+        obj.insert(QString("bEzsigntemplatesignatureReason"), ::Ezmaxapi::toJsonValue(m_b_ezsigntemplatesignature_reason));
+    }
     if (m_e_ezsigntemplatesignature_positioning.isSet()) {
         obj.insert(QString("eEzsigntemplatesignaturePositioning"), ::Ezmaxapi::toJsonValue(m_e_ezsigntemplatesignature_positioning));
     }
@@ -269,6 +305,9 @@ QJsonObject Ezsigntemplatesignature_RequestCompound::asJsonObject() const {
     }
     if (m_e_ezsigntemplatesignature_type.isSet()) {
         obj.insert(QString("eEzsigntemplatesignatureType"), ::Ezmaxapi::toJsonValue(m_e_ezsigntemplatesignature_type));
+    }
+    if (m_e_ezsigntemplatesignature_consultationtrigger.isSet()) {
+        obj.insert(QString("eEzsigntemplatesignatureConsultationtrigger"), ::Ezmaxapi::toJsonValue(m_e_ezsigntemplatesignature_consultationtrigger));
     }
     if (m_t_ezsigntemplatesignature_tooltip_isSet) {
         obj.insert(QString("tEzsigntemplatesignatureTooltip"), ::Ezmaxapi::toJsonValue(m_t_ezsigntemplatesignature_tooltip));
@@ -294,11 +333,17 @@ QJsonObject Ezsigntemplatesignature_RequestCompound::asJsonObject() const {
     if (m_i_ezsigntemplatesignature_maxlength_isSet) {
         obj.insert(QString("iEzsigntemplatesignatureMaxlength"), ::Ezmaxapi::toJsonValue(m_i_ezsigntemplatesignature_maxlength));
     }
+    if (m_s_ezsigntemplatesignature_defaultvalue_isSet) {
+        obj.insert(QString("sEzsigntemplatesignatureDefaultvalue"), ::Ezmaxapi::toJsonValue(m_s_ezsigntemplatesignature_defaultvalue));
+    }
     if (m_s_ezsigntemplatesignature_regexp_isSet) {
         obj.insert(QString("sEzsigntemplatesignatureRegexp"), ::Ezmaxapi::toJsonValue(m_s_ezsigntemplatesignature_regexp));
     }
     if (m_e_ezsigntemplatesignature_textvalidation.isSet()) {
         obj.insert(QString("eEzsigntemplatesignatureTextvalidation"), ::Ezmaxapi::toJsonValue(m_e_ezsigntemplatesignature_textvalidation));
+    }
+    if (m_s_ezsigntemplatesignature_textvalidationcustommessage_isSet) {
+        obj.insert(QString("sEzsigntemplatesignatureTextvalidationcustommessage"), ::Ezmaxapi::toJsonValue(m_s_ezsigntemplatesignature_textvalidationcustommessage));
     }
     if (m_e_ezsigntemplatesignature_dependencyrequirement.isSet()) {
         obj.insert(QString("eEzsigntemplatesignatureDependencyrequirement"), ::Ezmaxapi::toJsonValue(m_e_ezsigntemplatesignature_dependencyrequirement));
@@ -389,6 +434,38 @@ bool Ezsigntemplatesignature_RequestCompound::is_fki_ezsigntemplatesigner_id_val
 
 bool Ezsigntemplatesignature_RequestCompound::is_fki_ezsigntemplatesigner_id_validation_Valid() const{
     return m_fki_ezsigntemplatesigner_id_validation_isValid;
+}
+
+bool Ezsigntemplatesignature_RequestCompound::isBEzsigntemplatesignatureHandwritten() const {
+    return m_b_ezsigntemplatesignature_handwritten;
+}
+void Ezsigntemplatesignature_RequestCompound::setBEzsigntemplatesignatureHandwritten(const bool &b_ezsigntemplatesignature_handwritten) {
+    m_b_ezsigntemplatesignature_handwritten = b_ezsigntemplatesignature_handwritten;
+    m_b_ezsigntemplatesignature_handwritten_isSet = true;
+}
+
+bool Ezsigntemplatesignature_RequestCompound::is_b_ezsigntemplatesignature_handwritten_Set() const{
+    return m_b_ezsigntemplatesignature_handwritten_isSet;
+}
+
+bool Ezsigntemplatesignature_RequestCompound::is_b_ezsigntemplatesignature_handwritten_Valid() const{
+    return m_b_ezsigntemplatesignature_handwritten_isValid;
+}
+
+bool Ezsigntemplatesignature_RequestCompound::isBEzsigntemplatesignatureReason() const {
+    return m_b_ezsigntemplatesignature_reason;
+}
+void Ezsigntemplatesignature_RequestCompound::setBEzsigntemplatesignatureReason(const bool &b_ezsigntemplatesignature_reason) {
+    m_b_ezsigntemplatesignature_reason = b_ezsigntemplatesignature_reason;
+    m_b_ezsigntemplatesignature_reason_isSet = true;
+}
+
+bool Ezsigntemplatesignature_RequestCompound::is_b_ezsigntemplatesignature_reason_Set() const{
+    return m_b_ezsigntemplatesignature_reason_isSet;
+}
+
+bool Ezsigntemplatesignature_RequestCompound::is_b_ezsigntemplatesignature_reason_Valid() const{
+    return m_b_ezsigntemplatesignature_reason_isValid;
 }
 
 Field_eEzsigntemplatesignaturePositioning Ezsigntemplatesignature_RequestCompound::getEEzsigntemplatesignaturePositioning() const {
@@ -519,6 +596,22 @@ bool Ezsigntemplatesignature_RequestCompound::is_e_ezsigntemplatesignature_type_
     return m_e_ezsigntemplatesignature_type_isValid;
 }
 
+Field_eEzsigntemplatesignatureConsultationtrigger Ezsigntemplatesignature_RequestCompound::getEEzsigntemplatesignatureConsultationtrigger() const {
+    return m_e_ezsigntemplatesignature_consultationtrigger;
+}
+void Ezsigntemplatesignature_RequestCompound::setEEzsigntemplatesignatureConsultationtrigger(const Field_eEzsigntemplatesignatureConsultationtrigger &e_ezsigntemplatesignature_consultationtrigger) {
+    m_e_ezsigntemplatesignature_consultationtrigger = e_ezsigntemplatesignature_consultationtrigger;
+    m_e_ezsigntemplatesignature_consultationtrigger_isSet = true;
+}
+
+bool Ezsigntemplatesignature_RequestCompound::is_e_ezsigntemplatesignature_consultationtrigger_Set() const{
+    return m_e_ezsigntemplatesignature_consultationtrigger_isSet;
+}
+
+bool Ezsigntemplatesignature_RequestCompound::is_e_ezsigntemplatesignature_consultationtrigger_Valid() const{
+    return m_e_ezsigntemplatesignature_consultationtrigger_isValid;
+}
+
 QString Ezsigntemplatesignature_RequestCompound::getTEzsigntemplatesignatureTooltip() const {
     return m_t_ezsigntemplatesignature_tooltip;
 }
@@ -647,6 +740,22 @@ bool Ezsigntemplatesignature_RequestCompound::is_i_ezsigntemplatesignature_maxle
     return m_i_ezsigntemplatesignature_maxlength_isValid;
 }
 
+QString Ezsigntemplatesignature_RequestCompound::getSEzsigntemplatesignatureDefaultvalue() const {
+    return m_s_ezsigntemplatesignature_defaultvalue;
+}
+void Ezsigntemplatesignature_RequestCompound::setSEzsigntemplatesignatureDefaultvalue(const QString &s_ezsigntemplatesignature_defaultvalue) {
+    m_s_ezsigntemplatesignature_defaultvalue = s_ezsigntemplatesignature_defaultvalue;
+    m_s_ezsigntemplatesignature_defaultvalue_isSet = true;
+}
+
+bool Ezsigntemplatesignature_RequestCompound::is_s_ezsigntemplatesignature_defaultvalue_Set() const{
+    return m_s_ezsigntemplatesignature_defaultvalue_isSet;
+}
+
+bool Ezsigntemplatesignature_RequestCompound::is_s_ezsigntemplatesignature_defaultvalue_Valid() const{
+    return m_s_ezsigntemplatesignature_defaultvalue_isValid;
+}
+
 QString Ezsigntemplatesignature_RequestCompound::getSEzsigntemplatesignatureRegexp() const {
     return m_s_ezsigntemplatesignature_regexp;
 }
@@ -677,6 +786,22 @@ bool Ezsigntemplatesignature_RequestCompound::is_e_ezsigntemplatesignature_textv
 
 bool Ezsigntemplatesignature_RequestCompound::is_e_ezsigntemplatesignature_textvalidation_Valid() const{
     return m_e_ezsigntemplatesignature_textvalidation_isValid;
+}
+
+QString Ezsigntemplatesignature_RequestCompound::getSEzsigntemplatesignatureTextvalidationcustommessage() const {
+    return m_s_ezsigntemplatesignature_textvalidationcustommessage;
+}
+void Ezsigntemplatesignature_RequestCompound::setSEzsigntemplatesignatureTextvalidationcustommessage(const QString &s_ezsigntemplatesignature_textvalidationcustommessage) {
+    m_s_ezsigntemplatesignature_textvalidationcustommessage = s_ezsigntemplatesignature_textvalidationcustommessage;
+    m_s_ezsigntemplatesignature_textvalidationcustommessage_isSet = true;
+}
+
+bool Ezsigntemplatesignature_RequestCompound::is_s_ezsigntemplatesignature_textvalidationcustommessage_Set() const{
+    return m_s_ezsigntemplatesignature_textvalidationcustommessage_isSet;
+}
+
+bool Ezsigntemplatesignature_RequestCompound::is_s_ezsigntemplatesignature_textvalidationcustommessage_Valid() const{
+    return m_s_ezsigntemplatesignature_textvalidationcustommessage_isValid;
 }
 
 Field_eEzsigntemplatesignatureDependencyrequirement Ezsigntemplatesignature_RequestCompound::getEEzsigntemplatesignatureDependencyrequirement() const {
@@ -830,6 +955,16 @@ bool Ezsigntemplatesignature_RequestCompound::isSet() const {
             break;
         }
 
+        if (m_b_ezsigntemplatesignature_handwritten_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_b_ezsigntemplatesignature_reason_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (m_e_ezsigntemplatesignature_positioning.isSet()) {
             isObjectUpdated = true;
             break;
@@ -866,6 +1001,11 @@ bool Ezsigntemplatesignature_RequestCompound::isSet() const {
         }
 
         if (m_e_ezsigntemplatesignature_type.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_e_ezsigntemplatesignature_consultationtrigger.isSet()) {
             isObjectUpdated = true;
             break;
         }
@@ -910,12 +1050,22 @@ bool Ezsigntemplatesignature_RequestCompound::isSet() const {
             break;
         }
 
+        if (m_s_ezsigntemplatesignature_defaultvalue_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (m_s_ezsigntemplatesignature_regexp_isSet) {
             isObjectUpdated = true;
             break;
         }
 
         if (m_e_ezsigntemplatesignature_textvalidation.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_s_ezsigntemplatesignature_textvalidationcustommessage_isSet) {
             isObjectUpdated = true;
             break;
         }

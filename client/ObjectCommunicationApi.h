@@ -18,6 +18,7 @@
 #include "ServerConfiguration.h"
 #include "Oauth.h"
 
+#include "Common_Response_Error.h"
 #include "Communication_send_v1_Request.h"
 #include "Communication_send_v1_Response.h"
 #include <QString>
@@ -59,9 +60,14 @@ public:
     QString getParamStyleDelimiter(const QString &style, const QString &name, bool isExplode);
 
     /**
+    * @param[in]  pki_communication_id qint32 [required]
+    */
+    virtual void communicationGetCommunicationBodyV1(const qint32 &pki_communication_id);
+
+    /**
     * @param[in]  communication_send_v1_request Communication_send_v1_Request [required]
     */
-    void communicationSendV1(const Communication_send_v1_Request &communication_send_v1_request);
+    virtual void communicationSendV1(const Communication_send_v1_Request &communication_send_v1_request);
 
 
 private:
@@ -86,18 +92,28 @@ private:
     OauthPassword _passwordFlow;
     int _OauthMethod = 0;
 
+    void communicationGetCommunicationBodyV1Callback(HttpRequestWorker *worker);
     void communicationSendV1Callback(HttpRequestWorker *worker);
 
 Q_SIGNALS:
 
+    void communicationGetCommunicationBodyV1Signal();
     void communicationSendV1Signal(Communication_send_v1_Response summary);
 
+
+    void communicationGetCommunicationBodyV1SignalFull(HttpRequestWorker *worker);
     void communicationSendV1SignalFull(HttpRequestWorker *worker, Communication_send_v1_Response summary);
 
+    Q_DECL_DEPRECATED_X("Use communicationGetCommunicationBodyV1SignalError() instead")
+    void communicationGetCommunicationBodyV1SignalE(QNetworkReply::NetworkError error_type, QString error_str);
+    void communicationGetCommunicationBodyV1SignalError(QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use communicationSendV1SignalError() instead")
     void communicationSendV1SignalE(Communication_send_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void communicationSendV1SignalError(Communication_send_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use communicationGetCommunicationBodyV1SignalErrorFull() instead")
+    void communicationGetCommunicationBodyV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void communicationGetCommunicationBodyV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use communicationSendV1SignalErrorFull() instead")
     void communicationSendV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void communicationSendV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);

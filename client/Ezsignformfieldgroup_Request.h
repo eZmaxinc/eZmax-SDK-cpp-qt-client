@@ -108,6 +108,11 @@ public:
     bool is_s_ezsignformfieldgroup_regexp_Set() const;
     bool is_s_ezsignformfieldgroup_regexp_Valid() const;
 
+    QString getSEzsignformfieldgroupTextvalidationcustommessage() const;
+    void setSEzsignformfieldgroupTextvalidationcustommessage(const QString &s_ezsignformfieldgroup_textvalidationcustommessage);
+    bool is_s_ezsignformfieldgroup_textvalidationcustommessage_Set() const;
+    bool is_s_ezsignformfieldgroup_textvalidationcustommessage_Valid() const;
+
     QString getTEzsignformfieldgroupTooltip() const;
     void setTEzsignformfieldgroupTooltip(const QString &t_ezsignformfieldgroup_tooltip);
     bool is_t_ezsignformfieldgroup_tooltip_Set() const;
@@ -180,6 +185,10 @@ private:
     QString m_s_ezsignformfieldgroup_regexp;
     bool m_s_ezsignformfieldgroup_regexp_isSet;
     bool m_s_ezsignformfieldgroup_regexp_isValid;
+
+    QString m_s_ezsignformfieldgroup_textvalidationcustommessage;
+    bool m_s_ezsignformfieldgroup_textvalidationcustommessage_isSet;
+    bool m_s_ezsignformfieldgroup_textvalidationcustommessage_isValid;
 
     QString m_t_ezsignformfieldgroup_tooltip;
     bool m_t_ezsignformfieldgroup_tooltip_isSet;

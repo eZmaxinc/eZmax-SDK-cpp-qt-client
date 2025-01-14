@@ -60,7 +60,7 @@ public:
     /**
     * @param[in]  e_context QString [required]
     */
-    void modulegroupGetAllV1(const QString &e_context);
+    virtual void modulegroupGetAllV1(const QString &e_context);
 
 
 private:
@@ -90,6 +90,7 @@ private:
 Q_SIGNALS:
 
     void modulegroupGetAllV1Signal(Modulegroup_getAll_v1_Response summary);
+
 
     void modulegroupGetAllV1SignalFull(HttpRequestWorker *worker, Modulegroup_getAll_v1_Response summary);
 

@@ -115,6 +115,11 @@ public:
     bool is_s_ezsigntemplateformfieldgroup_regexp_Set() const;
     bool is_s_ezsigntemplateformfieldgroup_regexp_Valid() const;
 
+    QString getSEzsigntemplateformfieldgroupTextvalidationcustommessage() const;
+    void setSEzsigntemplateformfieldgroupTextvalidationcustommessage(const QString &s_ezsigntemplateformfieldgroup_textvalidationcustommessage);
+    bool is_s_ezsigntemplateformfieldgroup_textvalidationcustommessage_Set() const;
+    bool is_s_ezsigntemplateformfieldgroup_textvalidationcustommessage_Valid() const;
+
     Enum_Textvalidation getEEzsigntemplateformfieldgroupTextvalidation() const;
     void setEEzsigntemplateformfieldgroupTextvalidation(const Enum_Textvalidation &e_ezsigntemplateformfieldgroup_textvalidation);
     bool is_e_ezsigntemplateformfieldgroup_textvalidation_Set() const;
@@ -202,6 +207,10 @@ private:
     QString m_s_ezsigntemplateformfieldgroup_regexp;
     bool m_s_ezsigntemplateformfieldgroup_regexp_isSet;
     bool m_s_ezsigntemplateformfieldgroup_regexp_isValid;
+
+    QString m_s_ezsigntemplateformfieldgroup_textvalidationcustommessage;
+    bool m_s_ezsigntemplateformfieldgroup_textvalidationcustommessage_isSet;
+    bool m_s_ezsigntemplateformfieldgroup_textvalidationcustommessage_isValid;
 
     Enum_Textvalidation m_e_ezsigntemplateformfieldgroup_textvalidation;
     bool m_e_ezsigntemplateformfieldgroup_textvalidation_isSet;

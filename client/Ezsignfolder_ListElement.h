@@ -131,6 +131,21 @@ public:
     bool is_d_ezsignfolder_completedpercentage_Set() const;
     bool is_d_ezsignfolder_completedpercentage_Valid() const;
 
+    QString getDEzsignfolderFormcompletedpercentage() const;
+    void setDEzsignfolderFormcompletedpercentage(const QString &d_ezsignfolder_formcompletedpercentage);
+    bool is_d_ezsignfolder_formcompletedpercentage_Set() const;
+    bool is_d_ezsignfolder_formcompletedpercentage_Valid() const;
+
+    QString getDEzsignfolderSignaturecompletedpercentage() const;
+    void setDEzsignfolderSignaturecompletedpercentage(const QString &d_ezsignfolder_signaturecompletedpercentage);
+    bool is_d_ezsignfolder_signaturecompletedpercentage_Set() const;
+    bool is_d_ezsignfolder_signaturecompletedpercentage_Valid() const;
+
+    bool isBEzsignfolderSigner() const;
+    void setBEzsignfolderSigner(const bool &b_ezsignfolder_signer);
+    bool is_b_ezsignfolder_signer_Set() const;
+    bool is_b_ezsignfolder_signer_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -208,6 +223,18 @@ private:
     QString m_d_ezsignfolder_completedpercentage;
     bool m_d_ezsignfolder_completedpercentage_isSet;
     bool m_d_ezsignfolder_completedpercentage_isValid;
+
+    QString m_d_ezsignfolder_formcompletedpercentage;
+    bool m_d_ezsignfolder_formcompletedpercentage_isSet;
+    bool m_d_ezsignfolder_formcompletedpercentage_isValid;
+
+    QString m_d_ezsignfolder_signaturecompletedpercentage;
+    bool m_d_ezsignfolder_signaturecompletedpercentage_isSet;
+    bool m_d_ezsignfolder_signaturecompletedpercentage_isValid;
+
+    bool m_b_ezsignfolder_signer;
+    bool m_b_ezsignfolder_signer_isSet;
+    bool m_b_ezsignfolder_signer_isValid;
 };
 
 } // namespace Ezmaxapi

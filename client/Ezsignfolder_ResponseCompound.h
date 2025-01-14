@@ -23,6 +23,7 @@
 
 #include "Common_Audit.h"
 #include "Custom_Ezsignfoldertype_Response.h"
+#include "Custom_TimezoneWithCode_Response.h"
 #include "Field_eEzsignfolderCompletion.h"
 #include "Field_eEzsignfolderSendreminderfrequency.h"
 #include "Field_eEzsignfolderStep.h"
@@ -34,6 +35,7 @@
 namespace Ezmaxapi {
 class Custom_Ezsignfoldertype_Response;
 class Common_Audit;
+class Custom_TimezoneWithCode_Response;
 
 class Ezsignfolder_ResponseCompound : public Object {
 public:
@@ -60,6 +62,11 @@ public:
     void setObjEzsignfoldertype(const Custom_Ezsignfoldertype_Response &obj_ezsignfoldertype);
     bool is_obj_ezsignfoldertype_Set() const;
     bool is_obj_ezsignfoldertype_Valid() const;
+
+    qint32 getFkiTimezoneId() const;
+    void setFkiTimezoneId(const qint32 &fki_timezone_id);
+    bool is_fki_timezone_id_Set() const;
+    bool is_fki_timezone_id_Valid() const;
 
     Field_eEzsignfolderCompletion getEEzsignfolderCompletion() const;
     void setEEzsignfolderCompletion(const Field_eEzsignfolderCompletion &e_ezsignfolder_completion);
@@ -106,10 +113,20 @@ public:
     bool is_b_ezsignfolder_isdisposable_Set() const;
     bool is_b_ezsignfolder_isdisposable_Valid() const;
 
-    Field_eEzsignfolderSendreminderfrequency getEEzsignfolderSendreminderfrequency() const;
-    void setEEzsignfolderSendreminderfrequency(const Field_eEzsignfolderSendreminderfrequency &e_ezsignfolder_sendreminderfrequency);
-    bool is_e_ezsignfolder_sendreminderfrequency_Set() const;
-    bool is_e_ezsignfolder_sendreminderfrequency_Valid() const;
+    Q_DECL_DEPRECATED Field_eEzsignfolderSendreminderfrequency getEEzsignfolderSendreminderfrequency() const;
+    Q_DECL_DEPRECATED void setEEzsignfolderSendreminderfrequency(const Field_eEzsignfolderSendreminderfrequency &e_ezsignfolder_sendreminderfrequency);
+    Q_DECL_DEPRECATED bool is_e_ezsignfolder_sendreminderfrequency_Set() const;
+    Q_DECL_DEPRECATED bool is_e_ezsignfolder_sendreminderfrequency_Valid() const;
+
+    qint32 getIEzsignfolderSendreminderfirstdays() const;
+    void setIEzsignfolderSendreminderfirstdays(const qint32 &i_ezsignfolder_sendreminderfirstdays);
+    bool is_i_ezsignfolder_sendreminderfirstdays_Set() const;
+    bool is_i_ezsignfolder_sendreminderfirstdays_Valid() const;
+
+    qint32 getIEzsignfolderSendreminderotherdays() const;
+    void setIEzsignfolderSendreminderotherdays(const qint32 &i_ezsignfolder_sendreminderotherdays);
+    bool is_i_ezsignfolder_sendreminderotherdays_Set() const;
+    bool is_i_ezsignfolder_sendreminderotherdays_Valid() const;
 
     QString getDtEzsignfolderDelayedsenddate() const;
     void setDtEzsignfolderDelayedsenddate(const QString &dt_ezsignfolder_delayedsenddate);
@@ -161,6 +178,11 @@ public:
     bool is_s_ezsignfolder_externalid_Set() const;
     bool is_s_ezsignfolder_externalid_Valid() const;
 
+    Custom_TimezoneWithCode_Response getObjTimezone() const;
+    void setObjTimezone(const Custom_TimezoneWithCode_Response &obj_timezone);
+    bool is_obj_timezone_Set() const;
+    bool is_obj_timezone_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -178,6 +200,10 @@ private:
     Custom_Ezsignfoldertype_Response m_obj_ezsignfoldertype;
     bool m_obj_ezsignfoldertype_isSet;
     bool m_obj_ezsignfoldertype_isValid;
+
+    qint32 m_fki_timezone_id;
+    bool m_fki_timezone_id_isSet;
+    bool m_fki_timezone_id_isValid;
 
     Field_eEzsignfolderCompletion m_e_ezsignfolder_completion;
     bool m_e_ezsignfolder_completion_isSet;
@@ -219,6 +245,14 @@ private:
     bool m_e_ezsignfolder_sendreminderfrequency_isSet;
     bool m_e_ezsignfolder_sendreminderfrequency_isValid;
 
+    qint32 m_i_ezsignfolder_sendreminderfirstdays;
+    bool m_i_ezsignfolder_sendreminderfirstdays_isSet;
+    bool m_i_ezsignfolder_sendreminderfirstdays_isValid;
+
+    qint32 m_i_ezsignfolder_sendreminderotherdays;
+    bool m_i_ezsignfolder_sendreminderotherdays_isSet;
+    bool m_i_ezsignfolder_sendreminderotherdays_isValid;
+
     QString m_dt_ezsignfolder_delayedsenddate;
     bool m_dt_ezsignfolder_delayedsenddate_isSet;
     bool m_dt_ezsignfolder_delayedsenddate_isValid;
@@ -258,6 +292,10 @@ private:
     QString m_s_ezsignfolder_externalid;
     bool m_s_ezsignfolder_externalid_isSet;
     bool m_s_ezsignfolder_externalid_isValid;
+
+    Custom_TimezoneWithCode_Response m_obj_timezone;
+    bool m_obj_timezone_isSet;
+    bool m_obj_timezone_isValid;
 };
 
 } // namespace Ezmaxapi

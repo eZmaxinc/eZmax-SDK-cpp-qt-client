@@ -63,12 +63,12 @@ public:
     /**
     * @param[in]  discussionmembership_create_object_v1_request Discussionmembership_createObject_v1_Request [required]
     */
-    void discussionmembershipCreateObjectV1(const Discussionmembership_createObject_v1_Request &discussionmembership_create_object_v1_request);
+    virtual void discussionmembershipCreateObjectV1(const Discussionmembership_createObject_v1_Request &discussionmembership_create_object_v1_request);
 
     /**
     * @param[in]  pki_discussionmembership_id qint32 [required]
     */
-    void discussionmembershipDeleteObjectV1(const qint32 &pki_discussionmembership_id);
+    virtual void discussionmembershipDeleteObjectV1(const qint32 &pki_discussionmembership_id);
 
 
 private:
@@ -100,6 +100,7 @@ Q_SIGNALS:
 
     void discussionmembershipCreateObjectV1Signal(Discussionmembership_createObject_v1_Response summary);
     void discussionmembershipDeleteObjectV1Signal(Discussionmembership_deleteObject_v1_Response summary);
+
 
     void discussionmembershipCreateObjectV1SignalFull(HttpRequestWorker *worker, Discussionmembership_createObject_v1_Response summary);
     void discussionmembershipDeleteObjectV1SignalFull(HttpRequestWorker *worker, Discussionmembership_deleteObject_v1_Response summary);

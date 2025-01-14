@@ -47,6 +47,11 @@ public:
     bool is_pki_webhook_id_Set() const;
     bool is_pki_webhook_id_Valid() const;
 
+    qint32 getFkiAuthenticationexternalId() const;
+    void setFkiAuthenticationexternalId(const qint32 &fki_authenticationexternal_id);
+    bool is_fki_authenticationexternal_id_Set() const;
+    bool is_fki_authenticationexternal_id_Valid() const;
+
     qint32 getFkiEzsignfoldertypeId() const;
     void setFkiEzsignfoldertypeId(const qint32 &fki_ezsignfoldertype_id);
     bool is_fki_ezsignfoldertype_id_Set() const;
@@ -106,6 +111,10 @@ private:
     qint32 m_pki_webhook_id;
     bool m_pki_webhook_id_isSet;
     bool m_pki_webhook_id_isValid;
+
+    qint32 m_fki_authenticationexternal_id;
+    bool m_fki_authenticationexternal_id_isSet;
+    bool m_fki_authenticationexternal_id_isValid;
 
     qint32 m_fki_ezsignfoldertype_id;
     bool m_fki_ezsignfoldertype_id_isSet;

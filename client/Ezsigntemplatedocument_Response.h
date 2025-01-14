@@ -64,6 +64,11 @@ public:
     bool is_i_ezsigntemplatedocument_signaturetotal_Set() const;
     bool is_i_ezsigntemplatedocument_signaturetotal_Valid() const;
 
+    qint32 getIEzsigntemplatedocumentFormfieldtotal() const;
+    void setIEzsigntemplatedocumentFormfieldtotal(const qint32 &i_ezsigntemplatedocument_formfieldtotal);
+    bool is_i_ezsigntemplatedocument_formfieldtotal_Set() const;
+    bool is_i_ezsigntemplatedocument_formfieldtotal_Valid() const;
+
     bool isBEzsigntemplatedocumentHassignedsignatures() const;
     void setBEzsigntemplatedocumentHassignedsignatures(const bool &b_ezsigntemplatedocument_hassignedsignatures);
     bool is_b_ezsigntemplatedocument_hassignedsignatures_Set() const;
@@ -94,6 +99,10 @@ private:
     qint32 m_i_ezsigntemplatedocument_signaturetotal;
     bool m_i_ezsigntemplatedocument_signaturetotal_isSet;
     bool m_i_ezsigntemplatedocument_signaturetotal_isValid;
+
+    qint32 m_i_ezsigntemplatedocument_formfieldtotal;
+    bool m_i_ezsigntemplatedocument_formfieldtotal_isSet;
+    bool m_i_ezsigntemplatedocument_formfieldtotal_isValid;
 
     bool m_b_ezsigntemplatedocument_hassignedsignatures;
     bool m_b_ezsigntemplatedocument_hassignedsignatures_isSet;

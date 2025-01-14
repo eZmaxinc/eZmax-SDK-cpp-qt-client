@@ -66,23 +66,23 @@ public:
     /**
     * @param[in]  permission_create_object_v1_request Permission_createObject_v1_Request [required]
     */
-    void permissionCreateObjectV1(const Permission_createObject_v1_Request &permission_create_object_v1_request);
+    virtual void permissionCreateObjectV1(const Permission_createObject_v1_Request &permission_create_object_v1_request);
 
     /**
     * @param[in]  pki_permission_id qint32 [required]
     */
-    void permissionDeleteObjectV1(const qint32 &pki_permission_id);
+    virtual void permissionDeleteObjectV1(const qint32 &pki_permission_id);
 
     /**
     * @param[in]  pki_permission_id qint32 [required]
     * @param[in]  permission_edit_object_v1_request Permission_editObject_v1_Request [required]
     */
-    void permissionEditObjectV1(const qint32 &pki_permission_id, const Permission_editObject_v1_Request &permission_edit_object_v1_request);
+    virtual void permissionEditObjectV1(const qint32 &pki_permission_id, const Permission_editObject_v1_Request &permission_edit_object_v1_request);
 
     /**
     * @param[in]  pki_permission_id qint32 [required]
     */
-    void permissionGetObjectV2(const qint32 &pki_permission_id);
+    virtual void permissionGetObjectV2(const qint32 &pki_permission_id);
 
 
 private:
@@ -118,6 +118,7 @@ Q_SIGNALS:
     void permissionDeleteObjectV1Signal(Permission_deleteObject_v1_Response summary);
     void permissionEditObjectV1Signal(Permission_editObject_v1_Response summary);
     void permissionGetObjectV2Signal(Permission_getObject_v2_Response summary);
+
 
     void permissionCreateObjectV1SignalFull(HttpRequestWorker *worker, Permission_createObject_v1_Response summary);
     void permissionDeleteObjectV1SignalFull(HttpRequestWorker *worker, Permission_deleteObject_v1_Response summary);

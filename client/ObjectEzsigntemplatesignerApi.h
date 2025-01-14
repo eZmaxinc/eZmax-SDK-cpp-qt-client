@@ -66,23 +66,23 @@ public:
     /**
     * @param[in]  ezsigntemplatesigner_create_object_v1_request Ezsigntemplatesigner_createObject_v1_Request [required]
     */
-    void ezsigntemplatesignerCreateObjectV1(const Ezsigntemplatesigner_createObject_v1_Request &ezsigntemplatesigner_create_object_v1_request);
+    virtual void ezsigntemplatesignerCreateObjectV1(const Ezsigntemplatesigner_createObject_v1_Request &ezsigntemplatesigner_create_object_v1_request);
 
     /**
     * @param[in]  pki_ezsigntemplatesigner_id qint32 [required]
     */
-    void ezsigntemplatesignerDeleteObjectV1(const qint32 &pki_ezsigntemplatesigner_id);
+    virtual void ezsigntemplatesignerDeleteObjectV1(const qint32 &pki_ezsigntemplatesigner_id);
 
     /**
     * @param[in]  pki_ezsigntemplatesigner_id qint32 [required]
     * @param[in]  ezsigntemplatesigner_edit_object_v1_request Ezsigntemplatesigner_editObject_v1_Request [required]
     */
-    void ezsigntemplatesignerEditObjectV1(const qint32 &pki_ezsigntemplatesigner_id, const Ezsigntemplatesigner_editObject_v1_Request &ezsigntemplatesigner_edit_object_v1_request);
+    virtual void ezsigntemplatesignerEditObjectV1(const qint32 &pki_ezsigntemplatesigner_id, const Ezsigntemplatesigner_editObject_v1_Request &ezsigntemplatesigner_edit_object_v1_request);
 
     /**
     * @param[in]  pki_ezsigntemplatesigner_id qint32 [required]
     */
-    void ezsigntemplatesignerGetObjectV2(const qint32 &pki_ezsigntemplatesigner_id);
+    virtual void ezsigntemplatesignerGetObjectV2(const qint32 &pki_ezsigntemplatesigner_id);
 
 
 private:
@@ -118,6 +118,7 @@ Q_SIGNALS:
     void ezsigntemplatesignerDeleteObjectV1Signal(Ezsigntemplatesigner_deleteObject_v1_Response summary);
     void ezsigntemplatesignerEditObjectV1Signal(Ezsigntemplatesigner_editObject_v1_Response summary);
     void ezsigntemplatesignerGetObjectV2Signal(Ezsigntemplatesigner_getObject_v2_Response summary);
+
 
     void ezsigntemplatesignerCreateObjectV1SignalFull(HttpRequestWorker *worker, Ezsigntemplatesigner_createObject_v1_Response summary);
     void ezsigntemplatesignerDeleteObjectV1SignalFull(HttpRequestWorker *worker, Ezsigntemplatesigner_deleteObject_v1_Response summary);

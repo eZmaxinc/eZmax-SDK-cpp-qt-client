@@ -19,7 +19,10 @@
 #include "Oauth.h"
 
 #include "Common_Response_Error.h"
+#include "Electronicfundstransfer_getCommunicationCount_v1_Response.h"
 #include "Electronicfundstransfer_getCommunicationList_v1_Response.h"
+#include "Electronicfundstransfer_getCommunicationrecipients_v1_Response.h"
+#include "Electronicfundstransfer_getCommunicationsenders_v1_Response.h"
 #include <QString>
 
 #include <QObject>
@@ -61,7 +64,22 @@ public:
     /**
     * @param[in]  pki_electronicfundstransfer_id qint32 [required]
     */
-    void electronicfundstransferGetCommunicationListV1(const qint32 &pki_electronicfundstransfer_id);
+    virtual void electronicfundstransferGetCommunicationCountV1(const qint32 &pki_electronicfundstransfer_id);
+
+    /**
+    * @param[in]  pki_electronicfundstransfer_id qint32 [required]
+    */
+    virtual void electronicfundstransferGetCommunicationListV1(const qint32 &pki_electronicfundstransfer_id);
+
+    /**
+    * @param[in]  pki_electronicfundstransfer_id qint32 [required]
+    */
+    virtual void electronicfundstransferGetCommunicationrecipientsV1(const qint32 &pki_electronicfundstransfer_id);
+
+    /**
+    * @param[in]  pki_electronicfundstransfer_id qint32 [required]
+    */
+    virtual void electronicfundstransferGetCommunicationsendersV1(const qint32 &pki_electronicfundstransfer_id);
 
 
 private:
@@ -86,21 +104,49 @@ private:
     OauthPassword _passwordFlow;
     int _OauthMethod = 0;
 
+    void electronicfundstransferGetCommunicationCountV1Callback(HttpRequestWorker *worker);
     void electronicfundstransferGetCommunicationListV1Callback(HttpRequestWorker *worker);
+    void electronicfundstransferGetCommunicationrecipientsV1Callback(HttpRequestWorker *worker);
+    void electronicfundstransferGetCommunicationsendersV1Callback(HttpRequestWorker *worker);
 
 Q_SIGNALS:
 
+    void electronicfundstransferGetCommunicationCountV1Signal(Electronicfundstransfer_getCommunicationCount_v1_Response summary);
     void electronicfundstransferGetCommunicationListV1Signal(Electronicfundstransfer_getCommunicationList_v1_Response summary);
+    void electronicfundstransferGetCommunicationrecipientsV1Signal(Electronicfundstransfer_getCommunicationrecipients_v1_Response summary);
+    void electronicfundstransferGetCommunicationsendersV1Signal(Electronicfundstransfer_getCommunicationsenders_v1_Response summary);
 
+
+    void electronicfundstransferGetCommunicationCountV1SignalFull(HttpRequestWorker *worker, Electronicfundstransfer_getCommunicationCount_v1_Response summary);
     void electronicfundstransferGetCommunicationListV1SignalFull(HttpRequestWorker *worker, Electronicfundstransfer_getCommunicationList_v1_Response summary);
+    void electronicfundstransferGetCommunicationrecipientsV1SignalFull(HttpRequestWorker *worker, Electronicfundstransfer_getCommunicationrecipients_v1_Response summary);
+    void electronicfundstransferGetCommunicationsendersV1SignalFull(HttpRequestWorker *worker, Electronicfundstransfer_getCommunicationsenders_v1_Response summary);
 
+    Q_DECL_DEPRECATED_X("Use electronicfundstransferGetCommunicationCountV1SignalError() instead")
+    void electronicfundstransferGetCommunicationCountV1SignalE(Electronicfundstransfer_getCommunicationCount_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void electronicfundstransferGetCommunicationCountV1SignalError(Electronicfundstransfer_getCommunicationCount_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use electronicfundstransferGetCommunicationListV1SignalError() instead")
     void electronicfundstransferGetCommunicationListV1SignalE(Electronicfundstransfer_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void electronicfundstransferGetCommunicationListV1SignalError(Electronicfundstransfer_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use electronicfundstransferGetCommunicationrecipientsV1SignalError() instead")
+    void electronicfundstransferGetCommunicationrecipientsV1SignalE(Electronicfundstransfer_getCommunicationrecipients_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void electronicfundstransferGetCommunicationrecipientsV1SignalError(Electronicfundstransfer_getCommunicationrecipients_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use electronicfundstransferGetCommunicationsendersV1SignalError() instead")
+    void electronicfundstransferGetCommunicationsendersV1SignalE(Electronicfundstransfer_getCommunicationsenders_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void electronicfundstransferGetCommunicationsendersV1SignalError(Electronicfundstransfer_getCommunicationsenders_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use electronicfundstransferGetCommunicationCountV1SignalErrorFull() instead")
+    void electronicfundstransferGetCommunicationCountV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void electronicfundstransferGetCommunicationCountV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use electronicfundstransferGetCommunicationListV1SignalErrorFull() instead")
     void electronicfundstransferGetCommunicationListV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void electronicfundstransferGetCommunicationListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use electronicfundstransferGetCommunicationrecipientsV1SignalErrorFull() instead")
+    void electronicfundstransferGetCommunicationrecipientsV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void electronicfundstransferGetCommunicationrecipientsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use electronicfundstransferGetCommunicationsendersV1SignalErrorFull() instead")
+    void electronicfundstransferGetCommunicationsendersV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void electronicfundstransferGetCommunicationsendersV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();

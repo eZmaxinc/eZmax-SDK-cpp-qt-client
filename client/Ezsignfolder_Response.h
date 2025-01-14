@@ -61,6 +61,11 @@ public:
     bool is_obj_ezsignfoldertype_Set() const;
     bool is_obj_ezsignfoldertype_Valid() const;
 
+    qint32 getFkiTimezoneId() const;
+    void setFkiTimezoneId(const qint32 &fki_timezone_id);
+    bool is_fki_timezone_id_Set() const;
+    bool is_fki_timezone_id_Valid() const;
+
     Field_eEzsignfolderCompletion getEEzsignfolderCompletion() const;
     void setEEzsignfolderCompletion(const Field_eEzsignfolderCompletion &e_ezsignfolder_completion);
     bool is_e_ezsignfolder_completion_Set() const;
@@ -106,10 +111,20 @@ public:
     bool is_b_ezsignfolder_isdisposable_Set() const;
     bool is_b_ezsignfolder_isdisposable_Valid() const;
 
-    Field_eEzsignfolderSendreminderfrequency getEEzsignfolderSendreminderfrequency() const;
-    void setEEzsignfolderSendreminderfrequency(const Field_eEzsignfolderSendreminderfrequency &e_ezsignfolder_sendreminderfrequency);
-    bool is_e_ezsignfolder_sendreminderfrequency_Set() const;
-    bool is_e_ezsignfolder_sendreminderfrequency_Valid() const;
+    Q_DECL_DEPRECATED Field_eEzsignfolderSendreminderfrequency getEEzsignfolderSendreminderfrequency() const;
+    Q_DECL_DEPRECATED void setEEzsignfolderSendreminderfrequency(const Field_eEzsignfolderSendreminderfrequency &e_ezsignfolder_sendreminderfrequency);
+    Q_DECL_DEPRECATED bool is_e_ezsignfolder_sendreminderfrequency_Set() const;
+    Q_DECL_DEPRECATED bool is_e_ezsignfolder_sendreminderfrequency_Valid() const;
+
+    qint32 getIEzsignfolderSendreminderfirstdays() const;
+    void setIEzsignfolderSendreminderfirstdays(const qint32 &i_ezsignfolder_sendreminderfirstdays);
+    bool is_i_ezsignfolder_sendreminderfirstdays_Set() const;
+    bool is_i_ezsignfolder_sendreminderfirstdays_Valid() const;
+
+    qint32 getIEzsignfolderSendreminderotherdays() const;
+    void setIEzsignfolderSendreminderotherdays(const qint32 &i_ezsignfolder_sendreminderotherdays);
+    bool is_i_ezsignfolder_sendreminderotherdays_Set() const;
+    bool is_i_ezsignfolder_sendreminderotherdays_Valid() const;
 
     QString getDtEzsignfolderDelayedsenddate() const;
     void setDtEzsignfolderDelayedsenddate(const QString &dt_ezsignfolder_delayedsenddate);
@@ -179,6 +194,10 @@ private:
     bool m_obj_ezsignfoldertype_isSet;
     bool m_obj_ezsignfoldertype_isValid;
 
+    qint32 m_fki_timezone_id;
+    bool m_fki_timezone_id_isSet;
+    bool m_fki_timezone_id_isValid;
+
     Field_eEzsignfolderCompletion m_e_ezsignfolder_completion;
     bool m_e_ezsignfolder_completion_isSet;
     bool m_e_ezsignfolder_completion_isValid;
@@ -218,6 +237,14 @@ private:
     Field_eEzsignfolderSendreminderfrequency m_e_ezsignfolder_sendreminderfrequency;
     bool m_e_ezsignfolder_sendreminderfrequency_isSet;
     bool m_e_ezsignfolder_sendreminderfrequency_isValid;
+
+    qint32 m_i_ezsignfolder_sendreminderfirstdays;
+    bool m_i_ezsignfolder_sendreminderfirstdays_isSet;
+    bool m_i_ezsignfolder_sendreminderfirstdays_isValid;
+
+    qint32 m_i_ezsignfolder_sendreminderotherdays;
+    bool m_i_ezsignfolder_sendreminderotherdays_isSet;
+    bool m_i_ezsignfolder_sendreminderotherdays_isValid;
 
     QString m_dt_ezsignfolder_delayedsenddate;
     bool m_dt_ezsignfolder_delayedsenddate_isSet;

@@ -37,6 +37,15 @@ void Custom_Ezsignfoldertype_Response::initializeModel() {
     m_pki_ezsignfoldertype_id_isSet = false;
     m_pki_ezsignfoldertype_id_isValid = false;
 
+    m_fki_font_id_annotation_isSet = false;
+    m_fki_font_id_annotation_isValid = false;
+
+    m_fki_font_id_formfield_isSet = false;
+    m_fki_font_id_formfield_isValid = false;
+
+    m_fki_font_id_signature_isSet = false;
+    m_fki_font_id_signature_isValid = false;
+
     m_s_ezsignfoldertype_name_x_isSet = false;
     m_s_ezsignfoldertype_name_x_isValid = false;
 
@@ -49,6 +58,9 @@ void Custom_Ezsignfoldertype_Response::initializeModel() {
     m_b_ezsignfoldertype_allowdownloadproofezsignsigner_isSet = false;
     m_b_ezsignfoldertype_allowdownloadproofezsignsigner_isValid = false;
 
+    m_b_ezsignfoldertype_automaticsignature_isSet = false;
+    m_b_ezsignfoldertype_automaticsignature_isValid = false;
+
     m_b_ezsignfoldertype_delegate_isSet = false;
     m_b_ezsignfoldertype_delegate_isValid = false;
 
@@ -60,6 +72,18 @@ void Custom_Ezsignfoldertype_Response::initializeModel() {
 
     m_b_ezsignfoldertype_reassignuser_isSet = false;
     m_b_ezsignfoldertype_reassignuser_isValid = false;
+
+    m_b_ezsignfoldertype_reassigngroup_isSet = false;
+    m_b_ezsignfoldertype_reassigngroup_isValid = false;
+
+    m_i_ezsignfoldertype_deadlinedays_isSet = false;
+    m_i_ezsignfoldertype_deadlinedays_isValid = false;
+
+    m_i_ezsignfoldertype_fontsizeannotation_isSet = false;
+    m_i_ezsignfoldertype_fontsizeannotation_isValid = false;
+
+    m_i_ezsignfoldertype_fontsizeformfield_isSet = false;
+    m_i_ezsignfoldertype_fontsizeformfield_isValid = false;
 }
 
 void Custom_Ezsignfoldertype_Response::fromJson(QString jsonString) {
@@ -74,6 +98,15 @@ void Custom_Ezsignfoldertype_Response::fromJsonObject(QJsonObject json) {
     m_pki_ezsignfoldertype_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_ezsignfoldertype_id, json[QString("pkiEzsignfoldertypeID")]);
     m_pki_ezsignfoldertype_id_isSet = !json[QString("pkiEzsignfoldertypeID")].isNull() && m_pki_ezsignfoldertype_id_isValid;
 
+    m_fki_font_id_annotation_isValid = ::Ezmaxapi::fromJsonValue(m_fki_font_id_annotation, json[QString("fkiFontIDAnnotation")]);
+    m_fki_font_id_annotation_isSet = !json[QString("fkiFontIDAnnotation")].isNull() && m_fki_font_id_annotation_isValid;
+
+    m_fki_font_id_formfield_isValid = ::Ezmaxapi::fromJsonValue(m_fki_font_id_formfield, json[QString("fkiFontIDFormfield")]);
+    m_fki_font_id_formfield_isSet = !json[QString("fkiFontIDFormfield")].isNull() && m_fki_font_id_formfield_isValid;
+
+    m_fki_font_id_signature_isValid = ::Ezmaxapi::fromJsonValue(m_fki_font_id_signature, json[QString("fkiFontIDSignature")]);
+    m_fki_font_id_signature_isSet = !json[QString("fkiFontIDSignature")].isNull() && m_fki_font_id_signature_isValid;
+
     m_s_ezsignfoldertype_name_x_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsignfoldertype_name_x, json[QString("sEzsignfoldertypeNameX")]);
     m_s_ezsignfoldertype_name_x_isSet = !json[QString("sEzsignfoldertypeNameX")].isNull() && m_s_ezsignfoldertype_name_x_isValid;
 
@@ -86,6 +119,9 @@ void Custom_Ezsignfoldertype_Response::fromJsonObject(QJsonObject json) {
     m_b_ezsignfoldertype_allowdownloadproofezsignsigner_isValid = ::Ezmaxapi::fromJsonValue(m_b_ezsignfoldertype_allowdownloadproofezsignsigner, json[QString("bEzsignfoldertypeAllowdownloadproofezsignsigner")]);
     m_b_ezsignfoldertype_allowdownloadproofezsignsigner_isSet = !json[QString("bEzsignfoldertypeAllowdownloadproofezsignsigner")].isNull() && m_b_ezsignfoldertype_allowdownloadproofezsignsigner_isValid;
 
+    m_b_ezsignfoldertype_automaticsignature_isValid = ::Ezmaxapi::fromJsonValue(m_b_ezsignfoldertype_automaticsignature, json[QString("bEzsignfoldertypeAutomaticsignature")]);
+    m_b_ezsignfoldertype_automaticsignature_isSet = !json[QString("bEzsignfoldertypeAutomaticsignature")].isNull() && m_b_ezsignfoldertype_automaticsignature_isValid;
+
     m_b_ezsignfoldertype_delegate_isValid = ::Ezmaxapi::fromJsonValue(m_b_ezsignfoldertype_delegate, json[QString("bEzsignfoldertypeDelegate")]);
     m_b_ezsignfoldertype_delegate_isSet = !json[QString("bEzsignfoldertypeDelegate")].isNull() && m_b_ezsignfoldertype_delegate_isValid;
 
@@ -97,6 +133,18 @@ void Custom_Ezsignfoldertype_Response::fromJsonObject(QJsonObject json) {
 
     m_b_ezsignfoldertype_reassignuser_isValid = ::Ezmaxapi::fromJsonValue(m_b_ezsignfoldertype_reassignuser, json[QString("bEzsignfoldertypeReassignuser")]);
     m_b_ezsignfoldertype_reassignuser_isSet = !json[QString("bEzsignfoldertypeReassignuser")].isNull() && m_b_ezsignfoldertype_reassignuser_isValid;
+
+    m_b_ezsignfoldertype_reassigngroup_isValid = ::Ezmaxapi::fromJsonValue(m_b_ezsignfoldertype_reassigngroup, json[QString("bEzsignfoldertypeReassigngroup")]);
+    m_b_ezsignfoldertype_reassigngroup_isSet = !json[QString("bEzsignfoldertypeReassigngroup")].isNull() && m_b_ezsignfoldertype_reassigngroup_isValid;
+
+    m_i_ezsignfoldertype_deadlinedays_isValid = ::Ezmaxapi::fromJsonValue(m_i_ezsignfoldertype_deadlinedays, json[QString("iEzsignfoldertypeDeadlinedays")]);
+    m_i_ezsignfoldertype_deadlinedays_isSet = !json[QString("iEzsignfoldertypeDeadlinedays")].isNull() && m_i_ezsignfoldertype_deadlinedays_isValid;
+
+    m_i_ezsignfoldertype_fontsizeannotation_isValid = ::Ezmaxapi::fromJsonValue(m_i_ezsignfoldertype_fontsizeannotation, json[QString("iEzsignfoldertypeFontsizeannotation")]);
+    m_i_ezsignfoldertype_fontsizeannotation_isSet = !json[QString("iEzsignfoldertypeFontsizeannotation")].isNull() && m_i_ezsignfoldertype_fontsizeannotation_isValid;
+
+    m_i_ezsignfoldertype_fontsizeformfield_isValid = ::Ezmaxapi::fromJsonValue(m_i_ezsignfoldertype_fontsizeformfield, json[QString("iEzsignfoldertypeFontsizeformfield")]);
+    m_i_ezsignfoldertype_fontsizeformfield_isSet = !json[QString("iEzsignfoldertypeFontsizeformfield")].isNull() && m_i_ezsignfoldertype_fontsizeformfield_isValid;
 }
 
 QString Custom_Ezsignfoldertype_Response::asJson() const {
@@ -111,6 +159,15 @@ QJsonObject Custom_Ezsignfoldertype_Response::asJsonObject() const {
     if (m_pki_ezsignfoldertype_id_isSet) {
         obj.insert(QString("pkiEzsignfoldertypeID"), ::Ezmaxapi::toJsonValue(m_pki_ezsignfoldertype_id));
     }
+    if (m_fki_font_id_annotation_isSet) {
+        obj.insert(QString("fkiFontIDAnnotation"), ::Ezmaxapi::toJsonValue(m_fki_font_id_annotation));
+    }
+    if (m_fki_font_id_formfield_isSet) {
+        obj.insert(QString("fkiFontIDFormfield"), ::Ezmaxapi::toJsonValue(m_fki_font_id_formfield));
+    }
+    if (m_fki_font_id_signature_isSet) {
+        obj.insert(QString("fkiFontIDSignature"), ::Ezmaxapi::toJsonValue(m_fki_font_id_signature));
+    }
     if (m_s_ezsignfoldertype_name_x_isSet) {
         obj.insert(QString("sEzsignfoldertypeNameX"), ::Ezmaxapi::toJsonValue(m_s_ezsignfoldertype_name_x));
     }
@@ -123,6 +180,9 @@ QJsonObject Custom_Ezsignfoldertype_Response::asJsonObject() const {
     if (m_b_ezsignfoldertype_allowdownloadproofezsignsigner_isSet) {
         obj.insert(QString("bEzsignfoldertypeAllowdownloadproofezsignsigner"), ::Ezmaxapi::toJsonValue(m_b_ezsignfoldertype_allowdownloadproofezsignsigner));
     }
+    if (m_b_ezsignfoldertype_automaticsignature_isSet) {
+        obj.insert(QString("bEzsignfoldertypeAutomaticsignature"), ::Ezmaxapi::toJsonValue(m_b_ezsignfoldertype_automaticsignature));
+    }
     if (m_b_ezsignfoldertype_delegate_isSet) {
         obj.insert(QString("bEzsignfoldertypeDelegate"), ::Ezmaxapi::toJsonValue(m_b_ezsignfoldertype_delegate));
     }
@@ -134,6 +194,18 @@ QJsonObject Custom_Ezsignfoldertype_Response::asJsonObject() const {
     }
     if (m_b_ezsignfoldertype_reassignuser_isSet) {
         obj.insert(QString("bEzsignfoldertypeReassignuser"), ::Ezmaxapi::toJsonValue(m_b_ezsignfoldertype_reassignuser));
+    }
+    if (m_b_ezsignfoldertype_reassigngroup_isSet) {
+        obj.insert(QString("bEzsignfoldertypeReassigngroup"), ::Ezmaxapi::toJsonValue(m_b_ezsignfoldertype_reassigngroup));
+    }
+    if (m_i_ezsignfoldertype_deadlinedays_isSet) {
+        obj.insert(QString("iEzsignfoldertypeDeadlinedays"), ::Ezmaxapi::toJsonValue(m_i_ezsignfoldertype_deadlinedays));
+    }
+    if (m_i_ezsignfoldertype_fontsizeannotation_isSet) {
+        obj.insert(QString("iEzsignfoldertypeFontsizeannotation"), ::Ezmaxapi::toJsonValue(m_i_ezsignfoldertype_fontsizeannotation));
+    }
+    if (m_i_ezsignfoldertype_fontsizeformfield_isSet) {
+        obj.insert(QString("iEzsignfoldertypeFontsizeformfield"), ::Ezmaxapi::toJsonValue(m_i_ezsignfoldertype_fontsizeformfield));
     }
     return obj;
 }
@@ -152,6 +224,54 @@ bool Custom_Ezsignfoldertype_Response::is_pki_ezsignfoldertype_id_Set() const{
 
 bool Custom_Ezsignfoldertype_Response::is_pki_ezsignfoldertype_id_Valid() const{
     return m_pki_ezsignfoldertype_id_isValid;
+}
+
+qint32 Custom_Ezsignfoldertype_Response::getFkiFontIdAnnotation() const {
+    return m_fki_font_id_annotation;
+}
+void Custom_Ezsignfoldertype_Response::setFkiFontIdAnnotation(const qint32 &fki_font_id_annotation) {
+    m_fki_font_id_annotation = fki_font_id_annotation;
+    m_fki_font_id_annotation_isSet = true;
+}
+
+bool Custom_Ezsignfoldertype_Response::is_fki_font_id_annotation_Set() const{
+    return m_fki_font_id_annotation_isSet;
+}
+
+bool Custom_Ezsignfoldertype_Response::is_fki_font_id_annotation_Valid() const{
+    return m_fki_font_id_annotation_isValid;
+}
+
+qint32 Custom_Ezsignfoldertype_Response::getFkiFontIdFormfield() const {
+    return m_fki_font_id_formfield;
+}
+void Custom_Ezsignfoldertype_Response::setFkiFontIdFormfield(const qint32 &fki_font_id_formfield) {
+    m_fki_font_id_formfield = fki_font_id_formfield;
+    m_fki_font_id_formfield_isSet = true;
+}
+
+bool Custom_Ezsignfoldertype_Response::is_fki_font_id_formfield_Set() const{
+    return m_fki_font_id_formfield_isSet;
+}
+
+bool Custom_Ezsignfoldertype_Response::is_fki_font_id_formfield_Valid() const{
+    return m_fki_font_id_formfield_isValid;
+}
+
+qint32 Custom_Ezsignfoldertype_Response::getFkiFontIdSignature() const {
+    return m_fki_font_id_signature;
+}
+void Custom_Ezsignfoldertype_Response::setFkiFontIdSignature(const qint32 &fki_font_id_signature) {
+    m_fki_font_id_signature = fki_font_id_signature;
+    m_fki_font_id_signature_isSet = true;
+}
+
+bool Custom_Ezsignfoldertype_Response::is_fki_font_id_signature_Set() const{
+    return m_fki_font_id_signature_isSet;
+}
+
+bool Custom_Ezsignfoldertype_Response::is_fki_font_id_signature_Valid() const{
+    return m_fki_font_id_signature_isValid;
 }
 
 QString Custom_Ezsignfoldertype_Response::getSEzsignfoldertypeNameX() const {
@@ -218,6 +338,22 @@ bool Custom_Ezsignfoldertype_Response::is_b_ezsignfoldertype_allowdownloadproofe
     return m_b_ezsignfoldertype_allowdownloadproofezsignsigner_isValid;
 }
 
+bool Custom_Ezsignfoldertype_Response::isBEzsignfoldertypeAutomaticsignature() const {
+    return m_b_ezsignfoldertype_automaticsignature;
+}
+void Custom_Ezsignfoldertype_Response::setBEzsignfoldertypeAutomaticsignature(const bool &b_ezsignfoldertype_automaticsignature) {
+    m_b_ezsignfoldertype_automaticsignature = b_ezsignfoldertype_automaticsignature;
+    m_b_ezsignfoldertype_automaticsignature_isSet = true;
+}
+
+bool Custom_Ezsignfoldertype_Response::is_b_ezsignfoldertype_automaticsignature_Set() const{
+    return m_b_ezsignfoldertype_automaticsignature_isSet;
+}
+
+bool Custom_Ezsignfoldertype_Response::is_b_ezsignfoldertype_automaticsignature_Valid() const{
+    return m_b_ezsignfoldertype_automaticsignature_isValid;
+}
+
 bool Custom_Ezsignfoldertype_Response::isBEzsignfoldertypeDelegate() const {
     return m_b_ezsignfoldertype_delegate;
 }
@@ -282,10 +418,89 @@ bool Custom_Ezsignfoldertype_Response::is_b_ezsignfoldertype_reassignuser_Valid(
     return m_b_ezsignfoldertype_reassignuser_isValid;
 }
 
+bool Custom_Ezsignfoldertype_Response::isBEzsignfoldertypeReassigngroup() const {
+    return m_b_ezsignfoldertype_reassigngroup;
+}
+void Custom_Ezsignfoldertype_Response::setBEzsignfoldertypeReassigngroup(const bool &b_ezsignfoldertype_reassigngroup) {
+    m_b_ezsignfoldertype_reassigngroup = b_ezsignfoldertype_reassigngroup;
+    m_b_ezsignfoldertype_reassigngroup_isSet = true;
+}
+
+bool Custom_Ezsignfoldertype_Response::is_b_ezsignfoldertype_reassigngroup_Set() const{
+    return m_b_ezsignfoldertype_reassigngroup_isSet;
+}
+
+bool Custom_Ezsignfoldertype_Response::is_b_ezsignfoldertype_reassigngroup_Valid() const{
+    return m_b_ezsignfoldertype_reassigngroup_isValid;
+}
+
+qint32 Custom_Ezsignfoldertype_Response::getIEzsignfoldertypeDeadlinedays() const {
+    return m_i_ezsignfoldertype_deadlinedays;
+}
+void Custom_Ezsignfoldertype_Response::setIEzsignfoldertypeDeadlinedays(const qint32 &i_ezsignfoldertype_deadlinedays) {
+    m_i_ezsignfoldertype_deadlinedays = i_ezsignfoldertype_deadlinedays;
+    m_i_ezsignfoldertype_deadlinedays_isSet = true;
+}
+
+bool Custom_Ezsignfoldertype_Response::is_i_ezsignfoldertype_deadlinedays_Set() const{
+    return m_i_ezsignfoldertype_deadlinedays_isSet;
+}
+
+bool Custom_Ezsignfoldertype_Response::is_i_ezsignfoldertype_deadlinedays_Valid() const{
+    return m_i_ezsignfoldertype_deadlinedays_isValid;
+}
+
+qint32 Custom_Ezsignfoldertype_Response::getIEzsignfoldertypeFontsizeannotation() const {
+    return m_i_ezsignfoldertype_fontsizeannotation;
+}
+void Custom_Ezsignfoldertype_Response::setIEzsignfoldertypeFontsizeannotation(const qint32 &i_ezsignfoldertype_fontsizeannotation) {
+    m_i_ezsignfoldertype_fontsizeannotation = i_ezsignfoldertype_fontsizeannotation;
+    m_i_ezsignfoldertype_fontsizeannotation_isSet = true;
+}
+
+bool Custom_Ezsignfoldertype_Response::is_i_ezsignfoldertype_fontsizeannotation_Set() const{
+    return m_i_ezsignfoldertype_fontsizeannotation_isSet;
+}
+
+bool Custom_Ezsignfoldertype_Response::is_i_ezsignfoldertype_fontsizeannotation_Valid() const{
+    return m_i_ezsignfoldertype_fontsizeannotation_isValid;
+}
+
+qint32 Custom_Ezsignfoldertype_Response::getIEzsignfoldertypeFontsizeformfield() const {
+    return m_i_ezsignfoldertype_fontsizeformfield;
+}
+void Custom_Ezsignfoldertype_Response::setIEzsignfoldertypeFontsizeformfield(const qint32 &i_ezsignfoldertype_fontsizeformfield) {
+    m_i_ezsignfoldertype_fontsizeformfield = i_ezsignfoldertype_fontsizeformfield;
+    m_i_ezsignfoldertype_fontsizeformfield_isSet = true;
+}
+
+bool Custom_Ezsignfoldertype_Response::is_i_ezsignfoldertype_fontsizeformfield_Set() const{
+    return m_i_ezsignfoldertype_fontsizeformfield_isSet;
+}
+
+bool Custom_Ezsignfoldertype_Response::is_i_ezsignfoldertype_fontsizeformfield_Valid() const{
+    return m_i_ezsignfoldertype_fontsizeformfield_isValid;
+}
+
 bool Custom_Ezsignfoldertype_Response::isSet() const {
     bool isObjectUpdated = false;
     do {
         if (m_pki_ezsignfoldertype_id_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_fki_font_id_annotation_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_fki_font_id_formfield_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_fki_font_id_signature_isSet) {
             isObjectUpdated = true;
             break;
         }
@@ -310,6 +525,11 @@ bool Custom_Ezsignfoldertype_Response::isSet() const {
             break;
         }
 
+        if (m_b_ezsignfoldertype_automaticsignature_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (m_b_ezsignfoldertype_delegate_isSet) {
             isObjectUpdated = true;
             break;
@@ -326,6 +546,26 @@ bool Custom_Ezsignfoldertype_Response::isSet() const {
         }
 
         if (m_b_ezsignfoldertype_reassignuser_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_b_ezsignfoldertype_reassigngroup_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_i_ezsignfoldertype_deadlinedays_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_i_ezsignfoldertype_fontsizeannotation_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_i_ezsignfoldertype_fontsizeformfield_isSet) {
             isObjectUpdated = true;
             break;
         }

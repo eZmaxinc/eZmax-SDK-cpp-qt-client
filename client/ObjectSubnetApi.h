@@ -66,23 +66,23 @@ public:
     /**
     * @param[in]  subnet_create_object_v1_request Subnet_createObject_v1_Request [required]
     */
-    void subnetCreateObjectV1(const Subnet_createObject_v1_Request &subnet_create_object_v1_request);
+    virtual void subnetCreateObjectV1(const Subnet_createObject_v1_Request &subnet_create_object_v1_request);
 
     /**
     * @param[in]  pki_subnet_id qint32 [required]
     */
-    void subnetDeleteObjectV1(const qint32 &pki_subnet_id);
+    virtual void subnetDeleteObjectV1(const qint32 &pki_subnet_id);
 
     /**
     * @param[in]  pki_subnet_id qint32 [required]
     * @param[in]  subnet_edit_object_v1_request Subnet_editObject_v1_Request [required]
     */
-    void subnetEditObjectV1(const qint32 &pki_subnet_id, const Subnet_editObject_v1_Request &subnet_edit_object_v1_request);
+    virtual void subnetEditObjectV1(const qint32 &pki_subnet_id, const Subnet_editObject_v1_Request &subnet_edit_object_v1_request);
 
     /**
     * @param[in]  pki_subnet_id qint32 [required]
     */
-    void subnetGetObjectV2(const qint32 &pki_subnet_id);
+    virtual void subnetGetObjectV2(const qint32 &pki_subnet_id);
 
 
 private:
@@ -118,6 +118,7 @@ Q_SIGNALS:
     void subnetDeleteObjectV1Signal(Subnet_deleteObject_v1_Response summary);
     void subnetEditObjectV1Signal(Subnet_editObject_v1_Response summary);
     void subnetGetObjectV2Signal(Subnet_getObject_v2_Response summary);
+
 
     void subnetCreateObjectV1SignalFull(HttpRequestWorker *worker, Subnet_createObject_v1_Response summary);
     void subnetDeleteObjectV1SignalFull(HttpRequestWorker *worker, Subnet_deleteObject_v1_Response summary);

@@ -73,6 +73,9 @@ void Ezsigntemplateformfieldgroup_RequestCompound::initializeModel() {
     m_s_ezsigntemplateformfieldgroup_regexp_isSet = false;
     m_s_ezsigntemplateformfieldgroup_regexp_isValid = false;
 
+    m_s_ezsigntemplateformfieldgroup_textvalidationcustommessage_isSet = false;
+    m_s_ezsigntemplateformfieldgroup_textvalidationcustommessage_isValid = false;
+
     m_e_ezsigntemplateformfieldgroup_textvalidation_isSet = false;
     m_e_ezsigntemplateformfieldgroup_textvalidation_isValid = false;
 
@@ -140,6 +143,9 @@ void Ezsigntemplateformfieldgroup_RequestCompound::fromJsonObject(QJsonObject js
     m_s_ezsigntemplateformfieldgroup_regexp_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsigntemplateformfieldgroup_regexp, json[QString("sEzsigntemplateformfieldgroupRegexp")]);
     m_s_ezsigntemplateformfieldgroup_regexp_isSet = !json[QString("sEzsigntemplateformfieldgroupRegexp")].isNull() && m_s_ezsigntemplateformfieldgroup_regexp_isValid;
 
+    m_s_ezsigntemplateformfieldgroup_textvalidationcustommessage_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsigntemplateformfieldgroup_textvalidationcustommessage, json[QString("sEzsigntemplateformfieldgroupTextvalidationcustommessage")]);
+    m_s_ezsigntemplateformfieldgroup_textvalidationcustommessage_isSet = !json[QString("sEzsigntemplateformfieldgroupTextvalidationcustommessage")].isNull() && m_s_ezsigntemplateformfieldgroup_textvalidationcustommessage_isValid;
+
     m_e_ezsigntemplateformfieldgroup_textvalidation_isValid = ::Ezmaxapi::fromJsonValue(m_e_ezsigntemplateformfieldgroup_textvalidation, json[QString("eEzsigntemplateformfieldgroupTextvalidation")]);
     m_e_ezsigntemplateformfieldgroup_textvalidation_isSet = !json[QString("eEzsigntemplateformfieldgroupTextvalidation")].isNull() && m_e_ezsigntemplateformfieldgroup_textvalidation_isValid;
 
@@ -206,6 +212,9 @@ QJsonObject Ezsigntemplateformfieldgroup_RequestCompound::asJsonObject() const {
     }
     if (m_s_ezsigntemplateformfieldgroup_regexp_isSet) {
         obj.insert(QString("sEzsigntemplateformfieldgroupRegexp"), ::Ezmaxapi::toJsonValue(m_s_ezsigntemplateformfieldgroup_regexp));
+    }
+    if (m_s_ezsigntemplateformfieldgroup_textvalidationcustommessage_isSet) {
+        obj.insert(QString("sEzsigntemplateformfieldgroupTextvalidationcustommessage"), ::Ezmaxapi::toJsonValue(m_s_ezsigntemplateformfieldgroup_textvalidationcustommessage));
     }
     if (m_e_ezsigntemplateformfieldgroup_textvalidation.isSet()) {
         obj.insert(QString("eEzsigntemplateformfieldgroupTextvalidation"), ::Ezmaxapi::toJsonValue(m_e_ezsigntemplateformfieldgroup_textvalidation));
@@ -436,6 +445,22 @@ bool Ezsigntemplateformfieldgroup_RequestCompound::is_s_ezsigntemplateformfieldg
     return m_s_ezsigntemplateformfieldgroup_regexp_isValid;
 }
 
+QString Ezsigntemplateformfieldgroup_RequestCompound::getSEzsigntemplateformfieldgroupTextvalidationcustommessage() const {
+    return m_s_ezsigntemplateformfieldgroup_textvalidationcustommessage;
+}
+void Ezsigntemplateformfieldgroup_RequestCompound::setSEzsigntemplateformfieldgroupTextvalidationcustommessage(const QString &s_ezsigntemplateformfieldgroup_textvalidationcustommessage) {
+    m_s_ezsigntemplateformfieldgroup_textvalidationcustommessage = s_ezsigntemplateformfieldgroup_textvalidationcustommessage;
+    m_s_ezsigntemplateformfieldgroup_textvalidationcustommessage_isSet = true;
+}
+
+bool Ezsigntemplateformfieldgroup_RequestCompound::is_s_ezsigntemplateformfieldgroup_textvalidationcustommessage_Set() const{
+    return m_s_ezsigntemplateformfieldgroup_textvalidationcustommessage_isSet;
+}
+
+bool Ezsigntemplateformfieldgroup_RequestCompound::is_s_ezsigntemplateformfieldgroup_textvalidationcustommessage_Valid() const{
+    return m_s_ezsigntemplateformfieldgroup_textvalidationcustommessage_isValid;
+}
+
 Enum_Textvalidation Ezsigntemplateformfieldgroup_RequestCompound::getEEzsigntemplateformfieldgroupTextvalidation() const {
     return m_e_ezsigntemplateformfieldgroup_textvalidation;
 }
@@ -596,6 +621,11 @@ bool Ezsigntemplateformfieldgroup_RequestCompound::isSet() const {
         }
 
         if (m_s_ezsigntemplateformfieldgroup_regexp_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_s_ezsigntemplateformfieldgroup_textvalidationcustommessage_isSet) {
             isObjectUpdated = true;
             break;
         }

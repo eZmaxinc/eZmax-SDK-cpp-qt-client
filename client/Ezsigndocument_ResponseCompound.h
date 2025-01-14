@@ -24,6 +24,7 @@
 #include "Common_Audit.h"
 #include "Computed_eEzsigndocumentSteptype.h"
 #include "Custom_Ezsignfoldersignerassociationstatus_Response.h"
+#include "Ezsigndocumentdependency_Response.h"
 #include "Field_eEzsigndocumentStep.h"
 #include <QList>
 #include <QString>
@@ -34,6 +35,7 @@
 namespace Ezmaxapi {
 class Common_Audit;
 class Custom_Ezsignfoldersignerassociationstatus_Response;
+class Ezsigndocumentdependency_Response;
 
 class Ezsigndocument_ResponseCompound : public Object {
 public:
@@ -116,6 +118,11 @@ public:
     bool is_i_ezsigndocument_signaturetotal_Set() const;
     bool is_i_ezsigndocument_signaturetotal_Valid() const;
 
+    qint32 getIEzsigndocumentFormfieldtotal() const;
+    void setIEzsigndocumentFormfieldtotal(const qint32 &i_ezsigndocument_formfieldtotal);
+    bool is_i_ezsigndocument_formfieldtotal_Set() const;
+    bool is_i_ezsigndocument_formfieldtotal_Valid() const;
+
     QString getSEzsigndocumentMd5initial() const;
     void setSEzsigndocumentMd5initial(const QString &s_ezsigndocument_md5initial);
     bool is_s_ezsigndocument_md5initial_Set() const;
@@ -191,6 +198,11 @@ public:
     bool is_a_obj_ezsignfoldersignerassociationstatus_Set() const;
     bool is_a_obj_ezsignfoldersignerassociationstatus_Valid() const;
 
+    QList<Ezsigndocumentdependency_Response> getAObjEzsigndocumentdependency() const;
+    void setAObjEzsigndocumentdependency(const QList<Ezsigndocumentdependency_Response> &a_obj_ezsigndocumentdependency);
+    bool is_a_obj_ezsigndocumentdependency_Set() const;
+    bool is_a_obj_ezsigndocumentdependency_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -253,6 +265,10 @@ private:
     bool m_i_ezsigndocument_signaturetotal_isSet;
     bool m_i_ezsigndocument_signaturetotal_isValid;
 
+    qint32 m_i_ezsigndocument_formfieldtotal;
+    bool m_i_ezsigndocument_formfieldtotal_isSet;
+    bool m_i_ezsigndocument_formfieldtotal_isValid;
+
     QString m_s_ezsigndocument_md5initial;
     bool m_s_ezsigndocument_md5initial_isSet;
     bool m_s_ezsigndocument_md5initial_isValid;
@@ -312,6 +328,10 @@ private:
     QList<Custom_Ezsignfoldersignerassociationstatus_Response> m_a_obj_ezsignfoldersignerassociationstatus;
     bool m_a_obj_ezsignfoldersignerassociationstatus_isSet;
     bool m_a_obj_ezsignfoldersignerassociationstatus_isValid;
+
+    QList<Ezsigndocumentdependency_Response> m_a_obj_ezsigndocumentdependency;
+    bool m_a_obj_ezsigndocumentdependency_isSet;
+    bool m_a_obj_ezsigndocumentdependency_isValid;
 };
 
 } // namespace Ezmaxapi

@@ -66,23 +66,23 @@ public:
     /**
     * @param[in]  usergroupdelegation_create_object_v1_request Usergroupdelegation_createObject_v1_Request [required]
     */
-    void usergroupdelegationCreateObjectV1(const Usergroupdelegation_createObject_v1_Request &usergroupdelegation_create_object_v1_request);
+    virtual void usergroupdelegationCreateObjectV1(const Usergroupdelegation_createObject_v1_Request &usergroupdelegation_create_object_v1_request);
 
     /**
     * @param[in]  pki_usergroupdelegation_id qint32 [required]
     */
-    void usergroupdelegationDeleteObjectV1(const qint32 &pki_usergroupdelegation_id);
+    virtual void usergroupdelegationDeleteObjectV1(const qint32 &pki_usergroupdelegation_id);
 
     /**
     * @param[in]  pki_usergroupdelegation_id qint32 [required]
     * @param[in]  usergroupdelegation_edit_object_v1_request Usergroupdelegation_editObject_v1_Request [required]
     */
-    void usergroupdelegationEditObjectV1(const qint32 &pki_usergroupdelegation_id, const Usergroupdelegation_editObject_v1_Request &usergroupdelegation_edit_object_v1_request);
+    virtual void usergroupdelegationEditObjectV1(const qint32 &pki_usergroupdelegation_id, const Usergroupdelegation_editObject_v1_Request &usergroupdelegation_edit_object_v1_request);
 
     /**
     * @param[in]  pki_usergroupdelegation_id qint32 [required]
     */
-    void usergroupdelegationGetObjectV2(const qint32 &pki_usergroupdelegation_id);
+    virtual void usergroupdelegationGetObjectV2(const qint32 &pki_usergroupdelegation_id);
 
 
 private:
@@ -118,6 +118,7 @@ Q_SIGNALS:
     void usergroupdelegationDeleteObjectV1Signal(Usergroupdelegation_deleteObject_v1_Response summary);
     void usergroupdelegationEditObjectV1Signal(Usergroupdelegation_editObject_v1_Response summary);
     void usergroupdelegationGetObjectV2Signal(Usergroupdelegation_getObject_v2_Response summary);
+
 
     void usergroupdelegationCreateObjectV1SignalFull(HttpRequestWorker *worker, Usergroupdelegation_createObject_v1_Response summary);
     void usergroupdelegationDeleteObjectV1SignalFull(HttpRequestWorker *worker, Usergroupdelegation_deleteObject_v1_Response summary);

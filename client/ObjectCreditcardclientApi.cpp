@@ -71,6 +71,8 @@ void ObjectCreditcardclientApi::initializeServerConfigs() {
     _serverIndices.insert("creditcardclientGetListV1", 0);
     _serverConfigs.insert("creditcardclientGetObjectV2", defaultConf);
     _serverIndices.insert("creditcardclientGetObjectV2", 0);
+    _serverConfigs.insert("creditcardclientPatchObjectV1", defaultConf);
+    _serverIndices.insert("creditcardclientPatchObjectV1", 0);
 }
 
 /**
@@ -146,15 +148,9 @@ int ObjectCreditcardclientApi::addServerConfiguration(const QString &operation, 
     * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
     */
 void ObjectCreditcardclientApi::setNewServerForAllOperations(const QUrl &url, const QString &description, const QMap<QString, ServerVariable> &variables) {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
     for (auto keyIt = _serverIndices.keyBegin(); keyIt != _serverIndices.keyEnd(); keyIt++) {
         setServerIndex(*keyIt, addServerConfiguration(*keyIt, url, description, variables));
     }
-#else
-    for (auto &e : _serverIndices.keys()) {
-        setServerIndex(e, addServerConfiguration(e, url, description, variables));
-    }
-#endif
 }
 
 /**
@@ -264,15 +260,10 @@ void ObjectCreditcardclientApi::creditcardclientCreateObjectV1(const Creditcardc
         QByteArray output = creditcardclient_create_object_v1_request.asJson().toUtf8();
         input.request_body.append(output);
     }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectCreditcardclientApi::creditcardclientCreateObjectV1Callback);
     connect(this, &ObjectCreditcardclientApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -357,15 +348,10 @@ void ObjectCreditcardclientApi::creditcardclientDeleteObjectV1(const qint32 &pki
     HttpRequestInput input(fullPath, "DELETE");
 
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectCreditcardclientApi::creditcardclientDeleteObjectV1Callback);
     connect(this, &ObjectCreditcardclientApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -455,15 +441,10 @@ void ObjectCreditcardclientApi::creditcardclientEditObjectV1(const qint32 &pki_c
         QByteArray output = creditcardclient_edit_object_v1_request.asJson().toUtf8();
         input.request_body.append(output);
     }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectCreditcardclientApi::creditcardclientEditObjectV1Callback);
     connect(this, &ObjectCreditcardclientApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -623,15 +604,10 @@ void ObjectCreditcardclientApi::creditcardclientGetAutocompleteV2(const QString 
         }
         input.headers.insert("Accept-Language", headerString);
     }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectCreditcardclientApi::creditcardclientGetAutocompleteV2Callback);
     connect(this, &ObjectCreditcardclientApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -807,15 +783,10 @@ void ObjectCreditcardclientApi::creditcardclientGetListV1(const ::Ezmaxapi::Opti
         }
         input.headers.insert("Accept-Language", headerString);
     }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectCreditcardclientApi::creditcardclientGetListV1Callback);
     connect(this, &ObjectCreditcardclientApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -900,15 +871,10 @@ void ObjectCreditcardclientApi::creditcardclientGetObjectV2(const qint32 &pki_cr
     HttpRequestInput input(fullPath, "GET");
 
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectCreditcardclientApi::creditcardclientGetObjectV2Callback);
     connect(this, &ObjectCreditcardclientApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -963,6 +929,99 @@ void ObjectCreditcardclientApi::creditcardclientGetObjectV2Callback(HttpRequestW
 
         Q_EMIT creditcardclientGetObjectV2SignalError(output, error_type, error_str);
         Q_EMIT creditcardclientGetObjectV2SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectCreditcardclientApi::creditcardclientPatchObjectV1(const qint32 &pki_creditcardclient_id, const Creditcardclient_patchObject_v1_Request &creditcardclient_patch_object_v1_request) {
+    QString fullPath = QString(_serverConfigs["creditcardclientPatchObjectV1"][_serverIndices.value("creditcardclientPatchObjectV1")].URL()+"/1/object/creditcardclient/{pkiCreditcardclientID}");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_creditcardclient_idPathParam("{");
+        pki_creditcardclient_idPathParam.append("pkiCreditcardclientID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiCreditcardclientID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiCreditcardclientID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_creditcardclient_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_creditcardclient_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "PATCH");
+
+    {
+
+        
+        QByteArray output = creditcardclient_patch_object_v1_request.asJson().toUtf8();
+        input.request_body.append(output);
+    }
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectCreditcardclientApi::creditcardclientPatchObjectV1Callback);
+    connect(this, &ObjectCreditcardclientApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this]() {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectCreditcardclientApi::creditcardclientPatchObjectV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Creditcardclient_patchObject_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT creditcardclientPatchObjectV1Signal(output);
+        Q_EMIT creditcardclientPatchObjectV1SignalFull(worker, output);
+    } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
+        Q_EMIT creditcardclientPatchObjectV1SignalE(output, error_type, error_str);
+        Q_EMIT creditcardclientPatchObjectV1SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        Q_EMIT creditcardclientPatchObjectV1SignalError(output, error_type, error_str);
+        Q_EMIT creditcardclientPatchObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

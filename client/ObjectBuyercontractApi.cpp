@@ -59,8 +59,14 @@ void ObjectBuyercontractApi::initializeServerConfigs() {
     {"sInfrastructureregionCode", ServerVariable("The region where your services are hosted.","ca-central-1",
     QSet<QString>{ {"ca-central-1"} })}, }));
     
+    _serverConfigs.insert("buyercontractGetCommunicationCountV1", defaultConf);
+    _serverIndices.insert("buyercontractGetCommunicationCountV1", 0);
     _serverConfigs.insert("buyercontractGetCommunicationListV1", defaultConf);
     _serverIndices.insert("buyercontractGetCommunicationListV1", 0);
+    _serverConfigs.insert("buyercontractGetCommunicationrecipientsV1", defaultConf);
+    _serverIndices.insert("buyercontractGetCommunicationrecipientsV1", 0);
+    _serverConfigs.insert("buyercontractGetCommunicationsendersV1", defaultConf);
+    _serverIndices.insert("buyercontractGetCommunicationsendersV1", 0);
 }
 
 /**
@@ -136,15 +142,9 @@ int ObjectBuyercontractApi::addServerConfiguration(const QString &operation, con
     * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
     */
 void ObjectBuyercontractApi::setNewServerForAllOperations(const QUrl &url, const QString &description, const QMap<QString, ServerVariable> &variables) {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
     for (auto keyIt = _serverIndices.keyBegin(); keyIt != _serverIndices.keyEnd(); keyIt++) {
         setServerIndex(*keyIt, addServerConfiguration(*keyIt, url, description, variables));
     }
-#else
-    for (auto &e : _serverIndices.keys()) {
-        setServerIndex(e, addServerConfiguration(e, url, description, variables));
-    }
-#endif
 }
 
 /**
@@ -236,6 +236,94 @@ QString ObjectBuyercontractApi::getParamStyleDelimiter(const QString &style, con
     }
 }
 
+void ObjectBuyercontractApi::buyercontractGetCommunicationCountV1(const qint32 &pki_buyercontract_id) {
+    QString fullPath = QString(_serverConfigs["buyercontractGetCommunicationCountV1"][_serverIndices.value("buyercontractGetCommunicationCountV1")].URL()+"/1/object/buyercontract/{pkiBuyercontractID}/getCommunicationCount");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_buyercontract_idPathParam("{");
+        pki_buyercontract_idPathParam.append("pkiBuyercontractID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiBuyercontractID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiBuyercontractID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_buyercontract_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_buyercontract_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectBuyercontractApi::buyercontractGetCommunicationCountV1Callback);
+    connect(this, &ObjectBuyercontractApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this]() {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectBuyercontractApi::buyercontractGetCommunicationCountV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Buyercontract_getCommunicationCount_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT buyercontractGetCommunicationCountV1Signal(output);
+        Q_EMIT buyercontractGetCommunicationCountV1SignalFull(worker, output);
+    } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
+        Q_EMIT buyercontractGetCommunicationCountV1SignalE(output, error_type, error_str);
+        Q_EMIT buyercontractGetCommunicationCountV1SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        Q_EMIT buyercontractGetCommunicationCountV1SignalError(output, error_type, error_str);
+        Q_EMIT buyercontractGetCommunicationCountV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
 void ObjectBuyercontractApi::buyercontractGetCommunicationListV1(const qint32 &pki_buyercontract_id) {
     QString fullPath = QString(_serverConfigs["buyercontractGetCommunicationListV1"][_serverIndices.value("buyercontractGetCommunicationListV1")].URL()+"/1/object/buyercontract/{pkiBuyercontractID}/getCommunicationList");
     
@@ -263,15 +351,10 @@ void ObjectBuyercontractApi::buyercontractGetCommunicationListV1(const qint32 &p
     HttpRequestInput input(fullPath, "GET");
 
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectBuyercontractApi::buyercontractGetCommunicationListV1Callback);
     connect(this, &ObjectBuyercontractApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -326,6 +409,182 @@ void ObjectBuyercontractApi::buyercontractGetCommunicationListV1Callback(HttpReq
 
         Q_EMIT buyercontractGetCommunicationListV1SignalError(output, error_type, error_str);
         Q_EMIT buyercontractGetCommunicationListV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectBuyercontractApi::buyercontractGetCommunicationrecipientsV1(const qint32 &pki_buyercontract_id) {
+    QString fullPath = QString(_serverConfigs["buyercontractGetCommunicationrecipientsV1"][_serverIndices.value("buyercontractGetCommunicationrecipientsV1")].URL()+"/1/object/buyercontract/{pkiBuyercontractID}/getCommunicationrecipients");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_buyercontract_idPathParam("{");
+        pki_buyercontract_idPathParam.append("pkiBuyercontractID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiBuyercontractID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiBuyercontractID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_buyercontract_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_buyercontract_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectBuyercontractApi::buyercontractGetCommunicationrecipientsV1Callback);
+    connect(this, &ObjectBuyercontractApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this]() {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectBuyercontractApi::buyercontractGetCommunicationrecipientsV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Buyercontract_getCommunicationrecipients_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT buyercontractGetCommunicationrecipientsV1Signal(output);
+        Q_EMIT buyercontractGetCommunicationrecipientsV1SignalFull(worker, output);
+    } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
+        Q_EMIT buyercontractGetCommunicationrecipientsV1SignalE(output, error_type, error_str);
+        Q_EMIT buyercontractGetCommunicationrecipientsV1SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        Q_EMIT buyercontractGetCommunicationrecipientsV1SignalError(output, error_type, error_str);
+        Q_EMIT buyercontractGetCommunicationrecipientsV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectBuyercontractApi::buyercontractGetCommunicationsendersV1(const qint32 &pki_buyercontract_id) {
+    QString fullPath = QString(_serverConfigs["buyercontractGetCommunicationsendersV1"][_serverIndices.value("buyercontractGetCommunicationsendersV1")].URL()+"/1/object/buyercontract/{pkiBuyercontractID}/getCommunicationsenders");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_buyercontract_idPathParam("{");
+        pki_buyercontract_idPathParam.append("pkiBuyercontractID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiBuyercontractID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiBuyercontractID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_buyercontract_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_buyercontract_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectBuyercontractApi::buyercontractGetCommunicationsendersV1Callback);
+    connect(this, &ObjectBuyercontractApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this]() {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectBuyercontractApi::buyercontractGetCommunicationsendersV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Buyercontract_getCommunicationsenders_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT buyercontractGetCommunicationsendersV1Signal(output);
+        Q_EMIT buyercontractGetCommunicationsendersV1SignalFull(worker, output);
+    } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
+        Q_EMIT buyercontractGetCommunicationsendersV1SignalE(output, error_type, error_str);
+        Q_EMIT buyercontractGetCommunicationsendersV1SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        Q_EMIT buyercontractGetCommunicationsendersV1SignalError(output, error_type, error_str);
+        Q_EMIT buyercontractGetCommunicationsendersV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

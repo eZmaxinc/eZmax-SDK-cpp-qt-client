@@ -150,15 +150,9 @@ int ObjectUsergroupexternalApi::addServerConfiguration(const QString &operation,
     * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
     */
 void ObjectUsergroupexternalApi::setNewServerForAllOperations(const QUrl &url, const QString &description, const QMap<QString, ServerVariable> &variables) {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
     for (auto keyIt = _serverIndices.keyBegin(); keyIt != _serverIndices.keyEnd(); keyIt++) {
         setServerIndex(*keyIt, addServerConfiguration(*keyIt, url, description, variables));
     }
-#else
-    for (auto &e : _serverIndices.keys()) {
-        setServerIndex(e, addServerConfiguration(e, url, description, variables));
-    }
-#endif
 }
 
 /**
@@ -268,15 +262,10 @@ void ObjectUsergroupexternalApi::usergroupexternalCreateObjectV1(const Usergroup
         QByteArray output = usergroupexternal_create_object_v1_request.asJson().toUtf8();
         input.request_body.append(output);
     }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectUsergroupexternalApi::usergroupexternalCreateObjectV1Callback);
     connect(this, &ObjectUsergroupexternalApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -361,15 +350,10 @@ void ObjectUsergroupexternalApi::usergroupexternalDeleteObjectV1(const qint32 &p
     HttpRequestInput input(fullPath, "DELETE");
 
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectUsergroupexternalApi::usergroupexternalDeleteObjectV1Callback);
     connect(this, &ObjectUsergroupexternalApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -459,15 +443,10 @@ void ObjectUsergroupexternalApi::usergroupexternalEditObjectV1(const qint32 &pki
         QByteArray output = usergroupexternal_edit_object_v1_request.asJson().toUtf8();
         input.request_body.append(output);
     }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectUsergroupexternalApi::usergroupexternalEditObjectV1Callback);
     connect(this, &ObjectUsergroupexternalApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -627,15 +606,10 @@ void ObjectUsergroupexternalApi::usergroupexternalGetAutocompleteV2(const QStrin
         }
         input.headers.insert("Accept-Language", headerString);
     }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectUsergroupexternalApi::usergroupexternalGetAutocompleteV2Callback);
     connect(this, &ObjectUsergroupexternalApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -811,15 +785,10 @@ void ObjectUsergroupexternalApi::usergroupexternalGetListV1(const ::Ezmaxapi::Op
         }
         input.headers.insert("Accept-Language", headerString);
     }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectUsergroupexternalApi::usergroupexternalGetListV1Callback);
     connect(this, &ObjectUsergroupexternalApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -904,15 +873,10 @@ void ObjectUsergroupexternalApi::usergroupexternalGetObjectV2(const qint32 &pki_
     HttpRequestInput input(fullPath, "GET");
 
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectUsergroupexternalApi::usergroupexternalGetObjectV2Callback);
     connect(this, &ObjectUsergroupexternalApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -997,15 +961,10 @@ void ObjectUsergroupexternalApi::usergroupexternalGetUsergroupexternalmembership
     HttpRequestInput input(fullPath, "GET");
 
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectUsergroupexternalApi::usergroupexternalGetUsergroupexternalmembershipsV1Callback);
     connect(this, &ObjectUsergroupexternalApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -1090,15 +1049,10 @@ void ObjectUsergroupexternalApi::usergroupexternalGetUsergroupsV1(const qint32 &
     HttpRequestInput input(fullPath, "GET");
 
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectUsergroupexternalApi::usergroupexternalGetUsergroupsV1Callback);
     connect(this, &ObjectUsergroupexternalApi::abortRequestsSignal, worker, &QObject::deleteLater);

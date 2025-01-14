@@ -67,15 +67,15 @@ public:
     * @param[in]  s_query QString [optional]
     * @param[in]  accept_language Header_Accept_Language [optional]
     */
-    void ezmaxinvoicingGetAutocompleteV2(const QString &s_selector, const ::Ezmaxapi::OptionalParam<QString> &e_filter_active = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<QString> &s_query = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<Header_Accept_Language>());
+    virtual void ezmaxinvoicingGetAutocompleteV2(const QString &s_selector, const ::Ezmaxapi::OptionalParam<QString> &e_filter_active = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<QString> &s_query = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<Header_Accept_Language>());
 
     /**
     * @param[in]  pki_ezmaxinvoicing_id qint32 [required]
     */
-    void ezmaxinvoicingGetObjectV2(const qint32 &pki_ezmaxinvoicing_id);
+    virtual void ezmaxinvoicingGetObjectV2(const qint32 &pki_ezmaxinvoicing_id);
 
 
-    void ezmaxinvoicingGetProvisionalV1();
+    virtual void ezmaxinvoicingGetProvisionalV1();
 
 
 private:
@@ -109,6 +109,7 @@ Q_SIGNALS:
     void ezmaxinvoicingGetAutocompleteV2Signal(Ezmaxinvoicing_getAutocomplete_v2_Response summary);
     void ezmaxinvoicingGetObjectV2Signal(Ezmaxinvoicing_getObject_v2_Response summary);
     void ezmaxinvoicingGetProvisionalV1Signal(Ezmaxinvoicing_getProvisional_v1_Response summary);
+
 
     void ezmaxinvoicingGetAutocompleteV2SignalFull(HttpRequestWorker *worker, Ezmaxinvoicing_getAutocomplete_v2_Response summary);
     void ezmaxinvoicingGetObjectV2SignalFull(HttpRequestWorker *worker, Ezmaxinvoicing_getObject_v2_Response summary);

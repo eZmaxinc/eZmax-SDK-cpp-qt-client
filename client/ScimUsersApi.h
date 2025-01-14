@@ -61,28 +61,28 @@ public:
     /**
     * @param[in]  scim_user Scim_User [required]
     */
-    void usersCreateObjectScimV2(const Scim_User &scim_user);
+    virtual void usersCreateObjectScimV2(const Scim_User &scim_user);
 
     /**
     * @param[in]  user_id QString [required]
     */
-    void usersDeleteObjectScimV2(const QString &user_id);
+    virtual void usersDeleteObjectScimV2(const QString &user_id);
 
     /**
     * @param[in]  user_id QString [required]
     * @param[in]  scim_user Scim_User [required]
     */
-    void usersEditObjectScimV2(const QString &user_id, const Scim_User &scim_user);
+    virtual void usersEditObjectScimV2(const QString &user_id, const Scim_User &scim_user);
 
     /**
     * @param[in]  filter QString [optional]
     */
-    void usersGetListScimV2(const ::Ezmaxapi::OptionalParam<QString> &filter = ::Ezmaxapi::OptionalParam<QString>());
+    virtual void usersGetListScimV2(const ::Ezmaxapi::OptionalParam<QString> &filter = ::Ezmaxapi::OptionalParam<QString>());
 
     /**
     * @param[in]  user_id QString [required]
     */
-    void usersGetObjectScimV2(const QString &user_id);
+    virtual void usersGetObjectScimV2(const QString &user_id);
 
 
 private:
@@ -120,6 +120,7 @@ Q_SIGNALS:
     void usersEditObjectScimV2Signal(Scim_User summary);
     void usersGetListScimV2Signal(Scim_UserList summary);
     void usersGetObjectScimV2Signal(Scim_User summary);
+
 
     void usersCreateObjectScimV2SignalFull(HttpRequestWorker *worker, Scim_User summary);
     void usersDeleteObjectScimV2SignalFull(HttpRequestWorker *worker);

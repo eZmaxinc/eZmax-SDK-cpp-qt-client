@@ -64,17 +64,17 @@ public:
     /**
     * @param[in]  ezsignsignergroupmembership_create_object_v1_request Ezsignsignergroupmembership_createObject_v1_Request [required]
     */
-    void ezsignsignergroupmembershipCreateObjectV1(const Ezsignsignergroupmembership_createObject_v1_Request &ezsignsignergroupmembership_create_object_v1_request);
+    virtual void ezsignsignergroupmembershipCreateObjectV1(const Ezsignsignergroupmembership_createObject_v1_Request &ezsignsignergroupmembership_create_object_v1_request);
 
     /**
     * @param[in]  pki_ezsignsignergroupmembership_id qint32 [required]
     */
-    void ezsignsignergroupmembershipDeleteObjectV1(const qint32 &pki_ezsignsignergroupmembership_id);
+    virtual void ezsignsignergroupmembershipDeleteObjectV1(const qint32 &pki_ezsignsignergroupmembership_id);
 
     /**
     * @param[in]  pki_ezsignsignergroupmembership_id qint32 [required]
     */
-    void ezsignsignergroupmembershipGetObjectV2(const qint32 &pki_ezsignsignergroupmembership_id);
+    virtual void ezsignsignergroupmembershipGetObjectV2(const qint32 &pki_ezsignsignergroupmembership_id);
 
 
 private:
@@ -108,6 +108,7 @@ Q_SIGNALS:
     void ezsignsignergroupmembershipCreateObjectV1Signal(Ezsignsignergroupmembership_createObject_v1_Response summary);
     void ezsignsignergroupmembershipDeleteObjectV1Signal(Ezsignsignergroupmembership_deleteObject_v1_Response summary);
     void ezsignsignergroupmembershipGetObjectV2Signal(Ezsignsignergroupmembership_getObject_v2_Response summary);
+
 
     void ezsignsignergroupmembershipCreateObjectV1SignalFull(HttpRequestWorker *worker, Ezsignsignergroupmembership_createObject_v1_Response summary);
     void ezsignsignergroupmembershipDeleteObjectV1SignalFull(HttpRequestWorker *worker, Ezsignsignergroupmembership_deleteObject_v1_Response summary);

@@ -64,17 +64,17 @@ public:
     /**
     * @param[in]  ezsigndiscussion_create_object_v1_request Ezsigndiscussion_createObject_v1_Request [required]
     */
-    void ezsigndiscussionCreateObjectV1(const Ezsigndiscussion_createObject_v1_Request &ezsigndiscussion_create_object_v1_request);
+    virtual void ezsigndiscussionCreateObjectV1(const Ezsigndiscussion_createObject_v1_Request &ezsigndiscussion_create_object_v1_request);
 
     /**
     * @param[in]  pki_ezsigndiscussion_id qint32 [required]
     */
-    void ezsigndiscussionDeleteObjectV1(const qint32 &pki_ezsigndiscussion_id);
+    virtual void ezsigndiscussionDeleteObjectV1(const qint32 &pki_ezsigndiscussion_id);
 
     /**
     * @param[in]  pki_ezsigndiscussion_id qint32 [required]
     */
-    void ezsigndiscussionGetObjectV2(const qint32 &pki_ezsigndiscussion_id);
+    virtual void ezsigndiscussionGetObjectV2(const qint32 &pki_ezsigndiscussion_id);
 
 
 private:
@@ -108,6 +108,7 @@ Q_SIGNALS:
     void ezsigndiscussionCreateObjectV1Signal(Ezsigndiscussion_createObject_v1_Response summary);
     void ezsigndiscussionDeleteObjectV1Signal(Ezsigndiscussion_deleteObject_v1_Response summary);
     void ezsigndiscussionGetObjectV2Signal(Ezsigndiscussion_getObject_v2_Response summary);
+
 
     void ezsigndiscussionCreateObjectV1SignalFull(HttpRequestWorker *worker, Ezsigndiscussion_createObject_v1_Response summary);
     void ezsigndiscussionDeleteObjectV1SignalFull(HttpRequestWorker *worker, Ezsigndiscussion_deleteObject_v1_Response summary);

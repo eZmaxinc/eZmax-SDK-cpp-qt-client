@@ -53,6 +53,10 @@ void Field_eEzsigntemplateType::fromJson(QString jsonString) {
         m_value = eField_eEzsigntemplateType::COMPANY;
         m_value_isSet = m_value_isValid = true;
     }
+    else if ( jsonString.compare("Ezsignfoldertype", Qt::CaseInsensitive) == 0) {
+        m_value = eField_eEzsigntemplateType::EZSIGNFOLDERTYPE;
+        m_value_isSet = m_value_isValid = true;
+    }
 }
 
 void Field_eEzsigntemplateType::fromJsonValue(QJsonValue json) {
@@ -71,6 +75,9 @@ QString Field_eEzsigntemplateType::asJson() const {
             break;
         case eField_eEzsigntemplateType::COMPANY:
             val = "Company";
+            break;
+        case eField_eEzsigntemplateType::EZSIGNFOLDERTYPE:
+            val = "Ezsignfoldertype";
             break;
         default:
             break;

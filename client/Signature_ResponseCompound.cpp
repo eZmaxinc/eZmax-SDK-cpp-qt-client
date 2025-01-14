@@ -37,8 +37,14 @@ void Signature_ResponseCompound::initializeModel() {
     m_pki_signature_id_isSet = false;
     m_pki_signature_id_isValid = false;
 
+    m_fki_font_id_isSet = false;
+    m_fki_font_id_isValid = false;
+
     m_s_signature_url_isSet = false;
     m_s_signature_url_isValid = false;
+
+    m_s_signature_urlinitials_isSet = false;
+    m_s_signature_urlinitials_isValid = false;
 }
 
 void Signature_ResponseCompound::fromJson(QString jsonString) {
@@ -53,8 +59,14 @@ void Signature_ResponseCompound::fromJsonObject(QJsonObject json) {
     m_pki_signature_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_signature_id, json[QString("pkiSignatureID")]);
     m_pki_signature_id_isSet = !json[QString("pkiSignatureID")].isNull() && m_pki_signature_id_isValid;
 
+    m_fki_font_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_font_id, json[QString("fkiFontID")]);
+    m_fki_font_id_isSet = !json[QString("fkiFontID")].isNull() && m_fki_font_id_isValid;
+
     m_s_signature_url_isValid = ::Ezmaxapi::fromJsonValue(m_s_signature_url, json[QString("sSignatureUrl")]);
     m_s_signature_url_isSet = !json[QString("sSignatureUrl")].isNull() && m_s_signature_url_isValid;
+
+    m_s_signature_urlinitials_isValid = ::Ezmaxapi::fromJsonValue(m_s_signature_urlinitials, json[QString("sSignatureUrlinitials")]);
+    m_s_signature_urlinitials_isSet = !json[QString("sSignatureUrlinitials")].isNull() && m_s_signature_urlinitials_isValid;
 }
 
 QString Signature_ResponseCompound::asJson() const {
@@ -69,8 +81,14 @@ QJsonObject Signature_ResponseCompound::asJsonObject() const {
     if (m_pki_signature_id_isSet) {
         obj.insert(QString("pkiSignatureID"), ::Ezmaxapi::toJsonValue(m_pki_signature_id));
     }
+    if (m_fki_font_id_isSet) {
+        obj.insert(QString("fkiFontID"), ::Ezmaxapi::toJsonValue(m_fki_font_id));
+    }
     if (m_s_signature_url_isSet) {
         obj.insert(QString("sSignatureUrl"), ::Ezmaxapi::toJsonValue(m_s_signature_url));
+    }
+    if (m_s_signature_urlinitials_isSet) {
+        obj.insert(QString("sSignatureUrlinitials"), ::Ezmaxapi::toJsonValue(m_s_signature_urlinitials));
     }
     return obj;
 }
@@ -91,6 +109,22 @@ bool Signature_ResponseCompound::is_pki_signature_id_Valid() const{
     return m_pki_signature_id_isValid;
 }
 
+qint32 Signature_ResponseCompound::getFkiFontId() const {
+    return m_fki_font_id;
+}
+void Signature_ResponseCompound::setFkiFontId(const qint32 &fki_font_id) {
+    m_fki_font_id = fki_font_id;
+    m_fki_font_id_isSet = true;
+}
+
+bool Signature_ResponseCompound::is_fki_font_id_Set() const{
+    return m_fki_font_id_isSet;
+}
+
+bool Signature_ResponseCompound::is_fki_font_id_Valid() const{
+    return m_fki_font_id_isValid;
+}
+
 QString Signature_ResponseCompound::getSSignatureUrl() const {
     return m_s_signature_url;
 }
@@ -107,6 +141,22 @@ bool Signature_ResponseCompound::is_s_signature_url_Valid() const{
     return m_s_signature_url_isValid;
 }
 
+QString Signature_ResponseCompound::getSSignatureUrlinitials() const {
+    return m_s_signature_urlinitials;
+}
+void Signature_ResponseCompound::setSSignatureUrlinitials(const QString &s_signature_urlinitials) {
+    m_s_signature_urlinitials = s_signature_urlinitials;
+    m_s_signature_urlinitials_isSet = true;
+}
+
+bool Signature_ResponseCompound::is_s_signature_urlinitials_Set() const{
+    return m_s_signature_urlinitials_isSet;
+}
+
+bool Signature_ResponseCompound::is_s_signature_urlinitials_Valid() const{
+    return m_s_signature_urlinitials_isValid;
+}
+
 bool Signature_ResponseCompound::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -115,7 +165,17 @@ bool Signature_ResponseCompound::isSet() const {
             break;
         }
 
+        if (m_fki_font_id_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (m_s_signature_url_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_s_signature_urlinitials_isSet) {
             isObjectUpdated = true;
             break;
         }
@@ -125,7 +185,7 @@ bool Signature_ResponseCompound::isSet() const {
 
 bool Signature_ResponseCompound::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_pki_signature_id_isValid && m_s_signature_url_isValid && true;
+    return m_pki_signature_id_isValid && true;
 }
 
 } // namespace Ezmaxapi

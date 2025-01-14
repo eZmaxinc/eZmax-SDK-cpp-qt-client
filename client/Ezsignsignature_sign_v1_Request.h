@@ -47,6 +47,11 @@ public:
     bool is_fki_ezsignsigningreason_id_Set() const;
     bool is_fki_ezsignsigningreason_id_Valid() const;
 
+    qint32 getFkiFontId() const;
+    void setFkiFontId(const qint32 &fki_font_id);
+    bool is_fki_font_id_Set() const;
+    bool is_fki_font_id_Valid() const;
+
     QString getSValue() const;
     void setSValue(const QString &s_value);
     bool is_s_value_Set() const;
@@ -86,6 +91,10 @@ private:
     qint32 m_fki_ezsignsigningreason_id;
     bool m_fki_ezsignsigningreason_id_isSet;
     bool m_fki_ezsignsigningreason_id_isValid;
+
+    qint32 m_fki_font_id;
+    bool m_fki_font_id_isSet;
+    bool m_fki_font_id_isValid;
 
     QString m_s_value;
     bool m_s_value_isSet;

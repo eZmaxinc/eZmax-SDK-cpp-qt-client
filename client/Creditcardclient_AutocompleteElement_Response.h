@@ -49,11 +49,6 @@ public:
     bool is_s_creditcardclient_description_Set() const;
     bool is_s_creditcardclient_description_Valid() const;
 
-    bool isBCreditcardclientIsactive() const;
-    void setBCreditcardclientIsactive(const bool &b_creditcardclient_isactive);
-    bool is_b_creditcardclient_isactive_Set() const;
-    bool is_b_creditcardclient_isactive_Valid() const;
-
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -67,10 +62,6 @@ private:
     QString m_s_creditcardclient_description;
     bool m_s_creditcardclient_description_isSet;
     bool m_s_creditcardclient_description_isValid;
-
-    bool m_b_creditcardclient_isactive;
-    bool m_b_creditcardclient_isactive_isSet;
-    bool m_b_creditcardclient_isactive_isValid;
 };
 
 } // namespace Ezmaxapi

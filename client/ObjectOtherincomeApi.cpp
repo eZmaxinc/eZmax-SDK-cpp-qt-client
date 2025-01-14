@@ -59,8 +59,14 @@ void ObjectOtherincomeApi::initializeServerConfigs() {
     {"sInfrastructureregionCode", ServerVariable("The region where your services are hosted.","ca-central-1",
     QSet<QString>{ {"ca-central-1"} })}, }));
     
+    _serverConfigs.insert("otherincomeGetCommunicationCountV1", defaultConf);
+    _serverIndices.insert("otherincomeGetCommunicationCountV1", 0);
     _serverConfigs.insert("otherincomeGetCommunicationListV1", defaultConf);
     _serverIndices.insert("otherincomeGetCommunicationListV1", 0);
+    _serverConfigs.insert("otherincomeGetCommunicationrecipientsV1", defaultConf);
+    _serverIndices.insert("otherincomeGetCommunicationrecipientsV1", 0);
+    _serverConfigs.insert("otherincomeGetCommunicationsendersV1", defaultConf);
+    _serverIndices.insert("otherincomeGetCommunicationsendersV1", 0);
 }
 
 /**
@@ -136,15 +142,9 @@ int ObjectOtherincomeApi::addServerConfiguration(const QString &operation, const
     * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
     */
 void ObjectOtherincomeApi::setNewServerForAllOperations(const QUrl &url, const QString &description, const QMap<QString, ServerVariable> &variables) {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
     for (auto keyIt = _serverIndices.keyBegin(); keyIt != _serverIndices.keyEnd(); keyIt++) {
         setServerIndex(*keyIt, addServerConfiguration(*keyIt, url, description, variables));
     }
-#else
-    for (auto &e : _serverIndices.keys()) {
-        setServerIndex(e, addServerConfiguration(e, url, description, variables));
-    }
-#endif
 }
 
 /**
@@ -236,6 +236,94 @@ QString ObjectOtherincomeApi::getParamStyleDelimiter(const QString &style, const
     }
 }
 
+void ObjectOtherincomeApi::otherincomeGetCommunicationCountV1(const qint32 &pki_otherincome_id) {
+    QString fullPath = QString(_serverConfigs["otherincomeGetCommunicationCountV1"][_serverIndices.value("otherincomeGetCommunicationCountV1")].URL()+"/1/object/otherincome/{pkiOtherincomeID}/getCommunicationCount");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_otherincome_idPathParam("{");
+        pki_otherincome_idPathParam.append("pkiOtherincomeID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiOtherincomeID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiOtherincomeID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_otherincome_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_otherincome_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectOtherincomeApi::otherincomeGetCommunicationCountV1Callback);
+    connect(this, &ObjectOtherincomeApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this]() {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectOtherincomeApi::otherincomeGetCommunicationCountV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Otherincome_getCommunicationCount_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT otherincomeGetCommunicationCountV1Signal(output);
+        Q_EMIT otherincomeGetCommunicationCountV1SignalFull(worker, output);
+    } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
+        Q_EMIT otherincomeGetCommunicationCountV1SignalE(output, error_type, error_str);
+        Q_EMIT otherincomeGetCommunicationCountV1SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        Q_EMIT otherincomeGetCommunicationCountV1SignalError(output, error_type, error_str);
+        Q_EMIT otherincomeGetCommunicationCountV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
 void ObjectOtherincomeApi::otherincomeGetCommunicationListV1(const qint32 &pki_otherincome_id) {
     QString fullPath = QString(_serverConfigs["otherincomeGetCommunicationListV1"][_serverIndices.value("otherincomeGetCommunicationListV1")].URL()+"/1/object/otherincome/{pkiOtherincomeID}/getCommunicationList");
     
@@ -263,15 +351,10 @@ void ObjectOtherincomeApi::otherincomeGetCommunicationListV1(const qint32 &pki_o
     HttpRequestInput input(fullPath, "GET");
 
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectOtherincomeApi::otherincomeGetCommunicationListV1Callback);
     connect(this, &ObjectOtherincomeApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -326,6 +409,182 @@ void ObjectOtherincomeApi::otherincomeGetCommunicationListV1Callback(HttpRequest
 
         Q_EMIT otherincomeGetCommunicationListV1SignalError(output, error_type, error_str);
         Q_EMIT otherincomeGetCommunicationListV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectOtherincomeApi::otherincomeGetCommunicationrecipientsV1(const qint32 &pki_otherincome_id) {
+    QString fullPath = QString(_serverConfigs["otherincomeGetCommunicationrecipientsV1"][_serverIndices.value("otherincomeGetCommunicationrecipientsV1")].URL()+"/1/object/otherincome/{pkiOtherincomeID}/getCommunicationrecipients");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_otherincome_idPathParam("{");
+        pki_otherincome_idPathParam.append("pkiOtherincomeID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiOtherincomeID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiOtherincomeID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_otherincome_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_otherincome_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectOtherincomeApi::otherincomeGetCommunicationrecipientsV1Callback);
+    connect(this, &ObjectOtherincomeApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this]() {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectOtherincomeApi::otherincomeGetCommunicationrecipientsV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Otherincome_getCommunicationrecipients_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT otherincomeGetCommunicationrecipientsV1Signal(output);
+        Q_EMIT otherincomeGetCommunicationrecipientsV1SignalFull(worker, output);
+    } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
+        Q_EMIT otherincomeGetCommunicationrecipientsV1SignalE(output, error_type, error_str);
+        Q_EMIT otherincomeGetCommunicationrecipientsV1SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        Q_EMIT otherincomeGetCommunicationrecipientsV1SignalError(output, error_type, error_str);
+        Q_EMIT otherincomeGetCommunicationrecipientsV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectOtherincomeApi::otherincomeGetCommunicationsendersV1(const qint32 &pki_otherincome_id) {
+    QString fullPath = QString(_serverConfigs["otherincomeGetCommunicationsendersV1"][_serverIndices.value("otherincomeGetCommunicationsendersV1")].URL()+"/1/object/otherincome/{pkiOtherincomeID}/getCommunicationsenders");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_otherincome_idPathParam("{");
+        pki_otherincome_idPathParam.append("pkiOtherincomeID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiOtherincomeID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiOtherincomeID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_otherincome_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_otherincome_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectOtherincomeApi::otherincomeGetCommunicationsendersV1Callback);
+    connect(this, &ObjectOtherincomeApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this]() {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectOtherincomeApi::otherincomeGetCommunicationsendersV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Otherincome_getCommunicationsenders_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT otherincomeGetCommunicationsendersV1Signal(output);
+        Q_EMIT otherincomeGetCommunicationsendersV1SignalFull(worker, output);
+    } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
+        Q_EMIT otherincomeGetCommunicationsendersV1SignalE(output, error_type, error_str);
+        Q_EMIT otherincomeGetCommunicationsendersV1SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        Q_EMIT otherincomeGetCommunicationsendersV1SignalError(output, error_type, error_str);
+        Q_EMIT otherincomeGetCommunicationsendersV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

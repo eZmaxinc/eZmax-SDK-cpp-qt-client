@@ -40,20 +40,17 @@ void Creditcardclient_ListElement::initializeModel() {
     m_fki_creditcarddetail_id_isSet = false;
     m_fki_creditcarddetail_id_isValid = false;
 
+    m_fki_creditcardtype_id_isSet = false;
+    m_fki_creditcardtype_id_isValid = false;
+
     m_b_creditcardclientrelation_isdefault_isSet = false;
     m_b_creditcardclientrelation_isdefault_isValid = false;
 
     m_s_creditcardclient_description_isSet = false;
     m_s_creditcardclient_description_isValid = false;
 
-    m_b_creditcardclient_isactive_isSet = false;
-    m_b_creditcardclient_isactive_isValid = false;
-
-    m_b_creditcardclient_allowedagencypayment_isSet = false;
-    m_b_creditcardclient_allowedagencypayment_isValid = false;
-
-    m_b_creditcardclient_allowedroyallepageprotection_isSet = false;
-    m_b_creditcardclient_allowedroyallepageprotection_isValid = false;
+    m_b_creditcardclient_allowedcompanypayment_isSet = false;
+    m_b_creditcardclient_allowedcompanypayment_isValid = false;
 
     m_b_creditcardclient_allowedtranquillit_isSet = false;
     m_b_creditcardclient_allowedtranquillit_isValid = false;
@@ -64,8 +61,8 @@ void Creditcardclient_ListElement::initializeModel() {
     m_i_creditcarddetail_expirationyear_isSet = false;
     m_i_creditcarddetail_expirationyear_isValid = false;
 
-    m_s_creditcarddetail_numbermasked_isSet = false;
-    m_s_creditcarddetail_numbermasked_isValid = false;
+    m_i_creditcarddetail_lastdigits_isSet = false;
+    m_i_creditcarddetail_lastdigits_isValid = false;
 }
 
 void Creditcardclient_ListElement::fromJson(QString jsonString) {
@@ -83,20 +80,17 @@ void Creditcardclient_ListElement::fromJsonObject(QJsonObject json) {
     m_fki_creditcarddetail_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_creditcarddetail_id, json[QString("fkiCreditcarddetailID")]);
     m_fki_creditcarddetail_id_isSet = !json[QString("fkiCreditcarddetailID")].isNull() && m_fki_creditcarddetail_id_isValid;
 
+    m_fki_creditcardtype_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_creditcardtype_id, json[QString("fkiCreditcardtypeID")]);
+    m_fki_creditcardtype_id_isSet = !json[QString("fkiCreditcardtypeID")].isNull() && m_fki_creditcardtype_id_isValid;
+
     m_b_creditcardclientrelation_isdefault_isValid = ::Ezmaxapi::fromJsonValue(m_b_creditcardclientrelation_isdefault, json[QString("bCreditcardclientrelationIsdefault")]);
     m_b_creditcardclientrelation_isdefault_isSet = !json[QString("bCreditcardclientrelationIsdefault")].isNull() && m_b_creditcardclientrelation_isdefault_isValid;
 
     m_s_creditcardclient_description_isValid = ::Ezmaxapi::fromJsonValue(m_s_creditcardclient_description, json[QString("sCreditcardclientDescription")]);
     m_s_creditcardclient_description_isSet = !json[QString("sCreditcardclientDescription")].isNull() && m_s_creditcardclient_description_isValid;
 
-    m_b_creditcardclient_isactive_isValid = ::Ezmaxapi::fromJsonValue(m_b_creditcardclient_isactive, json[QString("bCreditcardclientIsactive")]);
-    m_b_creditcardclient_isactive_isSet = !json[QString("bCreditcardclientIsactive")].isNull() && m_b_creditcardclient_isactive_isValid;
-
-    m_b_creditcardclient_allowedagencypayment_isValid = ::Ezmaxapi::fromJsonValue(m_b_creditcardclient_allowedagencypayment, json[QString("bCreditcardclientAllowedagencypayment")]);
-    m_b_creditcardclient_allowedagencypayment_isSet = !json[QString("bCreditcardclientAllowedagencypayment")].isNull() && m_b_creditcardclient_allowedagencypayment_isValid;
-
-    m_b_creditcardclient_allowedroyallepageprotection_isValid = ::Ezmaxapi::fromJsonValue(m_b_creditcardclient_allowedroyallepageprotection, json[QString("bCreditcardclientAllowedroyallepageprotection")]);
-    m_b_creditcardclient_allowedroyallepageprotection_isSet = !json[QString("bCreditcardclientAllowedroyallepageprotection")].isNull() && m_b_creditcardclient_allowedroyallepageprotection_isValid;
+    m_b_creditcardclient_allowedcompanypayment_isValid = ::Ezmaxapi::fromJsonValue(m_b_creditcardclient_allowedcompanypayment, json[QString("bCreditcardclientAllowedcompanypayment")]);
+    m_b_creditcardclient_allowedcompanypayment_isSet = !json[QString("bCreditcardclientAllowedcompanypayment")].isNull() && m_b_creditcardclient_allowedcompanypayment_isValid;
 
     m_b_creditcardclient_allowedtranquillit_isValid = ::Ezmaxapi::fromJsonValue(m_b_creditcardclient_allowedtranquillit, json[QString("bCreditcardclientAllowedtranquillit")]);
     m_b_creditcardclient_allowedtranquillit_isSet = !json[QString("bCreditcardclientAllowedtranquillit")].isNull() && m_b_creditcardclient_allowedtranquillit_isValid;
@@ -107,8 +101,8 @@ void Creditcardclient_ListElement::fromJsonObject(QJsonObject json) {
     m_i_creditcarddetail_expirationyear_isValid = ::Ezmaxapi::fromJsonValue(m_i_creditcarddetail_expirationyear, json[QString("iCreditcarddetailExpirationyear")]);
     m_i_creditcarddetail_expirationyear_isSet = !json[QString("iCreditcarddetailExpirationyear")].isNull() && m_i_creditcarddetail_expirationyear_isValid;
 
-    m_s_creditcarddetail_numbermasked_isValid = ::Ezmaxapi::fromJsonValue(m_s_creditcarddetail_numbermasked, json[QString("sCreditcarddetailNumbermasked")]);
-    m_s_creditcarddetail_numbermasked_isSet = !json[QString("sCreditcarddetailNumbermasked")].isNull() && m_s_creditcarddetail_numbermasked_isValid;
+    m_i_creditcarddetail_lastdigits_isValid = ::Ezmaxapi::fromJsonValue(m_i_creditcarddetail_lastdigits, json[QString("iCreditcarddetailLastdigits")]);
+    m_i_creditcarddetail_lastdigits_isSet = !json[QString("iCreditcarddetailLastdigits")].isNull() && m_i_creditcarddetail_lastdigits_isValid;
 }
 
 QString Creditcardclient_ListElement::asJson() const {
@@ -126,20 +120,17 @@ QJsonObject Creditcardclient_ListElement::asJsonObject() const {
     if (m_fki_creditcarddetail_id_isSet) {
         obj.insert(QString("fkiCreditcarddetailID"), ::Ezmaxapi::toJsonValue(m_fki_creditcarddetail_id));
     }
+    if (m_fki_creditcardtype_id_isSet) {
+        obj.insert(QString("fkiCreditcardtypeID"), ::Ezmaxapi::toJsonValue(m_fki_creditcardtype_id));
+    }
     if (m_b_creditcardclientrelation_isdefault_isSet) {
         obj.insert(QString("bCreditcardclientrelationIsdefault"), ::Ezmaxapi::toJsonValue(m_b_creditcardclientrelation_isdefault));
     }
     if (m_s_creditcardclient_description_isSet) {
         obj.insert(QString("sCreditcardclientDescription"), ::Ezmaxapi::toJsonValue(m_s_creditcardclient_description));
     }
-    if (m_b_creditcardclient_isactive_isSet) {
-        obj.insert(QString("bCreditcardclientIsactive"), ::Ezmaxapi::toJsonValue(m_b_creditcardclient_isactive));
-    }
-    if (m_b_creditcardclient_allowedagencypayment_isSet) {
-        obj.insert(QString("bCreditcardclientAllowedagencypayment"), ::Ezmaxapi::toJsonValue(m_b_creditcardclient_allowedagencypayment));
-    }
-    if (m_b_creditcardclient_allowedroyallepageprotection_isSet) {
-        obj.insert(QString("bCreditcardclientAllowedroyallepageprotection"), ::Ezmaxapi::toJsonValue(m_b_creditcardclient_allowedroyallepageprotection));
+    if (m_b_creditcardclient_allowedcompanypayment_isSet) {
+        obj.insert(QString("bCreditcardclientAllowedcompanypayment"), ::Ezmaxapi::toJsonValue(m_b_creditcardclient_allowedcompanypayment));
     }
     if (m_b_creditcardclient_allowedtranquillit_isSet) {
         obj.insert(QString("bCreditcardclientAllowedtranquillit"), ::Ezmaxapi::toJsonValue(m_b_creditcardclient_allowedtranquillit));
@@ -150,8 +141,8 @@ QJsonObject Creditcardclient_ListElement::asJsonObject() const {
     if (m_i_creditcarddetail_expirationyear_isSet) {
         obj.insert(QString("iCreditcarddetailExpirationyear"), ::Ezmaxapi::toJsonValue(m_i_creditcarddetail_expirationyear));
     }
-    if (m_s_creditcarddetail_numbermasked_isSet) {
-        obj.insert(QString("sCreditcarddetailNumbermasked"), ::Ezmaxapi::toJsonValue(m_s_creditcarddetail_numbermasked));
+    if (m_i_creditcarddetail_lastdigits_isSet) {
+        obj.insert(QString("iCreditcarddetailLastdigits"), ::Ezmaxapi::toJsonValue(m_i_creditcarddetail_lastdigits));
     }
     return obj;
 }
@@ -188,6 +179,22 @@ bool Creditcardclient_ListElement::is_fki_creditcarddetail_id_Valid() const{
     return m_fki_creditcarddetail_id_isValid;
 }
 
+qint32 Creditcardclient_ListElement::getFkiCreditcardtypeId() const {
+    return m_fki_creditcardtype_id;
+}
+void Creditcardclient_ListElement::setFkiCreditcardtypeId(const qint32 &fki_creditcardtype_id) {
+    m_fki_creditcardtype_id = fki_creditcardtype_id;
+    m_fki_creditcardtype_id_isSet = true;
+}
+
+bool Creditcardclient_ListElement::is_fki_creditcardtype_id_Set() const{
+    return m_fki_creditcardtype_id_isSet;
+}
+
+bool Creditcardclient_ListElement::is_fki_creditcardtype_id_Valid() const{
+    return m_fki_creditcardtype_id_isValid;
+}
+
 bool Creditcardclient_ListElement::isBCreditcardclientrelationIsdefault() const {
     return m_b_creditcardclientrelation_isdefault;
 }
@@ -220,52 +227,20 @@ bool Creditcardclient_ListElement::is_s_creditcardclient_description_Valid() con
     return m_s_creditcardclient_description_isValid;
 }
 
-bool Creditcardclient_ListElement::isBCreditcardclientIsactive() const {
-    return m_b_creditcardclient_isactive;
+bool Creditcardclient_ListElement::isBCreditcardclientAllowedcompanypayment() const {
+    return m_b_creditcardclient_allowedcompanypayment;
 }
-void Creditcardclient_ListElement::setBCreditcardclientIsactive(const bool &b_creditcardclient_isactive) {
-    m_b_creditcardclient_isactive = b_creditcardclient_isactive;
-    m_b_creditcardclient_isactive_isSet = true;
-}
-
-bool Creditcardclient_ListElement::is_b_creditcardclient_isactive_Set() const{
-    return m_b_creditcardclient_isactive_isSet;
+void Creditcardclient_ListElement::setBCreditcardclientAllowedcompanypayment(const bool &b_creditcardclient_allowedcompanypayment) {
+    m_b_creditcardclient_allowedcompanypayment = b_creditcardclient_allowedcompanypayment;
+    m_b_creditcardclient_allowedcompanypayment_isSet = true;
 }
 
-bool Creditcardclient_ListElement::is_b_creditcardclient_isactive_Valid() const{
-    return m_b_creditcardclient_isactive_isValid;
+bool Creditcardclient_ListElement::is_b_creditcardclient_allowedcompanypayment_Set() const{
+    return m_b_creditcardclient_allowedcompanypayment_isSet;
 }
 
-bool Creditcardclient_ListElement::isBCreditcardclientAllowedagencypayment() const {
-    return m_b_creditcardclient_allowedagencypayment;
-}
-void Creditcardclient_ListElement::setBCreditcardclientAllowedagencypayment(const bool &b_creditcardclient_allowedagencypayment) {
-    m_b_creditcardclient_allowedagencypayment = b_creditcardclient_allowedagencypayment;
-    m_b_creditcardclient_allowedagencypayment_isSet = true;
-}
-
-bool Creditcardclient_ListElement::is_b_creditcardclient_allowedagencypayment_Set() const{
-    return m_b_creditcardclient_allowedagencypayment_isSet;
-}
-
-bool Creditcardclient_ListElement::is_b_creditcardclient_allowedagencypayment_Valid() const{
-    return m_b_creditcardclient_allowedagencypayment_isValid;
-}
-
-bool Creditcardclient_ListElement::isBCreditcardclientAllowedroyallepageprotection() const {
-    return m_b_creditcardclient_allowedroyallepageprotection;
-}
-void Creditcardclient_ListElement::setBCreditcardclientAllowedroyallepageprotection(const bool &b_creditcardclient_allowedroyallepageprotection) {
-    m_b_creditcardclient_allowedroyallepageprotection = b_creditcardclient_allowedroyallepageprotection;
-    m_b_creditcardclient_allowedroyallepageprotection_isSet = true;
-}
-
-bool Creditcardclient_ListElement::is_b_creditcardclient_allowedroyallepageprotection_Set() const{
-    return m_b_creditcardclient_allowedroyallepageprotection_isSet;
-}
-
-bool Creditcardclient_ListElement::is_b_creditcardclient_allowedroyallepageprotection_Valid() const{
-    return m_b_creditcardclient_allowedroyallepageprotection_isValid;
+bool Creditcardclient_ListElement::is_b_creditcardclient_allowedcompanypayment_Valid() const{
+    return m_b_creditcardclient_allowedcompanypayment_isValid;
 }
 
 bool Creditcardclient_ListElement::isBCreditcardclientAllowedtranquillit() const {
@@ -316,20 +291,20 @@ bool Creditcardclient_ListElement::is_i_creditcarddetail_expirationyear_Valid() 
     return m_i_creditcarddetail_expirationyear_isValid;
 }
 
-QString Creditcardclient_ListElement::getSCreditcarddetailNumbermasked() const {
-    return m_s_creditcarddetail_numbermasked;
+qint32 Creditcardclient_ListElement::getICreditcarddetailLastdigits() const {
+    return m_i_creditcarddetail_lastdigits;
 }
-void Creditcardclient_ListElement::setSCreditcarddetailNumbermasked(const QString &s_creditcarddetail_numbermasked) {
-    m_s_creditcarddetail_numbermasked = s_creditcarddetail_numbermasked;
-    m_s_creditcarddetail_numbermasked_isSet = true;
-}
-
-bool Creditcardclient_ListElement::is_s_creditcarddetail_numbermasked_Set() const{
-    return m_s_creditcarddetail_numbermasked_isSet;
+void Creditcardclient_ListElement::setICreditcarddetailLastdigits(const qint32 &i_creditcarddetail_lastdigits) {
+    m_i_creditcarddetail_lastdigits = i_creditcarddetail_lastdigits;
+    m_i_creditcarddetail_lastdigits_isSet = true;
 }
 
-bool Creditcardclient_ListElement::is_s_creditcarddetail_numbermasked_Valid() const{
-    return m_s_creditcarddetail_numbermasked_isValid;
+bool Creditcardclient_ListElement::is_i_creditcarddetail_lastdigits_Set() const{
+    return m_i_creditcarddetail_lastdigits_isSet;
+}
+
+bool Creditcardclient_ListElement::is_i_creditcarddetail_lastdigits_Valid() const{
+    return m_i_creditcarddetail_lastdigits_isValid;
 }
 
 bool Creditcardclient_ListElement::isSet() const {
@@ -345,6 +320,11 @@ bool Creditcardclient_ListElement::isSet() const {
             break;
         }
 
+        if (m_fki_creditcardtype_id_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (m_b_creditcardclientrelation_isdefault_isSet) {
             isObjectUpdated = true;
             break;
@@ -355,17 +335,7 @@ bool Creditcardclient_ListElement::isSet() const {
             break;
         }
 
-        if (m_b_creditcardclient_isactive_isSet) {
-            isObjectUpdated = true;
-            break;
-        }
-
-        if (m_b_creditcardclient_allowedagencypayment_isSet) {
-            isObjectUpdated = true;
-            break;
-        }
-
-        if (m_b_creditcardclient_allowedroyallepageprotection_isSet) {
+        if (m_b_creditcardclient_allowedcompanypayment_isSet) {
             isObjectUpdated = true;
             break;
         }
@@ -385,7 +355,7 @@ bool Creditcardclient_ListElement::isSet() const {
             break;
         }
 
-        if (m_s_creditcarddetail_numbermasked_isSet) {
+        if (m_i_creditcarddetail_lastdigits_isSet) {
             isObjectUpdated = true;
             break;
         }
@@ -395,7 +365,7 @@ bool Creditcardclient_ListElement::isSet() const {
 
 bool Creditcardclient_ListElement::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_pki_creditcardclient_id_isValid && m_fki_creditcarddetail_id_isValid && m_b_creditcardclientrelation_isdefault_isValid && m_s_creditcardclient_description_isValid && m_b_creditcardclient_isactive_isValid && m_b_creditcardclient_allowedagencypayment_isValid && m_b_creditcardclient_allowedroyallepageprotection_isValid && m_b_creditcardclient_allowedtranquillit_isValid && m_i_creditcarddetail_expirationmonth_isValid && m_i_creditcarddetail_expirationyear_isValid && m_s_creditcarddetail_numbermasked_isValid && true;
+    return m_pki_creditcardclient_id_isValid && m_fki_creditcarddetail_id_isValid && m_fki_creditcardtype_id_isValid && m_b_creditcardclientrelation_isdefault_isValid && m_s_creditcardclient_description_isValid && m_b_creditcardclient_allowedcompanypayment_isValid && m_b_creditcardclient_allowedtranquillit_isValid && m_i_creditcarddetail_expirationmonth_isValid && m_i_creditcarddetail_expirationyear_isValid && m_i_creditcarddetail_lastdigits_isValid && true;
 }
 
 } // namespace Ezmaxapi

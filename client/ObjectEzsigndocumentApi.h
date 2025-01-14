@@ -33,14 +33,22 @@
 #include "Ezsigndocument_createObject_v1_Response.h"
 #include "Ezsigndocument_createObject_v2_Request.h"
 #include "Ezsigndocument_createObject_v2_Response.h"
+#include "Ezsigndocument_createObject_v3_Request.h"
+#include "Ezsigndocument_createObject_v3_Response.h"
 #include "Ezsigndocument_declineToSign_v1_Request.h"
 #include "Ezsigndocument_declineToSign_v1_Response.h"
 #include "Ezsigndocument_deleteObject_v1_Response.h"
+#include "Ezsigndocument_editEzsignannotations_v1_Request.h"
+#include "Ezsigndocument_editEzsignannotations_v1_Response.h"
 #include "Ezsigndocument_editEzsignformfieldgroups_v1_Request.h"
 #include "Ezsigndocument_editEzsignformfieldgroups_v1_Response.h"
 #include "Ezsigndocument_editEzsignsignatures_v1_Request.h"
 #include "Ezsigndocument_editEzsignsignatures_v1_Response.h"
+#include "Ezsigndocument_editObject_v1_Request.h"
+#include "Ezsigndocument_editObject_v1_Response.h"
 #include "Ezsigndocument_endPrematurely_v1_Response.h"
+#include "Ezsigndocument_extractText_v1_Request.h"
+#include "Ezsigndocument_extractText_v1_Response.h"
 #include "Ezsigndocument_flatten_v1_Response.h"
 #include "Ezsigndocument_getActionableElements_v1_Response.h"
 #include "Ezsigndocument_getAttachments_v1_Response.h"
@@ -107,165 +115,188 @@ public:
     * @param[in]  pki_ezsigndocument_id qint32 [required]
     * @param[in]  ezsigndocument_apply_ezsigntemplate_v1_request Ezsigndocument_applyEzsigntemplate_v1_Request [required]
     */
-    Q_DECL_DEPRECATED void ezsigndocumentApplyEzsigntemplateV1(const qint32 &pki_ezsigndocument_id, const Ezsigndocument_applyEzsigntemplate_v1_Request &ezsigndocument_apply_ezsigntemplate_v1_request);
+    Q_DECL_DEPRECATED virtual void ezsigndocumentApplyEzsigntemplateV1(const qint32 &pki_ezsigndocument_id, const Ezsigndocument_applyEzsigntemplate_v1_Request &ezsigndocument_apply_ezsigntemplate_v1_request);
 
     /**
     * @param[in]  pki_ezsigndocument_id qint32 [required]
     * @param[in]  ezsigndocument_apply_ezsigntemplate_v2_request Ezsigndocument_applyEzsigntemplate_v2_Request [required]
     */
-    void ezsigndocumentApplyEzsigntemplateV2(const qint32 &pki_ezsigndocument_id, const Ezsigndocument_applyEzsigntemplate_v2_Request &ezsigndocument_apply_ezsigntemplate_v2_request);
+    virtual void ezsigndocumentApplyEzsigntemplateV2(const qint32 &pki_ezsigndocument_id, const Ezsigndocument_applyEzsigntemplate_v2_Request &ezsigndocument_apply_ezsigntemplate_v2_request);
 
     /**
     * @param[in]  pki_ezsigndocument_id qint32 [required]
     * @param[in]  ezsigndocument_apply_ezsigntemplateglobal_v1_request Ezsigndocument_applyEzsigntemplateglobal_v1_Request [required]
     */
-    void ezsigndocumentApplyEzsigntemplateglobalV1(const qint32 &pki_ezsigndocument_id, const Ezsigndocument_applyEzsigntemplateglobal_v1_Request &ezsigndocument_apply_ezsigntemplateglobal_v1_request);
+    virtual void ezsigndocumentApplyEzsigntemplateglobalV1(const qint32 &pki_ezsigndocument_id, const Ezsigndocument_applyEzsigntemplateglobal_v1_Request &ezsigndocument_apply_ezsigntemplateglobal_v1_request);
 
     /**
     * @param[in]  pki_ezsigndocument_id qint32 [required]
     * @param[in]  ezsigndocument_create_ezsignelements_positioned_by_word_v1_request Ezsigndocument_createEzsignelementsPositionedByWord_v1_Request [required]
     */
-    void ezsigndocumentCreateEzsignelementsPositionedByWordV1(const qint32 &pki_ezsigndocument_id, const Ezsigndocument_createEzsignelementsPositionedByWord_v1_Request &ezsigndocument_create_ezsignelements_positioned_by_word_v1_request);
+    virtual void ezsigndocumentCreateEzsignelementsPositionedByWordV1(const qint32 &pki_ezsigndocument_id, const Ezsigndocument_createEzsignelementsPositionedByWord_v1_Request &ezsigndocument_create_ezsignelements_positioned_by_word_v1_request);
 
     /**
     * @param[in]  ezsigndocument_create_object_v1_request QList<Ezsigndocument_createObject_v1_Request> [required]
     */
-    Q_DECL_DEPRECATED void ezsigndocumentCreateObjectV1(const QList<Ezsigndocument_createObject_v1_Request> &ezsigndocument_create_object_v1_request);
+    Q_DECL_DEPRECATED virtual void ezsigndocumentCreateObjectV1(const QList<Ezsigndocument_createObject_v1_Request> &ezsigndocument_create_object_v1_request);
 
     /**
     * @param[in]  ezsigndocument_create_object_v2_request Ezsigndocument_createObject_v2_Request [required]
     */
-    void ezsigndocumentCreateObjectV2(const Ezsigndocument_createObject_v2_Request &ezsigndocument_create_object_v2_request);
+    Q_DECL_DEPRECATED virtual void ezsigndocumentCreateObjectV2(const Ezsigndocument_createObject_v2_Request &ezsigndocument_create_object_v2_request);
+
+    /**
+    * @param[in]  ezsigndocument_create_object_v3_request Ezsigndocument_createObject_v3_Request [required]
+    */
+    virtual void ezsigndocumentCreateObjectV3(const Ezsigndocument_createObject_v3_Request &ezsigndocument_create_object_v3_request);
 
     /**
     * @param[in]  pki_ezsigndocument_id qint32 [required]
     * @param[in]  ezsigndocument_decline_to_sign_v1_request Ezsigndocument_declineToSign_v1_Request [required]
     */
-    void ezsigndocumentDeclineToSignV1(const qint32 &pki_ezsigndocument_id, const Ezsigndocument_declineToSign_v1_Request &ezsigndocument_decline_to_sign_v1_request);
+    virtual void ezsigndocumentDeclineToSignV1(const qint32 &pki_ezsigndocument_id, const Ezsigndocument_declineToSign_v1_Request &ezsigndocument_decline_to_sign_v1_request);
 
     /**
     * @param[in]  pki_ezsigndocument_id qint32 [required]
     */
-    void ezsigndocumentDeleteObjectV1(const qint32 &pki_ezsigndocument_id);
+    virtual void ezsigndocumentDeleteObjectV1(const qint32 &pki_ezsigndocument_id);
+
+    /**
+    * @param[in]  pki_ezsigndocument_id qint32 [required]
+    * @param[in]  ezsigndocument_edit_ezsignannotations_v1_request Ezsigndocument_editEzsignannotations_v1_Request [required]
+    */
+    virtual void ezsigndocumentEditEzsignannotationsV1(const qint32 &pki_ezsigndocument_id, const Ezsigndocument_editEzsignannotations_v1_Request &ezsigndocument_edit_ezsignannotations_v1_request);
 
     /**
     * @param[in]  pki_ezsigndocument_id qint32 [required]
     * @param[in]  ezsigndocument_edit_ezsignformfieldgroups_v1_request Ezsigndocument_editEzsignformfieldgroups_v1_Request [required]
     */
-    void ezsigndocumentEditEzsignformfieldgroupsV1(const qint32 &pki_ezsigndocument_id, const Ezsigndocument_editEzsignformfieldgroups_v1_Request &ezsigndocument_edit_ezsignformfieldgroups_v1_request);
+    virtual void ezsigndocumentEditEzsignformfieldgroupsV1(const qint32 &pki_ezsigndocument_id, const Ezsigndocument_editEzsignformfieldgroups_v1_Request &ezsigndocument_edit_ezsignformfieldgroups_v1_request);
 
     /**
     * @param[in]  pki_ezsigndocument_id qint32 [required]
     * @param[in]  ezsigndocument_edit_ezsignsignatures_v1_request Ezsigndocument_editEzsignsignatures_v1_Request [required]
     */
-    void ezsigndocumentEditEzsignsignaturesV1(const qint32 &pki_ezsigndocument_id, const Ezsigndocument_editEzsignsignatures_v1_Request &ezsigndocument_edit_ezsignsignatures_v1_request);
+    virtual void ezsigndocumentEditEzsignsignaturesV1(const qint32 &pki_ezsigndocument_id, const Ezsigndocument_editEzsignsignatures_v1_Request &ezsigndocument_edit_ezsignsignatures_v1_request);
+
+    /**
+    * @param[in]  pki_ezsigndocument_id qint32 [required]
+    * @param[in]  ezsigndocument_edit_object_v1_request Ezsigndocument_editObject_v1_Request [required]
+    */
+    virtual void ezsigndocumentEditObjectV1(const qint32 &pki_ezsigndocument_id, const Ezsigndocument_editObject_v1_Request &ezsigndocument_edit_object_v1_request);
 
     /**
     * @param[in]  pki_ezsigndocument_id qint32 [required]
     * @param[in]  body Object [required]
     */
-    void ezsigndocumentEndPrematurelyV1(const qint32 &pki_ezsigndocument_id, const Object &body);
+    virtual void ezsigndocumentEndPrematurelyV1(const qint32 &pki_ezsigndocument_id, const Object &body);
+
+    /**
+    * @param[in]  pki_ezsigndocument_id qint32 [required]
+    * @param[in]  ezsigndocument_extract_text_v1_request Ezsigndocument_extractText_v1_Request [required]
+    */
+    virtual void ezsigndocumentExtractTextV1(const qint32 &pki_ezsigndocument_id, const Ezsigndocument_extractText_v1_Request &ezsigndocument_extract_text_v1_request);
 
     /**
     * @param[in]  pki_ezsigndocument_id qint32 [required]
     * @param[in]  body Object [required]
     */
-    void ezsigndocumentFlattenV1(const qint32 &pki_ezsigndocument_id, const Object &body);
+    virtual void ezsigndocumentFlattenV1(const qint32 &pki_ezsigndocument_id, const Object &body);
 
     /**
     * @param[in]  pki_ezsigndocument_id qint32 [required]
     */
-    void ezsigndocumentGetActionableElementsV1(const qint32 &pki_ezsigndocument_id);
+    virtual void ezsigndocumentGetActionableElementsV1(const qint32 &pki_ezsigndocument_id);
 
     /**
     * @param[in]  pki_ezsigndocument_id qint32 [required]
     */
-    void ezsigndocumentGetAttachmentsV1(const qint32 &pki_ezsigndocument_id);
+    virtual void ezsigndocumentGetAttachmentsV1(const qint32 &pki_ezsigndocument_id);
 
     /**
     * @param[in]  pki_ezsigndocument_id qint32 [required]
     */
-    void ezsigndocumentGetCompletedElementsV1(const qint32 &pki_ezsigndocument_id);
+    virtual void ezsigndocumentGetCompletedElementsV1(const qint32 &pki_ezsigndocument_id);
 
     /**
     * @param[in]  pki_ezsigndocument_id qint32 [required]
     * @param[in]  e_document_type QString [required]
     */
-    void ezsigndocumentGetDownloadUrlV1(const qint32 &pki_ezsigndocument_id, const QString &e_document_type);
+    virtual void ezsigndocumentGetDownloadUrlV1(const qint32 &pki_ezsigndocument_id, const QString &e_document_type);
 
     /**
     * @param[in]  pki_ezsigndocument_id qint32 [required]
     */
-    void ezsigndocumentGetEzsignannotationsV1(const qint32 &pki_ezsigndocument_id);
+    virtual void ezsigndocumentGetEzsignannotationsV1(const qint32 &pki_ezsigndocument_id);
 
     /**
     * @param[in]  pki_ezsigndocument_id qint32 [required]
     */
-    void ezsigndocumentGetEzsigndiscussionsV1(const qint32 &pki_ezsigndocument_id);
+    virtual void ezsigndocumentGetEzsigndiscussionsV1(const qint32 &pki_ezsigndocument_id);
 
     /**
     * @param[in]  pki_ezsigndocument_id qint32 [required]
     */
-    void ezsigndocumentGetEzsignformfieldgroupsV1(const qint32 &pki_ezsigndocument_id);
+    virtual void ezsigndocumentGetEzsignformfieldgroupsV1(const qint32 &pki_ezsigndocument_id);
 
     /**
     * @param[in]  pki_ezsigndocument_id qint32 [required]
     */
-    void ezsigndocumentGetEzsignpagesV1(const qint32 &pki_ezsigndocument_id);
+    virtual void ezsigndocumentGetEzsignpagesV1(const qint32 &pki_ezsigndocument_id);
 
     /**
     * @param[in]  pki_ezsigndocument_id qint32 [required]
     */
-    void ezsigndocumentGetEzsignsignaturesAutomaticV1(const qint32 &pki_ezsigndocument_id);
+    virtual void ezsigndocumentGetEzsignsignaturesAutomaticV1(const qint32 &pki_ezsigndocument_id);
 
     /**
     * @param[in]  pki_ezsigndocument_id qint32 [required]
     */
-    void ezsigndocumentGetEzsignsignaturesV1(const qint32 &pki_ezsigndocument_id);
+    virtual void ezsigndocumentGetEzsignsignaturesV1(const qint32 &pki_ezsigndocument_id);
 
     /**
     * @param[in]  pki_ezsigndocument_id qint32 [required]
     */
-    void ezsigndocumentGetFormDataV1(const qint32 &pki_ezsigndocument_id);
+    virtual void ezsigndocumentGetFormDataV1(const qint32 &pki_ezsigndocument_id);
 
     /**
     * @param[in]  pki_ezsigndocument_id qint32 [required]
     */
-    Q_DECL_DEPRECATED void ezsigndocumentGetObjectV1(const qint32 &pki_ezsigndocument_id);
+    Q_DECL_DEPRECATED virtual void ezsigndocumentGetObjectV1(const qint32 &pki_ezsigndocument_id);
 
     /**
     * @param[in]  pki_ezsigndocument_id qint32 [required]
     */
-    void ezsigndocumentGetObjectV2(const qint32 &pki_ezsigndocument_id);
+    virtual void ezsigndocumentGetObjectV2(const qint32 &pki_ezsigndocument_id);
 
     /**
     * @param[in]  pki_ezsigndocument_id qint32 [required]
     */
-    void ezsigndocumentGetTemporaryProofV1(const qint32 &pki_ezsigndocument_id);
+    virtual void ezsigndocumentGetTemporaryProofV1(const qint32 &pki_ezsigndocument_id);
 
     /**
     * @param[in]  pki_ezsigndocument_id qint32 [required]
     * @param[in]  ezsigndocument_get_words_positions_v1_request Ezsigndocument_getWordsPositions_v1_Request [required]
     */
-    void ezsigndocumentGetWordsPositionsV1(const qint32 &pki_ezsigndocument_id, const Ezsigndocument_getWordsPositions_v1_Request &ezsigndocument_get_words_positions_v1_request);
+    virtual void ezsigndocumentGetWordsPositionsV1(const qint32 &pki_ezsigndocument_id, const Ezsigndocument_getWordsPositions_v1_Request &ezsigndocument_get_words_positions_v1_request);
 
     /**
     * @param[in]  pki_ezsigndocument_id qint32 [required]
     * @param[in]  ezsigndocument_patch_object_v1_request Ezsigndocument_patchObject_v1_Request [required]
     */
-    void ezsigndocumentPatchObjectV1(const qint32 &pki_ezsigndocument_id, const Ezsigndocument_patchObject_v1_Request &ezsigndocument_patch_object_v1_request);
+    virtual void ezsigndocumentPatchObjectV1(const qint32 &pki_ezsigndocument_id, const Ezsigndocument_patchObject_v1_Request &ezsigndocument_patch_object_v1_request);
 
     /**
     * @param[in]  pki_ezsigndocument_id qint32 [required]
     * @param[in]  ezsigndocument_submit_ezsignform_v1_request Ezsigndocument_submitEzsignform_v1_Request [required]
     */
-    void ezsigndocumentSubmitEzsignformV1(const qint32 &pki_ezsigndocument_id, const Ezsigndocument_submitEzsignform_v1_Request &ezsigndocument_submit_ezsignform_v1_request);
+    virtual void ezsigndocumentSubmitEzsignformV1(const qint32 &pki_ezsigndocument_id, const Ezsigndocument_submitEzsignform_v1_Request &ezsigndocument_submit_ezsignform_v1_request);
 
     /**
     * @param[in]  pki_ezsigndocument_id qint32 [required]
     * @param[in]  body Object [required]
     */
-    void ezsigndocumentUnsendV1(const qint32 &pki_ezsigndocument_id, const Object &body);
+    virtual void ezsigndocumentUnsendV1(const qint32 &pki_ezsigndocument_id, const Object &body);
 
 
 private:
@@ -296,11 +327,15 @@ private:
     void ezsigndocumentCreateEzsignelementsPositionedByWordV1Callback(HttpRequestWorker *worker);
     void ezsigndocumentCreateObjectV1Callback(HttpRequestWorker *worker);
     void ezsigndocumentCreateObjectV2Callback(HttpRequestWorker *worker);
+    void ezsigndocumentCreateObjectV3Callback(HttpRequestWorker *worker);
     void ezsigndocumentDeclineToSignV1Callback(HttpRequestWorker *worker);
     void ezsigndocumentDeleteObjectV1Callback(HttpRequestWorker *worker);
+    void ezsigndocumentEditEzsignannotationsV1Callback(HttpRequestWorker *worker);
     void ezsigndocumentEditEzsignformfieldgroupsV1Callback(HttpRequestWorker *worker);
     void ezsigndocumentEditEzsignsignaturesV1Callback(HttpRequestWorker *worker);
+    void ezsigndocumentEditObjectV1Callback(HttpRequestWorker *worker);
     void ezsigndocumentEndPrematurelyV1Callback(HttpRequestWorker *worker);
+    void ezsigndocumentExtractTextV1Callback(HttpRequestWorker *worker);
     void ezsigndocumentFlattenV1Callback(HttpRequestWorker *worker);
     void ezsigndocumentGetActionableElementsV1Callback(HttpRequestWorker *worker);
     void ezsigndocumentGetAttachmentsV1Callback(HttpRequestWorker *worker);
@@ -329,11 +364,15 @@ Q_SIGNALS:
     void ezsigndocumentCreateEzsignelementsPositionedByWordV1Signal(Ezsigndocument_createEzsignelementsPositionedByWord_v1_Response summary);
     void ezsigndocumentCreateObjectV1Signal(Ezsigndocument_createObject_v1_Response summary);
     void ezsigndocumentCreateObjectV2Signal(Ezsigndocument_createObject_v2_Response summary);
+    void ezsigndocumentCreateObjectV3Signal(Ezsigndocument_createObject_v3_Response summary);
     void ezsigndocumentDeclineToSignV1Signal(Ezsigndocument_declineToSign_v1_Response summary);
     void ezsigndocumentDeleteObjectV1Signal(Ezsigndocument_deleteObject_v1_Response summary);
+    void ezsigndocumentEditEzsignannotationsV1Signal(Ezsigndocument_editEzsignannotations_v1_Response summary);
     void ezsigndocumentEditEzsignformfieldgroupsV1Signal(Ezsigndocument_editEzsignformfieldgroups_v1_Response summary);
     void ezsigndocumentEditEzsignsignaturesV1Signal(Ezsigndocument_editEzsignsignatures_v1_Response summary);
+    void ezsigndocumentEditObjectV1Signal(Ezsigndocument_editObject_v1_Response summary);
     void ezsigndocumentEndPrematurelyV1Signal(Ezsigndocument_endPrematurely_v1_Response summary);
+    void ezsigndocumentExtractTextV1Signal(Ezsigndocument_extractText_v1_Response summary);
     void ezsigndocumentFlattenV1Signal(Ezsigndocument_flatten_v1_Response summary);
     void ezsigndocumentGetActionableElementsV1Signal(Ezsigndocument_getActionableElements_v1_Response summary);
     void ezsigndocumentGetAttachmentsV1Signal(Ezsigndocument_getAttachments_v1_Response summary);
@@ -354,17 +393,22 @@ Q_SIGNALS:
     void ezsigndocumentSubmitEzsignformV1Signal(Ezsigndocument_submitEzsignform_v1_Response summary);
     void ezsigndocumentUnsendV1Signal(Ezsigndocument_unsend_v1_Response summary);
 
+
     void ezsigndocumentApplyEzsigntemplateV1SignalFull(HttpRequestWorker *worker, Ezsigndocument_applyEzsigntemplate_v1_Response summary);
     void ezsigndocumentApplyEzsigntemplateV2SignalFull(HttpRequestWorker *worker, Ezsigndocument_applyEzsigntemplate_v2_Response summary);
     void ezsigndocumentApplyEzsigntemplateglobalV1SignalFull(HttpRequestWorker *worker, Ezsigndocument_applyEzsigntemplateglobal_v1_Response summary);
     void ezsigndocumentCreateEzsignelementsPositionedByWordV1SignalFull(HttpRequestWorker *worker, Ezsigndocument_createEzsignelementsPositionedByWord_v1_Response summary);
     void ezsigndocumentCreateObjectV1SignalFull(HttpRequestWorker *worker, Ezsigndocument_createObject_v1_Response summary);
     void ezsigndocumentCreateObjectV2SignalFull(HttpRequestWorker *worker, Ezsigndocument_createObject_v2_Response summary);
+    void ezsigndocumentCreateObjectV3SignalFull(HttpRequestWorker *worker, Ezsigndocument_createObject_v3_Response summary);
     void ezsigndocumentDeclineToSignV1SignalFull(HttpRequestWorker *worker, Ezsigndocument_declineToSign_v1_Response summary);
     void ezsigndocumentDeleteObjectV1SignalFull(HttpRequestWorker *worker, Ezsigndocument_deleteObject_v1_Response summary);
+    void ezsigndocumentEditEzsignannotationsV1SignalFull(HttpRequestWorker *worker, Ezsigndocument_editEzsignannotations_v1_Response summary);
     void ezsigndocumentEditEzsignformfieldgroupsV1SignalFull(HttpRequestWorker *worker, Ezsigndocument_editEzsignformfieldgroups_v1_Response summary);
     void ezsigndocumentEditEzsignsignaturesV1SignalFull(HttpRequestWorker *worker, Ezsigndocument_editEzsignsignatures_v1_Response summary);
+    void ezsigndocumentEditObjectV1SignalFull(HttpRequestWorker *worker, Ezsigndocument_editObject_v1_Response summary);
     void ezsigndocumentEndPrematurelyV1SignalFull(HttpRequestWorker *worker, Ezsigndocument_endPrematurely_v1_Response summary);
+    void ezsigndocumentExtractTextV1SignalFull(HttpRequestWorker *worker, Ezsigndocument_extractText_v1_Response summary);
     void ezsigndocumentFlattenV1SignalFull(HttpRequestWorker *worker, Ezsigndocument_flatten_v1_Response summary);
     void ezsigndocumentGetActionableElementsV1SignalFull(HttpRequestWorker *worker, Ezsigndocument_getActionableElements_v1_Response summary);
     void ezsigndocumentGetAttachmentsV1SignalFull(HttpRequestWorker *worker, Ezsigndocument_getAttachments_v1_Response summary);
@@ -403,21 +447,33 @@ Q_SIGNALS:
     Q_DECL_DEPRECATED_X("Use ezsigndocumentCreateObjectV2SignalError() instead")
     void ezsigndocumentCreateObjectV2SignalE(Ezsigndocument_createObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigndocumentCreateObjectV2SignalError(Ezsigndocument_createObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigndocumentCreateObjectV3SignalError() instead")
+    void ezsigndocumentCreateObjectV3SignalE(Ezsigndocument_createObject_v3_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentCreateObjectV3SignalError(Ezsigndocument_createObject_v3_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsigndocumentDeclineToSignV1SignalError() instead")
     void ezsigndocumentDeclineToSignV1SignalE(Ezsigndocument_declineToSign_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigndocumentDeclineToSignV1SignalError(Ezsigndocument_declineToSign_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsigndocumentDeleteObjectV1SignalError() instead")
     void ezsigndocumentDeleteObjectV1SignalE(Ezsigndocument_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigndocumentDeleteObjectV1SignalError(Ezsigndocument_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigndocumentEditEzsignannotationsV1SignalError() instead")
+    void ezsigndocumentEditEzsignannotationsV1SignalE(Ezsigndocument_editEzsignannotations_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentEditEzsignannotationsV1SignalError(Ezsigndocument_editEzsignannotations_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsigndocumentEditEzsignformfieldgroupsV1SignalError() instead")
     void ezsigndocumentEditEzsignformfieldgroupsV1SignalE(Ezsigndocument_editEzsignformfieldgroups_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigndocumentEditEzsignformfieldgroupsV1SignalError(Ezsigndocument_editEzsignformfieldgroups_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsigndocumentEditEzsignsignaturesV1SignalError() instead")
     void ezsigndocumentEditEzsignsignaturesV1SignalE(Ezsigndocument_editEzsignsignatures_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigndocumentEditEzsignsignaturesV1SignalError(Ezsigndocument_editEzsignsignatures_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigndocumentEditObjectV1SignalError() instead")
+    void ezsigndocumentEditObjectV1SignalE(Ezsigndocument_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentEditObjectV1SignalError(Ezsigndocument_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsigndocumentEndPrematurelyV1SignalError() instead")
     void ezsigndocumentEndPrematurelyV1SignalE(Ezsigndocument_endPrematurely_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigndocumentEndPrematurelyV1SignalError(Ezsigndocument_endPrematurely_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigndocumentExtractTextV1SignalError() instead")
+    void ezsigndocumentExtractTextV1SignalE(Ezsigndocument_extractText_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentExtractTextV1SignalError(Ezsigndocument_extractText_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsigndocumentFlattenV1SignalError() instead")
     void ezsigndocumentFlattenV1SignalE(Ezsigndocument_flatten_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigndocumentFlattenV1SignalError(Ezsigndocument_flatten_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -494,21 +550,33 @@ Q_SIGNALS:
     Q_DECL_DEPRECATED_X("Use ezsigndocumentCreateObjectV2SignalErrorFull() instead")
     void ezsigndocumentCreateObjectV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigndocumentCreateObjectV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigndocumentCreateObjectV3SignalErrorFull() instead")
+    void ezsigndocumentCreateObjectV3SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentCreateObjectV3SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsigndocumentDeclineToSignV1SignalErrorFull() instead")
     void ezsigndocumentDeclineToSignV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigndocumentDeclineToSignV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsigndocumentDeleteObjectV1SignalErrorFull() instead")
     void ezsigndocumentDeleteObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigndocumentDeleteObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigndocumentEditEzsignannotationsV1SignalErrorFull() instead")
+    void ezsigndocumentEditEzsignannotationsV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentEditEzsignannotationsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsigndocumentEditEzsignformfieldgroupsV1SignalErrorFull() instead")
     void ezsigndocumentEditEzsignformfieldgroupsV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigndocumentEditEzsignformfieldgroupsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsigndocumentEditEzsignsignaturesV1SignalErrorFull() instead")
     void ezsigndocumentEditEzsignsignaturesV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigndocumentEditEzsignsignaturesV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigndocumentEditObjectV1SignalErrorFull() instead")
+    void ezsigndocumentEditObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentEditObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsigndocumentEndPrematurelyV1SignalErrorFull() instead")
     void ezsigndocumentEndPrematurelyV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigndocumentEndPrematurelyV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigndocumentExtractTextV1SignalErrorFull() instead")
+    void ezsigndocumentExtractTextV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentExtractTextV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsigndocumentFlattenV1SignalErrorFull() instead")
     void ezsigndocumentFlattenV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigndocumentFlattenV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);

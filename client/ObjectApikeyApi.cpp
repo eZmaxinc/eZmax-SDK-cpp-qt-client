@@ -65,6 +65,8 @@ void ObjectApikeyApi::initializeServerConfigs() {
     _serverIndices.insert("apikeyEditObjectV1", 0);
     _serverConfigs.insert("apikeyEditPermissionsV1", defaultConf);
     _serverIndices.insert("apikeyEditPermissionsV1", 0);
+    _serverConfigs.insert("apikeyGenerateDelegatedCredentialsV1", defaultConf);
+    _serverIndices.insert("apikeyGenerateDelegatedCredentialsV1", 0);
     _serverConfigs.insert("apikeyGetCorsV1", defaultConf);
     _serverIndices.insert("apikeyGetCorsV1", 0);
     _serverConfigs.insert("apikeyGetListV1", defaultConf);
@@ -152,15 +154,9 @@ int ObjectApikeyApi::addServerConfiguration(const QString &operation, const QUrl
     * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
     */
 void ObjectApikeyApi::setNewServerForAllOperations(const QUrl &url, const QString &description, const QMap<QString, ServerVariable> &variables) {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
     for (auto keyIt = _serverIndices.keyBegin(); keyIt != _serverIndices.keyEnd(); keyIt++) {
         setServerIndex(*keyIt, addServerConfiguration(*keyIt, url, description, variables));
     }
-#else
-    for (auto &e : _serverIndices.keys()) {
-        setServerIndex(e, addServerConfiguration(e, url, description, variables));
-    }
-#endif
 }
 
 /**
@@ -270,15 +266,10 @@ void ObjectApikeyApi::apikeyCreateObjectV2(const Apikey_createObject_v2_Request 
         QByteArray output = apikey_create_object_v2_request.asJson().toUtf8();
         input.request_body.append(output);
     }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectApikeyApi::apikeyCreateObjectV2Callback);
     connect(this, &ObjectApikeyApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -368,15 +359,10 @@ void ObjectApikeyApi::apikeyEditObjectV1(const qint32 &pki_apikey_id, const Apik
         QByteArray output = apikey_edit_object_v1_request.asJson().toUtf8();
         input.request_body.append(output);
     }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectApikeyApi::apikeyEditObjectV1Callback);
     connect(this, &ObjectApikeyApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -466,15 +452,10 @@ void ObjectApikeyApi::apikeyEditPermissionsV1(const qint32 &pki_apikey_id, const
         QByteArray output = apikey_edit_permissions_v1_request.asJson().toUtf8();
         input.request_body.append(output);
     }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectApikeyApi::apikeyEditPermissionsV1Callback);
     connect(this, &ObjectApikeyApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -532,6 +513,85 @@ void ObjectApikeyApi::apikeyEditPermissionsV1Callback(HttpRequestWorker *worker)
     }
 }
 
+void ObjectApikeyApi::apikeyGenerateDelegatedCredentialsV1(const Apikey_generateDelegatedCredentials_v1_Request &apikey_generate_delegated_credentials_v1_request) {
+    QString fullPath = QString(_serverConfigs["apikeyGenerateDelegatedCredentialsV1"][_serverIndices.value("apikeyGenerateDelegatedCredentialsV1")].URL()+"/1/object/apikey/generateDelegatedCredentials");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "POST");
+
+    {
+
+        
+        QByteArray output = apikey_generate_delegated_credentials_v1_request.asJson().toUtf8();
+        input.request_body.append(output);
+    }
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectApikeyApi::apikeyGenerateDelegatedCredentialsV1Callback);
+    connect(this, &ObjectApikeyApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this]() {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectApikeyApi::apikeyGenerateDelegatedCredentialsV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Apikey_generateDelegatedCredentials_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT apikeyGenerateDelegatedCredentialsV1Signal(output);
+        Q_EMIT apikeyGenerateDelegatedCredentialsV1SignalFull(worker, output);
+    } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
+        Q_EMIT apikeyGenerateDelegatedCredentialsV1SignalE(output, error_type, error_str);
+        Q_EMIT apikeyGenerateDelegatedCredentialsV1SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        Q_EMIT apikeyGenerateDelegatedCredentialsV1SignalError(output, error_type, error_str);
+        Q_EMIT apikeyGenerateDelegatedCredentialsV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
 void ObjectApikeyApi::apikeyGetCorsV1(const qint32 &pki_apikey_id) {
     QString fullPath = QString(_serverConfigs["apikeyGetCorsV1"][_serverIndices.value("apikeyGetCorsV1")].URL()+"/1/object/apikey/{pkiApikeyID}/getCors");
     
@@ -559,15 +619,10 @@ void ObjectApikeyApi::apikeyGetCorsV1(const qint32 &pki_apikey_id) {
     HttpRequestInput input(fullPath, "GET");
 
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectApikeyApi::apikeyGetCorsV1Callback);
     connect(this, &ObjectApikeyApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -743,15 +798,10 @@ void ObjectApikeyApi::apikeyGetListV1(const ::Ezmaxapi::OptionalParam<QString> &
         }
         input.headers.insert("Accept-Language", headerString);
     }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectApikeyApi::apikeyGetListV1Callback);
     connect(this, &ObjectApikeyApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -836,15 +886,10 @@ void ObjectApikeyApi::apikeyGetObjectV2(const qint32 &pki_apikey_id) {
     HttpRequestInput input(fullPath, "GET");
 
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectApikeyApi::apikeyGetObjectV2Callback);
     connect(this, &ObjectApikeyApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -929,15 +974,10 @@ void ObjectApikeyApi::apikeyGetPermissionsV1(const qint32 &pki_apikey_id) {
     HttpRequestInput input(fullPath, "GET");
 
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectApikeyApi::apikeyGetPermissionsV1Callback);
     connect(this, &ObjectApikeyApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -1022,15 +1062,10 @@ void ObjectApikeyApi::apikeyGetSubnetsV1(const qint32 &pki_apikey_id) {
     HttpRequestInput input(fullPath, "GET");
 
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectApikeyApi::apikeyGetSubnetsV1Callback);
     connect(this, &ObjectApikeyApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -1120,15 +1155,10 @@ void ObjectApikeyApi::apikeyRegenerateV1(const qint32 &pki_apikey_id, const Apik
         QByteArray output = apikey_regenerate_v1_request.asJson().toUtf8();
         input.request_body.append(output);
     }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectApikeyApi::apikeyRegenerateV1Callback);
     connect(this, &ObjectApikeyApi::abortRequestsSignal, worker, &QObject::deleteLater);

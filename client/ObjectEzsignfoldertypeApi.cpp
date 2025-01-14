@@ -59,20 +59,18 @@ void ObjectEzsignfoldertypeApi::initializeServerConfigs() {
     {"sInfrastructureregionCode", ServerVariable("The region where your services are hosted.","ca-central-1",
     QSet<QString>{ {"ca-central-1"} })}, }));
     
-    _serverConfigs.insert("ezsignfoldertypeCreateObjectV2", defaultConf);
-    _serverIndices.insert("ezsignfoldertypeCreateObjectV2", 0);
-    _serverConfigs.insert("ezsignfoldertypeEditObjectV1", defaultConf);
-    _serverIndices.insert("ezsignfoldertypeEditObjectV1", 0);
-    _serverConfigs.insert("ezsignfoldertypeEditObjectV2", defaultConf);
-    _serverIndices.insert("ezsignfoldertypeEditObjectV2", 0);
+    _serverConfigs.insert("ezsignfoldertypeCreateObjectV3", defaultConf);
+    _serverIndices.insert("ezsignfoldertypeCreateObjectV3", 0);
+    _serverConfigs.insert("ezsignfoldertypeEditObjectV3", defaultConf);
+    _serverIndices.insert("ezsignfoldertypeEditObjectV3", 0);
     _serverConfigs.insert("ezsignfoldertypeGetAutocompleteV2", defaultConf);
     _serverIndices.insert("ezsignfoldertypeGetAutocompleteV2", 0);
     _serverConfigs.insert("ezsignfoldertypeGetListV1", defaultConf);
     _serverIndices.insert("ezsignfoldertypeGetListV1", 0);
     _serverConfigs.insert("ezsignfoldertypeGetObjectV2", defaultConf);
     _serverIndices.insert("ezsignfoldertypeGetObjectV2", 0);
-    _serverConfigs.insert("ezsignfoldertypeGetObjectV3", defaultConf);
-    _serverIndices.insert("ezsignfoldertypeGetObjectV3", 0);
+    _serverConfigs.insert("ezsignfoldertypeGetObjectV4", defaultConf);
+    _serverIndices.insert("ezsignfoldertypeGetObjectV4", 0);
 }
 
 /**
@@ -148,15 +146,9 @@ int ObjectEzsignfoldertypeApi::addServerConfiguration(const QString &operation, 
     * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
     */
 void ObjectEzsignfoldertypeApi::setNewServerForAllOperations(const QUrl &url, const QString &description, const QMap<QString, ServerVariable> &variables) {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
     for (auto keyIt = _serverIndices.keyBegin(); keyIt != _serverIndices.keyEnd(); keyIt++) {
         setServerIndex(*keyIt, addServerConfiguration(*keyIt, url, description, variables));
     }
-#else
-    for (auto &e : _serverIndices.keys()) {
-        setServerIndex(e, addServerConfiguration(e, url, description, variables));
-    }
-#endif
 }
 
 /**
@@ -248,8 +240,8 @@ QString ObjectEzsignfoldertypeApi::getParamStyleDelimiter(const QString &style, 
     }
 }
 
-void ObjectEzsignfoldertypeApi::ezsignfoldertypeCreateObjectV2(const Ezsignfoldertype_createObject_v2_Request &ezsignfoldertype_create_object_v2_request) {
-    QString fullPath = QString(_serverConfigs["ezsignfoldertypeCreateObjectV2"][_serverIndices.value("ezsignfoldertypeCreateObjectV2")].URL()+"/2/object/ezsignfoldertype");
+void ObjectEzsignfoldertypeApi::ezsignfoldertypeCreateObjectV3(const Ezsignfoldertype_createObject_v3_Request &ezsignfoldertype_create_object_v3_request) {
+    QString fullPath = QString(_serverConfigs["ezsignfoldertypeCreateObjectV3"][_serverIndices.value("ezsignfoldertypeCreateObjectV3")].URL()+"/3/object/ezsignfoldertype");
     
     if (_apiKeys.contains("Authorization")) {
         addHeaders("Authorization",_apiKeys.find("Authorization").value());
@@ -263,20 +255,15 @@ void ObjectEzsignfoldertypeApi::ezsignfoldertypeCreateObjectV2(const Ezsignfolde
     {
 
         
-        QByteArray output = ezsignfoldertype_create_object_v2_request.asJson().toUtf8();
+        QByteArray output = ezsignfoldertype_create_object_v3_request.asJson().toUtf8();
         input.request_body.append(output);
     }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
 
-    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignfoldertypeApi::ezsignfoldertypeCreateObjectV2Callback);
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignfoldertypeApi::ezsignfoldertypeCreateObjectV3Callback);
     connect(this, &ObjectEzsignfoldertypeApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
@@ -287,19 +274,19 @@ void ObjectEzsignfoldertypeApi::ezsignfoldertypeCreateObjectV2(const Ezsignfolde
     worker->execute(&input);
 }
 
-void ObjectEzsignfoldertypeApi::ezsignfoldertypeCreateObjectV2Callback(HttpRequestWorker *worker) {
+void ObjectEzsignfoldertypeApi::ezsignfoldertypeCreateObjectV3Callback(HttpRequestWorker *worker) {
     QString error_str = worker->error_str;
     QNetworkReply::NetworkError error_type = worker->error_type;
 
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Ezsignfoldertype_createObject_v2_Response output(QString(worker->response));
+    Ezsignfoldertype_createObject_v3_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        Q_EMIT ezsignfoldertypeCreateObjectV2Signal(output);
-        Q_EMIT ezsignfoldertypeCreateObjectV2SignalFull(worker, output);
+        Q_EMIT ezsignfoldertypeCreateObjectV3Signal(output);
+        Q_EMIT ezsignfoldertypeCreateObjectV3SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -316,8 +303,8 @@ void ObjectEzsignfoldertypeApi::ezsignfoldertypeCreateObjectV2Callback(HttpReque
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        Q_EMIT ezsignfoldertypeCreateObjectV2SignalE(output, error_type, error_str);
-        Q_EMIT ezsignfoldertypeCreateObjectV2SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsignfoldertypeCreateObjectV3SignalE(output, error_type, error_str);
+        Q_EMIT ezsignfoldertypeCreateObjectV3SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -327,13 +314,13 @@ void ObjectEzsignfoldertypeApi::ezsignfoldertypeCreateObjectV2Callback(HttpReque
 #pragma GCC diagnostic pop
 #endif
 
-        Q_EMIT ezsignfoldertypeCreateObjectV2SignalError(output, error_type, error_str);
-        Q_EMIT ezsignfoldertypeCreateObjectV2SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsignfoldertypeCreateObjectV3SignalError(output, error_type, error_str);
+        Q_EMIT ezsignfoldertypeCreateObjectV3SignalErrorFull(worker, error_type, error_str);
     }
 }
 
-void ObjectEzsignfoldertypeApi::ezsignfoldertypeEditObjectV1(const qint32 &pki_ezsignfoldertype_id, const Ezsignfoldertype_editObject_v1_Request &ezsignfoldertype_edit_object_v1_request) {
-    QString fullPath = QString(_serverConfigs["ezsignfoldertypeEditObjectV1"][_serverIndices.value("ezsignfoldertypeEditObjectV1")].URL()+"/1/object/ezsignfoldertype/{pkiEzsignfoldertypeID}");
+void ObjectEzsignfoldertypeApi::ezsignfoldertypeEditObjectV3(const qint32 &pki_ezsignfoldertype_id, const Ezsignfoldertype_editObject_v3_Request &ezsignfoldertype_edit_object_v3_request) {
+    QString fullPath = QString(_serverConfigs["ezsignfoldertypeEditObjectV3"][_serverIndices.value("ezsignfoldertypeEditObjectV3")].URL()+"/3/object/ezsignfoldertype/{pkiEzsignfoldertypeID}");
     
     if (_apiKeys.contains("Authorization")) {
         addHeaders("Authorization",_apiKeys.find("Authorization").value());
@@ -361,20 +348,15 @@ void ObjectEzsignfoldertypeApi::ezsignfoldertypeEditObjectV1(const qint32 &pki_e
     {
 
         
-        QByteArray output = ezsignfoldertype_edit_object_v1_request.asJson().toUtf8();
+        QByteArray output = ezsignfoldertype_edit_object_v3_request.asJson().toUtf8();
         input.request_body.append(output);
     }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
 
-    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignfoldertypeApi::ezsignfoldertypeEditObjectV1Callback);
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignfoldertypeApi::ezsignfoldertypeEditObjectV3Callback);
     connect(this, &ObjectEzsignfoldertypeApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
@@ -385,19 +367,19 @@ void ObjectEzsignfoldertypeApi::ezsignfoldertypeEditObjectV1(const qint32 &pki_e
     worker->execute(&input);
 }
 
-void ObjectEzsignfoldertypeApi::ezsignfoldertypeEditObjectV1Callback(HttpRequestWorker *worker) {
+void ObjectEzsignfoldertypeApi::ezsignfoldertypeEditObjectV3Callback(HttpRequestWorker *worker) {
     QString error_str = worker->error_str;
     QNetworkReply::NetworkError error_type = worker->error_type;
 
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Ezsignfoldertype_editObject_v1_Response output(QString(worker->response));
+    Ezsignfoldertype_editObject_v3_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        Q_EMIT ezsignfoldertypeEditObjectV1Signal(output);
-        Q_EMIT ezsignfoldertypeEditObjectV1SignalFull(worker, output);
+        Q_EMIT ezsignfoldertypeEditObjectV3Signal(output);
+        Q_EMIT ezsignfoldertypeEditObjectV3SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -414,8 +396,8 @@ void ObjectEzsignfoldertypeApi::ezsignfoldertypeEditObjectV1Callback(HttpRequest
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        Q_EMIT ezsignfoldertypeEditObjectV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsignfoldertypeEditObjectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsignfoldertypeEditObjectV3SignalE(output, error_type, error_str);
+        Q_EMIT ezsignfoldertypeEditObjectV3SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -425,106 +407,8 @@ void ObjectEzsignfoldertypeApi::ezsignfoldertypeEditObjectV1Callback(HttpRequest
 #pragma GCC diagnostic pop
 #endif
 
-        Q_EMIT ezsignfoldertypeEditObjectV1SignalError(output, error_type, error_str);
-        Q_EMIT ezsignfoldertypeEditObjectV1SignalErrorFull(worker, error_type, error_str);
-    }
-}
-
-void ObjectEzsignfoldertypeApi::ezsignfoldertypeEditObjectV2(const qint32 &pki_ezsignfoldertype_id, const Ezsignfoldertype_editObject_v2_Request &ezsignfoldertype_edit_object_v2_request) {
-    QString fullPath = QString(_serverConfigs["ezsignfoldertypeEditObjectV2"][_serverIndices.value("ezsignfoldertypeEditObjectV2")].URL()+"/2/object/ezsignfoldertype/{pkiEzsignfoldertypeID}");
-    
-    if (_apiKeys.contains("Authorization")) {
-        addHeaders("Authorization",_apiKeys.find("Authorization").value());
-    }
-    
-    
-    {
-        QString pki_ezsignfoldertype_idPathParam("{");
-        pki_ezsignfoldertype_idPathParam.append("pkiEzsignfoldertypeID").append("}");
-        QString pathPrefix, pathSuffix, pathDelimiter;
-        QString pathStyle = "simple";
-        if (pathStyle == "")
-            pathStyle = "simple";
-        pathPrefix = getParamStylePrefix(pathStyle);
-        pathSuffix = getParamStyleSuffix(pathStyle);
-        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignfoldertypeID", false);
-        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignfoldertypeID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsignfoldertype_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsignfoldertype_id)));
-    }
-    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
-    worker->setTimeOut(_timeOut);
-    worker->setWorkingDirectory(_workingDirectory);
-    HttpRequestInput input(fullPath, "PUT");
-
-    {
-
-        
-        QByteArray output = ezsignfoldertype_edit_object_v2_request.asJson().toUtf8();
-        input.request_body.append(output);
-    }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
-    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
-        input.headers.insert(keyValueIt->first, keyValueIt->second);
-    }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
-
-    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignfoldertypeApi::ezsignfoldertypeEditObjectV2Callback);
-    connect(this, &ObjectEzsignfoldertypeApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
-        if (findChildren<HttpRequestWorker*>().count() == 0) {
-            Q_EMIT allPendingRequestsCompleted();
-        }
-    });
-
-    worker->execute(&input);
-}
-
-void ObjectEzsignfoldertypeApi::ezsignfoldertypeEditObjectV2Callback(HttpRequestWorker *worker) {
-    QString error_str = worker->error_str;
-    QNetworkReply::NetworkError error_type = worker->error_type;
-
-    if (worker->error_type != QNetworkReply::NoError) {
-        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
-    }
-    Ezsignfoldertype_editObject_v2_Response output(QString(worker->response));
-    worker->deleteLater();
-
-    if (worker->error_type == QNetworkReply::NoError) {
-        Q_EMIT ezsignfoldertypeEditObjectV2Signal(output);
-        Q_EMIT ezsignfoldertypeEditObjectV2SignalFull(worker, output);
-    } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsignfoldertypeEditObjectV2SignalE(output, error_type, error_str);
-        Q_EMIT ezsignfoldertypeEditObjectV2SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
-        Q_EMIT ezsignfoldertypeEditObjectV2SignalError(output, error_type, error_str);
-        Q_EMIT ezsignfoldertypeEditObjectV2SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsignfoldertypeEditObjectV3SignalError(output, error_type, error_str);
+        Q_EMIT ezsignfoldertypeEditObjectV3SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -630,15 +514,10 @@ void ObjectEzsignfoldertypeApi::ezsignfoldertypeGetAutocompleteV2(const QString 
         }
         input.headers.insert("Accept-Language", headerString);
     }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignfoldertypeApi::ezsignfoldertypeGetAutocompleteV2Callback);
     connect(this, &ObjectEzsignfoldertypeApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -814,15 +693,10 @@ void ObjectEzsignfoldertypeApi::ezsignfoldertypeGetListV1(const ::Ezmaxapi::Opti
         }
         input.headers.insert("Accept-Language", headerString);
     }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignfoldertypeApi::ezsignfoldertypeGetListV1Callback);
     connect(this, &ObjectEzsignfoldertypeApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -907,15 +781,10 @@ void ObjectEzsignfoldertypeApi::ezsignfoldertypeGetObjectV2(const qint32 &pki_ez
     HttpRequestInput input(fullPath, "GET");
 
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignfoldertypeApi::ezsignfoldertypeGetObjectV2Callback);
     connect(this, &ObjectEzsignfoldertypeApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -973,8 +842,8 @@ void ObjectEzsignfoldertypeApi::ezsignfoldertypeGetObjectV2Callback(HttpRequestW
     }
 }
 
-void ObjectEzsignfoldertypeApi::ezsignfoldertypeGetObjectV3(const qint32 &pki_ezsignfoldertype_id) {
-    QString fullPath = QString(_serverConfigs["ezsignfoldertypeGetObjectV3"][_serverIndices.value("ezsignfoldertypeGetObjectV3")].URL()+"/3/object/ezsignfoldertype/{pkiEzsignfoldertypeID}");
+void ObjectEzsignfoldertypeApi::ezsignfoldertypeGetObjectV4(const qint32 &pki_ezsignfoldertype_id) {
+    QString fullPath = QString(_serverConfigs["ezsignfoldertypeGetObjectV4"][_serverIndices.value("ezsignfoldertypeGetObjectV4")].URL()+"/4/object/ezsignfoldertype/{pkiEzsignfoldertypeID}");
     
     if (_apiKeys.contains("Authorization")) {
         addHeaders("Authorization",_apiKeys.find("Authorization").value());
@@ -1000,17 +869,12 @@ void ObjectEzsignfoldertypeApi::ezsignfoldertypeGetObjectV3(const qint32 &pki_ez
     HttpRequestInput input(fullPath, "GET");
 
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
 
-    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignfoldertypeApi::ezsignfoldertypeGetObjectV3Callback);
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignfoldertypeApi::ezsignfoldertypeGetObjectV4Callback);
     connect(this, &ObjectEzsignfoldertypeApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
@@ -1021,19 +885,19 @@ void ObjectEzsignfoldertypeApi::ezsignfoldertypeGetObjectV3(const qint32 &pki_ez
     worker->execute(&input);
 }
 
-void ObjectEzsignfoldertypeApi::ezsignfoldertypeGetObjectV3Callback(HttpRequestWorker *worker) {
+void ObjectEzsignfoldertypeApi::ezsignfoldertypeGetObjectV4Callback(HttpRequestWorker *worker) {
     QString error_str = worker->error_str;
     QNetworkReply::NetworkError error_type = worker->error_type;
 
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Ezsignfoldertype_getObject_v3_Response output(QString(worker->response));
+    Ezsignfoldertype_getObject_v4_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        Q_EMIT ezsignfoldertypeGetObjectV3Signal(output);
-        Q_EMIT ezsignfoldertypeGetObjectV3SignalFull(worker, output);
+        Q_EMIT ezsignfoldertypeGetObjectV4Signal(output);
+        Q_EMIT ezsignfoldertypeGetObjectV4SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -1050,8 +914,8 @@ void ObjectEzsignfoldertypeApi::ezsignfoldertypeGetObjectV3Callback(HttpRequestW
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        Q_EMIT ezsignfoldertypeGetObjectV3SignalE(output, error_type, error_str);
-        Q_EMIT ezsignfoldertypeGetObjectV3SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsignfoldertypeGetObjectV4SignalE(output, error_type, error_str);
+        Q_EMIT ezsignfoldertypeGetObjectV4SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -1061,8 +925,8 @@ void ObjectEzsignfoldertypeApi::ezsignfoldertypeGetObjectV3Callback(HttpRequestW
 #pragma GCC diagnostic pop
 #endif
 
-        Q_EMIT ezsignfoldertypeGetObjectV3SignalError(output, error_type, error_str);
-        Q_EMIT ezsignfoldertypeGetObjectV3SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsignfoldertypeGetObjectV4SignalError(output, error_type, error_str);
+        Q_EMIT ezsignfoldertypeGetObjectV4SignalErrorFull(worker, error_type, error_str);
     }
 }
 

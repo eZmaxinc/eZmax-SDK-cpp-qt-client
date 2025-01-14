@@ -66,23 +66,23 @@ public:
     /**
     * @param[in]  ezsignformfieldgroup_create_object_v1_request Ezsignformfieldgroup_createObject_v1_Request [required]
     */
-    void ezsignformfieldgroupCreateObjectV1(const Ezsignformfieldgroup_createObject_v1_Request &ezsignformfieldgroup_create_object_v1_request);
+    virtual void ezsignformfieldgroupCreateObjectV1(const Ezsignformfieldgroup_createObject_v1_Request &ezsignformfieldgroup_create_object_v1_request);
 
     /**
     * @param[in]  pki_ezsignformfieldgroup_id qint32 [required]
     */
-    void ezsignformfieldgroupDeleteObjectV1(const qint32 &pki_ezsignformfieldgroup_id);
+    virtual void ezsignformfieldgroupDeleteObjectV1(const qint32 &pki_ezsignformfieldgroup_id);
 
     /**
     * @param[in]  pki_ezsignformfieldgroup_id qint32 [required]
     * @param[in]  ezsignformfieldgroup_edit_object_v1_request Ezsignformfieldgroup_editObject_v1_Request [required]
     */
-    void ezsignformfieldgroupEditObjectV1(const qint32 &pki_ezsignformfieldgroup_id, const Ezsignformfieldgroup_editObject_v1_Request &ezsignformfieldgroup_edit_object_v1_request);
+    virtual void ezsignformfieldgroupEditObjectV1(const qint32 &pki_ezsignformfieldgroup_id, const Ezsignformfieldgroup_editObject_v1_Request &ezsignformfieldgroup_edit_object_v1_request);
 
     /**
     * @param[in]  pki_ezsignformfieldgroup_id qint32 [required]
     */
-    void ezsignformfieldgroupGetObjectV2(const qint32 &pki_ezsignformfieldgroup_id);
+    virtual void ezsignformfieldgroupGetObjectV2(const qint32 &pki_ezsignformfieldgroup_id);
 
 
 private:
@@ -118,6 +118,7 @@ Q_SIGNALS:
     void ezsignformfieldgroupDeleteObjectV1Signal(Ezsignformfieldgroup_deleteObject_v1_Response summary);
     void ezsignformfieldgroupEditObjectV1Signal(Ezsignformfieldgroup_editObject_v1_Response summary);
     void ezsignformfieldgroupGetObjectV2Signal(Ezsignformfieldgroup_getObject_v2_Response summary);
+
 
     void ezsignformfieldgroupCreateObjectV1SignalFull(HttpRequestWorker *worker, Ezsignformfieldgroup_createObject_v1_Response summary);
     void ezsignformfieldgroupDeleteObjectV1SignalFull(HttpRequestWorker *worker, Ezsignformfieldgroup_deleteObject_v1_Response summary);

@@ -34,6 +34,9 @@ Website_RequestCompound::~Website_RequestCompound() {}
 
 void Website_RequestCompound::initializeModel() {
 
+    m_pki_website_id_isSet = false;
+    m_pki_website_id_isValid = false;
+
     m_fki_websitetype_id_isSet = false;
     m_fki_websitetype_id_isValid = false;
 
@@ -49,6 +52,9 @@ void Website_RequestCompound::fromJson(QString jsonString) {
 }
 
 void Website_RequestCompound::fromJsonObject(QJsonObject json) {
+
+    m_pki_website_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_website_id, json[QString("pkiWebsiteID")]);
+    m_pki_website_id_isSet = !json[QString("pkiWebsiteID")].isNull() && m_pki_website_id_isValid;
 
     m_fki_websitetype_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_websitetype_id, json[QString("fkiWebsitetypeID")]);
     m_fki_websitetype_id_isSet = !json[QString("fkiWebsitetypeID")].isNull() && m_fki_websitetype_id_isValid;
@@ -66,6 +72,9 @@ QString Website_RequestCompound::asJson() const {
 
 QJsonObject Website_RequestCompound::asJsonObject() const {
     QJsonObject obj;
+    if (m_pki_website_id_isSet) {
+        obj.insert(QString("pkiWebsiteID"), ::Ezmaxapi::toJsonValue(m_pki_website_id));
+    }
     if (m_fki_websitetype_id_isSet) {
         obj.insert(QString("fkiWebsitetypeID"), ::Ezmaxapi::toJsonValue(m_fki_websitetype_id));
     }
@@ -73,6 +82,22 @@ QJsonObject Website_RequestCompound::asJsonObject() const {
         obj.insert(QString("sWebsiteAddress"), ::Ezmaxapi::toJsonValue(m_s_website_address));
     }
     return obj;
+}
+
+qint32 Website_RequestCompound::getPkiWebsiteId() const {
+    return m_pki_website_id;
+}
+void Website_RequestCompound::setPkiWebsiteId(const qint32 &pki_website_id) {
+    m_pki_website_id = pki_website_id;
+    m_pki_website_id_isSet = true;
+}
+
+bool Website_RequestCompound::is_pki_website_id_Set() const{
+    return m_pki_website_id_isSet;
+}
+
+bool Website_RequestCompound::is_pki_website_id_Valid() const{
+    return m_pki_website_id_isValid;
 }
 
 qint32 Website_RequestCompound::getFkiWebsitetypeId() const {
@@ -110,6 +135,11 @@ bool Website_RequestCompound::is_s_website_address_Valid() const{
 bool Website_RequestCompound::isSet() const {
     bool isObjectUpdated = false;
     do {
+        if (m_pki_website_id_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (m_fki_websitetype_id_isSet) {
             isObjectUpdated = true;
             break;

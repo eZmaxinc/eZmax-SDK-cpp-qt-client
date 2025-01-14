@@ -153,6 +153,11 @@ public:
     bool is_i_ezsignfoldertype_deadlinedays_Set() const;
     bool is_i_ezsignfoldertype_deadlinedays_Valid() const;
 
+    bool isBEzsignfoldertypeAutomaticsignature() const;
+    void setBEzsignfoldertypeAutomaticsignature(const bool &b_ezsignfoldertype_automaticsignature);
+    bool is_b_ezsignfoldertype_automaticsignature_Set() const;
+    bool is_b_ezsignfoldertype_automaticsignature_Valid() const;
+
     bool isBEzsignfoldertypeDelegate() const;
     void setBEzsignfoldertypeDelegate(const bool &b_ezsignfoldertype_delegate);
     bool is_b_ezsignfoldertype_delegate_Set() const;
@@ -172,6 +177,11 @@ public:
     void setBEzsignfoldertypeReassignuser(const bool &b_ezsignfoldertype_reassignuser);
     bool is_b_ezsignfoldertype_reassignuser_Set() const;
     bool is_b_ezsignfoldertype_reassignuser_Valid() const;
+
+    bool isBEzsignfoldertypeReassigngroup() const;
+    void setBEzsignfoldertypeReassigngroup(const bool &b_ezsignfoldertype_reassigngroup);
+    bool is_b_ezsignfoldertype_reassigngroup_Set() const;
+    bool is_b_ezsignfoldertype_reassigngroup_Valid() const;
 
     bool isBEzsignfoldertypeSendsignedtoezsignsigner() const;
     void setBEzsignfoldertypeSendsignedtoezsignsigner(const bool &b_ezsignfoldertype_sendsignedtoezsignsigner);
@@ -373,6 +383,10 @@ private:
     bool m_i_ezsignfoldertype_deadlinedays_isSet;
     bool m_i_ezsignfoldertype_deadlinedays_isValid;
 
+    bool m_b_ezsignfoldertype_automaticsignature;
+    bool m_b_ezsignfoldertype_automaticsignature_isSet;
+    bool m_b_ezsignfoldertype_automaticsignature_isValid;
+
     bool m_b_ezsignfoldertype_delegate;
     bool m_b_ezsignfoldertype_delegate_isSet;
     bool m_b_ezsignfoldertype_delegate_isValid;
@@ -388,6 +402,10 @@ private:
     bool m_b_ezsignfoldertype_reassignuser;
     bool m_b_ezsignfoldertype_reassignuser_isSet;
     bool m_b_ezsignfoldertype_reassignuser_isValid;
+
+    bool m_b_ezsignfoldertype_reassigngroup;
+    bool m_b_ezsignfoldertype_reassigngroup_isSet;
+    bool m_b_ezsignfoldertype_reassigngroup_isValid;
 
     bool m_b_ezsignfoldertype_sendsignedtoezsignsigner;
     bool m_b_ezsignfoldertype_sendsignedtoezsignsigner_isSet;

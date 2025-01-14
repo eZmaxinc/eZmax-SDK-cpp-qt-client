@@ -49,10 +49,10 @@ public:
     bool is_fki_creditcardtype_id_Set() const;
     bool is_fki_creditcardtype_id_Valid() const;
 
-    QString getSCreditcarddetailNumbermasked() const;
-    void setSCreditcarddetailNumbermasked(const QString &s_creditcarddetail_numbermasked);
-    bool is_s_creditcarddetail_numbermasked_Set() const;
-    bool is_s_creditcarddetail_numbermasked_Valid() const;
+    qint32 getICreditcarddetailLastdigits() const;
+    void setICreditcarddetailLastdigits(const qint32 &i_creditcarddetail_lastdigits);
+    bool is_i_creditcarddetail_lastdigits_Set() const;
+    bool is_i_creditcarddetail_lastdigits_Valid() const;
 
     qint32 getICreditcarddetailExpirationmonth() const;
     void setICreditcarddetailExpirationmonth(const qint32 &i_creditcarddetail_expirationmonth);
@@ -93,9 +93,9 @@ private:
     bool m_fki_creditcardtype_id_isSet;
     bool m_fki_creditcardtype_id_isValid;
 
-    QString m_s_creditcarddetail_numbermasked;
-    bool m_s_creditcarddetail_numbermasked_isSet;
-    bool m_s_creditcarddetail_numbermasked_isValid;
+    qint32 m_i_creditcarddetail_lastdigits;
+    bool m_i_creditcarddetail_lastdigits_isSet;
+    bool m_i_creditcarddetail_lastdigits_isValid;
 
     qint32 m_i_creditcarddetail_expirationmonth;
     bool m_i_creditcarddetail_expirationmonth_isSet;

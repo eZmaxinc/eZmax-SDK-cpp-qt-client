@@ -63,8 +63,6 @@ void ObjectAttachmentApi::initializeServerConfigs() {
     _serverIndices.insert("attachmentDownloadV1", 0);
     _serverConfigs.insert("attachmentGetAttachmentlogsV1", defaultConf);
     _serverIndices.insert("attachmentGetAttachmentlogsV1", 0);
-    _serverConfigs.insert("attachmentGetDownloadUrlV1", defaultConf);
-    _serverIndices.insert("attachmentGetDownloadUrlV1", 0);
 }
 
 /**
@@ -140,15 +138,9 @@ int ObjectAttachmentApi::addServerConfiguration(const QString &operation, const 
     * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
     */
 void ObjectAttachmentApi::setNewServerForAllOperations(const QUrl &url, const QString &description, const QMap<QString, ServerVariable> &variables) {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
     for (auto keyIt = _serverIndices.keyBegin(); keyIt != _serverIndices.keyEnd(); keyIt++) {
         setServerIndex(*keyIt, addServerConfiguration(*keyIt, url, description, variables));
     }
-#else
-    for (auto &e : _serverIndices.keys()) {
-        setServerIndex(e, addServerConfiguration(e, url, description, variables));
-    }
-#endif
 }
 
 /**
@@ -275,15 +267,10 @@ void ObjectAttachmentApi::attachmentDownloadV1(const qint32 &pki_attachment_id) 
     HttpRequestInput input(fullPath, "GET");
 
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectAttachmentApi::attachmentDownloadV1Callback);
     connect(this, &ObjectAttachmentApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -367,15 +354,10 @@ void ObjectAttachmentApi::attachmentGetAttachmentlogsV1(const qint32 &pki_attach
     HttpRequestInput input(fullPath, "GET");
 
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectAttachmentApi::attachmentGetAttachmentlogsV1Callback);
     connect(this, &ObjectAttachmentApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -430,99 +412,6 @@ void ObjectAttachmentApi::attachmentGetAttachmentlogsV1Callback(HttpRequestWorke
 
         Q_EMIT attachmentGetAttachmentlogsV1SignalError(output, error_type, error_str);
         Q_EMIT attachmentGetAttachmentlogsV1SignalErrorFull(worker, error_type, error_str);
-    }
-}
-
-void ObjectAttachmentApi::attachmentGetDownloadUrlV1(const qint32 &pki_attachment_id) {
-    QString fullPath = QString(_serverConfigs["attachmentGetDownloadUrlV1"][_serverIndices.value("attachmentGetDownloadUrlV1")].URL()+"/1/object/attachment/{pkiAttachmentID}/getDownloadUrl");
-    
-    if (_apiKeys.contains("Authorization")) {
-        addHeaders("Authorization",_apiKeys.find("Authorization").value());
-    }
-    
-    
-    {
-        QString pki_attachment_idPathParam("{");
-        pki_attachment_idPathParam.append("pkiAttachmentID").append("}");
-        QString pathPrefix, pathSuffix, pathDelimiter;
-        QString pathStyle = "simple";
-        if (pathStyle == "")
-            pathStyle = "simple";
-        pathPrefix = getParamStylePrefix(pathStyle);
-        pathSuffix = getParamStyleSuffix(pathStyle);
-        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiAttachmentID", false);
-        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiAttachmentID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_attachment_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_attachment_id)));
-    }
-    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
-    worker->setTimeOut(_timeOut);
-    worker->setWorkingDirectory(_workingDirectory);
-    HttpRequestInput input(fullPath, "GET");
-
-
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
-    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
-        input.headers.insert(keyValueIt->first, keyValueIt->second);
-    }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
-
-    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectAttachmentApi::attachmentGetDownloadUrlV1Callback);
-    connect(this, &ObjectAttachmentApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
-        if (findChildren<HttpRequestWorker*>().count() == 0) {
-            Q_EMIT allPendingRequestsCompleted();
-        }
-    });
-
-    worker->execute(&input);
-}
-
-void ObjectAttachmentApi::attachmentGetDownloadUrlV1Callback(HttpRequestWorker *worker) {
-    QString error_str = worker->error_str;
-    QNetworkReply::NetworkError error_type = worker->error_type;
-
-    if (worker->error_type != QNetworkReply::NoError) {
-        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
-    }
-    Attachment_getDownloadUrl_v1_Response output(QString(worker->response));
-    worker->deleteLater();
-
-    if (worker->error_type == QNetworkReply::NoError) {
-        Q_EMIT attachmentGetDownloadUrlV1Signal(output);
-        Q_EMIT attachmentGetDownloadUrlV1SignalFull(worker, output);
-    } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT attachmentGetDownloadUrlV1SignalE(output, error_type, error_str);
-        Q_EMIT attachmentGetDownloadUrlV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
-        Q_EMIT attachmentGetDownloadUrlV1SignalError(output, error_type, error_str);
-        Q_EMIT attachmentGetDownloadUrlV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

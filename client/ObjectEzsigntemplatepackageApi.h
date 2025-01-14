@@ -72,32 +72,33 @@ public:
     /**
     * @param[in]  ezsigntemplatepackage_create_object_v1_request Ezsigntemplatepackage_createObject_v1_Request [required]
     */
-    void ezsigntemplatepackageCreateObjectV1(const Ezsigntemplatepackage_createObject_v1_Request &ezsigntemplatepackage_create_object_v1_request);
+    virtual void ezsigntemplatepackageCreateObjectV1(const Ezsigntemplatepackage_createObject_v1_Request &ezsigntemplatepackage_create_object_v1_request);
 
     /**
     * @param[in]  pki_ezsigntemplatepackage_id qint32 [required]
     */
-    void ezsigntemplatepackageDeleteObjectV1(const qint32 &pki_ezsigntemplatepackage_id);
+    virtual void ezsigntemplatepackageDeleteObjectV1(const qint32 &pki_ezsigntemplatepackage_id);
 
     /**
     * @param[in]  pki_ezsigntemplatepackage_id qint32 [required]
     * @param[in]  ezsigntemplatepackage_edit_ezsigntemplatepackagesigners_v1_request Ezsigntemplatepackage_editEzsigntemplatepackagesigners_v1_Request [required]
     */
-    void ezsigntemplatepackageEditEzsigntemplatepackagesignersV1(const qint32 &pki_ezsigntemplatepackage_id, const Ezsigntemplatepackage_editEzsigntemplatepackagesigners_v1_Request &ezsigntemplatepackage_edit_ezsigntemplatepackagesigners_v1_request);
+    virtual void ezsigntemplatepackageEditEzsigntemplatepackagesignersV1(const qint32 &pki_ezsigntemplatepackage_id, const Ezsigntemplatepackage_editEzsigntemplatepackagesigners_v1_Request &ezsigntemplatepackage_edit_ezsigntemplatepackagesigners_v1_request);
 
     /**
     * @param[in]  pki_ezsigntemplatepackage_id qint32 [required]
     * @param[in]  ezsigntemplatepackage_edit_object_v1_request Ezsigntemplatepackage_editObject_v1_Request [required]
     */
-    void ezsigntemplatepackageEditObjectV1(const qint32 &pki_ezsigntemplatepackage_id, const Ezsigntemplatepackage_editObject_v1_Request &ezsigntemplatepackage_edit_object_v1_request);
+    virtual void ezsigntemplatepackageEditObjectV1(const qint32 &pki_ezsigntemplatepackage_id, const Ezsigntemplatepackage_editObject_v1_Request &ezsigntemplatepackage_edit_object_v1_request);
 
     /**
     * @param[in]  s_selector QString [required]
     * @param[in]  e_filter_active QString [optional]
     * @param[in]  s_query QString [optional]
     * @param[in]  accept_language Header_Accept_Language [optional]
+    * @param[in]  fki_ezsignfoldertype_id qint32 [optional]
     */
-    void ezsigntemplatepackageGetAutocompleteV2(const QString &s_selector, const ::Ezmaxapi::OptionalParam<QString> &e_filter_active = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<QString> &s_query = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<Header_Accept_Language>());
+    virtual void ezsigntemplatepackageGetAutocompleteV2(const QString &s_selector, const ::Ezmaxapi::OptionalParam<QString> &e_filter_active = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<QString> &s_query = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<Header_Accept_Language>(), const ::Ezmaxapi::OptionalParam<qint32> &fki_ezsignfoldertype_id = ::Ezmaxapi::OptionalParam<qint32>());
 
     /**
     * @param[in]  e_order_by QString [optional]
@@ -106,12 +107,12 @@ public:
     * @param[in]  accept_language Header_Accept_Language [optional]
     * @param[in]  s_filter QString [optional]
     */
-    void ezsigntemplatepackageGetListV1(const ::Ezmaxapi::OptionalParam<QString> &e_order_by = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<qint32> &i_row_max = ::Ezmaxapi::OptionalParam<qint32>(), const ::Ezmaxapi::OptionalParam<qint32> &i_row_offset = ::Ezmaxapi::OptionalParam<qint32>(), const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<Header_Accept_Language>(), const ::Ezmaxapi::OptionalParam<QString> &s_filter = ::Ezmaxapi::OptionalParam<QString>());
+    virtual void ezsigntemplatepackageGetListV1(const ::Ezmaxapi::OptionalParam<QString> &e_order_by = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<qint32> &i_row_max = ::Ezmaxapi::OptionalParam<qint32>(), const ::Ezmaxapi::OptionalParam<qint32> &i_row_offset = ::Ezmaxapi::OptionalParam<qint32>(), const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<Header_Accept_Language>(), const ::Ezmaxapi::OptionalParam<QString> &s_filter = ::Ezmaxapi::OptionalParam<QString>());
 
     /**
     * @param[in]  pki_ezsigntemplatepackage_id qint32 [required]
     */
-    void ezsigntemplatepackageGetObjectV2(const qint32 &pki_ezsigntemplatepackage_id);
+    virtual void ezsigntemplatepackageGetObjectV2(const qint32 &pki_ezsigntemplatepackage_id);
 
 
 private:
@@ -153,6 +154,7 @@ Q_SIGNALS:
     void ezsigntemplatepackageGetAutocompleteV2Signal(Ezsigntemplatepackage_getAutocomplete_v2_Response summary);
     void ezsigntemplatepackageGetListV1Signal(Ezsigntemplatepackage_getList_v1_Response summary);
     void ezsigntemplatepackageGetObjectV2Signal(Ezsigntemplatepackage_getObject_v2_Response summary);
+
 
     void ezsigntemplatepackageCreateObjectV1SignalFull(HttpRequestWorker *worker, Ezsigntemplatepackage_createObject_v1_Response summary);
     void ezsigntemplatepackageDeleteObjectV1SignalFull(HttpRequestWorker *worker, Ezsigntemplatepackage_deleteObject_v1_Response summary);

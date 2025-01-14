@@ -69,34 +69,34 @@ public:
     /**
     * @param[in]  ezsignsignergroup_create_object_v1_request Ezsignsignergroup_createObject_v1_Request [required]
     */
-    void ezsignsignergroupCreateObjectV1(const Ezsignsignergroup_createObject_v1_Request &ezsignsignergroup_create_object_v1_request);
+    virtual void ezsignsignergroupCreateObjectV1(const Ezsignsignergroup_createObject_v1_Request &ezsignsignergroup_create_object_v1_request);
 
     /**
     * @param[in]  pki_ezsignsignergroup_id qint32 [required]
     */
-    void ezsignsignergroupDeleteObjectV1(const qint32 &pki_ezsignsignergroup_id);
+    virtual void ezsignsignergroupDeleteObjectV1(const qint32 &pki_ezsignsignergroup_id);
 
     /**
     * @param[in]  pki_ezsignsignergroup_id qint32 [required]
     * @param[in]  ezsignsignergroup_edit_ezsignsignergroupmemberships_v1_request Ezsignsignergroup_editEzsignsignergroupmemberships_v1_Request [required]
     */
-    void ezsignsignergroupEditEzsignsignergroupmembershipsV1(const qint32 &pki_ezsignsignergroup_id, const Ezsignsignergroup_editEzsignsignergroupmemberships_v1_Request &ezsignsignergroup_edit_ezsignsignergroupmemberships_v1_request);
+    virtual void ezsignsignergroupEditEzsignsignergroupmembershipsV1(const qint32 &pki_ezsignsignergroup_id, const Ezsignsignergroup_editEzsignsignergroupmemberships_v1_Request &ezsignsignergroup_edit_ezsignsignergroupmemberships_v1_request);
 
     /**
     * @param[in]  pki_ezsignsignergroup_id qint32 [required]
     * @param[in]  ezsignsignergroup_edit_object_v1_request Ezsignsignergroup_editObject_v1_Request [required]
     */
-    void ezsignsignergroupEditObjectV1(const qint32 &pki_ezsignsignergroup_id, const Ezsignsignergroup_editObject_v1_Request &ezsignsignergroup_edit_object_v1_request);
+    virtual void ezsignsignergroupEditObjectV1(const qint32 &pki_ezsignsignergroup_id, const Ezsignsignergroup_editObject_v1_Request &ezsignsignergroup_edit_object_v1_request);
 
     /**
     * @param[in]  pki_ezsignsignergroup_id qint32 [required]
     */
-    void ezsignsignergroupGetEzsignsignergroupmembershipsV1(const qint32 &pki_ezsignsignergroup_id);
+    virtual void ezsignsignergroupGetEzsignsignergroupmembershipsV1(const qint32 &pki_ezsignsignergroup_id);
 
     /**
     * @param[in]  pki_ezsignsignergroup_id qint32 [required]
     */
-    void ezsignsignergroupGetObjectV2(const qint32 &pki_ezsignsignergroup_id);
+    virtual void ezsignsignergroupGetObjectV2(const qint32 &pki_ezsignsignergroup_id);
 
 
 private:
@@ -136,6 +136,7 @@ Q_SIGNALS:
     void ezsignsignergroupEditObjectV1Signal(Ezsignsignergroup_editObject_v1_Response summary);
     void ezsignsignergroupGetEzsignsignergroupmembershipsV1Signal(Ezsignsignergroup_getEzsignsignergroupmemberships_v1_Response summary);
     void ezsignsignergroupGetObjectV2Signal(Ezsignsignergroup_getObject_v2_Response summary);
+
 
     void ezsignsignergroupCreateObjectV1SignalFull(HttpRequestWorker *worker, Ezsignsignergroup_createObject_v1_Response summary);
     void ezsignsignergroupDeleteObjectV1SignalFull(HttpRequestWorker *worker, Ezsignsignergroup_deleteObject_v1_Response summary);

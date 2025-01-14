@@ -82,6 +82,12 @@ void Ezsigntemplateformfield_RequestCompound::initializeModel() {
     m_e_ezsigntemplateformfield_positioningoccurence_isSet = false;
     m_e_ezsigntemplateformfield_positioningoccurence_isValid = false;
 
+    m_e_ezsigntemplateformfield_horizontalalignment_isSet = false;
+    m_e_ezsigntemplateformfield_horizontalalignment_isValid = false;
+
+    m_obj_textstylestatic_isSet = false;
+    m_obj_textstylestatic_isValid = false;
+
     m_a_obj_ezsigntemplateelementdependency_isSet = false;
     m_a_obj_ezsigntemplateelementdependency_isValid = false;
 }
@@ -143,6 +149,12 @@ void Ezsigntemplateformfield_RequestCompound::fromJsonObject(QJsonObject json) {
     m_e_ezsigntemplateformfield_positioningoccurence_isValid = ::Ezmaxapi::fromJsonValue(m_e_ezsigntemplateformfield_positioningoccurence, json[QString("eEzsigntemplateformfieldPositioningoccurence")]);
     m_e_ezsigntemplateformfield_positioningoccurence_isSet = !json[QString("eEzsigntemplateformfieldPositioningoccurence")].isNull() && m_e_ezsigntemplateformfield_positioningoccurence_isValid;
 
+    m_e_ezsigntemplateformfield_horizontalalignment_isValid = ::Ezmaxapi::fromJsonValue(m_e_ezsigntemplateformfield_horizontalalignment, json[QString("eEzsigntemplateformfieldHorizontalalignment")]);
+    m_e_ezsigntemplateformfield_horizontalalignment_isSet = !json[QString("eEzsigntemplateformfieldHorizontalalignment")].isNull() && m_e_ezsigntemplateformfield_horizontalalignment_isValid;
+
+    m_obj_textstylestatic_isValid = ::Ezmaxapi::fromJsonValue(m_obj_textstylestatic, json[QString("objTextstylestatic")]);
+    m_obj_textstylestatic_isSet = !json[QString("objTextstylestatic")].isNull() && m_obj_textstylestatic_isValid;
+
     m_a_obj_ezsigntemplateelementdependency_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_ezsigntemplateelementdependency, json[QString("a_objEzsigntemplateelementdependency")]);
     m_a_obj_ezsigntemplateelementdependency_isSet = !json[QString("a_objEzsigntemplateelementdependency")].isNull() && m_a_obj_ezsigntemplateelementdependency_isValid;
 }
@@ -203,6 +215,12 @@ QJsonObject Ezsigntemplateformfield_RequestCompound::asJsonObject() const {
     }
     if (m_e_ezsigntemplateformfield_positioningoccurence.isSet()) {
         obj.insert(QString("eEzsigntemplateformfieldPositioningoccurence"), ::Ezmaxapi::toJsonValue(m_e_ezsigntemplateformfield_positioningoccurence));
+    }
+    if (m_e_ezsigntemplateformfield_horizontalalignment.isSet()) {
+        obj.insert(QString("eEzsigntemplateformfieldHorizontalalignment"), ::Ezmaxapi::toJsonValue(m_e_ezsigntemplateformfield_horizontalalignment));
+    }
+    if (m_obj_textstylestatic.isSet()) {
+        obj.insert(QString("objTextstylestatic"), ::Ezmaxapi::toJsonValue(m_obj_textstylestatic));
     }
     if (m_a_obj_ezsigntemplateelementdependency.size() > 0) {
         obj.insert(QString("a_objEzsigntemplateelementdependency"), ::Ezmaxapi::toJsonValue(m_a_obj_ezsigntemplateelementdependency));
@@ -466,6 +484,38 @@ bool Ezsigntemplateformfield_RequestCompound::is_e_ezsigntemplateformfield_posit
     return m_e_ezsigntemplateformfield_positioningoccurence_isValid;
 }
 
+Enum_Horizontalalignment Ezsigntemplateformfield_RequestCompound::getEEzsigntemplateformfieldHorizontalalignment() const {
+    return m_e_ezsigntemplateformfield_horizontalalignment;
+}
+void Ezsigntemplateformfield_RequestCompound::setEEzsigntemplateformfieldHorizontalalignment(const Enum_Horizontalalignment &e_ezsigntemplateformfield_horizontalalignment) {
+    m_e_ezsigntemplateformfield_horizontalalignment = e_ezsigntemplateformfield_horizontalalignment;
+    m_e_ezsigntemplateformfield_horizontalalignment_isSet = true;
+}
+
+bool Ezsigntemplateformfield_RequestCompound::is_e_ezsigntemplateformfield_horizontalalignment_Set() const{
+    return m_e_ezsigntemplateformfield_horizontalalignment_isSet;
+}
+
+bool Ezsigntemplateformfield_RequestCompound::is_e_ezsigntemplateformfield_horizontalalignment_Valid() const{
+    return m_e_ezsigntemplateformfield_horizontalalignment_isValid;
+}
+
+Textstylestatic_RequestCompound Ezsigntemplateformfield_RequestCompound::getObjTextstylestatic() const {
+    return m_obj_textstylestatic;
+}
+void Ezsigntemplateformfield_RequestCompound::setObjTextstylestatic(const Textstylestatic_RequestCompound &obj_textstylestatic) {
+    m_obj_textstylestatic = obj_textstylestatic;
+    m_obj_textstylestatic_isSet = true;
+}
+
+bool Ezsigntemplateformfield_RequestCompound::is_obj_textstylestatic_Set() const{
+    return m_obj_textstylestatic_isSet;
+}
+
+bool Ezsigntemplateformfield_RequestCompound::is_obj_textstylestatic_Valid() const{
+    return m_obj_textstylestatic_isValid;
+}
+
 QList<Ezsigntemplateelementdependency_RequestCompound> Ezsigntemplateformfield_RequestCompound::getAObjEzsigntemplateelementdependency() const {
     return m_a_obj_ezsigntemplateelementdependency;
 }
@@ -561,6 +611,16 @@ bool Ezsigntemplateformfield_RequestCompound::isSet() const {
         }
 
         if (m_e_ezsigntemplateformfield_positioningoccurence.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_e_ezsigntemplateformfield_horizontalalignment.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_obj_textstylestatic.isSet()) {
             isObjectUpdated = true;
             break;
         }

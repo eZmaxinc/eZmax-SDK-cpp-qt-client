@@ -46,6 +46,9 @@ void Custom_Ezsignfoldertransmission_Response::initializeModel() {
     m_i_ezsignfolder_signaturetotal_isSet = false;
     m_i_ezsignfolder_signaturetotal_isValid = false;
 
+    m_i_ezsignfolder_formfieldtotal_isSet = false;
+    m_i_ezsignfolder_formfieldtotal_isValid = false;
+
     m_i_ezsignfolder_signaturesigned_isSet = false;
     m_i_ezsignfolder_signaturesigned_isValid = false;
 
@@ -74,6 +77,9 @@ void Custom_Ezsignfoldertransmission_Response::fromJsonObject(QJsonObject json) 
     m_i_ezsignfolder_signaturetotal_isValid = ::Ezmaxapi::fromJsonValue(m_i_ezsignfolder_signaturetotal, json[QString("iEzsignfolderSignaturetotal")]);
     m_i_ezsignfolder_signaturetotal_isSet = !json[QString("iEzsignfolderSignaturetotal")].isNull() && m_i_ezsignfolder_signaturetotal_isValid;
 
+    m_i_ezsignfolder_formfieldtotal_isValid = ::Ezmaxapi::fromJsonValue(m_i_ezsignfolder_formfieldtotal, json[QString("iEzsignfolderFormfieldtotal")]);
+    m_i_ezsignfolder_formfieldtotal_isSet = !json[QString("iEzsignfolderFormfieldtotal")].isNull() && m_i_ezsignfolder_formfieldtotal_isValid;
+
     m_i_ezsignfolder_signaturesigned_isValid = ::Ezmaxapi::fromJsonValue(m_i_ezsignfolder_signaturesigned, json[QString("iEzsignfolderSignaturesigned")]);
     m_i_ezsignfolder_signaturesigned_isSet = !json[QString("iEzsignfolderSignaturesigned")].isNull() && m_i_ezsignfolder_signaturesigned_isValid;
 
@@ -101,6 +107,9 @@ QJsonObject Custom_Ezsignfoldertransmission_Response::asJsonObject() const {
     }
     if (m_i_ezsignfolder_signaturetotal_isSet) {
         obj.insert(QString("iEzsignfolderSignaturetotal"), ::Ezmaxapi::toJsonValue(m_i_ezsignfolder_signaturetotal));
+    }
+    if (m_i_ezsignfolder_formfieldtotal_isSet) {
+        obj.insert(QString("iEzsignfolderFormfieldtotal"), ::Ezmaxapi::toJsonValue(m_i_ezsignfolder_formfieldtotal));
     }
     if (m_i_ezsignfolder_signaturesigned_isSet) {
         obj.insert(QString("iEzsignfolderSignaturesigned"), ::Ezmaxapi::toJsonValue(m_i_ezsignfolder_signaturesigned));
@@ -175,6 +184,22 @@ bool Custom_Ezsignfoldertransmission_Response::is_i_ezsignfolder_signaturetotal_
     return m_i_ezsignfolder_signaturetotal_isValid;
 }
 
+qint32 Custom_Ezsignfoldertransmission_Response::getIEzsignfolderFormfieldtotal() const {
+    return m_i_ezsignfolder_formfieldtotal;
+}
+void Custom_Ezsignfoldertransmission_Response::setIEzsignfolderFormfieldtotal(const qint32 &i_ezsignfolder_formfieldtotal) {
+    m_i_ezsignfolder_formfieldtotal = i_ezsignfolder_formfieldtotal;
+    m_i_ezsignfolder_formfieldtotal_isSet = true;
+}
+
+bool Custom_Ezsignfoldertransmission_Response::is_i_ezsignfolder_formfieldtotal_Set() const{
+    return m_i_ezsignfolder_formfieldtotal_isSet;
+}
+
+bool Custom_Ezsignfoldertransmission_Response::is_i_ezsignfolder_formfieldtotal_Valid() const{
+    return m_i_ezsignfolder_formfieldtotal_isValid;
+}
+
 qint32 Custom_Ezsignfoldertransmission_Response::getIEzsignfolderSignaturesigned() const {
     return m_i_ezsignfolder_signaturesigned;
 }
@@ -230,6 +255,11 @@ bool Custom_Ezsignfoldertransmission_Response::isSet() const {
             break;
         }
 
+        if (m_i_ezsignfolder_formfieldtotal_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (m_i_ezsignfolder_signaturesigned_isSet) {
             isObjectUpdated = true;
             break;
@@ -245,7 +275,7 @@ bool Custom_Ezsignfoldertransmission_Response::isSet() const {
 
 bool Custom_Ezsignfoldertransmission_Response::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_pki_ezsignfolder_id_isValid && m_s_ezsignfolder_description_isValid && m_e_ezsignfolder_step_isValid && m_i_ezsignfolder_signaturetotal_isValid && m_i_ezsignfolder_signaturesigned_isValid && m_a_obj_ezsignfoldertransmission_signer_isValid && true;
+    return m_pki_ezsignfolder_id_isValid && m_s_ezsignfolder_description_isValid && m_e_ezsignfolder_step_isValid && m_i_ezsignfolder_signaturetotal_isValid && m_i_ezsignfolder_formfieldtotal_isValid && m_i_ezsignfolder_signaturesigned_isValid && m_a_obj_ezsignfoldertransmission_signer_isValid && true;
 }
 
 } // namespace Ezmaxapi

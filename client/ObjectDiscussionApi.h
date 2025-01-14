@@ -68,29 +68,29 @@ public:
     /**
     * @param[in]  discussion_create_object_v1_request Discussion_createObject_v1_Request [required]
     */
-    void discussionCreateObjectV1(const Discussion_createObject_v1_Request &discussion_create_object_v1_request);
+    virtual void discussionCreateObjectV1(const Discussion_createObject_v1_Request &discussion_create_object_v1_request);
 
     /**
     * @param[in]  pki_discussion_id qint32 [required]
     */
-    void discussionDeleteObjectV1(const qint32 &pki_discussion_id);
+    virtual void discussionDeleteObjectV1(const qint32 &pki_discussion_id);
 
     /**
     * @param[in]  pki_discussion_id qint32 [required]
     */
-    void discussionGetObjectV2(const qint32 &pki_discussion_id);
+    virtual void discussionGetObjectV2(const qint32 &pki_discussion_id);
 
     /**
     * @param[in]  pki_discussion_id qint32 [required]
     * @param[in]  discussion_patch_object_v1_request Discussion_patchObject_v1_Request [required]
     */
-    void discussionPatchObjectV1(const qint32 &pki_discussion_id, const Discussion_patchObject_v1_Request &discussion_patch_object_v1_request);
+    virtual void discussionPatchObjectV1(const qint32 &pki_discussion_id, const Discussion_patchObject_v1_Request &discussion_patch_object_v1_request);
 
     /**
     * @param[in]  pki_discussion_id qint32 [required]
     * @param[in]  discussion_update_discussionreadstatus_v1_request Discussion_updateDiscussionreadstatus_v1_Request [required]
     */
-    void discussionUpdateDiscussionreadstatusV1(const qint32 &pki_discussion_id, const Discussion_updateDiscussionreadstatus_v1_Request &discussion_update_discussionreadstatus_v1_request);
+    virtual void discussionUpdateDiscussionreadstatusV1(const qint32 &pki_discussion_id, const Discussion_updateDiscussionreadstatus_v1_Request &discussion_update_discussionreadstatus_v1_request);
 
 
 private:
@@ -128,6 +128,7 @@ Q_SIGNALS:
     void discussionGetObjectV2Signal(Discussion_getObject_v2_Response summary);
     void discussionPatchObjectV1Signal(Discussion_patchObject_v1_Response summary);
     void discussionUpdateDiscussionreadstatusV1Signal(Discussion_updateDiscussionreadstatus_v1_Response summary);
+
 
     void discussionCreateObjectV1SignalFull(HttpRequestWorker *worker, Discussion_createObject_v1_Response summary);
     void discussionDeleteObjectV1SignalFull(HttpRequestWorker *worker, Discussion_deleteObject_v1_Response summary);

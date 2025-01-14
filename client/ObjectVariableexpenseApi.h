@@ -69,13 +69,13 @@ public:
     /**
     * @param[in]  variableexpense_create_object_v1_request Variableexpense_createObject_v1_Request [required]
     */
-    void variableexpenseCreateObjectV1(const Variableexpense_createObject_v1_Request &variableexpense_create_object_v1_request);
+    virtual void variableexpenseCreateObjectV1(const Variableexpense_createObject_v1_Request &variableexpense_create_object_v1_request);
 
     /**
     * @param[in]  pki_variableexpense_id qint32 [required]
     * @param[in]  variableexpense_edit_object_v1_request Variableexpense_editObject_v1_Request [required]
     */
-    void variableexpenseEditObjectV1(const qint32 &pki_variableexpense_id, const Variableexpense_editObject_v1_Request &variableexpense_edit_object_v1_request);
+    virtual void variableexpenseEditObjectV1(const qint32 &pki_variableexpense_id, const Variableexpense_editObject_v1_Request &variableexpense_edit_object_v1_request);
 
     /**
     * @param[in]  s_selector QString [required]
@@ -83,7 +83,7 @@ public:
     * @param[in]  s_query QString [optional]
     * @param[in]  accept_language Header_Accept_Language [optional]
     */
-    void variableexpenseGetAutocompleteV2(const QString &s_selector, const ::Ezmaxapi::OptionalParam<QString> &e_filter_active = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<QString> &s_query = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<Header_Accept_Language>());
+    virtual void variableexpenseGetAutocompleteV2(const QString &s_selector, const ::Ezmaxapi::OptionalParam<QString> &e_filter_active = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<QString> &s_query = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<Header_Accept_Language>());
 
     /**
     * @param[in]  e_order_by QString [optional]
@@ -92,12 +92,12 @@ public:
     * @param[in]  accept_language Header_Accept_Language [optional]
     * @param[in]  s_filter QString [optional]
     */
-    void variableexpenseGetListV1(const ::Ezmaxapi::OptionalParam<QString> &e_order_by = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<qint32> &i_row_max = ::Ezmaxapi::OptionalParam<qint32>(), const ::Ezmaxapi::OptionalParam<qint32> &i_row_offset = ::Ezmaxapi::OptionalParam<qint32>(), const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<Header_Accept_Language>(), const ::Ezmaxapi::OptionalParam<QString> &s_filter = ::Ezmaxapi::OptionalParam<QString>());
+    virtual void variableexpenseGetListV1(const ::Ezmaxapi::OptionalParam<QString> &e_order_by = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<qint32> &i_row_max = ::Ezmaxapi::OptionalParam<qint32>(), const ::Ezmaxapi::OptionalParam<qint32> &i_row_offset = ::Ezmaxapi::OptionalParam<qint32>(), const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<Header_Accept_Language>(), const ::Ezmaxapi::OptionalParam<QString> &s_filter = ::Ezmaxapi::OptionalParam<QString>());
 
     /**
     * @param[in]  pki_variableexpense_id qint32 [required]
     */
-    void variableexpenseGetObjectV2(const qint32 &pki_variableexpense_id);
+    virtual void variableexpenseGetObjectV2(const qint32 &pki_variableexpense_id);
 
 
 private:
@@ -135,6 +135,7 @@ Q_SIGNALS:
     void variableexpenseGetAutocompleteV2Signal(Variableexpense_getAutocomplete_v2_Response summary);
     void variableexpenseGetListV1Signal(Variableexpense_getList_v1_Response summary);
     void variableexpenseGetObjectV2Signal(Variableexpense_getObject_v2_Response summary);
+
 
     void variableexpenseCreateObjectV1SignalFull(HttpRequestWorker *worker, Variableexpense_createObject_v1_Response summary);
     void variableexpenseEditObjectV1SignalFull(HttpRequestWorker *worker, Variableexpense_editObject_v1_Response summary);

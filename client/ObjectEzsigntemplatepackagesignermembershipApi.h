@@ -64,17 +64,17 @@ public:
     /**
     * @param[in]  ezsigntemplatepackagesignermembership_create_object_v1_request Ezsigntemplatepackagesignermembership_createObject_v1_Request [required]
     */
-    void ezsigntemplatepackagesignermembershipCreateObjectV1(const Ezsigntemplatepackagesignermembership_createObject_v1_Request &ezsigntemplatepackagesignermembership_create_object_v1_request);
+    virtual void ezsigntemplatepackagesignermembershipCreateObjectV1(const Ezsigntemplatepackagesignermembership_createObject_v1_Request &ezsigntemplatepackagesignermembership_create_object_v1_request);
 
     /**
     * @param[in]  pki_ezsigntemplatepackagesignermembership_id qint32 [required]
     */
-    void ezsigntemplatepackagesignermembershipDeleteObjectV1(const qint32 &pki_ezsigntemplatepackagesignermembership_id);
+    virtual void ezsigntemplatepackagesignermembershipDeleteObjectV1(const qint32 &pki_ezsigntemplatepackagesignermembership_id);
 
     /**
     * @param[in]  pki_ezsigntemplatepackagesignermembership_id qint32 [required]
     */
-    void ezsigntemplatepackagesignermembershipGetObjectV2(const qint32 &pki_ezsigntemplatepackagesignermembership_id);
+    virtual void ezsigntemplatepackagesignermembershipGetObjectV2(const qint32 &pki_ezsigntemplatepackagesignermembership_id);
 
 
 private:
@@ -108,6 +108,7 @@ Q_SIGNALS:
     void ezsigntemplatepackagesignermembershipCreateObjectV1Signal(Ezsigntemplatepackagesignermembership_createObject_v1_Response summary);
     void ezsigntemplatepackagesignermembershipDeleteObjectV1Signal(Ezsigntemplatepackagesignermembership_deleteObject_v1_Response summary);
     void ezsigntemplatepackagesignermembershipGetObjectV2Signal(Ezsigntemplatepackagesignermembership_getObject_v2_Response summary);
+
 
     void ezsigntemplatepackagesignermembershipCreateObjectV1SignalFull(HttpRequestWorker *worker, Ezsigntemplatepackagesignermembership_createObject_v1_Response summary);
     void ezsigntemplatepackagesignermembershipDeleteObjectV1SignalFull(HttpRequestWorker *worker, Ezsigntemplatepackagesignermembership_deleteObject_v1_Response summary);

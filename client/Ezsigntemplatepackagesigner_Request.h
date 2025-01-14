@@ -21,6 +21,7 @@
 
 #include <QJsonObject>
 
+#include "Field_eEzsigntemplatepackagesignerMapping.h"
 #include <QString>
 
 #include "Enum.h"
@@ -49,6 +50,31 @@ public:
     bool is_fki_ezsigntemplatepackage_id_Set() const;
     bool is_fki_ezsigntemplatepackage_id_Valid() const;
 
+    qint32 getFkiEzdoctemplatedocumentId() const;
+    void setFkiEzdoctemplatedocumentId(const qint32 &fki_ezdoctemplatedocument_id);
+    bool is_fki_ezdoctemplatedocument_id_Set() const;
+    bool is_fki_ezdoctemplatedocument_id_Valid() const;
+
+    qint32 getFkiUserId() const;
+    void setFkiUserId(const qint32 &fki_user_id);
+    bool is_fki_user_id_Set() const;
+    bool is_fki_user_id_Valid() const;
+
+    qint32 getFkiUsergroupId() const;
+    void setFkiUsergroupId(const qint32 &fki_usergroup_id);
+    bool is_fki_usergroup_id_Set() const;
+    bool is_fki_usergroup_id_Valid() const;
+
+    bool isBEzsigntemplatepackagesignerReceivecopy() const;
+    void setBEzsigntemplatepackagesignerReceivecopy(const bool &b_ezsigntemplatepackagesigner_receivecopy);
+    bool is_b_ezsigntemplatepackagesigner_receivecopy_Set() const;
+    bool is_b_ezsigntemplatepackagesigner_receivecopy_Valid() const;
+
+    Field_eEzsigntemplatepackagesignerMapping getEEzsigntemplatepackagesignerMapping() const;
+    void setEEzsigntemplatepackagesignerMapping(const Field_eEzsigntemplatepackagesignerMapping &e_ezsigntemplatepackagesigner_mapping);
+    bool is_e_ezsigntemplatepackagesigner_mapping_Set() const;
+    bool is_e_ezsigntemplatepackagesigner_mapping_Valid() const;
+
     QString getSEzsigntemplatepackagesignerDescription() const;
     void setSEzsigntemplatepackagesignerDescription(const QString &s_ezsigntemplatepackagesigner_description);
     bool is_s_ezsigntemplatepackagesigner_description_Set() const;
@@ -67,6 +93,26 @@ private:
     qint32 m_fki_ezsigntemplatepackage_id;
     bool m_fki_ezsigntemplatepackage_id_isSet;
     bool m_fki_ezsigntemplatepackage_id_isValid;
+
+    qint32 m_fki_ezdoctemplatedocument_id;
+    bool m_fki_ezdoctemplatedocument_id_isSet;
+    bool m_fki_ezdoctemplatedocument_id_isValid;
+
+    qint32 m_fki_user_id;
+    bool m_fki_user_id_isSet;
+    bool m_fki_user_id_isValid;
+
+    qint32 m_fki_usergroup_id;
+    bool m_fki_usergroup_id_isSet;
+    bool m_fki_usergroup_id_isValid;
+
+    bool m_b_ezsigntemplatepackagesigner_receivecopy;
+    bool m_b_ezsigntemplatepackagesigner_receivecopy_isSet;
+    bool m_b_ezsigntemplatepackagesigner_receivecopy_isValid;
+
+    Field_eEzsigntemplatepackagesignerMapping m_e_ezsigntemplatepackagesigner_mapping;
+    bool m_e_ezsigntemplatepackagesigner_mapping_isSet;
+    bool m_e_ezsigntemplatepackagesigner_mapping_isValid;
 
     QString m_s_ezsigntemplatepackagesigner_description;
     bool m_s_ezsigntemplatepackagesigner_description_isSet;

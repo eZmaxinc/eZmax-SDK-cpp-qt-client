@@ -39,6 +39,11 @@ public:
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
+    qint32 getPkiWebsiteId() const;
+    void setPkiWebsiteId(const qint32 &pki_website_id);
+    bool is_pki_website_id_Set() const;
+    bool is_pki_website_id_Valid() const;
+
     qint32 getFkiWebsitetypeId() const;
     void setFkiWebsitetypeId(const qint32 &fki_websitetype_id);
     bool is_fki_websitetype_id_Set() const;
@@ -54,6 +59,10 @@ public:
 
 private:
     void initializeModel();
+
+    qint32 m_pki_website_id;
+    bool m_pki_website_id_isSet;
+    bool m_pki_website_id_isValid;
 
     qint32 m_fki_websitetype_id;
     bool m_fki_websitetype_id_isSet;

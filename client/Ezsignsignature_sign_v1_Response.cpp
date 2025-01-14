@@ -39,6 +39,9 @@ void Ezsignsignature_sign_v1_Response::initializeModel() {
 
     m_obj_debug_isSet = false;
     m_obj_debug_isValid = false;
+
+    m_m_payload_isSet = false;
+    m_m_payload_isValid = false;
 }
 
 void Ezsignsignature_sign_v1_Response::fromJson(QString jsonString) {
@@ -55,6 +58,9 @@ void Ezsignsignature_sign_v1_Response::fromJsonObject(QJsonObject json) {
 
     m_obj_debug_isValid = ::Ezmaxapi::fromJsonValue(m_obj_debug, json[QString("objDebug")]);
     m_obj_debug_isSet = !json[QString("objDebug")].isNull() && m_obj_debug_isValid;
+
+    m_m_payload_isValid = ::Ezmaxapi::fromJsonValue(m_m_payload, json[QString("mPayload")]);
+    m_m_payload_isSet = !json[QString("mPayload")].isNull() && m_m_payload_isValid;
 }
 
 QString Ezsignsignature_sign_v1_Response::asJson() const {
@@ -71,6 +77,9 @@ QJsonObject Ezsignsignature_sign_v1_Response::asJsonObject() const {
     }
     if (m_obj_debug.isSet()) {
         obj.insert(QString("objDebug"), ::Ezmaxapi::toJsonValue(m_obj_debug));
+    }
+    if (m_m_payload.isSet()) {
+        obj.insert(QString("mPayload"), ::Ezmaxapi::toJsonValue(m_m_payload));
     }
     return obj;
 }
@@ -107,6 +116,22 @@ bool Ezsignsignature_sign_v1_Response::is_obj_debug_Valid() const{
     return m_obj_debug_isValid;
 }
 
+Ezsignsignature_sign_v1_Response_mPayload Ezsignsignature_sign_v1_Response::getMPayload() const {
+    return m_m_payload;
+}
+void Ezsignsignature_sign_v1_Response::setMPayload(const Ezsignsignature_sign_v1_Response_mPayload &m_payload) {
+    m_m_payload = m_payload;
+    m_m_payload_isSet = true;
+}
+
+bool Ezsignsignature_sign_v1_Response::is_m_payload_Set() const{
+    return m_m_payload_isSet;
+}
+
+bool Ezsignsignature_sign_v1_Response::is_m_payload_Valid() const{
+    return m_m_payload_isValid;
+}
+
 bool Ezsignsignature_sign_v1_Response::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -119,13 +144,18 @@ bool Ezsignsignature_sign_v1_Response::isSet() const {
             isObjectUpdated = true;
             break;
         }
+
+        if (m_m_payload.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
     } while (false);
     return isObjectUpdated;
 }
 
 bool Ezsignsignature_sign_v1_Response::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_obj_debug_payload_isValid && true;
+    return m_obj_debug_payload_isValid && m_m_payload_isValid && true;
 }
 
 } // namespace Ezmaxapi

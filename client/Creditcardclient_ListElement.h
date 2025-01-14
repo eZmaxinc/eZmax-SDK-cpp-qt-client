@@ -49,6 +49,11 @@ public:
     bool is_fki_creditcarddetail_id_Set() const;
     bool is_fki_creditcarddetail_id_Valid() const;
 
+    qint32 getFkiCreditcardtypeId() const;
+    void setFkiCreditcardtypeId(const qint32 &fki_creditcardtype_id);
+    bool is_fki_creditcardtype_id_Set() const;
+    bool is_fki_creditcardtype_id_Valid() const;
+
     bool isBCreditcardclientrelationIsdefault() const;
     void setBCreditcardclientrelationIsdefault(const bool &b_creditcardclientrelation_isdefault);
     bool is_b_creditcardclientrelation_isdefault_Set() const;
@@ -59,20 +64,10 @@ public:
     bool is_s_creditcardclient_description_Set() const;
     bool is_s_creditcardclient_description_Valid() const;
 
-    bool isBCreditcardclientIsactive() const;
-    void setBCreditcardclientIsactive(const bool &b_creditcardclient_isactive);
-    bool is_b_creditcardclient_isactive_Set() const;
-    bool is_b_creditcardclient_isactive_Valid() const;
-
-    bool isBCreditcardclientAllowedagencypayment() const;
-    void setBCreditcardclientAllowedagencypayment(const bool &b_creditcardclient_allowedagencypayment);
-    bool is_b_creditcardclient_allowedagencypayment_Set() const;
-    bool is_b_creditcardclient_allowedagencypayment_Valid() const;
-
-    bool isBCreditcardclientAllowedroyallepageprotection() const;
-    void setBCreditcardclientAllowedroyallepageprotection(const bool &b_creditcardclient_allowedroyallepageprotection);
-    bool is_b_creditcardclient_allowedroyallepageprotection_Set() const;
-    bool is_b_creditcardclient_allowedroyallepageprotection_Valid() const;
+    bool isBCreditcardclientAllowedcompanypayment() const;
+    void setBCreditcardclientAllowedcompanypayment(const bool &b_creditcardclient_allowedcompanypayment);
+    bool is_b_creditcardclient_allowedcompanypayment_Set() const;
+    bool is_b_creditcardclient_allowedcompanypayment_Valid() const;
 
     bool isBCreditcardclientAllowedtranquillit() const;
     void setBCreditcardclientAllowedtranquillit(const bool &b_creditcardclient_allowedtranquillit);
@@ -89,10 +84,10 @@ public:
     bool is_i_creditcarddetail_expirationyear_Set() const;
     bool is_i_creditcarddetail_expirationyear_Valid() const;
 
-    QString getSCreditcarddetailNumbermasked() const;
-    void setSCreditcarddetailNumbermasked(const QString &s_creditcarddetail_numbermasked);
-    bool is_s_creditcarddetail_numbermasked_Set() const;
-    bool is_s_creditcarddetail_numbermasked_Valid() const;
+    qint32 getICreditcarddetailLastdigits() const;
+    void setICreditcarddetailLastdigits(const qint32 &i_creditcarddetail_lastdigits);
+    bool is_i_creditcarddetail_lastdigits_Set() const;
+    bool is_i_creditcarddetail_lastdigits_Valid() const;
 
     virtual bool isSet() const override;
     virtual bool isValid() const override;
@@ -108,6 +103,10 @@ private:
     bool m_fki_creditcarddetail_id_isSet;
     bool m_fki_creditcarddetail_id_isValid;
 
+    qint32 m_fki_creditcardtype_id;
+    bool m_fki_creditcardtype_id_isSet;
+    bool m_fki_creditcardtype_id_isValid;
+
     bool m_b_creditcardclientrelation_isdefault;
     bool m_b_creditcardclientrelation_isdefault_isSet;
     bool m_b_creditcardclientrelation_isdefault_isValid;
@@ -116,17 +115,9 @@ private:
     bool m_s_creditcardclient_description_isSet;
     bool m_s_creditcardclient_description_isValid;
 
-    bool m_b_creditcardclient_isactive;
-    bool m_b_creditcardclient_isactive_isSet;
-    bool m_b_creditcardclient_isactive_isValid;
-
-    bool m_b_creditcardclient_allowedagencypayment;
-    bool m_b_creditcardclient_allowedagencypayment_isSet;
-    bool m_b_creditcardclient_allowedagencypayment_isValid;
-
-    bool m_b_creditcardclient_allowedroyallepageprotection;
-    bool m_b_creditcardclient_allowedroyallepageprotection_isSet;
-    bool m_b_creditcardclient_allowedroyallepageprotection_isValid;
+    bool m_b_creditcardclient_allowedcompanypayment;
+    bool m_b_creditcardclient_allowedcompanypayment_isSet;
+    bool m_b_creditcardclient_allowedcompanypayment_isValid;
 
     bool m_b_creditcardclient_allowedtranquillit;
     bool m_b_creditcardclient_allowedtranquillit_isSet;
@@ -140,9 +131,9 @@ private:
     bool m_i_creditcarddetail_expirationyear_isSet;
     bool m_i_creditcarddetail_expirationyear_isValid;
 
-    QString m_s_creditcarddetail_numbermasked;
-    bool m_s_creditcarddetail_numbermasked_isSet;
-    bool m_s_creditcarddetail_numbermasked_isValid;
+    qint32 m_i_creditcarddetail_lastdigits;
+    bool m_i_creditcarddetail_lastdigits_isSet;
+    bool m_i_creditcarddetail_lastdigits_isValid;
 };
 
 } // namespace Ezmaxapi

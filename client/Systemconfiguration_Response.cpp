@@ -40,6 +40,9 @@ void Systemconfiguration_Response::initializeModel() {
     m_fki_systemconfigurationtype_id_isSet = false;
     m_fki_systemconfigurationtype_id_isValid = false;
 
+    m_fki_branding_id_isSet = false;
+    m_fki_branding_id_isValid = false;
+
     m_s_systemconfigurationtype_description_x_isSet = false;
     m_s_systemconfigurationtype_description_x_isValid = false;
 
@@ -64,6 +67,9 @@ void Systemconfiguration_Response::initializeModel() {
     m_b_systemconfiguration_ezsignpersonnal_isSet = false;
     m_b_systemconfiguration_ezsignpersonnal_isValid = false;
 
+    m_b_systemconfiguration_hascreditcardmerchant_isSet = false;
+    m_b_systemconfiguration_hascreditcardmerchant_isValid = false;
+
     m_b_systemconfiguration_isdisposalactive_isSet = false;
     m_b_systemconfiguration_isdisposalactive_isValid = false;
 
@@ -75,6 +81,9 @@ void Systemconfiguration_Response::initializeModel() {
 
     m_dt_systemconfiguration_readonlyexpirationend_isSet = false;
     m_dt_systemconfiguration_readonlyexpirationend_isValid = false;
+
+    m_obj_branding_isSet = false;
+    m_obj_branding_isValid = false;
 }
 
 void Systemconfiguration_Response::fromJson(QString jsonString) {
@@ -91,6 +100,9 @@ void Systemconfiguration_Response::fromJsonObject(QJsonObject json) {
 
     m_fki_systemconfigurationtype_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_systemconfigurationtype_id, json[QString("fkiSystemconfigurationtypeID")]);
     m_fki_systemconfigurationtype_id_isSet = !json[QString("fkiSystemconfigurationtypeID")].isNull() && m_fki_systemconfigurationtype_id_isValid;
+
+    m_fki_branding_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_branding_id, json[QString("fkiBrandingID")]);
+    m_fki_branding_id_isSet = !json[QString("fkiBrandingID")].isNull() && m_fki_branding_id_isValid;
 
     m_s_systemconfigurationtype_description_x_isValid = ::Ezmaxapi::fromJsonValue(m_s_systemconfigurationtype_description_x, json[QString("sSystemconfigurationtypeDescriptionX")]);
     m_s_systemconfigurationtype_description_x_isSet = !json[QString("sSystemconfigurationtypeDescriptionX")].isNull() && m_s_systemconfigurationtype_description_x_isValid;
@@ -116,6 +128,9 @@ void Systemconfiguration_Response::fromJsonObject(QJsonObject json) {
     m_b_systemconfiguration_ezsignpersonnal_isValid = ::Ezmaxapi::fromJsonValue(m_b_systemconfiguration_ezsignpersonnal, json[QString("bSystemconfigurationEzsignpersonnal")]);
     m_b_systemconfiguration_ezsignpersonnal_isSet = !json[QString("bSystemconfigurationEzsignpersonnal")].isNull() && m_b_systemconfiguration_ezsignpersonnal_isValid;
 
+    m_b_systemconfiguration_hascreditcardmerchant_isValid = ::Ezmaxapi::fromJsonValue(m_b_systemconfiguration_hascreditcardmerchant, json[QString("bSystemconfigurationHascreditcardmerchant")]);
+    m_b_systemconfiguration_hascreditcardmerchant_isSet = !json[QString("bSystemconfigurationHascreditcardmerchant")].isNull() && m_b_systemconfiguration_hascreditcardmerchant_isValid;
+
     m_b_systemconfiguration_isdisposalactive_isValid = ::Ezmaxapi::fromJsonValue(m_b_systemconfiguration_isdisposalactive, json[QString("bSystemconfigurationIsdisposalactive")]);
     m_b_systemconfiguration_isdisposalactive_isSet = !json[QString("bSystemconfigurationIsdisposalactive")].isNull() && m_b_systemconfiguration_isdisposalactive_isValid;
 
@@ -127,6 +142,9 @@ void Systemconfiguration_Response::fromJsonObject(QJsonObject json) {
 
     m_dt_systemconfiguration_readonlyexpirationend_isValid = ::Ezmaxapi::fromJsonValue(m_dt_systemconfiguration_readonlyexpirationend, json[QString("dtSystemconfigurationReadonlyexpirationend")]);
     m_dt_systemconfiguration_readonlyexpirationend_isSet = !json[QString("dtSystemconfigurationReadonlyexpirationend")].isNull() && m_dt_systemconfiguration_readonlyexpirationend_isValid;
+
+    m_obj_branding_isValid = ::Ezmaxapi::fromJsonValue(m_obj_branding, json[QString("objBranding")]);
+    m_obj_branding_isSet = !json[QString("objBranding")].isNull() && m_obj_branding_isValid;
 }
 
 QString Systemconfiguration_Response::asJson() const {
@@ -143,6 +161,9 @@ QJsonObject Systemconfiguration_Response::asJsonObject() const {
     }
     if (m_fki_systemconfigurationtype_id_isSet) {
         obj.insert(QString("fkiSystemconfigurationtypeID"), ::Ezmaxapi::toJsonValue(m_fki_systemconfigurationtype_id));
+    }
+    if (m_fki_branding_id_isSet) {
+        obj.insert(QString("fkiBrandingID"), ::Ezmaxapi::toJsonValue(m_fki_branding_id));
     }
     if (m_s_systemconfigurationtype_description_x_isSet) {
         obj.insert(QString("sSystemconfigurationtypeDescriptionX"), ::Ezmaxapi::toJsonValue(m_s_systemconfigurationtype_description_x));
@@ -168,6 +189,9 @@ QJsonObject Systemconfiguration_Response::asJsonObject() const {
     if (m_b_systemconfiguration_ezsignpersonnal_isSet) {
         obj.insert(QString("bSystemconfigurationEzsignpersonnal"), ::Ezmaxapi::toJsonValue(m_b_systemconfiguration_ezsignpersonnal));
     }
+    if (m_b_systemconfiguration_hascreditcardmerchant_isSet) {
+        obj.insert(QString("bSystemconfigurationHascreditcardmerchant"), ::Ezmaxapi::toJsonValue(m_b_systemconfiguration_hascreditcardmerchant));
+    }
     if (m_b_systemconfiguration_isdisposalactive_isSet) {
         obj.insert(QString("bSystemconfigurationIsdisposalactive"), ::Ezmaxapi::toJsonValue(m_b_systemconfiguration_isdisposalactive));
     }
@@ -179,6 +203,9 @@ QJsonObject Systemconfiguration_Response::asJsonObject() const {
     }
     if (m_dt_systemconfiguration_readonlyexpirationend_isSet) {
         obj.insert(QString("dtSystemconfigurationReadonlyexpirationend"), ::Ezmaxapi::toJsonValue(m_dt_systemconfiguration_readonlyexpirationend));
+    }
+    if (m_obj_branding.isSet()) {
+        obj.insert(QString("objBranding"), ::Ezmaxapi::toJsonValue(m_obj_branding));
     }
     return obj;
 }
@@ -213,6 +240,22 @@ bool Systemconfiguration_Response::is_fki_systemconfigurationtype_id_Set() const
 
 bool Systemconfiguration_Response::is_fki_systemconfigurationtype_id_Valid() const{
     return m_fki_systemconfigurationtype_id_isValid;
+}
+
+qint32 Systemconfiguration_Response::getFkiBrandingId() const {
+    return m_fki_branding_id;
+}
+void Systemconfiguration_Response::setFkiBrandingId(const qint32 &fki_branding_id) {
+    m_fki_branding_id = fki_branding_id;
+    m_fki_branding_id_isSet = true;
+}
+
+bool Systemconfiguration_Response::is_fki_branding_id_Set() const{
+    return m_fki_branding_id_isSet;
+}
+
+bool Systemconfiguration_Response::is_fki_branding_id_Valid() const{
+    return m_fki_branding_id_isValid;
 }
 
 QString Systemconfiguration_Response::getSSystemconfigurationtypeDescriptionX() const {
@@ -343,6 +386,22 @@ bool Systemconfiguration_Response::is_b_systemconfiguration_ezsignpersonnal_Vali
     return m_b_systemconfiguration_ezsignpersonnal_isValid;
 }
 
+bool Systemconfiguration_Response::isBSystemconfigurationHascreditcardmerchant() const {
+    return m_b_systemconfiguration_hascreditcardmerchant;
+}
+void Systemconfiguration_Response::setBSystemconfigurationHascreditcardmerchant(const bool &b_systemconfiguration_hascreditcardmerchant) {
+    m_b_systemconfiguration_hascreditcardmerchant = b_systemconfiguration_hascreditcardmerchant;
+    m_b_systemconfiguration_hascreditcardmerchant_isSet = true;
+}
+
+bool Systemconfiguration_Response::is_b_systemconfiguration_hascreditcardmerchant_Set() const{
+    return m_b_systemconfiguration_hascreditcardmerchant_isSet;
+}
+
+bool Systemconfiguration_Response::is_b_systemconfiguration_hascreditcardmerchant_Valid() const{
+    return m_b_systemconfiguration_hascreditcardmerchant_isValid;
+}
+
 bool Systemconfiguration_Response::isBSystemconfigurationIsdisposalactive() const {
     return m_b_systemconfiguration_isdisposalactive;
 }
@@ -407,6 +466,22 @@ bool Systemconfiguration_Response::is_dt_systemconfiguration_readonlyexpiratione
     return m_dt_systemconfiguration_readonlyexpirationend_isValid;
 }
 
+Custom_Branding_Response Systemconfiguration_Response::getObjBranding() const {
+    return m_obj_branding;
+}
+void Systemconfiguration_Response::setObjBranding(const Custom_Branding_Response &obj_branding) {
+    m_obj_branding = obj_branding;
+    m_obj_branding_isSet = true;
+}
+
+bool Systemconfiguration_Response::is_obj_branding_Set() const{
+    return m_obj_branding_isSet;
+}
+
+bool Systemconfiguration_Response::is_obj_branding_Valid() const{
+    return m_obj_branding_isValid;
+}
+
 bool Systemconfiguration_Response::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -416,6 +491,11 @@ bool Systemconfiguration_Response::isSet() const {
         }
 
         if (m_fki_systemconfigurationtype_id_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_fki_branding_id_isSet) {
             isObjectUpdated = true;
             break;
         }
@@ -460,6 +540,11 @@ bool Systemconfiguration_Response::isSet() const {
             break;
         }
 
+        if (m_b_systemconfiguration_hascreditcardmerchant_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (m_b_systemconfiguration_isdisposalactive_isSet) {
             isObjectUpdated = true;
             break;
@@ -476,6 +561,11 @@ bool Systemconfiguration_Response::isSet() const {
         }
 
         if (m_dt_systemconfiguration_readonlyexpirationend_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_obj_branding.isSet()) {
             isObjectUpdated = true;
             break;
         }

@@ -40,8 +40,8 @@ void Creditcarddetail_ResponseCompound::initializeModel() {
     m_fki_creditcardtype_id_isSet = false;
     m_fki_creditcardtype_id_isValid = false;
 
-    m_s_creditcarddetail_numbermasked_isSet = false;
-    m_s_creditcarddetail_numbermasked_isValid = false;
+    m_i_creditcarddetail_lastdigits_isSet = false;
+    m_i_creditcarddetail_lastdigits_isValid = false;
 
     m_i_creditcarddetail_expirationmonth_isSet = false;
     m_i_creditcarddetail_expirationmonth_isValid = false;
@@ -74,8 +74,8 @@ void Creditcarddetail_ResponseCompound::fromJsonObject(QJsonObject json) {
     m_fki_creditcardtype_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_creditcardtype_id, json[QString("fkiCreditcardtypeID")]);
     m_fki_creditcardtype_id_isSet = !json[QString("fkiCreditcardtypeID")].isNull() && m_fki_creditcardtype_id_isValid;
 
-    m_s_creditcarddetail_numbermasked_isValid = ::Ezmaxapi::fromJsonValue(m_s_creditcarddetail_numbermasked, json[QString("sCreditcarddetailNumbermasked")]);
-    m_s_creditcarddetail_numbermasked_isSet = !json[QString("sCreditcarddetailNumbermasked")].isNull() && m_s_creditcarddetail_numbermasked_isValid;
+    m_i_creditcarddetail_lastdigits_isValid = ::Ezmaxapi::fromJsonValue(m_i_creditcarddetail_lastdigits, json[QString("iCreditcarddetailLastdigits")]);
+    m_i_creditcarddetail_lastdigits_isSet = !json[QString("iCreditcarddetailLastdigits")].isNull() && m_i_creditcarddetail_lastdigits_isValid;
 
     m_i_creditcarddetail_expirationmonth_isValid = ::Ezmaxapi::fromJsonValue(m_i_creditcarddetail_expirationmonth, json[QString("iCreditcarddetailExpirationmonth")]);
     m_i_creditcarddetail_expirationmonth_isSet = !json[QString("iCreditcarddetailExpirationmonth")].isNull() && m_i_creditcarddetail_expirationmonth_isValid;
@@ -108,8 +108,8 @@ QJsonObject Creditcarddetail_ResponseCompound::asJsonObject() const {
     if (m_fki_creditcardtype_id_isSet) {
         obj.insert(QString("fkiCreditcardtypeID"), ::Ezmaxapi::toJsonValue(m_fki_creditcardtype_id));
     }
-    if (m_s_creditcarddetail_numbermasked_isSet) {
-        obj.insert(QString("sCreditcarddetailNumbermasked"), ::Ezmaxapi::toJsonValue(m_s_creditcarddetail_numbermasked));
+    if (m_i_creditcarddetail_lastdigits_isSet) {
+        obj.insert(QString("iCreditcarddetailLastdigits"), ::Ezmaxapi::toJsonValue(m_i_creditcarddetail_lastdigits));
     }
     if (m_i_creditcarddetail_expirationmonth_isSet) {
         obj.insert(QString("iCreditcarddetailExpirationmonth"), ::Ezmaxapi::toJsonValue(m_i_creditcarddetail_expirationmonth));
@@ -161,20 +161,20 @@ bool Creditcarddetail_ResponseCompound::is_fki_creditcardtype_id_Valid() const{
     return m_fki_creditcardtype_id_isValid;
 }
 
-QString Creditcarddetail_ResponseCompound::getSCreditcarddetailNumbermasked() const {
-    return m_s_creditcarddetail_numbermasked;
+qint32 Creditcarddetail_ResponseCompound::getICreditcarddetailLastdigits() const {
+    return m_i_creditcarddetail_lastdigits;
 }
-void Creditcarddetail_ResponseCompound::setSCreditcarddetailNumbermasked(const QString &s_creditcarddetail_numbermasked) {
-    m_s_creditcarddetail_numbermasked = s_creditcarddetail_numbermasked;
-    m_s_creditcarddetail_numbermasked_isSet = true;
-}
-
-bool Creditcarddetail_ResponseCompound::is_s_creditcarddetail_numbermasked_Set() const{
-    return m_s_creditcarddetail_numbermasked_isSet;
+void Creditcarddetail_ResponseCompound::setICreditcarddetailLastdigits(const qint32 &i_creditcarddetail_lastdigits) {
+    m_i_creditcarddetail_lastdigits = i_creditcarddetail_lastdigits;
+    m_i_creditcarddetail_lastdigits_isSet = true;
 }
 
-bool Creditcarddetail_ResponseCompound::is_s_creditcarddetail_numbermasked_Valid() const{
-    return m_s_creditcarddetail_numbermasked_isValid;
+bool Creditcarddetail_ResponseCompound::is_i_creditcarddetail_lastdigits_Set() const{
+    return m_i_creditcarddetail_lastdigits_isSet;
+}
+
+bool Creditcarddetail_ResponseCompound::is_i_creditcarddetail_lastdigits_Valid() const{
+    return m_i_creditcarddetail_lastdigits_isValid;
 }
 
 qint32 Creditcarddetail_ResponseCompound::getICreditcarddetailExpirationmonth() const {
@@ -270,7 +270,7 @@ bool Creditcarddetail_ResponseCompound::isSet() const {
             break;
         }
 
-        if (m_s_creditcarddetail_numbermasked_isSet) {
+        if (m_i_creditcarddetail_lastdigits_isSet) {
             isObjectUpdated = true;
             break;
         }
@@ -305,7 +305,7 @@ bool Creditcarddetail_ResponseCompound::isSet() const {
 
 bool Creditcarddetail_ResponseCompound::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_pki_creditcarddetail_id_isValid && m_fki_creditcardtype_id_isValid && m_s_creditcarddetail_numbermasked_isValid && m_i_creditcarddetail_expirationmonth_isValid && m_i_creditcarddetail_expirationyear_isValid && m_s_creditcarddetail_civic_isValid && m_s_creditcarddetail_street_isValid && m_s_creditcarddetail_zip_isValid && true;
+    return m_pki_creditcarddetail_id_isValid && m_fki_creditcardtype_id_isValid && m_i_creditcarddetail_lastdigits_isValid && m_i_creditcarddetail_expirationmonth_isValid && m_i_creditcarddetail_expirationyear_isValid && m_s_creditcarddetail_civic_isValid && m_s_creditcarddetail_street_isValid && m_s_creditcarddetail_zip_isValid && true;
 }
 
 } // namespace Ezmaxapi

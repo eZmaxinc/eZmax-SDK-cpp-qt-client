@@ -63,6 +63,11 @@ public:
     bool is_i_ezsignfolder_signaturetotal_Set() const;
     bool is_i_ezsignfolder_signaturetotal_Valid() const;
 
+    qint32 getIEzsignfolderFormfieldtotal() const;
+    void setIEzsignfolderFormfieldtotal(const qint32 &i_ezsignfolder_formfieldtotal);
+    bool is_i_ezsignfolder_formfieldtotal_Set() const;
+    bool is_i_ezsignfolder_formfieldtotal_Valid() const;
+
     qint32 getIEzsignfolderSignaturesigned() const;
     void setIEzsignfolderSignaturesigned(const qint32 &i_ezsignfolder_signaturesigned);
     bool is_i_ezsignfolder_signaturesigned_Set() const;
@@ -94,6 +99,10 @@ private:
     qint32 m_i_ezsignfolder_signaturetotal;
     bool m_i_ezsignfolder_signaturetotal_isSet;
     bool m_i_ezsignfolder_signaturetotal_isValid;
+
+    qint32 m_i_ezsignfolder_formfieldtotal;
+    bool m_i_ezsignfolder_formfieldtotal_isSet;
+    bool m_i_ezsignfolder_formfieldtotal_isValid;
 
     qint32 m_i_ezsignfolder_signaturesigned;
     bool m_i_ezsignfolder_signaturesigned_isSet;

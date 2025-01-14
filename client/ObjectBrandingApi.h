@@ -18,13 +18,13 @@
 #include "ServerConfiguration.h"
 #include "Oauth.h"
 
-#include "Branding_createObject_v1_Request.h"
-#include "Branding_createObject_v1_Response.h"
-#include "Branding_editObject_v1_Request.h"
-#include "Branding_editObject_v1_Response.h"
+#include "Branding_createObject_v2_Request.h"
+#include "Branding_createObject_v2_Response.h"
+#include "Branding_editObject_v2_Request.h"
+#include "Branding_editObject_v2_Response.h"
 #include "Branding_getAutocomplete_v2_Response.h"
 #include "Branding_getList_v1_Response.h"
-#include "Branding_getObject_v2_Response.h"
+#include "Branding_getObject_v3_Response.h"
 #include "Common_Response_Error.h"
 #include "Header_Accept_Language.h"
 #include "HttpFileElement.h"
@@ -67,15 +67,15 @@ public:
     QString getParamStyleDelimiter(const QString &style, const QString &name, bool isExplode);
 
     /**
-    * @param[in]  branding_create_object_v1_request Branding_createObject_v1_Request [required]
+    * @param[in]  branding_create_object_v2_request Branding_createObject_v2_Request [required]
     */
-    void brandingCreateObjectV1(const Branding_createObject_v1_Request &branding_create_object_v1_request);
+    virtual void brandingCreateObjectV2(const Branding_createObject_v2_Request &branding_create_object_v2_request);
 
     /**
     * @param[in]  pki_branding_id qint32 [required]
-    * @param[in]  branding_edit_object_v1_request Branding_editObject_v1_Request [required]
+    * @param[in]  branding_edit_object_v2_request Branding_editObject_v2_Request [required]
     */
-    void brandingEditObjectV1(const qint32 &pki_branding_id, const Branding_editObject_v1_Request &branding_edit_object_v1_request);
+    virtual void brandingEditObjectV2(const qint32 &pki_branding_id, const Branding_editObject_v2_Request &branding_edit_object_v2_request);
 
     /**
     * @param[in]  s_selector QString [required]
@@ -83,7 +83,7 @@ public:
     * @param[in]  s_query QString [optional]
     * @param[in]  accept_language Header_Accept_Language [optional]
     */
-    void brandingGetAutocompleteV2(const QString &s_selector, const ::Ezmaxapi::OptionalParam<QString> &e_filter_active = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<QString> &s_query = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<Header_Accept_Language>());
+    virtual void brandingGetAutocompleteV2(const QString &s_selector, const ::Ezmaxapi::OptionalParam<QString> &e_filter_active = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<QString> &s_query = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<Header_Accept_Language>());
 
     /**
     * @param[in]  e_order_by QString [optional]
@@ -92,12 +92,12 @@ public:
     * @param[in]  accept_language Header_Accept_Language [optional]
     * @param[in]  s_filter QString [optional]
     */
-    void brandingGetListV1(const ::Ezmaxapi::OptionalParam<QString> &e_order_by = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<qint32> &i_row_max = ::Ezmaxapi::OptionalParam<qint32>(), const ::Ezmaxapi::OptionalParam<qint32> &i_row_offset = ::Ezmaxapi::OptionalParam<qint32>(), const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<Header_Accept_Language>(), const ::Ezmaxapi::OptionalParam<QString> &s_filter = ::Ezmaxapi::OptionalParam<QString>());
+    virtual void brandingGetListV1(const ::Ezmaxapi::OptionalParam<QString> &e_order_by = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<qint32> &i_row_max = ::Ezmaxapi::OptionalParam<qint32>(), const ::Ezmaxapi::OptionalParam<qint32> &i_row_offset = ::Ezmaxapi::OptionalParam<qint32>(), const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<Header_Accept_Language>(), const ::Ezmaxapi::OptionalParam<QString> &s_filter = ::Ezmaxapi::OptionalParam<QString>());
 
     /**
     * @param[in]  pki_branding_id qint32 [required]
     */
-    void brandingGetObjectV2(const qint32 &pki_branding_id);
+    virtual void brandingGetObjectV3(const qint32 &pki_branding_id);
 
 
 private:
@@ -122,57 +122,58 @@ private:
     OauthPassword _passwordFlow;
     int _OauthMethod = 0;
 
-    void brandingCreateObjectV1Callback(HttpRequestWorker *worker);
-    void brandingEditObjectV1Callback(HttpRequestWorker *worker);
+    void brandingCreateObjectV2Callback(HttpRequestWorker *worker);
+    void brandingEditObjectV2Callback(HttpRequestWorker *worker);
     void brandingGetAutocompleteV2Callback(HttpRequestWorker *worker);
     void brandingGetListV1Callback(HttpRequestWorker *worker);
-    void brandingGetObjectV2Callback(HttpRequestWorker *worker);
+    void brandingGetObjectV3Callback(HttpRequestWorker *worker);
 
 Q_SIGNALS:
 
-    void brandingCreateObjectV1Signal(Branding_createObject_v1_Response summary);
-    void brandingEditObjectV1Signal(Branding_editObject_v1_Response summary);
+    void brandingCreateObjectV2Signal(Branding_createObject_v2_Response summary);
+    void brandingEditObjectV2Signal(Branding_editObject_v2_Response summary);
     void brandingGetAutocompleteV2Signal(Branding_getAutocomplete_v2_Response summary);
     void brandingGetListV1Signal(Branding_getList_v1_Response summary);
-    void brandingGetObjectV2Signal(Branding_getObject_v2_Response summary);
+    void brandingGetObjectV3Signal(Branding_getObject_v3_Response summary);
 
-    void brandingCreateObjectV1SignalFull(HttpRequestWorker *worker, Branding_createObject_v1_Response summary);
-    void brandingEditObjectV1SignalFull(HttpRequestWorker *worker, Branding_editObject_v1_Response summary);
+
+    void brandingCreateObjectV2SignalFull(HttpRequestWorker *worker, Branding_createObject_v2_Response summary);
+    void brandingEditObjectV2SignalFull(HttpRequestWorker *worker, Branding_editObject_v2_Response summary);
     void brandingGetAutocompleteV2SignalFull(HttpRequestWorker *worker, Branding_getAutocomplete_v2_Response summary);
     void brandingGetListV1SignalFull(HttpRequestWorker *worker, Branding_getList_v1_Response summary);
-    void brandingGetObjectV2SignalFull(HttpRequestWorker *worker, Branding_getObject_v2_Response summary);
+    void brandingGetObjectV3SignalFull(HttpRequestWorker *worker, Branding_getObject_v3_Response summary);
 
-    Q_DECL_DEPRECATED_X("Use brandingCreateObjectV1SignalError() instead")
-    void brandingCreateObjectV1SignalE(Branding_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void brandingCreateObjectV1SignalError(Branding_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use brandingEditObjectV1SignalError() instead")
-    void brandingEditObjectV1SignalE(Branding_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void brandingEditObjectV1SignalError(Branding_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use brandingCreateObjectV2SignalError() instead")
+    void brandingCreateObjectV2SignalE(Branding_createObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void brandingCreateObjectV2SignalError(Branding_createObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use brandingEditObjectV2SignalError() instead")
+    void brandingEditObjectV2SignalE(Branding_editObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void brandingEditObjectV2SignalError(Branding_editObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use brandingGetAutocompleteV2SignalError() instead")
     void brandingGetAutocompleteV2SignalE(Branding_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void brandingGetAutocompleteV2SignalError(Branding_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use brandingGetListV1SignalError() instead")
     void brandingGetListV1SignalE(Branding_getList_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void brandingGetListV1SignalError(Branding_getList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use brandingGetObjectV2SignalError() instead")
-    void brandingGetObjectV2SignalE(Branding_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void brandingGetObjectV2SignalError(Branding_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use brandingGetObjectV3SignalError() instead")
+    void brandingGetObjectV3SignalE(Branding_getObject_v3_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void brandingGetObjectV3SignalError(Branding_getObject_v3_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
-    Q_DECL_DEPRECATED_X("Use brandingCreateObjectV1SignalErrorFull() instead")
-    void brandingCreateObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
-    void brandingCreateObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use brandingEditObjectV1SignalErrorFull() instead")
-    void brandingEditObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
-    void brandingEditObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use brandingCreateObjectV2SignalErrorFull() instead")
+    void brandingCreateObjectV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void brandingCreateObjectV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use brandingEditObjectV2SignalErrorFull() instead")
+    void brandingEditObjectV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void brandingEditObjectV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use brandingGetAutocompleteV2SignalErrorFull() instead")
     void brandingGetAutocompleteV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void brandingGetAutocompleteV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use brandingGetListV1SignalErrorFull() instead")
     void brandingGetListV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void brandingGetListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use brandingGetObjectV2SignalErrorFull() instead")
-    void brandingGetObjectV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
-    void brandingGetObjectV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use brandingGetObjectV3SignalErrorFull() instead")
+    void brandingGetObjectV3SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void brandingGetObjectV3SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();

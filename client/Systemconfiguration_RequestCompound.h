@@ -49,6 +49,11 @@ public:
     bool is_pki_systemconfiguration_id_Set() const;
     bool is_pki_systemconfiguration_id_Valid() const;
 
+    qint32 getFkiBrandingId() const;
+    void setFkiBrandingId(const qint32 &fki_branding_id);
+    bool is_fki_branding_id_Set() const;
+    bool is_fki_branding_id_Valid() const;
+
     Field_eSystemconfigurationNewexternaluseraction getESystemconfigurationNewexternaluseraction() const;
     void setESystemconfigurationNewexternaluseraction(const Field_eSystemconfigurationNewexternaluseraction &e_systemconfiguration_newexternaluseraction);
     bool is_e_systemconfiguration_newexternaluseraction_Set() const;
@@ -108,6 +113,10 @@ private:
     qint32 m_pki_systemconfiguration_id;
     bool m_pki_systemconfiguration_id_isSet;
     bool m_pki_systemconfiguration_id_isValid;
+
+    qint32 m_fki_branding_id;
+    bool m_fki_branding_id_isSet;
+    bool m_fki_branding_id_isValid;
 
     Field_eSystemconfigurationNewexternaluseraction m_e_systemconfiguration_newexternaluseraction;
     bool m_e_systemconfiguration_newexternaluseraction_isSet;

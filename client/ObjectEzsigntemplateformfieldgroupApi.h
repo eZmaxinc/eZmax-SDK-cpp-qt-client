@@ -66,23 +66,23 @@ public:
     /**
     * @param[in]  ezsigntemplateformfieldgroup_create_object_v1_request Ezsigntemplateformfieldgroup_createObject_v1_Request [required]
     */
-    void ezsigntemplateformfieldgroupCreateObjectV1(const Ezsigntemplateformfieldgroup_createObject_v1_Request &ezsigntemplateformfieldgroup_create_object_v1_request);
+    virtual void ezsigntemplateformfieldgroupCreateObjectV1(const Ezsigntemplateformfieldgroup_createObject_v1_Request &ezsigntemplateformfieldgroup_create_object_v1_request);
 
     /**
     * @param[in]  pki_ezsigntemplateformfieldgroup_id qint32 [required]
     */
-    void ezsigntemplateformfieldgroupDeleteObjectV1(const qint32 &pki_ezsigntemplateformfieldgroup_id);
+    virtual void ezsigntemplateformfieldgroupDeleteObjectV1(const qint32 &pki_ezsigntemplateformfieldgroup_id);
 
     /**
     * @param[in]  pki_ezsigntemplateformfieldgroup_id qint32 [required]
     * @param[in]  ezsigntemplateformfieldgroup_edit_object_v1_request Ezsigntemplateformfieldgroup_editObject_v1_Request [required]
     */
-    void ezsigntemplateformfieldgroupEditObjectV1(const qint32 &pki_ezsigntemplateformfieldgroup_id, const Ezsigntemplateformfieldgroup_editObject_v1_Request &ezsigntemplateformfieldgroup_edit_object_v1_request);
+    virtual void ezsigntemplateformfieldgroupEditObjectV1(const qint32 &pki_ezsigntemplateformfieldgroup_id, const Ezsigntemplateformfieldgroup_editObject_v1_Request &ezsigntemplateformfieldgroup_edit_object_v1_request);
 
     /**
     * @param[in]  pki_ezsigntemplateformfieldgroup_id qint32 [required]
     */
-    void ezsigntemplateformfieldgroupGetObjectV2(const qint32 &pki_ezsigntemplateformfieldgroup_id);
+    virtual void ezsigntemplateformfieldgroupGetObjectV2(const qint32 &pki_ezsigntemplateformfieldgroup_id);
 
 
 private:
@@ -118,6 +118,7 @@ Q_SIGNALS:
     void ezsigntemplateformfieldgroupDeleteObjectV1Signal(Ezsigntemplateformfieldgroup_deleteObject_v1_Response summary);
     void ezsigntemplateformfieldgroupEditObjectV1Signal(Ezsigntemplateformfieldgroup_editObject_v1_Response summary);
     void ezsigntemplateformfieldgroupGetObjectV2Signal(Ezsigntemplateformfieldgroup_getObject_v2_Response summary);
+
 
     void ezsigntemplateformfieldgroupCreateObjectV1SignalFull(HttpRequestWorker *worker, Ezsigntemplateformfieldgroup_createObject_v1_Response summary);
     void ezsigntemplateformfieldgroupDeleteObjectV1SignalFull(HttpRequestWorker *worker, Ezsigntemplateformfieldgroup_deleteObject_v1_Response summary);

@@ -72,18 +72,18 @@ public:
     /**
     * @param[in]  usergroupexternal_create_object_v1_request Usergroupexternal_createObject_v1_Request [required]
     */
-    void usergroupexternalCreateObjectV1(const Usergroupexternal_createObject_v1_Request &usergroupexternal_create_object_v1_request);
+    virtual void usergroupexternalCreateObjectV1(const Usergroupexternal_createObject_v1_Request &usergroupexternal_create_object_v1_request);
 
     /**
     * @param[in]  pki_usergroupexternal_id qint32 [required]
     */
-    void usergroupexternalDeleteObjectV1(const qint32 &pki_usergroupexternal_id);
+    virtual void usergroupexternalDeleteObjectV1(const qint32 &pki_usergroupexternal_id);
 
     /**
     * @param[in]  pki_usergroupexternal_id qint32 [required]
     * @param[in]  usergroupexternal_edit_object_v1_request Usergroupexternal_editObject_v1_Request [required]
     */
-    void usergroupexternalEditObjectV1(const qint32 &pki_usergroupexternal_id, const Usergroupexternal_editObject_v1_Request &usergroupexternal_edit_object_v1_request);
+    virtual void usergroupexternalEditObjectV1(const qint32 &pki_usergroupexternal_id, const Usergroupexternal_editObject_v1_Request &usergroupexternal_edit_object_v1_request);
 
     /**
     * @param[in]  s_selector QString [required]
@@ -91,7 +91,7 @@ public:
     * @param[in]  s_query QString [optional]
     * @param[in]  accept_language Header_Accept_Language [optional]
     */
-    void usergroupexternalGetAutocompleteV2(const QString &s_selector, const ::Ezmaxapi::OptionalParam<QString> &e_filter_active = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<QString> &s_query = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<Header_Accept_Language>());
+    virtual void usergroupexternalGetAutocompleteV2(const QString &s_selector, const ::Ezmaxapi::OptionalParam<QString> &e_filter_active = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<QString> &s_query = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<Header_Accept_Language>());
 
     /**
     * @param[in]  e_order_by QString [optional]
@@ -100,22 +100,22 @@ public:
     * @param[in]  accept_language Header_Accept_Language [optional]
     * @param[in]  s_filter QString [optional]
     */
-    void usergroupexternalGetListV1(const ::Ezmaxapi::OptionalParam<QString> &e_order_by = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<qint32> &i_row_max = ::Ezmaxapi::OptionalParam<qint32>(), const ::Ezmaxapi::OptionalParam<qint32> &i_row_offset = ::Ezmaxapi::OptionalParam<qint32>(), const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<Header_Accept_Language>(), const ::Ezmaxapi::OptionalParam<QString> &s_filter = ::Ezmaxapi::OptionalParam<QString>());
+    virtual void usergroupexternalGetListV1(const ::Ezmaxapi::OptionalParam<QString> &e_order_by = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<qint32> &i_row_max = ::Ezmaxapi::OptionalParam<qint32>(), const ::Ezmaxapi::OptionalParam<qint32> &i_row_offset = ::Ezmaxapi::OptionalParam<qint32>(), const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<Header_Accept_Language>(), const ::Ezmaxapi::OptionalParam<QString> &s_filter = ::Ezmaxapi::OptionalParam<QString>());
 
     /**
     * @param[in]  pki_usergroupexternal_id qint32 [required]
     */
-    void usergroupexternalGetObjectV2(const qint32 &pki_usergroupexternal_id);
+    virtual void usergroupexternalGetObjectV2(const qint32 &pki_usergroupexternal_id);
 
     /**
     * @param[in]  pki_usergroupexternal_id qint32 [required]
     */
-    void usergroupexternalGetUsergroupexternalmembershipsV1(const qint32 &pki_usergroupexternal_id);
+    virtual void usergroupexternalGetUsergroupexternalmembershipsV1(const qint32 &pki_usergroupexternal_id);
 
     /**
     * @param[in]  pki_usergroupexternal_id qint32 [required]
     */
-    void usergroupexternalGetUsergroupsV1(const qint32 &pki_usergroupexternal_id);
+    virtual void usergroupexternalGetUsergroupsV1(const qint32 &pki_usergroupexternal_id);
 
 
 private:
@@ -159,6 +159,7 @@ Q_SIGNALS:
     void usergroupexternalGetObjectV2Signal(Usergroupexternal_getObject_v2_Response summary);
     void usergroupexternalGetUsergroupexternalmembershipsV1Signal(Usergroupexternal_getUsergroupexternalmemberships_v1_Response summary);
     void usergroupexternalGetUsergroupsV1Signal(Usergroupexternal_getUsergroups_v1_Response summary);
+
 
     void usergroupexternalCreateObjectV1SignalFull(HttpRequestWorker *worker, Usergroupexternal_createObject_v1_Response summary);
     void usergroupexternalDeleteObjectV1SignalFull(HttpRequestWorker *worker, Usergroupexternal_deleteObject_v1_Response summary);

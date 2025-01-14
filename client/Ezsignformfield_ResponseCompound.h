@@ -21,8 +21,10 @@
 
 #include <QJsonObject>
 
+#include "Enum_Horizontalalignment.h"
 #include "Ezsignelementdependency_ResponseCompound.h"
 #include "Field_eEzsignformfieldDependencyrequirement.h"
+#include "Textstylestatic_ResponseCompound.h"
 #include <QList>
 #include <QString>
 
@@ -30,6 +32,7 @@
 #include "Object.h"
 
 namespace Ezmaxapi {
+class Textstylestatic_ResponseCompound;
 class Ezsignelementdependency_ResponseCompound;
 
 class Ezsignformfield_ResponseCompound : public Object {
@@ -103,6 +106,16 @@ public:
     bool is_e_ezsignformfield_dependencyrequirement_Set() const;
     bool is_e_ezsignformfield_dependencyrequirement_Valid() const;
 
+    Enum_Horizontalalignment getEEzsignformfieldHorizontalalignment() const;
+    void setEEzsignformfieldHorizontalalignment(const Enum_Horizontalalignment &e_ezsignformfield_horizontalalignment);
+    bool is_e_ezsignformfield_horizontalalignment_Set() const;
+    bool is_e_ezsignformfield_horizontalalignment_Valid() const;
+
+    Textstylestatic_ResponseCompound getObjTextstylestatic() const;
+    void setObjTextstylestatic(const Textstylestatic_ResponseCompound &obj_textstylestatic);
+    bool is_obj_textstylestatic_Set() const;
+    bool is_obj_textstylestatic_Valid() const;
+
     QList<Ezsignelementdependency_ResponseCompound> getAObjEzsignelementdependency() const;
     void setAObjEzsignelementdependency(const QList<Ezsignelementdependency_ResponseCompound> &a_obj_ezsignelementdependency);
     bool is_a_obj_ezsignelementdependency_Set() const;
@@ -161,6 +174,14 @@ private:
     Field_eEzsignformfieldDependencyrequirement m_e_ezsignformfield_dependencyrequirement;
     bool m_e_ezsignformfield_dependencyrequirement_isSet;
     bool m_e_ezsignformfield_dependencyrequirement_isValid;
+
+    Enum_Horizontalalignment m_e_ezsignformfield_horizontalalignment;
+    bool m_e_ezsignformfield_horizontalalignment_isSet;
+    bool m_e_ezsignformfield_horizontalalignment_isValid;
+
+    Textstylestatic_ResponseCompound m_obj_textstylestatic;
+    bool m_obj_textstylestatic_isSet;
+    bool m_obj_textstylestatic_isValid;
 
     QList<Ezsignelementdependency_ResponseCompound> m_a_obj_ezsignelementdependency;
     bool m_a_obj_ezsignelementdependency_isSet;

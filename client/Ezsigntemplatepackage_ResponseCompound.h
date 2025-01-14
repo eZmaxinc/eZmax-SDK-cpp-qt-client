@@ -54,10 +54,20 @@ public:
     bool is_fki_ezsignfoldertype_id_Set() const;
     bool is_fki_ezsignfoldertype_id_Valid() const;
 
+    qint32 getFkiEzdoctemplatedocumentId() const;
+    void setFkiEzdoctemplatedocumentId(const qint32 &fki_ezdoctemplatedocument_id);
+    bool is_fki_ezdoctemplatedocument_id_Set() const;
+    bool is_fki_ezdoctemplatedocument_id_Valid() const;
+
     qint32 getFkiLanguageId() const;
     void setFkiLanguageId(const qint32 &fki_language_id);
     bool is_fki_language_id_Set() const;
     bool is_fki_language_id_Valid() const;
+
+    QString getSEzdoctemplatedocumentNameX() const;
+    void setSEzdoctemplatedocumentNameX(const QString &s_ezdoctemplatedocument_name_x);
+    bool is_s_ezdoctemplatedocument_name_x_Set() const;
+    bool is_s_ezdoctemplatedocument_name_x_Valid() const;
 
     QString getSLanguageNameX() const;
     void setSLanguageNameX(const QString &s_language_name_x);
@@ -118,9 +128,17 @@ private:
     bool m_fki_ezsignfoldertype_id_isSet;
     bool m_fki_ezsignfoldertype_id_isValid;
 
+    qint32 m_fki_ezdoctemplatedocument_id;
+    bool m_fki_ezdoctemplatedocument_id_isSet;
+    bool m_fki_ezdoctemplatedocument_id_isValid;
+
     qint32 m_fki_language_id;
     bool m_fki_language_id_isSet;
     bool m_fki_language_id_isValid;
+
+    QString m_s_ezdoctemplatedocument_name_x;
+    bool m_s_ezdoctemplatedocument_name_x_isSet;
+    bool m_s_ezdoctemplatedocument_name_x_isValid;
 
     QString m_s_language_name_x;
     bool m_s_language_name_x_isSet;

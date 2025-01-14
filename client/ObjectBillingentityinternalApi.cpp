@@ -144,15 +144,9 @@ int ObjectBillingentityinternalApi::addServerConfiguration(const QString &operat
     * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
     */
 void ObjectBillingentityinternalApi::setNewServerForAllOperations(const QUrl &url, const QString &description, const QMap<QString, ServerVariable> &variables) {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
     for (auto keyIt = _serverIndices.keyBegin(); keyIt != _serverIndices.keyEnd(); keyIt++) {
         setServerIndex(*keyIt, addServerConfiguration(*keyIt, url, description, variables));
     }
-#else
-    for (auto &e : _serverIndices.keys()) {
-        setServerIndex(e, addServerConfiguration(e, url, description, variables));
-    }
-#endif
 }
 
 /**
@@ -262,15 +256,10 @@ void ObjectBillingentityinternalApi::billingentityinternalCreateObjectV1(const B
         QByteArray output = billingentityinternal_create_object_v1_request.asJson().toUtf8();
         input.request_body.append(output);
     }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectBillingentityinternalApi::billingentityinternalCreateObjectV1Callback);
     connect(this, &ObjectBillingentityinternalApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -360,15 +349,10 @@ void ObjectBillingentityinternalApi::billingentityinternalEditObjectV1(const qin
         QByteArray output = billingentityinternal_edit_object_v1_request.asJson().toUtf8();
         input.request_body.append(output);
     }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectBillingentityinternalApi::billingentityinternalEditObjectV1Callback);
     connect(this, &ObjectBillingentityinternalApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -528,15 +512,10 @@ void ObjectBillingentityinternalApi::billingentityinternalGetAutocompleteV2(cons
         }
         input.headers.insert("Accept-Language", headerString);
     }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectBillingentityinternalApi::billingentityinternalGetAutocompleteV2Callback);
     connect(this, &ObjectBillingentityinternalApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -712,15 +691,10 @@ void ObjectBillingentityinternalApi::billingentityinternalGetListV1(const ::Ezma
         }
         input.headers.insert("Accept-Language", headerString);
     }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectBillingentityinternalApi::billingentityinternalGetListV1Callback);
     connect(this, &ObjectBillingentityinternalApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -805,15 +779,10 @@ void ObjectBillingentityinternalApi::billingentityinternalGetObjectV2(const qint
     HttpRequestInput input(fullPath, "GET");
 
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectBillingentityinternalApi::billingentityinternalGetObjectV2Callback);
     connect(this, &ObjectBillingentityinternalApi::abortRequestsSignal, worker, &QObject::deleteLater);

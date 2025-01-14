@@ -69,6 +69,12 @@ void Ezsignformfield_Request::initializeModel() {
 
     m_e_ezsignformfield_dependencyrequirement_isSet = false;
     m_e_ezsignformfield_dependencyrequirement_isValid = false;
+
+    m_e_ezsignformfield_horizontalalignment_isSet = false;
+    m_e_ezsignformfield_horizontalalignment_isValid = false;
+
+    m_obj_textstylestatic_isSet = false;
+    m_obj_textstylestatic_isValid = false;
 }
 
 void Ezsignformfield_Request::fromJson(QString jsonString) {
@@ -115,6 +121,12 @@ void Ezsignformfield_Request::fromJsonObject(QJsonObject json) {
 
     m_e_ezsignformfield_dependencyrequirement_isValid = ::Ezmaxapi::fromJsonValue(m_e_ezsignformfield_dependencyrequirement, json[QString("eEzsignformfieldDependencyrequirement")]);
     m_e_ezsignformfield_dependencyrequirement_isSet = !json[QString("eEzsignformfieldDependencyrequirement")].isNull() && m_e_ezsignformfield_dependencyrequirement_isValid;
+
+    m_e_ezsignformfield_horizontalalignment_isValid = ::Ezmaxapi::fromJsonValue(m_e_ezsignformfield_horizontalalignment, json[QString("eEzsignformfieldHorizontalalignment")]);
+    m_e_ezsignformfield_horizontalalignment_isSet = !json[QString("eEzsignformfieldHorizontalalignment")].isNull() && m_e_ezsignformfield_horizontalalignment_isValid;
+
+    m_obj_textstylestatic_isValid = ::Ezmaxapi::fromJsonValue(m_obj_textstylestatic, json[QString("objTextstylestatic")]);
+    m_obj_textstylestatic_isSet = !json[QString("objTextstylestatic")].isNull() && m_obj_textstylestatic_isValid;
 }
 
 QString Ezsignformfield_Request::asJson() const {
@@ -161,6 +173,12 @@ QJsonObject Ezsignformfield_Request::asJsonObject() const {
     }
     if (m_e_ezsignformfield_dependencyrequirement.isSet()) {
         obj.insert(QString("eEzsignformfieldDependencyrequirement"), ::Ezmaxapi::toJsonValue(m_e_ezsignformfield_dependencyrequirement));
+    }
+    if (m_e_ezsignformfield_horizontalalignment.isSet()) {
+        obj.insert(QString("eEzsignformfieldHorizontalalignment"), ::Ezmaxapi::toJsonValue(m_e_ezsignformfield_horizontalalignment));
+    }
+    if (m_obj_textstylestatic.isSet()) {
+        obj.insert(QString("objTextstylestatic"), ::Ezmaxapi::toJsonValue(m_obj_textstylestatic));
     }
     return obj;
 }
@@ -357,6 +375,38 @@ bool Ezsignformfield_Request::is_e_ezsignformfield_dependencyrequirement_Valid()
     return m_e_ezsignformfield_dependencyrequirement_isValid;
 }
 
+Enum_Horizontalalignment Ezsignformfield_Request::getEEzsignformfieldHorizontalalignment() const {
+    return m_e_ezsignformfield_horizontalalignment;
+}
+void Ezsignformfield_Request::setEEzsignformfieldHorizontalalignment(const Enum_Horizontalalignment &e_ezsignformfield_horizontalalignment) {
+    m_e_ezsignformfield_horizontalalignment = e_ezsignformfield_horizontalalignment;
+    m_e_ezsignformfield_horizontalalignment_isSet = true;
+}
+
+bool Ezsignformfield_Request::is_e_ezsignformfield_horizontalalignment_Set() const{
+    return m_e_ezsignformfield_horizontalalignment_isSet;
+}
+
+bool Ezsignformfield_Request::is_e_ezsignformfield_horizontalalignment_Valid() const{
+    return m_e_ezsignformfield_horizontalalignment_isValid;
+}
+
+Textstylestatic_RequestCompound Ezsignformfield_Request::getObjTextstylestatic() const {
+    return m_obj_textstylestatic;
+}
+void Ezsignformfield_Request::setObjTextstylestatic(const Textstylestatic_RequestCompound &obj_textstylestatic) {
+    m_obj_textstylestatic = obj_textstylestatic;
+    m_obj_textstylestatic_isSet = true;
+}
+
+bool Ezsignformfield_Request::is_obj_textstylestatic_Set() const{
+    return m_obj_textstylestatic_isSet;
+}
+
+bool Ezsignformfield_Request::is_obj_textstylestatic_Valid() const{
+    return m_obj_textstylestatic_isValid;
+}
+
 bool Ezsignformfield_Request::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -416,6 +466,16 @@ bool Ezsignformfield_Request::isSet() const {
         }
 
         if (m_e_ezsignformfield_dependencyrequirement.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_e_ezsignformfield_horizontalalignment.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_obj_textstylestatic.isSet()) {
             isObjectUpdated = true;
             break;
         }

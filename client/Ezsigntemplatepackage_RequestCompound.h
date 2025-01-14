@@ -49,6 +49,11 @@ public:
     bool is_fki_ezsignfoldertype_id_Set() const;
     bool is_fki_ezsignfoldertype_id_Valid() const;
 
+    qint32 getFkiEzdoctemplatedocumentId() const;
+    void setFkiEzdoctemplatedocumentId(const qint32 &fki_ezdoctemplatedocument_id);
+    bool is_fki_ezdoctemplatedocument_id_Set() const;
+    bool is_fki_ezdoctemplatedocument_id_Valid() const;
+
     qint32 getFkiLanguageId() const;
     void setFkiLanguageId(const qint32 &fki_language_id);
     bool is_fki_language_id_Set() const;
@@ -82,6 +87,10 @@ private:
     qint32 m_fki_ezsignfoldertype_id;
     bool m_fki_ezsignfoldertype_id_isSet;
     bool m_fki_ezsignfoldertype_id_isValid;
+
+    qint32 m_fki_ezdoctemplatedocument_id;
+    bool m_fki_ezdoctemplatedocument_id_isSet;
+    bool m_fki_ezdoctemplatedocument_id_isValid;
 
     qint32 m_fki_language_id;
     bool m_fki_language_id_isSet;

@@ -97,6 +97,9 @@ void Ezsignfoldertype_Response::initializeModel() {
     m_i_ezsignfoldertype_deadlinedays_isSet = false;
     m_i_ezsignfoldertype_deadlinedays_isValid = false;
 
+    m_b_ezsignfoldertype_automaticsignature_isSet = false;
+    m_b_ezsignfoldertype_automaticsignature_isValid = false;
+
     m_b_ezsignfoldertype_delegate_isSet = false;
     m_b_ezsignfoldertype_delegate_isValid = false;
 
@@ -108,6 +111,9 @@ void Ezsignfoldertype_Response::initializeModel() {
 
     m_b_ezsignfoldertype_reassignuser_isSet = false;
     m_b_ezsignfoldertype_reassignuser_isValid = false;
+
+    m_b_ezsignfoldertype_reassigngroup_isSet = false;
+    m_b_ezsignfoldertype_reassigngroup_isValid = false;
 
     m_b_ezsignfoldertype_sendsignedtoezsignsigner_isSet = false;
     m_b_ezsignfoldertype_sendsignedtoezsignsigner_isValid = false;
@@ -248,6 +254,9 @@ void Ezsignfoldertype_Response::fromJsonObject(QJsonObject json) {
     m_i_ezsignfoldertype_deadlinedays_isValid = ::Ezmaxapi::fromJsonValue(m_i_ezsignfoldertype_deadlinedays, json[QString("iEzsignfoldertypeDeadlinedays")]);
     m_i_ezsignfoldertype_deadlinedays_isSet = !json[QString("iEzsignfoldertypeDeadlinedays")].isNull() && m_i_ezsignfoldertype_deadlinedays_isValid;
 
+    m_b_ezsignfoldertype_automaticsignature_isValid = ::Ezmaxapi::fromJsonValue(m_b_ezsignfoldertype_automaticsignature, json[QString("bEzsignfoldertypeAutomaticsignature")]);
+    m_b_ezsignfoldertype_automaticsignature_isSet = !json[QString("bEzsignfoldertypeAutomaticsignature")].isNull() && m_b_ezsignfoldertype_automaticsignature_isValid;
+
     m_b_ezsignfoldertype_delegate_isValid = ::Ezmaxapi::fromJsonValue(m_b_ezsignfoldertype_delegate, json[QString("bEzsignfoldertypeDelegate")]);
     m_b_ezsignfoldertype_delegate_isSet = !json[QString("bEzsignfoldertypeDelegate")].isNull() && m_b_ezsignfoldertype_delegate_isValid;
 
@@ -259,6 +268,9 @@ void Ezsignfoldertype_Response::fromJsonObject(QJsonObject json) {
 
     m_b_ezsignfoldertype_reassignuser_isValid = ::Ezmaxapi::fromJsonValue(m_b_ezsignfoldertype_reassignuser, json[QString("bEzsignfoldertypeReassignuser")]);
     m_b_ezsignfoldertype_reassignuser_isSet = !json[QString("bEzsignfoldertypeReassignuser")].isNull() && m_b_ezsignfoldertype_reassignuser_isValid;
+
+    m_b_ezsignfoldertype_reassigngroup_isValid = ::Ezmaxapi::fromJsonValue(m_b_ezsignfoldertype_reassigngroup, json[QString("bEzsignfoldertypeReassigngroup")]);
+    m_b_ezsignfoldertype_reassigngroup_isSet = !json[QString("bEzsignfoldertypeReassigngroup")].isNull() && m_b_ezsignfoldertype_reassigngroup_isValid;
 
     m_b_ezsignfoldertype_sendsignedtoezsignsigner_isValid = ::Ezmaxapi::fromJsonValue(m_b_ezsignfoldertype_sendsignedtoezsignsigner, json[QString("bEzsignfoldertypeSendsignedtoezsignsigner")]);
     m_b_ezsignfoldertype_sendsignedtoezsignsigner_isSet = !json[QString("bEzsignfoldertypeSendsignedtoezsignsigner")].isNull() && m_b_ezsignfoldertype_sendsignedtoezsignsigner_isValid;
@@ -399,6 +411,9 @@ QJsonObject Ezsignfoldertype_Response::asJsonObject() const {
     if (m_i_ezsignfoldertype_deadlinedays_isSet) {
         obj.insert(QString("iEzsignfoldertypeDeadlinedays"), ::Ezmaxapi::toJsonValue(m_i_ezsignfoldertype_deadlinedays));
     }
+    if (m_b_ezsignfoldertype_automaticsignature_isSet) {
+        obj.insert(QString("bEzsignfoldertypeAutomaticsignature"), ::Ezmaxapi::toJsonValue(m_b_ezsignfoldertype_automaticsignature));
+    }
     if (m_b_ezsignfoldertype_delegate_isSet) {
         obj.insert(QString("bEzsignfoldertypeDelegate"), ::Ezmaxapi::toJsonValue(m_b_ezsignfoldertype_delegate));
     }
@@ -410,6 +425,9 @@ QJsonObject Ezsignfoldertype_Response::asJsonObject() const {
     }
     if (m_b_ezsignfoldertype_reassignuser_isSet) {
         obj.insert(QString("bEzsignfoldertypeReassignuser"), ::Ezmaxapi::toJsonValue(m_b_ezsignfoldertype_reassignuser));
+    }
+    if (m_b_ezsignfoldertype_reassigngroup_isSet) {
+        obj.insert(QString("bEzsignfoldertypeReassigngroup"), ::Ezmaxapi::toJsonValue(m_b_ezsignfoldertype_reassigngroup));
     }
     if (m_b_ezsignfoldertype_sendsignedtoezsignsigner_isSet) {
         obj.insert(QString("bEzsignfoldertypeSendsignedtoezsignsigner"), ::Ezmaxapi::toJsonValue(m_b_ezsignfoldertype_sendsignedtoezsignsigner));
@@ -816,6 +834,22 @@ bool Ezsignfoldertype_Response::is_i_ezsignfoldertype_deadlinedays_Valid() const
     return m_i_ezsignfoldertype_deadlinedays_isValid;
 }
 
+bool Ezsignfoldertype_Response::isBEzsignfoldertypeAutomaticsignature() const {
+    return m_b_ezsignfoldertype_automaticsignature;
+}
+void Ezsignfoldertype_Response::setBEzsignfoldertypeAutomaticsignature(const bool &b_ezsignfoldertype_automaticsignature) {
+    m_b_ezsignfoldertype_automaticsignature = b_ezsignfoldertype_automaticsignature;
+    m_b_ezsignfoldertype_automaticsignature_isSet = true;
+}
+
+bool Ezsignfoldertype_Response::is_b_ezsignfoldertype_automaticsignature_Set() const{
+    return m_b_ezsignfoldertype_automaticsignature_isSet;
+}
+
+bool Ezsignfoldertype_Response::is_b_ezsignfoldertype_automaticsignature_Valid() const{
+    return m_b_ezsignfoldertype_automaticsignature_isValid;
+}
+
 bool Ezsignfoldertype_Response::isBEzsignfoldertypeDelegate() const {
     return m_b_ezsignfoldertype_delegate;
 }
@@ -878,6 +912,22 @@ bool Ezsignfoldertype_Response::is_b_ezsignfoldertype_reassignuser_Set() const{
 
 bool Ezsignfoldertype_Response::is_b_ezsignfoldertype_reassignuser_Valid() const{
     return m_b_ezsignfoldertype_reassignuser_isValid;
+}
+
+bool Ezsignfoldertype_Response::isBEzsignfoldertypeReassigngroup() const {
+    return m_b_ezsignfoldertype_reassigngroup;
+}
+void Ezsignfoldertype_Response::setBEzsignfoldertypeReassigngroup(const bool &b_ezsignfoldertype_reassigngroup) {
+    m_b_ezsignfoldertype_reassigngroup = b_ezsignfoldertype_reassigngroup;
+    m_b_ezsignfoldertype_reassigngroup_isSet = true;
+}
+
+bool Ezsignfoldertype_Response::is_b_ezsignfoldertype_reassigngroup_Set() const{
+    return m_b_ezsignfoldertype_reassigngroup_isSet;
+}
+
+bool Ezsignfoldertype_Response::is_b_ezsignfoldertype_reassigngroup_Valid() const{
+    return m_b_ezsignfoldertype_reassigngroup_isValid;
 }
 
 bool Ezsignfoldertype_Response::isBEzsignfoldertypeSendsignedtoezsignsigner() const {
@@ -1340,6 +1390,11 @@ bool Ezsignfoldertype_Response::isSet() const {
             break;
         }
 
+        if (m_b_ezsignfoldertype_automaticsignature_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (m_b_ezsignfoldertype_delegate_isSet) {
             isObjectUpdated = true;
             break;
@@ -1356,6 +1411,11 @@ bool Ezsignfoldertype_Response::isSet() const {
         }
 
         if (m_b_ezsignfoldertype_reassignuser_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_b_ezsignfoldertype_reassigngroup_isSet) {
             isObjectUpdated = true;
             break;
         }

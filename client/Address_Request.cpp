@@ -34,6 +34,9 @@ Address_Request::~Address_Request() {}
 
 void Address_Request::initializeModel() {
 
+    m_pki_address_id_isSet = false;
+    m_pki_address_id_isValid = false;
+
     m_fki_addresstype_id_isSet = false;
     m_fki_addresstype_id_isValid = false;
 
@@ -73,6 +76,9 @@ void Address_Request::fromJson(QString jsonString) {
 }
 
 void Address_Request::fromJsonObject(QJsonObject json) {
+
+    m_pki_address_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_address_id, json[QString("pkiAddressID")]);
+    m_pki_address_id_isSet = !json[QString("pkiAddressID")].isNull() && m_pki_address_id_isValid;
 
     m_fki_addresstype_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_addresstype_id, json[QString("fkiAddresstypeID")]);
     m_fki_addresstype_id_isSet = !json[QString("fkiAddresstypeID")].isNull() && m_fki_addresstype_id_isValid;
@@ -114,6 +120,9 @@ QString Address_Request::asJson() const {
 
 QJsonObject Address_Request::asJsonObject() const {
     QJsonObject obj;
+    if (m_pki_address_id_isSet) {
+        obj.insert(QString("pkiAddressID"), ::Ezmaxapi::toJsonValue(m_pki_address_id));
+    }
     if (m_fki_addresstype_id_isSet) {
         obj.insert(QString("fkiAddresstypeID"), ::Ezmaxapi::toJsonValue(m_fki_addresstype_id));
     }
@@ -145,6 +154,22 @@ QJsonObject Address_Request::asJsonObject() const {
         obj.insert(QString("fAddressLatitude"), ::Ezmaxapi::toJsonValue(m_f_address_latitude));
     }
     return obj;
+}
+
+qint32 Address_Request::getPkiAddressId() const {
+    return m_pki_address_id;
+}
+void Address_Request::setPkiAddressId(const qint32 &pki_address_id) {
+    m_pki_address_id = pki_address_id;
+    m_pki_address_id_isSet = true;
+}
+
+bool Address_Request::is_pki_address_id_Set() const{
+    return m_pki_address_id_isSet;
+}
+
+bool Address_Request::is_pki_address_id_Valid() const{
+    return m_pki_address_id_isValid;
 }
 
 qint32 Address_Request::getFkiAddresstypeId() const {
@@ -310,6 +335,11 @@ bool Address_Request::is_f_address_latitude_Valid() const{
 bool Address_Request::isSet() const {
     bool isObjectUpdated = false;
     do {
+        if (m_pki_address_id_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (m_fki_addresstype_id_isSet) {
             isObjectUpdated = true;
             break;
@@ -365,7 +395,7 @@ bool Address_Request::isSet() const {
 
 bool Address_Request::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_fki_addresstype_id_isValid && m_s_address_civic_isValid && m_s_address_street_isValid && m_s_address_suite_isValid && m_s_address_city_isValid && m_fki_province_id_isValid && m_fki_country_id_isValid && m_s_address_zip_isValid && true;
+    return m_fki_addresstype_id_isValid && m_s_address_civic_isValid && m_s_address_street_isValid && m_s_address_city_isValid && m_fki_province_id_isValid && m_fki_country_id_isValid && m_s_address_zip_isValid && true;
 }
 
 } // namespace Ezmaxapi

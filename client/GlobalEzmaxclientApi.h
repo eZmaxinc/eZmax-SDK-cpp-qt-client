@@ -62,7 +62,7 @@ public:
     /**
     * @param[in]  pks_ezmaxclient_os Field_pksEzmaxclientOs [required]
     */
-    void globalEzmaxclientVersionV1(const Field_pksEzmaxclientOs &pks_ezmaxclient_os);
+    virtual void globalEzmaxclientVersionV1(const Field_pksEzmaxclientOs &pks_ezmaxclient_os);
 
 
 private:
@@ -92,6 +92,7 @@ private:
 Q_SIGNALS:
 
     void globalEzmaxclientVersionV1Signal(Global_ezmaxclient_version_v1_Response summary);
+
 
     void globalEzmaxclientVersionV1SignalFull(HttpRequestWorker *worker, Global_ezmaxclient_version_v1_Response summary);
 

@@ -81,6 +81,12 @@ void Ezsigntemplateformfield_Request::initializeModel() {
 
     m_e_ezsigntemplateformfield_positioningoccurence_isSet = false;
     m_e_ezsigntemplateformfield_positioningoccurence_isValid = false;
+
+    m_e_ezsigntemplateformfield_horizontalalignment_isSet = false;
+    m_e_ezsigntemplateformfield_horizontalalignment_isValid = false;
+
+    m_obj_textstylestatic_isSet = false;
+    m_obj_textstylestatic_isValid = false;
 }
 
 void Ezsigntemplateformfield_Request::fromJson(QString jsonString) {
@@ -139,6 +145,12 @@ void Ezsigntemplateformfield_Request::fromJsonObject(QJsonObject json) {
 
     m_e_ezsigntemplateformfield_positioningoccurence_isValid = ::Ezmaxapi::fromJsonValue(m_e_ezsigntemplateformfield_positioningoccurence, json[QString("eEzsigntemplateformfieldPositioningoccurence")]);
     m_e_ezsigntemplateformfield_positioningoccurence_isSet = !json[QString("eEzsigntemplateformfieldPositioningoccurence")].isNull() && m_e_ezsigntemplateformfield_positioningoccurence_isValid;
+
+    m_e_ezsigntemplateformfield_horizontalalignment_isValid = ::Ezmaxapi::fromJsonValue(m_e_ezsigntemplateformfield_horizontalalignment, json[QString("eEzsigntemplateformfieldHorizontalalignment")]);
+    m_e_ezsigntemplateformfield_horizontalalignment_isSet = !json[QString("eEzsigntemplateformfieldHorizontalalignment")].isNull() && m_e_ezsigntemplateformfield_horizontalalignment_isValid;
+
+    m_obj_textstylestatic_isValid = ::Ezmaxapi::fromJsonValue(m_obj_textstylestatic, json[QString("objTextstylestatic")]);
+    m_obj_textstylestatic_isSet = !json[QString("objTextstylestatic")].isNull() && m_obj_textstylestatic_isValid;
 }
 
 QString Ezsigntemplateformfield_Request::asJson() const {
@@ -197,6 +209,12 @@ QJsonObject Ezsigntemplateformfield_Request::asJsonObject() const {
     }
     if (m_e_ezsigntemplateformfield_positioningoccurence.isSet()) {
         obj.insert(QString("eEzsigntemplateformfieldPositioningoccurence"), ::Ezmaxapi::toJsonValue(m_e_ezsigntemplateformfield_positioningoccurence));
+    }
+    if (m_e_ezsigntemplateformfield_horizontalalignment.isSet()) {
+        obj.insert(QString("eEzsigntemplateformfieldHorizontalalignment"), ::Ezmaxapi::toJsonValue(m_e_ezsigntemplateformfield_horizontalalignment));
+    }
+    if (m_obj_textstylestatic.isSet()) {
+        obj.insert(QString("objTextstylestatic"), ::Ezmaxapi::toJsonValue(m_obj_textstylestatic));
     }
     return obj;
 }
@@ -457,6 +475,38 @@ bool Ezsigntemplateformfield_Request::is_e_ezsigntemplateformfield_positioningoc
     return m_e_ezsigntemplateformfield_positioningoccurence_isValid;
 }
 
+Enum_Horizontalalignment Ezsigntemplateformfield_Request::getEEzsigntemplateformfieldHorizontalalignment() const {
+    return m_e_ezsigntemplateformfield_horizontalalignment;
+}
+void Ezsigntemplateformfield_Request::setEEzsigntemplateformfieldHorizontalalignment(const Enum_Horizontalalignment &e_ezsigntemplateformfield_horizontalalignment) {
+    m_e_ezsigntemplateformfield_horizontalalignment = e_ezsigntemplateformfield_horizontalalignment;
+    m_e_ezsigntemplateformfield_horizontalalignment_isSet = true;
+}
+
+bool Ezsigntemplateformfield_Request::is_e_ezsigntemplateformfield_horizontalalignment_Set() const{
+    return m_e_ezsigntemplateformfield_horizontalalignment_isSet;
+}
+
+bool Ezsigntemplateformfield_Request::is_e_ezsigntemplateformfield_horizontalalignment_Valid() const{
+    return m_e_ezsigntemplateformfield_horizontalalignment_isValid;
+}
+
+Textstylestatic_RequestCompound Ezsigntemplateformfield_Request::getObjTextstylestatic() const {
+    return m_obj_textstylestatic;
+}
+void Ezsigntemplateformfield_Request::setObjTextstylestatic(const Textstylestatic_RequestCompound &obj_textstylestatic) {
+    m_obj_textstylestatic = obj_textstylestatic;
+    m_obj_textstylestatic_isSet = true;
+}
+
+bool Ezsigntemplateformfield_Request::is_obj_textstylestatic_Set() const{
+    return m_obj_textstylestatic_isSet;
+}
+
+bool Ezsigntemplateformfield_Request::is_obj_textstylestatic_Valid() const{
+    return m_obj_textstylestatic_isValid;
+}
+
 bool Ezsigntemplateformfield_Request::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -536,6 +586,16 @@ bool Ezsigntemplateformfield_Request::isSet() const {
         }
 
         if (m_e_ezsigntemplateformfield_positioningoccurence.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_e_ezsigntemplateformfield_horizontalalignment.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_obj_textstylestatic.isSet()) {
             isObjectUpdated = true;
             break;
         }

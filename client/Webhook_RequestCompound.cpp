@@ -37,6 +37,9 @@ void Webhook_RequestCompound::initializeModel() {
     m_pki_webhook_id_isSet = false;
     m_pki_webhook_id_isValid = false;
 
+    m_fki_authenticationexternal_id_isSet = false;
+    m_fki_authenticationexternal_id_isValid = false;
+
     m_fki_ezsignfoldertype_id_isSet = false;
     m_fki_ezsignfoldertype_id_isValid = false;
 
@@ -83,6 +86,9 @@ void Webhook_RequestCompound::fromJsonObject(QJsonObject json) {
     m_pki_webhook_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_webhook_id, json[QString("pkiWebhookID")]);
     m_pki_webhook_id_isSet = !json[QString("pkiWebhookID")].isNull() && m_pki_webhook_id_isValid;
 
+    m_fki_authenticationexternal_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_authenticationexternal_id, json[QString("fkiAuthenticationexternalID")]);
+    m_fki_authenticationexternal_id_isSet = !json[QString("fkiAuthenticationexternalID")].isNull() && m_fki_authenticationexternal_id_isValid;
+
     m_fki_ezsignfoldertype_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_ezsignfoldertype_id, json[QString("fkiEzsignfoldertypeID")]);
     m_fki_ezsignfoldertype_id_isSet = !json[QString("fkiEzsignfoldertypeID")].isNull() && m_fki_ezsignfoldertype_id_isValid;
 
@@ -128,6 +134,9 @@ QJsonObject Webhook_RequestCompound::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_webhook_id_isSet) {
         obj.insert(QString("pkiWebhookID"), ::Ezmaxapi::toJsonValue(m_pki_webhook_id));
+    }
+    if (m_fki_authenticationexternal_id_isSet) {
+        obj.insert(QString("fkiAuthenticationexternalID"), ::Ezmaxapi::toJsonValue(m_fki_authenticationexternal_id));
     }
     if (m_fki_ezsignfoldertype_id_isSet) {
         obj.insert(QString("fkiEzsignfoldertypeID"), ::Ezmaxapi::toJsonValue(m_fki_ezsignfoldertype_id));
@@ -179,6 +188,22 @@ bool Webhook_RequestCompound::is_pki_webhook_id_Set() const{
 
 bool Webhook_RequestCompound::is_pki_webhook_id_Valid() const{
     return m_pki_webhook_id_isValid;
+}
+
+qint32 Webhook_RequestCompound::getFkiAuthenticationexternalId() const {
+    return m_fki_authenticationexternal_id;
+}
+void Webhook_RequestCompound::setFkiAuthenticationexternalId(const qint32 &fki_authenticationexternal_id) {
+    m_fki_authenticationexternal_id = fki_authenticationexternal_id;
+    m_fki_authenticationexternal_id_isSet = true;
+}
+
+bool Webhook_RequestCompound::is_fki_authenticationexternal_id_Set() const{
+    return m_fki_authenticationexternal_id_isSet;
+}
+
+bool Webhook_RequestCompound::is_fki_authenticationexternal_id_Valid() const{
+    return m_fki_authenticationexternal_id_isValid;
 }
 
 qint32 Webhook_RequestCompound::getFkiEzsignfoldertypeId() const {
@@ -361,6 +386,11 @@ bool Webhook_RequestCompound::isSet() const {
     bool isObjectUpdated = false;
     do {
         if (m_pki_webhook_id_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_fki_authenticationexternal_id_isSet) {
             isObjectUpdated = true;
             break;
         }

@@ -39,9 +39,6 @@ void Creditcardclient_AutocompleteElement_Response::initializeModel() {
 
     m_s_creditcardclient_description_isSet = false;
     m_s_creditcardclient_description_isValid = false;
-
-    m_b_creditcardclient_isactive_isSet = false;
-    m_b_creditcardclient_isactive_isValid = false;
 }
 
 void Creditcardclient_AutocompleteElement_Response::fromJson(QString jsonString) {
@@ -58,9 +55,6 @@ void Creditcardclient_AutocompleteElement_Response::fromJsonObject(QJsonObject j
 
     m_s_creditcardclient_description_isValid = ::Ezmaxapi::fromJsonValue(m_s_creditcardclient_description, json[QString("sCreditcardclientDescription")]);
     m_s_creditcardclient_description_isSet = !json[QString("sCreditcardclientDescription")].isNull() && m_s_creditcardclient_description_isValid;
-
-    m_b_creditcardclient_isactive_isValid = ::Ezmaxapi::fromJsonValue(m_b_creditcardclient_isactive, json[QString("bCreditcardclientIsactive")]);
-    m_b_creditcardclient_isactive_isSet = !json[QString("bCreditcardclientIsactive")].isNull() && m_b_creditcardclient_isactive_isValid;
 }
 
 QString Creditcardclient_AutocompleteElement_Response::asJson() const {
@@ -77,9 +71,6 @@ QJsonObject Creditcardclient_AutocompleteElement_Response::asJsonObject() const 
     }
     if (m_s_creditcardclient_description_isSet) {
         obj.insert(QString("sCreditcardclientDescription"), ::Ezmaxapi::toJsonValue(m_s_creditcardclient_description));
-    }
-    if (m_b_creditcardclient_isactive_isSet) {
-        obj.insert(QString("bCreditcardclientIsactive"), ::Ezmaxapi::toJsonValue(m_b_creditcardclient_isactive));
     }
     return obj;
 }
@@ -116,22 +107,6 @@ bool Creditcardclient_AutocompleteElement_Response::is_s_creditcardclient_descri
     return m_s_creditcardclient_description_isValid;
 }
 
-bool Creditcardclient_AutocompleteElement_Response::isBCreditcardclientIsactive() const {
-    return m_b_creditcardclient_isactive;
-}
-void Creditcardclient_AutocompleteElement_Response::setBCreditcardclientIsactive(const bool &b_creditcardclient_isactive) {
-    m_b_creditcardclient_isactive = b_creditcardclient_isactive;
-    m_b_creditcardclient_isactive_isSet = true;
-}
-
-bool Creditcardclient_AutocompleteElement_Response::is_b_creditcardclient_isactive_Set() const{
-    return m_b_creditcardclient_isactive_isSet;
-}
-
-bool Creditcardclient_AutocompleteElement_Response::is_b_creditcardclient_isactive_Valid() const{
-    return m_b_creditcardclient_isactive_isValid;
-}
-
 bool Creditcardclient_AutocompleteElement_Response::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -144,18 +119,13 @@ bool Creditcardclient_AutocompleteElement_Response::isSet() const {
             isObjectUpdated = true;
             break;
         }
-
-        if (m_b_creditcardclient_isactive_isSet) {
-            isObjectUpdated = true;
-            break;
-        }
     } while (false);
     return isObjectUpdated;
 }
 
 bool Creditcardclient_AutocompleteElement_Response::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_pki_creditcardclient_id_isValid && m_s_creditcardclient_description_isValid && m_b_creditcardclient_isactive_isValid && true;
+    return m_pki_creditcardclient_id_isValid && m_s_creditcardclient_description_isValid && true;
 }
 
 } // namespace Ezmaxapi

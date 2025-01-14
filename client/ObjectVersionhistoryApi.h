@@ -61,7 +61,7 @@ public:
     /**
     * @param[in]  pki_versionhistory_id qint32 [required]
     */
-    void versionhistoryGetObjectV2(const qint32 &pki_versionhistory_id);
+    virtual void versionhistoryGetObjectV2(const qint32 &pki_versionhistory_id);
 
 
 private:
@@ -91,6 +91,7 @@ private:
 Q_SIGNALS:
 
     void versionhistoryGetObjectV2Signal(Versionhistory_getObject_v2_Response summary);
+
 
     void versionhistoryGetObjectV2SignalFull(HttpRequestWorker *worker, Versionhistory_getObject_v2_Response summary);
 

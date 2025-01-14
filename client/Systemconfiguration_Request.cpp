@@ -37,6 +37,9 @@ void Systemconfiguration_Request::initializeModel() {
     m_pki_systemconfiguration_id_isSet = false;
     m_pki_systemconfiguration_id_isValid = false;
 
+    m_fki_branding_id_isSet = false;
+    m_fki_branding_id_isValid = false;
+
     m_e_systemconfiguration_newexternaluseraction_isSet = false;
     m_e_systemconfiguration_newexternaluseraction_isValid = false;
 
@@ -80,6 +83,9 @@ void Systemconfiguration_Request::fromJsonObject(QJsonObject json) {
     m_pki_systemconfiguration_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_systemconfiguration_id, json[QString("pkiSystemconfigurationID")]);
     m_pki_systemconfiguration_id_isSet = !json[QString("pkiSystemconfigurationID")].isNull() && m_pki_systemconfiguration_id_isValid;
 
+    m_fki_branding_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_branding_id, json[QString("fkiBrandingID")]);
+    m_fki_branding_id_isSet = !json[QString("fkiBrandingID")].isNull() && m_fki_branding_id_isValid;
+
     m_e_systemconfiguration_newexternaluseraction_isValid = ::Ezmaxapi::fromJsonValue(m_e_systemconfiguration_newexternaluseraction, json[QString("eSystemconfigurationNewexternaluseraction")]);
     m_e_systemconfiguration_newexternaluseraction_isSet = !json[QString("eSystemconfigurationNewexternaluseraction")].isNull() && m_e_systemconfiguration_newexternaluseraction_isValid;
 
@@ -122,6 +128,9 @@ QJsonObject Systemconfiguration_Request::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_systemconfiguration_id_isSet) {
         obj.insert(QString("pkiSystemconfigurationID"), ::Ezmaxapi::toJsonValue(m_pki_systemconfiguration_id));
+    }
+    if (m_fki_branding_id_isSet) {
+        obj.insert(QString("fkiBrandingID"), ::Ezmaxapi::toJsonValue(m_fki_branding_id));
     }
     if (m_e_systemconfiguration_newexternaluseraction.isSet()) {
         obj.insert(QString("eSystemconfigurationNewexternaluseraction"), ::Ezmaxapi::toJsonValue(m_e_systemconfiguration_newexternaluseraction));
@@ -170,6 +179,22 @@ bool Systemconfiguration_Request::is_pki_systemconfiguration_id_Set() const{
 
 bool Systemconfiguration_Request::is_pki_systemconfiguration_id_Valid() const{
     return m_pki_systemconfiguration_id_isValid;
+}
+
+qint32 Systemconfiguration_Request::getFkiBrandingId() const {
+    return m_fki_branding_id;
+}
+void Systemconfiguration_Request::setFkiBrandingId(const qint32 &fki_branding_id) {
+    m_fki_branding_id = fki_branding_id;
+    m_fki_branding_id_isSet = true;
+}
+
+bool Systemconfiguration_Request::is_fki_branding_id_Set() const{
+    return m_fki_branding_id_isSet;
+}
+
+bool Systemconfiguration_Request::is_fki_branding_id_Valid() const{
+    return m_fki_branding_id_isValid;
 }
 
 Field_eSystemconfigurationNewexternaluseraction Systemconfiguration_Request::getESystemconfigurationNewexternaluseraction() const {
@@ -336,6 +361,11 @@ bool Systemconfiguration_Request::isSet() const {
     bool isObjectUpdated = false;
     do {
         if (m_pki_systemconfiguration_id_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_fki_branding_id_isSet) {
             isObjectUpdated = true;
             break;
         }

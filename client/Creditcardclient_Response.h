@@ -61,20 +61,10 @@ public:
     bool is_s_creditcardclient_description_Set() const;
     bool is_s_creditcardclient_description_Valid() const;
 
-    bool isBCreditcardclientIsactive() const;
-    void setBCreditcardclientIsactive(const bool &b_creditcardclient_isactive);
-    bool is_b_creditcardclient_isactive_Set() const;
-    bool is_b_creditcardclient_isactive_Valid() const;
-
-    bool isBCreditcardclientAllowedagencypayment() const;
-    void setBCreditcardclientAllowedagencypayment(const bool &b_creditcardclient_allowedagencypayment);
-    bool is_b_creditcardclient_allowedagencypayment_Set() const;
-    bool is_b_creditcardclient_allowedagencypayment_Valid() const;
-
-    bool isBCreditcardclientAllowedroyallepageprotection() const;
-    void setBCreditcardclientAllowedroyallepageprotection(const bool &b_creditcardclient_allowedroyallepageprotection);
-    bool is_b_creditcardclient_allowedroyallepageprotection_Set() const;
-    bool is_b_creditcardclient_allowedroyallepageprotection_Valid() const;
+    bool isBCreditcardclientAllowedcompanypayment() const;
+    void setBCreditcardclientAllowedcompanypayment(const bool &b_creditcardclient_allowedcompanypayment);
+    bool is_b_creditcardclient_allowedcompanypayment_Set() const;
+    bool is_b_creditcardclient_allowedcompanypayment_Valid() const;
 
     bool isBCreditcardclientAllowedtranquillit() const;
     void setBCreditcardclientAllowedtranquillit(const bool &b_creditcardclient_allowedtranquillit);
@@ -108,17 +98,9 @@ private:
     bool m_s_creditcardclient_description_isSet;
     bool m_s_creditcardclient_description_isValid;
 
-    bool m_b_creditcardclient_isactive;
-    bool m_b_creditcardclient_isactive_isSet;
-    bool m_b_creditcardclient_isactive_isValid;
-
-    bool m_b_creditcardclient_allowedagencypayment;
-    bool m_b_creditcardclient_allowedagencypayment_isSet;
-    bool m_b_creditcardclient_allowedagencypayment_isValid;
-
-    bool m_b_creditcardclient_allowedroyallepageprotection;
-    bool m_b_creditcardclient_allowedroyallepageprotection_isSet;
-    bool m_b_creditcardclient_allowedroyallepageprotection_isValid;
+    bool m_b_creditcardclient_allowedcompanypayment;
+    bool m_b_creditcardclient_allowedcompanypayment_isSet;
+    bool m_b_creditcardclient_allowedcompanypayment_isValid;
 
     bool m_b_creditcardclient_allowedtranquillit;
     bool m_b_creditcardclient_allowedtranquillit_isSet;

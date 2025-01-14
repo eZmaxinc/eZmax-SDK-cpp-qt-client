@@ -34,6 +34,8 @@
 #include "Ezsignfoldersignerassociation_getObject_v2_Response.h"
 #include "Ezsignfoldersignerassociation_patchObject_v1_Request.h"
 #include "Ezsignfoldersignerassociation_patchObject_v1_Response.h"
+#include "Ezsignfoldersignerassociation_reassign_v1_Request.h"
+#include "Ezsignfoldersignerassociation_reassign_v1_Response.h"
 #include "Object.h"
 #include <QString>
 
@@ -77,55 +79,61 @@ public:
     * @param[in]  pki_ezsignfoldersignerassociation_id qint32 [required]
     * @param[in]  ezsignfoldersignerassociation_create_embedded_url_v1_request Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Request [required]
     */
-    void ezsignfoldersignerassociationCreateEmbeddedUrlV1(const qint32 &pki_ezsignfoldersignerassociation_id, const Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Request &ezsignfoldersignerassociation_create_embedded_url_v1_request);
+    virtual void ezsignfoldersignerassociationCreateEmbeddedUrlV1(const qint32 &pki_ezsignfoldersignerassociation_id, const Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Request &ezsignfoldersignerassociation_create_embedded_url_v1_request);
 
     /**
     * @param[in]  ezsignfoldersignerassociation_create_object_v1_request QList<Ezsignfoldersignerassociation_createObject_v1_Request> [required]
     */
-    Q_DECL_DEPRECATED void ezsignfoldersignerassociationCreateObjectV1(const QList<Ezsignfoldersignerassociation_createObject_v1_Request> &ezsignfoldersignerassociation_create_object_v1_request);
+    Q_DECL_DEPRECATED virtual void ezsignfoldersignerassociationCreateObjectV1(const QList<Ezsignfoldersignerassociation_createObject_v1_Request> &ezsignfoldersignerassociation_create_object_v1_request);
 
     /**
     * @param[in]  ezsignfoldersignerassociation_create_object_v2_request Ezsignfoldersignerassociation_createObject_v2_Request [required]
     */
-    void ezsignfoldersignerassociationCreateObjectV2(const Ezsignfoldersignerassociation_createObject_v2_Request &ezsignfoldersignerassociation_create_object_v2_request);
+    virtual void ezsignfoldersignerassociationCreateObjectV2(const Ezsignfoldersignerassociation_createObject_v2_Request &ezsignfoldersignerassociation_create_object_v2_request);
 
     /**
     * @param[in]  pki_ezsignfoldersignerassociation_id qint32 [required]
     */
-    void ezsignfoldersignerassociationDeleteObjectV1(const qint32 &pki_ezsignfoldersignerassociation_id);
+    virtual void ezsignfoldersignerassociationDeleteObjectV1(const qint32 &pki_ezsignfoldersignerassociation_id);
 
     /**
     * @param[in]  pki_ezsignfoldersignerassociation_id qint32 [required]
     * @param[in]  ezsignfoldersignerassociation_edit_object_v1_request Ezsignfoldersignerassociation_editObject_v1_Request [required]
     */
-    void ezsignfoldersignerassociationEditObjectV1(const qint32 &pki_ezsignfoldersignerassociation_id, const Ezsignfoldersignerassociation_editObject_v1_Request &ezsignfoldersignerassociation_edit_object_v1_request);
+    virtual void ezsignfoldersignerassociationEditObjectV1(const qint32 &pki_ezsignfoldersignerassociation_id, const Ezsignfoldersignerassociation_editObject_v1_Request &ezsignfoldersignerassociation_edit_object_v1_request);
 
     /**
     * @param[in]  pki_ezsignfoldersignerassociation_id qint32 [required]
     * @param[in]  body Object [required]
     */
-    void ezsignfoldersignerassociationForceDisconnectV1(const qint32 &pki_ezsignfoldersignerassociation_id, const Object &body);
+    virtual void ezsignfoldersignerassociationForceDisconnectV1(const qint32 &pki_ezsignfoldersignerassociation_id, const Object &body);
 
     /**
     * @param[in]  pki_ezsignfoldersignerassociation_id qint32 [required]
     */
-    void ezsignfoldersignerassociationGetInPersonLoginUrlV1(const qint32 &pki_ezsignfoldersignerassociation_id);
+    virtual void ezsignfoldersignerassociationGetInPersonLoginUrlV1(const qint32 &pki_ezsignfoldersignerassociation_id);
 
     /**
     * @param[in]  pki_ezsignfoldersignerassociation_id qint32 [required]
     */
-    Q_DECL_DEPRECATED void ezsignfoldersignerassociationGetObjectV1(const qint32 &pki_ezsignfoldersignerassociation_id);
+    Q_DECL_DEPRECATED virtual void ezsignfoldersignerassociationGetObjectV1(const qint32 &pki_ezsignfoldersignerassociation_id);
 
     /**
     * @param[in]  pki_ezsignfoldersignerassociation_id qint32 [required]
     */
-    void ezsignfoldersignerassociationGetObjectV2(const qint32 &pki_ezsignfoldersignerassociation_id);
+    virtual void ezsignfoldersignerassociationGetObjectV2(const qint32 &pki_ezsignfoldersignerassociation_id);
 
     /**
     * @param[in]  pki_ezsignfoldersignerassociation_id qint32 [required]
     * @param[in]  ezsignfoldersignerassociation_patch_object_v1_request Ezsignfoldersignerassociation_patchObject_v1_Request [required]
     */
-    void ezsignfoldersignerassociationPatchObjectV1(const qint32 &pki_ezsignfoldersignerassociation_id, const Ezsignfoldersignerassociation_patchObject_v1_Request &ezsignfoldersignerassociation_patch_object_v1_request);
+    virtual void ezsignfoldersignerassociationPatchObjectV1(const qint32 &pki_ezsignfoldersignerassociation_id, const Ezsignfoldersignerassociation_patchObject_v1_Request &ezsignfoldersignerassociation_patch_object_v1_request);
+
+    /**
+    * @param[in]  pki_ezsignfoldersignerassociation_id qint32 [required]
+    * @param[in]  ezsignfoldersignerassociation_reassign_v1_request Ezsignfoldersignerassociation_reassign_v1_Request [required]
+    */
+    virtual void ezsignfoldersignerassociationReassignV1(const qint32 &pki_ezsignfoldersignerassociation_id, const Ezsignfoldersignerassociation_reassign_v1_Request &ezsignfoldersignerassociation_reassign_v1_request);
 
 
 private:
@@ -160,6 +168,7 @@ private:
     void ezsignfoldersignerassociationGetObjectV1Callback(HttpRequestWorker *worker);
     void ezsignfoldersignerassociationGetObjectV2Callback(HttpRequestWorker *worker);
     void ezsignfoldersignerassociationPatchObjectV1Callback(HttpRequestWorker *worker);
+    void ezsignfoldersignerassociationReassignV1Callback(HttpRequestWorker *worker);
 
 Q_SIGNALS:
 
@@ -173,6 +182,8 @@ Q_SIGNALS:
     void ezsignfoldersignerassociationGetObjectV1Signal(Ezsignfoldersignerassociation_getObject_v1_Response summary);
     void ezsignfoldersignerassociationGetObjectV2Signal(Ezsignfoldersignerassociation_getObject_v2_Response summary);
     void ezsignfoldersignerassociationPatchObjectV1Signal(Ezsignfoldersignerassociation_patchObject_v1_Response summary);
+    void ezsignfoldersignerassociationReassignV1Signal(Ezsignfoldersignerassociation_reassign_v1_Response summary);
+
 
     void ezsignfoldersignerassociationCreateEmbeddedUrlV1SignalFull(HttpRequestWorker *worker, Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Response summary);
     void ezsignfoldersignerassociationCreateObjectV1SignalFull(HttpRequestWorker *worker, Ezsignfoldersignerassociation_createObject_v1_Response summary);
@@ -184,6 +195,7 @@ Q_SIGNALS:
     void ezsignfoldersignerassociationGetObjectV1SignalFull(HttpRequestWorker *worker, Ezsignfoldersignerassociation_getObject_v1_Response summary);
     void ezsignfoldersignerassociationGetObjectV2SignalFull(HttpRequestWorker *worker, Ezsignfoldersignerassociation_getObject_v2_Response summary);
     void ezsignfoldersignerassociationPatchObjectV1SignalFull(HttpRequestWorker *worker, Ezsignfoldersignerassociation_patchObject_v1_Response summary);
+    void ezsignfoldersignerassociationReassignV1SignalFull(HttpRequestWorker *worker, Ezsignfoldersignerassociation_reassign_v1_Response summary);
 
     Q_DECL_DEPRECATED_X("Use ezsignfoldersignerassociationCreateEmbeddedUrlV1SignalError() instead")
     void ezsignfoldersignerassociationCreateEmbeddedUrlV1SignalE(Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
@@ -215,6 +227,9 @@ Q_SIGNALS:
     Q_DECL_DEPRECATED_X("Use ezsignfoldersignerassociationPatchObjectV1SignalError() instead")
     void ezsignfoldersignerassociationPatchObjectV1SignalE(Ezsignfoldersignerassociation_patchObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfoldersignerassociationPatchObjectV1SignalError(Ezsignfoldersignerassociation_patchObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignfoldersignerassociationReassignV1SignalError() instead")
+    void ezsignfoldersignerassociationReassignV1SignalE(Ezsignfoldersignerassociation_reassign_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfoldersignerassociationReassignV1SignalError(Ezsignfoldersignerassociation_reassign_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     Q_DECL_DEPRECATED_X("Use ezsignfoldersignerassociationCreateEmbeddedUrlV1SignalErrorFull() instead")
     void ezsignfoldersignerassociationCreateEmbeddedUrlV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
@@ -246,6 +261,9 @@ Q_SIGNALS:
     Q_DECL_DEPRECATED_X("Use ezsignfoldersignerassociationPatchObjectV1SignalErrorFull() instead")
     void ezsignfoldersignerassociationPatchObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfoldersignerassociationPatchObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignfoldersignerassociationReassignV1SignalErrorFull() instead")
+    void ezsignfoldersignerassociationReassignV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfoldersignerassociationReassignV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();

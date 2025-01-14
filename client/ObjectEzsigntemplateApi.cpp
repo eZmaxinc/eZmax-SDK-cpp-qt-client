@@ -61,24 +61,18 @@ void ObjectEzsigntemplateApi::initializeServerConfigs() {
     
     _serverConfigs.insert("ezsigntemplateCopyV1", defaultConf);
     _serverIndices.insert("ezsigntemplateCopyV1", 0);
-    _serverConfigs.insert("ezsigntemplateCreateObjectV1", defaultConf);
-    _serverIndices.insert("ezsigntemplateCreateObjectV1", 0);
-    _serverConfigs.insert("ezsigntemplateCreateObjectV2", defaultConf);
-    _serverIndices.insert("ezsigntemplateCreateObjectV2", 0);
+    _serverConfigs.insert("ezsigntemplateCreateObjectV3", defaultConf);
+    _serverIndices.insert("ezsigntemplateCreateObjectV3", 0);
     _serverConfigs.insert("ezsigntemplateDeleteObjectV1", defaultConf);
     _serverIndices.insert("ezsigntemplateDeleteObjectV1", 0);
-    _serverConfigs.insert("ezsigntemplateEditObjectV1", defaultConf);
-    _serverIndices.insert("ezsigntemplateEditObjectV1", 0);
-    _serverConfigs.insert("ezsigntemplateEditObjectV2", defaultConf);
-    _serverIndices.insert("ezsigntemplateEditObjectV2", 0);
+    _serverConfigs.insert("ezsigntemplateEditObjectV3", defaultConf);
+    _serverIndices.insert("ezsigntemplateEditObjectV3", 0);
     _serverConfigs.insert("ezsigntemplateGetAutocompleteV2", defaultConf);
     _serverIndices.insert("ezsigntemplateGetAutocompleteV2", 0);
     _serverConfigs.insert("ezsigntemplateGetListV1", defaultConf);
     _serverIndices.insert("ezsigntemplateGetListV1", 0);
-    _serverConfigs.insert("ezsigntemplateGetObjectV1", defaultConf);
-    _serverIndices.insert("ezsigntemplateGetObjectV1", 0);
-    _serverConfigs.insert("ezsigntemplateGetObjectV2", defaultConf);
-    _serverIndices.insert("ezsigntemplateGetObjectV2", 0);
+    _serverConfigs.insert("ezsigntemplateGetObjectV3", defaultConf);
+    _serverIndices.insert("ezsigntemplateGetObjectV3", 0);
 }
 
 /**
@@ -154,15 +148,9 @@ int ObjectEzsigntemplateApi::addServerConfiguration(const QString &operation, co
     * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
     */
 void ObjectEzsigntemplateApi::setNewServerForAllOperations(const QUrl &url, const QString &description, const QMap<QString, ServerVariable> &variables) {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
     for (auto keyIt = _serverIndices.keyBegin(); keyIt != _serverIndices.keyEnd(); keyIt++) {
         setServerIndex(*keyIt, addServerConfiguration(*keyIt, url, description, variables));
     }
-#else
-    for (auto &e : _serverIndices.keys()) {
-        setServerIndex(e, addServerConfiguration(e, url, description, variables));
-    }
-#endif
 }
 
 /**
@@ -286,15 +274,10 @@ void ObjectEzsigntemplateApi::ezsigntemplateCopyV1(const qint32 &pki_ezsigntempl
         QByteArray output = ezsigntemplate_copy_v1_request.asJson().toUtf8();
         input.request_body.append(output);
     }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsigntemplateApi::ezsigntemplateCopyV1Callback);
     connect(this, &ObjectEzsigntemplateApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -352,8 +335,8 @@ void ObjectEzsigntemplateApi::ezsigntemplateCopyV1Callback(HttpRequestWorker *wo
     }
 }
 
-void ObjectEzsigntemplateApi::ezsigntemplateCreateObjectV1(const Ezsigntemplate_createObject_v1_Request &ezsigntemplate_create_object_v1_request) {
-    QString fullPath = QString(_serverConfigs["ezsigntemplateCreateObjectV1"][_serverIndices.value("ezsigntemplateCreateObjectV1")].URL()+"/1/object/ezsigntemplate");
+void ObjectEzsigntemplateApi::ezsigntemplateCreateObjectV3(const Ezsigntemplate_createObject_v3_Request &ezsigntemplate_create_object_v3_request) {
+    QString fullPath = QString(_serverConfigs["ezsigntemplateCreateObjectV3"][_serverIndices.value("ezsigntemplateCreateObjectV3")].URL()+"/3/object/ezsigntemplate");
     
     if (_apiKeys.contains("Authorization")) {
         addHeaders("Authorization",_apiKeys.find("Authorization").value());
@@ -367,20 +350,15 @@ void ObjectEzsigntemplateApi::ezsigntemplateCreateObjectV1(const Ezsigntemplate_
     {
 
         
-        QByteArray output = ezsigntemplate_create_object_v1_request.asJson().toUtf8();
+        QByteArray output = ezsigntemplate_create_object_v3_request.asJson().toUtf8();
         input.request_body.append(output);
     }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
 
-    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsigntemplateApi::ezsigntemplateCreateObjectV1Callback);
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsigntemplateApi::ezsigntemplateCreateObjectV3Callback);
     connect(this, &ObjectEzsigntemplateApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
@@ -391,19 +369,19 @@ void ObjectEzsigntemplateApi::ezsigntemplateCreateObjectV1(const Ezsigntemplate_
     worker->execute(&input);
 }
 
-void ObjectEzsigntemplateApi::ezsigntemplateCreateObjectV1Callback(HttpRequestWorker *worker) {
+void ObjectEzsigntemplateApi::ezsigntemplateCreateObjectV3Callback(HttpRequestWorker *worker) {
     QString error_str = worker->error_str;
     QNetworkReply::NetworkError error_type = worker->error_type;
 
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Ezsigntemplate_createObject_v1_Response output(QString(worker->response));
+    Ezsigntemplate_createObject_v3_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        Q_EMIT ezsigntemplateCreateObjectV1Signal(output);
-        Q_EMIT ezsigntemplateCreateObjectV1SignalFull(worker, output);
+        Q_EMIT ezsigntemplateCreateObjectV3Signal(output);
+        Q_EMIT ezsigntemplateCreateObjectV3SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -420,8 +398,8 @@ void ObjectEzsigntemplateApi::ezsigntemplateCreateObjectV1Callback(HttpRequestWo
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        Q_EMIT ezsigntemplateCreateObjectV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsigntemplateCreateObjectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsigntemplateCreateObjectV3SignalE(output, error_type, error_str);
+        Q_EMIT ezsigntemplateCreateObjectV3SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -431,92 +409,8 @@ void ObjectEzsigntemplateApi::ezsigntemplateCreateObjectV1Callback(HttpRequestWo
 #pragma GCC diagnostic pop
 #endif
 
-        Q_EMIT ezsigntemplateCreateObjectV1SignalError(output, error_type, error_str);
-        Q_EMIT ezsigntemplateCreateObjectV1SignalErrorFull(worker, error_type, error_str);
-    }
-}
-
-void ObjectEzsigntemplateApi::ezsigntemplateCreateObjectV2(const Ezsigntemplate_createObject_v2_Request &ezsigntemplate_create_object_v2_request) {
-    QString fullPath = QString(_serverConfigs["ezsigntemplateCreateObjectV2"][_serverIndices.value("ezsigntemplateCreateObjectV2")].URL()+"/2/object/ezsigntemplate");
-    
-    if (_apiKeys.contains("Authorization")) {
-        addHeaders("Authorization",_apiKeys.find("Authorization").value());
-    }
-    
-    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
-    worker->setTimeOut(_timeOut);
-    worker->setWorkingDirectory(_workingDirectory);
-    HttpRequestInput input(fullPath, "POST");
-
-    {
-
-        
-        QByteArray output = ezsigntemplate_create_object_v2_request.asJson().toUtf8();
-        input.request_body.append(output);
-    }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
-    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
-        input.headers.insert(keyValueIt->first, keyValueIt->second);
-    }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
-
-    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsigntemplateApi::ezsigntemplateCreateObjectV2Callback);
-    connect(this, &ObjectEzsigntemplateApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
-        if (findChildren<HttpRequestWorker*>().count() == 0) {
-            Q_EMIT allPendingRequestsCompleted();
-        }
-    });
-
-    worker->execute(&input);
-}
-
-void ObjectEzsigntemplateApi::ezsigntemplateCreateObjectV2Callback(HttpRequestWorker *worker) {
-    QString error_str = worker->error_str;
-    QNetworkReply::NetworkError error_type = worker->error_type;
-
-    if (worker->error_type != QNetworkReply::NoError) {
-        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
-    }
-    Ezsigntemplate_createObject_v2_Response output(QString(worker->response));
-    worker->deleteLater();
-
-    if (worker->error_type == QNetworkReply::NoError) {
-        Q_EMIT ezsigntemplateCreateObjectV2Signal(output);
-        Q_EMIT ezsigntemplateCreateObjectV2SignalFull(worker, output);
-    } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsigntemplateCreateObjectV2SignalE(output, error_type, error_str);
-        Q_EMIT ezsigntemplateCreateObjectV2SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
-        Q_EMIT ezsigntemplateCreateObjectV2SignalError(output, error_type, error_str);
-        Q_EMIT ezsigntemplateCreateObjectV2SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsigntemplateCreateObjectV3SignalError(output, error_type, error_str);
+        Q_EMIT ezsigntemplateCreateObjectV3SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -547,15 +441,10 @@ void ObjectEzsigntemplateApi::ezsigntemplateDeleteObjectV1(const qint32 &pki_ezs
     HttpRequestInput input(fullPath, "DELETE");
 
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsigntemplateApi::ezsigntemplateDeleteObjectV1Callback);
     connect(this, &ObjectEzsigntemplateApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -613,8 +502,8 @@ void ObjectEzsigntemplateApi::ezsigntemplateDeleteObjectV1Callback(HttpRequestWo
     }
 }
 
-void ObjectEzsigntemplateApi::ezsigntemplateEditObjectV1(const qint32 &pki_ezsigntemplate_id, const Ezsigntemplate_editObject_v1_Request &ezsigntemplate_edit_object_v1_request) {
-    QString fullPath = QString(_serverConfigs["ezsigntemplateEditObjectV1"][_serverIndices.value("ezsigntemplateEditObjectV1")].URL()+"/1/object/ezsigntemplate/{pkiEzsigntemplateID}");
+void ObjectEzsigntemplateApi::ezsigntemplateEditObjectV3(const qint32 &pki_ezsigntemplate_id, const Ezsigntemplate_editObject_v3_Request &ezsigntemplate_edit_object_v3_request) {
+    QString fullPath = QString(_serverConfigs["ezsigntemplateEditObjectV3"][_serverIndices.value("ezsigntemplateEditObjectV3")].URL()+"/3/object/ezsigntemplate/{pkiEzsigntemplateID}");
     
     if (_apiKeys.contains("Authorization")) {
         addHeaders("Authorization",_apiKeys.find("Authorization").value());
@@ -642,20 +531,15 @@ void ObjectEzsigntemplateApi::ezsigntemplateEditObjectV1(const qint32 &pki_ezsig
     {
 
         
-        QByteArray output = ezsigntemplate_edit_object_v1_request.asJson().toUtf8();
+        QByteArray output = ezsigntemplate_edit_object_v3_request.asJson().toUtf8();
         input.request_body.append(output);
     }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
 
-    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsigntemplateApi::ezsigntemplateEditObjectV1Callback);
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsigntemplateApi::ezsigntemplateEditObjectV3Callback);
     connect(this, &ObjectEzsigntemplateApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
@@ -666,19 +550,19 @@ void ObjectEzsigntemplateApi::ezsigntemplateEditObjectV1(const qint32 &pki_ezsig
     worker->execute(&input);
 }
 
-void ObjectEzsigntemplateApi::ezsigntemplateEditObjectV1Callback(HttpRequestWorker *worker) {
+void ObjectEzsigntemplateApi::ezsigntemplateEditObjectV3Callback(HttpRequestWorker *worker) {
     QString error_str = worker->error_str;
     QNetworkReply::NetworkError error_type = worker->error_type;
 
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Ezsigntemplate_editObject_v1_Response output(QString(worker->response));
+    Ezsigntemplate_editObject_v3_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        Q_EMIT ezsigntemplateEditObjectV1Signal(output);
-        Q_EMIT ezsigntemplateEditObjectV1SignalFull(worker, output);
+        Q_EMIT ezsigntemplateEditObjectV3Signal(output);
+        Q_EMIT ezsigntemplateEditObjectV3SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -695,8 +579,8 @@ void ObjectEzsigntemplateApi::ezsigntemplateEditObjectV1Callback(HttpRequestWork
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        Q_EMIT ezsigntemplateEditObjectV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsigntemplateEditObjectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsigntemplateEditObjectV3SignalE(output, error_type, error_str);
+        Q_EMIT ezsigntemplateEditObjectV3SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -706,110 +590,12 @@ void ObjectEzsigntemplateApi::ezsigntemplateEditObjectV1Callback(HttpRequestWork
 #pragma GCC diagnostic pop
 #endif
 
-        Q_EMIT ezsigntemplateEditObjectV1SignalError(output, error_type, error_str);
-        Q_EMIT ezsigntemplateEditObjectV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsigntemplateEditObjectV3SignalError(output, error_type, error_str);
+        Q_EMIT ezsigntemplateEditObjectV3SignalErrorFull(worker, error_type, error_str);
     }
 }
 
-void ObjectEzsigntemplateApi::ezsigntemplateEditObjectV2(const qint32 &pki_ezsigntemplate_id, const Ezsigntemplate_editObject_v2_Request &ezsigntemplate_edit_object_v2_request) {
-    QString fullPath = QString(_serverConfigs["ezsigntemplateEditObjectV2"][_serverIndices.value("ezsigntemplateEditObjectV2")].URL()+"/2/object/ezsigntemplate/{pkiEzsigntemplateID}");
-    
-    if (_apiKeys.contains("Authorization")) {
-        addHeaders("Authorization",_apiKeys.find("Authorization").value());
-    }
-    
-    
-    {
-        QString pki_ezsigntemplate_idPathParam("{");
-        pki_ezsigntemplate_idPathParam.append("pkiEzsigntemplateID").append("}");
-        QString pathPrefix, pathSuffix, pathDelimiter;
-        QString pathStyle = "simple";
-        if (pathStyle == "")
-            pathStyle = "simple";
-        pathPrefix = getParamStylePrefix(pathStyle);
-        pathSuffix = getParamStyleSuffix(pathStyle);
-        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsigntemplateID", false);
-        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsigntemplateID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsigntemplate_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsigntemplate_id)));
-    }
-    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
-    worker->setTimeOut(_timeOut);
-    worker->setWorkingDirectory(_workingDirectory);
-    HttpRequestInput input(fullPath, "PUT");
-
-    {
-
-        
-        QByteArray output = ezsigntemplate_edit_object_v2_request.asJson().toUtf8();
-        input.request_body.append(output);
-    }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
-    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
-        input.headers.insert(keyValueIt->first, keyValueIt->second);
-    }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
-
-    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsigntemplateApi::ezsigntemplateEditObjectV2Callback);
-    connect(this, &ObjectEzsigntemplateApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
-        if (findChildren<HttpRequestWorker*>().count() == 0) {
-            Q_EMIT allPendingRequestsCompleted();
-        }
-    });
-
-    worker->execute(&input);
-}
-
-void ObjectEzsigntemplateApi::ezsigntemplateEditObjectV2Callback(HttpRequestWorker *worker) {
-    QString error_str = worker->error_str;
-    QNetworkReply::NetworkError error_type = worker->error_type;
-
-    if (worker->error_type != QNetworkReply::NoError) {
-        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
-    }
-    Ezsigntemplate_editObject_v2_Response output(QString(worker->response));
-    worker->deleteLater();
-
-    if (worker->error_type == QNetworkReply::NoError) {
-        Q_EMIT ezsigntemplateEditObjectV2Signal(output);
-        Q_EMIT ezsigntemplateEditObjectV2SignalFull(worker, output);
-    } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsigntemplateEditObjectV2SignalE(output, error_type, error_str);
-        Q_EMIT ezsigntemplateEditObjectV2SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
-        Q_EMIT ezsigntemplateEditObjectV2SignalError(output, error_type, error_str);
-        Q_EMIT ezsigntemplateEditObjectV2SignalErrorFull(worker, error_type, error_str);
-    }
-}
-
-void ObjectEzsigntemplateApi::ezsigntemplateGetAutocompleteV2(const QString &s_selector, const ::Ezmaxapi::OptionalParam<QString> &e_filter_active, const ::Ezmaxapi::OptionalParam<QString> &s_query, const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language) {
+void ObjectEzsigntemplateApi::ezsigntemplateGetAutocompleteV2(const QString &s_selector, const ::Ezmaxapi::OptionalParam<QString> &e_filter_active, const ::Ezmaxapi::OptionalParam<QString> &s_query, const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language, const ::Ezmaxapi::OptionalParam<qint32> &fki_ezsignfoldertype_id) {
     QString fullPath = QString(_serverConfigs["ezsigntemplateGetAutocompleteV2"][_serverIndices.value("ezsigntemplateGetAutocompleteV2")].URL()+"/2/object/ezsigntemplate/getAutocomplete/{sSelector}");
     
     if (_apiKeys.contains("Authorization")) {
@@ -861,6 +647,21 @@ void ObjectEzsigntemplateApi::ezsigntemplateGetAutocompleteV2(const QString &s_s
 
         fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(s_query.stringValue()));
     }
+    if (fki_ezsignfoldertype_id.hasValue())
+    {
+        queryStyle = "form";
+        if (queryStyle == "")
+            queryStyle = "form";
+        queryPrefix = getParamStylePrefix(queryStyle);
+        querySuffix = getParamStyleSuffix(queryStyle);
+        queryDelimiter = getParamStyleDelimiter(queryStyle, "fkiEzsignfoldertypeID", true);
+        if (fullPath.indexOf("?") > 0)
+            fullPath.append(queryPrefix);
+        else
+            fullPath.append("?");
+
+        fullPath.append(QUrl::toPercentEncoding("fkiEzsignfoldertypeID")).append(querySuffix).append(QUrl::toPercentEncoding(fki_ezsignfoldertype_id.stringValue()));
+    }
     HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
     worker->setWorkingDirectory(_workingDirectory);
@@ -911,15 +712,10 @@ void ObjectEzsigntemplateApi::ezsigntemplateGetAutocompleteV2(const QString &s_s
         }
         input.headers.insert("Accept-Language", headerString);
     }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsigntemplateApi::ezsigntemplateGetAutocompleteV2Callback);
     connect(this, &ObjectEzsigntemplateApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -1095,15 +891,10 @@ void ObjectEzsigntemplateApi::ezsigntemplateGetListV1(const ::Ezmaxapi::Optional
         }
         input.headers.insert("Accept-Language", headerString);
     }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsigntemplateApi::ezsigntemplateGetListV1Callback);
     connect(this, &ObjectEzsigntemplateApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -1161,8 +952,8 @@ void ObjectEzsigntemplateApi::ezsigntemplateGetListV1Callback(HttpRequestWorker 
     }
 }
 
-void ObjectEzsigntemplateApi::ezsigntemplateGetObjectV1(const qint32 &pki_ezsigntemplate_id) {
-    QString fullPath = QString(_serverConfigs["ezsigntemplateGetObjectV1"][_serverIndices.value("ezsigntemplateGetObjectV1")].URL()+"/1/object/ezsigntemplate/{pkiEzsigntemplateID}");
+void ObjectEzsigntemplateApi::ezsigntemplateGetObjectV3(const qint32 &pki_ezsigntemplate_id) {
+    QString fullPath = QString(_serverConfigs["ezsigntemplateGetObjectV3"][_serverIndices.value("ezsigntemplateGetObjectV3")].URL()+"/3/object/ezsigntemplate/{pkiEzsigntemplateID}");
     
     if (_apiKeys.contains("Authorization")) {
         addHeaders("Authorization",_apiKeys.find("Authorization").value());
@@ -1188,17 +979,12 @@ void ObjectEzsigntemplateApi::ezsigntemplateGetObjectV1(const qint32 &pki_ezsign
     HttpRequestInput input(fullPath, "GET");
 
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
 
-    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsigntemplateApi::ezsigntemplateGetObjectV1Callback);
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsigntemplateApi::ezsigntemplateGetObjectV3Callback);
     connect(this, &ObjectEzsigntemplateApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
@@ -1209,19 +995,19 @@ void ObjectEzsigntemplateApi::ezsigntemplateGetObjectV1(const qint32 &pki_ezsign
     worker->execute(&input);
 }
 
-void ObjectEzsigntemplateApi::ezsigntemplateGetObjectV1Callback(HttpRequestWorker *worker) {
+void ObjectEzsigntemplateApi::ezsigntemplateGetObjectV3Callback(HttpRequestWorker *worker) {
     QString error_str = worker->error_str;
     QNetworkReply::NetworkError error_type = worker->error_type;
 
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Ezsigntemplate_getObject_v1_Response output(QString(worker->response));
+    Ezsigntemplate_getObject_v3_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        Q_EMIT ezsigntemplateGetObjectV1Signal(output);
-        Q_EMIT ezsigntemplateGetObjectV1SignalFull(worker, output);
+        Q_EMIT ezsigntemplateGetObjectV3Signal(output);
+        Q_EMIT ezsigntemplateGetObjectV3SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -1238,8 +1024,8 @@ void ObjectEzsigntemplateApi::ezsigntemplateGetObjectV1Callback(HttpRequestWorke
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        Q_EMIT ezsigntemplateGetObjectV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsigntemplateGetObjectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsigntemplateGetObjectV3SignalE(output, error_type, error_str);
+        Q_EMIT ezsigntemplateGetObjectV3SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -1249,101 +1035,8 @@ void ObjectEzsigntemplateApi::ezsigntemplateGetObjectV1Callback(HttpRequestWorke
 #pragma GCC diagnostic pop
 #endif
 
-        Q_EMIT ezsigntemplateGetObjectV1SignalError(output, error_type, error_str);
-        Q_EMIT ezsigntemplateGetObjectV1SignalErrorFull(worker, error_type, error_str);
-    }
-}
-
-void ObjectEzsigntemplateApi::ezsigntemplateGetObjectV2(const qint32 &pki_ezsigntemplate_id) {
-    QString fullPath = QString(_serverConfigs["ezsigntemplateGetObjectV2"][_serverIndices.value("ezsigntemplateGetObjectV2")].URL()+"/2/object/ezsigntemplate/{pkiEzsigntemplateID}");
-    
-    if (_apiKeys.contains("Authorization")) {
-        addHeaders("Authorization",_apiKeys.find("Authorization").value());
-    }
-    
-    
-    {
-        QString pki_ezsigntemplate_idPathParam("{");
-        pki_ezsigntemplate_idPathParam.append("pkiEzsigntemplateID").append("}");
-        QString pathPrefix, pathSuffix, pathDelimiter;
-        QString pathStyle = "simple";
-        if (pathStyle == "")
-            pathStyle = "simple";
-        pathPrefix = getParamStylePrefix(pathStyle);
-        pathSuffix = getParamStyleSuffix(pathStyle);
-        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsigntemplateID", false);
-        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsigntemplateID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsigntemplate_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsigntemplate_id)));
-    }
-    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
-    worker->setTimeOut(_timeOut);
-    worker->setWorkingDirectory(_workingDirectory);
-    HttpRequestInput input(fullPath, "GET");
-
-
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
-    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
-        input.headers.insert(keyValueIt->first, keyValueIt->second);
-    }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
-
-    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsigntemplateApi::ezsigntemplateGetObjectV2Callback);
-    connect(this, &ObjectEzsigntemplateApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
-        if (findChildren<HttpRequestWorker*>().count() == 0) {
-            Q_EMIT allPendingRequestsCompleted();
-        }
-    });
-
-    worker->execute(&input);
-}
-
-void ObjectEzsigntemplateApi::ezsigntemplateGetObjectV2Callback(HttpRequestWorker *worker) {
-    QString error_str = worker->error_str;
-    QNetworkReply::NetworkError error_type = worker->error_type;
-
-    if (worker->error_type != QNetworkReply::NoError) {
-        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
-    }
-    Ezsigntemplate_getObject_v2_Response output(QString(worker->response));
-    worker->deleteLater();
-
-    if (worker->error_type == QNetworkReply::NoError) {
-        Q_EMIT ezsigntemplateGetObjectV2Signal(output);
-        Q_EMIT ezsigntemplateGetObjectV2SignalFull(worker, output);
-    } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsigntemplateGetObjectV2SignalE(output, error_type, error_str);
-        Q_EMIT ezsigntemplateGetObjectV2SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
-        Q_EMIT ezsigntemplateGetObjectV2SignalError(output, error_type, error_str);
-        Q_EMIT ezsigntemplateGetObjectV2SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsigntemplateGetObjectV3SignalError(output, error_type, error_str);
+        Q_EMIT ezsigntemplateGetObjectV3SignalErrorFull(worker, error_type, error_str);
     }
 }
 

@@ -69,13 +69,13 @@ public:
     /**
     * @param[in]  ezsignsigningreason_create_object_v1_request Ezsignsigningreason_createObject_v1_Request [required]
     */
-    void ezsignsigningreasonCreateObjectV1(const Ezsignsigningreason_createObject_v1_Request &ezsignsigningreason_create_object_v1_request);
+    virtual void ezsignsigningreasonCreateObjectV1(const Ezsignsigningreason_createObject_v1_Request &ezsignsigningreason_create_object_v1_request);
 
     /**
     * @param[in]  pki_ezsignsigningreason_id qint32 [required]
     * @param[in]  ezsignsigningreason_edit_object_v1_request Ezsignsigningreason_editObject_v1_Request [required]
     */
-    void ezsignsigningreasonEditObjectV1(const qint32 &pki_ezsignsigningreason_id, const Ezsignsigningreason_editObject_v1_Request &ezsignsigningreason_edit_object_v1_request);
+    virtual void ezsignsigningreasonEditObjectV1(const qint32 &pki_ezsignsigningreason_id, const Ezsignsigningreason_editObject_v1_Request &ezsignsigningreason_edit_object_v1_request);
 
     /**
     * @param[in]  s_selector QString [required]
@@ -83,7 +83,7 @@ public:
     * @param[in]  s_query QString [optional]
     * @param[in]  accept_language Header_Accept_Language [optional]
     */
-    void ezsignsigningreasonGetAutocompleteV2(const QString &s_selector, const ::Ezmaxapi::OptionalParam<QString> &e_filter_active = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<QString> &s_query = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<Header_Accept_Language>());
+    virtual void ezsignsigningreasonGetAutocompleteV2(const QString &s_selector, const ::Ezmaxapi::OptionalParam<QString> &e_filter_active = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<QString> &s_query = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<Header_Accept_Language>());
 
     /**
     * @param[in]  e_order_by QString [optional]
@@ -92,12 +92,12 @@ public:
     * @param[in]  accept_language Header_Accept_Language [optional]
     * @param[in]  s_filter QString [optional]
     */
-    void ezsignsigningreasonGetListV1(const ::Ezmaxapi::OptionalParam<QString> &e_order_by = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<qint32> &i_row_max = ::Ezmaxapi::OptionalParam<qint32>(), const ::Ezmaxapi::OptionalParam<qint32> &i_row_offset = ::Ezmaxapi::OptionalParam<qint32>(), const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<Header_Accept_Language>(), const ::Ezmaxapi::OptionalParam<QString> &s_filter = ::Ezmaxapi::OptionalParam<QString>());
+    virtual void ezsignsigningreasonGetListV1(const ::Ezmaxapi::OptionalParam<QString> &e_order_by = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<qint32> &i_row_max = ::Ezmaxapi::OptionalParam<qint32>(), const ::Ezmaxapi::OptionalParam<qint32> &i_row_offset = ::Ezmaxapi::OptionalParam<qint32>(), const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<Header_Accept_Language>(), const ::Ezmaxapi::OptionalParam<QString> &s_filter = ::Ezmaxapi::OptionalParam<QString>());
 
     /**
     * @param[in]  pki_ezsignsigningreason_id qint32 [required]
     */
-    void ezsignsigningreasonGetObjectV2(const qint32 &pki_ezsignsigningreason_id);
+    virtual void ezsignsigningreasonGetObjectV2(const qint32 &pki_ezsignsigningreason_id);
 
 
 private:
@@ -135,6 +135,7 @@ Q_SIGNALS:
     void ezsignsigningreasonGetAutocompleteV2Signal(Ezsignsigningreason_getAutocomplete_v2_Response summary);
     void ezsignsigningreasonGetListV1Signal(Ezsignsigningreason_getList_v1_Response summary);
     void ezsignsigningreasonGetObjectV2Signal(Ezsignsigningreason_getObject_v2_Response summary);
+
 
     void ezsignsigningreasonCreateObjectV1SignalFull(HttpRequestWorker *worker, Ezsignsigningreason_createObject_v1_Response summary);
     void ezsignsigningreasonEditObjectV1SignalFull(HttpRequestWorker *worker, Ezsignsigningreason_editObject_v1_Response summary);

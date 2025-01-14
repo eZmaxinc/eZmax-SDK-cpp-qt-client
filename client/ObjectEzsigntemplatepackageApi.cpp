@@ -148,15 +148,9 @@ int ObjectEzsigntemplatepackageApi::addServerConfiguration(const QString &operat
     * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
     */
 void ObjectEzsigntemplatepackageApi::setNewServerForAllOperations(const QUrl &url, const QString &description, const QMap<QString, ServerVariable> &variables) {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
     for (auto keyIt = _serverIndices.keyBegin(); keyIt != _serverIndices.keyEnd(); keyIt++) {
         setServerIndex(*keyIt, addServerConfiguration(*keyIt, url, description, variables));
     }
-#else
-    for (auto &e : _serverIndices.keys()) {
-        setServerIndex(e, addServerConfiguration(e, url, description, variables));
-    }
-#endif
 }
 
 /**
@@ -266,15 +260,10 @@ void ObjectEzsigntemplatepackageApi::ezsigntemplatepackageCreateObjectV1(const E
         QByteArray output = ezsigntemplatepackage_create_object_v1_request.asJson().toUtf8();
         input.request_body.append(output);
     }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsigntemplatepackageApi::ezsigntemplatepackageCreateObjectV1Callback);
     connect(this, &ObjectEzsigntemplatepackageApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -359,15 +348,10 @@ void ObjectEzsigntemplatepackageApi::ezsigntemplatepackageDeleteObjectV1(const q
     HttpRequestInput input(fullPath, "DELETE");
 
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsigntemplatepackageApi::ezsigntemplatepackageDeleteObjectV1Callback);
     connect(this, &ObjectEzsigntemplatepackageApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -457,15 +441,10 @@ void ObjectEzsigntemplatepackageApi::ezsigntemplatepackageEditEzsigntemplatepack
         QByteArray output = ezsigntemplatepackage_edit_ezsigntemplatepackagesigners_v1_request.asJson().toUtf8();
         input.request_body.append(output);
     }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsigntemplatepackageApi::ezsigntemplatepackageEditEzsigntemplatepackagesignersV1Callback);
     connect(this, &ObjectEzsigntemplatepackageApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -555,15 +534,10 @@ void ObjectEzsigntemplatepackageApi::ezsigntemplatepackageEditObjectV1(const qin
         QByteArray output = ezsigntemplatepackage_edit_object_v1_request.asJson().toUtf8();
         input.request_body.append(output);
     }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsigntemplatepackageApi::ezsigntemplatepackageEditObjectV1Callback);
     connect(this, &ObjectEzsigntemplatepackageApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -621,7 +595,7 @@ void ObjectEzsigntemplatepackageApi::ezsigntemplatepackageEditObjectV1Callback(H
     }
 }
 
-void ObjectEzsigntemplatepackageApi::ezsigntemplatepackageGetAutocompleteV2(const QString &s_selector, const ::Ezmaxapi::OptionalParam<QString> &e_filter_active, const ::Ezmaxapi::OptionalParam<QString> &s_query, const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language) {
+void ObjectEzsigntemplatepackageApi::ezsigntemplatepackageGetAutocompleteV2(const QString &s_selector, const ::Ezmaxapi::OptionalParam<QString> &e_filter_active, const ::Ezmaxapi::OptionalParam<QString> &s_query, const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language, const ::Ezmaxapi::OptionalParam<qint32> &fki_ezsignfoldertype_id) {
     QString fullPath = QString(_serverConfigs["ezsigntemplatepackageGetAutocompleteV2"][_serverIndices.value("ezsigntemplatepackageGetAutocompleteV2")].URL()+"/2/object/ezsigntemplatepackage/getAutocomplete/{sSelector}");
     
     if (_apiKeys.contains("Authorization")) {
@@ -673,6 +647,21 @@ void ObjectEzsigntemplatepackageApi::ezsigntemplatepackageGetAutocompleteV2(cons
 
         fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(s_query.stringValue()));
     }
+    if (fki_ezsignfoldertype_id.hasValue())
+    {
+        queryStyle = "form";
+        if (queryStyle == "")
+            queryStyle = "form";
+        queryPrefix = getParamStylePrefix(queryStyle);
+        querySuffix = getParamStyleSuffix(queryStyle);
+        queryDelimiter = getParamStyleDelimiter(queryStyle, "fkiEzsignfoldertypeID", true);
+        if (fullPath.indexOf("?") > 0)
+            fullPath.append(queryPrefix);
+        else
+            fullPath.append("?");
+
+        fullPath.append(QUrl::toPercentEncoding("fkiEzsignfoldertypeID")).append(querySuffix).append(QUrl::toPercentEncoding(fki_ezsignfoldertype_id.stringValue()));
+    }
     HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
     worker->setWorkingDirectory(_workingDirectory);
@@ -723,15 +712,10 @@ void ObjectEzsigntemplatepackageApi::ezsigntemplatepackageGetAutocompleteV2(cons
         }
         input.headers.insert("Accept-Language", headerString);
     }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsigntemplatepackageApi::ezsigntemplatepackageGetAutocompleteV2Callback);
     connect(this, &ObjectEzsigntemplatepackageApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -907,15 +891,10 @@ void ObjectEzsigntemplatepackageApi::ezsigntemplatepackageGetListV1(const ::Ezma
         }
         input.headers.insert("Accept-Language", headerString);
     }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsigntemplatepackageApi::ezsigntemplatepackageGetListV1Callback);
     connect(this, &ObjectEzsigntemplatepackageApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -1000,15 +979,10 @@ void ObjectEzsigntemplatepackageApi::ezsigntemplatepackageGetObjectV2(const qint
     HttpRequestInput input(fullPath, "GET");
 
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsigntemplatepackageApi::ezsigntemplatepackageGetObjectV2Callback);
     connect(this, &ObjectEzsigntemplatepackageApi::abortRequestsSignal, worker, &QObject::deleteLater);

@@ -33,6 +33,8 @@
 #include "Webhook_getObject_v2_Response.h"
 #include "Webhook_regenerateApikey_v1_Request.h"
 #include "Webhook_regenerateApikey_v1_Response.h"
+#include "Webhook_sendWebhook_v1_Request.h"
+#include "Webhook_sendWebhook_v1_Response.h"
 #include "Webhook_test_v1_Response.h"
 #include <QString>
 
@@ -75,24 +77,24 @@ public:
     /**
     * @param[in]  webhook_create_object_v2_request Webhook_createObject_v2_Request [required]
     */
-    void webhookCreateObjectV2(const Webhook_createObject_v2_Request &webhook_create_object_v2_request);
+    virtual void webhookCreateObjectV2(const Webhook_createObject_v2_Request &webhook_create_object_v2_request);
 
     /**
     * @param[in]  pki_webhook_id qint32 [required]
     */
-    void webhookDeleteObjectV1(const qint32 &pki_webhook_id);
+    virtual void webhookDeleteObjectV1(const qint32 &pki_webhook_id);
 
     /**
     * @param[in]  pki_webhook_id qint32 [required]
     * @param[in]  webhook_edit_object_v1_request Webhook_editObject_v1_Request [required]
     */
-    void webhookEditObjectV1(const qint32 &pki_webhook_id, const Webhook_editObject_v1_Request &webhook_edit_object_v1_request);
+    virtual void webhookEditObjectV1(const qint32 &pki_webhook_id, const Webhook_editObject_v1_Request &webhook_edit_object_v1_request);
 
     /**
     * @param[in]  pki_webhook_id qint32 [required]
     * @param[in]  e_webhook_historyinterval QString [required]
     */
-    void webhookGetHistoryV1(const qint32 &pki_webhook_id, const QString &e_webhook_historyinterval);
+    virtual void webhookGetHistoryV1(const qint32 &pki_webhook_id, const QString &e_webhook_historyinterval);
 
     /**
     * @param[in]  e_order_by QString [optional]
@@ -101,24 +103,29 @@ public:
     * @param[in]  accept_language Header_Accept_Language [optional]
     * @param[in]  s_filter QString [optional]
     */
-    void webhookGetListV1(const ::Ezmaxapi::OptionalParam<QString> &e_order_by = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<qint32> &i_row_max = ::Ezmaxapi::OptionalParam<qint32>(), const ::Ezmaxapi::OptionalParam<qint32> &i_row_offset = ::Ezmaxapi::OptionalParam<qint32>(), const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<Header_Accept_Language>(), const ::Ezmaxapi::OptionalParam<QString> &s_filter = ::Ezmaxapi::OptionalParam<QString>());
+    virtual void webhookGetListV1(const ::Ezmaxapi::OptionalParam<QString> &e_order_by = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<qint32> &i_row_max = ::Ezmaxapi::OptionalParam<qint32>(), const ::Ezmaxapi::OptionalParam<qint32> &i_row_offset = ::Ezmaxapi::OptionalParam<qint32>(), const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<Header_Accept_Language>(), const ::Ezmaxapi::OptionalParam<QString> &s_filter = ::Ezmaxapi::OptionalParam<QString>());
 
     /**
     * @param[in]  pki_webhook_id qint32 [required]
     */
-    void webhookGetObjectV2(const qint32 &pki_webhook_id);
+    virtual void webhookGetObjectV2(const qint32 &pki_webhook_id);
 
     /**
     * @param[in]  pki_webhook_id qint32 [required]
     * @param[in]  webhook_regenerate_apikey_v1_request Webhook_regenerateApikey_v1_Request [required]
     */
-    void webhookRegenerateApikeyV1(const qint32 &pki_webhook_id, const Webhook_regenerateApikey_v1_Request &webhook_regenerate_apikey_v1_request);
+    virtual void webhookRegenerateApikeyV1(const qint32 &pki_webhook_id, const Webhook_regenerateApikey_v1_Request &webhook_regenerate_apikey_v1_request);
+
+    /**
+    * @param[in]  webhook_send_webhook_v1_request Webhook_sendWebhook_v1_Request [required]
+    */
+    virtual void webhookSendWebhookV1(const Webhook_sendWebhook_v1_Request &webhook_send_webhook_v1_request);
 
     /**
     * @param[in]  pki_webhook_id qint32 [required]
     * @param[in]  body Object [required]
     */
-    void webhookTestV1(const qint32 &pki_webhook_id, const Object &body);
+    virtual void webhookTestV1(const qint32 &pki_webhook_id, const Object &body);
 
 
 private:
@@ -150,6 +157,7 @@ private:
     void webhookGetListV1Callback(HttpRequestWorker *worker);
     void webhookGetObjectV2Callback(HttpRequestWorker *worker);
     void webhookRegenerateApikeyV1Callback(HttpRequestWorker *worker);
+    void webhookSendWebhookV1Callback(HttpRequestWorker *worker);
     void webhookTestV1Callback(HttpRequestWorker *worker);
 
 Q_SIGNALS:
@@ -161,7 +169,9 @@ Q_SIGNALS:
     void webhookGetListV1Signal(Webhook_getList_v1_Response summary);
     void webhookGetObjectV2Signal(Webhook_getObject_v2_Response summary);
     void webhookRegenerateApikeyV1Signal(Webhook_regenerateApikey_v1_Response summary);
+    void webhookSendWebhookV1Signal(Webhook_sendWebhook_v1_Response summary);
     void webhookTestV1Signal(Webhook_test_v1_Response summary);
+
 
     void webhookCreateObjectV2SignalFull(HttpRequestWorker *worker, Webhook_createObject_v2_Response summary);
     void webhookDeleteObjectV1SignalFull(HttpRequestWorker *worker, Webhook_deleteObject_v1_Response summary);
@@ -170,6 +180,7 @@ Q_SIGNALS:
     void webhookGetListV1SignalFull(HttpRequestWorker *worker, Webhook_getList_v1_Response summary);
     void webhookGetObjectV2SignalFull(HttpRequestWorker *worker, Webhook_getObject_v2_Response summary);
     void webhookRegenerateApikeyV1SignalFull(HttpRequestWorker *worker, Webhook_regenerateApikey_v1_Response summary);
+    void webhookSendWebhookV1SignalFull(HttpRequestWorker *worker, Webhook_sendWebhook_v1_Response summary);
     void webhookTestV1SignalFull(HttpRequestWorker *worker, Webhook_test_v1_Response summary);
 
     Q_DECL_DEPRECATED_X("Use webhookCreateObjectV2SignalError() instead")
@@ -193,6 +204,9 @@ Q_SIGNALS:
     Q_DECL_DEPRECATED_X("Use webhookRegenerateApikeyV1SignalError() instead")
     void webhookRegenerateApikeyV1SignalE(Webhook_regenerateApikey_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void webhookRegenerateApikeyV1SignalError(Webhook_regenerateApikey_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use webhookSendWebhookV1SignalError() instead")
+    void webhookSendWebhookV1SignalE(Webhook_sendWebhook_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void webhookSendWebhookV1SignalError(Webhook_sendWebhook_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use webhookTestV1SignalError() instead")
     void webhookTestV1SignalE(Webhook_test_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void webhookTestV1SignalError(Webhook_test_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -218,6 +232,9 @@ Q_SIGNALS:
     Q_DECL_DEPRECATED_X("Use webhookRegenerateApikeyV1SignalErrorFull() instead")
     void webhookRegenerateApikeyV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void webhookRegenerateApikeyV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use webhookSendWebhookV1SignalErrorFull() instead")
+    void webhookSendWebhookV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void webhookSendWebhookV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use webhookTestV1SignalErrorFull() instead")
     void webhookTestV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void webhookTestV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);

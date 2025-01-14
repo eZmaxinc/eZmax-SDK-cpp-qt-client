@@ -63,7 +63,7 @@ public:
     * @param[in]  pki_ezsignpage_id qint32 [required]
     * @param[in]  body Object [required]
     */
-    void ezsignpageConsultV1(const qint32 &pki_ezsignpage_id, const Object &body);
+    virtual void ezsignpageConsultV1(const qint32 &pki_ezsignpage_id, const Object &body);
 
 
 private:
@@ -93,6 +93,7 @@ private:
 Q_SIGNALS:
 
     void ezsignpageConsultV1Signal(Ezsignpage_consult_v1_Response summary);
+
 
     void ezsignpageConsultV1SignalFull(HttpRequestWorker *worker, Ezsignpage_consult_v1_Response summary);
 

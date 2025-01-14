@@ -24,6 +24,8 @@
 #include "Apikey_editObject_v1_Response.h"
 #include "Apikey_editPermissions_v1_Request.h"
 #include "Apikey_editPermissions_v1_Response.h"
+#include "Apikey_generateDelegatedCredentials_v1_Request.h"
+#include "Apikey_generateDelegatedCredentials_v1_Response.h"
 #include "Apikey_getCors_v1_Response.h"
 #include "Apikey_getList_v1_Response.h"
 #include "Apikey_getObject_v2_Response.h"
@@ -75,24 +77,29 @@ public:
     /**
     * @param[in]  apikey_create_object_v2_request Apikey_createObject_v2_Request [required]
     */
-    void apikeyCreateObjectV2(const Apikey_createObject_v2_Request &apikey_create_object_v2_request);
+    virtual void apikeyCreateObjectV2(const Apikey_createObject_v2_Request &apikey_create_object_v2_request);
 
     /**
     * @param[in]  pki_apikey_id qint32 [required]
     * @param[in]  apikey_edit_object_v1_request Apikey_editObject_v1_Request [required]
     */
-    void apikeyEditObjectV1(const qint32 &pki_apikey_id, const Apikey_editObject_v1_Request &apikey_edit_object_v1_request);
+    virtual void apikeyEditObjectV1(const qint32 &pki_apikey_id, const Apikey_editObject_v1_Request &apikey_edit_object_v1_request);
 
     /**
     * @param[in]  pki_apikey_id qint32 [required]
     * @param[in]  apikey_edit_permissions_v1_request Apikey_editPermissions_v1_Request [required]
     */
-    void apikeyEditPermissionsV1(const qint32 &pki_apikey_id, const Apikey_editPermissions_v1_Request &apikey_edit_permissions_v1_request);
+    virtual void apikeyEditPermissionsV1(const qint32 &pki_apikey_id, const Apikey_editPermissions_v1_Request &apikey_edit_permissions_v1_request);
+
+    /**
+    * @param[in]  apikey_generate_delegated_credentials_v1_request Apikey_generateDelegatedCredentials_v1_Request [required]
+    */
+    virtual void apikeyGenerateDelegatedCredentialsV1(const Apikey_generateDelegatedCredentials_v1_Request &apikey_generate_delegated_credentials_v1_request);
 
     /**
     * @param[in]  pki_apikey_id qint32 [required]
     */
-    void apikeyGetCorsV1(const qint32 &pki_apikey_id);
+    virtual void apikeyGetCorsV1(const qint32 &pki_apikey_id);
 
     /**
     * @param[in]  e_order_by QString [optional]
@@ -101,28 +108,28 @@ public:
     * @param[in]  accept_language Header_Accept_Language [optional]
     * @param[in]  s_filter QString [optional]
     */
-    void apikeyGetListV1(const ::Ezmaxapi::OptionalParam<QString> &e_order_by = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<qint32> &i_row_max = ::Ezmaxapi::OptionalParam<qint32>(), const ::Ezmaxapi::OptionalParam<qint32> &i_row_offset = ::Ezmaxapi::OptionalParam<qint32>(), const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<Header_Accept_Language>(), const ::Ezmaxapi::OptionalParam<QString> &s_filter = ::Ezmaxapi::OptionalParam<QString>());
+    virtual void apikeyGetListV1(const ::Ezmaxapi::OptionalParam<QString> &e_order_by = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<qint32> &i_row_max = ::Ezmaxapi::OptionalParam<qint32>(), const ::Ezmaxapi::OptionalParam<qint32> &i_row_offset = ::Ezmaxapi::OptionalParam<qint32>(), const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<Header_Accept_Language>(), const ::Ezmaxapi::OptionalParam<QString> &s_filter = ::Ezmaxapi::OptionalParam<QString>());
 
     /**
     * @param[in]  pki_apikey_id qint32 [required]
     */
-    void apikeyGetObjectV2(const qint32 &pki_apikey_id);
+    virtual void apikeyGetObjectV2(const qint32 &pki_apikey_id);
 
     /**
     * @param[in]  pki_apikey_id qint32 [required]
     */
-    void apikeyGetPermissionsV1(const qint32 &pki_apikey_id);
+    virtual void apikeyGetPermissionsV1(const qint32 &pki_apikey_id);
 
     /**
     * @param[in]  pki_apikey_id qint32 [required]
     */
-    void apikeyGetSubnetsV1(const qint32 &pki_apikey_id);
+    virtual void apikeyGetSubnetsV1(const qint32 &pki_apikey_id);
 
     /**
     * @param[in]  pki_apikey_id qint32 [required]
     * @param[in]  apikey_regenerate_v1_request Apikey_regenerate_v1_Request [required]
     */
-    void apikeyRegenerateV1(const qint32 &pki_apikey_id, const Apikey_regenerate_v1_Request &apikey_regenerate_v1_request);
+    virtual void apikeyRegenerateV1(const qint32 &pki_apikey_id, const Apikey_regenerate_v1_Request &apikey_regenerate_v1_request);
 
 
 private:
@@ -150,6 +157,7 @@ private:
     void apikeyCreateObjectV2Callback(HttpRequestWorker *worker);
     void apikeyEditObjectV1Callback(HttpRequestWorker *worker);
     void apikeyEditPermissionsV1Callback(HttpRequestWorker *worker);
+    void apikeyGenerateDelegatedCredentialsV1Callback(HttpRequestWorker *worker);
     void apikeyGetCorsV1Callback(HttpRequestWorker *worker);
     void apikeyGetListV1Callback(HttpRequestWorker *worker);
     void apikeyGetObjectV2Callback(HttpRequestWorker *worker);
@@ -162,6 +170,7 @@ Q_SIGNALS:
     void apikeyCreateObjectV2Signal(Apikey_createObject_v2_Response summary);
     void apikeyEditObjectV1Signal(Apikey_editObject_v1_Response summary);
     void apikeyEditPermissionsV1Signal(Apikey_editPermissions_v1_Response summary);
+    void apikeyGenerateDelegatedCredentialsV1Signal(Apikey_generateDelegatedCredentials_v1_Response summary);
     void apikeyGetCorsV1Signal(Apikey_getCors_v1_Response summary);
     void apikeyGetListV1Signal(Apikey_getList_v1_Response summary);
     void apikeyGetObjectV2Signal(Apikey_getObject_v2_Response summary);
@@ -169,9 +178,11 @@ Q_SIGNALS:
     void apikeyGetSubnetsV1Signal(Apikey_getSubnets_v1_Response summary);
     void apikeyRegenerateV1Signal(Apikey_regenerate_v1_Response summary);
 
+
     void apikeyCreateObjectV2SignalFull(HttpRequestWorker *worker, Apikey_createObject_v2_Response summary);
     void apikeyEditObjectV1SignalFull(HttpRequestWorker *worker, Apikey_editObject_v1_Response summary);
     void apikeyEditPermissionsV1SignalFull(HttpRequestWorker *worker, Apikey_editPermissions_v1_Response summary);
+    void apikeyGenerateDelegatedCredentialsV1SignalFull(HttpRequestWorker *worker, Apikey_generateDelegatedCredentials_v1_Response summary);
     void apikeyGetCorsV1SignalFull(HttpRequestWorker *worker, Apikey_getCors_v1_Response summary);
     void apikeyGetListV1SignalFull(HttpRequestWorker *worker, Apikey_getList_v1_Response summary);
     void apikeyGetObjectV2SignalFull(HttpRequestWorker *worker, Apikey_getObject_v2_Response summary);
@@ -188,6 +199,9 @@ Q_SIGNALS:
     Q_DECL_DEPRECATED_X("Use apikeyEditPermissionsV1SignalError() instead")
     void apikeyEditPermissionsV1SignalE(Apikey_editPermissions_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void apikeyEditPermissionsV1SignalError(Apikey_editPermissions_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use apikeyGenerateDelegatedCredentialsV1SignalError() instead")
+    void apikeyGenerateDelegatedCredentialsV1SignalE(Apikey_generateDelegatedCredentials_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void apikeyGenerateDelegatedCredentialsV1SignalError(Apikey_generateDelegatedCredentials_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use apikeyGetCorsV1SignalError() instead")
     void apikeyGetCorsV1SignalE(Apikey_getCors_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void apikeyGetCorsV1SignalError(Apikey_getCors_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -216,6 +230,9 @@ Q_SIGNALS:
     Q_DECL_DEPRECATED_X("Use apikeyEditPermissionsV1SignalErrorFull() instead")
     void apikeyEditPermissionsV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void apikeyEditPermissionsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use apikeyGenerateDelegatedCredentialsV1SignalErrorFull() instead")
+    void apikeyGenerateDelegatedCredentialsV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void apikeyGenerateDelegatedCredentialsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use apikeyGetCorsV1SignalErrorFull() instead")
     void apikeyGetCorsV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void apikeyGetCorsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);

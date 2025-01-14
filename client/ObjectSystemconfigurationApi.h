@@ -64,12 +64,12 @@ public:
     * @param[in]  pki_systemconfiguration_id qint32 [required]
     * @param[in]  systemconfiguration_edit_object_v1_request Systemconfiguration_editObject_v1_Request [required]
     */
-    void systemconfigurationEditObjectV1(const qint32 &pki_systemconfiguration_id, const Systemconfiguration_editObject_v1_Request &systemconfiguration_edit_object_v1_request);
+    virtual void systemconfigurationEditObjectV1(const qint32 &pki_systemconfiguration_id, const Systemconfiguration_editObject_v1_Request &systemconfiguration_edit_object_v1_request);
 
     /**
     * @param[in]  pki_systemconfiguration_id qint32 [required]
     */
-    void systemconfigurationGetObjectV2(const qint32 &pki_systemconfiguration_id);
+    virtual void systemconfigurationGetObjectV2(const qint32 &pki_systemconfiguration_id);
 
 
 private:
@@ -101,6 +101,7 @@ Q_SIGNALS:
 
     void systemconfigurationEditObjectV1Signal(Systemconfiguration_editObject_v1_Response summary);
     void systemconfigurationGetObjectV2Signal(Systemconfiguration_getObject_v2_Response summary);
+
 
     void systemconfigurationEditObjectV1SignalFull(HttpRequestWorker *worker, Systemconfiguration_editObject_v1_Response summary);
     void systemconfigurationGetObjectV2SignalFull(HttpRequestWorker *worker, Systemconfiguration_getObject_v2_Response summary);

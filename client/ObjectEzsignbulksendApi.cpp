@@ -59,8 +59,8 @@ void ObjectEzsignbulksendApi::initializeServerConfigs() {
     {"sInfrastructureregionCode", ServerVariable("The region where your services are hosted.","ca-central-1",
     QSet<QString>{ {"ca-central-1"} })}, }));
     
-    _serverConfigs.insert("ezsignbulksendCreateEzsignbulksendtransmissionV1", defaultConf);
-    _serverIndices.insert("ezsignbulksendCreateEzsignbulksendtransmissionV1", 0);
+    _serverConfigs.insert("ezsignbulksendCreateEzsignbulksendtransmissionV2", defaultConf);
+    _serverIndices.insert("ezsignbulksendCreateEzsignbulksendtransmissionV2", 0);
     _serverConfigs.insert("ezsignbulksendCreateObjectV1", defaultConf);
     _serverIndices.insert("ezsignbulksendCreateObjectV1", 0);
     _serverConfigs.insert("ezsignbulksendDeleteObjectV1", defaultConf);
@@ -156,15 +156,9 @@ int ObjectEzsignbulksendApi::addServerConfiguration(const QString &operation, co
     * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
     */
 void ObjectEzsignbulksendApi::setNewServerForAllOperations(const QUrl &url, const QString &description, const QMap<QString, ServerVariable> &variables) {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
     for (auto keyIt = _serverIndices.keyBegin(); keyIt != _serverIndices.keyEnd(); keyIt++) {
         setServerIndex(*keyIt, addServerConfiguration(*keyIt, url, description, variables));
     }
-#else
-    for (auto &e : _serverIndices.keys()) {
-        setServerIndex(e, addServerConfiguration(e, url, description, variables));
-    }
-#endif
 }
 
 /**
@@ -256,8 +250,8 @@ QString ObjectEzsignbulksendApi::getParamStyleDelimiter(const QString &style, co
     }
 }
 
-void ObjectEzsignbulksendApi::ezsignbulksendCreateEzsignbulksendtransmissionV1(const qint32 &pki_ezsignbulksend_id, const Ezsignbulksend_createEzsignbulksendtransmission_v1_Request &ezsignbulksend_create_ezsignbulksendtransmission_v1_request) {
-    QString fullPath = QString(_serverConfigs["ezsignbulksendCreateEzsignbulksendtransmissionV1"][_serverIndices.value("ezsignbulksendCreateEzsignbulksendtransmissionV1")].URL()+"/1/object/ezsignbulksend/{pkiEzsignbulksendID}/createEzsignbulksendtransmission");
+void ObjectEzsignbulksendApi::ezsignbulksendCreateEzsignbulksendtransmissionV2(const qint32 &pki_ezsignbulksend_id, const Ezsignbulksend_createEzsignbulksendtransmission_v2_Request &ezsignbulksend_create_ezsignbulksendtransmission_v2_request) {
+    QString fullPath = QString(_serverConfigs["ezsignbulksendCreateEzsignbulksendtransmissionV2"][_serverIndices.value("ezsignbulksendCreateEzsignbulksendtransmissionV2")].URL()+"/2/object/ezsignbulksend/{pkiEzsignbulksendID}/createEzsignbulksendtransmission");
     
     if (_apiKeys.contains("Authorization")) {
         addHeaders("Authorization",_apiKeys.find("Authorization").value());
@@ -285,20 +279,15 @@ void ObjectEzsignbulksendApi::ezsignbulksendCreateEzsignbulksendtransmissionV1(c
     {
 
         
-        QByteArray output = ezsignbulksend_create_ezsignbulksendtransmission_v1_request.asJson().toUtf8();
+        QByteArray output = ezsignbulksend_create_ezsignbulksendtransmission_v2_request.asJson().toUtf8();
         input.request_body.append(output);
     }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
 
-    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignbulksendApi::ezsignbulksendCreateEzsignbulksendtransmissionV1Callback);
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignbulksendApi::ezsignbulksendCreateEzsignbulksendtransmissionV2Callback);
     connect(this, &ObjectEzsignbulksendApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
@@ -309,19 +298,19 @@ void ObjectEzsignbulksendApi::ezsignbulksendCreateEzsignbulksendtransmissionV1(c
     worker->execute(&input);
 }
 
-void ObjectEzsignbulksendApi::ezsignbulksendCreateEzsignbulksendtransmissionV1Callback(HttpRequestWorker *worker) {
+void ObjectEzsignbulksendApi::ezsignbulksendCreateEzsignbulksendtransmissionV2Callback(HttpRequestWorker *worker) {
     QString error_str = worker->error_str;
     QNetworkReply::NetworkError error_type = worker->error_type;
 
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Ezsignbulksend_createEzsignbulksendtransmission_v1_Response output(QString(worker->response));
+    Ezsignbulksend_createEzsignbulksendtransmission_v2_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        Q_EMIT ezsignbulksendCreateEzsignbulksendtransmissionV1Signal(output);
-        Q_EMIT ezsignbulksendCreateEzsignbulksendtransmissionV1SignalFull(worker, output);
+        Q_EMIT ezsignbulksendCreateEzsignbulksendtransmissionV2Signal(output);
+        Q_EMIT ezsignbulksendCreateEzsignbulksendtransmissionV2SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -338,8 +327,8 @@ void ObjectEzsignbulksendApi::ezsignbulksendCreateEzsignbulksendtransmissionV1Ca
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        Q_EMIT ezsignbulksendCreateEzsignbulksendtransmissionV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsignbulksendCreateEzsignbulksendtransmissionV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsignbulksendCreateEzsignbulksendtransmissionV2SignalE(output, error_type, error_str);
+        Q_EMIT ezsignbulksendCreateEzsignbulksendtransmissionV2SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -349,8 +338,8 @@ void ObjectEzsignbulksendApi::ezsignbulksendCreateEzsignbulksendtransmissionV1Ca
 #pragma GCC diagnostic pop
 #endif
 
-        Q_EMIT ezsignbulksendCreateEzsignbulksendtransmissionV1SignalError(output, error_type, error_str);
-        Q_EMIT ezsignbulksendCreateEzsignbulksendtransmissionV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsignbulksendCreateEzsignbulksendtransmissionV2SignalError(output, error_type, error_str);
+        Q_EMIT ezsignbulksendCreateEzsignbulksendtransmissionV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -372,15 +361,10 @@ void ObjectEzsignbulksendApi::ezsignbulksendCreateObjectV1(const Ezsignbulksend_
         QByteArray output = ezsignbulksend_create_object_v1_request.asJson().toUtf8();
         input.request_body.append(output);
     }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignbulksendApi::ezsignbulksendCreateObjectV1Callback);
     connect(this, &ObjectEzsignbulksendApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -465,15 +449,10 @@ void ObjectEzsignbulksendApi::ezsignbulksendDeleteObjectV1(const qint32 &pki_ezs
     HttpRequestInput input(fullPath, "DELETE");
 
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignbulksendApi::ezsignbulksendDeleteObjectV1Callback);
     connect(this, &ObjectEzsignbulksendApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -563,15 +542,10 @@ void ObjectEzsignbulksendApi::ezsignbulksendEditObjectV1(const qint32 &pki_ezsig
         QByteArray output = ezsignbulksend_edit_object_v1_request.asJson().toUtf8();
         input.request_body.append(output);
     }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignbulksendApi::ezsignbulksendEditObjectV1Callback);
     connect(this, &ObjectEzsignbulksendApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -672,15 +646,10 @@ void ObjectEzsignbulksendApi::ezsignbulksendGetCsvTemplateV1(const qint32 &pki_e
     HttpRequestInput input(fullPath, "GET");
 
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignbulksendApi::ezsignbulksendGetCsvTemplateV1Callback);
     connect(this, &ObjectEzsignbulksendApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -766,15 +735,10 @@ void ObjectEzsignbulksendApi::ezsignbulksendGetEzsignbulksendtransmissionsV1(con
     HttpRequestInput input(fullPath, "GET");
 
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignbulksendApi::ezsignbulksendGetEzsignbulksendtransmissionsV1Callback);
     connect(this, &ObjectEzsignbulksendApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -859,15 +823,10 @@ void ObjectEzsignbulksendApi::ezsignbulksendGetEzsignsignaturesAutomaticV1(const
     HttpRequestInput input(fullPath, "GET");
 
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignbulksendApi::ezsignbulksendGetEzsignsignaturesAutomaticV1Callback);
     connect(this, &ObjectEzsignbulksendApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -952,15 +911,10 @@ void ObjectEzsignbulksendApi::ezsignbulksendGetFormsDataV1(const qint32 &pki_ezs
     HttpRequestInput input(fullPath, "GET");
 
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignbulksendApi::ezsignbulksendGetFormsDataV1Callback);
     connect(this, &ObjectEzsignbulksendApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -1136,15 +1090,10 @@ void ObjectEzsignbulksendApi::ezsignbulksendGetListV1(const ::Ezmaxapi::Optional
         }
         input.headers.insert("Accept-Language", headerString);
     }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignbulksendApi::ezsignbulksendGetListV1Callback);
     connect(this, &ObjectEzsignbulksendApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -1229,15 +1178,10 @@ void ObjectEzsignbulksendApi::ezsignbulksendGetObjectV2(const qint32 &pki_ezsign
     HttpRequestInput input(fullPath, "GET");
 
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignbulksendApi::ezsignbulksendGetObjectV2Callback);
     connect(this, &ObjectEzsignbulksendApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -1327,15 +1271,10 @@ void ObjectEzsignbulksendApi::ezsignbulksendReorderV1(const qint32 &pki_ezsignbu
         QByteArray output = ezsignbulksend_reorder_v1_request.asJson().toUtf8();
         input.request_body.append(output);
     }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignbulksendApi::ezsignbulksendReorderV1Callback);
     connect(this, &ObjectEzsignbulksendApi::abortRequestsSignal, worker, &QObject::deleteLater);

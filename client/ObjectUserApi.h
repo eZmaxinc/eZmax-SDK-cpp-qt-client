@@ -26,12 +26,15 @@
 #include "User_createObject_v1_Response.h"
 #include "User_createObject_v2_Request.h"
 #include "User_createObject_v2_Response.h"
+#include "User_editColleagues_v2_Request.h"
+#include "User_editColleagues_v2_Response.h"
 #include "User_editObject_v1_Request.h"
 #include "User_editObject_v1_Response.h"
 #include "User_editPermissions_v1_Request.h"
 #include "User_editPermissions_v1_Response.h"
 #include "User_getApikeys_v1_Response.h"
 #include "User_getAutocomplete_v2_Response.h"
+#include "User_getColleagues_v2_Response.h"
 #include "User_getEffectivePermissions_v1_Response.h"
 #include "User_getList_v1_Response.h"
 #include "User_getObject_v2_Response.h"
@@ -81,29 +84,35 @@ public:
     /**
     * @param[in]  user_create_object_v1_request User_createObject_v1_Request [required]
     */
-    void userCreateObjectV1(const User_createObject_v1_Request &user_create_object_v1_request);
+    virtual void userCreateObjectV1(const User_createObject_v1_Request &user_create_object_v1_request);
 
     /**
     * @param[in]  user_create_object_v2_request User_createObject_v2_Request [required]
     */
-    void userCreateObjectV2(const User_createObject_v2_Request &user_create_object_v2_request);
+    virtual void userCreateObjectV2(const User_createObject_v2_Request &user_create_object_v2_request);
+
+    /**
+    * @param[in]  pki_user_id qint32 [required]
+    * @param[in]  user_edit_colleagues_v2_request User_editColleagues_v2_Request [required]
+    */
+    virtual void userEditColleaguesV2(const qint32 &pki_user_id, const User_editColleagues_v2_Request &user_edit_colleagues_v2_request);
 
     /**
     * @param[in]  pki_user_id qint32 [required]
     * @param[in]  user_edit_object_v1_request User_editObject_v1_Request [required]
     */
-    void userEditObjectV1(const qint32 &pki_user_id, const User_editObject_v1_Request &user_edit_object_v1_request);
+    virtual void userEditObjectV1(const qint32 &pki_user_id, const User_editObject_v1_Request &user_edit_object_v1_request);
 
     /**
     * @param[in]  pki_user_id qint32 [required]
     * @param[in]  user_edit_permissions_v1_request User_editPermissions_v1_Request [required]
     */
-    void userEditPermissionsV1(const qint32 &pki_user_id, const User_editPermissions_v1_Request &user_edit_permissions_v1_request);
+    virtual void userEditPermissionsV1(const qint32 &pki_user_id, const User_editPermissions_v1_Request &user_edit_permissions_v1_request);
 
     /**
     * @param[in]  pki_user_id qint32 [required]
     */
-    void userGetApikeysV1(const qint32 &pki_user_id);
+    virtual void userGetApikeysV1(const qint32 &pki_user_id);
 
     /**
     * @param[in]  s_selector QString [required]
@@ -111,12 +120,17 @@ public:
     * @param[in]  s_query QString [optional]
     * @param[in]  accept_language Header_Accept_Language [optional]
     */
-    void userGetAutocompleteV2(const QString &s_selector, const ::Ezmaxapi::OptionalParam<QString> &e_filter_active = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<QString> &s_query = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<Header_Accept_Language>());
+    virtual void userGetAutocompleteV2(const QString &s_selector, const ::Ezmaxapi::OptionalParam<QString> &e_filter_active = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<QString> &s_query = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<Header_Accept_Language>());
 
     /**
     * @param[in]  pki_user_id qint32 [required]
     */
-    void userGetEffectivePermissionsV1(const qint32 &pki_user_id);
+    virtual void userGetColleaguesV2(const qint32 &pki_user_id);
+
+    /**
+    * @param[in]  pki_user_id qint32 [required]
+    */
+    virtual void userGetEffectivePermissionsV1(const qint32 &pki_user_id);
 
     /**
     * @param[in]  e_order_by QString [optional]
@@ -125,38 +139,38 @@ public:
     * @param[in]  accept_language Header_Accept_Language [optional]
     * @param[in]  s_filter QString [optional]
     */
-    void userGetListV1(const ::Ezmaxapi::OptionalParam<QString> &e_order_by = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<qint32> &i_row_max = ::Ezmaxapi::OptionalParam<qint32>(), const ::Ezmaxapi::OptionalParam<qint32> &i_row_offset = ::Ezmaxapi::OptionalParam<qint32>(), const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<Header_Accept_Language>(), const ::Ezmaxapi::OptionalParam<QString> &s_filter = ::Ezmaxapi::OptionalParam<QString>());
+    virtual void userGetListV1(const ::Ezmaxapi::OptionalParam<QString> &e_order_by = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<qint32> &i_row_max = ::Ezmaxapi::OptionalParam<qint32>(), const ::Ezmaxapi::OptionalParam<qint32> &i_row_offset = ::Ezmaxapi::OptionalParam<qint32>(), const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<Header_Accept_Language>(), const ::Ezmaxapi::OptionalParam<QString> &s_filter = ::Ezmaxapi::OptionalParam<QString>());
 
     /**
     * @param[in]  pki_user_id qint32 [required]
     */
-    void userGetObjectV2(const qint32 &pki_user_id);
+    virtual void userGetObjectV2(const qint32 &pki_user_id);
 
     /**
     * @param[in]  pki_user_id qint32 [required]
     */
-    void userGetPermissionsV1(const qint32 &pki_user_id);
+    virtual void userGetPermissionsV1(const qint32 &pki_user_id);
 
     /**
     * @param[in]  pki_user_id qint32 [required]
     */
-    void userGetSubnetsV1(const qint32 &pki_user_id);
+    virtual void userGetSubnetsV1(const qint32 &pki_user_id);
 
     /**
     * @param[in]  pki_user_id qint32 [required]
     */
-    void userGetUsergroupexternalsV1(const qint32 &pki_user_id);
+    virtual void userGetUsergroupexternalsV1(const qint32 &pki_user_id);
 
     /**
     * @param[in]  pki_user_id qint32 [required]
     */
-    void userGetUsergroupsV1(const qint32 &pki_user_id);
+    virtual void userGetUsergroupsV1(const qint32 &pki_user_id);
 
     /**
     * @param[in]  pki_user_id qint32 [required]
     * @param[in]  body Object [required]
     */
-    void userSendPasswordResetV1(const qint32 &pki_user_id, const Object &body);
+    virtual void userSendPasswordResetV1(const qint32 &pki_user_id, const Object &body);
 
 
 private:
@@ -183,10 +197,12 @@ private:
 
     void userCreateObjectV1Callback(HttpRequestWorker *worker);
     void userCreateObjectV2Callback(HttpRequestWorker *worker);
+    void userEditColleaguesV2Callback(HttpRequestWorker *worker);
     void userEditObjectV1Callback(HttpRequestWorker *worker);
     void userEditPermissionsV1Callback(HttpRequestWorker *worker);
     void userGetApikeysV1Callback(HttpRequestWorker *worker);
     void userGetAutocompleteV2Callback(HttpRequestWorker *worker);
+    void userGetColleaguesV2Callback(HttpRequestWorker *worker);
     void userGetEffectivePermissionsV1Callback(HttpRequestWorker *worker);
     void userGetListV1Callback(HttpRequestWorker *worker);
     void userGetObjectV2Callback(HttpRequestWorker *worker);
@@ -200,10 +216,12 @@ Q_SIGNALS:
 
     void userCreateObjectV1Signal(User_createObject_v1_Response summary);
     void userCreateObjectV2Signal(User_createObject_v2_Response summary);
+    void userEditColleaguesV2Signal(User_editColleagues_v2_Response summary);
     void userEditObjectV1Signal(User_editObject_v1_Response summary);
     void userEditPermissionsV1Signal(User_editPermissions_v1_Response summary);
     void userGetApikeysV1Signal(User_getApikeys_v1_Response summary);
     void userGetAutocompleteV2Signal(User_getAutocomplete_v2_Response summary);
+    void userGetColleaguesV2Signal(User_getColleagues_v2_Response summary);
     void userGetEffectivePermissionsV1Signal(User_getEffectivePermissions_v1_Response summary);
     void userGetListV1Signal(User_getList_v1_Response summary);
     void userGetObjectV2Signal(User_getObject_v2_Response summary);
@@ -213,12 +231,15 @@ Q_SIGNALS:
     void userGetUsergroupsV1Signal(User_getUsergroups_v1_Response summary);
     void userSendPasswordResetV1Signal(User_sendPasswordReset_v1_Response summary);
 
+
     void userCreateObjectV1SignalFull(HttpRequestWorker *worker, User_createObject_v1_Response summary);
     void userCreateObjectV2SignalFull(HttpRequestWorker *worker, User_createObject_v2_Response summary);
+    void userEditColleaguesV2SignalFull(HttpRequestWorker *worker, User_editColleagues_v2_Response summary);
     void userEditObjectV1SignalFull(HttpRequestWorker *worker, User_editObject_v1_Response summary);
     void userEditPermissionsV1SignalFull(HttpRequestWorker *worker, User_editPermissions_v1_Response summary);
     void userGetApikeysV1SignalFull(HttpRequestWorker *worker, User_getApikeys_v1_Response summary);
     void userGetAutocompleteV2SignalFull(HttpRequestWorker *worker, User_getAutocomplete_v2_Response summary);
+    void userGetColleaguesV2SignalFull(HttpRequestWorker *worker, User_getColleagues_v2_Response summary);
     void userGetEffectivePermissionsV1SignalFull(HttpRequestWorker *worker, User_getEffectivePermissions_v1_Response summary);
     void userGetListV1SignalFull(HttpRequestWorker *worker, User_getList_v1_Response summary);
     void userGetObjectV2SignalFull(HttpRequestWorker *worker, User_getObject_v2_Response summary);
@@ -234,6 +255,9 @@ Q_SIGNALS:
     Q_DECL_DEPRECATED_X("Use userCreateObjectV2SignalError() instead")
     void userCreateObjectV2SignalE(User_createObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void userCreateObjectV2SignalError(User_createObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use userEditColleaguesV2SignalError() instead")
+    void userEditColleaguesV2SignalE(User_editColleagues_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void userEditColleaguesV2SignalError(User_editColleagues_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use userEditObjectV1SignalError() instead")
     void userEditObjectV1SignalE(User_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void userEditObjectV1SignalError(User_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -246,6 +270,9 @@ Q_SIGNALS:
     Q_DECL_DEPRECATED_X("Use userGetAutocompleteV2SignalError() instead")
     void userGetAutocompleteV2SignalE(User_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void userGetAutocompleteV2SignalError(User_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use userGetColleaguesV2SignalError() instead")
+    void userGetColleaguesV2SignalE(User_getColleagues_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void userGetColleaguesV2SignalError(User_getColleagues_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use userGetEffectivePermissionsV1SignalError() instead")
     void userGetEffectivePermissionsV1SignalE(User_getEffectivePermissions_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void userGetEffectivePermissionsV1SignalError(User_getEffectivePermissions_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -277,6 +304,9 @@ Q_SIGNALS:
     Q_DECL_DEPRECATED_X("Use userCreateObjectV2SignalErrorFull() instead")
     void userCreateObjectV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void userCreateObjectV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use userEditColleaguesV2SignalErrorFull() instead")
+    void userEditColleaguesV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void userEditColleaguesV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use userEditObjectV1SignalErrorFull() instead")
     void userEditObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void userEditObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -289,6 +319,9 @@ Q_SIGNALS:
     Q_DECL_DEPRECATED_X("Use userGetAutocompleteV2SignalErrorFull() instead")
     void userGetAutocompleteV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void userGetAutocompleteV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use userGetColleaguesV2SignalErrorFull() instead")
+    void userGetColleaguesV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void userGetColleaguesV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use userGetEffectivePermissionsV1SignalErrorFull() instead")
     void userGetEffectivePermissionsV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void userGetEffectivePermissionsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);

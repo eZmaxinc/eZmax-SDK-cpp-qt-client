@@ -60,28 +60,28 @@ public:
     /**
     * @param[in]  scim_group Scim_Group [required]
     */
-    void groupsCreateObjectScimV2(const Scim_Group &scim_group);
+    virtual void groupsCreateObjectScimV2(const Scim_Group &scim_group);
 
     /**
     * @param[in]  group_id QString [required]
     */
-    void groupsDeleteObjectScimV2(const QString &group_id);
+    virtual void groupsDeleteObjectScimV2(const QString &group_id);
 
     /**
     * @param[in]  group_id QString [required]
     * @param[in]  scim_group Scim_Group [required]
     */
-    void groupsEditObjectScimV2(const QString &group_id, const Scim_Group &scim_group);
+    virtual void groupsEditObjectScimV2(const QString &group_id, const Scim_Group &scim_group);
 
     /**
     * @param[in]  filter QString [optional]
     */
-    void groupsGetListScimV2(const ::Ezmaxapi::OptionalParam<QString> &filter = ::Ezmaxapi::OptionalParam<QString>());
+    virtual void groupsGetListScimV2(const ::Ezmaxapi::OptionalParam<QString> &filter = ::Ezmaxapi::OptionalParam<QString>());
 
     /**
     * @param[in]  group_id QString [required]
     */
-    void groupsGetObjectScimV2(const QString &group_id);
+    virtual void groupsGetObjectScimV2(const QString &group_id);
 
 
 private:
@@ -119,6 +119,7 @@ Q_SIGNALS:
     void groupsEditObjectScimV2Signal(Scim_Group summary);
     void groupsGetListScimV2Signal(Scim_Group summary);
     void groupsGetObjectScimV2Signal(Scim_Group summary);
+
 
     void groupsCreateObjectScimV2SignalFull(HttpRequestWorker *worker, Scim_Group summary);
     void groupsDeleteObjectScimV2SignalFull(HttpRequestWorker *worker);

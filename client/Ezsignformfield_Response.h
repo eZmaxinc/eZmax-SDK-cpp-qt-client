@@ -21,13 +21,16 @@
 
 #include <QJsonObject>
 
+#include "Enum_Horizontalalignment.h"
 #include "Field_eEzsignformfieldDependencyrequirement.h"
+#include "Textstylestatic_ResponseCompound.h"
 #include <QString>
 
 #include "Enum.h"
 #include "Object.h"
 
 namespace Ezmaxapi {
+class Textstylestatic_ResponseCompound;
 
 class Ezsignformfield_Response : public Object {
 public:
@@ -100,6 +103,16 @@ public:
     bool is_e_ezsignformfield_dependencyrequirement_Set() const;
     bool is_e_ezsignformfield_dependencyrequirement_Valid() const;
 
+    Enum_Horizontalalignment getEEzsignformfieldHorizontalalignment() const;
+    void setEEzsignformfieldHorizontalalignment(const Enum_Horizontalalignment &e_ezsignformfield_horizontalalignment);
+    bool is_e_ezsignformfield_horizontalalignment_Set() const;
+    bool is_e_ezsignformfield_horizontalalignment_Valid() const;
+
+    Textstylestatic_ResponseCompound getObjTextstylestatic() const;
+    void setObjTextstylestatic(const Textstylestatic_ResponseCompound &obj_textstylestatic);
+    bool is_obj_textstylestatic_Set() const;
+    bool is_obj_textstylestatic_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -153,6 +166,14 @@ private:
     Field_eEzsignformfieldDependencyrequirement m_e_ezsignformfield_dependencyrequirement;
     bool m_e_ezsignformfield_dependencyrequirement_isSet;
     bool m_e_ezsignformfield_dependencyrequirement_isValid;
+
+    Enum_Horizontalalignment m_e_ezsignformfield_horizontalalignment;
+    bool m_e_ezsignformfield_horizontalalignment_isSet;
+    bool m_e_ezsignformfield_horizontalalignment_isValid;
+
+    Textstylestatic_ResponseCompound m_obj_textstylestatic;
+    bool m_obj_textstylestatic_isSet;
+    bool m_obj_textstylestatic_isValid;
 };
 
 } // namespace Ezmaxapi

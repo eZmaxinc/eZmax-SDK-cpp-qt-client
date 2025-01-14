@@ -21,6 +21,7 @@
 
 #include <QJsonObject>
 
+#include "Email_Request.h"
 #include "Multilingual_UsergroupName.h"
 #include <QString>
 
@@ -29,6 +30,7 @@
 
 namespace Ezmaxapi {
 class Multilingual_UsergroupName;
+class Email_Request;
 
 class Usergroup_ResponseCompound : public Object {
 public:
@@ -56,6 +58,11 @@ public:
     bool is_s_usergroup_name_x_Set() const;
     bool is_s_usergroup_name_x_Valid() const;
 
+    Email_Request getObjEmail() const;
+    void setObjEmail(const Email_Request &obj_email);
+    bool is_obj_email_Set() const;
+    bool is_obj_email_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -73,6 +80,10 @@ private:
     QString m_s_usergroup_name_x;
     bool m_s_usergroup_name_x_isSet;
     bool m_s_usergroup_name_x_isValid;
+
+    Email_Request m_obj_email;
+    bool m_obj_email_isSet;
+    bool m_obj_email_isValid;
 };
 
 } // namespace Ezmaxapi

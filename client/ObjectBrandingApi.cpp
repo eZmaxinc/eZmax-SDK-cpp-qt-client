@@ -59,16 +59,16 @@ void ObjectBrandingApi::initializeServerConfigs() {
     {"sInfrastructureregionCode", ServerVariable("The region where your services are hosted.","ca-central-1",
     QSet<QString>{ {"ca-central-1"} })}, }));
     
-    _serverConfigs.insert("brandingCreateObjectV1", defaultConf);
-    _serverIndices.insert("brandingCreateObjectV1", 0);
-    _serverConfigs.insert("brandingEditObjectV1", defaultConf);
-    _serverIndices.insert("brandingEditObjectV1", 0);
+    _serverConfigs.insert("brandingCreateObjectV2", defaultConf);
+    _serverIndices.insert("brandingCreateObjectV2", 0);
+    _serverConfigs.insert("brandingEditObjectV2", defaultConf);
+    _serverIndices.insert("brandingEditObjectV2", 0);
     _serverConfigs.insert("brandingGetAutocompleteV2", defaultConf);
     _serverIndices.insert("brandingGetAutocompleteV2", 0);
     _serverConfigs.insert("brandingGetListV1", defaultConf);
     _serverIndices.insert("brandingGetListV1", 0);
-    _serverConfigs.insert("brandingGetObjectV2", defaultConf);
-    _serverIndices.insert("brandingGetObjectV2", 0);
+    _serverConfigs.insert("brandingGetObjectV3", defaultConf);
+    _serverIndices.insert("brandingGetObjectV3", 0);
 }
 
 /**
@@ -144,15 +144,9 @@ int ObjectBrandingApi::addServerConfiguration(const QString &operation, const QU
     * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
     */
 void ObjectBrandingApi::setNewServerForAllOperations(const QUrl &url, const QString &description, const QMap<QString, ServerVariable> &variables) {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
     for (auto keyIt = _serverIndices.keyBegin(); keyIt != _serverIndices.keyEnd(); keyIt++) {
         setServerIndex(*keyIt, addServerConfiguration(*keyIt, url, description, variables));
     }
-#else
-    for (auto &e : _serverIndices.keys()) {
-        setServerIndex(e, addServerConfiguration(e, url, description, variables));
-    }
-#endif
 }
 
 /**
@@ -244,8 +238,8 @@ QString ObjectBrandingApi::getParamStyleDelimiter(const QString &style, const QS
     }
 }
 
-void ObjectBrandingApi::brandingCreateObjectV1(const Branding_createObject_v1_Request &branding_create_object_v1_request) {
-    QString fullPath = QString(_serverConfigs["brandingCreateObjectV1"][_serverIndices.value("brandingCreateObjectV1")].URL()+"/1/object/branding");
+void ObjectBrandingApi::brandingCreateObjectV2(const Branding_createObject_v2_Request &branding_create_object_v2_request) {
+    QString fullPath = QString(_serverConfigs["brandingCreateObjectV2"][_serverIndices.value("brandingCreateObjectV2")].URL()+"/2/object/branding");
     
     if (_apiKeys.contains("Authorization")) {
         addHeaders("Authorization",_apiKeys.find("Authorization").value());
@@ -259,20 +253,15 @@ void ObjectBrandingApi::brandingCreateObjectV1(const Branding_createObject_v1_Re
     {
 
         
-        QByteArray output = branding_create_object_v1_request.asJson().toUtf8();
+        QByteArray output = branding_create_object_v2_request.asJson().toUtf8();
         input.request_body.append(output);
     }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
 
-    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectBrandingApi::brandingCreateObjectV1Callback);
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectBrandingApi::brandingCreateObjectV2Callback);
     connect(this, &ObjectBrandingApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
@@ -283,19 +272,19 @@ void ObjectBrandingApi::brandingCreateObjectV1(const Branding_createObject_v1_Re
     worker->execute(&input);
 }
 
-void ObjectBrandingApi::brandingCreateObjectV1Callback(HttpRequestWorker *worker) {
+void ObjectBrandingApi::brandingCreateObjectV2Callback(HttpRequestWorker *worker) {
     QString error_str = worker->error_str;
     QNetworkReply::NetworkError error_type = worker->error_type;
 
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Branding_createObject_v1_Response output(QString(worker->response));
+    Branding_createObject_v2_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        Q_EMIT brandingCreateObjectV1Signal(output);
-        Q_EMIT brandingCreateObjectV1SignalFull(worker, output);
+        Q_EMIT brandingCreateObjectV2Signal(output);
+        Q_EMIT brandingCreateObjectV2SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -312,8 +301,8 @@ void ObjectBrandingApi::brandingCreateObjectV1Callback(HttpRequestWorker *worker
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        Q_EMIT brandingCreateObjectV1SignalE(output, error_type, error_str);
-        Q_EMIT brandingCreateObjectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT brandingCreateObjectV2SignalE(output, error_type, error_str);
+        Q_EMIT brandingCreateObjectV2SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -323,13 +312,13 @@ void ObjectBrandingApi::brandingCreateObjectV1Callback(HttpRequestWorker *worker
 #pragma GCC diagnostic pop
 #endif
 
-        Q_EMIT brandingCreateObjectV1SignalError(output, error_type, error_str);
-        Q_EMIT brandingCreateObjectV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT brandingCreateObjectV2SignalError(output, error_type, error_str);
+        Q_EMIT brandingCreateObjectV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 
-void ObjectBrandingApi::brandingEditObjectV1(const qint32 &pki_branding_id, const Branding_editObject_v1_Request &branding_edit_object_v1_request) {
-    QString fullPath = QString(_serverConfigs["brandingEditObjectV1"][_serverIndices.value("brandingEditObjectV1")].URL()+"/1/object/branding/{pkiBrandingID}");
+void ObjectBrandingApi::brandingEditObjectV2(const qint32 &pki_branding_id, const Branding_editObject_v2_Request &branding_edit_object_v2_request) {
+    QString fullPath = QString(_serverConfigs["brandingEditObjectV2"][_serverIndices.value("brandingEditObjectV2")].URL()+"/2/object/branding/{pkiBrandingID}");
     
     if (_apiKeys.contains("Authorization")) {
         addHeaders("Authorization",_apiKeys.find("Authorization").value());
@@ -357,20 +346,15 @@ void ObjectBrandingApi::brandingEditObjectV1(const qint32 &pki_branding_id, cons
     {
 
         
-        QByteArray output = branding_edit_object_v1_request.asJson().toUtf8();
+        QByteArray output = branding_edit_object_v2_request.asJson().toUtf8();
         input.request_body.append(output);
     }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
 
-    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectBrandingApi::brandingEditObjectV1Callback);
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectBrandingApi::brandingEditObjectV2Callback);
     connect(this, &ObjectBrandingApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
@@ -381,19 +365,19 @@ void ObjectBrandingApi::brandingEditObjectV1(const qint32 &pki_branding_id, cons
     worker->execute(&input);
 }
 
-void ObjectBrandingApi::brandingEditObjectV1Callback(HttpRequestWorker *worker) {
+void ObjectBrandingApi::brandingEditObjectV2Callback(HttpRequestWorker *worker) {
     QString error_str = worker->error_str;
     QNetworkReply::NetworkError error_type = worker->error_type;
 
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Branding_editObject_v1_Response output(QString(worker->response));
+    Branding_editObject_v2_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        Q_EMIT brandingEditObjectV1Signal(output);
-        Q_EMIT brandingEditObjectV1SignalFull(worker, output);
+        Q_EMIT brandingEditObjectV2Signal(output);
+        Q_EMIT brandingEditObjectV2SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -410,8 +394,8 @@ void ObjectBrandingApi::brandingEditObjectV1Callback(HttpRequestWorker *worker) 
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        Q_EMIT brandingEditObjectV1SignalE(output, error_type, error_str);
-        Q_EMIT brandingEditObjectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT brandingEditObjectV2SignalE(output, error_type, error_str);
+        Q_EMIT brandingEditObjectV2SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -421,8 +405,8 @@ void ObjectBrandingApi::brandingEditObjectV1Callback(HttpRequestWorker *worker) 
 #pragma GCC diagnostic pop
 #endif
 
-        Q_EMIT brandingEditObjectV1SignalError(output, error_type, error_str);
-        Q_EMIT brandingEditObjectV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT brandingEditObjectV2SignalError(output, error_type, error_str);
+        Q_EMIT brandingEditObjectV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -528,15 +512,10 @@ void ObjectBrandingApi::brandingGetAutocompleteV2(const QString &s_selector, con
         }
         input.headers.insert("Accept-Language", headerString);
     }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectBrandingApi::brandingGetAutocompleteV2Callback);
     connect(this, &ObjectBrandingApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -712,15 +691,10 @@ void ObjectBrandingApi::brandingGetListV1(const ::Ezmaxapi::OptionalParam<QStrin
         }
         input.headers.insert("Accept-Language", headerString);
     }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectBrandingApi::brandingGetListV1Callback);
     connect(this, &ObjectBrandingApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -778,8 +752,8 @@ void ObjectBrandingApi::brandingGetListV1Callback(HttpRequestWorker *worker) {
     }
 }
 
-void ObjectBrandingApi::brandingGetObjectV2(const qint32 &pki_branding_id) {
-    QString fullPath = QString(_serverConfigs["brandingGetObjectV2"][_serverIndices.value("brandingGetObjectV2")].URL()+"/2/object/branding/{pkiBrandingID}");
+void ObjectBrandingApi::brandingGetObjectV3(const qint32 &pki_branding_id) {
+    QString fullPath = QString(_serverConfigs["brandingGetObjectV3"][_serverIndices.value("brandingGetObjectV3")].URL()+"/3/object/branding/{pkiBrandingID}");
     
     if (_apiKeys.contains("Authorization")) {
         addHeaders("Authorization",_apiKeys.find("Authorization").value());
@@ -805,17 +779,12 @@ void ObjectBrandingApi::brandingGetObjectV2(const qint32 &pki_branding_id) {
     HttpRequestInput input(fullPath, "GET");
 
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
 
-    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectBrandingApi::brandingGetObjectV2Callback);
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectBrandingApi::brandingGetObjectV3Callback);
     connect(this, &ObjectBrandingApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
@@ -826,19 +795,19 @@ void ObjectBrandingApi::brandingGetObjectV2(const qint32 &pki_branding_id) {
     worker->execute(&input);
 }
 
-void ObjectBrandingApi::brandingGetObjectV2Callback(HttpRequestWorker *worker) {
+void ObjectBrandingApi::brandingGetObjectV3Callback(HttpRequestWorker *worker) {
     QString error_str = worker->error_str;
     QNetworkReply::NetworkError error_type = worker->error_type;
 
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Branding_getObject_v2_Response output(QString(worker->response));
+    Branding_getObject_v3_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        Q_EMIT brandingGetObjectV2Signal(output);
-        Q_EMIT brandingGetObjectV2SignalFull(worker, output);
+        Q_EMIT brandingGetObjectV3Signal(output);
+        Q_EMIT brandingGetObjectV3SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -855,8 +824,8 @@ void ObjectBrandingApi::brandingGetObjectV2Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        Q_EMIT brandingGetObjectV2SignalE(output, error_type, error_str);
-        Q_EMIT brandingGetObjectV2SignalEFull(worker, error_type, error_str);
+        Q_EMIT brandingGetObjectV3SignalE(output, error_type, error_str);
+        Q_EMIT brandingGetObjectV3SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -866,8 +835,8 @@ void ObjectBrandingApi::brandingGetObjectV2Callback(HttpRequestWorker *worker) {
 #pragma GCC diagnostic pop
 #endif
 
-        Q_EMIT brandingGetObjectV2SignalError(output, error_type, error_str);
-        Q_EMIT brandingGetObjectV2SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT brandingGetObjectV3SignalError(output, error_type, error_str);
+        Q_EMIT brandingGetObjectV3SignalErrorFull(worker, error_type, error_str);
     }
 }
 

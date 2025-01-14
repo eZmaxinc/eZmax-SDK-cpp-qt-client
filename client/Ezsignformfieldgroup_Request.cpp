@@ -73,6 +73,9 @@ void Ezsignformfieldgroup_Request::initializeModel() {
     m_s_ezsignformfieldgroup_regexp_isSet = false;
     m_s_ezsignformfieldgroup_regexp_isValid = false;
 
+    m_s_ezsignformfieldgroup_textvalidationcustommessage_isSet = false;
+    m_s_ezsignformfieldgroup_textvalidationcustommessage_isValid = false;
+
     m_t_ezsignformfieldgroup_tooltip_isSet = false;
     m_t_ezsignformfieldgroup_tooltip_isValid = false;
 
@@ -131,6 +134,9 @@ void Ezsignformfieldgroup_Request::fromJsonObject(QJsonObject json) {
     m_s_ezsignformfieldgroup_regexp_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsignformfieldgroup_regexp, json[QString("sEzsignformfieldgroupRegexp")]);
     m_s_ezsignformfieldgroup_regexp_isSet = !json[QString("sEzsignformfieldgroupRegexp")].isNull() && m_s_ezsignformfieldgroup_regexp_isValid;
 
+    m_s_ezsignformfieldgroup_textvalidationcustommessage_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsignformfieldgroup_textvalidationcustommessage, json[QString("sEzsignformfieldgroupTextvalidationcustommessage")]);
+    m_s_ezsignformfieldgroup_textvalidationcustommessage_isSet = !json[QString("sEzsignformfieldgroupTextvalidationcustommessage")].isNull() && m_s_ezsignformfieldgroup_textvalidationcustommessage_isValid;
+
     m_t_ezsignformfieldgroup_tooltip_isValid = ::Ezmaxapi::fromJsonValue(m_t_ezsignformfieldgroup_tooltip, json[QString("tEzsignformfieldgroupTooltip")]);
     m_t_ezsignformfieldgroup_tooltip_isSet = !json[QString("tEzsignformfieldgroupTooltip")].isNull() && m_t_ezsignformfieldgroup_tooltip_isValid;
 
@@ -188,6 +194,9 @@ QJsonObject Ezsignformfieldgroup_Request::asJsonObject() const {
     }
     if (m_s_ezsignformfieldgroup_regexp_isSet) {
         obj.insert(QString("sEzsignformfieldgroupRegexp"), ::Ezmaxapi::toJsonValue(m_s_ezsignformfieldgroup_regexp));
+    }
+    if (m_s_ezsignformfieldgroup_textvalidationcustommessage_isSet) {
+        obj.insert(QString("sEzsignformfieldgroupTextvalidationcustommessage"), ::Ezmaxapi::toJsonValue(m_s_ezsignformfieldgroup_textvalidationcustommessage));
     }
     if (m_t_ezsignformfieldgroup_tooltip_isSet) {
         obj.insert(QString("tEzsignformfieldgroupTooltip"), ::Ezmaxapi::toJsonValue(m_t_ezsignformfieldgroup_tooltip));
@@ -409,6 +418,22 @@ bool Ezsignformfieldgroup_Request::is_s_ezsignformfieldgroup_regexp_Valid() cons
     return m_s_ezsignformfieldgroup_regexp_isValid;
 }
 
+QString Ezsignformfieldgroup_Request::getSEzsignformfieldgroupTextvalidationcustommessage() const {
+    return m_s_ezsignformfieldgroup_textvalidationcustommessage;
+}
+void Ezsignformfieldgroup_Request::setSEzsignformfieldgroupTextvalidationcustommessage(const QString &s_ezsignformfieldgroup_textvalidationcustommessage) {
+    m_s_ezsignformfieldgroup_textvalidationcustommessage = s_ezsignformfieldgroup_textvalidationcustommessage;
+    m_s_ezsignformfieldgroup_textvalidationcustommessage_isSet = true;
+}
+
+bool Ezsignformfieldgroup_Request::is_s_ezsignformfieldgroup_textvalidationcustommessage_Set() const{
+    return m_s_ezsignformfieldgroup_textvalidationcustommessage_isSet;
+}
+
+bool Ezsignformfieldgroup_Request::is_s_ezsignformfieldgroup_textvalidationcustommessage_Valid() const{
+    return m_s_ezsignformfieldgroup_textvalidationcustommessage_isValid;
+}
+
 QString Ezsignformfieldgroup_Request::getTEzsignformfieldgroupTooltip() const {
     return m_t_ezsignformfieldgroup_tooltip;
 }
@@ -521,6 +546,11 @@ bool Ezsignformfieldgroup_Request::isSet() const {
         }
 
         if (m_s_ezsignformfieldgroup_regexp_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_s_ezsignformfieldgroup_textvalidationcustommessage_isSet) {
             isObjectUpdated = true;
             break;
         }

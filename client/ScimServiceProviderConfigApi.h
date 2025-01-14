@@ -58,7 +58,7 @@ public:
     QString getParamStyleDelimiter(const QString &style, const QString &name, bool isExplode);
 
 
-    void serviceProviderConfigGetObjectScimV2();
+    virtual void serviceProviderConfigGetObjectScimV2();
 
 
 private:
@@ -88,6 +88,7 @@ private:
 Q_SIGNALS:
 
     void serviceProviderConfigGetObjectScimV2Signal(Scim_ServiceProviderConfig summary);
+
 
     void serviceProviderConfigGetObjectScimV2SignalFull(HttpRequestWorker *worker, Scim_ServiceProviderConfig summary);
 

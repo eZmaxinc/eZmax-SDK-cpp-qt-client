@@ -21,6 +21,7 @@
 
 #include <QJsonObject>
 
+#include "Field_eSignaturePreference.h"
 #include <QString>
 
 #include "Enum.h"
@@ -44,10 +45,25 @@ public:
     bool is_pki_signature_id_Set() const;
     bool is_pki_signature_id_Valid() const;
 
+    qint32 getFkiFontId() const;
+    void setFkiFontId(const qint32 &fki_font_id);
+    bool is_fki_font_id_Set() const;
+    bool is_fki_font_id_Valid() const;
+
+    Field_eSignaturePreference getESignaturePreference() const;
+    void setESignaturePreference(const Field_eSignaturePreference &e_signature_preference);
+    bool is_e_signature_preference_Set() const;
+    bool is_e_signature_preference_Valid() const;
+
     QString getTSignatureSvg() const;
     void setTSignatureSvg(const QString &t_signature_svg);
     bool is_t_signature_svg_Set() const;
     bool is_t_signature_svg_Valid() const;
+
+    QString getTSignatureSvginitials() const;
+    void setTSignatureSvginitials(const QString &t_signature_svginitials);
+    bool is_t_signature_svginitials_Set() const;
+    bool is_t_signature_svginitials_Valid() const;
 
     virtual bool isSet() const override;
     virtual bool isValid() const override;
@@ -59,9 +75,21 @@ private:
     bool m_pki_signature_id_isSet;
     bool m_pki_signature_id_isValid;
 
+    qint32 m_fki_font_id;
+    bool m_fki_font_id_isSet;
+    bool m_fki_font_id_isValid;
+
+    Field_eSignaturePreference m_e_signature_preference;
+    bool m_e_signature_preference_isSet;
+    bool m_e_signature_preference_isValid;
+
     QString m_t_signature_svg;
     bool m_t_signature_svg_isSet;
     bool m_t_signature_svg_isValid;
+
+    QString m_t_signature_svginitials;
+    bool m_t_signature_svginitials_isSet;
+    bool m_t_signature_svginitials_isValid;
 };
 
 } // namespace Ezmaxapi

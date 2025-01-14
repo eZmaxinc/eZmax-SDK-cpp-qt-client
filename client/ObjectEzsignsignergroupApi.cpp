@@ -146,15 +146,9 @@ int ObjectEzsignsignergroupApi::addServerConfiguration(const QString &operation,
     * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
     */
 void ObjectEzsignsignergroupApi::setNewServerForAllOperations(const QUrl &url, const QString &description, const QMap<QString, ServerVariable> &variables) {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
     for (auto keyIt = _serverIndices.keyBegin(); keyIt != _serverIndices.keyEnd(); keyIt++) {
         setServerIndex(*keyIt, addServerConfiguration(*keyIt, url, description, variables));
     }
-#else
-    for (auto &e : _serverIndices.keys()) {
-        setServerIndex(e, addServerConfiguration(e, url, description, variables));
-    }
-#endif
 }
 
 /**
@@ -264,15 +258,10 @@ void ObjectEzsignsignergroupApi::ezsignsignergroupCreateObjectV1(const Ezsignsig
         QByteArray output = ezsignsignergroup_create_object_v1_request.asJson().toUtf8();
         input.request_body.append(output);
     }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignsignergroupApi::ezsignsignergroupCreateObjectV1Callback);
     connect(this, &ObjectEzsignsignergroupApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -357,15 +346,10 @@ void ObjectEzsignsignergroupApi::ezsignsignergroupDeleteObjectV1(const qint32 &p
     HttpRequestInput input(fullPath, "DELETE");
 
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignsignergroupApi::ezsignsignergroupDeleteObjectV1Callback);
     connect(this, &ObjectEzsignsignergroupApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -455,15 +439,10 @@ void ObjectEzsignsignergroupApi::ezsignsignergroupEditEzsignsignergroupmembershi
         QByteArray output = ezsignsignergroup_edit_ezsignsignergroupmemberships_v1_request.asJson().toUtf8();
         input.request_body.append(output);
     }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignsignergroupApi::ezsignsignergroupEditEzsignsignergroupmembershipsV1Callback);
     connect(this, &ObjectEzsignsignergroupApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -553,15 +532,10 @@ void ObjectEzsignsignergroupApi::ezsignsignergroupEditObjectV1(const qint32 &pki
         QByteArray output = ezsignsignergroup_edit_object_v1_request.asJson().toUtf8();
         input.request_body.append(output);
     }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignsignergroupApi::ezsignsignergroupEditObjectV1Callback);
     connect(this, &ObjectEzsignsignergroupApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -646,15 +620,10 @@ void ObjectEzsignsignergroupApi::ezsignsignergroupGetEzsignsignergroupmembership
     HttpRequestInput input(fullPath, "GET");
 
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignsignergroupApi::ezsignsignergroupGetEzsignsignergroupmembershipsV1Callback);
     connect(this, &ObjectEzsignsignergroupApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -739,15 +708,10 @@ void ObjectEzsignsignergroupApi::ezsignsignergroupGetObjectV2(const qint32 &pki_
     HttpRequestInput input(fullPath, "GET");
 
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignsignergroupApi::ezsignsignergroupGetObjectV2Callback);
     connect(this, &ObjectEzsignsignergroupApi::abortRequestsSignal, worker, &QObject::deleteLater);

@@ -44,10 +44,20 @@ public:
     bool is_pki_signature_id_Set() const;
     bool is_pki_signature_id_Valid() const;
 
+    qint32 getFkiFontId() const;
+    void setFkiFontId(const qint32 &fki_font_id);
+    bool is_fki_font_id_Set() const;
+    bool is_fki_font_id_Valid() const;
+
     QString getSSignatureUrl() const;
     void setSSignatureUrl(const QString &s_signature_url);
     bool is_s_signature_url_Set() const;
     bool is_s_signature_url_Valid() const;
+
+    QString getSSignatureUrlinitials() const;
+    void setSSignatureUrlinitials(const QString &s_signature_urlinitials);
+    bool is_s_signature_urlinitials_Set() const;
+    bool is_s_signature_urlinitials_Valid() const;
 
     virtual bool isSet() const override;
     virtual bool isValid() const override;
@@ -59,9 +69,17 @@ private:
     bool m_pki_signature_id_isSet;
     bool m_pki_signature_id_isValid;
 
+    qint32 m_fki_font_id;
+    bool m_fki_font_id_isSet;
+    bool m_fki_font_id_isValid;
+
     QString m_s_signature_url;
     bool m_s_signature_url_isSet;
     bool m_s_signature_url_isValid;
+
+    QString m_s_signature_urlinitials;
+    bool m_s_signature_urlinitials_isSet;
+    bool m_s_signature_urlinitials_isValid;
 };
 
 } // namespace Ezmaxapi

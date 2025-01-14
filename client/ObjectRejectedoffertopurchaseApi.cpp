@@ -59,8 +59,14 @@ void ObjectRejectedoffertopurchaseApi::initializeServerConfigs() {
     {"sInfrastructureregionCode", ServerVariable("The region where your services are hosted.","ca-central-1",
     QSet<QString>{ {"ca-central-1"} })}, }));
     
+    _serverConfigs.insert("rejectedoffertopurchaseGetCommunicationCountV1", defaultConf);
+    _serverIndices.insert("rejectedoffertopurchaseGetCommunicationCountV1", 0);
     _serverConfigs.insert("rejectedoffertopurchaseGetCommunicationListV1", defaultConf);
     _serverIndices.insert("rejectedoffertopurchaseGetCommunicationListV1", 0);
+    _serverConfigs.insert("rejectedoffertopurchaseGetCommunicationrecipientsV1", defaultConf);
+    _serverIndices.insert("rejectedoffertopurchaseGetCommunicationrecipientsV1", 0);
+    _serverConfigs.insert("rejectedoffertopurchaseGetCommunicationsendersV1", defaultConf);
+    _serverIndices.insert("rejectedoffertopurchaseGetCommunicationsendersV1", 0);
 }
 
 /**
@@ -136,15 +142,9 @@ int ObjectRejectedoffertopurchaseApi::addServerConfiguration(const QString &oper
     * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
     */
 void ObjectRejectedoffertopurchaseApi::setNewServerForAllOperations(const QUrl &url, const QString &description, const QMap<QString, ServerVariable> &variables) {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
     for (auto keyIt = _serverIndices.keyBegin(); keyIt != _serverIndices.keyEnd(); keyIt++) {
         setServerIndex(*keyIt, addServerConfiguration(*keyIt, url, description, variables));
     }
-#else
-    for (auto &e : _serverIndices.keys()) {
-        setServerIndex(e, addServerConfiguration(e, url, description, variables));
-    }
-#endif
 }
 
 /**
@@ -236,6 +236,94 @@ QString ObjectRejectedoffertopurchaseApi::getParamStyleDelimiter(const QString &
     }
 }
 
+void ObjectRejectedoffertopurchaseApi::rejectedoffertopurchaseGetCommunicationCountV1(const qint32 &pki_rejectedoffertopurchase_id) {
+    QString fullPath = QString(_serverConfigs["rejectedoffertopurchaseGetCommunicationCountV1"][_serverIndices.value("rejectedoffertopurchaseGetCommunicationCountV1")].URL()+"/1/object/rejectedoffertopurchase/{pkiRejectedoffertopurchaseID}/getCommunicationCount");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_rejectedoffertopurchase_idPathParam("{");
+        pki_rejectedoffertopurchase_idPathParam.append("pkiRejectedoffertopurchaseID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiRejectedoffertopurchaseID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiRejectedoffertopurchaseID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_rejectedoffertopurchase_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_rejectedoffertopurchase_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectRejectedoffertopurchaseApi::rejectedoffertopurchaseGetCommunicationCountV1Callback);
+    connect(this, &ObjectRejectedoffertopurchaseApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this]() {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectRejectedoffertopurchaseApi::rejectedoffertopurchaseGetCommunicationCountV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Rejectedoffertopurchase_getCommunicationCount_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT rejectedoffertopurchaseGetCommunicationCountV1Signal(output);
+        Q_EMIT rejectedoffertopurchaseGetCommunicationCountV1SignalFull(worker, output);
+    } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
+        Q_EMIT rejectedoffertopurchaseGetCommunicationCountV1SignalE(output, error_type, error_str);
+        Q_EMIT rejectedoffertopurchaseGetCommunicationCountV1SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        Q_EMIT rejectedoffertopurchaseGetCommunicationCountV1SignalError(output, error_type, error_str);
+        Q_EMIT rejectedoffertopurchaseGetCommunicationCountV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
 void ObjectRejectedoffertopurchaseApi::rejectedoffertopurchaseGetCommunicationListV1(const qint32 &pki_rejectedoffertopurchase_id) {
     QString fullPath = QString(_serverConfigs["rejectedoffertopurchaseGetCommunicationListV1"][_serverIndices.value("rejectedoffertopurchaseGetCommunicationListV1")].URL()+"/1/object/rejectedoffertopurchase/{pkiRejectedoffertopurchaseID}/getCommunicationList");
     
@@ -263,15 +351,10 @@ void ObjectRejectedoffertopurchaseApi::rejectedoffertopurchaseGetCommunicationLi
     HttpRequestInput input(fullPath, "GET");
 
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectRejectedoffertopurchaseApi::rejectedoffertopurchaseGetCommunicationListV1Callback);
     connect(this, &ObjectRejectedoffertopurchaseApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -326,6 +409,182 @@ void ObjectRejectedoffertopurchaseApi::rejectedoffertopurchaseGetCommunicationLi
 
         Q_EMIT rejectedoffertopurchaseGetCommunicationListV1SignalError(output, error_type, error_str);
         Q_EMIT rejectedoffertopurchaseGetCommunicationListV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectRejectedoffertopurchaseApi::rejectedoffertopurchaseGetCommunicationrecipientsV1(const qint32 &pki_rejectedoffertopurchase_id) {
+    QString fullPath = QString(_serverConfigs["rejectedoffertopurchaseGetCommunicationrecipientsV1"][_serverIndices.value("rejectedoffertopurchaseGetCommunicationrecipientsV1")].URL()+"/1/object/rejectedoffertopurchase/{pkiRejectedoffertopurchaseID}/getCommunicationrecipients");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_rejectedoffertopurchase_idPathParam("{");
+        pki_rejectedoffertopurchase_idPathParam.append("pkiRejectedoffertopurchaseID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiRejectedoffertopurchaseID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiRejectedoffertopurchaseID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_rejectedoffertopurchase_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_rejectedoffertopurchase_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectRejectedoffertopurchaseApi::rejectedoffertopurchaseGetCommunicationrecipientsV1Callback);
+    connect(this, &ObjectRejectedoffertopurchaseApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this]() {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectRejectedoffertopurchaseApi::rejectedoffertopurchaseGetCommunicationrecipientsV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Rejectedoffertopurchase_getCommunicationrecipients_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT rejectedoffertopurchaseGetCommunicationrecipientsV1Signal(output);
+        Q_EMIT rejectedoffertopurchaseGetCommunicationrecipientsV1SignalFull(worker, output);
+    } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
+        Q_EMIT rejectedoffertopurchaseGetCommunicationrecipientsV1SignalE(output, error_type, error_str);
+        Q_EMIT rejectedoffertopurchaseGetCommunicationrecipientsV1SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        Q_EMIT rejectedoffertopurchaseGetCommunicationrecipientsV1SignalError(output, error_type, error_str);
+        Q_EMIT rejectedoffertopurchaseGetCommunicationrecipientsV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectRejectedoffertopurchaseApi::rejectedoffertopurchaseGetCommunicationsendersV1(const qint32 &pki_rejectedoffertopurchase_id) {
+    QString fullPath = QString(_serverConfigs["rejectedoffertopurchaseGetCommunicationsendersV1"][_serverIndices.value("rejectedoffertopurchaseGetCommunicationsendersV1")].URL()+"/1/object/rejectedoffertopurchase/{pkiRejectedoffertopurchaseID}/getCommunicationsenders");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_rejectedoffertopurchase_idPathParam("{");
+        pki_rejectedoffertopurchase_idPathParam.append("pkiRejectedoffertopurchaseID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiRejectedoffertopurchaseID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiRejectedoffertopurchaseID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_rejectedoffertopurchase_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_rejectedoffertopurchase_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectRejectedoffertopurchaseApi::rejectedoffertopurchaseGetCommunicationsendersV1Callback);
+    connect(this, &ObjectRejectedoffertopurchaseApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this]() {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectRejectedoffertopurchaseApi::rejectedoffertopurchaseGetCommunicationsendersV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Rejectedoffertopurchase_getCommunicationsenders_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT rejectedoffertopurchaseGetCommunicationsendersV1Signal(output);
+        Q_EMIT rejectedoffertopurchaseGetCommunicationsendersV1SignalFull(worker, output);
+    } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
+        Q_EMIT rejectedoffertopurchaseGetCommunicationsendersV1SignalE(output, error_type, error_str);
+        Q_EMIT rejectedoffertopurchaseGetCommunicationsendersV1SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        Q_EMIT rejectedoffertopurchaseGetCommunicationsendersV1SignalError(output, error_type, error_str);
+        Q_EMIT rejectedoffertopurchaseGetCommunicationsendersV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

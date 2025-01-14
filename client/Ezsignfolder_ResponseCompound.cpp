@@ -43,6 +43,9 @@ void Ezsignfolder_ResponseCompound::initializeModel() {
     m_obj_ezsignfoldertype_isSet = false;
     m_obj_ezsignfoldertype_isValid = false;
 
+    m_fki_timezone_id_isSet = false;
+    m_fki_timezone_id_isValid = false;
+
     m_e_ezsignfolder_completion_isSet = false;
     m_e_ezsignfolder_completion_isValid = false;
 
@@ -73,6 +76,12 @@ void Ezsignfolder_ResponseCompound::initializeModel() {
     m_e_ezsignfolder_sendreminderfrequency_isSet = false;
     m_e_ezsignfolder_sendreminderfrequency_isValid = false;
 
+    m_i_ezsignfolder_sendreminderfirstdays_isSet = false;
+    m_i_ezsignfolder_sendreminderfirstdays_isValid = false;
+
+    m_i_ezsignfolder_sendreminderotherdays_isSet = false;
+    m_i_ezsignfolder_sendreminderotherdays_isValid = false;
+
     m_dt_ezsignfolder_delayedsenddate_isSet = false;
     m_dt_ezsignfolder_delayedsenddate_isValid = false;
 
@@ -102,6 +111,9 @@ void Ezsignfolder_ResponseCompound::initializeModel() {
 
     m_s_ezsignfolder_externalid_isSet = false;
     m_s_ezsignfolder_externalid_isValid = false;
+
+    m_obj_timezone_isSet = false;
+    m_obj_timezone_isValid = false;
 }
 
 void Ezsignfolder_ResponseCompound::fromJson(QString jsonString) {
@@ -121,6 +133,9 @@ void Ezsignfolder_ResponseCompound::fromJsonObject(QJsonObject json) {
 
     m_obj_ezsignfoldertype_isValid = ::Ezmaxapi::fromJsonValue(m_obj_ezsignfoldertype, json[QString("objEzsignfoldertype")]);
     m_obj_ezsignfoldertype_isSet = !json[QString("objEzsignfoldertype")].isNull() && m_obj_ezsignfoldertype_isValid;
+
+    m_fki_timezone_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_timezone_id, json[QString("fkiTimezoneID")]);
+    m_fki_timezone_id_isSet = !json[QString("fkiTimezoneID")].isNull() && m_fki_timezone_id_isValid;
 
     m_e_ezsignfolder_completion_isValid = ::Ezmaxapi::fromJsonValue(m_e_ezsignfolder_completion, json[QString("eEzsignfolderCompletion")]);
     m_e_ezsignfolder_completion_isSet = !json[QString("eEzsignfolderCompletion")].isNull() && m_e_ezsignfolder_completion_isValid;
@@ -152,6 +167,12 @@ void Ezsignfolder_ResponseCompound::fromJsonObject(QJsonObject json) {
     m_e_ezsignfolder_sendreminderfrequency_isValid = ::Ezmaxapi::fromJsonValue(m_e_ezsignfolder_sendreminderfrequency, json[QString("eEzsignfolderSendreminderfrequency")]);
     m_e_ezsignfolder_sendreminderfrequency_isSet = !json[QString("eEzsignfolderSendreminderfrequency")].isNull() && m_e_ezsignfolder_sendreminderfrequency_isValid;
 
+    m_i_ezsignfolder_sendreminderfirstdays_isValid = ::Ezmaxapi::fromJsonValue(m_i_ezsignfolder_sendreminderfirstdays, json[QString("iEzsignfolderSendreminderfirstdays")]);
+    m_i_ezsignfolder_sendreminderfirstdays_isSet = !json[QString("iEzsignfolderSendreminderfirstdays")].isNull() && m_i_ezsignfolder_sendreminderfirstdays_isValid;
+
+    m_i_ezsignfolder_sendreminderotherdays_isValid = ::Ezmaxapi::fromJsonValue(m_i_ezsignfolder_sendreminderotherdays, json[QString("iEzsignfolderSendreminderotherdays")]);
+    m_i_ezsignfolder_sendreminderotherdays_isSet = !json[QString("iEzsignfolderSendreminderotherdays")].isNull() && m_i_ezsignfolder_sendreminderotherdays_isValid;
+
     m_dt_ezsignfolder_delayedsenddate_isValid = ::Ezmaxapi::fromJsonValue(m_dt_ezsignfolder_delayedsenddate, json[QString("dtEzsignfolderDelayedsenddate")]);
     m_dt_ezsignfolder_delayedsenddate_isSet = !json[QString("dtEzsignfolderDelayedsenddate")].isNull() && m_dt_ezsignfolder_delayedsenddate_isValid;
 
@@ -181,6 +202,9 @@ void Ezsignfolder_ResponseCompound::fromJsonObject(QJsonObject json) {
 
     m_s_ezsignfolder_externalid_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsignfolder_externalid, json[QString("sEzsignfolderExternalid")]);
     m_s_ezsignfolder_externalid_isSet = !json[QString("sEzsignfolderExternalid")].isNull() && m_s_ezsignfolder_externalid_isValid;
+
+    m_obj_timezone_isValid = ::Ezmaxapi::fromJsonValue(m_obj_timezone, json[QString("objTimezone")]);
+    m_obj_timezone_isSet = !json[QString("objTimezone")].isNull() && m_obj_timezone_isValid;
 }
 
 QString Ezsignfolder_ResponseCompound::asJson() const {
@@ -200,6 +224,9 @@ QJsonObject Ezsignfolder_ResponseCompound::asJsonObject() const {
     }
     if (m_obj_ezsignfoldertype.isSet()) {
         obj.insert(QString("objEzsignfoldertype"), ::Ezmaxapi::toJsonValue(m_obj_ezsignfoldertype));
+    }
+    if (m_fki_timezone_id_isSet) {
+        obj.insert(QString("fkiTimezoneID"), ::Ezmaxapi::toJsonValue(m_fki_timezone_id));
     }
     if (m_e_ezsignfolder_completion.isSet()) {
         obj.insert(QString("eEzsignfolderCompletion"), ::Ezmaxapi::toJsonValue(m_e_ezsignfolder_completion));
@@ -231,6 +258,12 @@ QJsonObject Ezsignfolder_ResponseCompound::asJsonObject() const {
     if (m_e_ezsignfolder_sendreminderfrequency.isSet()) {
         obj.insert(QString("eEzsignfolderSendreminderfrequency"), ::Ezmaxapi::toJsonValue(m_e_ezsignfolder_sendreminderfrequency));
     }
+    if (m_i_ezsignfolder_sendreminderfirstdays_isSet) {
+        obj.insert(QString("iEzsignfolderSendreminderfirstdays"), ::Ezmaxapi::toJsonValue(m_i_ezsignfolder_sendreminderfirstdays));
+    }
+    if (m_i_ezsignfolder_sendreminderotherdays_isSet) {
+        obj.insert(QString("iEzsignfolderSendreminderotherdays"), ::Ezmaxapi::toJsonValue(m_i_ezsignfolder_sendreminderotherdays));
+    }
     if (m_dt_ezsignfolder_delayedsenddate_isSet) {
         obj.insert(QString("dtEzsignfolderDelayedsenddate"), ::Ezmaxapi::toJsonValue(m_dt_ezsignfolder_delayedsenddate));
     }
@@ -260,6 +293,9 @@ QJsonObject Ezsignfolder_ResponseCompound::asJsonObject() const {
     }
     if (m_s_ezsignfolder_externalid_isSet) {
         obj.insert(QString("sEzsignfolderExternalid"), ::Ezmaxapi::toJsonValue(m_s_ezsignfolder_externalid));
+    }
+    if (m_obj_timezone.isSet()) {
+        obj.insert(QString("objTimezone"), ::Ezmaxapi::toJsonValue(m_obj_timezone));
     }
     return obj;
 }
@@ -310,6 +346,22 @@ bool Ezsignfolder_ResponseCompound::is_obj_ezsignfoldertype_Set() const{
 
 bool Ezsignfolder_ResponseCompound::is_obj_ezsignfoldertype_Valid() const{
     return m_obj_ezsignfoldertype_isValid;
+}
+
+qint32 Ezsignfolder_ResponseCompound::getFkiTimezoneId() const {
+    return m_fki_timezone_id;
+}
+void Ezsignfolder_ResponseCompound::setFkiTimezoneId(const qint32 &fki_timezone_id) {
+    m_fki_timezone_id = fki_timezone_id;
+    m_fki_timezone_id_isSet = true;
+}
+
+bool Ezsignfolder_ResponseCompound::is_fki_timezone_id_Set() const{
+    return m_fki_timezone_id_isSet;
+}
+
+bool Ezsignfolder_ResponseCompound::is_fki_timezone_id_Valid() const{
+    return m_fki_timezone_id_isValid;
 }
 
 Field_eEzsignfolderCompletion Ezsignfolder_ResponseCompound::getEEzsignfolderCompletion() const {
@@ -472,6 +524,38 @@ bool Ezsignfolder_ResponseCompound::is_e_ezsignfolder_sendreminderfrequency_Vali
     return m_e_ezsignfolder_sendreminderfrequency_isValid;
 }
 
+qint32 Ezsignfolder_ResponseCompound::getIEzsignfolderSendreminderfirstdays() const {
+    return m_i_ezsignfolder_sendreminderfirstdays;
+}
+void Ezsignfolder_ResponseCompound::setIEzsignfolderSendreminderfirstdays(const qint32 &i_ezsignfolder_sendreminderfirstdays) {
+    m_i_ezsignfolder_sendreminderfirstdays = i_ezsignfolder_sendreminderfirstdays;
+    m_i_ezsignfolder_sendreminderfirstdays_isSet = true;
+}
+
+bool Ezsignfolder_ResponseCompound::is_i_ezsignfolder_sendreminderfirstdays_Set() const{
+    return m_i_ezsignfolder_sendreminderfirstdays_isSet;
+}
+
+bool Ezsignfolder_ResponseCompound::is_i_ezsignfolder_sendreminderfirstdays_Valid() const{
+    return m_i_ezsignfolder_sendreminderfirstdays_isValid;
+}
+
+qint32 Ezsignfolder_ResponseCompound::getIEzsignfolderSendreminderotherdays() const {
+    return m_i_ezsignfolder_sendreminderotherdays;
+}
+void Ezsignfolder_ResponseCompound::setIEzsignfolderSendreminderotherdays(const qint32 &i_ezsignfolder_sendreminderotherdays) {
+    m_i_ezsignfolder_sendreminderotherdays = i_ezsignfolder_sendreminderotherdays;
+    m_i_ezsignfolder_sendreminderotherdays_isSet = true;
+}
+
+bool Ezsignfolder_ResponseCompound::is_i_ezsignfolder_sendreminderotherdays_Set() const{
+    return m_i_ezsignfolder_sendreminderotherdays_isSet;
+}
+
+bool Ezsignfolder_ResponseCompound::is_i_ezsignfolder_sendreminderotherdays_Valid() const{
+    return m_i_ezsignfolder_sendreminderotherdays_isValid;
+}
+
 QString Ezsignfolder_ResponseCompound::getDtEzsignfolderDelayedsenddate() const {
     return m_dt_ezsignfolder_delayedsenddate;
 }
@@ -632,6 +716,22 @@ bool Ezsignfolder_ResponseCompound::is_s_ezsignfolder_externalid_Valid() const{
     return m_s_ezsignfolder_externalid_isValid;
 }
 
+Custom_TimezoneWithCode_Response Ezsignfolder_ResponseCompound::getObjTimezone() const {
+    return m_obj_timezone;
+}
+void Ezsignfolder_ResponseCompound::setObjTimezone(const Custom_TimezoneWithCode_Response &obj_timezone) {
+    m_obj_timezone = obj_timezone;
+    m_obj_timezone_isSet = true;
+}
+
+bool Ezsignfolder_ResponseCompound::is_obj_timezone_Set() const{
+    return m_obj_timezone_isSet;
+}
+
+bool Ezsignfolder_ResponseCompound::is_obj_timezone_Valid() const{
+    return m_obj_timezone_isValid;
+}
+
 bool Ezsignfolder_ResponseCompound::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -646,6 +746,11 @@ bool Ezsignfolder_ResponseCompound::isSet() const {
         }
 
         if (m_obj_ezsignfoldertype.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_fki_timezone_id_isSet) {
             isObjectUpdated = true;
             break;
         }
@@ -700,6 +805,16 @@ bool Ezsignfolder_ResponseCompound::isSet() const {
             break;
         }
 
+        if (m_i_ezsignfolder_sendreminderfirstdays_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_i_ezsignfolder_sendreminderotherdays_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (m_dt_ezsignfolder_delayedsenddate_isSet) {
             isObjectUpdated = true;
             break;
@@ -746,6 +861,11 @@ bool Ezsignfolder_ResponseCompound::isSet() const {
         }
 
         if (m_s_ezsignfolder_externalid_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_obj_timezone.isSet()) {
             isObjectUpdated = true;
             break;
         }

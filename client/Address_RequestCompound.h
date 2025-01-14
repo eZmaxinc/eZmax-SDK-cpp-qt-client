@@ -39,6 +39,11 @@ public:
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
+    qint32 getPkiAddressId() const;
+    void setPkiAddressId(const qint32 &pki_address_id);
+    bool is_pki_address_id_Set() const;
+    bool is_pki_address_id_Valid() const;
+
     qint32 getFkiAddresstypeId() const;
     void setFkiAddresstypeId(const qint32 &fki_addresstype_id);
     bool is_fki_addresstype_id_Set() const;
@@ -94,6 +99,10 @@ public:
 
 private:
     void initializeModel();
+
+    qint32 m_pki_address_id;
+    bool m_pki_address_id_isSet;
+    bool m_pki_address_id_isValid;
 
     qint32 m_fki_addresstype_id;
     bool m_fki_addresstype_id_isSet;

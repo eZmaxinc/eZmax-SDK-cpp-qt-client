@@ -21,15 +21,18 @@
 
 #include <QJsonObject>
 
+#include "Enum_Horizontalalignment.h"
 #include "Field_eEzsigntemplateformfieldDependencyrequirement.h"
 #include "Field_eEzsigntemplateformfieldPositioning.h"
 #include "Field_eEzsigntemplateformfieldPositioningoccurence.h"
+#include "Textstylestatic_RequestCompound.h"
 #include <QString>
 
 #include "Enum.h"
 #include "Object.h"
 
 namespace Ezmaxapi {
+class Textstylestatic_RequestCompound;
 
 class Ezsigntemplateformfield_Request : public Object {
 public:
@@ -122,6 +125,16 @@ public:
     bool is_e_ezsigntemplateformfield_positioningoccurence_Set() const;
     bool is_e_ezsigntemplateformfield_positioningoccurence_Valid() const;
 
+    Enum_Horizontalalignment getEEzsigntemplateformfieldHorizontalalignment() const;
+    void setEEzsigntemplateformfieldHorizontalalignment(const Enum_Horizontalalignment &e_ezsigntemplateformfield_horizontalalignment);
+    bool is_e_ezsigntemplateformfield_horizontalalignment_Set() const;
+    bool is_e_ezsigntemplateformfield_horizontalalignment_Valid() const;
+
+    Textstylestatic_RequestCompound getObjTextstylestatic() const;
+    void setObjTextstylestatic(const Textstylestatic_RequestCompound &obj_textstylestatic);
+    bool is_obj_textstylestatic_Set() const;
+    bool is_obj_textstylestatic_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -191,6 +204,14 @@ private:
     Field_eEzsigntemplateformfieldPositioningoccurence m_e_ezsigntemplateformfield_positioningoccurence;
     bool m_e_ezsigntemplateformfield_positioningoccurence_isSet;
     bool m_e_ezsigntemplateformfield_positioningoccurence_isValid;
+
+    Enum_Horizontalalignment m_e_ezsigntemplateformfield_horizontalalignment;
+    bool m_e_ezsigntemplateformfield_horizontalalignment_isSet;
+    bool m_e_ezsigntemplateformfield_horizontalalignment_isValid;
+
+    Textstylestatic_RequestCompound m_obj_textstylestatic;
+    bool m_obj_textstylestatic_isSet;
+    bool m_obj_textstylestatic_isValid;
 };
 
 } // namespace Ezmaxapi

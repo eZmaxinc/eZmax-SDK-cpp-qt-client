@@ -61,7 +61,7 @@ public:
     /**
     * @param[in]  pks_ezmaxcustomer_code QString [required]
     */
-    void globalEzmaxcustomerGetConfigurationV1(const QString &pks_ezmaxcustomer_code);
+    virtual void globalEzmaxcustomerGetConfigurationV1(const QString &pks_ezmaxcustomer_code);
 
 
 private:
@@ -91,6 +91,7 @@ private:
 Q_SIGNALS:
 
     void globalEzmaxcustomerGetConfigurationV1Signal(Global_ezmaxcustomer_getConfiguration_v1_Response summary);
+
 
     void globalEzmaxcustomerGetConfigurationV1SignalFull(HttpRequestWorker *worker, Global_ezmaxcustomer_getConfiguration_v1_Response summary);
 

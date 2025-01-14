@@ -63,16 +63,18 @@ void ObjectEzsignsignatureApi::initializeServerConfigs() {
     _serverIndices.insert("ezsignsignatureCreateObjectV1", 0);
     _serverConfigs.insert("ezsignsignatureCreateObjectV2", defaultConf);
     _serverIndices.insert("ezsignsignatureCreateObjectV2", 0);
+    _serverConfigs.insert("ezsignsignatureCreateObjectV3", defaultConf);
+    _serverIndices.insert("ezsignsignatureCreateObjectV3", 0);
     _serverConfigs.insert("ezsignsignatureDeleteObjectV1", defaultConf);
     _serverIndices.insert("ezsignsignatureDeleteObjectV1", 0);
-    _serverConfigs.insert("ezsignsignatureEditObjectV1", defaultConf);
-    _serverIndices.insert("ezsignsignatureEditObjectV1", 0);
+    _serverConfigs.insert("ezsignsignatureEditObjectV2", defaultConf);
+    _serverIndices.insert("ezsignsignatureEditObjectV2", 0);
     _serverConfigs.insert("ezsignsignatureGetEzsignsignatureattachmentV1", defaultConf);
     _serverIndices.insert("ezsignsignatureGetEzsignsignatureattachmentV1", 0);
     _serverConfigs.insert("ezsignsignatureGetEzsignsignaturesAutomaticV1", defaultConf);
     _serverIndices.insert("ezsignsignatureGetEzsignsignaturesAutomaticV1", 0);
-    _serverConfigs.insert("ezsignsignatureGetObjectV2", defaultConf);
-    _serverIndices.insert("ezsignsignatureGetObjectV2", 0);
+    _serverConfigs.insert("ezsignsignatureGetObjectV3", defaultConf);
+    _serverIndices.insert("ezsignsignatureGetObjectV3", 0);
     _serverConfigs.insert("ezsignsignatureSignV1", defaultConf);
     _serverIndices.insert("ezsignsignatureSignV1", 0);
 }
@@ -150,15 +152,9 @@ int ObjectEzsignsignatureApi::addServerConfiguration(const QString &operation, c
     * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
     */
 void ObjectEzsignsignatureApi::setNewServerForAllOperations(const QUrl &url, const QString &description, const QMap<QString, ServerVariable> &variables) {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
     for (auto keyIt = _serverIndices.keyBegin(); keyIt != _serverIndices.keyEnd(); keyIt++) {
         setServerIndex(*keyIt, addServerConfiguration(*keyIt, url, description, variables));
     }
-#else
-    for (auto &e : _serverIndices.keys()) {
-        setServerIndex(e, addServerConfiguration(e, url, description, variables));
-    }
-#endif
 }
 
 /**
@@ -267,15 +263,10 @@ void ObjectEzsignsignatureApi::ezsignsignatureCreateObjectV1(const QList<Ezsigns
         QByteArray bytes = doc.toJson();
         input.request_body.append(bytes);
     }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignsignatureApi::ezsignsignatureCreateObjectV1Callback);
     connect(this, &ObjectEzsignsignatureApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -351,15 +342,10 @@ void ObjectEzsignsignatureApi::ezsignsignatureCreateObjectV2(const Ezsignsignatu
         QByteArray output = ezsignsignature_create_object_v2_request.asJson().toUtf8();
         input.request_body.append(output);
     }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignsignatureApi::ezsignsignatureCreateObjectV2Callback);
     connect(this, &ObjectEzsignsignatureApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -417,6 +403,85 @@ void ObjectEzsignsignatureApi::ezsignsignatureCreateObjectV2Callback(HttpRequest
     }
 }
 
+void ObjectEzsignsignatureApi::ezsignsignatureCreateObjectV3(const Ezsignsignature_createObject_v3_Request &ezsignsignature_create_object_v3_request) {
+    QString fullPath = QString(_serverConfigs["ezsignsignatureCreateObjectV3"][_serverIndices.value("ezsignsignatureCreateObjectV3")].URL()+"/3/object/ezsignsignature");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "POST");
+
+    {
+
+        
+        QByteArray output = ezsignsignature_create_object_v3_request.asJson().toUtf8();
+        input.request_body.append(output);
+    }
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignsignatureApi::ezsignsignatureCreateObjectV3Callback);
+    connect(this, &ObjectEzsignsignatureApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this]() {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectEzsignsignatureApi::ezsignsignatureCreateObjectV3Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Ezsignsignature_createObject_v3_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT ezsignsignatureCreateObjectV3Signal(output);
+        Q_EMIT ezsignsignatureCreateObjectV3SignalFull(worker, output);
+    } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
+        Q_EMIT ezsignsignatureCreateObjectV3SignalE(output, error_type, error_str);
+        Q_EMIT ezsignsignatureCreateObjectV3SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        Q_EMIT ezsignsignatureCreateObjectV3SignalError(output, error_type, error_str);
+        Q_EMIT ezsignsignatureCreateObjectV3SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
 void ObjectEzsignsignatureApi::ezsignsignatureDeleteObjectV1(const qint32 &pki_ezsignsignature_id) {
     QString fullPath = QString(_serverConfigs["ezsignsignatureDeleteObjectV1"][_serverIndices.value("ezsignsignatureDeleteObjectV1")].URL()+"/1/object/ezsignsignature/{pkiEzsignsignatureID}");
     
@@ -444,15 +509,10 @@ void ObjectEzsignsignatureApi::ezsignsignatureDeleteObjectV1(const qint32 &pki_e
     HttpRequestInput input(fullPath, "DELETE");
 
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignsignatureApi::ezsignsignatureDeleteObjectV1Callback);
     connect(this, &ObjectEzsignsignatureApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -510,8 +570,8 @@ void ObjectEzsignsignatureApi::ezsignsignatureDeleteObjectV1Callback(HttpRequest
     }
 }
 
-void ObjectEzsignsignatureApi::ezsignsignatureEditObjectV1(const qint32 &pki_ezsignsignature_id, const Ezsignsignature_editObject_v1_Request &ezsignsignature_edit_object_v1_request) {
-    QString fullPath = QString(_serverConfigs["ezsignsignatureEditObjectV1"][_serverIndices.value("ezsignsignatureEditObjectV1")].URL()+"/1/object/ezsignsignature/{pkiEzsignsignatureID}");
+void ObjectEzsignsignatureApi::ezsignsignatureEditObjectV2(const qint32 &pki_ezsignsignature_id, const Ezsignsignature_editObject_v2_Request &ezsignsignature_edit_object_v2_request) {
+    QString fullPath = QString(_serverConfigs["ezsignsignatureEditObjectV2"][_serverIndices.value("ezsignsignatureEditObjectV2")].URL()+"/2/object/ezsignsignature/{pkiEzsignsignatureID}");
     
     if (_apiKeys.contains("Authorization")) {
         addHeaders("Authorization",_apiKeys.find("Authorization").value());
@@ -539,20 +599,15 @@ void ObjectEzsignsignatureApi::ezsignsignatureEditObjectV1(const qint32 &pki_ezs
     {
 
         
-        QByteArray output = ezsignsignature_edit_object_v1_request.asJson().toUtf8();
+        QByteArray output = ezsignsignature_edit_object_v2_request.asJson().toUtf8();
         input.request_body.append(output);
     }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
 
-    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignsignatureApi::ezsignsignatureEditObjectV1Callback);
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignsignatureApi::ezsignsignatureEditObjectV2Callback);
     connect(this, &ObjectEzsignsignatureApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
@@ -563,19 +618,19 @@ void ObjectEzsignsignatureApi::ezsignsignatureEditObjectV1(const qint32 &pki_ezs
     worker->execute(&input);
 }
 
-void ObjectEzsignsignatureApi::ezsignsignatureEditObjectV1Callback(HttpRequestWorker *worker) {
+void ObjectEzsignsignatureApi::ezsignsignatureEditObjectV2Callback(HttpRequestWorker *worker) {
     QString error_str = worker->error_str;
     QNetworkReply::NetworkError error_type = worker->error_type;
 
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Ezsignsignature_editObject_v1_Response output(QString(worker->response));
+    Ezsignsignature_editObject_v2_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        Q_EMIT ezsignsignatureEditObjectV1Signal(output);
-        Q_EMIT ezsignsignatureEditObjectV1SignalFull(worker, output);
+        Q_EMIT ezsignsignatureEditObjectV2Signal(output);
+        Q_EMIT ezsignsignatureEditObjectV2SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -592,8 +647,8 @@ void ObjectEzsignsignatureApi::ezsignsignatureEditObjectV1Callback(HttpRequestWo
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        Q_EMIT ezsignsignatureEditObjectV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsignsignatureEditObjectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsignsignatureEditObjectV2SignalE(output, error_type, error_str);
+        Q_EMIT ezsignsignatureEditObjectV2SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -603,8 +658,8 @@ void ObjectEzsignsignatureApi::ezsignsignatureEditObjectV1Callback(HttpRequestWo
 #pragma GCC diagnostic pop
 #endif
 
-        Q_EMIT ezsignsignatureEditObjectV1SignalError(output, error_type, error_str);
-        Q_EMIT ezsignsignatureEditObjectV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsignsignatureEditObjectV2SignalError(output, error_type, error_str);
+        Q_EMIT ezsignsignatureEditObjectV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -635,15 +690,10 @@ void ObjectEzsignsignatureApi::ezsignsignatureGetEzsignsignatureattachmentV1(con
     HttpRequestInput input(fullPath, "GET");
 
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignsignatureApi::ezsignsignatureGetEzsignsignatureattachmentV1Callback);
     connect(this, &ObjectEzsignsignatureApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -714,15 +764,10 @@ void ObjectEzsignsignatureApi::ezsignsignatureGetEzsignsignaturesAutomaticV1() {
     HttpRequestInput input(fullPath, "GET");
 
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignsignatureApi::ezsignsignatureGetEzsignsignaturesAutomaticV1Callback);
     connect(this, &ObjectEzsignsignatureApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -780,8 +825,8 @@ void ObjectEzsignsignatureApi::ezsignsignatureGetEzsignsignaturesAutomaticV1Call
     }
 }
 
-void ObjectEzsignsignatureApi::ezsignsignatureGetObjectV2(const qint32 &pki_ezsignsignature_id) {
-    QString fullPath = QString(_serverConfigs["ezsignsignatureGetObjectV2"][_serverIndices.value("ezsignsignatureGetObjectV2")].URL()+"/2/object/ezsignsignature/{pkiEzsignsignatureID}");
+void ObjectEzsignsignatureApi::ezsignsignatureGetObjectV3(const qint32 &pki_ezsignsignature_id) {
+    QString fullPath = QString(_serverConfigs["ezsignsignatureGetObjectV3"][_serverIndices.value("ezsignsignatureGetObjectV3")].URL()+"/3/object/ezsignsignature/{pkiEzsignsignatureID}");
     
     if (_apiKeys.contains("Authorization")) {
         addHeaders("Authorization",_apiKeys.find("Authorization").value());
@@ -807,17 +852,12 @@ void ObjectEzsignsignatureApi::ezsignsignatureGetObjectV2(const qint32 &pki_ezsi
     HttpRequestInput input(fullPath, "GET");
 
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
 
-    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignsignatureApi::ezsignsignatureGetObjectV2Callback);
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignsignatureApi::ezsignsignatureGetObjectV3Callback);
     connect(this, &ObjectEzsignsignatureApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
@@ -828,19 +868,19 @@ void ObjectEzsignsignatureApi::ezsignsignatureGetObjectV2(const qint32 &pki_ezsi
     worker->execute(&input);
 }
 
-void ObjectEzsignsignatureApi::ezsignsignatureGetObjectV2Callback(HttpRequestWorker *worker) {
+void ObjectEzsignsignatureApi::ezsignsignatureGetObjectV3Callback(HttpRequestWorker *worker) {
     QString error_str = worker->error_str;
     QNetworkReply::NetworkError error_type = worker->error_type;
 
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Ezsignsignature_getObject_v2_Response output(QString(worker->response));
+    Ezsignsignature_getObject_v3_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        Q_EMIT ezsignsignatureGetObjectV2Signal(output);
-        Q_EMIT ezsignsignatureGetObjectV2SignalFull(worker, output);
+        Q_EMIT ezsignsignatureGetObjectV3Signal(output);
+        Q_EMIT ezsignsignatureGetObjectV3SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -857,8 +897,8 @@ void ObjectEzsignsignatureApi::ezsignsignatureGetObjectV2Callback(HttpRequestWor
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        Q_EMIT ezsignsignatureGetObjectV2SignalE(output, error_type, error_str);
-        Q_EMIT ezsignsignatureGetObjectV2SignalEFull(worker, error_type, error_str);
+        Q_EMIT ezsignsignatureGetObjectV3SignalE(output, error_type, error_str);
+        Q_EMIT ezsignsignatureGetObjectV3SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -868,8 +908,8 @@ void ObjectEzsignsignatureApi::ezsignsignatureGetObjectV2Callback(HttpRequestWor
 #pragma GCC diagnostic pop
 #endif
 
-        Q_EMIT ezsignsignatureGetObjectV2SignalError(output, error_type, error_str);
-        Q_EMIT ezsignsignatureGetObjectV2SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezsignsignatureGetObjectV3SignalError(output, error_type, error_str);
+        Q_EMIT ezsignsignatureGetObjectV3SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -905,15 +945,10 @@ void ObjectEzsignsignatureApi::ezsignsignatureSignV1(const qint32 &pki_ezsignsig
         QByteArray output = ezsignsignature_sign_v1_request.asJson().toUtf8();
         input.request_body.append(output);
     }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignsignatureApi::ezsignsignatureSignV1Callback);
     connect(this, &ObjectEzsignsignatureApi::abortRequestsSignal, worker, &QObject::deleteLater);

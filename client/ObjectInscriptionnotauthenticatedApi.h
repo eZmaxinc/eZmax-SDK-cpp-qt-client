@@ -19,7 +19,10 @@
 #include "Oauth.h"
 
 #include "Common_Response_Error.h"
+#include "Inscriptionnotauthenticated_getCommunicationCount_v1_Response.h"
 #include "Inscriptionnotauthenticated_getCommunicationList_v1_Response.h"
+#include "Inscriptionnotauthenticated_getCommunicationrecipients_v1_Response.h"
+#include "Inscriptionnotauthenticated_getCommunicationsenders_v1_Response.h"
 #include <QString>
 
 #include <QObject>
@@ -61,7 +64,22 @@ public:
     /**
     * @param[in]  pki_inscriptionnotauthenticated_id qint32 [required]
     */
-    void inscriptionnotauthenticatedGetCommunicationListV1(const qint32 &pki_inscriptionnotauthenticated_id);
+    virtual void inscriptionnotauthenticatedGetCommunicationCountV1(const qint32 &pki_inscriptionnotauthenticated_id);
+
+    /**
+    * @param[in]  pki_inscriptionnotauthenticated_id qint32 [required]
+    */
+    virtual void inscriptionnotauthenticatedGetCommunicationListV1(const qint32 &pki_inscriptionnotauthenticated_id);
+
+    /**
+    * @param[in]  pki_inscriptionnotauthenticated_id qint32 [required]
+    */
+    virtual void inscriptionnotauthenticatedGetCommunicationrecipientsV1(const qint32 &pki_inscriptionnotauthenticated_id);
+
+    /**
+    * @param[in]  pki_inscriptionnotauthenticated_id qint32 [required]
+    */
+    virtual void inscriptionnotauthenticatedGetCommunicationsendersV1(const qint32 &pki_inscriptionnotauthenticated_id);
 
 
 private:
@@ -86,21 +104,49 @@ private:
     OauthPassword _passwordFlow;
     int _OauthMethod = 0;
 
+    void inscriptionnotauthenticatedGetCommunicationCountV1Callback(HttpRequestWorker *worker);
     void inscriptionnotauthenticatedGetCommunicationListV1Callback(HttpRequestWorker *worker);
+    void inscriptionnotauthenticatedGetCommunicationrecipientsV1Callback(HttpRequestWorker *worker);
+    void inscriptionnotauthenticatedGetCommunicationsendersV1Callback(HttpRequestWorker *worker);
 
 Q_SIGNALS:
 
+    void inscriptionnotauthenticatedGetCommunicationCountV1Signal(Inscriptionnotauthenticated_getCommunicationCount_v1_Response summary);
     void inscriptionnotauthenticatedGetCommunicationListV1Signal(Inscriptionnotauthenticated_getCommunicationList_v1_Response summary);
+    void inscriptionnotauthenticatedGetCommunicationrecipientsV1Signal(Inscriptionnotauthenticated_getCommunicationrecipients_v1_Response summary);
+    void inscriptionnotauthenticatedGetCommunicationsendersV1Signal(Inscriptionnotauthenticated_getCommunicationsenders_v1_Response summary);
 
+
+    void inscriptionnotauthenticatedGetCommunicationCountV1SignalFull(HttpRequestWorker *worker, Inscriptionnotauthenticated_getCommunicationCount_v1_Response summary);
     void inscriptionnotauthenticatedGetCommunicationListV1SignalFull(HttpRequestWorker *worker, Inscriptionnotauthenticated_getCommunicationList_v1_Response summary);
+    void inscriptionnotauthenticatedGetCommunicationrecipientsV1SignalFull(HttpRequestWorker *worker, Inscriptionnotauthenticated_getCommunicationrecipients_v1_Response summary);
+    void inscriptionnotauthenticatedGetCommunicationsendersV1SignalFull(HttpRequestWorker *worker, Inscriptionnotauthenticated_getCommunicationsenders_v1_Response summary);
 
+    Q_DECL_DEPRECATED_X("Use inscriptionnotauthenticatedGetCommunicationCountV1SignalError() instead")
+    void inscriptionnotauthenticatedGetCommunicationCountV1SignalE(Inscriptionnotauthenticated_getCommunicationCount_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void inscriptionnotauthenticatedGetCommunicationCountV1SignalError(Inscriptionnotauthenticated_getCommunicationCount_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use inscriptionnotauthenticatedGetCommunicationListV1SignalError() instead")
     void inscriptionnotauthenticatedGetCommunicationListV1SignalE(Inscriptionnotauthenticated_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void inscriptionnotauthenticatedGetCommunicationListV1SignalError(Inscriptionnotauthenticated_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use inscriptionnotauthenticatedGetCommunicationrecipientsV1SignalError() instead")
+    void inscriptionnotauthenticatedGetCommunicationrecipientsV1SignalE(Inscriptionnotauthenticated_getCommunicationrecipients_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void inscriptionnotauthenticatedGetCommunicationrecipientsV1SignalError(Inscriptionnotauthenticated_getCommunicationrecipients_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use inscriptionnotauthenticatedGetCommunicationsendersV1SignalError() instead")
+    void inscriptionnotauthenticatedGetCommunicationsendersV1SignalE(Inscriptionnotauthenticated_getCommunicationsenders_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void inscriptionnotauthenticatedGetCommunicationsendersV1SignalError(Inscriptionnotauthenticated_getCommunicationsenders_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use inscriptionnotauthenticatedGetCommunicationCountV1SignalErrorFull() instead")
+    void inscriptionnotauthenticatedGetCommunicationCountV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void inscriptionnotauthenticatedGetCommunicationCountV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use inscriptionnotauthenticatedGetCommunicationListV1SignalErrorFull() instead")
     void inscriptionnotauthenticatedGetCommunicationListV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void inscriptionnotauthenticatedGetCommunicationListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use inscriptionnotauthenticatedGetCommunicationrecipientsV1SignalErrorFull() instead")
+    void inscriptionnotauthenticatedGetCommunicationrecipientsV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void inscriptionnotauthenticatedGetCommunicationrecipientsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use inscriptionnotauthenticatedGetCommunicationsendersV1SignalErrorFull() instead")
+    void inscriptionnotauthenticatedGetCommunicationsendersV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void inscriptionnotauthenticatedGetCommunicationsendersV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();

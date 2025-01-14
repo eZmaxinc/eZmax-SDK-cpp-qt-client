@@ -40,6 +40,9 @@ void Textstylestatic_ResponseCompound::initializeModel() {
     m_fki_font_id_isSet = false;
     m_fki_font_id_isValid = false;
 
+    m_s_font_name_isSet = false;
+    m_s_font_name_isValid = false;
+
     m_b_textstylestatic_bold_isSet = false;
     m_b_textstylestatic_bold_isValid = false;
 
@@ -74,6 +77,9 @@ void Textstylestatic_ResponseCompound::fromJsonObject(QJsonObject json) {
     m_fki_font_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_font_id, json[QString("fkiFontID")]);
     m_fki_font_id_isSet = !json[QString("fkiFontID")].isNull() && m_fki_font_id_isValid;
 
+    m_s_font_name_isValid = ::Ezmaxapi::fromJsonValue(m_s_font_name, json[QString("sFontName")]);
+    m_s_font_name_isSet = !json[QString("sFontName")].isNull() && m_s_font_name_isValid;
+
     m_b_textstylestatic_bold_isValid = ::Ezmaxapi::fromJsonValue(m_b_textstylestatic_bold, json[QString("bTextstylestaticBold")]);
     m_b_textstylestatic_bold_isSet = !json[QString("bTextstylestaticBold")].isNull() && m_b_textstylestatic_bold_isValid;
 
@@ -107,6 +113,9 @@ QJsonObject Textstylestatic_ResponseCompound::asJsonObject() const {
     }
     if (m_fki_font_id_isSet) {
         obj.insert(QString("fkiFontID"), ::Ezmaxapi::toJsonValue(m_fki_font_id));
+    }
+    if (m_s_font_name_isSet) {
+        obj.insert(QString("sFontName"), ::Ezmaxapi::toJsonValue(m_s_font_name));
     }
     if (m_b_textstylestatic_bold_isSet) {
         obj.insert(QString("bTextstylestaticBold"), ::Ezmaxapi::toJsonValue(m_b_textstylestatic_bold));
@@ -159,6 +168,22 @@ bool Textstylestatic_ResponseCompound::is_fki_font_id_Set() const{
 
 bool Textstylestatic_ResponseCompound::is_fki_font_id_Valid() const{
     return m_fki_font_id_isValid;
+}
+
+QString Textstylestatic_ResponseCompound::getSFontName() const {
+    return m_s_font_name;
+}
+void Textstylestatic_ResponseCompound::setSFontName(const QString &s_font_name) {
+    m_s_font_name = s_font_name;
+    m_s_font_name_isSet = true;
+}
+
+bool Textstylestatic_ResponseCompound::is_s_font_name_Set() const{
+    return m_s_font_name_isSet;
+}
+
+bool Textstylestatic_ResponseCompound::is_s_font_name_Valid() const{
+    return m_s_font_name_isValid;
 }
 
 bool Textstylestatic_ResponseCompound::isBTextstylestaticBold() const {
@@ -270,6 +295,11 @@ bool Textstylestatic_ResponseCompound::isSet() const {
             break;
         }
 
+        if (m_s_font_name_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (m_b_textstylestatic_bold_isSet) {
             isObjectUpdated = true;
             break;
@@ -305,7 +335,7 @@ bool Textstylestatic_ResponseCompound::isSet() const {
 
 bool Textstylestatic_ResponseCompound::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_fki_font_id_isValid && m_b_textstylestatic_bold_isValid && m_b_textstylestatic_underline_isValid && m_b_textstylestatic_italic_isValid && m_b_textstylestatic_strikethrough_isValid && m_i_textstylestatic_fontcolor_isValid && m_i_textstylestatic_size_isValid && true;
+    return m_fki_font_id_isValid && m_s_font_name_isValid && m_b_textstylestatic_bold_isValid && m_b_textstylestatic_underline_isValid && m_b_textstylestatic_italic_isValid && m_b_textstylestatic_strikethrough_isValid && m_i_textstylestatic_fontcolor_isValid && m_i_textstylestatic_size_isValid && true;
 }
 
 } // namespace Ezmaxapi

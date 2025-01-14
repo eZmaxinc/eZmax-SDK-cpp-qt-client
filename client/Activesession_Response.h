@@ -21,7 +21,11 @@
 
 #include <QJsonObject>
 
+#include "Field_eActivesessionEzsign.h"
+#include "Field_eActivesessionEzsignaccess.h"
+#include "Field_eActivesessionEzsignprepaid.h"
 #include "Field_eActivesessionOrigin.h"
+#include "Field_eActivesessionRealestateinprogress.h"
 #include "Field_eActivesessionUsertype.h"
 #include "Field_eActivesessionWeekdaystart.h"
 #include <QString>
@@ -82,6 +86,46 @@ public:
     bool is_b_activesession_issuperadmin_Set() const;
     bool is_b_activesession_issuperadmin_Valid() const;
 
+    bool isBActivesessionAttachment() const;
+    void setBActivesessionAttachment(const bool &b_activesession_attachment);
+    bool is_b_activesession_attachment_Set() const;
+    bool is_b_activesession_attachment_Valid() const;
+
+    bool isBActivesessionCanafe() const;
+    void setBActivesessionCanafe(const bool &b_activesession_canafe);
+    bool is_b_activesession_canafe_Set() const;
+    bool is_b_activesession_canafe_Valid() const;
+
+    bool isBActivesessionFinancial() const;
+    void setBActivesessionFinancial(const bool &b_activesession_financial);
+    bool is_b_activesession_financial_Set() const;
+    bool is_b_activesession_financial_Valid() const;
+
+    bool isBActivesessionRealestatecompleted() const;
+    void setBActivesessionRealestatecompleted(const bool &b_activesession_realestatecompleted);
+    bool is_b_activesession_realestatecompleted_Set() const;
+    bool is_b_activesession_realestatecompleted_Valid() const;
+
+    Field_eActivesessionEzsign getEActivesessionEzsign() const;
+    void setEActivesessionEzsign(const Field_eActivesessionEzsign &e_activesession_ezsign);
+    bool is_e_activesession_ezsign_Set() const;
+    bool is_e_activesession_ezsign_Valid() const;
+
+    Field_eActivesessionEzsignaccess getEActivesessionEzsignaccess() const;
+    void setEActivesessionEzsignaccess(const Field_eActivesessionEzsignaccess &e_activesession_ezsignaccess);
+    bool is_e_activesession_ezsignaccess_Set() const;
+    bool is_e_activesession_ezsignaccess_Valid() const;
+
+    Field_eActivesessionEzsignprepaid getEActivesessionEzsignprepaid() const;
+    void setEActivesessionEzsignprepaid(const Field_eActivesessionEzsignprepaid &e_activesession_ezsignprepaid);
+    bool is_e_activesession_ezsignprepaid_Set() const;
+    bool is_e_activesession_ezsignprepaid_Valid() const;
+
+    Field_eActivesessionRealestateinprogress getEActivesessionRealestateinprogress() const;
+    void setEActivesessionRealestateinprogress(const Field_eActivesessionRealestateinprogress &e_activesession_realestateinprogress);
+    bool is_e_activesession_realestateinprogress_Set() const;
+    bool is_e_activesession_realestateinprogress_Valid() const;
+
     QString getPksCustomerCode() const;
     void setPksCustomerCode(const QString &pks_customer_code);
     bool is_pks_customer_code_Set() const;
@@ -134,6 +178,38 @@ private:
     bool m_b_activesession_issuperadmin;
     bool m_b_activesession_issuperadmin_isSet;
     bool m_b_activesession_issuperadmin_isValid;
+
+    bool m_b_activesession_attachment;
+    bool m_b_activesession_attachment_isSet;
+    bool m_b_activesession_attachment_isValid;
+
+    bool m_b_activesession_canafe;
+    bool m_b_activesession_canafe_isSet;
+    bool m_b_activesession_canafe_isValid;
+
+    bool m_b_activesession_financial;
+    bool m_b_activesession_financial_isSet;
+    bool m_b_activesession_financial_isValid;
+
+    bool m_b_activesession_realestatecompleted;
+    bool m_b_activesession_realestatecompleted_isSet;
+    bool m_b_activesession_realestatecompleted_isValid;
+
+    Field_eActivesessionEzsign m_e_activesession_ezsign;
+    bool m_e_activesession_ezsign_isSet;
+    bool m_e_activesession_ezsign_isValid;
+
+    Field_eActivesessionEzsignaccess m_e_activesession_ezsignaccess;
+    bool m_e_activesession_ezsignaccess_isSet;
+    bool m_e_activesession_ezsignaccess_isValid;
+
+    Field_eActivesessionEzsignprepaid m_e_activesession_ezsignprepaid;
+    bool m_e_activesession_ezsignprepaid_isSet;
+    bool m_e_activesession_ezsignprepaid_isValid;
+
+    Field_eActivesessionRealestateinprogress m_e_activesession_realestateinprogress;
+    bool m_e_activesession_realestateinprogress_isSet;
+    bool m_e_activesession_realestateinprogress_isValid;
 
     QString m_pks_customer_code;
     bool m_pks_customer_code_isSet;

@@ -19,6 +19,7 @@
 #include "Oauth.h"
 
 #include "Common_Response_Error.h"
+#include "Common_Response_Error_CreditcardValidation.h"
 #include "Creditcardclient_createObject_v1_Request.h"
 #include "Creditcardclient_createObject_v1_Response.h"
 #include "Creditcardclient_deleteObject_v1_Response.h"
@@ -27,6 +28,8 @@
 #include "Creditcardclient_getAutocomplete_v2_Response.h"
 #include "Creditcardclient_getList_v1_Response.h"
 #include "Creditcardclient_getObject_v2_Response.h"
+#include "Creditcardclient_patchObject_v1_Request.h"
+#include "Creditcardclient_patchObject_v1_Response.h"
 #include "Header_Accept_Language.h"
 #include "HttpFileElement.h"
 #include <QString>
@@ -70,18 +73,18 @@ public:
     /**
     * @param[in]  creditcardclient_create_object_v1_request Creditcardclient_createObject_v1_Request [required]
     */
-    void creditcardclientCreateObjectV1(const Creditcardclient_createObject_v1_Request &creditcardclient_create_object_v1_request);
+    virtual void creditcardclientCreateObjectV1(const Creditcardclient_createObject_v1_Request &creditcardclient_create_object_v1_request);
 
     /**
     * @param[in]  pki_creditcardclient_id qint32 [required]
     */
-    void creditcardclientDeleteObjectV1(const qint32 &pki_creditcardclient_id);
+    virtual void creditcardclientDeleteObjectV1(const qint32 &pki_creditcardclient_id);
 
     /**
     * @param[in]  pki_creditcardclient_id qint32 [required]
     * @param[in]  creditcardclient_edit_object_v1_request Creditcardclient_editObject_v1_Request [required]
     */
-    void creditcardclientEditObjectV1(const qint32 &pki_creditcardclient_id, const Creditcardclient_editObject_v1_Request &creditcardclient_edit_object_v1_request);
+    virtual void creditcardclientEditObjectV1(const qint32 &pki_creditcardclient_id, const Creditcardclient_editObject_v1_Request &creditcardclient_edit_object_v1_request);
 
     /**
     * @param[in]  s_selector QString [required]
@@ -89,7 +92,7 @@ public:
     * @param[in]  s_query QString [optional]
     * @param[in]  accept_language Header_Accept_Language [optional]
     */
-    void creditcardclientGetAutocompleteV2(const QString &s_selector, const ::Ezmaxapi::OptionalParam<QString> &e_filter_active = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<QString> &s_query = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<Header_Accept_Language>());
+    virtual void creditcardclientGetAutocompleteV2(const QString &s_selector, const ::Ezmaxapi::OptionalParam<QString> &e_filter_active = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<QString> &s_query = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<Header_Accept_Language>());
 
     /**
     * @param[in]  e_order_by QString [optional]
@@ -98,12 +101,18 @@ public:
     * @param[in]  accept_language Header_Accept_Language [optional]
     * @param[in]  s_filter QString [optional]
     */
-    void creditcardclientGetListV1(const ::Ezmaxapi::OptionalParam<QString> &e_order_by = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<qint32> &i_row_max = ::Ezmaxapi::OptionalParam<qint32>(), const ::Ezmaxapi::OptionalParam<qint32> &i_row_offset = ::Ezmaxapi::OptionalParam<qint32>(), const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<Header_Accept_Language>(), const ::Ezmaxapi::OptionalParam<QString> &s_filter = ::Ezmaxapi::OptionalParam<QString>());
+    virtual void creditcardclientGetListV1(const ::Ezmaxapi::OptionalParam<QString> &e_order_by = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<qint32> &i_row_max = ::Ezmaxapi::OptionalParam<qint32>(), const ::Ezmaxapi::OptionalParam<qint32> &i_row_offset = ::Ezmaxapi::OptionalParam<qint32>(), const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<Header_Accept_Language>(), const ::Ezmaxapi::OptionalParam<QString> &s_filter = ::Ezmaxapi::OptionalParam<QString>());
 
     /**
     * @param[in]  pki_creditcardclient_id qint32 [required]
     */
-    void creditcardclientGetObjectV2(const qint32 &pki_creditcardclient_id);
+    virtual void creditcardclientGetObjectV2(const qint32 &pki_creditcardclient_id);
+
+    /**
+    * @param[in]  pki_creditcardclient_id qint32 [required]
+    * @param[in]  creditcardclient_patch_object_v1_request Creditcardclient_patchObject_v1_Request [required]
+    */
+    virtual void creditcardclientPatchObjectV1(const qint32 &pki_creditcardclient_id, const Creditcardclient_patchObject_v1_Request &creditcardclient_patch_object_v1_request);
 
 
 private:
@@ -134,6 +143,7 @@ private:
     void creditcardclientGetAutocompleteV2Callback(HttpRequestWorker *worker);
     void creditcardclientGetListV1Callback(HttpRequestWorker *worker);
     void creditcardclientGetObjectV2Callback(HttpRequestWorker *worker);
+    void creditcardclientPatchObjectV1Callback(HttpRequestWorker *worker);
 
 Q_SIGNALS:
 
@@ -143,6 +153,8 @@ Q_SIGNALS:
     void creditcardclientGetAutocompleteV2Signal(Creditcardclient_getAutocomplete_v2_Response summary);
     void creditcardclientGetListV1Signal(Creditcardclient_getList_v1_Response summary);
     void creditcardclientGetObjectV2Signal(Creditcardclient_getObject_v2_Response summary);
+    void creditcardclientPatchObjectV1Signal(Creditcardclient_patchObject_v1_Response summary);
+
 
     void creditcardclientCreateObjectV1SignalFull(HttpRequestWorker *worker, Creditcardclient_createObject_v1_Response summary);
     void creditcardclientDeleteObjectV1SignalFull(HttpRequestWorker *worker, Creditcardclient_deleteObject_v1_Response summary);
@@ -150,6 +162,7 @@ Q_SIGNALS:
     void creditcardclientGetAutocompleteV2SignalFull(HttpRequestWorker *worker, Creditcardclient_getAutocomplete_v2_Response summary);
     void creditcardclientGetListV1SignalFull(HttpRequestWorker *worker, Creditcardclient_getList_v1_Response summary);
     void creditcardclientGetObjectV2SignalFull(HttpRequestWorker *worker, Creditcardclient_getObject_v2_Response summary);
+    void creditcardclientPatchObjectV1SignalFull(HttpRequestWorker *worker, Creditcardclient_patchObject_v1_Response summary);
 
     Q_DECL_DEPRECATED_X("Use creditcardclientCreateObjectV1SignalError() instead")
     void creditcardclientCreateObjectV1SignalE(Creditcardclient_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
@@ -169,6 +182,9 @@ Q_SIGNALS:
     Q_DECL_DEPRECATED_X("Use creditcardclientGetObjectV2SignalError() instead")
     void creditcardclientGetObjectV2SignalE(Creditcardclient_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void creditcardclientGetObjectV2SignalError(Creditcardclient_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use creditcardclientPatchObjectV1SignalError() instead")
+    void creditcardclientPatchObjectV1SignalE(Creditcardclient_patchObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void creditcardclientPatchObjectV1SignalError(Creditcardclient_patchObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     Q_DECL_DEPRECATED_X("Use creditcardclientCreateObjectV1SignalErrorFull() instead")
     void creditcardclientCreateObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
@@ -188,6 +204,9 @@ Q_SIGNALS:
     Q_DECL_DEPRECATED_X("Use creditcardclientGetObjectV2SignalErrorFull() instead")
     void creditcardclientGetObjectV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void creditcardclientGetObjectV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use creditcardclientPatchObjectV1SignalErrorFull() instead")
+    void creditcardclientPatchObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void creditcardclientPatchObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();

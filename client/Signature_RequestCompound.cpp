@@ -37,8 +37,17 @@ void Signature_RequestCompound::initializeModel() {
     m_pki_signature_id_isSet = false;
     m_pki_signature_id_isValid = false;
 
+    m_fki_font_id_isSet = false;
+    m_fki_font_id_isValid = false;
+
+    m_e_signature_preference_isSet = false;
+    m_e_signature_preference_isValid = false;
+
     m_t_signature_svg_isSet = false;
     m_t_signature_svg_isValid = false;
+
+    m_t_signature_svginitials_isSet = false;
+    m_t_signature_svginitials_isValid = false;
 }
 
 void Signature_RequestCompound::fromJson(QString jsonString) {
@@ -53,8 +62,17 @@ void Signature_RequestCompound::fromJsonObject(QJsonObject json) {
     m_pki_signature_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_signature_id, json[QString("pkiSignatureID")]);
     m_pki_signature_id_isSet = !json[QString("pkiSignatureID")].isNull() && m_pki_signature_id_isValid;
 
+    m_fki_font_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_font_id, json[QString("fkiFontID")]);
+    m_fki_font_id_isSet = !json[QString("fkiFontID")].isNull() && m_fki_font_id_isValid;
+
+    m_e_signature_preference_isValid = ::Ezmaxapi::fromJsonValue(m_e_signature_preference, json[QString("eSignaturePreference")]);
+    m_e_signature_preference_isSet = !json[QString("eSignaturePreference")].isNull() && m_e_signature_preference_isValid;
+
     m_t_signature_svg_isValid = ::Ezmaxapi::fromJsonValue(m_t_signature_svg, json[QString("tSignatureSvg")]);
     m_t_signature_svg_isSet = !json[QString("tSignatureSvg")].isNull() && m_t_signature_svg_isValid;
+
+    m_t_signature_svginitials_isValid = ::Ezmaxapi::fromJsonValue(m_t_signature_svginitials, json[QString("tSignatureSvginitials")]);
+    m_t_signature_svginitials_isSet = !json[QString("tSignatureSvginitials")].isNull() && m_t_signature_svginitials_isValid;
 }
 
 QString Signature_RequestCompound::asJson() const {
@@ -69,8 +87,17 @@ QJsonObject Signature_RequestCompound::asJsonObject() const {
     if (m_pki_signature_id_isSet) {
         obj.insert(QString("pkiSignatureID"), ::Ezmaxapi::toJsonValue(m_pki_signature_id));
     }
+    if (m_fki_font_id_isSet) {
+        obj.insert(QString("fkiFontID"), ::Ezmaxapi::toJsonValue(m_fki_font_id));
+    }
+    if (m_e_signature_preference.isSet()) {
+        obj.insert(QString("eSignaturePreference"), ::Ezmaxapi::toJsonValue(m_e_signature_preference));
+    }
     if (m_t_signature_svg_isSet) {
         obj.insert(QString("tSignatureSvg"), ::Ezmaxapi::toJsonValue(m_t_signature_svg));
+    }
+    if (m_t_signature_svginitials_isSet) {
+        obj.insert(QString("tSignatureSvginitials"), ::Ezmaxapi::toJsonValue(m_t_signature_svginitials));
     }
     return obj;
 }
@@ -91,6 +118,38 @@ bool Signature_RequestCompound::is_pki_signature_id_Valid() const{
     return m_pki_signature_id_isValid;
 }
 
+qint32 Signature_RequestCompound::getFkiFontId() const {
+    return m_fki_font_id;
+}
+void Signature_RequestCompound::setFkiFontId(const qint32 &fki_font_id) {
+    m_fki_font_id = fki_font_id;
+    m_fki_font_id_isSet = true;
+}
+
+bool Signature_RequestCompound::is_fki_font_id_Set() const{
+    return m_fki_font_id_isSet;
+}
+
+bool Signature_RequestCompound::is_fki_font_id_Valid() const{
+    return m_fki_font_id_isValid;
+}
+
+Field_eSignaturePreference Signature_RequestCompound::getESignaturePreference() const {
+    return m_e_signature_preference;
+}
+void Signature_RequestCompound::setESignaturePreference(const Field_eSignaturePreference &e_signature_preference) {
+    m_e_signature_preference = e_signature_preference;
+    m_e_signature_preference_isSet = true;
+}
+
+bool Signature_RequestCompound::is_e_signature_preference_Set() const{
+    return m_e_signature_preference_isSet;
+}
+
+bool Signature_RequestCompound::is_e_signature_preference_Valid() const{
+    return m_e_signature_preference_isValid;
+}
+
 QString Signature_RequestCompound::getTSignatureSvg() const {
     return m_t_signature_svg;
 }
@@ -107,6 +166,22 @@ bool Signature_RequestCompound::is_t_signature_svg_Valid() const{
     return m_t_signature_svg_isValid;
 }
 
+QString Signature_RequestCompound::getTSignatureSvginitials() const {
+    return m_t_signature_svginitials;
+}
+void Signature_RequestCompound::setTSignatureSvginitials(const QString &t_signature_svginitials) {
+    m_t_signature_svginitials = t_signature_svginitials;
+    m_t_signature_svginitials_isSet = true;
+}
+
+bool Signature_RequestCompound::is_t_signature_svginitials_Set() const{
+    return m_t_signature_svginitials_isSet;
+}
+
+bool Signature_RequestCompound::is_t_signature_svginitials_Valid() const{
+    return m_t_signature_svginitials_isValid;
+}
+
 bool Signature_RequestCompound::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -115,7 +190,22 @@ bool Signature_RequestCompound::isSet() const {
             break;
         }
 
+        if (m_fki_font_id_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_e_signature_preference.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (m_t_signature_svg_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_t_signature_svginitials_isSet) {
             isObjectUpdated = true;
             break;
         }
@@ -125,7 +215,7 @@ bool Signature_RequestCompound::isSet() const {
 
 bool Signature_RequestCompound::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_t_signature_svg_isValid && true;
+    return m_fki_font_id_isValid && m_e_signature_preference_isValid && true;
 }
 
 } // namespace Ezmaxapi

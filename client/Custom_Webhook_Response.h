@@ -52,6 +52,11 @@ public:
     bool is_pki_webhook_id_Set() const;
     bool is_pki_webhook_id_Valid() const;
 
+    qint32 getFkiAuthenticationexternalId() const;
+    void setFkiAuthenticationexternalId(const qint32 &fki_authenticationexternal_id);
+    bool is_fki_authenticationexternal_id_Set() const;
+    bool is_fki_authenticationexternal_id_Valid() const;
+
     QString getSWebhookDescription() const;
     void setSWebhookDescription(const QString &s_webhook_description);
     bool is_s_webhook_description_Set() const;
@@ -117,6 +122,11 @@ public:
     bool is_b_webhook_skipsslvalidation_Set() const;
     bool is_b_webhook_skipsslvalidation_Valid() const;
 
+    QString getSAuthenticationexternalDescription() const;
+    void setSAuthenticationexternalDescription(const QString &s_authenticationexternal_description);
+    bool is_s_authenticationexternal_description_Set() const;
+    bool is_s_authenticationexternal_description_Valid() const;
+
     Common_Audit getObjAudit() const;
     void setObjAudit(const Common_Audit &obj_audit);
     bool is_obj_audit_Set() const;
@@ -137,10 +147,15 @@ public:
     bool is_pks_customer_code_Set() const;
     bool is_pks_customer_code_Valid() const;
 
-    bool isBWebhookTest() const;
-    void setBWebhookTest(const bool &b_webhook_test);
-    bool is_b_webhook_test_Set() const;
-    bool is_b_webhook_test_Valid() const;
+    Q_DECL_DEPRECATED bool isBWebhookTest() const;
+    Q_DECL_DEPRECATED void setBWebhookTest(const bool &b_webhook_test);
+    Q_DECL_DEPRECATED bool is_b_webhook_test_Set() const;
+    Q_DECL_DEPRECATED bool is_b_webhook_test_Valid() const;
+
+    QString getEWebhookEmittype() const;
+    void setEWebhookEmittype(const QString &e_webhook_emittype);
+    bool is_e_webhook_emittype_Set() const;
+    bool is_e_webhook_emittype_Valid() const;
 
     virtual bool isSet() const override;
     virtual bool isValid() const override;
@@ -151,6 +166,10 @@ private:
     qint32 m_pki_webhook_id;
     bool m_pki_webhook_id_isSet;
     bool m_pki_webhook_id_isValid;
+
+    qint32 m_fki_authenticationexternal_id;
+    bool m_fki_authenticationexternal_id_isSet;
+    bool m_fki_authenticationexternal_id_isValid;
 
     QString m_s_webhook_description;
     bool m_s_webhook_description_isSet;
@@ -204,6 +223,10 @@ private:
     bool m_b_webhook_skipsslvalidation_isSet;
     bool m_b_webhook_skipsslvalidation_isValid;
 
+    QString m_s_authenticationexternal_description;
+    bool m_s_authenticationexternal_description_isSet;
+    bool m_s_authenticationexternal_description_isValid;
+
     Common_Audit m_obj_audit;
     bool m_obj_audit_isSet;
     bool m_obj_audit_isValid;
@@ -223,6 +246,10 @@ private:
     bool m_b_webhook_test;
     bool m_b_webhook_test_isSet;
     bool m_b_webhook_test_isValid;
+
+    QString m_e_webhook_emittype;
+    bool m_e_webhook_emittype_isSet;
+    bool m_e_webhook_emittype_isValid;
 };
 
 } // namespace Ezmaxapi

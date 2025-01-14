@@ -19,12 +19,12 @@
 #include "Oauth.h"
 
 #include "Common_Response_Error.h"
-#include "Ezsigntemplatesignature_createObject_v1_Request.h"
-#include "Ezsigntemplatesignature_createObject_v1_Response.h"
+#include "Ezsigntemplatesignature_createObject_v2_Request.h"
+#include "Ezsigntemplatesignature_createObject_v2_Response.h"
 #include "Ezsigntemplatesignature_deleteObject_v1_Response.h"
-#include "Ezsigntemplatesignature_editObject_v1_Request.h"
-#include "Ezsigntemplatesignature_editObject_v1_Response.h"
-#include "Ezsigntemplatesignature_getObject_v2_Response.h"
+#include "Ezsigntemplatesignature_editObject_v2_Request.h"
+#include "Ezsigntemplatesignature_editObject_v2_Response.h"
+#include "Ezsigntemplatesignature_getObject_v3_Response.h"
 #include <QString>
 
 #include <QObject>
@@ -64,25 +64,25 @@ public:
     QString getParamStyleDelimiter(const QString &style, const QString &name, bool isExplode);
 
     /**
-    * @param[in]  ezsigntemplatesignature_create_object_v1_request Ezsigntemplatesignature_createObject_v1_Request [required]
+    * @param[in]  ezsigntemplatesignature_create_object_v2_request Ezsigntemplatesignature_createObject_v2_Request [required]
     */
-    void ezsigntemplatesignatureCreateObjectV1(const Ezsigntemplatesignature_createObject_v1_Request &ezsigntemplatesignature_create_object_v1_request);
+    virtual void ezsigntemplatesignatureCreateObjectV2(const Ezsigntemplatesignature_createObject_v2_Request &ezsigntemplatesignature_create_object_v2_request);
 
     /**
     * @param[in]  pki_ezsigntemplatesignature_id qint32 [required]
     */
-    void ezsigntemplatesignatureDeleteObjectV1(const qint32 &pki_ezsigntemplatesignature_id);
+    virtual void ezsigntemplatesignatureDeleteObjectV1(const qint32 &pki_ezsigntemplatesignature_id);
 
     /**
     * @param[in]  pki_ezsigntemplatesignature_id qint32 [required]
-    * @param[in]  ezsigntemplatesignature_edit_object_v1_request Ezsigntemplatesignature_editObject_v1_Request [required]
+    * @param[in]  ezsigntemplatesignature_edit_object_v2_request Ezsigntemplatesignature_editObject_v2_Request [required]
     */
-    void ezsigntemplatesignatureEditObjectV1(const qint32 &pki_ezsigntemplatesignature_id, const Ezsigntemplatesignature_editObject_v1_Request &ezsigntemplatesignature_edit_object_v1_request);
+    virtual void ezsigntemplatesignatureEditObjectV2(const qint32 &pki_ezsigntemplatesignature_id, const Ezsigntemplatesignature_editObject_v2_Request &ezsigntemplatesignature_edit_object_v2_request);
 
     /**
     * @param[in]  pki_ezsigntemplatesignature_id qint32 [required]
     */
-    void ezsigntemplatesignatureGetObjectV2(const qint32 &pki_ezsigntemplatesignature_id);
+    virtual void ezsigntemplatesignatureGetObjectV3(const qint32 &pki_ezsigntemplatesignature_id);
 
 
 private:
@@ -107,48 +107,49 @@ private:
     OauthPassword _passwordFlow;
     int _OauthMethod = 0;
 
-    void ezsigntemplatesignatureCreateObjectV1Callback(HttpRequestWorker *worker);
+    void ezsigntemplatesignatureCreateObjectV2Callback(HttpRequestWorker *worker);
     void ezsigntemplatesignatureDeleteObjectV1Callback(HttpRequestWorker *worker);
-    void ezsigntemplatesignatureEditObjectV1Callback(HttpRequestWorker *worker);
-    void ezsigntemplatesignatureGetObjectV2Callback(HttpRequestWorker *worker);
+    void ezsigntemplatesignatureEditObjectV2Callback(HttpRequestWorker *worker);
+    void ezsigntemplatesignatureGetObjectV3Callback(HttpRequestWorker *worker);
 
 Q_SIGNALS:
 
-    void ezsigntemplatesignatureCreateObjectV1Signal(Ezsigntemplatesignature_createObject_v1_Response summary);
+    void ezsigntemplatesignatureCreateObjectV2Signal(Ezsigntemplatesignature_createObject_v2_Response summary);
     void ezsigntemplatesignatureDeleteObjectV1Signal(Ezsigntemplatesignature_deleteObject_v1_Response summary);
-    void ezsigntemplatesignatureEditObjectV1Signal(Ezsigntemplatesignature_editObject_v1_Response summary);
-    void ezsigntemplatesignatureGetObjectV2Signal(Ezsigntemplatesignature_getObject_v2_Response summary);
+    void ezsigntemplatesignatureEditObjectV2Signal(Ezsigntemplatesignature_editObject_v2_Response summary);
+    void ezsigntemplatesignatureGetObjectV3Signal(Ezsigntemplatesignature_getObject_v3_Response summary);
 
-    void ezsigntemplatesignatureCreateObjectV1SignalFull(HttpRequestWorker *worker, Ezsigntemplatesignature_createObject_v1_Response summary);
+
+    void ezsigntemplatesignatureCreateObjectV2SignalFull(HttpRequestWorker *worker, Ezsigntemplatesignature_createObject_v2_Response summary);
     void ezsigntemplatesignatureDeleteObjectV1SignalFull(HttpRequestWorker *worker, Ezsigntemplatesignature_deleteObject_v1_Response summary);
-    void ezsigntemplatesignatureEditObjectV1SignalFull(HttpRequestWorker *worker, Ezsigntemplatesignature_editObject_v1_Response summary);
-    void ezsigntemplatesignatureGetObjectV2SignalFull(HttpRequestWorker *worker, Ezsigntemplatesignature_getObject_v2_Response summary);
+    void ezsigntemplatesignatureEditObjectV2SignalFull(HttpRequestWorker *worker, Ezsigntemplatesignature_editObject_v2_Response summary);
+    void ezsigntemplatesignatureGetObjectV3SignalFull(HttpRequestWorker *worker, Ezsigntemplatesignature_getObject_v3_Response summary);
 
-    Q_DECL_DEPRECATED_X("Use ezsigntemplatesignatureCreateObjectV1SignalError() instead")
-    void ezsigntemplatesignatureCreateObjectV1SignalE(Ezsigntemplatesignature_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void ezsigntemplatesignatureCreateObjectV1SignalError(Ezsigntemplatesignature_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigntemplatesignatureCreateObjectV2SignalError() instead")
+    void ezsigntemplatesignatureCreateObjectV2SignalE(Ezsigntemplatesignature_createObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigntemplatesignatureCreateObjectV2SignalError(Ezsigntemplatesignature_createObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsigntemplatesignatureDeleteObjectV1SignalError() instead")
     void ezsigntemplatesignatureDeleteObjectV1SignalE(Ezsigntemplatesignature_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplatesignatureDeleteObjectV1SignalError(Ezsigntemplatesignature_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezsigntemplatesignatureEditObjectV1SignalError() instead")
-    void ezsigntemplatesignatureEditObjectV1SignalE(Ezsigntemplatesignature_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void ezsigntemplatesignatureEditObjectV1SignalError(Ezsigntemplatesignature_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezsigntemplatesignatureGetObjectV2SignalError() instead")
-    void ezsigntemplatesignatureGetObjectV2SignalE(Ezsigntemplatesignature_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void ezsigntemplatesignatureGetObjectV2SignalError(Ezsigntemplatesignature_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigntemplatesignatureEditObjectV2SignalError() instead")
+    void ezsigntemplatesignatureEditObjectV2SignalE(Ezsigntemplatesignature_editObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigntemplatesignatureEditObjectV2SignalError(Ezsigntemplatesignature_editObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigntemplatesignatureGetObjectV3SignalError() instead")
+    void ezsigntemplatesignatureGetObjectV3SignalE(Ezsigntemplatesignature_getObject_v3_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigntemplatesignatureGetObjectV3SignalError(Ezsigntemplatesignature_getObject_v3_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
-    Q_DECL_DEPRECATED_X("Use ezsigntemplatesignatureCreateObjectV1SignalErrorFull() instead")
-    void ezsigntemplatesignatureCreateObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
-    void ezsigntemplatesignatureCreateObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigntemplatesignatureCreateObjectV2SignalErrorFull() instead")
+    void ezsigntemplatesignatureCreateObjectV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigntemplatesignatureCreateObjectV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsigntemplatesignatureDeleteObjectV1SignalErrorFull() instead")
     void ezsigntemplatesignatureDeleteObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplatesignatureDeleteObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezsigntemplatesignatureEditObjectV1SignalErrorFull() instead")
-    void ezsigntemplatesignatureEditObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
-    void ezsigntemplatesignatureEditObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezsigntemplatesignatureGetObjectV2SignalErrorFull() instead")
-    void ezsigntemplatesignatureGetObjectV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
-    void ezsigntemplatesignatureGetObjectV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigntemplatesignatureEditObjectV2SignalErrorFull() instead")
+    void ezsigntemplatesignatureEditObjectV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigntemplatesignatureEditObjectV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigntemplatesignatureGetObjectV3SignalErrorFull() instead")
+    void ezsigntemplatesignatureGetObjectV3SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigntemplatesignatureGetObjectV3SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();

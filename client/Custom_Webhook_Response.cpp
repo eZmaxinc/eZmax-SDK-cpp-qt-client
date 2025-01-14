@@ -37,6 +37,9 @@ void Custom_Webhook_Response::initializeModel() {
     m_pki_webhook_id_isSet = false;
     m_pki_webhook_id_isValid = false;
 
+    m_fki_authenticationexternal_id_isSet = false;
+    m_fki_authenticationexternal_id_isValid = false;
+
     m_s_webhook_description_isSet = false;
     m_s_webhook_description_isValid = false;
 
@@ -76,6 +79,9 @@ void Custom_Webhook_Response::initializeModel() {
     m_b_webhook_skipsslvalidation_isSet = false;
     m_b_webhook_skipsslvalidation_isValid = false;
 
+    m_s_authenticationexternal_description_isSet = false;
+    m_s_authenticationexternal_description_isValid = false;
+
     m_obj_audit_isSet = false;
     m_obj_audit_isValid = false;
 
@@ -90,6 +96,9 @@ void Custom_Webhook_Response::initializeModel() {
 
     m_b_webhook_test_isSet = false;
     m_b_webhook_test_isValid = false;
+
+    m_e_webhook_emittype_isSet = false;
+    m_e_webhook_emittype_isValid = false;
 }
 
 void Custom_Webhook_Response::fromJson(QString jsonString) {
@@ -103,6 +112,9 @@ void Custom_Webhook_Response::fromJsonObject(QJsonObject json) {
 
     m_pki_webhook_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_webhook_id, json[QString("pkiWebhookID")]);
     m_pki_webhook_id_isSet = !json[QString("pkiWebhookID")].isNull() && m_pki_webhook_id_isValid;
+
+    m_fki_authenticationexternal_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_authenticationexternal_id, json[QString("fkiAuthenticationexternalID")]);
+    m_fki_authenticationexternal_id_isSet = !json[QString("fkiAuthenticationexternalID")].isNull() && m_fki_authenticationexternal_id_isValid;
 
     m_s_webhook_description_isValid = ::Ezmaxapi::fromJsonValue(m_s_webhook_description, json[QString("sWebhookDescription")]);
     m_s_webhook_description_isSet = !json[QString("sWebhookDescription")].isNull() && m_s_webhook_description_isValid;
@@ -143,6 +155,9 @@ void Custom_Webhook_Response::fromJsonObject(QJsonObject json) {
     m_b_webhook_skipsslvalidation_isValid = ::Ezmaxapi::fromJsonValue(m_b_webhook_skipsslvalidation, json[QString("bWebhookSkipsslvalidation")]);
     m_b_webhook_skipsslvalidation_isSet = !json[QString("bWebhookSkipsslvalidation")].isNull() && m_b_webhook_skipsslvalidation_isValid;
 
+    m_s_authenticationexternal_description_isValid = ::Ezmaxapi::fromJsonValue(m_s_authenticationexternal_description, json[QString("sAuthenticationexternalDescription")]);
+    m_s_authenticationexternal_description_isSet = !json[QString("sAuthenticationexternalDescription")].isNull() && m_s_authenticationexternal_description_isValid;
+
     m_obj_audit_isValid = ::Ezmaxapi::fromJsonValue(m_obj_audit, json[QString("objAudit")]);
     m_obj_audit_isSet = !json[QString("objAudit")].isNull() && m_obj_audit_isValid;
 
@@ -157,6 +172,9 @@ void Custom_Webhook_Response::fromJsonObject(QJsonObject json) {
 
     m_b_webhook_test_isValid = ::Ezmaxapi::fromJsonValue(m_b_webhook_test, json[QString("bWebhookTest")]);
     m_b_webhook_test_isSet = !json[QString("bWebhookTest")].isNull() && m_b_webhook_test_isValid;
+
+    m_e_webhook_emittype_isValid = ::Ezmaxapi::fromJsonValue(m_e_webhook_emittype, json[QString("eWebhookEmittype")]);
+    m_e_webhook_emittype_isSet = !json[QString("eWebhookEmittype")].isNull() && m_e_webhook_emittype_isValid;
 }
 
 QString Custom_Webhook_Response::asJson() const {
@@ -170,6 +188,9 @@ QJsonObject Custom_Webhook_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_webhook_id_isSet) {
         obj.insert(QString("pkiWebhookID"), ::Ezmaxapi::toJsonValue(m_pki_webhook_id));
+    }
+    if (m_fki_authenticationexternal_id_isSet) {
+        obj.insert(QString("fkiAuthenticationexternalID"), ::Ezmaxapi::toJsonValue(m_fki_authenticationexternal_id));
     }
     if (m_s_webhook_description_isSet) {
         obj.insert(QString("sWebhookDescription"), ::Ezmaxapi::toJsonValue(m_s_webhook_description));
@@ -210,6 +231,9 @@ QJsonObject Custom_Webhook_Response::asJsonObject() const {
     if (m_b_webhook_skipsslvalidation_isSet) {
         obj.insert(QString("bWebhookSkipsslvalidation"), ::Ezmaxapi::toJsonValue(m_b_webhook_skipsslvalidation));
     }
+    if (m_s_authenticationexternal_description_isSet) {
+        obj.insert(QString("sAuthenticationexternalDescription"), ::Ezmaxapi::toJsonValue(m_s_authenticationexternal_description));
+    }
     if (m_obj_audit.isSet()) {
         obj.insert(QString("objAudit"), ::Ezmaxapi::toJsonValue(m_obj_audit));
     }
@@ -224,6 +248,9 @@ QJsonObject Custom_Webhook_Response::asJsonObject() const {
     }
     if (m_b_webhook_test_isSet) {
         obj.insert(QString("bWebhookTest"), ::Ezmaxapi::toJsonValue(m_b_webhook_test));
+    }
+    if (m_e_webhook_emittype_isSet) {
+        obj.insert(QString("eWebhookEmittype"), ::Ezmaxapi::toJsonValue(m_e_webhook_emittype));
     }
     return obj;
 }
@@ -242,6 +269,22 @@ bool Custom_Webhook_Response::is_pki_webhook_id_Set() const{
 
 bool Custom_Webhook_Response::is_pki_webhook_id_Valid() const{
     return m_pki_webhook_id_isValid;
+}
+
+qint32 Custom_Webhook_Response::getFkiAuthenticationexternalId() const {
+    return m_fki_authenticationexternal_id;
+}
+void Custom_Webhook_Response::setFkiAuthenticationexternalId(const qint32 &fki_authenticationexternal_id) {
+    m_fki_authenticationexternal_id = fki_authenticationexternal_id;
+    m_fki_authenticationexternal_id_isSet = true;
+}
+
+bool Custom_Webhook_Response::is_fki_authenticationexternal_id_Set() const{
+    return m_fki_authenticationexternal_id_isSet;
+}
+
+bool Custom_Webhook_Response::is_fki_authenticationexternal_id_Valid() const{
+    return m_fki_authenticationexternal_id_isValid;
 }
 
 QString Custom_Webhook_Response::getSWebhookDescription() const {
@@ -452,6 +495,22 @@ bool Custom_Webhook_Response::is_b_webhook_skipsslvalidation_Valid() const{
     return m_b_webhook_skipsslvalidation_isValid;
 }
 
+QString Custom_Webhook_Response::getSAuthenticationexternalDescription() const {
+    return m_s_authenticationexternal_description;
+}
+void Custom_Webhook_Response::setSAuthenticationexternalDescription(const QString &s_authenticationexternal_description) {
+    m_s_authenticationexternal_description = s_authenticationexternal_description;
+    m_s_authenticationexternal_description_isSet = true;
+}
+
+bool Custom_Webhook_Response::is_s_authenticationexternal_description_Set() const{
+    return m_s_authenticationexternal_description_isSet;
+}
+
+bool Custom_Webhook_Response::is_s_authenticationexternal_description_Valid() const{
+    return m_s_authenticationexternal_description_isValid;
+}
+
 Common_Audit Custom_Webhook_Response::getObjAudit() const {
     return m_obj_audit;
 }
@@ -532,10 +591,31 @@ bool Custom_Webhook_Response::is_b_webhook_test_Valid() const{
     return m_b_webhook_test_isValid;
 }
 
+QString Custom_Webhook_Response::getEWebhookEmittype() const {
+    return m_e_webhook_emittype;
+}
+void Custom_Webhook_Response::setEWebhookEmittype(const QString &e_webhook_emittype) {
+    m_e_webhook_emittype = e_webhook_emittype;
+    m_e_webhook_emittype_isSet = true;
+}
+
+bool Custom_Webhook_Response::is_e_webhook_emittype_Set() const{
+    return m_e_webhook_emittype_isSet;
+}
+
+bool Custom_Webhook_Response::is_e_webhook_emittype_Valid() const{
+    return m_e_webhook_emittype_isValid;
+}
+
 bool Custom_Webhook_Response::isSet() const {
     bool isObjectUpdated = false;
     do {
         if (m_pki_webhook_id_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_fki_authenticationexternal_id_isSet) {
             isObjectUpdated = true;
             break;
         }
@@ -605,6 +685,11 @@ bool Custom_Webhook_Response::isSet() const {
             break;
         }
 
+        if (m_s_authenticationexternal_description_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (m_obj_audit.isSet()) {
             isObjectUpdated = true;
             break;
@@ -626,6 +711,11 @@ bool Custom_Webhook_Response::isSet() const {
         }
 
         if (m_b_webhook_test_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_e_webhook_emittype_isSet) {
             isObjectUpdated = true;
             break;
         }

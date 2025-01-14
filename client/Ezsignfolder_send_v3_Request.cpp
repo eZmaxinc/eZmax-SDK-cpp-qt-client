@@ -37,6 +37,9 @@ void Ezsignfolder_send_v3_Request::initializeModel() {
     m_t_ezsignfolder_message_isSet = false;
     m_t_ezsignfolder_message_isValid = false;
 
+    m_e_ezsignfolder_messageorder_isSet = false;
+    m_e_ezsignfolder_messageorder_isValid = false;
+
     m_dt_ezsignfolder_delayedsenddate_isSet = false;
     m_dt_ezsignfolder_delayedsenddate_isValid = false;
 
@@ -56,6 +59,9 @@ void Ezsignfolder_send_v3_Request::fromJsonObject(QJsonObject json) {
     m_t_ezsignfolder_message_isValid = ::Ezmaxapi::fromJsonValue(m_t_ezsignfolder_message, json[QString("tEzsignfolderMessage")]);
     m_t_ezsignfolder_message_isSet = !json[QString("tEzsignfolderMessage")].isNull() && m_t_ezsignfolder_message_isValid;
 
+    m_e_ezsignfolder_messageorder_isValid = ::Ezmaxapi::fromJsonValue(m_e_ezsignfolder_messageorder, json[QString("eEzsignfolderMessageorder")]);
+    m_e_ezsignfolder_messageorder_isSet = !json[QString("eEzsignfolderMessageorder")].isNull() && m_e_ezsignfolder_messageorder_isValid;
+
     m_dt_ezsignfolder_delayedsenddate_isValid = ::Ezmaxapi::fromJsonValue(m_dt_ezsignfolder_delayedsenddate, json[QString("dtEzsignfolderDelayedsenddate")]);
     m_dt_ezsignfolder_delayedsenddate_isSet = !json[QString("dtEzsignfolderDelayedsenddate")].isNull() && m_dt_ezsignfolder_delayedsenddate_isValid;
 
@@ -74,6 +80,9 @@ QJsonObject Ezsignfolder_send_v3_Request::asJsonObject() const {
     QJsonObject obj;
     if (m_t_ezsignfolder_message_isSet) {
         obj.insert(QString("tEzsignfolderMessage"), ::Ezmaxapi::toJsonValue(m_t_ezsignfolder_message));
+    }
+    if (m_e_ezsignfolder_messageorder.isSet()) {
+        obj.insert(QString("eEzsignfolderMessageorder"), ::Ezmaxapi::toJsonValue(m_e_ezsignfolder_messageorder));
     }
     if (m_dt_ezsignfolder_delayedsenddate_isSet) {
         obj.insert(QString("dtEzsignfolderDelayedsenddate"), ::Ezmaxapi::toJsonValue(m_dt_ezsignfolder_delayedsenddate));
@@ -98,6 +107,22 @@ bool Ezsignfolder_send_v3_Request::is_t_ezsignfolder_message_Set() const{
 
 bool Ezsignfolder_send_v3_Request::is_t_ezsignfolder_message_Valid() const{
     return m_t_ezsignfolder_message_isValid;
+}
+
+Field_eEzsignfolderMessageorder Ezsignfolder_send_v3_Request::getEEzsignfolderMessageorder() const {
+    return m_e_ezsignfolder_messageorder;
+}
+void Ezsignfolder_send_v3_Request::setEEzsignfolderMessageorder(const Field_eEzsignfolderMessageorder &e_ezsignfolder_messageorder) {
+    m_e_ezsignfolder_messageorder = e_ezsignfolder_messageorder;
+    m_e_ezsignfolder_messageorder_isSet = true;
+}
+
+bool Ezsignfolder_send_v3_Request::is_e_ezsignfolder_messageorder_Set() const{
+    return m_e_ezsignfolder_messageorder_isSet;
+}
+
+bool Ezsignfolder_send_v3_Request::is_e_ezsignfolder_messageorder_Valid() const{
+    return m_e_ezsignfolder_messageorder_isValid;
 }
 
 QString Ezsignfolder_send_v3_Request::getDtEzsignfolderDelayedsenddate() const {
@@ -136,6 +161,11 @@ bool Ezsignfolder_send_v3_Request::isSet() const {
     bool isObjectUpdated = false;
     do {
         if (m_t_ezsignfolder_message_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_e_ezsignfolder_messageorder.isSet()) {
             isObjectUpdated = true;
             break;
         }

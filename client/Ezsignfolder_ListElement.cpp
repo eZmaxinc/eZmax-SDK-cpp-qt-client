@@ -87,6 +87,15 @@ void Ezsignfolder_ListElement::initializeModel() {
 
     m_d_ezsignfolder_completedpercentage_isSet = false;
     m_d_ezsignfolder_completedpercentage_isValid = false;
+
+    m_d_ezsignfolder_formcompletedpercentage_isSet = false;
+    m_d_ezsignfolder_formcompletedpercentage_isValid = false;
+
+    m_d_ezsignfolder_signaturecompletedpercentage_isSet = false;
+    m_d_ezsignfolder_signaturecompletedpercentage_isValid = false;
+
+    m_b_ezsignfolder_signer_isSet = false;
+    m_b_ezsignfolder_signer_isValid = false;
 }
 
 void Ezsignfolder_ListElement::fromJson(QString jsonString) {
@@ -151,6 +160,15 @@ void Ezsignfolder_ListElement::fromJsonObject(QJsonObject json) {
 
     m_d_ezsignfolder_completedpercentage_isValid = ::Ezmaxapi::fromJsonValue(m_d_ezsignfolder_completedpercentage, json[QString("dEzsignfolderCompletedpercentage")]);
     m_d_ezsignfolder_completedpercentage_isSet = !json[QString("dEzsignfolderCompletedpercentage")].isNull() && m_d_ezsignfolder_completedpercentage_isValid;
+
+    m_d_ezsignfolder_formcompletedpercentage_isValid = ::Ezmaxapi::fromJsonValue(m_d_ezsignfolder_formcompletedpercentage, json[QString("dEzsignfolderFormcompletedpercentage")]);
+    m_d_ezsignfolder_formcompletedpercentage_isSet = !json[QString("dEzsignfolderFormcompletedpercentage")].isNull() && m_d_ezsignfolder_formcompletedpercentage_isValid;
+
+    m_d_ezsignfolder_signaturecompletedpercentage_isValid = ::Ezmaxapi::fromJsonValue(m_d_ezsignfolder_signaturecompletedpercentage, json[QString("dEzsignfolderSignaturecompletedpercentage")]);
+    m_d_ezsignfolder_signaturecompletedpercentage_isSet = !json[QString("dEzsignfolderSignaturecompletedpercentage")].isNull() && m_d_ezsignfolder_signaturecompletedpercentage_isValid;
+
+    m_b_ezsignfolder_signer_isValid = ::Ezmaxapi::fromJsonValue(m_b_ezsignfolder_signer, json[QString("bEzsignfolderSigner")]);
+    m_b_ezsignfolder_signer_isSet = !json[QString("bEzsignfolderSigner")].isNull() && m_b_ezsignfolder_signer_isValid;
 }
 
 QString Ezsignfolder_ListElement::asJson() const {
@@ -215,6 +233,15 @@ QJsonObject Ezsignfolder_ListElement::asJsonObject() const {
     }
     if (m_d_ezsignfolder_completedpercentage_isSet) {
         obj.insert(QString("dEzsignfolderCompletedpercentage"), ::Ezmaxapi::toJsonValue(m_d_ezsignfolder_completedpercentage));
+    }
+    if (m_d_ezsignfolder_formcompletedpercentage_isSet) {
+        obj.insert(QString("dEzsignfolderFormcompletedpercentage"), ::Ezmaxapi::toJsonValue(m_d_ezsignfolder_formcompletedpercentage));
+    }
+    if (m_d_ezsignfolder_signaturecompletedpercentage_isSet) {
+        obj.insert(QString("dEzsignfolderSignaturecompletedpercentage"), ::Ezmaxapi::toJsonValue(m_d_ezsignfolder_signaturecompletedpercentage));
+    }
+    if (m_b_ezsignfolder_signer_isSet) {
+        obj.insert(QString("bEzsignfolderSigner"), ::Ezmaxapi::toJsonValue(m_b_ezsignfolder_signer));
     }
     return obj;
 }
@@ -507,6 +534,54 @@ bool Ezsignfolder_ListElement::is_d_ezsignfolder_completedpercentage_Valid() con
     return m_d_ezsignfolder_completedpercentage_isValid;
 }
 
+QString Ezsignfolder_ListElement::getDEzsignfolderFormcompletedpercentage() const {
+    return m_d_ezsignfolder_formcompletedpercentage;
+}
+void Ezsignfolder_ListElement::setDEzsignfolderFormcompletedpercentage(const QString &d_ezsignfolder_formcompletedpercentage) {
+    m_d_ezsignfolder_formcompletedpercentage = d_ezsignfolder_formcompletedpercentage;
+    m_d_ezsignfolder_formcompletedpercentage_isSet = true;
+}
+
+bool Ezsignfolder_ListElement::is_d_ezsignfolder_formcompletedpercentage_Set() const{
+    return m_d_ezsignfolder_formcompletedpercentage_isSet;
+}
+
+bool Ezsignfolder_ListElement::is_d_ezsignfolder_formcompletedpercentage_Valid() const{
+    return m_d_ezsignfolder_formcompletedpercentage_isValid;
+}
+
+QString Ezsignfolder_ListElement::getDEzsignfolderSignaturecompletedpercentage() const {
+    return m_d_ezsignfolder_signaturecompletedpercentage;
+}
+void Ezsignfolder_ListElement::setDEzsignfolderSignaturecompletedpercentage(const QString &d_ezsignfolder_signaturecompletedpercentage) {
+    m_d_ezsignfolder_signaturecompletedpercentage = d_ezsignfolder_signaturecompletedpercentage;
+    m_d_ezsignfolder_signaturecompletedpercentage_isSet = true;
+}
+
+bool Ezsignfolder_ListElement::is_d_ezsignfolder_signaturecompletedpercentage_Set() const{
+    return m_d_ezsignfolder_signaturecompletedpercentage_isSet;
+}
+
+bool Ezsignfolder_ListElement::is_d_ezsignfolder_signaturecompletedpercentage_Valid() const{
+    return m_d_ezsignfolder_signaturecompletedpercentage_isValid;
+}
+
+bool Ezsignfolder_ListElement::isBEzsignfolderSigner() const {
+    return m_b_ezsignfolder_signer;
+}
+void Ezsignfolder_ListElement::setBEzsignfolderSigner(const bool &b_ezsignfolder_signer) {
+    m_b_ezsignfolder_signer = b_ezsignfolder_signer;
+    m_b_ezsignfolder_signer_isSet = true;
+}
+
+bool Ezsignfolder_ListElement::is_b_ezsignfolder_signer_Set() const{
+    return m_b_ezsignfolder_signer_isSet;
+}
+
+bool Ezsignfolder_ListElement::is_b_ezsignfolder_signer_Valid() const{
+    return m_b_ezsignfolder_signer_isValid;
+}
+
 bool Ezsignfolder_ListElement::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -599,13 +674,28 @@ bool Ezsignfolder_ListElement::isSet() const {
             isObjectUpdated = true;
             break;
         }
+
+        if (m_d_ezsignfolder_formcompletedpercentage_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_d_ezsignfolder_signaturecompletedpercentage_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_b_ezsignfolder_signer_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
     } while (false);
     return isObjectUpdated;
 }
 
 bool Ezsignfolder_ListElement::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_pki_ezsignfolder_id_isValid && m_fki_ezsignfoldertype_id_isValid && m_e_ezsignfoldertype_privacylevel_isValid && m_s_ezsignfoldertype_name_x_isValid && m_s_ezsignfolder_description_isValid && m_e_ezsignfolder_step_isValid && m_dt_created_date_isValid && m_i_ezsigndocument_isValid && m_i_ezsigndocument_edm_isValid && m_i_ezsignsignature_isValid && m_i_ezsignsignature_signed_isValid && m_i_ezsignformfieldgroup_isValid && m_i_ezsignformfieldgroup_completed_isValid && m_d_ezsignfolder_completedpercentage_isValid && true;
+    return m_pki_ezsignfolder_id_isValid && m_fki_ezsignfoldertype_id_isValid && m_e_ezsignfoldertype_privacylevel_isValid && m_s_ezsignfoldertype_name_x_isValid && m_s_ezsignfolder_description_isValid && m_e_ezsignfolder_step_isValid && m_dt_created_date_isValid && m_i_ezsigndocument_isValid && m_i_ezsigndocument_edm_isValid && m_i_ezsignsignature_isValid && m_i_ezsignsignature_signed_isValid && m_i_ezsignformfieldgroup_isValid && m_i_ezsignformfieldgroup_completed_isValid && m_d_ezsignfolder_completedpercentage_isValid && m_d_ezsignfolder_formcompletedpercentage_isValid && m_d_ezsignfolder_signaturecompletedpercentage_isValid && true;
 }
 
 } // namespace Ezmaxapi

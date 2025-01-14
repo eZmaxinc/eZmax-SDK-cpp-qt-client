@@ -58,8 +58,10 @@ public:
         CHANGELIMITDATE, 
         UNSIGN, 
         IMPORTFROMINSTANET, 
+        CREATEDFROMEZSIGNTEMPLATEPUBLIC, 
         SENDEMAIL, 
         FORMCOMPLETION, 
+        FORMSAVEASDRAFT, 
         SIGNATUREATTACHMENTADD, 
         SIGNATUREATTACHMENTVALIDATION, 
         SIGNATUREATTACHMENTREFUSED, 
@@ -70,7 +72,8 @@ public:
         FLATTEN, 
         REGENERATEPAGE, 
         REGENERATEPAGEFORM, 
-        REASSIGN
+        REASSIGN, 
+        DOCUMENTCOMPLETION
     };
     Field_eEzsigndocumentlogType::eField_eEzsigndocumentlogType getValue() const;
     void setValue(const Field_eEzsigndocumentlogType::eField_eEzsigndocumentlogType& value);

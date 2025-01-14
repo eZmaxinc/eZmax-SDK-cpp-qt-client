@@ -40,6 +40,7 @@ public:
 
     enum class eField_pksEzmaxclientOs {
         INVALID_VALUE_OPENAPI_GENERATED = 0,
+        ANDROID, 
         IOS, 
         IPADOS, 
         MACOS, 

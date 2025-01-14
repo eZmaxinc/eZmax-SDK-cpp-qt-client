@@ -76,6 +76,9 @@ void Ezsigndocument_Response::initializeModel() {
     m_i_ezsigndocument_signaturetotal_isSet = false;
     m_i_ezsigndocument_signaturetotal_isValid = false;
 
+    m_i_ezsigndocument_formfieldtotal_isSet = false;
+    m_i_ezsigndocument_formfieldtotal_isValid = false;
+
     m_s_ezsigndocument_md5initial_isSet = false;
     m_s_ezsigndocument_md5initial_isValid = false;
 
@@ -155,6 +158,9 @@ void Ezsigndocument_Response::fromJsonObject(QJsonObject json) {
     m_i_ezsigndocument_signaturetotal_isValid = ::Ezmaxapi::fromJsonValue(m_i_ezsigndocument_signaturetotal, json[QString("iEzsigndocumentSignaturetotal")]);
     m_i_ezsigndocument_signaturetotal_isSet = !json[QString("iEzsigndocumentSignaturetotal")].isNull() && m_i_ezsigndocument_signaturetotal_isValid;
 
+    m_i_ezsigndocument_formfieldtotal_isValid = ::Ezmaxapi::fromJsonValue(m_i_ezsigndocument_formfieldtotal, json[QString("iEzsigndocumentFormfieldtotal")]);
+    m_i_ezsigndocument_formfieldtotal_isSet = !json[QString("iEzsigndocumentFormfieldtotal")].isNull() && m_i_ezsigndocument_formfieldtotal_isValid;
+
     m_s_ezsigndocument_md5initial_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsigndocument_md5initial, json[QString("sEzsigndocumentMD5initial")]);
     m_s_ezsigndocument_md5initial_isSet = !json[QString("sEzsigndocumentMD5initial")].isNull() && m_s_ezsigndocument_md5initial_isValid;
 
@@ -233,6 +239,9 @@ QJsonObject Ezsigndocument_Response::asJsonObject() const {
     }
     if (m_i_ezsigndocument_signaturetotal_isSet) {
         obj.insert(QString("iEzsigndocumentSignaturetotal"), ::Ezmaxapi::toJsonValue(m_i_ezsigndocument_signaturetotal));
+    }
+    if (m_i_ezsigndocument_formfieldtotal_isSet) {
+        obj.insert(QString("iEzsigndocumentFormfieldtotal"), ::Ezmaxapi::toJsonValue(m_i_ezsigndocument_formfieldtotal));
     }
     if (m_s_ezsigndocument_md5initial_isSet) {
         obj.insert(QString("sEzsigndocumentMD5initial"), ::Ezmaxapi::toJsonValue(m_s_ezsigndocument_md5initial));
@@ -488,6 +497,22 @@ bool Ezsigndocument_Response::is_i_ezsigndocument_signaturetotal_Valid() const{
     return m_i_ezsigndocument_signaturetotal_isValid;
 }
 
+qint32 Ezsigndocument_Response::getIEzsigndocumentFormfieldtotal() const {
+    return m_i_ezsigndocument_formfieldtotal;
+}
+void Ezsigndocument_Response::setIEzsigndocumentFormfieldtotal(const qint32 &i_ezsigndocument_formfieldtotal) {
+    m_i_ezsigndocument_formfieldtotal = i_ezsigndocument_formfieldtotal;
+    m_i_ezsigndocument_formfieldtotal_isSet = true;
+}
+
+bool Ezsigndocument_Response::is_i_ezsigndocument_formfieldtotal_Set() const{
+    return m_i_ezsigndocument_formfieldtotal_isSet;
+}
+
+bool Ezsigndocument_Response::is_i_ezsigndocument_formfieldtotal_Valid() const{
+    return m_i_ezsigndocument_formfieldtotal_isValid;
+}
+
 QString Ezsigndocument_Response::getSEzsigndocumentMd5initial() const {
     return m_s_ezsigndocument_md5initial;
 }
@@ -705,6 +730,11 @@ bool Ezsigndocument_Response::isSet() const {
             break;
         }
 
+        if (m_i_ezsigndocument_formfieldtotal_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (m_s_ezsigndocument_md5initial_isSet) {
             isObjectUpdated = true;
             break;
@@ -755,7 +785,7 @@ bool Ezsigndocument_Response::isSet() const {
 
 bool Ezsigndocument_Response::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_pki_ezsigndocument_id_isValid && m_fki_ezsignfolder_id_isValid && m_dt_ezsigndocument_duedate_isValid && m_s_ezsigndocument_name_isValid && m_e_ezsigndocument_step_isValid && m_i_ezsigndocument_order_isValid && m_i_ezsigndocument_pagetotal_isValid && m_i_ezsigndocument_signaturesigned_isValid && m_i_ezsigndocument_signaturetotal_isValid && m_i_ezsigndocument_ezsignsignatureattachmenttotal_isValid && m_i_ezsigndocument_ezsigndiscussiontotal_isValid && true;
+    return m_pki_ezsigndocument_id_isValid && m_fki_ezsignfolder_id_isValid && m_dt_ezsigndocument_duedate_isValid && m_s_ezsigndocument_name_isValid && m_e_ezsigndocument_step_isValid && m_i_ezsigndocument_order_isValid && m_i_ezsigndocument_pagetotal_isValid && m_i_ezsigndocument_signaturesigned_isValid && m_i_ezsigndocument_signaturetotal_isValid && m_i_ezsigndocument_formfieldtotal_isValid && m_i_ezsigndocument_ezsignsignatureattachmenttotal_isValid && m_i_ezsigndocument_ezsigndiscussiontotal_isValid && true;
 }
 
 } // namespace Ezmaxapi

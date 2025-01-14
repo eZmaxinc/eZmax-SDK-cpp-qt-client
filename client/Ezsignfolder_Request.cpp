@@ -40,6 +40,9 @@ void Ezsignfolder_Request::initializeModel() {
     m_fki_ezsignfoldertype_id_isSet = false;
     m_fki_ezsignfoldertype_id_isValid = false;
 
+    m_fki_timezone_id_isSet = false;
+    m_fki_timezone_id_isValid = false;
+
     m_fki_ezsigntsarequirement_id_isSet = false;
     m_fki_ezsigntsarequirement_id_isValid = false;
 
@@ -71,6 +74,9 @@ void Ezsignfolder_Request::fromJsonObject(QJsonObject json) {
     m_fki_ezsignfoldertype_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_ezsignfoldertype_id, json[QString("fkiEzsignfoldertypeID")]);
     m_fki_ezsignfoldertype_id_isSet = !json[QString("fkiEzsignfoldertypeID")].isNull() && m_fki_ezsignfoldertype_id_isValid;
 
+    m_fki_timezone_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_timezone_id, json[QString("fkiTimezoneID")]);
+    m_fki_timezone_id_isSet = !json[QString("fkiTimezoneID")].isNull() && m_fki_timezone_id_isValid;
+
     m_fki_ezsigntsarequirement_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_ezsigntsarequirement_id, json[QString("fkiEzsigntsarequirementID")]);
     m_fki_ezsigntsarequirement_id_isSet = !json[QString("fkiEzsigntsarequirementID")].isNull() && m_fki_ezsigntsarequirement_id_isValid;
 
@@ -101,6 +107,9 @@ QJsonObject Ezsignfolder_Request::asJsonObject() const {
     }
     if (m_fki_ezsignfoldertype_id_isSet) {
         obj.insert(QString("fkiEzsignfoldertypeID"), ::Ezmaxapi::toJsonValue(m_fki_ezsignfoldertype_id));
+    }
+    if (m_fki_timezone_id_isSet) {
+        obj.insert(QString("fkiTimezoneID"), ::Ezmaxapi::toJsonValue(m_fki_timezone_id));
     }
     if (m_fki_ezsigntsarequirement_id_isSet) {
         obj.insert(QString("fkiEzsigntsarequirementID"), ::Ezmaxapi::toJsonValue(m_fki_ezsigntsarequirement_id));
@@ -150,6 +159,22 @@ bool Ezsignfolder_Request::is_fki_ezsignfoldertype_id_Set() const{
 
 bool Ezsignfolder_Request::is_fki_ezsignfoldertype_id_Valid() const{
     return m_fki_ezsignfoldertype_id_isValid;
+}
+
+qint32 Ezsignfolder_Request::getFkiTimezoneId() const {
+    return m_fki_timezone_id;
+}
+void Ezsignfolder_Request::setFkiTimezoneId(const qint32 &fki_timezone_id) {
+    m_fki_timezone_id = fki_timezone_id;
+    m_fki_timezone_id_isSet = true;
+}
+
+bool Ezsignfolder_Request::is_fki_timezone_id_Set() const{
+    return m_fki_timezone_id_isSet;
+}
+
+bool Ezsignfolder_Request::is_fki_timezone_id_Valid() const{
+    return m_fki_timezone_id_isValid;
 }
 
 qint32 Ezsignfolder_Request::getFkiEzsigntsarequirementId() const {
@@ -241,6 +266,11 @@ bool Ezsignfolder_Request::isSet() const {
         }
 
         if (m_fki_ezsignfoldertype_id_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_fki_timezone_id_isSet) {
             isObjectUpdated = true;
             break;
         }

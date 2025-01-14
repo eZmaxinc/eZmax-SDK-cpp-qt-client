@@ -50,6 +50,11 @@ public:
     bool is_fki_ezsignfoldertype_id_Set() const;
     bool is_fki_ezsignfoldertype_id_Valid() const;
 
+    qint32 getFkiTimezoneId() const;
+    void setFkiTimezoneId(const qint32 &fki_timezone_id);
+    bool is_fki_timezone_id_Set() const;
+    bool is_fki_timezone_id_Valid() const;
+
     qint32 getFkiEzsigntsarequirementId() const;
     void setFkiEzsigntsarequirementId(const qint32 &fki_ezsigntsarequirement_id);
     bool is_fki_ezsigntsarequirement_id_Set() const;
@@ -65,10 +70,10 @@ public:
     bool is_t_ezsignfolder_note_Set() const;
     bool is_t_ezsignfolder_note_Valid() const;
 
-    Field_eEzsignfolderSendreminderfrequency getEEzsignfolderSendreminderfrequency() const;
-    void setEEzsignfolderSendreminderfrequency(const Field_eEzsignfolderSendreminderfrequency &e_ezsignfolder_sendreminderfrequency);
-    bool is_e_ezsignfolder_sendreminderfrequency_Set() const;
-    bool is_e_ezsignfolder_sendreminderfrequency_Valid() const;
+    Q_DECL_DEPRECATED Field_eEzsignfolderSendreminderfrequency getEEzsignfolderSendreminderfrequency() const;
+    Q_DECL_DEPRECATED void setEEzsignfolderSendreminderfrequency(const Field_eEzsignfolderSendreminderfrequency &e_ezsignfolder_sendreminderfrequency);
+    Q_DECL_DEPRECATED bool is_e_ezsignfolder_sendreminderfrequency_Set() const;
+    Q_DECL_DEPRECATED bool is_e_ezsignfolder_sendreminderfrequency_Valid() const;
 
     QString getSEzsignfolderExternalid() const;
     void setSEzsignfolderExternalid(const QString &s_ezsignfolder_externalid);
@@ -88,6 +93,10 @@ private:
     qint32 m_fki_ezsignfoldertype_id;
     bool m_fki_ezsignfoldertype_id_isSet;
     bool m_fki_ezsignfoldertype_id_isValid;
+
+    qint32 m_fki_timezone_id;
+    bool m_fki_timezone_id_isSet;
+    bool m_fki_timezone_id_isValid;
 
     qint32 m_fki_ezsigntsarequirement_id;
     bool m_fki_ezsigntsarequirement_id_isSet;

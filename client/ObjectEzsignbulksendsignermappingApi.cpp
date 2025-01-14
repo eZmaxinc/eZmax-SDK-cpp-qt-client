@@ -140,15 +140,9 @@ int ObjectEzsignbulksendsignermappingApi::addServerConfiguration(const QString &
     * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
     */
 void ObjectEzsignbulksendsignermappingApi::setNewServerForAllOperations(const QUrl &url, const QString &description, const QMap<QString, ServerVariable> &variables) {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
     for (auto keyIt = _serverIndices.keyBegin(); keyIt != _serverIndices.keyEnd(); keyIt++) {
         setServerIndex(*keyIt, addServerConfiguration(*keyIt, url, description, variables));
     }
-#else
-    for (auto &e : _serverIndices.keys()) {
-        setServerIndex(e, addServerConfiguration(e, url, description, variables));
-    }
-#endif
 }
 
 /**
@@ -258,15 +252,10 @@ void ObjectEzsignbulksendsignermappingApi::ezsignbulksendsignermappingCreateObje
         QByteArray output = ezsignbulksendsignermapping_create_object_v1_request.asJson().toUtf8();
         input.request_body.append(output);
     }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignbulksendsignermappingApi::ezsignbulksendsignermappingCreateObjectV1Callback);
     connect(this, &ObjectEzsignbulksendsignermappingApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -351,15 +340,10 @@ void ObjectEzsignbulksendsignermappingApi::ezsignbulksendsignermappingDeleteObje
     HttpRequestInput input(fullPath, "DELETE");
 
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignbulksendsignermappingApi::ezsignbulksendsignermappingDeleteObjectV1Callback);
     connect(this, &ObjectEzsignbulksendsignermappingApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -444,15 +428,10 @@ void ObjectEzsignbulksendsignermappingApi::ezsignbulksendsignermappingGetObjectV
     HttpRequestInput input(fullPath, "GET");
 
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignbulksendsignermappingApi::ezsignbulksendsignermappingGetObjectV2Callback);
     connect(this, &ObjectEzsignbulksendsignermappingApi::abortRequestsSignal, worker, &QObject::deleteLater);

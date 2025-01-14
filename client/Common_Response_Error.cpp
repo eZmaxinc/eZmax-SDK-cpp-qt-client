@@ -39,6 +39,9 @@ void Common_Response_Error::initializeModel() {
 
     m_e_error_code_isSet = false;
     m_e_error_code_isValid = false;
+
+    m_a_s_error_messagedetail_isSet = false;
+    m_a_s_error_messagedetail_isValid = false;
 }
 
 void Common_Response_Error::fromJson(QString jsonString) {
@@ -55,6 +58,9 @@ void Common_Response_Error::fromJsonObject(QJsonObject json) {
 
     m_e_error_code_isValid = ::Ezmaxapi::fromJsonValue(m_e_error_code, json[QString("eErrorCode")]);
     m_e_error_code_isSet = !json[QString("eErrorCode")].isNull() && m_e_error_code_isValid;
+
+    m_a_s_error_messagedetail_isValid = ::Ezmaxapi::fromJsonValue(m_a_s_error_messagedetail, json[QString("a_sErrorMessagedetail")]);
+    m_a_s_error_messagedetail_isSet = !json[QString("a_sErrorMessagedetail")].isNull() && m_a_s_error_messagedetail_isValid;
 }
 
 QString Common_Response_Error::asJson() const {
@@ -71,6 +77,9 @@ QJsonObject Common_Response_Error::asJsonObject() const {
     }
     if (m_e_error_code.isSet()) {
         obj.insert(QString("eErrorCode"), ::Ezmaxapi::toJsonValue(m_e_error_code));
+    }
+    if (m_a_s_error_messagedetail.size() > 0) {
+        obj.insert(QString("a_sErrorMessagedetail"), ::Ezmaxapi::toJsonValue(m_a_s_error_messagedetail));
     }
     return obj;
 }
@@ -107,6 +116,22 @@ bool Common_Response_Error::is_e_error_code_Valid() const{
     return m_e_error_code_isValid;
 }
 
+QList<QString> Common_Response_Error::getASErrorMessagedetail() const {
+    return m_a_s_error_messagedetail;
+}
+void Common_Response_Error::setASErrorMessagedetail(const QList<QString> &a_s_error_messagedetail) {
+    m_a_s_error_messagedetail = a_s_error_messagedetail;
+    m_a_s_error_messagedetail_isSet = true;
+}
+
+bool Common_Response_Error::is_a_s_error_messagedetail_Set() const{
+    return m_a_s_error_messagedetail_isSet;
+}
+
+bool Common_Response_Error::is_a_s_error_messagedetail_Valid() const{
+    return m_a_s_error_messagedetail_isValid;
+}
+
 bool Common_Response_Error::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -116,6 +141,11 @@ bool Common_Response_Error::isSet() const {
         }
 
         if (m_e_error_code.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_a_s_error_messagedetail.size() > 0) {
             isObjectUpdated = true;
             break;
         }

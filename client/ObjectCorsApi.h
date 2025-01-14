@@ -66,23 +66,23 @@ public:
     /**
     * @param[in]  cors_create_object_v1_request Cors_createObject_v1_Request [required]
     */
-    void corsCreateObjectV1(const Cors_createObject_v1_Request &cors_create_object_v1_request);
+    virtual void corsCreateObjectV1(const Cors_createObject_v1_Request &cors_create_object_v1_request);
 
     /**
     * @param[in]  pki_cors_id qint32 [required]
     */
-    void corsDeleteObjectV1(const qint32 &pki_cors_id);
+    virtual void corsDeleteObjectV1(const qint32 &pki_cors_id);
 
     /**
     * @param[in]  pki_cors_id qint32 [required]
     * @param[in]  cors_edit_object_v1_request Cors_editObject_v1_Request [required]
     */
-    void corsEditObjectV1(const qint32 &pki_cors_id, const Cors_editObject_v1_Request &cors_edit_object_v1_request);
+    virtual void corsEditObjectV1(const qint32 &pki_cors_id, const Cors_editObject_v1_Request &cors_edit_object_v1_request);
 
     /**
     * @param[in]  pki_cors_id qint32 [required]
     */
-    void corsGetObjectV2(const qint32 &pki_cors_id);
+    virtual void corsGetObjectV2(const qint32 &pki_cors_id);
 
 
 private:
@@ -118,6 +118,7 @@ Q_SIGNALS:
     void corsDeleteObjectV1Signal(Cors_deleteObject_v1_Response summary);
     void corsEditObjectV1Signal(Cors_editObject_v1_Response summary);
     void corsGetObjectV2Signal(Cors_getObject_v2_Response summary);
+
 
     void corsCreateObjectV1SignalFull(HttpRequestWorker *worker, Cors_createObject_v1_Response summary);
     void corsDeleteObjectV1SignalFull(HttpRequestWorker *worker, Cors_deleteObject_v1_Response summary);

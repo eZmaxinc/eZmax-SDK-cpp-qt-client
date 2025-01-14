@@ -37,6 +37,9 @@ void Ezsignsignature_sign_v1_Request::initializeModel() {
     m_fki_ezsignsigningreason_id_isSet = false;
     m_fki_ezsignsigningreason_id_isValid = false;
 
+    m_fki_font_id_isSet = false;
+    m_fki_font_id_isValid = false;
+
     m_s_value_isSet = false;
     m_s_value_isValid = false;
 
@@ -68,6 +71,9 @@ void Ezsignsignature_sign_v1_Request::fromJsonObject(QJsonObject json) {
     m_fki_ezsignsigningreason_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_ezsignsigningreason_id, json[QString("fkiEzsignsigningreasonID")]);
     m_fki_ezsignsigningreason_id_isSet = !json[QString("fkiEzsignsigningreasonID")].isNull() && m_fki_ezsignsigningreason_id_isValid;
 
+    m_fki_font_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_font_id, json[QString("fkiFontID")]);
+    m_fki_font_id_isSet = !json[QString("fkiFontID")].isNull() && m_fki_font_id_isValid;
+
     m_s_value_isValid = ::Ezmaxapi::fromJsonValue(m_s_value, json[QString("sValue")]);
     m_s_value_isSet = !json[QString("sValue")].isNull() && m_s_value_isValid;
 
@@ -98,6 +104,9 @@ QJsonObject Ezsignsignature_sign_v1_Request::asJsonObject() const {
     QJsonObject obj;
     if (m_fki_ezsignsigningreason_id_isSet) {
         obj.insert(QString("fkiEzsignsigningreasonID"), ::Ezmaxapi::toJsonValue(m_fki_ezsignsigningreason_id));
+    }
+    if (m_fki_font_id_isSet) {
+        obj.insert(QString("fkiFontID"), ::Ezmaxapi::toJsonValue(m_fki_font_id));
     }
     if (m_s_value_isSet) {
         obj.insert(QString("sValue"), ::Ezmaxapi::toJsonValue(m_s_value));
@@ -134,6 +143,22 @@ bool Ezsignsignature_sign_v1_Request::is_fki_ezsignsigningreason_id_Set() const{
 
 bool Ezsignsignature_sign_v1_Request::is_fki_ezsignsigningreason_id_Valid() const{
     return m_fki_ezsignsigningreason_id_isValid;
+}
+
+qint32 Ezsignsignature_sign_v1_Request::getFkiFontId() const {
+    return m_fki_font_id;
+}
+void Ezsignsignature_sign_v1_Request::setFkiFontId(const qint32 &fki_font_id) {
+    m_fki_font_id = fki_font_id;
+    m_fki_font_id_isSet = true;
+}
+
+bool Ezsignsignature_sign_v1_Request::is_fki_font_id_Set() const{
+    return m_fki_font_id_isSet;
+}
+
+bool Ezsignsignature_sign_v1_Request::is_fki_font_id_Valid() const{
+    return m_fki_font_id_isValid;
 }
 
 QString Ezsignsignature_sign_v1_Request::getSValue() const {
@@ -236,6 +261,11 @@ bool Ezsignsignature_sign_v1_Request::isSet() const {
     bool isObjectUpdated = false;
     do {
         if (m_fki_ezsignsigningreason_id_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_fki_font_id_isSet) {
             isObjectUpdated = true;
             break;
         }

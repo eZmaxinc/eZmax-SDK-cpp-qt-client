@@ -112,6 +112,11 @@ public:
     bool is_i_ezsigndocument_signaturetotal_Set() const;
     bool is_i_ezsigndocument_signaturetotal_Valid() const;
 
+    qint32 getIEzsigndocumentFormfieldtotal() const;
+    void setIEzsigndocumentFormfieldtotal(const qint32 &i_ezsigndocument_formfieldtotal);
+    bool is_i_ezsigndocument_formfieldtotal_Set() const;
+    bool is_i_ezsigndocument_formfieldtotal_Valid() const;
+
     QString getSEzsigndocumentMd5initial() const;
     void setSEzsigndocumentMd5initial(const QString &s_ezsigndocument_md5initial);
     bool is_s_ezsigndocument_md5initial_Set() const;
@@ -218,6 +223,10 @@ private:
     qint32 m_i_ezsigndocument_signaturetotal;
     bool m_i_ezsigndocument_signaturetotal_isSet;
     bool m_i_ezsigndocument_signaturetotal_isValid;
+
+    qint32 m_i_ezsigndocument_formfieldtotal;
+    bool m_i_ezsigndocument_formfieldtotal_isSet;
+    bool m_i_ezsigndocument_formfieldtotal_isValid;
 
     QString m_s_ezsigndocument_md5initial;
     bool m_s_ezsigndocument_md5initial_isSet;

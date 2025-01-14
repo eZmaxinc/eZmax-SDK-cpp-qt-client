@@ -40,8 +40,29 @@ void Ezsigntemplatesigner_Response::initializeModel() {
     m_fki_ezsigntemplate_id_isSet = false;
     m_fki_ezsigntemplate_id_isValid = false;
 
+    m_fki_user_id_isSet = false;
+    m_fki_user_id_isValid = false;
+
+    m_fki_usergroup_id_isSet = false;
+    m_fki_usergroup_id_isValid = false;
+
+    m_fki_ezdoctemplatedocument_id_isSet = false;
+    m_fki_ezdoctemplatedocument_id_isValid = false;
+
+    m_b_ezsigntemplatesigner_receivecopy_isSet = false;
+    m_b_ezsigntemplatesigner_receivecopy_isValid = false;
+
+    m_e_ezsigntemplatesigner_mapping_isSet = false;
+    m_e_ezsigntemplatesigner_mapping_isValid = false;
+
     m_s_ezsigntemplatesigner_description_isSet = false;
     m_s_ezsigntemplatesigner_description_isValid = false;
+
+    m_s_user_name_isSet = false;
+    m_s_user_name_isValid = false;
+
+    m_s_usergroup_name_x_isSet = false;
+    m_s_usergroup_name_x_isValid = false;
 }
 
 void Ezsigntemplatesigner_Response::fromJson(QString jsonString) {
@@ -59,8 +80,29 @@ void Ezsigntemplatesigner_Response::fromJsonObject(QJsonObject json) {
     m_fki_ezsigntemplate_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_ezsigntemplate_id, json[QString("fkiEzsigntemplateID")]);
     m_fki_ezsigntemplate_id_isSet = !json[QString("fkiEzsigntemplateID")].isNull() && m_fki_ezsigntemplate_id_isValid;
 
+    m_fki_user_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_user_id, json[QString("fkiUserID")]);
+    m_fki_user_id_isSet = !json[QString("fkiUserID")].isNull() && m_fki_user_id_isValid;
+
+    m_fki_usergroup_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_usergroup_id, json[QString("fkiUsergroupID")]);
+    m_fki_usergroup_id_isSet = !json[QString("fkiUsergroupID")].isNull() && m_fki_usergroup_id_isValid;
+
+    m_fki_ezdoctemplatedocument_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_ezdoctemplatedocument_id, json[QString("fkiEzdoctemplatedocumentID")]);
+    m_fki_ezdoctemplatedocument_id_isSet = !json[QString("fkiEzdoctemplatedocumentID")].isNull() && m_fki_ezdoctemplatedocument_id_isValid;
+
+    m_b_ezsigntemplatesigner_receivecopy_isValid = ::Ezmaxapi::fromJsonValue(m_b_ezsigntemplatesigner_receivecopy, json[QString("bEzsigntemplatesignerReceivecopy")]);
+    m_b_ezsigntemplatesigner_receivecopy_isSet = !json[QString("bEzsigntemplatesignerReceivecopy")].isNull() && m_b_ezsigntemplatesigner_receivecopy_isValid;
+
+    m_e_ezsigntemplatesigner_mapping_isValid = ::Ezmaxapi::fromJsonValue(m_e_ezsigntemplatesigner_mapping, json[QString("eEzsigntemplatesignerMapping")]);
+    m_e_ezsigntemplatesigner_mapping_isSet = !json[QString("eEzsigntemplatesignerMapping")].isNull() && m_e_ezsigntemplatesigner_mapping_isValid;
+
     m_s_ezsigntemplatesigner_description_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsigntemplatesigner_description, json[QString("sEzsigntemplatesignerDescription")]);
     m_s_ezsigntemplatesigner_description_isSet = !json[QString("sEzsigntemplatesignerDescription")].isNull() && m_s_ezsigntemplatesigner_description_isValid;
+
+    m_s_user_name_isValid = ::Ezmaxapi::fromJsonValue(m_s_user_name, json[QString("sUserName")]);
+    m_s_user_name_isSet = !json[QString("sUserName")].isNull() && m_s_user_name_isValid;
+
+    m_s_usergroup_name_x_isValid = ::Ezmaxapi::fromJsonValue(m_s_usergroup_name_x, json[QString("sUsergroupNameX")]);
+    m_s_usergroup_name_x_isSet = !json[QString("sUsergroupNameX")].isNull() && m_s_usergroup_name_x_isValid;
 }
 
 QString Ezsigntemplatesigner_Response::asJson() const {
@@ -78,8 +120,29 @@ QJsonObject Ezsigntemplatesigner_Response::asJsonObject() const {
     if (m_fki_ezsigntemplate_id_isSet) {
         obj.insert(QString("fkiEzsigntemplateID"), ::Ezmaxapi::toJsonValue(m_fki_ezsigntemplate_id));
     }
+    if (m_fki_user_id_isSet) {
+        obj.insert(QString("fkiUserID"), ::Ezmaxapi::toJsonValue(m_fki_user_id));
+    }
+    if (m_fki_usergroup_id_isSet) {
+        obj.insert(QString("fkiUsergroupID"), ::Ezmaxapi::toJsonValue(m_fki_usergroup_id));
+    }
+    if (m_fki_ezdoctemplatedocument_id_isSet) {
+        obj.insert(QString("fkiEzdoctemplatedocumentID"), ::Ezmaxapi::toJsonValue(m_fki_ezdoctemplatedocument_id));
+    }
+    if (m_b_ezsigntemplatesigner_receivecopy_isSet) {
+        obj.insert(QString("bEzsigntemplatesignerReceivecopy"), ::Ezmaxapi::toJsonValue(m_b_ezsigntemplatesigner_receivecopy));
+    }
+    if (m_e_ezsigntemplatesigner_mapping.isSet()) {
+        obj.insert(QString("eEzsigntemplatesignerMapping"), ::Ezmaxapi::toJsonValue(m_e_ezsigntemplatesigner_mapping));
+    }
     if (m_s_ezsigntemplatesigner_description_isSet) {
         obj.insert(QString("sEzsigntemplatesignerDescription"), ::Ezmaxapi::toJsonValue(m_s_ezsigntemplatesigner_description));
+    }
+    if (m_s_user_name_isSet) {
+        obj.insert(QString("sUserName"), ::Ezmaxapi::toJsonValue(m_s_user_name));
+    }
+    if (m_s_usergroup_name_x_isSet) {
+        obj.insert(QString("sUsergroupNameX"), ::Ezmaxapi::toJsonValue(m_s_usergroup_name_x));
     }
     return obj;
 }
@@ -116,6 +179,86 @@ bool Ezsigntemplatesigner_Response::is_fki_ezsigntemplate_id_Valid() const{
     return m_fki_ezsigntemplate_id_isValid;
 }
 
+qint32 Ezsigntemplatesigner_Response::getFkiUserId() const {
+    return m_fki_user_id;
+}
+void Ezsigntemplatesigner_Response::setFkiUserId(const qint32 &fki_user_id) {
+    m_fki_user_id = fki_user_id;
+    m_fki_user_id_isSet = true;
+}
+
+bool Ezsigntemplatesigner_Response::is_fki_user_id_Set() const{
+    return m_fki_user_id_isSet;
+}
+
+bool Ezsigntemplatesigner_Response::is_fki_user_id_Valid() const{
+    return m_fki_user_id_isValid;
+}
+
+qint32 Ezsigntemplatesigner_Response::getFkiUsergroupId() const {
+    return m_fki_usergroup_id;
+}
+void Ezsigntemplatesigner_Response::setFkiUsergroupId(const qint32 &fki_usergroup_id) {
+    m_fki_usergroup_id = fki_usergroup_id;
+    m_fki_usergroup_id_isSet = true;
+}
+
+bool Ezsigntemplatesigner_Response::is_fki_usergroup_id_Set() const{
+    return m_fki_usergroup_id_isSet;
+}
+
+bool Ezsigntemplatesigner_Response::is_fki_usergroup_id_Valid() const{
+    return m_fki_usergroup_id_isValid;
+}
+
+qint32 Ezsigntemplatesigner_Response::getFkiEzdoctemplatedocumentId() const {
+    return m_fki_ezdoctemplatedocument_id;
+}
+void Ezsigntemplatesigner_Response::setFkiEzdoctemplatedocumentId(const qint32 &fki_ezdoctemplatedocument_id) {
+    m_fki_ezdoctemplatedocument_id = fki_ezdoctemplatedocument_id;
+    m_fki_ezdoctemplatedocument_id_isSet = true;
+}
+
+bool Ezsigntemplatesigner_Response::is_fki_ezdoctemplatedocument_id_Set() const{
+    return m_fki_ezdoctemplatedocument_id_isSet;
+}
+
+bool Ezsigntemplatesigner_Response::is_fki_ezdoctemplatedocument_id_Valid() const{
+    return m_fki_ezdoctemplatedocument_id_isValid;
+}
+
+bool Ezsigntemplatesigner_Response::isBEzsigntemplatesignerReceivecopy() const {
+    return m_b_ezsigntemplatesigner_receivecopy;
+}
+void Ezsigntemplatesigner_Response::setBEzsigntemplatesignerReceivecopy(const bool &b_ezsigntemplatesigner_receivecopy) {
+    m_b_ezsigntemplatesigner_receivecopy = b_ezsigntemplatesigner_receivecopy;
+    m_b_ezsigntemplatesigner_receivecopy_isSet = true;
+}
+
+bool Ezsigntemplatesigner_Response::is_b_ezsigntemplatesigner_receivecopy_Set() const{
+    return m_b_ezsigntemplatesigner_receivecopy_isSet;
+}
+
+bool Ezsigntemplatesigner_Response::is_b_ezsigntemplatesigner_receivecopy_Valid() const{
+    return m_b_ezsigntemplatesigner_receivecopy_isValid;
+}
+
+Field_eEzsigntemplatesignerMapping Ezsigntemplatesigner_Response::getEEzsigntemplatesignerMapping() const {
+    return m_e_ezsigntemplatesigner_mapping;
+}
+void Ezsigntemplatesigner_Response::setEEzsigntemplatesignerMapping(const Field_eEzsigntemplatesignerMapping &e_ezsigntemplatesigner_mapping) {
+    m_e_ezsigntemplatesigner_mapping = e_ezsigntemplatesigner_mapping;
+    m_e_ezsigntemplatesigner_mapping_isSet = true;
+}
+
+bool Ezsigntemplatesigner_Response::is_e_ezsigntemplatesigner_mapping_Set() const{
+    return m_e_ezsigntemplatesigner_mapping_isSet;
+}
+
+bool Ezsigntemplatesigner_Response::is_e_ezsigntemplatesigner_mapping_Valid() const{
+    return m_e_ezsigntemplatesigner_mapping_isValid;
+}
+
 QString Ezsigntemplatesigner_Response::getSEzsigntemplatesignerDescription() const {
     return m_s_ezsigntemplatesigner_description;
 }
@@ -132,6 +275,38 @@ bool Ezsigntemplatesigner_Response::is_s_ezsigntemplatesigner_description_Valid(
     return m_s_ezsigntemplatesigner_description_isValid;
 }
 
+QString Ezsigntemplatesigner_Response::getSUserName() const {
+    return m_s_user_name;
+}
+void Ezsigntemplatesigner_Response::setSUserName(const QString &s_user_name) {
+    m_s_user_name = s_user_name;
+    m_s_user_name_isSet = true;
+}
+
+bool Ezsigntemplatesigner_Response::is_s_user_name_Set() const{
+    return m_s_user_name_isSet;
+}
+
+bool Ezsigntemplatesigner_Response::is_s_user_name_Valid() const{
+    return m_s_user_name_isValid;
+}
+
+QString Ezsigntemplatesigner_Response::getSUsergroupNameX() const {
+    return m_s_usergroup_name_x;
+}
+void Ezsigntemplatesigner_Response::setSUsergroupNameX(const QString &s_usergroup_name_x) {
+    m_s_usergroup_name_x = s_usergroup_name_x;
+    m_s_usergroup_name_x_isSet = true;
+}
+
+bool Ezsigntemplatesigner_Response::is_s_usergroup_name_x_Set() const{
+    return m_s_usergroup_name_x_isSet;
+}
+
+bool Ezsigntemplatesigner_Response::is_s_usergroup_name_x_Valid() const{
+    return m_s_usergroup_name_x_isValid;
+}
+
 bool Ezsigntemplatesigner_Response::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -145,7 +320,42 @@ bool Ezsigntemplatesigner_Response::isSet() const {
             break;
         }
 
+        if (m_fki_user_id_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_fki_usergroup_id_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_fki_ezdoctemplatedocument_id_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_b_ezsigntemplatesigner_receivecopy_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_e_ezsigntemplatesigner_mapping.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (m_s_ezsigntemplatesigner_description_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_s_user_name_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_s_usergroup_name_x_isSet) {
             isObjectUpdated = true;
             break;
         }

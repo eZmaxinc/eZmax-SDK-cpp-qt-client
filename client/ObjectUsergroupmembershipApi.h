@@ -66,23 +66,23 @@ public:
     /**
     * @param[in]  usergroupmembership_create_object_v1_request Usergroupmembership_createObject_v1_Request [required]
     */
-    void usergroupmembershipCreateObjectV1(const Usergroupmembership_createObject_v1_Request &usergroupmembership_create_object_v1_request);
+    virtual void usergroupmembershipCreateObjectV1(const Usergroupmembership_createObject_v1_Request &usergroupmembership_create_object_v1_request);
 
     /**
     * @param[in]  pki_usergroupmembership_id qint32 [required]
     */
-    void usergroupmembershipDeleteObjectV1(const qint32 &pki_usergroupmembership_id);
+    virtual void usergroupmembershipDeleteObjectV1(const qint32 &pki_usergroupmembership_id);
 
     /**
     * @param[in]  pki_usergroupmembership_id qint32 [required]
     * @param[in]  usergroupmembership_edit_object_v1_request Usergroupmembership_editObject_v1_Request [required]
     */
-    void usergroupmembershipEditObjectV1(const qint32 &pki_usergroupmembership_id, const Usergroupmembership_editObject_v1_Request &usergroupmembership_edit_object_v1_request);
+    virtual void usergroupmembershipEditObjectV1(const qint32 &pki_usergroupmembership_id, const Usergroupmembership_editObject_v1_Request &usergroupmembership_edit_object_v1_request);
 
     /**
     * @param[in]  pki_usergroupmembership_id qint32 [required]
     */
-    void usergroupmembershipGetObjectV2(const qint32 &pki_usergroupmembership_id);
+    virtual void usergroupmembershipGetObjectV2(const qint32 &pki_usergroupmembership_id);
 
 
 private:
@@ -118,6 +118,7 @@ Q_SIGNALS:
     void usergroupmembershipDeleteObjectV1Signal(Usergroupmembership_deleteObject_v1_Response summary);
     void usergroupmembershipEditObjectV1Signal(Usergroupmembership_editObject_v1_Response summary);
     void usergroupmembershipGetObjectV2Signal(Usergroupmembership_getObject_v2_Response summary);
+
 
     void usergroupmembershipCreateObjectV1SignalFull(HttpRequestWorker *worker, Usergroupmembership_createObject_v1_Response summary);
     void usergroupmembershipDeleteObjectV1SignalFull(HttpRequestWorker *worker, Usergroupmembership_deleteObject_v1_Response summary);

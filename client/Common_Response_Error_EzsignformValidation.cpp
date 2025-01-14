@@ -40,6 +40,9 @@ void Common_Response_Error_EzsignformValidation::initializeModel() {
     m_e_error_code_isSet = false;
     m_e_error_code_isValid = false;
 
+    m_a_s_error_messagedetail_isSet = false;
+    m_a_s_error_messagedetail_isValid = false;
+
     m_a_obj_ezsignformfielderror_isSet = false;
     m_a_obj_ezsignformfielderror_isValid = false;
 }
@@ -59,6 +62,9 @@ void Common_Response_Error_EzsignformValidation::fromJsonObject(QJsonObject json
     m_e_error_code_isValid = ::Ezmaxapi::fromJsonValue(m_e_error_code, json[QString("eErrorCode")]);
     m_e_error_code_isSet = !json[QString("eErrorCode")].isNull() && m_e_error_code_isValid;
 
+    m_a_s_error_messagedetail_isValid = ::Ezmaxapi::fromJsonValue(m_a_s_error_messagedetail, json[QString("a_sErrorMessagedetail")]);
+    m_a_s_error_messagedetail_isSet = !json[QString("a_sErrorMessagedetail")].isNull() && m_a_s_error_messagedetail_isValid;
+
     m_a_obj_ezsignformfielderror_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_ezsignformfielderror, json[QString("a_objEzsignformfielderror")]);
     m_a_obj_ezsignformfielderror_isSet = !json[QString("a_objEzsignformfielderror")].isNull() && m_a_obj_ezsignformfielderror_isValid;
 }
@@ -77,6 +83,9 @@ QJsonObject Common_Response_Error_EzsignformValidation::asJsonObject() const {
     }
     if (m_e_error_code.isSet()) {
         obj.insert(QString("eErrorCode"), ::Ezmaxapi::toJsonValue(m_e_error_code));
+    }
+    if (m_a_s_error_messagedetail.size() > 0) {
+        obj.insert(QString("a_sErrorMessagedetail"), ::Ezmaxapi::toJsonValue(m_a_s_error_messagedetail));
     }
     if (m_a_obj_ezsignformfielderror.size() > 0) {
         obj.insert(QString("a_objEzsignformfielderror"), ::Ezmaxapi::toJsonValue(m_a_obj_ezsignformfielderror));
@@ -116,6 +125,22 @@ bool Common_Response_Error_EzsignformValidation::is_e_error_code_Valid() const{
     return m_e_error_code_isValid;
 }
 
+QList<QString> Common_Response_Error_EzsignformValidation::getASErrorMessagedetail() const {
+    return m_a_s_error_messagedetail;
+}
+void Common_Response_Error_EzsignformValidation::setASErrorMessagedetail(const QList<QString> &a_s_error_messagedetail) {
+    m_a_s_error_messagedetail = a_s_error_messagedetail;
+    m_a_s_error_messagedetail_isSet = true;
+}
+
+bool Common_Response_Error_EzsignformValidation::is_a_s_error_messagedetail_Set() const{
+    return m_a_s_error_messagedetail_isSet;
+}
+
+bool Common_Response_Error_EzsignformValidation::is_a_s_error_messagedetail_Valid() const{
+    return m_a_s_error_messagedetail_isValid;
+}
+
 QList<Custom_Ezsignformfielderror_Response> Common_Response_Error_EzsignformValidation::getAObjEzsignformfielderror() const {
     return m_a_obj_ezsignformfielderror;
 }
@@ -141,6 +166,11 @@ bool Common_Response_Error_EzsignformValidation::isSet() const {
         }
 
         if (m_e_error_code.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_a_s_error_messagedetail.size() > 0) {
             isObjectUpdated = true;
             break;
         }

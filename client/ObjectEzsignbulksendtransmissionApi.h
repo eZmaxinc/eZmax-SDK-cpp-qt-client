@@ -64,22 +64,22 @@ public:
     /**
     * @param[in]  pki_ezsignbulksendtransmission_id qint32 [required]
     */
-    void ezsignbulksendtransmissionGetCsvErrorsV1(const qint32 &pki_ezsignbulksendtransmission_id);
+    virtual void ezsignbulksendtransmissionGetCsvErrorsV1(const qint32 &pki_ezsignbulksendtransmission_id);
 
     /**
     * @param[in]  pki_ezsignbulksendtransmission_id qint32 [required]
     */
-    void ezsignbulksendtransmissionGetEzsignsignaturesAutomaticV1(const qint32 &pki_ezsignbulksendtransmission_id);
+    virtual void ezsignbulksendtransmissionGetEzsignsignaturesAutomaticV1(const qint32 &pki_ezsignbulksendtransmission_id);
 
     /**
     * @param[in]  pki_ezsignbulksendtransmission_id qint32 [required]
     */
-    void ezsignbulksendtransmissionGetFormsDataV1(const qint32 &pki_ezsignbulksendtransmission_id);
+    virtual void ezsignbulksendtransmissionGetFormsDataV1(const qint32 &pki_ezsignbulksendtransmission_id);
 
     /**
     * @param[in]  pki_ezsignbulksendtransmission_id qint32 [required]
     */
-    void ezsignbulksendtransmissionGetObjectV2(const qint32 &pki_ezsignbulksendtransmission_id);
+    virtual void ezsignbulksendtransmissionGetObjectV2(const qint32 &pki_ezsignbulksendtransmission_id);
 
 
 private:
@@ -115,6 +115,7 @@ Q_SIGNALS:
     void ezsignbulksendtransmissionGetEzsignsignaturesAutomaticV1Signal(Ezsignbulksendtransmission_getEzsignsignaturesAutomatic_v1_Response summary);
     void ezsignbulksendtransmissionGetFormsDataV1Signal(Ezsignbulksendtransmission_getFormsData_v1_Response summary);
     void ezsignbulksendtransmissionGetObjectV2Signal(Ezsignbulksendtransmission_getObject_v2_Response summary);
+
 
     void ezsignbulksendtransmissionGetCsvErrorsV1SignalFull(HttpRequestWorker *worker, QString summary);
     void ezsignbulksendtransmissionGetEzsignsignaturesAutomaticV1SignalFull(HttpRequestWorker *worker, Ezsignbulksendtransmission_getEzsignsignaturesAutomatic_v1_Response summary);

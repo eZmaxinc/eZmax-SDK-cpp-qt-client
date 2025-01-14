@@ -61,7 +61,7 @@ public:
     /**
     * @param[in]  pki_notificationtest_id qint32 [required]
     */
-    void notificationtestGetElementsV1(const qint32 &pki_notificationtest_id);
+    virtual void notificationtestGetElementsV1(const qint32 &pki_notificationtest_id);
 
 
 private:
@@ -91,6 +91,7 @@ private:
 Q_SIGNALS:
 
     void notificationtestGetElementsV1Signal(Notificationtest_getElements_v1_Response summary);
+
 
     void notificationtestGetElementsV1SignalFull(HttpRequestWorker *worker, Notificationtest_getElements_v1_Response summary);
 

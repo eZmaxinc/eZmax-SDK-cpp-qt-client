@@ -78,31 +78,31 @@ public:
     /**
     * @param[in]  usergroup_create_object_v1_request Usergroup_createObject_v1_Request [required]
     */
-    void usergroupCreateObjectV1(const Usergroup_createObject_v1_Request &usergroup_create_object_v1_request);
+    virtual void usergroupCreateObjectV1(const Usergroup_createObject_v1_Request &usergroup_create_object_v1_request);
 
     /**
     * @param[in]  pki_usergroup_id qint32 [required]
     * @param[in]  usergroup_edit_object_v1_request Usergroup_editObject_v1_Request [required]
     */
-    void usergroupEditObjectV1(const qint32 &pki_usergroup_id, const Usergroup_editObject_v1_Request &usergroup_edit_object_v1_request);
+    virtual void usergroupEditObjectV1(const qint32 &pki_usergroup_id, const Usergroup_editObject_v1_Request &usergroup_edit_object_v1_request);
 
     /**
     * @param[in]  pki_usergroup_id qint32 [required]
     * @param[in]  usergroup_edit_permissions_v1_request Usergroup_editPermissions_v1_Request [required]
     */
-    void usergroupEditPermissionsV1(const qint32 &pki_usergroup_id, const Usergroup_editPermissions_v1_Request &usergroup_edit_permissions_v1_request);
+    virtual void usergroupEditPermissionsV1(const qint32 &pki_usergroup_id, const Usergroup_editPermissions_v1_Request &usergroup_edit_permissions_v1_request);
 
     /**
     * @param[in]  pki_usergroup_id qint32 [required]
     * @param[in]  usergroup_edit_usergroupdelegations_v1_request Usergroup_editUsergroupdelegations_v1_Request [required]
     */
-    void usergroupEditUsergroupdelegationsV1(const qint32 &pki_usergroup_id, const Usergroup_editUsergroupdelegations_v1_Request &usergroup_edit_usergroupdelegations_v1_request);
+    virtual void usergroupEditUsergroupdelegationsV1(const qint32 &pki_usergroup_id, const Usergroup_editUsergroupdelegations_v1_Request &usergroup_edit_usergroupdelegations_v1_request);
 
     /**
     * @param[in]  pki_usergroup_id qint32 [required]
     * @param[in]  usergroup_edit_usergroupmemberships_v1_request Usergroup_editUsergroupmemberships_v1_Request [required]
     */
-    void usergroupEditUsergroupmembershipsV1(const qint32 &pki_usergroup_id, const Usergroup_editUsergroupmemberships_v1_Request &usergroup_edit_usergroupmemberships_v1_request);
+    virtual void usergroupEditUsergroupmembershipsV1(const qint32 &pki_usergroup_id, const Usergroup_editUsergroupmemberships_v1_Request &usergroup_edit_usergroupmemberships_v1_request);
 
     /**
     * @param[in]  s_selector QString [required]
@@ -110,7 +110,7 @@ public:
     * @param[in]  s_query QString [optional]
     * @param[in]  accept_language Header_Accept_Language [optional]
     */
-    void usergroupGetAutocompleteV2(const QString &s_selector, const ::Ezmaxapi::OptionalParam<QString> &e_filter_active = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<QString> &s_query = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<Header_Accept_Language>());
+    virtual void usergroupGetAutocompleteV2(const QString &s_selector, const ::Ezmaxapi::OptionalParam<QString> &e_filter_active = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<QString> &s_query = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<Header_Accept_Language>());
 
     /**
     * @param[in]  e_order_by QString [optional]
@@ -119,27 +119,27 @@ public:
     * @param[in]  accept_language Header_Accept_Language [optional]
     * @param[in]  s_filter QString [optional]
     */
-    void usergroupGetListV1(const ::Ezmaxapi::OptionalParam<QString> &e_order_by = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<qint32> &i_row_max = ::Ezmaxapi::OptionalParam<qint32>(), const ::Ezmaxapi::OptionalParam<qint32> &i_row_offset = ::Ezmaxapi::OptionalParam<qint32>(), const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<Header_Accept_Language>(), const ::Ezmaxapi::OptionalParam<QString> &s_filter = ::Ezmaxapi::OptionalParam<QString>());
+    virtual void usergroupGetListV1(const ::Ezmaxapi::OptionalParam<QString> &e_order_by = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<qint32> &i_row_max = ::Ezmaxapi::OptionalParam<qint32>(), const ::Ezmaxapi::OptionalParam<qint32> &i_row_offset = ::Ezmaxapi::OptionalParam<qint32>(), const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<Header_Accept_Language>(), const ::Ezmaxapi::OptionalParam<QString> &s_filter = ::Ezmaxapi::OptionalParam<QString>());
 
     /**
     * @param[in]  pki_usergroup_id qint32 [required]
     */
-    void usergroupGetObjectV2(const qint32 &pki_usergroup_id);
+    virtual void usergroupGetObjectV2(const qint32 &pki_usergroup_id);
 
     /**
     * @param[in]  pki_usergroup_id qint32 [required]
     */
-    void usergroupGetPermissionsV1(const qint32 &pki_usergroup_id);
+    virtual void usergroupGetPermissionsV1(const qint32 &pki_usergroup_id);
 
     /**
     * @param[in]  pki_usergroup_id qint32 [required]
     */
-    void usergroupGetUsergroupdelegationsV1(const qint32 &pki_usergroup_id);
+    virtual void usergroupGetUsergroupdelegationsV1(const qint32 &pki_usergroup_id);
 
     /**
     * @param[in]  pki_usergroup_id qint32 [required]
     */
-    void usergroupGetUsergroupmembershipsV1(const qint32 &pki_usergroup_id);
+    virtual void usergroupGetUsergroupmembershipsV1(const qint32 &pki_usergroup_id);
 
 
 private:
@@ -189,6 +189,7 @@ Q_SIGNALS:
     void usergroupGetPermissionsV1Signal(Usergroup_getPermissions_v1_Response summary);
     void usergroupGetUsergroupdelegationsV1Signal(Usergroup_getUsergroupdelegations_v1_Response summary);
     void usergroupGetUsergroupmembershipsV1Signal(Usergroup_getUsergroupmemberships_v1_Response summary);
+
 
     void usergroupCreateObjectV1SignalFull(HttpRequestWorker *worker, Usergroup_createObject_v1_Response summary);
     void usergroupEditObjectV1SignalFull(HttpRequestWorker *worker, Usergroup_editObject_v1_Response summary);

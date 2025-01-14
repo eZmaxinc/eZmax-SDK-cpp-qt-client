@@ -61,14 +61,20 @@ void ObjectEzsigntemplatedocumentApi::initializeServerConfigs() {
     
     _serverConfigs.insert("ezsigntemplatedocumentCreateObjectV1", defaultConf);
     _serverIndices.insert("ezsigntemplatedocumentCreateObjectV1", 0);
+    _serverConfigs.insert("ezsigntemplatedocumentEditEzsigntemplatedocumentpagerecognitionsV1", defaultConf);
+    _serverIndices.insert("ezsigntemplatedocumentEditEzsigntemplatedocumentpagerecognitionsV1", 0);
     _serverConfigs.insert("ezsigntemplatedocumentEditEzsigntemplateformfieldgroupsV1", defaultConf);
     _serverIndices.insert("ezsigntemplatedocumentEditEzsigntemplateformfieldgroupsV1", 0);
     _serverConfigs.insert("ezsigntemplatedocumentEditEzsigntemplatesignaturesV1", defaultConf);
     _serverIndices.insert("ezsigntemplatedocumentEditEzsigntemplatesignaturesV1", 0);
     _serverConfigs.insert("ezsigntemplatedocumentEditObjectV1", defaultConf);
     _serverIndices.insert("ezsigntemplatedocumentEditObjectV1", 0);
+    _serverConfigs.insert("ezsigntemplatedocumentExtractTextV1", defaultConf);
+    _serverIndices.insert("ezsigntemplatedocumentExtractTextV1", 0);
     _serverConfigs.insert("ezsigntemplatedocumentFlattenV1", defaultConf);
     _serverIndices.insert("ezsigntemplatedocumentFlattenV1", 0);
+    _serverConfigs.insert("ezsigntemplatedocumentGetEzsigntemplatedocumentpagerecognitionsV1", defaultConf);
+    _serverIndices.insert("ezsigntemplatedocumentGetEzsigntemplatedocumentpagerecognitionsV1", 0);
     _serverConfigs.insert("ezsigntemplatedocumentGetEzsigntemplatedocumentpagesV1", defaultConf);
     _serverIndices.insert("ezsigntemplatedocumentGetEzsigntemplatedocumentpagesV1", 0);
     _serverConfigs.insert("ezsigntemplatedocumentGetEzsigntemplateformfieldgroupsV1", defaultConf);
@@ -156,15 +162,9 @@ int ObjectEzsigntemplatedocumentApi::addServerConfiguration(const QString &opera
     * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
     */
 void ObjectEzsigntemplatedocumentApi::setNewServerForAllOperations(const QUrl &url, const QString &description, const QMap<QString, ServerVariable> &variables) {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
     for (auto keyIt = _serverIndices.keyBegin(); keyIt != _serverIndices.keyEnd(); keyIt++) {
         setServerIndex(*keyIt, addServerConfiguration(*keyIt, url, description, variables));
     }
-#else
-    for (auto &e : _serverIndices.keys()) {
-        setServerIndex(e, addServerConfiguration(e, url, description, variables));
-    }
-#endif
 }
 
 /**
@@ -274,15 +274,10 @@ void ObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentCreateObjectV1(const
         QByteArray output = ezsigntemplatedocument_create_object_v1_request.asJson().toUtf8();
         input.request_body.append(output);
     }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentCreateObjectV1Callback);
     connect(this, &ObjectEzsigntemplatedocumentApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -340,6 +335,99 @@ void ObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentCreateObjectV1Callba
     }
 }
 
+void ObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentEditEzsigntemplatedocumentpagerecognitionsV1(const qint32 &pki_ezsigntemplatedocument_id, const Ezsigntemplatedocument_editEzsigntemplatedocumentpagerecognitions_v1_Request &ezsigntemplatedocument_edit_ezsigntemplatedocumentpagerecognitions_v1_request) {
+    QString fullPath = QString(_serverConfigs["ezsigntemplatedocumentEditEzsigntemplatedocumentpagerecognitionsV1"][_serverIndices.value("ezsigntemplatedocumentEditEzsigntemplatedocumentpagerecognitionsV1")].URL()+"/1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/editEzsigntemplatedocumentpagerecognitions");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_ezsigntemplatedocument_idPathParam("{");
+        pki_ezsigntemplatedocument_idPathParam.append("pkiEzsigntemplatedocumentID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsigntemplatedocumentID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsigntemplatedocumentID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_ezsigntemplatedocument_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsigntemplatedocument_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "PUT");
+
+    {
+
+        
+        QByteArray output = ezsigntemplatedocument_edit_ezsigntemplatedocumentpagerecognitions_v1_request.asJson().toUtf8();
+        input.request_body.append(output);
+    }
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentEditEzsigntemplatedocumentpagerecognitionsV1Callback);
+    connect(this, &ObjectEzsigntemplatedocumentApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this]() {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentEditEzsigntemplatedocumentpagerecognitionsV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Ezsigntemplatedocument_editEzsigntemplatedocumentpagerecognitions_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT ezsigntemplatedocumentEditEzsigntemplatedocumentpagerecognitionsV1Signal(output);
+        Q_EMIT ezsigntemplatedocumentEditEzsigntemplatedocumentpagerecognitionsV1SignalFull(worker, output);
+    } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
+        Q_EMIT ezsigntemplatedocumentEditEzsigntemplatedocumentpagerecognitionsV1SignalE(output, error_type, error_str);
+        Q_EMIT ezsigntemplatedocumentEditEzsigntemplatedocumentpagerecognitionsV1SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        Q_EMIT ezsigntemplatedocumentEditEzsigntemplatedocumentpagerecognitionsV1SignalError(output, error_type, error_str);
+        Q_EMIT ezsigntemplatedocumentEditEzsigntemplatedocumentpagerecognitionsV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
 void ObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentEditEzsigntemplateformfieldgroupsV1(const qint32 &pki_ezsigntemplatedocument_id, const Ezsigntemplatedocument_editEzsigntemplateformfieldgroups_v1_Request &ezsigntemplatedocument_edit_ezsigntemplateformfieldgroups_v1_request) {
     QString fullPath = QString(_serverConfigs["ezsigntemplatedocumentEditEzsigntemplateformfieldgroupsV1"][_serverIndices.value("ezsigntemplatedocumentEditEzsigntemplateformfieldgroupsV1")].URL()+"/1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/editEzsigntemplateformfieldgroups");
     
@@ -372,15 +460,10 @@ void ObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentEditEzsigntemplatefo
         QByteArray output = ezsigntemplatedocument_edit_ezsigntemplateformfieldgroups_v1_request.asJson().toUtf8();
         input.request_body.append(output);
     }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentEditEzsigntemplateformfieldgroupsV1Callback);
     connect(this, &ObjectEzsigntemplatedocumentApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -470,15 +553,10 @@ void ObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentEditEzsigntemplatesi
         QByteArray output = ezsigntemplatedocument_edit_ezsigntemplatesignatures_v1_request.asJson().toUtf8();
         input.request_body.append(output);
     }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentEditEzsigntemplatesignaturesV1Callback);
     connect(this, &ObjectEzsigntemplatedocumentApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -568,15 +646,10 @@ void ObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentEditObjectV1(const q
         QByteArray output = ezsigntemplatedocument_edit_object_v1_request.asJson().toUtf8();
         input.request_body.append(output);
     }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentEditObjectV1Callback);
     connect(this, &ObjectEzsigntemplatedocumentApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -634,6 +707,99 @@ void ObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentEditObjectV1Callback
     }
 }
 
+void ObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentExtractTextV1(const qint32 &pki_ezsigntemplatedocument_id, const Ezsigntemplatedocument_extractText_v1_Request &ezsigntemplatedocument_extract_text_v1_request) {
+    QString fullPath = QString(_serverConfigs["ezsigntemplatedocumentExtractTextV1"][_serverIndices.value("ezsigntemplatedocumentExtractTextV1")].URL()+"/1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/extractText");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_ezsigntemplatedocument_idPathParam("{");
+        pki_ezsigntemplatedocument_idPathParam.append("pkiEzsigntemplatedocumentID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsigntemplatedocumentID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsigntemplatedocumentID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_ezsigntemplatedocument_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsigntemplatedocument_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "POST");
+
+    {
+
+        
+        QByteArray output = ezsigntemplatedocument_extract_text_v1_request.asJson().toUtf8();
+        input.request_body.append(output);
+    }
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentExtractTextV1Callback);
+    connect(this, &ObjectEzsigntemplatedocumentApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this]() {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentExtractTextV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Ezsigntemplatedocument_extractText_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT ezsigntemplatedocumentExtractTextV1Signal(output);
+        Q_EMIT ezsigntemplatedocumentExtractTextV1SignalFull(worker, output);
+    } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
+        Q_EMIT ezsigntemplatedocumentExtractTextV1SignalE(output, error_type, error_str);
+        Q_EMIT ezsigntemplatedocumentExtractTextV1SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        Q_EMIT ezsigntemplatedocumentExtractTextV1SignalError(output, error_type, error_str);
+        Q_EMIT ezsigntemplatedocumentExtractTextV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
 void ObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentFlattenV1(const qint32 &pki_ezsigntemplatedocument_id, const Object &body) {
     QString fullPath = QString(_serverConfigs["ezsigntemplatedocumentFlattenV1"][_serverIndices.value("ezsigntemplatedocumentFlattenV1")].URL()+"/1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/flatten");
     
@@ -666,15 +832,10 @@ void ObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentFlattenV1(const qint
         QByteArray output = body.asJson().toUtf8();
         input.request_body.append(output);
     }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentFlattenV1Callback);
     connect(this, &ObjectEzsigntemplatedocumentApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -732,6 +893,94 @@ void ObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentFlattenV1Callback(Ht
     }
 }
 
+void ObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentGetEzsigntemplatedocumentpagerecognitionsV1(const qint32 &pki_ezsigntemplatedocument_id) {
+    QString fullPath = QString(_serverConfigs["ezsigntemplatedocumentGetEzsigntemplatedocumentpagerecognitionsV1"][_serverIndices.value("ezsigntemplatedocumentGetEzsigntemplatedocumentpagerecognitionsV1")].URL()+"/1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/getEzsigntemplatedocumentpagerecognitions");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_ezsigntemplatedocument_idPathParam("{");
+        pki_ezsigntemplatedocument_idPathParam.append("pkiEzsigntemplatedocumentID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsigntemplatedocumentID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsigntemplatedocumentID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_ezsigntemplatedocument_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsigntemplatedocument_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentGetEzsigntemplatedocumentpagerecognitionsV1Callback);
+    connect(this, &ObjectEzsigntemplatedocumentApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this]() {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentGetEzsigntemplatedocumentpagerecognitionsV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Ezsigntemplatedocument_getEzsigntemplatedocumentpagerecognitions_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT ezsigntemplatedocumentGetEzsigntemplatedocumentpagerecognitionsV1Signal(output);
+        Q_EMIT ezsigntemplatedocumentGetEzsigntemplatedocumentpagerecognitionsV1SignalFull(worker, output);
+    } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
+        Q_EMIT ezsigntemplatedocumentGetEzsigntemplatedocumentpagerecognitionsV1SignalE(output, error_type, error_str);
+        Q_EMIT ezsigntemplatedocumentGetEzsigntemplatedocumentpagerecognitionsV1SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        Q_EMIT ezsigntemplatedocumentGetEzsigntemplatedocumentpagerecognitionsV1SignalError(output, error_type, error_str);
+        Q_EMIT ezsigntemplatedocumentGetEzsigntemplatedocumentpagerecognitionsV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
 void ObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentGetEzsigntemplatedocumentpagesV1(const qint32 &pki_ezsigntemplatedocument_id) {
     QString fullPath = QString(_serverConfigs["ezsigntemplatedocumentGetEzsigntemplatedocumentpagesV1"][_serverIndices.value("ezsigntemplatedocumentGetEzsigntemplatedocumentpagesV1")].URL()+"/1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/getEzsigntemplatedocumentpages");
     
@@ -759,15 +1008,10 @@ void ObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentGetEzsigntemplatedoc
     HttpRequestInput input(fullPath, "GET");
 
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentGetEzsigntemplatedocumentpagesV1Callback);
     connect(this, &ObjectEzsigntemplatedocumentApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -852,15 +1096,10 @@ void ObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentGetEzsigntemplatefor
     HttpRequestInput input(fullPath, "GET");
 
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentGetEzsigntemplateformfieldgroupsV1Callback);
     connect(this, &ObjectEzsigntemplatedocumentApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -945,15 +1184,10 @@ void ObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentGetEzsigntemplatesig
     HttpRequestInput input(fullPath, "GET");
 
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentGetEzsigntemplatesignaturesV1Callback);
     connect(this, &ObjectEzsigntemplatedocumentApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -1038,15 +1272,10 @@ void ObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentGetObjectV2(const qi
     HttpRequestInput input(fullPath, "GET");
 
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentGetObjectV2Callback);
     connect(this, &ObjectEzsigntemplatedocumentApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -1136,15 +1365,10 @@ void ObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentGetWordsPositionsV1(
         QByteArray output = ezsigntemplatedocument_get_words_positions_v1_request.asJson().toUtf8();
         input.request_body.append(output);
     }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentGetWordsPositionsV1Callback);
     connect(this, &ObjectEzsigntemplatedocumentApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -1234,15 +1458,10 @@ void ObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentPatchObjectV1(const 
         QByteArray output = ezsigntemplatedocument_patch_object_v1_request.asJson().toUtf8();
         input.request_body.append(output);
     }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentPatchObjectV1Callback);
     connect(this, &ObjectEzsigntemplatedocumentApi::abortRequestsSignal, worker, &QObject::deleteLater);

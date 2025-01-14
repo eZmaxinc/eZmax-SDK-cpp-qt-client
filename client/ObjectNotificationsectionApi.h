@@ -62,7 +62,7 @@ public:
     * @param[in]  pki_notificationsection_id qint32 [required]
     * @param[in]  b_show_hidden bool [required]
     */
-    void notificationsectionGetNotificationtestsV1(const qint32 &pki_notificationsection_id, const bool &b_show_hidden);
+    virtual void notificationsectionGetNotificationtestsV1(const qint32 &pki_notificationsection_id, const bool &b_show_hidden);
 
 
 private:
@@ -92,6 +92,7 @@ private:
 Q_SIGNALS:
 
     void notificationsectionGetNotificationtestsV1Signal(Notificationsection_getNotificationtests_v1_Response summary);
+
 
     void notificationsectionGetNotificationtestsV1SignalFull(HttpRequestWorker *worker, Notificationsection_getNotificationtests_v1_Response summary);
 

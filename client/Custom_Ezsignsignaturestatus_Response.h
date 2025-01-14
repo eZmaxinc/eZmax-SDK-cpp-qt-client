@@ -59,6 +59,11 @@ public:
     bool is_i_ezsignsignaturestatus_signed_Set() const;
     bool is_i_ezsignsignaturestatus_signed_Valid() const;
 
+    qint32 getIEzsignsignaturestatusConditional() const;
+    void setIEzsignsignaturestatusConditional(const qint32 &i_ezsignsignaturestatus_conditional);
+    bool is_i_ezsignsignaturestatus_conditional_Set() const;
+    bool is_i_ezsignsignaturestatus_conditional_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -80,6 +85,10 @@ private:
     qint32 m_i_ezsignsignaturestatus_signed;
     bool m_i_ezsignsignaturestatus_signed_isSet;
     bool m_i_ezsignsignaturestatus_signed_isValid;
+
+    qint32 m_i_ezsignsignaturestatus_conditional;
+    bool m_i_ezsignsignaturestatus_conditional_isSet;
+    bool m_i_ezsignsignaturestatus_conditional_isValid;
 };
 
 } // namespace Ezmaxapi

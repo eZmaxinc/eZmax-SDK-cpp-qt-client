@@ -19,7 +19,10 @@
 #include "Oauth.h"
 
 #include "Common_Response_Error.h"
+#include "Inscriptiontemp_getCommunicationCount_v1_Response.h"
 #include "Inscriptiontemp_getCommunicationList_v1_Response.h"
+#include "Inscriptiontemp_getCommunicationrecipients_v1_Response.h"
+#include "Inscriptiontemp_getCommunicationsenders_v1_Response.h"
 #include <QString>
 
 #include <QObject>
@@ -61,7 +64,22 @@ public:
     /**
     * @param[in]  pki_inscriptiontemp_id qint32 [required]
     */
-    void inscriptiontempGetCommunicationListV1(const qint32 &pki_inscriptiontemp_id);
+    virtual void inscriptiontempGetCommunicationCountV1(const qint32 &pki_inscriptiontemp_id);
+
+    /**
+    * @param[in]  pki_inscriptiontemp_id qint32 [required]
+    */
+    virtual void inscriptiontempGetCommunicationListV1(const qint32 &pki_inscriptiontemp_id);
+
+    /**
+    * @param[in]  pki_inscriptiontemp_id qint32 [required]
+    */
+    virtual void inscriptiontempGetCommunicationrecipientsV1(const qint32 &pki_inscriptiontemp_id);
+
+    /**
+    * @param[in]  pki_inscriptiontemp_id qint32 [required]
+    */
+    virtual void inscriptiontempGetCommunicationsendersV1(const qint32 &pki_inscriptiontemp_id);
 
 
 private:
@@ -86,21 +104,49 @@ private:
     OauthPassword _passwordFlow;
     int _OauthMethod = 0;
 
+    void inscriptiontempGetCommunicationCountV1Callback(HttpRequestWorker *worker);
     void inscriptiontempGetCommunicationListV1Callback(HttpRequestWorker *worker);
+    void inscriptiontempGetCommunicationrecipientsV1Callback(HttpRequestWorker *worker);
+    void inscriptiontempGetCommunicationsendersV1Callback(HttpRequestWorker *worker);
 
 Q_SIGNALS:
 
+    void inscriptiontempGetCommunicationCountV1Signal(Inscriptiontemp_getCommunicationCount_v1_Response summary);
     void inscriptiontempGetCommunicationListV1Signal(Inscriptiontemp_getCommunicationList_v1_Response summary);
+    void inscriptiontempGetCommunicationrecipientsV1Signal(Inscriptiontemp_getCommunicationrecipients_v1_Response summary);
+    void inscriptiontempGetCommunicationsendersV1Signal(Inscriptiontemp_getCommunicationsenders_v1_Response summary);
 
+
+    void inscriptiontempGetCommunicationCountV1SignalFull(HttpRequestWorker *worker, Inscriptiontemp_getCommunicationCount_v1_Response summary);
     void inscriptiontempGetCommunicationListV1SignalFull(HttpRequestWorker *worker, Inscriptiontemp_getCommunicationList_v1_Response summary);
+    void inscriptiontempGetCommunicationrecipientsV1SignalFull(HttpRequestWorker *worker, Inscriptiontemp_getCommunicationrecipients_v1_Response summary);
+    void inscriptiontempGetCommunicationsendersV1SignalFull(HttpRequestWorker *worker, Inscriptiontemp_getCommunicationsenders_v1_Response summary);
 
+    Q_DECL_DEPRECATED_X("Use inscriptiontempGetCommunicationCountV1SignalError() instead")
+    void inscriptiontempGetCommunicationCountV1SignalE(Inscriptiontemp_getCommunicationCount_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void inscriptiontempGetCommunicationCountV1SignalError(Inscriptiontemp_getCommunicationCount_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use inscriptiontempGetCommunicationListV1SignalError() instead")
     void inscriptiontempGetCommunicationListV1SignalE(Inscriptiontemp_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void inscriptiontempGetCommunicationListV1SignalError(Inscriptiontemp_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use inscriptiontempGetCommunicationrecipientsV1SignalError() instead")
+    void inscriptiontempGetCommunicationrecipientsV1SignalE(Inscriptiontemp_getCommunicationrecipients_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void inscriptiontempGetCommunicationrecipientsV1SignalError(Inscriptiontemp_getCommunicationrecipients_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use inscriptiontempGetCommunicationsendersV1SignalError() instead")
+    void inscriptiontempGetCommunicationsendersV1SignalE(Inscriptiontemp_getCommunicationsenders_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void inscriptiontempGetCommunicationsendersV1SignalError(Inscriptiontemp_getCommunicationsenders_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use inscriptiontempGetCommunicationCountV1SignalErrorFull() instead")
+    void inscriptiontempGetCommunicationCountV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void inscriptiontempGetCommunicationCountV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use inscriptiontempGetCommunicationListV1SignalErrorFull() instead")
     void inscriptiontempGetCommunicationListV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void inscriptiontempGetCommunicationListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use inscriptiontempGetCommunicationrecipientsV1SignalErrorFull() instead")
+    void inscriptiontempGetCommunicationrecipientsV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void inscriptiontempGetCommunicationrecipientsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use inscriptiontempGetCommunicationsendersV1SignalErrorFull() instead")
+    void inscriptiontempGetCommunicationsendersV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void inscriptiontempGetCommunicationsendersV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();

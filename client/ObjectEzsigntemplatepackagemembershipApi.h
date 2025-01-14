@@ -64,17 +64,17 @@ public:
     /**
     * @param[in]  ezsigntemplatepackagemembership_create_object_v1_request Ezsigntemplatepackagemembership_createObject_v1_Request [required]
     */
-    void ezsigntemplatepackagemembershipCreateObjectV1(const Ezsigntemplatepackagemembership_createObject_v1_Request &ezsigntemplatepackagemembership_create_object_v1_request);
+    virtual void ezsigntemplatepackagemembershipCreateObjectV1(const Ezsigntemplatepackagemembership_createObject_v1_Request &ezsigntemplatepackagemembership_create_object_v1_request);
 
     /**
     * @param[in]  pki_ezsigntemplatepackagemembership_id qint32 [required]
     */
-    void ezsigntemplatepackagemembershipDeleteObjectV1(const qint32 &pki_ezsigntemplatepackagemembership_id);
+    virtual void ezsigntemplatepackagemembershipDeleteObjectV1(const qint32 &pki_ezsigntemplatepackagemembership_id);
 
     /**
     * @param[in]  pki_ezsigntemplatepackagemembership_id qint32 [required]
     */
-    void ezsigntemplatepackagemembershipGetObjectV2(const qint32 &pki_ezsigntemplatepackagemembership_id);
+    virtual void ezsigntemplatepackagemembershipGetObjectV2(const qint32 &pki_ezsigntemplatepackagemembership_id);
 
 
 private:
@@ -108,6 +108,7 @@ Q_SIGNALS:
     void ezsigntemplatepackagemembershipCreateObjectV1Signal(Ezsigntemplatepackagemembership_createObject_v1_Response summary);
     void ezsigntemplatepackagemembershipDeleteObjectV1Signal(Ezsigntemplatepackagemembership_deleteObject_v1_Response summary);
     void ezsigntemplatepackagemembershipGetObjectV2Signal(Ezsigntemplatepackagemembership_getObject_v2_Response summary);
+
 
     void ezsigntemplatepackagemembershipCreateObjectV1SignalFull(HttpRequestWorker *worker, Ezsigntemplatepackagemembership_createObject_v1_Response summary);
     void ezsigntemplatepackagemembershipDeleteObjectV1SignalFull(HttpRequestWorker *worker, Ezsigntemplatepackagemembership_deleteObject_v1_Response summary);

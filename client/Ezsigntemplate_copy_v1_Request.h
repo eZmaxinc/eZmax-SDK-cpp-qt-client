@@ -44,6 +44,16 @@ public:
     bool is_a_fki_ezsignfoldertype_id_Set() const;
     bool is_a_fki_ezsignfoldertype_id_Valid() const;
 
+    bool isBCopyCompany() const;
+    void setBCopyCompany(const bool &b_copy_company);
+    bool is_b_copy_company_Set() const;
+    bool is_b_copy_company_Valid() const;
+
+    bool isBCopyUser() const;
+    void setBCopyUser(const bool &b_copy_user);
+    bool is_b_copy_user_Set() const;
+    bool is_b_copy_user_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -53,6 +63,14 @@ private:
     QList<qint32> m_a_fki_ezsignfoldertype_id;
     bool m_a_fki_ezsignfoldertype_id_isSet;
     bool m_a_fki_ezsignfoldertype_id_isValid;
+
+    bool m_b_copy_company;
+    bool m_b_copy_company_isSet;
+    bool m_b_copy_company_isValid;
+
+    bool m_b_copy_user;
+    bool m_b_copy_user_isSet;
+    bool m_b_copy_user_isValid;
 };
 
 } // namespace Ezmaxapi

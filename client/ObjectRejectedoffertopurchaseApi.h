@@ -19,7 +19,10 @@
 #include "Oauth.h"
 
 #include "Common_Response_Error.h"
+#include "Rejectedoffertopurchase_getCommunicationCount_v1_Response.h"
 #include "Rejectedoffertopurchase_getCommunicationList_v1_Response.h"
+#include "Rejectedoffertopurchase_getCommunicationrecipients_v1_Response.h"
+#include "Rejectedoffertopurchase_getCommunicationsenders_v1_Response.h"
 #include <QString>
 
 #include <QObject>
@@ -61,7 +64,22 @@ public:
     /**
     * @param[in]  pki_rejectedoffertopurchase_id qint32 [required]
     */
-    void rejectedoffertopurchaseGetCommunicationListV1(const qint32 &pki_rejectedoffertopurchase_id);
+    virtual void rejectedoffertopurchaseGetCommunicationCountV1(const qint32 &pki_rejectedoffertopurchase_id);
+
+    /**
+    * @param[in]  pki_rejectedoffertopurchase_id qint32 [required]
+    */
+    virtual void rejectedoffertopurchaseGetCommunicationListV1(const qint32 &pki_rejectedoffertopurchase_id);
+
+    /**
+    * @param[in]  pki_rejectedoffertopurchase_id qint32 [required]
+    */
+    virtual void rejectedoffertopurchaseGetCommunicationrecipientsV1(const qint32 &pki_rejectedoffertopurchase_id);
+
+    /**
+    * @param[in]  pki_rejectedoffertopurchase_id qint32 [required]
+    */
+    virtual void rejectedoffertopurchaseGetCommunicationsendersV1(const qint32 &pki_rejectedoffertopurchase_id);
 
 
 private:
@@ -86,21 +104,49 @@ private:
     OauthPassword _passwordFlow;
     int _OauthMethod = 0;
 
+    void rejectedoffertopurchaseGetCommunicationCountV1Callback(HttpRequestWorker *worker);
     void rejectedoffertopurchaseGetCommunicationListV1Callback(HttpRequestWorker *worker);
+    void rejectedoffertopurchaseGetCommunicationrecipientsV1Callback(HttpRequestWorker *worker);
+    void rejectedoffertopurchaseGetCommunicationsendersV1Callback(HttpRequestWorker *worker);
 
 Q_SIGNALS:
 
+    void rejectedoffertopurchaseGetCommunicationCountV1Signal(Rejectedoffertopurchase_getCommunicationCount_v1_Response summary);
     void rejectedoffertopurchaseGetCommunicationListV1Signal(Rejectedoffertopurchase_getCommunicationList_v1_Response summary);
+    void rejectedoffertopurchaseGetCommunicationrecipientsV1Signal(Rejectedoffertopurchase_getCommunicationrecipients_v1_Response summary);
+    void rejectedoffertopurchaseGetCommunicationsendersV1Signal(Rejectedoffertopurchase_getCommunicationsenders_v1_Response summary);
 
+
+    void rejectedoffertopurchaseGetCommunicationCountV1SignalFull(HttpRequestWorker *worker, Rejectedoffertopurchase_getCommunicationCount_v1_Response summary);
     void rejectedoffertopurchaseGetCommunicationListV1SignalFull(HttpRequestWorker *worker, Rejectedoffertopurchase_getCommunicationList_v1_Response summary);
+    void rejectedoffertopurchaseGetCommunicationrecipientsV1SignalFull(HttpRequestWorker *worker, Rejectedoffertopurchase_getCommunicationrecipients_v1_Response summary);
+    void rejectedoffertopurchaseGetCommunicationsendersV1SignalFull(HttpRequestWorker *worker, Rejectedoffertopurchase_getCommunicationsenders_v1_Response summary);
 
+    Q_DECL_DEPRECATED_X("Use rejectedoffertopurchaseGetCommunicationCountV1SignalError() instead")
+    void rejectedoffertopurchaseGetCommunicationCountV1SignalE(Rejectedoffertopurchase_getCommunicationCount_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void rejectedoffertopurchaseGetCommunicationCountV1SignalError(Rejectedoffertopurchase_getCommunicationCount_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use rejectedoffertopurchaseGetCommunicationListV1SignalError() instead")
     void rejectedoffertopurchaseGetCommunicationListV1SignalE(Rejectedoffertopurchase_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void rejectedoffertopurchaseGetCommunicationListV1SignalError(Rejectedoffertopurchase_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use rejectedoffertopurchaseGetCommunicationrecipientsV1SignalError() instead")
+    void rejectedoffertopurchaseGetCommunicationrecipientsV1SignalE(Rejectedoffertopurchase_getCommunicationrecipients_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void rejectedoffertopurchaseGetCommunicationrecipientsV1SignalError(Rejectedoffertopurchase_getCommunicationrecipients_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use rejectedoffertopurchaseGetCommunicationsendersV1SignalError() instead")
+    void rejectedoffertopurchaseGetCommunicationsendersV1SignalE(Rejectedoffertopurchase_getCommunicationsenders_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void rejectedoffertopurchaseGetCommunicationsendersV1SignalError(Rejectedoffertopurchase_getCommunicationsenders_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use rejectedoffertopurchaseGetCommunicationCountV1SignalErrorFull() instead")
+    void rejectedoffertopurchaseGetCommunicationCountV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void rejectedoffertopurchaseGetCommunicationCountV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use rejectedoffertopurchaseGetCommunicationListV1SignalErrorFull() instead")
     void rejectedoffertopurchaseGetCommunicationListV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void rejectedoffertopurchaseGetCommunicationListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use rejectedoffertopurchaseGetCommunicationrecipientsV1SignalErrorFull() instead")
+    void rejectedoffertopurchaseGetCommunicationrecipientsV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void rejectedoffertopurchaseGetCommunicationrecipientsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use rejectedoffertopurchaseGetCommunicationsendersV1SignalErrorFull() instead")
+    void rejectedoffertopurchaseGetCommunicationsendersV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void rejectedoffertopurchaseGetCommunicationsendersV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();

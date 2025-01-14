@@ -23,6 +23,7 @@
 
 #include "Enum_Textvalidation.h"
 #include "Field_eEzsigntemplatesignatureAttachmentnamesource.h"
+#include "Field_eEzsigntemplatesignatureConsultationtrigger.h"
 #include "Field_eEzsigntemplatesignatureDependencyrequirement.h"
 #include "Field_eEzsigntemplatesignatureFont.h"
 #include "Field_eEzsigntemplatesignaturePositioning.h"
@@ -67,6 +68,16 @@ public:
     bool is_fki_ezsigntemplatesigner_id_validation_Set() const;
     bool is_fki_ezsigntemplatesigner_id_validation_Valid() const;
 
+    bool isBEzsigntemplatesignatureHandwritten() const;
+    void setBEzsigntemplatesignatureHandwritten(const bool &b_ezsigntemplatesignature_handwritten);
+    bool is_b_ezsigntemplatesignature_handwritten_Set() const;
+    bool is_b_ezsigntemplatesignature_handwritten_Valid() const;
+
+    bool isBEzsigntemplatesignatureReason() const;
+    void setBEzsigntemplatesignatureReason(const bool &b_ezsigntemplatesignature_reason);
+    bool is_b_ezsigntemplatesignature_reason_Set() const;
+    bool is_b_ezsigntemplatesignature_reason_Valid() const;
+
     Field_eEzsigntemplatesignaturePositioning getEEzsigntemplatesignaturePositioning() const;
     void setEEzsigntemplatesignaturePositioning(const Field_eEzsigntemplatesignaturePositioning &e_ezsigntemplatesignature_positioning);
     bool is_e_ezsigntemplatesignature_positioning_Set() const;
@@ -106,6 +117,11 @@ public:
     void setEEzsigntemplatesignatureType(const Field_eEzsigntemplatesignatureType &e_ezsigntemplatesignature_type);
     bool is_e_ezsigntemplatesignature_type_Set() const;
     bool is_e_ezsigntemplatesignature_type_Valid() const;
+
+    Field_eEzsigntemplatesignatureConsultationtrigger getEEzsigntemplatesignatureConsultationtrigger() const;
+    void setEEzsigntemplatesignatureConsultationtrigger(const Field_eEzsigntemplatesignatureConsultationtrigger &e_ezsigntemplatesignature_consultationtrigger);
+    bool is_e_ezsigntemplatesignature_consultationtrigger_Set() const;
+    bool is_e_ezsigntemplatesignature_consultationtrigger_Valid() const;
 
     QString getTEzsigntemplatesignatureTooltip() const;
     void setTEzsigntemplatesignatureTooltip(const QString &t_ezsigntemplatesignature_tooltip);
@@ -147,6 +163,11 @@ public:
     bool is_i_ezsigntemplatesignature_maxlength_Set() const;
     bool is_i_ezsigntemplatesignature_maxlength_Valid() const;
 
+    QString getSEzsigntemplatesignatureDefaultvalue() const;
+    void setSEzsigntemplatesignatureDefaultvalue(const QString &s_ezsigntemplatesignature_defaultvalue);
+    bool is_s_ezsigntemplatesignature_defaultvalue_Set() const;
+    bool is_s_ezsigntemplatesignature_defaultvalue_Valid() const;
+
     QString getSEzsigntemplatesignatureRegexp() const;
     void setSEzsigntemplatesignatureRegexp(const QString &s_ezsigntemplatesignature_regexp);
     bool is_s_ezsigntemplatesignature_regexp_Set() const;
@@ -156,6 +177,11 @@ public:
     void setEEzsigntemplatesignatureTextvalidation(const Enum_Textvalidation &e_ezsigntemplatesignature_textvalidation);
     bool is_e_ezsigntemplatesignature_textvalidation_Set() const;
     bool is_e_ezsigntemplatesignature_textvalidation_Valid() const;
+
+    QString getSEzsigntemplatesignatureTextvalidationcustommessage() const;
+    void setSEzsigntemplatesignatureTextvalidationcustommessage(const QString &s_ezsigntemplatesignature_textvalidationcustommessage);
+    bool is_s_ezsigntemplatesignature_textvalidationcustommessage_Set() const;
+    bool is_s_ezsigntemplatesignature_textvalidationcustommessage_Valid() const;
 
     Field_eEzsigntemplatesignatureDependencyrequirement getEEzsigntemplatesignatureDependencyrequirement() const;
     void setEEzsigntemplatesignatureDependencyrequirement(const Field_eEzsigntemplatesignatureDependencyrequirement &e_ezsigntemplatesignature_dependencyrequirement);
@@ -204,6 +230,14 @@ private:
     bool m_fki_ezsigntemplatesigner_id_validation_isSet;
     bool m_fki_ezsigntemplatesigner_id_validation_isValid;
 
+    bool m_b_ezsigntemplatesignature_handwritten;
+    bool m_b_ezsigntemplatesignature_handwritten_isSet;
+    bool m_b_ezsigntemplatesignature_handwritten_isValid;
+
+    bool m_b_ezsigntemplatesignature_reason;
+    bool m_b_ezsigntemplatesignature_reason_isSet;
+    bool m_b_ezsigntemplatesignature_reason_isValid;
+
     Field_eEzsigntemplatesignaturePositioning m_e_ezsigntemplatesignature_positioning;
     bool m_e_ezsigntemplatesignature_positioning_isSet;
     bool m_e_ezsigntemplatesignature_positioning_isValid;
@@ -235,6 +269,10 @@ private:
     Field_eEzsigntemplatesignatureType m_e_ezsigntemplatesignature_type;
     bool m_e_ezsigntemplatesignature_type_isSet;
     bool m_e_ezsigntemplatesignature_type_isValid;
+
+    Field_eEzsigntemplatesignatureConsultationtrigger m_e_ezsigntemplatesignature_consultationtrigger;
+    bool m_e_ezsigntemplatesignature_consultationtrigger_isSet;
+    bool m_e_ezsigntemplatesignature_consultationtrigger_isValid;
 
     QString m_t_ezsigntemplatesignature_tooltip;
     bool m_t_ezsigntemplatesignature_tooltip_isSet;
@@ -268,6 +306,10 @@ private:
     bool m_i_ezsigntemplatesignature_maxlength_isSet;
     bool m_i_ezsigntemplatesignature_maxlength_isValid;
 
+    QString m_s_ezsigntemplatesignature_defaultvalue;
+    bool m_s_ezsigntemplatesignature_defaultvalue_isSet;
+    bool m_s_ezsigntemplatesignature_defaultvalue_isValid;
+
     QString m_s_ezsigntemplatesignature_regexp;
     bool m_s_ezsigntemplatesignature_regexp_isSet;
     bool m_s_ezsigntemplatesignature_regexp_isValid;
@@ -275,6 +317,10 @@ private:
     Enum_Textvalidation m_e_ezsigntemplatesignature_textvalidation;
     bool m_e_ezsigntemplatesignature_textvalidation_isSet;
     bool m_e_ezsigntemplatesignature_textvalidation_isValid;
+
+    QString m_s_ezsigntemplatesignature_textvalidationcustommessage;
+    bool m_s_ezsigntemplatesignature_textvalidationcustommessage_isSet;
+    bool m_s_ezsigntemplatesignature_textvalidationcustommessage_isValid;
 
     Field_eEzsigntemplatesignatureDependencyrequirement m_e_ezsigntemplatesignature_dependencyrequirement;
     bool m_e_ezsigntemplatesignature_dependencyrequirement_isSet;

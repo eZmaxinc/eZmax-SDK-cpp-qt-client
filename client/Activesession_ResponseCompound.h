@@ -23,7 +23,11 @@
 
 #include "Activesession_ResponseCompound_Apikey.h"
 #include "Activesession_ResponseCompound_User.h"
+#include "Field_eActivesessionEzsign.h"
+#include "Field_eActivesessionEzsignaccess.h"
+#include "Field_eActivesessionEzsignprepaid.h"
 #include "Field_eActivesessionOrigin.h"
+#include "Field_eActivesessionRealestateinprogress.h"
 #include "Field_eActivesessionUsertype.h"
 #include "Field_eActivesessionWeekdaystart.h"
 #include "Field_eSystemconfigurationEzsignofficeplan.h"
@@ -90,6 +94,46 @@ public:
     bool is_b_activesession_issuperadmin_Set() const;
     bool is_b_activesession_issuperadmin_Valid() const;
 
+    bool isBActivesessionAttachment() const;
+    void setBActivesessionAttachment(const bool &b_activesession_attachment);
+    bool is_b_activesession_attachment_Set() const;
+    bool is_b_activesession_attachment_Valid() const;
+
+    bool isBActivesessionCanafe() const;
+    void setBActivesessionCanafe(const bool &b_activesession_canafe);
+    bool is_b_activesession_canafe_Set() const;
+    bool is_b_activesession_canafe_Valid() const;
+
+    bool isBActivesessionFinancial() const;
+    void setBActivesessionFinancial(const bool &b_activesession_financial);
+    bool is_b_activesession_financial_Set() const;
+    bool is_b_activesession_financial_Valid() const;
+
+    bool isBActivesessionRealestatecompleted() const;
+    void setBActivesessionRealestatecompleted(const bool &b_activesession_realestatecompleted);
+    bool is_b_activesession_realestatecompleted_Set() const;
+    bool is_b_activesession_realestatecompleted_Valid() const;
+
+    Field_eActivesessionEzsign getEActivesessionEzsign() const;
+    void setEActivesessionEzsign(const Field_eActivesessionEzsign &e_activesession_ezsign);
+    bool is_e_activesession_ezsign_Set() const;
+    bool is_e_activesession_ezsign_Valid() const;
+
+    Field_eActivesessionEzsignaccess getEActivesessionEzsignaccess() const;
+    void setEActivesessionEzsignaccess(const Field_eActivesessionEzsignaccess &e_activesession_ezsignaccess);
+    bool is_e_activesession_ezsignaccess_Set() const;
+    bool is_e_activesession_ezsignaccess_Valid() const;
+
+    Field_eActivesessionEzsignprepaid getEActivesessionEzsignprepaid() const;
+    void setEActivesessionEzsignprepaid(const Field_eActivesessionEzsignprepaid &e_activesession_ezsignprepaid);
+    bool is_e_activesession_ezsignprepaid_Set() const;
+    bool is_e_activesession_ezsignprepaid_Valid() const;
+
+    Field_eActivesessionRealestateinprogress getEActivesessionRealestateinprogress() const;
+    void setEActivesessionRealestateinprogress(const Field_eActivesessionRealestateinprogress &e_activesession_realestateinprogress);
+    bool is_e_activesession_realestateinprogress_Set() const;
+    bool is_e_activesession_realestateinprogress_Valid() const;
+
     QString getPksCustomerCode() const;
     void setPksCustomerCode(const QString &pks_customer_code);
     bool is_pks_customer_code_Set() const;
@@ -104,6 +148,11 @@ public:
     void setFkiSignatureId(const qint32 &fki_signature_id);
     bool is_fki_signature_id_Set() const;
     bool is_fki_signature_id_Valid() const;
+
+    qint32 getFkiEzsignuserId() const;
+    void setFkiEzsignuserId(const qint32 &fki_ezsignuser_id);
+    bool is_fki_ezsignuser_id_Set() const;
+    bool is_fki_ezsignuser_id_Valid() const;
 
     bool isBSystemconfigurationEzsignpaidbyoffice() const;
     void setBSystemconfigurationEzsignpaidbyoffice(const bool &b_systemconfiguration_ezsignpaidbyoffice);
@@ -124,6 +173,11 @@ public:
     void setEUserEzsignprepaid(const Field_eUserEzsignprepaid &e_user_ezsignprepaid);
     bool is_e_user_ezsignprepaid_Set() const;
     bool is_e_user_ezsignprepaid_Valid() const;
+
+    bool isBUserEzsigntrial() const;
+    void setBUserEzsigntrial(const bool &b_user_ezsigntrial);
+    bool is_b_user_ezsigntrial_Set() const;
+    bool is_b_user_ezsigntrial_Valid() const;
 
     QString getDtUserEzsignprepaidexpiration() const;
     void setDtUserEzsignprepaidexpiration(const QString &dt_user_ezsignprepaidexpiration);
@@ -193,6 +247,38 @@ private:
     bool m_b_activesession_issuperadmin_isSet;
     bool m_b_activesession_issuperadmin_isValid;
 
+    bool m_b_activesession_attachment;
+    bool m_b_activesession_attachment_isSet;
+    bool m_b_activesession_attachment_isValid;
+
+    bool m_b_activesession_canafe;
+    bool m_b_activesession_canafe_isSet;
+    bool m_b_activesession_canafe_isValid;
+
+    bool m_b_activesession_financial;
+    bool m_b_activesession_financial_isSet;
+    bool m_b_activesession_financial_isValid;
+
+    bool m_b_activesession_realestatecompleted;
+    bool m_b_activesession_realestatecompleted_isSet;
+    bool m_b_activesession_realestatecompleted_isValid;
+
+    Field_eActivesessionEzsign m_e_activesession_ezsign;
+    bool m_e_activesession_ezsign_isSet;
+    bool m_e_activesession_ezsign_isValid;
+
+    Field_eActivesessionEzsignaccess m_e_activesession_ezsignaccess;
+    bool m_e_activesession_ezsignaccess_isSet;
+    bool m_e_activesession_ezsignaccess_isValid;
+
+    Field_eActivesessionEzsignprepaid m_e_activesession_ezsignprepaid;
+    bool m_e_activesession_ezsignprepaid_isSet;
+    bool m_e_activesession_ezsignprepaid_isValid;
+
+    Field_eActivesessionRealestateinprogress m_e_activesession_realestateinprogress;
+    bool m_e_activesession_realestateinprogress_isSet;
+    bool m_e_activesession_realestateinprogress_isValid;
+
     QString m_pks_customer_code;
     bool m_pks_customer_code_isSet;
     bool m_pks_customer_code_isValid;
@@ -204,6 +290,10 @@ private:
     qint32 m_fki_signature_id;
     bool m_fki_signature_id_isSet;
     bool m_fki_signature_id_isValid;
+
+    qint32 m_fki_ezsignuser_id;
+    bool m_fki_ezsignuser_id_isSet;
+    bool m_fki_ezsignuser_id_isValid;
 
     bool m_b_systemconfiguration_ezsignpaidbyoffice;
     bool m_b_systemconfiguration_ezsignpaidbyoffice_isSet;
@@ -220,6 +310,10 @@ private:
     Field_eUserEzsignprepaid m_e_user_ezsignprepaid;
     bool m_e_user_ezsignprepaid_isSet;
     bool m_e_user_ezsignprepaid_isValid;
+
+    bool m_b_user_ezsigntrial;
+    bool m_b_user_ezsigntrial_isSet;
+    bool m_b_user_ezsigntrial_isValid;
 
     QString m_dt_user_ezsignprepaidexpiration;
     bool m_dt_user_ezsignprepaidexpiration_isSet;

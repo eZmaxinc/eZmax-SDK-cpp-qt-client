@@ -62,7 +62,7 @@ public:
     /**
     * @param[in]  s_reportgroup_cache_id QString [required]
     */
-    void reportGetReportFromCacheV1(const QString &s_reportgroup_cache_id);
+    virtual void reportGetReportFromCacheV1(const QString &s_reportgroup_cache_id);
 
 
 private:
@@ -92,6 +92,7 @@ private:
 Q_SIGNALS:
 
     void reportGetReportFromCacheV1Signal(Common_getReport_v1_Response summary);
+
 
     void reportGetReportFromCacheV1SignalFull(HttpRequestWorker *worker, Common_getReport_v1_Response summary);
 

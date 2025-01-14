@@ -45,6 +45,9 @@ void Custom_Ezsignsignaturestatus_Response::initializeModel() {
 
     m_i_ezsignsignaturestatus_signed_isSet = false;
     m_i_ezsignsignaturestatus_signed_isValid = false;
+
+    m_i_ezsignsignaturestatus_conditional_isSet = false;
+    m_i_ezsignsignaturestatus_conditional_isValid = false;
 }
 
 void Custom_Ezsignsignaturestatus_Response::fromJson(QString jsonString) {
@@ -67,6 +70,9 @@ void Custom_Ezsignsignaturestatus_Response::fromJsonObject(QJsonObject json) {
 
     m_i_ezsignsignaturestatus_signed_isValid = ::Ezmaxapi::fromJsonValue(m_i_ezsignsignaturestatus_signed, json[QString("iEzsignsignaturestatusSigned")]);
     m_i_ezsignsignaturestatus_signed_isSet = !json[QString("iEzsignsignaturestatusSigned")].isNull() && m_i_ezsignsignaturestatus_signed_isValid;
+
+    m_i_ezsignsignaturestatus_conditional_isValid = ::Ezmaxapi::fromJsonValue(m_i_ezsignsignaturestatus_conditional, json[QString("iEzsignsignaturestatusConditional")]);
+    m_i_ezsignsignaturestatus_conditional_isSet = !json[QString("iEzsignsignaturestatusConditional")].isNull() && m_i_ezsignsignaturestatus_conditional_isValid;
 }
 
 QString Custom_Ezsignsignaturestatus_Response::asJson() const {
@@ -89,6 +95,9 @@ QJsonObject Custom_Ezsignsignaturestatus_Response::asJsonObject() const {
     }
     if (m_i_ezsignsignaturestatus_signed_isSet) {
         obj.insert(QString("iEzsignsignaturestatusSigned"), ::Ezmaxapi::toJsonValue(m_i_ezsignsignaturestatus_signed));
+    }
+    if (m_i_ezsignsignaturestatus_conditional_isSet) {
+        obj.insert(QString("iEzsignsignaturestatusConditional"), ::Ezmaxapi::toJsonValue(m_i_ezsignsignaturestatus_conditional));
     }
     return obj;
 }
@@ -157,6 +166,22 @@ bool Custom_Ezsignsignaturestatus_Response::is_i_ezsignsignaturestatus_signed_Va
     return m_i_ezsignsignaturestatus_signed_isValid;
 }
 
+qint32 Custom_Ezsignsignaturestatus_Response::getIEzsignsignaturestatusConditional() const {
+    return m_i_ezsignsignaturestatus_conditional;
+}
+void Custom_Ezsignsignaturestatus_Response::setIEzsignsignaturestatusConditional(const qint32 &i_ezsignsignaturestatus_conditional) {
+    m_i_ezsignsignaturestatus_conditional = i_ezsignsignaturestatus_conditional;
+    m_i_ezsignsignaturestatus_conditional_isSet = true;
+}
+
+bool Custom_Ezsignsignaturestatus_Response::is_i_ezsignsignaturestatus_conditional_Set() const{
+    return m_i_ezsignsignaturestatus_conditional_isSet;
+}
+
+bool Custom_Ezsignsignaturestatus_Response::is_i_ezsignsignaturestatus_conditional_Valid() const{
+    return m_i_ezsignsignaturestatus_conditional_isValid;
+}
+
 bool Custom_Ezsignsignaturestatus_Response::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -179,13 +204,18 @@ bool Custom_Ezsignsignaturestatus_Response::isSet() const {
             isObjectUpdated = true;
             break;
         }
+
+        if (m_i_ezsignsignaturestatus_conditional_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
     } while (false);
     return isObjectUpdated;
 }
 
 bool Custom_Ezsignsignaturestatus_Response::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_e_ezsignsignaturestatus_steptype_isValid && m_i_ezsignsignaturestatus_step_isValid && m_i_ezsignsignaturestatus_total_isValid && m_i_ezsignsignaturestatus_signed_isValid && true;
+    return m_e_ezsignsignaturestatus_steptype_isValid && m_i_ezsignsignaturestatus_step_isValid && m_i_ezsignsignaturestatus_total_isValid && m_i_ezsignsignaturestatus_signed_isValid && m_i_ezsignsignaturestatus_conditional_isValid && true;
 }
 
 } // namespace Ezmaxapi

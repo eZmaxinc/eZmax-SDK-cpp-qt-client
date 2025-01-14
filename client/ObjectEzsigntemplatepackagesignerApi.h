@@ -66,23 +66,23 @@ public:
     /**
     * @param[in]  ezsigntemplatepackagesigner_create_object_v1_request Ezsigntemplatepackagesigner_createObject_v1_Request [required]
     */
-    void ezsigntemplatepackagesignerCreateObjectV1(const Ezsigntemplatepackagesigner_createObject_v1_Request &ezsigntemplatepackagesigner_create_object_v1_request);
+    virtual void ezsigntemplatepackagesignerCreateObjectV1(const Ezsigntemplatepackagesigner_createObject_v1_Request &ezsigntemplatepackagesigner_create_object_v1_request);
 
     /**
     * @param[in]  pki_ezsigntemplatepackagesigner_id qint32 [required]
     */
-    void ezsigntemplatepackagesignerDeleteObjectV1(const qint32 &pki_ezsigntemplatepackagesigner_id);
+    virtual void ezsigntemplatepackagesignerDeleteObjectV1(const qint32 &pki_ezsigntemplatepackagesigner_id);
 
     /**
     * @param[in]  pki_ezsigntemplatepackagesigner_id qint32 [required]
     * @param[in]  ezsigntemplatepackagesigner_edit_object_v1_request Ezsigntemplatepackagesigner_editObject_v1_Request [required]
     */
-    void ezsigntemplatepackagesignerEditObjectV1(const qint32 &pki_ezsigntemplatepackagesigner_id, const Ezsigntemplatepackagesigner_editObject_v1_Request &ezsigntemplatepackagesigner_edit_object_v1_request);
+    virtual void ezsigntemplatepackagesignerEditObjectV1(const qint32 &pki_ezsigntemplatepackagesigner_id, const Ezsigntemplatepackagesigner_editObject_v1_Request &ezsigntemplatepackagesigner_edit_object_v1_request);
 
     /**
     * @param[in]  pki_ezsigntemplatepackagesigner_id qint32 [required]
     */
-    void ezsigntemplatepackagesignerGetObjectV2(const qint32 &pki_ezsigntemplatepackagesigner_id);
+    virtual void ezsigntemplatepackagesignerGetObjectV2(const qint32 &pki_ezsigntemplatepackagesigner_id);
 
 
 private:
@@ -118,6 +118,7 @@ Q_SIGNALS:
     void ezsigntemplatepackagesignerDeleteObjectV1Signal(Ezsigntemplatepackagesigner_deleteObject_v1_Response summary);
     void ezsigntemplatepackagesignerEditObjectV1Signal(Ezsigntemplatepackagesigner_editObject_v1_Response summary);
     void ezsigntemplatepackagesignerGetObjectV2Signal(Ezsigntemplatepackagesigner_getObject_v2_Response summary);
+
 
     void ezsigntemplatepackagesignerCreateObjectV1SignalFull(HttpRequestWorker *worker, Ezsigntemplatepackagesigner_createObject_v1_Response summary);
     void ezsigntemplatepackagesignerDeleteObjectV1SignalFull(HttpRequestWorker *worker, Ezsigntemplatepackagesigner_deleteObject_v1_Response summary);

@@ -62,7 +62,7 @@ public:
     * @param[in]  pks_customer_code QString [required]
     * @param[in]  s_infrastructureproduct_code QString [optional]
     */
-    Q_DECL_DEPRECATED void globalCustomerGetEndpointV1(const QString &pks_customer_code, const ::Ezmaxapi::OptionalParam<QString> &s_infrastructureproduct_code = ::Ezmaxapi::OptionalParam<QString>());
+    Q_DECL_DEPRECATED virtual void globalCustomerGetEndpointV1(const QString &pks_customer_code, const ::Ezmaxapi::OptionalParam<QString> &s_infrastructureproduct_code = ::Ezmaxapi::OptionalParam<QString>());
 
 
 private:
@@ -92,6 +92,7 @@ private:
 Q_SIGNALS:
 
     void globalCustomerGetEndpointV1Signal(Global_customer_getEndpoint_v1_Response summary);
+
 
     void globalCustomerGetEndpointV1SignalFull(HttpRequestWorker *worker, Global_customer_getEndpoint_v1_Response summary);
 

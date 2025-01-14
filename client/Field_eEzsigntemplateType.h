@@ -13,7 +13,7 @@
 /*
  * Field_eEzsigntemplateType.h
  *
- * The Type of Ezsigntemplate
+ * The Type of Ezsigntemplate  **Usergroup** is now deprecated and replace with **Ezsignfoldertype**
  */
 
 #ifndef Field_eEzsigntemplateType_H
@@ -42,7 +42,8 @@ public:
         INVALID_VALUE_OPENAPI_GENERATED = 0,
         USER, 
         USERGROUP, 
-        COMPANY
+        COMPANY, 
+        EZSIGNFOLDERTYPE
     };
     Field_eEzsigntemplateType::eField_eEzsigntemplateType getValue() const;
     void setValue(const Field_eEzsigntemplateType::eField_eEzsigntemplateType& value);

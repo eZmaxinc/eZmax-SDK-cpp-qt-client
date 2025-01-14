@@ -21,12 +21,14 @@
 
 #include <QJsonObject>
 
+#include "Email_Request.h"
 #include "Multilingual_UsergroupName.h"
 
 #include "Enum.h"
 #include "Object.h"
 
 namespace Ezmaxapi {
+class Email_Request;
 class Multilingual_UsergroupName;
 
 class Usergroup_RequestCompound : public Object {
@@ -45,6 +47,11 @@ public:
     bool is_pki_usergroup_id_Set() const;
     bool is_pki_usergroup_id_Valid() const;
 
+    Email_Request getObjEmail() const;
+    void setObjEmail(const Email_Request &obj_email);
+    bool is_obj_email_Set() const;
+    bool is_obj_email_Valid() const;
+
     Multilingual_UsergroupName getObjUsergroupName() const;
     void setObjUsergroupName(const Multilingual_UsergroupName &obj_usergroup_name);
     bool is_obj_usergroup_name_Set() const;
@@ -59,6 +66,10 @@ private:
     qint32 m_pki_usergroup_id;
     bool m_pki_usergroup_id_isSet;
     bool m_pki_usergroup_id_isValid;
+
+    Email_Request m_obj_email;
+    bool m_obj_email_isSet;
+    bool m_obj_email_isValid;
 
     Multilingual_UsergroupName m_obj_usergroup_name;
     bool m_obj_usergroup_name_isSet;

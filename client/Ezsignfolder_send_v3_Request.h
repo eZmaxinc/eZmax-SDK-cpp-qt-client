@@ -21,6 +21,7 @@
 
 #include <QJsonObject>
 
+#include "Field_eEzsignfolderMessageorder.h"
 #include <QList>
 #include <QString>
 
@@ -45,6 +46,11 @@ public:
     bool is_t_ezsignfolder_message_Set() const;
     bool is_t_ezsignfolder_message_Valid() const;
 
+    Field_eEzsignfolderMessageorder getEEzsignfolderMessageorder() const;
+    void setEEzsignfolderMessageorder(const Field_eEzsignfolderMessageorder &e_ezsignfolder_messageorder);
+    bool is_e_ezsignfolder_messageorder_Set() const;
+    bool is_e_ezsignfolder_messageorder_Valid() const;
+
     QString getDtEzsignfolderDelayedsenddate() const;
     void setDtEzsignfolderDelayedsenddate(const QString &dt_ezsignfolder_delayedsenddate);
     bool is_dt_ezsignfolder_delayedsenddate_Set() const;
@@ -64,6 +70,10 @@ private:
     QString m_t_ezsignfolder_message;
     bool m_t_ezsignfolder_message_isSet;
     bool m_t_ezsignfolder_message_isValid;
+
+    Field_eEzsignfolderMessageorder m_e_ezsignfolder_messageorder;
+    bool m_e_ezsignfolder_messageorder_isSet;
+    bool m_e_ezsignfolder_messageorder_isValid;
 
     QString m_dt_ezsignfolder_delayedsenddate;
     bool m_dt_ezsignfolder_delayedsenddate_isSet;

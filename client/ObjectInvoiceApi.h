@@ -20,7 +20,10 @@
 
 #include "Common_Response_Error.h"
 #include "Invoice_getAttachments_v1_Response.h"
+#include "Invoice_getCommunicationCount_v1_Response.h"
 #include "Invoice_getCommunicationList_v1_Response.h"
+#include "Invoice_getCommunicationrecipients_v1_Response.h"
+#include "Invoice_getCommunicationsenders_v1_Response.h"
 #include <QString>
 
 #include <QObject>
@@ -62,12 +65,27 @@ public:
     /**
     * @param[in]  pki_invoice_id qint32 [required]
     */
-    void invoiceGetAttachmentsV1(const qint32 &pki_invoice_id);
+    virtual void invoiceGetAttachmentsV1(const qint32 &pki_invoice_id);
 
     /**
     * @param[in]  pki_invoice_id qint32 [required]
     */
-    void invoiceGetCommunicationListV1(const qint32 &pki_invoice_id);
+    virtual void invoiceGetCommunicationCountV1(const qint32 &pki_invoice_id);
+
+    /**
+    * @param[in]  pki_invoice_id qint32 [required]
+    */
+    virtual void invoiceGetCommunicationListV1(const qint32 &pki_invoice_id);
+
+    /**
+    * @param[in]  pki_invoice_id qint32 [required]
+    */
+    virtual void invoiceGetCommunicationrecipientsV1(const qint32 &pki_invoice_id);
+
+    /**
+    * @param[in]  pki_invoice_id qint32 [required]
+    */
+    virtual void invoiceGetCommunicationsendersV1(const qint32 &pki_invoice_id);
 
 
 private:
@@ -93,29 +111,57 @@ private:
     int _OauthMethod = 0;
 
     void invoiceGetAttachmentsV1Callback(HttpRequestWorker *worker);
+    void invoiceGetCommunicationCountV1Callback(HttpRequestWorker *worker);
     void invoiceGetCommunicationListV1Callback(HttpRequestWorker *worker);
+    void invoiceGetCommunicationrecipientsV1Callback(HttpRequestWorker *worker);
+    void invoiceGetCommunicationsendersV1Callback(HttpRequestWorker *worker);
 
 Q_SIGNALS:
 
     void invoiceGetAttachmentsV1Signal(Invoice_getAttachments_v1_Response summary);
+    void invoiceGetCommunicationCountV1Signal(Invoice_getCommunicationCount_v1_Response summary);
     void invoiceGetCommunicationListV1Signal(Invoice_getCommunicationList_v1_Response summary);
+    void invoiceGetCommunicationrecipientsV1Signal(Invoice_getCommunicationrecipients_v1_Response summary);
+    void invoiceGetCommunicationsendersV1Signal(Invoice_getCommunicationsenders_v1_Response summary);
+
 
     void invoiceGetAttachmentsV1SignalFull(HttpRequestWorker *worker, Invoice_getAttachments_v1_Response summary);
+    void invoiceGetCommunicationCountV1SignalFull(HttpRequestWorker *worker, Invoice_getCommunicationCount_v1_Response summary);
     void invoiceGetCommunicationListV1SignalFull(HttpRequestWorker *worker, Invoice_getCommunicationList_v1_Response summary);
+    void invoiceGetCommunicationrecipientsV1SignalFull(HttpRequestWorker *worker, Invoice_getCommunicationrecipients_v1_Response summary);
+    void invoiceGetCommunicationsendersV1SignalFull(HttpRequestWorker *worker, Invoice_getCommunicationsenders_v1_Response summary);
 
     Q_DECL_DEPRECATED_X("Use invoiceGetAttachmentsV1SignalError() instead")
     void invoiceGetAttachmentsV1SignalE(Invoice_getAttachments_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void invoiceGetAttachmentsV1SignalError(Invoice_getAttachments_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use invoiceGetCommunicationCountV1SignalError() instead")
+    void invoiceGetCommunicationCountV1SignalE(Invoice_getCommunicationCount_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void invoiceGetCommunicationCountV1SignalError(Invoice_getCommunicationCount_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use invoiceGetCommunicationListV1SignalError() instead")
     void invoiceGetCommunicationListV1SignalE(Invoice_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void invoiceGetCommunicationListV1SignalError(Invoice_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use invoiceGetCommunicationrecipientsV1SignalError() instead")
+    void invoiceGetCommunicationrecipientsV1SignalE(Invoice_getCommunicationrecipients_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void invoiceGetCommunicationrecipientsV1SignalError(Invoice_getCommunicationrecipients_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use invoiceGetCommunicationsendersV1SignalError() instead")
+    void invoiceGetCommunicationsendersV1SignalE(Invoice_getCommunicationsenders_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void invoiceGetCommunicationsendersV1SignalError(Invoice_getCommunicationsenders_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     Q_DECL_DEPRECATED_X("Use invoiceGetAttachmentsV1SignalErrorFull() instead")
     void invoiceGetAttachmentsV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void invoiceGetAttachmentsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use invoiceGetCommunicationCountV1SignalErrorFull() instead")
+    void invoiceGetCommunicationCountV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void invoiceGetCommunicationCountV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use invoiceGetCommunicationListV1SignalErrorFull() instead")
     void invoiceGetCommunicationListV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void invoiceGetCommunicationListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use invoiceGetCommunicationrecipientsV1SignalErrorFull() instead")
+    void invoiceGetCommunicationrecipientsV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void invoiceGetCommunicationrecipientsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use invoiceGetCommunicationsendersV1SignalErrorFull() instead")
+    void invoiceGetCommunicationsendersV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void invoiceGetCommunicationsendersV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();

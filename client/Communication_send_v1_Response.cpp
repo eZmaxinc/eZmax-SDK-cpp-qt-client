@@ -116,10 +116,10 @@ bool Communication_send_v1_Response::is_obj_debug_Valid() const{
     return m_obj_debug_isValid;
 }
 
-Communication_createObject_v1_Response_mPayload Communication_send_v1_Response::getMPayload() const {
+Communication_send_v1_Response_mPayload Communication_send_v1_Response::getMPayload() const {
     return m_m_payload;
 }
-void Communication_send_v1_Response::setMPayload(const Communication_createObject_v1_Response_mPayload &m_payload) {
+void Communication_send_v1_Response::setMPayload(const Communication_send_v1_Response_mPayload &m_payload) {
     m_m_payload = m_payload;
     m_m_payload_isSet = true;
 }

@@ -144,15 +144,9 @@ int ObjectVariableexpenseApi::addServerConfiguration(const QString &operation, c
     * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
     */
 void ObjectVariableexpenseApi::setNewServerForAllOperations(const QUrl &url, const QString &description, const QMap<QString, ServerVariable> &variables) {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
     for (auto keyIt = _serverIndices.keyBegin(); keyIt != _serverIndices.keyEnd(); keyIt++) {
         setServerIndex(*keyIt, addServerConfiguration(*keyIt, url, description, variables));
     }
-#else
-    for (auto &e : _serverIndices.keys()) {
-        setServerIndex(e, addServerConfiguration(e, url, description, variables));
-    }
-#endif
 }
 
 /**
@@ -262,15 +256,10 @@ void ObjectVariableexpenseApi::variableexpenseCreateObjectV1(const Variableexpen
         QByteArray output = variableexpense_create_object_v1_request.asJson().toUtf8();
         input.request_body.append(output);
     }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectVariableexpenseApi::variableexpenseCreateObjectV1Callback);
     connect(this, &ObjectVariableexpenseApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -360,15 +349,10 @@ void ObjectVariableexpenseApi::variableexpenseEditObjectV1(const qint32 &pki_var
         QByteArray output = variableexpense_edit_object_v1_request.asJson().toUtf8();
         input.request_body.append(output);
     }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectVariableexpenseApi::variableexpenseEditObjectV1Callback);
     connect(this, &ObjectVariableexpenseApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -528,15 +512,10 @@ void ObjectVariableexpenseApi::variableexpenseGetAutocompleteV2(const QString &s
         }
         input.headers.insert("Accept-Language", headerString);
     }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectVariableexpenseApi::variableexpenseGetAutocompleteV2Callback);
     connect(this, &ObjectVariableexpenseApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -712,15 +691,10 @@ void ObjectVariableexpenseApi::variableexpenseGetListV1(const ::Ezmaxapi::Option
         }
         input.headers.insert("Accept-Language", headerString);
     }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectVariableexpenseApi::variableexpenseGetListV1Callback);
     connect(this, &ObjectVariableexpenseApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -805,15 +779,10 @@ void ObjectVariableexpenseApi::variableexpenseGetObjectV2(const qint32 &pki_vari
     HttpRequestInput input(fullPath, "GET");
 
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectVariableexpenseApi::variableexpenseGetObjectV2Callback);
     connect(this, &ObjectVariableexpenseApi::abortRequestsSignal, worker, &QObject::deleteLater);

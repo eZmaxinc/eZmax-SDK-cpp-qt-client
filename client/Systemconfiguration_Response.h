@@ -21,6 +21,7 @@
 
 #include <QJsonObject>
 
+#include "Custom_Branding_Response.h"
 #include "Field_eSystemconfigurationEzsign.h"
 #include "Field_eSystemconfigurationEzsignofficeplan.h"
 #include "Field_eSystemconfigurationLanguage1.h"
@@ -32,6 +33,7 @@
 #include "Object.h"
 
 namespace Ezmaxapi {
+class Custom_Branding_Response;
 
 class Systemconfiguration_Response : public Object {
 public:
@@ -53,6 +55,11 @@ public:
     void setFkiSystemconfigurationtypeId(const qint32 &fki_systemconfigurationtype_id);
     bool is_fki_systemconfigurationtype_id_Set() const;
     bool is_fki_systemconfigurationtype_id_Valid() const;
+
+    qint32 getFkiBrandingId() const;
+    void setFkiBrandingId(const qint32 &fki_branding_id);
+    bool is_fki_branding_id_Set() const;
+    bool is_fki_branding_id_Valid() const;
 
     QString getSSystemconfigurationtypeDescriptionX() const;
     void setSSystemconfigurationtypeDescriptionX(const QString &s_systemconfigurationtype_description_x);
@@ -94,6 +101,11 @@ public:
     bool is_b_systemconfiguration_ezsignpersonnal_Set() const;
     bool is_b_systemconfiguration_ezsignpersonnal_Valid() const;
 
+    bool isBSystemconfigurationHascreditcardmerchant() const;
+    void setBSystemconfigurationHascreditcardmerchant(const bool &b_systemconfiguration_hascreditcardmerchant);
+    bool is_b_systemconfiguration_hascreditcardmerchant_Set() const;
+    bool is_b_systemconfiguration_hascreditcardmerchant_Valid() const;
+
     bool isBSystemconfigurationIsdisposalactive() const;
     void setBSystemconfigurationIsdisposalactive(const bool &b_systemconfiguration_isdisposalactive);
     bool is_b_systemconfiguration_isdisposalactive_Set() const;
@@ -114,6 +126,11 @@ public:
     bool is_dt_systemconfiguration_readonlyexpirationend_Set() const;
     bool is_dt_systemconfiguration_readonlyexpirationend_Valid() const;
 
+    Custom_Branding_Response getObjBranding() const;
+    void setObjBranding(const Custom_Branding_Response &obj_branding);
+    bool is_obj_branding_Set() const;
+    bool is_obj_branding_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -127,6 +144,10 @@ private:
     qint32 m_fki_systemconfigurationtype_id;
     bool m_fki_systemconfigurationtype_id_isSet;
     bool m_fki_systemconfigurationtype_id_isValid;
+
+    qint32 m_fki_branding_id;
+    bool m_fki_branding_id_isSet;
+    bool m_fki_branding_id_isValid;
 
     QString m_s_systemconfigurationtype_description_x;
     bool m_s_systemconfigurationtype_description_x_isSet;
@@ -160,6 +181,10 @@ private:
     bool m_b_systemconfiguration_ezsignpersonnal_isSet;
     bool m_b_systemconfiguration_ezsignpersonnal_isValid;
 
+    bool m_b_systemconfiguration_hascreditcardmerchant;
+    bool m_b_systemconfiguration_hascreditcardmerchant_isSet;
+    bool m_b_systemconfiguration_hascreditcardmerchant_isValid;
+
     bool m_b_systemconfiguration_isdisposalactive;
     bool m_b_systemconfiguration_isdisposalactive_isSet;
     bool m_b_systemconfiguration_isdisposalactive_isValid;
@@ -175,6 +200,10 @@ private:
     QString m_dt_systemconfiguration_readonlyexpirationend;
     bool m_dt_systemconfiguration_readonlyexpirationend_isSet;
     bool m_dt_systemconfiguration_readonlyexpirationend_isValid;
+
+    Custom_Branding_Response m_obj_branding;
+    bool m_obj_branding_isSet;
+    bool m_obj_branding_isValid;
 };
 
 } // namespace Ezmaxapi

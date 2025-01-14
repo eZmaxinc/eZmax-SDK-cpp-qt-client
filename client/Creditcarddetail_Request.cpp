@@ -215,7 +215,7 @@ bool Creditcarddetail_Request::isSet() const {
 
 bool Creditcarddetail_Request::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_i_creditcarddetail_expirationmonth_isValid && m_i_creditcarddetail_expirationyear_isValid && true;
+    return m_i_creditcarddetail_expirationmonth_isValid && m_i_creditcarddetail_expirationyear_isValid && m_s_creditcarddetail_civic_isValid && m_s_creditcarddetail_street_isValid && m_s_creditcarddetail_zip_isValid && true;
 }
 
 } // namespace Ezmaxapi

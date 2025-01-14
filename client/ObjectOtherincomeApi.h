@@ -19,7 +19,10 @@
 #include "Oauth.h"
 
 #include "Common_Response_Error.h"
+#include "Otherincome_getCommunicationCount_v1_Response.h"
 #include "Otherincome_getCommunicationList_v1_Response.h"
+#include "Otherincome_getCommunicationrecipients_v1_Response.h"
+#include "Otherincome_getCommunicationsenders_v1_Response.h"
 #include <QString>
 
 #include <QObject>
@@ -61,7 +64,22 @@ public:
     /**
     * @param[in]  pki_otherincome_id qint32 [required]
     */
-    void otherincomeGetCommunicationListV1(const qint32 &pki_otherincome_id);
+    virtual void otherincomeGetCommunicationCountV1(const qint32 &pki_otherincome_id);
+
+    /**
+    * @param[in]  pki_otherincome_id qint32 [required]
+    */
+    virtual void otherincomeGetCommunicationListV1(const qint32 &pki_otherincome_id);
+
+    /**
+    * @param[in]  pki_otherincome_id qint32 [required]
+    */
+    virtual void otherincomeGetCommunicationrecipientsV1(const qint32 &pki_otherincome_id);
+
+    /**
+    * @param[in]  pki_otherincome_id qint32 [required]
+    */
+    virtual void otherincomeGetCommunicationsendersV1(const qint32 &pki_otherincome_id);
 
 
 private:
@@ -86,21 +104,49 @@ private:
     OauthPassword _passwordFlow;
     int _OauthMethod = 0;
 
+    void otherincomeGetCommunicationCountV1Callback(HttpRequestWorker *worker);
     void otherincomeGetCommunicationListV1Callback(HttpRequestWorker *worker);
+    void otherincomeGetCommunicationrecipientsV1Callback(HttpRequestWorker *worker);
+    void otherincomeGetCommunicationsendersV1Callback(HttpRequestWorker *worker);
 
 Q_SIGNALS:
 
+    void otherincomeGetCommunicationCountV1Signal(Otherincome_getCommunicationCount_v1_Response summary);
     void otherincomeGetCommunicationListV1Signal(Otherincome_getCommunicationList_v1_Response summary);
+    void otherincomeGetCommunicationrecipientsV1Signal(Otherincome_getCommunicationrecipients_v1_Response summary);
+    void otherincomeGetCommunicationsendersV1Signal(Otherincome_getCommunicationsenders_v1_Response summary);
 
+
+    void otherincomeGetCommunicationCountV1SignalFull(HttpRequestWorker *worker, Otherincome_getCommunicationCount_v1_Response summary);
     void otherincomeGetCommunicationListV1SignalFull(HttpRequestWorker *worker, Otherincome_getCommunicationList_v1_Response summary);
+    void otherincomeGetCommunicationrecipientsV1SignalFull(HttpRequestWorker *worker, Otherincome_getCommunicationrecipients_v1_Response summary);
+    void otherincomeGetCommunicationsendersV1SignalFull(HttpRequestWorker *worker, Otherincome_getCommunicationsenders_v1_Response summary);
 
+    Q_DECL_DEPRECATED_X("Use otherincomeGetCommunicationCountV1SignalError() instead")
+    void otherincomeGetCommunicationCountV1SignalE(Otherincome_getCommunicationCount_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void otherincomeGetCommunicationCountV1SignalError(Otherincome_getCommunicationCount_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use otherincomeGetCommunicationListV1SignalError() instead")
     void otherincomeGetCommunicationListV1SignalE(Otherincome_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void otherincomeGetCommunicationListV1SignalError(Otherincome_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use otherincomeGetCommunicationrecipientsV1SignalError() instead")
+    void otherincomeGetCommunicationrecipientsV1SignalE(Otherincome_getCommunicationrecipients_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void otherincomeGetCommunicationrecipientsV1SignalError(Otherincome_getCommunicationrecipients_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use otherincomeGetCommunicationsendersV1SignalError() instead")
+    void otherincomeGetCommunicationsendersV1SignalE(Otherincome_getCommunicationsenders_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void otherincomeGetCommunicationsendersV1SignalError(Otherincome_getCommunicationsenders_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use otherincomeGetCommunicationCountV1SignalErrorFull() instead")
+    void otherincomeGetCommunicationCountV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void otherincomeGetCommunicationCountV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use otherincomeGetCommunicationListV1SignalErrorFull() instead")
     void otherincomeGetCommunicationListV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void otherincomeGetCommunicationListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use otherincomeGetCommunicationrecipientsV1SignalErrorFull() instead")
+    void otherincomeGetCommunicationrecipientsV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void otherincomeGetCommunicationrecipientsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use otherincomeGetCommunicationsendersV1SignalErrorFull() instead")
+    void otherincomeGetCommunicationsendersV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void otherincomeGetCommunicationsendersV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();

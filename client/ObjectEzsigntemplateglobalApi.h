@@ -66,12 +66,12 @@ public:
     * @param[in]  s_query QString [optional]
     * @param[in]  accept_language Header_Accept_Language [optional]
     */
-    void ezsigntemplateglobalGetAutocompleteV2(const QString &s_selector, const ::Ezmaxapi::OptionalParam<QString> &e_filter_active = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<QString> &s_query = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<Header_Accept_Language>());
+    virtual void ezsigntemplateglobalGetAutocompleteV2(const QString &s_selector, const ::Ezmaxapi::OptionalParam<QString> &e_filter_active = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<QString> &s_query = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<Header_Accept_Language>());
 
     /**
     * @param[in]  pki_ezsigntemplateglobal_id qint32 [required]
     */
-    void ezsigntemplateglobalGetObjectV2(const qint32 &pki_ezsigntemplateglobal_id);
+    virtual void ezsigntemplateglobalGetObjectV2(const qint32 &pki_ezsigntemplateglobal_id);
 
 
 private:
@@ -103,6 +103,7 @@ Q_SIGNALS:
 
     void ezsigntemplateglobalGetAutocompleteV2Signal(Ezsigntemplateglobal_getAutocomplete_v2_Response summary);
     void ezsigntemplateglobalGetObjectV2Signal(Ezsigntemplateglobal_getObject_v2_Response summary);
+
 
     void ezsigntemplateglobalGetAutocompleteV2SignalFull(HttpRequestWorker *worker, Ezsigntemplateglobal_getAutocomplete_v2_Response summary);
     void ezsigntemplateglobalGetObjectV2SignalFull(HttpRequestWorker *worker, Ezsigntemplateglobal_getObject_v2_Response summary);
