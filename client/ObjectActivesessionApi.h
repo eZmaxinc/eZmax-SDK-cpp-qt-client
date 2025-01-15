@@ -21,6 +21,7 @@
 #include "Activesession_generateFederationToken_v1_Request.h"
 #include "Activesession_generateFederationToken_v1_Response.h"
 #include "Activesession_getCurrent_v1_Response.h"
+#include "Activesession_getCurrent_v2_Response.h"
 #include "Activesession_getList_v1_Response.h"
 #include "Common_Response_Error.h"
 #include "Common_Response_Redirect_sSecretquestionTextX.h"
@@ -70,7 +71,10 @@ public:
     virtual void activesessionGenerateFederationTokenV1(const Activesession_generateFederationToken_v1_Request &activesession_generate_federation_token_v1_request);
 
 
-    virtual void activesessionGetCurrentV1();
+    Q_DECL_DEPRECATED virtual void activesessionGetCurrentV1();
+
+
+    virtual void activesessionGetCurrentV2();
 
     /**
     * @param[in]  e_order_by QString [optional]
@@ -106,17 +110,20 @@ private:
 
     void activesessionGenerateFederationTokenV1Callback(HttpRequestWorker *worker);
     void activesessionGetCurrentV1Callback(HttpRequestWorker *worker);
+    void activesessionGetCurrentV2Callback(HttpRequestWorker *worker);
     void activesessionGetListV1Callback(HttpRequestWorker *worker);
 
 Q_SIGNALS:
 
     void activesessionGenerateFederationTokenV1Signal(Activesession_generateFederationToken_v1_Response summary);
     void activesessionGetCurrentV1Signal(Activesession_getCurrent_v1_Response summary);
+    void activesessionGetCurrentV2Signal(Activesession_getCurrent_v2_Response summary);
     void activesessionGetListV1Signal(Activesession_getList_v1_Response summary);
 
 
     void activesessionGenerateFederationTokenV1SignalFull(HttpRequestWorker *worker, Activesession_generateFederationToken_v1_Response summary);
     void activesessionGetCurrentV1SignalFull(HttpRequestWorker *worker, Activesession_getCurrent_v1_Response summary);
+    void activesessionGetCurrentV2SignalFull(HttpRequestWorker *worker, Activesession_getCurrent_v2_Response summary);
     void activesessionGetListV1SignalFull(HttpRequestWorker *worker, Activesession_getList_v1_Response summary);
 
     Q_DECL_DEPRECATED_X("Use activesessionGenerateFederationTokenV1SignalError() instead")
@@ -125,6 +132,9 @@ Q_SIGNALS:
     Q_DECL_DEPRECATED_X("Use activesessionGetCurrentV1SignalError() instead")
     void activesessionGetCurrentV1SignalE(Activesession_getCurrent_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void activesessionGetCurrentV1SignalError(Activesession_getCurrent_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use activesessionGetCurrentV2SignalError() instead")
+    void activesessionGetCurrentV2SignalE(Activesession_getCurrent_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void activesessionGetCurrentV2SignalError(Activesession_getCurrent_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use activesessionGetListV1SignalError() instead")
     void activesessionGetListV1SignalE(Activesession_getList_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void activesessionGetListV1SignalError(Activesession_getList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -135,6 +145,9 @@ Q_SIGNALS:
     Q_DECL_DEPRECATED_X("Use activesessionGetCurrentV1SignalErrorFull() instead")
     void activesessionGetCurrentV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void activesessionGetCurrentV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use activesessionGetCurrentV2SignalErrorFull() instead")
+    void activesessionGetCurrentV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void activesessionGetCurrentV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use activesessionGetListV1SignalErrorFull() instead")
     void activesessionGetListV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void activesessionGetListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);

@@ -12,6 +12,8 @@ HEADERS += \
     $${PWD}/Activesession_generateFederationToken_v1_Response_mPayload.h \
     $${PWD}/Activesession_getCurrent_v1_Response.h \
     $${PWD}/Activesession_getCurrent_v1_Response_mPayload.h \
+    $${PWD}/Activesession_getCurrent_v2_Response.h \
+    $${PWD}/Activesession_getCurrent_v2_Response_mPayload.h \
     $${PWD}/Activesession_getList_v1_Response.h \
     $${PWD}/Activesession_getList_v1_Response_mPayload.h \
     $${PWD}/Address_Request.h \
@@ -1769,6 +1771,8 @@ SOURCES += \
     $${PWD}/Activesession_generateFederationToken_v1_Response_mPayload.cpp \
     $${PWD}/Activesession_getCurrent_v1_Response.cpp \
     $${PWD}/Activesession_getCurrent_v1_Response_mPayload.cpp \
+    $${PWD}/Activesession_getCurrent_v2_Response.cpp \
+    $${PWD}/Activesession_getCurrent_v2_Response_mPayload.cpp \
     $${PWD}/Activesession_getList_v1_Response.cpp \
     $${PWD}/Activesession_getList_v1_Response_mPayload.cpp \
     $${PWD}/Address_Request.cpp \

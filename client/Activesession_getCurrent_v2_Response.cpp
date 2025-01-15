@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-#include "Webhook_getHistory_v1_Response.h"
+#include "Activesession_getCurrent_v2_Response.h"
 
 #include <QDebug>
 #include <QJsonArray>
@@ -21,18 +21,18 @@
 
 namespace Ezmaxapi {
 
-Webhook_getHistory_v1_Response::Webhook_getHistory_v1_Response(QString json) {
+Activesession_getCurrent_v2_Response::Activesession_getCurrent_v2_Response(QString json) {
     this->initializeModel();
     this->fromJson(json);
 }
 
-Webhook_getHistory_v1_Response::Webhook_getHistory_v1_Response() {
+Activesession_getCurrent_v2_Response::Activesession_getCurrent_v2_Response() {
     this->initializeModel();
 }
 
-Webhook_getHistory_v1_Response::~Webhook_getHistory_v1_Response() {}
+Activesession_getCurrent_v2_Response::~Activesession_getCurrent_v2_Response() {}
 
-void Webhook_getHistory_v1_Response::initializeModel() {
+void Activesession_getCurrent_v2_Response::initializeModel() {
 
     m_obj_debug_payload_isSet = false;
     m_obj_debug_payload_isValid = false;
@@ -44,14 +44,14 @@ void Webhook_getHistory_v1_Response::initializeModel() {
     m_m_payload_isValid = false;
 }
 
-void Webhook_getHistory_v1_Response::fromJson(QString jsonString) {
+void Activesession_getCurrent_v2_Response::fromJson(QString jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();
     this->fromJsonObject(jsonObject);
 }
 
-void Webhook_getHistory_v1_Response::fromJsonObject(QJsonObject json) {
+void Activesession_getCurrent_v2_Response::fromJsonObject(QJsonObject json) {
 
     m_obj_debug_payload_isValid = ::Ezmaxapi::fromJsonValue(m_obj_debug_payload, json[QString("objDebugPayload")]);
     m_obj_debug_payload_isSet = !json[QString("objDebugPayload")].isNull() && m_obj_debug_payload_isValid;
@@ -63,14 +63,14 @@ void Webhook_getHistory_v1_Response::fromJsonObject(QJsonObject json) {
     m_m_payload_isSet = !json[QString("mPayload")].isNull() && m_m_payload_isValid;
 }
 
-QString Webhook_getHistory_v1_Response::asJson() const {
+QString Activesession_getCurrent_v2_Response::asJson() const {
     QJsonObject obj = this->asJsonObject();
     QJsonDocument doc(obj);
     QByteArray bytes = doc.toJson();
     return QString(bytes);
 }
 
-QJsonObject Webhook_getHistory_v1_Response::asJsonObject() const {
+QJsonObject Activesession_getCurrent_v2_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_obj_debug_payload.isSet()) {
         obj.insert(QString("objDebugPayload"), ::Ezmaxapi::toJsonValue(m_obj_debug_payload));
@@ -84,55 +84,55 @@ QJsonObject Webhook_getHistory_v1_Response::asJsonObject() const {
     return obj;
 }
 
-Common_Response_objDebugPayload Webhook_getHistory_v1_Response::getObjDebugPayload() const {
+Common_Response_objDebugPayload Activesession_getCurrent_v2_Response::getObjDebugPayload() const {
     return m_obj_debug_payload;
 }
-void Webhook_getHistory_v1_Response::setObjDebugPayload(const Common_Response_objDebugPayload &obj_debug_payload) {
+void Activesession_getCurrent_v2_Response::setObjDebugPayload(const Common_Response_objDebugPayload &obj_debug_payload) {
     m_obj_debug_payload = obj_debug_payload;
     m_obj_debug_payload_isSet = true;
 }
 
-bool Webhook_getHistory_v1_Response::is_obj_debug_payload_Set() const{
+bool Activesession_getCurrent_v2_Response::is_obj_debug_payload_Set() const{
     return m_obj_debug_payload_isSet;
 }
 
-bool Webhook_getHistory_v1_Response::is_obj_debug_payload_Valid() const{
+bool Activesession_getCurrent_v2_Response::is_obj_debug_payload_Valid() const{
     return m_obj_debug_payload_isValid;
 }
 
-Common_Response_objDebug Webhook_getHistory_v1_Response::getObjDebug() const {
+Common_Response_objDebug Activesession_getCurrent_v2_Response::getObjDebug() const {
     return m_obj_debug;
 }
-void Webhook_getHistory_v1_Response::setObjDebug(const Common_Response_objDebug &obj_debug) {
+void Activesession_getCurrent_v2_Response::setObjDebug(const Common_Response_objDebug &obj_debug) {
     m_obj_debug = obj_debug;
     m_obj_debug_isSet = true;
 }
 
-bool Webhook_getHistory_v1_Response::is_obj_debug_Set() const{
+bool Activesession_getCurrent_v2_Response::is_obj_debug_Set() const{
     return m_obj_debug_isSet;
 }
 
-bool Webhook_getHistory_v1_Response::is_obj_debug_Valid() const{
+bool Activesession_getCurrent_v2_Response::is_obj_debug_Valid() const{
     return m_obj_debug_isValid;
 }
 
-Webhook_getHistory_v1_Response_mPayload Webhook_getHistory_v1_Response::getMPayload() const {
+Activesession_getCurrent_v2_Response_mPayload Activesession_getCurrent_v2_Response::getMPayload() const {
     return m_m_payload;
 }
-void Webhook_getHistory_v1_Response::setMPayload(const Webhook_getHistory_v1_Response_mPayload &m_payload) {
+void Activesession_getCurrent_v2_Response::setMPayload(const Activesession_getCurrent_v2_Response_mPayload &m_payload) {
     m_m_payload = m_payload;
     m_m_payload_isSet = true;
 }
 
-bool Webhook_getHistory_v1_Response::is_m_payload_Set() const{
+bool Activesession_getCurrent_v2_Response::is_m_payload_Set() const{
     return m_m_payload_isSet;
 }
 
-bool Webhook_getHistory_v1_Response::is_m_payload_Valid() const{
+bool Activesession_getCurrent_v2_Response::is_m_payload_Valid() const{
     return m_m_payload_isValid;
 }
 
-bool Webhook_getHistory_v1_Response::isSet() const {
+bool Activesession_getCurrent_v2_Response::isSet() const {
     bool isObjectUpdated = false;
     do {
         if (m_obj_debug_payload.isSet()) {
@@ -153,7 +153,7 @@ bool Webhook_getHistory_v1_Response::isSet() const {
     return isObjectUpdated;
 }
 
-bool Webhook_getHistory_v1_Response::isValid() const {
+bool Activesession_getCurrent_v2_Response::isValid() const {
     // only required properties are required for the object to be considered valid
     return m_obj_debug_payload_isValid && m_m_payload_isValid && true;
 }

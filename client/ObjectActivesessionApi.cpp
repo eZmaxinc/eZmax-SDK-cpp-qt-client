@@ -63,6 +63,8 @@ void ObjectActivesessionApi::initializeServerConfigs() {
     _serverIndices.insert("activesessionGenerateFederationTokenV1", 0);
     _serverConfigs.insert("activesessionGetCurrentV1", defaultConf);
     _serverIndices.insert("activesessionGetCurrentV1", 0);
+    _serverConfigs.insert("activesessionGetCurrentV2", defaultConf);
+    _serverIndices.insert("activesessionGetCurrentV2", 0);
     _serverConfigs.insert("activesessionGetListV1", defaultConf);
     _serverIndices.insert("activesessionGetListV1", 0);
 }
@@ -384,6 +386,80 @@ void ObjectActivesessionApi::activesessionGetCurrentV1Callback(HttpRequestWorker
 
         Q_EMIT activesessionGetCurrentV1SignalError(output, error_type, error_str);
         Q_EMIT activesessionGetCurrentV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectActivesessionApi::activesessionGetCurrentV2() {
+    QString fullPath = QString(_serverConfigs["activesessionGetCurrentV2"][_serverIndices.value("activesessionGetCurrentV2")].URL()+"/2/object/activesession/getCurrent");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectActivesessionApi::activesessionGetCurrentV2Callback);
+    connect(this, &ObjectActivesessionApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectActivesessionApi::activesessionGetCurrentV2Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Activesession_getCurrent_v2_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT activesessionGetCurrentV2Signal(output);
+        Q_EMIT activesessionGetCurrentV2SignalFull(worker, output);
+    } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
+        Q_EMIT activesessionGetCurrentV2SignalE(output, error_type, error_str);
+        Q_EMIT activesessionGetCurrentV2SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        Q_EMIT activesessionGetCurrentV2SignalError(output, error_type, error_str);
+        Q_EMIT activesessionGetCurrentV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 

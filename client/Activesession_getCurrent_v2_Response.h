@@ -11,19 +11,19 @@
  */
 
 /*
- * Webhook_getHistory_v1_Response.h
+ * Activesession_getCurrent_v2_Response.h
  *
- * Response for GET /1/object/webhook/{pkiWebhookID}/getHistory
+ * Response for GET /2/object/activesession/getCurrent
  */
 
-#ifndef Webhook_getHistory_v1_Response_H
-#define Webhook_getHistory_v1_Response_H
+#ifndef Activesession_getCurrent_v2_Response_H
+#define Activesession_getCurrent_v2_Response_H
 
 #include <QJsonObject>
 
+#include "Activesession_getCurrent_v2_Response_mPayload.h"
 #include "Common_Response_objDebug.h"
 #include "Common_Response_objDebugPayload.h"
-#include "Webhook_getHistory_v1_Response_mPayload.h"
 
 #include "Enum.h"
 #include "Object.h"
@@ -31,13 +31,13 @@
 namespace Ezmaxapi {
 class Common_Response_objDebugPayload;
 class Common_Response_objDebug;
-class Webhook_getHistory_v1_Response_mPayload;
+class Activesession_getCurrent_v2_Response_mPayload;
 
-class Webhook_getHistory_v1_Response : public Object {
+class Activesession_getCurrent_v2_Response : public Object {
 public:
-    Webhook_getHistory_v1_Response();
-    Webhook_getHistory_v1_Response(QString json);
-    ~Webhook_getHistory_v1_Response() override;
+    Activesession_getCurrent_v2_Response();
+    Activesession_getCurrent_v2_Response(QString json);
+    ~Activesession_getCurrent_v2_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
@@ -54,8 +54,8 @@ public:
     bool is_obj_debug_Set() const;
     bool is_obj_debug_Valid() const;
 
-    Webhook_getHistory_v1_Response_mPayload getMPayload() const;
-    void setMPayload(const Webhook_getHistory_v1_Response_mPayload &m_payload);
+    Activesession_getCurrent_v2_Response_mPayload getMPayload() const;
+    void setMPayload(const Activesession_getCurrent_v2_Response_mPayload &m_payload);
     bool is_m_payload_Set() const;
     bool is_m_payload_Valid() const;
 
@@ -73,13 +73,13 @@ private:
     bool m_obj_debug_isSet;
     bool m_obj_debug_isValid;
 
-    Webhook_getHistory_v1_Response_mPayload m_m_payload;
+    Activesession_getCurrent_v2_Response_mPayload m_m_payload;
     bool m_m_payload_isSet;
     bool m_m_payload_isValid;
 };
 
 } // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(Ezmaxapi::Webhook_getHistory_v1_Response)
+Q_DECLARE_METATYPE(Ezmaxapi::Activesession_getCurrent_v2_Response)
 
-#endif // Webhook_getHistory_v1_Response_H
+#endif // Activesession_getCurrent_v2_Response_H

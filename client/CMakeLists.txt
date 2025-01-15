@@ -21,6 +21,8 @@ add_library(${PROJECT_NAME}
   Activesession_generateFederationToken_v1_Response_mPayload.h
   Activesession_getCurrent_v1_Response.h
   Activesession_getCurrent_v1_Response_mPayload.h
+  Activesession_getCurrent_v2_Response.h
+  Activesession_getCurrent_v2_Response_mPayload.h
   Activesession_getList_v1_Response.h
   Activesession_getList_v1_Response_mPayload.h
   Address_Request.h
@@ -1773,6 +1775,8 @@ add_library(${PROJECT_NAME}
   Activesession_generateFederationToken_v1_Response_mPayload.cpp
   Activesession_getCurrent_v1_Response.cpp
   Activesession_getCurrent_v1_Response_mPayload.cpp
+  Activesession_getCurrent_v2_Response.cpp
+  Activesession_getCurrent_v2_Response_mPayload.cpp
   Activesession_getList_v1_Response.cpp
   Activesession_getList_v1_Response_mPayload.cpp
   Address_Request.cpp
