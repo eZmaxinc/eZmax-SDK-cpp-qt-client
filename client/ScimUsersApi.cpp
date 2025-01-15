@@ -262,7 +262,7 @@ void ScimUsersApi::usersCreateObjectScimV2(const Scim_User &scim_user) {
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ScimUsersApi::usersCreateObjectScimV2Callback);
     connect(this, &ScimUsersApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -349,7 +349,7 @@ void ScimUsersApi::usersDeleteObjectScimV2(const QString &user_id) {
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ScimUsersApi::usersDeleteObjectScimV2Callback);
     connect(this, &ScimUsersApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -440,7 +440,7 @@ void ScimUsersApi::usersEditObjectScimV2(const QString &user_id, const Scim_User
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ScimUsersApi::usersEditObjectScimV2Callback);
     connect(this, &ScimUsersApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -514,7 +514,7 @@ void ScimUsersApi::usersGetListScimV2(const ::Ezmaxapi::OptionalParam<QString> &
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("filter")).append(querySuffix).append(QUrl::toPercentEncoding(filter.stringValue()));
+        fullPath.append(QUrl::toPercentEncoding("filter")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(filter.stringValue())));
     }
     HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -529,7 +529,7 @@ void ScimUsersApi::usersGetListScimV2(const ::Ezmaxapi::OptionalParam<QString> &
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ScimUsersApi::usersGetListScimV2Callback);
     connect(this, &ScimUsersApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -616,7 +616,7 @@ void ScimUsersApi::usersGetObjectScimV2(const QString &user_id) {
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ScimUsersApi::usersGetObjectScimV2Callback);
     connect(this, &ScimUsersApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }

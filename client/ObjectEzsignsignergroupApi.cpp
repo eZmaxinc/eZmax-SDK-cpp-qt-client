@@ -265,7 +265,7 @@ void ObjectEzsignsignergroupApi::ezsignsignergroupCreateObjectV1(const Ezsignsig
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignsignergroupApi::ezsignsignergroupCreateObjectV1Callback);
     connect(this, &ObjectEzsignsignergroupApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -353,7 +353,7 @@ void ObjectEzsignsignergroupApi::ezsignsignergroupDeleteObjectV1(const qint32 &p
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignsignergroupApi::ezsignsignergroupDeleteObjectV1Callback);
     connect(this, &ObjectEzsignsignergroupApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -369,7 +369,7 @@ void ObjectEzsignsignergroupApi::ezsignsignergroupDeleteObjectV1Callback(HttpReq
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Ezsignsignergroup_deleteObject_v1_Response output(QString(worker->response));
+    Common_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -446,7 +446,7 @@ void ObjectEzsignsignergroupApi::ezsignsignergroupEditEzsignsignergroupmembershi
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignsignergroupApi::ezsignsignergroupEditEzsignsignergroupmembershipsV1Callback);
     connect(this, &ObjectEzsignsignergroupApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -539,7 +539,7 @@ void ObjectEzsignsignergroupApi::ezsignsignergroupEditObjectV1(const qint32 &pki
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignsignergroupApi::ezsignsignergroupEditObjectV1Callback);
     connect(this, &ObjectEzsignsignergroupApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -555,7 +555,7 @@ void ObjectEzsignsignergroupApi::ezsignsignergroupEditObjectV1Callback(HttpReque
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Ezsignsignergroup_editObject_v1_Response output(QString(worker->response));
+    Common_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -627,7 +627,7 @@ void ObjectEzsignsignergroupApi::ezsignsignergroupGetEzsignsignergroupmembership
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignsignergroupApi::ezsignsignergroupGetEzsignsignergroupmembershipsV1Callback);
     connect(this, &ObjectEzsignsignergroupApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -715,7 +715,7 @@ void ObjectEzsignsignergroupApi::ezsignsignergroupGetObjectV2(const qint32 &pki_
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignsignergroupApi::ezsignsignergroupGetObjectV2Callback);
     connect(this, &ObjectEzsignsignergroupApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }

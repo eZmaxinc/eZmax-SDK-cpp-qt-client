@@ -66,10 +66,10 @@ QJsonObject Permission_getObject_v2_Response_mPayload::asJsonObject() const {
     return obj;
 }
 
-Permission_ResponseCompound Permission_getObject_v2_Response_mPayload::getObjPermission() const {
+Permission_Response Permission_getObject_v2_Response_mPayload::getObjPermission() const {
     return m_obj_permission;
 }
-void Permission_getObject_v2_Response_mPayload::setObjPermission(const Permission_ResponseCompound &obj_permission) {
+void Permission_getObject_v2_Response_mPayload::setObjPermission(const Permission_Response &obj_permission) {
     m_obj_permission = obj_permission;
     m_obj_permission_isSet = true;
 }

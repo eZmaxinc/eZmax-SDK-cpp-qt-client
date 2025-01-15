@@ -264,7 +264,7 @@ void ObjectNotificationtestApi::notificationtestGetElementsV1(const qint32 &pki_
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectNotificationtestApi::notificationtestGetElementsV1Callback);
     connect(this, &ObjectNotificationtestApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }

@@ -18,8 +18,8 @@
 #include "ServerConfiguration.h"
 #include "Oauth.h"
 
+#include "Common_Response.h"
 #include "Common_Response_Error.h"
-#include "Ezsignpage_consult_v1_Response.h"
 #include "Object.h"
 #include <QString>
 
@@ -92,14 +92,14 @@ private:
 
 Q_SIGNALS:
 
-    void ezsignpageConsultV1Signal(Ezsignpage_consult_v1_Response summary);
+    void ezsignpageConsultV1Signal(Common_Response summary);
 
 
-    void ezsignpageConsultV1SignalFull(HttpRequestWorker *worker, Ezsignpage_consult_v1_Response summary);
+    void ezsignpageConsultV1SignalFull(HttpRequestWorker *worker, Common_Response summary);
 
     Q_DECL_DEPRECATED_X("Use ezsignpageConsultV1SignalError() instead")
-    void ezsignpageConsultV1SignalE(Ezsignpage_consult_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void ezsignpageConsultV1SignalError(Ezsignpage_consult_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void ezsignpageConsultV1SignalE(Common_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignpageConsultV1SignalError(Common_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     Q_DECL_DEPRECATED_X("Use ezsignpageConsultV1SignalErrorFull() instead")
     void ezsignpageConsultV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);

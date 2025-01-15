@@ -66,10 +66,10 @@ QJsonObject Ezsignfolder_editObject_v3_Request::asJsonObject() const {
     return obj;
 }
 
-Ezsignfolder_RequestCompoundV3 Ezsignfolder_editObject_v3_Request::getObjEzsignfolder() const {
+Ezsignfolder_RequestV3 Ezsignfolder_editObject_v3_Request::getObjEzsignfolder() const {
     return m_obj_ezsignfolder;
 }
-void Ezsignfolder_editObject_v3_Request::setObjEzsignfolder(const Ezsignfolder_RequestCompoundV3 &obj_ezsignfolder) {
+void Ezsignfolder_editObject_v3_Request::setObjEzsignfolder(const Ezsignfolder_RequestV3 &obj_ezsignfolder) {
     m_obj_ezsignfolder = obj_ezsignfolder;
     m_obj_ezsignfolder_isSet = true;
 }

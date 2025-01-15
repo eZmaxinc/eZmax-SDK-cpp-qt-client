@@ -21,19 +21,18 @@
 
 #include <QJsonObject>
 
-#include "Custom_Branding_Response.h"
 #include "Field_eSystemconfigurationEzsign.h"
 #include "Field_eSystemconfigurationEzsignofficeplan.h"
 #include "Field_eSystemconfigurationLanguage1.h"
 #include "Field_eSystemconfigurationLanguage2.h"
 #include "Field_eSystemconfigurationNewexternaluseraction.h"
+#include "Object.h"
 #include <QString>
 
 #include "Enum.h"
 #include "Object.h"
 
 namespace Ezmaxapi {
-class Custom_Branding_Response;
 
 class Systemconfiguration_Response : public Object {
 public:
@@ -126,8 +125,8 @@ public:
     bool is_dt_systemconfiguration_readonlyexpirationend_Set() const;
     bool is_dt_systemconfiguration_readonlyexpirationend_Valid() const;
 
-    Custom_Branding_Response getObjBranding() const;
-    void setObjBranding(const Custom_Branding_Response &obj_branding);
+    Object getObjBranding() const;
+    void setObjBranding(const Object &obj_branding);
     bool is_obj_branding_Set() const;
     bool is_obj_branding_Valid() const;
 
@@ -201,7 +200,7 @@ private:
     bool m_dt_systemconfiguration_readonlyexpirationend_isSet;
     bool m_dt_systemconfiguration_readonlyexpirationend_isValid;
 
-    Custom_Branding_Response m_obj_branding;
+    Object m_obj_branding;
     bool m_obj_branding_isSet;
     bool m_obj_branding_isValid;
 };

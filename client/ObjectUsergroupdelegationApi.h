@@ -18,12 +18,11 @@
 #include "ServerConfiguration.h"
 #include "Oauth.h"
 
+#include "Common_Response.h"
 #include "Common_Response_Error.h"
 #include "Usergroupdelegation_createObject_v1_Request.h"
 #include "Usergroupdelegation_createObject_v1_Response.h"
-#include "Usergroupdelegation_deleteObject_v1_Response.h"
 #include "Usergroupdelegation_editObject_v1_Request.h"
-#include "Usergroupdelegation_editObject_v1_Response.h"
 #include "Usergroupdelegation_getObject_v2_Response.h"
 #include <QString>
 
@@ -115,25 +114,25 @@ private:
 Q_SIGNALS:
 
     void usergroupdelegationCreateObjectV1Signal(Usergroupdelegation_createObject_v1_Response summary);
-    void usergroupdelegationDeleteObjectV1Signal(Usergroupdelegation_deleteObject_v1_Response summary);
-    void usergroupdelegationEditObjectV1Signal(Usergroupdelegation_editObject_v1_Response summary);
+    void usergroupdelegationDeleteObjectV1Signal(Common_Response summary);
+    void usergroupdelegationEditObjectV1Signal(Common_Response summary);
     void usergroupdelegationGetObjectV2Signal(Usergroupdelegation_getObject_v2_Response summary);
 
 
     void usergroupdelegationCreateObjectV1SignalFull(HttpRequestWorker *worker, Usergroupdelegation_createObject_v1_Response summary);
-    void usergroupdelegationDeleteObjectV1SignalFull(HttpRequestWorker *worker, Usergroupdelegation_deleteObject_v1_Response summary);
-    void usergroupdelegationEditObjectV1SignalFull(HttpRequestWorker *worker, Usergroupdelegation_editObject_v1_Response summary);
+    void usergroupdelegationDeleteObjectV1SignalFull(HttpRequestWorker *worker, Common_Response summary);
+    void usergroupdelegationEditObjectV1SignalFull(HttpRequestWorker *worker, Common_Response summary);
     void usergroupdelegationGetObjectV2SignalFull(HttpRequestWorker *worker, Usergroupdelegation_getObject_v2_Response summary);
 
     Q_DECL_DEPRECATED_X("Use usergroupdelegationCreateObjectV1SignalError() instead")
     void usergroupdelegationCreateObjectV1SignalE(Usergroupdelegation_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void usergroupdelegationCreateObjectV1SignalError(Usergroupdelegation_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use usergroupdelegationDeleteObjectV1SignalError() instead")
-    void usergroupdelegationDeleteObjectV1SignalE(Usergroupdelegation_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void usergroupdelegationDeleteObjectV1SignalError(Usergroupdelegation_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void usergroupdelegationDeleteObjectV1SignalE(Common_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void usergroupdelegationDeleteObjectV1SignalError(Common_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use usergroupdelegationEditObjectV1SignalError() instead")
-    void usergroupdelegationEditObjectV1SignalE(Usergroupdelegation_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void usergroupdelegationEditObjectV1SignalError(Usergroupdelegation_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void usergroupdelegationEditObjectV1SignalE(Common_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void usergroupdelegationEditObjectV1SignalError(Common_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use usergroupdelegationGetObjectV2SignalError() instead")
     void usergroupdelegationGetObjectV2SignalE(Usergroupdelegation_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void usergroupdelegationGetObjectV2SignalError(Usergroupdelegation_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);

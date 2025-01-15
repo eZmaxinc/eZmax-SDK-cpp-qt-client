@@ -66,10 +66,10 @@ QJsonObject Ezsigndocument_editObject_v1_Request::asJsonObject() const {
     return obj;
 }
 
-Ezsigndocument_RequestCompound Ezsigndocument_editObject_v1_Request::getObjEzsigndocument() const {
+Ezsigndocument_Request Ezsigndocument_editObject_v1_Request::getObjEzsigndocument() const {
     return m_obj_ezsigndocument;
 }
-void Ezsigndocument_editObject_v1_Request::setObjEzsigndocument(const Ezsigndocument_RequestCompound &obj_ezsigndocument) {
+void Ezsigndocument_editObject_v1_Request::setObjEzsigndocument(const Ezsigndocument_Request &obj_ezsigndocument) {
     m_obj_ezsigndocument = obj_ezsigndocument;
     m_obj_ezsigndocument_isSet = true;
 }

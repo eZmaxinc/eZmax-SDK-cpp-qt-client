@@ -271,7 +271,7 @@ void ObjectSystemconfigurationApi::systemconfigurationEditObjectV1(const qint32 
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectSystemconfigurationApi::systemconfigurationEditObjectV1Callback);
     connect(this, &ObjectSystemconfigurationApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -287,7 +287,7 @@ void ObjectSystemconfigurationApi::systemconfigurationEditObjectV1Callback(HttpR
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Systemconfiguration_editObject_v1_Response output(QString(worker->response));
+    Common_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -359,7 +359,7 @@ void ObjectSystemconfigurationApi::systemconfigurationGetObjectV2(const qint32 &
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectSystemconfigurationApi::systemconfigurationGetObjectV2Callback);
     connect(this, &ObjectSystemconfigurationApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }

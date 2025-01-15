@@ -270,7 +270,7 @@ void ObjectOtherincomeApi::otherincomeGetCommunicationCountV1(const qint32 &pki_
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectOtherincomeApi::otherincomeGetCommunicationCountV1Callback);
     connect(this, &ObjectOtherincomeApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -358,7 +358,7 @@ void ObjectOtherincomeApi::otherincomeGetCommunicationListV1(const qint32 &pki_o
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectOtherincomeApi::otherincomeGetCommunicationListV1Callback);
     connect(this, &ObjectOtherincomeApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -446,7 +446,7 @@ void ObjectOtherincomeApi::otherincomeGetCommunicationrecipientsV1(const qint32 
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectOtherincomeApi::otherincomeGetCommunicationrecipientsV1Callback);
     connect(this, &ObjectOtherincomeApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -534,7 +534,7 @@ void ObjectOtherincomeApi::otherincomeGetCommunicationsendersV1(const qint32 &pk
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectOtherincomeApi::otherincomeGetCommunicationsendersV1Callback);
     connect(this, &ObjectOtherincomeApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }

@@ -271,7 +271,7 @@ void ObjectWebhookApi::webhookCreateObjectV2(const Webhook_createObject_v2_Reque
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectWebhookApi::webhookCreateObjectV2Callback);
     connect(this, &ObjectWebhookApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -359,7 +359,7 @@ void ObjectWebhookApi::webhookDeleteObjectV1(const qint32 &pki_webhook_id) {
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectWebhookApi::webhookDeleteObjectV1Callback);
     connect(this, &ObjectWebhookApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -375,7 +375,7 @@ void ObjectWebhookApi::webhookDeleteObjectV1Callback(HttpRequestWorker *worker) 
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Webhook_deleteObject_v1_Response output(QString(worker->response));
+    Common_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -452,7 +452,7 @@ void ObjectWebhookApi::webhookEditObjectV1(const qint32 &pki_webhook_id, const W
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectWebhookApi::webhookEditObjectV1Callback);
     connect(this, &ObjectWebhookApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -468,7 +468,7 @@ void ObjectWebhookApi::webhookEditObjectV1Callback(HttpRequestWorker *worker) {
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Webhook_editObject_v1_Response output(QString(worker->response));
+    Common_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -541,7 +541,7 @@ void ObjectWebhookApi::webhookGetHistoryV1(const qint32 &pki_webhook_id, const Q
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("eWebhookHistoryinterval")).append(querySuffix).append(QUrl::toPercentEncoding(e_webhook_historyinterval));
+        fullPath.append(QUrl::toPercentEncoding("eWebhookHistoryinterval")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(e_webhook_historyinterval)));
     }
     HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -556,7 +556,7 @@ void ObjectWebhookApi::webhookGetHistoryV1(const qint32 &pki_webhook_id, const Q
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectWebhookApi::webhookGetHistoryV1Callback);
     connect(this, &ObjectWebhookApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -631,7 +631,7 @@ void ObjectWebhookApi::webhookGetListV1(const ::Ezmaxapi::OptionalParam<QString>
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("eOrderBy")).append(querySuffix).append(QUrl::toPercentEncoding(e_order_by.stringValue()));
+        fullPath.append(QUrl::toPercentEncoding("eOrderBy")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(e_order_by.stringValue())));
     }
     if (i_row_max.hasValue())
     {
@@ -646,7 +646,7 @@ void ObjectWebhookApi::webhookGetListV1(const ::Ezmaxapi::OptionalParam<QString>
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("iRowMax")).append(querySuffix).append(QUrl::toPercentEncoding(i_row_max.stringValue()));
+        fullPath.append(QUrl::toPercentEncoding("iRowMax")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(i_row_max.stringValue())));
     }
     if (i_row_offset.hasValue())
     {
@@ -661,7 +661,7 @@ void ObjectWebhookApi::webhookGetListV1(const ::Ezmaxapi::OptionalParam<QString>
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("iRowOffset")).append(querySuffix).append(QUrl::toPercentEncoding(i_row_offset.stringValue()));
+        fullPath.append(QUrl::toPercentEncoding("iRowOffset")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(i_row_offset.stringValue())));
     }
     if (s_filter.hasValue())
     {
@@ -676,7 +676,7 @@ void ObjectWebhookApi::webhookGetListV1(const ::Ezmaxapi::OptionalParam<QString>
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("sFilter")).append(querySuffix).append(QUrl::toPercentEncoding(s_filter.stringValue()));
+        fullPath.append(QUrl::toPercentEncoding("sFilter")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_filter.stringValue())));
     }
     HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -735,7 +735,7 @@ void ObjectWebhookApi::webhookGetListV1(const ::Ezmaxapi::OptionalParam<QString>
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectWebhookApi::webhookGetListV1Callback);
     connect(this, &ObjectWebhookApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -823,7 +823,7 @@ void ObjectWebhookApi::webhookGetObjectV2(const qint32 &pki_webhook_id) {
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectWebhookApi::webhookGetObjectV2Callback);
     connect(this, &ObjectWebhookApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -916,7 +916,7 @@ void ObjectWebhookApi::webhookRegenerateApikeyV1(const qint32 &pki_webhook_id, c
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectWebhookApi::webhookRegenerateApikeyV1Callback);
     connect(this, &ObjectWebhookApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -995,7 +995,7 @@ void ObjectWebhookApi::webhookSendWebhookV1(const Webhook_sendWebhook_v1_Request
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectWebhookApi::webhookSendWebhookV1Callback);
     connect(this, &ObjectWebhookApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -1011,7 +1011,7 @@ void ObjectWebhookApi::webhookSendWebhookV1Callback(HttpRequestWorker *worker) {
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Webhook_sendWebhook_v1_Response output(QString(worker->response));
+    Common_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -1088,7 +1088,7 @@ void ObjectWebhookApi::webhookTestV1(const qint32 &pki_webhook_id, const Object 
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectWebhookApi::webhookTestV1Callback);
     connect(this, &ObjectWebhookApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -1104,7 +1104,7 @@ void ObjectWebhookApi::webhookTestV1Callback(HttpRequestWorker *worker) {
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Webhook_test_v1_Response output(QString(worker->response));
+    Common_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {

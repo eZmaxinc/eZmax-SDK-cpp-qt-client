@@ -22,7 +22,7 @@
 #include <QJsonObject>
 
 #include "Custom_ContactName_Response.h"
-#include "Email_ResponseCompound.h"
+#include "Email_Response.h"
 #include "Phone_ResponseCompound.h"
 #include <QString>
 
@@ -31,7 +31,7 @@
 
 namespace Ezmaxapi {
 class Custom_ContactName_Response;
-class Email_ResponseCompound;
+class Email_Response;
 class Phone_ResponseCompound;
 
 class Custom_Communicationsender_Response : public Object {
@@ -80,8 +80,8 @@ public:
     bool is_obj_contact_name_Set() const;
     bool is_obj_contact_name_Valid() const;
 
-    Email_ResponseCompound getObjEmail() const;
-    void setObjEmail(const Email_ResponseCompound &obj_email);
+    Email_Response getObjEmail() const;
+    void setObjEmail(const Email_Response &obj_email);
     bool is_obj_email_Set() const;
     bool is_obj_email_Valid() const;
 
@@ -129,7 +129,7 @@ private:
     bool m_obj_contact_name_isSet;
     bool m_obj_contact_name_isValid;
 
-    Email_ResponseCompound m_obj_email;
+    Email_Response m_obj_email;
     bool m_obj_email_isSet;
     bool m_obj_email_isValid;
 

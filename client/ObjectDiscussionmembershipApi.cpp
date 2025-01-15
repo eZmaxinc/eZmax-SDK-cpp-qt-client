@@ -257,7 +257,7 @@ void ObjectDiscussionmembershipApi::discussionmembershipCreateObjectV1(const Dis
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectDiscussionmembershipApi::discussionmembershipCreateObjectV1Callback);
     connect(this, &ObjectDiscussionmembershipApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -345,7 +345,7 @@ void ObjectDiscussionmembershipApi::discussionmembershipDeleteObjectV1(const qin
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectDiscussionmembershipApi::discussionmembershipDeleteObjectV1Callback);
     connect(this, &ObjectDiscussionmembershipApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -361,7 +361,7 @@ void ObjectDiscussionmembershipApi::discussionmembershipDeleteObjectV1Callback(H
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Discussionmembership_deleteObject_v1_Response output(QString(worker->response));
+    Common_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {

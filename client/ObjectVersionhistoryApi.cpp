@@ -264,7 +264,7 @@ void ObjectVersionhistoryApi::versionhistoryGetObjectV2(const qint32 &pki_versio
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectVersionhistoryApi::versionhistoryGetObjectV2Callback);
     connect(this, &ObjectVersionhistoryApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }

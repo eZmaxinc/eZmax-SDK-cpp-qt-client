@@ -25,8 +25,8 @@
 #include "Custom_Creditcardtransaction_Response.h"
 #include "Custom_TimezoneWithCode_Response.h"
 #include "Enum_Textvalidation.h"
-#include "Ezsignelementdependency_ResponseCompound.h"
-#include "Ezsignsignaturecustomdate_ResponseCompound.h"
+#include "Ezsignelementdependency_Response.h"
+#include "Ezsignsignaturecustomdate_Response.h"
 #include "Field_eEzsignsignatureAttachmentnamesource.h"
 #include "Field_eEzsignsignatureConsultationtrigger.h"
 #include "Field_eEzsignsignatureDependencyrequirement.h"
@@ -43,9 +43,9 @@
 namespace Ezmaxapi {
 class Custom_ContactName_Response;
 class Signature_ResponseCompound;
-class Ezsignsignaturecustomdate_ResponseCompound;
+class Ezsignsignaturecustomdate_Response;
 class Custom_Creditcardtransaction_Response;
-class Ezsignelementdependency_ResponseCompound;
+class Ezsignelementdependency_Response;
 class Custom_TimezoneWithCode_Response;
 
 class Ezsignsignature_ResponseCompound : public Object {

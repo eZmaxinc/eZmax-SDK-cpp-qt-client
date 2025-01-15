@@ -332,10 +332,10 @@ bool Ezsignfolder_getObject_v1_Response_mPayload::is_fki_ezsignfoldertype_id_Val
     return m_fki_ezsignfoldertype_id_isValid;
 }
 
-Custom_Ezsignfoldertype_Response Ezsignfolder_getObject_v1_Response_mPayload::getObjEzsignfoldertype() const {
+Object Ezsignfolder_getObject_v1_Response_mPayload::getObjEzsignfoldertype() const {
     return m_obj_ezsignfoldertype;
 }
-void Ezsignfolder_getObject_v1_Response_mPayload::setObjEzsignfoldertype(const Custom_Ezsignfoldertype_Response &obj_ezsignfoldertype) {
+void Ezsignfolder_getObject_v1_Response_mPayload::setObjEzsignfoldertype(const Object &obj_ezsignfoldertype) {
     m_obj_ezsignfoldertype = obj_ezsignfoldertype;
     m_obj_ezsignfoldertype_isSet = true;
 }

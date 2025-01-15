@@ -116,10 +116,10 @@ bool Webhook_getHistory_v1_Response::is_obj_debug_Valid() const{
     return m_obj_debug_isValid;
 }
 
-Webhook_getHistory_v1_Response_mPayload Webhook_getHistory_v1_Response::getMPayload() const {
+Object Webhook_getHistory_v1_Response::getMPayload() const {
     return m_m_payload;
 }
-void Webhook_getHistory_v1_Response::setMPayload(const Webhook_getHistory_v1_Response_mPayload &m_payload) {
+void Webhook_getHistory_v1_Response::setMPayload(const Object &m_payload) {
     m_m_payload = m_payload;
     m_m_payload_isSet = true;
 }

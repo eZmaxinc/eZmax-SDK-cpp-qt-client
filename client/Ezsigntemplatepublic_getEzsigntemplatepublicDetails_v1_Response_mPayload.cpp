@@ -84,10 +84,10 @@ QJsonObject Ezsigntemplatepublic_getEzsigntemplatepublicDetails_v1_Response_mPay
     return obj;
 }
 
-Custom_Branding_Response Ezsigntemplatepublic_getEzsigntemplatepublicDetails_v1_Response_mPayload::getObjBranding() const {
+Object Ezsigntemplatepublic_getEzsigntemplatepublicDetails_v1_Response_mPayload::getObjBranding() const {
     return m_obj_branding;
 }
-void Ezsigntemplatepublic_getEzsigntemplatepublicDetails_v1_Response_mPayload::setObjBranding(const Custom_Branding_Response &obj_branding) {
+void Ezsigntemplatepublic_getEzsigntemplatepublicDetails_v1_Response_mPayload::setObjBranding(const Object &obj_branding) {
     m_obj_branding = obj_branding;
     m_obj_branding_isSet = true;
 }

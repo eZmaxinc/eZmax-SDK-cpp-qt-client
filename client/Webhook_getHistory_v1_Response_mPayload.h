@@ -21,14 +21,14 @@
 
 #include <QJsonObject>
 
-#include "Custom_Webhooklog_Response.h"
+#include "Object.h"
 #include <QList>
+#include <QString>
 
 #include "Enum.h"
 #include "Object.h"
 
 namespace Ezmaxapi {
-class Custom_Webhooklog_Response;
 
 class Webhook_getHistory_v1_Response_mPayload : public Object {
 public:
