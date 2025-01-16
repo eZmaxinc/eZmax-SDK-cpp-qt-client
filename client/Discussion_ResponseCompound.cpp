@@ -234,10 +234,10 @@ bool Discussion_ResponseCompound::is_i_discussionmessage_countunread_Valid() con
     return m_i_discussionmessage_countunread_isValid;
 }
 
-Object Discussion_ResponseCompound::getObjDiscussionconfiguration() const {
+Custom_Discussionconfiguration_Response Discussion_ResponseCompound::getObjDiscussionconfiguration() const {
     return m_obj_discussionconfiguration;
 }
-void Discussion_ResponseCompound::setObjDiscussionconfiguration(const Object &obj_discussionconfiguration) {
+void Discussion_ResponseCompound::setObjDiscussionconfiguration(const Custom_Discussionconfiguration_Response &obj_discussionconfiguration) {
     m_obj_discussionconfiguration = obj_discussionconfiguration;
     m_obj_discussionconfiguration_isSet = true;
 }

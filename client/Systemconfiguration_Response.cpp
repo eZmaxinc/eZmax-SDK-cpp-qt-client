@@ -466,10 +466,10 @@ bool Systemconfiguration_Response::is_dt_systemconfiguration_readonlyexpiratione
     return m_dt_systemconfiguration_readonlyexpirationend_isValid;
 }
 
-Object Systemconfiguration_Response::getObjBranding() const {
+Custom_Branding_Response Systemconfiguration_Response::getObjBranding() const {
     return m_obj_branding;
 }
-void Systemconfiguration_Response::setObjBranding(const Object &obj_branding) {
+void Systemconfiguration_Response::setObjBranding(const Custom_Branding_Response &obj_branding) {
     m_obj_branding = obj_branding;
     m_obj_branding_isSet = true;
 }

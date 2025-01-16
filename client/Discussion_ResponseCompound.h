@@ -21,9 +21,9 @@
 
 #include <QJsonObject>
 
+#include "Custom_Discussionconfiguration_Response.h"
 #include "Discussionmembership_ResponseCompound.h"
 #include "Discussionmessage_ResponseCompound.h"
-#include "Object.h"
 #include <QList>
 #include <QString>
 
@@ -31,6 +31,7 @@
 #include "Object.h"
 
 namespace Ezmaxapi {
+class Custom_Discussionconfiguration_Response;
 class Discussionmembership_ResponseCompound;
 class Discussionmessage_ResponseCompound;
 
@@ -75,8 +76,8 @@ public:
     bool is_i_discussionmessage_countunread_Set() const;
     bool is_i_discussionmessage_countunread_Valid() const;
 
-    Object getObjDiscussionconfiguration() const;
-    void setObjDiscussionconfiguration(const Object &obj_discussionconfiguration);
+    Custom_Discussionconfiguration_Response getObjDiscussionconfiguration() const;
+    void setObjDiscussionconfiguration(const Custom_Discussionconfiguration_Response &obj_discussionconfiguration);
     bool is_obj_discussionconfiguration_Set() const;
     bool is_obj_discussionconfiguration_Valid() const;
 
@@ -120,7 +121,7 @@ private:
     bool m_i_discussionmessage_countunread_isSet;
     bool m_i_discussionmessage_countunread_isValid;
 
-    Object m_obj_discussionconfiguration;
+    Custom_Discussionconfiguration_Response m_obj_discussionconfiguration;
     bool m_obj_discussionconfiguration_isSet;
     bool m_obj_discussionconfiguration_isValid;
 

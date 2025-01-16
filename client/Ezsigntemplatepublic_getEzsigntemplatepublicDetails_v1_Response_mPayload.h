@@ -21,7 +21,7 @@
 
 #include <QJsonObject>
 
-#include "Object.h"
+#include "Custom_Branding_Response.h"
 #include <QList>
 #include <QString>
 
@@ -29,6 +29,7 @@
 #include "Object.h"
 
 namespace Ezmaxapi {
+class Custom_Branding_Response;
 
 class Ezsigntemplatepublic_getEzsigntemplatepublicDetails_v1_Response_mPayload : public Object {
 public:
@@ -41,8 +42,8 @@ public:
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    Object getObjBranding() const;
-    void setObjBranding(const Object &obj_branding);
+    Custom_Branding_Response getObjBranding() const;
+    void setObjBranding(const Custom_Branding_Response &obj_branding);
     bool is_obj_branding_Set() const;
     bool is_obj_branding_Valid() const;
 
@@ -62,7 +63,7 @@ public:
 private:
     void initializeModel();
 
-    Object m_obj_branding;
+    Custom_Branding_Response m_obj_branding;
     bool m_obj_branding_isSet;
     bool m_obj_branding_isValid;
 

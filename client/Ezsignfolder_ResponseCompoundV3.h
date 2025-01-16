@@ -23,17 +23,18 @@
 
 #include "Common_Audit.h"
 #include "Computed_eEzsignfolderAccess.h"
+#include "Custom_Ezsignfoldertype_Response.h"
 #include "Custom_TimezoneWithCode_Response.h"
 #include "Field_eEzsignfolderCompletion.h"
 #include "Field_eEzsignfolderDocumentdependency.h"
 #include "Field_eEzsignfolderStep.h"
-#include "Object.h"
 #include <QString>
 
 #include "Enum.h"
 #include "Object.h"
 
 namespace Ezmaxapi {
+class Custom_Ezsignfoldertype_Response;
 class Common_Audit;
 class Custom_TimezoneWithCode_Response;
 
@@ -58,8 +59,8 @@ public:
     bool is_fki_ezsignfoldertype_id_Set() const;
     bool is_fki_ezsignfoldertype_id_Valid() const;
 
-    Object getObjEzsignfoldertype() const;
-    void setObjEzsignfoldertype(const Object &obj_ezsignfoldertype);
+    Custom_Ezsignfoldertype_Response getObjEzsignfoldertype() const;
+    void setObjEzsignfoldertype(const Custom_Ezsignfoldertype_Response &obj_ezsignfoldertype);
     bool is_obj_ezsignfoldertype_Set() const;
     bool is_obj_ezsignfoldertype_Valid() const;
 
@@ -202,7 +203,7 @@ private:
     bool m_fki_ezsignfoldertype_id_isSet;
     bool m_fki_ezsignfoldertype_id_isValid;
 
-    Object m_obj_ezsignfoldertype;
+    Custom_Ezsignfoldertype_Response m_obj_ezsignfoldertype;
     bool m_obj_ezsignfoldertype_isSet;
     bool m_obj_ezsignfoldertype_isValid;
 

@@ -21,13 +21,14 @@
 
 #include <QJsonObject>
 
-#include "Object.h"
+#include "Custom_Discussionconfiguration_Response.h"
 #include <QString>
 
 #include "Enum.h"
 #include "Object.h"
 
 namespace Ezmaxapi {
+class Custom_Discussionconfiguration_Response;
 
 class Discussion_Response : public Object {
 public:
@@ -70,8 +71,8 @@ public:
     bool is_i_discussionmessage_countunread_Set() const;
     bool is_i_discussionmessage_countunread_Valid() const;
 
-    Object getObjDiscussionconfiguration() const;
-    void setObjDiscussionconfiguration(const Object &obj_discussionconfiguration);
+    Custom_Discussionconfiguration_Response getObjDiscussionconfiguration() const;
+    void setObjDiscussionconfiguration(const Custom_Discussionconfiguration_Response &obj_discussionconfiguration);
     bool is_obj_discussionconfiguration_Set() const;
     bool is_obj_discussionconfiguration_Valid() const;
 
@@ -105,7 +106,7 @@ private:
     bool m_i_discussionmessage_countunread_isSet;
     bool m_i_discussionmessage_countunread_isValid;
 
-    Object m_obj_discussionconfiguration;
+    Custom_Discussionconfiguration_Response m_obj_discussionconfiguration;
     bool m_obj_discussionconfiguration_isSet;
     bool m_obj_discussionconfiguration_isValid;
 };
