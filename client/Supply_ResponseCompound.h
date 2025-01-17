@@ -22,7 +22,6 @@
 #include <QJsonObject>
 
 #include "Multilingual_SupplyDescription.h"
-#include "Supply_Response.h"
 #include <QString>
 
 #include "Enum.h"

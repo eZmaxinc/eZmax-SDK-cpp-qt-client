@@ -21,7 +21,6 @@
 
 #include <QJsonObject>
 
-#include "Ezmaxinvoicingsummaryinternal_Response.h"
 #include "Ezmaxinvoicingsummaryinternaldetail_ResponseCompound.h"
 #include "Multilingual_EzmaxinvoicingsummaryinternalDescription.h"
 #include <QList>

@@ -300,7 +300,7 @@ void GlobalEzmaxclientApi::globalEzmaxclientVersionV1(const Field_pksEzmaxclient
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &GlobalEzmaxclientApi::globalEzmaxclientVersionV1Callback);
     connect(this, &GlobalEzmaxclientApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }

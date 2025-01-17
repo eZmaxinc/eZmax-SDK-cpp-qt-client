@@ -266,7 +266,7 @@ void ObjectCommunicationApi::communicationGetCommunicationBodyV1(const qint32 &p
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectCommunicationApi::communicationGetCommunicationBodyV1Callback);
     connect(this, &ObjectCommunicationApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -344,7 +344,7 @@ void ObjectCommunicationApi::communicationSendV1(const Communication_send_v1_Req
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectCommunicationApi::communicationSendV1Callback);
     connect(this, &ObjectCommunicationApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }

@@ -21,10 +21,9 @@
 
 #include <QJsonObject>
 
-#include "Attempt_Response.h"
-#include "Common_Webhook.h"
+#include "Attempt_ResponseCompound.h"
 #include "Custom_Webhook_Response.h"
-#include "Userstaged_Response.h"
+#include "Userstaged_ResponseCompound.h"
 #include <QList>
 
 #include "Enum.h"
@@ -32,8 +31,8 @@
 
 namespace Ezmaxapi {
 class Custom_Webhook_Response;
-class Attempt_Response;
-class Userstaged_Response;
+class Attempt_ResponseCompound;
+class Userstaged_ResponseCompound;
 
 class Webhook_Userstaged_UserstagedCreated : public Object {
 public:
@@ -56,8 +55,8 @@ public:
     bool is_a_obj_attempt_Set() const;
     bool is_a_obj_attempt_Valid() const;
 
-    Userstaged_Response getObjUserstaged() const;
-    void setObjUserstaged(const Userstaged_Response &obj_userstaged);
+    Userstaged_ResponseCompound getObjUserstaged() const;
+    void setObjUserstaged(const Userstaged_ResponseCompound &obj_userstaged);
     bool is_obj_userstaged_Set() const;
     bool is_obj_userstaged_Valid() const;
 
@@ -75,7 +74,7 @@ private:
     bool m_a_obj_attempt_isSet;
     bool m_a_obj_attempt_isValid;
 
-    Userstaged_Response m_obj_userstaged;
+    Userstaged_ResponseCompound m_obj_userstaged;
     bool m_obj_userstaged_isSet;
     bool m_obj_userstaged_isValid;
 };

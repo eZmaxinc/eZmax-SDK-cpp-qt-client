@@ -285,7 +285,7 @@ void ObjectUserApi::userCreateObjectV1(const User_createObject_v1_Request &user_
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectUserApi::userCreateObjectV1Callback);
     connect(this, &ObjectUserApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -364,7 +364,7 @@ void ObjectUserApi::userCreateObjectV2(const User_createObject_v2_Request &user_
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectUserApi::userCreateObjectV2Callback);
     connect(this, &ObjectUserApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -457,7 +457,7 @@ void ObjectUserApi::userEditColleaguesV2(const qint32 &pki_user_id, const User_e
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectUserApi::userEditColleaguesV2Callback);
     connect(this, &ObjectUserApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -550,7 +550,7 @@ void ObjectUserApi::userEditObjectV1(const qint32 &pki_user_id, const User_editO
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectUserApi::userEditObjectV1Callback);
     connect(this, &ObjectUserApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -566,7 +566,7 @@ void ObjectUserApi::userEditObjectV1Callback(HttpRequestWorker *worker) {
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Common_Response output(QString(worker->response));
+    User_editObject_v1_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -643,7 +643,7 @@ void ObjectUserApi::userEditPermissionsV1(const qint32 &pki_user_id, const User_
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectUserApi::userEditPermissionsV1Callback);
     connect(this, &ObjectUserApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -731,7 +731,7 @@ void ObjectUserApi::userGetApikeysV1(const qint32 &pki_user_id) {
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectUserApi::userGetApikeysV1Callback);
     connect(this, &ObjectUserApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -820,7 +820,7 @@ void ObjectUserApi::userGetAutocompleteV2(const QString &s_selector, const ::Ezm
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("eFilterActive")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(e_filter_active.stringValue())));
+        fullPath.append(QUrl::toPercentEncoding("eFilterActive")).append(querySuffix).append(QUrl::toPercentEncoding(e_filter_active.stringValue()));
     }
     if (s_query.hasValue())
     {
@@ -835,7 +835,7 @@ void ObjectUserApi::userGetAutocompleteV2(const QString &s_selector, const ::Ezm
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_query.stringValue())));
+        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(s_query.stringValue()));
     }
     HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -894,7 +894,7 @@ void ObjectUserApi::userGetAutocompleteV2(const QString &s_selector, const ::Ezm
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectUserApi::userGetAutocompleteV2Callback);
     connect(this, &ObjectUserApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -982,7 +982,7 @@ void ObjectUserApi::userGetColleaguesV2(const qint32 &pki_user_id) {
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectUserApi::userGetColleaguesV2Callback);
     connect(this, &ObjectUserApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -1070,7 +1070,7 @@ void ObjectUserApi::userGetEffectivePermissionsV1(const qint32 &pki_user_id) {
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectUserApi::userGetEffectivePermissionsV1Callback);
     connect(this, &ObjectUserApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -1145,7 +1145,7 @@ void ObjectUserApi::userGetListV1(const ::Ezmaxapi::OptionalParam<QString> &e_or
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("eOrderBy")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(e_order_by.stringValue())));
+        fullPath.append(QUrl::toPercentEncoding("eOrderBy")).append(querySuffix).append(QUrl::toPercentEncoding(e_order_by.stringValue()));
     }
     if (i_row_max.hasValue())
     {
@@ -1160,7 +1160,7 @@ void ObjectUserApi::userGetListV1(const ::Ezmaxapi::OptionalParam<QString> &e_or
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("iRowMax")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(i_row_max.stringValue())));
+        fullPath.append(QUrl::toPercentEncoding("iRowMax")).append(querySuffix).append(QUrl::toPercentEncoding(i_row_max.stringValue()));
     }
     if (i_row_offset.hasValue())
     {
@@ -1175,7 +1175,7 @@ void ObjectUserApi::userGetListV1(const ::Ezmaxapi::OptionalParam<QString> &e_or
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("iRowOffset")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(i_row_offset.stringValue())));
+        fullPath.append(QUrl::toPercentEncoding("iRowOffset")).append(querySuffix).append(QUrl::toPercentEncoding(i_row_offset.stringValue()));
     }
     if (s_filter.hasValue())
     {
@@ -1190,7 +1190,7 @@ void ObjectUserApi::userGetListV1(const ::Ezmaxapi::OptionalParam<QString> &e_or
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("sFilter")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_filter.stringValue())));
+        fullPath.append(QUrl::toPercentEncoding("sFilter")).append(querySuffix).append(QUrl::toPercentEncoding(s_filter.stringValue()));
     }
     HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -1249,7 +1249,7 @@ void ObjectUserApi::userGetListV1(const ::Ezmaxapi::OptionalParam<QString> &e_or
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectUserApi::userGetListV1Callback);
     connect(this, &ObjectUserApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -1337,7 +1337,7 @@ void ObjectUserApi::userGetObjectV2(const qint32 &pki_user_id) {
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectUserApi::userGetObjectV2Callback);
     connect(this, &ObjectUserApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -1425,7 +1425,7 @@ void ObjectUserApi::userGetPermissionsV1(const qint32 &pki_user_id) {
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectUserApi::userGetPermissionsV1Callback);
     connect(this, &ObjectUserApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -1513,7 +1513,7 @@ void ObjectUserApi::userGetSubnetsV1(const qint32 &pki_user_id) {
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectUserApi::userGetSubnetsV1Callback);
     connect(this, &ObjectUserApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -1601,7 +1601,7 @@ void ObjectUserApi::userGetUsergroupexternalsV1(const qint32 &pki_user_id) {
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectUserApi::userGetUsergroupexternalsV1Callback);
     connect(this, &ObjectUserApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -1689,7 +1689,7 @@ void ObjectUserApi::userGetUsergroupsV1(const qint32 &pki_user_id) {
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectUserApi::userGetUsergroupsV1Callback);
     connect(this, &ObjectUserApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -1782,7 +1782,7 @@ void ObjectUserApi::userSendPasswordResetV1(const qint32 &pki_user_id, const Obj
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectUserApi::userSendPasswordResetV1Callback);
     connect(this, &ObjectUserApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -1798,7 +1798,7 @@ void ObjectUserApi::userSendPasswordResetV1Callback(HttpRequestWorker *worker) {
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Common_Response output(QString(worker->response));
+    User_sendPasswordReset_v1_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {

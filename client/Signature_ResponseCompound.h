@@ -21,7 +21,6 @@
 
 #include <QJsonObject>
 
-#include "Signature_Response.h"
 #include <QString>
 
 #include "Enum.h"

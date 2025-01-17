@@ -21,7 +21,6 @@
 
 #include <QJsonObject>
 
-#include "Creditcarddetail_Response.h"
 #include <QString>
 
 #include "Enum.h"

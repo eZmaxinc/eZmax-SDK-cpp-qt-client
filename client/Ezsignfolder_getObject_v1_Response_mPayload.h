@@ -24,7 +24,6 @@
 #include "Common_Audit.h"
 #include "Custom_Ezsignfoldertype_Response.h"
 #include "Custom_TimezoneWithCode_Response.h"
-#include "Ezsignfolder_ResponseCompound.h"
 #include "Field_eEzsignfolderCompletion.h"
 #include "Field_eEzsignfolderSendreminderfrequency.h"
 #include "Field_eEzsignfolderStep.h"

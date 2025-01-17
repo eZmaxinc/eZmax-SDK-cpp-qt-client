@@ -246,7 +246,7 @@ void ScimServiceProviderConfigApi::serviceProviderConfigGetObjectScimV2() {
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ScimServiceProviderConfigApi::serviceProviderConfigGetObjectScimV2Callback);
     connect(this, &ScimServiceProviderConfigApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }

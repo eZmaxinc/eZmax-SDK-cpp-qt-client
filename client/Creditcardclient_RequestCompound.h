@@ -21,7 +21,6 @@
 
 #include <QJsonObject>
 
-#include "Creditcardclient_Request.h"
 #include "Creditcarddetail_Request.h"
 #include <QString>
 

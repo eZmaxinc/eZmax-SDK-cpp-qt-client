@@ -22,8 +22,7 @@
 #include <QJsonObject>
 
 #include "Enum_Horizontalalignment.h"
-#include "Ezsigntemplateelementdependency_Response.h"
-#include "Ezsigntemplateformfield_Response.h"
+#include "Ezsigntemplateelementdependency_ResponseCompound.h"
 #include "Field_eEzsigntemplateformfieldDependencyrequirement.h"
 #include "Field_eEzsigntemplateformfieldPositioning.h"
 #include "Field_eEzsigntemplateformfieldPositioningoccurence.h"
@@ -36,7 +35,7 @@
 
 namespace Ezmaxapi {
 class Textstylestatic_ResponseCompound;
-class Ezsigntemplateelementdependency_Response;
+class Ezsigntemplateelementdependency_ResponseCompound;
 
 class Ezsigntemplateformfield_ResponseCompound : public Object {
 public:

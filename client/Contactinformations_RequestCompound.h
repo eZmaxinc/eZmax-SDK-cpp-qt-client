@@ -21,21 +21,20 @@
 
 #include <QJsonObject>
 
-#include "Address_Request.h"
-#include "Contactinformations_Request.h"
-#include "Email_Request.h"
-#include "Phone_Request.h"
-#include "Website_Request.h"
+#include "Address_RequestCompound.h"
+#include "Email_RequestCompound.h"
+#include "Phone_RequestCompound.h"
+#include "Website_RequestCompound.h"
 #include <QList>
 
 #include "Enum.h"
 #include "Object.h"
 
 namespace Ezmaxapi {
-class Address_Request;
-class Phone_Request;
-class Email_Request;
-class Website_Request;
+class Address_RequestCompound;
+class Phone_RequestCompound;
+class Email_RequestCompound;
+class Website_RequestCompound;
 
 class Contactinformations_RequestCompound : public Object {
 public:

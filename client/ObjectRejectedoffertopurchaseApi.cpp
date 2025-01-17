@@ -270,7 +270,7 @@ void ObjectRejectedoffertopurchaseApi::rejectedoffertopurchaseGetCommunicationCo
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectRejectedoffertopurchaseApi::rejectedoffertopurchaseGetCommunicationCountV1Callback);
     connect(this, &ObjectRejectedoffertopurchaseApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -358,7 +358,7 @@ void ObjectRejectedoffertopurchaseApi::rejectedoffertopurchaseGetCommunicationLi
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectRejectedoffertopurchaseApi::rejectedoffertopurchaseGetCommunicationListV1Callback);
     connect(this, &ObjectRejectedoffertopurchaseApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -446,7 +446,7 @@ void ObjectRejectedoffertopurchaseApi::rejectedoffertopurchaseGetCommunicationre
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectRejectedoffertopurchaseApi::rejectedoffertopurchaseGetCommunicationrecipientsV1Callback);
     connect(this, &ObjectRejectedoffertopurchaseApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -534,7 +534,7 @@ void ObjectRejectedoffertopurchaseApi::rejectedoffertopurchaseGetCommunicationse
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectRejectedoffertopurchaseApi::rejectedoffertopurchaseGetCommunicationsendersV1Callback);
     connect(this, &ObjectRejectedoffertopurchaseApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }

@@ -23,7 +23,6 @@
 
 #include "Email_Request.h"
 #include "Multilingual_UsergroupName.h"
-#include "Usergroup_Response.h"
 #include <QString>
 
 #include "Enum.h"

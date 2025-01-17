@@ -261,7 +261,7 @@ void GlobalCustomerApi::globalCustomerGetEndpointV1(const QString &pks_customer_
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("sInfrastructureproductCode")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_infrastructureproduct_code.stringValue())));
+        fullPath.append(QUrl::toPercentEncoding("sInfrastructureproductCode")).append(querySuffix).append(QUrl::toPercentEncoding(s_infrastructureproduct_code.stringValue()));
     }
     HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -276,7 +276,7 @@ void GlobalCustomerApi::globalCustomerGetEndpointV1(const QString &pks_customer_
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &GlobalCustomerApi::globalCustomerGetEndpointV1Callback);
     connect(this, &GlobalCustomerApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }

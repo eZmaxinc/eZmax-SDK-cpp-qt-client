@@ -21,7 +21,6 @@
 
 #include <QJsonObject>
 
-#include "Customer_Request.h"
 #include "Field_eCustomerMarketingcorrespondence.h"
 #include "Field_eCustomerType.h"
 #include <QString>

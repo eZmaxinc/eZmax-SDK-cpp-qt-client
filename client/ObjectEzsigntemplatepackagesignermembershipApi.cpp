@@ -259,7 +259,7 @@ void ObjectEzsigntemplatepackagesignermembershipApi::ezsigntemplatepackagesigner
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsigntemplatepackagesignermembershipApi::ezsigntemplatepackagesignermembershipCreateObjectV1Callback);
     connect(this, &ObjectEzsigntemplatepackagesignermembershipApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -347,7 +347,7 @@ void ObjectEzsigntemplatepackagesignermembershipApi::ezsigntemplatepackagesigner
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsigntemplatepackagesignermembershipApi::ezsigntemplatepackagesignermembershipDeleteObjectV1Callback);
     connect(this, &ObjectEzsigntemplatepackagesignermembershipApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -435,7 +435,7 @@ void ObjectEzsigntemplatepackagesignermembershipApi::ezsigntemplatepackagesigner
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsigntemplatepackagesignermembershipApi::ezsigntemplatepackagesignermembershipGetObjectV2Callback);
     connect(this, &ObjectEzsigntemplatepackagesignermembershipApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }

@@ -261,7 +261,7 @@ void ObjectEzsigntemplatesignerApi::ezsigntemplatesignerCreateObjectV1(const Ezs
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsigntemplatesignerApi::ezsigntemplatesignerCreateObjectV1Callback);
     connect(this, &ObjectEzsigntemplatesignerApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -349,7 +349,7 @@ void ObjectEzsigntemplatesignerApi::ezsigntemplatesignerDeleteObjectV1(const qin
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsigntemplatesignerApi::ezsigntemplatesignerDeleteObjectV1Callback);
     connect(this, &ObjectEzsigntemplatesignerApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -442,7 +442,7 @@ void ObjectEzsigntemplatesignerApi::ezsigntemplatesignerEditObjectV1(const qint3
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsigntemplatesignerApi::ezsigntemplatesignerEditObjectV1Callback);
     connect(this, &ObjectEzsigntemplatesignerApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -530,7 +530,7 @@ void ObjectEzsigntemplatesignerApi::ezsigntemplatesignerGetObjectV2(const qint32
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsigntemplatesignerApi::ezsigntemplatesignerGetObjectV2Callback);
     connect(this, &ObjectEzsigntemplatesignerApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }

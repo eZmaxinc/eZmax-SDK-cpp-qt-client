@@ -270,7 +270,7 @@ void ObjectEzsignsignatureApi::ezsignsignatureCreateObjectV1(const QList<Ezsigns
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignsignatureApi::ezsignsignatureCreateObjectV1Callback);
     connect(this, &ObjectEzsignsignatureApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -349,7 +349,7 @@ void ObjectEzsignsignatureApi::ezsignsignatureCreateObjectV2(const Ezsignsignatu
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignsignatureApi::ezsignsignatureCreateObjectV2Callback);
     connect(this, &ObjectEzsignsignatureApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -428,7 +428,7 @@ void ObjectEzsignsignatureApi::ezsignsignatureCreateObjectV3(const Ezsignsignatu
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignsignatureApi::ezsignsignatureCreateObjectV3Callback);
     connect(this, &ObjectEzsignsignatureApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -516,7 +516,7 @@ void ObjectEzsignsignatureApi::ezsignsignatureDeleteObjectV1(const qint32 &pki_e
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignsignatureApi::ezsignsignatureDeleteObjectV1Callback);
     connect(this, &ObjectEzsignsignatureApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -532,7 +532,7 @@ void ObjectEzsignsignatureApi::ezsignsignatureDeleteObjectV1Callback(HttpRequest
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Common_Response output(QString(worker->response));
+    Ezsignsignature_deleteObject_v1_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -609,7 +609,7 @@ void ObjectEzsignsignatureApi::ezsignsignatureEditObjectV2(const qint32 &pki_ezs
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignsignatureApi::ezsignsignatureEditObjectV2Callback);
     connect(this, &ObjectEzsignsignatureApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -625,7 +625,7 @@ void ObjectEzsignsignatureApi::ezsignsignatureEditObjectV2Callback(HttpRequestWo
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Common_Response output(QString(worker->response));
+    Ezsignsignature_editObject_v2_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -697,7 +697,7 @@ void ObjectEzsignsignatureApi::ezsignsignatureGetEzsignsignatureattachmentV1(con
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignsignatureApi::ezsignsignatureGetEzsignsignatureattachmentV1Callback);
     connect(this, &ObjectEzsignsignatureApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -771,7 +771,7 @@ void ObjectEzsignsignatureApi::ezsignsignatureGetEzsignsignaturesAutomaticV1() {
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignsignatureApi::ezsignsignatureGetEzsignsignaturesAutomaticV1Callback);
     connect(this, &ObjectEzsignsignatureApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -859,7 +859,7 @@ void ObjectEzsignsignatureApi::ezsignsignatureGetObjectV3(const qint32 &pki_ezsi
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignsignatureApi::ezsignsignatureGetObjectV3Callback);
     connect(this, &ObjectEzsignsignatureApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -952,7 +952,7 @@ void ObjectEzsignsignatureApi::ezsignsignatureSignV1(const qint32 &pki_ezsignsig
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignsignatureApi::ezsignsignatureSignV1Callback);
     connect(this, &ObjectEzsignsignatureApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }

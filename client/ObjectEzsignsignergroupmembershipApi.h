@@ -18,10 +18,10 @@
 #include "ServerConfiguration.h"
 #include "Oauth.h"
 
-#include "Common_Response.h"
 #include "Common_Response_Error.h"
 #include "Ezsignsignergroupmembership_createObject_v1_Request.h"
 #include "Ezsignsignergroupmembership_createObject_v1_Response.h"
+#include "Ezsignsignergroupmembership_deleteObject_v1_Response.h"
 #include "Ezsignsignergroupmembership_getObject_v2_Response.h"
 #include <QString>
 
@@ -106,20 +106,20 @@ private:
 Q_SIGNALS:
 
     void ezsignsignergroupmembershipCreateObjectV1Signal(Ezsignsignergroupmembership_createObject_v1_Response summary);
-    void ezsignsignergroupmembershipDeleteObjectV1Signal(Common_Response summary);
+    void ezsignsignergroupmembershipDeleteObjectV1Signal(Ezsignsignergroupmembership_deleteObject_v1_Response summary);
     void ezsignsignergroupmembershipGetObjectV2Signal(Ezsignsignergroupmembership_getObject_v2_Response summary);
 
 
     void ezsignsignergroupmembershipCreateObjectV1SignalFull(HttpRequestWorker *worker, Ezsignsignergroupmembership_createObject_v1_Response summary);
-    void ezsignsignergroupmembershipDeleteObjectV1SignalFull(HttpRequestWorker *worker, Common_Response summary);
+    void ezsignsignergroupmembershipDeleteObjectV1SignalFull(HttpRequestWorker *worker, Ezsignsignergroupmembership_deleteObject_v1_Response summary);
     void ezsignsignergroupmembershipGetObjectV2SignalFull(HttpRequestWorker *worker, Ezsignsignergroupmembership_getObject_v2_Response summary);
 
     Q_DECL_DEPRECATED_X("Use ezsignsignergroupmembershipCreateObjectV1SignalError() instead")
     void ezsignsignergroupmembershipCreateObjectV1SignalE(Ezsignsignergroupmembership_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignsignergroupmembershipCreateObjectV1SignalError(Ezsignsignergroupmembership_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsignsignergroupmembershipDeleteObjectV1SignalError() instead")
-    void ezsignsignergroupmembershipDeleteObjectV1SignalE(Common_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void ezsignsignergroupmembershipDeleteObjectV1SignalError(Common_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void ezsignsignergroupmembershipDeleteObjectV1SignalE(Ezsignsignergroupmembership_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignsignergroupmembershipDeleteObjectV1SignalError(Ezsignsignergroupmembership_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsignsignergroupmembershipGetObjectV2SignalError() instead")
     void ezsignsignergroupmembershipGetObjectV2SignalE(Ezsignsignergroupmembership_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignsignergroupmembershipGetObjectV2SignalError(Ezsignsignergroupmembership_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);

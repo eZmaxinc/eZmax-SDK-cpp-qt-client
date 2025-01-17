@@ -22,9 +22,8 @@
 #include <QJsonObject>
 
 #include "Enum_Textvalidation.h"
-#include "Ezsignelementdependency_Request.h"
-#include "Ezsignsignature_Request.h"
-#include "Ezsignsignaturecustomdate_Request.h"
+#include "Ezsignelementdependency_RequestCompound.h"
+#include "Ezsignsignaturecustomdate_RequestCompound.h"
 #include "Field_eEzsignsignatureAttachmentnamesource.h"
 #include "Field_eEzsignsignatureConsultationtrigger.h"
 #include "Field_eEzsignsignatureDependencyrequirement.h"
@@ -38,8 +37,8 @@
 #include "Object.h"
 
 namespace Ezmaxapi {
-class Ezsignsignaturecustomdate_Request;
-class Ezsignelementdependency_Request;
+class Ezsignsignaturecustomdate_RequestCompound;
+class Ezsignelementdependency_RequestCompound;
 
 class Ezsignsignature_RequestCompound : public Object {
 public:

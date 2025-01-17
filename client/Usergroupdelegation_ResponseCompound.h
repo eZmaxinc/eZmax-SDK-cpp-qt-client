@@ -21,7 +21,6 @@
 
 #include <QJsonObject>
 
-#include "Usergroupdelegation_Response.h"
 #include <QString>
 
 #include "Enum.h"

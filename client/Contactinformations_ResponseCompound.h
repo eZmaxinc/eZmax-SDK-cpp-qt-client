@@ -21,12 +21,11 @@
 
 #include <QJsonObject>
 
-#include "Address_Response.h"
-#include "Contactinformations_Response.h"
-#include "Email_Response.h"
+#include "Address_ResponseCompound.h"
+#include "Email_ResponseCompound.h"
 #include "Field_eContactinformationsType.h"
 #include "Phone_ResponseCompound.h"
-#include "Website_Response.h"
+#include "Website_ResponseCompound.h"
 #include <QList>
 #include <QString>
 
@@ -34,10 +33,10 @@
 #include "Object.h"
 
 namespace Ezmaxapi {
-class Address_Response;
+class Address_ResponseCompound;
 class Phone_ResponseCompound;
-class Email_Response;
-class Website_Response;
+class Email_ResponseCompound;
+class Website_ResponseCompound;
 
 class Contactinformations_ResponseCompound : public Object {
 public:
@@ -85,8 +84,8 @@ public:
     bool is_s_contactinformations_url_Set() const;
     bool is_s_contactinformations_url_Valid() const;
 
-    Address_Response getObjAddressDefault() const;
-    void setObjAddressDefault(const Address_Response &obj_address_default);
+    Address_ResponseCompound getObjAddressDefault() const;
+    void setObjAddressDefault(const Address_ResponseCompound &obj_address_default);
     bool is_obj_address_default_Set() const;
     bool is_obj_address_default_Valid() const;
 
@@ -95,13 +94,13 @@ public:
     bool is_obj_phone_default_Set() const;
     bool is_obj_phone_default_Valid() const;
 
-    Email_Response getObjEmailDefault() const;
-    void setObjEmailDefault(const Email_Response &obj_email_default);
+    Email_ResponseCompound getObjEmailDefault() const;
+    void setObjEmailDefault(const Email_ResponseCompound &obj_email_default);
     bool is_obj_email_default_Set() const;
     bool is_obj_email_default_Valid() const;
 
-    Website_Response getObjWebsiteDefault() const;
-    void setObjWebsiteDefault(const Website_Response &obj_website_default);
+    Website_ResponseCompound getObjWebsiteDefault() const;
+    void setObjWebsiteDefault(const Website_ResponseCompound &obj_website_default);
     bool is_obj_website_default_Set() const;
     bool is_obj_website_default_Valid() const;
 
@@ -159,7 +158,7 @@ private:
     bool m_s_contactinformations_url_isSet;
     bool m_s_contactinformations_url_isValid;
 
-    Address_Response m_obj_address_default;
+    Address_ResponseCompound m_obj_address_default;
     bool m_obj_address_default_isSet;
     bool m_obj_address_default_isValid;
 
@@ -167,11 +166,11 @@ private:
     bool m_obj_phone_default_isSet;
     bool m_obj_phone_default_isValid;
 
-    Email_Response m_obj_email_default;
+    Email_ResponseCompound m_obj_email_default;
     bool m_obj_email_default_isSet;
     bool m_obj_email_default_isValid;
 
-    Website_Response m_obj_website_default;
+    Website_ResponseCompound m_obj_website_default;
     bool m_obj_website_default_isSet;
     bool m_obj_website_default_isValid;
 

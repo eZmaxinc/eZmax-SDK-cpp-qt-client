@@ -21,7 +21,6 @@
 
 #include <QJsonObject>
 
-#include "Cors_Response.h"
 #include <QString>
 
 #include "Enum.h"

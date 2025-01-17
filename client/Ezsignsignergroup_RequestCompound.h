@@ -21,7 +21,6 @@
 
 #include <QJsonObject>
 
-#include "Ezsignsignergroup_Request.h"
 #include "Multilingual_EzsignsignergroupDescription.h"
 
 #include "Enum.h"

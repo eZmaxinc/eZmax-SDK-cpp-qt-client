@@ -23,7 +23,6 @@
 
 #include "Common_Audit.h"
 #include "Custom_Ezsignfoldertransmission_Response.h"
-#include "Ezsignbulksendtransmission_Response.h"
 #include <QList>
 #include <QString>
 

@@ -22,7 +22,6 @@
 #include <QJsonObject>
 
 #include "Discussion_Request.h"
-#include "Ezsigndiscussion_Request.h"
 
 #include "Enum.h"
 #include "Object.h"

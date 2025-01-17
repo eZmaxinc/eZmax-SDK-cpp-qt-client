@@ -281,7 +281,7 @@ void ObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentCreateObjectV1(const
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentCreateObjectV1Callback);
     connect(this, &ObjectEzsigntemplatedocumentApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -374,7 +374,7 @@ void ObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentEditEzsigntemplatedo
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentEditEzsigntemplatedocumentpagerecognitionsV1Callback);
     connect(this, &ObjectEzsigntemplatedocumentApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -467,7 +467,7 @@ void ObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentEditEzsigntemplatefo
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentEditEzsigntemplateformfieldgroupsV1Callback);
     connect(this, &ObjectEzsigntemplatedocumentApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -560,7 +560,7 @@ void ObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentEditEzsigntemplatesi
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentEditEzsigntemplatesignaturesV1Callback);
     connect(this, &ObjectEzsigntemplatedocumentApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -653,7 +653,7 @@ void ObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentEditObjectV1(const q
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentEditObjectV1Callback);
     connect(this, &ObjectEzsigntemplatedocumentApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -746,7 +746,7 @@ void ObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentExtractTextV1(const 
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentExtractTextV1Callback);
     connect(this, &ObjectEzsigntemplatedocumentApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -839,7 +839,7 @@ void ObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentFlattenV1(const qint
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentFlattenV1Callback);
     connect(this, &ObjectEzsigntemplatedocumentApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -855,7 +855,7 @@ void ObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentFlattenV1Callback(Ht
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Common_Response output(QString(worker->response));
+    Ezsigntemplatedocument_flatten_v1_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -927,7 +927,7 @@ void ObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentGetEzsigntemplatedoc
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentGetEzsigntemplatedocumentpagerecognitionsV1Callback);
     connect(this, &ObjectEzsigntemplatedocumentApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -1015,7 +1015,7 @@ void ObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentGetEzsigntemplatedoc
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentGetEzsigntemplatedocumentpagesV1Callback);
     connect(this, &ObjectEzsigntemplatedocumentApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -1103,7 +1103,7 @@ void ObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentGetEzsigntemplatefor
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentGetEzsigntemplateformfieldgroupsV1Callback);
     connect(this, &ObjectEzsigntemplatedocumentApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -1191,7 +1191,7 @@ void ObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentGetEzsigntemplatesig
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentGetEzsigntemplatesignaturesV1Callback);
     connect(this, &ObjectEzsigntemplatedocumentApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -1279,7 +1279,7 @@ void ObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentGetObjectV2(const qi
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentGetObjectV2Callback);
     connect(this, &ObjectEzsigntemplatedocumentApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -1372,7 +1372,7 @@ void ObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentGetWordsPositionsV1(
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentGetWordsPositionsV1Callback);
     connect(this, &ObjectEzsigntemplatedocumentApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -1465,7 +1465,7 @@ void ObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentPatchObjectV1(const 
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentPatchObjectV1Callback);
     connect(this, &ObjectEzsigntemplatedocumentApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -1481,7 +1481,7 @@ void ObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentPatchObjectV1Callbac
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Common_Response output(QString(worker->response));
+    Ezsigntemplatedocument_patchObject_v1_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {

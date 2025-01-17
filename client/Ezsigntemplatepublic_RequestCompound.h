@@ -21,7 +21,6 @@
 
 #include <QJsonObject>
 
-#include "Ezsigntemplatepublic_Request.h"
 #include "Field_eEzsigntemplatepublicLimittype.h"
 #include <QString>
 

@@ -21,7 +21,6 @@
 
 #include <QJsonObject>
 
-#include "Communicationexternalrecipient_Request.h"
 #include "Field_eCommunicationexternalrecipientType.h"
 #include <QString>
 

@@ -21,7 +21,6 @@
 
 #include <QJsonObject>
 
-#include "Common_Response_Error.h"
 #include "Custom_Creditcardtransactionresponse_Response.h"
 #include "Field_eErrorCode.h"
 #include <QList>

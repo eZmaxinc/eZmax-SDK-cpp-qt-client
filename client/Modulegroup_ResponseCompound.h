@@ -22,7 +22,6 @@
 #include <QJsonObject>
 
 #include "Module_ResponseCompound.h"
-#include "Modulegroup_Response.h"
 #include <QList>
 #include <QString>
 

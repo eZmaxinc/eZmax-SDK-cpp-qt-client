@@ -304,10 +304,10 @@ bool Contactinformations_ResponseCompound::is_s_contactinformations_url_Valid() 
     return m_s_contactinformations_url_isValid;
 }
 
-Address_Response Contactinformations_ResponseCompound::getObjAddressDefault() const {
+Address_ResponseCompound Contactinformations_ResponseCompound::getObjAddressDefault() const {
     return m_obj_address_default;
 }
-void Contactinformations_ResponseCompound::setObjAddressDefault(const Address_Response &obj_address_default) {
+void Contactinformations_ResponseCompound::setObjAddressDefault(const Address_ResponseCompound &obj_address_default) {
     m_obj_address_default = obj_address_default;
     m_obj_address_default_isSet = true;
 }
@@ -336,10 +336,10 @@ bool Contactinformations_ResponseCompound::is_obj_phone_default_Valid() const{
     return m_obj_phone_default_isValid;
 }
 
-Email_Response Contactinformations_ResponseCompound::getObjEmailDefault() const {
+Email_ResponseCompound Contactinformations_ResponseCompound::getObjEmailDefault() const {
     return m_obj_email_default;
 }
-void Contactinformations_ResponseCompound::setObjEmailDefault(const Email_Response &obj_email_default) {
+void Contactinformations_ResponseCompound::setObjEmailDefault(const Email_ResponseCompound &obj_email_default) {
     m_obj_email_default = obj_email_default;
     m_obj_email_default_isSet = true;
 }
@@ -352,10 +352,10 @@ bool Contactinformations_ResponseCompound::is_obj_email_default_Valid() const{
     return m_obj_email_default_isValid;
 }
 
-Website_Response Contactinformations_ResponseCompound::getObjWebsiteDefault() const {
+Website_ResponseCompound Contactinformations_ResponseCompound::getObjWebsiteDefault() const {
     return m_obj_website_default;
 }
-void Contactinformations_ResponseCompound::setObjWebsiteDefault(const Website_Response &obj_website_default) {
+void Contactinformations_ResponseCompound::setObjWebsiteDefault(const Website_ResponseCompound &obj_website_default) {
     m_obj_website_default = obj_website_default;
     m_obj_website_default_isSet = true;
 }

@@ -272,7 +272,7 @@ void ModuleReportApi::reportGetReportFromCacheV1(const QString &s_reportgroup_ca
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ModuleReportApi::reportGetReportFromCacheV1Callback);
     connect(this, &ModuleReportApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }

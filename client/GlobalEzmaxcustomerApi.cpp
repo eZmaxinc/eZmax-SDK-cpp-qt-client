@@ -260,7 +260,7 @@ void GlobalEzmaxcustomerApi::globalEzmaxcustomerGetConfigurationV1(const QString
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &GlobalEzmaxcustomerApi::globalEzmaxcustomerGetConfigurationV1Callback);
     connect(this, &GlobalEzmaxcustomerApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }

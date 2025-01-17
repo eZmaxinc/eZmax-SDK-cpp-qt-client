@@ -270,7 +270,7 @@ void ObjectInscriptiontempApi::inscriptiontempGetCommunicationCountV1(const qint
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectInscriptiontempApi::inscriptiontempGetCommunicationCountV1Callback);
     connect(this, &ObjectInscriptiontempApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -358,7 +358,7 @@ void ObjectInscriptiontempApi::inscriptiontempGetCommunicationListV1(const qint3
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectInscriptiontempApi::inscriptiontempGetCommunicationListV1Callback);
     connect(this, &ObjectInscriptiontempApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -446,7 +446,7 @@ void ObjectInscriptiontempApi::inscriptiontempGetCommunicationrecipientsV1(const
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectInscriptiontempApi::inscriptiontempGetCommunicationrecipientsV1Callback);
     connect(this, &ObjectInscriptiontempApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -534,7 +534,7 @@ void ObjectInscriptiontempApi::inscriptiontempGetCommunicationsendersV1(const qi
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectInscriptiontempApi::inscriptiontempGetCommunicationsendersV1Callback);
     connect(this, &ObjectInscriptiontempApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }

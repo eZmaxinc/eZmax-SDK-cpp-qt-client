@@ -18,11 +18,12 @@
 #include "ServerConfiguration.h"
 #include "Oauth.h"
 
-#include "Common_Response.h"
 #include "Common_Response_Error.h"
 #include "Cors_createObject_v1_Request.h"
 #include "Cors_createObject_v1_Response.h"
+#include "Cors_deleteObject_v1_Response.h"
 #include "Cors_editObject_v1_Request.h"
+#include "Cors_editObject_v1_Response.h"
 #include "Cors_getObject_v2_Response.h"
 #include <QString>
 
@@ -114,25 +115,25 @@ private:
 Q_SIGNALS:
 
     void corsCreateObjectV1Signal(Cors_createObject_v1_Response summary);
-    void corsDeleteObjectV1Signal(Common_Response summary);
-    void corsEditObjectV1Signal(Common_Response summary);
+    void corsDeleteObjectV1Signal(Cors_deleteObject_v1_Response summary);
+    void corsEditObjectV1Signal(Cors_editObject_v1_Response summary);
     void corsGetObjectV2Signal(Cors_getObject_v2_Response summary);
 
 
     void corsCreateObjectV1SignalFull(HttpRequestWorker *worker, Cors_createObject_v1_Response summary);
-    void corsDeleteObjectV1SignalFull(HttpRequestWorker *worker, Common_Response summary);
-    void corsEditObjectV1SignalFull(HttpRequestWorker *worker, Common_Response summary);
+    void corsDeleteObjectV1SignalFull(HttpRequestWorker *worker, Cors_deleteObject_v1_Response summary);
+    void corsEditObjectV1SignalFull(HttpRequestWorker *worker, Cors_editObject_v1_Response summary);
     void corsGetObjectV2SignalFull(HttpRequestWorker *worker, Cors_getObject_v2_Response summary);
 
     Q_DECL_DEPRECATED_X("Use corsCreateObjectV1SignalError() instead")
     void corsCreateObjectV1SignalE(Cors_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void corsCreateObjectV1SignalError(Cors_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use corsDeleteObjectV1SignalError() instead")
-    void corsDeleteObjectV1SignalE(Common_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void corsDeleteObjectV1SignalError(Common_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void corsDeleteObjectV1SignalE(Cors_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void corsDeleteObjectV1SignalError(Cors_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use corsEditObjectV1SignalError() instead")
-    void corsEditObjectV1SignalE(Common_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void corsEditObjectV1SignalError(Common_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void corsEditObjectV1SignalE(Cors_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void corsEditObjectV1SignalError(Cors_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use corsGetObjectV2SignalError() instead")
     void corsGetObjectV2SignalE(Cors_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void corsGetObjectV2SignalError(Cors_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);

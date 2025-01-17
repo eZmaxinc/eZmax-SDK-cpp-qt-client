@@ -18,11 +18,12 @@
 #include "ServerConfiguration.h"
 #include "Oauth.h"
 
-#include "Common_Response.h"
 #include "Common_Response_Error.h"
 #include "Signature_createObject_v1_Request.h"
 #include "Signature_createObject_v1_Response.h"
+#include "Signature_deleteObject_v1_Response.h"
 #include "Signature_editObject_v1_Request.h"
+#include "Signature_editObject_v1_Response.h"
 #include "Signature_getObject_v2_Response.h"
 #include "Signature_getObject_v3_Response.h"
 #include <QString>
@@ -133,8 +134,8 @@ private:
 Q_SIGNALS:
 
     void signatureCreateObjectV1Signal(Signature_createObject_v1_Response summary);
-    void signatureDeleteObjectV1Signal(Common_Response summary);
-    void signatureEditObjectV1Signal(Common_Response summary);
+    void signatureDeleteObjectV1Signal(Signature_deleteObject_v1_Response summary);
+    void signatureEditObjectV1Signal(Signature_editObject_v1_Response summary);
     void signatureGetObjectV2Signal(Signature_getObject_v2_Response summary);
     void signatureGetObjectV3Signal(Signature_getObject_v3_Response summary);
     void signatureGetSVGInitialsV1Signal();
@@ -142,8 +143,8 @@ Q_SIGNALS:
 
 
     void signatureCreateObjectV1SignalFull(HttpRequestWorker *worker, Signature_createObject_v1_Response summary);
-    void signatureDeleteObjectV1SignalFull(HttpRequestWorker *worker, Common_Response summary);
-    void signatureEditObjectV1SignalFull(HttpRequestWorker *worker, Common_Response summary);
+    void signatureDeleteObjectV1SignalFull(HttpRequestWorker *worker, Signature_deleteObject_v1_Response summary);
+    void signatureEditObjectV1SignalFull(HttpRequestWorker *worker, Signature_editObject_v1_Response summary);
     void signatureGetObjectV2SignalFull(HttpRequestWorker *worker, Signature_getObject_v2_Response summary);
     void signatureGetObjectV3SignalFull(HttpRequestWorker *worker, Signature_getObject_v3_Response summary);
     void signatureGetSVGInitialsV1SignalFull(HttpRequestWorker *worker);
@@ -153,11 +154,11 @@ Q_SIGNALS:
     void signatureCreateObjectV1SignalE(Signature_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void signatureCreateObjectV1SignalError(Signature_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use signatureDeleteObjectV1SignalError() instead")
-    void signatureDeleteObjectV1SignalE(Common_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void signatureDeleteObjectV1SignalError(Common_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void signatureDeleteObjectV1SignalE(Signature_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void signatureDeleteObjectV1SignalError(Signature_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use signatureEditObjectV1SignalError() instead")
-    void signatureEditObjectV1SignalE(Common_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void signatureEditObjectV1SignalError(Common_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void signatureEditObjectV1SignalE(Signature_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void signatureEditObjectV1SignalError(Signature_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use signatureGetObjectV2SignalError() instead")
     void signatureGetObjectV2SignalE(Signature_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void signatureGetObjectV2SignalError(Signature_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);

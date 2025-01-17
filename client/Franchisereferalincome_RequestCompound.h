@@ -23,7 +23,6 @@
 
 #include "Address_Request.h"
 #include "Contact_RequestCompound.h"
-#include "Franchisereferalincome_Request.h"
 #include <QList>
 #include <QString>
 

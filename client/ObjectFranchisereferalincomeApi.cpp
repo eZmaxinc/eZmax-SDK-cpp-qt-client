@@ -255,7 +255,7 @@ void ObjectFranchisereferalincomeApi::franchisereferalincomeCreateObjectV2(const
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectFranchisereferalincomeApi::franchisereferalincomeCreateObjectV2Callback);
     connect(this, &ObjectFranchisereferalincomeApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }

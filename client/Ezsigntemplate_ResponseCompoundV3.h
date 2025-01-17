@@ -22,7 +22,6 @@
 #include <QJsonObject>
 
 #include "Common_Audit.h"
-#include "Ezsigntemplate_ResponseV3.h"
 #include "Ezsigntemplatedocument_Response.h"
 #include "Ezsigntemplatesigner_ResponseCompound.h"
 #include "Field_eEzsigntemplateRecognition.h"

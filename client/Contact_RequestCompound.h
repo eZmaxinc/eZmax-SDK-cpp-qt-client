@@ -21,7 +21,6 @@
 
 #include <QJsonObject>
 
-#include "Contact_Request.h"
 #include "Contactinformations_RequestCompound.h"
 #include <QString>
 

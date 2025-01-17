@@ -21,7 +21,6 @@
 
 #include <QJsonObject>
 
-#include "Ezsigntemplateglobal_Response.h"
 #include "Ezsigntemplateglobaldocument_Response.h"
 #include "Ezsigntemplateglobalsigner_ResponseCompound.h"
 #include "Field_eEzsigntemplateglobalModule.h"

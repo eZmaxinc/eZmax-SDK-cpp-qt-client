@@ -18,7 +18,6 @@
 #include "ServerConfiguration.h"
 #include "Oauth.h"
 
-#include "Common_Response.h"
 #include "Common_Response_Error.h"
 #include "Ezsignsignature_createObject_v1_Request.h"
 #include "Ezsignsignature_createObject_v1_Response.h"
@@ -26,7 +25,9 @@
 #include "Ezsignsignature_createObject_v2_Response.h"
 #include "Ezsignsignature_createObject_v3_Request.h"
 #include "Ezsignsignature_createObject_v3_Response.h"
+#include "Ezsignsignature_deleteObject_v1_Response.h"
 #include "Ezsignsignature_editObject_v2_Request.h"
+#include "Ezsignsignature_editObject_v2_Response.h"
 #include "Ezsignsignature_getEzsignsignatureattachment_v1_Response.h"
 #include "Ezsignsignature_getEzsignsignaturesAutomatic_v1_Response.h"
 #include "Ezsignsignature_getObject_v3_Response.h"
@@ -153,8 +154,8 @@ Q_SIGNALS:
     void ezsignsignatureCreateObjectV1Signal(Ezsignsignature_createObject_v1_Response summary);
     void ezsignsignatureCreateObjectV2Signal(Ezsignsignature_createObject_v2_Response summary);
     void ezsignsignatureCreateObjectV3Signal(Ezsignsignature_createObject_v3_Response summary);
-    void ezsignsignatureDeleteObjectV1Signal(Common_Response summary);
-    void ezsignsignatureEditObjectV2Signal(Common_Response summary);
+    void ezsignsignatureDeleteObjectV1Signal(Ezsignsignature_deleteObject_v1_Response summary);
+    void ezsignsignatureEditObjectV2Signal(Ezsignsignature_editObject_v2_Response summary);
     void ezsignsignatureGetEzsignsignatureattachmentV1Signal(Ezsignsignature_getEzsignsignatureattachment_v1_Response summary);
     void ezsignsignatureGetEzsignsignaturesAutomaticV1Signal(Ezsignsignature_getEzsignsignaturesAutomatic_v1_Response summary);
     void ezsignsignatureGetObjectV3Signal(Ezsignsignature_getObject_v3_Response summary);
@@ -164,8 +165,8 @@ Q_SIGNALS:
     void ezsignsignatureCreateObjectV1SignalFull(HttpRequestWorker *worker, Ezsignsignature_createObject_v1_Response summary);
     void ezsignsignatureCreateObjectV2SignalFull(HttpRequestWorker *worker, Ezsignsignature_createObject_v2_Response summary);
     void ezsignsignatureCreateObjectV3SignalFull(HttpRequestWorker *worker, Ezsignsignature_createObject_v3_Response summary);
-    void ezsignsignatureDeleteObjectV1SignalFull(HttpRequestWorker *worker, Common_Response summary);
-    void ezsignsignatureEditObjectV2SignalFull(HttpRequestWorker *worker, Common_Response summary);
+    void ezsignsignatureDeleteObjectV1SignalFull(HttpRequestWorker *worker, Ezsignsignature_deleteObject_v1_Response summary);
+    void ezsignsignatureEditObjectV2SignalFull(HttpRequestWorker *worker, Ezsignsignature_editObject_v2_Response summary);
     void ezsignsignatureGetEzsignsignatureattachmentV1SignalFull(HttpRequestWorker *worker, Ezsignsignature_getEzsignsignatureattachment_v1_Response summary);
     void ezsignsignatureGetEzsignsignaturesAutomaticV1SignalFull(HttpRequestWorker *worker, Ezsignsignature_getEzsignsignaturesAutomatic_v1_Response summary);
     void ezsignsignatureGetObjectV3SignalFull(HttpRequestWorker *worker, Ezsignsignature_getObject_v3_Response summary);
@@ -181,11 +182,11 @@ Q_SIGNALS:
     void ezsignsignatureCreateObjectV3SignalE(Ezsignsignature_createObject_v3_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignsignatureCreateObjectV3SignalError(Ezsignsignature_createObject_v3_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsignsignatureDeleteObjectV1SignalError() instead")
-    void ezsignsignatureDeleteObjectV1SignalE(Common_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void ezsignsignatureDeleteObjectV1SignalError(Common_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void ezsignsignatureDeleteObjectV1SignalE(Ezsignsignature_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignsignatureDeleteObjectV1SignalError(Ezsignsignature_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsignsignatureEditObjectV2SignalError() instead")
-    void ezsignsignatureEditObjectV2SignalE(Common_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void ezsignsignatureEditObjectV2SignalError(Common_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void ezsignsignatureEditObjectV2SignalE(Ezsignsignature_editObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignsignatureEditObjectV2SignalError(Ezsignsignature_editObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsignsignatureGetEzsignsignatureattachmentV1SignalError() instead")
     void ezsignsignatureGetEzsignsignatureattachmentV1SignalE(Ezsignsignature_getEzsignsignatureattachment_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignsignatureGetEzsignsignatureattachmentV1SignalError(Ezsignsignature_getEzsignsignatureattachment_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);

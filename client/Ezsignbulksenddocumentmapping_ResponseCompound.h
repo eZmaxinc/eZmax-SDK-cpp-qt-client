@@ -21,7 +21,6 @@
 
 #include <QJsonObject>
 
-#include "Ezsignbulksenddocumentmapping_Response.h"
 #include "Ezsigntemplate_ResponseCompound.h"
 #include "Ezsigntemplatepackage_ResponseCompound.h"
 
