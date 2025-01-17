@@ -21,6 +21,7 @@
 
 #include <QJsonObject>
 
+#include "Contact_RequestV2.h"
 #include "Contactinformations_RequestCompoundV2.h"
 #include "Field_eContactType.h"
 #include <QString>

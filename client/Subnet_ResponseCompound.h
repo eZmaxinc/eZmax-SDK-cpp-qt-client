@@ -22,6 +22,7 @@
 #include <QJsonObject>
 
 #include "Multilingual_SubnetDescription.h"
+#include "Subnet_Response.h"
 
 #include "Enum.h"
 #include "Object.h"

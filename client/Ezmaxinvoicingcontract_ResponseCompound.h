@@ -22,6 +22,7 @@
 #include <QJsonObject>
 
 #include "Common_Audit.h"
+#include "Ezmaxinvoicingcontract_Response.h"
 #include "Field_eEzmaxinvoicingcontractPaymenttype.h"
 #include <QString>
 

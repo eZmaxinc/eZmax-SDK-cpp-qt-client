@@ -21,6 +21,7 @@
 
 #include <QJsonObject>
 
+#include "Ezsigntemplatepackage_Response.h"
 #include "Ezsigntemplatepackagemembership_ResponseCompound.h"
 #include "Ezsigntemplatepackagesigner_ResponseCompound.h"
 #include <QList>

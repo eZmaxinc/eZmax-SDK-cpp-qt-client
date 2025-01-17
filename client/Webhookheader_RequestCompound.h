@@ -21,6 +21,7 @@
 
 #include <QJsonObject>
 
+#include "Webhookheader_Request.h"
 #include <QString>
 
 #include "Enum.h"

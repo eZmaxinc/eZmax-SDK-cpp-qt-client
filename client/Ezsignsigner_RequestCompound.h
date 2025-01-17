@@ -21,6 +21,7 @@
 
 #include <QJsonObject>
 
+#include "Ezsignsigner_Request.h"
 #include "Ezsignsigner_RequestCompound_Contact.h"
 #include <QString>
 

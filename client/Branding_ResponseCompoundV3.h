@@ -21,6 +21,7 @@
 
 #include <QJsonObject>
 
+#include "Branding_ResponseV3.h"
 #include "Field_eBrandingAlignlogo.h"
 #include "Field_eBrandingLogo.h"
 #include "Multilingual_BrandingDescription.h"

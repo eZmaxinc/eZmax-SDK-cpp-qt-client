@@ -21,6 +21,7 @@
 
 #include <QJsonObject>
 
+#include "Ezsigntemplatesigner_Response.h"
 #include "Field_eEzsigntemplatesignerMapping.h"
 #include <QString>
 

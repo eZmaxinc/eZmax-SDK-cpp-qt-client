@@ -22,6 +22,7 @@
 #include <QJsonObject>
 
 #include "Ezmaxinvoicingcommission_ResponseCompound.h"
+#include "Ezmaxinvoicingsummaryglobal_Response.h"
 #include <QList>
 #include <QString>
 

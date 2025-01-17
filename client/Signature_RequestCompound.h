@@ -22,6 +22,7 @@
 #include <QJsonObject>
 
 #include "Field_eSignaturePreference.h"
+#include "Signature_Request.h"
 #include <QString>
 
 #include "Enum.h"

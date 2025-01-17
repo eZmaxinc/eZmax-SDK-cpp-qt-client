@@ -23,6 +23,7 @@
 
 #include "Common_Audit.h"
 #include "Custom_Ezsignfolderezsigntemplatepublic_Response.h"
+#include "Ezsigntemplatepublic_Response.h"
 #include "Field_eEzsigntemplatepublicLimittype.h"
 #include <QList>
 #include <QString>

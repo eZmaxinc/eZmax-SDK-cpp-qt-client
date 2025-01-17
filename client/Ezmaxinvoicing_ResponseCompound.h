@@ -23,6 +23,7 @@
 
 #include "Common_Audit.h"
 #include "Custom_Ezmaxpricing_Response.h"
+#include "Ezmaxinvoicing_Response.h"
 #include "Ezmaxinvoicingagent_ResponseCompound.h"
 #include "Ezmaxinvoicingcontract_ResponseCompound.h"
 #include "Ezmaxinvoicingsummaryexternal_ResponseCompound.h"

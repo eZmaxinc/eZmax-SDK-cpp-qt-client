@@ -22,6 +22,7 @@
 #include <QJsonObject>
 
 #include "Attempt_Response.h"
+#include "Common_Webhook.h"
 #include "Custom_Webhook_Response.h"
 #include "Ezsignfolder_Response.h"
 #include "Ezsignfoldersignerassociation_ResponseCompound.h"

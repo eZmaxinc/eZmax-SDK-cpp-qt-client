@@ -21,6 +21,7 @@
 
 #include <QJsonObject>
 
+#include "Ezsigntemplateglobalsigner_Response.h"
 #include <QString>
 
 #include "Enum.h"

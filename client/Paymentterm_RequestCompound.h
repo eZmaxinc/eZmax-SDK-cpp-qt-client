@@ -23,6 +23,7 @@
 
 #include "Field_ePaymenttermType.h"
 #include "Multilingual_PaymenttermDescription.h"
+#include "Paymentterm_Request.h"
 #include <QString>
 
 #include "Enum.h"

@@ -22,6 +22,7 @@
 #include <QJsonObject>
 
 #include "Custom_Discussionconfiguration_Response.h"
+#include "Discussion_Response.h"
 #include "Discussionmembership_ResponseCompound.h"
 #include "Discussionmessage_ResponseCompound.h"
 #include <QList>

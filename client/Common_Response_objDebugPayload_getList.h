@@ -22,6 +22,7 @@
 #include <QJsonObject>
 
 #include "Common_Response_Filter.h"
+#include "Common_Response_objDebugPayload.h"
 #include <QList>
 #include <QMap>
 #include <QString>

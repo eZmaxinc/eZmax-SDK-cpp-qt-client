@@ -21,6 +21,7 @@
 
 #include <QJsonObject>
 
+#include "Ezsignfoldersignerassociation_ResponseCompound.h"
 #include "Ezsignfoldersignerassociation_ResponseCompound_User.h"
 #include "Ezsignsigner_ResponseCompound.h"
 #include "Ezsignsignergroup_ResponseCompound.h"

@@ -22,6 +22,7 @@
 #include <QJsonObject>
 
 #include "Field_ePhoneType.h"
+#include "Phone_Response.h"
 #include <QString>
 
 #include "Enum.h"

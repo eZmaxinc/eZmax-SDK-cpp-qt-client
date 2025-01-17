@@ -21,6 +21,7 @@
 
 #include <QJsonObject>
 
+#include "Usergroupexternal_Request.h"
 #include <QString>
 
 #include "Enum.h"

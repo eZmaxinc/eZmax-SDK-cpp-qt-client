@@ -24,6 +24,7 @@
 #include "Custom_CreateEzsignelementsPositionedByWord_Request.h"
 #include "Enum_Textvalidation.h"
 #include "Ezsignelementdependency_Request.h"
+#include "Ezsignsignature_RequestCompound.h"
 #include "Ezsignsignaturecustomdate_Request.h"
 #include "Field_eEzsignsignatureAttachmentnamesource.h"
 #include "Field_eEzsignsignatureConsultationtrigger.h"

@@ -21,6 +21,7 @@
 
 #include <QJsonObject>
 
+#include "Ezsignfoldertype_Response.h"
 #include "Field_eEzsignfoldertypeCompletion.h"
 #include "Field_eEzsignfoldertypeDisposal.h"
 #include "Field_eEzsignfoldertypePrivacylevel.h"

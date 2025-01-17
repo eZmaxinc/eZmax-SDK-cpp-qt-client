@@ -24,6 +24,7 @@
 #include "Custom_DropdownElement_Response.h"
 #include "Enum_Textvalidation.h"
 #include "Ezsigntemplateformfield_ResponseCompound.h"
+#include "Ezsigntemplateformfieldgroup_Response.h"
 #include "Ezsigntemplateformfieldgroupsigner_Response.h"
 #include "Field_eEzsigntemplateformfieldgroupSignerrequirement.h"
 #include "Field_eEzsigntemplateformfieldgroupTooltipposition.h"

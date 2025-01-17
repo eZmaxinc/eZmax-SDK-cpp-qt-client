@@ -21,6 +21,7 @@
 
 #include <QJsonObject>
 
+#include "Ezsigntemplatedocumentpagerecognition_Response.h"
 #include "Field_eEzsigntemplatedocumentpagerecognitionOperator.h"
 #include "Field_eEzsigntemplatedocumentpagerecognitionSection.h"
 #include <QString>

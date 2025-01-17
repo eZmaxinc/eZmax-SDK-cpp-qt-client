@@ -24,6 +24,7 @@
 #include "Common_Audit.h"
 #include "Field_ePaymenttermType.h"
 #include "Multilingual_PaymenttermDescription.h"
+#include "Paymentterm_Response.h"
 #include <QString>
 
 #include "Enum.h"

@@ -21,6 +21,7 @@
 
 #include <QJsonObject>
 
+#include "Colleague_ResponseV2.h"
 #include "Common_Audit.h"
 #include "Custom_UserName_Response.h"
 #include "Field_eColleagueEzsign.h"

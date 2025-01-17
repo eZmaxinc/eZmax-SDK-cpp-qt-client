@@ -23,6 +23,7 @@
 
 #include "Custom_Notificationtestgetnotificationtests_Response.h"
 #include "Multilingual_NotificationsubsectionName.h"
+#include "Notificationsubsection_Response.h"
 #include <QList>
 #include <QString>
 

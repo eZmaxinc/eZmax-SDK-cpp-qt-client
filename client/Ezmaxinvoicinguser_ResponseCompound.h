@@ -22,6 +22,7 @@
 #include <QJsonObject>
 
 #include "Custom_ContactName_Response.h"
+#include "Ezmaxinvoicinguser_Response.h"
 #include "Field_eEzmaxinvoicinguserVariationezsign.h"
 #include <QString>
 

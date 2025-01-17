@@ -21,6 +21,7 @@
 
 #include <QJsonObject>
 
+#include "Ezsignbulksendsignermapping_Request.h"
 #include <QString>
 
 #include "Enum.h"

@@ -22,6 +22,7 @@
 #include <QJsonObject>
 
 #include "Common_Audit.h"
+#include "Ezsignfoldertype_ResponseV4.h"
 #include "Field_eEzsignfoldertypeCompletion.h"
 #include "Field_eEzsignfoldertypeDisposal.h"
 #include "Field_eEzsignfoldertypeDocumentdependency.h"

@@ -23,6 +23,7 @@
 
 #include "Enum_Horizontalalignment.h"
 #include "Ezsignelementdependency_Request.h"
+#include "Ezsignformfield_Request.h"
 #include "Field_eEzsignformfieldDependencyrequirement.h"
 #include "Textstylestatic_RequestCompound.h"
 #include <QList>

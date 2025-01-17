@@ -23,6 +23,7 @@
 
 #include "Field_eVariableexpenseTaxable.h"
 #include "Multilingual_VariableexpenseDescription.h"
+#include "Variableexpense_Response.h"
 #include <QString>
 
 #include "Enum.h"

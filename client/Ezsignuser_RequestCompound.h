@@ -22,6 +22,7 @@
 #include <QJsonObject>
 
 #include "Contact_RequestCompoundV2.h"
+#include "Ezsignuser_Request.h"
 
 #include "Enum.h"
 #include "Object.h"

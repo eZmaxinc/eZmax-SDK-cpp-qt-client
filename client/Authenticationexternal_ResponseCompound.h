@@ -21,6 +21,7 @@
 
 #include <QJsonObject>
 
+#include "Authenticationexternal_Response.h"
 #include "Common_Audit.h"
 #include "Field_eAuthenticationexternalType.h"
 #include <QString>

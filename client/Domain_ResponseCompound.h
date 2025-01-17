@@ -22,6 +22,7 @@
 #include <QJsonObject>
 
 #include "Common_Audit.h"
+#include "Domain_Response.h"
 #include "Object.h"
 #include <QList>
 #include <QString>

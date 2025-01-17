@@ -23,6 +23,7 @@
 
 #include "Field_eNotificationpreferenceStatus.h"
 #include "Multilingual_NotificationtestName.h"
+#include "Notificationtest_Response.h"
 #include <QString>
 
 #include "Enum.h"

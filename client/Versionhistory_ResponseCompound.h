@@ -24,6 +24,7 @@
 #include "Field_eVersionhistoryType.h"
 #include "Field_eVersionhistoryUsertype.h"
 #include "Multilingual_VersionhistoryDetail.h"
+#include "Versionhistory_Response.h"
 #include <QString>
 
 #include "Enum.h"

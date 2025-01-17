@@ -24,6 +24,7 @@
 #include "Common_Audit.h"
 #include "Computed_eEzsigndocumentSteptype.h"
 #include "Custom_Ezsignfoldersignerassociationstatus_Response.h"
+#include "Ezsigndocument_Response.h"
 #include "Ezsigndocumentdependency_Response.h"
 #include "Field_eEzsigndocumentStep.h"
 #include <QList>

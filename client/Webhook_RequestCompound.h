@@ -24,6 +24,7 @@
 #include "Field_eWebhookEzsignevent.h"
 #include "Field_eWebhookManagementevent.h"
 #include "Field_eWebhookModule.h"
+#include "Webhook_Request.h"
 #include "Webhookheader_RequestCompound.h"
 #include <QList>
 #include <QString>

@@ -21,6 +21,7 @@
 
 #include <QJsonObject>
 
+#include "Billingentityinternal_Response.h"
 #include "Billingentityinternalproduct_ResponseCompound.h"
 #include "Multilingual_BillingentityinternalDescription.h"
 #include <QList>

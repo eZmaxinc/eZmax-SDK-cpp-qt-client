@@ -21,6 +21,7 @@
 
 #include <QJsonObject>
 
+#include "Ezsigntemplatepackagemembership_Request.h"
 
 #include "Enum.h"
 #include "Object.h"

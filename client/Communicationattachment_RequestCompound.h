@@ -21,6 +21,7 @@
 
 #include <QJsonObject>
 
+#include "Communicationattachment_Request.h"
 
 #include "Enum.h"
 #include "Object.h"

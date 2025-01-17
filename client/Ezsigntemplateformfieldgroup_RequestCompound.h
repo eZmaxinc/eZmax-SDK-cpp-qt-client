@@ -24,6 +24,7 @@
 #include "Custom_DropdownElement_Request.h"
 #include "Enum_Textvalidation.h"
 #include "Ezsigntemplateformfield_RequestCompound.h"
+#include "Ezsigntemplateformfieldgroup_Request.h"
 #include "Ezsigntemplateformfieldgroupsigner_Request.h"
 #include "Field_eEzsigntemplateformfieldgroupSignerrequirement.h"
 #include "Field_eEzsigntemplateformfieldgroupTooltipposition.h"

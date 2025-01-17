@@ -22,6 +22,7 @@
 #include <QJsonObject>
 
 #include "Common_Audit.h"
+#include "Discussionmessage_Response.h"
 #include "Field_eDiscussionmessageStatus.h"
 #include <QString>
 

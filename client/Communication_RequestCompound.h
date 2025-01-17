@@ -21,6 +21,7 @@
 
 #include <QJsonObject>
 
+#include "Communication_Request.h"
 #include "Communicationexternalrecipient_RequestCompound.h"
 #include "Communicationrecipient_RequestCompound.h"
 #include "Communicationreference_Request.h"

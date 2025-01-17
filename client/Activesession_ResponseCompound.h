@@ -21,6 +21,7 @@
 
 #include <QJsonObject>
 
+#include "Activesession_Response.h"
 #include "Activesession_ResponseCompound_Apikey.h"
 #include "Activesession_ResponseCompound_User.h"
 #include "Field_eActivesessionEzsign.h"

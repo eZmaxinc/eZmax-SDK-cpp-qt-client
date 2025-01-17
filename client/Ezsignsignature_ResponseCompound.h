@@ -26,6 +26,7 @@
 #include "Custom_TimezoneWithCode_Response.h"
 #include "Enum_Textvalidation.h"
 #include "Ezsignelementdependency_Response.h"
+#include "Ezsignsignature_Response.h"
 #include "Ezsignsignaturecustomdate_Response.h"
 #include "Field_eEzsignsignatureAttachmentnamesource.h"
 #include "Field_eEzsignsignatureConsultationtrigger.h"

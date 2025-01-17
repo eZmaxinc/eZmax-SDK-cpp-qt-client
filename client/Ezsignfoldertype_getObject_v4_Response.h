@@ -21,6 +21,7 @@
 
 #include <QJsonObject>
 
+#include "Common_Response.h"
 #include "Common_Response_objDebug.h"
 #include "Common_Response_objDebugPayload.h"
 #include "Ezsignfoldertype_getObject_v4_Response_mPayload.h"

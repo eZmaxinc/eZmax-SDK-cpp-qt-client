@@ -21,6 +21,7 @@
 
 #include <QJsonObject>
 
+#include "Communicationrecipient_Request.h"
 #include "Field_eCommunicationrecipientType.h"
 
 #include "Enum.h"

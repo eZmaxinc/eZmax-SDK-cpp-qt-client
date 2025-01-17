@@ -21,6 +21,7 @@
 
 #include <QJsonObject>
 
+#include "Modulesection_Response.h"
 #include "Permission_Response.h"
 #include <QList>
 #include <QString>

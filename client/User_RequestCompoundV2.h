@@ -26,6 +26,7 @@
 #include "Field_eUserLogintype.h"
 #include "Field_eUserType.h"
 #include "Phone_RequestV2.h"
+#include "User_RequestV2.h"
 #include <QString>
 
 #include "Enum.h"

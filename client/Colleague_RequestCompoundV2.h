@@ -21,6 +21,7 @@
 
 #include <QJsonObject>
 
+#include "Colleague_RequestV2.h"
 #include "Field_eColleagueEzsign.h"
 #include "Field_eColleagueRealestateinprogess.h"
 #include <QString>

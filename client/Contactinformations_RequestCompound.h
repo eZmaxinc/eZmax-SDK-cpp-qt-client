@@ -22,6 +22,7 @@
 #include <QJsonObject>
 
 #include "Address_Request.h"
+#include "Contactinformations_Request.h"
 #include "Email_Request.h"
 #include "Phone_Request.h"
 #include "Website_Request.h"

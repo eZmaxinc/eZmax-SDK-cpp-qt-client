@@ -22,6 +22,7 @@
 #include <QJsonObject>
 
 #include "Branding_getList_v1_Response_mPayload.h"
+#include "Common_Response_getList.h"
 #include "Common_Response_objDebug.h"
 #include "Common_Response_objDebugPayload_getList.h"
 

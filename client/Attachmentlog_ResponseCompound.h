@@ -21,6 +21,7 @@
 
 #include <QJsonObject>
 
+#include "Attachmentlog_Response.h"
 #include "Field_eAttachmentlogType.h"
 #include <QString>
 

@@ -23,6 +23,7 @@
 
 #include "Enum_Textvalidation.h"
 #include "Ezsigntemplateelementdependency_Request.h"
+#include "Ezsigntemplatesignature_Request.h"
 #include "Ezsigntemplatesignaturecustomdate_RequestV2.h"
 #include "Field_eEzsigntemplatesignatureAttachmentnamesource.h"
 #include "Field_eEzsigntemplatesignatureConsultationtrigger.h"

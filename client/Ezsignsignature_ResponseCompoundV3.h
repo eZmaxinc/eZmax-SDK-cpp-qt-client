@@ -25,6 +25,7 @@
 #include "Custom_Creditcardtransaction_Response.h"
 #include "Enum_Textvalidation.h"
 #include "Ezsignelementdependency_Response.h"
+#include "Ezsignsignature_Response.h"
 #include "Ezsignsignaturecustomdate_ResponseV2.h"
 #include "Field_eEzsignsignatureAttachmentnamesource.h"
 #include "Field_eEzsignsignatureConsultationtrigger.h"
