@@ -21,6 +21,7 @@
 #include "Apikey_createObject_v2_Request.h"
 #include "Apikey_createObject_v2_Response.h"
 #include "Apikey_editObject_v1_Request.h"
+#include "Apikey_editObject_v1_Response.h"
 #include "Apikey_editPermissions_v1_Request.h"
 #include "Apikey_editPermissions_v1_Response.h"
 #include "Apikey_generateDelegatedCredentials_v1_Request.h"
@@ -32,7 +33,6 @@
 #include "Apikey_getSubnets_v1_Response.h"
 #include "Apikey_regenerate_v1_Request.h"
 #include "Apikey_regenerate_v1_Response.h"
-#include "Common_Response.h"
 #include "Common_Response_Error.h"
 #include "Header_Accept_Language.h"
 #include "HttpFileElement.h"
@@ -168,7 +168,7 @@ private:
 Q_SIGNALS:
 
     void apikeyCreateObjectV2Signal(Apikey_createObject_v2_Response summary);
-    void apikeyEditObjectV1Signal(Common_Response summary);
+    void apikeyEditObjectV1Signal(Apikey_editObject_v1_Response summary);
     void apikeyEditPermissionsV1Signal(Apikey_editPermissions_v1_Response summary);
     void apikeyGenerateDelegatedCredentialsV1Signal(Apikey_generateDelegatedCredentials_v1_Response summary);
     void apikeyGetCorsV1Signal(Apikey_getCors_v1_Response summary);
@@ -180,7 +180,7 @@ Q_SIGNALS:
 
 
     void apikeyCreateObjectV2SignalFull(HttpRequestWorker *worker, Apikey_createObject_v2_Response summary);
-    void apikeyEditObjectV1SignalFull(HttpRequestWorker *worker, Common_Response summary);
+    void apikeyEditObjectV1SignalFull(HttpRequestWorker *worker, Apikey_editObject_v1_Response summary);
     void apikeyEditPermissionsV1SignalFull(HttpRequestWorker *worker, Apikey_editPermissions_v1_Response summary);
     void apikeyGenerateDelegatedCredentialsV1SignalFull(HttpRequestWorker *worker, Apikey_generateDelegatedCredentials_v1_Response summary);
     void apikeyGetCorsV1SignalFull(HttpRequestWorker *worker, Apikey_getCors_v1_Response summary);
@@ -194,8 +194,8 @@ Q_SIGNALS:
     void apikeyCreateObjectV2SignalE(Apikey_createObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void apikeyCreateObjectV2SignalError(Apikey_createObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use apikeyEditObjectV1SignalError() instead")
-    void apikeyEditObjectV1SignalE(Common_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void apikeyEditObjectV1SignalError(Common_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void apikeyEditObjectV1SignalE(Apikey_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void apikeyEditObjectV1SignalError(Apikey_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use apikeyEditPermissionsV1SignalError() instead")
     void apikeyEditPermissionsV1SignalE(Apikey_editPermissions_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void apikeyEditPermissionsV1SignalError(Apikey_editPermissions_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);

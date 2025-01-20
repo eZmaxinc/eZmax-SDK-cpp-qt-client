@@ -262,7 +262,7 @@ void ScimGroupsApi::groupsCreateObjectScimV2(const Scim_Group &scim_group) {
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ScimGroupsApi::groupsCreateObjectScimV2Callback);
     connect(this, &ScimGroupsApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -349,7 +349,7 @@ void ScimGroupsApi::groupsDeleteObjectScimV2(const QString &group_id) {
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ScimGroupsApi::groupsDeleteObjectScimV2Callback);
     connect(this, &ScimGroupsApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -440,7 +440,7 @@ void ScimGroupsApi::groupsEditObjectScimV2(const QString &group_id, const Scim_G
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ScimGroupsApi::groupsEditObjectScimV2Callback);
     connect(this, &ScimGroupsApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -514,7 +514,7 @@ void ScimGroupsApi::groupsGetListScimV2(const ::Ezmaxapi::OptionalParam<QString>
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("filter")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(filter.stringValue())));
+        fullPath.append(QUrl::toPercentEncoding("filter")).append(querySuffix).append(QUrl::toPercentEncoding(filter.stringValue()));
     }
     HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -529,7 +529,7 @@ void ScimGroupsApi::groupsGetListScimV2(const ::Ezmaxapi::OptionalParam<QString>
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ScimGroupsApi::groupsGetListScimV2Callback);
     connect(this, &ScimGroupsApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -616,7 +616,7 @@ void ScimGroupsApi::groupsGetObjectScimV2(const QString &group_id) {
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ScimGroupsApi::groupsGetObjectScimV2Callback);
     connect(this, &ScimGroupsApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }

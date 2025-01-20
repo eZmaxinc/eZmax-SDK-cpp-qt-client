@@ -18,11 +18,12 @@
 #include "ServerConfiguration.h"
 #include "Oauth.h"
 
-#include "Common_Response.h"
 #include "Common_Response_Error.h"
 #include "Discussionmessage_createObject_v1_Request.h"
 #include "Discussionmessage_createObject_v1_Response.h"
+#include "Discussionmessage_deleteObject_v1_Response.h"
 #include "Discussionmessage_patchObject_v1_Request.h"
+#include "Discussionmessage_patchObject_v1_Response.h"
 #include <QString>
 
 #include <QObject>
@@ -107,23 +108,23 @@ private:
 Q_SIGNALS:
 
     void discussionmessageCreateObjectV1Signal(Discussionmessage_createObject_v1_Response summary);
-    void discussionmessageDeleteObjectV1Signal(Common_Response summary);
-    void discussionmessagePatchObjectV1Signal(Common_Response summary);
+    void discussionmessageDeleteObjectV1Signal(Discussionmessage_deleteObject_v1_Response summary);
+    void discussionmessagePatchObjectV1Signal(Discussionmessage_patchObject_v1_Response summary);
 
 
     void discussionmessageCreateObjectV1SignalFull(HttpRequestWorker *worker, Discussionmessage_createObject_v1_Response summary);
-    void discussionmessageDeleteObjectV1SignalFull(HttpRequestWorker *worker, Common_Response summary);
-    void discussionmessagePatchObjectV1SignalFull(HttpRequestWorker *worker, Common_Response summary);
+    void discussionmessageDeleteObjectV1SignalFull(HttpRequestWorker *worker, Discussionmessage_deleteObject_v1_Response summary);
+    void discussionmessagePatchObjectV1SignalFull(HttpRequestWorker *worker, Discussionmessage_patchObject_v1_Response summary);
 
     Q_DECL_DEPRECATED_X("Use discussionmessageCreateObjectV1SignalError() instead")
     void discussionmessageCreateObjectV1SignalE(Discussionmessage_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void discussionmessageCreateObjectV1SignalError(Discussionmessage_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use discussionmessageDeleteObjectV1SignalError() instead")
-    void discussionmessageDeleteObjectV1SignalE(Common_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void discussionmessageDeleteObjectV1SignalError(Common_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void discussionmessageDeleteObjectV1SignalE(Discussionmessage_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void discussionmessageDeleteObjectV1SignalError(Discussionmessage_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use discussionmessagePatchObjectV1SignalError() instead")
-    void discussionmessagePatchObjectV1SignalE(Common_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void discussionmessagePatchObjectV1SignalError(Common_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void discussionmessagePatchObjectV1SignalE(Discussionmessage_patchObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void discussionmessagePatchObjectV1SignalError(Discussionmessage_patchObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     Q_DECL_DEPRECATED_X("Use discussionmessageCreateObjectV1SignalErrorFull() instead")
     void discussionmessageCreateObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);

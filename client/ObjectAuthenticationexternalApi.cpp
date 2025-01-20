@@ -267,7 +267,7 @@ void ObjectAuthenticationexternalApi::authenticationexternalCreateObjectV1(const
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectAuthenticationexternalApi::authenticationexternalCreateObjectV1Callback);
     connect(this, &ObjectAuthenticationexternalApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -355,7 +355,7 @@ void ObjectAuthenticationexternalApi::authenticationexternalDeleteObjectV1(const
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectAuthenticationexternalApi::authenticationexternalDeleteObjectV1Callback);
     connect(this, &ObjectAuthenticationexternalApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -371,7 +371,7 @@ void ObjectAuthenticationexternalApi::authenticationexternalDeleteObjectV1Callba
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Common_Response output(QString(worker->response));
+    Authenticationexternal_deleteObject_v1_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -448,7 +448,7 @@ void ObjectAuthenticationexternalApi::authenticationexternalEditObjectV1(const q
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectAuthenticationexternalApi::authenticationexternalEditObjectV1Callback);
     connect(this, &ObjectAuthenticationexternalApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -464,7 +464,7 @@ void ObjectAuthenticationexternalApi::authenticationexternalEditObjectV1Callback
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Common_Response output(QString(worker->response));
+    Authenticationexternal_editObject_v1_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -537,7 +537,7 @@ void ObjectAuthenticationexternalApi::authenticationexternalGetAutocompleteV2(co
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("eFilterActive")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(e_filter_active.stringValue())));
+        fullPath.append(QUrl::toPercentEncoding("eFilterActive")).append(querySuffix).append(QUrl::toPercentEncoding(e_filter_active.stringValue()));
     }
     if (s_query.hasValue())
     {
@@ -552,7 +552,7 @@ void ObjectAuthenticationexternalApi::authenticationexternalGetAutocompleteV2(co
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_query.stringValue())));
+        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(s_query.stringValue()));
     }
     HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -611,7 +611,7 @@ void ObjectAuthenticationexternalApi::authenticationexternalGetAutocompleteV2(co
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectAuthenticationexternalApi::authenticationexternalGetAutocompleteV2Callback);
     connect(this, &ObjectAuthenticationexternalApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -686,7 +686,7 @@ void ObjectAuthenticationexternalApi::authenticationexternalGetListV1(const ::Ez
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("eOrderBy")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(e_order_by.stringValue())));
+        fullPath.append(QUrl::toPercentEncoding("eOrderBy")).append(querySuffix).append(QUrl::toPercentEncoding(e_order_by.stringValue()));
     }
     if (i_row_max.hasValue())
     {
@@ -701,7 +701,7 @@ void ObjectAuthenticationexternalApi::authenticationexternalGetListV1(const ::Ez
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("iRowMax")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(i_row_max.stringValue())));
+        fullPath.append(QUrl::toPercentEncoding("iRowMax")).append(querySuffix).append(QUrl::toPercentEncoding(i_row_max.stringValue()));
     }
     if (i_row_offset.hasValue())
     {
@@ -716,7 +716,7 @@ void ObjectAuthenticationexternalApi::authenticationexternalGetListV1(const ::Ez
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("iRowOffset")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(i_row_offset.stringValue())));
+        fullPath.append(QUrl::toPercentEncoding("iRowOffset")).append(querySuffix).append(QUrl::toPercentEncoding(i_row_offset.stringValue()));
     }
     if (s_filter.hasValue())
     {
@@ -731,7 +731,7 @@ void ObjectAuthenticationexternalApi::authenticationexternalGetListV1(const ::Ez
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("sFilter")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_filter.stringValue())));
+        fullPath.append(QUrl::toPercentEncoding("sFilter")).append(querySuffix).append(QUrl::toPercentEncoding(s_filter.stringValue()));
     }
     HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -790,7 +790,7 @@ void ObjectAuthenticationexternalApi::authenticationexternalGetListV1(const ::Ez
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectAuthenticationexternalApi::authenticationexternalGetListV1Callback);
     connect(this, &ObjectAuthenticationexternalApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -878,7 +878,7 @@ void ObjectAuthenticationexternalApi::authenticationexternalGetObjectV2(const qi
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectAuthenticationexternalApi::authenticationexternalGetObjectV2Callback);
     connect(this, &ObjectAuthenticationexternalApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -971,7 +971,7 @@ void ObjectAuthenticationexternalApi::authenticationexternalResetAuthorizationV1
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectAuthenticationexternalApi::authenticationexternalResetAuthorizationV1Callback);
     connect(this, &ObjectAuthenticationexternalApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -987,7 +987,7 @@ void ObjectAuthenticationexternalApi::authenticationexternalResetAuthorizationV1
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Common_Response output(QString(worker->response));
+    Authenticationexternal_resetAuthorization_v1_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {

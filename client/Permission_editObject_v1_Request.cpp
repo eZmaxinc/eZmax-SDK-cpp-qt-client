@@ -66,10 +66,10 @@ QJsonObject Permission_editObject_v1_Request::asJsonObject() const {
     return obj;
 }
 
-Permission_Request Permission_editObject_v1_Request::getObjPermission() const {
+Permission_RequestCompound Permission_editObject_v1_Request::getObjPermission() const {
     return m_obj_permission;
 }
-void Permission_editObject_v1_Request::setObjPermission(const Permission_Request &obj_permission) {
+void Permission_editObject_v1_Request::setObjPermission(const Permission_RequestCompound &obj_permission) {
     m_obj_permission = obj_permission;
     m_obj_permission_isSet = true;
 }

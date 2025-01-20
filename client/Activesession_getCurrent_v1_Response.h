@@ -21,7 +21,7 @@
 
 #include <QJsonObject>
 
-#include "Activesession_ResponseCompound.h"
+#include "Activesession_getCurrent_v1_Response_mPayload.h"
 #include "Common_Response_objDebug.h"
 #include "Common_Response_objDebugPayload.h"
 
@@ -31,7 +31,7 @@
 namespace Ezmaxapi {
 class Common_Response_objDebugPayload;
 class Common_Response_objDebug;
-class Activesession_ResponseCompound;
+class Activesession_getCurrent_v1_Response_mPayload;
 
 class Activesession_getCurrent_v1_Response : public Object {
 public:
@@ -54,8 +54,8 @@ public:
     bool is_obj_debug_Set() const;
     bool is_obj_debug_Valid() const;
 
-    Activesession_ResponseCompound getMPayload() const;
-    void setMPayload(const Activesession_ResponseCompound &m_payload);
+    Activesession_getCurrent_v1_Response_mPayload getMPayload() const;
+    void setMPayload(const Activesession_getCurrent_v1_Response_mPayload &m_payload);
     bool is_m_payload_Set() const;
     bool is_m_payload_Valid() const;
 
@@ -73,7 +73,7 @@ private:
     bool m_obj_debug_isSet;
     bool m_obj_debug_isValid;
 
-    Activesession_ResponseCompound m_m_payload;
+    Activesession_getCurrent_v1_Response_mPayload m_m_payload;
     bool m_m_payload_isSet;
     bool m_m_payload_isValid;
 };

@@ -116,10 +116,10 @@ bool Ezsignfoldersignerassociation_getObject_v1_Response::is_obj_debug_Valid() c
     return m_obj_debug_isValid;
 }
 
-Ezsignfoldersignerassociation_ResponseCompound Ezsignfoldersignerassociation_getObject_v1_Response::getMPayload() const {
+Ezsignfoldersignerassociation_getObject_v1_Response_mPayload Ezsignfoldersignerassociation_getObject_v1_Response::getMPayload() const {
     return m_m_payload;
 }
-void Ezsignfoldersignerassociation_getObject_v1_Response::setMPayload(const Ezsignfoldersignerassociation_ResponseCompound &m_payload) {
+void Ezsignfoldersignerassociation_getObject_v1_Response::setMPayload(const Ezsignfoldersignerassociation_getObject_v1_Response_mPayload &m_payload) {
     m_m_payload = m_payload;
     m_m_payload_isSet = true;
 }

@@ -270,7 +270,7 @@ void ObjectBuyercontractApi::buyercontractGetCommunicationCountV1(const qint32 &
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectBuyercontractApi::buyercontractGetCommunicationCountV1Callback);
     connect(this, &ObjectBuyercontractApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -358,7 +358,7 @@ void ObjectBuyercontractApi::buyercontractGetCommunicationListV1(const qint32 &p
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectBuyercontractApi::buyercontractGetCommunicationListV1Callback);
     connect(this, &ObjectBuyercontractApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -446,7 +446,7 @@ void ObjectBuyercontractApi::buyercontractGetCommunicationrecipientsV1(const qin
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectBuyercontractApi::buyercontractGetCommunicationrecipientsV1Callback);
     connect(this, &ObjectBuyercontractApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -534,7 +534,7 @@ void ObjectBuyercontractApi::buyercontractGetCommunicationsendersV1(const qint32
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectBuyercontractApi::buyercontractGetCommunicationsendersV1Callback);
     connect(this, &ObjectBuyercontractApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }

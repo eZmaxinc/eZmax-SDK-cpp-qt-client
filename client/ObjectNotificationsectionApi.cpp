@@ -265,7 +265,7 @@ void ObjectNotificationsectionApi::notificationsectionGetNotificationtestsV1(con
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("bShowHidden")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(b_show_hidden)));
+        fullPath.append(QUrl::toPercentEncoding("bShowHidden")).append(querySuffix).append(QUrl::toPercentEncoding(b_show_hidden));
     }
     HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -280,7 +280,7 @@ void ObjectNotificationsectionApi::notificationsectionGetNotificationtestsV1(con
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectNotificationsectionApi::notificationsectionGetNotificationtestsV1Callback);
     connect(this, &ObjectNotificationsectionApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }

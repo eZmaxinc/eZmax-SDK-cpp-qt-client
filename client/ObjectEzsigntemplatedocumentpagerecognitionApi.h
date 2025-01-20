@@ -18,11 +18,12 @@
 #include "ServerConfiguration.h"
 #include "Oauth.h"
 
-#include "Common_Response.h"
 #include "Common_Response_Error.h"
 #include "Ezsigntemplatedocumentpagerecognition_createObject_v1_Request.h"
 #include "Ezsigntemplatedocumentpagerecognition_createObject_v1_Response.h"
+#include "Ezsigntemplatedocumentpagerecognition_deleteObject_v1_Response.h"
 #include "Ezsigntemplatedocumentpagerecognition_editObject_v1_Request.h"
+#include "Ezsigntemplatedocumentpagerecognition_editObject_v1_Response.h"
 #include "Ezsigntemplatedocumentpagerecognition_getObject_v2_Response.h"
 #include <QString>
 
@@ -114,25 +115,25 @@ private:
 Q_SIGNALS:
 
     void ezsigntemplatedocumentpagerecognitionCreateObjectV1Signal(Ezsigntemplatedocumentpagerecognition_createObject_v1_Response summary);
-    void ezsigntemplatedocumentpagerecognitionDeleteObjectV1Signal(Common_Response summary);
-    void ezsigntemplatedocumentpagerecognitionEditObjectV1Signal(Common_Response summary);
+    void ezsigntemplatedocumentpagerecognitionDeleteObjectV1Signal(Ezsigntemplatedocumentpagerecognition_deleteObject_v1_Response summary);
+    void ezsigntemplatedocumentpagerecognitionEditObjectV1Signal(Ezsigntemplatedocumentpagerecognition_editObject_v1_Response summary);
     void ezsigntemplatedocumentpagerecognitionGetObjectV2Signal(Ezsigntemplatedocumentpagerecognition_getObject_v2_Response summary);
 
 
     void ezsigntemplatedocumentpagerecognitionCreateObjectV1SignalFull(HttpRequestWorker *worker, Ezsigntemplatedocumentpagerecognition_createObject_v1_Response summary);
-    void ezsigntemplatedocumentpagerecognitionDeleteObjectV1SignalFull(HttpRequestWorker *worker, Common_Response summary);
-    void ezsigntemplatedocumentpagerecognitionEditObjectV1SignalFull(HttpRequestWorker *worker, Common_Response summary);
+    void ezsigntemplatedocumentpagerecognitionDeleteObjectV1SignalFull(HttpRequestWorker *worker, Ezsigntemplatedocumentpagerecognition_deleteObject_v1_Response summary);
+    void ezsigntemplatedocumentpagerecognitionEditObjectV1SignalFull(HttpRequestWorker *worker, Ezsigntemplatedocumentpagerecognition_editObject_v1_Response summary);
     void ezsigntemplatedocumentpagerecognitionGetObjectV2SignalFull(HttpRequestWorker *worker, Ezsigntemplatedocumentpagerecognition_getObject_v2_Response summary);
 
     Q_DECL_DEPRECATED_X("Use ezsigntemplatedocumentpagerecognitionCreateObjectV1SignalError() instead")
     void ezsigntemplatedocumentpagerecognitionCreateObjectV1SignalE(Ezsigntemplatedocumentpagerecognition_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplatedocumentpagerecognitionCreateObjectV1SignalError(Ezsigntemplatedocumentpagerecognition_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsigntemplatedocumentpagerecognitionDeleteObjectV1SignalError() instead")
-    void ezsigntemplatedocumentpagerecognitionDeleteObjectV1SignalE(Common_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void ezsigntemplatedocumentpagerecognitionDeleteObjectV1SignalError(Common_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void ezsigntemplatedocumentpagerecognitionDeleteObjectV1SignalE(Ezsigntemplatedocumentpagerecognition_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigntemplatedocumentpagerecognitionDeleteObjectV1SignalError(Ezsigntemplatedocumentpagerecognition_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsigntemplatedocumentpagerecognitionEditObjectV1SignalError() instead")
-    void ezsigntemplatedocumentpagerecognitionEditObjectV1SignalE(Common_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void ezsigntemplatedocumentpagerecognitionEditObjectV1SignalError(Common_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void ezsigntemplatedocumentpagerecognitionEditObjectV1SignalE(Ezsigntemplatedocumentpagerecognition_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigntemplatedocumentpagerecognitionEditObjectV1SignalError(Ezsigntemplatedocumentpagerecognition_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsigntemplatedocumentpagerecognitionGetObjectV2SignalError() instead")
     void ezsigntemplatedocumentpagerecognitionGetObjectV2SignalE(Ezsigntemplatedocumentpagerecognition_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplatedocumentpagerecognitionGetObjectV2SignalError(Ezsigntemplatedocumentpagerecognition_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);

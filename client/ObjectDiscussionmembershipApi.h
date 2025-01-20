@@ -18,10 +18,10 @@
 #include "ServerConfiguration.h"
 #include "Oauth.h"
 
-#include "Common_Response.h"
 #include "Common_Response_Error.h"
 #include "Discussionmembership_createObject_v1_Request.h"
 #include "Discussionmembership_createObject_v1_Response.h"
+#include "Discussionmembership_deleteObject_v1_Response.h"
 #include <QString>
 
 #include <QObject>
@@ -99,18 +99,18 @@ private:
 Q_SIGNALS:
 
     void discussionmembershipCreateObjectV1Signal(Discussionmembership_createObject_v1_Response summary);
-    void discussionmembershipDeleteObjectV1Signal(Common_Response summary);
+    void discussionmembershipDeleteObjectV1Signal(Discussionmembership_deleteObject_v1_Response summary);
 
 
     void discussionmembershipCreateObjectV1SignalFull(HttpRequestWorker *worker, Discussionmembership_createObject_v1_Response summary);
-    void discussionmembershipDeleteObjectV1SignalFull(HttpRequestWorker *worker, Common_Response summary);
+    void discussionmembershipDeleteObjectV1SignalFull(HttpRequestWorker *worker, Discussionmembership_deleteObject_v1_Response summary);
 
     Q_DECL_DEPRECATED_X("Use discussionmembershipCreateObjectV1SignalError() instead")
     void discussionmembershipCreateObjectV1SignalE(Discussionmembership_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void discussionmembershipCreateObjectV1SignalError(Discussionmembership_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use discussionmembershipDeleteObjectV1SignalError() instead")
-    void discussionmembershipDeleteObjectV1SignalE(Common_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void discussionmembershipDeleteObjectV1SignalError(Common_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void discussionmembershipDeleteObjectV1SignalE(Discussionmembership_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void discussionmembershipDeleteObjectV1SignalError(Discussionmembership_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     Q_DECL_DEPRECATED_X("Use discussionmembershipCreateObjectV1SignalErrorFull() instead")
     void discussionmembershipCreateObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);

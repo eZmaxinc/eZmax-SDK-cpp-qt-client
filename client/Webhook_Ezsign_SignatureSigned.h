@@ -21,7 +21,7 @@
 
 #include <QJsonObject>
 
-#include "Attempt_Response.h"
+#include "Attempt_ResponseCompound.h"
 #include "Custom_Webhook_Response.h"
 #include "Ezsignsignature_Response.h"
 #include <QList>
@@ -31,7 +31,7 @@
 
 namespace Ezmaxapi {
 class Custom_Webhook_Response;
-class Attempt_Response;
+class Attempt_ResponseCompound;
 class Ezsignsignature_Response;
 
 class Webhook_Ezsign_SignatureSigned : public Object {

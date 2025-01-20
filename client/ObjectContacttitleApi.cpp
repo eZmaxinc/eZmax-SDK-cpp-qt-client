@@ -265,7 +265,7 @@ void ObjectContacttitleApi::contacttitleGetAutocompleteV2(const QString &s_selec
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_query.stringValue())));
+        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(s_query.stringValue()));
     }
     HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -324,7 +324,7 @@ void ObjectContacttitleApi::contacttitleGetAutocompleteV2(const QString &s_selec
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectContacttitleApi::contacttitleGetAutocompleteV2Callback);
     connect(this, &ObjectContacttitleApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }

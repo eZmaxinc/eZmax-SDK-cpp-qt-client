@@ -261,7 +261,7 @@ void ObjectCorsApi::corsCreateObjectV1(const Cors_createObject_v1_Request &cors_
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectCorsApi::corsCreateObjectV1Callback);
     connect(this, &ObjectCorsApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -349,7 +349,7 @@ void ObjectCorsApi::corsDeleteObjectV1(const qint32 &pki_cors_id) {
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectCorsApi::corsDeleteObjectV1Callback);
     connect(this, &ObjectCorsApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -365,7 +365,7 @@ void ObjectCorsApi::corsDeleteObjectV1Callback(HttpRequestWorker *worker) {
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Common_Response output(QString(worker->response));
+    Cors_deleteObject_v1_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -442,7 +442,7 @@ void ObjectCorsApi::corsEditObjectV1(const qint32 &pki_cors_id, const Cors_editO
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectCorsApi::corsEditObjectV1Callback);
     connect(this, &ObjectCorsApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -458,7 +458,7 @@ void ObjectCorsApi::corsEditObjectV1Callback(HttpRequestWorker *worker) {
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Common_Response output(QString(worker->response));
+    Cors_editObject_v1_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -530,7 +530,7 @@ void ObjectCorsApi::corsGetObjectV2(const qint32 &pki_cors_id) {
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectCorsApi::corsGetObjectV2Callback);
     connect(this, &ObjectCorsApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }

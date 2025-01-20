@@ -18,11 +18,12 @@
 #include "ServerConfiguration.h"
 #include "Oauth.h"
 
-#include "Common_Response.h"
 #include "Common_Response_Error.h"
 #include "Subnet_createObject_v1_Request.h"
 #include "Subnet_createObject_v1_Response.h"
+#include "Subnet_deleteObject_v1_Response.h"
 #include "Subnet_editObject_v1_Request.h"
+#include "Subnet_editObject_v1_Response.h"
 #include "Subnet_getObject_v2_Response.h"
 #include <QString>
 
@@ -114,25 +115,25 @@ private:
 Q_SIGNALS:
 
     void subnetCreateObjectV1Signal(Subnet_createObject_v1_Response summary);
-    void subnetDeleteObjectV1Signal(Common_Response summary);
-    void subnetEditObjectV1Signal(Common_Response summary);
+    void subnetDeleteObjectV1Signal(Subnet_deleteObject_v1_Response summary);
+    void subnetEditObjectV1Signal(Subnet_editObject_v1_Response summary);
     void subnetGetObjectV2Signal(Subnet_getObject_v2_Response summary);
 
 
     void subnetCreateObjectV1SignalFull(HttpRequestWorker *worker, Subnet_createObject_v1_Response summary);
-    void subnetDeleteObjectV1SignalFull(HttpRequestWorker *worker, Common_Response summary);
-    void subnetEditObjectV1SignalFull(HttpRequestWorker *worker, Common_Response summary);
+    void subnetDeleteObjectV1SignalFull(HttpRequestWorker *worker, Subnet_deleteObject_v1_Response summary);
+    void subnetEditObjectV1SignalFull(HttpRequestWorker *worker, Subnet_editObject_v1_Response summary);
     void subnetGetObjectV2SignalFull(HttpRequestWorker *worker, Subnet_getObject_v2_Response summary);
 
     Q_DECL_DEPRECATED_X("Use subnetCreateObjectV1SignalError() instead")
     void subnetCreateObjectV1SignalE(Subnet_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void subnetCreateObjectV1SignalError(Subnet_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use subnetDeleteObjectV1SignalError() instead")
-    void subnetDeleteObjectV1SignalE(Common_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void subnetDeleteObjectV1SignalError(Common_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void subnetDeleteObjectV1SignalE(Subnet_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void subnetDeleteObjectV1SignalError(Subnet_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use subnetEditObjectV1SignalError() instead")
-    void subnetEditObjectV1SignalE(Common_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void subnetEditObjectV1SignalError(Common_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void subnetEditObjectV1SignalE(Subnet_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void subnetEditObjectV1SignalError(Subnet_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use subnetGetObjectV2SignalError() instead")
     void subnetGetObjectV2SignalE(Subnet_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void subnetGetObjectV2SignalError(Subnet_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);

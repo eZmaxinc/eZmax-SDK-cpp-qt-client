@@ -18,15 +18,16 @@
 #include "ServerConfiguration.h"
 #include "Oauth.h"
 
-#include "Common_Response.h"
 #include "Common_Response_Error.h"
 #include "Header_Accept_Language.h"
 #include "HttpFileElement.h"
 #include "Object.h"
 #include "Userstaged_createUser_v1_Response.h"
+#include "Userstaged_deleteObject_v1_Response.h"
 #include "Userstaged_getList_v1_Response.h"
 #include "Userstaged_getObject_v2_Response.h"
 #include "Userstaged_map_v1_Request.h"
+#include "Userstaged_map_v1_Response.h"
 #include <QString>
 
 #include <QObject>
@@ -128,24 +129,24 @@ private:
 Q_SIGNALS:
 
     void userstagedCreateUserV1Signal(Userstaged_createUser_v1_Response summary);
-    void userstagedDeleteObjectV1Signal(Common_Response summary);
+    void userstagedDeleteObjectV1Signal(Userstaged_deleteObject_v1_Response summary);
     void userstagedGetListV1Signal(Userstaged_getList_v1_Response summary);
     void userstagedGetObjectV2Signal(Userstaged_getObject_v2_Response summary);
-    void userstagedMapV1Signal(Common_Response summary);
+    void userstagedMapV1Signal(Userstaged_map_v1_Response summary);
 
 
     void userstagedCreateUserV1SignalFull(HttpRequestWorker *worker, Userstaged_createUser_v1_Response summary);
-    void userstagedDeleteObjectV1SignalFull(HttpRequestWorker *worker, Common_Response summary);
+    void userstagedDeleteObjectV1SignalFull(HttpRequestWorker *worker, Userstaged_deleteObject_v1_Response summary);
     void userstagedGetListV1SignalFull(HttpRequestWorker *worker, Userstaged_getList_v1_Response summary);
     void userstagedGetObjectV2SignalFull(HttpRequestWorker *worker, Userstaged_getObject_v2_Response summary);
-    void userstagedMapV1SignalFull(HttpRequestWorker *worker, Common_Response summary);
+    void userstagedMapV1SignalFull(HttpRequestWorker *worker, Userstaged_map_v1_Response summary);
 
     Q_DECL_DEPRECATED_X("Use userstagedCreateUserV1SignalError() instead")
     void userstagedCreateUserV1SignalE(Userstaged_createUser_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void userstagedCreateUserV1SignalError(Userstaged_createUser_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use userstagedDeleteObjectV1SignalError() instead")
-    void userstagedDeleteObjectV1SignalE(Common_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void userstagedDeleteObjectV1SignalError(Common_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void userstagedDeleteObjectV1SignalE(Userstaged_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void userstagedDeleteObjectV1SignalError(Userstaged_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use userstagedGetListV1SignalError() instead")
     void userstagedGetListV1SignalE(Userstaged_getList_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void userstagedGetListV1SignalError(Userstaged_getList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -153,8 +154,8 @@ Q_SIGNALS:
     void userstagedGetObjectV2SignalE(Userstaged_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void userstagedGetObjectV2SignalError(Userstaged_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use userstagedMapV1SignalError() instead")
-    void userstagedMapV1SignalE(Common_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void userstagedMapV1SignalError(Common_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void userstagedMapV1SignalE(Userstaged_map_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void userstagedMapV1SignalError(Userstaged_map_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     Q_DECL_DEPRECATED_X("Use userstagedCreateUserV1SignalErrorFull() instead")
     void userstagedCreateUserV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);

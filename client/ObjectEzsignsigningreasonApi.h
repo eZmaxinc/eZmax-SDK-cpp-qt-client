@@ -18,11 +18,11 @@
 #include "ServerConfiguration.h"
 #include "Oauth.h"
 
-#include "Common_Response.h"
 #include "Common_Response_Error.h"
 #include "Ezsignsigningreason_createObject_v1_Request.h"
 #include "Ezsignsigningreason_createObject_v1_Response.h"
 #include "Ezsignsigningreason_editObject_v1_Request.h"
+#include "Ezsignsigningreason_editObject_v1_Response.h"
 #include "Ezsignsigningreason_getAutocomplete_v2_Response.h"
 #include "Ezsignsigningreason_getList_v1_Response.h"
 #include "Ezsignsigningreason_getObject_v2_Response.h"
@@ -131,14 +131,14 @@ private:
 Q_SIGNALS:
 
     void ezsignsigningreasonCreateObjectV1Signal(Ezsignsigningreason_createObject_v1_Response summary);
-    void ezsignsigningreasonEditObjectV1Signal(Common_Response summary);
+    void ezsignsigningreasonEditObjectV1Signal(Ezsignsigningreason_editObject_v1_Response summary);
     void ezsignsigningreasonGetAutocompleteV2Signal(Ezsignsigningreason_getAutocomplete_v2_Response summary);
     void ezsignsigningreasonGetListV1Signal(Ezsignsigningreason_getList_v1_Response summary);
     void ezsignsigningreasonGetObjectV2Signal(Ezsignsigningreason_getObject_v2_Response summary);
 
 
     void ezsignsigningreasonCreateObjectV1SignalFull(HttpRequestWorker *worker, Ezsignsigningreason_createObject_v1_Response summary);
-    void ezsignsigningreasonEditObjectV1SignalFull(HttpRequestWorker *worker, Common_Response summary);
+    void ezsignsigningreasonEditObjectV1SignalFull(HttpRequestWorker *worker, Ezsignsigningreason_editObject_v1_Response summary);
     void ezsignsigningreasonGetAutocompleteV2SignalFull(HttpRequestWorker *worker, Ezsignsigningreason_getAutocomplete_v2_Response summary);
     void ezsignsigningreasonGetListV1SignalFull(HttpRequestWorker *worker, Ezsignsigningreason_getList_v1_Response summary);
     void ezsignsigningreasonGetObjectV2SignalFull(HttpRequestWorker *worker, Ezsignsigningreason_getObject_v2_Response summary);
@@ -147,8 +147,8 @@ Q_SIGNALS:
     void ezsignsigningreasonCreateObjectV1SignalE(Ezsignsigningreason_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignsigningreasonCreateObjectV1SignalError(Ezsignsigningreason_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsignsigningreasonEditObjectV1SignalError() instead")
-    void ezsignsigningreasonEditObjectV1SignalE(Common_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void ezsignsigningreasonEditObjectV1SignalError(Common_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void ezsignsigningreasonEditObjectV1SignalE(Ezsignsigningreason_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignsigningreasonEditObjectV1SignalError(Ezsignsigningreason_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsignsigningreasonGetAutocompleteV2SignalError() instead")
     void ezsignsigningreasonGetAutocompleteV2SignalE(Ezsignsigningreason_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignsigningreasonGetAutocompleteV2SignalError(Ezsignsigningreason_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);

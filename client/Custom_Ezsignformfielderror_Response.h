@@ -21,7 +21,7 @@
 
 #include <QJsonObject>
 
-#include "Object.h"
+#include "Custom_Ezsignformfielderrortest_Response.h"
 #include <QList>
 #include <QString>
 
@@ -29,6 +29,7 @@
 #include "Object.h"
 
 namespace Ezmaxapi {
+class Custom_Ezsignformfielderrortest_Response;
 
 class Custom_Ezsignformfielderror_Response : public Object {
 public:

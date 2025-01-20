@@ -18,11 +18,12 @@
 #include "ServerConfiguration.h"
 #include "Oauth.h"
 
-#include "Common_Response.h"
 #include "Common_Response_Error.h"
 #include "Ezsignannotation_createObject_v1_Request.h"
 #include "Ezsignannotation_createObject_v1_Response.h"
+#include "Ezsignannotation_deleteObject_v1_Response.h"
 #include "Ezsignannotation_editObject_v1_Request.h"
+#include "Ezsignannotation_editObject_v1_Response.h"
 #include "Ezsignannotation_getObject_v2_Response.h"
 #include <QString>
 
@@ -114,25 +115,25 @@ private:
 Q_SIGNALS:
 
     void ezsignannotationCreateObjectV1Signal(Ezsignannotation_createObject_v1_Response summary);
-    void ezsignannotationDeleteObjectV1Signal(Common_Response summary);
-    void ezsignannotationEditObjectV1Signal(Common_Response summary);
+    void ezsignannotationDeleteObjectV1Signal(Ezsignannotation_deleteObject_v1_Response summary);
+    void ezsignannotationEditObjectV1Signal(Ezsignannotation_editObject_v1_Response summary);
     void ezsignannotationGetObjectV2Signal(Ezsignannotation_getObject_v2_Response summary);
 
 
     void ezsignannotationCreateObjectV1SignalFull(HttpRequestWorker *worker, Ezsignannotation_createObject_v1_Response summary);
-    void ezsignannotationDeleteObjectV1SignalFull(HttpRequestWorker *worker, Common_Response summary);
-    void ezsignannotationEditObjectV1SignalFull(HttpRequestWorker *worker, Common_Response summary);
+    void ezsignannotationDeleteObjectV1SignalFull(HttpRequestWorker *worker, Ezsignannotation_deleteObject_v1_Response summary);
+    void ezsignannotationEditObjectV1SignalFull(HttpRequestWorker *worker, Ezsignannotation_editObject_v1_Response summary);
     void ezsignannotationGetObjectV2SignalFull(HttpRequestWorker *worker, Ezsignannotation_getObject_v2_Response summary);
 
     Q_DECL_DEPRECATED_X("Use ezsignannotationCreateObjectV1SignalError() instead")
     void ezsignannotationCreateObjectV1SignalE(Ezsignannotation_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignannotationCreateObjectV1SignalError(Ezsignannotation_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsignannotationDeleteObjectV1SignalError() instead")
-    void ezsignannotationDeleteObjectV1SignalE(Common_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void ezsignannotationDeleteObjectV1SignalError(Common_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void ezsignannotationDeleteObjectV1SignalE(Ezsignannotation_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignannotationDeleteObjectV1SignalError(Ezsignannotation_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsignannotationEditObjectV1SignalError() instead")
-    void ezsignannotationEditObjectV1SignalE(Common_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void ezsignannotationEditObjectV1SignalError(Common_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void ezsignannotationEditObjectV1SignalE(Ezsignannotation_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignannotationEditObjectV1SignalError(Ezsignannotation_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsignannotationGetObjectV2SignalError() instead")
     void ezsignannotationGetObjectV2SignalE(Ezsignannotation_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignannotationGetObjectV2SignalError(Ezsignannotation_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);

@@ -261,7 +261,7 @@ void ObjectPermissionApi::permissionCreateObjectV1(const Permission_createObject
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectPermissionApi::permissionCreateObjectV1Callback);
     connect(this, &ObjectPermissionApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -349,7 +349,7 @@ void ObjectPermissionApi::permissionDeleteObjectV1(const qint32 &pki_permission_
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectPermissionApi::permissionDeleteObjectV1Callback);
     connect(this, &ObjectPermissionApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -365,7 +365,7 @@ void ObjectPermissionApi::permissionDeleteObjectV1Callback(HttpRequestWorker *wo
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Common_Response output(QString(worker->response));
+    Permission_deleteObject_v1_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -442,7 +442,7 @@ void ObjectPermissionApi::permissionEditObjectV1(const qint32 &pki_permission_id
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectPermissionApi::permissionEditObjectV1Callback);
     connect(this, &ObjectPermissionApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -458,7 +458,7 @@ void ObjectPermissionApi::permissionEditObjectV1Callback(HttpRequestWorker *work
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Common_Response output(QString(worker->response));
+    Permission_editObject_v1_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -530,7 +530,7 @@ void ObjectPermissionApi::permissionGetObjectV2(const qint32 &pki_permission_id)
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectPermissionApi::permissionGetObjectV2Callback);
     connect(this, &ObjectPermissionApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }

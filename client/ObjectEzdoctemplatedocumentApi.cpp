@@ -267,7 +267,7 @@ void ObjectEzdoctemplatedocumentApi::ezdoctemplatedocumentCreateObjectV1(const E
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzdoctemplatedocumentApi::ezdoctemplatedocumentCreateObjectV1Callback);
     connect(this, &ObjectEzdoctemplatedocumentApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -363,7 +363,7 @@ void ObjectEzdoctemplatedocumentApi::ezdoctemplatedocumentDownloadV1(const qint3
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzdoctemplatedocumentApi::ezdoctemplatedocumentDownloadV1Callback);
     connect(this, &ObjectEzdoctemplatedocumentApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -455,7 +455,7 @@ void ObjectEzdoctemplatedocumentApi::ezdoctemplatedocumentEditObjectV1(const qin
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzdoctemplatedocumentApi::ezdoctemplatedocumentEditObjectV1Callback);
     connect(this, &ObjectEzdoctemplatedocumentApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -471,7 +471,7 @@ void ObjectEzdoctemplatedocumentApi::ezdoctemplatedocumentEditObjectV1Callback(H
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Common_Response output(QString(worker->response));
+    Ezdoctemplatedocument_editObject_v1_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -544,7 +544,7 @@ void ObjectEzdoctemplatedocumentApi::ezdoctemplatedocumentGetAutocompleteV2(cons
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("fkiEzsignfoldertypeID")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(fki_ezsignfoldertype_id.stringValue())));
+        fullPath.append(QUrl::toPercentEncoding("fkiEzsignfoldertypeID")).append(querySuffix).append(QUrl::toPercentEncoding(fki_ezsignfoldertype_id.stringValue()));
     }
     
     {
@@ -559,7 +559,7 @@ void ObjectEzdoctemplatedocumentApi::ezdoctemplatedocumentGetAutocompleteV2(cons
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("eType")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(e_type)));
+        fullPath.append(QUrl::toPercentEncoding("eType")).append(querySuffix).append(QUrl::toPercentEncoding(e_type));
     }
     if (e_filter_active.hasValue())
     {
@@ -574,7 +574,7 @@ void ObjectEzdoctemplatedocumentApi::ezdoctemplatedocumentGetAutocompleteV2(cons
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("eFilterActive")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(e_filter_active.stringValue())));
+        fullPath.append(QUrl::toPercentEncoding("eFilterActive")).append(querySuffix).append(QUrl::toPercentEncoding(e_filter_active.stringValue()));
     }
     if (s_query.hasValue())
     {
@@ -589,7 +589,7 @@ void ObjectEzdoctemplatedocumentApi::ezdoctemplatedocumentGetAutocompleteV2(cons
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_query.stringValue())));
+        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(s_query.stringValue()));
     }
     HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -648,7 +648,7 @@ void ObjectEzdoctemplatedocumentApi::ezdoctemplatedocumentGetAutocompleteV2(cons
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzdoctemplatedocumentApi::ezdoctemplatedocumentGetAutocompleteV2Callback);
     connect(this, &ObjectEzdoctemplatedocumentApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -723,7 +723,7 @@ void ObjectEzdoctemplatedocumentApi::ezdoctemplatedocumentGetListV1(const ::Ezma
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("eOrderBy")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(e_order_by.stringValue())));
+        fullPath.append(QUrl::toPercentEncoding("eOrderBy")).append(querySuffix).append(QUrl::toPercentEncoding(e_order_by.stringValue()));
     }
     if (i_row_max.hasValue())
     {
@@ -738,7 +738,7 @@ void ObjectEzdoctemplatedocumentApi::ezdoctemplatedocumentGetListV1(const ::Ezma
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("iRowMax")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(i_row_max.stringValue())));
+        fullPath.append(QUrl::toPercentEncoding("iRowMax")).append(querySuffix).append(QUrl::toPercentEncoding(i_row_max.stringValue()));
     }
     if (i_row_offset.hasValue())
     {
@@ -753,7 +753,7 @@ void ObjectEzdoctemplatedocumentApi::ezdoctemplatedocumentGetListV1(const ::Ezma
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("iRowOffset")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(i_row_offset.stringValue())));
+        fullPath.append(QUrl::toPercentEncoding("iRowOffset")).append(querySuffix).append(QUrl::toPercentEncoding(i_row_offset.stringValue()));
     }
     if (s_filter.hasValue())
     {
@@ -768,7 +768,7 @@ void ObjectEzdoctemplatedocumentApi::ezdoctemplatedocumentGetListV1(const ::Ezma
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("sFilter")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_filter.stringValue())));
+        fullPath.append(QUrl::toPercentEncoding("sFilter")).append(querySuffix).append(QUrl::toPercentEncoding(s_filter.stringValue()));
     }
     HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -827,7 +827,7 @@ void ObjectEzdoctemplatedocumentApi::ezdoctemplatedocumentGetListV1(const ::Ezma
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzdoctemplatedocumentApi::ezdoctemplatedocumentGetListV1Callback);
     connect(this, &ObjectEzdoctemplatedocumentApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -915,7 +915,7 @@ void ObjectEzdoctemplatedocumentApi::ezdoctemplatedocumentGetObjectV2(const qint
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzdoctemplatedocumentApi::ezdoctemplatedocumentGetObjectV2Callback);
     connect(this, &ObjectEzdoctemplatedocumentApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -1008,7 +1008,7 @@ void ObjectEzdoctemplatedocumentApi::ezdoctemplatedocumentPatchObjectV1(const qi
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzdoctemplatedocumentApi::ezdoctemplatedocumentPatchObjectV1Callback);
     connect(this, &ObjectEzdoctemplatedocumentApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -1024,7 +1024,7 @@ void ObjectEzdoctemplatedocumentApi::ezdoctemplatedocumentPatchObjectV1Callback(
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Common_Response output(QString(worker->response));
+    Ezdoctemplatedocument_patchObject_v1_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {

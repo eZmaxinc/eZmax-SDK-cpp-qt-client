@@ -261,7 +261,7 @@ void ObjectUsergroupmembershipApi::usergroupmembershipCreateObjectV1(const Userg
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectUsergroupmembershipApi::usergroupmembershipCreateObjectV1Callback);
     connect(this, &ObjectUsergroupmembershipApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -349,7 +349,7 @@ void ObjectUsergroupmembershipApi::usergroupmembershipDeleteObjectV1(const qint3
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectUsergroupmembershipApi::usergroupmembershipDeleteObjectV1Callback);
     connect(this, &ObjectUsergroupmembershipApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -365,7 +365,7 @@ void ObjectUsergroupmembershipApi::usergroupmembershipDeleteObjectV1Callback(Htt
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Common_Response output(QString(worker->response));
+    Usergroupmembership_deleteObject_v1_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -442,7 +442,7 @@ void ObjectUsergroupmembershipApi::usergroupmembershipEditObjectV1(const qint32 
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectUsergroupmembershipApi::usergroupmembershipEditObjectV1Callback);
     connect(this, &ObjectUsergroupmembershipApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -458,7 +458,7 @@ void ObjectUsergroupmembershipApi::usergroupmembershipEditObjectV1Callback(HttpR
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Common_Response output(QString(worker->response));
+    Usergroupmembership_editObject_v1_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -530,7 +530,7 @@ void ObjectUsergroupmembershipApi::usergroupmembershipGetObjectV2(const qint32 &
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectUsergroupmembershipApi::usergroupmembershipGetObjectV2Callback);
     connect(this, &ObjectUsergroupmembershipApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }

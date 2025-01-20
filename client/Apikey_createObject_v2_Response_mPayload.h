@@ -21,14 +21,14 @@
 
 #include <QJsonObject>
 
-#include "Apikey_Response.h"
+#include "Apikey_ResponseCompound.h"
 #include <QList>
 
 #include "Enum.h"
 #include "Object.h"
 
 namespace Ezmaxapi {
-class Apikey_Response;
+class Apikey_ResponseCompound;
 
 class Apikey_createObject_v2_Response_mPayload : public Object {
 public:

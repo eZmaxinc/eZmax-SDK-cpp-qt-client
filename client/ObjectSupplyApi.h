@@ -18,13 +18,14 @@
 #include "ServerConfiguration.h"
 #include "Oauth.h"
 
-#include "Common_Response.h"
 #include "Common_Response_Error.h"
 #include "Header_Accept_Language.h"
 #include "HttpFileElement.h"
 #include "Supply_createObject_v1_Request.h"
 #include "Supply_createObject_v1_Response.h"
+#include "Supply_deleteObject_v1_Response.h"
 #include "Supply_editObject_v1_Request.h"
+#include "Supply_editObject_v1_Response.h"
 #include "Supply_getAutocomplete_v2_Response.h"
 #include "Supply_getList_v1_Response.h"
 #include "Supply_getObject_v2_Response.h"
@@ -137,16 +138,16 @@ private:
 Q_SIGNALS:
 
     void supplyCreateObjectV1Signal(Supply_createObject_v1_Response summary);
-    void supplyDeleteObjectV1Signal(Common_Response summary);
-    void supplyEditObjectV1Signal(Common_Response summary);
+    void supplyDeleteObjectV1Signal(Supply_deleteObject_v1_Response summary);
+    void supplyEditObjectV1Signal(Supply_editObject_v1_Response summary);
     void supplyGetAutocompleteV2Signal(Supply_getAutocomplete_v2_Response summary);
     void supplyGetListV1Signal(Supply_getList_v1_Response summary);
     void supplyGetObjectV2Signal(Supply_getObject_v2_Response summary);
 
 
     void supplyCreateObjectV1SignalFull(HttpRequestWorker *worker, Supply_createObject_v1_Response summary);
-    void supplyDeleteObjectV1SignalFull(HttpRequestWorker *worker, Common_Response summary);
-    void supplyEditObjectV1SignalFull(HttpRequestWorker *worker, Common_Response summary);
+    void supplyDeleteObjectV1SignalFull(HttpRequestWorker *worker, Supply_deleteObject_v1_Response summary);
+    void supplyEditObjectV1SignalFull(HttpRequestWorker *worker, Supply_editObject_v1_Response summary);
     void supplyGetAutocompleteV2SignalFull(HttpRequestWorker *worker, Supply_getAutocomplete_v2_Response summary);
     void supplyGetListV1SignalFull(HttpRequestWorker *worker, Supply_getList_v1_Response summary);
     void supplyGetObjectV2SignalFull(HttpRequestWorker *worker, Supply_getObject_v2_Response summary);
@@ -155,11 +156,11 @@ Q_SIGNALS:
     void supplyCreateObjectV1SignalE(Supply_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void supplyCreateObjectV1SignalError(Supply_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use supplyDeleteObjectV1SignalError() instead")
-    void supplyDeleteObjectV1SignalE(Common_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void supplyDeleteObjectV1SignalError(Common_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void supplyDeleteObjectV1SignalE(Supply_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void supplyDeleteObjectV1SignalError(Supply_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use supplyEditObjectV1SignalError() instead")
-    void supplyEditObjectV1SignalE(Common_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void supplyEditObjectV1SignalError(Common_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void supplyEditObjectV1SignalE(Supply_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void supplyEditObjectV1SignalError(Supply_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use supplyGetAutocompleteV2SignalError() instead")
     void supplyGetAutocompleteV2SignalE(Supply_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void supplyGetAutocompleteV2SignalError(Supply_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);

@@ -263,7 +263,7 @@ void ObjectDiscussionApi::discussionCreateObjectV1(const Discussion_createObject
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectDiscussionApi::discussionCreateObjectV1Callback);
     connect(this, &ObjectDiscussionApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -351,7 +351,7 @@ void ObjectDiscussionApi::discussionDeleteObjectV1(const qint32 &pki_discussion_
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectDiscussionApi::discussionDeleteObjectV1Callback);
     connect(this, &ObjectDiscussionApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -367,7 +367,7 @@ void ObjectDiscussionApi::discussionDeleteObjectV1Callback(HttpRequestWorker *wo
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Common_Response output(QString(worker->response));
+    Discussion_deleteObject_v1_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -439,7 +439,7 @@ void ObjectDiscussionApi::discussionGetObjectV2(const qint32 &pki_discussion_id)
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectDiscussionApi::discussionGetObjectV2Callback);
     connect(this, &ObjectDiscussionApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -532,7 +532,7 @@ void ObjectDiscussionApi::discussionPatchObjectV1(const qint32 &pki_discussion_i
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectDiscussionApi::discussionPatchObjectV1Callback);
     connect(this, &ObjectDiscussionApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -548,7 +548,7 @@ void ObjectDiscussionApi::discussionPatchObjectV1Callback(HttpRequestWorker *wor
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Common_Response output(QString(worker->response));
+    Discussion_patchObject_v1_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -625,7 +625,7 @@ void ObjectDiscussionApi::discussionUpdateDiscussionreadstatusV1(const qint32 &p
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectDiscussionApi::discussionUpdateDiscussionreadstatusV1Callback);
     connect(this, &ObjectDiscussionApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -641,7 +641,7 @@ void ObjectDiscussionApi::discussionUpdateDiscussionreadstatusV1Callback(HttpReq
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Common_Response output(QString(worker->response));
+    Discussion_updateDiscussionreadstatus_v1_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {

@@ -21,14 +21,14 @@
 
 #include <QJsonObject>
 
-#include "Ezsignfolder_Request.h"
+#include "Ezsignfolder_RequestCompound.h"
 #include <QList>
 
 #include "Enum.h"
 #include "Object.h"
 
 namespace Ezmaxapi {
-class Ezsignfolder_Request;
+class Ezsignfolder_RequestCompound;
 
 class Ezsignfolder_createObject_v2_Request : public Object {
 public:

@@ -261,7 +261,7 @@ void ObjectEzsignannotationApi::ezsignannotationCreateObjectV1(const Ezsignannot
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignannotationApi::ezsignannotationCreateObjectV1Callback);
     connect(this, &ObjectEzsignannotationApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -349,7 +349,7 @@ void ObjectEzsignannotationApi::ezsignannotationDeleteObjectV1(const qint32 &pki
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignannotationApi::ezsignannotationDeleteObjectV1Callback);
     connect(this, &ObjectEzsignannotationApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -365,7 +365,7 @@ void ObjectEzsignannotationApi::ezsignannotationDeleteObjectV1Callback(HttpReque
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Common_Response output(QString(worker->response));
+    Ezsignannotation_deleteObject_v1_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -442,7 +442,7 @@ void ObjectEzsignannotationApi::ezsignannotationEditObjectV1(const qint32 &pki_e
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignannotationApi::ezsignannotationEditObjectV1Callback);
     connect(this, &ObjectEzsignannotationApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -458,7 +458,7 @@ void ObjectEzsignannotationApi::ezsignannotationEditObjectV1Callback(HttpRequest
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Common_Response output(QString(worker->response));
+    Ezsignannotation_editObject_v1_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -530,7 +530,7 @@ void ObjectEzsignannotationApi::ezsignannotationGetObjectV2(const qint32 &pki_ez
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignannotationApi::ezsignannotationGetObjectV2Callback);
     connect(this, &ObjectEzsignannotationApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }

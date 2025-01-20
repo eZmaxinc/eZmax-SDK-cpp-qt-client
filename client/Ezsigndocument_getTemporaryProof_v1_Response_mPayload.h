@@ -21,14 +21,14 @@
 
 #include <QJsonObject>
 
-#include "Ezsigndocumentlog_Response.h"
+#include "Ezsigndocumentlog_ResponseCompound.h"
 #include <QList>
 
 #include "Enum.h"
 #include "Object.h"
 
 namespace Ezmaxapi {
-class Ezsigndocumentlog_Response;
+class Ezsigndocumentlog_ResponseCompound;
 
 class Ezsigndocument_getTemporaryProof_v1_Response_mPayload : public Object {
 public:

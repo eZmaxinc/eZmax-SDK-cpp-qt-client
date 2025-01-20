@@ -18,9 +18,9 @@
 #include "ServerConfiguration.h"
 #include "Oauth.h"
 
-#include "Common_Response.h"
 #include "Common_Response_Error.h"
 #include "Systemconfiguration_editObject_v1_Request.h"
+#include "Systemconfiguration_editObject_v1_Response.h"
 #include "Systemconfiguration_getObject_v2_Response.h"
 #include <QString>
 
@@ -99,16 +99,16 @@ private:
 
 Q_SIGNALS:
 
-    void systemconfigurationEditObjectV1Signal(Common_Response summary);
+    void systemconfigurationEditObjectV1Signal(Systemconfiguration_editObject_v1_Response summary);
     void systemconfigurationGetObjectV2Signal(Systemconfiguration_getObject_v2_Response summary);
 
 
-    void systemconfigurationEditObjectV1SignalFull(HttpRequestWorker *worker, Common_Response summary);
+    void systemconfigurationEditObjectV1SignalFull(HttpRequestWorker *worker, Systemconfiguration_editObject_v1_Response summary);
     void systemconfigurationGetObjectV2SignalFull(HttpRequestWorker *worker, Systemconfiguration_getObject_v2_Response summary);
 
     Q_DECL_DEPRECATED_X("Use systemconfigurationEditObjectV1SignalError() instead")
-    void systemconfigurationEditObjectV1SignalE(Common_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void systemconfigurationEditObjectV1SignalError(Common_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void systemconfigurationEditObjectV1SignalE(Systemconfiguration_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void systemconfigurationEditObjectV1SignalError(Systemconfiguration_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use systemconfigurationGetObjectV2SignalError() instead")
     void systemconfigurationGetObjectV2SignalE(Systemconfiguration_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void systemconfigurationGetObjectV2SignalError(Systemconfiguration_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);

@@ -259,7 +259,7 @@ void ObjectEzsigndiscussionApi::ezsigndiscussionCreateObjectV1(const Ezsigndiscu
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsigndiscussionApi::ezsigndiscussionCreateObjectV1Callback);
     connect(this, &ObjectEzsigndiscussionApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -347,7 +347,7 @@ void ObjectEzsigndiscussionApi::ezsigndiscussionDeleteObjectV1(const qint32 &pki
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsigndiscussionApi::ezsigndiscussionDeleteObjectV1Callback);
     connect(this, &ObjectEzsigndiscussionApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -363,7 +363,7 @@ void ObjectEzsigndiscussionApi::ezsigndiscussionDeleteObjectV1Callback(HttpReque
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Common_Response output(QString(worker->response));
+    Ezsigndiscussion_deleteObject_v1_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -435,7 +435,7 @@ void ObjectEzsigndiscussionApi::ezsigndiscussionGetObjectV2(const qint32 &pki_ez
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsigndiscussionApi::ezsigndiscussionGetObjectV2Callback);
     connect(this, &ObjectEzsigndiscussionApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }

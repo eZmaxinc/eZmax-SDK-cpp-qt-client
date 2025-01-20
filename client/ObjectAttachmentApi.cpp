@@ -274,7 +274,7 @@ void ObjectAttachmentApi::attachmentDownloadV1(const qint32 &pki_attachment_id) 
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectAttachmentApi::attachmentDownloadV1Callback);
     connect(this, &ObjectAttachmentApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -361,7 +361,7 @@ void ObjectAttachmentApi::attachmentGetAttachmentlogsV1(const qint32 &pki_attach
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectAttachmentApi::attachmentGetAttachmentlogsV1Callback);
     connect(this, &ObjectAttachmentApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
+    connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
