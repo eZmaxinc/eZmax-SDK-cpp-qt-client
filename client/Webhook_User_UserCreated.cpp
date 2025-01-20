@@ -116,10 +116,10 @@ bool Webhook_User_UserCreated::is_a_obj_attempt_Valid() const{
     return m_a_obj_attempt_isValid;
 }
 
-User_ResponseCompound Webhook_User_UserCreated::getObjUser() const {
+User_Response Webhook_User_UserCreated::getObjUser() const {
     return m_obj_user;
 }
-void Webhook_User_UserCreated::setObjUser(const User_ResponseCompound &obj_user) {
+void Webhook_User_UserCreated::setObjUser(const User_Response &obj_user) {
     m_obj_user = obj_user;
     m_obj_user_isSet = true;
 }

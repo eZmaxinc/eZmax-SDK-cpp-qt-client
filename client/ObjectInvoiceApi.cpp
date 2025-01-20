@@ -272,7 +272,7 @@ void ObjectInvoiceApi::invoiceGetAttachmentsV1(const qint32 &pki_invoice_id) {
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectInvoiceApi::invoiceGetAttachmentsV1Callback);
     connect(this, &ObjectInvoiceApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -360,7 +360,7 @@ void ObjectInvoiceApi::invoiceGetCommunicationCountV1(const qint32 &pki_invoice_
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectInvoiceApi::invoiceGetCommunicationCountV1Callback);
     connect(this, &ObjectInvoiceApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -448,7 +448,7 @@ void ObjectInvoiceApi::invoiceGetCommunicationListV1(const qint32 &pki_invoice_i
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectInvoiceApi::invoiceGetCommunicationListV1Callback);
     connect(this, &ObjectInvoiceApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -536,7 +536,7 @@ void ObjectInvoiceApi::invoiceGetCommunicationrecipientsV1(const qint32 &pki_inv
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectInvoiceApi::invoiceGetCommunicationrecipientsV1Callback);
     connect(this, &ObjectInvoiceApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -624,7 +624,7 @@ void ObjectInvoiceApi::invoiceGetCommunicationsendersV1(const qint32 &pki_invoic
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectInvoiceApi::invoiceGetCommunicationsendersV1Callback);
     connect(this, &ObjectInvoiceApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }

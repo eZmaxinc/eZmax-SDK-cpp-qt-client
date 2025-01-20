@@ -289,7 +289,7 @@ void ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationCreate
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationCreateEmbeddedUrlV1Callback);
     connect(this, &ObjectEzsignfoldersignerassociationApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -367,7 +367,7 @@ void ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationCreate
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationCreateObjectV1Callback);
     connect(this, &ObjectEzsignfoldersignerassociationApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -446,7 +446,7 @@ void ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationCreate
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationCreateObjectV2Callback);
     connect(this, &ObjectEzsignfoldersignerassociationApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -534,7 +534,7 @@ void ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationDelete
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationDeleteObjectV1Callback);
     connect(this, &ObjectEzsignfoldersignerassociationApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -550,7 +550,7 @@ void ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationDelete
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Ezsignfoldersignerassociation_deleteObject_v1_Response output(QString(worker->response));
+    Common_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -627,7 +627,7 @@ void ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationEditOb
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationEditObjectV1Callback);
     connect(this, &ObjectEzsignfoldersignerassociationApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -643,7 +643,7 @@ void ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationEditOb
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Ezsignfoldersignerassociation_editObject_v1_Response output(QString(worker->response));
+    Common_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -720,7 +720,7 @@ void ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationForceD
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationForceDisconnectV1Callback);
     connect(this, &ObjectEzsignfoldersignerassociationApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -736,7 +736,7 @@ void ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationForceD
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Ezsignfoldersignerassociation_forceDisconnect_v1_Response output(QString(worker->response));
+    Common_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -808,7 +808,7 @@ void ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationGetInP
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationGetInPersonLoginUrlV1Callback);
     connect(this, &ObjectEzsignfoldersignerassociationApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -896,7 +896,7 @@ void ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationGetObj
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationGetObjectV1Callback);
     connect(this, &ObjectEzsignfoldersignerassociationApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -984,7 +984,7 @@ void ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationGetObj
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationGetObjectV2Callback);
     connect(this, &ObjectEzsignfoldersignerassociationApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -1077,7 +1077,7 @@ void ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationPatchO
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationPatchObjectV1Callback);
     connect(this, &ObjectEzsignfoldersignerassociationApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -1093,7 +1093,7 @@ void ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationPatchO
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Ezsignfoldersignerassociation_patchObject_v1_Response output(QString(worker->response));
+    Common_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -1170,7 +1170,7 @@ void ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationReassi
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationReassignV1Callback);
     connect(this, &ObjectEzsignfoldersignerassociationApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -1186,7 +1186,7 @@ void ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationReassi
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Ezsignfoldersignerassociation_reassign_v1_Response output(QString(worker->response));
+    Common_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {

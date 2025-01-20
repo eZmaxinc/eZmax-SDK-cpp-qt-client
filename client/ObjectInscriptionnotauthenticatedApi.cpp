@@ -270,7 +270,7 @@ void ObjectInscriptionnotauthenticatedApi::inscriptionnotauthenticatedGetCommuni
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectInscriptionnotauthenticatedApi::inscriptionnotauthenticatedGetCommunicationCountV1Callback);
     connect(this, &ObjectInscriptionnotauthenticatedApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -358,7 +358,7 @@ void ObjectInscriptionnotauthenticatedApi::inscriptionnotauthenticatedGetCommuni
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectInscriptionnotauthenticatedApi::inscriptionnotauthenticatedGetCommunicationListV1Callback);
     connect(this, &ObjectInscriptionnotauthenticatedApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -446,7 +446,7 @@ void ObjectInscriptionnotauthenticatedApi::inscriptionnotauthenticatedGetCommuni
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectInscriptionnotauthenticatedApi::inscriptionnotauthenticatedGetCommunicationrecipientsV1Callback);
     connect(this, &ObjectInscriptionnotauthenticatedApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -534,7 +534,7 @@ void ObjectInscriptionnotauthenticatedApi::inscriptionnotauthenticatedGetCommuni
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectInscriptionnotauthenticatedApi::inscriptionnotauthenticatedGetCommunicationsendersV1Callback);
     connect(this, &ObjectInscriptionnotauthenticatedApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }

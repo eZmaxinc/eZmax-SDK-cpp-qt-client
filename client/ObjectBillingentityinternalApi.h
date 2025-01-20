@@ -21,10 +21,10 @@
 #include "Billingentityinternal_createObject_v1_Request.h"
 #include "Billingentityinternal_createObject_v1_Response.h"
 #include "Billingentityinternal_editObject_v1_Request.h"
-#include "Billingentityinternal_editObject_v1_Response.h"
 #include "Billingentityinternal_getAutocomplete_v2_Response.h"
 #include "Billingentityinternal_getList_v1_Response.h"
 #include "Billingentityinternal_getObject_v2_Response.h"
+#include "Common_Response.h"
 #include "Common_Response_Error.h"
 #include "Header_Accept_Language.h"
 #include "HttpFileElement.h"
@@ -131,14 +131,14 @@ private:
 Q_SIGNALS:
 
     void billingentityinternalCreateObjectV1Signal(Billingentityinternal_createObject_v1_Response summary);
-    void billingentityinternalEditObjectV1Signal(Billingentityinternal_editObject_v1_Response summary);
+    void billingentityinternalEditObjectV1Signal(Common_Response summary);
     void billingentityinternalGetAutocompleteV2Signal(Billingentityinternal_getAutocomplete_v2_Response summary);
     void billingentityinternalGetListV1Signal(Billingentityinternal_getList_v1_Response summary);
     void billingentityinternalGetObjectV2Signal(Billingentityinternal_getObject_v2_Response summary);
 
 
     void billingentityinternalCreateObjectV1SignalFull(HttpRequestWorker *worker, Billingentityinternal_createObject_v1_Response summary);
-    void billingentityinternalEditObjectV1SignalFull(HttpRequestWorker *worker, Billingentityinternal_editObject_v1_Response summary);
+    void billingentityinternalEditObjectV1SignalFull(HttpRequestWorker *worker, Common_Response summary);
     void billingentityinternalGetAutocompleteV2SignalFull(HttpRequestWorker *worker, Billingentityinternal_getAutocomplete_v2_Response summary);
     void billingentityinternalGetListV1SignalFull(HttpRequestWorker *worker, Billingentityinternal_getList_v1_Response summary);
     void billingentityinternalGetObjectV2SignalFull(HttpRequestWorker *worker, Billingentityinternal_getObject_v2_Response summary);
@@ -147,8 +147,8 @@ Q_SIGNALS:
     void billingentityinternalCreateObjectV1SignalE(Billingentityinternal_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void billingentityinternalCreateObjectV1SignalError(Billingentityinternal_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use billingentityinternalEditObjectV1SignalError() instead")
-    void billingentityinternalEditObjectV1SignalE(Billingentityinternal_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void billingentityinternalEditObjectV1SignalError(Billingentityinternal_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void billingentityinternalEditObjectV1SignalE(Common_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void billingentityinternalEditObjectV1SignalError(Common_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use billingentityinternalGetAutocompleteV2SignalError() instead")
     void billingentityinternalGetAutocompleteV2SignalE(Billingentityinternal_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void billingentityinternalGetAutocompleteV2SignalError(Billingentityinternal_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);

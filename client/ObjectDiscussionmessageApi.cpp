@@ -259,7 +259,7 @@ void ObjectDiscussionmessageApi::discussionmessageCreateObjectV1(const Discussio
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectDiscussionmessageApi::discussionmessageCreateObjectV1Callback);
     connect(this, &ObjectDiscussionmessageApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -347,7 +347,7 @@ void ObjectDiscussionmessageApi::discussionmessageDeleteObjectV1(const qint32 &p
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectDiscussionmessageApi::discussionmessageDeleteObjectV1Callback);
     connect(this, &ObjectDiscussionmessageApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -363,7 +363,7 @@ void ObjectDiscussionmessageApi::discussionmessageDeleteObjectV1Callback(HttpReq
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Discussionmessage_deleteObject_v1_Response output(QString(worker->response));
+    Common_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -440,7 +440,7 @@ void ObjectDiscussionmessageApi::discussionmessagePatchObjectV1(const qint32 &pk
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectDiscussionmessageApi::discussionmessagePatchObjectV1Callback);
     connect(this, &ObjectDiscussionmessageApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -456,7 +456,7 @@ void ObjectDiscussionmessageApi::discussionmessagePatchObjectV1Callback(HttpRequ
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Discussionmessage_patchObject_v1_Response output(QString(worker->response));
+    Common_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {

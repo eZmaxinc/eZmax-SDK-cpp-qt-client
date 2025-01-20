@@ -23,7 +23,7 @@
 
 #include "Common_Response_objDebug.h"
 #include "Common_Response_objDebugPayload.h"
-#include "Ezsigndocument_getObject_v1_Response_mPayload.h"
+#include "Ezsigndocument_ResponseCompound.h"
 
 #include "Enum.h"
 #include "Object.h"
@@ -31,7 +31,7 @@
 namespace Ezmaxapi {
 class Common_Response_objDebugPayload;
 class Common_Response_objDebug;
-class Ezsigndocument_getObject_v1_Response_mPayload;
+class Ezsigndocument_ResponseCompound;
 
 class Ezsigndocument_getObject_v1_Response : public Object {
 public:
@@ -54,8 +54,8 @@ public:
     bool is_obj_debug_Set() const;
     bool is_obj_debug_Valid() const;
 
-    Ezsigndocument_getObject_v1_Response_mPayload getMPayload() const;
-    void setMPayload(const Ezsigndocument_getObject_v1_Response_mPayload &m_payload);
+    Ezsigndocument_ResponseCompound getMPayload() const;
+    void setMPayload(const Ezsigndocument_ResponseCompound &m_payload);
     bool is_m_payload_Set() const;
     bool is_m_payload_Valid() const;
 
@@ -73,7 +73,7 @@ private:
     bool m_obj_debug_isSet;
     bool m_obj_debug_isValid;
 
-    Ezsigndocument_getObject_v1_Response_mPayload m_m_payload;
+    Ezsigndocument_ResponseCompound m_m_payload;
     bool m_m_payload_isSet;
     bool m_m_payload_isValid;
 };

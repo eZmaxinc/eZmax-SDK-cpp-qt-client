@@ -607,10 +607,10 @@ bool User_Response::is_s_language_name_x_Valid() const{
     return m_s_language_name_x_isValid;
 }
 
-Email_ResponseCompound User_Response::getObjEmail() const {
+Email_Response User_Response::getObjEmail() const {
     return m_obj_email;
 }
-void User_Response::setObjEmail(const Email_ResponseCompound &obj_email) {
+void User_Response::setObjEmail(const Email_Response &obj_email) {
     m_obj_email = obj_email;
     m_obj_email_isSet = true;
 }

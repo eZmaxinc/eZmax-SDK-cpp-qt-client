@@ -116,10 +116,10 @@ bool Ezmaxinvoicing_getProvisional_v1_Response::is_obj_debug_Valid() const{
     return m_obj_debug_isValid;
 }
 
-Ezmaxinvoicing_getProvisional_v1_Response_mPayload Ezmaxinvoicing_getProvisional_v1_Response::getMPayload() const {
+Ezmaxinvoicing_ResponseCompound Ezmaxinvoicing_getProvisional_v1_Response::getMPayload() const {
     return m_m_payload;
 }
-void Ezmaxinvoicing_getProvisional_v1_Response::setMPayload(const Ezmaxinvoicing_getProvisional_v1_Response_mPayload &m_payload) {
+void Ezmaxinvoicing_getProvisional_v1_Response::setMPayload(const Ezmaxinvoicing_ResponseCompound &m_payload) {
     m_m_payload = m_payload;
     m_m_payload_isSet = true;
 }

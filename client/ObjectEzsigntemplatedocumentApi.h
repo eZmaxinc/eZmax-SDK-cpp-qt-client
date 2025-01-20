@@ -18,6 +18,7 @@
 #include "ServerConfiguration.h"
 #include "Oauth.h"
 
+#include "Common_Response.h"
 #include "Common_Response_Error.h"
 #include "Common_Response_Error_sTemporaryFileUrl.h"
 #include "Ezsigntemplatedocument_createObject_v1_Request.h"
@@ -32,7 +33,6 @@
 #include "Ezsigntemplatedocument_editObject_v1_Response.h"
 #include "Ezsigntemplatedocument_extractText_v1_Request.h"
 #include "Ezsigntemplatedocument_extractText_v1_Response.h"
-#include "Ezsigntemplatedocument_flatten_v1_Response.h"
 #include "Ezsigntemplatedocument_getEzsigntemplatedocumentpagerecognitions_v1_Response.h"
 #include "Ezsigntemplatedocument_getEzsigntemplatedocumentpages_v1_Response.h"
 #include "Ezsigntemplatedocument_getEzsigntemplateformfieldgroups_v1_Response.h"
@@ -41,7 +41,6 @@
 #include "Ezsigntemplatedocument_getWordsPositions_v1_Request.h"
 #include "Ezsigntemplatedocument_getWordsPositions_v1_Response.h"
 #include "Ezsigntemplatedocument_patchObject_v1_Request.h"
-#include "Ezsigntemplatedocument_patchObject_v1_Response.h"
 #include "Object.h"
 #include <QString>
 
@@ -205,14 +204,14 @@ Q_SIGNALS:
     void ezsigntemplatedocumentEditEzsigntemplatesignaturesV1Signal(Ezsigntemplatedocument_editEzsigntemplatesignatures_v1_Response summary);
     void ezsigntemplatedocumentEditObjectV1Signal(Ezsigntemplatedocument_editObject_v1_Response summary);
     void ezsigntemplatedocumentExtractTextV1Signal(Ezsigntemplatedocument_extractText_v1_Response summary);
-    void ezsigntemplatedocumentFlattenV1Signal(Ezsigntemplatedocument_flatten_v1_Response summary);
+    void ezsigntemplatedocumentFlattenV1Signal(Common_Response summary);
     void ezsigntemplatedocumentGetEzsigntemplatedocumentpagerecognitionsV1Signal(Ezsigntemplatedocument_getEzsigntemplatedocumentpagerecognitions_v1_Response summary);
     void ezsigntemplatedocumentGetEzsigntemplatedocumentpagesV1Signal(Ezsigntemplatedocument_getEzsigntemplatedocumentpages_v1_Response summary);
     void ezsigntemplatedocumentGetEzsigntemplateformfieldgroupsV1Signal(Ezsigntemplatedocument_getEzsigntemplateformfieldgroups_v1_Response summary);
     void ezsigntemplatedocumentGetEzsigntemplatesignaturesV1Signal(Ezsigntemplatedocument_getEzsigntemplatesignatures_v1_Response summary);
     void ezsigntemplatedocumentGetObjectV2Signal(Ezsigntemplatedocument_getObject_v2_Response summary);
     void ezsigntemplatedocumentGetWordsPositionsV1Signal(Ezsigntemplatedocument_getWordsPositions_v1_Response summary);
-    void ezsigntemplatedocumentPatchObjectV1Signal(Ezsigntemplatedocument_patchObject_v1_Response summary);
+    void ezsigntemplatedocumentPatchObjectV1Signal(Common_Response summary);
 
 
     void ezsigntemplatedocumentCreateObjectV1SignalFull(HttpRequestWorker *worker, Ezsigntemplatedocument_createObject_v1_Response summary);
@@ -221,14 +220,14 @@ Q_SIGNALS:
     void ezsigntemplatedocumentEditEzsigntemplatesignaturesV1SignalFull(HttpRequestWorker *worker, Ezsigntemplatedocument_editEzsigntemplatesignatures_v1_Response summary);
     void ezsigntemplatedocumentEditObjectV1SignalFull(HttpRequestWorker *worker, Ezsigntemplatedocument_editObject_v1_Response summary);
     void ezsigntemplatedocumentExtractTextV1SignalFull(HttpRequestWorker *worker, Ezsigntemplatedocument_extractText_v1_Response summary);
-    void ezsigntemplatedocumentFlattenV1SignalFull(HttpRequestWorker *worker, Ezsigntemplatedocument_flatten_v1_Response summary);
+    void ezsigntemplatedocumentFlattenV1SignalFull(HttpRequestWorker *worker, Common_Response summary);
     void ezsigntemplatedocumentGetEzsigntemplatedocumentpagerecognitionsV1SignalFull(HttpRequestWorker *worker, Ezsigntemplatedocument_getEzsigntemplatedocumentpagerecognitions_v1_Response summary);
     void ezsigntemplatedocumentGetEzsigntemplatedocumentpagesV1SignalFull(HttpRequestWorker *worker, Ezsigntemplatedocument_getEzsigntemplatedocumentpages_v1_Response summary);
     void ezsigntemplatedocumentGetEzsigntemplateformfieldgroupsV1SignalFull(HttpRequestWorker *worker, Ezsigntemplatedocument_getEzsigntemplateformfieldgroups_v1_Response summary);
     void ezsigntemplatedocumentGetEzsigntemplatesignaturesV1SignalFull(HttpRequestWorker *worker, Ezsigntemplatedocument_getEzsigntemplatesignatures_v1_Response summary);
     void ezsigntemplatedocumentGetObjectV2SignalFull(HttpRequestWorker *worker, Ezsigntemplatedocument_getObject_v2_Response summary);
     void ezsigntemplatedocumentGetWordsPositionsV1SignalFull(HttpRequestWorker *worker, Ezsigntemplatedocument_getWordsPositions_v1_Response summary);
-    void ezsigntemplatedocumentPatchObjectV1SignalFull(HttpRequestWorker *worker, Ezsigntemplatedocument_patchObject_v1_Response summary);
+    void ezsigntemplatedocumentPatchObjectV1SignalFull(HttpRequestWorker *worker, Common_Response summary);
 
     Q_DECL_DEPRECATED_X("Use ezsigntemplatedocumentCreateObjectV1SignalError() instead")
     void ezsigntemplatedocumentCreateObjectV1SignalE(Ezsigntemplatedocument_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
@@ -249,8 +248,8 @@ Q_SIGNALS:
     void ezsigntemplatedocumentExtractTextV1SignalE(Ezsigntemplatedocument_extractText_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplatedocumentExtractTextV1SignalError(Ezsigntemplatedocument_extractText_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsigntemplatedocumentFlattenV1SignalError() instead")
-    void ezsigntemplatedocumentFlattenV1SignalE(Ezsigntemplatedocument_flatten_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void ezsigntemplatedocumentFlattenV1SignalError(Ezsigntemplatedocument_flatten_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void ezsigntemplatedocumentFlattenV1SignalE(Common_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigntemplatedocumentFlattenV1SignalError(Common_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsigntemplatedocumentGetEzsigntemplatedocumentpagerecognitionsV1SignalError() instead")
     void ezsigntemplatedocumentGetEzsigntemplatedocumentpagerecognitionsV1SignalE(Ezsigntemplatedocument_getEzsigntemplatedocumentpagerecognitions_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplatedocumentGetEzsigntemplatedocumentpagerecognitionsV1SignalError(Ezsigntemplatedocument_getEzsigntemplatedocumentpagerecognitions_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -270,8 +269,8 @@ Q_SIGNALS:
     void ezsigntemplatedocumentGetWordsPositionsV1SignalE(Ezsigntemplatedocument_getWordsPositions_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplatedocumentGetWordsPositionsV1SignalError(Ezsigntemplatedocument_getWordsPositions_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsigntemplatedocumentPatchObjectV1SignalError() instead")
-    void ezsigntemplatedocumentPatchObjectV1SignalE(Ezsigntemplatedocument_patchObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void ezsigntemplatedocumentPatchObjectV1SignalError(Ezsigntemplatedocument_patchObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void ezsigntemplatedocumentPatchObjectV1SignalE(Common_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigntemplatedocumentPatchObjectV1SignalError(Common_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     Q_DECL_DEPRECATED_X("Use ezsigntemplatedocumentCreateObjectV1SignalErrorFull() instead")
     void ezsigntemplatedocumentCreateObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);

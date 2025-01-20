@@ -254,7 +254,7 @@ void ModuleUserApi::userCreateEzsignuserV1(const QList<User_createEzsignuser_v1_
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ModuleUserApi::userCreateEzsignuserV1Callback);
     connect(this, &ModuleUserApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }

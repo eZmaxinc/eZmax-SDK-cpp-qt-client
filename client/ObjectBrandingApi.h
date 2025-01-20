@@ -21,10 +21,10 @@
 #include "Branding_createObject_v2_Request.h"
 #include "Branding_createObject_v2_Response.h"
 #include "Branding_editObject_v2_Request.h"
-#include "Branding_editObject_v2_Response.h"
 #include "Branding_getAutocomplete_v2_Response.h"
 #include "Branding_getList_v1_Response.h"
 #include "Branding_getObject_v3_Response.h"
+#include "Common_Response.h"
 #include "Common_Response_Error.h"
 #include "Header_Accept_Language.h"
 #include "HttpFileElement.h"
@@ -131,14 +131,14 @@ private:
 Q_SIGNALS:
 
     void brandingCreateObjectV2Signal(Branding_createObject_v2_Response summary);
-    void brandingEditObjectV2Signal(Branding_editObject_v2_Response summary);
+    void brandingEditObjectV2Signal(Common_Response summary);
     void brandingGetAutocompleteV2Signal(Branding_getAutocomplete_v2_Response summary);
     void brandingGetListV1Signal(Branding_getList_v1_Response summary);
     void brandingGetObjectV3Signal(Branding_getObject_v3_Response summary);
 
 
     void brandingCreateObjectV2SignalFull(HttpRequestWorker *worker, Branding_createObject_v2_Response summary);
-    void brandingEditObjectV2SignalFull(HttpRequestWorker *worker, Branding_editObject_v2_Response summary);
+    void brandingEditObjectV2SignalFull(HttpRequestWorker *worker, Common_Response summary);
     void brandingGetAutocompleteV2SignalFull(HttpRequestWorker *worker, Branding_getAutocomplete_v2_Response summary);
     void brandingGetListV1SignalFull(HttpRequestWorker *worker, Branding_getList_v1_Response summary);
     void brandingGetObjectV3SignalFull(HttpRequestWorker *worker, Branding_getObject_v3_Response summary);
@@ -147,8 +147,8 @@ Q_SIGNALS:
     void brandingCreateObjectV2SignalE(Branding_createObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void brandingCreateObjectV2SignalError(Branding_createObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use brandingEditObjectV2SignalError() instead")
-    void brandingEditObjectV2SignalE(Branding_editObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void brandingEditObjectV2SignalError(Branding_editObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void brandingEditObjectV2SignalE(Common_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void brandingEditObjectV2SignalError(Common_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use brandingGetAutocompleteV2SignalError() instead")
     void brandingGetAutocompleteV2SignalE(Branding_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void brandingGetAutocompleteV2SignalError(Branding_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);

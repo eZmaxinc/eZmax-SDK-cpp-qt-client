@@ -259,7 +259,7 @@ void ObjectEzsignbulksendsignermappingApi::ezsignbulksendsignermappingCreateObje
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignbulksendsignermappingApi::ezsignbulksendsignermappingCreateObjectV1Callback);
     connect(this, &ObjectEzsignbulksendsignermappingApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -347,7 +347,7 @@ void ObjectEzsignbulksendsignermappingApi::ezsignbulksendsignermappingDeleteObje
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignbulksendsignermappingApi::ezsignbulksendsignermappingDeleteObjectV1Callback);
     connect(this, &ObjectEzsignbulksendsignermappingApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -363,7 +363,7 @@ void ObjectEzsignbulksendsignermappingApi::ezsignbulksendsignermappingDeleteObje
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Ezsignbulksendsignermapping_deleteObject_v1_Response output(QString(worker->response));
+    Common_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -435,7 +435,7 @@ void ObjectEzsignbulksendsignermappingApi::ezsignbulksendsignermappingGetObjectV
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignbulksendsignermappingApi::ezsignbulksendsignermappingGetObjectV2Callback);
     connect(this, &ObjectEzsignbulksendsignermappingApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }

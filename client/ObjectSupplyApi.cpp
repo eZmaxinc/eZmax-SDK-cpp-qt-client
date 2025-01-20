@@ -265,7 +265,7 @@ void ObjectSupplyApi::supplyCreateObjectV1(const Supply_createObject_v1_Request 
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectSupplyApi::supplyCreateObjectV1Callback);
     connect(this, &ObjectSupplyApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -353,7 +353,7 @@ void ObjectSupplyApi::supplyDeleteObjectV1(const qint32 &pki_supply_id) {
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectSupplyApi::supplyDeleteObjectV1Callback);
     connect(this, &ObjectSupplyApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -369,7 +369,7 @@ void ObjectSupplyApi::supplyDeleteObjectV1Callback(HttpRequestWorker *worker) {
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Supply_deleteObject_v1_Response output(QString(worker->response));
+    Common_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -446,7 +446,7 @@ void ObjectSupplyApi::supplyEditObjectV1(const qint32 &pki_supply_id, const Supp
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectSupplyApi::supplyEditObjectV1Callback);
     connect(this, &ObjectSupplyApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -462,7 +462,7 @@ void ObjectSupplyApi::supplyEditObjectV1Callback(HttpRequestWorker *worker) {
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Supply_editObject_v1_Response output(QString(worker->response));
+    Common_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -535,7 +535,7 @@ void ObjectSupplyApi::supplyGetAutocompleteV2(const QString &s_selector, const :
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("eFilterActive")).append(querySuffix).append(QUrl::toPercentEncoding(e_filter_active.stringValue()));
+        fullPath.append(QUrl::toPercentEncoding("eFilterActive")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(e_filter_active.stringValue())));
     }
     if (s_query.hasValue())
     {
@@ -550,7 +550,7 @@ void ObjectSupplyApi::supplyGetAutocompleteV2(const QString &s_selector, const :
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(s_query.stringValue()));
+        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_query.stringValue())));
     }
     HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -609,7 +609,7 @@ void ObjectSupplyApi::supplyGetAutocompleteV2(const QString &s_selector, const :
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectSupplyApi::supplyGetAutocompleteV2Callback);
     connect(this, &ObjectSupplyApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -684,7 +684,7 @@ void ObjectSupplyApi::supplyGetListV1(const ::Ezmaxapi::OptionalParam<QString> &
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("eOrderBy")).append(querySuffix).append(QUrl::toPercentEncoding(e_order_by.stringValue()));
+        fullPath.append(QUrl::toPercentEncoding("eOrderBy")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(e_order_by.stringValue())));
     }
     if (i_row_max.hasValue())
     {
@@ -699,7 +699,7 @@ void ObjectSupplyApi::supplyGetListV1(const ::Ezmaxapi::OptionalParam<QString> &
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("iRowMax")).append(querySuffix).append(QUrl::toPercentEncoding(i_row_max.stringValue()));
+        fullPath.append(QUrl::toPercentEncoding("iRowMax")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(i_row_max.stringValue())));
     }
     if (i_row_offset.hasValue())
     {
@@ -714,7 +714,7 @@ void ObjectSupplyApi::supplyGetListV1(const ::Ezmaxapi::OptionalParam<QString> &
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("iRowOffset")).append(querySuffix).append(QUrl::toPercentEncoding(i_row_offset.stringValue()));
+        fullPath.append(QUrl::toPercentEncoding("iRowOffset")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(i_row_offset.stringValue())));
     }
     if (s_filter.hasValue())
     {
@@ -729,7 +729,7 @@ void ObjectSupplyApi::supplyGetListV1(const ::Ezmaxapi::OptionalParam<QString> &
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("sFilter")).append(querySuffix).append(QUrl::toPercentEncoding(s_filter.stringValue()));
+        fullPath.append(QUrl::toPercentEncoding("sFilter")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_filter.stringValue())));
     }
     HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -788,7 +788,7 @@ void ObjectSupplyApi::supplyGetListV1(const ::Ezmaxapi::OptionalParam<QString> &
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectSupplyApi::supplyGetListV1Callback);
     connect(this, &ObjectSupplyApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -876,7 +876,7 @@ void ObjectSupplyApi::supplyGetObjectV2(const qint32 &pki_supply_id) {
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectSupplyApi::supplyGetObjectV2Callback);
     connect(this, &ObjectSupplyApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }

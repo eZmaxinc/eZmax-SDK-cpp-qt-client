@@ -21,14 +21,14 @@
 
 #include <QJsonObject>
 
-#include "Apikey_RequestCompound.h"
+#include "Apikey_Request.h"
 #include <QList>
 
 #include "Enum.h"
 #include "Object.h"
 
 namespace Ezmaxapi {
-class Apikey_RequestCompound;
+class Apikey_Request;
 
 class Apikey_createObject_v2_Request : public Object {
 public:

@@ -21,10 +21,10 @@
 
 #include <QJsonObject>
 
-#include "Custom_DropdownElement_ResponseCompound.h"
+#include "Custom_DropdownElement_Response.h"
 #include "Enum_Textvalidation.h"
 #include "Ezsigntemplateformfield_ResponseCompound.h"
-#include "Ezsigntemplateformfieldgroupsigner_ResponseCompound.h"
+#include "Ezsigntemplateformfieldgroupsigner_Response.h"
 #include "Field_eEzsigntemplateformfieldgroupSignerrequirement.h"
 #include "Field_eEzsigntemplateformfieldgroupTooltipposition.h"
 #include "Field_eEzsigntemplateformfieldgroupType.h"
@@ -35,8 +35,8 @@
 #include "Object.h"
 
 namespace Ezmaxapi {
-class Ezsigntemplateformfieldgroupsigner_ResponseCompound;
-class Custom_DropdownElement_ResponseCompound;
+class Ezsigntemplateformfieldgroupsigner_Response;
+class Custom_DropdownElement_Response;
 class Ezsigntemplateformfield_ResponseCompound;
 
 class Ezsigntemplateformfieldgroup_ResponseCompound : public Object {

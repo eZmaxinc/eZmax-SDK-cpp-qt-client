@@ -265,7 +265,7 @@ void ObjectUserlogintypeApi::userlogintypeGetAutocompleteV2(const QString &s_sel
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("fkiEzsignfoldertypeID")).append(querySuffix).append(QUrl::toPercentEncoding(fki_ezsignfoldertype_id.stringValue()));
+        fullPath.append(QUrl::toPercentEncoding("fkiEzsignfoldertypeID")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(fki_ezsignfoldertype_id.stringValue())));
     }
     if (e_filter_active.hasValue())
     {
@@ -280,7 +280,7 @@ void ObjectUserlogintypeApi::userlogintypeGetAutocompleteV2(const QString &s_sel
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("eFilterActive")).append(querySuffix).append(QUrl::toPercentEncoding(e_filter_active.stringValue()));
+        fullPath.append(QUrl::toPercentEncoding("eFilterActive")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(e_filter_active.stringValue())));
     }
     if (s_query.hasValue())
     {
@@ -295,7 +295,7 @@ void ObjectUserlogintypeApi::userlogintypeGetAutocompleteV2(const QString &s_sel
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(s_query.stringValue()));
+        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_query.stringValue())));
     }
     HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -354,7 +354,7 @@ void ObjectUserlogintypeApi::userlogintypeGetAutocompleteV2(const QString &s_sel
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectUserlogintypeApi::userlogintypeGetAutocompleteV2Callback);
     connect(this, &ObjectUserlogintypeApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }

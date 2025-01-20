@@ -22,8 +22,6 @@
 #include <QJsonObject>
 
 #include "Common_Audit.h"
-#include "Custom_EzmaxinvoicingEzsigndocument_Response.h"
-#include "Custom_EzmaxinvoicingEzsignfolder_Response.h"
 #include "Custom_Ezmaxpricing_Response.h"
 #include "Ezmaxinvoicingagent_ResponseCompound.h"
 #include "Ezmaxinvoicingcontract_ResponseCompound.h"
@@ -32,6 +30,7 @@
 #include "Ezmaxinvoicingsummaryinternal_ResponseCompound.h"
 #include "Ezmaxinvoicinguser_ResponseCompound.h"
 #include "Field_eEzmaxinvoicingPaymenttype.h"
+#include "Object.h"
 #include <QList>
 #include <QString>
 
@@ -47,8 +46,6 @@ class Ezmaxinvoicingsummaryexternal_ResponseCompound;
 class Ezmaxinvoicingsummaryinternal_ResponseCompound;
 class Ezmaxinvoicingagent_ResponseCompound;
 class Ezmaxinvoicinguser_ResponseCompound;
-class Custom_EzmaxinvoicingEzsignfolder_Response;
-class Custom_EzmaxinvoicingEzsigndocument_Response;
 
 class Ezmaxinvoicing_getProvisional_v1_Response_mPayload : public Object {
 public:

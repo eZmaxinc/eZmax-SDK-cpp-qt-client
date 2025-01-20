@@ -18,14 +18,13 @@
 #include "ServerConfiguration.h"
 #include "Oauth.h"
 
+#include "Common_Response.h"
 #include "Common_Response_Error.h"
 #include "Ezsignsignergroup_createObject_v1_Request.h"
 #include "Ezsignsignergroup_createObject_v1_Response.h"
-#include "Ezsignsignergroup_deleteObject_v1_Response.h"
 #include "Ezsignsignergroup_editEzsignsignergroupmemberships_v1_Request.h"
 #include "Ezsignsignergroup_editEzsignsignergroupmemberships_v1_Response.h"
 #include "Ezsignsignergroup_editObject_v1_Request.h"
-#include "Ezsignsignergroup_editObject_v1_Response.h"
 #include "Ezsignsignergroup_getEzsignsignergroupmemberships_v1_Response.h"
 #include "Ezsignsignergroup_getObject_v2_Response.h"
 #include <QString>
@@ -131,17 +130,17 @@ private:
 Q_SIGNALS:
 
     void ezsignsignergroupCreateObjectV1Signal(Ezsignsignergroup_createObject_v1_Response summary);
-    void ezsignsignergroupDeleteObjectV1Signal(Ezsignsignergroup_deleteObject_v1_Response summary);
+    void ezsignsignergroupDeleteObjectV1Signal(Common_Response summary);
     void ezsignsignergroupEditEzsignsignergroupmembershipsV1Signal(Ezsignsignergroup_editEzsignsignergroupmemberships_v1_Response summary);
-    void ezsignsignergroupEditObjectV1Signal(Ezsignsignergroup_editObject_v1_Response summary);
+    void ezsignsignergroupEditObjectV1Signal(Common_Response summary);
     void ezsignsignergroupGetEzsignsignergroupmembershipsV1Signal(Ezsignsignergroup_getEzsignsignergroupmemberships_v1_Response summary);
     void ezsignsignergroupGetObjectV2Signal(Ezsignsignergroup_getObject_v2_Response summary);
 
 
     void ezsignsignergroupCreateObjectV1SignalFull(HttpRequestWorker *worker, Ezsignsignergroup_createObject_v1_Response summary);
-    void ezsignsignergroupDeleteObjectV1SignalFull(HttpRequestWorker *worker, Ezsignsignergroup_deleteObject_v1_Response summary);
+    void ezsignsignergroupDeleteObjectV1SignalFull(HttpRequestWorker *worker, Common_Response summary);
     void ezsignsignergroupEditEzsignsignergroupmembershipsV1SignalFull(HttpRequestWorker *worker, Ezsignsignergroup_editEzsignsignergroupmemberships_v1_Response summary);
-    void ezsignsignergroupEditObjectV1SignalFull(HttpRequestWorker *worker, Ezsignsignergroup_editObject_v1_Response summary);
+    void ezsignsignergroupEditObjectV1SignalFull(HttpRequestWorker *worker, Common_Response summary);
     void ezsignsignergroupGetEzsignsignergroupmembershipsV1SignalFull(HttpRequestWorker *worker, Ezsignsignergroup_getEzsignsignergroupmemberships_v1_Response summary);
     void ezsignsignergroupGetObjectV2SignalFull(HttpRequestWorker *worker, Ezsignsignergroup_getObject_v2_Response summary);
 
@@ -149,14 +148,14 @@ Q_SIGNALS:
     void ezsignsignergroupCreateObjectV1SignalE(Ezsignsignergroup_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignsignergroupCreateObjectV1SignalError(Ezsignsignergroup_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsignsignergroupDeleteObjectV1SignalError() instead")
-    void ezsignsignergroupDeleteObjectV1SignalE(Ezsignsignergroup_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void ezsignsignergroupDeleteObjectV1SignalError(Ezsignsignergroup_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void ezsignsignergroupDeleteObjectV1SignalE(Common_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignsignergroupDeleteObjectV1SignalError(Common_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsignsignergroupEditEzsignsignergroupmembershipsV1SignalError() instead")
     void ezsignsignergroupEditEzsignsignergroupmembershipsV1SignalE(Ezsignsignergroup_editEzsignsignergroupmemberships_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignsignergroupEditEzsignsignergroupmembershipsV1SignalError(Ezsignsignergroup_editEzsignsignergroupmemberships_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsignsignergroupEditObjectV1SignalError() instead")
-    void ezsignsignergroupEditObjectV1SignalE(Ezsignsignergroup_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void ezsignsignergroupEditObjectV1SignalError(Ezsignsignergroup_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void ezsignsignergroupEditObjectV1SignalE(Common_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignsignergroupEditObjectV1SignalError(Common_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsignsignergroupGetEzsignsignergroupmembershipsV1SignalError() instead")
     void ezsignsignergroupGetEzsignsignergroupmembershipsV1SignalE(Ezsignsignergroup_getEzsignsignergroupmemberships_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignsignergroupGetEzsignsignergroupmembershipsV1SignalError(Ezsignsignergroup_getEzsignsignergroupmemberships_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);

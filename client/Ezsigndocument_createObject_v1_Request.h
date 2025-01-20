@@ -22,14 +22,12 @@
 #include <QJsonObject>
 
 #include "Ezsigndocument_Request.h"
-#include "Ezsigndocument_RequestCompound.h"
 
 #include "Enum.h"
 #include "Object.h"
 
 namespace Ezmaxapi {
 class Ezsigndocument_Request;
-class Ezsigndocument_RequestCompound;
 
 class Ezsigndocument_createObject_v1_Request : public Object {
 public:
@@ -47,8 +45,8 @@ public:
     bool is_obj_ezsigndocument_Set() const;
     bool is_obj_ezsigndocument_Valid() const;
 
-    Ezsigndocument_RequestCompound getObjEzsigndocumentCompound() const;
-    void setObjEzsigndocumentCompound(const Ezsigndocument_RequestCompound &obj_ezsigndocument_compound);
+    Ezsigndocument_Request getObjEzsigndocumentCompound() const;
+    void setObjEzsigndocumentCompound(const Ezsigndocument_Request &obj_ezsigndocument_compound);
     bool is_obj_ezsigndocument_compound_Set() const;
     bool is_obj_ezsigndocument_compound_Valid() const;
 
@@ -62,7 +60,7 @@ private:
     bool m_obj_ezsigndocument_isSet;
     bool m_obj_ezsigndocument_isValid;
 
-    Ezsigndocument_RequestCompound m_obj_ezsigndocument_compound;
+    Ezsigndocument_Request m_obj_ezsigndocument_compound;
     bool m_obj_ezsigndocument_compound_isSet;
     bool m_obj_ezsigndocument_compound_isValid;
 };

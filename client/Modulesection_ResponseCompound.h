@@ -21,7 +21,7 @@
 
 #include <QJsonObject>
 
-#include "Permission_ResponseCompound.h"
+#include "Permission_Response.h"
 #include <QList>
 #include <QString>
 
@@ -29,7 +29,7 @@
 #include "Object.h"
 
 namespace Ezmaxapi {
-class Permission_ResponseCompound;
+class Permission_Response;
 
 class Modulesection_ResponseCompound : public Object {
 public:

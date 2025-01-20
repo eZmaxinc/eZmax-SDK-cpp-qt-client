@@ -257,7 +257,7 @@ void ObjectCustomerApi::customerCreateObjectV1(const Customer_createObject_v1_Re
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectCustomerApi::customerCreateObjectV1Callback);
     connect(this, &ObjectCustomerApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -345,7 +345,7 @@ void ObjectCustomerApi::customerGetObjectV2(const qint32 &pki_customer_id) {
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectCustomerApi::customerGetObjectV2Callback);
     connect(this, &ObjectCustomerApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }

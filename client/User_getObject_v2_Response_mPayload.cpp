@@ -66,10 +66,10 @@ QJsonObject User_getObject_v2_Response_mPayload::asJsonObject() const {
     return obj;
 }
 
-User_ResponseCompound User_getObject_v2_Response_mPayload::getObjUser() const {
+User_Response User_getObject_v2_Response_mPayload::getObjUser() const {
     return m_obj_user;
 }
-void User_getObject_v2_Response_mPayload::setObjUser(const User_ResponseCompound &obj_user) {
+void User_getObject_v2_Response_mPayload::setObjUser(const User_Response &obj_user) {
     m_obj_user = obj_user;
     m_obj_user_isSet = true;
 }

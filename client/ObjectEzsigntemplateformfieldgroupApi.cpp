@@ -261,7 +261,7 @@ void ObjectEzsigntemplateformfieldgroupApi::ezsigntemplateformfieldgroupCreateOb
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsigntemplateformfieldgroupApi::ezsigntemplateformfieldgroupCreateObjectV1Callback);
     connect(this, &ObjectEzsigntemplateformfieldgroupApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -349,7 +349,7 @@ void ObjectEzsigntemplateformfieldgroupApi::ezsigntemplateformfieldgroupDeleteOb
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsigntemplateformfieldgroupApi::ezsigntemplateformfieldgroupDeleteObjectV1Callback);
     connect(this, &ObjectEzsigntemplateformfieldgroupApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -365,7 +365,7 @@ void ObjectEzsigntemplateformfieldgroupApi::ezsigntemplateformfieldgroupDeleteOb
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Ezsigntemplateformfieldgroup_deleteObject_v1_Response output(QString(worker->response));
+    Common_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -442,7 +442,7 @@ void ObjectEzsigntemplateformfieldgroupApi::ezsigntemplateformfieldgroupEditObje
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsigntemplateformfieldgroupApi::ezsigntemplateformfieldgroupEditObjectV1Callback);
     connect(this, &ObjectEzsigntemplateformfieldgroupApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -458,7 +458,7 @@ void ObjectEzsigntemplateformfieldgroupApi::ezsigntemplateformfieldgroupEditObje
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Ezsigntemplateformfieldgroup_editObject_v1_Response output(QString(worker->response));
+    Common_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -530,7 +530,7 @@ void ObjectEzsigntemplateformfieldgroupApi::ezsigntemplateformfieldgroupGetObjec
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsigntemplateformfieldgroupApi::ezsigntemplateformfieldgroupGetObjectV2Callback);
     connect(this, &ObjectEzsigntemplateformfieldgroupApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
