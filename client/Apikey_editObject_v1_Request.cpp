@@ -66,10 +66,10 @@ QJsonObject Apikey_editObject_v1_Request::asJsonObject() const {
     return obj;
 }
 
-Apikey_RequestCompound Apikey_editObject_v1_Request::getObjApikey() const {
+Apikey_Request Apikey_editObject_v1_Request::getObjApikey() const {
     return m_obj_apikey;
 }
-void Apikey_editObject_v1_Request::setObjApikey(const Apikey_RequestCompound &obj_apikey) {
+void Apikey_editObject_v1_Request::setObjApikey(const Apikey_Request &obj_apikey) {
     m_obj_apikey = obj_apikey;
     m_obj_apikey_isSet = true;
 }

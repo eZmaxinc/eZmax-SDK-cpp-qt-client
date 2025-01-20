@@ -261,7 +261,7 @@ void ObjectSubnetApi::subnetCreateObjectV1(const Subnet_createObject_v1_Request 
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectSubnetApi::subnetCreateObjectV1Callback);
     connect(this, &ObjectSubnetApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -349,7 +349,7 @@ void ObjectSubnetApi::subnetDeleteObjectV1(const qint32 &pki_subnet_id) {
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectSubnetApi::subnetDeleteObjectV1Callback);
     connect(this, &ObjectSubnetApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -365,7 +365,7 @@ void ObjectSubnetApi::subnetDeleteObjectV1Callback(HttpRequestWorker *worker) {
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Subnet_deleteObject_v1_Response output(QString(worker->response));
+    Common_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -442,7 +442,7 @@ void ObjectSubnetApi::subnetEditObjectV1(const qint32 &pki_subnet_id, const Subn
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectSubnetApi::subnetEditObjectV1Callback);
     connect(this, &ObjectSubnetApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -458,7 +458,7 @@ void ObjectSubnetApi::subnetEditObjectV1Callback(HttpRequestWorker *worker) {
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Subnet_editObject_v1_Response output(QString(worker->response));
+    Common_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -530,7 +530,7 @@ void ObjectSubnetApi::subnetGetObjectV2(const qint32 &pki_subnet_id) {
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectSubnetApi::subnetGetObjectV2Callback);
     connect(this, &ObjectSubnetApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }

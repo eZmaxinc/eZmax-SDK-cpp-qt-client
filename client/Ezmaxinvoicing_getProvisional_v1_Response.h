@@ -23,7 +23,7 @@
 
 #include "Common_Response_objDebug.h"
 #include "Common_Response_objDebugPayload.h"
-#include "Ezmaxinvoicing_getProvisional_v1_Response_mPayload.h"
+#include "Ezmaxinvoicing_ResponseCompound.h"
 
 #include "Enum.h"
 #include "Object.h"
@@ -31,7 +31,7 @@
 namespace Ezmaxapi {
 class Common_Response_objDebugPayload;
 class Common_Response_objDebug;
-class Ezmaxinvoicing_getProvisional_v1_Response_mPayload;
+class Ezmaxinvoicing_ResponseCompound;
 
 class Ezmaxinvoicing_getProvisional_v1_Response : public Object {
 public:
@@ -54,8 +54,8 @@ public:
     bool is_obj_debug_Set() const;
     bool is_obj_debug_Valid() const;
 
-    Ezmaxinvoicing_getProvisional_v1_Response_mPayload getMPayload() const;
-    void setMPayload(const Ezmaxinvoicing_getProvisional_v1_Response_mPayload &m_payload);
+    Ezmaxinvoicing_ResponseCompound getMPayload() const;
+    void setMPayload(const Ezmaxinvoicing_ResponseCompound &m_payload);
     bool is_m_payload_Set() const;
     bool is_m_payload_Valid() const;
 
@@ -73,7 +73,7 @@ private:
     bool m_obj_debug_isSet;
     bool m_obj_debug_isValid;
 
-    Ezmaxinvoicing_getProvisional_v1_Response_mPayload m_m_payload;
+    Ezmaxinvoicing_ResponseCompound m_m_payload;
     bool m_m_payload_isSet;
     bool m_m_payload_isValid;
 };

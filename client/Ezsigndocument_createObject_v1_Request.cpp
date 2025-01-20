@@ -91,10 +91,10 @@ bool Ezsigndocument_createObject_v1_Request::is_obj_ezsigndocument_Valid() const
     return m_obj_ezsigndocument_isValid;
 }
 
-Ezsigndocument_RequestCompound Ezsigndocument_createObject_v1_Request::getObjEzsigndocumentCompound() const {
+Ezsigndocument_Request Ezsigndocument_createObject_v1_Request::getObjEzsigndocumentCompound() const {
     return m_obj_ezsigndocument_compound;
 }
-void Ezsigndocument_createObject_v1_Request::setObjEzsigndocumentCompound(const Ezsigndocument_RequestCompound &obj_ezsigndocument_compound) {
+void Ezsigndocument_createObject_v1_Request::setObjEzsigndocumentCompound(const Ezsigndocument_Request &obj_ezsigndocument_compound) {
     m_obj_ezsigndocument_compound = obj_ezsigndocument_compound;
     m_obj_ezsigndocument_compound_isSet = true;
 }

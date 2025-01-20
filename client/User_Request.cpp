@@ -453,10 +453,10 @@ bool User_Request::is_fki_language_id_Valid() const{
     return m_fki_language_id_isValid;
 }
 
-Email_RequestCompound User_Request::getObjEmail() const {
+Email_Request User_Request::getObjEmail() const {
     return m_obj_email;
 }
-void User_Request::setObjEmail(const Email_RequestCompound &obj_email) {
+void User_Request::setObjEmail(const Email_Request &obj_email) {
     m_obj_email = obj_email;
     m_obj_email_isSet = true;
 }
@@ -485,10 +485,10 @@ bool User_Request::is_fki_billingentityinternal_id_Valid() const{
     return m_fki_billingentityinternal_id_isValid;
 }
 
-Phone_RequestCompound User_Request::getObjPhoneHome() const {
+Phone_Request User_Request::getObjPhoneHome() const {
     return m_obj_phone_home;
 }
-void User_Request::setObjPhoneHome(const Phone_RequestCompound &obj_phone_home) {
+void User_Request::setObjPhoneHome(const Phone_Request &obj_phone_home) {
     m_obj_phone_home = obj_phone_home;
     m_obj_phone_home_isSet = true;
 }
@@ -501,10 +501,10 @@ bool User_Request::is_obj_phone_home_Valid() const{
     return m_obj_phone_home_isValid;
 }
 
-Phone_RequestCompound User_Request::getObjPhoneSms() const {
+Phone_Request User_Request::getObjPhoneSms() const {
     return m_obj_phone_sms;
 }
-void User_Request::setObjPhoneSms(const Phone_RequestCompound &obj_phone_sms) {
+void User_Request::setObjPhoneSms(const Phone_Request &obj_phone_sms) {
     m_obj_phone_sms = obj_phone_sms;
     m_obj_phone_sms_isSet = true;
 }

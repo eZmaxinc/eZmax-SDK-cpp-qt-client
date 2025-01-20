@@ -18,10 +18,10 @@
 #include "ServerConfiguration.h"
 #include "Oauth.h"
 
+#include "Common_Response.h"
 #include "Common_Response_Error.h"
 #include "Ezsignbulksenddocumentmapping_createObject_v1_Request.h"
 #include "Ezsignbulksenddocumentmapping_createObject_v1_Response.h"
-#include "Ezsignbulksenddocumentmapping_deleteObject_v1_Response.h"
 #include "Ezsignbulksenddocumentmapping_getObject_v2_Response.h"
 #include <QString>
 
@@ -106,20 +106,20 @@ private:
 Q_SIGNALS:
 
     void ezsignbulksenddocumentmappingCreateObjectV1Signal(Ezsignbulksenddocumentmapping_createObject_v1_Response summary);
-    void ezsignbulksenddocumentmappingDeleteObjectV1Signal(Ezsignbulksenddocumentmapping_deleteObject_v1_Response summary);
+    void ezsignbulksenddocumentmappingDeleteObjectV1Signal(Common_Response summary);
     void ezsignbulksenddocumentmappingGetObjectV2Signal(Ezsignbulksenddocumentmapping_getObject_v2_Response summary);
 
 
     void ezsignbulksenddocumentmappingCreateObjectV1SignalFull(HttpRequestWorker *worker, Ezsignbulksenddocumentmapping_createObject_v1_Response summary);
-    void ezsignbulksenddocumentmappingDeleteObjectV1SignalFull(HttpRequestWorker *worker, Ezsignbulksenddocumentmapping_deleteObject_v1_Response summary);
+    void ezsignbulksenddocumentmappingDeleteObjectV1SignalFull(HttpRequestWorker *worker, Common_Response summary);
     void ezsignbulksenddocumentmappingGetObjectV2SignalFull(HttpRequestWorker *worker, Ezsignbulksenddocumentmapping_getObject_v2_Response summary);
 
     Q_DECL_DEPRECATED_X("Use ezsignbulksenddocumentmappingCreateObjectV1SignalError() instead")
     void ezsignbulksenddocumentmappingCreateObjectV1SignalE(Ezsignbulksenddocumentmapping_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignbulksenddocumentmappingCreateObjectV1SignalError(Ezsignbulksenddocumentmapping_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsignbulksenddocumentmappingDeleteObjectV1SignalError() instead")
-    void ezsignbulksenddocumentmappingDeleteObjectV1SignalE(Ezsignbulksenddocumentmapping_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void ezsignbulksenddocumentmappingDeleteObjectV1SignalError(Ezsignbulksenddocumentmapping_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void ezsignbulksenddocumentmappingDeleteObjectV1SignalE(Common_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignbulksenddocumentmappingDeleteObjectV1SignalError(Common_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsignbulksenddocumentmappingGetObjectV2SignalError() instead")
     void ezsignbulksenddocumentmappingGetObjectV2SignalE(Ezsignbulksenddocumentmapping_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignbulksenddocumentmappingGetObjectV2SignalError(Ezsignbulksenddocumentmapping_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);

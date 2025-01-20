@@ -18,14 +18,13 @@
 #include "ServerConfiguration.h"
 #include "Oauth.h"
 
+#include "Common_Response.h"
 #include "Common_Response_Error.h"
 #include "Ezsigntemplate_copy_v1_Request.h"
 #include "Ezsigntemplate_copy_v1_Response.h"
 #include "Ezsigntemplate_createObject_v3_Request.h"
 #include "Ezsigntemplate_createObject_v3_Response.h"
-#include "Ezsigntemplate_deleteObject_v1_Response.h"
 #include "Ezsigntemplate_editObject_v3_Request.h"
-#include "Ezsigntemplate_editObject_v3_Response.h"
 #include "Ezsigntemplate_getAutocomplete_v2_Response.h"
 #include "Ezsigntemplate_getList_v1_Response.h"
 #include "Ezsigntemplate_getObject_v3_Response.h"
@@ -149,8 +148,8 @@ Q_SIGNALS:
 
     void ezsigntemplateCopyV1Signal(Ezsigntemplate_copy_v1_Response summary);
     void ezsigntemplateCreateObjectV3Signal(Ezsigntemplate_createObject_v3_Response summary);
-    void ezsigntemplateDeleteObjectV1Signal(Ezsigntemplate_deleteObject_v1_Response summary);
-    void ezsigntemplateEditObjectV3Signal(Ezsigntemplate_editObject_v3_Response summary);
+    void ezsigntemplateDeleteObjectV1Signal(Common_Response summary);
+    void ezsigntemplateEditObjectV3Signal(Common_Response summary);
     void ezsigntemplateGetAutocompleteV2Signal(Ezsigntemplate_getAutocomplete_v2_Response summary);
     void ezsigntemplateGetListV1Signal(Ezsigntemplate_getList_v1_Response summary);
     void ezsigntemplateGetObjectV3Signal(Ezsigntemplate_getObject_v3_Response summary);
@@ -158,8 +157,8 @@ Q_SIGNALS:
 
     void ezsigntemplateCopyV1SignalFull(HttpRequestWorker *worker, Ezsigntemplate_copy_v1_Response summary);
     void ezsigntemplateCreateObjectV3SignalFull(HttpRequestWorker *worker, Ezsigntemplate_createObject_v3_Response summary);
-    void ezsigntemplateDeleteObjectV1SignalFull(HttpRequestWorker *worker, Ezsigntemplate_deleteObject_v1_Response summary);
-    void ezsigntemplateEditObjectV3SignalFull(HttpRequestWorker *worker, Ezsigntemplate_editObject_v3_Response summary);
+    void ezsigntemplateDeleteObjectV1SignalFull(HttpRequestWorker *worker, Common_Response summary);
+    void ezsigntemplateEditObjectV3SignalFull(HttpRequestWorker *worker, Common_Response summary);
     void ezsigntemplateGetAutocompleteV2SignalFull(HttpRequestWorker *worker, Ezsigntemplate_getAutocomplete_v2_Response summary);
     void ezsigntemplateGetListV1SignalFull(HttpRequestWorker *worker, Ezsigntemplate_getList_v1_Response summary);
     void ezsigntemplateGetObjectV3SignalFull(HttpRequestWorker *worker, Ezsigntemplate_getObject_v3_Response summary);
@@ -171,11 +170,11 @@ Q_SIGNALS:
     void ezsigntemplateCreateObjectV3SignalE(Ezsigntemplate_createObject_v3_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplateCreateObjectV3SignalError(Ezsigntemplate_createObject_v3_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsigntemplateDeleteObjectV1SignalError() instead")
-    void ezsigntemplateDeleteObjectV1SignalE(Ezsigntemplate_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void ezsigntemplateDeleteObjectV1SignalError(Ezsigntemplate_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void ezsigntemplateDeleteObjectV1SignalE(Common_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigntemplateDeleteObjectV1SignalError(Common_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsigntemplateEditObjectV3SignalError() instead")
-    void ezsigntemplateEditObjectV3SignalE(Ezsigntemplate_editObject_v3_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void ezsigntemplateEditObjectV3SignalError(Ezsigntemplate_editObject_v3_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void ezsigntemplateEditObjectV3SignalE(Common_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigntemplateEditObjectV3SignalError(Common_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsigntemplateGetAutocompleteV2SignalError() instead")
     void ezsigntemplateGetAutocompleteV2SignalE(Ezsigntemplate_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplateGetAutocompleteV2SignalError(Ezsigntemplate_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);

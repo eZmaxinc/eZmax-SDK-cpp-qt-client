@@ -5,7 +5,7 @@
 eZmax API Definition (Full)
 
 - API version: 1.2.1
-- Generator version: 7.9.0
+- Generator version: 7.10.0
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 

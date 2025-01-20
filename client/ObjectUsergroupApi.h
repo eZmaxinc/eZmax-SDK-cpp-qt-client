@@ -18,13 +18,13 @@
 #include "ServerConfiguration.h"
 #include "Oauth.h"
 
+#include "Common_Response.h"
 #include "Common_Response_Error.h"
 #include "Header_Accept_Language.h"
 #include "HttpFileElement.h"
 #include "Usergroup_createObject_v1_Request.h"
 #include "Usergroup_createObject_v1_Response.h"
 #include "Usergroup_editObject_v1_Request.h"
-#include "Usergroup_editObject_v1_Response.h"
 #include "Usergroup_editPermissions_v1_Request.h"
 #include "Usergroup_editPermissions_v1_Response.h"
 #include "Usergroup_editUsergroupdelegations_v1_Request.h"
@@ -179,7 +179,7 @@ private:
 Q_SIGNALS:
 
     void usergroupCreateObjectV1Signal(Usergroup_createObject_v1_Response summary);
-    void usergroupEditObjectV1Signal(Usergroup_editObject_v1_Response summary);
+    void usergroupEditObjectV1Signal(Common_Response summary);
     void usergroupEditPermissionsV1Signal(Usergroup_editPermissions_v1_Response summary);
     void usergroupEditUsergroupdelegationsV1Signal(Usergroup_editUsergroupdelegations_v1_Response summary);
     void usergroupEditUsergroupmembershipsV1Signal(Usergroup_editUsergroupmemberships_v1_Response summary);
@@ -192,7 +192,7 @@ Q_SIGNALS:
 
 
     void usergroupCreateObjectV1SignalFull(HttpRequestWorker *worker, Usergroup_createObject_v1_Response summary);
-    void usergroupEditObjectV1SignalFull(HttpRequestWorker *worker, Usergroup_editObject_v1_Response summary);
+    void usergroupEditObjectV1SignalFull(HttpRequestWorker *worker, Common_Response summary);
     void usergroupEditPermissionsV1SignalFull(HttpRequestWorker *worker, Usergroup_editPermissions_v1_Response summary);
     void usergroupEditUsergroupdelegationsV1SignalFull(HttpRequestWorker *worker, Usergroup_editUsergroupdelegations_v1_Response summary);
     void usergroupEditUsergroupmembershipsV1SignalFull(HttpRequestWorker *worker, Usergroup_editUsergroupmemberships_v1_Response summary);
@@ -207,8 +207,8 @@ Q_SIGNALS:
     void usergroupCreateObjectV1SignalE(Usergroup_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void usergroupCreateObjectV1SignalError(Usergroup_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use usergroupEditObjectV1SignalError() instead")
-    void usergroupEditObjectV1SignalE(Usergroup_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void usergroupEditObjectV1SignalError(Usergroup_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void usergroupEditObjectV1SignalE(Common_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void usergroupEditObjectV1SignalError(Common_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use usergroupEditPermissionsV1SignalError() instead")
     void usergroupEditPermissionsV1SignalE(Usergroup_editPermissions_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void usergroupEditPermissionsV1SignalError(Usergroup_editPermissions_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);

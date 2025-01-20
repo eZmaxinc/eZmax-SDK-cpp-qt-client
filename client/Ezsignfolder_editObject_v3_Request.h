@@ -21,13 +21,13 @@
 
 #include <QJsonObject>
 
-#include "Ezsignfolder_RequestCompoundV3.h"
+#include "Ezsignfolder_RequestV3.h"
 
 #include "Enum.h"
 #include "Object.h"
 
 namespace Ezmaxapi {
-class Ezsignfolder_RequestCompoundV3;
+class Ezsignfolder_RequestV3;
 
 class Ezsignfolder_editObject_v3_Request : public Object {
 public:
@@ -40,8 +40,8 @@ public:
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    Ezsignfolder_RequestCompoundV3 getObjEzsignfolder() const;
-    void setObjEzsignfolder(const Ezsignfolder_RequestCompoundV3 &obj_ezsignfolder);
+    Ezsignfolder_RequestV3 getObjEzsignfolder() const;
+    void setObjEzsignfolder(const Ezsignfolder_RequestV3 &obj_ezsignfolder);
     bool is_obj_ezsignfolder_Set() const;
     bool is_obj_ezsignfolder_Valid() const;
 
@@ -51,7 +51,7 @@ public:
 private:
     void initializeModel();
 
-    Ezsignfolder_RequestCompoundV3 m_obj_ezsignfolder;
+    Ezsignfolder_RequestV3 m_obj_ezsignfolder;
     bool m_obj_ezsignfolder_isSet;
     bool m_obj_ezsignfolder_isValid;
 };

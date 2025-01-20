@@ -18,21 +18,19 @@
 #include "ServerConfiguration.h"
 #include "Oauth.h"
 
+#include "Common_Response.h"
 #include "Common_Response_Error.h"
 #include "Ezsignbulksend_createEzsignbulksendtransmission_v2_Request.h"
 #include "Ezsignbulksend_createEzsignbulksendtransmission_v2_Response.h"
 #include "Ezsignbulksend_createObject_v1_Request.h"
 #include "Ezsignbulksend_createObject_v1_Response.h"
-#include "Ezsignbulksend_deleteObject_v1_Response.h"
 #include "Ezsignbulksend_editObject_v1_Request.h"
-#include "Ezsignbulksend_editObject_v1_Response.h"
 #include "Ezsignbulksend_getEzsignbulksendtransmissions_v1_Response.h"
 #include "Ezsignbulksend_getEzsignsignaturesAutomatic_v1_Response.h"
 #include "Ezsignbulksend_getFormsData_v1_Response.h"
 #include "Ezsignbulksend_getList_v1_Response.h"
 #include "Ezsignbulksend_getObject_v2_Response.h"
 #include "Ezsignbulksend_reorder_v1_Request.h"
-#include "Ezsignbulksend_reorder_v1_Response.h"
 #include "Header_Accept_Language.h"
 #include "HttpFileElement.h"
 #include <QString>
@@ -175,28 +173,28 @@ Q_SIGNALS:
 
     void ezsignbulksendCreateEzsignbulksendtransmissionV2Signal(Ezsignbulksend_createEzsignbulksendtransmission_v2_Response summary);
     void ezsignbulksendCreateObjectV1Signal(Ezsignbulksend_createObject_v1_Response summary);
-    void ezsignbulksendDeleteObjectV1Signal(Ezsignbulksend_deleteObject_v1_Response summary);
-    void ezsignbulksendEditObjectV1Signal(Ezsignbulksend_editObject_v1_Response summary);
+    void ezsignbulksendDeleteObjectV1Signal(Common_Response summary);
+    void ezsignbulksendEditObjectV1Signal(Common_Response summary);
     void ezsignbulksendGetCsvTemplateV1Signal(QString summary);
     void ezsignbulksendGetEzsignbulksendtransmissionsV1Signal(Ezsignbulksend_getEzsignbulksendtransmissions_v1_Response summary);
     void ezsignbulksendGetEzsignsignaturesAutomaticV1Signal(Ezsignbulksend_getEzsignsignaturesAutomatic_v1_Response summary);
     void ezsignbulksendGetFormsDataV1Signal(Ezsignbulksend_getFormsData_v1_Response summary);
     void ezsignbulksendGetListV1Signal(Ezsignbulksend_getList_v1_Response summary);
     void ezsignbulksendGetObjectV2Signal(Ezsignbulksend_getObject_v2_Response summary);
-    void ezsignbulksendReorderV1Signal(Ezsignbulksend_reorder_v1_Response summary);
+    void ezsignbulksendReorderV1Signal(Common_Response summary);
 
 
     void ezsignbulksendCreateEzsignbulksendtransmissionV2SignalFull(HttpRequestWorker *worker, Ezsignbulksend_createEzsignbulksendtransmission_v2_Response summary);
     void ezsignbulksendCreateObjectV1SignalFull(HttpRequestWorker *worker, Ezsignbulksend_createObject_v1_Response summary);
-    void ezsignbulksendDeleteObjectV1SignalFull(HttpRequestWorker *worker, Ezsignbulksend_deleteObject_v1_Response summary);
-    void ezsignbulksendEditObjectV1SignalFull(HttpRequestWorker *worker, Ezsignbulksend_editObject_v1_Response summary);
+    void ezsignbulksendDeleteObjectV1SignalFull(HttpRequestWorker *worker, Common_Response summary);
+    void ezsignbulksendEditObjectV1SignalFull(HttpRequestWorker *worker, Common_Response summary);
     void ezsignbulksendGetCsvTemplateV1SignalFull(HttpRequestWorker *worker, QString summary);
     void ezsignbulksendGetEzsignbulksendtransmissionsV1SignalFull(HttpRequestWorker *worker, Ezsignbulksend_getEzsignbulksendtransmissions_v1_Response summary);
     void ezsignbulksendGetEzsignsignaturesAutomaticV1SignalFull(HttpRequestWorker *worker, Ezsignbulksend_getEzsignsignaturesAutomatic_v1_Response summary);
     void ezsignbulksendGetFormsDataV1SignalFull(HttpRequestWorker *worker, Ezsignbulksend_getFormsData_v1_Response summary);
     void ezsignbulksendGetListV1SignalFull(HttpRequestWorker *worker, Ezsignbulksend_getList_v1_Response summary);
     void ezsignbulksendGetObjectV2SignalFull(HttpRequestWorker *worker, Ezsignbulksend_getObject_v2_Response summary);
-    void ezsignbulksendReorderV1SignalFull(HttpRequestWorker *worker, Ezsignbulksend_reorder_v1_Response summary);
+    void ezsignbulksendReorderV1SignalFull(HttpRequestWorker *worker, Common_Response summary);
 
     Q_DECL_DEPRECATED_X("Use ezsignbulksendCreateEzsignbulksendtransmissionV2SignalError() instead")
     void ezsignbulksendCreateEzsignbulksendtransmissionV2SignalE(Ezsignbulksend_createEzsignbulksendtransmission_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
@@ -205,11 +203,11 @@ Q_SIGNALS:
     void ezsignbulksendCreateObjectV1SignalE(Ezsignbulksend_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignbulksendCreateObjectV1SignalError(Ezsignbulksend_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsignbulksendDeleteObjectV1SignalError() instead")
-    void ezsignbulksendDeleteObjectV1SignalE(Ezsignbulksend_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void ezsignbulksendDeleteObjectV1SignalError(Ezsignbulksend_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void ezsignbulksendDeleteObjectV1SignalE(Common_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignbulksendDeleteObjectV1SignalError(Common_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsignbulksendEditObjectV1SignalError() instead")
-    void ezsignbulksendEditObjectV1SignalE(Ezsignbulksend_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void ezsignbulksendEditObjectV1SignalError(Ezsignbulksend_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void ezsignbulksendEditObjectV1SignalE(Common_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignbulksendEditObjectV1SignalError(Common_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsignbulksendGetCsvTemplateV1SignalError() instead")
     void ezsignbulksendGetCsvTemplateV1SignalE(QString summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignbulksendGetCsvTemplateV1SignalError(QString summary, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -229,8 +227,8 @@ Q_SIGNALS:
     void ezsignbulksendGetObjectV2SignalE(Ezsignbulksend_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignbulksendGetObjectV2SignalError(Ezsignbulksend_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsignbulksendReorderV1SignalError() instead")
-    void ezsignbulksendReorderV1SignalE(Ezsignbulksend_reorder_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void ezsignbulksendReorderV1SignalError(Ezsignbulksend_reorder_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void ezsignbulksendReorderV1SignalE(Common_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignbulksendReorderV1SignalError(Common_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     Q_DECL_DEPRECATED_X("Use ezsignbulksendCreateEzsignbulksendtransmissionV2SignalErrorFull() instead")
     void ezsignbulksendCreateEzsignbulksendtransmissionV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);

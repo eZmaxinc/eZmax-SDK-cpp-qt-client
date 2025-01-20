@@ -23,7 +23,7 @@
 
 #include "Communicationexternalrecipient_RequestCompound.h"
 #include "Communicationrecipient_RequestCompound.h"
-#include "Communicationreference_RequestCompound.h"
+#include "Communicationreference_Request.h"
 #include "Custom_Communicationattachment_Request.h"
 #include "Custom_Communicationsender_Request.h"
 #include "Field_eCommunicationImportance.h"
@@ -38,7 +38,7 @@ namespace Ezmaxapi {
 class Custom_Communicationsender_Request;
 class Custom_Communicationattachment_Request;
 class Communicationrecipient_RequestCompound;
-class Communicationreference_RequestCompound;
+class Communicationreference_Request;
 class Communicationexternalrecipient_RequestCompound;
 
 class Communication_RequestCompound : public Object {

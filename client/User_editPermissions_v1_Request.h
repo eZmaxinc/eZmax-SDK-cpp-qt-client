@@ -21,14 +21,14 @@
 
 #include <QJsonObject>
 
-#include "Permission_RequestCompound.h"
+#include "Permission_Request.h"
 #include <QList>
 
 #include "Enum.h"
 #include "Object.h"
 
 namespace Ezmaxapi {
-class Permission_RequestCompound;
+class Permission_Request;
 
 class User_editPermissions_v1_Request : public Object {
 public:

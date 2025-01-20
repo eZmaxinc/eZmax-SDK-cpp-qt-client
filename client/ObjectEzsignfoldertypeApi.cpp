@@ -265,7 +265,7 @@ void ObjectEzsignfoldertypeApi::ezsignfoldertypeCreateObjectV3(const Ezsignfolde
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignfoldertypeApi::ezsignfoldertypeCreateObjectV3Callback);
     connect(this, &ObjectEzsignfoldertypeApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -358,7 +358,7 @@ void ObjectEzsignfoldertypeApi::ezsignfoldertypeEditObjectV3(const qint32 &pki_e
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignfoldertypeApi::ezsignfoldertypeEditObjectV3Callback);
     connect(this, &ObjectEzsignfoldertypeApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -374,7 +374,7 @@ void ObjectEzsignfoldertypeApi::ezsignfoldertypeEditObjectV3Callback(HttpRequest
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Ezsignfoldertype_editObject_v3_Response output(QString(worker->response));
+    Common_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -447,7 +447,7 @@ void ObjectEzsignfoldertypeApi::ezsignfoldertypeGetAutocompleteV2(const QString 
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("eFilterActive")).append(querySuffix).append(QUrl::toPercentEncoding(e_filter_active.stringValue()));
+        fullPath.append(QUrl::toPercentEncoding("eFilterActive")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(e_filter_active.stringValue())));
     }
     if (s_query.hasValue())
     {
@@ -462,7 +462,7 @@ void ObjectEzsignfoldertypeApi::ezsignfoldertypeGetAutocompleteV2(const QString 
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(s_query.stringValue()));
+        fullPath.append(QUrl::toPercentEncoding("sQuery")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_query.stringValue())));
     }
     HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -521,7 +521,7 @@ void ObjectEzsignfoldertypeApi::ezsignfoldertypeGetAutocompleteV2(const QString 
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignfoldertypeApi::ezsignfoldertypeGetAutocompleteV2Callback);
     connect(this, &ObjectEzsignfoldertypeApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -596,7 +596,7 @@ void ObjectEzsignfoldertypeApi::ezsignfoldertypeGetListV1(const ::Ezmaxapi::Opti
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("eOrderBy")).append(querySuffix).append(QUrl::toPercentEncoding(e_order_by.stringValue()));
+        fullPath.append(QUrl::toPercentEncoding("eOrderBy")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(e_order_by.stringValue())));
     }
     if (i_row_max.hasValue())
     {
@@ -611,7 +611,7 @@ void ObjectEzsignfoldertypeApi::ezsignfoldertypeGetListV1(const ::Ezmaxapi::Opti
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("iRowMax")).append(querySuffix).append(QUrl::toPercentEncoding(i_row_max.stringValue()));
+        fullPath.append(QUrl::toPercentEncoding("iRowMax")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(i_row_max.stringValue())));
     }
     if (i_row_offset.hasValue())
     {
@@ -626,7 +626,7 @@ void ObjectEzsignfoldertypeApi::ezsignfoldertypeGetListV1(const ::Ezmaxapi::Opti
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("iRowOffset")).append(querySuffix).append(QUrl::toPercentEncoding(i_row_offset.stringValue()));
+        fullPath.append(QUrl::toPercentEncoding("iRowOffset")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(i_row_offset.stringValue())));
     }
     if (s_filter.hasValue())
     {
@@ -641,7 +641,7 @@ void ObjectEzsignfoldertypeApi::ezsignfoldertypeGetListV1(const ::Ezmaxapi::Opti
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("sFilter")).append(querySuffix).append(QUrl::toPercentEncoding(s_filter.stringValue()));
+        fullPath.append(QUrl::toPercentEncoding("sFilter")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_filter.stringValue())));
     }
     HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -700,7 +700,7 @@ void ObjectEzsignfoldertypeApi::ezsignfoldertypeGetListV1(const ::Ezmaxapi::Opti
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignfoldertypeApi::ezsignfoldertypeGetListV1Callback);
     connect(this, &ObjectEzsignfoldertypeApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -788,7 +788,7 @@ void ObjectEzsignfoldertypeApi::ezsignfoldertypeGetObjectV2(const qint32 &pki_ez
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignfoldertypeApi::ezsignfoldertypeGetObjectV2Callback);
     connect(this, &ObjectEzsignfoldertypeApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -876,7 +876,7 @@ void ObjectEzsignfoldertypeApi::ezsignfoldertypeGetObjectV4(const qint32 &pki_ez
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignfoldertypeApi::ezsignfoldertypeGetObjectV4Callback);
     connect(this, &ObjectEzsignfoldertypeApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }

@@ -18,13 +18,13 @@
 #include "ServerConfiguration.h"
 #include "Oauth.h"
 
+#include "Common_Response.h"
 #include "Common_Response_Error.h"
 #include "Header_Accept_Language.h"
 #include "HttpFileElement.h"
 #include "Paymentterm_createObject_v1_Request.h"
 #include "Paymentterm_createObject_v1_Response.h"
 #include "Paymentterm_editObject_v1_Request.h"
-#include "Paymentterm_editObject_v1_Response.h"
 #include "Paymentterm_getAutocomplete_v2_Response.h"
 #include "Paymentterm_getList_v1_Response.h"
 #include "Paymentterm_getObject_v2_Response.h"
@@ -131,14 +131,14 @@ private:
 Q_SIGNALS:
 
     void paymenttermCreateObjectV1Signal(Paymentterm_createObject_v1_Response summary);
-    void paymenttermEditObjectV1Signal(Paymentterm_editObject_v1_Response summary);
+    void paymenttermEditObjectV1Signal(Common_Response summary);
     void paymenttermGetAutocompleteV2Signal(Paymentterm_getAutocomplete_v2_Response summary);
     void paymenttermGetListV1Signal(Paymentterm_getList_v1_Response summary);
     void paymenttermGetObjectV2Signal(Paymentterm_getObject_v2_Response summary);
 
 
     void paymenttermCreateObjectV1SignalFull(HttpRequestWorker *worker, Paymentterm_createObject_v1_Response summary);
-    void paymenttermEditObjectV1SignalFull(HttpRequestWorker *worker, Paymentterm_editObject_v1_Response summary);
+    void paymenttermEditObjectV1SignalFull(HttpRequestWorker *worker, Common_Response summary);
     void paymenttermGetAutocompleteV2SignalFull(HttpRequestWorker *worker, Paymentterm_getAutocomplete_v2_Response summary);
     void paymenttermGetListV1SignalFull(HttpRequestWorker *worker, Paymentterm_getList_v1_Response summary);
     void paymenttermGetObjectV2SignalFull(HttpRequestWorker *worker, Paymentterm_getObject_v2_Response summary);
@@ -147,8 +147,8 @@ Q_SIGNALS:
     void paymenttermCreateObjectV1SignalE(Paymentterm_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void paymenttermCreateObjectV1SignalError(Paymentterm_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use paymenttermEditObjectV1SignalError() instead")
-    void paymenttermEditObjectV1SignalE(Paymentterm_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void paymenttermEditObjectV1SignalError(Paymentterm_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void paymenttermEditObjectV1SignalE(Common_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void paymenttermEditObjectV1SignalError(Common_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use paymenttermGetAutocompleteV2SignalError() instead")
     void paymenttermGetAutocompleteV2SignalE(Paymentterm_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void paymenttermGetAutocompleteV2SignalError(Paymentterm_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);

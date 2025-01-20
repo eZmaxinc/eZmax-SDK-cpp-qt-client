@@ -18,14 +18,13 @@
 #include "ServerConfiguration.h"
 #include "Oauth.h"
 
+#include "Common_Response.h"
 #include "Common_Response_Error.h"
 #include "Header_Accept_Language.h"
 #include "HttpFileElement.h"
 #include "Usergroupexternal_createObject_v1_Request.h"
 #include "Usergroupexternal_createObject_v1_Response.h"
-#include "Usergroupexternal_deleteObject_v1_Response.h"
 #include "Usergroupexternal_editObject_v1_Request.h"
-#include "Usergroupexternal_editObject_v1_Response.h"
 #include "Usergroupexternal_getAutocomplete_v2_Response.h"
 #include "Usergroupexternal_getList_v1_Response.h"
 #include "Usergroupexternal_getObject_v2_Response.h"
@@ -152,8 +151,8 @@ private:
 Q_SIGNALS:
 
     void usergroupexternalCreateObjectV1Signal(Usergroupexternal_createObject_v1_Response summary);
-    void usergroupexternalDeleteObjectV1Signal(Usergroupexternal_deleteObject_v1_Response summary);
-    void usergroupexternalEditObjectV1Signal(Usergroupexternal_editObject_v1_Response summary);
+    void usergroupexternalDeleteObjectV1Signal(Common_Response summary);
+    void usergroupexternalEditObjectV1Signal(Common_Response summary);
     void usergroupexternalGetAutocompleteV2Signal(Usergroupexternal_getAutocomplete_v2_Response summary);
     void usergroupexternalGetListV1Signal(Usergroupexternal_getList_v1_Response summary);
     void usergroupexternalGetObjectV2Signal(Usergroupexternal_getObject_v2_Response summary);
@@ -162,8 +161,8 @@ Q_SIGNALS:
 
 
     void usergroupexternalCreateObjectV1SignalFull(HttpRequestWorker *worker, Usergroupexternal_createObject_v1_Response summary);
-    void usergroupexternalDeleteObjectV1SignalFull(HttpRequestWorker *worker, Usergroupexternal_deleteObject_v1_Response summary);
-    void usergroupexternalEditObjectV1SignalFull(HttpRequestWorker *worker, Usergroupexternal_editObject_v1_Response summary);
+    void usergroupexternalDeleteObjectV1SignalFull(HttpRequestWorker *worker, Common_Response summary);
+    void usergroupexternalEditObjectV1SignalFull(HttpRequestWorker *worker, Common_Response summary);
     void usergroupexternalGetAutocompleteV2SignalFull(HttpRequestWorker *worker, Usergroupexternal_getAutocomplete_v2_Response summary);
     void usergroupexternalGetListV1SignalFull(HttpRequestWorker *worker, Usergroupexternal_getList_v1_Response summary);
     void usergroupexternalGetObjectV2SignalFull(HttpRequestWorker *worker, Usergroupexternal_getObject_v2_Response summary);
@@ -174,11 +173,11 @@ Q_SIGNALS:
     void usergroupexternalCreateObjectV1SignalE(Usergroupexternal_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void usergroupexternalCreateObjectV1SignalError(Usergroupexternal_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use usergroupexternalDeleteObjectV1SignalError() instead")
-    void usergroupexternalDeleteObjectV1SignalE(Usergroupexternal_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void usergroupexternalDeleteObjectV1SignalError(Usergroupexternal_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void usergroupexternalDeleteObjectV1SignalE(Common_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void usergroupexternalDeleteObjectV1SignalError(Common_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use usergroupexternalEditObjectV1SignalError() instead")
-    void usergroupexternalEditObjectV1SignalE(Usergroupexternal_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void usergroupexternalEditObjectV1SignalError(Usergroupexternal_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void usergroupexternalEditObjectV1SignalE(Common_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void usergroupexternalEditObjectV1SignalError(Common_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use usergroupexternalGetAutocompleteV2SignalError() instead")
     void usergroupexternalGetAutocompleteV2SignalE(Usergroupexternal_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void usergroupexternalGetAutocompleteV2SignalError(Usergroupexternal_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);

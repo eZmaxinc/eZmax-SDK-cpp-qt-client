@@ -18,10 +18,10 @@
 #include "ServerConfiguration.h"
 #include "Oauth.h"
 
+#include "Common_Response.h"
 #include "Common_Response_Error.h"
 #include "Ezsigntemplatepackagemembership_createObject_v1_Request.h"
 #include "Ezsigntemplatepackagemembership_createObject_v1_Response.h"
-#include "Ezsigntemplatepackagemembership_deleteObject_v1_Response.h"
 #include "Ezsigntemplatepackagemembership_getObject_v2_Response.h"
 #include <QString>
 
@@ -106,20 +106,20 @@ private:
 Q_SIGNALS:
 
     void ezsigntemplatepackagemembershipCreateObjectV1Signal(Ezsigntemplatepackagemembership_createObject_v1_Response summary);
-    void ezsigntemplatepackagemembershipDeleteObjectV1Signal(Ezsigntemplatepackagemembership_deleteObject_v1_Response summary);
+    void ezsigntemplatepackagemembershipDeleteObjectV1Signal(Common_Response summary);
     void ezsigntemplatepackagemembershipGetObjectV2Signal(Ezsigntemplatepackagemembership_getObject_v2_Response summary);
 
 
     void ezsigntemplatepackagemembershipCreateObjectV1SignalFull(HttpRequestWorker *worker, Ezsigntemplatepackagemembership_createObject_v1_Response summary);
-    void ezsigntemplatepackagemembershipDeleteObjectV1SignalFull(HttpRequestWorker *worker, Ezsigntemplatepackagemembership_deleteObject_v1_Response summary);
+    void ezsigntemplatepackagemembershipDeleteObjectV1SignalFull(HttpRequestWorker *worker, Common_Response summary);
     void ezsigntemplatepackagemembershipGetObjectV2SignalFull(HttpRequestWorker *worker, Ezsigntemplatepackagemembership_getObject_v2_Response summary);
 
     Q_DECL_DEPRECATED_X("Use ezsigntemplatepackagemembershipCreateObjectV1SignalError() instead")
     void ezsigntemplatepackagemembershipCreateObjectV1SignalE(Ezsigntemplatepackagemembership_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplatepackagemembershipCreateObjectV1SignalError(Ezsigntemplatepackagemembership_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsigntemplatepackagemembershipDeleteObjectV1SignalError() instead")
-    void ezsigntemplatepackagemembershipDeleteObjectV1SignalE(Ezsigntemplatepackagemembership_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void ezsigntemplatepackagemembershipDeleteObjectV1SignalError(Ezsigntemplatepackagemembership_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void ezsigntemplatepackagemembershipDeleteObjectV1SignalE(Common_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigntemplatepackagemembershipDeleteObjectV1SignalError(Common_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsigntemplatepackagemembershipGetObjectV2SignalError() instead")
     void ezsigntemplatepackagemembershipGetObjectV2SignalE(Ezsigntemplatepackagemembership_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplatepackagemembershipGetObjectV2SignalError(Ezsigntemplatepackagemembership_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);

@@ -270,7 +270,7 @@ void ObjectEzsignbulksendtransmissionApi::ezsignbulksendtransmissionGetCsvErrors
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignbulksendtransmissionApi::ezsignbulksendtransmissionGetCsvErrorsV1Callback);
     connect(this, &ObjectEzsignbulksendtransmissionApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -359,7 +359,7 @@ void ObjectEzsignbulksendtransmissionApi::ezsignbulksendtransmissionGetEzsignsig
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignbulksendtransmissionApi::ezsignbulksendtransmissionGetEzsignsignaturesAutomaticV1Callback);
     connect(this, &ObjectEzsignbulksendtransmissionApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -447,7 +447,7 @@ void ObjectEzsignbulksendtransmissionApi::ezsignbulksendtransmissionGetFormsData
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignbulksendtransmissionApi::ezsignbulksendtransmissionGetFormsDataV1Callback);
     connect(this, &ObjectEzsignbulksendtransmissionApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -535,7 +535,7 @@ void ObjectEzsignbulksendtransmissionApi::ezsignbulksendtransmissionGetObjectV2(
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignbulksendtransmissionApi::ezsignbulksendtransmissionGetObjectV2Callback);
     connect(this, &ObjectEzsignbulksendtransmissionApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }

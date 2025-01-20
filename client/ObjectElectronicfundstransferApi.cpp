@@ -270,7 +270,7 @@ void ObjectElectronicfundstransferApi::electronicfundstransferGetCommunicationCo
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectElectronicfundstransferApi::electronicfundstransferGetCommunicationCountV1Callback);
     connect(this, &ObjectElectronicfundstransferApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -358,7 +358,7 @@ void ObjectElectronicfundstransferApi::electronicfundstransferGetCommunicationLi
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectElectronicfundstransferApi::electronicfundstransferGetCommunicationListV1Callback);
     connect(this, &ObjectElectronicfundstransferApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -446,7 +446,7 @@ void ObjectElectronicfundstransferApi::electronicfundstransferGetCommunicationre
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectElectronicfundstransferApi::electronicfundstransferGetCommunicationrecipientsV1Callback);
     connect(this, &ObjectElectronicfundstransferApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -534,7 +534,7 @@ void ObjectElectronicfundstransferApi::electronicfundstransferGetCommunicationse
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectElectronicfundstransferApi::electronicfundstransferGetCommunicationsendersV1Callback);
     connect(this, &ObjectElectronicfundstransferApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }

@@ -18,10 +18,10 @@
 #include "ServerConfiguration.h"
 #include "Oauth.h"
 
+#include "Common_Response.h"
 #include "Common_Response_Error.h"
 #include "Ezsigndiscussion_createObject_v1_Request.h"
 #include "Ezsigndiscussion_createObject_v1_Response.h"
-#include "Ezsigndiscussion_deleteObject_v1_Response.h"
 #include "Ezsigndiscussion_getObject_v2_Response.h"
 #include <QString>
 
@@ -106,20 +106,20 @@ private:
 Q_SIGNALS:
 
     void ezsigndiscussionCreateObjectV1Signal(Ezsigndiscussion_createObject_v1_Response summary);
-    void ezsigndiscussionDeleteObjectV1Signal(Ezsigndiscussion_deleteObject_v1_Response summary);
+    void ezsigndiscussionDeleteObjectV1Signal(Common_Response summary);
     void ezsigndiscussionGetObjectV2Signal(Ezsigndiscussion_getObject_v2_Response summary);
 
 
     void ezsigndiscussionCreateObjectV1SignalFull(HttpRequestWorker *worker, Ezsigndiscussion_createObject_v1_Response summary);
-    void ezsigndiscussionDeleteObjectV1SignalFull(HttpRequestWorker *worker, Ezsigndiscussion_deleteObject_v1_Response summary);
+    void ezsigndiscussionDeleteObjectV1SignalFull(HttpRequestWorker *worker, Common_Response summary);
     void ezsigndiscussionGetObjectV2SignalFull(HttpRequestWorker *worker, Ezsigndiscussion_getObject_v2_Response summary);
 
     Q_DECL_DEPRECATED_X("Use ezsigndiscussionCreateObjectV1SignalError() instead")
     void ezsigndiscussionCreateObjectV1SignalE(Ezsigndiscussion_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigndiscussionCreateObjectV1SignalError(Ezsigndiscussion_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsigndiscussionDeleteObjectV1SignalError() instead")
-    void ezsigndiscussionDeleteObjectV1SignalE(Ezsigndiscussion_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void ezsigndiscussionDeleteObjectV1SignalError(Ezsigndiscussion_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void ezsigndiscussionDeleteObjectV1SignalE(Common_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndiscussionDeleteObjectV1SignalError(Common_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsigndiscussionGetObjectV2SignalError() instead")
     void ezsigndiscussionGetObjectV2SignalE(Ezsigndiscussion_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigndiscussionGetObjectV2SignalError(Ezsigndiscussion_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);

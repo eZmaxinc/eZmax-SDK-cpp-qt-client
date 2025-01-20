@@ -269,7 +269,7 @@ void ObjectEzsignpageApi::ezsignpageConsultV1(const qint32 &pki_ezsignpage_id, c
 
     connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignpageApi::ezsignpageConsultV1Callback);
     connect(this, &ObjectEzsignpageApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -285,7 +285,7 @@ void ObjectEzsignpageApi::ezsignpageConsultV1Callback(HttpRequestWorker *worker)
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Ezsignpage_consult_v1_Response output(QString(worker->response));
+    Common_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {

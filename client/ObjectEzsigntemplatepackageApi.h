@@ -18,14 +18,13 @@
 #include "ServerConfiguration.h"
 #include "Oauth.h"
 
+#include "Common_Response.h"
 #include "Common_Response_Error.h"
 #include "Ezsigntemplatepackage_createObject_v1_Request.h"
 #include "Ezsigntemplatepackage_createObject_v1_Response.h"
-#include "Ezsigntemplatepackage_deleteObject_v1_Response.h"
 #include "Ezsigntemplatepackage_editEzsigntemplatepackagesigners_v1_Request.h"
 #include "Ezsigntemplatepackage_editEzsigntemplatepackagesigners_v1_Response.h"
 #include "Ezsigntemplatepackage_editObject_v1_Request.h"
-#include "Ezsigntemplatepackage_editObject_v1_Response.h"
 #include "Ezsigntemplatepackage_getAutocomplete_v2_Response.h"
 #include "Ezsigntemplatepackage_getList_v1_Response.h"
 #include "Ezsigntemplatepackage_getObject_v2_Response.h"
@@ -148,18 +147,18 @@ private:
 Q_SIGNALS:
 
     void ezsigntemplatepackageCreateObjectV1Signal(Ezsigntemplatepackage_createObject_v1_Response summary);
-    void ezsigntemplatepackageDeleteObjectV1Signal(Ezsigntemplatepackage_deleteObject_v1_Response summary);
+    void ezsigntemplatepackageDeleteObjectV1Signal(Common_Response summary);
     void ezsigntemplatepackageEditEzsigntemplatepackagesignersV1Signal(Ezsigntemplatepackage_editEzsigntemplatepackagesigners_v1_Response summary);
-    void ezsigntemplatepackageEditObjectV1Signal(Ezsigntemplatepackage_editObject_v1_Response summary);
+    void ezsigntemplatepackageEditObjectV1Signal(Common_Response summary);
     void ezsigntemplatepackageGetAutocompleteV2Signal(Ezsigntemplatepackage_getAutocomplete_v2_Response summary);
     void ezsigntemplatepackageGetListV1Signal(Ezsigntemplatepackage_getList_v1_Response summary);
     void ezsigntemplatepackageGetObjectV2Signal(Ezsigntemplatepackage_getObject_v2_Response summary);
 
 
     void ezsigntemplatepackageCreateObjectV1SignalFull(HttpRequestWorker *worker, Ezsigntemplatepackage_createObject_v1_Response summary);
-    void ezsigntemplatepackageDeleteObjectV1SignalFull(HttpRequestWorker *worker, Ezsigntemplatepackage_deleteObject_v1_Response summary);
+    void ezsigntemplatepackageDeleteObjectV1SignalFull(HttpRequestWorker *worker, Common_Response summary);
     void ezsigntemplatepackageEditEzsigntemplatepackagesignersV1SignalFull(HttpRequestWorker *worker, Ezsigntemplatepackage_editEzsigntemplatepackagesigners_v1_Response summary);
-    void ezsigntemplatepackageEditObjectV1SignalFull(HttpRequestWorker *worker, Ezsigntemplatepackage_editObject_v1_Response summary);
+    void ezsigntemplatepackageEditObjectV1SignalFull(HttpRequestWorker *worker, Common_Response summary);
     void ezsigntemplatepackageGetAutocompleteV2SignalFull(HttpRequestWorker *worker, Ezsigntemplatepackage_getAutocomplete_v2_Response summary);
     void ezsigntemplatepackageGetListV1SignalFull(HttpRequestWorker *worker, Ezsigntemplatepackage_getList_v1_Response summary);
     void ezsigntemplatepackageGetObjectV2SignalFull(HttpRequestWorker *worker, Ezsigntemplatepackage_getObject_v2_Response summary);
@@ -168,14 +167,14 @@ Q_SIGNALS:
     void ezsigntemplatepackageCreateObjectV1SignalE(Ezsigntemplatepackage_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplatepackageCreateObjectV1SignalError(Ezsigntemplatepackage_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsigntemplatepackageDeleteObjectV1SignalError() instead")
-    void ezsigntemplatepackageDeleteObjectV1SignalE(Ezsigntemplatepackage_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void ezsigntemplatepackageDeleteObjectV1SignalError(Ezsigntemplatepackage_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void ezsigntemplatepackageDeleteObjectV1SignalE(Common_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigntemplatepackageDeleteObjectV1SignalError(Common_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsigntemplatepackageEditEzsigntemplatepackagesignersV1SignalError() instead")
     void ezsigntemplatepackageEditEzsigntemplatepackagesignersV1SignalE(Ezsigntemplatepackage_editEzsigntemplatepackagesigners_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplatepackageEditEzsigntemplatepackagesignersV1SignalError(Ezsigntemplatepackage_editEzsigntemplatepackagesigners_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsigntemplatepackageEditObjectV1SignalError() instead")
-    void ezsigntemplatepackageEditObjectV1SignalE(Ezsigntemplatepackage_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void ezsigntemplatepackageEditObjectV1SignalError(Ezsigntemplatepackage_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void ezsigntemplatepackageEditObjectV1SignalE(Common_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigntemplatepackageEditObjectV1SignalError(Common_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsigntemplatepackageGetAutocompleteV2SignalError() instead")
     void ezsigntemplatepackageGetAutocompleteV2SignalE(Ezsigntemplatepackage_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplatepackageGetAutocompleteV2SignalError(Ezsigntemplatepackage_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);

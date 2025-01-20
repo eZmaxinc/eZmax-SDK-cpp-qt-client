@@ -268,10 +268,10 @@ bool Contactinformations_Response::is_s_contactinformations_url_Valid() const{
     return m_s_contactinformations_url_isValid;
 }
 
-Address_ResponseCompound Contactinformations_Response::getObjAddressDefault() const {
+Address_Response Contactinformations_Response::getObjAddressDefault() const {
     return m_obj_address_default;
 }
-void Contactinformations_Response::setObjAddressDefault(const Address_ResponseCompound &obj_address_default) {
+void Contactinformations_Response::setObjAddressDefault(const Address_Response &obj_address_default) {
     m_obj_address_default = obj_address_default;
     m_obj_address_default_isSet = true;
 }
@@ -300,10 +300,10 @@ bool Contactinformations_Response::is_obj_phone_default_Valid() const{
     return m_obj_phone_default_isValid;
 }
 
-Email_ResponseCompound Contactinformations_Response::getObjEmailDefault() const {
+Email_Response Contactinformations_Response::getObjEmailDefault() const {
     return m_obj_email_default;
 }
-void Contactinformations_Response::setObjEmailDefault(const Email_ResponseCompound &obj_email_default) {
+void Contactinformations_Response::setObjEmailDefault(const Email_Response &obj_email_default) {
     m_obj_email_default = obj_email_default;
     m_obj_email_default_isSet = true;
 }
@@ -316,10 +316,10 @@ bool Contactinformations_Response::is_obj_email_default_Valid() const{
     return m_obj_email_default_isValid;
 }
 
-Website_ResponseCompound Contactinformations_Response::getObjWebsiteDefault() const {
+Website_Response Contactinformations_Response::getObjWebsiteDefault() const {
     return m_obj_website_default;
 }
-void Contactinformations_Response::setObjWebsiteDefault(const Website_ResponseCompound &obj_website_default) {
+void Contactinformations_Response::setObjWebsiteDefault(const Website_Response &obj_website_default) {
     m_obj_website_default = obj_website_default;
     m_obj_website_default_isSet = true;
 }
