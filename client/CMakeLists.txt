@@ -85,6 +85,9 @@ add_library(${PROJECT_NAME}
   Authenticationexternal_getObject_v2_Response.h
   Authenticationexternal_getObject_v2_Response_mPayload.h
   Authenticationexternal_resetAuthorization_v1_Response.h
+  Bankaccount_AutocompleteElement_Response.h
+  Bankaccount_getAutocomplete_v2_Response.h
+  Bankaccount_getAutocomplete_v2_Response_mPayload.h
   Billingentityexternal_AutocompleteElement_Response.h
   Billingentityexternal_generateFederationToken_v1_Request.h
   Billingentityexternal_generateFederationToken_v1_Response.h
@@ -248,6 +251,24 @@ add_library(${PROJECT_NAME}
   Creditcarddetail_Request.h
   Creditcarddetail_Response.h
   Creditcarddetail_ResponseCompound.h
+  Creditcardmerchant_AutocompleteElement_Response.h
+  Creditcardmerchant_ListElement.h
+  Creditcardmerchant_Request.h
+  Creditcardmerchant_RequestCompound.h
+  Creditcardmerchant_Response.h
+  Creditcardmerchant_ResponseCompound.h
+  Creditcardmerchant_createObject_v1_Request.h
+  Creditcardmerchant_createObject_v1_Response.h
+  Creditcardmerchant_createObject_v1_Response_mPayload.h
+  Creditcardmerchant_deleteObject_v1_Response.h
+  Creditcardmerchant_editObject_v1_Request.h
+  Creditcardmerchant_editObject_v1_Response.h
+  Creditcardmerchant_getAutocomplete_v2_Response.h
+  Creditcardmerchant_getAutocomplete_v2_Response_mPayload.h
+  Creditcardmerchant_getList_v1_Response.h
+  Creditcardmerchant_getList_v1_Response_mPayload.h
+  Creditcardmerchant_getObject_v2_Response.h
+  Creditcardmerchant_getObject_v2_Response_mPayload.h
   Creditcardtype_AutocompleteElement_Response.h
   Creditcardtype_getAutocomplete_v2_Response.h
   Creditcardtype_getAutocomplete_v2_Response_mPayload.h
@@ -1657,6 +1678,7 @@ add_library(${PROJECT_NAME}
   ObjectApikeyApi.h
   ObjectAttachmentApi.h
   ObjectAuthenticationexternalApi.h
+  ObjectBankaccountApi.h
   ObjectBillingentityexternalApi.h
   ObjectBillingentityinternalApi.h
   ObjectBrandingApi.h
@@ -1668,6 +1690,7 @@ add_library(${PROJECT_NAME}
   ObjectCorsApi.h
   ObjectCountryApi.h
   ObjectCreditcardclientApi.h
+  ObjectCreditcardmerchantApi.h
   ObjectCreditcardtypeApi.h
   ObjectCustomerApi.h
   ObjectDepartmentApi.h
@@ -1839,6 +1862,9 @@ add_library(${PROJECT_NAME}
   Authenticationexternal_getObject_v2_Response.cpp
   Authenticationexternal_getObject_v2_Response_mPayload.cpp
   Authenticationexternal_resetAuthorization_v1_Response.cpp
+  Bankaccount_AutocompleteElement_Response.cpp
+  Bankaccount_getAutocomplete_v2_Response.cpp
+  Bankaccount_getAutocomplete_v2_Response_mPayload.cpp
   Billingentityexternal_AutocompleteElement_Response.cpp
   Billingentityexternal_generateFederationToken_v1_Request.cpp
   Billingentityexternal_generateFederationToken_v1_Response.cpp
@@ -2002,6 +2028,24 @@ add_library(${PROJECT_NAME}
   Creditcarddetail_Request.cpp
   Creditcarddetail_Response.cpp
   Creditcarddetail_ResponseCompound.cpp
+  Creditcardmerchant_AutocompleteElement_Response.cpp
+  Creditcardmerchant_ListElement.cpp
+  Creditcardmerchant_Request.cpp
+  Creditcardmerchant_RequestCompound.cpp
+  Creditcardmerchant_Response.cpp
+  Creditcardmerchant_ResponseCompound.cpp
+  Creditcardmerchant_createObject_v1_Request.cpp
+  Creditcardmerchant_createObject_v1_Response.cpp
+  Creditcardmerchant_createObject_v1_Response_mPayload.cpp
+  Creditcardmerchant_deleteObject_v1_Response.cpp
+  Creditcardmerchant_editObject_v1_Request.cpp
+  Creditcardmerchant_editObject_v1_Response.cpp
+  Creditcardmerchant_getAutocomplete_v2_Response.cpp
+  Creditcardmerchant_getAutocomplete_v2_Response_mPayload.cpp
+  Creditcardmerchant_getList_v1_Response.cpp
+  Creditcardmerchant_getList_v1_Response_mPayload.cpp
+  Creditcardmerchant_getObject_v2_Response.cpp
+  Creditcardmerchant_getObject_v2_Response_mPayload.cpp
   Creditcardtype_AutocompleteElement_Response.cpp
   Creditcardtype_getAutocomplete_v2_Response.cpp
   Creditcardtype_getAutocomplete_v2_Response_mPayload.cpp
@@ -3411,6 +3455,7 @@ add_library(${PROJECT_NAME}
   ObjectApikeyApi.cpp
   ObjectAttachmentApi.cpp
   ObjectAuthenticationexternalApi.cpp
+  ObjectBankaccountApi.cpp
   ObjectBillingentityexternalApi.cpp
   ObjectBillingentityinternalApi.cpp
   ObjectBrandingApi.cpp
@@ -3422,6 +3467,7 @@ add_library(${PROJECT_NAME}
   ObjectCorsApi.cpp
   ObjectCountryApi.cpp
   ObjectCreditcardclientApi.cpp
+  ObjectCreditcardmerchantApi.cpp
   ObjectCreditcardtypeApi.cpp
   ObjectCustomerApi.cpp
   ObjectDepartmentApi.cpp

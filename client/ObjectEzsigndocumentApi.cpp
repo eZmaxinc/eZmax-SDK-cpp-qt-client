@@ -351,7 +351,7 @@ void ObjectEzsigndocumentApi::ezsigndocumentApplyEzsigntemplateV1Callback(HttpRe
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Common_Response output(QString(worker->response));
+    Ezsigndocument_applyEzsigntemplate_v1_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -959,7 +959,7 @@ void ObjectEzsigndocumentApi::ezsigndocumentDeclineToSignV1Callback(HttpRequestW
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Common_Response output(QString(worker->response));
+    Ezsigndocument_declineToSign_v1_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -1047,7 +1047,7 @@ void ObjectEzsigndocumentApi::ezsigndocumentDeleteObjectV1Callback(HttpRequestWo
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Common_Response output(QString(worker->response));
+    Ezsigndocument_deleteObject_v1_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -1512,7 +1512,7 @@ void ObjectEzsigndocumentApi::ezsigndocumentEndPrematurelyV1Callback(HttpRequest
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Common_Response output(QString(worker->response));
+    Ezsigndocument_endPrematurely_v1_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -1698,7 +1698,7 @@ void ObjectEzsigndocumentApi::ezsigndocumentFlattenV1Callback(HttpRequestWorker 
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Common_Response output(QString(worker->response));
+    Ezsigndocument_flatten_v1_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -3130,7 +3130,7 @@ void ObjectEzsigndocumentApi::ezsigndocumentPatchObjectV1Callback(HttpRequestWor
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Common_Response output(QString(worker->response));
+    Ezsigndocument_patchObject_v1_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -3223,7 +3223,7 @@ void ObjectEzsigndocumentApi::ezsigndocumentSubmitEzsignformV1Callback(HttpReque
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Common_Response output(QString(worker->response));
+    Ezsigndocument_submitEzsignform_v1_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -3316,7 +3316,7 @@ void ObjectEzsigndocumentApi::ezsigndocumentUnsendV1Callback(HttpRequestWorker *
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Common_Response output(QString(worker->response));
+    Ezsigndocument_unsend_v1_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {

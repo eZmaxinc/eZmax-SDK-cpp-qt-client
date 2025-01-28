@@ -116,10 +116,10 @@ bool Ezsignfolder_getObject_v1_Response::is_obj_debug_Valid() const{
     return m_obj_debug_isValid;
 }
 
-Ezsignfolder_ResponseCompound Ezsignfolder_getObject_v1_Response::getMPayload() const {
+Ezsignfolder_getObject_v1_Response_mPayload Ezsignfolder_getObject_v1_Response::getMPayload() const {
     return m_m_payload;
 }
-void Ezsignfolder_getObject_v1_Response::setMPayload(const Ezsignfolder_ResponseCompound &m_payload) {
+void Ezsignfolder_getObject_v1_Response::setMPayload(const Ezsignfolder_getObject_v1_Response_mPayload &m_payload) {
     m_m_payload = m_payload;
     m_m_payload_isSet = true;
 }

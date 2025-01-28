@@ -367,7 +367,7 @@ void ObjectDiscussionApi::discussionDeleteObjectV1Callback(HttpRequestWorker *wo
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Common_Response output(QString(worker->response));
+    Discussion_deleteObject_v1_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -548,7 +548,7 @@ void ObjectDiscussionApi::discussionPatchObjectV1Callback(HttpRequestWorker *wor
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Common_Response output(QString(worker->response));
+    Discussion_patchObject_v1_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -641,7 +641,7 @@ void ObjectDiscussionApi::discussionUpdateDiscussionreadstatusV1Callback(HttpReq
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Common_Response output(QString(worker->response));
+    Discussion_updateDiscussionreadstatus_v1_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {

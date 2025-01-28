@@ -259,10 +259,10 @@ bool Custom_Communicationsender_Response::is_obj_contact_name_Valid() const{
     return m_obj_contact_name_isValid;
 }
 
-Email_Response Custom_Communicationsender_Response::getObjEmail() const {
+Email_ResponseCompound Custom_Communicationsender_Response::getObjEmail() const {
     return m_obj_email;
 }
-void Custom_Communicationsender_Response::setObjEmail(const Email_Response &obj_email) {
+void Custom_Communicationsender_Response::setObjEmail(const Email_ResponseCompound &obj_email) {
     m_obj_email = obj_email;
     m_obj_email_isSet = true;
 }

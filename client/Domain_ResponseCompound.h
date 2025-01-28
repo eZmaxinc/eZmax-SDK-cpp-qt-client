@@ -22,7 +22,7 @@
 #include <QJsonObject>
 
 #include "Common_Audit.h"
-#include "Object.h"
+#include "Custom_Dnsrecord_Response.h"
 #include <QList>
 #include <QString>
 
@@ -31,6 +31,7 @@
 
 namespace Ezmaxapi {
 class Common_Audit;
+class Custom_Dnsrecord_Response;
 
 class Domain_ResponseCompound : public Object {
 public:

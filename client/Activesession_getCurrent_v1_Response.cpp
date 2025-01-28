@@ -116,10 +116,10 @@ bool Activesession_getCurrent_v1_Response::is_obj_debug_Valid() const{
     return m_obj_debug_isValid;
 }
 
-Activesession_ResponseCompound Activesession_getCurrent_v1_Response::getMPayload() const {
+Activesession_getCurrent_v1_Response_mPayload Activesession_getCurrent_v1_Response::getMPayload() const {
     return m_m_payload;
 }
-void Activesession_getCurrent_v1_Response::setMPayload(const Activesession_ResponseCompound &m_payload) {
+void Activesession_getCurrent_v1_Response::setMPayload(const Activesession_getCurrent_v1_Response_mPayload &m_payload) {
     m_m_payload = m_payload;
     m_m_payload_isSet = true;
 }

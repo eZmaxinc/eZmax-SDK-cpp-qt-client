@@ -116,10 +116,10 @@ bool Webhook_Userstaged_UserstagedCreated::is_a_obj_attempt_Valid() const{
     return m_a_obj_attempt_isValid;
 }
 
-Userstaged_Response Webhook_Userstaged_UserstagedCreated::getObjUserstaged() const {
+Userstaged_ResponseCompound Webhook_Userstaged_UserstagedCreated::getObjUserstaged() const {
     return m_obj_userstaged;
 }
-void Webhook_Userstaged_UserstagedCreated::setObjUserstaged(const Userstaged_Response &obj_userstaged) {
+void Webhook_Userstaged_UserstagedCreated::setObjUserstaged(const Userstaged_ResponseCompound &obj_userstaged) {
     m_obj_userstaged = obj_userstaged;
     m_obj_userstaged_isSet = true;
 }

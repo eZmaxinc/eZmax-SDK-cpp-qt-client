@@ -855,7 +855,7 @@ void ObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentFlattenV1Callback(Ht
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Common_Response output(QString(worker->response));
+    Ezsigntemplatedocument_flatten_v1_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -1481,7 +1481,7 @@ void ObjectEzsigntemplatedocumentApi::ezsigntemplatedocumentPatchObjectV1Callbac
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Common_Response output(QString(worker->response));
+    Ezsigntemplatedocument_patchObject_v1_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {

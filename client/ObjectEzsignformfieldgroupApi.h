@@ -18,11 +18,12 @@
 #include "ServerConfiguration.h"
 #include "Oauth.h"
 
-#include "Common_Response.h"
 #include "Common_Response_Error.h"
 #include "Ezsignformfieldgroup_createObject_v1_Request.h"
 #include "Ezsignformfieldgroup_createObject_v1_Response.h"
+#include "Ezsignformfieldgroup_deleteObject_v1_Response.h"
 #include "Ezsignformfieldgroup_editObject_v1_Request.h"
+#include "Ezsignformfieldgroup_editObject_v1_Response.h"
 #include "Ezsignformfieldgroup_getObject_v2_Response.h"
 #include <QString>
 
@@ -114,25 +115,25 @@ private:
 Q_SIGNALS:
 
     void ezsignformfieldgroupCreateObjectV1Signal(Ezsignformfieldgroup_createObject_v1_Response summary);
-    void ezsignformfieldgroupDeleteObjectV1Signal(Common_Response summary);
-    void ezsignformfieldgroupEditObjectV1Signal(Common_Response summary);
+    void ezsignformfieldgroupDeleteObjectV1Signal(Ezsignformfieldgroup_deleteObject_v1_Response summary);
+    void ezsignformfieldgroupEditObjectV1Signal(Ezsignformfieldgroup_editObject_v1_Response summary);
     void ezsignformfieldgroupGetObjectV2Signal(Ezsignformfieldgroup_getObject_v2_Response summary);
 
 
     void ezsignformfieldgroupCreateObjectV1SignalFull(HttpRequestWorker *worker, Ezsignformfieldgroup_createObject_v1_Response summary);
-    void ezsignformfieldgroupDeleteObjectV1SignalFull(HttpRequestWorker *worker, Common_Response summary);
-    void ezsignformfieldgroupEditObjectV1SignalFull(HttpRequestWorker *worker, Common_Response summary);
+    void ezsignformfieldgroupDeleteObjectV1SignalFull(HttpRequestWorker *worker, Ezsignformfieldgroup_deleteObject_v1_Response summary);
+    void ezsignformfieldgroupEditObjectV1SignalFull(HttpRequestWorker *worker, Ezsignformfieldgroup_editObject_v1_Response summary);
     void ezsignformfieldgroupGetObjectV2SignalFull(HttpRequestWorker *worker, Ezsignformfieldgroup_getObject_v2_Response summary);
 
     Q_DECL_DEPRECATED_X("Use ezsignformfieldgroupCreateObjectV1SignalError() instead")
     void ezsignformfieldgroupCreateObjectV1SignalE(Ezsignformfieldgroup_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignformfieldgroupCreateObjectV1SignalError(Ezsignformfieldgroup_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsignformfieldgroupDeleteObjectV1SignalError() instead")
-    void ezsignformfieldgroupDeleteObjectV1SignalE(Common_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void ezsignformfieldgroupDeleteObjectV1SignalError(Common_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void ezsignformfieldgroupDeleteObjectV1SignalE(Ezsignformfieldgroup_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignformfieldgroupDeleteObjectV1SignalError(Ezsignformfieldgroup_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsignformfieldgroupEditObjectV1SignalError() instead")
-    void ezsignformfieldgroupEditObjectV1SignalE(Common_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void ezsignformfieldgroupEditObjectV1SignalError(Common_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void ezsignformfieldgroupEditObjectV1SignalE(Ezsignformfieldgroup_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignformfieldgroupEditObjectV1SignalError(Ezsignformfieldgroup_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsignformfieldgroupGetObjectV2SignalError() instead")
     void ezsignformfieldgroupGetObjectV2SignalE(Ezsignformfieldgroup_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignformfieldgroupGetObjectV2SignalError(Ezsignformfieldgroup_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);

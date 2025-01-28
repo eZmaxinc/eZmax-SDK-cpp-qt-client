@@ -21,13 +21,13 @@
 
 #include <QJsonObject>
 
-#include "Apikey_Response.h"
+#include "Apikey_ResponseCompound.h"
 
 #include "Enum.h"
 #include "Object.h"
 
 namespace Ezmaxapi {
-class Apikey_Response;
+class Apikey_ResponseCompound;
 
 class Apikey_getObject_v2_Response_mPayload : public Object {
 public:
@@ -40,8 +40,8 @@ public:
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    Apikey_Response getObjApikey() const;
-    void setObjApikey(const Apikey_Response &obj_apikey);
+    Apikey_ResponseCompound getObjApikey() const;
+    void setObjApikey(const Apikey_ResponseCompound &obj_apikey);
     bool is_obj_apikey_Set() const;
     bool is_obj_apikey_Valid() const;
 
@@ -51,7 +51,7 @@ public:
 private:
     void initializeModel();
 
-    Apikey_Response m_obj_apikey;
+    Apikey_ResponseCompound m_obj_apikey;
     bool m_obj_apikey_isSet;
     bool m_obj_apikey_isValid;
 };

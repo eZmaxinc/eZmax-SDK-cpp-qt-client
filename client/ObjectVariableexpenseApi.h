@@ -18,13 +18,13 @@
 #include "ServerConfiguration.h"
 #include "Oauth.h"
 
-#include "Common_Response.h"
 #include "Common_Response_Error.h"
 #include "Header_Accept_Language.h"
 #include "HttpFileElement.h"
 #include "Variableexpense_createObject_v1_Request.h"
 #include "Variableexpense_createObject_v1_Response.h"
 #include "Variableexpense_editObject_v1_Request.h"
+#include "Variableexpense_editObject_v1_Response.h"
 #include "Variableexpense_getAutocomplete_v2_Response.h"
 #include "Variableexpense_getList_v1_Response.h"
 #include "Variableexpense_getObject_v2_Response.h"
@@ -131,14 +131,14 @@ private:
 Q_SIGNALS:
 
     void variableexpenseCreateObjectV1Signal(Variableexpense_createObject_v1_Response summary);
-    void variableexpenseEditObjectV1Signal(Common_Response summary);
+    void variableexpenseEditObjectV1Signal(Variableexpense_editObject_v1_Response summary);
     void variableexpenseGetAutocompleteV2Signal(Variableexpense_getAutocomplete_v2_Response summary);
     void variableexpenseGetListV1Signal(Variableexpense_getList_v1_Response summary);
     void variableexpenseGetObjectV2Signal(Variableexpense_getObject_v2_Response summary);
 
 
     void variableexpenseCreateObjectV1SignalFull(HttpRequestWorker *worker, Variableexpense_createObject_v1_Response summary);
-    void variableexpenseEditObjectV1SignalFull(HttpRequestWorker *worker, Common_Response summary);
+    void variableexpenseEditObjectV1SignalFull(HttpRequestWorker *worker, Variableexpense_editObject_v1_Response summary);
     void variableexpenseGetAutocompleteV2SignalFull(HttpRequestWorker *worker, Variableexpense_getAutocomplete_v2_Response summary);
     void variableexpenseGetListV1SignalFull(HttpRequestWorker *worker, Variableexpense_getList_v1_Response summary);
     void variableexpenseGetObjectV2SignalFull(HttpRequestWorker *worker, Variableexpense_getObject_v2_Response summary);
@@ -147,8 +147,8 @@ Q_SIGNALS:
     void variableexpenseCreateObjectV1SignalE(Variableexpense_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void variableexpenseCreateObjectV1SignalError(Variableexpense_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use variableexpenseEditObjectV1SignalError() instead")
-    void variableexpenseEditObjectV1SignalE(Common_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void variableexpenseEditObjectV1SignalError(Common_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void variableexpenseEditObjectV1SignalE(Variableexpense_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void variableexpenseEditObjectV1SignalError(Variableexpense_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use variableexpenseGetAutocompleteV2SignalError() instead")
     void variableexpenseGetAutocompleteV2SignalE(Variableexpense_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void variableexpenseGetAutocompleteV2SignalError(Variableexpense_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);

@@ -18,10 +18,10 @@
 #include "ServerConfiguration.h"
 #include "Oauth.h"
 
-#include "Common_Response.h"
 #include "Common_Response_Error.h"
 #include "Domain_createObject_v1_Request.h"
 #include "Domain_createObject_v1_Response.h"
+#include "Domain_deleteObject_v1_Response.h"
 #include "Domain_getList_v1_Response.h"
 #include "Domain_getObject_v2_Response.h"
 #include "Header_Accept_Language.h"
@@ -119,13 +119,13 @@ private:
 Q_SIGNALS:
 
     void domainCreateObjectV1Signal(Domain_createObject_v1_Response summary);
-    void domainDeleteObjectV1Signal(Common_Response summary);
+    void domainDeleteObjectV1Signal(Domain_deleteObject_v1_Response summary);
     void domainGetListV1Signal(Domain_getList_v1_Response summary);
     void domainGetObjectV2Signal(Domain_getObject_v2_Response summary);
 
 
     void domainCreateObjectV1SignalFull(HttpRequestWorker *worker, Domain_createObject_v1_Response summary);
-    void domainDeleteObjectV1SignalFull(HttpRequestWorker *worker, Common_Response summary);
+    void domainDeleteObjectV1SignalFull(HttpRequestWorker *worker, Domain_deleteObject_v1_Response summary);
     void domainGetListV1SignalFull(HttpRequestWorker *worker, Domain_getList_v1_Response summary);
     void domainGetObjectV2SignalFull(HttpRequestWorker *worker, Domain_getObject_v2_Response summary);
 
@@ -133,8 +133,8 @@ Q_SIGNALS:
     void domainCreateObjectV1SignalE(Domain_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void domainCreateObjectV1SignalError(Domain_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use domainDeleteObjectV1SignalError() instead")
-    void domainDeleteObjectV1SignalE(Common_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void domainDeleteObjectV1SignalError(Common_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void domainDeleteObjectV1SignalE(Domain_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void domainDeleteObjectV1SignalError(Domain_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use domainGetListV1SignalError() instead")
     void domainGetListV1SignalE(Domain_getList_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void domainGetListV1SignalError(Domain_getList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);

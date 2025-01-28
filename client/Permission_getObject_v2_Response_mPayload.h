@@ -21,13 +21,13 @@
 
 #include <QJsonObject>
 
-#include "Permission_Response.h"
+#include "Permission_ResponseCompound.h"
 
 #include "Enum.h"
 #include "Object.h"
 
 namespace Ezmaxapi {
-class Permission_Response;
+class Permission_ResponseCompound;
 
 class Permission_getObject_v2_Response_mPayload : public Object {
 public:
@@ -40,8 +40,8 @@ public:
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    Permission_Response getObjPermission() const;
-    void setObjPermission(const Permission_Response &obj_permission);
+    Permission_ResponseCompound getObjPermission() const;
+    void setObjPermission(const Permission_ResponseCompound &obj_permission);
     bool is_obj_permission_Set() const;
     bool is_obj_permission_Valid() const;
 
@@ -51,7 +51,7 @@ public:
 private:
     void initializeModel();
 
-    Permission_Response m_obj_permission;
+    Permission_ResponseCompound m_obj_permission;
     bool m_obj_permission_isSet;
     bool m_obj_permission_isValid;
 };

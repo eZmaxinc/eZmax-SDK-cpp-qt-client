@@ -18,9 +18,9 @@
 #include "ServerConfiguration.h"
 #include "Oauth.h"
 
-#include "Common_Response.h"
 #include "Common_Response_Error.h"
 #include "Ezsignuser_editObject_v1_Request.h"
+#include "Ezsignuser_editObject_v1_Response.h"
 #include "Ezsignuser_getObject_v2_Response.h"
 #include <QString>
 
@@ -99,16 +99,16 @@ private:
 
 Q_SIGNALS:
 
-    void ezsignuserEditObjectV1Signal(Common_Response summary);
+    void ezsignuserEditObjectV1Signal(Ezsignuser_editObject_v1_Response summary);
     void ezsignuserGetObjectV2Signal(Ezsignuser_getObject_v2_Response summary);
 
 
-    void ezsignuserEditObjectV1SignalFull(HttpRequestWorker *worker, Common_Response summary);
+    void ezsignuserEditObjectV1SignalFull(HttpRequestWorker *worker, Ezsignuser_editObject_v1_Response summary);
     void ezsignuserGetObjectV2SignalFull(HttpRequestWorker *worker, Ezsignuser_getObject_v2_Response summary);
 
     Q_DECL_DEPRECATED_X("Use ezsignuserEditObjectV1SignalError() instead")
-    void ezsignuserEditObjectV1SignalE(Common_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void ezsignuserEditObjectV1SignalError(Common_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void ezsignuserEditObjectV1SignalE(Ezsignuser_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignuserEditObjectV1SignalError(Ezsignuser_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsignuserGetObjectV2SignalError() instead")
     void ezsignuserGetObjectV2SignalE(Ezsignuser_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignuserGetObjectV2SignalError(Ezsignuser_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);

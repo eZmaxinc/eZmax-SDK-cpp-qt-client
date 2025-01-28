@@ -91,10 +91,10 @@ bool Ezsignfolder_createObject_v1_Request::is_obj_ezsignfolder_Valid() const{
     return m_obj_ezsignfolder_isValid;
 }
 
-Ezsignfolder_Request Ezsignfolder_createObject_v1_Request::getObjEzsignfolderCompound() const {
+Ezsignfolder_RequestCompound Ezsignfolder_createObject_v1_Request::getObjEzsignfolderCompound() const {
     return m_obj_ezsignfolder_compound;
 }
-void Ezsignfolder_createObject_v1_Request::setObjEzsignfolderCompound(const Ezsignfolder_Request &obj_ezsignfolder_compound) {
+void Ezsignfolder_createObject_v1_Request::setObjEzsignfolderCompound(const Ezsignfolder_RequestCompound &obj_ezsignfolder_compound) {
     m_obj_ezsignfolder_compound = obj_ezsignfolder_compound;
     m_obj_ezsignfolder_compound_isSet = true;
 }

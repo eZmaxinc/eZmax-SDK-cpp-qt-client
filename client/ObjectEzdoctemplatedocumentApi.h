@@ -18,15 +18,16 @@
 #include "ServerConfiguration.h"
 #include "Oauth.h"
 
-#include "Common_Response.h"
 #include "Common_Response_Error.h"
 #include "Ezdoctemplatedocument_createObject_v1_Request.h"
 #include "Ezdoctemplatedocument_createObject_v1_Response.h"
 #include "Ezdoctemplatedocument_editObject_v1_Request.h"
+#include "Ezdoctemplatedocument_editObject_v1_Response.h"
 #include "Ezdoctemplatedocument_getAutocomplete_v2_Response.h"
 #include "Ezdoctemplatedocument_getList_v1_Response.h"
 #include "Ezdoctemplatedocument_getObject_v2_Response.h"
 #include "Ezdoctemplatedocument_patchObject_v1_Request.h"
+#include "Ezdoctemplatedocument_patchObject_v1_Response.h"
 #include "Header_Accept_Language.h"
 #include "HttpFileElement.h"
 #include <QString>
@@ -148,20 +149,20 @@ Q_SIGNALS:
 
     void ezdoctemplatedocumentCreateObjectV1Signal(Ezdoctemplatedocument_createObject_v1_Response summary);
     void ezdoctemplatedocumentDownloadV1Signal();
-    void ezdoctemplatedocumentEditObjectV1Signal(Common_Response summary);
+    void ezdoctemplatedocumentEditObjectV1Signal(Ezdoctemplatedocument_editObject_v1_Response summary);
     void ezdoctemplatedocumentGetAutocompleteV2Signal(Ezdoctemplatedocument_getAutocomplete_v2_Response summary);
     void ezdoctemplatedocumentGetListV1Signal(Ezdoctemplatedocument_getList_v1_Response summary);
     void ezdoctemplatedocumentGetObjectV2Signal(Ezdoctemplatedocument_getObject_v2_Response summary);
-    void ezdoctemplatedocumentPatchObjectV1Signal(Common_Response summary);
+    void ezdoctemplatedocumentPatchObjectV1Signal(Ezdoctemplatedocument_patchObject_v1_Response summary);
 
 
     void ezdoctemplatedocumentCreateObjectV1SignalFull(HttpRequestWorker *worker, Ezdoctemplatedocument_createObject_v1_Response summary);
     void ezdoctemplatedocumentDownloadV1SignalFull(HttpRequestWorker *worker);
-    void ezdoctemplatedocumentEditObjectV1SignalFull(HttpRequestWorker *worker, Common_Response summary);
+    void ezdoctemplatedocumentEditObjectV1SignalFull(HttpRequestWorker *worker, Ezdoctemplatedocument_editObject_v1_Response summary);
     void ezdoctemplatedocumentGetAutocompleteV2SignalFull(HttpRequestWorker *worker, Ezdoctemplatedocument_getAutocomplete_v2_Response summary);
     void ezdoctemplatedocumentGetListV1SignalFull(HttpRequestWorker *worker, Ezdoctemplatedocument_getList_v1_Response summary);
     void ezdoctemplatedocumentGetObjectV2SignalFull(HttpRequestWorker *worker, Ezdoctemplatedocument_getObject_v2_Response summary);
-    void ezdoctemplatedocumentPatchObjectV1SignalFull(HttpRequestWorker *worker, Common_Response summary);
+    void ezdoctemplatedocumentPatchObjectV1SignalFull(HttpRequestWorker *worker, Ezdoctemplatedocument_patchObject_v1_Response summary);
 
     Q_DECL_DEPRECATED_X("Use ezdoctemplatedocumentCreateObjectV1SignalError() instead")
     void ezdoctemplatedocumentCreateObjectV1SignalE(Ezdoctemplatedocument_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
@@ -170,8 +171,8 @@ Q_SIGNALS:
     void ezdoctemplatedocumentDownloadV1SignalE(QNetworkReply::NetworkError error_type, QString error_str);
     void ezdoctemplatedocumentDownloadV1SignalError(QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezdoctemplatedocumentEditObjectV1SignalError() instead")
-    void ezdoctemplatedocumentEditObjectV1SignalE(Common_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void ezdoctemplatedocumentEditObjectV1SignalError(Common_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void ezdoctemplatedocumentEditObjectV1SignalE(Ezdoctemplatedocument_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezdoctemplatedocumentEditObjectV1SignalError(Ezdoctemplatedocument_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezdoctemplatedocumentGetAutocompleteV2SignalError() instead")
     void ezdoctemplatedocumentGetAutocompleteV2SignalE(Ezdoctemplatedocument_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezdoctemplatedocumentGetAutocompleteV2SignalError(Ezdoctemplatedocument_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -182,8 +183,8 @@ Q_SIGNALS:
     void ezdoctemplatedocumentGetObjectV2SignalE(Ezdoctemplatedocument_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezdoctemplatedocumentGetObjectV2SignalError(Ezdoctemplatedocument_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezdoctemplatedocumentPatchObjectV1SignalError() instead")
-    void ezdoctemplatedocumentPatchObjectV1SignalE(Common_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void ezdoctemplatedocumentPatchObjectV1SignalError(Common_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void ezdoctemplatedocumentPatchObjectV1SignalE(Ezdoctemplatedocument_patchObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezdoctemplatedocumentPatchObjectV1SignalError(Ezdoctemplatedocument_patchObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     Q_DECL_DEPRECATED_X("Use ezdoctemplatedocumentCreateObjectV1SignalErrorFull() instead")
     void ezdoctemplatedocumentCreateObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);

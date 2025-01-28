@@ -21,13 +21,13 @@
 
 #include <QJsonObject>
 
-#include "User_Response.h"
+#include "User_ResponseCompound.h"
 
 #include "Enum.h"
 #include "Object.h"
 
 namespace Ezmaxapi {
-class User_Response;
+class User_ResponseCompound;
 
 class User_getObject_v2_Response_mPayload : public Object {
 public:
@@ -40,8 +40,8 @@ public:
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    User_Response getObjUser() const;
-    void setObjUser(const User_Response &obj_user);
+    User_ResponseCompound getObjUser() const;
+    void setObjUser(const User_ResponseCompound &obj_user);
     bool is_obj_user_Set() const;
     bool is_obj_user_Valid() const;
 
@@ -51,7 +51,7 @@ public:
 private:
     void initializeModel();
 
-    User_Response m_obj_user;
+    User_ResponseCompound m_obj_user;
     bool m_obj_user_isSet;
     bool m_obj_user_isValid;
 };

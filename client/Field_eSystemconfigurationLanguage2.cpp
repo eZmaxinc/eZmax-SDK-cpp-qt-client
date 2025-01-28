@@ -42,15 +42,15 @@ void Field_eSystemconfigurationLanguage2::initializeModel() {
 void Field_eSystemconfigurationLanguage2::fromJson(QString jsonString) {
     
     if ( jsonString.compare("en_CA", Qt::CaseInsensitive) == 0) {
-        m_value = eField_eSystemconfigurationLanguage2::CA;
+        m_value = eField_eSystemconfigurationLanguage2::EN_CA;
         m_value_isSet = m_value_isValid = true;
     }
     else if ( jsonString.compare("en_QC", Qt::CaseInsensitive) == 0) {
-        m_value = eField_eSystemconfigurationLanguage2::QC;
+        m_value = eField_eSystemconfigurationLanguage2::EN_QC;
         m_value_isSet = m_value_isValid = true;
     }
     else if ( jsonString.compare("en_US", Qt::CaseInsensitive) == 0) {
-        m_value = eField_eSystemconfigurationLanguage2::US;
+        m_value = eField_eSystemconfigurationLanguage2::EN_US;
         m_value_isSet = m_value_isValid = true;
     }
 }
@@ -63,13 +63,13 @@ QString Field_eSystemconfigurationLanguage2::asJson() const {
     
     QString val;
     switch (m_value){
-        case eField_eSystemconfigurationLanguage2::CA:
+        case eField_eSystemconfigurationLanguage2::EN_CA:
             val = "en_CA";
             break;
-        case eField_eSystemconfigurationLanguage2::QC:
+        case eField_eSystemconfigurationLanguage2::EN_QC:
             val = "en_QC";
             break;
-        case eField_eSystemconfigurationLanguage2::US:
+        case eField_eSystemconfigurationLanguage2::EN_US:
             val = "en_US";
             break;
         default:

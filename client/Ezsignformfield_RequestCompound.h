@@ -22,7 +22,7 @@
 #include <QJsonObject>
 
 #include "Enum_Horizontalalignment.h"
-#include "Ezsignelementdependency_Request.h"
+#include "Ezsignelementdependency_RequestCompound.h"
 #include "Field_eEzsignformfieldDependencyrequirement.h"
 #include "Textstylestatic_RequestCompound.h"
 #include <QList>
@@ -33,7 +33,7 @@
 
 namespace Ezmaxapi {
 class Textstylestatic_RequestCompound;
-class Ezsignelementdependency_Request;
+class Ezsignelementdependency_RequestCompound;
 
 class Ezsignformfield_RequestCompound : public Object {
 public:

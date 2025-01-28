@@ -22,12 +22,14 @@
 #include <QJsonObject>
 
 #include "Ezsignfolder_Request.h"
+#include "Ezsignfolder_RequestCompound.h"
 
 #include "Enum.h"
 #include "Object.h"
 
 namespace Ezmaxapi {
 class Ezsignfolder_Request;
+class Ezsignfolder_RequestCompound;
 
 class Ezsignfolder_createObject_v1_Request : public Object {
 public:
@@ -45,8 +47,8 @@ public:
     bool is_obj_ezsignfolder_Set() const;
     bool is_obj_ezsignfolder_Valid() const;
 
-    Ezsignfolder_Request getObjEzsignfolderCompound() const;
-    void setObjEzsignfolderCompound(const Ezsignfolder_Request &obj_ezsignfolder_compound);
+    Ezsignfolder_RequestCompound getObjEzsignfolderCompound() const;
+    void setObjEzsignfolderCompound(const Ezsignfolder_RequestCompound &obj_ezsignfolder_compound);
     bool is_obj_ezsignfolder_compound_Set() const;
     bool is_obj_ezsignfolder_compound_Valid() const;
 
@@ -60,7 +62,7 @@ private:
     bool m_obj_ezsignfolder_isSet;
     bool m_obj_ezsignfolder_isValid;
 
-    Ezsignfolder_Request m_obj_ezsignfolder_compound;
+    Ezsignfolder_RequestCompound m_obj_ezsignfolder_compound;
     bool m_obj_ezsignfolder_compound_isSet;
     bool m_obj_ezsignfolder_compound_isValid;
 };

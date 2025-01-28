@@ -18,13 +18,13 @@
 #include "ServerConfiguration.h"
 #include "Oauth.h"
 
-#include "Common_Response.h"
 #include "Common_Response_Error.h"
 #include "Ezsigntemplatepublic_createEzsignfolder_v1_Request.h"
 #include "Ezsigntemplatepublic_createEzsignfolder_v1_Response.h"
 #include "Ezsigntemplatepublic_createObject_v1_Request.h"
 #include "Ezsigntemplatepublic_createObject_v1_Response.h"
 #include "Ezsigntemplatepublic_editObject_v1_Request.h"
+#include "Ezsigntemplatepublic_editObject_v1_Response.h"
 #include "Ezsigntemplatepublic_getEzsigntemplatepublicDetails_v1_Request.h"
 #include "Ezsigntemplatepublic_getEzsigntemplatepublicDetails_v1_Response.h"
 #include "Ezsigntemplatepublic_getFormsData_v1_Response.h"
@@ -162,7 +162,7 @@ Q_SIGNALS:
 
     void ezsigntemplatepublicCreateEzsignfolderV1Signal(Ezsigntemplatepublic_createEzsignfolder_v1_Response summary);
     void ezsigntemplatepublicCreateObjectV1Signal(Ezsigntemplatepublic_createObject_v1_Response summary);
-    void ezsigntemplatepublicEditObjectV1Signal(Common_Response summary);
+    void ezsigntemplatepublicEditObjectV1Signal(Ezsigntemplatepublic_editObject_v1_Response summary);
     void ezsigntemplatepublicGetEzsigntemplatepublicDetailsV1Signal(Ezsigntemplatepublic_getEzsigntemplatepublicDetails_v1_Response summary);
     void ezsigntemplatepublicGetFormsDataV1Signal(Ezsigntemplatepublic_getFormsData_v1_Response summary);
     void ezsigntemplatepublicGetListV1Signal(Ezsigntemplatepublic_getList_v1_Response summary);
@@ -173,7 +173,7 @@ Q_SIGNALS:
 
     void ezsigntemplatepublicCreateEzsignfolderV1SignalFull(HttpRequestWorker *worker, Ezsigntemplatepublic_createEzsignfolder_v1_Response summary);
     void ezsigntemplatepublicCreateObjectV1SignalFull(HttpRequestWorker *worker, Ezsigntemplatepublic_createObject_v1_Response summary);
-    void ezsigntemplatepublicEditObjectV1SignalFull(HttpRequestWorker *worker, Common_Response summary);
+    void ezsigntemplatepublicEditObjectV1SignalFull(HttpRequestWorker *worker, Ezsigntemplatepublic_editObject_v1_Response summary);
     void ezsigntemplatepublicGetEzsigntemplatepublicDetailsV1SignalFull(HttpRequestWorker *worker, Ezsigntemplatepublic_getEzsigntemplatepublicDetails_v1_Response summary);
     void ezsigntemplatepublicGetFormsDataV1SignalFull(HttpRequestWorker *worker, Ezsigntemplatepublic_getFormsData_v1_Response summary);
     void ezsigntemplatepublicGetListV1SignalFull(HttpRequestWorker *worker, Ezsigntemplatepublic_getList_v1_Response summary);
@@ -188,8 +188,8 @@ Q_SIGNALS:
     void ezsigntemplatepublicCreateObjectV1SignalE(Ezsigntemplatepublic_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplatepublicCreateObjectV1SignalError(Ezsigntemplatepublic_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsigntemplatepublicEditObjectV1SignalError() instead")
-    void ezsigntemplatepublicEditObjectV1SignalE(Common_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void ezsigntemplatepublicEditObjectV1SignalError(Common_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void ezsigntemplatepublicEditObjectV1SignalE(Ezsigntemplatepublic_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigntemplatepublicEditObjectV1SignalError(Ezsigntemplatepublic_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsigntemplatepublicGetEzsigntemplatepublicDetailsV1SignalError() instead")
     void ezsigntemplatepublicGetEzsigntemplatepublicDetailsV1SignalE(Ezsigntemplatepublic_getEzsigntemplatepublicDetails_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplatepublicGetEzsigntemplatepublicDetailsV1SignalError(Ezsigntemplatepublic_getEzsigntemplatepublicDetails_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);

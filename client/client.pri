@@ -76,6 +76,9 @@ HEADERS += \
     $${PWD}/Authenticationexternal_getObject_v2_Response.h \
     $${PWD}/Authenticationexternal_getObject_v2_Response_mPayload.h \
     $${PWD}/Authenticationexternal_resetAuthorization_v1_Response.h \
+    $${PWD}/Bankaccount_AutocompleteElement_Response.h \
+    $${PWD}/Bankaccount_getAutocomplete_v2_Response.h \
+    $${PWD}/Bankaccount_getAutocomplete_v2_Response_mPayload.h \
     $${PWD}/Billingentityexternal_AutocompleteElement_Response.h \
     $${PWD}/Billingentityexternal_generateFederationToken_v1_Request.h \
     $${PWD}/Billingentityexternal_generateFederationToken_v1_Response.h \
@@ -239,6 +242,24 @@ HEADERS += \
     $${PWD}/Creditcarddetail_Request.h \
     $${PWD}/Creditcarddetail_Response.h \
     $${PWD}/Creditcarddetail_ResponseCompound.h \
+    $${PWD}/Creditcardmerchant_AutocompleteElement_Response.h \
+    $${PWD}/Creditcardmerchant_ListElement.h \
+    $${PWD}/Creditcardmerchant_Request.h \
+    $${PWD}/Creditcardmerchant_RequestCompound.h \
+    $${PWD}/Creditcardmerchant_Response.h \
+    $${PWD}/Creditcardmerchant_ResponseCompound.h \
+    $${PWD}/Creditcardmerchant_createObject_v1_Request.h \
+    $${PWD}/Creditcardmerchant_createObject_v1_Response.h \
+    $${PWD}/Creditcardmerchant_createObject_v1_Response_mPayload.h \
+    $${PWD}/Creditcardmerchant_deleteObject_v1_Response.h \
+    $${PWD}/Creditcardmerchant_editObject_v1_Request.h \
+    $${PWD}/Creditcardmerchant_editObject_v1_Response.h \
+    $${PWD}/Creditcardmerchant_getAutocomplete_v2_Response.h \
+    $${PWD}/Creditcardmerchant_getAutocomplete_v2_Response_mPayload.h \
+    $${PWD}/Creditcardmerchant_getList_v1_Response.h \
+    $${PWD}/Creditcardmerchant_getList_v1_Response_mPayload.h \
+    $${PWD}/Creditcardmerchant_getObject_v2_Response.h \
+    $${PWD}/Creditcardmerchant_getObject_v2_Response_mPayload.h \
     $${PWD}/Creditcardtype_AutocompleteElement_Response.h \
     $${PWD}/Creditcardtype_getAutocomplete_v2_Response.h \
     $${PWD}/Creditcardtype_getAutocomplete_v2_Response_mPayload.h \
@@ -1649,6 +1670,7 @@ HEADERS += \
     $${PWD}/ObjectApikeyApi.h \
     $${PWD}/ObjectAttachmentApi.h \
     $${PWD}/ObjectAuthenticationexternalApi.h \
+    $${PWD}/ObjectBankaccountApi.h \
     $${PWD}/ObjectBillingentityexternalApi.h \
     $${PWD}/ObjectBillingentityinternalApi.h \
     $${PWD}/ObjectBrandingApi.h \
@@ -1660,6 +1682,7 @@ HEADERS += \
     $${PWD}/ObjectCorsApi.h \
     $${PWD}/ObjectCountryApi.h \
     $${PWD}/ObjectCreditcardclientApi.h \
+    $${PWD}/ObjectCreditcardmerchantApi.h \
     $${PWD}/ObjectCreditcardtypeApi.h \
     $${PWD}/ObjectCustomerApi.h \
     $${PWD}/ObjectDepartmentApi.h \
@@ -1835,6 +1858,9 @@ SOURCES += \
     $${PWD}/Authenticationexternal_getObject_v2_Response.cpp \
     $${PWD}/Authenticationexternal_getObject_v2_Response_mPayload.cpp \
     $${PWD}/Authenticationexternal_resetAuthorization_v1_Response.cpp \
+    $${PWD}/Bankaccount_AutocompleteElement_Response.cpp \
+    $${PWD}/Bankaccount_getAutocomplete_v2_Response.cpp \
+    $${PWD}/Bankaccount_getAutocomplete_v2_Response_mPayload.cpp \
     $${PWD}/Billingentityexternal_AutocompleteElement_Response.cpp \
     $${PWD}/Billingentityexternal_generateFederationToken_v1_Request.cpp \
     $${PWD}/Billingentityexternal_generateFederationToken_v1_Response.cpp \
@@ -1998,6 +2024,24 @@ SOURCES += \
     $${PWD}/Creditcarddetail_Request.cpp \
     $${PWD}/Creditcarddetail_Response.cpp \
     $${PWD}/Creditcarddetail_ResponseCompound.cpp \
+    $${PWD}/Creditcardmerchant_AutocompleteElement_Response.cpp \
+    $${PWD}/Creditcardmerchant_ListElement.cpp \
+    $${PWD}/Creditcardmerchant_Request.cpp \
+    $${PWD}/Creditcardmerchant_RequestCompound.cpp \
+    $${PWD}/Creditcardmerchant_Response.cpp \
+    $${PWD}/Creditcardmerchant_ResponseCompound.cpp \
+    $${PWD}/Creditcardmerchant_createObject_v1_Request.cpp \
+    $${PWD}/Creditcardmerchant_createObject_v1_Response.cpp \
+    $${PWD}/Creditcardmerchant_createObject_v1_Response_mPayload.cpp \
+    $${PWD}/Creditcardmerchant_deleteObject_v1_Response.cpp \
+    $${PWD}/Creditcardmerchant_editObject_v1_Request.cpp \
+    $${PWD}/Creditcardmerchant_editObject_v1_Response.cpp \
+    $${PWD}/Creditcardmerchant_getAutocomplete_v2_Response.cpp \
+    $${PWD}/Creditcardmerchant_getAutocomplete_v2_Response_mPayload.cpp \
+    $${PWD}/Creditcardmerchant_getList_v1_Response.cpp \
+    $${PWD}/Creditcardmerchant_getList_v1_Response_mPayload.cpp \
+    $${PWD}/Creditcardmerchant_getObject_v2_Response.cpp \
+    $${PWD}/Creditcardmerchant_getObject_v2_Response_mPayload.cpp \
     $${PWD}/Creditcardtype_AutocompleteElement_Response.cpp \
     $${PWD}/Creditcardtype_getAutocomplete_v2_Response.cpp \
     $${PWD}/Creditcardtype_getAutocomplete_v2_Response_mPayload.cpp \
@@ -3408,6 +3452,7 @@ SOURCES += \
     $${PWD}/ObjectApikeyApi.cpp \
     $${PWD}/ObjectAttachmentApi.cpp \
     $${PWD}/ObjectAuthenticationexternalApi.cpp \
+    $${PWD}/ObjectBankaccountApi.cpp \
     $${PWD}/ObjectBillingentityexternalApi.cpp \
     $${PWD}/ObjectBillingentityinternalApi.cpp \
     $${PWD}/ObjectBrandingApi.cpp \
@@ -3419,6 +3464,7 @@ SOURCES += \
     $${PWD}/ObjectCorsApi.cpp \
     $${PWD}/ObjectCountryApi.cpp \
     $${PWD}/ObjectCreditcardclientApi.cpp \
+    $${PWD}/ObjectCreditcardmerchantApi.cpp \
     $${PWD}/ObjectCreditcardtypeApi.cpp \
     $${PWD}/ObjectCustomerApi.cpp \
     $${PWD}/ObjectDepartmentApi.cpp \

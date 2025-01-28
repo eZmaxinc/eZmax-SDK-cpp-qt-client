@@ -40,9 +40,9 @@ public:
 
     enum class eField_eSystemconfigurationLanguage2 {
         INVALID_VALUE_OPENAPI_GENERATED = 0,
-        CA, 
-        QC, 
-        US
+        EN_CA, 
+        EN_QC, 
+        EN_US
     };
     Field_eSystemconfigurationLanguage2::eField_eSystemconfigurationLanguage2 getValue() const;
     void setValue(const Field_eSystemconfigurationLanguage2::eField_eSystemconfigurationLanguage2& value);

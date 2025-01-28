@@ -21,14 +21,14 @@
 
 #include <QJsonObject>
 
-#include "Object.h"
+#include "Custom_Ezsignformfieldgroup_Request.h"
 #include <QList>
-#include <QString>
 
 #include "Enum.h"
 #include "Object.h"
 
 namespace Ezmaxapi {
+class Custom_Ezsignformfieldgroup_Request;
 
 class Ezsigndocument_submitEzsignform_v1_Request : public Object {
 public:

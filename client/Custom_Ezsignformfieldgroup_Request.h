@@ -21,7 +21,7 @@
 
 #include <QJsonObject>
 
-#include "Object.h"
+#include "Custom_Ezsignformfield_Request.h"
 #include <QList>
 #include <QString>
 
@@ -29,6 +29,7 @@
 #include "Object.h"
 
 namespace Ezmaxapi {
+class Custom_Ezsignformfield_Request;
 
 class Custom_Ezsignformfieldgroup_Request : public Object {
 public:

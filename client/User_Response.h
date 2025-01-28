@@ -22,7 +22,7 @@
 #include <QJsonObject>
 
 #include "Common_Audit.h"
-#include "Email_Response.h"
+#include "Email_ResponseCompound.h"
 #include "Field_eUserEzsignaccess.h"
 #include "Field_eUserLogintype.h"
 #include "Field_eUserOrigin.h"
@@ -34,7 +34,7 @@
 #include "Object.h"
 
 namespace Ezmaxapi {
-class Email_Response;
+class Email_ResponseCompound;
 class Phone_ResponseCompound;
 class Common_Audit;
 
@@ -114,8 +114,8 @@ public:
     bool is_s_language_name_x_Set() const;
     bool is_s_language_name_x_Valid() const;
 
-    Email_Response getObjEmail() const;
-    void setObjEmail(const Email_Response &obj_email);
+    Email_ResponseCompound getObjEmail() const;
+    void setObjEmail(const Email_ResponseCompound &obj_email);
     bool is_obj_email_Set() const;
     bool is_obj_email_Valid() const;
 
@@ -297,7 +297,7 @@ private:
     bool m_s_language_name_x_isSet;
     bool m_s_language_name_x_isValid;
 
-    Email_Response m_obj_email;
+    Email_ResponseCompound m_obj_email;
     bool m_obj_email_isSet;
     bool m_obj_email_isValid;
 

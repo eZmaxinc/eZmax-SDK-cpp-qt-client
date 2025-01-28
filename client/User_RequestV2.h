@@ -21,19 +21,19 @@
 
 #include <QJsonObject>
 
-#include "Email_Request.h"
+#include "Email_RequestCompound.h"
 #include "Field_eUserEzsignaccess.h"
 #include "Field_eUserLogintype.h"
 #include "Field_eUserType.h"
-#include "Phone_RequestV2.h"
+#include "Phone_RequestCompoundV2.h"
 #include <QString>
 
 #include "Enum.h"
 #include "Object.h"
 
 namespace Ezmaxapi {
-class Email_Request;
-class Phone_RequestV2;
+class Email_RequestCompound;
+class Phone_RequestCompoundV2;
 
 class User_RequestV2 : public Object {
 public:
@@ -91,8 +91,8 @@ public:
     bool is_fki_language_id_Set() const;
     bool is_fki_language_id_Valid() const;
 
-    Email_Request getObjEmail() const;
-    void setObjEmail(const Email_Request &obj_email);
+    Email_RequestCompound getObjEmail() const;
+    void setObjEmail(const Email_RequestCompound &obj_email);
     bool is_obj_email_Set() const;
     bool is_obj_email_Valid() const;
 
@@ -101,13 +101,13 @@ public:
     bool is_fki_billingentityinternal_id_Set() const;
     bool is_fki_billingentityinternal_id_Valid() const;
 
-    Phone_RequestV2 getObjPhoneHome() const;
-    void setObjPhoneHome(const Phone_RequestV2 &obj_phone_home);
+    Phone_RequestCompoundV2 getObjPhoneHome() const;
+    void setObjPhoneHome(const Phone_RequestCompoundV2 &obj_phone_home);
     bool is_obj_phone_home_Set() const;
     bool is_obj_phone_home_Valid() const;
 
-    Phone_RequestV2 getObjPhoneSms() const;
-    void setObjPhoneSms(const Phone_RequestV2 &obj_phone_sms);
+    Phone_RequestCompoundV2 getObjPhoneSms() const;
+    void setObjPhoneSms(const Phone_RequestCompoundV2 &obj_phone_sms);
     bool is_obj_phone_sms_Set() const;
     bool is_obj_phone_sms_Valid() const;
 
@@ -228,7 +228,7 @@ private:
     bool m_fki_language_id_isSet;
     bool m_fki_language_id_isValid;
 
-    Email_Request m_obj_email;
+    Email_RequestCompound m_obj_email;
     bool m_obj_email_isSet;
     bool m_obj_email_isValid;
 
@@ -236,11 +236,11 @@ private:
     bool m_fki_billingentityinternal_id_isSet;
     bool m_fki_billingentityinternal_id_isValid;
 
-    Phone_RequestV2 m_obj_phone_home;
+    Phone_RequestCompoundV2 m_obj_phone_home;
     bool m_obj_phone_home_isSet;
     bool m_obj_phone_home_isValid;
 
-    Phone_RequestV2 m_obj_phone_sms;
+    Phone_RequestCompoundV2 m_obj_phone_sms;
     bool m_obj_phone_sms_isSet;
     bool m_obj_phone_sms_isValid;
 

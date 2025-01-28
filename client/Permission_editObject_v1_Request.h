@@ -21,13 +21,13 @@
 
 #include <QJsonObject>
 
-#include "Permission_Request.h"
+#include "Permission_RequestCompound.h"
 
 #include "Enum.h"
 #include "Object.h"
 
 namespace Ezmaxapi {
-class Permission_Request;
+class Permission_RequestCompound;
 
 class Permission_editObject_v1_Request : public Object {
 public:
@@ -40,8 +40,8 @@ public:
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    Permission_Request getObjPermission() const;
-    void setObjPermission(const Permission_Request &obj_permission);
+    Permission_RequestCompound getObjPermission() const;
+    void setObjPermission(const Permission_RequestCompound &obj_permission);
     bool is_obj_permission_Set() const;
     bool is_obj_permission_Valid() const;
 
@@ -51,7 +51,7 @@ public:
 private:
     void initializeModel();
 
-    Permission_Request m_obj_permission;
+    Permission_RequestCompound m_obj_permission;
     bool m_obj_permission_isSet;
     bool m_obj_permission_isValid;
 };
