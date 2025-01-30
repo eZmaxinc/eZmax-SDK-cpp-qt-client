@@ -1033,6 +1033,7 @@ add_library(${PROJECT_NAME}
   Ezsigntemplatepublic_createObject_v1_Request.h
   Ezsigntemplatepublic_createObject_v1_Response.h
   Ezsigntemplatepublic_createObject_v1_Response_mPayload.h
+  Ezsigntemplatepublic_deleteObject_v1_Response.h
   Ezsigntemplatepublic_editObject_v1_Request.h
   Ezsigntemplatepublic_editObject_v1_Response.h
   Ezsigntemplatepublic_getEzsigntemplatepublicDetails_v1_Request.h
@@ -2810,6 +2811,7 @@ add_library(${PROJECT_NAME}
   Ezsigntemplatepublic_createObject_v1_Request.cpp
   Ezsigntemplatepublic_createObject_v1_Response.cpp
   Ezsigntemplatepublic_createObject_v1_Response_mPayload.cpp
+  Ezsigntemplatepublic_deleteObject_v1_Response.cpp
   Ezsigntemplatepublic_editObject_v1_Request.cpp
   Ezsigntemplatepublic_editObject_v1_Response.cpp
   Ezsigntemplatepublic_getEzsigntemplatepublicDetails_v1_Request.cpp

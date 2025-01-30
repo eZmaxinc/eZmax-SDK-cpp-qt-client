@@ -1024,6 +1024,7 @@ HEADERS += \
     $${PWD}/Ezsigntemplatepublic_createObject_v1_Request.h \
     $${PWD}/Ezsigntemplatepublic_createObject_v1_Response.h \
     $${PWD}/Ezsigntemplatepublic_createObject_v1_Response_mPayload.h \
+    $${PWD}/Ezsigntemplatepublic_deleteObject_v1_Response.h \
     $${PWD}/Ezsigntemplatepublic_editObject_v1_Request.h \
     $${PWD}/Ezsigntemplatepublic_editObject_v1_Response.h \
     $${PWD}/Ezsigntemplatepublic_getEzsigntemplatepublicDetails_v1_Request.h \
@@ -2806,6 +2807,7 @@ SOURCES += \
     $${PWD}/Ezsigntemplatepublic_createObject_v1_Request.cpp \
     $${PWD}/Ezsigntemplatepublic_createObject_v1_Response.cpp \
     $${PWD}/Ezsigntemplatepublic_createObject_v1_Response_mPayload.cpp \
+    $${PWD}/Ezsigntemplatepublic_deleteObject_v1_Response.cpp \
     $${PWD}/Ezsigntemplatepublic_editObject_v1_Request.cpp \
     $${PWD}/Ezsigntemplatepublic_editObject_v1_Response.cpp \
     $${PWD}/Ezsigntemplatepublic_getEzsigntemplatepublicDetails_v1_Request.cpp \

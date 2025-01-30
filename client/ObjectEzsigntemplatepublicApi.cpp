@@ -63,6 +63,8 @@ void ObjectEzsigntemplatepublicApi::initializeServerConfigs() {
     _serverIndices.insert("ezsigntemplatepublicCreateEzsignfolderV1", 0);
     _serverConfigs.insert("ezsigntemplatepublicCreateObjectV1", defaultConf);
     _serverIndices.insert("ezsigntemplatepublicCreateObjectV1", 0);
+    _serverConfigs.insert("ezsigntemplatepublicDeleteObjectV1", defaultConf);
+    _serverIndices.insert("ezsigntemplatepublicDeleteObjectV1", 0);
     _serverConfigs.insert("ezsigntemplatepublicEditObjectV1", defaultConf);
     _serverIndices.insert("ezsigntemplatepublicEditObjectV1", 0);
     _serverConfigs.insert("ezsigntemplatepublicGetEzsigntemplatepublicDetailsV1", defaultConf);
@@ -401,6 +403,94 @@ void ObjectEzsigntemplatepublicApi::ezsigntemplatepublicCreateObjectV1Callback(H
 
         Q_EMIT ezsigntemplatepublicCreateObjectV1SignalError(output, error_type, error_str);
         Q_EMIT ezsigntemplatepublicCreateObjectV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectEzsigntemplatepublicApi::ezsigntemplatepublicDeleteObjectV1(const qint32 &pki_ezsigntemplatepublic_id) {
+    QString fullPath = QString(_serverConfigs["ezsigntemplatepublicDeleteObjectV1"][_serverIndices.value("ezsigntemplatepublicDeleteObjectV1")].URL()+"/1/object/ezsigntemplatepublic/{pkiEzsigntemplatepublicID}");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_ezsigntemplatepublic_idPathParam("{");
+        pki_ezsigntemplatepublic_idPathParam.append("pkiEzsigntemplatepublicID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsigntemplatepublicID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsigntemplatepublicID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_ezsigntemplatepublic_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsigntemplatepublic_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "DELETE");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsigntemplatepublicApi::ezsigntemplatepublicDeleteObjectV1Callback);
+    connect(this, &ObjectEzsigntemplatepublicApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectEzsigntemplatepublicApi::ezsigntemplatepublicDeleteObjectV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Ezsigntemplatepublic_deleteObject_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT ezsigntemplatepublicDeleteObjectV1Signal(output);
+        Q_EMIT ezsigntemplatepublicDeleteObjectV1SignalFull(worker, output);
+    } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
+        Q_EMIT ezsigntemplatepublicDeleteObjectV1SignalE(output, error_type, error_str);
+        Q_EMIT ezsigntemplatepublicDeleteObjectV1SignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        Q_EMIT ezsigntemplatepublicDeleteObjectV1SignalError(output, error_type, error_str);
+        Q_EMIT ezsigntemplatepublicDeleteObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

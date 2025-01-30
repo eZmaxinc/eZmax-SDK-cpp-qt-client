@@ -23,6 +23,7 @@
 #include "Ezsigntemplatepublic_createEzsignfolder_v1_Response.h"
 #include "Ezsigntemplatepublic_createObject_v1_Request.h"
 #include "Ezsigntemplatepublic_createObject_v1_Response.h"
+#include "Ezsigntemplatepublic_deleteObject_v1_Response.h"
 #include "Ezsigntemplatepublic_editObject_v1_Request.h"
 #include "Ezsigntemplatepublic_editObject_v1_Response.h"
 #include "Ezsigntemplatepublic_getEzsigntemplatepublicDetails_v1_Request.h"
@@ -82,6 +83,11 @@ public:
     * @param[in]  ezsigntemplatepublic_create_object_v1_request Ezsigntemplatepublic_createObject_v1_Request [required]
     */
     virtual void ezsigntemplatepublicCreateObjectV1(const Ezsigntemplatepublic_createObject_v1_Request &ezsigntemplatepublic_create_object_v1_request);
+
+    /**
+    * @param[in]  pki_ezsigntemplatepublic_id qint32 [required]
+    */
+    virtual void ezsigntemplatepublicDeleteObjectV1(const qint32 &pki_ezsigntemplatepublic_id);
 
     /**
     * @param[in]  pki_ezsigntemplatepublic_id qint32 [required]
@@ -150,6 +156,7 @@ private:
 
     void ezsigntemplatepublicCreateEzsignfolderV1Callback(HttpRequestWorker *worker);
     void ezsigntemplatepublicCreateObjectV1Callback(HttpRequestWorker *worker);
+    void ezsigntemplatepublicDeleteObjectV1Callback(HttpRequestWorker *worker);
     void ezsigntemplatepublicEditObjectV1Callback(HttpRequestWorker *worker);
     void ezsigntemplatepublicGetEzsigntemplatepublicDetailsV1Callback(HttpRequestWorker *worker);
     void ezsigntemplatepublicGetFormsDataV1Callback(HttpRequestWorker *worker);
@@ -162,6 +169,7 @@ Q_SIGNALS:
 
     void ezsigntemplatepublicCreateEzsignfolderV1Signal(Ezsigntemplatepublic_createEzsignfolder_v1_Response summary);
     void ezsigntemplatepublicCreateObjectV1Signal(Ezsigntemplatepublic_createObject_v1_Response summary);
+    void ezsigntemplatepublicDeleteObjectV1Signal(Ezsigntemplatepublic_deleteObject_v1_Response summary);
     void ezsigntemplatepublicEditObjectV1Signal(Ezsigntemplatepublic_editObject_v1_Response summary);
     void ezsigntemplatepublicGetEzsigntemplatepublicDetailsV1Signal(Ezsigntemplatepublic_getEzsigntemplatepublicDetails_v1_Response summary);
     void ezsigntemplatepublicGetFormsDataV1Signal(Ezsigntemplatepublic_getFormsData_v1_Response summary);
@@ -173,6 +181,7 @@ Q_SIGNALS:
 
     void ezsigntemplatepublicCreateEzsignfolderV1SignalFull(HttpRequestWorker *worker, Ezsigntemplatepublic_createEzsignfolder_v1_Response summary);
     void ezsigntemplatepublicCreateObjectV1SignalFull(HttpRequestWorker *worker, Ezsigntemplatepublic_createObject_v1_Response summary);
+    void ezsigntemplatepublicDeleteObjectV1SignalFull(HttpRequestWorker *worker, Ezsigntemplatepublic_deleteObject_v1_Response summary);
     void ezsigntemplatepublicEditObjectV1SignalFull(HttpRequestWorker *worker, Ezsigntemplatepublic_editObject_v1_Response summary);
     void ezsigntemplatepublicGetEzsigntemplatepublicDetailsV1SignalFull(HttpRequestWorker *worker, Ezsigntemplatepublic_getEzsigntemplatepublicDetails_v1_Response summary);
     void ezsigntemplatepublicGetFormsDataV1SignalFull(HttpRequestWorker *worker, Ezsigntemplatepublic_getFormsData_v1_Response summary);
@@ -187,6 +196,9 @@ Q_SIGNALS:
     Q_DECL_DEPRECATED_X("Use ezsigntemplatepublicCreateObjectV1SignalError() instead")
     void ezsigntemplatepublicCreateObjectV1SignalE(Ezsigntemplatepublic_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplatepublicCreateObjectV1SignalError(Ezsigntemplatepublic_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigntemplatepublicDeleteObjectV1SignalError() instead")
+    void ezsigntemplatepublicDeleteObjectV1SignalE(Ezsigntemplatepublic_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigntemplatepublicDeleteObjectV1SignalError(Ezsigntemplatepublic_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsigntemplatepublicEditObjectV1SignalError() instead")
     void ezsigntemplatepublicEditObjectV1SignalE(Ezsigntemplatepublic_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplatepublicEditObjectV1SignalError(Ezsigntemplatepublic_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -215,6 +227,9 @@ Q_SIGNALS:
     Q_DECL_DEPRECATED_X("Use ezsigntemplatepublicCreateObjectV1SignalErrorFull() instead")
     void ezsigntemplatepublicCreateObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplatepublicCreateObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigntemplatepublicDeleteObjectV1SignalErrorFull() instead")
+    void ezsigntemplatepublicDeleteObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigntemplatepublicDeleteObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsigntemplatepublicEditObjectV1SignalErrorFull() instead")
     void ezsigntemplatepublicEditObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplatepublicEditObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
