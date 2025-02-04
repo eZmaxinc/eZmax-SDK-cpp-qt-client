@@ -259,6 +259,11 @@ public:
     bool is_b_ezsignfoldertype_sendproofezsignsigner_Set() const;
     bool is_b_ezsignfoldertype_sendproofezsignsigner_Valid() const;
 
+    bool isBEzsignfoldertypeSendattachmentreceivecopy() const;
+    void setBEzsignfoldertypeSendattachmentreceivecopy(const bool &b_ezsignfoldertype_sendattachmentreceivecopy);
+    bool is_b_ezsignfoldertype_sendattachmentreceivecopy_Set() const;
+    bool is_b_ezsignfoldertype_sendattachmentreceivecopy_Valid() const;
+
     bool isBEzsignfoldertypeSendattachmentuser() const;
     void setBEzsignfoldertypeSendattachmentuser(const bool &b_ezsignfoldertype_sendattachmentuser);
     bool is_b_ezsignfoldertype_sendattachmentuser_Set() const;
@@ -522,6 +527,10 @@ private:
     bool m_b_ezsignfoldertype_sendproofezsignsigner;
     bool m_b_ezsignfoldertype_sendproofezsignsigner_isSet;
     bool m_b_ezsignfoldertype_sendproofezsignsigner_isValid;
+
+    bool m_b_ezsignfoldertype_sendattachmentreceivecopy;
+    bool m_b_ezsignfoldertype_sendattachmentreceivecopy_isSet;
+    bool m_b_ezsignfoldertype_sendattachmentreceivecopy_isValid;
 
     bool m_b_ezsignfoldertype_sendattachmentuser;
     bool m_b_ezsignfoldertype_sendattachmentuser_isSet;

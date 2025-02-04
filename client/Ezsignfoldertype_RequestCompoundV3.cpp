@@ -160,6 +160,9 @@ void Ezsignfoldertype_RequestCompoundV3::initializeModel() {
     m_b_ezsignfoldertype_sendproofezsignsigner_isSet = false;
     m_b_ezsignfoldertype_sendproofezsignsigner_isValid = false;
 
+    m_b_ezsignfoldertype_sendattachmentreceivecopy_isSet = false;
+    m_b_ezsignfoldertype_sendattachmentreceivecopy_isValid = false;
+
     m_b_ezsignfoldertype_sendattachmentuser_isSet = false;
     m_b_ezsignfoldertype_sendattachmentuser_isValid = false;
 
@@ -356,6 +359,9 @@ void Ezsignfoldertype_RequestCompoundV3::fromJsonObject(QJsonObject json) {
     m_b_ezsignfoldertype_sendproofezsignsigner_isValid = ::Ezmaxapi::fromJsonValue(m_b_ezsignfoldertype_sendproofezsignsigner, json[QString("bEzsignfoldertypeSendproofezsignsigner")]);
     m_b_ezsignfoldertype_sendproofezsignsigner_isSet = !json[QString("bEzsignfoldertypeSendproofezsignsigner")].isNull() && m_b_ezsignfoldertype_sendproofezsignsigner_isValid;
 
+    m_b_ezsignfoldertype_sendattachmentreceivecopy_isValid = ::Ezmaxapi::fromJsonValue(m_b_ezsignfoldertype_sendattachmentreceivecopy, json[QString("bEzsignfoldertypeSendattachmentreceivecopy")]);
+    m_b_ezsignfoldertype_sendattachmentreceivecopy_isSet = !json[QString("bEzsignfoldertypeSendattachmentreceivecopy")].isNull() && m_b_ezsignfoldertype_sendattachmentreceivecopy_isValid;
+
     m_b_ezsignfoldertype_sendattachmentuser_isValid = ::Ezmaxapi::fromJsonValue(m_b_ezsignfoldertype_sendattachmentuser, json[QString("bEzsignfoldertypeSendattachmentuser")]);
     m_b_ezsignfoldertype_sendattachmentuser_isSet = !json[QString("bEzsignfoldertypeSendattachmentuser")].isNull() && m_b_ezsignfoldertype_sendattachmentuser_isValid;
 
@@ -551,6 +557,9 @@ QJsonObject Ezsignfoldertype_RequestCompoundV3::asJsonObject() const {
     }
     if (m_b_ezsignfoldertype_sendproofezsignsigner_isSet) {
         obj.insert(QString("bEzsignfoldertypeSendproofezsignsigner"), ::Ezmaxapi::toJsonValue(m_b_ezsignfoldertype_sendproofezsignsigner));
+    }
+    if (m_b_ezsignfoldertype_sendattachmentreceivecopy_isSet) {
+        obj.insert(QString("bEzsignfoldertypeSendattachmentreceivecopy"), ::Ezmaxapi::toJsonValue(m_b_ezsignfoldertype_sendattachmentreceivecopy));
     }
     if (m_b_ezsignfoldertype_sendattachmentuser_isSet) {
         obj.insert(QString("bEzsignfoldertypeSendattachmentuser"), ::Ezmaxapi::toJsonValue(m_b_ezsignfoldertype_sendattachmentuser));
@@ -1287,6 +1296,22 @@ bool Ezsignfoldertype_RequestCompoundV3::is_b_ezsignfoldertype_sendproofezsignsi
     return m_b_ezsignfoldertype_sendproofezsignsigner_isValid;
 }
 
+bool Ezsignfoldertype_RequestCompoundV3::isBEzsignfoldertypeSendattachmentreceivecopy() const {
+    return m_b_ezsignfoldertype_sendattachmentreceivecopy;
+}
+void Ezsignfoldertype_RequestCompoundV3::setBEzsignfoldertypeSendattachmentreceivecopy(const bool &b_ezsignfoldertype_sendattachmentreceivecopy) {
+    m_b_ezsignfoldertype_sendattachmentreceivecopy = b_ezsignfoldertype_sendattachmentreceivecopy;
+    m_b_ezsignfoldertype_sendattachmentreceivecopy_isSet = true;
+}
+
+bool Ezsignfoldertype_RequestCompoundV3::is_b_ezsignfoldertype_sendattachmentreceivecopy_Set() const{
+    return m_b_ezsignfoldertype_sendattachmentreceivecopy_isSet;
+}
+
+bool Ezsignfoldertype_RequestCompoundV3::is_b_ezsignfoldertype_sendattachmentreceivecopy_Valid() const{
+    return m_b_ezsignfoldertype_sendattachmentreceivecopy_isValid;
+}
+
 bool Ezsignfoldertype_RequestCompoundV3::isBEzsignfoldertypeSendattachmentuser() const {
     return m_b_ezsignfoldertype_sendattachmentuser;
 }
@@ -1816,6 +1841,11 @@ bool Ezsignfoldertype_RequestCompoundV3::isSet() const {
         }
 
         if (m_b_ezsignfoldertype_sendproofezsignsigner_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_b_ezsignfoldertype_sendattachmentreceivecopy_isSet) {
             isObjectUpdated = true;
             break;
         }
