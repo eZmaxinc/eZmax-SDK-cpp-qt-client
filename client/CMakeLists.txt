@@ -272,6 +272,9 @@ add_library(${PROJECT_NAME}
   Creditcardtype_AutocompleteElement_Response.h
   Creditcardtype_getAutocomplete_v2_Response.h
   Creditcardtype_getAutocomplete_v2_Response_mPayload.h
+  Currency_AutocompleteElement_Response.h
+  Currency_getAutocomplete_v2_Response.h
+  Currency_getAutocomplete_v2_Response_mPayload.h
   Custom_Apikey.h
   Custom_Apikeyfederation.h
   Custom_Attachment_Response.h
@@ -1693,6 +1696,7 @@ add_library(${PROJECT_NAME}
   ObjectCreditcardclientApi.h
   ObjectCreditcardmerchantApi.h
   ObjectCreditcardtypeApi.h
+  ObjectCurrencyApi.h
   ObjectCustomerApi.h
   ObjectDepartmentApi.h
   ObjectDiscussionApi.h
@@ -2050,6 +2054,9 @@ add_library(${PROJECT_NAME}
   Creditcardtype_AutocompleteElement_Response.cpp
   Creditcardtype_getAutocomplete_v2_Response.cpp
   Creditcardtype_getAutocomplete_v2_Response_mPayload.cpp
+  Currency_AutocompleteElement_Response.cpp
+  Currency_getAutocomplete_v2_Response.cpp
+  Currency_getAutocomplete_v2_Response_mPayload.cpp
   Custom_Apikey.cpp
   Custom_Apikeyfederation.cpp
   Custom_Attachment_Response.cpp
@@ -3471,6 +3478,7 @@ add_library(${PROJECT_NAME}
   ObjectCreditcardclientApi.cpp
   ObjectCreditcardmerchantApi.cpp
   ObjectCreditcardtypeApi.cpp
+  ObjectCurrencyApi.cpp
   ObjectCustomerApi.cpp
   ObjectDepartmentApi.cpp
   ObjectDiscussionApi.cpp

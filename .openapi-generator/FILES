@@ -524,6 +524,12 @@ client/Creditcardtype_getAutocomplete_v2_Response.cpp
 client/Creditcardtype_getAutocomplete_v2_Response.h
 client/Creditcardtype_getAutocomplete_v2_Response_mPayload.cpp
 client/Creditcardtype_getAutocomplete_v2_Response_mPayload.h
+client/Currency_AutocompleteElement_Response.cpp
+client/Currency_AutocompleteElement_Response.h
+client/Currency_getAutocomplete_v2_Response.cpp
+client/Currency_getAutocomplete_v2_Response.h
+client/Currency_getAutocomplete_v2_Response_mPayload.cpp
+client/Currency_getAutocomplete_v2_Response_mPayload.h
 client/Custom_Apikey.cpp
 client/Custom_Apikey.h
 client/Custom_Apikeyfederation.cpp
@@ -2642,6 +2648,8 @@ client/ObjectCreditcardmerchantApi.cpp
 client/ObjectCreditcardmerchantApi.h
 client/ObjectCreditcardtypeApi.cpp
 client/ObjectCreditcardtypeApi.h
+client/ObjectCurrencyApi.cpp
+client/ObjectCurrencyApi.h
 client/ObjectCustomerApi.cpp
 client/ObjectCustomerApi.h
 client/ObjectDepartmentApi.cpp

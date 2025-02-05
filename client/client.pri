@@ -263,6 +263,9 @@ HEADERS += \
     $${PWD}/Creditcardtype_AutocompleteElement_Response.h \
     $${PWD}/Creditcardtype_getAutocomplete_v2_Response.h \
     $${PWD}/Creditcardtype_getAutocomplete_v2_Response_mPayload.h \
+    $${PWD}/Currency_AutocompleteElement_Response.h \
+    $${PWD}/Currency_getAutocomplete_v2_Response.h \
+    $${PWD}/Currency_getAutocomplete_v2_Response_mPayload.h \
     $${PWD}/Custom_Apikey.h \
     $${PWD}/Custom_Apikeyfederation.h \
     $${PWD}/Custom_Attachment_Response.h \
@@ -1685,6 +1688,7 @@ HEADERS += \
     $${PWD}/ObjectCreditcardclientApi.h \
     $${PWD}/ObjectCreditcardmerchantApi.h \
     $${PWD}/ObjectCreditcardtypeApi.h \
+    $${PWD}/ObjectCurrencyApi.h \
     $${PWD}/ObjectCustomerApi.h \
     $${PWD}/ObjectDepartmentApi.h \
     $${PWD}/ObjectDiscussionApi.h \
@@ -2046,6 +2050,9 @@ SOURCES += \
     $${PWD}/Creditcardtype_AutocompleteElement_Response.cpp \
     $${PWD}/Creditcardtype_getAutocomplete_v2_Response.cpp \
     $${PWD}/Creditcardtype_getAutocomplete_v2_Response_mPayload.cpp \
+    $${PWD}/Currency_AutocompleteElement_Response.cpp \
+    $${PWD}/Currency_getAutocomplete_v2_Response.cpp \
+    $${PWD}/Currency_getAutocomplete_v2_Response_mPayload.cpp \
     $${PWD}/Custom_Apikey.cpp \
     $${PWD}/Custom_Apikeyfederation.cpp \
     $${PWD}/Custom_Attachment_Response.cpp \
@@ -3468,6 +3475,7 @@ SOURCES += \
     $${PWD}/ObjectCreditcardclientApi.cpp \
     $${PWD}/ObjectCreditcardmerchantApi.cpp \
     $${PWD}/ObjectCreditcardtypeApi.cpp \
+    $${PWD}/ObjectCurrencyApi.cpp \
     $${PWD}/ObjectCustomerApi.cpp \
     $${PWD}/ObjectDepartmentApi.cpp \
     $${PWD}/ObjectDiscussionApi.cpp \
