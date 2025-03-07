@@ -863,12 +863,6 @@ client/Ezdoctemplatetype_getAutocomplete_v2_Response.cpp
 client/Ezdoctemplatetype_getAutocomplete_v2_Response.h
 client/Ezdoctemplatetype_getAutocomplete_v2_Response_mPayload.cpp
 client/Ezdoctemplatetype_getAutocomplete_v2_Response_mPayload.h
-client/Ezmaxcase_RequestPatch.cpp
-client/Ezmaxcase_RequestPatch.h
-client/Ezmaxcase_patchObject_v1_Request.cpp
-client/Ezmaxcase_patchObject_v1_Request.h
-client/Ezmaxcase_patchObject_v1_Response.cpp
-client/Ezmaxcase_patchObject_v1_Response.h
 client/Ezmaxinvoicing_AutocompleteElement_Response.cpp
 client/Ezmaxinvoicing_AutocompleteElement_Response.h
 client/Ezmaxinvoicing_Response.cpp
@@ -2722,8 +2716,6 @@ client/ObjectEzdoctemplatefieldtypecategoryApi.cpp
 client/ObjectEzdoctemplatefieldtypecategoryApi.h
 client/ObjectEzdoctemplatetypeApi.cpp
 client/ObjectEzdoctemplatetypeApi.h
-client/ObjectEzmaxcaseApi.cpp
-client/ObjectEzmaxcaseApi.h
 client/ObjectEzmaxinvoicingApi.cpp
 client/ObjectEzmaxinvoicingApi.h
 client/ObjectEzmaxproductApi.cpp

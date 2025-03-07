@@ -441,9 +441,6 @@ add_library(${PROJECT_NAME}
   Ezdoctemplatetype_AutocompleteElement_Response.h
   Ezdoctemplatetype_getAutocomplete_v2_Response.h
   Ezdoctemplatetype_getAutocomplete_v2_Response_mPayload.h
-  Ezmaxcase_RequestPatch.h
-  Ezmaxcase_patchObject_v1_Request.h
-  Ezmaxcase_patchObject_v1_Response.h
   Ezmaxinvoicing_AutocompleteElement_Response.h
   Ezmaxinvoicing_Response.h
   Ezmaxinvoicing_ResponseCompound.h
@@ -1750,7 +1747,6 @@ add_library(${PROJECT_NAME}
   ObjectEzdoctemplatedocumentApi.h
   ObjectEzdoctemplatefieldtypecategoryApi.h
   ObjectEzdoctemplatetypeApi.h
-  ObjectEzmaxcaseApi.h
   ObjectEzmaxinvoicingApi.h
   ObjectEzmaxproductApi.h
   ObjectEzsignannotationApi.h
@@ -2269,9 +2265,6 @@ add_library(${PROJECT_NAME}
   Ezdoctemplatetype_AutocompleteElement_Response.cpp
   Ezdoctemplatetype_getAutocomplete_v2_Response.cpp
   Ezdoctemplatetype_getAutocomplete_v2_Response_mPayload.cpp
-  Ezmaxcase_RequestPatch.cpp
-  Ezmaxcase_patchObject_v1_Request.cpp
-  Ezmaxcase_patchObject_v1_Response.cpp
   Ezmaxinvoicing_AutocompleteElement_Response.cpp
   Ezmaxinvoicing_Response.cpp
   Ezmaxinvoicing_ResponseCompound.cpp
@@ -3578,7 +3571,6 @@ add_library(${PROJECT_NAME}
   ObjectEzdoctemplatedocumentApi.cpp
   ObjectEzdoctemplatefieldtypecategoryApi.cpp
   ObjectEzdoctemplatetypeApi.cpp
-  ObjectEzmaxcaseApi.cpp
   ObjectEzmaxinvoicingApi.cpp
   ObjectEzmaxproductApi.cpp
   ObjectEzsignannotationApi.cpp

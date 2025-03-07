@@ -432,9 +432,6 @@ HEADERS += \
     $${PWD}/Ezdoctemplatetype_AutocompleteElement_Response.h \
     $${PWD}/Ezdoctemplatetype_getAutocomplete_v2_Response.h \
     $${PWD}/Ezdoctemplatetype_getAutocomplete_v2_Response_mPayload.h \
-    $${PWD}/Ezmaxcase_RequestPatch.h \
-    $${PWD}/Ezmaxcase_patchObject_v1_Request.h \
-    $${PWD}/Ezmaxcase_patchObject_v1_Response.h \
     $${PWD}/Ezmaxinvoicing_AutocompleteElement_Response.h \
     $${PWD}/Ezmaxinvoicing_Response.h \
     $${PWD}/Ezmaxinvoicing_ResponseCompound.h \
@@ -1742,7 +1739,6 @@ HEADERS += \
     $${PWD}/ObjectEzdoctemplatedocumentApi.h \
     $${PWD}/ObjectEzdoctemplatefieldtypecategoryApi.h \
     $${PWD}/ObjectEzdoctemplatetypeApi.h \
-    $${PWD}/ObjectEzmaxcaseApi.h \
     $${PWD}/ObjectEzmaxinvoicingApi.h \
     $${PWD}/ObjectEzmaxproductApi.h \
     $${PWD}/ObjectEzsignannotationApi.h \
@@ -2265,9 +2261,6 @@ SOURCES += \
     $${PWD}/Ezdoctemplatetype_AutocompleteElement_Response.cpp \
     $${PWD}/Ezdoctemplatetype_getAutocomplete_v2_Response.cpp \
     $${PWD}/Ezdoctemplatetype_getAutocomplete_v2_Response_mPayload.cpp \
-    $${PWD}/Ezmaxcase_RequestPatch.cpp \
-    $${PWD}/Ezmaxcase_patchObject_v1_Request.cpp \
-    $${PWD}/Ezmaxcase_patchObject_v1_Response.cpp \
     $${PWD}/Ezmaxinvoicing_AutocompleteElement_Response.cpp \
     $${PWD}/Ezmaxinvoicing_Response.cpp \
     $${PWD}/Ezmaxinvoicing_ResponseCompound.cpp \
@@ -3575,7 +3568,6 @@ SOURCES += \
     $${PWD}/ObjectEzdoctemplatedocumentApi.cpp \
     $${PWD}/ObjectEzdoctemplatefieldtypecategoryApi.cpp \
     $${PWD}/ObjectEzdoctemplatetypeApi.cpp \
-    $${PWD}/ObjectEzmaxcaseApi.cpp \
     $${PWD}/ObjectEzmaxinvoicingApi.cpp \
     $${PWD}/ObjectEzmaxproductApi.cpp \
     $${PWD}/ObjectEzsignannotationApi.cpp \
