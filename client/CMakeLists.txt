@@ -155,6 +155,7 @@ add_library(${PROJECT_NAME}
   Common_Reportcellstyle.h
   Common_Reportcolumn.h
   Common_Reportgroup.h
+  Common_ReportgroupParameter.h
   Common_Reportrow.h
   Common_Reportsection.h
   Common_Reportsubsection.h
@@ -197,6 +198,7 @@ add_library(${PROJECT_NAME}
   Computed_eCommunicationDirection.h
   Computed_eEzsigndocumentSteptype.h
   Computed_eEzsignfolderAccess.h
+  Computed_eEzsignimportfolderStatus.h
   Contact_Request.h
   Contact_RequestCompound.h
   Contact_RequestCompoundV2.h
@@ -257,12 +259,6 @@ add_library(${PROJECT_NAME}
   Creditcardmerchant_RequestCompound.h
   Creditcardmerchant_Response.h
   Creditcardmerchant_ResponseCompound.h
-  Creditcardmerchant_createObject_v1_Request.h
-  Creditcardmerchant_createObject_v1_Response.h
-  Creditcardmerchant_createObject_v1_Response_mPayload.h
-  Creditcardmerchant_deleteObject_v1_Response.h
-  Creditcardmerchant_editObject_v1_Request.h
-  Creditcardmerchant_editObject_v1_Response.h
   Creditcardmerchant_getAutocomplete_v2_Response.h
   Creditcardmerchant_getAutocomplete_v2_Response_mPayload.h
   Creditcardmerchant_getList_v1_Response.h
@@ -288,6 +284,7 @@ add_library(${PROJECT_NAME}
   Custom_Communicationsender_Response.h
   Custom_ContactName_Response.h
   Custom_CreateEzsignelementsPositionedByWord_Request.h
+  Custom_Creditcard_Request.h
   Custom_Creditcardtransaction_Response.h
   Custom_Creditcardtransactionresponse_Response.h
   Custom_Discussionconfiguration_Response.h
@@ -309,11 +306,13 @@ add_library(${PROJECT_NAME}
   Custom_EzsignfoldertransmissionSigner_Response.h
   Custom_Ezsignfoldertransmission_Response.h
   Custom_Ezsignfoldertype_Response.h
+  Custom_Ezsignfoldertype_Template_Response.h
   Custom_Ezsignformfield_Request.h
   Custom_Ezsignformfielderror_Response.h
   Custom_Ezsignformfielderrortest_Response.h
   Custom_EzsignformfieldgroupCreateEzsignelementsPositionedByWord_Request.h
   Custom_Ezsignformfieldgroup_Request.h
+  Custom_Ezsignimportdocument_Response.h
   Custom_EzsignsignatureCreateEzsignelementsPositionedByWord_Request.h
   Custom_EzsignsignatureEzsignsignaturesAutomatic_Response.h
   Custom_Ezsignsignaturestatus_Response.h
@@ -325,6 +324,7 @@ add_library(${PROJECT_NAME}
   Custom_ImportEzsigntemplatepackageRelation_Request.h
   Custom_Notificationsubsectiongetnotificationtests_Response.h
   Custom_Notificationtestgetnotificationtests_Response.h
+  Custom_PrefillEzsignformValue_Request.h
   Custom_TimezoneWithCode_Response.h
   Custom_UserName_Response.h
   Custom_Webhook_Response.h
@@ -332,6 +332,7 @@ add_library(${PROJECT_NAME}
   Custom_WordPositionOccurence_Response.h
   Custom_WordPositionWord_Response.h
   Custom_eWebhookEzsignevent.h
+  Customer_AutocompleteElement_Response.h
   Customer_Request.h
   Customer_RequestCompound.h
   Customer_Response.h
@@ -339,6 +340,8 @@ add_library(${PROJECT_NAME}
   Customer_createObject_v1_Request.h
   Customer_createObject_v1_Response.h
   Customer_createObject_v1_Response_mPayload.h
+  Customer_getAutocomplete_v2_Response.h
+  Customer_getAutocomplete_v2_Response_mPayload.h
   Customer_getObject_v2_Response.h
   Customer_getObject_v2_Response_mPayload.h
   Department_AutocompleteElement_Response.h
@@ -409,6 +412,7 @@ add_library(${PROJECT_NAME}
   Enum_Fontunderline.h
   Enum_Fontweight.h
   Enum_Horizontalalignment.h
+  Enum_ReportdataType.h
   Enum_Textvalidation.h
   Enum_Verticalalignment.h
   Ezdoctemplatedocument_AutocompleteElement_Response.h
@@ -437,6 +441,9 @@ add_library(${PROJECT_NAME}
   Ezdoctemplatetype_AutocompleteElement_Response.h
   Ezdoctemplatetype_getAutocomplete_v2_Response.h
   Ezdoctemplatetype_getAutocomplete_v2_Response_mPayload.h
+  Ezmaxcase_RequestPatch.h
+  Ezmaxcase_patchObject_v1_Request.h
+  Ezmaxcase_patchObject_v1_Response.h
   Ezmaxinvoicing_AutocompleteElement_Response.h
   Ezmaxinvoicing_Response.h
   Ezmaxinvoicing_ResponseCompound.h
@@ -619,6 +626,8 @@ add_library(${PROJECT_NAME}
   Ezsigndocument_matchingtemplate_v3_Response.h
   Ezsigndocument_patchObject_v1_Request.h
   Ezsigndocument_patchObject_v1_Response.h
+  Ezsigndocument_prefillEzsignform_v1_Request.h
+  Ezsigndocument_prefillEzsignform_v1_Response.h
   Ezsigndocument_submitEzsignform_v1_Request.h
   Ezsigndocument_submitEzsignform_v1_Response.h
   Ezsigndocument_unsend_v1_Response.h
@@ -773,6 +782,15 @@ add_library(${PROJECT_NAME}
   Ezsignformfieldgroupsigner_RequestCompound.h
   Ezsignformfieldgroupsigner_Response.h
   Ezsignformfieldgroupsigner_ResponseCompound.h
+  Ezsignimportdocument_download_v1_Response.h
+  Ezsignimportfolder_ListElement.h
+  Ezsignimportfolder_Response.h
+  Ezsignimportfolder_ResponseCompound.h
+  Ezsignimportfolder_deleteObject_v1_Response.h
+  Ezsignimportfolder_getList_v1_Response.h
+  Ezsignimportfolder_getList_v1_Response_mPayload.h
+  Ezsignimportfolder_getObject_v2_Response.h
+  Ezsignimportfolder_getObject_v2_Response_mPayload.h
   Ezsignpage_Response.h
   Ezsignpage_ResponseCompound.h
   Ezsignpage_consult_v1_Response.h
@@ -812,6 +830,10 @@ add_library(${PROJECT_NAME}
   Ezsignsignaturecustomdate_ResponseCompound.h
   Ezsignsignaturecustomdate_ResponseCompoundV2.h
   Ezsignsignaturecustomdate_ResponseV2.h
+  Ezsignsignaturepaymentdetail_Request.h
+  Ezsignsignaturepaymentdetail_RequestCompound.h
+  Ezsignsignaturepaymentdetail_Response.h
+  Ezsignsignaturepaymentdetail_ResponseCompound.h
   Ezsignsigner_Request.h
   Ezsignsigner_RequestCompound.h
   Ezsignsigner_RequestCompound_Contact.h
@@ -1161,6 +1183,7 @@ add_library(${PROJECT_NAME}
   Field_eEzsignsignatureFont.h
   Field_eEzsignsignatureTooltipposition.h
   Field_eEzsignsignatureType.h
+  Field_eEzsignsignaturepaymentdetailTaxable.h
   Field_eEzsigntemplateRecognition.h
   Field_eEzsigntemplateType.h
   Field_eEzsigntemplatedocumentpagerecognitionOperator.h
@@ -1187,6 +1210,7 @@ add_library(${PROJECT_NAME}
   Field_eEzsigntemplatesignatureType.h
   Field_eEzsigntemplatesignerMapping.h
   Field_eNotificationpreferenceStatus.h
+  Field_ePaymentgatewayProcessor.h
   Field_ePaymenttermType.h
   Field_ePhoneType.h
   Field_eSessionhistoryEndby.h
@@ -1293,6 +1317,7 @@ add_library(${PROJECT_NAME}
   Multilingual_EzsignsigningreasonDescription.h
   Multilingual_NotificationsubsectionName.h
   Multilingual_NotificationtestName.h
+  Multilingual_PaymentgatewayDescription.h
   Multilingual_PaymenttermDescription.h
   Multilingual_SubnetDescription.h
   Multilingual_SupplyDescription.h
@@ -1314,6 +1339,23 @@ add_library(${PROJECT_NAME}
   Otherincome_getCommunicationrecipients_v1_Response_mPayload.h
   Otherincome_getCommunicationsenders_v1_Response.h
   Otherincome_getCommunicationsenders_v1_Response_mPayload.h
+  Paymentgateway_AutocompleteElement_Response.h
+  Paymentgateway_ListElement.h
+  Paymentgateway_Request.h
+  Paymentgateway_RequestCompound.h
+  Paymentgateway_Response.h
+  Paymentgateway_ResponseCompound.h
+  Paymentgateway_createObject_v1_Request.h
+  Paymentgateway_createObject_v1_Response.h
+  Paymentgateway_createObject_v1_Response_mPayload.h
+  Paymentgateway_editObject_v1_Request.h
+  Paymentgateway_editObject_v1_Response.h
+  Paymentgateway_getAutocomplete_v2_Response.h
+  Paymentgateway_getAutocomplete_v2_Response_mPayload.h
+  Paymentgateway_getList_v1_Response.h
+  Paymentgateway_getList_v1_Response_mPayload.h
+  Paymentgateway_getObject_v2_Response.h
+  Paymentgateway_getObject_v2_Response_mPayload.h
   Paymentterm_AutocompleteElement_Response.h
   Paymentterm_ListElement.h
   Paymentterm_Request.h
@@ -1708,6 +1750,7 @@ add_library(${PROJECT_NAME}
   ObjectEzdoctemplatedocumentApi.h
   ObjectEzdoctemplatefieldtypecategoryApi.h
   ObjectEzdoctemplatetypeApi.h
+  ObjectEzmaxcaseApi.h
   ObjectEzmaxinvoicingApi.h
   ObjectEzmaxproductApi.h
   ObjectEzsignannotationApi.h
@@ -1721,6 +1764,8 @@ add_library(${PROJECT_NAME}
   ObjectEzsignfoldersignerassociationApi.h
   ObjectEzsignfoldertypeApi.h
   ObjectEzsignformfieldgroupApi.h
+  ObjectEzsignimportdocumentApi.h
+  ObjectEzsignimportfolderApi.h
   ObjectEzsignpageApi.h
   ObjectEzsignsignatureApi.h
   ObjectEzsignsignergroupApi.h
@@ -1756,6 +1801,7 @@ add_library(${PROJECT_NAME}
   ObjectNotificationsectionApi.h
   ObjectNotificationtestApi.h
   ObjectOtherincomeApi.h
+  ObjectPaymentgatewayApi.h
   ObjectPaymenttermApi.h
   ObjectPdfalevelApi.h
   ObjectPeriodApi.h
@@ -1937,6 +1983,7 @@ add_library(${PROJECT_NAME}
   Common_Reportcellstyle.cpp
   Common_Reportcolumn.cpp
   Common_Reportgroup.cpp
+  Common_ReportgroupParameter.cpp
   Common_Reportrow.cpp
   Common_Reportsection.cpp
   Common_Reportsubsection.cpp
@@ -1979,6 +2026,7 @@ add_library(${PROJECT_NAME}
   Computed_eCommunicationDirection.cpp
   Computed_eEzsigndocumentSteptype.cpp
   Computed_eEzsignfolderAccess.cpp
+  Computed_eEzsignimportfolderStatus.cpp
   Contact_Request.cpp
   Contact_RequestCompound.cpp
   Contact_RequestCompoundV2.cpp
@@ -2039,12 +2087,6 @@ add_library(${PROJECT_NAME}
   Creditcardmerchant_RequestCompound.cpp
   Creditcardmerchant_Response.cpp
   Creditcardmerchant_ResponseCompound.cpp
-  Creditcardmerchant_createObject_v1_Request.cpp
-  Creditcardmerchant_createObject_v1_Response.cpp
-  Creditcardmerchant_createObject_v1_Response_mPayload.cpp
-  Creditcardmerchant_deleteObject_v1_Response.cpp
-  Creditcardmerchant_editObject_v1_Request.cpp
-  Creditcardmerchant_editObject_v1_Response.cpp
   Creditcardmerchant_getAutocomplete_v2_Response.cpp
   Creditcardmerchant_getAutocomplete_v2_Response_mPayload.cpp
   Creditcardmerchant_getList_v1_Response.cpp
@@ -2070,6 +2112,7 @@ add_library(${PROJECT_NAME}
   Custom_Communicationsender_Response.cpp
   Custom_ContactName_Response.cpp
   Custom_CreateEzsignelementsPositionedByWord_Request.cpp
+  Custom_Creditcard_Request.cpp
   Custom_Creditcardtransaction_Response.cpp
   Custom_Creditcardtransactionresponse_Response.cpp
   Custom_Discussionconfiguration_Response.cpp
@@ -2091,11 +2134,13 @@ add_library(${PROJECT_NAME}
   Custom_EzsignfoldertransmissionSigner_Response.cpp
   Custom_Ezsignfoldertransmission_Response.cpp
   Custom_Ezsignfoldertype_Response.cpp
+  Custom_Ezsignfoldertype_Template_Response.cpp
   Custom_Ezsignformfield_Request.cpp
   Custom_Ezsignformfielderror_Response.cpp
   Custom_Ezsignformfielderrortest_Response.cpp
   Custom_EzsignformfieldgroupCreateEzsignelementsPositionedByWord_Request.cpp
   Custom_Ezsignformfieldgroup_Request.cpp
+  Custom_Ezsignimportdocument_Response.cpp
   Custom_EzsignsignatureCreateEzsignelementsPositionedByWord_Request.cpp
   Custom_EzsignsignatureEzsignsignaturesAutomatic_Response.cpp
   Custom_Ezsignsignaturestatus_Response.cpp
@@ -2107,6 +2152,7 @@ add_library(${PROJECT_NAME}
   Custom_ImportEzsigntemplatepackageRelation_Request.cpp
   Custom_Notificationsubsectiongetnotificationtests_Response.cpp
   Custom_Notificationtestgetnotificationtests_Response.cpp
+  Custom_PrefillEzsignformValue_Request.cpp
   Custom_TimezoneWithCode_Response.cpp
   Custom_UserName_Response.cpp
   Custom_Webhook_Response.cpp
@@ -2114,6 +2160,7 @@ add_library(${PROJECT_NAME}
   Custom_WordPositionOccurence_Response.cpp
   Custom_WordPositionWord_Response.cpp
   Custom_eWebhookEzsignevent.cpp
+  Customer_AutocompleteElement_Response.cpp
   Customer_Request.cpp
   Customer_RequestCompound.cpp
   Customer_Response.cpp
@@ -2121,6 +2168,8 @@ add_library(${PROJECT_NAME}
   Customer_createObject_v1_Request.cpp
   Customer_createObject_v1_Response.cpp
   Customer_createObject_v1_Response_mPayload.cpp
+  Customer_getAutocomplete_v2_Response.cpp
+  Customer_getAutocomplete_v2_Response_mPayload.cpp
   Customer_getObject_v2_Response.cpp
   Customer_getObject_v2_Response_mPayload.cpp
   Department_AutocompleteElement_Response.cpp
@@ -2191,6 +2240,7 @@ add_library(${PROJECT_NAME}
   Enum_Fontunderline.cpp
   Enum_Fontweight.cpp
   Enum_Horizontalalignment.cpp
+  Enum_ReportdataType.cpp
   Enum_Textvalidation.cpp
   Enum_Verticalalignment.cpp
   Ezdoctemplatedocument_AutocompleteElement_Response.cpp
@@ -2219,6 +2269,9 @@ add_library(${PROJECT_NAME}
   Ezdoctemplatetype_AutocompleteElement_Response.cpp
   Ezdoctemplatetype_getAutocomplete_v2_Response.cpp
   Ezdoctemplatetype_getAutocomplete_v2_Response_mPayload.cpp
+  Ezmaxcase_RequestPatch.cpp
+  Ezmaxcase_patchObject_v1_Request.cpp
+  Ezmaxcase_patchObject_v1_Response.cpp
   Ezmaxinvoicing_AutocompleteElement_Response.cpp
   Ezmaxinvoicing_Response.cpp
   Ezmaxinvoicing_ResponseCompound.cpp
@@ -2401,6 +2454,8 @@ add_library(${PROJECT_NAME}
   Ezsigndocument_matchingtemplate_v3_Response.cpp
   Ezsigndocument_patchObject_v1_Request.cpp
   Ezsigndocument_patchObject_v1_Response.cpp
+  Ezsigndocument_prefillEzsignform_v1_Request.cpp
+  Ezsigndocument_prefillEzsignform_v1_Response.cpp
   Ezsigndocument_submitEzsignform_v1_Request.cpp
   Ezsigndocument_submitEzsignform_v1_Response.cpp
   Ezsigndocument_unsend_v1_Response.cpp
@@ -2555,6 +2610,15 @@ add_library(${PROJECT_NAME}
   Ezsignformfieldgroupsigner_RequestCompound.cpp
   Ezsignformfieldgroupsigner_Response.cpp
   Ezsignformfieldgroupsigner_ResponseCompound.cpp
+  Ezsignimportdocument_download_v1_Response.cpp
+  Ezsignimportfolder_ListElement.cpp
+  Ezsignimportfolder_Response.cpp
+  Ezsignimportfolder_ResponseCompound.cpp
+  Ezsignimportfolder_deleteObject_v1_Response.cpp
+  Ezsignimportfolder_getList_v1_Response.cpp
+  Ezsignimportfolder_getList_v1_Response_mPayload.cpp
+  Ezsignimportfolder_getObject_v2_Response.cpp
+  Ezsignimportfolder_getObject_v2_Response_mPayload.cpp
   Ezsignpage_Response.cpp
   Ezsignpage_ResponseCompound.cpp
   Ezsignpage_consult_v1_Response.cpp
@@ -2594,6 +2658,10 @@ add_library(${PROJECT_NAME}
   Ezsignsignaturecustomdate_ResponseCompound.cpp
   Ezsignsignaturecustomdate_ResponseCompoundV2.cpp
   Ezsignsignaturecustomdate_ResponseV2.cpp
+  Ezsignsignaturepaymentdetail_Request.cpp
+  Ezsignsignaturepaymentdetail_RequestCompound.cpp
+  Ezsignsignaturepaymentdetail_Response.cpp
+  Ezsignsignaturepaymentdetail_ResponseCompound.cpp
   Ezsignsigner_Request.cpp
   Ezsignsigner_RequestCompound.cpp
   Ezsignsigner_RequestCompound_Contact.cpp
@@ -2943,6 +3011,7 @@ add_library(${PROJECT_NAME}
   Field_eEzsignsignatureFont.cpp
   Field_eEzsignsignatureTooltipposition.cpp
   Field_eEzsignsignatureType.cpp
+  Field_eEzsignsignaturepaymentdetailTaxable.cpp
   Field_eEzsigntemplateRecognition.cpp
   Field_eEzsigntemplateType.cpp
   Field_eEzsigntemplatedocumentpagerecognitionOperator.cpp
@@ -2969,6 +3038,7 @@ add_library(${PROJECT_NAME}
   Field_eEzsigntemplatesignatureType.cpp
   Field_eEzsigntemplatesignerMapping.cpp
   Field_eNotificationpreferenceStatus.cpp
+  Field_ePaymentgatewayProcessor.cpp
   Field_ePaymenttermType.cpp
   Field_ePhoneType.cpp
   Field_eSessionhistoryEndby.cpp
@@ -3075,6 +3145,7 @@ add_library(${PROJECT_NAME}
   Multilingual_EzsignsigningreasonDescription.cpp
   Multilingual_NotificationsubsectionName.cpp
   Multilingual_NotificationtestName.cpp
+  Multilingual_PaymentgatewayDescription.cpp
   Multilingual_PaymenttermDescription.cpp
   Multilingual_SubnetDescription.cpp
   Multilingual_SupplyDescription.cpp
@@ -3096,6 +3167,23 @@ add_library(${PROJECT_NAME}
   Otherincome_getCommunicationrecipients_v1_Response_mPayload.cpp
   Otherincome_getCommunicationsenders_v1_Response.cpp
   Otherincome_getCommunicationsenders_v1_Response_mPayload.cpp
+  Paymentgateway_AutocompleteElement_Response.cpp
+  Paymentgateway_ListElement.cpp
+  Paymentgateway_Request.cpp
+  Paymentgateway_RequestCompound.cpp
+  Paymentgateway_Response.cpp
+  Paymentgateway_ResponseCompound.cpp
+  Paymentgateway_createObject_v1_Request.cpp
+  Paymentgateway_createObject_v1_Response.cpp
+  Paymentgateway_createObject_v1_Response_mPayload.cpp
+  Paymentgateway_editObject_v1_Request.cpp
+  Paymentgateway_editObject_v1_Response.cpp
+  Paymentgateway_getAutocomplete_v2_Response.cpp
+  Paymentgateway_getAutocomplete_v2_Response_mPayload.cpp
+  Paymentgateway_getList_v1_Response.cpp
+  Paymentgateway_getList_v1_Response_mPayload.cpp
+  Paymentgateway_getObject_v2_Response.cpp
+  Paymentgateway_getObject_v2_Response_mPayload.cpp
   Paymentterm_AutocompleteElement_Response.cpp
   Paymentterm_ListElement.cpp
   Paymentterm_Request.cpp
@@ -3490,6 +3578,7 @@ add_library(${PROJECT_NAME}
   ObjectEzdoctemplatedocumentApi.cpp
   ObjectEzdoctemplatefieldtypecategoryApi.cpp
   ObjectEzdoctemplatetypeApi.cpp
+  ObjectEzmaxcaseApi.cpp
   ObjectEzmaxinvoicingApi.cpp
   ObjectEzmaxproductApi.cpp
   ObjectEzsignannotationApi.cpp
@@ -3503,6 +3592,8 @@ add_library(${PROJECT_NAME}
   ObjectEzsignfoldersignerassociationApi.cpp
   ObjectEzsignfoldertypeApi.cpp
   ObjectEzsignformfieldgroupApi.cpp
+  ObjectEzsignimportdocumentApi.cpp
+  ObjectEzsignimportfolderApi.cpp
   ObjectEzsignpageApi.cpp
   ObjectEzsignsignatureApi.cpp
   ObjectEzsignsignergroupApi.cpp
@@ -3538,6 +3629,7 @@ add_library(${PROJECT_NAME}
   ObjectNotificationsectionApi.cpp
   ObjectNotificationtestApi.cpp
   ObjectOtherincomeApi.cpp
+  ObjectPaymentgatewayApi.cpp
   ObjectPaymenttermApi.cpp
   ObjectPdfalevelApi.cpp
   ObjectPeriodApi.cpp

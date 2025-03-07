@@ -39,6 +39,9 @@ void Common_Reportsubsectionpart::initializeModel() {
 
     m_a_obj_reportrow_isSet = false;
     m_a_obj_reportrow_isValid = false;
+
+    m_a_s_variableobject_property_isSet = false;
+    m_a_s_variableobject_property_isValid = false;
 }
 
 void Common_Reportsubsectionpart::fromJson(QString jsonString) {
@@ -55,6 +58,9 @@ void Common_Reportsubsectionpart::fromJsonObject(QJsonObject json) {
 
     m_a_obj_reportrow_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_reportrow, json[QString("a_objReportrow")]);
     m_a_obj_reportrow_isSet = !json[QString("a_objReportrow")].isNull() && m_a_obj_reportrow_isValid;
+
+    m_a_s_variableobject_property_isValid = ::Ezmaxapi::fromJsonValue(m_a_s_variableobject_property, json[QString("a_sVariableobjectProperty")]);
+    m_a_s_variableobject_property_isSet = !json[QString("a_sVariableobjectProperty")].isNull() && m_a_s_variableobject_property_isValid;
 }
 
 QString Common_Reportsubsectionpart::asJson() const {
@@ -71,6 +77,9 @@ QJsonObject Common_Reportsubsectionpart::asJsonObject() const {
     }
     if (m_a_obj_reportrow.size() > 0) {
         obj.insert(QString("a_objReportrow"), ::Ezmaxapi::toJsonValue(m_a_obj_reportrow));
+    }
+    if (m_a_s_variableobject_property.size() > 0) {
+        obj.insert(QString("a_sVariableobjectProperty"), ::Ezmaxapi::toJsonValue(m_a_s_variableobject_property));
     }
     return obj;
 }
@@ -107,6 +116,22 @@ bool Common_Reportsubsectionpart::is_a_obj_reportrow_Valid() const{
     return m_a_obj_reportrow_isValid;
 }
 
+QList<QString> Common_Reportsubsectionpart::getASVariableobjectProperty() const {
+    return m_a_s_variableobject_property;
+}
+void Common_Reportsubsectionpart::setASVariableobjectProperty(const QList<QString> &a_s_variableobject_property) {
+    m_a_s_variableobject_property = a_s_variableobject_property;
+    m_a_s_variableobject_property_isSet = true;
+}
+
+bool Common_Reportsubsectionpart::is_a_s_variableobject_property_Set() const{
+    return m_a_s_variableobject_property_isSet;
+}
+
+bool Common_Reportsubsectionpart::is_a_s_variableobject_property_Valid() const{
+    return m_a_s_variableobject_property_isValid;
+}
+
 bool Common_Reportsubsectionpart::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -119,13 +144,18 @@ bool Common_Reportsubsectionpart::isSet() const {
             isObjectUpdated = true;
             break;
         }
+
+        if (m_a_s_variableobject_property.size() > 0) {
+            isObjectUpdated = true;
+            break;
+        }
     } while (false);
     return isObjectUpdated;
 }
 
 bool Common_Reportsubsectionpart::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_e_reportsubsectionpart_type_isValid && m_a_obj_reportrow_isValid && true;
+    return m_e_reportsubsectionpart_type_isValid && m_a_obj_reportrow_isValid && m_a_s_variableobject_property_isValid && true;
 }
 
 } // namespace Ezmaxapi

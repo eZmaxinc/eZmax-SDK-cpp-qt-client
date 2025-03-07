@@ -22,7 +22,9 @@
 #include <QJsonObject>
 
 #include "Common_Reportcell.h"
+#include <QJsonValue>
 #include <QList>
+#include <QMap>
 
 #include "Enum.h"
 #include "Object.h"
@@ -46,6 +48,11 @@ public:
     bool is_a_obj_reportcell_Set() const;
     bool is_a_obj_reportcell_Valid() const;
 
+    QMap<QString, QJsonValue> getObjVariableobject() const;
+    void setObjVariableobject(const QMap<QString, QJsonValue> &obj_variableobject);
+    bool is_obj_variableobject_Set() const;
+    bool is_obj_variableobject_Valid() const;
+
     qint32 getIReportrowHeight() const;
     void setIReportrowHeight(const qint32 &i_reportrow_height);
     bool is_i_reportrow_height_Set() const;
@@ -60,6 +67,10 @@ private:
     QList<Common_Reportcell> m_a_obj_reportcell;
     bool m_a_obj_reportcell_isSet;
     bool m_a_obj_reportcell_isValid;
+
+    QMap<QString, QJsonValue> m_obj_variableobject;
+    bool m_obj_variableobject_isSet;
+    bool m_obj_variableobject_isValid;
 
     qint32 m_i_reportrow_height;
     bool m_i_reportrow_height_isSet;

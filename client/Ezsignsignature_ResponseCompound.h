@@ -27,6 +27,7 @@
 #include "Enum_Textvalidation.h"
 #include "Ezsignelementdependency_ResponseCompound.h"
 #include "Ezsignsignaturecustomdate_ResponseCompound.h"
+#include "Ezsignsignaturepaymentdetail_RequestCompound.h"
 #include "Field_eEzsignsignatureAttachmentnamesource.h"
 #include "Field_eEzsignsignatureConsultationtrigger.h"
 #include "Field_eEzsignsignatureDependencyrequirement.h"
@@ -47,6 +48,7 @@ class Ezsignsignaturecustomdate_ResponseCompound;
 class Custom_Creditcardtransaction_Response;
 class Ezsignelementdependency_ResponseCompound;
 class Custom_TimezoneWithCode_Response;
+class Ezsignsignaturepaymentdetail_RequestCompound;
 
 class Ezsignsignature_ResponseCompound : public Object {
 public:
@@ -83,6 +85,11 @@ public:
     void setFkiFontId(const qint32 &fki_font_id);
     bool is_fki_font_id_Set() const;
     bool is_fki_font_id_Valid() const;
+
+    QString getSCurrencyDescriptionX() const;
+    void setSCurrencyDescriptionX(const QString &s_currency_description_x);
+    bool is_s_currency_description_x_Set() const;
+    bool is_s_currency_description_x_Valid() const;
 
     QString getSEzsignsigningreasonDescriptionX() const;
     void setSEzsignsigningreasonDescriptionX(const QString &s_ezsignsigningreason_description_x);
@@ -279,6 +286,11 @@ public:
     bool is_obj_timezone_Set() const;
     bool is_obj_timezone_Valid() const;
 
+    QList<Ezsignsignaturepaymentdetail_RequestCompound> getAObjEzsignsignaturepaymentdetail() const;
+    void setAObjEzsignsignaturepaymentdetail(const QList<Ezsignsignaturepaymentdetail_RequestCompound> &a_obj_ezsignsignaturepaymentdetail);
+    bool is_a_obj_ezsignsignaturepaymentdetail_Set() const;
+    bool is_a_obj_ezsignsignaturepaymentdetail_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -304,6 +316,10 @@ private:
     qint32 m_fki_font_id;
     bool m_fki_font_id_isSet;
     bool m_fki_font_id_isValid;
+
+    QString m_s_currency_description_x;
+    bool m_s_currency_description_x_isSet;
+    bool m_s_currency_description_x_isValid;
 
     QString m_s_ezsignsigningreason_description_x;
     bool m_s_ezsignsigningreason_description_x_isSet;
@@ -460,6 +476,10 @@ private:
     Custom_TimezoneWithCode_Response m_obj_timezone;
     bool m_obj_timezone_isSet;
     bool m_obj_timezone_isValid;
+
+    QList<Ezsignsignaturepaymentdetail_RequestCompound> m_a_obj_ezsignsignaturepaymentdetail;
+    bool m_a_obj_ezsignsignaturepaymentdetail_isSet;
+    bool m_a_obj_ezsignsignaturepaymentdetail_isValid;
 };
 
 } // namespace Ezmaxapi

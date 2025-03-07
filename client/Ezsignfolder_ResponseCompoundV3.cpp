@@ -103,6 +103,12 @@ void Ezsignfolder_ResponseCompoundV3::initializeModel() {
     m_dt_ezsignfolder_close_isSet = false;
     m_dt_ezsignfolder_close_isValid = false;
 
+    m_dt_ezsignfolder_archive_isSet = false;
+    m_dt_ezsignfolder_archive_isValid = false;
+
+    m_dt_ezsignfolder_dispose_isSet = false;
+    m_dt_ezsignfolder_dispose_isValid = false;
+
     m_t_ezsignfolder_message_isSet = false;
     m_t_ezsignfolder_message_isValid = false;
 
@@ -197,6 +203,12 @@ void Ezsignfolder_ResponseCompoundV3::fromJsonObject(QJsonObject json) {
     m_dt_ezsignfolder_close_isValid = ::Ezmaxapi::fromJsonValue(m_dt_ezsignfolder_close, json[QString("dtEzsignfolderClose")]);
     m_dt_ezsignfolder_close_isSet = !json[QString("dtEzsignfolderClose")].isNull() && m_dt_ezsignfolder_close_isValid;
 
+    m_dt_ezsignfolder_archive_isValid = ::Ezmaxapi::fromJsonValue(m_dt_ezsignfolder_archive, json[QString("dtEzsignfolderArchive")]);
+    m_dt_ezsignfolder_archive_isSet = !json[QString("dtEzsignfolderArchive")].isNull() && m_dt_ezsignfolder_archive_isValid;
+
+    m_dt_ezsignfolder_dispose_isValid = ::Ezmaxapi::fromJsonValue(m_dt_ezsignfolder_dispose, json[QString("dtEzsignfolderDispose")]);
+    m_dt_ezsignfolder_dispose_isSet = !json[QString("dtEzsignfolderDispose")].isNull() && m_dt_ezsignfolder_dispose_isValid;
+
     m_t_ezsignfolder_message_isValid = ::Ezmaxapi::fromJsonValue(m_t_ezsignfolder_message, json[QString("tEzsignfolderMessage")]);
     m_t_ezsignfolder_message_isSet = !json[QString("tEzsignfolderMessage")].isNull() && m_t_ezsignfolder_message_isValid;
 
@@ -290,6 +302,12 @@ QJsonObject Ezsignfolder_ResponseCompoundV3::asJsonObject() const {
     }
     if (m_dt_ezsignfolder_close_isSet) {
         obj.insert(QString("dtEzsignfolderClose"), ::Ezmaxapi::toJsonValue(m_dt_ezsignfolder_close));
+    }
+    if (m_dt_ezsignfolder_archive_isSet) {
+        obj.insert(QString("dtEzsignfolderArchive"), ::Ezmaxapi::toJsonValue(m_dt_ezsignfolder_archive));
+    }
+    if (m_dt_ezsignfolder_dispose_isSet) {
+        obj.insert(QString("dtEzsignfolderDispose"), ::Ezmaxapi::toJsonValue(m_dt_ezsignfolder_dispose));
     }
     if (m_t_ezsignfolder_message_isSet) {
         obj.insert(QString("tEzsignfolderMessage"), ::Ezmaxapi::toJsonValue(m_t_ezsignfolder_message));
@@ -677,6 +695,38 @@ bool Ezsignfolder_ResponseCompoundV3::is_dt_ezsignfolder_close_Valid() const{
     return m_dt_ezsignfolder_close_isValid;
 }
 
+QString Ezsignfolder_ResponseCompoundV3::getDtEzsignfolderArchive() const {
+    return m_dt_ezsignfolder_archive;
+}
+void Ezsignfolder_ResponseCompoundV3::setDtEzsignfolderArchive(const QString &dt_ezsignfolder_archive) {
+    m_dt_ezsignfolder_archive = dt_ezsignfolder_archive;
+    m_dt_ezsignfolder_archive_isSet = true;
+}
+
+bool Ezsignfolder_ResponseCompoundV3::is_dt_ezsignfolder_archive_Set() const{
+    return m_dt_ezsignfolder_archive_isSet;
+}
+
+bool Ezsignfolder_ResponseCompoundV3::is_dt_ezsignfolder_archive_Valid() const{
+    return m_dt_ezsignfolder_archive_isValid;
+}
+
+QString Ezsignfolder_ResponseCompoundV3::getDtEzsignfolderDispose() const {
+    return m_dt_ezsignfolder_dispose;
+}
+void Ezsignfolder_ResponseCompoundV3::setDtEzsignfolderDispose(const QString &dt_ezsignfolder_dispose) {
+    m_dt_ezsignfolder_dispose = dt_ezsignfolder_dispose;
+    m_dt_ezsignfolder_dispose_isSet = true;
+}
+
+bool Ezsignfolder_ResponseCompoundV3::is_dt_ezsignfolder_dispose_Set() const{
+    return m_dt_ezsignfolder_dispose_isSet;
+}
+
+bool Ezsignfolder_ResponseCompoundV3::is_dt_ezsignfolder_dispose_Valid() const{
+    return m_dt_ezsignfolder_dispose_isValid;
+}
+
 QString Ezsignfolder_ResponseCompoundV3::getTEzsignfolderMessage() const {
     return m_t_ezsignfolder_message;
 }
@@ -871,6 +921,16 @@ bool Ezsignfolder_ResponseCompoundV3::isSet() const {
         }
 
         if (m_dt_ezsignfolder_close_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_dt_ezsignfolder_archive_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_dt_ezsignfolder_dispose_isSet) {
             isObjectUpdated = true;
             break;
         }

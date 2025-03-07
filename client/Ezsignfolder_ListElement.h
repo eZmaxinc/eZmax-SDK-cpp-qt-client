@@ -141,6 +141,21 @@ public:
     bool is_d_ezsignfolder_signaturecompletedpercentage_Set() const;
     bool is_d_ezsignfolder_signaturecompletedpercentage_Valid() const;
 
+    QString getDtEzsignfolderClose() const;
+    void setDtEzsignfolderClose(const QString &dt_ezsignfolder_close);
+    bool is_dt_ezsignfolder_close_Set() const;
+    bool is_dt_ezsignfolder_close_Valid() const;
+
+    QString getDtEzsignfolderArchive() const;
+    void setDtEzsignfolderArchive(const QString &dt_ezsignfolder_archive);
+    bool is_dt_ezsignfolder_archive_Set() const;
+    bool is_dt_ezsignfolder_archive_Valid() const;
+
+    QString getDtEzsignfolderDispose() const;
+    void setDtEzsignfolderDispose(const QString &dt_ezsignfolder_dispose);
+    bool is_dt_ezsignfolder_dispose_Set() const;
+    bool is_dt_ezsignfolder_dispose_Valid() const;
+
     bool isBEzsignfolderSigner() const;
     void setBEzsignfolderSigner(const bool &b_ezsignfolder_signer);
     bool is_b_ezsignfolder_signer_Set() const;
@@ -231,6 +246,18 @@ private:
     QString m_d_ezsignfolder_signaturecompletedpercentage;
     bool m_d_ezsignfolder_signaturecompletedpercentage_isSet;
     bool m_d_ezsignfolder_signaturecompletedpercentage_isValid;
+
+    QString m_dt_ezsignfolder_close;
+    bool m_dt_ezsignfolder_close_isSet;
+    bool m_dt_ezsignfolder_close_isValid;
+
+    QString m_dt_ezsignfolder_archive;
+    bool m_dt_ezsignfolder_archive_isSet;
+    bool m_dt_ezsignfolder_archive_isValid;
+
+    QString m_dt_ezsignfolder_dispose;
+    bool m_dt_ezsignfolder_dispose_isSet;
+    bool m_dt_ezsignfolder_dispose_isValid;
 
     bool m_b_ezsignfolder_signer;
     bool m_b_ezsignfolder_signer_isSet;

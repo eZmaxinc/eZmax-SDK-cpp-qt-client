@@ -22,6 +22,7 @@
 #include <QJsonObject>
 
 #include "Common_Reportsubsectionpart.h"
+#include <QString>
 
 #include "Enum.h"
 #include "Object.h"
@@ -55,6 +56,11 @@ public:
     bool is_obj_reportsubsectionpart_footer_Set() const;
     bool is_obj_reportsubsectionpart_footer_Valid() const;
 
+    QString getSReportsubsectionTitle() const;
+    void setSReportsubsectionTitle(const QString &s_reportsubsection_title);
+    bool is_s_reportsubsection_title_Set() const;
+    bool is_s_reportsubsection_title_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -72,6 +78,10 @@ private:
     Common_Reportsubsectionpart m_obj_reportsubsectionpart_footer;
     bool m_obj_reportsubsectionpart_footer_isSet;
     bool m_obj_reportsubsectionpart_footer_isValid;
+
+    QString m_s_reportsubsection_title;
+    bool m_s_reportsubsection_title_isSet;
+    bool m_s_reportsubsection_title_isValid;
 };
 
 } // namespace Ezmaxapi

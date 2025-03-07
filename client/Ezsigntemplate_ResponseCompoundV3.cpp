@@ -43,6 +43,9 @@ void Ezsigntemplate_ResponseCompoundV3::initializeModel() {
     m_fki_ezsignfoldertype_id_isSet = false;
     m_fki_ezsignfoldertype_id_isValid = false;
 
+    m_obj_ezsignfoldertype_isSet = false;
+    m_obj_ezsignfoldertype_isValid = false;
+
     m_fki_language_id_isSet = false;
     m_fki_language_id_isValid = false;
 
@@ -110,6 +113,9 @@ void Ezsigntemplate_ResponseCompoundV3::fromJsonObject(QJsonObject json) {
     m_fki_ezsignfoldertype_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_ezsignfoldertype_id, json[QString("fkiEzsignfoldertypeID")]);
     m_fki_ezsignfoldertype_id_isSet = !json[QString("fkiEzsignfoldertypeID")].isNull() && m_fki_ezsignfoldertype_id_isValid;
 
+    m_obj_ezsignfoldertype_isValid = ::Ezmaxapi::fromJsonValue(m_obj_ezsignfoldertype, json[QString("objEzsignfoldertype")]);
+    m_obj_ezsignfoldertype_isSet = !json[QString("objEzsignfoldertype")].isNull() && m_obj_ezsignfoldertype_isValid;
+
     m_fki_language_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_language_id, json[QString("fkiLanguageID")]);
     m_fki_language_id_isSet = !json[QString("fkiLanguageID")].isNull() && m_fki_language_id_isValid;
 
@@ -176,6 +182,9 @@ QJsonObject Ezsigntemplate_ResponseCompoundV3::asJsonObject() const {
     }
     if (m_fki_ezsignfoldertype_id_isSet) {
         obj.insert(QString("fkiEzsignfoldertypeID"), ::Ezmaxapi::toJsonValue(m_fki_ezsignfoldertype_id));
+    }
+    if (m_obj_ezsignfoldertype.isSet()) {
+        obj.insert(QString("objEzsignfoldertype"), ::Ezmaxapi::toJsonValue(m_obj_ezsignfoldertype));
     }
     if (m_fki_language_id_isSet) {
         obj.insert(QString("fkiLanguageID"), ::Ezmaxapi::toJsonValue(m_fki_language_id));
@@ -274,6 +283,22 @@ bool Ezsigntemplate_ResponseCompoundV3::is_fki_ezsignfoldertype_id_Set() const{
 
 bool Ezsigntemplate_ResponseCompoundV3::is_fki_ezsignfoldertype_id_Valid() const{
     return m_fki_ezsignfoldertype_id_isValid;
+}
+
+Custom_Ezsignfoldertype_Template_Response Ezsigntemplate_ResponseCompoundV3::getObjEzsignfoldertype() const {
+    return m_obj_ezsignfoldertype;
+}
+void Ezsigntemplate_ResponseCompoundV3::setObjEzsignfoldertype(const Custom_Ezsignfoldertype_Template_Response &obj_ezsignfoldertype) {
+    m_obj_ezsignfoldertype = obj_ezsignfoldertype;
+    m_obj_ezsignfoldertype_isSet = true;
+}
+
+bool Ezsigntemplate_ResponseCompoundV3::is_obj_ezsignfoldertype_Set() const{
+    return m_obj_ezsignfoldertype_isSet;
+}
+
+bool Ezsigntemplate_ResponseCompoundV3::is_obj_ezsignfoldertype_Valid() const{
+    return m_obj_ezsignfoldertype_isValid;
 }
 
 qint32 Ezsigntemplate_ResponseCompoundV3::getFkiLanguageId() const {
@@ -546,6 +571,11 @@ bool Ezsigntemplate_ResponseCompoundV3::isSet() const {
         }
 
         if (m_fki_ezsignfoldertype_id_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_obj_ezsignfoldertype.isSet()) {
             isObjectUpdated = true;
             break;
         }

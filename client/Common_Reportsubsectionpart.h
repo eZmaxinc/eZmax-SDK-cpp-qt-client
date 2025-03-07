@@ -52,6 +52,11 @@ public:
     bool is_a_obj_reportrow_Set() const;
     bool is_a_obj_reportrow_Valid() const;
 
+    QList<QString> getASVariableobjectProperty() const;
+    void setASVariableobjectProperty(const QList<QString> &a_s_variableobject_property);
+    bool is_a_s_variableobject_property_Set() const;
+    bool is_a_s_variableobject_property_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -65,6 +70,10 @@ private:
     QList<Common_Reportrow> m_a_obj_reportrow;
     bool m_a_obj_reportrow_isSet;
     bool m_a_obj_reportrow_isValid;
+
+    QList<QString> m_a_s_variableobject_property;
+    bool m_a_s_variableobject_property_isSet;
+    bool m_a_s_variableobject_property_isValid;
 };
 
 } // namespace Ezmaxapi

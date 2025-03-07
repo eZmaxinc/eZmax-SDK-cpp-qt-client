@@ -49,6 +49,9 @@ void Ezsignsignature_ResponseCompoundV3::initializeModel() {
     m_fki_font_id_isSet = false;
     m_fki_font_id_isValid = false;
 
+    m_s_currency_description_x_isSet = false;
+    m_s_currency_description_x_isValid = false;
+
     m_s_ezsignsigningreason_description_x_isSet = false;
     m_s_ezsignsigningreason_description_x_isValid = false;
 
@@ -159,6 +162,9 @@ void Ezsignsignature_ResponseCompoundV3::initializeModel() {
 
     m_a_obj_ezsignelementdependency_isSet = false;
     m_a_obj_ezsignelementdependency_isValid = false;
+
+    m_a_obj_ezsignsignaturepaymentdetail_isSet = false;
+    m_a_obj_ezsignsignaturepaymentdetail_isValid = false;
 }
 
 void Ezsignsignature_ResponseCompoundV3::fromJson(QString jsonString) {
@@ -184,6 +190,9 @@ void Ezsignsignature_ResponseCompoundV3::fromJsonObject(QJsonObject json) {
 
     m_fki_font_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_font_id, json[QString("fkiFontID")]);
     m_fki_font_id_isSet = !json[QString("fkiFontID")].isNull() && m_fki_font_id_isValid;
+
+    m_s_currency_description_x_isValid = ::Ezmaxapi::fromJsonValue(m_s_currency_description_x, json[QString("sCurrencyDescriptionX")]);
+    m_s_currency_description_x_isSet = !json[QString("sCurrencyDescriptionX")].isNull() && m_s_currency_description_x_isValid;
 
     m_s_ezsignsigningreason_description_x_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsignsigningreason_description_x, json[QString("sEzsignsigningreasonDescriptionX")]);
     m_s_ezsignsigningreason_description_x_isSet = !json[QString("sEzsignsigningreasonDescriptionX")].isNull() && m_s_ezsignsigningreason_description_x_isValid;
@@ -295,6 +304,9 @@ void Ezsignsignature_ResponseCompoundV3::fromJsonObject(QJsonObject json) {
 
     m_a_obj_ezsignelementdependency_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_ezsignelementdependency, json[QString("a_objEzsignelementdependency")]);
     m_a_obj_ezsignelementdependency_isSet = !json[QString("a_objEzsignelementdependency")].isNull() && m_a_obj_ezsignelementdependency_isValid;
+
+    m_a_obj_ezsignsignaturepaymentdetail_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_ezsignsignaturepaymentdetail, json[QString("a_objEzsignsignaturepaymentdetail")]);
+    m_a_obj_ezsignsignaturepaymentdetail_isSet = !json[QString("a_objEzsignsignaturepaymentdetail")].isNull() && m_a_obj_ezsignsignaturepaymentdetail_isValid;
 }
 
 QString Ezsignsignature_ResponseCompoundV3::asJson() const {
@@ -320,6 +332,9 @@ QJsonObject Ezsignsignature_ResponseCompoundV3::asJsonObject() const {
     }
     if (m_fki_font_id_isSet) {
         obj.insert(QString("fkiFontID"), ::Ezmaxapi::toJsonValue(m_fki_font_id));
+    }
+    if (m_s_currency_description_x_isSet) {
+        obj.insert(QString("sCurrencyDescriptionX"), ::Ezmaxapi::toJsonValue(m_s_currency_description_x));
     }
     if (m_s_ezsignsigningreason_description_x_isSet) {
         obj.insert(QString("sEzsignsigningreasonDescriptionX"), ::Ezmaxapi::toJsonValue(m_s_ezsignsigningreason_description_x));
@@ -432,6 +447,9 @@ QJsonObject Ezsignsignature_ResponseCompoundV3::asJsonObject() const {
     if (m_a_obj_ezsignelementdependency.size() > 0) {
         obj.insert(QString("a_objEzsignelementdependency"), ::Ezmaxapi::toJsonValue(m_a_obj_ezsignelementdependency));
     }
+    if (m_a_obj_ezsignsignaturepaymentdetail.size() > 0) {
+        obj.insert(QString("a_objEzsignsignaturepaymentdetail"), ::Ezmaxapi::toJsonValue(m_a_obj_ezsignsignaturepaymentdetail));
+    }
     return obj;
 }
 
@@ -513,6 +531,22 @@ bool Ezsignsignature_ResponseCompoundV3::is_fki_font_id_Set() const{
 
 bool Ezsignsignature_ResponseCompoundV3::is_fki_font_id_Valid() const{
     return m_fki_font_id_isValid;
+}
+
+QString Ezsignsignature_ResponseCompoundV3::getSCurrencyDescriptionX() const {
+    return m_s_currency_description_x;
+}
+void Ezsignsignature_ResponseCompoundV3::setSCurrencyDescriptionX(const QString &s_currency_description_x) {
+    m_s_currency_description_x = s_currency_description_x;
+    m_s_currency_description_x_isSet = true;
+}
+
+bool Ezsignsignature_ResponseCompoundV3::is_s_currency_description_x_Set() const{
+    return m_s_currency_description_x_isSet;
+}
+
+bool Ezsignsignature_ResponseCompoundV3::is_s_currency_description_x_Valid() const{
+    return m_s_currency_description_x_isValid;
 }
 
 QString Ezsignsignature_ResponseCompoundV3::getSEzsignsigningreasonDescriptionX() const {
@@ -1107,6 +1141,22 @@ bool Ezsignsignature_ResponseCompoundV3::is_a_obj_ezsignelementdependency_Valid(
     return m_a_obj_ezsignelementdependency_isValid;
 }
 
+QList<Ezsignsignaturepaymentdetail_ResponseCompound> Ezsignsignature_ResponseCompoundV3::getAObjEzsignsignaturepaymentdetail() const {
+    return m_a_obj_ezsignsignaturepaymentdetail;
+}
+void Ezsignsignature_ResponseCompoundV3::setAObjEzsignsignaturepaymentdetail(const QList<Ezsignsignaturepaymentdetail_ResponseCompound> &a_obj_ezsignsignaturepaymentdetail) {
+    m_a_obj_ezsignsignaturepaymentdetail = a_obj_ezsignsignaturepaymentdetail;
+    m_a_obj_ezsignsignaturepaymentdetail_isSet = true;
+}
+
+bool Ezsignsignature_ResponseCompoundV3::is_a_obj_ezsignsignaturepaymentdetail_Set() const{
+    return m_a_obj_ezsignsignaturepaymentdetail_isSet;
+}
+
+bool Ezsignsignature_ResponseCompoundV3::is_a_obj_ezsignsignaturepaymentdetail_Valid() const{
+    return m_a_obj_ezsignsignaturepaymentdetail_isValid;
+}
+
 bool Ezsignsignature_ResponseCompoundV3::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -1131,6 +1181,11 @@ bool Ezsignsignature_ResponseCompoundV3::isSet() const {
         }
 
         if (m_fki_font_id_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_s_currency_description_x_isSet) {
             isObjectUpdated = true;
             break;
         }
@@ -1316,6 +1371,11 @@ bool Ezsignsignature_ResponseCompoundV3::isSet() const {
         }
 
         if (m_a_obj_ezsignelementdependency.size() > 0) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_a_obj_ezsignsignaturepaymentdetail.size() > 0) {
             isObjectUpdated = true;
             break;
         }

@@ -40,6 +40,9 @@ void Ezsignsignature_RequestCompound::initializeModel() {
     m_fki_ezsignfoldersignerassociation_id_isSet = false;
     m_fki_ezsignfoldersignerassociation_id_isValid = false;
 
+    m_fki_paymentgateway_id_isSet = false;
+    m_fki_paymentgateway_id_isValid = false;
+
     m_i_ezsignpage_pagenumber_isSet = false;
     m_i_ezsignpage_pagenumber_isValid = false;
 
@@ -140,6 +143,9 @@ void Ezsignsignature_RequestCompound::fromJsonObject(QJsonObject json) {
     m_fki_ezsignfoldersignerassociation_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_ezsignfoldersignerassociation_id, json[QString("fkiEzsignfoldersignerassociationID")]);
     m_fki_ezsignfoldersignerassociation_id_isSet = !json[QString("fkiEzsignfoldersignerassociationID")].isNull() && m_fki_ezsignfoldersignerassociation_id_isValid;
 
+    m_fki_paymentgateway_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_paymentgateway_id, json[QString("fkiPaymentgatewayID")]);
+    m_fki_paymentgateway_id_isSet = !json[QString("fkiPaymentgatewayID")].isNull() && m_fki_paymentgateway_id_isValid;
+
     m_i_ezsignpage_pagenumber_isValid = ::Ezmaxapi::fromJsonValue(m_i_ezsignpage_pagenumber, json[QString("iEzsignpagePagenumber")]);
     m_i_ezsignpage_pagenumber_isSet = !json[QString("iEzsignpagePagenumber")].isNull() && m_i_ezsignpage_pagenumber_isValid;
 
@@ -239,6 +245,9 @@ QJsonObject Ezsignsignature_RequestCompound::asJsonObject() const {
     }
     if (m_fki_ezsignfoldersignerassociation_id_isSet) {
         obj.insert(QString("fkiEzsignfoldersignerassociationID"), ::Ezmaxapi::toJsonValue(m_fki_ezsignfoldersignerassociation_id));
+    }
+    if (m_fki_paymentgateway_id_isSet) {
+        obj.insert(QString("fkiPaymentgatewayID"), ::Ezmaxapi::toJsonValue(m_fki_paymentgateway_id));
     }
     if (m_i_ezsignpage_pagenumber_isSet) {
         obj.insert(QString("iEzsignpagePagenumber"), ::Ezmaxapi::toJsonValue(m_i_ezsignpage_pagenumber));
@@ -357,6 +366,22 @@ bool Ezsignsignature_RequestCompound::is_fki_ezsignfoldersignerassociation_id_Se
 
 bool Ezsignsignature_RequestCompound::is_fki_ezsignfoldersignerassociation_id_Valid() const{
     return m_fki_ezsignfoldersignerassociation_id_isValid;
+}
+
+qint32 Ezsignsignature_RequestCompound::getFkiPaymentgatewayId() const {
+    return m_fki_paymentgateway_id;
+}
+void Ezsignsignature_RequestCompound::setFkiPaymentgatewayId(const qint32 &fki_paymentgateway_id) {
+    m_fki_paymentgateway_id = fki_paymentgateway_id;
+    m_fki_paymentgateway_id_isSet = true;
+}
+
+bool Ezsignsignature_RequestCompound::is_fki_paymentgateway_id_Set() const{
+    return m_fki_paymentgateway_id_isSet;
+}
+
+bool Ezsignsignature_RequestCompound::is_fki_paymentgateway_id_Valid() const{
+    return m_fki_paymentgateway_id_isValid;
 }
 
 qint32 Ezsignsignature_RequestCompound::getIEzsignpagePagenumber() const {
@@ -816,6 +841,11 @@ bool Ezsignsignature_RequestCompound::isSet() const {
         }
 
         if (m_fki_ezsignfoldersignerassociation_id_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_fki_paymentgateway_id_isSet) {
             isObjectUpdated = true;
             break;
         }

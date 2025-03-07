@@ -61,6 +61,11 @@ public:
     bool is_fki_ezsignfoldersignerassociation_id_Set() const;
     bool is_fki_ezsignfoldersignerassociation_id_Valid() const;
 
+    qint32 getFkiPaymentgatewayId() const;
+    void setFkiPaymentgatewayId(const qint32 &fki_paymentgateway_id);
+    bool is_fki_paymentgateway_id_Set() const;
+    bool is_fki_paymentgateway_id_Valid() const;
+
     qint32 getIEzsignpagePagenumber() const;
     void setIEzsignpagePagenumber(const qint32 &i_ezsignpage_pagenumber);
     bool is_i_ezsignpage_pagenumber_Set() const;
@@ -214,6 +219,10 @@ private:
     qint32 m_fki_ezsignfoldersignerassociation_id;
     bool m_fki_ezsignfoldersignerassociation_id_isSet;
     bool m_fki_ezsignfoldersignerassociation_id_isValid;
+
+    qint32 m_fki_paymentgateway_id;
+    bool m_fki_paymentgateway_id_isSet;
+    bool m_fki_paymentgateway_id_isValid;
 
     qint32 m_i_ezsignpage_pagenumber;
     bool m_i_ezsignpage_pagenumber_isSet;

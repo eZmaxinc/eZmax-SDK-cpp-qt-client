@@ -24,6 +24,7 @@
 #include "Enum_Textvalidation.h"
 #include "Ezsignelementdependency_RequestCompound.h"
 #include "Ezsignsignaturecustomdate_RequestCompoundV2.h"
+#include "Ezsignsignaturepaymentdetail_RequestCompound.h"
 #include "Field_eEzsignsignatureAttachmentnamesource.h"
 #include "Field_eEzsignsignatureConsultationtrigger.h"
 #include "Field_eEzsignsignatureDependencyrequirement.h"
@@ -39,6 +40,7 @@
 namespace Ezmaxapi {
 class Ezsignsignaturecustomdate_RequestCompoundV2;
 class Ezsignelementdependency_RequestCompound;
+class Ezsignsignaturepaymentdetail_RequestCompound;
 
 class Ezsignsignature_RequestCompoundV2 : public Object {
 public:
@@ -60,6 +62,11 @@ public:
     void setFkiEzsignfoldersignerassociationId(const qint32 &fki_ezsignfoldersignerassociation_id);
     bool is_fki_ezsignfoldersignerassociation_id_Set() const;
     bool is_fki_ezsignfoldersignerassociation_id_Valid() const;
+
+    qint32 getFkiPaymentgatewayId() const;
+    void setFkiPaymentgatewayId(const qint32 &fki_paymentgateway_id);
+    bool is_fki_paymentgateway_id_Set() const;
+    bool is_fki_paymentgateway_id_Valid() const;
 
     qint32 getIEzsignpagePagenumber() const;
     void setIEzsignpagePagenumber(const qint32 &i_ezsignpage_pagenumber);
@@ -201,6 +208,11 @@ public:
     bool is_a_obj_ezsignelementdependency_Set() const;
     bool is_a_obj_ezsignelementdependency_Valid() const;
 
+    QList<Ezsignsignaturepaymentdetail_RequestCompound> getAObjEzsignsignaturepaymentdetail() const;
+    void setAObjEzsignsignaturepaymentdetail(const QList<Ezsignsignaturepaymentdetail_RequestCompound> &a_obj_ezsignsignaturepaymentdetail);
+    bool is_a_obj_ezsignsignaturepaymentdetail_Set() const;
+    bool is_a_obj_ezsignsignaturepaymentdetail_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -214,6 +226,10 @@ private:
     qint32 m_fki_ezsignfoldersignerassociation_id;
     bool m_fki_ezsignfoldersignerassociation_id_isSet;
     bool m_fki_ezsignfoldersignerassociation_id_isValid;
+
+    qint32 m_fki_paymentgateway_id;
+    bool m_fki_paymentgateway_id_isSet;
+    bool m_fki_paymentgateway_id_isValid;
 
     qint32 m_i_ezsignpage_pagenumber;
     bool m_i_ezsignpage_pagenumber_isSet;
@@ -326,6 +342,10 @@ private:
     QList<Ezsignelementdependency_RequestCompound> m_a_obj_ezsignelementdependency;
     bool m_a_obj_ezsignelementdependency_isSet;
     bool m_a_obj_ezsignelementdependency_isValid;
+
+    QList<Ezsignsignaturepaymentdetail_RequestCompound> m_a_obj_ezsignsignaturepaymentdetail;
+    bool m_a_obj_ezsignsignaturepaymentdetail_isSet;
+    bool m_a_obj_ezsignsignaturepaymentdetail_isValid;
 };
 
 } // namespace Ezmaxapi

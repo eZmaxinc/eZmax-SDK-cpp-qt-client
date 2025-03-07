@@ -25,6 +25,7 @@
 #include "Common_Reportsubsection.h"
 #include "Enum_Horizontalalignment.h"
 #include <QList>
+#include <QString>
 
 #include "Enum.h"
 #include "Object.h"
@@ -69,6 +70,11 @@ public:
     bool is_i_reportsection_width_Set() const;
     bool is_i_reportsection_width_Valid() const;
 
+    QString getSReportsectionTitle() const;
+    void setSReportsectionTitle(const QString &s_reportsection_title);
+    bool is_s_reportsection_title_Set() const;
+    bool is_s_reportsection_title_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -94,6 +100,10 @@ private:
     qint32 m_i_reportsection_width;
     bool m_i_reportsection_width_isSet;
     bool m_i_reportsection_width_isValid;
+
+    QString m_s_reportsection_title;
+    bool m_s_reportsection_title_isSet;
+    bool m_s_reportsection_title_isValid;
 };
 
 } // namespace Ezmaxapi

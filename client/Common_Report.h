@@ -23,6 +23,7 @@
 
 #include "Common_Reportsection.h"
 #include <QList>
+#include <QString>
 
 #include "Enum.h"
 #include "Object.h"
@@ -46,6 +47,16 @@ public:
     bool is_a_obj_reportsection_Set() const;
     bool is_a_obj_reportsection_Valid() const;
 
+    bool isBReportPaginate() const;
+    void setBReportPaginate(const bool &b_report_paginate);
+    bool is_b_report_paginate_Set() const;
+    bool is_b_report_paginate_Valid() const;
+
+    QString getSReportTitle() const;
+    void setSReportTitle(const QString &s_report_title);
+    bool is_s_report_title_Set() const;
+    bool is_s_report_title_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -55,6 +66,14 @@ private:
     QList<Common_Reportsection> m_a_obj_reportsection;
     bool m_a_obj_reportsection_isSet;
     bool m_a_obj_reportsection_isValid;
+
+    bool m_b_report_paginate;
+    bool m_b_report_paginate_isSet;
+    bool m_b_report_paginate_isValid;
+
+    QString m_s_report_title;
+    bool m_s_report_title_isSet;
+    bool m_s_report_title_isValid;
 };
 
 } // namespace Ezmaxapi

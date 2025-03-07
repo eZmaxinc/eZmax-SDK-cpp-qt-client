@@ -164,6 +164,16 @@ public:
     bool is_dt_ezsignfolder_close_Set() const;
     bool is_dt_ezsignfolder_close_Valid() const;
 
+    QString getDtEzsignfolderArchive() const;
+    void setDtEzsignfolderArchive(const QString &dt_ezsignfolder_archive);
+    bool is_dt_ezsignfolder_archive_Set() const;
+    bool is_dt_ezsignfolder_archive_Valid() const;
+
+    QString getDtEzsignfolderDispose() const;
+    void setDtEzsignfolderDispose(const QString &dt_ezsignfolder_dispose);
+    bool is_dt_ezsignfolder_dispose_Set() const;
+    bool is_dt_ezsignfolder_dispose_Valid() const;
+
     QString getTEzsignfolderMessage() const;
     void setTEzsignfolderMessage(const QString &t_ezsignfolder_message);
     bool is_t_ezsignfolder_message_Set() const;
@@ -286,6 +296,14 @@ private:
     QString m_dt_ezsignfolder_close;
     bool m_dt_ezsignfolder_close_isSet;
     bool m_dt_ezsignfolder_close_isValid;
+
+    QString m_dt_ezsignfolder_archive;
+    bool m_dt_ezsignfolder_archive_isSet;
+    bool m_dt_ezsignfolder_archive_isValid;
+
+    QString m_dt_ezsignfolder_dispose;
+    bool m_dt_ezsignfolder_dispose_isSet;
+    bool m_dt_ezsignfolder_dispose_isValid;
 
     QString m_t_ezsignfolder_message;
     bool m_t_ezsignfolder_message_isSet;

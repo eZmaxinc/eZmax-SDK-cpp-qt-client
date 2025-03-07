@@ -22,6 +22,7 @@
 #include <QJsonObject>
 
 #include "Common_Reportcellstyle.h"
+#include "Enum_ReportdataType.h"
 
 #include "Enum.h"
 #include "Object.h"
@@ -50,6 +51,11 @@ public:
     bool is_i_reportcolumn_width_Set() const;
     bool is_i_reportcolumn_width_Valid() const;
 
+    Enum_ReportdataType getEReportcolumnType() const;
+    void setEReportcolumnType(const Enum_ReportdataType &e_reportcolumn_type);
+    bool is_e_reportcolumn_type_Set() const;
+    bool is_e_reportcolumn_type_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -63,6 +69,10 @@ private:
     qint32 m_i_reportcolumn_width;
     bool m_i_reportcolumn_width_isSet;
     bool m_i_reportcolumn_width_isValid;
+
+    Enum_ReportdataType m_e_reportcolumn_type;
+    bool m_e_reportcolumn_type_isSet;
+    bool m_e_reportcolumn_type_isValid;
 };
 
 } // namespace Ezmaxapi

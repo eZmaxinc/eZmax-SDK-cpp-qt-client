@@ -40,6 +40,9 @@ void Ezsignsignature_RequestCompoundV2::initializeModel() {
     m_fki_ezsignfoldersignerassociation_id_isSet = false;
     m_fki_ezsignfoldersignerassociation_id_isValid = false;
 
+    m_fki_paymentgateway_id_isSet = false;
+    m_fki_paymentgateway_id_isValid = false;
+
     m_i_ezsignpage_pagenumber_isSet = false;
     m_i_ezsignpage_pagenumber_isValid = false;
 
@@ -123,6 +126,9 @@ void Ezsignsignature_RequestCompoundV2::initializeModel() {
 
     m_a_obj_ezsignelementdependency_isSet = false;
     m_a_obj_ezsignelementdependency_isValid = false;
+
+    m_a_obj_ezsignsignaturepaymentdetail_isSet = false;
+    m_a_obj_ezsignsignaturepaymentdetail_isValid = false;
 }
 
 void Ezsignsignature_RequestCompoundV2::fromJson(QString jsonString) {
@@ -139,6 +145,9 @@ void Ezsignsignature_RequestCompoundV2::fromJsonObject(QJsonObject json) {
 
     m_fki_ezsignfoldersignerassociation_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_ezsignfoldersignerassociation_id, json[QString("fkiEzsignfoldersignerassociationID")]);
     m_fki_ezsignfoldersignerassociation_id_isSet = !json[QString("fkiEzsignfoldersignerassociationID")].isNull() && m_fki_ezsignfoldersignerassociation_id_isValid;
+
+    m_fki_paymentgateway_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_paymentgateway_id, json[QString("fkiPaymentgatewayID")]);
+    m_fki_paymentgateway_id_isSet = !json[QString("fkiPaymentgatewayID")].isNull() && m_fki_paymentgateway_id_isValid;
 
     m_i_ezsignpage_pagenumber_isValid = ::Ezmaxapi::fromJsonValue(m_i_ezsignpage_pagenumber, json[QString("iEzsignpagePagenumber")]);
     m_i_ezsignpage_pagenumber_isSet = !json[QString("iEzsignpagePagenumber")].isNull() && m_i_ezsignpage_pagenumber_isValid;
@@ -223,6 +232,9 @@ void Ezsignsignature_RequestCompoundV2::fromJsonObject(QJsonObject json) {
 
     m_a_obj_ezsignelementdependency_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_ezsignelementdependency, json[QString("a_objEzsignelementdependency")]);
     m_a_obj_ezsignelementdependency_isSet = !json[QString("a_objEzsignelementdependency")].isNull() && m_a_obj_ezsignelementdependency_isValid;
+
+    m_a_obj_ezsignsignaturepaymentdetail_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_ezsignsignaturepaymentdetail, json[QString("a_objEzsignsignaturepaymentdetail")]);
+    m_a_obj_ezsignsignaturepaymentdetail_isSet = !json[QString("a_objEzsignsignaturepaymentdetail")].isNull() && m_a_obj_ezsignsignaturepaymentdetail_isValid;
 }
 
 QString Ezsignsignature_RequestCompoundV2::asJson() const {
@@ -239,6 +251,9 @@ QJsonObject Ezsignsignature_RequestCompoundV2::asJsonObject() const {
     }
     if (m_fki_ezsignfoldersignerassociation_id_isSet) {
         obj.insert(QString("fkiEzsignfoldersignerassociationID"), ::Ezmaxapi::toJsonValue(m_fki_ezsignfoldersignerassociation_id));
+    }
+    if (m_fki_paymentgateway_id_isSet) {
+        obj.insert(QString("fkiPaymentgatewayID"), ::Ezmaxapi::toJsonValue(m_fki_paymentgateway_id));
     }
     if (m_i_ezsignpage_pagenumber_isSet) {
         obj.insert(QString("iEzsignpagePagenumber"), ::Ezmaxapi::toJsonValue(m_i_ezsignpage_pagenumber));
@@ -324,6 +339,9 @@ QJsonObject Ezsignsignature_RequestCompoundV2::asJsonObject() const {
     if (m_a_obj_ezsignelementdependency.size() > 0) {
         obj.insert(QString("a_objEzsignelementdependency"), ::Ezmaxapi::toJsonValue(m_a_obj_ezsignelementdependency));
     }
+    if (m_a_obj_ezsignsignaturepaymentdetail.size() > 0) {
+        obj.insert(QString("a_objEzsignsignaturepaymentdetail"), ::Ezmaxapi::toJsonValue(m_a_obj_ezsignsignaturepaymentdetail));
+    }
     return obj;
 }
 
@@ -357,6 +375,22 @@ bool Ezsignsignature_RequestCompoundV2::is_fki_ezsignfoldersignerassociation_id_
 
 bool Ezsignsignature_RequestCompoundV2::is_fki_ezsignfoldersignerassociation_id_Valid() const{
     return m_fki_ezsignfoldersignerassociation_id_isValid;
+}
+
+qint32 Ezsignsignature_RequestCompoundV2::getFkiPaymentgatewayId() const {
+    return m_fki_paymentgateway_id;
+}
+void Ezsignsignature_RequestCompoundV2::setFkiPaymentgatewayId(const qint32 &fki_paymentgateway_id) {
+    m_fki_paymentgateway_id = fki_paymentgateway_id;
+    m_fki_paymentgateway_id_isSet = true;
+}
+
+bool Ezsignsignature_RequestCompoundV2::is_fki_paymentgateway_id_Set() const{
+    return m_fki_paymentgateway_id_isSet;
+}
+
+bool Ezsignsignature_RequestCompoundV2::is_fki_paymentgateway_id_Valid() const{
+    return m_fki_paymentgateway_id_isValid;
 }
 
 qint32 Ezsignsignature_RequestCompoundV2::getIEzsignpagePagenumber() const {
@@ -807,6 +841,22 @@ bool Ezsignsignature_RequestCompoundV2::is_a_obj_ezsignelementdependency_Valid()
     return m_a_obj_ezsignelementdependency_isValid;
 }
 
+QList<Ezsignsignaturepaymentdetail_RequestCompound> Ezsignsignature_RequestCompoundV2::getAObjEzsignsignaturepaymentdetail() const {
+    return m_a_obj_ezsignsignaturepaymentdetail;
+}
+void Ezsignsignature_RequestCompoundV2::setAObjEzsignsignaturepaymentdetail(const QList<Ezsignsignaturepaymentdetail_RequestCompound> &a_obj_ezsignsignaturepaymentdetail) {
+    m_a_obj_ezsignsignaturepaymentdetail = a_obj_ezsignsignaturepaymentdetail;
+    m_a_obj_ezsignsignaturepaymentdetail_isSet = true;
+}
+
+bool Ezsignsignature_RequestCompoundV2::is_a_obj_ezsignsignaturepaymentdetail_Set() const{
+    return m_a_obj_ezsignsignaturepaymentdetail_isSet;
+}
+
+bool Ezsignsignature_RequestCompoundV2::is_a_obj_ezsignsignaturepaymentdetail_Valid() const{
+    return m_a_obj_ezsignsignaturepaymentdetail_isValid;
+}
+
 bool Ezsignsignature_RequestCompoundV2::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -816,6 +866,11 @@ bool Ezsignsignature_RequestCompoundV2::isSet() const {
         }
 
         if (m_fki_ezsignfoldersignerassociation_id_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_fki_paymentgateway_id_isSet) {
             isObjectUpdated = true;
             break;
         }
@@ -956,6 +1011,11 @@ bool Ezsignsignature_RequestCompoundV2::isSet() const {
         }
 
         if (m_a_obj_ezsignelementdependency.size() > 0) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_a_obj_ezsignsignaturepaymentdetail.size() > 0) {
             isObjectUpdated = true;
             break;
         }

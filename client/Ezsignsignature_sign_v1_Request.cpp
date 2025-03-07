@@ -55,6 +55,9 @@ void Ezsignsignature_sign_v1_Request::initializeModel() {
     m_a_obj_file_isSet = false;
     m_a_obj_file_isValid = false;
 
+    m_obj_creditcard_isSet = false;
+    m_obj_creditcard_isValid = false;
+
     m_b_is_automatic_isSet = false;
     m_b_is_automatic_isValid = false;
 }
@@ -89,6 +92,9 @@ void Ezsignsignature_sign_v1_Request::fromJsonObject(QJsonObject json) {
     m_a_obj_file_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_file, json[QString("a_objFile")]);
     m_a_obj_file_isSet = !json[QString("a_objFile")].isNull() && m_a_obj_file_isValid;
 
+    m_obj_creditcard_isValid = ::Ezmaxapi::fromJsonValue(m_obj_creditcard, json[QString("objCreditcard")]);
+    m_obj_creditcard_isSet = !json[QString("objCreditcard")].isNull() && m_obj_creditcard_isValid;
+
     m_b_is_automatic_isValid = ::Ezmaxapi::fromJsonValue(m_b_is_automatic, json[QString("bIsAutomatic")]);
     m_b_is_automatic_isSet = !json[QString("bIsAutomatic")].isNull() && m_b_is_automatic_isValid;
 }
@@ -122,6 +128,9 @@ QJsonObject Ezsignsignature_sign_v1_Request::asJsonObject() const {
     }
     if (m_a_obj_file.size() > 0) {
         obj.insert(QString("a_objFile"), ::Ezmaxapi::toJsonValue(m_a_obj_file));
+    }
+    if (m_obj_creditcard.isSet()) {
+        obj.insert(QString("objCreditcard"), ::Ezmaxapi::toJsonValue(m_obj_creditcard));
     }
     if (m_b_is_automatic_isSet) {
         obj.insert(QString("bIsAutomatic"), ::Ezmaxapi::toJsonValue(m_b_is_automatic));
@@ -241,6 +250,22 @@ bool Ezsignsignature_sign_v1_Request::is_a_obj_file_Valid() const{
     return m_a_obj_file_isValid;
 }
 
+Custom_Creditcard_Request Ezsignsignature_sign_v1_Request::getObjCreditcard() const {
+    return m_obj_creditcard;
+}
+void Ezsignsignature_sign_v1_Request::setObjCreditcard(const Custom_Creditcard_Request &obj_creditcard) {
+    m_obj_creditcard = obj_creditcard;
+    m_obj_creditcard_isSet = true;
+}
+
+bool Ezsignsignature_sign_v1_Request::is_obj_creditcard_Set() const{
+    return m_obj_creditcard_isSet;
+}
+
+bool Ezsignsignature_sign_v1_Request::is_obj_creditcard_Valid() const{
+    return m_obj_creditcard_isValid;
+}
+
 bool Ezsignsignature_sign_v1_Request::isBIsAutomatic() const {
     return m_b_is_automatic;
 }
@@ -291,6 +316,11 @@ bool Ezsignsignature_sign_v1_Request::isSet() const {
         }
 
         if (m_a_obj_file.size() > 0) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_obj_creditcard.isSet()) {
             isObjectUpdated = true;
             break;
         }

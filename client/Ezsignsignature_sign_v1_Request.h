@@ -22,6 +22,7 @@
 #include <QJsonObject>
 
 #include "Common_File.h"
+#include "Custom_Creditcard_Request.h"
 #include <QList>
 #include <QString>
 
@@ -30,6 +31,7 @@
 
 namespace Ezmaxapi {
 class Common_File;
+class Custom_Creditcard_Request;
 
 class Ezsignsignature_sign_v1_Request : public Object {
 public:
@@ -77,6 +79,11 @@ public:
     bool is_a_obj_file_Set() const;
     bool is_a_obj_file_Valid() const;
 
+    Custom_Creditcard_Request getObjCreditcard() const;
+    void setObjCreditcard(const Custom_Creditcard_Request &obj_creditcard);
+    bool is_obj_creditcard_Set() const;
+    bool is_obj_creditcard_Valid() const;
+
     bool isBIsAutomatic() const;
     void setBIsAutomatic(const bool &b_is_automatic);
     bool is_b_is_automatic_Set() const;
@@ -115,6 +122,10 @@ private:
     QList<Common_File> m_a_obj_file;
     bool m_a_obj_file_isSet;
     bool m_a_obj_file_isValid;
+
+    Custom_Creditcard_Request m_obj_creditcard;
+    bool m_obj_creditcard_isSet;
+    bool m_obj_creditcard_isValid;
 
     bool m_b_is_automatic;
     bool m_b_is_automatic_isSet;

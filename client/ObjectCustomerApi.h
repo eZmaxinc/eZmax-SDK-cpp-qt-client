@@ -21,7 +21,9 @@
 #include "Common_Response_Error.h"
 #include "Customer_createObject_v1_Request.h"
 #include "Customer_createObject_v1_Response.h"
+#include "Customer_getAutocomplete_v2_Response.h"
 #include "Customer_getObject_v2_Response.h"
+#include "Header_Accept_Language.h"
 #include <QString>
 
 #include <QObject>
@@ -66,6 +68,14 @@ public:
     virtual void customerCreateObjectV1(const Customer_createObject_v1_Request &customer_create_object_v1_request);
 
     /**
+    * @param[in]  s_selector QString [required]
+    * @param[in]  e_filter_active QString [optional]
+    * @param[in]  s_query QString [optional]
+    * @param[in]  accept_language Header_Accept_Language [optional]
+    */
+    virtual void customerGetAutocompleteV2(const QString &s_selector, const ::Ezmaxapi::OptionalParam<QString> &e_filter_active = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<QString> &s_query = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<Header_Accept_Language>());
+
+    /**
     * @param[in]  pki_customer_id qint32 [required]
     */
     virtual void customerGetObjectV2(const qint32 &pki_customer_id);
@@ -94,20 +104,26 @@ private:
     int _OauthMethod = 0;
 
     void customerCreateObjectV1Callback(HttpRequestWorker *worker);
+    void customerGetAutocompleteV2Callback(HttpRequestWorker *worker);
     void customerGetObjectV2Callback(HttpRequestWorker *worker);
 
 Q_SIGNALS:
 
     void customerCreateObjectV1Signal(Customer_createObject_v1_Response summary);
+    void customerGetAutocompleteV2Signal(Customer_getAutocomplete_v2_Response summary);
     void customerGetObjectV2Signal(Customer_getObject_v2_Response summary);
 
 
     void customerCreateObjectV1SignalFull(HttpRequestWorker *worker, Customer_createObject_v1_Response summary);
+    void customerGetAutocompleteV2SignalFull(HttpRequestWorker *worker, Customer_getAutocomplete_v2_Response summary);
     void customerGetObjectV2SignalFull(HttpRequestWorker *worker, Customer_getObject_v2_Response summary);
 
     Q_DECL_DEPRECATED_X("Use customerCreateObjectV1SignalError() instead")
     void customerCreateObjectV1SignalE(Customer_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void customerCreateObjectV1SignalError(Customer_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use customerGetAutocompleteV2SignalError() instead")
+    void customerGetAutocompleteV2SignalE(Customer_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void customerGetAutocompleteV2SignalError(Customer_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use customerGetObjectV2SignalError() instead")
     void customerGetObjectV2SignalE(Customer_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void customerGetObjectV2SignalError(Customer_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -115,6 +131,9 @@ Q_SIGNALS:
     Q_DECL_DEPRECATED_X("Use customerCreateObjectV1SignalErrorFull() instead")
     void customerCreateObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void customerCreateObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use customerGetAutocompleteV2SignalErrorFull() instead")
+    void customerGetAutocompleteV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void customerGetAutocompleteV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use customerGetObjectV2SignalErrorFull() instead")
     void customerGetObjectV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void customerGetObjectV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);

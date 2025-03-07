@@ -37,6 +37,9 @@ void Common_Reportrow::initializeModel() {
     m_a_obj_reportcell_isSet = false;
     m_a_obj_reportcell_isValid = false;
 
+    m_obj_variableobject_isSet = false;
+    m_obj_variableobject_isValid = false;
+
     m_i_reportrow_height_isSet = false;
     m_i_reportrow_height_isValid = false;
 }
@@ -53,6 +56,9 @@ void Common_Reportrow::fromJsonObject(QJsonObject json) {
     m_a_obj_reportcell_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_reportcell, json[QString("a_objReportcell")]);
     m_a_obj_reportcell_isSet = !json[QString("a_objReportcell")].isNull() && m_a_obj_reportcell_isValid;
 
+    m_obj_variableobject_isValid = ::Ezmaxapi::fromJsonValue(m_obj_variableobject, json[QString("objVariableobject")]);
+    m_obj_variableobject_isSet = !json[QString("objVariableobject")].isNull() && m_obj_variableobject_isValid;
+
     m_i_reportrow_height_isValid = ::Ezmaxapi::fromJsonValue(m_i_reportrow_height, json[QString("iReportrowHeight")]);
     m_i_reportrow_height_isSet = !json[QString("iReportrowHeight")].isNull() && m_i_reportrow_height_isValid;
 }
@@ -68,6 +74,9 @@ QJsonObject Common_Reportrow::asJsonObject() const {
     QJsonObject obj;
     if (m_a_obj_reportcell.size() > 0) {
         obj.insert(QString("a_objReportcell"), ::Ezmaxapi::toJsonValue(m_a_obj_reportcell));
+    }
+    if (m_obj_variableobject.size() > 0) {
+        obj.insert(QString("objVariableobject"), ::Ezmaxapi::toJsonValue(m_obj_variableobject));
     }
     if (m_i_reportrow_height_isSet) {
         obj.insert(QString("iReportrowHeight"), ::Ezmaxapi::toJsonValue(m_i_reportrow_height));
@@ -89,6 +98,22 @@ bool Common_Reportrow::is_a_obj_reportcell_Set() const{
 
 bool Common_Reportrow::is_a_obj_reportcell_Valid() const{
     return m_a_obj_reportcell_isValid;
+}
+
+QMap<QString, QJsonValue> Common_Reportrow::getObjVariableobject() const {
+    return m_obj_variableobject;
+}
+void Common_Reportrow::setObjVariableobject(const QMap<QString, QJsonValue> &obj_variableobject) {
+    m_obj_variableobject = obj_variableobject;
+    m_obj_variableobject_isSet = true;
+}
+
+bool Common_Reportrow::is_obj_variableobject_Set() const{
+    return m_obj_variableobject_isSet;
+}
+
+bool Common_Reportrow::is_obj_variableobject_Valid() const{
+    return m_obj_variableobject_isValid;
 }
 
 qint32 Common_Reportrow::getIReportrowHeight() const {
@@ -115,6 +140,11 @@ bool Common_Reportrow::isSet() const {
             break;
         }
 
+        if (m_obj_variableobject.size() > 0) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (m_i_reportrow_height_isSet) {
             isObjectUpdated = true;
             break;
@@ -125,7 +155,7 @@ bool Common_Reportrow::isSet() const {
 
 bool Common_Reportrow::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_a_obj_reportcell_isValid && m_i_reportrow_height_isValid && true;
+    return m_a_obj_reportcell_isValid && m_obj_variableobject_isValid && m_i_reportrow_height_isValid && true;
 }
 
 } // namespace Ezmaxapi

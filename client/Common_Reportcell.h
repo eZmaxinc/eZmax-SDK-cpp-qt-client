@@ -21,6 +21,7 @@
 
 #include <QJsonObject>
 
+#include <QString>
 
 #include "Enum.h"
 #include "Object.h"
@@ -48,6 +49,16 @@ public:
     bool is_i_reportcell_rowspan_Set() const;
     bool is_i_reportcell_rowspan_Valid() const;
 
+    QString getSReportcellContent() const;
+    void setSReportcellContent(const QString &s_reportcell_content);
+    bool is_s_reportcell_content_Set() const;
+    bool is_s_reportcell_content_Valid() const;
+
+    qint32 getIReportcellColumn() const;
+    void setIReportcellColumn(const qint32 &i_reportcell_column);
+    bool is_i_reportcell_column_Set() const;
+    bool is_i_reportcell_column_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -61,6 +72,14 @@ private:
     qint32 m_i_reportcell_rowspan;
     bool m_i_reportcell_rowspan_isSet;
     bool m_i_reportcell_rowspan_isValid;
+
+    QString m_s_reportcell_content;
+    bool m_s_reportcell_content_isSet;
+    bool m_s_reportcell_content_isValid;
+
+    qint32 m_i_reportcell_column;
+    bool m_i_reportcell_column_isSet;
+    bool m_i_reportcell_column_isValid;
 };
 
 } // namespace Ezmaxapi

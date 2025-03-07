@@ -36,6 +36,12 @@ void Common_Report::initializeModel() {
 
     m_a_obj_reportsection_isSet = false;
     m_a_obj_reportsection_isValid = false;
+
+    m_b_report_paginate_isSet = false;
+    m_b_report_paginate_isValid = false;
+
+    m_s_report_title_isSet = false;
+    m_s_report_title_isValid = false;
 }
 
 void Common_Report::fromJson(QString jsonString) {
@@ -49,6 +55,12 @@ void Common_Report::fromJsonObject(QJsonObject json) {
 
     m_a_obj_reportsection_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_reportsection, json[QString("a_objReportsection")]);
     m_a_obj_reportsection_isSet = !json[QString("a_objReportsection")].isNull() && m_a_obj_reportsection_isValid;
+
+    m_b_report_paginate_isValid = ::Ezmaxapi::fromJsonValue(m_b_report_paginate, json[QString("bReportPaginate")]);
+    m_b_report_paginate_isSet = !json[QString("bReportPaginate")].isNull() && m_b_report_paginate_isValid;
+
+    m_s_report_title_isValid = ::Ezmaxapi::fromJsonValue(m_s_report_title, json[QString("sReportTitle")]);
+    m_s_report_title_isSet = !json[QString("sReportTitle")].isNull() && m_s_report_title_isValid;
 }
 
 QString Common_Report::asJson() const {
@@ -62,6 +74,12 @@ QJsonObject Common_Report::asJsonObject() const {
     QJsonObject obj;
     if (m_a_obj_reportsection.size() > 0) {
         obj.insert(QString("a_objReportsection"), ::Ezmaxapi::toJsonValue(m_a_obj_reportsection));
+    }
+    if (m_b_report_paginate_isSet) {
+        obj.insert(QString("bReportPaginate"), ::Ezmaxapi::toJsonValue(m_b_report_paginate));
+    }
+    if (m_s_report_title_isSet) {
+        obj.insert(QString("sReportTitle"), ::Ezmaxapi::toJsonValue(m_s_report_title));
     }
     return obj;
 }
@@ -82,10 +100,52 @@ bool Common_Report::is_a_obj_reportsection_Valid() const{
     return m_a_obj_reportsection_isValid;
 }
 
+bool Common_Report::isBReportPaginate() const {
+    return m_b_report_paginate;
+}
+void Common_Report::setBReportPaginate(const bool &b_report_paginate) {
+    m_b_report_paginate = b_report_paginate;
+    m_b_report_paginate_isSet = true;
+}
+
+bool Common_Report::is_b_report_paginate_Set() const{
+    return m_b_report_paginate_isSet;
+}
+
+bool Common_Report::is_b_report_paginate_Valid() const{
+    return m_b_report_paginate_isValid;
+}
+
+QString Common_Report::getSReportTitle() const {
+    return m_s_report_title;
+}
+void Common_Report::setSReportTitle(const QString &s_report_title) {
+    m_s_report_title = s_report_title;
+    m_s_report_title_isSet = true;
+}
+
+bool Common_Report::is_s_report_title_Set() const{
+    return m_s_report_title_isSet;
+}
+
+bool Common_Report::is_s_report_title_Valid() const{
+    return m_s_report_title_isValid;
+}
+
 bool Common_Report::isSet() const {
     bool isObjectUpdated = false;
     do {
         if (m_a_obj_reportsection.size() > 0) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_b_report_paginate_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_s_report_title_isSet) {
             isObjectUpdated = true;
             break;
         }

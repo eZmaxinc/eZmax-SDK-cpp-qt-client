@@ -75,6 +75,11 @@ public:
     bool is_fki_font_id_Set() const;
     bool is_fki_font_id_Valid() const;
 
+    QString getSCurrencyDescriptionX() const;
+    void setSCurrencyDescriptionX(const QString &s_currency_description_x);
+    bool is_s_currency_description_x_Set() const;
+    bool is_s_currency_description_x_Valid() const;
+
     QString getSEzsignsigningreasonDescriptionX() const;
     void setSEzsignsigningreasonDescriptionX(const QString &s_ezsignsigningreason_description_x);
     bool is_s_ezsignsigningreason_description_x_Set() const;
@@ -260,6 +265,10 @@ private:
     qint32 m_fki_font_id;
     bool m_fki_font_id_isSet;
     bool m_fki_font_id_isValid;
+
+    QString m_s_currency_description_x;
+    bool m_s_currency_description_x_isSet;
+    bool m_s_currency_description_x_isValid;
 
     QString m_s_ezsignsigningreason_description_x;
     bool m_s_ezsignsigningreason_description_x_isSet;

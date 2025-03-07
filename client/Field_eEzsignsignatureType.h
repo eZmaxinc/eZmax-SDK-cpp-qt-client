@@ -13,7 +13,7 @@
 /*
  * Field_eEzsignsignatureType.h
  *
- * The type of signature.  1. **Acknowledgement** is for an acknowledgment of receipt. 2. **City** is to request the city where the document is signed. 3. **Handwritten** is for a handwritten kind of signature where users needs to \&quot;draw\&quot; their signature on screen. **DEPRECATED** 4. **Initials** is a simple \&quot;click to add initials\&quot; block. 5. **Name** is a simple \&quot;Click to sign\&quot; block. This is the most common block of signature. **DEPRECATED** 6. **NameReason** is to ask for a signing reason. **DEPRECATED** 7. **Attachments** is to ask for files as attachment that may be validate in another step.  8. **FieldText** is to ask for a short text. 9. **Fieldtextarea** is to ask for a text 10. **Signature** is the type replacing **Name** and **Handwritten** and will support a font or svg
+ * The type of signature.  1. **Acknowledgement** is for an acknowledgment of receipt. 2. **Attachments** is to ask for files as attachment that may be validate in another step.  3. **City** is to request the city where the document is signed. 4. **Consultation** is to trigger the webhook Signaturesigned when the user consult the document 5. **Creditcard** is to ask for a payment using a creditcard 6. **FieldText** is to ask for a short text. 7. **Fieldtextarea** is to ask for a text     8. **Handwritten** is for a handwritten kind of signature where users needs to \&quot;draw\&quot; their signature on screen. **DEPRECATED** 9. **Initials** is a simple \&quot;click to add initials\&quot; block. 10. **Name** is a simple \&quot;Click to sign\&quot; block. This is the most common block of signature. **DEPRECATED** 11. **NameReason** is to ask for a signing reason. **DEPRECATED** 12. **Signature** is the type replacing **Name** and **Handwritten** and will support a font or svg
  */
 
 #ifndef Field_eEzsignsignatureType_H
@@ -41,16 +41,17 @@ public:
     enum class eField_eEzsignsignatureType {
         INVALID_VALUE_OPENAPI_GENERATED = 0,
         ACKNOWLEDGEMENT, 
+        ATTACHMENTS, 
+        ATTACHMENTSCONFIRMATION, 
         CITY, 
+        CONSULTATION, 
+        CREDITCARD, 
+        FIELDTEXT, 
+        FIELDTEXTAREA, 
         HANDWRITTEN, 
         INITIALS, 
         NAME, 
         NAMEREASON, 
-        ATTACHMENTS, 
-        ATTACHMENTSCONFIRMATION, 
-        FIELDTEXT, 
-        FIELDTEXTAREA, 
-        CONSULTATION, 
         SIGNATURE
     };
     Field_eEzsignsignatureType::eField_eEzsignsignatureType getValue() const;

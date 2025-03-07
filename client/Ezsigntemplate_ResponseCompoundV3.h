@@ -22,6 +22,7 @@
 #include <QJsonObject>
 
 #include "Common_Audit.h"
+#include "Custom_Ezsignfoldertype_Template_Response.h"
 #include "Ezsigntemplatedocument_Response.h"
 #include "Ezsigntemplatesigner_ResponseCompound.h"
 #include "Field_eEzsigntemplateRecognition.h"
@@ -33,6 +34,7 @@
 #include "Object.h"
 
 namespace Ezmaxapi {
+class Custom_Ezsignfoldertype_Template_Response;
 class Common_Audit;
 class Ezsigntemplatedocument_Response;
 class Ezsigntemplatesigner_ResponseCompound;
@@ -62,6 +64,11 @@ public:
     void setFkiEzsignfoldertypeId(const qint32 &fki_ezsignfoldertype_id);
     bool is_fki_ezsignfoldertype_id_Set() const;
     bool is_fki_ezsignfoldertype_id_Valid() const;
+
+    Custom_Ezsignfoldertype_Template_Response getObjEzsignfoldertype() const;
+    void setObjEzsignfoldertype(const Custom_Ezsignfoldertype_Template_Response &obj_ezsignfoldertype);
+    bool is_obj_ezsignfoldertype_Set() const;
+    bool is_obj_ezsignfoldertype_Valid() const;
 
     qint32 getFkiLanguageId() const;
     void setFkiLanguageId(const qint32 &fki_language_id);
@@ -160,6 +167,10 @@ private:
     qint32 m_fki_ezsignfoldertype_id;
     bool m_fki_ezsignfoldertype_id_isSet;
     bool m_fki_ezsignfoldertype_id_isValid;
+
+    Custom_Ezsignfoldertype_Template_Response m_obj_ezsignfoldertype;
+    bool m_obj_ezsignfoldertype_isSet;
+    bool m_obj_ezsignfoldertype_isValid;
 
     qint32 m_fki_language_id;
     bool m_fki_language_id_isSet;

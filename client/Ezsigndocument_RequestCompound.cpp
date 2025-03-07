@@ -46,6 +46,9 @@ void Ezsigndocument_RequestCompound::initializeModel() {
     m_fki_ezsignfoldersignerassociation_id_isSet = false;
     m_fki_ezsignfoldersignerassociation_id_isValid = false;
 
+    m_fki_ezsignimportdocument_id_isSet = false;
+    m_fki_ezsignimportdocument_id_isValid = false;
+
     m_fki_language_id_isSet = false;
     m_fki_language_id_isValid = false;
 
@@ -101,6 +104,9 @@ void Ezsigndocument_RequestCompound::fromJsonObject(QJsonObject json) {
     m_fki_ezsignfoldersignerassociation_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_ezsignfoldersignerassociation_id, json[QString("fkiEzsignfoldersignerassociationID")]);
     m_fki_ezsignfoldersignerassociation_id_isSet = !json[QString("fkiEzsignfoldersignerassociationID")].isNull() && m_fki_ezsignfoldersignerassociation_id_isValid;
 
+    m_fki_ezsignimportdocument_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_ezsignimportdocument_id, json[QString("fkiEzsignimportdocumentID")]);
+    m_fki_ezsignimportdocument_id_isSet = !json[QString("fkiEzsignimportdocumentID")].isNull() && m_fki_ezsignimportdocument_id_isValid;
+
     m_fki_language_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_language_id, json[QString("fkiLanguageID")]);
     m_fki_language_id_isSet = !json[QString("fkiLanguageID")].isNull() && m_fki_language_id_isValid;
 
@@ -155,6 +161,9 @@ QJsonObject Ezsigndocument_RequestCompound::asJsonObject() const {
     }
     if (m_fki_ezsignfoldersignerassociation_id_isSet) {
         obj.insert(QString("fkiEzsignfoldersignerassociationID"), ::Ezmaxapi::toJsonValue(m_fki_ezsignfoldersignerassociation_id));
+    }
+    if (m_fki_ezsignimportdocument_id_isSet) {
+        obj.insert(QString("fkiEzsignimportdocumentID"), ::Ezmaxapi::toJsonValue(m_fki_ezsignimportdocument_id));
     }
     if (m_fki_language_id_isSet) {
         obj.insert(QString("fkiLanguageID"), ::Ezmaxapi::toJsonValue(m_fki_language_id));
@@ -254,6 +263,22 @@ bool Ezsigndocument_RequestCompound::is_fki_ezsignfoldersignerassociation_id_Set
 
 bool Ezsigndocument_RequestCompound::is_fki_ezsignfoldersignerassociation_id_Valid() const{
     return m_fki_ezsignfoldersignerassociation_id_isValid;
+}
+
+qint32 Ezsigndocument_RequestCompound::getFkiEzsignimportdocumentId() const {
+    return m_fki_ezsignimportdocument_id;
+}
+void Ezsigndocument_RequestCompound::setFkiEzsignimportdocumentId(const qint32 &fki_ezsignimportdocument_id) {
+    m_fki_ezsignimportdocument_id = fki_ezsignimportdocument_id;
+    m_fki_ezsignimportdocument_id_isSet = true;
+}
+
+bool Ezsigndocument_RequestCompound::is_fki_ezsignimportdocument_id_Set() const{
+    return m_fki_ezsignimportdocument_id_isSet;
+}
+
+bool Ezsigndocument_RequestCompound::is_fki_ezsignimportdocument_id_Valid() const{
+    return m_fki_ezsignimportdocument_id_isValid;
 }
 
 qint32 Ezsigndocument_RequestCompound::getFkiLanguageId() const {
@@ -451,6 +476,11 @@ bool Ezsigndocument_RequestCompound::isSet() const {
         }
 
         if (m_fki_ezsignfoldersignerassociation_id_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_fki_ezsignimportdocument_id_isSet) {
             isObjectUpdated = true;
             break;
         }

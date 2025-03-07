@@ -49,6 +49,9 @@ void Ezsignsignature_ResponseCompound::initializeModel() {
     m_fki_font_id_isSet = false;
     m_fki_font_id_isValid = false;
 
+    m_s_currency_description_x_isSet = false;
+    m_s_currency_description_x_isValid = false;
+
     m_s_ezsignsigningreason_description_x_isSet = false;
     m_s_ezsignsigningreason_description_x_isValid = false;
 
@@ -165,6 +168,9 @@ void Ezsignsignature_ResponseCompound::initializeModel() {
 
     m_obj_timezone_isSet = false;
     m_obj_timezone_isValid = false;
+
+    m_a_obj_ezsignsignaturepaymentdetail_isSet = false;
+    m_a_obj_ezsignsignaturepaymentdetail_isValid = false;
 }
 
 void Ezsignsignature_ResponseCompound::fromJson(QString jsonString) {
@@ -190,6 +196,9 @@ void Ezsignsignature_ResponseCompound::fromJsonObject(QJsonObject json) {
 
     m_fki_font_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_font_id, json[QString("fkiFontID")]);
     m_fki_font_id_isSet = !json[QString("fkiFontID")].isNull() && m_fki_font_id_isValid;
+
+    m_s_currency_description_x_isValid = ::Ezmaxapi::fromJsonValue(m_s_currency_description_x, json[QString("sCurrencyDescriptionX")]);
+    m_s_currency_description_x_isSet = !json[QString("sCurrencyDescriptionX")].isNull() && m_s_currency_description_x_isValid;
 
     m_s_ezsignsigningreason_description_x_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsignsigningreason_description_x, json[QString("sEzsignsigningreasonDescriptionX")]);
     m_s_ezsignsigningreason_description_x_isSet = !json[QString("sEzsignsigningreasonDescriptionX")].isNull() && m_s_ezsignsigningreason_description_x_isValid;
@@ -307,6 +316,9 @@ void Ezsignsignature_ResponseCompound::fromJsonObject(QJsonObject json) {
 
     m_obj_timezone_isValid = ::Ezmaxapi::fromJsonValue(m_obj_timezone, json[QString("objTimezone")]);
     m_obj_timezone_isSet = !json[QString("objTimezone")].isNull() && m_obj_timezone_isValid;
+
+    m_a_obj_ezsignsignaturepaymentdetail_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_ezsignsignaturepaymentdetail, json[QString("a_objEzsignsignaturepaymentdetail")]);
+    m_a_obj_ezsignsignaturepaymentdetail_isSet = !json[QString("a_objEzsignsignaturepaymentdetail")].isNull() && m_a_obj_ezsignsignaturepaymentdetail_isValid;
 }
 
 QString Ezsignsignature_ResponseCompound::asJson() const {
@@ -332,6 +344,9 @@ QJsonObject Ezsignsignature_ResponseCompound::asJsonObject() const {
     }
     if (m_fki_font_id_isSet) {
         obj.insert(QString("fkiFontID"), ::Ezmaxapi::toJsonValue(m_fki_font_id));
+    }
+    if (m_s_currency_description_x_isSet) {
+        obj.insert(QString("sCurrencyDescriptionX"), ::Ezmaxapi::toJsonValue(m_s_currency_description_x));
     }
     if (m_s_ezsignsigningreason_description_x_isSet) {
         obj.insert(QString("sEzsignsigningreasonDescriptionX"), ::Ezmaxapi::toJsonValue(m_s_ezsignsigningreason_description_x));
@@ -450,6 +465,9 @@ QJsonObject Ezsignsignature_ResponseCompound::asJsonObject() const {
     if (m_obj_timezone.isSet()) {
         obj.insert(QString("objTimezone"), ::Ezmaxapi::toJsonValue(m_obj_timezone));
     }
+    if (m_a_obj_ezsignsignaturepaymentdetail.size() > 0) {
+        obj.insert(QString("a_objEzsignsignaturepaymentdetail"), ::Ezmaxapi::toJsonValue(m_a_obj_ezsignsignaturepaymentdetail));
+    }
     return obj;
 }
 
@@ -531,6 +549,22 @@ bool Ezsignsignature_ResponseCompound::is_fki_font_id_Set() const{
 
 bool Ezsignsignature_ResponseCompound::is_fki_font_id_Valid() const{
     return m_fki_font_id_isValid;
+}
+
+QString Ezsignsignature_ResponseCompound::getSCurrencyDescriptionX() const {
+    return m_s_currency_description_x;
+}
+void Ezsignsignature_ResponseCompound::setSCurrencyDescriptionX(const QString &s_currency_description_x) {
+    m_s_currency_description_x = s_currency_description_x;
+    m_s_currency_description_x_isSet = true;
+}
+
+bool Ezsignsignature_ResponseCompound::is_s_currency_description_x_Set() const{
+    return m_s_currency_description_x_isSet;
+}
+
+bool Ezsignsignature_ResponseCompound::is_s_currency_description_x_Valid() const{
+    return m_s_currency_description_x_isValid;
 }
 
 QString Ezsignsignature_ResponseCompound::getSEzsignsigningreasonDescriptionX() const {
@@ -1157,6 +1191,22 @@ bool Ezsignsignature_ResponseCompound::is_obj_timezone_Valid() const{
     return m_obj_timezone_isValid;
 }
 
+QList<Ezsignsignaturepaymentdetail_RequestCompound> Ezsignsignature_ResponseCompound::getAObjEzsignsignaturepaymentdetail() const {
+    return m_a_obj_ezsignsignaturepaymentdetail;
+}
+void Ezsignsignature_ResponseCompound::setAObjEzsignsignaturepaymentdetail(const QList<Ezsignsignaturepaymentdetail_RequestCompound> &a_obj_ezsignsignaturepaymentdetail) {
+    m_a_obj_ezsignsignaturepaymentdetail = a_obj_ezsignsignaturepaymentdetail;
+    m_a_obj_ezsignsignaturepaymentdetail_isSet = true;
+}
+
+bool Ezsignsignature_ResponseCompound::is_a_obj_ezsignsignaturepaymentdetail_Set() const{
+    return m_a_obj_ezsignsignaturepaymentdetail_isSet;
+}
+
+bool Ezsignsignature_ResponseCompound::is_a_obj_ezsignsignaturepaymentdetail_Valid() const{
+    return m_a_obj_ezsignsignaturepaymentdetail_isValid;
+}
+
 bool Ezsignsignature_ResponseCompound::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -1181,6 +1231,11 @@ bool Ezsignsignature_ResponseCompound::isSet() const {
         }
 
         if (m_fki_font_id_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_s_currency_description_x_isSet) {
             isObjectUpdated = true;
             break;
         }
@@ -1376,6 +1431,11 @@ bool Ezsignsignature_ResponseCompound::isSet() const {
         }
 
         if (m_obj_timezone.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_a_obj_ezsignsignaturepaymentdetail.size() > 0) {
             isObjectUpdated = true;
             break;
         }

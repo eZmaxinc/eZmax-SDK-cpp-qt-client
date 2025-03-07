@@ -39,6 +39,9 @@ void Common_Reportcolumn::initializeModel() {
 
     m_i_reportcolumn_width_isSet = false;
     m_i_reportcolumn_width_isValid = false;
+
+    m_e_reportcolumn_type_isSet = false;
+    m_e_reportcolumn_type_isValid = false;
 }
 
 void Common_Reportcolumn::fromJson(QString jsonString) {
@@ -55,6 +58,9 @@ void Common_Reportcolumn::fromJsonObject(QJsonObject json) {
 
     m_i_reportcolumn_width_isValid = ::Ezmaxapi::fromJsonValue(m_i_reportcolumn_width, json[QString("iReportcolumnWidth")]);
     m_i_reportcolumn_width_isSet = !json[QString("iReportcolumnWidth")].isNull() && m_i_reportcolumn_width_isValid;
+
+    m_e_reportcolumn_type_isValid = ::Ezmaxapi::fromJsonValue(m_e_reportcolumn_type, json[QString("eReportcolumnType")]);
+    m_e_reportcolumn_type_isSet = !json[QString("eReportcolumnType")].isNull() && m_e_reportcolumn_type_isValid;
 }
 
 QString Common_Reportcolumn::asJson() const {
@@ -71,6 +77,9 @@ QJsonObject Common_Reportcolumn::asJsonObject() const {
     }
     if (m_i_reportcolumn_width_isSet) {
         obj.insert(QString("iReportcolumnWidth"), ::Ezmaxapi::toJsonValue(m_i_reportcolumn_width));
+    }
+    if (m_e_reportcolumn_type.isSet()) {
+        obj.insert(QString("eReportcolumnType"), ::Ezmaxapi::toJsonValue(m_e_reportcolumn_type));
     }
     return obj;
 }
@@ -107,6 +116,22 @@ bool Common_Reportcolumn::is_i_reportcolumn_width_Valid() const{
     return m_i_reportcolumn_width_isValid;
 }
 
+Enum_ReportdataType Common_Reportcolumn::getEReportcolumnType() const {
+    return m_e_reportcolumn_type;
+}
+void Common_Reportcolumn::setEReportcolumnType(const Enum_ReportdataType &e_reportcolumn_type) {
+    m_e_reportcolumn_type = e_reportcolumn_type;
+    m_e_reportcolumn_type_isSet = true;
+}
+
+bool Common_Reportcolumn::is_e_reportcolumn_type_Set() const{
+    return m_e_reportcolumn_type_isSet;
+}
+
+bool Common_Reportcolumn::is_e_reportcolumn_type_Valid() const{
+    return m_e_reportcolumn_type_isValid;
+}
+
 bool Common_Reportcolumn::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -119,13 +144,18 @@ bool Common_Reportcolumn::isSet() const {
             isObjectUpdated = true;
             break;
         }
+
+        if (m_e_reportcolumn_type.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
     } while (false);
     return isObjectUpdated;
 }
 
 bool Common_Reportcolumn::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_obj_reportcellstyle_default_isValid && m_i_reportcolumn_width_isValid && true;
+    return m_obj_reportcellstyle_default_isValid && m_i_reportcolumn_width_isValid && m_e_reportcolumn_type_isValid && true;
 }
 
 } // namespace Ezmaxapi

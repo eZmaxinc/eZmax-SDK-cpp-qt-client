@@ -42,6 +42,9 @@ void Common_Reportsubsection::initializeModel() {
 
     m_obj_reportsubsectionpart_footer_isSet = false;
     m_obj_reportsubsectionpart_footer_isValid = false;
+
+    m_s_reportsubsection_title_isSet = false;
+    m_s_reportsubsection_title_isValid = false;
 }
 
 void Common_Reportsubsection::fromJson(QString jsonString) {
@@ -61,6 +64,9 @@ void Common_Reportsubsection::fromJsonObject(QJsonObject json) {
 
     m_obj_reportsubsectionpart_footer_isValid = ::Ezmaxapi::fromJsonValue(m_obj_reportsubsectionpart_footer, json[QString("objReportsubsectionpartFooter")]);
     m_obj_reportsubsectionpart_footer_isSet = !json[QString("objReportsubsectionpartFooter")].isNull() && m_obj_reportsubsectionpart_footer_isValid;
+
+    m_s_reportsubsection_title_isValid = ::Ezmaxapi::fromJsonValue(m_s_reportsubsection_title, json[QString("sReportsubsectionTitle")]);
+    m_s_reportsubsection_title_isSet = !json[QString("sReportsubsectionTitle")].isNull() && m_s_reportsubsection_title_isValid;
 }
 
 QString Common_Reportsubsection::asJson() const {
@@ -80,6 +86,9 @@ QJsonObject Common_Reportsubsection::asJsonObject() const {
     }
     if (m_obj_reportsubsectionpart_footer.isSet()) {
         obj.insert(QString("objReportsubsectionpartFooter"), ::Ezmaxapi::toJsonValue(m_obj_reportsubsectionpart_footer));
+    }
+    if (m_s_reportsubsection_title_isSet) {
+        obj.insert(QString("sReportsubsectionTitle"), ::Ezmaxapi::toJsonValue(m_s_reportsubsection_title));
     }
     return obj;
 }
@@ -132,6 +141,22 @@ bool Common_Reportsubsection::is_obj_reportsubsectionpart_footer_Valid() const{
     return m_obj_reportsubsectionpart_footer_isValid;
 }
 
+QString Common_Reportsubsection::getSReportsubsectionTitle() const {
+    return m_s_reportsubsection_title;
+}
+void Common_Reportsubsection::setSReportsubsectionTitle(const QString &s_reportsubsection_title) {
+    m_s_reportsubsection_title = s_reportsubsection_title;
+    m_s_reportsubsection_title_isSet = true;
+}
+
+bool Common_Reportsubsection::is_s_reportsubsection_title_Set() const{
+    return m_s_reportsubsection_title_isSet;
+}
+
+bool Common_Reportsubsection::is_s_reportsubsection_title_Valid() const{
+    return m_s_reportsubsection_title_isValid;
+}
+
 bool Common_Reportsubsection::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -146,6 +171,11 @@ bool Common_Reportsubsection::isSet() const {
         }
 
         if (m_obj_reportsubsectionpart_footer.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_s_reportsubsection_title_isSet) {
             isObjectUpdated = true;
             break;
         }

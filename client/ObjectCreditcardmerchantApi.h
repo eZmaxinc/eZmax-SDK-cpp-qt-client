@@ -19,11 +19,6 @@
 #include "Oauth.h"
 
 #include "Common_Response_Error.h"
-#include "Creditcardmerchant_createObject_v1_Request.h"
-#include "Creditcardmerchant_createObject_v1_Response.h"
-#include "Creditcardmerchant_deleteObject_v1_Response.h"
-#include "Creditcardmerchant_editObject_v1_Request.h"
-#include "Creditcardmerchant_editObject_v1_Response.h"
 #include "Creditcardmerchant_getAutocomplete_v2_Response.h"
 #include "Creditcardmerchant_getList_v1_Response.h"
 #include "Creditcardmerchant_getObject_v2_Response.h"
@@ -66,22 +61,6 @@ public:
     QString getParamStylePrefix(const QString &style);
     QString getParamStyleSuffix(const QString &style);
     QString getParamStyleDelimiter(const QString &style, const QString &name, bool isExplode);
-
-    /**
-    * @param[in]  creditcardmerchant_create_object_v1_request Creditcardmerchant_createObject_v1_Request [required]
-    */
-    virtual void creditcardmerchantCreateObjectV1(const Creditcardmerchant_createObject_v1_Request &creditcardmerchant_create_object_v1_request);
-
-    /**
-    * @param[in]  pki_creditcardmerchant_id qint32 [required]
-    */
-    virtual void creditcardmerchantDeleteObjectV1(const qint32 &pki_creditcardmerchant_id);
-
-    /**
-    * @param[in]  pki_creditcardmerchant_id qint32 [required]
-    * @param[in]  creditcardmerchant_edit_object_v1_request Creditcardmerchant_editObject_v1_Request [required]
-    */
-    virtual void creditcardmerchantEditObjectV1(const qint32 &pki_creditcardmerchant_id, const Creditcardmerchant_editObject_v1_Request &creditcardmerchant_edit_object_v1_request);
 
     /**
     * @param[in]  s_selector QString [required]
@@ -128,39 +107,21 @@ private:
     OauthPassword _passwordFlow;
     int _OauthMethod = 0;
 
-    void creditcardmerchantCreateObjectV1Callback(HttpRequestWorker *worker);
-    void creditcardmerchantDeleteObjectV1Callback(HttpRequestWorker *worker);
-    void creditcardmerchantEditObjectV1Callback(HttpRequestWorker *worker);
     void creditcardmerchantGetAutocompleteV2Callback(HttpRequestWorker *worker);
     void creditcardmerchantGetListV1Callback(HttpRequestWorker *worker);
     void creditcardmerchantGetObjectV2Callback(HttpRequestWorker *worker);
 
 Q_SIGNALS:
 
-    void creditcardmerchantCreateObjectV1Signal(Creditcardmerchant_createObject_v1_Response summary);
-    void creditcardmerchantDeleteObjectV1Signal(Creditcardmerchant_deleteObject_v1_Response summary);
-    void creditcardmerchantEditObjectV1Signal(Creditcardmerchant_editObject_v1_Response summary);
     void creditcardmerchantGetAutocompleteV2Signal(Creditcardmerchant_getAutocomplete_v2_Response summary);
     void creditcardmerchantGetListV1Signal(Creditcardmerchant_getList_v1_Response summary);
     void creditcardmerchantGetObjectV2Signal(Creditcardmerchant_getObject_v2_Response summary);
 
 
-    void creditcardmerchantCreateObjectV1SignalFull(HttpRequestWorker *worker, Creditcardmerchant_createObject_v1_Response summary);
-    void creditcardmerchantDeleteObjectV1SignalFull(HttpRequestWorker *worker, Creditcardmerchant_deleteObject_v1_Response summary);
-    void creditcardmerchantEditObjectV1SignalFull(HttpRequestWorker *worker, Creditcardmerchant_editObject_v1_Response summary);
     void creditcardmerchantGetAutocompleteV2SignalFull(HttpRequestWorker *worker, Creditcardmerchant_getAutocomplete_v2_Response summary);
     void creditcardmerchantGetListV1SignalFull(HttpRequestWorker *worker, Creditcardmerchant_getList_v1_Response summary);
     void creditcardmerchantGetObjectV2SignalFull(HttpRequestWorker *worker, Creditcardmerchant_getObject_v2_Response summary);
 
-    Q_DECL_DEPRECATED_X("Use creditcardmerchantCreateObjectV1SignalError() instead")
-    void creditcardmerchantCreateObjectV1SignalE(Creditcardmerchant_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void creditcardmerchantCreateObjectV1SignalError(Creditcardmerchant_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use creditcardmerchantDeleteObjectV1SignalError() instead")
-    void creditcardmerchantDeleteObjectV1SignalE(Creditcardmerchant_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void creditcardmerchantDeleteObjectV1SignalError(Creditcardmerchant_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use creditcardmerchantEditObjectV1SignalError() instead")
-    void creditcardmerchantEditObjectV1SignalE(Creditcardmerchant_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void creditcardmerchantEditObjectV1SignalError(Creditcardmerchant_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use creditcardmerchantGetAutocompleteV2SignalError() instead")
     void creditcardmerchantGetAutocompleteV2SignalE(Creditcardmerchant_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void creditcardmerchantGetAutocompleteV2SignalError(Creditcardmerchant_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -171,15 +132,6 @@ Q_SIGNALS:
     void creditcardmerchantGetObjectV2SignalE(Creditcardmerchant_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void creditcardmerchantGetObjectV2SignalError(Creditcardmerchant_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
-    Q_DECL_DEPRECATED_X("Use creditcardmerchantCreateObjectV1SignalErrorFull() instead")
-    void creditcardmerchantCreateObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
-    void creditcardmerchantCreateObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use creditcardmerchantDeleteObjectV1SignalErrorFull() instead")
-    void creditcardmerchantDeleteObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
-    void creditcardmerchantDeleteObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use creditcardmerchantEditObjectV1SignalErrorFull() instead")
-    void creditcardmerchantEditObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
-    void creditcardmerchantEditObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use creditcardmerchantGetAutocompleteV2SignalErrorFull() instead")
     void creditcardmerchantGetAutocompleteV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void creditcardmerchantGetAutocompleteV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);

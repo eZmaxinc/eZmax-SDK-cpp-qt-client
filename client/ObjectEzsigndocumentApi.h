@@ -68,6 +68,8 @@
 #include "Ezsigndocument_getWordsPositions_v1_Response.h"
 #include "Ezsigndocument_patchObject_v1_Request.h"
 #include "Ezsigndocument_patchObject_v1_Response.h"
+#include "Ezsigndocument_prefillEzsignform_v1_Request.h"
+#include "Ezsigndocument_prefillEzsignform_v1_Response.h"
 #include "Ezsigndocument_submitEzsignform_v1_Request.h"
 #include "Ezsigndocument_submitEzsignform_v1_Response.h"
 #include "Ezsigndocument_unsend_v1_Response.h"
@@ -288,6 +290,12 @@ public:
 
     /**
     * @param[in]  pki_ezsigndocument_id qint32 [required]
+    * @param[in]  ezsigndocument_prefill_ezsignform_v1_request Ezsigndocument_prefillEzsignform_v1_Request [required]
+    */
+    virtual void ezsigndocumentPrefillEzsignformV1(const qint32 &pki_ezsigndocument_id, const Ezsigndocument_prefillEzsignform_v1_Request &ezsigndocument_prefill_ezsignform_v1_request);
+
+    /**
+    * @param[in]  pki_ezsigndocument_id qint32 [required]
     * @param[in]  ezsigndocument_submit_ezsignform_v1_request Ezsigndocument_submitEzsignform_v1_Request [required]
     */
     virtual void ezsigndocumentSubmitEzsignformV1(const qint32 &pki_ezsigndocument_id, const Ezsigndocument_submitEzsignform_v1_Request &ezsigndocument_submit_ezsignform_v1_request);
@@ -353,6 +361,7 @@ private:
     void ezsigndocumentGetTemporaryProofV1Callback(HttpRequestWorker *worker);
     void ezsigndocumentGetWordsPositionsV1Callback(HttpRequestWorker *worker);
     void ezsigndocumentPatchObjectV1Callback(HttpRequestWorker *worker);
+    void ezsigndocumentPrefillEzsignformV1Callback(HttpRequestWorker *worker);
     void ezsigndocumentSubmitEzsignformV1Callback(HttpRequestWorker *worker);
     void ezsigndocumentUnsendV1Callback(HttpRequestWorker *worker);
 
@@ -390,6 +399,7 @@ Q_SIGNALS:
     void ezsigndocumentGetTemporaryProofV1Signal(Ezsigndocument_getTemporaryProof_v1_Response summary);
     void ezsigndocumentGetWordsPositionsV1Signal(Ezsigndocument_getWordsPositions_v1_Response summary);
     void ezsigndocumentPatchObjectV1Signal(Ezsigndocument_patchObject_v1_Response summary);
+    void ezsigndocumentPrefillEzsignformV1Signal(Ezsigndocument_prefillEzsignform_v1_Response summary);
     void ezsigndocumentSubmitEzsignformV1Signal(Ezsigndocument_submitEzsignform_v1_Response summary);
     void ezsigndocumentUnsendV1Signal(Ezsigndocument_unsend_v1_Response summary);
 
@@ -426,6 +436,7 @@ Q_SIGNALS:
     void ezsigndocumentGetTemporaryProofV1SignalFull(HttpRequestWorker *worker, Ezsigndocument_getTemporaryProof_v1_Response summary);
     void ezsigndocumentGetWordsPositionsV1SignalFull(HttpRequestWorker *worker, Ezsigndocument_getWordsPositions_v1_Response summary);
     void ezsigndocumentPatchObjectV1SignalFull(HttpRequestWorker *worker, Ezsigndocument_patchObject_v1_Response summary);
+    void ezsigndocumentPrefillEzsignformV1SignalFull(HttpRequestWorker *worker, Ezsigndocument_prefillEzsignform_v1_Response summary);
     void ezsigndocumentSubmitEzsignformV1SignalFull(HttpRequestWorker *worker, Ezsigndocument_submitEzsignform_v1_Response summary);
     void ezsigndocumentUnsendV1SignalFull(HttpRequestWorker *worker, Ezsigndocument_unsend_v1_Response summary);
 
@@ -525,6 +536,9 @@ Q_SIGNALS:
     Q_DECL_DEPRECATED_X("Use ezsigndocumentPatchObjectV1SignalError() instead")
     void ezsigndocumentPatchObjectV1SignalE(Ezsigndocument_patchObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigndocumentPatchObjectV1SignalError(Ezsigndocument_patchObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigndocumentPrefillEzsignformV1SignalError() instead")
+    void ezsigndocumentPrefillEzsignformV1SignalE(Ezsigndocument_prefillEzsignform_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentPrefillEzsignformV1SignalError(Ezsigndocument_prefillEzsignform_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsigndocumentSubmitEzsignformV1SignalError() instead")
     void ezsigndocumentSubmitEzsignformV1SignalE(Ezsigndocument_submitEzsignform_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigndocumentSubmitEzsignformV1SignalError(Ezsigndocument_submitEzsignform_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -628,6 +642,9 @@ Q_SIGNALS:
     Q_DECL_DEPRECATED_X("Use ezsigndocumentPatchObjectV1SignalErrorFull() instead")
     void ezsigndocumentPatchObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigndocumentPatchObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigndocumentPrefillEzsignformV1SignalErrorFull() instead")
+    void ezsigndocumentPrefillEzsignformV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentPrefillEzsignformV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsigndocumentSubmitEzsignformV1SignalErrorFull() instead")
     void ezsigndocumentSubmitEzsignformV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigndocumentSubmitEzsignformV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);

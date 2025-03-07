@@ -45,8 +45,28 @@ void Field_eEzsigntemplatesignatureType::fromJson(QString jsonString) {
         m_value = eField_eEzsigntemplatesignatureType::ACKNOWLEDGEMENT;
         m_value_isSet = m_value_isValid = true;
     }
+    else if ( jsonString.compare("Attachments", Qt::CaseInsensitive) == 0) {
+        m_value = eField_eEzsigntemplatesignatureType::ATTACHMENTS;
+        m_value_isSet = m_value_isValid = true;
+    }
     else if ( jsonString.compare("City", Qt::CaseInsensitive) == 0) {
         m_value = eField_eEzsigntemplatesignatureType::CITY;
+        m_value_isSet = m_value_isValid = true;
+    }
+    else if ( jsonString.compare("Consultation", Qt::CaseInsensitive) == 0) {
+        m_value = eField_eEzsigntemplatesignatureType::CONSULTATION;
+        m_value_isSet = m_value_isValid = true;
+    }
+    else if ( jsonString.compare("Creditcard", Qt::CaseInsensitive) == 0) {
+        m_value = eField_eEzsigntemplatesignatureType::CREDITCARD;
+        m_value_isSet = m_value_isValid = true;
+    }
+    else if ( jsonString.compare("FieldText", Qt::CaseInsensitive) == 0) {
+        m_value = eField_eEzsigntemplatesignatureType::FIELDTEXT;
+        m_value_isSet = m_value_isValid = true;
+    }
+    else if ( jsonString.compare("FieldTextarea", Qt::CaseInsensitive) == 0) {
+        m_value = eField_eEzsigntemplatesignatureType::FIELDTEXTAREA;
         m_value_isSet = m_value_isValid = true;
     }
     else if ( jsonString.compare("Handwritten", Qt::CaseInsensitive) == 0) {
@@ -63,22 +83,6 @@ void Field_eEzsigntemplatesignatureType::fromJson(QString jsonString) {
     }
     else if ( jsonString.compare("NameReason", Qt::CaseInsensitive) == 0) {
         m_value = eField_eEzsigntemplatesignatureType::NAMEREASON;
-        m_value_isSet = m_value_isValid = true;
-    }
-    else if ( jsonString.compare("Attachments", Qt::CaseInsensitive) == 0) {
-        m_value = eField_eEzsigntemplatesignatureType::ATTACHMENTS;
-        m_value_isSet = m_value_isValid = true;
-    }
-    else if ( jsonString.compare("FieldText", Qt::CaseInsensitive) == 0) {
-        m_value = eField_eEzsigntemplatesignatureType::FIELDTEXT;
-        m_value_isSet = m_value_isValid = true;
-    }
-    else if ( jsonString.compare("FieldTextarea", Qt::CaseInsensitive) == 0) {
-        m_value = eField_eEzsigntemplatesignatureType::FIELDTEXTAREA;
-        m_value_isSet = m_value_isValid = true;
-    }
-    else if ( jsonString.compare("Consultation", Qt::CaseInsensitive) == 0) {
-        m_value = eField_eEzsigntemplatesignatureType::CONSULTATION;
         m_value_isSet = m_value_isValid = true;
     }
     else if ( jsonString.compare("Signature", Qt::CaseInsensitive) == 0) {
@@ -98,8 +102,23 @@ QString Field_eEzsigntemplatesignatureType::asJson() const {
         case eField_eEzsigntemplatesignatureType::ACKNOWLEDGEMENT:
             val = "Acknowledgement";
             break;
+        case eField_eEzsigntemplatesignatureType::ATTACHMENTS:
+            val = "Attachments";
+            break;
         case eField_eEzsigntemplatesignatureType::CITY:
             val = "City";
+            break;
+        case eField_eEzsigntemplatesignatureType::CONSULTATION:
+            val = "Consultation";
+            break;
+        case eField_eEzsigntemplatesignatureType::CREDITCARD:
+            val = "Creditcard";
+            break;
+        case eField_eEzsigntemplatesignatureType::FIELDTEXT:
+            val = "FieldText";
+            break;
+        case eField_eEzsigntemplatesignatureType::FIELDTEXTAREA:
+            val = "FieldTextarea";
             break;
         case eField_eEzsigntemplatesignatureType::HANDWRITTEN:
             val = "Handwritten";
@@ -112,18 +131,6 @@ QString Field_eEzsigntemplatesignatureType::asJson() const {
             break;
         case eField_eEzsigntemplatesignatureType::NAMEREASON:
             val = "NameReason";
-            break;
-        case eField_eEzsigntemplatesignatureType::ATTACHMENTS:
-            val = "Attachments";
-            break;
-        case eField_eEzsigntemplatesignatureType::FIELDTEXT:
-            val = "FieldText";
-            break;
-        case eField_eEzsigntemplatesignatureType::FIELDTEXTAREA:
-            val = "FieldTextarea";
-            break;
-        case eField_eEzsigntemplatesignatureType::CONSULTATION:
-            val = "Consultation";
             break;
         case eField_eEzsigntemplatesignatureType::SIGNATURE:
             val = "Signature";

@@ -23,7 +23,9 @@
 
 #include "Common_Report.h"
 #include "Common_Reportcellstyle.h"
+#include "Common_ReportgroupParameter.h"
 #include <QList>
+#include <QString>
 
 #include "Enum.h"
 #include "Object.h"
@@ -31,6 +33,7 @@
 namespace Ezmaxapi {
 class Common_Report;
 class Common_Reportcellstyle;
+class Common_ReportgroupParameter;
 
 class Common_Reportgroup : public Object {
 public:
@@ -53,6 +56,16 @@ public:
     bool is_a_obj_reportcellstyle_custom_Set() const;
     bool is_a_obj_reportcellstyle_custom_Valid() const;
 
+    QList<Common_ReportgroupParameter> getAObjReportgroupParameter() const;
+    void setAObjReportgroupParameter(const QList<Common_ReportgroupParameter> &a_obj_reportgroup_parameter);
+    bool is_a_obj_reportgroup_parameter_Set() const;
+    bool is_a_obj_reportgroup_parameter_Valid() const;
+
+    QString getSReportgroupFilename() const;
+    void setSReportgroupFilename(const QString &s_reportgroup_filename);
+    bool is_s_reportgroup_filename_Set() const;
+    bool is_s_reportgroup_filename_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -66,6 +79,14 @@ private:
     QList<Common_Reportcellstyle> m_a_obj_reportcellstyle_custom;
     bool m_a_obj_reportcellstyle_custom_isSet;
     bool m_a_obj_reportcellstyle_custom_isValid;
+
+    QList<Common_ReportgroupParameter> m_a_obj_reportgroup_parameter;
+    bool m_a_obj_reportgroup_parameter_isSet;
+    bool m_a_obj_reportgroup_parameter_isValid;
+
+    QString m_s_reportgroup_filename;
+    bool m_s_reportgroup_filename_isSet;
+    bool m_s_reportgroup_filename_isValid;
 };
 
 } // namespace Ezmaxapi

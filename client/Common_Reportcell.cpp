@@ -39,6 +39,12 @@ void Common_Reportcell::initializeModel() {
 
     m_i_reportcell_rowspan_isSet = false;
     m_i_reportcell_rowspan_isValid = false;
+
+    m_s_reportcell_content_isSet = false;
+    m_s_reportcell_content_isValid = false;
+
+    m_i_reportcell_column_isSet = false;
+    m_i_reportcell_column_isValid = false;
 }
 
 void Common_Reportcell::fromJson(QString jsonString) {
@@ -55,6 +61,12 @@ void Common_Reportcell::fromJsonObject(QJsonObject json) {
 
     m_i_reportcell_rowspan_isValid = ::Ezmaxapi::fromJsonValue(m_i_reportcell_rowspan, json[QString("iReportcellRowspan")]);
     m_i_reportcell_rowspan_isSet = !json[QString("iReportcellRowspan")].isNull() && m_i_reportcell_rowspan_isValid;
+
+    m_s_reportcell_content_isValid = ::Ezmaxapi::fromJsonValue(m_s_reportcell_content, json[QString("sReportcellContent")]);
+    m_s_reportcell_content_isSet = !json[QString("sReportcellContent")].isNull() && m_s_reportcell_content_isValid;
+
+    m_i_reportcell_column_isValid = ::Ezmaxapi::fromJsonValue(m_i_reportcell_column, json[QString("iReportcellColumn")]);
+    m_i_reportcell_column_isSet = !json[QString("iReportcellColumn")].isNull() && m_i_reportcell_column_isValid;
 }
 
 QString Common_Reportcell::asJson() const {
@@ -71,6 +83,12 @@ QJsonObject Common_Reportcell::asJsonObject() const {
     }
     if (m_i_reportcell_rowspan_isSet) {
         obj.insert(QString("iReportcellRowspan"), ::Ezmaxapi::toJsonValue(m_i_reportcell_rowspan));
+    }
+    if (m_s_reportcell_content_isSet) {
+        obj.insert(QString("sReportcellContent"), ::Ezmaxapi::toJsonValue(m_s_reportcell_content));
+    }
+    if (m_i_reportcell_column_isSet) {
+        obj.insert(QString("iReportcellColumn"), ::Ezmaxapi::toJsonValue(m_i_reportcell_column));
     }
     return obj;
 }
@@ -107,6 +125,38 @@ bool Common_Reportcell::is_i_reportcell_rowspan_Valid() const{
     return m_i_reportcell_rowspan_isValid;
 }
 
+QString Common_Reportcell::getSReportcellContent() const {
+    return m_s_reportcell_content;
+}
+void Common_Reportcell::setSReportcellContent(const QString &s_reportcell_content) {
+    m_s_reportcell_content = s_reportcell_content;
+    m_s_reportcell_content_isSet = true;
+}
+
+bool Common_Reportcell::is_s_reportcell_content_Set() const{
+    return m_s_reportcell_content_isSet;
+}
+
+bool Common_Reportcell::is_s_reportcell_content_Valid() const{
+    return m_s_reportcell_content_isValid;
+}
+
+qint32 Common_Reportcell::getIReportcellColumn() const {
+    return m_i_reportcell_column;
+}
+void Common_Reportcell::setIReportcellColumn(const qint32 &i_reportcell_column) {
+    m_i_reportcell_column = i_reportcell_column;
+    m_i_reportcell_column_isSet = true;
+}
+
+bool Common_Reportcell::is_i_reportcell_column_Set() const{
+    return m_i_reportcell_column_isSet;
+}
+
+bool Common_Reportcell::is_i_reportcell_column_Valid() const{
+    return m_i_reportcell_column_isValid;
+}
+
 bool Common_Reportcell::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -119,13 +169,23 @@ bool Common_Reportcell::isSet() const {
             isObjectUpdated = true;
             break;
         }
+
+        if (m_s_reportcell_content_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_i_reportcell_column_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
     } while (false);
     return isObjectUpdated;
 }
 
 bool Common_Reportcell::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_i_reportcell_columnspan_isValid && m_i_reportcell_rowspan_isValid && true;
+    return m_i_reportcell_columnspan_isValid && m_i_reportcell_rowspan_isValid && m_s_reportcell_content_isValid && m_i_reportcell_column_isValid && true;
 }
 
 } // namespace Ezmaxapi
