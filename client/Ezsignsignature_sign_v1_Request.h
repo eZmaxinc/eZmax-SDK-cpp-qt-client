@@ -54,6 +54,11 @@ public:
     bool is_fki_font_id_Set() const;
     bool is_fki_font_id_Valid() const;
 
+    QString getDEzsignsignatureCreditcardamount() const;
+    void setDEzsignsignatureCreditcardamount(const QString &d_ezsignsignature_creditcardamount);
+    bool is_d_ezsignsignature_creditcardamount_Set() const;
+    bool is_d_ezsignsignature_creditcardamount_Valid() const;
+
     QString getSValue() const;
     void setSValue(const QString &s_value);
     bool is_s_value_Set() const;
@@ -102,6 +107,10 @@ private:
     qint32 m_fki_font_id;
     bool m_fki_font_id_isSet;
     bool m_fki_font_id_isValid;
+
+    QString m_d_ezsignsignature_creditcardamount;
+    bool m_d_ezsignsignature_creditcardamount_isSet;
+    bool m_d_ezsignsignature_creditcardamount_isValid;
 
     QString m_s_value;
     bool m_s_value_isSet;

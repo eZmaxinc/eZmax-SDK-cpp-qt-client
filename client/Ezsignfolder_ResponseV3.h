@@ -26,6 +26,7 @@
 #include "Custom_Ezsignfoldertype_Response.h"
 #include "Field_eEzsignfolderCompletion.h"
 #include "Field_eEzsignfolderDocumentdependency.h"
+#include "Field_eEzsignfolderMessageorder.h"
 #include "Field_eEzsignfolderStep.h"
 #include <QString>
 
@@ -177,6 +178,11 @@ public:
     bool is_t_ezsignfolder_message_Set() const;
     bool is_t_ezsignfolder_message_Valid() const;
 
+    Field_eEzsignfolderMessageorder getEEzsignfolderMessageorder() const;
+    void setEEzsignfolderMessageorder(const Field_eEzsignfolderMessageorder &e_ezsignfolder_messageorder);
+    bool is_e_ezsignfolder_messageorder_Set() const;
+    bool is_e_ezsignfolder_messageorder_Valid() const;
+
     Common_Audit getObjAudit() const;
     void setObjAudit(const Common_Audit &obj_audit);
     bool is_obj_audit_Set() const;
@@ -301,6 +307,10 @@ private:
     QString m_t_ezsignfolder_message;
     bool m_t_ezsignfolder_message_isSet;
     bool m_t_ezsignfolder_message_isValid;
+
+    Field_eEzsignfolderMessageorder m_e_ezsignfolder_messageorder;
+    bool m_e_ezsignfolder_messageorder_isSet;
+    bool m_e_ezsignfolder_messageorder_isValid;
 
     Common_Audit m_obj_audit;
     bool m_obj_audit_isSet;

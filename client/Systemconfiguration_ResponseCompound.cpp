@@ -43,6 +43,12 @@ void Systemconfiguration_ResponseCompound::initializeModel() {
     m_fki_branding_id_isSet = false;
     m_fki_branding_id_isValid = false;
 
+    m_fki_timezone_id_default_isSet = false;
+    m_fki_timezone_id_default_isValid = false;
+
+    m_s_timezone_name_default_isSet = false;
+    m_s_timezone_name_default_isValid = false;
+
     m_s_systemconfigurationtype_description_x_isSet = false;
     m_s_systemconfigurationtype_description_x_isValid = false;
 
@@ -84,6 +90,9 @@ void Systemconfiguration_ResponseCompound::initializeModel() {
 
     m_obj_branding_isSet = false;
     m_obj_branding_isValid = false;
+
+    m_i_systemconfiguration_ezsignreminderhoursend_isSet = false;
+    m_i_systemconfiguration_ezsignreminderhoursend_isValid = false;
 }
 
 void Systemconfiguration_ResponseCompound::fromJson(QString jsonString) {
@@ -103,6 +112,12 @@ void Systemconfiguration_ResponseCompound::fromJsonObject(QJsonObject json) {
 
     m_fki_branding_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_branding_id, json[QString("fkiBrandingID")]);
     m_fki_branding_id_isSet = !json[QString("fkiBrandingID")].isNull() && m_fki_branding_id_isValid;
+
+    m_fki_timezone_id_default_isValid = ::Ezmaxapi::fromJsonValue(m_fki_timezone_id_default, json[QString("fkiTimezoneIDDefault")]);
+    m_fki_timezone_id_default_isSet = !json[QString("fkiTimezoneIDDefault")].isNull() && m_fki_timezone_id_default_isValid;
+
+    m_s_timezone_name_default_isValid = ::Ezmaxapi::fromJsonValue(m_s_timezone_name_default, json[QString("sTimezoneNameDefault")]);
+    m_s_timezone_name_default_isSet = !json[QString("sTimezoneNameDefault")].isNull() && m_s_timezone_name_default_isValid;
 
     m_s_systemconfigurationtype_description_x_isValid = ::Ezmaxapi::fromJsonValue(m_s_systemconfigurationtype_description_x, json[QString("sSystemconfigurationtypeDescriptionX")]);
     m_s_systemconfigurationtype_description_x_isSet = !json[QString("sSystemconfigurationtypeDescriptionX")].isNull() && m_s_systemconfigurationtype_description_x_isValid;
@@ -145,6 +160,9 @@ void Systemconfiguration_ResponseCompound::fromJsonObject(QJsonObject json) {
 
     m_obj_branding_isValid = ::Ezmaxapi::fromJsonValue(m_obj_branding, json[QString("objBranding")]);
     m_obj_branding_isSet = !json[QString("objBranding")].isNull() && m_obj_branding_isValid;
+
+    m_i_systemconfiguration_ezsignreminderhoursend_isValid = ::Ezmaxapi::fromJsonValue(m_i_systemconfiguration_ezsignreminderhoursend, json[QString("iSystemconfigurationEzsignreminderhoursend")]);
+    m_i_systemconfiguration_ezsignreminderhoursend_isSet = !json[QString("iSystemconfigurationEzsignreminderhoursend")].isNull() && m_i_systemconfiguration_ezsignreminderhoursend_isValid;
 }
 
 QString Systemconfiguration_ResponseCompound::asJson() const {
@@ -164,6 +182,12 @@ QJsonObject Systemconfiguration_ResponseCompound::asJsonObject() const {
     }
     if (m_fki_branding_id_isSet) {
         obj.insert(QString("fkiBrandingID"), ::Ezmaxapi::toJsonValue(m_fki_branding_id));
+    }
+    if (m_fki_timezone_id_default_isSet) {
+        obj.insert(QString("fkiTimezoneIDDefault"), ::Ezmaxapi::toJsonValue(m_fki_timezone_id_default));
+    }
+    if (m_s_timezone_name_default_isSet) {
+        obj.insert(QString("sTimezoneNameDefault"), ::Ezmaxapi::toJsonValue(m_s_timezone_name_default));
     }
     if (m_s_systemconfigurationtype_description_x_isSet) {
         obj.insert(QString("sSystemconfigurationtypeDescriptionX"), ::Ezmaxapi::toJsonValue(m_s_systemconfigurationtype_description_x));
@@ -206,6 +230,9 @@ QJsonObject Systemconfiguration_ResponseCompound::asJsonObject() const {
     }
     if (m_obj_branding.isSet()) {
         obj.insert(QString("objBranding"), ::Ezmaxapi::toJsonValue(m_obj_branding));
+    }
+    if (m_i_systemconfiguration_ezsignreminderhoursend_isSet) {
+        obj.insert(QString("iSystemconfigurationEzsignreminderhoursend"), ::Ezmaxapi::toJsonValue(m_i_systemconfiguration_ezsignreminderhoursend));
     }
     return obj;
 }
@@ -256,6 +283,38 @@ bool Systemconfiguration_ResponseCompound::is_fki_branding_id_Set() const{
 
 bool Systemconfiguration_ResponseCompound::is_fki_branding_id_Valid() const{
     return m_fki_branding_id_isValid;
+}
+
+qint32 Systemconfiguration_ResponseCompound::getFkiTimezoneIdDefault() const {
+    return m_fki_timezone_id_default;
+}
+void Systemconfiguration_ResponseCompound::setFkiTimezoneIdDefault(const qint32 &fki_timezone_id_default) {
+    m_fki_timezone_id_default = fki_timezone_id_default;
+    m_fki_timezone_id_default_isSet = true;
+}
+
+bool Systemconfiguration_ResponseCompound::is_fki_timezone_id_default_Set() const{
+    return m_fki_timezone_id_default_isSet;
+}
+
+bool Systemconfiguration_ResponseCompound::is_fki_timezone_id_default_Valid() const{
+    return m_fki_timezone_id_default_isValid;
+}
+
+QString Systemconfiguration_ResponseCompound::getSTimezoneNameDefault() const {
+    return m_s_timezone_name_default;
+}
+void Systemconfiguration_ResponseCompound::setSTimezoneNameDefault(const QString &s_timezone_name_default) {
+    m_s_timezone_name_default = s_timezone_name_default;
+    m_s_timezone_name_default_isSet = true;
+}
+
+bool Systemconfiguration_ResponseCompound::is_s_timezone_name_default_Set() const{
+    return m_s_timezone_name_default_isSet;
+}
+
+bool Systemconfiguration_ResponseCompound::is_s_timezone_name_default_Valid() const{
+    return m_s_timezone_name_default_isValid;
 }
 
 QString Systemconfiguration_ResponseCompound::getSSystemconfigurationtypeDescriptionX() const {
@@ -482,6 +541,22 @@ bool Systemconfiguration_ResponseCompound::is_obj_branding_Valid() const{
     return m_obj_branding_isValid;
 }
 
+qint32 Systemconfiguration_ResponseCompound::getISystemconfigurationEzsignreminderhoursend() const {
+    return m_i_systemconfiguration_ezsignreminderhoursend;
+}
+void Systemconfiguration_ResponseCompound::setISystemconfigurationEzsignreminderhoursend(const qint32 &i_systemconfiguration_ezsignreminderhoursend) {
+    m_i_systemconfiguration_ezsignreminderhoursend = i_systemconfiguration_ezsignreminderhoursend;
+    m_i_systemconfiguration_ezsignreminderhoursend_isSet = true;
+}
+
+bool Systemconfiguration_ResponseCompound::is_i_systemconfiguration_ezsignreminderhoursend_Set() const{
+    return m_i_systemconfiguration_ezsignreminderhoursend_isSet;
+}
+
+bool Systemconfiguration_ResponseCompound::is_i_systemconfiguration_ezsignreminderhoursend_Valid() const{
+    return m_i_systemconfiguration_ezsignreminderhoursend_isValid;
+}
+
 bool Systemconfiguration_ResponseCompound::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -496,6 +571,16 @@ bool Systemconfiguration_ResponseCompound::isSet() const {
         }
 
         if (m_fki_branding_id_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_fki_timezone_id_default_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_s_timezone_name_default_isSet) {
             isObjectUpdated = true;
             break;
         }
@@ -569,13 +654,18 @@ bool Systemconfiguration_ResponseCompound::isSet() const {
             isObjectUpdated = true;
             break;
         }
+
+        if (m_i_systemconfiguration_ezsignreminderhoursend_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
     } while (false);
     return isObjectUpdated;
 }
 
 bool Systemconfiguration_ResponseCompound::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_pki_systemconfiguration_id_isValid && m_fki_systemconfigurationtype_id_isValid && m_s_systemconfigurationtype_description_x_isValid && m_e_systemconfiguration_newexternaluseraction_isValid && m_e_systemconfiguration_language1_isValid && m_e_systemconfiguration_language2_isValid && m_b_systemconfiguration_ezsignpersonnal_isValid && m_b_systemconfiguration_sspr_isValid && true;
+    return m_pki_systemconfiguration_id_isValid && m_fki_systemconfigurationtype_id_isValid && m_fki_timezone_id_default_isValid && m_s_timezone_name_default_isValid && m_s_systemconfigurationtype_description_x_isValid && m_e_systemconfiguration_newexternaluseraction_isValid && m_e_systemconfiguration_language1_isValid && m_e_systemconfiguration_language2_isValid && m_b_systemconfiguration_ezsignpersonnal_isValid && m_b_systemconfiguration_sspr_isValid && true;
 }
 
 } // namespace Ezmaxapi

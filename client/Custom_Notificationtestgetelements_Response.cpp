@@ -152,10 +152,10 @@ bool Custom_Notificationtestgetelements_Response::is_a_s_variableobject_property
     return m_a_s_variableobject_property_isValid;
 }
 
-QList<QMap> Custom_Notificationtestgetelements_Response::getAObjVariableobject() const {
+QList<QMap<QString, QJsonValue>> Custom_Notificationtestgetelements_Response::getAObjVariableobject() const {
     return m_a_obj_variableobject;
 }
-void Custom_Notificationtestgetelements_Response::setAObjVariableobject(const QList<QMap> &a_obj_variableobject) {
+void Custom_Notificationtestgetelements_Response::setAObjVariableobject(const QList<QMap<QString, QJsonValue>> &a_obj_variableobject) {
     m_a_obj_variableobject = a_obj_variableobject;
     m_a_obj_variableobject_isSet = true;
 }

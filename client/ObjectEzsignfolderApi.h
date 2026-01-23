@@ -36,6 +36,7 @@
 #include "Ezsignfolder_endPrematurely_v1_Response.h"
 #include "Ezsignfolder_getActionableElements_v1_Response.h"
 #include "Ezsignfolder_getActionableElements_v2_Response.h"
+#include "Ezsignfolder_getActionableElements_v3_Response.h"
 #include "Ezsignfolder_getAttachmentCount_v1_Response.h"
 #include "Ezsignfolder_getAttachments_v1_Response.h"
 #include "Ezsignfolder_getCommunicationCount_v1_Response.h"
@@ -57,8 +58,6 @@
 #include "Ezsignfolder_importEzsigntemplatepackage_v1_Response.h"
 #include "Ezsignfolder_importEzsigntemplatepackage_v2_Request.h"
 #include "Ezsignfolder_importEzsigntemplatepackage_v2_Response.h"
-#include "Ezsignfolder_reorder_v1_Request.h"
-#include "Ezsignfolder_reorder_v1_Response.h"
 #include "Ezsignfolder_reorder_v2_Request.h"
 #include "Ezsignfolder_reorder_v2_Response.h"
 #include "Ezsignfolder_send_v1_Request.h"
@@ -170,7 +169,12 @@ public:
     /**
     * @param[in]  pki_ezsignfolder_id qint32 [required]
     */
-    virtual void ezsignfolderGetActionableElementsV2(const qint32 &pki_ezsignfolder_id);
+    Q_DECL_DEPRECATED virtual void ezsignfolderGetActionableElementsV2(const qint32 &pki_ezsignfolder_id);
+
+    /**
+    * @param[in]  pki_ezsignfolder_id qint32 [required]
+    */
+    virtual void ezsignfolderGetActionableElementsV3(const qint32 &pki_ezsignfolder_id);
 
     /**
     * @param[in]  pki_ezsignfolder_id qint32 [required]
@@ -271,12 +275,6 @@ public:
 
     /**
     * @param[in]  pki_ezsignfolder_id qint32 [required]
-    * @param[in]  ezsignfolder_reorder_v1_request Ezsignfolder_reorder_v1_Request [required]
-    */
-    Q_DECL_DEPRECATED virtual void ezsignfolderReorderV1(const qint32 &pki_ezsignfolder_id, const Ezsignfolder_reorder_v1_Request &ezsignfolder_reorder_v1_request);
-
-    /**
-    * @param[in]  pki_ezsignfolder_id qint32 [required]
     * @param[in]  ezsignfolder_reorder_v2_request Ezsignfolder_reorder_v2_Request [required]
     */
     virtual void ezsignfolderReorderV2(const qint32 &pki_ezsignfolder_id, const Ezsignfolder_reorder_v2_Request &ezsignfolder_reorder_v2_request);
@@ -334,6 +332,7 @@ private:
     void ezsignfolderEndPrematurelyV1Callback(HttpRequestWorker *worker);
     void ezsignfolderGetActionableElementsV1Callback(HttpRequestWorker *worker);
     void ezsignfolderGetActionableElementsV2Callback(HttpRequestWorker *worker);
+    void ezsignfolderGetActionableElementsV3Callback(HttpRequestWorker *worker);
     void ezsignfolderGetAttachmentCountV1Callback(HttpRequestWorker *worker);
     void ezsignfolderGetAttachmentsV1Callback(HttpRequestWorker *worker);
     void ezsignfolderGetCommunicationCountV1Callback(HttpRequestWorker *worker);
@@ -352,7 +351,6 @@ private:
     void ezsignfolderImportEzsignfoldersignerassociationsV1Callback(HttpRequestWorker *worker);
     void ezsignfolderImportEzsigntemplatepackageV1Callback(HttpRequestWorker *worker);
     void ezsignfolderImportEzsigntemplatepackageV2Callback(HttpRequestWorker *worker);
-    void ezsignfolderReorderV1Callback(HttpRequestWorker *worker);
     void ezsignfolderReorderV2Callback(HttpRequestWorker *worker);
     void ezsignfolderSendV1Callback(HttpRequestWorker *worker);
     void ezsignfolderSendV3Callback(HttpRequestWorker *worker);
@@ -372,6 +370,7 @@ Q_SIGNALS:
     void ezsignfolderEndPrematurelyV1Signal(Ezsignfolder_endPrematurely_v1_Response summary);
     void ezsignfolderGetActionableElementsV1Signal(Ezsignfolder_getActionableElements_v1_Response summary);
     void ezsignfolderGetActionableElementsV2Signal(Ezsignfolder_getActionableElements_v2_Response summary);
+    void ezsignfolderGetActionableElementsV3Signal(Ezsignfolder_getActionableElements_v3_Response summary);
     void ezsignfolderGetAttachmentCountV1Signal(Ezsignfolder_getAttachmentCount_v1_Response summary);
     void ezsignfolderGetAttachmentsV1Signal(Ezsignfolder_getAttachments_v1_Response summary);
     void ezsignfolderGetCommunicationCountV1Signal(Ezsignfolder_getCommunicationCount_v1_Response summary);
@@ -390,7 +389,6 @@ Q_SIGNALS:
     void ezsignfolderImportEzsignfoldersignerassociationsV1Signal(Ezsignfolder_importEzsignfoldersignerassociations_v1_Response summary);
     void ezsignfolderImportEzsigntemplatepackageV1Signal(Ezsignfolder_importEzsigntemplatepackage_v1_Response summary);
     void ezsignfolderImportEzsigntemplatepackageV2Signal(Ezsignfolder_importEzsigntemplatepackage_v2_Response summary);
-    void ezsignfolderReorderV1Signal(Ezsignfolder_reorder_v1_Response summary);
     void ezsignfolderReorderV2Signal(Ezsignfolder_reorder_v2_Response summary);
     void ezsignfolderSendV1Signal(Ezsignfolder_send_v1_Response summary);
     void ezsignfolderSendV3Signal(Ezsignfolder_send_v3_Response summary);
@@ -409,6 +407,7 @@ Q_SIGNALS:
     void ezsignfolderEndPrematurelyV1SignalFull(HttpRequestWorker *worker, Ezsignfolder_endPrematurely_v1_Response summary);
     void ezsignfolderGetActionableElementsV1SignalFull(HttpRequestWorker *worker, Ezsignfolder_getActionableElements_v1_Response summary);
     void ezsignfolderGetActionableElementsV2SignalFull(HttpRequestWorker *worker, Ezsignfolder_getActionableElements_v2_Response summary);
+    void ezsignfolderGetActionableElementsV3SignalFull(HttpRequestWorker *worker, Ezsignfolder_getActionableElements_v3_Response summary);
     void ezsignfolderGetAttachmentCountV1SignalFull(HttpRequestWorker *worker, Ezsignfolder_getAttachmentCount_v1_Response summary);
     void ezsignfolderGetAttachmentsV1SignalFull(HttpRequestWorker *worker, Ezsignfolder_getAttachments_v1_Response summary);
     void ezsignfolderGetCommunicationCountV1SignalFull(HttpRequestWorker *worker, Ezsignfolder_getCommunicationCount_v1_Response summary);
@@ -427,7 +426,6 @@ Q_SIGNALS:
     void ezsignfolderImportEzsignfoldersignerassociationsV1SignalFull(HttpRequestWorker *worker, Ezsignfolder_importEzsignfoldersignerassociations_v1_Response summary);
     void ezsignfolderImportEzsigntemplatepackageV1SignalFull(HttpRequestWorker *worker, Ezsignfolder_importEzsigntemplatepackage_v1_Response summary);
     void ezsignfolderImportEzsigntemplatepackageV2SignalFull(HttpRequestWorker *worker, Ezsignfolder_importEzsigntemplatepackage_v2_Response summary);
-    void ezsignfolderReorderV1SignalFull(HttpRequestWorker *worker, Ezsignfolder_reorder_v1_Response summary);
     void ezsignfolderReorderV2SignalFull(HttpRequestWorker *worker, Ezsignfolder_reorder_v2_Response summary);
     void ezsignfolderSendV1SignalFull(HttpRequestWorker *worker, Ezsignfolder_send_v1_Response summary);
     void ezsignfolderSendV3SignalFull(HttpRequestWorker *worker, Ezsignfolder_send_v3_Response summary);
@@ -469,6 +467,9 @@ Q_SIGNALS:
     Q_DECL_DEPRECATED_X("Use ezsignfolderGetActionableElementsV2SignalError() instead")
     void ezsignfolderGetActionableElementsV2SignalE(Ezsignfolder_getActionableElements_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfolderGetActionableElementsV2SignalError(Ezsignfolder_getActionableElements_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignfolderGetActionableElementsV3SignalError() instead")
+    void ezsignfolderGetActionableElementsV3SignalE(Ezsignfolder_getActionableElements_v3_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfolderGetActionableElementsV3SignalError(Ezsignfolder_getActionableElements_v3_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsignfolderGetAttachmentCountV1SignalError() instead")
     void ezsignfolderGetAttachmentCountV1SignalE(Ezsignfolder_getAttachmentCount_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfolderGetAttachmentCountV1SignalError(Ezsignfolder_getAttachmentCount_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -523,9 +524,6 @@ Q_SIGNALS:
     Q_DECL_DEPRECATED_X("Use ezsignfolderImportEzsigntemplatepackageV2SignalError() instead")
     void ezsignfolderImportEzsigntemplatepackageV2SignalE(Ezsignfolder_importEzsigntemplatepackage_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfolderImportEzsigntemplatepackageV2SignalError(Ezsignfolder_importEzsigntemplatepackage_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezsignfolderReorderV1SignalError() instead")
-    void ezsignfolderReorderV1SignalE(Ezsignfolder_reorder_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void ezsignfolderReorderV1SignalError(Ezsignfolder_reorder_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsignfolderReorderV2SignalError() instead")
     void ezsignfolderReorderV2SignalE(Ezsignfolder_reorder_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfolderReorderV2SignalError(Ezsignfolder_reorder_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -575,6 +573,9 @@ Q_SIGNALS:
     Q_DECL_DEPRECATED_X("Use ezsignfolderGetActionableElementsV2SignalErrorFull() instead")
     void ezsignfolderGetActionableElementsV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfolderGetActionableElementsV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsignfolderGetActionableElementsV3SignalErrorFull() instead")
+    void ezsignfolderGetActionableElementsV3SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsignfolderGetActionableElementsV3SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsignfolderGetAttachmentCountV1SignalErrorFull() instead")
     void ezsignfolderGetAttachmentCountV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfolderGetAttachmentCountV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -629,9 +630,6 @@ Q_SIGNALS:
     Q_DECL_DEPRECATED_X("Use ezsignfolderImportEzsigntemplatepackageV2SignalErrorFull() instead")
     void ezsignfolderImportEzsigntemplatepackageV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfolderImportEzsigntemplatepackageV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezsignfolderReorderV1SignalErrorFull() instead")
-    void ezsignfolderReorderV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
-    void ezsignfolderReorderV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsignfolderReorderV2SignalErrorFull() instead")
     void ezsignfolderReorderV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfolderReorderV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);

@@ -19,7 +19,6 @@
 #include "Oauth.h"
 
 #include "Header_Accept_Language.h"
-#include "Inscriptionchecklist_getAutocomplete_v2_Response.h"
 #include "Inscriptionchecklist_getAutocomplete_v3_Response.h"
 #include <QString>
 
@@ -61,16 +60,6 @@ public:
 
     /**
     * @param[in]  s_selector QString [required]
-    * @param[in]  fki_id QString [optional]
-    * @param[in]  e_type QString [optional]
-    * @param[in]  e_filter_active QString [optional]
-    * @param[in]  s_query QString [optional]
-    * @param[in]  accept_language Header_Accept_Language [optional]
-    */
-    Q_DECL_DEPRECATED virtual void inscriptionchecklistGetAutocompleteV2(const QString &s_selector, const ::Ezmaxapi::OptionalParam<QString> &fki_id = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<QString> &e_type = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<QString> &e_filter_active = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<QString> &s_query = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<Header_Accept_Language>());
-
-    /**
-    * @param[in]  s_selector QString [required]
     * @param[in]  fki_buyercontract_id QString [optional]
     * @param[in]  fki_inscription_id QString [optional]
     * @param[in]  fki_inscriptionnotauthenticated_id QString [optional]
@@ -108,28 +97,19 @@ private:
     OauthPassword _passwordFlow;
     int _OauthMethod = 0;
 
-    void inscriptionchecklistGetAutocompleteV2Callback(HttpRequestWorker *worker);
     void inscriptionchecklistGetAutocompleteV3Callback(HttpRequestWorker *worker);
 
 Q_SIGNALS:
 
-    void inscriptionchecklistGetAutocompleteV2Signal(Inscriptionchecklist_getAutocomplete_v2_Response summary);
     void inscriptionchecklistGetAutocompleteV3Signal(Inscriptionchecklist_getAutocomplete_v3_Response summary);
 
 
-    void inscriptionchecklistGetAutocompleteV2SignalFull(HttpRequestWorker *worker, Inscriptionchecklist_getAutocomplete_v2_Response summary);
     void inscriptionchecklistGetAutocompleteV3SignalFull(HttpRequestWorker *worker, Inscriptionchecklist_getAutocomplete_v3_Response summary);
 
-    Q_DECL_DEPRECATED_X("Use inscriptionchecklistGetAutocompleteV2SignalError() instead")
-    void inscriptionchecklistGetAutocompleteV2SignalE(Inscriptionchecklist_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void inscriptionchecklistGetAutocompleteV2SignalError(Inscriptionchecklist_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use inscriptionchecklistGetAutocompleteV3SignalError() instead")
     void inscriptionchecklistGetAutocompleteV3SignalE(Inscriptionchecklist_getAutocomplete_v3_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void inscriptionchecklistGetAutocompleteV3SignalError(Inscriptionchecklist_getAutocomplete_v3_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
-    Q_DECL_DEPRECATED_X("Use inscriptionchecklistGetAutocompleteV2SignalErrorFull() instead")
-    void inscriptionchecklistGetAutocompleteV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
-    void inscriptionchecklistGetAutocompleteV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use inscriptionchecklistGetAutocompleteV3SignalErrorFull() instead")
     void inscriptionchecklistGetAutocompleteV3SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void inscriptionchecklistGetAutocompleteV3SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);

@@ -112,6 +112,9 @@ void Ezsignfolder_ResponseV3::initializeModel() {
     m_t_ezsignfolder_message_isSet = false;
     m_t_ezsignfolder_message_isValid = false;
 
+    m_e_ezsignfolder_messageorder_isSet = false;
+    m_e_ezsignfolder_messageorder_isValid = false;
+
     m_obj_audit_isSet = false;
     m_obj_audit_isValid = false;
 
@@ -209,6 +212,9 @@ void Ezsignfolder_ResponseV3::fromJsonObject(QJsonObject json) {
     m_t_ezsignfolder_message_isValid = ::Ezmaxapi::fromJsonValue(m_t_ezsignfolder_message, json[QString("tEzsignfolderMessage")]);
     m_t_ezsignfolder_message_isSet = !json[QString("tEzsignfolderMessage")].isNull() && m_t_ezsignfolder_message_isValid;
 
+    m_e_ezsignfolder_messageorder_isValid = ::Ezmaxapi::fromJsonValue(m_e_ezsignfolder_messageorder, json[QString("eEzsignfolderMessageorder")]);
+    m_e_ezsignfolder_messageorder_isSet = !json[QString("eEzsignfolderMessageorder")].isNull() && m_e_ezsignfolder_messageorder_isValid;
+
     m_obj_audit_isValid = ::Ezmaxapi::fromJsonValue(m_obj_audit, json[QString("objAudit")]);
     m_obj_audit_isSet = !json[QString("objAudit")].isNull() && m_obj_audit_isValid;
 
@@ -305,6 +311,9 @@ QJsonObject Ezsignfolder_ResponseV3::asJsonObject() const {
     }
     if (m_t_ezsignfolder_message_isSet) {
         obj.insert(QString("tEzsignfolderMessage"), ::Ezmaxapi::toJsonValue(m_t_ezsignfolder_message));
+    }
+    if (m_e_ezsignfolder_messageorder.isSet()) {
+        obj.insert(QString("eEzsignfolderMessageorder"), ::Ezmaxapi::toJsonValue(m_e_ezsignfolder_messageorder));
     }
     if (m_obj_audit.isSet()) {
         obj.insert(QString("objAudit"), ::Ezmaxapi::toJsonValue(m_obj_audit));
@@ -734,6 +743,22 @@ bool Ezsignfolder_ResponseV3::is_t_ezsignfolder_message_Valid() const{
     return m_t_ezsignfolder_message_isValid;
 }
 
+Field_eEzsignfolderMessageorder Ezsignfolder_ResponseV3::getEEzsignfolderMessageorder() const {
+    return m_e_ezsignfolder_messageorder;
+}
+void Ezsignfolder_ResponseV3::setEEzsignfolderMessageorder(const Field_eEzsignfolderMessageorder &e_ezsignfolder_messageorder) {
+    m_e_ezsignfolder_messageorder = e_ezsignfolder_messageorder;
+    m_e_ezsignfolder_messageorder_isSet = true;
+}
+
+bool Ezsignfolder_ResponseV3::is_e_ezsignfolder_messageorder_Set() const{
+    return m_e_ezsignfolder_messageorder_isSet;
+}
+
+bool Ezsignfolder_ResponseV3::is_e_ezsignfolder_messageorder_Valid() const{
+    return m_e_ezsignfolder_messageorder_isValid;
+}
+
 Common_Audit Ezsignfolder_ResponseV3::getObjAudit() const {
     return m_obj_audit;
 }
@@ -911,6 +936,11 @@ bool Ezsignfolder_ResponseV3::isSet() const {
         }
 
         if (m_t_ezsignfolder_message_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_e_ezsignfolder_messageorder.isSet()) {
             isObjectUpdated = true;
             break;
         }

@@ -65,8 +65,6 @@ void ObjectSignatureApi::initializeServerConfigs() {
     _serverIndices.insert("signatureDeleteObjectV1", 0);
     _serverConfigs.insert("signatureEditObjectV1", defaultConf);
     _serverIndices.insert("signatureEditObjectV1", 0);
-    _serverConfigs.insert("signatureGetObjectV2", defaultConf);
-    _serverIndices.insert("signatureGetObjectV2", 0);
     _serverConfigs.insert("signatureGetObjectV3", defaultConf);
     _serverIndices.insert("signatureGetObjectV3", 0);
     _serverConfigs.insert("signatureGetSVGInitialsV1", defaultConf);
@@ -499,94 +497,6 @@ void ObjectSignatureApi::signatureEditObjectV1Callback(HttpRequestWorker *worker
 
         Q_EMIT signatureEditObjectV1SignalError(output, error_type, error_str);
         Q_EMIT signatureEditObjectV1SignalErrorFull(worker, error_type, error_str);
-    }
-}
-
-void ObjectSignatureApi::signatureGetObjectV2(const qint32 &pki_signature_id) {
-    QString fullPath = QString(_serverConfigs["signatureGetObjectV2"][_serverIndices.value("signatureGetObjectV2")].URL()+"/2/object/signature/{pkiSignatureID}");
-    
-    if (_apiKeys.contains("Authorization")) {
-        addHeaders("Authorization",_apiKeys.find("Authorization").value());
-    }
-    
-    
-    {
-        QString pki_signature_idPathParam("{");
-        pki_signature_idPathParam.append("pkiSignatureID").append("}");
-        QString pathPrefix, pathSuffix, pathDelimiter;
-        QString pathStyle = "simple";
-        if (pathStyle == "")
-            pathStyle = "simple";
-        pathPrefix = getParamStylePrefix(pathStyle);
-        pathSuffix = getParamStyleSuffix(pathStyle);
-        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiSignatureID", false);
-        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiSignatureID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_signature_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_signature_id)));
-    }
-    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
-    worker->setTimeOut(_timeOut);
-    worker->setWorkingDirectory(_workingDirectory);
-    HttpRequestInput input(fullPath, "GET");
-
-
-    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
-        input.headers.insert(keyValueIt->first, keyValueIt->second);
-    }
-
-
-    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectSignatureApi::signatureGetObjectV2Callback);
-    connect(this, &ObjectSignatureApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
-        if (findChildren<HttpRequestWorker*>().count() == 0) {
-            Q_EMIT allPendingRequestsCompleted();
-        }
-    });
-
-    worker->execute(&input);
-}
-
-void ObjectSignatureApi::signatureGetObjectV2Callback(HttpRequestWorker *worker) {
-    QString error_str = worker->error_str;
-    QNetworkReply::NetworkError error_type = worker->error_type;
-
-    if (worker->error_type != QNetworkReply::NoError) {
-        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
-    }
-    Signature_getObject_v2_Response output(QString(worker->response));
-    worker->deleteLater();
-
-    if (worker->error_type == QNetworkReply::NoError) {
-        Q_EMIT signatureGetObjectV2Signal(output);
-        Q_EMIT signatureGetObjectV2SignalFull(worker, output);
-    } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT signatureGetObjectV2SignalE(output, error_type, error_str);
-        Q_EMIT signatureGetObjectV2SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
-        Q_EMIT signatureGetObjectV2SignalError(output, error_type, error_str);
-        Q_EMIT signatureGetObjectV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 

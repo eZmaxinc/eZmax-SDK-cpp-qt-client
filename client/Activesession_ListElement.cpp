@@ -425,7 +425,7 @@ bool Activesession_ListElement::isSet() const {
 
 bool Activesession_ListElement::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_pki_activesession_id_isValid && m_fki_user_id_isValid && m_fki_computer_id_isValid && m_fki_company_id_isValid && m_fki_department_id_isValid && m_s_company_name_x_isValid && m_s_department_name_x_isValid && m_s_activesession_loginname_isValid && m_s_computer_description_isValid && m_dt_activesession_firsthit_isValid && m_dt_activesession_lasthit_isValid && m_s_activesession_ip_isValid && true;
+    return m_pki_activesession_id_isValid && m_fki_user_id_isValid && m_fki_company_id_isValid && m_fki_department_id_isValid && m_s_company_name_x_isValid && m_s_department_name_x_isValid && m_s_activesession_loginname_isValid && m_dt_activesession_firsthit_isValid && m_dt_activesession_lasthit_isValid && m_s_activesession_ip_isValid && true;
 }
 
 } // namespace Ezmaxapi

@@ -58,6 +58,11 @@ public:
     bool is_s_reportsection_title_Set() const;
     bool is_s_reportsection_title_Valid() const;
 
+    QString getSReportsectionTabname() const;
+    void setSReportsectionTabname(const QString &s_reportsection_tabname);
+    bool is_s_reportsection_tabname_Set() const;
+    bool is_s_reportsection_tabname_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -75,6 +80,10 @@ private:
     QString m_s_reportsection_title;
     bool m_s_reportsection_title_isSet;
     bool m_s_reportsection_title_isValid;
+
+    QString m_s_reportsection_tabname;
+    bool m_s_reportsection_tabname_isSet;
+    bool m_s_reportsection_tabname_isValid;
 };
 
 } // namespace Ezmaxapi

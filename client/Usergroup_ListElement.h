@@ -54,6 +54,11 @@ public:
     bool is_i_count_user_Set() const;
     bool is_i_count_user_Valid() const;
 
+    qint32 getICountInactiveuser() const;
+    void setICountInactiveuser(const qint32 &i_count_inactiveuser);
+    bool is_i_count_inactiveuser_Set() const;
+    bool is_i_count_inactiveuser_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -71,6 +76,10 @@ private:
     qint32 m_i_count_user;
     bool m_i_count_user_isSet;
     bool m_i_count_user_isValid;
+
+    qint32 m_i_count_inactiveuser;
+    bool m_i_count_inactiveuser_isSet;
+    bool m_i_count_inactiveuser_isValid;
 };
 
 } // namespace Ezmaxapi

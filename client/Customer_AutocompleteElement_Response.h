@@ -54,6 +54,11 @@ public:
     bool is_s_customer_name_Set() const;
     bool is_s_customer_name_Valid() const;
 
+    QString getSCustomerCode() const;
+    void setSCustomerCode(const QString &s_customer_code);
+    bool is_s_customer_code_Set() const;
+    bool is_s_customer_code_Valid() const;
+
     bool isBCustomerIsactive() const;
     void setBCustomerIsactive(const bool &b_customer_isactive);
     bool is_b_customer_isactive_Set() const;
@@ -76,6 +81,10 @@ private:
     QString m_s_customer_name;
     bool m_s_customer_name_isSet;
     bool m_s_customer_name_isValid;
+
+    QString m_s_customer_code;
+    bool m_s_customer_code_isSet;
+    bool m_s_customer_code_isValid;
 
     bool m_b_customer_isactive;
     bool m_b_customer_isactive_isSet;

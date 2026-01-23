@@ -79,6 +79,12 @@ void Ezsigntemplatesignature_Response::initializeModel() {
     m_e_ezsigntemplatesignature_type_isSet = false;
     m_e_ezsigntemplatesignature_type_isValid = false;
 
+    m_e_ezsigntemplatesignature_signaturepad_isSet = false;
+    m_e_ezsigntemplatesignature_signaturepad_isValid = false;
+
+    m_e_ezsigntemplatesignature_signaturepadrequired_isSet = false;
+    m_e_ezsigntemplatesignature_signaturepadrequired_isValid = false;
+
     m_e_ezsigntemplatesignature_consultationtrigger_isSet = false;
     m_e_ezsigntemplatesignature_consultationtrigger_isValid = false;
 
@@ -194,6 +200,12 @@ void Ezsigntemplatesignature_Response::fromJsonObject(QJsonObject json) {
     m_e_ezsigntemplatesignature_type_isValid = ::Ezmaxapi::fromJsonValue(m_e_ezsigntemplatesignature_type, json[QString("eEzsigntemplatesignatureType")]);
     m_e_ezsigntemplatesignature_type_isSet = !json[QString("eEzsigntemplatesignatureType")].isNull() && m_e_ezsigntemplatesignature_type_isValid;
 
+    m_e_ezsigntemplatesignature_signaturepad_isValid = ::Ezmaxapi::fromJsonValue(m_e_ezsigntemplatesignature_signaturepad, json[QString("eEzsigntemplatesignatureSignaturepad")]);
+    m_e_ezsigntemplatesignature_signaturepad_isSet = !json[QString("eEzsigntemplatesignatureSignaturepad")].isNull() && m_e_ezsigntemplatesignature_signaturepad_isValid;
+
+    m_e_ezsigntemplatesignature_signaturepadrequired_isValid = ::Ezmaxapi::fromJsonValue(m_e_ezsigntemplatesignature_signaturepadrequired, json[QString("eEzsigntemplatesignatureSignaturepadrequired")]);
+    m_e_ezsigntemplatesignature_signaturepadrequired_isSet = !json[QString("eEzsigntemplatesignatureSignaturepadrequired")].isNull() && m_e_ezsigntemplatesignature_signaturepadrequired_isValid;
+
     m_e_ezsigntemplatesignature_consultationtrigger_isValid = ::Ezmaxapi::fromJsonValue(m_e_ezsigntemplatesignature_consultationtrigger, json[QString("eEzsigntemplatesignatureConsultationtrigger")]);
     m_e_ezsigntemplatesignature_consultationtrigger_isSet = !json[QString("eEzsigntemplatesignatureConsultationtrigger")].isNull() && m_e_ezsigntemplatesignature_consultationtrigger_isValid;
 
@@ -308,6 +320,12 @@ QJsonObject Ezsigntemplatesignature_Response::asJsonObject() const {
     }
     if (m_e_ezsigntemplatesignature_type.isSet()) {
         obj.insert(QString("eEzsigntemplatesignatureType"), ::Ezmaxapi::toJsonValue(m_e_ezsigntemplatesignature_type));
+    }
+    if (m_e_ezsigntemplatesignature_signaturepad.isSet()) {
+        obj.insert(QString("eEzsigntemplatesignatureSignaturepad"), ::Ezmaxapi::toJsonValue(m_e_ezsigntemplatesignature_signaturepad));
+    }
+    if (m_e_ezsigntemplatesignature_signaturepadrequired.isSet()) {
+        obj.insert(QString("eEzsigntemplatesignatureSignaturepadrequired"), ::Ezmaxapi::toJsonValue(m_e_ezsigntemplatesignature_signaturepadrequired));
     }
     if (m_e_ezsigntemplatesignature_consultationtrigger.isSet()) {
         obj.insert(QString("eEzsigntemplatesignatureConsultationtrigger"), ::Ezmaxapi::toJsonValue(m_e_ezsigntemplatesignature_consultationtrigger));
@@ -610,6 +628,38 @@ bool Ezsigntemplatesignature_Response::is_e_ezsigntemplatesignature_type_Set() c
 
 bool Ezsigntemplatesignature_Response::is_e_ezsigntemplatesignature_type_Valid() const{
     return m_e_ezsigntemplatesignature_type_isValid;
+}
+
+Field_eEzsigntemplatesignatureSignaturepad Ezsigntemplatesignature_Response::getEEzsigntemplatesignatureSignaturepad() const {
+    return m_e_ezsigntemplatesignature_signaturepad;
+}
+void Ezsigntemplatesignature_Response::setEEzsigntemplatesignatureSignaturepad(const Field_eEzsigntemplatesignatureSignaturepad &e_ezsigntemplatesignature_signaturepad) {
+    m_e_ezsigntemplatesignature_signaturepad = e_ezsigntemplatesignature_signaturepad;
+    m_e_ezsigntemplatesignature_signaturepad_isSet = true;
+}
+
+bool Ezsigntemplatesignature_Response::is_e_ezsigntemplatesignature_signaturepad_Set() const{
+    return m_e_ezsigntemplatesignature_signaturepad_isSet;
+}
+
+bool Ezsigntemplatesignature_Response::is_e_ezsigntemplatesignature_signaturepad_Valid() const{
+    return m_e_ezsigntemplatesignature_signaturepad_isValid;
+}
+
+Field_eEzsigntemplatesignatureSignaturepadrequired Ezsigntemplatesignature_Response::getEEzsigntemplatesignatureSignaturepadrequired() const {
+    return m_e_ezsigntemplatesignature_signaturepadrequired;
+}
+void Ezsigntemplatesignature_Response::setEEzsigntemplatesignatureSignaturepadrequired(const Field_eEzsigntemplatesignatureSignaturepadrequired &e_ezsigntemplatesignature_signaturepadrequired) {
+    m_e_ezsigntemplatesignature_signaturepadrequired = e_ezsigntemplatesignature_signaturepadrequired;
+    m_e_ezsigntemplatesignature_signaturepadrequired_isSet = true;
+}
+
+bool Ezsigntemplatesignature_Response::is_e_ezsigntemplatesignature_signaturepadrequired_Set() const{
+    return m_e_ezsigntemplatesignature_signaturepadrequired_isSet;
+}
+
+bool Ezsigntemplatesignature_Response::is_e_ezsigntemplatesignature_signaturepadrequired_Valid() const{
+    return m_e_ezsigntemplatesignature_signaturepadrequired_isValid;
 }
 
 Field_eEzsigntemplatesignatureConsultationtrigger Ezsigntemplatesignature_Response::getEEzsigntemplatesignatureConsultationtrigger() const {
@@ -1006,6 +1056,16 @@ bool Ezsigntemplatesignature_Response::isSet() const {
         }
 
         if (m_e_ezsigntemplatesignature_type.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_e_ezsigntemplatesignature_signaturepad.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_e_ezsigntemplatesignature_signaturepadrequired.isSet()) {
             isObjectUpdated = true;
             break;
         }

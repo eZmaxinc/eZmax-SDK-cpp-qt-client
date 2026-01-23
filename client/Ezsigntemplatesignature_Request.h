@@ -28,6 +28,8 @@
 #include "Field_eEzsigntemplatesignatureFont.h"
 #include "Field_eEzsigntemplatesignaturePositioning.h"
 #include "Field_eEzsigntemplatesignaturePositioningoccurence.h"
+#include "Field_eEzsigntemplatesignatureSignaturepad.h"
+#include "Field_eEzsigntemplatesignatureSignaturepadrequired.h"
 #include "Field_eEzsigntemplatesignatureTooltipposition.h"
 #include "Field_eEzsigntemplatesignatureType.h"
 #include <QString>
@@ -122,6 +124,16 @@ public:
     void setEEzsigntemplatesignatureType(const Field_eEzsigntemplatesignatureType &e_ezsigntemplatesignature_type);
     bool is_e_ezsigntemplatesignature_type_Set() const;
     bool is_e_ezsigntemplatesignature_type_Valid() const;
+
+    Field_eEzsigntemplatesignatureSignaturepad getEEzsigntemplatesignatureSignaturepad() const;
+    void setEEzsigntemplatesignatureSignaturepad(const Field_eEzsigntemplatesignatureSignaturepad &e_ezsigntemplatesignature_signaturepad);
+    bool is_e_ezsigntemplatesignature_signaturepad_Set() const;
+    bool is_e_ezsigntemplatesignature_signaturepad_Valid() const;
+
+    Field_eEzsigntemplatesignatureSignaturepadrequired getEEzsigntemplatesignatureSignaturepadrequired() const;
+    void setEEzsigntemplatesignatureSignaturepadrequired(const Field_eEzsigntemplatesignatureSignaturepadrequired &e_ezsigntemplatesignature_signaturepadrequired);
+    bool is_e_ezsigntemplatesignature_signaturepadrequired_Set() const;
+    bool is_e_ezsigntemplatesignature_signaturepadrequired_Valid() const;
 
     Field_eEzsigntemplatesignatureConsultationtrigger getEEzsigntemplatesignatureConsultationtrigger() const;
     void setEEzsigntemplatesignatureConsultationtrigger(const Field_eEzsigntemplatesignatureConsultationtrigger &e_ezsigntemplatesignature_consultationtrigger);
@@ -288,6 +300,14 @@ private:
     Field_eEzsigntemplatesignatureType m_e_ezsigntemplatesignature_type;
     bool m_e_ezsigntemplatesignature_type_isSet;
     bool m_e_ezsigntemplatesignature_type_isValid;
+
+    Field_eEzsigntemplatesignatureSignaturepad m_e_ezsigntemplatesignature_signaturepad;
+    bool m_e_ezsigntemplatesignature_signaturepad_isSet;
+    bool m_e_ezsigntemplatesignature_signaturepad_isValid;
+
+    Field_eEzsigntemplatesignatureSignaturepadrequired m_e_ezsigntemplatesignature_signaturepadrequired;
+    bool m_e_ezsigntemplatesignature_signaturepadrequired_isSet;
+    bool m_e_ezsigntemplatesignature_signaturepadrequired_isValid;
 
     Field_eEzsigntemplatesignatureConsultationtrigger m_e_ezsigntemplatesignature_consultationtrigger;
     bool m_e_ezsigntemplatesignature_consultationtrigger_isSet;

@@ -19,7 +19,6 @@
 #include "Oauth.h"
 
 #include "Common_Response_Error.h"
-#include "Notificationtest_getElements_v1_Response.h"
 #include "Notificationtest_getElements_v2_Response.h"
 #include <QString>
 
@@ -62,11 +61,6 @@ public:
     /**
     * @param[in]  pki_notificationtest_id qint32 [required]
     */
-    Q_DECL_DEPRECATED virtual void notificationtestGetElementsV1(const qint32 &pki_notificationtest_id);
-
-    /**
-    * @param[in]  pki_notificationtest_id qint32 [required]
-    */
     virtual void notificationtestGetElementsV2(const qint32 &pki_notificationtest_id);
 
 
@@ -92,28 +86,19 @@ private:
     OauthPassword _passwordFlow;
     int _OauthMethod = 0;
 
-    void notificationtestGetElementsV1Callback(HttpRequestWorker *worker);
     void notificationtestGetElementsV2Callback(HttpRequestWorker *worker);
 
 Q_SIGNALS:
 
-    void notificationtestGetElementsV1Signal(Notificationtest_getElements_v1_Response summary);
     void notificationtestGetElementsV2Signal(Notificationtest_getElements_v2_Response summary);
 
 
-    void notificationtestGetElementsV1SignalFull(HttpRequestWorker *worker, Notificationtest_getElements_v1_Response summary);
     void notificationtestGetElementsV2SignalFull(HttpRequestWorker *worker, Notificationtest_getElements_v2_Response summary);
 
-    Q_DECL_DEPRECATED_X("Use notificationtestGetElementsV1SignalError() instead")
-    void notificationtestGetElementsV1SignalE(Notificationtest_getElements_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void notificationtestGetElementsV1SignalError(Notificationtest_getElements_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use notificationtestGetElementsV2SignalError() instead")
     void notificationtestGetElementsV2SignalE(Notificationtest_getElements_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void notificationtestGetElementsV2SignalError(Notificationtest_getElements_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
-    Q_DECL_DEPRECATED_X("Use notificationtestGetElementsV1SignalErrorFull() instead")
-    void notificationtestGetElementsV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
-    void notificationtestGetElementsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use notificationtestGetElementsV2SignalErrorFull() instead")
     void notificationtestGetElementsV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void notificationtestGetElementsV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);

@@ -19,15 +19,11 @@
 #include "Oauth.h"
 
 #include "Common_Response_Error.h"
-#include "Customer_createObject_v1_Request.h"
-#include "Customer_createObject_v1_Response.h"
 #include "Customer_getAutocomplete_v2_Response.h"
-#include "Customer_getList_v1_Response.h"
 #include "Customer_getObject_v2_Response.h"
 #include "Customer_importIntoEDM_v1_Request.h"
 #include "Customer_importIntoEDM_v1_Response.h"
 #include "Header_Accept_Language.h"
-#include "HttpFileElement.h"
 #include <QString>
 
 #include <QObject>
@@ -67,26 +63,12 @@ public:
     QString getParamStyleDelimiter(const QString &style, const QString &name, bool isExplode);
 
     /**
-    * @param[in]  customer_create_object_v1_request Customer_createObject_v1_Request [required]
-    */
-    virtual void customerCreateObjectV1(const Customer_createObject_v1_Request &customer_create_object_v1_request);
-
-    /**
     * @param[in]  s_selector QString [required]
     * @param[in]  e_filter_active QString [optional]
     * @param[in]  s_query QString [optional]
     * @param[in]  accept_language Header_Accept_Language [optional]
     */
     virtual void customerGetAutocompleteV2(const QString &s_selector, const ::Ezmaxapi::OptionalParam<QString> &e_filter_active = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<QString> &s_query = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<Header_Accept_Language>());
-
-    /**
-    * @param[in]  e_order_by QString [optional]
-    * @param[in]  i_row_max qint32 [optional]
-    * @param[in]  i_row_offset qint32 [optional]
-    * @param[in]  accept_language Header_Accept_Language [optional]
-    * @param[in]  s_filter QString [optional]
-    */
-    virtual void customerGetListV1(const ::Ezmaxapi::OptionalParam<QString> &e_order_by = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<qint32> &i_row_max = ::Ezmaxapi::OptionalParam<qint32>(), const ::Ezmaxapi::OptionalParam<qint32> &i_row_offset = ::Ezmaxapi::OptionalParam<qint32>(), const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<Header_Accept_Language>(), const ::Ezmaxapi::OptionalParam<QString> &s_filter = ::Ezmaxapi::OptionalParam<QString>());
 
     /**
     * @param[in]  pki_customer_id qint32 [required]
@@ -122,36 +104,24 @@ private:
     OauthPassword _passwordFlow;
     int _OauthMethod = 0;
 
-    void customerCreateObjectV1Callback(HttpRequestWorker *worker);
     void customerGetAutocompleteV2Callback(HttpRequestWorker *worker);
-    void customerGetListV1Callback(HttpRequestWorker *worker);
     void customerGetObjectV2Callback(HttpRequestWorker *worker);
     void customerImportIntoEDMV1Callback(HttpRequestWorker *worker);
 
 Q_SIGNALS:
 
-    void customerCreateObjectV1Signal(Customer_createObject_v1_Response summary);
     void customerGetAutocompleteV2Signal(Customer_getAutocomplete_v2_Response summary);
-    void customerGetListV1Signal(Customer_getList_v1_Response summary);
     void customerGetObjectV2Signal(Customer_getObject_v2_Response summary);
     void customerImportIntoEDMV1Signal(Customer_importIntoEDM_v1_Response summary);
 
 
-    void customerCreateObjectV1SignalFull(HttpRequestWorker *worker, Customer_createObject_v1_Response summary);
     void customerGetAutocompleteV2SignalFull(HttpRequestWorker *worker, Customer_getAutocomplete_v2_Response summary);
-    void customerGetListV1SignalFull(HttpRequestWorker *worker, Customer_getList_v1_Response summary);
     void customerGetObjectV2SignalFull(HttpRequestWorker *worker, Customer_getObject_v2_Response summary);
     void customerImportIntoEDMV1SignalFull(HttpRequestWorker *worker, Customer_importIntoEDM_v1_Response summary);
 
-    Q_DECL_DEPRECATED_X("Use customerCreateObjectV1SignalError() instead")
-    void customerCreateObjectV1SignalE(Customer_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void customerCreateObjectV1SignalError(Customer_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use customerGetAutocompleteV2SignalError() instead")
     void customerGetAutocompleteV2SignalE(Customer_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void customerGetAutocompleteV2SignalError(Customer_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use customerGetListV1SignalError() instead")
-    void customerGetListV1SignalE(Customer_getList_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void customerGetListV1SignalError(Customer_getList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use customerGetObjectV2SignalError() instead")
     void customerGetObjectV2SignalE(Customer_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void customerGetObjectV2SignalError(Customer_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -159,15 +129,9 @@ Q_SIGNALS:
     void customerImportIntoEDMV1SignalE(Customer_importIntoEDM_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void customerImportIntoEDMV1SignalError(Customer_importIntoEDM_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
-    Q_DECL_DEPRECATED_X("Use customerCreateObjectV1SignalErrorFull() instead")
-    void customerCreateObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
-    void customerCreateObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use customerGetAutocompleteV2SignalErrorFull() instead")
     void customerGetAutocompleteV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void customerGetAutocompleteV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use customerGetListV1SignalErrorFull() instead")
-    void customerGetListV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
-    void customerGetListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use customerGetObjectV2SignalErrorFull() instead")
     void customerGetObjectV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void customerGetObjectV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);

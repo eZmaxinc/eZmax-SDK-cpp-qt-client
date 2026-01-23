@@ -61,6 +61,16 @@ public:
     bool is_fki_branding_id_Set() const;
     bool is_fki_branding_id_Valid() const;
 
+    qint32 getFkiTimezoneIdDefault() const;
+    void setFkiTimezoneIdDefault(const qint32 &fki_timezone_id_default);
+    bool is_fki_timezone_id_default_Set() const;
+    bool is_fki_timezone_id_default_Valid() const;
+
+    QString getSTimezoneNameDefault() const;
+    void setSTimezoneNameDefault(const QString &s_timezone_name_default);
+    bool is_s_timezone_name_default_Set() const;
+    bool is_s_timezone_name_default_Valid() const;
+
     QString getSSystemconfigurationtypeDescriptionX() const;
     void setSSystemconfigurationtypeDescriptionX(const QString &s_systemconfigurationtype_description_x);
     bool is_s_systemconfigurationtype_description_x_Set() const;
@@ -131,6 +141,11 @@ public:
     bool is_obj_branding_Set() const;
     bool is_obj_branding_Valid() const;
 
+    qint32 getISystemconfigurationEzsignreminderhoursend() const;
+    void setISystemconfigurationEzsignreminderhoursend(const qint32 &i_systemconfiguration_ezsignreminderhoursend);
+    bool is_i_systemconfiguration_ezsignreminderhoursend_Set() const;
+    bool is_i_systemconfiguration_ezsignreminderhoursend_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -148,6 +163,14 @@ private:
     qint32 m_fki_branding_id;
     bool m_fki_branding_id_isSet;
     bool m_fki_branding_id_isValid;
+
+    qint32 m_fki_timezone_id_default;
+    bool m_fki_timezone_id_default_isSet;
+    bool m_fki_timezone_id_default_isValid;
+
+    QString m_s_timezone_name_default;
+    bool m_s_timezone_name_default_isSet;
+    bool m_s_timezone_name_default_isValid;
 
     QString m_s_systemconfigurationtype_description_x;
     bool m_s_systemconfigurationtype_description_x_isSet;
@@ -204,6 +227,10 @@ private:
     Custom_Branding_Response m_obj_branding;
     bool m_obj_branding_isSet;
     bool m_obj_branding_isValid;
+
+    qint32 m_i_systemconfiguration_ezsignreminderhoursend;
+    bool m_i_systemconfiguration_ezsignreminderhoursend_isSet;
+    bool m_i_systemconfiguration_ezsignreminderhoursend_isValid;
 };
 
 } // namespace Ezmaxapi

@@ -370,18 +370,10 @@ add_library(${PROJECT_NAME}
   Custom_WordPositionWord_Response.h
   Custom_eWebhookEzsignevent.h
   Customer_AutocompleteElement_Response.h
-  Customer_ListElement.h
-  Customer_Request.h
-  Customer_RequestCompound.h
   Customer_Response.h
   Customer_ResponseCompound.h
-  Customer_createObject_v1_Request.h
-  Customer_createObject_v1_Response.h
-  Customer_createObject_v1_Response_mPayload.h
   Customer_getAutocomplete_v2_Response.h
   Customer_getAutocomplete_v2_Response_mPayload.h
-  Customer_getList_v1_Response.h
-  Customer_getList_v1_Response_mPayload.h
   Customer_getObject_v2_Response.h
   Customer_getObject_v2_Response_mPayload.h
   Customer_importIntoEDM_v1_Request.h
@@ -568,8 +560,6 @@ add_library(${PROJECT_NAME}
   Ezsignbulksend_createObject_v2_Response.h
   Ezsignbulksend_createObject_v2_Response_mPayload.h
   Ezsignbulksend_deleteObject_v1_Response.h
-  Ezsignbulksend_editObject_v1_Request.h
-  Ezsignbulksend_editObject_v1_Response.h
   Ezsignbulksend_editObject_v2_Request.h
   Ezsignbulksend_editObject_v2_Response.h
   Ezsignbulksend_getEzsignbulksendtransmissions_v1_Response.h
@@ -661,6 +651,9 @@ add_library(${PROJECT_NAME}
   Ezsigndocument_editEzsignformfieldgroups_v1_Request.h
   Ezsigndocument_editEzsignformfieldgroups_v1_Response.h
   Ezsigndocument_editEzsignformfieldgroups_v1_Response_mPayload.h
+  Ezsigndocument_editEzsignformfieldgroups_v2_Request.h
+  Ezsigndocument_editEzsignformfieldgroups_v2_Response.h
+  Ezsigndocument_editEzsignformfieldgroups_v2_Response_mPayload.h
   Ezsigndocument_editEzsignsignatures_v1_Request.h
   Ezsigndocument_editEzsignsignatures_v1_Response.h
   Ezsigndocument_editEzsignsignatures_v1_Response_mPayload.h
@@ -678,6 +671,8 @@ add_library(${PROJECT_NAME}
   Ezsigndocument_getActionableElements_v1_Response_mPayload.h
   Ezsigndocument_getActionableElements_v2_Response.h
   Ezsigndocument_getActionableElements_v2_Response_mPayload.h
+  Ezsigndocument_getActionableElements_v3_Response.h
+  Ezsigndocument_getActionableElements_v3_Response_mPayload.h
   Ezsigndocument_getAttachments_v1_Response.h
   Ezsigndocument_getAttachments_v1_Response_mPayload.h
   Ezsigndocument_getCompletedElements_v1_Response.h
@@ -760,6 +755,8 @@ add_library(${PROJECT_NAME}
   Ezsignfolder_getActionableElements_v1_Response_mPayload.h
   Ezsignfolder_getActionableElements_v2_Response.h
   Ezsignfolder_getActionableElements_v2_Response_mPayload.h
+  Ezsignfolder_getActionableElements_v3_Response.h
+  Ezsignfolder_getActionableElements_v3_Response_mPayload.h
   Ezsignfolder_getAttachmentCount_v1_Response.h
   Ezsignfolder_getAttachmentCount_v1_Response_mPayload.h
   Ezsignfolder_getAttachments_v1_Response.h
@@ -799,8 +796,6 @@ add_library(${PROJECT_NAME}
   Ezsignfolder_importEzsigntemplatepackage_v2_Request.h
   Ezsignfolder_importEzsigntemplatepackage_v2_Response.h
   Ezsignfolder_importEzsigntemplatepackage_v2_Response_mPayload.h
-  Ezsignfolder_reorder_v1_Request.h
-  Ezsignfolder_reorder_v1_Response.h
   Ezsignfolder_reorder_v2_Request.h
   Ezsignfolder_reorder_v2_Response.h
   Ezsignfolder_send_v1_Request.h
@@ -814,9 +809,6 @@ add_library(${PROJECT_NAME}
   Ezsignfoldersignerassociation_Response.h
   Ezsignfoldersignerassociation_ResponseCompound.h
   Ezsignfoldersignerassociation_ResponseCompound_User.h
-  Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Request.h
-  Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Response.h
-  Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Response_mPayload.h
   Ezsignfoldersignerassociation_createEmbeddedUrl_v2_Request.h
   Ezsignfoldersignerassociation_createEmbeddedUrl_v2_Response.h
   Ezsignfoldersignerassociation_createEmbeddedUrl_v2_Response_mPayload.h
@@ -912,16 +904,12 @@ add_library(${PROJECT_NAME}
   Ezsignsignature_createObject_v4_Response.h
   Ezsignsignature_createObject_v4_Response_mPayload.h
   Ezsignsignature_deleteObject_v1_Response.h
-  Ezsignsignature_editObject_v2_Request.h
-  Ezsignsignature_editObject_v2_Response.h
   Ezsignsignature_editObject_v3_Request.h
   Ezsignsignature_editObject_v3_Response.h
   Ezsignsignature_getEzsignsignatureattachment_v1_Response.h
   Ezsignsignature_getEzsignsignatureattachment_v1_Response_mPayload.h
   Ezsignsignature_getEzsignsignaturesAutomatic_v1_Response.h
   Ezsignsignature_getEzsignsignaturesAutomatic_v1_Response_mPayload.h
-  Ezsignsignature_getObject_v3_Response.h
-  Ezsignsignature_getObject_v3_Response_mPayload.h
   Ezsignsignature_getObject_v4_Response.h
   Ezsignsignature_getObject_v4_Response_mPayload.h
   Ezsignsignature_sign_v1_Request.h
@@ -1045,8 +1033,6 @@ add_library(${PROJECT_NAME}
   Ezsigntemplatedocument_getEzsigntemplatedocumentpages_v1_Response_mPayload.h
   Ezsigntemplatedocument_getEzsigntemplateformfieldgroups_v1_Response.h
   Ezsigntemplatedocument_getEzsigntemplateformfieldgroups_v1_Response_mPayload.h
-  Ezsigntemplatedocument_getEzsigntemplatesignatures_v1_Response.h
-  Ezsigntemplatedocument_getEzsigntemplatesignatures_v1_Response_mPayload.h
   Ezsigntemplatedocument_getEzsigntemplatesignatures_v2_Response.h
   Ezsigntemplatedocument_getEzsigntemplatesignatures_v2_Response_mPayload.h
   Ezsigntemplatedocument_getObject_v2_Response.h
@@ -1190,7 +1176,6 @@ add_library(${PROJECT_NAME}
   Ezsigntemplatesignature_RequestCompoundV2.h
   Ezsigntemplatesignature_Response.h
   Ezsigntemplatesignature_ResponseCompound.h
-  Ezsigntemplatesignature_ResponseCompoundV3.h
   Ezsigntemplatesignature_ResponseCompoundV4.h
   Ezsigntemplatesignature_createObject_v2_Request.h
   Ezsigntemplatesignature_createObject_v2_Response.h
@@ -1199,12 +1184,8 @@ add_library(${PROJECT_NAME}
   Ezsigntemplatesignature_createObject_v3_Response.h
   Ezsigntemplatesignature_createObject_v3_Response_mPayload.h
   Ezsigntemplatesignature_deleteObject_v1_Response.h
-  Ezsigntemplatesignature_editObject_v2_Request.h
-  Ezsigntemplatesignature_editObject_v2_Response.h
   Ezsigntemplatesignature_editObject_v3_Request.h
   Ezsigntemplatesignature_editObject_v3_Response.h
-  Ezsigntemplatesignature_getObject_v3_Response.h
-  Ezsigntemplatesignature_getObject_v3_Response_mPayload.h
   Ezsigntemplatesignature_getObject_v4_Response.h
   Ezsigntemplatesignature_getObject_v4_Response_mPayload.h
   Ezsigntemplatesignaturecustomdate_Request.h
@@ -1309,6 +1290,8 @@ add_library(${PROJECT_NAME}
   Field_eEzsignsignatureConsultationtrigger.h
   Field_eEzsignsignatureDependencyrequirement.h
   Field_eEzsignsignatureFont.h
+  Field_eEzsignsignatureSignaturepad.h
+  Field_eEzsignsignatureSignaturepadrequired.h
   Field_eEzsignsignatureTooltipposition.h
   Field_eEzsignsignatureType.h
   Field_eEzsignsignaturepaymentdetailTaxable.h
@@ -1334,6 +1317,8 @@ add_library(${PROJECT_NAME}
   Field_eEzsigntemplatesignatureFont.h
   Field_eEzsigntemplatesignaturePositioning.h
   Field_eEzsigntemplatesignaturePositioningoccurence.h
+  Field_eEzsigntemplatesignatureSignaturepad.h
+  Field_eEzsigntemplatesignatureSignaturepadrequired.h
   Field_eEzsigntemplatesignatureTooltipposition.h
   Field_eEzsigntemplatesignatureType.h
   Field_eEzsigntemplatesignaturepaymentdetailTaxable.h
@@ -1390,6 +1375,9 @@ add_library(${PROJECT_NAME}
   Global_ezmaxclient_version_v1_Response.h
   Global_ezmaxcustomer_getConfiguration_v1_Response.h
   Header_Accept_Language.h
+  Infrastructureregion_AutocompleteElement_Response.h
+  Infrastructureregion_getAutocomplete_v2_Response.h
+  Infrastructureregion_getAutocomplete_v2_Response_mPayload.h
   Inscription_ListElement.h
   Inscription_getAttachments_v1_Response.h
   Inscription_getAttachments_v1_Response_mPayload.h
@@ -1410,8 +1398,6 @@ add_library(${PROJECT_NAME}
   Inscription_prepareFilesTransfer_v1_Response.h
   Inscription_prepareFilesTransfer_v1_Response_mPayload.h
   Inscriptionchecklist_AutocompleteElement_Response.h
-  Inscriptionchecklist_getAutocomplete_v2_Response.h
-  Inscriptionchecklist_getAutocomplete_v2_Response_mPayload.h
   Inscriptionchecklist_getAutocomplete_v3_Response.h
   Inscriptionchecklist_getAutocomplete_v3_Response_mPayload.h
   Inscriptionnotauthenticated_ListElement.h
@@ -1505,8 +1491,6 @@ add_library(${PROJECT_NAME}
   Notificationsection_getNotificationtests_v1_Response_mPayload.h
   Notificationsubsection_Response.h
   Notificationtest_Response.h
-  Notificationtest_getElements_v1_Response.h
-  Notificationtest_getElements_v1_Response_mPayload.h
   Notificationtest_getElements_v2_Response.h
   Notificationtest_getElements_v2_Response_mPayload.h
   Otherincome_ListElement.h
@@ -1593,6 +1577,12 @@ add_library(${PROJECT_NAME}
   Province_AutocompleteElement_Response.h
   Province_getAutocomplete_v2_Response.h
   Province_getAutocomplete_v2_Response_mPayload.h
+  Realestateassociation_AutocompleteElement_Response.h
+  Realestateassociation_getAutocomplete_v2_Response.h
+  Realestateassociation_getAutocomplete_v2_Response_mPayload.h
+  Realestateboard_AutocompleteElement_Response.h
+  Realestateboard_getAutocomplete_v2_Response.h
+  Realestateboard_getAutocomplete_v2_Response_mPayload.h
   Rejectedoffertopurchase_ListElement.h
   Rejectedoffertopurchase_getCommunicationCount_v1_Response.h
   Rejectedoffertopurchase_getCommunicationCount_v1_Response_mPayload.h
@@ -1638,8 +1628,6 @@ add_library(${PROJECT_NAME}
   Signature_deleteObject_v1_Response.h
   Signature_editObject_v1_Request.h
   Signature_editObject_v1_Response.h
-  Signature_getObject_v2_Response.h
-  Signature_getObject_v2_Response_mPayload.h
   Signature_getObject_v3_Response.h
   Signature_getObject_v3_Response_mPayload.h
   Subnet_Request.h
@@ -1678,14 +1666,17 @@ add_library(${PROJECT_NAME}
   Supply_getList_v1_Response_mPayload.h
   Supply_getObject_v2_Response.h
   Supply_getObject_v2_Response_mPayload.h
-  Systemconfiguration_Request.h
-  Systemconfiguration_RequestCompound.h
+  Systemconfiguration_RequestCompoundV2.h
+  Systemconfiguration_RequestV2.h
   Systemconfiguration_Response.h
   Systemconfiguration_ResponseCompound.h
-  Systemconfiguration_editObject_v1_Request.h
-  Systemconfiguration_editObject_v1_Response.h
+  Systemconfiguration_editObject_v2_Request.h
+  Systemconfiguration_editObject_v2_Response.h
   Systemconfiguration_getObject_v2_Response.h
   Systemconfiguration_getObject_v2_Response_mPayload.h
+  Systemconfigurationtype_AutocompleteElement_Response.h
+  Systemconfigurationtype_getAutocomplete_v2_Response.h
+  Systemconfigurationtype_getAutocomplete_v2_Response_mPayload.h
   Taxassignment_AutocompleteElement_Response.h
   Taxassignment_getAutocomplete_v2_Response.h
   Taxassignment_getAutocomplete_v2_Response_mPayload.h
@@ -2003,6 +1994,7 @@ add_library(${PROJECT_NAME}
   ObjectFranchisereferalincomeApi.h
   ObjectGlaccountApi.h
   ObjectGlaccountcontainerApi.h
+  ObjectInfrastructureregionApi.h
   ObjectInscriptionApi.h
   ObjectInscriptionchecklistApi.h
   ObjectInscriptionnotauthenticatedApi.h
@@ -2026,6 +2018,8 @@ add_library(${PROJECT_NAME}
   ObjectPermissionApi.h
   ObjectPhonetypeApi.h
   ObjectProvinceApi.h
+  ObjectRealestateassociationApi.h
+  ObjectRealestateboardApi.h
   ObjectRejectedoffertopurchaseApi.h
   ObjectSecretquestionApi.h
   ObjectSessionhistoryApi.h
@@ -2034,6 +2028,7 @@ add_library(${PROJECT_NAME}
   ObjectSupplierApi.h
   ObjectSupplyApi.h
   ObjectSystemconfigurationApi.h
+  ObjectSystemconfigurationtypeApi.h
   ObjectTaxassignmentApi.h
   ObjectTimezoneApi.h
   ObjectTranqcontractApi.h
@@ -2417,18 +2412,10 @@ add_library(${PROJECT_NAME}
   Custom_WordPositionWord_Response.cpp
   Custom_eWebhookEzsignevent.cpp
   Customer_AutocompleteElement_Response.cpp
-  Customer_ListElement.cpp
-  Customer_Request.cpp
-  Customer_RequestCompound.cpp
   Customer_Response.cpp
   Customer_ResponseCompound.cpp
-  Customer_createObject_v1_Request.cpp
-  Customer_createObject_v1_Response.cpp
-  Customer_createObject_v1_Response_mPayload.cpp
   Customer_getAutocomplete_v2_Response.cpp
   Customer_getAutocomplete_v2_Response_mPayload.cpp
-  Customer_getList_v1_Response.cpp
-  Customer_getList_v1_Response_mPayload.cpp
   Customer_getObject_v2_Response.cpp
   Customer_getObject_v2_Response_mPayload.cpp
   Customer_importIntoEDM_v1_Request.cpp
@@ -2615,8 +2602,6 @@ add_library(${PROJECT_NAME}
   Ezsignbulksend_createObject_v2_Response.cpp
   Ezsignbulksend_createObject_v2_Response_mPayload.cpp
   Ezsignbulksend_deleteObject_v1_Response.cpp
-  Ezsignbulksend_editObject_v1_Request.cpp
-  Ezsignbulksend_editObject_v1_Response.cpp
   Ezsignbulksend_editObject_v2_Request.cpp
   Ezsignbulksend_editObject_v2_Response.cpp
   Ezsignbulksend_getEzsignbulksendtransmissions_v1_Response.cpp
@@ -2708,6 +2693,9 @@ add_library(${PROJECT_NAME}
   Ezsigndocument_editEzsignformfieldgroups_v1_Request.cpp
   Ezsigndocument_editEzsignformfieldgroups_v1_Response.cpp
   Ezsigndocument_editEzsignformfieldgroups_v1_Response_mPayload.cpp
+  Ezsigndocument_editEzsignformfieldgroups_v2_Request.cpp
+  Ezsigndocument_editEzsignformfieldgroups_v2_Response.cpp
+  Ezsigndocument_editEzsignformfieldgroups_v2_Response_mPayload.cpp
   Ezsigndocument_editEzsignsignatures_v1_Request.cpp
   Ezsigndocument_editEzsignsignatures_v1_Response.cpp
   Ezsigndocument_editEzsignsignatures_v1_Response_mPayload.cpp
@@ -2725,6 +2713,8 @@ add_library(${PROJECT_NAME}
   Ezsigndocument_getActionableElements_v1_Response_mPayload.cpp
   Ezsigndocument_getActionableElements_v2_Response.cpp
   Ezsigndocument_getActionableElements_v2_Response_mPayload.cpp
+  Ezsigndocument_getActionableElements_v3_Response.cpp
+  Ezsigndocument_getActionableElements_v3_Response_mPayload.cpp
   Ezsigndocument_getAttachments_v1_Response.cpp
   Ezsigndocument_getAttachments_v1_Response_mPayload.cpp
   Ezsigndocument_getCompletedElements_v1_Response.cpp
@@ -2807,6 +2797,8 @@ add_library(${PROJECT_NAME}
   Ezsignfolder_getActionableElements_v1_Response_mPayload.cpp
   Ezsignfolder_getActionableElements_v2_Response.cpp
   Ezsignfolder_getActionableElements_v2_Response_mPayload.cpp
+  Ezsignfolder_getActionableElements_v3_Response.cpp
+  Ezsignfolder_getActionableElements_v3_Response_mPayload.cpp
   Ezsignfolder_getAttachmentCount_v1_Response.cpp
   Ezsignfolder_getAttachmentCount_v1_Response_mPayload.cpp
   Ezsignfolder_getAttachments_v1_Response.cpp
@@ -2846,8 +2838,6 @@ add_library(${PROJECT_NAME}
   Ezsignfolder_importEzsigntemplatepackage_v2_Request.cpp
   Ezsignfolder_importEzsigntemplatepackage_v2_Response.cpp
   Ezsignfolder_importEzsigntemplatepackage_v2_Response_mPayload.cpp
-  Ezsignfolder_reorder_v1_Request.cpp
-  Ezsignfolder_reorder_v1_Response.cpp
   Ezsignfolder_reorder_v2_Request.cpp
   Ezsignfolder_reorder_v2_Response.cpp
   Ezsignfolder_send_v1_Request.cpp
@@ -2861,9 +2851,6 @@ add_library(${PROJECT_NAME}
   Ezsignfoldersignerassociation_Response.cpp
   Ezsignfoldersignerassociation_ResponseCompound.cpp
   Ezsignfoldersignerassociation_ResponseCompound_User.cpp
-  Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Request.cpp
-  Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Response.cpp
-  Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Response_mPayload.cpp
   Ezsignfoldersignerassociation_createEmbeddedUrl_v2_Request.cpp
   Ezsignfoldersignerassociation_createEmbeddedUrl_v2_Response.cpp
   Ezsignfoldersignerassociation_createEmbeddedUrl_v2_Response_mPayload.cpp
@@ -2959,16 +2946,12 @@ add_library(${PROJECT_NAME}
   Ezsignsignature_createObject_v4_Response.cpp
   Ezsignsignature_createObject_v4_Response_mPayload.cpp
   Ezsignsignature_deleteObject_v1_Response.cpp
-  Ezsignsignature_editObject_v2_Request.cpp
-  Ezsignsignature_editObject_v2_Response.cpp
   Ezsignsignature_editObject_v3_Request.cpp
   Ezsignsignature_editObject_v3_Response.cpp
   Ezsignsignature_getEzsignsignatureattachment_v1_Response.cpp
   Ezsignsignature_getEzsignsignatureattachment_v1_Response_mPayload.cpp
   Ezsignsignature_getEzsignsignaturesAutomatic_v1_Response.cpp
   Ezsignsignature_getEzsignsignaturesAutomatic_v1_Response_mPayload.cpp
-  Ezsignsignature_getObject_v3_Response.cpp
-  Ezsignsignature_getObject_v3_Response_mPayload.cpp
   Ezsignsignature_getObject_v4_Response.cpp
   Ezsignsignature_getObject_v4_Response_mPayload.cpp
   Ezsignsignature_sign_v1_Request.cpp
@@ -3092,8 +3075,6 @@ add_library(${PROJECT_NAME}
   Ezsigntemplatedocument_getEzsigntemplatedocumentpages_v1_Response_mPayload.cpp
   Ezsigntemplatedocument_getEzsigntemplateformfieldgroups_v1_Response.cpp
   Ezsigntemplatedocument_getEzsigntemplateformfieldgroups_v1_Response_mPayload.cpp
-  Ezsigntemplatedocument_getEzsigntemplatesignatures_v1_Response.cpp
-  Ezsigntemplatedocument_getEzsigntemplatesignatures_v1_Response_mPayload.cpp
   Ezsigntemplatedocument_getEzsigntemplatesignatures_v2_Response.cpp
   Ezsigntemplatedocument_getEzsigntemplatesignatures_v2_Response_mPayload.cpp
   Ezsigntemplatedocument_getObject_v2_Response.cpp
@@ -3237,7 +3218,6 @@ add_library(${PROJECT_NAME}
   Ezsigntemplatesignature_RequestCompoundV2.cpp
   Ezsigntemplatesignature_Response.cpp
   Ezsigntemplatesignature_ResponseCompound.cpp
-  Ezsigntemplatesignature_ResponseCompoundV3.cpp
   Ezsigntemplatesignature_ResponseCompoundV4.cpp
   Ezsigntemplatesignature_createObject_v2_Request.cpp
   Ezsigntemplatesignature_createObject_v2_Response.cpp
@@ -3246,12 +3226,8 @@ add_library(${PROJECT_NAME}
   Ezsigntemplatesignature_createObject_v3_Response.cpp
   Ezsigntemplatesignature_createObject_v3_Response_mPayload.cpp
   Ezsigntemplatesignature_deleteObject_v1_Response.cpp
-  Ezsigntemplatesignature_editObject_v2_Request.cpp
-  Ezsigntemplatesignature_editObject_v2_Response.cpp
   Ezsigntemplatesignature_editObject_v3_Request.cpp
   Ezsigntemplatesignature_editObject_v3_Response.cpp
-  Ezsigntemplatesignature_getObject_v3_Response.cpp
-  Ezsigntemplatesignature_getObject_v3_Response_mPayload.cpp
   Ezsigntemplatesignature_getObject_v4_Response.cpp
   Ezsigntemplatesignature_getObject_v4_Response_mPayload.cpp
   Ezsigntemplatesignaturecustomdate_Request.cpp
@@ -3356,6 +3332,8 @@ add_library(${PROJECT_NAME}
   Field_eEzsignsignatureConsultationtrigger.cpp
   Field_eEzsignsignatureDependencyrequirement.cpp
   Field_eEzsignsignatureFont.cpp
+  Field_eEzsignsignatureSignaturepad.cpp
+  Field_eEzsignsignatureSignaturepadrequired.cpp
   Field_eEzsignsignatureTooltipposition.cpp
   Field_eEzsignsignatureType.cpp
   Field_eEzsignsignaturepaymentdetailTaxable.cpp
@@ -3381,6 +3359,8 @@ add_library(${PROJECT_NAME}
   Field_eEzsigntemplatesignatureFont.cpp
   Field_eEzsigntemplatesignaturePositioning.cpp
   Field_eEzsigntemplatesignaturePositioningoccurence.cpp
+  Field_eEzsigntemplatesignatureSignaturepad.cpp
+  Field_eEzsigntemplatesignatureSignaturepadrequired.cpp
   Field_eEzsigntemplatesignatureTooltipposition.cpp
   Field_eEzsigntemplatesignatureType.cpp
   Field_eEzsigntemplatesignaturepaymentdetailTaxable.cpp
@@ -3437,6 +3417,9 @@ add_library(${PROJECT_NAME}
   Global_ezmaxclient_version_v1_Response.cpp
   Global_ezmaxcustomer_getConfiguration_v1_Response.cpp
   Header_Accept_Language.cpp
+  Infrastructureregion_AutocompleteElement_Response.cpp
+  Infrastructureregion_getAutocomplete_v2_Response.cpp
+  Infrastructureregion_getAutocomplete_v2_Response_mPayload.cpp
   Inscription_ListElement.cpp
   Inscription_getAttachments_v1_Response.cpp
   Inscription_getAttachments_v1_Response_mPayload.cpp
@@ -3457,8 +3440,6 @@ add_library(${PROJECT_NAME}
   Inscription_prepareFilesTransfer_v1_Response.cpp
   Inscription_prepareFilesTransfer_v1_Response_mPayload.cpp
   Inscriptionchecklist_AutocompleteElement_Response.cpp
-  Inscriptionchecklist_getAutocomplete_v2_Response.cpp
-  Inscriptionchecklist_getAutocomplete_v2_Response_mPayload.cpp
   Inscriptionchecklist_getAutocomplete_v3_Response.cpp
   Inscriptionchecklist_getAutocomplete_v3_Response_mPayload.cpp
   Inscriptionnotauthenticated_ListElement.cpp
@@ -3552,8 +3533,6 @@ add_library(${PROJECT_NAME}
   Notificationsection_getNotificationtests_v1_Response_mPayload.cpp
   Notificationsubsection_Response.cpp
   Notificationtest_Response.cpp
-  Notificationtest_getElements_v1_Response.cpp
-  Notificationtest_getElements_v1_Response_mPayload.cpp
   Notificationtest_getElements_v2_Response.cpp
   Notificationtest_getElements_v2_Response_mPayload.cpp
   Otherincome_ListElement.cpp
@@ -3640,6 +3619,12 @@ add_library(${PROJECT_NAME}
   Province_AutocompleteElement_Response.cpp
   Province_getAutocomplete_v2_Response.cpp
   Province_getAutocomplete_v2_Response_mPayload.cpp
+  Realestateassociation_AutocompleteElement_Response.cpp
+  Realestateassociation_getAutocomplete_v2_Response.cpp
+  Realestateassociation_getAutocomplete_v2_Response_mPayload.cpp
+  Realestateboard_AutocompleteElement_Response.cpp
+  Realestateboard_getAutocomplete_v2_Response.cpp
+  Realestateboard_getAutocomplete_v2_Response_mPayload.cpp
   Rejectedoffertopurchase_ListElement.cpp
   Rejectedoffertopurchase_getCommunicationCount_v1_Response.cpp
   Rejectedoffertopurchase_getCommunicationCount_v1_Response_mPayload.cpp
@@ -3685,8 +3670,6 @@ add_library(${PROJECT_NAME}
   Signature_deleteObject_v1_Response.cpp
   Signature_editObject_v1_Request.cpp
   Signature_editObject_v1_Response.cpp
-  Signature_getObject_v2_Response.cpp
-  Signature_getObject_v2_Response_mPayload.cpp
   Signature_getObject_v3_Response.cpp
   Signature_getObject_v3_Response_mPayload.cpp
   Subnet_Request.cpp
@@ -3725,14 +3708,17 @@ add_library(${PROJECT_NAME}
   Supply_getList_v1_Response_mPayload.cpp
   Supply_getObject_v2_Response.cpp
   Supply_getObject_v2_Response_mPayload.cpp
-  Systemconfiguration_Request.cpp
-  Systemconfiguration_RequestCompound.cpp
+  Systemconfiguration_RequestCompoundV2.cpp
+  Systemconfiguration_RequestV2.cpp
   Systemconfiguration_Response.cpp
   Systemconfiguration_ResponseCompound.cpp
-  Systemconfiguration_editObject_v1_Request.cpp
-  Systemconfiguration_editObject_v1_Response.cpp
+  Systemconfiguration_editObject_v2_Request.cpp
+  Systemconfiguration_editObject_v2_Response.cpp
   Systemconfiguration_getObject_v2_Response.cpp
   Systemconfiguration_getObject_v2_Response_mPayload.cpp
+  Systemconfigurationtype_AutocompleteElement_Response.cpp
+  Systemconfigurationtype_getAutocomplete_v2_Response.cpp
+  Systemconfigurationtype_getAutocomplete_v2_Response_mPayload.cpp
   Taxassignment_AutocompleteElement_Response.cpp
   Taxassignment_getAutocomplete_v2_Response.cpp
   Taxassignment_getAutocomplete_v2_Response_mPayload.cpp
@@ -4050,6 +4036,7 @@ add_library(${PROJECT_NAME}
   ObjectFranchisereferalincomeApi.cpp
   ObjectGlaccountApi.cpp
   ObjectGlaccountcontainerApi.cpp
+  ObjectInfrastructureregionApi.cpp
   ObjectInscriptionApi.cpp
   ObjectInscriptionchecklistApi.cpp
   ObjectInscriptionnotauthenticatedApi.cpp
@@ -4073,6 +4060,8 @@ add_library(${PROJECT_NAME}
   ObjectPermissionApi.cpp
   ObjectPhonetypeApi.cpp
   ObjectProvinceApi.cpp
+  ObjectRealestateassociationApi.cpp
+  ObjectRealestateboardApi.cpp
   ObjectRejectedoffertopurchaseApi.cpp
   ObjectSecretquestionApi.cpp
   ObjectSessionhistoryApi.cpp
@@ -4081,6 +4070,7 @@ add_library(${PROJECT_NAME}
   ObjectSupplierApi.cpp
   ObjectSupplyApi.cpp
   ObjectSystemconfigurationApi.cpp
+  ObjectSystemconfigurationtypeApi.cpp
   ObjectTaxassignmentApi.cpp
   ObjectTimezoneApi.cpp
   ObjectTranqcontractApi.cpp

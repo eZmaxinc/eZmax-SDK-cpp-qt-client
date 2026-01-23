@@ -42,6 +42,9 @@ void Common_Reportsection::initializeModel() {
 
     m_s_reportsection_title_isSet = false;
     m_s_reportsection_title_isValid = false;
+
+    m_s_reportsection_tabname_isSet = false;
+    m_s_reportsection_tabname_isValid = false;
 }
 
 void Common_Reportsection::fromJson(QString jsonString) {
@@ -61,6 +64,9 @@ void Common_Reportsection::fromJsonObject(QJsonObject json) {
 
     m_s_reportsection_title_isValid = ::Ezmaxapi::fromJsonValue(m_s_reportsection_title, json[QString("sReportsectionTitle")]);
     m_s_reportsection_title_isSet = !json[QString("sReportsectionTitle")].isNull() && m_s_reportsection_title_isValid;
+
+    m_s_reportsection_tabname_isValid = ::Ezmaxapi::fromJsonValue(m_s_reportsection_tabname, json[QString("sReportsectionTabname")]);
+    m_s_reportsection_tabname_isSet = !json[QString("sReportsectionTabname")].isNull() && m_s_reportsection_tabname_isValid;
 }
 
 QString Common_Reportsection::asJson() const {
@@ -80,6 +86,9 @@ QJsonObject Common_Reportsection::asJsonObject() const {
     }
     if (m_s_reportsection_title_isSet) {
         obj.insert(QString("sReportsectionTitle"), ::Ezmaxapi::toJsonValue(m_s_reportsection_title));
+    }
+    if (m_s_reportsection_tabname_isSet) {
+        obj.insert(QString("sReportsectionTabname"), ::Ezmaxapi::toJsonValue(m_s_reportsection_tabname));
     }
     return obj;
 }
@@ -132,6 +141,22 @@ bool Common_Reportsection::is_s_reportsection_title_Valid() const{
     return m_s_reportsection_title_isValid;
 }
 
+QString Common_Reportsection::getSReportsectionTabname() const {
+    return m_s_reportsection_tabname;
+}
+void Common_Reportsection::setSReportsectionTabname(const QString &s_reportsection_tabname) {
+    m_s_reportsection_tabname = s_reportsection_tabname;
+    m_s_reportsection_tabname_isSet = true;
+}
+
+bool Common_Reportsection::is_s_reportsection_tabname_Set() const{
+    return m_s_reportsection_tabname_isSet;
+}
+
+bool Common_Reportsection::is_s_reportsection_tabname_Valid() const{
+    return m_s_reportsection_tabname_isValid;
+}
+
 bool Common_Reportsection::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -146,6 +171,11 @@ bool Common_Reportsection::isSet() const {
         }
 
         if (m_s_reportsection_title_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_s_reportsection_tabname_isSet) {
             isObjectUpdated = true;
             break;
         }

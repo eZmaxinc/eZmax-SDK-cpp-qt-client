@@ -42,6 +42,9 @@ void Usergroup_ListElement::initializeModel() {
 
     m_i_count_user_isSet = false;
     m_i_count_user_isValid = false;
+
+    m_i_count_inactiveuser_isSet = false;
+    m_i_count_inactiveuser_isValid = false;
 }
 
 void Usergroup_ListElement::fromJson(QString jsonString) {
@@ -61,6 +64,9 @@ void Usergroup_ListElement::fromJsonObject(QJsonObject json) {
 
     m_i_count_user_isValid = ::Ezmaxapi::fromJsonValue(m_i_count_user, json[QString("iCountUser")]);
     m_i_count_user_isSet = !json[QString("iCountUser")].isNull() && m_i_count_user_isValid;
+
+    m_i_count_inactiveuser_isValid = ::Ezmaxapi::fromJsonValue(m_i_count_inactiveuser, json[QString("iCountInactiveuser")]);
+    m_i_count_inactiveuser_isSet = !json[QString("iCountInactiveuser")].isNull() && m_i_count_inactiveuser_isValid;
 }
 
 QString Usergroup_ListElement::asJson() const {
@@ -80,6 +86,9 @@ QJsonObject Usergroup_ListElement::asJsonObject() const {
     }
     if (m_i_count_user_isSet) {
         obj.insert(QString("iCountUser"), ::Ezmaxapi::toJsonValue(m_i_count_user));
+    }
+    if (m_i_count_inactiveuser_isSet) {
+        obj.insert(QString("iCountInactiveuser"), ::Ezmaxapi::toJsonValue(m_i_count_inactiveuser));
     }
     return obj;
 }
@@ -132,6 +141,22 @@ bool Usergroup_ListElement::is_i_count_user_Valid() const{
     return m_i_count_user_isValid;
 }
 
+qint32 Usergroup_ListElement::getICountInactiveuser() const {
+    return m_i_count_inactiveuser;
+}
+void Usergroup_ListElement::setICountInactiveuser(const qint32 &i_count_inactiveuser) {
+    m_i_count_inactiveuser = i_count_inactiveuser;
+    m_i_count_inactiveuser_isSet = true;
+}
+
+bool Usergroup_ListElement::is_i_count_inactiveuser_Set() const{
+    return m_i_count_inactiveuser_isSet;
+}
+
+bool Usergroup_ListElement::is_i_count_inactiveuser_Valid() const{
+    return m_i_count_inactiveuser_isValid;
+}
+
 bool Usergroup_ListElement::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -149,13 +174,18 @@ bool Usergroup_ListElement::isSet() const {
             isObjectUpdated = true;
             break;
         }
+
+        if (m_i_count_inactiveuser_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
     } while (false);
     return isObjectUpdated;
 }
 
 bool Usergroup_ListElement::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_pki_usergroup_id_isValid && m_s_usergroup_name_x_isValid && m_i_count_user_isValid && true;
+    return m_pki_usergroup_id_isValid && m_s_usergroup_name_x_isValid && m_i_count_user_isValid && m_i_count_inactiveuser_isValid && true;
 }
 
 } // namespace Ezmaxapi

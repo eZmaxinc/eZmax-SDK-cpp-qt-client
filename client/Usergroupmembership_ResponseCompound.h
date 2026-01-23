@@ -84,6 +84,11 @@ public:
     bool is_s_usergroup_name_x_Set() const;
     bool is_s_usergroup_name_x_Valid() const;
 
+    bool isBUserIsactive() const;
+    void setBUserIsactive(const bool &b_user_isactive);
+    bool is_b_user_isactive_Set() const;
+    bool is_b_user_isactive_Valid() const;
+
     QString getSUsergroupexternalName() const;
     void setSUsergroupexternalName(const QString &s_usergroupexternal_name);
     bool is_s_usergroupexternal_name_Set() const;
@@ -130,6 +135,10 @@ private:
     QString m_s_usergroup_name_x;
     bool m_s_usergroup_name_x_isSet;
     bool m_s_usergroup_name_x_isValid;
+
+    bool m_b_user_isactive;
+    bool m_b_user_isactive_isSet;
+    bool m_b_user_isactive_isValid;
 
     QString m_s_usergroupexternal_name;
     bool m_s_usergroupexternal_name_isSet;

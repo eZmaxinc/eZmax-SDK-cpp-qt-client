@@ -67,8 +67,6 @@ void ObjectEzsignbulksendApi::initializeServerConfigs() {
     _serverIndices.insert("ezsignbulksendCreateObjectV2", 0);
     _serverConfigs.insert("ezsignbulksendDeleteObjectV1", defaultConf);
     _serverIndices.insert("ezsignbulksendDeleteObjectV1", 0);
-    _serverConfigs.insert("ezsignbulksendEditObjectV1", defaultConf);
-    _serverIndices.insert("ezsignbulksendEditObjectV1", 0);
     _serverConfigs.insert("ezsignbulksendEditObjectV2", defaultConf);
     _serverIndices.insert("ezsignbulksendEditObjectV2", 0);
     _serverConfigs.insert("ezsignbulksendGetBatchFileV1", defaultConf);
@@ -594,99 +592,6 @@ void ObjectEzsignbulksendApi::ezsignbulksendDeleteObjectV1Callback(HttpRequestWo
 
         Q_EMIT ezsignbulksendDeleteObjectV1SignalError(output, error_type, error_str);
         Q_EMIT ezsignbulksendDeleteObjectV1SignalErrorFull(worker, error_type, error_str);
-    }
-}
-
-void ObjectEzsignbulksendApi::ezsignbulksendEditObjectV1(const qint32 &pki_ezsignbulksend_id, const Ezsignbulksend_editObject_v1_Request &ezsignbulksend_edit_object_v1_request) {
-    QString fullPath = QString(_serverConfigs["ezsignbulksendEditObjectV1"][_serverIndices.value("ezsignbulksendEditObjectV1")].URL()+"/1/object/ezsignbulksend/{pkiEzsignbulksendID}");
-    
-    if (_apiKeys.contains("Authorization")) {
-        addHeaders("Authorization",_apiKeys.find("Authorization").value());
-    }
-    
-    
-    {
-        QString pki_ezsignbulksend_idPathParam("{");
-        pki_ezsignbulksend_idPathParam.append("pkiEzsignbulksendID").append("}");
-        QString pathPrefix, pathSuffix, pathDelimiter;
-        QString pathStyle = "simple";
-        if (pathStyle == "")
-            pathStyle = "simple";
-        pathPrefix = getParamStylePrefix(pathStyle);
-        pathSuffix = getParamStyleSuffix(pathStyle);
-        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignbulksendID", false);
-        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignbulksendID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsignbulksend_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsignbulksend_id)));
-    }
-    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
-    worker->setTimeOut(_timeOut);
-    worker->setWorkingDirectory(_workingDirectory);
-    HttpRequestInput input(fullPath, "PUT");
-
-    {
-
-        
-        QByteArray output = ezsignbulksend_edit_object_v1_request.asJson().toUtf8();
-        input.request_body.append(output);
-    }
-    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
-        input.headers.insert(keyValueIt->first, keyValueIt->second);
-    }
-
-
-    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignbulksendApi::ezsignbulksendEditObjectV1Callback);
-    connect(this, &ObjectEzsignbulksendApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
-        if (findChildren<HttpRequestWorker*>().count() == 0) {
-            Q_EMIT allPendingRequestsCompleted();
-        }
-    });
-
-    worker->execute(&input);
-}
-
-void ObjectEzsignbulksendApi::ezsignbulksendEditObjectV1Callback(HttpRequestWorker *worker) {
-    QString error_str = worker->error_str;
-    QNetworkReply::NetworkError error_type = worker->error_type;
-
-    if (worker->error_type != QNetworkReply::NoError) {
-        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
-    }
-    Ezsignbulksend_editObject_v1_Response output(QString(worker->response));
-    worker->deleteLater();
-
-    if (worker->error_type == QNetworkReply::NoError) {
-        Q_EMIT ezsignbulksendEditObjectV1Signal(output);
-        Q_EMIT ezsignbulksendEditObjectV1SignalFull(worker, output);
-    } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsignbulksendEditObjectV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsignbulksendEditObjectV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
-        Q_EMIT ezsignbulksendEditObjectV1SignalError(output, error_type, error_str);
-        Q_EMIT ezsignbulksendEditObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

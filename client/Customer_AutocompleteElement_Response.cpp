@@ -43,6 +43,9 @@ void Customer_AutocompleteElement_Response::initializeModel() {
     m_s_customer_name_isSet = false;
     m_s_customer_name_isValid = false;
 
+    m_s_customer_code_isSet = false;
+    m_s_customer_code_isValid = false;
+
     m_b_customer_isactive_isSet = false;
     m_b_customer_isactive_isValid = false;
 }
@@ -65,6 +68,9 @@ void Customer_AutocompleteElement_Response::fromJsonObject(QJsonObject json) {
     m_s_customer_name_isValid = ::Ezmaxapi::fromJsonValue(m_s_customer_name, json[QString("sCustomerName")]);
     m_s_customer_name_isSet = !json[QString("sCustomerName")].isNull() && m_s_customer_name_isValid;
 
+    m_s_customer_code_isValid = ::Ezmaxapi::fromJsonValue(m_s_customer_code, json[QString("sCustomerCode")]);
+    m_s_customer_code_isSet = !json[QString("sCustomerCode")].isNull() && m_s_customer_code_isValid;
+
     m_b_customer_isactive_isValid = ::Ezmaxapi::fromJsonValue(m_b_customer_isactive, json[QString("bCustomerIsactive")]);
     m_b_customer_isactive_isSet = !json[QString("bCustomerIsactive")].isNull() && m_b_customer_isactive_isValid;
 }
@@ -86,6 +92,9 @@ QJsonObject Customer_AutocompleteElement_Response::asJsonObject() const {
     }
     if (m_s_customer_name_isSet) {
         obj.insert(QString("sCustomerName"), ::Ezmaxapi::toJsonValue(m_s_customer_name));
+    }
+    if (m_s_customer_code_isSet) {
+        obj.insert(QString("sCustomerCode"), ::Ezmaxapi::toJsonValue(m_s_customer_code));
     }
     if (m_b_customer_isactive_isSet) {
         obj.insert(QString("bCustomerIsactive"), ::Ezmaxapi::toJsonValue(m_b_customer_isactive));
@@ -141,6 +150,22 @@ bool Customer_AutocompleteElement_Response::is_s_customer_name_Valid() const{
     return m_s_customer_name_isValid;
 }
 
+QString Customer_AutocompleteElement_Response::getSCustomerCode() const {
+    return m_s_customer_code;
+}
+void Customer_AutocompleteElement_Response::setSCustomerCode(const QString &s_customer_code) {
+    m_s_customer_code = s_customer_code;
+    m_s_customer_code_isSet = true;
+}
+
+bool Customer_AutocompleteElement_Response::is_s_customer_code_Set() const{
+    return m_s_customer_code_isSet;
+}
+
+bool Customer_AutocompleteElement_Response::is_s_customer_code_Valid() const{
+    return m_s_customer_code_isValid;
+}
+
 bool Customer_AutocompleteElement_Response::isBCustomerIsactive() const {
     return m_b_customer_isactive;
 }
@@ -175,6 +200,11 @@ bool Customer_AutocompleteElement_Response::isSet() const {
             break;
         }
 
+        if (m_s_customer_code_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (m_b_customer_isactive_isSet) {
             isObjectUpdated = true;
             break;
@@ -185,7 +215,7 @@ bool Customer_AutocompleteElement_Response::isSet() const {
 
 bool Customer_AutocompleteElement_Response::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_pki_customer_id_isValid && m_fki_department_id_isValid && m_s_customer_name_isValid && m_b_customer_isactive_isValid && true;
+    return m_pki_customer_id_isValid && m_fki_department_id_isValid && m_s_customer_name_isValid && m_s_customer_code_isValid && m_b_customer_isactive_isValid && true;
 }
 
 } // namespace Ezmaxapi

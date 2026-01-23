@@ -545,7 +545,7 @@ bool Ezsigndocument_Request::isSet() const {
 
 bool Ezsigndocument_Request::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_fki_ezsignfolder_id_isValid && m_fki_language_id_isValid && m_e_ezsigndocument_source_isValid && m_dt_ezsigndocument_duedate_isValid && m_s_ezsigndocument_name_isValid && true;
+    return m_fki_ezsignfolder_id_isValid && m_fki_language_id_isValid && m_e_ezsigndocument_source_isValid && m_s_ezsigndocument_name_isValid && true;
 }
 
 } // namespace Ezmaxapi

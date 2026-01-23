@@ -59,8 +59,8 @@ void ObjectSystemconfigurationApi::initializeServerConfigs() {
     {"sInfrastructureregionCode", ServerVariable("The region where your services are hosted.","ca-central-1",
     QSet<QString>{ {"ca-central-1"} })}, }));
     
-    _serverConfigs.insert("systemconfigurationEditObjectV1", defaultConf);
-    _serverIndices.insert("systemconfigurationEditObjectV1", 0);
+    _serverConfigs.insert("systemconfigurationEditObjectV2", defaultConf);
+    _serverIndices.insert("systemconfigurationEditObjectV2", 0);
     _serverConfigs.insert("systemconfigurationGetObjectV2", defaultConf);
     _serverIndices.insert("systemconfigurationGetObjectV2", 0);
 }
@@ -232,8 +232,8 @@ QString ObjectSystemconfigurationApi::getParamStyleDelimiter(const QString &styl
     }
 }
 
-void ObjectSystemconfigurationApi::systemconfigurationEditObjectV1(const qint32 &pki_systemconfiguration_id, const Systemconfiguration_editObject_v1_Request &systemconfiguration_edit_object_v1_request) {
-    QString fullPath = QString(_serverConfigs["systemconfigurationEditObjectV1"][_serverIndices.value("systemconfigurationEditObjectV1")].URL()+"/1/object/systemconfiguration/{pkiSystemconfigurationID}");
+void ObjectSystemconfigurationApi::systemconfigurationEditObjectV2(const qint32 &pki_systemconfiguration_id, const Systemconfiguration_editObject_v2_Request &systemconfiguration_edit_object_v2_request) {
+    QString fullPath = QString(_serverConfigs["systemconfigurationEditObjectV2"][_serverIndices.value("systemconfigurationEditObjectV2")].URL()+"/2/object/systemconfiguration/{pkiSystemconfigurationID}");
     
     if (_apiKeys.contains("Authorization")) {
         addHeaders("Authorization",_apiKeys.find("Authorization").value());
@@ -261,7 +261,7 @@ void ObjectSystemconfigurationApi::systemconfigurationEditObjectV1(const qint32 
     {
 
         
-        QByteArray output = systemconfiguration_edit_object_v1_request.asJson().toUtf8();
+        QByteArray output = systemconfiguration_edit_object_v2_request.asJson().toUtf8();
         input.request_body.append(output);
     }
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
@@ -269,7 +269,7 @@ void ObjectSystemconfigurationApi::systemconfigurationEditObjectV1(const qint32 
     }
 
 
-    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectSystemconfigurationApi::systemconfigurationEditObjectV1Callback);
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectSystemconfigurationApi::systemconfigurationEditObjectV2Callback);
     connect(this, &ObjectSystemconfigurationApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
@@ -280,19 +280,19 @@ void ObjectSystemconfigurationApi::systemconfigurationEditObjectV1(const qint32 
     worker->execute(&input);
 }
 
-void ObjectSystemconfigurationApi::systemconfigurationEditObjectV1Callback(HttpRequestWorker *worker) {
+void ObjectSystemconfigurationApi::systemconfigurationEditObjectV2Callback(HttpRequestWorker *worker) {
     QString error_str = worker->error_str;
     QNetworkReply::NetworkError error_type = worker->error_type;
 
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Systemconfiguration_editObject_v1_Response output(QString(worker->response));
+    Systemconfiguration_editObject_v2_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        Q_EMIT systemconfigurationEditObjectV1Signal(output);
-        Q_EMIT systemconfigurationEditObjectV1SignalFull(worker, output);
+        Q_EMIT systemconfigurationEditObjectV2Signal(output);
+        Q_EMIT systemconfigurationEditObjectV2SignalFull(worker, output);
     } else {
 
 #if defined(_MSC_VER)
@@ -309,8 +309,8 @@ void ObjectSystemconfigurationApi::systemconfigurationEditObjectV1Callback(HttpR
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
 
-        Q_EMIT systemconfigurationEditObjectV1SignalE(output, error_type, error_str);
-        Q_EMIT systemconfigurationEditObjectV1SignalEFull(worker, error_type, error_str);
+        Q_EMIT systemconfigurationEditObjectV2SignalE(output, error_type, error_str);
+        Q_EMIT systemconfigurationEditObjectV2SignalEFull(worker, error_type, error_str);
 
 #if defined(_MSC_VER)
 #pragma warning(pop)
@@ -320,8 +320,8 @@ void ObjectSystemconfigurationApi::systemconfigurationEditObjectV1Callback(HttpR
 #pragma GCC diagnostic pop
 #endif
 
-        Q_EMIT systemconfigurationEditObjectV1SignalError(output, error_type, error_str);
-        Q_EMIT systemconfigurationEditObjectV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT systemconfigurationEditObjectV2SignalError(output, error_type, error_str);
+        Q_EMIT systemconfigurationEditObjectV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 

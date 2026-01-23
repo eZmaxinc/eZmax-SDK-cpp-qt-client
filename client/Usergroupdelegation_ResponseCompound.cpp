@@ -55,6 +55,9 @@ void Usergroupdelegation_ResponseCompound::initializeModel() {
     m_s_email_address_isSet = false;
     m_s_email_address_isValid = false;
 
+    m_b_user_isactive_isSet = false;
+    m_b_user_isactive_isValid = false;
+
     m_s_usergroup_name_x_isSet = false;
     m_s_usergroup_name_x_isValid = false;
 }
@@ -89,6 +92,9 @@ void Usergroupdelegation_ResponseCompound::fromJsonObject(QJsonObject json) {
     m_s_email_address_isValid = ::Ezmaxapi::fromJsonValue(m_s_email_address, json[QString("sEmailAddress")]);
     m_s_email_address_isSet = !json[QString("sEmailAddress")].isNull() && m_s_email_address_isValid;
 
+    m_b_user_isactive_isValid = ::Ezmaxapi::fromJsonValue(m_b_user_isactive, json[QString("bUserIsactive")]);
+    m_b_user_isactive_isSet = !json[QString("bUserIsactive")].isNull() && m_b_user_isactive_isValid;
+
     m_s_usergroup_name_x_isValid = ::Ezmaxapi::fromJsonValue(m_s_usergroup_name_x, json[QString("sUsergroupNameX")]);
     m_s_usergroup_name_x_isSet = !json[QString("sUsergroupNameX")].isNull() && m_s_usergroup_name_x_isValid;
 }
@@ -122,6 +128,9 @@ QJsonObject Usergroupdelegation_ResponseCompound::asJsonObject() const {
     }
     if (m_s_email_address_isSet) {
         obj.insert(QString("sEmailAddress"), ::Ezmaxapi::toJsonValue(m_s_email_address));
+    }
+    if (m_b_user_isactive_isSet) {
+        obj.insert(QString("bUserIsactive"), ::Ezmaxapi::toJsonValue(m_b_user_isactive));
     }
     if (m_s_usergroup_name_x_isSet) {
         obj.insert(QString("sUsergroupNameX"), ::Ezmaxapi::toJsonValue(m_s_usergroup_name_x));
@@ -241,6 +250,22 @@ bool Usergroupdelegation_ResponseCompound::is_s_email_address_Valid() const{
     return m_s_email_address_isValid;
 }
 
+bool Usergroupdelegation_ResponseCompound::isBUserIsactive() const {
+    return m_b_user_isactive;
+}
+void Usergroupdelegation_ResponseCompound::setBUserIsactive(const bool &b_user_isactive) {
+    m_b_user_isactive = b_user_isactive;
+    m_b_user_isactive_isSet = true;
+}
+
+bool Usergroupdelegation_ResponseCompound::is_b_user_isactive_Set() const{
+    return m_b_user_isactive_isSet;
+}
+
+bool Usergroupdelegation_ResponseCompound::is_b_user_isactive_Valid() const{
+    return m_b_user_isactive_isValid;
+}
+
 QString Usergroupdelegation_ResponseCompound::getSUsergroupNameX() const {
     return m_s_usergroup_name_x;
 }
@@ -295,6 +320,11 @@ bool Usergroupdelegation_ResponseCompound::isSet() const {
             break;
         }
 
+        if (m_b_user_isactive_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (m_s_usergroup_name_x_isSet) {
             isObjectUpdated = true;
             break;
@@ -305,7 +335,7 @@ bool Usergroupdelegation_ResponseCompound::isSet() const {
 
 bool Usergroupdelegation_ResponseCompound::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_pki_usergroupdelegation_id_isValid && m_fki_usergroup_id_isValid && m_fki_user_id_isValid && m_s_user_firstname_isValid && m_s_user_lastname_isValid && m_s_user_loginname_isValid && m_s_usergroup_name_x_isValid && true;
+    return m_pki_usergroupdelegation_id_isValid && m_fki_usergroup_id_isValid && m_fki_user_id_isValid && m_s_user_firstname_isValid && m_s_user_lastname_isValid && m_s_user_loginname_isValid && m_b_user_isactive_isValid && m_s_usergroup_name_x_isValid && true;
 }
 
 } // namespace Ezmaxapi

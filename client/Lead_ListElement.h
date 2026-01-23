@@ -75,6 +75,11 @@ public:
     bool is_s_lead_code_Set() const;
     bool is_s_lead_code_Valid() const;
 
+    QString getSLeadContacts() const;
+    void setSLeadContacts(const QString &s_lead_contacts);
+    bool is_s_lead_contacts_Set() const;
+    bool is_s_lead_contacts_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -108,6 +113,10 @@ private:
     QString m_s_lead_code;
     bool m_s_lead_code_isSet;
     bool m_s_lead_code_isValid;
+
+    QString m_s_lead_contacts;
+    bool m_s_lead_contacts_isSet;
+    bool m_s_lead_contacts_isValid;
 };
 
 } // namespace Ezmaxapi

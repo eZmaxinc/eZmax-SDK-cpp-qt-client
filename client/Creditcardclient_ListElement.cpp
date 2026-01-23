@@ -46,6 +46,9 @@ void Creditcardclient_ListElement::initializeModel() {
     m_b_creditcardclientrelation_isdefault_isSet = false;
     m_b_creditcardclientrelation_isdefault_isValid = false;
 
+    m_b_creditcardclient_legacy_isSet = false;
+    m_b_creditcardclient_legacy_isValid = false;
+
     m_s_creditcardclient_description_isSet = false;
     m_s_creditcardclient_description_isValid = false;
 
@@ -86,6 +89,9 @@ void Creditcardclient_ListElement::fromJsonObject(QJsonObject json) {
     m_b_creditcardclientrelation_isdefault_isValid = ::Ezmaxapi::fromJsonValue(m_b_creditcardclientrelation_isdefault, json[QString("bCreditcardclientrelationIsdefault")]);
     m_b_creditcardclientrelation_isdefault_isSet = !json[QString("bCreditcardclientrelationIsdefault")].isNull() && m_b_creditcardclientrelation_isdefault_isValid;
 
+    m_b_creditcardclient_legacy_isValid = ::Ezmaxapi::fromJsonValue(m_b_creditcardclient_legacy, json[QString("bCreditcardclientLegacy")]);
+    m_b_creditcardclient_legacy_isSet = !json[QString("bCreditcardclientLegacy")].isNull() && m_b_creditcardclient_legacy_isValid;
+
     m_s_creditcardclient_description_isValid = ::Ezmaxapi::fromJsonValue(m_s_creditcardclient_description, json[QString("sCreditcardclientDescription")]);
     m_s_creditcardclient_description_isSet = !json[QString("sCreditcardclientDescription")].isNull() && m_s_creditcardclient_description_isValid;
 
@@ -125,6 +131,9 @@ QJsonObject Creditcardclient_ListElement::asJsonObject() const {
     }
     if (m_b_creditcardclientrelation_isdefault_isSet) {
         obj.insert(QString("bCreditcardclientrelationIsdefault"), ::Ezmaxapi::toJsonValue(m_b_creditcardclientrelation_isdefault));
+    }
+    if (m_b_creditcardclient_legacy_isSet) {
+        obj.insert(QString("bCreditcardclientLegacy"), ::Ezmaxapi::toJsonValue(m_b_creditcardclient_legacy));
     }
     if (m_s_creditcardclient_description_isSet) {
         obj.insert(QString("sCreditcardclientDescription"), ::Ezmaxapi::toJsonValue(m_s_creditcardclient_description));
@@ -209,6 +218,22 @@ bool Creditcardclient_ListElement::is_b_creditcardclientrelation_isdefault_Set()
 
 bool Creditcardclient_ListElement::is_b_creditcardclientrelation_isdefault_Valid() const{
     return m_b_creditcardclientrelation_isdefault_isValid;
+}
+
+bool Creditcardclient_ListElement::isBCreditcardclientLegacy() const {
+    return m_b_creditcardclient_legacy;
+}
+void Creditcardclient_ListElement::setBCreditcardclientLegacy(const bool &b_creditcardclient_legacy) {
+    m_b_creditcardclient_legacy = b_creditcardclient_legacy;
+    m_b_creditcardclient_legacy_isSet = true;
+}
+
+bool Creditcardclient_ListElement::is_b_creditcardclient_legacy_Set() const{
+    return m_b_creditcardclient_legacy_isSet;
+}
+
+bool Creditcardclient_ListElement::is_b_creditcardclient_legacy_Valid() const{
+    return m_b_creditcardclient_legacy_isValid;
 }
 
 QString Creditcardclient_ListElement::getSCreditcardclientDescription() const {
@@ -330,6 +355,11 @@ bool Creditcardclient_ListElement::isSet() const {
             break;
         }
 
+        if (m_b_creditcardclient_legacy_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (m_s_creditcardclient_description_isSet) {
             isObjectUpdated = true;
             break;
@@ -365,7 +395,7 @@ bool Creditcardclient_ListElement::isSet() const {
 
 bool Creditcardclient_ListElement::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_pki_creditcardclient_id_isValid && m_fki_creditcarddetail_id_isValid && m_fki_creditcardtype_id_isValid && m_b_creditcardclientrelation_isdefault_isValid && m_s_creditcardclient_description_isValid && m_b_creditcardclient_allowedcompanypayment_isValid && m_b_creditcardclient_allowedtranquillit_isValid && m_i_creditcarddetail_expirationmonth_isValid && m_i_creditcarddetail_expirationyear_isValid && m_i_creditcarddetail_lastdigits_isValid && true;
+    return m_pki_creditcardclient_id_isValid && m_fki_creditcarddetail_id_isValid && m_fki_creditcardtype_id_isValid && m_b_creditcardclientrelation_isdefault_isValid && m_b_creditcardclient_legacy_isValid && m_s_creditcardclient_description_isValid && m_b_creditcardclient_allowedcompanypayment_isValid && m_b_creditcardclient_allowedtranquillit_isValid && m_i_creditcarddetail_expirationmonth_isValid && m_i_creditcarddetail_expirationyear_isValid && m_i_creditcarddetail_lastdigits_isValid && true;
 }
 
 } // namespace Ezmaxapi

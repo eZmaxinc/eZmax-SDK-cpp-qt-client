@@ -54,6 +54,9 @@ void Lead_ListElement::initializeModel() {
 
     m_s_lead_code_isSet = false;
     m_s_lead_code_isValid = false;
+
+    m_s_lead_contacts_isSet = false;
+    m_s_lead_contacts_isValid = false;
 }
 
 void Lead_ListElement::fromJson(QString jsonString) {
@@ -85,6 +88,9 @@ void Lead_ListElement::fromJsonObject(QJsonObject json) {
 
     m_s_lead_code_isValid = ::Ezmaxapi::fromJsonValue(m_s_lead_code, json[QString("sLeadCode")]);
     m_s_lead_code_isSet = !json[QString("sLeadCode")].isNull() && m_s_lead_code_isValid;
+
+    m_s_lead_contacts_isValid = ::Ezmaxapi::fromJsonValue(m_s_lead_contacts, json[QString("sLeadContacts")]);
+    m_s_lead_contacts_isSet = !json[QString("sLeadContacts")].isNull() && m_s_lead_contacts_isValid;
 }
 
 QString Lead_ListElement::asJson() const {
@@ -116,6 +122,9 @@ QJsonObject Lead_ListElement::asJsonObject() const {
     }
     if (m_s_lead_code_isSet) {
         obj.insert(QString("sLeadCode"), ::Ezmaxapi::toJsonValue(m_s_lead_code));
+    }
+    if (m_s_lead_contacts_isSet) {
+        obj.insert(QString("sLeadContacts"), ::Ezmaxapi::toJsonValue(m_s_lead_contacts));
     }
     return obj;
 }
@@ -232,6 +241,22 @@ bool Lead_ListElement::is_s_lead_code_Valid() const{
     return m_s_lead_code_isValid;
 }
 
+QString Lead_ListElement::getSLeadContacts() const {
+    return m_s_lead_contacts;
+}
+void Lead_ListElement::setSLeadContacts(const QString &s_lead_contacts) {
+    m_s_lead_contacts = s_lead_contacts;
+    m_s_lead_contacts_isSet = true;
+}
+
+bool Lead_ListElement::is_s_lead_contacts_Set() const{
+    return m_s_lead_contacts_isSet;
+}
+
+bool Lead_ListElement::is_s_lead_contacts_Valid() const{
+    return m_s_lead_contacts_isValid;
+}
+
 bool Lead_ListElement::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -266,6 +291,11 @@ bool Lead_ListElement::isSet() const {
         }
 
         if (m_s_lead_code_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_s_lead_contacts_isSet) {
             isObjectUpdated = true;
             break;
         }

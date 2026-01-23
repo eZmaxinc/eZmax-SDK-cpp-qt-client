@@ -69,16 +69,12 @@ void ObjectEzsignsignatureApi::initializeServerConfigs() {
     _serverIndices.insert("ezsignsignatureCreateObjectV4", 0);
     _serverConfigs.insert("ezsignsignatureDeleteObjectV1", defaultConf);
     _serverIndices.insert("ezsignsignatureDeleteObjectV1", 0);
-    _serverConfigs.insert("ezsignsignatureEditObjectV2", defaultConf);
-    _serverIndices.insert("ezsignsignatureEditObjectV2", 0);
     _serverConfigs.insert("ezsignsignatureEditObjectV3", defaultConf);
     _serverIndices.insert("ezsignsignatureEditObjectV3", 0);
     _serverConfigs.insert("ezsignsignatureGetEzsignsignatureattachmentV1", defaultConf);
     _serverIndices.insert("ezsignsignatureGetEzsignsignatureattachmentV1", 0);
     _serverConfigs.insert("ezsignsignatureGetEzsignsignaturesAutomaticV1", defaultConf);
     _serverIndices.insert("ezsignsignatureGetEzsignsignaturesAutomaticV1", 0);
-    _serverConfigs.insert("ezsignsignatureGetObjectV3", defaultConf);
-    _serverIndices.insert("ezsignsignatureGetObjectV3", 0);
     _serverConfigs.insert("ezsignsignatureGetObjectV4", defaultConf);
     _serverIndices.insert("ezsignsignatureGetObjectV4", 0);
     _serverConfigs.insert("ezsignsignatureSignV1", defaultConf);
@@ -655,99 +651,6 @@ void ObjectEzsignsignatureApi::ezsignsignatureDeleteObjectV1Callback(HttpRequest
     }
 }
 
-void ObjectEzsignsignatureApi::ezsignsignatureEditObjectV2(const qint32 &pki_ezsignsignature_id, const Ezsignsignature_editObject_v2_Request &ezsignsignature_edit_object_v2_request) {
-    QString fullPath = QString(_serverConfigs["ezsignsignatureEditObjectV2"][_serverIndices.value("ezsignsignatureEditObjectV2")].URL()+"/2/object/ezsignsignature/{pkiEzsignsignatureID}");
-    
-    if (_apiKeys.contains("Authorization")) {
-        addHeaders("Authorization",_apiKeys.find("Authorization").value());
-    }
-    
-    
-    {
-        QString pki_ezsignsignature_idPathParam("{");
-        pki_ezsignsignature_idPathParam.append("pkiEzsignsignatureID").append("}");
-        QString pathPrefix, pathSuffix, pathDelimiter;
-        QString pathStyle = "simple";
-        if (pathStyle == "")
-            pathStyle = "simple";
-        pathPrefix = getParamStylePrefix(pathStyle);
-        pathSuffix = getParamStyleSuffix(pathStyle);
-        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignsignatureID", false);
-        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignsignatureID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsignsignature_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsignsignature_id)));
-    }
-    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
-    worker->setTimeOut(_timeOut);
-    worker->setWorkingDirectory(_workingDirectory);
-    HttpRequestInput input(fullPath, "PUT");
-
-    {
-
-        
-        QByteArray output = ezsignsignature_edit_object_v2_request.asJson().toUtf8();
-        input.request_body.append(output);
-    }
-    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
-        input.headers.insert(keyValueIt->first, keyValueIt->second);
-    }
-
-
-    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignsignatureApi::ezsignsignatureEditObjectV2Callback);
-    connect(this, &ObjectEzsignsignatureApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
-        if (findChildren<HttpRequestWorker*>().count() == 0) {
-            Q_EMIT allPendingRequestsCompleted();
-        }
-    });
-
-    worker->execute(&input);
-}
-
-void ObjectEzsignsignatureApi::ezsignsignatureEditObjectV2Callback(HttpRequestWorker *worker) {
-    QString error_str = worker->error_str;
-    QNetworkReply::NetworkError error_type = worker->error_type;
-
-    if (worker->error_type != QNetworkReply::NoError) {
-        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
-    }
-    Ezsignsignature_editObject_v2_Response output(QString(worker->response));
-    worker->deleteLater();
-
-    if (worker->error_type == QNetworkReply::NoError) {
-        Q_EMIT ezsignsignatureEditObjectV2Signal(output);
-        Q_EMIT ezsignsignatureEditObjectV2SignalFull(worker, output);
-    } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsignsignatureEditObjectV2SignalE(output, error_type, error_str);
-        Q_EMIT ezsignsignatureEditObjectV2SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
-        Q_EMIT ezsignsignatureEditObjectV2SignalError(output, error_type, error_str);
-        Q_EMIT ezsignsignatureEditObjectV2SignalErrorFull(worker, error_type, error_str);
-    }
-}
-
 void ObjectEzsignsignatureApi::ezsignsignatureEditObjectV3(const qint32 &pki_ezsignsignature_id, const Ezsignsignature_editObject_v3_Request &ezsignsignature_edit_object_v3_request) {
     QString fullPath = QString(_serverConfigs["ezsignsignatureEditObjectV3"][_serverIndices.value("ezsignsignatureEditObjectV3")].URL()+"/3/object/ezsignsignature/{pkiEzsignsignatureID}");
     
@@ -1000,94 +903,6 @@ void ObjectEzsignsignatureApi::ezsignsignatureGetEzsignsignaturesAutomaticV1Call
 
         Q_EMIT ezsignsignatureGetEzsignsignaturesAutomaticV1SignalError(output, error_type, error_str);
         Q_EMIT ezsignsignatureGetEzsignsignaturesAutomaticV1SignalErrorFull(worker, error_type, error_str);
-    }
-}
-
-void ObjectEzsignsignatureApi::ezsignsignatureGetObjectV3(const qint32 &pki_ezsignsignature_id) {
-    QString fullPath = QString(_serverConfigs["ezsignsignatureGetObjectV3"][_serverIndices.value("ezsignsignatureGetObjectV3")].URL()+"/3/object/ezsignsignature/{pkiEzsignsignatureID}");
-    
-    if (_apiKeys.contains("Authorization")) {
-        addHeaders("Authorization",_apiKeys.find("Authorization").value());
-    }
-    
-    
-    {
-        QString pki_ezsignsignature_idPathParam("{");
-        pki_ezsignsignature_idPathParam.append("pkiEzsignsignatureID").append("}");
-        QString pathPrefix, pathSuffix, pathDelimiter;
-        QString pathStyle = "simple";
-        if (pathStyle == "")
-            pathStyle = "simple";
-        pathPrefix = getParamStylePrefix(pathStyle);
-        pathSuffix = getParamStyleSuffix(pathStyle);
-        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignsignatureID", false);
-        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignsignatureID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_ezsignsignature_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsignsignature_id)));
-    }
-    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
-    worker->setTimeOut(_timeOut);
-    worker->setWorkingDirectory(_workingDirectory);
-    HttpRequestInput input(fullPath, "GET");
-
-
-    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
-        input.headers.insert(keyValueIt->first, keyValueIt->second);
-    }
-
-
-    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignsignatureApi::ezsignsignatureGetObjectV3Callback);
-    connect(this, &ObjectEzsignsignatureApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
-        if (findChildren<HttpRequestWorker*>().count() == 0) {
-            Q_EMIT allPendingRequestsCompleted();
-        }
-    });
-
-    worker->execute(&input);
-}
-
-void ObjectEzsignsignatureApi::ezsignsignatureGetObjectV3Callback(HttpRequestWorker *worker) {
-    QString error_str = worker->error_str;
-    QNetworkReply::NetworkError error_type = worker->error_type;
-
-    if (worker->error_type != QNetworkReply::NoError) {
-        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
-    }
-    Ezsignsignature_getObject_v3_Response output(QString(worker->response));
-    worker->deleteLater();
-
-    if (worker->error_type == QNetworkReply::NoError) {
-        Q_EMIT ezsignsignatureGetObjectV3Signal(output);
-        Q_EMIT ezsignsignatureGetObjectV3SignalFull(worker, output);
-    } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsignsignatureGetObjectV3SignalE(output, error_type, error_str);
-        Q_EMIT ezsignsignatureGetObjectV3SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
-        Q_EMIT ezsignsignatureGetObjectV3SignalError(output, error_type, error_str);
-        Q_EMIT ezsignsignatureGetObjectV3SignalErrorFull(worker, error_type, error_str);
     }
 }
 

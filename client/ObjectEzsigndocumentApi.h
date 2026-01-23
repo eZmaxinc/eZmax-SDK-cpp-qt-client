@@ -44,6 +44,8 @@
 #include "Ezsigndocument_editEzsignannotations_v1_Response.h"
 #include "Ezsigndocument_editEzsignformfieldgroups_v1_Request.h"
 #include "Ezsigndocument_editEzsignformfieldgroups_v1_Response.h"
+#include "Ezsigndocument_editEzsignformfieldgroups_v2_Request.h"
+#include "Ezsigndocument_editEzsignformfieldgroups_v2_Response.h"
 #include "Ezsigndocument_editEzsignsignatures_v1_Request.h"
 #include "Ezsigndocument_editEzsignsignatures_v1_Response.h"
 #include "Ezsigndocument_editEzsignsignatures_v2_Request.h"
@@ -56,6 +58,7 @@
 #include "Ezsigndocument_flatten_v1_Response.h"
 #include "Ezsigndocument_getActionableElements_v1_Response.h"
 #include "Ezsigndocument_getActionableElements_v2_Response.h"
+#include "Ezsigndocument_getActionableElements_v3_Response.h"
 #include "Ezsigndocument_getAttachments_v1_Response.h"
 #include "Ezsigndocument_getCompletedElements_v1_Response.h"
 #include "Ezsigndocument_getCompletedElements_v2_Response.h"
@@ -191,6 +194,12 @@ public:
 
     /**
     * @param[in]  pki_ezsigndocument_id qint32 [required]
+    * @param[in]  ezsigndocument_edit_ezsignformfieldgroups_v2_request Ezsigndocument_editEzsignformfieldgroups_v2_Request [required]
+    */
+    Q_DECL_DEPRECATED virtual void ezsigndocumentEditEzsignformfieldgroupsV2(const qint32 &pki_ezsigndocument_id, const Ezsigndocument_editEzsignformfieldgroups_v2_Request &ezsigndocument_edit_ezsignformfieldgroups_v2_request);
+
+    /**
+    * @param[in]  pki_ezsigndocument_id qint32 [required]
     * @param[in]  ezsigndocument_edit_ezsignsignatures_v1_request Ezsigndocument_editEzsignsignatures_v1_Request [required]
     */
     Q_DECL_DEPRECATED virtual void ezsigndocumentEditEzsignsignaturesV1(const qint32 &pki_ezsigndocument_id, const Ezsigndocument_editEzsignsignatures_v1_Request &ezsigndocument_edit_ezsignsignatures_v1_request);
@@ -233,7 +242,12 @@ public:
     /**
     * @param[in]  pki_ezsigndocument_id qint32 [required]
     */
-    virtual void ezsigndocumentGetActionableElementsV2(const qint32 &pki_ezsigndocument_id);
+    Q_DECL_DEPRECATED virtual void ezsigndocumentGetActionableElementsV2(const qint32 &pki_ezsigndocument_id);
+
+    /**
+    * @param[in]  pki_ezsigndocument_id qint32 [required]
+    */
+    virtual void ezsigndocumentGetActionableElementsV3(const qint32 &pki_ezsigndocument_id);
 
     /**
     * @param[in]  pki_ezsigndocument_id qint32 [required]
@@ -381,6 +395,7 @@ private:
     void ezsigndocumentDeleteObjectV1Callback(HttpRequestWorker *worker);
     void ezsigndocumentEditEzsignannotationsV1Callback(HttpRequestWorker *worker);
     void ezsigndocumentEditEzsignformfieldgroupsV1Callback(HttpRequestWorker *worker);
+    void ezsigndocumentEditEzsignformfieldgroupsV2Callback(HttpRequestWorker *worker);
     void ezsigndocumentEditEzsignsignaturesV1Callback(HttpRequestWorker *worker);
     void ezsigndocumentEditEzsignsignaturesV2Callback(HttpRequestWorker *worker);
     void ezsigndocumentEditObjectV1Callback(HttpRequestWorker *worker);
@@ -389,6 +404,7 @@ private:
     void ezsigndocumentFlattenV1Callback(HttpRequestWorker *worker);
     void ezsigndocumentGetActionableElementsV1Callback(HttpRequestWorker *worker);
     void ezsigndocumentGetActionableElementsV2Callback(HttpRequestWorker *worker);
+    void ezsigndocumentGetActionableElementsV3Callback(HttpRequestWorker *worker);
     void ezsigndocumentGetAttachmentsV1Callback(HttpRequestWorker *worker);
     void ezsigndocumentGetCompletedElementsV1Callback(HttpRequestWorker *worker);
     void ezsigndocumentGetCompletedElementsV2Callback(HttpRequestWorker *worker);
@@ -425,6 +441,7 @@ Q_SIGNALS:
     void ezsigndocumentDeleteObjectV1Signal(Ezsigndocument_deleteObject_v1_Response summary);
     void ezsigndocumentEditEzsignannotationsV1Signal(Ezsigndocument_editEzsignannotations_v1_Response summary);
     void ezsigndocumentEditEzsignformfieldgroupsV1Signal(Ezsigndocument_editEzsignformfieldgroups_v1_Response summary);
+    void ezsigndocumentEditEzsignformfieldgroupsV2Signal(Ezsigndocument_editEzsignformfieldgroups_v2_Response summary);
     void ezsigndocumentEditEzsignsignaturesV1Signal(Ezsigndocument_editEzsignsignatures_v1_Response summary);
     void ezsigndocumentEditEzsignsignaturesV2Signal(Ezsigndocument_editEzsignsignatures_v2_Response summary);
     void ezsigndocumentEditObjectV1Signal(Ezsigndocument_editObject_v1_Response summary);
@@ -433,6 +450,7 @@ Q_SIGNALS:
     void ezsigndocumentFlattenV1Signal(Ezsigndocument_flatten_v1_Response summary);
     void ezsigndocumentGetActionableElementsV1Signal(Ezsigndocument_getActionableElements_v1_Response summary);
     void ezsigndocumentGetActionableElementsV2Signal(Ezsigndocument_getActionableElements_v2_Response summary);
+    void ezsigndocumentGetActionableElementsV3Signal(Ezsigndocument_getActionableElements_v3_Response summary);
     void ezsigndocumentGetAttachmentsV1Signal(Ezsigndocument_getAttachments_v1_Response summary);
     void ezsigndocumentGetCompletedElementsV1Signal(Ezsigndocument_getCompletedElements_v1_Response summary);
     void ezsigndocumentGetCompletedElementsV2Signal(Ezsigndocument_getCompletedElements_v2_Response summary);
@@ -468,6 +486,7 @@ Q_SIGNALS:
     void ezsigndocumentDeleteObjectV1SignalFull(HttpRequestWorker *worker, Ezsigndocument_deleteObject_v1_Response summary);
     void ezsigndocumentEditEzsignannotationsV1SignalFull(HttpRequestWorker *worker, Ezsigndocument_editEzsignannotations_v1_Response summary);
     void ezsigndocumentEditEzsignformfieldgroupsV1SignalFull(HttpRequestWorker *worker, Ezsigndocument_editEzsignformfieldgroups_v1_Response summary);
+    void ezsigndocumentEditEzsignformfieldgroupsV2SignalFull(HttpRequestWorker *worker, Ezsigndocument_editEzsignformfieldgroups_v2_Response summary);
     void ezsigndocumentEditEzsignsignaturesV1SignalFull(HttpRequestWorker *worker, Ezsigndocument_editEzsignsignatures_v1_Response summary);
     void ezsigndocumentEditEzsignsignaturesV2SignalFull(HttpRequestWorker *worker, Ezsigndocument_editEzsignsignatures_v2_Response summary);
     void ezsigndocumentEditObjectV1SignalFull(HttpRequestWorker *worker, Ezsigndocument_editObject_v1_Response summary);
@@ -476,6 +495,7 @@ Q_SIGNALS:
     void ezsigndocumentFlattenV1SignalFull(HttpRequestWorker *worker, Ezsigndocument_flatten_v1_Response summary);
     void ezsigndocumentGetActionableElementsV1SignalFull(HttpRequestWorker *worker, Ezsigndocument_getActionableElements_v1_Response summary);
     void ezsigndocumentGetActionableElementsV2SignalFull(HttpRequestWorker *worker, Ezsigndocument_getActionableElements_v2_Response summary);
+    void ezsigndocumentGetActionableElementsV3SignalFull(HttpRequestWorker *worker, Ezsigndocument_getActionableElements_v3_Response summary);
     void ezsigndocumentGetAttachmentsV1SignalFull(HttpRequestWorker *worker, Ezsigndocument_getAttachments_v1_Response summary);
     void ezsigndocumentGetCompletedElementsV1SignalFull(HttpRequestWorker *worker, Ezsigndocument_getCompletedElements_v1_Response summary);
     void ezsigndocumentGetCompletedElementsV2SignalFull(HttpRequestWorker *worker, Ezsigndocument_getCompletedElements_v2_Response summary);
@@ -534,6 +554,9 @@ Q_SIGNALS:
     Q_DECL_DEPRECATED_X("Use ezsigndocumentEditEzsignformfieldgroupsV1SignalError() instead")
     void ezsigndocumentEditEzsignformfieldgroupsV1SignalE(Ezsigndocument_editEzsignformfieldgroups_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigndocumentEditEzsignformfieldgroupsV1SignalError(Ezsigndocument_editEzsignformfieldgroups_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigndocumentEditEzsignformfieldgroupsV2SignalError() instead")
+    void ezsigndocumentEditEzsignformfieldgroupsV2SignalE(Ezsigndocument_editEzsignformfieldgroups_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentEditEzsignformfieldgroupsV2SignalError(Ezsigndocument_editEzsignformfieldgroups_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsigndocumentEditEzsignsignaturesV1SignalError() instead")
     void ezsigndocumentEditEzsignsignaturesV1SignalE(Ezsigndocument_editEzsignsignatures_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigndocumentEditEzsignsignaturesV1SignalError(Ezsigndocument_editEzsignsignatures_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -558,6 +581,9 @@ Q_SIGNALS:
     Q_DECL_DEPRECATED_X("Use ezsigndocumentGetActionableElementsV2SignalError() instead")
     void ezsigndocumentGetActionableElementsV2SignalE(Ezsigndocument_getActionableElements_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigndocumentGetActionableElementsV2SignalError(Ezsigndocument_getActionableElements_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigndocumentGetActionableElementsV3SignalError() instead")
+    void ezsigndocumentGetActionableElementsV3SignalE(Ezsigndocument_getActionableElements_v3_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentGetActionableElementsV3SignalError(Ezsigndocument_getActionableElements_v3_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsigndocumentGetAttachmentsV1SignalError() instead")
     void ezsigndocumentGetAttachmentsV1SignalE(Ezsigndocument_getAttachments_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigndocumentGetAttachmentsV1SignalError(Ezsigndocument_getAttachments_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -658,6 +684,9 @@ Q_SIGNALS:
     Q_DECL_DEPRECATED_X("Use ezsigndocumentEditEzsignformfieldgroupsV1SignalErrorFull() instead")
     void ezsigndocumentEditEzsignformfieldgroupsV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigndocumentEditEzsignformfieldgroupsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigndocumentEditEzsignformfieldgroupsV2SignalErrorFull() instead")
+    void ezsigndocumentEditEzsignformfieldgroupsV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentEditEzsignformfieldgroupsV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsigndocumentEditEzsignsignaturesV1SignalErrorFull() instead")
     void ezsigndocumentEditEzsignsignaturesV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigndocumentEditEzsignsignaturesV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -682,6 +711,9 @@ Q_SIGNALS:
     Q_DECL_DEPRECATED_X("Use ezsigndocumentGetActionableElementsV2SignalErrorFull() instead")
     void ezsigndocumentGetActionableElementsV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigndocumentGetActionableElementsV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use ezsigndocumentGetActionableElementsV3SignalErrorFull() instead")
+    void ezsigndocumentGetActionableElementsV3SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void ezsigndocumentGetActionableElementsV3SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsigndocumentGetAttachmentsV1SignalErrorFull() instead")
     void ezsigndocumentGetAttachmentsV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigndocumentGetAttachmentsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);

@@ -64,6 +64,12 @@ void Custom_EzsignsignatureCreateEzsignelementsPositionedByWord_Request::initial
     m_e_ezsignsignature_type_isSet = false;
     m_e_ezsignsignature_type_isValid = false;
 
+    m_e_ezsignsignature_signaturepad_isSet = false;
+    m_e_ezsignsignature_signaturepad_isValid = false;
+
+    m_e_ezsignsignature_signaturepadrequired_isSet = false;
+    m_e_ezsignsignature_signaturepadrequired_isValid = false;
+
     m_fki_ezsigndocument_id_isSet = false;
     m_fki_ezsigndocument_id_isValid = false;
 
@@ -124,6 +130,9 @@ void Custom_EzsignsignatureCreateEzsignelementsPositionedByWord_Request::initial
     m_d_ezsignsignature_creditcardamount_isSet = false;
     m_d_ezsignsignature_creditcardamount_isValid = false;
 
+    m_b_ezsignsignature_creditcardcustomamount_isSet = false;
+    m_b_ezsignsignature_creditcardcustomamount_isValid = false;
+
     m_b_ezsignsignature_customdate_isSet = false;
     m_b_ezsignsignature_customdate_isValid = false;
 
@@ -178,6 +187,12 @@ void Custom_EzsignsignatureCreateEzsignelementsPositionedByWord_Request::fromJso
 
     m_e_ezsignsignature_type_isValid = ::Ezmaxapi::fromJsonValue(m_e_ezsignsignature_type, json[QString("eEzsignsignatureType")]);
     m_e_ezsignsignature_type_isSet = !json[QString("eEzsignsignatureType")].isNull() && m_e_ezsignsignature_type_isValid;
+
+    m_e_ezsignsignature_signaturepad_isValid = ::Ezmaxapi::fromJsonValue(m_e_ezsignsignature_signaturepad, json[QString("eEzsignsignatureSignaturepad")]);
+    m_e_ezsignsignature_signaturepad_isSet = !json[QString("eEzsignsignatureSignaturepad")].isNull() && m_e_ezsignsignature_signaturepad_isValid;
+
+    m_e_ezsignsignature_signaturepadrequired_isValid = ::Ezmaxapi::fromJsonValue(m_e_ezsignsignature_signaturepadrequired, json[QString("eEzsignsignatureSignaturepadrequired")]);
+    m_e_ezsignsignature_signaturepadrequired_isSet = !json[QString("eEzsignsignatureSignaturepadrequired")].isNull() && m_e_ezsignsignature_signaturepadrequired_isValid;
 
     m_fki_ezsigndocument_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_ezsigndocument_id, json[QString("fkiEzsigndocumentID")]);
     m_fki_ezsigndocument_id_isSet = !json[QString("fkiEzsigndocumentID")].isNull() && m_fki_ezsigndocument_id_isValid;
@@ -239,6 +254,9 @@ void Custom_EzsignsignatureCreateEzsignelementsPositionedByWord_Request::fromJso
     m_d_ezsignsignature_creditcardamount_isValid = ::Ezmaxapi::fromJsonValue(m_d_ezsignsignature_creditcardamount, json[QString("dEzsignsignatureCreditcardamount")]);
     m_d_ezsignsignature_creditcardamount_isSet = !json[QString("dEzsignsignatureCreditcardamount")].isNull() && m_d_ezsignsignature_creditcardamount_isValid;
 
+    m_b_ezsignsignature_creditcardcustomamount_isValid = ::Ezmaxapi::fromJsonValue(m_b_ezsignsignature_creditcardcustomamount, json[QString("bEzsignsignatureCreditcardcustomamount")]);
+    m_b_ezsignsignature_creditcardcustomamount_isSet = !json[QString("bEzsignsignatureCreditcardcustomamount")].isNull() && m_b_ezsignsignature_creditcardcustomamount_isValid;
+
     m_b_ezsignsignature_customdate_isValid = ::Ezmaxapi::fromJsonValue(m_b_ezsignsignature_customdate, json[QString("bEzsignsignatureCustomdate")]);
     m_b_ezsignsignature_customdate_isSet = !json[QString("bEzsignsignatureCustomdate")].isNull() && m_b_ezsignsignature_customdate_isValid;
 
@@ -293,6 +311,12 @@ QJsonObject Custom_EzsignsignatureCreateEzsignelementsPositionedByWord_Request::
     }
     if (m_e_ezsignsignature_type.isSet()) {
         obj.insert(QString("eEzsignsignatureType"), ::Ezmaxapi::toJsonValue(m_e_ezsignsignature_type));
+    }
+    if (m_e_ezsignsignature_signaturepad.isSet()) {
+        obj.insert(QString("eEzsignsignatureSignaturepad"), ::Ezmaxapi::toJsonValue(m_e_ezsignsignature_signaturepad));
+    }
+    if (m_e_ezsignsignature_signaturepadrequired.isSet()) {
+        obj.insert(QString("eEzsignsignatureSignaturepadrequired"), ::Ezmaxapi::toJsonValue(m_e_ezsignsignature_signaturepadrequired));
     }
     if (m_fki_ezsigndocument_id_isSet) {
         obj.insert(QString("fkiEzsigndocumentID"), ::Ezmaxapi::toJsonValue(m_fki_ezsigndocument_id));
@@ -353,6 +377,9 @@ QJsonObject Custom_EzsignsignatureCreateEzsignelementsPositionedByWord_Request::
     }
     if (m_d_ezsignsignature_creditcardamount_isSet) {
         obj.insert(QString("dEzsignsignatureCreditcardamount"), ::Ezmaxapi::toJsonValue(m_d_ezsignsignature_creditcardamount));
+    }
+    if (m_b_ezsignsignature_creditcardcustomamount_isSet) {
+        obj.insert(QString("bEzsignsignatureCreditcardcustomamount"), ::Ezmaxapi::toJsonValue(m_b_ezsignsignature_creditcardcustomamount));
     }
     if (m_b_ezsignsignature_customdate_isSet) {
         obj.insert(QString("bEzsignsignatureCustomdate"), ::Ezmaxapi::toJsonValue(m_b_ezsignsignature_customdate));
@@ -530,6 +557,38 @@ bool Custom_EzsignsignatureCreateEzsignelementsPositionedByWord_Request::is_e_ez
 
 bool Custom_EzsignsignatureCreateEzsignelementsPositionedByWord_Request::is_e_ezsignsignature_type_Valid() const{
     return m_e_ezsignsignature_type_isValid;
+}
+
+Field_eEzsignsignatureSignaturepad Custom_EzsignsignatureCreateEzsignelementsPositionedByWord_Request::getEEzsignsignatureSignaturepad() const {
+    return m_e_ezsignsignature_signaturepad;
+}
+void Custom_EzsignsignatureCreateEzsignelementsPositionedByWord_Request::setEEzsignsignatureSignaturepad(const Field_eEzsignsignatureSignaturepad &e_ezsignsignature_signaturepad) {
+    m_e_ezsignsignature_signaturepad = e_ezsignsignature_signaturepad;
+    m_e_ezsignsignature_signaturepad_isSet = true;
+}
+
+bool Custom_EzsignsignatureCreateEzsignelementsPositionedByWord_Request::is_e_ezsignsignature_signaturepad_Set() const{
+    return m_e_ezsignsignature_signaturepad_isSet;
+}
+
+bool Custom_EzsignsignatureCreateEzsignelementsPositionedByWord_Request::is_e_ezsignsignature_signaturepad_Valid() const{
+    return m_e_ezsignsignature_signaturepad_isValid;
+}
+
+Field_eEzsignsignatureSignaturepadrequired Custom_EzsignsignatureCreateEzsignelementsPositionedByWord_Request::getEEzsignsignatureSignaturepadrequired() const {
+    return m_e_ezsignsignature_signaturepadrequired;
+}
+void Custom_EzsignsignatureCreateEzsignelementsPositionedByWord_Request::setEEzsignsignatureSignaturepadrequired(const Field_eEzsignsignatureSignaturepadrequired &e_ezsignsignature_signaturepadrequired) {
+    m_e_ezsignsignature_signaturepadrequired = e_ezsignsignature_signaturepadrequired;
+    m_e_ezsignsignature_signaturepadrequired_isSet = true;
+}
+
+bool Custom_EzsignsignatureCreateEzsignelementsPositionedByWord_Request::is_e_ezsignsignature_signaturepadrequired_Set() const{
+    return m_e_ezsignsignature_signaturepadrequired_isSet;
+}
+
+bool Custom_EzsignsignatureCreateEzsignelementsPositionedByWord_Request::is_e_ezsignsignature_signaturepadrequired_Valid() const{
+    return m_e_ezsignsignature_signaturepadrequired_isValid;
 }
 
 qint32 Custom_EzsignsignatureCreateEzsignelementsPositionedByWord_Request::getFkiEzsigndocumentId() const {
@@ -852,6 +911,22 @@ bool Custom_EzsignsignatureCreateEzsignelementsPositionedByWord_Request::is_d_ez
     return m_d_ezsignsignature_creditcardamount_isValid;
 }
 
+bool Custom_EzsignsignatureCreateEzsignelementsPositionedByWord_Request::isBEzsignsignatureCreditcardcustomamount() const {
+    return m_b_ezsignsignature_creditcardcustomamount;
+}
+void Custom_EzsignsignatureCreateEzsignelementsPositionedByWord_Request::setBEzsignsignatureCreditcardcustomamount(const bool &b_ezsignsignature_creditcardcustomamount) {
+    m_b_ezsignsignature_creditcardcustomamount = b_ezsignsignature_creditcardcustomamount;
+    m_b_ezsignsignature_creditcardcustomamount_isSet = true;
+}
+
+bool Custom_EzsignsignatureCreateEzsignelementsPositionedByWord_Request::is_b_ezsignsignature_creditcardcustomamount_Set() const{
+    return m_b_ezsignsignature_creditcardcustomamount_isSet;
+}
+
+bool Custom_EzsignsignatureCreateEzsignelementsPositionedByWord_Request::is_b_ezsignsignature_creditcardcustomamount_Valid() const{
+    return m_b_ezsignsignature_creditcardcustomamount_isValid;
+}
+
 bool Custom_EzsignsignatureCreateEzsignelementsPositionedByWord_Request::isBEzsignsignatureCustomdate() const {
     return m_b_ezsignsignature_customdate;
 }
@@ -985,6 +1060,16 @@ bool Custom_EzsignsignatureCreateEzsignelementsPositionedByWord_Request::isSet()
             break;
         }
 
+        if (m_e_ezsignsignature_signaturepad.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_e_ezsignsignature_signaturepadrequired.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (m_fki_ezsigndocument_id_isSet) {
             isObjectUpdated = true;
             break;
@@ -1081,6 +1166,11 @@ bool Custom_EzsignsignatureCreateEzsignelementsPositionedByWord_Request::isSet()
         }
 
         if (m_d_ezsignsignature_creditcardamount_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_b_ezsignsignature_creditcardcustomamount_isSet) {
             isObjectUpdated = true;
             break;
         }

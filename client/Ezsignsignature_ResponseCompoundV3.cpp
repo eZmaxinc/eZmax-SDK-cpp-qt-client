@@ -61,6 +61,9 @@ void Ezsignsignature_ResponseCompoundV3::initializeModel() {
     m_s_ezsignsignature_creditcardamountdescription_isSet = false;
     m_s_ezsignsignature_creditcardamountdescription_isValid = false;
 
+    m_b_ezsignsignature_creditcardcustomamount_isSet = false;
+    m_b_ezsignsignature_creditcardcustomamount_isValid = false;
+
     m_s_ezsignsigningreason_description_x_isSet = false;
     m_s_ezsignsigningreason_description_x_isValid = false;
 
@@ -87,6 +90,12 @@ void Ezsignsignature_ResponseCompoundV3::initializeModel() {
 
     m_e_ezsignsignature_type_isSet = false;
     m_e_ezsignsignature_type_isValid = false;
+
+    m_e_ezsignsignature_signaturepad_isSet = false;
+    m_e_ezsignsignature_signaturepad_isValid = false;
+
+    m_e_ezsignsignature_signaturepadrequired_isSet = false;
+    m_e_ezsignsignature_signaturepadrequired_isValid = false;
 
     m_t_ezsignsignature_tooltip_isSet = false;
     m_t_ezsignsignature_tooltip_isValid = false;
@@ -212,6 +221,9 @@ void Ezsignsignature_ResponseCompoundV3::fromJsonObject(QJsonObject json) {
     m_s_ezsignsignature_creditcardamountdescription_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsignsignature_creditcardamountdescription, json[QString("sEzsignsignatureCreditcardamountdescription")]);
     m_s_ezsignsignature_creditcardamountdescription_isSet = !json[QString("sEzsignsignatureCreditcardamountdescription")].isNull() && m_s_ezsignsignature_creditcardamountdescription_isValid;
 
+    m_b_ezsignsignature_creditcardcustomamount_isValid = ::Ezmaxapi::fromJsonValue(m_b_ezsignsignature_creditcardcustomamount, json[QString("bEzsignsignatureCreditcardcustomamount")]);
+    m_b_ezsignsignature_creditcardcustomamount_isSet = !json[QString("bEzsignsignatureCreditcardcustomamount")].isNull() && m_b_ezsignsignature_creditcardcustomamount_isValid;
+
     m_s_ezsignsigningreason_description_x_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsignsigningreason_description_x, json[QString("sEzsignsigningreasonDescriptionX")]);
     m_s_ezsignsigningreason_description_x_isSet = !json[QString("sEzsignsigningreasonDescriptionX")].isNull() && m_s_ezsignsigningreason_description_x_isValid;
 
@@ -238,6 +250,12 @@ void Ezsignsignature_ResponseCompoundV3::fromJsonObject(QJsonObject json) {
 
     m_e_ezsignsignature_type_isValid = ::Ezmaxapi::fromJsonValue(m_e_ezsignsignature_type, json[QString("eEzsignsignatureType")]);
     m_e_ezsignsignature_type_isSet = !json[QString("eEzsignsignatureType")].isNull() && m_e_ezsignsignature_type_isValid;
+
+    m_e_ezsignsignature_signaturepad_isValid = ::Ezmaxapi::fromJsonValue(m_e_ezsignsignature_signaturepad, json[QString("eEzsignsignatureSignaturepad")]);
+    m_e_ezsignsignature_signaturepad_isSet = !json[QString("eEzsignsignatureSignaturepad")].isNull() && m_e_ezsignsignature_signaturepad_isValid;
+
+    m_e_ezsignsignature_signaturepadrequired_isValid = ::Ezmaxapi::fromJsonValue(m_e_ezsignsignature_signaturepadrequired, json[QString("eEzsignsignatureSignaturepadrequired")]);
+    m_e_ezsignsignature_signaturepadrequired_isSet = !json[QString("eEzsignsignatureSignaturepadrequired")].isNull() && m_e_ezsignsignature_signaturepadrequired_isValid;
 
     m_t_ezsignsignature_tooltip_isValid = ::Ezmaxapi::fromJsonValue(m_t_ezsignsignature_tooltip, json[QString("tEzsignsignatureTooltip")]);
     m_t_ezsignsignature_tooltip_isSet = !json[QString("tEzsignsignatureTooltip")].isNull() && m_t_ezsignsignature_tooltip_isValid;
@@ -363,6 +381,9 @@ QJsonObject Ezsignsignature_ResponseCompoundV3::asJsonObject() const {
     if (m_s_ezsignsignature_creditcardamountdescription_isSet) {
         obj.insert(QString("sEzsignsignatureCreditcardamountdescription"), ::Ezmaxapi::toJsonValue(m_s_ezsignsignature_creditcardamountdescription));
     }
+    if (m_b_ezsignsignature_creditcardcustomamount_isSet) {
+        obj.insert(QString("bEzsignsignatureCreditcardcustomamount"), ::Ezmaxapi::toJsonValue(m_b_ezsignsignature_creditcardcustomamount));
+    }
     if (m_s_ezsignsigningreason_description_x_isSet) {
         obj.insert(QString("sEzsignsigningreasonDescriptionX"), ::Ezmaxapi::toJsonValue(m_s_ezsignsigningreason_description_x));
     }
@@ -389,6 +410,12 @@ QJsonObject Ezsignsignature_ResponseCompoundV3::asJsonObject() const {
     }
     if (m_e_ezsignsignature_type.isSet()) {
         obj.insert(QString("eEzsignsignatureType"), ::Ezmaxapi::toJsonValue(m_e_ezsignsignature_type));
+    }
+    if (m_e_ezsignsignature_signaturepad.isSet()) {
+        obj.insert(QString("eEzsignsignatureSignaturepad"), ::Ezmaxapi::toJsonValue(m_e_ezsignsignature_signaturepad));
+    }
+    if (m_e_ezsignsignature_signaturepadrequired.isSet()) {
+        obj.insert(QString("eEzsignsignatureSignaturepadrequired"), ::Ezmaxapi::toJsonValue(m_e_ezsignsignature_signaturepadrequired));
     }
     if (m_t_ezsignsignature_tooltip_isSet) {
         obj.insert(QString("tEzsignsignatureTooltip"), ::Ezmaxapi::toJsonValue(m_t_ezsignsignature_tooltip));
@@ -624,6 +651,22 @@ bool Ezsignsignature_ResponseCompoundV3::is_s_ezsignsignature_creditcardamountde
     return m_s_ezsignsignature_creditcardamountdescription_isValid;
 }
 
+bool Ezsignsignature_ResponseCompoundV3::isBEzsignsignatureCreditcardcustomamount() const {
+    return m_b_ezsignsignature_creditcardcustomamount;
+}
+void Ezsignsignature_ResponseCompoundV3::setBEzsignsignatureCreditcardcustomamount(const bool &b_ezsignsignature_creditcardcustomamount) {
+    m_b_ezsignsignature_creditcardcustomamount = b_ezsignsignature_creditcardcustomamount;
+    m_b_ezsignsignature_creditcardcustomamount_isSet = true;
+}
+
+bool Ezsignsignature_ResponseCompoundV3::is_b_ezsignsignature_creditcardcustomamount_Set() const{
+    return m_b_ezsignsignature_creditcardcustomamount_isSet;
+}
+
+bool Ezsignsignature_ResponseCompoundV3::is_b_ezsignsignature_creditcardcustomamount_Valid() const{
+    return m_b_ezsignsignature_creditcardcustomamount_isValid;
+}
+
 QString Ezsignsignature_ResponseCompoundV3::getSEzsignsigningreasonDescriptionX() const {
     return m_s_ezsignsigningreason_description_x;
 }
@@ -766,6 +809,38 @@ bool Ezsignsignature_ResponseCompoundV3::is_e_ezsignsignature_type_Set() const{
 
 bool Ezsignsignature_ResponseCompoundV3::is_e_ezsignsignature_type_Valid() const{
     return m_e_ezsignsignature_type_isValid;
+}
+
+Field_eEzsignsignatureSignaturepad Ezsignsignature_ResponseCompoundV3::getEEzsignsignatureSignaturepad() const {
+    return m_e_ezsignsignature_signaturepad;
+}
+void Ezsignsignature_ResponseCompoundV3::setEEzsignsignatureSignaturepad(const Field_eEzsignsignatureSignaturepad &e_ezsignsignature_signaturepad) {
+    m_e_ezsignsignature_signaturepad = e_ezsignsignature_signaturepad;
+    m_e_ezsignsignature_signaturepad_isSet = true;
+}
+
+bool Ezsignsignature_ResponseCompoundV3::is_e_ezsignsignature_signaturepad_Set() const{
+    return m_e_ezsignsignature_signaturepad_isSet;
+}
+
+bool Ezsignsignature_ResponseCompoundV3::is_e_ezsignsignature_signaturepad_Valid() const{
+    return m_e_ezsignsignature_signaturepad_isValid;
+}
+
+Field_eEzsignsignatureSignaturepadrequired Ezsignsignature_ResponseCompoundV3::getEEzsignsignatureSignaturepadrequired() const {
+    return m_e_ezsignsignature_signaturepadrequired;
+}
+void Ezsignsignature_ResponseCompoundV3::setEEzsignsignatureSignaturepadrequired(const Field_eEzsignsignatureSignaturepadrequired &e_ezsignsignature_signaturepadrequired) {
+    m_e_ezsignsignature_signaturepadrequired = e_ezsignsignature_signaturepadrequired;
+    m_e_ezsignsignature_signaturepadrequired_isSet = true;
+}
+
+bool Ezsignsignature_ResponseCompoundV3::is_e_ezsignsignature_signaturepadrequired_Set() const{
+    return m_e_ezsignsignature_signaturepadrequired_isSet;
+}
+
+bool Ezsignsignature_ResponseCompoundV3::is_e_ezsignsignature_signaturepadrequired_Valid() const{
+    return m_e_ezsignsignature_signaturepadrequired_isValid;
 }
 
 QString Ezsignsignature_ResponseCompoundV3::getTEzsignsignatureTooltip() const {
@@ -1280,6 +1355,11 @@ bool Ezsignsignature_ResponseCompoundV3::isSet() const {
             break;
         }
 
+        if (m_b_ezsignsignature_creditcardcustomamount_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (m_s_ezsignsigningreason_description_x_isSet) {
             isObjectUpdated = true;
             break;
@@ -1321,6 +1401,16 @@ bool Ezsignsignature_ResponseCompoundV3::isSet() const {
         }
 
         if (m_e_ezsignsignature_type.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_e_ezsignsignature_signaturepad.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_e_ezsignsignature_signaturepadrequired.isSet()) {
             isObjectUpdated = true;
             break;
         }

@@ -59,6 +59,11 @@ public:
     bool is_b_creditcardclientrelation_isdefault_Set() const;
     bool is_b_creditcardclientrelation_isdefault_Valid() const;
 
+    bool isBCreditcardclientLegacy() const;
+    void setBCreditcardclientLegacy(const bool &b_creditcardclient_legacy);
+    bool is_b_creditcardclient_legacy_Set() const;
+    bool is_b_creditcardclient_legacy_Valid() const;
+
     QString getSCreditcardclientDescription() const;
     void setSCreditcardclientDescription(const QString &s_creditcardclient_description);
     bool is_s_creditcardclient_description_Set() const;
@@ -110,6 +115,10 @@ private:
     bool m_b_creditcardclientrelation_isdefault;
     bool m_b_creditcardclientrelation_isdefault_isSet;
     bool m_b_creditcardclientrelation_isdefault_isValid;
+
+    bool m_b_creditcardclient_legacy;
+    bool m_b_creditcardclient_legacy_isSet;
+    bool m_b_creditcardclient_legacy_isValid;
 
     QString m_s_creditcardclient_description;
     bool m_s_creditcardclient_description_isSet;

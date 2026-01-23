@@ -57,8 +57,8 @@ public:
     bool is_a_s_variableobject_property_Set() const;
     bool is_a_s_variableobject_property_Valid() const;
 
-    QList<QMap> getAObjVariableobject() const;
-    void setAObjVariableobject(const QList<QMap> &a_obj_variableobject);
+    QList<QMap<QString, QJsonValue>> getAObjVariableobject() const;
+    void setAObjVariableobject(const QList<QMap<QString, QJsonValue>> &a_obj_variableobject);
     bool is_a_obj_variableobject_Set() const;
     bool is_a_obj_variableobject_Valid() const;
 
@@ -80,7 +80,7 @@ private:
     bool m_a_s_variableobject_property_isSet;
     bool m_a_s_variableobject_property_isValid;
 
-    QList<QMap> m_a_obj_variableobject;
+    QList<QMap<QString, QJsonValue>> m_a_obj_variableobject;
     bool m_a_obj_variableobject_isSet;
     bool m_a_obj_variableobject_isValid;
 };

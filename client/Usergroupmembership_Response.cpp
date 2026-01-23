@@ -61,6 +61,9 @@ void Usergroupmembership_Response::initializeModel() {
     m_s_usergroup_name_x_isSet = false;
     m_s_usergroup_name_x_isValid = false;
 
+    m_b_user_isactive_isSet = false;
+    m_b_user_isactive_isValid = false;
+
     m_s_usergroupexternal_name_isSet = false;
     m_s_usergroupexternal_name_isValid = false;
 }
@@ -101,6 +104,9 @@ void Usergroupmembership_Response::fromJsonObject(QJsonObject json) {
     m_s_usergroup_name_x_isValid = ::Ezmaxapi::fromJsonValue(m_s_usergroup_name_x, json[QString("sUsergroupNameX")]);
     m_s_usergroup_name_x_isSet = !json[QString("sUsergroupNameX")].isNull() && m_s_usergroup_name_x_isValid;
 
+    m_b_user_isactive_isValid = ::Ezmaxapi::fromJsonValue(m_b_user_isactive, json[QString("bUserIsactive")]);
+    m_b_user_isactive_isSet = !json[QString("bUserIsactive")].isNull() && m_b_user_isactive_isValid;
+
     m_s_usergroupexternal_name_isValid = ::Ezmaxapi::fromJsonValue(m_s_usergroupexternal_name, json[QString("sUsergroupexternalName")]);
     m_s_usergroupexternal_name_isSet = !json[QString("sUsergroupexternalName")].isNull() && m_s_usergroupexternal_name_isValid;
 }
@@ -140,6 +146,9 @@ QJsonObject Usergroupmembership_Response::asJsonObject() const {
     }
     if (m_s_usergroup_name_x_isSet) {
         obj.insert(QString("sUsergroupNameX"), ::Ezmaxapi::toJsonValue(m_s_usergroup_name_x));
+    }
+    if (m_b_user_isactive_isSet) {
+        obj.insert(QString("bUserIsactive"), ::Ezmaxapi::toJsonValue(m_b_user_isactive));
     }
     if (m_s_usergroupexternal_name_isSet) {
         obj.insert(QString("sUsergroupexternalName"), ::Ezmaxapi::toJsonValue(m_s_usergroupexternal_name));
@@ -291,6 +300,22 @@ bool Usergroupmembership_Response::is_s_usergroup_name_x_Valid() const{
     return m_s_usergroup_name_x_isValid;
 }
 
+bool Usergroupmembership_Response::isBUserIsactive() const {
+    return m_b_user_isactive;
+}
+void Usergroupmembership_Response::setBUserIsactive(const bool &b_user_isactive) {
+    m_b_user_isactive = b_user_isactive;
+    m_b_user_isactive_isSet = true;
+}
+
+bool Usergroupmembership_Response::is_b_user_isactive_Set() const{
+    return m_b_user_isactive_isSet;
+}
+
+bool Usergroupmembership_Response::is_b_user_isactive_Valid() const{
+    return m_b_user_isactive_isValid;
+}
+
 QString Usergroupmembership_Response::getSUsergroupexternalName() const {
     return m_s_usergroupexternal_name;
 }
@@ -351,6 +376,11 @@ bool Usergroupmembership_Response::isSet() const {
         }
 
         if (m_s_usergroup_name_x_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_b_user_isactive_isSet) {
             isObjectUpdated = true;
             break;
         }

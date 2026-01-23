@@ -31,6 +31,8 @@
 #include "Field_eEzsignsignatureConsultationtrigger.h"
 #include "Field_eEzsignsignatureDependencyrequirement.h"
 #include "Field_eEzsignsignatureFont.h"
+#include "Field_eEzsignsignatureSignaturepad.h"
+#include "Field_eEzsignsignatureSignaturepadrequired.h"
 #include "Field_eEzsignsignatureTooltipposition.h"
 #include "Field_eEzsignsignatureType.h"
 #include "Signature_ResponseCompound.h"
@@ -104,6 +106,11 @@ public:
     bool is_s_ezsignsignature_creditcardamountdescription_Set() const;
     bool is_s_ezsignsignature_creditcardamountdescription_Valid() const;
 
+    bool isBEzsignsignatureCreditcardcustomamount() const;
+    void setBEzsignsignatureCreditcardcustomamount(const bool &b_ezsignsignature_creditcardcustomamount);
+    bool is_b_ezsignsignature_creditcardcustomamount_Set() const;
+    bool is_b_ezsignsignature_creditcardcustomamount_Valid() const;
+
     QString getSEzsignsigningreasonDescriptionX() const;
     void setSEzsignsigningreasonDescriptionX(const QString &s_ezsignsigningreason_description_x);
     bool is_s_ezsignsigningreason_description_x_Set() const;
@@ -148,6 +155,16 @@ public:
     void setEEzsignsignatureType(const Field_eEzsignsignatureType &e_ezsignsignature_type);
     bool is_e_ezsignsignature_type_Set() const;
     bool is_e_ezsignsignature_type_Valid() const;
+
+    Field_eEzsignsignatureSignaturepad getEEzsignsignatureSignaturepad() const;
+    void setEEzsignsignatureSignaturepad(const Field_eEzsignsignatureSignaturepad &e_ezsignsignature_signaturepad);
+    bool is_e_ezsignsignature_signaturepad_Set() const;
+    bool is_e_ezsignsignature_signaturepad_Valid() const;
+
+    Field_eEzsignsignatureSignaturepadrequired getEEzsignsignatureSignaturepadrequired() const;
+    void setEEzsignsignatureSignaturepadrequired(const Field_eEzsignsignatureSignaturepadrequired &e_ezsignsignature_signaturepadrequired);
+    bool is_e_ezsignsignature_signaturepadrequired_Set() const;
+    bool is_e_ezsignsignature_signaturepadrequired_Valid() const;
 
     QString getTEzsignsignatureTooltip() const;
     void setTEzsignsignatureTooltip(const QString &t_ezsignsignature_tooltip);
@@ -336,6 +353,10 @@ private:
     bool m_s_ezsignsignature_creditcardamountdescription_isSet;
     bool m_s_ezsignsignature_creditcardamountdescription_isValid;
 
+    bool m_b_ezsignsignature_creditcardcustomamount;
+    bool m_b_ezsignsignature_creditcardcustomamount_isSet;
+    bool m_b_ezsignsignature_creditcardcustomamount_isValid;
+
     QString m_s_ezsignsigningreason_description_x;
     bool m_s_ezsignsigningreason_description_x_isSet;
     bool m_s_ezsignsigningreason_description_x_isValid;
@@ -371,6 +392,14 @@ private:
     Field_eEzsignsignatureType m_e_ezsignsignature_type;
     bool m_e_ezsignsignature_type_isSet;
     bool m_e_ezsignsignature_type_isValid;
+
+    Field_eEzsignsignatureSignaturepad m_e_ezsignsignature_signaturepad;
+    bool m_e_ezsignsignature_signaturepad_isSet;
+    bool m_e_ezsignsignature_signaturepad_isValid;
+
+    Field_eEzsignsignatureSignaturepadrequired m_e_ezsignsignature_signaturepadrequired;
+    bool m_e_ezsignsignature_signaturepadrequired_isSet;
+    bool m_e_ezsignsignature_signaturepadrequired_isValid;
 
     QString m_t_ezsignsignature_tooltip;
     bool m_t_ezsignsignature_tooltip_isSet;

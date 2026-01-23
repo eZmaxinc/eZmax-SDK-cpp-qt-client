@@ -19,8 +19,8 @@
 #include "Oauth.h"
 
 #include "Common_Response_Error.h"
-#include "Systemconfiguration_editObject_v1_Request.h"
-#include "Systemconfiguration_editObject_v1_Response.h"
+#include "Systemconfiguration_editObject_v2_Request.h"
+#include "Systemconfiguration_editObject_v2_Response.h"
 #include "Systemconfiguration_getObject_v2_Response.h"
 #include <QString>
 
@@ -62,9 +62,9 @@ public:
 
     /**
     * @param[in]  pki_systemconfiguration_id qint32 [required]
-    * @param[in]  systemconfiguration_edit_object_v1_request Systemconfiguration_editObject_v1_Request [required]
+    * @param[in]  systemconfiguration_edit_object_v2_request Systemconfiguration_editObject_v2_Request [required]
     */
-    virtual void systemconfigurationEditObjectV1(const qint32 &pki_systemconfiguration_id, const Systemconfiguration_editObject_v1_Request &systemconfiguration_edit_object_v1_request);
+    virtual void systemconfigurationEditObjectV2(const qint32 &pki_systemconfiguration_id, const Systemconfiguration_editObject_v2_Request &systemconfiguration_edit_object_v2_request);
 
     /**
     * @param[in]  pki_systemconfiguration_id qint32 [required]
@@ -94,28 +94,28 @@ private:
     OauthPassword _passwordFlow;
     int _OauthMethod = 0;
 
-    void systemconfigurationEditObjectV1Callback(HttpRequestWorker *worker);
+    void systemconfigurationEditObjectV2Callback(HttpRequestWorker *worker);
     void systemconfigurationGetObjectV2Callback(HttpRequestWorker *worker);
 
 Q_SIGNALS:
 
-    void systemconfigurationEditObjectV1Signal(Systemconfiguration_editObject_v1_Response summary);
+    void systemconfigurationEditObjectV2Signal(Systemconfiguration_editObject_v2_Response summary);
     void systemconfigurationGetObjectV2Signal(Systemconfiguration_getObject_v2_Response summary);
 
 
-    void systemconfigurationEditObjectV1SignalFull(HttpRequestWorker *worker, Systemconfiguration_editObject_v1_Response summary);
+    void systemconfigurationEditObjectV2SignalFull(HttpRequestWorker *worker, Systemconfiguration_editObject_v2_Response summary);
     void systemconfigurationGetObjectV2SignalFull(HttpRequestWorker *worker, Systemconfiguration_getObject_v2_Response summary);
 
-    Q_DECL_DEPRECATED_X("Use systemconfigurationEditObjectV1SignalError() instead")
-    void systemconfigurationEditObjectV1SignalE(Systemconfiguration_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void systemconfigurationEditObjectV1SignalError(Systemconfiguration_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use systemconfigurationEditObjectV2SignalError() instead")
+    void systemconfigurationEditObjectV2SignalE(Systemconfiguration_editObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void systemconfigurationEditObjectV2SignalError(Systemconfiguration_editObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use systemconfigurationGetObjectV2SignalError() instead")
     void systemconfigurationGetObjectV2SignalE(Systemconfiguration_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void systemconfigurationGetObjectV2SignalError(Systemconfiguration_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
-    Q_DECL_DEPRECATED_X("Use systemconfigurationEditObjectV1SignalErrorFull() instead")
-    void systemconfigurationEditObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
-    void systemconfigurationEditObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use systemconfigurationEditObjectV2SignalErrorFull() instead")
+    void systemconfigurationEditObjectV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void systemconfigurationEditObjectV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use systemconfigurationGetObjectV2SignalErrorFull() instead")
     void systemconfigurationGetObjectV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void systemconfigurationGetObjectV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);

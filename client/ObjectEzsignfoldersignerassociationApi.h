@@ -19,8 +19,6 @@
 #include "Oauth.h"
 
 #include "Common_Response_Error.h"
-#include "Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Request.h"
-#include "Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Response.h"
 #include "Ezsignfoldersignerassociation_createEmbeddedUrl_v2_Request.h"
 #include "Ezsignfoldersignerassociation_createEmbeddedUrl_v2_Response.h"
 #include "Ezsignfoldersignerassociation_createObject_v1_Request.h"
@@ -76,12 +74,6 @@ public:
     QString getParamStylePrefix(const QString &style);
     QString getParamStyleSuffix(const QString &style);
     QString getParamStyleDelimiter(const QString &style, const QString &name, bool isExplode);
-
-    /**
-    * @param[in]  pki_ezsignfoldersignerassociation_id qint32 [required]
-    * @param[in]  ezsignfoldersignerassociation_create_embedded_url_v1_request Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Request [required]
-    */
-    virtual void ezsignfoldersignerassociationCreateEmbeddedUrlV1(const qint32 &pki_ezsignfoldersignerassociation_id, const Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Request &ezsignfoldersignerassociation_create_embedded_url_v1_request);
 
     /**
     * @param[in]  pki_ezsignfoldersignerassociation_id qint32 [required]
@@ -166,7 +158,6 @@ private:
     OauthPassword _passwordFlow;
     int _OauthMethod = 0;
 
-    void ezsignfoldersignerassociationCreateEmbeddedUrlV1Callback(HttpRequestWorker *worker);
     void ezsignfoldersignerassociationCreateEmbeddedUrlV2Callback(HttpRequestWorker *worker);
     void ezsignfoldersignerassociationCreateObjectV1Callback(HttpRequestWorker *worker);
     void ezsignfoldersignerassociationCreateObjectV2Callback(HttpRequestWorker *worker);
@@ -181,7 +172,6 @@ private:
 
 Q_SIGNALS:
 
-    void ezsignfoldersignerassociationCreateEmbeddedUrlV1Signal(Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Response summary);
     void ezsignfoldersignerassociationCreateEmbeddedUrlV2Signal(Ezsignfoldersignerassociation_createEmbeddedUrl_v2_Response summary);
     void ezsignfoldersignerassociationCreateObjectV1Signal(Ezsignfoldersignerassociation_createObject_v1_Response summary);
     void ezsignfoldersignerassociationCreateObjectV2Signal(Ezsignfoldersignerassociation_createObject_v2_Response summary);
@@ -195,7 +185,6 @@ Q_SIGNALS:
     void ezsignfoldersignerassociationReassignV1Signal(Ezsignfoldersignerassociation_reassign_v1_Response summary);
 
 
-    void ezsignfoldersignerassociationCreateEmbeddedUrlV1SignalFull(HttpRequestWorker *worker, Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Response summary);
     void ezsignfoldersignerassociationCreateEmbeddedUrlV2SignalFull(HttpRequestWorker *worker, Ezsignfoldersignerassociation_createEmbeddedUrl_v2_Response summary);
     void ezsignfoldersignerassociationCreateObjectV1SignalFull(HttpRequestWorker *worker, Ezsignfoldersignerassociation_createObject_v1_Response summary);
     void ezsignfoldersignerassociationCreateObjectV2SignalFull(HttpRequestWorker *worker, Ezsignfoldersignerassociation_createObject_v2_Response summary);
@@ -208,9 +197,6 @@ Q_SIGNALS:
     void ezsignfoldersignerassociationPatchObjectV1SignalFull(HttpRequestWorker *worker, Ezsignfoldersignerassociation_patchObject_v1_Response summary);
     void ezsignfoldersignerassociationReassignV1SignalFull(HttpRequestWorker *worker, Ezsignfoldersignerassociation_reassign_v1_Response summary);
 
-    Q_DECL_DEPRECATED_X("Use ezsignfoldersignerassociationCreateEmbeddedUrlV1SignalError() instead")
-    void ezsignfoldersignerassociationCreateEmbeddedUrlV1SignalE(Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void ezsignfoldersignerassociationCreateEmbeddedUrlV1SignalError(Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsignfoldersignerassociationCreateEmbeddedUrlV2SignalError() instead")
     void ezsignfoldersignerassociationCreateEmbeddedUrlV2SignalE(Ezsignfoldersignerassociation_createEmbeddedUrl_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfoldersignerassociationCreateEmbeddedUrlV2SignalError(Ezsignfoldersignerassociation_createEmbeddedUrl_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -245,9 +231,6 @@ Q_SIGNALS:
     void ezsignfoldersignerassociationReassignV1SignalE(Ezsignfoldersignerassociation_reassign_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfoldersignerassociationReassignV1SignalError(Ezsignfoldersignerassociation_reassign_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
-    Q_DECL_DEPRECATED_X("Use ezsignfoldersignerassociationCreateEmbeddedUrlV1SignalErrorFull() instead")
-    void ezsignfoldersignerassociationCreateEmbeddedUrlV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
-    void ezsignfoldersignerassociationCreateEmbeddedUrlV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use ezsignfoldersignerassociationCreateEmbeddedUrlV2SignalErrorFull() instead")
     void ezsignfoldersignerassociationCreateEmbeddedUrlV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfoldersignerassociationCreateEmbeddedUrlV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
