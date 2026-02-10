@@ -391,7 +391,7 @@ void ObjectEzsignfolderApi::ezsignfolderArchiveV1Callback(HttpRequestWorker *wor
     }
 }
 
-void ObjectEzsignfolderApi::ezsignfolderBatchDownloadV1(const qint32 &pki_ezsignfolder_id, const Ezsignfolder_batchDownload_v1_Request &ezsignfolder_batch_download_v1_request, const ::Ezmaxapi::OptionalParam<QString> &accept) {
+void ObjectEzsignfolderApi::ezsignfolderBatchDownloadV1(const qint32 &pki_ezsignfolder_id, const Ezsignfolder_batchDownload_v1_Request &ezsignfolder_batch_download_v1_request) {
     QString fullPath = QString(_serverConfigs["ezsignfolderBatchDownloadV1"][_serverIndices.value("ezsignfolderBatchDownloadV1")].URL()+"/1/object/ezsignfolder/{pkiEzsignfolderID}/batchDownload");
     
     if (_apiKeys.contains("Authorization")) {
@@ -423,12 +423,6 @@ void ObjectEzsignfolderApi::ezsignfolderBatchDownloadV1(const qint32 &pki_ezsign
         QByteArray output = ezsignfolder_batch_download_v1_request.asJson().toUtf8();
         input.request_body.append(output);
     }
-    if (accept.hasValue())
-    {
-        if (!::Ezmaxapi::toStringValue(accept.value()).isEmpty()) {
-            input.headers.insert("Accept", ::Ezmaxapi::toStringValue(accept.value()));
-        }
-        }
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }

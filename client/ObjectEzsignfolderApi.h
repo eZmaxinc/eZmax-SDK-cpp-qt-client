@@ -115,9 +115,8 @@ public:
     /**
     * @param[in]  pki_ezsignfolder_id qint32 [required]
     * @param[in]  ezsignfolder_batch_download_v1_request Ezsignfolder_batchDownload_v1_Request [required]
-    * @param[in]  accept QString [optional]
     */
-    virtual void ezsignfolderBatchDownloadV1(const qint32 &pki_ezsignfolder_id, const Ezsignfolder_batchDownload_v1_Request &ezsignfolder_batch_download_v1_request, const ::Ezmaxapi::OptionalParam<QString> &accept = ::Ezmaxapi::OptionalParam<QString>());
+    virtual void ezsignfolderBatchDownloadV1(const qint32 &pki_ezsignfolder_id, const Ezsignfolder_batchDownload_v1_Request &ezsignfolder_batch_download_v1_request);
 
     /**
     * @param[in]  ezsignfolder_create_object_v1_request QList<Ezsignfolder_createObject_v1_Request> [required]
