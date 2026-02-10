@@ -809,6 +809,9 @@ add_library(${PROJECT_NAME}
   Ezsignfoldersignerassociation_Response.h
   Ezsignfoldersignerassociation_ResponseCompound.h
   Ezsignfoldersignerassociation_ResponseCompound_User.h
+  Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Request.h
+  Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Response.h
+  Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Response_mPayload.h
   Ezsignfoldersignerassociation_createEmbeddedUrl_v2_Request.h
   Ezsignfoldersignerassociation_createEmbeddedUrl_v2_Response.h
   Ezsignfoldersignerassociation_createEmbeddedUrl_v2_Response_mPayload.h
@@ -1001,6 +1004,18 @@ add_library(${PROJECT_NAME}
   Ezsigntemplate_getList_v1_Response_mPayload.h
   Ezsigntemplate_getObject_v3_Response.h
   Ezsigntemplate_getObject_v3_Response_mPayload.h
+  Ezsigntemplateannotation_Request.h
+  Ezsigntemplateannotation_RequestCompound.h
+  Ezsigntemplateannotation_Response.h
+  Ezsigntemplateannotation_ResponseCompound.h
+  Ezsigntemplateannotation_createObject_v1_Request.h
+  Ezsigntemplateannotation_createObject_v1_Response.h
+  Ezsigntemplateannotation_createObject_v1_Response_mPayload.h
+  Ezsigntemplateannotation_deleteObject_v1_Response.h
+  Ezsigntemplateannotation_editObject_v1_Request.h
+  Ezsigntemplateannotation_editObject_v1_Response.h
+  Ezsigntemplateannotation_getObject_v2_Response.h
+  Ezsigntemplateannotation_getObject_v2_Response_mPayload.h
   Ezsigntemplatedocument_Request.h
   Ezsigntemplatedocument_RequestCompound.h
   Ezsigntemplatedocument_RequestPatch.h
@@ -1086,6 +1101,10 @@ add_library(${PROJECT_NAME}
   Ezsigntemplateglobal_getAutocomplete_v2_Response_mPayload.h
   Ezsigntemplateglobal_getObject_v2_Response.h
   Ezsigntemplateglobal_getObject_v2_Response_mPayload.h
+  Ezsigntemplateglobalannotation_Response.h
+  Ezsigntemplateglobalannotation_ResponseCompound.h
+  Ezsigntemplateglobalannotation_getObject_v2_Response.h
+  Ezsigntemplateglobalannotation_getObject_v2_Response_mPayload.h
   Ezsigntemplateglobaldocument_Response.h
   Ezsigntemplateglobalsigner_Response.h
   Ezsigntemplateglobalsigner_ResponseCompound.h
@@ -1297,6 +1316,9 @@ add_library(${PROJECT_NAME}
   Field_eEzsignsignaturepaymentdetailTaxable.h
   Field_eEzsigntemplateRecognition.h
   Field_eEzsigntemplateType.h
+  Field_eEzsigntemplateannotationHorizontalalignment.h
+  Field_eEzsigntemplateannotationType.h
+  Field_eEzsigntemplateannotationVerticalalignment.h
   Field_eEzsigntemplatedocumentpagerecognitionOperator.h
   Field_eEzsigntemplatedocumentpagerecognitionSection.h
   Field_eEzsigntemplateelementdependencyOperator.h
@@ -1309,6 +1331,9 @@ add_library(${PROJECT_NAME}
   Field_eEzsigntemplateformfieldgroupType.h
   Field_eEzsigntemplateglobalModule.h
   Field_eEzsigntemplateglobalSupplier.h
+  Field_eEzsigntemplateglobalannotationHorizontalalignment.h
+  Field_eEzsigntemplateglobalannotationType.h
+  Field_eEzsigntemplateglobalannotationVerticalalignment.h
   Field_eEzsigntemplatepackagesignerMapping.h
   Field_eEzsigntemplatepublicLimittype.h
   Field_eEzsigntemplatesignatureAttachmentnamesource.h
@@ -1975,10 +2000,12 @@ add_library(${PROJECT_NAME}
   ObjectEzsignsignergroupmembershipApi.h
   ObjectEzsignsigningreasonApi.h
   ObjectEzsigntemplateApi.h
+  ObjectEzsigntemplateannotationApi.h
   ObjectEzsigntemplatedocumentApi.h
   ObjectEzsigntemplatedocumentpagerecognitionApi.h
   ObjectEzsigntemplateformfieldgroupApi.h
   ObjectEzsigntemplateglobalApi.h
+  ObjectEzsigntemplateglobalannotationApi.h
   ObjectEzsigntemplatepackageApi.h
   ObjectEzsigntemplatepackagemembershipApi.h
   ObjectEzsigntemplatepackagesignerApi.h
@@ -2851,6 +2878,9 @@ add_library(${PROJECT_NAME}
   Ezsignfoldersignerassociation_Response.cpp
   Ezsignfoldersignerassociation_ResponseCompound.cpp
   Ezsignfoldersignerassociation_ResponseCompound_User.cpp
+  Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Request.cpp
+  Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Response.cpp
+  Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Response_mPayload.cpp
   Ezsignfoldersignerassociation_createEmbeddedUrl_v2_Request.cpp
   Ezsignfoldersignerassociation_createEmbeddedUrl_v2_Response.cpp
   Ezsignfoldersignerassociation_createEmbeddedUrl_v2_Response_mPayload.cpp
@@ -3043,6 +3073,18 @@ add_library(${PROJECT_NAME}
   Ezsigntemplate_getList_v1_Response_mPayload.cpp
   Ezsigntemplate_getObject_v3_Response.cpp
   Ezsigntemplate_getObject_v3_Response_mPayload.cpp
+  Ezsigntemplateannotation_Request.cpp
+  Ezsigntemplateannotation_RequestCompound.cpp
+  Ezsigntemplateannotation_Response.cpp
+  Ezsigntemplateannotation_ResponseCompound.cpp
+  Ezsigntemplateannotation_createObject_v1_Request.cpp
+  Ezsigntemplateannotation_createObject_v1_Response.cpp
+  Ezsigntemplateannotation_createObject_v1_Response_mPayload.cpp
+  Ezsigntemplateannotation_deleteObject_v1_Response.cpp
+  Ezsigntemplateannotation_editObject_v1_Request.cpp
+  Ezsigntemplateannotation_editObject_v1_Response.cpp
+  Ezsigntemplateannotation_getObject_v2_Response.cpp
+  Ezsigntemplateannotation_getObject_v2_Response_mPayload.cpp
   Ezsigntemplatedocument_Request.cpp
   Ezsigntemplatedocument_RequestCompound.cpp
   Ezsigntemplatedocument_RequestPatch.cpp
@@ -3128,6 +3170,10 @@ add_library(${PROJECT_NAME}
   Ezsigntemplateglobal_getAutocomplete_v2_Response_mPayload.cpp
   Ezsigntemplateglobal_getObject_v2_Response.cpp
   Ezsigntemplateglobal_getObject_v2_Response_mPayload.cpp
+  Ezsigntemplateglobalannotation_Response.cpp
+  Ezsigntemplateglobalannotation_ResponseCompound.cpp
+  Ezsigntemplateglobalannotation_getObject_v2_Response.cpp
+  Ezsigntemplateglobalannotation_getObject_v2_Response_mPayload.cpp
   Ezsigntemplateglobaldocument_Response.cpp
   Ezsigntemplateglobalsigner_Response.cpp
   Ezsigntemplateglobalsigner_ResponseCompound.cpp
@@ -3339,6 +3385,9 @@ add_library(${PROJECT_NAME}
   Field_eEzsignsignaturepaymentdetailTaxable.cpp
   Field_eEzsigntemplateRecognition.cpp
   Field_eEzsigntemplateType.cpp
+  Field_eEzsigntemplateannotationHorizontalalignment.cpp
+  Field_eEzsigntemplateannotationType.cpp
+  Field_eEzsigntemplateannotationVerticalalignment.cpp
   Field_eEzsigntemplatedocumentpagerecognitionOperator.cpp
   Field_eEzsigntemplatedocumentpagerecognitionSection.cpp
   Field_eEzsigntemplateelementdependencyOperator.cpp
@@ -3351,6 +3400,9 @@ add_library(${PROJECT_NAME}
   Field_eEzsigntemplateformfieldgroupType.cpp
   Field_eEzsigntemplateglobalModule.cpp
   Field_eEzsigntemplateglobalSupplier.cpp
+  Field_eEzsigntemplateglobalannotationHorizontalalignment.cpp
+  Field_eEzsigntemplateglobalannotationType.cpp
+  Field_eEzsigntemplateglobalannotationVerticalalignment.cpp
   Field_eEzsigntemplatepackagesignerMapping.cpp
   Field_eEzsigntemplatepublicLimittype.cpp
   Field_eEzsigntemplatesignatureAttachmentnamesource.cpp
@@ -4017,10 +4069,12 @@ add_library(${PROJECT_NAME}
   ObjectEzsignsignergroupmembershipApi.cpp
   ObjectEzsignsigningreasonApi.cpp
   ObjectEzsigntemplateApi.cpp
+  ObjectEzsigntemplateannotationApi.cpp
   ObjectEzsigntemplatedocumentApi.cpp
   ObjectEzsigntemplatedocumentpagerecognitionApi.cpp
   ObjectEzsigntemplateformfieldgroupApi.cpp
   ObjectEzsigntemplateglobalApi.cpp
+  ObjectEzsigntemplateglobalannotationApi.cpp
   ObjectEzsigntemplatepackageApi.cpp
   ObjectEzsigntemplatepackagemembershipApi.cpp
   ObjectEzsigntemplatepackagesignerApi.cpp

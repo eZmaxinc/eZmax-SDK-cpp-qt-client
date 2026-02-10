@@ -800,6 +800,9 @@ HEADERS += \
     $${PWD}/Ezsignfoldersignerassociation_Response.h \
     $${PWD}/Ezsignfoldersignerassociation_ResponseCompound.h \
     $${PWD}/Ezsignfoldersignerassociation_ResponseCompound_User.h \
+    $${PWD}/Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Request.h \
+    $${PWD}/Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Response.h \
+    $${PWD}/Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Response_mPayload.h \
     $${PWD}/Ezsignfoldersignerassociation_createEmbeddedUrl_v2_Request.h \
     $${PWD}/Ezsignfoldersignerassociation_createEmbeddedUrl_v2_Response.h \
     $${PWD}/Ezsignfoldersignerassociation_createEmbeddedUrl_v2_Response_mPayload.h \
@@ -992,6 +995,18 @@ HEADERS += \
     $${PWD}/Ezsigntemplate_getList_v1_Response_mPayload.h \
     $${PWD}/Ezsigntemplate_getObject_v3_Response.h \
     $${PWD}/Ezsigntemplate_getObject_v3_Response_mPayload.h \
+    $${PWD}/Ezsigntemplateannotation_Request.h \
+    $${PWD}/Ezsigntemplateannotation_RequestCompound.h \
+    $${PWD}/Ezsigntemplateannotation_Response.h \
+    $${PWD}/Ezsigntemplateannotation_ResponseCompound.h \
+    $${PWD}/Ezsigntemplateannotation_createObject_v1_Request.h \
+    $${PWD}/Ezsigntemplateannotation_createObject_v1_Response.h \
+    $${PWD}/Ezsigntemplateannotation_createObject_v1_Response_mPayload.h \
+    $${PWD}/Ezsigntemplateannotation_deleteObject_v1_Response.h \
+    $${PWD}/Ezsigntemplateannotation_editObject_v1_Request.h \
+    $${PWD}/Ezsigntemplateannotation_editObject_v1_Response.h \
+    $${PWD}/Ezsigntemplateannotation_getObject_v2_Response.h \
+    $${PWD}/Ezsigntemplateannotation_getObject_v2_Response_mPayload.h \
     $${PWD}/Ezsigntemplatedocument_Request.h \
     $${PWD}/Ezsigntemplatedocument_RequestCompound.h \
     $${PWD}/Ezsigntemplatedocument_RequestPatch.h \
@@ -1077,6 +1092,10 @@ HEADERS += \
     $${PWD}/Ezsigntemplateglobal_getAutocomplete_v2_Response_mPayload.h \
     $${PWD}/Ezsigntemplateglobal_getObject_v2_Response.h \
     $${PWD}/Ezsigntemplateglobal_getObject_v2_Response_mPayload.h \
+    $${PWD}/Ezsigntemplateglobalannotation_Response.h \
+    $${PWD}/Ezsigntemplateglobalannotation_ResponseCompound.h \
+    $${PWD}/Ezsigntemplateglobalannotation_getObject_v2_Response.h \
+    $${PWD}/Ezsigntemplateglobalannotation_getObject_v2_Response_mPayload.h \
     $${PWD}/Ezsigntemplateglobaldocument_Response.h \
     $${PWD}/Ezsigntemplateglobalsigner_Response.h \
     $${PWD}/Ezsigntemplateglobalsigner_ResponseCompound.h \
@@ -1288,6 +1307,9 @@ HEADERS += \
     $${PWD}/Field_eEzsignsignaturepaymentdetailTaxable.h \
     $${PWD}/Field_eEzsigntemplateRecognition.h \
     $${PWD}/Field_eEzsigntemplateType.h \
+    $${PWD}/Field_eEzsigntemplateannotationHorizontalalignment.h \
+    $${PWD}/Field_eEzsigntemplateannotationType.h \
+    $${PWD}/Field_eEzsigntemplateannotationVerticalalignment.h \
     $${PWD}/Field_eEzsigntemplatedocumentpagerecognitionOperator.h \
     $${PWD}/Field_eEzsigntemplatedocumentpagerecognitionSection.h \
     $${PWD}/Field_eEzsigntemplateelementdependencyOperator.h \
@@ -1300,6 +1322,9 @@ HEADERS += \
     $${PWD}/Field_eEzsigntemplateformfieldgroupType.h \
     $${PWD}/Field_eEzsigntemplateglobalModule.h \
     $${PWD}/Field_eEzsigntemplateglobalSupplier.h \
+    $${PWD}/Field_eEzsigntemplateglobalannotationHorizontalalignment.h \
+    $${PWD}/Field_eEzsigntemplateglobalannotationType.h \
+    $${PWD}/Field_eEzsigntemplateglobalannotationVerticalalignment.h \
     $${PWD}/Field_eEzsigntemplatepackagesignerMapping.h \
     $${PWD}/Field_eEzsigntemplatepublicLimittype.h \
     $${PWD}/Field_eEzsigntemplatesignatureAttachmentnamesource.h \
@@ -1967,10 +1992,12 @@ HEADERS += \
     $${PWD}/ObjectEzsignsignergroupmembershipApi.h \
     $${PWD}/ObjectEzsignsigningreasonApi.h \
     $${PWD}/ObjectEzsigntemplateApi.h \
+    $${PWD}/ObjectEzsigntemplateannotationApi.h \
     $${PWD}/ObjectEzsigntemplatedocumentApi.h \
     $${PWD}/ObjectEzsigntemplatedocumentpagerecognitionApi.h \
     $${PWD}/ObjectEzsigntemplateformfieldgroupApi.h \
     $${PWD}/ObjectEzsigntemplateglobalApi.h \
+    $${PWD}/ObjectEzsigntemplateglobalannotationApi.h \
     $${PWD}/ObjectEzsigntemplatepackageApi.h \
     $${PWD}/ObjectEzsigntemplatepackagemembershipApi.h \
     $${PWD}/ObjectEzsigntemplatepackagesignerApi.h \
@@ -2847,6 +2874,9 @@ SOURCES += \
     $${PWD}/Ezsignfoldersignerassociation_Response.cpp \
     $${PWD}/Ezsignfoldersignerassociation_ResponseCompound.cpp \
     $${PWD}/Ezsignfoldersignerassociation_ResponseCompound_User.cpp \
+    $${PWD}/Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Request.cpp \
+    $${PWD}/Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Response.cpp \
+    $${PWD}/Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Response_mPayload.cpp \
     $${PWD}/Ezsignfoldersignerassociation_createEmbeddedUrl_v2_Request.cpp \
     $${PWD}/Ezsignfoldersignerassociation_createEmbeddedUrl_v2_Response.cpp \
     $${PWD}/Ezsignfoldersignerassociation_createEmbeddedUrl_v2_Response_mPayload.cpp \
@@ -3039,6 +3069,18 @@ SOURCES += \
     $${PWD}/Ezsigntemplate_getList_v1_Response_mPayload.cpp \
     $${PWD}/Ezsigntemplate_getObject_v3_Response.cpp \
     $${PWD}/Ezsigntemplate_getObject_v3_Response_mPayload.cpp \
+    $${PWD}/Ezsigntemplateannotation_Request.cpp \
+    $${PWD}/Ezsigntemplateannotation_RequestCompound.cpp \
+    $${PWD}/Ezsigntemplateannotation_Response.cpp \
+    $${PWD}/Ezsigntemplateannotation_ResponseCompound.cpp \
+    $${PWD}/Ezsigntemplateannotation_createObject_v1_Request.cpp \
+    $${PWD}/Ezsigntemplateannotation_createObject_v1_Response.cpp \
+    $${PWD}/Ezsigntemplateannotation_createObject_v1_Response_mPayload.cpp \
+    $${PWD}/Ezsigntemplateannotation_deleteObject_v1_Response.cpp \
+    $${PWD}/Ezsigntemplateannotation_editObject_v1_Request.cpp \
+    $${PWD}/Ezsigntemplateannotation_editObject_v1_Response.cpp \
+    $${PWD}/Ezsigntemplateannotation_getObject_v2_Response.cpp \
+    $${PWD}/Ezsigntemplateannotation_getObject_v2_Response_mPayload.cpp \
     $${PWD}/Ezsigntemplatedocument_Request.cpp \
     $${PWD}/Ezsigntemplatedocument_RequestCompound.cpp \
     $${PWD}/Ezsigntemplatedocument_RequestPatch.cpp \
@@ -3124,6 +3166,10 @@ SOURCES += \
     $${PWD}/Ezsigntemplateglobal_getAutocomplete_v2_Response_mPayload.cpp \
     $${PWD}/Ezsigntemplateglobal_getObject_v2_Response.cpp \
     $${PWD}/Ezsigntemplateglobal_getObject_v2_Response_mPayload.cpp \
+    $${PWD}/Ezsigntemplateglobalannotation_Response.cpp \
+    $${PWD}/Ezsigntemplateglobalannotation_ResponseCompound.cpp \
+    $${PWD}/Ezsigntemplateglobalannotation_getObject_v2_Response.cpp \
+    $${PWD}/Ezsigntemplateglobalannotation_getObject_v2_Response_mPayload.cpp \
     $${PWD}/Ezsigntemplateglobaldocument_Response.cpp \
     $${PWD}/Ezsigntemplateglobalsigner_Response.cpp \
     $${PWD}/Ezsigntemplateglobalsigner_ResponseCompound.cpp \
@@ -3335,6 +3381,9 @@ SOURCES += \
     $${PWD}/Field_eEzsignsignaturepaymentdetailTaxable.cpp \
     $${PWD}/Field_eEzsigntemplateRecognition.cpp \
     $${PWD}/Field_eEzsigntemplateType.cpp \
+    $${PWD}/Field_eEzsigntemplateannotationHorizontalalignment.cpp \
+    $${PWD}/Field_eEzsigntemplateannotationType.cpp \
+    $${PWD}/Field_eEzsigntemplateannotationVerticalalignment.cpp \
     $${PWD}/Field_eEzsigntemplatedocumentpagerecognitionOperator.cpp \
     $${PWD}/Field_eEzsigntemplatedocumentpagerecognitionSection.cpp \
     $${PWD}/Field_eEzsigntemplateelementdependencyOperator.cpp \
@@ -3347,6 +3396,9 @@ SOURCES += \
     $${PWD}/Field_eEzsigntemplateformfieldgroupType.cpp \
     $${PWD}/Field_eEzsigntemplateglobalModule.cpp \
     $${PWD}/Field_eEzsigntemplateglobalSupplier.cpp \
+    $${PWD}/Field_eEzsigntemplateglobalannotationHorizontalalignment.cpp \
+    $${PWD}/Field_eEzsigntemplateglobalannotationType.cpp \
+    $${PWD}/Field_eEzsigntemplateglobalannotationVerticalalignment.cpp \
     $${PWD}/Field_eEzsigntemplatepackagesignerMapping.cpp \
     $${PWD}/Field_eEzsigntemplatepublicLimittype.cpp \
     $${PWD}/Field_eEzsigntemplatesignatureAttachmentnamesource.cpp \
@@ -4014,10 +4066,12 @@ SOURCES += \
     $${PWD}/ObjectEzsignsignergroupmembershipApi.cpp \
     $${PWD}/ObjectEzsignsigningreasonApi.cpp \
     $${PWD}/ObjectEzsigntemplateApi.cpp \
+    $${PWD}/ObjectEzsigntemplateannotationApi.cpp \
     $${PWD}/ObjectEzsigntemplatedocumentApi.cpp \
     $${PWD}/ObjectEzsigntemplatedocumentpagerecognitionApi.cpp \
     $${PWD}/ObjectEzsigntemplateformfieldgroupApi.cpp \
     $${PWD}/ObjectEzsigntemplateglobalApi.cpp \
+    $${PWD}/ObjectEzsigntemplateglobalannotationApi.cpp \
     $${PWD}/ObjectEzsigntemplatepackageApi.cpp \
     $${PWD}/ObjectEzsigntemplatepackagemembershipApi.cpp \
     $${PWD}/ObjectEzsigntemplatepackagesignerApi.cpp \
