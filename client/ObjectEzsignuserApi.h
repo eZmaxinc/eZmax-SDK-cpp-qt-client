@@ -42,6 +42,7 @@ public:
     void initializeServerConfigs();
     int setDefaultServerValue(int serverIndex,const QString &operation, const QString &variable,const QString &val);
     void setServerIndex(const QString &operation, int serverIndex);
+    void setServerIndex(int serverIndex);
     void setApiKey(const QString &apiKeyName, const QString &apiKey);
     void setBearerToken(const QString &token);
     void setUsername(const QString &username);
@@ -73,6 +74,13 @@ public:
 
 
 private:
+    enum class OauthMethod : int {
+        INVALID_VALUE_OPENAPI_GENERATED = 0,
+        ImplicitFlow = 1,
+        AuthorizationFlow = 2,
+        ClientCredentialsFlow = 3,
+        ResourceOwnerPasswordFlow = 4
+    };
     QMap<QString,int> _serverIndices;
     QMap<QString,QList<ServerConfiguration>> _serverConfigs;
     QMap<QString, QString> _apiKeys;
@@ -92,7 +100,7 @@ private:
     OauthImplicit _implicitFlow;
     OauthCredentials _credentialFlow;
     OauthPassword _passwordFlow;
-    int _OauthMethod = 0;
+    OauthMethod _OauthMethod = OauthMethod::INVALID_VALUE_OPENAPI_GENERATED;
 
     void ezsignuserEditObjectV1Callback(HttpRequestWorker *worker);
     void ezsignuserGetObjectV2Callback(HttpRequestWorker *worker);
@@ -106,18 +114,10 @@ Q_SIGNALS:
     void ezsignuserEditObjectV1SignalFull(HttpRequestWorker *worker, Ezsignuser_editObject_v1_Response summary);
     void ezsignuserGetObjectV2SignalFull(HttpRequestWorker *worker, Ezsignuser_getObject_v2_Response summary);
 
-    Q_DECL_DEPRECATED_X("Use ezsignuserEditObjectV1SignalError() instead")
-    void ezsignuserEditObjectV1SignalE(Ezsignuser_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignuserEditObjectV1SignalError(Ezsignuser_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezsignuserGetObjectV2SignalError() instead")
-    void ezsignuserGetObjectV2SignalE(Ezsignuser_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignuserGetObjectV2SignalError(Ezsignuser_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
-    Q_DECL_DEPRECATED_X("Use ezsignuserEditObjectV1SignalErrorFull() instead")
-    void ezsignuserEditObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignuserEditObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezsignuserGetObjectV2SignalErrorFull() instead")
-    void ezsignuserGetObjectV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignuserGetObjectV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();

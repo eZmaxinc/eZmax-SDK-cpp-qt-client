@@ -33,13 +33,13 @@ class Ezdoctemplatetype_AutocompleteElement_Response;
 class Ezdoctemplatetype_getAutocomplete_v2_Response_mPayload : public Object {
 public:
     Ezdoctemplatetype_getAutocomplete_v2_Response_mPayload();
-    Ezdoctemplatetype_getAutocomplete_v2_Response_mPayload(QString json);
+    Ezdoctemplatetype_getAutocomplete_v2_Response_mPayload(const QString &json);
     ~Ezdoctemplatetype_getAutocomplete_v2_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Ezdoctemplatetype_AutocompleteElement_Response> getAObjEzdoctemplatetype() const;
     void setAObjEzdoctemplatetype(const QList<Ezdoctemplatetype_AutocompleteElement_Response> &a_obj_ezdoctemplatetype);

@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Discussion_createObject_v1_Response_mPayload : public Object {
 public:
     Discussion_createObject_v1_Response_mPayload();
-    Discussion_createObject_v1_Response_mPayload(QString json);
+    Discussion_createObject_v1_Response_mPayload(const QString &json);
     ~Discussion_createObject_v1_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<qint32> getAPkiDiscussionId() const;
     void setAPkiDiscussionId(const QList<qint32> &a_pki_discussion_id);

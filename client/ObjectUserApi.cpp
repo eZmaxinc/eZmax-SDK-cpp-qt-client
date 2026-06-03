@@ -77,6 +77,8 @@ void ObjectUserApi::initializeServerConfigs() {
     _serverIndices.insert("userGetColleaguesV2", 0);
     _serverConfigs.insert("userGetEffectivePermissionsV1", defaultConf);
     _serverIndices.insert("userGetEffectivePermissionsV1", 0);
+    _serverConfigs.insert("userGetEzmaxcustomeruserV1", defaultConf);
+    _serverIndices.insert("userGetEzmaxcustomeruserV1", 0);
     _serverConfigs.insert("userGetListV1", defaultConf);
     _serverIndices.insert("userGetListV1", 0);
     _serverConfigs.insert("userGetObjectV2", defaultConf);
@@ -89,14 +91,16 @@ void ObjectUserApi::initializeServerConfigs() {
     _serverIndices.insert("userGetUsergroupexternalsV1", 0);
     _serverConfigs.insert("userGetUsergroupsV1", defaultConf);
     _serverIndices.insert("userGetUsergroupsV1", 0);
+    _serverConfigs.insert("userImpersonateV1", defaultConf);
+    _serverIndices.insert("userImpersonateV1", 0);
     _serverConfigs.insert("userSendPasswordResetV1", defaultConf);
     _serverIndices.insert("userSendPasswordResetV1", 0);
 }
 
 /**
-* returns 0 on success and -1, -2 or -3 on failure.
-* -1 when the variable does not exist and -2 if the value is not defined in the enum and -3 if the operation or server index is not found
-*/
+ * returns 0 on success and -1, -2 or -3 on failure.
+ * -1 when the variable does not exist and -2 if the value is not defined in the enum and -3 if the operation or server index is not found
+ */
 int ObjectUserApi::setDefaultServerValue(int serverIndex, const QString &operation, const QString &variable, const QString &value) {
     auto it = _serverConfigs.find(operation);
     if (it != _serverConfigs.end() && serverIndex < it.value().size()) {
@@ -104,9 +108,21 @@ int ObjectUserApi::setDefaultServerValue(int serverIndex, const QString &operati
     }
     return -3;
 }
+
+/**
+ * Sets the server index.
+ * @param operation The id to the target operation.
+ * @param serverIndex The server index.
+ */
 void ObjectUserApi::setServerIndex(const QString &operation, int serverIndex) {
     if (_serverIndices.contains(operation) && serverIndex < _serverConfigs.find(operation).value().size()) {
         _serverIndices[operation] = serverIndex;
+    }
+}
+
+void ObjectUserApi::setServerIndex(int serverIndex) {
+    for (auto keyIt = _serverIndices.keyBegin(); keyIt != _serverIndices.keyEnd(); keyIt++) {
+        setServerIndex(*keyIt, serverIndex);
     }
 }
 
@@ -140,13 +156,13 @@ void ObjectUserApi::setNetworkAccessManager(QNetworkAccessManager* manager) {
 }
 
 /**
-    * Appends a new ServerConfiguration to the config map for a specific operation.
-    * @param operation The id to the target operation.
-    * @param url A string that contains the URL of the server
-    * @param description A String that describes the server
-    * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
-    * returns the index of the new server config on success and -1 if the operation is not found
-    */
+ * Appends a new ServerConfiguration to the config map for a specific operation.
+ * @param operation The id to the target operation.
+ * @param url A string that contains the URL of the server
+ * @param description A String that describes the server
+ * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
+ * returns the index of the new server config on success and -1 if the operation is not found
+ */
 int ObjectUserApi::addServerConfiguration(const QString &operation, const QUrl &url, const QString &description, const QMap<QString, ServerVariable> &variables) {
     if (_serverConfigs.contains(operation)) {
         _serverConfigs[operation].append(ServerConfiguration(
@@ -160,11 +176,11 @@ int ObjectUserApi::addServerConfiguration(const QString &operation, const QUrl &
 }
 
 /**
-    * Appends a new ServerConfiguration to the config map for a all operations and sets the index to that server.
-    * @param url A string that contains the URL of the server
-    * @param description A String that describes the server
-    * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
-    */
+ * Appends a new ServerConfiguration to the config map for a all operations and sets the index to that server.
+ * @param url A string that contains the URL of the server
+ * @param description A String that describes the server
+ * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
+ */
 void ObjectUserApi::setNewServerForAllOperations(const QUrl &url, const QString &description, const QMap<QString, ServerVariable> &variables) {
     for (auto keyIt = _serverIndices.keyBegin(); keyIt != _serverIndices.keyEnd(); keyIt++) {
         setServerIndex(*keyIt, addServerConfiguration(*keyIt, url, description, variables));
@@ -172,11 +188,11 @@ void ObjectUserApi::setNewServerForAllOperations(const QUrl &url, const QString 
 }
 
 /**
-    * Appends a new ServerConfiguration to the config map for an operations and sets the index to that server.
-    * @param URL A string that contains the URL of the server
-    * @param description A String that describes the server
-    * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
-    */
+ * Appends a new ServerConfiguration to the config map for an operations and sets the index to that server.
+ * @param URL A string that contains the URL of the server
+ * @param description A String that describes the server
+ * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
+ */
 void ObjectUserApi::setNewServer(const QString &operation, const QUrl &url, const QString &description, const QMap<QString, ServerVariable> &variables) {
     setServerIndex(operation, addServerConfiguration(operation, url, description, variables));
 }
@@ -308,32 +324,6 @@ void ObjectUserApi::userCreateObjectV1Callback(HttpRequestWorker *worker) {
         Q_EMIT userCreateObjectV1Signal(output);
         Q_EMIT userCreateObjectV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT userCreateObjectV1SignalE(output, error_type, error_str);
-        Q_EMIT userCreateObjectV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT userCreateObjectV1SignalError(output, error_type, error_str);
         Q_EMIT userCreateObjectV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -387,32 +377,6 @@ void ObjectUserApi::userCreateObjectV2Callback(HttpRequestWorker *worker) {
         Q_EMIT userCreateObjectV2Signal(output);
         Q_EMIT userCreateObjectV2SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT userCreateObjectV2SignalE(output, error_type, error_str);
-        Q_EMIT userCreateObjectV2SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT userCreateObjectV2SignalError(output, error_type, error_str);
         Q_EMIT userCreateObjectV2SignalErrorFull(worker, error_type, error_str);
     }
@@ -480,32 +444,6 @@ void ObjectUserApi::userEditColleaguesV2Callback(HttpRequestWorker *worker) {
         Q_EMIT userEditColleaguesV2Signal(output);
         Q_EMIT userEditColleaguesV2SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT userEditColleaguesV2SignalE(output, error_type, error_str);
-        Q_EMIT userEditColleaguesV2SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT userEditColleaguesV2SignalError(output, error_type, error_str);
         Q_EMIT userEditColleaguesV2SignalErrorFull(worker, error_type, error_str);
     }
@@ -573,32 +511,6 @@ void ObjectUserApi::userEditObjectV1Callback(HttpRequestWorker *worker) {
         Q_EMIT userEditObjectV1Signal(output);
         Q_EMIT userEditObjectV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT userEditObjectV1SignalE(output, error_type, error_str);
-        Q_EMIT userEditObjectV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT userEditObjectV1SignalError(output, error_type, error_str);
         Q_EMIT userEditObjectV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -666,32 +578,6 @@ void ObjectUserApi::userEditPermissionsV1Callback(HttpRequestWorker *worker) {
         Q_EMIT userEditPermissionsV1Signal(output);
         Q_EMIT userEditPermissionsV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT userEditPermissionsV1SignalE(output, error_type, error_str);
-        Q_EMIT userEditPermissionsV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT userEditPermissionsV1SignalError(output, error_type, error_str);
         Q_EMIT userEditPermissionsV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -754,32 +640,6 @@ void ObjectUserApi::userGetApikeysV1Callback(HttpRequestWorker *worker) {
         Q_EMIT userGetApikeysV1Signal(output);
         Q_EMIT userGetApikeysV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT userGetApikeysV1SignalE(output, error_type, error_str);
-        Q_EMIT userGetApikeysV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT userGetApikeysV1SignalError(output, error_type, error_str);
         Q_EMIT userGetApikeysV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -917,32 +777,6 @@ void ObjectUserApi::userGetAutocompleteV2Callback(HttpRequestWorker *worker) {
         Q_EMIT userGetAutocompleteV2Signal(output);
         Q_EMIT userGetAutocompleteV2SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT userGetAutocompleteV2SignalE(output, error_type, error_str);
-        Q_EMIT userGetAutocompleteV2SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT userGetAutocompleteV2SignalError(output, error_type, error_str);
         Q_EMIT userGetAutocompleteV2SignalErrorFull(worker, error_type, error_str);
     }
@@ -1005,32 +839,6 @@ void ObjectUserApi::userGetColleaguesV2Callback(HttpRequestWorker *worker) {
         Q_EMIT userGetColleaguesV2Signal(output);
         Q_EMIT userGetColleaguesV2SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT userGetColleaguesV2SignalE(output, error_type, error_str);
-        Q_EMIT userGetColleaguesV2SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT userGetColleaguesV2SignalError(output, error_type, error_str);
         Q_EMIT userGetColleaguesV2SignalErrorFull(worker, error_type, error_str);
     }
@@ -1093,34 +901,70 @@ void ObjectUserApi::userGetEffectivePermissionsV1Callback(HttpRequestWorker *wor
         Q_EMIT userGetEffectivePermissionsV1Signal(output);
         Q_EMIT userGetEffectivePermissionsV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT userGetEffectivePermissionsV1SignalE(output, error_type, error_str);
-        Q_EMIT userGetEffectivePermissionsV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT userGetEffectivePermissionsV1SignalError(output, error_type, error_str);
         Q_EMIT userGetEffectivePermissionsV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectUserApi::userGetEzmaxcustomeruserV1(const qint32 &pki_user_id) {
+    QString fullPath = QString(_serverConfigs["userGetEzmaxcustomeruserV1"][_serverIndices.value("userGetEzmaxcustomeruserV1")].URL()+"/1/object/user/{pkiUserID}/getEzmaxcustomeruser");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_user_idPathParam("{");
+        pki_user_idPathParam.append("pkiUserID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiUserID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiUserID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_user_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_user_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectUserApi::userGetEzmaxcustomeruserV1Callback);
+    connect(this, &ObjectUserApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectUserApi::userGetEzmaxcustomeruserV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    User_getEzmaxcustomeruser_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT userGetEzmaxcustomeruserV1Signal(output);
+        Q_EMIT userGetEzmaxcustomeruserV1SignalFull(worker, output);
+    } else {
+        Q_EMIT userGetEzmaxcustomeruserV1SignalError(output, error_type, error_str);
+        Q_EMIT userGetEzmaxcustomeruserV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -1272,32 +1116,6 @@ void ObjectUserApi::userGetListV1Callback(HttpRequestWorker *worker) {
         Q_EMIT userGetListV1Signal(output);
         Q_EMIT userGetListV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT userGetListV1SignalE(output, error_type, error_str);
-        Q_EMIT userGetListV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT userGetListV1SignalError(output, error_type, error_str);
         Q_EMIT userGetListV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -1360,32 +1178,6 @@ void ObjectUserApi::userGetObjectV2Callback(HttpRequestWorker *worker) {
         Q_EMIT userGetObjectV2Signal(output);
         Q_EMIT userGetObjectV2SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT userGetObjectV2SignalE(output, error_type, error_str);
-        Q_EMIT userGetObjectV2SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT userGetObjectV2SignalError(output, error_type, error_str);
         Q_EMIT userGetObjectV2SignalErrorFull(worker, error_type, error_str);
     }
@@ -1448,32 +1240,6 @@ void ObjectUserApi::userGetPermissionsV1Callback(HttpRequestWorker *worker) {
         Q_EMIT userGetPermissionsV1Signal(output);
         Q_EMIT userGetPermissionsV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT userGetPermissionsV1SignalE(output, error_type, error_str);
-        Q_EMIT userGetPermissionsV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT userGetPermissionsV1SignalError(output, error_type, error_str);
         Q_EMIT userGetPermissionsV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -1536,32 +1302,6 @@ void ObjectUserApi::userGetSubnetsV1Callback(HttpRequestWorker *worker) {
         Q_EMIT userGetSubnetsV1Signal(output);
         Q_EMIT userGetSubnetsV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT userGetSubnetsV1SignalE(output, error_type, error_str);
-        Q_EMIT userGetSubnetsV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT userGetSubnetsV1SignalError(output, error_type, error_str);
         Q_EMIT userGetSubnetsV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -1624,32 +1364,6 @@ void ObjectUserApi::userGetUsergroupexternalsV1Callback(HttpRequestWorker *worke
         Q_EMIT userGetUsergroupexternalsV1Signal(output);
         Q_EMIT userGetUsergroupexternalsV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT userGetUsergroupexternalsV1SignalE(output, error_type, error_str);
-        Q_EMIT userGetUsergroupexternalsV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT userGetUsergroupexternalsV1SignalError(output, error_type, error_str);
         Q_EMIT userGetUsergroupexternalsV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -1712,34 +1426,75 @@ void ObjectUserApi::userGetUsergroupsV1Callback(HttpRequestWorker *worker) {
         Q_EMIT userGetUsergroupsV1Signal(output);
         Q_EMIT userGetUsergroupsV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT userGetUsergroupsV1SignalE(output, error_type, error_str);
-        Q_EMIT userGetUsergroupsV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT userGetUsergroupsV1SignalError(output, error_type, error_str);
         Q_EMIT userGetUsergroupsV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectUserApi::userImpersonateV1(const qint32 &pki_user_id, const User_impersonate_v1_Request &user_impersonate_v1_request) {
+    QString fullPath = QString(_serverConfigs["userImpersonateV1"][_serverIndices.value("userImpersonateV1")].URL()+"/1/object/user/{pkiUserID}/impersonate");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_user_idPathParam("{");
+        pki_user_idPathParam.append("pkiUserID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiUserID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiUserID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_user_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_user_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "POST");
+
+    {
+
+        
+        QByteArray output = user_impersonate_v1_request.asJson().toUtf8();
+        input.request_body.append(output);
+    }
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectUserApi::userImpersonateV1Callback);
+    connect(this, &ObjectUserApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectUserApi::userImpersonateV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    User_impersonate_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT userImpersonateV1Signal(output);
+        Q_EMIT userImpersonateV1SignalFull(worker, output);
+    } else {
+        Q_EMIT userImpersonateV1SignalError(output, error_type, error_str);
+        Q_EMIT userImpersonateV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -1805,42 +1560,16 @@ void ObjectUserApi::userSendPasswordResetV1Callback(HttpRequestWorker *worker) {
         Q_EMIT userSendPasswordResetV1Signal(output);
         Q_EMIT userSendPasswordResetV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT userSendPasswordResetV1SignalE(output, error_type, error_str);
-        Q_EMIT userSendPasswordResetV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT userSendPasswordResetV1SignalError(output, error_type, error_str);
         Q_EMIT userSendPasswordResetV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
-void ObjectUserApi::tokenAvailable(){
+void ObjectUserApi::tokenAvailable() {
 
     oauthToken token;
     switch (_OauthMethod) {
-    case 1: //implicit flow
+    case OauthMethod::ImplicitFlow:
         token = _implicitFlow.getToken(_latestScope.join(" "));
         if(token.isValid()){
             _latestInput.headers.insert("Authorization", "Bearer " + token.getToken());
@@ -1850,7 +1579,7 @@ void ObjectUserApi::tokenAvailable(){
             qDebug() << "Could not retrieve a valid token";
         }
         break;
-    case 2: //authorization flow
+    case OauthMethod::AuthorizationFlow:
         token = _authFlow.getToken(_latestScope.join(" "));
         if(token.isValid()){
             _latestInput.headers.insert("Authorization", "Bearer " + token.getToken());
@@ -1860,7 +1589,7 @@ void ObjectUserApi::tokenAvailable(){
             qDebug() << "Could not retrieve a valid token";
         }
         break;
-    case 3: //client credentials flow
+    case OauthMethod::ClientCredentialsFlow:
         token = _credentialFlow.getToken(_latestScope.join(" "));
         if(token.isValid()){
             _latestInput.headers.insert("Authorization", "Bearer " + token.getToken());
@@ -1870,7 +1599,7 @@ void ObjectUserApi::tokenAvailable(){
             qDebug() << "Could not retrieve a valid token";
         }
         break;
-    case 4: //resource owner password flow
+    case OauthMethod::ResourceOwnerPasswordFlow:
         token = _passwordFlow.getToken(_latestScope.join(" "));
         if(token.isValid()){
             _latestInput.headers.insert("Authorization", "Bearer " + token.getToken());

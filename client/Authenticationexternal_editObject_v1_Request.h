@@ -32,13 +32,13 @@ class Authenticationexternal_RequestCompound;
 class Authenticationexternal_editObject_v1_Request : public Object {
 public:
     Authenticationexternal_editObject_v1_Request();
-    Authenticationexternal_editObject_v1_Request(QString json);
+    Authenticationexternal_editObject_v1_Request(const QString &json);
     ~Authenticationexternal_editObject_v1_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Authenticationexternal_RequestCompound getObjAuthenticationexternal() const;
     void setObjAuthenticationexternal(const Authenticationexternal_RequestCompound &obj_authenticationexternal);

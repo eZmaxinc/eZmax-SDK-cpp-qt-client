@@ -33,13 +33,13 @@ namespace Ezmaxapi {
 class Customer_ResponseCompound : public Object {
 public:
     Customer_ResponseCompound();
-    Customer_ResponseCompound(QString json);
+    Customer_ResponseCompound(const QString &json);
     ~Customer_ResponseCompound() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiCustomerId() const;
     void setPkiCustomerId(const qint32 &pki_customer_id);

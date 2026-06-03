@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_eActivesessionUsertype::Field_eActivesessionUsertype(QString json) {
+Field_eActivesessionUsertype::Field_eActivesessionUsertype(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_eActivesessionUsertype::initializeModel() {
     m_value = eField_eActivesessionUsertype::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_eActivesessionUsertype::fromJson(QString jsonString) {
+void Field_eActivesessionUsertype::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("AgentBroker", Qt::CaseInsensitive) == 0) {
         m_value = eField_eActivesessionUsertype::AGENTBROKER;

@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_eEzsigndocumentStep::Field_eEzsigndocumentStep(QString json) {
+Field_eEzsigndocumentStep::Field_eEzsigndocumentStep(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_eEzsigndocumentStep::initializeModel() {
     m_value = eField_eEzsigndocumentStep::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_eEzsigndocumentStep::fromJson(QString jsonString) {
+void Field_eEzsigndocumentStep::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("Unsent", Qt::CaseInsensitive) == 0) {
         m_value = eField_eEzsigndocumentStep::UNSENT;

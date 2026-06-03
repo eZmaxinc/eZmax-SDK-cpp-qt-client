@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Custom_Apikeyfederation : public Object {
 public:
     Custom_Apikeyfederation();
-    Custom_Apikeyfederation(QString json);
+    Custom_Apikeyfederation(const QString &json);
     ~Custom_Apikeyfederation() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getSApikeyfederationKey() const;
     void setSApikeyfederationKey(const QString &s_apikeyfederation_key);

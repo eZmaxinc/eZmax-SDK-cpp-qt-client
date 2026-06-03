@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Custom_EzsignfoldertransmissionSigner_Response : public Object {
 public:
     Custom_EzsignfoldertransmissionSigner_Response();
-    Custom_EzsignfoldertransmissionSigner_Response(QString json);
+    Custom_EzsignfoldertransmissionSigner_Response(const QString &json);
     ~Custom_EzsignfoldertransmissionSigner_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getFkiUserId() const;
     void setFkiUserId(const qint32 &fki_user_id);

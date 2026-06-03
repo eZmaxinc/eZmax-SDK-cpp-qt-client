@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Multilingual_SupplyDescription : public Object {
 public:
     Multilingual_SupplyDescription();
-    Multilingual_SupplyDescription(QString json);
+    Multilingual_SupplyDescription(const QString &json);
     ~Multilingual_SupplyDescription() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getSSupplyDescription1() const;
     void setSSupplyDescription1(const QString &s_supply_description1);

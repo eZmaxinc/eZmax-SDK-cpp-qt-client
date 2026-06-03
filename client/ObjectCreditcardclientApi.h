@@ -52,6 +52,7 @@ public:
     void initializeServerConfigs();
     int setDefaultServerValue(int serverIndex,const QString &operation, const QString &variable,const QString &val);
     void setServerIndex(const QString &operation, int serverIndex);
+    void setServerIndex(int serverIndex);
     void setApiKey(const QString &apiKeyName, const QString &apiKey);
     void setBearerToken(const QString &token);
     void setUsername(const QString &username);
@@ -116,6 +117,13 @@ public:
 
 
 private:
+    enum class OauthMethod : int {
+        INVALID_VALUE_OPENAPI_GENERATED = 0,
+        ImplicitFlow = 1,
+        AuthorizationFlow = 2,
+        ClientCredentialsFlow = 3,
+        ResourceOwnerPasswordFlow = 4
+    };
     QMap<QString,int> _serverIndices;
     QMap<QString,QList<ServerConfiguration>> _serverConfigs;
     QMap<QString, QString> _apiKeys;
@@ -135,7 +143,7 @@ private:
     OauthImplicit _implicitFlow;
     OauthCredentials _credentialFlow;
     OauthPassword _passwordFlow;
-    int _OauthMethod = 0;
+    OauthMethod _OauthMethod = OauthMethod::INVALID_VALUE_OPENAPI_GENERATED;
 
     void creditcardclientCreateObjectV1Callback(HttpRequestWorker *worker);
     void creditcardclientDeleteObjectV1Callback(HttpRequestWorker *worker);
@@ -164,48 +172,20 @@ Q_SIGNALS:
     void creditcardclientGetObjectV2SignalFull(HttpRequestWorker *worker, Creditcardclient_getObject_v2_Response summary);
     void creditcardclientPatchObjectV1SignalFull(HttpRequestWorker *worker, Creditcardclient_patchObject_v1_Response summary);
 
-    Q_DECL_DEPRECATED_X("Use creditcardclientCreateObjectV1SignalError() instead")
-    void creditcardclientCreateObjectV1SignalE(Creditcardclient_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void creditcardclientCreateObjectV1SignalError(Creditcardclient_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use creditcardclientDeleteObjectV1SignalError() instead")
-    void creditcardclientDeleteObjectV1SignalE(Creditcardclient_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void creditcardclientDeleteObjectV1SignalError(Creditcardclient_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use creditcardclientEditObjectV1SignalError() instead")
-    void creditcardclientEditObjectV1SignalE(Creditcardclient_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void creditcardclientEditObjectV1SignalError(Creditcardclient_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use creditcardclientGetAutocompleteV2SignalError() instead")
-    void creditcardclientGetAutocompleteV2SignalE(Creditcardclient_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void creditcardclientGetAutocompleteV2SignalError(Creditcardclient_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use creditcardclientGetListV1SignalError() instead")
-    void creditcardclientGetListV1SignalE(Creditcardclient_getList_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void creditcardclientGetListV1SignalError(Creditcardclient_getList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use creditcardclientGetObjectV2SignalError() instead")
-    void creditcardclientGetObjectV2SignalE(Creditcardclient_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void creditcardclientGetObjectV2SignalError(Creditcardclient_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use creditcardclientPatchObjectV1SignalError() instead")
-    void creditcardclientPatchObjectV1SignalE(Creditcardclient_patchObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void creditcardclientPatchObjectV1SignalError(Creditcardclient_patchObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
-    Q_DECL_DEPRECATED_X("Use creditcardclientCreateObjectV1SignalErrorFull() instead")
-    void creditcardclientCreateObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void creditcardclientCreateObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use creditcardclientDeleteObjectV1SignalErrorFull() instead")
-    void creditcardclientDeleteObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void creditcardclientDeleteObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use creditcardclientEditObjectV1SignalErrorFull() instead")
-    void creditcardclientEditObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void creditcardclientEditObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use creditcardclientGetAutocompleteV2SignalErrorFull() instead")
-    void creditcardclientGetAutocompleteV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void creditcardclientGetAutocompleteV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use creditcardclientGetListV1SignalErrorFull() instead")
-    void creditcardclientGetListV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void creditcardclientGetListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use creditcardclientGetObjectV2SignalErrorFull() instead")
-    void creditcardclientGetObjectV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void creditcardclientGetObjectV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use creditcardclientPatchObjectV1SignalErrorFull() instead")
-    void creditcardclientPatchObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void creditcardclientPatchObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();

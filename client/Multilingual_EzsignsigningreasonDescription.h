@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Multilingual_EzsignsigningreasonDescription : public Object {
 public:
     Multilingual_EzsignsigningreasonDescription();
-    Multilingual_EzsignsigningreasonDescription(QString json);
+    Multilingual_EzsignsigningreasonDescription(const QString &json);
     ~Multilingual_EzsignsigningreasonDescription() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getSEzsignsigningreasonDescription1() const;
     void setSEzsignsigningreasonDescription1(const QString &s_ezsignsigningreason_description1);

@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Usergroupexternal_ListElement::Usergroupexternal_ListElement(QString json) {
+Usergroupexternal_ListElement::Usergroupexternal_ListElement(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -44,7 +44,7 @@ void Usergroupexternal_ListElement::initializeModel() {
     m_s_usergroupexternal_id_isValid = false;
 }
 
-void Usergroupexternal_ListElement::fromJson(QString jsonString) {
+void Usergroupexternal_ListElement::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

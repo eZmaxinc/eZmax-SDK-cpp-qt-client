@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Custom_AttachmentImportIntoEDM_Response::Custom_AttachmentImportIntoEDM_Response(QString json) {
+Custom_AttachmentImportIntoEDM_Response::Custom_AttachmentImportIntoEDM_Response(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -47,7 +47,7 @@ void Custom_AttachmentImportIntoEDM_Response::initializeModel() {
     m_b_allow_overwrite_isValid = false;
 }
 
-void Custom_AttachmentImportIntoEDM_Response::fromJson(QString jsonString) {
+void Custom_AttachmentImportIntoEDM_Response::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

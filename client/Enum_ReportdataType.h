@@ -30,13 +30,13 @@ namespace Ezmaxapi {
 class Enum_ReportdataType : public Enum {
 public:
     Enum_ReportdataType();
-    Enum_ReportdataType(QString json);
+    Enum_ReportdataType(const QString &json);
     ~Enum_ReportdataType() override;
 
     QString asJson() const override;
     QJsonValue asJsonValue() const override;
     void fromJsonValue(QJsonValue json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     enum class eEnum_ReportdataType {
         INVALID_VALUE_OPENAPI_GENERATED = 0,

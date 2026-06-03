@@ -34,13 +34,13 @@ class Ezmaxinvoicingsummaryexternaldetail_ResponseCompound;
 class Ezmaxinvoicingsummaryexternal_ResponseCompound : public Object {
 public:
     Ezmaxinvoicingsummaryexternal_ResponseCompound();
-    Ezmaxinvoicingsummaryexternal_ResponseCompound(QString json);
+    Ezmaxinvoicingsummaryexternal_ResponseCompound(const QString &json);
     ~Ezmaxinvoicingsummaryexternal_ResponseCompound() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiEzmaxinvoicingsummaryexternalId() const;
     void setPkiEzmaxinvoicingsummaryexternalId(const qint32 &pki_ezmaxinvoicingsummaryexternal_id);

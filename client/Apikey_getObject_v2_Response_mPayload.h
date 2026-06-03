@@ -32,13 +32,13 @@ class Apikey_ResponseCompound;
 class Apikey_getObject_v2_Response_mPayload : public Object {
 public:
     Apikey_getObject_v2_Response_mPayload();
-    Apikey_getObject_v2_Response_mPayload(QString json);
+    Apikey_getObject_v2_Response_mPayload(const QString &json);
     ~Apikey_getObject_v2_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Apikey_ResponseCompound getObjApikey() const;
     void setObjApikey(const Apikey_ResponseCompound &obj_apikey);

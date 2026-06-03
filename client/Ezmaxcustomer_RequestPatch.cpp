@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Ezmaxcustomer_RequestPatch::Ezmaxcustomer_RequestPatch(QString json) {
+Ezmaxcustomer_RequestPatch::Ezmaxcustomer_RequestPatch(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -38,7 +38,7 @@ void Ezmaxcustomer_RequestPatch::initializeModel() {
     m_obj_ezmaxcustomer_note_isValid = false;
 }
 
-void Ezmaxcustomer_RequestPatch::fromJson(QString jsonString) {
+void Ezmaxcustomer_RequestPatch::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

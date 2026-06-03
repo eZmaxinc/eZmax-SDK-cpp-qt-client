@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Multilingual_EzdoctemplatedocumentName : public Object {
 public:
     Multilingual_EzdoctemplatedocumentName();
-    Multilingual_EzdoctemplatedocumentName(QString json);
+    Multilingual_EzdoctemplatedocumentName(const QString &json);
     ~Multilingual_EzdoctemplatedocumentName() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getSEzdoctemplatedocumentName1() const;
     void setSEzdoctemplatedocumentName1(const QString &s_ezdoctemplatedocument_name1);

@@ -35,13 +35,13 @@ class Custom_EzsignfolderEzsignsignaturesAutomatic_Response;
 class Ezsignbulksendtransmission_getEzsignsignaturesAutomatic_v1_Response_mPayload : public Object {
 public:
     Ezsignbulksendtransmission_getEzsignsignaturesAutomatic_v1_Response_mPayload();
-    Ezsignbulksendtransmission_getEzsignsignaturesAutomatic_v1_Response_mPayload(QString json);
+    Ezsignbulksendtransmission_getEzsignsignaturesAutomatic_v1_Response_mPayload(const QString &json);
     ~Ezsignbulksendtransmission_getEzsignsignaturesAutomatic_v1_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QSet<Field_eEzsignsignatureType> getAEEzsignsignatureType() const;
     void setAEEzsignsignatureType(const QSet<Field_eEzsignsignatureType> &a_e_ezsignsignature_type);

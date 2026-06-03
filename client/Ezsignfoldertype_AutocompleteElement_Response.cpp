@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Ezsignfoldertype_AutocompleteElement_Response::Ezsignfoldertype_AutocompleteElement_Response(QString json) {
+Ezsignfoldertype_AutocompleteElement_Response::Ezsignfoldertype_AutocompleteElement_Response(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -47,7 +47,7 @@ void Ezsignfoldertype_AutocompleteElement_Response::initializeModel() {
     m_b_ezsignfoldertype_isactive_isValid = false;
 }
 
-void Ezsignfoldertype_AutocompleteElement_Response::fromJson(QString jsonString) {
+void Ezsignfoldertype_AutocompleteElement_Response::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

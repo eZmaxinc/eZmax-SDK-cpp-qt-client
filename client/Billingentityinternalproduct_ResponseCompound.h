@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Billingentityinternalproduct_ResponseCompound : public Object {
 public:
     Billingentityinternalproduct_ResponseCompound();
-    Billingentityinternalproduct_ResponseCompound(QString json);
+    Billingentityinternalproduct_ResponseCompound(const QString &json);
     ~Billingentityinternalproduct_ResponseCompound() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiBillingentityinternalproductId() const;
     void setPkiBillingentityinternalproductId(const qint32 &pki_billingentityinternalproduct_id);

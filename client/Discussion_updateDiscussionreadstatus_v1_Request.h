@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Discussion_updateDiscussionreadstatus_v1_Request : public Object {
 public:
     Discussion_updateDiscussionreadstatus_v1_Request();
-    Discussion_updateDiscussionreadstatus_v1_Request(QString json);
+    Discussion_updateDiscussionreadstatus_v1_Request(const QString &json);
     ~Discussion_updateDiscussionreadstatus_v1_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getDtDiscussionreadstatusDate() const;
     void setDtDiscussionreadstatusDate(const QString &dt_discussionreadstatus_date);

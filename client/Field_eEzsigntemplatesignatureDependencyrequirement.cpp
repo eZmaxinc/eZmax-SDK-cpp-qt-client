@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_eEzsigntemplatesignatureDependencyrequirement::Field_eEzsigntemplatesignatureDependencyrequirement(QString json) {
+Field_eEzsigntemplatesignatureDependencyrequirement::Field_eEzsigntemplatesignatureDependencyrequirement(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_eEzsigntemplatesignatureDependencyrequirement::initializeModel() {
     m_value = eField_eEzsigntemplatesignatureDependencyrequirement::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_eEzsigntemplatesignatureDependencyrequirement::fromJson(QString jsonString) {
+void Field_eEzsigntemplatesignatureDependencyrequirement::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("AllOf", Qt::CaseInsensitive) == 0) {
         m_value = eField_eEzsigntemplatesignatureDependencyrequirement::ALLOF;

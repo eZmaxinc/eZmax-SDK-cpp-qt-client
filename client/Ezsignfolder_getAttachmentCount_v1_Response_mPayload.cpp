@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Ezsignfolder_getAttachmentCount_v1_Response_mPayload::Ezsignfolder_getAttachmentCount_v1_Response_mPayload(QString json) {
+Ezsignfolder_getAttachmentCount_v1_Response_mPayload::Ezsignfolder_getAttachmentCount_v1_Response_mPayload(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -38,7 +38,7 @@ void Ezsignfolder_getAttachmentCount_v1_Response_mPayload::initializeModel() {
     m_i_attachment_count_isValid = false;
 }
 
-void Ezsignfolder_getAttachmentCount_v1_Response_mPayload::fromJson(QString jsonString) {
+void Ezsignfolder_getAttachmentCount_v1_Response_mPayload::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

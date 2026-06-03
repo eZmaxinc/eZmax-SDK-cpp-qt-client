@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_eActivesessionWeekdaystart::Field_eActivesessionWeekdaystart(QString json) {
+Field_eActivesessionWeekdaystart::Field_eActivesessionWeekdaystart(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_eActivesessionWeekdaystart::initializeModel() {
     m_value = eField_eActivesessionWeekdaystart::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_eActivesessionWeekdaystart::fromJson(QString jsonString) {
+void Field_eActivesessionWeekdaystart::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("Sunday", Qt::CaseInsensitive) == 0) {
         m_value = eField_eActivesessionWeekdaystart::SUNDAY;

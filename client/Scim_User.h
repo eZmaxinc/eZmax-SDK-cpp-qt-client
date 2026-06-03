@@ -34,13 +34,13 @@ class Scim_Email;
 class Scim_User : public Object {
 public:
     Scim_User();
-    Scim_User(QString json);
+    Scim_User(const QString &json);
     ~Scim_User() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getId() const;
     void setId(const QString &id);

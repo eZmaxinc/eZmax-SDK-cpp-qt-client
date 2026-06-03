@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Subnet_getObject_v2_Response_mPayload::Subnet_getObject_v2_Response_mPayload(QString json) {
+Subnet_getObject_v2_Response_mPayload::Subnet_getObject_v2_Response_mPayload(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -38,7 +38,7 @@ void Subnet_getObject_v2_Response_mPayload::initializeModel() {
     m_obj_subnet_isValid = false;
 }
 
-void Subnet_getObject_v2_Response_mPayload::fromJson(QString jsonString) {
+void Subnet_getObject_v2_Response_mPayload::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

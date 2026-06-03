@@ -32,13 +32,13 @@ class Paymentterm_RequestCompound;
 class Paymentterm_editObject_v1_Request : public Object {
 public:
     Paymentterm_editObject_v1_Request();
-    Paymentterm_editObject_v1_Request(QString json);
+    Paymentterm_editObject_v1_Request(const QString &json);
     ~Paymentterm_editObject_v1_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Paymentterm_RequestCompound getObjPaymentterm() const;
     void setObjPaymentterm(const Paymentterm_RequestCompound &obj_paymentterm);

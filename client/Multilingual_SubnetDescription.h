@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Multilingual_SubnetDescription : public Object {
 public:
     Multilingual_SubnetDescription();
-    Multilingual_SubnetDescription(QString json);
+    Multilingual_SubnetDescription(const QString &json);
     ~Multilingual_SubnetDescription() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getSSubnetDescription1() const;
     void setSSubnetDescription1(const QString &s_subnet_description1);

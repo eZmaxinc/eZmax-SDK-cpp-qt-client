@@ -35,13 +35,13 @@ class Custom_Communicationsender_Request;
 class Communication_Request : public Object {
 public:
     Communication_Request();
-    Communication_Request(QString json);
+    Communication_Request(const QString &json);
     ~Communication_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiCommunicationId() const;
     void setPkiCommunicationId(const qint32 &pki_communication_id);

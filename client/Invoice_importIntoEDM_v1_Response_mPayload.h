@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Invoice_importIntoEDM_v1_Response_mPayload : public Object {
 public:
     Invoice_importIntoEDM_v1_Response_mPayload();
-    Invoice_importIntoEDM_v1_Response_mPayload(QString json);
+    Invoice_importIntoEDM_v1_Response_mPayload(const QString &json);
     ~Invoice_importIntoEDM_v1_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<qint32> getAPkiAttachmentId() const;
     void setAPkiAttachmentId(const QList<qint32> &a_pki_attachment_id);

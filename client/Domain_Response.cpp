@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Domain_Response::Domain_Response(QString json) {
+Domain_Response::Domain_Response(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -53,7 +53,7 @@ void Domain_Response::initializeModel() {
     m_obj_audit_isValid = false;
 }
 
-void Domain_Response::fromJson(QString jsonString) {
+void Domain_Response::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

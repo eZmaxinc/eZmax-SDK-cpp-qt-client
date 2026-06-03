@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Userstaged_Response::Userstaged_Response(QString json) {
+Userstaged_Response::Userstaged_Response(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -53,7 +53,7 @@ void Userstaged_Response::initializeModel() {
     m_s_userstaged_externalid_isValid = false;
 }
 
-void Userstaged_Response::fromJson(QString jsonString) {
+void Userstaged_Response::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

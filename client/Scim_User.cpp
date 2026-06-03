@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Scim_User::Scim_User(QString json) {
+Scim_User::Scim_User(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -47,7 +47,7 @@ void Scim_User::initializeModel() {
     m_emails_isValid = false;
 }
 
-void Scim_User::fromJson(QString jsonString) {
+void Scim_User::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

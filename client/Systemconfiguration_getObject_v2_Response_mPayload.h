@@ -32,13 +32,13 @@ class Systemconfiguration_ResponseCompound;
 class Systemconfiguration_getObject_v2_Response_mPayload : public Object {
 public:
     Systemconfiguration_getObject_v2_Response_mPayload();
-    Systemconfiguration_getObject_v2_Response_mPayload(QString json);
+    Systemconfiguration_getObject_v2_Response_mPayload(const QString &json);
     ~Systemconfiguration_getObject_v2_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Systemconfiguration_ResponseCompound getObjSystemconfiguration() const;
     void setObjSystemconfiguration(const Systemconfiguration_ResponseCompound &obj_systemconfiguration);

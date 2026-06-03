@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Colleague_RequestV2::Colleague_RequestV2(QString json) {
+Colleague_RequestV2::Colleague_RequestV2(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -77,7 +77,7 @@ void Colleague_RequestV2::initializeModel() {
     m_e_colleague_realestateinprogress_isValid = false;
 }
 
-void Colleague_RequestV2::fromJson(QString jsonString) {
+void Colleague_RequestV2::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

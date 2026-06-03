@@ -32,13 +32,13 @@ class Userstaged_ResponseCompound;
 class Userstaged_getObject_v2_Response_mPayload : public Object {
 public:
     Userstaged_getObject_v2_Response_mPayload();
-    Userstaged_getObject_v2_Response_mPayload(QString json);
+    Userstaged_getObject_v2_Response_mPayload(const QString &json);
     ~Userstaged_getObject_v2_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Userstaged_ResponseCompound getObjUserstaged() const;
     void setObjUserstaged(const Userstaged_ResponseCompound &obj_userstaged);

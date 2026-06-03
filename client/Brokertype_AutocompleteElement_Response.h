@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Brokertype_AutocompleteElement_Response : public Object {
 public:
     Brokertype_AutocompleteElement_Response();
-    Brokertype_AutocompleteElement_Response(QString json);
+    Brokertype_AutocompleteElement_Response(const QString &json);
     ~Brokertype_AutocompleteElement_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiBrokertypeId() const;
     void setPkiBrokertypeId(const qint32 &pki_brokertype_id);

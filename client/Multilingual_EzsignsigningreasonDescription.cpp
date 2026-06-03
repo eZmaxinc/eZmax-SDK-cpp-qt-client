@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Multilingual_EzsignsigningreasonDescription::Multilingual_EzsignsigningreasonDescription(QString json) {
+Multilingual_EzsignsigningreasonDescription::Multilingual_EzsignsigningreasonDescription(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -41,7 +41,7 @@ void Multilingual_EzsignsigningreasonDescription::initializeModel() {
     m_s_ezsignsigningreason_description2_isValid = false;
 }
 
-void Multilingual_EzsignsigningreasonDescription::fromJson(QString jsonString) {
+void Multilingual_EzsignsigningreasonDescription::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

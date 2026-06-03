@@ -32,13 +32,13 @@ class Paymentgateway_ResponseCompound;
 class Paymentgateway_getObject_v2_Response_mPayload : public Object {
 public:
     Paymentgateway_getObject_v2_Response_mPayload();
-    Paymentgateway_getObject_v2_Response_mPayload(QString json);
+    Paymentgateway_getObject_v2_Response_mPayload(const QString &json);
     ~Paymentgateway_getObject_v2_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Paymentgateway_ResponseCompound getObjPaymentgateway() const;
     void setObjPaymentgateway(const Paymentgateway_ResponseCompound &obj_paymentgateway);

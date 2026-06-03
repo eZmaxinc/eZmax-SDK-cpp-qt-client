@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Inscriptionchecklist_getAutocomplete_v3_Response_mPayload::Inscriptionchecklist_getAutocomplete_v3_Response_mPayload(QString json) {
+Inscriptionchecklist_getAutocomplete_v3_Response_mPayload::Inscriptionchecklist_getAutocomplete_v3_Response_mPayload(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -38,7 +38,7 @@ void Inscriptionchecklist_getAutocomplete_v3_Response_mPayload::initializeModel(
     m_a_obj_inscriptionchecklist_isValid = false;
 }
 
-void Inscriptionchecklist_getAutocomplete_v3_Response_mPayload::fromJson(QString jsonString) {
+void Inscriptionchecklist_getAutocomplete_v3_Response_mPayload::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Phonetype_AutocompleteElement_Response : public Object {
 public:
     Phonetype_AutocompleteElement_Response();
-    Phonetype_AutocompleteElement_Response(QString json);
+    Phonetype_AutocompleteElement_Response(const QString &json);
     ~Phonetype_AutocompleteElement_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiPhonetypeId() const;
     void setPkiPhonetypeId(const qint32 &pki_phonetype_id);

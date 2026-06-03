@@ -30,13 +30,13 @@ namespace Ezmaxapi {
 class Creditcardclient_RequestPatch : public Object {
 public:
     Creditcardclient_RequestPatch();
-    Creditcardclient_RequestPatch(QString json);
+    Creditcardclient_RequestPatch(const QString &json);
     ~Creditcardclient_RequestPatch() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     bool isBCreditcardclientrelationIsdefault() const;
     void setBCreditcardclientrelationIsdefault(const bool &b_creditcardclientrelation_isdefault);

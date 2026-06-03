@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Activesession_ResponseCompound_Apikey::Activesession_ResponseCompound_Apikey(QString json) {
+Activesession_ResponseCompound_Apikey::Activesession_ResponseCompound_Apikey(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -41,7 +41,7 @@ void Activesession_ResponseCompound_Apikey::initializeModel() {
     m_s_apikey_description_x_isValid = false;
 }
 
-void Activesession_ResponseCompound_Apikey::fromJson(QString jsonString) {
+void Activesession_ResponseCompound_Apikey::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

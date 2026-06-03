@@ -34,13 +34,13 @@ class Module_ResponseCompound;
 class Modulegroup_ResponseCompound : public Object {
 public:
     Modulegroup_ResponseCompound();
-    Modulegroup_ResponseCompound(QString json);
+    Modulegroup_ResponseCompound(const QString &json);
     ~Modulegroup_ResponseCompound() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiModulegroupId() const;
     void setPkiModulegroupId(const qint32 &pki_modulegroup_id);

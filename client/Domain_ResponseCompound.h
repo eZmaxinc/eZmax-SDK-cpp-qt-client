@@ -36,13 +36,13 @@ class Custom_Dnsrecord_Response;
 class Domain_ResponseCompound : public Object {
 public:
     Domain_ResponseCompound();
-    Domain_ResponseCompound(QString json);
+    Domain_ResponseCompound(const QString &json);
     ~Domain_ResponseCompound() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiDomainId() const;
     void setPkiDomainId(const qint32 &pki_domain_id);

@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_eVariableexpenseTaxable::Field_eVariableexpenseTaxable(QString json) {
+Field_eVariableexpenseTaxable::Field_eVariableexpenseTaxable(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_eVariableexpenseTaxable::initializeModel() {
     m_value = eField_eVariableexpenseTaxable::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_eVariableexpenseTaxable::fromJson(QString jsonString) {
+void Field_eVariableexpenseTaxable::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("Yes", Qt::CaseInsensitive) == 0) {
         m_value = eField_eVariableexpenseTaxable::YES;

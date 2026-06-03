@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Custom_DropdownElement_ResponseCompound::Custom_DropdownElement_ResponseCompound(QString json) {
+Custom_DropdownElement_ResponseCompound::Custom_DropdownElement_ResponseCompound(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -41,7 +41,7 @@ void Custom_DropdownElement_ResponseCompound::initializeModel() {
     m_s_value_isValid = false;
 }
 
-void Custom_DropdownElement_ResponseCompound::fromJson(QString jsonString) {
+void Custom_DropdownElement_ResponseCompound::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

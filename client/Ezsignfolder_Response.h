@@ -39,13 +39,13 @@ class Common_Audit;
 class Ezsignfolder_Response : public Object {
 public:
     Ezsignfolder_Response();
-    Ezsignfolder_Response(QString json);
+    Ezsignfolder_Response(const QString &json);
     ~Ezsignfolder_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiEzsignfolderId() const;
     void setPkiEzsignfolderId(const qint32 &pki_ezsignfolder_id);

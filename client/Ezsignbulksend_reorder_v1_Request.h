@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Ezsignbulksend_reorder_v1_Request : public Object {
 public:
     Ezsignbulksend_reorder_v1_Request();
-    Ezsignbulksend_reorder_v1_Request(QString json);
+    Ezsignbulksend_reorder_v1_Request(const QString &json);
     ~Ezsignbulksend_reorder_v1_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<qint32> getAPkiEzsignbulksenddocumentmappingId() const;
     void setAPkiEzsignbulksenddocumentmappingId(const QList<qint32> &a_pki_ezsignbulksenddocumentmapping_id);

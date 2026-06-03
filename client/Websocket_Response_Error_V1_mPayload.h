@@ -32,13 +32,13 @@ namespace Ezmaxapi {
 class Websocket_Response_Error_V1_mPayload : public Object {
 public:
     Websocket_Response_Error_V1_mPayload();
-    Websocket_Response_Error_V1_mPayload(QString json);
+    Websocket_Response_Error_V1_mPayload(const QString &json);
     ~Websocket_Response_Error_V1_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getSErrorMessage() const;
     void setSErrorMessage(const QString &s_error_message);

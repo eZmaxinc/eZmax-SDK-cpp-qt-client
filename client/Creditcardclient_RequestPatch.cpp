@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Creditcardclient_RequestPatch::Creditcardclient_RequestPatch(QString json) {
+Creditcardclient_RequestPatch::Creditcardclient_RequestPatch(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -38,7 +38,7 @@ void Creditcardclient_RequestPatch::initializeModel() {
     m_b_creditcardclientrelation_isdefault_isValid = false;
 }
 
-void Creditcardclient_RequestPatch::fromJson(QString jsonString) {
+void Creditcardclient_RequestPatch::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

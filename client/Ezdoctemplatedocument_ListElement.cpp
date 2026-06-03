@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Ezdoctemplatedocument_ListElement::Ezdoctemplatedocument_ListElement(QString json) {
+Ezdoctemplatedocument_ListElement::Ezdoctemplatedocument_ListElement(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -68,7 +68,7 @@ void Ezdoctemplatedocument_ListElement::initializeModel() {
     m_s_ezdoctemplatedocument_name_x_isValid = false;
 }
 
-void Ezdoctemplatedocument_ListElement::fromJson(QString jsonString) {
+void Ezdoctemplatedocument_ListElement::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();
@@ -395,7 +395,7 @@ bool Ezdoctemplatedocument_ListElement::isSet() const {
 
 bool Ezdoctemplatedocument_ListElement::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_pki_ezdoctemplatedocument_id_isValid && m_fki_language_id_isValid && m_fki_ezdoctemplatetype_id_isValid && m_fki_ezdoctemplatefieldtypecategory_id_isValid && m_b_ezdoctemplatedocument_isactive_isValid && m_s_ezdoctemplatedocument_name_x_isValid && true;
+    return m_pki_ezdoctemplatedocument_id_isValid && m_fki_language_id_isValid && m_fki_ezdoctemplatetype_id_isValid && m_b_ezdoctemplatedocument_isactive_isValid && m_s_ezdoctemplatedocument_name_x_isValid && true;
 }
 
 } // namespace Ezmaxapi

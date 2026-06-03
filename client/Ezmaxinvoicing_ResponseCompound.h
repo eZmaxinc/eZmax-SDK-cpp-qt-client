@@ -53,13 +53,13 @@ class Custom_EzmaxinvoicingEzsigndocument_Response;
 class Ezmaxinvoicing_ResponseCompound : public Object {
 public:
     Ezmaxinvoicing_ResponseCompound();
-    Ezmaxinvoicing_ResponseCompound(QString json);
+    Ezmaxinvoicing_ResponseCompound(const QString &json);
     ~Ezmaxinvoicing_ResponseCompound() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiEzmaxinvoicingId() const;
     void setPkiEzmaxinvoicingId(const qint32 &pki_ezmaxinvoicing_id);

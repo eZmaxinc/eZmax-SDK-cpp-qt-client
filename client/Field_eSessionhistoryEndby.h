@@ -30,13 +30,13 @@ namespace Ezmaxapi {
 class Field_eSessionhistoryEndby : public Enum {
 public:
     Field_eSessionhistoryEndby();
-    Field_eSessionhistoryEndby(QString json);
+    Field_eSessionhistoryEndby(const QString &json);
     ~Field_eSessionhistoryEndby() override;
 
     QString asJson() const override;
     QJsonValue asJsonValue() const override;
     void fromJsonValue(QJsonValue json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     enum class eField_eSessionhistoryEndby {
         INVALID_VALUE_OPENAPI_GENERATED = 0,
@@ -53,7 +53,8 @@ public:
         INVALIDUSER, 
         BADUSERTYPE, 
         BADIP, 
-        FORCEDLOGOFF
+        FORCEDLOGOFF, 
+        SUSPENDED
     };
     Field_eSessionhistoryEndby::eField_eSessionhistoryEndby getValue() const;
     void setValue(const Field_eSessionhistoryEndby::eField_eSessionhistoryEndby& value);

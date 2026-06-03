@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Webhookheader_Request::Webhookheader_Request(QString json) {
+Webhookheader_Request::Webhookheader_Request(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -44,7 +44,7 @@ void Webhookheader_Request::initializeModel() {
     m_s_webhookheader_value_isValid = false;
 }
 
-void Webhookheader_Request::fromJson(QString jsonString) {
+void Webhookheader_Request::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

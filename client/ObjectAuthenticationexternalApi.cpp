@@ -76,9 +76,9 @@ void ObjectAuthenticationexternalApi::initializeServerConfigs() {
 }
 
 /**
-* returns 0 on success and -1, -2 or -3 on failure.
-* -1 when the variable does not exist and -2 if the value is not defined in the enum and -3 if the operation or server index is not found
-*/
+ * returns 0 on success and -1, -2 or -3 on failure.
+ * -1 when the variable does not exist and -2 if the value is not defined in the enum and -3 if the operation or server index is not found
+ */
 int ObjectAuthenticationexternalApi::setDefaultServerValue(int serverIndex, const QString &operation, const QString &variable, const QString &value) {
     auto it = _serverConfigs.find(operation);
     if (it != _serverConfigs.end() && serverIndex < it.value().size()) {
@@ -86,9 +86,21 @@ int ObjectAuthenticationexternalApi::setDefaultServerValue(int serverIndex, cons
     }
     return -3;
 }
+
+/**
+ * Sets the server index.
+ * @param operation The id to the target operation.
+ * @param serverIndex The server index.
+ */
 void ObjectAuthenticationexternalApi::setServerIndex(const QString &operation, int serverIndex) {
     if (_serverIndices.contains(operation) && serverIndex < _serverConfigs.find(operation).value().size()) {
         _serverIndices[operation] = serverIndex;
+    }
+}
+
+void ObjectAuthenticationexternalApi::setServerIndex(int serverIndex) {
+    for (auto keyIt = _serverIndices.keyBegin(); keyIt != _serverIndices.keyEnd(); keyIt++) {
+        setServerIndex(*keyIt, serverIndex);
     }
 }
 
@@ -122,13 +134,13 @@ void ObjectAuthenticationexternalApi::setNetworkAccessManager(QNetworkAccessMana
 }
 
 /**
-    * Appends a new ServerConfiguration to the config map for a specific operation.
-    * @param operation The id to the target operation.
-    * @param url A string that contains the URL of the server
-    * @param description A String that describes the server
-    * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
-    * returns the index of the new server config on success and -1 if the operation is not found
-    */
+ * Appends a new ServerConfiguration to the config map for a specific operation.
+ * @param operation The id to the target operation.
+ * @param url A string that contains the URL of the server
+ * @param description A String that describes the server
+ * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
+ * returns the index of the new server config on success and -1 if the operation is not found
+ */
 int ObjectAuthenticationexternalApi::addServerConfiguration(const QString &operation, const QUrl &url, const QString &description, const QMap<QString, ServerVariable> &variables) {
     if (_serverConfigs.contains(operation)) {
         _serverConfigs[operation].append(ServerConfiguration(
@@ -142,11 +154,11 @@ int ObjectAuthenticationexternalApi::addServerConfiguration(const QString &opera
 }
 
 /**
-    * Appends a new ServerConfiguration to the config map for a all operations and sets the index to that server.
-    * @param url A string that contains the URL of the server
-    * @param description A String that describes the server
-    * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
-    */
+ * Appends a new ServerConfiguration to the config map for a all operations and sets the index to that server.
+ * @param url A string that contains the URL of the server
+ * @param description A String that describes the server
+ * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
+ */
 void ObjectAuthenticationexternalApi::setNewServerForAllOperations(const QUrl &url, const QString &description, const QMap<QString, ServerVariable> &variables) {
     for (auto keyIt = _serverIndices.keyBegin(); keyIt != _serverIndices.keyEnd(); keyIt++) {
         setServerIndex(*keyIt, addServerConfiguration(*keyIt, url, description, variables));
@@ -154,11 +166,11 @@ void ObjectAuthenticationexternalApi::setNewServerForAllOperations(const QUrl &u
 }
 
 /**
-    * Appends a new ServerConfiguration to the config map for an operations and sets the index to that server.
-    * @param URL A string that contains the URL of the server
-    * @param description A String that describes the server
-    * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
-    */
+ * Appends a new ServerConfiguration to the config map for an operations and sets the index to that server.
+ * @param URL A string that contains the URL of the server
+ * @param description A String that describes the server
+ * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
+ */
 void ObjectAuthenticationexternalApi::setNewServer(const QString &operation, const QUrl &url, const QString &description, const QMap<QString, ServerVariable> &variables) {
     setServerIndex(operation, addServerConfiguration(operation, url, description, variables));
 }
@@ -290,32 +302,6 @@ void ObjectAuthenticationexternalApi::authenticationexternalCreateObjectV1Callba
         Q_EMIT authenticationexternalCreateObjectV1Signal(output);
         Q_EMIT authenticationexternalCreateObjectV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT authenticationexternalCreateObjectV1SignalE(output, error_type, error_str);
-        Q_EMIT authenticationexternalCreateObjectV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT authenticationexternalCreateObjectV1SignalError(output, error_type, error_str);
         Q_EMIT authenticationexternalCreateObjectV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -378,32 +364,6 @@ void ObjectAuthenticationexternalApi::authenticationexternalDeleteObjectV1Callba
         Q_EMIT authenticationexternalDeleteObjectV1Signal(output);
         Q_EMIT authenticationexternalDeleteObjectV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT authenticationexternalDeleteObjectV1SignalE(output, error_type, error_str);
-        Q_EMIT authenticationexternalDeleteObjectV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT authenticationexternalDeleteObjectV1SignalError(output, error_type, error_str);
         Q_EMIT authenticationexternalDeleteObjectV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -471,32 +431,6 @@ void ObjectAuthenticationexternalApi::authenticationexternalEditObjectV1Callback
         Q_EMIT authenticationexternalEditObjectV1Signal(output);
         Q_EMIT authenticationexternalEditObjectV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT authenticationexternalEditObjectV1SignalE(output, error_type, error_str);
-        Q_EMIT authenticationexternalEditObjectV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT authenticationexternalEditObjectV1SignalError(output, error_type, error_str);
         Q_EMIT authenticationexternalEditObjectV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -634,32 +568,6 @@ void ObjectAuthenticationexternalApi::authenticationexternalGetAutocompleteV2Cal
         Q_EMIT authenticationexternalGetAutocompleteV2Signal(output);
         Q_EMIT authenticationexternalGetAutocompleteV2SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT authenticationexternalGetAutocompleteV2SignalE(output, error_type, error_str);
-        Q_EMIT authenticationexternalGetAutocompleteV2SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT authenticationexternalGetAutocompleteV2SignalError(output, error_type, error_str);
         Q_EMIT authenticationexternalGetAutocompleteV2SignalErrorFull(worker, error_type, error_str);
     }
@@ -813,32 +721,6 @@ void ObjectAuthenticationexternalApi::authenticationexternalGetListV1Callback(Ht
         Q_EMIT authenticationexternalGetListV1Signal(output);
         Q_EMIT authenticationexternalGetListV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT authenticationexternalGetListV1SignalE(output, error_type, error_str);
-        Q_EMIT authenticationexternalGetListV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT authenticationexternalGetListV1SignalError(output, error_type, error_str);
         Q_EMIT authenticationexternalGetListV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -901,32 +783,6 @@ void ObjectAuthenticationexternalApi::authenticationexternalGetObjectV2Callback(
         Q_EMIT authenticationexternalGetObjectV2Signal(output);
         Q_EMIT authenticationexternalGetObjectV2SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT authenticationexternalGetObjectV2SignalE(output, error_type, error_str);
-        Q_EMIT authenticationexternalGetObjectV2SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT authenticationexternalGetObjectV2SignalError(output, error_type, error_str);
         Q_EMIT authenticationexternalGetObjectV2SignalErrorFull(worker, error_type, error_str);
     }
@@ -994,42 +850,16 @@ void ObjectAuthenticationexternalApi::authenticationexternalResetAuthorizationV1
         Q_EMIT authenticationexternalResetAuthorizationV1Signal(output);
         Q_EMIT authenticationexternalResetAuthorizationV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT authenticationexternalResetAuthorizationV1SignalE(output, error_type, error_str);
-        Q_EMIT authenticationexternalResetAuthorizationV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT authenticationexternalResetAuthorizationV1SignalError(output, error_type, error_str);
         Q_EMIT authenticationexternalResetAuthorizationV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
-void ObjectAuthenticationexternalApi::tokenAvailable(){
+void ObjectAuthenticationexternalApi::tokenAvailable() {
 
     oauthToken token;
     switch (_OauthMethod) {
-    case 1: //implicit flow
+    case OauthMethod::ImplicitFlow:
         token = _implicitFlow.getToken(_latestScope.join(" "));
         if(token.isValid()){
             _latestInput.headers.insert("Authorization", "Bearer " + token.getToken());
@@ -1039,7 +869,7 @@ void ObjectAuthenticationexternalApi::tokenAvailable(){
             qDebug() << "Could not retrieve a valid token";
         }
         break;
-    case 2: //authorization flow
+    case OauthMethod::AuthorizationFlow:
         token = _authFlow.getToken(_latestScope.join(" "));
         if(token.isValid()){
             _latestInput.headers.insert("Authorization", "Bearer " + token.getToken());
@@ -1049,7 +879,7 @@ void ObjectAuthenticationexternalApi::tokenAvailable(){
             qDebug() << "Could not retrieve a valid token";
         }
         break;
-    case 3: //client credentials flow
+    case OauthMethod::ClientCredentialsFlow:
         token = _credentialFlow.getToken(_latestScope.join(" "));
         if(token.isValid()){
             _latestInput.headers.insert("Authorization", "Bearer " + token.getToken());
@@ -1059,7 +889,7 @@ void ObjectAuthenticationexternalApi::tokenAvailable(){
             qDebug() << "Could not retrieve a valid token";
         }
         break;
-    case 4: //resource owner password flow
+    case OauthMethod::ResourceOwnerPasswordFlow:
         token = _passwordFlow.getToken(_latestScope.join(" "));
         if(token.isValid()){
             _latestInput.headers.insert("Authorization", "Bearer " + token.getToken());

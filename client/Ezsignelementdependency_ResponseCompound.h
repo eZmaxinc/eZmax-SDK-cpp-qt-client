@@ -33,13 +33,13 @@ namespace Ezmaxapi {
 class Ezsignelementdependency_ResponseCompound : public Object {
 public:
     Ezsignelementdependency_ResponseCompound();
-    Ezsignelementdependency_ResponseCompound(QString json);
+    Ezsignelementdependency_ResponseCompound(const QString &json);
     ~Ezsignelementdependency_ResponseCompound() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiEzsignelementdependencyId() const;
     void setPkiEzsignelementdependencyId(const qint32 &pki_ezsignelementdependency_id);

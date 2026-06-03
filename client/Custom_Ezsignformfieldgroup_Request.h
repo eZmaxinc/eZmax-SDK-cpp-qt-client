@@ -34,13 +34,13 @@ class Custom_Ezsignformfield_Request;
 class Custom_Ezsignformfieldgroup_Request : public Object {
 public:
     Custom_Ezsignformfieldgroup_Request();
-    Custom_Ezsignformfieldgroup_Request(QString json);
+    Custom_Ezsignformfieldgroup_Request(const QString &json);
     ~Custom_Ezsignformfieldgroup_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiEzsignformfieldgroupId() const;
     void setPkiEzsignformfieldgroupId(const qint32 &pki_ezsignformfieldgroup_id);

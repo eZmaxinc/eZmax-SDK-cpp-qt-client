@@ -33,13 +33,13 @@ class Paymentgateway_RequestCompound;
 class Paymentgateway_createObject_v1_Request : public Object {
 public:
     Paymentgateway_createObject_v1_Request();
-    Paymentgateway_createObject_v1_Request(QString json);
+    Paymentgateway_createObject_v1_Request(const QString &json);
     ~Paymentgateway_createObject_v1_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Paymentgateway_RequestCompound> getAObjPaymentgateway() const;
     void setAObjPaymentgateway(const QList<Paymentgateway_RequestCompound> &a_obj_paymentgateway);

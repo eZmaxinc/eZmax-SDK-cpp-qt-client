@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_ePhoneType::Field_ePhoneType(QString json) {
+Field_ePhoneType::Field_ePhoneType(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_ePhoneType::initializeModel() {
     m_value = eField_ePhoneType::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_ePhoneType::fromJson(QString jsonString) {
+void Field_ePhoneType::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("Local", Qt::CaseInsensitive) == 0) {
         m_value = eField_ePhoneType::LOCAL;

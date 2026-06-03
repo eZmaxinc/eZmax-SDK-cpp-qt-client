@@ -33,13 +33,13 @@ class Ezsignbulksendsignermapping_RequestCompound;
 class Ezsignbulksendsignermapping_createObject_v1_Request : public Object {
 public:
     Ezsignbulksendsignermapping_createObject_v1_Request();
-    Ezsignbulksendsignermapping_createObject_v1_Request(QString json);
+    Ezsignbulksendsignermapping_createObject_v1_Request(const QString &json);
     ~Ezsignbulksendsignermapping_createObject_v1_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Ezsignbulksendsignermapping_RequestCompound> getAObjEzsignbulksendsignermapping() const;
     void setAObjEzsignbulksendsignermapping(const QList<Ezsignbulksendsignermapping_RequestCompound> &a_obj_ezsignbulksendsignermapping);

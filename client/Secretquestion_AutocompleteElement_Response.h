@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Secretquestion_AutocompleteElement_Response : public Object {
 public:
     Secretquestion_AutocompleteElement_Response();
-    Secretquestion_AutocompleteElement_Response(QString json);
+    Secretquestion_AutocompleteElement_Response(const QString &json);
     ~Secretquestion_AutocompleteElement_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getSSecretquestionTextX() const;
     void setSSecretquestionTextX(const QString &s_secretquestion_text_x);

@@ -32,13 +32,13 @@ namespace Ezmaxapi {
 class Ezsigndocument_getWordsPositions_v1_Request : public Object {
 public:
     Ezsigndocument_getWordsPositions_v1_Request();
-    Ezsigndocument_getWordsPositions_v1_Request(QString json);
+    Ezsigndocument_getWordsPositions_v1_Request(const QString &json);
     ~Ezsigndocument_getWordsPositions_v1_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getEGet() const;
     void setEGet(const QString &e_get);

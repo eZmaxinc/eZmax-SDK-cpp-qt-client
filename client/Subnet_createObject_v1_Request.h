@@ -33,13 +33,13 @@ class Subnet_RequestCompound;
 class Subnet_createObject_v1_Request : public Object {
 public:
     Subnet_createObject_v1_Request();
-    Subnet_createObject_v1_Request(QString json);
+    Subnet_createObject_v1_Request(const QString &json);
     ~Subnet_createObject_v1_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Subnet_RequestCompound> getAObjSubnet() const;
     void setAObjSubnet(const QList<Subnet_RequestCompound> &a_obj_subnet);

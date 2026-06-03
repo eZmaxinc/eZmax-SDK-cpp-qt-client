@@ -33,13 +33,13 @@ class Domain_AutocompleteElement_Response;
 class Domain_getAutocomplete_v2_Response_mPayload : public Object {
 public:
     Domain_getAutocomplete_v2_Response_mPayload();
-    Domain_getAutocomplete_v2_Response_mPayload(QString json);
+    Domain_getAutocomplete_v2_Response_mPayload(const QString &json);
     ~Domain_getAutocomplete_v2_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Domain_AutocompleteElement_Response> getAObjDomain() const;
     void setAObjDomain(const QList<Domain_AutocompleteElement_Response> &a_obj_domain);

@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Common_getReport_v1_Response::Common_getReport_v1_Response(QString json) {
+Common_getReport_v1_Response::Common_getReport_v1_Response(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -44,7 +44,7 @@ void Common_getReport_v1_Response::initializeModel() {
     m_m_payload_isValid = false;
 }
 
-void Common_getReport_v1_Response::fromJson(QString jsonString) {
+void Common_getReport_v1_Response::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

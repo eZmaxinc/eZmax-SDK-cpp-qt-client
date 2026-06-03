@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Multilingual_EzdoctemplatedocumentName::Multilingual_EzdoctemplatedocumentName(QString json) {
+Multilingual_EzdoctemplatedocumentName::Multilingual_EzdoctemplatedocumentName(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -41,7 +41,7 @@ void Multilingual_EzdoctemplatedocumentName::initializeModel() {
     m_s_ezdoctemplatedocument_name2_isValid = false;
 }
 
-void Multilingual_EzdoctemplatedocumentName::fromJson(QString jsonString) {
+void Multilingual_EzdoctemplatedocumentName::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

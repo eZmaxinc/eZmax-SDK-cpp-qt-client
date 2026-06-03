@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_eEzsignfolderDocumentdependency::Field_eEzsignfolderDocumentdependency(QString json) {
+Field_eEzsignfolderDocumentdependency::Field_eEzsignfolderDocumentdependency(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_eEzsignfolderDocumentdependency::initializeModel() {
     m_value = eField_eEzsignfolderDocumentdependency::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_eEzsignfolderDocumentdependency::fromJson(QString jsonString) {
+void Field_eEzsignfolderDocumentdependency::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("All", Qt::CaseInsensitive) == 0) {
         m_value = eField_eEzsignfolderDocumentdependency::ALL;

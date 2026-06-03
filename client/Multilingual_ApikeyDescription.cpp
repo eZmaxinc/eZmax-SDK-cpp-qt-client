@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Multilingual_ApikeyDescription::Multilingual_ApikeyDescription(QString json) {
+Multilingual_ApikeyDescription::Multilingual_ApikeyDescription(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -41,7 +41,7 @@ void Multilingual_ApikeyDescription::initializeModel() {
     m_s_apikey_description2_isValid = false;
 }
 
-void Multilingual_ApikeyDescription::fromJson(QString jsonString) {
+void Multilingual_ApikeyDescription::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

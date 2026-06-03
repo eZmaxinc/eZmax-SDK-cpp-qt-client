@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_eEzsigntemplateformfieldPositioning::Field_eEzsigntemplateformfieldPositioning(QString json) {
+Field_eEzsigntemplateformfieldPositioning::Field_eEzsigntemplateformfieldPositioning(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_eEzsigntemplateformfieldPositioning::initializeModel() {
     m_value = eField_eEzsigntemplateformfieldPositioning::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_eEzsigntemplateformfieldPositioning::fromJson(QString jsonString) {
+void Field_eEzsigntemplateformfieldPositioning::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("PerCoordinates", Qt::CaseInsensitive) == 0) {
         m_value = eField_eEzsigntemplateformfieldPositioning::PERCOORDINATES;

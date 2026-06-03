@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Period_AutocompleteElement_Response : public Object {
 public:
     Period_AutocompleteElement_Response();
-    Period_AutocompleteElement_Response(QString json);
+    Period_AutocompleteElement_Response(const QString &json);
     ~Period_AutocompleteElement_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getSPeriodYyyymm() const;
     void setSPeriodYyyymm(const QString &s_period_yyyymm);

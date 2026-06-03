@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Subnet_Request::Subnet_Request(QString json) {
+Subnet_Request::Subnet_Request(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -53,7 +53,7 @@ void Subnet_Request::initializeModel() {
     m_i_subnet_mask_isValid = false;
 }
 
-void Subnet_Request::fromJson(QString jsonString) {
+void Subnet_Request::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

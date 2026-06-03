@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Franchisereferalincome_Request : public Object {
 public:
     Franchisereferalincome_Request();
-    Franchisereferalincome_Request(QString json);
+    Franchisereferalincome_Request(const QString &json);
     ~Franchisereferalincome_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiFranchisereferalincomeId() const;
     void setPkiFranchisereferalincomeId(const qint32 &pki_franchisereferalincome_id);

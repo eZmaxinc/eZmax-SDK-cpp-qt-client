@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Ezsigntemplatepackage_createObject_v1_Response_mPayload : public Object {
 public:
     Ezsigntemplatepackage_createObject_v1_Response_mPayload();
-    Ezsigntemplatepackage_createObject_v1_Response_mPayload(QString json);
+    Ezsigntemplatepackage_createObject_v1_Response_mPayload(const QString &json);
     ~Ezsigntemplatepackage_createObject_v1_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<qint32> getAPkiEzsigntemplatepackageId() const;
     void setAPkiEzsigntemplatepackageId(const QList<qint32> &a_pki_ezsigntemplatepackage_id);

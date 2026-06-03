@@ -36,13 +36,13 @@ class Ezsigntemplateformfieldgroup_getObject_v2_Response_mPayload;
 class Ezsigntemplateformfieldgroup_getObject_v2_Response : public Object {
 public:
     Ezsigntemplateformfieldgroup_getObject_v2_Response();
-    Ezsigntemplateformfieldgroup_getObject_v2_Response(QString json);
+    Ezsigntemplateformfieldgroup_getObject_v2_Response(const QString &json);
     ~Ezsigntemplateformfieldgroup_getObject_v2_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Common_Response_objDebugPayload getObjDebugPayload() const;
     void setObjDebugPayload(const Common_Response_objDebugPayload &obj_debug_payload);

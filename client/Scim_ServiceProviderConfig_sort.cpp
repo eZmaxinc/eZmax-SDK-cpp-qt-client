@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Scim_ServiceProviderConfig_sort::Scim_ServiceProviderConfig_sort(QString json) {
+Scim_ServiceProviderConfig_sort::Scim_ServiceProviderConfig_sort(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -38,7 +38,7 @@ void Scim_ServiceProviderConfig_sort::initializeModel() {
     m_supported_isValid = false;
 }
 
-void Scim_ServiceProviderConfig_sort::fromJson(QString jsonString) {
+void Scim_ServiceProviderConfig_sort::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

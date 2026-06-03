@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_eEzsigntemplatesignaturePositioning::Field_eEzsigntemplatesignaturePositioning(QString json) {
+Field_eEzsigntemplatesignaturePositioning::Field_eEzsigntemplatesignaturePositioning(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_eEzsigntemplatesignaturePositioning::initializeModel() {
     m_value = eField_eEzsigntemplatesignaturePositioning::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_eEzsigntemplatesignaturePositioning::fromJson(QString jsonString) {
+void Field_eEzsigntemplatesignaturePositioning::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("PerCoordinates", Qt::CaseInsensitive) == 0) {
         m_value = eField_eEzsigntemplatesignaturePositioning::PERCOORDINATES;

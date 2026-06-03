@@ -33,13 +33,13 @@ class Ezsigndiscussion_RequestCompound;
 class Ezsigndiscussion_createObject_v1_Request : public Object {
 public:
     Ezsigndiscussion_createObject_v1_Request();
-    Ezsigndiscussion_createObject_v1_Request(QString json);
+    Ezsigndiscussion_createObject_v1_Request(const QString &json);
     ~Ezsigndiscussion_createObject_v1_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Ezsigndiscussion_RequestCompound> getAObjEzsigndiscussion() const;
     void setAObjEzsigndiscussion(const QList<Ezsigndiscussion_RequestCompound> &a_obj_ezsigndiscussion);

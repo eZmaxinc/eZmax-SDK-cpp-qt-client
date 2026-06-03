@@ -33,13 +33,13 @@ class Contactinformations_RequestCompound;
 class Contact_RequestCompound : public Object {
 public:
     Contact_RequestCompound();
-    Contact_RequestCompound(QString json);
+    Contact_RequestCompound(const QString &json);
     ~Contact_RequestCompound() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getFkiContacttitleId() const;
     void setFkiContacttitleId(const qint32 &fki_contacttitle_id);

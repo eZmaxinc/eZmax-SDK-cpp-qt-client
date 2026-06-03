@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_eEzsignfoldertypePrivacylevel::Field_eEzsignfoldertypePrivacylevel(QString json) {
+Field_eEzsignfoldertypePrivacylevel::Field_eEzsignfoldertypePrivacylevel(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_eEzsignfoldertypePrivacylevel::initializeModel() {
     m_value = eField_eEzsignfoldertypePrivacylevel::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_eEzsignfoldertypePrivacylevel::fromJson(QString jsonString) {
+void Field_eEzsignfoldertypePrivacylevel::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("User", Qt::CaseInsensitive) == 0) {
         m_value = eField_eEzsignfoldertypePrivacylevel::USER;

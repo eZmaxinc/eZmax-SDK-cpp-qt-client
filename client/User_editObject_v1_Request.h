@@ -32,13 +32,13 @@ class User_RequestCompound;
 class User_editObject_v1_Request : public Object {
 public:
     User_editObject_v1_Request();
-    User_editObject_v1_Request(QString json);
+    User_editObject_v1_Request(const QString &json);
     ~User_editObject_v1_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     User_RequestCompound getObjUser() const;
     void setObjUser(const User_RequestCompound &obj_user);

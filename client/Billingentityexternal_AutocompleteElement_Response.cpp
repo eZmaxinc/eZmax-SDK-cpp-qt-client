@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Billingentityexternal_AutocompleteElement_Response::Billingentityexternal_AutocompleteElement_Response(QString json) {
+Billingentityexternal_AutocompleteElement_Response::Billingentityexternal_AutocompleteElement_Response(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -44,7 +44,7 @@ void Billingentityexternal_AutocompleteElement_Response::initializeModel() {
     m_b_billingentityexternal_isactive_isValid = false;
 }
 
-void Billingentityexternal_AutocompleteElement_Response::fromJson(QString jsonString) {
+void Billingentityexternal_AutocompleteElement_Response::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

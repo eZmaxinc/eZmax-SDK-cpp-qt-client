@@ -32,13 +32,13 @@ class Permission_ResponseCompound;
 class Permission_getObject_v2_Response_mPayload : public Object {
 public:
     Permission_getObject_v2_Response_mPayload();
-    Permission_getObject_v2_Response_mPayload(QString json);
+    Permission_getObject_v2_Response_mPayload(const QString &json);
     ~Permission_getObject_v2_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Permission_ResponseCompound getObjPermission() const;
     void setObjPermission(const Permission_ResponseCompound &obj_permission);

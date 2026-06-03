@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Enum_ReportdataType::Enum_ReportdataType(QString json) {
+Enum_ReportdataType::Enum_ReportdataType(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Enum_ReportdataType::initializeModel() {
     m_value = eEnum_ReportdataType::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Enum_ReportdataType::fromJson(QString jsonString) {
+void Enum_ReportdataType::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("Date", Qt::CaseInsensitive) == 0) {
         m_value = eEnum_ReportdataType::DATE;

@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Custom_WordPositionOccurence_Response::Custom_WordPositionOccurence_Response(QString json) {
+Custom_WordPositionOccurence_Response::Custom_WordPositionOccurence_Response(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -44,7 +44,7 @@ void Custom_WordPositionOccurence_Response::initializeModel() {
     m_i_y_isValid = false;
 }
 
-void Custom_WordPositionOccurence_Response::fromJson(QString jsonString) {
+void Custom_WordPositionOccurence_Response::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

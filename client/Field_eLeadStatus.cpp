@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_eLeadStatus::Field_eLeadStatus(QString json) {
+Field_eLeadStatus::Field_eLeadStatus(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_eLeadStatus::initializeModel() {
     m_value = eField_eLeadStatus::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_eLeadStatus::fromJson(QString jsonString) {
+void Field_eLeadStatus::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("New", Qt::CaseInsensitive) == 0) {
         m_value = eField_eLeadStatus::NEW;

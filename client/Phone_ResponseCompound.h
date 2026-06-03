@@ -32,13 +32,13 @@ namespace Ezmaxapi {
 class Phone_ResponseCompound : public Object {
 public:
     Phone_ResponseCompound();
-    Phone_ResponseCompound(QString json);
+    Phone_ResponseCompound(const QString &json);
     ~Phone_ResponseCompound() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiPhoneId() const;
     void setPkiPhoneId(const qint32 &pki_phone_id);

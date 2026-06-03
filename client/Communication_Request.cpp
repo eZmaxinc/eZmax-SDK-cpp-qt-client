@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Communication_Request::Communication_Request(QString json) {
+Communication_Request::Communication_Request(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -65,7 +65,7 @@ void Communication_Request::initializeModel() {
     m_b_communication_readreceipt_isValid = false;
 }
 
-void Communication_Request::fromJson(QString jsonString) {
+void Communication_Request::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

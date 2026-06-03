@@ -33,13 +33,13 @@ class Branding_RequestCompoundV2;
 class Branding_createObject_v2_Request : public Object {
 public:
     Branding_createObject_v2_Request();
-    Branding_createObject_v2_Request(QString json);
+    Branding_createObject_v2_Request(const QString &json);
     ~Branding_createObject_v2_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Branding_RequestCompoundV2> getAObjBranding() const;
     void setAObjBranding(const QList<Branding_RequestCompoundV2> &a_obj_branding);

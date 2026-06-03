@@ -21,6 +21,7 @@
 
 #include <QJsonObject>
 
+#include "Field_eEzsigntemplateglobaldocumentAcceptationtype.h"
 #include <QString>
 
 #include "Enum.h"
@@ -31,13 +32,13 @@ namespace Ezmaxapi {
 class Ezsigntemplateglobaldocument_Response : public Object {
 public:
     Ezsigntemplateglobaldocument_Response();
-    Ezsigntemplateglobaldocument_Response(QString json);
+    Ezsigntemplateglobaldocument_Response(const QString &json);
     ~Ezsigntemplateglobaldocument_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiEzsigntemplateglobaldocumentId() const;
     void setPkiEzsigntemplateglobaldocumentId(const qint32 &pki_ezsigntemplateglobaldocument_id);
@@ -48,6 +49,11 @@ public:
     void setSEzsigntemplateglobaldocumentName(const QString &s_ezsigntemplateglobaldocument_name);
     bool is_s_ezsigntemplateglobaldocument_name_Set() const;
     bool is_s_ezsigntemplateglobaldocument_name_Valid() const;
+
+    Field_eEzsigntemplateglobaldocumentAcceptationtype getEEzsigntemplateglobaldocumentAcceptationtype() const;
+    void setEEzsigntemplateglobaldocumentAcceptationtype(const Field_eEzsigntemplateglobaldocumentAcceptationtype &e_ezsigntemplateglobaldocument_acceptationtype);
+    bool is_e_ezsigntemplateglobaldocument_acceptationtype_Set() const;
+    bool is_e_ezsigntemplateglobaldocument_acceptationtype_Valid() const;
 
     qint32 getIEzsigntemplateglobaldocumentPagetotal() const;
     void setIEzsigntemplateglobaldocumentPagetotal(const qint32 &i_ezsigntemplateglobaldocument_pagetotal);
@@ -72,6 +78,10 @@ private:
     QString m_s_ezsigntemplateglobaldocument_name;
     bool m_s_ezsigntemplateglobaldocument_name_isSet;
     bool m_s_ezsigntemplateglobaldocument_name_isValid;
+
+    Field_eEzsigntemplateglobaldocumentAcceptationtype m_e_ezsigntemplateglobaldocument_acceptationtype;
+    bool m_e_ezsigntemplateglobaldocument_acceptationtype_isSet;
+    bool m_e_ezsigntemplateglobaldocument_acceptationtype_isValid;
 
     qint32 m_i_ezsigntemplateglobaldocument_pagetotal;
     bool m_i_ezsigntemplateglobaldocument_pagetotal_isSet;

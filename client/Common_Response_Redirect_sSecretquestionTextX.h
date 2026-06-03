@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Common_Response_Redirect_sSecretquestionTextX : public Object {
 public:
     Common_Response_Redirect_sSecretquestionTextX();
-    Common_Response_Redirect_sSecretquestionTextX(QString json);
+    Common_Response_Redirect_sSecretquestionTextX(const QString &json);
     ~Common_Response_Redirect_sSecretquestionTextX() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getSSecretquestionTextX() const;
     void setSSecretquestionTextX(const QString &s_secretquestion_text_x);

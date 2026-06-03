@@ -33,13 +33,13 @@ class Subnet_ResponseCompound;
 class Apikey_getSubnets_v1_Response_mPayload : public Object {
 public:
     Apikey_getSubnets_v1_Response_mPayload();
-    Apikey_getSubnets_v1_Response_mPayload(QString json);
+    Apikey_getSubnets_v1_Response_mPayload(const QString &json);
     ~Apikey_getSubnets_v1_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Subnet_ResponseCompound> getAObjSubnet() const;
     void setAObjSubnet(const QList<Subnet_ResponseCompound> &a_obj_subnet);

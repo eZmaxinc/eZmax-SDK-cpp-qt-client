@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_eEzsigntemplateglobalModule::Field_eEzsigntemplateglobalModule(QString json) {
+Field_eEzsigntemplateglobalModule::Field_eEzsigntemplateglobalModule(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_eEzsigntemplateglobalModule::initializeModel() {
     m_value = eField_eEzsigntemplateglobalModule::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_eEzsigntemplateglobalModule::fromJson(QString jsonString) {
+void Field_eEzsigntemplateglobalModule::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("All", Qt::CaseInsensitive) == 0) {
         m_value = eField_eEzsigntemplateglobalModule::ALL;

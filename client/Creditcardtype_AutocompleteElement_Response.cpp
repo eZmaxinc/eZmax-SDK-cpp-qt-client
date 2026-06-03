@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Creditcardtype_AutocompleteElement_Response::Creditcardtype_AutocompleteElement_Response(QString json) {
+Creditcardtype_AutocompleteElement_Response::Creditcardtype_AutocompleteElement_Response(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -44,7 +44,7 @@ void Creditcardtype_AutocompleteElement_Response::initializeModel() {
     m_e_creditcardtype_codename_isValid = false;
 }
 
-void Creditcardtype_AutocompleteElement_Response::fromJson(QString jsonString) {
+void Creditcardtype_AutocompleteElement_Response::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

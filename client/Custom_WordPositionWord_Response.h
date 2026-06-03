@@ -34,13 +34,13 @@ class Custom_WordPositionOccurence_Response;
 class Custom_WordPositionWord_Response : public Object {
 public:
     Custom_WordPositionWord_Response();
-    Custom_WordPositionWord_Response(QString json);
+    Custom_WordPositionWord_Response(const QString &json);
     ~Custom_WordPositionWord_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getSWord() const;
     void setSWord(const QString &s_word);

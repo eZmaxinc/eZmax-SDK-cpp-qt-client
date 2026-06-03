@@ -30,13 +30,13 @@ namespace Ezmaxapi {
 class Computed_eEzsigndocumentSteptype : public Enum {
 public:
     Computed_eEzsigndocumentSteptype();
-    Computed_eEzsigndocumentSteptype(QString json);
+    Computed_eEzsigndocumentSteptype(const QString &json);
     ~Computed_eEzsigndocumentSteptype() override;
 
     QString asJson() const override;
     QJsonValue asJsonValue() const override;
     void fromJsonValue(QJsonValue json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     enum class eComputed_eEzsigndocumentSteptype {
         INVALID_VALUE_OPENAPI_GENERATED = 0,

@@ -30,13 +30,13 @@ namespace Ezmaxapi {
 class Userstaged_map_v1_Request : public Object {
 public:
     Userstaged_map_v1_Request();
-    Userstaged_map_v1_Request(QString json);
+    Userstaged_map_v1_Request(const QString &json);
     ~Userstaged_map_v1_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getFkiUserId() const;
     void setFkiUserId(const qint32 &fki_user_id);

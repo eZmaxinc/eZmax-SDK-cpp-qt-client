@@ -33,13 +33,13 @@ class Ezdoctemplatedocument_RequestCompound;
 class Ezdoctemplatedocument_createObject_v1_Request : public Object {
 public:
     Ezdoctemplatedocument_createObject_v1_Request();
-    Ezdoctemplatedocument_createObject_v1_Request(QString json);
+    Ezdoctemplatedocument_createObject_v1_Request(const QString &json);
     ~Ezdoctemplatedocument_createObject_v1_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Ezdoctemplatedocument_RequestCompound> getAObjEzdoctemplatedocument() const;
     void setAObjEzdoctemplatedocument(const QList<Ezdoctemplatedocument_RequestCompound> &a_obj_ezdoctemplatedocument);

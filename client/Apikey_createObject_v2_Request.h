@@ -33,13 +33,13 @@ class Apikey_RequestCompound;
 class Apikey_createObject_v2_Request : public Object {
 public:
     Apikey_createObject_v2_Request();
-    Apikey_createObject_v2_Request(QString json);
+    Apikey_createObject_v2_Request(const QString &json);
     ~Apikey_createObject_v2_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Apikey_RequestCompound> getAObjApikey() const;
     void setAObjApikey(const QList<Apikey_RequestCompound> &a_obj_apikey);

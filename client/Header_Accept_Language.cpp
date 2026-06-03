@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Header_Accept_Language::Header_Accept_Language(QString json) {
+Header_Accept_Language::Header_Accept_Language(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Header_Accept_Language::initializeModel() {
     m_value = eHeader_Accept_Language::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Header_Accept_Language::fromJson(QString jsonString) {
+void Header_Accept_Language::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("*", Qt::CaseInsensitive) == 0) {
         m_value = eHeader_Accept_Language::_;

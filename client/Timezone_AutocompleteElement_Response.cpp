@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Timezone_AutocompleteElement_Response::Timezone_AutocompleteElement_Response(QString json) {
+Timezone_AutocompleteElement_Response::Timezone_AutocompleteElement_Response(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -44,7 +44,7 @@ void Timezone_AutocompleteElement_Response::initializeModel() {
     m_b_timezone_isactive_isValid = false;
 }
 
-void Timezone_AutocompleteElement_Response::fromJson(QString jsonString) {
+void Timezone_AutocompleteElement_Response::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

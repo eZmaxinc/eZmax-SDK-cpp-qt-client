@@ -39,13 +39,13 @@ class Ezsignfoldersignerassociation_ResponseCompound;
 class Webhook_Ezsign_EzsignsignerConnect : public Object {
 public:
     Webhook_Ezsign_EzsignsignerConnect();
-    Webhook_Ezsign_EzsignsignerConnect(QString json);
+    Webhook_Ezsign_EzsignsignerConnect(const QString &json);
     ~Webhook_Ezsign_EzsignsignerConnect() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Custom_Webhook_Response getObjWebhook() const;
     void setObjWebhook(const Custom_Webhook_Response &obj_webhook);

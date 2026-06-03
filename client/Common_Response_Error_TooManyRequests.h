@@ -33,13 +33,13 @@ namespace Ezmaxapi {
 class Common_Response_Error_TooManyRequests : public Object {
 public:
     Common_Response_Error_TooManyRequests();
-    Common_Response_Error_TooManyRequests(QString json);
+    Common_Response_Error_TooManyRequests(const QString &json);
     ~Common_Response_Error_TooManyRequests() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getSErrorMessage() const;
     void setSErrorMessage(const QString &s_error_message);

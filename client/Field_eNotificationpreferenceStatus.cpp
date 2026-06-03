@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_eNotificationpreferenceStatus::Field_eNotificationpreferenceStatus(QString json) {
+Field_eNotificationpreferenceStatus::Field_eNotificationpreferenceStatus(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_eNotificationpreferenceStatus::initializeModel() {
     m_value = eField_eNotificationpreferenceStatus::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_eNotificationpreferenceStatus::fromJson(QString jsonString) {
+void Field_eNotificationpreferenceStatus::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("Show", Qt::CaseInsensitive) == 0) {
         m_value = eField_eNotificationpreferenceStatus::SHOW;

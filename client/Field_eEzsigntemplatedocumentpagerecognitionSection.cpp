@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_eEzsigntemplatedocumentpagerecognitionSection::Field_eEzsigntemplatedocumentpagerecognitionSection(QString json) {
+Field_eEzsigntemplatedocumentpagerecognitionSection::Field_eEzsigntemplatedocumentpagerecognitionSection(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_eEzsigntemplatedocumentpagerecognitionSection::initializeModel() {
     m_value = eField_eEzsigntemplatedocumentpagerecognitionSection::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_eEzsigntemplatedocumentpagerecognitionSection::fromJson(QString jsonString) {
+void Field_eEzsigntemplatedocumentpagerecognitionSection::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("FirstLine", Qt::CaseInsensitive) == 0) {
         m_value = eField_eEzsigntemplatedocumentpagerecognitionSection::FIRSTLINE;

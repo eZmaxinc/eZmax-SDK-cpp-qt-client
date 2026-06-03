@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Multilingual_VersionhistoryDetail::Multilingual_VersionhistoryDetail(QString json) {
+Multilingual_VersionhistoryDetail::Multilingual_VersionhistoryDetail(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -41,7 +41,7 @@ void Multilingual_VersionhistoryDetail::initializeModel() {
     m_t_versionhistory_detail2_isValid = false;
 }
 
-void Multilingual_VersionhistoryDetail::fromJson(QString jsonString) {
+void Multilingual_VersionhistoryDetail::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

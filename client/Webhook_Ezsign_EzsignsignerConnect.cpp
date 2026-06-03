@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Webhook_Ezsign_EzsignsignerConnect::Webhook_Ezsign_EzsignsignerConnect(QString json) {
+Webhook_Ezsign_EzsignsignerConnect::Webhook_Ezsign_EzsignsignerConnect(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -47,7 +47,7 @@ void Webhook_Ezsign_EzsignsignerConnect::initializeModel() {
     m_obj_ezsignfoldersignerassociation_isValid = false;
 }
 
-void Webhook_Ezsign_EzsignsignerConnect::fromJson(QString jsonString) {
+void Webhook_Ezsign_EzsignsignerConnect::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

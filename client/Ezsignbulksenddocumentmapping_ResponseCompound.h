@@ -34,13 +34,13 @@ class Ezsigntemplatepackage_ResponseCompound;
 class Ezsignbulksenddocumentmapping_ResponseCompound : public Object {
 public:
     Ezsignbulksenddocumentmapping_ResponseCompound();
-    Ezsignbulksenddocumentmapping_ResponseCompound(QString json);
+    Ezsignbulksenddocumentmapping_ResponseCompound(const QString &json);
     ~Ezsignbulksenddocumentmapping_ResponseCompound() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiEzsignbulksenddocumentmappingId() const;
     void setPkiEzsignbulksenddocumentmappingId(const qint32 &pki_ezsignbulksenddocumentmapping_id);

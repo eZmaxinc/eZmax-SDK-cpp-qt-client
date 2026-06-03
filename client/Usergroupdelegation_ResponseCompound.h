@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Usergroupdelegation_ResponseCompound : public Object {
 public:
     Usergroupdelegation_ResponseCompound();
-    Usergroupdelegation_ResponseCompound(QString json);
+    Usergroupdelegation_ResponseCompound(const QString &json);
     ~Usergroupdelegation_ResponseCompound() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiUsergroupdelegationId() const;
     void setPkiUsergroupdelegationId(const qint32 &pki_usergroupdelegation_id);

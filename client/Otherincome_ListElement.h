@@ -32,13 +32,13 @@ namespace Ezmaxapi {
 class Otherincome_ListElement : public Object {
 public:
     Otherincome_ListElement();
-    Otherincome_ListElement(QString json);
+    Otherincome_ListElement(const QString &json);
     ~Otherincome_ListElement() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiOtherincomeId() const;
     void setPkiOtherincomeId(const qint32 &pki_otherincome_id);

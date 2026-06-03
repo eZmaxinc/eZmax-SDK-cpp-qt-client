@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Multilingual_SupplyDescription::Multilingual_SupplyDescription(QString json) {
+Multilingual_SupplyDescription::Multilingual_SupplyDescription(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -41,7 +41,7 @@ void Multilingual_SupplyDescription::initializeModel() {
     m_s_supply_description2_isValid = false;
 }
 
-void Multilingual_SupplyDescription::fromJson(QString jsonString) {
+void Multilingual_SupplyDescription::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

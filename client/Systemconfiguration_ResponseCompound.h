@@ -38,13 +38,13 @@ class Custom_Branding_Response;
 class Systemconfiguration_ResponseCompound : public Object {
 public:
     Systemconfiguration_ResponseCompound();
-    Systemconfiguration_ResponseCompound(QString json);
+    Systemconfiguration_ResponseCompound(const QString &json);
     ~Systemconfiguration_ResponseCompound() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiSystemconfigurationId() const;
     void setPkiSystemconfigurationId(const qint32 &pki_systemconfiguration_id);

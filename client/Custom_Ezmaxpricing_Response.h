@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Custom_Ezmaxpricing_Response : public Object {
 public:
     Custom_Ezmaxpricing_Response();
-    Custom_Ezmaxpricing_Response(QString json);
+    Custom_Ezmaxpricing_Response(const QString &json);
     ~Custom_Ezmaxpricing_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiEzmaxpricingId() const;
     void setPkiEzmaxpricingId(const qint32 &pki_ezmaxpricing_id);

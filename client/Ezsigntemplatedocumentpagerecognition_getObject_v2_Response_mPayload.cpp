@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Ezsigntemplatedocumentpagerecognition_getObject_v2_Response_mPayload::Ezsigntemplatedocumentpagerecognition_getObject_v2_Response_mPayload(QString json) {
+Ezsigntemplatedocumentpagerecognition_getObject_v2_Response_mPayload::Ezsigntemplatedocumentpagerecognition_getObject_v2_Response_mPayload(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -38,7 +38,7 @@ void Ezsigntemplatedocumentpagerecognition_getObject_v2_Response_mPayload::initi
     m_obj_ezsigntemplatedocumentpagerecognition_isValid = false;
 }
 
-void Ezsigntemplatedocumentpagerecognition_getObject_v2_Response_mPayload::fromJson(QString jsonString) {
+void Ezsigntemplatedocumentpagerecognition_getObject_v2_Response_mPayload::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

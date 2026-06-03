@@ -32,13 +32,13 @@ class Creditcardmerchant_ResponseCompound;
 class Creditcardmerchant_getObject_v2_Response_mPayload : public Object {
 public:
     Creditcardmerchant_getObject_v2_Response_mPayload();
-    Creditcardmerchant_getObject_v2_Response_mPayload(QString json);
+    Creditcardmerchant_getObject_v2_Response_mPayload(const QString &json);
     ~Creditcardmerchant_getObject_v2_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Creditcardmerchant_ResponseCompound getObjCreditcardmerchant() const;
     void setObjCreditcardmerchant(const Creditcardmerchant_ResponseCompound &obj_creditcardmerchant);

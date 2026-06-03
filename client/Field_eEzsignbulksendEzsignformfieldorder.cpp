@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_eEzsignbulksendEzsignformfieldorder::Field_eEzsignbulksendEzsignformfieldorder(QString json) {
+Field_eEzsignbulksendEzsignformfieldorder::Field_eEzsignbulksendEzsignformfieldorder(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_eEzsignbulksendEzsignformfieldorder::initializeModel() {
     m_value = eField_eEzsignbulksendEzsignformfieldorder::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_eEzsignbulksendEzsignformfieldorder::fromJson(QString jsonString) {
+void Field_eEzsignbulksendEzsignformfieldorder::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("Position", Qt::CaseInsensitive) == 0) {
         m_value = eField_eEzsignbulksendEzsignformfieldorder::POSITION;

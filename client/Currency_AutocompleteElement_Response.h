@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Currency_AutocompleteElement_Response : public Object {
 public:
     Currency_AutocompleteElement_Response();
-    Currency_AutocompleteElement_Response(QString json);
+    Currency_AutocompleteElement_Response(const QString &json);
     ~Currency_AutocompleteElement_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiCurrencyId() const;
     void setPkiCurrencyId(const qint32 &pki_currency_id);

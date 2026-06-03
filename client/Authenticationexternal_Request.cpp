@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Authenticationexternal_Request::Authenticationexternal_Request(QString json) {
+Authenticationexternal_Request::Authenticationexternal_Request(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -44,7 +44,7 @@ void Authenticationexternal_Request::initializeModel() {
     m_e_authenticationexternal_type_isValid = false;
 }
 
-void Authenticationexternal_Request::fromJson(QString jsonString) {
+void Authenticationexternal_Request::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

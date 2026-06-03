@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Apikey_ListElement : public Object {
 public:
     Apikey_ListElement();
-    Apikey_ListElement(QString json);
+    Apikey_ListElement(const QString &json);
     ~Apikey_ListElement() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiApikeyId() const;
     void setPkiApikeyId(const qint32 &pki_apikey_id);

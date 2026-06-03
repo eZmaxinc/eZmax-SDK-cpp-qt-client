@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Ezsigndocument_declineToSign_v1_Request : public Object {
 public:
     Ezsigndocument_declineToSign_v1_Request();
-    Ezsigndocument_declineToSign_v1_Request(QString json);
+    Ezsigndocument_declineToSign_v1_Request(const QString &json);
     ~Ezsigndocument_declineToSign_v1_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getSReason() const;
     void setSReason(const QString &s_reason);

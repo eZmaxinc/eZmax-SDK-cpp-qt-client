@@ -30,13 +30,13 @@ namespace Ezmaxapi {
 class Field_eEzmaxinvoicingPaymenttype : public Enum {
 public:
     Field_eEzmaxinvoicingPaymenttype();
-    Field_eEzmaxinvoicingPaymenttype(QString json);
+    Field_eEzmaxinvoicingPaymenttype(const QString &json);
     ~Field_eEzmaxinvoicingPaymenttype() override;
 
     QString asJson() const override;
     QJsonValue asJsonValue() const override;
     void fromJsonValue(QJsonValue json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     enum class eField_eEzmaxinvoicingPaymenttype {
         INVALID_VALUE_OPENAPI_GENERATED = 0,

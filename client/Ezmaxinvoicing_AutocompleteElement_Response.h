@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Ezmaxinvoicing_AutocompleteElement_Response : public Object {
 public:
     Ezmaxinvoicing_AutocompleteElement_Response();
-    Ezmaxinvoicing_AutocompleteElement_Response(QString json);
+    Ezmaxinvoicing_AutocompleteElement_Response(const QString &json);
     ~Ezmaxinvoicing_AutocompleteElement_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getYyyymmEzmaxinvoicing() const;
     void setYyyymmEzmaxinvoicing(const QString &yyyymm_ezmaxinvoicing);

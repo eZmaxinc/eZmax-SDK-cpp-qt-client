@@ -40,13 +40,13 @@ class Userlogintype_Response;
 class Ezsignfoldertype_ResponseCompound : public Object {
 public:
     Ezsignfoldertype_ResponseCompound();
-    Ezsignfoldertype_ResponseCompound(QString json);
+    Ezsignfoldertype_ResponseCompound(const QString &json);
     ~Ezsignfoldertype_ResponseCompound() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiEzsignfoldertypeId() const;
     void setPkiEzsignfoldertypeId(const qint32 &pki_ezsignfoldertype_id);

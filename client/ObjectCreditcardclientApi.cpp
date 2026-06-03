@@ -76,9 +76,9 @@ void ObjectCreditcardclientApi::initializeServerConfigs() {
 }
 
 /**
-* returns 0 on success and -1, -2 or -3 on failure.
-* -1 when the variable does not exist and -2 if the value is not defined in the enum and -3 if the operation or server index is not found
-*/
+ * returns 0 on success and -1, -2 or -3 on failure.
+ * -1 when the variable does not exist and -2 if the value is not defined in the enum and -3 if the operation or server index is not found
+ */
 int ObjectCreditcardclientApi::setDefaultServerValue(int serverIndex, const QString &operation, const QString &variable, const QString &value) {
     auto it = _serverConfigs.find(operation);
     if (it != _serverConfigs.end() && serverIndex < it.value().size()) {
@@ -86,9 +86,21 @@ int ObjectCreditcardclientApi::setDefaultServerValue(int serverIndex, const QStr
     }
     return -3;
 }
+
+/**
+ * Sets the server index.
+ * @param operation The id to the target operation.
+ * @param serverIndex The server index.
+ */
 void ObjectCreditcardclientApi::setServerIndex(const QString &operation, int serverIndex) {
     if (_serverIndices.contains(operation) && serverIndex < _serverConfigs.find(operation).value().size()) {
         _serverIndices[operation] = serverIndex;
+    }
+}
+
+void ObjectCreditcardclientApi::setServerIndex(int serverIndex) {
+    for (auto keyIt = _serverIndices.keyBegin(); keyIt != _serverIndices.keyEnd(); keyIt++) {
+        setServerIndex(*keyIt, serverIndex);
     }
 }
 
@@ -122,13 +134,13 @@ void ObjectCreditcardclientApi::setNetworkAccessManager(QNetworkAccessManager* m
 }
 
 /**
-    * Appends a new ServerConfiguration to the config map for a specific operation.
-    * @param operation The id to the target operation.
-    * @param url A string that contains the URL of the server
-    * @param description A String that describes the server
-    * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
-    * returns the index of the new server config on success and -1 if the operation is not found
-    */
+ * Appends a new ServerConfiguration to the config map for a specific operation.
+ * @param operation The id to the target operation.
+ * @param url A string that contains the URL of the server
+ * @param description A String that describes the server
+ * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
+ * returns the index of the new server config on success and -1 if the operation is not found
+ */
 int ObjectCreditcardclientApi::addServerConfiguration(const QString &operation, const QUrl &url, const QString &description, const QMap<QString, ServerVariable> &variables) {
     if (_serverConfigs.contains(operation)) {
         _serverConfigs[operation].append(ServerConfiguration(
@@ -142,11 +154,11 @@ int ObjectCreditcardclientApi::addServerConfiguration(const QString &operation, 
 }
 
 /**
-    * Appends a new ServerConfiguration to the config map for a all operations and sets the index to that server.
-    * @param url A string that contains the URL of the server
-    * @param description A String that describes the server
-    * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
-    */
+ * Appends a new ServerConfiguration to the config map for a all operations and sets the index to that server.
+ * @param url A string that contains the URL of the server
+ * @param description A String that describes the server
+ * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
+ */
 void ObjectCreditcardclientApi::setNewServerForAllOperations(const QUrl &url, const QString &description, const QMap<QString, ServerVariable> &variables) {
     for (auto keyIt = _serverIndices.keyBegin(); keyIt != _serverIndices.keyEnd(); keyIt++) {
         setServerIndex(*keyIt, addServerConfiguration(*keyIt, url, description, variables));
@@ -154,11 +166,11 @@ void ObjectCreditcardclientApi::setNewServerForAllOperations(const QUrl &url, co
 }
 
 /**
-    * Appends a new ServerConfiguration to the config map for an operations and sets the index to that server.
-    * @param URL A string that contains the URL of the server
-    * @param description A String that describes the server
-    * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
-    */
+ * Appends a new ServerConfiguration to the config map for an operations and sets the index to that server.
+ * @param URL A string that contains the URL of the server
+ * @param description A String that describes the server
+ * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
+ */
 void ObjectCreditcardclientApi::setNewServer(const QString &operation, const QUrl &url, const QString &description, const QMap<QString, ServerVariable> &variables) {
     setServerIndex(operation, addServerConfiguration(operation, url, description, variables));
 }
@@ -290,32 +302,6 @@ void ObjectCreditcardclientApi::creditcardclientCreateObjectV1Callback(HttpReque
         Q_EMIT creditcardclientCreateObjectV1Signal(output);
         Q_EMIT creditcardclientCreateObjectV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT creditcardclientCreateObjectV1SignalE(output, error_type, error_str);
-        Q_EMIT creditcardclientCreateObjectV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT creditcardclientCreateObjectV1SignalError(output, error_type, error_str);
         Q_EMIT creditcardclientCreateObjectV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -378,32 +364,6 @@ void ObjectCreditcardclientApi::creditcardclientDeleteObjectV1Callback(HttpReque
         Q_EMIT creditcardclientDeleteObjectV1Signal(output);
         Q_EMIT creditcardclientDeleteObjectV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT creditcardclientDeleteObjectV1SignalE(output, error_type, error_str);
-        Q_EMIT creditcardclientDeleteObjectV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT creditcardclientDeleteObjectV1SignalError(output, error_type, error_str);
         Q_EMIT creditcardclientDeleteObjectV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -471,32 +431,6 @@ void ObjectCreditcardclientApi::creditcardclientEditObjectV1Callback(HttpRequest
         Q_EMIT creditcardclientEditObjectV1Signal(output);
         Q_EMIT creditcardclientEditObjectV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT creditcardclientEditObjectV1SignalE(output, error_type, error_str);
-        Q_EMIT creditcardclientEditObjectV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT creditcardclientEditObjectV1SignalError(output, error_type, error_str);
         Q_EMIT creditcardclientEditObjectV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -634,32 +568,6 @@ void ObjectCreditcardclientApi::creditcardclientGetAutocompleteV2Callback(HttpRe
         Q_EMIT creditcardclientGetAutocompleteV2Signal(output);
         Q_EMIT creditcardclientGetAutocompleteV2SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT creditcardclientGetAutocompleteV2SignalE(output, error_type, error_str);
-        Q_EMIT creditcardclientGetAutocompleteV2SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT creditcardclientGetAutocompleteV2SignalError(output, error_type, error_str);
         Q_EMIT creditcardclientGetAutocompleteV2SignalErrorFull(worker, error_type, error_str);
     }
@@ -813,32 +721,6 @@ void ObjectCreditcardclientApi::creditcardclientGetListV1Callback(HttpRequestWor
         Q_EMIT creditcardclientGetListV1Signal(output);
         Q_EMIT creditcardclientGetListV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT creditcardclientGetListV1SignalE(output, error_type, error_str);
-        Q_EMIT creditcardclientGetListV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT creditcardclientGetListV1SignalError(output, error_type, error_str);
         Q_EMIT creditcardclientGetListV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -901,32 +783,6 @@ void ObjectCreditcardclientApi::creditcardclientGetObjectV2Callback(HttpRequestW
         Q_EMIT creditcardclientGetObjectV2Signal(output);
         Q_EMIT creditcardclientGetObjectV2SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT creditcardclientGetObjectV2SignalE(output, error_type, error_str);
-        Q_EMIT creditcardclientGetObjectV2SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT creditcardclientGetObjectV2SignalError(output, error_type, error_str);
         Q_EMIT creditcardclientGetObjectV2SignalErrorFull(worker, error_type, error_str);
     }
@@ -994,42 +850,16 @@ void ObjectCreditcardclientApi::creditcardclientPatchObjectV1Callback(HttpReques
         Q_EMIT creditcardclientPatchObjectV1Signal(output);
         Q_EMIT creditcardclientPatchObjectV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT creditcardclientPatchObjectV1SignalE(output, error_type, error_str);
-        Q_EMIT creditcardclientPatchObjectV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT creditcardclientPatchObjectV1SignalError(output, error_type, error_str);
         Q_EMIT creditcardclientPatchObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
-void ObjectCreditcardclientApi::tokenAvailable(){
+void ObjectCreditcardclientApi::tokenAvailable() {
 
     oauthToken token;
     switch (_OauthMethod) {
-    case 1: //implicit flow
+    case OauthMethod::ImplicitFlow:
         token = _implicitFlow.getToken(_latestScope.join(" "));
         if(token.isValid()){
             _latestInput.headers.insert("Authorization", "Bearer " + token.getToken());
@@ -1039,7 +869,7 @@ void ObjectCreditcardclientApi::tokenAvailable(){
             qDebug() << "Could not retrieve a valid token";
         }
         break;
-    case 2: //authorization flow
+    case OauthMethod::AuthorizationFlow:
         token = _authFlow.getToken(_latestScope.join(" "));
         if(token.isValid()){
             _latestInput.headers.insert("Authorization", "Bearer " + token.getToken());
@@ -1049,7 +879,7 @@ void ObjectCreditcardclientApi::tokenAvailable(){
             qDebug() << "Could not retrieve a valid token";
         }
         break;
-    case 3: //client credentials flow
+    case OauthMethod::ClientCredentialsFlow:
         token = _credentialFlow.getToken(_latestScope.join(" "));
         if(token.isValid()){
             _latestInput.headers.insert("Authorization", "Bearer " + token.getToken());
@@ -1059,7 +889,7 @@ void ObjectCreditcardclientApi::tokenAvailable(){
             qDebug() << "Could not retrieve a valid token";
         }
         break;
-    case 4: //resource owner password flow
+    case OauthMethod::ResourceOwnerPasswordFlow:
         token = _passwordFlow.getToken(_latestScope.join(" "));
         if(token.isValid()){
             _latestInput.headers.insert("Authorization", "Bearer " + token.getToken());

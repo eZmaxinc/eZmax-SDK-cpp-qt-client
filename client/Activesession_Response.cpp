@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Activesession_Response::Activesession_Response(QString json) {
+Activesession_Response::Activesession_Response(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -92,7 +92,7 @@ void Activesession_Response::initializeModel() {
     m_fki_signature_id_isValid = false;
 }
 
-void Activesession_Response::fromJson(QString jsonString) {
+void Activesession_Response::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

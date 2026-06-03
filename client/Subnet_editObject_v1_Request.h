@@ -32,13 +32,13 @@ class Subnet_RequestCompound;
 class Subnet_editObject_v1_Request : public Object {
 public:
     Subnet_editObject_v1_Request();
-    Subnet_editObject_v1_Request(QString json);
+    Subnet_editObject_v1_Request(const QString &json);
     ~Subnet_editObject_v1_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Subnet_RequestCompound getObjSubnet() const;
     void setObjSubnet(const Subnet_RequestCompound &obj_subnet);

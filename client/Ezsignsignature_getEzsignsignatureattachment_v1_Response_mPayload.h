@@ -33,13 +33,13 @@ class Ezsignsignatureattachment_Response;
 class Ezsignsignature_getEzsignsignatureattachment_v1_Response_mPayload : public Object {
 public:
     Ezsignsignature_getEzsignsignatureattachment_v1_Response_mPayload();
-    Ezsignsignature_getEzsignsignatureattachment_v1_Response_mPayload(QString json);
+    Ezsignsignature_getEzsignsignatureattachment_v1_Response_mPayload(const QString &json);
     ~Ezsignsignature_getEzsignsignatureattachment_v1_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Ezsignsignatureattachment_Response> getAObjEzsignsignatureattachment() const;
     void setAObjEzsignsignatureattachment(const QList<Ezsignsignatureattachment_Response> &a_obj_ezsignsignatureattachment);

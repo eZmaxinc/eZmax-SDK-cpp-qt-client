@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Multilingual_VariableexpenseDescription::Multilingual_VariableexpenseDescription(QString json) {
+Multilingual_VariableexpenseDescription::Multilingual_VariableexpenseDescription(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -41,7 +41,7 @@ void Multilingual_VariableexpenseDescription::initializeModel() {
     m_s_variableexpense_description2_isValid = false;
 }
 
-void Multilingual_VariableexpenseDescription::fromJson(QString jsonString) {
+void Multilingual_VariableexpenseDescription::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Custom_CreateEzsignelementsPositionedByWord_Request : public Object {
 public:
     Custom_CreateEzsignelementsPositionedByWord_Request();
-    Custom_CreateEzsignelementsPositionedByWord_Request(QString json);
+    Custom_CreateEzsignelementsPositionedByWord_Request(const QString &json);
     ~Custom_CreateEzsignelementsPositionedByWord_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getSCreateezsignelementspositionedbywordPattern() const;
     void setSCreateezsignelementspositionedbywordPattern(const QString &s_createezsignelementspositionedbyword_pattern);

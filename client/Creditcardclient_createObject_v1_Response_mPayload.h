@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Creditcardclient_createObject_v1_Response_mPayload : public Object {
 public:
     Creditcardclient_createObject_v1_Response_mPayload();
-    Creditcardclient_createObject_v1_Response_mPayload(QString json);
+    Creditcardclient_createObject_v1_Response_mPayload(const QString &json);
     ~Creditcardclient_createObject_v1_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<qint32> getAPkiCreditcardclientId() const;
     void setAPkiCreditcardclientId(const QList<qint32> &a_pki_creditcardclient_id);

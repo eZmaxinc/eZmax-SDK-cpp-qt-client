@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Common_Response_Error_EzsignformValidation::Common_Response_Error_EzsignformValidation(QString json) {
+Common_Response_Error_EzsignformValidation::Common_Response_Error_EzsignformValidation(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -47,7 +47,7 @@ void Common_Response_Error_EzsignformValidation::initializeModel() {
     m_a_obj_ezsignformfielderror_isValid = false;
 }
 
-void Common_Response_Error_EzsignformValidation::fromJson(QString jsonString) {
+void Common_Response_Error_EzsignformValidation::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

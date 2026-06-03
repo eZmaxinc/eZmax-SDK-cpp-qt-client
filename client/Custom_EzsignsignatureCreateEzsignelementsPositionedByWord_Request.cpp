@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Custom_EzsignsignatureCreateEzsignelementsPositionedByWord_Request::Custom_EzsignsignatureCreateEzsignelementsPositionedByWord_Request(QString json) {
+Custom_EzsignsignatureCreateEzsignelementsPositionedByWord_Request::Custom_EzsignsignatureCreateEzsignelementsPositionedByWord_Request(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -149,7 +149,7 @@ void Custom_EzsignsignatureCreateEzsignelementsPositionedByWord_Request::initial
     m_obj_createezsignelementspositionedbyword_isValid = false;
 }
 
-void Custom_EzsignsignatureCreateEzsignelementsPositionedByWord_Request::fromJson(QString jsonString) {
+void Custom_EzsignsignatureCreateEzsignelementsPositionedByWord_Request::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

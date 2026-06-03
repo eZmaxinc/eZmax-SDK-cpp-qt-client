@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Webhook_sendWebhook_v1_Request::Webhook_sendWebhook_v1_Request(QString json) {
+Webhook_sendWebhook_v1_Request::Webhook_sendWebhook_v1_Request(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -59,7 +59,7 @@ void Webhook_sendWebhook_v1_Request::initializeModel() {
     m_fki_userstaged_id_isValid = false;
 }
 
-void Webhook_sendWebhook_v1_Request::fromJson(QString jsonString) {
+void Webhook_sendWebhook_v1_Request::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

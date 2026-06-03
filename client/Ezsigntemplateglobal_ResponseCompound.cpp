@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Ezsigntemplateglobal_ResponseCompound::Ezsigntemplateglobal_ResponseCompound(QString json) {
+Ezsigntemplateglobal_ResponseCompound::Ezsigntemplateglobal_ResponseCompound(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -69,9 +69,12 @@ void Ezsigntemplateglobal_ResponseCompound::initializeModel() {
 
     m_a_obj_ezsigntemplateglobalsigner_isSet = false;
     m_a_obj_ezsigntemplateglobalsigner_isValid = false;
+
+    m_a_obj_ezsigntemplateglobalannotation_isSet = false;
+    m_a_obj_ezsigntemplateglobalannotation_isValid = false;
 }
 
-void Ezsigntemplateglobal_ResponseCompound::fromJson(QString jsonString) {
+void Ezsigntemplateglobal_ResponseCompound::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();
@@ -115,6 +118,9 @@ void Ezsigntemplateglobal_ResponseCompound::fromJsonObject(QJsonObject json) {
 
     m_a_obj_ezsigntemplateglobalsigner_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_ezsigntemplateglobalsigner, json[QString("a_objEzsigntemplateglobalsigner")]);
     m_a_obj_ezsigntemplateglobalsigner_isSet = !json[QString("a_objEzsigntemplateglobalsigner")].isNull() && m_a_obj_ezsigntemplateglobalsigner_isValid;
+
+    m_a_obj_ezsigntemplateglobalannotation_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_ezsigntemplateglobalannotation, json[QString("a_objEzsigntemplateglobalannotation")]);
+    m_a_obj_ezsigntemplateglobalannotation_isSet = !json[QString("a_objEzsigntemplateglobalannotation")].isNull() && m_a_obj_ezsigntemplateglobalannotation_isValid;
 }
 
 QString Ezsigntemplateglobal_ResponseCompound::asJson() const {
@@ -161,6 +167,9 @@ QJsonObject Ezsigntemplateglobal_ResponseCompound::asJsonObject() const {
     }
     if (m_a_obj_ezsigntemplateglobalsigner.size() > 0) {
         obj.insert(QString("a_objEzsigntemplateglobalsigner"), ::Ezmaxapi::toJsonValue(m_a_obj_ezsigntemplateglobalsigner));
+    }
+    if (m_a_obj_ezsigntemplateglobalannotation.size() > 0) {
+        obj.insert(QString("a_objEzsigntemplateglobalannotation"), ::Ezmaxapi::toJsonValue(m_a_obj_ezsigntemplateglobalannotation));
     }
     return obj;
 }
@@ -357,6 +366,22 @@ bool Ezsigntemplateglobal_ResponseCompound::is_a_obj_ezsigntemplateglobalsigner_
     return m_a_obj_ezsigntemplateglobalsigner_isValid;
 }
 
+QList<Ezsigntemplateglobalannotation_ResponseCompound> Ezsigntemplateglobal_ResponseCompound::getAObjEzsigntemplateglobalannotation() const {
+    return m_a_obj_ezsigntemplateglobalannotation;
+}
+void Ezsigntemplateglobal_ResponseCompound::setAObjEzsigntemplateglobalannotation(const QList<Ezsigntemplateglobalannotation_ResponseCompound> &a_obj_ezsigntemplateglobalannotation) {
+    m_a_obj_ezsigntemplateglobalannotation = a_obj_ezsigntemplateglobalannotation;
+    m_a_obj_ezsigntemplateglobalannotation_isSet = true;
+}
+
+bool Ezsigntemplateglobal_ResponseCompound::is_a_obj_ezsigntemplateglobalannotation_Set() const{
+    return m_a_obj_ezsigntemplateglobalannotation_isSet;
+}
+
+bool Ezsigntemplateglobal_ResponseCompound::is_a_obj_ezsigntemplateglobalannotation_Valid() const{
+    return m_a_obj_ezsigntemplateglobalannotation_isValid;
+}
+
 bool Ezsigntemplateglobal_ResponseCompound::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -416,6 +441,11 @@ bool Ezsigntemplateglobal_ResponseCompound::isSet() const {
         }
 
         if (m_a_obj_ezsigntemplateglobalsigner.size() > 0) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_a_obj_ezsigntemplateglobalannotation.size() > 0) {
             isObjectUpdated = true;
             break;
         }

@@ -32,13 +32,13 @@ namespace Ezmaxapi {
 class Ezsignsignaturepaymentdetail_RequestCompound : public Object {
 public:
     Ezsignsignaturepaymentdetail_RequestCompound();
-    Ezsignsignaturepaymentdetail_RequestCompound(QString json);
+    Ezsignsignaturepaymentdetail_RequestCompound(const QString &json);
     ~Ezsignsignaturepaymentdetail_RequestCompound() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiEzsignsignaturepaymentdetailId() const;
     void setPkiEzsignsignaturepaymentdetailId(const qint32 &pki_ezsignsignaturepaymentdetail_id);

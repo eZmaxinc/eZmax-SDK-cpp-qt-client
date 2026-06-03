@@ -32,13 +32,13 @@ class Ezsignsignergroupmembership_ResponseCompound;
 class Ezsignsignergroupmembership_getObject_v2_Response_mPayload : public Object {
 public:
     Ezsignsignergroupmembership_getObject_v2_Response_mPayload();
-    Ezsignsignergroupmembership_getObject_v2_Response_mPayload(QString json);
+    Ezsignsignergroupmembership_getObject_v2_Response_mPayload(const QString &json);
     ~Ezsignsignergroupmembership_getObject_v2_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Ezsignsignergroupmembership_ResponseCompound getObjEzsignsignergroupmembership() const;
     void setObjEzsignsignergroupmembership(const Ezsignsignergroupmembership_ResponseCompound &obj_ezsignsignergroupmembership);

@@ -51,6 +51,7 @@ public:
     void initializeServerConfigs();
     int setDefaultServerValue(int serverIndex,const QString &operation, const QString &variable,const QString &val);
     void setServerIndex(const QString &operation, int serverIndex);
+    void setServerIndex(int serverIndex);
     void setApiKey(const QString &apiKeyName, const QString &apiKey);
     void setBearerToken(const QString &token);
     void setUsername(const QString &username);
@@ -115,6 +116,13 @@ public:
 
 
 private:
+    enum class OauthMethod : int {
+        INVALID_VALUE_OPENAPI_GENERATED = 0,
+        ImplicitFlow = 1,
+        AuthorizationFlow = 2,
+        ClientCredentialsFlow = 3,
+        ResourceOwnerPasswordFlow = 4
+    };
     QMap<QString,int> _serverIndices;
     QMap<QString,QList<ServerConfiguration>> _serverConfigs;
     QMap<QString, QString> _apiKeys;
@@ -134,7 +142,7 @@ private:
     OauthImplicit _implicitFlow;
     OauthCredentials _credentialFlow;
     OauthPassword _passwordFlow;
-    int _OauthMethod = 0;
+    OauthMethod _OauthMethod = OauthMethod::INVALID_VALUE_OPENAPI_GENERATED;
 
     void authenticationexternalCreateObjectV1Callback(HttpRequestWorker *worker);
     void authenticationexternalDeleteObjectV1Callback(HttpRequestWorker *worker);
@@ -163,48 +171,20 @@ Q_SIGNALS:
     void authenticationexternalGetObjectV2SignalFull(HttpRequestWorker *worker, Authenticationexternal_getObject_v2_Response summary);
     void authenticationexternalResetAuthorizationV1SignalFull(HttpRequestWorker *worker, Authenticationexternal_resetAuthorization_v1_Response summary);
 
-    Q_DECL_DEPRECATED_X("Use authenticationexternalCreateObjectV1SignalError() instead")
-    void authenticationexternalCreateObjectV1SignalE(Authenticationexternal_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void authenticationexternalCreateObjectV1SignalError(Authenticationexternal_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use authenticationexternalDeleteObjectV1SignalError() instead")
-    void authenticationexternalDeleteObjectV1SignalE(Authenticationexternal_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void authenticationexternalDeleteObjectV1SignalError(Authenticationexternal_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use authenticationexternalEditObjectV1SignalError() instead")
-    void authenticationexternalEditObjectV1SignalE(Authenticationexternal_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void authenticationexternalEditObjectV1SignalError(Authenticationexternal_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use authenticationexternalGetAutocompleteV2SignalError() instead")
-    void authenticationexternalGetAutocompleteV2SignalE(Authenticationexternal_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void authenticationexternalGetAutocompleteV2SignalError(Authenticationexternal_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use authenticationexternalGetListV1SignalError() instead")
-    void authenticationexternalGetListV1SignalE(Authenticationexternal_getList_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void authenticationexternalGetListV1SignalError(Authenticationexternal_getList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use authenticationexternalGetObjectV2SignalError() instead")
-    void authenticationexternalGetObjectV2SignalE(Authenticationexternal_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void authenticationexternalGetObjectV2SignalError(Authenticationexternal_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use authenticationexternalResetAuthorizationV1SignalError() instead")
-    void authenticationexternalResetAuthorizationV1SignalE(Authenticationexternal_resetAuthorization_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void authenticationexternalResetAuthorizationV1SignalError(Authenticationexternal_resetAuthorization_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
-    Q_DECL_DEPRECATED_X("Use authenticationexternalCreateObjectV1SignalErrorFull() instead")
-    void authenticationexternalCreateObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void authenticationexternalCreateObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use authenticationexternalDeleteObjectV1SignalErrorFull() instead")
-    void authenticationexternalDeleteObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void authenticationexternalDeleteObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use authenticationexternalEditObjectV1SignalErrorFull() instead")
-    void authenticationexternalEditObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void authenticationexternalEditObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use authenticationexternalGetAutocompleteV2SignalErrorFull() instead")
-    void authenticationexternalGetAutocompleteV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void authenticationexternalGetAutocompleteV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use authenticationexternalGetListV1SignalErrorFull() instead")
-    void authenticationexternalGetListV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void authenticationexternalGetListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use authenticationexternalGetObjectV2SignalErrorFull() instead")
-    void authenticationexternalGetObjectV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void authenticationexternalGetObjectV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use authenticationexternalResetAuthorizationV1SignalErrorFull() instead")
-    void authenticationexternalResetAuthorizationV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void authenticationexternalResetAuthorizationV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();

@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Activesession_getCurrent_v1_Response_mPayload::Activesession_getCurrent_v1_Response_mPayload(QString json) {
+Activesession_getCurrent_v1_Response_mPayload::Activesession_getCurrent_v1_Response_mPayload(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -109,6 +109,9 @@ void Activesession_getCurrent_v1_Response_mPayload::initializeModel() {
     m_b_user_ezsigntrial_isSet = false;
     m_b_user_ezsigntrial_isValid = false;
 
+    m_b_user_ezsigntemplaterolegrouping_isSet = false;
+    m_b_user_ezsigntemplaterolegrouping_isValid = false;
+
     m_dt_user_ezsignprepaidexpiration_isSet = false;
     m_dt_user_ezsignprepaidexpiration_isValid = false;
 
@@ -129,9 +132,12 @@ void Activesession_getCurrent_v1_Response_mPayload::initializeModel() {
 
     m_a_e_module_internalname_isSet = false;
     m_a_e_module_internalname_isValid = false;
+
+    m_b_activesession_maillinglistrequest_isSet = false;
+    m_b_activesession_maillinglistrequest_isValid = false;
 }
 
-void Activesession_getCurrent_v1_Response_mPayload::fromJson(QString jsonString) {
+void Activesession_getCurrent_v1_Response_mPayload::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();
@@ -215,6 +221,9 @@ void Activesession_getCurrent_v1_Response_mPayload::fromJsonObject(QJsonObject j
     m_b_user_ezsigntrial_isValid = ::Ezmaxapi::fromJsonValue(m_b_user_ezsigntrial, json[QString("bUserEzsigntrial")]);
     m_b_user_ezsigntrial_isSet = !json[QString("bUserEzsigntrial")].isNull() && m_b_user_ezsigntrial_isValid;
 
+    m_b_user_ezsigntemplaterolegrouping_isValid = ::Ezmaxapi::fromJsonValue(m_b_user_ezsigntemplaterolegrouping, json[QString("bUserEzsigntemplaterolegrouping")]);
+    m_b_user_ezsigntemplaterolegrouping_isSet = !json[QString("bUserEzsigntemplaterolegrouping")].isNull() && m_b_user_ezsigntemplaterolegrouping_isValid;
+
     m_dt_user_ezsignprepaidexpiration_isValid = ::Ezmaxapi::fromJsonValue(m_dt_user_ezsignprepaidexpiration, json[QString("dtUserEzsignprepaidexpiration")]);
     m_dt_user_ezsignprepaidexpiration_isSet = !json[QString("dtUserEzsignprepaidexpiration")].isNull() && m_dt_user_ezsignprepaidexpiration_isValid;
 
@@ -235,6 +244,9 @@ void Activesession_getCurrent_v1_Response_mPayload::fromJsonObject(QJsonObject j
 
     m_a_e_module_internalname_isValid = ::Ezmaxapi::fromJsonValue(m_a_e_module_internalname, json[QString("a_eModuleInternalname")]);
     m_a_e_module_internalname_isSet = !json[QString("a_eModuleInternalname")].isNull() && m_a_e_module_internalname_isValid;
+
+    m_b_activesession_maillinglistrequest_isValid = ::Ezmaxapi::fromJsonValue(m_b_activesession_maillinglistrequest, json[QString("bActivesessionMaillinglistrequest")]);
+    m_b_activesession_maillinglistrequest_isSet = !json[QString("bActivesessionMaillinglistrequest")].isNull() && m_b_activesession_maillinglistrequest_isValid;
 }
 
 QString Activesession_getCurrent_v1_Response_mPayload::asJson() const {
@@ -321,6 +333,9 @@ QJsonObject Activesession_getCurrent_v1_Response_mPayload::asJsonObject() const 
     if (m_b_user_ezsigntrial_isSet) {
         obj.insert(QString("bUserEzsigntrial"), ::Ezmaxapi::toJsonValue(m_b_user_ezsigntrial));
     }
+    if (m_b_user_ezsigntemplaterolegrouping_isSet) {
+        obj.insert(QString("bUserEzsigntemplaterolegrouping"), ::Ezmaxapi::toJsonValue(m_b_user_ezsigntemplaterolegrouping));
+    }
     if (m_dt_user_ezsignprepaidexpiration_isSet) {
         obj.insert(QString("dtUserEzsignprepaidexpiration"), ::Ezmaxapi::toJsonValue(m_dt_user_ezsignprepaidexpiration));
     }
@@ -341,6 +356,9 @@ QJsonObject Activesession_getCurrent_v1_Response_mPayload::asJsonObject() const 
     }
     if (m_a_e_module_internalname.size() > 0) {
         obj.insert(QString("a_eModuleInternalname"), ::Ezmaxapi::toJsonValue(m_a_e_module_internalname));
+    }
+    if (m_b_activesession_maillinglistrequest_isSet) {
+        obj.insert(QString("bActivesessionMaillinglistrequest"), ::Ezmaxapi::toJsonValue(m_b_activesession_maillinglistrequest));
     }
     return obj;
 }
@@ -745,6 +763,22 @@ bool Activesession_getCurrent_v1_Response_mPayload::is_b_user_ezsigntrial_Valid(
     return m_b_user_ezsigntrial_isValid;
 }
 
+bool Activesession_getCurrent_v1_Response_mPayload::isBUserEzsigntemplaterolegrouping() const {
+    return m_b_user_ezsigntemplaterolegrouping;
+}
+void Activesession_getCurrent_v1_Response_mPayload::setBUserEzsigntemplaterolegrouping(const bool &b_user_ezsigntemplaterolegrouping) {
+    m_b_user_ezsigntemplaterolegrouping = b_user_ezsigntemplaterolegrouping;
+    m_b_user_ezsigntemplaterolegrouping_isSet = true;
+}
+
+bool Activesession_getCurrent_v1_Response_mPayload::is_b_user_ezsigntemplaterolegrouping_Set() const{
+    return m_b_user_ezsigntemplaterolegrouping_isSet;
+}
+
+bool Activesession_getCurrent_v1_Response_mPayload::is_b_user_ezsigntemplaterolegrouping_Valid() const{
+    return m_b_user_ezsigntemplaterolegrouping_isValid;
+}
+
 QString Activesession_getCurrent_v1_Response_mPayload::getDtUserEzsignprepaidexpiration() const {
     return m_dt_user_ezsignprepaidexpiration;
 }
@@ -855,6 +889,22 @@ bool Activesession_getCurrent_v1_Response_mPayload::is_a_e_module_internalname_S
 
 bool Activesession_getCurrent_v1_Response_mPayload::is_a_e_module_internalname_Valid() const{
     return m_a_e_module_internalname_isValid;
+}
+
+bool Activesession_getCurrent_v1_Response_mPayload::isBActivesessionMaillinglistrequest() const {
+    return m_b_activesession_maillinglistrequest;
+}
+void Activesession_getCurrent_v1_Response_mPayload::setBActivesessionMaillinglistrequest(const bool &b_activesession_maillinglistrequest) {
+    m_b_activesession_maillinglistrequest = b_activesession_maillinglistrequest;
+    m_b_activesession_maillinglistrequest_isSet = true;
+}
+
+bool Activesession_getCurrent_v1_Response_mPayload::is_b_activesession_maillinglistrequest_Set() const{
+    return m_b_activesession_maillinglistrequest_isSet;
+}
+
+bool Activesession_getCurrent_v1_Response_mPayload::is_b_activesession_maillinglistrequest_Valid() const{
+    return m_b_activesession_maillinglistrequest_isValid;
 }
 
 bool Activesession_getCurrent_v1_Response_mPayload::isSet() const {
@@ -985,6 +1035,11 @@ bool Activesession_getCurrent_v1_Response_mPayload::isSet() const {
             break;
         }
 
+        if (m_b_user_ezsigntemplaterolegrouping_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (m_dt_user_ezsignprepaidexpiration_isSet) {
             isObjectUpdated = true;
             break;
@@ -1016,6 +1071,11 @@ bool Activesession_getCurrent_v1_Response_mPayload::isSet() const {
         }
 
         if (m_a_e_module_internalname.size() > 0) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_b_activesession_maillinglistrequest_isSet) {
             isObjectUpdated = true;
             break;
         }

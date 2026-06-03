@@ -33,13 +33,13 @@ class Paymentterm_RequestCompound;
 class Paymentterm_createObject_v1_Request : public Object {
 public:
     Paymentterm_createObject_v1_Request();
-    Paymentterm_createObject_v1_Request(QString json);
+    Paymentterm_createObject_v1_Request(const QString &json);
     ~Paymentterm_createObject_v1_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Paymentterm_RequestCompound> getAObjPaymentterm() const;
     void setAObjPaymentterm(const QList<Paymentterm_RequestCompound> &a_obj_paymentterm);

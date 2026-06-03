@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Common_Reportcellstyle::Common_Reportcellstyle(QString json) {
+Common_Reportcellstyle::Common_Reportcellstyle(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -59,7 +59,7 @@ void Common_Reportcellstyle::initializeModel() {
     m_e_reportcell_fontunderline_isValid = false;
 }
 
-void Common_Reportcellstyle::fromJson(QString jsonString) {
+void Common_Reportcellstyle::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

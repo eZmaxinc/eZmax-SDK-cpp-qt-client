@@ -48,6 +48,7 @@ public:
     void initializeServerConfigs();
     int setDefaultServerValue(int serverIndex,const QString &operation, const QString &variable,const QString &val);
     void setServerIndex(const QString &operation, int serverIndex);
+    void setServerIndex(int serverIndex);
     void setApiKey(const QString &apiKeyName, const QString &apiKey);
     void setBearerToken(const QString &token);
     void setUsername(const QString &username);
@@ -103,6 +104,13 @@ public:
 
 
 private:
+    enum class OauthMethod : int {
+        INVALID_VALUE_OPENAPI_GENERATED = 0,
+        ImplicitFlow = 1,
+        AuthorizationFlow = 2,
+        ClientCredentialsFlow = 3,
+        ResourceOwnerPasswordFlow = 4
+    };
     QMap<QString,int> _serverIndices;
     QMap<QString,QList<ServerConfiguration>> _serverConfigs;
     QMap<QString, QString> _apiKeys;
@@ -122,7 +130,7 @@ private:
     OauthImplicit _implicitFlow;
     OauthCredentials _credentialFlow;
     OauthPassword _passwordFlow;
-    int _OauthMethod = 0;
+    OauthMethod _OauthMethod = OauthMethod::INVALID_VALUE_OPENAPI_GENERATED;
 
     void buyercontractGetCommunicationCountV1Callback(HttpRequestWorker *worker);
     void buyercontractGetCommunicationListV1Callback(HttpRequestWorker *worker);
@@ -148,42 +156,18 @@ Q_SIGNALS:
     void buyercontractGetListV1SignalFull(HttpRequestWorker *worker, Buyercontract_getList_v1_Response summary);
     void buyercontractImportIntoEDMV1SignalFull(HttpRequestWorker *worker, Buyercontract_importIntoEDM_v1_Response summary);
 
-    Q_DECL_DEPRECATED_X("Use buyercontractGetCommunicationCountV1SignalError() instead")
-    void buyercontractGetCommunicationCountV1SignalE(Buyercontract_getCommunicationCount_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void buyercontractGetCommunicationCountV1SignalError(Buyercontract_getCommunicationCount_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use buyercontractGetCommunicationListV1SignalError() instead")
-    void buyercontractGetCommunicationListV1SignalE(Buyercontract_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void buyercontractGetCommunicationListV1SignalError(Buyercontract_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use buyercontractGetCommunicationrecipientsV1SignalError() instead")
-    void buyercontractGetCommunicationrecipientsV1SignalE(Buyercontract_getCommunicationrecipients_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void buyercontractGetCommunicationrecipientsV1SignalError(Buyercontract_getCommunicationrecipients_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use buyercontractGetCommunicationsendersV1SignalError() instead")
-    void buyercontractGetCommunicationsendersV1SignalE(Buyercontract_getCommunicationsenders_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void buyercontractGetCommunicationsendersV1SignalError(Buyercontract_getCommunicationsenders_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use buyercontractGetListV1SignalError() instead")
-    void buyercontractGetListV1SignalE(Buyercontract_getList_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void buyercontractGetListV1SignalError(Buyercontract_getList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use buyercontractImportIntoEDMV1SignalError() instead")
-    void buyercontractImportIntoEDMV1SignalE(Buyercontract_importIntoEDM_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void buyercontractImportIntoEDMV1SignalError(Buyercontract_importIntoEDM_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
-    Q_DECL_DEPRECATED_X("Use buyercontractGetCommunicationCountV1SignalErrorFull() instead")
-    void buyercontractGetCommunicationCountV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void buyercontractGetCommunicationCountV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use buyercontractGetCommunicationListV1SignalErrorFull() instead")
-    void buyercontractGetCommunicationListV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void buyercontractGetCommunicationListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use buyercontractGetCommunicationrecipientsV1SignalErrorFull() instead")
-    void buyercontractGetCommunicationrecipientsV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void buyercontractGetCommunicationrecipientsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use buyercontractGetCommunicationsendersV1SignalErrorFull() instead")
-    void buyercontractGetCommunicationsendersV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void buyercontractGetCommunicationsendersV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use buyercontractGetListV1SignalErrorFull() instead")
-    void buyercontractGetListV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void buyercontractGetListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use buyercontractImportIntoEDMV1SignalErrorFull() instead")
-    void buyercontractImportIntoEDMV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void buyercontractImportIntoEDMV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();

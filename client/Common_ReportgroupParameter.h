@@ -32,13 +32,13 @@ namespace Ezmaxapi {
 class Common_ReportgroupParameter : public Object {
 public:
     Common_ReportgroupParameter();
-    Common_ReportgroupParameter(QString json);
+    Common_ReportgroupParameter(const QString &json);
     ~Common_ReportgroupParameter() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getSReportgroupParameterName() const;
     void setSReportgroupParameterName(const QString &s_reportgroup_parameter_name);

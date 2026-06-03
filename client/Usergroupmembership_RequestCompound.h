@@ -30,13 +30,13 @@ namespace Ezmaxapi {
 class Usergroupmembership_RequestCompound : public Object {
 public:
     Usergroupmembership_RequestCompound();
-    Usergroupmembership_RequestCompound(QString json);
+    Usergroupmembership_RequestCompound(const QString &json);
     ~Usergroupmembership_RequestCompound() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiUsergroupmembershipId() const;
     void setPkiUsergroupmembershipId(const qint32 &pki_usergroupmembership_id);

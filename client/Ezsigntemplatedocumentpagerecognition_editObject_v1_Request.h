@@ -32,13 +32,13 @@ class Ezsigntemplatedocumentpagerecognition_RequestCompound;
 class Ezsigntemplatedocumentpagerecognition_editObject_v1_Request : public Object {
 public:
     Ezsigntemplatedocumentpagerecognition_editObject_v1_Request();
-    Ezsigntemplatedocumentpagerecognition_editObject_v1_Request(QString json);
+    Ezsigntemplatedocumentpagerecognition_editObject_v1_Request(const QString &json);
     ~Ezsigntemplatedocumentpagerecognition_editObject_v1_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Ezsigntemplatedocumentpagerecognition_RequestCompound getObjEzsigntemplatedocumentpagerecognition() const;
     void setObjEzsigntemplatedocumentpagerecognition(const Ezsigntemplatedocumentpagerecognition_RequestCompound &obj_ezsigntemplatedocumentpagerecognition);

@@ -33,13 +33,13 @@ class Modulegroup_ResponseCompound;
 class Apikey_getPermissions_v1_Response_mPayload : public Object {
 public:
     Apikey_getPermissions_v1_Response_mPayload();
-    Apikey_getPermissions_v1_Response_mPayload(QString json);
+    Apikey_getPermissions_v1_Response_mPayload(const QString &json);
     ~Apikey_getPermissions_v1_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Modulegroup_ResponseCompound> getAObjModulegroup() const;
     void setAObjModulegroup(const QList<Modulegroup_ResponseCompound> &a_obj_modulegroup);

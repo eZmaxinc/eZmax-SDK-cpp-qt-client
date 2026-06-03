@@ -34,13 +34,13 @@ class Multilingual_EzdoctemplatedocumentName;
 class Ezdoctemplatedocument_Response : public Object {
 public:
     Ezdoctemplatedocument_Response();
-    Ezdoctemplatedocument_Response(QString json);
+    Ezdoctemplatedocument_Response(const QString &json);
     ~Ezdoctemplatedocument_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiEzdoctemplatedocumentId() const;
     void setPkiEzdoctemplatedocumentId(const qint32 &pki_ezdoctemplatedocument_id);

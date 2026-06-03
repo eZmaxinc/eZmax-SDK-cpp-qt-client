@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Infrastructureregion_getAutocomplete_v2_Response_mPayload::Infrastructureregion_getAutocomplete_v2_Response_mPayload(QString json) {
+Infrastructureregion_getAutocomplete_v2_Response_mPayload::Infrastructureregion_getAutocomplete_v2_Response_mPayload(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -38,7 +38,7 @@ void Infrastructureregion_getAutocomplete_v2_Response_mPayload::initializeModel(
     m_a_obj_infrastructureregion_isValid = false;
 }
 
-void Infrastructureregion_getAutocomplete_v2_Response_mPayload::fromJson(QString jsonString) {
+void Infrastructureregion_getAutocomplete_v2_Response_mPayload::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

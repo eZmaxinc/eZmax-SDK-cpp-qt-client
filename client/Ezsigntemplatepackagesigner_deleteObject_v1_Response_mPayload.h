@@ -30,13 +30,13 @@ namespace Ezmaxapi {
 class Ezsigntemplatepackagesigner_deleteObject_v1_Response_mPayload : public Object {
 public:
     Ezsigntemplatepackagesigner_deleteObject_v1_Response_mPayload();
-    Ezsigntemplatepackagesigner_deleteObject_v1_Response_mPayload(QString json);
+    Ezsigntemplatepackagesigner_deleteObject_v1_Response_mPayload(const QString &json);
     ~Ezsigntemplatepackagesigner_deleteObject_v1_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     bool isBEzsigntemplatepackageNeedvalidation() const;
     void setBEzsigntemplatepackageNeedvalidation(const bool &b_ezsigntemplatepackage_needvalidation);

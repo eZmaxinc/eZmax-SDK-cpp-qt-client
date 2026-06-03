@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Activesession_generateFederationToken_v1_Request::Activesession_generateFederationToken_v1_Request(QString json) {
+Activesession_generateFederationToken_v1_Request::Activesession_generateFederationToken_v1_Request(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -38,7 +38,7 @@ void Activesession_generateFederationToken_v1_Request::initializeModel() {
     m_fks_ezmaxcustomer_code_isValid = false;
 }
 
-void Activesession_generateFederationToken_v1_Request::fromJson(QString jsonString) {
+void Activesession_generateFederationToken_v1_Request::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

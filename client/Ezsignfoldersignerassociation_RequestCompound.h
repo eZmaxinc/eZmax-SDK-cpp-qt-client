@@ -33,13 +33,13 @@ class Ezsignsigner_RequestCompound;
 class Ezsignfoldersignerassociation_RequestCompound : public Object {
 public:
     Ezsignfoldersignerassociation_RequestCompound();
-    Ezsignfoldersignerassociation_RequestCompound(QString json);
+    Ezsignfoldersignerassociation_RequestCompound(const QString &json);
     ~Ezsignfoldersignerassociation_RequestCompound() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiEzsignfoldersignerassociationId() const;
     void setPkiEzsignfoldersignerassociationId(const qint32 &pki_ezsignfoldersignerassociation_id);

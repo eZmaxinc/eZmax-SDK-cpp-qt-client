@@ -33,13 +33,13 @@ class Custom_AttachmentImportIntoEDM_Request;
 class Inscriptionnotauthenticated_importIntoEDM_v1_Request : public Object {
 public:
     Inscriptionnotauthenticated_importIntoEDM_v1_Request();
-    Inscriptionnotauthenticated_importIntoEDM_v1_Request(QString json);
+    Inscriptionnotauthenticated_importIntoEDM_v1_Request(const QString &json);
     ~Inscriptionnotauthenticated_importIntoEDM_v1_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Custom_AttachmentImportIntoEDM_Request> getAObjAttachment() const;
     void setAObjAttachment(const QList<Custom_AttachmentImportIntoEDM_Request> &a_obj_attachment);

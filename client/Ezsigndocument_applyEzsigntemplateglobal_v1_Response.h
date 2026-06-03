@@ -13,7 +13,7 @@
 /*
  * Ezsigndocument_applyEzsigntemplateglobal_v1_Response.h
  *
- * Response for POST /2/object/ezsigndocument/{pkiEzsigndocument}/applyEzsigntemplate
+ * Response for POST /1/object/ezsigndocument/{pkiEzsigndocument}/applyEzsigntemplateglobal
  */
 
 #ifndef Ezsigndocument_applyEzsigntemplateglobal_v1_Response_H
@@ -37,13 +37,13 @@ class Common_Response_Warning;
 class Ezsigndocument_applyEzsigntemplateglobal_v1_Response : public Object {
 public:
     Ezsigndocument_applyEzsigntemplateglobal_v1_Response();
-    Ezsigndocument_applyEzsigntemplateglobal_v1_Response(QString json);
+    Ezsigndocument_applyEzsigntemplateglobal_v1_Response(const QString &json);
     ~Ezsigndocument_applyEzsigntemplateglobal_v1_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Common_Response_objDebugPayload getObjDebugPayload() const;
     void setObjDebugPayload(const Common_Response_objDebugPayload &obj_debug_payload);

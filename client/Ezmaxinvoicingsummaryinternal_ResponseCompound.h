@@ -36,13 +36,13 @@ class Ezmaxinvoicingsummaryinternaldetail_ResponseCompound;
 class Ezmaxinvoicingsummaryinternal_ResponseCompound : public Object {
 public:
     Ezmaxinvoicingsummaryinternal_ResponseCompound();
-    Ezmaxinvoicingsummaryinternal_ResponseCompound(QString json);
+    Ezmaxinvoicingsummaryinternal_ResponseCompound(const QString &json);
     ~Ezmaxinvoicingsummaryinternal_ResponseCompound() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiEzmaxinvoicingsummaryinternalId() const;
     void setPkiEzmaxinvoicingsummaryinternalId(const qint32 &pki_ezmaxinvoicingsummaryinternal_id);

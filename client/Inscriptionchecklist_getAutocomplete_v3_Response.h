@@ -36,13 +36,13 @@ class Inscriptionchecklist_getAutocomplete_v3_Response_mPayload;
 class Inscriptionchecklist_getAutocomplete_v3_Response : public Object {
 public:
     Inscriptionchecklist_getAutocomplete_v3_Response();
-    Inscriptionchecklist_getAutocomplete_v3_Response(QString json);
+    Inscriptionchecklist_getAutocomplete_v3_Response(const QString &json);
     ~Inscriptionchecklist_getAutocomplete_v3_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Common_Response_objDebugPayload getObjDebugPayload() const;
     void setObjDebugPayload(const Common_Response_objDebugPayload &obj_debug_payload);

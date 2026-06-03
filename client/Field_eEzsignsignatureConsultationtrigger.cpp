@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_eEzsignsignatureConsultationtrigger::Field_eEzsignsignatureConsultationtrigger(QString json) {
+Field_eEzsignsignatureConsultationtrigger::Field_eEzsignsignatureConsultationtrigger(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_eEzsignsignatureConsultationtrigger::initializeModel() {
     m_value = eField_eEzsignsignatureConsultationtrigger::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_eEzsignsignatureConsultationtrigger::fromJson(QString jsonString) {
+void Field_eEzsignsignatureConsultationtrigger::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("Automatic", Qt::CaseInsensitive) == 0) {
         m_value = eField_eEzsignsignatureConsultationtrigger::AUTOMATIC;
@@ -47,6 +47,10 @@ void Field_eEzsignsignatureConsultationtrigger::fromJson(QString jsonString) {
     }
     else if ( jsonString.compare("Manual", Qt::CaseInsensitive) == 0) {
         m_value = eField_eEzsignsignatureConsultationtrigger::MANUAL;
+        m_value_isSet = m_value_isValid = true;
+    }
+    else if ( jsonString.compare("Optional", Qt::CaseInsensitive) == 0) {
+        m_value = eField_eEzsignsignatureConsultationtrigger::OPTIONAL;
         m_value_isSet = m_value_isValid = true;
     }
 }
@@ -64,6 +68,9 @@ QString Field_eEzsignsignatureConsultationtrigger::asJson() const {
             break;
         case eField_eEzsignsignatureConsultationtrigger::MANUAL:
             val = "Manual";
+            break;
+        case eField_eEzsignsignatureConsultationtrigger::OPTIONAL:
+            val = "Optional";
             break;
         default:
             break;

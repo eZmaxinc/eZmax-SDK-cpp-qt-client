@@ -45,6 +45,7 @@ public:
     void initializeServerConfigs();
     int setDefaultServerValue(int serverIndex,const QString &operation, const QString &variable,const QString &val);
     void setServerIndex(const QString &operation, int serverIndex);
+    void setServerIndex(int serverIndex);
     void setApiKey(const QString &apiKeyName, const QString &apiKey);
     void setBearerToken(const QString &token);
     void setUsername(const QString &username);
@@ -86,6 +87,13 @@ public:
 
 
 private:
+    enum class OauthMethod : int {
+        INVALID_VALUE_OPENAPI_GENERATED = 0,
+        ImplicitFlow = 1,
+        AuthorizationFlow = 2,
+        ClientCredentialsFlow = 3,
+        ResourceOwnerPasswordFlow = 4
+    };
     QMap<QString,int> _serverIndices;
     QMap<QString,QList<ServerConfiguration>> _serverConfigs;
     QMap<QString, QString> _apiKeys;
@@ -105,7 +113,7 @@ private:
     OauthImplicit _implicitFlow;
     OauthCredentials _credentialFlow;
     OauthPassword _passwordFlow;
-    int _OauthMethod = 0;
+    OauthMethod _OauthMethod = OauthMethod::INVALID_VALUE_OPENAPI_GENERATED;
 
     void permissionCreateObjectV1Callback(HttpRequestWorker *worker);
     void permissionDeleteObjectV1Callback(HttpRequestWorker *worker);
@@ -125,30 +133,14 @@ Q_SIGNALS:
     void permissionEditObjectV1SignalFull(HttpRequestWorker *worker, Permission_editObject_v1_Response summary);
     void permissionGetObjectV2SignalFull(HttpRequestWorker *worker, Permission_getObject_v2_Response summary);
 
-    Q_DECL_DEPRECATED_X("Use permissionCreateObjectV1SignalError() instead")
-    void permissionCreateObjectV1SignalE(Permission_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void permissionCreateObjectV1SignalError(Permission_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use permissionDeleteObjectV1SignalError() instead")
-    void permissionDeleteObjectV1SignalE(Permission_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void permissionDeleteObjectV1SignalError(Permission_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use permissionEditObjectV1SignalError() instead")
-    void permissionEditObjectV1SignalE(Permission_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void permissionEditObjectV1SignalError(Permission_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use permissionGetObjectV2SignalError() instead")
-    void permissionGetObjectV2SignalE(Permission_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void permissionGetObjectV2SignalError(Permission_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
-    Q_DECL_DEPRECATED_X("Use permissionCreateObjectV1SignalErrorFull() instead")
-    void permissionCreateObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void permissionCreateObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use permissionDeleteObjectV1SignalErrorFull() instead")
-    void permissionDeleteObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void permissionDeleteObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use permissionEditObjectV1SignalErrorFull() instead")
-    void permissionEditObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void permissionEditObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use permissionGetObjectV2SignalErrorFull() instead")
-    void permissionGetObjectV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void permissionGetObjectV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();

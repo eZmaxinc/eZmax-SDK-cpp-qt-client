@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_eActivesessionEzsignprepaid::Field_eActivesessionEzsignprepaid(QString json) {
+Field_eActivesessionEzsignprepaid::Field_eActivesessionEzsignprepaid(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_eActivesessionEzsignprepaid::initializeModel() {
     m_value = eField_eActivesessionEzsignprepaid::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_eActivesessionEzsignprepaid::fromJson(QString jsonString) {
+void Field_eActivesessionEzsignprepaid::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("No", Qt::CaseInsensitive) == 0) {
         m_value = eField_eActivesessionEzsignprepaid::NO;

@@ -32,13 +32,13 @@ namespace Ezmaxapi {
 class Common_File : public Object {
 public:
     Common_File();
-    Common_File(QString json);
+    Common_File(const QString &json);
     ~Common_File() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getSFileName() const;
     void setSFileName(const QString &s_file_name);

@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Discussion_RequestCompound::Discussion_RequestCompound(QString json) {
+Discussion_RequestCompound::Discussion_RequestCompound(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -44,7 +44,7 @@ void Discussion_RequestCompound::initializeModel() {
     m_b_discussion_closed_isValid = false;
 }
 
-void Discussion_RequestCompound::fromJson(QString jsonString) {
+void Discussion_RequestCompound::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

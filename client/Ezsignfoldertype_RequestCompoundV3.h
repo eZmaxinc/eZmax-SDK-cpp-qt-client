@@ -42,13 +42,13 @@ class Multilingual_EzsignfoldertypeName;
 class Ezsignfoldertype_RequestCompoundV3 : public Object {
 public:
     Ezsignfoldertype_RequestCompoundV3();
-    Ezsignfoldertype_RequestCompoundV3(QString json);
+    Ezsignfoldertype_RequestCompoundV3(const QString &json);
     ~Ezsignfoldertype_RequestCompoundV3() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiEzsignfoldertypeId() const;
     void setPkiEzsignfoldertypeId(const qint32 &pki_ezsignfoldertype_id);
@@ -244,6 +244,26 @@ public:
     void setBEzsignfoldertypeReassigngroup(const bool &b_ezsignfoldertype_reassigngroup);
     bool is_b_ezsignfoldertype_reassigngroup_Set() const;
     bool is_b_ezsignfoldertype_reassigngroup_Valid() const;
+
+    bool isBEzsignfoldertypeSenddocumentmergetoemail() const;
+    void setBEzsignfoldertypeSenddocumentmergetoemail(const bool &b_ezsignfoldertype_senddocumentmergetoemail);
+    bool is_b_ezsignfoldertype_senddocumentmergetoemail_Set() const;
+    bool is_b_ezsignfoldertype_senddocumentmergetoemail_Valid() const;
+
+    bool isBEzsignfoldertypeSenddocumentmergetoezsignsigner() const;
+    void setBEzsignfoldertypeSenddocumentmergetoezsignsigner(const bool &b_ezsignfoldertype_senddocumentmergetoezsignsigner);
+    bool is_b_ezsignfoldertype_senddocumentmergetoezsignsigner_Set() const;
+    bool is_b_ezsignfoldertype_senddocumentmergetoezsignsigner_Valid() const;
+
+    bool isBEzsignfoldertypeSenddocumentmergetoreceivealldocument() const;
+    void setBEzsignfoldertypeSenddocumentmergetoreceivealldocument(const bool &b_ezsignfoldertype_senddocumentmergetoreceivealldocument);
+    bool is_b_ezsignfoldertype_senddocumentmergetoreceivealldocument_Set() const;
+    bool is_b_ezsignfoldertype_senddocumentmergetoreceivealldocument_Valid() const;
+
+    bool isBEzsignfoldertypeSenddocumentmergetouser() const;
+    void setBEzsignfoldertypeSenddocumentmergetouser(const bool &b_ezsignfoldertype_senddocumentmergetouser);
+    bool is_b_ezsignfoldertype_senddocumentmergetouser_Set() const;
+    bool is_b_ezsignfoldertype_senddocumentmergetouser_Valid() const;
 
     bool isBEzsignfoldertypeSendsignedtoezsignsigner() const;
     void setBEzsignfoldertypeSendsignedtoezsignsigner(const bool &b_ezsignfoldertype_sendsignedtoezsignsigner);
@@ -551,6 +571,22 @@ private:
     bool m_b_ezsignfoldertype_reassigngroup;
     bool m_b_ezsignfoldertype_reassigngroup_isSet;
     bool m_b_ezsignfoldertype_reassigngroup_isValid;
+
+    bool m_b_ezsignfoldertype_senddocumentmergetoemail;
+    bool m_b_ezsignfoldertype_senddocumentmergetoemail_isSet;
+    bool m_b_ezsignfoldertype_senddocumentmergetoemail_isValid;
+
+    bool m_b_ezsignfoldertype_senddocumentmergetoezsignsigner;
+    bool m_b_ezsignfoldertype_senddocumentmergetoezsignsigner_isSet;
+    bool m_b_ezsignfoldertype_senddocumentmergetoezsignsigner_isValid;
+
+    bool m_b_ezsignfoldertype_senddocumentmergetoreceivealldocument;
+    bool m_b_ezsignfoldertype_senddocumentmergetoreceivealldocument_isSet;
+    bool m_b_ezsignfoldertype_senddocumentmergetoreceivealldocument_isValid;
+
+    bool m_b_ezsignfoldertype_senddocumentmergetouser;
+    bool m_b_ezsignfoldertype_senddocumentmergetouser_isSet;
+    bool m_b_ezsignfoldertype_senddocumentmergetouser_isValid;
 
     bool m_b_ezsignfoldertype_sendsignedtoezsignsigner;
     bool m_b_ezsignfoldertype_sendsignedtoezsignsigner_isSet;

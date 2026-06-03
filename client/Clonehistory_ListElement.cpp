@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Clonehistory_ListElement::Clonehistory_ListElement(QString json) {
+Clonehistory_ListElement::Clonehistory_ListElement(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -68,7 +68,7 @@ void Clonehistory_ListElement::initializeModel() {
     m_s_user_lastname_cloned_isValid = false;
 }
 
-void Clonehistory_ListElement::fromJson(QString jsonString) {
+void Clonehistory_ListElement::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

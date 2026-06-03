@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Custom_FormDataDocument_Response::Custom_FormDataDocument_Response(QString json) {
+Custom_FormDataDocument_Response::Custom_FormDataDocument_Response(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -50,7 +50,7 @@ void Custom_FormDataDocument_Response::initializeModel() {
     m_a_obj_form_data_signer_isValid = false;
 }
 
-void Custom_FormDataDocument_Response::fromJson(QString jsonString) {
+void Custom_FormDataDocument_Response::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

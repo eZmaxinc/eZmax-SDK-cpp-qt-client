@@ -37,13 +37,13 @@ class Custom_Ezsignfolderezsigntemplatepublic_Response;
 class Ezsigntemplatepublic_ResponseCompound : public Object {
 public:
     Ezsigntemplatepublic_ResponseCompound();
-    Ezsigntemplatepublic_ResponseCompound(QString json);
+    Ezsigntemplatepublic_ResponseCompound(const QString &json);
     ~Ezsigntemplatepublic_ResponseCompound() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiEzsigntemplatepublicId() const;
     void setPkiEzsigntemplatepublicId(const qint32 &pki_ezsigntemplatepublic_id);

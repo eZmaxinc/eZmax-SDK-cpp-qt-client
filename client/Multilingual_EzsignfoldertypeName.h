@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Multilingual_EzsignfoldertypeName : public Object {
 public:
     Multilingual_EzsignfoldertypeName();
-    Multilingual_EzsignfoldertypeName(QString json);
+    Multilingual_EzsignfoldertypeName(const QString &json);
     ~Multilingual_EzsignfoldertypeName() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getSEzsignfoldertypeName1() const;
     void setSEzsignfoldertypeName1(const QString &s_ezsignfoldertype_name1);

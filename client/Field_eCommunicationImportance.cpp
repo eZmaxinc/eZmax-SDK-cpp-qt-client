@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_eCommunicationImportance::Field_eCommunicationImportance(QString json) {
+Field_eCommunicationImportance::Field_eCommunicationImportance(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_eCommunicationImportance::initializeModel() {
     m_value = eField_eCommunicationImportance::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_eCommunicationImportance::fromJson(QString jsonString) {
+void Field_eCommunicationImportance::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("High", Qt::CaseInsensitive) == 0) {
         m_value = eField_eCommunicationImportance::HIGH;

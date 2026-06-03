@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Activesession_ResponseCompound_User::Activesession_ResponseCompound_User(QString json) {
+Activesession_ResponseCompound_User::Activesession_ResponseCompound_User(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -71,7 +71,7 @@ void Activesession_ResponseCompound_User::initializeModel() {
     m_i_user_frontendgoal_isValid = false;
 }
 
-void Activesession_ResponseCompound_User::fromJson(QString jsonString) {
+void Activesession_ResponseCompound_User::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

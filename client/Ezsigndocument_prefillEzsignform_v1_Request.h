@@ -33,13 +33,13 @@ class Custom_PrefillEzsignformValue_Request;
 class Ezsigndocument_prefillEzsignform_v1_Request : public Object {
 public:
     Ezsigndocument_prefillEzsignform_v1_Request();
-    Ezsigndocument_prefillEzsignform_v1_Request(QString json);
+    Ezsigndocument_prefillEzsignform_v1_Request(const QString &json);
     ~Ezsigndocument_prefillEzsignform_v1_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Custom_PrefillEzsignformValue_Request> getAObjPrefillezsignformvalue() const;
     void setAObjPrefillezsignformvalue(const QList<Custom_PrefillEzsignformValue_Request> &a_obj_prefillezsignformvalue);

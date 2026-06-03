@@ -30,13 +30,13 @@ namespace Ezmaxapi {
 class Field_eOtherincomeRemunerationtype : public Enum {
 public:
     Field_eOtherincomeRemunerationtype();
-    Field_eOtherincomeRemunerationtype(QString json);
+    Field_eOtherincomeRemunerationtype(const QString &json);
     ~Field_eOtherincomeRemunerationtype() override;
 
     QString asJson() const override;
     QJsonValue asJsonValue() const override;
     void fromJsonValue(QJsonValue json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     enum class eField_eOtherincomeRemunerationtype {
         INVALID_VALUE_OPENAPI_GENERATED = 0,

@@ -32,13 +32,13 @@ class Usergroupexternal_RequestCompound;
 class Usergroupexternal_editObject_v1_Request : public Object {
 public:
     Usergroupexternal_editObject_v1_Request();
-    Usergroupexternal_editObject_v1_Request(QString json);
+    Usergroupexternal_editObject_v1_Request(const QString &json);
     ~Usergroupexternal_editObject_v1_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Usergroupexternal_RequestCompound getObjUsergroupexternal() const;
     void setObjUsergroupexternal(const Usergroupexternal_RequestCompound &obj_usergroupexternal);

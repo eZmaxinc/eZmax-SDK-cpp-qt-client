@@ -34,13 +34,13 @@ namespace Ezmaxapi {
 class Webhook_ListElement : public Object {
 public:
     Webhook_ListElement();
-    Webhook_ListElement(QString json);
+    Webhook_ListElement(const QString &json);
     ~Webhook_ListElement() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiWebhookId() const;
     void setPkiWebhookId(const qint32 &pki_webhook_id);

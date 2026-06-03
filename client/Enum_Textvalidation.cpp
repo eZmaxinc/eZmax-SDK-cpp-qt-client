@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Enum_Textvalidation::Enum_Textvalidation(QString json) {
+Enum_Textvalidation::Enum_Textvalidation(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Enum_Textvalidation::initializeModel() {
     m_value = eEnum_Textvalidation::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Enum_Textvalidation::fromJson(QString jsonString) {
+void Enum_Textvalidation::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("None", Qt::CaseInsensitive) == 0) {
         m_value = eEnum_Textvalidation::NONE;

@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Multilingual_ApikeyDescription : public Object {
 public:
     Multilingual_ApikeyDescription();
-    Multilingual_ApikeyDescription(QString json);
+    Multilingual_ApikeyDescription(const QString &json);
     ~Multilingual_ApikeyDescription() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getSApikeyDescription1() const;
     void setSApikeyDescription1(const QString &s_apikey_description1);

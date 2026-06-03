@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Attachmentlog_ResponseCompound::Attachmentlog_ResponseCompound(QString json) {
+Attachmentlog_ResponseCompound::Attachmentlog_ResponseCompound(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -50,7 +50,7 @@ void Attachmentlog_ResponseCompound::initializeModel() {
     m_s_attachmentlog_detail_isValid = false;
 }
 
-void Attachmentlog_ResponseCompound::fromJson(QString jsonString) {
+void Attachmentlog_ResponseCompound::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

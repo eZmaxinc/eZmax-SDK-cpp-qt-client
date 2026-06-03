@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Common_Response_Error_CreditcardValidation::Common_Response_Error_CreditcardValidation(QString json) {
+Common_Response_Error_CreditcardValidation::Common_Response_Error_CreditcardValidation(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -47,7 +47,7 @@ void Common_Response_Error_CreditcardValidation::initializeModel() {
     m_obj_creditcardtransactionresponse_isValid = false;
 }
 
-void Common_Response_Error_CreditcardValidation::fromJson(QString jsonString) {
+void Common_Response_Error_CreditcardValidation::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

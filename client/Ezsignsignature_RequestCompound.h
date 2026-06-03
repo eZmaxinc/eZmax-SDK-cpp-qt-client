@@ -47,13 +47,13 @@ class Ezsignsignaturepaymentdetail_RequestCompound;
 class Ezsignsignature_RequestCompound : public Object {
 public:
     Ezsignsignature_RequestCompound();
-    Ezsignsignature_RequestCompound(QString json);
+    Ezsignsignature_RequestCompound(const QString &json);
     ~Ezsignsignature_RequestCompound() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiEzsignsignatureId() const;
     void setPkiEzsignsignatureId(const qint32 &pki_ezsignsignature_id);

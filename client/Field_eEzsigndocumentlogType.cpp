@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_eEzsigndocumentlogType::Field_eEzsigndocumentlogType(QString json) {
+Field_eEzsigndocumentlogType::Field_eEzsigndocumentlogType(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_eEzsigndocumentlogType::initializeModel() {
     m_value = eField_eEzsigndocumentlogType::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_eEzsigndocumentlogType::fromJson(QString jsonString) {
+void Field_eEzsigndocumentlogType::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("Clone", Qt::CaseInsensitive) == 0) {
         m_value = eField_eEzsigndocumentlogType::CLONE;

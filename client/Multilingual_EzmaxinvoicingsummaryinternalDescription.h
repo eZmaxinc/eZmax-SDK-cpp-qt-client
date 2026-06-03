@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Multilingual_EzmaxinvoicingsummaryinternalDescription : public Object {
 public:
     Multilingual_EzmaxinvoicingsummaryinternalDescription();
-    Multilingual_EzmaxinvoicingsummaryinternalDescription(QString json);
+    Multilingual_EzmaxinvoicingsummaryinternalDescription(const QString &json);
     ~Multilingual_EzmaxinvoicingsummaryinternalDescription() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getSEzmaxinvoicingsummaryinternalDescription1() const;
     void setSEzmaxinvoicingsummaryinternalDescription1(const QString &s_ezmaxinvoicingsummaryinternal_description1);

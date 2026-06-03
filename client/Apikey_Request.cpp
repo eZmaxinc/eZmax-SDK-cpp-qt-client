@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Apikey_Request::Apikey_Request(QString json) {
+Apikey_Request::Apikey_Request(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -50,7 +50,7 @@ void Apikey_Request::initializeModel() {
     m_b_apikey_issigned_isValid = false;
 }
 
-void Apikey_Request::fromJson(QString jsonString) {
+void Apikey_Request::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

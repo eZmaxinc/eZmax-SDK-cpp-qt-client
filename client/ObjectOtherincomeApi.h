@@ -48,6 +48,7 @@ public:
     void initializeServerConfigs();
     int setDefaultServerValue(int serverIndex,const QString &operation, const QString &variable,const QString &val);
     void setServerIndex(const QString &operation, int serverIndex);
+    void setServerIndex(int serverIndex);
     void setApiKey(const QString &apiKeyName, const QString &apiKey);
     void setBearerToken(const QString &token);
     void setUsername(const QString &username);
@@ -103,6 +104,13 @@ public:
 
 
 private:
+    enum class OauthMethod : int {
+        INVALID_VALUE_OPENAPI_GENERATED = 0,
+        ImplicitFlow = 1,
+        AuthorizationFlow = 2,
+        ClientCredentialsFlow = 3,
+        ResourceOwnerPasswordFlow = 4
+    };
     QMap<QString,int> _serverIndices;
     QMap<QString,QList<ServerConfiguration>> _serverConfigs;
     QMap<QString, QString> _apiKeys;
@@ -122,7 +130,7 @@ private:
     OauthImplicit _implicitFlow;
     OauthCredentials _credentialFlow;
     OauthPassword _passwordFlow;
-    int _OauthMethod = 0;
+    OauthMethod _OauthMethod = OauthMethod::INVALID_VALUE_OPENAPI_GENERATED;
 
     void otherincomeGetCommunicationCountV1Callback(HttpRequestWorker *worker);
     void otherincomeGetCommunicationListV1Callback(HttpRequestWorker *worker);
@@ -148,42 +156,18 @@ Q_SIGNALS:
     void otherincomeGetListV1SignalFull(HttpRequestWorker *worker, Otherincome_getList_v1_Response summary);
     void otherincomeImportIntoEDMV1SignalFull(HttpRequestWorker *worker, Otherincome_importIntoEDM_v1_Response summary);
 
-    Q_DECL_DEPRECATED_X("Use otherincomeGetCommunicationCountV1SignalError() instead")
-    void otherincomeGetCommunicationCountV1SignalE(Otherincome_getCommunicationCount_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void otherincomeGetCommunicationCountV1SignalError(Otherincome_getCommunicationCount_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use otherincomeGetCommunicationListV1SignalError() instead")
-    void otherincomeGetCommunicationListV1SignalE(Otherincome_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void otherincomeGetCommunicationListV1SignalError(Otherincome_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use otherincomeGetCommunicationrecipientsV1SignalError() instead")
-    void otherincomeGetCommunicationrecipientsV1SignalE(Otherincome_getCommunicationrecipients_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void otherincomeGetCommunicationrecipientsV1SignalError(Otherincome_getCommunicationrecipients_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use otherincomeGetCommunicationsendersV1SignalError() instead")
-    void otherincomeGetCommunicationsendersV1SignalE(Otherincome_getCommunicationsenders_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void otherincomeGetCommunicationsendersV1SignalError(Otherincome_getCommunicationsenders_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use otherincomeGetListV1SignalError() instead")
-    void otherincomeGetListV1SignalE(Otherincome_getList_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void otherincomeGetListV1SignalError(Otherincome_getList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use otherincomeImportIntoEDMV1SignalError() instead")
-    void otherincomeImportIntoEDMV1SignalE(Otherincome_importIntoEDM_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void otherincomeImportIntoEDMV1SignalError(Otherincome_importIntoEDM_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
-    Q_DECL_DEPRECATED_X("Use otherincomeGetCommunicationCountV1SignalErrorFull() instead")
-    void otherincomeGetCommunicationCountV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void otherincomeGetCommunicationCountV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use otherincomeGetCommunicationListV1SignalErrorFull() instead")
-    void otherincomeGetCommunicationListV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void otherincomeGetCommunicationListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use otherincomeGetCommunicationrecipientsV1SignalErrorFull() instead")
-    void otherincomeGetCommunicationrecipientsV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void otherincomeGetCommunicationrecipientsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use otherincomeGetCommunicationsendersV1SignalErrorFull() instead")
-    void otherincomeGetCommunicationsendersV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void otherincomeGetCommunicationsendersV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use otherincomeGetListV1SignalErrorFull() instead")
-    void otherincomeGetListV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void otherincomeGetListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use otherincomeImportIntoEDMV1SignalErrorFull() instead")
-    void otherincomeImportIntoEDMV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void otherincomeImportIntoEDMV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();

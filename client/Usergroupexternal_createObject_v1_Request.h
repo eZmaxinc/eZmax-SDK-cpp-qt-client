@@ -33,13 +33,13 @@ class Usergroupexternal_RequestCompound;
 class Usergroupexternal_createObject_v1_Request : public Object {
 public:
     Usergroupexternal_createObject_v1_Request();
-    Usergroupexternal_createObject_v1_Request(QString json);
+    Usergroupexternal_createObject_v1_Request(const QString &json);
     ~Usergroupexternal_createObject_v1_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Usergroupexternal_RequestCompound> getAObjUsergroupexternal() const;
     void setAObjUsergroupexternal(const QList<Usergroupexternal_RequestCompound> &a_obj_usergroupexternal);

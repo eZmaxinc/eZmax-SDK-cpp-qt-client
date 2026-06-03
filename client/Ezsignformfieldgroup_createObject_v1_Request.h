@@ -33,13 +33,13 @@ class Ezsignformfieldgroup_RequestCompound;
 class Ezsignformfieldgroup_createObject_v1_Request : public Object {
 public:
     Ezsignformfieldgroup_createObject_v1_Request();
-    Ezsignformfieldgroup_createObject_v1_Request(QString json);
+    Ezsignformfieldgroup_createObject_v1_Request(const QString &json);
     ~Ezsignformfieldgroup_createObject_v1_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Ezsignformfieldgroup_RequestCompound> getAObjEzsignformfieldgroup() const;
     void setAObjEzsignformfieldgroup(const QList<Ezsignformfieldgroup_RequestCompound> &a_obj_ezsignformfieldgroup);

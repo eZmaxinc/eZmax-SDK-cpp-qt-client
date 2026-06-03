@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_eEzsigntemplateformfieldgroupType::Field_eEzsigntemplateformfieldgroupType(QString json) {
+Field_eEzsigntemplateformfieldgroupType::Field_eEzsigntemplateformfieldgroupType(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_eEzsigntemplateformfieldgroupType::initializeModel() {
     m_value = eField_eEzsigntemplateformfieldgroupType::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_eEzsigntemplateformfieldgroupType::fromJson(QString jsonString) {
+void Field_eEzsigntemplateformfieldgroupType::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("Text", Qt::CaseInsensitive) == 0) {
         m_value = eField_eEzsigntemplateformfieldgroupType::TEXT;

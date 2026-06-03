@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Common_Auditdetail : public Object {
 public:
     Common_Auditdetail();
-    Common_Auditdetail(QString json);
+    Common_Auditdetail(const QString &json);
     ~Common_Auditdetail() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getFkiUserId() const;
     void setFkiUserId(const qint32 &fki_user_id);

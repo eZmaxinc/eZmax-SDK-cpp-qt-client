@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_eDiscussionmessageStatus::Field_eDiscussionmessageStatus(QString json) {
+Field_eDiscussionmessageStatus::Field_eDiscussionmessageStatus(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_eDiscussionmessageStatus::initializeModel() {
     m_value = eField_eDiscussionmessageStatus::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_eDiscussionmessageStatus::fromJson(QString jsonString) {
+void Field_eDiscussionmessageStatus::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("New", Qt::CaseInsensitive) == 0) {
         m_value = eField_eDiscussionmessageStatus::NEW;

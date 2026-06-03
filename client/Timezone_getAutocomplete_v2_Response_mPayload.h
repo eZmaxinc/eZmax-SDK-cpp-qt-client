@@ -33,13 +33,13 @@ class Timezone_AutocompleteElement_Response;
 class Timezone_getAutocomplete_v2_Response_mPayload : public Object {
 public:
     Timezone_getAutocomplete_v2_Response_mPayload();
-    Timezone_getAutocomplete_v2_Response_mPayload(QString json);
+    Timezone_getAutocomplete_v2_Response_mPayload(const QString &json);
     ~Timezone_getAutocomplete_v2_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Timezone_AutocompleteElement_Response> getAObjTimezone() const;
     void setAObjTimezone(const QList<Timezone_AutocompleteElement_Response> &a_obj_timezone);

@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Ezsigndocument_RequestPatch : public Object {
 public:
     Ezsigndocument_RequestPatch();
-    Ezsigndocument_RequestPatch(QString json);
+    Ezsigndocument_RequestPatch(const QString &json);
     ~Ezsigndocument_RequestPatch() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getDtEzsigndocumentDuedate() const;
     void setDtEzsigndocumentDuedate(const QString &dt_ezsigndocument_duedate);

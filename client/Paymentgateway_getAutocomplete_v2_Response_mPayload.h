@@ -33,13 +33,13 @@ class Paymentgateway_AutocompleteElement_Response;
 class Paymentgateway_getAutocomplete_v2_Response_mPayload : public Object {
 public:
     Paymentgateway_getAutocomplete_v2_Response_mPayload();
-    Paymentgateway_getAutocomplete_v2_Response_mPayload(QString json);
+    Paymentgateway_getAutocomplete_v2_Response_mPayload(const QString &json);
     ~Paymentgateway_getAutocomplete_v2_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Paymentgateway_AutocompleteElement_Response> getAObjPaymentgateway() const;
     void setAObjPaymentgateway(const QList<Paymentgateway_AutocompleteElement_Response> &a_obj_paymentgateway);

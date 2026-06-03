@@ -30,13 +30,13 @@ namespace Ezmaxapi {
 class Custom_WordPositionOccurence_Response : public Object {
 public:
     Custom_WordPositionOccurence_Response();
-    Custom_WordPositionOccurence_Response(QString json);
+    Custom_WordPositionOccurence_Response(const QString &json);
     ~Custom_WordPositionOccurence_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getIPage() const;
     void setIPage(const qint32 &i_page);

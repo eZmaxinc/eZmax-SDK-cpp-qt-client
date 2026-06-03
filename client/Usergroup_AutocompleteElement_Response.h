@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Usergroup_AutocompleteElement_Response : public Object {
 public:
     Usergroup_AutocompleteElement_Response();
-    Usergroup_AutocompleteElement_Response(QString json);
+    Usergroup_AutocompleteElement_Response(const QString &json);
     ~Usergroup_AutocompleteElement_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getSUsergroupNameX() const;
     void setSUsergroupNameX(const QString &s_usergroup_name_x);

@@ -33,13 +33,13 @@ class Secretquestion_AutocompleteElement_Response;
 class Secretquestion_getAutocomplete_v2_Response_mPayload : public Object {
 public:
     Secretquestion_getAutocomplete_v2_Response_mPayload();
-    Secretquestion_getAutocomplete_v2_Response_mPayload(QString json);
+    Secretquestion_getAutocomplete_v2_Response_mPayload(const QString &json);
     ~Secretquestion_getAutocomplete_v2_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Secretquestion_AutocompleteElement_Response> getAObjSecretquestion() const;
     void setAObjSecretquestion(const QList<Secretquestion_AutocompleteElement_Response> &a_obj_secretquestion);

@@ -33,13 +33,13 @@ class Franchisereferalincome_RequestCompound;
 class Franchisereferalincome_createObject_v2_Request : public Object {
 public:
     Franchisereferalincome_createObject_v2_Request();
-    Franchisereferalincome_createObject_v2_Request(QString json);
+    Franchisereferalincome_createObject_v2_Request(const QString &json);
     ~Franchisereferalincome_createObject_v2_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Franchisereferalincome_RequestCompound> getAObjFranchisereferalincome() const;
     void setAObjFranchisereferalincome(const QList<Franchisereferalincome_RequestCompound> &a_obj_franchisereferalincome);

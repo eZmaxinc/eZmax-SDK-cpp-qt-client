@@ -34,13 +34,13 @@ class Scim_User;
 class Scim_UserList : public Object {
 public:
     Scim_UserList();
-    Scim_UserList(QString json);
+    Scim_UserList(const QString &json);
     ~Scim_UserList() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getTotalResults() const;
     void setTotalResults(const qint32 &total_results);

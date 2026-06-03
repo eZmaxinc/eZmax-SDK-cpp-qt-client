@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_eEzsignsignatureFont::Field_eEzsignsignatureFont(QString json) {
+Field_eEzsignsignatureFont::Field_eEzsignsignatureFont(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_eEzsignsignatureFont::initializeModel() {
     m_value = eField_eEzsignsignatureFont::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_eEzsignsignatureFont::fromJson(QString jsonString) {
+void Field_eEzsignsignatureFont::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("Normal", Qt::CaseInsensitive) == 0) {
         m_value = eField_eEzsignsignatureFont::NORMAL;

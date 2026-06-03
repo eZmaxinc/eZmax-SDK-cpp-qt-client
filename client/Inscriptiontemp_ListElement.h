@@ -32,13 +32,13 @@ namespace Ezmaxapi {
 class Inscriptiontemp_ListElement : public Object {
 public:
     Inscriptiontemp_ListElement();
-    Inscriptiontemp_ListElement(QString json);
+    Inscriptiontemp_ListElement(const QString &json);
     ~Inscriptiontemp_ListElement() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiInscriptiontempId() const;
     void setPkiInscriptiontempId(const qint32 &pki_inscriptiontemp_id);

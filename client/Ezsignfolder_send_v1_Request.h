@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Ezsignfolder_send_v1_Request : public Object {
 public:
     Ezsignfolder_send_v1_Request();
-    Ezsignfolder_send_v1_Request(QString json);
+    Ezsignfolder_send_v1_Request(const QString &json);
     ~Ezsignfolder_send_v1_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getTExtraMessage() const;
     void setTExtraMessage(const QString &t_extra_message);

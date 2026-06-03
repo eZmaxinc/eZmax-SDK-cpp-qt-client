@@ -30,13 +30,13 @@ namespace Ezmaxapi {
 class Field_eEzsignfoldertypePdfanoncompliantaction : public Enum {
 public:
     Field_eEzsignfoldertypePdfanoncompliantaction();
-    Field_eEzsignfoldertypePdfanoncompliantaction(QString json);
+    Field_eEzsignfoldertypePdfanoncompliantaction(const QString &json);
     ~Field_eEzsignfoldertypePdfanoncompliantaction() override;
 
     QString asJson() const override;
     QJsonValue asJsonValue() const override;
     void fromJsonValue(QJsonValue json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     enum class eField_eEzsignfoldertypePdfanoncompliantaction {
         INVALID_VALUE_OPENAPI_GENERATED = 0,

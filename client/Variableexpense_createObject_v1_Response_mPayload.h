@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Variableexpense_createObject_v1_Response_mPayload : public Object {
 public:
     Variableexpense_createObject_v1_Response_mPayload();
-    Variableexpense_createObject_v1_Response_mPayload(QString json);
+    Variableexpense_createObject_v1_Response_mPayload(const QString &json);
     ~Variableexpense_createObject_v1_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<qint32> getAPkiVariableexpenseId() const;
     void setAPkiVariableexpenseId(const QList<qint32> &a_pki_variableexpense_id);

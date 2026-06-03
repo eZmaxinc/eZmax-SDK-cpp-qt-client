@@ -45,6 +45,7 @@ public:
     void initializeServerConfigs();
     int setDefaultServerValue(int serverIndex,const QString &operation, const QString &variable,const QString &val);
     void setServerIndex(const QString &operation, int serverIndex);
+    void setServerIndex(int serverIndex);
     void setApiKey(const QString &apiKeyName, const QString &apiKey);
     void setBearerToken(const QString &token);
     void setUsername(const QString &username);
@@ -86,6 +87,13 @@ public:
 
 
 private:
+    enum class OauthMethod : int {
+        INVALID_VALUE_OPENAPI_GENERATED = 0,
+        ImplicitFlow = 1,
+        AuthorizationFlow = 2,
+        ClientCredentialsFlow = 3,
+        ResourceOwnerPasswordFlow = 4
+    };
     QMap<QString,int> _serverIndices;
     QMap<QString,QList<ServerConfiguration>> _serverConfigs;
     QMap<QString, QString> _apiKeys;
@@ -105,7 +113,7 @@ private:
     OauthImplicit _implicitFlow;
     OauthCredentials _credentialFlow;
     OauthPassword _passwordFlow;
-    int _OauthMethod = 0;
+    OauthMethod _OauthMethod = OauthMethod::INVALID_VALUE_OPENAPI_GENERATED;
 
     void usergroupmembershipCreateObjectV1Callback(HttpRequestWorker *worker);
     void usergroupmembershipDeleteObjectV1Callback(HttpRequestWorker *worker);
@@ -125,30 +133,14 @@ Q_SIGNALS:
     void usergroupmembershipEditObjectV1SignalFull(HttpRequestWorker *worker, Usergroupmembership_editObject_v1_Response summary);
     void usergroupmembershipGetObjectV2SignalFull(HttpRequestWorker *worker, Usergroupmembership_getObject_v2_Response summary);
 
-    Q_DECL_DEPRECATED_X("Use usergroupmembershipCreateObjectV1SignalError() instead")
-    void usergroupmembershipCreateObjectV1SignalE(Usergroupmembership_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void usergroupmembershipCreateObjectV1SignalError(Usergroupmembership_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use usergroupmembershipDeleteObjectV1SignalError() instead")
-    void usergroupmembershipDeleteObjectV1SignalE(Usergroupmembership_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void usergroupmembershipDeleteObjectV1SignalError(Usergroupmembership_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use usergroupmembershipEditObjectV1SignalError() instead")
-    void usergroupmembershipEditObjectV1SignalE(Usergroupmembership_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void usergroupmembershipEditObjectV1SignalError(Usergroupmembership_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use usergroupmembershipGetObjectV2SignalError() instead")
-    void usergroupmembershipGetObjectV2SignalE(Usergroupmembership_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void usergroupmembershipGetObjectV2SignalError(Usergroupmembership_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
-    Q_DECL_DEPRECATED_X("Use usergroupmembershipCreateObjectV1SignalErrorFull() instead")
-    void usergroupmembershipCreateObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void usergroupmembershipCreateObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use usergroupmembershipDeleteObjectV1SignalErrorFull() instead")
-    void usergroupmembershipDeleteObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void usergroupmembershipDeleteObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use usergroupmembershipEditObjectV1SignalErrorFull() instead")
-    void usergroupmembershipEditObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void usergroupmembershipEditObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use usergroupmembershipGetObjectV2SignalErrorFull() instead")
-    void usergroupmembershipGetObjectV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void usergroupmembershipGetObjectV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();

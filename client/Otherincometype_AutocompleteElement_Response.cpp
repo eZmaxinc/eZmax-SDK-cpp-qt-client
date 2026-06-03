@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Otherincometype_AutocompleteElement_Response::Otherincometype_AutocompleteElement_Response(QString json) {
+Otherincometype_AutocompleteElement_Response::Otherincometype_AutocompleteElement_Response(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -44,7 +44,7 @@ void Otherincometype_AutocompleteElement_Response::initializeModel() {
     m_b_otherincometype_isactive_isValid = false;
 }
 
-void Otherincometype_AutocompleteElement_Response::fromJson(QString jsonString) {
+void Otherincometype_AutocompleteElement_Response::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

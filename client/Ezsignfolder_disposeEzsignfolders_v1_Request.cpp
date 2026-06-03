@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Ezsignfolder_disposeEzsignfolders_v1_Request::Ezsignfolder_disposeEzsignfolders_v1_Request(QString json) {
+Ezsignfolder_disposeEzsignfolders_v1_Request::Ezsignfolder_disposeEzsignfolders_v1_Request(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -38,7 +38,7 @@ void Ezsignfolder_disposeEzsignfolders_v1_Request::initializeModel() {
     m_a_pki_ezsignfolder_id_isValid = false;
 }
 
-void Ezsignfolder_disposeEzsignfolders_v1_Request::fromJson(QString jsonString) {
+void Ezsignfolder_disposeEzsignfolders_v1_Request::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_eSignaturePreference::Field_eSignaturePreference(QString json) {
+Field_eSignaturePreference::Field_eSignaturePreference(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_eSignaturePreference::initializeModel() {
     m_value = eField_eSignaturePreference::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_eSignaturePreference::fromJson(QString jsonString) {
+void Field_eSignaturePreference::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("Text", Qt::CaseInsensitive) == 0) {
         m_value = eField_eSignaturePreference::TEXT;

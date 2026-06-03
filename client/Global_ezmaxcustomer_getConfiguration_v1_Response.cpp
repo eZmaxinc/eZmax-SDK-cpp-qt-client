@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Global_ezmaxcustomer_getConfiguration_v1_Response::Global_ezmaxcustomer_getConfiguration_v1_Response(QString json) {
+Global_ezmaxcustomer_getConfiguration_v1_Response::Global_ezmaxcustomer_getConfiguration_v1_Response(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -50,7 +50,7 @@ void Global_ezmaxcustomer_getConfiguration_v1_Response::initializeModel() {
     m_s_cognito_client_id_ezmaxpublic_isValid = false;
 }
 
-void Global_ezmaxcustomer_getConfiguration_v1_Response::fromJson(QString jsonString) {
+void Global_ezmaxcustomer_getConfiguration_v1_Response::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

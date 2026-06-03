@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Custom_Ezsignformfielderror_Response::Custom_Ezsignformfielderror_Response(QString json) {
+Custom_Ezsignformfielderror_Response::Custom_Ezsignformfielderror_Response(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -41,7 +41,7 @@ void Custom_Ezsignformfielderror_Response::initializeModel() {
     m_a_obj_ezsignformfielderrortest_isValid = false;
 }
 
-void Custom_Ezsignformfielderror_Response::fromJson(QString jsonString) {
+void Custom_Ezsignformfielderror_Response::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

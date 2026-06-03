@@ -34,13 +34,13 @@ class Custom_Ezsigndocument_Request;
 class Ezsignfolder_reorder_v2_Request : public Object {
 public:
     Ezsignfolder_reorder_v2_Request();
-    Ezsignfolder_reorder_v2_Request(QString json);
+    Ezsignfolder_reorder_v2_Request(const QString &json);
     ~Ezsignfolder_reorder_v2_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Field_eEzsignfolderDocumentdependency getEEzsignfolderDocumentdependency() const;
     void setEEzsignfolderDocumentdependency(const Field_eEzsignfolderDocumentdependency &e_ezsignfolder_documentdependency);

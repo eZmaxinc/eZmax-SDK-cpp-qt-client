@@ -32,13 +32,13 @@ class Usergroupdelegation_RequestCompound;
 class Usergroupdelegation_editObject_v1_Request : public Object {
 public:
     Usergroupdelegation_editObject_v1_Request();
-    Usergroupdelegation_editObject_v1_Request(QString json);
+    Usergroupdelegation_editObject_v1_Request(const QString &json);
     ~Usergroupdelegation_editObject_v1_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Usergroupdelegation_RequestCompound getObjUsergroupdelegation() const;
     void setObjUsergroupdelegation(const Usergroupdelegation_RequestCompound &obj_usergroupdelegation);

@@ -30,13 +30,13 @@ namespace Ezmaxapi {
 class Field_eErrorCode : public Enum {
 public:
     Field_eErrorCode();
-    Field_eErrorCode(QString json);
+    Field_eErrorCode(const QString &json);
     ~Field_eErrorCode() override;
 
     QString asJson() const override;
     QJsonValue asJsonValue() const override;
     void fromJsonValue(QJsonValue json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     enum class eField_eErrorCode {
         INVALID_VALUE_OPENAPI_GENERATED = 0,

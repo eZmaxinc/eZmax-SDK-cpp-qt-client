@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Bankaccount_AutocompleteElement_Response : public Object {
 public:
     Bankaccount_AutocompleteElement_Response();
-    Bankaccount_AutocompleteElement_Response(QString json);
+    Bankaccount_AutocompleteElement_Response(const QString &json);
     ~Bankaccount_AutocompleteElement_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiBankaccountId() const;
     void setPkiBankaccountId(const qint32 &pki_bankaccount_id);

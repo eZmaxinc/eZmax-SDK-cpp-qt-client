@@ -30,13 +30,13 @@ namespace Ezmaxapi {
 class Field_eCustomerMarketingcorrespondence : public Enum {
 public:
     Field_eCustomerMarketingcorrespondence();
-    Field_eCustomerMarketingcorrespondence(QString json);
+    Field_eCustomerMarketingcorrespondence(const QString &json);
     ~Field_eCustomerMarketingcorrespondence() override;
 
     QString asJson() const override;
     QJsonValue asJsonValue() const override;
     void fromJsonValue(QJsonValue json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     enum class eField_eCustomerMarketingcorrespondence {
         INVALID_VALUE_OPENAPI_GENERATED = 0,

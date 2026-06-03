@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_eUserLogintype::Field_eUserLogintype(QString json) {
+Field_eUserLogintype::Field_eUserLogintype(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_eUserLogintype::initializeModel() {
     m_value = eField_eUserLogintype::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_eUserLogintype::fromJson(QString jsonString) {
+void Field_eUserLogintype::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("Password", Qt::CaseInsensitive) == 0) {
         m_value = eField_eUserLogintype::PASSWORD;

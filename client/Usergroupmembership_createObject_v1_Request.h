@@ -33,13 +33,13 @@ class Usergroupmembership_RequestCompound;
 class Usergroupmembership_createObject_v1_Request : public Object {
 public:
     Usergroupmembership_createObject_v1_Request();
-    Usergroupmembership_createObject_v1_Request(QString json);
+    Usergroupmembership_createObject_v1_Request(const QString &json);
     ~Usergroupmembership_createObject_v1_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Usergroupmembership_RequestCompound> getAObjUsergroupmembership() const;
     void setAObjUsergroupmembership(const QList<Usergroupmembership_RequestCompound> &a_obj_usergroupmembership);

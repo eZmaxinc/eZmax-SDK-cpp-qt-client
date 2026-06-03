@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_eSystemconfigurationNewexternaluseraction::Field_eSystemconfigurationNewexternaluseraction(QString json) {
+Field_eSystemconfigurationNewexternaluseraction::Field_eSystemconfigurationNewexternaluseraction(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_eSystemconfigurationNewexternaluseraction::initializeModel() {
     m_value = eField_eSystemconfigurationNewexternaluseraction::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_eSystemconfigurationNewexternaluseraction::fromJson(QString jsonString) {
+void Field_eSystemconfigurationNewexternaluseraction::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("Stage", Qt::CaseInsensitive) == 0) {
         m_value = eField_eSystemconfigurationNewexternaluseraction::STAGE;

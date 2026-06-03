@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_eEzsignsignatureTooltipposition::Field_eEzsignsignatureTooltipposition(QString json) {
+Field_eEzsignsignatureTooltipposition::Field_eEzsignsignatureTooltipposition(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_eEzsignsignatureTooltipposition::initializeModel() {
     m_value = eField_eEzsignsignatureTooltipposition::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_eEzsignsignatureTooltipposition::fromJson(QString jsonString) {
+void Field_eEzsignsignatureTooltipposition::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("TopLeft", Qt::CaseInsensitive) == 0) {
         m_value = eField_eEzsignsignatureTooltipposition::TOPLEFT;

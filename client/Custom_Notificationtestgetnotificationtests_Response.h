@@ -34,13 +34,13 @@ class Multilingual_NotificationtestName;
 class Custom_Notificationtestgetnotificationtests_Response : public Object {
 public:
     Custom_Notificationtestgetnotificationtests_Response();
-    Custom_Notificationtestgetnotificationtests_Response(QString json);
+    Custom_Notificationtestgetnotificationtests_Response(const QString &json);
     ~Custom_Notificationtestgetnotificationtests_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiNotificationtestId() const;
     void setPkiNotificationtestId(const qint32 &pki_notificationtest_id);

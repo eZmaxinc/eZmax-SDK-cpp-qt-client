@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_eEzsignannotationType::Field_eEzsignannotationType(QString json) {
+Field_eEzsignannotationType::Field_eEzsignannotationType(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_eEzsignannotationType::initializeModel() {
     m_value = eField_eEzsignannotationType::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_eEzsignannotationType::fromJson(QString jsonString) {
+void Field_eEzsignannotationType::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("StrikethroughBlock", Qt::CaseInsensitive) == 0) {
         m_value = eField_eEzsignannotationType::STRIKETHROUGHBLOCK;

@@ -30,13 +30,13 @@ namespace Ezmaxapi {
 class Field_eEzsignfolderCompletion : public Enum {
 public:
     Field_eEzsignfolderCompletion();
-    Field_eEzsignfolderCompletion(QString json);
+    Field_eEzsignfolderCompletion(const QString &json);
     ~Field_eEzsignfolderCompletion() override;
 
     QString asJson() const override;
     QJsonValue asJsonValue() const override;
     void fromJsonValue(QJsonValue json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     enum class eField_eEzsignfolderCompletion {
         INVALID_VALUE_OPENAPI_GENERATED = 0,

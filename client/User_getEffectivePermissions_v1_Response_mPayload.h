@@ -33,13 +33,13 @@ class Modulegroup_ResponseCompound;
 class User_getEffectivePermissions_v1_Response_mPayload : public Object {
 public:
     User_getEffectivePermissions_v1_Response_mPayload();
-    User_getEffectivePermissions_v1_Response_mPayload(QString json);
+    User_getEffectivePermissions_v1_Response_mPayload(const QString &json);
     ~User_getEffectivePermissions_v1_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Modulegroup_ResponseCompound> getAObjModulegroup() const;
     void setAObjModulegroup(const QList<Modulegroup_ResponseCompound> &a_obj_modulegroup);

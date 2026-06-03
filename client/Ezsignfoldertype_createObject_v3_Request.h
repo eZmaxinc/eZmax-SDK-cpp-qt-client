@@ -33,13 +33,13 @@ class Ezsignfoldertype_RequestCompoundV3;
 class Ezsignfoldertype_createObject_v3_Request : public Object {
 public:
     Ezsignfoldertype_createObject_v3_Request();
-    Ezsignfoldertype_createObject_v3_Request(QString json);
+    Ezsignfoldertype_createObject_v3_Request(const QString &json);
     ~Ezsignfoldertype_createObject_v3_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Ezsignfoldertype_RequestCompoundV3> getAObjEzsignfoldertype() const;
     void setAObjEzsignfoldertype(const QList<Ezsignfoldertype_RequestCompoundV3> &a_obj_ezsignfoldertype);

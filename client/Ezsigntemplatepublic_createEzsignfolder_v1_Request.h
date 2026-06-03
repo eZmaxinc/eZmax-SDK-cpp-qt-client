@@ -34,13 +34,13 @@ class Ezsignsigner_RequestCompound;
 class Ezsigntemplatepublic_createEzsignfolder_v1_Request : public Object {
 public:
     Ezsigntemplatepublic_createEzsignfolder_v1_Request();
-    Ezsigntemplatepublic_createEzsignfolder_v1_Request(QString json);
+    Ezsigntemplatepublic_createEzsignfolder_v1_Request(const QString &json);
     ~Ezsigntemplatepublic_createEzsignfolder_v1_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getPksEzmaxcustomerCode() const;
     void setPksEzmaxcustomerCode(const QString &pks_ezmaxcustomer_code);

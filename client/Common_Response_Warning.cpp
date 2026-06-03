@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Common_Response_Warning::Common_Response_Warning(QString json) {
+Common_Response_Warning::Common_Response_Warning(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -41,7 +41,7 @@ void Common_Response_Warning::initializeModel() {
     m_e_warning_code_isValid = false;
 }
 
-void Common_Response_Warning::fromJson(QString jsonString) {
+void Common_Response_Warning::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

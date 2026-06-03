@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Attempt_ResponseCompound::Attempt_ResponseCompound(QString json) {
+Attempt_ResponseCompound::Attempt_ResponseCompound(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -44,7 +44,7 @@ void Attempt_ResponseCompound::initializeModel() {
     m_i_attempt_duration_isValid = false;
 }
 
-void Attempt_ResponseCompound::fromJson(QString jsonString) {
+void Attempt_ResponseCompound::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

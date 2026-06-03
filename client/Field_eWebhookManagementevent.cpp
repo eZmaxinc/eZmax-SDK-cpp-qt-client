@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_eWebhookManagementevent::Field_eWebhookManagementevent(QString json) {
+Field_eWebhookManagementevent::Field_eWebhookManagementevent(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_eWebhookManagementevent::initializeModel() {
     m_value = eField_eWebhookManagementevent::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_eWebhookManagementevent::fromJson(QString jsonString) {
+void Field_eWebhookManagementevent::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("UserCreated", Qt::CaseInsensitive) == 0) {
         m_value = eField_eWebhookManagementevent::USERCREATED;

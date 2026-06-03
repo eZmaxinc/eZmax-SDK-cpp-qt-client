@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_eActivesessionEzsign::Field_eActivesessionEzsign(QString json) {
+Field_eActivesessionEzsign::Field_eActivesessionEzsign(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_eActivesessionEzsign::initializeModel() {
     m_value = eField_eActivesessionEzsign::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_eActivesessionEzsign::fromJson(QString jsonString) {
+void Field_eActivesessionEzsign::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("No", Qt::CaseInsensitive) == 0) {
         m_value = eField_eActivesessionEzsign::NO;

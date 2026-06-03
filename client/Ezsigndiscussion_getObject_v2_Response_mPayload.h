@@ -32,13 +32,13 @@ class Ezsigndiscussion_ResponseCompound;
 class Ezsigndiscussion_getObject_v2_Response_mPayload : public Object {
 public:
     Ezsigndiscussion_getObject_v2_Response_mPayload();
-    Ezsigndiscussion_getObject_v2_Response_mPayload(QString json);
+    Ezsigndiscussion_getObject_v2_Response_mPayload(const QString &json);
     ~Ezsigndiscussion_getObject_v2_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Ezsigndiscussion_ResponseCompound getObjEzsigndiscussion() const;
     void setObjEzsigndiscussion(const Ezsigndiscussion_ResponseCompound &obj_ezsigndiscussion);

@@ -34,13 +34,13 @@ class Common_Response_objSQLQuery;
 class Common_Response_objDebug : public Object {
 public:
     Common_Response_objDebug();
-    Common_Response_objDebug(QString json);
+    Common_Response_objDebug(const QString &json);
     ~Common_Response_objDebug() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getSMemoryUsage() const;
     void setSMemoryUsage(const QString &s_memory_usage);

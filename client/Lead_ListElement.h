@@ -32,13 +32,13 @@ namespace Ezmaxapi {
 class Lead_ListElement : public Object {
 public:
     Lead_ListElement();
-    Lead_ListElement(QString json);
+    Lead_ListElement(const QString &json);
     ~Lead_ListElement() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiLeadId() const;
     void setPkiLeadId(const qint32 &pki_lead_id);

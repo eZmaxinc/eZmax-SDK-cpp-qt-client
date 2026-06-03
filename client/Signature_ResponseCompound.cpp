@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Signature_ResponseCompound::Signature_ResponseCompound(QString json) {
+Signature_ResponseCompound::Signature_ResponseCompound(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -47,7 +47,7 @@ void Signature_ResponseCompound::initializeModel() {
     m_s_signature_urlinitials_isValid = false;
 }
 
-void Signature_ResponseCompound::fromJson(QString jsonString) {
+void Signature_ResponseCompound::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

@@ -34,13 +34,13 @@ class Multilingual_UsergroupName;
 class Usergroup_Request : public Object {
 public:
     Usergroup_Request();
-    Usergroup_Request(QString json);
+    Usergroup_Request(const QString &json);
     ~Usergroup_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiUsergroupId() const;
     void setPkiUsergroupId(const qint32 &pki_usergroup_id);

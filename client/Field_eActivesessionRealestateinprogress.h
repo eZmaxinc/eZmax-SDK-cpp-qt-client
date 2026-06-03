@@ -30,13 +30,13 @@ namespace Ezmaxapi {
 class Field_eActivesessionRealestateinprogress : public Enum {
 public:
     Field_eActivesessionRealestateinprogress();
-    Field_eActivesessionRealestateinprogress(QString json);
+    Field_eActivesessionRealestateinprogress(const QString &json);
     ~Field_eActivesessionRealestateinprogress() override;
 
     QString asJson() const override;
     QJsonValue asJsonValue() const override;
     void fromJsonValue(QJsonValue json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     enum class eField_eActivesessionRealestateinprogress {
         INVALID_VALUE_OPENAPI_GENERATED = 0,

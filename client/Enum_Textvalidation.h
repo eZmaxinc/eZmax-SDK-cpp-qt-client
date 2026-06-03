@@ -30,13 +30,13 @@ namespace Ezmaxapi {
 class Enum_Textvalidation : public Enum {
 public:
     Enum_Textvalidation();
-    Enum_Textvalidation(QString json);
+    Enum_Textvalidation(const QString &json);
     ~Enum_Textvalidation() override;
 
     QString asJson() const override;
     QJsonValue asJsonValue() const override;
     void fromJsonValue(QJsonValue json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     enum class eEnum_Textvalidation {
         INVALID_VALUE_OPENAPI_GENERATED = 0,

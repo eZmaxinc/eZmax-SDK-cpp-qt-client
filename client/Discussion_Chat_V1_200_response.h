@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Discussion_Chat_V1_200_response : public Object {
 public:
     Discussion_Chat_V1_200_response();
-    Discussion_Chat_V1_200_response(QString json);
+    Discussion_Chat_V1_200_response(const QString &json);
     ~Discussion_Chat_V1_200_response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getEvent() const;
     void setEvent(const QString &event);

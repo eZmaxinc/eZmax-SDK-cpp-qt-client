@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Custom_Branding_Response::Custom_Branding_Response(QString json) {
+Custom_Branding_Response::Custom_Branding_Response(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -41,7 +41,7 @@ void Custom_Branding_Response::initializeModel() {
     m_s_branding_logointerfaceurl_isValid = false;
 }
 
-void Custom_Branding_Response::fromJson(QString jsonString) {
+void Custom_Branding_Response::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

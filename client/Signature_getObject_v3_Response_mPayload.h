@@ -32,13 +32,13 @@ class Signature_ResponseCompoundV3;
 class Signature_getObject_v3_Response_mPayload : public Object {
 public:
     Signature_getObject_v3_Response_mPayload();
-    Signature_getObject_v3_Response_mPayload(QString json);
+    Signature_getObject_v3_Response_mPayload(const QString &json);
     ~Signature_getObject_v3_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Signature_ResponseCompoundV3 getObjSignature() const;
     void setObjSignature(const Signature_ResponseCompoundV3 &obj_signature);

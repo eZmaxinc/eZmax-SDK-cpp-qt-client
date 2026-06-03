@@ -30,13 +30,13 @@ namespace Ezmaxapi {
 class Field_eUserEzsignsendreminderfrequency : public Enum {
 public:
     Field_eUserEzsignsendreminderfrequency();
-    Field_eUserEzsignsendreminderfrequency(QString json);
+    Field_eUserEzsignsendreminderfrequency(const QString &json);
     ~Field_eUserEzsignsendreminderfrequency() override;
 
     QString asJson() const override;
     QJsonValue asJsonValue() const override;
     void fromJsonValue(QJsonValue json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     enum class eField_eUserEzsignsendreminderfrequency {
         INVALID_VALUE_OPENAPI_GENERATED = 0,

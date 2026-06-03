@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Ezdoctemplatefieldtypecategory_AutocompleteElement_Response : public Object {
 public:
     Ezdoctemplatefieldtypecategory_AutocompleteElement_Response();
-    Ezdoctemplatefieldtypecategory_AutocompleteElement_Response(QString json);
+    Ezdoctemplatefieldtypecategory_AutocompleteElement_Response(const QString &json);
     ~Ezdoctemplatefieldtypecategory_AutocompleteElement_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiEzdoctemplatefieldtypecategoryId() const;
     void setPkiEzdoctemplatefieldtypecategoryId(const qint32 &pki_ezdoctemplatefieldtypecategory_id);

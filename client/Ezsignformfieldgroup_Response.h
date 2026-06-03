@@ -35,13 +35,13 @@ namespace Ezmaxapi {
 class Ezsignformfieldgroup_Response : public Object {
 public:
     Ezsignformfieldgroup_Response();
-    Ezsignformfieldgroup_Response(QString json);
+    Ezsignformfieldgroup_Response(const QString &json);
     ~Ezsignformfieldgroup_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiEzsignformfieldgroupId() const;
     void setPkiEzsignformfieldgroupId(const qint32 &pki_ezsignformfieldgroup_id);

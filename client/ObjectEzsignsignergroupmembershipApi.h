@@ -43,6 +43,7 @@ public:
     void initializeServerConfigs();
     int setDefaultServerValue(int serverIndex,const QString &operation, const QString &variable,const QString &val);
     void setServerIndex(const QString &operation, int serverIndex);
+    void setServerIndex(int serverIndex);
     void setApiKey(const QString &apiKeyName, const QString &apiKey);
     void setBearerToken(const QString &token);
     void setUsername(const QString &username);
@@ -78,6 +79,13 @@ public:
 
 
 private:
+    enum class OauthMethod : int {
+        INVALID_VALUE_OPENAPI_GENERATED = 0,
+        ImplicitFlow = 1,
+        AuthorizationFlow = 2,
+        ClientCredentialsFlow = 3,
+        ResourceOwnerPasswordFlow = 4
+    };
     QMap<QString,int> _serverIndices;
     QMap<QString,QList<ServerConfiguration>> _serverConfigs;
     QMap<QString, QString> _apiKeys;
@@ -97,7 +105,7 @@ private:
     OauthImplicit _implicitFlow;
     OauthCredentials _credentialFlow;
     OauthPassword _passwordFlow;
-    int _OauthMethod = 0;
+    OauthMethod _OauthMethod = OauthMethod::INVALID_VALUE_OPENAPI_GENERATED;
 
     void ezsignsignergroupmembershipCreateObjectV1Callback(HttpRequestWorker *worker);
     void ezsignsignergroupmembershipDeleteObjectV1Callback(HttpRequestWorker *worker);
@@ -114,24 +122,12 @@ Q_SIGNALS:
     void ezsignsignergroupmembershipDeleteObjectV1SignalFull(HttpRequestWorker *worker, Ezsignsignergroupmembership_deleteObject_v1_Response summary);
     void ezsignsignergroupmembershipGetObjectV2SignalFull(HttpRequestWorker *worker, Ezsignsignergroupmembership_getObject_v2_Response summary);
 
-    Q_DECL_DEPRECATED_X("Use ezsignsignergroupmembershipCreateObjectV1SignalError() instead")
-    void ezsignsignergroupmembershipCreateObjectV1SignalE(Ezsignsignergroupmembership_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignsignergroupmembershipCreateObjectV1SignalError(Ezsignsignergroupmembership_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezsignsignergroupmembershipDeleteObjectV1SignalError() instead")
-    void ezsignsignergroupmembershipDeleteObjectV1SignalE(Ezsignsignergroupmembership_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignsignergroupmembershipDeleteObjectV1SignalError(Ezsignsignergroupmembership_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezsignsignergroupmembershipGetObjectV2SignalError() instead")
-    void ezsignsignergroupmembershipGetObjectV2SignalE(Ezsignsignergroupmembership_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignsignergroupmembershipGetObjectV2SignalError(Ezsignsignergroupmembership_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
-    Q_DECL_DEPRECATED_X("Use ezsignsignergroupmembershipCreateObjectV1SignalErrorFull() instead")
-    void ezsignsignergroupmembershipCreateObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignsignergroupmembershipCreateObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezsignsignergroupmembershipDeleteObjectV1SignalErrorFull() instead")
-    void ezsignsignergroupmembershipDeleteObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignsignergroupmembershipDeleteObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezsignsignergroupmembershipGetObjectV2SignalErrorFull() instead")
-    void ezsignsignergroupmembershipGetObjectV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignsignergroupmembershipGetObjectV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();

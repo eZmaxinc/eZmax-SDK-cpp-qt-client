@@ -32,13 +32,13 @@ namespace Ezmaxapi {
 class Common_Response_Filter : public Object {
 public:
     Common_Response_Filter();
-    Common_Response_Filter(QString json);
+    Common_Response_Filter(const QString &json);
     ~Common_Response_Filter() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QMap<QString, QString> getAAutoType() const;
     void setAAutoType(const QMap<QString, QString> &a_auto_type);

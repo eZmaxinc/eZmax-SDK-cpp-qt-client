@@ -44,13 +44,13 @@ class Communicationexternalrecipient_RequestCompound;
 class Communication_RequestCompound : public Object {
 public:
     Communication_RequestCompound();
-    Communication_RequestCompound(QString json);
+    Communication_RequestCompound(const QString &json);
     ~Communication_RequestCompound() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiCommunicationId() const;
     void setPkiCommunicationId(const qint32 &pki_communication_id);

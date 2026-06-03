@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Sessionhistory_getList_v1_Response_mPayload::Sessionhistory_getList_v1_Response_mPayload(QString json) {
+Sessionhistory_getList_v1_Response_mPayload::Sessionhistory_getList_v1_Response_mPayload(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -44,7 +44,7 @@ void Sessionhistory_getList_v1_Response_mPayload::initializeModel() {
     m_a_obj_sessionhistory_isValid = false;
 }
 
-void Sessionhistory_getList_v1_Response_mPayload::fromJson(QString jsonString) {
+void Sessionhistory_getList_v1_Response_mPayload::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

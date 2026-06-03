@@ -33,13 +33,13 @@ namespace Ezmaxapi {
 class Webhook_sendWebhook_v1_Request : public Object {
 public:
     Webhook_sendWebhook_v1_Request();
-    Webhook_sendWebhook_v1_Request(QString json);
+    Webhook_sendWebhook_v1_Request(const QString &json);
     ~Webhook_sendWebhook_v1_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Field_eWebhookModule getEWebhookModule() const;
     void setEWebhookModule(const Field_eWebhookModule &e_webhook_module);

@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Custom_Communicationsender_Response::Custom_Communicationsender_Response(QString json) {
+Custom_Communicationsender_Response::Custom_Communicationsender_Response(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -65,7 +65,7 @@ void Custom_Communicationsender_Response::initializeModel() {
     m_obj_phone_sms_isValid = false;
 }
 
-void Custom_Communicationsender_Response::fromJson(QString jsonString) {
+void Custom_Communicationsender_Response::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

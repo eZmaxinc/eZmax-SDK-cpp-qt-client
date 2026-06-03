@@ -32,13 +32,13 @@ class Variableexpense_ResponseCompound;
 class Variableexpense_getObject_v2_Response_mPayload : public Object {
 public:
     Variableexpense_getObject_v2_Response_mPayload();
-    Variableexpense_getObject_v2_Response_mPayload(QString json);
+    Variableexpense_getObject_v2_Response_mPayload(const QString &json);
     ~Variableexpense_getObject_v2_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Variableexpense_ResponseCompound getObjVariableexpense() const;
     void setObjVariableexpense(const Variableexpense_ResponseCompound &obj_variableexpense);

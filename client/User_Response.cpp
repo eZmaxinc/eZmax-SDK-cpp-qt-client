@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-User_Response::User_Response(QString json) {
+User_Response::User_Response(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -48,6 +48,9 @@ void User_Response::initializeModel() {
 
     m_fki_employee_id_isSet = false;
     m_fki_employee_id_isValid = false;
+
+    m_fki_ezmaxpartner_id_isSet = false;
+    m_fki_ezmaxpartner_id_isValid = false;
 
     m_fki_company_id_default_isSet = false;
     m_fki_company_id_default_isValid = false;
@@ -133,6 +136,9 @@ void User_Response::initializeModel() {
     m_b_user_isactive_isSet = false;
     m_b_user_isactive_isValid = false;
 
+    m_b_user_suspended_isSet = false;
+    m_b_user_suspended_isValid = false;
+
     m_b_user_validatebyadministration_isSet = false;
     m_b_user_validatebyadministration_isValid = false;
 
@@ -145,11 +151,14 @@ void User_Response::initializeModel() {
     m_b_user_changepassword_isSet = false;
     m_b_user_changepassword_isValid = false;
 
+    m_b_user_ezsigntemplaterolegrouping_isSet = false;
+    m_b_user_ezsigntemplaterolegrouping_isValid = false;
+
     m_obj_audit_isSet = false;
     m_obj_audit_isValid = false;
 }
 
-void User_Response::fromJson(QString jsonString) {
+void User_Response::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();
@@ -172,6 +181,9 @@ void User_Response::fromJsonObject(QJsonObject json) {
 
     m_fki_employee_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_employee_id, json[QString("fkiEmployeeID")]);
     m_fki_employee_id_isSet = !json[QString("fkiEmployeeID")].isNull() && m_fki_employee_id_isValid;
+
+    m_fki_ezmaxpartner_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_ezmaxpartner_id, json[QString("fkiEzmaxpartnerID")]);
+    m_fki_ezmaxpartner_id_isSet = !json[QString("fkiEzmaxpartnerID")].isNull() && m_fki_ezmaxpartner_id_isValid;
 
     m_fki_company_id_default_isValid = ::Ezmaxapi::fromJsonValue(m_fki_company_id_default, json[QString("fkiCompanyIDDefault")]);
     m_fki_company_id_default_isSet = !json[QString("fkiCompanyIDDefault")].isNull() && m_fki_company_id_default_isValid;
@@ -257,6 +269,9 @@ void User_Response::fromJsonObject(QJsonObject json) {
     m_b_user_isactive_isValid = ::Ezmaxapi::fromJsonValue(m_b_user_isactive, json[QString("bUserIsactive")]);
     m_b_user_isactive_isSet = !json[QString("bUserIsactive")].isNull() && m_b_user_isactive_isValid;
 
+    m_b_user_suspended_isValid = ::Ezmaxapi::fromJsonValue(m_b_user_suspended, json[QString("bUserSuspended")]);
+    m_b_user_suspended_isSet = !json[QString("bUserSuspended")].isNull() && m_b_user_suspended_isValid;
+
     m_b_user_validatebyadministration_isValid = ::Ezmaxapi::fromJsonValue(m_b_user_validatebyadministration, json[QString("bUserValidatebyadministration")]);
     m_b_user_validatebyadministration_isSet = !json[QString("bUserValidatebyadministration")].isNull() && m_b_user_validatebyadministration_isValid;
 
@@ -268,6 +283,9 @@ void User_Response::fromJsonObject(QJsonObject json) {
 
     m_b_user_changepassword_isValid = ::Ezmaxapi::fromJsonValue(m_b_user_changepassword, json[QString("bUserChangepassword")]);
     m_b_user_changepassword_isSet = !json[QString("bUserChangepassword")].isNull() && m_b_user_changepassword_isValid;
+
+    m_b_user_ezsigntemplaterolegrouping_isValid = ::Ezmaxapi::fromJsonValue(m_b_user_ezsigntemplaterolegrouping, json[QString("bUserEzsigntemplaterolegrouping")]);
+    m_b_user_ezsigntemplaterolegrouping_isSet = !json[QString("bUserEzsigntemplaterolegrouping")].isNull() && m_b_user_ezsigntemplaterolegrouping_isValid;
 
     m_obj_audit_isValid = ::Ezmaxapi::fromJsonValue(m_obj_audit, json[QString("objAudit")]);
     m_obj_audit_isSet = !json[QString("objAudit")].isNull() && m_obj_audit_isValid;
@@ -296,6 +314,9 @@ QJsonObject User_Response::asJsonObject() const {
     }
     if (m_fki_employee_id_isSet) {
         obj.insert(QString("fkiEmployeeID"), ::Ezmaxapi::toJsonValue(m_fki_employee_id));
+    }
+    if (m_fki_ezmaxpartner_id_isSet) {
+        obj.insert(QString("fkiEzmaxpartnerID"), ::Ezmaxapi::toJsonValue(m_fki_ezmaxpartner_id));
     }
     if (m_fki_company_id_default_isSet) {
         obj.insert(QString("fkiCompanyIDDefault"), ::Ezmaxapi::toJsonValue(m_fki_company_id_default));
@@ -381,6 +402,9 @@ QJsonObject User_Response::asJsonObject() const {
     if (m_b_user_isactive_isSet) {
         obj.insert(QString("bUserIsactive"), ::Ezmaxapi::toJsonValue(m_b_user_isactive));
     }
+    if (m_b_user_suspended_isSet) {
+        obj.insert(QString("bUserSuspended"), ::Ezmaxapi::toJsonValue(m_b_user_suspended));
+    }
     if (m_b_user_validatebyadministration_isSet) {
         obj.insert(QString("bUserValidatebyadministration"), ::Ezmaxapi::toJsonValue(m_b_user_validatebyadministration));
     }
@@ -392,6 +416,9 @@ QJsonObject User_Response::asJsonObject() const {
     }
     if (m_b_user_changepassword_isSet) {
         obj.insert(QString("bUserChangepassword"), ::Ezmaxapi::toJsonValue(m_b_user_changepassword));
+    }
+    if (m_b_user_ezsigntemplaterolegrouping_isSet) {
+        obj.insert(QString("bUserEzsigntemplaterolegrouping"), ::Ezmaxapi::toJsonValue(m_b_user_ezsigntemplaterolegrouping));
     }
     if (m_obj_audit.isSet()) {
         obj.insert(QString("objAudit"), ::Ezmaxapi::toJsonValue(m_obj_audit));
@@ -477,6 +504,22 @@ bool User_Response::is_fki_employee_id_Set() const{
 
 bool User_Response::is_fki_employee_id_Valid() const{
     return m_fki_employee_id_isValid;
+}
+
+qint32 User_Response::getFkiEzmaxpartnerId() const {
+    return m_fki_ezmaxpartner_id;
+}
+void User_Response::setFkiEzmaxpartnerId(const qint32 &fki_ezmaxpartner_id) {
+    m_fki_ezmaxpartner_id = fki_ezmaxpartner_id;
+    m_fki_ezmaxpartner_id_isSet = true;
+}
+
+bool User_Response::is_fki_ezmaxpartner_id_Set() const{
+    return m_fki_ezmaxpartner_id_isSet;
+}
+
+bool User_Response::is_fki_ezmaxpartner_id_Valid() const{
+    return m_fki_ezmaxpartner_id_isValid;
 }
 
 qint32 User_Response::getFkiCompanyIdDefault() const {
@@ -927,6 +970,22 @@ bool User_Response::is_b_user_isactive_Valid() const{
     return m_b_user_isactive_isValid;
 }
 
+bool User_Response::isBUserSuspended() const {
+    return m_b_user_suspended;
+}
+void User_Response::setBUserSuspended(const bool &b_user_suspended) {
+    m_b_user_suspended = b_user_suspended;
+    m_b_user_suspended_isSet = true;
+}
+
+bool User_Response::is_b_user_suspended_Set() const{
+    return m_b_user_suspended_isSet;
+}
+
+bool User_Response::is_b_user_suspended_Valid() const{
+    return m_b_user_suspended_isValid;
+}
+
 bool User_Response::isBUserValidatebyadministration() const {
     return m_b_user_validatebyadministration;
 }
@@ -991,6 +1050,22 @@ bool User_Response::is_b_user_changepassword_Valid() const{
     return m_b_user_changepassword_isValid;
 }
 
+bool User_Response::isBUserEzsigntemplaterolegrouping() const {
+    return m_b_user_ezsigntemplaterolegrouping;
+}
+void User_Response::setBUserEzsigntemplaterolegrouping(const bool &b_user_ezsigntemplaterolegrouping) {
+    m_b_user_ezsigntemplaterolegrouping = b_user_ezsigntemplaterolegrouping;
+    m_b_user_ezsigntemplaterolegrouping_isSet = true;
+}
+
+bool User_Response::is_b_user_ezsigntemplaterolegrouping_Set() const{
+    return m_b_user_ezsigntemplaterolegrouping_isSet;
+}
+
+bool User_Response::is_b_user_ezsigntemplaterolegrouping_Valid() const{
+    return m_b_user_ezsigntemplaterolegrouping_isValid;
+}
+
 Common_Audit User_Response::getObjAudit() const {
     return m_obj_audit;
 }
@@ -1031,6 +1106,11 @@ bool User_Response::isSet() const {
         }
 
         if (m_fki_employee_id_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_fki_ezmaxpartner_id_isSet) {
             isObjectUpdated = true;
             break;
         }
@@ -1175,6 +1255,11 @@ bool User_Response::isSet() const {
             break;
         }
 
+        if (m_b_user_suspended_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (m_b_user_validatebyadministration_isSet) {
             isObjectUpdated = true;
             break;
@@ -1191,6 +1276,11 @@ bool User_Response::isSet() const {
         }
 
         if (m_b_user_changepassword_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_b_user_ezsigntemplaterolegrouping_isSet) {
             isObjectUpdated = true;
             break;
         }

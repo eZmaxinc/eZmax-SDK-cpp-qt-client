@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Invoice_getCommunicationCount_v1_Response_mPayload::Invoice_getCommunicationCount_v1_Response_mPayload(QString json) {
+Invoice_getCommunicationCount_v1_Response_mPayload::Invoice_getCommunicationCount_v1_Response_mPayload(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -38,7 +38,7 @@ void Invoice_getCommunicationCount_v1_Response_mPayload::initializeModel() {
     m_i_communication_count_isValid = false;
 }
 
-void Invoice_getCommunicationCount_v1_Response_mPayload::fromJson(QString jsonString) {
+void Invoice_getCommunicationCount_v1_Response_mPayload::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

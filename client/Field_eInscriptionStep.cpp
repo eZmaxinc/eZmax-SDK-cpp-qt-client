@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_eInscriptionStep::Field_eInscriptionStep(QString json) {
+Field_eInscriptionStep::Field_eInscriptionStep(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_eInscriptionStep::initializeModel() {
     m_value = eField_eInscriptionStep::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_eInscriptionStep::fromJson(QString jsonString) {
+void Field_eInscriptionStep::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("TemporaryNotAuthenticated", Qt::CaseInsensitive) == 0) {
         m_value = eField_eInscriptionStep::TEMPORARYNOTAUTHENTICATED;

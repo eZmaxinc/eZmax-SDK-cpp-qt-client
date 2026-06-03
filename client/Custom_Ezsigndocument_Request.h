@@ -33,13 +33,13 @@ class Ezsigndocumentdependency_RequestCompound;
 class Custom_Ezsigndocument_Request : public Object {
 public:
     Custom_Ezsigndocument_Request();
-    Custom_Ezsigndocument_Request(QString json);
+    Custom_Ezsigndocument_Request(const QString &json);
     ~Custom_Ezsigndocument_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiEzsigndocumentId() const;
     void setPkiEzsigndocumentId(const qint32 &pki_ezsigndocument_id);

@@ -82,9 +82,9 @@ void ObjectEzsigntemplatepublicApi::initializeServerConfigs() {
 }
 
 /**
-* returns 0 on success and -1, -2 or -3 on failure.
-* -1 when the variable does not exist and -2 if the value is not defined in the enum and -3 if the operation or server index is not found
-*/
+ * returns 0 on success and -1, -2 or -3 on failure.
+ * -1 when the variable does not exist and -2 if the value is not defined in the enum and -3 if the operation or server index is not found
+ */
 int ObjectEzsigntemplatepublicApi::setDefaultServerValue(int serverIndex, const QString &operation, const QString &variable, const QString &value) {
     auto it = _serverConfigs.find(operation);
     if (it != _serverConfigs.end() && serverIndex < it.value().size()) {
@@ -92,9 +92,21 @@ int ObjectEzsigntemplatepublicApi::setDefaultServerValue(int serverIndex, const 
     }
     return -3;
 }
+
+/**
+ * Sets the server index.
+ * @param operation The id to the target operation.
+ * @param serverIndex The server index.
+ */
 void ObjectEzsigntemplatepublicApi::setServerIndex(const QString &operation, int serverIndex) {
     if (_serverIndices.contains(operation) && serverIndex < _serverConfigs.find(operation).value().size()) {
         _serverIndices[operation] = serverIndex;
+    }
+}
+
+void ObjectEzsigntemplatepublicApi::setServerIndex(int serverIndex) {
+    for (auto keyIt = _serverIndices.keyBegin(); keyIt != _serverIndices.keyEnd(); keyIt++) {
+        setServerIndex(*keyIt, serverIndex);
     }
 }
 
@@ -128,13 +140,13 @@ void ObjectEzsigntemplatepublicApi::setNetworkAccessManager(QNetworkAccessManage
 }
 
 /**
-    * Appends a new ServerConfiguration to the config map for a specific operation.
-    * @param operation The id to the target operation.
-    * @param url A string that contains the URL of the server
-    * @param description A String that describes the server
-    * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
-    * returns the index of the new server config on success and -1 if the operation is not found
-    */
+ * Appends a new ServerConfiguration to the config map for a specific operation.
+ * @param operation The id to the target operation.
+ * @param url A string that contains the URL of the server
+ * @param description A String that describes the server
+ * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
+ * returns the index of the new server config on success and -1 if the operation is not found
+ */
 int ObjectEzsigntemplatepublicApi::addServerConfiguration(const QString &operation, const QUrl &url, const QString &description, const QMap<QString, ServerVariable> &variables) {
     if (_serverConfigs.contains(operation)) {
         _serverConfigs[operation].append(ServerConfiguration(
@@ -148,11 +160,11 @@ int ObjectEzsigntemplatepublicApi::addServerConfiguration(const QString &operati
 }
 
 /**
-    * Appends a new ServerConfiguration to the config map for a all operations and sets the index to that server.
-    * @param url A string that contains the URL of the server
-    * @param description A String that describes the server
-    * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
-    */
+ * Appends a new ServerConfiguration to the config map for a all operations and sets the index to that server.
+ * @param url A string that contains the URL of the server
+ * @param description A String that describes the server
+ * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
+ */
 void ObjectEzsigntemplatepublicApi::setNewServerForAllOperations(const QUrl &url, const QString &description, const QMap<QString, ServerVariable> &variables) {
     for (auto keyIt = _serverIndices.keyBegin(); keyIt != _serverIndices.keyEnd(); keyIt++) {
         setServerIndex(*keyIt, addServerConfiguration(*keyIt, url, description, variables));
@@ -160,11 +172,11 @@ void ObjectEzsigntemplatepublicApi::setNewServerForAllOperations(const QUrl &url
 }
 
 /**
-    * Appends a new ServerConfiguration to the config map for an operations and sets the index to that server.
-    * @param URL A string that contains the URL of the server
-    * @param description A String that describes the server
-    * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
-    */
+ * Appends a new ServerConfiguration to the config map for an operations and sets the index to that server.
+ * @param URL A string that contains the URL of the server
+ * @param description A String that describes the server
+ * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
+ */
 void ObjectEzsigntemplatepublicApi::setNewServer(const QString &operation, const QUrl &url, const QString &description, const QMap<QString, ServerVariable> &variables) {
     setServerIndex(operation, addServerConfiguration(operation, url, description, variables));
 }
@@ -296,32 +308,6 @@ void ObjectEzsigntemplatepublicApi::ezsigntemplatepublicCreateEzsignfolderV1Call
         Q_EMIT ezsigntemplatepublicCreateEzsignfolderV1Signal(output);
         Q_EMIT ezsigntemplatepublicCreateEzsignfolderV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsigntemplatepublicCreateEzsignfolderV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsigntemplatepublicCreateEzsignfolderV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsigntemplatepublicCreateEzsignfolderV1SignalError(output, error_type, error_str);
         Q_EMIT ezsigntemplatepublicCreateEzsignfolderV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -375,32 +361,6 @@ void ObjectEzsigntemplatepublicApi::ezsigntemplatepublicCreateObjectV1Callback(H
         Q_EMIT ezsigntemplatepublicCreateObjectV1Signal(output);
         Q_EMIT ezsigntemplatepublicCreateObjectV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsigntemplatepublicCreateObjectV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsigntemplatepublicCreateObjectV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsigntemplatepublicCreateObjectV1SignalError(output, error_type, error_str);
         Q_EMIT ezsigntemplatepublicCreateObjectV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -463,32 +423,6 @@ void ObjectEzsigntemplatepublicApi::ezsigntemplatepublicDeleteObjectV1Callback(H
         Q_EMIT ezsigntemplatepublicDeleteObjectV1Signal(output);
         Q_EMIT ezsigntemplatepublicDeleteObjectV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsigntemplatepublicDeleteObjectV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsigntemplatepublicDeleteObjectV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsigntemplatepublicDeleteObjectV1SignalError(output, error_type, error_str);
         Q_EMIT ezsigntemplatepublicDeleteObjectV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -556,32 +490,6 @@ void ObjectEzsigntemplatepublicApi::ezsigntemplatepublicEditObjectV1Callback(Htt
         Q_EMIT ezsigntemplatepublicEditObjectV1Signal(output);
         Q_EMIT ezsigntemplatepublicEditObjectV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsigntemplatepublicEditObjectV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsigntemplatepublicEditObjectV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsigntemplatepublicEditObjectV1SignalError(output, error_type, error_str);
         Q_EMIT ezsigntemplatepublicEditObjectV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -635,32 +543,6 @@ void ObjectEzsigntemplatepublicApi::ezsigntemplatepublicGetEzsigntemplatepublicD
         Q_EMIT ezsigntemplatepublicGetEzsigntemplatepublicDetailsV1Signal(output);
         Q_EMIT ezsigntemplatepublicGetEzsigntemplatepublicDetailsV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsigntemplatepublicGetEzsigntemplatepublicDetailsV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsigntemplatepublicGetEzsigntemplatepublicDetailsV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsigntemplatepublicGetEzsigntemplatepublicDetailsV1SignalError(output, error_type, error_str);
         Q_EMIT ezsigntemplatepublicGetEzsigntemplatepublicDetailsV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -723,32 +605,6 @@ void ObjectEzsigntemplatepublicApi::ezsigntemplatepublicGetFormsDataV1Callback(H
         Q_EMIT ezsigntemplatepublicGetFormsDataV1Signal(output);
         Q_EMIT ezsigntemplatepublicGetFormsDataV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsigntemplatepublicGetFormsDataV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsigntemplatepublicGetFormsDataV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsigntemplatepublicGetFormsDataV1SignalError(output, error_type, error_str);
         Q_EMIT ezsigntemplatepublicGetFormsDataV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -902,32 +758,6 @@ void ObjectEzsigntemplatepublicApi::ezsigntemplatepublicGetListV1Callback(HttpRe
         Q_EMIT ezsigntemplatepublicGetListV1Signal(output);
         Q_EMIT ezsigntemplatepublicGetListV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsigntemplatepublicGetListV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsigntemplatepublicGetListV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsigntemplatepublicGetListV1SignalError(output, error_type, error_str);
         Q_EMIT ezsigntemplatepublicGetListV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -990,32 +820,6 @@ void ObjectEzsigntemplatepublicApi::ezsigntemplatepublicGetObjectV2Callback(Http
         Q_EMIT ezsigntemplatepublicGetObjectV2Signal(output);
         Q_EMIT ezsigntemplatepublicGetObjectV2SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsigntemplatepublicGetObjectV2SignalE(output, error_type, error_str);
-        Q_EMIT ezsigntemplatepublicGetObjectV2SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsigntemplatepublicGetObjectV2SignalError(output, error_type, error_str);
         Q_EMIT ezsigntemplatepublicGetObjectV2SignalErrorFull(worker, error_type, error_str);
     }
@@ -1083,32 +887,6 @@ void ObjectEzsigntemplatepublicApi::ezsigntemplatepublicResetLimitExceededCounte
         Q_EMIT ezsigntemplatepublicResetLimitExceededCounterV1Signal(output);
         Q_EMIT ezsigntemplatepublicResetLimitExceededCounterV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsigntemplatepublicResetLimitExceededCounterV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsigntemplatepublicResetLimitExceededCounterV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsigntemplatepublicResetLimitExceededCounterV1SignalError(output, error_type, error_str);
         Q_EMIT ezsigntemplatepublicResetLimitExceededCounterV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -1176,42 +954,16 @@ void ObjectEzsigntemplatepublicApi::ezsigntemplatepublicResetUrlV1Callback(HttpR
         Q_EMIT ezsigntemplatepublicResetUrlV1Signal(output);
         Q_EMIT ezsigntemplatepublicResetUrlV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsigntemplatepublicResetUrlV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsigntemplatepublicResetUrlV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsigntemplatepublicResetUrlV1SignalError(output, error_type, error_str);
         Q_EMIT ezsigntemplatepublicResetUrlV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
-void ObjectEzsigntemplatepublicApi::tokenAvailable(){
+void ObjectEzsigntemplatepublicApi::tokenAvailable() {
 
     oauthToken token;
     switch (_OauthMethod) {
-    case 1: //implicit flow
+    case OauthMethod::ImplicitFlow:
         token = _implicitFlow.getToken(_latestScope.join(" "));
         if(token.isValid()){
             _latestInput.headers.insert("Authorization", "Bearer " + token.getToken());
@@ -1221,7 +973,7 @@ void ObjectEzsigntemplatepublicApi::tokenAvailable(){
             qDebug() << "Could not retrieve a valid token";
         }
         break;
-    case 2: //authorization flow
+    case OauthMethod::AuthorizationFlow:
         token = _authFlow.getToken(_latestScope.join(" "));
         if(token.isValid()){
             _latestInput.headers.insert("Authorization", "Bearer " + token.getToken());
@@ -1231,7 +983,7 @@ void ObjectEzsigntemplatepublicApi::tokenAvailable(){
             qDebug() << "Could not retrieve a valid token";
         }
         break;
-    case 3: //client credentials flow
+    case OauthMethod::ClientCredentialsFlow:
         token = _credentialFlow.getToken(_latestScope.join(" "));
         if(token.isValid()){
             _latestInput.headers.insert("Authorization", "Bearer " + token.getToken());
@@ -1241,7 +993,7 @@ void ObjectEzsigntemplatepublicApi::tokenAvailable(){
             qDebug() << "Could not retrieve a valid token";
         }
         break;
-    case 4: //resource owner password flow
+    case OauthMethod::ResourceOwnerPasswordFlow:
         token = _passwordFlow.getToken(_latestScope.join(" "));
         if(token.isValid()){
             _latestInput.headers.insert("Authorization", "Bearer " + token.getToken());

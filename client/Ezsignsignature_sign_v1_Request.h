@@ -36,13 +36,13 @@ class Custom_Creditcard_Request;
 class Ezsignsignature_sign_v1_Request : public Object {
 public:
     Ezsignsignature_sign_v1_Request();
-    Ezsignsignature_sign_v1_Request(QString json);
+    Ezsignsignature_sign_v1_Request(const QString &json);
     ~Ezsignsignature_sign_v1_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getFkiEzsignsigningreasonId() const;
     void setFkiEzsignsigningreasonId(const qint32 &fki_ezsignsigningreason_id);

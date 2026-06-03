@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_eContactinformationsType::Field_eContactinformationsType(QString json) {
+Field_eContactinformationsType::Field_eContactinformationsType(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_eContactinformationsType::initializeModel() {
     m_value = eField_eContactinformationsType::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_eContactinformationsType::fromJson(QString jsonString) {
+void Field_eContactinformationsType::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("BankAccount", Qt::CaseInsensitive) == 0) {
         m_value = eField_eContactinformationsType::BANKACCOUNT;

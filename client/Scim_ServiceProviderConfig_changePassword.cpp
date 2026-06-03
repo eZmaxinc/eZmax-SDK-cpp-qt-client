@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Scim_ServiceProviderConfig_changePassword::Scim_ServiceProviderConfig_changePassword(QString json) {
+Scim_ServiceProviderConfig_changePassword::Scim_ServiceProviderConfig_changePassword(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -38,7 +38,7 @@ void Scim_ServiceProviderConfig_changePassword::initializeModel() {
     m_supported_isValid = false;
 }
 
-void Scim_ServiceProviderConfig_changePassword::fromJson(QString jsonString) {
+void Scim_ServiceProviderConfig_changePassword::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Variableexpense_Request::Variableexpense_Request(QString json) {
+Variableexpense_Request::Variableexpense_Request(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -50,7 +50,7 @@ void Variableexpense_Request::initializeModel() {
     m_b_variableexpense_isactive_isValid = false;
 }
 
-void Variableexpense_Request::fromJson(QString jsonString) {
+void Variableexpense_Request::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Authenticationexternal_AutocompleteElement_Response::Authenticationexternal_AutocompleteElement_Response(QString json) {
+Authenticationexternal_AutocompleteElement_Response::Authenticationexternal_AutocompleteElement_Response(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -44,7 +44,7 @@ void Authenticationexternal_AutocompleteElement_Response::initializeModel() {
     m_b_authenticationexternal_isactive_isValid = false;
 }
 
-void Authenticationexternal_AutocompleteElement_Response::fromJson(QString jsonString) {
+void Authenticationexternal_AutocompleteElement_Response::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

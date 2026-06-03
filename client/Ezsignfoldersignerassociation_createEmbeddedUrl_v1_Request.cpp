@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Request::Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Request(QString json) {
+Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Request::Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Request(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -44,7 +44,7 @@ void Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Request::initializeModel
     m_b_is_iframe_isValid = false;
 }
 
-void Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Request::fromJson(QString jsonString) {
+void Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Request::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

@@ -33,13 +33,13 @@ class Ezmaxproduct_AutocompleteElement_Response;
 class Ezmaxproduct_getAutocomplete_v2_Response_mPayload : public Object {
 public:
     Ezmaxproduct_getAutocomplete_v2_Response_mPayload();
-    Ezmaxproduct_getAutocomplete_v2_Response_mPayload(QString json);
+    Ezmaxproduct_getAutocomplete_v2_Response_mPayload(const QString &json);
     ~Ezmaxproduct_getAutocomplete_v2_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Ezmaxproduct_AutocompleteElement_Response> getAObjEzmaxproduct() const;
     void setAObjEzmaxproduct(const QList<Ezmaxproduct_AutocompleteElement_Response> &a_obj_ezmaxproduct);

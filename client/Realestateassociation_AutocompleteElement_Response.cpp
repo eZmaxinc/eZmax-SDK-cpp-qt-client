@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Realestateassociation_AutocompleteElement_Response::Realestateassociation_AutocompleteElement_Response(QString json) {
+Realestateassociation_AutocompleteElement_Response::Realestateassociation_AutocompleteElement_Response(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -47,7 +47,7 @@ void Realestateassociation_AutocompleteElement_Response::initializeModel() {
     m_b_realestateassociation_isactive_isValid = false;
 }
 
-void Realestateassociation_AutocompleteElement_Response::fromJson(QString jsonString) {
+void Realestateassociation_AutocompleteElement_Response::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Inscription_ListElement::Inscription_ListElement(QString json) {
+Inscription_ListElement::Inscription_ListElement(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -109,8 +109,14 @@ void Inscription_ListElement::initializeModel() {
     m_s_address_zip_isSet = false;
     m_s_address_zip_isValid = false;
 
+    m_fki_province_id_isSet = false;
+    m_fki_province_id_isValid = false;
+
     m_s_province_name_x_isSet = false;
     m_s_province_name_x_isValid = false;
+
+    m_fki_country_id_isSet = false;
+    m_fki_country_id_isValid = false;
 
     m_s_country_name_x_isSet = false;
     m_s_country_name_x_isValid = false;
@@ -122,7 +128,7 @@ void Inscription_ListElement::initializeModel() {
     m_b_allowed_copyintoinscriptionedm_isValid = false;
 }
 
-void Inscription_ListElement::fromJson(QString jsonString) {
+void Inscription_ListElement::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();
@@ -206,8 +212,14 @@ void Inscription_ListElement::fromJsonObject(QJsonObject json) {
     m_s_address_zip_isValid = ::Ezmaxapi::fromJsonValue(m_s_address_zip, json[QString("sAddressZip")]);
     m_s_address_zip_isSet = !json[QString("sAddressZip")].isNull() && m_s_address_zip_isValid;
 
+    m_fki_province_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_province_id, json[QString("fkiProvinceID")]);
+    m_fki_province_id_isSet = !json[QString("fkiProvinceID")].isNull() && m_fki_province_id_isValid;
+
     m_s_province_name_x_isValid = ::Ezmaxapi::fromJsonValue(m_s_province_name_x, json[QString("sProvinceNameX")]);
     m_s_province_name_x_isSet = !json[QString("sProvinceNameX")].isNull() && m_s_province_name_x_isValid;
+
+    m_fki_country_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_country_id, json[QString("fkiCountryID")]);
+    m_fki_country_id_isSet = !json[QString("fkiCountryID")].isNull() && m_fki_country_id_isValid;
 
     m_s_country_name_x_isValid = ::Ezmaxapi::fromJsonValue(m_s_country_name_x, json[QString("sCountryNameX")]);
     m_s_country_name_x_isSet = !json[QString("sCountryNameX")].isNull() && m_s_country_name_x_isValid;
@@ -303,8 +315,14 @@ QJsonObject Inscription_ListElement::asJsonObject() const {
     if (m_s_address_zip_isSet) {
         obj.insert(QString("sAddressZip"), ::Ezmaxapi::toJsonValue(m_s_address_zip));
     }
+    if (m_fki_province_id_isSet) {
+        obj.insert(QString("fkiProvinceID"), ::Ezmaxapi::toJsonValue(m_fki_province_id));
+    }
     if (m_s_province_name_x_isSet) {
         obj.insert(QString("sProvinceNameX"), ::Ezmaxapi::toJsonValue(m_s_province_name_x));
+    }
+    if (m_fki_country_id_isSet) {
+        obj.insert(QString("fkiCountryID"), ::Ezmaxapi::toJsonValue(m_fki_country_id));
     }
     if (m_s_country_name_x_isSet) {
         obj.insert(QString("sCountryNameX"), ::Ezmaxapi::toJsonValue(m_s_country_name_x));
@@ -718,6 +736,22 @@ bool Inscription_ListElement::is_s_address_zip_Valid() const{
     return m_s_address_zip_isValid;
 }
 
+qint32 Inscription_ListElement::getFkiProvinceId() const {
+    return m_fki_province_id;
+}
+void Inscription_ListElement::setFkiProvinceId(const qint32 &fki_province_id) {
+    m_fki_province_id = fki_province_id;
+    m_fki_province_id_isSet = true;
+}
+
+bool Inscription_ListElement::is_fki_province_id_Set() const{
+    return m_fki_province_id_isSet;
+}
+
+bool Inscription_ListElement::is_fki_province_id_Valid() const{
+    return m_fki_province_id_isValid;
+}
+
 QString Inscription_ListElement::getSProvinceNameX() const {
     return m_s_province_name_x;
 }
@@ -732,6 +766,22 @@ bool Inscription_ListElement::is_s_province_name_x_Set() const{
 
 bool Inscription_ListElement::is_s_province_name_x_Valid() const{
     return m_s_province_name_x_isValid;
+}
+
+qint32 Inscription_ListElement::getFkiCountryId() const {
+    return m_fki_country_id;
+}
+void Inscription_ListElement::setFkiCountryId(const qint32 &fki_country_id) {
+    m_fki_country_id = fki_country_id;
+    m_fki_country_id_isSet = true;
+}
+
+bool Inscription_ListElement::is_fki_country_id_Set() const{
+    return m_fki_country_id_isSet;
+}
+
+bool Inscription_ListElement::is_fki_country_id_Valid() const{
+    return m_fki_country_id_isValid;
 }
 
 QString Inscription_ListElement::getSCountryNameX() const {
@@ -910,7 +960,17 @@ bool Inscription_ListElement::isSet() const {
             break;
         }
 
+        if (m_fki_province_id_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (m_s_province_name_x_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_fki_country_id_isSet) {
             isObjectUpdated = true;
             break;
         }

@@ -34,13 +34,13 @@ class Custom_Branding_Response;
 class Ezsigntemplatepublic_getEzsigntemplatepublicDetails_v1_Response_mPayload : public Object {
 public:
     Ezsigntemplatepublic_getEzsigntemplatepublicDetails_v1_Response_mPayload();
-    Ezsigntemplatepublic_getEzsigntemplatepublicDetails_v1_Response_mPayload(QString json);
+    Ezsigntemplatepublic_getEzsigntemplatepublicDetails_v1_Response_mPayload(const QString &json);
     ~Ezsigntemplatepublic_getEzsigntemplatepublicDetails_v1_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Custom_Branding_Response getObjBranding() const;
     void setObjBranding(const Custom_Branding_Response &obj_branding);

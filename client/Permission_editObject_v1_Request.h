@@ -32,13 +32,13 @@ class Permission_RequestCompound;
 class Permission_editObject_v1_Request : public Object {
 public:
     Permission_editObject_v1_Request();
-    Permission_editObject_v1_Request(QString json);
+    Permission_editObject_v1_Request(const QString &json);
     ~Permission_editObject_v1_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Permission_RequestCompound getObjPermission() const;
     void setObjPermission(const Permission_RequestCompound &obj_permission);

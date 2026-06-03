@@ -33,13 +33,13 @@ class Custom_Webhooklog_Response;
 class Webhook_getHistory_v1_Response_mPayload : public Object {
 public:
     Webhook_getHistory_v1_Response_mPayload();
-    Webhook_getHistory_v1_Response_mPayload(QString json);
+    Webhook_getHistory_v1_Response_mPayload(const QString &json);
     ~Webhook_getHistory_v1_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Custom_Webhooklog_Response> getAObjWebhooklog() const;
     void setAObjWebhooklog(const QList<Custom_Webhooklog_Response> &a_obj_webhooklog);

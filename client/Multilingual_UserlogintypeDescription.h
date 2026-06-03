@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Multilingual_UserlogintypeDescription : public Object {
 public:
     Multilingual_UserlogintypeDescription();
-    Multilingual_UserlogintypeDescription(QString json);
+    Multilingual_UserlogintypeDescription(const QString &json);
     ~Multilingual_UserlogintypeDescription() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getSUserlogintypeDescription1() const;
     void setSUserlogintypeDescription1(const QString &s_userlogintype_description1);

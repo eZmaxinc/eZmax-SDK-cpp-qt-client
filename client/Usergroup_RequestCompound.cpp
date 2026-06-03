@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Usergroup_RequestCompound::Usergroup_RequestCompound(QString json) {
+Usergroup_RequestCompound::Usergroup_RequestCompound(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -44,7 +44,7 @@ void Usergroup_RequestCompound::initializeModel() {
     m_obj_usergroup_name_isValid = false;
 }
 
-void Usergroup_RequestCompound::fromJson(QString jsonString) {
+void Usergroup_RequestCompound::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Ezsignsigningreason_ListElement : public Object {
 public:
     Ezsignsigningreason_ListElement();
-    Ezsignsigningreason_ListElement(QString json);
+    Ezsignsigningreason_ListElement(const QString &json);
     ~Ezsignsigningreason_ListElement() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiEzsignsigningreasonId() const;
     void setPkiEzsignsigningreasonId(const qint32 &pki_ezsignsigningreason_id);

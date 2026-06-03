@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Font_AutocompleteElement_Response::Font_AutocompleteElement_Response(QString json) {
+Font_AutocompleteElement_Response::Font_AutocompleteElement_Response(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -44,7 +44,7 @@ void Font_AutocompleteElement_Response::initializeModel() {
     m_b_font_isactive_isValid = false;
 }
 
-void Font_AutocompleteElement_Response::fromJson(QString jsonString) {
+void Font_AutocompleteElement_Response::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

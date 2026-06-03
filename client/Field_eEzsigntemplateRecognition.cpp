@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_eEzsigntemplateRecognition::Field_eEzsigntemplateRecognition(QString json) {
+Field_eEzsigntemplateRecognition::Field_eEzsigntemplateRecognition(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_eEzsigntemplateRecognition::initializeModel() {
     m_value = eField_eEzsigntemplateRecognition::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_eEzsigntemplateRecognition::fromJson(QString jsonString) {
+void Field_eEzsigntemplateRecognition::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("No", Qt::CaseInsensitive) == 0) {
         m_value = eField_eEzsigntemplateRecognition::NO;

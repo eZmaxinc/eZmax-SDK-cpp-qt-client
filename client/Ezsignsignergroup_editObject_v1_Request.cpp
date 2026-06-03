@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Ezsignsignergroup_editObject_v1_Request::Ezsignsignergroup_editObject_v1_Request(QString json) {
+Ezsignsignergroup_editObject_v1_Request::Ezsignsignergroup_editObject_v1_Request(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -38,7 +38,7 @@ void Ezsignsignergroup_editObject_v1_Request::initializeModel() {
     m_obj_ezsignsignergroup_isValid = false;
 }
 
-void Ezsignsignergroup_editObject_v1_Request::fromJson(QString jsonString) {
+void Ezsignsignergroup_editObject_v1_Request::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

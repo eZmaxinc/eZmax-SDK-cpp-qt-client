@@ -40,13 +40,13 @@ class Ezsigntemplateelementdependency_RequestCompound;
 class Ezsigntemplateformfield_RequestCompound : public Object {
 public:
     Ezsigntemplateformfield_RequestCompound();
-    Ezsigntemplateformfield_RequestCompound(QString json);
+    Ezsigntemplateformfield_RequestCompound(const QString &json);
     ~Ezsigntemplateformfield_RequestCompound() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiEzsigntemplateformfieldId() const;
     void setPkiEzsigntemplateformfieldId(const qint32 &pki_ezsigntemplateformfield_id);

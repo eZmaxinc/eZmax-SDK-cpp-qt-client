@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_eColleagueRealestateinprogess::Field_eColleagueRealestateinprogess(QString json) {
+Field_eColleagueRealestateinprogess::Field_eColleagueRealestateinprogess(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_eColleagueRealestateinprogess::initializeModel() {
     m_value = eField_eColleagueRealestateinprogess::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_eColleagueRealestateinprogess::fromJson(QString jsonString) {
+void Field_eColleagueRealestateinprogess::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("No", Qt::CaseInsensitive) == 0) {
         m_value = eField_eColleagueRealestateinprogess::NO;

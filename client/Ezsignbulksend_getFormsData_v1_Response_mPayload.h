@@ -33,13 +33,13 @@ class Custom_FormsDataFolder_Response;
 class Ezsignbulksend_getFormsData_v1_Response_mPayload : public Object {
 public:
     Ezsignbulksend_getFormsData_v1_Response_mPayload();
-    Ezsignbulksend_getFormsData_v1_Response_mPayload(QString json);
+    Ezsignbulksend_getFormsData_v1_Response_mPayload(const QString &json);
     ~Ezsignbulksend_getFormsData_v1_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Custom_FormsDataFolder_Response> getAObjFormsDataFolder() const;
     void setAObjFormsDataFolder(const QList<Custom_FormsDataFolder_Response> &a_obj_forms_data_folder);

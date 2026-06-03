@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Custom_DropdownElement_Response : public Object {
 public:
     Custom_DropdownElement_Response();
-    Custom_DropdownElement_Response(QString json);
+    Custom_DropdownElement_Response(const QString &json);
     ~Custom_DropdownElement_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getSLabel() const;
     void setSLabel(const QString &s_label);

@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Enum_Fontweight::Enum_Fontweight(QString json) {
+Enum_Fontweight::Enum_Fontweight(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Enum_Fontweight::initializeModel() {
     m_value = eEnum_Fontweight::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Enum_Fontweight::fromJson(QString jsonString) {
+void Enum_Fontweight::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("Normal", Qt::CaseInsensitive) == 0) {
         m_value = eEnum_Fontweight::NORMAL;

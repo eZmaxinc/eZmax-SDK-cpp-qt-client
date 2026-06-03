@@ -34,13 +34,13 @@ class Custom_Attachment_Response;
 class Custom_Attachmentdocumenttype_Response : public Object {
 public:
     Custom_Attachmentdocumenttype_Response();
-    Custom_Attachmentdocumenttype_Response(QString json);
+    Custom_Attachmentdocumenttype_Response(const QString &json);
     ~Custom_Attachmentdocumenttype_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Field_eAttachmentDocumenttype getEAttachmentDocumenttype() const;
     void setEAttachmentDocumenttype(const Field_eAttachmentDocumenttype &e_attachment_documenttype);

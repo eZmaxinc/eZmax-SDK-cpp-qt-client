@@ -34,13 +34,13 @@ class Common_Reportsection;
 class Common_Report : public Object {
 public:
     Common_Report();
-    Common_Report(QString json);
+    Common_Report(const QString &json);
     ~Common_Report() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Common_Reportsection> getAObjReportsection() const;
     void setAObjReportsection(const QList<Common_Reportsection> &a_obj_reportsection);

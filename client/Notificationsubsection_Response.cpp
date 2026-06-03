@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Notificationsubsection_Response::Notificationsubsection_Response(QString json) {
+Notificationsubsection_Response::Notificationsubsection_Response(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -50,7 +50,7 @@ void Notificationsubsection_Response::initializeModel() {
     m_s_notificationsubsection_name_x_isValid = false;
 }
 
-void Notificationsubsection_Response::fromJson(QString jsonString) {
+void Notificationsubsection_Response::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

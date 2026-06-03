@@ -38,13 +38,13 @@ class Discussionmessage_ResponseCompound;
 class Discussion_ResponseCompound : public Object {
 public:
     Discussion_ResponseCompound();
-    Discussion_ResponseCompound(QString json);
+    Discussion_ResponseCompound(const QString &json);
     ~Discussion_ResponseCompound() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiDiscussionId() const;
     void setPkiDiscussionId(const qint32 &pki_discussion_id);

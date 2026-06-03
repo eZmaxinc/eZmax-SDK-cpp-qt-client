@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_eOtherincomeRemunerationtype::Field_eOtherincomeRemunerationtype(QString json) {
+Field_eOtherincomeRemunerationtype::Field_eOtherincomeRemunerationtype(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_eOtherincomeRemunerationtype::initializeModel() {
     m_value = eField_eOtherincomeRemunerationtype::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_eOtherincomeRemunerationtype::fromJson(QString jsonString) {
+void Field_eOtherincomeRemunerationtype::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("Dollars", Qt::CaseInsensitive) == 0) {
         m_value = eField_eOtherincomeRemunerationtype::DOLLARS;

@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Ezsignsignature_RequestCompoundV2::Ezsignsignature_RequestCompoundV2(QString json) {
+Ezsignsignature_RequestCompoundV2::Ezsignsignature_RequestCompoundV2(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -146,7 +146,7 @@ void Ezsignsignature_RequestCompoundV2::initializeModel() {
     m_a_obj_ezsignsignaturepaymentdetail_isValid = false;
 }
 
-void Ezsignsignature_RequestCompoundV2::fromJson(QString jsonString) {
+void Ezsignsignature_RequestCompoundV2::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

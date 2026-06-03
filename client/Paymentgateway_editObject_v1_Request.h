@@ -32,13 +32,13 @@ class Paymentgateway_RequestCompound;
 class Paymentgateway_editObject_v1_Request : public Object {
 public:
     Paymentgateway_editObject_v1_Request();
-    Paymentgateway_editObject_v1_Request(QString json);
+    Paymentgateway_editObject_v1_Request(const QString &json);
     ~Paymentgateway_editObject_v1_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Paymentgateway_RequestCompound getObjPaymentgateway() const;
     void setObjPaymentgateway(const Paymentgateway_RequestCompound &obj_paymentgateway);

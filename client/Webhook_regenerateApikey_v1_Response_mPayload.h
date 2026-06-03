@@ -32,13 +32,13 @@ class Webhook_ResponseCompound;
 class Webhook_regenerateApikey_v1_Response_mPayload : public Object {
 public:
     Webhook_regenerateApikey_v1_Response_mPayload();
-    Webhook_regenerateApikey_v1_Response_mPayload(QString json);
+    Webhook_regenerateApikey_v1_Response_mPayload(const QString &json);
     ~Webhook_regenerateApikey_v1_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Webhook_ResponseCompound getObjWebhook() const;
     void setObjWebhook(const Webhook_ResponseCompound &obj_webhook);

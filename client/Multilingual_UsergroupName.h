@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Multilingual_UsergroupName : public Object {
 public:
     Multilingual_UsergroupName();
-    Multilingual_UsergroupName(QString json);
+    Multilingual_UsergroupName(const QString &json);
     ~Multilingual_UsergroupName() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getSUsergroupName1() const;
     void setSUsergroupName1(const QString &s_usergroup_name1);

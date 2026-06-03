@@ -37,13 +37,13 @@ class Ezsignsigner_ResponseCompound;
 class Custom_EzsignfoldersignerassociationActionableElement_Response : public Object {
 public:
     Custom_EzsignfoldersignerassociationActionableElement_Response();
-    Custom_EzsignfoldersignerassociationActionableElement_Response(QString json);
+    Custom_EzsignfoldersignerassociationActionableElement_Response(const QString &json);
     ~Custom_EzsignfoldersignerassociationActionableElement_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiEzsignfoldersignerassociationId() const;
     void setPkiEzsignfoldersignerassociationId(const qint32 &pki_ezsignfoldersignerassociation_id);

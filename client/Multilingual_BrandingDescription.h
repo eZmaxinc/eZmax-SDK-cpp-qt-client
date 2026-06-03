@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Multilingual_BrandingDescription : public Object {
 public:
     Multilingual_BrandingDescription();
-    Multilingual_BrandingDescription(QString json);
+    Multilingual_BrandingDescription(const QString &json);
     ~Multilingual_BrandingDescription() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getSBrandingDescription1() const;
     void setSBrandingDescription1(const QString &s_branding_description1);

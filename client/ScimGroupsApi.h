@@ -39,6 +39,7 @@ public:
     void initializeServerConfigs();
     int setDefaultServerValue(int serverIndex,const QString &operation, const QString &variable,const QString &val);
     void setServerIndex(const QString &operation, int serverIndex);
+    void setServerIndex(int serverIndex);
     void setApiKey(const QString &apiKeyName, const QString &apiKey);
     void setBearerToken(const QString &token);
     void setUsername(const QString &username);
@@ -85,6 +86,13 @@ public:
 
 
 private:
+    enum class OauthMethod : int {
+        INVALID_VALUE_OPENAPI_GENERATED = 0,
+        ImplicitFlow = 1,
+        AuthorizationFlow = 2,
+        ClientCredentialsFlow = 3,
+        ResourceOwnerPasswordFlow = 4
+    };
     QMap<QString,int> _serverIndices;
     QMap<QString,QList<ServerConfiguration>> _serverConfigs;
     QMap<QString, QString> _apiKeys;
@@ -104,7 +112,7 @@ private:
     OauthImplicit _implicitFlow;
     OauthCredentials _credentialFlow;
     OauthPassword _passwordFlow;
-    int _OauthMethod = 0;
+    OauthMethod _OauthMethod = OauthMethod::INVALID_VALUE_OPENAPI_GENERATED;
 
     void groupsCreateObjectScimV2Callback(HttpRequestWorker *worker);
     void groupsDeleteObjectScimV2Callback(HttpRequestWorker *worker);
@@ -127,36 +135,16 @@ Q_SIGNALS:
     void groupsGetListScimV2SignalFull(HttpRequestWorker *worker, Scim_Group summary);
     void groupsGetObjectScimV2SignalFull(HttpRequestWorker *worker, Scim_Group summary);
 
-    Q_DECL_DEPRECATED_X("Use groupsCreateObjectScimV2SignalError() instead")
-    void groupsCreateObjectScimV2SignalE(Scim_Group summary, QNetworkReply::NetworkError error_type, QString error_str);
     void groupsCreateObjectScimV2SignalError(Scim_Group summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use groupsDeleteObjectScimV2SignalError() instead")
-    void groupsDeleteObjectScimV2SignalE(QNetworkReply::NetworkError error_type, QString error_str);
     void groupsDeleteObjectScimV2SignalError(QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use groupsEditObjectScimV2SignalError() instead")
-    void groupsEditObjectScimV2SignalE(Scim_Group summary, QNetworkReply::NetworkError error_type, QString error_str);
     void groupsEditObjectScimV2SignalError(Scim_Group summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use groupsGetListScimV2SignalError() instead")
-    void groupsGetListScimV2SignalE(Scim_Group summary, QNetworkReply::NetworkError error_type, QString error_str);
     void groupsGetListScimV2SignalError(Scim_Group summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use groupsGetObjectScimV2SignalError() instead")
-    void groupsGetObjectScimV2SignalE(Scim_Group summary, QNetworkReply::NetworkError error_type, QString error_str);
     void groupsGetObjectScimV2SignalError(Scim_Group summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
-    Q_DECL_DEPRECATED_X("Use groupsCreateObjectScimV2SignalErrorFull() instead")
-    void groupsCreateObjectScimV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void groupsCreateObjectScimV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use groupsDeleteObjectScimV2SignalErrorFull() instead")
-    void groupsDeleteObjectScimV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void groupsDeleteObjectScimV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use groupsEditObjectScimV2SignalErrorFull() instead")
-    void groupsEditObjectScimV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void groupsEditObjectScimV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use groupsGetListScimV2SignalErrorFull() instead")
-    void groupsGetListScimV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void groupsGetListScimV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use groupsGetObjectScimV2SignalErrorFull() instead")
-    void groupsGetObjectScimV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void groupsGetObjectScimV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();

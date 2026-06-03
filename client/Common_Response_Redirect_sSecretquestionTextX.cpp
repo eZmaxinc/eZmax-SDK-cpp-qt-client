@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Common_Response_Redirect_sSecretquestionTextX::Common_Response_Redirect_sSecretquestionTextX(QString json) {
+Common_Response_Redirect_sSecretquestionTextX::Common_Response_Redirect_sSecretquestionTextX(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -38,7 +38,7 @@ void Common_Response_Redirect_sSecretquestionTextX::initializeModel() {
     m_s_secretquestion_text_x_isValid = false;
 }
 
-void Common_Response_Redirect_sSecretquestionTextX::fromJson(QString jsonString) {
+void Common_Response_Redirect_sSecretquestionTextX::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

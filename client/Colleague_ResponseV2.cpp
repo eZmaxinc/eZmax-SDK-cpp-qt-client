@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Colleague_ResponseV2::Colleague_ResponseV2(QString json) {
+Colleague_ResponseV2::Colleague_ResponseV2(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -83,7 +83,7 @@ void Colleague_ResponseV2::initializeModel() {
     m_obj_audit_isValid = false;
 }
 
-void Colleague_ResponseV2::fromJson(QString jsonString) {
+void Colleague_ResponseV2::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

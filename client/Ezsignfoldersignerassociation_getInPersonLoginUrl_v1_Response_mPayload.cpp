@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Ezsignfoldersignerassociation_getInPersonLoginUrl_v1_Response_mPayload::Ezsignfoldersignerassociation_getInPersonLoginUrl_v1_Response_mPayload(QString json) {
+Ezsignfoldersignerassociation_getInPersonLoginUrl_v1_Response_mPayload::Ezsignfoldersignerassociation_getInPersonLoginUrl_v1_Response_mPayload(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -38,7 +38,7 @@ void Ezsignfoldersignerassociation_getInPersonLoginUrl_v1_Response_mPayload::ini
     m_s_login_url_isValid = false;
 }
 
-void Ezsignfoldersignerassociation_getInPersonLoginUrl_v1_Response_mPayload::fromJson(QString jsonString) {
+void Ezsignfoldersignerassociation_getInPersonLoginUrl_v1_Response_mPayload::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

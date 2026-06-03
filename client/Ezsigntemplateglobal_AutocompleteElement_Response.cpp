@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Ezsigntemplateglobal_AutocompleteElement_Response::Ezsigntemplateglobal_AutocompleteElement_Response(QString json) {
+Ezsigntemplateglobal_AutocompleteElement_Response::Ezsigntemplateglobal_AutocompleteElement_Response(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -44,7 +44,7 @@ void Ezsigntemplateglobal_AutocompleteElement_Response::initializeModel() {
     m_b_ezsigntemplateglobal_isactive_isValid = false;
 }
 
-void Ezsigntemplateglobal_AutocompleteElement_Response::fromJson(QString jsonString) {
+void Ezsigntemplateglobal_AutocompleteElement_Response::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

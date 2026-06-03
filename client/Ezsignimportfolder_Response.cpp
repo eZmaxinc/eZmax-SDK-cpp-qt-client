@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Ezsignimportfolder_Response::Ezsignimportfolder_Response(QString json) {
+Ezsignimportfolder_Response::Ezsignimportfolder_Response(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -41,7 +41,7 @@ void Ezsignimportfolder_Response::initializeModel() {
     m_s_ezsignimportfolder_name_isValid = false;
 }
 
-void Ezsignimportfolder_Response::fromJson(QString jsonString) {
+void Ezsignimportfolder_Response::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

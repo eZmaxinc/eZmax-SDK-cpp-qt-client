@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_eVersionhistoryType::Field_eVersionhistoryType(QString json) {
+Field_eVersionhistoryType::Field_eVersionhistoryType(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_eVersionhistoryType::initializeModel() {
     m_value = eField_eVersionhistoryType::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_eVersionhistoryType::fromJson(QString jsonString) {
+void Field_eVersionhistoryType::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("AgentBroker", Qt::CaseInsensitive) == 0) {
         m_value = eField_eVersionhistoryType::AGENTBROKER;

@@ -33,13 +33,13 @@ class Custom_Communicationrecipientsgroup_Response;
 class Buyercontract_getCommunicationrecipients_v1_Response_mPayload : public Object {
 public:
     Buyercontract_getCommunicationrecipients_v1_Response_mPayload();
-    Buyercontract_getCommunicationrecipients_v1_Response_mPayload(QString json);
+    Buyercontract_getCommunicationrecipients_v1_Response_mPayload(const QString &json);
     ~Buyercontract_getCommunicationrecipients_v1_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Custom_Communicationrecipientsgroup_Response> getAObjCommunicationrecipientsgroup() const;
     void setAObjCommunicationrecipientsgroup(const QList<Custom_Communicationrecipientsgroup_Response> &a_obj_communicationrecipientsgroup);

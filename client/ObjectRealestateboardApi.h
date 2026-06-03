@@ -40,6 +40,7 @@ public:
     void initializeServerConfigs();
     int setDefaultServerValue(int serverIndex,const QString &operation, const QString &variable,const QString &val);
     void setServerIndex(const QString &operation, int serverIndex);
+    void setServerIndex(int serverIndex);
     void setApiKey(const QString &apiKeyName, const QString &apiKey);
     void setBearerToken(const QString &token);
     void setUsername(const QString &username);
@@ -69,6 +70,13 @@ public:
 
 
 private:
+    enum class OauthMethod : int {
+        INVALID_VALUE_OPENAPI_GENERATED = 0,
+        ImplicitFlow = 1,
+        AuthorizationFlow = 2,
+        ClientCredentialsFlow = 3,
+        ResourceOwnerPasswordFlow = 4
+    };
     QMap<QString,int> _serverIndices;
     QMap<QString,QList<ServerConfiguration>> _serverConfigs;
     QMap<QString, QString> _apiKeys;
@@ -88,7 +96,7 @@ private:
     OauthImplicit _implicitFlow;
     OauthCredentials _credentialFlow;
     OauthPassword _passwordFlow;
-    int _OauthMethod = 0;
+    OauthMethod _OauthMethod = OauthMethod::INVALID_VALUE_OPENAPI_GENERATED;
 
     void realestateboardGetAutocompleteV2Callback(HttpRequestWorker *worker);
 
@@ -99,12 +107,8 @@ Q_SIGNALS:
 
     void realestateboardGetAutocompleteV2SignalFull(HttpRequestWorker *worker, Realestateboard_getAutocomplete_v2_Response summary);
 
-    Q_DECL_DEPRECATED_X("Use realestateboardGetAutocompleteV2SignalError() instead")
-    void realestateboardGetAutocompleteV2SignalE(Realestateboard_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void realestateboardGetAutocompleteV2SignalError(Realestateboard_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
-    Q_DECL_DEPRECATED_X("Use realestateboardGetAutocompleteV2SignalErrorFull() instead")
-    void realestateboardGetAutocompleteV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void realestateboardGetAutocompleteV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();

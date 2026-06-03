@@ -42,13 +42,13 @@ class Ezsignformfieldgroupsigner_ResponseCompound;
 class Ezsignformfieldgroup_ResponseCompound : public Object {
 public:
     Ezsignformfieldgroup_ResponseCompound();
-    Ezsignformfieldgroup_ResponseCompound(QString json);
+    Ezsignformfieldgroup_ResponseCompound(const QString &json);
     ~Ezsignformfieldgroup_ResponseCompound() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiEzsignformfieldgroupId() const;
     void setPkiEzsignformfieldgroupId(const qint32 &pki_ezsignformfieldgroup_id);

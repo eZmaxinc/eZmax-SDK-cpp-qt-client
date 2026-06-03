@@ -46,13 +46,13 @@ class Scim_ServiceProviderConfig_sort;
 class Scim_ServiceProviderConfig : public Object {
 public:
     Scim_ServiceProviderConfig();
-    Scim_ServiceProviderConfig(QString json);
+    Scim_ServiceProviderConfig(const QString &json);
     ~Scim_ServiceProviderConfig() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Scim_AuthenticationScheme> getAuthenticationSchemes() const;
     void setAuthenticationSchemes(const QList<Scim_AuthenticationScheme> &authentication_schemes);

@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_eDiscussionRobot::Field_eDiscussionRobot(QString json) {
+Field_eDiscussionRobot::Field_eDiscussionRobot(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_eDiscussionRobot::initializeModel() {
     m_value = eField_eDiscussionRobot::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_eDiscussionRobot::fromJson(QString jsonString) {
+void Field_eDiscussionRobot::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("Advanced", Qt::CaseInsensitive) == 0) {
         m_value = eField_eDiscussionRobot::ADVANCED;

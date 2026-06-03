@@ -33,13 +33,13 @@ class Custom_Notificationsubsectiongetnotificationtests_Response;
 class Notificationsection_getNotificationtests_v1_Response_mPayload : public Object {
 public:
     Notificationsection_getNotificationtests_v1_Response_mPayload();
-    Notificationsection_getNotificationtests_v1_Response_mPayload(QString json);
+    Notificationsection_getNotificationtests_v1_Response_mPayload(const QString &json);
     ~Notificationsection_getNotificationtests_v1_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Custom_Notificationsubsectiongetnotificationtests_Response> getAObjNotificationsubsection() const;
     void setAObjNotificationsubsection(const QList<Custom_Notificationsubsectiongetnotificationtests_Response> &a_obj_notificationsubsection);

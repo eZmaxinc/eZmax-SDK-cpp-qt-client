@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_eCommunicationexternalrecipientType::Field_eCommunicationexternalrecipientType(QString json) {
+Field_eCommunicationexternalrecipientType::Field_eCommunicationexternalrecipientType(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_eCommunicationexternalrecipientType::initializeModel() {
     m_value = eField_eCommunicationexternalrecipientType::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_eCommunicationexternalrecipientType::fromJson(QString jsonString) {
+void Field_eCommunicationexternalrecipientType::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("To", Qt::CaseInsensitive) == 0) {
         m_value = eField_eCommunicationexternalrecipientType::TO;

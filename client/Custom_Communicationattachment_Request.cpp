@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Custom_Communicationattachment_Request::Custom_Communicationattachment_Request(QString json) {
+Custom_Communicationattachment_Request::Custom_Communicationattachment_Request(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -41,7 +41,7 @@ void Custom_Communicationattachment_Request::initializeModel() {
     m_obj_communicationexternalattachment_isValid = false;
 }
 
-void Custom_Communicationattachment_Request::fromJson(QString jsonString) {
+void Custom_Communicationattachment_Request::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

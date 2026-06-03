@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Userstaged_createUser_v1_Response::Userstaged_createUser_v1_Response(QString json) {
+Userstaged_createUser_v1_Response::Userstaged_createUser_v1_Response(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -44,7 +44,7 @@ void Userstaged_createUser_v1_Response::initializeModel() {
     m_m_payload_isValid = false;
 }
 
-void Userstaged_createUser_v1_Response::fromJson(QString jsonString) {
+void Userstaged_createUser_v1_Response::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

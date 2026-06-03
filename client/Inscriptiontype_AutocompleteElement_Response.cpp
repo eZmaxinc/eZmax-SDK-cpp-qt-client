@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Inscriptiontype_AutocompleteElement_Response::Inscriptiontype_AutocompleteElement_Response(QString json) {
+Inscriptiontype_AutocompleteElement_Response::Inscriptiontype_AutocompleteElement_Response(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -41,7 +41,7 @@ void Inscriptiontype_AutocompleteElement_Response::initializeModel() {
     m_s_inscriptiontype_name_x_isValid = false;
 }
 
-void Inscriptiontype_AutocompleteElement_Response::fromJson(QString jsonString) {
+void Inscriptiontype_AutocompleteElement_Response::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

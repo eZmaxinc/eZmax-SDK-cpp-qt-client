@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Ezdoctemplatedocument_ResponseCompound::Ezdoctemplatedocument_ResponseCompound(QString json) {
+Ezdoctemplatedocument_ResponseCompound::Ezdoctemplatedocument_ResponseCompound(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -71,7 +71,7 @@ void Ezdoctemplatedocument_ResponseCompound::initializeModel() {
     m_s_ezdoctemplatetype_description_x_isValid = false;
 }
 
-void Ezdoctemplatedocument_ResponseCompound::fromJson(QString jsonString) {
+void Ezdoctemplatedocument_ResponseCompound::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();
@@ -425,7 +425,7 @@ bool Ezdoctemplatedocument_ResponseCompound::isSet() const {
 
 bool Ezdoctemplatedocument_ResponseCompound::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_pki_ezdoctemplatedocument_id_isValid && m_fki_language_id_isValid && m_fki_ezdoctemplatetype_id_isValid && m_fki_ezdoctemplatefieldtypecategory_id_isValid && m_b_ezdoctemplatedocument_isactive_isValid && m_obj_ezdoctemplatedocument_name_isValid && m_s_ezdoctemplatefieldtypecategory_description_x_isValid && m_s_ezdoctemplatetype_description_x_isValid && true;
+    return m_pki_ezdoctemplatedocument_id_isValid && m_fki_language_id_isValid && m_fki_ezdoctemplatetype_id_isValid && m_b_ezdoctemplatedocument_isactive_isValid && m_obj_ezdoctemplatedocument_name_isValid && m_s_ezdoctemplatetype_description_x_isValid && true;
 }
 
 } // namespace Ezmaxapi

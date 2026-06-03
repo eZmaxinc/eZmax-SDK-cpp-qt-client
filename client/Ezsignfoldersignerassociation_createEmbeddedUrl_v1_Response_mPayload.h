@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Response_mPayload : public Object {
 public:
     Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Response_mPayload();
-    Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Response_mPayload(QString json);
+    Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Response_mPayload(const QString &json);
     ~Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getSEmbeddedUrl() const;
     void setSEmbeddedUrl(const QString &s_embedded_url);

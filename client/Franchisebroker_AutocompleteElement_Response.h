@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Franchisebroker_AutocompleteElement_Response : public Object {
 public:
     Franchisebroker_AutocompleteElement_Response();
-    Franchisebroker_AutocompleteElement_Response(QString json);
+    Franchisebroker_AutocompleteElement_Response(const QString &json);
     ~Franchisebroker_AutocompleteElement_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getSFranchisebrokerName() const;
     void setSFranchisebrokerName(const QString &s_franchisebroker_name);

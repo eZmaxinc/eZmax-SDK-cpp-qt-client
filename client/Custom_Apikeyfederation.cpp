@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Custom_Apikeyfederation::Custom_Apikeyfederation(QString json) {
+Custom_Apikeyfederation::Custom_Apikeyfederation(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -41,7 +41,7 @@ void Custom_Apikeyfederation::initializeModel() {
     m_s_apikeyfederation_secret_isValid = false;
 }
 
-void Custom_Apikeyfederation::fromJson(QString jsonString) {
+void Custom_Apikeyfederation::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

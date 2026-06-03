@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Common_File::Common_File(QString json) {
+Common_File::Common_File(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -47,7 +47,7 @@ void Common_File::initializeModel() {
     m_e_file_source_isValid = false;
 }
 
-void Common_File::fromJson(QString jsonString) {
+void Common_File::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

@@ -33,13 +33,13 @@ class Multilingual_UserlogintypeDescription;
 class Userlogintype_Response : public Object {
 public:
     Userlogintype_Response();
-    Userlogintype_Response(QString json);
+    Userlogintype_Response(const QString &json);
     ~Userlogintype_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiUserlogintypeId() const;
     void setPkiUserlogintypeId(const qint32 &pki_userlogintype_id);

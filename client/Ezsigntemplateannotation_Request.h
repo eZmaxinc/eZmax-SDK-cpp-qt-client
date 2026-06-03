@@ -24,38 +24,35 @@
 #include "Field_eEzsigntemplateannotationHorizontalalignment.h"
 #include "Field_eEzsigntemplateannotationType.h"
 #include "Field_eEzsigntemplateannotationVerticalalignment.h"
+#include "Textstylestatic_RequestCompound.h"
 #include <QString>
 
 #include "Enum.h"
 #include "Object.h"
 
 namespace Ezmaxapi {
+class Textstylestatic_RequestCompound;
 
 class Ezsigntemplateannotation_Request : public Object {
 public:
     Ezsigntemplateannotation_Request();
-    Ezsigntemplateannotation_Request(QString json);
+    Ezsigntemplateannotation_Request(const QString &json);
     ~Ezsigntemplateannotation_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiEzsigntemplateannotationId() const;
     void setPkiEzsigntemplateannotationId(const qint32 &pki_ezsigntemplateannotation_id);
     bool is_pki_ezsigntemplateannotation_id_Set() const;
     bool is_pki_ezsigntemplateannotation_id_Valid() const;
 
-    qint32 getFkiEzsigntemplatedocumentpageId() const;
-    void setFkiEzsigntemplatedocumentpageId(const qint32 &fki_ezsigntemplatedocumentpage_id);
-    bool is_fki_ezsigntemplatedocumentpage_id_Set() const;
-    bool is_fki_ezsigntemplatedocumentpage_id_Valid() const;
-
-    qint32 getFkiTextstylestaticId() const;
-    void setFkiTextstylestaticId(const qint32 &fki_textstylestatic_id);
-    bool is_fki_textstylestatic_id_Set() const;
-    bool is_fki_textstylestatic_id_Valid() const;
+    qint32 getFkiEzsigntemplatedocumentId() const;
+    void setFkiEzsigntemplatedocumentId(const qint32 &fki_ezsigntemplatedocument_id);
+    bool is_fki_ezsigntemplatedocument_id_Set() const;
+    bool is_fki_ezsigntemplatedocument_id_Valid() const;
 
     Field_eEzsigntemplateannotationHorizontalalignment getEEzsigntemplateannotationHorizontalalignment() const;
     void setEEzsigntemplateannotationHorizontalalignment(const Field_eEzsigntemplateannotationHorizontalalignment &e_ezsigntemplateannotation_horizontalalignment);
@@ -92,6 +89,11 @@ public:
     bool is_i_ezsigntemplateannotation_height_Set() const;
     bool is_i_ezsigntemplateannotation_height_Valid() const;
 
+    qint32 getIEzsigntemplatedocumentpagePagenumber() const;
+    void setIEzsigntemplatedocumentpagePagenumber(const qint32 &i_ezsigntemplatedocumentpage_pagenumber);
+    bool is_i_ezsigntemplatedocumentpage_pagenumber_Set() const;
+    bool is_i_ezsigntemplatedocumentpage_pagenumber_Valid() const;
+
     QString getSEzsigntemplateannotationDescription() const;
     void setSEzsigntemplateannotationDescription(const QString &s_ezsigntemplateannotation_description);
     bool is_s_ezsigntemplateannotation_description_Set() const;
@@ -102,10 +104,15 @@ public:
     bool is_s_ezsigntemplateannotation_defaulttext_Set() const;
     bool is_s_ezsigntemplateannotation_defaulttext_Valid() const;
 
-    QString getSEzsigntemplateannotationnDropdownvalues() const;
-    void setSEzsigntemplateannotationnDropdownvalues(const QString &s_ezsigntemplateannotationn_dropdownvalues);
-    bool is_s_ezsigntemplateannotationn_dropdownvalues_Set() const;
-    bool is_s_ezsigntemplateannotationn_dropdownvalues_Valid() const;
+    QString getSEzsigntemplateannotationDropdownvalues() const;
+    void setSEzsigntemplateannotationDropdownvalues(const QString &s_ezsigntemplateannotation_dropdownvalues);
+    bool is_s_ezsigntemplateannotation_dropdownvalues_Set() const;
+    bool is_s_ezsigntemplateannotation_dropdownvalues_Valid() const;
+
+    Textstylestatic_RequestCompound getObjTextstylestatic() const;
+    void setObjTextstylestatic(const Textstylestatic_RequestCompound &obj_textstylestatic);
+    bool is_obj_textstylestatic_Set() const;
+    bool is_obj_textstylestatic_Valid() const;
 
     virtual bool isSet() const override;
     virtual bool isValid() const override;
@@ -117,13 +124,9 @@ private:
     bool m_pki_ezsigntemplateannotation_id_isSet;
     bool m_pki_ezsigntemplateannotation_id_isValid;
 
-    qint32 m_fki_ezsigntemplatedocumentpage_id;
-    bool m_fki_ezsigntemplatedocumentpage_id_isSet;
-    bool m_fki_ezsigntemplatedocumentpage_id_isValid;
-
-    qint32 m_fki_textstylestatic_id;
-    bool m_fki_textstylestatic_id_isSet;
-    bool m_fki_textstylestatic_id_isValid;
+    qint32 m_fki_ezsigntemplatedocument_id;
+    bool m_fki_ezsigntemplatedocument_id_isSet;
+    bool m_fki_ezsigntemplatedocument_id_isValid;
 
     Field_eEzsigntemplateannotationHorizontalalignment m_e_ezsigntemplateannotation_horizontalalignment;
     bool m_e_ezsigntemplateannotation_horizontalalignment_isSet;
@@ -153,6 +156,10 @@ private:
     bool m_i_ezsigntemplateannotation_height_isSet;
     bool m_i_ezsigntemplateannotation_height_isValid;
 
+    qint32 m_i_ezsigntemplatedocumentpage_pagenumber;
+    bool m_i_ezsigntemplatedocumentpage_pagenumber_isSet;
+    bool m_i_ezsigntemplatedocumentpage_pagenumber_isValid;
+
     QString m_s_ezsigntemplateannotation_description;
     bool m_s_ezsigntemplateannotation_description_isSet;
     bool m_s_ezsigntemplateannotation_description_isValid;
@@ -161,9 +168,13 @@ private:
     bool m_s_ezsigntemplateannotation_defaulttext_isSet;
     bool m_s_ezsigntemplateannotation_defaulttext_isValid;
 
-    QString m_s_ezsigntemplateannotationn_dropdownvalues;
-    bool m_s_ezsigntemplateannotationn_dropdownvalues_isSet;
-    bool m_s_ezsigntemplateannotationn_dropdownvalues_isValid;
+    QString m_s_ezsigntemplateannotation_dropdownvalues;
+    bool m_s_ezsigntemplateannotation_dropdownvalues_isSet;
+    bool m_s_ezsigntemplateannotation_dropdownvalues_isValid;
+
+    Textstylestatic_RequestCompound m_obj_textstylestatic;
+    bool m_obj_textstylestatic_isSet;
+    bool m_obj_textstylestatic_isValid;
 };
 
 } // namespace Ezmaxapi

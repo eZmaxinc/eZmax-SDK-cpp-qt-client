@@ -32,13 +32,13 @@ namespace Ezmaxapi {
 class Ezsigntemplatepackagesigner_ResponseCompound : public Object {
 public:
     Ezsigntemplatepackagesigner_ResponseCompound();
-    Ezsigntemplatepackagesigner_ResponseCompound(QString json);
+    Ezsigntemplatepackagesigner_ResponseCompound(const QString &json);
     ~Ezsigntemplatepackagesigner_ResponseCompound() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiEzsigntemplatepackagesignerId() const;
     void setPkiEzsigntemplatepackagesignerId(const qint32 &pki_ezsigntemplatepackagesigner_id);

@@ -32,13 +32,13 @@ class Ezsignsigningreason_RequestCompound;
 class Ezsignsigningreason_editObject_v1_Request : public Object {
 public:
     Ezsignsigningreason_editObject_v1_Request();
-    Ezsignsigningreason_editObject_v1_Request(QString json);
+    Ezsignsigningreason_editObject_v1_Request(const QString &json);
     ~Ezsignsigningreason_editObject_v1_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Ezsignsigningreason_RequestCompound getObjEzsignsigningreason() const;
     void setObjEzsignsigningreason(const Ezsignsigningreason_RequestCompound &obj_ezsignsigningreason);

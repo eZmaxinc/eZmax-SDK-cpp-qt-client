@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_eEzsignfolderMessageorder::Field_eEzsignfolderMessageorder(QString json) {
+Field_eEzsignfolderMessageorder::Field_eEzsignfolderMessageorder(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_eEzsignfolderMessageorder::initializeModel() {
     m_value = eField_eEzsignfolderMessageorder::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_eEzsignfolderMessageorder::fromJson(QString jsonString) {
+void Field_eEzsignfolderMessageorder::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("GlobalFirst", Qt::CaseInsensitive) == 0) {
         m_value = eField_eEzsignfolderMessageorder::GLOBALFIRST;

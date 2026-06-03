@@ -33,13 +33,13 @@ namespace Ezmaxapi {
 class Ezsigntemplateglobal_Response : public Object {
 public:
     Ezsigntemplateglobal_Response();
-    Ezsigntemplateglobal_Response(QString json);
+    Ezsigntemplateglobal_Response(const QString &json);
     ~Ezsigntemplateglobal_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiEzsigntemplateglobalId() const;
     void setPkiEzsigntemplateglobalId(const qint32 &pki_ezsigntemplateglobal_id);

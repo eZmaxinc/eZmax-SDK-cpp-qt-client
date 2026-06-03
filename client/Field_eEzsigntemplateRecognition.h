@@ -30,13 +30,13 @@ namespace Ezmaxapi {
 class Field_eEzsigntemplateRecognition : public Enum {
 public:
     Field_eEzsigntemplateRecognition();
-    Field_eEzsigntemplateRecognition(QString json);
+    Field_eEzsigntemplateRecognition(const QString &json);
     ~Field_eEzsigntemplateRecognition() override;
 
     QString asJson() const override;
     QJsonValue asJsonValue() const override;
     void fromJsonValue(QJsonValue json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     enum class eField_eEzsigntemplateRecognition {
         INVALID_VALUE_OPENAPI_GENERATED = 0,

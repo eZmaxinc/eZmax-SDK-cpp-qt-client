@@ -33,13 +33,13 @@ class Franchiseoffice_AutocompleteElement_Response;
 class Franchiseoffice_getAutocomplete_v2_Response_mPayload : public Object {
 public:
     Franchiseoffice_getAutocomplete_v2_Response_mPayload();
-    Franchiseoffice_getAutocomplete_v2_Response_mPayload(QString json);
+    Franchiseoffice_getAutocomplete_v2_Response_mPayload(const QString &json);
     ~Franchiseoffice_getAutocomplete_v2_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Franchiseoffice_AutocompleteElement_Response> getAObjFranchiseoffice() const;
     void setAObjFranchiseoffice(const QList<Franchiseoffice_AutocompleteElement_Response> &a_obj_franchiseoffice);

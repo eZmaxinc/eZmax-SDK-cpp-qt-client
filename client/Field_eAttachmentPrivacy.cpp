@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_eAttachmentPrivacy::Field_eAttachmentPrivacy(QString json) {
+Field_eAttachmentPrivacy::Field_eAttachmentPrivacy(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_eAttachmentPrivacy::initializeModel() {
     m_value = eField_eAttachmentPrivacy::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_eAttachmentPrivacy::fromJson(QString jsonString) {
+void Field_eAttachmentPrivacy::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("All", Qt::CaseInsensitive) == 0) {
         m_value = eField_eAttachmentPrivacy::ALL;

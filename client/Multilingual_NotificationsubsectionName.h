@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Multilingual_NotificationsubsectionName : public Object {
 public:
     Multilingual_NotificationsubsectionName();
-    Multilingual_NotificationsubsectionName(QString json);
+    Multilingual_NotificationsubsectionName(const QString &json);
     ~Multilingual_NotificationsubsectionName() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getSNotificationsubsectionName1() const;
     void setSNotificationsubsectionName1(const QString &s_notificationsubsection_name1);

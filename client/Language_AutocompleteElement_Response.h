@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Language_AutocompleteElement_Response : public Object {
 public:
     Language_AutocompleteElement_Response();
-    Language_AutocompleteElement_Response(QString json);
+    Language_AutocompleteElement_Response(const QString &json);
     ~Language_AutocompleteElement_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiLanguageId() const;
     void setPkiLanguageId(const qint32 &pki_language_id);

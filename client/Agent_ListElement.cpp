@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Agent_ListElement::Agent_ListElement(QString json) {
+Agent_ListElement::Agent_ListElement(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -85,6 +85,21 @@ void Agent_ListElement::initializeModel() {
     m_dt_agent_leavedate_isSet = false;
     m_dt_agent_leavedate_isValid = false;
 
+    m_dt_agent_contractdate_isSet = false;
+    m_dt_agent_contractdate_isValid = false;
+
+    m_dt_agent_transferdate_isSet = false;
+    m_dt_agent_transferdate_isValid = false;
+
+    m_dt_agent_senioritydate_isSet = false;
+    m_dt_agent_senioritydate_isValid = false;
+
+    m_dt_agent_sickleavestart_isSet = false;
+    m_dt_agent_sickleavestart_isValid = false;
+
+    m_dt_agent_sickleaveend_isSet = false;
+    m_dt_agent_sickleaveend_isValid = false;
+
     m_b_agent_tranquillit_isSet = false;
     m_b_agent_tranquillit_isValid = false;
 
@@ -136,14 +151,20 @@ void Agent_ListElement::initializeModel() {
     m_s_address_zip_isSet = false;
     m_s_address_zip_isValid = false;
 
+    m_fki_province_id_isSet = false;
+    m_fki_province_id_isValid = false;
+
     m_s_province_name_x_isSet = false;
     m_s_province_name_x_isValid = false;
+
+    m_fki_country_id_isSet = false;
+    m_fki_country_id_isValid = false;
 
     m_s_country_name_x_isSet = false;
     m_s_country_name_x_isValid = false;
 }
 
-void Agent_ListElement::fromJson(QString jsonString) {
+void Agent_ListElement::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();
@@ -203,6 +224,21 @@ void Agent_ListElement::fromJsonObject(QJsonObject json) {
     m_dt_agent_leavedate_isValid = ::Ezmaxapi::fromJsonValue(m_dt_agent_leavedate, json[QString("dtAgentLeavedate")]);
     m_dt_agent_leavedate_isSet = !json[QString("dtAgentLeavedate")].isNull() && m_dt_agent_leavedate_isValid;
 
+    m_dt_agent_contractdate_isValid = ::Ezmaxapi::fromJsonValue(m_dt_agent_contractdate, json[QString("dtAgentContractdate")]);
+    m_dt_agent_contractdate_isSet = !json[QString("dtAgentContractdate")].isNull() && m_dt_agent_contractdate_isValid;
+
+    m_dt_agent_transferdate_isValid = ::Ezmaxapi::fromJsonValue(m_dt_agent_transferdate, json[QString("dtAgentTransferdate")]);
+    m_dt_agent_transferdate_isSet = !json[QString("dtAgentTransferdate")].isNull() && m_dt_agent_transferdate_isValid;
+
+    m_dt_agent_senioritydate_isValid = ::Ezmaxapi::fromJsonValue(m_dt_agent_senioritydate, json[QString("dtAgentSenioritydate")]);
+    m_dt_agent_senioritydate_isSet = !json[QString("dtAgentSenioritydate")].isNull() && m_dt_agent_senioritydate_isValid;
+
+    m_dt_agent_sickleavestart_isValid = ::Ezmaxapi::fromJsonValue(m_dt_agent_sickleavestart, json[QString("dtAgentSickleavestart")]);
+    m_dt_agent_sickleavestart_isSet = !json[QString("dtAgentSickleavestart")].isNull() && m_dt_agent_sickleavestart_isValid;
+
+    m_dt_agent_sickleaveend_isValid = ::Ezmaxapi::fromJsonValue(m_dt_agent_sickleaveend, json[QString("dtAgentSickleaveend")]);
+    m_dt_agent_sickleaveend_isSet = !json[QString("dtAgentSickleaveend")].isNull() && m_dt_agent_sickleaveend_isValid;
+
     m_b_agent_tranquillit_isValid = ::Ezmaxapi::fromJsonValue(m_b_agent_tranquillit, json[QString("bAgentTranquillit")]);
     m_b_agent_tranquillit_isSet = !json[QString("bAgentTranquillit")].isNull() && m_b_agent_tranquillit_isValid;
 
@@ -254,8 +290,14 @@ void Agent_ListElement::fromJsonObject(QJsonObject json) {
     m_s_address_zip_isValid = ::Ezmaxapi::fromJsonValue(m_s_address_zip, json[QString("sAddressZip")]);
     m_s_address_zip_isSet = !json[QString("sAddressZip")].isNull() && m_s_address_zip_isValid;
 
+    m_fki_province_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_province_id, json[QString("fkiProvinceID")]);
+    m_fki_province_id_isSet = !json[QString("fkiProvinceID")].isNull() && m_fki_province_id_isValid;
+
     m_s_province_name_x_isValid = ::Ezmaxapi::fromJsonValue(m_s_province_name_x, json[QString("sProvinceNameX")]);
     m_s_province_name_x_isSet = !json[QString("sProvinceNameX")].isNull() && m_s_province_name_x_isValid;
+
+    m_fki_country_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_country_id, json[QString("fkiCountryID")]);
+    m_fki_country_id_isSet = !json[QString("fkiCountryID")].isNull() && m_fki_country_id_isValid;
 
     m_s_country_name_x_isValid = ::Ezmaxapi::fromJsonValue(m_s_country_name_x, json[QString("sCountryNameX")]);
     m_s_country_name_x_isSet = !json[QString("sCountryNameX")].isNull() && m_s_country_name_x_isValid;
@@ -321,6 +363,21 @@ QJsonObject Agent_ListElement::asJsonObject() const {
     if (m_dt_agent_leavedate_isSet) {
         obj.insert(QString("dtAgentLeavedate"), ::Ezmaxapi::toJsonValue(m_dt_agent_leavedate));
     }
+    if (m_dt_agent_contractdate_isSet) {
+        obj.insert(QString("dtAgentContractdate"), ::Ezmaxapi::toJsonValue(m_dt_agent_contractdate));
+    }
+    if (m_dt_agent_transferdate_isSet) {
+        obj.insert(QString("dtAgentTransferdate"), ::Ezmaxapi::toJsonValue(m_dt_agent_transferdate));
+    }
+    if (m_dt_agent_senioritydate_isSet) {
+        obj.insert(QString("dtAgentSenioritydate"), ::Ezmaxapi::toJsonValue(m_dt_agent_senioritydate));
+    }
+    if (m_dt_agent_sickleavestart_isSet) {
+        obj.insert(QString("dtAgentSickleavestart"), ::Ezmaxapi::toJsonValue(m_dt_agent_sickleavestart));
+    }
+    if (m_dt_agent_sickleaveend_isSet) {
+        obj.insert(QString("dtAgentSickleaveend"), ::Ezmaxapi::toJsonValue(m_dt_agent_sickleaveend));
+    }
     if (m_b_agent_tranquillit_isSet) {
         obj.insert(QString("bAgentTranquillit"), ::Ezmaxapi::toJsonValue(m_b_agent_tranquillit));
     }
@@ -372,8 +429,14 @@ QJsonObject Agent_ListElement::asJsonObject() const {
     if (m_s_address_zip_isSet) {
         obj.insert(QString("sAddressZip"), ::Ezmaxapi::toJsonValue(m_s_address_zip));
     }
+    if (m_fki_province_id_isSet) {
+        obj.insert(QString("fkiProvinceID"), ::Ezmaxapi::toJsonValue(m_fki_province_id));
+    }
     if (m_s_province_name_x_isSet) {
         obj.insert(QString("sProvinceNameX"), ::Ezmaxapi::toJsonValue(m_s_province_name_x));
+    }
+    if (m_fki_country_id_isSet) {
+        obj.insert(QString("fkiCountryID"), ::Ezmaxapi::toJsonValue(m_fki_country_id));
     }
     if (m_s_country_name_x_isSet) {
         obj.insert(QString("sCountryNameX"), ::Ezmaxapi::toJsonValue(m_s_country_name_x));
@@ -653,6 +716,86 @@ bool Agent_ListElement::is_dt_agent_leavedate_Valid() const{
     return m_dt_agent_leavedate_isValid;
 }
 
+QString Agent_ListElement::getDtAgentContractdate() const {
+    return m_dt_agent_contractdate;
+}
+void Agent_ListElement::setDtAgentContractdate(const QString &dt_agent_contractdate) {
+    m_dt_agent_contractdate = dt_agent_contractdate;
+    m_dt_agent_contractdate_isSet = true;
+}
+
+bool Agent_ListElement::is_dt_agent_contractdate_Set() const{
+    return m_dt_agent_contractdate_isSet;
+}
+
+bool Agent_ListElement::is_dt_agent_contractdate_Valid() const{
+    return m_dt_agent_contractdate_isValid;
+}
+
+QString Agent_ListElement::getDtAgentTransferdate() const {
+    return m_dt_agent_transferdate;
+}
+void Agent_ListElement::setDtAgentTransferdate(const QString &dt_agent_transferdate) {
+    m_dt_agent_transferdate = dt_agent_transferdate;
+    m_dt_agent_transferdate_isSet = true;
+}
+
+bool Agent_ListElement::is_dt_agent_transferdate_Set() const{
+    return m_dt_agent_transferdate_isSet;
+}
+
+bool Agent_ListElement::is_dt_agent_transferdate_Valid() const{
+    return m_dt_agent_transferdate_isValid;
+}
+
+QString Agent_ListElement::getDtAgentSenioritydate() const {
+    return m_dt_agent_senioritydate;
+}
+void Agent_ListElement::setDtAgentSenioritydate(const QString &dt_agent_senioritydate) {
+    m_dt_agent_senioritydate = dt_agent_senioritydate;
+    m_dt_agent_senioritydate_isSet = true;
+}
+
+bool Agent_ListElement::is_dt_agent_senioritydate_Set() const{
+    return m_dt_agent_senioritydate_isSet;
+}
+
+bool Agent_ListElement::is_dt_agent_senioritydate_Valid() const{
+    return m_dt_agent_senioritydate_isValid;
+}
+
+QString Agent_ListElement::getDtAgentSickleavestart() const {
+    return m_dt_agent_sickleavestart;
+}
+void Agent_ListElement::setDtAgentSickleavestart(const QString &dt_agent_sickleavestart) {
+    m_dt_agent_sickleavestart = dt_agent_sickleavestart;
+    m_dt_agent_sickleavestart_isSet = true;
+}
+
+bool Agent_ListElement::is_dt_agent_sickleavestart_Set() const{
+    return m_dt_agent_sickleavestart_isSet;
+}
+
+bool Agent_ListElement::is_dt_agent_sickleavestart_Valid() const{
+    return m_dt_agent_sickleavestart_isValid;
+}
+
+QString Agent_ListElement::getDtAgentSickleaveend() const {
+    return m_dt_agent_sickleaveend;
+}
+void Agent_ListElement::setDtAgentSickleaveend(const QString &dt_agent_sickleaveend) {
+    m_dt_agent_sickleaveend = dt_agent_sickleaveend;
+    m_dt_agent_sickleaveend_isSet = true;
+}
+
+bool Agent_ListElement::is_dt_agent_sickleaveend_Set() const{
+    return m_dt_agent_sickleaveend_isSet;
+}
+
+bool Agent_ListElement::is_dt_agent_sickleaveend_Valid() const{
+    return m_dt_agent_sickleaveend_isValid;
+}
+
 bool Agent_ListElement::isBAgentTranquillit() const {
     return m_b_agent_tranquillit;
 }
@@ -925,6 +1068,22 @@ bool Agent_ListElement::is_s_address_zip_Valid() const{
     return m_s_address_zip_isValid;
 }
 
+qint32 Agent_ListElement::getFkiProvinceId() const {
+    return m_fki_province_id;
+}
+void Agent_ListElement::setFkiProvinceId(const qint32 &fki_province_id) {
+    m_fki_province_id = fki_province_id;
+    m_fki_province_id_isSet = true;
+}
+
+bool Agent_ListElement::is_fki_province_id_Set() const{
+    return m_fki_province_id_isSet;
+}
+
+bool Agent_ListElement::is_fki_province_id_Valid() const{
+    return m_fki_province_id_isValid;
+}
+
 QString Agent_ListElement::getSProvinceNameX() const {
     return m_s_province_name_x;
 }
@@ -939,6 +1098,22 @@ bool Agent_ListElement::is_s_province_name_x_Set() const{
 
 bool Agent_ListElement::is_s_province_name_x_Valid() const{
     return m_s_province_name_x_isValid;
+}
+
+qint32 Agent_ListElement::getFkiCountryId() const {
+    return m_fki_country_id;
+}
+void Agent_ListElement::setFkiCountryId(const qint32 &fki_country_id) {
+    m_fki_country_id = fki_country_id;
+    m_fki_country_id_isSet = true;
+}
+
+bool Agent_ListElement::is_fki_country_id_Set() const{
+    return m_fki_country_id_isSet;
+}
+
+bool Agent_ListElement::is_fki_country_id_Valid() const{
+    return m_fki_country_id_isValid;
 }
 
 QString Agent_ListElement::getSCountryNameX() const {
@@ -1045,6 +1220,31 @@ bool Agent_ListElement::isSet() const {
             break;
         }
 
+        if (m_dt_agent_contractdate_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_dt_agent_transferdate_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_dt_agent_senioritydate_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_dt_agent_sickleavestart_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_dt_agent_sickleaveend_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (m_b_agent_tranquillit_isSet) {
             isObjectUpdated = true;
             break;
@@ -1130,7 +1330,17 @@ bool Agent_ListElement::isSet() const {
             break;
         }
 
+        if (m_fki_province_id_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (m_s_province_name_x_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_fki_country_id_isSet) {
             isObjectUpdated = true;
             break;
         }

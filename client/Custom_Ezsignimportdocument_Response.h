@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Custom_Ezsignimportdocument_Response : public Object {
 public:
     Custom_Ezsignimportdocument_Response();
-    Custom_Ezsignimportdocument_Response(QString json);
+    Custom_Ezsignimportdocument_Response(const QString &json);
     ~Custom_Ezsignimportdocument_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiEzsignimportdocumentId() const;
     void setPkiEzsignimportdocumentId(const qint32 &pki_ezsignimportdocument_id);

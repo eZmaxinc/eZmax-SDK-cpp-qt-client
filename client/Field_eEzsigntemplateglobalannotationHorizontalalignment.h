@@ -30,13 +30,13 @@ namespace Ezmaxapi {
 class Field_eEzsigntemplateglobalannotationHorizontalalignment : public Enum {
 public:
     Field_eEzsigntemplateglobalannotationHorizontalalignment();
-    Field_eEzsigntemplateglobalannotationHorizontalalignment(QString json);
+    Field_eEzsigntemplateglobalannotationHorizontalalignment(const QString &json);
     ~Field_eEzsigntemplateglobalannotationHorizontalalignment() override;
 
     QString asJson() const override;
     QJsonValue asJsonValue() const override;
     void fromJsonValue(QJsonValue json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     enum class eField_eEzsigntemplateglobalannotationHorizontalalignment {
         INVALID_VALUE_OPENAPI_GENERATED = 0,

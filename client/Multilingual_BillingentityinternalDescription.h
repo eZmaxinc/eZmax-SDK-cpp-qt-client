@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Multilingual_BillingentityinternalDescription : public Object {
 public:
     Multilingual_BillingentityinternalDescription();
-    Multilingual_BillingentityinternalDescription(QString json);
+    Multilingual_BillingentityinternalDescription(const QString &json);
     ~Multilingual_BillingentityinternalDescription() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getSBillingentityinternalDescription1() const;
     void setSBillingentityinternalDescription1(const QString &s_billingentityinternal_description1);

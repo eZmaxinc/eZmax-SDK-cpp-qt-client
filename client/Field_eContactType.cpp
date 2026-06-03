@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_eContactType::Field_eContactType(QString json) {
+Field_eContactType::Field_eContactType(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_eContactType::initializeModel() {
     m_value = eField_eContactType::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_eContactType::fromJson(QString jsonString) {
+void Field_eContactType::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("Agent", Qt::CaseInsensitive) == 0) {
         m_value = eField_eContactType::AGENT;

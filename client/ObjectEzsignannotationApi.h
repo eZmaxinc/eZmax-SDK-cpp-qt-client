@@ -45,6 +45,7 @@ public:
     void initializeServerConfigs();
     int setDefaultServerValue(int serverIndex,const QString &operation, const QString &variable,const QString &val);
     void setServerIndex(const QString &operation, int serverIndex);
+    void setServerIndex(int serverIndex);
     void setApiKey(const QString &apiKeyName, const QString &apiKey);
     void setBearerToken(const QString &token);
     void setUsername(const QString &username);
@@ -86,6 +87,13 @@ public:
 
 
 private:
+    enum class OauthMethod : int {
+        INVALID_VALUE_OPENAPI_GENERATED = 0,
+        ImplicitFlow = 1,
+        AuthorizationFlow = 2,
+        ClientCredentialsFlow = 3,
+        ResourceOwnerPasswordFlow = 4
+    };
     QMap<QString,int> _serverIndices;
     QMap<QString,QList<ServerConfiguration>> _serverConfigs;
     QMap<QString, QString> _apiKeys;
@@ -105,7 +113,7 @@ private:
     OauthImplicit _implicitFlow;
     OauthCredentials _credentialFlow;
     OauthPassword _passwordFlow;
-    int _OauthMethod = 0;
+    OauthMethod _OauthMethod = OauthMethod::INVALID_VALUE_OPENAPI_GENERATED;
 
     void ezsignannotationCreateObjectV1Callback(HttpRequestWorker *worker);
     void ezsignannotationDeleteObjectV1Callback(HttpRequestWorker *worker);
@@ -125,30 +133,14 @@ Q_SIGNALS:
     void ezsignannotationEditObjectV1SignalFull(HttpRequestWorker *worker, Ezsignannotation_editObject_v1_Response summary);
     void ezsignannotationGetObjectV2SignalFull(HttpRequestWorker *worker, Ezsignannotation_getObject_v2_Response summary);
 
-    Q_DECL_DEPRECATED_X("Use ezsignannotationCreateObjectV1SignalError() instead")
-    void ezsignannotationCreateObjectV1SignalE(Ezsignannotation_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignannotationCreateObjectV1SignalError(Ezsignannotation_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezsignannotationDeleteObjectV1SignalError() instead")
-    void ezsignannotationDeleteObjectV1SignalE(Ezsignannotation_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignannotationDeleteObjectV1SignalError(Ezsignannotation_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezsignannotationEditObjectV1SignalError() instead")
-    void ezsignannotationEditObjectV1SignalE(Ezsignannotation_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignannotationEditObjectV1SignalError(Ezsignannotation_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezsignannotationGetObjectV2SignalError() instead")
-    void ezsignannotationGetObjectV2SignalE(Ezsignannotation_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignannotationGetObjectV2SignalError(Ezsignannotation_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
-    Q_DECL_DEPRECATED_X("Use ezsignannotationCreateObjectV1SignalErrorFull() instead")
-    void ezsignannotationCreateObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignannotationCreateObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezsignannotationDeleteObjectV1SignalErrorFull() instead")
-    void ezsignannotationDeleteObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignannotationDeleteObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezsignannotationEditObjectV1SignalErrorFull() instead")
-    void ezsignannotationEditObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignannotationEditObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezsignannotationGetObjectV2SignalErrorFull() instead")
-    void ezsignannotationGetObjectV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignannotationGetObjectV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();

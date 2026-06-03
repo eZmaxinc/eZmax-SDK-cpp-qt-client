@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Scim_UserList::Scim_UserList(QString json) {
+Scim_UserList::Scim_UserList(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -50,7 +50,7 @@ void Scim_UserList::initializeModel() {
     m_resources_isValid = false;
 }
 
-void Scim_UserList::fromJson(QString jsonString) {
+void Scim_UserList::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

@@ -33,13 +33,13 @@ class Creditcardclient_AutocompleteElement_Response;
 class Creditcardclient_getAutocomplete_v2_Response_mPayload : public Object {
 public:
     Creditcardclient_getAutocomplete_v2_Response_mPayload();
-    Creditcardclient_getAutocomplete_v2_Response_mPayload(QString json);
+    Creditcardclient_getAutocomplete_v2_Response_mPayload(const QString &json);
     ~Creditcardclient_getAutocomplete_v2_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Creditcardclient_AutocompleteElement_Response> getAObjCreditcardclient() const;
     void setAObjCreditcardclient(const QList<Creditcardclient_AutocompleteElement_Response> &a_obj_creditcardclient);

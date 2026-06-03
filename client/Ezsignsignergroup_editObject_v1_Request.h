@@ -32,13 +32,13 @@ class Ezsignsignergroup_RequestCompound;
 class Ezsignsignergroup_editObject_v1_Request : public Object {
 public:
     Ezsignsignergroup_editObject_v1_Request();
-    Ezsignsignergroup_editObject_v1_Request(QString json);
+    Ezsignsignergroup_editObject_v1_Request(const QString &json);
     ~Ezsignsignergroup_editObject_v1_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Ezsignsignergroup_RequestCompound getObjEzsignsignergroup() const;
     void setObjEzsignsignergroup(const Ezsignsignergroup_RequestCompound &obj_ezsignsignergroup);

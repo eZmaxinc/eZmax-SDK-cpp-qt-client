@@ -32,13 +32,13 @@ class Common_Reportgroup;
 class Common_getReport_v1_Response_mPayload : public Object {
 public:
     Common_getReport_v1_Response_mPayload();
-    Common_getReport_v1_Response_mPayload(QString json);
+    Common_getReport_v1_Response_mPayload(const QString &json);
     ~Common_getReport_v1_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Common_Reportgroup getObjReportgroup() const;
     void setObjReportgroup(const Common_Reportgroup &obj_reportgroup);

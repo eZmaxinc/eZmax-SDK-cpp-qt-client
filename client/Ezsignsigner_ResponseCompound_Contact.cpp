@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Ezsignsigner_ResponseCompound_Contact::Ezsignsigner_ResponseCompound_Contact(QString json) {
+Ezsignsigner_ResponseCompound_Contact::Ezsignsigner_ResponseCompound_Contact(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -59,7 +59,7 @@ void Ezsignsigner_ResponseCompound_Contact::initializeModel() {
     m_s_phone_e164_cell_isValid = false;
 }
 
-void Ezsignsigner_ResponseCompound_Contact::fromJson(QString jsonString) {
+void Ezsignsigner_ResponseCompound_Contact::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

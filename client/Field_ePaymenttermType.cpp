@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_ePaymenttermType::Field_ePaymenttermType(QString json) {
+Field_ePaymenttermType::Field_ePaymenttermType(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_ePaymenttermType::initializeModel() {
     m_value = eField_ePaymenttermType::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_ePaymenttermType::fromJson(QString jsonString) {
+void Field_ePaymenttermType::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("Days", Qt::CaseInsensitive) == 0) {
         m_value = eField_ePaymenttermType::DAYS;

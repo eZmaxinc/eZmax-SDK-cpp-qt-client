@@ -33,13 +33,13 @@ namespace Ezmaxapi {
 class Common_Response_Error_sTemporaryFileUrl : public Object {
 public:
     Common_Response_Error_sTemporaryFileUrl();
-    Common_Response_Error_sTemporaryFileUrl(QString json);
+    Common_Response_Error_sTemporaryFileUrl(const QString &json);
     ~Common_Response_Error_sTemporaryFileUrl() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getSErrorMessage() const;
     void setSErrorMessage(const QString &s_error_message);

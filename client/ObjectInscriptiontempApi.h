@@ -48,6 +48,7 @@ public:
     void initializeServerConfigs();
     int setDefaultServerValue(int serverIndex,const QString &operation, const QString &variable,const QString &val);
     void setServerIndex(const QString &operation, int serverIndex);
+    void setServerIndex(int serverIndex);
     void setApiKey(const QString &apiKeyName, const QString &apiKey);
     void setBearerToken(const QString &token);
     void setUsername(const QString &username);
@@ -103,6 +104,13 @@ public:
 
 
 private:
+    enum class OauthMethod : int {
+        INVALID_VALUE_OPENAPI_GENERATED = 0,
+        ImplicitFlow = 1,
+        AuthorizationFlow = 2,
+        ClientCredentialsFlow = 3,
+        ResourceOwnerPasswordFlow = 4
+    };
     QMap<QString,int> _serverIndices;
     QMap<QString,QList<ServerConfiguration>> _serverConfigs;
     QMap<QString, QString> _apiKeys;
@@ -122,7 +130,7 @@ private:
     OauthImplicit _implicitFlow;
     OauthCredentials _credentialFlow;
     OauthPassword _passwordFlow;
-    int _OauthMethod = 0;
+    OauthMethod _OauthMethod = OauthMethod::INVALID_VALUE_OPENAPI_GENERATED;
 
     void inscriptiontempGetCommunicationCountV1Callback(HttpRequestWorker *worker);
     void inscriptiontempGetCommunicationListV1Callback(HttpRequestWorker *worker);
@@ -148,42 +156,18 @@ Q_SIGNALS:
     void inscriptiontempGetListV1SignalFull(HttpRequestWorker *worker, Inscriptiontemp_getList_v1_Response summary);
     void inscriptiontempImportIntoEDMV1SignalFull(HttpRequestWorker *worker, Inscriptiontemp_importIntoEDM_v1_Response summary);
 
-    Q_DECL_DEPRECATED_X("Use inscriptiontempGetCommunicationCountV1SignalError() instead")
-    void inscriptiontempGetCommunicationCountV1SignalE(Inscriptiontemp_getCommunicationCount_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void inscriptiontempGetCommunicationCountV1SignalError(Inscriptiontemp_getCommunicationCount_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use inscriptiontempGetCommunicationListV1SignalError() instead")
-    void inscriptiontempGetCommunicationListV1SignalE(Inscriptiontemp_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void inscriptiontempGetCommunicationListV1SignalError(Inscriptiontemp_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use inscriptiontempGetCommunicationrecipientsV1SignalError() instead")
-    void inscriptiontempGetCommunicationrecipientsV1SignalE(Inscriptiontemp_getCommunicationrecipients_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void inscriptiontempGetCommunicationrecipientsV1SignalError(Inscriptiontemp_getCommunicationrecipients_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use inscriptiontempGetCommunicationsendersV1SignalError() instead")
-    void inscriptiontempGetCommunicationsendersV1SignalE(Inscriptiontemp_getCommunicationsenders_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void inscriptiontempGetCommunicationsendersV1SignalError(Inscriptiontemp_getCommunicationsenders_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use inscriptiontempGetListV1SignalError() instead")
-    void inscriptiontempGetListV1SignalE(Inscriptiontemp_getList_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void inscriptiontempGetListV1SignalError(Inscriptiontemp_getList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use inscriptiontempImportIntoEDMV1SignalError() instead")
-    void inscriptiontempImportIntoEDMV1SignalE(Inscriptiontemp_importIntoEDM_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void inscriptiontempImportIntoEDMV1SignalError(Inscriptiontemp_importIntoEDM_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
-    Q_DECL_DEPRECATED_X("Use inscriptiontempGetCommunicationCountV1SignalErrorFull() instead")
-    void inscriptiontempGetCommunicationCountV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void inscriptiontempGetCommunicationCountV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use inscriptiontempGetCommunicationListV1SignalErrorFull() instead")
-    void inscriptiontempGetCommunicationListV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void inscriptiontempGetCommunicationListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use inscriptiontempGetCommunicationrecipientsV1SignalErrorFull() instead")
-    void inscriptiontempGetCommunicationrecipientsV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void inscriptiontempGetCommunicationrecipientsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use inscriptiontempGetCommunicationsendersV1SignalErrorFull() instead")
-    void inscriptiontempGetCommunicationsendersV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void inscriptiontempGetCommunicationsendersV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use inscriptiontempGetListV1SignalErrorFull() instead")
-    void inscriptiontempGetListV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void inscriptiontempGetListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use inscriptiontempImportIntoEDMV1SignalErrorFull() instead")
-    void inscriptiontempImportIntoEDMV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void inscriptiontempImportIntoEDMV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();

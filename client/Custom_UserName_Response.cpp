@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Custom_UserName_Response::Custom_UserName_Response(QString json) {
+Custom_UserName_Response::Custom_UserName_Response(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -47,7 +47,7 @@ void Custom_UserName_Response::initializeModel() {
     m_s_user_jobtitle_isValid = false;
 }
 
-void Custom_UserName_Response::fromJson(QString jsonString) {
+void Custom_UserName_Response::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

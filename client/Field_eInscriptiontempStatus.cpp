@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_eInscriptiontempStatus::Field_eInscriptiontempStatus(QString json) {
+Field_eInscriptiontempStatus::Field_eInscriptiontempStatus(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_eInscriptiontempStatus::initializeModel() {
     m_value = eField_eInscriptiontempStatus::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_eInscriptiontempStatus::fromJson(QString jsonString) {
+void Field_eInscriptiontempStatus::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("Imported", Qt::CaseInsensitive) == 0) {
         m_value = eField_eInscriptiontempStatus::IMPORTED;

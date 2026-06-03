@@ -30,13 +30,13 @@ namespace Ezmaxapi {
 class Ezsignformfieldgroupsigner_Request : public Object {
 public:
     Ezsignformfieldgroupsigner_Request();
-    Ezsignformfieldgroupsigner_Request(QString json);
+    Ezsignformfieldgroupsigner_Request(const QString &json);
     ~Ezsignformfieldgroupsigner_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiEzsignformfieldgroupsignerId() const;
     void setPkiEzsignformfieldgroupsignerId(const qint32 &pki_ezsignformfieldgroupsigner_id);

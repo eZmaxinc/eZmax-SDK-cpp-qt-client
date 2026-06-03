@@ -32,13 +32,13 @@ class Billingentityinternal_ResponseCompound;
 class Billingentityinternal_getObject_v2_Response_mPayload : public Object {
 public:
     Billingentityinternal_getObject_v2_Response_mPayload();
-    Billingentityinternal_getObject_v2_Response_mPayload(QString json);
+    Billingentityinternal_getObject_v2_Response_mPayload(const QString &json);
     ~Billingentityinternal_getObject_v2_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Billingentityinternal_ResponseCompound getObjBillingentityinternal() const;
     void setObjBillingentityinternal(const Billingentityinternal_ResponseCompound &obj_billingentityinternal);

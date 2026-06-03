@@ -32,13 +32,13 @@ class Apikey_RequestCompound;
 class Apikey_editObject_v1_Request : public Object {
 public:
     Apikey_editObject_v1_Request();
-    Apikey_editObject_v1_Request(QString json);
+    Apikey_editObject_v1_Request(const QString &json);
     ~Apikey_editObject_v1_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Apikey_RequestCompound getObjApikey() const;
     void setObjApikey(const Apikey_RequestCompound &obj_apikey);

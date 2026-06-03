@@ -45,6 +45,7 @@ public:
     void initializeServerConfigs();
     int setDefaultServerValue(int serverIndex,const QString &operation, const QString &variable,const QString &val);
     void setServerIndex(const QString &operation, int serverIndex);
+    void setServerIndex(int serverIndex);
     void setApiKey(const QString &apiKeyName, const QString &apiKey);
     void setBearerToken(const QString &token);
     void setUsername(const QString &username);
@@ -96,6 +97,13 @@ public:
 
 
 private:
+    enum class OauthMethod : int {
+        INVALID_VALUE_OPENAPI_GENERATED = 0,
+        ImplicitFlow = 1,
+        AuthorizationFlow = 2,
+        ClientCredentialsFlow = 3,
+        ResourceOwnerPasswordFlow = 4
+    };
     QMap<QString,int> _serverIndices;
     QMap<QString,QList<ServerConfiguration>> _serverConfigs;
     QMap<QString, QString> _apiKeys;
@@ -115,7 +123,7 @@ private:
     OauthImplicit _implicitFlow;
     OauthCredentials _credentialFlow;
     OauthPassword _passwordFlow;
-    int _OauthMethod = 0;
+    OauthMethod _OauthMethod = OauthMethod::INVALID_VALUE_OPENAPI_GENERATED;
 
     void signatureCreateObjectV1Callback(HttpRequestWorker *worker);
     void signatureDeleteObjectV1Callback(HttpRequestWorker *worker);
@@ -141,42 +149,18 @@ Q_SIGNALS:
     void signatureGetSVGInitialsV1SignalFull(HttpRequestWorker *worker);
     void signatureGetSVGSignatureV1SignalFull(HttpRequestWorker *worker);
 
-    Q_DECL_DEPRECATED_X("Use signatureCreateObjectV1SignalError() instead")
-    void signatureCreateObjectV1SignalE(Signature_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void signatureCreateObjectV1SignalError(Signature_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use signatureDeleteObjectV1SignalError() instead")
-    void signatureDeleteObjectV1SignalE(Signature_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void signatureDeleteObjectV1SignalError(Signature_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use signatureEditObjectV1SignalError() instead")
-    void signatureEditObjectV1SignalE(Signature_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void signatureEditObjectV1SignalError(Signature_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use signatureGetObjectV3SignalError() instead")
-    void signatureGetObjectV3SignalE(Signature_getObject_v3_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void signatureGetObjectV3SignalError(Signature_getObject_v3_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use signatureGetSVGInitialsV1SignalError() instead")
-    void signatureGetSVGInitialsV1SignalE(QNetworkReply::NetworkError error_type, QString error_str);
     void signatureGetSVGInitialsV1SignalError(QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use signatureGetSVGSignatureV1SignalError() instead")
-    void signatureGetSVGSignatureV1SignalE(QNetworkReply::NetworkError error_type, QString error_str);
     void signatureGetSVGSignatureV1SignalError(QNetworkReply::NetworkError error_type, const QString &error_str);
 
-    Q_DECL_DEPRECATED_X("Use signatureCreateObjectV1SignalErrorFull() instead")
-    void signatureCreateObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void signatureCreateObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use signatureDeleteObjectV1SignalErrorFull() instead")
-    void signatureDeleteObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void signatureDeleteObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use signatureEditObjectV1SignalErrorFull() instead")
-    void signatureEditObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void signatureEditObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use signatureGetObjectV3SignalErrorFull() instead")
-    void signatureGetObjectV3SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void signatureGetObjectV3SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use signatureGetSVGInitialsV1SignalErrorFull() instead")
-    void signatureGetSVGInitialsV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void signatureGetSVGInitialsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use signatureGetSVGSignatureV1SignalErrorFull() instead")
-    void signatureGetSVGSignatureV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void signatureGetSVGSignatureV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();

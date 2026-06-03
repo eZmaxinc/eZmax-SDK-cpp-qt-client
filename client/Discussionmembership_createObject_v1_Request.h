@@ -33,13 +33,13 @@ class Discussionmembership_RequestCompound;
 class Discussionmembership_createObject_v1_Request : public Object {
 public:
     Discussionmembership_createObject_v1_Request();
-    Discussionmembership_createObject_v1_Request(QString json);
+    Discussionmembership_createObject_v1_Request(const QString &json);
     ~Discussionmembership_createObject_v1_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Discussionmembership_RequestCompound> getAObjDiscussionmembership() const;
     void setAObjDiscussionmembership(const QList<Discussionmembership_RequestCompound> &a_obj_discussionmembership);

@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Communicationrecipient_Request : public Object {
 public:
     Communicationrecipient_Request();
-    Communicationrecipient_Request(QString json);
+    Communicationrecipient_Request(const QString &json);
     ~Communicationrecipient_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiCommunicationrecipientId() const;
     void setPkiCommunicationrecipientId(const qint32 &pki_communicationrecipient_id);

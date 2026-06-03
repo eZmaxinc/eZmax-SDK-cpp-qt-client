@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Computed_eEzsignimportfolderStatus::Computed_eEzsignimportfolderStatus(QString json) {
+Computed_eEzsignimportfolderStatus::Computed_eEzsignimportfolderStatus(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Computed_eEzsignimportfolderStatus::initializeModel() {
     m_value = eComputed_eEzsignimportfolderStatus::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Computed_eEzsignimportfolderStatus::fromJson(QString jsonString) {
+void Computed_eEzsignimportfolderStatus::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("Pending", Qt::CaseInsensitive) == 0) {
         m_value = eComputed_eEzsignimportfolderStatus::PENDING;

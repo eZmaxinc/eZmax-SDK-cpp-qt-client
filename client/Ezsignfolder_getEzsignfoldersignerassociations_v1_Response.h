@@ -36,13 +36,13 @@ class Ezsignfolder_getEzsignfoldersignerassociations_v1_Response_mPayload;
 class Ezsignfolder_getEzsignfoldersignerassociations_v1_Response : public Object {
 public:
     Ezsignfolder_getEzsignfoldersignerassociations_v1_Response();
-    Ezsignfolder_getEzsignfoldersignerassociations_v1_Response(QString json);
+    Ezsignfolder_getEzsignfoldersignerassociations_v1_Response(const QString &json);
     ~Ezsignfolder_getEzsignfoldersignerassociations_v1_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Common_Response_objDebugPayload getObjDebugPayload() const;
     void setObjDebugPayload(const Common_Response_objDebugPayload &obj_debug_payload);

@@ -30,13 +30,13 @@ namespace Ezmaxapi {
 class Field_eEzsignfolderMessageorder : public Enum {
 public:
     Field_eEzsignfolderMessageorder();
-    Field_eEzsignfolderMessageorder(QString json);
+    Field_eEzsignfolderMessageorder(const QString &json);
     ~Field_eEzsignfolderMessageorder() override;
 
     QString asJson() const override;
     QJsonValue asJsonValue() const override;
     void fromJsonValue(QJsonValue json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     enum class eField_eEzsignfolderMessageorder {
         INVALID_VALUE_OPENAPI_GENERATED = 0,

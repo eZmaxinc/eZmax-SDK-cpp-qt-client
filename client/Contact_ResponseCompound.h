@@ -34,13 +34,13 @@ class Contactinformations_ResponseCompound;
 class Contact_ResponseCompound : public Object {
 public:
     Contact_ResponseCompound();
-    Contact_ResponseCompound(QString json);
+    Contact_ResponseCompound(const QString &json);
     ~Contact_ResponseCompound() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiContactId() const;
     void setPkiContactId(const qint32 &pki_contact_id);

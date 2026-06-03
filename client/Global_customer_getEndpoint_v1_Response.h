@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Global_customer_getEndpoint_v1_Response : public Object {
 public:
     Global_customer_getEndpoint_v1_Response();
-    Global_customer_getEndpoint_v1_Response(QString json);
+    Global_customer_getEndpoint_v1_Response(const QString &json);
     ~Global_customer_getEndpoint_v1_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getSEndpointUrl() const;
     void setSEndpointUrl(const QString &s_endpoint_url);

@@ -33,13 +33,13 @@ class Custom_AttachmentImportIntoEDM_Response;
 class Externalbroker_importIntoEDM_v1_Response_mPayload : public Object {
 public:
     Externalbroker_importIntoEDM_v1_Response_mPayload();
-    Externalbroker_importIntoEDM_v1_Response_mPayload(QString json);
+    Externalbroker_importIntoEDM_v1_Response_mPayload(const QString &json);
     ~Externalbroker_importIntoEDM_v1_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Custom_AttachmentImportIntoEDM_Response> getAObjAttachment() const;
     void setAObjAttachment(const QList<Custom_AttachmentImportIntoEDM_Response> &a_obj_attachment);

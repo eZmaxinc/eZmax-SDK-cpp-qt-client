@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Multilingual_BrandingDescription::Multilingual_BrandingDescription(QString json) {
+Multilingual_BrandingDescription::Multilingual_BrandingDescription(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -41,7 +41,7 @@ void Multilingual_BrandingDescription::initializeModel() {
     m_s_branding_description2_isValid = false;
 }
 
-void Multilingual_BrandingDescription::fromJson(QString jsonString) {
+void Multilingual_BrandingDescription::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

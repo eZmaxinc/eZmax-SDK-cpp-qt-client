@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Emailtype_AutocompleteElement_Response::Emailtype_AutocompleteElement_Response(QString json) {
+Emailtype_AutocompleteElement_Response::Emailtype_AutocompleteElement_Response(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -44,7 +44,7 @@ void Emailtype_AutocompleteElement_Response::initializeModel() {
     m_b_emailtype_isactive_isValid = false;
 }
 
-void Emailtype_AutocompleteElement_Response::fromJson(QString jsonString) {
+void Emailtype_AutocompleteElement_Response::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

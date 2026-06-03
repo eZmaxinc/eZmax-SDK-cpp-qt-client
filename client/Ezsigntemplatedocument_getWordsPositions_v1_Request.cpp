@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Ezsigntemplatedocument_getWordsPositions_v1_Request::Ezsigntemplatedocument_getWordsPositions_v1_Request(QString json) {
+Ezsigntemplatedocument_getWordsPositions_v1_Request::Ezsigntemplatedocument_getWordsPositions_v1_Request(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -44,7 +44,7 @@ void Ezsigntemplatedocument_getWordsPositions_v1_Request::initializeModel() {
     m_a_s_word_isValid = false;
 }
 
-void Ezsigntemplatedocument_getWordsPositions_v1_Request::fromJson(QString jsonString) {
+void Ezsigntemplatedocument_getWordsPositions_v1_Request::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

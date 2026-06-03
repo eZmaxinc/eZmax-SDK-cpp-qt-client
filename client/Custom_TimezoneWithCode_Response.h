@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Custom_TimezoneWithCode_Response : public Object {
 public:
     Custom_TimezoneWithCode_Response();
-    Custom_TimezoneWithCode_Response(QString json);
+    Custom_TimezoneWithCode_Response(const QString &json);
     ~Custom_TimezoneWithCode_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getSTimezoneName() const;
     void setSTimezoneName(const QString &s_timezone_name);

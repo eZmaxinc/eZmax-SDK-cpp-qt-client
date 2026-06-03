@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Ezsigntemplateannotation_Request::Ezsigntemplateannotation_Request(QString json) {
+Ezsigntemplateannotation_Request::Ezsigntemplateannotation_Request(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -37,11 +37,8 @@ void Ezsigntemplateannotation_Request::initializeModel() {
     m_pki_ezsigntemplateannotation_id_isSet = false;
     m_pki_ezsigntemplateannotation_id_isValid = false;
 
-    m_fki_ezsigntemplatedocumentpage_id_isSet = false;
-    m_fki_ezsigntemplatedocumentpage_id_isValid = false;
-
-    m_fki_textstylestatic_id_isSet = false;
-    m_fki_textstylestatic_id_isValid = false;
+    m_fki_ezsigntemplatedocument_id_isSet = false;
+    m_fki_ezsigntemplatedocument_id_isValid = false;
 
     m_e_ezsigntemplateannotation_horizontalalignment_isSet = false;
     m_e_ezsigntemplateannotation_horizontalalignment_isValid = false;
@@ -64,17 +61,23 @@ void Ezsigntemplateannotation_Request::initializeModel() {
     m_i_ezsigntemplateannotation_height_isSet = false;
     m_i_ezsigntemplateannotation_height_isValid = false;
 
+    m_i_ezsigntemplatedocumentpage_pagenumber_isSet = false;
+    m_i_ezsigntemplatedocumentpage_pagenumber_isValid = false;
+
     m_s_ezsigntemplateannotation_description_isSet = false;
     m_s_ezsigntemplateannotation_description_isValid = false;
 
     m_s_ezsigntemplateannotation_defaulttext_isSet = false;
     m_s_ezsigntemplateannotation_defaulttext_isValid = false;
 
-    m_s_ezsigntemplateannotationn_dropdownvalues_isSet = false;
-    m_s_ezsigntemplateannotationn_dropdownvalues_isValid = false;
+    m_s_ezsigntemplateannotation_dropdownvalues_isSet = false;
+    m_s_ezsigntemplateannotation_dropdownvalues_isValid = false;
+
+    m_obj_textstylestatic_isSet = false;
+    m_obj_textstylestatic_isValid = false;
 }
 
-void Ezsigntemplateannotation_Request::fromJson(QString jsonString) {
+void Ezsigntemplateannotation_Request::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();
@@ -86,11 +89,8 @@ void Ezsigntemplateannotation_Request::fromJsonObject(QJsonObject json) {
     m_pki_ezsigntemplateannotation_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_ezsigntemplateannotation_id, json[QString("pkiEzsigntemplateannotationID")]);
     m_pki_ezsigntemplateannotation_id_isSet = !json[QString("pkiEzsigntemplateannotationID")].isNull() && m_pki_ezsigntemplateannotation_id_isValid;
 
-    m_fki_ezsigntemplatedocumentpage_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_ezsigntemplatedocumentpage_id, json[QString("fkiEzsigntemplatedocumentpageID")]);
-    m_fki_ezsigntemplatedocumentpage_id_isSet = !json[QString("fkiEzsigntemplatedocumentpageID")].isNull() && m_fki_ezsigntemplatedocumentpage_id_isValid;
-
-    m_fki_textstylestatic_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_textstylestatic_id, json[QString("fkiTextstylestaticID")]);
-    m_fki_textstylestatic_id_isSet = !json[QString("fkiTextstylestaticID")].isNull() && m_fki_textstylestatic_id_isValid;
+    m_fki_ezsigntemplatedocument_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_ezsigntemplatedocument_id, json[QString("fkiEzsigntemplatedocumentID")]);
+    m_fki_ezsigntemplatedocument_id_isSet = !json[QString("fkiEzsigntemplatedocumentID")].isNull() && m_fki_ezsigntemplatedocument_id_isValid;
 
     m_e_ezsigntemplateannotation_horizontalalignment_isValid = ::Ezmaxapi::fromJsonValue(m_e_ezsigntemplateannotation_horizontalalignment, json[QString("eEzsigntemplateannotationHorizontalalignment")]);
     m_e_ezsigntemplateannotation_horizontalalignment_isSet = !json[QString("eEzsigntemplateannotationHorizontalalignment")].isNull() && m_e_ezsigntemplateannotation_horizontalalignment_isValid;
@@ -113,14 +113,20 @@ void Ezsigntemplateannotation_Request::fromJsonObject(QJsonObject json) {
     m_i_ezsigntemplateannotation_height_isValid = ::Ezmaxapi::fromJsonValue(m_i_ezsigntemplateannotation_height, json[QString("iEzsigntemplateannotationHeight")]);
     m_i_ezsigntemplateannotation_height_isSet = !json[QString("iEzsigntemplateannotationHeight")].isNull() && m_i_ezsigntemplateannotation_height_isValid;
 
+    m_i_ezsigntemplatedocumentpage_pagenumber_isValid = ::Ezmaxapi::fromJsonValue(m_i_ezsigntemplatedocumentpage_pagenumber, json[QString("iEzsigntemplatedocumentpagePagenumber")]);
+    m_i_ezsigntemplatedocumentpage_pagenumber_isSet = !json[QString("iEzsigntemplatedocumentpagePagenumber")].isNull() && m_i_ezsigntemplatedocumentpage_pagenumber_isValid;
+
     m_s_ezsigntemplateannotation_description_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsigntemplateannotation_description, json[QString("sEzsigntemplateannotationDescription")]);
     m_s_ezsigntemplateannotation_description_isSet = !json[QString("sEzsigntemplateannotationDescription")].isNull() && m_s_ezsigntemplateannotation_description_isValid;
 
     m_s_ezsigntemplateannotation_defaulttext_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsigntemplateannotation_defaulttext, json[QString("sEzsigntemplateannotationDefaulttext")]);
     m_s_ezsigntemplateannotation_defaulttext_isSet = !json[QString("sEzsigntemplateannotationDefaulttext")].isNull() && m_s_ezsigntemplateannotation_defaulttext_isValid;
 
-    m_s_ezsigntemplateannotationn_dropdownvalues_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsigntemplateannotationn_dropdownvalues, json[QString("sEzsigntemplateannotationnDropdownvalues")]);
-    m_s_ezsigntemplateannotationn_dropdownvalues_isSet = !json[QString("sEzsigntemplateannotationnDropdownvalues")].isNull() && m_s_ezsigntemplateannotationn_dropdownvalues_isValid;
+    m_s_ezsigntemplateannotation_dropdownvalues_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsigntemplateannotation_dropdownvalues, json[QString("sEzsigntemplateannotationDropdownvalues")]);
+    m_s_ezsigntemplateannotation_dropdownvalues_isSet = !json[QString("sEzsigntemplateannotationDropdownvalues")].isNull() && m_s_ezsigntemplateannotation_dropdownvalues_isValid;
+
+    m_obj_textstylestatic_isValid = ::Ezmaxapi::fromJsonValue(m_obj_textstylestatic, json[QString("objTextstylestatic")]);
+    m_obj_textstylestatic_isSet = !json[QString("objTextstylestatic")].isNull() && m_obj_textstylestatic_isValid;
 }
 
 QString Ezsigntemplateannotation_Request::asJson() const {
@@ -135,11 +141,8 @@ QJsonObject Ezsigntemplateannotation_Request::asJsonObject() const {
     if (m_pki_ezsigntemplateannotation_id_isSet) {
         obj.insert(QString("pkiEzsigntemplateannotationID"), ::Ezmaxapi::toJsonValue(m_pki_ezsigntemplateannotation_id));
     }
-    if (m_fki_ezsigntemplatedocumentpage_id_isSet) {
-        obj.insert(QString("fkiEzsigntemplatedocumentpageID"), ::Ezmaxapi::toJsonValue(m_fki_ezsigntemplatedocumentpage_id));
-    }
-    if (m_fki_textstylestatic_id_isSet) {
-        obj.insert(QString("fkiTextstylestaticID"), ::Ezmaxapi::toJsonValue(m_fki_textstylestatic_id));
+    if (m_fki_ezsigntemplatedocument_id_isSet) {
+        obj.insert(QString("fkiEzsigntemplatedocumentID"), ::Ezmaxapi::toJsonValue(m_fki_ezsigntemplatedocument_id));
     }
     if (m_e_ezsigntemplateannotation_horizontalalignment.isSet()) {
         obj.insert(QString("eEzsigntemplateannotationHorizontalalignment"), ::Ezmaxapi::toJsonValue(m_e_ezsigntemplateannotation_horizontalalignment));
@@ -162,14 +165,20 @@ QJsonObject Ezsigntemplateannotation_Request::asJsonObject() const {
     if (m_i_ezsigntemplateannotation_height_isSet) {
         obj.insert(QString("iEzsigntemplateannotationHeight"), ::Ezmaxapi::toJsonValue(m_i_ezsigntemplateannotation_height));
     }
+    if (m_i_ezsigntemplatedocumentpage_pagenumber_isSet) {
+        obj.insert(QString("iEzsigntemplatedocumentpagePagenumber"), ::Ezmaxapi::toJsonValue(m_i_ezsigntemplatedocumentpage_pagenumber));
+    }
     if (m_s_ezsigntemplateannotation_description_isSet) {
         obj.insert(QString("sEzsigntemplateannotationDescription"), ::Ezmaxapi::toJsonValue(m_s_ezsigntemplateannotation_description));
     }
     if (m_s_ezsigntemplateannotation_defaulttext_isSet) {
         obj.insert(QString("sEzsigntemplateannotationDefaulttext"), ::Ezmaxapi::toJsonValue(m_s_ezsigntemplateannotation_defaulttext));
     }
-    if (m_s_ezsigntemplateannotationn_dropdownvalues_isSet) {
-        obj.insert(QString("sEzsigntemplateannotationnDropdownvalues"), ::Ezmaxapi::toJsonValue(m_s_ezsigntemplateannotationn_dropdownvalues));
+    if (m_s_ezsigntemplateannotation_dropdownvalues_isSet) {
+        obj.insert(QString("sEzsigntemplateannotationDropdownvalues"), ::Ezmaxapi::toJsonValue(m_s_ezsigntemplateannotation_dropdownvalues));
+    }
+    if (m_obj_textstylestatic.isSet()) {
+        obj.insert(QString("objTextstylestatic"), ::Ezmaxapi::toJsonValue(m_obj_textstylestatic));
     }
     return obj;
 }
@@ -190,36 +199,20 @@ bool Ezsigntemplateannotation_Request::is_pki_ezsigntemplateannotation_id_Valid(
     return m_pki_ezsigntemplateannotation_id_isValid;
 }
 
-qint32 Ezsigntemplateannotation_Request::getFkiEzsigntemplatedocumentpageId() const {
-    return m_fki_ezsigntemplatedocumentpage_id;
+qint32 Ezsigntemplateannotation_Request::getFkiEzsigntemplatedocumentId() const {
+    return m_fki_ezsigntemplatedocument_id;
 }
-void Ezsigntemplateannotation_Request::setFkiEzsigntemplatedocumentpageId(const qint32 &fki_ezsigntemplatedocumentpage_id) {
-    m_fki_ezsigntemplatedocumentpage_id = fki_ezsigntemplatedocumentpage_id;
-    m_fki_ezsigntemplatedocumentpage_id_isSet = true;
-}
-
-bool Ezsigntemplateannotation_Request::is_fki_ezsigntemplatedocumentpage_id_Set() const{
-    return m_fki_ezsigntemplatedocumentpage_id_isSet;
+void Ezsigntemplateannotation_Request::setFkiEzsigntemplatedocumentId(const qint32 &fki_ezsigntemplatedocument_id) {
+    m_fki_ezsigntemplatedocument_id = fki_ezsigntemplatedocument_id;
+    m_fki_ezsigntemplatedocument_id_isSet = true;
 }
 
-bool Ezsigntemplateannotation_Request::is_fki_ezsigntemplatedocumentpage_id_Valid() const{
-    return m_fki_ezsigntemplatedocumentpage_id_isValid;
+bool Ezsigntemplateannotation_Request::is_fki_ezsigntemplatedocument_id_Set() const{
+    return m_fki_ezsigntemplatedocument_id_isSet;
 }
 
-qint32 Ezsigntemplateannotation_Request::getFkiTextstylestaticId() const {
-    return m_fki_textstylestatic_id;
-}
-void Ezsigntemplateannotation_Request::setFkiTextstylestaticId(const qint32 &fki_textstylestatic_id) {
-    m_fki_textstylestatic_id = fki_textstylestatic_id;
-    m_fki_textstylestatic_id_isSet = true;
-}
-
-bool Ezsigntemplateannotation_Request::is_fki_textstylestatic_id_Set() const{
-    return m_fki_textstylestatic_id_isSet;
-}
-
-bool Ezsigntemplateannotation_Request::is_fki_textstylestatic_id_Valid() const{
-    return m_fki_textstylestatic_id_isValid;
+bool Ezsigntemplateannotation_Request::is_fki_ezsigntemplatedocument_id_Valid() const{
+    return m_fki_ezsigntemplatedocument_id_isValid;
 }
 
 Field_eEzsigntemplateannotationHorizontalalignment Ezsigntemplateannotation_Request::getEEzsigntemplateannotationHorizontalalignment() const {
@@ -334,6 +327,22 @@ bool Ezsigntemplateannotation_Request::is_i_ezsigntemplateannotation_height_Vali
     return m_i_ezsigntemplateannotation_height_isValid;
 }
 
+qint32 Ezsigntemplateannotation_Request::getIEzsigntemplatedocumentpagePagenumber() const {
+    return m_i_ezsigntemplatedocumentpage_pagenumber;
+}
+void Ezsigntemplateannotation_Request::setIEzsigntemplatedocumentpagePagenumber(const qint32 &i_ezsigntemplatedocumentpage_pagenumber) {
+    m_i_ezsigntemplatedocumentpage_pagenumber = i_ezsigntemplatedocumentpage_pagenumber;
+    m_i_ezsigntemplatedocumentpage_pagenumber_isSet = true;
+}
+
+bool Ezsigntemplateannotation_Request::is_i_ezsigntemplatedocumentpage_pagenumber_Set() const{
+    return m_i_ezsigntemplatedocumentpage_pagenumber_isSet;
+}
+
+bool Ezsigntemplateannotation_Request::is_i_ezsigntemplatedocumentpage_pagenumber_Valid() const{
+    return m_i_ezsigntemplatedocumentpage_pagenumber_isValid;
+}
+
 QString Ezsigntemplateannotation_Request::getSEzsigntemplateannotationDescription() const {
     return m_s_ezsigntemplateannotation_description;
 }
@@ -366,20 +375,36 @@ bool Ezsigntemplateannotation_Request::is_s_ezsigntemplateannotation_defaulttext
     return m_s_ezsigntemplateannotation_defaulttext_isValid;
 }
 
-QString Ezsigntemplateannotation_Request::getSEzsigntemplateannotationnDropdownvalues() const {
-    return m_s_ezsigntemplateannotationn_dropdownvalues;
+QString Ezsigntemplateannotation_Request::getSEzsigntemplateannotationDropdownvalues() const {
+    return m_s_ezsigntemplateannotation_dropdownvalues;
 }
-void Ezsigntemplateannotation_Request::setSEzsigntemplateannotationnDropdownvalues(const QString &s_ezsigntemplateannotationn_dropdownvalues) {
-    m_s_ezsigntemplateannotationn_dropdownvalues = s_ezsigntemplateannotationn_dropdownvalues;
-    m_s_ezsigntemplateannotationn_dropdownvalues_isSet = true;
-}
-
-bool Ezsigntemplateannotation_Request::is_s_ezsigntemplateannotationn_dropdownvalues_Set() const{
-    return m_s_ezsigntemplateannotationn_dropdownvalues_isSet;
+void Ezsigntemplateannotation_Request::setSEzsigntemplateannotationDropdownvalues(const QString &s_ezsigntemplateannotation_dropdownvalues) {
+    m_s_ezsigntemplateannotation_dropdownvalues = s_ezsigntemplateannotation_dropdownvalues;
+    m_s_ezsigntemplateannotation_dropdownvalues_isSet = true;
 }
 
-bool Ezsigntemplateannotation_Request::is_s_ezsigntemplateannotationn_dropdownvalues_Valid() const{
-    return m_s_ezsigntemplateannotationn_dropdownvalues_isValid;
+bool Ezsigntemplateannotation_Request::is_s_ezsigntemplateannotation_dropdownvalues_Set() const{
+    return m_s_ezsigntemplateannotation_dropdownvalues_isSet;
+}
+
+bool Ezsigntemplateannotation_Request::is_s_ezsigntemplateannotation_dropdownvalues_Valid() const{
+    return m_s_ezsigntemplateannotation_dropdownvalues_isValid;
+}
+
+Textstylestatic_RequestCompound Ezsigntemplateannotation_Request::getObjTextstylestatic() const {
+    return m_obj_textstylestatic;
+}
+void Ezsigntemplateannotation_Request::setObjTextstylestatic(const Textstylestatic_RequestCompound &obj_textstylestatic) {
+    m_obj_textstylestatic = obj_textstylestatic;
+    m_obj_textstylestatic_isSet = true;
+}
+
+bool Ezsigntemplateannotation_Request::is_obj_textstylestatic_Set() const{
+    return m_obj_textstylestatic_isSet;
+}
+
+bool Ezsigntemplateannotation_Request::is_obj_textstylestatic_Valid() const{
+    return m_obj_textstylestatic_isValid;
 }
 
 bool Ezsigntemplateannotation_Request::isSet() const {
@@ -390,12 +415,7 @@ bool Ezsigntemplateannotation_Request::isSet() const {
             break;
         }
 
-        if (m_fki_ezsigntemplatedocumentpage_id_isSet) {
-            isObjectUpdated = true;
-            break;
-        }
-
-        if (m_fki_textstylestatic_id_isSet) {
+        if (m_fki_ezsigntemplatedocument_id_isSet) {
             isObjectUpdated = true;
             break;
         }
@@ -435,6 +455,11 @@ bool Ezsigntemplateannotation_Request::isSet() const {
             break;
         }
 
+        if (m_i_ezsigntemplatedocumentpage_pagenumber_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (m_s_ezsigntemplateannotation_description_isSet) {
             isObjectUpdated = true;
             break;
@@ -445,7 +470,12 @@ bool Ezsigntemplateannotation_Request::isSet() const {
             break;
         }
 
-        if (m_s_ezsigntemplateannotationn_dropdownvalues_isSet) {
+        if (m_s_ezsigntemplateannotation_dropdownvalues_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_obj_textstylestatic.isSet()) {
             isObjectUpdated = true;
             break;
         }
@@ -455,7 +485,7 @@ bool Ezsigntemplateannotation_Request::isSet() const {
 
 bool Ezsigntemplateannotation_Request::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_fki_ezsigntemplatedocumentpage_id_isValid && m_fki_textstylestatic_id_isValid && m_e_ezsigntemplateannotation_horizontalalignment_isValid && m_e_ezsigntemplateannotation_verticalalignment_isValid && m_e_ezsigntemplateannotation_type_isValid && m_i_ezsigntemplateannotation_x_isValid && m_i_ezsigntemplateannotation_y_isValid && m_i_ezsigntemplateannotation_width_isValid && m_i_ezsigntemplateannotation_height_isValid && m_s_ezsigntemplateannotation_description_isValid && m_s_ezsigntemplateannotation_defaulttext_isValid && m_s_ezsigntemplateannotationn_dropdownvalues_isValid && true;
+    return m_fki_ezsigntemplatedocument_id_isValid && m_e_ezsigntemplateannotation_horizontalalignment_isValid && m_e_ezsigntemplateannotation_verticalalignment_isValid && m_e_ezsigntemplateannotation_type_isValid && m_i_ezsigntemplateannotation_x_isValid && m_i_ezsigntemplateannotation_y_isValid && m_i_ezsigntemplateannotation_width_isValid && m_i_ezsigntemplateannotation_height_isValid && m_i_ezsigntemplatedocumentpage_pagenumber_isValid && m_s_ezsigntemplateannotation_description_isValid && m_s_ezsigntemplateannotation_defaulttext_isValid && m_s_ezsigntemplateannotation_dropdownvalues_isValid && true;
 }
 
 } // namespace Ezmaxapi

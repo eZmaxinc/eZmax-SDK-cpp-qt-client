@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Websocket_RequestServer_GetWebsocketID_V1::Websocket_RequestServer_GetWebsocketID_V1(QString json) {
+Websocket_RequestServer_GetWebsocketID_V1::Websocket_RequestServer_GetWebsocketID_V1(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -38,7 +38,7 @@ void Websocket_RequestServer_GetWebsocketID_V1::initializeModel() {
     m_e_websocket_messagetype_isValid = false;
 }
 
-void Websocket_RequestServer_GetWebsocketID_V1::fromJson(QString jsonString) {
+void Websocket_RequestServer_GetWebsocketID_V1::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

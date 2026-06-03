@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Common_Response_objDebugPayload::Common_Response_objDebugPayload(QString json) {
+Common_Response_objDebugPayload::Common_Response_objDebugPayload(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -50,7 +50,7 @@ void Common_Response_objDebugPayload::initializeModel() {
     m_dt_response_date_isValid = false;
 }
 
-void Common_Response_objDebugPayload::fromJson(QString jsonString) {
+void Common_Response_objDebugPayload::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

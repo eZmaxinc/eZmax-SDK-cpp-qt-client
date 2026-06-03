@@ -32,13 +32,13 @@ class Billingentityinternal_RequestCompound;
 class Billingentityinternal_editObject_v1_Request : public Object {
 public:
     Billingentityinternal_editObject_v1_Request();
-    Billingentityinternal_editObject_v1_Request(QString json);
+    Billingentityinternal_editObject_v1_Request(const QString &json);
     ~Billingentityinternal_editObject_v1_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Billingentityinternal_RequestCompound getObjBillingentityinternal() const;
     void setObjBillingentityinternal(const Billingentityinternal_RequestCompound &obj_billingentityinternal);

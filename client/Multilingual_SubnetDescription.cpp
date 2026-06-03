@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Multilingual_SubnetDescription::Multilingual_SubnetDescription(QString json) {
+Multilingual_SubnetDescription::Multilingual_SubnetDescription(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -41,7 +41,7 @@ void Multilingual_SubnetDescription::initializeModel() {
     m_s_subnet_description2_isValid = false;
 }
 
-void Multilingual_SubnetDescription::fromJson(QString jsonString) {
+void Multilingual_SubnetDescription::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

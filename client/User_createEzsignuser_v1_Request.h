@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class User_createEzsignuser_v1_Request : public Object {
 public:
     User_createEzsignuser_v1_Request();
-    User_createEzsignuser_v1_Request(QString json);
+    User_createEzsignuser_v1_Request(const QString &json);
     ~User_createEzsignuser_v1_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getFkiLanguageId() const;
     void setFkiLanguageId(const qint32 &fki_language_id);

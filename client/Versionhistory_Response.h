@@ -35,13 +35,13 @@ class Multilingual_VersionhistoryDetail;
 class Versionhistory_Response : public Object {
 public:
     Versionhistory_Response();
-    Versionhistory_Response(QString json);
+    Versionhistory_Response(const QString &json);
     ~Versionhistory_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiVersionhistoryId() const;
     void setPkiVersionhistoryId(const qint32 &pki_versionhistory_id);

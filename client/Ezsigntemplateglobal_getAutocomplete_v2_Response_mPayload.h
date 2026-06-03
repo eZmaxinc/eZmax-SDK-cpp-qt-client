@@ -33,13 +33,13 @@ class Ezsigntemplateglobal_AutocompleteElement_Response;
 class Ezsigntemplateglobal_getAutocomplete_v2_Response_mPayload : public Object {
 public:
     Ezsigntemplateglobal_getAutocomplete_v2_Response_mPayload();
-    Ezsigntemplateglobal_getAutocomplete_v2_Response_mPayload(QString json);
+    Ezsigntemplateglobal_getAutocomplete_v2_Response_mPayload(const QString &json);
     ~Ezsigntemplateglobal_getAutocomplete_v2_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Ezsigntemplateglobal_AutocompleteElement_Response> getAObjEzsigntemplateglobal() const;
     void setAObjEzsigntemplateglobal(const QList<Ezsigntemplateglobal_AutocompleteElement_Response> &a_obj_ezsigntemplateglobal);

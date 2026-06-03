@@ -30,13 +30,13 @@ namespace Ezmaxapi {
 class Textstylestatic_Request : public Object {
 public:
     Textstylestatic_Request();
-    Textstylestatic_Request(QString json);
+    Textstylestatic_Request(const QString &json);
     ~Textstylestatic_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getFkiFontId() const;
     void setFkiFontId(const qint32 &fki_font_id);

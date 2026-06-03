@@ -30,13 +30,13 @@ namespace Ezmaxapi {
 class Field_eEzsigntemplatesignatureFont : public Enum {
 public:
     Field_eEzsigntemplatesignatureFont();
-    Field_eEzsigntemplatesignatureFont(QString json);
+    Field_eEzsigntemplatesignatureFont(const QString &json);
     ~Field_eEzsigntemplatesignatureFont() override;
 
     QString asJson() const override;
     QJsonValue asJsonValue() const override;
     void fromJsonValue(QJsonValue json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     enum class eField_eEzsigntemplatesignatureFont {
         INVALID_VALUE_OPENAPI_GENERATED = 0,

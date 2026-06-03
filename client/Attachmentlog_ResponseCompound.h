@@ -32,13 +32,13 @@ namespace Ezmaxapi {
 class Attachmentlog_ResponseCompound : public Object {
 public:
     Attachmentlog_ResponseCompound();
-    Attachmentlog_ResponseCompound(QString json);
+    Attachmentlog_ResponseCompound(const QString &json);
     ~Attachmentlog_ResponseCompound() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getFkiAttachmentId() const;
     void setFkiAttachmentId(const qint32 &fki_attachment_id);

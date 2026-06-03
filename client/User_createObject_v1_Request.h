@@ -33,13 +33,13 @@ class User_RequestCompound;
 class User_createObject_v1_Request : public Object {
 public:
     User_createObject_v1_Request();
-    User_createObject_v1_Request(QString json);
+    User_createObject_v1_Request(const QString &json);
     ~User_createObject_v1_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<User_RequestCompound> getAObjUser() const;
     void setAObjUser(const QList<User_RequestCompound> &a_obj_user);

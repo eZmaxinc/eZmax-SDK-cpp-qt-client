@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Ezsignfolder_batchDownload_v1_Request::Ezsignfolder_batchDownload_v1_Request(QString json) {
+Ezsignfolder_batchDownload_v1_Request::Ezsignfolder_batchDownload_v1_Request(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -41,7 +41,7 @@ void Ezsignfolder_batchDownload_v1_Request::initializeModel() {
     m_a_e_document_type_isValid = false;
 }
 
-void Ezsignfolder_batchDownload_v1_Request::fromJson(QString jsonString) {
+void Ezsignfolder_batchDownload_v1_Request::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

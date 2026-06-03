@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Multilingual_UserlogintypeDescription::Multilingual_UserlogintypeDescription(QString json) {
+Multilingual_UserlogintypeDescription::Multilingual_UserlogintypeDescription(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -41,7 +41,7 @@ void Multilingual_UserlogintypeDescription::initializeModel() {
     m_s_userlogintype_description2_isValid = false;
 }
 
-void Multilingual_UserlogintypeDescription::fromJson(QString jsonString) {
+void Multilingual_UserlogintypeDescription::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

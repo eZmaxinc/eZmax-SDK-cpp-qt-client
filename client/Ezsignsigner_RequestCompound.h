@@ -33,13 +33,13 @@ class Ezsignsigner_RequestCompound_Contact;
 class Ezsignsigner_RequestCompound : public Object {
 public:
     Ezsignsigner_RequestCompound();
-    Ezsignsigner_RequestCompound(QString json);
+    Ezsignsigner_RequestCompound(const QString &json);
     ~Ezsignsigner_RequestCompound() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getFkiUserlogintypeId() const;
     void setFkiUserlogintypeId(const qint32 &fki_userlogintype_id);

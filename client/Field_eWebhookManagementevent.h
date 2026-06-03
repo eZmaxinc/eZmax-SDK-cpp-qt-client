@@ -30,13 +30,13 @@ namespace Ezmaxapi {
 class Field_eWebhookManagementevent : public Enum {
 public:
     Field_eWebhookManagementevent();
-    Field_eWebhookManagementevent(QString json);
+    Field_eWebhookManagementevent(const QString &json);
     ~Field_eWebhookManagementevent() override;
 
     QString asJson() const override;
     QJsonValue asJsonValue() const override;
     void fromJsonValue(QJsonValue json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     enum class eField_eWebhookManagementevent {
         INVALID_VALUE_OPENAPI_GENERATED = 0,

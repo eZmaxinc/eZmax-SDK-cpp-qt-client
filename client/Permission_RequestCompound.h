@@ -30,13 +30,13 @@ namespace Ezmaxapi {
 class Permission_RequestCompound : public Object {
 public:
     Permission_RequestCompound();
-    Permission_RequestCompound(QString json);
+    Permission_RequestCompound(const QString &json);
     ~Permission_RequestCompound() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiPermissionId() const;
     void setPkiPermissionId(const qint32 &pki_permission_id);

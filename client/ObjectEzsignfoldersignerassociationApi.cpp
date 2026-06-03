@@ -86,9 +86,9 @@ void ObjectEzsignfoldersignerassociationApi::initializeServerConfigs() {
 }
 
 /**
-* returns 0 on success and -1, -2 or -3 on failure.
-* -1 when the variable does not exist and -2 if the value is not defined in the enum and -3 if the operation or server index is not found
-*/
+ * returns 0 on success and -1, -2 or -3 on failure.
+ * -1 when the variable does not exist and -2 if the value is not defined in the enum and -3 if the operation or server index is not found
+ */
 int ObjectEzsignfoldersignerassociationApi::setDefaultServerValue(int serverIndex, const QString &operation, const QString &variable, const QString &value) {
     auto it = _serverConfigs.find(operation);
     if (it != _serverConfigs.end() && serverIndex < it.value().size()) {
@@ -96,9 +96,21 @@ int ObjectEzsignfoldersignerassociationApi::setDefaultServerValue(int serverInde
     }
     return -3;
 }
+
+/**
+ * Sets the server index.
+ * @param operation The id to the target operation.
+ * @param serverIndex The server index.
+ */
 void ObjectEzsignfoldersignerassociationApi::setServerIndex(const QString &operation, int serverIndex) {
     if (_serverIndices.contains(operation) && serverIndex < _serverConfigs.find(operation).value().size()) {
         _serverIndices[operation] = serverIndex;
+    }
+}
+
+void ObjectEzsignfoldersignerassociationApi::setServerIndex(int serverIndex) {
+    for (auto keyIt = _serverIndices.keyBegin(); keyIt != _serverIndices.keyEnd(); keyIt++) {
+        setServerIndex(*keyIt, serverIndex);
     }
 }
 
@@ -132,13 +144,13 @@ void ObjectEzsignfoldersignerassociationApi::setNetworkAccessManager(QNetworkAcc
 }
 
 /**
-    * Appends a new ServerConfiguration to the config map for a specific operation.
-    * @param operation The id to the target operation.
-    * @param url A string that contains the URL of the server
-    * @param description A String that describes the server
-    * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
-    * returns the index of the new server config on success and -1 if the operation is not found
-    */
+ * Appends a new ServerConfiguration to the config map for a specific operation.
+ * @param operation The id to the target operation.
+ * @param url A string that contains the URL of the server
+ * @param description A String that describes the server
+ * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
+ * returns the index of the new server config on success and -1 if the operation is not found
+ */
 int ObjectEzsignfoldersignerassociationApi::addServerConfiguration(const QString &operation, const QUrl &url, const QString &description, const QMap<QString, ServerVariable> &variables) {
     if (_serverConfigs.contains(operation)) {
         _serverConfigs[operation].append(ServerConfiguration(
@@ -152,11 +164,11 @@ int ObjectEzsignfoldersignerassociationApi::addServerConfiguration(const QString
 }
 
 /**
-    * Appends a new ServerConfiguration to the config map for a all operations and sets the index to that server.
-    * @param url A string that contains the URL of the server
-    * @param description A String that describes the server
-    * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
-    */
+ * Appends a new ServerConfiguration to the config map for a all operations and sets the index to that server.
+ * @param url A string that contains the URL of the server
+ * @param description A String that describes the server
+ * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
+ */
 void ObjectEzsignfoldersignerassociationApi::setNewServerForAllOperations(const QUrl &url, const QString &description, const QMap<QString, ServerVariable> &variables) {
     for (auto keyIt = _serverIndices.keyBegin(); keyIt != _serverIndices.keyEnd(); keyIt++) {
         setServerIndex(*keyIt, addServerConfiguration(*keyIt, url, description, variables));
@@ -164,11 +176,11 @@ void ObjectEzsignfoldersignerassociationApi::setNewServerForAllOperations(const 
 }
 
 /**
-    * Appends a new ServerConfiguration to the config map for an operations and sets the index to that server.
-    * @param URL A string that contains the URL of the server
-    * @param description A String that describes the server
-    * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
-    */
+ * Appends a new ServerConfiguration to the config map for an operations and sets the index to that server.
+ * @param URL A string that contains the URL of the server
+ * @param description A String that describes the server
+ * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
+ */
 void ObjectEzsignfoldersignerassociationApi::setNewServer(const QString &operation, const QUrl &url, const QString &description, const QMap<QString, ServerVariable> &variables) {
     setServerIndex(operation, addServerConfiguration(operation, url, description, variables));
 }
@@ -314,32 +326,6 @@ void ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationCreate
         Q_EMIT ezsignfoldersignerassociationCreateEmbeddedUrlV1Signal(output);
         Q_EMIT ezsignfoldersignerassociationCreateEmbeddedUrlV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsignfoldersignerassociationCreateEmbeddedUrlV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsignfoldersignerassociationCreateEmbeddedUrlV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsignfoldersignerassociationCreateEmbeddedUrlV1SignalError(output, error_type, error_str);
         Q_EMIT ezsignfoldersignerassociationCreateEmbeddedUrlV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -407,32 +393,6 @@ void ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationCreate
         Q_EMIT ezsignfoldersignerassociationCreateEmbeddedUrlV2Signal(output);
         Q_EMIT ezsignfoldersignerassociationCreateEmbeddedUrlV2SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsignfoldersignerassociationCreateEmbeddedUrlV2SignalE(output, error_type, error_str);
-        Q_EMIT ezsignfoldersignerassociationCreateEmbeddedUrlV2SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsignfoldersignerassociationCreateEmbeddedUrlV2SignalError(output, error_type, error_str);
         Q_EMIT ezsignfoldersignerassociationCreateEmbeddedUrlV2SignalErrorFull(worker, error_type, error_str);
     }
@@ -485,32 +445,6 @@ void ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationCreate
         Q_EMIT ezsignfoldersignerassociationCreateObjectV1Signal(output);
         Q_EMIT ezsignfoldersignerassociationCreateObjectV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsignfoldersignerassociationCreateObjectV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsignfoldersignerassociationCreateObjectV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsignfoldersignerassociationCreateObjectV1SignalError(output, error_type, error_str);
         Q_EMIT ezsignfoldersignerassociationCreateObjectV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -564,32 +498,6 @@ void ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationCreate
         Q_EMIT ezsignfoldersignerassociationCreateObjectV2Signal(output);
         Q_EMIT ezsignfoldersignerassociationCreateObjectV2SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsignfoldersignerassociationCreateObjectV2SignalE(output, error_type, error_str);
-        Q_EMIT ezsignfoldersignerassociationCreateObjectV2SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsignfoldersignerassociationCreateObjectV2SignalError(output, error_type, error_str);
         Q_EMIT ezsignfoldersignerassociationCreateObjectV2SignalErrorFull(worker, error_type, error_str);
     }
@@ -652,32 +560,6 @@ void ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationDelete
         Q_EMIT ezsignfoldersignerassociationDeleteObjectV1Signal(output);
         Q_EMIT ezsignfoldersignerassociationDeleteObjectV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsignfoldersignerassociationDeleteObjectV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsignfoldersignerassociationDeleteObjectV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsignfoldersignerassociationDeleteObjectV1SignalError(output, error_type, error_str);
         Q_EMIT ezsignfoldersignerassociationDeleteObjectV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -745,32 +627,6 @@ void ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationEditOb
         Q_EMIT ezsignfoldersignerassociationEditObjectV1Signal(output);
         Q_EMIT ezsignfoldersignerassociationEditObjectV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsignfoldersignerassociationEditObjectV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsignfoldersignerassociationEditObjectV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsignfoldersignerassociationEditObjectV1SignalError(output, error_type, error_str);
         Q_EMIT ezsignfoldersignerassociationEditObjectV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -838,32 +694,6 @@ void ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationForceD
         Q_EMIT ezsignfoldersignerassociationForceDisconnectV1Signal(output);
         Q_EMIT ezsignfoldersignerassociationForceDisconnectV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsignfoldersignerassociationForceDisconnectV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsignfoldersignerassociationForceDisconnectV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsignfoldersignerassociationForceDisconnectV1SignalError(output, error_type, error_str);
         Q_EMIT ezsignfoldersignerassociationForceDisconnectV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -926,32 +756,6 @@ void ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationGetInP
         Q_EMIT ezsignfoldersignerassociationGetInPersonLoginUrlV1Signal(output);
         Q_EMIT ezsignfoldersignerassociationGetInPersonLoginUrlV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsignfoldersignerassociationGetInPersonLoginUrlV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsignfoldersignerassociationGetInPersonLoginUrlV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsignfoldersignerassociationGetInPersonLoginUrlV1SignalError(output, error_type, error_str);
         Q_EMIT ezsignfoldersignerassociationGetInPersonLoginUrlV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -1014,32 +818,6 @@ void ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationGetObj
         Q_EMIT ezsignfoldersignerassociationGetObjectV1Signal(output);
         Q_EMIT ezsignfoldersignerassociationGetObjectV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsignfoldersignerassociationGetObjectV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsignfoldersignerassociationGetObjectV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsignfoldersignerassociationGetObjectV1SignalError(output, error_type, error_str);
         Q_EMIT ezsignfoldersignerassociationGetObjectV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -1102,32 +880,6 @@ void ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationGetObj
         Q_EMIT ezsignfoldersignerassociationGetObjectV2Signal(output);
         Q_EMIT ezsignfoldersignerassociationGetObjectV2SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsignfoldersignerassociationGetObjectV2SignalE(output, error_type, error_str);
-        Q_EMIT ezsignfoldersignerassociationGetObjectV2SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsignfoldersignerassociationGetObjectV2SignalError(output, error_type, error_str);
         Q_EMIT ezsignfoldersignerassociationGetObjectV2SignalErrorFull(worker, error_type, error_str);
     }
@@ -1195,32 +947,6 @@ void ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationPatchO
         Q_EMIT ezsignfoldersignerassociationPatchObjectV1Signal(output);
         Q_EMIT ezsignfoldersignerassociationPatchObjectV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsignfoldersignerassociationPatchObjectV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsignfoldersignerassociationPatchObjectV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsignfoldersignerassociationPatchObjectV1SignalError(output, error_type, error_str);
         Q_EMIT ezsignfoldersignerassociationPatchObjectV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -1288,42 +1014,16 @@ void ObjectEzsignfoldersignerassociationApi::ezsignfoldersignerassociationReassi
         Q_EMIT ezsignfoldersignerassociationReassignV1Signal(output);
         Q_EMIT ezsignfoldersignerassociationReassignV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsignfoldersignerassociationReassignV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsignfoldersignerassociationReassignV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsignfoldersignerassociationReassignV1SignalError(output, error_type, error_str);
         Q_EMIT ezsignfoldersignerassociationReassignV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
-void ObjectEzsignfoldersignerassociationApi::tokenAvailable(){
+void ObjectEzsignfoldersignerassociationApi::tokenAvailable() {
 
     oauthToken token;
     switch (_OauthMethod) {
-    case 1: //implicit flow
+    case OauthMethod::ImplicitFlow:
         token = _implicitFlow.getToken(_latestScope.join(" "));
         if(token.isValid()){
             _latestInput.headers.insert("Authorization", "Bearer " + token.getToken());
@@ -1333,7 +1033,7 @@ void ObjectEzsignfoldersignerassociationApi::tokenAvailable(){
             qDebug() << "Could not retrieve a valid token";
         }
         break;
-    case 2: //authorization flow
+    case OauthMethod::AuthorizationFlow:
         token = _authFlow.getToken(_latestScope.join(" "));
         if(token.isValid()){
             _latestInput.headers.insert("Authorization", "Bearer " + token.getToken());
@@ -1343,7 +1043,7 @@ void ObjectEzsignfoldersignerassociationApi::tokenAvailable(){
             qDebug() << "Could not retrieve a valid token";
         }
         break;
-    case 3: //client credentials flow
+    case OauthMethod::ClientCredentialsFlow:
         token = _credentialFlow.getToken(_latestScope.join(" "));
         if(token.isValid()){
             _latestInput.headers.insert("Authorization", "Bearer " + token.getToken());
@@ -1353,7 +1053,7 @@ void ObjectEzsignfoldersignerassociationApi::tokenAvailable(){
             qDebug() << "Could not retrieve a valid token";
         }
         break;
-    case 4: //resource owner password flow
+    case OauthMethod::ResourceOwnerPasswordFlow:
         token = _passwordFlow.getToken(_latestScope.join(" "));
         if(token.isValid()){
             _latestInput.headers.insert("Authorization", "Bearer " + token.getToken());

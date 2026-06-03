@@ -30,13 +30,13 @@ namespace Ezmaxapi {
 class Ezsignbulksenddocumentmapping_Request : public Object {
 public:
     Ezsignbulksenddocumentmapping_Request();
-    Ezsignbulksenddocumentmapping_Request(QString json);
+    Ezsignbulksenddocumentmapping_Request(const QString &json);
     ~Ezsignbulksenddocumentmapping_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiEzsignbulksenddocumentmappingId() const;
     void setPkiEzsignbulksenddocumentmappingId(const qint32 &pki_ezsignbulksenddocumentmapping_id);

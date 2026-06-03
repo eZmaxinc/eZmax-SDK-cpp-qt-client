@@ -33,13 +33,13 @@ namespace Ezmaxapi {
 class Buyercontract_ListElement : public Object {
 public:
     Buyercontract_ListElement();
-    Buyercontract_ListElement(QString json);
+    Buyercontract_ListElement(const QString &json);
     ~Buyercontract_ListElement() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiBuyercontractId() const;
     void setPkiBuyercontractId(const qint32 &pki_buyercontract_id);
@@ -75,6 +75,11 @@ public:
     void setEBuyercontractType(const Field_eBuyercontractType &e_buyercontract_type);
     bool is_e_buyercontract_type_Set() const;
     bool is_e_buyercontract_type_Valid() const;
+
+    QString getSBuyercontractContract() const;
+    void setSBuyercontractContract(const QString &s_buyercontract_contract);
+    bool is_s_buyercontract_contract_Set() const;
+    bool is_s_buyercontract_contract_Valid() const;
 
     QString getDtBuyercontractDate() const;
     void setDtBuyercontractDate(const QString &dt_buyercontract_date);
@@ -134,6 +139,10 @@ private:
     Field_eBuyercontractType m_e_buyercontract_type;
     bool m_e_buyercontract_type_isSet;
     bool m_e_buyercontract_type_isValid;
+
+    QString m_s_buyercontract_contract;
+    bool m_s_buyercontract_contract_isSet;
+    bool m_s_buyercontract_contract_isValid;
 
     QString m_dt_buyercontract_date;
     bool m_dt_buyercontract_date_isSet;

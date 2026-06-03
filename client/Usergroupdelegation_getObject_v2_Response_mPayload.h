@@ -32,13 +32,13 @@ class Usergroupdelegation_ResponseCompound;
 class Usergroupdelegation_getObject_v2_Response_mPayload : public Object {
 public:
     Usergroupdelegation_getObject_v2_Response_mPayload();
-    Usergroupdelegation_getObject_v2_Response_mPayload(QString json);
+    Usergroupdelegation_getObject_v2_Response_mPayload(const QString &json);
     ~Usergroupdelegation_getObject_v2_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Usergroupdelegation_ResponseCompound getObjUsergroupdelegation() const;
     void setObjUsergroupdelegation(const Usergroupdelegation_ResponseCompound &obj_usergroupdelegation);

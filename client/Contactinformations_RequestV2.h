@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Contactinformations_RequestV2 : public Object {
 public:
     Contactinformations_RequestV2();
-    Contactinformations_RequestV2(QString json);
+    Contactinformations_RequestV2(const QString &json);
     ~Contactinformations_RequestV2() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Field_eContactinformationsType getEContactinformationsType() const;
     void setEContactinformationsType(const Field_eContactinformationsType &e_contactinformations_type);

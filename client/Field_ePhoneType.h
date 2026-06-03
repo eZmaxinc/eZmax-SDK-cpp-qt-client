@@ -30,13 +30,13 @@ namespace Ezmaxapi {
 class Field_ePhoneType : public Enum {
 public:
     Field_ePhoneType();
-    Field_ePhoneType(QString json);
+    Field_ePhoneType(const QString &json);
     ~Field_ePhoneType() override;
 
     QString asJson() const override;
     QJsonValue asJsonValue() const override;
     void fromJsonValue(QJsonValue json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     enum class eField_ePhoneType {
         INVALID_VALUE_OPENAPI_GENERATED = 0,

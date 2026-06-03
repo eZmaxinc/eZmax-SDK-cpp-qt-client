@@ -33,13 +33,13 @@ namespace Ezmaxapi {
 class Custom_AttachmentImportIntoEDM_Request : public Object {
 public:
     Custom_AttachmentImportIntoEDM_Request();
-    Custom_AttachmentImportIntoEDM_Request(QString json);
+    Custom_AttachmentImportIntoEDM_Request(const QString &json);
     ~Custom_AttachmentImportIntoEDM_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getEAttachmentSource() const;
     void setEAttachmentSource(const QString &e_attachment_source);

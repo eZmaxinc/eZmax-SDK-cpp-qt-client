@@ -40,13 +40,13 @@ class Attachment_ResponseCompound;
 class Custom_Attachment_Response : public Object {
 public:
     Custom_Attachment_Response();
-    Custom_Attachment_Response(QString json);
+    Custom_Attachment_Response(const QString &json);
     ~Custom_Attachment_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiAttachmentId() const;
     void setPkiAttachmentId(const qint32 &pki_attachment_id);

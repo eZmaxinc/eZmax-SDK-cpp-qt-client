@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Customer_ResponseCompound::Customer_ResponseCompound(QString json) {
+Customer_ResponseCompound::Customer_ResponseCompound(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -191,7 +191,7 @@ void Customer_ResponseCompound::initializeModel() {
     m_importid_isValid = false;
 }
 
-void Customer_ResponseCompound::fromJson(QString jsonString) {
+void Customer_ResponseCompound::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

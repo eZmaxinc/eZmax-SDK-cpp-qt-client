@@ -33,13 +33,13 @@ class Infrastructureregion_AutocompleteElement_Response;
 class Infrastructureregion_getAutocomplete_v2_Response_mPayload : public Object {
 public:
     Infrastructureregion_getAutocomplete_v2_Response_mPayload();
-    Infrastructureregion_getAutocomplete_v2_Response_mPayload(QString json);
+    Infrastructureregion_getAutocomplete_v2_Response_mPayload(const QString &json);
     ~Infrastructureregion_getAutocomplete_v2_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Infrastructureregion_AutocompleteElement_Response> getAObjInfrastructureregion() const;
     void setAObjInfrastructureregion(const QList<Infrastructureregion_AutocompleteElement_Response> &a_obj_infrastructureregion);

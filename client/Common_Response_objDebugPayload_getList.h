@@ -35,13 +35,13 @@ class Common_Response_Filter;
 class Common_Response_objDebugPayload_getList : public Object {
 public:
     Common_Response_objDebugPayload_getList();
-    Common_Response_objDebugPayload_getList(QString json);
+    Common_Response_objDebugPayload_getList(const QString &json);
     ~Common_Response_objDebugPayload_getList() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getIVersionMin() const;
     void setIVersionMin(const qint32 &i_version_min);

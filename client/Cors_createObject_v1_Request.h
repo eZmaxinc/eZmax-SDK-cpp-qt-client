@@ -33,13 +33,13 @@ class Cors_RequestCompound;
 class Cors_createObject_v1_Request : public Object {
 public:
     Cors_createObject_v1_Request();
-    Cors_createObject_v1_Request(QString json);
+    Cors_createObject_v1_Request(const QString &json);
     ~Cors_createObject_v1_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Cors_RequestCompound> getAObjCors() const;
     void setAObjCors(const QList<Cors_RequestCompound> &a_obj_cors);

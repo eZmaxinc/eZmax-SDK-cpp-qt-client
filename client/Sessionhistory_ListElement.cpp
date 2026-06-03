@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Sessionhistory_ListElement::Sessionhistory_ListElement(QString json) {
+Sessionhistory_ListElement::Sessionhistory_ListElement(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -65,7 +65,7 @@ void Sessionhistory_ListElement::initializeModel() {
     m_s_user_loginname_isValid = false;
 }
 
-void Sessionhistory_ListElement::fromJson(QString jsonString) {
+void Sessionhistory_ListElement::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

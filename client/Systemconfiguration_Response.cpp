@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Systemconfiguration_Response::Systemconfiguration_Response(QString json) {
+Systemconfiguration_Response::Systemconfiguration_Response(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -98,7 +98,7 @@ void Systemconfiguration_Response::initializeModel() {
     m_i_systemconfiguration_ezsignreminderhoursend_isValid = false;
 }
 
-void Systemconfiguration_Response::fromJson(QString jsonString) {
+void Systemconfiguration_Response::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

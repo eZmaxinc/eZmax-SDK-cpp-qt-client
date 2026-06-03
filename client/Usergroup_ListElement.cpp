@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Usergroup_ListElement::Usergroup_ListElement(QString json) {
+Usergroup_ListElement::Usergroup_ListElement(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -47,7 +47,7 @@ void Usergroup_ListElement::initializeModel() {
     m_i_count_inactiveuser_isValid = false;
 }
 
-void Usergroup_ListElement::fromJson(QString jsonString) {
+void Usergroup_ListElement::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

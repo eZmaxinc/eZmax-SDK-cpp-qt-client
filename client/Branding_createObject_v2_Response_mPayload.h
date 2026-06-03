@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Branding_createObject_v2_Response_mPayload : public Object {
 public:
     Branding_createObject_v2_Response_mPayload();
-    Branding_createObject_v2_Response_mPayload(QString json);
+    Branding_createObject_v2_Response_mPayload(const QString &json);
     ~Branding_createObject_v2_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<qint32> getAPkiBrandingId() const;
     void setAPkiBrandingId(const QList<qint32> &a_pki_branding_id);

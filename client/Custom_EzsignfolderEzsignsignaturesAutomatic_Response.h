@@ -34,13 +34,13 @@ class Custom_EzsigndocumentEzsignsignaturesAutomatic_Response;
 class Custom_EzsignfolderEzsignsignaturesAutomatic_Response : public Object {
 public:
     Custom_EzsignfolderEzsignsignaturesAutomatic_Response();
-    Custom_EzsignfolderEzsignsignaturesAutomatic_Response(QString json);
+    Custom_EzsignfolderEzsignsignaturesAutomatic_Response(const QString &json);
     ~Custom_EzsignfolderEzsignsignaturesAutomatic_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiEzsignfolderId() const;
     void setPkiEzsignfolderId(const qint32 &pki_ezsignfolder_id);

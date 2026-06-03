@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_eAttachmentVerified::Field_eAttachmentVerified(QString json) {
+Field_eAttachmentVerified::Field_eAttachmentVerified(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_eAttachmentVerified::initializeModel() {
     m_value = eField_eAttachmentVerified::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_eAttachmentVerified::fromJson(QString jsonString) {
+void Field_eAttachmentVerified::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("No", Qt::CaseInsensitive) == 0) {
         m_value = eField_eAttachmentVerified::NO;

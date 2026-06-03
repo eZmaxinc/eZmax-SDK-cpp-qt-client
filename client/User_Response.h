@@ -41,13 +41,13 @@ class Common_Audit;
 class User_Response : public Object {
 public:
     User_Response();
-    User_Response(QString json);
+    User_Response(const QString &json);
     ~User_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiUserId() const;
     void setPkiUserId(const qint32 &pki_user_id);
@@ -73,6 +73,11 @@ public:
     void setFkiEmployeeId(const qint32 &fki_employee_id);
     bool is_fki_employee_id_Set() const;
     bool is_fki_employee_id_Valid() const;
+
+    qint32 getFkiEzmaxpartnerId() const;
+    void setFkiEzmaxpartnerId(const qint32 &fki_ezmaxpartner_id);
+    bool is_fki_ezmaxpartner_id_Set() const;
+    bool is_fki_ezmaxpartner_id_Valid() const;
 
     qint32 getFkiCompanyIdDefault() const;
     void setFkiCompanyIdDefault(const qint32 &fki_company_id_default);
@@ -214,6 +219,11 @@ public:
     bool is_b_user_isactive_Set() const;
     bool is_b_user_isactive_Valid() const;
 
+    bool isBUserSuspended() const;
+    void setBUserSuspended(const bool &b_user_suspended);
+    bool is_b_user_suspended_Set() const;
+    bool is_b_user_suspended_Valid() const;
+
     bool isBUserValidatebyadministration() const;
     void setBUserValidatebyadministration(const bool &b_user_validatebyadministration);
     bool is_b_user_validatebyadministration_Set() const;
@@ -233,6 +243,11 @@ public:
     void setBUserChangepassword(const bool &b_user_changepassword);
     bool is_b_user_changepassword_Set() const;
     bool is_b_user_changepassword_Valid() const;
+
+    bool isBUserEzsigntemplaterolegrouping() const;
+    void setBUserEzsigntemplaterolegrouping(const bool &b_user_ezsigntemplaterolegrouping);
+    bool is_b_user_ezsigntemplaterolegrouping_Set() const;
+    bool is_b_user_ezsigntemplaterolegrouping_Valid() const;
 
     Common_Audit getObjAudit() const;
     void setObjAudit(const Common_Audit &obj_audit);
@@ -264,6 +279,10 @@ private:
     qint32 m_fki_employee_id;
     bool m_fki_employee_id_isSet;
     bool m_fki_employee_id_isValid;
+
+    qint32 m_fki_ezmaxpartner_id;
+    bool m_fki_ezmaxpartner_id_isSet;
+    bool m_fki_ezmaxpartner_id_isValid;
 
     qint32 m_fki_company_id_default;
     bool m_fki_company_id_default_isSet;
@@ -377,6 +396,10 @@ private:
     bool m_b_user_isactive_isSet;
     bool m_b_user_isactive_isValid;
 
+    bool m_b_user_suspended;
+    bool m_b_user_suspended_isSet;
+    bool m_b_user_suspended_isValid;
+
     bool m_b_user_validatebyadministration;
     bool m_b_user_validatebyadministration_isSet;
     bool m_b_user_validatebyadministration_isValid;
@@ -392,6 +415,10 @@ private:
     bool m_b_user_changepassword;
     bool m_b_user_changepassword_isSet;
     bool m_b_user_changepassword_isValid;
+
+    bool m_b_user_ezsigntemplaterolegrouping;
+    bool m_b_user_ezsigntemplaterolegrouping_isSet;
+    bool m_b_user_ezsigntemplaterolegrouping_isValid;
 
     Common_Audit m_obj_audit;
     bool m_obj_audit_isSet;

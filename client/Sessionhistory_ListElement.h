@@ -32,13 +32,13 @@ namespace Ezmaxapi {
 class Sessionhistory_ListElement : public Object {
 public:
     Sessionhistory_ListElement();
-    Sessionhistory_ListElement(QString json);
+    Sessionhistory_ListElement(const QString &json);
     ~Sessionhistory_ListElement() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiSessionhistoryId() const;
     void setPkiSessionhistoryId(const qint32 &pki_sessionhistory_id);

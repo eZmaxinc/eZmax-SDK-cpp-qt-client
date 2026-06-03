@@ -33,13 +33,13 @@ class Ezsignannotation_RequestCompound;
 class Ezsigndocument_editEzsignannotations_v1_Request : public Object {
 public:
     Ezsigndocument_editEzsignannotations_v1_Request();
-    Ezsigndocument_editEzsignannotations_v1_Request(QString json);
+    Ezsigndocument_editEzsignannotations_v1_Request(const QString &json);
     ~Ezsigndocument_editEzsignannotations_v1_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Ezsignannotation_RequestCompound> getAObjEzsignannotation() const;
     void setAObjEzsignannotation(const QList<Ezsignannotation_RequestCompound> &a_obj_ezsignannotation);

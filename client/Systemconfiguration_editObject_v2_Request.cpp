@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Systemconfiguration_editObject_v2_Request::Systemconfiguration_editObject_v2_Request(QString json) {
+Systemconfiguration_editObject_v2_Request::Systemconfiguration_editObject_v2_Request(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -38,7 +38,7 @@ void Systemconfiguration_editObject_v2_Request::initializeModel() {
     m_obj_systemconfiguration_isValid = false;
 }
 
-void Systemconfiguration_editObject_v2_Request::fromJson(QString jsonString) {
+void Systemconfiguration_editObject_v2_Request::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

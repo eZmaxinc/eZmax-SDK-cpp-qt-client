@@ -32,13 +32,13 @@ class Versionhistory_ResponseCompound;
 class Versionhistory_getObject_v2_Response_mPayload : public Object {
 public:
     Versionhistory_getObject_v2_Response_mPayload();
-    Versionhistory_getObject_v2_Response_mPayload(QString json);
+    Versionhistory_getObject_v2_Response_mPayload(const QString &json);
     ~Versionhistory_getObject_v2_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Versionhistory_ResponseCompound getObjVersionhistory() const;
     void setObjVersionhistory(const Versionhistory_ResponseCompound &obj_versionhistory);

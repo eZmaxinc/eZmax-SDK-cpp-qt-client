@@ -30,13 +30,13 @@ namespace Ezmaxapi {
 class Computed_eEzsignimportfolderStatus : public Enum {
 public:
     Computed_eEzsignimportfolderStatus();
-    Computed_eEzsignimportfolderStatus(QString json);
+    Computed_eEzsignimportfolderStatus(const QString &json);
     ~Computed_eEzsignimportfolderStatus() override;
 
     QString asJson() const override;
     QJsonValue asJsonValue() const override;
     void fromJsonValue(QJsonValue json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     enum class eComputed_eEzsignimportfolderStatus {
         INVALID_VALUE_OPENAPI_GENERATED = 0,

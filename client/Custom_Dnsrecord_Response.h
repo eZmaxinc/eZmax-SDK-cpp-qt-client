@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Custom_Dnsrecord_Response : public Object {
 public:
     Custom_Dnsrecord_Response();
-    Custom_Dnsrecord_Response(QString json);
+    Custom_Dnsrecord_Response(const QString &json);
     ~Custom_Dnsrecord_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getEDnsrecordType() const;
     void setEDnsrecordType(const QString &e_dnsrecord_type);

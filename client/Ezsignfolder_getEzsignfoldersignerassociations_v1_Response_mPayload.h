@@ -33,13 +33,13 @@ class Custom_EzsignfoldersignerassociationActionableElement_Response;
 class Ezsignfolder_getEzsignfoldersignerassociations_v1_Response_mPayload : public Object {
 public:
     Ezsignfolder_getEzsignfoldersignerassociations_v1_Response_mPayload();
-    Ezsignfolder_getEzsignfoldersignerassociations_v1_Response_mPayload(QString json);
+    Ezsignfolder_getEzsignfoldersignerassociations_v1_Response_mPayload(const QString &json);
     ~Ezsignfolder_getEzsignfoldersignerassociations_v1_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Custom_EzsignfoldersignerassociationActionableElement_Response> getAObjEzsignfoldersignerassociation() const;
     void setAObjEzsignfoldersignerassociation(const QList<Custom_EzsignfoldersignerassociationActionableElement_Response> &a_obj_ezsignfoldersignerassociation);

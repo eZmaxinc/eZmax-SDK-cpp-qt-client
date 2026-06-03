@@ -36,13 +36,13 @@ class Electronicfundstransfer_importIntoEDM_v1_Response_mPayload;
 class Electronicfundstransfer_importIntoEDM_v1_Response : public Object {
 public:
     Electronicfundstransfer_importIntoEDM_v1_Response();
-    Electronicfundstransfer_importIntoEDM_v1_Response(QString json);
+    Electronicfundstransfer_importIntoEDM_v1_Response(const QString &json);
     ~Electronicfundstransfer_importIntoEDM_v1_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Common_Response_objDebugPayload getObjDebugPayload() const;
     void setObjDebugPayload(const Common_Response_objDebugPayload &obj_debug_payload);

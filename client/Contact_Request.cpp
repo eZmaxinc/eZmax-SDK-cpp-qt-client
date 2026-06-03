@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Contact_Request::Contact_Request(QString json) {
+Contact_Request::Contact_Request(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -53,7 +53,7 @@ void Contact_Request::initializeModel() {
     m_dt_contact_birthdate_isValid = false;
 }
 
-void Contact_Request::fromJson(QString jsonString) {
+void Contact_Request::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

@@ -33,13 +33,13 @@ class Custom_ContactName_Response;
 class Ezmaxinvoicingcommission_ResponseCompound : public Object {
 public:
     Ezmaxinvoicingcommission_ResponseCompound();
-    Ezmaxinvoicingcommission_ResponseCompound(QString json);
+    Ezmaxinvoicingcommission_ResponseCompound(const QString &json);
     ~Ezmaxinvoicingcommission_ResponseCompound() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiEzmaxinvoicingcommissionId() const;
     void setPkiEzmaxinvoicingcommissionId(const qint32 &pki_ezmaxinvoicingcommission_id);

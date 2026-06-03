@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Franchisebroker_AutocompleteElement_Response::Franchisebroker_AutocompleteElement_Response(QString json) {
+Franchisebroker_AutocompleteElement_Response::Franchisebroker_AutocompleteElement_Response(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -44,7 +44,7 @@ void Franchisebroker_AutocompleteElement_Response::initializeModel() {
     m_b_franchisebroker_isactive_isValid = false;
 }
 
-void Franchisebroker_AutocompleteElement_Response::fromJson(QString jsonString) {
+void Franchisebroker_AutocompleteElement_Response::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

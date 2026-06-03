@@ -32,13 +32,13 @@ namespace Ezmaxapi {
 class Variableexpense_ListElement : public Object {
 public:
     Variableexpense_ListElement();
-    Variableexpense_ListElement(QString json);
+    Variableexpense_ListElement(const QString &json);
     ~Variableexpense_ListElement() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiVariableexpenseId() const;
     void setPkiVariableexpenseId(const qint32 &pki_variableexpense_id);

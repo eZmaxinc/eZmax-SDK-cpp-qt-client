@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Enum_Horizontalalignment::Enum_Horizontalalignment(QString json) {
+Enum_Horizontalalignment::Enum_Horizontalalignment(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Enum_Horizontalalignment::initializeModel() {
     m_value = eEnum_Horizontalalignment::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Enum_Horizontalalignment::fromJson(QString jsonString) {
+void Enum_Horizontalalignment::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("Center", Qt::CaseInsensitive) == 0) {
         m_value = eEnum_Horizontalalignment::CENTER;

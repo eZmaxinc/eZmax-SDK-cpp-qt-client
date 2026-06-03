@@ -30,13 +30,13 @@ namespace Ezmaxapi {
 class Field_eInscriptionStep : public Enum {
 public:
     Field_eInscriptionStep();
-    Field_eInscriptionStep(QString json);
+    Field_eInscriptionStep(const QString &json);
     ~Field_eInscriptionStep() override;
 
     QString asJson() const override;
     QJsonValue asJsonValue() const override;
     void fromJsonValue(QJsonValue json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     enum class eField_eInscriptionStep {
         INVALID_VALUE_OPENAPI_GENERATED = 0,

@@ -56,6 +56,7 @@ public:
     void initializeServerConfigs();
     int setDefaultServerValue(int serverIndex,const QString &operation, const QString &variable,const QString &val);
     void setServerIndex(const QString &operation, int serverIndex);
+    void setServerIndex(int serverIndex);
     void setApiKey(const QString &apiKeyName, const QString &apiKey);
     void setBearerToken(const QString &token);
     void setUsername(const QString &username);
@@ -133,6 +134,13 @@ public:
 
 
 private:
+    enum class OauthMethod : int {
+        INVALID_VALUE_OPENAPI_GENERATED = 0,
+        ImplicitFlow = 1,
+        AuthorizationFlow = 2,
+        ClientCredentialsFlow = 3,
+        ResourceOwnerPasswordFlow = 4
+    };
     QMap<QString,int> _serverIndices;
     QMap<QString,QList<ServerConfiguration>> _serverConfigs;
     QMap<QString, QString> _apiKeys;
@@ -152,7 +160,7 @@ private:
     OauthImplicit _implicitFlow;
     OauthCredentials _credentialFlow;
     OauthPassword _passwordFlow;
-    int _OauthMethod = 0;
+    OauthMethod _OauthMethod = OauthMethod::INVALID_VALUE_OPENAPI_GENERATED;
 
     void apikeyCreateObjectV2Callback(HttpRequestWorker *worker);
     void apikeyEditObjectV1Callback(HttpRequestWorker *worker);
@@ -190,66 +198,26 @@ Q_SIGNALS:
     void apikeyGetSubnetsV1SignalFull(HttpRequestWorker *worker, Apikey_getSubnets_v1_Response summary);
     void apikeyRegenerateV1SignalFull(HttpRequestWorker *worker, Apikey_regenerate_v1_Response summary);
 
-    Q_DECL_DEPRECATED_X("Use apikeyCreateObjectV2SignalError() instead")
-    void apikeyCreateObjectV2SignalE(Apikey_createObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void apikeyCreateObjectV2SignalError(Apikey_createObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use apikeyEditObjectV1SignalError() instead")
-    void apikeyEditObjectV1SignalE(Apikey_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void apikeyEditObjectV1SignalError(Apikey_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use apikeyEditPermissionsV1SignalError() instead")
-    void apikeyEditPermissionsV1SignalE(Apikey_editPermissions_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void apikeyEditPermissionsV1SignalError(Apikey_editPermissions_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use apikeyGenerateDelegatedCredentialsV1SignalError() instead")
-    void apikeyGenerateDelegatedCredentialsV1SignalE(Apikey_generateDelegatedCredentials_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void apikeyGenerateDelegatedCredentialsV1SignalError(Apikey_generateDelegatedCredentials_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use apikeyGetCorsV1SignalError() instead")
-    void apikeyGetCorsV1SignalE(Apikey_getCors_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void apikeyGetCorsV1SignalError(Apikey_getCors_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use apikeyGetListV1SignalError() instead")
-    void apikeyGetListV1SignalE(Apikey_getList_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void apikeyGetListV1SignalError(Apikey_getList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use apikeyGetObjectV2SignalError() instead")
-    void apikeyGetObjectV2SignalE(Apikey_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void apikeyGetObjectV2SignalError(Apikey_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use apikeyGetPermissionsV1SignalError() instead")
-    void apikeyGetPermissionsV1SignalE(Apikey_getPermissions_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void apikeyGetPermissionsV1SignalError(Apikey_getPermissions_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use apikeyGetSubnetsV1SignalError() instead")
-    void apikeyGetSubnetsV1SignalE(Apikey_getSubnets_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void apikeyGetSubnetsV1SignalError(Apikey_getSubnets_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use apikeyRegenerateV1SignalError() instead")
-    void apikeyRegenerateV1SignalE(Apikey_regenerate_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void apikeyRegenerateV1SignalError(Apikey_regenerate_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
-    Q_DECL_DEPRECATED_X("Use apikeyCreateObjectV2SignalErrorFull() instead")
-    void apikeyCreateObjectV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void apikeyCreateObjectV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use apikeyEditObjectV1SignalErrorFull() instead")
-    void apikeyEditObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void apikeyEditObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use apikeyEditPermissionsV1SignalErrorFull() instead")
-    void apikeyEditPermissionsV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void apikeyEditPermissionsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use apikeyGenerateDelegatedCredentialsV1SignalErrorFull() instead")
-    void apikeyGenerateDelegatedCredentialsV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void apikeyGenerateDelegatedCredentialsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use apikeyGetCorsV1SignalErrorFull() instead")
-    void apikeyGetCorsV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void apikeyGetCorsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use apikeyGetListV1SignalErrorFull() instead")
-    void apikeyGetListV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void apikeyGetListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use apikeyGetObjectV2SignalErrorFull() instead")
-    void apikeyGetObjectV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void apikeyGetObjectV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use apikeyGetPermissionsV1SignalErrorFull() instead")
-    void apikeyGetPermissionsV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void apikeyGetPermissionsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use apikeyGetSubnetsV1SignalErrorFull() instead")
-    void apikeyGetSubnetsV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void apikeyGetSubnetsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use apikeyRegenerateV1SignalErrorFull() instead")
-    void apikeyRegenerateV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void apikeyRegenerateV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();

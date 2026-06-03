@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Rejectedoffertopurchase_ListElement : public Object {
 public:
     Rejectedoffertopurchase_ListElement();
-    Rejectedoffertopurchase_ListElement(QString json);
+    Rejectedoffertopurchase_ListElement(const QString &json);
     ~Rejectedoffertopurchase_ListElement() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiRejectedoffertopurchaseId() const;
     void setPkiRejectedoffertopurchaseId(const qint32 &pki_rejectedoffertopurchase_id);
@@ -89,10 +89,20 @@ public:
     bool is_s_address_zip_Set() const;
     bool is_s_address_zip_Valid() const;
 
+    qint32 getFkiProvinceId() const;
+    void setFkiProvinceId(const qint32 &fki_province_id);
+    bool is_fki_province_id_Set() const;
+    bool is_fki_province_id_Valid() const;
+
     QString getSProvinceNameX() const;
     void setSProvinceNameX(const QString &s_province_name_x);
     bool is_s_province_name_x_Set() const;
     bool is_s_province_name_x_Valid() const;
+
+    qint32 getFkiCountryId() const;
+    void setFkiCountryId(const qint32 &fki_country_id);
+    bool is_fki_country_id_Set() const;
+    bool is_fki_country_id_Valid() const;
 
     QString getSCountryNameX() const;
     void setSCountryNameX(const QString &s_country_name_x);
@@ -150,9 +160,17 @@ private:
     bool m_s_address_zip_isSet;
     bool m_s_address_zip_isValid;
 
+    qint32 m_fki_province_id;
+    bool m_fki_province_id_isSet;
+    bool m_fki_province_id_isValid;
+
     QString m_s_province_name_x;
     bool m_s_province_name_x_isSet;
     bool m_s_province_name_x_isValid;
+
+    qint32 m_fki_country_id;
+    bool m_fki_country_id_isSet;
+    bool m_fki_country_id_isValid;
 
     QString m_s_country_name_x;
     bool m_s_country_name_x_isSet;

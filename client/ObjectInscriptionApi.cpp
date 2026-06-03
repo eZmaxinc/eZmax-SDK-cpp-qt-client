@@ -78,9 +78,9 @@ void ObjectInscriptionApi::initializeServerConfigs() {
 }
 
 /**
-* returns 0 on success and -1, -2 or -3 on failure.
-* -1 when the variable does not exist and -2 if the value is not defined in the enum and -3 if the operation or server index is not found
-*/
+ * returns 0 on success and -1, -2 or -3 on failure.
+ * -1 when the variable does not exist and -2 if the value is not defined in the enum and -3 if the operation or server index is not found
+ */
 int ObjectInscriptionApi::setDefaultServerValue(int serverIndex, const QString &operation, const QString &variable, const QString &value) {
     auto it = _serverConfigs.find(operation);
     if (it != _serverConfigs.end() && serverIndex < it.value().size()) {
@@ -88,9 +88,21 @@ int ObjectInscriptionApi::setDefaultServerValue(int serverIndex, const QString &
     }
     return -3;
 }
+
+/**
+ * Sets the server index.
+ * @param operation The id to the target operation.
+ * @param serverIndex The server index.
+ */
 void ObjectInscriptionApi::setServerIndex(const QString &operation, int serverIndex) {
     if (_serverIndices.contains(operation) && serverIndex < _serverConfigs.find(operation).value().size()) {
         _serverIndices[operation] = serverIndex;
+    }
+}
+
+void ObjectInscriptionApi::setServerIndex(int serverIndex) {
+    for (auto keyIt = _serverIndices.keyBegin(); keyIt != _serverIndices.keyEnd(); keyIt++) {
+        setServerIndex(*keyIt, serverIndex);
     }
 }
 
@@ -124,13 +136,13 @@ void ObjectInscriptionApi::setNetworkAccessManager(QNetworkAccessManager* manage
 }
 
 /**
-    * Appends a new ServerConfiguration to the config map for a specific operation.
-    * @param operation The id to the target operation.
-    * @param url A string that contains the URL of the server
-    * @param description A String that describes the server
-    * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
-    * returns the index of the new server config on success and -1 if the operation is not found
-    */
+ * Appends a new ServerConfiguration to the config map for a specific operation.
+ * @param operation The id to the target operation.
+ * @param url A string that contains the URL of the server
+ * @param description A String that describes the server
+ * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
+ * returns the index of the new server config on success and -1 if the operation is not found
+ */
 int ObjectInscriptionApi::addServerConfiguration(const QString &operation, const QUrl &url, const QString &description, const QMap<QString, ServerVariable> &variables) {
     if (_serverConfigs.contains(operation)) {
         _serverConfigs[operation].append(ServerConfiguration(
@@ -144,11 +156,11 @@ int ObjectInscriptionApi::addServerConfiguration(const QString &operation, const
 }
 
 /**
-    * Appends a new ServerConfiguration to the config map for a all operations and sets the index to that server.
-    * @param url A string that contains the URL of the server
-    * @param description A String that describes the server
-    * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
-    */
+ * Appends a new ServerConfiguration to the config map for a all operations and sets the index to that server.
+ * @param url A string that contains the URL of the server
+ * @param description A String that describes the server
+ * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
+ */
 void ObjectInscriptionApi::setNewServerForAllOperations(const QUrl &url, const QString &description, const QMap<QString, ServerVariable> &variables) {
     for (auto keyIt = _serverIndices.keyBegin(); keyIt != _serverIndices.keyEnd(); keyIt++) {
         setServerIndex(*keyIt, addServerConfiguration(*keyIt, url, description, variables));
@@ -156,11 +168,11 @@ void ObjectInscriptionApi::setNewServerForAllOperations(const QUrl &url, const Q
 }
 
 /**
-    * Appends a new ServerConfiguration to the config map for an operations and sets the index to that server.
-    * @param URL A string that contains the URL of the server
-    * @param description A String that describes the server
-    * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
-    */
+ * Appends a new ServerConfiguration to the config map for an operations and sets the index to that server.
+ * @param URL A string that contains the URL of the server
+ * @param description A String that describes the server
+ * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
+ */
 void ObjectInscriptionApi::setNewServer(const QString &operation, const QUrl &url, const QString &description, const QMap<QString, ServerVariable> &variables) {
     setServerIndex(operation, addServerConfiguration(operation, url, description, variables));
 }
@@ -301,32 +313,6 @@ void ObjectInscriptionApi::inscriptionGetAttachmentsV1Callback(HttpRequestWorker
         Q_EMIT inscriptionGetAttachmentsV1Signal(output);
         Q_EMIT inscriptionGetAttachmentsV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT inscriptionGetAttachmentsV1SignalE(output, error_type, error_str);
-        Q_EMIT inscriptionGetAttachmentsV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT inscriptionGetAttachmentsV1SignalError(output, error_type, error_str);
         Q_EMIT inscriptionGetAttachmentsV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -389,32 +375,6 @@ void ObjectInscriptionApi::inscriptionGetCommunicationCountV1Callback(HttpReques
         Q_EMIT inscriptionGetCommunicationCountV1Signal(output);
         Q_EMIT inscriptionGetCommunicationCountV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT inscriptionGetCommunicationCountV1SignalE(output, error_type, error_str);
-        Q_EMIT inscriptionGetCommunicationCountV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT inscriptionGetCommunicationCountV1SignalError(output, error_type, error_str);
         Q_EMIT inscriptionGetCommunicationCountV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -477,32 +437,6 @@ void ObjectInscriptionApi::inscriptionGetCommunicationListV1Callback(HttpRequest
         Q_EMIT inscriptionGetCommunicationListV1Signal(output);
         Q_EMIT inscriptionGetCommunicationListV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT inscriptionGetCommunicationListV1SignalE(output, error_type, error_str);
-        Q_EMIT inscriptionGetCommunicationListV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT inscriptionGetCommunicationListV1SignalError(output, error_type, error_str);
         Q_EMIT inscriptionGetCommunicationListV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -565,32 +499,6 @@ void ObjectInscriptionApi::inscriptionGetCommunicationrecipientsV1Callback(HttpR
         Q_EMIT inscriptionGetCommunicationrecipientsV1Signal(output);
         Q_EMIT inscriptionGetCommunicationrecipientsV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT inscriptionGetCommunicationrecipientsV1SignalE(output, error_type, error_str);
-        Q_EMIT inscriptionGetCommunicationrecipientsV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT inscriptionGetCommunicationrecipientsV1SignalError(output, error_type, error_str);
         Q_EMIT inscriptionGetCommunicationrecipientsV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -653,32 +561,6 @@ void ObjectInscriptionApi::inscriptionGetCommunicationsendersV1Callback(HttpRequ
         Q_EMIT inscriptionGetCommunicationsendersV1Signal(output);
         Q_EMIT inscriptionGetCommunicationsendersV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT inscriptionGetCommunicationsendersV1SignalE(output, error_type, error_str);
-        Q_EMIT inscriptionGetCommunicationsendersV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT inscriptionGetCommunicationsendersV1SignalError(output, error_type, error_str);
         Q_EMIT inscriptionGetCommunicationsendersV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -832,32 +714,6 @@ void ObjectInscriptionApi::inscriptionGetListV1Callback(HttpRequestWorker *worke
         Q_EMIT inscriptionGetListV1Signal(output);
         Q_EMIT inscriptionGetListV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT inscriptionGetListV1SignalE(output, error_type, error_str);
-        Q_EMIT inscriptionGetListV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT inscriptionGetListV1SignalError(output, error_type, error_str);
         Q_EMIT inscriptionGetListV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -925,32 +781,6 @@ void ObjectInscriptionApi::inscriptionImportIntoEDMV1Callback(HttpRequestWorker 
         Q_EMIT inscriptionImportIntoEDMV1Signal(output);
         Q_EMIT inscriptionImportIntoEDMV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT inscriptionImportIntoEDMV1SignalE(output, error_type, error_str);
-        Q_EMIT inscriptionImportIntoEDMV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT inscriptionImportIntoEDMV1SignalError(output, error_type, error_str);
         Q_EMIT inscriptionImportIntoEDMV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -1018,42 +848,16 @@ void ObjectInscriptionApi::inscriptionPrepareFilesTransferV1Callback(HttpRequest
         Q_EMIT inscriptionPrepareFilesTransferV1Signal(output);
         Q_EMIT inscriptionPrepareFilesTransferV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT inscriptionPrepareFilesTransferV1SignalE(output, error_type, error_str);
-        Q_EMIT inscriptionPrepareFilesTransferV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT inscriptionPrepareFilesTransferV1SignalError(output, error_type, error_str);
         Q_EMIT inscriptionPrepareFilesTransferV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
-void ObjectInscriptionApi::tokenAvailable(){
+void ObjectInscriptionApi::tokenAvailable() {
 
     oauthToken token;
     switch (_OauthMethod) {
-    case 1: //implicit flow
+    case OauthMethod::ImplicitFlow:
         token = _implicitFlow.getToken(_latestScope.join(" "));
         if(token.isValid()){
             _latestInput.headers.insert("Authorization", "Bearer " + token.getToken());
@@ -1063,7 +867,7 @@ void ObjectInscriptionApi::tokenAvailable(){
             qDebug() << "Could not retrieve a valid token";
         }
         break;
-    case 2: //authorization flow
+    case OauthMethod::AuthorizationFlow:
         token = _authFlow.getToken(_latestScope.join(" "));
         if(token.isValid()){
             _latestInput.headers.insert("Authorization", "Bearer " + token.getToken());
@@ -1073,7 +877,7 @@ void ObjectInscriptionApi::tokenAvailable(){
             qDebug() << "Could not retrieve a valid token";
         }
         break;
-    case 3: //client credentials flow
+    case OauthMethod::ClientCredentialsFlow:
         token = _credentialFlow.getToken(_latestScope.join(" "));
         if(token.isValid()){
             _latestInput.headers.insert("Authorization", "Bearer " + token.getToken());
@@ -1083,7 +887,7 @@ void ObjectInscriptionApi::tokenAvailable(){
             qDebug() << "Could not retrieve a valid token";
         }
         break;
-    case 4: //resource owner password flow
+    case OauthMethod::ResourceOwnerPasswordFlow:
         token = _passwordFlow.getToken(_latestScope.join(" "));
         if(token.isValid()){
             _latestInput.headers.insert("Authorization", "Bearer " + token.getToken());

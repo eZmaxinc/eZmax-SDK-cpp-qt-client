@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Billingentityinternal_AutocompleteElement_Response : public Object {
 public:
     Billingentityinternal_AutocompleteElement_Response();
-    Billingentityinternal_AutocompleteElement_Response(QString json);
+    Billingentityinternal_AutocompleteElement_Response(const QString &json);
     ~Billingentityinternal_AutocompleteElement_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiBillingentityinternalId() const;
     void setPkiBillingentityinternalId(const qint32 &pki_billingentityinternal_id);

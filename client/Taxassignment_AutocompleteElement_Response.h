@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Taxassignment_AutocompleteElement_Response : public Object {
 public:
     Taxassignment_AutocompleteElement_Response();
-    Taxassignment_AutocompleteElement_Response(QString json);
+    Taxassignment_AutocompleteElement_Response(const QString &json);
     ~Taxassignment_AutocompleteElement_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getSTaxassignmentDescriptionX() const;
     void setSTaxassignmentDescriptionX(const QString &s_taxassignment_description_x);

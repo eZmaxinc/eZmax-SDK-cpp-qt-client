@@ -33,13 +33,13 @@ class Multilingual_NotificationsubsectionName;
 class Notificationsubsection_Response : public Object {
 public:
     Notificationsubsection_Response();
-    Notificationsubsection_Response(QString json);
+    Notificationsubsection_Response(const QString &json);
     ~Notificationsubsection_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiNotificationsubsectionId() const;
     void setPkiNotificationsubsectionId(const qint32 &pki_notificationsubsection_id);

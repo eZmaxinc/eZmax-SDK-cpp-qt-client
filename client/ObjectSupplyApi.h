@@ -49,6 +49,7 @@ public:
     void initializeServerConfigs();
     int setDefaultServerValue(int serverIndex,const QString &operation, const QString &variable,const QString &val);
     void setServerIndex(const QString &operation, int serverIndex);
+    void setServerIndex(int serverIndex);
     void setApiKey(const QString &apiKeyName, const QString &apiKey);
     void setBearerToken(const QString &token);
     void setUsername(const QString &username);
@@ -107,6 +108,13 @@ public:
 
 
 private:
+    enum class OauthMethod : int {
+        INVALID_VALUE_OPENAPI_GENERATED = 0,
+        ImplicitFlow = 1,
+        AuthorizationFlow = 2,
+        ClientCredentialsFlow = 3,
+        ResourceOwnerPasswordFlow = 4
+    };
     QMap<QString,int> _serverIndices;
     QMap<QString,QList<ServerConfiguration>> _serverConfigs;
     QMap<QString, QString> _apiKeys;
@@ -126,7 +134,7 @@ private:
     OauthImplicit _implicitFlow;
     OauthCredentials _credentialFlow;
     OauthPassword _passwordFlow;
-    int _OauthMethod = 0;
+    OauthMethod _OauthMethod = OauthMethod::INVALID_VALUE_OPENAPI_GENERATED;
 
     void supplyCreateObjectV1Callback(HttpRequestWorker *worker);
     void supplyDeleteObjectV1Callback(HttpRequestWorker *worker);
@@ -152,42 +160,18 @@ Q_SIGNALS:
     void supplyGetListV1SignalFull(HttpRequestWorker *worker, Supply_getList_v1_Response summary);
     void supplyGetObjectV2SignalFull(HttpRequestWorker *worker, Supply_getObject_v2_Response summary);
 
-    Q_DECL_DEPRECATED_X("Use supplyCreateObjectV1SignalError() instead")
-    void supplyCreateObjectV1SignalE(Supply_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void supplyCreateObjectV1SignalError(Supply_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use supplyDeleteObjectV1SignalError() instead")
-    void supplyDeleteObjectV1SignalE(Supply_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void supplyDeleteObjectV1SignalError(Supply_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use supplyEditObjectV1SignalError() instead")
-    void supplyEditObjectV1SignalE(Supply_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void supplyEditObjectV1SignalError(Supply_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use supplyGetAutocompleteV2SignalError() instead")
-    void supplyGetAutocompleteV2SignalE(Supply_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void supplyGetAutocompleteV2SignalError(Supply_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use supplyGetListV1SignalError() instead")
-    void supplyGetListV1SignalE(Supply_getList_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void supplyGetListV1SignalError(Supply_getList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use supplyGetObjectV2SignalError() instead")
-    void supplyGetObjectV2SignalE(Supply_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void supplyGetObjectV2SignalError(Supply_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
-    Q_DECL_DEPRECATED_X("Use supplyCreateObjectV1SignalErrorFull() instead")
-    void supplyCreateObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void supplyCreateObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use supplyDeleteObjectV1SignalErrorFull() instead")
-    void supplyDeleteObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void supplyDeleteObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use supplyEditObjectV1SignalErrorFull() instead")
-    void supplyEditObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void supplyEditObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use supplyGetAutocompleteV2SignalErrorFull() instead")
-    void supplyGetAutocompleteV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void supplyGetAutocompleteV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use supplyGetListV1SignalErrorFull() instead")
-    void supplyGetListV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void supplyGetListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use supplyGetObjectV2SignalErrorFull() instead")
-    void supplyGetObjectV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void supplyGetObjectV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();

@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_eBuyercontractType::Field_eBuyercontractType(QString json) {
+Field_eBuyercontractType::Field_eBuyercontractType(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_eBuyercontractType::initializeModel() {
     m_value = eField_eBuyercontractType::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_eBuyercontractType::fromJson(QString jsonString) {
+void Field_eBuyercontractType::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("Rent", Qt::CaseInsensitive) == 0) {
         m_value = eField_eBuyercontractType::RENT;

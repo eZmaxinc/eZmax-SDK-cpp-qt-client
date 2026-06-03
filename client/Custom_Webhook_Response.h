@@ -39,13 +39,13 @@ class Webhookheader_ResponseCompound;
 class Custom_Webhook_Response : public Object {
 public:
     Custom_Webhook_Response();
-    Custom_Webhook_Response(QString json);
+    Custom_Webhook_Response(const QString &json);
     ~Custom_Webhook_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiWebhookId() const;
     void setPkiWebhookId(const qint32 &pki_webhook_id);
@@ -162,6 +162,11 @@ public:
     bool is_e_webhook_emittype_Set() const;
     bool is_e_webhook_emittype_Valid() const;
 
+    qint32 getFkiEzmaxpartnerproductstagewebhookId() const;
+    void setFkiEzmaxpartnerproductstagewebhookId(const qint32 &fki_ezmaxpartnerproductstagewebhook_id);
+    bool is_fki_ezmaxpartnerproductstagewebhook_id_Set() const;
+    bool is_fki_ezmaxpartnerproductstagewebhook_id_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -259,6 +264,10 @@ private:
     QString m_e_webhook_emittype;
     bool m_e_webhook_emittype_isSet;
     bool m_e_webhook_emittype_isValid;
+
+    qint32 m_fki_ezmaxpartnerproductstagewebhook_id;
+    bool m_fki_ezmaxpartnerproductstagewebhook_id_isSet;
+    bool m_fki_ezmaxpartnerproductstagewebhook_id_isValid;
 };
 
 } // namespace Ezmaxapi

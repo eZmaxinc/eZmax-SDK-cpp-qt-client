@@ -33,13 +33,13 @@ class Webhook_ResponseCompound;
 class Webhook_createObject_v2_Response_mPayload : public Object {
 public:
     Webhook_createObject_v2_Response_mPayload();
-    Webhook_createObject_v2_Response_mPayload(QString json);
+    Webhook_createObject_v2_Response_mPayload(const QString &json);
     ~Webhook_createObject_v2_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Webhook_ResponseCompound> getAObjWebhook() const;
     void setAObjWebhook(const QList<Webhook_ResponseCompound> &a_obj_webhook);

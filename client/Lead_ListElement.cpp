@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Lead_ListElement::Lead_ListElement(QString json) {
+Lead_ListElement::Lead_ListElement(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -59,7 +59,7 @@ void Lead_ListElement::initializeModel() {
     m_s_lead_contacts_isValid = false;
 }
 
-void Lead_ListElement::fromJson(QString jsonString) {
+void Lead_ListElement::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

@@ -35,13 +35,13 @@ class Billingentityinternalproduct_RequestCompound;
 class Billingentityinternal_RequestCompound : public Object {
 public:
     Billingentityinternal_RequestCompound();
-    Billingentityinternal_RequestCompound(QString json);
+    Billingentityinternal_RequestCompound(const QString &json);
     ~Billingentityinternal_RequestCompound() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiBillingentityinternalId() const;
     void setPkiBillingentityinternalId(const qint32 &pki_billingentityinternal_id);

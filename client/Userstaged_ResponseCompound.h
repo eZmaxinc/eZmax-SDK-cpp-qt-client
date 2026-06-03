@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Userstaged_ResponseCompound : public Object {
 public:
     Userstaged_ResponseCompound();
-    Userstaged_ResponseCompound(QString json);
+    Userstaged_ResponseCompound(const QString &json);
     ~Userstaged_ResponseCompound() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiUserstagedId() const;
     void setPkiUserstagedId(const qint32 &pki_userstaged_id);

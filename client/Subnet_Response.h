@@ -32,13 +32,13 @@ class Multilingual_SubnetDescription;
 class Subnet_Response : public Object {
 public:
     Subnet_Response();
-    Subnet_Response(QString json);
+    Subnet_Response(const QString &json);
     ~Subnet_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiSubnetId() const;
     void setPkiSubnetId(const qint32 &pki_subnet_id);

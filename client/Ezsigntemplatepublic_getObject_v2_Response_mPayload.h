@@ -32,13 +32,13 @@ class Ezsigntemplatepublic_ResponseCompound;
 class Ezsigntemplatepublic_getObject_v2_Response_mPayload : public Object {
 public:
     Ezsigntemplatepublic_getObject_v2_Response_mPayload();
-    Ezsigntemplatepublic_getObject_v2_Response_mPayload(QString json);
+    Ezsigntemplatepublic_getObject_v2_Response_mPayload(const QString &json);
     ~Ezsigntemplatepublic_getObject_v2_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Ezsigntemplatepublic_ResponseCompound getObjEzsigntemplatepublic() const;
     void setObjEzsigntemplatepublic(const Ezsigntemplatepublic_ResponseCompound &obj_ezsigntemplatepublic);

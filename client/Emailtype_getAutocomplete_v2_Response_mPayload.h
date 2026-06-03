@@ -33,13 +33,13 @@ class Emailtype_AutocompleteElement_Response;
 class Emailtype_getAutocomplete_v2_Response_mPayload : public Object {
 public:
     Emailtype_getAutocomplete_v2_Response_mPayload();
-    Emailtype_getAutocomplete_v2_Response_mPayload(QString json);
+    Emailtype_getAutocomplete_v2_Response_mPayload(const QString &json);
     ~Emailtype_getAutocomplete_v2_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Emailtype_AutocompleteElement_Response> getAObjEmailtype() const;
     void setAObjEmailtype(const QList<Emailtype_AutocompleteElement_Response> &a_obj_emailtype);

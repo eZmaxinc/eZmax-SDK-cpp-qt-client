@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Phone_RequestCompound::Phone_RequestCompound(QString json) {
+Phone_RequestCompound::Phone_RequestCompound(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -62,7 +62,7 @@ void Phone_RequestCompound::initializeModel() {
     m_s_phone_e164_isValid = false;
 }
 
-void Phone_RequestCompound::fromJson(QString jsonString) {
+void Phone_RequestCompound::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

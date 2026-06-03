@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Ezsigntemplatepackagemembership_RequestCompound::Ezsigntemplatepackagemembership_RequestCompound(QString json) {
+Ezsigntemplatepackagemembership_RequestCompound::Ezsigntemplatepackagemembership_RequestCompound(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -44,7 +44,7 @@ void Ezsigntemplatepackagemembership_RequestCompound::initializeModel() {
     m_fki_ezsigntemplate_id_isValid = false;
 }
 
-void Ezsigntemplatepackagemembership_RequestCompound::fromJson(QString jsonString) {
+void Ezsigntemplatepackagemembership_RequestCompound::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

@@ -33,13 +33,13 @@ namespace Ezmaxapi {
 class Ezsigntemplatedocumentpagerecognition_RequestCompound : public Object {
 public:
     Ezsigntemplatedocumentpagerecognition_RequestCompound();
-    Ezsigntemplatedocumentpagerecognition_RequestCompound(QString json);
+    Ezsigntemplatedocumentpagerecognition_RequestCompound(const QString &json);
     ~Ezsigntemplatedocumentpagerecognition_RequestCompound() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiEzsigntemplatedocumentpagerecognitionId() const;
     void setPkiEzsigntemplatedocumentpagerecognitionId(const qint32 &pki_ezsigntemplatedocumentpagerecognition_id);

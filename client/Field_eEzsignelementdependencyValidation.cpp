@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_eEzsignelementdependencyValidation::Field_eEzsignelementdependencyValidation(QString json) {
+Field_eEzsignelementdependencyValidation::Field_eEzsignelementdependencyValidation(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_eEzsignelementdependencyValidation::initializeModel() {
     m_value = eField_eEzsignelementdependencyValidation::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_eEzsignelementdependencyValidation::fromJson(QString jsonString) {
+void Field_eEzsignelementdependencyValidation::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("Value", Qt::CaseInsensitive) == 0) {
         m_value = eField_eEzsignelementdependencyValidation::VALUE;

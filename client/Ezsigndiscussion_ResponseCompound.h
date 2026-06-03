@@ -32,13 +32,13 @@ class Discussion_ResponseCompound;
 class Ezsigndiscussion_ResponseCompound : public Object {
 public:
     Ezsigndiscussion_ResponseCompound();
-    Ezsigndiscussion_ResponseCompound(QString json);
+    Ezsigndiscussion_ResponseCompound(const QString &json);
     ~Ezsigndiscussion_ResponseCompound() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiEzsigndiscussionId() const;
     void setPkiEzsigndiscussionId(const qint32 &pki_ezsigndiscussion_id);

@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Electronicfundstransfer_getCommunicationrecipients_v1_Response_mPayload::Electronicfundstransfer_getCommunicationrecipients_v1_Response_mPayload(QString json) {
+Electronicfundstransfer_getCommunicationrecipients_v1_Response_mPayload::Electronicfundstransfer_getCommunicationrecipients_v1_Response_mPayload(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -38,7 +38,7 @@ void Electronicfundstransfer_getCommunicationrecipients_v1_Response_mPayload::in
     m_a_obj_communicationrecipientsgroup_isValid = false;
 }
 
-void Electronicfundstransfer_getCommunicationrecipients_v1_Response_mPayload::fromJson(QString jsonString) {
+void Electronicfundstransfer_getCommunicationrecipients_v1_Response_mPayload::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

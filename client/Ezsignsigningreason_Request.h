@@ -32,13 +32,13 @@ class Multilingual_EzsignsigningreasonDescription;
 class Ezsignsigningreason_Request : public Object {
 public:
     Ezsignsigningreason_Request();
-    Ezsignsigningreason_Request(QString json);
+    Ezsignsigningreason_Request(const QString &json);
     ~Ezsignsigningreason_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiEzsignsigningreasonId() const;
     void setPkiEzsignsigningreasonId(const qint32 &pki_ezsignsigningreason_id);

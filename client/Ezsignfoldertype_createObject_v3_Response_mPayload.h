@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Ezsignfoldertype_createObject_v3_Response_mPayload : public Object {
 public:
     Ezsignfoldertype_createObject_v3_Response_mPayload();
-    Ezsignfoldertype_createObject_v3_Response_mPayload(QString json);
+    Ezsignfoldertype_createObject_v3_Response_mPayload(const QString &json);
     ~Ezsignfoldertype_createObject_v3_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<qint32> getAPkiEzsignfoldertypeId() const;
     void setAPkiEzsignfoldertypeId(const QList<qint32> &a_pki_ezsignfoldertype_id);

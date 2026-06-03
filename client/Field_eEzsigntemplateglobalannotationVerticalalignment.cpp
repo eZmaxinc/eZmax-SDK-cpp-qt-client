@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_eEzsigntemplateglobalannotationVerticalalignment::Field_eEzsigntemplateglobalannotationVerticalalignment(QString json) {
+Field_eEzsigntemplateglobalannotationVerticalalignment::Field_eEzsigntemplateglobalannotationVerticalalignment(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_eEzsigntemplateglobalannotationVerticalalignment::initializeModel() {
     m_value = eField_eEzsigntemplateglobalannotationVerticalalignment::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_eEzsigntemplateglobalannotationVerticalalignment::fromJson(QString jsonString) {
+void Field_eEzsigntemplateglobalannotationVerticalalignment::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("Bottom", Qt::CaseInsensitive) == 0) {
         m_value = eField_eEzsigntemplateglobalannotationVerticalalignment::BOTTOM;

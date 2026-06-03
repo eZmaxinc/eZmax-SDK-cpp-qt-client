@@ -23,6 +23,7 @@
 
 #include "Common_Audit.h"
 #include "Custom_Ezsignfoldertype_Template_Response.h"
+#include "Ezsigntemplateannotation_ResponseCompound.h"
 #include "Ezsigntemplatedocument_Response.h"
 #include "Ezsigntemplatesigner_ResponseCompound.h"
 #include "Field_eEzsigntemplateRecognition.h"
@@ -38,17 +39,18 @@ class Custom_Ezsignfoldertype_Template_Response;
 class Common_Audit;
 class Ezsigntemplatedocument_Response;
 class Ezsigntemplatesigner_ResponseCompound;
+class Ezsigntemplateannotation_ResponseCompound;
 
 class Ezsigntemplate_ResponseCompoundV3 : public Object {
 public:
     Ezsigntemplate_ResponseCompoundV3();
-    Ezsigntemplate_ResponseCompoundV3(QString json);
+    Ezsigntemplate_ResponseCompoundV3(const QString &json);
     ~Ezsigntemplate_ResponseCompoundV3() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiEzsigntemplateId() const;
     void setPkiEzsigntemplateId(const qint32 &pki_ezsigntemplate_id);
@@ -150,6 +152,11 @@ public:
     bool is_a_obj_ezsigntemplatesigner_Set() const;
     bool is_a_obj_ezsigntemplatesigner_Valid() const;
 
+    QList<Ezsigntemplateannotation_ResponseCompound> getAObjEzsigntemplateannotation() const;
+    void setAObjEzsigntemplateannotation(const QList<Ezsigntemplateannotation_ResponseCompound> &a_obj_ezsigntemplateannotation);
+    bool is_a_obj_ezsigntemplateannotation_Set() const;
+    bool is_a_obj_ezsigntemplateannotation_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -235,6 +242,10 @@ private:
     QList<Ezsigntemplatesigner_ResponseCompound> m_a_obj_ezsigntemplatesigner;
     bool m_a_obj_ezsigntemplatesigner_isSet;
     bool m_a_obj_ezsigntemplatesigner_isValid;
+
+    QList<Ezsigntemplateannotation_ResponseCompound> m_a_obj_ezsigntemplateannotation;
+    bool m_a_obj_ezsigntemplateannotation_isSet;
+    bool m_a_obj_ezsigntemplateannotation_isValid;
 };
 
 } // namespace Ezmaxapi

@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Cors_RequestCompound : public Object {
 public:
     Cors_RequestCompound();
-    Cors_RequestCompound(QString json);
+    Cors_RequestCompound(const QString &json);
     ~Cors_RequestCompound() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiCorsId() const;
     void setPkiCorsId(const qint32 &pki_cors_id);

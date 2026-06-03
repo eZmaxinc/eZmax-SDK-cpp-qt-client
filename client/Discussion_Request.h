@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Discussion_Request : public Object {
 public:
     Discussion_Request();
-    Discussion_Request(QString json);
+    Discussion_Request(const QString &json);
     ~Discussion_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiDiscussionId() const;
     void setPkiDiscussionId(const qint32 &pki_discussion_id);

@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Email_Response : public Object {
 public:
     Email_Response();
-    Email_Response(QString json);
+    Email_Response(const QString &json);
     ~Email_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiEmailId() const;
     void setPkiEmailId(const qint32 &pki_email_id);

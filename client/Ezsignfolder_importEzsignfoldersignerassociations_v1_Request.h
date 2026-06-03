@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Ezsignfolder_importEzsignfoldersignerassociations_v1_Request : public Object {
 public:
     Ezsignfolder_importEzsignfoldersignerassociations_v1_Request();
-    Ezsignfolder_importEzsignfoldersignerassociations_v1_Request(QString json);
+    Ezsignfolder_importEzsignfoldersignerassociations_v1_Request(const QString &json);
     ~Ezsignfolder_importEzsignfoldersignerassociations_v1_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QSet<qint32> getAFkiEzsignfoldersignerassociationId() const;
     void setAFkiEzsignfoldersignerassociationId(const QSet<qint32> &a_fki_ezsignfoldersignerassociation_id);

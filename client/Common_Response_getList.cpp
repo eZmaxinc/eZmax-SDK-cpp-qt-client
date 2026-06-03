@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Common_Response_getList::Common_Response_getList(QString json) {
+Common_Response_getList::Common_Response_getList(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -41,7 +41,7 @@ void Common_Response_getList::initializeModel() {
     m_obj_debug_isValid = false;
 }
 
-void Common_Response_getList::fromJson(QString jsonString) {
+void Common_Response_getList::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

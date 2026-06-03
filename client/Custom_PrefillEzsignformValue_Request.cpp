@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Custom_PrefillEzsignformValue_Request::Custom_PrefillEzsignformValue_Request(QString json) {
+Custom_PrefillEzsignformValue_Request::Custom_PrefillEzsignformValue_Request(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -47,7 +47,7 @@ void Custom_PrefillEzsignformValue_Request::initializeModel() {
     m_b_ezsignformfield_selected_isValid = false;
 }
 
-void Custom_PrefillEzsignformValue_Request::fromJson(QString jsonString) {
+void Custom_PrefillEzsignformValue_Request::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

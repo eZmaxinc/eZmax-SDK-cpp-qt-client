@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Ezsigndocument_createEzsignelementsPositionedByWord_v2_Response_mPayload::Ezsigndocument_createEzsignelementsPositionedByWord_v2_Response_mPayload(QString json) {
+Ezsigndocument_createEzsignelementsPositionedByWord_v2_Response_mPayload::Ezsigndocument_createEzsignelementsPositionedByWord_v2_Response_mPayload(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -41,7 +41,7 @@ void Ezsigndocument_createEzsignelementsPositionedByWord_v2_Response_mPayload::i
     m_a_pki_ezsignformfieldgroup_id_isValid = false;
 }
 
-void Ezsigndocument_createEzsignelementsPositionedByWord_v2_Response_mPayload::fromJson(QString jsonString) {
+void Ezsigndocument_createEzsignelementsPositionedByWord_v2_Response_mPayload::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

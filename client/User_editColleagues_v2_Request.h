@@ -33,13 +33,13 @@ class Colleague_RequestCompoundV2;
 class User_editColleagues_v2_Request : public Object {
 public:
     User_editColleagues_v2_Request();
-    User_editColleagues_v2_Request(QString json);
+    User_editColleagues_v2_Request(const QString &json);
     ~User_editColleagues_v2_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Colleague_RequestCompoundV2> getAObjColleague() const;
     void setAObjColleague(const QList<Colleague_RequestCompoundV2> &a_obj_colleague);

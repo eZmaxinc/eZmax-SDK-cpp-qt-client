@@ -32,13 +32,13 @@ class Custom_FormDataDocument_Response;
 class Ezsigndocument_getFormData_v1_Response_mPayload : public Object {
 public:
     Ezsigndocument_getFormData_v1_Response_mPayload();
-    Ezsigndocument_getFormData_v1_Response_mPayload(QString json);
+    Ezsigndocument_getFormData_v1_Response_mPayload(const QString &json);
     ~Ezsigndocument_getFormData_v1_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Custom_FormDataDocument_Response getObjFormDataDocument() const;
     void setObjFormDataDocument(const Custom_FormDataDocument_Response &obj_form_data_document);

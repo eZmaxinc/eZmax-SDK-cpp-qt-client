@@ -37,13 +37,13 @@ class Userstaged_ResponseCompound;
 class Webhook_Userstaged_UserstagedCreated : public Object {
 public:
     Webhook_Userstaged_UserstagedCreated();
-    Webhook_Userstaged_UserstagedCreated(QString json);
+    Webhook_Userstaged_UserstagedCreated(const QString &json);
     ~Webhook_Userstaged_UserstagedCreated() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Custom_Webhook_Response getObjWebhook() const;
     void setObjWebhook(const Custom_Webhook_Response &obj_webhook);

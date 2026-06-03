@@ -32,13 +32,13 @@ class Authenticationexternal_ResponseCompound;
 class Authenticationexternal_getObject_v2_Response_mPayload : public Object {
 public:
     Authenticationexternal_getObject_v2_Response_mPayload();
-    Authenticationexternal_getObject_v2_Response_mPayload(QString json);
+    Authenticationexternal_getObject_v2_Response_mPayload(const QString &json);
     ~Authenticationexternal_getObject_v2_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Authenticationexternal_ResponseCompound getObjAuthenticationexternal() const;
     void setObjAuthenticationexternal(const Authenticationexternal_ResponseCompound &obj_authenticationexternal);

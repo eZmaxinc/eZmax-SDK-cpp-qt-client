@@ -36,13 +36,13 @@ class Textstylestatic_RequestCompound;
 class Ezsignannotation_RequestCompound : public Object {
 public:
     Ezsignannotation_RequestCompound();
-    Ezsignannotation_RequestCompound(QString json);
+    Ezsignannotation_RequestCompound(const QString &json);
     ~Ezsignannotation_RequestCompound() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiEzsignannotationId() const;
     void setPkiEzsignannotationId(const qint32 &pki_ezsignannotation_id);

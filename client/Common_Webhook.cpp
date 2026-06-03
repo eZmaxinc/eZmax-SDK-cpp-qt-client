@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Common_Webhook::Common_Webhook(QString json) {
+Common_Webhook::Common_Webhook(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -41,7 +41,7 @@ void Common_Webhook::initializeModel() {
     m_a_obj_attempt_isValid = false;
 }
 
-void Common_Webhook::fromJson(QString jsonString) {
+void Common_Webhook::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

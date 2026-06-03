@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_eCreditcardtransactionAvsresult::Field_eCreditcardtransactionAvsresult(QString json) {
+Field_eCreditcardtransactionAvsresult::Field_eCreditcardtransactionAvsresult(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_eCreditcardtransactionAvsresult::initializeModel() {
     m_value = eField_eCreditcardtransactionAvsresult::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_eCreditcardtransactionAvsresult::fromJson(QString jsonString) {
+void Field_eCreditcardtransactionAvsresult::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("Match", Qt::CaseInsensitive) == 0) {
         m_value = eField_eCreditcardtransactionAvsresult::MATCH;

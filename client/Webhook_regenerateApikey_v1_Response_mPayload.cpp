@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Webhook_regenerateApikey_v1_Response_mPayload::Webhook_regenerateApikey_v1_Response_mPayload(QString json) {
+Webhook_regenerateApikey_v1_Response_mPayload::Webhook_regenerateApikey_v1_Response_mPayload(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -38,7 +38,7 @@ void Webhook_regenerateApikey_v1_Response_mPayload::initializeModel() {
     m_obj_webhook_isValid = false;
 }
 
-void Webhook_regenerateApikey_v1_Response_mPayload::fromJson(QString jsonString) {
+void Webhook_regenerateApikey_v1_Response_mPayload::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

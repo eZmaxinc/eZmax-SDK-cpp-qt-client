@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Ezsigntemplatedocument_editEzsigntemplatesignatures_v2_Response_mPayload::Ezsigntemplatedocument_editEzsigntemplatesignatures_v2_Response_mPayload(QString json) {
+Ezsigntemplatedocument_editEzsigntemplatesignatures_v2_Response_mPayload::Ezsigntemplatedocument_editEzsigntemplatesignatures_v2_Response_mPayload(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -38,7 +38,7 @@ void Ezsigntemplatedocument_editEzsigntemplatesignatures_v2_Response_mPayload::i
     m_a_pki_ezsigntemplatesignature_id_isValid = false;
 }
 
-void Ezsigntemplatedocument_editEzsigntemplatesignatures_v2_Response_mPayload::fromJson(QString jsonString) {
+void Ezsigntemplatedocument_editEzsigntemplatesignatures_v2_Response_mPayload::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

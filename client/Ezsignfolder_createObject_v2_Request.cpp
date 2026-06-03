@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Ezsignfolder_createObject_v2_Request::Ezsignfolder_createObject_v2_Request(QString json) {
+Ezsignfolder_createObject_v2_Request::Ezsignfolder_createObject_v2_Request(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -38,7 +38,7 @@ void Ezsignfolder_createObject_v2_Request::initializeModel() {
     m_a_obj_ezsignfolder_isValid = false;
 }
 
-void Ezsignfolder_createObject_v2_Request::fromJson(QString jsonString) {
+void Ezsignfolder_createObject_v2_Request::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

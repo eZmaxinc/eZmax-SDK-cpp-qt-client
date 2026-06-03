@@ -32,13 +32,13 @@ namespace Ezmaxapi {
 class Ezsignbulksend_createEzsignbulksendtransmission_v2_Request : public Object {
 public:
     Ezsignbulksend_createEzsignbulksendtransmission_v2_Request();
-    Ezsignbulksend_createEzsignbulksendtransmission_v2_Request(QString json);
+    Ezsignbulksend_createEzsignbulksendtransmission_v2_Request(const QString &json);
     ~Ezsignbulksend_createEzsignbulksendtransmission_v2_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getFkiUserlogintypeId() const;
     void setFkiUserlogintypeId(const qint32 &fki_userlogintype_id);

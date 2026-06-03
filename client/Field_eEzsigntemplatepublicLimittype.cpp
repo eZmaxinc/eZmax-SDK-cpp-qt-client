@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_eEzsigntemplatepublicLimittype::Field_eEzsigntemplatepublicLimittype(QString json) {
+Field_eEzsigntemplatepublicLimittype::Field_eEzsigntemplatepublicLimittype(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_eEzsigntemplatepublicLimittype::initializeModel() {
     m_value = eField_eEzsigntemplatepublicLimittype::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_eEzsigntemplatepublicLimittype::fromJson(QString jsonString) {
+void Field_eEzsigntemplatepublicLimittype::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("Hour", Qt::CaseInsensitive) == 0) {
         m_value = eField_eEzsigntemplatepublicLimittype::HOUR;

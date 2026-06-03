@@ -37,13 +37,13 @@ class Common_Audit;
 class Apikey_Response : public Object {
 public:
     Apikey_Response();
-    Apikey_Response(QString json);
+    Apikey_Response(const QString &json);
     ~Apikey_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiApikeyId() const;
     void setPkiApikeyId(const qint32 &pki_apikey_id);

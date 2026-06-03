@@ -40,6 +40,7 @@ public:
     void initializeServerConfigs();
     int setDefaultServerValue(int serverIndex,const QString &operation, const QString &variable,const QString &val);
     void setServerIndex(const QString &operation, int serverIndex);
+    void setServerIndex(int serverIndex);
     void setApiKey(const QString &apiKeyName, const QString &apiKey);
     void setBearerToken(const QString &token);
     void setUsername(const QString &username);
@@ -70,6 +71,13 @@ public:
 
 
 private:
+    enum class OauthMethod : int {
+        INVALID_VALUE_OPENAPI_GENERATED = 0,
+        ImplicitFlow = 1,
+        AuthorizationFlow = 2,
+        ClientCredentialsFlow = 3,
+        ResourceOwnerPasswordFlow = 4
+    };
     QMap<QString,int> _serverIndices;
     QMap<QString,QList<ServerConfiguration>> _serverConfigs;
     QMap<QString, QString> _apiKeys;
@@ -89,7 +97,7 @@ private:
     OauthImplicit _implicitFlow;
     OauthCredentials _credentialFlow;
     OauthPassword _passwordFlow;
-    int _OauthMethod = 0;
+    OauthMethod _OauthMethod = OauthMethod::INVALID_VALUE_OPENAPI_GENERATED;
 
     void attachmentDownloadV1Callback(HttpRequestWorker *worker);
     void attachmentGetAttachmentlogsV1Callback(HttpRequestWorker *worker);
@@ -103,18 +111,10 @@ Q_SIGNALS:
     void attachmentDownloadV1SignalFull(HttpRequestWorker *worker);
     void attachmentGetAttachmentlogsV1SignalFull(HttpRequestWorker *worker, Attachment_getAttachmentlogs_v1_Response summary);
 
-    Q_DECL_DEPRECATED_X("Use attachmentDownloadV1SignalError() instead")
-    void attachmentDownloadV1SignalE(QNetworkReply::NetworkError error_type, QString error_str);
     void attachmentDownloadV1SignalError(QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use attachmentGetAttachmentlogsV1SignalError() instead")
-    void attachmentGetAttachmentlogsV1SignalE(Attachment_getAttachmentlogs_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void attachmentGetAttachmentlogsV1SignalError(Attachment_getAttachmentlogs_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
-    Q_DECL_DEPRECATED_X("Use attachmentDownloadV1SignalErrorFull() instead")
-    void attachmentDownloadV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void attachmentDownloadV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use attachmentGetAttachmentlogsV1SignalErrorFull() instead")
-    void attachmentGetAttachmentlogsV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void attachmentGetAttachmentlogsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();

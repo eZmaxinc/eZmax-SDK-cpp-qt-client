@@ -32,13 +32,13 @@ class Customer_ResponseCompound;
 class Customer_getObject_v2_Response_mPayload : public Object {
 public:
     Customer_getObject_v2_Response_mPayload();
-    Customer_getObject_v2_Response_mPayload(QString json);
+    Customer_getObject_v2_Response_mPayload(const QString &json);
     ~Customer_getObject_v2_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Customer_ResponseCompound getObjCustomer() const;
     void setObjCustomer(const Customer_ResponseCompound &obj_customer);

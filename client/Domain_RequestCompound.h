@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Domain_RequestCompound : public Object {
 public:
     Domain_RequestCompound();
-    Domain_RequestCompound(QString json);
+    Domain_RequestCompound(const QString &json);
     ~Domain_RequestCompound() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiDomainId() const;
     void setPkiDomainId(const qint32 &pki_domain_id);

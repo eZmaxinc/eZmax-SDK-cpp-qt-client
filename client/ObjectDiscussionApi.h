@@ -49,6 +49,7 @@ public:
     void initializeServerConfigs();
     int setDefaultServerValue(int serverIndex,const QString &operation, const QString &variable,const QString &val);
     void setServerIndex(const QString &operation, int serverIndex);
+    void setServerIndex(int serverIndex);
     void setApiKey(const QString &apiKeyName, const QString &apiKey);
     void setBearerToken(const QString &token);
     void setUsername(const QString &username);
@@ -101,6 +102,13 @@ public:
 
 
 private:
+    enum class OauthMethod : int {
+        INVALID_VALUE_OPENAPI_GENERATED = 0,
+        ImplicitFlow = 1,
+        AuthorizationFlow = 2,
+        ClientCredentialsFlow = 3,
+        ResourceOwnerPasswordFlow = 4
+    };
     QMap<QString,int> _serverIndices;
     QMap<QString,QList<ServerConfiguration>> _serverConfigs;
     QMap<QString, QString> _apiKeys;
@@ -120,7 +128,7 @@ private:
     OauthImplicit _implicitFlow;
     OauthCredentials _credentialFlow;
     OauthPassword _passwordFlow;
-    int _OauthMethod = 0;
+    OauthMethod _OauthMethod = OauthMethod::INVALID_VALUE_OPENAPI_GENERATED;
 
     void discussionChatV1Callback(HttpRequestWorker *worker);
     void discussionCreateObjectV1Callback(HttpRequestWorker *worker);
@@ -146,42 +154,18 @@ Q_SIGNALS:
     void discussionPatchObjectV1SignalFull(HttpRequestWorker *worker, Discussion_patchObject_v1_Response summary);
     void discussionUpdateDiscussionreadstatusV1SignalFull(HttpRequestWorker *worker, Discussion_updateDiscussionreadstatus_v1_Response summary);
 
-    Q_DECL_DEPRECATED_X("Use discussionChatV1SignalError() instead")
-    void discussionChatV1SignalE(Discussion_Chat_V1_200_response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void discussionChatV1SignalError(Discussion_Chat_V1_200_response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use discussionCreateObjectV1SignalError() instead")
-    void discussionCreateObjectV1SignalE(Discussion_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void discussionCreateObjectV1SignalError(Discussion_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use discussionDeleteObjectV1SignalError() instead")
-    void discussionDeleteObjectV1SignalE(Discussion_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void discussionDeleteObjectV1SignalError(Discussion_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use discussionGetObjectV2SignalError() instead")
-    void discussionGetObjectV2SignalE(Discussion_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void discussionGetObjectV2SignalError(Discussion_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use discussionPatchObjectV1SignalError() instead")
-    void discussionPatchObjectV1SignalE(Discussion_patchObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void discussionPatchObjectV1SignalError(Discussion_patchObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use discussionUpdateDiscussionreadstatusV1SignalError() instead")
-    void discussionUpdateDiscussionreadstatusV1SignalE(Discussion_updateDiscussionreadstatus_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void discussionUpdateDiscussionreadstatusV1SignalError(Discussion_updateDiscussionreadstatus_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
-    Q_DECL_DEPRECATED_X("Use discussionChatV1SignalErrorFull() instead")
-    void discussionChatV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void discussionChatV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use discussionCreateObjectV1SignalErrorFull() instead")
-    void discussionCreateObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void discussionCreateObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use discussionDeleteObjectV1SignalErrorFull() instead")
-    void discussionDeleteObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void discussionDeleteObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use discussionGetObjectV2SignalErrorFull() instead")
-    void discussionGetObjectV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void discussionGetObjectV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use discussionPatchObjectV1SignalErrorFull() instead")
-    void discussionPatchObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void discussionPatchObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use discussionUpdateDiscussionreadstatusV1SignalErrorFull() instead")
-    void discussionUpdateDiscussionreadstatusV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void discussionUpdateDiscussionreadstatusV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();

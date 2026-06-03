@@ -37,13 +37,13 @@ class Common_Audit;
 class Colleague_ResponseV2 : public Object {
 public:
     Colleague_ResponseV2();
-    Colleague_ResponseV2(QString json);
+    Colleague_ResponseV2(const QString &json);
     ~Colleague_ResponseV2() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiColleagueId() const;
     void setPkiColleagueId(const qint32 &pki_colleague_id);

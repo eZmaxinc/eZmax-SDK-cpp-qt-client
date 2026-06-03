@@ -30,13 +30,13 @@ namespace Ezmaxapi {
 class Enum_Horizontalalignment : public Enum {
 public:
     Enum_Horizontalalignment();
-    Enum_Horizontalalignment(QString json);
+    Enum_Horizontalalignment(const QString &json);
     ~Enum_Horizontalalignment() override;
 
     QString asJson() const override;
     QJsonValue asJsonValue() const override;
     void fromJsonValue(QJsonValue json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     enum class eEnum_Horizontalalignment {
         INVALID_VALUE_OPENAPI_GENERATED = 0,

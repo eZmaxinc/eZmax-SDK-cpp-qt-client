@@ -33,13 +33,13 @@ class Supplier_ListElement;
 class Supplier_getList_v1_Response_mPayload : public Object {
 public:
     Supplier_getList_v1_Response_mPayload();
-    Supplier_getList_v1_Response_mPayload(QString json);
+    Supplier_getList_v1_Response_mPayload(const QString &json);
     ~Supplier_getList_v1_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getIRowReturned() const;
     void setIRowReturned(const qint32 &i_row_returned);

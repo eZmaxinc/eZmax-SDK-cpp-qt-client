@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Authenticationexternal_ListElement::Authenticationexternal_ListElement(QString json) {
+Authenticationexternal_ListElement::Authenticationexternal_ListElement(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -47,7 +47,7 @@ void Authenticationexternal_ListElement::initializeModel() {
     m_b_authenticationexternal_connected_isValid = false;
 }
 
-void Authenticationexternal_ListElement::fromJson(QString jsonString) {
+void Authenticationexternal_ListElement::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

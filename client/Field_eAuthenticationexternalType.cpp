@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_eAuthenticationexternalType::Field_eAuthenticationexternalType(QString json) {
+Field_eAuthenticationexternalType::Field_eAuthenticationexternalType(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_eAuthenticationexternalType::initializeModel() {
     m_value = eField_eAuthenticationexternalType::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_eAuthenticationexternalType::fromJson(QString jsonString) {
+void Field_eAuthenticationexternalType::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("Salesforce", Qt::CaseInsensitive) == 0) {
         m_value = eField_eAuthenticationexternalType::SALESFORCE;

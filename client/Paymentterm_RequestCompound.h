@@ -34,13 +34,13 @@ class Multilingual_PaymenttermDescription;
 class Paymentterm_RequestCompound : public Object {
 public:
     Paymentterm_RequestCompound();
-    Paymentterm_RequestCompound(QString json);
+    Paymentterm_RequestCompound(const QString &json);
     ~Paymentterm_RequestCompound() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiPaymenttermId() const;
     void setPkiPaymenttermId(const qint32 &pki_paymentterm_id);

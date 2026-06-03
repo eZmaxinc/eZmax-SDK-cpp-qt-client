@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_eEzsignfoldertypeDisposal::Field_eEzsignfoldertypeDisposal(QString json) {
+Field_eEzsignfoldertypeDisposal::Field_eEzsignfoldertypeDisposal(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_eEzsignfoldertypeDisposal::initializeModel() {
     m_value = eField_eEzsignfoldertypeDisposal::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_eEzsignfoldertypeDisposal::fromJson(QString jsonString) {
+void Field_eEzsignfoldertypeDisposal::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("No", Qt::CaseInsensitive) == 0) {
         m_value = eField_eEzsignfoldertypeDisposal::NO;

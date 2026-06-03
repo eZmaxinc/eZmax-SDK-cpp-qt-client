@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_eEzmaxinvoicingPaymenttype::Field_eEzmaxinvoicingPaymenttype(QString json) {
+Field_eEzmaxinvoicingPaymenttype::Field_eEzmaxinvoicingPaymenttype(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_eEzmaxinvoicingPaymenttype::initializeModel() {
     m_value = eField_eEzmaxinvoicingPaymenttype::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_eEzmaxinvoicingPaymenttype::fromJson(QString jsonString) {
+void Field_eEzmaxinvoicingPaymenttype::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("Cheque", Qt::CaseInsensitive) == 0) {
         m_value = eField_eEzmaxinvoicingPaymenttype::CHEQUE;

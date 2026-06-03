@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Ezsignbulksenddocumentmapping_Request::Ezsignbulksenddocumentmapping_Request(QString json) {
+Ezsignbulksenddocumentmapping_Request::Ezsignbulksenddocumentmapping_Request(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -47,7 +47,7 @@ void Ezsignbulksenddocumentmapping_Request::initializeModel() {
     m_fki_ezsigntemplate_id_isValid = false;
 }
 
-void Ezsignbulksenddocumentmapping_Request::fromJson(QString jsonString) {
+void Ezsignbulksenddocumentmapping_Request::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

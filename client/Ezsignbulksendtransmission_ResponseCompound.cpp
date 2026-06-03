@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Ezsignbulksendtransmission_ResponseCompound::Ezsignbulksendtransmission_ResponseCompound(QString json) {
+Ezsignbulksendtransmission_ResponseCompound::Ezsignbulksendtransmission_ResponseCompound(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -53,7 +53,7 @@ void Ezsignbulksendtransmission_ResponseCompound::initializeModel() {
     m_a_obj_ezsignfoldertransmission_isValid = false;
 }
 
-void Ezsignbulksendtransmission_ResponseCompound::fromJson(QString jsonString) {
+void Ezsignbulksendtransmission_ResponseCompound::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

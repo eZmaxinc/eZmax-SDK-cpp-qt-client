@@ -33,13 +33,13 @@ class Province_AutocompleteElement_Response;
 class Province_getAutocomplete_v2_Response_mPayload : public Object {
 public:
     Province_getAutocomplete_v2_Response_mPayload();
-    Province_getAutocomplete_v2_Response_mPayload(QString json);
+    Province_getAutocomplete_v2_Response_mPayload(const QString &json);
     ~Province_getAutocomplete_v2_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Province_AutocompleteElement_Response> getAObjProvince() const;
     void setAObjProvince(const QList<Province_AutocompleteElement_Response> &a_obj_province);

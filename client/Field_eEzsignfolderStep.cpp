@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_eEzsignfolderStep::Field_eEzsignfolderStep(QString json) {
+Field_eEzsignfolderStep::Field_eEzsignfolderStep(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_eEzsignfolderStep::initializeModel() {
     m_value = eField_eEzsignfolderStep::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_eEzsignfolderStep::fromJson(QString jsonString) {
+void Field_eEzsignfolderStep::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("Unsent", Qt::CaseInsensitive) == 0) {
         m_value = eField_eEzsignfolderStep::UNSENT;

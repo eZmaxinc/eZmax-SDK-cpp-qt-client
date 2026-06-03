@@ -47,6 +47,7 @@ public:
     void initializeServerConfigs();
     int setDefaultServerValue(int serverIndex,const QString &operation, const QString &variable,const QString &val);
     void setServerIndex(const QString &operation, int serverIndex);
+    void setServerIndex(int serverIndex);
     void setApiKey(const QString &apiKeyName, const QString &apiKey);
     void setBearerToken(const QString &token);
     void setUsername(const QString &username);
@@ -99,6 +100,13 @@ public:
 
 
 private:
+    enum class OauthMethod : int {
+        INVALID_VALUE_OPENAPI_GENERATED = 0,
+        ImplicitFlow = 1,
+        AuthorizationFlow = 2,
+        ClientCredentialsFlow = 3,
+        ResourceOwnerPasswordFlow = 4
+    };
     QMap<QString,int> _serverIndices;
     QMap<QString,QList<ServerConfiguration>> _serverConfigs;
     QMap<QString, QString> _apiKeys;
@@ -118,7 +126,7 @@ private:
     OauthImplicit _implicitFlow;
     OauthCredentials _credentialFlow;
     OauthPassword _passwordFlow;
-    int _OauthMethod = 0;
+    OauthMethod _OauthMethod = OauthMethod::INVALID_VALUE_OPENAPI_GENERATED;
 
     void domainCreateObjectV1Callback(HttpRequestWorker *worker);
     void domainDeleteObjectV1Callback(HttpRequestWorker *worker);
@@ -141,36 +149,16 @@ Q_SIGNALS:
     void domainGetListV1SignalFull(HttpRequestWorker *worker, Domain_getList_v1_Response summary);
     void domainGetObjectV2SignalFull(HttpRequestWorker *worker, Domain_getObject_v2_Response summary);
 
-    Q_DECL_DEPRECATED_X("Use domainCreateObjectV1SignalError() instead")
-    void domainCreateObjectV1SignalE(Domain_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void domainCreateObjectV1SignalError(Domain_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use domainDeleteObjectV1SignalError() instead")
-    void domainDeleteObjectV1SignalE(Domain_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void domainDeleteObjectV1SignalError(Domain_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use domainGetAutocompleteV2SignalError() instead")
-    void domainGetAutocompleteV2SignalE(Domain_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void domainGetAutocompleteV2SignalError(Domain_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use domainGetListV1SignalError() instead")
-    void domainGetListV1SignalE(Domain_getList_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void domainGetListV1SignalError(Domain_getList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use domainGetObjectV2SignalError() instead")
-    void domainGetObjectV2SignalE(Domain_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void domainGetObjectV2SignalError(Domain_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
-    Q_DECL_DEPRECATED_X("Use domainCreateObjectV1SignalErrorFull() instead")
-    void domainCreateObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void domainCreateObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use domainDeleteObjectV1SignalErrorFull() instead")
-    void domainDeleteObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void domainDeleteObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use domainGetAutocompleteV2SignalErrorFull() instead")
-    void domainGetAutocompleteV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void domainGetAutocompleteV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use domainGetListV1SignalErrorFull() instead")
-    void domainGetListV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void domainGetListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use domainGetObjectV2SignalErrorFull() instead")
-    void domainGetObjectV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void domainGetObjectV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();

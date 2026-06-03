@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Multilingual_VersionhistoryDetail : public Object {
 public:
     Multilingual_VersionhistoryDetail();
-    Multilingual_VersionhistoryDetail(QString json);
+    Multilingual_VersionhistoryDetail(const QString &json);
     ~Multilingual_VersionhistoryDetail() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getTVersionhistoryDetail1() const;
     void setTVersionhistoryDetail1(const QString &t_versionhistory_detail1);

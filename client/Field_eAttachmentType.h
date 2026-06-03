@@ -30,13 +30,13 @@ namespace Ezmaxapi {
 class Field_eAttachmentType : public Enum {
 public:
     Field_eAttachmentType();
-    Field_eAttachmentType(QString json);
+    Field_eAttachmentType(const QString &json);
     ~Field_eAttachmentType() override;
 
     QString asJson() const override;
     QJsonValue asJsonValue() const override;
     void fromJsonValue(QJsonValue json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     enum class eField_eAttachmentType {
         INVALID_VALUE_OPENAPI_GENERATED = 0,

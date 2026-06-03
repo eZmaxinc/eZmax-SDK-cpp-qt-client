@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Leadsource_AutocompleteElement_Response : public Object {
 public:
     Leadsource_AutocompleteElement_Response();
-    Leadsource_AutocompleteElement_Response(QString json);
+    Leadsource_AutocompleteElement_Response(const QString &json);
     ~Leadsource_AutocompleteElement_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiLeadsourceId() const;
     void setPkiLeadsourceId(const qint32 &pki_leadsource_id);

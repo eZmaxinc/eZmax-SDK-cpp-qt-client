@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Ezsigntemplatepublic_resetUrl_v1_Response_mPayload : public Object {
 public:
     Ezsigntemplatepublic_resetUrl_v1_Response_mPayload();
-    Ezsigntemplatepublic_resetUrl_v1_Response_mPayload(QString json);
+    Ezsigntemplatepublic_resetUrl_v1_Response_mPayload(const QString &json);
     ~Ezsigntemplatepublic_resetUrl_v1_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getSEzsigntemplatepublicUrl() const;
     void setSEzsigntemplatepublicUrl(const QString &s_ezsigntemplatepublic_url);

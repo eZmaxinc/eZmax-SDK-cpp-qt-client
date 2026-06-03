@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Custom_Ezsignfoldertype_Response::Custom_Ezsignfoldertype_Response(QString json) {
+Custom_Ezsignfoldertype_Response::Custom_Ezsignfoldertype_Response(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -89,7 +89,7 @@ void Custom_Ezsignfoldertype_Response::initializeModel() {
     m_e_ezsignfoldertype_documentmerge_isValid = false;
 }
 
-void Custom_Ezsignfoldertype_Response::fromJson(QString jsonString) {
+void Custom_Ezsignfoldertype_Response::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

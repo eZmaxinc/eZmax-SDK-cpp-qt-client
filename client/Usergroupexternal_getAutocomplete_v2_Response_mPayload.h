@@ -33,13 +33,13 @@ class Usergroupexternal_AutocompleteElement_Response;
 class Usergroupexternal_getAutocomplete_v2_Response_mPayload : public Object {
 public:
     Usergroupexternal_getAutocomplete_v2_Response_mPayload();
-    Usergroupexternal_getAutocomplete_v2_Response_mPayload(QString json);
+    Usergroupexternal_getAutocomplete_v2_Response_mPayload(const QString &json);
     ~Usergroupexternal_getAutocomplete_v2_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Usergroupexternal_AutocompleteElement_Response> getAObjUsergroupexternal() const;
     void setAObjUsergroupexternal(const QList<Usergroupexternal_AutocompleteElement_Response> &a_obj_usergroupexternal);

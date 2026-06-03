@@ -35,13 +35,13 @@ class Textstylestatic_RequestCompound;
 class Ezsignformfield_Request : public Object {
 public:
     Ezsignformfield_Request();
-    Ezsignformfield_Request(QString json);
+    Ezsignformfield_Request(const QString &json);
     ~Ezsignformfield_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiEzsignformfieldId() const;
     void setPkiEzsignformfieldId(const qint32 &pki_ezsignformfield_id);

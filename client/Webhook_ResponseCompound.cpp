@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Webhook_ResponseCompound::Webhook_ResponseCompound(QString json) {
+Webhook_ResponseCompound::Webhook_ResponseCompound(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -95,7 +95,7 @@ void Webhook_ResponseCompound::initializeModel() {
     m_a_obj_webhookheader_isValid = false;
 }
 
-void Webhook_ResponseCompound::fromJson(QString jsonString) {
+void Webhook_ResponseCompound::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();
@@ -665,7 +665,7 @@ bool Webhook_ResponseCompound::isSet() const {
 
 bool Webhook_ResponseCompound::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_pki_webhook_id_isValid && m_s_webhook_description_isValid && m_e_webhook_module_isValid && m_s_webhook_url_isValid && m_s_webhook_emailfailed_isValid && m_b_webhook_isactive_isValid && m_b_webhook_issigned_isValid && m_b_webhook_skipsslvalidation_isValid && m_obj_audit_isValid && true;
+    return m_s_webhook_description_isValid && m_e_webhook_module_isValid && m_s_webhook_url_isValid && m_s_webhook_emailfailed_isValid && m_b_webhook_isactive_isValid && m_b_webhook_issigned_isValid && m_b_webhook_skipsslvalidation_isValid && true;
 }
 
 } // namespace Ezmaxapi

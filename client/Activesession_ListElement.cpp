@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Activesession_ListElement::Activesession_ListElement(QString json) {
+Activesession_ListElement::Activesession_ListElement(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -71,7 +71,7 @@ void Activesession_ListElement::initializeModel() {
     m_s_activesession_ip_isValid = false;
 }
 
-void Activesession_ListElement::fromJson(QString jsonString) {
+void Activesession_ListElement::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

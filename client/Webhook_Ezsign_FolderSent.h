@@ -37,13 +37,13 @@ class Ezsignfolder_Response;
 class Webhook_Ezsign_FolderSent : public Object {
 public:
     Webhook_Ezsign_FolderSent();
-    Webhook_Ezsign_FolderSent(QString json);
+    Webhook_Ezsign_FolderSent(const QString &json);
     ~Webhook_Ezsign_FolderSent() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Custom_Webhook_Response getObjWebhook() const;
     void setObjWebhook(const Custom_Webhook_Response &obj_webhook);

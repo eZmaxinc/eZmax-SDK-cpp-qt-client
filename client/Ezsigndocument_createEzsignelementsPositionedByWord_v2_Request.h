@@ -35,13 +35,13 @@ class Custom_EzsignsignatureCreateEzsignelementsPositionedByWord_Request;
 class Ezsigndocument_createEzsignelementsPositionedByWord_v2_Request : public Object {
 public:
     Ezsigndocument_createEzsignelementsPositionedByWord_v2_Request();
-    Ezsigndocument_createEzsignelementsPositionedByWord_v2_Request(QString json);
+    Ezsigndocument_createEzsignelementsPositionedByWord_v2_Request(const QString &json);
     ~Ezsigndocument_createEzsignelementsPositionedByWord_v2_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Custom_EzsignformfieldgroupCreateEzsignelementsPositionedByWord_Request> getAObjEzsignformfieldgroup() const;
     void setAObjEzsignformfieldgroup(const QList<Custom_EzsignformfieldgroupCreateEzsignelementsPositionedByWord_Request> &a_obj_ezsignformfieldgroup);

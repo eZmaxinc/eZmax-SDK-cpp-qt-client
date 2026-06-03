@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Activesession_generateFederationToken_v1_Request : public Object {
 public:
     Activesession_generateFederationToken_v1_Request();
-    Activesession_generateFederationToken_v1_Request(QString json);
+    Activesession_generateFederationToken_v1_Request(const QString &json);
     ~Activesession_generateFederationToken_v1_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getFksEzmaxcustomerCode() const;
     void setFksEzmaxcustomerCode(const QString &fks_ezmaxcustomer_code);

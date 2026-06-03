@@ -32,13 +32,13 @@ class Ezsignfoldertype_ResponseCompound;
 class Ezsignfoldertype_getObject_v2_Response_mPayload : public Object {
 public:
     Ezsignfoldertype_getObject_v2_Response_mPayload();
-    Ezsignfoldertype_getObject_v2_Response_mPayload(QString json);
+    Ezsignfoldertype_getObject_v2_Response_mPayload(const QString &json);
     ~Ezsignfoldertype_getObject_v2_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Ezsignfoldertype_ResponseCompound getObjEzsignfoldertype() const;
     void setObjEzsignfoldertype(const Ezsignfoldertype_ResponseCompound &obj_ezsignfoldertype);

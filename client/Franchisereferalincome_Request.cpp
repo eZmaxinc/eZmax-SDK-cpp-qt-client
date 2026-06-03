@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Franchisereferalincome_Request::Franchisereferalincome_Request(QString json) {
+Franchisereferalincome_Request::Franchisereferalincome_Request(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -71,7 +71,7 @@ void Franchisereferalincome_Request::initializeModel() {
     m_s_franchisereferalincome_remoteid_isValid = false;
 }
 
-void Franchisereferalincome_Request::fromJson(QString jsonString) {
+void Franchisereferalincome_Request::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

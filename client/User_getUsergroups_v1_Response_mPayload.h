@@ -33,13 +33,13 @@ class Usergroup_ResponseCompound;
 class User_getUsergroups_v1_Response_mPayload : public Object {
 public:
     User_getUsergroups_v1_Response_mPayload();
-    User_getUsergroups_v1_Response_mPayload(QString json);
+    User_getUsergroups_v1_Response_mPayload(const QString &json);
     ~User_getUsergroups_v1_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Usergroup_ResponseCompound> getAObjUsergroup() const;
     void setAObjUsergroup(const QList<Usergroup_ResponseCompound> &a_obj_usergroup);

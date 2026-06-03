@@ -35,13 +35,13 @@ class Custom_Creditcardtransactionresponse_Response;
 class Common_Response_Error_CreditcardValidation : public Object {
 public:
     Common_Response_Error_CreditcardValidation();
-    Common_Response_Error_CreditcardValidation(QString json);
+    Common_Response_Error_CreditcardValidation(const QString &json);
     ~Common_Response_Error_CreditcardValidation() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getSErrorMessage() const;
     void setSErrorMessage(const QString &s_error_message);

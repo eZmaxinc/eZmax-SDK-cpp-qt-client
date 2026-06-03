@@ -33,13 +33,13 @@ class Ezsigndocument_RequestCompound;
 class Ezsigndocument_createObject_v3_Request : public Object {
 public:
     Ezsigndocument_createObject_v3_Request();
-    Ezsigndocument_createObject_v3_Request(QString json);
+    Ezsigndocument_createObject_v3_Request(const QString &json);
     ~Ezsigndocument_createObject_v3_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Ezsigndocument_RequestCompound> getAObjEzsigndocument() const;
     void setAObjEzsigndocument(const QList<Ezsigndocument_RequestCompound> &a_obj_ezsigndocument);

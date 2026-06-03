@@ -39,13 +39,13 @@ class Website_RequestCompound;
 class Contactinformations_RequestCompound : public Object {
 public:
     Contactinformations_RequestCompound();
-    Contactinformations_RequestCompound(QString json);
+    Contactinformations_RequestCompound(const QString &json);
     ~Contactinformations_RequestCompound() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getIAddressDefault() const;
     void setIAddressDefault(const qint32 &i_address_default);

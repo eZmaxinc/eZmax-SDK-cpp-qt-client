@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Ezsigndocument_createEzsignelementsPositionedByWord_v1_Response_mPayload : public Object {
 public:
     Ezsigndocument_createEzsignelementsPositionedByWord_v1_Response_mPayload();
-    Ezsigndocument_createEzsignelementsPositionedByWord_v1_Response_mPayload(QString json);
+    Ezsigndocument_createEzsignelementsPositionedByWord_v1_Response_mPayload(const QString &json);
     ~Ezsigndocument_createEzsignelementsPositionedByWord_v1_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<qint32> getAPkiEzsignsignatureId() const;
     void setAPkiEzsignsignatureId(const QList<qint32> &a_pki_ezsignsignature_id);

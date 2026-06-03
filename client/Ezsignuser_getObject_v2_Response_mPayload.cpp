@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Ezsignuser_getObject_v2_Response_mPayload::Ezsignuser_getObject_v2_Response_mPayload(QString json) {
+Ezsignuser_getObject_v2_Response_mPayload::Ezsignuser_getObject_v2_Response_mPayload(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -38,7 +38,7 @@ void Ezsignuser_getObject_v2_Response_mPayload::initializeModel() {
     m_obj_ezsignuser_isValid = false;
 }
 
-void Ezsignuser_getObject_v2_Response_mPayload::fromJson(QString jsonString) {
+void Ezsignuser_getObject_v2_Response_mPayload::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

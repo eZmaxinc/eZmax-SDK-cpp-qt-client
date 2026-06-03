@@ -32,13 +32,13 @@ class Multilingual_ApikeyDescription;
 class Apikey_Request : public Object {
 public:
     Apikey_Request();
-    Apikey_Request(QString json);
+    Apikey_Request(const QString &json);
     ~Apikey_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiApikeyId() const;
     void setPkiApikeyId(const qint32 &pki_apikey_id);

@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Multilingual_EzmaxcustomerNote::Multilingual_EzmaxcustomerNote(QString json) {
+Multilingual_EzmaxcustomerNote::Multilingual_EzmaxcustomerNote(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -41,7 +41,7 @@ void Multilingual_EzmaxcustomerNote::initializeModel() {
     m_t_ezmaxcustomer_note2_isValid = false;
 }
 
-void Multilingual_EzmaxcustomerNote::fromJson(QString jsonString) {
+void Multilingual_EzmaxcustomerNote::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

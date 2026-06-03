@@ -33,13 +33,13 @@ class Ezsigntemplateformfieldgroup_ResponseCompound;
 class Ezsigntemplatedocument_getEzsigntemplateformfieldgroups_v1_Response_mPayload : public Object {
 public:
     Ezsigntemplatedocument_getEzsigntemplateformfieldgroups_v1_Response_mPayload();
-    Ezsigntemplatedocument_getEzsigntemplateformfieldgroups_v1_Response_mPayload(QString json);
+    Ezsigntemplatedocument_getEzsigntemplateformfieldgroups_v1_Response_mPayload(const QString &json);
     ~Ezsigntemplatedocument_getEzsigntemplateformfieldgroups_v1_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Ezsigntemplateformfieldgroup_ResponseCompound> getAObjEzsigntemplateformfieldgroup() const;
     void setAObjEzsigntemplateformfieldgroup(const QList<Ezsigntemplateformfieldgroup_ResponseCompound> &a_obj_ezsigntemplateformfieldgroup);

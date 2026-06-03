@@ -33,13 +33,13 @@ class Realestateassociation_AutocompleteElement_Response;
 class Realestateassociation_getAutocomplete_v2_Response_mPayload : public Object {
 public:
     Realestateassociation_getAutocomplete_v2_Response_mPayload();
-    Realestateassociation_getAutocomplete_v2_Response_mPayload(QString json);
+    Realestateassociation_getAutocomplete_v2_Response_mPayload(const QString &json);
     ~Realestateassociation_getAutocomplete_v2_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Realestateassociation_AutocompleteElement_Response> getAObjRealestateassociation() const;
     void setAObjRealestateassociation(const QList<Realestateassociation_AutocompleteElement_Response> &a_obj_realestateassociation);

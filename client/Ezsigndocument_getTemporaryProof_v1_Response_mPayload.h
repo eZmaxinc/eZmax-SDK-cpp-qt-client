@@ -33,13 +33,13 @@ class Ezsigndocumentlog_ResponseCompound;
 class Ezsigndocument_getTemporaryProof_v1_Response_mPayload : public Object {
 public:
     Ezsigndocument_getTemporaryProof_v1_Response_mPayload();
-    Ezsigndocument_getTemporaryProof_v1_Response_mPayload(QString json);
+    Ezsigndocument_getTemporaryProof_v1_Response_mPayload(const QString &json);
     ~Ezsigndocument_getTemporaryProof_v1_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Ezsigndocumentlog_ResponseCompound> getAObjEzsigndocumentlog() const;
     void setAObjEzsigndocumentlog(const QList<Ezsigndocumentlog_ResponseCompound> &a_obj_ezsigndocumentlog);

@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Custom_eWebhookEzsignevent::Custom_eWebhookEzsignevent(QString json) {
+Custom_eWebhookEzsignevent::Custom_eWebhookEzsignevent(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Custom_eWebhookEzsignevent::initializeModel() {
     m_value = eCustom_eWebhookEzsignevent::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Custom_eWebhookEzsignevent::fromJson(QString jsonString) {
+void Custom_eWebhookEzsignevent::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("DocumentCompleted", Qt::CaseInsensitive) == 0) {
         m_value = eCustom_eWebhookEzsignevent::DOCUMENTCOMPLETED;

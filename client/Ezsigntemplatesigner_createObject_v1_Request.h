@@ -33,13 +33,13 @@ class Ezsigntemplatesigner_RequestCompound;
 class Ezsigntemplatesigner_createObject_v1_Request : public Object {
 public:
     Ezsigntemplatesigner_createObject_v1_Request();
-    Ezsigntemplatesigner_createObject_v1_Request(QString json);
+    Ezsigntemplatesigner_createObject_v1_Request(const QString &json);
     ~Ezsigntemplatesigner_createObject_v1_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Ezsigntemplatesigner_RequestCompound> getAObjEzsigntemplatesigner() const;
     void setAObjEzsigntemplatesigner(const QList<Ezsigntemplatesigner_RequestCompound> &a_obj_ezsigntemplatesigner);

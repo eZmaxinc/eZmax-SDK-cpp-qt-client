@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Ezsignfolder_disposeEzsignfolders_v1_Request : public Object {
 public:
     Ezsignfolder_disposeEzsignfolders_v1_Request();
-    Ezsignfolder_disposeEzsignfolders_v1_Request(QString json);
+    Ezsignfolder_disposeEzsignfolders_v1_Request(const QString &json);
     ~Ezsignfolder_disposeEzsignfolders_v1_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<qint32> getAPkiEzsignfolderId() const;
     void setAPkiEzsignfolderId(const QList<qint32> &a_pki_ezsignfolder_id);

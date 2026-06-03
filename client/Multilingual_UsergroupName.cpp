@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Multilingual_UsergroupName::Multilingual_UsergroupName(QString json) {
+Multilingual_UsergroupName::Multilingual_UsergroupName(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -41,7 +41,7 @@ void Multilingual_UsergroupName::initializeModel() {
     m_s_usergroup_name2_isValid = false;
 }
 
-void Multilingual_UsergroupName::fromJson(QString jsonString) {
+void Multilingual_UsergroupName::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

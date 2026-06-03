@@ -33,13 +33,13 @@ class Common_Audit;
 class Domain_Response : public Object {
 public:
     Domain_Response();
-    Domain_Response(QString json);
+    Domain_Response(const QString &json);
     ~Domain_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiDomainId() const;
     void setPkiDomainId(const qint32 &pki_domain_id);

@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Otherincometype_AutocompleteElement_Response : public Object {
 public:
     Otherincometype_AutocompleteElement_Response();
-    Otherincometype_AutocompleteElement_Response(QString json);
+    Otherincometype_AutocompleteElement_Response(const QString &json);
     ~Otherincometype_AutocompleteElement_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiOtherincometypeId() const;
     void setPkiOtherincometypeId(const qint32 &pki_otherincometype_id);

@@ -35,13 +35,13 @@ class Custom_Creditcardtransaction_Response;
 class Ezsignsignature_sign_v1_Response_mPayload : public Object {
 public:
     Ezsignsignature_sign_v1_Response_mPayload();
-    Ezsignsignature_sign_v1_Response_mPayload(QString json);
+    Ezsignsignature_sign_v1_Response_mPayload(const QString &json);
     ~Ezsignsignature_sign_v1_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getDtEzsignsignatureDateInFolderTimezone() const;
     void setDtEzsignsignatureDateInFolderTimezone(const QString &dt_ezsignsignature_date_in_folder_timezone);

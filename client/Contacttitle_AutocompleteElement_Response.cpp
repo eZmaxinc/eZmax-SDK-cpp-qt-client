@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Contacttitle_AutocompleteElement_Response::Contacttitle_AutocompleteElement_Response(QString json) {
+Contacttitle_AutocompleteElement_Response::Contacttitle_AutocompleteElement_Response(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -41,7 +41,7 @@ void Contacttitle_AutocompleteElement_Response::initializeModel() {
     m_s_contacttitle_name_x_isValid = false;
 }
 
-void Contacttitle_AutocompleteElement_Response::fromJson(QString jsonString) {
+void Contacttitle_AutocompleteElement_Response::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

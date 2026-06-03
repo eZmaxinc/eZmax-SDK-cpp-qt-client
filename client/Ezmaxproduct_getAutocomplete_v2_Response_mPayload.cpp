@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Ezmaxproduct_getAutocomplete_v2_Response_mPayload::Ezmaxproduct_getAutocomplete_v2_Response_mPayload(QString json) {
+Ezmaxproduct_getAutocomplete_v2_Response_mPayload::Ezmaxproduct_getAutocomplete_v2_Response_mPayload(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -38,7 +38,7 @@ void Ezmaxproduct_getAutocomplete_v2_Response_mPayload::initializeModel() {
     m_a_obj_ezmaxproduct_isValid = false;
 }
 
-void Ezmaxproduct_getAutocomplete_v2_Response_mPayload::fromJson(QString jsonString) {
+void Ezmaxproduct_getAutocomplete_v2_Response_mPayload::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

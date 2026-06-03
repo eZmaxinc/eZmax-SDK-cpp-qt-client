@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_ePaymentgatewayProcessor::Field_ePaymentgatewayProcessor(QString json) {
+Field_ePaymentgatewayProcessor::Field_ePaymentgatewayProcessor(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_ePaymentgatewayProcessor::initializeModel() {
     m_value = eField_ePaymentgatewayProcessor::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_ePaymentgatewayProcessor::fromJson(QString jsonString) {
+void Field_ePaymentgatewayProcessor::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("Moneris", Qt::CaseInsensitive) == 0) {
         m_value = eField_ePaymentgatewayProcessor::MONERIS;

@@ -36,13 +36,13 @@ class Ezsigntemplatesignature_getObject_v4_Response_mPayload;
 class Ezsigntemplatesignature_getObject_v4_Response : public Object {
 public:
     Ezsigntemplatesignature_getObject_v4_Response();
-    Ezsigntemplatesignature_getObject_v4_Response(QString json);
+    Ezsigntemplatesignature_getObject_v4_Response(const QString &json);
     ~Ezsigntemplatesignature_getObject_v4_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Common_Response_objDebugPayload getObjDebugPayload() const;
     void setObjDebugPayload(const Common_Response_objDebugPayload &obj_debug_payload);

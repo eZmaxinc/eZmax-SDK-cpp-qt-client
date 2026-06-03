@@ -30,13 +30,13 @@ namespace Ezmaxapi {
 class Header_Accept_Language : public Enum {
 public:
     Header_Accept_Language();
-    Header_Accept_Language(QString json);
+    Header_Accept_Language(const QString &json);
     ~Header_Accept_Language() override;
 
     QString asJson() const override;
     QJsonValue asJsonValue() const override;
     void fromJsonValue(QJsonValue json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     enum class eHeader_Accept_Language {
         INVALID_VALUE_OPENAPI_GENERATED = 0,

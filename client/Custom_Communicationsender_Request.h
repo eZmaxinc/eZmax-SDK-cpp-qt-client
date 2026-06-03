@@ -30,13 +30,13 @@ namespace Ezmaxapi {
 class Custom_Communicationsender_Request : public Object {
 public:
     Custom_Communicationsender_Request();
-    Custom_Communicationsender_Request(QString json);
+    Custom_Communicationsender_Request(const QString &json);
     ~Custom_Communicationsender_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getFkiAgentId() const;
     void setFkiAgentId(const qint32 &fki_agent_id);

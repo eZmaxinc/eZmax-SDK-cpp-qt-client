@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Usergroupdelegation_Request::Usergroupdelegation_Request(QString json) {
+Usergroupdelegation_Request::Usergroupdelegation_Request(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -44,7 +44,7 @@ void Usergroupdelegation_Request::initializeModel() {
     m_fki_user_id_isValid = false;
 }
 
-void Usergroupdelegation_Request::fromJson(QString jsonString) {
+void Usergroupdelegation_Request::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

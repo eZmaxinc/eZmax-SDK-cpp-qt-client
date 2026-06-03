@@ -36,13 +36,13 @@ class Multilingual_BrandingDescription;
 class Branding_RequestV2 : public Object {
 public:
     Branding_RequestV2();
-    Branding_RequestV2(QString json);
+    Branding_RequestV2(const QString &json);
     ~Branding_RequestV2() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiBrandingId() const;
     void setPkiBrandingId(const qint32 &pki_branding_id);

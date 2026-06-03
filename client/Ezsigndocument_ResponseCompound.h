@@ -40,13 +40,13 @@ class Ezsigndocumentdependency_Response;
 class Ezsigndocument_ResponseCompound : public Object {
 public:
     Ezsigndocument_ResponseCompound();
-    Ezsigndocument_ResponseCompound(QString json);
+    Ezsigndocument_ResponseCompound(const QString &json);
     ~Ezsigndocument_ResponseCompound() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiEzsigndocumentId() const;
     void setPkiEzsigndocumentId(const qint32 &pki_ezsigndocument_id);

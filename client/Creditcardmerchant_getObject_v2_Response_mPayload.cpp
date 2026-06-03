@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Creditcardmerchant_getObject_v2_Response_mPayload::Creditcardmerchant_getObject_v2_Response_mPayload(QString json) {
+Creditcardmerchant_getObject_v2_Response_mPayload::Creditcardmerchant_getObject_v2_Response_mPayload(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -38,7 +38,7 @@ void Creditcardmerchant_getObject_v2_Response_mPayload::initializeModel() {
     m_obj_creditcardmerchant_isValid = false;
 }
 
-void Creditcardmerchant_getObject_v2_Response_mPayload::fromJson(QString jsonString) {
+void Creditcardmerchant_getObject_v2_Response_mPayload::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

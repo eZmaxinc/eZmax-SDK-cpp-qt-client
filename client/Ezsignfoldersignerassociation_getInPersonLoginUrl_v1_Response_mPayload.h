@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Ezsignfoldersignerassociation_getInPersonLoginUrl_v1_Response_mPayload : public Object {
 public:
     Ezsignfoldersignerassociation_getInPersonLoginUrl_v1_Response_mPayload();
-    Ezsignfoldersignerassociation_getInPersonLoginUrl_v1_Response_mPayload(QString json);
+    Ezsignfoldersignerassociation_getInPersonLoginUrl_v1_Response_mPayload(const QString &json);
     ~Ezsignfoldersignerassociation_getInPersonLoginUrl_v1_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getSLoginUrl() const;
     void setSLoginUrl(const QString &s_login_url);

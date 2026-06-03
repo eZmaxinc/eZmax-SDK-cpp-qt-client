@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_eErrorCode::Field_eErrorCode(QString json) {
+Field_eErrorCode::Field_eErrorCode(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_eErrorCode::initializeModel() {
     m_value = eField_eErrorCode::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_eErrorCode::fromJson(QString jsonString) {
+void Field_eErrorCode::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("BADREQUEST", Qt::CaseInsensitive) == 0) {
         m_value = eField_eErrorCode::BADREQUEST;

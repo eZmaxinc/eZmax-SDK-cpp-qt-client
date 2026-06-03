@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Department_AutocompleteElement_Response::Department_AutocompleteElement_Response(QString json) {
+Department_AutocompleteElement_Response::Department_AutocompleteElement_Response(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -47,7 +47,7 @@ void Department_AutocompleteElement_Response::initializeModel() {
     m_b_department_isactive_isValid = false;
 }
 
-void Department_AutocompleteElement_Response::fromJson(QString jsonString) {
+void Department_AutocompleteElement_Response::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

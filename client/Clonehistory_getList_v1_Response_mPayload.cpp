@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Clonehistory_getList_v1_Response_mPayload::Clonehistory_getList_v1_Response_mPayload(QString json) {
+Clonehistory_getList_v1_Response_mPayload::Clonehistory_getList_v1_Response_mPayload(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -44,7 +44,7 @@ void Clonehistory_getList_v1_Response_mPayload::initializeModel() {
     m_a_obj_clonehistory_isValid = false;
 }
 
-void Clonehistory_getList_v1_Response_mPayload::fromJson(QString jsonString) {
+void Clonehistory_getList_v1_Response_mPayload::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

@@ -30,13 +30,13 @@ namespace Ezmaxapi {
 class Ezsignsignergroupmembership_ResponseCompound : public Object {
 public:
     Ezsignsignergroupmembership_ResponseCompound();
-    Ezsignsignergroupmembership_ResponseCompound(QString json);
+    Ezsignsignergroupmembership_ResponseCompound(const QString &json);
     ~Ezsignsignergroupmembership_ResponseCompound() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiEzsignsignergroupmembershipId() const;
     void setPkiEzsignsignergroupmembershipId(const qint32 &pki_ezsignsignergroupmembership_id);

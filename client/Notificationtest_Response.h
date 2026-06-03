@@ -33,13 +33,13 @@ class Multilingual_NotificationtestName;
 class Notificationtest_Response : public Object {
 public:
     Notificationtest_Response();
-    Notificationtest_Response(QString json);
+    Notificationtest_Response(const QString &json);
     ~Notificationtest_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiNotificationtestId() const;
     void setPkiNotificationtestId(const qint32 &pki_notificationtest_id);

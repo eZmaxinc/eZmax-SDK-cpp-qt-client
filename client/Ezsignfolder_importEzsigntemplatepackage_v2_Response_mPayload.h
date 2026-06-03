@@ -33,13 +33,13 @@ class Ezsigndocument_ResponseCompoundV3;
 class Ezsignfolder_importEzsigntemplatepackage_v2_Response_mPayload : public Object {
 public:
     Ezsignfolder_importEzsigntemplatepackage_v2_Response_mPayload();
-    Ezsignfolder_importEzsigntemplatepackage_v2_Response_mPayload(QString json);
+    Ezsignfolder_importEzsigntemplatepackage_v2_Response_mPayload(const QString &json);
     ~Ezsignfolder_importEzsigntemplatepackage_v2_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Ezsigndocument_ResponseCompoundV3> getAObjEzsigndocument() const;
     void setAObjEzsigndocument(const QList<Ezsigndocument_ResponseCompoundV3> &a_obj_ezsigndocument);

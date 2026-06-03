@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Ezsignsigner_RequestCompound_Contact : public Object {
 public:
     Ezsignsigner_RequestCompound_Contact();
-    Ezsignsigner_RequestCompound_Contact(QString json);
+    Ezsignsigner_RequestCompound_Contact(const QString &json);
     ~Ezsignsigner_RequestCompound_Contact() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getSContactFirstname() const;
     void setSContactFirstname(const QString &s_contact_firstname);

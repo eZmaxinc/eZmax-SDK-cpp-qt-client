@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Computed_eEzsigndocumentSteptype::Computed_eEzsigndocumentSteptype(QString json) {
+Computed_eEzsigndocumentSteptype::Computed_eEzsigndocumentSteptype(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Computed_eEzsigndocumentSteptype::initializeModel() {
     m_value = eComputed_eEzsigndocumentSteptype::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Computed_eEzsigndocumentSteptype::fromJson(QString jsonString) {
+void Computed_eEzsigndocumentSteptype::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("Form", Qt::CaseInsensitive) == 0) {
         m_value = eComputed_eEzsigndocumentSteptype::FORM;

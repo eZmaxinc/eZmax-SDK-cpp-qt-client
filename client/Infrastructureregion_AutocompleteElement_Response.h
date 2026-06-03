@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Infrastructureregion_AutocompleteElement_Response : public Object {
 public:
     Infrastructureregion_AutocompleteElement_Response();
-    Infrastructureregion_AutocompleteElement_Response(QString json);
+    Infrastructureregion_AutocompleteElement_Response(const QString &json);
     ~Infrastructureregion_AutocompleteElement_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiInfrastructureregionId() const;
     void setPkiInfrastructureregionId(const qint32 &pki_infrastructureregion_id);

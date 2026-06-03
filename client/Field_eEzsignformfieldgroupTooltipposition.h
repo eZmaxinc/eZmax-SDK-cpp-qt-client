@@ -30,13 +30,13 @@ namespace Ezmaxapi {
 class Field_eEzsignformfieldgroupTooltipposition : public Enum {
 public:
     Field_eEzsignformfieldgroupTooltipposition();
-    Field_eEzsignformfieldgroupTooltipposition(QString json);
+    Field_eEzsignformfieldgroupTooltipposition(const QString &json);
     ~Field_eEzsignformfieldgroupTooltipposition() override;
 
     QString asJson() const override;
     QJsonValue asJsonValue() const override;
     void fromJsonValue(QJsonValue json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     enum class eField_eEzsignformfieldgroupTooltipposition {
         INVALID_VALUE_OPENAPI_GENERATED = 0,

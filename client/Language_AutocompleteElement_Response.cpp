@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Language_AutocompleteElement_Response::Language_AutocompleteElement_Response(QString json) {
+Language_AutocompleteElement_Response::Language_AutocompleteElement_Response(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -44,7 +44,7 @@ void Language_AutocompleteElement_Response::initializeModel() {
     m_b_language_isactive_isValid = false;
 }
 
-void Language_AutocompleteElement_Response::fromJson(QString jsonString) {
+void Language_AutocompleteElement_Response::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

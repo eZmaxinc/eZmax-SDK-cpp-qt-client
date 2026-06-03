@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Ezsigntemplateglobaldocument_Response::Ezsigntemplateglobaldocument_Response(QString json) {
+Ezsigntemplateglobaldocument_Response::Ezsigntemplateglobaldocument_Response(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -40,6 +40,9 @@ void Ezsigntemplateglobaldocument_Response::initializeModel() {
     m_s_ezsigntemplateglobaldocument_name_isSet = false;
     m_s_ezsigntemplateglobaldocument_name_isValid = false;
 
+    m_e_ezsigntemplateglobaldocument_acceptationtype_isSet = false;
+    m_e_ezsigntemplateglobaldocument_acceptationtype_isValid = false;
+
     m_i_ezsigntemplateglobaldocument_pagetotal_isSet = false;
     m_i_ezsigntemplateglobaldocument_pagetotal_isValid = false;
 
@@ -47,7 +50,7 @@ void Ezsigntemplateglobaldocument_Response::initializeModel() {
     m_i_ezsigntemplateglobaldocument_signaturetotal_isValid = false;
 }
 
-void Ezsigntemplateglobaldocument_Response::fromJson(QString jsonString) {
+void Ezsigntemplateglobaldocument_Response::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();
@@ -61,6 +64,9 @@ void Ezsigntemplateglobaldocument_Response::fromJsonObject(QJsonObject json) {
 
     m_s_ezsigntemplateglobaldocument_name_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezsigntemplateglobaldocument_name, json[QString("sEzsigntemplateglobaldocumentName")]);
     m_s_ezsigntemplateglobaldocument_name_isSet = !json[QString("sEzsigntemplateglobaldocumentName")].isNull() && m_s_ezsigntemplateglobaldocument_name_isValid;
+
+    m_e_ezsigntemplateglobaldocument_acceptationtype_isValid = ::Ezmaxapi::fromJsonValue(m_e_ezsigntemplateglobaldocument_acceptationtype, json[QString("eEzsigntemplateglobaldocumentAcceptationtype")]);
+    m_e_ezsigntemplateglobaldocument_acceptationtype_isSet = !json[QString("eEzsigntemplateglobaldocumentAcceptationtype")].isNull() && m_e_ezsigntemplateglobaldocument_acceptationtype_isValid;
 
     m_i_ezsigntemplateglobaldocument_pagetotal_isValid = ::Ezmaxapi::fromJsonValue(m_i_ezsigntemplateglobaldocument_pagetotal, json[QString("iEzsigntemplateglobaldocumentPagetotal")]);
     m_i_ezsigntemplateglobaldocument_pagetotal_isSet = !json[QString("iEzsigntemplateglobaldocumentPagetotal")].isNull() && m_i_ezsigntemplateglobaldocument_pagetotal_isValid;
@@ -83,6 +89,9 @@ QJsonObject Ezsigntemplateglobaldocument_Response::asJsonObject() const {
     }
     if (m_s_ezsigntemplateglobaldocument_name_isSet) {
         obj.insert(QString("sEzsigntemplateglobaldocumentName"), ::Ezmaxapi::toJsonValue(m_s_ezsigntemplateglobaldocument_name));
+    }
+    if (m_e_ezsigntemplateglobaldocument_acceptationtype.isSet()) {
+        obj.insert(QString("eEzsigntemplateglobaldocumentAcceptationtype"), ::Ezmaxapi::toJsonValue(m_e_ezsigntemplateglobaldocument_acceptationtype));
     }
     if (m_i_ezsigntemplateglobaldocument_pagetotal_isSet) {
         obj.insert(QString("iEzsigntemplateglobaldocumentPagetotal"), ::Ezmaxapi::toJsonValue(m_i_ezsigntemplateglobaldocument_pagetotal));
@@ -123,6 +132,22 @@ bool Ezsigntemplateglobaldocument_Response::is_s_ezsigntemplateglobaldocument_na
 
 bool Ezsigntemplateglobaldocument_Response::is_s_ezsigntemplateglobaldocument_name_Valid() const{
     return m_s_ezsigntemplateglobaldocument_name_isValid;
+}
+
+Field_eEzsigntemplateglobaldocumentAcceptationtype Ezsigntemplateglobaldocument_Response::getEEzsigntemplateglobaldocumentAcceptationtype() const {
+    return m_e_ezsigntemplateglobaldocument_acceptationtype;
+}
+void Ezsigntemplateglobaldocument_Response::setEEzsigntemplateglobaldocumentAcceptationtype(const Field_eEzsigntemplateglobaldocumentAcceptationtype &e_ezsigntemplateglobaldocument_acceptationtype) {
+    m_e_ezsigntemplateglobaldocument_acceptationtype = e_ezsigntemplateglobaldocument_acceptationtype;
+    m_e_ezsigntemplateglobaldocument_acceptationtype_isSet = true;
+}
+
+bool Ezsigntemplateglobaldocument_Response::is_e_ezsigntemplateglobaldocument_acceptationtype_Set() const{
+    return m_e_ezsigntemplateglobaldocument_acceptationtype_isSet;
+}
+
+bool Ezsigntemplateglobaldocument_Response::is_e_ezsigntemplateglobaldocument_acceptationtype_Valid() const{
+    return m_e_ezsigntemplateglobaldocument_acceptationtype_isValid;
 }
 
 qint32 Ezsigntemplateglobaldocument_Response::getIEzsigntemplateglobaldocumentPagetotal() const {
@@ -170,6 +195,11 @@ bool Ezsigntemplateglobaldocument_Response::isSet() const {
             break;
         }
 
+        if (m_e_ezsigntemplateglobaldocument_acceptationtype.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (m_i_ezsigntemplateglobaldocument_pagetotal_isSet) {
             isObjectUpdated = true;
             break;
@@ -185,7 +215,7 @@ bool Ezsigntemplateglobaldocument_Response::isSet() const {
 
 bool Ezsigntemplateglobaldocument_Response::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_pki_ezsigntemplateglobaldocument_id_isValid && m_s_ezsigntemplateglobaldocument_name_isValid && m_i_ezsigntemplateglobaldocument_pagetotal_isValid && m_i_ezsigntemplateglobaldocument_signaturetotal_isValid && true;
+    return m_pki_ezsigntemplateglobaldocument_id_isValid && m_s_ezsigntemplateglobaldocument_name_isValid && m_e_ezsigntemplateglobaldocument_acceptationtype_isValid && m_i_ezsigntemplateglobaldocument_pagetotal_isValid && m_i_ezsigntemplateglobaldocument_signaturetotal_isValid && true;
 }
 
 } // namespace Ezmaxapi

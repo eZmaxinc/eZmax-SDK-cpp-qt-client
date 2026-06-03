@@ -30,13 +30,13 @@ namespace Ezmaxapi {
 class Field_eEzsignfoldertypeDisposal : public Enum {
 public:
     Field_eEzsignfoldertypeDisposal();
-    Field_eEzsignfoldertypeDisposal(QString json);
+    Field_eEzsignfoldertypeDisposal(const QString &json);
     ~Field_eEzsignfoldertypeDisposal() override;
 
     QString asJson() const override;
     QJsonValue asJsonValue() const override;
     void fromJsonValue(QJsonValue json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     enum class eField_eEzsignfoldertypeDisposal {
         INVALID_VALUE_OPENAPI_GENERATED = 0,

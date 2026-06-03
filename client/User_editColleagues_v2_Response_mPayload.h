@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class User_editColleagues_v2_Response_mPayload : public Object {
 public:
     User_editColleagues_v2_Response_mPayload();
-    User_editColleagues_v2_Response_mPayload(QString json);
+    User_editColleagues_v2_Response_mPayload(const QString &json);
     ~User_editColleagues_v2_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<qint32> getAPkiColleagueId() const;
     void setAPkiColleagueId(const QList<qint32> &a_pki_colleague_id);

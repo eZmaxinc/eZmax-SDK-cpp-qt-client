@@ -32,13 +32,13 @@ namespace Ezmaxapi {
 class Custom_Creditcardtransaction_Response : public Object {
 public:
     Custom_Creditcardtransaction_Response();
-    Custom_Creditcardtransaction_Response(QString json);
+    Custom_Creditcardtransaction_Response(const QString &json);
     ~Custom_Creditcardtransaction_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Field_eCreditcardtypeCodename getECreditcardtypeCodename() const;
     void setECreditcardtypeCodename(const Field_eCreditcardtypeCodename &e_creditcardtype_codename);

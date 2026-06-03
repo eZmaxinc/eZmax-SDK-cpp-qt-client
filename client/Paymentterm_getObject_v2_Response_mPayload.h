@@ -32,13 +32,13 @@ class Paymentterm_ResponseCompound;
 class Paymentterm_getObject_v2_Response_mPayload : public Object {
 public:
     Paymentterm_getObject_v2_Response_mPayload();
-    Paymentterm_getObject_v2_Response_mPayload(QString json);
+    Paymentterm_getObject_v2_Response_mPayload(const QString &json);
     ~Paymentterm_getObject_v2_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Paymentterm_ResponseCompound getObjPaymentterm() const;
     void setObjPaymentterm(const Paymentterm_ResponseCompound &obj_paymentterm);

@@ -30,13 +30,13 @@ namespace Ezmaxapi {
 class Field_eEzsigntemplateelementdependencyValidation : public Enum {
 public:
     Field_eEzsigntemplateelementdependencyValidation();
-    Field_eEzsigntemplateelementdependencyValidation(QString json);
+    Field_eEzsigntemplateelementdependencyValidation(const QString &json);
     ~Field_eEzsigntemplateelementdependencyValidation() override;
 
     QString asJson() const override;
     QJsonValue asJsonValue() const override;
     void fromJsonValue(QJsonValue json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     enum class eField_eEzsigntemplateelementdependencyValidation {
         INVALID_VALUE_OPENAPI_GENERATED = 0,

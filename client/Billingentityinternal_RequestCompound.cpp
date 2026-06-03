@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Billingentityinternal_RequestCompound::Billingentityinternal_RequestCompound(QString json) {
+Billingentityinternal_RequestCompound::Billingentityinternal_RequestCompound(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -44,7 +44,7 @@ void Billingentityinternal_RequestCompound::initializeModel() {
     m_a_obj_billingentityinternalproduct_isValid = false;
 }
 
-void Billingentityinternal_RequestCompound::fromJson(QString jsonString) {
+void Billingentityinternal_RequestCompound::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

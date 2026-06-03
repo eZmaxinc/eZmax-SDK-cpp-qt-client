@@ -45,6 +45,7 @@ public:
     void initializeServerConfigs();
     int setDefaultServerValue(int serverIndex,const QString &operation, const QString &variable,const QString &val);
     void setServerIndex(const QString &operation, int serverIndex);
+    void setServerIndex(int serverIndex);
     void setApiKey(const QString &apiKeyName, const QString &apiKey);
     void setBearerToken(const QString &token);
     void setUsername(const QString &username);
@@ -88,6 +89,13 @@ public:
 
 
 private:
+    enum class OauthMethod : int {
+        INVALID_VALUE_OPENAPI_GENERATED = 0,
+        ImplicitFlow = 1,
+        AuthorizationFlow = 2,
+        ClientCredentialsFlow = 3,
+        ResourceOwnerPasswordFlow = 4
+    };
     QMap<QString,int> _serverIndices;
     QMap<QString,QList<ServerConfiguration>> _serverConfigs;
     QMap<QString, QString> _apiKeys;
@@ -107,7 +115,7 @@ private:
     OauthImplicit _implicitFlow;
     OauthCredentials _credentialFlow;
     OauthPassword _passwordFlow;
-    int _OauthMethod = 0;
+    OauthMethod _OauthMethod = OauthMethod::INVALID_VALUE_OPENAPI_GENERATED;
 
     void brokerGetAutocompleteV2Callback(HttpRequestWorker *worker);
     void brokerGetListV1Callback(HttpRequestWorker *worker);
@@ -124,24 +132,12 @@ Q_SIGNALS:
     void brokerGetListV1SignalFull(HttpRequestWorker *worker, Broker_getList_v1_Response summary);
     void brokerImportIntoEDMV1SignalFull(HttpRequestWorker *worker, Broker_importIntoEDM_v1_Response summary);
 
-    Q_DECL_DEPRECATED_X("Use brokerGetAutocompleteV2SignalError() instead")
-    void brokerGetAutocompleteV2SignalE(Broker_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void brokerGetAutocompleteV2SignalError(Broker_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use brokerGetListV1SignalError() instead")
-    void brokerGetListV1SignalE(Broker_getList_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void brokerGetListV1SignalError(Broker_getList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use brokerImportIntoEDMV1SignalError() instead")
-    void brokerImportIntoEDMV1SignalE(Broker_importIntoEDM_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void brokerImportIntoEDMV1SignalError(Broker_importIntoEDM_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
-    Q_DECL_DEPRECATED_X("Use brokerGetAutocompleteV2SignalErrorFull() instead")
-    void brokerGetAutocompleteV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void brokerGetAutocompleteV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use brokerGetListV1SignalErrorFull() instead")
-    void brokerGetListV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void brokerGetListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use brokerImportIntoEDMV1SignalErrorFull() instead")
-    void brokerImportIntoEDMV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void brokerImportIntoEDMV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();

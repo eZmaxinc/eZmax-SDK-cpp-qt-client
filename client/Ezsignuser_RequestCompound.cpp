@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Ezsignuser_RequestCompound::Ezsignuser_RequestCompound(QString json) {
+Ezsignuser_RequestCompound::Ezsignuser_RequestCompound(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -44,7 +44,7 @@ void Ezsignuser_RequestCompound::initializeModel() {
     m_obj_contact_isValid = false;
 }
 
-void Ezsignuser_RequestCompound::fromJson(QString jsonString) {
+void Ezsignuser_RequestCompound::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

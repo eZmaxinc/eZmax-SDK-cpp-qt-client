@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Apikey_editObject_v1_Request::Apikey_editObject_v1_Request(QString json) {
+Apikey_editObject_v1_Request::Apikey_editObject_v1_Request(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -38,7 +38,7 @@ void Apikey_editObject_v1_Request::initializeModel() {
     m_obj_apikey_isValid = false;
 }
 
-void Apikey_editObject_v1_Request::fromJson(QString jsonString) {
+void Apikey_editObject_v1_Request::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

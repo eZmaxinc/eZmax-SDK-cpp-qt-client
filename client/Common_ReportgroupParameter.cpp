@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Common_ReportgroupParameter::Common_ReportgroupParameter(QString json) {
+Common_ReportgroupParameter::Common_ReportgroupParameter(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -44,7 +44,7 @@ void Common_ReportgroupParameter::initializeModel() {
     m_a_s_reportgroup_parameter_value_isValid = false;
 }
 
-void Common_ReportgroupParameter::fromJson(QString jsonString) {
+void Common_ReportgroupParameter::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Custom_Communicationsender_Request::Custom_Communicationsender_Request(QString json) {
+Custom_Communicationsender_Request::Custom_Communicationsender_Request(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -50,7 +50,7 @@ void Custom_Communicationsender_Request::initializeModel() {
     m_fki_user_id_isValid = false;
 }
 
-void Custom_Communicationsender_Request::fromJson(QString jsonString) {
+void Custom_Communicationsender_Request::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Custom_Branding_Response : public Object {
 public:
     Custom_Branding_Response();
-    Custom_Branding_Response(QString json);
+    Custom_Branding_Response(const QString &json);
     ~Custom_Branding_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getIBrandingColor() const;
     void setIBrandingColor(const qint32 &i_branding_color);

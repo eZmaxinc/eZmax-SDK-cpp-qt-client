@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Multilingual_PaymenttermDescription::Multilingual_PaymenttermDescription(QString json) {
+Multilingual_PaymenttermDescription::Multilingual_PaymenttermDescription(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -41,7 +41,7 @@ void Multilingual_PaymenttermDescription::initializeModel() {
     m_s_paymentterm_description2_isValid = false;
 }
 
-void Multilingual_PaymenttermDescription::fromJson(QString jsonString) {
+void Multilingual_PaymenttermDescription::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

@@ -34,13 +34,13 @@ class Custom_ImportEzsigntemplatepackageRelation_Request;
 class Ezsignfolder_importEzsigntemplatepackage_v2_Request : public Object {
 public:
     Ezsignfolder_importEzsigntemplatepackage_v2_Request();
-    Ezsignfolder_importEzsigntemplatepackage_v2_Request(QString json);
+    Ezsignfolder_importEzsigntemplatepackage_v2_Request(const QString &json);
     ~Ezsignfolder_importEzsigntemplatepackage_v2_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getFkiEzsigntemplatepackageId() const;
     void setFkiEzsigntemplatepackageId(const qint32 &fki_ezsigntemplatepackage_id);

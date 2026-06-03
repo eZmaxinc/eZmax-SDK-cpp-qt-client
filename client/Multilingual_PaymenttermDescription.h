@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Multilingual_PaymenttermDescription : public Object {
 public:
     Multilingual_PaymenttermDescription();
-    Multilingual_PaymenttermDescription(QString json);
+    Multilingual_PaymenttermDescription(const QString &json);
     ~Multilingual_PaymenttermDescription() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getSPaymenttermDescription1() const;
     void setSPaymenttermDescription1(const QString &s_paymentterm_description1);

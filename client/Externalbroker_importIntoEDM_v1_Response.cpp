@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Externalbroker_importIntoEDM_v1_Response::Externalbroker_importIntoEDM_v1_Response(QString json) {
+Externalbroker_importIntoEDM_v1_Response::Externalbroker_importIntoEDM_v1_Response(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -44,7 +44,7 @@ void Externalbroker_importIntoEDM_v1_Response::initializeModel() {
     m_m_payload_isValid = false;
 }
 
-void Externalbroker_importIntoEDM_v1_Response::fromJson(QString jsonString) {
+void Externalbroker_importIntoEDM_v1_Response::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

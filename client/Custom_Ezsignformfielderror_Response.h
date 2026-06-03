@@ -34,13 +34,13 @@ class Custom_Ezsignformfielderrortest_Response;
 class Custom_Ezsignformfielderror_Response : public Object {
 public:
     Custom_Ezsignformfielderror_Response();
-    Custom_Ezsignformfielderror_Response(QString json);
+    Custom_Ezsignformfielderror_Response(const QString &json);
     ~Custom_Ezsignformfielderror_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getSEzsignformfieldLabel() const;
     void setSEzsignformfieldLabel(const QString &s_ezsignformfield_label);

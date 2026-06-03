@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Ezmaxinvoicingsummaryexternaldetail_Response : public Object {
 public:
     Ezmaxinvoicingsummaryexternaldetail_Response();
-    Ezmaxinvoicingsummaryexternaldetail_Response(QString json);
+    Ezmaxinvoicingsummaryexternaldetail_Response(const QString &json);
     ~Ezmaxinvoicingsummaryexternaldetail_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiEzmaxinvoicingsummaryexternaldetailId() const;
     void setPkiEzmaxinvoicingsummaryexternaldetailId(const qint32 &pki_ezmaxinvoicingsummaryexternaldetail_id);

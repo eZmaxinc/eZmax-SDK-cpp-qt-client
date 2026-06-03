@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Custom_FormDataEzsignformfield_Response : public Object {
 public:
     Custom_FormDataEzsignformfield_Response();
-    Custom_FormDataEzsignformfield_Response(QString json);
+    Custom_FormDataEzsignformfield_Response(const QString &json);
     ~Custom_FormDataEzsignformfield_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getSEzsignformfieldLabel() const;
     void setSEzsignformfieldLabel(const QString &s_ezsignformfield_label);

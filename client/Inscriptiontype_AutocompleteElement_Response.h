@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Inscriptiontype_AutocompleteElement_Response : public Object {
 public:
     Inscriptiontype_AutocompleteElement_Response();
-    Inscriptiontype_AutocompleteElement_Response(QString json);
+    Inscriptiontype_AutocompleteElement_Response(const QString &json);
     ~Inscriptiontype_AutocompleteElement_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiInscriptiontypeId() const;
     void setPkiInscriptiontypeId(const qint32 &pki_inscriptiontype_id);

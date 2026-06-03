@@ -33,13 +33,13 @@ class Custom_Apikeyfederation;
 class Activesession_generateFederationToken_v1_Response_mPayload : public Object {
 public:
     Activesession_generateFederationToken_v1_Response_mPayload();
-    Activesession_generateFederationToken_v1_Response_mPayload(QString json);
+    Activesession_generateFederationToken_v1_Response_mPayload(const QString &json);
     ~Activesession_generateFederationToken_v1_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Custom_Apikeyfederation getObjApikeyfederation() const;
     void setObjApikeyfederation(const Custom_Apikeyfederation &obj_apikeyfederation);

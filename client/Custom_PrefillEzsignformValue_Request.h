@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Custom_PrefillEzsignformValue_Request : public Object {
 public:
     Custom_PrefillEzsignformValue_Request();
-    Custom_PrefillEzsignformValue_Request(QString json);
+    Custom_PrefillEzsignformValue_Request(const QString &json);
     ~Custom_PrefillEzsignformValue_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getSEzsignformfieldgroupLabel() const;
     void setSEzsignformfieldgroupLabel(const QString &s_ezsignformfieldgroup_label);

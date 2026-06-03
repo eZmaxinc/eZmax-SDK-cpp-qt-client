@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Userstaged_ListElement : public Object {
 public:
     Userstaged_ListElement();
-    Userstaged_ListElement(QString json);
+    Userstaged_ListElement(const QString &json);
     ~Userstaged_ListElement() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiUserstagedId() const;
     void setPkiUserstagedId(const qint32 &pki_userstaged_id);

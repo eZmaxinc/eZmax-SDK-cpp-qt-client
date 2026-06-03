@@ -33,13 +33,13 @@ class Ezsignsignergroupmembership_RequestCompound;
 class Ezsignsignergroupmembership_createObject_v1_Request : public Object {
 public:
     Ezsignsignergroupmembership_createObject_v1_Request();
-    Ezsignsignergroupmembership_createObject_v1_Request(QString json);
+    Ezsignsignergroupmembership_createObject_v1_Request(const QString &json);
     ~Ezsignsignergroupmembership_createObject_v1_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Ezsignsignergroupmembership_RequestCompound> getAObjEzsignsignergroupmembership() const;
     void setAObjEzsignsignergroupmembership(const QList<Ezsignsignergroupmembership_RequestCompound> &a_obj_ezsignsignergroupmembership);

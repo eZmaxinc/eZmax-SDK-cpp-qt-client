@@ -34,13 +34,13 @@ namespace Ezmaxapi {
 class Custom_CommunicationListElement_Response : public Object {
 public:
     Custom_CommunicationListElement_Response();
-    Custom_CommunicationListElement_Response(QString json);
+    Custom_CommunicationListElement_Response(const QString &json);
     ~Custom_CommunicationListElement_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiCommunicationId() const;
     void setPkiCommunicationId(const qint32 &pki_communication_id);

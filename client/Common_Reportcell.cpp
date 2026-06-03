@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Common_Reportcell::Common_Reportcell(QString json) {
+Common_Reportcell::Common_Reportcell(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -47,7 +47,7 @@ void Common_Reportcell::initializeModel() {
     m_i_reportcell_column_isValid = false;
 }
 
-void Common_Reportcell::fromJson(QString jsonString) {
+void Common_Reportcell::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

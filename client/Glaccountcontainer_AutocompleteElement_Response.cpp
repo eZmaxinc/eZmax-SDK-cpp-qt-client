@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Glaccountcontainer_AutocompleteElement_Response::Glaccountcontainer_AutocompleteElement_Response(QString json) {
+Glaccountcontainer_AutocompleteElement_Response::Glaccountcontainer_AutocompleteElement_Response(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -47,7 +47,7 @@ void Glaccountcontainer_AutocompleteElement_Response::initializeModel() {
     m_b_glaccountcontainer_isactive_isValid = false;
 }
 
-void Glaccountcontainer_AutocompleteElement_Response::fromJson(QString jsonString) {
+void Glaccountcontainer_AutocompleteElement_Response::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

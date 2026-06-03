@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Common_Response_Filter::Common_Response_Filter(QString json) {
+Common_Response_Filter::Common_Response_Filter(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -44,7 +44,7 @@ void Common_Response_Filter::initializeModel() {
     m_a_enum_isValid = false;
 }
 
-void Common_Response_Filter::fromJson(QString jsonString) {
+void Common_Response_Filter::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

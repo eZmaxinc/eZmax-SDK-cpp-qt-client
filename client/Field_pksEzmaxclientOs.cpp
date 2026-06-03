@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_pksEzmaxclientOs::Field_pksEzmaxclientOs(QString json) {
+Field_pksEzmaxclientOs::Field_pksEzmaxclientOs(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_pksEzmaxclientOs::initializeModel() {
     m_value = eField_pksEzmaxclientOs::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_pksEzmaxclientOs::fromJson(QString jsonString) {
+void Field_pksEzmaxclientOs::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("Android", Qt::CaseInsensitive) == 0) {
         m_value = eField_pksEzmaxclientOs::ANDROID;

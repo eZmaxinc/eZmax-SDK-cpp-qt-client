@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Permission_Response::Permission_Response(QString json) {
+Permission_Response::Permission_Response(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -56,7 +56,7 @@ void Permission_Response::initializeModel() {
     m_s_company_name_x_isValid = false;
 }
 
-void Permission_Response::fromJson(QString jsonString) {
+void Permission_Response::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

@@ -33,13 +33,13 @@ class Variableexpense_RequestCompound;
 class Variableexpense_createObject_v1_Request : public Object {
 public:
     Variableexpense_createObject_v1_Request();
-    Variableexpense_createObject_v1_Request(QString json);
+    Variableexpense_createObject_v1_Request(const QString &json);
     ~Variableexpense_createObject_v1_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Variableexpense_RequestCompound> getAObjVariableexpense() const;
     void setAObjVariableexpense(const QList<Variableexpense_RequestCompound> &a_obj_variableexpense);

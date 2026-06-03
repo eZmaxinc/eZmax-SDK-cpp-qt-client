@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Common_Response_Warning : public Object {
 public:
     Common_Response_Warning();
-    Common_Response_Warning(QString json);
+    Common_Response_Warning(const QString &json);
     ~Common_Response_Warning() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getSWarningMessage() const;
     void setSWarningMessage(const QString &s_warning_message);

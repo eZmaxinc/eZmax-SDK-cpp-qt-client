@@ -32,13 +32,13 @@ namespace Ezmaxapi {
 class User_createEzsignuser_v1_Response_mPayload : public Object {
 public:
     User_createEzsignuser_v1_Response_mPayload();
-    User_createEzsignuser_v1_Response_mPayload(QString json);
+    User_createEzsignuser_v1_Response_mPayload(const QString &json);
     ~User_createEzsignuser_v1_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<QString> getASEmailAddressSuccess() const;
     void setASEmailAddressSuccess(const QList<QString> &a_s_email_address_success);

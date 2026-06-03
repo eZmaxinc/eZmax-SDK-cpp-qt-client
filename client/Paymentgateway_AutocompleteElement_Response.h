@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Paymentgateway_AutocompleteElement_Response : public Object {
 public:
     Paymentgateway_AutocompleteElement_Response();
-    Paymentgateway_AutocompleteElement_Response(QString json);
+    Paymentgateway_AutocompleteElement_Response(const QString &json);
     ~Paymentgateway_AutocompleteElement_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiPaymentgatewayId() const;
     void setPkiPaymentgatewayId(const qint32 &pki_paymentgateway_id);

@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_eEzmaxinvoicinguserVariationezsign::Field_eEzmaxinvoicinguserVariationezsign(QString json) {
+Field_eEzmaxinvoicinguserVariationezsign::Field_eEzmaxinvoicinguserVariationezsign(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_eEzmaxinvoicinguserVariationezsign::initializeModel() {
     m_value = eField_eEzmaxinvoicinguserVariationezsign::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_eEzmaxinvoicinguserVariationezsign::fromJson(QString jsonString) {
+void Field_eEzmaxinvoicinguserVariationezsign::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("Charge", Qt::CaseInsensitive) == 0) {
         m_value = eField_eEzmaxinvoicinguserVariationezsign::CHARGE;

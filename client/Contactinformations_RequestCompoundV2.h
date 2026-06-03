@@ -40,13 +40,13 @@ class Website_RequestCompound;
 class Contactinformations_RequestCompoundV2 : public Object {
 public:
     Contactinformations_RequestCompoundV2();
-    Contactinformations_RequestCompoundV2(QString json);
+    Contactinformations_RequestCompoundV2(const QString &json);
     ~Contactinformations_RequestCompoundV2() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Field_eContactinformationsType getEContactinformationsType() const;
     void setEContactinformationsType(const Field_eContactinformationsType &e_contactinformations_type);

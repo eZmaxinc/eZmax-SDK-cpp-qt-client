@@ -34,13 +34,13 @@ namespace Ezmaxapi {
 class User_ListElement : public Object {
 public:
     User_ListElement();
-    User_ListElement(QString json);
+    User_ListElement(const QString &json);
     ~User_ListElement() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiUserId() const;
     void setPkiUserId(const qint32 &pki_user_id);
@@ -66,6 +66,11 @@ public:
     void setBUserIsactive(const bool &b_user_isactive);
     bool is_b_user_isactive_Set() const;
     bool is_b_user_isactive_Valid() const;
+
+    bool isBUserSuspended() const;
+    void setBUserSuspended(const bool &b_user_suspended);
+    bool is_b_user_suspended_Set() const;
+    bool is_b_user_suspended_Valid() const;
 
     Field_eUserType getEUserType() const;
     void setEUserType(const Field_eUserType &e_user_type);
@@ -122,6 +127,10 @@ private:
     bool m_b_user_isactive;
     bool m_b_user_isactive_isSet;
     bool m_b_user_isactive_isValid;
+
+    bool m_b_user_suspended;
+    bool m_b_user_suspended_isSet;
+    bool m_b_user_suspended_isValid;
 
     Field_eUserType m_e_user_type;
     bool m_e_user_type_isSet;

@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Inscriptiontemp_ListElement::Inscriptiontemp_ListElement(QString json) {
+Inscriptiontemp_ListElement::Inscriptiontemp_ListElement(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -56,7 +56,7 @@ void Inscriptiontemp_ListElement::initializeModel() {
     m_dt_modified_date_isValid = false;
 }
 
-void Inscriptiontemp_ListElement::fromJson(QString jsonString) {
+void Inscriptiontemp_ListElement::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

@@ -42,13 +42,13 @@ class Ezsigntemplateformfield_ResponseCompound;
 class Ezsigntemplateformfieldgroup_ResponseCompound : public Object {
 public:
     Ezsigntemplateformfieldgroup_ResponseCompound();
-    Ezsigntemplateformfieldgroup_ResponseCompound(QString json);
+    Ezsigntemplateformfieldgroup_ResponseCompound(const QString &json);
     ~Ezsigntemplateformfieldgroup_ResponseCompound() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiEzsigntemplateformfieldgroupId() const;
     void setPkiEzsigntemplateformfieldgroupId(const qint32 &pki_ezsigntemplateformfieldgroup_id);

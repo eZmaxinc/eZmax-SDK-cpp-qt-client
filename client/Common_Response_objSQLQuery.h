@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Common_Response_objSQLQuery : public Object {
 public:
     Common_Response_objSQLQuery();
-    Common_Response_objSQLQuery(QString json);
+    Common_Response_objSQLQuery(const QString &json);
     ~Common_Response_objSQLQuery() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getSQuery() const;
     void setSQuery(const QString &s_query);

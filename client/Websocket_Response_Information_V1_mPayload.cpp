@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Websocket_Response_Information_V1_mPayload::Websocket_Response_Information_V1_mPayload(QString json) {
+Websocket_Response_Information_V1_mPayload::Websocket_Response_Information_V1_mPayload(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -38,7 +38,7 @@ void Websocket_Response_Information_V1_mPayload::initializeModel() {
     m_s_information_message_isValid = false;
 }
 
-void Websocket_Response_Information_V1_mPayload::fromJson(QString jsonString) {
+void Websocket_Response_Information_V1_mPayload::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

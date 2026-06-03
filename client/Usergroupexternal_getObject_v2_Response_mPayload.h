@@ -32,13 +32,13 @@ class Usergroupexternal_ResponseCompound;
 class Usergroupexternal_getObject_v2_Response_mPayload : public Object {
 public:
     Usergroupexternal_getObject_v2_Response_mPayload();
-    Usergroupexternal_getObject_v2_Response_mPayload(QString json);
+    Usergroupexternal_getObject_v2_Response_mPayload(const QString &json);
     ~Usergroupexternal_getObject_v2_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Usergroupexternal_ResponseCompound getObjUsergroupexternal() const;
     void setObjUsergroupexternal(const Usergroupexternal_ResponseCompound &obj_usergroupexternal);

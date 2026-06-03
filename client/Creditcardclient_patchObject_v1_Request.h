@@ -32,13 +32,13 @@ class Creditcardclient_RequestPatch;
 class Creditcardclient_patchObject_v1_Request : public Object {
 public:
     Creditcardclient_patchObject_v1_Request();
-    Creditcardclient_patchObject_v1_Request(QString json);
+    Creditcardclient_patchObject_v1_Request(const QString &json);
     ~Creditcardclient_patchObject_v1_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Creditcardclient_RequestPatch getObjCreditcardclient() const;
     void setObjCreditcardclient(const Creditcardclient_RequestPatch &obj_creditcardclient);

@@ -37,13 +37,13 @@ class Common_Reportcellstylecustom;
 class Common_Reportrow : public Object {
 public:
     Common_Reportrow();
-    Common_Reportrow(QString json);
+    Common_Reportrow(const QString &json);
     ~Common_Reportrow() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Common_Reportcell> getAObjReportcell() const;
     void setAObjReportcell(const QList<Common_Reportcell> &a_obj_reportcell);

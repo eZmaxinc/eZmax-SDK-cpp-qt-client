@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Ezsigndocumentdependency_RequestCompound::Ezsigndocumentdependency_RequestCompound(QString json) {
+Ezsigndocumentdependency_RequestCompound::Ezsigndocumentdependency_RequestCompound(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -41,7 +41,7 @@ void Ezsigndocumentdependency_RequestCompound::initializeModel() {
     m_fki_ezsigndocument_i_ddependency_isValid = false;
 }
 
-void Ezsigndocumentdependency_RequestCompound::fromJson(QString jsonString) {
+void Ezsigndocumentdependency_RequestCompound::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

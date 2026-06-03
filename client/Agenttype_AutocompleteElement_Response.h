@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Agenttype_AutocompleteElement_Response : public Object {
 public:
     Agenttype_AutocompleteElement_Response();
-    Agenttype_AutocompleteElement_Response(QString json);
+    Agenttype_AutocompleteElement_Response(const QString &json);
     ~Agenttype_AutocompleteElement_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiAgenttypeId() const;
     void setPkiAgenttypeId(const qint32 &pki_agenttype_id);

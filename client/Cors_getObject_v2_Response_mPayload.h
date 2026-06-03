@@ -32,13 +32,13 @@ class Cors_ResponseCompound;
 class Cors_getObject_v2_Response_mPayload : public Object {
 public:
     Cors_getObject_v2_Response_mPayload();
-    Cors_getObject_v2_Response_mPayload(QString json);
+    Cors_getObject_v2_Response_mPayload(const QString &json);
     ~Cors_getObject_v2_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Cors_ResponseCompound getObjCors() const;
     void setObjCors(const Cors_ResponseCompound &obj_cors);

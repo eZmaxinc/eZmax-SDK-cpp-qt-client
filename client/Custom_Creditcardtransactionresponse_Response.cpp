@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Custom_Creditcardtransactionresponse_Response::Custom_Creditcardtransactionresponse_Response(QString json) {
+Custom_Creditcardtransactionresponse_Response::Custom_Creditcardtransactionresponse_Response(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -50,7 +50,7 @@ void Custom_Creditcardtransactionresponse_Response::initializeModel() {
     m_e_creditcardtransaction_cvdresult_isValid = false;
 }
 
-void Custom_Creditcardtransactionresponse_Response::fromJson(QString jsonString) {
+void Custom_Creditcardtransactionresponse_Response::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

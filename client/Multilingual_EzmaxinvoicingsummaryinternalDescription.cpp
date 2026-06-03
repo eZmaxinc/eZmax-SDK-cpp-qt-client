@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Multilingual_EzmaxinvoicingsummaryinternalDescription::Multilingual_EzmaxinvoicingsummaryinternalDescription(QString json) {
+Multilingual_EzmaxinvoicingsummaryinternalDescription::Multilingual_EzmaxinvoicingsummaryinternalDescription(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -41,7 +41,7 @@ void Multilingual_EzmaxinvoicingsummaryinternalDescription::initializeModel() {
     m_s_ezmaxinvoicingsummaryinternal_description2_isValid = false;
 }
 
-void Multilingual_EzmaxinvoicingsummaryinternalDescription::fromJson(QString jsonString) {
+void Multilingual_EzmaxinvoicingsummaryinternalDescription::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

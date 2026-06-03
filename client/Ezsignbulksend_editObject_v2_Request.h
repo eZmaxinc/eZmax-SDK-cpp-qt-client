@@ -32,13 +32,13 @@ class Ezsignbulksend_RequestCompoundV2;
 class Ezsignbulksend_editObject_v2_Request : public Object {
 public:
     Ezsignbulksend_editObject_v2_Request();
-    Ezsignbulksend_editObject_v2_Request(QString json);
+    Ezsignbulksend_editObject_v2_Request(const QString &json);
     ~Ezsignbulksend_editObject_v2_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Ezsignbulksend_RequestCompoundV2 getObjEzsignbulksend() const;
     void setObjEzsignbulksend(const Ezsignbulksend_RequestCompoundV2 &obj_ezsignbulksend);

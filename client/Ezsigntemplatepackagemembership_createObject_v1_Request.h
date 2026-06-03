@@ -33,13 +33,13 @@ class Ezsigntemplatepackagemembership_RequestCompound;
 class Ezsigntemplatepackagemembership_createObject_v1_Request : public Object {
 public:
     Ezsigntemplatepackagemembership_createObject_v1_Request();
-    Ezsigntemplatepackagemembership_createObject_v1_Request(QString json);
+    Ezsigntemplatepackagemembership_createObject_v1_Request(const QString &json);
     ~Ezsigntemplatepackagemembership_createObject_v1_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Ezsigntemplatepackagemembership_RequestCompound> getAObjEzsigntemplatepackagemembership() const;
     void setAObjEzsigntemplatepackagemembership(const QList<Ezsigntemplatepackagemembership_RequestCompound> &a_obj_ezsigntemplatepackagemembership);

@@ -38,13 +38,13 @@ class Common_ReportgroupParameter;
 class Common_Reportgroup : public Object {
 public:
     Common_Reportgroup();
-    Common_Reportgroup(QString json);
+    Common_Reportgroup(const QString &json);
     ~Common_Reportgroup() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Common_Report> getAObjReport() const;
     void setAObjReport(const QList<Common_Report> &a_obj_report);

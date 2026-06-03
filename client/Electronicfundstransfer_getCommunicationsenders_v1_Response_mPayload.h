@@ -33,13 +33,13 @@ class Custom_Communicationsender_Response;
 class Electronicfundstransfer_getCommunicationsenders_v1_Response_mPayload : public Object {
 public:
     Electronicfundstransfer_getCommunicationsenders_v1_Response_mPayload();
-    Electronicfundstransfer_getCommunicationsenders_v1_Response_mPayload(QString json);
+    Electronicfundstransfer_getCommunicationsenders_v1_Response_mPayload(const QString &json);
     ~Electronicfundstransfer_getCommunicationsenders_v1_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Custom_Communicationsender_Response> getAObjCommunicationsenders() const;
     void setAObjCommunicationsenders(const QList<Custom_Communicationsender_Response> &a_obj_communicationsenders);

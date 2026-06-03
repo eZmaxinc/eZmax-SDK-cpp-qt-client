@@ -34,13 +34,13 @@ class Custom_Ezsignsignaturestatus_Response;
 class Custom_Ezsignfoldersignerassociationstatus_Response : public Object {
 public:
     Custom_Ezsignfoldersignerassociationstatus_Response();
-    Custom_Ezsignfoldersignerassociationstatus_Response(QString json);
+    Custom_Ezsignfoldersignerassociationstatus_Response(const QString &json);
     ~Custom_Ezsignfoldersignerassociationstatus_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getFkiEzsignfoldersignerassociationId() const;
     void setFkiEzsignfoldersignerassociationId(const qint32 &fki_ezsignfoldersignerassociation_id);

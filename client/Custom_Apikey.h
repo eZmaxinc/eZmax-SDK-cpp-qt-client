@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Custom_Apikey : public Object {
 public:
     Custom_Apikey();
-    Custom_Apikey(QString json);
+    Custom_Apikey(const QString &json);
     ~Custom_Apikey() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getSApikeyKey() const;
     void setSApikeyKey(const QString &s_apikey_key);

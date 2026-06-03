@@ -22,6 +22,7 @@
 #include <QJsonObject>
 
 #include "Field_eEzsignfolderCompletion.h"
+#include "Field_eEzsignfolderSource.h"
 #include "Field_eEzsignfolderStep.h"
 #include "Field_eEzsignfoldertypePrivacylevel.h"
 #include <QString>
@@ -34,13 +35,13 @@ namespace Ezmaxapi {
 class Ezsignfolder_ListElement : public Object {
 public:
     Ezsignfolder_ListElement();
-    Ezsignfolder_ListElement(QString json);
+    Ezsignfolder_ListElement(const QString &json);
     ~Ezsignfolder_ListElement() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiEzsignfolderId() const;
     void setPkiEzsignfolderId(const qint32 &pki_ezsignfolder_id);
@@ -51,6 +52,41 @@ public:
     void setFkiEzsignfoldertypeId(const qint32 &fki_ezsignfoldertype_id);
     bool is_fki_ezsignfoldertype_id_Set() const;
     bool is_fki_ezsignfoldertype_id_Valid() const;
+
+    qint32 getFkiEzsignbulksendId() const;
+    void setFkiEzsignbulksendId(const qint32 &fki_ezsignbulksend_id);
+    bool is_fki_ezsignbulksend_id_Set() const;
+    bool is_fki_ezsignbulksend_id_Valid() const;
+
+    QString getSEzsignbulksendDescription() const;
+    void setSEzsignbulksendDescription(const QString &s_ezsignbulksend_description);
+    bool is_s_ezsignbulksend_description_Set() const;
+    bool is_s_ezsignbulksend_description_Valid() const;
+
+    qint32 getFkiEzsignbulksendtransmissionId() const;
+    void setFkiEzsignbulksendtransmissionId(const qint32 &fki_ezsignbulksendtransmission_id);
+    bool is_fki_ezsignbulksendtransmission_id_Set() const;
+    bool is_fki_ezsignbulksendtransmission_id_Valid() const;
+
+    QString getSEzsignbulksendtransmissionDescription() const;
+    void setSEzsignbulksendtransmissionDescription(const QString &s_ezsignbulksendtransmission_description);
+    bool is_s_ezsignbulksendtransmission_description_Set() const;
+    bool is_s_ezsignbulksendtransmission_description_Valid() const;
+
+    qint32 getFkiEzsigntemplatepublicId() const;
+    void setFkiEzsigntemplatepublicId(const qint32 &fki_ezsigntemplatepublic_id);
+    bool is_fki_ezsigntemplatepublic_id_Set() const;
+    bool is_fki_ezsigntemplatepublic_id_Valid() const;
+
+    QString getSEzsigntemplatepublicDescription() const;
+    void setSEzsigntemplatepublicDescription(const QString &s_ezsigntemplatepublic_description);
+    bool is_s_ezsigntemplatepublic_description_Set() const;
+    bool is_s_ezsigntemplatepublic_description_Valid() const;
+
+    Field_eEzsignfolderSource getEEzsignfolderSource() const;
+    void setEEzsignfolderSource(const Field_eEzsignfolderSource &e_ezsignfolder_source);
+    bool is_e_ezsignfolder_source_Set() const;
+    bool is_e_ezsignfolder_source_Valid() const;
 
     Field_eEzsignfoldertypePrivacylevel getEEzsignfoldertypePrivacylevel() const;
     void setEEzsignfoldertypePrivacylevel(const Field_eEzsignfoldertypePrivacylevel &e_ezsignfoldertype_privacylevel);
@@ -167,6 +203,11 @@ public:
     bool is_b_ezsignfolder_signer_Set() const;
     bool is_b_ezsignfolder_signer_Valid() const;
 
+    bool isBEzsignfolderIsmyown() const;
+    void setBEzsignfolderIsmyown(const bool &b_ezsignfolder_ismyown);
+    bool is_b_ezsignfolder_ismyown_Set() const;
+    bool is_b_ezsignfolder_ismyown_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -180,6 +221,34 @@ private:
     qint32 m_fki_ezsignfoldertype_id;
     bool m_fki_ezsignfoldertype_id_isSet;
     bool m_fki_ezsignfoldertype_id_isValid;
+
+    qint32 m_fki_ezsignbulksend_id;
+    bool m_fki_ezsignbulksend_id_isSet;
+    bool m_fki_ezsignbulksend_id_isValid;
+
+    QString m_s_ezsignbulksend_description;
+    bool m_s_ezsignbulksend_description_isSet;
+    bool m_s_ezsignbulksend_description_isValid;
+
+    qint32 m_fki_ezsignbulksendtransmission_id;
+    bool m_fki_ezsignbulksendtransmission_id_isSet;
+    bool m_fki_ezsignbulksendtransmission_id_isValid;
+
+    QString m_s_ezsignbulksendtransmission_description;
+    bool m_s_ezsignbulksendtransmission_description_isSet;
+    bool m_s_ezsignbulksendtransmission_description_isValid;
+
+    qint32 m_fki_ezsigntemplatepublic_id;
+    bool m_fki_ezsigntemplatepublic_id_isSet;
+    bool m_fki_ezsigntemplatepublic_id_isValid;
+
+    QString m_s_ezsigntemplatepublic_description;
+    bool m_s_ezsigntemplatepublic_description_isSet;
+    bool m_s_ezsigntemplatepublic_description_isValid;
+
+    Field_eEzsignfolderSource m_e_ezsignfolder_source;
+    bool m_e_ezsignfolder_source_isSet;
+    bool m_e_ezsignfolder_source_isValid;
 
     Field_eEzsignfoldertypePrivacylevel m_e_ezsignfoldertype_privacylevel;
     bool m_e_ezsignfoldertype_privacylevel_isSet;
@@ -272,6 +341,10 @@ private:
     bool m_b_ezsignfolder_signer;
     bool m_b_ezsignfolder_signer_isSet;
     bool m_b_ezsignfolder_signer_isValid;
+
+    bool m_b_ezsignfolder_ismyown;
+    bool m_b_ezsignfolder_ismyown_isSet;
+    bool m_b_ezsignfolder_ismyown_isValid;
 };
 
 } // namespace Ezmaxapi

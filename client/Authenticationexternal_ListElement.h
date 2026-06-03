@@ -32,13 +32,13 @@ namespace Ezmaxapi {
 class Authenticationexternal_ListElement : public Object {
 public:
     Authenticationexternal_ListElement();
-    Authenticationexternal_ListElement(QString json);
+    Authenticationexternal_ListElement(const QString &json);
     ~Authenticationexternal_ListElement() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiAuthenticationexternalId() const;
     void setPkiAuthenticationexternalId(const qint32 &pki_authenticationexternal_id);

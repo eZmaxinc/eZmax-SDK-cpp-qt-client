@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Custom_AttachmentPrepareFilesTransfer_Request : public Object {
 public:
     Custom_AttachmentPrepareFilesTransfer_Request();
-    Custom_AttachmentPrepareFilesTransfer_Request(QString json);
+    Custom_AttachmentPrepareFilesTransfer_Request(const QString &json);
     ~Custom_AttachmentPrepareFilesTransfer_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getSAttachmentName() const;
     void setSAttachmentName(const QString &s_attachment_name);

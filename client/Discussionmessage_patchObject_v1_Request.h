@@ -32,13 +32,13 @@ class Discussionmessage_RequestPatch;
 class Discussionmessage_patchObject_v1_Request : public Object {
 public:
     Discussionmessage_patchObject_v1_Request();
-    Discussionmessage_patchObject_v1_Request(QString json);
+    Discussionmessage_patchObject_v1_Request(const QString &json);
     ~Discussionmessage_patchObject_v1_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Discussionmessage_RequestPatch getObjDiscussionmessage() const;
     void setObjDiscussionmessage(const Discussionmessage_RequestPatch &obj_discussionmessage);

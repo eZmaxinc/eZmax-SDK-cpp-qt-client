@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Realestateboard_AutocompleteElement_Response : public Object {
 public:
     Realestateboard_AutocompleteElement_Response();
-    Realestateboard_AutocompleteElement_Response(QString json);
+    Realestateboard_AutocompleteElement_Response(const QString &json);
     ~Realestateboard_AutocompleteElement_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiRealestateboardId() const;
     void setPkiRealestateboardId(const qint32 &pki_realestateboard_id);

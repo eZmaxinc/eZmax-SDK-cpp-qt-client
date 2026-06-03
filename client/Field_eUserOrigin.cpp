@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_eUserOrigin::Field_eUserOrigin(QString json) {
+Field_eUserOrigin::Field_eUserOrigin(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_eUserOrigin::initializeModel() {
     m_value = eField_eUserOrigin::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_eUserOrigin::fromJson(QString jsonString) {
+void Field_eUserOrigin::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("BuiltIn", Qt::CaseInsensitive) == 0) {
         m_value = eField_eUserOrigin::BUILTIN;

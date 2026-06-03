@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_eEzsigntemplatesignerMapping::Field_eEzsigntemplatesignerMapping(QString json) {
+Field_eEzsigntemplatesignerMapping::Field_eEzsigntemplatesignerMapping(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_eEzsigntemplatesignerMapping::initializeModel() {
     m_value = eField_eEzsigntemplatesignerMapping::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_eEzsigntemplatesignerMapping::fromJson(QString jsonString) {
+void Field_eEzsigntemplatesignerMapping::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("Manual", Qt::CaseInsensitive) == 0) {
         m_value = eField_eEzsigntemplatesignerMapping::MANUAL;

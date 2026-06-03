@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Custom_Apikey::Custom_Apikey(QString json) {
+Custom_Apikey::Custom_Apikey(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -41,7 +41,7 @@ void Custom_Apikey::initializeModel() {
     m_s_apikey_secret_isValid = false;
 }
 
-void Custom_Apikey::fromJson(QString jsonString) {
+void Custom_Apikey::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

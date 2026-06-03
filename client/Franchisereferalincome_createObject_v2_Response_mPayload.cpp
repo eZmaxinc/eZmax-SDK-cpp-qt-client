@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Franchisereferalincome_createObject_v2_Response_mPayload::Franchisereferalincome_createObject_v2_Response_mPayload(QString json) {
+Franchisereferalincome_createObject_v2_Response_mPayload::Franchisereferalincome_createObject_v2_Response_mPayload(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -38,7 +38,7 @@ void Franchisereferalincome_createObject_v2_Response_mPayload::initializeModel()
     m_a_pki_franchisereferalincome_id_isValid = false;
 }
 
-void Franchisereferalincome_createObject_v2_Response_mPayload::fromJson(QString jsonString) {
+void Franchisereferalincome_createObject_v2_Response_mPayload::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

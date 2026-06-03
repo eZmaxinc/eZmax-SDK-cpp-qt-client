@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Custom_TimezoneWithCode_Response::Custom_TimezoneWithCode_Response(QString json) {
+Custom_TimezoneWithCode_Response::Custom_TimezoneWithCode_Response(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -41,7 +41,7 @@ void Custom_TimezoneWithCode_Response::initializeModel() {
     m_s_code_isValid = false;
 }
 
-void Custom_TimezoneWithCode_Response::fromJson(QString jsonString) {
+void Custom_TimezoneWithCode_Response::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

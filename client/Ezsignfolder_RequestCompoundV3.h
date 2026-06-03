@@ -32,13 +32,13 @@ namespace Ezmaxapi {
 class Ezsignfolder_RequestCompoundV3 : public Object {
 public:
     Ezsignfolder_RequestCompoundV3();
-    Ezsignfolder_RequestCompoundV3(QString json);
+    Ezsignfolder_RequestCompoundV3(const QString &json);
     ~Ezsignfolder_RequestCompoundV3() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiEzsignfolderId() const;
     void setPkiEzsignfolderId(const qint32 &pki_ezsignfolder_id);

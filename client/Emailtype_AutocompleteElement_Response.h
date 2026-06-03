@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Emailtype_AutocompleteElement_Response : public Object {
 public:
     Emailtype_AutocompleteElement_Response();
-    Emailtype_AutocompleteElement_Response(QString json);
+    Emailtype_AutocompleteElement_Response(const QString &json);
     ~Emailtype_AutocompleteElement_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiEmailtypeId() const;
     void setPkiEmailtypeId(const qint32 &pki_emailtype_id);

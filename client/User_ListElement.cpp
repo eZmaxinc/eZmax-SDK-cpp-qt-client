@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-User_ListElement::User_ListElement(QString json) {
+User_ListElement::User_ListElement(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -49,6 +49,9 @@ void User_ListElement::initializeModel() {
     m_b_user_isactive_isSet = false;
     m_b_user_isactive_isValid = false;
 
+    m_b_user_suspended_isSet = false;
+    m_b_user_suspended_isValid = false;
+
     m_e_user_type_isSet = false;
     m_e_user_type_isValid = false;
 
@@ -68,7 +71,7 @@ void User_ListElement::initializeModel() {
     m_s_user_jobtitle_isValid = false;
 }
 
-void User_ListElement::fromJson(QString jsonString) {
+void User_ListElement::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();
@@ -91,6 +94,9 @@ void User_ListElement::fromJsonObject(QJsonObject json) {
 
     m_b_user_isactive_isValid = ::Ezmaxapi::fromJsonValue(m_b_user_isactive, json[QString("bUserIsactive")]);
     m_b_user_isactive_isSet = !json[QString("bUserIsactive")].isNull() && m_b_user_isactive_isValid;
+
+    m_b_user_suspended_isValid = ::Ezmaxapi::fromJsonValue(m_b_user_suspended, json[QString("bUserSuspended")]);
+    m_b_user_suspended_isSet = !json[QString("bUserSuspended")].isNull() && m_b_user_suspended_isValid;
 
     m_e_user_type_isValid = ::Ezmaxapi::fromJsonValue(m_e_user_type, json[QString("eUserType")]);
     m_e_user_type_isSet = !json[QString("eUserType")].isNull() && m_e_user_type_isValid;
@@ -134,6 +140,9 @@ QJsonObject User_ListElement::asJsonObject() const {
     }
     if (m_b_user_isactive_isSet) {
         obj.insert(QString("bUserIsactive"), ::Ezmaxapi::toJsonValue(m_b_user_isactive));
+    }
+    if (m_b_user_suspended_isSet) {
+        obj.insert(QString("bUserSuspended"), ::Ezmaxapi::toJsonValue(m_b_user_suspended));
     }
     if (m_e_user_type.isSet()) {
         obj.insert(QString("eUserType"), ::Ezmaxapi::toJsonValue(m_e_user_type));
@@ -234,6 +243,22 @@ bool User_ListElement::is_b_user_isactive_Set() const{
 
 bool User_ListElement::is_b_user_isactive_Valid() const{
     return m_b_user_isactive_isValid;
+}
+
+bool User_ListElement::isBUserSuspended() const {
+    return m_b_user_suspended;
+}
+void User_ListElement::setBUserSuspended(const bool &b_user_suspended) {
+    m_b_user_suspended = b_user_suspended;
+    m_b_user_suspended_isSet = true;
+}
+
+bool User_ListElement::is_b_user_suspended_Set() const{
+    return m_b_user_suspended_isSet;
+}
+
+bool User_ListElement::is_b_user_suspended_Valid() const{
+    return m_b_user_suspended_isValid;
 }
 
 Field_eUserType User_ListElement::getEUserType() const {
@@ -356,6 +381,11 @@ bool User_ListElement::isSet() const {
         }
 
         if (m_b_user_isactive_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_b_user_suspended_isSet) {
             isObjectUpdated = true;
             break;
         }

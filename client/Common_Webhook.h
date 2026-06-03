@@ -35,13 +35,13 @@ class Attempt_ResponseCompound;
 class Common_Webhook : public Object {
 public:
     Common_Webhook();
-    Common_Webhook(QString json);
+    Common_Webhook(const QString &json);
     ~Common_Webhook() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Custom_Webhook_Response getObjWebhook() const;
     void setObjWebhook(const Custom_Webhook_Response &obj_webhook);

@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Cors_editObject_v1_Request::Cors_editObject_v1_Request(QString json) {
+Cors_editObject_v1_Request::Cors_editObject_v1_Request(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -38,7 +38,7 @@ void Cors_editObject_v1_Request::initializeModel() {
     m_obj_cors_isValid = false;
 }
 
-void Cors_editObject_v1_Request::fromJson(QString jsonString) {
+void Cors_editObject_v1_Request::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

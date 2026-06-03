@@ -33,13 +33,13 @@ class Ezsigndocument_createElement_v3_Response;
 class Ezsigndocument_createObject_v3_Response_mPayload : public Object {
 public:
     Ezsigndocument_createObject_v3_Response_mPayload();
-    Ezsigndocument_createObject_v3_Response_mPayload(QString json);
+    Ezsigndocument_createObject_v3_Response_mPayload(const QString &json);
     ~Ezsigndocument_createObject_v3_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Ezsigndocument_createElement_v3_Response> getAObjEzsigndocument() const;
     void setAObjEzsigndocument(const QList<Ezsigndocument_createElement_v3_Response> &a_obj_ezsigndocument);

@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Ezsignannotation_RequestCompound::Ezsignannotation_RequestCompound(QString json) {
+Ezsignannotation_RequestCompound::Ezsignannotation_RequestCompound(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -71,7 +71,7 @@ void Ezsignannotation_RequestCompound::initializeModel() {
     m_obj_textstylestatic_isValid = false;
 }
 
-void Ezsignannotation_RequestCompound::fromJson(QString jsonString) {
+void Ezsignannotation_RequestCompound::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

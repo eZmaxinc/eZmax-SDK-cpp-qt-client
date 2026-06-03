@@ -24,38 +24,40 @@
 #include "Field_eEzsigntemplateglobalannotationHorizontalalignment.h"
 #include "Field_eEzsigntemplateglobalannotationType.h"
 #include "Field_eEzsigntemplateglobalannotationVerticalalignment.h"
+#include "Textstylestatic_RequestCompound.h"
 #include <QString>
 
 #include "Enum.h"
 #include "Object.h"
 
 namespace Ezmaxapi {
+class Textstylestatic_RequestCompound;
 
 class Ezsigntemplateglobalannotation_Response : public Object {
 public:
     Ezsigntemplateglobalannotation_Response();
-    Ezsigntemplateglobalannotation_Response(QString json);
+    Ezsigntemplateglobalannotation_Response(const QString &json);
     ~Ezsigntemplateglobalannotation_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiEzsigntemplateglobalannotationId() const;
     void setPkiEzsigntemplateglobalannotationId(const qint32 &pki_ezsigntemplateglobalannotation_id);
     bool is_pki_ezsigntemplateglobalannotation_id_Set() const;
     bool is_pki_ezsigntemplateglobalannotation_id_Valid() const;
 
-    qint32 getFkiEzsigntemplateglobaldocumentpageId() const;
-    void setFkiEzsigntemplateglobaldocumentpageId(const qint32 &fki_ezsigntemplateglobaldocumentpage_id);
-    bool is_fki_ezsigntemplateglobaldocumentpage_id_Set() const;
-    bool is_fki_ezsigntemplateglobaldocumentpage_id_Valid() const;
-
     qint32 getFkiTextstylestaticId() const;
     void setFkiTextstylestaticId(const qint32 &fki_textstylestatic_id);
     bool is_fki_textstylestatic_id_Set() const;
     bool is_fki_textstylestatic_id_Valid() const;
+
+    Textstylestatic_RequestCompound getObjTextstylestatic() const;
+    void setObjTextstylestatic(const Textstylestatic_RequestCompound &obj_textstylestatic);
+    bool is_obj_textstylestatic_Set() const;
+    bool is_obj_textstylestatic_Valid() const;
 
     Field_eEzsigntemplateglobalannotationHorizontalalignment getEEzsigntemplateglobalannotationHorizontalalignment() const;
     void setEEzsigntemplateglobalannotationHorizontalalignment(const Field_eEzsigntemplateglobalannotationHorizontalalignment &e_ezsigntemplateglobalannotation_horizontalalignment);
@@ -92,6 +94,11 @@ public:
     bool is_i_ezsigntemplateglobalannotation_height_Set() const;
     bool is_i_ezsigntemplateglobalannotation_height_Valid() const;
 
+    qint32 getIEzsigntemplateglobaldocumentpagePagenumber() const;
+    void setIEzsigntemplateglobaldocumentpagePagenumber(const qint32 &i_ezsigntemplateglobaldocumentpage_pagenumber);
+    bool is_i_ezsigntemplateglobaldocumentpage_pagenumber_Set() const;
+    bool is_i_ezsigntemplateglobaldocumentpage_pagenumber_Valid() const;
+
     QString getSEzsigntemplateglobalannotationDescription() const;
     void setSEzsigntemplateglobalannotationDescription(const QString &s_ezsigntemplateglobalannotation_description);
     bool is_s_ezsigntemplateglobalannotation_description_Set() const;
@@ -117,13 +124,13 @@ private:
     bool m_pki_ezsigntemplateglobalannotation_id_isSet;
     bool m_pki_ezsigntemplateglobalannotation_id_isValid;
 
-    qint32 m_fki_ezsigntemplateglobaldocumentpage_id;
-    bool m_fki_ezsigntemplateglobaldocumentpage_id_isSet;
-    bool m_fki_ezsigntemplateglobaldocumentpage_id_isValid;
-
     qint32 m_fki_textstylestatic_id;
     bool m_fki_textstylestatic_id_isSet;
     bool m_fki_textstylestatic_id_isValid;
+
+    Textstylestatic_RequestCompound m_obj_textstylestatic;
+    bool m_obj_textstylestatic_isSet;
+    bool m_obj_textstylestatic_isValid;
 
     Field_eEzsigntemplateglobalannotationHorizontalalignment m_e_ezsigntemplateglobalannotation_horizontalalignment;
     bool m_e_ezsigntemplateglobalannotation_horizontalalignment_isSet;
@@ -152,6 +159,10 @@ private:
     qint32 m_i_ezsigntemplateglobalannotation_height;
     bool m_i_ezsigntemplateglobalannotation_height_isSet;
     bool m_i_ezsigntemplateglobalannotation_height_isValid;
+
+    qint32 m_i_ezsigntemplateglobaldocumentpage_pagenumber;
+    bool m_i_ezsigntemplateglobaldocumentpage_pagenumber_isSet;
+    bool m_i_ezsigntemplateglobaldocumentpage_pagenumber_isValid;
 
     QString m_s_ezsigntemplateglobalannotation_description;
     bool m_s_ezsigntemplateglobalannotation_description_isSet;

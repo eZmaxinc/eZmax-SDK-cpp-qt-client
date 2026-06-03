@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Paymentterm_AutocompleteElement_Response::Paymentterm_AutocompleteElement_Response(QString json) {
+Paymentterm_AutocompleteElement_Response::Paymentterm_AutocompleteElement_Response(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -44,7 +44,7 @@ void Paymentterm_AutocompleteElement_Response::initializeModel() {
     m_b_paymentterm_isactive_isValid = false;
 }
 
-void Paymentterm_AutocompleteElement_Response::fromJson(QString jsonString) {
+void Paymentterm_AutocompleteElement_Response::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

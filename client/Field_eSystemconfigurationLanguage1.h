@@ -30,13 +30,13 @@ namespace Ezmaxapi {
 class Field_eSystemconfigurationLanguage1 : public Enum {
 public:
     Field_eSystemconfigurationLanguage1();
-    Field_eSystemconfigurationLanguage1(QString json);
+    Field_eSystemconfigurationLanguage1(const QString &json);
     ~Field_eSystemconfigurationLanguage1() override;
 
     QString asJson() const override;
     QJsonValue asJsonValue() const override;
     void fromJsonValue(QJsonValue json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     enum class eField_eSystemconfigurationLanguage1 {
         INVALID_VALUE_OPENAPI_GENERATED = 0,

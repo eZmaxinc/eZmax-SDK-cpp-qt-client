@@ -32,13 +32,13 @@ namespace Ezmaxapi {
 class Ezsigndocumentlog_Response : public Object {
 public:
     Ezsigndocumentlog_Response();
-    Ezsigndocumentlog_Response(QString json);
+    Ezsigndocumentlog_Response(const QString &json);
     ~Ezsigndocumentlog_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getFkiUserId() const;
     void setFkiUserId(const qint32 &fki_user_id);

@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Websocket_Response_GetWebsocketID_V1_mPayload : public Object {
 public:
     Websocket_Response_GetWebsocketID_V1_mPayload();
-    Websocket_Response_GetWebsocketID_V1_mPayload(QString json);
+    Websocket_Response_GetWebsocketID_V1_mPayload(const QString &json);
     ~Websocket_Response_GetWebsocketID_V1_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getSWebsocketId() const;
     void setSWebsocketId(const QString &s_websocket_id);

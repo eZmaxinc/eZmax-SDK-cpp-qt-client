@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Branding_ListElement::Branding_ListElement(QString json) {
+Branding_ListElement::Branding_ListElement(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -62,7 +62,7 @@ void Branding_ListElement::initializeModel() {
     m_b_branding_isactive_isValid = false;
 }
 
-void Branding_ListElement::fromJson(QString jsonString) {
+void Branding_ListElement::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

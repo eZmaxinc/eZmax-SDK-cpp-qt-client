@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Ezsigntemplateformfieldgroup_createObject_v1_Response_mPayload::Ezsigntemplateformfieldgroup_createObject_v1_Response_mPayload(QString json) {
+Ezsigntemplateformfieldgroup_createObject_v1_Response_mPayload::Ezsigntemplateformfieldgroup_createObject_v1_Response_mPayload(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -38,7 +38,7 @@ void Ezsigntemplateformfieldgroup_createObject_v1_Response_mPayload::initializeM
     m_a_pki_ezsigntemplateformfieldgroup_id_isValid = false;
 }
 
-void Ezsigntemplateformfieldgroup_createObject_v1_Response_mPayload::fromJson(QString jsonString) {
+void Ezsigntemplateformfieldgroup_createObject_v1_Response_mPayload::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

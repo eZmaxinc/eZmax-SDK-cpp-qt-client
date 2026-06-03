@@ -34,13 +34,13 @@ class Common_Audit;
 class Authenticationexternal_Response : public Object {
 public:
     Authenticationexternal_Response();
-    Authenticationexternal_Response(QString json);
+    Authenticationexternal_Response(const QString &json);
     ~Authenticationexternal_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiAuthenticationexternalId() const;
     void setPkiAuthenticationexternalId(const qint32 &pki_authenticationexternal_id);

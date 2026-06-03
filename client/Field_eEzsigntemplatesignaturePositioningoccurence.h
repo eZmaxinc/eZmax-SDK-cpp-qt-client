@@ -30,13 +30,13 @@ namespace Ezmaxapi {
 class Field_eEzsigntemplatesignaturePositioningoccurence : public Enum {
 public:
     Field_eEzsigntemplatesignaturePositioningoccurence();
-    Field_eEzsigntemplatesignaturePositioningoccurence(QString json);
+    Field_eEzsigntemplatesignaturePositioningoccurence(const QString &json);
     ~Field_eEzsigntemplatesignaturePositioningoccurence() override;
 
     QString asJson() const override;
     QJsonValue asJsonValue() const override;
     void fromJsonValue(QJsonValue json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     enum class eField_eEzsigntemplatesignaturePositioningoccurence {
         INVALID_VALUE_OPENAPI_GENERATED = 0,

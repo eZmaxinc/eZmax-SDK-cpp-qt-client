@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_eEzsigntemplateannotationType::Field_eEzsigntemplateannotationType(QString json) {
+Field_eEzsigntemplateannotationType::Field_eEzsigntemplateannotationType(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_eEzsigntemplateannotationType::initializeModel() {
     m_value = eField_eEzsigntemplateannotationType::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_eEzsigntemplateannotationType::fromJson(QString jsonString) {
+void Field_eEzsigntemplateannotationType::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("Dropdown", Qt::CaseInsensitive) == 0) {
         m_value = eField_eEzsigntemplateannotationType::DROPDOWN;

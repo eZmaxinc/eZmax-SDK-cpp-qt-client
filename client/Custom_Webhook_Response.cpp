@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Custom_Webhook_Response::Custom_Webhook_Response(QString json) {
+Custom_Webhook_Response::Custom_Webhook_Response(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -102,9 +102,12 @@ void Custom_Webhook_Response::initializeModel() {
 
     m_e_webhook_emittype_isSet = false;
     m_e_webhook_emittype_isValid = false;
+
+    m_fki_ezmaxpartnerproductstagewebhook_id_isSet = false;
+    m_fki_ezmaxpartnerproductstagewebhook_id_isValid = false;
 }
 
-void Custom_Webhook_Response::fromJson(QString jsonString) {
+void Custom_Webhook_Response::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();
@@ -181,6 +184,9 @@ void Custom_Webhook_Response::fromJsonObject(QJsonObject json) {
 
     m_e_webhook_emittype_isValid = ::Ezmaxapi::fromJsonValue(m_e_webhook_emittype, json[QString("eWebhookEmittype")]);
     m_e_webhook_emittype_isSet = !json[QString("eWebhookEmittype")].isNull() && m_e_webhook_emittype_isValid;
+
+    m_fki_ezmaxpartnerproductstagewebhook_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_ezmaxpartnerproductstagewebhook_id, json[QString("fkiEzmaxpartnerproductstagewebhookID")]);
+    m_fki_ezmaxpartnerproductstagewebhook_id_isSet = !json[QString("fkiEzmaxpartnerproductstagewebhookID")].isNull() && m_fki_ezmaxpartnerproductstagewebhook_id_isValid;
 }
 
 QString Custom_Webhook_Response::asJson() const {
@@ -260,6 +266,9 @@ QJsonObject Custom_Webhook_Response::asJsonObject() const {
     }
     if (m_e_webhook_emittype_isSet) {
         obj.insert(QString("eWebhookEmittype"), ::Ezmaxapi::toJsonValue(m_e_webhook_emittype));
+    }
+    if (m_fki_ezmaxpartnerproductstagewebhook_id_isSet) {
+        obj.insert(QString("fkiEzmaxpartnerproductstagewebhookID"), ::Ezmaxapi::toJsonValue(m_fki_ezmaxpartnerproductstagewebhook_id));
     }
     return obj;
 }
@@ -632,6 +641,22 @@ bool Custom_Webhook_Response::is_e_webhook_emittype_Valid() const{
     return m_e_webhook_emittype_isValid;
 }
 
+qint32 Custom_Webhook_Response::getFkiEzmaxpartnerproductstagewebhookId() const {
+    return m_fki_ezmaxpartnerproductstagewebhook_id;
+}
+void Custom_Webhook_Response::setFkiEzmaxpartnerproductstagewebhookId(const qint32 &fki_ezmaxpartnerproductstagewebhook_id) {
+    m_fki_ezmaxpartnerproductstagewebhook_id = fki_ezmaxpartnerproductstagewebhook_id;
+    m_fki_ezmaxpartnerproductstagewebhook_id_isSet = true;
+}
+
+bool Custom_Webhook_Response::is_fki_ezmaxpartnerproductstagewebhook_id_Set() const{
+    return m_fki_ezmaxpartnerproductstagewebhook_id_isSet;
+}
+
+bool Custom_Webhook_Response::is_fki_ezmaxpartnerproductstagewebhook_id_Valid() const{
+    return m_fki_ezmaxpartnerproductstagewebhook_id_isValid;
+}
+
 bool Custom_Webhook_Response::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -749,13 +774,18 @@ bool Custom_Webhook_Response::isSet() const {
             isObjectUpdated = true;
             break;
         }
+
+        if (m_fki_ezmaxpartnerproductstagewebhook_id_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
     } while (false);
     return isObjectUpdated;
 }
 
 bool Custom_Webhook_Response::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_pki_webhook_id_isValid && m_s_webhook_description_isValid && m_e_webhook_module_isValid && m_s_webhook_url_isValid && m_s_webhook_emailfailed_isValid && m_b_webhook_isactive_isValid && m_b_webhook_issigned_isValid && m_b_webhook_skipsslvalidation_isValid && m_obj_audit_isValid && m_pks_customer_code_isValid && m_b_webhook_test_isValid && true;
+    return m_s_webhook_description_isValid && m_e_webhook_module_isValid && m_s_webhook_url_isValid && m_s_webhook_emailfailed_isValid && m_b_webhook_isactive_isValid && m_b_webhook_issigned_isValid && m_b_webhook_skipsslvalidation_isValid && m_pks_customer_code_isValid && m_b_webhook_test_isValid && true;
 }
 
 } // namespace Ezmaxapi

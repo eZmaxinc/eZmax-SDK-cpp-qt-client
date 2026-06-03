@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Computed_eCommunicationDirection::Computed_eCommunicationDirection(QString json) {
+Computed_eCommunicationDirection::Computed_eCommunicationDirection(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Computed_eCommunicationDirection::initializeModel() {
     m_value = eComputed_eCommunicationDirection::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Computed_eCommunicationDirection::fromJson(QString jsonString) {
+void Computed_eCommunicationDirection::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("Outbound", Qt::CaseInsensitive) == 0) {
         m_value = eComputed_eCommunicationDirection::OUTBOUND;

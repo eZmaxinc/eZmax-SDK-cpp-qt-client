@@ -37,13 +37,13 @@ class Textstylestatic_ResponseCompound;
 class Ezsigntemplateformfield_Response : public Object {
 public:
     Ezsigntemplateformfield_Response();
-    Ezsigntemplateformfield_Response(QString json);
+    Ezsigntemplateformfield_Response(const QString &json);
     ~Ezsigntemplateformfield_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiEzsigntemplateformfieldId() const;
     void setPkiEzsigntemplateformfieldId(const qint32 &pki_ezsigntemplateformfield_id);

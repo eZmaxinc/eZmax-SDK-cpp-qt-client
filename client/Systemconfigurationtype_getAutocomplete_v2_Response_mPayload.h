@@ -33,13 +33,13 @@ class Systemconfigurationtype_AutocompleteElement_Response;
 class Systemconfigurationtype_getAutocomplete_v2_Response_mPayload : public Object {
 public:
     Systemconfigurationtype_getAutocomplete_v2_Response_mPayload();
-    Systemconfigurationtype_getAutocomplete_v2_Response_mPayload(QString json);
+    Systemconfigurationtype_getAutocomplete_v2_Response_mPayload(const QString &json);
     ~Systemconfigurationtype_getAutocomplete_v2_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Systemconfigurationtype_AutocompleteElement_Response> getAObjSystemconfigurationtype() const;
     void setAObjSystemconfigurationtype(const QList<Systemconfigurationtype_AutocompleteElement_Response> &a_obj_systemconfigurationtype);

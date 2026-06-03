@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Ezsignfoldersignerassociation_ResponseCompound_User::Ezsignfoldersignerassociation_ResponseCompound_User(QString json) {
+Ezsignfoldersignerassociation_ResponseCompound_User::Ezsignfoldersignerassociation_ResponseCompound_User(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -53,7 +53,7 @@ void Ezsignfoldersignerassociation_ResponseCompound_User::initializeModel() {
     m_e_user_type_isValid = false;
 }
 
-void Ezsignfoldersignerassociation_ResponseCompound_User::fromJson(QString jsonString) {
+void Ezsignfoldersignerassociation_ResponseCompound_User::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

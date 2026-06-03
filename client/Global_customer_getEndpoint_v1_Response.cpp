@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Global_customer_getEndpoint_v1_Response::Global_customer_getEndpoint_v1_Response(QString json) {
+Global_customer_getEndpoint_v1_Response::Global_customer_getEndpoint_v1_Response(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -38,7 +38,7 @@ void Global_customer_getEndpoint_v1_Response::initializeModel() {
     m_s_endpoint_url_isValid = false;
 }
 
-void Global_customer_getEndpoint_v1_Response::fromJson(QString jsonString) {
+void Global_customer_getEndpoint_v1_Response::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

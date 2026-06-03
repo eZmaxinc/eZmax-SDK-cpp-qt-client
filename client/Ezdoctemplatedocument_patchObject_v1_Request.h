@@ -32,13 +32,13 @@ class Ezdoctemplatedocument_RequestPatch;
 class Ezdoctemplatedocument_patchObject_v1_Request : public Object {
 public:
     Ezdoctemplatedocument_patchObject_v1_Request();
-    Ezdoctemplatedocument_patchObject_v1_Request(QString json);
+    Ezdoctemplatedocument_patchObject_v1_Request(const QString &json);
     ~Ezdoctemplatedocument_patchObject_v1_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Ezdoctemplatedocument_RequestPatch getObjEzdoctemplatedocument() const;
     void setObjEzdoctemplatedocument(const Ezdoctemplatedocument_RequestPatch &obj_ezdoctemplatedocument);

@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Usergroupexternal_ResponseCompound : public Object {
 public:
     Usergroupexternal_ResponseCompound();
-    Usergroupexternal_ResponseCompound(QString json);
+    Usergroupexternal_ResponseCompound(const QString &json);
     ~Usergroupexternal_ResponseCompound() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiUsergroupexternalId() const;
     void setPkiUsergroupexternalId(const qint32 &pki_usergroupexternal_id);

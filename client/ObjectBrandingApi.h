@@ -48,6 +48,7 @@ public:
     void initializeServerConfigs();
     int setDefaultServerValue(int serverIndex,const QString &operation, const QString &variable,const QString &val);
     void setServerIndex(const QString &operation, int serverIndex);
+    void setServerIndex(int serverIndex);
     void setApiKey(const QString &apiKeyName, const QString &apiKey);
     void setBearerToken(const QString &token);
     void setUsername(const QString &username);
@@ -101,6 +102,13 @@ public:
 
 
 private:
+    enum class OauthMethod : int {
+        INVALID_VALUE_OPENAPI_GENERATED = 0,
+        ImplicitFlow = 1,
+        AuthorizationFlow = 2,
+        ClientCredentialsFlow = 3,
+        ResourceOwnerPasswordFlow = 4
+    };
     QMap<QString,int> _serverIndices;
     QMap<QString,QList<ServerConfiguration>> _serverConfigs;
     QMap<QString, QString> _apiKeys;
@@ -120,7 +128,7 @@ private:
     OauthImplicit _implicitFlow;
     OauthCredentials _credentialFlow;
     OauthPassword _passwordFlow;
-    int _OauthMethod = 0;
+    OauthMethod _OauthMethod = OauthMethod::INVALID_VALUE_OPENAPI_GENERATED;
 
     void brandingCreateObjectV2Callback(HttpRequestWorker *worker);
     void brandingEditObjectV2Callback(HttpRequestWorker *worker);
@@ -143,36 +151,16 @@ Q_SIGNALS:
     void brandingGetListV1SignalFull(HttpRequestWorker *worker, Branding_getList_v1_Response summary);
     void brandingGetObjectV3SignalFull(HttpRequestWorker *worker, Branding_getObject_v3_Response summary);
 
-    Q_DECL_DEPRECATED_X("Use brandingCreateObjectV2SignalError() instead")
-    void brandingCreateObjectV2SignalE(Branding_createObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void brandingCreateObjectV2SignalError(Branding_createObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use brandingEditObjectV2SignalError() instead")
-    void brandingEditObjectV2SignalE(Branding_editObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void brandingEditObjectV2SignalError(Branding_editObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use brandingGetAutocompleteV2SignalError() instead")
-    void brandingGetAutocompleteV2SignalE(Branding_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void brandingGetAutocompleteV2SignalError(Branding_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use brandingGetListV1SignalError() instead")
-    void brandingGetListV1SignalE(Branding_getList_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void brandingGetListV1SignalError(Branding_getList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use brandingGetObjectV3SignalError() instead")
-    void brandingGetObjectV3SignalE(Branding_getObject_v3_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void brandingGetObjectV3SignalError(Branding_getObject_v3_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
-    Q_DECL_DEPRECATED_X("Use brandingCreateObjectV2SignalErrorFull() instead")
-    void brandingCreateObjectV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void brandingCreateObjectV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use brandingEditObjectV2SignalErrorFull() instead")
-    void brandingEditObjectV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void brandingEditObjectV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use brandingGetAutocompleteV2SignalErrorFull() instead")
-    void brandingGetAutocompleteV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void brandingGetAutocompleteV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use brandingGetListV1SignalErrorFull() instead")
-    void brandingGetListV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void brandingGetListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use brandingGetObjectV3SignalErrorFull() instead")
-    void brandingGetObjectV3SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void brandingGetObjectV3SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();

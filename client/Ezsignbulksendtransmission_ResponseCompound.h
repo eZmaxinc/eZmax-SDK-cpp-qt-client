@@ -36,13 +36,13 @@ class Custom_Ezsignfoldertransmission_Response;
 class Ezsignbulksendtransmission_ResponseCompound : public Object {
 public:
     Ezsignbulksendtransmission_ResponseCompound();
-    Ezsignbulksendtransmission_ResponseCompound(QString json);
+    Ezsignbulksendtransmission_ResponseCompound(const QString &json);
     ~Ezsignbulksendtransmission_ResponseCompound() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiEzsignbulksendtransmissionId() const;
     void setPkiEzsignbulksendtransmissionId(const qint32 &pki_ezsignbulksendtransmission_id);

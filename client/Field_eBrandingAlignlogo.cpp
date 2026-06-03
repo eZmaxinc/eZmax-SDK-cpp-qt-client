@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_eBrandingAlignlogo::Field_eBrandingAlignlogo(QString json) {
+Field_eBrandingAlignlogo::Field_eBrandingAlignlogo(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_eBrandingAlignlogo::initializeModel() {
     m_value = eField_eBrandingAlignlogo::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_eBrandingAlignlogo::fromJson(QString jsonString) {
+void Field_eBrandingAlignlogo::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("Center", Qt::CaseInsensitive) == 0) {
         m_value = eField_eBrandingAlignlogo::CENTER;

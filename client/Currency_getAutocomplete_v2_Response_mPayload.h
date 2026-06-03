@@ -33,13 +33,13 @@ class Currency_AutocompleteElement_Response;
 class Currency_getAutocomplete_v2_Response_mPayload : public Object {
 public:
     Currency_getAutocomplete_v2_Response_mPayload();
-    Currency_getAutocomplete_v2_Response_mPayload(QString json);
+    Currency_getAutocomplete_v2_Response_mPayload(const QString &json);
     ~Currency_getAutocomplete_v2_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Currency_AutocompleteElement_Response> getAObjCurrency() const;
     void setAObjCurrency(const QList<Currency_AutocompleteElement_Response> &a_obj_currency);

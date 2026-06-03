@@ -33,13 +33,13 @@ class Multilingual_SupplyDescription;
 class Supply_ResponseCompound : public Object {
 public:
     Supply_ResponseCompound();
-    Supply_ResponseCompound(QString json);
+    Supply_ResponseCompound(const QString &json);
     ~Supply_ResponseCompound() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiSupplyId() const;
     void setPkiSupplyId(const qint32 &pki_supply_id);

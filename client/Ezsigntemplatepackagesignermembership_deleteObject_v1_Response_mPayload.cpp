@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Ezsigntemplatepackagesignermembership_deleteObject_v1_Response_mPayload::Ezsigntemplatepackagesignermembership_deleteObject_v1_Response_mPayload(QString json) {
+Ezsigntemplatepackagesignermembership_deleteObject_v1_Response_mPayload::Ezsigntemplatepackagesignermembership_deleteObject_v1_Response_mPayload(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -41,7 +41,7 @@ void Ezsigntemplatepackagesignermembership_deleteObject_v1_Response_mPayload::in
     m_b_ezsignbulksend_needvalidation_isValid = false;
 }
 
-void Ezsigntemplatepackagesignermembership_deleteObject_v1_Response_mPayload::fromJson(QString jsonString) {
+void Ezsigntemplatepackagesignermembership_deleteObject_v1_Response_mPayload::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

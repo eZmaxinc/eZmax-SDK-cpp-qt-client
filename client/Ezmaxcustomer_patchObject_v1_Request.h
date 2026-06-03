@@ -32,13 +32,13 @@ class Ezmaxcustomer_RequestPatch;
 class Ezmaxcustomer_patchObject_v1_Request : public Object {
 public:
     Ezmaxcustomer_patchObject_v1_Request();
-    Ezmaxcustomer_patchObject_v1_Request(QString json);
+    Ezmaxcustomer_patchObject_v1_Request(const QString &json);
     ~Ezmaxcustomer_patchObject_v1_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Ezmaxcustomer_RequestPatch getObjEzmaxcustomer() const;
     void setObjEzmaxcustomer(const Ezmaxcustomer_RequestPatch &obj_ezmaxcustomer);

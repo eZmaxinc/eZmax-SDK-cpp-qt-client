@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_eUserType::Field_eUserType(QString json) {
+Field_eUserType::Field_eUserType(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_eUserType::initializeModel() {
     m_value = eField_eUserType::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_eUserType::fromJson(QString jsonString) {
+void Field_eUserType::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("AgentBroker", Qt::CaseInsensitive) == 0) {
         m_value = eField_eUserType::AGENTBROKER;

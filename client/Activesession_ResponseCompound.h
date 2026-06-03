@@ -46,13 +46,13 @@ class Activesession_ResponseCompound_Apikey;
 class Activesession_ResponseCompound : public Object {
 public:
     Activesession_ResponseCompound();
-    Activesession_ResponseCompound(QString json);
+    Activesession_ResponseCompound(const QString &json);
     ~Activesession_ResponseCompound() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Field_eActivesessionUsertype getEActivesessionUsertype() const;
     void setEActivesessionUsertype(const Field_eActivesessionUsertype &e_activesession_usertype);
@@ -179,6 +179,11 @@ public:
     bool is_b_user_ezsigntrial_Set() const;
     bool is_b_user_ezsigntrial_Valid() const;
 
+    bool isBUserEzsigntemplaterolegrouping() const;
+    void setBUserEzsigntemplaterolegrouping(const bool &b_user_ezsigntemplaterolegrouping);
+    bool is_b_user_ezsigntemplaterolegrouping_Set() const;
+    bool is_b_user_ezsigntemplaterolegrouping_Valid() const;
+
     QString getDtUserEzsignprepaidexpiration() const;
     void setDtUserEzsignprepaidexpiration(const QString &dt_user_ezsignprepaidexpiration);
     bool is_dt_user_ezsignprepaidexpiration_Set() const;
@@ -213,6 +218,11 @@ public:
     void setAEModuleInternalname(const QList<QString> &a_e_module_internalname);
     bool is_a_e_module_internalname_Set() const;
     bool is_a_e_module_internalname_Valid() const;
+
+    bool isBActivesessionMaillinglistrequest() const;
+    void setBActivesessionMaillinglistrequest(const bool &b_activesession_maillinglistrequest);
+    bool is_b_activesession_maillinglistrequest_Set() const;
+    bool is_b_activesession_maillinglistrequest_Valid() const;
 
     virtual bool isSet() const override;
     virtual bool isValid() const override;
@@ -320,6 +330,10 @@ private:
     bool m_b_user_ezsigntrial_isSet;
     bool m_b_user_ezsigntrial_isValid;
 
+    bool m_b_user_ezsigntemplaterolegrouping;
+    bool m_b_user_ezsigntemplaterolegrouping_isSet;
+    bool m_b_user_ezsigntemplaterolegrouping_isValid;
+
     QString m_dt_user_ezsignprepaidexpiration;
     bool m_dt_user_ezsignprepaidexpiration_isSet;
     bool m_dt_user_ezsignprepaidexpiration_isValid;
@@ -347,6 +361,10 @@ private:
     QList<QString> m_a_e_module_internalname;
     bool m_a_e_module_internalname_isSet;
     bool m_a_e_module_internalname_isValid;
+
+    bool m_b_activesession_maillinglistrequest;
+    bool m_b_activesession_maillinglistrequest_isSet;
+    bool m_b_activesession_maillinglistrequest_isValid;
 };
 
 } // namespace Ezmaxapi

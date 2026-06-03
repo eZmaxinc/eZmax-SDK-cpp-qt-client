@@ -33,13 +33,13 @@ class Ezsignfolder_RequestCompound;
 class Ezsignfolder_createObject_v2_Request : public Object {
 public:
     Ezsignfolder_createObject_v2_Request();
-    Ezsignfolder_createObject_v2_Request(QString json);
+    Ezsignfolder_createObject_v2_Request(const QString &json);
     ~Ezsignfolder_createObject_v2_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Ezsignfolder_RequestCompound> getAObjEzsignfolder() const;
     void setAObjEzsignfolder(const QList<Ezsignfolder_RequestCompound> &a_obj_ezsignfolder);

@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Cors_createObject_v1_Response_mPayload : public Object {
 public:
     Cors_createObject_v1_Response_mPayload();
-    Cors_createObject_v1_Response_mPayload(QString json);
+    Cors_createObject_v1_Response_mPayload(const QString &json);
     ~Cors_createObject_v1_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<qint32> getAPkiCorsId() const;
     void setAPkiCorsId(const QList<qint32> &a_pki_cors_id);

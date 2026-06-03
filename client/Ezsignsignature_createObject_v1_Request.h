@@ -34,13 +34,13 @@ class Ezsignsignature_RequestCompound;
 class Ezsignsignature_createObject_v1_Request : public Object {
 public:
     Ezsignsignature_createObject_v1_Request();
-    Ezsignsignature_createObject_v1_Request(QString json);
+    Ezsignsignature_createObject_v1_Request(const QString &json);
     ~Ezsignsignature_createObject_v1_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Ezsignsignature_Request getObjEzsignsignature() const;
     void setObjEzsignsignature(const Ezsignsignature_Request &obj_ezsignsignature);

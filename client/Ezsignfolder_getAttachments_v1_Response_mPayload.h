@@ -33,13 +33,13 @@ class Custom_Attachmentdocumenttype_Response;
 class Ezsignfolder_getAttachments_v1_Response_mPayload : public Object {
 public:
     Ezsignfolder_getAttachments_v1_Response_mPayload();
-    Ezsignfolder_getAttachments_v1_Response_mPayload(QString json);
+    Ezsignfolder_getAttachments_v1_Response_mPayload(const QString &json);
     ~Ezsignfolder_getAttachments_v1_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Custom_Attachmentdocumenttype_Response> getAObjAttachmentdocumenttype() const;
     void setAObjAttachmentdocumenttype(const QList<Custom_Attachmentdocumenttype_Response> &a_obj_attachmentdocumenttype);

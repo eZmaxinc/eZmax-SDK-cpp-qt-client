@@ -30,13 +30,13 @@ namespace Ezmaxapi {
 class Field_eEzdoctemplatedocumentPrivacylevel : public Enum {
 public:
     Field_eEzdoctemplatedocumentPrivacylevel();
-    Field_eEzdoctemplatedocumentPrivacylevel(QString json);
+    Field_eEzdoctemplatedocumentPrivacylevel(const QString &json);
     ~Field_eEzdoctemplatedocumentPrivacylevel() override;
 
     QString asJson() const override;
     QJsonValue asJsonValue() const override;
     void fromJsonValue(QJsonValue json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     enum class eField_eEzdoctemplatedocumentPrivacylevel {
         INVALID_VALUE_OPENAPI_GENERATED = 0,

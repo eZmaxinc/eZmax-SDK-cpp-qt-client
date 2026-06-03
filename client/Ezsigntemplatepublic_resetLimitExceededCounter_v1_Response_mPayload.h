@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Ezsigntemplatepublic_resetLimitExceededCounter_v1_Response_mPayload : public Object {
 public:
     Ezsigntemplatepublic_resetLimitExceededCounter_v1_Response_mPayload();
-    Ezsigntemplatepublic_resetLimitExceededCounter_v1_Response_mPayload(QString json);
+    Ezsigntemplatepublic_resetLimitExceededCounter_v1_Response_mPayload(const QString &json);
     ~Ezsigntemplatepublic_resetLimitExceededCounter_v1_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getDtEzsigntemplatepublicLimitexceededsince() const;
     void setDtEzsigntemplatepublicLimitexceededsince(const QString &dt_ezsigntemplatepublic_limitexceededsince);

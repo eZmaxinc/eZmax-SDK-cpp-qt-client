@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Common_Auditdetail::Common_Auditdetail(QString json) {
+Common_Auditdetail::Common_Auditdetail(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -56,7 +56,7 @@ void Common_Auditdetail::initializeModel() {
     m_dt_auditdetail_date_isValid = false;
 }
 
-void Common_Auditdetail::fromJson(QString jsonString) {
+void Common_Auditdetail::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Activesession_ResponseCompound_Apikey : public Object {
 public:
     Activesession_ResponseCompound_Apikey();
-    Activesession_ResponseCompound_Apikey(QString json);
+    Activesession_ResponseCompound_Apikey(const QString &json);
     ~Activesession_ResponseCompound_Apikey() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiApikeyId() const;
     void setPkiApikeyId(const qint32 &pki_apikey_id);

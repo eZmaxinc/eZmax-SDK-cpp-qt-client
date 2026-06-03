@@ -32,13 +32,13 @@ class Ezsigntemplatepackage_RequestCompound;
 class Ezsigntemplatepackage_editObject_v1_Request : public Object {
 public:
     Ezsigntemplatepackage_editObject_v1_Request();
-    Ezsigntemplatepackage_editObject_v1_Request(QString json);
+    Ezsigntemplatepackage_editObject_v1_Request(const QString &json);
     ~Ezsigntemplatepackage_editObject_v1_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Ezsigntemplatepackage_RequestCompound getObjEzsigntemplatepackage() const;
     void setObjEzsigntemplatepackage(const Ezsigntemplatepackage_RequestCompound &obj_ezsigntemplatepackage);

@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Ezsigntemplatepublic_getEzsigntemplatepublicDetails_v1_Request : public Object {
 public:
     Ezsigntemplatepublic_getEzsigntemplatepublicDetails_v1_Request();
-    Ezsigntemplatepublic_getEzsigntemplatepublicDetails_v1_Request(QString json);
+    Ezsigntemplatepublic_getEzsigntemplatepublicDetails_v1_Request(const QString &json);
     ~Ezsigntemplatepublic_getEzsigntemplatepublicDetails_v1_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getPksEzmaxcustomerCode() const;
     void setPksEzmaxcustomerCode(const QString &pks_ezmaxcustomer_code);

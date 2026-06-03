@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Modulesection_Response::Modulesection_Response(QString json) {
+Modulesection_Response::Modulesection_Response(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -47,7 +47,7 @@ void Modulesection_Response::initializeModel() {
     m_s_modulesection_name_x_isValid = false;
 }
 
-void Modulesection_Response::fromJson(QString jsonString) {
+void Modulesection_Response::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

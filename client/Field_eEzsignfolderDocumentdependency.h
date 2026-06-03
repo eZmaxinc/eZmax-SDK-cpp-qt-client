@@ -30,13 +30,13 @@ namespace Ezmaxapi {
 class Field_eEzsignfolderDocumentdependency : public Enum {
 public:
     Field_eEzsignfolderDocumentdependency();
-    Field_eEzsignfolderDocumentdependency(QString json);
+    Field_eEzsignfolderDocumentdependency(const QString &json);
     ~Field_eEzsignfolderDocumentdependency() override;
 
     QString asJson() const override;
     QJsonValue asJsonValue() const override;
     void fromJsonValue(QJsonValue json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     enum class eField_eEzsignfolderDocumentdependency {
         INVALID_VALUE_OPENAPI_GENERATED = 0,

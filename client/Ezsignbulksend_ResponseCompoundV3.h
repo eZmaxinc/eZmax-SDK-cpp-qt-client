@@ -40,13 +40,13 @@ class Ezsignbulksendsignermapping_Response;
 class Ezsignbulksend_ResponseCompoundV3 : public Object {
 public:
     Ezsignbulksend_ResponseCompoundV3();
-    Ezsignbulksend_ResponseCompoundV3(QString json);
+    Ezsignbulksend_ResponseCompoundV3(const QString &json);
     ~Ezsignbulksend_ResponseCompoundV3() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiEzsignbulksendId() const;
     void setPkiEzsignbulksendId(const qint32 &pki_ezsignbulksend_id);

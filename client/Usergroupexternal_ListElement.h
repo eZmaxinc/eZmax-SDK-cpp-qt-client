@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Usergroupexternal_ListElement : public Object {
 public:
     Usergroupexternal_ListElement();
-    Usergroupexternal_ListElement(QString json);
+    Usergroupexternal_ListElement(const QString &json);
     ~Usergroupexternal_ListElement() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiUsergroupexternalId() const;
     void setPkiUsergroupexternalId(const qint32 &pki_usergroupexternal_id);

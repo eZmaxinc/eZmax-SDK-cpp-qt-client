@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-User_createObject_v2_Response_mPayload::User_createObject_v2_Response_mPayload(QString json) {
+User_createObject_v2_Response_mPayload::User_createObject_v2_Response_mPayload(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -38,7 +38,7 @@ void User_createObject_v2_Response_mPayload::initializeModel() {
     m_a_pki_user_id_isValid = false;
 }
 
-void User_createObject_v2_Response_mPayload::fromJson(QString jsonString) {
+void User_createObject_v2_Response_mPayload::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

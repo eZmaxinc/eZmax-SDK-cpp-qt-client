@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Address_Response : public Object {
 public:
     Address_Response();
-    Address_Response(QString json);
+    Address_Response(const QString &json);
     ~Address_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiAddressId() const;
     void setPkiAddressId(const qint32 &pki_address_id);

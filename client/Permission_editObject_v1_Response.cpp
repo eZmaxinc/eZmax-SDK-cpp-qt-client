@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Permission_editObject_v1_Response::Permission_editObject_v1_Response(QString json) {
+Permission_editObject_v1_Response::Permission_editObject_v1_Response(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -41,7 +41,7 @@ void Permission_editObject_v1_Response::initializeModel() {
     m_obj_debug_isValid = false;
 }
 
-void Permission_editObject_v1_Response::fromJson(QString jsonString) {
+void Permission_editObject_v1_Response::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

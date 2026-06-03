@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Multilingual_VariableexpenseDescription : public Object {
 public:
     Multilingual_VariableexpenseDescription();
-    Multilingual_VariableexpenseDescription(QString json);
+    Multilingual_VariableexpenseDescription(const QString &json);
     ~Multilingual_VariableexpenseDescription() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getSVariableexpenseDescription1() const;
     void setSVariableexpenseDescription1(const QString &s_variableexpense_description1);

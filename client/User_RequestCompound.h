@@ -38,13 +38,13 @@ class Phone_RequestCompound;
 class User_RequestCompound : public Object {
 public:
     User_RequestCompound();
-    User_RequestCompound(QString json);
+    User_RequestCompound(const QString &json);
     ~User_RequestCompound() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiUserId() const;
     void setPkiUserId(const qint32 &pki_user_id);
@@ -186,6 +186,11 @@ public:
     bool is_b_user_changepassword_Set() const;
     bool is_b_user_changepassword_Valid() const;
 
+    bool isBUserEzsigntemplaterolegrouping() const;
+    void setBUserEzsigntemplaterolegrouping(const bool &b_user_ezsigntemplaterolegrouping);
+    bool is_b_user_ezsigntemplaterolegrouping_Set() const;
+    bool is_b_user_ezsigntemplaterolegrouping_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -303,6 +308,10 @@ private:
     bool m_b_user_changepassword;
     bool m_b_user_changepassword_isSet;
     bool m_b_user_changepassword_isValid;
+
+    bool m_b_user_ezsigntemplaterolegrouping;
+    bool m_b_user_ezsigntemplaterolegrouping_isSet;
+    bool m_b_user_ezsigntemplaterolegrouping_isValid;
 };
 
 } // namespace Ezmaxapi

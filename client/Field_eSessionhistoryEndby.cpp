@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_eSessionhistoryEndby::Field_eSessionhistoryEndby(QString json) {
+Field_eSessionhistoryEndby::Field_eSessionhistoryEndby(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_eSessionhistoryEndby::initializeModel() {
     m_value = eField_eSessionhistoryEndby::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_eSessionhistoryEndby::fromJson(QString jsonString) {
+void Field_eSessionhistoryEndby::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("Decryption", Qt::CaseInsensitive) == 0) {
         m_value = eField_eSessionhistoryEndby::DECRYPTION;
@@ -97,6 +97,10 @@ void Field_eSessionhistoryEndby::fromJson(QString jsonString) {
         m_value = eField_eSessionhistoryEndby::FORCEDLOGOFF;
         m_value_isSet = m_value_isValid = true;
     }
+    else if ( jsonString.compare("Suspended", Qt::CaseInsensitive) == 0) {
+        m_value = eField_eSessionhistoryEndby::SUSPENDED;
+        m_value_isSet = m_value_isValid = true;
+    }
 }
 
 void Field_eSessionhistoryEndby::fromJsonValue(QJsonValue json) {
@@ -148,6 +152,9 @@ QString Field_eSessionhistoryEndby::asJson() const {
             break;
         case eField_eSessionhistoryEndby::FORCEDLOGOFF:
             val = "ForcedLogoff";
+            break;
+        case eField_eSessionhistoryEndby::SUSPENDED:
+            val = "Suspended";
             break;
         default:
             break;

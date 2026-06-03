@@ -33,13 +33,13 @@ class Cors_ResponseCompound;
 class Apikey_getCors_v1_Response_mPayload : public Object {
 public:
     Apikey_getCors_v1_Response_mPayload();
-    Apikey_getCors_v1_Response_mPayload(QString json);
+    Apikey_getCors_v1_Response_mPayload(const QString &json);
     ~Apikey_getCors_v1_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Cors_ResponseCompound> getAObjCors() const;
     void setAObjCors(const QList<Cors_ResponseCompound> &a_obj_cors);

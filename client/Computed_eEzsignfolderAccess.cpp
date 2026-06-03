@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Computed_eEzsignfolderAccess::Computed_eEzsignfolderAccess(QString json) {
+Computed_eEzsignfolderAccess::Computed_eEzsignfolderAccess(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Computed_eEzsignfolderAccess::initializeModel() {
     m_value = eComputed_eEzsignfolderAccess::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Computed_eEzsignfolderAccess::fromJson(QString jsonString) {
+void Computed_eEzsignfolderAccess::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("Signer", Qt::CaseInsensitive) == 0) {
         m_value = eComputed_eEzsignfolderAccess::SIGNER;

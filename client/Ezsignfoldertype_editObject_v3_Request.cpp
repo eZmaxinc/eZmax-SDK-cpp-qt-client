@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Ezsignfoldertype_editObject_v3_Request::Ezsignfoldertype_editObject_v3_Request(QString json) {
+Ezsignfoldertype_editObject_v3_Request::Ezsignfoldertype_editObject_v3_Request(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -38,7 +38,7 @@ void Ezsignfoldertype_editObject_v3_Request::initializeModel() {
     m_obj_ezsignfoldertype_isValid = false;
 }
 
-void Ezsignfoldertype_editObject_v3_Request::fromJson(QString jsonString) {
+void Ezsignfoldertype_editObject_v3_Request::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

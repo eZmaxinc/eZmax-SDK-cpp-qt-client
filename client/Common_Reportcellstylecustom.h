@@ -34,13 +34,13 @@ namespace Ezmaxapi {
 class Common_Reportcellstylecustom : public Object {
 public:
     Common_Reportcellstylecustom();
-    Common_Reportcellstylecustom(QString json);
+    Common_Reportcellstylecustom(const QString &json);
     ~Common_Reportcellstylecustom() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     bool isBReportcellstyleBordertop() const;
     void setBReportcellstyleBordertop(const bool &b_reportcellstyle_bordertop);

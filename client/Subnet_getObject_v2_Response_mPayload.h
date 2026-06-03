@@ -32,13 +32,13 @@ class Subnet_ResponseCompound;
 class Subnet_getObject_v2_Response_mPayload : public Object {
 public:
     Subnet_getObject_v2_Response_mPayload();
-    Subnet_getObject_v2_Response_mPayload(QString json);
+    Subnet_getObject_v2_Response_mPayload(const QString &json);
     ~Subnet_getObject_v2_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Subnet_ResponseCompound getObjSubnet() const;
     void setObjSubnet(const Subnet_ResponseCompound &obj_subnet);

@@ -30,13 +30,13 @@ namespace Ezmaxapi {
 class Field_eVariableexpenseTaxable : public Enum {
 public:
     Field_eVariableexpenseTaxable();
-    Field_eVariableexpenseTaxable(QString json);
+    Field_eVariableexpenseTaxable(const QString &json);
     ~Field_eVariableexpenseTaxable() override;
 
     QString asJson() const override;
     QJsonValue asJsonValue() const override;
     void fromJsonValue(QJsonValue json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     enum class eField_eVariableexpenseTaxable {
         INVALID_VALUE_OPENAPI_GENERATED = 0,

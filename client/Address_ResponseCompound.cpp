@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Address_ResponseCompound::Address_ResponseCompound(QString json) {
+Address_ResponseCompound::Address_ResponseCompound(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -74,7 +74,7 @@ void Address_ResponseCompound::initializeModel() {
     m_f_address_latitude_isValid = false;
 }
 
-void Address_ResponseCompound::fromJson(QString jsonString) {
+void Address_ResponseCompound::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

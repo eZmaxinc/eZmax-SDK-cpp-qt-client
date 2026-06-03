@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_eEzsigntemplatesignaturepaymentdetailTaxable::Field_eEzsigntemplatesignaturepaymentdetailTaxable(QString json) {
+Field_eEzsigntemplatesignaturepaymentdetailTaxable::Field_eEzsigntemplatesignaturepaymentdetailTaxable(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_eEzsigntemplatesignaturepaymentdetailTaxable::initializeModel() {
     m_value = eField_eEzsigntemplatesignaturepaymentdetailTaxable::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_eEzsigntemplatesignaturepaymentdetailTaxable::fromJson(QString jsonString) {
+void Field_eEzsigntemplatesignaturepaymentdetailTaxable::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("Yes", Qt::CaseInsensitive) == 0) {
         m_value = eField_eEzsigntemplatesignaturepaymentdetailTaxable::YES;

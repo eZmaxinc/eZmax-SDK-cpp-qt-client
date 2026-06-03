@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Custom_EzsignfoldersignerassociationActionableElement_Response::Custom_EzsignfoldersignerassociationActionableElement_Response(QString json) {
+Custom_EzsignfoldersignerassociationActionableElement_Response::Custom_EzsignfoldersignerassociationActionableElement_Response(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -68,7 +68,7 @@ void Custom_EzsignfoldersignerassociationActionableElement_Response::initializeM
     m_b_ezsignfoldersignerassociation_hasactionableelements_future_isValid = false;
 }
 
-void Custom_EzsignfoldersignerassociationActionableElement_Response::fromJson(QString jsonString) {
+void Custom_EzsignfoldersignerassociationActionableElement_Response::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

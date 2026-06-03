@@ -45,6 +45,7 @@ public:
     void initializeServerConfigs();
     int setDefaultServerValue(int serverIndex,const QString &operation, const QString &variable,const QString &val);
     void setServerIndex(const QString &operation, int serverIndex);
+    void setServerIndex(int serverIndex);
     void setApiKey(const QString &apiKeyName, const QString &apiKey);
     void setBearerToken(const QString &token);
     void setUsername(const QString &username);
@@ -86,6 +87,13 @@ public:
 
 
 private:
+    enum class OauthMethod : int {
+        INVALID_VALUE_OPENAPI_GENERATED = 0,
+        ImplicitFlow = 1,
+        AuthorizationFlow = 2,
+        ClientCredentialsFlow = 3,
+        ResourceOwnerPasswordFlow = 4
+    };
     QMap<QString,int> _serverIndices;
     QMap<QString,QList<ServerConfiguration>> _serverConfigs;
     QMap<QString, QString> _apiKeys;
@@ -105,7 +113,7 @@ private:
     OauthImplicit _implicitFlow;
     OauthCredentials _credentialFlow;
     OauthPassword _passwordFlow;
-    int _OauthMethod = 0;
+    OauthMethod _OauthMethod = OauthMethod::INVALID_VALUE_OPENAPI_GENERATED;
 
     void ezsigntemplateformfieldgroupCreateObjectV1Callback(HttpRequestWorker *worker);
     void ezsigntemplateformfieldgroupDeleteObjectV1Callback(HttpRequestWorker *worker);
@@ -125,30 +133,14 @@ Q_SIGNALS:
     void ezsigntemplateformfieldgroupEditObjectV1SignalFull(HttpRequestWorker *worker, Ezsigntemplateformfieldgroup_editObject_v1_Response summary);
     void ezsigntemplateformfieldgroupGetObjectV2SignalFull(HttpRequestWorker *worker, Ezsigntemplateformfieldgroup_getObject_v2_Response summary);
 
-    Q_DECL_DEPRECATED_X("Use ezsigntemplateformfieldgroupCreateObjectV1SignalError() instead")
-    void ezsigntemplateformfieldgroupCreateObjectV1SignalE(Ezsigntemplateformfieldgroup_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplateformfieldgroupCreateObjectV1SignalError(Ezsigntemplateformfieldgroup_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezsigntemplateformfieldgroupDeleteObjectV1SignalError() instead")
-    void ezsigntemplateformfieldgroupDeleteObjectV1SignalE(Ezsigntemplateformfieldgroup_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplateformfieldgroupDeleteObjectV1SignalError(Ezsigntemplateformfieldgroup_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezsigntemplateformfieldgroupEditObjectV1SignalError() instead")
-    void ezsigntemplateformfieldgroupEditObjectV1SignalE(Ezsigntemplateformfieldgroup_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplateformfieldgroupEditObjectV1SignalError(Ezsigntemplateformfieldgroup_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezsigntemplateformfieldgroupGetObjectV2SignalError() instead")
-    void ezsigntemplateformfieldgroupGetObjectV2SignalE(Ezsigntemplateformfieldgroup_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplateformfieldgroupGetObjectV2SignalError(Ezsigntemplateformfieldgroup_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
-    Q_DECL_DEPRECATED_X("Use ezsigntemplateformfieldgroupCreateObjectV1SignalErrorFull() instead")
-    void ezsigntemplateformfieldgroupCreateObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplateformfieldgroupCreateObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezsigntemplateformfieldgroupDeleteObjectV1SignalErrorFull() instead")
-    void ezsigntemplateformfieldgroupDeleteObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplateformfieldgroupDeleteObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezsigntemplateformfieldgroupEditObjectV1SignalErrorFull() instead")
-    void ezsigntemplateformfieldgroupEditObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplateformfieldgroupEditObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezsigntemplateformfieldgroupGetObjectV2SignalErrorFull() instead")
-    void ezsigntemplateformfieldgroupGetObjectV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplateformfieldgroupGetObjectV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();

@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Multilingual_EzsignfoldertypeName::Multilingual_EzsignfoldertypeName(QString json) {
+Multilingual_EzsignfoldertypeName::Multilingual_EzsignfoldertypeName(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -41,7 +41,7 @@ void Multilingual_EzsignfoldertypeName::initializeModel() {
     m_s_ezsignfoldertype_name2_isValid = false;
 }
 
-void Multilingual_EzsignfoldertypeName::fromJson(QString jsonString) {
+void Multilingual_EzsignfoldertypeName::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

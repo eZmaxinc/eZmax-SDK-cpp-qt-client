@@ -32,13 +32,13 @@ class Custom_Notificationtestgetelements_Response;
 class Notificationtest_getElements_v2_Response_mPayload : public Object {
 public:
     Notificationtest_getElements_v2_Response_mPayload();
-    Notificationtest_getElements_v2_Response_mPayload(QString json);
+    Notificationtest_getElements_v2_Response_mPayload(const QString &json);
     ~Notificationtest_getElements_v2_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Custom_Notificationtestgetelements_Response getObjNotificationtest() const;
     void setObjNotificationtest(const Custom_Notificationtestgetelements_Response &obj_notificationtest);

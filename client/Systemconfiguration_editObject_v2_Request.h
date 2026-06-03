@@ -32,13 +32,13 @@ class Systemconfiguration_RequestCompoundV2;
 class Systemconfiguration_editObject_v2_Request : public Object {
 public:
     Systemconfiguration_editObject_v2_Request();
-    Systemconfiguration_editObject_v2_Request(QString json);
+    Systemconfiguration_editObject_v2_Request(const QString &json);
     ~Systemconfiguration_editObject_v2_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Systemconfiguration_RequestCompoundV2 getObjSystemconfiguration() const;
     void setObjSystemconfiguration(const Systemconfiguration_RequestCompoundV2 &obj_systemconfiguration);

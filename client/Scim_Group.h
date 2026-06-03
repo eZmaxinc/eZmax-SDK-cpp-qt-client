@@ -34,13 +34,13 @@ class Scim_GroupMember;
 class Scim_Group : public Object {
 public:
     Scim_Group();
-    Scim_Group(QString json);
+    Scim_Group(const QString &json);
     ~Scim_Group() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getId() const;
     void setId(const QString &id);

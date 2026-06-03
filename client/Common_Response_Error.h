@@ -33,13 +33,13 @@ namespace Ezmaxapi {
 class Common_Response_Error : public Object {
 public:
     Common_Response_Error();
-    Common_Response_Error(QString json);
+    Common_Response_Error(const QString &json);
     ~Common_Response_Error() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getSErrorMessage() const;
     void setSErrorMessage(const QString &s_error_message);

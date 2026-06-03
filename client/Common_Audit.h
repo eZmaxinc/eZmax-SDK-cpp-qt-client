@@ -32,13 +32,13 @@ class Common_Auditdetail;
 class Common_Audit : public Object {
 public:
     Common_Audit();
-    Common_Audit(QString json);
+    Common_Audit(const QString &json);
     ~Common_Audit() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Common_Auditdetail getObjAuditdetailCreated() const;
     void setObjAuditdetailCreated(const Common_Auditdetail &obj_auditdetail_created);

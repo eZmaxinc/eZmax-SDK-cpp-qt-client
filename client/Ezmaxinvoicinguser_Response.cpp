@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Ezmaxinvoicinguser_Response::Ezmaxinvoicinguser_Response(QString json) {
+Ezmaxinvoicinguser_Response::Ezmaxinvoicinguser_Response(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -62,7 +62,7 @@ void Ezmaxinvoicinguser_Response::initializeModel() {
     m_e_ezmaxinvoicinguser_variationezsign_isValid = false;
 }
 
-void Ezmaxinvoicinguser_Response::fromJson(QString jsonString) {
+void Ezmaxinvoicinguser_Response::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

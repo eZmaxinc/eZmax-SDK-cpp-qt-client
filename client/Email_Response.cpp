@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Email_Response::Email_Response(QString json) {
+Email_Response::Email_Response(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -44,7 +44,7 @@ void Email_Response::initializeModel() {
     m_s_email_address_isValid = false;
 }
 
-void Email_Response::fromJson(QString jsonString) {
+void Email_Response::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

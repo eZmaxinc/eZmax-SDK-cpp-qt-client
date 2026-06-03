@@ -63,8 +63,12 @@ void ObjectEzsigndocumentApi::initializeServerConfigs() {
     _serverIndices.insert("ezsigndocumentApplyEzsigntemplateV1", 0);
     _serverConfigs.insert("ezsigndocumentApplyEzsigntemplateV2", defaultConf);
     _serverIndices.insert("ezsigndocumentApplyEzsigntemplateV2", 0);
+    _serverConfigs.insert("ezsigndocumentApplyEzsigntemplateV3", defaultConf);
+    _serverIndices.insert("ezsigndocumentApplyEzsigntemplateV3", 0);
     _serverConfigs.insert("ezsigndocumentApplyEzsigntemplateglobalV1", defaultConf);
     _serverIndices.insert("ezsigndocumentApplyEzsigntemplateglobalV1", 0);
+    _serverConfigs.insert("ezsigndocumentApplyEzsigntemplateglobalV2", defaultConf);
+    _serverIndices.insert("ezsigndocumentApplyEzsigntemplateglobalV2", 0);
     _serverConfigs.insert("ezsigndocumentCreateEzsignelementsPositionedByWordV1", defaultConf);
     _serverIndices.insert("ezsigndocumentCreateEzsignelementsPositionedByWordV1", 0);
     _serverConfigs.insert("ezsigndocumentCreateEzsignelementsPositionedByWordV2", defaultConf);
@@ -148,9 +152,9 @@ void ObjectEzsigndocumentApi::initializeServerConfigs() {
 }
 
 /**
-* returns 0 on success and -1, -2 or -3 on failure.
-* -1 when the variable does not exist and -2 if the value is not defined in the enum and -3 if the operation or server index is not found
-*/
+ * returns 0 on success and -1, -2 or -3 on failure.
+ * -1 when the variable does not exist and -2 if the value is not defined in the enum and -3 if the operation or server index is not found
+ */
 int ObjectEzsigndocumentApi::setDefaultServerValue(int serverIndex, const QString &operation, const QString &variable, const QString &value) {
     auto it = _serverConfigs.find(operation);
     if (it != _serverConfigs.end() && serverIndex < it.value().size()) {
@@ -158,9 +162,21 @@ int ObjectEzsigndocumentApi::setDefaultServerValue(int serverIndex, const QStrin
     }
     return -3;
 }
+
+/**
+ * Sets the server index.
+ * @param operation The id to the target operation.
+ * @param serverIndex The server index.
+ */
 void ObjectEzsigndocumentApi::setServerIndex(const QString &operation, int serverIndex) {
     if (_serverIndices.contains(operation) && serverIndex < _serverConfigs.find(operation).value().size()) {
         _serverIndices[operation] = serverIndex;
+    }
+}
+
+void ObjectEzsigndocumentApi::setServerIndex(int serverIndex) {
+    for (auto keyIt = _serverIndices.keyBegin(); keyIt != _serverIndices.keyEnd(); keyIt++) {
+        setServerIndex(*keyIt, serverIndex);
     }
 }
 
@@ -194,13 +210,13 @@ void ObjectEzsigndocumentApi::setNetworkAccessManager(QNetworkAccessManager* man
 }
 
 /**
-    * Appends a new ServerConfiguration to the config map for a specific operation.
-    * @param operation The id to the target operation.
-    * @param url A string that contains the URL of the server
-    * @param description A String that describes the server
-    * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
-    * returns the index of the new server config on success and -1 if the operation is not found
-    */
+ * Appends a new ServerConfiguration to the config map for a specific operation.
+ * @param operation The id to the target operation.
+ * @param url A string that contains the URL of the server
+ * @param description A String that describes the server
+ * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
+ * returns the index of the new server config on success and -1 if the operation is not found
+ */
 int ObjectEzsigndocumentApi::addServerConfiguration(const QString &operation, const QUrl &url, const QString &description, const QMap<QString, ServerVariable> &variables) {
     if (_serverConfigs.contains(operation)) {
         _serverConfigs[operation].append(ServerConfiguration(
@@ -214,11 +230,11 @@ int ObjectEzsigndocumentApi::addServerConfiguration(const QString &operation, co
 }
 
 /**
-    * Appends a new ServerConfiguration to the config map for a all operations and sets the index to that server.
-    * @param url A string that contains the URL of the server
-    * @param description A String that describes the server
-    * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
-    */
+ * Appends a new ServerConfiguration to the config map for a all operations and sets the index to that server.
+ * @param url A string that contains the URL of the server
+ * @param description A String that describes the server
+ * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
+ */
 void ObjectEzsigndocumentApi::setNewServerForAllOperations(const QUrl &url, const QString &description, const QMap<QString, ServerVariable> &variables) {
     for (auto keyIt = _serverIndices.keyBegin(); keyIt != _serverIndices.keyEnd(); keyIt++) {
         setServerIndex(*keyIt, addServerConfiguration(*keyIt, url, description, variables));
@@ -226,11 +242,11 @@ void ObjectEzsigndocumentApi::setNewServerForAllOperations(const QUrl &url, cons
 }
 
 /**
-    * Appends a new ServerConfiguration to the config map for an operations and sets the index to that server.
-    * @param URL A string that contains the URL of the server
-    * @param description A String that describes the server
-    * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
-    */
+ * Appends a new ServerConfiguration to the config map for an operations and sets the index to that server.
+ * @param URL A string that contains the URL of the server
+ * @param description A String that describes the server
+ * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
+ */
 void ObjectEzsigndocumentApi::setNewServer(const QString &operation, const QUrl &url, const QString &description, const QMap<QString, ServerVariable> &variables) {
     setServerIndex(operation, addServerConfiguration(operation, url, description, variables));
 }
@@ -376,32 +392,6 @@ void ObjectEzsigndocumentApi::ezsigndocumentApplyEzsigntemplateV1Callback(HttpRe
         Q_EMIT ezsigndocumentApplyEzsigntemplateV1Signal(output);
         Q_EMIT ezsigndocumentApplyEzsigntemplateV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsigndocumentApplyEzsigntemplateV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsigndocumentApplyEzsigntemplateV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsigndocumentApplyEzsigntemplateV1SignalError(output, error_type, error_str);
         Q_EMIT ezsigndocumentApplyEzsigntemplateV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -469,34 +459,75 @@ void ObjectEzsigndocumentApi::ezsigndocumentApplyEzsigntemplateV2Callback(HttpRe
         Q_EMIT ezsigndocumentApplyEzsigntemplateV2Signal(output);
         Q_EMIT ezsigndocumentApplyEzsigntemplateV2SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsigndocumentApplyEzsigntemplateV2SignalE(output, error_type, error_str);
-        Q_EMIT ezsigndocumentApplyEzsigntemplateV2SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsigndocumentApplyEzsigntemplateV2SignalError(output, error_type, error_str);
         Q_EMIT ezsigndocumentApplyEzsigntemplateV2SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectEzsigndocumentApi::ezsigndocumentApplyEzsigntemplateV3(const qint32 &pki_ezsigndocument_id, const Ezsigndocument_applyEzsigntemplate_v3_Request &ezsigndocument_apply_ezsigntemplate_v3_request) {
+    QString fullPath = QString(_serverConfigs["ezsigndocumentApplyEzsigntemplateV3"][_serverIndices.value("ezsigndocumentApplyEzsigntemplateV3")].URL()+"/3/object/ezsigndocument/{pkiEzsigndocumentID}/applyEzsigntemplate");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_ezsigndocument_idPathParam("{");
+        pki_ezsigndocument_idPathParam.append("pkiEzsigndocumentID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsigndocumentID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsigndocumentID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_ezsigndocument_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsigndocument_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "POST");
+
+    {
+
+        
+        QByteArray output = ezsigndocument_apply_ezsigntemplate_v3_request.asJson().toUtf8();
+        input.request_body.append(output);
+    }
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsigndocumentApi::ezsigndocumentApplyEzsigntemplateV3Callback);
+    connect(this, &ObjectEzsigndocumentApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectEzsigndocumentApi::ezsigndocumentApplyEzsigntemplateV3Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Ezsigndocument_applyEzsigntemplate_v3_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT ezsigndocumentApplyEzsigntemplateV3Signal(output);
+        Q_EMIT ezsigndocumentApplyEzsigntemplateV3SignalFull(worker, output);
+    } else {
+        Q_EMIT ezsigndocumentApplyEzsigntemplateV3SignalError(output, error_type, error_str);
+        Q_EMIT ezsigndocumentApplyEzsigntemplateV3SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -562,34 +593,75 @@ void ObjectEzsigndocumentApi::ezsigndocumentApplyEzsigntemplateglobalV1Callback(
         Q_EMIT ezsigndocumentApplyEzsigntemplateglobalV1Signal(output);
         Q_EMIT ezsigndocumentApplyEzsigntemplateglobalV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsigndocumentApplyEzsigntemplateglobalV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsigndocumentApplyEzsigntemplateglobalV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsigndocumentApplyEzsigntemplateglobalV1SignalError(output, error_type, error_str);
         Q_EMIT ezsigndocumentApplyEzsigntemplateglobalV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectEzsigndocumentApi::ezsigndocumentApplyEzsigntemplateglobalV2(const qint32 &pki_ezsigndocument_id, const Ezsigndocument_applyEzsigntemplateglobal_v2_Request &ezsigndocument_apply_ezsigntemplateglobal_v2_request) {
+    QString fullPath = QString(_serverConfigs["ezsigndocumentApplyEzsigntemplateglobalV2"][_serverIndices.value("ezsigndocumentApplyEzsigntemplateglobalV2")].URL()+"/2/object/ezsigndocument/{pkiEzsigndocumentID}/applyEzsigntemplateglobal");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_ezsigndocument_idPathParam("{");
+        pki_ezsigndocument_idPathParam.append("pkiEzsigndocumentID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsigndocumentID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsigndocumentID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_ezsigndocument_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsigndocument_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "POST");
+
+    {
+
+        
+        QByteArray output = ezsigndocument_apply_ezsigntemplateglobal_v2_request.asJson().toUtf8();
+        input.request_body.append(output);
+    }
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsigndocumentApi::ezsigndocumentApplyEzsigntemplateglobalV2Callback);
+    connect(this, &ObjectEzsigndocumentApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectEzsigndocumentApi::ezsigndocumentApplyEzsigntemplateglobalV2Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Ezsigndocument_applyEzsigntemplateglobal_v2_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT ezsigndocumentApplyEzsigntemplateglobalV2Signal(output);
+        Q_EMIT ezsigndocumentApplyEzsigntemplateglobalV2SignalFull(worker, output);
+    } else {
+        Q_EMIT ezsigndocumentApplyEzsigntemplateglobalV2SignalError(output, error_type, error_str);
+        Q_EMIT ezsigndocumentApplyEzsigntemplateglobalV2SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -655,32 +727,6 @@ void ObjectEzsigndocumentApi::ezsigndocumentCreateEzsignelementsPositionedByWord
         Q_EMIT ezsigndocumentCreateEzsignelementsPositionedByWordV1Signal(output);
         Q_EMIT ezsigndocumentCreateEzsignelementsPositionedByWordV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsigndocumentCreateEzsignelementsPositionedByWordV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsigndocumentCreateEzsignelementsPositionedByWordV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsigndocumentCreateEzsignelementsPositionedByWordV1SignalError(output, error_type, error_str);
         Q_EMIT ezsigndocumentCreateEzsignelementsPositionedByWordV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -748,32 +794,6 @@ void ObjectEzsigndocumentApi::ezsigndocumentCreateEzsignelementsPositionedByWord
         Q_EMIT ezsigndocumentCreateEzsignelementsPositionedByWordV2Signal(output);
         Q_EMIT ezsigndocumentCreateEzsignelementsPositionedByWordV2SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsigndocumentCreateEzsignelementsPositionedByWordV2SignalE(output, error_type, error_str);
-        Q_EMIT ezsigndocumentCreateEzsignelementsPositionedByWordV2SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsigndocumentCreateEzsignelementsPositionedByWordV2SignalError(output, error_type, error_str);
         Q_EMIT ezsigndocumentCreateEzsignelementsPositionedByWordV2SignalErrorFull(worker, error_type, error_str);
     }
@@ -826,32 +846,6 @@ void ObjectEzsigndocumentApi::ezsigndocumentCreateObjectV1Callback(HttpRequestWo
         Q_EMIT ezsigndocumentCreateObjectV1Signal(output);
         Q_EMIT ezsigndocumentCreateObjectV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsigndocumentCreateObjectV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsigndocumentCreateObjectV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsigndocumentCreateObjectV1SignalError(output, error_type, error_str);
         Q_EMIT ezsigndocumentCreateObjectV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -905,32 +899,6 @@ void ObjectEzsigndocumentApi::ezsigndocumentCreateObjectV2Callback(HttpRequestWo
         Q_EMIT ezsigndocumentCreateObjectV2Signal(output);
         Q_EMIT ezsigndocumentCreateObjectV2SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsigndocumentCreateObjectV2SignalE(output, error_type, error_str);
-        Q_EMIT ezsigndocumentCreateObjectV2SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsigndocumentCreateObjectV2SignalError(output, error_type, error_str);
         Q_EMIT ezsigndocumentCreateObjectV2SignalErrorFull(worker, error_type, error_str);
     }
@@ -984,32 +952,6 @@ void ObjectEzsigndocumentApi::ezsigndocumentCreateObjectV3Callback(HttpRequestWo
         Q_EMIT ezsigndocumentCreateObjectV3Signal(output);
         Q_EMIT ezsigndocumentCreateObjectV3SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsigndocumentCreateObjectV3SignalE(output, error_type, error_str);
-        Q_EMIT ezsigndocumentCreateObjectV3SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsigndocumentCreateObjectV3SignalError(output, error_type, error_str);
         Q_EMIT ezsigndocumentCreateObjectV3SignalErrorFull(worker, error_type, error_str);
     }
@@ -1077,32 +1019,6 @@ void ObjectEzsigndocumentApi::ezsigndocumentDeclineToSignV1Callback(HttpRequestW
         Q_EMIT ezsigndocumentDeclineToSignV1Signal(output);
         Q_EMIT ezsigndocumentDeclineToSignV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsigndocumentDeclineToSignV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsigndocumentDeclineToSignV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsigndocumentDeclineToSignV1SignalError(output, error_type, error_str);
         Q_EMIT ezsigndocumentDeclineToSignV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -1165,32 +1081,6 @@ void ObjectEzsigndocumentApi::ezsigndocumentDeleteObjectV1Callback(HttpRequestWo
         Q_EMIT ezsigndocumentDeleteObjectV1Signal(output);
         Q_EMIT ezsigndocumentDeleteObjectV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsigndocumentDeleteObjectV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsigndocumentDeleteObjectV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsigndocumentDeleteObjectV1SignalError(output, error_type, error_str);
         Q_EMIT ezsigndocumentDeleteObjectV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -1258,32 +1148,6 @@ void ObjectEzsigndocumentApi::ezsigndocumentEditEzsignannotationsV1Callback(Http
         Q_EMIT ezsigndocumentEditEzsignannotationsV1Signal(output);
         Q_EMIT ezsigndocumentEditEzsignannotationsV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsigndocumentEditEzsignannotationsV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsigndocumentEditEzsignannotationsV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsigndocumentEditEzsignannotationsV1SignalError(output, error_type, error_str);
         Q_EMIT ezsigndocumentEditEzsignannotationsV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -1351,32 +1215,6 @@ void ObjectEzsigndocumentApi::ezsigndocumentEditEzsignformfieldgroupsV1Callback(
         Q_EMIT ezsigndocumentEditEzsignformfieldgroupsV1Signal(output);
         Q_EMIT ezsigndocumentEditEzsignformfieldgroupsV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsigndocumentEditEzsignformfieldgroupsV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsigndocumentEditEzsignformfieldgroupsV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsigndocumentEditEzsignformfieldgroupsV1SignalError(output, error_type, error_str);
         Q_EMIT ezsigndocumentEditEzsignformfieldgroupsV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -1444,32 +1282,6 @@ void ObjectEzsigndocumentApi::ezsigndocumentEditEzsignformfieldgroupsV2Callback(
         Q_EMIT ezsigndocumentEditEzsignformfieldgroupsV2Signal(output);
         Q_EMIT ezsigndocumentEditEzsignformfieldgroupsV2SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsigndocumentEditEzsignformfieldgroupsV2SignalE(output, error_type, error_str);
-        Q_EMIT ezsigndocumentEditEzsignformfieldgroupsV2SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsigndocumentEditEzsignformfieldgroupsV2SignalError(output, error_type, error_str);
         Q_EMIT ezsigndocumentEditEzsignformfieldgroupsV2SignalErrorFull(worker, error_type, error_str);
     }
@@ -1537,32 +1349,6 @@ void ObjectEzsigndocumentApi::ezsigndocumentEditEzsignsignaturesV1Callback(HttpR
         Q_EMIT ezsigndocumentEditEzsignsignaturesV1Signal(output);
         Q_EMIT ezsigndocumentEditEzsignsignaturesV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsigndocumentEditEzsignsignaturesV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsigndocumentEditEzsignsignaturesV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsigndocumentEditEzsignsignaturesV1SignalError(output, error_type, error_str);
         Q_EMIT ezsigndocumentEditEzsignsignaturesV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -1630,32 +1416,6 @@ void ObjectEzsigndocumentApi::ezsigndocumentEditEzsignsignaturesV2Callback(HttpR
         Q_EMIT ezsigndocumentEditEzsignsignaturesV2Signal(output);
         Q_EMIT ezsigndocumentEditEzsignsignaturesV2SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsigndocumentEditEzsignsignaturesV2SignalE(output, error_type, error_str);
-        Q_EMIT ezsigndocumentEditEzsignsignaturesV2SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsigndocumentEditEzsignsignaturesV2SignalError(output, error_type, error_str);
         Q_EMIT ezsigndocumentEditEzsignsignaturesV2SignalErrorFull(worker, error_type, error_str);
     }
@@ -1723,32 +1483,6 @@ void ObjectEzsigndocumentApi::ezsigndocumentEditObjectV1Callback(HttpRequestWork
         Q_EMIT ezsigndocumentEditObjectV1Signal(output);
         Q_EMIT ezsigndocumentEditObjectV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsigndocumentEditObjectV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsigndocumentEditObjectV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsigndocumentEditObjectV1SignalError(output, error_type, error_str);
         Q_EMIT ezsigndocumentEditObjectV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -1816,32 +1550,6 @@ void ObjectEzsigndocumentApi::ezsigndocumentEndPrematurelyV1Callback(HttpRequest
         Q_EMIT ezsigndocumentEndPrematurelyV1Signal(output);
         Q_EMIT ezsigndocumentEndPrematurelyV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsigndocumentEndPrematurelyV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsigndocumentEndPrematurelyV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsigndocumentEndPrematurelyV1SignalError(output, error_type, error_str);
         Q_EMIT ezsigndocumentEndPrematurelyV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -1909,32 +1617,6 @@ void ObjectEzsigndocumentApi::ezsigndocumentExtractTextV1Callback(HttpRequestWor
         Q_EMIT ezsigndocumentExtractTextV1Signal(output);
         Q_EMIT ezsigndocumentExtractTextV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsigndocumentExtractTextV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsigndocumentExtractTextV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsigndocumentExtractTextV1SignalError(output, error_type, error_str);
         Q_EMIT ezsigndocumentExtractTextV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -2002,32 +1684,6 @@ void ObjectEzsigndocumentApi::ezsigndocumentFlattenV1Callback(HttpRequestWorker 
         Q_EMIT ezsigndocumentFlattenV1Signal(output);
         Q_EMIT ezsigndocumentFlattenV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsigndocumentFlattenV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsigndocumentFlattenV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsigndocumentFlattenV1SignalError(output, error_type, error_str);
         Q_EMIT ezsigndocumentFlattenV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -2090,32 +1746,6 @@ void ObjectEzsigndocumentApi::ezsigndocumentGetActionableElementsV1Callback(Http
         Q_EMIT ezsigndocumentGetActionableElementsV1Signal(output);
         Q_EMIT ezsigndocumentGetActionableElementsV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsigndocumentGetActionableElementsV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsigndocumentGetActionableElementsV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsigndocumentGetActionableElementsV1SignalError(output, error_type, error_str);
         Q_EMIT ezsigndocumentGetActionableElementsV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -2178,32 +1808,6 @@ void ObjectEzsigndocumentApi::ezsigndocumentGetActionableElementsV2Callback(Http
         Q_EMIT ezsigndocumentGetActionableElementsV2Signal(output);
         Q_EMIT ezsigndocumentGetActionableElementsV2SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsigndocumentGetActionableElementsV2SignalE(output, error_type, error_str);
-        Q_EMIT ezsigndocumentGetActionableElementsV2SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsigndocumentGetActionableElementsV2SignalError(output, error_type, error_str);
         Q_EMIT ezsigndocumentGetActionableElementsV2SignalErrorFull(worker, error_type, error_str);
     }
@@ -2266,32 +1870,6 @@ void ObjectEzsigndocumentApi::ezsigndocumentGetActionableElementsV3Callback(Http
         Q_EMIT ezsigndocumentGetActionableElementsV3Signal(output);
         Q_EMIT ezsigndocumentGetActionableElementsV3SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsigndocumentGetActionableElementsV3SignalE(output, error_type, error_str);
-        Q_EMIT ezsigndocumentGetActionableElementsV3SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsigndocumentGetActionableElementsV3SignalError(output, error_type, error_str);
         Q_EMIT ezsigndocumentGetActionableElementsV3SignalErrorFull(worker, error_type, error_str);
     }
@@ -2354,32 +1932,6 @@ void ObjectEzsigndocumentApi::ezsigndocumentGetAttachmentsV1Callback(HttpRequest
         Q_EMIT ezsigndocumentGetAttachmentsV1Signal(output);
         Q_EMIT ezsigndocumentGetAttachmentsV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsigndocumentGetAttachmentsV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsigndocumentGetAttachmentsV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsigndocumentGetAttachmentsV1SignalError(output, error_type, error_str);
         Q_EMIT ezsigndocumentGetAttachmentsV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -2442,32 +1994,6 @@ void ObjectEzsigndocumentApi::ezsigndocumentGetCompletedElementsV1Callback(HttpR
         Q_EMIT ezsigndocumentGetCompletedElementsV1Signal(output);
         Q_EMIT ezsigndocumentGetCompletedElementsV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsigndocumentGetCompletedElementsV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsigndocumentGetCompletedElementsV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsigndocumentGetCompletedElementsV1SignalError(output, error_type, error_str);
         Q_EMIT ezsigndocumentGetCompletedElementsV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -2530,32 +2056,6 @@ void ObjectEzsigndocumentApi::ezsigndocumentGetCompletedElementsV2Callback(HttpR
         Q_EMIT ezsigndocumentGetCompletedElementsV2Signal(output);
         Q_EMIT ezsigndocumentGetCompletedElementsV2SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsigndocumentGetCompletedElementsV2SignalE(output, error_type, error_str);
-        Q_EMIT ezsigndocumentGetCompletedElementsV2SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsigndocumentGetCompletedElementsV2SignalError(output, error_type, error_str);
         Q_EMIT ezsigndocumentGetCompletedElementsV2SignalErrorFull(worker, error_type, error_str);
     }
@@ -2632,32 +2132,6 @@ void ObjectEzsigndocumentApi::ezsigndocumentGetDownloadUrlV1Callback(HttpRequest
         Q_EMIT ezsigndocumentGetDownloadUrlV1Signal(output);
         Q_EMIT ezsigndocumentGetDownloadUrlV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsigndocumentGetDownloadUrlV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsigndocumentGetDownloadUrlV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsigndocumentGetDownloadUrlV1SignalError(output, error_type, error_str);
         Q_EMIT ezsigndocumentGetDownloadUrlV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -2720,32 +2194,6 @@ void ObjectEzsigndocumentApi::ezsigndocumentGetEzsignannotationsV1Callback(HttpR
         Q_EMIT ezsigndocumentGetEzsignannotationsV1Signal(output);
         Q_EMIT ezsigndocumentGetEzsignannotationsV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsigndocumentGetEzsignannotationsV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsigndocumentGetEzsignannotationsV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsigndocumentGetEzsignannotationsV1SignalError(output, error_type, error_str);
         Q_EMIT ezsigndocumentGetEzsignannotationsV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -2808,32 +2256,6 @@ void ObjectEzsigndocumentApi::ezsigndocumentGetEzsigndiscussionsV1Callback(HttpR
         Q_EMIT ezsigndocumentGetEzsigndiscussionsV1Signal(output);
         Q_EMIT ezsigndocumentGetEzsigndiscussionsV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsigndocumentGetEzsigndiscussionsV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsigndocumentGetEzsigndiscussionsV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsigndocumentGetEzsigndiscussionsV1SignalError(output, error_type, error_str);
         Q_EMIT ezsigndocumentGetEzsigndiscussionsV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -2896,32 +2318,6 @@ void ObjectEzsigndocumentApi::ezsigndocumentGetEzsignformfieldgroupsV1Callback(H
         Q_EMIT ezsigndocumentGetEzsignformfieldgroupsV1Signal(output);
         Q_EMIT ezsigndocumentGetEzsignformfieldgroupsV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsigndocumentGetEzsignformfieldgroupsV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsigndocumentGetEzsignformfieldgroupsV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsigndocumentGetEzsignformfieldgroupsV1SignalError(output, error_type, error_str);
         Q_EMIT ezsigndocumentGetEzsignformfieldgroupsV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -2984,32 +2380,6 @@ void ObjectEzsigndocumentApi::ezsigndocumentGetEzsignpagesV1Callback(HttpRequest
         Q_EMIT ezsigndocumentGetEzsignpagesV1Signal(output);
         Q_EMIT ezsigndocumentGetEzsignpagesV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsigndocumentGetEzsignpagesV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsigndocumentGetEzsignpagesV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsigndocumentGetEzsignpagesV1SignalError(output, error_type, error_str);
         Q_EMIT ezsigndocumentGetEzsignpagesV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -3072,32 +2442,6 @@ void ObjectEzsigndocumentApi::ezsigndocumentGetEzsignsignaturesAutomaticV1Callba
         Q_EMIT ezsigndocumentGetEzsignsignaturesAutomaticV1Signal(output);
         Q_EMIT ezsigndocumentGetEzsignsignaturesAutomaticV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsigndocumentGetEzsignsignaturesAutomaticV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsigndocumentGetEzsignsignaturesAutomaticV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsigndocumentGetEzsignsignaturesAutomaticV1SignalError(output, error_type, error_str);
         Q_EMIT ezsigndocumentGetEzsignsignaturesAutomaticV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -3160,32 +2504,6 @@ void ObjectEzsigndocumentApi::ezsigndocumentGetEzsignsignaturesV1Callback(HttpRe
         Q_EMIT ezsigndocumentGetEzsignsignaturesV1Signal(output);
         Q_EMIT ezsigndocumentGetEzsignsignaturesV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsigndocumentGetEzsignsignaturesV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsigndocumentGetEzsignsignaturesV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsigndocumentGetEzsignsignaturesV1SignalError(output, error_type, error_str);
         Q_EMIT ezsigndocumentGetEzsignsignaturesV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -3248,32 +2566,6 @@ void ObjectEzsigndocumentApi::ezsigndocumentGetEzsignsignaturesV2Callback(HttpRe
         Q_EMIT ezsigndocumentGetEzsignsignaturesV2Signal(output);
         Q_EMIT ezsigndocumentGetEzsignsignaturesV2SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsigndocumentGetEzsignsignaturesV2SignalE(output, error_type, error_str);
-        Q_EMIT ezsigndocumentGetEzsignsignaturesV2SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsigndocumentGetEzsignsignaturesV2SignalError(output, error_type, error_str);
         Q_EMIT ezsigndocumentGetEzsignsignaturesV2SignalErrorFull(worker, error_type, error_str);
     }
@@ -3336,32 +2628,6 @@ void ObjectEzsigndocumentApi::ezsigndocumentGetFormDataV1Callback(HttpRequestWor
         Q_EMIT ezsigndocumentGetFormDataV1Signal(output);
         Q_EMIT ezsigndocumentGetFormDataV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsigndocumentGetFormDataV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsigndocumentGetFormDataV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsigndocumentGetFormDataV1SignalError(output, error_type, error_str);
         Q_EMIT ezsigndocumentGetFormDataV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -3424,32 +2690,6 @@ void ObjectEzsigndocumentApi::ezsigndocumentGetObjectV1Callback(HttpRequestWorke
         Q_EMIT ezsigndocumentGetObjectV1Signal(output);
         Q_EMIT ezsigndocumentGetObjectV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsigndocumentGetObjectV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsigndocumentGetObjectV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsigndocumentGetObjectV1SignalError(output, error_type, error_str);
         Q_EMIT ezsigndocumentGetObjectV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -3512,32 +2752,6 @@ void ObjectEzsigndocumentApi::ezsigndocumentGetObjectV2Callback(HttpRequestWorke
         Q_EMIT ezsigndocumentGetObjectV2Signal(output);
         Q_EMIT ezsigndocumentGetObjectV2SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsigndocumentGetObjectV2SignalE(output, error_type, error_str);
-        Q_EMIT ezsigndocumentGetObjectV2SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsigndocumentGetObjectV2SignalError(output, error_type, error_str);
         Q_EMIT ezsigndocumentGetObjectV2SignalErrorFull(worker, error_type, error_str);
     }
@@ -3600,32 +2814,6 @@ void ObjectEzsigndocumentApi::ezsigndocumentGetObjectV3Callback(HttpRequestWorke
         Q_EMIT ezsigndocumentGetObjectV3Signal(output);
         Q_EMIT ezsigndocumentGetObjectV3SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsigndocumentGetObjectV3SignalE(output, error_type, error_str);
-        Q_EMIT ezsigndocumentGetObjectV3SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsigndocumentGetObjectV3SignalError(output, error_type, error_str);
         Q_EMIT ezsigndocumentGetObjectV3SignalErrorFull(worker, error_type, error_str);
     }
@@ -3688,32 +2876,6 @@ void ObjectEzsigndocumentApi::ezsigndocumentGetTemporaryProofV1Callback(HttpRequ
         Q_EMIT ezsigndocumentGetTemporaryProofV1Signal(output);
         Q_EMIT ezsigndocumentGetTemporaryProofV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsigndocumentGetTemporaryProofV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsigndocumentGetTemporaryProofV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsigndocumentGetTemporaryProofV1SignalError(output, error_type, error_str);
         Q_EMIT ezsigndocumentGetTemporaryProofV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -3781,32 +2943,6 @@ void ObjectEzsigndocumentApi::ezsigndocumentGetWordsPositionsV1Callback(HttpRequ
         Q_EMIT ezsigndocumentGetWordsPositionsV1Signal(output);
         Q_EMIT ezsigndocumentGetWordsPositionsV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsigndocumentGetWordsPositionsV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsigndocumentGetWordsPositionsV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsigndocumentGetWordsPositionsV1SignalError(output, error_type, error_str);
         Q_EMIT ezsigndocumentGetWordsPositionsV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -3874,32 +3010,6 @@ void ObjectEzsigndocumentApi::ezsigndocumentPatchObjectV1Callback(HttpRequestWor
         Q_EMIT ezsigndocumentPatchObjectV1Signal(output);
         Q_EMIT ezsigndocumentPatchObjectV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsigndocumentPatchObjectV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsigndocumentPatchObjectV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsigndocumentPatchObjectV1SignalError(output, error_type, error_str);
         Q_EMIT ezsigndocumentPatchObjectV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -3967,32 +3077,6 @@ void ObjectEzsigndocumentApi::ezsigndocumentPrefillEzsignformV1Callback(HttpRequ
         Q_EMIT ezsigndocumentPrefillEzsignformV1Signal(output);
         Q_EMIT ezsigndocumentPrefillEzsignformV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsigndocumentPrefillEzsignformV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsigndocumentPrefillEzsignformV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsigndocumentPrefillEzsignformV1SignalError(output, error_type, error_str);
         Q_EMIT ezsigndocumentPrefillEzsignformV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -4060,32 +3144,6 @@ void ObjectEzsigndocumentApi::ezsigndocumentSubmitEzsignformV1Callback(HttpReque
         Q_EMIT ezsigndocumentSubmitEzsignformV1Signal(output);
         Q_EMIT ezsigndocumentSubmitEzsignformV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsigndocumentSubmitEzsignformV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsigndocumentSubmitEzsignformV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsigndocumentSubmitEzsignformV1SignalError(output, error_type, error_str);
         Q_EMIT ezsigndocumentSubmitEzsignformV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -4153,42 +3211,16 @@ void ObjectEzsigndocumentApi::ezsigndocumentUnsendV1Callback(HttpRequestWorker *
         Q_EMIT ezsigndocumentUnsendV1Signal(output);
         Q_EMIT ezsigndocumentUnsendV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsigndocumentUnsendV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsigndocumentUnsendV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsigndocumentUnsendV1SignalError(output, error_type, error_str);
         Q_EMIT ezsigndocumentUnsendV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
-void ObjectEzsigndocumentApi::tokenAvailable(){
+void ObjectEzsigndocumentApi::tokenAvailable() {
 
     oauthToken token;
     switch (_OauthMethod) {
-    case 1: //implicit flow
+    case OauthMethod::ImplicitFlow:
         token = _implicitFlow.getToken(_latestScope.join(" "));
         if(token.isValid()){
             _latestInput.headers.insert("Authorization", "Bearer " + token.getToken());
@@ -4198,7 +3230,7 @@ void ObjectEzsigndocumentApi::tokenAvailable(){
             qDebug() << "Could not retrieve a valid token";
         }
         break;
-    case 2: //authorization flow
+    case OauthMethod::AuthorizationFlow:
         token = _authFlow.getToken(_latestScope.join(" "));
         if(token.isValid()){
             _latestInput.headers.insert("Authorization", "Bearer " + token.getToken());
@@ -4208,7 +3240,7 @@ void ObjectEzsigndocumentApi::tokenAvailable(){
             qDebug() << "Could not retrieve a valid token";
         }
         break;
-    case 3: //client credentials flow
+    case OauthMethod::ClientCredentialsFlow:
         token = _credentialFlow.getToken(_latestScope.join(" "));
         if(token.isValid()){
             _latestInput.headers.insert("Authorization", "Bearer " + token.getToken());
@@ -4218,7 +3250,7 @@ void ObjectEzsigndocumentApi::tokenAvailable(){
             qDebug() << "Could not retrieve a valid token";
         }
         break;
-    case 4: //resource owner password flow
+    case OauthMethod::ResourceOwnerPasswordFlow:
         token = _passwordFlow.getToken(_latestScope.join(" "));
         if(token.isValid()){
             _latestInput.headers.insert("Authorization", "Bearer " + token.getToken());

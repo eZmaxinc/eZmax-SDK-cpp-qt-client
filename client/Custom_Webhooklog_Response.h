@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Custom_Webhooklog_Response : public Object {
 public:
     Custom_Webhooklog_Response();
-    Custom_Webhooklog_Response(QString json);
+    Custom_Webhooklog_Response(const QString &json);
     ~Custom_Webhooklog_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getDtWebhooklogDate() const;
     void setDtWebhooklogDate(const QString &dt_webhooklog_date);

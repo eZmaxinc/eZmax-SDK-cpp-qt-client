@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Multilingual_NotificationtestName::Multilingual_NotificationtestName(QString json) {
+Multilingual_NotificationtestName::Multilingual_NotificationtestName(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -41,7 +41,7 @@ void Multilingual_NotificationtestName::initializeModel() {
     m_s_notificationtest_name2_isValid = false;
 }
 
-void Multilingual_NotificationtestName::fromJson(QString jsonString) {
+void Multilingual_NotificationtestName::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

@@ -38,13 +38,13 @@ class Ezsignelementdependency_RequestCompound;
 class Ezsignformfield_RequestCompound : public Object {
 public:
     Ezsignformfield_RequestCompound();
-    Ezsignformfield_RequestCompound(QString json);
+    Ezsignformfield_RequestCompound(const QString &json);
     ~Ezsignformfield_RequestCompound() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiEzsignformfieldId() const;
     void setPkiEzsignformfieldId(const qint32 &pki_ezsignformfield_id);

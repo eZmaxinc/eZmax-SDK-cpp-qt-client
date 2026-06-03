@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Enum_Fontunderline::Enum_Fontunderline(QString json) {
+Enum_Fontunderline::Enum_Fontunderline(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Enum_Fontunderline::initializeModel() {
     m_value = eEnum_Fontunderline::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Enum_Fontunderline::fromJson(QString jsonString) {
+void Enum_Fontunderline::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("None", Qt::CaseInsensitive) == 0) {
         m_value = eEnum_Fontunderline::NONE;

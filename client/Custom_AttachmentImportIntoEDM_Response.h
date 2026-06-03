@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Custom_AttachmentImportIntoEDM_Response : public Object {
 public:
     Custom_AttachmentImportIntoEDM_Response();
-    Custom_AttachmentImportIntoEDM_Response(QString json);
+    Custom_AttachmentImportIntoEDM_Response(const QString &json);
     ~Custom_AttachmentImportIntoEDM_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiAttachmentIdSource() const;
     void setPkiAttachmentIdSource(const qint32 &pki_attachment_id_source);

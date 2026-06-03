@@ -33,13 +33,13 @@ class Glaccountcontainer_AutocompleteElement_Response;
 class Glaccountcontainer_getAutocomplete_v2_Response_mPayload : public Object {
 public:
     Glaccountcontainer_getAutocomplete_v2_Response_mPayload();
-    Glaccountcontainer_getAutocomplete_v2_Response_mPayload(QString json);
+    Glaccountcontainer_getAutocomplete_v2_Response_mPayload(const QString &json);
     ~Glaccountcontainer_getAutocomplete_v2_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Glaccountcontainer_AutocompleteElement_Response> getAObjGlaccountcontainer() const;
     void setAObjGlaccountcontainer(const QList<Glaccountcontainer_AutocompleteElement_Response> &a_obj_glaccountcontainer);

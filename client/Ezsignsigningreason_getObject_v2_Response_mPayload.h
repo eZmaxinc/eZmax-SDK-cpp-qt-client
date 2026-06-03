@@ -32,13 +32,13 @@ class Ezsignsigningreason_ResponseCompound;
 class Ezsignsigningreason_getObject_v2_Response_mPayload : public Object {
 public:
     Ezsignsigningreason_getObject_v2_Response_mPayload();
-    Ezsignsigningreason_getObject_v2_Response_mPayload(QString json);
+    Ezsignsigningreason_getObject_v2_Response_mPayload(const QString &json);
     ~Ezsignsigningreason_getObject_v2_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Ezsignsigningreason_ResponseCompound getObjEzsignsigningreason() const;
     void setObjEzsignsigningreason(const Ezsignsigningreason_ResponseCompound &obj_ezsignsigningreason);

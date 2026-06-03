@@ -30,13 +30,13 @@ namespace Ezmaxapi {
 class Field_eEzmaxinvoicinguserVariationezsign : public Enum {
 public:
     Field_eEzmaxinvoicinguserVariationezsign();
-    Field_eEzmaxinvoicinguserVariationezsign(QString json);
+    Field_eEzmaxinvoicinguserVariationezsign(const QString &json);
     ~Field_eEzmaxinvoicinguserVariationezsign() override;
 
     QString asJson() const override;
     QJsonValue asJsonValue() const override;
     void fromJsonValue(QJsonValue json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     enum class eField_eEzmaxinvoicinguserVariationezsign {
         INVALID_VALUE_OPENAPI_GENERATED = 0,

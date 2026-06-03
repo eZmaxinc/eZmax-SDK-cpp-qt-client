@@ -36,13 +36,13 @@ class Custom_Notificationtestgetnotificationtests_Response;
 class Custom_Notificationsubsectiongetnotificationtests_Response : public Object {
 public:
     Custom_Notificationsubsectiongetnotificationtests_Response();
-    Custom_Notificationsubsectiongetnotificationtests_Response(QString json);
+    Custom_Notificationsubsectiongetnotificationtests_Response(const QString &json);
     ~Custom_Notificationsubsectiongetnotificationtests_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiNotificationsubsectionId() const;
     void setPkiNotificationsubsectionId(const qint32 &pki_notificationsubsection_id);

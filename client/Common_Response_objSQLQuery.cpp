@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Common_Response_objSQLQuery::Common_Response_objSQLQuery(QString json) {
+Common_Response_objSQLQuery::Common_Response_objSQLQuery(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -41,7 +41,7 @@ void Common_Response_objSQLQuery::initializeModel() {
     m_f_duration_isValid = false;
 }
 
-void Common_Response_objSQLQuery::fromJson(QString jsonString) {
+void Common_Response_objSQLQuery::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

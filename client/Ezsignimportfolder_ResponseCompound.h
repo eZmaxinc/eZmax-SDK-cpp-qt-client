@@ -34,13 +34,13 @@ class Custom_Ezsignimportdocument_Response;
 class Ezsignimportfolder_ResponseCompound : public Object {
 public:
     Ezsignimportfolder_ResponseCompound();
-    Ezsignimportfolder_ResponseCompound(QString json);
+    Ezsignimportfolder_ResponseCompound(const QString &json);
     ~Ezsignimportfolder_ResponseCompound() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiEzsignimportfolderId() const;
     void setPkiEzsignimportfolderId(const qint32 &pki_ezsignimportfolder_id);

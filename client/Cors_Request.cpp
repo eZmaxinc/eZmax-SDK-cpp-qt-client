@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Cors_Request::Cors_Request(QString json) {
+Cors_Request::Cors_Request(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -44,7 +44,7 @@ void Cors_Request::initializeModel() {
     m_s_cors_entryurl_isValid = false;
 }
 
-void Cors_Request::fromJson(QString jsonString) {
+void Cors_Request::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

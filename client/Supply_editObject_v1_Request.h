@@ -32,13 +32,13 @@ class Supply_RequestCompound;
 class Supply_editObject_v1_Request : public Object {
 public:
     Supply_editObject_v1_Request();
-    Supply_editObject_v1_Request(QString json);
+    Supply_editObject_v1_Request(const QString &json);
     ~Supply_editObject_v1_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Supply_RequestCompound getObjSupply() const;
     void setObjSupply(const Supply_RequestCompound &obj_supply);

@@ -30,13 +30,13 @@ namespace Ezmaxapi {
 class Inscriptiontemp_getCommunicationCount_v1_Response_mPayload : public Object {
 public:
     Inscriptiontemp_getCommunicationCount_v1_Response_mPayload();
-    Inscriptiontemp_getCommunicationCount_v1_Response_mPayload(QString json);
+    Inscriptiontemp_getCommunicationCount_v1_Response_mPayload(const QString &json);
     ~Inscriptiontemp_getCommunicationCount_v1_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getICommunicationCount() const;
     void setICommunicationCount(const qint32 &i_communication_count);

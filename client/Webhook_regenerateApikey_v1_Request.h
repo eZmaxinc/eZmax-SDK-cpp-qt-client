@@ -30,13 +30,13 @@ namespace Ezmaxapi {
 class Webhook_regenerateApikey_v1_Request : public Object {
 public:
     Webhook_regenerateApikey_v1_Request();
-    Webhook_regenerateApikey_v1_Request(QString json);
+    Webhook_regenerateApikey_v1_Request(const QString &json);
     ~Webhook_regenerateApikey_v1_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     bool isBWebhookIssigned() const;
     void setBWebhookIssigned(const bool &b_webhook_issigned);

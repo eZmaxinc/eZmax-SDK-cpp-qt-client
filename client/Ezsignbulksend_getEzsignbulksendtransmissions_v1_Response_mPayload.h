@@ -33,13 +33,13 @@ class Ezsignbulksendtransmission_ResponseCompound;
 class Ezsignbulksend_getEzsignbulksendtransmissions_v1_Response_mPayload : public Object {
 public:
     Ezsignbulksend_getEzsignbulksendtransmissions_v1_Response_mPayload();
-    Ezsignbulksend_getEzsignbulksendtransmissions_v1_Response_mPayload(QString json);
+    Ezsignbulksend_getEzsignbulksendtransmissions_v1_Response_mPayload(const QString &json);
     ~Ezsignbulksend_getEzsignbulksendtransmissions_v1_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Ezsignbulksendtransmission_ResponseCompound> getAObjEzsignbulksendtransmission() const;
     void setAObjEzsignbulksendtransmission(const QList<Ezsignbulksendtransmission_ResponseCompound> &a_obj_ezsignbulksendtransmission);

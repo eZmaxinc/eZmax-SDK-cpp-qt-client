@@ -37,13 +37,13 @@ class Phone_ResponseCompound;
 class Custom_Communicationsender_Response : public Object {
 public:
     Custom_Communicationsender_Response();
-    Custom_Communicationsender_Response(QString json);
+    Custom_Communicationsender_Response(const QString &json);
     ~Custom_Communicationsender_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getFkiAgentId() const;
     void setFkiAgentId(const qint32 &fki_agent_id);

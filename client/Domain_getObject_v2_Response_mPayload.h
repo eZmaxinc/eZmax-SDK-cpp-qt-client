@@ -32,13 +32,13 @@ class Domain_ResponseCompound;
 class Domain_getObject_v2_Response_mPayload : public Object {
 public:
     Domain_getObject_v2_Response_mPayload();
-    Domain_getObject_v2_Response_mPayload(QString json);
+    Domain_getObject_v2_Response_mPayload(const QString &json);
     ~Domain_getObject_v2_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Domain_ResponseCompound getObjDomain() const;
     void setObjDomain(const Domain_ResponseCompound &obj_domain);

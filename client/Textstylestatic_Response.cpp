@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Textstylestatic_Response::Textstylestatic_Response(QString json) {
+Textstylestatic_Response::Textstylestatic_Response(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -62,7 +62,7 @@ void Textstylestatic_Response::initializeModel() {
     m_i_textstylestatic_size_isValid = false;
 }
 
-void Textstylestatic_Response::fromJson(QString jsonString) {
+void Textstylestatic_Response::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

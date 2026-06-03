@@ -32,13 +32,13 @@ namespace Ezmaxapi {
 class Activesession_ResponseCompound_User : public Object {
 public:
     Activesession_ResponseCompound_User();
-    Activesession_ResponseCompound_User(QString json);
+    Activesession_ResponseCompound_User(const QString &json);
     ~Activesession_ResponseCompound_User() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiUserId() const;
     void setPkiUserId(const qint32 &pki_user_id);

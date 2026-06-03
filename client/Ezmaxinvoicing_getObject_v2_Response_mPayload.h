@@ -32,13 +32,13 @@ class Ezmaxinvoicing_ResponseCompound;
 class Ezmaxinvoicing_getObject_v2_Response_mPayload : public Object {
 public:
     Ezmaxinvoicing_getObject_v2_Response_mPayload();
-    Ezmaxinvoicing_getObject_v2_Response_mPayload(QString json);
+    Ezmaxinvoicing_getObject_v2_Response_mPayload(const QString &json);
     ~Ezmaxinvoicing_getObject_v2_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Ezmaxinvoicing_ResponseCompound getObjEzmaxinvoicing() const;
     void setObjEzmaxinvoicing(const Ezmaxinvoicing_ResponseCompound &obj_ezmaxinvoicing);

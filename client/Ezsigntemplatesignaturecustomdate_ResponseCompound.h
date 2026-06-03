@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Ezsigntemplatesignaturecustomdate_ResponseCompound : public Object {
 public:
     Ezsigntemplatesignaturecustomdate_ResponseCompound();
-    Ezsigntemplatesignaturecustomdate_ResponseCompound(QString json);
+    Ezsigntemplatesignaturecustomdate_ResponseCompound(const QString &json);
     ~Ezsigntemplatesignaturecustomdate_ResponseCompound() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiEzsigntemplatesignaturecustomdateId() const;
     void setPkiEzsigntemplatesignaturecustomdateId(const qint32 &pki_ezsigntemplatesignaturecustomdate_id);

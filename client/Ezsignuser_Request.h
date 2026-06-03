@@ -32,13 +32,13 @@ class Contact_RequestCompoundV2;
 class Ezsignuser_Request : public Object {
 public:
     Ezsignuser_Request();
-    Ezsignuser_Request(QString json);
+    Ezsignuser_Request(const QString &json);
     ~Ezsignuser_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiEzsignuserId() const;
     void setPkiEzsignuserId(const qint32 &pki_ezsignuser_id);

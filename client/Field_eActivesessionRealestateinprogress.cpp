@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_eActivesessionRealestateinprogress::Field_eActivesessionRealestateinprogress(QString json) {
+Field_eActivesessionRealestateinprogress::Field_eActivesessionRealestateinprogress(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_eActivesessionRealestateinprogress::initializeModel() {
     m_value = eField_eActivesessionRealestateinprogress::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_eActivesessionRealestateinprogress::fromJson(QString jsonString) {
+void Field_eActivesessionRealestateinprogress::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("No", Qt::CaseInsensitive) == 0) {
         m_value = eField_eActivesessionRealestateinprogress::NO;

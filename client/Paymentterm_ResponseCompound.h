@@ -36,13 +36,13 @@ class Common_Audit;
 class Paymentterm_ResponseCompound : public Object {
 public:
     Paymentterm_ResponseCompound();
-    Paymentterm_ResponseCompound(QString json);
+    Paymentterm_ResponseCompound(const QString &json);
     ~Paymentterm_ResponseCompound() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiPaymenttermId() const;
     void setPkiPaymenttermId(const qint32 &pki_paymentterm_id);

@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Custom_Ezsignformfielderrortest_Response : public Object {
 public:
     Custom_Ezsignformfielderrortest_Response();
-    Custom_Ezsignformfielderrortest_Response(QString json);
+    Custom_Ezsignformfielderrortest_Response(const QString &json);
     ~Custom_Ezsignformfielderrortest_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getSEzsignformfielderrortestName() const;
     void setSEzsignformfielderrortestName(const QString &s_ezsignformfielderrortest_name);

@@ -30,13 +30,13 @@ namespace Ezmaxapi {
 class Contactinformations_Request : public Object {
 public:
     Contactinformations_Request();
-    Contactinformations_Request(QString json);
+    Contactinformations_Request(const QString &json);
     ~Contactinformations_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getIAddressDefault() const;
     void setIAddressDefault(const qint32 &i_address_default);

@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_eEzsignfolderSendreminderfrequency::Field_eEzsignfolderSendreminderfrequency(QString json) {
+Field_eEzsignfolderSendreminderfrequency::Field_eEzsignfolderSendreminderfrequency(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_eEzsignfolderSendreminderfrequency::initializeModel() {
     m_value = eField_eEzsignfolderSendreminderfrequency::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_eEzsignfolderSendreminderfrequency::fromJson(QString jsonString) {
+void Field_eEzsignfolderSendreminderfrequency::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("None", Qt::CaseInsensitive) == 0) {
         m_value = eField_eEzsignfolderSendreminderfrequency::NONE;

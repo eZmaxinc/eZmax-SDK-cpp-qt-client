@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Ezsignbulksend_Request : public Object {
 public:
     Ezsignbulksend_Request();
-    Ezsignbulksend_Request(QString json);
+    Ezsignbulksend_Request(const QString &json);
     ~Ezsignbulksend_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiEzsignbulksendId() const;
     void setPkiEzsignbulksendId(const qint32 &pki_ezsignbulksend_id);

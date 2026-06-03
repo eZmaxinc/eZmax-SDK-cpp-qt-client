@@ -33,13 +33,13 @@ class Custom_AttachmentImportIntoEDM_Response;
 class Electronicfundstransfer_importIntoEDM_v1_Response_mPayload : public Object {
 public:
     Electronicfundstransfer_importIntoEDM_v1_Response_mPayload();
-    Electronicfundstransfer_importIntoEDM_v1_Response_mPayload(QString json);
+    Electronicfundstransfer_importIntoEDM_v1_Response_mPayload(const QString &json);
     ~Electronicfundstransfer_importIntoEDM_v1_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Custom_AttachmentImportIntoEDM_Response> getAObjAttachment() const;
     void setAObjAttachment(const QList<Custom_AttachmentImportIntoEDM_Response> &a_obj_attachment);

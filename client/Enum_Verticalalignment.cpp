@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Enum_Verticalalignment::Enum_Verticalalignment(QString json) {
+Enum_Verticalalignment::Enum_Verticalalignment(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Enum_Verticalalignment::initializeModel() {
     m_value = eEnum_Verticalalignment::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Enum_Verticalalignment::fromJson(QString jsonString) {
+void Enum_Verticalalignment::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("Bottom", Qt::CaseInsensitive) == 0) {
         m_value = eEnum_Verticalalignment::BOTTOM;

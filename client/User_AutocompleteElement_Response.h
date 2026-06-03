@@ -32,13 +32,13 @@ namespace Ezmaxapi {
 class User_AutocompleteElement_Response : public Object {
 public:
     User_AutocompleteElement_Response();
-    User_AutocompleteElement_Response(QString json);
+    User_AutocompleteElement_Response(const QString &json);
     ~User_AutocompleteElement_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Field_eUserType getEUserType() const;
     void setEUserType(const Field_eUserType &e_user_type);

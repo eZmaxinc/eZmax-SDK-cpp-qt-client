@@ -33,13 +33,13 @@ class Multilingual_EzdoctemplatedocumentName;
 class Ezdoctemplatedocument_RequestCompound : public Object {
 public:
     Ezdoctemplatedocument_RequestCompound();
-    Ezdoctemplatedocument_RequestCompound(QString json);
+    Ezdoctemplatedocument_RequestCompound(const QString &json);
     ~Ezdoctemplatedocument_RequestCompound() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiEzdoctemplatedocumentId() const;
     void setPkiEzdoctemplatedocumentId(const qint32 &pki_ezdoctemplatedocument_id);

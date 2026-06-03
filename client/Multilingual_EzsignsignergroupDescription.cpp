@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Multilingual_EzsignsignergroupDescription::Multilingual_EzsignsignergroupDescription(QString json) {
+Multilingual_EzsignsignergroupDescription::Multilingual_EzsignsignergroupDescription(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -41,7 +41,7 @@ void Multilingual_EzsignsignergroupDescription::initializeModel() {
     m_s_ezsignsignergroup_description2_isValid = false;
 }
 
-void Multilingual_EzsignsignergroupDescription::fromJson(QString jsonString) {
+void Multilingual_EzsignsignergroupDescription::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

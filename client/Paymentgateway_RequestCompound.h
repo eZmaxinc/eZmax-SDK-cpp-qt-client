@@ -35,13 +35,13 @@ class Creditcardmerchant_RequestCompound;
 class Paymentgateway_RequestCompound : public Object {
 public:
     Paymentgateway_RequestCompound();
-    Paymentgateway_RequestCompound(QString json);
+    Paymentgateway_RequestCompound(const QString &json);
     ~Paymentgateway_RequestCompound() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiPaymentgatewayId() const;
     void setPkiPaymentgatewayId(const qint32 &pki_paymentgateway_id);

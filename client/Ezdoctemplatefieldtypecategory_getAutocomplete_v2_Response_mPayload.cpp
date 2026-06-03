@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Ezdoctemplatefieldtypecategory_getAutocomplete_v2_Response_mPayload::Ezdoctemplatefieldtypecategory_getAutocomplete_v2_Response_mPayload(QString json) {
+Ezdoctemplatefieldtypecategory_getAutocomplete_v2_Response_mPayload::Ezdoctemplatefieldtypecategory_getAutocomplete_v2_Response_mPayload(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -38,7 +38,7 @@ void Ezdoctemplatefieldtypecategory_getAutocomplete_v2_Response_mPayload::initia
     m_a_obj_ezdoctemplatefieldtypecategory_isValid = false;
 }
 
-void Ezdoctemplatefieldtypecategory_getAutocomplete_v2_Response_mPayload::fromJson(QString jsonString) {
+void Ezdoctemplatefieldtypecategory_getAutocomplete_v2_Response_mPayload::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

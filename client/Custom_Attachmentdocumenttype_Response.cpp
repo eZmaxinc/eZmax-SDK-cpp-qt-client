@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Custom_Attachmentdocumenttype_Response::Custom_Attachmentdocumenttype_Response(QString json) {
+Custom_Attachmentdocumenttype_Response::Custom_Attachmentdocumenttype_Response(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -41,7 +41,7 @@ void Custom_Attachmentdocumenttype_Response::initializeModel() {
     m_a_obj_attachment_isValid = false;
 }
 
-void Custom_Attachmentdocumenttype_Response::fromJson(QString jsonString) {
+void Custom_Attachmentdocumenttype_Response::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

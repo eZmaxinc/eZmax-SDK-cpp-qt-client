@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Webhook_Ezsign_FolderCompleted::Webhook_Ezsign_FolderCompleted(QString json) {
+Webhook_Ezsign_FolderCompleted::Webhook_Ezsign_FolderCompleted(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -44,7 +44,7 @@ void Webhook_Ezsign_FolderCompleted::initializeModel() {
     m_obj_ezsignfolder_isValid = false;
 }
 
-void Webhook_Ezsign_FolderCompleted::fromJson(QString jsonString) {
+void Webhook_Ezsign_FolderCompleted::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

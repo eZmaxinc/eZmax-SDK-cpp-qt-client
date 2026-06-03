@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Rejectedoffertopurchase_getCommunicationsenders_v1_Response::Rejectedoffertopurchase_getCommunicationsenders_v1_Response(QString json) {
+Rejectedoffertopurchase_getCommunicationsenders_v1_Response::Rejectedoffertopurchase_getCommunicationsenders_v1_Response(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -44,7 +44,7 @@ void Rejectedoffertopurchase_getCommunicationsenders_v1_Response::initializeMode
     m_m_payload_isValid = false;
 }
 
-void Rejectedoffertopurchase_getCommunicationsenders_v1_Response::fromJson(QString jsonString) {
+void Rejectedoffertopurchase_getCommunicationsenders_v1_Response::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

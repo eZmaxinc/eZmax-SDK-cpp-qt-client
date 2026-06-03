@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Website_ResponseCompound::Website_ResponseCompound(QString json) {
+Website_ResponseCompound::Website_ResponseCompound(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -44,7 +44,7 @@ void Website_ResponseCompound::initializeModel() {
     m_s_website_address_isValid = false;
 }
 
-void Website_ResponseCompound::fromJson(QString jsonString) {
+void Website_ResponseCompound::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

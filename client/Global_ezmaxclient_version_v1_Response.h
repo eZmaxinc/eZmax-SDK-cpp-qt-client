@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Global_ezmaxclient_version_v1_Response : public Object {
 public:
     Global_ezmaxclient_version_v1_Response();
-    Global_ezmaxclient_version_v1_Response(QString json);
+    Global_ezmaxclient_version_v1_Response(const QString &json);
     ~Global_ezmaxclient_version_v1_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getSEzmaxclientVersion() const;
     void setSEzmaxclientVersion(const QString &s_ezmaxclient_version);

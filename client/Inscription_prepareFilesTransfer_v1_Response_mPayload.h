@@ -32,13 +32,13 @@ class Custom_AttachmentPrepareFilesTransfer_Response;
 class Inscription_prepareFilesTransfer_v1_Response_mPayload : public Object {
 public:
     Inscription_prepareFilesTransfer_v1_Response_mPayload();
-    Inscription_prepareFilesTransfer_v1_Response_mPayload(QString json);
+    Inscription_prepareFilesTransfer_v1_Response_mPayload(const QString &json);
     ~Inscription_prepareFilesTransfer_v1_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Custom_AttachmentPrepareFilesTransfer_Response getAObjAttachment() const;
     void setAObjAttachment(const Custom_AttachmentPrepareFilesTransfer_Response &a_obj_attachment);

@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_eAttachmentlogType::Field_eAttachmentlogType(QString json) {
+Field_eAttachmentlogType::Field_eAttachmentlogType(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_eAttachmentlogType::initializeModel() {
     m_value = eField_eAttachmentlogType::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_eAttachmentlogType::fromJson(QString jsonString) {
+void Field_eAttachmentlogType::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("AutoValidation", Qt::CaseInsensitive) == 0) {
         m_value = eField_eAttachmentlogType::AUTOVALIDATION;

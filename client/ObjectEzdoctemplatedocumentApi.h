@@ -50,6 +50,7 @@ public:
     void initializeServerConfigs();
     int setDefaultServerValue(int serverIndex,const QString &operation, const QString &variable,const QString &val);
     void setServerIndex(const QString &operation, int serverIndex);
+    void setServerIndex(int serverIndex);
     void setApiKey(const QString &apiKeyName, const QString &apiKey);
     void setBearerToken(const QString &token);
     void setUsername(const QString &username);
@@ -116,6 +117,13 @@ public:
 
 
 private:
+    enum class OauthMethod : int {
+        INVALID_VALUE_OPENAPI_GENERATED = 0,
+        ImplicitFlow = 1,
+        AuthorizationFlow = 2,
+        ClientCredentialsFlow = 3,
+        ResourceOwnerPasswordFlow = 4
+    };
     QMap<QString,int> _serverIndices;
     QMap<QString,QList<ServerConfiguration>> _serverConfigs;
     QMap<QString, QString> _apiKeys;
@@ -135,7 +143,7 @@ private:
     OauthImplicit _implicitFlow;
     OauthCredentials _credentialFlow;
     OauthPassword _passwordFlow;
-    int _OauthMethod = 0;
+    OauthMethod _OauthMethod = OauthMethod::INVALID_VALUE_OPENAPI_GENERATED;
 
     void ezdoctemplatedocumentCreateObjectV1Callback(HttpRequestWorker *worker);
     void ezdoctemplatedocumentDownloadV1Callback(HttpRequestWorker *worker);
@@ -164,48 +172,20 @@ Q_SIGNALS:
     void ezdoctemplatedocumentGetObjectV2SignalFull(HttpRequestWorker *worker, Ezdoctemplatedocument_getObject_v2_Response summary);
     void ezdoctemplatedocumentPatchObjectV1SignalFull(HttpRequestWorker *worker, Ezdoctemplatedocument_patchObject_v1_Response summary);
 
-    Q_DECL_DEPRECATED_X("Use ezdoctemplatedocumentCreateObjectV1SignalError() instead")
-    void ezdoctemplatedocumentCreateObjectV1SignalE(Ezdoctemplatedocument_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezdoctemplatedocumentCreateObjectV1SignalError(Ezdoctemplatedocument_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezdoctemplatedocumentDownloadV1SignalError() instead")
-    void ezdoctemplatedocumentDownloadV1SignalE(QNetworkReply::NetworkError error_type, QString error_str);
     void ezdoctemplatedocumentDownloadV1SignalError(QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezdoctemplatedocumentEditObjectV1SignalError() instead")
-    void ezdoctemplatedocumentEditObjectV1SignalE(Ezdoctemplatedocument_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezdoctemplatedocumentEditObjectV1SignalError(Ezdoctemplatedocument_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezdoctemplatedocumentGetAutocompleteV2SignalError() instead")
-    void ezdoctemplatedocumentGetAutocompleteV2SignalE(Ezdoctemplatedocument_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezdoctemplatedocumentGetAutocompleteV2SignalError(Ezdoctemplatedocument_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezdoctemplatedocumentGetListV1SignalError() instead")
-    void ezdoctemplatedocumentGetListV1SignalE(Ezdoctemplatedocument_getList_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezdoctemplatedocumentGetListV1SignalError(Ezdoctemplatedocument_getList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezdoctemplatedocumentGetObjectV2SignalError() instead")
-    void ezdoctemplatedocumentGetObjectV2SignalE(Ezdoctemplatedocument_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezdoctemplatedocumentGetObjectV2SignalError(Ezdoctemplatedocument_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezdoctemplatedocumentPatchObjectV1SignalError() instead")
-    void ezdoctemplatedocumentPatchObjectV1SignalE(Ezdoctemplatedocument_patchObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezdoctemplatedocumentPatchObjectV1SignalError(Ezdoctemplatedocument_patchObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
-    Q_DECL_DEPRECATED_X("Use ezdoctemplatedocumentCreateObjectV1SignalErrorFull() instead")
-    void ezdoctemplatedocumentCreateObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezdoctemplatedocumentCreateObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezdoctemplatedocumentDownloadV1SignalErrorFull() instead")
-    void ezdoctemplatedocumentDownloadV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezdoctemplatedocumentDownloadV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezdoctemplatedocumentEditObjectV1SignalErrorFull() instead")
-    void ezdoctemplatedocumentEditObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezdoctemplatedocumentEditObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezdoctemplatedocumentGetAutocompleteV2SignalErrorFull() instead")
-    void ezdoctemplatedocumentGetAutocompleteV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezdoctemplatedocumentGetAutocompleteV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezdoctemplatedocumentGetListV1SignalErrorFull() instead")
-    void ezdoctemplatedocumentGetListV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezdoctemplatedocumentGetListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezdoctemplatedocumentGetObjectV2SignalErrorFull() instead")
-    void ezdoctemplatedocumentGetObjectV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezdoctemplatedocumentGetObjectV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezdoctemplatedocumentPatchObjectV1SignalErrorFull() instead")
-    void ezdoctemplatedocumentPatchObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezdoctemplatedocumentPatchObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();

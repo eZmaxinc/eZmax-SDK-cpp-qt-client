@@ -30,13 +30,13 @@ namespace Ezmaxapi {
 class Field_ePaymentgatewayProcessor : public Enum {
 public:
     Field_ePaymentgatewayProcessor();
-    Field_ePaymentgatewayProcessor(QString json);
+    Field_ePaymentgatewayProcessor(const QString &json);
     ~Field_ePaymentgatewayProcessor() override;
 
     QString asJson() const override;
     QJsonValue asJsonValue() const override;
     void fromJsonValue(QJsonValue json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     enum class eField_ePaymentgatewayProcessor {
         INVALID_VALUE_OPENAPI_GENERATED = 0,

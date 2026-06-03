@@ -51,6 +51,7 @@ public:
     void initializeServerConfigs();
     int setDefaultServerValue(int serverIndex,const QString &operation, const QString &variable,const QString &val);
     void setServerIndex(const QString &operation, int serverIndex);
+    void setServerIndex(int serverIndex);
     void setApiKey(const QString &apiKeyName, const QString &apiKey);
     void setBearerToken(const QString &token);
     void setUsername(const QString &username);
@@ -119,6 +120,13 @@ public:
 
 
 private:
+    enum class OauthMethod : int {
+        INVALID_VALUE_OPENAPI_GENERATED = 0,
+        ImplicitFlow = 1,
+        AuthorizationFlow = 2,
+        ClientCredentialsFlow = 3,
+        ResourceOwnerPasswordFlow = 4
+    };
     QMap<QString,int> _serverIndices;
     QMap<QString,QList<ServerConfiguration>> _serverConfigs;
     QMap<QString, QString> _apiKeys;
@@ -138,7 +146,7 @@ private:
     OauthImplicit _implicitFlow;
     OauthCredentials _credentialFlow;
     OauthPassword _passwordFlow;
-    int _OauthMethod = 0;
+    OauthMethod _OauthMethod = OauthMethod::INVALID_VALUE_OPENAPI_GENERATED;
 
     void usergroupexternalCreateObjectV1Callback(HttpRequestWorker *worker);
     void usergroupexternalDeleteObjectV1Callback(HttpRequestWorker *worker);
@@ -170,54 +178,22 @@ Q_SIGNALS:
     void usergroupexternalGetUsergroupexternalmembershipsV1SignalFull(HttpRequestWorker *worker, Usergroupexternal_getUsergroupexternalmemberships_v1_Response summary);
     void usergroupexternalGetUsergroupsV1SignalFull(HttpRequestWorker *worker, Usergroupexternal_getUsergroups_v1_Response summary);
 
-    Q_DECL_DEPRECATED_X("Use usergroupexternalCreateObjectV1SignalError() instead")
-    void usergroupexternalCreateObjectV1SignalE(Usergroupexternal_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void usergroupexternalCreateObjectV1SignalError(Usergroupexternal_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use usergroupexternalDeleteObjectV1SignalError() instead")
-    void usergroupexternalDeleteObjectV1SignalE(Usergroupexternal_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void usergroupexternalDeleteObjectV1SignalError(Usergroupexternal_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use usergroupexternalEditObjectV1SignalError() instead")
-    void usergroupexternalEditObjectV1SignalE(Usergroupexternal_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void usergroupexternalEditObjectV1SignalError(Usergroupexternal_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use usergroupexternalGetAutocompleteV2SignalError() instead")
-    void usergroupexternalGetAutocompleteV2SignalE(Usergroupexternal_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void usergroupexternalGetAutocompleteV2SignalError(Usergroupexternal_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use usergroupexternalGetListV1SignalError() instead")
-    void usergroupexternalGetListV1SignalE(Usergroupexternal_getList_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void usergroupexternalGetListV1SignalError(Usergroupexternal_getList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use usergroupexternalGetObjectV2SignalError() instead")
-    void usergroupexternalGetObjectV2SignalE(Usergroupexternal_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void usergroupexternalGetObjectV2SignalError(Usergroupexternal_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use usergroupexternalGetUsergroupexternalmembershipsV1SignalError() instead")
-    void usergroupexternalGetUsergroupexternalmembershipsV1SignalE(Usergroupexternal_getUsergroupexternalmemberships_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void usergroupexternalGetUsergroupexternalmembershipsV1SignalError(Usergroupexternal_getUsergroupexternalmemberships_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use usergroupexternalGetUsergroupsV1SignalError() instead")
-    void usergroupexternalGetUsergroupsV1SignalE(Usergroupexternal_getUsergroups_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void usergroupexternalGetUsergroupsV1SignalError(Usergroupexternal_getUsergroups_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
-    Q_DECL_DEPRECATED_X("Use usergroupexternalCreateObjectV1SignalErrorFull() instead")
-    void usergroupexternalCreateObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void usergroupexternalCreateObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use usergroupexternalDeleteObjectV1SignalErrorFull() instead")
-    void usergroupexternalDeleteObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void usergroupexternalDeleteObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use usergroupexternalEditObjectV1SignalErrorFull() instead")
-    void usergroupexternalEditObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void usergroupexternalEditObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use usergroupexternalGetAutocompleteV2SignalErrorFull() instead")
-    void usergroupexternalGetAutocompleteV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void usergroupexternalGetAutocompleteV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use usergroupexternalGetListV1SignalErrorFull() instead")
-    void usergroupexternalGetListV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void usergroupexternalGetListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use usergroupexternalGetObjectV2SignalErrorFull() instead")
-    void usergroupexternalGetObjectV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void usergroupexternalGetObjectV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use usergroupexternalGetUsergroupexternalmembershipsV1SignalErrorFull() instead")
-    void usergroupexternalGetUsergroupexternalmembershipsV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void usergroupexternalGetUsergroupexternalmembershipsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use usergroupexternalGetUsergroupsV1SignalErrorFull() instead")
-    void usergroupexternalGetUsergroupsV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void usergroupexternalGetUsergroupsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();

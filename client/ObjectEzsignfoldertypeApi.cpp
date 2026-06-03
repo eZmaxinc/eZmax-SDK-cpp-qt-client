@@ -61,8 +61,12 @@ void ObjectEzsignfoldertypeApi::initializeServerConfigs() {
     
     _serverConfigs.insert("ezsignfoldertypeCreateObjectV3", defaultConf);
     _serverIndices.insert("ezsignfoldertypeCreateObjectV3", 0);
+    _serverConfigs.insert("ezsignfoldertypeCreateObjectV4", defaultConf);
+    _serverIndices.insert("ezsignfoldertypeCreateObjectV4", 0);
     _serverConfigs.insert("ezsignfoldertypeEditObjectV3", defaultConf);
     _serverIndices.insert("ezsignfoldertypeEditObjectV3", 0);
+    _serverConfigs.insert("ezsignfoldertypeEditObjectV4", defaultConf);
+    _serverIndices.insert("ezsignfoldertypeEditObjectV4", 0);
     _serverConfigs.insert("ezsignfoldertypeGetAutocompleteV2", defaultConf);
     _serverIndices.insert("ezsignfoldertypeGetAutocompleteV2", 0);
     _serverConfigs.insert("ezsignfoldertypeGetListV1", defaultConf);
@@ -74,9 +78,9 @@ void ObjectEzsignfoldertypeApi::initializeServerConfigs() {
 }
 
 /**
-* returns 0 on success and -1, -2 or -3 on failure.
-* -1 when the variable does not exist and -2 if the value is not defined in the enum and -3 if the operation or server index is not found
-*/
+ * returns 0 on success and -1, -2 or -3 on failure.
+ * -1 when the variable does not exist and -2 if the value is not defined in the enum and -3 if the operation or server index is not found
+ */
 int ObjectEzsignfoldertypeApi::setDefaultServerValue(int serverIndex, const QString &operation, const QString &variable, const QString &value) {
     auto it = _serverConfigs.find(operation);
     if (it != _serverConfigs.end() && serverIndex < it.value().size()) {
@@ -84,9 +88,21 @@ int ObjectEzsignfoldertypeApi::setDefaultServerValue(int serverIndex, const QStr
     }
     return -3;
 }
+
+/**
+ * Sets the server index.
+ * @param operation The id to the target operation.
+ * @param serverIndex The server index.
+ */
 void ObjectEzsignfoldertypeApi::setServerIndex(const QString &operation, int serverIndex) {
     if (_serverIndices.contains(operation) && serverIndex < _serverConfigs.find(operation).value().size()) {
         _serverIndices[operation] = serverIndex;
+    }
+}
+
+void ObjectEzsignfoldertypeApi::setServerIndex(int serverIndex) {
+    for (auto keyIt = _serverIndices.keyBegin(); keyIt != _serverIndices.keyEnd(); keyIt++) {
+        setServerIndex(*keyIt, serverIndex);
     }
 }
 
@@ -120,13 +136,13 @@ void ObjectEzsignfoldertypeApi::setNetworkAccessManager(QNetworkAccessManager* m
 }
 
 /**
-    * Appends a new ServerConfiguration to the config map for a specific operation.
-    * @param operation The id to the target operation.
-    * @param url A string that contains the URL of the server
-    * @param description A String that describes the server
-    * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
-    * returns the index of the new server config on success and -1 if the operation is not found
-    */
+ * Appends a new ServerConfiguration to the config map for a specific operation.
+ * @param operation The id to the target operation.
+ * @param url A string that contains the URL of the server
+ * @param description A String that describes the server
+ * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
+ * returns the index of the new server config on success and -1 if the operation is not found
+ */
 int ObjectEzsignfoldertypeApi::addServerConfiguration(const QString &operation, const QUrl &url, const QString &description, const QMap<QString, ServerVariable> &variables) {
     if (_serverConfigs.contains(operation)) {
         _serverConfigs[operation].append(ServerConfiguration(
@@ -140,11 +156,11 @@ int ObjectEzsignfoldertypeApi::addServerConfiguration(const QString &operation, 
 }
 
 /**
-    * Appends a new ServerConfiguration to the config map for a all operations and sets the index to that server.
-    * @param url A string that contains the URL of the server
-    * @param description A String that describes the server
-    * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
-    */
+ * Appends a new ServerConfiguration to the config map for a all operations and sets the index to that server.
+ * @param url A string that contains the URL of the server
+ * @param description A String that describes the server
+ * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
+ */
 void ObjectEzsignfoldertypeApi::setNewServerForAllOperations(const QUrl &url, const QString &description, const QMap<QString, ServerVariable> &variables) {
     for (auto keyIt = _serverIndices.keyBegin(); keyIt != _serverIndices.keyEnd(); keyIt++) {
         setServerIndex(*keyIt, addServerConfiguration(*keyIt, url, description, variables));
@@ -152,11 +168,11 @@ void ObjectEzsignfoldertypeApi::setNewServerForAllOperations(const QUrl &url, co
 }
 
 /**
-    * Appends a new ServerConfiguration to the config map for an operations and sets the index to that server.
-    * @param URL A string that contains the URL of the server
-    * @param description A String that describes the server
-    * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
-    */
+ * Appends a new ServerConfiguration to the config map for an operations and sets the index to that server.
+ * @param URL A string that contains the URL of the server
+ * @param description A String that describes the server
+ * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
+ */
 void ObjectEzsignfoldertypeApi::setNewServer(const QString &operation, const QUrl &url, const QString &description, const QMap<QString, ServerVariable> &variables) {
     setServerIndex(operation, addServerConfiguration(operation, url, description, variables));
 }
@@ -288,34 +304,61 @@ void ObjectEzsignfoldertypeApi::ezsignfoldertypeCreateObjectV3Callback(HttpReque
         Q_EMIT ezsignfoldertypeCreateObjectV3Signal(output);
         Q_EMIT ezsignfoldertypeCreateObjectV3SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsignfoldertypeCreateObjectV3SignalE(output, error_type, error_str);
-        Q_EMIT ezsignfoldertypeCreateObjectV3SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsignfoldertypeCreateObjectV3SignalError(output, error_type, error_str);
         Q_EMIT ezsignfoldertypeCreateObjectV3SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectEzsignfoldertypeApi::ezsignfoldertypeCreateObjectV4(const Ezsignfoldertype_createObject_v4_Request &ezsignfoldertype_create_object_v4_request) {
+    QString fullPath = QString(_serverConfigs["ezsignfoldertypeCreateObjectV4"][_serverIndices.value("ezsignfoldertypeCreateObjectV4")].URL()+"/4/object/ezsignfoldertype");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "POST");
+
+    {
+
+        
+        QByteArray output = ezsignfoldertype_create_object_v4_request.asJson().toUtf8();
+        input.request_body.append(output);
+    }
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignfoldertypeApi::ezsignfoldertypeCreateObjectV4Callback);
+    connect(this, &ObjectEzsignfoldertypeApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectEzsignfoldertypeApi::ezsignfoldertypeCreateObjectV4Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Ezsignfoldertype_createObject_v4_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT ezsignfoldertypeCreateObjectV4Signal(output);
+        Q_EMIT ezsignfoldertypeCreateObjectV4SignalFull(worker, output);
+    } else {
+        Q_EMIT ezsignfoldertypeCreateObjectV4SignalError(output, error_type, error_str);
+        Q_EMIT ezsignfoldertypeCreateObjectV4SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -381,34 +424,75 @@ void ObjectEzsignfoldertypeApi::ezsignfoldertypeEditObjectV3Callback(HttpRequest
         Q_EMIT ezsignfoldertypeEditObjectV3Signal(output);
         Q_EMIT ezsignfoldertypeEditObjectV3SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsignfoldertypeEditObjectV3SignalE(output, error_type, error_str);
-        Q_EMIT ezsignfoldertypeEditObjectV3SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsignfoldertypeEditObjectV3SignalError(output, error_type, error_str);
         Q_EMIT ezsignfoldertypeEditObjectV3SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectEzsignfoldertypeApi::ezsignfoldertypeEditObjectV4(const qint32 &pki_ezsignfoldertype_id, const Ezsignfoldertype_editObject_v4_Request &ezsignfoldertype_edit_object_v4_request) {
+    QString fullPath = QString(_serverConfigs["ezsignfoldertypeEditObjectV4"][_serverIndices.value("ezsignfoldertypeEditObjectV4")].URL()+"/4/object/ezsignfoldertype/{pkiEzsignfoldertypeID}");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_ezsignfoldertype_idPathParam("{");
+        pki_ezsignfoldertype_idPathParam.append("pkiEzsignfoldertypeID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignfoldertypeID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignfoldertypeID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_ezsignfoldertype_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsignfoldertype_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "PUT");
+
+    {
+
+        
+        QByteArray output = ezsignfoldertype_edit_object_v4_request.asJson().toUtf8();
+        input.request_body.append(output);
+    }
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignfoldertypeApi::ezsignfoldertypeEditObjectV4Callback);
+    connect(this, &ObjectEzsignfoldertypeApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectEzsignfoldertypeApi::ezsignfoldertypeEditObjectV4Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Ezsignfoldertype_editObject_v4_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT ezsignfoldertypeEditObjectV4Signal(output);
+        Q_EMIT ezsignfoldertypeEditObjectV4SignalFull(worker, output);
+    } else {
+        Q_EMIT ezsignfoldertypeEditObjectV4SignalError(output, error_type, error_str);
+        Q_EMIT ezsignfoldertypeEditObjectV4SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -544,32 +628,6 @@ void ObjectEzsignfoldertypeApi::ezsignfoldertypeGetAutocompleteV2Callback(HttpRe
         Q_EMIT ezsignfoldertypeGetAutocompleteV2Signal(output);
         Q_EMIT ezsignfoldertypeGetAutocompleteV2SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsignfoldertypeGetAutocompleteV2SignalE(output, error_type, error_str);
-        Q_EMIT ezsignfoldertypeGetAutocompleteV2SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsignfoldertypeGetAutocompleteV2SignalError(output, error_type, error_str);
         Q_EMIT ezsignfoldertypeGetAutocompleteV2SignalErrorFull(worker, error_type, error_str);
     }
@@ -723,32 +781,6 @@ void ObjectEzsignfoldertypeApi::ezsignfoldertypeGetListV1Callback(HttpRequestWor
         Q_EMIT ezsignfoldertypeGetListV1Signal(output);
         Q_EMIT ezsignfoldertypeGetListV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsignfoldertypeGetListV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsignfoldertypeGetListV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsignfoldertypeGetListV1SignalError(output, error_type, error_str);
         Q_EMIT ezsignfoldertypeGetListV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -811,32 +843,6 @@ void ObjectEzsignfoldertypeApi::ezsignfoldertypeGetObjectV2Callback(HttpRequestW
         Q_EMIT ezsignfoldertypeGetObjectV2Signal(output);
         Q_EMIT ezsignfoldertypeGetObjectV2SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsignfoldertypeGetObjectV2SignalE(output, error_type, error_str);
-        Q_EMIT ezsignfoldertypeGetObjectV2SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsignfoldertypeGetObjectV2SignalError(output, error_type, error_str);
         Q_EMIT ezsignfoldertypeGetObjectV2SignalErrorFull(worker, error_type, error_str);
     }
@@ -899,42 +905,16 @@ void ObjectEzsignfoldertypeApi::ezsignfoldertypeGetObjectV4Callback(HttpRequestW
         Q_EMIT ezsignfoldertypeGetObjectV4Signal(output);
         Q_EMIT ezsignfoldertypeGetObjectV4SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsignfoldertypeGetObjectV4SignalE(output, error_type, error_str);
-        Q_EMIT ezsignfoldertypeGetObjectV4SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsignfoldertypeGetObjectV4SignalError(output, error_type, error_str);
         Q_EMIT ezsignfoldertypeGetObjectV4SignalErrorFull(worker, error_type, error_str);
     }
 }
 
-void ObjectEzsignfoldertypeApi::tokenAvailable(){
+void ObjectEzsignfoldertypeApi::tokenAvailable() {
 
     oauthToken token;
     switch (_OauthMethod) {
-    case 1: //implicit flow
+    case OauthMethod::ImplicitFlow:
         token = _implicitFlow.getToken(_latestScope.join(" "));
         if(token.isValid()){
             _latestInput.headers.insert("Authorization", "Bearer " + token.getToken());
@@ -944,7 +924,7 @@ void ObjectEzsignfoldertypeApi::tokenAvailable(){
             qDebug() << "Could not retrieve a valid token";
         }
         break;
-    case 2: //authorization flow
+    case OauthMethod::AuthorizationFlow:
         token = _authFlow.getToken(_latestScope.join(" "));
         if(token.isValid()){
             _latestInput.headers.insert("Authorization", "Bearer " + token.getToken());
@@ -954,7 +934,7 @@ void ObjectEzsignfoldertypeApi::tokenAvailable(){
             qDebug() << "Could not retrieve a valid token";
         }
         break;
-    case 3: //client credentials flow
+    case OauthMethod::ClientCredentialsFlow:
         token = _credentialFlow.getToken(_latestScope.join(" "));
         if(token.isValid()){
             _latestInput.headers.insert("Authorization", "Bearer " + token.getToken());
@@ -964,7 +944,7 @@ void ObjectEzsignfoldertypeApi::tokenAvailable(){
             qDebug() << "Could not retrieve a valid token";
         }
         break;
-    case 4: //resource owner password flow
+    case OauthMethod::ResourceOwnerPasswordFlow:
         token = _passwordFlow.getToken(_latestScope.join(" "));
         if(token.isValid()){
             _latestInput.headers.insert("Authorization", "Bearer " + token.getToken());

@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Paymentgateway_ResponseCompound::Paymentgateway_ResponseCompound(QString json) {
+Paymentgateway_ResponseCompound::Paymentgateway_ResponseCompound(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -53,7 +53,7 @@ void Paymentgateway_ResponseCompound::initializeModel() {
     m_obj_creditcardmerchant_isValid = false;
 }
 
-void Paymentgateway_ResponseCompound::fromJson(QString jsonString) {
+void Paymentgateway_ResponseCompound::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

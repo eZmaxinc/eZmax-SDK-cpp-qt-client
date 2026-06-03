@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Usergroupexternal_getUsergroups_v1_Response_mPayload::Usergroupexternal_getUsergroups_v1_Response_mPayload(QString json) {
+Usergroupexternal_getUsergroups_v1_Response_mPayload::Usergroupexternal_getUsergroups_v1_Response_mPayload(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -38,7 +38,7 @@ void Usergroupexternal_getUsergroups_v1_Response_mPayload::initializeModel() {
     m_a_obj_usergroup_isValid = false;
 }
 
-void Usergroupexternal_getUsergroups_v1_Response_mPayload::fromJson(QString jsonString) {
+void Usergroupexternal_getUsergroups_v1_Response_mPayload::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

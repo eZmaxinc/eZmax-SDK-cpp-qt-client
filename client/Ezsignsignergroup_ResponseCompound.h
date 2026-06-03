@@ -33,13 +33,13 @@ class Multilingual_EzsignsignergroupDescription;
 class Ezsignsignergroup_ResponseCompound : public Object {
 public:
     Ezsignsignergroup_ResponseCompound();
-    Ezsignsignergroup_ResponseCompound(QString json);
+    Ezsignsignergroup_ResponseCompound(const QString &json);
     ~Ezsignsignergroup_ResponseCompound() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiEzsignsignergroupId() const;
     void setPkiEzsignsignergroupId(const qint32 &pki_ezsignsignergroup_id);

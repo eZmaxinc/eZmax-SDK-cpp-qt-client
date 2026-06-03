@@ -75,6 +75,8 @@ void ObjectEzsignfolderApi::initializeServerConfigs() {
     _serverIndices.insert("ezsignfolderDisposeEzsignfoldersV1", 0);
     _serverConfigs.insert("ezsignfolderDisposeV1", defaultConf);
     _serverIndices.insert("ezsignfolderDisposeV1", 0);
+    _serverConfigs.insert("ezsignfolderDuplicateV1", defaultConf);
+    _serverIndices.insert("ezsignfolderDuplicateV1", 0);
     _serverConfigs.insert("ezsignfolderEditObjectV3", defaultConf);
     _serverIndices.insert("ezsignfolderEditObjectV3", 0);
     _serverConfigs.insert("ezsignfolderEndPrematurelyV1", defaultConf);
@@ -97,14 +99,20 @@ void ObjectEzsignfolderApi::initializeServerConfigs() {
     _serverIndices.insert("ezsignfolderGetCommunicationrecipientsV1", 0);
     _serverConfigs.insert("ezsignfolderGetCommunicationsendersV1", defaultConf);
     _serverIndices.insert("ezsignfolderGetCommunicationsendersV1", 0);
+    _serverConfigs.insert("ezsignfolderGetEzsignannotationsV1", defaultConf);
+    _serverIndices.insert("ezsignfolderGetEzsignannotationsV1", 0);
     _serverConfigs.insert("ezsignfolderGetEzsigndocumentsV1", defaultConf);
     _serverIndices.insert("ezsignfolderGetEzsigndocumentsV1", 0);
     _serverConfigs.insert("ezsignfolderGetEzsigndocumentsV2", defaultConf);
     _serverIndices.insert("ezsignfolderGetEzsigndocumentsV2", 0);
     _serverConfigs.insert("ezsignfolderGetEzsignfoldersignerassociationsV1", defaultConf);
     _serverIndices.insert("ezsignfolderGetEzsignfoldersignerassociationsV1", 0);
+    _serverConfigs.insert("ezsignfolderGetEzsignformfieldgroupsV1", defaultConf);
+    _serverIndices.insert("ezsignfolderGetEzsignformfieldgroupsV1", 0);
     _serverConfigs.insert("ezsignfolderGetEzsignsignaturesAutomaticV1", defaultConf);
     _serverIndices.insert("ezsignfolderGetEzsignsignaturesAutomaticV1", 0);
+    _serverConfigs.insert("ezsignfolderGetEzsignsignaturesV1", defaultConf);
+    _serverIndices.insert("ezsignfolderGetEzsignsignaturesV1", 0);
     _serverConfigs.insert("ezsignfolderGetFormsDataV1", defaultConf);
     _serverIndices.insert("ezsignfolderGetFormsDataV1", 0);
     _serverConfigs.insert("ezsignfolderGetListV1", defaultConf);
@@ -121,6 +129,8 @@ void ObjectEzsignfolderApi::initializeServerConfigs() {
     _serverIndices.insert("ezsignfolderImportEzsigntemplatepackageV1", 0);
     _serverConfigs.insert("ezsignfolderImportEzsigntemplatepackageV2", defaultConf);
     _serverIndices.insert("ezsignfolderImportEzsigntemplatepackageV2", 0);
+    _serverConfigs.insert("ezsignfolderImportEzsigntemplatepackageV3", defaultConf);
+    _serverIndices.insert("ezsignfolderImportEzsigntemplatepackageV3", 0);
     _serverConfigs.insert("ezsignfolderReorderV2", defaultConf);
     _serverIndices.insert("ezsignfolderReorderV2", 0);
     _serverConfigs.insert("ezsignfolderSendV1", defaultConf);
@@ -132,9 +142,9 @@ void ObjectEzsignfolderApi::initializeServerConfigs() {
 }
 
 /**
-* returns 0 on success and -1, -2 or -3 on failure.
-* -1 when the variable does not exist and -2 if the value is not defined in the enum and -3 if the operation or server index is not found
-*/
+ * returns 0 on success and -1, -2 or -3 on failure.
+ * -1 when the variable does not exist and -2 if the value is not defined in the enum and -3 if the operation or server index is not found
+ */
 int ObjectEzsignfolderApi::setDefaultServerValue(int serverIndex, const QString &operation, const QString &variable, const QString &value) {
     auto it = _serverConfigs.find(operation);
     if (it != _serverConfigs.end() && serverIndex < it.value().size()) {
@@ -142,9 +152,21 @@ int ObjectEzsignfolderApi::setDefaultServerValue(int serverIndex, const QString 
     }
     return -3;
 }
+
+/**
+ * Sets the server index.
+ * @param operation The id to the target operation.
+ * @param serverIndex The server index.
+ */
 void ObjectEzsignfolderApi::setServerIndex(const QString &operation, int serverIndex) {
     if (_serverIndices.contains(operation) && serverIndex < _serverConfigs.find(operation).value().size()) {
         _serverIndices[operation] = serverIndex;
+    }
+}
+
+void ObjectEzsignfolderApi::setServerIndex(int serverIndex) {
+    for (auto keyIt = _serverIndices.keyBegin(); keyIt != _serverIndices.keyEnd(); keyIt++) {
+        setServerIndex(*keyIt, serverIndex);
     }
 }
 
@@ -178,13 +200,13 @@ void ObjectEzsignfolderApi::setNetworkAccessManager(QNetworkAccessManager* manag
 }
 
 /**
-    * Appends a new ServerConfiguration to the config map for a specific operation.
-    * @param operation The id to the target operation.
-    * @param url A string that contains the URL of the server
-    * @param description A String that describes the server
-    * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
-    * returns the index of the new server config on success and -1 if the operation is not found
-    */
+ * Appends a new ServerConfiguration to the config map for a specific operation.
+ * @param operation The id to the target operation.
+ * @param url A string that contains the URL of the server
+ * @param description A String that describes the server
+ * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
+ * returns the index of the new server config on success and -1 if the operation is not found
+ */
 int ObjectEzsignfolderApi::addServerConfiguration(const QString &operation, const QUrl &url, const QString &description, const QMap<QString, ServerVariable> &variables) {
     if (_serverConfigs.contains(operation)) {
         _serverConfigs[operation].append(ServerConfiguration(
@@ -198,11 +220,11 @@ int ObjectEzsignfolderApi::addServerConfiguration(const QString &operation, cons
 }
 
 /**
-    * Appends a new ServerConfiguration to the config map for a all operations and sets the index to that server.
-    * @param url A string that contains the URL of the server
-    * @param description A String that describes the server
-    * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
-    */
+ * Appends a new ServerConfiguration to the config map for a all operations and sets the index to that server.
+ * @param url A string that contains the URL of the server
+ * @param description A String that describes the server
+ * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
+ */
 void ObjectEzsignfolderApi::setNewServerForAllOperations(const QUrl &url, const QString &description, const QMap<QString, ServerVariable> &variables) {
     for (auto keyIt = _serverIndices.keyBegin(); keyIt != _serverIndices.keyEnd(); keyIt++) {
         setServerIndex(*keyIt, addServerConfiguration(*keyIt, url, description, variables));
@@ -210,11 +232,11 @@ void ObjectEzsignfolderApi::setNewServerForAllOperations(const QUrl &url, const 
 }
 
 /**
-    * Appends a new ServerConfiguration to the config map for an operations and sets the index to that server.
-    * @param URL A string that contains the URL of the server
-    * @param description A String that describes the server
-    * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
-    */
+ * Appends a new ServerConfiguration to the config map for an operations and sets the index to that server.
+ * @param URL A string that contains the URL of the server
+ * @param description A String that describes the server
+ * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
+ */
 void ObjectEzsignfolderApi::setNewServer(const QString &operation, const QUrl &url, const QString &description, const QMap<QString, ServerVariable> &variables) {
     setServerIndex(operation, addServerConfiguration(operation, url, description, variables));
 }
@@ -360,32 +382,6 @@ void ObjectEzsignfolderApi::ezsignfolderArchiveV1Callback(HttpRequestWorker *wor
         Q_EMIT ezsignfolderArchiveV1Signal(output);
         Q_EMIT ezsignfolderArchiveV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsignfolderArchiveV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsignfolderArchiveV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsignfolderArchiveV1SignalError(output, error_type, error_str);
         Q_EMIT ezsignfolderArchiveV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -453,32 +449,6 @@ void ObjectEzsignfolderApi::ezsignfolderBatchDownloadV1Callback(HttpRequestWorke
         Q_EMIT ezsignfolderBatchDownloadV1Signal(output);
         Q_EMIT ezsignfolderBatchDownloadV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsignfolderBatchDownloadV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsignfolderBatchDownloadV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsignfolderBatchDownloadV1SignalError(output, error_type, error_str);
         Q_EMIT ezsignfolderBatchDownloadV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -531,32 +501,6 @@ void ObjectEzsignfolderApi::ezsignfolderCreateObjectV1Callback(HttpRequestWorker
         Q_EMIT ezsignfolderCreateObjectV1Signal(output);
         Q_EMIT ezsignfolderCreateObjectV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsignfolderCreateObjectV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsignfolderCreateObjectV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsignfolderCreateObjectV1SignalError(output, error_type, error_str);
         Q_EMIT ezsignfolderCreateObjectV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -610,32 +554,6 @@ void ObjectEzsignfolderApi::ezsignfolderCreateObjectV2Callback(HttpRequestWorker
         Q_EMIT ezsignfolderCreateObjectV2Signal(output);
         Q_EMIT ezsignfolderCreateObjectV2SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsignfolderCreateObjectV2SignalE(output, error_type, error_str);
-        Q_EMIT ezsignfolderCreateObjectV2SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsignfolderCreateObjectV2SignalError(output, error_type, error_str);
         Q_EMIT ezsignfolderCreateObjectV2SignalErrorFull(worker, error_type, error_str);
     }
@@ -689,32 +607,6 @@ void ObjectEzsignfolderApi::ezsignfolderCreateObjectV3Callback(HttpRequestWorker
         Q_EMIT ezsignfolderCreateObjectV3Signal(output);
         Q_EMIT ezsignfolderCreateObjectV3SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsignfolderCreateObjectV3SignalE(output, error_type, error_str);
-        Q_EMIT ezsignfolderCreateObjectV3SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsignfolderCreateObjectV3SignalError(output, error_type, error_str);
         Q_EMIT ezsignfolderCreateObjectV3SignalErrorFull(worker, error_type, error_str);
     }
@@ -777,32 +669,6 @@ void ObjectEzsignfolderApi::ezsignfolderDeleteObjectV1Callback(HttpRequestWorker
         Q_EMIT ezsignfolderDeleteObjectV1Signal(output);
         Q_EMIT ezsignfolderDeleteObjectV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsignfolderDeleteObjectV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsignfolderDeleteObjectV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsignfolderDeleteObjectV1SignalError(output, error_type, error_str);
         Q_EMIT ezsignfolderDeleteObjectV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -856,32 +722,6 @@ void ObjectEzsignfolderApi::ezsignfolderDisposeEzsignfoldersV1Callback(HttpReque
         Q_EMIT ezsignfolderDisposeEzsignfoldersV1Signal(output);
         Q_EMIT ezsignfolderDisposeEzsignfoldersV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsignfolderDisposeEzsignfoldersV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsignfolderDisposeEzsignfoldersV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsignfolderDisposeEzsignfoldersV1SignalError(output, error_type, error_str);
         Q_EMIT ezsignfolderDisposeEzsignfoldersV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -949,34 +789,75 @@ void ObjectEzsignfolderApi::ezsignfolderDisposeV1Callback(HttpRequestWorker *wor
         Q_EMIT ezsignfolderDisposeV1Signal(output);
         Q_EMIT ezsignfolderDisposeV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsignfolderDisposeV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsignfolderDisposeV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsignfolderDisposeV1SignalError(output, error_type, error_str);
         Q_EMIT ezsignfolderDisposeV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectEzsignfolderApi::ezsignfolderDuplicateV1(const qint32 &pki_ezsignfolder_id, const Ezsignfolder_duplicate_v1_Request &ezsignfolder_duplicate_v1_request) {
+    QString fullPath = QString(_serverConfigs["ezsignfolderDuplicateV1"][_serverIndices.value("ezsignfolderDuplicateV1")].URL()+"/1/object/ezsignfolder/{pkiEzsignfolderID}/duplicate");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_ezsignfolder_idPathParam("{");
+        pki_ezsignfolder_idPathParam.append("pkiEzsignfolderID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignfolderID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignfolderID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_ezsignfolder_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsignfolder_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "POST");
+
+    {
+
+        
+        QByteArray output = ezsignfolder_duplicate_v1_request.asJson().toUtf8();
+        input.request_body.append(output);
+    }
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignfolderApi::ezsignfolderDuplicateV1Callback);
+    connect(this, &ObjectEzsignfolderApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectEzsignfolderApi::ezsignfolderDuplicateV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Ezsignfolder_duplicate_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT ezsignfolderDuplicateV1Signal(output);
+        Q_EMIT ezsignfolderDuplicateV1SignalFull(worker, output);
+    } else {
+        Q_EMIT ezsignfolderDuplicateV1SignalError(output, error_type, error_str);
+        Q_EMIT ezsignfolderDuplicateV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -1042,32 +923,6 @@ void ObjectEzsignfolderApi::ezsignfolderEditObjectV3Callback(HttpRequestWorker *
         Q_EMIT ezsignfolderEditObjectV3Signal(output);
         Q_EMIT ezsignfolderEditObjectV3SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsignfolderEditObjectV3SignalE(output, error_type, error_str);
-        Q_EMIT ezsignfolderEditObjectV3SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsignfolderEditObjectV3SignalError(output, error_type, error_str);
         Q_EMIT ezsignfolderEditObjectV3SignalErrorFull(worker, error_type, error_str);
     }
@@ -1135,32 +990,6 @@ void ObjectEzsignfolderApi::ezsignfolderEndPrematurelyV1Callback(HttpRequestWork
         Q_EMIT ezsignfolderEndPrematurelyV1Signal(output);
         Q_EMIT ezsignfolderEndPrematurelyV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsignfolderEndPrematurelyV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsignfolderEndPrematurelyV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsignfolderEndPrematurelyV1SignalError(output, error_type, error_str);
         Q_EMIT ezsignfolderEndPrematurelyV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -1223,32 +1052,6 @@ void ObjectEzsignfolderApi::ezsignfolderGetActionableElementsV1Callback(HttpRequ
         Q_EMIT ezsignfolderGetActionableElementsV1Signal(output);
         Q_EMIT ezsignfolderGetActionableElementsV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsignfolderGetActionableElementsV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsignfolderGetActionableElementsV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsignfolderGetActionableElementsV1SignalError(output, error_type, error_str);
         Q_EMIT ezsignfolderGetActionableElementsV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -1311,32 +1114,6 @@ void ObjectEzsignfolderApi::ezsignfolderGetActionableElementsV2Callback(HttpRequ
         Q_EMIT ezsignfolderGetActionableElementsV2Signal(output);
         Q_EMIT ezsignfolderGetActionableElementsV2SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsignfolderGetActionableElementsV2SignalE(output, error_type, error_str);
-        Q_EMIT ezsignfolderGetActionableElementsV2SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsignfolderGetActionableElementsV2SignalError(output, error_type, error_str);
         Q_EMIT ezsignfolderGetActionableElementsV2SignalErrorFull(worker, error_type, error_str);
     }
@@ -1399,32 +1176,6 @@ void ObjectEzsignfolderApi::ezsignfolderGetActionableElementsV3Callback(HttpRequ
         Q_EMIT ezsignfolderGetActionableElementsV3Signal(output);
         Q_EMIT ezsignfolderGetActionableElementsV3SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsignfolderGetActionableElementsV3SignalE(output, error_type, error_str);
-        Q_EMIT ezsignfolderGetActionableElementsV3SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsignfolderGetActionableElementsV3SignalError(output, error_type, error_str);
         Q_EMIT ezsignfolderGetActionableElementsV3SignalErrorFull(worker, error_type, error_str);
     }
@@ -1487,32 +1238,6 @@ void ObjectEzsignfolderApi::ezsignfolderGetAttachmentCountV1Callback(HttpRequest
         Q_EMIT ezsignfolderGetAttachmentCountV1Signal(output);
         Q_EMIT ezsignfolderGetAttachmentCountV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsignfolderGetAttachmentCountV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsignfolderGetAttachmentCountV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsignfolderGetAttachmentCountV1SignalError(output, error_type, error_str);
         Q_EMIT ezsignfolderGetAttachmentCountV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -1575,32 +1300,6 @@ void ObjectEzsignfolderApi::ezsignfolderGetAttachmentsV1Callback(HttpRequestWork
         Q_EMIT ezsignfolderGetAttachmentsV1Signal(output);
         Q_EMIT ezsignfolderGetAttachmentsV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsignfolderGetAttachmentsV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsignfolderGetAttachmentsV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsignfolderGetAttachmentsV1SignalError(output, error_type, error_str);
         Q_EMIT ezsignfolderGetAttachmentsV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -1663,32 +1362,6 @@ void ObjectEzsignfolderApi::ezsignfolderGetCommunicationCountV1Callback(HttpRequ
         Q_EMIT ezsignfolderGetCommunicationCountV1Signal(output);
         Q_EMIT ezsignfolderGetCommunicationCountV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsignfolderGetCommunicationCountV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsignfolderGetCommunicationCountV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsignfolderGetCommunicationCountV1SignalError(output, error_type, error_str);
         Q_EMIT ezsignfolderGetCommunicationCountV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -1751,32 +1424,6 @@ void ObjectEzsignfolderApi::ezsignfolderGetCommunicationListV1Callback(HttpReque
         Q_EMIT ezsignfolderGetCommunicationListV1Signal(output);
         Q_EMIT ezsignfolderGetCommunicationListV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsignfolderGetCommunicationListV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsignfolderGetCommunicationListV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsignfolderGetCommunicationListV1SignalError(output, error_type, error_str);
         Q_EMIT ezsignfolderGetCommunicationListV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -1839,32 +1486,6 @@ void ObjectEzsignfolderApi::ezsignfolderGetCommunicationrecipientsV1Callback(Htt
         Q_EMIT ezsignfolderGetCommunicationrecipientsV1Signal(output);
         Q_EMIT ezsignfolderGetCommunicationrecipientsV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsignfolderGetCommunicationrecipientsV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsignfolderGetCommunicationrecipientsV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsignfolderGetCommunicationrecipientsV1SignalError(output, error_type, error_str);
         Q_EMIT ezsignfolderGetCommunicationrecipientsV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -1927,34 +1548,70 @@ void ObjectEzsignfolderApi::ezsignfolderGetCommunicationsendersV1Callback(HttpRe
         Q_EMIT ezsignfolderGetCommunicationsendersV1Signal(output);
         Q_EMIT ezsignfolderGetCommunicationsendersV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsignfolderGetCommunicationsendersV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsignfolderGetCommunicationsendersV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsignfolderGetCommunicationsendersV1SignalError(output, error_type, error_str);
         Q_EMIT ezsignfolderGetCommunicationsendersV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectEzsignfolderApi::ezsignfolderGetEzsignannotationsV1(const qint32 &pki_ezsignfolder_id) {
+    QString fullPath = QString(_serverConfigs["ezsignfolderGetEzsignannotationsV1"][_serverIndices.value("ezsignfolderGetEzsignannotationsV1")].URL()+"/1/object/ezsignfolder/{pkiEzsignfolderID}/getEzsignannotations");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_ezsignfolder_idPathParam("{");
+        pki_ezsignfolder_idPathParam.append("pkiEzsignfolderID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignfolderID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignfolderID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_ezsignfolder_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsignfolder_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignfolderApi::ezsignfolderGetEzsignannotationsV1Callback);
+    connect(this, &ObjectEzsignfolderApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectEzsignfolderApi::ezsignfolderGetEzsignannotationsV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Ezsignfolder_getEzsignannotations_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT ezsignfolderGetEzsignannotationsV1Signal(output);
+        Q_EMIT ezsignfolderGetEzsignannotationsV1SignalFull(worker, output);
+    } else {
+        Q_EMIT ezsignfolderGetEzsignannotationsV1SignalError(output, error_type, error_str);
+        Q_EMIT ezsignfolderGetEzsignannotationsV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -2015,32 +1672,6 @@ void ObjectEzsignfolderApi::ezsignfolderGetEzsigndocumentsV1Callback(HttpRequest
         Q_EMIT ezsignfolderGetEzsigndocumentsV1Signal(output);
         Q_EMIT ezsignfolderGetEzsigndocumentsV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsignfolderGetEzsigndocumentsV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsignfolderGetEzsigndocumentsV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsignfolderGetEzsigndocumentsV1SignalError(output, error_type, error_str);
         Q_EMIT ezsignfolderGetEzsigndocumentsV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -2103,32 +1734,6 @@ void ObjectEzsignfolderApi::ezsignfolderGetEzsigndocumentsV2Callback(HttpRequest
         Q_EMIT ezsignfolderGetEzsigndocumentsV2Signal(output);
         Q_EMIT ezsignfolderGetEzsigndocumentsV2SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsignfolderGetEzsigndocumentsV2SignalE(output, error_type, error_str);
-        Q_EMIT ezsignfolderGetEzsigndocumentsV2SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsignfolderGetEzsigndocumentsV2SignalError(output, error_type, error_str);
         Q_EMIT ezsignfolderGetEzsigndocumentsV2SignalErrorFull(worker, error_type, error_str);
     }
@@ -2191,34 +1796,70 @@ void ObjectEzsignfolderApi::ezsignfolderGetEzsignfoldersignerassociationsV1Callb
         Q_EMIT ezsignfolderGetEzsignfoldersignerassociationsV1Signal(output);
         Q_EMIT ezsignfolderGetEzsignfoldersignerassociationsV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsignfolderGetEzsignfoldersignerassociationsV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsignfolderGetEzsignfoldersignerassociationsV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsignfolderGetEzsignfoldersignerassociationsV1SignalError(output, error_type, error_str);
         Q_EMIT ezsignfolderGetEzsignfoldersignerassociationsV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectEzsignfolderApi::ezsignfolderGetEzsignformfieldgroupsV1(const qint32 &pki_ezsignfolder_id) {
+    QString fullPath = QString(_serverConfigs["ezsignfolderGetEzsignformfieldgroupsV1"][_serverIndices.value("ezsignfolderGetEzsignformfieldgroupsV1")].URL()+"/1/object/ezsignfolder/{pkiEzsignfolderID}/getEzsignformfieldgroups");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_ezsignfolder_idPathParam("{");
+        pki_ezsignfolder_idPathParam.append("pkiEzsignfolderID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignfolderID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignfolderID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_ezsignfolder_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsignfolder_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignfolderApi::ezsignfolderGetEzsignformfieldgroupsV1Callback);
+    connect(this, &ObjectEzsignfolderApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectEzsignfolderApi::ezsignfolderGetEzsignformfieldgroupsV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Ezsignfolder_getEzsignformfieldgroups_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT ezsignfolderGetEzsignformfieldgroupsV1Signal(output);
+        Q_EMIT ezsignfolderGetEzsignformfieldgroupsV1SignalFull(worker, output);
+    } else {
+        Q_EMIT ezsignfolderGetEzsignformfieldgroupsV1SignalError(output, error_type, error_str);
+        Q_EMIT ezsignfolderGetEzsignformfieldgroupsV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -2279,34 +1920,70 @@ void ObjectEzsignfolderApi::ezsignfolderGetEzsignsignaturesAutomaticV1Callback(H
         Q_EMIT ezsignfolderGetEzsignsignaturesAutomaticV1Signal(output);
         Q_EMIT ezsignfolderGetEzsignsignaturesAutomaticV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsignfolderGetEzsignsignaturesAutomaticV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsignfolderGetEzsignsignaturesAutomaticV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsignfolderGetEzsignsignaturesAutomaticV1SignalError(output, error_type, error_str);
         Q_EMIT ezsignfolderGetEzsignsignaturesAutomaticV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectEzsignfolderApi::ezsignfolderGetEzsignsignaturesV1(const qint32 &pki_ezsignfolder_id) {
+    QString fullPath = QString(_serverConfigs["ezsignfolderGetEzsignsignaturesV1"][_serverIndices.value("ezsignfolderGetEzsignsignaturesV1")].URL()+"/1/object/ezsignfolder/{pkiEzsignfolderID}/getEzsignsignatures");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_ezsignfolder_idPathParam("{");
+        pki_ezsignfolder_idPathParam.append("pkiEzsignfolderID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignfolderID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignfolderID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_ezsignfolder_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsignfolder_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignfolderApi::ezsignfolderGetEzsignsignaturesV1Callback);
+    connect(this, &ObjectEzsignfolderApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectEzsignfolderApi::ezsignfolderGetEzsignsignaturesV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Ezsignfolder_getEzsignsignatures_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT ezsignfolderGetEzsignsignaturesV1Signal(output);
+        Q_EMIT ezsignfolderGetEzsignsignaturesV1SignalFull(worker, output);
+    } else {
+        Q_EMIT ezsignfolderGetEzsignsignaturesV1SignalError(output, error_type, error_str);
+        Q_EMIT ezsignfolderGetEzsignsignaturesV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -2367,32 +2044,6 @@ void ObjectEzsignfolderApi::ezsignfolderGetFormsDataV1Callback(HttpRequestWorker
         Q_EMIT ezsignfolderGetFormsDataV1Signal(output);
         Q_EMIT ezsignfolderGetFormsDataV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsignfolderGetFormsDataV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsignfolderGetFormsDataV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsignfolderGetFormsDataV1SignalError(output, error_type, error_str);
         Q_EMIT ezsignfolderGetFormsDataV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -2546,32 +2197,6 @@ void ObjectEzsignfolderApi::ezsignfolderGetListV1Callback(HttpRequestWorker *wor
         Q_EMIT ezsignfolderGetListV1Signal(output);
         Q_EMIT ezsignfolderGetListV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsignfolderGetListV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsignfolderGetListV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsignfolderGetListV1SignalError(output, error_type, error_str);
         Q_EMIT ezsignfolderGetListV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -2634,32 +2259,6 @@ void ObjectEzsignfolderApi::ezsignfolderGetObjectV1Callback(HttpRequestWorker *w
         Q_EMIT ezsignfolderGetObjectV1Signal(output);
         Q_EMIT ezsignfolderGetObjectV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsignfolderGetObjectV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsignfolderGetObjectV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsignfolderGetObjectV1SignalError(output, error_type, error_str);
         Q_EMIT ezsignfolderGetObjectV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -2722,32 +2321,6 @@ void ObjectEzsignfolderApi::ezsignfolderGetObjectV2Callback(HttpRequestWorker *w
         Q_EMIT ezsignfolderGetObjectV2Signal(output);
         Q_EMIT ezsignfolderGetObjectV2SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsignfolderGetObjectV2SignalE(output, error_type, error_str);
-        Q_EMIT ezsignfolderGetObjectV2SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsignfolderGetObjectV2SignalError(output, error_type, error_str);
         Q_EMIT ezsignfolderGetObjectV2SignalErrorFull(worker, error_type, error_str);
     }
@@ -2810,32 +2383,6 @@ void ObjectEzsignfolderApi::ezsignfolderGetObjectV3Callback(HttpRequestWorker *w
         Q_EMIT ezsignfolderGetObjectV3Signal(output);
         Q_EMIT ezsignfolderGetObjectV3SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsignfolderGetObjectV3SignalE(output, error_type, error_str);
-        Q_EMIT ezsignfolderGetObjectV3SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsignfolderGetObjectV3SignalError(output, error_type, error_str);
         Q_EMIT ezsignfolderGetObjectV3SignalErrorFull(worker, error_type, error_str);
     }
@@ -2903,32 +2450,6 @@ void ObjectEzsignfolderApi::ezsignfolderImportEzsignfoldersignerassociationsV1Ca
         Q_EMIT ezsignfolderImportEzsignfoldersignerassociationsV1Signal(output);
         Q_EMIT ezsignfolderImportEzsignfoldersignerassociationsV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsignfolderImportEzsignfoldersignerassociationsV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsignfolderImportEzsignfoldersignerassociationsV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsignfolderImportEzsignfoldersignerassociationsV1SignalError(output, error_type, error_str);
         Q_EMIT ezsignfolderImportEzsignfoldersignerassociationsV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -2996,32 +2517,6 @@ void ObjectEzsignfolderApi::ezsignfolderImportEzsigntemplatepackageV1Callback(Ht
         Q_EMIT ezsignfolderImportEzsigntemplatepackageV1Signal(output);
         Q_EMIT ezsignfolderImportEzsigntemplatepackageV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsignfolderImportEzsigntemplatepackageV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsignfolderImportEzsigntemplatepackageV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsignfolderImportEzsigntemplatepackageV1SignalError(output, error_type, error_str);
         Q_EMIT ezsignfolderImportEzsigntemplatepackageV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -3089,34 +2584,75 @@ void ObjectEzsignfolderApi::ezsignfolderImportEzsigntemplatepackageV2Callback(Ht
         Q_EMIT ezsignfolderImportEzsigntemplatepackageV2Signal(output);
         Q_EMIT ezsignfolderImportEzsigntemplatepackageV2SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsignfolderImportEzsigntemplatepackageV2SignalE(output, error_type, error_str);
-        Q_EMIT ezsignfolderImportEzsigntemplatepackageV2SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsignfolderImportEzsigntemplatepackageV2SignalError(output, error_type, error_str);
         Q_EMIT ezsignfolderImportEzsigntemplatepackageV2SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectEzsignfolderApi::ezsignfolderImportEzsigntemplatepackageV3(const qint32 &pki_ezsignfolder_id, const Ezsignfolder_importEzsigntemplatepackage_v3_Request &ezsignfolder_import_ezsigntemplatepackage_v3_request) {
+    QString fullPath = QString(_serverConfigs["ezsignfolderImportEzsigntemplatepackageV3"][_serverIndices.value("ezsignfolderImportEzsigntemplatepackageV3")].URL()+"/3/object/ezsignfolder/{pkiEzsignfolderID}/importEzsigntemplatepackage");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_ezsignfolder_idPathParam("{");
+        pki_ezsignfolder_idPathParam.append("pkiEzsignfolderID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsignfolderID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsignfolderID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_ezsignfolder_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsignfolder_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "POST");
+
+    {
+
+        
+        QByteArray output = ezsignfolder_import_ezsigntemplatepackage_v3_request.asJson().toUtf8();
+        input.request_body.append(output);
+    }
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsignfolderApi::ezsignfolderImportEzsigntemplatepackageV3Callback);
+    connect(this, &ObjectEzsignfolderApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectEzsignfolderApi::ezsignfolderImportEzsigntemplatepackageV3Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Ezsignfolder_importEzsigntemplatepackage_v3_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT ezsignfolderImportEzsigntemplatepackageV3Signal(output);
+        Q_EMIT ezsignfolderImportEzsigntemplatepackageV3SignalFull(worker, output);
+    } else {
+        Q_EMIT ezsignfolderImportEzsigntemplatepackageV3SignalError(output, error_type, error_str);
+        Q_EMIT ezsignfolderImportEzsigntemplatepackageV3SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -3182,32 +2718,6 @@ void ObjectEzsignfolderApi::ezsignfolderReorderV2Callback(HttpRequestWorker *wor
         Q_EMIT ezsignfolderReorderV2Signal(output);
         Q_EMIT ezsignfolderReorderV2SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsignfolderReorderV2SignalE(output, error_type, error_str);
-        Q_EMIT ezsignfolderReorderV2SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsignfolderReorderV2SignalError(output, error_type, error_str);
         Q_EMIT ezsignfolderReorderV2SignalErrorFull(worker, error_type, error_str);
     }
@@ -3275,32 +2785,6 @@ void ObjectEzsignfolderApi::ezsignfolderSendV1Callback(HttpRequestWorker *worker
         Q_EMIT ezsignfolderSendV1Signal(output);
         Q_EMIT ezsignfolderSendV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsignfolderSendV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsignfolderSendV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsignfolderSendV1SignalError(output, error_type, error_str);
         Q_EMIT ezsignfolderSendV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -3368,32 +2852,6 @@ void ObjectEzsignfolderApi::ezsignfolderSendV3Callback(HttpRequestWorker *worker
         Q_EMIT ezsignfolderSendV3Signal(output);
         Q_EMIT ezsignfolderSendV3SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsignfolderSendV3SignalE(output, error_type, error_str);
-        Q_EMIT ezsignfolderSendV3SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsignfolderSendV3SignalError(output, error_type, error_str);
         Q_EMIT ezsignfolderSendV3SignalErrorFull(worker, error_type, error_str);
     }
@@ -3461,42 +2919,16 @@ void ObjectEzsignfolderApi::ezsignfolderUnsendV1Callback(HttpRequestWorker *work
         Q_EMIT ezsignfolderUnsendV1Signal(output);
         Q_EMIT ezsignfolderUnsendV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT ezsignfolderUnsendV1SignalE(output, error_type, error_str);
-        Q_EMIT ezsignfolderUnsendV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT ezsignfolderUnsendV1SignalError(output, error_type, error_str);
         Q_EMIT ezsignfolderUnsendV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
-void ObjectEzsignfolderApi::tokenAvailable(){
+void ObjectEzsignfolderApi::tokenAvailable() {
 
     oauthToken token;
     switch (_OauthMethod) {
-    case 1: //implicit flow
+    case OauthMethod::ImplicitFlow:
         token = _implicitFlow.getToken(_latestScope.join(" "));
         if(token.isValid()){
             _latestInput.headers.insert("Authorization", "Bearer " + token.getToken());
@@ -3506,7 +2938,7 @@ void ObjectEzsignfolderApi::tokenAvailable(){
             qDebug() << "Could not retrieve a valid token";
         }
         break;
-    case 2: //authorization flow
+    case OauthMethod::AuthorizationFlow:
         token = _authFlow.getToken(_latestScope.join(" "));
         if(token.isValid()){
             _latestInput.headers.insert("Authorization", "Bearer " + token.getToken());
@@ -3516,7 +2948,7 @@ void ObjectEzsignfolderApi::tokenAvailable(){
             qDebug() << "Could not retrieve a valid token";
         }
         break;
-    case 3: //client credentials flow
+    case OauthMethod::ClientCredentialsFlow:
         token = _credentialFlow.getToken(_latestScope.join(" "));
         if(token.isValid()){
             _latestInput.headers.insert("Authorization", "Bearer " + token.getToken());
@@ -3526,7 +2958,7 @@ void ObjectEzsignfolderApi::tokenAvailable(){
             qDebug() << "Could not retrieve a valid token";
         }
         break;
-    case 4: //resource owner password flow
+    case OauthMethod::ResourceOwnerPasswordFlow:
         token = _passwordFlow.getToken(_latestScope.join(" "));
         if(token.isValid()){
             _latestInput.headers.insert("Authorization", "Bearer " + token.getToken());

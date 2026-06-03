@@ -30,13 +30,13 @@ namespace Ezmaxapi {
 class Field_eActivesessionUsertype : public Enum {
 public:
     Field_eActivesessionUsertype();
-    Field_eActivesessionUsertype(QString json);
+    Field_eActivesessionUsertype(const QString &json);
     ~Field_eActivesessionUsertype() override;
 
     QString asJson() const override;
     QJsonValue asJsonValue() const override;
     void fromJsonValue(QJsonValue json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     enum class eField_eActivesessionUsertype {
         INVALID_VALUE_OPENAPI_GENERATED = 0,

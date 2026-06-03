@@ -32,13 +32,13 @@ class Ezsignannotation_ResponseCompound;
 class Ezsignannotation_getObject_v2_Response_mPayload : public Object {
 public:
     Ezsignannotation_getObject_v2_Response_mPayload();
-    Ezsignannotation_getObject_v2_Response_mPayload(QString json);
+    Ezsignannotation_getObject_v2_Response_mPayload(const QString &json);
     ~Ezsignannotation_getObject_v2_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Ezsignannotation_ResponseCompound getObjEzsignannotation() const;
     void setObjEzsignannotation(const Ezsignannotation_ResponseCompound &obj_ezsignannotation);

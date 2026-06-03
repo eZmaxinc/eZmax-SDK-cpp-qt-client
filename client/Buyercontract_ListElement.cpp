@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Buyercontract_ListElement::Buyercontract_ListElement(QString json) {
+Buyercontract_ListElement::Buyercontract_ListElement(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -55,6 +55,9 @@ void Buyercontract_ListElement::initializeModel() {
     m_e_buyercontract_type_isSet = false;
     m_e_buyercontract_type_isValid = false;
 
+    m_s_buyercontract_contract_isSet = false;
+    m_s_buyercontract_contract_isValid = false;
+
     m_dt_buyercontract_date_isSet = false;
     m_dt_buyercontract_date_isValid = false;
 
@@ -71,7 +74,7 @@ void Buyercontract_ListElement::initializeModel() {
     m_s_buyercontract_buyers_isValid = false;
 }
 
-void Buyercontract_ListElement::fromJson(QString jsonString) {
+void Buyercontract_ListElement::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();
@@ -100,6 +103,9 @@ void Buyercontract_ListElement::fromJsonObject(QJsonObject json) {
 
     m_e_buyercontract_type_isValid = ::Ezmaxapi::fromJsonValue(m_e_buyercontract_type, json[QString("eBuyercontractType")]);
     m_e_buyercontract_type_isSet = !json[QString("eBuyercontractType")].isNull() && m_e_buyercontract_type_isValid;
+
+    m_s_buyercontract_contract_isValid = ::Ezmaxapi::fromJsonValue(m_s_buyercontract_contract, json[QString("sBuyercontractContract")]);
+    m_s_buyercontract_contract_isSet = !json[QString("sBuyercontractContract")].isNull() && m_s_buyercontract_contract_isValid;
 
     m_dt_buyercontract_date_isValid = ::Ezmaxapi::fromJsonValue(m_dt_buyercontract_date, json[QString("dtBuyercontractDate")]);
     m_dt_buyercontract_date_isSet = !json[QString("dtBuyercontractDate")].isNull() && m_dt_buyercontract_date_isValid;
@@ -146,6 +152,9 @@ QJsonObject Buyercontract_ListElement::asJsonObject() const {
     }
     if (m_e_buyercontract_type.isSet()) {
         obj.insert(QString("eBuyercontractType"), ::Ezmaxapi::toJsonValue(m_e_buyercontract_type));
+    }
+    if (m_s_buyercontract_contract_isSet) {
+        obj.insert(QString("sBuyercontractContract"), ::Ezmaxapi::toJsonValue(m_s_buyercontract_contract));
     }
     if (m_dt_buyercontract_date_isSet) {
         obj.insert(QString("dtBuyercontractDate"), ::Ezmaxapi::toJsonValue(m_dt_buyercontract_date));
@@ -277,6 +286,22 @@ bool Buyercontract_ListElement::is_e_buyercontract_type_Valid() const{
     return m_e_buyercontract_type_isValid;
 }
 
+QString Buyercontract_ListElement::getSBuyercontractContract() const {
+    return m_s_buyercontract_contract;
+}
+void Buyercontract_ListElement::setSBuyercontractContract(const QString &s_buyercontract_contract) {
+    m_s_buyercontract_contract = s_buyercontract_contract;
+    m_s_buyercontract_contract_isSet = true;
+}
+
+bool Buyercontract_ListElement::is_s_buyercontract_contract_Set() const{
+    return m_s_buyercontract_contract_isSet;
+}
+
+bool Buyercontract_ListElement::is_s_buyercontract_contract_Valid() const{
+    return m_s_buyercontract_contract_isValid;
+}
+
 QString Buyercontract_ListElement::getDtBuyercontractDate() const {
     return m_dt_buyercontract_date;
 }
@@ -391,6 +416,11 @@ bool Buyercontract_ListElement::isSet() const {
         }
 
         if (m_e_buyercontract_type.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_s_buyercontract_contract_isSet) {
             isObjectUpdated = true;
             break;
         }

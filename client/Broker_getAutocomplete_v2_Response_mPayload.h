@@ -33,13 +33,13 @@ class Broker_AutocompleteElement_Response;
 class Broker_getAutocomplete_v2_Response_mPayload : public Object {
 public:
     Broker_getAutocomplete_v2_Response_mPayload();
-    Broker_getAutocomplete_v2_Response_mPayload(QString json);
+    Broker_getAutocomplete_v2_Response_mPayload(const QString &json);
     ~Broker_getAutocomplete_v2_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Broker_AutocompleteElement_Response> getAObjBroker() const;
     void setAObjBroker(const QList<Broker_AutocompleteElement_Response> &a_obj_broker);

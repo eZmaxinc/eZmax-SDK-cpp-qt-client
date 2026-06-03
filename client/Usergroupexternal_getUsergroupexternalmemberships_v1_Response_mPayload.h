@@ -33,13 +33,13 @@ class Usergroupexternalmembership_ResponseCompound;
 class Usergroupexternal_getUsergroupexternalmemberships_v1_Response_mPayload : public Object {
 public:
     Usergroupexternal_getUsergroupexternalmemberships_v1_Response_mPayload();
-    Usergroupexternal_getUsergroupexternalmemberships_v1_Response_mPayload(QString json);
+    Usergroupexternal_getUsergroupexternalmemberships_v1_Response_mPayload(const QString &json);
     ~Usergroupexternal_getUsergroupexternalmemberships_v1_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Usergroupexternalmembership_ResponseCompound> getAObjUsergroupexternalmembership() const;
     void setAObjUsergroupexternalmembership(const QList<Usergroupexternalmembership_ResponseCompound> &a_obj_usergroupexternalmembership);

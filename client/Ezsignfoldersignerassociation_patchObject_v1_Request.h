@@ -32,13 +32,13 @@ class Ezsignfoldersignerassociation_RequestPatch;
 class Ezsignfoldersignerassociation_patchObject_v1_Request : public Object {
 public:
     Ezsignfoldersignerassociation_patchObject_v1_Request();
-    Ezsignfoldersignerassociation_patchObject_v1_Request(QString json);
+    Ezsignfoldersignerassociation_patchObject_v1_Request(const QString &json);
     ~Ezsignfoldersignerassociation_patchObject_v1_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Ezsignfoldersignerassociation_RequestPatch getObjEzsignfoldersignerassociation() const;
     void setObjEzsignfoldersignerassociation(const Ezsignfoldersignerassociation_RequestPatch &obj_ezsignfoldersignerassociation);

@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Scim_GroupMember : public Object {
 public:
     Scim_GroupMember();
-    Scim_GroupMember(QString json);
+    Scim_GroupMember(const QString &json);
     ~Scim_GroupMember() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getValue() const;
     void setValue(const QString &value);

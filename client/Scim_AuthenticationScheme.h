@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Scim_AuthenticationScheme : public Object {
 public:
     Scim_AuthenticationScheme();
-    Scim_AuthenticationScheme(QString json);
+    Scim_AuthenticationScheme(const QString &json);
     ~Scim_AuthenticationScheme() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getDescription() const;
     void setDescription(const QString &description);

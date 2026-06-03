@@ -33,13 +33,13 @@ namespace Ezmaxapi {
 class Colleague_RequestV2 : public Object {
 public:
     Colleague_RequestV2();
-    Colleague_RequestV2(QString json);
+    Colleague_RequestV2(const QString &json);
     ~Colleague_RequestV2() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiColleagueId() const;
     void setPkiColleagueId(const qint32 &pki_colleague_id);

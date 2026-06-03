@@ -34,13 +34,13 @@ class Common_Response_objDebug;
 class Usergroupmembership_deleteObject_v1_Response : public Object {
 public:
     Usergroupmembership_deleteObject_v1_Response();
-    Usergroupmembership_deleteObject_v1_Response(QString json);
+    Usergroupmembership_deleteObject_v1_Response(const QString &json);
     ~Usergroupmembership_deleteObject_v1_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Common_Response_objDebugPayload getObjDebugPayload() const;
     void setObjDebugPayload(const Common_Response_objDebugPayload &obj_debug_payload);

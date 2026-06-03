@@ -59,6 +59,7 @@ public:
     void initializeServerConfigs();
     int setDefaultServerValue(int serverIndex,const QString &operation, const QString &variable,const QString &val);
     void setServerIndex(const QString &operation, int serverIndex);
+    void setServerIndex(int serverIndex);
     void setApiKey(const QString &apiKeyName, const QString &apiKey);
     void setBearerToken(const QString &token);
     void setUsername(const QString &username);
@@ -145,6 +146,13 @@ public:
 
 
 private:
+    enum class OauthMethod : int {
+        INVALID_VALUE_OPENAPI_GENERATED = 0,
+        ImplicitFlow = 1,
+        AuthorizationFlow = 2,
+        ClientCredentialsFlow = 3,
+        ResourceOwnerPasswordFlow = 4
+    };
     QMap<QString,int> _serverIndices;
     QMap<QString,QList<ServerConfiguration>> _serverConfigs;
     QMap<QString, QString> _apiKeys;
@@ -164,7 +172,7 @@ private:
     OauthImplicit _implicitFlow;
     OauthCredentials _credentialFlow;
     OauthPassword _passwordFlow;
-    int _OauthMethod = 0;
+    OauthMethod _OauthMethod = OauthMethod::INVALID_VALUE_OPENAPI_GENERATED;
 
     void ezsignfoldersignerassociationCreateEmbeddedUrlV1Callback(HttpRequestWorker *worker);
     void ezsignfoldersignerassociationCreateEmbeddedUrlV2Callback(HttpRequestWorker *worker);
@@ -208,78 +216,30 @@ Q_SIGNALS:
     void ezsignfoldersignerassociationPatchObjectV1SignalFull(HttpRequestWorker *worker, Ezsignfoldersignerassociation_patchObject_v1_Response summary);
     void ezsignfoldersignerassociationReassignV1SignalFull(HttpRequestWorker *worker, Ezsignfoldersignerassociation_reassign_v1_Response summary);
 
-    Q_DECL_DEPRECATED_X("Use ezsignfoldersignerassociationCreateEmbeddedUrlV1SignalError() instead")
-    void ezsignfoldersignerassociationCreateEmbeddedUrlV1SignalE(Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfoldersignerassociationCreateEmbeddedUrlV1SignalError(Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezsignfoldersignerassociationCreateEmbeddedUrlV2SignalError() instead")
-    void ezsignfoldersignerassociationCreateEmbeddedUrlV2SignalE(Ezsignfoldersignerassociation_createEmbeddedUrl_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfoldersignerassociationCreateEmbeddedUrlV2SignalError(Ezsignfoldersignerassociation_createEmbeddedUrl_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezsignfoldersignerassociationCreateObjectV1SignalError() instead")
-    void ezsignfoldersignerassociationCreateObjectV1SignalE(Ezsignfoldersignerassociation_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfoldersignerassociationCreateObjectV1SignalError(Ezsignfoldersignerassociation_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezsignfoldersignerassociationCreateObjectV2SignalError() instead")
-    void ezsignfoldersignerassociationCreateObjectV2SignalE(Ezsignfoldersignerassociation_createObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfoldersignerassociationCreateObjectV2SignalError(Ezsignfoldersignerassociation_createObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezsignfoldersignerassociationDeleteObjectV1SignalError() instead")
-    void ezsignfoldersignerassociationDeleteObjectV1SignalE(Ezsignfoldersignerassociation_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfoldersignerassociationDeleteObjectV1SignalError(Ezsignfoldersignerassociation_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezsignfoldersignerassociationEditObjectV1SignalError() instead")
-    void ezsignfoldersignerassociationEditObjectV1SignalE(Ezsignfoldersignerassociation_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfoldersignerassociationEditObjectV1SignalError(Ezsignfoldersignerassociation_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezsignfoldersignerassociationForceDisconnectV1SignalError() instead")
-    void ezsignfoldersignerassociationForceDisconnectV1SignalE(Ezsignfoldersignerassociation_forceDisconnect_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfoldersignerassociationForceDisconnectV1SignalError(Ezsignfoldersignerassociation_forceDisconnect_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezsignfoldersignerassociationGetInPersonLoginUrlV1SignalError() instead")
-    void ezsignfoldersignerassociationGetInPersonLoginUrlV1SignalE(Ezsignfoldersignerassociation_getInPersonLoginUrl_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfoldersignerassociationGetInPersonLoginUrlV1SignalError(Ezsignfoldersignerassociation_getInPersonLoginUrl_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezsignfoldersignerassociationGetObjectV1SignalError() instead")
-    void ezsignfoldersignerassociationGetObjectV1SignalE(Ezsignfoldersignerassociation_getObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfoldersignerassociationGetObjectV1SignalError(Ezsignfoldersignerassociation_getObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezsignfoldersignerassociationGetObjectV2SignalError() instead")
-    void ezsignfoldersignerassociationGetObjectV2SignalE(Ezsignfoldersignerassociation_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfoldersignerassociationGetObjectV2SignalError(Ezsignfoldersignerassociation_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezsignfoldersignerassociationPatchObjectV1SignalError() instead")
-    void ezsignfoldersignerassociationPatchObjectV1SignalE(Ezsignfoldersignerassociation_patchObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfoldersignerassociationPatchObjectV1SignalError(Ezsignfoldersignerassociation_patchObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezsignfoldersignerassociationReassignV1SignalError() instead")
-    void ezsignfoldersignerassociationReassignV1SignalE(Ezsignfoldersignerassociation_reassign_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfoldersignerassociationReassignV1SignalError(Ezsignfoldersignerassociation_reassign_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
-    Q_DECL_DEPRECATED_X("Use ezsignfoldersignerassociationCreateEmbeddedUrlV1SignalErrorFull() instead")
-    void ezsignfoldersignerassociationCreateEmbeddedUrlV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfoldersignerassociationCreateEmbeddedUrlV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezsignfoldersignerassociationCreateEmbeddedUrlV2SignalErrorFull() instead")
-    void ezsignfoldersignerassociationCreateEmbeddedUrlV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfoldersignerassociationCreateEmbeddedUrlV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezsignfoldersignerassociationCreateObjectV1SignalErrorFull() instead")
-    void ezsignfoldersignerassociationCreateObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfoldersignerassociationCreateObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezsignfoldersignerassociationCreateObjectV2SignalErrorFull() instead")
-    void ezsignfoldersignerassociationCreateObjectV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfoldersignerassociationCreateObjectV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezsignfoldersignerassociationDeleteObjectV1SignalErrorFull() instead")
-    void ezsignfoldersignerassociationDeleteObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfoldersignerassociationDeleteObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezsignfoldersignerassociationEditObjectV1SignalErrorFull() instead")
-    void ezsignfoldersignerassociationEditObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfoldersignerassociationEditObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezsignfoldersignerassociationForceDisconnectV1SignalErrorFull() instead")
-    void ezsignfoldersignerassociationForceDisconnectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfoldersignerassociationForceDisconnectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezsignfoldersignerassociationGetInPersonLoginUrlV1SignalErrorFull() instead")
-    void ezsignfoldersignerassociationGetInPersonLoginUrlV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfoldersignerassociationGetInPersonLoginUrlV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezsignfoldersignerassociationGetObjectV1SignalErrorFull() instead")
-    void ezsignfoldersignerassociationGetObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfoldersignerassociationGetObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezsignfoldersignerassociationGetObjectV2SignalErrorFull() instead")
-    void ezsignfoldersignerassociationGetObjectV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfoldersignerassociationGetObjectV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezsignfoldersignerassociationPatchObjectV1SignalErrorFull() instead")
-    void ezsignfoldersignerassociationPatchObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfoldersignerassociationPatchObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezsignfoldersignerassociationReassignV1SignalErrorFull() instead")
-    void ezsignfoldersignerassociationReassignV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignfoldersignerassociationReassignV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();

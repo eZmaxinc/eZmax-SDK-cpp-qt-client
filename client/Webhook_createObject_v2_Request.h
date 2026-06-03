@@ -33,13 +33,13 @@ class Webhook_RequestCompound;
 class Webhook_createObject_v2_Request : public Object {
 public:
     Webhook_createObject_v2_Request();
-    Webhook_createObject_v2_Request(QString json);
+    Webhook_createObject_v2_Request(const QString &json);
     ~Webhook_createObject_v2_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Webhook_RequestCompound> getAObjWebhook() const;
     void setAObjWebhook(const QList<Webhook_RequestCompound> &a_obj_webhook);

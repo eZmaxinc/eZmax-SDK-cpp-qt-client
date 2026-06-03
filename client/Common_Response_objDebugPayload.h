@@ -32,13 +32,13 @@ namespace Ezmaxapi {
 class Common_Response_objDebugPayload : public Object {
 public:
     Common_Response_objDebugPayload();
-    Common_Response_objDebugPayload(QString json);
+    Common_Response_objDebugPayload(const QString &json);
     ~Common_Response_objDebugPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getIVersionMin() const;
     void setIVersionMin(const qint32 &i_version_min);

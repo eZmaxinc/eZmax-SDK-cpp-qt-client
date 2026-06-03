@@ -30,13 +30,13 @@ namespace Ezmaxapi {
 class Enum_Fontweight : public Enum {
 public:
     Enum_Fontweight();
-    Enum_Fontweight(QString json);
+    Enum_Fontweight(const QString &json);
     ~Enum_Fontweight() override;
 
     QString asJson() const override;
     QJsonValue asJsonValue() const override;
     void fromJsonValue(QJsonValue json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     enum class eEnum_Fontweight {
         INVALID_VALUE_OPENAPI_GENERATED = 0,

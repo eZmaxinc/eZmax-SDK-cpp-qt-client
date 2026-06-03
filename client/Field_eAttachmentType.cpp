@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_eAttachmentType::Field_eAttachmentType(QString json) {
+Field_eAttachmentType::Field_eAttachmentType(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_eAttachmentType::initializeModel() {
     m_value = eField_eAttachmentType::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_eAttachmentType::fromJson(QString jsonString) {
+void Field_eAttachmentType::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("Other", Qt::CaseInsensitive) == 0) {
         m_value = eField_eAttachmentType::OTHER;

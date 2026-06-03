@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Multilingual_BillingentityinternalDescription::Multilingual_BillingentityinternalDescription(QString json) {
+Multilingual_BillingentityinternalDescription::Multilingual_BillingentityinternalDescription(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -41,7 +41,7 @@ void Multilingual_BillingentityinternalDescription::initializeModel() {
     m_s_billingentityinternal_description2_isValid = false;
 }
 
-void Multilingual_BillingentityinternalDescription::fromJson(QString jsonString) {
+void Multilingual_BillingentityinternalDescription::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

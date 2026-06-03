@@ -34,13 +34,13 @@ class Common_Audit;
 class Ezmaxinvoicingcontract_Response : public Object {
 public:
     Ezmaxinvoicingcontract_Response();
-    Ezmaxinvoicingcontract_Response(QString json);
+    Ezmaxinvoicingcontract_Response(const QString &json);
     ~Ezmaxinvoicingcontract_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiEzmaxinvoicingcontractId() const;
     void setPkiEzmaxinvoicingcontractId(const qint32 &pki_ezmaxinvoicingcontract_id);

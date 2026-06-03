@@ -41,13 +41,13 @@ class Custom_TimezoneWithCode_Response;
 class Ezsignfolder_ResponseCompound : public Object {
 public:
     Ezsignfolder_ResponseCompound();
-    Ezsignfolder_ResponseCompound(QString json);
+    Ezsignfolder_ResponseCompound(const QString &json);
     ~Ezsignfolder_ResponseCompound() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiEzsignfolderId() const;
     void setPkiEzsignfolderId(const qint32 &pki_ezsignfolder_id);

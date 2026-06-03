@@ -32,13 +32,13 @@ namespace Ezmaxapi {
 class Ezdoctemplatedocument_ListElement : public Object {
 public:
     Ezdoctemplatedocument_ListElement();
-    Ezdoctemplatedocument_ListElement(QString json);
+    Ezdoctemplatedocument_ListElement(const QString &json);
     ~Ezdoctemplatedocument_ListElement() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiEzdoctemplatedocumentId() const;
     void setPkiEzdoctemplatedocumentId(const qint32 &pki_ezdoctemplatedocument_id);

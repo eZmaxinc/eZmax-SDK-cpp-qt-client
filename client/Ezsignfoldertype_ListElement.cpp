@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Ezsignfoldertype_ListElement::Ezsignfoldertype_ListElement(QString json) {
+Ezsignfoldertype_ListElement::Ezsignfoldertype_ListElement(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -47,7 +47,7 @@ void Ezsignfoldertype_ListElement::initializeModel() {
     m_b_ezsignfoldertype_isactive_isValid = false;
 }
 
-void Ezsignfoldertype_ListElement::fromJson(QString jsonString) {
+void Ezsignfoldertype_ListElement::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

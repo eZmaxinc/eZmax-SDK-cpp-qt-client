@@ -33,13 +33,13 @@ class Period_AutocompleteElement_Response;
 class Period_getAutocomplete_v2_Response_mPayload : public Object {
 public:
     Period_getAutocomplete_v2_Response_mPayload();
-    Period_getAutocomplete_v2_Response_mPayload(QString json);
+    Period_getAutocomplete_v2_Response_mPayload(const QString &json);
     ~Period_getAutocomplete_v2_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Period_AutocompleteElement_Response> getAObjPeriod() const;
     void setAObjPeriod(const QList<Period_AutocompleteElement_Response> &a_obj_period);

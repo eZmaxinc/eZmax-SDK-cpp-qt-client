@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Usergroup_Response::Usergroup_Response(QString json) {
+Usergroup_Response::Usergroup_Response(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -47,7 +47,7 @@ void Usergroup_Response::initializeModel() {
     m_obj_email_isValid = false;
 }
 
-void Usergroup_Response::fromJson(QString jsonString) {
+void Usergroup_Response::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

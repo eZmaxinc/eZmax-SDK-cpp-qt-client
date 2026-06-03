@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Ezsignfolder_ResponseCompoundV3::Ezsignfolder_ResponseCompoundV3(QString json) {
+Ezsignfolder_ResponseCompoundV3::Ezsignfolder_ResponseCompoundV3(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -100,6 +100,9 @@ void Ezsignfolder_ResponseCompoundV3::initializeModel() {
     m_e_ezsignfolder_step_isSet = false;
     m_e_ezsignfolder_step_isValid = false;
 
+    m_i_ezsignfolder_stepcurrent_isSet = false;
+    m_i_ezsignfolder_stepcurrent_isValid = false;
+
     m_dt_ezsignfolder_close_isSet = false;
     m_dt_ezsignfolder_close_isValid = false;
 
@@ -128,7 +131,7 @@ void Ezsignfolder_ResponseCompoundV3::initializeModel() {
     m_obj_timezone_isValid = false;
 }
 
-void Ezsignfolder_ResponseCompoundV3::fromJson(QString jsonString) {
+void Ezsignfolder_ResponseCompoundV3::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();
@@ -202,6 +205,9 @@ void Ezsignfolder_ResponseCompoundV3::fromJsonObject(QJsonObject json) {
 
     m_e_ezsignfolder_step_isValid = ::Ezmaxapi::fromJsonValue(m_e_ezsignfolder_step, json[QString("eEzsignfolderStep")]);
     m_e_ezsignfolder_step_isSet = !json[QString("eEzsignfolderStep")].isNull() && m_e_ezsignfolder_step_isValid;
+
+    m_i_ezsignfolder_stepcurrent_isValid = ::Ezmaxapi::fromJsonValue(m_i_ezsignfolder_stepcurrent, json[QString("iEzsignfolderStepcurrent")]);
+    m_i_ezsignfolder_stepcurrent_isSet = !json[QString("iEzsignfolderStepcurrent")].isNull() && m_i_ezsignfolder_stepcurrent_isValid;
 
     m_dt_ezsignfolder_close_isValid = ::Ezmaxapi::fromJsonValue(m_dt_ezsignfolder_close, json[QString("dtEzsignfolderClose")]);
     m_dt_ezsignfolder_close_isSet = !json[QString("dtEzsignfolderClose")].isNull() && m_dt_ezsignfolder_close_isValid;
@@ -305,6 +311,9 @@ QJsonObject Ezsignfolder_ResponseCompoundV3::asJsonObject() const {
     }
     if (m_e_ezsignfolder_step.isSet()) {
         obj.insert(QString("eEzsignfolderStep"), ::Ezmaxapi::toJsonValue(m_e_ezsignfolder_step));
+    }
+    if (m_i_ezsignfolder_stepcurrent_isSet) {
+        obj.insert(QString("iEzsignfolderStepcurrent"), ::Ezmaxapi::toJsonValue(m_i_ezsignfolder_stepcurrent));
     }
     if (m_dt_ezsignfolder_close_isSet) {
         obj.insert(QString("dtEzsignfolderClose"), ::Ezmaxapi::toJsonValue(m_dt_ezsignfolder_close));
@@ -688,6 +697,22 @@ bool Ezsignfolder_ResponseCompoundV3::is_e_ezsignfolder_step_Valid() const{
     return m_e_ezsignfolder_step_isValid;
 }
 
+qint32 Ezsignfolder_ResponseCompoundV3::getIEzsignfolderStepcurrent() const {
+    return m_i_ezsignfolder_stepcurrent;
+}
+void Ezsignfolder_ResponseCompoundV3::setIEzsignfolderStepcurrent(const qint32 &i_ezsignfolder_stepcurrent) {
+    m_i_ezsignfolder_stepcurrent = i_ezsignfolder_stepcurrent;
+    m_i_ezsignfolder_stepcurrent_isSet = true;
+}
+
+bool Ezsignfolder_ResponseCompoundV3::is_i_ezsignfolder_stepcurrent_Set() const{
+    return m_i_ezsignfolder_stepcurrent_isSet;
+}
+
+bool Ezsignfolder_ResponseCompoundV3::is_i_ezsignfolder_stepcurrent_Valid() const{
+    return m_i_ezsignfolder_stepcurrent_isValid;
+}
+
 QString Ezsignfolder_ResponseCompoundV3::getDtEzsignfolderClose() const {
     return m_dt_ezsignfolder_close;
 }
@@ -941,6 +966,11 @@ bool Ezsignfolder_ResponseCompoundV3::isSet() const {
         }
 
         if (m_e_ezsignfolder_step.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_i_ezsignfolder_stepcurrent_isSet) {
             isObjectUpdated = true;
             break;
         }

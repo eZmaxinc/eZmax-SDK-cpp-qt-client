@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Contacttitle_AutocompleteElement_Response : public Object {
 public:
     Contacttitle_AutocompleteElement_Response();
-    Contacttitle_AutocompleteElement_Response(QString json);
+    Contacttitle_AutocompleteElement_Response(const QString &json);
     ~Contacttitle_AutocompleteElement_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiContacttitleId() const;
     void setPkiContacttitleId(const qint32 &pki_contacttitle_id);

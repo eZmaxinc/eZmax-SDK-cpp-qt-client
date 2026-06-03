@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Ezsigntemplatedocument_extractText_v1_Request : public Object {
 public:
     Ezsigntemplatedocument_extractText_v1_Request();
-    Ezsigntemplatedocument_extractText_v1_Request(QString json);
+    Ezsigntemplatedocument_extractText_v1_Request(const QString &json);
     ~Ezsigntemplatedocument_extractText_v1_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getIPage() const;
     void setIPage(const qint32 &i_page);

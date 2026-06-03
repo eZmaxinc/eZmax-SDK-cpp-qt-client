@@ -34,13 +34,13 @@ class Custom_FormDataEzsignformfield_Response;
 class Custom_FormDataEzsignformfieldgroup_Response : public Object {
 public:
     Custom_FormDataEzsignformfieldgroup_Response();
-    Custom_FormDataEzsignformfieldgroup_Response(QString json);
+    Custom_FormDataEzsignformfieldgroup_Response(const QString &json);
     ~Custom_FormDataEzsignformfieldgroup_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getSEzsignformfieldgroupLabel() const;
     void setSEzsignformfieldgroupLabel(const QString &s_ezsignformfieldgroup_label);

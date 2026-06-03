@@ -30,13 +30,13 @@ namespace Ezmaxapi {
 class Field_eEzsignformfieldgroupType : public Enum {
 public:
     Field_eEzsignformfieldgroupType();
-    Field_eEzsignformfieldgroupType(QString json);
+    Field_eEzsignformfieldgroupType(const QString &json);
     ~Field_eEzsignformfieldgroupType() override;
 
     QString asJson() const override;
     QJsonValue asJsonValue() const override;
     void fromJsonValue(QJsonValue json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     enum class eField_eEzsignformfieldgroupType {
         INVALID_VALUE_OPENAPI_GENERATED = 0,

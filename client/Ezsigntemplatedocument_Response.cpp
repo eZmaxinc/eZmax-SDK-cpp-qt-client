@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Ezsigntemplatedocument_Response::Ezsigntemplatedocument_Response(QString json) {
+Ezsigntemplatedocument_Response::Ezsigntemplatedocument_Response(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -56,7 +56,7 @@ void Ezsigntemplatedocument_Response::initializeModel() {
     m_b_ezsigntemplatedocument_hassignedsignatures_isValid = false;
 }
 
-void Ezsigntemplatedocument_Response::fromJson(QString jsonString) {
+void Ezsigntemplatedocument_Response::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

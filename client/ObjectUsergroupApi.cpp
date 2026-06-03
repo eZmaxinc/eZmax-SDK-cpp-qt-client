@@ -84,9 +84,9 @@ void ObjectUsergroupApi::initializeServerConfigs() {
 }
 
 /**
-* returns 0 on success and -1, -2 or -3 on failure.
-* -1 when the variable does not exist and -2 if the value is not defined in the enum and -3 if the operation or server index is not found
-*/
+ * returns 0 on success and -1, -2 or -3 on failure.
+ * -1 when the variable does not exist and -2 if the value is not defined in the enum and -3 if the operation or server index is not found
+ */
 int ObjectUsergroupApi::setDefaultServerValue(int serverIndex, const QString &operation, const QString &variable, const QString &value) {
     auto it = _serverConfigs.find(operation);
     if (it != _serverConfigs.end() && serverIndex < it.value().size()) {
@@ -94,9 +94,21 @@ int ObjectUsergroupApi::setDefaultServerValue(int serverIndex, const QString &op
     }
     return -3;
 }
+
+/**
+ * Sets the server index.
+ * @param operation The id to the target operation.
+ * @param serverIndex The server index.
+ */
 void ObjectUsergroupApi::setServerIndex(const QString &operation, int serverIndex) {
     if (_serverIndices.contains(operation) && serverIndex < _serverConfigs.find(operation).value().size()) {
         _serverIndices[operation] = serverIndex;
+    }
+}
+
+void ObjectUsergroupApi::setServerIndex(int serverIndex) {
+    for (auto keyIt = _serverIndices.keyBegin(); keyIt != _serverIndices.keyEnd(); keyIt++) {
+        setServerIndex(*keyIt, serverIndex);
     }
 }
 
@@ -130,13 +142,13 @@ void ObjectUsergroupApi::setNetworkAccessManager(QNetworkAccessManager* manager)
 }
 
 /**
-    * Appends a new ServerConfiguration to the config map for a specific operation.
-    * @param operation The id to the target operation.
-    * @param url A string that contains the URL of the server
-    * @param description A String that describes the server
-    * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
-    * returns the index of the new server config on success and -1 if the operation is not found
-    */
+ * Appends a new ServerConfiguration to the config map for a specific operation.
+ * @param operation The id to the target operation.
+ * @param url A string that contains the URL of the server
+ * @param description A String that describes the server
+ * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
+ * returns the index of the new server config on success and -1 if the operation is not found
+ */
 int ObjectUsergroupApi::addServerConfiguration(const QString &operation, const QUrl &url, const QString &description, const QMap<QString, ServerVariable> &variables) {
     if (_serverConfigs.contains(operation)) {
         _serverConfigs[operation].append(ServerConfiguration(
@@ -150,11 +162,11 @@ int ObjectUsergroupApi::addServerConfiguration(const QString &operation, const Q
 }
 
 /**
-    * Appends a new ServerConfiguration to the config map for a all operations and sets the index to that server.
-    * @param url A string that contains the URL of the server
-    * @param description A String that describes the server
-    * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
-    */
+ * Appends a new ServerConfiguration to the config map for a all operations and sets the index to that server.
+ * @param url A string that contains the URL of the server
+ * @param description A String that describes the server
+ * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
+ */
 void ObjectUsergroupApi::setNewServerForAllOperations(const QUrl &url, const QString &description, const QMap<QString, ServerVariable> &variables) {
     for (auto keyIt = _serverIndices.keyBegin(); keyIt != _serverIndices.keyEnd(); keyIt++) {
         setServerIndex(*keyIt, addServerConfiguration(*keyIt, url, description, variables));
@@ -162,11 +174,11 @@ void ObjectUsergroupApi::setNewServerForAllOperations(const QUrl &url, const QSt
 }
 
 /**
-    * Appends a new ServerConfiguration to the config map for an operations and sets the index to that server.
-    * @param URL A string that contains the URL of the server
-    * @param description A String that describes the server
-    * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
-    */
+ * Appends a new ServerConfiguration to the config map for an operations and sets the index to that server.
+ * @param URL A string that contains the URL of the server
+ * @param description A String that describes the server
+ * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
+ */
 void ObjectUsergroupApi::setNewServer(const QString &operation, const QUrl &url, const QString &description, const QMap<QString, ServerVariable> &variables) {
     setServerIndex(operation, addServerConfiguration(operation, url, description, variables));
 }
@@ -298,32 +310,6 @@ void ObjectUsergroupApi::usergroupCreateObjectV1Callback(HttpRequestWorker *work
         Q_EMIT usergroupCreateObjectV1Signal(output);
         Q_EMIT usergroupCreateObjectV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT usergroupCreateObjectV1SignalE(output, error_type, error_str);
-        Q_EMIT usergroupCreateObjectV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT usergroupCreateObjectV1SignalError(output, error_type, error_str);
         Q_EMIT usergroupCreateObjectV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -391,32 +377,6 @@ void ObjectUsergroupApi::usergroupEditObjectV1Callback(HttpRequestWorker *worker
         Q_EMIT usergroupEditObjectV1Signal(output);
         Q_EMIT usergroupEditObjectV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT usergroupEditObjectV1SignalE(output, error_type, error_str);
-        Q_EMIT usergroupEditObjectV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT usergroupEditObjectV1SignalError(output, error_type, error_str);
         Q_EMIT usergroupEditObjectV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -484,32 +444,6 @@ void ObjectUsergroupApi::usergroupEditPermissionsV1Callback(HttpRequestWorker *w
         Q_EMIT usergroupEditPermissionsV1Signal(output);
         Q_EMIT usergroupEditPermissionsV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT usergroupEditPermissionsV1SignalE(output, error_type, error_str);
-        Q_EMIT usergroupEditPermissionsV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT usergroupEditPermissionsV1SignalError(output, error_type, error_str);
         Q_EMIT usergroupEditPermissionsV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -577,32 +511,6 @@ void ObjectUsergroupApi::usergroupEditUsergroupdelegationsV1Callback(HttpRequest
         Q_EMIT usergroupEditUsergroupdelegationsV1Signal(output);
         Q_EMIT usergroupEditUsergroupdelegationsV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT usergroupEditUsergroupdelegationsV1SignalE(output, error_type, error_str);
-        Q_EMIT usergroupEditUsergroupdelegationsV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT usergroupEditUsergroupdelegationsV1SignalError(output, error_type, error_str);
         Q_EMIT usergroupEditUsergroupdelegationsV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -670,32 +578,6 @@ void ObjectUsergroupApi::usergroupEditUsergroupmembershipsV1Callback(HttpRequest
         Q_EMIT usergroupEditUsergroupmembershipsV1Signal(output);
         Q_EMIT usergroupEditUsergroupmembershipsV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT usergroupEditUsergroupmembershipsV1SignalE(output, error_type, error_str);
-        Q_EMIT usergroupEditUsergroupmembershipsV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT usergroupEditUsergroupmembershipsV1SignalError(output, error_type, error_str);
         Q_EMIT usergroupEditUsergroupmembershipsV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -833,32 +715,6 @@ void ObjectUsergroupApi::usergroupGetAutocompleteV2Callback(HttpRequestWorker *w
         Q_EMIT usergroupGetAutocompleteV2Signal(output);
         Q_EMIT usergroupGetAutocompleteV2SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT usergroupGetAutocompleteV2SignalE(output, error_type, error_str);
-        Q_EMIT usergroupGetAutocompleteV2SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT usergroupGetAutocompleteV2SignalError(output, error_type, error_str);
         Q_EMIT usergroupGetAutocompleteV2SignalErrorFull(worker, error_type, error_str);
     }
@@ -1012,32 +868,6 @@ void ObjectUsergroupApi::usergroupGetListV1Callback(HttpRequestWorker *worker) {
         Q_EMIT usergroupGetListV1Signal(output);
         Q_EMIT usergroupGetListV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT usergroupGetListV1SignalE(output, error_type, error_str);
-        Q_EMIT usergroupGetListV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT usergroupGetListV1SignalError(output, error_type, error_str);
         Q_EMIT usergroupGetListV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -1100,32 +930,6 @@ void ObjectUsergroupApi::usergroupGetObjectV2Callback(HttpRequestWorker *worker)
         Q_EMIT usergroupGetObjectV2Signal(output);
         Q_EMIT usergroupGetObjectV2SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT usergroupGetObjectV2SignalE(output, error_type, error_str);
-        Q_EMIT usergroupGetObjectV2SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT usergroupGetObjectV2SignalError(output, error_type, error_str);
         Q_EMIT usergroupGetObjectV2SignalErrorFull(worker, error_type, error_str);
     }
@@ -1188,32 +992,6 @@ void ObjectUsergroupApi::usergroupGetPermissionsV1Callback(HttpRequestWorker *wo
         Q_EMIT usergroupGetPermissionsV1Signal(output);
         Q_EMIT usergroupGetPermissionsV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT usergroupGetPermissionsV1SignalE(output, error_type, error_str);
-        Q_EMIT usergroupGetPermissionsV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT usergroupGetPermissionsV1SignalError(output, error_type, error_str);
         Q_EMIT usergroupGetPermissionsV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -1276,32 +1054,6 @@ void ObjectUsergroupApi::usergroupGetUsergroupdelegationsV1Callback(HttpRequestW
         Q_EMIT usergroupGetUsergroupdelegationsV1Signal(output);
         Q_EMIT usergroupGetUsergroupdelegationsV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT usergroupGetUsergroupdelegationsV1SignalE(output, error_type, error_str);
-        Q_EMIT usergroupGetUsergroupdelegationsV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT usergroupGetUsergroupdelegationsV1SignalError(output, error_type, error_str);
         Q_EMIT usergroupGetUsergroupdelegationsV1SignalErrorFull(worker, error_type, error_str);
     }
@@ -1364,42 +1116,16 @@ void ObjectUsergroupApi::usergroupGetUsergroupmembershipsV1Callback(HttpRequestW
         Q_EMIT usergroupGetUsergroupmembershipsV1Signal(output);
         Q_EMIT usergroupGetUsergroupmembershipsV1SignalFull(worker, output);
     } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT usergroupGetUsergroupmembershipsV1SignalE(output, error_type, error_str);
-        Q_EMIT usergroupGetUsergroupmembershipsV1SignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
         Q_EMIT usergroupGetUsergroupmembershipsV1SignalError(output, error_type, error_str);
         Q_EMIT usergroupGetUsergroupmembershipsV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
-void ObjectUsergroupApi::tokenAvailable(){
+void ObjectUsergroupApi::tokenAvailable() {
 
     oauthToken token;
     switch (_OauthMethod) {
-    case 1: //implicit flow
+    case OauthMethod::ImplicitFlow:
         token = _implicitFlow.getToken(_latestScope.join(" "));
         if(token.isValid()){
             _latestInput.headers.insert("Authorization", "Bearer " + token.getToken());
@@ -1409,7 +1135,7 @@ void ObjectUsergroupApi::tokenAvailable(){
             qDebug() << "Could not retrieve a valid token";
         }
         break;
-    case 2: //authorization flow
+    case OauthMethod::AuthorizationFlow:
         token = _authFlow.getToken(_latestScope.join(" "));
         if(token.isValid()){
             _latestInput.headers.insert("Authorization", "Bearer " + token.getToken());
@@ -1419,7 +1145,7 @@ void ObjectUsergroupApi::tokenAvailable(){
             qDebug() << "Could not retrieve a valid token";
         }
         break;
-    case 3: //client credentials flow
+    case OauthMethod::ClientCredentialsFlow:
         token = _credentialFlow.getToken(_latestScope.join(" "));
         if(token.isValid()){
             _latestInput.headers.insert("Authorization", "Bearer " + token.getToken());
@@ -1429,7 +1155,7 @@ void ObjectUsergroupApi::tokenAvailable(){
             qDebug() << "Could not retrieve a valid token";
         }
         break;
-    case 4: //resource owner password flow
+    case OauthMethod::ResourceOwnerPasswordFlow:
         token = _passwordFlow.getToken(_latestScope.join(" "));
         if(token.isValid()){
             _latestInput.headers.insert("Authorization", "Bearer " + token.getToken());

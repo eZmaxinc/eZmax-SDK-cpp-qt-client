@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Communicationattachment_RequestCompound::Communicationattachment_RequestCompound(QString json) {
+Communicationattachment_RequestCompound::Communicationattachment_RequestCompound(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -47,7 +47,7 @@ void Communicationattachment_RequestCompound::initializeModel() {
     m_fki_salarypreparation_id_isValid = false;
 }
 
-void Communicationattachment_RequestCompound::fromJson(QString jsonString) {
+void Communicationattachment_RequestCompound::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

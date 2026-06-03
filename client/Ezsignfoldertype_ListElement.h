@@ -32,13 +32,13 @@ namespace Ezmaxapi {
 class Ezsignfoldertype_ListElement : public Object {
 public:
     Ezsignfoldertype_ListElement();
-    Ezsignfoldertype_ListElement(QString json);
+    Ezsignfoldertype_ListElement(const QString &json);
     ~Ezsignfoldertype_ListElement() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiEzsignfoldertypeId() const;
     void setPkiEzsignfoldertypeId(const qint32 &pki_ezsignfoldertype_id);

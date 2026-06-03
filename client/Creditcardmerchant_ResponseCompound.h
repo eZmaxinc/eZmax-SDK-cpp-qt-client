@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Creditcardmerchant_ResponseCompound : public Object {
 public:
     Creditcardmerchant_ResponseCompound();
-    Creditcardmerchant_ResponseCompound(QString json);
+    Creditcardmerchant_ResponseCompound(const QString &json);
     ~Creditcardmerchant_ResponseCompound() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiCreditcardmerchantId() const;
     void setPkiCreditcardmerchantId(const qint32 &pki_creditcardmerchant_id);

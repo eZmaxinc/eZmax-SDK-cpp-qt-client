@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Province_AutocompleteElement_Response : public Object {
 public:
     Province_AutocompleteElement_Response();
-    Province_AutocompleteElement_Response(QString json);
+    Province_AutocompleteElement_Response(const QString &json);
     ~Province_AutocompleteElement_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiProvinceId() const;
     void setPkiProvinceId(const qint32 &pki_province_id);

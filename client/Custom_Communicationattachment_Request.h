@@ -34,13 +34,13 @@ class Common_File;
 class Custom_Communicationattachment_Request : public Object {
 public:
     Custom_Communicationattachment_Request();
-    Custom_Communicationattachment_Request(QString json);
+    Custom_Communicationattachment_Request(const QString &json);
     ~Custom_Communicationattachment_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Communicationattachment_RequestCompound getObjCommunicationattachment() const;
     void setObjCommunicationattachment(const Communicationattachment_RequestCompound &obj_communicationattachment);

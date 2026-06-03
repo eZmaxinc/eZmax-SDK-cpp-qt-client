@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Common_Response_Error_WrongFranchiseoffice::Common_Response_Error_WrongFranchiseoffice(QString json) {
+Common_Response_Error_WrongFranchiseoffice::Common_Response_Error_WrongFranchiseoffice(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -56,7 +56,7 @@ void Common_Response_Error_WrongFranchiseoffice::initializeModel() {
     m_i_franchiseoffice_code_isValid = false;
 }
 
-void Common_Response_Error_WrongFranchiseoffice::fromJson(QString jsonString) {
+void Common_Response_Error_WrongFranchiseoffice::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

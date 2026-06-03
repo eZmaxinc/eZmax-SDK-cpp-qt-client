@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Supply_RequestCompound::Supply_RequestCompound(QString json) {
+Supply_RequestCompound::Supply_RequestCompound(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -62,7 +62,7 @@ void Supply_RequestCompound::initializeModel() {
     m_b_supply_variableprice_isValid = false;
 }
 
-void Supply_RequestCompound::fromJson(QString jsonString) {
+void Supply_RequestCompound::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

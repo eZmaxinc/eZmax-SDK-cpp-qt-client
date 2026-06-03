@@ -48,6 +48,7 @@ public:
     void initializeServerConfigs();
     int setDefaultServerValue(int serverIndex,const QString &operation, const QString &variable,const QString &val);
     void setServerIndex(const QString &operation, int serverIndex);
+    void setServerIndex(int serverIndex);
     void setApiKey(const QString &apiKeyName, const QString &apiKey);
     void setBearerToken(const QString &token);
     void setUsername(const QString &username);
@@ -101,6 +102,13 @@ public:
 
 
 private:
+    enum class OauthMethod : int {
+        INVALID_VALUE_OPENAPI_GENERATED = 0,
+        ImplicitFlow = 1,
+        AuthorizationFlow = 2,
+        ClientCredentialsFlow = 3,
+        ResourceOwnerPasswordFlow = 4
+    };
     QMap<QString,int> _serverIndices;
     QMap<QString,QList<ServerConfiguration>> _serverConfigs;
     QMap<QString, QString> _apiKeys;
@@ -120,7 +128,7 @@ private:
     OauthImplicit _implicitFlow;
     OauthCredentials _credentialFlow;
     OauthPassword _passwordFlow;
-    int _OauthMethod = 0;
+    OauthMethod _OauthMethod = OauthMethod::INVALID_VALUE_OPENAPI_GENERATED;
 
     void paymentgatewayCreateObjectV1Callback(HttpRequestWorker *worker);
     void paymentgatewayEditObjectV1Callback(HttpRequestWorker *worker);
@@ -143,36 +151,16 @@ Q_SIGNALS:
     void paymentgatewayGetListV1SignalFull(HttpRequestWorker *worker, Paymentgateway_getList_v1_Response summary);
     void paymentgatewayGetObjectV2SignalFull(HttpRequestWorker *worker, Paymentgateway_getObject_v2_Response summary);
 
-    Q_DECL_DEPRECATED_X("Use paymentgatewayCreateObjectV1SignalError() instead")
-    void paymentgatewayCreateObjectV1SignalE(Paymentgateway_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void paymentgatewayCreateObjectV1SignalError(Paymentgateway_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use paymentgatewayEditObjectV1SignalError() instead")
-    void paymentgatewayEditObjectV1SignalE(Paymentgateway_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void paymentgatewayEditObjectV1SignalError(Paymentgateway_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use paymentgatewayGetAutocompleteV2SignalError() instead")
-    void paymentgatewayGetAutocompleteV2SignalE(Paymentgateway_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void paymentgatewayGetAutocompleteV2SignalError(Paymentgateway_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use paymentgatewayGetListV1SignalError() instead")
-    void paymentgatewayGetListV1SignalE(Paymentgateway_getList_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void paymentgatewayGetListV1SignalError(Paymentgateway_getList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use paymentgatewayGetObjectV2SignalError() instead")
-    void paymentgatewayGetObjectV2SignalE(Paymentgateway_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void paymentgatewayGetObjectV2SignalError(Paymentgateway_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
-    Q_DECL_DEPRECATED_X("Use paymentgatewayCreateObjectV1SignalErrorFull() instead")
-    void paymentgatewayCreateObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void paymentgatewayCreateObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use paymentgatewayEditObjectV1SignalErrorFull() instead")
-    void paymentgatewayEditObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void paymentgatewayEditObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use paymentgatewayGetAutocompleteV2SignalErrorFull() instead")
-    void paymentgatewayGetAutocompleteV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void paymentgatewayGetAutocompleteV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use paymentgatewayGetListV1SignalErrorFull() instead")
-    void paymentgatewayGetListV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void paymentgatewayGetListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use paymentgatewayGetObjectV2SignalErrorFull() instead")
-    void paymentgatewayGetObjectV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void paymentgatewayGetObjectV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();

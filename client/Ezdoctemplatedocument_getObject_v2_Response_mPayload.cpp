@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Ezdoctemplatedocument_getObject_v2_Response_mPayload::Ezdoctemplatedocument_getObject_v2_Response_mPayload(QString json) {
+Ezdoctemplatedocument_getObject_v2_Response_mPayload::Ezdoctemplatedocument_getObject_v2_Response_mPayload(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -38,7 +38,7 @@ void Ezdoctemplatedocument_getObject_v2_Response_mPayload::initializeModel() {
     m_obj_ezdoctemplatedocument_isValid = false;
 }
 
-void Ezdoctemplatedocument_getObject_v2_Response_mPayload::fromJson(QString jsonString) {
+void Ezdoctemplatedocument_getObject_v2_Response_mPayload::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

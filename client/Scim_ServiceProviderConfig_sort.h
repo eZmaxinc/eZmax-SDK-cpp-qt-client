@@ -30,13 +30,13 @@ namespace Ezmaxapi {
 class Scim_ServiceProviderConfig_sort : public Object {
 public:
     Scim_ServiceProviderConfig_sort();
-    Scim_ServiceProviderConfig_sort(QString json);
+    Scim_ServiceProviderConfig_sort(const QString &json);
     ~Scim_ServiceProviderConfig_sort() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     bool isSupported() const;
     void setSupported(const bool &supported);

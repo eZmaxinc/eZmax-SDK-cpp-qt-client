@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_eSystemconfigurationLanguage2::Field_eSystemconfigurationLanguage2(QString json) {
+Field_eSystemconfigurationLanguage2::Field_eSystemconfigurationLanguage2(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_eSystemconfigurationLanguage2::initializeModel() {
     m_value = eField_eSystemconfigurationLanguage2::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_eSystemconfigurationLanguage2::fromJson(QString jsonString) {
+void Field_eSystemconfigurationLanguage2::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("en_CA", Qt::CaseInsensitive) == 0) {
         m_value = eField_eSystemconfigurationLanguage2::EN_CA;

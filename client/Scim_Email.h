@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Scim_Email : public Object {
 public:
     Scim_Email();
-    Scim_Email(QString json);
+    Scim_Email(const QString &json);
     ~Scim_Email() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getValue() const;
     void setValue(const QString &value);

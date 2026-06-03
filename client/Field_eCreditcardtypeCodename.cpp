@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_eCreditcardtypeCodename::Field_eCreditcardtypeCodename(QString json) {
+Field_eCreditcardtypeCodename::Field_eCreditcardtypeCodename(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_eCreditcardtypeCodename::initializeModel() {
     m_value = eField_eCreditcardtypeCodename::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_eCreditcardtypeCodename::fromJson(QString jsonString) {
+void Field_eCreditcardtypeCodename::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("Amex", Qt::CaseInsensitive) == 0) {
         m_value = eField_eCreditcardtypeCodename::AMEX;

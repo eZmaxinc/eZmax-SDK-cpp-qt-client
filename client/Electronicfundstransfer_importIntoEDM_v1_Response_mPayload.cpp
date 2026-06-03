@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Electronicfundstransfer_importIntoEDM_v1_Response_mPayload::Electronicfundstransfer_importIntoEDM_v1_Response_mPayload(QString json) {
+Electronicfundstransfer_importIntoEDM_v1_Response_mPayload::Electronicfundstransfer_importIntoEDM_v1_Response_mPayload(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -38,7 +38,7 @@ void Electronicfundstransfer_importIntoEDM_v1_Response_mPayload::initializeModel
     m_a_obj_attachment_isValid = false;
 }
 
-void Electronicfundstransfer_importIntoEDM_v1_Response_mPayload::fromJson(QString jsonString) {
+void Electronicfundstransfer_importIntoEDM_v1_Response_mPayload::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

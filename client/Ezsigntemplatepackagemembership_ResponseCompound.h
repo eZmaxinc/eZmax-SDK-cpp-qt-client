@@ -35,13 +35,13 @@ class Ezsigntemplatepackagesignermembership_ResponseCompound;
 class Ezsigntemplatepackagemembership_ResponseCompound : public Object {
 public:
     Ezsigntemplatepackagemembership_ResponseCompound();
-    Ezsigntemplatepackagemembership_ResponseCompound(QString json);
+    Ezsigntemplatepackagemembership_ResponseCompound(const QString &json);
     ~Ezsigntemplatepackagemembership_ResponseCompound() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiEzsigntemplatepackagemembershipId() const;
     void setPkiEzsigntemplatepackagemembershipId(const qint32 &pki_ezsigntemplatepackagemembership_id);

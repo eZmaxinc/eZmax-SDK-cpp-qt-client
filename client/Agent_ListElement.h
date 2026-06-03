@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Agent_ListElement : public Object {
 public:
     Agent_ListElement();
-    Agent_ListElement(QString json);
+    Agent_ListElement(const QString &json);
     ~Agent_ListElement() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiAgentId() const;
     void setPkiAgentId(const qint32 &pki_agent_id);
@@ -124,6 +124,31 @@ public:
     bool is_dt_agent_leavedate_Set() const;
     bool is_dt_agent_leavedate_Valid() const;
 
+    QString getDtAgentContractdate() const;
+    void setDtAgentContractdate(const QString &dt_agent_contractdate);
+    bool is_dt_agent_contractdate_Set() const;
+    bool is_dt_agent_contractdate_Valid() const;
+
+    QString getDtAgentTransferdate() const;
+    void setDtAgentTransferdate(const QString &dt_agent_transferdate);
+    bool is_dt_agent_transferdate_Set() const;
+    bool is_dt_agent_transferdate_Valid() const;
+
+    QString getDtAgentSenioritydate() const;
+    void setDtAgentSenioritydate(const QString &dt_agent_senioritydate);
+    bool is_dt_agent_senioritydate_Set() const;
+    bool is_dt_agent_senioritydate_Valid() const;
+
+    QString getDtAgentSickleavestart() const;
+    void setDtAgentSickleavestart(const QString &dt_agent_sickleavestart);
+    bool is_dt_agent_sickleavestart_Set() const;
+    bool is_dt_agent_sickleavestart_Valid() const;
+
+    QString getDtAgentSickleaveend() const;
+    void setDtAgentSickleaveend(const QString &dt_agent_sickleaveend);
+    bool is_dt_agent_sickleaveend_Set() const;
+    bool is_dt_agent_sickleaveend_Valid() const;
+
     bool isBAgentTranquillit() const;
     void setBAgentTranquillit(const bool &b_agent_tranquillit);
     bool is_b_agent_tranquillit_Set() const;
@@ -209,10 +234,20 @@ public:
     bool is_s_address_zip_Set() const;
     bool is_s_address_zip_Valid() const;
 
+    qint32 getFkiProvinceId() const;
+    void setFkiProvinceId(const qint32 &fki_province_id);
+    bool is_fki_province_id_Set() const;
+    bool is_fki_province_id_Valid() const;
+
     QString getSProvinceNameX() const;
     void setSProvinceNameX(const QString &s_province_name_x);
     bool is_s_province_name_x_Set() const;
     bool is_s_province_name_x_Valid() const;
+
+    qint32 getFkiCountryId() const;
+    void setFkiCountryId(const qint32 &fki_country_id);
+    bool is_fki_country_id_Set() const;
+    bool is_fki_country_id_Valid() const;
 
     QString getSCountryNameX() const;
     void setSCountryNameX(const QString &s_country_name_x);
@@ -293,6 +328,26 @@ private:
     bool m_dt_agent_leavedate_isSet;
     bool m_dt_agent_leavedate_isValid;
 
+    QString m_dt_agent_contractdate;
+    bool m_dt_agent_contractdate_isSet;
+    bool m_dt_agent_contractdate_isValid;
+
+    QString m_dt_agent_transferdate;
+    bool m_dt_agent_transferdate_isSet;
+    bool m_dt_agent_transferdate_isValid;
+
+    QString m_dt_agent_senioritydate;
+    bool m_dt_agent_senioritydate_isSet;
+    bool m_dt_agent_senioritydate_isValid;
+
+    QString m_dt_agent_sickleavestart;
+    bool m_dt_agent_sickleavestart_isSet;
+    bool m_dt_agent_sickleavestart_isValid;
+
+    QString m_dt_agent_sickleaveend;
+    bool m_dt_agent_sickleaveend_isSet;
+    bool m_dt_agent_sickleaveend_isValid;
+
     bool m_b_agent_tranquillit;
     bool m_b_agent_tranquillit_isSet;
     bool m_b_agent_tranquillit_isValid;
@@ -361,9 +416,17 @@ private:
     bool m_s_address_zip_isSet;
     bool m_s_address_zip_isValid;
 
+    qint32 m_fki_province_id;
+    bool m_fki_province_id_isSet;
+    bool m_fki_province_id_isValid;
+
     QString m_s_province_name_x;
     bool m_s_province_name_x_isSet;
     bool m_s_province_name_x_isValid;
+
+    qint32 m_fki_country_id;
+    bool m_fki_country_id_isSet;
+    bool m_fki_country_id_isValid;
 
     QString m_s_country_name_x;
     bool m_s_country_name_x_isSet;

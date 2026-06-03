@@ -34,13 +34,13 @@ class Common_Audit;
 class Ezsignuser_Response : public Object {
 public:
     Ezsignuser_Response();
-    Ezsignuser_Response(QString json);
+    Ezsignuser_Response(const QString &json);
     ~Ezsignuser_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiEzsignuserId() const;
     void setPkiEzsignuserId(const qint32 &pki_ezsignuser_id);

@@ -34,13 +34,13 @@ class Multilingual_VariableexpenseDescription;
 class Variableexpense_ResponseCompound : public Object {
 public:
     Variableexpense_ResponseCompound();
-    Variableexpense_ResponseCompound(QString json);
+    Variableexpense_ResponseCompound(const QString &json);
     ~Variableexpense_ResponseCompound() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiVariableexpenseId() const;
     void setPkiVariableexpenseId(const qint32 &pki_variableexpense_id);

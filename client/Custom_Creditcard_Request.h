@@ -33,13 +33,13 @@ class Creditcarddetail_Request;
 class Custom_Creditcard_Request : public Object {
 public:
     Custom_Creditcard_Request();
-    Custom_Creditcard_Request(QString json);
+    Custom_Creditcard_Request(const QString &json);
     ~Custom_Creditcard_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getFksCreditcardtokenId() const;
     void setFksCreditcardtokenId(const QString &fks_creditcardtoken_id);

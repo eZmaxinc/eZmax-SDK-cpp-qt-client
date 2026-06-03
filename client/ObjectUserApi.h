@@ -36,12 +36,15 @@
 #include "User_getAutocomplete_v2_Response.h"
 #include "User_getColleagues_v2_Response.h"
 #include "User_getEffectivePermissions_v1_Response.h"
+#include "User_getEzmaxcustomeruser_v1_Response.h"
 #include "User_getList_v1_Response.h"
 #include "User_getObject_v2_Response.h"
 #include "User_getPermissions_v1_Response.h"
 #include "User_getSubnets_v1_Response.h"
 #include "User_getUsergroupexternals_v1_Response.h"
 #include "User_getUsergroups_v1_Response.h"
+#include "User_impersonate_v1_Request.h"
+#include "User_impersonate_v1_Response.h"
 #include "User_sendPasswordReset_v1_Response.h"
 #include <QString>
 
@@ -63,6 +66,7 @@ public:
     void initializeServerConfigs();
     int setDefaultServerValue(int serverIndex,const QString &operation, const QString &variable,const QString &val);
     void setServerIndex(const QString &operation, int serverIndex);
+    void setServerIndex(int serverIndex);
     void setApiKey(const QString &apiKeyName, const QString &apiKey);
     void setBearerToken(const QString &token);
     void setUsername(const QString &username);
@@ -133,6 +137,11 @@ public:
     virtual void userGetEffectivePermissionsV1(const qint32 &pki_user_id);
 
     /**
+    * @param[in]  pki_user_id qint32 [required]
+    */
+    virtual void userGetEzmaxcustomeruserV1(const qint32 &pki_user_id);
+
+    /**
     * @param[in]  e_order_by QString [optional]
     * @param[in]  i_row_max qint32 [optional]
     * @param[in]  i_row_offset qint32 [optional]
@@ -168,12 +177,25 @@ public:
 
     /**
     * @param[in]  pki_user_id qint32 [required]
+    * @param[in]  user_impersonate_v1_request User_impersonate_v1_Request [required]
+    */
+    virtual void userImpersonateV1(const qint32 &pki_user_id, const User_impersonate_v1_Request &user_impersonate_v1_request);
+
+    /**
+    * @param[in]  pki_user_id qint32 [required]
     * @param[in]  body Object [required]
     */
     virtual void userSendPasswordResetV1(const qint32 &pki_user_id, const Object &body);
 
 
 private:
+    enum class OauthMethod : int {
+        INVALID_VALUE_OPENAPI_GENERATED = 0,
+        ImplicitFlow = 1,
+        AuthorizationFlow = 2,
+        ClientCredentialsFlow = 3,
+        ResourceOwnerPasswordFlow = 4
+    };
     QMap<QString,int> _serverIndices;
     QMap<QString,QList<ServerConfiguration>> _serverConfigs;
     QMap<QString, QString> _apiKeys;
@@ -193,7 +215,7 @@ private:
     OauthImplicit _implicitFlow;
     OauthCredentials _credentialFlow;
     OauthPassword _passwordFlow;
-    int _OauthMethod = 0;
+    OauthMethod _OauthMethod = OauthMethod::INVALID_VALUE_OPENAPI_GENERATED;
 
     void userCreateObjectV1Callback(HttpRequestWorker *worker);
     void userCreateObjectV2Callback(HttpRequestWorker *worker);
@@ -204,12 +226,14 @@ private:
     void userGetAutocompleteV2Callback(HttpRequestWorker *worker);
     void userGetColleaguesV2Callback(HttpRequestWorker *worker);
     void userGetEffectivePermissionsV1Callback(HttpRequestWorker *worker);
+    void userGetEzmaxcustomeruserV1Callback(HttpRequestWorker *worker);
     void userGetListV1Callback(HttpRequestWorker *worker);
     void userGetObjectV2Callback(HttpRequestWorker *worker);
     void userGetPermissionsV1Callback(HttpRequestWorker *worker);
     void userGetSubnetsV1Callback(HttpRequestWorker *worker);
     void userGetUsergroupexternalsV1Callback(HttpRequestWorker *worker);
     void userGetUsergroupsV1Callback(HttpRequestWorker *worker);
+    void userImpersonateV1Callback(HttpRequestWorker *worker);
     void userSendPasswordResetV1Callback(HttpRequestWorker *worker);
 
 Q_SIGNALS:
@@ -223,12 +247,14 @@ Q_SIGNALS:
     void userGetAutocompleteV2Signal(User_getAutocomplete_v2_Response summary);
     void userGetColleaguesV2Signal(User_getColleagues_v2_Response summary);
     void userGetEffectivePermissionsV1Signal(User_getEffectivePermissions_v1_Response summary);
+    void userGetEzmaxcustomeruserV1Signal(User_getEzmaxcustomeruser_v1_Response summary);
     void userGetListV1Signal(User_getList_v1_Response summary);
     void userGetObjectV2Signal(User_getObject_v2_Response summary);
     void userGetPermissionsV1Signal(User_getPermissions_v1_Response summary);
     void userGetSubnetsV1Signal(User_getSubnets_v1_Response summary);
     void userGetUsergroupexternalsV1Signal(User_getUsergroupexternals_v1_Response summary);
     void userGetUsergroupsV1Signal(User_getUsergroups_v1_Response summary);
+    void userImpersonateV1Signal(User_impersonate_v1_Response summary);
     void userSendPasswordResetV1Signal(User_sendPasswordReset_v1_Response summary);
 
 
@@ -241,110 +267,52 @@ Q_SIGNALS:
     void userGetAutocompleteV2SignalFull(HttpRequestWorker *worker, User_getAutocomplete_v2_Response summary);
     void userGetColleaguesV2SignalFull(HttpRequestWorker *worker, User_getColleagues_v2_Response summary);
     void userGetEffectivePermissionsV1SignalFull(HttpRequestWorker *worker, User_getEffectivePermissions_v1_Response summary);
+    void userGetEzmaxcustomeruserV1SignalFull(HttpRequestWorker *worker, User_getEzmaxcustomeruser_v1_Response summary);
     void userGetListV1SignalFull(HttpRequestWorker *worker, User_getList_v1_Response summary);
     void userGetObjectV2SignalFull(HttpRequestWorker *worker, User_getObject_v2_Response summary);
     void userGetPermissionsV1SignalFull(HttpRequestWorker *worker, User_getPermissions_v1_Response summary);
     void userGetSubnetsV1SignalFull(HttpRequestWorker *worker, User_getSubnets_v1_Response summary);
     void userGetUsergroupexternalsV1SignalFull(HttpRequestWorker *worker, User_getUsergroupexternals_v1_Response summary);
     void userGetUsergroupsV1SignalFull(HttpRequestWorker *worker, User_getUsergroups_v1_Response summary);
+    void userImpersonateV1SignalFull(HttpRequestWorker *worker, User_impersonate_v1_Response summary);
     void userSendPasswordResetV1SignalFull(HttpRequestWorker *worker, User_sendPasswordReset_v1_Response summary);
 
-    Q_DECL_DEPRECATED_X("Use userCreateObjectV1SignalError() instead")
-    void userCreateObjectV1SignalE(User_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void userCreateObjectV1SignalError(User_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use userCreateObjectV2SignalError() instead")
-    void userCreateObjectV2SignalE(User_createObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void userCreateObjectV2SignalError(User_createObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use userEditColleaguesV2SignalError() instead")
-    void userEditColleaguesV2SignalE(User_editColleagues_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void userEditColleaguesV2SignalError(User_editColleagues_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use userEditObjectV1SignalError() instead")
-    void userEditObjectV1SignalE(User_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void userEditObjectV1SignalError(User_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use userEditPermissionsV1SignalError() instead")
-    void userEditPermissionsV1SignalE(User_editPermissions_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void userEditPermissionsV1SignalError(User_editPermissions_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use userGetApikeysV1SignalError() instead")
-    void userGetApikeysV1SignalE(User_getApikeys_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void userGetApikeysV1SignalError(User_getApikeys_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use userGetAutocompleteV2SignalError() instead")
-    void userGetAutocompleteV2SignalE(User_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void userGetAutocompleteV2SignalError(User_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use userGetColleaguesV2SignalError() instead")
-    void userGetColleaguesV2SignalE(User_getColleagues_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void userGetColleaguesV2SignalError(User_getColleagues_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use userGetEffectivePermissionsV1SignalError() instead")
-    void userGetEffectivePermissionsV1SignalE(User_getEffectivePermissions_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void userGetEffectivePermissionsV1SignalError(User_getEffectivePermissions_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use userGetListV1SignalError() instead")
-    void userGetListV1SignalE(User_getList_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void userGetEzmaxcustomeruserV1SignalError(User_getEzmaxcustomeruser_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void userGetListV1SignalError(User_getList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use userGetObjectV2SignalError() instead")
-    void userGetObjectV2SignalE(User_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void userGetObjectV2SignalError(User_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use userGetPermissionsV1SignalError() instead")
-    void userGetPermissionsV1SignalE(User_getPermissions_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void userGetPermissionsV1SignalError(User_getPermissions_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use userGetSubnetsV1SignalError() instead")
-    void userGetSubnetsV1SignalE(User_getSubnets_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void userGetSubnetsV1SignalError(User_getSubnets_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use userGetUsergroupexternalsV1SignalError() instead")
-    void userGetUsergroupexternalsV1SignalE(User_getUsergroupexternals_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void userGetUsergroupexternalsV1SignalError(User_getUsergroupexternals_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use userGetUsergroupsV1SignalError() instead")
-    void userGetUsergroupsV1SignalE(User_getUsergroups_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void userGetUsergroupsV1SignalError(User_getUsergroups_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use userSendPasswordResetV1SignalError() instead")
-    void userSendPasswordResetV1SignalE(User_sendPasswordReset_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void userImpersonateV1SignalError(User_impersonate_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void userSendPasswordResetV1SignalError(User_sendPasswordReset_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
-    Q_DECL_DEPRECATED_X("Use userCreateObjectV1SignalErrorFull() instead")
-    void userCreateObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void userCreateObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use userCreateObjectV2SignalErrorFull() instead")
-    void userCreateObjectV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void userCreateObjectV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use userEditColleaguesV2SignalErrorFull() instead")
-    void userEditColleaguesV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void userEditColleaguesV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use userEditObjectV1SignalErrorFull() instead")
-    void userEditObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void userEditObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use userEditPermissionsV1SignalErrorFull() instead")
-    void userEditPermissionsV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void userEditPermissionsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use userGetApikeysV1SignalErrorFull() instead")
-    void userGetApikeysV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void userGetApikeysV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use userGetAutocompleteV2SignalErrorFull() instead")
-    void userGetAutocompleteV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void userGetAutocompleteV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use userGetColleaguesV2SignalErrorFull() instead")
-    void userGetColleaguesV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void userGetColleaguesV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use userGetEffectivePermissionsV1SignalErrorFull() instead")
-    void userGetEffectivePermissionsV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void userGetEffectivePermissionsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use userGetListV1SignalErrorFull() instead")
-    void userGetListV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void userGetEzmaxcustomeruserV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void userGetListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use userGetObjectV2SignalErrorFull() instead")
-    void userGetObjectV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void userGetObjectV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use userGetPermissionsV1SignalErrorFull() instead")
-    void userGetPermissionsV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void userGetPermissionsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use userGetSubnetsV1SignalErrorFull() instead")
-    void userGetSubnetsV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void userGetSubnetsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use userGetUsergroupexternalsV1SignalErrorFull() instead")
-    void userGetUsergroupexternalsV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void userGetUsergroupexternalsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use userGetUsergroupsV1SignalErrorFull() instead")
-    void userGetUsergroupsV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void userGetUsergroupsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use userSendPasswordResetV1SignalErrorFull() instead")
-    void userSendPasswordResetV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void userImpersonateV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void userSendPasswordResetV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();

@@ -32,13 +32,13 @@ class Signature_RequestCompound;
 class Signature_editObject_v1_Request : public Object {
 public:
     Signature_editObject_v1_Request();
-    Signature_editObject_v1_Request(QString json);
+    Signature_editObject_v1_Request(const QString &json);
     ~Signature_editObject_v1_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Signature_RequestCompound getObjSignature() const;
     void setObjSignature(const Signature_RequestCompound &obj_signature);

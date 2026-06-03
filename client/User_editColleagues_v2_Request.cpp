@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-User_editColleagues_v2_Request::User_editColleagues_v2_Request(QString json) {
+User_editColleagues_v2_Request::User_editColleagues_v2_Request(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -38,7 +38,7 @@ void User_editColleagues_v2_Request::initializeModel() {
     m_a_obj_colleague_isValid = false;
 }
 
-void User_editColleagues_v2_Request::fromJson(QString jsonString) {
+void User_editColleagues_v2_Request::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

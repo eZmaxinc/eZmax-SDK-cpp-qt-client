@@ -37,13 +37,13 @@ class User_ResponseCompound;
 class Webhook_User_UserCreated : public Object {
 public:
     Webhook_User_UserCreated();
-    Webhook_User_UserCreated(QString json);
+    Webhook_User_UserCreated(const QString &json);
     ~Webhook_User_UserCreated() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Custom_Webhook_Response getObjWebhook() const;
     void setObjWebhook(const Custom_Webhook_Response &obj_webhook);

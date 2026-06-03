@@ -42,13 +42,13 @@ class Custom_TimezoneWithCode_Response;
 class Ezsignfolder_ResponseCompoundV3 : public Object {
 public:
     Ezsignfolder_ResponseCompoundV3();
-    Ezsignfolder_ResponseCompoundV3(QString json);
+    Ezsignfolder_ResponseCompoundV3(const QString &json);
     ~Ezsignfolder_ResponseCompoundV3() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiEzsignfolderId() const;
     void setPkiEzsignfolderId(const qint32 &pki_ezsignfolder_id);
@@ -159,6 +159,11 @@ public:
     void setEEzsignfolderStep(const Field_eEzsignfolderStep &e_ezsignfolder_step);
     bool is_e_ezsignfolder_step_Set() const;
     bool is_e_ezsignfolder_step_Valid() const;
+
+    qint32 getIEzsignfolderStepcurrent() const;
+    void setIEzsignfolderStepcurrent(const qint32 &i_ezsignfolder_stepcurrent);
+    bool is_i_ezsignfolder_stepcurrent_Set() const;
+    bool is_i_ezsignfolder_stepcurrent_Valid() const;
 
     QString getDtEzsignfolderClose() const;
     void setDtEzsignfolderClose(const QString &dt_ezsignfolder_close);
@@ -298,6 +303,10 @@ private:
     Field_eEzsignfolderStep m_e_ezsignfolder_step;
     bool m_e_ezsignfolder_step_isSet;
     bool m_e_ezsignfolder_step_isValid;
+
+    qint32 m_i_ezsignfolder_stepcurrent;
+    bool m_i_ezsignfolder_stepcurrent_isSet;
+    bool m_i_ezsignfolder_stepcurrent_isValid;
 
     QString m_dt_ezsignfolder_close;
     bool m_dt_ezsignfolder_close_isSet;

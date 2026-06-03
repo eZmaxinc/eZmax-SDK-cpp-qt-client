@@ -32,13 +32,13 @@ namespace Ezmaxapi {
 class Ezdoctemplatedocument_RequestPatch : public Object {
 public:
     Ezdoctemplatedocument_RequestPatch();
-    Ezdoctemplatedocument_RequestPatch(QString json);
+    Ezdoctemplatedocument_RequestPatch(const QString &json);
     ~Ezdoctemplatedocument_RequestPatch() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getEEzdoctemplatedocumentFormat() const;
     void setEEzdoctemplatedocumentFormat(const QString &e_ezdoctemplatedocument_format);

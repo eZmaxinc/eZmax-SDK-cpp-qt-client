@@ -33,13 +33,13 @@ class Custom_Discussionconfiguration_Response;
 class Discussion_Response : public Object {
 public:
     Discussion_Response();
-    Discussion_Response(QString json);
+    Discussion_Response(const QString &json);
     ~Discussion_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiDiscussionId() const;
     void setPkiDiscussionId(const qint32 &pki_discussion_id);

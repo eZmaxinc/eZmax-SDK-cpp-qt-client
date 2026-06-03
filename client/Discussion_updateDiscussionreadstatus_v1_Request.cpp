@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Discussion_updateDiscussionreadstatus_v1_Request::Discussion_updateDiscussionreadstatus_v1_Request(QString json) {
+Discussion_updateDiscussionreadstatus_v1_Request::Discussion_updateDiscussionreadstatus_v1_Request(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -38,7 +38,7 @@ void Discussion_updateDiscussionreadstatus_v1_Request::initializeModel() {
     m_dt_discussionreadstatus_date_isValid = false;
 }
 
-void Discussion_updateDiscussionreadstatus_v1_Request::fromJson(QString jsonString) {
+void Discussion_updateDiscussionreadstatus_v1_Request::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

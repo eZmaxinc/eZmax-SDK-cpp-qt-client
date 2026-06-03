@@ -44,13 +44,13 @@ class Signature_ResponseCompound;
 class Ezsignsignature_Response : public Object {
 public:
     Ezsignsignature_Response();
-    Ezsignsignature_Response(QString json);
+    Ezsignsignature_Response(const QString &json);
     ~Ezsignsignature_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiEzsignsignatureId() const;
     void setPkiEzsignsignatureId(const qint32 &pki_ezsignsignature_id);

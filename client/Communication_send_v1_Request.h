@@ -33,13 +33,13 @@ class Communication_RequestCompound;
 class Communication_send_v1_Request : public Object {
 public:
     Communication_send_v1_Request();
-    Communication_send_v1_Request(QString json);
+    Communication_send_v1_Request(const QString &json);
     ~Communication_send_v1_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Communication_RequestCompound> getAObjCommunication() const;
     void setAObjCommunication(const QList<Communication_RequestCompound> &a_obj_communication);

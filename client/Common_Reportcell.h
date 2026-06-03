@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Common_Reportcell : public Object {
 public:
     Common_Reportcell();
-    Common_Reportcell(QString json);
+    Common_Reportcell(const QString &json);
     ~Common_Reportcell() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getIReportcellColumnspan() const;
     void setIReportcellColumnspan(const qint32 &i_reportcell_columnspan);

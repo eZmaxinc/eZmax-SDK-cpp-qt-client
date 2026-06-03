@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_eCustomerType::Field_eCustomerType(QString json) {
+Field_eCustomerType::Field_eCustomerType(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_eCustomerType::initializeModel() {
     m_value = eField_eCustomerType::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_eCustomerType::fromJson(QString jsonString) {
+void Field_eCustomerType::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("Normal", Qt::CaseInsensitive) == 0) {
         m_value = eField_eCustomerType::NORMAL;

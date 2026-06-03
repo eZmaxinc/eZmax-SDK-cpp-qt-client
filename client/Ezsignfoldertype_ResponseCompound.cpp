@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Ezsignfoldertype_ResponseCompound::Ezsignfoldertype_ResponseCompound(QString json) {
+Ezsignfoldertype_ResponseCompound::Ezsignfoldertype_ResponseCompound(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -188,7 +188,7 @@ void Ezsignfoldertype_ResponseCompound::initializeModel() {
     m_a_fki_user_id_summary_isValid = false;
 }
 
-void Ezsignfoldertype_ResponseCompound::fromJson(QString jsonString) {
+void Ezsignfoldertype_ResponseCompound::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Scim_ServiceProviderConfig_patch::Scim_ServiceProviderConfig_patch(QString json) {
+Scim_ServiceProviderConfig_patch::Scim_ServiceProviderConfig_patch(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -38,7 +38,7 @@ void Scim_ServiceProviderConfig_patch::initializeModel() {
     m_supported_isValid = false;
 }
 
-void Scim_ServiceProviderConfig_patch::fromJson(QString jsonString) {
+void Scim_ServiceProviderConfig_patch::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

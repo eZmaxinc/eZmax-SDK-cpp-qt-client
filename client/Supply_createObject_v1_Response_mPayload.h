@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Supply_createObject_v1_Response_mPayload : public Object {
 public:
     Supply_createObject_v1_Response_mPayload();
-    Supply_createObject_v1_Response_mPayload(QString json);
+    Supply_createObject_v1_Response_mPayload(const QString &json);
     ~Supply_createObject_v1_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<qint32> getAPkiSupplyId() const;
     void setAPkiSupplyId(const QList<qint32> &a_pki_supply_id);

@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Textstylestatic_Response : public Object {
 public:
     Textstylestatic_Response();
-    Textstylestatic_Response(QString json);
+    Textstylestatic_Response(const QString &json);
     ~Textstylestatic_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiTextstylestaticId() const;
     void setPkiTextstylestaticId(const qint32 &pki_textstylestatic_id);

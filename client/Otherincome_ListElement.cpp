@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Otherincome_ListElement::Otherincome_ListElement(QString json) {
+Otherincome_ListElement::Otherincome_ListElement(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -65,7 +65,7 @@ void Otherincome_ListElement::initializeModel() {
     m_b_otherincome_isactive_isValid = false;
 }
 
-void Otherincome_ListElement::fromJson(QString jsonString) {
+void Otherincome_ListElement::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

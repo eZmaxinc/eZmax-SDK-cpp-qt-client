@@ -32,13 +32,13 @@ class Multilingual_EzmaxcustomerNote;
 class Ezmaxcustomer_RequestPatch : public Object {
 public:
     Ezmaxcustomer_RequestPatch();
-    Ezmaxcustomer_RequestPatch(QString json);
+    Ezmaxcustomer_RequestPatch(const QString &json);
     ~Ezmaxcustomer_RequestPatch() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Multilingual_EzmaxcustomerNote getObjEzmaxcustomerNote() const;
     void setObjEzmaxcustomerNote(const Multilingual_EzmaxcustomerNote &obj_ezmaxcustomer_note);

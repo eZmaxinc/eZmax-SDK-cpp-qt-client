@@ -32,13 +32,13 @@ class Usergroupmembership_ResponseCompound;
 class Usergroupmembership_getObject_v2_Response_mPayload : public Object {
 public:
     Usergroupmembership_getObject_v2_Response_mPayload();
-    Usergroupmembership_getObject_v2_Response_mPayload(QString json);
+    Usergroupmembership_getObject_v2_Response_mPayload(const QString &json);
     ~Usergroupmembership_getObject_v2_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Usergroupmembership_ResponseCompound getObjUsergroupmembership() const;
     void setObjUsergroupmembership(const Usergroupmembership_ResponseCompound &obj_usergroupmembership);

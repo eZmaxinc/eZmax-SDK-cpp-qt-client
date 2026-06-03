@@ -35,13 +35,13 @@ class Email_Request;
 class Usergroup_ResponseCompound : public Object {
 public:
     Usergroup_ResponseCompound();
-    Usergroup_ResponseCompound(QString json);
+    Usergroup_ResponseCompound(const QString &json);
     ~Usergroup_ResponseCompound() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiUsergroupId() const;
     void setPkiUsergroupId(const qint32 &pki_usergroup_id);

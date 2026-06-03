@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Activesession_getList_v1_Response_mPayload::Activesession_getList_v1_Response_mPayload(QString json) {
+Activesession_getList_v1_Response_mPayload::Activesession_getList_v1_Response_mPayload(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -44,7 +44,7 @@ void Activesession_getList_v1_Response_mPayload::initializeModel() {
     m_a_obj_activesession_isValid = false;
 }
 
-void Activesession_getList_v1_Response_mPayload::fromJson(QString jsonString) {
+void Activesession_getList_v1_Response_mPayload::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

@@ -37,13 +37,13 @@ class Common_Audit;
 class Attachment_ResponseCompound : public Object {
 public:
     Attachment_ResponseCompound();
-    Attachment_ResponseCompound(QString json);
+    Attachment_ResponseCompound(const QString &json);
     ~Attachment_ResponseCompound() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiAttachmentId() const;
     void setPkiAttachmentId(const qint32 &pki_attachment_id);

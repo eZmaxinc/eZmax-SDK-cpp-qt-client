@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Ezmaxinvoicing_AutocompleteElement_Response::Ezmaxinvoicing_AutocompleteElement_Response(QString json) {
+Ezmaxinvoicing_AutocompleteElement_Response::Ezmaxinvoicing_AutocompleteElement_Response(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -44,7 +44,7 @@ void Ezmaxinvoicing_AutocompleteElement_Response::initializeModel() {
     m_b_ezmaxinvoicing_isactive_isValid = false;
 }
 
-void Ezmaxinvoicing_AutocompleteElement_Response::fromJson(QString jsonString) {
+void Ezmaxinvoicing_AutocompleteElement_Response::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

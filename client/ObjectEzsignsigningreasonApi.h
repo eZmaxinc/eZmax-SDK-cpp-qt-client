@@ -48,6 +48,7 @@ public:
     void initializeServerConfigs();
     int setDefaultServerValue(int serverIndex,const QString &operation, const QString &variable,const QString &val);
     void setServerIndex(const QString &operation, int serverIndex);
+    void setServerIndex(int serverIndex);
     void setApiKey(const QString &apiKeyName, const QString &apiKey);
     void setBearerToken(const QString &token);
     void setUsername(const QString &username);
@@ -101,6 +102,13 @@ public:
 
 
 private:
+    enum class OauthMethod : int {
+        INVALID_VALUE_OPENAPI_GENERATED = 0,
+        ImplicitFlow = 1,
+        AuthorizationFlow = 2,
+        ClientCredentialsFlow = 3,
+        ResourceOwnerPasswordFlow = 4
+    };
     QMap<QString,int> _serverIndices;
     QMap<QString,QList<ServerConfiguration>> _serverConfigs;
     QMap<QString, QString> _apiKeys;
@@ -120,7 +128,7 @@ private:
     OauthImplicit _implicitFlow;
     OauthCredentials _credentialFlow;
     OauthPassword _passwordFlow;
-    int _OauthMethod = 0;
+    OauthMethod _OauthMethod = OauthMethod::INVALID_VALUE_OPENAPI_GENERATED;
 
     void ezsignsigningreasonCreateObjectV1Callback(HttpRequestWorker *worker);
     void ezsignsigningreasonEditObjectV1Callback(HttpRequestWorker *worker);
@@ -143,36 +151,16 @@ Q_SIGNALS:
     void ezsignsigningreasonGetListV1SignalFull(HttpRequestWorker *worker, Ezsignsigningreason_getList_v1_Response summary);
     void ezsignsigningreasonGetObjectV2SignalFull(HttpRequestWorker *worker, Ezsignsigningreason_getObject_v2_Response summary);
 
-    Q_DECL_DEPRECATED_X("Use ezsignsigningreasonCreateObjectV1SignalError() instead")
-    void ezsignsigningreasonCreateObjectV1SignalE(Ezsignsigningreason_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignsigningreasonCreateObjectV1SignalError(Ezsignsigningreason_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezsignsigningreasonEditObjectV1SignalError() instead")
-    void ezsignsigningreasonEditObjectV1SignalE(Ezsignsigningreason_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignsigningreasonEditObjectV1SignalError(Ezsignsigningreason_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezsignsigningreasonGetAutocompleteV2SignalError() instead")
-    void ezsignsigningreasonGetAutocompleteV2SignalE(Ezsignsigningreason_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignsigningreasonGetAutocompleteV2SignalError(Ezsignsigningreason_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezsignsigningreasonGetListV1SignalError() instead")
-    void ezsignsigningreasonGetListV1SignalE(Ezsignsigningreason_getList_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignsigningreasonGetListV1SignalError(Ezsignsigningreason_getList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezsignsigningreasonGetObjectV2SignalError() instead")
-    void ezsignsigningreasonGetObjectV2SignalE(Ezsignsigningreason_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignsigningreasonGetObjectV2SignalError(Ezsignsigningreason_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
-    Q_DECL_DEPRECATED_X("Use ezsignsigningreasonCreateObjectV1SignalErrorFull() instead")
-    void ezsignsigningreasonCreateObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignsigningreasonCreateObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezsignsigningreasonEditObjectV1SignalErrorFull() instead")
-    void ezsignsigningreasonEditObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignsigningreasonEditObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezsignsigningreasonGetAutocompleteV2SignalErrorFull() instead")
-    void ezsignsigningreasonGetAutocompleteV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignsigningreasonGetAutocompleteV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezsignsigningreasonGetListV1SignalErrorFull() instead")
-    void ezsignsigningreasonGetListV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignsigningreasonGetListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezsignsigningreasonGetObjectV2SignalErrorFull() instead")
-    void ezsignsigningreasonGetObjectV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsignsigningreasonGetObjectV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();

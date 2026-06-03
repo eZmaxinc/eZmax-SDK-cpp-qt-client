@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Pdfalevel_AutocompleteElement_Response : public Object {
 public:
     Pdfalevel_AutocompleteElement_Response();
-    Pdfalevel_AutocompleteElement_Response(QString json);
+    Pdfalevel_AutocompleteElement_Response(const QString &json);
     ~Pdfalevel_AutocompleteElement_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiPdfalevelId() const;
     void setPkiPdfalevelId(const qint32 &pki_pdfalevel_id);

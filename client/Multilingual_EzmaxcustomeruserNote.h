@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Multilingual_EzmaxcustomeruserNote : public Object {
 public:
     Multilingual_EzmaxcustomeruserNote();
-    Multilingual_EzmaxcustomeruserNote(QString json);
+    Multilingual_EzmaxcustomeruserNote(const QString &json);
     ~Multilingual_EzmaxcustomeruserNote() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getTEzmaxcustomeruserNote1() const;
     void setTEzmaxcustomeruserNote1(const QString &t_ezmaxcustomeruser_note1);

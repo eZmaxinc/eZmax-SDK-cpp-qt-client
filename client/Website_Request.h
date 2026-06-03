@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Website_Request : public Object {
 public:
     Website_Request();
-    Website_Request(QString json);
+    Website_Request(const QString &json);
     ~Website_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiWebsiteId() const;
     void setPkiWebsiteId(const qint32 &pki_website_id);

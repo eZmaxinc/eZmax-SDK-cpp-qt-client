@@ -33,13 +33,13 @@ class Pdfalevel_AutocompleteElement_Response;
 class Pdfalevel_getAutocomplete_v2_Response_mPayload : public Object {
 public:
     Pdfalevel_getAutocomplete_v2_Response_mPayload();
-    Pdfalevel_getAutocomplete_v2_Response_mPayload(QString json);
+    Pdfalevel_getAutocomplete_v2_Response_mPayload(const QString &json);
     ~Pdfalevel_getAutocomplete_v2_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Pdfalevel_AutocompleteElement_Response> getAObjPdfalevel() const;
     void setAObjPdfalevel(const QList<Pdfalevel_AutocompleteElement_Response> &a_obj_pdfalevel);

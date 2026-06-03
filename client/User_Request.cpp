@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-User_Request::User_Request(QString json) {
+User_Request::User_Request(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -117,9 +117,12 @@ void User_Request::initializeModel() {
 
     m_b_user_changepassword_isSet = false;
     m_b_user_changepassword_isValid = false;
+
+    m_b_user_ezsigntemplaterolegrouping_isSet = false;
+    m_b_user_ezsigntemplaterolegrouping_isValid = false;
 }
 
-void User_Request::fromJson(QString jsonString) {
+void User_Request::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();
@@ -211,6 +214,9 @@ void User_Request::fromJsonObject(QJsonObject json) {
 
     m_b_user_changepassword_isValid = ::Ezmaxapi::fromJsonValue(m_b_user_changepassword, json[QString("bUserChangepassword")]);
     m_b_user_changepassword_isSet = !json[QString("bUserChangepassword")].isNull() && m_b_user_changepassword_isValid;
+
+    m_b_user_ezsigntemplaterolegrouping_isValid = ::Ezmaxapi::fromJsonValue(m_b_user_ezsigntemplaterolegrouping, json[QString("bUserEzsigntemplaterolegrouping")]);
+    m_b_user_ezsigntemplaterolegrouping_isSet = !json[QString("bUserEzsigntemplaterolegrouping")].isNull() && m_b_user_ezsigntemplaterolegrouping_isValid;
 }
 
 QString User_Request::asJson() const {
@@ -305,6 +311,9 @@ QJsonObject User_Request::asJsonObject() const {
     }
     if (m_b_user_changepassword_isSet) {
         obj.insert(QString("bUserChangepassword"), ::Ezmaxapi::toJsonValue(m_b_user_changepassword));
+    }
+    if (m_b_user_ezsigntemplaterolegrouping_isSet) {
+        obj.insert(QString("bUserEzsigntemplaterolegrouping"), ::Ezmaxapi::toJsonValue(m_b_user_ezsigntemplaterolegrouping));
     }
     return obj;
 }
@@ -757,6 +766,22 @@ bool User_Request::is_b_user_changepassword_Valid() const{
     return m_b_user_changepassword_isValid;
 }
 
+bool User_Request::isBUserEzsigntemplaterolegrouping() const {
+    return m_b_user_ezsigntemplaterolegrouping;
+}
+void User_Request::setBUserEzsigntemplaterolegrouping(const bool &b_user_ezsigntemplaterolegrouping) {
+    m_b_user_ezsigntemplaterolegrouping = b_user_ezsigntemplaterolegrouping;
+    m_b_user_ezsigntemplaterolegrouping_isSet = true;
+}
+
+bool User_Request::is_b_user_ezsigntemplaterolegrouping_Set() const{
+    return m_b_user_ezsigntemplaterolegrouping_isSet;
+}
+
+bool User_Request::is_b_user_ezsigntemplaterolegrouping_Valid() const{
+    return m_b_user_ezsigntemplaterolegrouping_isValid;
+}
+
 bool User_Request::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -896,6 +921,11 @@ bool User_Request::isSet() const {
         }
 
         if (m_b_user_changepassword_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_b_user_ezsigntemplaterolegrouping_isSet) {
             isObjectUpdated = true;
             break;
         }

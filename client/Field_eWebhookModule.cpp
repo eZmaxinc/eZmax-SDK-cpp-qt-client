@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_eWebhookModule::Field_eWebhookModule(QString json) {
+Field_eWebhookModule::Field_eWebhookModule(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_eWebhookModule::initializeModel() {
     m_value = eField_eWebhookModule::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_eWebhookModule::fromJson(QString jsonString) {
+void Field_eWebhookModule::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("Ezsign", Qt::CaseInsensitive) == 0) {
         m_value = eField_eWebhookModule::EZSIGN;

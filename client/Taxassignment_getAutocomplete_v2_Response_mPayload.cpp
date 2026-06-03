@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Taxassignment_getAutocomplete_v2_Response_mPayload::Taxassignment_getAutocomplete_v2_Response_mPayload(QString json) {
+Taxassignment_getAutocomplete_v2_Response_mPayload::Taxassignment_getAutocomplete_v2_Response_mPayload(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -38,7 +38,7 @@ void Taxassignment_getAutocomplete_v2_Response_mPayload::initializeModel() {
     m_a_obj_taxassignment_isValid = false;
 }
 
-void Taxassignment_getAutocomplete_v2_Response_mPayload::fromJson(QString jsonString) {
+void Taxassignment_getAutocomplete_v2_Response_mPayload::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

@@ -44,13 +44,13 @@ class Custom_CreateEzsignelementsPositionedByWord_Request;
 class Custom_EzsignformfieldgroupCreateEzsignelementsPositionedByWord_Request : public Object {
 public:
     Custom_EzsignformfieldgroupCreateEzsignelementsPositionedByWord_Request();
-    Custom_EzsignformfieldgroupCreateEzsignelementsPositionedByWord_Request(QString json);
+    Custom_EzsignformfieldgroupCreateEzsignelementsPositionedByWord_Request(const QString &json);
     ~Custom_EzsignformfieldgroupCreateEzsignelementsPositionedByWord_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiEzsignformfieldgroupId() const;
     void setPkiEzsignformfieldgroupId(const qint32 &pki_ezsignformfieldgroup_id);

@@ -32,13 +32,13 @@ class Multilingual_BillingentityinternalDescription;
 class Billingentityinternal_Request : public Object {
 public:
     Billingentityinternal_Request();
-    Billingentityinternal_Request(QString json);
+    Billingentityinternal_Request(const QString &json);
     ~Billingentityinternal_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiBillingentityinternalId() const;
     void setPkiBillingentityinternalId(const qint32 &pki_billingentityinternal_id);

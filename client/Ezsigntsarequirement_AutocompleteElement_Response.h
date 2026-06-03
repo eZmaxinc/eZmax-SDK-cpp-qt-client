@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Ezsigntsarequirement_AutocompleteElement_Response : public Object {
 public:
     Ezsigntsarequirement_AutocompleteElement_Response();
-    Ezsigntsarequirement_AutocompleteElement_Response(QString json);
+    Ezsigntsarequirement_AutocompleteElement_Response(const QString &json);
     ~Ezsigntsarequirement_AutocompleteElement_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getSEzsigntsarequirementDescriptionX() const;
     void setSEzsigntsarequirementDescriptionX(const QString &s_ezsigntsarequirement_description_x);

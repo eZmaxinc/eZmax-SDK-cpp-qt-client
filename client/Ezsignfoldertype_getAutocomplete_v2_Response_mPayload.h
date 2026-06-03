@@ -33,13 +33,13 @@ class Ezsignfoldertype_AutocompleteElement_Response;
 class Ezsignfoldertype_getAutocomplete_v2_Response_mPayload : public Object {
 public:
     Ezsignfoldertype_getAutocomplete_v2_Response_mPayload();
-    Ezsignfoldertype_getAutocomplete_v2_Response_mPayload(QString json);
+    Ezsignfoldertype_getAutocomplete_v2_Response_mPayload(const QString &json);
     ~Ezsignfoldertype_getAutocomplete_v2_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Ezsignfoldertype_AutocompleteElement_Response> getAObjEzsignfoldertype() const;
     void setAObjEzsignfoldertype(const QList<Ezsignfoldertype_AutocompleteElement_Response> &a_obj_ezsignfoldertype);

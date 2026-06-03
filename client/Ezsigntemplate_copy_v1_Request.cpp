@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Ezsigntemplate_copy_v1_Request::Ezsigntemplate_copy_v1_Request(QString json) {
+Ezsigntemplate_copy_v1_Request::Ezsigntemplate_copy_v1_Request(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -44,7 +44,7 @@ void Ezsigntemplate_copy_v1_Request::initializeModel() {
     m_b_copy_user_isValid = false;
 }
 
-void Ezsigntemplate_copy_v1_Request::fromJson(QString jsonString) {
+void Ezsigntemplate_copy_v1_Request::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

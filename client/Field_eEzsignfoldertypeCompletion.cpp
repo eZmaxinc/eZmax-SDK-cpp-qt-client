@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_eEzsignfoldertypeCompletion::Field_eEzsignfoldertypeCompletion(QString json) {
+Field_eEzsignfoldertypeCompletion::Field_eEzsignfoldertypeCompletion(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_eEzsignfoldertypeCompletion::initializeModel() {
     m_value = eField_eEzsignfoldertypeCompletion::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_eEzsignfoldertypeCompletion::fromJson(QString jsonString) {
+void Field_eEzsignfoldertypeCompletion::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("PerEzsigndocument", Qt::CaseInsensitive) == 0) {
         m_value = eField_eEzsignfoldertypeCompletion::PEREZSIGNDOCUMENT;

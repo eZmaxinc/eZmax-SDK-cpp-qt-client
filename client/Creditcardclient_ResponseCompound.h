@@ -33,13 +33,13 @@ class Creditcarddetail_ResponseCompound;
 class Creditcardclient_ResponseCompound : public Object {
 public:
     Creditcardclient_ResponseCompound();
-    Creditcardclient_ResponseCompound(QString json);
+    Creditcardclient_ResponseCompound(const QString &json);
     ~Creditcardclient_ResponseCompound() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiCreditcardclientId() const;
     void setPkiCreditcardclientId(const qint32 &pki_creditcardclient_id);

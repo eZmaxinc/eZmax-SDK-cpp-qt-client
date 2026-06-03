@@ -32,13 +32,13 @@ class Branding_ResponseCompoundV3;
 class Branding_getObject_v3_Response_mPayload : public Object {
 public:
     Branding_getObject_v3_Response_mPayload();
-    Branding_getObject_v3_Response_mPayload(QString json);
+    Branding_getObject_v3_Response_mPayload(const QString &json);
     ~Branding_getObject_v3_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Branding_ResponseCompoundV3 getObjBranding() const;
     void setObjBranding(const Branding_ResponseCompoundV3 &obj_branding);

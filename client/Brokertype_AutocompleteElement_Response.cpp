@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Brokertype_AutocompleteElement_Response::Brokertype_AutocompleteElement_Response(QString json) {
+Brokertype_AutocompleteElement_Response::Brokertype_AutocompleteElement_Response(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -44,7 +44,7 @@ void Brokertype_AutocompleteElement_Response::initializeModel() {
     m_b_brokertype_isactive_isValid = false;
 }
 
-void Brokertype_AutocompleteElement_Response::fromJson(QString jsonString) {
+void Brokertype_AutocompleteElement_Response::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

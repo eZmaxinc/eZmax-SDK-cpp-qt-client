@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Webhook_RequestCompound::Webhook_RequestCompound(QString json) {
+Webhook_RequestCompound::Webhook_RequestCompound(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -74,7 +74,7 @@ void Webhook_RequestCompound::initializeModel() {
     m_a_obj_webhookheader_isValid = false;
 }
 
-void Webhook_RequestCompound::fromJson(QString jsonString) {
+void Webhook_RequestCompound::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

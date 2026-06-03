@@ -30,13 +30,13 @@ namespace Ezmaxapi {
 class Field_eUserLogintype : public Enum {
 public:
     Field_eUserLogintype();
-    Field_eUserLogintype(QString json);
+    Field_eUserLogintype(const QString &json);
     ~Field_eUserLogintype() override;
 
     QString asJson() const override;
     QJsonValue asJsonValue() const override;
     void fromJsonValue(QJsonValue json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     enum class eField_eUserLogintype {
         INVALID_VALUE_OPENAPI_GENERATED = 0,

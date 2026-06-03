@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Notificationtest_getElements_v2_Response_mPayload::Notificationtest_getElements_v2_Response_mPayload(QString json) {
+Notificationtest_getElements_v2_Response_mPayload::Notificationtest_getElements_v2_Response_mPayload(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -38,7 +38,7 @@ void Notificationtest_getElements_v2_Response_mPayload::initializeModel() {
     m_obj_notificationtest_isValid = false;
 }
 
-void Notificationtest_getElements_v2_Response_mPayload::fromJson(QString jsonString) {
+void Notificationtest_getElements_v2_Response_mPayload::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

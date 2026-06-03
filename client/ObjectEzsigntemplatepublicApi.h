@@ -56,6 +56,7 @@ public:
     void initializeServerConfigs();
     int setDefaultServerValue(int serverIndex,const QString &operation, const QString &variable,const QString &val);
     void setServerIndex(const QString &operation, int serverIndex);
+    void setServerIndex(int serverIndex);
     void setApiKey(const QString &apiKeyName, const QString &apiKey);
     void setBearerToken(const QString &token);
     void setUsername(const QString &username);
@@ -133,6 +134,13 @@ public:
 
 
 private:
+    enum class OauthMethod : int {
+        INVALID_VALUE_OPENAPI_GENERATED = 0,
+        ImplicitFlow = 1,
+        AuthorizationFlow = 2,
+        ClientCredentialsFlow = 3,
+        ResourceOwnerPasswordFlow = 4
+    };
     QMap<QString,int> _serverIndices;
     QMap<QString,QList<ServerConfiguration>> _serverConfigs;
     QMap<QString, QString> _apiKeys;
@@ -152,7 +160,7 @@ private:
     OauthImplicit _implicitFlow;
     OauthCredentials _credentialFlow;
     OauthPassword _passwordFlow;
-    int _OauthMethod = 0;
+    OauthMethod _OauthMethod = OauthMethod::INVALID_VALUE_OPENAPI_GENERATED;
 
     void ezsigntemplatepublicCreateEzsignfolderV1Callback(HttpRequestWorker *worker);
     void ezsigntemplatepublicCreateObjectV1Callback(HttpRequestWorker *worker);
@@ -190,66 +198,26 @@ Q_SIGNALS:
     void ezsigntemplatepublicResetLimitExceededCounterV1SignalFull(HttpRequestWorker *worker, Ezsigntemplatepublic_resetLimitExceededCounter_v1_Response summary);
     void ezsigntemplatepublicResetUrlV1SignalFull(HttpRequestWorker *worker, Ezsigntemplatepublic_resetUrl_v1_Response summary);
 
-    Q_DECL_DEPRECATED_X("Use ezsigntemplatepublicCreateEzsignfolderV1SignalError() instead")
-    void ezsigntemplatepublicCreateEzsignfolderV1SignalE(Ezsigntemplatepublic_createEzsignfolder_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplatepublicCreateEzsignfolderV1SignalError(Ezsigntemplatepublic_createEzsignfolder_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezsigntemplatepublicCreateObjectV1SignalError() instead")
-    void ezsigntemplatepublicCreateObjectV1SignalE(Ezsigntemplatepublic_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplatepublicCreateObjectV1SignalError(Ezsigntemplatepublic_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezsigntemplatepublicDeleteObjectV1SignalError() instead")
-    void ezsigntemplatepublicDeleteObjectV1SignalE(Ezsigntemplatepublic_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplatepublicDeleteObjectV1SignalError(Ezsigntemplatepublic_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezsigntemplatepublicEditObjectV1SignalError() instead")
-    void ezsigntemplatepublicEditObjectV1SignalE(Ezsigntemplatepublic_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplatepublicEditObjectV1SignalError(Ezsigntemplatepublic_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezsigntemplatepublicGetEzsigntemplatepublicDetailsV1SignalError() instead")
-    void ezsigntemplatepublicGetEzsigntemplatepublicDetailsV1SignalE(Ezsigntemplatepublic_getEzsigntemplatepublicDetails_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplatepublicGetEzsigntemplatepublicDetailsV1SignalError(Ezsigntemplatepublic_getEzsigntemplatepublicDetails_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezsigntemplatepublicGetFormsDataV1SignalError() instead")
-    void ezsigntemplatepublicGetFormsDataV1SignalE(Ezsigntemplatepublic_getFormsData_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplatepublicGetFormsDataV1SignalError(Ezsigntemplatepublic_getFormsData_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezsigntemplatepublicGetListV1SignalError() instead")
-    void ezsigntemplatepublicGetListV1SignalE(Ezsigntemplatepublic_getList_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplatepublicGetListV1SignalError(Ezsigntemplatepublic_getList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezsigntemplatepublicGetObjectV2SignalError() instead")
-    void ezsigntemplatepublicGetObjectV2SignalE(Ezsigntemplatepublic_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplatepublicGetObjectV2SignalError(Ezsigntemplatepublic_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezsigntemplatepublicResetLimitExceededCounterV1SignalError() instead")
-    void ezsigntemplatepublicResetLimitExceededCounterV1SignalE(Ezsigntemplatepublic_resetLimitExceededCounter_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplatepublicResetLimitExceededCounterV1SignalError(Ezsigntemplatepublic_resetLimitExceededCounter_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezsigntemplatepublicResetUrlV1SignalError() instead")
-    void ezsigntemplatepublicResetUrlV1SignalE(Ezsigntemplatepublic_resetUrl_v1_Response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplatepublicResetUrlV1SignalError(Ezsigntemplatepublic_resetUrl_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
-    Q_DECL_DEPRECATED_X("Use ezsigntemplatepublicCreateEzsignfolderV1SignalErrorFull() instead")
-    void ezsigntemplatepublicCreateEzsignfolderV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplatepublicCreateEzsignfolderV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezsigntemplatepublicCreateObjectV1SignalErrorFull() instead")
-    void ezsigntemplatepublicCreateObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplatepublicCreateObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezsigntemplatepublicDeleteObjectV1SignalErrorFull() instead")
-    void ezsigntemplatepublicDeleteObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplatepublicDeleteObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezsigntemplatepublicEditObjectV1SignalErrorFull() instead")
-    void ezsigntemplatepublicEditObjectV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplatepublicEditObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezsigntemplatepublicGetEzsigntemplatepublicDetailsV1SignalErrorFull() instead")
-    void ezsigntemplatepublicGetEzsigntemplatepublicDetailsV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplatepublicGetEzsigntemplatepublicDetailsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezsigntemplatepublicGetFormsDataV1SignalErrorFull() instead")
-    void ezsigntemplatepublicGetFormsDataV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplatepublicGetFormsDataV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezsigntemplatepublicGetListV1SignalErrorFull() instead")
-    void ezsigntemplatepublicGetListV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplatepublicGetListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezsigntemplatepublicGetObjectV2SignalErrorFull() instead")
-    void ezsigntemplatepublicGetObjectV2SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplatepublicGetObjectV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezsigntemplatepublicResetLimitExceededCounterV1SignalErrorFull() instead")
-    void ezsigntemplatepublicResetLimitExceededCounterV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplatepublicResetLimitExceededCounterV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use ezsigntemplatepublicResetUrlV1SignalErrorFull() instead")
-    void ezsigntemplatepublicResetUrlV1SignalEFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void ezsigntemplatepublicResetUrlV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();

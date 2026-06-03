@@ -32,13 +32,13 @@ namespace Ezmaxapi {
 class Ezsigntemplate_AutocompleteElement_Response : public Object {
 public:
     Ezsigntemplate_AutocompleteElement_Response();
-    Ezsigntemplate_AutocompleteElement_Response(QString json);
+    Ezsigntemplate_AutocompleteElement_Response(const QString &json);
     ~Ezsigntemplate_AutocompleteElement_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Field_eEzsignfoldertypePrivacylevel getEEzsignfoldertypePrivacylevel() const;
     void setEEzsignfoldertypePrivacylevel(const Field_eEzsignfoldertypePrivacylevel &e_ezsignfoldertype_privacylevel);

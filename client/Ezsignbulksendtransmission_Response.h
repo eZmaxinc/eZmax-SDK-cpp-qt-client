@@ -33,13 +33,13 @@ class Common_Audit;
 class Ezsignbulksendtransmission_Response : public Object {
 public:
     Ezsignbulksendtransmission_Response();
-    Ezsignbulksendtransmission_Response(QString json);
+    Ezsignbulksendtransmission_Response(const QString &json);
     ~Ezsignbulksendtransmission_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiEzsignbulksendtransmissionId() const;
     void setPkiEzsignbulksendtransmissionId(const qint32 &pki_ezsignbulksendtransmission_id);

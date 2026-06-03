@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Ezsignformfield_RequestCompound::Ezsignformfield_RequestCompound(QString json) {
+Ezsignformfield_RequestCompound::Ezsignformfield_RequestCompound(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -80,7 +80,7 @@ void Ezsignformfield_RequestCompound::initializeModel() {
     m_a_obj_ezsignelementdependency_isValid = false;
 }
 
-void Ezsignformfield_RequestCompound::fromJson(QString jsonString) {
+void Ezsignformfield_RequestCompound::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

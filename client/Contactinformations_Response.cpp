@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Contactinformations_Response::Contactinformations_Response(QString json) {
+Contactinformations_Response::Contactinformations_Response(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -68,7 +68,7 @@ void Contactinformations_Response::initializeModel() {
     m_obj_website_default_isValid = false;
 }
 
-void Contactinformations_Response::fromJson(QString jsonString) {
+void Contactinformations_Response::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

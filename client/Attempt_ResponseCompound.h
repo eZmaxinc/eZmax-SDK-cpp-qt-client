@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Attempt_ResponseCompound : public Object {
 public:
     Attempt_ResponseCompound();
-    Attempt_ResponseCompound(QString json);
+    Attempt_ResponseCompound(const QString &json);
     ~Attempt_ResponseCompound() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QString getDtAttemptStart() const;
     void setDtAttemptStart(const QString &dt_attempt_start);

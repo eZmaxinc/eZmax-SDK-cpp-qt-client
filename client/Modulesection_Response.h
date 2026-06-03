@@ -31,13 +31,13 @@ namespace Ezmaxapi {
 class Modulesection_Response : public Object {
 public:
     Modulesection_Response();
-    Modulesection_Response(QString json);
+    Modulesection_Response(const QString &json);
     ~Modulesection_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiModulesectionId() const;
     void setPkiModulesectionId(const qint32 &pki_modulesection_id);

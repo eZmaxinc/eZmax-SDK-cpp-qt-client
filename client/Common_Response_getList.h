@@ -34,13 +34,13 @@ class Common_Response_objDebug;
 class Common_Response_getList : public Object {
 public:
     Common_Response_getList();
-    Common_Response_getList(QString json);
+    Common_Response_getList(const QString &json);
     ~Common_Response_getList() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Common_Response_objDebugPayload_getList getObjDebugPayload() const;
     void setObjDebugPayload(const Common_Response_objDebugPayload_getList &obj_debug_payload);

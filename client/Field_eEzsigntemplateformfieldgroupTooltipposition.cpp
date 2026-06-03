@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_eEzsigntemplateformfieldgroupTooltipposition::Field_eEzsigntemplateformfieldgroupTooltipposition(QString json) {
+Field_eEzsigntemplateformfieldgroupTooltipposition::Field_eEzsigntemplateformfieldgroupTooltipposition(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_eEzsigntemplateformfieldgroupTooltipposition::initializeModel() {
     m_value = eField_eEzsigntemplateformfieldgroupTooltipposition::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_eEzsigntemplateformfieldgroupTooltipposition::fromJson(QString jsonString) {
+void Field_eEzsigntemplateformfieldgroupTooltipposition::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("TopLeft", Qt::CaseInsensitive) == 0) {
         m_value = eField_eEzsigntemplateformfieldgroupTooltipposition::TOPLEFT;

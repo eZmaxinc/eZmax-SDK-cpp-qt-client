@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Creditcardmerchant_ListElement::Creditcardmerchant_ListElement(QString json) {
+Creditcardmerchant_ListElement::Creditcardmerchant_ListElement(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -62,7 +62,7 @@ void Creditcardmerchant_ListElement::initializeModel() {
     m_s_creditcardmerchant_storeid_isValid = false;
 }
 
-void Creditcardmerchant_ListElement::fromJson(QString jsonString) {
+void Creditcardmerchant_ListElement::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();
@@ -335,7 +335,7 @@ bool Creditcardmerchant_ListElement::isSet() const {
 
 bool Creditcardmerchant_ListElement::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_pki_creditcardmerchant_id_isValid && m_fki_bankaccount_id_isValid && m_b_creditcardmerchant_denyvisa_isValid && m_b_creditcardmerchant_denymastercard_isValid && m_b_creditcardmerchant_denyamex_isValid && m_b_creditcardmerchant_isactive_isValid && m_s_creditcardmerchant_description_isValid && m_s_creditcardmerchant_storeid_isValid && true;
+    return m_pki_creditcardmerchant_id_isValid && m_b_creditcardmerchant_denyvisa_isValid && m_b_creditcardmerchant_denymastercard_isValid && m_b_creditcardmerchant_denyamex_isValid && m_b_creditcardmerchant_isactive_isValid && m_s_creditcardmerchant_description_isValid && m_s_creditcardmerchant_storeid_isValid && true;
 }
 
 } // namespace Ezmaxapi

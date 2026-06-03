@@ -34,13 +34,13 @@ class Common_Audit;
 class Discussionmessage_ResponseCompound : public Object {
 public:
     Discussionmessage_ResponseCompound();
-    Discussionmessage_ResponseCompound(QString json);
+    Discussionmessage_ResponseCompound(const QString &json);
     ~Discussionmessage_ResponseCompound() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiDiscussionmessageId() const;
     void setPkiDiscussionmessageId(const qint32 &pki_discussionmessage_id);

@@ -33,13 +33,13 @@ class Ezsigntemplatepackagesigner_RequestCompound;
 class Ezsigntemplatepackage_editEzsigntemplatepackagesigners_v1_Request : public Object {
 public:
     Ezsigntemplatepackage_editEzsigntemplatepackagesigners_v1_Request();
-    Ezsigntemplatepackage_editEzsigntemplatepackagesigners_v1_Request(QString json);
+    Ezsigntemplatepackage_editEzsigntemplatepackagesigners_v1_Request(const QString &json);
     ~Ezsigntemplatepackage_editEzsigntemplatepackagesigners_v1_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Ezsigntemplatepackagesigner_RequestCompound> getAObjEzsigntemplatepackagesigner() const;
     void setAObjEzsigntemplatepackagesigner(const QList<Ezsigntemplatepackagesigner_RequestCompound> &a_obj_ezsigntemplatepackagesigner);

@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Ezsigntemplatesignaturecustomdate_ResponseCompoundV2::Ezsigntemplatesignaturecustomdate_ResponseCompoundV2(QString json) {
+Ezsigntemplatesignaturecustomdate_ResponseCompoundV2::Ezsigntemplatesignaturecustomdate_ResponseCompoundV2(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -47,7 +47,7 @@ void Ezsigntemplatesignaturecustomdate_ResponseCompoundV2::initializeModel() {
     m_s_ezsigntemplatesignaturecustomdate_format_isValid = false;
 }
 
-void Ezsigntemplatesignaturecustomdate_ResponseCompoundV2::fromJson(QString jsonString) {
+void Ezsigntemplatesignaturecustomdate_ResponseCompoundV2::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

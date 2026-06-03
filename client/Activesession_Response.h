@@ -38,13 +38,13 @@ namespace Ezmaxapi {
 class Activesession_Response : public Object {
 public:
     Activesession_Response();
-    Activesession_Response(QString json);
+    Activesession_Response(const QString &json);
     ~Activesession_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Field_eActivesessionUsertype getEActivesessionUsertype() const;
     void setEActivesessionUsertype(const Field_eActivesessionUsertype &e_activesession_usertype);

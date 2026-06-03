@@ -35,13 +35,13 @@ class Multilingual_BrandingDescription;
 class Branding_ResponseV3 : public Object {
 public:
     Branding_ResponseV3();
-    Branding_ResponseV3(QString json);
+    Branding_ResponseV3(const QString &json);
     ~Branding_ResponseV3() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiBrandingId() const;
     void setPkiBrandingId(const qint32 &pki_branding_id);

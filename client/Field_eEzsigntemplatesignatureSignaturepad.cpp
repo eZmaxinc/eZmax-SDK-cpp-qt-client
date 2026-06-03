@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Field_eEzsigntemplatesignatureSignaturepad::Field_eEzsigntemplatesignatureSignaturepad(QString json) {
+Field_eEzsigntemplatesignatureSignaturepad::Field_eEzsigntemplatesignatureSignaturepad(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -39,7 +39,7 @@ void Field_eEzsigntemplatesignatureSignaturepad::initializeModel() {
     m_value = eField_eEzsigntemplatesignatureSignaturepad::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void Field_eEzsigntemplatesignatureSignaturepad::fromJson(QString jsonString) {
+void Field_eEzsigntemplatesignatureSignaturepad::fromJson(const QString &jsonString) {
     
     if ( jsonString.compare("Topaz", Qt::CaseInsensitive) == 0) {
         m_value = eField_eEzsigntemplatesignatureSignaturepad::TOPAZ;

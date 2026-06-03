@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Scim_AuthenticationScheme::Scim_AuthenticationScheme(QString json) {
+Scim_AuthenticationScheme::Scim_AuthenticationScheme(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -44,7 +44,7 @@ void Scim_AuthenticationScheme::initializeModel() {
     m_type_isValid = false;
 }
 
-void Scim_AuthenticationScheme::fromJson(QString jsonString) {
+void Scim_AuthenticationScheme::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

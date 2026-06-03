@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Inscriptionnotauthenticated_getCommunicationsenders_v1_Response_mPayload::Inscriptionnotauthenticated_getCommunicationsenders_v1_Response_mPayload(QString json) {
+Inscriptionnotauthenticated_getCommunicationsenders_v1_Response_mPayload::Inscriptionnotauthenticated_getCommunicationsenders_v1_Response_mPayload(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -38,7 +38,7 @@ void Inscriptionnotauthenticated_getCommunicationsenders_v1_Response_mPayload::i
     m_a_obj_communicationsenders_isValid = false;
 }
 
-void Inscriptionnotauthenticated_getCommunicationsenders_v1_Response_mPayload::fromJson(QString jsonString) {
+void Inscriptionnotauthenticated_getCommunicationsenders_v1_Response_mPayload::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

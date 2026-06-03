@@ -30,13 +30,13 @@ namespace Ezmaxapi {
 class Field_eVersionhistoryType : public Enum {
 public:
     Field_eVersionhistoryType();
-    Field_eVersionhistoryType(QString json);
+    Field_eVersionhistoryType(const QString &json);
     ~Field_eVersionhistoryType() override;
 
     QString asJson() const override;
     QJsonValue asJsonValue() const override;
     void fromJsonValue(QJsonValue json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     enum class eField_eVersionhistoryType {
         INVALID_VALUE_OPENAPI_GENERATED = 0,

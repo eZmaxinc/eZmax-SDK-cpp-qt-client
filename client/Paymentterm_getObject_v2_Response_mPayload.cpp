@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Paymentterm_getObject_v2_Response_mPayload::Paymentterm_getObject_v2_Response_mPayload(QString json) {
+Paymentterm_getObject_v2_Response_mPayload::Paymentterm_getObject_v2_Response_mPayload(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -38,7 +38,7 @@ void Paymentterm_getObject_v2_Response_mPayload::initializeModel() {
     m_obj_paymentterm_isValid = false;
 }
 
-void Paymentterm_getObject_v2_Response_mPayload::fromJson(QString jsonString) {
+void Paymentterm_getObject_v2_Response_mPayload::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

@@ -33,13 +33,13 @@ class Attachmentlog_ResponseCompound;
 class Attachment_getAttachmentlogs_v1_Response_mPayload : public Object {
 public:
     Attachment_getAttachmentlogs_v1_Response_mPayload();
-    Attachment_getAttachmentlogs_v1_Response_mPayload(QString json);
+    Attachment_getAttachmentlogs_v1_Response_mPayload(const QString &json);
     ~Attachment_getAttachmentlogs_v1_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Attachmentlog_ResponseCompound> getAObjAttachmentlog() const;
     void setAObjAttachmentlog(const QList<Attachmentlog_ResponseCompound> &a_obj_attachmentlog);

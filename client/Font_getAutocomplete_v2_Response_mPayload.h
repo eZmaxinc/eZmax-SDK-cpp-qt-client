@@ -33,13 +33,13 @@ class Font_AutocompleteElement_Response;
 class Font_getAutocomplete_v2_Response_mPayload : public Object {
 public:
     Font_getAutocomplete_v2_Response_mPayload();
-    Font_getAutocomplete_v2_Response_mPayload(QString json);
+    Font_getAutocomplete_v2_Response_mPayload(const QString &json);
     ~Font_getAutocomplete_v2_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Font_AutocompleteElement_Response> getAObjFont() const;
     void setAObjFont(const QList<Font_AutocompleteElement_Response> &a_obj_font);

@@ -32,13 +32,13 @@ namespace Ezmaxapi {
 class Paymentterm_ListElement : public Object {
 public:
     Paymentterm_ListElement();
-    Paymentterm_ListElement(QString json);
+    Paymentterm_ListElement(const QString &json);
     ~Paymentterm_ListElement() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiPaymenttermId() const;
     void setPkiPaymenttermId(const qint32 &pki_paymentterm_id);

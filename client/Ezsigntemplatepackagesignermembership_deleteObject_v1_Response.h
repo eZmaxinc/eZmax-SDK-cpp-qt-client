@@ -36,13 +36,13 @@ class Ezsigntemplatepackagesignermembership_deleteObject_v1_Response_mPayload;
 class Ezsigntemplatepackagesignermembership_deleteObject_v1_Response : public Object {
 public:
     Ezsigntemplatepackagesignermembership_deleteObject_v1_Response();
-    Ezsigntemplatepackagesignermembership_deleteObject_v1_Response(QString json);
+    Ezsigntemplatepackagesignermembership_deleteObject_v1_Response(const QString &json);
     ~Ezsigntemplatepackagesignermembership_deleteObject_v1_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Common_Response_objDebugPayload getObjDebugPayload() const;
     void setObjDebugPayload(const Common_Response_objDebugPayload &obj_debug_payload);

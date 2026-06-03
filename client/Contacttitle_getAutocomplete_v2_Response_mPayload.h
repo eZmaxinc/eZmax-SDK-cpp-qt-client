@@ -33,13 +33,13 @@ class Contacttitle_AutocompleteElement_Response;
 class Contacttitle_getAutocomplete_v2_Response_mPayload : public Object {
 public:
     Contacttitle_getAutocomplete_v2_Response_mPayload();
-    Contacttitle_getAutocomplete_v2_Response_mPayload(QString json);
+    Contacttitle_getAutocomplete_v2_Response_mPayload(const QString &json);
     ~Contacttitle_getAutocomplete_v2_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     QList<Contacttitle_AutocompleteElement_Response> getAObjContacttitle() const;
     void setAObjContacttitle(const QList<Contacttitle_AutocompleteElement_Response> &a_obj_contacttitle);

@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Ezsignbulksendsignermapping_ResponseCompound::Ezsignbulksendsignermapping_ResponseCompound(QString json) {
+Ezsignbulksendsignermapping_ResponseCompound::Ezsignbulksendsignermapping_ResponseCompound(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -50,7 +50,7 @@ void Ezsignbulksendsignermapping_ResponseCompound::initializeModel() {
     m_s_ezsignbulksendsignermapping_description_isValid = false;
 }
 
-void Ezsignbulksendsignermapping_ResponseCompound::fromJson(QString jsonString) {
+void Ezsignbulksendsignermapping_ResponseCompound::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

@@ -32,13 +32,13 @@ class Supply_ResponseCompound;
 class Supply_getObject_v2_Response_mPayload : public Object {
 public:
     Supply_getObject_v2_Response_mPayload();
-    Supply_getObject_v2_Response_mPayload(QString json);
+    Supply_getObject_v2_Response_mPayload(const QString &json);
     ~Supply_getObject_v2_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Supply_ResponseCompound getObjSupply() const;
     void setObjSupply(const Supply_ResponseCompound &obj_supply);

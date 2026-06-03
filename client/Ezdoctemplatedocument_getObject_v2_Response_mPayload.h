@@ -32,13 +32,13 @@ class Ezdoctemplatedocument_ResponseCompound;
 class Ezdoctemplatedocument_getObject_v2_Response_mPayload : public Object {
 public:
     Ezdoctemplatedocument_getObject_v2_Response_mPayload();
-    Ezdoctemplatedocument_getObject_v2_Response_mPayload(QString json);
+    Ezdoctemplatedocument_getObject_v2_Response_mPayload(const QString &json);
     ~Ezdoctemplatedocument_getObject_v2_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Ezdoctemplatedocument_ResponseCompound getObjEzdoctemplatedocument() const;
     void setObjEzdoctemplatedocument(const Ezdoctemplatedocument_ResponseCompound &obj_ezdoctemplatedocument);

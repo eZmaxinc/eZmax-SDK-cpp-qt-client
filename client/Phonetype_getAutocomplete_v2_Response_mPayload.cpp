@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Phonetype_getAutocomplete_v2_Response_mPayload::Phonetype_getAutocomplete_v2_Response_mPayload(QString json) {
+Phonetype_getAutocomplete_v2_Response_mPayload::Phonetype_getAutocomplete_v2_Response_mPayload(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -38,7 +38,7 @@ void Phonetype_getAutocomplete_v2_Response_mPayload::initializeModel() {
     m_a_obj_phonetype_isValid = false;
 }
 
-void Phonetype_getAutocomplete_v2_Response_mPayload::fromJson(QString jsonString) {
+void Phonetype_getAutocomplete_v2_Response_mPayload::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

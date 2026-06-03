@@ -32,13 +32,13 @@ class Custom_Apikey;
 class Apikey_generateDelegatedCredentials_v1_Response_mPayload : public Object {
 public:
     Apikey_generateDelegatedCredentials_v1_Response_mPayload();
-    Apikey_generateDelegatedCredentials_v1_Response_mPayload(QString json);
+    Apikey_generateDelegatedCredentials_v1_Response_mPayload(const QString &json);
     ~Apikey_generateDelegatedCredentials_v1_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Custom_Apikey getObjApikey() const;
     void setObjApikey(const Custom_Apikey &obj_apikey);

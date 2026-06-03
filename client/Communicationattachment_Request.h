@@ -30,13 +30,13 @@ namespace Ezmaxapi {
 class Communicationattachment_Request : public Object {
 public:
     Communicationattachment_Request();
-    Communicationattachment_Request(QString json);
+    Communicationattachment_Request(const QString &json);
     ~Communicationattachment_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     qint32 getPkiCommunicationattachmentId() const;
     void setPkiCommunicationattachmentId(const qint32 &pki_communicationattachment_id);

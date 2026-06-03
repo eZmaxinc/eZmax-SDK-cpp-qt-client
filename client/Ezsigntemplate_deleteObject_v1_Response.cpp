@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Ezsigntemplate_deleteObject_v1_Response::Ezsigntemplate_deleteObject_v1_Response(QString json) {
+Ezsigntemplate_deleteObject_v1_Response::Ezsigntemplate_deleteObject_v1_Response(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -41,7 +41,7 @@ void Ezsigntemplate_deleteObject_v1_Response::initializeModel() {
     m_obj_debug_isValid = false;
 }
 
-void Ezsigntemplate_deleteObject_v1_Response::fromJson(QString jsonString) {
+void Ezsigntemplate_deleteObject_v1_Response::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

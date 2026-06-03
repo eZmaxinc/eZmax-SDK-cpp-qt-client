@@ -21,7 +21,7 @@
 
 namespace Ezmaxapi {
 
-Inscription_importIntoEDM_v1_Request::Inscription_importIntoEDM_v1_Request(QString json) {
+Inscription_importIntoEDM_v1_Request::Inscription_importIntoEDM_v1_Request(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -38,7 +38,7 @@ void Inscription_importIntoEDM_v1_Request::initializeModel() {
     m_a_obj_attachment_isValid = false;
 }
 
-void Inscription_importIntoEDM_v1_Request::fromJson(QString jsonString) {
+void Inscription_importIntoEDM_v1_Request::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

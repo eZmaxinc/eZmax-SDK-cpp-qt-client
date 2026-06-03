@@ -32,13 +32,13 @@ class Ezsigntemplatedocumentpagerecognition_ResponseCompound;
 class Ezsigntemplatedocumentpagerecognition_getObject_v2_Response_mPayload : public Object {
 public:
     Ezsigntemplatedocumentpagerecognition_getObject_v2_Response_mPayload();
-    Ezsigntemplatedocumentpagerecognition_getObject_v2_Response_mPayload(QString json);
+    Ezsigntemplatedocumentpagerecognition_getObject_v2_Response_mPayload(const QString &json);
     ~Ezsigntemplatedocumentpagerecognition_getObject_v2_Response_mPayload() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     Ezsigntemplatedocumentpagerecognition_ResponseCompound getObjEzsigntemplatedocumentpagerecognition() const;
     void setObjEzsigntemplatedocumentpagerecognition(const Ezsigntemplatedocumentpagerecognition_ResponseCompound &obj_ezsigntemplatedocumentpagerecognition);
