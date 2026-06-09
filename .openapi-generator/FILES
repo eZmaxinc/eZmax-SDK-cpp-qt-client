@@ -3656,14 +3656,8 @@ client/Scim_ServiceProviderConfig_bulk.cpp
 client/Scim_ServiceProviderConfig_bulk.h
 client/Scim_ServiceProviderConfig_changePassword.cpp
 client/Scim_ServiceProviderConfig_changePassword.h
-client/Scim_ServiceProviderConfig_etag.cpp
-client/Scim_ServiceProviderConfig_etag.h
 client/Scim_ServiceProviderConfig_filter.cpp
 client/Scim_ServiceProviderConfig_filter.h
-client/Scim_ServiceProviderConfig_patch.cpp
-client/Scim_ServiceProviderConfig_patch.h
-client/Scim_ServiceProviderConfig_sort.cpp
-client/Scim_ServiceProviderConfig_sort.h
 client/Scim_User.cpp
 client/Scim_User.h
 client/Scim_UserList.cpp

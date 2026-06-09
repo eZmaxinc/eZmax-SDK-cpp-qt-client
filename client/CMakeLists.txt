@@ -1694,10 +1694,7 @@ add_library(${PROJECT_NAME}
   Scim_ServiceProviderConfig.h
   Scim_ServiceProviderConfig_bulk.h
   Scim_ServiceProviderConfig_changePassword.h
-  Scim_ServiceProviderConfig_etag.h
   Scim_ServiceProviderConfig_filter.h
-  Scim_ServiceProviderConfig_patch.h
-  Scim_ServiceProviderConfig_sort.h
   Scim_User.h
   Scim_UserList.h
   Secretquestion_AutocompleteElement_Response.h
@@ -3836,10 +3833,7 @@ add_library(${PROJECT_NAME}
   Scim_ServiceProviderConfig.cpp
   Scim_ServiceProviderConfig_bulk.cpp
   Scim_ServiceProviderConfig_changePassword.cpp
-  Scim_ServiceProviderConfig_etag.cpp
   Scim_ServiceProviderConfig_filter.cpp
-  Scim_ServiceProviderConfig_patch.cpp
-  Scim_ServiceProviderConfig_sort.cpp
   Scim_User.cpp
   Scim_UserList.cpp
   Secretquestion_AutocompleteElement_Response.cpp

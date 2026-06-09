@@ -55,6 +55,11 @@ public:
     bool is_fki_user_id_Set() const;
     bool is_fki_user_id_Valid() const;
 
+    qint32 getFkiEzmaxpartnerproductstageId() const;
+    void setFkiEzmaxpartnerproductstageId(const qint32 &fki_ezmaxpartnerproductstage_id);
+    bool is_fki_ezmaxpartnerproductstage_id_Set() const;
+    bool is_fki_ezmaxpartnerproductstage_id_Valid() const;
+
     Multilingual_ApikeyDescription getObjApikeyDescription() const;
     void setObjApikeyDescription(const Multilingual_ApikeyDescription &obj_apikey_description);
     bool is_obj_apikey_description_Set() const;
@@ -103,6 +108,10 @@ private:
     qint32 m_fki_user_id;
     bool m_fki_user_id_isSet;
     bool m_fki_user_id_isValid;
+
+    qint32 m_fki_ezmaxpartnerproductstage_id;
+    bool m_fki_ezmaxpartnerproductstage_id_isSet;
+    bool m_fki_ezmaxpartnerproductstage_id_isValid;
 
     Multilingual_ApikeyDescription m_obj_apikey_description;
     bool m_obj_apikey_description_isSet;

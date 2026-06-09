@@ -40,6 +40,9 @@ void Apikey_ResponseCompound::initializeModel() {
     m_fki_user_id_isSet = false;
     m_fki_user_id_isValid = false;
 
+    m_fki_ezmaxpartnerproductstage_id_isSet = false;
+    m_fki_ezmaxpartnerproductstage_id_isValid = false;
+
     m_obj_apikey_description_isSet = false;
     m_obj_apikey_description_isValid = false;
 
@@ -77,6 +80,9 @@ void Apikey_ResponseCompound::fromJsonObject(QJsonObject json) {
     m_fki_user_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_user_id, json[QString("fkiUserID")]);
     m_fki_user_id_isSet = !json[QString("fkiUserID")].isNull() && m_fki_user_id_isValid;
 
+    m_fki_ezmaxpartnerproductstage_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_ezmaxpartnerproductstage_id, json[QString("fkiEzmaxpartnerproductstageID")]);
+    m_fki_ezmaxpartnerproductstage_id_isSet = !json[QString("fkiEzmaxpartnerproductstageID")].isNull() && m_fki_ezmaxpartnerproductstage_id_isValid;
+
     m_obj_apikey_description_isValid = ::Ezmaxapi::fromJsonValue(m_obj_apikey_description, json[QString("objApikeyDescription")]);
     m_obj_apikey_description_isSet = !json[QString("objApikeyDescription")].isNull() && m_obj_apikey_description_isValid;
 
@@ -113,6 +119,9 @@ QJsonObject Apikey_ResponseCompound::asJsonObject() const {
     }
     if (m_fki_user_id_isSet) {
         obj.insert(QString("fkiUserID"), ::Ezmaxapi::toJsonValue(m_fki_user_id));
+    }
+    if (m_fki_ezmaxpartnerproductstage_id_isSet) {
+        obj.insert(QString("fkiEzmaxpartnerproductstageID"), ::Ezmaxapi::toJsonValue(m_fki_ezmaxpartnerproductstage_id));
     }
     if (m_obj_apikey_description.isSet()) {
         obj.insert(QString("objApikeyDescription"), ::Ezmaxapi::toJsonValue(m_obj_apikey_description));
@@ -168,6 +177,22 @@ bool Apikey_ResponseCompound::is_fki_user_id_Set() const{
 
 bool Apikey_ResponseCompound::is_fki_user_id_Valid() const{
     return m_fki_user_id_isValid;
+}
+
+qint32 Apikey_ResponseCompound::getFkiEzmaxpartnerproductstageId() const {
+    return m_fki_ezmaxpartnerproductstage_id;
+}
+void Apikey_ResponseCompound::setFkiEzmaxpartnerproductstageId(const qint32 &fki_ezmaxpartnerproductstage_id) {
+    m_fki_ezmaxpartnerproductstage_id = fki_ezmaxpartnerproductstage_id;
+    m_fki_ezmaxpartnerproductstage_id_isSet = true;
+}
+
+bool Apikey_ResponseCompound::is_fki_ezmaxpartnerproductstage_id_Set() const{
+    return m_fki_ezmaxpartnerproductstage_id_isSet;
+}
+
+bool Apikey_ResponseCompound::is_fki_ezmaxpartnerproductstage_id_Valid() const{
+    return m_fki_ezmaxpartnerproductstage_id_isValid;
 }
 
 Multilingual_ApikeyDescription Apikey_ResponseCompound::getObjApikeyDescription() const {
@@ -291,6 +316,11 @@ bool Apikey_ResponseCompound::isSet() const {
         }
 
         if (m_fki_user_id_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_fki_ezmaxpartnerproductstage_id_isSet) {
             isObjectUpdated = true;
             break;
         }

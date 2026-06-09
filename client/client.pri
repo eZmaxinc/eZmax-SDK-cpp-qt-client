@@ -1685,10 +1685,7 @@ HEADERS += \
     $${PWD}/Scim_ServiceProviderConfig.h \
     $${PWD}/Scim_ServiceProviderConfig_bulk.h \
     $${PWD}/Scim_ServiceProviderConfig_changePassword.h \
-    $${PWD}/Scim_ServiceProviderConfig_etag.h \
     $${PWD}/Scim_ServiceProviderConfig_filter.h \
-    $${PWD}/Scim_ServiceProviderConfig_patch.h \
-    $${PWD}/Scim_ServiceProviderConfig_sort.h \
     $${PWD}/Scim_User.h \
     $${PWD}/Scim_UserList.h \
     $${PWD}/Secretquestion_AutocompleteElement_Response.h \
@@ -3832,10 +3829,7 @@ SOURCES += \
     $${PWD}/Scim_ServiceProviderConfig.cpp \
     $${PWD}/Scim_ServiceProviderConfig_bulk.cpp \
     $${PWD}/Scim_ServiceProviderConfig_changePassword.cpp \
-    $${PWD}/Scim_ServiceProviderConfig_etag.cpp \
     $${PWD}/Scim_ServiceProviderConfig_filter.cpp \
-    $${PWD}/Scim_ServiceProviderConfig_patch.cpp \
-    $${PWD}/Scim_ServiceProviderConfig_sort.cpp \
     $${PWD}/Scim_User.cpp \
     $${PWD}/Scim_UserList.cpp \
     $${PWD}/Secretquestion_AutocompleteElement_Response.cpp \
