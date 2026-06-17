@@ -55,6 +55,16 @@ public:
     bool is_fki_inscriptiontype_id_Set() const;
     bool is_fki_inscriptiontype_id_Valid() const;
 
+    qint32 getFkiBuyercontractId() const;
+    void setFkiBuyercontractId(const qint32 &fki_buyercontract_id);
+    bool is_fki_buyercontract_id_Set() const;
+    bool is_fki_buyercontract_id_Valid() const;
+
+    QString getSBuyercontractContract() const;
+    void setSBuyercontractContract(const QString &s_buyercontract_contract);
+    bool is_s_buyercontract_contract_Set() const;
+    bool is_s_buyercontract_contract_Valid() const;
+
     QString getSInscriptiontypeNameX() const;
     void setSInscriptiontypeNameX(const QString &s_inscriptiontype_name_x);
     bool is_s_inscriptiontype_name_x_Set() const;
@@ -74,6 +84,11 @@ public:
     void setSInscriptionMls(const QString &s_inscription_mls);
     bool is_s_inscription_mls_Set() const;
     bool is_s_inscription_mls_Valid() const;
+
+    QString getSInscriptionContract() const;
+    void setSInscriptionContract(const QString &s_inscription_contract);
+    bool is_s_inscription_contract_Set() const;
+    bool is_s_inscription_contract_Valid() const;
 
     QString getDInscriptionSaleprice() const;
     void setDInscriptionSaleprice(const QString &d_inscription_saleprice);
@@ -208,6 +223,14 @@ private:
     bool m_fki_inscriptiontype_id_isSet;
     bool m_fki_inscriptiontype_id_isValid;
 
+    qint32 m_fki_buyercontract_id;
+    bool m_fki_buyercontract_id_isSet;
+    bool m_fki_buyercontract_id_isValid;
+
+    QString m_s_buyercontract_contract;
+    bool m_s_buyercontract_contract_isSet;
+    bool m_s_buyercontract_contract_isValid;
+
     QString m_s_inscriptiontype_name_x;
     bool m_s_inscriptiontype_name_x_isSet;
     bool m_s_inscriptiontype_name_x_isValid;
@@ -223,6 +246,10 @@ private:
     QString m_s_inscription_mls;
     bool m_s_inscription_mls_isSet;
     bool m_s_inscription_mls_isValid;
+
+    QString m_s_inscription_contract;
+    bool m_s_inscription_contract_isSet;
+    bool m_s_inscription_contract_isValid;
 
     QString m_d_inscription_saleprice;
     bool m_d_inscription_saleprice_isSet;

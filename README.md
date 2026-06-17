@@ -28,14 +28,13 @@ example.h:
 ```c++
 
 #include <iostream>
-#include "../client/GlobalCustomerApi.h"
+#include "../client/DocumentationEzmaxpartnerApi.h"
 
 using namespace test_namespace;
 
 class Example : public QObject {
     Q_OBJECT
-    QString create();
-    QString create();
+    Documentation_subscribe_v1_Request create();
 public Q_SLOTS:
    void exampleFunction1();
 };
@@ -45,43 +44,33 @@ public Q_SLOTS:
 example.cpp:
 ```c++
 
-#include "../client/GlobalCustomerApi.h"
+#include "../client/DocumentationEzmaxpartnerApi.h"
 #include "example.h"
 #include <QTimer>
 #include <QEventLoop>
 
-QString Example::create(){
-    QString obj;
-QString Example::create(){
-    QString obj;
+Documentation_subscribe_v1_Request Example::create(){
+    Documentation_subscribe_v1_Request obj;
  return obj;
 }
 
 void Example::exampleFunction1(){
-     GlobalCustomerApi apiInstance;
+     DocumentationEzmaxpartnerApi apiInstance;
      
+      // Configure API key authorization: Authorization
+      apiInstance.setApiKey("YOUR API KEY NAME","YOUR API KEY");
+
       QEventLoop loop;
-      connect(&apiInstance, &GlobalCustomerApi::globalCustomerGetEndpointV1Signal, [&]() {
+      connect(&apiInstance, &DocumentationEzmaxpartnerApi::documentationSubscribeV1Signal, [&]() {
           loop.quit();
       });
-      connect(&apiInstance, &GlobalCustomerApi::globalCustomerGetEndpointV1SignalE, [&](QNetworkReply::NetworkError, const QString &error_str) {
+      connect(&apiInstance, &DocumentationEzmaxpartnerApi::documentationSubscribeV1SignalE, [&](QNetworkReply::NetworkError, const QString &error_str) {
           qDebug() << "Error happened while issuing request : " << error_str;
           loop.quit();
       });
 
-      QString pks_customer_code = create(); // QString | 
-
-      QEventLoop loop;
-      connect(&apiInstance, &GlobalCustomerApi::globalCustomerGetEndpointV1Signal, [&]() {
-          loop.quit();
-      });
-      connect(&apiInstance, &GlobalCustomerApi::globalCustomerGetEndpointV1SignalE, [&](QNetworkReply::NetworkError, const QString &error_str) {
-          qDebug() << "Error happened while issuing request : " << error_str;
-          loop.quit();
-      });
-
-      QString s_infrastructureproduct_code = create(); // QString | The infrastructure product Code  If undefined, \"appcluster01\" is assumed
-      apiInstance.globalCustomerGetEndpointV1(pks_customer_codes_infrastructureproduct_code);
+      Documentation_subscribe_v1_Request documentation_subscribe_v1_request = create(); // Documentation_subscribe_v1_Request | 
+      apiInstance.documentationSubscribeV1(documentation_subscribe_v1_request);
       QTimer::singleShot(5000, &loop, &QEventLoop::quit);
       loop.exec();
   }

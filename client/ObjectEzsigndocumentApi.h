@@ -60,6 +60,7 @@
 #include "Ezsigndocument_extractText_v1_Request.h"
 #include "Ezsigndocument_extractText_v1_Response.h"
 #include "Ezsigndocument_flatten_v1_Response.h"
+#include "Ezsigndocument_getActionableElementsForSigner_v1_Response.h"
 #include "Ezsigndocument_getActionableElements_v1_Response.h"
 #include "Ezsigndocument_getActionableElements_v2_Response.h"
 #include "Ezsigndocument_getActionableElements_v3_Response.h"
@@ -253,6 +254,14 @@ public:
 
     /**
     * @param[in]  pki_ezsigndocument_id qint32 [required]
+    * @param[in]  e_signer_type QString [required]
+    * @param[in]  fki_ezsignsigner_id qint32 [optional]
+    * @param[in]  fki_user_id qint32 [optional]
+    */
+    virtual void ezsigndocumentGetActionableElementsForSignerV1(const qint32 &pki_ezsigndocument_id, const QString &e_signer_type, const ::Ezmaxapi::OptionalParam<qint32> &fki_ezsignsigner_id = ::Ezmaxapi::OptionalParam<qint32>(), const ::Ezmaxapi::OptionalParam<qint32> &fki_user_id = ::Ezmaxapi::OptionalParam<qint32>());
+
+    /**
+    * @param[in]  pki_ezsigndocument_id qint32 [required]
     */
     Q_DECL_DEPRECATED virtual void ezsigndocumentGetActionableElementsV1(const qint32 &pki_ezsigndocument_id);
 
@@ -428,6 +437,7 @@ private:
     void ezsigndocumentEndPrematurelyV1Callback(HttpRequestWorker *worker);
     void ezsigndocumentExtractTextV1Callback(HttpRequestWorker *worker);
     void ezsigndocumentFlattenV1Callback(HttpRequestWorker *worker);
+    void ezsigndocumentGetActionableElementsForSignerV1Callback(HttpRequestWorker *worker);
     void ezsigndocumentGetActionableElementsV1Callback(HttpRequestWorker *worker);
     void ezsigndocumentGetActionableElementsV2Callback(HttpRequestWorker *worker);
     void ezsigndocumentGetActionableElementsV3Callback(HttpRequestWorker *worker);
@@ -476,6 +486,7 @@ Q_SIGNALS:
     void ezsigndocumentEndPrematurelyV1Signal(Ezsigndocument_endPrematurely_v1_Response summary);
     void ezsigndocumentExtractTextV1Signal(Ezsigndocument_extractText_v1_Response summary);
     void ezsigndocumentFlattenV1Signal(Ezsigndocument_flatten_v1_Response summary);
+    void ezsigndocumentGetActionableElementsForSignerV1Signal(Ezsigndocument_getActionableElementsForSigner_v1_Response summary);
     void ezsigndocumentGetActionableElementsV1Signal(Ezsigndocument_getActionableElements_v1_Response summary);
     void ezsigndocumentGetActionableElementsV2Signal(Ezsigndocument_getActionableElements_v2_Response summary);
     void ezsigndocumentGetActionableElementsV3Signal(Ezsigndocument_getActionableElements_v3_Response summary);
@@ -523,6 +534,7 @@ Q_SIGNALS:
     void ezsigndocumentEndPrematurelyV1SignalFull(HttpRequestWorker *worker, Ezsigndocument_endPrematurely_v1_Response summary);
     void ezsigndocumentExtractTextV1SignalFull(HttpRequestWorker *worker, Ezsigndocument_extractText_v1_Response summary);
     void ezsigndocumentFlattenV1SignalFull(HttpRequestWorker *worker, Ezsigndocument_flatten_v1_Response summary);
+    void ezsigndocumentGetActionableElementsForSignerV1SignalFull(HttpRequestWorker *worker, Ezsigndocument_getActionableElementsForSigner_v1_Response summary);
     void ezsigndocumentGetActionableElementsV1SignalFull(HttpRequestWorker *worker, Ezsigndocument_getActionableElements_v1_Response summary);
     void ezsigndocumentGetActionableElementsV2SignalFull(HttpRequestWorker *worker, Ezsigndocument_getActionableElements_v2_Response summary);
     void ezsigndocumentGetActionableElementsV3SignalFull(HttpRequestWorker *worker, Ezsigndocument_getActionableElements_v3_Response summary);
@@ -569,6 +581,7 @@ Q_SIGNALS:
     void ezsigndocumentEndPrematurelyV1SignalError(Ezsigndocument_endPrematurely_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void ezsigndocumentExtractTextV1SignalError(Ezsigndocument_extractText_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void ezsigndocumentFlattenV1SignalError(Ezsigndocument_flatten_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void ezsigndocumentGetActionableElementsForSignerV1SignalError(Ezsigndocument_getActionableElementsForSigner_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void ezsigndocumentGetActionableElementsV1SignalError(Ezsigndocument_getActionableElements_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void ezsigndocumentGetActionableElementsV2SignalError(Ezsigndocument_getActionableElements_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void ezsigndocumentGetActionableElementsV3SignalError(Ezsigndocument_getActionableElements_v3_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -615,6 +628,7 @@ Q_SIGNALS:
     void ezsigndocumentEndPrematurelyV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void ezsigndocumentExtractTextV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void ezsigndocumentFlattenV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void ezsigndocumentGetActionableElementsForSignerV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void ezsigndocumentGetActionableElementsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void ezsigndocumentGetActionableElementsV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void ezsigndocumentGetActionableElementsV3SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);

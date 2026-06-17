@@ -101,6 +101,8 @@ void ObjectEzsigndocumentApi::initializeServerConfigs() {
     _serverIndices.insert("ezsigndocumentExtractTextV1", 0);
     _serverConfigs.insert("ezsigndocumentFlattenV1", defaultConf);
     _serverIndices.insert("ezsigndocumentFlattenV1", 0);
+    _serverConfigs.insert("ezsigndocumentGetActionableElementsForSignerV1", defaultConf);
+    _serverIndices.insert("ezsigndocumentGetActionableElementsForSignerV1", 0);
     _serverConfigs.insert("ezsigndocumentGetActionableElementsV1", defaultConf);
     _serverIndices.insert("ezsigndocumentGetActionableElementsV1", 0);
     _serverConfigs.insert("ezsigndocumentGetActionableElementsV2", defaultConf);
@@ -1686,6 +1688,114 @@ void ObjectEzsigndocumentApi::ezsigndocumentFlattenV1Callback(HttpRequestWorker 
     } else {
         Q_EMIT ezsigndocumentFlattenV1SignalError(output, error_type, error_str);
         Q_EMIT ezsigndocumentFlattenV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectEzsigndocumentApi::ezsigndocumentGetActionableElementsForSignerV1(const qint32 &pki_ezsigndocument_id, const QString &e_signer_type, const ::Ezmaxapi::OptionalParam<qint32> &fki_ezsignsigner_id, const ::Ezmaxapi::OptionalParam<qint32> &fki_user_id) {
+    QString fullPath = QString(_serverConfigs["ezsigndocumentGetActionableElementsForSignerV1"][_serverIndices.value("ezsigndocumentGetActionableElementsForSignerV1")].URL()+"/1/object/ezsigndocument/{pkiEzsigndocumentID}/getActionableElementsForSigner");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_ezsigndocument_idPathParam("{");
+        pki_ezsigndocument_idPathParam.append("pkiEzsigndocumentID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEzsigndocumentID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEzsigndocumentID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_ezsigndocument_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_ezsigndocument_id)));
+    }
+    QString queryPrefix, querySuffix, queryDelimiter, queryStyle;
+    
+    {
+        queryStyle = "form";
+        if (queryStyle == "")
+            queryStyle = "form";
+        queryPrefix = getParamStylePrefix(queryStyle);
+        querySuffix = getParamStyleSuffix(queryStyle);
+        queryDelimiter = getParamStyleDelimiter(queryStyle, "eSignerType", true);
+        if (fullPath.indexOf("?") > 0)
+            fullPath.append(queryPrefix);
+        else
+            fullPath.append("?");
+
+        fullPath.append(QUrl::toPercentEncoding("eSignerType")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(e_signer_type)));
+    }
+    if (fki_ezsignsigner_id.hasValue())
+    {
+        queryStyle = "form";
+        if (queryStyle == "")
+            queryStyle = "form";
+        queryPrefix = getParamStylePrefix(queryStyle);
+        querySuffix = getParamStyleSuffix(queryStyle);
+        queryDelimiter = getParamStyleDelimiter(queryStyle, "fkiEzsignsignerID", true);
+        if (fullPath.indexOf("?") > 0)
+            fullPath.append(queryPrefix);
+        else
+            fullPath.append("?");
+
+        fullPath.append(QUrl::toPercentEncoding("fkiEzsignsignerID")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(fki_ezsignsigner_id.stringValue())));
+    }
+    if (fki_user_id.hasValue())
+    {
+        queryStyle = "form";
+        if (queryStyle == "")
+            queryStyle = "form";
+        queryPrefix = getParamStylePrefix(queryStyle);
+        querySuffix = getParamStyleSuffix(queryStyle);
+        queryDelimiter = getParamStyleDelimiter(queryStyle, "fkiUserID", true);
+        if (fullPath.indexOf("?") > 0)
+            fullPath.append(queryPrefix);
+        else
+            fullPath.append("?");
+
+        fullPath.append(QUrl::toPercentEncoding("fkiUserID")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(fki_user_id.stringValue())));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEzsigndocumentApi::ezsigndocumentGetActionableElementsForSignerV1Callback);
+    connect(this, &ObjectEzsigndocumentApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectEzsigndocumentApi::ezsigndocumentGetActionableElementsForSignerV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Ezsigndocument_getActionableElementsForSigner_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT ezsigndocumentGetActionableElementsForSignerV1Signal(output);
+        Q_EMIT ezsigndocumentGetActionableElementsForSignerV1SignalFull(worker, output);
+    } else {
+        Q_EMIT ezsigndocumentGetActionableElementsForSignerV1SignalError(output, error_type, error_str);
+        Q_EMIT ezsigndocumentGetActionableElementsForSignerV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

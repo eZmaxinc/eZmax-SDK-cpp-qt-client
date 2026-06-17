@@ -324,6 +324,7 @@ HEADERS += \
     $${PWD}/Custom_EzmaxinvoicingEzsigndocument_Response.h \
     $${PWD}/Custom_EzmaxinvoicingEzsignfolder_Response.h \
     $${PWD}/Custom_Ezmaxpartner_ListElement.h \
+    $${PWD}/Custom_Ezmaxpartnerproduct_Subscribe.h \
     $${PWD}/Custom_Ezmaxpricing_Response.h \
     $${PWD}/Custom_EzsigndocumentDuplicate_Request.h \
     $${PWD}/Custom_EzsigndocumentEzsignsignaturesAutomatic_Response.h \
@@ -417,6 +418,8 @@ HEADERS += \
     $${PWD}/Discussionmessage_deleteObject_v1_Response.h \
     $${PWD}/Discussionmessage_patchObject_v1_Request.h \
     $${PWD}/Discussionmessage_patchObject_v1_Response.h \
+    $${PWD}/Documentation_subscribe_v1_Request.h \
+    $${PWD}/Documentation_subscribe_v1_Response.h \
     $${PWD}/Domain_AutocompleteElement_Response.h \
     $${PWD}/Domain_ListElement.h \
     $${PWD}/Domain_Request.h \
@@ -681,6 +684,8 @@ HEADERS += \
     $${PWD}/Ezsigndocument_extractText_v1_Response.h \
     $${PWD}/Ezsigndocument_extractText_v1_Response_mPayload.h \
     $${PWD}/Ezsigndocument_flatten_v1_Response.h \
+    $${PWD}/Ezsigndocument_getActionableElementsForSigner_v1_Response.h \
+    $${PWD}/Ezsigndocument_getActionableElementsForSigner_v1_Response_mPayload.h \
     $${PWD}/Ezsigndocument_getActionableElements_v1_Response.h \
     $${PWD}/Ezsigndocument_getActionableElements_v1_Response_mPayload.h \
     $${PWD}/Ezsigndocument_getActionableElements_v2_Response.h \
@@ -768,6 +773,8 @@ HEADERS += \
     $${PWD}/Ezsignfolder_editObject_v3_Request.h \
     $${PWD}/Ezsignfolder_editObject_v3_Response.h \
     $${PWD}/Ezsignfolder_endPrematurely_v1_Response.h \
+    $${PWD}/Ezsignfolder_getActionableElementsForSigner_v1_Response.h \
+    $${PWD}/Ezsignfolder_getActionableElementsForSigner_v1_Response_mPayload.h \
     $${PWD}/Ezsignfolder_getActionableElements_v1_Response.h \
     $${PWD}/Ezsignfolder_getActionableElements_v1_Response_mPayload.h \
     $${PWD}/Ezsignfolder_getActionableElements_v2_Response.h \
@@ -1944,6 +1951,8 @@ HEADERS += \
     $${PWD}/Versionhistory_ResponseCompound.h \
     $${PWD}/Versionhistory_getObject_v2_Response.h \
     $${PWD}/Versionhistory_getObject_v2_Response_mPayload.h \
+    $${PWD}/Webhook_Ezmaxpartnerproduct_Subscribe.h \
+    $${PWD}/Webhook_Ezmaxpartnerproduct_Unsubscribe.h \
     $${PWD}/Webhook_Ezsign_DocumentCompleted.h \
     $${PWD}/Webhook_Ezsign_DocumentFormCompleted.h \
     $${PWD}/Webhook_Ezsign_DocumentUnsent.h \
@@ -1995,6 +2004,7 @@ HEADERS += \
     $${PWD}/Websocket_Response_Information_V1.h \
     $${PWD}/Websocket_Response_Information_V1_mPayload.h \
 # APIs
+    $${PWD}/DocumentationEzmaxpartnerApi.h \
     $${PWD}/GlobalCustomerApi.h \
     $${PWD}/GlobalEzmaxclientApi.h \
     $${PWD}/GlobalEzmaxcustomerApi.h \
@@ -2468,6 +2478,7 @@ SOURCES += \
     $${PWD}/Custom_EzmaxinvoicingEzsigndocument_Response.cpp \
     $${PWD}/Custom_EzmaxinvoicingEzsignfolder_Response.cpp \
     $${PWD}/Custom_Ezmaxpartner_ListElement.cpp \
+    $${PWD}/Custom_Ezmaxpartnerproduct_Subscribe.cpp \
     $${PWD}/Custom_Ezmaxpricing_Response.cpp \
     $${PWD}/Custom_EzsigndocumentDuplicate_Request.cpp \
     $${PWD}/Custom_EzsigndocumentEzsignsignaturesAutomatic_Response.cpp \
@@ -2561,6 +2572,8 @@ SOURCES += \
     $${PWD}/Discussionmessage_deleteObject_v1_Response.cpp \
     $${PWD}/Discussionmessage_patchObject_v1_Request.cpp \
     $${PWD}/Discussionmessage_patchObject_v1_Response.cpp \
+    $${PWD}/Documentation_subscribe_v1_Request.cpp \
+    $${PWD}/Documentation_subscribe_v1_Response.cpp \
     $${PWD}/Domain_AutocompleteElement_Response.cpp \
     $${PWD}/Domain_ListElement.cpp \
     $${PWD}/Domain_Request.cpp \
@@ -2825,6 +2838,8 @@ SOURCES += \
     $${PWD}/Ezsigndocument_extractText_v1_Response.cpp \
     $${PWD}/Ezsigndocument_extractText_v1_Response_mPayload.cpp \
     $${PWD}/Ezsigndocument_flatten_v1_Response.cpp \
+    $${PWD}/Ezsigndocument_getActionableElementsForSigner_v1_Response.cpp \
+    $${PWD}/Ezsigndocument_getActionableElementsForSigner_v1_Response_mPayload.cpp \
     $${PWD}/Ezsigndocument_getActionableElements_v1_Response.cpp \
     $${PWD}/Ezsigndocument_getActionableElements_v1_Response_mPayload.cpp \
     $${PWD}/Ezsigndocument_getActionableElements_v2_Response.cpp \
@@ -2912,6 +2927,8 @@ SOURCES += \
     $${PWD}/Ezsignfolder_editObject_v3_Request.cpp \
     $${PWD}/Ezsignfolder_editObject_v3_Response.cpp \
     $${PWD}/Ezsignfolder_endPrematurely_v1_Response.cpp \
+    $${PWD}/Ezsignfolder_getActionableElementsForSigner_v1_Response.cpp \
+    $${PWD}/Ezsignfolder_getActionableElementsForSigner_v1_Response_mPayload.cpp \
     $${PWD}/Ezsignfolder_getActionableElements_v1_Response.cpp \
     $${PWD}/Ezsignfolder_getActionableElements_v1_Response_mPayload.cpp \
     $${PWD}/Ezsignfolder_getActionableElements_v2_Response.cpp \
@@ -4088,6 +4105,8 @@ SOURCES += \
     $${PWD}/Versionhistory_ResponseCompound.cpp \
     $${PWD}/Versionhistory_getObject_v2_Response.cpp \
     $${PWD}/Versionhistory_getObject_v2_Response_mPayload.cpp \
+    $${PWD}/Webhook_Ezmaxpartnerproduct_Subscribe.cpp \
+    $${PWD}/Webhook_Ezmaxpartnerproduct_Unsubscribe.cpp \
     $${PWD}/Webhook_Ezsign_DocumentCompleted.cpp \
     $${PWD}/Webhook_Ezsign_DocumentFormCompleted.cpp \
     $${PWD}/Webhook_Ezsign_DocumentUnsent.cpp \
@@ -4139,6 +4158,7 @@ SOURCES += \
     $${PWD}/Websocket_Response_Information_V1.cpp \
     $${PWD}/Websocket_Response_Information_V1_mPayload.cpp \
 # APIs
+    $${PWD}/DocumentationEzmaxpartnerApi.cpp \
     $${PWD}/GlobalCustomerApi.cpp \
     $${PWD}/GlobalEzmaxclientApi.cpp \
     $${PWD}/GlobalEzmaxcustomerApi.cpp \

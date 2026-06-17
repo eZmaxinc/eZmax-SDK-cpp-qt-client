@@ -333,6 +333,7 @@ add_library(${PROJECT_NAME}
   Custom_EzmaxinvoicingEzsigndocument_Response.h
   Custom_EzmaxinvoicingEzsignfolder_Response.h
   Custom_Ezmaxpartner_ListElement.h
+  Custom_Ezmaxpartnerproduct_Subscribe.h
   Custom_Ezmaxpricing_Response.h
   Custom_EzsigndocumentDuplicate_Request.h
   Custom_EzsigndocumentEzsignsignaturesAutomatic_Response.h
@@ -426,6 +427,8 @@ add_library(${PROJECT_NAME}
   Discussionmessage_deleteObject_v1_Response.h
   Discussionmessage_patchObject_v1_Request.h
   Discussionmessage_patchObject_v1_Response.h
+  Documentation_subscribe_v1_Request.h
+  Documentation_subscribe_v1_Response.h
   Domain_AutocompleteElement_Response.h
   Domain_ListElement.h
   Domain_Request.h
@@ -690,6 +693,8 @@ add_library(${PROJECT_NAME}
   Ezsigndocument_extractText_v1_Response.h
   Ezsigndocument_extractText_v1_Response_mPayload.h
   Ezsigndocument_flatten_v1_Response.h
+  Ezsigndocument_getActionableElementsForSigner_v1_Response.h
+  Ezsigndocument_getActionableElementsForSigner_v1_Response_mPayload.h
   Ezsigndocument_getActionableElements_v1_Response.h
   Ezsigndocument_getActionableElements_v1_Response_mPayload.h
   Ezsigndocument_getActionableElements_v2_Response.h
@@ -777,6 +782,8 @@ add_library(${PROJECT_NAME}
   Ezsignfolder_editObject_v3_Request.h
   Ezsignfolder_editObject_v3_Response.h
   Ezsignfolder_endPrematurely_v1_Response.h
+  Ezsignfolder_getActionableElementsForSigner_v1_Response.h
+  Ezsignfolder_getActionableElementsForSigner_v1_Response_mPayload.h
   Ezsignfolder_getActionableElements_v1_Response.h
   Ezsignfolder_getActionableElements_v1_Response_mPayload.h
   Ezsignfolder_getActionableElements_v2_Response.h
@@ -1953,6 +1960,8 @@ add_library(${PROJECT_NAME}
   Versionhistory_ResponseCompound.h
   Versionhistory_getObject_v2_Response.h
   Versionhistory_getObject_v2_Response_mPayload.h
+  Webhook_Ezmaxpartnerproduct_Subscribe.h
+  Webhook_Ezmaxpartnerproduct_Unsubscribe.h
   Webhook_Ezsign_DocumentCompleted.h
   Webhook_Ezsign_DocumentFormCompleted.h
   Webhook_Ezsign_DocumentUnsent.h
@@ -2003,6 +2012,7 @@ add_library(${PROJECT_NAME}
   Websocket_Response_GetWebsocketID_V1_mPayload.h
   Websocket_Response_Information_V1.h
   Websocket_Response_Information_V1_mPayload.h
+  DocumentationEzmaxpartnerApi.h
   GlobalCustomerApi.h
   GlobalEzmaxclientApi.h
   GlobalEzmaxcustomerApi.h
@@ -2472,6 +2482,7 @@ add_library(${PROJECT_NAME}
   Custom_EzmaxinvoicingEzsigndocument_Response.cpp
   Custom_EzmaxinvoicingEzsignfolder_Response.cpp
   Custom_Ezmaxpartner_ListElement.cpp
+  Custom_Ezmaxpartnerproduct_Subscribe.cpp
   Custom_Ezmaxpricing_Response.cpp
   Custom_EzsigndocumentDuplicate_Request.cpp
   Custom_EzsigndocumentEzsignsignaturesAutomatic_Response.cpp
@@ -2565,6 +2576,8 @@ add_library(${PROJECT_NAME}
   Discussionmessage_deleteObject_v1_Response.cpp
   Discussionmessage_patchObject_v1_Request.cpp
   Discussionmessage_patchObject_v1_Response.cpp
+  Documentation_subscribe_v1_Request.cpp
+  Documentation_subscribe_v1_Response.cpp
   Domain_AutocompleteElement_Response.cpp
   Domain_ListElement.cpp
   Domain_Request.cpp
@@ -2829,6 +2842,8 @@ add_library(${PROJECT_NAME}
   Ezsigndocument_extractText_v1_Response.cpp
   Ezsigndocument_extractText_v1_Response_mPayload.cpp
   Ezsigndocument_flatten_v1_Response.cpp
+  Ezsigndocument_getActionableElementsForSigner_v1_Response.cpp
+  Ezsigndocument_getActionableElementsForSigner_v1_Response_mPayload.cpp
   Ezsigndocument_getActionableElements_v1_Response.cpp
   Ezsigndocument_getActionableElements_v1_Response_mPayload.cpp
   Ezsigndocument_getActionableElements_v2_Response.cpp
@@ -2916,6 +2931,8 @@ add_library(${PROJECT_NAME}
   Ezsignfolder_editObject_v3_Request.cpp
   Ezsignfolder_editObject_v3_Response.cpp
   Ezsignfolder_endPrematurely_v1_Response.cpp
+  Ezsignfolder_getActionableElementsForSigner_v1_Response.cpp
+  Ezsignfolder_getActionableElementsForSigner_v1_Response_mPayload.cpp
   Ezsignfolder_getActionableElements_v1_Response.cpp
   Ezsignfolder_getActionableElements_v1_Response_mPayload.cpp
   Ezsignfolder_getActionableElements_v2_Response.cpp
@@ -4092,6 +4109,8 @@ add_library(${PROJECT_NAME}
   Versionhistory_ResponseCompound.cpp
   Versionhistory_getObject_v2_Response.cpp
   Versionhistory_getObject_v2_Response_mPayload.cpp
+  Webhook_Ezmaxpartnerproduct_Subscribe.cpp
+  Webhook_Ezmaxpartnerproduct_Unsubscribe.cpp
   Webhook_Ezsign_DocumentCompleted.cpp
   Webhook_Ezsign_DocumentFormCompleted.cpp
   Webhook_Ezsign_DocumentUnsent.cpp
@@ -4142,6 +4161,7 @@ add_library(${PROJECT_NAME}
   Websocket_Response_GetWebsocketID_V1_mPayload.cpp
   Websocket_Response_Information_V1.cpp
   Websocket_Response_Information_V1_mPayload.cpp
+  DocumentationEzmaxpartnerApi.cpp
   GlobalCustomerApi.cpp
   GlobalEzmaxclientApi.cpp
   GlobalEzmaxcustomerApi.cpp

@@ -36,6 +36,7 @@
 #include "Ezsignfolder_editObject_v3_Request.h"
 #include "Ezsignfolder_editObject_v3_Response.h"
 #include "Ezsignfolder_endPrematurely_v1_Response.h"
+#include "Ezsignfolder_getActionableElementsForSigner_v1_Response.h"
 #include "Ezsignfolder_getActionableElements_v1_Response.h"
 #include "Ezsignfolder_getActionableElements_v2_Response.h"
 #include "Ezsignfolder_getActionableElements_v3_Response.h"
@@ -174,6 +175,14 @@ public:
     * @param[in]  body Object [required]
     */
     virtual void ezsignfolderEndPrematurelyV1(const qint32 &pki_ezsignfolder_id, const Object &body);
+
+    /**
+    * @param[in]  pki_ezsignfolder_id qint32 [required]
+    * @param[in]  e_signer_type QString [required]
+    * @param[in]  fki_ezsignsigner_id qint32 [optional]
+    * @param[in]  fki_user_id qint32 [optional]
+    */
+    virtual void ezsignfolderGetActionableElementsForSignerV1(const qint32 &pki_ezsignfolder_id, const QString &e_signer_type, const ::Ezmaxapi::OptionalParam<qint32> &fki_ezsignsigner_id = ::Ezmaxapi::OptionalParam<qint32>(), const ::Ezmaxapi::OptionalParam<qint32> &fki_user_id = ::Ezmaxapi::OptionalParam<qint32>());
 
     /**
     * @param[in]  pki_ezsignfolder_id qint32 [required]
@@ -373,6 +382,7 @@ private:
     void ezsignfolderDuplicateV1Callback(HttpRequestWorker *worker);
     void ezsignfolderEditObjectV3Callback(HttpRequestWorker *worker);
     void ezsignfolderEndPrematurelyV1Callback(HttpRequestWorker *worker);
+    void ezsignfolderGetActionableElementsForSignerV1Callback(HttpRequestWorker *worker);
     void ezsignfolderGetActionableElementsV1Callback(HttpRequestWorker *worker);
     void ezsignfolderGetActionableElementsV2Callback(HttpRequestWorker *worker);
     void ezsignfolderGetActionableElementsV3Callback(HttpRequestWorker *worker);
@@ -416,6 +426,7 @@ Q_SIGNALS:
     void ezsignfolderDuplicateV1Signal(Ezsignfolder_duplicate_v1_Response summary);
     void ezsignfolderEditObjectV3Signal(Ezsignfolder_editObject_v3_Response summary);
     void ezsignfolderEndPrematurelyV1Signal(Ezsignfolder_endPrematurely_v1_Response summary);
+    void ezsignfolderGetActionableElementsForSignerV1Signal(Ezsignfolder_getActionableElementsForSigner_v1_Response summary);
     void ezsignfolderGetActionableElementsV1Signal(Ezsignfolder_getActionableElements_v1_Response summary);
     void ezsignfolderGetActionableElementsV2Signal(Ezsignfolder_getActionableElements_v2_Response summary);
     void ezsignfolderGetActionableElementsV3Signal(Ezsignfolder_getActionableElements_v3_Response summary);
@@ -458,6 +469,7 @@ Q_SIGNALS:
     void ezsignfolderDuplicateV1SignalFull(HttpRequestWorker *worker, Ezsignfolder_duplicate_v1_Response summary);
     void ezsignfolderEditObjectV3SignalFull(HttpRequestWorker *worker, Ezsignfolder_editObject_v3_Response summary);
     void ezsignfolderEndPrematurelyV1SignalFull(HttpRequestWorker *worker, Ezsignfolder_endPrematurely_v1_Response summary);
+    void ezsignfolderGetActionableElementsForSignerV1SignalFull(HttpRequestWorker *worker, Ezsignfolder_getActionableElementsForSigner_v1_Response summary);
     void ezsignfolderGetActionableElementsV1SignalFull(HttpRequestWorker *worker, Ezsignfolder_getActionableElements_v1_Response summary);
     void ezsignfolderGetActionableElementsV2SignalFull(HttpRequestWorker *worker, Ezsignfolder_getActionableElements_v2_Response summary);
     void ezsignfolderGetActionableElementsV3SignalFull(HttpRequestWorker *worker, Ezsignfolder_getActionableElements_v3_Response summary);
@@ -499,6 +511,7 @@ Q_SIGNALS:
     void ezsignfolderDuplicateV1SignalError(Ezsignfolder_duplicate_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void ezsignfolderEditObjectV3SignalError(Ezsignfolder_editObject_v3_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void ezsignfolderEndPrematurelyV1SignalError(Ezsignfolder_endPrematurely_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void ezsignfolderGetActionableElementsForSignerV1SignalError(Ezsignfolder_getActionableElementsForSigner_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void ezsignfolderGetActionableElementsV1SignalError(Ezsignfolder_getActionableElements_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void ezsignfolderGetActionableElementsV2SignalError(Ezsignfolder_getActionableElements_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void ezsignfolderGetActionableElementsV3SignalError(Ezsignfolder_getActionableElements_v3_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -540,6 +553,7 @@ Q_SIGNALS:
     void ezsignfolderDuplicateV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void ezsignfolderEditObjectV3SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void ezsignfolderEndPrematurelyV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void ezsignfolderGetActionableElementsForSignerV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void ezsignfolderGetActionableElementsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void ezsignfolderGetActionableElementsV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void ezsignfolderGetActionableElementsV3SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);

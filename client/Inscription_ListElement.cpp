@@ -43,6 +43,12 @@ void Inscription_ListElement::initializeModel() {
     m_fki_inscriptiontype_id_isSet = false;
     m_fki_inscriptiontype_id_isValid = false;
 
+    m_fki_buyercontract_id_isSet = false;
+    m_fki_buyercontract_id_isValid = false;
+
+    m_s_buyercontract_contract_isSet = false;
+    m_s_buyercontract_contract_isValid = false;
+
     m_s_inscriptiontype_name_x_isSet = false;
     m_s_inscriptiontype_name_x_isValid = false;
 
@@ -54,6 +60,9 @@ void Inscription_ListElement::initializeModel() {
 
     m_s_inscription_mls_isSet = false;
     m_s_inscription_mls_isValid = false;
+
+    m_s_inscription_contract_isSet = false;
+    m_s_inscription_contract_isValid = false;
 
     m_d_inscription_saleprice_isSet = false;
     m_d_inscription_saleprice_isValid = false;
@@ -146,6 +155,12 @@ void Inscription_ListElement::fromJsonObject(QJsonObject json) {
     m_fki_inscriptiontype_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_inscriptiontype_id, json[QString("fkiInscriptiontypeID")]);
     m_fki_inscriptiontype_id_isSet = !json[QString("fkiInscriptiontypeID")].isNull() && m_fki_inscriptiontype_id_isValid;
 
+    m_fki_buyercontract_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_buyercontract_id, json[QString("fkiBuyercontractID")]);
+    m_fki_buyercontract_id_isSet = !json[QString("fkiBuyercontractID")].isNull() && m_fki_buyercontract_id_isValid;
+
+    m_s_buyercontract_contract_isValid = ::Ezmaxapi::fromJsonValue(m_s_buyercontract_contract, json[QString("sBuyercontractContract")]);
+    m_s_buyercontract_contract_isSet = !json[QString("sBuyercontractContract")].isNull() && m_s_buyercontract_contract_isValid;
+
     m_s_inscriptiontype_name_x_isValid = ::Ezmaxapi::fromJsonValue(m_s_inscriptiontype_name_x, json[QString("sInscriptiontypeNameX")]);
     m_s_inscriptiontype_name_x_isSet = !json[QString("sInscriptiontypeNameX")].isNull() && m_s_inscriptiontype_name_x_isValid;
 
@@ -157,6 +172,9 @@ void Inscription_ListElement::fromJsonObject(QJsonObject json) {
 
     m_s_inscription_mls_isValid = ::Ezmaxapi::fromJsonValue(m_s_inscription_mls, json[QString("sInscriptionMLS")]);
     m_s_inscription_mls_isSet = !json[QString("sInscriptionMLS")].isNull() && m_s_inscription_mls_isValid;
+
+    m_s_inscription_contract_isValid = ::Ezmaxapi::fromJsonValue(m_s_inscription_contract, json[QString("sInscriptionContract")]);
+    m_s_inscription_contract_isSet = !json[QString("sInscriptionContract")].isNull() && m_s_inscription_contract_isValid;
 
     m_d_inscription_saleprice_isValid = ::Ezmaxapi::fromJsonValue(m_d_inscription_saleprice, json[QString("dInscriptionSaleprice")]);
     m_d_inscription_saleprice_isSet = !json[QString("dInscriptionSaleprice")].isNull() && m_d_inscription_saleprice_isValid;
@@ -249,6 +267,12 @@ QJsonObject Inscription_ListElement::asJsonObject() const {
     if (m_fki_inscriptiontype_id_isSet) {
         obj.insert(QString("fkiInscriptiontypeID"), ::Ezmaxapi::toJsonValue(m_fki_inscriptiontype_id));
     }
+    if (m_fki_buyercontract_id_isSet) {
+        obj.insert(QString("fkiBuyercontractID"), ::Ezmaxapi::toJsonValue(m_fki_buyercontract_id));
+    }
+    if (m_s_buyercontract_contract_isSet) {
+        obj.insert(QString("sBuyercontractContract"), ::Ezmaxapi::toJsonValue(m_s_buyercontract_contract));
+    }
     if (m_s_inscriptiontype_name_x_isSet) {
         obj.insert(QString("sInscriptiontypeNameX"), ::Ezmaxapi::toJsonValue(m_s_inscriptiontype_name_x));
     }
@@ -260,6 +284,9 @@ QJsonObject Inscription_ListElement::asJsonObject() const {
     }
     if (m_s_inscription_mls_isSet) {
         obj.insert(QString("sInscriptionMLS"), ::Ezmaxapi::toJsonValue(m_s_inscription_mls));
+    }
+    if (m_s_inscription_contract_isSet) {
+        obj.insert(QString("sInscriptionContract"), ::Ezmaxapi::toJsonValue(m_s_inscription_contract));
     }
     if (m_d_inscription_saleprice_isSet) {
         obj.insert(QString("dInscriptionSaleprice"), ::Ezmaxapi::toJsonValue(m_d_inscription_saleprice));
@@ -384,6 +411,38 @@ bool Inscription_ListElement::is_fki_inscriptiontype_id_Valid() const{
     return m_fki_inscriptiontype_id_isValid;
 }
 
+qint32 Inscription_ListElement::getFkiBuyercontractId() const {
+    return m_fki_buyercontract_id;
+}
+void Inscription_ListElement::setFkiBuyercontractId(const qint32 &fki_buyercontract_id) {
+    m_fki_buyercontract_id = fki_buyercontract_id;
+    m_fki_buyercontract_id_isSet = true;
+}
+
+bool Inscription_ListElement::is_fki_buyercontract_id_Set() const{
+    return m_fki_buyercontract_id_isSet;
+}
+
+bool Inscription_ListElement::is_fki_buyercontract_id_Valid() const{
+    return m_fki_buyercontract_id_isValid;
+}
+
+QString Inscription_ListElement::getSBuyercontractContract() const {
+    return m_s_buyercontract_contract;
+}
+void Inscription_ListElement::setSBuyercontractContract(const QString &s_buyercontract_contract) {
+    m_s_buyercontract_contract = s_buyercontract_contract;
+    m_s_buyercontract_contract_isSet = true;
+}
+
+bool Inscription_ListElement::is_s_buyercontract_contract_Set() const{
+    return m_s_buyercontract_contract_isSet;
+}
+
+bool Inscription_ListElement::is_s_buyercontract_contract_Valid() const{
+    return m_s_buyercontract_contract_isValid;
+}
+
 QString Inscription_ListElement::getSInscriptiontypeNameX() const {
     return m_s_inscriptiontype_name_x;
 }
@@ -446,6 +505,22 @@ bool Inscription_ListElement::is_s_inscription_mls_Set() const{
 
 bool Inscription_ListElement::is_s_inscription_mls_Valid() const{
     return m_s_inscription_mls_isValid;
+}
+
+QString Inscription_ListElement::getSInscriptionContract() const {
+    return m_s_inscription_contract;
+}
+void Inscription_ListElement::setSInscriptionContract(const QString &s_inscription_contract) {
+    m_s_inscription_contract = s_inscription_contract;
+    m_s_inscription_contract_isSet = true;
+}
+
+bool Inscription_ListElement::is_s_inscription_contract_Set() const{
+    return m_s_inscription_contract_isSet;
+}
+
+bool Inscription_ListElement::is_s_inscription_contract_Valid() const{
+    return m_s_inscription_contract_isValid;
 }
 
 QString Inscription_ListElement::getDInscriptionSaleprice() const {
@@ -850,6 +925,16 @@ bool Inscription_ListElement::isSet() const {
             break;
         }
 
+        if (m_fki_buyercontract_id_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_s_buyercontract_contract_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (m_s_inscriptiontype_name_x_isSet) {
             isObjectUpdated = true;
             break;
@@ -866,6 +951,11 @@ bool Inscription_ListElement::isSet() const {
         }
 
         if (m_s_inscription_mls_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_s_inscription_contract_isSet) {
             isObjectUpdated = true;
             break;
         }

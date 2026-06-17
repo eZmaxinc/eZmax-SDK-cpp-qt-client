@@ -11,37 +11,38 @@
  */
 
 /*
- * User_impersonate_v1_Request.h
+ * Documentation_subscribe_v1_Response.h
  *
- * Request for POST /1/object/user/{pkiUserID}/impersonate
+ * Request for POST /1/module/ezmaxmaillinglist/subscribe
  */
 
-#ifndef User_impersonate_v1_Request_H
-#define User_impersonate_v1_Request_H
+#ifndef Documentation_subscribe_v1_Response_H
+#define Documentation_subscribe_v1_Response_H
 
 #include <QJsonObject>
 
+#include <QString>
 
 #include "Enum.h"
 #include "Object.h"
 
 namespace Ezmaxapi {
 
-class User_impersonate_v1_Request : public Object {
+class Documentation_subscribe_v1_Response : public Object {
 public:
-    User_impersonate_v1_Request();
-    User_impersonate_v1_Request(const QString &json);
-    ~User_impersonate_v1_Request() override;
+    Documentation_subscribe_v1_Response();
+    Documentation_subscribe_v1_Response(const QString &json);
+    ~Documentation_subscribe_v1_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
     void fromJson(const QString &jsonString) override;
 
-    qint32 getIExpirationMinutes() const;
-    void setIExpirationMinutes(const qint32 &i_expiration_minutes);
-    bool is_i_expiration_minutes_Set() const;
-    bool is_i_expiration_minutes_Valid() const;
+    QString getSExternalId() const;
+    void setSExternalId(const QString &s_external_id);
+    bool is_s_external_id_Set() const;
+    bool is_s_external_id_Valid() const;
 
     virtual bool isSet() const override;
     virtual bool isValid() const override;
@@ -49,13 +50,13 @@ public:
 private:
     void initializeModel();
 
-    qint32 m_i_expiration_minutes;
-    bool m_i_expiration_minutes_isSet;
-    bool m_i_expiration_minutes_isValid;
+    QString m_s_external_id;
+    bool m_s_external_id_isSet;
+    bool m_s_external_id_isValid;
 };
 
 } // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(Ezmaxapi::User_impersonate_v1_Request)
+Q_DECLARE_METATYPE(Ezmaxapi::Documentation_subscribe_v1_Response)
 
-#endif // User_impersonate_v1_Request_H
+#endif // Documentation_subscribe_v1_Response_H
