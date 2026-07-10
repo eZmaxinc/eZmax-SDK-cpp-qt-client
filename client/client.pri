@@ -336,6 +336,7 @@ HEADERS += \
     $${PWD}/Custom_EzsignfolderezsigntemplatepublicSigner_Response.h \
     $${PWD}/Custom_Ezsignfolderezsigntemplatepublic_Response.h \
     $${PWD}/Custom_EzsignfoldersignerassociationActionableElement_Response.h \
+    $${PWD}/Custom_EzsignfoldersignerassociationActionableElement_ResponseV2.h \
     $${PWD}/Custom_Ezsignfoldersignerassociationstatus_Response.h \
     $${PWD}/Custom_Ezsignfoldersignerassociationstatus_ResponseV3.h \
     $${PWD}/Custom_EzsignfoldertransmissionSigner_Response.h \
@@ -801,6 +802,8 @@ HEADERS += \
     $${PWD}/Ezsignfolder_getEzsigndocuments_v2_Response_mPayload.h \
     $${PWD}/Ezsignfolder_getEzsignfoldersignerassociations_v1_Response.h \
     $${PWD}/Ezsignfolder_getEzsignfoldersignerassociations_v1_Response_mPayload.h \
+    $${PWD}/Ezsignfolder_getEzsignfoldersignerassociations_v2_Response.h \
+    $${PWD}/Ezsignfolder_getEzsignfoldersignerassociations_v2_Response_mPayload.h \
     $${PWD}/Ezsignfolder_getEzsignformfieldgroups_v1_Response.h \
     $${PWD}/Ezsignfolder_getEzsignformfieldgroups_v1_Response_mPayload.h \
     $${PWD}/Ezsignfolder_getEzsignsignaturesAutomatic_v1_Response.h \
@@ -838,10 +841,14 @@ HEADERS += \
     $${PWD}/Ezsignfolder_unsend_v1_Response.h \
     $${PWD}/Ezsignfoldersignerassociation_Request.h \
     $${PWD}/Ezsignfoldersignerassociation_RequestCompound.h \
+    $${PWD}/Ezsignfoldersignerassociation_RequestCompoundV2.h \
     $${PWD}/Ezsignfoldersignerassociation_RequestPatch.h \
+    $${PWD}/Ezsignfoldersignerassociation_RequestV2.h \
     $${PWD}/Ezsignfoldersignerassociation_Response.h \
     $${PWD}/Ezsignfoldersignerassociation_ResponseCompound.h \
+    $${PWD}/Ezsignfoldersignerassociation_ResponseCompoundV3.h \
     $${PWD}/Ezsignfoldersignerassociation_ResponseCompound_User.h \
+    $${PWD}/Ezsignfoldersignerassociation_ResponseV3.h \
     $${PWD}/Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Request.h \
     $${PWD}/Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Response.h \
     $${PWD}/Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Response_mPayload.h \
@@ -854,9 +861,14 @@ HEADERS += \
     $${PWD}/Ezsignfoldersignerassociation_createObject_v2_Request.h \
     $${PWD}/Ezsignfoldersignerassociation_createObject_v2_Response.h \
     $${PWD}/Ezsignfoldersignerassociation_createObject_v2_Response_mPayload.h \
+    $${PWD}/Ezsignfoldersignerassociation_createObject_v3_Request.h \
+    $${PWD}/Ezsignfoldersignerassociation_createObject_v3_Response.h \
+    $${PWD}/Ezsignfoldersignerassociation_createObject_v3_Response_mPayload.h \
     $${PWD}/Ezsignfoldersignerassociation_deleteObject_v1_Response.h \
     $${PWD}/Ezsignfoldersignerassociation_editObject_v1_Request.h \
     $${PWD}/Ezsignfoldersignerassociation_editObject_v1_Response.h \
+    $${PWD}/Ezsignfoldersignerassociation_editObject_v2_Request.h \
+    $${PWD}/Ezsignfoldersignerassociation_editObject_v2_Response.h \
     $${PWD}/Ezsignfoldersignerassociation_forceDisconnect_v1_Response.h \
     $${PWD}/Ezsignfoldersignerassociation_getInPersonLoginUrl_v1_Response.h \
     $${PWD}/Ezsignfoldersignerassociation_getInPersonLoginUrl_v1_Response_mPayload.h \
@@ -864,6 +876,8 @@ HEADERS += \
     $${PWD}/Ezsignfoldersignerassociation_getObject_v1_Response_mPayload.h \
     $${PWD}/Ezsignfoldersignerassociation_getObject_v2_Response.h \
     $${PWD}/Ezsignfoldersignerassociation_getObject_v2_Response_mPayload.h \
+    $${PWD}/Ezsignfoldersignerassociation_getObject_v3_Response.h \
+    $${PWD}/Ezsignfoldersignerassociation_getObject_v3_Response_mPayload.h \
     $${PWD}/Ezsignfoldersignerassociation_patchObject_v1_Request.h \
     $${PWD}/Ezsignfoldersignerassociation_patchObject_v1_Response.h \
     $${PWD}/Ezsignfoldersignerassociation_reassign_v1_Request.h \
@@ -1339,6 +1353,7 @@ HEADERS += \
     $${PWD}/Field_eEzsignfolderSendreminderfrequency.h \
     $${PWD}/Field_eEzsignfolderSource.h \
     $${PWD}/Field_eEzsignfolderStep.h \
+    $${PWD}/Field_eEzsignfoldersignerassociationRole.h \
     $${PWD}/Field_eEzsignfoldertypeCompletion.h \
     $${PWD}/Field_eEzsignfoldertypeDisposal.h \
     $${PWD}/Field_eEzsignfoldertypeDocumentdependency.h \
@@ -1397,7 +1412,16 @@ HEADERS += \
     $${PWD}/Field_eEzsigntemplatesignatureType.h \
     $${PWD}/Field_eEzsigntemplatesignaturepaymentdetailTaxable.h \
     $${PWD}/Field_eEzsigntemplatesignerMapping.h \
+    $${PWD}/Field_eInscriptionRemunerationinscriptorsellertype.h \
+    $${PWD}/Field_eInscriptionRemunerationreferencetype.h \
+    $${PWD}/Field_eInscriptionRemunerationtotaltype.h \
+    $${PWD}/Field_eInscriptionRemunerationtype.h \
+    $${PWD}/Field_eInscriptionResidenceType.h \
     $${PWD}/Field_eInscriptionStep.h \
+    $${PWD}/Field_eInscriptionType.h \
+    $${PWD}/Field_eInscriptionnotauthenticatedRemunerationtype.h \
+    $${PWD}/Field_eInscriptionnotauthenticatedResidenceType.h \
+    $${PWD}/Field_eInscriptionnotauthenticatedType.h \
     $${PWD}/Field_eInscriptiontempStatus.h \
     $${PWD}/Field_eLeadStatus.h \
     $${PWD}/Field_eNotificationpreferenceStatus.h \
@@ -1421,9 +1445,11 @@ HEADERS += \
     $${PWD}/Field_eVariableexpenseTaxable.h \
     $${PWD}/Field_eVersionhistoryType.h \
     $${PWD}/Field_eVersionhistoryUsertype.h \
+    $${PWD}/Field_eWebhookEzmaxpartnerevent.h \
     $${PWD}/Field_eWebhookEzsignevent.h \
     $${PWD}/Field_eWebhookManagementevent.h \
     $${PWD}/Field_eWebhookModule.h \
+    $${PWD}/Field_etInscriptionnotauthenticatedMortgagetype.h \
     $${PWD}/Field_pksEzmaxclientOs.h \
     $${PWD}/Font_AutocompleteElement_Response.h \
     $${PWD}/Font_getAutocomplete_v2_Response.h \
@@ -1453,6 +1479,8 @@ HEADERS += \
     $${PWD}/Infrastructureregion_getAutocomplete_v2_Response.h \
     $${PWD}/Infrastructureregion_getAutocomplete_v2_Response_mPayload.h \
     $${PWD}/Inscription_ListElement.h \
+    $${PWD}/Inscription_Response.h \
+    $${PWD}/Inscription_ResponseCompound.h \
     $${PWD}/Inscription_getAttachments_v1_Response.h \
     $${PWD}/Inscription_getAttachments_v1_Response_mPayload.h \
     $${PWD}/Inscription_getCommunicationCount_v1_Response.h \
@@ -1463,8 +1491,11 @@ HEADERS += \
     $${PWD}/Inscription_getCommunicationrecipients_v1_Response_mPayload.h \
     $${PWD}/Inscription_getCommunicationsenders_v1_Response.h \
     $${PWD}/Inscription_getCommunicationsenders_v1_Response_mPayload.h \
+    $${PWD}/Inscription_getInscriptionnotauthenticateds_v1_Response.h \
     $${PWD}/Inscription_getList_v1_Response.h \
     $${PWD}/Inscription_getList_v1_Response_mPayload.h \
+    $${PWD}/Inscription_getObject_v2_Response.h \
+    $${PWD}/Inscription_getObject_v2_Response_mPayload.h \
     $${PWD}/Inscription_importIntoEDM_v1_Request.h \
     $${PWD}/Inscription_importIntoEDM_v1_Response.h \
     $${PWD}/Inscription_importIntoEDM_v1_Response_mPayload.h \
@@ -1475,6 +1506,8 @@ HEADERS += \
     $${PWD}/Inscriptionchecklist_getAutocomplete_v3_Response.h \
     $${PWD}/Inscriptionchecklist_getAutocomplete_v3_Response_mPayload.h \
     $${PWD}/Inscriptionnotauthenticated_ListElement.h \
+    $${PWD}/Inscriptionnotauthenticated_Response.h \
+    $${PWD}/Inscriptionnotauthenticated_ResponseCompound.h \
     $${PWD}/Inscriptionnotauthenticated_fillInscriptionnotauthenticatedcondition_v1_Request.h \
     $${PWD}/Inscriptionnotauthenticated_fillInscriptionnotauthenticatedcondition_v1_Response.h \
     $${PWD}/Inscriptionnotauthenticated_getCommunicationCount_v1_Response.h \
@@ -1489,6 +1522,8 @@ HEADERS += \
     $${PWD}/Inscriptionnotauthenticated_getInscriptionnotauthenticatedconditions_v1_Response_mPayload.h \
     $${PWD}/Inscriptionnotauthenticated_getList_v1_Response.h \
     $${PWD}/Inscriptionnotauthenticated_getList_v1_Response_mPayload.h \
+    $${PWD}/Inscriptionnotauthenticated_getObject_v2_Response.h \
+    $${PWD}/Inscriptionnotauthenticated_getObject_v2_Response_mPayload.h \
     $${PWD}/Inscriptionnotauthenticated_importIntoEDM_v1_Request.h \
     $${PWD}/Inscriptionnotauthenticated_importIntoEDM_v1_Response.h \
     $${PWD}/Inscriptionnotauthenticated_importIntoEDM_v1_Response_mPayload.h \
@@ -1558,6 +1593,7 @@ HEADERS += \
     $${PWD}/Multilingual_EzmaxpartnerAddress.h \
     $${PWD}/Multilingual_EzmaxpartnerDescription.h \
     $${PWD}/Multilingual_EzmaxpartnerEmailaddress.h \
+    $${PWD}/Multilingual_EzmaxpartnerLogourl.h \
     $${PWD}/Multilingual_EzmaxpartnerName.h \
     $${PWD}/Multilingual_EzmaxpartnerPhoneE164.h \
     $${PWD}/Multilingual_EzmaxpartnerShortdescription.h \
@@ -2490,6 +2526,7 @@ SOURCES += \
     $${PWD}/Custom_EzsignfolderezsigntemplatepublicSigner_Response.cpp \
     $${PWD}/Custom_Ezsignfolderezsigntemplatepublic_Response.cpp \
     $${PWD}/Custom_EzsignfoldersignerassociationActionableElement_Response.cpp \
+    $${PWD}/Custom_EzsignfoldersignerassociationActionableElement_ResponseV2.cpp \
     $${PWD}/Custom_Ezsignfoldersignerassociationstatus_Response.cpp \
     $${PWD}/Custom_Ezsignfoldersignerassociationstatus_ResponseV3.cpp \
     $${PWD}/Custom_EzsignfoldertransmissionSigner_Response.cpp \
@@ -2955,6 +2992,8 @@ SOURCES += \
     $${PWD}/Ezsignfolder_getEzsigndocuments_v2_Response_mPayload.cpp \
     $${PWD}/Ezsignfolder_getEzsignfoldersignerassociations_v1_Response.cpp \
     $${PWD}/Ezsignfolder_getEzsignfoldersignerassociations_v1_Response_mPayload.cpp \
+    $${PWD}/Ezsignfolder_getEzsignfoldersignerassociations_v2_Response.cpp \
+    $${PWD}/Ezsignfolder_getEzsignfoldersignerassociations_v2_Response_mPayload.cpp \
     $${PWD}/Ezsignfolder_getEzsignformfieldgroups_v1_Response.cpp \
     $${PWD}/Ezsignfolder_getEzsignformfieldgroups_v1_Response_mPayload.cpp \
     $${PWD}/Ezsignfolder_getEzsignsignaturesAutomatic_v1_Response.cpp \
@@ -2992,10 +3031,14 @@ SOURCES += \
     $${PWD}/Ezsignfolder_unsend_v1_Response.cpp \
     $${PWD}/Ezsignfoldersignerassociation_Request.cpp \
     $${PWD}/Ezsignfoldersignerassociation_RequestCompound.cpp \
+    $${PWD}/Ezsignfoldersignerassociation_RequestCompoundV2.cpp \
     $${PWD}/Ezsignfoldersignerassociation_RequestPatch.cpp \
+    $${PWD}/Ezsignfoldersignerassociation_RequestV2.cpp \
     $${PWD}/Ezsignfoldersignerassociation_Response.cpp \
     $${PWD}/Ezsignfoldersignerassociation_ResponseCompound.cpp \
+    $${PWD}/Ezsignfoldersignerassociation_ResponseCompoundV3.cpp \
     $${PWD}/Ezsignfoldersignerassociation_ResponseCompound_User.cpp \
+    $${PWD}/Ezsignfoldersignerassociation_ResponseV3.cpp \
     $${PWD}/Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Request.cpp \
     $${PWD}/Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Response.cpp \
     $${PWD}/Ezsignfoldersignerassociation_createEmbeddedUrl_v1_Response_mPayload.cpp \
@@ -3008,9 +3051,14 @@ SOURCES += \
     $${PWD}/Ezsignfoldersignerassociation_createObject_v2_Request.cpp \
     $${PWD}/Ezsignfoldersignerassociation_createObject_v2_Response.cpp \
     $${PWD}/Ezsignfoldersignerassociation_createObject_v2_Response_mPayload.cpp \
+    $${PWD}/Ezsignfoldersignerassociation_createObject_v3_Request.cpp \
+    $${PWD}/Ezsignfoldersignerassociation_createObject_v3_Response.cpp \
+    $${PWD}/Ezsignfoldersignerassociation_createObject_v3_Response_mPayload.cpp \
     $${PWD}/Ezsignfoldersignerassociation_deleteObject_v1_Response.cpp \
     $${PWD}/Ezsignfoldersignerassociation_editObject_v1_Request.cpp \
     $${PWD}/Ezsignfoldersignerassociation_editObject_v1_Response.cpp \
+    $${PWD}/Ezsignfoldersignerassociation_editObject_v2_Request.cpp \
+    $${PWD}/Ezsignfoldersignerassociation_editObject_v2_Response.cpp \
     $${PWD}/Ezsignfoldersignerassociation_forceDisconnect_v1_Response.cpp \
     $${PWD}/Ezsignfoldersignerassociation_getInPersonLoginUrl_v1_Response.cpp \
     $${PWD}/Ezsignfoldersignerassociation_getInPersonLoginUrl_v1_Response_mPayload.cpp \
@@ -3018,6 +3066,8 @@ SOURCES += \
     $${PWD}/Ezsignfoldersignerassociation_getObject_v1_Response_mPayload.cpp \
     $${PWD}/Ezsignfoldersignerassociation_getObject_v2_Response.cpp \
     $${PWD}/Ezsignfoldersignerassociation_getObject_v2_Response_mPayload.cpp \
+    $${PWD}/Ezsignfoldersignerassociation_getObject_v3_Response.cpp \
+    $${PWD}/Ezsignfoldersignerassociation_getObject_v3_Response_mPayload.cpp \
     $${PWD}/Ezsignfoldersignerassociation_patchObject_v1_Request.cpp \
     $${PWD}/Ezsignfoldersignerassociation_patchObject_v1_Response.cpp \
     $${PWD}/Ezsignfoldersignerassociation_reassign_v1_Request.cpp \
@@ -3493,6 +3543,7 @@ SOURCES += \
     $${PWD}/Field_eEzsignfolderSendreminderfrequency.cpp \
     $${PWD}/Field_eEzsignfolderSource.cpp \
     $${PWD}/Field_eEzsignfolderStep.cpp \
+    $${PWD}/Field_eEzsignfoldersignerassociationRole.cpp \
     $${PWD}/Field_eEzsignfoldertypeCompletion.cpp \
     $${PWD}/Field_eEzsignfoldertypeDisposal.cpp \
     $${PWD}/Field_eEzsignfoldertypeDocumentdependency.cpp \
@@ -3551,7 +3602,16 @@ SOURCES += \
     $${PWD}/Field_eEzsigntemplatesignatureType.cpp \
     $${PWD}/Field_eEzsigntemplatesignaturepaymentdetailTaxable.cpp \
     $${PWD}/Field_eEzsigntemplatesignerMapping.cpp \
+    $${PWD}/Field_eInscriptionRemunerationinscriptorsellertype.cpp \
+    $${PWD}/Field_eInscriptionRemunerationreferencetype.cpp \
+    $${PWD}/Field_eInscriptionRemunerationtotaltype.cpp \
+    $${PWD}/Field_eInscriptionRemunerationtype.cpp \
+    $${PWD}/Field_eInscriptionResidenceType.cpp \
     $${PWD}/Field_eInscriptionStep.cpp \
+    $${PWD}/Field_eInscriptionType.cpp \
+    $${PWD}/Field_eInscriptionnotauthenticatedRemunerationtype.cpp \
+    $${PWD}/Field_eInscriptionnotauthenticatedResidenceType.cpp \
+    $${PWD}/Field_eInscriptionnotauthenticatedType.cpp \
     $${PWD}/Field_eInscriptiontempStatus.cpp \
     $${PWD}/Field_eLeadStatus.cpp \
     $${PWD}/Field_eNotificationpreferenceStatus.cpp \
@@ -3575,9 +3635,11 @@ SOURCES += \
     $${PWD}/Field_eVariableexpenseTaxable.cpp \
     $${PWD}/Field_eVersionhistoryType.cpp \
     $${PWD}/Field_eVersionhistoryUsertype.cpp \
+    $${PWD}/Field_eWebhookEzmaxpartnerevent.cpp \
     $${PWD}/Field_eWebhookEzsignevent.cpp \
     $${PWD}/Field_eWebhookManagementevent.cpp \
     $${PWD}/Field_eWebhookModule.cpp \
+    $${PWD}/Field_etInscriptionnotauthenticatedMortgagetype.cpp \
     $${PWD}/Field_pksEzmaxclientOs.cpp \
     $${PWD}/Font_AutocompleteElement_Response.cpp \
     $${PWD}/Font_getAutocomplete_v2_Response.cpp \
@@ -3607,6 +3669,8 @@ SOURCES += \
     $${PWD}/Infrastructureregion_getAutocomplete_v2_Response.cpp \
     $${PWD}/Infrastructureregion_getAutocomplete_v2_Response_mPayload.cpp \
     $${PWD}/Inscription_ListElement.cpp \
+    $${PWD}/Inscription_Response.cpp \
+    $${PWD}/Inscription_ResponseCompound.cpp \
     $${PWD}/Inscription_getAttachments_v1_Response.cpp \
     $${PWD}/Inscription_getAttachments_v1_Response_mPayload.cpp \
     $${PWD}/Inscription_getCommunicationCount_v1_Response.cpp \
@@ -3617,8 +3681,11 @@ SOURCES += \
     $${PWD}/Inscription_getCommunicationrecipients_v1_Response_mPayload.cpp \
     $${PWD}/Inscription_getCommunicationsenders_v1_Response.cpp \
     $${PWD}/Inscription_getCommunicationsenders_v1_Response_mPayload.cpp \
+    $${PWD}/Inscription_getInscriptionnotauthenticateds_v1_Response.cpp \
     $${PWD}/Inscription_getList_v1_Response.cpp \
     $${PWD}/Inscription_getList_v1_Response_mPayload.cpp \
+    $${PWD}/Inscription_getObject_v2_Response.cpp \
+    $${PWD}/Inscription_getObject_v2_Response_mPayload.cpp \
     $${PWD}/Inscription_importIntoEDM_v1_Request.cpp \
     $${PWD}/Inscription_importIntoEDM_v1_Response.cpp \
     $${PWD}/Inscription_importIntoEDM_v1_Response_mPayload.cpp \
@@ -3629,6 +3696,8 @@ SOURCES += \
     $${PWD}/Inscriptionchecklist_getAutocomplete_v3_Response.cpp \
     $${PWD}/Inscriptionchecklist_getAutocomplete_v3_Response_mPayload.cpp \
     $${PWD}/Inscriptionnotauthenticated_ListElement.cpp \
+    $${PWD}/Inscriptionnotauthenticated_Response.cpp \
+    $${PWD}/Inscriptionnotauthenticated_ResponseCompound.cpp \
     $${PWD}/Inscriptionnotauthenticated_fillInscriptionnotauthenticatedcondition_v1_Request.cpp \
     $${PWD}/Inscriptionnotauthenticated_fillInscriptionnotauthenticatedcondition_v1_Response.cpp \
     $${PWD}/Inscriptionnotauthenticated_getCommunicationCount_v1_Response.cpp \
@@ -3643,6 +3712,8 @@ SOURCES += \
     $${PWD}/Inscriptionnotauthenticated_getInscriptionnotauthenticatedconditions_v1_Response_mPayload.cpp \
     $${PWD}/Inscriptionnotauthenticated_getList_v1_Response.cpp \
     $${PWD}/Inscriptionnotauthenticated_getList_v1_Response_mPayload.cpp \
+    $${PWD}/Inscriptionnotauthenticated_getObject_v2_Response.cpp \
+    $${PWD}/Inscriptionnotauthenticated_getObject_v2_Response_mPayload.cpp \
     $${PWD}/Inscriptionnotauthenticated_importIntoEDM_v1_Request.cpp \
     $${PWD}/Inscriptionnotauthenticated_importIntoEDM_v1_Response.cpp \
     $${PWD}/Inscriptionnotauthenticated_importIntoEDM_v1_Response_mPayload.cpp \
@@ -3712,6 +3783,7 @@ SOURCES += \
     $${PWD}/Multilingual_EzmaxpartnerAddress.cpp \
     $${PWD}/Multilingual_EzmaxpartnerDescription.cpp \
     $${PWD}/Multilingual_EzmaxpartnerEmailaddress.cpp \
+    $${PWD}/Multilingual_EzmaxpartnerLogourl.cpp \
     $${PWD}/Multilingual_EzmaxpartnerName.cpp \
     $${PWD}/Multilingual_EzmaxpartnerPhoneE164.cpp \
     $${PWD}/Multilingual_EzmaxpartnerShortdescription.cpp \
