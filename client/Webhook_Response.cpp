@@ -61,6 +61,9 @@ void Webhook_Response::initializeModel() {
     m_e_webhook_managementevent_isSet = false;
     m_e_webhook_managementevent_isValid = false;
 
+    m_e_webhook_realestateevent_isSet = false;
+    m_e_webhook_realestateevent_isValid = false;
+
     m_s_webhook_url_isSet = false;
     m_s_webhook_url_isValid = false;
 
@@ -125,6 +128,9 @@ void Webhook_Response::fromJsonObject(QJsonObject json) {
     m_e_webhook_managementevent_isValid = ::Ezmaxapi::fromJsonValue(m_e_webhook_managementevent, json[QString("eWebhookManagementevent")]);
     m_e_webhook_managementevent_isSet = !json[QString("eWebhookManagementevent")].isNull() && m_e_webhook_managementevent_isValid;
 
+    m_e_webhook_realestateevent_isValid = ::Ezmaxapi::fromJsonValue(m_e_webhook_realestateevent, json[QString("eWebhookRealestateevent")]);
+    m_e_webhook_realestateevent_isSet = !json[QString("eWebhookRealestateevent")].isNull() && m_e_webhook_realestateevent_isValid;
+
     m_s_webhook_url_isValid = ::Ezmaxapi::fromJsonValue(m_s_webhook_url, json[QString("sWebhookUrl")]);
     m_s_webhook_url_isSet = !json[QString("sWebhookUrl")].isNull() && m_s_webhook_url_isValid;
 
@@ -188,6 +194,9 @@ QJsonObject Webhook_Response::asJsonObject() const {
     }
     if (m_e_webhook_managementevent.isSet()) {
         obj.insert(QString("eWebhookManagementevent"), ::Ezmaxapi::toJsonValue(m_e_webhook_managementevent));
+    }
+    if (m_e_webhook_realestateevent.isSet()) {
+        obj.insert(QString("eWebhookRealestateevent"), ::Ezmaxapi::toJsonValue(m_e_webhook_realestateevent));
     }
     if (m_s_webhook_url_isSet) {
         obj.insert(QString("sWebhookUrl"), ::Ezmaxapi::toJsonValue(m_s_webhook_url));
@@ -361,6 +370,22 @@ bool Webhook_Response::is_e_webhook_managementevent_Set() const{
 
 bool Webhook_Response::is_e_webhook_managementevent_Valid() const{
     return m_e_webhook_managementevent_isValid;
+}
+
+Field_eWebhookRealestateevent Webhook_Response::getEWebhookRealestateevent() const {
+    return m_e_webhook_realestateevent;
+}
+void Webhook_Response::setEWebhookRealestateevent(const Field_eWebhookRealestateevent &e_webhook_realestateevent) {
+    m_e_webhook_realestateevent = e_webhook_realestateevent;
+    m_e_webhook_realestateevent_isSet = true;
+}
+
+bool Webhook_Response::is_e_webhook_realestateevent_Set() const{
+    return m_e_webhook_realestateevent_isSet;
+}
+
+bool Webhook_Response::is_e_webhook_realestateevent_Valid() const{
+    return m_e_webhook_realestateevent_isValid;
 }
 
 QString Webhook_Response::getSWebhookUrl() const {
@@ -551,6 +576,11 @@ bool Webhook_Response::isSet() const {
         }
 
         if (m_e_webhook_managementevent.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_e_webhook_realestateevent.isSet()) {
             isObjectUpdated = true;
             break;
         }

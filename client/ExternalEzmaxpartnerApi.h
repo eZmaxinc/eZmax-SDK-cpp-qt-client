@@ -10,8 +10,8 @@
  * Do not edit the class manually.
  */
 
-#ifndef _DocumentationEzmaxpartnerApi_H
-#define _DocumentationEzmaxpartnerApi_H
+#ifndef _ExternalEzmaxpartnerApi_H
+#define _ExternalEzmaxpartnerApi_H
 
 #include "Helpers.h"
 #include "HttpRequest.h"
@@ -30,12 +30,12 @@
 
 namespace Ezmaxapi {
 
-class DocumentationEzmaxpartnerApi : public QObject {
+class ExternalEzmaxpartnerApi : public QObject {
     Q_OBJECT
 
 public:
-    DocumentationEzmaxpartnerApi(const int timeOut = 0);
-    ~DocumentationEzmaxpartnerApi();
+    ExternalEzmaxpartnerApi(const int timeOut = 0);
+    ~ExternalEzmaxpartnerApi();
 
     void initializeServerConfigs();
     int setDefaultServerValue(int serverIndex,const QString &operation, const QString &variable,const QString &val);
@@ -62,7 +62,7 @@ public:
     /**
     * @param[in]  documentation_subscribe_v1_request Documentation_subscribe_v1_Request [required]
     */
-    virtual void documentationSubscribeV1(const Documentation_subscribe_v1_Request &documentation_subscribe_v1_request);
+    virtual void externalpartnerSubscribeV1(const Documentation_subscribe_v1_Request &documentation_subscribe_v1_request);
 
 
 private:
@@ -94,18 +94,18 @@ private:
     OauthPassword _passwordFlow;
     OauthMethod _OauthMethod = OauthMethod::INVALID_VALUE_OPENAPI_GENERATED;
 
-    void documentationSubscribeV1Callback(HttpRequestWorker *worker);
+    void externalpartnerSubscribeV1Callback(HttpRequestWorker *worker);
 
 Q_SIGNALS:
 
-    void documentationSubscribeV1Signal(Documentation_subscribe_v1_Response summary);
+    void externalpartnerSubscribeV1Signal(Documentation_subscribe_v1_Response summary);
 
 
-    void documentationSubscribeV1SignalFull(HttpRequestWorker *worker, Documentation_subscribe_v1_Response summary);
+    void externalpartnerSubscribeV1SignalFull(HttpRequestWorker *worker, Documentation_subscribe_v1_Response summary);
 
-    void documentationSubscribeV1SignalError(Documentation_subscribe_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void externalpartnerSubscribeV1SignalError(Documentation_subscribe_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
-    void documentationSubscribeV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void externalpartnerSubscribeV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();

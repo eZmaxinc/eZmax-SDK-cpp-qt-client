@@ -24,6 +24,7 @@
 #include "Field_eWebhookEzsignevent.h"
 #include "Field_eWebhookManagementevent.h"
 #include "Field_eWebhookModule.h"
+#include "Field_eWebhookRealestateevent.h"
 #include <QString>
 
 #include "Enum.h"
@@ -82,6 +83,11 @@ public:
     bool is_e_webhook_managementevent_Set() const;
     bool is_e_webhook_managementevent_Valid() const;
 
+    Field_eWebhookRealestateevent getEWebhookRealestateevent() const;
+    void setEWebhookRealestateevent(const Field_eWebhookRealestateevent &e_webhook_realestateevent);
+    bool is_e_webhook_realestateevent_Set() const;
+    bool is_e_webhook_realestateevent_Valid() const;
+
     bool isBWebhookIsactive() const;
     void setBWebhookIsactive(const bool &b_webhook_isactive);
     bool is_b_webhook_isactive_Set() const;
@@ -129,6 +135,10 @@ private:
     Field_eWebhookManagementevent m_e_webhook_managementevent;
     bool m_e_webhook_managementevent_isSet;
     bool m_e_webhook_managementevent_isValid;
+
+    Field_eWebhookRealestateevent m_e_webhook_realestateevent;
+    bool m_e_webhook_realestateevent_isSet;
+    bool m_e_webhook_realestateevent_isValid;
 
     bool m_b_webhook_isactive;
     bool m_b_webhook_isactive_isSet;

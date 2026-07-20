@@ -10,14 +10,14 @@
  * Do not edit the class manually.
  */
 
-#include "DocumentationEzmaxpartnerApi.h"
+#include "ExternalEzmaxpartnerApi.h"
 #include "ServerConfiguration.h"
 #include <QJsonArray>
 #include <QJsonDocument>
 
 namespace Ezmaxapi {
 
-DocumentationEzmaxpartnerApi::DocumentationEzmaxpartnerApi(const int timeOut)
+ExternalEzmaxpartnerApi::ExternalEzmaxpartnerApi(const int timeOut)
     : _timeOut(timeOut),
       _manager(nullptr),
       _isResponseCompressionEnabled(false),
@@ -25,10 +25,10 @@ DocumentationEzmaxpartnerApi::DocumentationEzmaxpartnerApi(const int timeOut)
     initializeServerConfigs();
 }
 
-DocumentationEzmaxpartnerApi::~DocumentationEzmaxpartnerApi() {
+ExternalEzmaxpartnerApi::~ExternalEzmaxpartnerApi() {
 }
 
-void DocumentationEzmaxpartnerApi::initializeServerConfigs() {
+void ExternalEzmaxpartnerApi::initializeServerConfigs() {
     //Default server
     QList<ServerConfiguration> defaultConf = QList<ServerConfiguration>();
     //varying endpoint server
@@ -59,15 +59,15 @@ void DocumentationEzmaxpartnerApi::initializeServerConfigs() {
     {"sInfrastructureregionCode", ServerVariable("The region where your services are hosted.","ca-central-1",
     QSet<QString>{ {"ca-central-1"} })}, }));
     
-    _serverConfigs.insert("documentationSubscribeV1", defaultConf);
-    _serverIndices.insert("documentationSubscribeV1", 0);
+    _serverConfigs.insert("externalpartnerSubscribeV1", defaultConf);
+    _serverIndices.insert("externalpartnerSubscribeV1", 0);
 }
 
 /**
  * returns 0 on success and -1, -2 or -3 on failure.
  * -1 when the variable does not exist and -2 if the value is not defined in the enum and -3 if the operation or server index is not found
  */
-int DocumentationEzmaxpartnerApi::setDefaultServerValue(int serverIndex, const QString &operation, const QString &variable, const QString &value) {
+int ExternalEzmaxpartnerApi::setDefaultServerValue(int serverIndex, const QString &operation, const QString &variable, const QString &value) {
     auto it = _serverConfigs.find(operation);
     if (it != _serverConfigs.end() && serverIndex < it.value().size()) {
       return _serverConfigs[operation][serverIndex].setDefaultValue(variable,value);
@@ -80,44 +80,44 @@ int DocumentationEzmaxpartnerApi::setDefaultServerValue(int serverIndex, const Q
  * @param operation The id to the target operation.
  * @param serverIndex The server index.
  */
-void DocumentationEzmaxpartnerApi::setServerIndex(const QString &operation, int serverIndex) {
+void ExternalEzmaxpartnerApi::setServerIndex(const QString &operation, int serverIndex) {
     if (_serverIndices.contains(operation) && serverIndex < _serverConfigs.find(operation).value().size()) {
         _serverIndices[operation] = serverIndex;
     }
 }
 
-void DocumentationEzmaxpartnerApi::setServerIndex(int serverIndex) {
+void ExternalEzmaxpartnerApi::setServerIndex(int serverIndex) {
     for (auto keyIt = _serverIndices.keyBegin(); keyIt != _serverIndices.keyEnd(); keyIt++) {
         setServerIndex(*keyIt, serverIndex);
     }
 }
 
-void DocumentationEzmaxpartnerApi::setApiKey(const QString &apiKeyName, const QString &apiKey) {
+void ExternalEzmaxpartnerApi::setApiKey(const QString &apiKeyName, const QString &apiKey) {
     _apiKeys.insert(apiKeyName, apiKey);
 }
 
-void DocumentationEzmaxpartnerApi::setBearerToken(const QString &token) {
+void ExternalEzmaxpartnerApi::setBearerToken(const QString &token) {
     _bearerToken = token;
 }
 
-void DocumentationEzmaxpartnerApi::setUsername(const QString &username) {
+void ExternalEzmaxpartnerApi::setUsername(const QString &username) {
     _username = username;
 }
 
-void DocumentationEzmaxpartnerApi::setPassword(const QString &password) {
+void ExternalEzmaxpartnerApi::setPassword(const QString &password) {
     _password = password;
 }
 
 
-void DocumentationEzmaxpartnerApi::setTimeOut(const int timeOut) {
+void ExternalEzmaxpartnerApi::setTimeOut(const int timeOut) {
     _timeOut = timeOut;
 }
 
-void DocumentationEzmaxpartnerApi::setWorkingDirectory(const QString &path) {
+void ExternalEzmaxpartnerApi::setWorkingDirectory(const QString &path) {
     _workingDirectory = path;
 }
 
-void DocumentationEzmaxpartnerApi::setNetworkAccessManager(QNetworkAccessManager* manager) {
+void ExternalEzmaxpartnerApi::setNetworkAccessManager(QNetworkAccessManager* manager) {
     _manager = manager;
 }
 
@@ -129,7 +129,7 @@ void DocumentationEzmaxpartnerApi::setNetworkAccessManager(QNetworkAccessManager
  * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
  * returns the index of the new server config on success and -1 if the operation is not found
  */
-int DocumentationEzmaxpartnerApi::addServerConfiguration(const QString &operation, const QUrl &url, const QString &description, const QMap<QString, ServerVariable> &variables) {
+int ExternalEzmaxpartnerApi::addServerConfiguration(const QString &operation, const QUrl &url, const QString &description, const QMap<QString, ServerVariable> &variables) {
     if (_serverConfigs.contains(operation)) {
         _serverConfigs[operation].append(ServerConfiguration(
                     url,
@@ -147,7 +147,7 @@ int DocumentationEzmaxpartnerApi::addServerConfiguration(const QString &operatio
  * @param description A String that describes the server
  * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
  */
-void DocumentationEzmaxpartnerApi::setNewServerForAllOperations(const QUrl &url, const QString &description, const QMap<QString, ServerVariable> &variables) {
+void ExternalEzmaxpartnerApi::setNewServerForAllOperations(const QUrl &url, const QString &description, const QMap<QString, ServerVariable> &variables) {
     for (auto keyIt = _serverIndices.keyBegin(); keyIt != _serverIndices.keyEnd(); keyIt++) {
         setServerIndex(*keyIt, addServerConfiguration(*keyIt, url, description, variables));
     }
@@ -159,27 +159,27 @@ void DocumentationEzmaxpartnerApi::setNewServerForAllOperations(const QUrl &url,
  * @param description A String that describes the server
  * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
  */
-void DocumentationEzmaxpartnerApi::setNewServer(const QString &operation, const QUrl &url, const QString &description, const QMap<QString, ServerVariable> &variables) {
+void ExternalEzmaxpartnerApi::setNewServer(const QString &operation, const QUrl &url, const QString &description, const QMap<QString, ServerVariable> &variables) {
     setServerIndex(operation, addServerConfiguration(operation, url, description, variables));
 }
 
-void DocumentationEzmaxpartnerApi::addHeaders(const QString &key, const QString &value) {
+void ExternalEzmaxpartnerApi::addHeaders(const QString &key, const QString &value) {
     _defaultHeaders.insert(key, value);
 }
 
-void DocumentationEzmaxpartnerApi::enableRequestCompression() {
+void ExternalEzmaxpartnerApi::enableRequestCompression() {
     _isRequestCompressionEnabled = true;
 }
 
-void DocumentationEzmaxpartnerApi::enableResponseCompression() {
+void ExternalEzmaxpartnerApi::enableResponseCompression() {
     _isResponseCompressionEnabled = true;
 }
 
-void DocumentationEzmaxpartnerApi::abortRequests() {
+void ExternalEzmaxpartnerApi::abortRequests() {
     Q_EMIT abortRequestsSignal();
 }
 
-QString DocumentationEzmaxpartnerApi::getParamStylePrefix(const QString &style) {
+QString ExternalEzmaxpartnerApi::getParamStylePrefix(const QString &style) {
     if (style == "matrix") {
         return ";";
     } else if (style == "label") {
@@ -197,7 +197,7 @@ QString DocumentationEzmaxpartnerApi::getParamStylePrefix(const QString &style) 
     }
 }
 
-QString DocumentationEzmaxpartnerApi::getParamStyleSuffix(const QString &style) {
+QString ExternalEzmaxpartnerApi::getParamStyleSuffix(const QString &style) {
     if (style == "matrix") {
         return "=";
     } else if (style == "label") {
@@ -215,7 +215,7 @@ QString DocumentationEzmaxpartnerApi::getParamStyleSuffix(const QString &style) 
     }
 }
 
-QString DocumentationEzmaxpartnerApi::getParamStyleDelimiter(const QString &style, const QString &name, bool isExplode) {
+QString ExternalEzmaxpartnerApi::getParamStyleDelimiter(const QString &style, const QString &name, bool isExplode) {
 
     if (style == "matrix") {
         return (isExplode) ? ";" + name + "=" : ",";
@@ -242,8 +242,8 @@ QString DocumentationEzmaxpartnerApi::getParamStyleDelimiter(const QString &styl
     }
 }
 
-void DocumentationEzmaxpartnerApi::documentationSubscribeV1(const Documentation_subscribe_v1_Request &documentation_subscribe_v1_request) {
-    QString fullPath = QString(_serverConfigs["documentationSubscribeV1"][_serverIndices.value("documentationSubscribeV1")].URL()+"/1/documentation/subscribe");
+void ExternalEzmaxpartnerApi::externalpartnerSubscribeV1(const Documentation_subscribe_v1_Request &documentation_subscribe_v1_request) {
+    QString fullPath = QString(_serverConfigs["externalpartnerSubscribeV1"][_serverIndices.value("externalpartnerSubscribeV1")].URL()+"/1/external/ezmaxpartner/subscribe");
     
     if (_apiKeys.contains("Authorization")) {
         addHeaders("Authorization",_apiKeys.find("Authorization").value());
@@ -265,8 +265,8 @@ void DocumentationEzmaxpartnerApi::documentationSubscribeV1(const Documentation_
     }
 
 
-    connect(worker, &HttpRequestWorker::on_execution_finished, this, &DocumentationEzmaxpartnerApi::documentationSubscribeV1Callback);
-    connect(this, &DocumentationEzmaxpartnerApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ExternalEzmaxpartnerApi::externalpartnerSubscribeV1Callback);
+    connect(this, &ExternalEzmaxpartnerApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
@@ -276,7 +276,7 @@ void DocumentationEzmaxpartnerApi::documentationSubscribeV1(const Documentation_
     worker->execute(&input);
 }
 
-void DocumentationEzmaxpartnerApi::documentationSubscribeV1Callback(HttpRequestWorker *worker) {
+void ExternalEzmaxpartnerApi::externalpartnerSubscribeV1Callback(HttpRequestWorker *worker) {
     QString error_str = worker->error_str;
     QNetworkReply::NetworkError error_type = worker->error_type;
 
@@ -287,15 +287,15 @@ void DocumentationEzmaxpartnerApi::documentationSubscribeV1Callback(HttpRequestW
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        Q_EMIT documentationSubscribeV1Signal(output);
-        Q_EMIT documentationSubscribeV1SignalFull(worker, output);
+        Q_EMIT externalpartnerSubscribeV1Signal(output);
+        Q_EMIT externalpartnerSubscribeV1SignalFull(worker, output);
     } else {
-        Q_EMIT documentationSubscribeV1SignalError(output, error_type, error_str);
-        Q_EMIT documentationSubscribeV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT externalpartnerSubscribeV1SignalError(output, error_type, error_str);
+        Q_EMIT externalpartnerSubscribeV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
-void DocumentationEzmaxpartnerApi::tokenAvailable() {
+void ExternalEzmaxpartnerApi::tokenAvailable() {
 
     oauthToken token;
     switch (_OauthMethod) {

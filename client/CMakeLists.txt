@@ -1317,6 +1317,7 @@ add_library(${PROJECT_NAME}
   Field_eActivesessionRealestateinprogress.h
   Field_eActivesessionUsertype.h
   Field_eActivesessionWeekdaystart.h
+  Field_eAgentSchedule.h
   Field_eAttachmentDocumenttype.h
   Field_eAttachmentPrivacy.h
   Field_eAttachmentType.h
@@ -1458,6 +1459,7 @@ add_library(${PROJECT_NAME}
   Field_eWebhookEzsignevent.h
   Field_eWebhookManagementevent.h
   Field_eWebhookModule.h
+  Field_eWebhookRealestateevent.h
   Field_etInscriptionnotauthenticatedMortgagetype.h
   Field_pksEzmaxclientOs.h
   Font_AutocompleteElement_Response.h
@@ -1737,7 +1739,10 @@ add_library(${PROJECT_NAME}
   Scim_ServiceProviderConfig.h
   Scim_ServiceProviderConfig_bulk.h
   Scim_ServiceProviderConfig_changePassword.h
+  Scim_ServiceProviderConfig_etag.h
   Scim_ServiceProviderConfig_filter.h
+  Scim_ServiceProviderConfig_patch.h
+  Scim_ServiceProviderConfig_sort.h
   Scim_User.h
   Scim_UserList.h
   Secretquestion_AutocompleteElement_Response.h
@@ -2009,6 +2014,10 @@ add_library(${PROJECT_NAME}
   Webhook_Ezsign_FolderUnsent.h
   Webhook_Ezsign_SignatureSigned.h
   Webhook_ListElement.h
+  Webhook_Realestate_InscriptionCreated.h
+  Webhook_Realestate_InscriptionModified.h
+  Webhook_Realestate_InscriptionnotauthenticatedCreated.h
+  Webhook_Realestate_InscriptionnotauthenticatedModified.h
   Webhook_Request.h
   Webhook_RequestCompound.h
   Webhook_Response.h
@@ -2048,7 +2057,7 @@ add_library(${PROJECT_NAME}
   Websocket_Response_GetWebsocketID_V1_mPayload.h
   Websocket_Response_Information_V1.h
   Websocket_Response_Information_V1_mPayload.h
-  DocumentationEzmaxpartnerApi.h
+  ExternalEzmaxpartnerApi.h
   GlobalCustomerApi.h
   GlobalEzmaxclientApi.h
   GlobalEzmaxcustomerApi.h
@@ -3502,6 +3511,7 @@ add_library(${PROJECT_NAME}
   Field_eActivesessionRealestateinprogress.cpp
   Field_eActivesessionUsertype.cpp
   Field_eActivesessionWeekdaystart.cpp
+  Field_eAgentSchedule.cpp
   Field_eAttachmentDocumenttype.cpp
   Field_eAttachmentPrivacy.cpp
   Field_eAttachmentType.cpp
@@ -3643,6 +3653,7 @@ add_library(${PROJECT_NAME}
   Field_eWebhookEzsignevent.cpp
   Field_eWebhookManagementevent.cpp
   Field_eWebhookModule.cpp
+  Field_eWebhookRealestateevent.cpp
   Field_etInscriptionnotauthenticatedMortgagetype.cpp
   Field_pksEzmaxclientOs.cpp
   Font_AutocompleteElement_Response.cpp
@@ -3922,7 +3933,10 @@ add_library(${PROJECT_NAME}
   Scim_ServiceProviderConfig.cpp
   Scim_ServiceProviderConfig_bulk.cpp
   Scim_ServiceProviderConfig_changePassword.cpp
+  Scim_ServiceProviderConfig_etag.cpp
   Scim_ServiceProviderConfig_filter.cpp
+  Scim_ServiceProviderConfig_patch.cpp
+  Scim_ServiceProviderConfig_sort.cpp
   Scim_User.cpp
   Scim_UserList.cpp
   Secretquestion_AutocompleteElement_Response.cpp
@@ -4194,6 +4208,10 @@ add_library(${PROJECT_NAME}
   Webhook_Ezsign_FolderUnsent.cpp
   Webhook_Ezsign_SignatureSigned.cpp
   Webhook_ListElement.cpp
+  Webhook_Realestate_InscriptionCreated.cpp
+  Webhook_Realestate_InscriptionModified.cpp
+  Webhook_Realestate_InscriptionnotauthenticatedCreated.cpp
+  Webhook_Realestate_InscriptionnotauthenticatedModified.cpp
   Webhook_Request.cpp
   Webhook_RequestCompound.cpp
   Webhook_Response.cpp
@@ -4233,7 +4251,7 @@ add_library(${PROJECT_NAME}
   Websocket_Response_GetWebsocketID_V1_mPayload.cpp
   Websocket_Response_Information_V1.cpp
   Websocket_Response_Information_V1_mPayload.cpp
-  DocumentationEzmaxpartnerApi.cpp
+  ExternalEzmaxpartnerApi.cpp
   GlobalCustomerApi.cpp
   GlobalEzmaxclientApi.cpp
   GlobalEzmaxcustomerApi.cpp

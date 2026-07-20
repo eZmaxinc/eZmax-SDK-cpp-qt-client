@@ -21,6 +21,7 @@
 
 #include <QJsonObject>
 
+#include "Field_eAgentSchedule.h"
 #include <QString>
 
 #include "Enum.h"
@@ -148,6 +149,11 @@ public:
     void setDtAgentSickleaveend(const QString &dt_agent_sickleaveend);
     bool is_dt_agent_sickleaveend_Set() const;
     bool is_dt_agent_sickleaveend_Valid() const;
+
+    Field_eAgentSchedule getEAgentSchedule() const;
+    void setEAgentSchedule(const Field_eAgentSchedule &e_agent_schedule);
+    bool is_e_agent_schedule_Set() const;
+    bool is_e_agent_schedule_Valid() const;
 
     bool isBAgentTranquillit() const;
     void setBAgentTranquillit(const bool &b_agent_tranquillit);
@@ -347,6 +353,10 @@ private:
     QString m_dt_agent_sickleaveend;
     bool m_dt_agent_sickleaveend_isSet;
     bool m_dt_agent_sickleaveend_isValid;
+
+    Field_eAgentSchedule m_e_agent_schedule;
+    bool m_e_agent_schedule_isSet;
+    bool m_e_agent_schedule_isValid;
 
     bool m_b_agent_tranquillit;
     bool m_b_agent_tranquillit_isSet;

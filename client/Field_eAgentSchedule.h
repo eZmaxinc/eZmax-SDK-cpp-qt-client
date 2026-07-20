@@ -11,13 +11,13 @@
  */
 
 /*
- * Field_eWebhookModule.h
+ * Field_eAgentSchedule.h
  *
- * The module for the Webhook
+ * Agent schedule type.
  */
 
-#ifndef Field_eWebhookModule_H
-#define Field_eWebhookModule_H
+#ifndef Field_eAgentSchedule_H
+#define Field_eAgentSchedule_H
 
 #include <QJsonObject>
 
@@ -27,39 +27,37 @@
 
 namespace Ezmaxapi {
 
-class Field_eWebhookModule : public Enum {
+class Field_eAgentSchedule : public Enum {
 public:
-    Field_eWebhookModule();
-    Field_eWebhookModule(const QString &json);
-    ~Field_eWebhookModule() override;
+    Field_eAgentSchedule();
+    Field_eAgentSchedule(const QString &json);
+    ~Field_eAgentSchedule() override;
 
     QString asJson() const override;
     QJsonValue asJsonValue() const override;
     void fromJsonValue(QJsonValue json) override;
     void fromJson(const QString &jsonString) override;
 
-    enum class eField_eWebhookModule {
+    enum class eField_eAgentSchedule {
         INVALID_VALUE_OPENAPI_GENERATED = 0,
-        EZMAXPARTNER, 
-        EZSIGN, 
-        MANAGEMENT, 
-        REALESTATE
+        FULL_TIME, 
+        PART_TIME
     };
-    Field_eWebhookModule::eField_eWebhookModule getValue() const;
-    void setValue(const Field_eWebhookModule::eField_eWebhookModule& value);
+    Field_eAgentSchedule::eField_eAgentSchedule getValue() const;
+    void setValue(const Field_eAgentSchedule::eField_eAgentSchedule& value);
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
 private:
     void initializeModel();
 
-    eField_eWebhookModule m_value;
+    eField_eAgentSchedule m_value;
     bool m_value_isSet;
     bool m_value_isValid;
 };
 
 } // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(Ezmaxapi::Field_eWebhookModule)
+Q_DECLARE_METATYPE(Ezmaxapi::Field_eAgentSchedule)
 
-#endif // Field_eWebhookModule_H
+#endif // Field_eAgentSchedule_H

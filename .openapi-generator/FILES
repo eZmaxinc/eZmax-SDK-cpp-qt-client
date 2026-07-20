@@ -836,8 +836,6 @@ client/Discussionmessage_patchObject_v1_Request.cpp
 client/Discussionmessage_patchObject_v1_Request.h
 client/Discussionmessage_patchObject_v1_Response.cpp
 client/Discussionmessage_patchObject_v1_Response.h
-client/DocumentationEzmaxpartnerApi.cpp
-client/DocumentationEzmaxpartnerApi.h
 client/Documentation_subscribe_v1_Request.cpp
 client/Documentation_subscribe_v1_Request.h
 client/Documentation_subscribe_v1_Response.cpp
@@ -935,6 +933,8 @@ client/Enum_Textvalidation.cpp
 client/Enum_Textvalidation.h
 client/Enum_Verticalalignment.cpp
 client/Enum_Verticalalignment.h
+client/ExternalEzmaxpartnerApi.cpp
+client/ExternalEzmaxpartnerApi.h
 client/Externalbroker_importIntoEDM_v1_Request.cpp
 client/Externalbroker_importIntoEDM_v1_Request.h
 client/Externalbroker_importIntoEDM_v1_Response.cpp
@@ -2617,6 +2617,8 @@ client/Field_eActivesessionUsertype.cpp
 client/Field_eActivesessionUsertype.h
 client/Field_eActivesessionWeekdaystart.cpp
 client/Field_eActivesessionWeekdaystart.h
+client/Field_eAgentSchedule.cpp
+client/Field_eAgentSchedule.h
 client/Field_eAttachmentDocumenttype.cpp
 client/Field_eAttachmentDocumenttype.h
 client/Field_eAttachmentPrivacy.cpp
@@ -2899,6 +2901,8 @@ client/Field_eWebhookManagementevent.cpp
 client/Field_eWebhookManagementevent.h
 client/Field_eWebhookModule.cpp
 client/Field_eWebhookModule.h
+client/Field_eWebhookRealestateevent.cpp
+client/Field_eWebhookRealestateevent.h
 client/Field_etInscriptionnotauthenticatedMortgagetype.cpp
 client/Field_etInscriptionnotauthenticatedMortgagetype.h
 client/Field_pksEzmaxclientOs.cpp
@@ -3744,8 +3748,14 @@ client/Scim_ServiceProviderConfig_bulk.cpp
 client/Scim_ServiceProviderConfig_bulk.h
 client/Scim_ServiceProviderConfig_changePassword.cpp
 client/Scim_ServiceProviderConfig_changePassword.h
+client/Scim_ServiceProviderConfig_etag.cpp
+client/Scim_ServiceProviderConfig_etag.h
 client/Scim_ServiceProviderConfig_filter.cpp
 client/Scim_ServiceProviderConfig_filter.h
+client/Scim_ServiceProviderConfig_patch.cpp
+client/Scim_ServiceProviderConfig_patch.h
+client/Scim_ServiceProviderConfig_sort.cpp
+client/Scim_ServiceProviderConfig_sort.h
 client/Scim_User.cpp
 client/Scim_User.h
 client/Scim_UserList.cpp
@@ -4290,6 +4300,14 @@ client/Webhook_Ezsign_SignatureSigned.cpp
 client/Webhook_Ezsign_SignatureSigned.h
 client/Webhook_ListElement.cpp
 client/Webhook_ListElement.h
+client/Webhook_Realestate_InscriptionCreated.cpp
+client/Webhook_Realestate_InscriptionCreated.h
+client/Webhook_Realestate_InscriptionModified.cpp
+client/Webhook_Realestate_InscriptionModified.h
+client/Webhook_Realestate_InscriptionnotauthenticatedCreated.cpp
+client/Webhook_Realestate_InscriptionnotauthenticatedCreated.h
+client/Webhook_Realestate_InscriptionnotauthenticatedModified.cpp
+client/Webhook_Realestate_InscriptionnotauthenticatedModified.h
 client/Webhook_Request.cpp
 client/Webhook_Request.h
 client/Webhook_RequestCompound.cpp

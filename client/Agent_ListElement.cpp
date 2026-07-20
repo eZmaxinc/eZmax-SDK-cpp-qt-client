@@ -100,6 +100,9 @@ void Agent_ListElement::initializeModel() {
     m_dt_agent_sickleaveend_isSet = false;
     m_dt_agent_sickleaveend_isValid = false;
 
+    m_e_agent_schedule_isSet = false;
+    m_e_agent_schedule_isValid = false;
+
     m_b_agent_tranquillit_isSet = false;
     m_b_agent_tranquillit_isValid = false;
 
@@ -239,6 +242,9 @@ void Agent_ListElement::fromJsonObject(QJsonObject json) {
     m_dt_agent_sickleaveend_isValid = ::Ezmaxapi::fromJsonValue(m_dt_agent_sickleaveend, json[QString("dtAgentSickleaveend")]);
     m_dt_agent_sickleaveend_isSet = !json[QString("dtAgentSickleaveend")].isNull() && m_dt_agent_sickleaveend_isValid;
 
+    m_e_agent_schedule_isValid = ::Ezmaxapi::fromJsonValue(m_e_agent_schedule, json[QString("eAgentSchedule")]);
+    m_e_agent_schedule_isSet = !json[QString("eAgentSchedule")].isNull() && m_e_agent_schedule_isValid;
+
     m_b_agent_tranquillit_isValid = ::Ezmaxapi::fromJsonValue(m_b_agent_tranquillit, json[QString("bAgentTranquillit")]);
     m_b_agent_tranquillit_isSet = !json[QString("bAgentTranquillit")].isNull() && m_b_agent_tranquillit_isValid;
 
@@ -377,6 +383,9 @@ QJsonObject Agent_ListElement::asJsonObject() const {
     }
     if (m_dt_agent_sickleaveend_isSet) {
         obj.insert(QString("dtAgentSickleaveend"), ::Ezmaxapi::toJsonValue(m_dt_agent_sickleaveend));
+    }
+    if (m_e_agent_schedule.isSet()) {
+        obj.insert(QString("eAgentSchedule"), ::Ezmaxapi::toJsonValue(m_e_agent_schedule));
     }
     if (m_b_agent_tranquillit_isSet) {
         obj.insert(QString("bAgentTranquillit"), ::Ezmaxapi::toJsonValue(m_b_agent_tranquillit));
@@ -794,6 +803,22 @@ bool Agent_ListElement::is_dt_agent_sickleaveend_Set() const{
 
 bool Agent_ListElement::is_dt_agent_sickleaveend_Valid() const{
     return m_dt_agent_sickleaveend_isValid;
+}
+
+Field_eAgentSchedule Agent_ListElement::getEAgentSchedule() const {
+    return m_e_agent_schedule;
+}
+void Agent_ListElement::setEAgentSchedule(const Field_eAgentSchedule &e_agent_schedule) {
+    m_e_agent_schedule = e_agent_schedule;
+    m_e_agent_schedule_isSet = true;
+}
+
+bool Agent_ListElement::is_e_agent_schedule_Set() const{
+    return m_e_agent_schedule_isSet;
+}
+
+bool Agent_ListElement::is_e_agent_schedule_Valid() const{
+    return m_e_agent_schedule_isValid;
 }
 
 bool Agent_ListElement::isBAgentTranquillit() const {
@@ -1245,6 +1270,11 @@ bool Agent_ListElement::isSet() const {
             break;
         }
 
+        if (m_e_agent_schedule.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (m_b_agent_tranquillit_isSet) {
             isObjectUpdated = true;
             break;
@@ -1355,7 +1385,7 @@ bool Agent_ListElement::isSet() const {
 
 bool Agent_ListElement::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_pki_agent_id_isValid && m_fki_agenttype_id_isValid && m_s_agenttype_name_x_isValid && m_fki_department_id_isValid && m_s_department_name_x_isValid && m_fki_language_id_isValid && m_s_language_name_x_isValid && m_s_agent_code_isValid && m_i_agent_photocopiercode_isValid && m_i_agent_longdistancecode_isValid && m_i_agent_bannernumber_isValid && m_s_agent_realestateassociationlicense_isValid && m_b_agent_tranquillit_isValid && m_b_agent_residentiallicense_isValid && m_b_agent_commerciallicense_isValid && m_b_agent_mortgagelicense_isValid && m_b_agent_paidbyofficetranquillit_isValid && m_b_agent_isactive_isValid && m_s_contact_firstname_isValid && m_s_contact_lastname_isValid && true;
+    return m_pki_agent_id_isValid && m_fki_agenttype_id_isValid && m_s_agenttype_name_x_isValid && m_fki_department_id_isValid && m_s_department_name_x_isValid && m_fki_language_id_isValid && m_s_language_name_x_isValid && m_s_agent_code_isValid && m_i_agent_photocopiercode_isValid && m_i_agent_longdistancecode_isValid && m_i_agent_bannernumber_isValid && m_s_agent_realestateassociationlicense_isValid && m_e_agent_schedule_isValid && m_b_agent_tranquillit_isValid && m_b_agent_residentiallicense_isValid && m_b_agent_commerciallicense_isValid && m_b_agent_mortgagelicense_isValid && m_b_agent_paidbyofficetranquillit_isValid && m_b_agent_isactive_isValid && m_s_contact_firstname_isValid && m_s_contact_lastname_isValid && true;
 }
 
 } // namespace Ezmaxapi

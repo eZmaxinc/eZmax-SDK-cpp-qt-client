@@ -24,6 +24,7 @@
 #include "Custom_eWebhookEzsignevent.h"
 #include "Field_eWebhookManagementevent.h"
 #include "Field_eWebhookModule.h"
+#include "Field_eWebhookRealestateevent.h"
 
 #include "Enum.h"
 #include "Object.h"
@@ -55,6 +56,11 @@ public:
     void setEWebhookManagementevent(const Field_eWebhookManagementevent &e_webhook_managementevent);
     bool is_e_webhook_managementevent_Set() const;
     bool is_e_webhook_managementevent_Valid() const;
+
+    Field_eWebhookRealestateevent getEWebhookRealestateevent() const;
+    void setEWebhookRealestateevent(const Field_eWebhookRealestateevent &e_webhook_realestateevent);
+    bool is_e_webhook_realestateevent_Set() const;
+    bool is_e_webhook_realestateevent_Valid() const;
 
     qint32 getFkiEzsignfolderId() const;
     void setFkiEzsignfolderId(const qint32 &fki_ezsignfolder_id);
@@ -98,6 +104,10 @@ private:
     Field_eWebhookManagementevent m_e_webhook_managementevent;
     bool m_e_webhook_managementevent_isSet;
     bool m_e_webhook_managementevent_isValid;
+
+    Field_eWebhookRealestateevent m_e_webhook_realestateevent;
+    bool m_e_webhook_realestateevent_isSet;
+    bool m_e_webhook_realestateevent_isValid;
 
     qint32 m_fki_ezsignfolder_id;
     bool m_fki_ezsignfolder_id_isSet;

@@ -21,12 +21,14 @@
 
 #include <QJsonObject>
 
+#include "Multilingual_EzmaxpartnerLogourl.h"
 #include <QString>
 
 #include "Enum.h"
 #include "Object.h"
 
 namespace Ezmaxapi {
+class Multilingual_EzmaxpartnerLogourl;
 
 class Custom_Ezmaxpartner_ListElement : public Object {
 public:
@@ -74,6 +76,11 @@ public:
     bool is_s_ezmaxpartner_url_x_Set() const;
     bool is_s_ezmaxpartner_url_x_Valid() const;
 
+    Multilingual_EzmaxpartnerLogourl getObjEzmaxpartnerLogourl() const;
+    void setObjEzmaxpartnerLogourl(const Multilingual_EzmaxpartnerLogourl &obj_ezmaxpartner_logourl);
+    bool is_obj_ezmaxpartner_logourl_Set() const;
+    bool is_obj_ezmaxpartner_logourl_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -107,6 +114,10 @@ private:
     QString m_s_ezmaxpartner_url_x;
     bool m_s_ezmaxpartner_url_x_isSet;
     bool m_s_ezmaxpartner_url_x_isValid;
+
+    Multilingual_EzmaxpartnerLogourl m_obj_ezmaxpartner_logourl;
+    bool m_obj_ezmaxpartner_logourl_isSet;
+    bool m_obj_ezmaxpartner_logourl_isValid;
 };
 
 } // namespace Ezmaxapi

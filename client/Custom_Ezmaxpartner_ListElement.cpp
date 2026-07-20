@@ -54,6 +54,9 @@ void Custom_Ezmaxpartner_ListElement::initializeModel() {
 
     m_s_ezmaxpartner_url_x_isSet = false;
     m_s_ezmaxpartner_url_x_isValid = false;
+
+    m_obj_ezmaxpartner_logourl_isSet = false;
+    m_obj_ezmaxpartner_logourl_isValid = false;
 }
 
 void Custom_Ezmaxpartner_ListElement::fromJson(const QString &jsonString) {
@@ -85,6 +88,9 @@ void Custom_Ezmaxpartner_ListElement::fromJsonObject(QJsonObject json) {
 
     m_s_ezmaxpartner_url_x_isValid = ::Ezmaxapi::fromJsonValue(m_s_ezmaxpartner_url_x, json[QString("sEzmaxpartnerUrlX")]);
     m_s_ezmaxpartner_url_x_isSet = !json[QString("sEzmaxpartnerUrlX")].isNull() && m_s_ezmaxpartner_url_x_isValid;
+
+    m_obj_ezmaxpartner_logourl_isValid = ::Ezmaxapi::fromJsonValue(m_obj_ezmaxpartner_logourl, json[QString("objEzmaxpartnerLogourl")]);
+    m_obj_ezmaxpartner_logourl_isSet = !json[QString("objEzmaxpartnerLogourl")].isNull() && m_obj_ezmaxpartner_logourl_isValid;
 }
 
 QString Custom_Ezmaxpartner_ListElement::asJson() const {
@@ -116,6 +122,9 @@ QJsonObject Custom_Ezmaxpartner_ListElement::asJsonObject() const {
     }
     if (m_s_ezmaxpartner_url_x_isSet) {
         obj.insert(QString("sEzmaxpartnerUrlX"), ::Ezmaxapi::toJsonValue(m_s_ezmaxpartner_url_x));
+    }
+    if (m_obj_ezmaxpartner_logourl.isSet()) {
+        obj.insert(QString("objEzmaxpartnerLogourl"), ::Ezmaxapi::toJsonValue(m_obj_ezmaxpartner_logourl));
     }
     return obj;
 }
@@ -232,6 +241,22 @@ bool Custom_Ezmaxpartner_ListElement::is_s_ezmaxpartner_url_x_Valid() const{
     return m_s_ezmaxpartner_url_x_isValid;
 }
 
+Multilingual_EzmaxpartnerLogourl Custom_Ezmaxpartner_ListElement::getObjEzmaxpartnerLogourl() const {
+    return m_obj_ezmaxpartner_logourl;
+}
+void Custom_Ezmaxpartner_ListElement::setObjEzmaxpartnerLogourl(const Multilingual_EzmaxpartnerLogourl &obj_ezmaxpartner_logourl) {
+    m_obj_ezmaxpartner_logourl = obj_ezmaxpartner_logourl;
+    m_obj_ezmaxpartner_logourl_isSet = true;
+}
+
+bool Custom_Ezmaxpartner_ListElement::is_obj_ezmaxpartner_logourl_Set() const{
+    return m_obj_ezmaxpartner_logourl_isSet;
+}
+
+bool Custom_Ezmaxpartner_ListElement::is_obj_ezmaxpartner_logourl_Valid() const{
+    return m_obj_ezmaxpartner_logourl_isValid;
+}
+
 bool Custom_Ezmaxpartner_ListElement::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -269,13 +294,18 @@ bool Custom_Ezmaxpartner_ListElement::isSet() const {
             isObjectUpdated = true;
             break;
         }
+
+        if (m_obj_ezmaxpartner_logourl.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
     } while (false);
     return isObjectUpdated;
 }
 
 bool Custom_Ezmaxpartner_ListElement::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_pki_ezmaxpartner_id_isValid && m_s_ezmaxpartner_address_x_isValid && m_s_ezmaxpartner_emailaddress_x_isValid && m_s_ezmaxpartner_shortdescription_x_isValid && m_s_ezmaxpartner_name_x_isValid && m_s_ezmaxpartner_phone_e164_x_isValid && m_s_ezmaxpartner_url_x_isValid && true;
+    return m_pki_ezmaxpartner_id_isValid && m_s_ezmaxpartner_address_x_isValid && m_s_ezmaxpartner_emailaddress_x_isValid && m_s_ezmaxpartner_shortdescription_x_isValid && m_s_ezmaxpartner_name_x_isValid && m_s_ezmaxpartner_phone_e164_x_isValid && m_s_ezmaxpartner_url_x_isValid && m_obj_ezmaxpartner_logourl_isValid && true;
 }
 
 } // namespace Ezmaxapi

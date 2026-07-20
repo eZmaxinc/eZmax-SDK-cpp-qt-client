@@ -22,6 +22,7 @@
 #include <QJsonObject>
 
 #include "Field_eInscriptionStep.h"
+#include "Field_eInscriptionType.h"
 #include <QString>
 
 #include "Enum.h"
@@ -55,6 +56,31 @@ public:
     bool is_fki_inscriptiontype_id_Set() const;
     bool is_fki_inscriptiontype_id_Valid() const;
 
+    QString getSInscriptiontypeNameX() const;
+    void setSInscriptiontypeNameX(const QString &s_inscriptiontype_name_x);
+    bool is_s_inscriptiontype_name_x_Set() const;
+    bool is_s_inscriptiontype_name_x_Valid() const;
+
+    qint32 getFkiInscriptionbuildingtypeId() const;
+    void setFkiInscriptionbuildingtypeId(const qint32 &fki_inscriptionbuildingtype_id);
+    bool is_fki_inscriptionbuildingtype_id_Set() const;
+    bool is_fki_inscriptionbuildingtype_id_Valid() const;
+
+    QString getSInscriptionbuildingtypeNameX() const;
+    void setSInscriptionbuildingtypeNameX(const QString &s_inscriptionbuildingtype_name_x);
+    bool is_s_inscriptionbuildingtype_name_x_Set() const;
+    bool is_s_inscriptionbuildingtype_name_x_Valid() const;
+
+    qint32 getFkiInscriptioncategoryId() const;
+    void setFkiInscriptioncategoryId(const qint32 &fki_inscriptioncategory_id);
+    bool is_fki_inscriptioncategory_id_Set() const;
+    bool is_fki_inscriptioncategory_id_Valid() const;
+
+    QString getSInscriptioncategoryNameX() const;
+    void setSInscriptioncategoryNameX(const QString &s_inscriptioncategory_name_x);
+    bool is_s_inscriptioncategory_name_x_Set() const;
+    bool is_s_inscriptioncategory_name_x_Valid() const;
+
     qint32 getFkiBuyercontractId() const;
     void setFkiBuyercontractId(const qint32 &fki_buyercontract_id);
     bool is_fki_buyercontract_id_Set() const;
@@ -65,15 +91,15 @@ public:
     bool is_s_buyercontract_contract_Set() const;
     bool is_s_buyercontract_contract_Valid() const;
 
-    QString getSInscriptiontypeNameX() const;
-    void setSInscriptiontypeNameX(const QString &s_inscriptiontype_name_x);
-    bool is_s_inscriptiontype_name_x_Set() const;
-    bool is_s_inscriptiontype_name_x_Valid() const;
-
     Field_eInscriptionStep getEInscriptionStep() const;
     void setEInscriptionStep(const Field_eInscriptionStep &e_inscription_step);
     bool is_e_inscription_step_Set() const;
     bool is_e_inscription_step_Valid() const;
+
+    Field_eInscriptionType getEInscriptionType() const;
+    void setEInscriptionType(const Field_eInscriptionType &e_inscription_type);
+    bool is_e_inscription_type_Set() const;
+    bool is_e_inscription_type_Valid() const;
 
     QString getSInscriptionCivicend() const;
     void setSInscriptionCivicend(const QString &s_inscription_civicend);
@@ -205,6 +231,11 @@ public:
     bool is_i_inscriptionnotauthenticated_canceled_Set() const;
     bool is_i_inscriptionnotauthenticated_canceled_Valid() const;
 
+    qint32 getIInscriptionUnit() const;
+    void setIInscriptionUnit(const qint32 &i_inscription_unit);
+    bool is_i_inscription_unit_Set() const;
+    bool is_i_inscription_unit_Valid() const;
+
     bool isBAllowedCopyintoinscriptionedm() const;
     void setBAllowedCopyintoinscriptionedm(const bool &b_allowed_copyintoinscriptionedm);
     bool is_b_allowed_copyintoinscriptionedm_Set() const;
@@ -228,6 +259,26 @@ private:
     bool m_fki_inscriptiontype_id_isSet;
     bool m_fki_inscriptiontype_id_isValid;
 
+    QString m_s_inscriptiontype_name_x;
+    bool m_s_inscriptiontype_name_x_isSet;
+    bool m_s_inscriptiontype_name_x_isValid;
+
+    qint32 m_fki_inscriptionbuildingtype_id;
+    bool m_fki_inscriptionbuildingtype_id_isSet;
+    bool m_fki_inscriptionbuildingtype_id_isValid;
+
+    QString m_s_inscriptionbuildingtype_name_x;
+    bool m_s_inscriptionbuildingtype_name_x_isSet;
+    bool m_s_inscriptionbuildingtype_name_x_isValid;
+
+    qint32 m_fki_inscriptioncategory_id;
+    bool m_fki_inscriptioncategory_id_isSet;
+    bool m_fki_inscriptioncategory_id_isValid;
+
+    QString m_s_inscriptioncategory_name_x;
+    bool m_s_inscriptioncategory_name_x_isSet;
+    bool m_s_inscriptioncategory_name_x_isValid;
+
     qint32 m_fki_buyercontract_id;
     bool m_fki_buyercontract_id_isSet;
     bool m_fki_buyercontract_id_isValid;
@@ -236,13 +287,13 @@ private:
     bool m_s_buyercontract_contract_isSet;
     bool m_s_buyercontract_contract_isValid;
 
-    QString m_s_inscriptiontype_name_x;
-    bool m_s_inscriptiontype_name_x_isSet;
-    bool m_s_inscriptiontype_name_x_isValid;
-
     Field_eInscriptionStep m_e_inscription_step;
     bool m_e_inscription_step_isSet;
     bool m_e_inscription_step_isValid;
+
+    Field_eInscriptionType m_e_inscription_type;
+    bool m_e_inscription_type_isSet;
+    bool m_e_inscription_type_isValid;
 
     QString m_s_inscription_civicend;
     bool m_s_inscription_civicend_isSet;
@@ -347,6 +398,10 @@ private:
     qint32 m_i_inscriptionnotauthenticated_canceled;
     bool m_i_inscriptionnotauthenticated_canceled_isSet;
     bool m_i_inscriptionnotauthenticated_canceled_isValid;
+
+    qint32 m_i_inscription_unit;
+    bool m_i_inscription_unit_isSet;
+    bool m_i_inscription_unit_isValid;
 
     bool m_b_allowed_copyintoinscriptionedm;
     bool m_b_allowed_copyintoinscriptionedm_isSet;

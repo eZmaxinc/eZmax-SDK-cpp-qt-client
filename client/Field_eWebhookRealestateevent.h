@@ -11,13 +11,13 @@
  */
 
 /*
- * Field_eWebhookModule.h
+ * Field_eWebhookRealestateevent.h
  *
- * The module for the Webhook
+ * The realestateevent of the Webhook
  */
 
-#ifndef Field_eWebhookModule_H
-#define Field_eWebhookModule_H
+#ifndef Field_eWebhookRealestateevent_H
+#define Field_eWebhookRealestateevent_H
 
 #include <QJsonObject>
 
@@ -27,39 +27,39 @@
 
 namespace Ezmaxapi {
 
-class Field_eWebhookModule : public Enum {
+class Field_eWebhookRealestateevent : public Enum {
 public:
-    Field_eWebhookModule();
-    Field_eWebhookModule(const QString &json);
-    ~Field_eWebhookModule() override;
+    Field_eWebhookRealestateevent();
+    Field_eWebhookRealestateevent(const QString &json);
+    ~Field_eWebhookRealestateevent() override;
 
     QString asJson() const override;
     QJsonValue asJsonValue() const override;
     void fromJsonValue(QJsonValue json) override;
     void fromJson(const QString &jsonString) override;
 
-    enum class eField_eWebhookModule {
+    enum class eField_eWebhookRealestateevent {
         INVALID_VALUE_OPENAPI_GENERATED = 0,
-        EZMAXPARTNER, 
-        EZSIGN, 
-        MANAGEMENT, 
-        REALESTATE
+        INSCRIPTIONCREATED, 
+        INSCRIPTIONMODIFIED, 
+        INSCRIPTIONNOTAUTHENTICATEDCREATED, 
+        INSCRIPTIONNOTAUTHENTICATEDMODIFIED
     };
-    Field_eWebhookModule::eField_eWebhookModule getValue() const;
-    void setValue(const Field_eWebhookModule::eField_eWebhookModule& value);
+    Field_eWebhookRealestateevent::eField_eWebhookRealestateevent getValue() const;
+    void setValue(const Field_eWebhookRealestateevent::eField_eWebhookRealestateevent& value);
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
 private:
     void initializeModel();
 
-    eField_eWebhookModule m_value;
+    eField_eWebhookRealestateevent m_value;
     bool m_value_isSet;
     bool m_value_isValid;
 };
 
 } // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(Ezmaxapi::Field_eWebhookModule)
+Q_DECLARE_METATYPE(Ezmaxapi::Field_eWebhookRealestateevent)
 
-#endif // Field_eWebhookModule_H
+#endif // Field_eWebhookRealestateevent_H

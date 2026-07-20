@@ -1308,6 +1308,7 @@ HEADERS += \
     $${PWD}/Field_eActivesessionRealestateinprogress.h \
     $${PWD}/Field_eActivesessionUsertype.h \
     $${PWD}/Field_eActivesessionWeekdaystart.h \
+    $${PWD}/Field_eAgentSchedule.h \
     $${PWD}/Field_eAttachmentDocumenttype.h \
     $${PWD}/Field_eAttachmentPrivacy.h \
     $${PWD}/Field_eAttachmentType.h \
@@ -1449,6 +1450,7 @@ HEADERS += \
     $${PWD}/Field_eWebhookEzsignevent.h \
     $${PWD}/Field_eWebhookManagementevent.h \
     $${PWD}/Field_eWebhookModule.h \
+    $${PWD}/Field_eWebhookRealestateevent.h \
     $${PWD}/Field_etInscriptionnotauthenticatedMortgagetype.h \
     $${PWD}/Field_pksEzmaxclientOs.h \
     $${PWD}/Font_AutocompleteElement_Response.h \
@@ -1728,7 +1730,10 @@ HEADERS += \
     $${PWD}/Scim_ServiceProviderConfig.h \
     $${PWD}/Scim_ServiceProviderConfig_bulk.h \
     $${PWD}/Scim_ServiceProviderConfig_changePassword.h \
+    $${PWD}/Scim_ServiceProviderConfig_etag.h \
     $${PWD}/Scim_ServiceProviderConfig_filter.h \
+    $${PWD}/Scim_ServiceProviderConfig_patch.h \
+    $${PWD}/Scim_ServiceProviderConfig_sort.h \
     $${PWD}/Scim_User.h \
     $${PWD}/Scim_UserList.h \
     $${PWD}/Secretquestion_AutocompleteElement_Response.h \
@@ -2000,6 +2005,10 @@ HEADERS += \
     $${PWD}/Webhook_Ezsign_FolderUnsent.h \
     $${PWD}/Webhook_Ezsign_SignatureSigned.h \
     $${PWD}/Webhook_ListElement.h \
+    $${PWD}/Webhook_Realestate_InscriptionCreated.h \
+    $${PWD}/Webhook_Realestate_InscriptionModified.h \
+    $${PWD}/Webhook_Realestate_InscriptionnotauthenticatedCreated.h \
+    $${PWD}/Webhook_Realestate_InscriptionnotauthenticatedModified.h \
     $${PWD}/Webhook_Request.h \
     $${PWD}/Webhook_RequestCompound.h \
     $${PWD}/Webhook_Response.h \
@@ -2040,7 +2049,7 @@ HEADERS += \
     $${PWD}/Websocket_Response_Information_V1.h \
     $${PWD}/Websocket_Response_Information_V1_mPayload.h \
 # APIs
-    $${PWD}/DocumentationEzmaxpartnerApi.h \
+    $${PWD}/ExternalEzmaxpartnerApi.h \
     $${PWD}/GlobalCustomerApi.h \
     $${PWD}/GlobalEzmaxclientApi.h \
     $${PWD}/GlobalEzmaxcustomerApi.h \
@@ -3498,6 +3507,7 @@ SOURCES += \
     $${PWD}/Field_eActivesessionRealestateinprogress.cpp \
     $${PWD}/Field_eActivesessionUsertype.cpp \
     $${PWD}/Field_eActivesessionWeekdaystart.cpp \
+    $${PWD}/Field_eAgentSchedule.cpp \
     $${PWD}/Field_eAttachmentDocumenttype.cpp \
     $${PWD}/Field_eAttachmentPrivacy.cpp \
     $${PWD}/Field_eAttachmentType.cpp \
@@ -3639,6 +3649,7 @@ SOURCES += \
     $${PWD}/Field_eWebhookEzsignevent.cpp \
     $${PWD}/Field_eWebhookManagementevent.cpp \
     $${PWD}/Field_eWebhookModule.cpp \
+    $${PWD}/Field_eWebhookRealestateevent.cpp \
     $${PWD}/Field_etInscriptionnotauthenticatedMortgagetype.cpp \
     $${PWD}/Field_pksEzmaxclientOs.cpp \
     $${PWD}/Font_AutocompleteElement_Response.cpp \
@@ -3918,7 +3929,10 @@ SOURCES += \
     $${PWD}/Scim_ServiceProviderConfig.cpp \
     $${PWD}/Scim_ServiceProviderConfig_bulk.cpp \
     $${PWD}/Scim_ServiceProviderConfig_changePassword.cpp \
+    $${PWD}/Scim_ServiceProviderConfig_etag.cpp \
     $${PWD}/Scim_ServiceProviderConfig_filter.cpp \
+    $${PWD}/Scim_ServiceProviderConfig_patch.cpp \
+    $${PWD}/Scim_ServiceProviderConfig_sort.cpp \
     $${PWD}/Scim_User.cpp \
     $${PWD}/Scim_UserList.cpp \
     $${PWD}/Secretquestion_AutocompleteElement_Response.cpp \
@@ -4190,6 +4204,10 @@ SOURCES += \
     $${PWD}/Webhook_Ezsign_FolderUnsent.cpp \
     $${PWD}/Webhook_Ezsign_SignatureSigned.cpp \
     $${PWD}/Webhook_ListElement.cpp \
+    $${PWD}/Webhook_Realestate_InscriptionCreated.cpp \
+    $${PWD}/Webhook_Realestate_InscriptionModified.cpp \
+    $${PWD}/Webhook_Realestate_InscriptionnotauthenticatedCreated.cpp \
+    $${PWD}/Webhook_Realestate_InscriptionnotauthenticatedModified.cpp \
     $${PWD}/Webhook_Request.cpp \
     $${PWD}/Webhook_RequestCompound.cpp \
     $${PWD}/Webhook_Response.cpp \
@@ -4230,7 +4248,7 @@ SOURCES += \
     $${PWD}/Websocket_Response_Information_V1.cpp \
     $${PWD}/Websocket_Response_Information_V1_mPayload.cpp \
 # APIs
-    $${PWD}/DocumentationEzmaxpartnerApi.cpp \
+    $${PWD}/ExternalEzmaxpartnerApi.cpp \
     $${PWD}/GlobalCustomerApi.cpp \
     $${PWD}/GlobalEzmaxclientApi.cpp \
     $${PWD}/GlobalEzmaxcustomerApi.cpp \

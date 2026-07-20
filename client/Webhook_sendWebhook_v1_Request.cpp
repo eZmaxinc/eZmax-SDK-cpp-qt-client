@@ -43,6 +43,9 @@ void Webhook_sendWebhook_v1_Request::initializeModel() {
     m_e_webhook_managementevent_isSet = false;
     m_e_webhook_managementevent_isValid = false;
 
+    m_e_webhook_realestateevent_isSet = false;
+    m_e_webhook_realestateevent_isValid = false;
+
     m_fki_ezsignfolder_id_isSet = false;
     m_fki_ezsignfolder_id_isValid = false;
 
@@ -77,6 +80,9 @@ void Webhook_sendWebhook_v1_Request::fromJsonObject(QJsonObject json) {
     m_e_webhook_managementevent_isValid = ::Ezmaxapi::fromJsonValue(m_e_webhook_managementevent, json[QString("eWebhookManagementevent")]);
     m_e_webhook_managementevent_isSet = !json[QString("eWebhookManagementevent")].isNull() && m_e_webhook_managementevent_isValid;
 
+    m_e_webhook_realestateevent_isValid = ::Ezmaxapi::fromJsonValue(m_e_webhook_realestateevent, json[QString("eWebhookRealestateevent")]);
+    m_e_webhook_realestateevent_isSet = !json[QString("eWebhookRealestateevent")].isNull() && m_e_webhook_realestateevent_isValid;
+
     m_fki_ezsignfolder_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_ezsignfolder_id, json[QString("fkiEzsignfolderID")]);
     m_fki_ezsignfolder_id_isSet = !json[QString("fkiEzsignfolderID")].isNull() && m_fki_ezsignfolder_id_isValid;
 
@@ -110,6 +116,9 @@ QJsonObject Webhook_sendWebhook_v1_Request::asJsonObject() const {
     }
     if (m_e_webhook_managementevent.isSet()) {
         obj.insert(QString("eWebhookManagementevent"), ::Ezmaxapi::toJsonValue(m_e_webhook_managementevent));
+    }
+    if (m_e_webhook_realestateevent.isSet()) {
+        obj.insert(QString("eWebhookRealestateevent"), ::Ezmaxapi::toJsonValue(m_e_webhook_realestateevent));
     }
     if (m_fki_ezsignfolder_id_isSet) {
         obj.insert(QString("fkiEzsignfolderID"), ::Ezmaxapi::toJsonValue(m_fki_ezsignfolder_id));
@@ -175,6 +184,22 @@ bool Webhook_sendWebhook_v1_Request::is_e_webhook_managementevent_Set() const{
 
 bool Webhook_sendWebhook_v1_Request::is_e_webhook_managementevent_Valid() const{
     return m_e_webhook_managementevent_isValid;
+}
+
+Field_eWebhookRealestateevent Webhook_sendWebhook_v1_Request::getEWebhookRealestateevent() const {
+    return m_e_webhook_realestateevent;
+}
+void Webhook_sendWebhook_v1_Request::setEWebhookRealestateevent(const Field_eWebhookRealestateevent &e_webhook_realestateevent) {
+    m_e_webhook_realestateevent = e_webhook_realestateevent;
+    m_e_webhook_realestateevent_isSet = true;
+}
+
+bool Webhook_sendWebhook_v1_Request::is_e_webhook_realestateevent_Set() const{
+    return m_e_webhook_realestateevent_isSet;
+}
+
+bool Webhook_sendWebhook_v1_Request::is_e_webhook_realestateevent_Valid() const{
+    return m_e_webhook_realestateevent_isValid;
 }
 
 qint32 Webhook_sendWebhook_v1_Request::getFkiEzsignfolderId() const {
@@ -271,6 +296,11 @@ bool Webhook_sendWebhook_v1_Request::isSet() const {
         }
 
         if (m_e_webhook_managementevent.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_e_webhook_realestateevent.isSet()) {
             isObjectUpdated = true;
             break;
         }

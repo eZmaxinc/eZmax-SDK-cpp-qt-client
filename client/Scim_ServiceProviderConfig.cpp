@@ -193,10 +193,10 @@ bool Scim_ServiceProviderConfig::is_documentation_uri_Valid() const{
     return m_documentation_uri_isValid;
 }
 
-Scim_ServiceProviderConfig_changePassword Scim_ServiceProviderConfig::getEtag() const {
+Scim_ServiceProviderConfig_etag Scim_ServiceProviderConfig::getEtag() const {
     return m_etag;
 }
-void Scim_ServiceProviderConfig::setEtag(const Scim_ServiceProviderConfig_changePassword &etag) {
+void Scim_ServiceProviderConfig::setEtag(const Scim_ServiceProviderConfig_etag &etag) {
     m_etag = etag;
     m_etag_isSet = true;
 }
@@ -225,10 +225,10 @@ bool Scim_ServiceProviderConfig::is_filter_Valid() const{
     return m_filter_isValid;
 }
 
-Scim_ServiceProviderConfig_changePassword Scim_ServiceProviderConfig::getPatch() const {
+Scim_ServiceProviderConfig_patch Scim_ServiceProviderConfig::getPatch() const {
     return m_patch;
 }
-void Scim_ServiceProviderConfig::setPatch(const Scim_ServiceProviderConfig_changePassword &patch) {
+void Scim_ServiceProviderConfig::setPatch(const Scim_ServiceProviderConfig_patch &patch) {
     m_patch = patch;
     m_patch_isSet = true;
 }
@@ -241,10 +241,10 @@ bool Scim_ServiceProviderConfig::is_patch_Valid() const{
     return m_patch_isValid;
 }
 
-Scim_ServiceProviderConfig_changePassword Scim_ServiceProviderConfig::getSort() const {
+Scim_ServiceProviderConfig_sort Scim_ServiceProviderConfig::getSort() const {
     return m_sort;
 }
-void Scim_ServiceProviderConfig::setSort(const Scim_ServiceProviderConfig_changePassword &sort) {
+void Scim_ServiceProviderConfig::setSort(const Scim_ServiceProviderConfig_sort &sort) {
     m_sort = sort;
     m_sort_isSet = true;
 }

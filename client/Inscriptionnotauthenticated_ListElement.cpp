@@ -43,17 +43,32 @@ void Inscriptionnotauthenticated_ListElement::initializeModel() {
     m_fki_inscriptiontype_id_isSet = false;
     m_fki_inscriptiontype_id_isValid = false;
 
+    m_s_inscriptiontype_name_x_isSet = false;
+    m_s_inscriptiontype_name_x_isValid = false;
+
+    m_fki_inscriptionbuildingtype_id_isSet = false;
+    m_fki_inscriptionbuildingtype_id_isValid = false;
+
+    m_s_inscriptionbuildingtype_name_x_isSet = false;
+    m_s_inscriptionbuildingtype_name_x_isValid = false;
+
+    m_fki_inscriptioncategory_id_isSet = false;
+    m_fki_inscriptioncategory_id_isValid = false;
+
+    m_s_inscriptioncategory_name_x_isSet = false;
+    m_s_inscriptioncategory_name_x_isValid = false;
+
     m_fki_buyercontract_id_isSet = false;
     m_fki_buyercontract_id_isValid = false;
 
     m_s_buyercontract_contract_isSet = false;
     m_s_buyercontract_contract_isValid = false;
 
-    m_s_inscriptiontype_name_x_isSet = false;
-    m_s_inscriptiontype_name_x_isValid = false;
-
     m_e_inscription_step_isSet = false;
     m_e_inscription_step_isValid = false;
+
+    m_e_inscription_type_isSet = false;
+    m_e_inscription_type_isValid = false;
 
     m_s_inscription_civicend_isSet = false;
     m_s_inscription_civicend_isValid = false;
@@ -135,6 +150,9 @@ void Inscriptionnotauthenticated_ListElement::initializeModel() {
 
     m_s_inscriptionnotauthenticated_offertopurchasenumber_isSet = false;
     m_s_inscriptionnotauthenticated_offertopurchasenumber_isValid = false;
+
+    m_i_inscription_unit_isSet = false;
+    m_i_inscription_unit_isValid = false;
 }
 
 void Inscriptionnotauthenticated_ListElement::fromJson(const QString &jsonString) {
@@ -155,17 +173,32 @@ void Inscriptionnotauthenticated_ListElement::fromJsonObject(QJsonObject json) {
     m_fki_inscriptiontype_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_inscriptiontype_id, json[QString("fkiInscriptiontypeID")]);
     m_fki_inscriptiontype_id_isSet = !json[QString("fkiInscriptiontypeID")].isNull() && m_fki_inscriptiontype_id_isValid;
 
+    m_s_inscriptiontype_name_x_isValid = ::Ezmaxapi::fromJsonValue(m_s_inscriptiontype_name_x, json[QString("sInscriptiontypeNameX")]);
+    m_s_inscriptiontype_name_x_isSet = !json[QString("sInscriptiontypeNameX")].isNull() && m_s_inscriptiontype_name_x_isValid;
+
+    m_fki_inscriptionbuildingtype_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_inscriptionbuildingtype_id, json[QString("fkiInscriptionbuildingtypeID")]);
+    m_fki_inscriptionbuildingtype_id_isSet = !json[QString("fkiInscriptionbuildingtypeID")].isNull() && m_fki_inscriptionbuildingtype_id_isValid;
+
+    m_s_inscriptionbuildingtype_name_x_isValid = ::Ezmaxapi::fromJsonValue(m_s_inscriptionbuildingtype_name_x, json[QString("sInscriptionbuildingtypeNameX")]);
+    m_s_inscriptionbuildingtype_name_x_isSet = !json[QString("sInscriptionbuildingtypeNameX")].isNull() && m_s_inscriptionbuildingtype_name_x_isValid;
+
+    m_fki_inscriptioncategory_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_inscriptioncategory_id, json[QString("fkiInscriptioncategoryID")]);
+    m_fki_inscriptioncategory_id_isSet = !json[QString("fkiInscriptioncategoryID")].isNull() && m_fki_inscriptioncategory_id_isValid;
+
+    m_s_inscriptioncategory_name_x_isValid = ::Ezmaxapi::fromJsonValue(m_s_inscriptioncategory_name_x, json[QString("sInscriptioncategoryNameX")]);
+    m_s_inscriptioncategory_name_x_isSet = !json[QString("sInscriptioncategoryNameX")].isNull() && m_s_inscriptioncategory_name_x_isValid;
+
     m_fki_buyercontract_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_buyercontract_id, json[QString("fkiBuyercontractID")]);
     m_fki_buyercontract_id_isSet = !json[QString("fkiBuyercontractID")].isNull() && m_fki_buyercontract_id_isValid;
 
     m_s_buyercontract_contract_isValid = ::Ezmaxapi::fromJsonValue(m_s_buyercontract_contract, json[QString("sBuyercontractContract")]);
     m_s_buyercontract_contract_isSet = !json[QString("sBuyercontractContract")].isNull() && m_s_buyercontract_contract_isValid;
 
-    m_s_inscriptiontype_name_x_isValid = ::Ezmaxapi::fromJsonValue(m_s_inscriptiontype_name_x, json[QString("sInscriptiontypeNameX")]);
-    m_s_inscriptiontype_name_x_isSet = !json[QString("sInscriptiontypeNameX")].isNull() && m_s_inscriptiontype_name_x_isValid;
-
     m_e_inscription_step_isValid = ::Ezmaxapi::fromJsonValue(m_e_inscription_step, json[QString("eInscriptionStep")]);
     m_e_inscription_step_isSet = !json[QString("eInscriptionStep")].isNull() && m_e_inscription_step_isValid;
+
+    m_e_inscription_type_isValid = ::Ezmaxapi::fromJsonValue(m_e_inscription_type, json[QString("eInscriptionType")]);
+    m_e_inscription_type_isSet = !json[QString("eInscriptionType")].isNull() && m_e_inscription_type_isValid;
 
     m_s_inscription_civicend_isValid = ::Ezmaxapi::fromJsonValue(m_s_inscription_civicend, json[QString("sInscriptionCivicend")]);
     m_s_inscription_civicend_isSet = !json[QString("sInscriptionCivicend")].isNull() && m_s_inscription_civicend_isValid;
@@ -247,6 +280,9 @@ void Inscriptionnotauthenticated_ListElement::fromJsonObject(QJsonObject json) {
 
     m_s_inscriptionnotauthenticated_offertopurchasenumber_isValid = ::Ezmaxapi::fromJsonValue(m_s_inscriptionnotauthenticated_offertopurchasenumber, json[QString("sInscriptionnotauthenticatedOffertopurchasenumber")]);
     m_s_inscriptionnotauthenticated_offertopurchasenumber_isSet = !json[QString("sInscriptionnotauthenticatedOffertopurchasenumber")].isNull() && m_s_inscriptionnotauthenticated_offertopurchasenumber_isValid;
+
+    m_i_inscription_unit_isValid = ::Ezmaxapi::fromJsonValue(m_i_inscription_unit, json[QString("iInscriptionUnit")]);
+    m_i_inscription_unit_isSet = !json[QString("iInscriptionUnit")].isNull() && m_i_inscription_unit_isValid;
 }
 
 QString Inscriptionnotauthenticated_ListElement::asJson() const {
@@ -267,17 +303,32 @@ QJsonObject Inscriptionnotauthenticated_ListElement::asJsonObject() const {
     if (m_fki_inscriptiontype_id_isSet) {
         obj.insert(QString("fkiInscriptiontypeID"), ::Ezmaxapi::toJsonValue(m_fki_inscriptiontype_id));
     }
+    if (m_s_inscriptiontype_name_x_isSet) {
+        obj.insert(QString("sInscriptiontypeNameX"), ::Ezmaxapi::toJsonValue(m_s_inscriptiontype_name_x));
+    }
+    if (m_fki_inscriptionbuildingtype_id_isSet) {
+        obj.insert(QString("fkiInscriptionbuildingtypeID"), ::Ezmaxapi::toJsonValue(m_fki_inscriptionbuildingtype_id));
+    }
+    if (m_s_inscriptionbuildingtype_name_x_isSet) {
+        obj.insert(QString("sInscriptionbuildingtypeNameX"), ::Ezmaxapi::toJsonValue(m_s_inscriptionbuildingtype_name_x));
+    }
+    if (m_fki_inscriptioncategory_id_isSet) {
+        obj.insert(QString("fkiInscriptioncategoryID"), ::Ezmaxapi::toJsonValue(m_fki_inscriptioncategory_id));
+    }
+    if (m_s_inscriptioncategory_name_x_isSet) {
+        obj.insert(QString("sInscriptioncategoryNameX"), ::Ezmaxapi::toJsonValue(m_s_inscriptioncategory_name_x));
+    }
     if (m_fki_buyercontract_id_isSet) {
         obj.insert(QString("fkiBuyercontractID"), ::Ezmaxapi::toJsonValue(m_fki_buyercontract_id));
     }
     if (m_s_buyercontract_contract_isSet) {
         obj.insert(QString("sBuyercontractContract"), ::Ezmaxapi::toJsonValue(m_s_buyercontract_contract));
     }
-    if (m_s_inscriptiontype_name_x_isSet) {
-        obj.insert(QString("sInscriptiontypeNameX"), ::Ezmaxapi::toJsonValue(m_s_inscriptiontype_name_x));
-    }
     if (m_e_inscription_step.isSet()) {
         obj.insert(QString("eInscriptionStep"), ::Ezmaxapi::toJsonValue(m_e_inscription_step));
+    }
+    if (m_e_inscription_type.isSet()) {
+        obj.insert(QString("eInscriptionType"), ::Ezmaxapi::toJsonValue(m_e_inscription_type));
     }
     if (m_s_inscription_civicend_isSet) {
         obj.insert(QString("sInscriptionCivicend"), ::Ezmaxapi::toJsonValue(m_s_inscription_civicend));
@@ -360,6 +411,9 @@ QJsonObject Inscriptionnotauthenticated_ListElement::asJsonObject() const {
     if (m_s_inscriptionnotauthenticated_offertopurchasenumber_isSet) {
         obj.insert(QString("sInscriptionnotauthenticatedOffertopurchasenumber"), ::Ezmaxapi::toJsonValue(m_s_inscriptionnotauthenticated_offertopurchasenumber));
     }
+    if (m_i_inscription_unit_isSet) {
+        obj.insert(QString("iInscriptionUnit"), ::Ezmaxapi::toJsonValue(m_i_inscription_unit));
+    }
     return obj;
 }
 
@@ -411,6 +465,86 @@ bool Inscriptionnotauthenticated_ListElement::is_fki_inscriptiontype_id_Valid() 
     return m_fki_inscriptiontype_id_isValid;
 }
 
+QString Inscriptionnotauthenticated_ListElement::getSInscriptiontypeNameX() const {
+    return m_s_inscriptiontype_name_x;
+}
+void Inscriptionnotauthenticated_ListElement::setSInscriptiontypeNameX(const QString &s_inscriptiontype_name_x) {
+    m_s_inscriptiontype_name_x = s_inscriptiontype_name_x;
+    m_s_inscriptiontype_name_x_isSet = true;
+}
+
+bool Inscriptionnotauthenticated_ListElement::is_s_inscriptiontype_name_x_Set() const{
+    return m_s_inscriptiontype_name_x_isSet;
+}
+
+bool Inscriptionnotauthenticated_ListElement::is_s_inscriptiontype_name_x_Valid() const{
+    return m_s_inscriptiontype_name_x_isValid;
+}
+
+qint32 Inscriptionnotauthenticated_ListElement::getFkiInscriptionbuildingtypeId() const {
+    return m_fki_inscriptionbuildingtype_id;
+}
+void Inscriptionnotauthenticated_ListElement::setFkiInscriptionbuildingtypeId(const qint32 &fki_inscriptionbuildingtype_id) {
+    m_fki_inscriptionbuildingtype_id = fki_inscriptionbuildingtype_id;
+    m_fki_inscriptionbuildingtype_id_isSet = true;
+}
+
+bool Inscriptionnotauthenticated_ListElement::is_fki_inscriptionbuildingtype_id_Set() const{
+    return m_fki_inscriptionbuildingtype_id_isSet;
+}
+
+bool Inscriptionnotauthenticated_ListElement::is_fki_inscriptionbuildingtype_id_Valid() const{
+    return m_fki_inscriptionbuildingtype_id_isValid;
+}
+
+QString Inscriptionnotauthenticated_ListElement::getSInscriptionbuildingtypeNameX() const {
+    return m_s_inscriptionbuildingtype_name_x;
+}
+void Inscriptionnotauthenticated_ListElement::setSInscriptionbuildingtypeNameX(const QString &s_inscriptionbuildingtype_name_x) {
+    m_s_inscriptionbuildingtype_name_x = s_inscriptionbuildingtype_name_x;
+    m_s_inscriptionbuildingtype_name_x_isSet = true;
+}
+
+bool Inscriptionnotauthenticated_ListElement::is_s_inscriptionbuildingtype_name_x_Set() const{
+    return m_s_inscriptionbuildingtype_name_x_isSet;
+}
+
+bool Inscriptionnotauthenticated_ListElement::is_s_inscriptionbuildingtype_name_x_Valid() const{
+    return m_s_inscriptionbuildingtype_name_x_isValid;
+}
+
+qint32 Inscriptionnotauthenticated_ListElement::getFkiInscriptioncategoryId() const {
+    return m_fki_inscriptioncategory_id;
+}
+void Inscriptionnotauthenticated_ListElement::setFkiInscriptioncategoryId(const qint32 &fki_inscriptioncategory_id) {
+    m_fki_inscriptioncategory_id = fki_inscriptioncategory_id;
+    m_fki_inscriptioncategory_id_isSet = true;
+}
+
+bool Inscriptionnotauthenticated_ListElement::is_fki_inscriptioncategory_id_Set() const{
+    return m_fki_inscriptioncategory_id_isSet;
+}
+
+bool Inscriptionnotauthenticated_ListElement::is_fki_inscriptioncategory_id_Valid() const{
+    return m_fki_inscriptioncategory_id_isValid;
+}
+
+QString Inscriptionnotauthenticated_ListElement::getSInscriptioncategoryNameX() const {
+    return m_s_inscriptioncategory_name_x;
+}
+void Inscriptionnotauthenticated_ListElement::setSInscriptioncategoryNameX(const QString &s_inscriptioncategory_name_x) {
+    m_s_inscriptioncategory_name_x = s_inscriptioncategory_name_x;
+    m_s_inscriptioncategory_name_x_isSet = true;
+}
+
+bool Inscriptionnotauthenticated_ListElement::is_s_inscriptioncategory_name_x_Set() const{
+    return m_s_inscriptioncategory_name_x_isSet;
+}
+
+bool Inscriptionnotauthenticated_ListElement::is_s_inscriptioncategory_name_x_Valid() const{
+    return m_s_inscriptioncategory_name_x_isValid;
+}
+
 qint32 Inscriptionnotauthenticated_ListElement::getFkiBuyercontractId() const {
     return m_fki_buyercontract_id;
 }
@@ -443,22 +577,6 @@ bool Inscriptionnotauthenticated_ListElement::is_s_buyercontract_contract_Valid(
     return m_s_buyercontract_contract_isValid;
 }
 
-QString Inscriptionnotauthenticated_ListElement::getSInscriptiontypeNameX() const {
-    return m_s_inscriptiontype_name_x;
-}
-void Inscriptionnotauthenticated_ListElement::setSInscriptiontypeNameX(const QString &s_inscriptiontype_name_x) {
-    m_s_inscriptiontype_name_x = s_inscriptiontype_name_x;
-    m_s_inscriptiontype_name_x_isSet = true;
-}
-
-bool Inscriptionnotauthenticated_ListElement::is_s_inscriptiontype_name_x_Set() const{
-    return m_s_inscriptiontype_name_x_isSet;
-}
-
-bool Inscriptionnotauthenticated_ListElement::is_s_inscriptiontype_name_x_Valid() const{
-    return m_s_inscriptiontype_name_x_isValid;
-}
-
 Field_eInscriptionStep Inscriptionnotauthenticated_ListElement::getEInscriptionStep() const {
     return m_e_inscription_step;
 }
@@ -473,6 +591,22 @@ bool Inscriptionnotauthenticated_ListElement::is_e_inscription_step_Set() const{
 
 bool Inscriptionnotauthenticated_ListElement::is_e_inscription_step_Valid() const{
     return m_e_inscription_step_isValid;
+}
+
+Field_eInscriptionType Inscriptionnotauthenticated_ListElement::getEInscriptionType() const {
+    return m_e_inscription_type;
+}
+void Inscriptionnotauthenticated_ListElement::setEInscriptionType(const Field_eInscriptionType &e_inscription_type) {
+    m_e_inscription_type = e_inscription_type;
+    m_e_inscription_type_isSet = true;
+}
+
+bool Inscriptionnotauthenticated_ListElement::is_e_inscription_type_Set() const{
+    return m_e_inscription_type_isSet;
+}
+
+bool Inscriptionnotauthenticated_ListElement::is_e_inscription_type_Valid() const{
+    return m_e_inscription_type_isValid;
 }
 
 QString Inscriptionnotauthenticated_ListElement::getSInscriptionCivicend() const {
@@ -907,6 +1041,22 @@ bool Inscriptionnotauthenticated_ListElement::is_s_inscriptionnotauthenticated_o
     return m_s_inscriptionnotauthenticated_offertopurchasenumber_isValid;
 }
 
+qint32 Inscriptionnotauthenticated_ListElement::getIInscriptionUnit() const {
+    return m_i_inscription_unit;
+}
+void Inscriptionnotauthenticated_ListElement::setIInscriptionUnit(const qint32 &i_inscription_unit) {
+    m_i_inscription_unit = i_inscription_unit;
+    m_i_inscription_unit_isSet = true;
+}
+
+bool Inscriptionnotauthenticated_ListElement::is_i_inscription_unit_Set() const{
+    return m_i_inscription_unit_isSet;
+}
+
+bool Inscriptionnotauthenticated_ListElement::is_i_inscription_unit_Valid() const{
+    return m_i_inscription_unit_isValid;
+}
+
 bool Inscriptionnotauthenticated_ListElement::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -925,6 +1075,31 @@ bool Inscriptionnotauthenticated_ListElement::isSet() const {
             break;
         }
 
+        if (m_s_inscriptiontype_name_x_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_fki_inscriptionbuildingtype_id_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_s_inscriptionbuildingtype_name_x_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_fki_inscriptioncategory_id_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_s_inscriptioncategory_name_x_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (m_fki_buyercontract_id_isSet) {
             isObjectUpdated = true;
             break;
@@ -935,12 +1110,12 @@ bool Inscriptionnotauthenticated_ListElement::isSet() const {
             break;
         }
 
-        if (m_s_inscriptiontype_name_x_isSet) {
+        if (m_e_inscription_step.isSet()) {
             isObjectUpdated = true;
             break;
         }
 
-        if (m_e_inscription_step.isSet()) {
+        if (m_e_inscription_type.isSet()) {
             isObjectUpdated = true;
             break;
         }
@@ -1079,13 +1254,18 @@ bool Inscriptionnotauthenticated_ListElement::isSet() const {
             isObjectUpdated = true;
             break;
         }
+
+        if (m_i_inscription_unit_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
     } while (false);
     return isObjectUpdated;
 }
 
 bool Inscriptionnotauthenticated_ListElement::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_pki_inscription_id_isValid && m_fki_inscriptiontype_id_isValid && m_s_inscriptiontype_name_x_isValid && m_e_inscription_step_isValid && m_s_inscription_civicend_isValid && m_d_inscription_saleprice_isValid && m_d_inscription_rentprice_isValid && m_b_inscription_isactive_isValid && m_b_inscription_archived_isValid && m_s_inscriptionnotauthenticated_offertopurchasenumber_isValid && true;
+    return m_pki_inscription_id_isValid && m_fki_inscriptiontype_id_isValid && m_s_inscriptiontype_name_x_isValid && m_fki_inscriptionbuildingtype_id_isValid && m_s_inscriptionbuildingtype_name_x_isValid && m_fki_inscriptioncategory_id_isValid && m_s_inscriptioncategory_name_x_isValid && m_e_inscription_step_isValid && m_e_inscription_type_isValid && m_s_inscription_civicend_isValid && m_d_inscription_saleprice_isValid && m_d_inscription_rentprice_isValid && m_b_inscription_isactive_isValid && m_b_inscription_archived_isValid && m_s_inscriptionnotauthenticated_offertopurchasenumber_isValid && m_i_inscription_unit_isValid && true;
 }
 
 } // namespace Ezmaxapi

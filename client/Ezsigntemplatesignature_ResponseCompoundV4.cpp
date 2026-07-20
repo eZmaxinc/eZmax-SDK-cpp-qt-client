@@ -55,6 +55,9 @@ void Ezsigntemplatesignature_ResponseCompoundV4::initializeModel() {
     m_b_ezsigntemplatesignature_reason_isSet = false;
     m_b_ezsigntemplatesignature_reason_isValid = false;
 
+    m_b_ezsigntemplatesignature_creditcardcustomamount_isSet = false;
+    m_b_ezsigntemplatesignature_creditcardcustomamount_isValid = false;
+
     m_e_ezsigntemplatesignature_positioning_isSet = false;
     m_e_ezsigntemplatesignature_positioning_isValid = false;
 
@@ -188,6 +191,9 @@ void Ezsigntemplatesignature_ResponseCompoundV4::fromJsonObject(QJsonObject json
     m_b_ezsigntemplatesignature_reason_isValid = ::Ezmaxapi::fromJsonValue(m_b_ezsigntemplatesignature_reason, json[QString("bEzsigntemplatesignatureReason")]);
     m_b_ezsigntemplatesignature_reason_isSet = !json[QString("bEzsigntemplatesignatureReason")].isNull() && m_b_ezsigntemplatesignature_reason_isValid;
 
+    m_b_ezsigntemplatesignature_creditcardcustomamount_isValid = ::Ezmaxapi::fromJsonValue(m_b_ezsigntemplatesignature_creditcardcustomamount, json[QString("bEzsigntemplatesignatureCreditcardcustomamount")]);
+    m_b_ezsigntemplatesignature_creditcardcustomamount_isSet = !json[QString("bEzsigntemplatesignatureCreditcardcustomamount")].isNull() && m_b_ezsigntemplatesignature_creditcardcustomamount_isValid;
+
     m_e_ezsigntemplatesignature_positioning_isValid = ::Ezmaxapi::fromJsonValue(m_e_ezsigntemplatesignature_positioning, json[QString("eEzsigntemplatesignaturePositioning")]);
     m_e_ezsigntemplatesignature_positioning_isSet = !json[QString("eEzsigntemplatesignaturePositioning")].isNull() && m_e_ezsigntemplatesignature_positioning_isValid;
 
@@ -320,6 +326,9 @@ QJsonObject Ezsigntemplatesignature_ResponseCompoundV4::asJsonObject() const {
     }
     if (m_b_ezsigntemplatesignature_reason_isSet) {
         obj.insert(QString("bEzsigntemplatesignatureReason"), ::Ezmaxapi::toJsonValue(m_b_ezsigntemplatesignature_reason));
+    }
+    if (m_b_ezsigntemplatesignature_creditcardcustomamount_isSet) {
+        obj.insert(QString("bEzsigntemplatesignatureCreditcardcustomamount"), ::Ezmaxapi::toJsonValue(m_b_ezsigntemplatesignature_creditcardcustomamount));
     }
     if (m_e_ezsigntemplatesignature_positioning.isSet()) {
         obj.insert(QString("eEzsigntemplatesignaturePositioning"), ::Ezmaxapi::toJsonValue(m_e_ezsigntemplatesignature_positioning));
@@ -536,6 +545,22 @@ bool Ezsigntemplatesignature_ResponseCompoundV4::is_b_ezsigntemplatesignature_re
 
 bool Ezsigntemplatesignature_ResponseCompoundV4::is_b_ezsigntemplatesignature_reason_Valid() const{
     return m_b_ezsigntemplatesignature_reason_isValid;
+}
+
+bool Ezsigntemplatesignature_ResponseCompoundV4::isBEzsigntemplatesignatureCreditcardcustomamount() const {
+    return m_b_ezsigntemplatesignature_creditcardcustomamount;
+}
+void Ezsigntemplatesignature_ResponseCompoundV4::setBEzsigntemplatesignatureCreditcardcustomamount(const bool &b_ezsigntemplatesignature_creditcardcustomamount) {
+    m_b_ezsigntemplatesignature_creditcardcustomamount = b_ezsigntemplatesignature_creditcardcustomamount;
+    m_b_ezsigntemplatesignature_creditcardcustomamount_isSet = true;
+}
+
+bool Ezsigntemplatesignature_ResponseCompoundV4::is_b_ezsigntemplatesignature_creditcardcustomamount_Set() const{
+    return m_b_ezsigntemplatesignature_creditcardcustomamount_isSet;
+}
+
+bool Ezsigntemplatesignature_ResponseCompoundV4::is_b_ezsigntemplatesignature_creditcardcustomamount_Valid() const{
+    return m_b_ezsigntemplatesignature_creditcardcustomamount_isValid;
 }
 
 Field_eEzsigntemplatesignaturePositioning Ezsigntemplatesignature_ResponseCompoundV4::getEEzsigntemplatesignaturePositioning() const {
@@ -1116,6 +1141,11 @@ bool Ezsigntemplatesignature_ResponseCompoundV4::isSet() const {
         }
 
         if (m_b_ezsigntemplatesignature_reason_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_b_ezsigntemplatesignature_creditcardcustomamount_isSet) {
             isObjectUpdated = true;
             break;
         }

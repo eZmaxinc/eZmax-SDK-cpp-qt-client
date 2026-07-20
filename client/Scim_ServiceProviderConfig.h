@@ -24,7 +24,10 @@
 #include "Scim_AuthenticationScheme.h"
 #include "Scim_ServiceProviderConfig_bulk.h"
 #include "Scim_ServiceProviderConfig_changePassword.h"
+#include "Scim_ServiceProviderConfig_etag.h"
 #include "Scim_ServiceProviderConfig_filter.h"
+#include "Scim_ServiceProviderConfig_patch.h"
+#include "Scim_ServiceProviderConfig_sort.h"
 #include <QList>
 #include <QString>
 
@@ -35,7 +38,10 @@ namespace Ezmaxapi {
 class Scim_AuthenticationScheme;
 class Scim_ServiceProviderConfig_bulk;
 class Scim_ServiceProviderConfig_changePassword;
+class Scim_ServiceProviderConfig_etag;
 class Scim_ServiceProviderConfig_filter;
+class Scim_ServiceProviderConfig_patch;
+class Scim_ServiceProviderConfig_sort;
 
 class Scim_ServiceProviderConfig : public Object {
 public:
@@ -68,8 +74,8 @@ public:
     bool is_documentation_uri_Set() const;
     bool is_documentation_uri_Valid() const;
 
-    Scim_ServiceProviderConfig_changePassword getEtag() const;
-    void setEtag(const Scim_ServiceProviderConfig_changePassword &etag);
+    Scim_ServiceProviderConfig_etag getEtag() const;
+    void setEtag(const Scim_ServiceProviderConfig_etag &etag);
     bool is_etag_Set() const;
     bool is_etag_Valid() const;
 
@@ -78,13 +84,13 @@ public:
     bool is_filter_Set() const;
     bool is_filter_Valid() const;
 
-    Scim_ServiceProviderConfig_changePassword getPatch() const;
-    void setPatch(const Scim_ServiceProviderConfig_changePassword &patch);
+    Scim_ServiceProviderConfig_patch getPatch() const;
+    void setPatch(const Scim_ServiceProviderConfig_patch &patch);
     bool is_patch_Set() const;
     bool is_patch_Valid() const;
 
-    Scim_ServiceProviderConfig_changePassword getSort() const;
-    void setSort(const Scim_ServiceProviderConfig_changePassword &sort);
+    Scim_ServiceProviderConfig_sort getSort() const;
+    void setSort(const Scim_ServiceProviderConfig_sort &sort);
     bool is_sort_Set() const;
     bool is_sort_Valid() const;
 
@@ -110,7 +116,7 @@ private:
     bool m_documentation_uri_isSet;
     bool m_documentation_uri_isValid;
 
-    Scim_ServiceProviderConfig_changePassword m_etag;
+    Scim_ServiceProviderConfig_etag m_etag;
     bool m_etag_isSet;
     bool m_etag_isValid;
 
@@ -118,11 +124,11 @@ private:
     bool m_filter_isSet;
     bool m_filter_isValid;
 
-    Scim_ServiceProviderConfig_changePassword m_patch;
+    Scim_ServiceProviderConfig_patch m_patch;
     bool m_patch_isSet;
     bool m_patch_isValid;
 
-    Scim_ServiceProviderConfig_changePassword m_sort;
+    Scim_ServiceProviderConfig_sort m_sort;
     bool m_sort_isSet;
     bool m_sort_isValid;
 };

@@ -5,7 +5,7 @@
 eZmax API Definition (Full)
 
 - API version: 1.3.2
-- Generator version: 7.23.0
+- Generator version: 7.24.0
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
@@ -28,7 +28,7 @@ example.h:
 ```c++
 
 #include <iostream>
-#include "../client/DocumentationEzmaxpartnerApi.h"
+#include "../client/ExternalEzmaxpartnerApi.h"
 
 using namespace test_namespace;
 
@@ -44,7 +44,7 @@ public Q_SLOTS:
 example.cpp:
 ```c++
 
-#include "../client/DocumentationEzmaxpartnerApi.h"
+#include "../client/ExternalEzmaxpartnerApi.h"
 #include "example.h"
 #include <QTimer>
 #include <QEventLoop>
@@ -55,22 +55,22 @@ Documentation_subscribe_v1_Request Example::create(){
 }
 
 void Example::exampleFunction1(){
-     DocumentationEzmaxpartnerApi apiInstance;
+     ExternalEzmaxpartnerApi apiInstance;
      
       // Configure API key authorization: Authorization
       apiInstance.setApiKey("YOUR API KEY NAME","YOUR API KEY");
 
       QEventLoop loop;
-      connect(&apiInstance, &DocumentationEzmaxpartnerApi::documentationSubscribeV1Signal, [&]() {
+      connect(&apiInstance, &ExternalEzmaxpartnerApi::externalpartnerSubscribeV1Signal, [&]() {
           loop.quit();
       });
-      connect(&apiInstance, &DocumentationEzmaxpartnerApi::documentationSubscribeV1SignalE, [&](QNetworkReply::NetworkError, const QString &error_str) {
+      connect(&apiInstance, &ExternalEzmaxpartnerApi::externalpartnerSubscribeV1SignalE, [&](QNetworkReply::NetworkError, const QString &error_str) {
           qDebug() << "Error happened while issuing request : " << error_str;
           loop.quit();
       });
 
       Documentation_subscribe_v1_Request documentation_subscribe_v1_request = create(); // Documentation_subscribe_v1_Request | 
-      apiInstance.documentationSubscribeV1(documentation_subscribe_v1_request);
+      apiInstance.externalpartnerSubscribeV1(documentation_subscribe_v1_request);
       QTimer::singleShot(5000, &loop, &QEventLoop::quit);
       loop.exec();
   }

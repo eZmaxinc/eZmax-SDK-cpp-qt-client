@@ -53,6 +53,10 @@ void Field_eWebhookModule::fromJson(const QString &jsonString) {
         m_value = eField_eWebhookModule::MANAGEMENT;
         m_value_isSet = m_value_isValid = true;
     }
+    else if ( jsonString.compare("Realestate", Qt::CaseInsensitive) == 0) {
+        m_value = eField_eWebhookModule::REALESTATE;
+        m_value_isSet = m_value_isValid = true;
+    }
 }
 
 void Field_eWebhookModule::fromJsonValue(QJsonValue json) {
@@ -71,6 +75,9 @@ QString Field_eWebhookModule::asJson() const {
             break;
         case eField_eWebhookModule::MANAGEMENT:
             val = "Management";
+            break;
+        case eField_eWebhookModule::REALESTATE:
+            val = "Realestate";
             break;
         default:
             break;

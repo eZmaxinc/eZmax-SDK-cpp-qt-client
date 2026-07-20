@@ -92,6 +92,11 @@ public:
     bool is_b_ezsigntemplatesignature_reason_Set() const;
     bool is_b_ezsigntemplatesignature_reason_Valid() const;
 
+    bool isBEzsigntemplatesignatureCreditcardcustomamount() const;
+    void setBEzsigntemplatesignatureCreditcardcustomamount(const bool &b_ezsigntemplatesignature_creditcardcustomamount);
+    bool is_b_ezsigntemplatesignature_creditcardcustomamount_Set() const;
+    bool is_b_ezsigntemplatesignature_creditcardcustomamount_Valid() const;
+
     Field_eEzsigntemplatesignaturePositioning getEEzsigntemplatesignaturePositioning() const;
     void setEEzsigntemplatesignaturePositioning(const Field_eEzsigntemplatesignaturePositioning &e_ezsigntemplatesignature_positioning);
     bool is_e_ezsigntemplatesignature_positioning_Set() const;
@@ -295,6 +300,10 @@ private:
     bool m_b_ezsigntemplatesignature_reason;
     bool m_b_ezsigntemplatesignature_reason_isSet;
     bool m_b_ezsigntemplatesignature_reason_isValid;
+
+    bool m_b_ezsigntemplatesignature_creditcardcustomamount;
+    bool m_b_ezsigntemplatesignature_creditcardcustomamount_isSet;
+    bool m_b_ezsigntemplatesignature_creditcardcustomamount_isValid;
 
     Field_eEzsigntemplatesignaturePositioning m_e_ezsigntemplatesignature_positioning;
     bool m_e_ezsigntemplatesignature_positioning_isSet;
