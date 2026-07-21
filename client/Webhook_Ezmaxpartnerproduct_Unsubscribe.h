@@ -25,6 +25,7 @@
 #include "Custom_Ezmaxpartnerproduct_Subscribe.h"
 #include "Custom_Webhook_Response.h"
 #include <QList>
+#include <QString>
 
 #include "Enum.h"
 #include "Object.h"
@@ -60,6 +61,11 @@ public:
     bool is_obj_ezmaxpartnerproduct_Set() const;
     bool is_obj_ezmaxpartnerproduct_Valid() const;
 
+    QString getSExternalId() const;
+    void setSExternalId(const QString &s_external_id);
+    bool is_s_external_id_Set() const;
+    bool is_s_external_id_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -77,6 +83,10 @@ private:
     Custom_Ezmaxpartnerproduct_Subscribe m_obj_ezmaxpartnerproduct;
     bool m_obj_ezmaxpartnerproduct_isSet;
     bool m_obj_ezmaxpartnerproduct_isValid;
+
+    QString m_s_external_id;
+    bool m_s_external_id_isSet;
+    bool m_s_external_id_isValid;
 };
 
 } // namespace Ezmaxapi

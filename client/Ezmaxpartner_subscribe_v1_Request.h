@@ -11,13 +11,13 @@
  */
 
 /*
- * Documentation_subscribe_v1_Request.h
+ * Ezmaxpartner_subscribe_v1_Request.h
  *
  * Request for POST /1/webhookdocumentation/subscribe
  */
 
-#ifndef Documentation_subscribe_v1_Request_H
-#define Documentation_subscribe_v1_Request_H
+#ifndef Ezmaxpartner_subscribe_v1_Request_H
+#define Ezmaxpartner_subscribe_v1_Request_H
 
 #include <QJsonObject>
 
@@ -34,11 +34,11 @@ class Address_RequestCompound;
 class Phone_RequestCompoundV2;
 class Email_RequestCompound;
 
-class Documentation_subscribe_v1_Request : public Object {
+class Ezmaxpartner_subscribe_v1_Request : public Object {
 public:
-    Documentation_subscribe_v1_Request();
-    Documentation_subscribe_v1_Request(const QString &json);
-    ~Documentation_subscribe_v1_Request() override;
+    Ezmaxpartner_subscribe_v1_Request();
+    Ezmaxpartner_subscribe_v1_Request(const QString &json);
+    ~Ezmaxpartner_subscribe_v1_Request() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
@@ -261,6 +261,6 @@ private:
 
 } // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(Ezmaxapi::Documentation_subscribe_v1_Request)
+Q_DECLARE_METATYPE(Ezmaxapi::Ezmaxpartner_subscribe_v1_Request)
 
-#endif // Documentation_subscribe_v1_Request_H
+#endif // Ezmaxpartner_subscribe_v1_Request_H

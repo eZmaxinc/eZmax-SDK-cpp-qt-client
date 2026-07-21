@@ -428,8 +428,6 @@ add_library(${PROJECT_NAME}
   Discussionmessage_deleteObject_v1_Response.h
   Discussionmessage_patchObject_v1_Request.h
   Discussionmessage_patchObject_v1_Response.h
-  Documentation_subscribe_v1_Request.h
-  Documentation_subscribe_v1_Response.h
   Domain_AutocompleteElement_Response.h
   Domain_ListElement.h
   Domain_Request.h
@@ -549,6 +547,8 @@ add_library(${PROJECT_NAME}
   Ezmaxpartner_getCustomDeveloppers_v1_Response_mPayload.h
   Ezmaxpartner_getObject_v2_Response.h
   Ezmaxpartner_getObject_v2_Response_mPayload.h
+  Ezmaxpartner_subscribe_v1_Request.h
+  Ezmaxpartner_subscribe_v1_Response.h
   Ezmaxproduct_AutocompleteElement_Response.h
   Ezmaxproduct_getAutocomplete_v2_Response.h
   Ezmaxproduct_getAutocomplete_v2_Response_mPayload.h
@@ -2622,8 +2622,6 @@ add_library(${PROJECT_NAME}
   Discussionmessage_deleteObject_v1_Response.cpp
   Discussionmessage_patchObject_v1_Request.cpp
   Discussionmessage_patchObject_v1_Response.cpp
-  Documentation_subscribe_v1_Request.cpp
-  Documentation_subscribe_v1_Response.cpp
   Domain_AutocompleteElement_Response.cpp
   Domain_ListElement.cpp
   Domain_Request.cpp
@@ -2743,6 +2741,8 @@ add_library(${PROJECT_NAME}
   Ezmaxpartner_getCustomDeveloppers_v1_Response_mPayload.cpp
   Ezmaxpartner_getObject_v2_Response.cpp
   Ezmaxpartner_getObject_v2_Response_mPayload.cpp
+  Ezmaxpartner_subscribe_v1_Request.cpp
+  Ezmaxpartner_subscribe_v1_Response.cpp
   Ezmaxproduct_AutocompleteElement_Response.cpp
   Ezmaxproduct_getAutocomplete_v2_Response.cpp
   Ezmaxproduct_getAutocomplete_v2_Response_mPayload.cpp

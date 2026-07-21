@@ -59,8 +59,8 @@ void ExternalEzmaxpartnerApi::initializeServerConfigs() {
     {"sInfrastructureregionCode", ServerVariable("The region where your services are hosted.","ca-central-1",
     QSet<QString>{ {"ca-central-1"} })}, }));
     
-    _serverConfigs.insert("externalpartnerSubscribeV1", defaultConf);
-    _serverIndices.insert("externalpartnerSubscribeV1", 0);
+    _serverConfigs.insert("ezmaxpartnerSubscribeV1", defaultConf);
+    _serverIndices.insert("ezmaxpartnerSubscribeV1", 0);
 }
 
 /**
@@ -242,8 +242,8 @@ QString ExternalEzmaxpartnerApi::getParamStyleDelimiter(const QString &style, co
     }
 }
 
-void ExternalEzmaxpartnerApi::externalpartnerSubscribeV1(const Documentation_subscribe_v1_Request &documentation_subscribe_v1_request) {
-    QString fullPath = QString(_serverConfigs["externalpartnerSubscribeV1"][_serverIndices.value("externalpartnerSubscribeV1")].URL()+"/1/external/ezmaxpartner/subscribe");
+void ExternalEzmaxpartnerApi::ezmaxpartnerSubscribeV1(const Ezmaxpartner_subscribe_v1_Request &ezmaxpartner_subscribe_v1_request) {
+    QString fullPath = QString(_serverConfigs["ezmaxpartnerSubscribeV1"][_serverIndices.value("ezmaxpartnerSubscribeV1")].URL()+"/1/external/ezmaxpartner/subscribe");
     
     if (_apiKeys.contains("Authorization")) {
         addHeaders("Authorization",_apiKeys.find("Authorization").value());
@@ -257,7 +257,7 @@ void ExternalEzmaxpartnerApi::externalpartnerSubscribeV1(const Documentation_sub
     {
 
         
-        QByteArray output = documentation_subscribe_v1_request.asJson().toUtf8();
+        QByteArray output = ezmaxpartner_subscribe_v1_request.asJson().toUtf8();
         input.request_body.append(output);
     }
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
@@ -265,7 +265,7 @@ void ExternalEzmaxpartnerApi::externalpartnerSubscribeV1(const Documentation_sub
     }
 
 
-    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ExternalEzmaxpartnerApi::externalpartnerSubscribeV1Callback);
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ExternalEzmaxpartnerApi::ezmaxpartnerSubscribeV1Callback);
     connect(this, &ExternalEzmaxpartnerApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<HttpRequestWorker*>().count() == 0) {
@@ -276,22 +276,22 @@ void ExternalEzmaxpartnerApi::externalpartnerSubscribeV1(const Documentation_sub
     worker->execute(&input);
 }
 
-void ExternalEzmaxpartnerApi::externalpartnerSubscribeV1Callback(HttpRequestWorker *worker) {
+void ExternalEzmaxpartnerApi::ezmaxpartnerSubscribeV1Callback(HttpRequestWorker *worker) {
     QString error_str = worker->error_str;
     QNetworkReply::NetworkError error_type = worker->error_type;
 
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    Documentation_subscribe_v1_Response output(QString(worker->response));
+    Ezmaxpartner_subscribe_v1_Response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        Q_EMIT externalpartnerSubscribeV1Signal(output);
-        Q_EMIT externalpartnerSubscribeV1SignalFull(worker, output);
+        Q_EMIT ezmaxpartnerSubscribeV1Signal(output);
+        Q_EMIT ezmaxpartnerSubscribeV1SignalFull(worker, output);
     } else {
-        Q_EMIT externalpartnerSubscribeV1SignalError(output, error_type, error_str);
-        Q_EMIT externalpartnerSubscribeV1SignalErrorFull(worker, error_type, error_str);
+        Q_EMIT ezmaxpartnerSubscribeV1SignalError(output, error_type, error_str);
+        Q_EMIT ezmaxpartnerSubscribeV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

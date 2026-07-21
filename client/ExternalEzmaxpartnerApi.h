@@ -18,8 +18,8 @@
 #include "ServerConfiguration.h"
 #include "Oauth.h"
 
-#include "Documentation_subscribe_v1_Request.h"
-#include "Documentation_subscribe_v1_Response.h"
+#include "Ezmaxpartner_subscribe_v1_Request.h"
+#include "Ezmaxpartner_subscribe_v1_Response.h"
 #include <QString>
 
 #include <QObject>
@@ -60,9 +60,9 @@ public:
     QString getParamStyleDelimiter(const QString &style, const QString &name, bool isExplode);
 
     /**
-    * @param[in]  documentation_subscribe_v1_request Documentation_subscribe_v1_Request [required]
+    * @param[in]  ezmaxpartner_subscribe_v1_request Ezmaxpartner_subscribe_v1_Request [required]
     */
-    virtual void externalpartnerSubscribeV1(const Documentation_subscribe_v1_Request &documentation_subscribe_v1_request);
+    virtual void ezmaxpartnerSubscribeV1(const Ezmaxpartner_subscribe_v1_Request &ezmaxpartner_subscribe_v1_request);
 
 
 private:
@@ -94,18 +94,18 @@ private:
     OauthPassword _passwordFlow;
     OauthMethod _OauthMethod = OauthMethod::INVALID_VALUE_OPENAPI_GENERATED;
 
-    void externalpartnerSubscribeV1Callback(HttpRequestWorker *worker);
+    void ezmaxpartnerSubscribeV1Callback(HttpRequestWorker *worker);
 
 Q_SIGNALS:
 
-    void externalpartnerSubscribeV1Signal(Documentation_subscribe_v1_Response summary);
+    void ezmaxpartnerSubscribeV1Signal(Ezmaxpartner_subscribe_v1_Response summary);
 
 
-    void externalpartnerSubscribeV1SignalFull(HttpRequestWorker *worker, Documentation_subscribe_v1_Response summary);
+    void ezmaxpartnerSubscribeV1SignalFull(HttpRequestWorker *worker, Ezmaxpartner_subscribe_v1_Response summary);
 
-    void externalpartnerSubscribeV1SignalError(Documentation_subscribe_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void ezmaxpartnerSubscribeV1SignalError(Ezmaxpartner_subscribe_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
-    void externalpartnerSubscribeV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void ezmaxpartnerSubscribeV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();

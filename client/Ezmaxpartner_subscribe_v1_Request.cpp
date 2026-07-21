@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-#include "Documentation_subscribe_v1_Request.h"
+#include "Ezmaxpartner_subscribe_v1_Request.h"
 
 #include <QDebug>
 #include <QJsonArray>
@@ -21,18 +21,18 @@
 
 namespace Ezmaxapi {
 
-Documentation_subscribe_v1_Request::Documentation_subscribe_v1_Request(const QString &json) {
+Ezmaxpartner_subscribe_v1_Request::Ezmaxpartner_subscribe_v1_Request(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
 
-Documentation_subscribe_v1_Request::Documentation_subscribe_v1_Request() {
+Ezmaxpartner_subscribe_v1_Request::Ezmaxpartner_subscribe_v1_Request() {
     this->initializeModel();
 }
 
-Documentation_subscribe_v1_Request::~Documentation_subscribe_v1_Request() {}
+Ezmaxpartner_subscribe_v1_Request::~Ezmaxpartner_subscribe_v1_Request() {}
 
-void Documentation_subscribe_v1_Request::initializeModel() {
+void Ezmaxpartner_subscribe_v1_Request::initializeModel() {
 
     m_pks_ezmaxcustomer_code_isSet = false;
     m_pks_ezmaxcustomer_code_isValid = false;
@@ -104,14 +104,14 @@ void Documentation_subscribe_v1_Request::initializeModel() {
     m_obj_email_isValid = false;
 }
 
-void Documentation_subscribe_v1_Request::fromJson(const QString &jsonString) {
+void Ezmaxpartner_subscribe_v1_Request::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();
     this->fromJsonObject(jsonObject);
 }
 
-void Documentation_subscribe_v1_Request::fromJsonObject(QJsonObject json) {
+void Ezmaxpartner_subscribe_v1_Request::fromJsonObject(QJsonObject json) {
 
     m_pks_ezmaxcustomer_code_isValid = ::Ezmaxapi::fromJsonValue(m_pks_ezmaxcustomer_code, json[QString("pksEzmaxcustomerCode")]);
     m_pks_ezmaxcustomer_code_isSet = !json[QString("pksEzmaxcustomerCode")].isNull() && m_pks_ezmaxcustomer_code_isValid;
@@ -183,14 +183,14 @@ void Documentation_subscribe_v1_Request::fromJsonObject(QJsonObject json) {
     m_obj_email_isSet = !json[QString("objEmail")].isNull() && m_obj_email_isValid;
 }
 
-QString Documentation_subscribe_v1_Request::asJson() const {
+QString Ezmaxpartner_subscribe_v1_Request::asJson() const {
     QJsonObject obj = this->asJsonObject();
     QJsonDocument doc(obj);
     QByteArray bytes = doc.toJson();
     return QString(bytes);
 }
 
-QJsonObject Documentation_subscribe_v1_Request::asJsonObject() const {
+QJsonObject Ezmaxpartner_subscribe_v1_Request::asJsonObject() const {
     QJsonObject obj;
     if (m_pks_ezmaxcustomer_code_isSet) {
         obj.insert(QString("pksEzmaxcustomerCode"), ::Ezmaxapi::toJsonValue(m_pks_ezmaxcustomer_code));
@@ -264,375 +264,375 @@ QJsonObject Documentation_subscribe_v1_Request::asJsonObject() const {
     return obj;
 }
 
-QString Documentation_subscribe_v1_Request::getPksEzmaxcustomerCode() const {
+QString Ezmaxpartner_subscribe_v1_Request::getPksEzmaxcustomerCode() const {
     return m_pks_ezmaxcustomer_code;
 }
-void Documentation_subscribe_v1_Request::setPksEzmaxcustomerCode(const QString &pks_ezmaxcustomer_code) {
+void Ezmaxpartner_subscribe_v1_Request::setPksEzmaxcustomerCode(const QString &pks_ezmaxcustomer_code) {
     m_pks_ezmaxcustomer_code = pks_ezmaxcustomer_code;
     m_pks_ezmaxcustomer_code_isSet = true;
 }
 
-bool Documentation_subscribe_v1_Request::is_pks_ezmaxcustomer_code_Set() const{
+bool Ezmaxpartner_subscribe_v1_Request::is_pks_ezmaxcustomer_code_Set() const{
     return m_pks_ezmaxcustomer_code_isSet;
 }
 
-bool Documentation_subscribe_v1_Request::is_pks_ezmaxcustomer_code_Valid() const{
+bool Ezmaxpartner_subscribe_v1_Request::is_pks_ezmaxcustomer_code_Valid() const{
     return m_pks_ezmaxcustomer_code_isValid;
 }
 
-QString Documentation_subscribe_v1_Request::getSInfrastructureenvironmenttypeDescription() const {
+QString Ezmaxpartner_subscribe_v1_Request::getSInfrastructureenvironmenttypeDescription() const {
     return m_s_infrastructureenvironmenttype_description;
 }
-void Documentation_subscribe_v1_Request::setSInfrastructureenvironmenttypeDescription(const QString &s_infrastructureenvironmenttype_description) {
+void Ezmaxpartner_subscribe_v1_Request::setSInfrastructureenvironmenttypeDescription(const QString &s_infrastructureenvironmenttype_description) {
     m_s_infrastructureenvironmenttype_description = s_infrastructureenvironmenttype_description;
     m_s_infrastructureenvironmenttype_description_isSet = true;
 }
 
-bool Documentation_subscribe_v1_Request::is_s_infrastructureenvironmenttype_description_Set() const{
+bool Ezmaxpartner_subscribe_v1_Request::is_s_infrastructureenvironmenttype_description_Set() const{
     return m_s_infrastructureenvironmenttype_description_isSet;
 }
 
-bool Documentation_subscribe_v1_Request::is_s_infrastructureenvironmenttype_description_Valid() const{
+bool Ezmaxpartner_subscribe_v1_Request::is_s_infrastructureenvironmenttype_description_Valid() const{
     return m_s_infrastructureenvironmenttype_description_isValid;
 }
 
-QString Documentation_subscribe_v1_Request::getSCompanyName1() const {
+QString Ezmaxpartner_subscribe_v1_Request::getSCompanyName1() const {
     return m_s_company_name1;
 }
-void Documentation_subscribe_v1_Request::setSCompanyName1(const QString &s_company_name1) {
+void Ezmaxpartner_subscribe_v1_Request::setSCompanyName1(const QString &s_company_name1) {
     m_s_company_name1 = s_company_name1;
     m_s_company_name1_isSet = true;
 }
 
-bool Documentation_subscribe_v1_Request::is_s_company_name1_Set() const{
+bool Ezmaxpartner_subscribe_v1_Request::is_s_company_name1_Set() const{
     return m_s_company_name1_isSet;
 }
 
-bool Documentation_subscribe_v1_Request::is_s_company_name1_Valid() const{
+bool Ezmaxpartner_subscribe_v1_Request::is_s_company_name1_Valid() const{
     return m_s_company_name1_isValid;
 }
 
-QString Documentation_subscribe_v1_Request::getSCompanyName2() const {
+QString Ezmaxpartner_subscribe_v1_Request::getSCompanyName2() const {
     return m_s_company_name2;
 }
-void Documentation_subscribe_v1_Request::setSCompanyName2(const QString &s_company_name2) {
+void Ezmaxpartner_subscribe_v1_Request::setSCompanyName2(const QString &s_company_name2) {
     m_s_company_name2 = s_company_name2;
     m_s_company_name2_isSet = true;
 }
 
-bool Documentation_subscribe_v1_Request::is_s_company_name2_Set() const{
+bool Ezmaxpartner_subscribe_v1_Request::is_s_company_name2_Set() const{
     return m_s_company_name2_isSet;
 }
 
-bool Documentation_subscribe_v1_Request::is_s_company_name2_Valid() const{
+bool Ezmaxpartner_subscribe_v1_Request::is_s_company_name2_Valid() const{
     return m_s_company_name2_isValid;
 }
 
-qint32 Documentation_subscribe_v1_Request::getFkiSystemconfigurationtypeId() const {
+qint32 Ezmaxpartner_subscribe_v1_Request::getFkiSystemconfigurationtypeId() const {
     return m_fki_systemconfigurationtype_id;
 }
-void Documentation_subscribe_v1_Request::setFkiSystemconfigurationtypeId(const qint32 &fki_systemconfigurationtype_id) {
+void Ezmaxpartner_subscribe_v1_Request::setFkiSystemconfigurationtypeId(const qint32 &fki_systemconfigurationtype_id) {
     m_fki_systemconfigurationtype_id = fki_systemconfigurationtype_id;
     m_fki_systemconfigurationtype_id_isSet = true;
 }
 
-bool Documentation_subscribe_v1_Request::is_fki_systemconfigurationtype_id_Set() const{
+bool Ezmaxpartner_subscribe_v1_Request::is_fki_systemconfigurationtype_id_Set() const{
     return m_fki_systemconfigurationtype_id_isSet;
 }
 
-bool Documentation_subscribe_v1_Request::is_fki_systemconfigurationtype_id_Valid() const{
+bool Ezmaxpartner_subscribe_v1_Request::is_fki_systemconfigurationtype_id_Valid() const{
     return m_fki_systemconfigurationtype_id_isValid;
 }
 
-QString Documentation_subscribe_v1_Request::getSSystemconfigurationtypeDescription1() const {
+QString Ezmaxpartner_subscribe_v1_Request::getSSystemconfigurationtypeDescription1() const {
     return m_s_systemconfigurationtype_description1;
 }
-void Documentation_subscribe_v1_Request::setSSystemconfigurationtypeDescription1(const QString &s_systemconfigurationtype_description1) {
+void Ezmaxpartner_subscribe_v1_Request::setSSystemconfigurationtypeDescription1(const QString &s_systemconfigurationtype_description1) {
     m_s_systemconfigurationtype_description1 = s_systemconfigurationtype_description1;
     m_s_systemconfigurationtype_description1_isSet = true;
 }
 
-bool Documentation_subscribe_v1_Request::is_s_systemconfigurationtype_description1_Set() const{
+bool Ezmaxpartner_subscribe_v1_Request::is_s_systemconfigurationtype_description1_Set() const{
     return m_s_systemconfigurationtype_description1_isSet;
 }
 
-bool Documentation_subscribe_v1_Request::is_s_systemconfigurationtype_description1_Valid() const{
+bool Ezmaxpartner_subscribe_v1_Request::is_s_systemconfigurationtype_description1_Valid() const{
     return m_s_systemconfigurationtype_description1_isValid;
 }
 
-QString Documentation_subscribe_v1_Request::getSSystemconfigurationtypeDescription2() const {
+QString Ezmaxpartner_subscribe_v1_Request::getSSystemconfigurationtypeDescription2() const {
     return m_s_systemconfigurationtype_description2;
 }
-void Documentation_subscribe_v1_Request::setSSystemconfigurationtypeDescription2(const QString &s_systemconfigurationtype_description2) {
+void Ezmaxpartner_subscribe_v1_Request::setSSystemconfigurationtypeDescription2(const QString &s_systemconfigurationtype_description2) {
     m_s_systemconfigurationtype_description2 = s_systemconfigurationtype_description2;
     m_s_systemconfigurationtype_description2_isSet = true;
 }
 
-bool Documentation_subscribe_v1_Request::is_s_systemconfigurationtype_description2_Set() const{
+bool Ezmaxpartner_subscribe_v1_Request::is_s_systemconfigurationtype_description2_Set() const{
     return m_s_systemconfigurationtype_description2_isSet;
 }
 
-bool Documentation_subscribe_v1_Request::is_s_systemconfigurationtype_description2_Valid() const{
+bool Ezmaxpartner_subscribe_v1_Request::is_s_systemconfigurationtype_description2_Valid() const{
     return m_s_systemconfigurationtype_description2_isValid;
 }
 
-qint32 Documentation_subscribe_v1_Request::getFkiEzmaxpartnerId() const {
+qint32 Ezmaxpartner_subscribe_v1_Request::getFkiEzmaxpartnerId() const {
     return m_fki_ezmaxpartner_id;
 }
-void Documentation_subscribe_v1_Request::setFkiEzmaxpartnerId(const qint32 &fki_ezmaxpartner_id) {
+void Ezmaxpartner_subscribe_v1_Request::setFkiEzmaxpartnerId(const qint32 &fki_ezmaxpartner_id) {
     m_fki_ezmaxpartner_id = fki_ezmaxpartner_id;
     m_fki_ezmaxpartner_id_isSet = true;
 }
 
-bool Documentation_subscribe_v1_Request::is_fki_ezmaxpartner_id_Set() const{
+bool Ezmaxpartner_subscribe_v1_Request::is_fki_ezmaxpartner_id_Set() const{
     return m_fki_ezmaxpartner_id_isSet;
 }
 
-bool Documentation_subscribe_v1_Request::is_fki_ezmaxpartner_id_Valid() const{
+bool Ezmaxpartner_subscribe_v1_Request::is_fki_ezmaxpartner_id_Valid() const{
     return m_fki_ezmaxpartner_id_isValid;
 }
 
-QString Documentation_subscribe_v1_Request::getSEzmaxpartnerName1() const {
+QString Ezmaxpartner_subscribe_v1_Request::getSEzmaxpartnerName1() const {
     return m_s_ezmaxpartner_name1;
 }
-void Documentation_subscribe_v1_Request::setSEzmaxpartnerName1(const QString &s_ezmaxpartner_name1) {
+void Ezmaxpartner_subscribe_v1_Request::setSEzmaxpartnerName1(const QString &s_ezmaxpartner_name1) {
     m_s_ezmaxpartner_name1 = s_ezmaxpartner_name1;
     m_s_ezmaxpartner_name1_isSet = true;
 }
 
-bool Documentation_subscribe_v1_Request::is_s_ezmaxpartner_name1_Set() const{
+bool Ezmaxpartner_subscribe_v1_Request::is_s_ezmaxpartner_name1_Set() const{
     return m_s_ezmaxpartner_name1_isSet;
 }
 
-bool Documentation_subscribe_v1_Request::is_s_ezmaxpartner_name1_Valid() const{
+bool Ezmaxpartner_subscribe_v1_Request::is_s_ezmaxpartner_name1_Valid() const{
     return m_s_ezmaxpartner_name1_isValid;
 }
 
-QString Documentation_subscribe_v1_Request::getSEzmaxpartnerName2() const {
+QString Ezmaxpartner_subscribe_v1_Request::getSEzmaxpartnerName2() const {
     return m_s_ezmaxpartner_name2;
 }
-void Documentation_subscribe_v1_Request::setSEzmaxpartnerName2(const QString &s_ezmaxpartner_name2) {
+void Ezmaxpartner_subscribe_v1_Request::setSEzmaxpartnerName2(const QString &s_ezmaxpartner_name2) {
     m_s_ezmaxpartner_name2 = s_ezmaxpartner_name2;
     m_s_ezmaxpartner_name2_isSet = true;
 }
 
-bool Documentation_subscribe_v1_Request::is_s_ezmaxpartner_name2_Set() const{
+bool Ezmaxpartner_subscribe_v1_Request::is_s_ezmaxpartner_name2_Set() const{
     return m_s_ezmaxpartner_name2_isSet;
 }
 
-bool Documentation_subscribe_v1_Request::is_s_ezmaxpartner_name2_Valid() const{
+bool Ezmaxpartner_subscribe_v1_Request::is_s_ezmaxpartner_name2_Valid() const{
     return m_s_ezmaxpartner_name2_isValid;
 }
 
-qint32 Documentation_subscribe_v1_Request::getFkiEzmaxpartnerproductId() const {
+qint32 Ezmaxpartner_subscribe_v1_Request::getFkiEzmaxpartnerproductId() const {
     return m_fki_ezmaxpartnerproduct_id;
 }
-void Documentation_subscribe_v1_Request::setFkiEzmaxpartnerproductId(const qint32 &fki_ezmaxpartnerproduct_id) {
+void Ezmaxpartner_subscribe_v1_Request::setFkiEzmaxpartnerproductId(const qint32 &fki_ezmaxpartnerproduct_id) {
     m_fki_ezmaxpartnerproduct_id = fki_ezmaxpartnerproduct_id;
     m_fki_ezmaxpartnerproduct_id_isSet = true;
 }
 
-bool Documentation_subscribe_v1_Request::is_fki_ezmaxpartnerproduct_id_Set() const{
+bool Ezmaxpartner_subscribe_v1_Request::is_fki_ezmaxpartnerproduct_id_Set() const{
     return m_fki_ezmaxpartnerproduct_id_isSet;
 }
 
-bool Documentation_subscribe_v1_Request::is_fki_ezmaxpartnerproduct_id_Valid() const{
+bool Ezmaxpartner_subscribe_v1_Request::is_fki_ezmaxpartnerproduct_id_Valid() const{
     return m_fki_ezmaxpartnerproduct_id_isValid;
 }
 
-QString Documentation_subscribe_v1_Request::getSEzmaxpartnerproductName1() const {
+QString Ezmaxpartner_subscribe_v1_Request::getSEzmaxpartnerproductName1() const {
     return m_s_ezmaxpartnerproduct_name1;
 }
-void Documentation_subscribe_v1_Request::setSEzmaxpartnerproductName1(const QString &s_ezmaxpartnerproduct_name1) {
+void Ezmaxpartner_subscribe_v1_Request::setSEzmaxpartnerproductName1(const QString &s_ezmaxpartnerproduct_name1) {
     m_s_ezmaxpartnerproduct_name1 = s_ezmaxpartnerproduct_name1;
     m_s_ezmaxpartnerproduct_name1_isSet = true;
 }
 
-bool Documentation_subscribe_v1_Request::is_s_ezmaxpartnerproduct_name1_Set() const{
+bool Ezmaxpartner_subscribe_v1_Request::is_s_ezmaxpartnerproduct_name1_Set() const{
     return m_s_ezmaxpartnerproduct_name1_isSet;
 }
 
-bool Documentation_subscribe_v1_Request::is_s_ezmaxpartnerproduct_name1_Valid() const{
+bool Ezmaxpartner_subscribe_v1_Request::is_s_ezmaxpartnerproduct_name1_Valid() const{
     return m_s_ezmaxpartnerproduct_name1_isValid;
 }
 
-QString Documentation_subscribe_v1_Request::getSEzmaxpartnerproductName2() const {
+QString Ezmaxpartner_subscribe_v1_Request::getSEzmaxpartnerproductName2() const {
     return m_s_ezmaxpartnerproduct_name2;
 }
-void Documentation_subscribe_v1_Request::setSEzmaxpartnerproductName2(const QString &s_ezmaxpartnerproduct_name2) {
+void Ezmaxpartner_subscribe_v1_Request::setSEzmaxpartnerproductName2(const QString &s_ezmaxpartnerproduct_name2) {
     m_s_ezmaxpartnerproduct_name2 = s_ezmaxpartnerproduct_name2;
     m_s_ezmaxpartnerproduct_name2_isSet = true;
 }
 
-bool Documentation_subscribe_v1_Request::is_s_ezmaxpartnerproduct_name2_Set() const{
+bool Ezmaxpartner_subscribe_v1_Request::is_s_ezmaxpartnerproduct_name2_Set() const{
     return m_s_ezmaxpartnerproduct_name2_isSet;
 }
 
-bool Documentation_subscribe_v1_Request::is_s_ezmaxpartnerproduct_name2_Valid() const{
+bool Ezmaxpartner_subscribe_v1_Request::is_s_ezmaxpartnerproduct_name2_Valid() const{
     return m_s_ezmaxpartnerproduct_name2_isValid;
 }
 
-qint32 Documentation_subscribe_v1_Request::getFkiEzmaxpartnerproductstageId() const {
+qint32 Ezmaxpartner_subscribe_v1_Request::getFkiEzmaxpartnerproductstageId() const {
     return m_fki_ezmaxpartnerproductstage_id;
 }
-void Documentation_subscribe_v1_Request::setFkiEzmaxpartnerproductstageId(const qint32 &fki_ezmaxpartnerproductstage_id) {
+void Ezmaxpartner_subscribe_v1_Request::setFkiEzmaxpartnerproductstageId(const qint32 &fki_ezmaxpartnerproductstage_id) {
     m_fki_ezmaxpartnerproductstage_id = fki_ezmaxpartnerproductstage_id;
     m_fki_ezmaxpartnerproductstage_id_isSet = true;
 }
 
-bool Documentation_subscribe_v1_Request::is_fki_ezmaxpartnerproductstage_id_Set() const{
+bool Ezmaxpartner_subscribe_v1_Request::is_fki_ezmaxpartnerproductstage_id_Set() const{
     return m_fki_ezmaxpartnerproductstage_id_isSet;
 }
 
-bool Documentation_subscribe_v1_Request::is_fki_ezmaxpartnerproductstage_id_Valid() const{
+bool Ezmaxpartner_subscribe_v1_Request::is_fki_ezmaxpartnerproductstage_id_Valid() const{
     return m_fki_ezmaxpartnerproductstage_id_isValid;
 }
 
-QString Documentation_subscribe_v1_Request::getSEzmaxpartnerproductstageCode() const {
+QString Ezmaxpartner_subscribe_v1_Request::getSEzmaxpartnerproductstageCode() const {
     return m_s_ezmaxpartnerproductstage_code;
 }
-void Documentation_subscribe_v1_Request::setSEzmaxpartnerproductstageCode(const QString &s_ezmaxpartnerproductstage_code) {
+void Ezmaxpartner_subscribe_v1_Request::setSEzmaxpartnerproductstageCode(const QString &s_ezmaxpartnerproductstage_code) {
     m_s_ezmaxpartnerproductstage_code = s_ezmaxpartnerproductstage_code;
     m_s_ezmaxpartnerproductstage_code_isSet = true;
 }
 
-bool Documentation_subscribe_v1_Request::is_s_ezmaxpartnerproductstage_code_Set() const{
+bool Ezmaxpartner_subscribe_v1_Request::is_s_ezmaxpartnerproductstage_code_Set() const{
     return m_s_ezmaxpartnerproductstage_code_isSet;
 }
 
-bool Documentation_subscribe_v1_Request::is_s_ezmaxpartnerproductstage_code_Valid() const{
+bool Ezmaxpartner_subscribe_v1_Request::is_s_ezmaxpartnerproductstage_code_Valid() const{
     return m_s_ezmaxpartnerproductstage_code_isValid;
 }
 
-QString Documentation_subscribe_v1_Request::getSUserLoginName() const {
+QString Ezmaxpartner_subscribe_v1_Request::getSUserLoginName() const {
     return m_s_user_login_name;
 }
-void Documentation_subscribe_v1_Request::setSUserLoginName(const QString &s_user_login_name) {
+void Ezmaxpartner_subscribe_v1_Request::setSUserLoginName(const QString &s_user_login_name) {
     m_s_user_login_name = s_user_login_name;
     m_s_user_login_name_isSet = true;
 }
 
-bool Documentation_subscribe_v1_Request::is_s_user_login_name_Set() const{
+bool Ezmaxpartner_subscribe_v1_Request::is_s_user_login_name_Set() const{
     return m_s_user_login_name_isSet;
 }
 
-bool Documentation_subscribe_v1_Request::is_s_user_login_name_Valid() const{
+bool Ezmaxpartner_subscribe_v1_Request::is_s_user_login_name_Valid() const{
     return m_s_user_login_name_isValid;
 }
 
-QString Documentation_subscribe_v1_Request::getSUserFirstName() const {
+QString Ezmaxpartner_subscribe_v1_Request::getSUserFirstName() const {
     return m_s_user_first_name;
 }
-void Documentation_subscribe_v1_Request::setSUserFirstName(const QString &s_user_first_name) {
+void Ezmaxpartner_subscribe_v1_Request::setSUserFirstName(const QString &s_user_first_name) {
     m_s_user_first_name = s_user_first_name;
     m_s_user_first_name_isSet = true;
 }
 
-bool Documentation_subscribe_v1_Request::is_s_user_first_name_Set() const{
+bool Ezmaxpartner_subscribe_v1_Request::is_s_user_first_name_Set() const{
     return m_s_user_first_name_isSet;
 }
 
-bool Documentation_subscribe_v1_Request::is_s_user_first_name_Valid() const{
+bool Ezmaxpartner_subscribe_v1_Request::is_s_user_first_name_Valid() const{
     return m_s_user_first_name_isValid;
 }
 
-QString Documentation_subscribe_v1_Request::getSUserLastName() const {
+QString Ezmaxpartner_subscribe_v1_Request::getSUserLastName() const {
     return m_s_user_last_name;
 }
-void Documentation_subscribe_v1_Request::setSUserLastName(const QString &s_user_last_name) {
+void Ezmaxpartner_subscribe_v1_Request::setSUserLastName(const QString &s_user_last_name) {
     m_s_user_last_name = s_user_last_name;
     m_s_user_last_name_isSet = true;
 }
 
-bool Documentation_subscribe_v1_Request::is_s_user_last_name_Set() const{
+bool Ezmaxpartner_subscribe_v1_Request::is_s_user_last_name_Set() const{
     return m_s_user_last_name_isSet;
 }
 
-bool Documentation_subscribe_v1_Request::is_s_user_last_name_Valid() const{
+bool Ezmaxpartner_subscribe_v1_Request::is_s_user_last_name_Valid() const{
     return m_s_user_last_name_isValid;
 }
 
-qint32 Documentation_subscribe_v1_Request::getFkiUserId() const {
+qint32 Ezmaxpartner_subscribe_v1_Request::getFkiUserId() const {
     return m_fki_user_id;
 }
-void Documentation_subscribe_v1_Request::setFkiUserId(const qint32 &fki_user_id) {
+void Ezmaxpartner_subscribe_v1_Request::setFkiUserId(const qint32 &fki_user_id) {
     m_fki_user_id = fki_user_id;
     m_fki_user_id_isSet = true;
 }
 
-bool Documentation_subscribe_v1_Request::is_fki_user_id_Set() const{
+bool Ezmaxpartner_subscribe_v1_Request::is_fki_user_id_Set() const{
     return m_fki_user_id_isSet;
 }
 
-bool Documentation_subscribe_v1_Request::is_fki_user_id_Valid() const{
+bool Ezmaxpartner_subscribe_v1_Request::is_fki_user_id_Valid() const{
     return m_fki_user_id_isValid;
 }
 
-qint32 Documentation_subscribe_v1_Request::getFkiLanguageId() const {
+qint32 Ezmaxpartner_subscribe_v1_Request::getFkiLanguageId() const {
     return m_fki_language_id;
 }
-void Documentation_subscribe_v1_Request::setFkiLanguageId(const qint32 &fki_language_id) {
+void Ezmaxpartner_subscribe_v1_Request::setFkiLanguageId(const qint32 &fki_language_id) {
     m_fki_language_id = fki_language_id;
     m_fki_language_id_isSet = true;
 }
 
-bool Documentation_subscribe_v1_Request::is_fki_language_id_Set() const{
+bool Ezmaxpartner_subscribe_v1_Request::is_fki_language_id_Set() const{
     return m_fki_language_id_isSet;
 }
 
-bool Documentation_subscribe_v1_Request::is_fki_language_id_Valid() const{
+bool Ezmaxpartner_subscribe_v1_Request::is_fki_language_id_Valid() const{
     return m_fki_language_id_isValid;
 }
 
-Address_RequestCompound Documentation_subscribe_v1_Request::getObjAddress() const {
+Address_RequestCompound Ezmaxpartner_subscribe_v1_Request::getObjAddress() const {
     return m_obj_address;
 }
-void Documentation_subscribe_v1_Request::setObjAddress(const Address_RequestCompound &obj_address) {
+void Ezmaxpartner_subscribe_v1_Request::setObjAddress(const Address_RequestCompound &obj_address) {
     m_obj_address = obj_address;
     m_obj_address_isSet = true;
 }
 
-bool Documentation_subscribe_v1_Request::is_obj_address_Set() const{
+bool Ezmaxpartner_subscribe_v1_Request::is_obj_address_Set() const{
     return m_obj_address_isSet;
 }
 
-bool Documentation_subscribe_v1_Request::is_obj_address_Valid() const{
+bool Ezmaxpartner_subscribe_v1_Request::is_obj_address_Valid() const{
     return m_obj_address_isValid;
 }
 
-Phone_RequestCompoundV2 Documentation_subscribe_v1_Request::getObjphone() const {
+Phone_RequestCompoundV2 Ezmaxpartner_subscribe_v1_Request::getObjphone() const {
     return m_objphone;
 }
-void Documentation_subscribe_v1_Request::setObjphone(const Phone_RequestCompoundV2 &objphone) {
+void Ezmaxpartner_subscribe_v1_Request::setObjphone(const Phone_RequestCompoundV2 &objphone) {
     m_objphone = objphone;
     m_objphone_isSet = true;
 }
 
-bool Documentation_subscribe_v1_Request::is_objphone_Set() const{
+bool Ezmaxpartner_subscribe_v1_Request::is_objphone_Set() const{
     return m_objphone_isSet;
 }
 
-bool Documentation_subscribe_v1_Request::is_objphone_Valid() const{
+bool Ezmaxpartner_subscribe_v1_Request::is_objphone_Valid() const{
     return m_objphone_isValid;
 }
 
-Email_RequestCompound Documentation_subscribe_v1_Request::getObjEmail() const {
+Email_RequestCompound Ezmaxpartner_subscribe_v1_Request::getObjEmail() const {
     return m_obj_email;
 }
-void Documentation_subscribe_v1_Request::setObjEmail(const Email_RequestCompound &obj_email) {
+void Ezmaxpartner_subscribe_v1_Request::setObjEmail(const Email_RequestCompound &obj_email) {
     m_obj_email = obj_email;
     m_obj_email_isSet = true;
 }
 
-bool Documentation_subscribe_v1_Request::is_obj_email_Set() const{
+bool Ezmaxpartner_subscribe_v1_Request::is_obj_email_Set() const{
     return m_obj_email_isSet;
 }
 
-bool Documentation_subscribe_v1_Request::is_obj_email_Valid() const{
+bool Ezmaxpartner_subscribe_v1_Request::is_obj_email_Valid() const{
     return m_obj_email_isValid;
 }
 
-bool Documentation_subscribe_v1_Request::isSet() const {
+bool Ezmaxpartner_subscribe_v1_Request::isSet() const {
     bool isObjectUpdated = false;
     do {
         if (m_pks_ezmaxcustomer_code_isSet) {
@@ -753,7 +753,7 @@ bool Documentation_subscribe_v1_Request::isSet() const {
     return isObjectUpdated;
 }
 
-bool Documentation_subscribe_v1_Request::isValid() const {
+bool Ezmaxpartner_subscribe_v1_Request::isValid() const {
     // only required properties are required for the object to be considered valid
     return true;
 }

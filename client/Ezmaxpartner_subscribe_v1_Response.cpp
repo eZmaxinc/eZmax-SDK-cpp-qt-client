@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-#include "Documentation_subscribe_v1_Response.h"
+#include "Ezmaxpartner_subscribe_v1_Response.h"
 
 #include <QDebug>
 #include <QJsonArray>
@@ -21,44 +21,44 @@
 
 namespace Ezmaxapi {
 
-Documentation_subscribe_v1_Response::Documentation_subscribe_v1_Response(const QString &json) {
+Ezmaxpartner_subscribe_v1_Response::Ezmaxpartner_subscribe_v1_Response(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
 
-Documentation_subscribe_v1_Response::Documentation_subscribe_v1_Response() {
+Ezmaxpartner_subscribe_v1_Response::Ezmaxpartner_subscribe_v1_Response() {
     this->initializeModel();
 }
 
-Documentation_subscribe_v1_Response::~Documentation_subscribe_v1_Response() {}
+Ezmaxpartner_subscribe_v1_Response::~Ezmaxpartner_subscribe_v1_Response() {}
 
-void Documentation_subscribe_v1_Response::initializeModel() {
+void Ezmaxpartner_subscribe_v1_Response::initializeModel() {
 
     m_s_external_id_isSet = false;
     m_s_external_id_isValid = false;
 }
 
-void Documentation_subscribe_v1_Response::fromJson(const QString &jsonString) {
+void Ezmaxpartner_subscribe_v1_Response::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();
     this->fromJsonObject(jsonObject);
 }
 
-void Documentation_subscribe_v1_Response::fromJsonObject(QJsonObject json) {
+void Ezmaxpartner_subscribe_v1_Response::fromJsonObject(QJsonObject json) {
 
     m_s_external_id_isValid = ::Ezmaxapi::fromJsonValue(m_s_external_id, json[QString("sExternalID")]);
     m_s_external_id_isSet = !json[QString("sExternalID")].isNull() && m_s_external_id_isValid;
 }
 
-QString Documentation_subscribe_v1_Response::asJson() const {
+QString Ezmaxpartner_subscribe_v1_Response::asJson() const {
     QJsonObject obj = this->asJsonObject();
     QJsonDocument doc(obj);
     QByteArray bytes = doc.toJson();
     return QString(bytes);
 }
 
-QJsonObject Documentation_subscribe_v1_Response::asJsonObject() const {
+QJsonObject Ezmaxpartner_subscribe_v1_Response::asJsonObject() const {
     QJsonObject obj;
     if (m_s_external_id_isSet) {
         obj.insert(QString("sExternalID"), ::Ezmaxapi::toJsonValue(m_s_external_id));
@@ -66,23 +66,23 @@ QJsonObject Documentation_subscribe_v1_Response::asJsonObject() const {
     return obj;
 }
 
-QString Documentation_subscribe_v1_Response::getSExternalId() const {
+QString Ezmaxpartner_subscribe_v1_Response::getSExternalId() const {
     return m_s_external_id;
 }
-void Documentation_subscribe_v1_Response::setSExternalId(const QString &s_external_id) {
+void Ezmaxpartner_subscribe_v1_Response::setSExternalId(const QString &s_external_id) {
     m_s_external_id = s_external_id;
     m_s_external_id_isSet = true;
 }
 
-bool Documentation_subscribe_v1_Response::is_s_external_id_Set() const{
+bool Ezmaxpartner_subscribe_v1_Response::is_s_external_id_Set() const{
     return m_s_external_id_isSet;
 }
 
-bool Documentation_subscribe_v1_Response::is_s_external_id_Valid() const{
+bool Ezmaxpartner_subscribe_v1_Response::is_s_external_id_Valid() const{
     return m_s_external_id_isValid;
 }
 
-bool Documentation_subscribe_v1_Response::isSet() const {
+bool Ezmaxpartner_subscribe_v1_Response::isSet() const {
     bool isObjectUpdated = false;
     do {
         if (m_s_external_id_isSet) {
@@ -93,7 +93,7 @@ bool Documentation_subscribe_v1_Response::isSet() const {
     return isObjectUpdated;
 }
 
-bool Documentation_subscribe_v1_Response::isValid() const {
+bool Ezmaxpartner_subscribe_v1_Response::isValid() const {
     // only required properties are required for the object to be considered valid
     return m_s_external_id_isValid && true;
 }

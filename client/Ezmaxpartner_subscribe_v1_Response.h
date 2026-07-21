@@ -11,13 +11,13 @@
  */
 
 /*
- * Documentation_subscribe_v1_Response.h
+ * Ezmaxpartner_subscribe_v1_Response.h
  *
  * Request for POST /1/module/ezmaxmaillinglist/subscribe
  */
 
-#ifndef Documentation_subscribe_v1_Response_H
-#define Documentation_subscribe_v1_Response_H
+#ifndef Ezmaxpartner_subscribe_v1_Response_H
+#define Ezmaxpartner_subscribe_v1_Response_H
 
 #include <QJsonObject>
 
@@ -28,11 +28,11 @@
 
 namespace Ezmaxapi {
 
-class Documentation_subscribe_v1_Response : public Object {
+class Ezmaxpartner_subscribe_v1_Response : public Object {
 public:
-    Documentation_subscribe_v1_Response();
-    Documentation_subscribe_v1_Response(const QString &json);
-    ~Documentation_subscribe_v1_Response() override;
+    Ezmaxpartner_subscribe_v1_Response();
+    Ezmaxpartner_subscribe_v1_Response(const QString &json);
+    ~Ezmaxpartner_subscribe_v1_Response() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
@@ -57,6 +57,6 @@ private:
 
 } // namespace Ezmaxapi
 
-Q_DECLARE_METATYPE(Ezmaxapi::Documentation_subscribe_v1_Response)
+Q_DECLARE_METATYPE(Ezmaxapi::Ezmaxpartner_subscribe_v1_Response)
 
-#endif // Documentation_subscribe_v1_Response_H
+#endif // Ezmaxpartner_subscribe_v1_Response_H

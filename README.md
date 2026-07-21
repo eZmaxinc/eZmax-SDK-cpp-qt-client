@@ -34,7 +34,7 @@ using namespace test_namespace;
 
 class Example : public QObject {
     Q_OBJECT
-    Documentation_subscribe_v1_Request create();
+    Ezmaxpartner_subscribe_v1_Request create();
 public Q_SLOTS:
    void exampleFunction1();
 };
@@ -49,8 +49,8 @@ example.cpp:
 #include <QTimer>
 #include <QEventLoop>
 
-Documentation_subscribe_v1_Request Example::create(){
-    Documentation_subscribe_v1_Request obj;
+Ezmaxpartner_subscribe_v1_Request Example::create(){
+    Ezmaxpartner_subscribe_v1_Request obj;
  return obj;
 }
 
@@ -61,16 +61,16 @@ void Example::exampleFunction1(){
       apiInstance.setApiKey("YOUR API KEY NAME","YOUR API KEY");
 
       QEventLoop loop;
-      connect(&apiInstance, &ExternalEzmaxpartnerApi::externalpartnerSubscribeV1Signal, [&]() {
+      connect(&apiInstance, &ExternalEzmaxpartnerApi::ezmaxpartnerSubscribeV1Signal, [&]() {
           loop.quit();
       });
-      connect(&apiInstance, &ExternalEzmaxpartnerApi::externalpartnerSubscribeV1SignalE, [&](QNetworkReply::NetworkError, const QString &error_str) {
+      connect(&apiInstance, &ExternalEzmaxpartnerApi::ezmaxpartnerSubscribeV1SignalE, [&](QNetworkReply::NetworkError, const QString &error_str) {
           qDebug() << "Error happened while issuing request : " << error_str;
           loop.quit();
       });
 
-      Documentation_subscribe_v1_Request documentation_subscribe_v1_request = create(); // Documentation_subscribe_v1_Request | 
-      apiInstance.externalpartnerSubscribeV1(documentation_subscribe_v1_request);
+      Ezmaxpartner_subscribe_v1_Request ezmaxpartner_subscribe_v1_request = create(); // Ezmaxpartner_subscribe_v1_Request | 
+      apiInstance.ezmaxpartnerSubscribeV1(ezmaxpartner_subscribe_v1_request);
       QTimer::singleShot(5000, &loop, &QEventLoop::quit);
       loop.exec();
   }

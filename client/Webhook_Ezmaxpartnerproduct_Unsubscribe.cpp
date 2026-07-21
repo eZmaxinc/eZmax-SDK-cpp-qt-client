@@ -42,6 +42,9 @@ void Webhook_Ezmaxpartnerproduct_Unsubscribe::initializeModel() {
 
     m_obj_ezmaxpartnerproduct_isSet = false;
     m_obj_ezmaxpartnerproduct_isValid = false;
+
+    m_s_external_id_isSet = false;
+    m_s_external_id_isValid = false;
 }
 
 void Webhook_Ezmaxpartnerproduct_Unsubscribe::fromJson(const QString &jsonString) {
@@ -61,6 +64,9 @@ void Webhook_Ezmaxpartnerproduct_Unsubscribe::fromJsonObject(QJsonObject json) {
 
     m_obj_ezmaxpartnerproduct_isValid = ::Ezmaxapi::fromJsonValue(m_obj_ezmaxpartnerproduct, json[QString("objEzmaxpartnerproduct")]);
     m_obj_ezmaxpartnerproduct_isSet = !json[QString("objEzmaxpartnerproduct")].isNull() && m_obj_ezmaxpartnerproduct_isValid;
+
+    m_s_external_id_isValid = ::Ezmaxapi::fromJsonValue(m_s_external_id, json[QString("sExternalID")]);
+    m_s_external_id_isSet = !json[QString("sExternalID")].isNull() && m_s_external_id_isValid;
 }
 
 QString Webhook_Ezmaxpartnerproduct_Unsubscribe::asJson() const {
@@ -80,6 +86,9 @@ QJsonObject Webhook_Ezmaxpartnerproduct_Unsubscribe::asJsonObject() const {
     }
     if (m_obj_ezmaxpartnerproduct.isSet()) {
         obj.insert(QString("objEzmaxpartnerproduct"), ::Ezmaxapi::toJsonValue(m_obj_ezmaxpartnerproduct));
+    }
+    if (m_s_external_id_isSet) {
+        obj.insert(QString("sExternalID"), ::Ezmaxapi::toJsonValue(m_s_external_id));
     }
     return obj;
 }
@@ -132,6 +141,22 @@ bool Webhook_Ezmaxpartnerproduct_Unsubscribe::is_obj_ezmaxpartnerproduct_Valid()
     return m_obj_ezmaxpartnerproduct_isValid;
 }
 
+QString Webhook_Ezmaxpartnerproduct_Unsubscribe::getSExternalId() const {
+    return m_s_external_id;
+}
+void Webhook_Ezmaxpartnerproduct_Unsubscribe::setSExternalId(const QString &s_external_id) {
+    m_s_external_id = s_external_id;
+    m_s_external_id_isSet = true;
+}
+
+bool Webhook_Ezmaxpartnerproduct_Unsubscribe::is_s_external_id_Set() const{
+    return m_s_external_id_isSet;
+}
+
+bool Webhook_Ezmaxpartnerproduct_Unsubscribe::is_s_external_id_Valid() const{
+    return m_s_external_id_isValid;
+}
+
 bool Webhook_Ezmaxpartnerproduct_Unsubscribe::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -146,6 +171,11 @@ bool Webhook_Ezmaxpartnerproduct_Unsubscribe::isSet() const {
         }
 
         if (m_obj_ezmaxpartnerproduct.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_s_external_id_isSet) {
             isObjectUpdated = true;
             break;
         }

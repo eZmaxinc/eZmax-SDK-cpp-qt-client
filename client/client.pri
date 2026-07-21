@@ -419,8 +419,6 @@ HEADERS += \
     $${PWD}/Discussionmessage_deleteObject_v1_Response.h \
     $${PWD}/Discussionmessage_patchObject_v1_Request.h \
     $${PWD}/Discussionmessage_patchObject_v1_Response.h \
-    $${PWD}/Documentation_subscribe_v1_Request.h \
-    $${PWD}/Documentation_subscribe_v1_Response.h \
     $${PWD}/Domain_AutocompleteElement_Response.h \
     $${PWD}/Domain_ListElement.h \
     $${PWD}/Domain_Request.h \
@@ -540,6 +538,8 @@ HEADERS += \
     $${PWD}/Ezmaxpartner_getCustomDeveloppers_v1_Response_mPayload.h \
     $${PWD}/Ezmaxpartner_getObject_v2_Response.h \
     $${PWD}/Ezmaxpartner_getObject_v2_Response_mPayload.h \
+    $${PWD}/Ezmaxpartner_subscribe_v1_Request.h \
+    $${PWD}/Ezmaxpartner_subscribe_v1_Response.h \
     $${PWD}/Ezmaxproduct_AutocompleteElement_Response.h \
     $${PWD}/Ezmaxproduct_getAutocomplete_v2_Response.h \
     $${PWD}/Ezmaxproduct_getAutocomplete_v2_Response_mPayload.h \
@@ -2618,8 +2618,6 @@ SOURCES += \
     $${PWD}/Discussionmessage_deleteObject_v1_Response.cpp \
     $${PWD}/Discussionmessage_patchObject_v1_Request.cpp \
     $${PWD}/Discussionmessage_patchObject_v1_Response.cpp \
-    $${PWD}/Documentation_subscribe_v1_Request.cpp \
-    $${PWD}/Documentation_subscribe_v1_Response.cpp \
     $${PWD}/Domain_AutocompleteElement_Response.cpp \
     $${PWD}/Domain_ListElement.cpp \
     $${PWD}/Domain_Request.cpp \
@@ -2739,6 +2737,8 @@ SOURCES += \
     $${PWD}/Ezmaxpartner_getCustomDeveloppers_v1_Response_mPayload.cpp \
     $${PWD}/Ezmaxpartner_getObject_v2_Response.cpp \
     $${PWD}/Ezmaxpartner_getObject_v2_Response_mPayload.cpp \
+    $${PWD}/Ezmaxpartner_subscribe_v1_Request.cpp \
+    $${PWD}/Ezmaxpartner_subscribe_v1_Response.cpp \
     $${PWD}/Ezmaxproduct_AutocompleteElement_Response.cpp \
     $${PWD}/Ezmaxproduct_getAutocomplete_v2_Response.cpp \
     $${PWD}/Ezmaxproduct_getAutocomplete_v2_Response_mPayload.cpp \
