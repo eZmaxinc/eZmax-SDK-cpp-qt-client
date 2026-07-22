@@ -1494,6 +1494,7 @@ HEADERS += \
     $${PWD}/Inscription_getCommunicationsenders_v1_Response.h \
     $${PWD}/Inscription_getCommunicationsenders_v1_Response_mPayload.h \
     $${PWD}/Inscription_getInscriptionnotauthenticateds_v1_Response.h \
+    $${PWD}/Inscription_getInscriptionnotauthenticateds_v1_Response_mPayload.h \
     $${PWD}/Inscription_getList_v1_Response.h \
     $${PWD}/Inscription_getList_v1_Response_mPayload.h \
     $${PWD}/Inscription_getObject_v2_Response.h \
@@ -3693,6 +3694,7 @@ SOURCES += \
     $${PWD}/Inscription_getCommunicationsenders_v1_Response.cpp \
     $${PWD}/Inscription_getCommunicationsenders_v1_Response_mPayload.cpp \
     $${PWD}/Inscription_getInscriptionnotauthenticateds_v1_Response.cpp \
+    $${PWD}/Inscription_getInscriptionnotauthenticateds_v1_Response_mPayload.cpp \
     $${PWD}/Inscription_getList_v1_Response.cpp \
     $${PWD}/Inscription_getList_v1_Response_mPayload.cpp \
     $${PWD}/Inscription_getObject_v2_Response.cpp \

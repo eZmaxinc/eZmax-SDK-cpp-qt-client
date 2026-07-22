@@ -1503,6 +1503,7 @@ add_library(${PROJECT_NAME}
   Inscription_getCommunicationsenders_v1_Response.h
   Inscription_getCommunicationsenders_v1_Response_mPayload.h
   Inscription_getInscriptionnotauthenticateds_v1_Response.h
+  Inscription_getInscriptionnotauthenticateds_v1_Response_mPayload.h
   Inscription_getList_v1_Response.h
   Inscription_getList_v1_Response_mPayload.h
   Inscription_getObject_v2_Response.h
@@ -3697,6 +3698,7 @@ add_library(${PROJECT_NAME}
   Inscription_getCommunicationsenders_v1_Response.cpp
   Inscription_getCommunicationsenders_v1_Response_mPayload.cpp
   Inscription_getInscriptionnotauthenticateds_v1_Response.cpp
+  Inscription_getInscriptionnotauthenticateds_v1_Response_mPayload.cpp
   Inscription_getList_v1_Response.cpp
   Inscription_getList_v1_Response_mPayload.cpp
   Inscription_getObject_v2_Response.cpp
