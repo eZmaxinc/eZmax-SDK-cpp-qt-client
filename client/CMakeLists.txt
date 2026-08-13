@@ -572,7 +572,9 @@ add_library(${PROJECT_NAME}
   Ezsignbulksend_Response.h
   Ezsignbulksend_ResponseCompound.h
   Ezsignbulksend_ResponseCompoundV3.h
+  Ezsignbulksend_ResponseCompoundV4.h
   Ezsignbulksend_ResponseV3.h
+  Ezsignbulksend_ResponseV4.h
   Ezsignbulksend_createEzsignbulksendtransmission_v2_Request.h
   Ezsignbulksend_createEzsignbulksendtransmission_v2_Response.h
   Ezsignbulksend_createEzsignbulksendtransmission_v2_Response_mPayload.h
@@ -597,28 +599,43 @@ add_library(${PROJECT_NAME}
   Ezsignbulksend_getObject_v2_Response_mPayload.h
   Ezsignbulksend_getObject_v3_Response.h
   Ezsignbulksend_getObject_v3_Response_mPayload.h
+  Ezsignbulksend_getObject_v4_Response.h
+  Ezsignbulksend_getObject_v4_Response_mPayload.h
   Ezsignbulksend_reorder_v1_Request.h
   Ezsignbulksend_reorder_v1_Response.h
   Ezsignbulksenddocumentmapping_Request.h
   Ezsignbulksenddocumentmapping_RequestCompound.h
   Ezsignbulksenddocumentmapping_Response.h
   Ezsignbulksenddocumentmapping_ResponseCompound.h
+  Ezsignbulksenddocumentmapping_ResponseCompoundV3.h
+  Ezsignbulksenddocumentmapping_ResponseV3.h
   Ezsignbulksenddocumentmapping_createObject_v1_Request.h
   Ezsignbulksenddocumentmapping_createObject_v1_Response.h
   Ezsignbulksenddocumentmapping_createObject_v1_Response_mPayload.h
   Ezsignbulksenddocumentmapping_deleteObject_v1_Response.h
   Ezsignbulksenddocumentmapping_getObject_v2_Response.h
   Ezsignbulksenddocumentmapping_getObject_v2_Response_mPayload.h
+  Ezsignbulksenddocumentmapping_getObject_v3_Response.h
+  Ezsignbulksenddocumentmapping_getObject_v3_Response_mPayload.h
   Ezsignbulksendsignermapping_Request.h
   Ezsignbulksendsignermapping_RequestCompound.h
+  Ezsignbulksendsignermapping_RequestCompoundV2.h
+  Ezsignbulksendsignermapping_RequestV2.h
   Ezsignbulksendsignermapping_Response.h
   Ezsignbulksendsignermapping_ResponseCompound.h
+  Ezsignbulksendsignermapping_ResponseCompoundV3.h
+  Ezsignbulksendsignermapping_ResponseV3.h
   Ezsignbulksendsignermapping_createObject_v1_Request.h
   Ezsignbulksendsignermapping_createObject_v1_Response.h
   Ezsignbulksendsignermapping_createObject_v1_Response_mPayload.h
+  Ezsignbulksendsignermapping_createObject_v2_Request.h
+  Ezsignbulksendsignermapping_createObject_v2_Response.h
+  Ezsignbulksendsignermapping_createObject_v2_Response_mPayload.h
   Ezsignbulksendsignermapping_deleteObject_v1_Response.h
   Ezsignbulksendsignermapping_getObject_v2_Response.h
   Ezsignbulksendsignermapping_getObject_v2_Response_mPayload.h
+  Ezsignbulksendsignermapping_getObject_v3_Response.h
+  Ezsignbulksendsignermapping_getObject_v3_Response_mPayload.h
   Ezsignbulksendtransmission_Response.h
   Ezsignbulksendtransmission_ResponseCompound.h
   Ezsignbulksendtransmission_getEzsignsignaturesAutomatic_v1_Response.h
@@ -1051,7 +1068,9 @@ add_library(${PROJECT_NAME}
   Ezsigntemplate_Response.h
   Ezsigntemplate_ResponseCompound.h
   Ezsigntemplate_ResponseCompoundV3.h
+  Ezsigntemplate_ResponseCompoundV4.h
   Ezsigntemplate_ResponseV3.h
+  Ezsigntemplate_ResponseV4.h
   Ezsigntemplate_copy_v1_Request.h
   Ezsigntemplate_copy_v1_Response.h
   Ezsigntemplate_copy_v1_Response_mPayload.h
@@ -1067,6 +1086,8 @@ add_library(${PROJECT_NAME}
   Ezsigntemplate_getList_v1_Response_mPayload.h
   Ezsigntemplate_getObject_v3_Response.h
   Ezsigntemplate_getObject_v3_Response_mPayload.h
+  Ezsigntemplate_getObject_v4_Response.h
+  Ezsigntemplate_getObject_v4_Response_mPayload.h
   Ezsigntemplateannotation_Request.h
   Ezsigntemplateannotation_RequestCompound.h
   Ezsigntemplateannotation_Response.h
@@ -1182,6 +1203,7 @@ add_library(${PROJECT_NAME}
   Ezsigntemplatepackage_RequestCompound.h
   Ezsigntemplatepackage_Response.h
   Ezsigntemplatepackage_ResponseCompound.h
+  Ezsigntemplatepackage_ResponseCompoundV3.h
   Ezsigntemplatepackage_createObject_v1_Request.h
   Ezsigntemplatepackage_createObject_v1_Response.h
   Ezsigntemplatepackage_createObject_v1_Response_mPayload.h
@@ -1189,6 +1211,9 @@ add_library(${PROJECT_NAME}
   Ezsigntemplatepackage_editEzsigntemplatepackagesigners_v1_Request.h
   Ezsigntemplatepackage_editEzsigntemplatepackagesigners_v1_Response.h
   Ezsigntemplatepackage_editEzsigntemplatepackagesigners_v1_Response_mPayload.h
+  Ezsigntemplatepackage_editEzsigntemplatepackagesigners_v2_Request.h
+  Ezsigntemplatepackage_editEzsigntemplatepackagesigners_v2_Response.h
+  Ezsigntemplatepackage_editEzsigntemplatepackagesigners_v2_Response_mPayload.h
   Ezsigntemplatepackage_editObject_v1_Request.h
   Ezsigntemplatepackage_editObject_v1_Response.h
   Ezsigntemplatepackage_getAutocomplete_v2_Response.h
@@ -1197,29 +1222,45 @@ add_library(${PROJECT_NAME}
   Ezsigntemplatepackage_getList_v1_Response_mPayload.h
   Ezsigntemplatepackage_getObject_v2_Response.h
   Ezsigntemplatepackage_getObject_v2_Response_mPayload.h
+  Ezsigntemplatepackage_getObject_v3_Response.h
+  Ezsigntemplatepackage_getObject_v3_Response_mPayload.h
   Ezsigntemplatepackagemembership_Request.h
   Ezsigntemplatepackagemembership_RequestCompound.h
   Ezsigntemplatepackagemembership_Response.h
   Ezsigntemplatepackagemembership_ResponseCompound.h
+  Ezsigntemplatepackagemembership_ResponseCompoundV3.h
   Ezsigntemplatepackagemembership_createObject_v1_Request.h
   Ezsigntemplatepackagemembership_createObject_v1_Response.h
   Ezsigntemplatepackagemembership_createObject_v1_Response_mPayload.h
   Ezsigntemplatepackagemembership_deleteObject_v1_Response.h
   Ezsigntemplatepackagemembership_getObject_v2_Response.h
   Ezsigntemplatepackagemembership_getObject_v2_Response_mPayload.h
+  Ezsigntemplatepackagemembership_getObject_v3_Response.h
+  Ezsigntemplatepackagemembership_getObject_v3_Response_mPayload.h
   Ezsigntemplatepackagesigner_Request.h
   Ezsigntemplatepackagesigner_RequestCompound.h
+  Ezsigntemplatepackagesigner_RequestCompoundV2.h
+  Ezsigntemplatepackagesigner_RequestV2.h
   Ezsigntemplatepackagesigner_Response.h
   Ezsigntemplatepackagesigner_ResponseCompound.h
+  Ezsigntemplatepackagesigner_ResponseCompoundV3.h
+  Ezsigntemplatepackagesigner_ResponseV3.h
   Ezsigntemplatepackagesigner_createObject_v1_Request.h
   Ezsigntemplatepackagesigner_createObject_v1_Response.h
   Ezsigntemplatepackagesigner_createObject_v1_Response_mPayload.h
+  Ezsigntemplatepackagesigner_createObject_v2_Request.h
+  Ezsigntemplatepackagesigner_createObject_v2_Response.h
+  Ezsigntemplatepackagesigner_createObject_v2_Response_mPayload.h
   Ezsigntemplatepackagesigner_deleteObject_v1_Response.h
   Ezsigntemplatepackagesigner_deleteObject_v1_Response_mPayload.h
   Ezsigntemplatepackagesigner_editObject_v1_Request.h
   Ezsigntemplatepackagesigner_editObject_v1_Response.h
+  Ezsigntemplatepackagesigner_editObject_v2_Request.h
+  Ezsigntemplatepackagesigner_editObject_v2_Response.h
   Ezsigntemplatepackagesigner_getObject_v2_Response.h
   Ezsigntemplatepackagesigner_getObject_v2_Response_mPayload.h
+  Ezsigntemplatepackagesigner_getObject_v3_Response.h
+  Ezsigntemplatepackagesigner_getObject_v3_Response_mPayload.h
   Ezsigntemplatepackagesignermembership_Request.h
   Ezsigntemplatepackagesignermembership_RequestCompound.h
   Ezsigntemplatepackagesignermembership_Response.h
@@ -1289,16 +1330,27 @@ add_library(${PROJECT_NAME}
   Ezsigntemplatesignaturepaymentdetail_ResponseCompound.h
   Ezsigntemplatesigner_Request.h
   Ezsigntemplatesigner_RequestCompound.h
+  Ezsigntemplatesigner_RequestCompoundV2.h
+  Ezsigntemplatesigner_RequestV2.h
   Ezsigntemplatesigner_Response.h
   Ezsigntemplatesigner_ResponseCompound.h
+  Ezsigntemplatesigner_ResponseCompoundV3.h
+  Ezsigntemplatesigner_ResponseV3.h
   Ezsigntemplatesigner_createObject_v1_Request.h
   Ezsigntemplatesigner_createObject_v1_Response.h
   Ezsigntemplatesigner_createObject_v1_Response_mPayload.h
+  Ezsigntemplatesigner_createObject_v2_Request.h
+  Ezsigntemplatesigner_createObject_v2_Response.h
+  Ezsigntemplatesigner_createObject_v2_Response_mPayload.h
   Ezsigntemplatesigner_deleteObject_v1_Response.h
   Ezsigntemplatesigner_editObject_v1_Request.h
   Ezsigntemplatesigner_editObject_v1_Response.h
+  Ezsigntemplatesigner_editObject_v2_Request.h
+  Ezsigntemplatesigner_editObject_v2_Response.h
   Ezsigntemplatesigner_getObject_v2_Response.h
   Ezsigntemplatesigner_getObject_v2_Response_mPayload.h
+  Ezsigntemplatesigner_getObject_v3_Response.h
+  Ezsigntemplatesigner_getObject_v3_Response_mPayload.h
   Ezsigntsarequirement_AutocompleteElement_Response.h
   Ezsigntsarequirement_getAutocomplete_v2_Response.h
   Ezsigntsarequirement_getAutocomplete_v2_Response_mPayload.h
@@ -1353,6 +1405,7 @@ add_library(${PROJECT_NAME}
   Field_eEzmaxpartnerCustomdevelopment.h
   Field_eEzsignannotationType.h
   Field_eEzsignbulksendEzsignformfieldorder.h
+  Field_eEzsignbulksendsignermappingRole.h
   Field_eEzsigndocumentStep.h
   Field_eEzsigndocumentlogType.h
   Field_eEzsignelementdependencyOperator.h
@@ -1409,6 +1462,7 @@ add_library(${PROJECT_NAME}
   Field_eEzsigntemplateglobalannotationVerticalalignment.h
   Field_eEzsigntemplateglobaldocumentAcceptationtype.h
   Field_eEzsigntemplatepackagesignerMapping.h
+  Field_eEzsigntemplatepackagesignerRole.h
   Field_eEzsigntemplatepublicLimittype.h
   Field_eEzsigntemplatesignatureAttachmentnamesource.h
   Field_eEzsigntemplatesignatureConsultationtrigger.h
@@ -1422,6 +1476,7 @@ add_library(${PROJECT_NAME}
   Field_eEzsigntemplatesignatureType.h
   Field_eEzsigntemplatesignaturepaymentdetailTaxable.h
   Field_eEzsigntemplatesignerMapping.h
+  Field_eEzsigntemplatesignerRole.h
   Field_eInscriptionRemunerationinscriptorsellertype.h
   Field_eInscriptionRemunerationreferencetype.h
   Field_eInscriptionRemunerationtotaltype.h
@@ -2767,7 +2822,9 @@ add_library(${PROJECT_NAME}
   Ezsignbulksend_Response.cpp
   Ezsignbulksend_ResponseCompound.cpp
   Ezsignbulksend_ResponseCompoundV3.cpp
+  Ezsignbulksend_ResponseCompoundV4.cpp
   Ezsignbulksend_ResponseV3.cpp
+  Ezsignbulksend_ResponseV4.cpp
   Ezsignbulksend_createEzsignbulksendtransmission_v2_Request.cpp
   Ezsignbulksend_createEzsignbulksendtransmission_v2_Response.cpp
   Ezsignbulksend_createEzsignbulksendtransmission_v2_Response_mPayload.cpp
@@ -2792,28 +2849,43 @@ add_library(${PROJECT_NAME}
   Ezsignbulksend_getObject_v2_Response_mPayload.cpp
   Ezsignbulksend_getObject_v3_Response.cpp
   Ezsignbulksend_getObject_v3_Response_mPayload.cpp
+  Ezsignbulksend_getObject_v4_Response.cpp
+  Ezsignbulksend_getObject_v4_Response_mPayload.cpp
   Ezsignbulksend_reorder_v1_Request.cpp
   Ezsignbulksend_reorder_v1_Response.cpp
   Ezsignbulksenddocumentmapping_Request.cpp
   Ezsignbulksenddocumentmapping_RequestCompound.cpp
   Ezsignbulksenddocumentmapping_Response.cpp
   Ezsignbulksenddocumentmapping_ResponseCompound.cpp
+  Ezsignbulksenddocumentmapping_ResponseCompoundV3.cpp
+  Ezsignbulksenddocumentmapping_ResponseV3.cpp
   Ezsignbulksenddocumentmapping_createObject_v1_Request.cpp
   Ezsignbulksenddocumentmapping_createObject_v1_Response.cpp
   Ezsignbulksenddocumentmapping_createObject_v1_Response_mPayload.cpp
   Ezsignbulksenddocumentmapping_deleteObject_v1_Response.cpp
   Ezsignbulksenddocumentmapping_getObject_v2_Response.cpp
   Ezsignbulksenddocumentmapping_getObject_v2_Response_mPayload.cpp
+  Ezsignbulksenddocumentmapping_getObject_v3_Response.cpp
+  Ezsignbulksenddocumentmapping_getObject_v3_Response_mPayload.cpp
   Ezsignbulksendsignermapping_Request.cpp
   Ezsignbulksendsignermapping_RequestCompound.cpp
+  Ezsignbulksendsignermapping_RequestCompoundV2.cpp
+  Ezsignbulksendsignermapping_RequestV2.cpp
   Ezsignbulksendsignermapping_Response.cpp
   Ezsignbulksendsignermapping_ResponseCompound.cpp
+  Ezsignbulksendsignermapping_ResponseCompoundV3.cpp
+  Ezsignbulksendsignermapping_ResponseV3.cpp
   Ezsignbulksendsignermapping_createObject_v1_Request.cpp
   Ezsignbulksendsignermapping_createObject_v1_Response.cpp
   Ezsignbulksendsignermapping_createObject_v1_Response_mPayload.cpp
+  Ezsignbulksendsignermapping_createObject_v2_Request.cpp
+  Ezsignbulksendsignermapping_createObject_v2_Response.cpp
+  Ezsignbulksendsignermapping_createObject_v2_Response_mPayload.cpp
   Ezsignbulksendsignermapping_deleteObject_v1_Response.cpp
   Ezsignbulksendsignermapping_getObject_v2_Response.cpp
   Ezsignbulksendsignermapping_getObject_v2_Response_mPayload.cpp
+  Ezsignbulksendsignermapping_getObject_v3_Response.cpp
+  Ezsignbulksendsignermapping_getObject_v3_Response_mPayload.cpp
   Ezsignbulksendtransmission_Response.cpp
   Ezsignbulksendtransmission_ResponseCompound.cpp
   Ezsignbulksendtransmission_getEzsignsignaturesAutomatic_v1_Response.cpp
@@ -3246,7 +3318,9 @@ add_library(${PROJECT_NAME}
   Ezsigntemplate_Response.cpp
   Ezsigntemplate_ResponseCompound.cpp
   Ezsigntemplate_ResponseCompoundV3.cpp
+  Ezsigntemplate_ResponseCompoundV4.cpp
   Ezsigntemplate_ResponseV3.cpp
+  Ezsigntemplate_ResponseV4.cpp
   Ezsigntemplate_copy_v1_Request.cpp
   Ezsigntemplate_copy_v1_Response.cpp
   Ezsigntemplate_copy_v1_Response_mPayload.cpp
@@ -3262,6 +3336,8 @@ add_library(${PROJECT_NAME}
   Ezsigntemplate_getList_v1_Response_mPayload.cpp
   Ezsigntemplate_getObject_v3_Response.cpp
   Ezsigntemplate_getObject_v3_Response_mPayload.cpp
+  Ezsigntemplate_getObject_v4_Response.cpp
+  Ezsigntemplate_getObject_v4_Response_mPayload.cpp
   Ezsigntemplateannotation_Request.cpp
   Ezsigntemplateannotation_RequestCompound.cpp
   Ezsigntemplateannotation_Response.cpp
@@ -3377,6 +3453,7 @@ add_library(${PROJECT_NAME}
   Ezsigntemplatepackage_RequestCompound.cpp
   Ezsigntemplatepackage_Response.cpp
   Ezsigntemplatepackage_ResponseCompound.cpp
+  Ezsigntemplatepackage_ResponseCompoundV3.cpp
   Ezsigntemplatepackage_createObject_v1_Request.cpp
   Ezsigntemplatepackage_createObject_v1_Response.cpp
   Ezsigntemplatepackage_createObject_v1_Response_mPayload.cpp
@@ -3384,6 +3461,9 @@ add_library(${PROJECT_NAME}
   Ezsigntemplatepackage_editEzsigntemplatepackagesigners_v1_Request.cpp
   Ezsigntemplatepackage_editEzsigntemplatepackagesigners_v1_Response.cpp
   Ezsigntemplatepackage_editEzsigntemplatepackagesigners_v1_Response_mPayload.cpp
+  Ezsigntemplatepackage_editEzsigntemplatepackagesigners_v2_Request.cpp
+  Ezsigntemplatepackage_editEzsigntemplatepackagesigners_v2_Response.cpp
+  Ezsigntemplatepackage_editEzsigntemplatepackagesigners_v2_Response_mPayload.cpp
   Ezsigntemplatepackage_editObject_v1_Request.cpp
   Ezsigntemplatepackage_editObject_v1_Response.cpp
   Ezsigntemplatepackage_getAutocomplete_v2_Response.cpp
@@ -3392,29 +3472,45 @@ add_library(${PROJECT_NAME}
   Ezsigntemplatepackage_getList_v1_Response_mPayload.cpp
   Ezsigntemplatepackage_getObject_v2_Response.cpp
   Ezsigntemplatepackage_getObject_v2_Response_mPayload.cpp
+  Ezsigntemplatepackage_getObject_v3_Response.cpp
+  Ezsigntemplatepackage_getObject_v3_Response_mPayload.cpp
   Ezsigntemplatepackagemembership_Request.cpp
   Ezsigntemplatepackagemembership_RequestCompound.cpp
   Ezsigntemplatepackagemembership_Response.cpp
   Ezsigntemplatepackagemembership_ResponseCompound.cpp
+  Ezsigntemplatepackagemembership_ResponseCompoundV3.cpp
   Ezsigntemplatepackagemembership_createObject_v1_Request.cpp
   Ezsigntemplatepackagemembership_createObject_v1_Response.cpp
   Ezsigntemplatepackagemembership_createObject_v1_Response_mPayload.cpp
   Ezsigntemplatepackagemembership_deleteObject_v1_Response.cpp
   Ezsigntemplatepackagemembership_getObject_v2_Response.cpp
   Ezsigntemplatepackagemembership_getObject_v2_Response_mPayload.cpp
+  Ezsigntemplatepackagemembership_getObject_v3_Response.cpp
+  Ezsigntemplatepackagemembership_getObject_v3_Response_mPayload.cpp
   Ezsigntemplatepackagesigner_Request.cpp
   Ezsigntemplatepackagesigner_RequestCompound.cpp
+  Ezsigntemplatepackagesigner_RequestCompoundV2.cpp
+  Ezsigntemplatepackagesigner_RequestV2.cpp
   Ezsigntemplatepackagesigner_Response.cpp
   Ezsigntemplatepackagesigner_ResponseCompound.cpp
+  Ezsigntemplatepackagesigner_ResponseCompoundV3.cpp
+  Ezsigntemplatepackagesigner_ResponseV3.cpp
   Ezsigntemplatepackagesigner_createObject_v1_Request.cpp
   Ezsigntemplatepackagesigner_createObject_v1_Response.cpp
   Ezsigntemplatepackagesigner_createObject_v1_Response_mPayload.cpp
+  Ezsigntemplatepackagesigner_createObject_v2_Request.cpp
+  Ezsigntemplatepackagesigner_createObject_v2_Response.cpp
+  Ezsigntemplatepackagesigner_createObject_v2_Response_mPayload.cpp
   Ezsigntemplatepackagesigner_deleteObject_v1_Response.cpp
   Ezsigntemplatepackagesigner_deleteObject_v1_Response_mPayload.cpp
   Ezsigntemplatepackagesigner_editObject_v1_Request.cpp
   Ezsigntemplatepackagesigner_editObject_v1_Response.cpp
+  Ezsigntemplatepackagesigner_editObject_v2_Request.cpp
+  Ezsigntemplatepackagesigner_editObject_v2_Response.cpp
   Ezsigntemplatepackagesigner_getObject_v2_Response.cpp
   Ezsigntemplatepackagesigner_getObject_v2_Response_mPayload.cpp
+  Ezsigntemplatepackagesigner_getObject_v3_Response.cpp
+  Ezsigntemplatepackagesigner_getObject_v3_Response_mPayload.cpp
   Ezsigntemplatepackagesignermembership_Request.cpp
   Ezsigntemplatepackagesignermembership_RequestCompound.cpp
   Ezsigntemplatepackagesignermembership_Response.cpp
@@ -3484,16 +3580,27 @@ add_library(${PROJECT_NAME}
   Ezsigntemplatesignaturepaymentdetail_ResponseCompound.cpp
   Ezsigntemplatesigner_Request.cpp
   Ezsigntemplatesigner_RequestCompound.cpp
+  Ezsigntemplatesigner_RequestCompoundV2.cpp
+  Ezsigntemplatesigner_RequestV2.cpp
   Ezsigntemplatesigner_Response.cpp
   Ezsigntemplatesigner_ResponseCompound.cpp
+  Ezsigntemplatesigner_ResponseCompoundV3.cpp
+  Ezsigntemplatesigner_ResponseV3.cpp
   Ezsigntemplatesigner_createObject_v1_Request.cpp
   Ezsigntemplatesigner_createObject_v1_Response.cpp
   Ezsigntemplatesigner_createObject_v1_Response_mPayload.cpp
+  Ezsigntemplatesigner_createObject_v2_Request.cpp
+  Ezsigntemplatesigner_createObject_v2_Response.cpp
+  Ezsigntemplatesigner_createObject_v2_Response_mPayload.cpp
   Ezsigntemplatesigner_deleteObject_v1_Response.cpp
   Ezsigntemplatesigner_editObject_v1_Request.cpp
   Ezsigntemplatesigner_editObject_v1_Response.cpp
+  Ezsigntemplatesigner_editObject_v2_Request.cpp
+  Ezsigntemplatesigner_editObject_v2_Response.cpp
   Ezsigntemplatesigner_getObject_v2_Response.cpp
   Ezsigntemplatesigner_getObject_v2_Response_mPayload.cpp
+  Ezsigntemplatesigner_getObject_v3_Response.cpp
+  Ezsigntemplatesigner_getObject_v3_Response_mPayload.cpp
   Ezsigntsarequirement_AutocompleteElement_Response.cpp
   Ezsigntsarequirement_getAutocomplete_v2_Response.cpp
   Ezsigntsarequirement_getAutocomplete_v2_Response_mPayload.cpp
@@ -3548,6 +3655,7 @@ add_library(${PROJECT_NAME}
   Field_eEzmaxpartnerCustomdevelopment.cpp
   Field_eEzsignannotationType.cpp
   Field_eEzsignbulksendEzsignformfieldorder.cpp
+  Field_eEzsignbulksendsignermappingRole.cpp
   Field_eEzsigndocumentStep.cpp
   Field_eEzsigndocumentlogType.cpp
   Field_eEzsignelementdependencyOperator.cpp
@@ -3604,6 +3712,7 @@ add_library(${PROJECT_NAME}
   Field_eEzsigntemplateglobalannotationVerticalalignment.cpp
   Field_eEzsigntemplateglobaldocumentAcceptationtype.cpp
   Field_eEzsigntemplatepackagesignerMapping.cpp
+  Field_eEzsigntemplatepackagesignerRole.cpp
   Field_eEzsigntemplatepublicLimittype.cpp
   Field_eEzsigntemplatesignatureAttachmentnamesource.cpp
   Field_eEzsigntemplatesignatureConsultationtrigger.cpp
@@ -3617,6 +3726,7 @@ add_library(${PROJECT_NAME}
   Field_eEzsigntemplatesignatureType.cpp
   Field_eEzsigntemplatesignaturepaymentdetailTaxable.cpp
   Field_eEzsigntemplatesignerMapping.cpp
+  Field_eEzsigntemplatesignerRole.cpp
   Field_eInscriptionRemunerationinscriptorsellertype.cpp
   Field_eInscriptionRemunerationreferencetype.cpp
   Field_eInscriptionRemunerationtotaltype.cpp
