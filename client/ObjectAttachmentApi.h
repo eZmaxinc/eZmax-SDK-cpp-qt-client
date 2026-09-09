@@ -19,6 +19,8 @@
 #include "Oauth.h"
 
 #include "Attachment_getAttachmentlogs_v1_Response.h"
+#include "Attachment_rename_v1_Request.h"
+#include "Attachment_rename_v1_Response.h"
 #include "Common_Response_Error.h"
 #include <QString>
 
@@ -69,6 +71,12 @@ public:
     */
     virtual void attachmentGetAttachmentlogsV1(const qint32 &pki_attachment_id);
 
+    /**
+    * @param[in]  pki_attachment_id qint32 [required]
+    * @param[in]  attachment_rename_v1_request Attachment_rename_v1_Request [required]
+    */
+    virtual void attachmentRenameV1(const qint32 &pki_attachment_id, const Attachment_rename_v1_Request &attachment_rename_v1_request);
+
 
 private:
     enum class OauthMethod : int {
@@ -101,21 +109,26 @@ private:
 
     void attachmentDownloadV1Callback(HttpRequestWorker *worker);
     void attachmentGetAttachmentlogsV1Callback(HttpRequestWorker *worker);
+    void attachmentRenameV1Callback(HttpRequestWorker *worker);
 
 Q_SIGNALS:
 
     void attachmentDownloadV1Signal();
     void attachmentGetAttachmentlogsV1Signal(Attachment_getAttachmentlogs_v1_Response summary);
+    void attachmentRenameV1Signal(Attachment_rename_v1_Response summary);
 
 
     void attachmentDownloadV1SignalFull(HttpRequestWorker *worker);
     void attachmentGetAttachmentlogsV1SignalFull(HttpRequestWorker *worker, Attachment_getAttachmentlogs_v1_Response summary);
+    void attachmentRenameV1SignalFull(HttpRequestWorker *worker, Attachment_rename_v1_Response summary);
 
     void attachmentDownloadV1SignalError(QNetworkReply::NetworkError error_type, const QString &error_str);
     void attachmentGetAttachmentlogsV1SignalError(Attachment_getAttachmentlogs_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void attachmentRenameV1SignalError(Attachment_rename_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void attachmentDownloadV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void attachmentGetAttachmentlogsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void attachmentRenameV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();

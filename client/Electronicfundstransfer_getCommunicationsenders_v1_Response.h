@@ -13,7 +13,7 @@
 /*
  * Electronicfundstransfer_getCommunicationsenders_v1_Response.h
  *
- * Response for GET /1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/getCommunicationrecipients
+ * Response for GET /1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/getCommunicationsenders
  */
 
 #ifndef Electronicfundstransfer_getCommunicationsenders_v1_Response_H

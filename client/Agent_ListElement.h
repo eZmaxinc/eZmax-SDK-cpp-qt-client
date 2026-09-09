@@ -115,6 +115,11 @@ public:
     bool is_s_agent_realestateassociationlicense_Set() const;
     bool is_s_agent_realestateassociationlicense_Valid() const;
 
+    QString getDtAgentPermitexpiration() const;
+    void setDtAgentPermitexpiration(const QString &dt_agent_permitexpiration);
+    bool is_dt_agent_permitexpiration_Set() const;
+    bool is_dt_agent_permitexpiration_Valid() const;
+
     QString getDtAgentHiredate() const;
     void setDtAgentHiredate(const QString &dt_agent_hiredate);
     bool is_dt_agent_hiredate_Set() const;
@@ -325,6 +330,10 @@ private:
     QString m_s_agent_realestateassociationlicense;
     bool m_s_agent_realestateassociationlicense_isSet;
     bool m_s_agent_realestateassociationlicense_isValid;
+
+    QString m_dt_agent_permitexpiration;
+    bool m_dt_agent_permitexpiration_isSet;
+    bool m_dt_agent_permitexpiration_isValid;
 
     QString m_dt_agent_hiredate;
     bool m_dt_agent_hiredate_isSet;

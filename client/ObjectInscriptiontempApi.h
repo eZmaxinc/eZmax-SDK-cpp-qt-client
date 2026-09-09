@@ -21,6 +21,8 @@
 #include "Common_Response_Error.h"
 #include "Header_Accept_Language.h"
 #include "HttpFileElement.h"
+#include "Inscriptiontemp_batchDownload_v1_Request.h"
+#include "Inscriptiontemp_getAttachments_v1_Response.h"
 #include "Inscriptiontemp_getCommunicationCount_v1_Response.h"
 #include "Inscriptiontemp_getCommunicationList_v1_Response.h"
 #include "Inscriptiontemp_getCommunicationrecipients_v1_Response.h"
@@ -66,6 +68,17 @@ public:
     QString getParamStylePrefix(const QString &style);
     QString getParamStyleSuffix(const QString &style);
     QString getParamStyleDelimiter(const QString &style, const QString &name, bool isExplode);
+
+    /**
+    * @param[in]  pki_inscriptiontemp_id qint32 [required]
+    * @param[in]  inscriptiontemp_batch_download_v1_request Inscriptiontemp_batchDownload_v1_Request [required]
+    */
+    virtual void inscriptiontempBatchDownloadV1(const qint32 &pki_inscriptiontemp_id, const Inscriptiontemp_batchDownload_v1_Request &inscriptiontemp_batch_download_v1_request);
+
+    /**
+    * @param[in]  pki_inscriptiontemp_id qint32 [required]
+    */
+    virtual void inscriptiontempGetAttachmentsV1(const qint32 &pki_inscriptiontemp_id);
 
     /**
     * @param[in]  pki_inscriptiontemp_id qint32 [required]
@@ -132,6 +145,8 @@ private:
     OauthPassword _passwordFlow;
     OauthMethod _OauthMethod = OauthMethod::INVALID_VALUE_OPENAPI_GENERATED;
 
+    void inscriptiontempBatchDownloadV1Callback(HttpRequestWorker *worker);
+    void inscriptiontempGetAttachmentsV1Callback(HttpRequestWorker *worker);
     void inscriptiontempGetCommunicationCountV1Callback(HttpRequestWorker *worker);
     void inscriptiontempGetCommunicationListV1Callback(HttpRequestWorker *worker);
     void inscriptiontempGetCommunicationrecipientsV1Callback(HttpRequestWorker *worker);
@@ -141,6 +156,8 @@ private:
 
 Q_SIGNALS:
 
+    void inscriptiontempBatchDownloadV1Signal(HttpFileElement summary);
+    void inscriptiontempGetAttachmentsV1Signal(Inscriptiontemp_getAttachments_v1_Response summary);
     void inscriptiontempGetCommunicationCountV1Signal(Inscriptiontemp_getCommunicationCount_v1_Response summary);
     void inscriptiontempGetCommunicationListV1Signal(Inscriptiontemp_getCommunicationList_v1_Response summary);
     void inscriptiontempGetCommunicationrecipientsV1Signal(Inscriptiontemp_getCommunicationrecipients_v1_Response summary);
@@ -149,6 +166,8 @@ Q_SIGNALS:
     void inscriptiontempImportIntoEDMV1Signal(Inscriptiontemp_importIntoEDM_v1_Response summary);
 
 
+    void inscriptiontempBatchDownloadV1SignalFull(HttpRequestWorker *worker, HttpFileElement summary);
+    void inscriptiontempGetAttachmentsV1SignalFull(HttpRequestWorker *worker, Inscriptiontemp_getAttachments_v1_Response summary);
     void inscriptiontempGetCommunicationCountV1SignalFull(HttpRequestWorker *worker, Inscriptiontemp_getCommunicationCount_v1_Response summary);
     void inscriptiontempGetCommunicationListV1SignalFull(HttpRequestWorker *worker, Inscriptiontemp_getCommunicationList_v1_Response summary);
     void inscriptiontempGetCommunicationrecipientsV1SignalFull(HttpRequestWorker *worker, Inscriptiontemp_getCommunicationrecipients_v1_Response summary);
@@ -156,6 +175,8 @@ Q_SIGNALS:
     void inscriptiontempGetListV1SignalFull(HttpRequestWorker *worker, Inscriptiontemp_getList_v1_Response summary);
     void inscriptiontempImportIntoEDMV1SignalFull(HttpRequestWorker *worker, Inscriptiontemp_importIntoEDM_v1_Response summary);
 
+    void inscriptiontempBatchDownloadV1SignalError(HttpFileElement summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void inscriptiontempGetAttachmentsV1SignalError(Inscriptiontemp_getAttachments_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void inscriptiontempGetCommunicationCountV1SignalError(Inscriptiontemp_getCommunicationCount_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void inscriptiontempGetCommunicationListV1SignalError(Inscriptiontemp_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void inscriptiontempGetCommunicationrecipientsV1SignalError(Inscriptiontemp_getCommunicationrecipients_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -163,6 +184,8 @@ Q_SIGNALS:
     void inscriptiontempGetListV1SignalError(Inscriptiontemp_getList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void inscriptiontempImportIntoEDMV1SignalError(Inscriptiontemp_importIntoEDM_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    void inscriptiontempBatchDownloadV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void inscriptiontempGetAttachmentsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void inscriptiontempGetCommunicationCountV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void inscriptiontempGetCommunicationListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void inscriptiontempGetCommunicationrecipientsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);

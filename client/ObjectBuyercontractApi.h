@@ -18,6 +18,8 @@
 #include "ServerConfiguration.h"
 #include "Oauth.h"
 
+#include "Buyercontract_batchDownload_v1_Request.h"
+#include "Buyercontract_getAttachments_v1_Response.h"
 #include "Buyercontract_getCommunicationCount_v1_Response.h"
 #include "Buyercontract_getCommunicationList_v1_Response.h"
 #include "Buyercontract_getCommunicationrecipients_v1_Response.h"
@@ -66,6 +68,17 @@ public:
     QString getParamStylePrefix(const QString &style);
     QString getParamStyleSuffix(const QString &style);
     QString getParamStyleDelimiter(const QString &style, const QString &name, bool isExplode);
+
+    /**
+    * @param[in]  pki_buyercontract_id qint32 [required]
+    * @param[in]  buyercontract_batch_download_v1_request Buyercontract_batchDownload_v1_Request [required]
+    */
+    virtual void buyercontractBatchDownloadV1(const qint32 &pki_buyercontract_id, const Buyercontract_batchDownload_v1_Request &buyercontract_batch_download_v1_request);
+
+    /**
+    * @param[in]  pki_buyercontract_id qint32 [required]
+    */
+    virtual void buyercontractGetAttachmentsV1(const qint32 &pki_buyercontract_id);
 
     /**
     * @param[in]  pki_buyercontract_id qint32 [required]
@@ -132,6 +145,8 @@ private:
     OauthPassword _passwordFlow;
     OauthMethod _OauthMethod = OauthMethod::INVALID_VALUE_OPENAPI_GENERATED;
 
+    void buyercontractBatchDownloadV1Callback(HttpRequestWorker *worker);
+    void buyercontractGetAttachmentsV1Callback(HttpRequestWorker *worker);
     void buyercontractGetCommunicationCountV1Callback(HttpRequestWorker *worker);
     void buyercontractGetCommunicationListV1Callback(HttpRequestWorker *worker);
     void buyercontractGetCommunicationrecipientsV1Callback(HttpRequestWorker *worker);
@@ -141,6 +156,8 @@ private:
 
 Q_SIGNALS:
 
+    void buyercontractBatchDownloadV1Signal(HttpFileElement summary);
+    void buyercontractGetAttachmentsV1Signal(Buyercontract_getAttachments_v1_Response summary);
     void buyercontractGetCommunicationCountV1Signal(Buyercontract_getCommunicationCount_v1_Response summary);
     void buyercontractGetCommunicationListV1Signal(Buyercontract_getCommunicationList_v1_Response summary);
     void buyercontractGetCommunicationrecipientsV1Signal(Buyercontract_getCommunicationrecipients_v1_Response summary);
@@ -149,6 +166,8 @@ Q_SIGNALS:
     void buyercontractImportIntoEDMV1Signal(Buyercontract_importIntoEDM_v1_Response summary);
 
 
+    void buyercontractBatchDownloadV1SignalFull(HttpRequestWorker *worker, HttpFileElement summary);
+    void buyercontractGetAttachmentsV1SignalFull(HttpRequestWorker *worker, Buyercontract_getAttachments_v1_Response summary);
     void buyercontractGetCommunicationCountV1SignalFull(HttpRequestWorker *worker, Buyercontract_getCommunicationCount_v1_Response summary);
     void buyercontractGetCommunicationListV1SignalFull(HttpRequestWorker *worker, Buyercontract_getCommunicationList_v1_Response summary);
     void buyercontractGetCommunicationrecipientsV1SignalFull(HttpRequestWorker *worker, Buyercontract_getCommunicationrecipients_v1_Response summary);
@@ -156,6 +175,8 @@ Q_SIGNALS:
     void buyercontractGetListV1SignalFull(HttpRequestWorker *worker, Buyercontract_getList_v1_Response summary);
     void buyercontractImportIntoEDMV1SignalFull(HttpRequestWorker *worker, Buyercontract_importIntoEDM_v1_Response summary);
 
+    void buyercontractBatchDownloadV1SignalError(HttpFileElement summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void buyercontractGetAttachmentsV1SignalError(Buyercontract_getAttachments_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void buyercontractGetCommunicationCountV1SignalError(Buyercontract_getCommunicationCount_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void buyercontractGetCommunicationListV1SignalError(Buyercontract_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void buyercontractGetCommunicationrecipientsV1SignalError(Buyercontract_getCommunicationrecipients_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -163,6 +184,8 @@ Q_SIGNALS:
     void buyercontractGetListV1SignalError(Buyercontract_getList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void buyercontractImportIntoEDMV1SignalError(Buyercontract_importIntoEDM_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    void buyercontractBatchDownloadV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void buyercontractGetAttachmentsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void buyercontractGetCommunicationCountV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void buyercontractGetCommunicationListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void buyercontractGetCommunicationrecipientsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);

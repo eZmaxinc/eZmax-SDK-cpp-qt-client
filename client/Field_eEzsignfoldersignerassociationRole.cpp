@@ -45,6 +45,10 @@ void Field_eEzsignfoldersignerassociationRole::fromJson(const QString &jsonStrin
         m_value = eField_eEzsignfoldersignerassociationRole::CC;
         m_value_isSet = m_value_isValid = true;
     }
+    else if ( jsonString.compare("CCDeleted", Qt::CaseInsensitive) == 0) {
+        m_value = eField_eEzsignfoldersignerassociationRole::CCDELETED;
+        m_value_isSet = m_value_isValid = true;
+    }
     else if ( jsonString.compare("Signer", Qt::CaseInsensitive) == 0) {
         m_value = eField_eEzsignfoldersignerassociationRole::SIGNER;
         m_value_isSet = m_value_isValid = true;
@@ -65,6 +69,9 @@ QString Field_eEzsignfoldersignerassociationRole::asJson() const {
     switch (m_value){
         case eField_eEzsignfoldersignerassociationRole::CC:
             val = "CC";
+            break;
+        case eField_eEzsignfoldersignerassociationRole::CCDELETED:
+            val = "CCDeleted";
             break;
         case eField_eEzsignfoldersignerassociationRole::SIGNER:
             val = "Signer";

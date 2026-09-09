@@ -41,7 +41,15 @@ void Field_eWebhookRealestateevent::initializeModel() {
 
 void Field_eWebhookRealestateevent::fromJson(const QString &jsonString) {
     
-    if ( jsonString.compare("InscriptionCreated", Qt::CaseInsensitive) == 0) {
+    if ( jsonString.compare("BuyercontractCreated", Qt::CaseInsensitive) == 0) {
+        m_value = eField_eWebhookRealestateevent::BUYERCONTRACTCREATED;
+        m_value_isSet = m_value_isValid = true;
+    }
+    else if ( jsonString.compare("BuyercontractModified", Qt::CaseInsensitive) == 0) {
+        m_value = eField_eWebhookRealestateevent::BUYERCONTRACTMODIFIED;
+        m_value_isSet = m_value_isValid = true;
+    }
+    else if ( jsonString.compare("InscriptionCreated", Qt::CaseInsensitive) == 0) {
         m_value = eField_eWebhookRealestateevent::INSCRIPTIONCREATED;
         m_value_isSet = m_value_isValid = true;
     }
@@ -67,6 +75,12 @@ QString Field_eWebhookRealestateevent::asJson() const {
     
     QString val;
     switch (m_value){
+        case eField_eWebhookRealestateevent::BUYERCONTRACTCREATED:
+            val = "BuyercontractCreated";
+            break;
+        case eField_eWebhookRealestateevent::BUYERCONTRACTMODIFIED:
+            val = "BuyercontractModified";
+            break;
         case eField_eWebhookRealestateevent::INSCRIPTIONCREATED:
             val = "InscriptionCreated";
             break;

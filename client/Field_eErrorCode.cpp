@@ -121,6 +121,10 @@ void Field_eErrorCode::fromJson(const QString &jsonString) {
         m_value = eField_eErrorCode::NOTACCEPTABLE_LANGUAGE;
         m_value_isSet = m_value_isValid = true;
     }
+    else if ( jsonString.compare("CONFLICT", Qt::CaseInsensitive) == 0) {
+        m_value = eField_eErrorCode::CONFLICT;
+        m_value_isSet = m_value_isValid = true;
+    }
     else if ( jsonString.compare("UNPROCESSABLEENTITY_ACTIVESESSION_ALREADY_CLONING", Qt::CaseInsensitive) == 0) {
         m_value = eField_eErrorCode::UNPROCESSABLEENTITY_ACTIVESESSION_ALREADY_CLONING;
         m_value_isSet = m_value_isValid = true;
@@ -310,6 +314,9 @@ QString Field_eErrorCode::asJson() const {
             break;
         case eField_eErrorCode::NOTACCEPTABLE_LANGUAGE:
             val = "NOTACCEPTABLE_LANGUAGE";
+            break;
+        case eField_eErrorCode::CONFLICT:
+            val = "CONFLICT";
             break;
         case eField_eErrorCode::UNPROCESSABLEENTITY_ACTIVESESSION_ALREADY_CLONING:
             val = "UNPROCESSABLEENTITY_ACTIVESESSION_ALREADY_CLONING";

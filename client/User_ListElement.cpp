@@ -37,6 +37,12 @@ void User_ListElement::initializeModel() {
     m_pki_user_id_isSet = false;
     m_pki_user_id_isValid = false;
 
+    m_fki_agent_id_isSet = false;
+    m_fki_agent_id_isValid = false;
+
+    m_fki_broker_id_isSet = false;
+    m_fki_broker_id_isValid = false;
+
     m_s_user_firstname_isSet = false;
     m_s_user_firstname_isValid = false;
 
@@ -83,6 +89,12 @@ void User_ListElement::fromJsonObject(QJsonObject json) {
     m_pki_user_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_user_id, json[QString("pkiUserID")]);
     m_pki_user_id_isSet = !json[QString("pkiUserID")].isNull() && m_pki_user_id_isValid;
 
+    m_fki_agent_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_agent_id, json[QString("fkiAgentID")]);
+    m_fki_agent_id_isSet = !json[QString("fkiAgentID")].isNull() && m_fki_agent_id_isValid;
+
+    m_fki_broker_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_broker_id, json[QString("fkiBrokerID")]);
+    m_fki_broker_id_isSet = !json[QString("fkiBrokerID")].isNull() && m_fki_broker_id_isValid;
+
     m_s_user_firstname_isValid = ::Ezmaxapi::fromJsonValue(m_s_user_firstname, json[QString("sUserFirstname")]);
     m_s_user_firstname_isSet = !json[QString("sUserFirstname")].isNull() && m_s_user_firstname_isValid;
 
@@ -128,6 +140,12 @@ QJsonObject User_ListElement::asJsonObject() const {
     QJsonObject obj;
     if (m_pki_user_id_isSet) {
         obj.insert(QString("pkiUserID"), ::Ezmaxapi::toJsonValue(m_pki_user_id));
+    }
+    if (m_fki_agent_id_isSet) {
+        obj.insert(QString("fkiAgentID"), ::Ezmaxapi::toJsonValue(m_fki_agent_id));
+    }
+    if (m_fki_broker_id_isSet) {
+        obj.insert(QString("fkiBrokerID"), ::Ezmaxapi::toJsonValue(m_fki_broker_id));
     }
     if (m_s_user_firstname_isSet) {
         obj.insert(QString("sUserFirstname"), ::Ezmaxapi::toJsonValue(m_s_user_firstname));
@@ -179,6 +197,38 @@ bool User_ListElement::is_pki_user_id_Set() const{
 
 bool User_ListElement::is_pki_user_id_Valid() const{
     return m_pki_user_id_isValid;
+}
+
+qint32 User_ListElement::getFkiAgentId() const {
+    return m_fki_agent_id;
+}
+void User_ListElement::setFkiAgentId(const qint32 &fki_agent_id) {
+    m_fki_agent_id = fki_agent_id;
+    m_fki_agent_id_isSet = true;
+}
+
+bool User_ListElement::is_fki_agent_id_Set() const{
+    return m_fki_agent_id_isSet;
+}
+
+bool User_ListElement::is_fki_agent_id_Valid() const{
+    return m_fki_agent_id_isValid;
+}
+
+qint32 User_ListElement::getFkiBrokerId() const {
+    return m_fki_broker_id;
+}
+void User_ListElement::setFkiBrokerId(const qint32 &fki_broker_id) {
+    m_fki_broker_id = fki_broker_id;
+    m_fki_broker_id_isSet = true;
+}
+
+bool User_ListElement::is_fki_broker_id_Set() const{
+    return m_fki_broker_id_isSet;
+}
+
+bool User_ListElement::is_fki_broker_id_Valid() const{
+    return m_fki_broker_id_isValid;
 }
 
 QString User_ListElement::getSUserFirstname() const {
@@ -361,6 +411,16 @@ bool User_ListElement::isSet() const {
     bool isObjectUpdated = false;
     do {
         if (m_pki_user_id_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_fki_agent_id_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_fki_broker_id_isSet) {
             isObjectUpdated = true;
             break;
         }

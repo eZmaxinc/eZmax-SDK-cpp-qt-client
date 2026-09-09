@@ -59,6 +59,10 @@ void ObjectOtherincomeApi::initializeServerConfigs() {
     {"sInfrastructureregionCode", ServerVariable("The region where your services are hosted.","ca-central-1",
     QSet<QString>{ {"ca-central-1"} })}, }));
     
+    _serverConfigs.insert("otherincomeBatchDownloadV1", defaultConf);
+    _serverIndices.insert("otherincomeBatchDownloadV1", 0);
+    _serverConfigs.insert("otherincomeGetAttachmentsV1", defaultConf);
+    _serverIndices.insert("otherincomeGetAttachmentsV1", 0);
     _serverConfigs.insert("otherincomeGetCommunicationCountV1", defaultConf);
     _serverIndices.insert("otherincomeGetCommunicationCountV1", 0);
     _serverConfigs.insert("otherincomeGetCommunicationListV1", defaultConf);
@@ -249,6 +253,135 @@ QString ObjectOtherincomeApi::getParamStyleDelimiter(const QString &style, const
 
     } else {
         return "none";
+    }
+}
+
+void ObjectOtherincomeApi::otherincomeBatchDownloadV1(const qint32 &pki_otherincome_id, const Otherincome_batchDownload_v1_Request &otherincome_batch_download_v1_request) {
+    QString fullPath = QString(_serverConfigs["otherincomeBatchDownloadV1"][_serverIndices.value("otherincomeBatchDownloadV1")].URL()+"/1/object/otherincome/{pkiOtherincomeID}/batchDownload");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_otherincome_idPathParam("{");
+        pki_otherincome_idPathParam.append("pkiOtherincomeID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiOtherincomeID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiOtherincomeID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_otherincome_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_otherincome_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "POST");
+
+    {
+
+        
+        QByteArray output = otherincome_batch_download_v1_request.asJson().toUtf8();
+        input.request_body.append(output);
+    }
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectOtherincomeApi::otherincomeBatchDownloadV1Callback);
+    connect(this, &ObjectOtherincomeApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectOtherincomeApi::otherincomeBatchDownloadV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    HttpFileElement output = worker->getHttpFileElement();
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT otherincomeBatchDownloadV1Signal(output);
+        Q_EMIT otherincomeBatchDownloadV1SignalFull(worker, output);
+    } else {
+        Q_EMIT otherincomeBatchDownloadV1SignalError(output, error_type, error_str);
+        Q_EMIT otherincomeBatchDownloadV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectOtherincomeApi::otherincomeGetAttachmentsV1(const qint32 &pki_otherincome_id) {
+    QString fullPath = QString(_serverConfigs["otherincomeGetAttachmentsV1"][_serverIndices.value("otherincomeGetAttachmentsV1")].URL()+"/1/object/otherincome/{pkiOtherincomeID}/getAttachments");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_otherincome_idPathParam("{");
+        pki_otherincome_idPathParam.append("pkiOtherincomeID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiOtherincomeID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiOtherincomeID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_otherincome_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_otherincome_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectOtherincomeApi::otherincomeGetAttachmentsV1Callback);
+    connect(this, &ObjectOtherincomeApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectOtherincomeApi::otherincomeGetAttachmentsV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Otherincome_getAttachments_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT otherincomeGetAttachmentsV1Signal(output);
+        Q_EMIT otherincomeGetAttachmentsV1SignalFull(worker, output);
+    } else {
+        Q_EMIT otherincomeGetAttachmentsV1SignalError(output, error_type, error_str);
+        Q_EMIT otherincomeGetAttachmentsV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

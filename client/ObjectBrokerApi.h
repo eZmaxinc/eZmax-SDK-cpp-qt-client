@@ -18,6 +18,8 @@
 #include "ServerConfiguration.h"
 #include "Oauth.h"
 
+#include "Broker_batchDownload_v1_Request.h"
+#include "Broker_getAttachments_v1_Response.h"
 #include "Broker_getAutocomplete_v2_Response.h"
 #include "Broker_getList_v1_Response.h"
 #include "Broker_importIntoEDM_v1_Request.h"
@@ -63,6 +65,17 @@ public:
     QString getParamStylePrefix(const QString &style);
     QString getParamStyleSuffix(const QString &style);
     QString getParamStyleDelimiter(const QString &style, const QString &name, bool isExplode);
+
+    /**
+    * @param[in]  pki_broker_id qint32 [required]
+    * @param[in]  broker_batch_download_v1_request Broker_batchDownload_v1_Request [required]
+    */
+    virtual void brokerBatchDownloadV1(const qint32 &pki_broker_id, const Broker_batchDownload_v1_Request &broker_batch_download_v1_request);
+
+    /**
+    * @param[in]  pki_broker_id qint32 [required]
+    */
+    virtual void brokerGetAttachmentsV1(const qint32 &pki_broker_id);
 
     /**
     * @param[in]  s_selector QString [required]
@@ -117,25 +130,35 @@ private:
     OauthPassword _passwordFlow;
     OauthMethod _OauthMethod = OauthMethod::INVALID_VALUE_OPENAPI_GENERATED;
 
+    void brokerBatchDownloadV1Callback(HttpRequestWorker *worker);
+    void brokerGetAttachmentsV1Callback(HttpRequestWorker *worker);
     void brokerGetAutocompleteV2Callback(HttpRequestWorker *worker);
     void brokerGetListV1Callback(HttpRequestWorker *worker);
     void brokerImportIntoEDMV1Callback(HttpRequestWorker *worker);
 
 Q_SIGNALS:
 
+    void brokerBatchDownloadV1Signal(HttpFileElement summary);
+    void brokerGetAttachmentsV1Signal(Broker_getAttachments_v1_Response summary);
     void brokerGetAutocompleteV2Signal(Broker_getAutocomplete_v2_Response summary);
     void brokerGetListV1Signal(Broker_getList_v1_Response summary);
     void brokerImportIntoEDMV1Signal(Broker_importIntoEDM_v1_Response summary);
 
 
+    void brokerBatchDownloadV1SignalFull(HttpRequestWorker *worker, HttpFileElement summary);
+    void brokerGetAttachmentsV1SignalFull(HttpRequestWorker *worker, Broker_getAttachments_v1_Response summary);
     void brokerGetAutocompleteV2SignalFull(HttpRequestWorker *worker, Broker_getAutocomplete_v2_Response summary);
     void brokerGetListV1SignalFull(HttpRequestWorker *worker, Broker_getList_v1_Response summary);
     void brokerImportIntoEDMV1SignalFull(HttpRequestWorker *worker, Broker_importIntoEDM_v1_Response summary);
 
+    void brokerBatchDownloadV1SignalError(HttpFileElement summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void brokerGetAttachmentsV1SignalError(Broker_getAttachments_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void brokerGetAutocompleteV2SignalError(Broker_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void brokerGetListV1SignalError(Broker_getList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void brokerImportIntoEDMV1SignalError(Broker_importIntoEDM_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    void brokerBatchDownloadV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void brokerGetAttachmentsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void brokerGetAutocompleteV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void brokerGetListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void brokerImportIntoEDMV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);

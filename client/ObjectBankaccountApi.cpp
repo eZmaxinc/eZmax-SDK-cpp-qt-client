@@ -59,8 +59,14 @@ void ObjectBankaccountApi::initializeServerConfigs() {
     {"sInfrastructureregionCode", ServerVariable("The region where your services are hosted.","ca-central-1",
     QSet<QString>{ {"ca-central-1"} })}, }));
     
+    _serverConfigs.insert("bankaccountBatchDownloadV1", defaultConf);
+    _serverIndices.insert("bankaccountBatchDownloadV1", 0);
+    _serverConfigs.insert("bankaccountGetAttachmentsV1", defaultConf);
+    _serverIndices.insert("bankaccountGetAttachmentsV1", 0);
     _serverConfigs.insert("bankaccountGetAutocompleteV2", defaultConf);
     _serverIndices.insert("bankaccountGetAutocompleteV2", 0);
+    _serverConfigs.insert("bankaccountImportIntoEDMV1", defaultConf);
+    _serverIndices.insert("bankaccountImportIntoEDMV1", 0);
 }
 
 /**
@@ -242,6 +248,135 @@ QString ObjectBankaccountApi::getParamStyleDelimiter(const QString &style, const
     }
 }
 
+void ObjectBankaccountApi::bankaccountBatchDownloadV1(const qint32 &pki_bankaccount_id, const Bankaccount_batchDownload_v1_Request &bankaccount_batch_download_v1_request) {
+    QString fullPath = QString(_serverConfigs["bankaccountBatchDownloadV1"][_serverIndices.value("bankaccountBatchDownloadV1")].URL()+"/1/object/bankaccount/{pkiBankaccountID}/batchDownload");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_bankaccount_idPathParam("{");
+        pki_bankaccount_idPathParam.append("pkiBankaccountID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiBankaccountID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiBankaccountID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_bankaccount_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_bankaccount_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "POST");
+
+    {
+
+        
+        QByteArray output = bankaccount_batch_download_v1_request.asJson().toUtf8();
+        input.request_body.append(output);
+    }
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectBankaccountApi::bankaccountBatchDownloadV1Callback);
+    connect(this, &ObjectBankaccountApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectBankaccountApi::bankaccountBatchDownloadV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    HttpFileElement output = worker->getHttpFileElement();
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT bankaccountBatchDownloadV1Signal(output);
+        Q_EMIT bankaccountBatchDownloadV1SignalFull(worker, output);
+    } else {
+        Q_EMIT bankaccountBatchDownloadV1SignalError(output, error_type, error_str);
+        Q_EMIT bankaccountBatchDownloadV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectBankaccountApi::bankaccountGetAttachmentsV1(const qint32 &pki_bankaccount_id) {
+    QString fullPath = QString(_serverConfigs["bankaccountGetAttachmentsV1"][_serverIndices.value("bankaccountGetAttachmentsV1")].URL()+"/1/object/bankaccount/{pkiBankaccountID}/getAttachments");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_bankaccount_idPathParam("{");
+        pki_bankaccount_idPathParam.append("pkiBankaccountID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiBankaccountID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiBankaccountID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_bankaccount_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_bankaccount_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectBankaccountApi::bankaccountGetAttachmentsV1Callback);
+    connect(this, &ObjectBankaccountApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectBankaccountApi::bankaccountGetAttachmentsV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Bankaccount_getAttachments_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT bankaccountGetAttachmentsV1Signal(output);
+        Q_EMIT bankaccountGetAttachmentsV1SignalFull(worker, output);
+    } else {
+        Q_EMIT bankaccountGetAttachmentsV1SignalError(output, error_type, error_str);
+        Q_EMIT bankaccountGetAttachmentsV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
 void ObjectBankaccountApi::bankaccountGetAutocompleteV2(const QString &s_selector, const ::Ezmaxapi::OptionalParam<QString> &e_filter_active, const ::Ezmaxapi::OptionalParam<QString> &s_query, const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language) {
     QString fullPath = QString(_serverConfigs["bankaccountGetAutocompleteV2"][_serverIndices.value("bankaccountGetAutocompleteV2")].URL()+"/2/object/bankaccount/getAutocomplete/{sSelector}");
     
@@ -376,6 +511,73 @@ void ObjectBankaccountApi::bankaccountGetAutocompleteV2Callback(HttpRequestWorke
     } else {
         Q_EMIT bankaccountGetAutocompleteV2SignalError(output, error_type, error_str);
         Q_EMIT bankaccountGetAutocompleteV2SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectBankaccountApi::bankaccountImportIntoEDMV1(const qint32 &pki_bankaccount_id, const Bankaccount_importIntoEDM_v1_Request &bankaccount_import_into_edm_v1_request) {
+    QString fullPath = QString(_serverConfigs["bankaccountImportIntoEDMV1"][_serverIndices.value("bankaccountImportIntoEDMV1")].URL()+"/1/object/bankaccount/{pkiBankaccountID}/importIntoEDM");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_bankaccount_idPathParam("{");
+        pki_bankaccount_idPathParam.append("pkiBankaccountID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiBankaccountID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiBankaccountID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_bankaccount_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_bankaccount_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "POST");
+
+    {
+
+        
+        QByteArray output = bankaccount_import_into_edm_v1_request.asJson().toUtf8();
+        input.request_body.append(output);
+    }
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectBankaccountApi::bankaccountImportIntoEDMV1Callback);
+    connect(this, &ObjectBankaccountApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectBankaccountApi::bankaccountImportIntoEDMV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Bankaccount_importIntoEDM_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT bankaccountImportIntoEDMV1Signal(output);
+        Q_EMIT bankaccountImportIntoEDMV1SignalFull(worker, output);
+    } else {
+        Q_EMIT bankaccountImportIntoEDMV1SignalError(output, error_type, error_str);
+        Q_EMIT bankaccountImportIntoEDMV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

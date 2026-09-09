@@ -59,8 +59,12 @@ void ObjectInscriptionnotauthenticatedApi::initializeServerConfigs() {
     {"sInfrastructureregionCode", ServerVariable("The region where your services are hosted.","ca-central-1",
     QSet<QString>{ {"ca-central-1"} })}, }));
     
+    _serverConfigs.insert("inscriptionnotauthenticatedBatchDownloadV1", defaultConf);
+    _serverIndices.insert("inscriptionnotauthenticatedBatchDownloadV1", 0);
     _serverConfigs.insert("inscriptionnotauthenticatedFillInscriptionnotauthenticatedconditionV1", defaultConf);
     _serverIndices.insert("inscriptionnotauthenticatedFillInscriptionnotauthenticatedconditionV1", 0);
+    _serverConfigs.insert("inscriptionnotauthenticatedGetAttachmentsV1", defaultConf);
+    _serverIndices.insert("inscriptionnotauthenticatedGetAttachmentsV1", 0);
     _serverConfigs.insert("inscriptionnotauthenticatedGetCommunicationCountV1", defaultConf);
     _serverIndices.insert("inscriptionnotauthenticatedGetCommunicationCountV1", 0);
     _serverConfigs.insert("inscriptionnotauthenticatedGetCommunicationListV1", defaultConf);
@@ -258,6 +262,73 @@ QString ObjectInscriptionnotauthenticatedApi::getParamStyleDelimiter(const QStri
     }
 }
 
+void ObjectInscriptionnotauthenticatedApi::inscriptionnotauthenticatedBatchDownloadV1(const qint32 &pki_inscriptionnotauthenticated_id, const Inscriptionnotauthenticated_batchDownload_v1_Request &inscriptionnotauthenticated_batch_download_v1_request) {
+    QString fullPath = QString(_serverConfigs["inscriptionnotauthenticatedBatchDownloadV1"][_serverIndices.value("inscriptionnotauthenticatedBatchDownloadV1")].URL()+"/1/object/inscriptionnotauthenticated/{pkiInscriptionnotauthenticatedID}/batchDownload");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_inscriptionnotauthenticated_idPathParam("{");
+        pki_inscriptionnotauthenticated_idPathParam.append("pkiInscriptionnotauthenticatedID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiInscriptionnotauthenticatedID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiInscriptionnotauthenticatedID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_inscriptionnotauthenticated_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_inscriptionnotauthenticated_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "POST");
+
+    {
+
+        
+        QByteArray output = inscriptionnotauthenticated_batch_download_v1_request.asJson().toUtf8();
+        input.request_body.append(output);
+    }
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectInscriptionnotauthenticatedApi::inscriptionnotauthenticatedBatchDownloadV1Callback);
+    connect(this, &ObjectInscriptionnotauthenticatedApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectInscriptionnotauthenticatedApi::inscriptionnotauthenticatedBatchDownloadV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    HttpFileElement output = worker->getHttpFileElement();
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT inscriptionnotauthenticatedBatchDownloadV1Signal(output);
+        Q_EMIT inscriptionnotauthenticatedBatchDownloadV1SignalFull(worker, output);
+    } else {
+        Q_EMIT inscriptionnotauthenticatedBatchDownloadV1SignalError(output, error_type, error_str);
+        Q_EMIT inscriptionnotauthenticatedBatchDownloadV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
 void ObjectInscriptionnotauthenticatedApi::inscriptionnotauthenticatedFillInscriptionnotauthenticatedconditionV1(const qint32 &pki_inscriptionnotauthenticated_id, const Inscriptionnotauthenticated_fillInscriptionnotauthenticatedcondition_v1_Request &inscriptionnotauthenticated_fill_inscriptionnotauthenticatedcondition_v1_request) {
     QString fullPath = QString(_serverConfigs["inscriptionnotauthenticatedFillInscriptionnotauthenticatedconditionV1"][_serverIndices.value("inscriptionnotauthenticatedFillInscriptionnotauthenticatedconditionV1")].URL()+"/1/object/inscriptionnotauthenticated/{pkiInscriptionnotauthenticatedID}/fillInscriptionnotauthenticatedcondition");
     
@@ -322,6 +393,68 @@ void ObjectInscriptionnotauthenticatedApi::inscriptionnotauthenticatedFillInscri
     } else {
         Q_EMIT inscriptionnotauthenticatedFillInscriptionnotauthenticatedconditionV1SignalError(output, error_type, error_str);
         Q_EMIT inscriptionnotauthenticatedFillInscriptionnotauthenticatedconditionV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectInscriptionnotauthenticatedApi::inscriptionnotauthenticatedGetAttachmentsV1(const qint32 &pki_inscriptionnotauthenticated_id) {
+    QString fullPath = QString(_serverConfigs["inscriptionnotauthenticatedGetAttachmentsV1"][_serverIndices.value("inscriptionnotauthenticatedGetAttachmentsV1")].URL()+"/1/object/inscriptionnotauthenticated/{pkiInscriptionnotauthenticatedID}/getAttachments");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_inscriptionnotauthenticated_idPathParam("{");
+        pki_inscriptionnotauthenticated_idPathParam.append("pkiInscriptionnotauthenticatedID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiInscriptionnotauthenticatedID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiInscriptionnotauthenticatedID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_inscriptionnotauthenticated_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_inscriptionnotauthenticated_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectInscriptionnotauthenticatedApi::inscriptionnotauthenticatedGetAttachmentsV1Callback);
+    connect(this, &ObjectInscriptionnotauthenticatedApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectInscriptionnotauthenticatedApi::inscriptionnotauthenticatedGetAttachmentsV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Inscriptionnotauthenticated_getAttachments_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT inscriptionnotauthenticatedGetAttachmentsV1Signal(output);
+        Q_EMIT inscriptionnotauthenticatedGetAttachmentsV1SignalFull(worker, output);
+    } else {
+        Q_EMIT inscriptionnotauthenticatedGetAttachmentsV1SignalError(output, error_type, error_str);
+        Q_EMIT inscriptionnotauthenticatedGetAttachmentsV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

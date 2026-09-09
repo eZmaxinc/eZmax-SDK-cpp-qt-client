@@ -41,6 +41,7 @@ public:
     enum class eField_eEzsignfoldersignerassociationRole {
         INVALID_VALUE_OPENAPI_GENERATED = 0,
         CC, 
+        CCDELETED, 
         SIGNER, 
         SIGNERANDCC
     };

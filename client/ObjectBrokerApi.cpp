@@ -59,6 +59,10 @@ void ObjectBrokerApi::initializeServerConfigs() {
     {"sInfrastructureregionCode", ServerVariable("The region where your services are hosted.","ca-central-1",
     QSet<QString>{ {"ca-central-1"} })}, }));
     
+    _serverConfigs.insert("brokerBatchDownloadV1", defaultConf);
+    _serverIndices.insert("brokerBatchDownloadV1", 0);
+    _serverConfigs.insert("brokerGetAttachmentsV1", defaultConf);
+    _serverIndices.insert("brokerGetAttachmentsV1", 0);
     _serverConfigs.insert("brokerGetAutocompleteV2", defaultConf);
     _serverIndices.insert("brokerGetAutocompleteV2", 0);
     _serverConfigs.insert("brokerGetListV1", defaultConf);
@@ -243,6 +247,135 @@ QString ObjectBrokerApi::getParamStyleDelimiter(const QString &style, const QStr
 
     } else {
         return "none";
+    }
+}
+
+void ObjectBrokerApi::brokerBatchDownloadV1(const qint32 &pki_broker_id, const Broker_batchDownload_v1_Request &broker_batch_download_v1_request) {
+    QString fullPath = QString(_serverConfigs["brokerBatchDownloadV1"][_serverIndices.value("brokerBatchDownloadV1")].URL()+"/1/object/broker/{pkiBrokerID}/batchDownload");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_broker_idPathParam("{");
+        pki_broker_idPathParam.append("pkiBrokerID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiBrokerID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiBrokerID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_broker_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_broker_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "POST");
+
+    {
+
+        
+        QByteArray output = broker_batch_download_v1_request.asJson().toUtf8();
+        input.request_body.append(output);
+    }
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectBrokerApi::brokerBatchDownloadV1Callback);
+    connect(this, &ObjectBrokerApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectBrokerApi::brokerBatchDownloadV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    HttpFileElement output = worker->getHttpFileElement();
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT brokerBatchDownloadV1Signal(output);
+        Q_EMIT brokerBatchDownloadV1SignalFull(worker, output);
+    } else {
+        Q_EMIT brokerBatchDownloadV1SignalError(output, error_type, error_str);
+        Q_EMIT brokerBatchDownloadV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectBrokerApi::brokerGetAttachmentsV1(const qint32 &pki_broker_id) {
+    QString fullPath = QString(_serverConfigs["brokerGetAttachmentsV1"][_serverIndices.value("brokerGetAttachmentsV1")].URL()+"/1/object/broker/{pkiBrokerID}/getAttachments");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_broker_idPathParam("{");
+        pki_broker_idPathParam.append("pkiBrokerID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiBrokerID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiBrokerID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_broker_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_broker_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectBrokerApi::brokerGetAttachmentsV1Callback);
+    connect(this, &ObjectBrokerApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectBrokerApi::brokerGetAttachmentsV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Broker_getAttachments_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT brokerGetAttachmentsV1Signal(output);
+        Q_EMIT brokerGetAttachmentsV1SignalFull(worker, output);
+    } else {
+        Q_EMIT brokerGetAttachmentsV1SignalError(output, error_type, error_str);
+        Q_EMIT brokerGetAttachmentsV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

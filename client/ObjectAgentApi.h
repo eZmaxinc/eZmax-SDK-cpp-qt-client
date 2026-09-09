@@ -18,6 +18,8 @@
 #include "ServerConfiguration.h"
 #include "Oauth.h"
 
+#include "Agent_batchDownload_v1_Request.h"
+#include "Agent_getAttachments_v1_Response.h"
 #include "Agent_getAutocomplete_v2_Response.h"
 #include "Agent_getList_v1_Response.h"
 #include "Agent_importIntoEDM_v1_Request.h"
@@ -63,6 +65,17 @@ public:
     QString getParamStylePrefix(const QString &style);
     QString getParamStyleSuffix(const QString &style);
     QString getParamStyleDelimiter(const QString &style, const QString &name, bool isExplode);
+
+    /**
+    * @param[in]  pki_agent_id qint32 [required]
+    * @param[in]  agent_batch_download_v1_request Agent_batchDownload_v1_Request [required]
+    */
+    virtual void agentBatchDownloadV1(const qint32 &pki_agent_id, const Agent_batchDownload_v1_Request &agent_batch_download_v1_request);
+
+    /**
+    * @param[in]  pki_agent_id qint32 [required]
+    */
+    virtual void agentGetAttachmentsV1(const qint32 &pki_agent_id);
 
     /**
     * @param[in]  s_selector QString [required]
@@ -117,25 +130,35 @@ private:
     OauthPassword _passwordFlow;
     OauthMethod _OauthMethod = OauthMethod::INVALID_VALUE_OPENAPI_GENERATED;
 
+    void agentBatchDownloadV1Callback(HttpRequestWorker *worker);
+    void agentGetAttachmentsV1Callback(HttpRequestWorker *worker);
     void agentGetAutocompleteV2Callback(HttpRequestWorker *worker);
     void agentGetListV1Callback(HttpRequestWorker *worker);
     void agentImportIntoEDMV1Callback(HttpRequestWorker *worker);
 
 Q_SIGNALS:
 
+    void agentBatchDownloadV1Signal(HttpFileElement summary);
+    void agentGetAttachmentsV1Signal(Agent_getAttachments_v1_Response summary);
     void agentGetAutocompleteV2Signal(Agent_getAutocomplete_v2_Response summary);
     void agentGetListV1Signal(Agent_getList_v1_Response summary);
     void agentImportIntoEDMV1Signal(Agent_importIntoEDM_v1_Response summary);
 
 
+    void agentBatchDownloadV1SignalFull(HttpRequestWorker *worker, HttpFileElement summary);
+    void agentGetAttachmentsV1SignalFull(HttpRequestWorker *worker, Agent_getAttachments_v1_Response summary);
     void agentGetAutocompleteV2SignalFull(HttpRequestWorker *worker, Agent_getAutocomplete_v2_Response summary);
     void agentGetListV1SignalFull(HttpRequestWorker *worker, Agent_getList_v1_Response summary);
     void agentImportIntoEDMV1SignalFull(HttpRequestWorker *worker, Agent_importIntoEDM_v1_Response summary);
 
+    void agentBatchDownloadV1SignalError(HttpFileElement summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void agentGetAttachmentsV1SignalError(Agent_getAttachments_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void agentGetAutocompleteV2SignalError(Agent_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void agentGetListV1SignalError(Agent_getList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void agentImportIntoEDMV1SignalError(Agent_importIntoEDM_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    void agentBatchDownloadV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void agentGetAttachmentsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void agentGetAutocompleteV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void agentGetListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void agentImportIntoEDMV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);

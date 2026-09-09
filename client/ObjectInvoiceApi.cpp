@@ -59,6 +59,8 @@ void ObjectInvoiceApi::initializeServerConfigs() {
     {"sInfrastructureregionCode", ServerVariable("The region where your services are hosted.","ca-central-1",
     QSet<QString>{ {"ca-central-1"} })}, }));
     
+    _serverConfigs.insert("invoiceBatchDownloadV1", defaultConf);
+    _serverIndices.insert("invoiceBatchDownloadV1", 0);
     _serverConfigs.insert("invoiceGetAttachmentsV1", defaultConf);
     _serverIndices.insert("invoiceGetAttachmentsV1", 0);
     _serverConfigs.insert("invoiceGetCommunicationCountV1", defaultConf);
@@ -249,6 +251,73 @@ QString ObjectInvoiceApi::getParamStyleDelimiter(const QString &style, const QSt
 
     } else {
         return "none";
+    }
+}
+
+void ObjectInvoiceApi::invoiceBatchDownloadV1(const qint32 &pki_invoice_id, const Invoice_batchDownload_v1_Request &invoice_batch_download_v1_request) {
+    QString fullPath = QString(_serverConfigs["invoiceBatchDownloadV1"][_serverIndices.value("invoiceBatchDownloadV1")].URL()+"/1/object/invoice/{pkiInvoiceID}/batchDownload");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_invoice_idPathParam("{");
+        pki_invoice_idPathParam.append("pkiInvoiceID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiInvoiceID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiInvoiceID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_invoice_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_invoice_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "POST");
+
+    {
+
+        
+        QByteArray output = invoice_batch_download_v1_request.asJson().toUtf8();
+        input.request_body.append(output);
+    }
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectInvoiceApi::invoiceBatchDownloadV1Callback);
+    connect(this, &ObjectInvoiceApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectInvoiceApi::invoiceBatchDownloadV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    HttpFileElement output = worker->getHttpFileElement();
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT invoiceBatchDownloadV1Signal(output);
+        Q_EMIT invoiceBatchDownloadV1SignalFull(worker, output);
+    } else {
+        Q_EMIT invoiceBatchDownloadV1SignalError(output, error_type, error_str);
+        Q_EMIT invoiceBatchDownloadV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

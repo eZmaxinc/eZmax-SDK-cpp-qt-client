@@ -59,6 +59,10 @@ void ObjectCustomerApi::initializeServerConfigs() {
     {"sInfrastructureregionCode", ServerVariable("The region where your services are hosted.","ca-central-1",
     QSet<QString>{ {"ca-central-1"} })}, }));
     
+    _serverConfigs.insert("customerBatchDownloadV1", defaultConf);
+    _serverIndices.insert("customerBatchDownloadV1", 0);
+    _serverConfigs.insert("customerGetAttachmentsV1", defaultConf);
+    _serverIndices.insert("customerGetAttachmentsV1", 0);
     _serverConfigs.insert("customerGetAutocompleteV2", defaultConf);
     _serverIndices.insert("customerGetAutocompleteV2", 0);
     _serverConfigs.insert("customerGetObjectV2", defaultConf);
@@ -243,6 +247,135 @@ QString ObjectCustomerApi::getParamStyleDelimiter(const QString &style, const QS
 
     } else {
         return "none";
+    }
+}
+
+void ObjectCustomerApi::customerBatchDownloadV1(const qint32 &pki_customer_id, const Customer_batchDownload_v1_Request &customer_batch_download_v1_request) {
+    QString fullPath = QString(_serverConfigs["customerBatchDownloadV1"][_serverIndices.value("customerBatchDownloadV1")].URL()+"/1/object/customer/{pkiCustomerID}/batchDownload");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_customer_idPathParam("{");
+        pki_customer_idPathParam.append("pkiCustomerID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiCustomerID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiCustomerID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_customer_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_customer_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "POST");
+
+    {
+
+        
+        QByteArray output = customer_batch_download_v1_request.asJson().toUtf8();
+        input.request_body.append(output);
+    }
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectCustomerApi::customerBatchDownloadV1Callback);
+    connect(this, &ObjectCustomerApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectCustomerApi::customerBatchDownloadV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    HttpFileElement output = worker->getHttpFileElement();
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT customerBatchDownloadV1Signal(output);
+        Q_EMIT customerBatchDownloadV1SignalFull(worker, output);
+    } else {
+        Q_EMIT customerBatchDownloadV1SignalError(output, error_type, error_str);
+        Q_EMIT customerBatchDownloadV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectCustomerApi::customerGetAttachmentsV1(const qint32 &pki_customer_id) {
+    QString fullPath = QString(_serverConfigs["customerGetAttachmentsV1"][_serverIndices.value("customerGetAttachmentsV1")].URL()+"/1/object/customer/{pkiCustomerID}/getAttachments");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_customer_idPathParam("{");
+        pki_customer_idPathParam.append("pkiCustomerID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiCustomerID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiCustomerID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_customer_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_customer_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectCustomerApi::customerGetAttachmentsV1Callback);
+    connect(this, &ObjectCustomerApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectCustomerApi::customerGetAttachmentsV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Customer_getAttachments_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT customerGetAttachmentsV1Signal(output);
+        Q_EMIT customerGetAttachmentsV1SignalFull(worker, output);
+    } else {
+        Q_EMIT customerGetAttachmentsV1SignalError(output, error_type, error_str);
+        Q_EMIT customerGetAttachmentsV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

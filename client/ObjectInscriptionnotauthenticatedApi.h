@@ -21,8 +21,10 @@
 #include "Common_Response_Error.h"
 #include "Header_Accept_Language.h"
 #include "HttpFileElement.h"
+#include "Inscriptionnotauthenticated_batchDownload_v1_Request.h"
 #include "Inscriptionnotauthenticated_fillInscriptionnotauthenticatedcondition_v1_Request.h"
 #include "Inscriptionnotauthenticated_fillInscriptionnotauthenticatedcondition_v1_Response.h"
+#include "Inscriptionnotauthenticated_getAttachments_v1_Response.h"
 #include "Inscriptionnotauthenticated_getCommunicationCount_v1_Response.h"
 #include "Inscriptionnotauthenticated_getCommunicationList_v1_Response.h"
 #include "Inscriptionnotauthenticated_getCommunicationrecipients_v1_Response.h"
@@ -73,9 +75,20 @@ public:
 
     /**
     * @param[in]  pki_inscriptionnotauthenticated_id qint32 [required]
+    * @param[in]  inscriptionnotauthenticated_batch_download_v1_request Inscriptionnotauthenticated_batchDownload_v1_Request [required]
+    */
+    virtual void inscriptionnotauthenticatedBatchDownloadV1(const qint32 &pki_inscriptionnotauthenticated_id, const Inscriptionnotauthenticated_batchDownload_v1_Request &inscriptionnotauthenticated_batch_download_v1_request);
+
+    /**
+    * @param[in]  pki_inscriptionnotauthenticated_id qint32 [required]
     * @param[in]  inscriptionnotauthenticated_fill_inscriptionnotauthenticatedcondition_v1_request Inscriptionnotauthenticated_fillInscriptionnotauthenticatedcondition_v1_Request [required]
     */
     virtual void inscriptionnotauthenticatedFillInscriptionnotauthenticatedconditionV1(const qint32 &pki_inscriptionnotauthenticated_id, const Inscriptionnotauthenticated_fillInscriptionnotauthenticatedcondition_v1_Request &inscriptionnotauthenticated_fill_inscriptionnotauthenticatedcondition_v1_request);
+
+    /**
+    * @param[in]  pki_inscriptionnotauthenticated_id qint32 [required]
+    */
+    virtual void inscriptionnotauthenticatedGetAttachmentsV1(const qint32 &pki_inscriptionnotauthenticated_id);
 
     /**
     * @param[in]  pki_inscriptionnotauthenticated_id qint32 [required]
@@ -152,7 +165,9 @@ private:
     OauthPassword _passwordFlow;
     OauthMethod _OauthMethod = OauthMethod::INVALID_VALUE_OPENAPI_GENERATED;
 
+    void inscriptionnotauthenticatedBatchDownloadV1Callback(HttpRequestWorker *worker);
     void inscriptionnotauthenticatedFillInscriptionnotauthenticatedconditionV1Callback(HttpRequestWorker *worker);
+    void inscriptionnotauthenticatedGetAttachmentsV1Callback(HttpRequestWorker *worker);
     void inscriptionnotauthenticatedGetCommunicationCountV1Callback(HttpRequestWorker *worker);
     void inscriptionnotauthenticatedGetCommunicationListV1Callback(HttpRequestWorker *worker);
     void inscriptionnotauthenticatedGetCommunicationrecipientsV1Callback(HttpRequestWorker *worker);
@@ -164,7 +179,9 @@ private:
 
 Q_SIGNALS:
 
+    void inscriptionnotauthenticatedBatchDownloadV1Signal(HttpFileElement summary);
     void inscriptionnotauthenticatedFillInscriptionnotauthenticatedconditionV1Signal(Inscriptionnotauthenticated_fillInscriptionnotauthenticatedcondition_v1_Response summary);
+    void inscriptionnotauthenticatedGetAttachmentsV1Signal(Inscriptionnotauthenticated_getAttachments_v1_Response summary);
     void inscriptionnotauthenticatedGetCommunicationCountV1Signal(Inscriptionnotauthenticated_getCommunicationCount_v1_Response summary);
     void inscriptionnotauthenticatedGetCommunicationListV1Signal(Inscriptionnotauthenticated_getCommunicationList_v1_Response summary);
     void inscriptionnotauthenticatedGetCommunicationrecipientsV1Signal(Inscriptionnotauthenticated_getCommunicationrecipients_v1_Response summary);
@@ -175,7 +192,9 @@ Q_SIGNALS:
     void inscriptionnotauthenticatedImportIntoEDMV1Signal(Inscriptionnotauthenticated_importIntoEDM_v1_Response summary);
 
 
+    void inscriptionnotauthenticatedBatchDownloadV1SignalFull(HttpRequestWorker *worker, HttpFileElement summary);
     void inscriptionnotauthenticatedFillInscriptionnotauthenticatedconditionV1SignalFull(HttpRequestWorker *worker, Inscriptionnotauthenticated_fillInscriptionnotauthenticatedcondition_v1_Response summary);
+    void inscriptionnotauthenticatedGetAttachmentsV1SignalFull(HttpRequestWorker *worker, Inscriptionnotauthenticated_getAttachments_v1_Response summary);
     void inscriptionnotauthenticatedGetCommunicationCountV1SignalFull(HttpRequestWorker *worker, Inscriptionnotauthenticated_getCommunicationCount_v1_Response summary);
     void inscriptionnotauthenticatedGetCommunicationListV1SignalFull(HttpRequestWorker *worker, Inscriptionnotauthenticated_getCommunicationList_v1_Response summary);
     void inscriptionnotauthenticatedGetCommunicationrecipientsV1SignalFull(HttpRequestWorker *worker, Inscriptionnotauthenticated_getCommunicationrecipients_v1_Response summary);
@@ -185,7 +204,9 @@ Q_SIGNALS:
     void inscriptionnotauthenticatedGetObjectV2SignalFull(HttpRequestWorker *worker, Inscriptionnotauthenticated_getObject_v2_Response summary);
     void inscriptionnotauthenticatedImportIntoEDMV1SignalFull(HttpRequestWorker *worker, Inscriptionnotauthenticated_importIntoEDM_v1_Response summary);
 
+    void inscriptionnotauthenticatedBatchDownloadV1SignalError(HttpFileElement summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void inscriptionnotauthenticatedFillInscriptionnotauthenticatedconditionV1SignalError(Inscriptionnotauthenticated_fillInscriptionnotauthenticatedcondition_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void inscriptionnotauthenticatedGetAttachmentsV1SignalError(Inscriptionnotauthenticated_getAttachments_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void inscriptionnotauthenticatedGetCommunicationCountV1SignalError(Inscriptionnotauthenticated_getCommunicationCount_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void inscriptionnotauthenticatedGetCommunicationListV1SignalError(Inscriptionnotauthenticated_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void inscriptionnotauthenticatedGetCommunicationrecipientsV1SignalError(Inscriptionnotauthenticated_getCommunicationrecipients_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -195,7 +216,9 @@ Q_SIGNALS:
     void inscriptionnotauthenticatedGetObjectV2SignalError(Inscriptionnotauthenticated_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void inscriptionnotauthenticatedImportIntoEDMV1SignalError(Inscriptionnotauthenticated_importIntoEDM_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    void inscriptionnotauthenticatedBatchDownloadV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void inscriptionnotauthenticatedFillInscriptionnotauthenticatedconditionV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void inscriptionnotauthenticatedGetAttachmentsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void inscriptionnotauthenticatedGetCommunicationCountV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void inscriptionnotauthenticatedGetCommunicationListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void inscriptionnotauthenticatedGetCommunicationrecipientsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);

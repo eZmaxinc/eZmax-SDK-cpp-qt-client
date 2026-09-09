@@ -19,8 +19,11 @@
 #include "Oauth.h"
 
 #include "Common_Response_Error.h"
+#include "Externalbroker_batchDownload_v1_Request.h"
+#include "Externalbroker_getAttachments_v1_Response.h"
 #include "Externalbroker_importIntoEDM_v1_Request.h"
 #include "Externalbroker_importIntoEDM_v1_Response.h"
+#include "HttpFileElement.h"
 #include <QString>
 
 #include <QObject>
@@ -62,6 +65,17 @@ public:
 
     /**
     * @param[in]  pki_externalbroker_id qint32 [required]
+    * @param[in]  externalbroker_batch_download_v1_request Externalbroker_batchDownload_v1_Request [required]
+    */
+    virtual void externalbrokerBatchDownloadV1(const qint32 &pki_externalbroker_id, const Externalbroker_batchDownload_v1_Request &externalbroker_batch_download_v1_request);
+
+    /**
+    * @param[in]  pki_externalbroker_id qint32 [required]
+    */
+    virtual void externalbrokerGetAttachmentsV1(const qint32 &pki_externalbroker_id);
+
+    /**
+    * @param[in]  pki_externalbroker_id qint32 [required]
     * @param[in]  externalbroker_import_into_edm_v1_request Externalbroker_importIntoEDM_v1_Request [required]
     */
     virtual void externalbrokerImportIntoEDMV1(const qint32 &pki_externalbroker_id, const Externalbroker_importIntoEDM_v1_Request &externalbroker_import_into_edm_v1_request);
@@ -96,17 +110,27 @@ private:
     OauthPassword _passwordFlow;
     OauthMethod _OauthMethod = OauthMethod::INVALID_VALUE_OPENAPI_GENERATED;
 
+    void externalbrokerBatchDownloadV1Callback(HttpRequestWorker *worker);
+    void externalbrokerGetAttachmentsV1Callback(HttpRequestWorker *worker);
     void externalbrokerImportIntoEDMV1Callback(HttpRequestWorker *worker);
 
 Q_SIGNALS:
 
+    void externalbrokerBatchDownloadV1Signal(HttpFileElement summary);
+    void externalbrokerGetAttachmentsV1Signal(Externalbroker_getAttachments_v1_Response summary);
     void externalbrokerImportIntoEDMV1Signal(Externalbroker_importIntoEDM_v1_Response summary);
 
 
+    void externalbrokerBatchDownloadV1SignalFull(HttpRequestWorker *worker, HttpFileElement summary);
+    void externalbrokerGetAttachmentsV1SignalFull(HttpRequestWorker *worker, Externalbroker_getAttachments_v1_Response summary);
     void externalbrokerImportIntoEDMV1SignalFull(HttpRequestWorker *worker, Externalbroker_importIntoEDM_v1_Response summary);
 
+    void externalbrokerBatchDownloadV1SignalError(HttpFileElement summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void externalbrokerGetAttachmentsV1SignalError(Externalbroker_getAttachments_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void externalbrokerImportIntoEDMV1SignalError(Externalbroker_importIntoEDM_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    void externalbrokerBatchDownloadV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void externalbrokerGetAttachmentsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void externalbrokerImportIntoEDMV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();

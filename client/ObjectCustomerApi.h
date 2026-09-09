@@ -19,11 +19,14 @@
 #include "Oauth.h"
 
 #include "Common_Response_Error.h"
+#include "Customer_batchDownload_v1_Request.h"
+#include "Customer_getAttachments_v1_Response.h"
 #include "Customer_getAutocomplete_v2_Response.h"
 #include "Customer_getObject_v2_Response.h"
 #include "Customer_importIntoEDM_v1_Request.h"
 #include "Customer_importIntoEDM_v1_Response.h"
 #include "Header_Accept_Language.h"
+#include "HttpFileElement.h"
 #include <QString>
 
 #include <QObject>
@@ -62,6 +65,17 @@ public:
     QString getParamStylePrefix(const QString &style);
     QString getParamStyleSuffix(const QString &style);
     QString getParamStyleDelimiter(const QString &style, const QString &name, bool isExplode);
+
+    /**
+    * @param[in]  pki_customer_id qint32 [required]
+    * @param[in]  customer_batch_download_v1_request Customer_batchDownload_v1_Request [required]
+    */
+    virtual void customerBatchDownloadV1(const qint32 &pki_customer_id, const Customer_batchDownload_v1_Request &customer_batch_download_v1_request);
+
+    /**
+    * @param[in]  pki_customer_id qint32 [required]
+    */
+    virtual void customerGetAttachmentsV1(const qint32 &pki_customer_id);
 
     /**
     * @param[in]  s_selector QString [required]
@@ -112,25 +126,35 @@ private:
     OauthPassword _passwordFlow;
     OauthMethod _OauthMethod = OauthMethod::INVALID_VALUE_OPENAPI_GENERATED;
 
+    void customerBatchDownloadV1Callback(HttpRequestWorker *worker);
+    void customerGetAttachmentsV1Callback(HttpRequestWorker *worker);
     void customerGetAutocompleteV2Callback(HttpRequestWorker *worker);
     void customerGetObjectV2Callback(HttpRequestWorker *worker);
     void customerImportIntoEDMV1Callback(HttpRequestWorker *worker);
 
 Q_SIGNALS:
 
+    void customerBatchDownloadV1Signal(HttpFileElement summary);
+    void customerGetAttachmentsV1Signal(Customer_getAttachments_v1_Response summary);
     void customerGetAutocompleteV2Signal(Customer_getAutocomplete_v2_Response summary);
     void customerGetObjectV2Signal(Customer_getObject_v2_Response summary);
     void customerImportIntoEDMV1Signal(Customer_importIntoEDM_v1_Response summary);
 
 
+    void customerBatchDownloadV1SignalFull(HttpRequestWorker *worker, HttpFileElement summary);
+    void customerGetAttachmentsV1SignalFull(HttpRequestWorker *worker, Customer_getAttachments_v1_Response summary);
     void customerGetAutocompleteV2SignalFull(HttpRequestWorker *worker, Customer_getAutocomplete_v2_Response summary);
     void customerGetObjectV2SignalFull(HttpRequestWorker *worker, Customer_getObject_v2_Response summary);
     void customerImportIntoEDMV1SignalFull(HttpRequestWorker *worker, Customer_importIntoEDM_v1_Response summary);
 
+    void customerBatchDownloadV1SignalError(HttpFileElement summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void customerGetAttachmentsV1SignalError(Customer_getAttachments_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void customerGetAutocompleteV2SignalError(Customer_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void customerGetObjectV2SignalError(Customer_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void customerImportIntoEDMV1SignalError(Customer_importIntoEDM_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    void customerBatchDownloadV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void customerGetAttachmentsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void customerGetAutocompleteV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void customerGetObjectV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void customerImportIntoEDMV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);

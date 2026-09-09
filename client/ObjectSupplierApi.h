@@ -21,6 +21,8 @@
 #include "Common_Response_Error.h"
 #include "Header_Accept_Language.h"
 #include "HttpFileElement.h"
+#include "Supplier_batchDownload_v1_Request.h"
+#include "Supplier_getAttachments_v1_Response.h"
 #include "Supplier_getList_v1_Response.h"
 #include "Supplier_importIntoEDM_v1_Request.h"
 #include "Supplier_importIntoEDM_v1_Response.h"
@@ -62,6 +64,17 @@ public:
     QString getParamStylePrefix(const QString &style);
     QString getParamStyleSuffix(const QString &style);
     QString getParamStyleDelimiter(const QString &style, const QString &name, bool isExplode);
+
+    /**
+    * @param[in]  pki_supplier_id qint32 [required]
+    * @param[in]  supplier_batch_download_v1_request Supplier_batchDownload_v1_Request [required]
+    */
+    virtual void supplierBatchDownloadV1(const qint32 &pki_supplier_id, const Supplier_batchDownload_v1_Request &supplier_batch_download_v1_request);
+
+    /**
+    * @param[in]  pki_supplier_id qint32 [required]
+    */
+    virtual void supplierGetAttachmentsV1(const qint32 &pki_supplier_id);
 
     /**
     * @param[in]  e_order_by QString [optional]
@@ -108,21 +121,31 @@ private:
     OauthPassword _passwordFlow;
     OauthMethod _OauthMethod = OauthMethod::INVALID_VALUE_OPENAPI_GENERATED;
 
+    void supplierBatchDownloadV1Callback(HttpRequestWorker *worker);
+    void supplierGetAttachmentsV1Callback(HttpRequestWorker *worker);
     void supplierGetListV1Callback(HttpRequestWorker *worker);
     void supplierImportIntoEDMV1Callback(HttpRequestWorker *worker);
 
 Q_SIGNALS:
 
+    void supplierBatchDownloadV1Signal(HttpFileElement summary);
+    void supplierGetAttachmentsV1Signal(Supplier_getAttachments_v1_Response summary);
     void supplierGetListV1Signal(Supplier_getList_v1_Response summary);
     void supplierImportIntoEDMV1Signal(Supplier_importIntoEDM_v1_Response summary);
 
 
+    void supplierBatchDownloadV1SignalFull(HttpRequestWorker *worker, HttpFileElement summary);
+    void supplierGetAttachmentsV1SignalFull(HttpRequestWorker *worker, Supplier_getAttachments_v1_Response summary);
     void supplierGetListV1SignalFull(HttpRequestWorker *worker, Supplier_getList_v1_Response summary);
     void supplierImportIntoEDMV1SignalFull(HttpRequestWorker *worker, Supplier_importIntoEDM_v1_Response summary);
 
+    void supplierBatchDownloadV1SignalError(HttpFileElement summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void supplierGetAttachmentsV1SignalError(Supplier_getAttachments_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void supplierGetListV1SignalError(Supplier_getList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void supplierImportIntoEDMV1SignalError(Supplier_importIntoEDM_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    void supplierBatchDownloadV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void supplierGetAttachmentsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void supplierGetListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void supplierImportIntoEDMV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 

@@ -59,6 +59,10 @@ void ObjectRejectedoffertopurchaseApi::initializeServerConfigs() {
     {"sInfrastructureregionCode", ServerVariable("The region where your services are hosted.","ca-central-1",
     QSet<QString>{ {"ca-central-1"} })}, }));
     
+    _serverConfigs.insert("rejectedoffertopurchaseBatchDownloadV1", defaultConf);
+    _serverIndices.insert("rejectedoffertopurchaseBatchDownloadV1", 0);
+    _serverConfigs.insert("rejectedoffertopurchaseGetAttachmentsV1", defaultConf);
+    _serverIndices.insert("rejectedoffertopurchaseGetAttachmentsV1", 0);
     _serverConfigs.insert("rejectedoffertopurchaseGetCommunicationCountV1", defaultConf);
     _serverIndices.insert("rejectedoffertopurchaseGetCommunicationCountV1", 0);
     _serverConfigs.insert("rejectedoffertopurchaseGetCommunicationListV1", defaultConf);
@@ -249,6 +253,135 @@ QString ObjectRejectedoffertopurchaseApi::getParamStyleDelimiter(const QString &
 
     } else {
         return "none";
+    }
+}
+
+void ObjectRejectedoffertopurchaseApi::rejectedoffertopurchaseBatchDownloadV1(const qint32 &pki_rejectedoffertopurchase_id, const Rejectedoffertopurchase_batchDownload_v1_Request &rejectedoffertopurchase_batch_download_v1_request) {
+    QString fullPath = QString(_serverConfigs["rejectedoffertopurchaseBatchDownloadV1"][_serverIndices.value("rejectedoffertopurchaseBatchDownloadV1")].URL()+"/1/object/rejectedoffertopurchase/{pkiRejectedoffertopurchaseID}/batchDownload");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_rejectedoffertopurchase_idPathParam("{");
+        pki_rejectedoffertopurchase_idPathParam.append("pkiRejectedoffertopurchaseID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiRejectedoffertopurchaseID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiRejectedoffertopurchaseID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_rejectedoffertopurchase_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_rejectedoffertopurchase_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "POST");
+
+    {
+
+        
+        QByteArray output = rejectedoffertopurchase_batch_download_v1_request.asJson().toUtf8();
+        input.request_body.append(output);
+    }
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectRejectedoffertopurchaseApi::rejectedoffertopurchaseBatchDownloadV1Callback);
+    connect(this, &ObjectRejectedoffertopurchaseApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectRejectedoffertopurchaseApi::rejectedoffertopurchaseBatchDownloadV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    HttpFileElement output = worker->getHttpFileElement();
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT rejectedoffertopurchaseBatchDownloadV1Signal(output);
+        Q_EMIT rejectedoffertopurchaseBatchDownloadV1SignalFull(worker, output);
+    } else {
+        Q_EMIT rejectedoffertopurchaseBatchDownloadV1SignalError(output, error_type, error_str);
+        Q_EMIT rejectedoffertopurchaseBatchDownloadV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectRejectedoffertopurchaseApi::rejectedoffertopurchaseGetAttachmentsV1(const qint32 &pki_rejectedoffertopurchase_id) {
+    QString fullPath = QString(_serverConfigs["rejectedoffertopurchaseGetAttachmentsV1"][_serverIndices.value("rejectedoffertopurchaseGetAttachmentsV1")].URL()+"/1/object/rejectedoffertopurchase/{pkiRejectedoffertopurchaseID}/getAttachments");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_rejectedoffertopurchase_idPathParam("{");
+        pki_rejectedoffertopurchase_idPathParam.append("pkiRejectedoffertopurchaseID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiRejectedoffertopurchaseID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiRejectedoffertopurchaseID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_rejectedoffertopurchase_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_rejectedoffertopurchase_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectRejectedoffertopurchaseApi::rejectedoffertopurchaseGetAttachmentsV1Callback);
+    connect(this, &ObjectRejectedoffertopurchaseApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectRejectedoffertopurchaseApi::rejectedoffertopurchaseGetAttachmentsV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Rejectedoffertopurchase_getAttachments_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT rejectedoffertopurchaseGetAttachmentsV1Signal(output);
+        Q_EMIT rejectedoffertopurchaseGetAttachmentsV1SignalFull(worker, output);
+    } else {
+        Q_EMIT rejectedoffertopurchaseGetAttachmentsV1SignalError(output, error_type, error_str);
+        Q_EMIT rejectedoffertopurchaseGetAttachmentsV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

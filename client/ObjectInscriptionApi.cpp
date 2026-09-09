@@ -59,6 +59,8 @@ void ObjectInscriptionApi::initializeServerConfigs() {
     {"sInfrastructureregionCode", ServerVariable("The region where your services are hosted.","ca-central-1",
     QSet<QString>{ {"ca-central-1"} })}, }));
     
+    _serverConfigs.insert("inscriptionBatchDownloadV1", defaultConf);
+    _serverIndices.insert("inscriptionBatchDownloadV1", 0);
     _serverConfigs.insert("inscriptionGetAttachmentsV1", defaultConf);
     _serverIndices.insert("inscriptionGetAttachmentsV1", 0);
     _serverConfigs.insert("inscriptionGetCommunicationCountV1", defaultConf);
@@ -257,6 +259,73 @@ QString ObjectInscriptionApi::getParamStyleDelimiter(const QString &style, const
 
     } else {
         return "none";
+    }
+}
+
+void ObjectInscriptionApi::inscriptionBatchDownloadV1(const qint32 &pki_inscription_id, const Inscription_batchDownload_v1_Request &inscription_batch_download_v1_request) {
+    QString fullPath = QString(_serverConfigs["inscriptionBatchDownloadV1"][_serverIndices.value("inscriptionBatchDownloadV1")].URL()+"/1/object/inscription/{pkiInscriptionID}/batchDownload");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_inscription_idPathParam("{");
+        pki_inscription_idPathParam.append("pkiInscriptionID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiInscriptionID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiInscriptionID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_inscription_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_inscription_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "POST");
+
+    {
+
+        
+        QByteArray output = inscription_batch_download_v1_request.asJson().toUtf8();
+        input.request_body.append(output);
+    }
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectInscriptionApi::inscriptionBatchDownloadV1Callback);
+    connect(this, &ObjectInscriptionApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectInscriptionApi::inscriptionBatchDownloadV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    HttpFileElement output = worker->getHttpFileElement();
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT inscriptionBatchDownloadV1Signal(output);
+        Q_EMIT inscriptionBatchDownloadV1SignalFull(worker, output);
+    } else {
+        Q_EMIT inscriptionBatchDownloadV1SignalError(output, error_type, error_str);
+        Q_EMIT inscriptionBatchDownloadV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

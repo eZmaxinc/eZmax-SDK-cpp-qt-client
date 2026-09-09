@@ -29,8 +29,25 @@ add_library(${PROJECT_NAME}
   Address_RequestCompound.h
   Address_Response.h
   Address_ResponseCompound.h
+  Adjustment_batchDownload_v1_Request.h
+  Adjustment_getAttachments_v1_Response.h
+  Adjustment_getAttachments_v1_Response_mPayload.h
+  Adjustment_getCommunicationCount_v1_Response.h
+  Adjustment_getCommunicationCount_v1_Response_mPayload.h
+  Adjustment_getCommunicationList_v1_Response.h
+  Adjustment_getCommunicationList_v1_Response_mPayload.h
+  Adjustment_getCommunicationrecipients_v1_Response.h
+  Adjustment_getCommunicationrecipients_v1_Response_mPayload.h
+  Adjustment_getCommunicationsenders_v1_Response.h
+  Adjustment_getCommunicationsenders_v1_Response_mPayload.h
+  Adjustment_importIntoEDM_v1_Request.h
+  Adjustment_importIntoEDM_v1_Response.h
+  Adjustment_importIntoEDM_v1_Response_mPayload.h
   Agent_AutocompleteElement_Response.h
   Agent_ListElement.h
+  Agent_batchDownload_v1_Request.h
+  Agent_getAttachments_v1_Response.h
+  Agent_getAttachments_v1_Response_mPayload.h
   Agent_getAutocomplete_v2_Response.h
   Agent_getAutocomplete_v2_Response_mPayload.h
   Agent_getList_v1_Response.h
@@ -74,6 +91,9 @@ add_library(${PROJECT_NAME}
   Attachment_ResponseCompound.h
   Attachment_getAttachmentlogs_v1_Response.h
   Attachment_getAttachmentlogs_v1_Response_mPayload.h
+  Attachment_rename_v1_Request.h
+  Attachment_rename_v1_Response.h
+  Attachment_rename_v1_Response_mPayload.h
   Attachmentlog_Response.h
   Attachmentlog_ResponseCompound.h
   Attempt_Response.h
@@ -98,8 +118,14 @@ add_library(${PROJECT_NAME}
   Authenticationexternal_getObject_v2_Response_mPayload.h
   Authenticationexternal_resetAuthorization_v1_Response.h
   Bankaccount_AutocompleteElement_Response.h
+  Bankaccount_batchDownload_v1_Request.h
+  Bankaccount_getAttachments_v1_Response.h
+  Bankaccount_getAttachments_v1_Response_mPayload.h
   Bankaccount_getAutocomplete_v2_Response.h
   Bankaccount_getAutocomplete_v2_Response_mPayload.h
+  Bankaccount_importIntoEDM_v1_Request.h
+  Bankaccount_importIntoEDM_v1_Response.h
+  Bankaccount_importIntoEDM_v1_Response_mPayload.h
   Billingentityexternal_AutocompleteElement_Response.h
   Billingentityexternal_generateFederationToken_v1_Request.h
   Billingentityexternal_generateFederationToken_v1_Response.h
@@ -146,6 +172,9 @@ add_library(${PROJECT_NAME}
   Branding_getObject_v3_Response_mPayload.h
   Broker_AutocompleteElement_Response.h
   Broker_ListElement.h
+  Broker_batchDownload_v1_Request.h
+  Broker_getAttachments_v1_Response.h
+  Broker_getAttachments_v1_Response_mPayload.h
   Broker_getAutocomplete_v2_Response.h
   Broker_getAutocomplete_v2_Response_mPayload.h
   Broker_getList_v1_Response.h
@@ -157,6 +186,10 @@ add_library(${PROJECT_NAME}
   Brokertype_getAutocomplete_v2_Response.h
   Brokertype_getAutocomplete_v2_Response_mPayload.h
   Buyercontract_ListElement.h
+  Buyercontract_Response.h
+  Buyercontract_batchDownload_v1_Request.h
+  Buyercontract_getAttachments_v1_Response.h
+  Buyercontract_getAttachments_v1_Response_mPayload.h
   Buyercontract_getCommunicationCount_v1_Response.h
   Buyercontract_getCommunicationCount_v1_Response_mPayload.h
   Buyercontract_getCommunicationList_v1_Response.h
@@ -177,6 +210,12 @@ add_library(${PROJECT_NAME}
   Colleague_RequestV2.h
   Colleague_ResponseCompoundV2.h
   Colleague_ResponseV2.h
+  Commissionadvance_batchDownload_v1_Request.h
+  Commissionadvance_getAttachments_v1_Response.h
+  Commissionadvance_getAttachments_v1_Response_mPayload.h
+  Commissionadvance_importIntoEDM_v1_Request.h
+  Commissionadvance_importIntoEDM_v1_Response.h
+  Commissionadvance_importIntoEDM_v1_Response_mPayload.h
   Common_Audit.h
   Common_Auditdetail.h
   Common_File.h
@@ -382,6 +421,9 @@ add_library(${PROJECT_NAME}
   Customer_AutocompleteElement_Response.h
   Customer_Response.h
   Customer_ResponseCompound.h
+  Customer_batchDownload_v1_Request.h
+  Customer_getAttachments_v1_Response.h
+  Customer_getAttachments_v1_Response_mPayload.h
   Customer_getAutocomplete_v2_Response.h
   Customer_getAutocomplete_v2_Response_mPayload.h
   Customer_getObject_v2_Response.h
@@ -392,6 +434,24 @@ add_library(${PROJECT_NAME}
   Department_AutocompleteElement_Response.h
   Department_getAutocomplete_v2_Response.h
   Department_getAutocomplete_v2_Response_mPayload.h
+  Deposit_batchDownload_v1_Request.h
+  Deposit_getAttachments_v1_Response.h
+  Deposit_getAttachments_v1_Response_mPayload.h
+  Deposit_importIntoEDM_v1_Request.h
+  Deposit_importIntoEDM_v1_Response.h
+  Deposit_importIntoEDM_v1_Response_mPayload.h
+  Deposittransitcheque_batchDownload_v1_Request.h
+  Deposittransitcheque_getAttachments_v1_Response.h
+  Deposittransitcheque_getAttachments_v1_Response_mPayload.h
+  Deposittransitcheque_importIntoEDM_v1_Request.h
+  Deposittransitcheque_importIntoEDM_v1_Response.h
+  Deposittransitcheque_importIntoEDM_v1_Response_mPayload.h
+  Disclosure_batchDownload_v1_Request.h
+  Disclosure_getAttachments_v1_Response.h
+  Disclosure_getAttachments_v1_Response_mPayload.h
+  Disclosure_importIntoEDM_v1_Request.h
+  Disclosure_importIntoEDM_v1_Response.h
+  Disclosure_importIntoEDM_v1_Response_mPayload.h
   Discussion_Chat_V1_200_response.h
   Discussion_Request.h
   Discussion_RequestCompound.h
@@ -444,6 +504,9 @@ add_library(${PROJECT_NAME}
   Domain_getList_v1_Response_mPayload.h
   Domain_getObject_v2_Response.h
   Domain_getObject_v2_Response_mPayload.h
+  Electronicfundstransfer_batchDownload_v1_Request.h
+  Electronicfundstransfer_getAttachments_v1_Response.h
+  Electronicfundstransfer_getAttachments_v1_Response_mPayload.h
   Electronicfundstransfer_getCommunicationCount_v1_Response.h
   Electronicfundstransfer_getCommunicationCount_v1_Response_mPayload.h
   Electronicfundstransfer_getCommunicationList_v1_Response.h
@@ -463,6 +526,9 @@ add_library(${PROJECT_NAME}
   Emailtype_getAutocomplete_v2_Response.h
   Emailtype_getAutocomplete_v2_Response_mPayload.h
   Employee_ListElement.h
+  Employee_batchDownload_v1_Request.h
+  Employee_getAttachments_v1_Response.h
+  Employee_getAttachments_v1_Response_mPayload.h
   Employee_getList_v1_Response.h
   Employee_getList_v1_Response_mPayload.h
   Employee_importIntoEDM_v1_Request.h
@@ -474,6 +540,9 @@ add_library(${PROJECT_NAME}
   Enum_ReportdataType.h
   Enum_Textvalidation.h
   Enum_Verticalalignment.h
+  Externalbroker_batchDownload_v1_Request.h
+  Externalbroker_getAttachments_v1_Response.h
+  Externalbroker_getAttachments_v1_Response_mPayload.h
   Externalbroker_importIntoEDM_v1_Request.h
   Externalbroker_importIntoEDM_v1_Response.h
   Externalbroker_importIntoEDM_v1_Response_mPayload.h
@@ -1378,6 +1447,7 @@ add_library(${PROJECT_NAME}
   Field_eAuthenticationexternalType.h
   Field_eBrandingAlignlogo.h
   Field_eBrandingLogo.h
+  Field_eBuyercontractRemunerationtype.h
   Field_eBuyercontractStep.h
   Field_eBuyercontractType.h
   Field_eColleagueEzsign.h
@@ -1517,6 +1587,12 @@ add_library(${PROJECT_NAME}
   Field_eWebhookRealestateevent.h
   Field_etInscriptionnotauthenticatedMortgagetype.h
   Field_pksEzmaxclientOs.h
+  Folder_batchDownload_v1_Request.h
+  Folder_getAttachments_v1_Response.h
+  Folder_getAttachments_v1_Response_mPayload.h
+  Folder_importIntoEDM_v1_Request.h
+  Folder_importIntoEDM_v1_Response.h
+  Folder_importIntoEDM_v1_Response_mPayload.h
   Font_AutocompleteElement_Response.h
   Font_getAutocomplete_v2_Response.h
   Font_getAutocomplete_v2_Response_mPayload.h
@@ -1547,6 +1623,7 @@ add_library(${PROJECT_NAME}
   Inscription_ListElement.h
   Inscription_Response.h
   Inscription_ResponseCompound.h
+  Inscription_batchDownload_v1_Request.h
   Inscription_getAttachments_v1_Response.h
   Inscription_getAttachments_v1_Response_mPayload.h
   Inscription_getCommunicationCount_v1_Response.h
@@ -1575,8 +1652,11 @@ add_library(${PROJECT_NAME}
   Inscriptionnotauthenticated_ListElement.h
   Inscriptionnotauthenticated_Response.h
   Inscriptionnotauthenticated_ResponseCompound.h
+  Inscriptionnotauthenticated_batchDownload_v1_Request.h
   Inscriptionnotauthenticated_fillInscriptionnotauthenticatedcondition_v1_Request.h
   Inscriptionnotauthenticated_fillInscriptionnotauthenticatedcondition_v1_Response.h
+  Inscriptionnotauthenticated_getAttachments_v1_Response.h
+  Inscriptionnotauthenticated_getAttachments_v1_Response_mPayload.h
   Inscriptionnotauthenticated_getCommunicationCount_v1_Response.h
   Inscriptionnotauthenticated_getCommunicationCount_v1_Response_mPayload.h
   Inscriptionnotauthenticated_getCommunicationList_v1_Response.h
@@ -1597,6 +1677,9 @@ add_library(${PROJECT_NAME}
   Inscriptionnotauthenticatedcondition_Response.h
   Inscriptionnotauthenticatedcondition_ResponseCompound.h
   Inscriptiontemp_ListElement.h
+  Inscriptiontemp_batchDownload_v1_Request.h
+  Inscriptiontemp_getAttachments_v1_Response.h
+  Inscriptiontemp_getAttachments_v1_Response_mPayload.h
   Inscriptiontemp_getCommunicationCount_v1_Response.h
   Inscriptiontemp_getCommunicationCount_v1_Response_mPayload.h
   Inscriptiontemp_getCommunicationList_v1_Response.h
@@ -1613,6 +1696,7 @@ add_library(${PROJECT_NAME}
   Inscriptiontype_AutocompleteElement_Response.h
   Inscriptiontype_getAutocomplete_v2_Response.h
   Inscriptiontype_getAutocomplete_v2_Response_mPayload.h
+  Invoice_batchDownload_v1_Request.h
   Invoice_getAttachments_v1_Response.h
   Invoice_getAttachments_v1_Response_mPayload.h
   Invoice_getCommunicationCount_v1_Response.h
@@ -1630,6 +1714,9 @@ add_library(${PROJECT_NAME}
   Language_getAutocomplete_v2_Response.h
   Language_getAutocomplete_v2_Response_mPayload.h
   Lead_ListElement.h
+  Lead_batchDownload_v1_Request.h
+  Lead_getAttachments_v1_Response.h
+  Lead_getAttachments_v1_Response_mPayload.h
   Lead_getList_v1_Response.h
   Lead_getList_v1_Response_mPayload.h
   Lead_importIntoEDM_v1_Request.h
@@ -1678,13 +1765,28 @@ add_library(${PROJECT_NAME}
   Multilingual_UserlogintypeDescription.h
   Multilingual_VariableexpenseDescription.h
   Multilingual_VersionhistoryDetail.h
+  Notary_batchDownload_v1_Request.h
+  Notary_getAttachments_v1_Response.h
+  Notary_getAttachments_v1_Response_mPayload.h
+  Notary_importIntoEDM_v1_Request.h
+  Notary_importIntoEDM_v1_Response.h
+  Notary_importIntoEDM_v1_Response_mPayload.h
   Notificationsection_getNotificationtests_v1_Response.h
   Notificationsection_getNotificationtests_v1_Response_mPayload.h
   Notificationsubsection_Response.h
   Notificationtest_Response.h
   Notificationtest_getElements_v2_Response.h
   Notificationtest_getElements_v2_Response_mPayload.h
+  Officetaxreport_batchDownload_v1_Request.h
+  Officetaxreport_getAttachments_v1_Response.h
+  Officetaxreport_getAttachments_v1_Response_mPayload.h
+  Officetaxreport_importIntoEDM_v1_Request.h
+  Officetaxreport_importIntoEDM_v1_Response.h
+  Officetaxreport_importIntoEDM_v1_Response_mPayload.h
   Otherincome_ListElement.h
+  Otherincome_batchDownload_v1_Request.h
+  Otherincome_getAttachments_v1_Response.h
+  Otherincome_getAttachments_v1_Response_mPayload.h
   Otherincome_getCommunicationCount_v1_Response.h
   Otherincome_getCommunicationCount_v1_Response_mPayload.h
   Otherincome_getCommunicationList_v1_Response.h
@@ -1721,6 +1823,12 @@ add_library(${PROJECT_NAME}
   Paymentmethod_AutocompleteElement_Response.h
   Paymentmethod_getAutocomplete_v2_Response.h
   Paymentmethod_getAutocomplete_v2_Response_mPayload.h
+  Paymentpreparation_batchDownload_v1_Request.h
+  Paymentpreparation_getAttachments_v1_Response.h
+  Paymentpreparation_getAttachments_v1_Response_mPayload.h
+  Paymentpreparation_importIntoEDM_v1_Request.h
+  Paymentpreparation_importIntoEDM_v1_Response.h
+  Paymentpreparation_importIntoEDM_v1_Response_mPayload.h
   Paymentterm_AutocompleteElement_Response.h
   Paymentterm_ListElement.h
   Paymentterm_Request.h
@@ -1768,13 +1876,28 @@ add_library(${PROJECT_NAME}
   Province_AutocompleteElement_Response.h
   Province_getAutocomplete_v2_Response.h
   Province_getAutocomplete_v2_Response_mPayload.h
+  Purchase_batchDownload_v1_Request.h
+  Purchase_getAttachments_v1_Response.h
+  Purchase_getAttachments_v1_Response_mPayload.h
+  Purchase_importIntoEDM_v1_Request.h
+  Purchase_importIntoEDM_v1_Response.h
+  Purchase_importIntoEDM_v1_Response_mPayload.h
   Realestateassociation_AutocompleteElement_Response.h
   Realestateassociation_getAutocomplete_v2_Response.h
   Realestateassociation_getAutocomplete_v2_Response_mPayload.h
   Realestateboard_AutocompleteElement_Response.h
   Realestateboard_getAutocomplete_v2_Response.h
   Realestateboard_getAutocomplete_v2_Response_mPayload.h
+  Reconciliation_batchDownload_v1_Request.h
+  Reconciliation_getAttachments_v1_Response.h
+  Reconciliation_getAttachments_v1_Response_mPayload.h
+  Reconciliation_importIntoEDM_v1_Request.h
+  Reconciliation_importIntoEDM_v1_Response.h
+  Reconciliation_importIntoEDM_v1_Response_mPayload.h
   Rejectedoffertopurchase_ListElement.h
+  Rejectedoffertopurchase_batchDownload_v1_Request.h
+  Rejectedoffertopurchase_getAttachments_v1_Response.h
+  Rejectedoffertopurchase_getAttachments_v1_Response_mPayload.h
   Rejectedoffertopurchase_getCommunicationCount_v1_Response.h
   Rejectedoffertopurchase_getCommunicationCount_v1_Response_mPayload.h
   Rejectedoffertopurchase_getCommunicationList_v1_Response.h
@@ -1788,6 +1911,12 @@ add_library(${PROJECT_NAME}
   Rejectedoffertopurchase_importIntoEDM_v1_Request.h
   Rejectedoffertopurchase_importIntoEDM_v1_Response.h
   Rejectedoffertopurchase_importIntoEDM_v1_Response_mPayload.h
+  Salary_batchDownload_v1_Request.h
+  Salary_getAttachments_v1_Response.h
+  Salary_getAttachments_v1_Response_mPayload.h
+  Salary_importIntoEDM_v1_Request.h
+  Salary_importIntoEDM_v1_Response.h
+  Salary_importIntoEDM_v1_Response_mPayload.h
   Scim_AuthenticationScheme.h
   Scim_Email.h
   Scim_Group.h
@@ -1834,6 +1963,9 @@ add_library(${PROJECT_NAME}
   Subnet_getObject_v2_Response.h
   Subnet_getObject_v2_Response_mPayload.h
   Supplier_ListElement.h
+  Supplier_batchDownload_v1_Request.h
+  Supplier_getAttachments_v1_Response.h
+  Supplier_getAttachments_v1_Response_mPayload.h
   Supplier_getList_v1_Response.h
   Supplier_getList_v1_Response_mPayload.h
   Supplier_importIntoEDM_v1_Request.h
@@ -2070,6 +2202,8 @@ add_library(${PROJECT_NAME}
   Webhook_Ezsign_FolderUnsent.h
   Webhook_Ezsign_SignatureSigned.h
   Webhook_ListElement.h
+  Webhook_Realestate_BuyercontractCreated.h
+  Webhook_Realestate_BuyercontractModified.h
   Webhook_Realestate_InscriptionCreated.h
   Webhook_Realestate_InscriptionModified.h
   Webhook_Realestate_InscriptionnotauthenticatedCreated.h
@@ -2121,6 +2255,7 @@ add_library(${PROJECT_NAME}
   ModuleReportApi.h
   ModuleUserApi.h
   ObjectActivesessionApi.h
+  ObjectAdjustmentApi.h
   ObjectAgentApi.h
   ObjectAgenttypeApi.h
   ObjectApikeyApi.h
@@ -2134,6 +2269,7 @@ add_library(${PROJECT_NAME}
   ObjectBrokertypeApi.h
   ObjectBuyercontractApi.h
   ObjectClonehistoryApi.h
+  ObjectCommissionadvanceApi.h
   ObjectCommunicationApi.h
   ObjectCompanyApi.h
   ObjectContacttitleApi.h
@@ -2145,6 +2281,9 @@ add_library(${PROJECT_NAME}
   ObjectCurrencyApi.h
   ObjectCustomerApi.h
   ObjectDepartmentApi.h
+  ObjectDepositApi.h
+  ObjectDeposittransitchequeApi.h
+  ObjectDisclosureApi.h
   ObjectDiscussionApi.h
   ObjectDiscussionmembershipApi.h
   ObjectDiscussionmessageApi.h
@@ -2196,6 +2335,7 @@ add_library(${PROJECT_NAME}
   ObjectEzsigntemplatesignerApi.h
   ObjectEzsigntsarequirementApi.h
   ObjectEzsignuserApi.h
+  ObjectFolderApi.h
   ObjectFontApi.h
   ObjectFranchisebrokerApi.h
   ObjectFranchiseofficeApi.h
@@ -2214,21 +2354,27 @@ add_library(${PROJECT_NAME}
   ObjectLeadsourceApi.h
   ObjectModuleApi.h
   ObjectModulegroupApi.h
+  ObjectNotaryApi.h
   ObjectNotificationsectionApi.h
   ObjectNotificationtestApi.h
+  ObjectOfficetaxreportApi.h
   ObjectOtherincomeApi.h
   ObjectOtherincometypeApi.h
   ObjectPaymentgatewayApi.h
   ObjectPaymentmethodApi.h
+  ObjectPaymentpreparationApi.h
   ObjectPaymenttermApi.h
   ObjectPdfalevelApi.h
   ObjectPeriodApi.h
   ObjectPermissionApi.h
   ObjectPhonetypeApi.h
   ObjectProvinceApi.h
+  ObjectPurchaseApi.h
   ObjectRealestateassociationApi.h
   ObjectRealestateboardApi.h
+  ObjectReconciliationApi.h
   ObjectRejectedoffertopurchaseApi.h
+  ObjectSalaryApi.h
   ObjectSecretquestionApi.h
   ObjectSessionhistoryApi.h
   ObjectSignatureApi.h
@@ -2279,8 +2425,25 @@ add_library(${PROJECT_NAME}
   Address_RequestCompound.cpp
   Address_Response.cpp
   Address_ResponseCompound.cpp
+  Adjustment_batchDownload_v1_Request.cpp
+  Adjustment_getAttachments_v1_Response.cpp
+  Adjustment_getAttachments_v1_Response_mPayload.cpp
+  Adjustment_getCommunicationCount_v1_Response.cpp
+  Adjustment_getCommunicationCount_v1_Response_mPayload.cpp
+  Adjustment_getCommunicationList_v1_Response.cpp
+  Adjustment_getCommunicationList_v1_Response_mPayload.cpp
+  Adjustment_getCommunicationrecipients_v1_Response.cpp
+  Adjustment_getCommunicationrecipients_v1_Response_mPayload.cpp
+  Adjustment_getCommunicationsenders_v1_Response.cpp
+  Adjustment_getCommunicationsenders_v1_Response_mPayload.cpp
+  Adjustment_importIntoEDM_v1_Request.cpp
+  Adjustment_importIntoEDM_v1_Response.cpp
+  Adjustment_importIntoEDM_v1_Response_mPayload.cpp
   Agent_AutocompleteElement_Response.cpp
   Agent_ListElement.cpp
+  Agent_batchDownload_v1_Request.cpp
+  Agent_getAttachments_v1_Response.cpp
+  Agent_getAttachments_v1_Response_mPayload.cpp
   Agent_getAutocomplete_v2_Response.cpp
   Agent_getAutocomplete_v2_Response_mPayload.cpp
   Agent_getList_v1_Response.cpp
@@ -2324,6 +2487,9 @@ add_library(${PROJECT_NAME}
   Attachment_ResponseCompound.cpp
   Attachment_getAttachmentlogs_v1_Response.cpp
   Attachment_getAttachmentlogs_v1_Response_mPayload.cpp
+  Attachment_rename_v1_Request.cpp
+  Attachment_rename_v1_Response.cpp
+  Attachment_rename_v1_Response_mPayload.cpp
   Attachmentlog_Response.cpp
   Attachmentlog_ResponseCompound.cpp
   Attempt_Response.cpp
@@ -2348,8 +2514,14 @@ add_library(${PROJECT_NAME}
   Authenticationexternal_getObject_v2_Response_mPayload.cpp
   Authenticationexternal_resetAuthorization_v1_Response.cpp
   Bankaccount_AutocompleteElement_Response.cpp
+  Bankaccount_batchDownload_v1_Request.cpp
+  Bankaccount_getAttachments_v1_Response.cpp
+  Bankaccount_getAttachments_v1_Response_mPayload.cpp
   Bankaccount_getAutocomplete_v2_Response.cpp
   Bankaccount_getAutocomplete_v2_Response_mPayload.cpp
+  Bankaccount_importIntoEDM_v1_Request.cpp
+  Bankaccount_importIntoEDM_v1_Response.cpp
+  Bankaccount_importIntoEDM_v1_Response_mPayload.cpp
   Billingentityexternal_AutocompleteElement_Response.cpp
   Billingentityexternal_generateFederationToken_v1_Request.cpp
   Billingentityexternal_generateFederationToken_v1_Response.cpp
@@ -2396,6 +2568,9 @@ add_library(${PROJECT_NAME}
   Branding_getObject_v3_Response_mPayload.cpp
   Broker_AutocompleteElement_Response.cpp
   Broker_ListElement.cpp
+  Broker_batchDownload_v1_Request.cpp
+  Broker_getAttachments_v1_Response.cpp
+  Broker_getAttachments_v1_Response_mPayload.cpp
   Broker_getAutocomplete_v2_Response.cpp
   Broker_getAutocomplete_v2_Response_mPayload.cpp
   Broker_getList_v1_Response.cpp
@@ -2407,6 +2582,10 @@ add_library(${PROJECT_NAME}
   Brokertype_getAutocomplete_v2_Response.cpp
   Brokertype_getAutocomplete_v2_Response_mPayload.cpp
   Buyercontract_ListElement.cpp
+  Buyercontract_Response.cpp
+  Buyercontract_batchDownload_v1_Request.cpp
+  Buyercontract_getAttachments_v1_Response.cpp
+  Buyercontract_getAttachments_v1_Response_mPayload.cpp
   Buyercontract_getCommunicationCount_v1_Response.cpp
   Buyercontract_getCommunicationCount_v1_Response_mPayload.cpp
   Buyercontract_getCommunicationList_v1_Response.cpp
@@ -2427,6 +2606,12 @@ add_library(${PROJECT_NAME}
   Colleague_RequestV2.cpp
   Colleague_ResponseCompoundV2.cpp
   Colleague_ResponseV2.cpp
+  Commissionadvance_batchDownload_v1_Request.cpp
+  Commissionadvance_getAttachments_v1_Response.cpp
+  Commissionadvance_getAttachments_v1_Response_mPayload.cpp
+  Commissionadvance_importIntoEDM_v1_Request.cpp
+  Commissionadvance_importIntoEDM_v1_Response.cpp
+  Commissionadvance_importIntoEDM_v1_Response_mPayload.cpp
   Common_Audit.cpp
   Common_Auditdetail.cpp
   Common_File.cpp
@@ -2632,6 +2817,9 @@ add_library(${PROJECT_NAME}
   Customer_AutocompleteElement_Response.cpp
   Customer_Response.cpp
   Customer_ResponseCompound.cpp
+  Customer_batchDownload_v1_Request.cpp
+  Customer_getAttachments_v1_Response.cpp
+  Customer_getAttachments_v1_Response_mPayload.cpp
   Customer_getAutocomplete_v2_Response.cpp
   Customer_getAutocomplete_v2_Response_mPayload.cpp
   Customer_getObject_v2_Response.cpp
@@ -2642,6 +2830,24 @@ add_library(${PROJECT_NAME}
   Department_AutocompleteElement_Response.cpp
   Department_getAutocomplete_v2_Response.cpp
   Department_getAutocomplete_v2_Response_mPayload.cpp
+  Deposit_batchDownload_v1_Request.cpp
+  Deposit_getAttachments_v1_Response.cpp
+  Deposit_getAttachments_v1_Response_mPayload.cpp
+  Deposit_importIntoEDM_v1_Request.cpp
+  Deposit_importIntoEDM_v1_Response.cpp
+  Deposit_importIntoEDM_v1_Response_mPayload.cpp
+  Deposittransitcheque_batchDownload_v1_Request.cpp
+  Deposittransitcheque_getAttachments_v1_Response.cpp
+  Deposittransitcheque_getAttachments_v1_Response_mPayload.cpp
+  Deposittransitcheque_importIntoEDM_v1_Request.cpp
+  Deposittransitcheque_importIntoEDM_v1_Response.cpp
+  Deposittransitcheque_importIntoEDM_v1_Response_mPayload.cpp
+  Disclosure_batchDownload_v1_Request.cpp
+  Disclosure_getAttachments_v1_Response.cpp
+  Disclosure_getAttachments_v1_Response_mPayload.cpp
+  Disclosure_importIntoEDM_v1_Request.cpp
+  Disclosure_importIntoEDM_v1_Response.cpp
+  Disclosure_importIntoEDM_v1_Response_mPayload.cpp
   Discussion_Chat_V1_200_response.cpp
   Discussion_Request.cpp
   Discussion_RequestCompound.cpp
@@ -2694,6 +2900,9 @@ add_library(${PROJECT_NAME}
   Domain_getList_v1_Response_mPayload.cpp
   Domain_getObject_v2_Response.cpp
   Domain_getObject_v2_Response_mPayload.cpp
+  Electronicfundstransfer_batchDownload_v1_Request.cpp
+  Electronicfundstransfer_getAttachments_v1_Response.cpp
+  Electronicfundstransfer_getAttachments_v1_Response_mPayload.cpp
   Electronicfundstransfer_getCommunicationCount_v1_Response.cpp
   Electronicfundstransfer_getCommunicationCount_v1_Response_mPayload.cpp
   Electronicfundstransfer_getCommunicationList_v1_Response.cpp
@@ -2713,6 +2922,9 @@ add_library(${PROJECT_NAME}
   Emailtype_getAutocomplete_v2_Response.cpp
   Emailtype_getAutocomplete_v2_Response_mPayload.cpp
   Employee_ListElement.cpp
+  Employee_batchDownload_v1_Request.cpp
+  Employee_getAttachments_v1_Response.cpp
+  Employee_getAttachments_v1_Response_mPayload.cpp
   Employee_getList_v1_Response.cpp
   Employee_getList_v1_Response_mPayload.cpp
   Employee_importIntoEDM_v1_Request.cpp
@@ -2724,6 +2936,9 @@ add_library(${PROJECT_NAME}
   Enum_ReportdataType.cpp
   Enum_Textvalidation.cpp
   Enum_Verticalalignment.cpp
+  Externalbroker_batchDownload_v1_Request.cpp
+  Externalbroker_getAttachments_v1_Response.cpp
+  Externalbroker_getAttachments_v1_Response_mPayload.cpp
   Externalbroker_importIntoEDM_v1_Request.cpp
   Externalbroker_importIntoEDM_v1_Response.cpp
   Externalbroker_importIntoEDM_v1_Response_mPayload.cpp
@@ -3628,6 +3843,7 @@ add_library(${PROJECT_NAME}
   Field_eAuthenticationexternalType.cpp
   Field_eBrandingAlignlogo.cpp
   Field_eBrandingLogo.cpp
+  Field_eBuyercontractRemunerationtype.cpp
   Field_eBuyercontractStep.cpp
   Field_eBuyercontractType.cpp
   Field_eColleagueEzsign.cpp
@@ -3767,6 +3983,12 @@ add_library(${PROJECT_NAME}
   Field_eWebhookRealestateevent.cpp
   Field_etInscriptionnotauthenticatedMortgagetype.cpp
   Field_pksEzmaxclientOs.cpp
+  Folder_batchDownload_v1_Request.cpp
+  Folder_getAttachments_v1_Response.cpp
+  Folder_getAttachments_v1_Response_mPayload.cpp
+  Folder_importIntoEDM_v1_Request.cpp
+  Folder_importIntoEDM_v1_Response.cpp
+  Folder_importIntoEDM_v1_Response_mPayload.cpp
   Font_AutocompleteElement_Response.cpp
   Font_getAutocomplete_v2_Response.cpp
   Font_getAutocomplete_v2_Response_mPayload.cpp
@@ -3797,6 +4019,7 @@ add_library(${PROJECT_NAME}
   Inscription_ListElement.cpp
   Inscription_Response.cpp
   Inscription_ResponseCompound.cpp
+  Inscription_batchDownload_v1_Request.cpp
   Inscription_getAttachments_v1_Response.cpp
   Inscription_getAttachments_v1_Response_mPayload.cpp
   Inscription_getCommunicationCount_v1_Response.cpp
@@ -3825,8 +4048,11 @@ add_library(${PROJECT_NAME}
   Inscriptionnotauthenticated_ListElement.cpp
   Inscriptionnotauthenticated_Response.cpp
   Inscriptionnotauthenticated_ResponseCompound.cpp
+  Inscriptionnotauthenticated_batchDownload_v1_Request.cpp
   Inscriptionnotauthenticated_fillInscriptionnotauthenticatedcondition_v1_Request.cpp
   Inscriptionnotauthenticated_fillInscriptionnotauthenticatedcondition_v1_Response.cpp
+  Inscriptionnotauthenticated_getAttachments_v1_Response.cpp
+  Inscriptionnotauthenticated_getAttachments_v1_Response_mPayload.cpp
   Inscriptionnotauthenticated_getCommunicationCount_v1_Response.cpp
   Inscriptionnotauthenticated_getCommunicationCount_v1_Response_mPayload.cpp
   Inscriptionnotauthenticated_getCommunicationList_v1_Response.cpp
@@ -3847,6 +4073,9 @@ add_library(${PROJECT_NAME}
   Inscriptionnotauthenticatedcondition_Response.cpp
   Inscriptionnotauthenticatedcondition_ResponseCompound.cpp
   Inscriptiontemp_ListElement.cpp
+  Inscriptiontemp_batchDownload_v1_Request.cpp
+  Inscriptiontemp_getAttachments_v1_Response.cpp
+  Inscriptiontemp_getAttachments_v1_Response_mPayload.cpp
   Inscriptiontemp_getCommunicationCount_v1_Response.cpp
   Inscriptiontemp_getCommunicationCount_v1_Response_mPayload.cpp
   Inscriptiontemp_getCommunicationList_v1_Response.cpp
@@ -3863,6 +4092,7 @@ add_library(${PROJECT_NAME}
   Inscriptiontype_AutocompleteElement_Response.cpp
   Inscriptiontype_getAutocomplete_v2_Response.cpp
   Inscriptiontype_getAutocomplete_v2_Response_mPayload.cpp
+  Invoice_batchDownload_v1_Request.cpp
   Invoice_getAttachments_v1_Response.cpp
   Invoice_getAttachments_v1_Response_mPayload.cpp
   Invoice_getCommunicationCount_v1_Response.cpp
@@ -3880,6 +4110,9 @@ add_library(${PROJECT_NAME}
   Language_getAutocomplete_v2_Response.cpp
   Language_getAutocomplete_v2_Response_mPayload.cpp
   Lead_ListElement.cpp
+  Lead_batchDownload_v1_Request.cpp
+  Lead_getAttachments_v1_Response.cpp
+  Lead_getAttachments_v1_Response_mPayload.cpp
   Lead_getList_v1_Response.cpp
   Lead_getList_v1_Response_mPayload.cpp
   Lead_importIntoEDM_v1_Request.cpp
@@ -3928,13 +4161,28 @@ add_library(${PROJECT_NAME}
   Multilingual_UserlogintypeDescription.cpp
   Multilingual_VariableexpenseDescription.cpp
   Multilingual_VersionhistoryDetail.cpp
+  Notary_batchDownload_v1_Request.cpp
+  Notary_getAttachments_v1_Response.cpp
+  Notary_getAttachments_v1_Response_mPayload.cpp
+  Notary_importIntoEDM_v1_Request.cpp
+  Notary_importIntoEDM_v1_Response.cpp
+  Notary_importIntoEDM_v1_Response_mPayload.cpp
   Notificationsection_getNotificationtests_v1_Response.cpp
   Notificationsection_getNotificationtests_v1_Response_mPayload.cpp
   Notificationsubsection_Response.cpp
   Notificationtest_Response.cpp
   Notificationtest_getElements_v2_Response.cpp
   Notificationtest_getElements_v2_Response_mPayload.cpp
+  Officetaxreport_batchDownload_v1_Request.cpp
+  Officetaxreport_getAttachments_v1_Response.cpp
+  Officetaxreport_getAttachments_v1_Response_mPayload.cpp
+  Officetaxreport_importIntoEDM_v1_Request.cpp
+  Officetaxreport_importIntoEDM_v1_Response.cpp
+  Officetaxreport_importIntoEDM_v1_Response_mPayload.cpp
   Otherincome_ListElement.cpp
+  Otherincome_batchDownload_v1_Request.cpp
+  Otherincome_getAttachments_v1_Response.cpp
+  Otherincome_getAttachments_v1_Response_mPayload.cpp
   Otherincome_getCommunicationCount_v1_Response.cpp
   Otherincome_getCommunicationCount_v1_Response_mPayload.cpp
   Otherincome_getCommunicationList_v1_Response.cpp
@@ -3971,6 +4219,12 @@ add_library(${PROJECT_NAME}
   Paymentmethod_AutocompleteElement_Response.cpp
   Paymentmethod_getAutocomplete_v2_Response.cpp
   Paymentmethod_getAutocomplete_v2_Response_mPayload.cpp
+  Paymentpreparation_batchDownload_v1_Request.cpp
+  Paymentpreparation_getAttachments_v1_Response.cpp
+  Paymentpreparation_getAttachments_v1_Response_mPayload.cpp
+  Paymentpreparation_importIntoEDM_v1_Request.cpp
+  Paymentpreparation_importIntoEDM_v1_Response.cpp
+  Paymentpreparation_importIntoEDM_v1_Response_mPayload.cpp
   Paymentterm_AutocompleteElement_Response.cpp
   Paymentterm_ListElement.cpp
   Paymentterm_Request.cpp
@@ -4018,13 +4272,28 @@ add_library(${PROJECT_NAME}
   Province_AutocompleteElement_Response.cpp
   Province_getAutocomplete_v2_Response.cpp
   Province_getAutocomplete_v2_Response_mPayload.cpp
+  Purchase_batchDownload_v1_Request.cpp
+  Purchase_getAttachments_v1_Response.cpp
+  Purchase_getAttachments_v1_Response_mPayload.cpp
+  Purchase_importIntoEDM_v1_Request.cpp
+  Purchase_importIntoEDM_v1_Response.cpp
+  Purchase_importIntoEDM_v1_Response_mPayload.cpp
   Realestateassociation_AutocompleteElement_Response.cpp
   Realestateassociation_getAutocomplete_v2_Response.cpp
   Realestateassociation_getAutocomplete_v2_Response_mPayload.cpp
   Realestateboard_AutocompleteElement_Response.cpp
   Realestateboard_getAutocomplete_v2_Response.cpp
   Realestateboard_getAutocomplete_v2_Response_mPayload.cpp
+  Reconciliation_batchDownload_v1_Request.cpp
+  Reconciliation_getAttachments_v1_Response.cpp
+  Reconciliation_getAttachments_v1_Response_mPayload.cpp
+  Reconciliation_importIntoEDM_v1_Request.cpp
+  Reconciliation_importIntoEDM_v1_Response.cpp
+  Reconciliation_importIntoEDM_v1_Response_mPayload.cpp
   Rejectedoffertopurchase_ListElement.cpp
+  Rejectedoffertopurchase_batchDownload_v1_Request.cpp
+  Rejectedoffertopurchase_getAttachments_v1_Response.cpp
+  Rejectedoffertopurchase_getAttachments_v1_Response_mPayload.cpp
   Rejectedoffertopurchase_getCommunicationCount_v1_Response.cpp
   Rejectedoffertopurchase_getCommunicationCount_v1_Response_mPayload.cpp
   Rejectedoffertopurchase_getCommunicationList_v1_Response.cpp
@@ -4038,6 +4307,12 @@ add_library(${PROJECT_NAME}
   Rejectedoffertopurchase_importIntoEDM_v1_Request.cpp
   Rejectedoffertopurchase_importIntoEDM_v1_Response.cpp
   Rejectedoffertopurchase_importIntoEDM_v1_Response_mPayload.cpp
+  Salary_batchDownload_v1_Request.cpp
+  Salary_getAttachments_v1_Response.cpp
+  Salary_getAttachments_v1_Response_mPayload.cpp
+  Salary_importIntoEDM_v1_Request.cpp
+  Salary_importIntoEDM_v1_Response.cpp
+  Salary_importIntoEDM_v1_Response_mPayload.cpp
   Scim_AuthenticationScheme.cpp
   Scim_Email.cpp
   Scim_Group.cpp
@@ -4084,6 +4359,9 @@ add_library(${PROJECT_NAME}
   Subnet_getObject_v2_Response.cpp
   Subnet_getObject_v2_Response_mPayload.cpp
   Supplier_ListElement.cpp
+  Supplier_batchDownload_v1_Request.cpp
+  Supplier_getAttachments_v1_Response.cpp
+  Supplier_getAttachments_v1_Response_mPayload.cpp
   Supplier_getList_v1_Response.cpp
   Supplier_getList_v1_Response_mPayload.cpp
   Supplier_importIntoEDM_v1_Request.cpp
@@ -4320,6 +4598,8 @@ add_library(${PROJECT_NAME}
   Webhook_Ezsign_FolderUnsent.cpp
   Webhook_Ezsign_SignatureSigned.cpp
   Webhook_ListElement.cpp
+  Webhook_Realestate_BuyercontractCreated.cpp
+  Webhook_Realestate_BuyercontractModified.cpp
   Webhook_Realestate_InscriptionCreated.cpp
   Webhook_Realestate_InscriptionModified.cpp
   Webhook_Realestate_InscriptionnotauthenticatedCreated.cpp
@@ -4371,6 +4651,7 @@ add_library(${PROJECT_NAME}
   ModuleReportApi.cpp
   ModuleUserApi.cpp
   ObjectActivesessionApi.cpp
+  ObjectAdjustmentApi.cpp
   ObjectAgentApi.cpp
   ObjectAgenttypeApi.cpp
   ObjectApikeyApi.cpp
@@ -4384,6 +4665,7 @@ add_library(${PROJECT_NAME}
   ObjectBrokertypeApi.cpp
   ObjectBuyercontractApi.cpp
   ObjectClonehistoryApi.cpp
+  ObjectCommissionadvanceApi.cpp
   ObjectCommunicationApi.cpp
   ObjectCompanyApi.cpp
   ObjectContacttitleApi.cpp
@@ -4395,6 +4677,9 @@ add_library(${PROJECT_NAME}
   ObjectCurrencyApi.cpp
   ObjectCustomerApi.cpp
   ObjectDepartmentApi.cpp
+  ObjectDepositApi.cpp
+  ObjectDeposittransitchequeApi.cpp
+  ObjectDisclosureApi.cpp
   ObjectDiscussionApi.cpp
   ObjectDiscussionmembershipApi.cpp
   ObjectDiscussionmessageApi.cpp
@@ -4446,6 +4731,7 @@ add_library(${PROJECT_NAME}
   ObjectEzsigntemplatesignerApi.cpp
   ObjectEzsigntsarequirementApi.cpp
   ObjectEzsignuserApi.cpp
+  ObjectFolderApi.cpp
   ObjectFontApi.cpp
   ObjectFranchisebrokerApi.cpp
   ObjectFranchiseofficeApi.cpp
@@ -4464,21 +4750,27 @@ add_library(${PROJECT_NAME}
   ObjectLeadsourceApi.cpp
   ObjectModuleApi.cpp
   ObjectModulegroupApi.cpp
+  ObjectNotaryApi.cpp
   ObjectNotificationsectionApi.cpp
   ObjectNotificationtestApi.cpp
+  ObjectOfficetaxreportApi.cpp
   ObjectOtherincomeApi.cpp
   ObjectOtherincometypeApi.cpp
   ObjectPaymentgatewayApi.cpp
   ObjectPaymentmethodApi.cpp
+  ObjectPaymentpreparationApi.cpp
   ObjectPaymenttermApi.cpp
   ObjectPdfalevelApi.cpp
   ObjectPeriodApi.cpp
   ObjectPermissionApi.cpp
   ObjectPhonetypeApi.cpp
   ObjectProvinceApi.cpp
+  ObjectPurchaseApi.cpp
   ObjectRealestateassociationApi.cpp
   ObjectRealestateboardApi.cpp
+  ObjectReconciliationApi.cpp
   ObjectRejectedoffertopurchaseApi.cpp
+  ObjectSalaryApi.cpp
   ObjectSecretquestionApi.cpp
   ObjectSessionhistoryApi.cpp
   ObjectSignatureApi.cpp

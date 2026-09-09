@@ -63,6 +63,8 @@ void ObjectAttachmentApi::initializeServerConfigs() {
     _serverIndices.insert("attachmentDownloadV1", 0);
     _serverConfigs.insert("attachmentGetAttachmentlogsV1", defaultConf);
     _serverIndices.insert("attachmentGetAttachmentlogsV1", 0);
+    _serverConfigs.insert("attachmentRenameV1", defaultConf);
+    _serverIndices.insert("attachmentRenameV1", 0);
 }
 
 /**
@@ -372,6 +374,73 @@ void ObjectAttachmentApi::attachmentGetAttachmentlogsV1Callback(HttpRequestWorke
     } else {
         Q_EMIT attachmentGetAttachmentlogsV1SignalError(output, error_type, error_str);
         Q_EMIT attachmentGetAttachmentlogsV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectAttachmentApi::attachmentRenameV1(const qint32 &pki_attachment_id, const Attachment_rename_v1_Request &attachment_rename_v1_request) {
+    QString fullPath = QString(_serverConfigs["attachmentRenameV1"][_serverIndices.value("attachmentRenameV1")].URL()+"/1/object/attachment/{pkiAttachmentID}/rename");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_attachment_idPathParam("{");
+        pki_attachment_idPathParam.append("pkiAttachmentID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiAttachmentID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiAttachmentID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_attachment_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_attachment_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "POST");
+
+    {
+
+        
+        QByteArray output = attachment_rename_v1_request.asJson().toUtf8();
+        input.request_body.append(output);
+    }
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectAttachmentApi::attachmentRenameV1Callback);
+    connect(this, &ObjectAttachmentApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectAttachmentApi::attachmentRenameV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Attachment_rename_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT attachmentRenameV1Signal(output);
+        Q_EMIT attachmentRenameV1SignalFull(worker, output);
+    } else {
+        Q_EMIT attachmentRenameV1SignalError(output, error_type, error_str);
+        Q_EMIT attachmentRenameV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

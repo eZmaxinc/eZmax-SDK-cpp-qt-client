@@ -21,6 +21,7 @@
 #include "Common_Response_Error.h"
 #include "Header_Accept_Language.h"
 #include "HttpFileElement.h"
+#include "Inscription_batchDownload_v1_Request.h"
 #include "Inscription_getAttachments_v1_Response.h"
 #include "Inscription_getCommunicationCount_v1_Response.h"
 #include "Inscription_getCommunicationList_v1_Response.h"
@@ -71,6 +72,12 @@ public:
     QString getParamStylePrefix(const QString &style);
     QString getParamStyleSuffix(const QString &style);
     QString getParamStyleDelimiter(const QString &style, const QString &name, bool isExplode);
+
+    /**
+    * @param[in]  pki_inscription_id qint32 [required]
+    * @param[in]  inscription_batch_download_v1_request Inscription_batchDownload_v1_Request [required]
+    */
+    virtual void inscriptionBatchDownloadV1(const qint32 &pki_inscription_id, const Inscription_batchDownload_v1_Request &inscription_batch_download_v1_request);
 
     /**
     * @param[in]  pki_inscription_id qint32 [required]
@@ -158,6 +165,7 @@ private:
     OauthPassword _passwordFlow;
     OauthMethod _OauthMethod = OauthMethod::INVALID_VALUE_OPENAPI_GENERATED;
 
+    void inscriptionBatchDownloadV1Callback(HttpRequestWorker *worker);
     void inscriptionGetAttachmentsV1Callback(HttpRequestWorker *worker);
     void inscriptionGetCommunicationCountV1Callback(HttpRequestWorker *worker);
     void inscriptionGetCommunicationListV1Callback(HttpRequestWorker *worker);
@@ -171,6 +179,7 @@ private:
 
 Q_SIGNALS:
 
+    void inscriptionBatchDownloadV1Signal(HttpFileElement summary);
     void inscriptionGetAttachmentsV1Signal(Inscription_getAttachments_v1_Response summary);
     void inscriptionGetCommunicationCountV1Signal(Inscription_getCommunicationCount_v1_Response summary);
     void inscriptionGetCommunicationListV1Signal(Inscription_getCommunicationList_v1_Response summary);
@@ -183,6 +192,7 @@ Q_SIGNALS:
     void inscriptionPrepareFilesTransferV1Signal(Inscription_prepareFilesTransfer_v1_Response summary);
 
 
+    void inscriptionBatchDownloadV1SignalFull(HttpRequestWorker *worker, HttpFileElement summary);
     void inscriptionGetAttachmentsV1SignalFull(HttpRequestWorker *worker, Inscription_getAttachments_v1_Response summary);
     void inscriptionGetCommunicationCountV1SignalFull(HttpRequestWorker *worker, Inscription_getCommunicationCount_v1_Response summary);
     void inscriptionGetCommunicationListV1SignalFull(HttpRequestWorker *worker, Inscription_getCommunicationList_v1_Response summary);
@@ -194,6 +204,7 @@ Q_SIGNALS:
     void inscriptionImportIntoEDMV1SignalFull(HttpRequestWorker *worker, Inscription_importIntoEDM_v1_Response summary);
     void inscriptionPrepareFilesTransferV1SignalFull(HttpRequestWorker *worker, Inscription_prepareFilesTransfer_v1_Response summary);
 
+    void inscriptionBatchDownloadV1SignalError(HttpFileElement summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void inscriptionGetAttachmentsV1SignalError(Inscription_getAttachments_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void inscriptionGetCommunicationCountV1SignalError(Inscription_getCommunicationCount_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void inscriptionGetCommunicationListV1SignalError(Inscription_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -205,6 +216,7 @@ Q_SIGNALS:
     void inscriptionImportIntoEDMV1SignalError(Inscription_importIntoEDM_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void inscriptionPrepareFilesTransferV1SignalError(Inscription_prepareFilesTransfer_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    void inscriptionBatchDownloadV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void inscriptionGetAttachmentsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void inscriptionGetCommunicationCountV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void inscriptionGetCommunicationListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);

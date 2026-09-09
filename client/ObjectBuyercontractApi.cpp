@@ -59,6 +59,10 @@ void ObjectBuyercontractApi::initializeServerConfigs() {
     {"sInfrastructureregionCode", ServerVariable("The region where your services are hosted.","ca-central-1",
     QSet<QString>{ {"ca-central-1"} })}, }));
     
+    _serverConfigs.insert("buyercontractBatchDownloadV1", defaultConf);
+    _serverIndices.insert("buyercontractBatchDownloadV1", 0);
+    _serverConfigs.insert("buyercontractGetAttachmentsV1", defaultConf);
+    _serverIndices.insert("buyercontractGetAttachmentsV1", 0);
     _serverConfigs.insert("buyercontractGetCommunicationCountV1", defaultConf);
     _serverIndices.insert("buyercontractGetCommunicationCountV1", 0);
     _serverConfigs.insert("buyercontractGetCommunicationListV1", defaultConf);
@@ -249,6 +253,135 @@ QString ObjectBuyercontractApi::getParamStyleDelimiter(const QString &style, con
 
     } else {
         return "none";
+    }
+}
+
+void ObjectBuyercontractApi::buyercontractBatchDownloadV1(const qint32 &pki_buyercontract_id, const Buyercontract_batchDownload_v1_Request &buyercontract_batch_download_v1_request) {
+    QString fullPath = QString(_serverConfigs["buyercontractBatchDownloadV1"][_serverIndices.value("buyercontractBatchDownloadV1")].URL()+"/1/object/buyercontract/{pkiBuyercontractID}/batchDownload");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_buyercontract_idPathParam("{");
+        pki_buyercontract_idPathParam.append("pkiBuyercontractID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiBuyercontractID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiBuyercontractID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_buyercontract_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_buyercontract_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "POST");
+
+    {
+
+        
+        QByteArray output = buyercontract_batch_download_v1_request.asJson().toUtf8();
+        input.request_body.append(output);
+    }
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectBuyercontractApi::buyercontractBatchDownloadV1Callback);
+    connect(this, &ObjectBuyercontractApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectBuyercontractApi::buyercontractBatchDownloadV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    HttpFileElement output = worker->getHttpFileElement();
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT buyercontractBatchDownloadV1Signal(output);
+        Q_EMIT buyercontractBatchDownloadV1SignalFull(worker, output);
+    } else {
+        Q_EMIT buyercontractBatchDownloadV1SignalError(output, error_type, error_str);
+        Q_EMIT buyercontractBatchDownloadV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectBuyercontractApi::buyercontractGetAttachmentsV1(const qint32 &pki_buyercontract_id) {
+    QString fullPath = QString(_serverConfigs["buyercontractGetAttachmentsV1"][_serverIndices.value("buyercontractGetAttachmentsV1")].URL()+"/1/object/buyercontract/{pkiBuyercontractID}/getAttachments");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_buyercontract_idPathParam("{");
+        pki_buyercontract_idPathParam.append("pkiBuyercontractID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiBuyercontractID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiBuyercontractID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_buyercontract_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_buyercontract_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectBuyercontractApi::buyercontractGetAttachmentsV1Callback);
+    connect(this, &ObjectBuyercontractApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectBuyercontractApi::buyercontractGetAttachmentsV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Buyercontract_getAttachments_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT buyercontractGetAttachmentsV1Signal(output);
+        Q_EMIT buyercontractGetAttachmentsV1SignalFull(worker, output);
+    } else {
+        Q_EMIT buyercontractGetAttachmentsV1SignalError(output, error_type, error_str);
+        Q_EMIT buyercontractGetAttachmentsV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

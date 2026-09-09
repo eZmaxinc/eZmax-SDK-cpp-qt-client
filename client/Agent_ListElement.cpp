@@ -79,6 +79,9 @@ void Agent_ListElement::initializeModel() {
     m_s_agent_realestateassociationlicense_isSet = false;
     m_s_agent_realestateassociationlicense_isValid = false;
 
+    m_dt_agent_permitexpiration_isSet = false;
+    m_dt_agent_permitexpiration_isValid = false;
+
     m_dt_agent_hiredate_isSet = false;
     m_dt_agent_hiredate_isValid = false;
 
@@ -221,6 +224,9 @@ void Agent_ListElement::fromJsonObject(QJsonObject json) {
     m_s_agent_realestateassociationlicense_isValid = ::Ezmaxapi::fromJsonValue(m_s_agent_realestateassociationlicense, json[QString("sAgentRealestateassociationlicense")]);
     m_s_agent_realestateassociationlicense_isSet = !json[QString("sAgentRealestateassociationlicense")].isNull() && m_s_agent_realestateassociationlicense_isValid;
 
+    m_dt_agent_permitexpiration_isValid = ::Ezmaxapi::fromJsonValue(m_dt_agent_permitexpiration, json[QString("dtAgentPermitexpiration")]);
+    m_dt_agent_permitexpiration_isSet = !json[QString("dtAgentPermitexpiration")].isNull() && m_dt_agent_permitexpiration_isValid;
+
     m_dt_agent_hiredate_isValid = ::Ezmaxapi::fromJsonValue(m_dt_agent_hiredate, json[QString("dtAgentHiredate")]);
     m_dt_agent_hiredate_isSet = !json[QString("dtAgentHiredate")].isNull() && m_dt_agent_hiredate_isValid;
 
@@ -362,6 +368,9 @@ QJsonObject Agent_ListElement::asJsonObject() const {
     }
     if (m_s_agent_realestateassociationlicense_isSet) {
         obj.insert(QString("sAgentRealestateassociationlicense"), ::Ezmaxapi::toJsonValue(m_s_agent_realestateassociationlicense));
+    }
+    if (m_dt_agent_permitexpiration_isSet) {
+        obj.insert(QString("dtAgentPermitexpiration"), ::Ezmaxapi::toJsonValue(m_dt_agent_permitexpiration));
     }
     if (m_dt_agent_hiredate_isSet) {
         obj.insert(QString("dtAgentHiredate"), ::Ezmaxapi::toJsonValue(m_dt_agent_hiredate));
@@ -691,6 +700,22 @@ bool Agent_ListElement::is_s_agent_realestateassociationlicense_Set() const{
 
 bool Agent_ListElement::is_s_agent_realestateassociationlicense_Valid() const{
     return m_s_agent_realestateassociationlicense_isValid;
+}
+
+QString Agent_ListElement::getDtAgentPermitexpiration() const {
+    return m_dt_agent_permitexpiration;
+}
+void Agent_ListElement::setDtAgentPermitexpiration(const QString &dt_agent_permitexpiration) {
+    m_dt_agent_permitexpiration = dt_agent_permitexpiration;
+    m_dt_agent_permitexpiration_isSet = true;
+}
+
+bool Agent_ListElement::is_dt_agent_permitexpiration_Set() const{
+    return m_dt_agent_permitexpiration_isSet;
+}
+
+bool Agent_ListElement::is_dt_agent_permitexpiration_Valid() const{
+    return m_dt_agent_permitexpiration_isValid;
 }
 
 QString Agent_ListElement::getDtAgentHiredate() const {
@@ -1231,6 +1256,11 @@ bool Agent_ListElement::isSet() const {
         }
 
         if (m_s_agent_realestateassociationlicense_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_dt_agent_permitexpiration_isSet) {
             isObjectUpdated = true;
             break;
         }

@@ -21,6 +21,8 @@
 #include "Common_Response_Error.h"
 #include "Header_Accept_Language.h"
 #include "HttpFileElement.h"
+#include "Rejectedoffertopurchase_batchDownload_v1_Request.h"
+#include "Rejectedoffertopurchase_getAttachments_v1_Response.h"
 #include "Rejectedoffertopurchase_getCommunicationCount_v1_Response.h"
 #include "Rejectedoffertopurchase_getCommunicationList_v1_Response.h"
 #include "Rejectedoffertopurchase_getCommunicationrecipients_v1_Response.h"
@@ -66,6 +68,17 @@ public:
     QString getParamStylePrefix(const QString &style);
     QString getParamStyleSuffix(const QString &style);
     QString getParamStyleDelimiter(const QString &style, const QString &name, bool isExplode);
+
+    /**
+    * @param[in]  pki_rejectedoffertopurchase_id qint32 [required]
+    * @param[in]  rejectedoffertopurchase_batch_download_v1_request Rejectedoffertopurchase_batchDownload_v1_Request [required]
+    */
+    virtual void rejectedoffertopurchaseBatchDownloadV1(const qint32 &pki_rejectedoffertopurchase_id, const Rejectedoffertopurchase_batchDownload_v1_Request &rejectedoffertopurchase_batch_download_v1_request);
+
+    /**
+    * @param[in]  pki_rejectedoffertopurchase_id qint32 [required]
+    */
+    virtual void rejectedoffertopurchaseGetAttachmentsV1(const qint32 &pki_rejectedoffertopurchase_id);
 
     /**
     * @param[in]  pki_rejectedoffertopurchase_id qint32 [required]
@@ -132,6 +145,8 @@ private:
     OauthPassword _passwordFlow;
     OauthMethod _OauthMethod = OauthMethod::INVALID_VALUE_OPENAPI_GENERATED;
 
+    void rejectedoffertopurchaseBatchDownloadV1Callback(HttpRequestWorker *worker);
+    void rejectedoffertopurchaseGetAttachmentsV1Callback(HttpRequestWorker *worker);
     void rejectedoffertopurchaseGetCommunicationCountV1Callback(HttpRequestWorker *worker);
     void rejectedoffertopurchaseGetCommunicationListV1Callback(HttpRequestWorker *worker);
     void rejectedoffertopurchaseGetCommunicationrecipientsV1Callback(HttpRequestWorker *worker);
@@ -141,6 +156,8 @@ private:
 
 Q_SIGNALS:
 
+    void rejectedoffertopurchaseBatchDownloadV1Signal(HttpFileElement summary);
+    void rejectedoffertopurchaseGetAttachmentsV1Signal(Rejectedoffertopurchase_getAttachments_v1_Response summary);
     void rejectedoffertopurchaseGetCommunicationCountV1Signal(Rejectedoffertopurchase_getCommunicationCount_v1_Response summary);
     void rejectedoffertopurchaseGetCommunicationListV1Signal(Rejectedoffertopurchase_getCommunicationList_v1_Response summary);
     void rejectedoffertopurchaseGetCommunicationrecipientsV1Signal(Rejectedoffertopurchase_getCommunicationrecipients_v1_Response summary);
@@ -149,6 +166,8 @@ Q_SIGNALS:
     void rejectedoffertopurchaseImportIntoEDMV1Signal(Rejectedoffertopurchase_importIntoEDM_v1_Response summary);
 
 
+    void rejectedoffertopurchaseBatchDownloadV1SignalFull(HttpRequestWorker *worker, HttpFileElement summary);
+    void rejectedoffertopurchaseGetAttachmentsV1SignalFull(HttpRequestWorker *worker, Rejectedoffertopurchase_getAttachments_v1_Response summary);
     void rejectedoffertopurchaseGetCommunicationCountV1SignalFull(HttpRequestWorker *worker, Rejectedoffertopurchase_getCommunicationCount_v1_Response summary);
     void rejectedoffertopurchaseGetCommunicationListV1SignalFull(HttpRequestWorker *worker, Rejectedoffertopurchase_getCommunicationList_v1_Response summary);
     void rejectedoffertopurchaseGetCommunicationrecipientsV1SignalFull(HttpRequestWorker *worker, Rejectedoffertopurchase_getCommunicationrecipients_v1_Response summary);
@@ -156,6 +175,8 @@ Q_SIGNALS:
     void rejectedoffertopurchaseGetListV1SignalFull(HttpRequestWorker *worker, Rejectedoffertopurchase_getList_v1_Response summary);
     void rejectedoffertopurchaseImportIntoEDMV1SignalFull(HttpRequestWorker *worker, Rejectedoffertopurchase_importIntoEDM_v1_Response summary);
 
+    void rejectedoffertopurchaseBatchDownloadV1SignalError(HttpFileElement summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void rejectedoffertopurchaseGetAttachmentsV1SignalError(Rejectedoffertopurchase_getAttachments_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void rejectedoffertopurchaseGetCommunicationCountV1SignalError(Rejectedoffertopurchase_getCommunicationCount_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void rejectedoffertopurchaseGetCommunicationListV1SignalError(Rejectedoffertopurchase_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void rejectedoffertopurchaseGetCommunicationrecipientsV1SignalError(Rejectedoffertopurchase_getCommunicationrecipients_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -163,6 +184,8 @@ Q_SIGNALS:
     void rejectedoffertopurchaseGetListV1SignalError(Rejectedoffertopurchase_getList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void rejectedoffertopurchaseImportIntoEDMV1SignalError(Rejectedoffertopurchase_importIntoEDM_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    void rejectedoffertopurchaseBatchDownloadV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void rejectedoffertopurchaseGetAttachmentsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void rejectedoffertopurchaseGetCommunicationCountV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void rejectedoffertopurchaseGetCommunicationListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void rejectedoffertopurchaseGetCommunicationrecipientsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);

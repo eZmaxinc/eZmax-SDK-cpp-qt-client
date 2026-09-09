@@ -18,8 +18,14 @@
 #include "ServerConfiguration.h"
 #include "Oauth.h"
 
+#include "Bankaccount_batchDownload_v1_Request.h"
+#include "Bankaccount_getAttachments_v1_Response.h"
 #include "Bankaccount_getAutocomplete_v2_Response.h"
+#include "Bankaccount_importIntoEDM_v1_Request.h"
+#include "Bankaccount_importIntoEDM_v1_Response.h"
+#include "Common_Response_Error.h"
 #include "Header_Accept_Language.h"
+#include "HttpFileElement.h"
 #include <QString>
 
 #include <QObject>
@@ -60,12 +66,29 @@ public:
     QString getParamStyleDelimiter(const QString &style, const QString &name, bool isExplode);
 
     /**
+    * @param[in]  pki_bankaccount_id qint32 [required]
+    * @param[in]  bankaccount_batch_download_v1_request Bankaccount_batchDownload_v1_Request [required]
+    */
+    virtual void bankaccountBatchDownloadV1(const qint32 &pki_bankaccount_id, const Bankaccount_batchDownload_v1_Request &bankaccount_batch_download_v1_request);
+
+    /**
+    * @param[in]  pki_bankaccount_id qint32 [required]
+    */
+    virtual void bankaccountGetAttachmentsV1(const qint32 &pki_bankaccount_id);
+
+    /**
     * @param[in]  s_selector QString [required]
     * @param[in]  e_filter_active QString [optional]
     * @param[in]  s_query QString [optional]
     * @param[in]  accept_language Header_Accept_Language [optional]
     */
     virtual void bankaccountGetAutocompleteV2(const QString &s_selector, const ::Ezmaxapi::OptionalParam<QString> &e_filter_active = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<QString> &s_query = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<Header_Accept_Language>());
+
+    /**
+    * @param[in]  pki_bankaccount_id qint32 [required]
+    * @param[in]  bankaccount_import_into_edm_v1_request Bankaccount_importIntoEDM_v1_Request [required]
+    */
+    virtual void bankaccountImportIntoEDMV1(const qint32 &pki_bankaccount_id, const Bankaccount_importIntoEDM_v1_Request &bankaccount_import_into_edm_v1_request);
 
 
 private:
@@ -97,18 +120,33 @@ private:
     OauthPassword _passwordFlow;
     OauthMethod _OauthMethod = OauthMethod::INVALID_VALUE_OPENAPI_GENERATED;
 
+    void bankaccountBatchDownloadV1Callback(HttpRequestWorker *worker);
+    void bankaccountGetAttachmentsV1Callback(HttpRequestWorker *worker);
     void bankaccountGetAutocompleteV2Callback(HttpRequestWorker *worker);
+    void bankaccountImportIntoEDMV1Callback(HttpRequestWorker *worker);
 
 Q_SIGNALS:
 
+    void bankaccountBatchDownloadV1Signal(HttpFileElement summary);
+    void bankaccountGetAttachmentsV1Signal(Bankaccount_getAttachments_v1_Response summary);
     void bankaccountGetAutocompleteV2Signal(Bankaccount_getAutocomplete_v2_Response summary);
+    void bankaccountImportIntoEDMV1Signal(Bankaccount_importIntoEDM_v1_Response summary);
 
 
+    void bankaccountBatchDownloadV1SignalFull(HttpRequestWorker *worker, HttpFileElement summary);
+    void bankaccountGetAttachmentsV1SignalFull(HttpRequestWorker *worker, Bankaccount_getAttachments_v1_Response summary);
     void bankaccountGetAutocompleteV2SignalFull(HttpRequestWorker *worker, Bankaccount_getAutocomplete_v2_Response summary);
+    void bankaccountImportIntoEDMV1SignalFull(HttpRequestWorker *worker, Bankaccount_importIntoEDM_v1_Response summary);
 
+    void bankaccountBatchDownloadV1SignalError(HttpFileElement summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void bankaccountGetAttachmentsV1SignalError(Bankaccount_getAttachments_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void bankaccountGetAutocompleteV2SignalError(Bankaccount_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void bankaccountImportIntoEDMV1SignalError(Bankaccount_importIntoEDM_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    void bankaccountBatchDownloadV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void bankaccountGetAttachmentsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void bankaccountGetAutocompleteV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void bankaccountImportIntoEDMV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();

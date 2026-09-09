@@ -59,6 +59,10 @@ void ObjectExternalbrokerApi::initializeServerConfigs() {
     {"sInfrastructureregionCode", ServerVariable("The region where your services are hosted.","ca-central-1",
     QSet<QString>{ {"ca-central-1"} })}, }));
     
+    _serverConfigs.insert("externalbrokerBatchDownloadV1", defaultConf);
+    _serverIndices.insert("externalbrokerBatchDownloadV1", 0);
+    _serverConfigs.insert("externalbrokerGetAttachmentsV1", defaultConf);
+    _serverIndices.insert("externalbrokerGetAttachmentsV1", 0);
     _serverConfigs.insert("externalbrokerImportIntoEDMV1", defaultConf);
     _serverIndices.insert("externalbrokerImportIntoEDMV1", 0);
 }
@@ -239,6 +243,135 @@ QString ObjectExternalbrokerApi::getParamStyleDelimiter(const QString &style, co
 
     } else {
         return "none";
+    }
+}
+
+void ObjectExternalbrokerApi::externalbrokerBatchDownloadV1(const qint32 &pki_externalbroker_id, const Externalbroker_batchDownload_v1_Request &externalbroker_batch_download_v1_request) {
+    QString fullPath = QString(_serverConfigs["externalbrokerBatchDownloadV1"][_serverIndices.value("externalbrokerBatchDownloadV1")].URL()+"/1/object/externalbroker/{pkiExternalbrokerID}/batchDownload");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_externalbroker_idPathParam("{");
+        pki_externalbroker_idPathParam.append("pkiExternalbrokerID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiExternalbrokerID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiExternalbrokerID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_externalbroker_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_externalbroker_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "POST");
+
+    {
+
+        
+        QByteArray output = externalbroker_batch_download_v1_request.asJson().toUtf8();
+        input.request_body.append(output);
+    }
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectExternalbrokerApi::externalbrokerBatchDownloadV1Callback);
+    connect(this, &ObjectExternalbrokerApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectExternalbrokerApi::externalbrokerBatchDownloadV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    HttpFileElement output = worker->getHttpFileElement();
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT externalbrokerBatchDownloadV1Signal(output);
+        Q_EMIT externalbrokerBatchDownloadV1SignalFull(worker, output);
+    } else {
+        Q_EMIT externalbrokerBatchDownloadV1SignalError(output, error_type, error_str);
+        Q_EMIT externalbrokerBatchDownloadV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectExternalbrokerApi::externalbrokerGetAttachmentsV1(const qint32 &pki_externalbroker_id) {
+    QString fullPath = QString(_serverConfigs["externalbrokerGetAttachmentsV1"][_serverIndices.value("externalbrokerGetAttachmentsV1")].URL()+"/1/object/externalbroker/{pkiExternalbrokerID}/getAttachments");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_externalbroker_idPathParam("{");
+        pki_externalbroker_idPathParam.append("pkiExternalbrokerID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiExternalbrokerID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiExternalbrokerID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_externalbroker_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_externalbroker_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectExternalbrokerApi::externalbrokerGetAttachmentsV1Callback);
+    connect(this, &ObjectExternalbrokerApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectExternalbrokerApi::externalbrokerGetAttachmentsV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Externalbroker_getAttachments_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT externalbrokerGetAttachmentsV1Signal(output);
+        Q_EMIT externalbrokerGetAttachmentsV1SignalFull(worker, output);
+    } else {
+        Q_EMIT externalbrokerGetAttachmentsV1SignalError(output, error_type, error_str);
+        Q_EMIT externalbrokerGetAttachmentsV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

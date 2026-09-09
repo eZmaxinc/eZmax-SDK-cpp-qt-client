@@ -47,6 +47,16 @@ public:
     bool is_pki_user_id_Set() const;
     bool is_pki_user_id_Valid() const;
 
+    qint32 getFkiAgentId() const;
+    void setFkiAgentId(const qint32 &fki_agent_id);
+    bool is_fki_agent_id_Set() const;
+    bool is_fki_agent_id_Valid() const;
+
+    qint32 getFkiBrokerId() const;
+    void setFkiBrokerId(const qint32 &fki_broker_id);
+    bool is_fki_broker_id_Set() const;
+    bool is_fki_broker_id_Valid() const;
+
     QString getSUserFirstname() const;
     void setSUserFirstname(const QString &s_user_firstname);
     bool is_s_user_firstname_Set() const;
@@ -111,6 +121,14 @@ private:
     qint32 m_pki_user_id;
     bool m_pki_user_id_isSet;
     bool m_pki_user_id_isValid;
+
+    qint32 m_fki_agent_id;
+    bool m_fki_agent_id_isSet;
+    bool m_fki_agent_id_isValid;
+
+    qint32 m_fki_broker_id;
+    bool m_fki_broker_id_isSet;
+    bool m_fki_broker_id_isValid;
 
     QString m_s_user_firstname;
     bool m_s_user_firstname_isSet;

@@ -19,6 +19,8 @@
 #include "Oauth.h"
 
 #include "Common_Response_Error.h"
+#include "Employee_batchDownload_v1_Request.h"
+#include "Employee_getAttachments_v1_Response.h"
 #include "Employee_getList_v1_Response.h"
 #include "Employee_importIntoEDM_v1_Request.h"
 #include "Employee_importIntoEDM_v1_Response.h"
@@ -62,6 +64,17 @@ public:
     QString getParamStylePrefix(const QString &style);
     QString getParamStyleSuffix(const QString &style);
     QString getParamStyleDelimiter(const QString &style, const QString &name, bool isExplode);
+
+    /**
+    * @param[in]  pki_employee_id qint32 [required]
+    * @param[in]  employee_batch_download_v1_request Employee_batchDownload_v1_Request [required]
+    */
+    virtual void employeeBatchDownloadV1(const qint32 &pki_employee_id, const Employee_batchDownload_v1_Request &employee_batch_download_v1_request);
+
+    /**
+    * @param[in]  pki_employee_id qint32 [required]
+    */
+    virtual void employeeGetAttachmentsV1(const qint32 &pki_employee_id);
 
     /**
     * @param[in]  e_order_by QString [optional]
@@ -108,21 +121,31 @@ private:
     OauthPassword _passwordFlow;
     OauthMethod _OauthMethod = OauthMethod::INVALID_VALUE_OPENAPI_GENERATED;
 
+    void employeeBatchDownloadV1Callback(HttpRequestWorker *worker);
+    void employeeGetAttachmentsV1Callback(HttpRequestWorker *worker);
     void employeeGetListV1Callback(HttpRequestWorker *worker);
     void employeeImportIntoEDMV1Callback(HttpRequestWorker *worker);
 
 Q_SIGNALS:
 
+    void employeeBatchDownloadV1Signal(HttpFileElement summary);
+    void employeeGetAttachmentsV1Signal(Employee_getAttachments_v1_Response summary);
     void employeeGetListV1Signal(Employee_getList_v1_Response summary);
     void employeeImportIntoEDMV1Signal(Employee_importIntoEDM_v1_Response summary);
 
 
+    void employeeBatchDownloadV1SignalFull(HttpRequestWorker *worker, HttpFileElement summary);
+    void employeeGetAttachmentsV1SignalFull(HttpRequestWorker *worker, Employee_getAttachments_v1_Response summary);
     void employeeGetListV1SignalFull(HttpRequestWorker *worker, Employee_getList_v1_Response summary);
     void employeeImportIntoEDMV1SignalFull(HttpRequestWorker *worker, Employee_importIntoEDM_v1_Response summary);
 
+    void employeeBatchDownloadV1SignalError(HttpFileElement summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void employeeGetAttachmentsV1SignalError(Employee_getAttachments_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void employeeGetListV1SignalError(Employee_getList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void employeeImportIntoEDMV1SignalError(Employee_importIntoEDM_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    void employeeBatchDownloadV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void employeeGetAttachmentsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void employeeGetListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void employeeImportIntoEDMV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 

@@ -21,6 +21,8 @@
 #include "Common_Response_Error.h"
 #include "Header_Accept_Language.h"
 #include "HttpFileElement.h"
+#include "Lead_batchDownload_v1_Request.h"
+#include "Lead_getAttachments_v1_Response.h"
 #include "Lead_getList_v1_Response.h"
 #include "Lead_importIntoEDM_v1_Request.h"
 #include "Lead_importIntoEDM_v1_Response.h"
@@ -62,6 +64,17 @@ public:
     QString getParamStylePrefix(const QString &style);
     QString getParamStyleSuffix(const QString &style);
     QString getParamStyleDelimiter(const QString &style, const QString &name, bool isExplode);
+
+    /**
+    * @param[in]  pki_lead_id qint32 [required]
+    * @param[in]  lead_batch_download_v1_request Lead_batchDownload_v1_Request [required]
+    */
+    virtual void leadBatchDownloadV1(const qint32 &pki_lead_id, const Lead_batchDownload_v1_Request &lead_batch_download_v1_request);
+
+    /**
+    * @param[in]  pki_lead_id qint32 [required]
+    */
+    virtual void leadGetAttachmentsV1(const qint32 &pki_lead_id);
 
     /**
     * @param[in]  e_order_by QString [optional]
@@ -108,21 +121,31 @@ private:
     OauthPassword _passwordFlow;
     OauthMethod _OauthMethod = OauthMethod::INVALID_VALUE_OPENAPI_GENERATED;
 
+    void leadBatchDownloadV1Callback(HttpRequestWorker *worker);
+    void leadGetAttachmentsV1Callback(HttpRequestWorker *worker);
     void leadGetListV1Callback(HttpRequestWorker *worker);
     void leadImportIntoEDMV1Callback(HttpRequestWorker *worker);
 
 Q_SIGNALS:
 
+    void leadBatchDownloadV1Signal(HttpFileElement summary);
+    void leadGetAttachmentsV1Signal(Lead_getAttachments_v1_Response summary);
     void leadGetListV1Signal(Lead_getList_v1_Response summary);
     void leadImportIntoEDMV1Signal(Lead_importIntoEDM_v1_Response summary);
 
 
+    void leadBatchDownloadV1SignalFull(HttpRequestWorker *worker, HttpFileElement summary);
+    void leadGetAttachmentsV1SignalFull(HttpRequestWorker *worker, Lead_getAttachments_v1_Response summary);
     void leadGetListV1SignalFull(HttpRequestWorker *worker, Lead_getList_v1_Response summary);
     void leadImportIntoEDMV1SignalFull(HttpRequestWorker *worker, Lead_importIntoEDM_v1_Response summary);
 
+    void leadBatchDownloadV1SignalError(HttpFileElement summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void leadGetAttachmentsV1SignalError(Lead_getAttachments_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void leadGetListV1SignalError(Lead_getList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void leadImportIntoEDMV1SignalError(Lead_importIntoEDM_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    void leadBatchDownloadV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void leadGetAttachmentsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void leadGetListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void leadImportIntoEDMV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 

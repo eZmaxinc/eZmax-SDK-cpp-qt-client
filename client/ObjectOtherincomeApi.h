@@ -21,6 +21,8 @@
 #include "Common_Response_Error.h"
 #include "Header_Accept_Language.h"
 #include "HttpFileElement.h"
+#include "Otherincome_batchDownload_v1_Request.h"
+#include "Otherincome_getAttachments_v1_Response.h"
 #include "Otherincome_getCommunicationCount_v1_Response.h"
 #include "Otherincome_getCommunicationList_v1_Response.h"
 #include "Otherincome_getCommunicationrecipients_v1_Response.h"
@@ -66,6 +68,17 @@ public:
     QString getParamStylePrefix(const QString &style);
     QString getParamStyleSuffix(const QString &style);
     QString getParamStyleDelimiter(const QString &style, const QString &name, bool isExplode);
+
+    /**
+    * @param[in]  pki_otherincome_id qint32 [required]
+    * @param[in]  otherincome_batch_download_v1_request Otherincome_batchDownload_v1_Request [required]
+    */
+    virtual void otherincomeBatchDownloadV1(const qint32 &pki_otherincome_id, const Otherincome_batchDownload_v1_Request &otherincome_batch_download_v1_request);
+
+    /**
+    * @param[in]  pki_otherincome_id qint32 [required]
+    */
+    virtual void otherincomeGetAttachmentsV1(const qint32 &pki_otherincome_id);
 
     /**
     * @param[in]  pki_otherincome_id qint32 [required]
@@ -132,6 +145,8 @@ private:
     OauthPassword _passwordFlow;
     OauthMethod _OauthMethod = OauthMethod::INVALID_VALUE_OPENAPI_GENERATED;
 
+    void otherincomeBatchDownloadV1Callback(HttpRequestWorker *worker);
+    void otherincomeGetAttachmentsV1Callback(HttpRequestWorker *worker);
     void otherincomeGetCommunicationCountV1Callback(HttpRequestWorker *worker);
     void otherincomeGetCommunicationListV1Callback(HttpRequestWorker *worker);
     void otherincomeGetCommunicationrecipientsV1Callback(HttpRequestWorker *worker);
@@ -141,6 +156,8 @@ private:
 
 Q_SIGNALS:
 
+    void otherincomeBatchDownloadV1Signal(HttpFileElement summary);
+    void otherincomeGetAttachmentsV1Signal(Otherincome_getAttachments_v1_Response summary);
     void otherincomeGetCommunicationCountV1Signal(Otherincome_getCommunicationCount_v1_Response summary);
     void otherincomeGetCommunicationListV1Signal(Otherincome_getCommunicationList_v1_Response summary);
     void otherincomeGetCommunicationrecipientsV1Signal(Otherincome_getCommunicationrecipients_v1_Response summary);
@@ -149,6 +166,8 @@ Q_SIGNALS:
     void otherincomeImportIntoEDMV1Signal(Otherincome_importIntoEDM_v1_Response summary);
 
 
+    void otherincomeBatchDownloadV1SignalFull(HttpRequestWorker *worker, HttpFileElement summary);
+    void otherincomeGetAttachmentsV1SignalFull(HttpRequestWorker *worker, Otherincome_getAttachments_v1_Response summary);
     void otherincomeGetCommunicationCountV1SignalFull(HttpRequestWorker *worker, Otherincome_getCommunicationCount_v1_Response summary);
     void otherincomeGetCommunicationListV1SignalFull(HttpRequestWorker *worker, Otherincome_getCommunicationList_v1_Response summary);
     void otherincomeGetCommunicationrecipientsV1SignalFull(HttpRequestWorker *worker, Otherincome_getCommunicationrecipients_v1_Response summary);
@@ -156,6 +175,8 @@ Q_SIGNALS:
     void otherincomeGetListV1SignalFull(HttpRequestWorker *worker, Otherincome_getList_v1_Response summary);
     void otherincomeImportIntoEDMV1SignalFull(HttpRequestWorker *worker, Otherincome_importIntoEDM_v1_Response summary);
 
+    void otherincomeBatchDownloadV1SignalError(HttpFileElement summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void otherincomeGetAttachmentsV1SignalError(Otherincome_getAttachments_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void otherincomeGetCommunicationCountV1SignalError(Otherincome_getCommunicationCount_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void otherincomeGetCommunicationListV1SignalError(Otherincome_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void otherincomeGetCommunicationrecipientsV1SignalError(Otherincome_getCommunicationrecipients_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -163,6 +184,8 @@ Q_SIGNALS:
     void otherincomeGetListV1SignalError(Otherincome_getList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void otherincomeImportIntoEDMV1SignalError(Otherincome_importIntoEDM_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    void otherincomeBatchDownloadV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void otherincomeGetAttachmentsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void otherincomeGetCommunicationCountV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void otherincomeGetCommunicationListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void otherincomeGetCommunicationrecipientsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);

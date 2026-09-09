@@ -19,12 +19,15 @@
 #include "Oauth.h"
 
 #include "Common_Response_Error.h"
+#include "Electronicfundstransfer_batchDownload_v1_Request.h"
+#include "Electronicfundstransfer_getAttachments_v1_Response.h"
 #include "Electronicfundstransfer_getCommunicationCount_v1_Response.h"
 #include "Electronicfundstransfer_getCommunicationList_v1_Response.h"
 #include "Electronicfundstransfer_getCommunicationrecipients_v1_Response.h"
 #include "Electronicfundstransfer_getCommunicationsenders_v1_Response.h"
 #include "Electronicfundstransfer_importIntoEDM_v1_Request.h"
 #include "Electronicfundstransfer_importIntoEDM_v1_Response.h"
+#include "HttpFileElement.h"
 #include <QString>
 
 #include <QObject>
@@ -63,6 +66,17 @@ public:
     QString getParamStylePrefix(const QString &style);
     QString getParamStyleSuffix(const QString &style);
     QString getParamStyleDelimiter(const QString &style, const QString &name, bool isExplode);
+
+    /**
+    * @param[in]  pki_electronicfundstransfer_id qint32 [required]
+    * @param[in]  electronicfundstransfer_batch_download_v1_request Electronicfundstransfer_batchDownload_v1_Request [required]
+    */
+    virtual void electronicfundstransferBatchDownloadV1(const qint32 &pki_electronicfundstransfer_id, const Electronicfundstransfer_batchDownload_v1_Request &electronicfundstransfer_batch_download_v1_request);
+
+    /**
+    * @param[in]  pki_electronicfundstransfer_id qint32 [required]
+    */
+    virtual void electronicfundstransferGetAttachmentsV1(const qint32 &pki_electronicfundstransfer_id);
 
     /**
     * @param[in]  pki_electronicfundstransfer_id qint32 [required]
@@ -120,6 +134,8 @@ private:
     OauthPassword _passwordFlow;
     OauthMethod _OauthMethod = OauthMethod::INVALID_VALUE_OPENAPI_GENERATED;
 
+    void electronicfundstransferBatchDownloadV1Callback(HttpRequestWorker *worker);
+    void electronicfundstransferGetAttachmentsV1Callback(HttpRequestWorker *worker);
     void electronicfundstransferGetCommunicationCountV1Callback(HttpRequestWorker *worker);
     void electronicfundstransferGetCommunicationListV1Callback(HttpRequestWorker *worker);
     void electronicfundstransferGetCommunicationrecipientsV1Callback(HttpRequestWorker *worker);
@@ -128,6 +144,8 @@ private:
 
 Q_SIGNALS:
 
+    void electronicfundstransferBatchDownloadV1Signal(HttpFileElement summary);
+    void electronicfundstransferGetAttachmentsV1Signal(Electronicfundstransfer_getAttachments_v1_Response summary);
     void electronicfundstransferGetCommunicationCountV1Signal(Electronicfundstransfer_getCommunicationCount_v1_Response summary);
     void electronicfundstransferGetCommunicationListV1Signal(Electronicfundstransfer_getCommunicationList_v1_Response summary);
     void electronicfundstransferGetCommunicationrecipientsV1Signal(Electronicfundstransfer_getCommunicationrecipients_v1_Response summary);
@@ -135,18 +153,24 @@ Q_SIGNALS:
     void electronicfundstransferImportIntoEDMV1Signal(Electronicfundstransfer_importIntoEDM_v1_Response summary);
 
 
+    void electronicfundstransferBatchDownloadV1SignalFull(HttpRequestWorker *worker, HttpFileElement summary);
+    void electronicfundstransferGetAttachmentsV1SignalFull(HttpRequestWorker *worker, Electronicfundstransfer_getAttachments_v1_Response summary);
     void electronicfundstransferGetCommunicationCountV1SignalFull(HttpRequestWorker *worker, Electronicfundstransfer_getCommunicationCount_v1_Response summary);
     void electronicfundstransferGetCommunicationListV1SignalFull(HttpRequestWorker *worker, Electronicfundstransfer_getCommunicationList_v1_Response summary);
     void electronicfundstransferGetCommunicationrecipientsV1SignalFull(HttpRequestWorker *worker, Electronicfundstransfer_getCommunicationrecipients_v1_Response summary);
     void electronicfundstransferGetCommunicationsendersV1SignalFull(HttpRequestWorker *worker, Electronicfundstransfer_getCommunicationsenders_v1_Response summary);
     void electronicfundstransferImportIntoEDMV1SignalFull(HttpRequestWorker *worker, Electronicfundstransfer_importIntoEDM_v1_Response summary);
 
+    void electronicfundstransferBatchDownloadV1SignalError(HttpFileElement summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void electronicfundstransferGetAttachmentsV1SignalError(Electronicfundstransfer_getAttachments_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void electronicfundstransferGetCommunicationCountV1SignalError(Electronicfundstransfer_getCommunicationCount_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void electronicfundstransferGetCommunicationListV1SignalError(Electronicfundstransfer_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void electronicfundstransferGetCommunicationrecipientsV1SignalError(Electronicfundstransfer_getCommunicationrecipients_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void electronicfundstransferGetCommunicationsendersV1SignalError(Electronicfundstransfer_getCommunicationsenders_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void electronicfundstransferImportIntoEDMV1SignalError(Electronicfundstransfer_importIntoEDM_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    void electronicfundstransferBatchDownloadV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void electronicfundstransferGetAttachmentsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void electronicfundstransferGetCommunicationCountV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void electronicfundstransferGetCommunicationListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void electronicfundstransferGetCommunicationrecipientsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);

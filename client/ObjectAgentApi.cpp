@@ -59,6 +59,10 @@ void ObjectAgentApi::initializeServerConfigs() {
     {"sInfrastructureregionCode", ServerVariable("The region where your services are hosted.","ca-central-1",
     QSet<QString>{ {"ca-central-1"} })}, }));
     
+    _serverConfigs.insert("agentBatchDownloadV1", defaultConf);
+    _serverIndices.insert("agentBatchDownloadV1", 0);
+    _serverConfigs.insert("agentGetAttachmentsV1", defaultConf);
+    _serverIndices.insert("agentGetAttachmentsV1", 0);
     _serverConfigs.insert("agentGetAutocompleteV2", defaultConf);
     _serverIndices.insert("agentGetAutocompleteV2", 0);
     _serverConfigs.insert("agentGetListV1", defaultConf);
@@ -243,6 +247,135 @@ QString ObjectAgentApi::getParamStyleDelimiter(const QString &style, const QStri
 
     } else {
         return "none";
+    }
+}
+
+void ObjectAgentApi::agentBatchDownloadV1(const qint32 &pki_agent_id, const Agent_batchDownload_v1_Request &agent_batch_download_v1_request) {
+    QString fullPath = QString(_serverConfigs["agentBatchDownloadV1"][_serverIndices.value("agentBatchDownloadV1")].URL()+"/1/object/agent/{pkiAgentID}/batchDownload");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_agent_idPathParam("{");
+        pki_agent_idPathParam.append("pkiAgentID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiAgentID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiAgentID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_agent_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_agent_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "POST");
+
+    {
+
+        
+        QByteArray output = agent_batch_download_v1_request.asJson().toUtf8();
+        input.request_body.append(output);
+    }
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectAgentApi::agentBatchDownloadV1Callback);
+    connect(this, &ObjectAgentApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectAgentApi::agentBatchDownloadV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    HttpFileElement output = worker->getHttpFileElement();
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT agentBatchDownloadV1Signal(output);
+        Q_EMIT agentBatchDownloadV1SignalFull(worker, output);
+    } else {
+        Q_EMIT agentBatchDownloadV1SignalError(output, error_type, error_str);
+        Q_EMIT agentBatchDownloadV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectAgentApi::agentGetAttachmentsV1(const qint32 &pki_agent_id) {
+    QString fullPath = QString(_serverConfigs["agentGetAttachmentsV1"][_serverIndices.value("agentGetAttachmentsV1")].URL()+"/1/object/agent/{pkiAgentID}/getAttachments");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_agent_idPathParam("{");
+        pki_agent_idPathParam.append("pkiAgentID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiAgentID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiAgentID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_agent_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_agent_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectAgentApi::agentGetAttachmentsV1Callback);
+    connect(this, &ObjectAgentApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectAgentApi::agentGetAttachmentsV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Agent_getAttachments_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT agentGetAttachmentsV1Signal(output);
+        Q_EMIT agentGetAttachmentsV1SignalFull(worker, output);
+    } else {
+        Q_EMIT agentGetAttachmentsV1SignalError(output, error_type, error_str);
+        Q_EMIT agentGetAttachmentsV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

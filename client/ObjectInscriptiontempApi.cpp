@@ -59,6 +59,10 @@ void ObjectInscriptiontempApi::initializeServerConfigs() {
     {"sInfrastructureregionCode", ServerVariable("The region where your services are hosted.","ca-central-1",
     QSet<QString>{ {"ca-central-1"} })}, }));
     
+    _serverConfigs.insert("inscriptiontempBatchDownloadV1", defaultConf);
+    _serverIndices.insert("inscriptiontempBatchDownloadV1", 0);
+    _serverConfigs.insert("inscriptiontempGetAttachmentsV1", defaultConf);
+    _serverIndices.insert("inscriptiontempGetAttachmentsV1", 0);
     _serverConfigs.insert("inscriptiontempGetCommunicationCountV1", defaultConf);
     _serverIndices.insert("inscriptiontempGetCommunicationCountV1", 0);
     _serverConfigs.insert("inscriptiontempGetCommunicationListV1", defaultConf);
@@ -249,6 +253,135 @@ QString ObjectInscriptiontempApi::getParamStyleDelimiter(const QString &style, c
 
     } else {
         return "none";
+    }
+}
+
+void ObjectInscriptiontempApi::inscriptiontempBatchDownloadV1(const qint32 &pki_inscriptiontemp_id, const Inscriptiontemp_batchDownload_v1_Request &inscriptiontemp_batch_download_v1_request) {
+    QString fullPath = QString(_serverConfigs["inscriptiontempBatchDownloadV1"][_serverIndices.value("inscriptiontempBatchDownloadV1")].URL()+"/1/object/inscriptiontemp/{pkiInscriptiontempID}/batchDownload");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_inscriptiontemp_idPathParam("{");
+        pki_inscriptiontemp_idPathParam.append("pkiInscriptiontempID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiInscriptiontempID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiInscriptiontempID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_inscriptiontemp_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_inscriptiontemp_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "POST");
+
+    {
+
+        
+        QByteArray output = inscriptiontemp_batch_download_v1_request.asJson().toUtf8();
+        input.request_body.append(output);
+    }
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectInscriptiontempApi::inscriptiontempBatchDownloadV1Callback);
+    connect(this, &ObjectInscriptiontempApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectInscriptiontempApi::inscriptiontempBatchDownloadV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    HttpFileElement output = worker->getHttpFileElement();
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT inscriptiontempBatchDownloadV1Signal(output);
+        Q_EMIT inscriptiontempBatchDownloadV1SignalFull(worker, output);
+    } else {
+        Q_EMIT inscriptiontempBatchDownloadV1SignalError(output, error_type, error_str);
+        Q_EMIT inscriptiontempBatchDownloadV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectInscriptiontempApi::inscriptiontempGetAttachmentsV1(const qint32 &pki_inscriptiontemp_id) {
+    QString fullPath = QString(_serverConfigs["inscriptiontempGetAttachmentsV1"][_serverIndices.value("inscriptiontempGetAttachmentsV1")].URL()+"/1/object/inscriptiontemp/{pkiInscriptiontempID}/getAttachments");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_inscriptiontemp_idPathParam("{");
+        pki_inscriptiontemp_idPathParam.append("pkiInscriptiontempID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiInscriptiontempID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiInscriptiontempID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_inscriptiontemp_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_inscriptiontemp_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectInscriptiontempApi::inscriptiontempGetAttachmentsV1Callback);
+    connect(this, &ObjectInscriptiontempApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectInscriptiontempApi::inscriptiontempGetAttachmentsV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Inscriptiontemp_getAttachments_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT inscriptiontempGetAttachmentsV1Signal(output);
+        Q_EMIT inscriptiontempGetAttachmentsV1SignalFull(worker, output);
+    } else {
+        Q_EMIT inscriptiontempGetAttachmentsV1SignalError(output, error_type, error_str);
+        Q_EMIT inscriptiontempGetAttachmentsV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
