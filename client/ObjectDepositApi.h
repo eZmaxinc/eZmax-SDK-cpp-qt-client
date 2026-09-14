@@ -21,6 +21,10 @@
 #include "Common_Response_Error.h"
 #include "Deposit_batchDownload_v1_Request.h"
 #include "Deposit_getAttachments_v1_Response.h"
+#include "Deposit_getCommunicationCount_v1_Response.h"
+#include "Deposit_getCommunicationList_v1_Response.h"
+#include "Deposit_getCommunicationrecipients_v1_Response.h"
+#include "Deposit_getCommunicationsenders_v1_Response.h"
 #include "Deposit_importIntoEDM_v1_Request.h"
 #include "Deposit_importIntoEDM_v1_Response.h"
 #include "HttpFileElement.h"
@@ -76,6 +80,26 @@ public:
 
     /**
     * @param[in]  pki_deposit_id qint32 [required]
+    */
+    virtual void depositGetCommunicationCountV1(const qint32 &pki_deposit_id);
+
+    /**
+    * @param[in]  pki_deposit_id qint32 [required]
+    */
+    virtual void depositGetCommunicationListV1(const qint32 &pki_deposit_id);
+
+    /**
+    * @param[in]  pki_deposit_id qint32 [required]
+    */
+    virtual void depositGetCommunicationrecipientsV1(const qint32 &pki_deposit_id);
+
+    /**
+    * @param[in]  pki_deposit_id qint32 [required]
+    */
+    virtual void depositGetCommunicationsendersV1(const qint32 &pki_deposit_id);
+
+    /**
+    * @param[in]  pki_deposit_id qint32 [required]
     * @param[in]  deposit_import_into_edm_v1_request Deposit_importIntoEDM_v1_Request [required]
     */
     virtual void depositImportIntoEDMV1(const qint32 &pki_deposit_id, const Deposit_importIntoEDM_v1_Request &deposit_import_into_edm_v1_request);
@@ -112,25 +136,45 @@ private:
 
     void depositBatchDownloadV1Callback(HttpRequestWorker *worker);
     void depositGetAttachmentsV1Callback(HttpRequestWorker *worker);
+    void depositGetCommunicationCountV1Callback(HttpRequestWorker *worker);
+    void depositGetCommunicationListV1Callback(HttpRequestWorker *worker);
+    void depositGetCommunicationrecipientsV1Callback(HttpRequestWorker *worker);
+    void depositGetCommunicationsendersV1Callback(HttpRequestWorker *worker);
     void depositImportIntoEDMV1Callback(HttpRequestWorker *worker);
 
 Q_SIGNALS:
 
     void depositBatchDownloadV1Signal(HttpFileElement summary);
     void depositGetAttachmentsV1Signal(Deposit_getAttachments_v1_Response summary);
+    void depositGetCommunicationCountV1Signal(Deposit_getCommunicationCount_v1_Response summary);
+    void depositGetCommunicationListV1Signal(Deposit_getCommunicationList_v1_Response summary);
+    void depositGetCommunicationrecipientsV1Signal(Deposit_getCommunicationrecipients_v1_Response summary);
+    void depositGetCommunicationsendersV1Signal(Deposit_getCommunicationsenders_v1_Response summary);
     void depositImportIntoEDMV1Signal(Deposit_importIntoEDM_v1_Response summary);
 
 
     void depositBatchDownloadV1SignalFull(HttpRequestWorker *worker, HttpFileElement summary);
     void depositGetAttachmentsV1SignalFull(HttpRequestWorker *worker, Deposit_getAttachments_v1_Response summary);
+    void depositGetCommunicationCountV1SignalFull(HttpRequestWorker *worker, Deposit_getCommunicationCount_v1_Response summary);
+    void depositGetCommunicationListV1SignalFull(HttpRequestWorker *worker, Deposit_getCommunicationList_v1_Response summary);
+    void depositGetCommunicationrecipientsV1SignalFull(HttpRequestWorker *worker, Deposit_getCommunicationrecipients_v1_Response summary);
+    void depositGetCommunicationsendersV1SignalFull(HttpRequestWorker *worker, Deposit_getCommunicationsenders_v1_Response summary);
     void depositImportIntoEDMV1SignalFull(HttpRequestWorker *worker, Deposit_importIntoEDM_v1_Response summary);
 
     void depositBatchDownloadV1SignalError(HttpFileElement summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void depositGetAttachmentsV1SignalError(Deposit_getAttachments_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void depositGetCommunicationCountV1SignalError(Deposit_getCommunicationCount_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void depositGetCommunicationListV1SignalError(Deposit_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void depositGetCommunicationrecipientsV1SignalError(Deposit_getCommunicationrecipients_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void depositGetCommunicationsendersV1SignalError(Deposit_getCommunicationsenders_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void depositImportIntoEDMV1SignalError(Deposit_importIntoEDM_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void depositBatchDownloadV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void depositGetAttachmentsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void depositGetCommunicationCountV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void depositGetCommunicationListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void depositGetCommunicationrecipientsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void depositGetCommunicationsendersV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void depositImportIntoEDMV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();

@@ -59,12 +59,18 @@ void ObjectAttachmentApi::initializeServerConfigs() {
     {"sInfrastructureregionCode", ServerVariable("The region where your services are hosted.","ca-central-1",
     QSet<QString>{ {"ca-central-1"} })}, }));
     
+    _serverConfigs.insert("attachmentDeleteV1", defaultConf);
+    _serverIndices.insert("attachmentDeleteV1", 0);
     _serverConfigs.insert("attachmentDownloadV1", defaultConf);
     _serverIndices.insert("attachmentDownloadV1", 0);
     _serverConfigs.insert("attachmentGetAttachmentlogsV1", defaultConf);
     _serverIndices.insert("attachmentGetAttachmentlogsV1", 0);
     _serverConfigs.insert("attachmentRenameV1", defaultConf);
     _serverIndices.insert("attachmentRenameV1", 0);
+    _serverConfigs.insert("attachmentRestoreV1", defaultConf);
+    _serverIndices.insert("attachmentRestoreV1", 0);
+    _serverConfigs.insert("attachmentValidateV1", defaultConf);
+    _serverIndices.insert("attachmentValidateV1", 0);
 }
 
 /**
@@ -243,6 +249,73 @@ QString ObjectAttachmentApi::getParamStyleDelimiter(const QString &style, const 
 
     } else {
         return "none";
+    }
+}
+
+void ObjectAttachmentApi::attachmentDeleteV1(const qint32 &pki_attachment_id, const Object &body) {
+    QString fullPath = QString(_serverConfigs["attachmentDeleteV1"][_serverIndices.value("attachmentDeleteV1")].URL()+"/1/object/attachment/{pkiAttachmentID}/delete");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_attachment_idPathParam("{");
+        pki_attachment_idPathParam.append("pkiAttachmentID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiAttachmentID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiAttachmentID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_attachment_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_attachment_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "POST");
+
+    {
+
+        
+        QByteArray output = body.asJson().toUtf8();
+        input.request_body.append(output);
+    }
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectAttachmentApi::attachmentDeleteV1Callback);
+    connect(this, &ObjectAttachmentApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectAttachmentApi::attachmentDeleteV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Attachment_delete_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT attachmentDeleteV1Signal(output);
+        Q_EMIT attachmentDeleteV1SignalFull(worker, output);
+    } else {
+        Q_EMIT attachmentDeleteV1SignalError(output, error_type, error_str);
+        Q_EMIT attachmentDeleteV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -441,6 +514,140 @@ void ObjectAttachmentApi::attachmentRenameV1Callback(HttpRequestWorker *worker) 
     } else {
         Q_EMIT attachmentRenameV1SignalError(output, error_type, error_str);
         Q_EMIT attachmentRenameV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectAttachmentApi::attachmentRestoreV1(const qint32 &pki_attachment_id, const Attachment_restore_v1_Request &attachment_restore_v1_request) {
+    QString fullPath = QString(_serverConfigs["attachmentRestoreV1"][_serverIndices.value("attachmentRestoreV1")].URL()+"/1/object/attachment/{pkiAttachmentID}/restore");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_attachment_idPathParam("{");
+        pki_attachment_idPathParam.append("pkiAttachmentID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiAttachmentID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiAttachmentID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_attachment_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_attachment_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "POST");
+
+    {
+
+        
+        QByteArray output = attachment_restore_v1_request.asJson().toUtf8();
+        input.request_body.append(output);
+    }
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectAttachmentApi::attachmentRestoreV1Callback);
+    connect(this, &ObjectAttachmentApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectAttachmentApi::attachmentRestoreV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Attachment_restore_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT attachmentRestoreV1Signal(output);
+        Q_EMIT attachmentRestoreV1SignalFull(worker, output);
+    } else {
+        Q_EMIT attachmentRestoreV1SignalError(output, error_type, error_str);
+        Q_EMIT attachmentRestoreV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectAttachmentApi::attachmentValidateV1(const qint32 &pki_attachment_id, const Attachment_validate_v1_Request &attachment_validate_v1_request) {
+    QString fullPath = QString(_serverConfigs["attachmentValidateV1"][_serverIndices.value("attachmentValidateV1")].URL()+"/1/object/attachment/{pkiAttachmentID}/validate");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_attachment_idPathParam("{");
+        pki_attachment_idPathParam.append("pkiAttachmentID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiAttachmentID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiAttachmentID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_attachment_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_attachment_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "PATCH");
+
+    {
+
+        
+        QByteArray output = attachment_validate_v1_request.asJson().toUtf8();
+        input.request_body.append(output);
+    }
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectAttachmentApi::attachmentValidateV1Callback);
+    connect(this, &ObjectAttachmentApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectAttachmentApi::attachmentValidateV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Attachment_validate_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT attachmentValidateV1Signal(output);
+        Q_EMIT attachmentValidateV1SignalFull(worker, output);
+    } else {
+        Q_EMIT attachmentValidateV1SignalError(output, error_type, error_str);
+        Q_EMIT attachmentValidateV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

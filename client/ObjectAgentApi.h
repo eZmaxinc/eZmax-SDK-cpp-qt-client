@@ -21,6 +21,10 @@
 #include "Agent_batchDownload_v1_Request.h"
 #include "Agent_getAttachments_v1_Response.h"
 #include "Agent_getAutocomplete_v2_Response.h"
+#include "Agent_getCommunicationCount_v1_Response.h"
+#include "Agent_getCommunicationList_v1_Response.h"
+#include "Agent_getCommunicationrecipients_v1_Response.h"
+#include "Agent_getCommunicationsenders_v1_Response.h"
 #include "Agent_getList_v1_Response.h"
 #include "Agent_importIntoEDM_v1_Request.h"
 #include "Agent_importIntoEDM_v1_Response.h"
@@ -86,6 +90,26 @@ public:
     virtual void agentGetAutocompleteV2(const QString &s_selector, const ::Ezmaxapi::OptionalParam<QString> &e_filter_active = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<QString> &s_query = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<Header_Accept_Language>());
 
     /**
+    * @param[in]  pki_agent_id qint32 [required]
+    */
+    virtual void agentGetCommunicationCountV1(const qint32 &pki_agent_id);
+
+    /**
+    * @param[in]  pki_agent_id qint32 [required]
+    */
+    virtual void agentGetCommunicationListV1(const qint32 &pki_agent_id);
+
+    /**
+    * @param[in]  pki_agent_id qint32 [required]
+    */
+    virtual void agentGetCommunicationrecipientsV1(const qint32 &pki_agent_id);
+
+    /**
+    * @param[in]  pki_agent_id qint32 [required]
+    */
+    virtual void agentGetCommunicationsendersV1(const qint32 &pki_agent_id);
+
+    /**
     * @param[in]  e_order_by QString [optional]
     * @param[in]  i_row_max qint32 [optional]
     * @param[in]  i_row_offset qint32 [optional]
@@ -133,6 +157,10 @@ private:
     void agentBatchDownloadV1Callback(HttpRequestWorker *worker);
     void agentGetAttachmentsV1Callback(HttpRequestWorker *worker);
     void agentGetAutocompleteV2Callback(HttpRequestWorker *worker);
+    void agentGetCommunicationCountV1Callback(HttpRequestWorker *worker);
+    void agentGetCommunicationListV1Callback(HttpRequestWorker *worker);
+    void agentGetCommunicationrecipientsV1Callback(HttpRequestWorker *worker);
+    void agentGetCommunicationsendersV1Callback(HttpRequestWorker *worker);
     void agentGetListV1Callback(HttpRequestWorker *worker);
     void agentImportIntoEDMV1Callback(HttpRequestWorker *worker);
 
@@ -141,6 +169,10 @@ Q_SIGNALS:
     void agentBatchDownloadV1Signal(HttpFileElement summary);
     void agentGetAttachmentsV1Signal(Agent_getAttachments_v1_Response summary);
     void agentGetAutocompleteV2Signal(Agent_getAutocomplete_v2_Response summary);
+    void agentGetCommunicationCountV1Signal(Agent_getCommunicationCount_v1_Response summary);
+    void agentGetCommunicationListV1Signal(Agent_getCommunicationList_v1_Response summary);
+    void agentGetCommunicationrecipientsV1Signal(Agent_getCommunicationrecipients_v1_Response summary);
+    void agentGetCommunicationsendersV1Signal(Agent_getCommunicationsenders_v1_Response summary);
     void agentGetListV1Signal(Agent_getList_v1_Response summary);
     void agentImportIntoEDMV1Signal(Agent_importIntoEDM_v1_Response summary);
 
@@ -148,18 +180,30 @@ Q_SIGNALS:
     void agentBatchDownloadV1SignalFull(HttpRequestWorker *worker, HttpFileElement summary);
     void agentGetAttachmentsV1SignalFull(HttpRequestWorker *worker, Agent_getAttachments_v1_Response summary);
     void agentGetAutocompleteV2SignalFull(HttpRequestWorker *worker, Agent_getAutocomplete_v2_Response summary);
+    void agentGetCommunicationCountV1SignalFull(HttpRequestWorker *worker, Agent_getCommunicationCount_v1_Response summary);
+    void agentGetCommunicationListV1SignalFull(HttpRequestWorker *worker, Agent_getCommunicationList_v1_Response summary);
+    void agentGetCommunicationrecipientsV1SignalFull(HttpRequestWorker *worker, Agent_getCommunicationrecipients_v1_Response summary);
+    void agentGetCommunicationsendersV1SignalFull(HttpRequestWorker *worker, Agent_getCommunicationsenders_v1_Response summary);
     void agentGetListV1SignalFull(HttpRequestWorker *worker, Agent_getList_v1_Response summary);
     void agentImportIntoEDMV1SignalFull(HttpRequestWorker *worker, Agent_importIntoEDM_v1_Response summary);
 
     void agentBatchDownloadV1SignalError(HttpFileElement summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void agentGetAttachmentsV1SignalError(Agent_getAttachments_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void agentGetAutocompleteV2SignalError(Agent_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void agentGetCommunicationCountV1SignalError(Agent_getCommunicationCount_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void agentGetCommunicationListV1SignalError(Agent_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void agentGetCommunicationrecipientsV1SignalError(Agent_getCommunicationrecipients_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void agentGetCommunicationsendersV1SignalError(Agent_getCommunicationsenders_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void agentGetListV1SignalError(Agent_getList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void agentImportIntoEDMV1SignalError(Agent_importIntoEDM_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void agentBatchDownloadV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void agentGetAttachmentsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void agentGetAutocompleteV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void agentGetCommunicationCountV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void agentGetCommunicationListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void agentGetCommunicationrecipientsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void agentGetCommunicationsendersV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void agentGetListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void agentImportIntoEDMV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 

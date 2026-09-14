@@ -41,6 +41,14 @@ HEADERS += \
     $${PWD}/Agent_getAttachments_v1_Response_mPayload.h \
     $${PWD}/Agent_getAutocomplete_v2_Response.h \
     $${PWD}/Agent_getAutocomplete_v2_Response_mPayload.h \
+    $${PWD}/Agent_getCommunicationCount_v1_Response.h \
+    $${PWD}/Agent_getCommunicationCount_v1_Response_mPayload.h \
+    $${PWD}/Agent_getCommunicationList_v1_Response.h \
+    $${PWD}/Agent_getCommunicationList_v1_Response_mPayload.h \
+    $${PWD}/Agent_getCommunicationrecipients_v1_Response.h \
+    $${PWD}/Agent_getCommunicationrecipients_v1_Response_mPayload.h \
+    $${PWD}/Agent_getCommunicationsenders_v1_Response.h \
+    $${PWD}/Agent_getCommunicationsenders_v1_Response_mPayload.h \
     $${PWD}/Agent_getList_v1_Response.h \
     $${PWD}/Agent_getList_v1_Response_mPayload.h \
     $${PWD}/Agent_importIntoEDM_v1_Request.h \
@@ -80,11 +88,19 @@ HEADERS += \
     $${PWD}/Apikey_regenerate_v1_Response_mPayload.h \
     $${PWD}/Attachment_Response.h \
     $${PWD}/Attachment_ResponseCompound.h \
+    $${PWD}/Attachment_delete_v1_Response.h \
+    $${PWD}/Attachment_delete_v1_Response_mPayload.h \
     $${PWD}/Attachment_getAttachmentlogs_v1_Response.h \
     $${PWD}/Attachment_getAttachmentlogs_v1_Response_mPayload.h \
     $${PWD}/Attachment_rename_v1_Request.h \
     $${PWD}/Attachment_rename_v1_Response.h \
     $${PWD}/Attachment_rename_v1_Response_mPayload.h \
+    $${PWD}/Attachment_restore_v1_Request.h \
+    $${PWD}/Attachment_restore_v1_Response.h \
+    $${PWD}/Attachment_restore_v1_Response_mPayload.h \
+    $${PWD}/Attachment_validate_v1_Request.h \
+    $${PWD}/Attachment_validate_v1_Response.h \
+    $${PWD}/Attachment_validate_v1_Response_mPayload.h \
     $${PWD}/Attachmentlog_Response.h \
     $${PWD}/Attachmentlog_ResponseCompound.h \
     $${PWD}/Attempt_Response.h \
@@ -114,6 +130,14 @@ HEADERS += \
     $${PWD}/Bankaccount_getAttachments_v1_Response_mPayload.h \
     $${PWD}/Bankaccount_getAutocomplete_v2_Response.h \
     $${PWD}/Bankaccount_getAutocomplete_v2_Response_mPayload.h \
+    $${PWD}/Bankaccount_getCommunicationCount_v1_Response.h \
+    $${PWD}/Bankaccount_getCommunicationCount_v1_Response_mPayload.h \
+    $${PWD}/Bankaccount_getCommunicationList_v1_Response.h \
+    $${PWD}/Bankaccount_getCommunicationList_v1_Response_mPayload.h \
+    $${PWD}/Bankaccount_getCommunicationrecipients_v1_Response.h \
+    $${PWD}/Bankaccount_getCommunicationrecipients_v1_Response_mPayload.h \
+    $${PWD}/Bankaccount_getCommunicationsenders_v1_Response.h \
+    $${PWD}/Bankaccount_getCommunicationsenders_v1_Response_mPayload.h \
     $${PWD}/Bankaccount_importIntoEDM_v1_Request.h \
     $${PWD}/Bankaccount_importIntoEDM_v1_Response.h \
     $${PWD}/Bankaccount_importIntoEDM_v1_Response_mPayload.h \
@@ -168,6 +192,14 @@ HEADERS += \
     $${PWD}/Broker_getAttachments_v1_Response_mPayload.h \
     $${PWD}/Broker_getAutocomplete_v2_Response.h \
     $${PWD}/Broker_getAutocomplete_v2_Response_mPayload.h \
+    $${PWD}/Broker_getCommunicationCount_v1_Response.h \
+    $${PWD}/Broker_getCommunicationCount_v1_Response_mPayload.h \
+    $${PWD}/Broker_getCommunicationList_v1_Response.h \
+    $${PWD}/Broker_getCommunicationList_v1_Response_mPayload.h \
+    $${PWD}/Broker_getCommunicationrecipients_v1_Response.h \
+    $${PWD}/Broker_getCommunicationrecipients_v1_Response_mPayload.h \
+    $${PWD}/Broker_getCommunicationsenders_v1_Response.h \
+    $${PWD}/Broker_getCommunicationsenders_v1_Response_mPayload.h \
     $${PWD}/Broker_getList_v1_Response.h \
     $${PWD}/Broker_getList_v1_Response_mPayload.h \
     $${PWD}/Broker_importIntoEDM_v1_Request.h \
@@ -204,6 +236,14 @@ HEADERS += \
     $${PWD}/Commissionadvance_batchDownload_v1_Request.h \
     $${PWD}/Commissionadvance_getAttachments_v1_Response.h \
     $${PWD}/Commissionadvance_getAttachments_v1_Response_mPayload.h \
+    $${PWD}/Commissionadvance_getCommunicationCount_v1_Response.h \
+    $${PWD}/Commissionadvance_getCommunicationCount_v1_Response_mPayload.h \
+    $${PWD}/Commissionadvance_getCommunicationList_v1_Response.h \
+    $${PWD}/Commissionadvance_getCommunicationList_v1_Response_mPayload.h \
+    $${PWD}/Commissionadvance_getCommunicationrecipients_v1_Response.h \
+    $${PWD}/Commissionadvance_getCommunicationrecipients_v1_Response_mPayload.h \
+    $${PWD}/Commissionadvance_getCommunicationsenders_v1_Response.h \
+    $${PWD}/Commissionadvance_getCommunicationsenders_v1_Response_mPayload.h \
     $${PWD}/Commissionadvance_importIntoEDM_v1_Request.h \
     $${PWD}/Commissionadvance_importIntoEDM_v1_Response.h \
     $${PWD}/Commissionadvance_importIntoEDM_v1_Response_mPayload.h \
@@ -417,6 +457,14 @@ HEADERS += \
     $${PWD}/Customer_getAttachments_v1_Response_mPayload.h \
     $${PWD}/Customer_getAutocomplete_v2_Response.h \
     $${PWD}/Customer_getAutocomplete_v2_Response_mPayload.h \
+    $${PWD}/Customer_getCommunicationCount_v1_Response.h \
+    $${PWD}/Customer_getCommunicationCount_v1_Response_mPayload.h \
+    $${PWD}/Customer_getCommunicationList_v1_Response.h \
+    $${PWD}/Customer_getCommunicationList_v1_Response_mPayload.h \
+    $${PWD}/Customer_getCommunicationrecipients_v1_Response.h \
+    $${PWD}/Customer_getCommunicationrecipients_v1_Response_mPayload.h \
+    $${PWD}/Customer_getCommunicationsenders_v1_Response.h \
+    $${PWD}/Customer_getCommunicationsenders_v1_Response_mPayload.h \
     $${PWD}/Customer_getObject_v2_Response.h \
     $${PWD}/Customer_getObject_v2_Response_mPayload.h \
     $${PWD}/Customer_importIntoEDM_v1_Request.h \
@@ -428,18 +476,42 @@ HEADERS += \
     $${PWD}/Deposit_batchDownload_v1_Request.h \
     $${PWD}/Deposit_getAttachments_v1_Response.h \
     $${PWD}/Deposit_getAttachments_v1_Response_mPayload.h \
+    $${PWD}/Deposit_getCommunicationCount_v1_Response.h \
+    $${PWD}/Deposit_getCommunicationCount_v1_Response_mPayload.h \
+    $${PWD}/Deposit_getCommunicationList_v1_Response.h \
+    $${PWD}/Deposit_getCommunicationList_v1_Response_mPayload.h \
+    $${PWD}/Deposit_getCommunicationrecipients_v1_Response.h \
+    $${PWD}/Deposit_getCommunicationrecipients_v1_Response_mPayload.h \
+    $${PWD}/Deposit_getCommunicationsenders_v1_Response.h \
+    $${PWD}/Deposit_getCommunicationsenders_v1_Response_mPayload.h \
     $${PWD}/Deposit_importIntoEDM_v1_Request.h \
     $${PWD}/Deposit_importIntoEDM_v1_Response.h \
     $${PWD}/Deposit_importIntoEDM_v1_Response_mPayload.h \
     $${PWD}/Deposittransitcheque_batchDownload_v1_Request.h \
     $${PWD}/Deposittransitcheque_getAttachments_v1_Response.h \
     $${PWD}/Deposittransitcheque_getAttachments_v1_Response_mPayload.h \
+    $${PWD}/Deposittransitcheque_getCommunicationCount_v1_Response.h \
+    $${PWD}/Deposittransitcheque_getCommunicationCount_v1_Response_mPayload.h \
+    $${PWD}/Deposittransitcheque_getCommunicationList_v1_Response.h \
+    $${PWD}/Deposittransitcheque_getCommunicationList_v1_Response_mPayload.h \
+    $${PWD}/Deposittransitcheque_getCommunicationrecipients_v1_Response.h \
+    $${PWD}/Deposittransitcheque_getCommunicationrecipients_v1_Response_mPayload.h \
+    $${PWD}/Deposittransitcheque_getCommunicationsenders_v1_Response.h \
+    $${PWD}/Deposittransitcheque_getCommunicationsenders_v1_Response_mPayload.h \
     $${PWD}/Deposittransitcheque_importIntoEDM_v1_Request.h \
     $${PWD}/Deposittransitcheque_importIntoEDM_v1_Response.h \
     $${PWD}/Deposittransitcheque_importIntoEDM_v1_Response_mPayload.h \
     $${PWD}/Disclosure_batchDownload_v1_Request.h \
     $${PWD}/Disclosure_getAttachments_v1_Response.h \
     $${PWD}/Disclosure_getAttachments_v1_Response_mPayload.h \
+    $${PWD}/Disclosure_getCommunicationCount_v1_Response.h \
+    $${PWD}/Disclosure_getCommunicationCount_v1_Response_mPayload.h \
+    $${PWD}/Disclosure_getCommunicationList_v1_Response.h \
+    $${PWD}/Disclosure_getCommunicationList_v1_Response_mPayload.h \
+    $${PWD}/Disclosure_getCommunicationrecipients_v1_Response.h \
+    $${PWD}/Disclosure_getCommunicationrecipients_v1_Response_mPayload.h \
+    $${PWD}/Disclosure_getCommunicationsenders_v1_Response.h \
+    $${PWD}/Disclosure_getCommunicationsenders_v1_Response_mPayload.h \
     $${PWD}/Disclosure_importIntoEDM_v1_Request.h \
     $${PWD}/Disclosure_importIntoEDM_v1_Response.h \
     $${PWD}/Disclosure_importIntoEDM_v1_Response_mPayload.h \
@@ -520,6 +592,14 @@ HEADERS += \
     $${PWD}/Employee_batchDownload_v1_Request.h \
     $${PWD}/Employee_getAttachments_v1_Response.h \
     $${PWD}/Employee_getAttachments_v1_Response_mPayload.h \
+    $${PWD}/Employee_getCommunicationCount_v1_Response.h \
+    $${PWD}/Employee_getCommunicationCount_v1_Response_mPayload.h \
+    $${PWD}/Employee_getCommunicationList_v1_Response.h \
+    $${PWD}/Employee_getCommunicationList_v1_Response_mPayload.h \
+    $${PWD}/Employee_getCommunicationrecipients_v1_Response.h \
+    $${PWD}/Employee_getCommunicationrecipients_v1_Response_mPayload.h \
+    $${PWD}/Employee_getCommunicationsenders_v1_Response.h \
+    $${PWD}/Employee_getCommunicationsenders_v1_Response_mPayload.h \
     $${PWD}/Employee_getList_v1_Response.h \
     $${PWD}/Employee_getList_v1_Response_mPayload.h \
     $${PWD}/Employee_importIntoEDM_v1_Request.h \
@@ -534,6 +614,14 @@ HEADERS += \
     $${PWD}/Externalbroker_batchDownload_v1_Request.h \
     $${PWD}/Externalbroker_getAttachments_v1_Response.h \
     $${PWD}/Externalbroker_getAttachments_v1_Response_mPayload.h \
+    $${PWD}/Externalbroker_getCommunicationCount_v1_Response.h \
+    $${PWD}/Externalbroker_getCommunicationCount_v1_Response_mPayload.h \
+    $${PWD}/Externalbroker_getCommunicationList_v1_Response.h \
+    $${PWD}/Externalbroker_getCommunicationList_v1_Response_mPayload.h \
+    $${PWD}/Externalbroker_getCommunicationrecipients_v1_Response.h \
+    $${PWD}/Externalbroker_getCommunicationrecipients_v1_Response_mPayload.h \
+    $${PWD}/Externalbroker_getCommunicationsenders_v1_Response.h \
+    $${PWD}/Externalbroker_getCommunicationsenders_v1_Response_mPayload.h \
     $${PWD}/Externalbroker_importIntoEDM_v1_Request.h \
     $${PWD}/Externalbroker_importIntoEDM_v1_Response.h \
     $${PWD}/Externalbroker_importIntoEDM_v1_Response_mPayload.h \
@@ -2442,6 +2530,14 @@ SOURCES += \
     $${PWD}/Agent_getAttachments_v1_Response_mPayload.cpp \
     $${PWD}/Agent_getAutocomplete_v2_Response.cpp \
     $${PWD}/Agent_getAutocomplete_v2_Response_mPayload.cpp \
+    $${PWD}/Agent_getCommunicationCount_v1_Response.cpp \
+    $${PWD}/Agent_getCommunicationCount_v1_Response_mPayload.cpp \
+    $${PWD}/Agent_getCommunicationList_v1_Response.cpp \
+    $${PWD}/Agent_getCommunicationList_v1_Response_mPayload.cpp \
+    $${PWD}/Agent_getCommunicationrecipients_v1_Response.cpp \
+    $${PWD}/Agent_getCommunicationrecipients_v1_Response_mPayload.cpp \
+    $${PWD}/Agent_getCommunicationsenders_v1_Response.cpp \
+    $${PWD}/Agent_getCommunicationsenders_v1_Response_mPayload.cpp \
     $${PWD}/Agent_getList_v1_Response.cpp \
     $${PWD}/Agent_getList_v1_Response_mPayload.cpp \
     $${PWD}/Agent_importIntoEDM_v1_Request.cpp \
@@ -2481,11 +2577,19 @@ SOURCES += \
     $${PWD}/Apikey_regenerate_v1_Response_mPayload.cpp \
     $${PWD}/Attachment_Response.cpp \
     $${PWD}/Attachment_ResponseCompound.cpp \
+    $${PWD}/Attachment_delete_v1_Response.cpp \
+    $${PWD}/Attachment_delete_v1_Response_mPayload.cpp \
     $${PWD}/Attachment_getAttachmentlogs_v1_Response.cpp \
     $${PWD}/Attachment_getAttachmentlogs_v1_Response_mPayload.cpp \
     $${PWD}/Attachment_rename_v1_Request.cpp \
     $${PWD}/Attachment_rename_v1_Response.cpp \
     $${PWD}/Attachment_rename_v1_Response_mPayload.cpp \
+    $${PWD}/Attachment_restore_v1_Request.cpp \
+    $${PWD}/Attachment_restore_v1_Response.cpp \
+    $${PWD}/Attachment_restore_v1_Response_mPayload.cpp \
+    $${PWD}/Attachment_validate_v1_Request.cpp \
+    $${PWD}/Attachment_validate_v1_Response.cpp \
+    $${PWD}/Attachment_validate_v1_Response_mPayload.cpp \
     $${PWD}/Attachmentlog_Response.cpp \
     $${PWD}/Attachmentlog_ResponseCompound.cpp \
     $${PWD}/Attempt_Response.cpp \
@@ -2515,6 +2619,14 @@ SOURCES += \
     $${PWD}/Bankaccount_getAttachments_v1_Response_mPayload.cpp \
     $${PWD}/Bankaccount_getAutocomplete_v2_Response.cpp \
     $${PWD}/Bankaccount_getAutocomplete_v2_Response_mPayload.cpp \
+    $${PWD}/Bankaccount_getCommunicationCount_v1_Response.cpp \
+    $${PWD}/Bankaccount_getCommunicationCount_v1_Response_mPayload.cpp \
+    $${PWD}/Bankaccount_getCommunicationList_v1_Response.cpp \
+    $${PWD}/Bankaccount_getCommunicationList_v1_Response_mPayload.cpp \
+    $${PWD}/Bankaccount_getCommunicationrecipients_v1_Response.cpp \
+    $${PWD}/Bankaccount_getCommunicationrecipients_v1_Response_mPayload.cpp \
+    $${PWD}/Bankaccount_getCommunicationsenders_v1_Response.cpp \
+    $${PWD}/Bankaccount_getCommunicationsenders_v1_Response_mPayload.cpp \
     $${PWD}/Bankaccount_importIntoEDM_v1_Request.cpp \
     $${PWD}/Bankaccount_importIntoEDM_v1_Response.cpp \
     $${PWD}/Bankaccount_importIntoEDM_v1_Response_mPayload.cpp \
@@ -2569,6 +2681,14 @@ SOURCES += \
     $${PWD}/Broker_getAttachments_v1_Response_mPayload.cpp \
     $${PWD}/Broker_getAutocomplete_v2_Response.cpp \
     $${PWD}/Broker_getAutocomplete_v2_Response_mPayload.cpp \
+    $${PWD}/Broker_getCommunicationCount_v1_Response.cpp \
+    $${PWD}/Broker_getCommunicationCount_v1_Response_mPayload.cpp \
+    $${PWD}/Broker_getCommunicationList_v1_Response.cpp \
+    $${PWD}/Broker_getCommunicationList_v1_Response_mPayload.cpp \
+    $${PWD}/Broker_getCommunicationrecipients_v1_Response.cpp \
+    $${PWD}/Broker_getCommunicationrecipients_v1_Response_mPayload.cpp \
+    $${PWD}/Broker_getCommunicationsenders_v1_Response.cpp \
+    $${PWD}/Broker_getCommunicationsenders_v1_Response_mPayload.cpp \
     $${PWD}/Broker_getList_v1_Response.cpp \
     $${PWD}/Broker_getList_v1_Response_mPayload.cpp \
     $${PWD}/Broker_importIntoEDM_v1_Request.cpp \
@@ -2605,6 +2725,14 @@ SOURCES += \
     $${PWD}/Commissionadvance_batchDownload_v1_Request.cpp \
     $${PWD}/Commissionadvance_getAttachments_v1_Response.cpp \
     $${PWD}/Commissionadvance_getAttachments_v1_Response_mPayload.cpp \
+    $${PWD}/Commissionadvance_getCommunicationCount_v1_Response.cpp \
+    $${PWD}/Commissionadvance_getCommunicationCount_v1_Response_mPayload.cpp \
+    $${PWD}/Commissionadvance_getCommunicationList_v1_Response.cpp \
+    $${PWD}/Commissionadvance_getCommunicationList_v1_Response_mPayload.cpp \
+    $${PWD}/Commissionadvance_getCommunicationrecipients_v1_Response.cpp \
+    $${PWD}/Commissionadvance_getCommunicationrecipients_v1_Response_mPayload.cpp \
+    $${PWD}/Commissionadvance_getCommunicationsenders_v1_Response.cpp \
+    $${PWD}/Commissionadvance_getCommunicationsenders_v1_Response_mPayload.cpp \
     $${PWD}/Commissionadvance_importIntoEDM_v1_Request.cpp \
     $${PWD}/Commissionadvance_importIntoEDM_v1_Response.cpp \
     $${PWD}/Commissionadvance_importIntoEDM_v1_Response_mPayload.cpp \
@@ -2818,6 +2946,14 @@ SOURCES += \
     $${PWD}/Customer_getAttachments_v1_Response_mPayload.cpp \
     $${PWD}/Customer_getAutocomplete_v2_Response.cpp \
     $${PWD}/Customer_getAutocomplete_v2_Response_mPayload.cpp \
+    $${PWD}/Customer_getCommunicationCount_v1_Response.cpp \
+    $${PWD}/Customer_getCommunicationCount_v1_Response_mPayload.cpp \
+    $${PWD}/Customer_getCommunicationList_v1_Response.cpp \
+    $${PWD}/Customer_getCommunicationList_v1_Response_mPayload.cpp \
+    $${PWD}/Customer_getCommunicationrecipients_v1_Response.cpp \
+    $${PWD}/Customer_getCommunicationrecipients_v1_Response_mPayload.cpp \
+    $${PWD}/Customer_getCommunicationsenders_v1_Response.cpp \
+    $${PWD}/Customer_getCommunicationsenders_v1_Response_mPayload.cpp \
     $${PWD}/Customer_getObject_v2_Response.cpp \
     $${PWD}/Customer_getObject_v2_Response_mPayload.cpp \
     $${PWD}/Customer_importIntoEDM_v1_Request.cpp \
@@ -2829,18 +2965,42 @@ SOURCES += \
     $${PWD}/Deposit_batchDownload_v1_Request.cpp \
     $${PWD}/Deposit_getAttachments_v1_Response.cpp \
     $${PWD}/Deposit_getAttachments_v1_Response_mPayload.cpp \
+    $${PWD}/Deposit_getCommunicationCount_v1_Response.cpp \
+    $${PWD}/Deposit_getCommunicationCount_v1_Response_mPayload.cpp \
+    $${PWD}/Deposit_getCommunicationList_v1_Response.cpp \
+    $${PWD}/Deposit_getCommunicationList_v1_Response_mPayload.cpp \
+    $${PWD}/Deposit_getCommunicationrecipients_v1_Response.cpp \
+    $${PWD}/Deposit_getCommunicationrecipients_v1_Response_mPayload.cpp \
+    $${PWD}/Deposit_getCommunicationsenders_v1_Response.cpp \
+    $${PWD}/Deposit_getCommunicationsenders_v1_Response_mPayload.cpp \
     $${PWD}/Deposit_importIntoEDM_v1_Request.cpp \
     $${PWD}/Deposit_importIntoEDM_v1_Response.cpp \
     $${PWD}/Deposit_importIntoEDM_v1_Response_mPayload.cpp \
     $${PWD}/Deposittransitcheque_batchDownload_v1_Request.cpp \
     $${PWD}/Deposittransitcheque_getAttachments_v1_Response.cpp \
     $${PWD}/Deposittransitcheque_getAttachments_v1_Response_mPayload.cpp \
+    $${PWD}/Deposittransitcheque_getCommunicationCount_v1_Response.cpp \
+    $${PWD}/Deposittransitcheque_getCommunicationCount_v1_Response_mPayload.cpp \
+    $${PWD}/Deposittransitcheque_getCommunicationList_v1_Response.cpp \
+    $${PWD}/Deposittransitcheque_getCommunicationList_v1_Response_mPayload.cpp \
+    $${PWD}/Deposittransitcheque_getCommunicationrecipients_v1_Response.cpp \
+    $${PWD}/Deposittransitcheque_getCommunicationrecipients_v1_Response_mPayload.cpp \
+    $${PWD}/Deposittransitcheque_getCommunicationsenders_v1_Response.cpp \
+    $${PWD}/Deposittransitcheque_getCommunicationsenders_v1_Response_mPayload.cpp \
     $${PWD}/Deposittransitcheque_importIntoEDM_v1_Request.cpp \
     $${PWD}/Deposittransitcheque_importIntoEDM_v1_Response.cpp \
     $${PWD}/Deposittransitcheque_importIntoEDM_v1_Response_mPayload.cpp \
     $${PWD}/Disclosure_batchDownload_v1_Request.cpp \
     $${PWD}/Disclosure_getAttachments_v1_Response.cpp \
     $${PWD}/Disclosure_getAttachments_v1_Response_mPayload.cpp \
+    $${PWD}/Disclosure_getCommunicationCount_v1_Response.cpp \
+    $${PWD}/Disclosure_getCommunicationCount_v1_Response_mPayload.cpp \
+    $${PWD}/Disclosure_getCommunicationList_v1_Response.cpp \
+    $${PWD}/Disclosure_getCommunicationList_v1_Response_mPayload.cpp \
+    $${PWD}/Disclosure_getCommunicationrecipients_v1_Response.cpp \
+    $${PWD}/Disclosure_getCommunicationrecipients_v1_Response_mPayload.cpp \
+    $${PWD}/Disclosure_getCommunicationsenders_v1_Response.cpp \
+    $${PWD}/Disclosure_getCommunicationsenders_v1_Response_mPayload.cpp \
     $${PWD}/Disclosure_importIntoEDM_v1_Request.cpp \
     $${PWD}/Disclosure_importIntoEDM_v1_Response.cpp \
     $${PWD}/Disclosure_importIntoEDM_v1_Response_mPayload.cpp \
@@ -2921,6 +3081,14 @@ SOURCES += \
     $${PWD}/Employee_batchDownload_v1_Request.cpp \
     $${PWD}/Employee_getAttachments_v1_Response.cpp \
     $${PWD}/Employee_getAttachments_v1_Response_mPayload.cpp \
+    $${PWD}/Employee_getCommunicationCount_v1_Response.cpp \
+    $${PWD}/Employee_getCommunicationCount_v1_Response_mPayload.cpp \
+    $${PWD}/Employee_getCommunicationList_v1_Response.cpp \
+    $${PWD}/Employee_getCommunicationList_v1_Response_mPayload.cpp \
+    $${PWD}/Employee_getCommunicationrecipients_v1_Response.cpp \
+    $${PWD}/Employee_getCommunicationrecipients_v1_Response_mPayload.cpp \
+    $${PWD}/Employee_getCommunicationsenders_v1_Response.cpp \
+    $${PWD}/Employee_getCommunicationsenders_v1_Response_mPayload.cpp \
     $${PWD}/Employee_getList_v1_Response.cpp \
     $${PWD}/Employee_getList_v1_Response_mPayload.cpp \
     $${PWD}/Employee_importIntoEDM_v1_Request.cpp \
@@ -2935,6 +3103,14 @@ SOURCES += \
     $${PWD}/Externalbroker_batchDownload_v1_Request.cpp \
     $${PWD}/Externalbroker_getAttachments_v1_Response.cpp \
     $${PWD}/Externalbroker_getAttachments_v1_Response_mPayload.cpp \
+    $${PWD}/Externalbroker_getCommunicationCount_v1_Response.cpp \
+    $${PWD}/Externalbroker_getCommunicationCount_v1_Response_mPayload.cpp \
+    $${PWD}/Externalbroker_getCommunicationList_v1_Response.cpp \
+    $${PWD}/Externalbroker_getCommunicationList_v1_Response_mPayload.cpp \
+    $${PWD}/Externalbroker_getCommunicationrecipients_v1_Response.cpp \
+    $${PWD}/Externalbroker_getCommunicationrecipients_v1_Response_mPayload.cpp \
+    $${PWD}/Externalbroker_getCommunicationsenders_v1_Response.cpp \
+    $${PWD}/Externalbroker_getCommunicationsenders_v1_Response_mPayload.cpp \
     $${PWD}/Externalbroker_importIntoEDM_v1_Request.cpp \
     $${PWD}/Externalbroker_importIntoEDM_v1_Response.cpp \
     $${PWD}/Externalbroker_importIntoEDM_v1_Response_mPayload.cpp \

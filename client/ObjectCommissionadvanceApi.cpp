@@ -63,6 +63,14 @@ void ObjectCommissionadvanceApi::initializeServerConfigs() {
     _serverIndices.insert("commissionadvanceBatchDownloadV1", 0);
     _serverConfigs.insert("commissionadvanceGetAttachmentsV1", defaultConf);
     _serverIndices.insert("commissionadvanceGetAttachmentsV1", 0);
+    _serverConfigs.insert("commissionadvanceGetCommunicationCountV1", defaultConf);
+    _serverIndices.insert("commissionadvanceGetCommunicationCountV1", 0);
+    _serverConfigs.insert("commissionadvanceGetCommunicationListV1", defaultConf);
+    _serverIndices.insert("commissionadvanceGetCommunicationListV1", 0);
+    _serverConfigs.insert("commissionadvanceGetCommunicationrecipientsV1", defaultConf);
+    _serverIndices.insert("commissionadvanceGetCommunicationrecipientsV1", 0);
+    _serverConfigs.insert("commissionadvanceGetCommunicationsendersV1", defaultConf);
+    _serverIndices.insert("commissionadvanceGetCommunicationsendersV1", 0);
     _serverConfigs.insert("commissionadvanceImportIntoEDMV1", defaultConf);
     _serverIndices.insert("commissionadvanceImportIntoEDMV1", 0);
 }
@@ -372,6 +380,254 @@ void ObjectCommissionadvanceApi::commissionadvanceGetAttachmentsV1Callback(HttpR
     } else {
         Q_EMIT commissionadvanceGetAttachmentsV1SignalError(output, error_type, error_str);
         Q_EMIT commissionadvanceGetAttachmentsV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectCommissionadvanceApi::commissionadvanceGetCommunicationCountV1(const qint32 &pki_commissionadvance_id) {
+    QString fullPath = QString(_serverConfigs["commissionadvanceGetCommunicationCountV1"][_serverIndices.value("commissionadvanceGetCommunicationCountV1")].URL()+"/1/object/commissionadvance/{pkiCommissionadvanceID}/getCommunicationCount");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_commissionadvance_idPathParam("{");
+        pki_commissionadvance_idPathParam.append("pkiCommissionadvanceID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiCommissionadvanceID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiCommissionadvanceID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_commissionadvance_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_commissionadvance_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectCommissionadvanceApi::commissionadvanceGetCommunicationCountV1Callback);
+    connect(this, &ObjectCommissionadvanceApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectCommissionadvanceApi::commissionadvanceGetCommunicationCountV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Commissionadvance_getCommunicationCount_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT commissionadvanceGetCommunicationCountV1Signal(output);
+        Q_EMIT commissionadvanceGetCommunicationCountV1SignalFull(worker, output);
+    } else {
+        Q_EMIT commissionadvanceGetCommunicationCountV1SignalError(output, error_type, error_str);
+        Q_EMIT commissionadvanceGetCommunicationCountV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectCommissionadvanceApi::commissionadvanceGetCommunicationListV1(const qint32 &pki_commissionadvance_id) {
+    QString fullPath = QString(_serverConfigs["commissionadvanceGetCommunicationListV1"][_serverIndices.value("commissionadvanceGetCommunicationListV1")].URL()+"/1/object/commissionadvance/{pkiCommissionadvanceID}/getCommunicationList");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_commissionadvance_idPathParam("{");
+        pki_commissionadvance_idPathParam.append("pkiCommissionadvanceID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiCommissionadvanceID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiCommissionadvanceID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_commissionadvance_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_commissionadvance_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectCommissionadvanceApi::commissionadvanceGetCommunicationListV1Callback);
+    connect(this, &ObjectCommissionadvanceApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectCommissionadvanceApi::commissionadvanceGetCommunicationListV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Commissionadvance_getCommunicationList_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT commissionadvanceGetCommunicationListV1Signal(output);
+        Q_EMIT commissionadvanceGetCommunicationListV1SignalFull(worker, output);
+    } else {
+        Q_EMIT commissionadvanceGetCommunicationListV1SignalError(output, error_type, error_str);
+        Q_EMIT commissionadvanceGetCommunicationListV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectCommissionadvanceApi::commissionadvanceGetCommunicationrecipientsV1(const qint32 &pki_commissionadvance_id) {
+    QString fullPath = QString(_serverConfigs["commissionadvanceGetCommunicationrecipientsV1"][_serverIndices.value("commissionadvanceGetCommunicationrecipientsV1")].URL()+"/1/object/commissionadvance/{pkiCommissionadvanceID}/getCommunicationrecipients");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_commissionadvance_idPathParam("{");
+        pki_commissionadvance_idPathParam.append("pkiCommissionadvanceID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiCommissionadvanceID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiCommissionadvanceID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_commissionadvance_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_commissionadvance_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectCommissionadvanceApi::commissionadvanceGetCommunicationrecipientsV1Callback);
+    connect(this, &ObjectCommissionadvanceApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectCommissionadvanceApi::commissionadvanceGetCommunicationrecipientsV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Commissionadvance_getCommunicationrecipients_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT commissionadvanceGetCommunicationrecipientsV1Signal(output);
+        Q_EMIT commissionadvanceGetCommunicationrecipientsV1SignalFull(worker, output);
+    } else {
+        Q_EMIT commissionadvanceGetCommunicationrecipientsV1SignalError(output, error_type, error_str);
+        Q_EMIT commissionadvanceGetCommunicationrecipientsV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectCommissionadvanceApi::commissionadvanceGetCommunicationsendersV1(const qint32 &pki_commissionadvance_id) {
+    QString fullPath = QString(_serverConfigs["commissionadvanceGetCommunicationsendersV1"][_serverIndices.value("commissionadvanceGetCommunicationsendersV1")].URL()+"/1/object/commissionadvance/{pkiCommissionadvanceID}/getCommunicationsenders");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_commissionadvance_idPathParam("{");
+        pki_commissionadvance_idPathParam.append("pkiCommissionadvanceID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiCommissionadvanceID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiCommissionadvanceID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_commissionadvance_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_commissionadvance_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectCommissionadvanceApi::commissionadvanceGetCommunicationsendersV1Callback);
+    connect(this, &ObjectCommissionadvanceApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectCommissionadvanceApi::commissionadvanceGetCommunicationsendersV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Commissionadvance_getCommunicationsenders_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT commissionadvanceGetCommunicationsendersV1Signal(output);
+        Q_EMIT commissionadvanceGetCommunicationsendersV1SignalFull(worker, output);
+    } else {
+        Q_EMIT commissionadvanceGetCommunicationsendersV1SignalError(output, error_type, error_str);
+        Q_EMIT commissionadvanceGetCommunicationsendersV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

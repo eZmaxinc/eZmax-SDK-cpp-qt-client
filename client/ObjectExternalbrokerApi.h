@@ -21,6 +21,10 @@
 #include "Common_Response_Error.h"
 #include "Externalbroker_batchDownload_v1_Request.h"
 #include "Externalbroker_getAttachments_v1_Response.h"
+#include "Externalbroker_getCommunicationCount_v1_Response.h"
+#include "Externalbroker_getCommunicationList_v1_Response.h"
+#include "Externalbroker_getCommunicationrecipients_v1_Response.h"
+#include "Externalbroker_getCommunicationsenders_v1_Response.h"
 #include "Externalbroker_importIntoEDM_v1_Request.h"
 #include "Externalbroker_importIntoEDM_v1_Response.h"
 #include "HttpFileElement.h"
@@ -76,6 +80,26 @@ public:
 
     /**
     * @param[in]  pki_externalbroker_id qint32 [required]
+    */
+    virtual void externalbrokerGetCommunicationCountV1(const qint32 &pki_externalbroker_id);
+
+    /**
+    * @param[in]  pki_externalbroker_id qint32 [required]
+    */
+    virtual void externalbrokerGetCommunicationListV1(const qint32 &pki_externalbroker_id);
+
+    /**
+    * @param[in]  pki_externalbroker_id qint32 [required]
+    */
+    virtual void externalbrokerGetCommunicationrecipientsV1(const qint32 &pki_externalbroker_id);
+
+    /**
+    * @param[in]  pki_externalbroker_id qint32 [required]
+    */
+    virtual void externalbrokerGetCommunicationsendersV1(const qint32 &pki_externalbroker_id);
+
+    /**
+    * @param[in]  pki_externalbroker_id qint32 [required]
     * @param[in]  externalbroker_import_into_edm_v1_request Externalbroker_importIntoEDM_v1_Request [required]
     */
     virtual void externalbrokerImportIntoEDMV1(const qint32 &pki_externalbroker_id, const Externalbroker_importIntoEDM_v1_Request &externalbroker_import_into_edm_v1_request);
@@ -112,25 +136,45 @@ private:
 
     void externalbrokerBatchDownloadV1Callback(HttpRequestWorker *worker);
     void externalbrokerGetAttachmentsV1Callback(HttpRequestWorker *worker);
+    void externalbrokerGetCommunicationCountV1Callback(HttpRequestWorker *worker);
+    void externalbrokerGetCommunicationListV1Callback(HttpRequestWorker *worker);
+    void externalbrokerGetCommunicationrecipientsV1Callback(HttpRequestWorker *worker);
+    void externalbrokerGetCommunicationsendersV1Callback(HttpRequestWorker *worker);
     void externalbrokerImportIntoEDMV1Callback(HttpRequestWorker *worker);
 
 Q_SIGNALS:
 
     void externalbrokerBatchDownloadV1Signal(HttpFileElement summary);
     void externalbrokerGetAttachmentsV1Signal(Externalbroker_getAttachments_v1_Response summary);
+    void externalbrokerGetCommunicationCountV1Signal(Externalbroker_getCommunicationCount_v1_Response summary);
+    void externalbrokerGetCommunicationListV1Signal(Externalbroker_getCommunicationList_v1_Response summary);
+    void externalbrokerGetCommunicationrecipientsV1Signal(Externalbroker_getCommunicationrecipients_v1_Response summary);
+    void externalbrokerGetCommunicationsendersV1Signal(Externalbroker_getCommunicationsenders_v1_Response summary);
     void externalbrokerImportIntoEDMV1Signal(Externalbroker_importIntoEDM_v1_Response summary);
 
 
     void externalbrokerBatchDownloadV1SignalFull(HttpRequestWorker *worker, HttpFileElement summary);
     void externalbrokerGetAttachmentsV1SignalFull(HttpRequestWorker *worker, Externalbroker_getAttachments_v1_Response summary);
+    void externalbrokerGetCommunicationCountV1SignalFull(HttpRequestWorker *worker, Externalbroker_getCommunicationCount_v1_Response summary);
+    void externalbrokerGetCommunicationListV1SignalFull(HttpRequestWorker *worker, Externalbroker_getCommunicationList_v1_Response summary);
+    void externalbrokerGetCommunicationrecipientsV1SignalFull(HttpRequestWorker *worker, Externalbroker_getCommunicationrecipients_v1_Response summary);
+    void externalbrokerGetCommunicationsendersV1SignalFull(HttpRequestWorker *worker, Externalbroker_getCommunicationsenders_v1_Response summary);
     void externalbrokerImportIntoEDMV1SignalFull(HttpRequestWorker *worker, Externalbroker_importIntoEDM_v1_Response summary);
 
     void externalbrokerBatchDownloadV1SignalError(HttpFileElement summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void externalbrokerGetAttachmentsV1SignalError(Externalbroker_getAttachments_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void externalbrokerGetCommunicationCountV1SignalError(Externalbroker_getCommunicationCount_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void externalbrokerGetCommunicationListV1SignalError(Externalbroker_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void externalbrokerGetCommunicationrecipientsV1SignalError(Externalbroker_getCommunicationrecipients_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void externalbrokerGetCommunicationsendersV1SignalError(Externalbroker_getCommunicationsenders_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void externalbrokerImportIntoEDMV1SignalError(Externalbroker_importIntoEDM_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void externalbrokerBatchDownloadV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void externalbrokerGetAttachmentsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void externalbrokerGetCommunicationCountV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void externalbrokerGetCommunicationListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void externalbrokerGetCommunicationrecipientsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void externalbrokerGetCommunicationsendersV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void externalbrokerImportIntoEDMV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();

@@ -65,6 +65,14 @@ void ObjectAgentApi::initializeServerConfigs() {
     _serverIndices.insert("agentGetAttachmentsV1", 0);
     _serverConfigs.insert("agentGetAutocompleteV2", defaultConf);
     _serverIndices.insert("agentGetAutocompleteV2", 0);
+    _serverConfigs.insert("agentGetCommunicationCountV1", defaultConf);
+    _serverIndices.insert("agentGetCommunicationCountV1", 0);
+    _serverConfigs.insert("agentGetCommunicationListV1", defaultConf);
+    _serverIndices.insert("agentGetCommunicationListV1", 0);
+    _serverConfigs.insert("agentGetCommunicationrecipientsV1", defaultConf);
+    _serverIndices.insert("agentGetCommunicationrecipientsV1", 0);
+    _serverConfigs.insert("agentGetCommunicationsendersV1", defaultConf);
+    _serverIndices.insert("agentGetCommunicationsendersV1", 0);
     _serverConfigs.insert("agentGetListV1", defaultConf);
     _serverIndices.insert("agentGetListV1", 0);
     _serverConfigs.insert("agentImportIntoEDMV1", defaultConf);
@@ -513,6 +521,254 @@ void ObjectAgentApi::agentGetAutocompleteV2Callback(HttpRequestWorker *worker) {
     } else {
         Q_EMIT agentGetAutocompleteV2SignalError(output, error_type, error_str);
         Q_EMIT agentGetAutocompleteV2SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectAgentApi::agentGetCommunicationCountV1(const qint32 &pki_agent_id) {
+    QString fullPath = QString(_serverConfigs["agentGetCommunicationCountV1"][_serverIndices.value("agentGetCommunicationCountV1")].URL()+"/1/object/agent/{pkiAgentID}/getCommunicationCount");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_agent_idPathParam("{");
+        pki_agent_idPathParam.append("pkiAgentID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiAgentID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiAgentID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_agent_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_agent_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectAgentApi::agentGetCommunicationCountV1Callback);
+    connect(this, &ObjectAgentApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectAgentApi::agentGetCommunicationCountV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Agent_getCommunicationCount_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT agentGetCommunicationCountV1Signal(output);
+        Q_EMIT agentGetCommunicationCountV1SignalFull(worker, output);
+    } else {
+        Q_EMIT agentGetCommunicationCountV1SignalError(output, error_type, error_str);
+        Q_EMIT agentGetCommunicationCountV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectAgentApi::agentGetCommunicationListV1(const qint32 &pki_agent_id) {
+    QString fullPath = QString(_serverConfigs["agentGetCommunicationListV1"][_serverIndices.value("agentGetCommunicationListV1")].URL()+"/1/object/agent/{pkiAgentID}/getCommunicationList");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_agent_idPathParam("{");
+        pki_agent_idPathParam.append("pkiAgentID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiAgentID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiAgentID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_agent_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_agent_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectAgentApi::agentGetCommunicationListV1Callback);
+    connect(this, &ObjectAgentApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectAgentApi::agentGetCommunicationListV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Agent_getCommunicationList_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT agentGetCommunicationListV1Signal(output);
+        Q_EMIT agentGetCommunicationListV1SignalFull(worker, output);
+    } else {
+        Q_EMIT agentGetCommunicationListV1SignalError(output, error_type, error_str);
+        Q_EMIT agentGetCommunicationListV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectAgentApi::agentGetCommunicationrecipientsV1(const qint32 &pki_agent_id) {
+    QString fullPath = QString(_serverConfigs["agentGetCommunicationrecipientsV1"][_serverIndices.value("agentGetCommunicationrecipientsV1")].URL()+"/1/object/agent/{pkiAgentID}/getCommunicationrecipients");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_agent_idPathParam("{");
+        pki_agent_idPathParam.append("pkiAgentID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiAgentID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiAgentID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_agent_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_agent_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectAgentApi::agentGetCommunicationrecipientsV1Callback);
+    connect(this, &ObjectAgentApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectAgentApi::agentGetCommunicationrecipientsV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Agent_getCommunicationrecipients_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT agentGetCommunicationrecipientsV1Signal(output);
+        Q_EMIT agentGetCommunicationrecipientsV1SignalFull(worker, output);
+    } else {
+        Q_EMIT agentGetCommunicationrecipientsV1SignalError(output, error_type, error_str);
+        Q_EMIT agentGetCommunicationrecipientsV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectAgentApi::agentGetCommunicationsendersV1(const qint32 &pki_agent_id) {
+    QString fullPath = QString(_serverConfigs["agentGetCommunicationsendersV1"][_serverIndices.value("agentGetCommunicationsendersV1")].URL()+"/1/object/agent/{pkiAgentID}/getCommunicationsenders");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_agent_idPathParam("{");
+        pki_agent_idPathParam.append("pkiAgentID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiAgentID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiAgentID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_agent_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_agent_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectAgentApi::agentGetCommunicationsendersV1Callback);
+    connect(this, &ObjectAgentApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectAgentApi::agentGetCommunicationsendersV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Agent_getCommunicationsenders_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT agentGetCommunicationsendersV1Signal(output);
+        Q_EMIT agentGetCommunicationsendersV1SignalFull(worker, output);
+    } else {
+        Q_EMIT agentGetCommunicationsendersV1SignalError(output, error_type, error_str);
+        Q_EMIT agentGetCommunicationsendersV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

@@ -181,6 +181,9 @@ void Attachment_ResponseCompound::initializeModel() {
     m_s_attachment_name_isSet = false;
     m_s_attachment_name_isValid = false;
 
+    m_s_attachment_category_isSet = false;
+    m_s_attachment_category_isValid = false;
+
     m_e_attachment_privacy_isSet = false;
     m_e_attachment_privacy_isValid = false;
 
@@ -374,6 +377,9 @@ void Attachment_ResponseCompound::fromJsonObject(QJsonObject json) {
     m_s_attachment_name_isValid = ::Ezmaxapi::fromJsonValue(m_s_attachment_name, json[QString("sAttachmentName")]);
     m_s_attachment_name_isSet = !json[QString("sAttachmentName")].isNull() && m_s_attachment_name_isValid;
 
+    m_s_attachment_category_isValid = ::Ezmaxapi::fromJsonValue(m_s_attachment_category, json[QString("sAttachmentCategory")]);
+    m_s_attachment_category_isSet = !json[QString("sAttachmentCategory")].isNull() && m_s_attachment_category_isValid;
+
     m_e_attachment_privacy_isValid = ::Ezmaxapi::fromJsonValue(m_e_attachment_privacy, json[QString("eAttachmentPrivacy")]);
     m_e_attachment_privacy_isSet = !json[QString("eAttachmentPrivacy")].isNull() && m_e_attachment_privacy_isValid;
 
@@ -566,6 +572,9 @@ QJsonObject Attachment_ResponseCompound::asJsonObject() const {
     }
     if (m_s_attachment_name_isSet) {
         obj.insert(QString("sAttachmentName"), ::Ezmaxapi::toJsonValue(m_s_attachment_name));
+    }
+    if (m_s_attachment_category_isSet) {
+        obj.insert(QString("sAttachmentCategory"), ::Ezmaxapi::toJsonValue(m_s_attachment_category));
     }
     if (m_e_attachment_privacy.isSet()) {
         obj.insert(QString("eAttachmentPrivacy"), ::Ezmaxapi::toJsonValue(m_e_attachment_privacy));
@@ -1390,6 +1399,22 @@ bool Attachment_ResponseCompound::is_s_attachment_name_Valid() const{
     return m_s_attachment_name_isValid;
 }
 
+QString Attachment_ResponseCompound::getSAttachmentCategory() const {
+    return m_s_attachment_category;
+}
+void Attachment_ResponseCompound::setSAttachmentCategory(const QString &s_attachment_category) {
+    m_s_attachment_category = s_attachment_category;
+    m_s_attachment_category_isSet = true;
+}
+
+bool Attachment_ResponseCompound::is_s_attachment_category_Set() const{
+    return m_s_attachment_category_isSet;
+}
+
+bool Attachment_ResponseCompound::is_s_attachment_category_Valid() const{
+    return m_s_attachment_category_isValid;
+}
+
 Field_eAttachmentPrivacy Attachment_ResponseCompound::getEAttachmentPrivacy() const {
     return m_e_attachment_privacy;
 }
@@ -1830,6 +1855,11 @@ bool Attachment_ResponseCompound::isSet() const {
             break;
         }
 
+        if (m_s_attachment_category_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (m_e_attachment_privacy.isSet()) {
             isObjectUpdated = true;
             break;
@@ -1895,7 +1925,7 @@ bool Attachment_ResponseCompound::isSet() const {
 
 bool Attachment_ResponseCompound::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_pki_attachment_id_isValid && m_e_attachment_documenttype_isValid && m_s_attachment_name_isValid && m_e_attachment_privacy_isValid && m_e_attachment_type_isValid && m_i_attachment_size_isValid && m_s_attachment_md5_isValid && m_b_attachment_deleted_isValid && m_b_attachment_valid_isValid && m_e_attachment_verified_isValid && true;
+    return m_pki_attachment_id_isValid && m_e_attachment_documenttype_isValid && m_s_attachment_name_isValid && m_s_attachment_category_isValid && m_e_attachment_privacy_isValid && m_e_attachment_type_isValid && m_i_attachment_size_isValid && m_s_attachment_md5_isValid && m_b_attachment_deleted_isValid && m_b_attachment_valid_isValid && m_e_attachment_verified_isValid && true;
 }
 
 } // namespace Ezmaxapi

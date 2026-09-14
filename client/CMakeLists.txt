@@ -50,6 +50,14 @@ add_library(${PROJECT_NAME}
   Agent_getAttachments_v1_Response_mPayload.h
   Agent_getAutocomplete_v2_Response.h
   Agent_getAutocomplete_v2_Response_mPayload.h
+  Agent_getCommunicationCount_v1_Response.h
+  Agent_getCommunicationCount_v1_Response_mPayload.h
+  Agent_getCommunicationList_v1_Response.h
+  Agent_getCommunicationList_v1_Response_mPayload.h
+  Agent_getCommunicationrecipients_v1_Response.h
+  Agent_getCommunicationrecipients_v1_Response_mPayload.h
+  Agent_getCommunicationsenders_v1_Response.h
+  Agent_getCommunicationsenders_v1_Response_mPayload.h
   Agent_getList_v1_Response.h
   Agent_getList_v1_Response_mPayload.h
   Agent_importIntoEDM_v1_Request.h
@@ -89,11 +97,19 @@ add_library(${PROJECT_NAME}
   Apikey_regenerate_v1_Response_mPayload.h
   Attachment_Response.h
   Attachment_ResponseCompound.h
+  Attachment_delete_v1_Response.h
+  Attachment_delete_v1_Response_mPayload.h
   Attachment_getAttachmentlogs_v1_Response.h
   Attachment_getAttachmentlogs_v1_Response_mPayload.h
   Attachment_rename_v1_Request.h
   Attachment_rename_v1_Response.h
   Attachment_rename_v1_Response_mPayload.h
+  Attachment_restore_v1_Request.h
+  Attachment_restore_v1_Response.h
+  Attachment_restore_v1_Response_mPayload.h
+  Attachment_validate_v1_Request.h
+  Attachment_validate_v1_Response.h
+  Attachment_validate_v1_Response_mPayload.h
   Attachmentlog_Response.h
   Attachmentlog_ResponseCompound.h
   Attempt_Response.h
@@ -123,6 +139,14 @@ add_library(${PROJECT_NAME}
   Bankaccount_getAttachments_v1_Response_mPayload.h
   Bankaccount_getAutocomplete_v2_Response.h
   Bankaccount_getAutocomplete_v2_Response_mPayload.h
+  Bankaccount_getCommunicationCount_v1_Response.h
+  Bankaccount_getCommunicationCount_v1_Response_mPayload.h
+  Bankaccount_getCommunicationList_v1_Response.h
+  Bankaccount_getCommunicationList_v1_Response_mPayload.h
+  Bankaccount_getCommunicationrecipients_v1_Response.h
+  Bankaccount_getCommunicationrecipients_v1_Response_mPayload.h
+  Bankaccount_getCommunicationsenders_v1_Response.h
+  Bankaccount_getCommunicationsenders_v1_Response_mPayload.h
   Bankaccount_importIntoEDM_v1_Request.h
   Bankaccount_importIntoEDM_v1_Response.h
   Bankaccount_importIntoEDM_v1_Response_mPayload.h
@@ -177,6 +201,14 @@ add_library(${PROJECT_NAME}
   Broker_getAttachments_v1_Response_mPayload.h
   Broker_getAutocomplete_v2_Response.h
   Broker_getAutocomplete_v2_Response_mPayload.h
+  Broker_getCommunicationCount_v1_Response.h
+  Broker_getCommunicationCount_v1_Response_mPayload.h
+  Broker_getCommunicationList_v1_Response.h
+  Broker_getCommunicationList_v1_Response_mPayload.h
+  Broker_getCommunicationrecipients_v1_Response.h
+  Broker_getCommunicationrecipients_v1_Response_mPayload.h
+  Broker_getCommunicationsenders_v1_Response.h
+  Broker_getCommunicationsenders_v1_Response_mPayload.h
   Broker_getList_v1_Response.h
   Broker_getList_v1_Response_mPayload.h
   Broker_importIntoEDM_v1_Request.h
@@ -213,6 +245,14 @@ add_library(${PROJECT_NAME}
   Commissionadvance_batchDownload_v1_Request.h
   Commissionadvance_getAttachments_v1_Response.h
   Commissionadvance_getAttachments_v1_Response_mPayload.h
+  Commissionadvance_getCommunicationCount_v1_Response.h
+  Commissionadvance_getCommunicationCount_v1_Response_mPayload.h
+  Commissionadvance_getCommunicationList_v1_Response.h
+  Commissionadvance_getCommunicationList_v1_Response_mPayload.h
+  Commissionadvance_getCommunicationrecipients_v1_Response.h
+  Commissionadvance_getCommunicationrecipients_v1_Response_mPayload.h
+  Commissionadvance_getCommunicationsenders_v1_Response.h
+  Commissionadvance_getCommunicationsenders_v1_Response_mPayload.h
   Commissionadvance_importIntoEDM_v1_Request.h
   Commissionadvance_importIntoEDM_v1_Response.h
   Commissionadvance_importIntoEDM_v1_Response_mPayload.h
@@ -426,6 +466,14 @@ add_library(${PROJECT_NAME}
   Customer_getAttachments_v1_Response_mPayload.h
   Customer_getAutocomplete_v2_Response.h
   Customer_getAutocomplete_v2_Response_mPayload.h
+  Customer_getCommunicationCount_v1_Response.h
+  Customer_getCommunicationCount_v1_Response_mPayload.h
+  Customer_getCommunicationList_v1_Response.h
+  Customer_getCommunicationList_v1_Response_mPayload.h
+  Customer_getCommunicationrecipients_v1_Response.h
+  Customer_getCommunicationrecipients_v1_Response_mPayload.h
+  Customer_getCommunicationsenders_v1_Response.h
+  Customer_getCommunicationsenders_v1_Response_mPayload.h
   Customer_getObject_v2_Response.h
   Customer_getObject_v2_Response_mPayload.h
   Customer_importIntoEDM_v1_Request.h
@@ -437,18 +485,42 @@ add_library(${PROJECT_NAME}
   Deposit_batchDownload_v1_Request.h
   Deposit_getAttachments_v1_Response.h
   Deposit_getAttachments_v1_Response_mPayload.h
+  Deposit_getCommunicationCount_v1_Response.h
+  Deposit_getCommunicationCount_v1_Response_mPayload.h
+  Deposit_getCommunicationList_v1_Response.h
+  Deposit_getCommunicationList_v1_Response_mPayload.h
+  Deposit_getCommunicationrecipients_v1_Response.h
+  Deposit_getCommunicationrecipients_v1_Response_mPayload.h
+  Deposit_getCommunicationsenders_v1_Response.h
+  Deposit_getCommunicationsenders_v1_Response_mPayload.h
   Deposit_importIntoEDM_v1_Request.h
   Deposit_importIntoEDM_v1_Response.h
   Deposit_importIntoEDM_v1_Response_mPayload.h
   Deposittransitcheque_batchDownload_v1_Request.h
   Deposittransitcheque_getAttachments_v1_Response.h
   Deposittransitcheque_getAttachments_v1_Response_mPayload.h
+  Deposittransitcheque_getCommunicationCount_v1_Response.h
+  Deposittransitcheque_getCommunicationCount_v1_Response_mPayload.h
+  Deposittransitcheque_getCommunicationList_v1_Response.h
+  Deposittransitcheque_getCommunicationList_v1_Response_mPayload.h
+  Deposittransitcheque_getCommunicationrecipients_v1_Response.h
+  Deposittransitcheque_getCommunicationrecipients_v1_Response_mPayload.h
+  Deposittransitcheque_getCommunicationsenders_v1_Response.h
+  Deposittransitcheque_getCommunicationsenders_v1_Response_mPayload.h
   Deposittransitcheque_importIntoEDM_v1_Request.h
   Deposittransitcheque_importIntoEDM_v1_Response.h
   Deposittransitcheque_importIntoEDM_v1_Response_mPayload.h
   Disclosure_batchDownload_v1_Request.h
   Disclosure_getAttachments_v1_Response.h
   Disclosure_getAttachments_v1_Response_mPayload.h
+  Disclosure_getCommunicationCount_v1_Response.h
+  Disclosure_getCommunicationCount_v1_Response_mPayload.h
+  Disclosure_getCommunicationList_v1_Response.h
+  Disclosure_getCommunicationList_v1_Response_mPayload.h
+  Disclosure_getCommunicationrecipients_v1_Response.h
+  Disclosure_getCommunicationrecipients_v1_Response_mPayload.h
+  Disclosure_getCommunicationsenders_v1_Response.h
+  Disclosure_getCommunicationsenders_v1_Response_mPayload.h
   Disclosure_importIntoEDM_v1_Request.h
   Disclosure_importIntoEDM_v1_Response.h
   Disclosure_importIntoEDM_v1_Response_mPayload.h
@@ -529,6 +601,14 @@ add_library(${PROJECT_NAME}
   Employee_batchDownload_v1_Request.h
   Employee_getAttachments_v1_Response.h
   Employee_getAttachments_v1_Response_mPayload.h
+  Employee_getCommunicationCount_v1_Response.h
+  Employee_getCommunicationCount_v1_Response_mPayload.h
+  Employee_getCommunicationList_v1_Response.h
+  Employee_getCommunicationList_v1_Response_mPayload.h
+  Employee_getCommunicationrecipients_v1_Response.h
+  Employee_getCommunicationrecipients_v1_Response_mPayload.h
+  Employee_getCommunicationsenders_v1_Response.h
+  Employee_getCommunicationsenders_v1_Response_mPayload.h
   Employee_getList_v1_Response.h
   Employee_getList_v1_Response_mPayload.h
   Employee_importIntoEDM_v1_Request.h
@@ -543,6 +623,14 @@ add_library(${PROJECT_NAME}
   Externalbroker_batchDownload_v1_Request.h
   Externalbroker_getAttachments_v1_Response.h
   Externalbroker_getAttachments_v1_Response_mPayload.h
+  Externalbroker_getCommunicationCount_v1_Response.h
+  Externalbroker_getCommunicationCount_v1_Response_mPayload.h
+  Externalbroker_getCommunicationList_v1_Response.h
+  Externalbroker_getCommunicationList_v1_Response_mPayload.h
+  Externalbroker_getCommunicationrecipients_v1_Response.h
+  Externalbroker_getCommunicationrecipients_v1_Response_mPayload.h
+  Externalbroker_getCommunicationsenders_v1_Response.h
+  Externalbroker_getCommunicationsenders_v1_Response_mPayload.h
   Externalbroker_importIntoEDM_v1_Request.h
   Externalbroker_importIntoEDM_v1_Response.h
   Externalbroker_importIntoEDM_v1_Response_mPayload.h
@@ -2446,6 +2534,14 @@ add_library(${PROJECT_NAME}
   Agent_getAttachments_v1_Response_mPayload.cpp
   Agent_getAutocomplete_v2_Response.cpp
   Agent_getAutocomplete_v2_Response_mPayload.cpp
+  Agent_getCommunicationCount_v1_Response.cpp
+  Agent_getCommunicationCount_v1_Response_mPayload.cpp
+  Agent_getCommunicationList_v1_Response.cpp
+  Agent_getCommunicationList_v1_Response_mPayload.cpp
+  Agent_getCommunicationrecipients_v1_Response.cpp
+  Agent_getCommunicationrecipients_v1_Response_mPayload.cpp
+  Agent_getCommunicationsenders_v1_Response.cpp
+  Agent_getCommunicationsenders_v1_Response_mPayload.cpp
   Agent_getList_v1_Response.cpp
   Agent_getList_v1_Response_mPayload.cpp
   Agent_importIntoEDM_v1_Request.cpp
@@ -2485,11 +2581,19 @@ add_library(${PROJECT_NAME}
   Apikey_regenerate_v1_Response_mPayload.cpp
   Attachment_Response.cpp
   Attachment_ResponseCompound.cpp
+  Attachment_delete_v1_Response.cpp
+  Attachment_delete_v1_Response_mPayload.cpp
   Attachment_getAttachmentlogs_v1_Response.cpp
   Attachment_getAttachmentlogs_v1_Response_mPayload.cpp
   Attachment_rename_v1_Request.cpp
   Attachment_rename_v1_Response.cpp
   Attachment_rename_v1_Response_mPayload.cpp
+  Attachment_restore_v1_Request.cpp
+  Attachment_restore_v1_Response.cpp
+  Attachment_restore_v1_Response_mPayload.cpp
+  Attachment_validate_v1_Request.cpp
+  Attachment_validate_v1_Response.cpp
+  Attachment_validate_v1_Response_mPayload.cpp
   Attachmentlog_Response.cpp
   Attachmentlog_ResponseCompound.cpp
   Attempt_Response.cpp
@@ -2519,6 +2623,14 @@ add_library(${PROJECT_NAME}
   Bankaccount_getAttachments_v1_Response_mPayload.cpp
   Bankaccount_getAutocomplete_v2_Response.cpp
   Bankaccount_getAutocomplete_v2_Response_mPayload.cpp
+  Bankaccount_getCommunicationCount_v1_Response.cpp
+  Bankaccount_getCommunicationCount_v1_Response_mPayload.cpp
+  Bankaccount_getCommunicationList_v1_Response.cpp
+  Bankaccount_getCommunicationList_v1_Response_mPayload.cpp
+  Bankaccount_getCommunicationrecipients_v1_Response.cpp
+  Bankaccount_getCommunicationrecipients_v1_Response_mPayload.cpp
+  Bankaccount_getCommunicationsenders_v1_Response.cpp
+  Bankaccount_getCommunicationsenders_v1_Response_mPayload.cpp
   Bankaccount_importIntoEDM_v1_Request.cpp
   Bankaccount_importIntoEDM_v1_Response.cpp
   Bankaccount_importIntoEDM_v1_Response_mPayload.cpp
@@ -2573,6 +2685,14 @@ add_library(${PROJECT_NAME}
   Broker_getAttachments_v1_Response_mPayload.cpp
   Broker_getAutocomplete_v2_Response.cpp
   Broker_getAutocomplete_v2_Response_mPayload.cpp
+  Broker_getCommunicationCount_v1_Response.cpp
+  Broker_getCommunicationCount_v1_Response_mPayload.cpp
+  Broker_getCommunicationList_v1_Response.cpp
+  Broker_getCommunicationList_v1_Response_mPayload.cpp
+  Broker_getCommunicationrecipients_v1_Response.cpp
+  Broker_getCommunicationrecipients_v1_Response_mPayload.cpp
+  Broker_getCommunicationsenders_v1_Response.cpp
+  Broker_getCommunicationsenders_v1_Response_mPayload.cpp
   Broker_getList_v1_Response.cpp
   Broker_getList_v1_Response_mPayload.cpp
   Broker_importIntoEDM_v1_Request.cpp
@@ -2609,6 +2729,14 @@ add_library(${PROJECT_NAME}
   Commissionadvance_batchDownload_v1_Request.cpp
   Commissionadvance_getAttachments_v1_Response.cpp
   Commissionadvance_getAttachments_v1_Response_mPayload.cpp
+  Commissionadvance_getCommunicationCount_v1_Response.cpp
+  Commissionadvance_getCommunicationCount_v1_Response_mPayload.cpp
+  Commissionadvance_getCommunicationList_v1_Response.cpp
+  Commissionadvance_getCommunicationList_v1_Response_mPayload.cpp
+  Commissionadvance_getCommunicationrecipients_v1_Response.cpp
+  Commissionadvance_getCommunicationrecipients_v1_Response_mPayload.cpp
+  Commissionadvance_getCommunicationsenders_v1_Response.cpp
+  Commissionadvance_getCommunicationsenders_v1_Response_mPayload.cpp
   Commissionadvance_importIntoEDM_v1_Request.cpp
   Commissionadvance_importIntoEDM_v1_Response.cpp
   Commissionadvance_importIntoEDM_v1_Response_mPayload.cpp
@@ -2822,6 +2950,14 @@ add_library(${PROJECT_NAME}
   Customer_getAttachments_v1_Response_mPayload.cpp
   Customer_getAutocomplete_v2_Response.cpp
   Customer_getAutocomplete_v2_Response_mPayload.cpp
+  Customer_getCommunicationCount_v1_Response.cpp
+  Customer_getCommunicationCount_v1_Response_mPayload.cpp
+  Customer_getCommunicationList_v1_Response.cpp
+  Customer_getCommunicationList_v1_Response_mPayload.cpp
+  Customer_getCommunicationrecipients_v1_Response.cpp
+  Customer_getCommunicationrecipients_v1_Response_mPayload.cpp
+  Customer_getCommunicationsenders_v1_Response.cpp
+  Customer_getCommunicationsenders_v1_Response_mPayload.cpp
   Customer_getObject_v2_Response.cpp
   Customer_getObject_v2_Response_mPayload.cpp
   Customer_importIntoEDM_v1_Request.cpp
@@ -2833,18 +2969,42 @@ add_library(${PROJECT_NAME}
   Deposit_batchDownload_v1_Request.cpp
   Deposit_getAttachments_v1_Response.cpp
   Deposit_getAttachments_v1_Response_mPayload.cpp
+  Deposit_getCommunicationCount_v1_Response.cpp
+  Deposit_getCommunicationCount_v1_Response_mPayload.cpp
+  Deposit_getCommunicationList_v1_Response.cpp
+  Deposit_getCommunicationList_v1_Response_mPayload.cpp
+  Deposit_getCommunicationrecipients_v1_Response.cpp
+  Deposit_getCommunicationrecipients_v1_Response_mPayload.cpp
+  Deposit_getCommunicationsenders_v1_Response.cpp
+  Deposit_getCommunicationsenders_v1_Response_mPayload.cpp
   Deposit_importIntoEDM_v1_Request.cpp
   Deposit_importIntoEDM_v1_Response.cpp
   Deposit_importIntoEDM_v1_Response_mPayload.cpp
   Deposittransitcheque_batchDownload_v1_Request.cpp
   Deposittransitcheque_getAttachments_v1_Response.cpp
   Deposittransitcheque_getAttachments_v1_Response_mPayload.cpp
+  Deposittransitcheque_getCommunicationCount_v1_Response.cpp
+  Deposittransitcheque_getCommunicationCount_v1_Response_mPayload.cpp
+  Deposittransitcheque_getCommunicationList_v1_Response.cpp
+  Deposittransitcheque_getCommunicationList_v1_Response_mPayload.cpp
+  Deposittransitcheque_getCommunicationrecipients_v1_Response.cpp
+  Deposittransitcheque_getCommunicationrecipients_v1_Response_mPayload.cpp
+  Deposittransitcheque_getCommunicationsenders_v1_Response.cpp
+  Deposittransitcheque_getCommunicationsenders_v1_Response_mPayload.cpp
   Deposittransitcheque_importIntoEDM_v1_Request.cpp
   Deposittransitcheque_importIntoEDM_v1_Response.cpp
   Deposittransitcheque_importIntoEDM_v1_Response_mPayload.cpp
   Disclosure_batchDownload_v1_Request.cpp
   Disclosure_getAttachments_v1_Response.cpp
   Disclosure_getAttachments_v1_Response_mPayload.cpp
+  Disclosure_getCommunicationCount_v1_Response.cpp
+  Disclosure_getCommunicationCount_v1_Response_mPayload.cpp
+  Disclosure_getCommunicationList_v1_Response.cpp
+  Disclosure_getCommunicationList_v1_Response_mPayload.cpp
+  Disclosure_getCommunicationrecipients_v1_Response.cpp
+  Disclosure_getCommunicationrecipients_v1_Response_mPayload.cpp
+  Disclosure_getCommunicationsenders_v1_Response.cpp
+  Disclosure_getCommunicationsenders_v1_Response_mPayload.cpp
   Disclosure_importIntoEDM_v1_Request.cpp
   Disclosure_importIntoEDM_v1_Response.cpp
   Disclosure_importIntoEDM_v1_Response_mPayload.cpp
@@ -2925,6 +3085,14 @@ add_library(${PROJECT_NAME}
   Employee_batchDownload_v1_Request.cpp
   Employee_getAttachments_v1_Response.cpp
   Employee_getAttachments_v1_Response_mPayload.cpp
+  Employee_getCommunicationCount_v1_Response.cpp
+  Employee_getCommunicationCount_v1_Response_mPayload.cpp
+  Employee_getCommunicationList_v1_Response.cpp
+  Employee_getCommunicationList_v1_Response_mPayload.cpp
+  Employee_getCommunicationrecipients_v1_Response.cpp
+  Employee_getCommunicationrecipients_v1_Response_mPayload.cpp
+  Employee_getCommunicationsenders_v1_Response.cpp
+  Employee_getCommunicationsenders_v1_Response_mPayload.cpp
   Employee_getList_v1_Response.cpp
   Employee_getList_v1_Response_mPayload.cpp
   Employee_importIntoEDM_v1_Request.cpp
@@ -2939,6 +3107,14 @@ add_library(${PROJECT_NAME}
   Externalbroker_batchDownload_v1_Request.cpp
   Externalbroker_getAttachments_v1_Response.cpp
   Externalbroker_getAttachments_v1_Response_mPayload.cpp
+  Externalbroker_getCommunicationCount_v1_Response.cpp
+  Externalbroker_getCommunicationCount_v1_Response_mPayload.cpp
+  Externalbroker_getCommunicationList_v1_Response.cpp
+  Externalbroker_getCommunicationList_v1_Response_mPayload.cpp
+  Externalbroker_getCommunicationrecipients_v1_Response.cpp
+  Externalbroker_getCommunicationrecipients_v1_Response_mPayload.cpp
+  Externalbroker_getCommunicationsenders_v1_Response.cpp
+  Externalbroker_getCommunicationsenders_v1_Response_mPayload.cpp
   Externalbroker_importIntoEDM_v1_Request.cpp
   Externalbroker_importIntoEDM_v1_Response.cpp
   Externalbroker_importIntoEDM_v1_Response_mPayload.cpp

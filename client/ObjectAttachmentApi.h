@@ -18,10 +18,16 @@
 #include "ServerConfiguration.h"
 #include "Oauth.h"
 
+#include "Attachment_delete_v1_Response.h"
 #include "Attachment_getAttachmentlogs_v1_Response.h"
 #include "Attachment_rename_v1_Request.h"
 #include "Attachment_rename_v1_Response.h"
+#include "Attachment_restore_v1_Request.h"
+#include "Attachment_restore_v1_Response.h"
+#include "Attachment_validate_v1_Request.h"
+#include "Attachment_validate_v1_Response.h"
 #include "Common_Response_Error.h"
+#include "Object.h"
 #include <QString>
 
 #include <QObject>
@@ -63,6 +69,12 @@ public:
 
     /**
     * @param[in]  pki_attachment_id qint32 [required]
+    * @param[in]  body Object [required]
+    */
+    virtual void attachmentDeleteV1(const qint32 &pki_attachment_id, const Object &body);
+
+    /**
+    * @param[in]  pki_attachment_id qint32 [required]
     */
     virtual void attachmentDownloadV1(const qint32 &pki_attachment_id);
 
@@ -76,6 +88,18 @@ public:
     * @param[in]  attachment_rename_v1_request Attachment_rename_v1_Request [required]
     */
     virtual void attachmentRenameV1(const qint32 &pki_attachment_id, const Attachment_rename_v1_Request &attachment_rename_v1_request);
+
+    /**
+    * @param[in]  pki_attachment_id qint32 [required]
+    * @param[in]  attachment_restore_v1_request Attachment_restore_v1_Request [required]
+    */
+    virtual void attachmentRestoreV1(const qint32 &pki_attachment_id, const Attachment_restore_v1_Request &attachment_restore_v1_request);
+
+    /**
+    * @param[in]  pki_attachment_id qint32 [required]
+    * @param[in]  attachment_validate_v1_request Attachment_validate_v1_Request [required]
+    */
+    virtual void attachmentValidateV1(const qint32 &pki_attachment_id, const Attachment_validate_v1_Request &attachment_validate_v1_request);
 
 
 private:
@@ -107,28 +131,43 @@ private:
     OauthPassword _passwordFlow;
     OauthMethod _OauthMethod = OauthMethod::INVALID_VALUE_OPENAPI_GENERATED;
 
+    void attachmentDeleteV1Callback(HttpRequestWorker *worker);
     void attachmentDownloadV1Callback(HttpRequestWorker *worker);
     void attachmentGetAttachmentlogsV1Callback(HttpRequestWorker *worker);
     void attachmentRenameV1Callback(HttpRequestWorker *worker);
+    void attachmentRestoreV1Callback(HttpRequestWorker *worker);
+    void attachmentValidateV1Callback(HttpRequestWorker *worker);
 
 Q_SIGNALS:
 
+    void attachmentDeleteV1Signal(Attachment_delete_v1_Response summary);
     void attachmentDownloadV1Signal();
     void attachmentGetAttachmentlogsV1Signal(Attachment_getAttachmentlogs_v1_Response summary);
     void attachmentRenameV1Signal(Attachment_rename_v1_Response summary);
+    void attachmentRestoreV1Signal(Attachment_restore_v1_Response summary);
+    void attachmentValidateV1Signal(Attachment_validate_v1_Response summary);
 
 
+    void attachmentDeleteV1SignalFull(HttpRequestWorker *worker, Attachment_delete_v1_Response summary);
     void attachmentDownloadV1SignalFull(HttpRequestWorker *worker);
     void attachmentGetAttachmentlogsV1SignalFull(HttpRequestWorker *worker, Attachment_getAttachmentlogs_v1_Response summary);
     void attachmentRenameV1SignalFull(HttpRequestWorker *worker, Attachment_rename_v1_Response summary);
+    void attachmentRestoreV1SignalFull(HttpRequestWorker *worker, Attachment_restore_v1_Response summary);
+    void attachmentValidateV1SignalFull(HttpRequestWorker *worker, Attachment_validate_v1_Response summary);
 
+    void attachmentDeleteV1SignalError(Attachment_delete_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void attachmentDownloadV1SignalError(QNetworkReply::NetworkError error_type, const QString &error_str);
     void attachmentGetAttachmentlogsV1SignalError(Attachment_getAttachmentlogs_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void attachmentRenameV1SignalError(Attachment_rename_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void attachmentRestoreV1SignalError(Attachment_restore_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void attachmentValidateV1SignalError(Attachment_validate_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    void attachmentDeleteV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void attachmentDownloadV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void attachmentGetAttachmentlogsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void attachmentRenameV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void attachmentRestoreV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void attachmentValidateV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();

@@ -21,6 +21,10 @@
 #include "Common_Response_Error.h"
 #include "Employee_batchDownload_v1_Request.h"
 #include "Employee_getAttachments_v1_Response.h"
+#include "Employee_getCommunicationCount_v1_Response.h"
+#include "Employee_getCommunicationList_v1_Response.h"
+#include "Employee_getCommunicationrecipients_v1_Response.h"
+#include "Employee_getCommunicationsenders_v1_Response.h"
 #include "Employee_getList_v1_Response.h"
 #include "Employee_importIntoEDM_v1_Request.h"
 #include "Employee_importIntoEDM_v1_Response.h"
@@ -77,6 +81,26 @@ public:
     virtual void employeeGetAttachmentsV1(const qint32 &pki_employee_id);
 
     /**
+    * @param[in]  pki_employee_id qint32 [required]
+    */
+    virtual void employeeGetCommunicationCountV1(const qint32 &pki_employee_id);
+
+    /**
+    * @param[in]  pki_employee_id qint32 [required]
+    */
+    virtual void employeeGetCommunicationListV1(const qint32 &pki_employee_id);
+
+    /**
+    * @param[in]  pki_employee_id qint32 [required]
+    */
+    virtual void employeeGetCommunicationrecipientsV1(const qint32 &pki_employee_id);
+
+    /**
+    * @param[in]  pki_employee_id qint32 [required]
+    */
+    virtual void employeeGetCommunicationsendersV1(const qint32 &pki_employee_id);
+
+    /**
     * @param[in]  e_order_by QString [optional]
     * @param[in]  i_row_max qint32 [optional]
     * @param[in]  i_row_offset qint32 [optional]
@@ -123,6 +147,10 @@ private:
 
     void employeeBatchDownloadV1Callback(HttpRequestWorker *worker);
     void employeeGetAttachmentsV1Callback(HttpRequestWorker *worker);
+    void employeeGetCommunicationCountV1Callback(HttpRequestWorker *worker);
+    void employeeGetCommunicationListV1Callback(HttpRequestWorker *worker);
+    void employeeGetCommunicationrecipientsV1Callback(HttpRequestWorker *worker);
+    void employeeGetCommunicationsendersV1Callback(HttpRequestWorker *worker);
     void employeeGetListV1Callback(HttpRequestWorker *worker);
     void employeeImportIntoEDMV1Callback(HttpRequestWorker *worker);
 
@@ -130,22 +158,38 @@ Q_SIGNALS:
 
     void employeeBatchDownloadV1Signal(HttpFileElement summary);
     void employeeGetAttachmentsV1Signal(Employee_getAttachments_v1_Response summary);
+    void employeeGetCommunicationCountV1Signal(Employee_getCommunicationCount_v1_Response summary);
+    void employeeGetCommunicationListV1Signal(Employee_getCommunicationList_v1_Response summary);
+    void employeeGetCommunicationrecipientsV1Signal(Employee_getCommunicationrecipients_v1_Response summary);
+    void employeeGetCommunicationsendersV1Signal(Employee_getCommunicationsenders_v1_Response summary);
     void employeeGetListV1Signal(Employee_getList_v1_Response summary);
     void employeeImportIntoEDMV1Signal(Employee_importIntoEDM_v1_Response summary);
 
 
     void employeeBatchDownloadV1SignalFull(HttpRequestWorker *worker, HttpFileElement summary);
     void employeeGetAttachmentsV1SignalFull(HttpRequestWorker *worker, Employee_getAttachments_v1_Response summary);
+    void employeeGetCommunicationCountV1SignalFull(HttpRequestWorker *worker, Employee_getCommunicationCount_v1_Response summary);
+    void employeeGetCommunicationListV1SignalFull(HttpRequestWorker *worker, Employee_getCommunicationList_v1_Response summary);
+    void employeeGetCommunicationrecipientsV1SignalFull(HttpRequestWorker *worker, Employee_getCommunicationrecipients_v1_Response summary);
+    void employeeGetCommunicationsendersV1SignalFull(HttpRequestWorker *worker, Employee_getCommunicationsenders_v1_Response summary);
     void employeeGetListV1SignalFull(HttpRequestWorker *worker, Employee_getList_v1_Response summary);
     void employeeImportIntoEDMV1SignalFull(HttpRequestWorker *worker, Employee_importIntoEDM_v1_Response summary);
 
     void employeeBatchDownloadV1SignalError(HttpFileElement summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void employeeGetAttachmentsV1SignalError(Employee_getAttachments_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void employeeGetCommunicationCountV1SignalError(Employee_getCommunicationCount_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void employeeGetCommunicationListV1SignalError(Employee_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void employeeGetCommunicationrecipientsV1SignalError(Employee_getCommunicationrecipients_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void employeeGetCommunicationsendersV1SignalError(Employee_getCommunicationsenders_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void employeeGetListV1SignalError(Employee_getList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void employeeImportIntoEDMV1SignalError(Employee_importIntoEDM_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void employeeBatchDownloadV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void employeeGetAttachmentsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void employeeGetCommunicationCountV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void employeeGetCommunicationListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void employeeGetCommunicationrecipientsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void employeeGetCommunicationsendersV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void employeeGetListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void employeeImportIntoEDMV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 

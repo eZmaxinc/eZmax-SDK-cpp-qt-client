@@ -63,6 +63,14 @@ void ObjectDepositApi::initializeServerConfigs() {
     _serverIndices.insert("depositBatchDownloadV1", 0);
     _serverConfigs.insert("depositGetAttachmentsV1", defaultConf);
     _serverIndices.insert("depositGetAttachmentsV1", 0);
+    _serverConfigs.insert("depositGetCommunicationCountV1", defaultConf);
+    _serverIndices.insert("depositGetCommunicationCountV1", 0);
+    _serverConfigs.insert("depositGetCommunicationListV1", defaultConf);
+    _serverIndices.insert("depositGetCommunicationListV1", 0);
+    _serverConfigs.insert("depositGetCommunicationrecipientsV1", defaultConf);
+    _serverIndices.insert("depositGetCommunicationrecipientsV1", 0);
+    _serverConfigs.insert("depositGetCommunicationsendersV1", defaultConf);
+    _serverIndices.insert("depositGetCommunicationsendersV1", 0);
     _serverConfigs.insert("depositImportIntoEDMV1", defaultConf);
     _serverIndices.insert("depositImportIntoEDMV1", 0);
 }
@@ -372,6 +380,254 @@ void ObjectDepositApi::depositGetAttachmentsV1Callback(HttpRequestWorker *worker
     } else {
         Q_EMIT depositGetAttachmentsV1SignalError(output, error_type, error_str);
         Q_EMIT depositGetAttachmentsV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectDepositApi::depositGetCommunicationCountV1(const qint32 &pki_deposit_id) {
+    QString fullPath = QString(_serverConfigs["depositGetCommunicationCountV1"][_serverIndices.value("depositGetCommunicationCountV1")].URL()+"/1/object/deposit/{pkiDepositID}/getCommunicationCount");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_deposit_idPathParam("{");
+        pki_deposit_idPathParam.append("pkiDepositID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiDepositID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiDepositID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_deposit_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_deposit_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectDepositApi::depositGetCommunicationCountV1Callback);
+    connect(this, &ObjectDepositApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectDepositApi::depositGetCommunicationCountV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Deposit_getCommunicationCount_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT depositGetCommunicationCountV1Signal(output);
+        Q_EMIT depositGetCommunicationCountV1SignalFull(worker, output);
+    } else {
+        Q_EMIT depositGetCommunicationCountV1SignalError(output, error_type, error_str);
+        Q_EMIT depositGetCommunicationCountV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectDepositApi::depositGetCommunicationListV1(const qint32 &pki_deposit_id) {
+    QString fullPath = QString(_serverConfigs["depositGetCommunicationListV1"][_serverIndices.value("depositGetCommunicationListV1")].URL()+"/1/object/deposit/{pkiDepositID}/getCommunicationList");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_deposit_idPathParam("{");
+        pki_deposit_idPathParam.append("pkiDepositID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiDepositID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiDepositID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_deposit_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_deposit_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectDepositApi::depositGetCommunicationListV1Callback);
+    connect(this, &ObjectDepositApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectDepositApi::depositGetCommunicationListV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Deposit_getCommunicationList_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT depositGetCommunicationListV1Signal(output);
+        Q_EMIT depositGetCommunicationListV1SignalFull(worker, output);
+    } else {
+        Q_EMIT depositGetCommunicationListV1SignalError(output, error_type, error_str);
+        Q_EMIT depositGetCommunicationListV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectDepositApi::depositGetCommunicationrecipientsV1(const qint32 &pki_deposit_id) {
+    QString fullPath = QString(_serverConfigs["depositGetCommunicationrecipientsV1"][_serverIndices.value("depositGetCommunicationrecipientsV1")].URL()+"/1/object/deposit/{pkiDepositID}/getCommunicationrecipients");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_deposit_idPathParam("{");
+        pki_deposit_idPathParam.append("pkiDepositID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiDepositID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiDepositID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_deposit_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_deposit_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectDepositApi::depositGetCommunicationrecipientsV1Callback);
+    connect(this, &ObjectDepositApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectDepositApi::depositGetCommunicationrecipientsV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Deposit_getCommunicationrecipients_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT depositGetCommunicationrecipientsV1Signal(output);
+        Q_EMIT depositGetCommunicationrecipientsV1SignalFull(worker, output);
+    } else {
+        Q_EMIT depositGetCommunicationrecipientsV1SignalError(output, error_type, error_str);
+        Q_EMIT depositGetCommunicationrecipientsV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectDepositApi::depositGetCommunicationsendersV1(const qint32 &pki_deposit_id) {
+    QString fullPath = QString(_serverConfigs["depositGetCommunicationsendersV1"][_serverIndices.value("depositGetCommunicationsendersV1")].URL()+"/1/object/deposit/{pkiDepositID}/getCommunicationsenders");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_deposit_idPathParam("{");
+        pki_deposit_idPathParam.append("pkiDepositID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiDepositID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiDepositID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_deposit_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_deposit_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectDepositApi::depositGetCommunicationsendersV1Callback);
+    connect(this, &ObjectDepositApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectDepositApi::depositGetCommunicationsendersV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Deposit_getCommunicationsenders_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT depositGetCommunicationsendersV1Signal(output);
+        Q_EMIT depositGetCommunicationsendersV1SignalFull(worker, output);
+    } else {
+        Q_EMIT depositGetCommunicationsendersV1SignalError(output, error_type, error_str);
+        Q_EMIT depositGetCommunicationsendersV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

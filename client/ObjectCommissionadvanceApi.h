@@ -20,6 +20,10 @@
 
 #include "Commissionadvance_batchDownload_v1_Request.h"
 #include "Commissionadvance_getAttachments_v1_Response.h"
+#include "Commissionadvance_getCommunicationCount_v1_Response.h"
+#include "Commissionadvance_getCommunicationList_v1_Response.h"
+#include "Commissionadvance_getCommunicationrecipients_v1_Response.h"
+#include "Commissionadvance_getCommunicationsenders_v1_Response.h"
 #include "Commissionadvance_importIntoEDM_v1_Request.h"
 #include "Commissionadvance_importIntoEDM_v1_Response.h"
 #include "Common_Response_Error.h"
@@ -76,6 +80,26 @@ public:
 
     /**
     * @param[in]  pki_commissionadvance_id qint32 [required]
+    */
+    virtual void commissionadvanceGetCommunicationCountV1(const qint32 &pki_commissionadvance_id);
+
+    /**
+    * @param[in]  pki_commissionadvance_id qint32 [required]
+    */
+    virtual void commissionadvanceGetCommunicationListV1(const qint32 &pki_commissionadvance_id);
+
+    /**
+    * @param[in]  pki_commissionadvance_id qint32 [required]
+    */
+    virtual void commissionadvanceGetCommunicationrecipientsV1(const qint32 &pki_commissionadvance_id);
+
+    /**
+    * @param[in]  pki_commissionadvance_id qint32 [required]
+    */
+    virtual void commissionadvanceGetCommunicationsendersV1(const qint32 &pki_commissionadvance_id);
+
+    /**
+    * @param[in]  pki_commissionadvance_id qint32 [required]
     * @param[in]  commissionadvance_import_into_edm_v1_request Commissionadvance_importIntoEDM_v1_Request [required]
     */
     virtual void commissionadvanceImportIntoEDMV1(const qint32 &pki_commissionadvance_id, const Commissionadvance_importIntoEDM_v1_Request &commissionadvance_import_into_edm_v1_request);
@@ -112,25 +136,45 @@ private:
 
     void commissionadvanceBatchDownloadV1Callback(HttpRequestWorker *worker);
     void commissionadvanceGetAttachmentsV1Callback(HttpRequestWorker *worker);
+    void commissionadvanceGetCommunicationCountV1Callback(HttpRequestWorker *worker);
+    void commissionadvanceGetCommunicationListV1Callback(HttpRequestWorker *worker);
+    void commissionadvanceGetCommunicationrecipientsV1Callback(HttpRequestWorker *worker);
+    void commissionadvanceGetCommunicationsendersV1Callback(HttpRequestWorker *worker);
     void commissionadvanceImportIntoEDMV1Callback(HttpRequestWorker *worker);
 
 Q_SIGNALS:
 
     void commissionadvanceBatchDownloadV1Signal(HttpFileElement summary);
     void commissionadvanceGetAttachmentsV1Signal(Commissionadvance_getAttachments_v1_Response summary);
+    void commissionadvanceGetCommunicationCountV1Signal(Commissionadvance_getCommunicationCount_v1_Response summary);
+    void commissionadvanceGetCommunicationListV1Signal(Commissionadvance_getCommunicationList_v1_Response summary);
+    void commissionadvanceGetCommunicationrecipientsV1Signal(Commissionadvance_getCommunicationrecipients_v1_Response summary);
+    void commissionadvanceGetCommunicationsendersV1Signal(Commissionadvance_getCommunicationsenders_v1_Response summary);
     void commissionadvanceImportIntoEDMV1Signal(Commissionadvance_importIntoEDM_v1_Response summary);
 
 
     void commissionadvanceBatchDownloadV1SignalFull(HttpRequestWorker *worker, HttpFileElement summary);
     void commissionadvanceGetAttachmentsV1SignalFull(HttpRequestWorker *worker, Commissionadvance_getAttachments_v1_Response summary);
+    void commissionadvanceGetCommunicationCountV1SignalFull(HttpRequestWorker *worker, Commissionadvance_getCommunicationCount_v1_Response summary);
+    void commissionadvanceGetCommunicationListV1SignalFull(HttpRequestWorker *worker, Commissionadvance_getCommunicationList_v1_Response summary);
+    void commissionadvanceGetCommunicationrecipientsV1SignalFull(HttpRequestWorker *worker, Commissionadvance_getCommunicationrecipients_v1_Response summary);
+    void commissionadvanceGetCommunicationsendersV1SignalFull(HttpRequestWorker *worker, Commissionadvance_getCommunicationsenders_v1_Response summary);
     void commissionadvanceImportIntoEDMV1SignalFull(HttpRequestWorker *worker, Commissionadvance_importIntoEDM_v1_Response summary);
 
     void commissionadvanceBatchDownloadV1SignalError(HttpFileElement summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void commissionadvanceGetAttachmentsV1SignalError(Commissionadvance_getAttachments_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void commissionadvanceGetCommunicationCountV1SignalError(Commissionadvance_getCommunicationCount_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void commissionadvanceGetCommunicationListV1SignalError(Commissionadvance_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void commissionadvanceGetCommunicationrecipientsV1SignalError(Commissionadvance_getCommunicationrecipients_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void commissionadvanceGetCommunicationsendersV1SignalError(Commissionadvance_getCommunicationsenders_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void commissionadvanceImportIntoEDMV1SignalError(Commissionadvance_importIntoEDM_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void commissionadvanceBatchDownloadV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void commissionadvanceGetAttachmentsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void commissionadvanceGetCommunicationCountV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void commissionadvanceGetCommunicationListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void commissionadvanceGetCommunicationrecipientsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void commissionadvanceGetCommunicationsendersV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void commissionadvanceImportIntoEDMV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();

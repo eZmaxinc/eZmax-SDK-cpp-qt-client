@@ -21,6 +21,10 @@
 #include "Bankaccount_batchDownload_v1_Request.h"
 #include "Bankaccount_getAttachments_v1_Response.h"
 #include "Bankaccount_getAutocomplete_v2_Response.h"
+#include "Bankaccount_getCommunicationCount_v1_Response.h"
+#include "Bankaccount_getCommunicationList_v1_Response.h"
+#include "Bankaccount_getCommunicationrecipients_v1_Response.h"
+#include "Bankaccount_getCommunicationsenders_v1_Response.h"
 #include "Bankaccount_importIntoEDM_v1_Request.h"
 #include "Bankaccount_importIntoEDM_v1_Response.h"
 #include "Common_Response_Error.h"
@@ -86,6 +90,26 @@ public:
 
     /**
     * @param[in]  pki_bankaccount_id qint32 [required]
+    */
+    virtual void bankaccountGetCommunicationCountV1(const qint32 &pki_bankaccount_id);
+
+    /**
+    * @param[in]  pki_bankaccount_id qint32 [required]
+    */
+    virtual void bankaccountGetCommunicationListV1(const qint32 &pki_bankaccount_id);
+
+    /**
+    * @param[in]  pki_bankaccount_id qint32 [required]
+    */
+    virtual void bankaccountGetCommunicationrecipientsV1(const qint32 &pki_bankaccount_id);
+
+    /**
+    * @param[in]  pki_bankaccount_id qint32 [required]
+    */
+    virtual void bankaccountGetCommunicationsendersV1(const qint32 &pki_bankaccount_id);
+
+    /**
+    * @param[in]  pki_bankaccount_id qint32 [required]
     * @param[in]  bankaccount_import_into_edm_v1_request Bankaccount_importIntoEDM_v1_Request [required]
     */
     virtual void bankaccountImportIntoEDMV1(const qint32 &pki_bankaccount_id, const Bankaccount_importIntoEDM_v1_Request &bankaccount_import_into_edm_v1_request);
@@ -123,6 +147,10 @@ private:
     void bankaccountBatchDownloadV1Callback(HttpRequestWorker *worker);
     void bankaccountGetAttachmentsV1Callback(HttpRequestWorker *worker);
     void bankaccountGetAutocompleteV2Callback(HttpRequestWorker *worker);
+    void bankaccountGetCommunicationCountV1Callback(HttpRequestWorker *worker);
+    void bankaccountGetCommunicationListV1Callback(HttpRequestWorker *worker);
+    void bankaccountGetCommunicationrecipientsV1Callback(HttpRequestWorker *worker);
+    void bankaccountGetCommunicationsendersV1Callback(HttpRequestWorker *worker);
     void bankaccountImportIntoEDMV1Callback(HttpRequestWorker *worker);
 
 Q_SIGNALS:
@@ -130,22 +158,38 @@ Q_SIGNALS:
     void bankaccountBatchDownloadV1Signal(HttpFileElement summary);
     void bankaccountGetAttachmentsV1Signal(Bankaccount_getAttachments_v1_Response summary);
     void bankaccountGetAutocompleteV2Signal(Bankaccount_getAutocomplete_v2_Response summary);
+    void bankaccountGetCommunicationCountV1Signal(Bankaccount_getCommunicationCount_v1_Response summary);
+    void bankaccountGetCommunicationListV1Signal(Bankaccount_getCommunicationList_v1_Response summary);
+    void bankaccountGetCommunicationrecipientsV1Signal(Bankaccount_getCommunicationrecipients_v1_Response summary);
+    void bankaccountGetCommunicationsendersV1Signal(Bankaccount_getCommunicationsenders_v1_Response summary);
     void bankaccountImportIntoEDMV1Signal(Bankaccount_importIntoEDM_v1_Response summary);
 
 
     void bankaccountBatchDownloadV1SignalFull(HttpRequestWorker *worker, HttpFileElement summary);
     void bankaccountGetAttachmentsV1SignalFull(HttpRequestWorker *worker, Bankaccount_getAttachments_v1_Response summary);
     void bankaccountGetAutocompleteV2SignalFull(HttpRequestWorker *worker, Bankaccount_getAutocomplete_v2_Response summary);
+    void bankaccountGetCommunicationCountV1SignalFull(HttpRequestWorker *worker, Bankaccount_getCommunicationCount_v1_Response summary);
+    void bankaccountGetCommunicationListV1SignalFull(HttpRequestWorker *worker, Bankaccount_getCommunicationList_v1_Response summary);
+    void bankaccountGetCommunicationrecipientsV1SignalFull(HttpRequestWorker *worker, Bankaccount_getCommunicationrecipients_v1_Response summary);
+    void bankaccountGetCommunicationsendersV1SignalFull(HttpRequestWorker *worker, Bankaccount_getCommunicationsenders_v1_Response summary);
     void bankaccountImportIntoEDMV1SignalFull(HttpRequestWorker *worker, Bankaccount_importIntoEDM_v1_Response summary);
 
     void bankaccountBatchDownloadV1SignalError(HttpFileElement summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void bankaccountGetAttachmentsV1SignalError(Bankaccount_getAttachments_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void bankaccountGetAutocompleteV2SignalError(Bankaccount_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void bankaccountGetCommunicationCountV1SignalError(Bankaccount_getCommunicationCount_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void bankaccountGetCommunicationListV1SignalError(Bankaccount_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void bankaccountGetCommunicationrecipientsV1SignalError(Bankaccount_getCommunicationrecipients_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void bankaccountGetCommunicationsendersV1SignalError(Bankaccount_getCommunicationsenders_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void bankaccountImportIntoEDMV1SignalError(Bankaccount_importIntoEDM_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void bankaccountBatchDownloadV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void bankaccountGetAttachmentsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void bankaccountGetAutocompleteV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void bankaccountGetCommunicationCountV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void bankaccountGetCommunicationListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void bankaccountGetCommunicationrecipientsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void bankaccountGetCommunicationsendersV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void bankaccountImportIntoEDMV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();

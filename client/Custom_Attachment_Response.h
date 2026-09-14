@@ -293,6 +293,11 @@ public:
     bool is_s_attachment_name_Set() const;
     bool is_s_attachment_name_Valid() const;
 
+    QString getSAttachmentCategory() const;
+    void setSAttachmentCategory(const QString &s_attachment_category);
+    bool is_s_attachment_category_Set() const;
+    bool is_s_attachment_category_Valid() const;
+
     Field_eAttachmentPrivacy getEAttachmentPrivacy() const;
     void setEAttachmentPrivacy(const Field_eAttachmentPrivacy &e_attachment_privacy);
     bool is_e_attachment_privacy_Set() const;
@@ -574,6 +579,10 @@ private:
     QString m_s_attachment_name;
     bool m_s_attachment_name_isSet;
     bool m_s_attachment_name_isValid;
+
+    QString m_s_attachment_category;
+    bool m_s_attachment_category_isSet;
+    bool m_s_attachment_category_isValid;
 
     Field_eAttachmentPrivacy m_e_attachment_privacy;
     bool m_e_attachment_privacy_isSet;

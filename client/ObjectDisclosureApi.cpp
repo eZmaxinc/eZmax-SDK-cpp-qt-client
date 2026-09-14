@@ -63,6 +63,14 @@ void ObjectDisclosureApi::initializeServerConfigs() {
     _serverIndices.insert("disclosureBatchDownloadV1", 0);
     _serverConfigs.insert("disclosureGetAttachmentsV1", defaultConf);
     _serverIndices.insert("disclosureGetAttachmentsV1", 0);
+    _serverConfigs.insert("disclosureGetCommunicationCountV1", defaultConf);
+    _serverIndices.insert("disclosureGetCommunicationCountV1", 0);
+    _serverConfigs.insert("disclosureGetCommunicationListV1", defaultConf);
+    _serverIndices.insert("disclosureGetCommunicationListV1", 0);
+    _serverConfigs.insert("disclosureGetCommunicationrecipientsV1", defaultConf);
+    _serverIndices.insert("disclosureGetCommunicationrecipientsV1", 0);
+    _serverConfigs.insert("disclosureGetCommunicationsendersV1", defaultConf);
+    _serverIndices.insert("disclosureGetCommunicationsendersV1", 0);
     _serverConfigs.insert("disclosureImportIntoEDMV1", defaultConf);
     _serverIndices.insert("disclosureImportIntoEDMV1", 0);
 }
@@ -372,6 +380,254 @@ void ObjectDisclosureApi::disclosureGetAttachmentsV1Callback(HttpRequestWorker *
     } else {
         Q_EMIT disclosureGetAttachmentsV1SignalError(output, error_type, error_str);
         Q_EMIT disclosureGetAttachmentsV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectDisclosureApi::disclosureGetCommunicationCountV1(const qint32 &pki_disclosure_id) {
+    QString fullPath = QString(_serverConfigs["disclosureGetCommunicationCountV1"][_serverIndices.value("disclosureGetCommunicationCountV1")].URL()+"/1/object/disclosure/{pkiDisclosureID}/getCommunicationCount");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_disclosure_idPathParam("{");
+        pki_disclosure_idPathParam.append("pkiDisclosureID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiDisclosureID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiDisclosureID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_disclosure_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_disclosure_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectDisclosureApi::disclosureGetCommunicationCountV1Callback);
+    connect(this, &ObjectDisclosureApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectDisclosureApi::disclosureGetCommunicationCountV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Disclosure_getCommunicationCount_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT disclosureGetCommunicationCountV1Signal(output);
+        Q_EMIT disclosureGetCommunicationCountV1SignalFull(worker, output);
+    } else {
+        Q_EMIT disclosureGetCommunicationCountV1SignalError(output, error_type, error_str);
+        Q_EMIT disclosureGetCommunicationCountV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectDisclosureApi::disclosureGetCommunicationListV1(const qint32 &pki_disclosure_id) {
+    QString fullPath = QString(_serverConfigs["disclosureGetCommunicationListV1"][_serverIndices.value("disclosureGetCommunicationListV1")].URL()+"/1/object/disclosure/{pkiDisclosureID}/getCommunicationList");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_disclosure_idPathParam("{");
+        pki_disclosure_idPathParam.append("pkiDisclosureID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiDisclosureID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiDisclosureID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_disclosure_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_disclosure_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectDisclosureApi::disclosureGetCommunicationListV1Callback);
+    connect(this, &ObjectDisclosureApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectDisclosureApi::disclosureGetCommunicationListV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Disclosure_getCommunicationList_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT disclosureGetCommunicationListV1Signal(output);
+        Q_EMIT disclosureGetCommunicationListV1SignalFull(worker, output);
+    } else {
+        Q_EMIT disclosureGetCommunicationListV1SignalError(output, error_type, error_str);
+        Q_EMIT disclosureGetCommunicationListV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectDisclosureApi::disclosureGetCommunicationrecipientsV1(const qint32 &pki_disclosure_id) {
+    QString fullPath = QString(_serverConfigs["disclosureGetCommunicationrecipientsV1"][_serverIndices.value("disclosureGetCommunicationrecipientsV1")].URL()+"/1/object/disclosure/{pkiDisclosureID}/getCommunicationrecipients");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_disclosure_idPathParam("{");
+        pki_disclosure_idPathParam.append("pkiDisclosureID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiDisclosureID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiDisclosureID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_disclosure_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_disclosure_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectDisclosureApi::disclosureGetCommunicationrecipientsV1Callback);
+    connect(this, &ObjectDisclosureApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectDisclosureApi::disclosureGetCommunicationrecipientsV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Disclosure_getCommunicationrecipients_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT disclosureGetCommunicationrecipientsV1Signal(output);
+        Q_EMIT disclosureGetCommunicationrecipientsV1SignalFull(worker, output);
+    } else {
+        Q_EMIT disclosureGetCommunicationrecipientsV1SignalError(output, error_type, error_str);
+        Q_EMIT disclosureGetCommunicationrecipientsV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectDisclosureApi::disclosureGetCommunicationsendersV1(const qint32 &pki_disclosure_id) {
+    QString fullPath = QString(_serverConfigs["disclosureGetCommunicationsendersV1"][_serverIndices.value("disclosureGetCommunicationsendersV1")].URL()+"/1/object/disclosure/{pkiDisclosureID}/getCommunicationsenders");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_disclosure_idPathParam("{");
+        pki_disclosure_idPathParam.append("pkiDisclosureID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiDisclosureID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiDisclosureID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_disclosure_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_disclosure_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectDisclosureApi::disclosureGetCommunicationsendersV1Callback);
+    connect(this, &ObjectDisclosureApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectDisclosureApi::disclosureGetCommunicationsendersV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Disclosure_getCommunicationsenders_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT disclosureGetCommunicationsendersV1Signal(output);
+        Q_EMIT disclosureGetCommunicationsendersV1SignalFull(worker, output);
+    } else {
+        Q_EMIT disclosureGetCommunicationsendersV1SignalError(output, error_type, error_str);
+        Q_EMIT disclosureGetCommunicationsendersV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
