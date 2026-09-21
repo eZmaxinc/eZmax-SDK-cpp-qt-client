@@ -157,8 +157,11 @@ void Custom_Attachment_Response::initializeModel() {
     m_fki_template_id_isSet = false;
     m_fki_template_id_isValid = false;
 
-    m_fki_inscriptionchecklist_id_isSet = false;
-    m_fki_inscriptionchecklist_id_isValid = false;
+    m_fki_documenttypechecklist_id_isSet = false;
+    m_fki_documenttypechecklist_id_isValid = false;
+
+    m_s_documenttype_name_x_isSet = false;
+    m_s_documenttype_name_x_isValid = false;
 
     m_fki_folder_id_isSet = false;
     m_fki_folder_id_isValid = false;
@@ -365,8 +368,11 @@ void Custom_Attachment_Response::fromJsonObject(QJsonObject json) {
     m_fki_template_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_template_id, json[QString("fkiTemplateID")]);
     m_fki_template_id_isSet = !json[QString("fkiTemplateID")].isNull() && m_fki_template_id_isValid;
 
-    m_fki_inscriptionchecklist_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_inscriptionchecklist_id, json[QString("fkiInscriptionchecklistID")]);
-    m_fki_inscriptionchecklist_id_isSet = !json[QString("fkiInscriptionchecklistID")].isNull() && m_fki_inscriptionchecklist_id_isValid;
+    m_fki_documenttypechecklist_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_documenttypechecklist_id, json[QString("fkiDocumenttypechecklistID")]);
+    m_fki_documenttypechecklist_id_isSet = !json[QString("fkiDocumenttypechecklistID")].isNull() && m_fki_documenttypechecklist_id_isValid;
+
+    m_s_documenttype_name_x_isValid = ::Ezmaxapi::fromJsonValue(m_s_documenttype_name_x, json[QString("sDocumenttypeNameX")]);
+    m_s_documenttype_name_x_isSet = !json[QString("sDocumenttypeNameX")].isNull() && m_s_documenttype_name_x_isValid;
 
     m_fki_folder_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_folder_id, json[QString("fkiFolderID")]);
     m_fki_folder_id_isSet = !json[QString("fkiFolderID")].isNull() && m_fki_folder_id_isValid;
@@ -573,8 +579,11 @@ QJsonObject Custom_Attachment_Response::asJsonObject() const {
     if (m_fki_template_id_isSet) {
         obj.insert(QString("fkiTemplateID"), ::Ezmaxapi::toJsonValue(m_fki_template_id));
     }
-    if (m_fki_inscriptionchecklist_id_isSet) {
-        obj.insert(QString("fkiInscriptionchecklistID"), ::Ezmaxapi::toJsonValue(m_fki_inscriptionchecklist_id));
+    if (m_fki_documenttypechecklist_id_isSet) {
+        obj.insert(QString("fkiDocumenttypechecklistID"), ::Ezmaxapi::toJsonValue(m_fki_documenttypechecklist_id));
+    }
+    if (m_s_documenttype_name_x_isSet) {
+        obj.insert(QString("sDocumenttypeNameX"), ::Ezmaxapi::toJsonValue(m_s_documenttype_name_x));
     }
     if (m_fki_folder_id_isSet) {
         obj.insert(QString("fkiFolderID"), ::Ezmaxapi::toJsonValue(m_fki_folder_id));
@@ -1307,20 +1316,36 @@ bool Custom_Attachment_Response::is_fki_template_id_Valid() const{
     return m_fki_template_id_isValid;
 }
 
-qint32 Custom_Attachment_Response::getFkiInscriptionchecklistId() const {
-    return m_fki_inscriptionchecklist_id;
+qint32 Custom_Attachment_Response::getFkiDocumenttypechecklistId() const {
+    return m_fki_documenttypechecklist_id;
 }
-void Custom_Attachment_Response::setFkiInscriptionchecklistId(const qint32 &fki_inscriptionchecklist_id) {
-    m_fki_inscriptionchecklist_id = fki_inscriptionchecklist_id;
-    m_fki_inscriptionchecklist_id_isSet = true;
-}
-
-bool Custom_Attachment_Response::is_fki_inscriptionchecklist_id_Set() const{
-    return m_fki_inscriptionchecklist_id_isSet;
+void Custom_Attachment_Response::setFkiDocumenttypechecklistId(const qint32 &fki_documenttypechecklist_id) {
+    m_fki_documenttypechecklist_id = fki_documenttypechecklist_id;
+    m_fki_documenttypechecklist_id_isSet = true;
 }
 
-bool Custom_Attachment_Response::is_fki_inscriptionchecklist_id_Valid() const{
-    return m_fki_inscriptionchecklist_id_isValid;
+bool Custom_Attachment_Response::is_fki_documenttypechecklist_id_Set() const{
+    return m_fki_documenttypechecklist_id_isSet;
+}
+
+bool Custom_Attachment_Response::is_fki_documenttypechecklist_id_Valid() const{
+    return m_fki_documenttypechecklist_id_isValid;
+}
+
+QString Custom_Attachment_Response::getSDocumenttypeNameX() const {
+    return m_s_documenttype_name_x;
+}
+void Custom_Attachment_Response::setSDocumenttypeNameX(const QString &s_documenttype_name_x) {
+    m_s_documenttype_name_x = s_documenttype_name_x;
+    m_s_documenttype_name_x_isSet = true;
+}
+
+bool Custom_Attachment_Response::is_s_documenttype_name_x_Set() const{
+    return m_s_documenttype_name_x_isSet;
+}
+
+bool Custom_Attachment_Response::is_s_documenttype_name_x_Valid() const{
+    return m_s_documenttype_name_x_isValid;
 }
 
 qint32 Custom_Attachment_Response::getFkiFolderId() const {
@@ -1915,7 +1940,12 @@ bool Custom_Attachment_Response::isSet() const {
             break;
         }
 
-        if (m_fki_inscriptionchecklist_id_isSet) {
+        if (m_fki_documenttypechecklist_id_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_s_documenttype_name_x_isSet) {
             isObjectUpdated = true;
             break;
         }

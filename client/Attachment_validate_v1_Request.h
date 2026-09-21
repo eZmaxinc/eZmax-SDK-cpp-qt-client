@@ -13,7 +13,7 @@
 /*
  * Attachment_validate_v1_Request.h
  *
- * Request for PATCH /1/object/attachment/{pkiAttachmentID}/validate
+ * Request for POST /1/object/attachment/{pkiAttachmentID}/validate
  */
 
 #ifndef Attachment_validate_v1_Request_H
@@ -22,6 +22,8 @@
 #include <QJsonObject>
 
 #include "Field_eAttachmentVerified.h"
+#include <QSet>
+#include <QString>
 
 #include "Enum.h"
 #include "Object.h"
@@ -39,10 +41,35 @@ public:
     void fromJsonObject(QJsonObject json) override;
     void fromJson(const QString &jsonString) override;
 
+    qint32 getFkiAttachmentrejectreasonId() const;
+    void setFkiAttachmentrejectreasonId(const qint32 &fki_attachmentrejectreason_id);
+    bool is_fki_attachmentrejectreason_id_Set() const;
+    bool is_fki_attachmentrejectreason_id_Valid() const;
+
     Field_eAttachmentVerified getEAttachmentVerified() const;
     void setEAttachmentVerified(const Field_eAttachmentVerified &e_attachment_verified);
     bool is_e_attachment_verified_Set() const;
     bool is_e_attachment_verified_Valid() const;
+
+    QString getTAttachmentRejectioncomment() const;
+    void setTAttachmentRejectioncomment(const QString &t_attachment_rejectioncomment);
+    bool is_t_attachment_rejectioncomment_Set() const;
+    bool is_t_attachment_rejectioncomment_Valid() const;
+
+    QSet<QString> getASNotificationEmailAddress() const;
+    void setASNotificationEmailAddress(const QSet<QString> &a_s_notification_email_address);
+    bool is_a_s_notification_email_address_Set() const;
+    bool is_a_s_notification_email_address_Valid() const;
+
+    QString getTNotificationMessage() const;
+    void setTNotificationMessage(const QString &t_notification_message);
+    bool is_t_notification_message_Set() const;
+    bool is_t_notification_message_Valid() const;
+
+    bool isBNotificationIncludeAttachment() const;
+    void setBNotificationIncludeAttachment(const bool &b_notification_include_attachment);
+    bool is_b_notification_include_attachment_Set() const;
+    bool is_b_notification_include_attachment_Valid() const;
 
     virtual bool isSet() const override;
     virtual bool isValid() const override;
@@ -50,9 +77,29 @@ public:
 private:
     void initializeModel();
 
+    qint32 m_fki_attachmentrejectreason_id;
+    bool m_fki_attachmentrejectreason_id_isSet;
+    bool m_fki_attachmentrejectreason_id_isValid;
+
     Field_eAttachmentVerified m_e_attachment_verified;
     bool m_e_attachment_verified_isSet;
     bool m_e_attachment_verified_isValid;
+
+    QString m_t_attachment_rejectioncomment;
+    bool m_t_attachment_rejectioncomment_isSet;
+    bool m_t_attachment_rejectioncomment_isValid;
+
+    QSet<QString> m_a_s_notification_email_address;
+    bool m_a_s_notification_email_address_isSet;
+    bool m_a_s_notification_email_address_isValid;
+
+    QString m_t_notification_message;
+    bool m_t_notification_message_isSet;
+    bool m_t_notification_message_isValid;
+
+    bool m_b_notification_include_attachment;
+    bool m_b_notification_include_attachment_isSet;
+    bool m_b_notification_include_attachment_isValid;
 };
 
 } // namespace Ezmaxapi

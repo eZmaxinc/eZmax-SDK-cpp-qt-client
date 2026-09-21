@@ -43,6 +43,9 @@ void Custom_UserName_Response::initializeModel() {
     m_s_user_firstname_isSet = false;
     m_s_user_firstname_isValid = false;
 
+    m_s_user_loginname_isSet = false;
+    m_s_user_loginname_isValid = false;
+
     m_s_user_jobtitle_isSet = false;
     m_s_user_jobtitle_isValid = false;
 }
@@ -65,6 +68,9 @@ void Custom_UserName_Response::fromJsonObject(QJsonObject json) {
     m_s_user_firstname_isValid = ::Ezmaxapi::fromJsonValue(m_s_user_firstname, json[QString("sUserFirstname")]);
     m_s_user_firstname_isSet = !json[QString("sUserFirstname")].isNull() && m_s_user_firstname_isValid;
 
+    m_s_user_loginname_isValid = ::Ezmaxapi::fromJsonValue(m_s_user_loginname, json[QString("sUserLoginname")]);
+    m_s_user_loginname_isSet = !json[QString("sUserLoginname")].isNull() && m_s_user_loginname_isValid;
+
     m_s_user_jobtitle_isValid = ::Ezmaxapi::fromJsonValue(m_s_user_jobtitle, json[QString("sUserJobtitle")]);
     m_s_user_jobtitle_isSet = !json[QString("sUserJobtitle")].isNull() && m_s_user_jobtitle_isValid;
 }
@@ -86,6 +92,9 @@ QJsonObject Custom_UserName_Response::asJsonObject() const {
     }
     if (m_s_user_firstname_isSet) {
         obj.insert(QString("sUserFirstname"), ::Ezmaxapi::toJsonValue(m_s_user_firstname));
+    }
+    if (m_s_user_loginname_isSet) {
+        obj.insert(QString("sUserLoginname"), ::Ezmaxapi::toJsonValue(m_s_user_loginname));
     }
     if (m_s_user_jobtitle_isSet) {
         obj.insert(QString("sUserJobtitle"), ::Ezmaxapi::toJsonValue(m_s_user_jobtitle));
@@ -141,6 +150,22 @@ bool Custom_UserName_Response::is_s_user_firstname_Valid() const{
     return m_s_user_firstname_isValid;
 }
 
+QString Custom_UserName_Response::getSUserLoginname() const {
+    return m_s_user_loginname;
+}
+void Custom_UserName_Response::setSUserLoginname(const QString &s_user_loginname) {
+    m_s_user_loginname = s_user_loginname;
+    m_s_user_loginname_isSet = true;
+}
+
+bool Custom_UserName_Response::is_s_user_loginname_Set() const{
+    return m_s_user_loginname_isSet;
+}
+
+bool Custom_UserName_Response::is_s_user_loginname_Valid() const{
+    return m_s_user_loginname_isValid;
+}
+
 QString Custom_UserName_Response::getSUserJobtitle() const {
     return m_s_user_jobtitle;
 }
@@ -171,6 +196,11 @@ bool Custom_UserName_Response::isSet() const {
         }
 
         if (m_s_user_firstname_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_s_user_loginname_isSet) {
             isObjectUpdated = true;
             break;
         }

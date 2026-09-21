@@ -54,6 +54,11 @@ public:
     bool is_s_user_firstname_Set() const;
     bool is_s_user_firstname_Valid() const;
 
+    QString getSUserLoginname() const;
+    void setSUserLoginname(const QString &s_user_loginname);
+    bool is_s_user_loginname_Set() const;
+    bool is_s_user_loginname_Valid() const;
+
     QString getSUserJobtitle() const;
     void setSUserJobtitle(const QString &s_user_jobtitle);
     bool is_s_user_jobtitle_Set() const;
@@ -76,6 +81,10 @@ private:
     QString m_s_user_firstname;
     bool m_s_user_firstname_isSet;
     bool m_s_user_firstname_isValid;
+
+    QString m_s_user_loginname;
+    bool m_s_user_loginname_isSet;
+    bool m_s_user_loginname_isValid;
 
     QString m_s_user_jobtitle;
     bool m_s_user_jobtitle_isSet;

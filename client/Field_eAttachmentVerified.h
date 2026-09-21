@@ -42,7 +42,8 @@ public:
         INVALID_VALUE_OPENAPI_GENERATED = 0,
         NO, 
         YES, 
-        REJECTED
+        REJECTED, 
+        PENDING
     };
     Field_eAttachmentVerified::eField_eAttachmentVerified getValue() const;
     void setValue(const Field_eAttachmentVerified::eField_eAttachmentVerified& value);

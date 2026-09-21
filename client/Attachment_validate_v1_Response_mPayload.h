@@ -13,7 +13,7 @@
 /*
  * Attachment_validate_v1_Response_mPayload.h
  *
- * Response for PATCH /1/object/attachment/{pkiAttachmentID}/validate
+ * Response for POST /1/object/attachment/{pkiAttachmentID}/validate
  */
 
 #ifndef Attachment_validate_v1_Response_mPayload_H

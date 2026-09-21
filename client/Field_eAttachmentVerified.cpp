@@ -53,6 +53,10 @@ void Field_eAttachmentVerified::fromJson(const QString &jsonString) {
         m_value = eField_eAttachmentVerified::REJECTED;
         m_value_isSet = m_value_isValid = true;
     }
+    else if ( jsonString.compare("Pending", Qt::CaseInsensitive) == 0) {
+        m_value = eField_eAttachmentVerified::PENDING;
+        m_value_isSet = m_value_isValid = true;
+    }
 }
 
 void Field_eAttachmentVerified::fromJsonValue(QJsonValue json) {
@@ -71,6 +75,9 @@ QString Field_eAttachmentVerified::asJson() const {
             break;
         case eField_eAttachmentVerified::REJECTED:
             val = "Rejected";
+            break;
+        case eField_eAttachmentVerified::PENDING:
+            val = "Pending";
             break;
         default:
             break;

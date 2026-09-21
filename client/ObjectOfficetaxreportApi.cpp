@@ -63,6 +63,16 @@ void ObjectOfficetaxreportApi::initializeServerConfigs() {
     _serverIndices.insert("officetaxreportBatchDownloadV1", 0);
     _serverConfigs.insert("officetaxreportGetAttachmentsV1", defaultConf);
     _serverIndices.insert("officetaxreportGetAttachmentsV1", 0);
+    _serverConfigs.insert("officetaxreportGetCommunicationCountV1", defaultConf);
+    _serverIndices.insert("officetaxreportGetCommunicationCountV1", 0);
+    _serverConfigs.insert("officetaxreportGetCommunicationListV1", defaultConf);
+    _serverIndices.insert("officetaxreportGetCommunicationListV1", 0);
+    _serverConfigs.insert("officetaxreportGetCommunicationrecipientsV1", defaultConf);
+    _serverIndices.insert("officetaxreportGetCommunicationrecipientsV1", 0);
+    _serverConfigs.insert("officetaxreportGetCommunicationsendersV1", defaultConf);
+    _serverIndices.insert("officetaxreportGetCommunicationsendersV1", 0);
+    _serverConfigs.insert("officetaxreportGetListV1", defaultConf);
+    _serverIndices.insert("officetaxreportGetListV1", 0);
     _serverConfigs.insert("officetaxreportImportIntoEDMV1", defaultConf);
     _serverIndices.insert("officetaxreportImportIntoEDMV1", 0);
 }
@@ -372,6 +382,407 @@ void ObjectOfficetaxreportApi::officetaxreportGetAttachmentsV1Callback(HttpReque
     } else {
         Q_EMIT officetaxreportGetAttachmentsV1SignalError(output, error_type, error_str);
         Q_EMIT officetaxreportGetAttachmentsV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectOfficetaxreportApi::officetaxreportGetCommunicationCountV1(const qint32 &pki_officetaxreport_id) {
+    QString fullPath = QString(_serverConfigs["officetaxreportGetCommunicationCountV1"][_serverIndices.value("officetaxreportGetCommunicationCountV1")].URL()+"/1/object/officetaxreport/{pkiOfficetaxreportID}/getCommunicationCount");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_officetaxreport_idPathParam("{");
+        pki_officetaxreport_idPathParam.append("pkiOfficetaxreportID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiOfficetaxreportID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiOfficetaxreportID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_officetaxreport_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_officetaxreport_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectOfficetaxreportApi::officetaxreportGetCommunicationCountV1Callback);
+    connect(this, &ObjectOfficetaxreportApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectOfficetaxreportApi::officetaxreportGetCommunicationCountV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Officetaxreport_getCommunicationCount_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT officetaxreportGetCommunicationCountV1Signal(output);
+        Q_EMIT officetaxreportGetCommunicationCountV1SignalFull(worker, output);
+    } else {
+        Q_EMIT officetaxreportGetCommunicationCountV1SignalError(output, error_type, error_str);
+        Q_EMIT officetaxreportGetCommunicationCountV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectOfficetaxreportApi::officetaxreportGetCommunicationListV1(const qint32 &pki_officetaxreport_id) {
+    QString fullPath = QString(_serverConfigs["officetaxreportGetCommunicationListV1"][_serverIndices.value("officetaxreportGetCommunicationListV1")].URL()+"/1/object/officetaxreport/{pkiOfficetaxreportID}/getCommunicationList");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_officetaxreport_idPathParam("{");
+        pki_officetaxreport_idPathParam.append("pkiOfficetaxreportID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiOfficetaxreportID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiOfficetaxreportID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_officetaxreport_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_officetaxreport_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectOfficetaxreportApi::officetaxreportGetCommunicationListV1Callback);
+    connect(this, &ObjectOfficetaxreportApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectOfficetaxreportApi::officetaxreportGetCommunicationListV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Officetaxreport_getCommunicationList_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT officetaxreportGetCommunicationListV1Signal(output);
+        Q_EMIT officetaxreportGetCommunicationListV1SignalFull(worker, output);
+    } else {
+        Q_EMIT officetaxreportGetCommunicationListV1SignalError(output, error_type, error_str);
+        Q_EMIT officetaxreportGetCommunicationListV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectOfficetaxreportApi::officetaxreportGetCommunicationrecipientsV1(const qint32 &pki_officetaxreport_id) {
+    QString fullPath = QString(_serverConfigs["officetaxreportGetCommunicationrecipientsV1"][_serverIndices.value("officetaxreportGetCommunicationrecipientsV1")].URL()+"/1/object/officetaxreport/{pkiOfficetaxreportID}/getCommunicationrecipients");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_officetaxreport_idPathParam("{");
+        pki_officetaxreport_idPathParam.append("pkiOfficetaxreportID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiOfficetaxreportID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiOfficetaxreportID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_officetaxreport_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_officetaxreport_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectOfficetaxreportApi::officetaxreportGetCommunicationrecipientsV1Callback);
+    connect(this, &ObjectOfficetaxreportApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectOfficetaxreportApi::officetaxreportGetCommunicationrecipientsV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Officetaxreport_getCommunicationrecipients_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT officetaxreportGetCommunicationrecipientsV1Signal(output);
+        Q_EMIT officetaxreportGetCommunicationrecipientsV1SignalFull(worker, output);
+    } else {
+        Q_EMIT officetaxreportGetCommunicationrecipientsV1SignalError(output, error_type, error_str);
+        Q_EMIT officetaxreportGetCommunicationrecipientsV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectOfficetaxreportApi::officetaxreportGetCommunicationsendersV1(const qint32 &pki_officetaxreport_id) {
+    QString fullPath = QString(_serverConfigs["officetaxreportGetCommunicationsendersV1"][_serverIndices.value("officetaxreportGetCommunicationsendersV1")].URL()+"/1/object/officetaxreport/{pkiOfficetaxreportID}/getCommunicationsenders");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_officetaxreport_idPathParam("{");
+        pki_officetaxreport_idPathParam.append("pkiOfficetaxreportID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiOfficetaxreportID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiOfficetaxreportID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_officetaxreport_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_officetaxreport_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectOfficetaxreportApi::officetaxreportGetCommunicationsendersV1Callback);
+    connect(this, &ObjectOfficetaxreportApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectOfficetaxreportApi::officetaxreportGetCommunicationsendersV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Officetaxreport_getCommunicationsenders_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT officetaxreportGetCommunicationsendersV1Signal(output);
+        Q_EMIT officetaxreportGetCommunicationsendersV1SignalFull(worker, output);
+    } else {
+        Q_EMIT officetaxreportGetCommunicationsendersV1SignalError(output, error_type, error_str);
+        Q_EMIT officetaxreportGetCommunicationsendersV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectOfficetaxreportApi::officetaxreportGetListV1(const ::Ezmaxapi::OptionalParam<QString> &e_order_by, const ::Ezmaxapi::OptionalParam<qint32> &i_row_max, const ::Ezmaxapi::OptionalParam<qint32> &i_row_offset, const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language, const ::Ezmaxapi::OptionalParam<QString> &s_filter) {
+    QString fullPath = QString(_serverConfigs["officetaxreportGetListV1"][_serverIndices.value("officetaxreportGetListV1")].URL()+"/1/object/officetaxreport/getList");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    QString queryPrefix, querySuffix, queryDelimiter, queryStyle;
+    if (e_order_by.hasValue())
+    {
+        queryStyle = "form";
+        if (queryStyle == "")
+            queryStyle = "form";
+        queryPrefix = getParamStylePrefix(queryStyle);
+        querySuffix = getParamStyleSuffix(queryStyle);
+        queryDelimiter = getParamStyleDelimiter(queryStyle, "eOrderBy", true);
+        if (fullPath.indexOf("?") > 0)
+            fullPath.append(queryPrefix);
+        else
+            fullPath.append("?");
+
+        fullPath.append(QUrl::toPercentEncoding("eOrderBy")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(e_order_by.stringValue())));
+    }
+    if (i_row_max.hasValue())
+    {
+        queryStyle = "form";
+        if (queryStyle == "")
+            queryStyle = "form";
+        queryPrefix = getParamStylePrefix(queryStyle);
+        querySuffix = getParamStyleSuffix(queryStyle);
+        queryDelimiter = getParamStyleDelimiter(queryStyle, "iRowMax", true);
+        if (fullPath.indexOf("?") > 0)
+            fullPath.append(queryPrefix);
+        else
+            fullPath.append("?");
+
+        fullPath.append(QUrl::toPercentEncoding("iRowMax")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(i_row_max.stringValue())));
+    }
+    if (i_row_offset.hasValue())
+    {
+        queryStyle = "form";
+        if (queryStyle == "")
+            queryStyle = "form";
+        queryPrefix = getParamStylePrefix(queryStyle);
+        querySuffix = getParamStyleSuffix(queryStyle);
+        queryDelimiter = getParamStyleDelimiter(queryStyle, "iRowOffset", true);
+        if (fullPath.indexOf("?") > 0)
+            fullPath.append(queryPrefix);
+        else
+            fullPath.append("?");
+
+        fullPath.append(QUrl::toPercentEncoding("iRowOffset")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(i_row_offset.stringValue())));
+    }
+    if (s_filter.hasValue())
+    {
+        queryStyle = "form";
+        if (queryStyle == "")
+            queryStyle = "form";
+        queryPrefix = getParamStylePrefix(queryStyle);
+        querySuffix = getParamStyleSuffix(queryStyle);
+        queryDelimiter = getParamStyleDelimiter(queryStyle, "sFilter", true);
+        if (fullPath.indexOf("?") > 0)
+            fullPath.append(queryPrefix);
+        else
+            fullPath.append("?");
+
+        fullPath.append(QUrl::toPercentEncoding("sFilter")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_filter.stringValue())));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    if (accept_language.hasValue())
+    {
+        QString headerString;
+        QJsonObject parameter = accept_language.value().asJsonObject();
+        qint32 count = 0;
+        for (const QString& key : parameter.keys()) {
+            if (count > 0) {
+                headerString.append(",");
+            }
+            QString assignOperator = (false) ? "=" : ",";
+            switch(parameter.value(key).type()) {
+                case QJsonValue::String:
+                {
+                    headerString.append(key+assignOperator+parameter.value(key).toString());
+                    break;
+                }
+                case QJsonValue::Double:
+                {
+                    headerString.append(key+assignOperator+QString::number(parameter.value(key).toDouble()));
+                    break;
+                }
+                case QJsonValue::Bool:
+                {
+                    headerString.append(key+assignOperator+QVariant(parameter.value(key).toBool()).toString());
+                    break;
+                }
+                case QJsonValue::Array:
+                {
+                    headerString.append(key+assignOperator+QVariant(parameter.value(key).toArray()).toString());
+                    break;
+                }
+                case QJsonValue::Object:
+                {
+                    headerString.append(key+assignOperator+QVariant(parameter.value(key).toObject()).toString());
+                    break;
+                }
+                case QJsonValue::Null:
+                case QJsonValue::Undefined:
+                    break;
+            }
+            count++;
+        }
+        input.headers.insert("Accept-Language", headerString);
+    }
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectOfficetaxreportApi::officetaxreportGetListV1Callback);
+    connect(this, &ObjectOfficetaxreportApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectOfficetaxreportApi::officetaxreportGetListV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Officetaxreport_getList_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT officetaxreportGetListV1Signal(output);
+        Q_EMIT officetaxreportGetListV1SignalFull(worker, output);
+    } else {
+        Q_EMIT officetaxreportGetListV1SignalError(output, error_type, error_str);
+        Q_EMIT officetaxreportGetListV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

@@ -250,10 +250,15 @@ public:
     bool is_fki_template_id_Set() const;
     bool is_fki_template_id_Valid() const;
 
-    qint32 getFkiInscriptionchecklistId() const;
-    void setFkiInscriptionchecklistId(const qint32 &fki_inscriptionchecklist_id);
-    bool is_fki_inscriptionchecklist_id_Set() const;
-    bool is_fki_inscriptionchecklist_id_Valid() const;
+    qint32 getFkiDocumenttypechecklistId() const;
+    void setFkiDocumenttypechecklistId(const qint32 &fki_documenttypechecklist_id);
+    bool is_fki_documenttypechecklist_id_Set() const;
+    bool is_fki_documenttypechecklist_id_Valid() const;
+
+    QString getSDocumenttypeNameX() const;
+    void setSDocumenttypeNameX(const QString &s_documenttype_name_x);
+    bool is_s_documenttype_name_x_Set() const;
+    bool is_s_documenttype_name_x_Valid() const;
 
     qint32 getFkiFolderId() const;
     void setFkiFolderId(const qint32 &fki_folder_id);
@@ -525,9 +530,13 @@ private:
     bool m_fki_template_id_isSet;
     bool m_fki_template_id_isValid;
 
-    qint32 m_fki_inscriptionchecklist_id;
-    bool m_fki_inscriptionchecklist_id_isSet;
-    bool m_fki_inscriptionchecklist_id_isValid;
+    qint32 m_fki_documenttypechecklist_id;
+    bool m_fki_documenttypechecklist_id_isSet;
+    bool m_fki_documenttypechecklist_id_isValid;
+
+    QString m_s_documenttype_name_x;
+    bool m_s_documenttype_name_x_isSet;
+    bool m_s_documenttype_name_x_isValid;
 
     qint32 m_fki_folder_id;
     bool m_fki_folder_id_isSet;

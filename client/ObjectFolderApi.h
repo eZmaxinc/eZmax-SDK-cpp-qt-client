@@ -21,6 +21,10 @@
 #include "Common_Response_Error.h"
 #include "Folder_batchDownload_v1_Request.h"
 #include "Folder_getAttachments_v1_Response.h"
+#include "Folder_getCommunicationCount_v1_Response.h"
+#include "Folder_getCommunicationList_v1_Response.h"
+#include "Folder_getCommunicationrecipients_v1_Response.h"
+#include "Folder_getCommunicationsenders_v1_Response.h"
 #include "Folder_importIntoEDM_v1_Request.h"
 #include "Folder_importIntoEDM_v1_Response.h"
 #include "HttpFileElement.h"
@@ -76,6 +80,26 @@ public:
 
     /**
     * @param[in]  pki_folder_id qint32 [required]
+    */
+    virtual void folderGetCommunicationCountV1(const qint32 &pki_folder_id);
+
+    /**
+    * @param[in]  pki_folder_id qint32 [required]
+    */
+    virtual void folderGetCommunicationListV1(const qint32 &pki_folder_id);
+
+    /**
+    * @param[in]  pki_folder_id qint32 [required]
+    */
+    virtual void folderGetCommunicationrecipientsV1(const qint32 &pki_folder_id);
+
+    /**
+    * @param[in]  pki_folder_id qint32 [required]
+    */
+    virtual void folderGetCommunicationsendersV1(const qint32 &pki_folder_id);
+
+    /**
+    * @param[in]  pki_folder_id qint32 [required]
     * @param[in]  folder_import_into_edm_v1_request Folder_importIntoEDM_v1_Request [required]
     */
     virtual void folderImportIntoEDMV1(const qint32 &pki_folder_id, const Folder_importIntoEDM_v1_Request &folder_import_into_edm_v1_request);
@@ -112,25 +136,45 @@ private:
 
     void folderBatchDownloadV1Callback(HttpRequestWorker *worker);
     void folderGetAttachmentsV1Callback(HttpRequestWorker *worker);
+    void folderGetCommunicationCountV1Callback(HttpRequestWorker *worker);
+    void folderGetCommunicationListV1Callback(HttpRequestWorker *worker);
+    void folderGetCommunicationrecipientsV1Callback(HttpRequestWorker *worker);
+    void folderGetCommunicationsendersV1Callback(HttpRequestWorker *worker);
     void folderImportIntoEDMV1Callback(HttpRequestWorker *worker);
 
 Q_SIGNALS:
 
     void folderBatchDownloadV1Signal(HttpFileElement summary);
     void folderGetAttachmentsV1Signal(Folder_getAttachments_v1_Response summary);
+    void folderGetCommunicationCountV1Signal(Folder_getCommunicationCount_v1_Response summary);
+    void folderGetCommunicationListV1Signal(Folder_getCommunicationList_v1_Response summary);
+    void folderGetCommunicationrecipientsV1Signal(Folder_getCommunicationrecipients_v1_Response summary);
+    void folderGetCommunicationsendersV1Signal(Folder_getCommunicationsenders_v1_Response summary);
     void folderImportIntoEDMV1Signal(Folder_importIntoEDM_v1_Response summary);
 
 
     void folderBatchDownloadV1SignalFull(HttpRequestWorker *worker, HttpFileElement summary);
     void folderGetAttachmentsV1SignalFull(HttpRequestWorker *worker, Folder_getAttachments_v1_Response summary);
+    void folderGetCommunicationCountV1SignalFull(HttpRequestWorker *worker, Folder_getCommunicationCount_v1_Response summary);
+    void folderGetCommunicationListV1SignalFull(HttpRequestWorker *worker, Folder_getCommunicationList_v1_Response summary);
+    void folderGetCommunicationrecipientsV1SignalFull(HttpRequestWorker *worker, Folder_getCommunicationrecipients_v1_Response summary);
+    void folderGetCommunicationsendersV1SignalFull(HttpRequestWorker *worker, Folder_getCommunicationsenders_v1_Response summary);
     void folderImportIntoEDMV1SignalFull(HttpRequestWorker *worker, Folder_importIntoEDM_v1_Response summary);
 
     void folderBatchDownloadV1SignalError(HttpFileElement summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void folderGetAttachmentsV1SignalError(Folder_getAttachments_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void folderGetCommunicationCountV1SignalError(Folder_getCommunicationCount_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void folderGetCommunicationListV1SignalError(Folder_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void folderGetCommunicationrecipientsV1SignalError(Folder_getCommunicationrecipients_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void folderGetCommunicationsendersV1SignalError(Folder_getCommunicationsenders_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void folderImportIntoEDMV1SignalError(Folder_importIntoEDM_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void folderBatchDownloadV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void folderGetAttachmentsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void folderGetCommunicationCountV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void folderGetCommunicationListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void folderGetCommunicationrecipientsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void folderGetCommunicationsendersV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void folderImportIntoEDMV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();

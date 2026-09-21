@@ -63,6 +63,14 @@ void ObjectFolderApi::initializeServerConfigs() {
     _serverIndices.insert("folderBatchDownloadV1", 0);
     _serverConfigs.insert("folderGetAttachmentsV1", defaultConf);
     _serverIndices.insert("folderGetAttachmentsV1", 0);
+    _serverConfigs.insert("folderGetCommunicationCountV1", defaultConf);
+    _serverIndices.insert("folderGetCommunicationCountV1", 0);
+    _serverConfigs.insert("folderGetCommunicationListV1", defaultConf);
+    _serverIndices.insert("folderGetCommunicationListV1", 0);
+    _serverConfigs.insert("folderGetCommunicationrecipientsV1", defaultConf);
+    _serverIndices.insert("folderGetCommunicationrecipientsV1", 0);
+    _serverConfigs.insert("folderGetCommunicationsendersV1", defaultConf);
+    _serverIndices.insert("folderGetCommunicationsendersV1", 0);
     _serverConfigs.insert("folderImportIntoEDMV1", defaultConf);
     _serverIndices.insert("folderImportIntoEDMV1", 0);
 }
@@ -372,6 +380,254 @@ void ObjectFolderApi::folderGetAttachmentsV1Callback(HttpRequestWorker *worker) 
     } else {
         Q_EMIT folderGetAttachmentsV1SignalError(output, error_type, error_str);
         Q_EMIT folderGetAttachmentsV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectFolderApi::folderGetCommunicationCountV1(const qint32 &pki_folder_id) {
+    QString fullPath = QString(_serverConfigs["folderGetCommunicationCountV1"][_serverIndices.value("folderGetCommunicationCountV1")].URL()+"/1/object/folder/{pkiFolderID}/getCommunicationCount");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_folder_idPathParam("{");
+        pki_folder_idPathParam.append("pkiFolderID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiFolderID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiFolderID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_folder_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_folder_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectFolderApi::folderGetCommunicationCountV1Callback);
+    connect(this, &ObjectFolderApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectFolderApi::folderGetCommunicationCountV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Folder_getCommunicationCount_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT folderGetCommunicationCountV1Signal(output);
+        Q_EMIT folderGetCommunicationCountV1SignalFull(worker, output);
+    } else {
+        Q_EMIT folderGetCommunicationCountV1SignalError(output, error_type, error_str);
+        Q_EMIT folderGetCommunicationCountV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectFolderApi::folderGetCommunicationListV1(const qint32 &pki_folder_id) {
+    QString fullPath = QString(_serverConfigs["folderGetCommunicationListV1"][_serverIndices.value("folderGetCommunicationListV1")].URL()+"/1/object/folder/{pkiFolderID}/getCommunicationList");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_folder_idPathParam("{");
+        pki_folder_idPathParam.append("pkiFolderID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiFolderID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiFolderID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_folder_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_folder_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectFolderApi::folderGetCommunicationListV1Callback);
+    connect(this, &ObjectFolderApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectFolderApi::folderGetCommunicationListV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Folder_getCommunicationList_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT folderGetCommunicationListV1Signal(output);
+        Q_EMIT folderGetCommunicationListV1SignalFull(worker, output);
+    } else {
+        Q_EMIT folderGetCommunicationListV1SignalError(output, error_type, error_str);
+        Q_EMIT folderGetCommunicationListV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectFolderApi::folderGetCommunicationrecipientsV1(const qint32 &pki_folder_id) {
+    QString fullPath = QString(_serverConfigs["folderGetCommunicationrecipientsV1"][_serverIndices.value("folderGetCommunicationrecipientsV1")].URL()+"/1/object/folder/{pkiFolderID}/getCommunicationrecipients");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_folder_idPathParam("{");
+        pki_folder_idPathParam.append("pkiFolderID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiFolderID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiFolderID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_folder_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_folder_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectFolderApi::folderGetCommunicationrecipientsV1Callback);
+    connect(this, &ObjectFolderApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectFolderApi::folderGetCommunicationrecipientsV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Folder_getCommunicationrecipients_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT folderGetCommunicationrecipientsV1Signal(output);
+        Q_EMIT folderGetCommunicationrecipientsV1SignalFull(worker, output);
+    } else {
+        Q_EMIT folderGetCommunicationrecipientsV1SignalError(output, error_type, error_str);
+        Q_EMIT folderGetCommunicationrecipientsV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectFolderApi::folderGetCommunicationsendersV1(const qint32 &pki_folder_id) {
+    QString fullPath = QString(_serverConfigs["folderGetCommunicationsendersV1"][_serverIndices.value("folderGetCommunicationsendersV1")].URL()+"/1/object/folder/{pkiFolderID}/getCommunicationsenders");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_folder_idPathParam("{");
+        pki_folder_idPathParam.append("pkiFolderID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiFolderID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiFolderID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_folder_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_folder_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectFolderApi::folderGetCommunicationsendersV1Callback);
+    connect(this, &ObjectFolderApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectFolderApi::folderGetCommunicationsendersV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Folder_getCommunicationsenders_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT folderGetCommunicationsendersV1Signal(output);
+        Q_EMIT folderGetCommunicationsendersV1SignalFull(worker, output);
+    } else {
+        Q_EMIT folderGetCommunicationsendersV1SignalError(output, error_type, error_str);
+        Q_EMIT folderGetCommunicationsendersV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

@@ -19,9 +19,11 @@
 #include "Oauth.h"
 
 #include "Common_Response_Error.h"
+#include "Header_Accept_Language.h"
 #include "HttpFileElement.h"
 #include "Salary_batchDownload_v1_Request.h"
 #include "Salary_getAttachments_v1_Response.h"
+#include "Salary_getList_v1_Response.h"
 #include "Salary_importIntoEDM_v1_Request.h"
 #include "Salary_importIntoEDM_v1_Response.h"
 #include <QString>
@@ -75,6 +77,15 @@ public:
     virtual void salaryGetAttachmentsV1(const qint32 &pki_salary_id);
 
     /**
+    * @param[in]  e_order_by QString [optional]
+    * @param[in]  i_row_max qint32 [optional]
+    * @param[in]  i_row_offset qint32 [optional]
+    * @param[in]  accept_language Header_Accept_Language [optional]
+    * @param[in]  s_filter QString [optional]
+    */
+    virtual void salaryGetListV1(const ::Ezmaxapi::OptionalParam<QString> &e_order_by = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<qint32> &i_row_max = ::Ezmaxapi::OptionalParam<qint32>(), const ::Ezmaxapi::OptionalParam<qint32> &i_row_offset = ::Ezmaxapi::OptionalParam<qint32>(), const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<Header_Accept_Language>(), const ::Ezmaxapi::OptionalParam<QString> &s_filter = ::Ezmaxapi::OptionalParam<QString>());
+
+    /**
     * @param[in]  pki_salary_id qint32 [required]
     * @param[in]  salary_import_into_edm_v1_request Salary_importIntoEDM_v1_Request [required]
     */
@@ -112,25 +123,30 @@ private:
 
     void salaryBatchDownloadV1Callback(HttpRequestWorker *worker);
     void salaryGetAttachmentsV1Callback(HttpRequestWorker *worker);
+    void salaryGetListV1Callback(HttpRequestWorker *worker);
     void salaryImportIntoEDMV1Callback(HttpRequestWorker *worker);
 
 Q_SIGNALS:
 
     void salaryBatchDownloadV1Signal(HttpFileElement summary);
     void salaryGetAttachmentsV1Signal(Salary_getAttachments_v1_Response summary);
+    void salaryGetListV1Signal(Salary_getList_v1_Response summary);
     void salaryImportIntoEDMV1Signal(Salary_importIntoEDM_v1_Response summary);
 
 
     void salaryBatchDownloadV1SignalFull(HttpRequestWorker *worker, HttpFileElement summary);
     void salaryGetAttachmentsV1SignalFull(HttpRequestWorker *worker, Salary_getAttachments_v1_Response summary);
+    void salaryGetListV1SignalFull(HttpRequestWorker *worker, Salary_getList_v1_Response summary);
     void salaryImportIntoEDMV1SignalFull(HttpRequestWorker *worker, Salary_importIntoEDM_v1_Response summary);
 
     void salaryBatchDownloadV1SignalError(HttpFileElement summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void salaryGetAttachmentsV1SignalError(Salary_getAttachments_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void salaryGetListV1SignalError(Salary_getList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void salaryImportIntoEDMV1SignalError(Salary_importIntoEDM_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void salaryBatchDownloadV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void salaryGetAttachmentsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void salaryGetListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void salaryImportIntoEDMV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();

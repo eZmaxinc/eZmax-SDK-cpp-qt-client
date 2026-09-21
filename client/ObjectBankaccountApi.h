@@ -25,6 +25,7 @@
 #include "Bankaccount_getCommunicationList_v1_Response.h"
 #include "Bankaccount_getCommunicationrecipients_v1_Response.h"
 #include "Bankaccount_getCommunicationsenders_v1_Response.h"
+#include "Bankaccount_getList_v1_Response.h"
 #include "Bankaccount_importIntoEDM_v1_Request.h"
 #include "Bankaccount_importIntoEDM_v1_Response.h"
 #include "Common_Response_Error.h"
@@ -109,6 +110,15 @@ public:
     virtual void bankaccountGetCommunicationsendersV1(const qint32 &pki_bankaccount_id);
 
     /**
+    * @param[in]  e_order_by QString [optional]
+    * @param[in]  i_row_max qint32 [optional]
+    * @param[in]  i_row_offset qint32 [optional]
+    * @param[in]  accept_language Header_Accept_Language [optional]
+    * @param[in]  s_filter QString [optional]
+    */
+    virtual void bankaccountGetListV1(const ::Ezmaxapi::OptionalParam<QString> &e_order_by = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<qint32> &i_row_max = ::Ezmaxapi::OptionalParam<qint32>(), const ::Ezmaxapi::OptionalParam<qint32> &i_row_offset = ::Ezmaxapi::OptionalParam<qint32>(), const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<Header_Accept_Language>(), const ::Ezmaxapi::OptionalParam<QString> &s_filter = ::Ezmaxapi::OptionalParam<QString>());
+
+    /**
     * @param[in]  pki_bankaccount_id qint32 [required]
     * @param[in]  bankaccount_import_into_edm_v1_request Bankaccount_importIntoEDM_v1_Request [required]
     */
@@ -151,6 +161,7 @@ private:
     void bankaccountGetCommunicationListV1Callback(HttpRequestWorker *worker);
     void bankaccountGetCommunicationrecipientsV1Callback(HttpRequestWorker *worker);
     void bankaccountGetCommunicationsendersV1Callback(HttpRequestWorker *worker);
+    void bankaccountGetListV1Callback(HttpRequestWorker *worker);
     void bankaccountImportIntoEDMV1Callback(HttpRequestWorker *worker);
 
 Q_SIGNALS:
@@ -162,6 +173,7 @@ Q_SIGNALS:
     void bankaccountGetCommunicationListV1Signal(Bankaccount_getCommunicationList_v1_Response summary);
     void bankaccountGetCommunicationrecipientsV1Signal(Bankaccount_getCommunicationrecipients_v1_Response summary);
     void bankaccountGetCommunicationsendersV1Signal(Bankaccount_getCommunicationsenders_v1_Response summary);
+    void bankaccountGetListV1Signal(Bankaccount_getList_v1_Response summary);
     void bankaccountImportIntoEDMV1Signal(Bankaccount_importIntoEDM_v1_Response summary);
 
 
@@ -172,6 +184,7 @@ Q_SIGNALS:
     void bankaccountGetCommunicationListV1SignalFull(HttpRequestWorker *worker, Bankaccount_getCommunicationList_v1_Response summary);
     void bankaccountGetCommunicationrecipientsV1SignalFull(HttpRequestWorker *worker, Bankaccount_getCommunicationrecipients_v1_Response summary);
     void bankaccountGetCommunicationsendersV1SignalFull(HttpRequestWorker *worker, Bankaccount_getCommunicationsenders_v1_Response summary);
+    void bankaccountGetListV1SignalFull(HttpRequestWorker *worker, Bankaccount_getList_v1_Response summary);
     void bankaccountImportIntoEDMV1SignalFull(HttpRequestWorker *worker, Bankaccount_importIntoEDM_v1_Response summary);
 
     void bankaccountBatchDownloadV1SignalError(HttpFileElement summary, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -181,6 +194,7 @@ Q_SIGNALS:
     void bankaccountGetCommunicationListV1SignalError(Bankaccount_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void bankaccountGetCommunicationrecipientsV1SignalError(Bankaccount_getCommunicationrecipients_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void bankaccountGetCommunicationsendersV1SignalError(Bankaccount_getCommunicationsenders_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void bankaccountGetListV1SignalError(Bankaccount_getList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void bankaccountImportIntoEDMV1SignalError(Bankaccount_importIntoEDM_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void bankaccountBatchDownloadV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -190,6 +204,7 @@ Q_SIGNALS:
     void bankaccountGetCommunicationListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void bankaccountGetCommunicationrecipientsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void bankaccountGetCommunicationsendersV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void bankaccountGetListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void bankaccountImportIntoEDMV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();

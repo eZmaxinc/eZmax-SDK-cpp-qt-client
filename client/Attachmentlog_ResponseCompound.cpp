@@ -40,6 +40,9 @@ void Attachmentlog_ResponseCompound::initializeModel() {
     m_fki_user_id_isSet = false;
     m_fki_user_id_isValid = false;
 
+    m_obj_user_isSet = false;
+    m_obj_user_isValid = false;
+
     m_dt_attachmentlog_datetime_isSet = false;
     m_dt_attachmentlog_datetime_isValid = false;
 
@@ -65,6 +68,9 @@ void Attachmentlog_ResponseCompound::fromJsonObject(QJsonObject json) {
     m_fki_user_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_user_id, json[QString("fkiUserID")]);
     m_fki_user_id_isSet = !json[QString("fkiUserID")].isNull() && m_fki_user_id_isValid;
 
+    m_obj_user_isValid = ::Ezmaxapi::fromJsonValue(m_obj_user, json[QString("objUser")]);
+    m_obj_user_isSet = !json[QString("objUser")].isNull() && m_obj_user_isValid;
+
     m_dt_attachmentlog_datetime_isValid = ::Ezmaxapi::fromJsonValue(m_dt_attachmentlog_datetime, json[QString("dtAttachmentlogDatetime")]);
     m_dt_attachmentlog_datetime_isSet = !json[QString("dtAttachmentlogDatetime")].isNull() && m_dt_attachmentlog_datetime_isValid;
 
@@ -89,6 +95,9 @@ QJsonObject Attachmentlog_ResponseCompound::asJsonObject() const {
     }
     if (m_fki_user_id_isSet) {
         obj.insert(QString("fkiUserID"), ::Ezmaxapi::toJsonValue(m_fki_user_id));
+    }
+    if (m_obj_user.isSet()) {
+        obj.insert(QString("objUser"), ::Ezmaxapi::toJsonValue(m_obj_user));
     }
     if (m_dt_attachmentlog_datetime_isSet) {
         obj.insert(QString("dtAttachmentlogDatetime"), ::Ezmaxapi::toJsonValue(m_dt_attachmentlog_datetime));
@@ -132,6 +141,22 @@ bool Attachmentlog_ResponseCompound::is_fki_user_id_Set() const{
 
 bool Attachmentlog_ResponseCompound::is_fki_user_id_Valid() const{
     return m_fki_user_id_isValid;
+}
+
+Custom_UserName_Response Attachmentlog_ResponseCompound::getObjUser() const {
+    return m_obj_user;
+}
+void Attachmentlog_ResponseCompound::setObjUser(const Custom_UserName_Response &obj_user) {
+    m_obj_user = obj_user;
+    m_obj_user_isSet = true;
+}
+
+bool Attachmentlog_ResponseCompound::is_obj_user_Set() const{
+    return m_obj_user_isSet;
+}
+
+bool Attachmentlog_ResponseCompound::is_obj_user_Valid() const{
+    return m_obj_user_isValid;
 }
 
 QString Attachmentlog_ResponseCompound::getDtAttachmentlogDatetime() const {
@@ -195,6 +220,11 @@ bool Attachmentlog_ResponseCompound::isSet() const {
             break;
         }
 
+        if (m_obj_user.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (m_dt_attachmentlog_datetime_isSet) {
             isObjectUpdated = true;
             break;
@@ -215,7 +245,7 @@ bool Attachmentlog_ResponseCompound::isSet() const {
 
 bool Attachmentlog_ResponseCompound::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_fki_attachment_id_isValid && m_fki_user_id_isValid && m_dt_attachmentlog_datetime_isValid && m_e_attachmentlog_type_isValid && true;
+    return m_fki_attachment_id_isValid && m_fki_user_id_isValid && m_obj_user_isValid && m_dt_attachmentlog_datetime_isValid && m_e_attachmentlog_type_isValid && true;
 }
 
 } // namespace Ezmaxapi

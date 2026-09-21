@@ -73,6 +73,8 @@ void ObjectBankaccountApi::initializeServerConfigs() {
     _serverIndices.insert("bankaccountGetCommunicationrecipientsV1", 0);
     _serverConfigs.insert("bankaccountGetCommunicationsendersV1", defaultConf);
     _serverIndices.insert("bankaccountGetCommunicationsendersV1", 0);
+    _serverConfigs.insert("bankaccountGetListV1", defaultConf);
+    _serverIndices.insert("bankaccountGetListV1", 0);
     _serverConfigs.insert("bankaccountImportIntoEDMV1", defaultConf);
     _serverIndices.insert("bankaccountImportIntoEDMV1", 0);
 }
@@ -767,6 +769,159 @@ void ObjectBankaccountApi::bankaccountGetCommunicationsendersV1Callback(HttpRequ
     } else {
         Q_EMIT bankaccountGetCommunicationsendersV1SignalError(output, error_type, error_str);
         Q_EMIT bankaccountGetCommunicationsendersV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectBankaccountApi::bankaccountGetListV1(const ::Ezmaxapi::OptionalParam<QString> &e_order_by, const ::Ezmaxapi::OptionalParam<qint32> &i_row_max, const ::Ezmaxapi::OptionalParam<qint32> &i_row_offset, const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language, const ::Ezmaxapi::OptionalParam<QString> &s_filter) {
+    QString fullPath = QString(_serverConfigs["bankaccountGetListV1"][_serverIndices.value("bankaccountGetListV1")].URL()+"/1/object/bankaccount/getList");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    QString queryPrefix, querySuffix, queryDelimiter, queryStyle;
+    if (e_order_by.hasValue())
+    {
+        queryStyle = "form";
+        if (queryStyle == "")
+            queryStyle = "form";
+        queryPrefix = getParamStylePrefix(queryStyle);
+        querySuffix = getParamStyleSuffix(queryStyle);
+        queryDelimiter = getParamStyleDelimiter(queryStyle, "eOrderBy", true);
+        if (fullPath.indexOf("?") > 0)
+            fullPath.append(queryPrefix);
+        else
+            fullPath.append("?");
+
+        fullPath.append(QUrl::toPercentEncoding("eOrderBy")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(e_order_by.stringValue())));
+    }
+    if (i_row_max.hasValue())
+    {
+        queryStyle = "form";
+        if (queryStyle == "")
+            queryStyle = "form";
+        queryPrefix = getParamStylePrefix(queryStyle);
+        querySuffix = getParamStyleSuffix(queryStyle);
+        queryDelimiter = getParamStyleDelimiter(queryStyle, "iRowMax", true);
+        if (fullPath.indexOf("?") > 0)
+            fullPath.append(queryPrefix);
+        else
+            fullPath.append("?");
+
+        fullPath.append(QUrl::toPercentEncoding("iRowMax")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(i_row_max.stringValue())));
+    }
+    if (i_row_offset.hasValue())
+    {
+        queryStyle = "form";
+        if (queryStyle == "")
+            queryStyle = "form";
+        queryPrefix = getParamStylePrefix(queryStyle);
+        querySuffix = getParamStyleSuffix(queryStyle);
+        queryDelimiter = getParamStyleDelimiter(queryStyle, "iRowOffset", true);
+        if (fullPath.indexOf("?") > 0)
+            fullPath.append(queryPrefix);
+        else
+            fullPath.append("?");
+
+        fullPath.append(QUrl::toPercentEncoding("iRowOffset")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(i_row_offset.stringValue())));
+    }
+    if (s_filter.hasValue())
+    {
+        queryStyle = "form";
+        if (queryStyle == "")
+            queryStyle = "form";
+        queryPrefix = getParamStylePrefix(queryStyle);
+        querySuffix = getParamStyleSuffix(queryStyle);
+        queryDelimiter = getParamStyleDelimiter(queryStyle, "sFilter", true);
+        if (fullPath.indexOf("?") > 0)
+            fullPath.append(queryPrefix);
+        else
+            fullPath.append("?");
+
+        fullPath.append(QUrl::toPercentEncoding("sFilter")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(s_filter.stringValue())));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    if (accept_language.hasValue())
+    {
+        QString headerString;
+        QJsonObject parameter = accept_language.value().asJsonObject();
+        qint32 count = 0;
+        for (const QString& key : parameter.keys()) {
+            if (count > 0) {
+                headerString.append(",");
+            }
+            QString assignOperator = (false) ? "=" : ",";
+            switch(parameter.value(key).type()) {
+                case QJsonValue::String:
+                {
+                    headerString.append(key+assignOperator+parameter.value(key).toString());
+                    break;
+                }
+                case QJsonValue::Double:
+                {
+                    headerString.append(key+assignOperator+QString::number(parameter.value(key).toDouble()));
+                    break;
+                }
+                case QJsonValue::Bool:
+                {
+                    headerString.append(key+assignOperator+QVariant(parameter.value(key).toBool()).toString());
+                    break;
+                }
+                case QJsonValue::Array:
+                {
+                    headerString.append(key+assignOperator+QVariant(parameter.value(key).toArray()).toString());
+                    break;
+                }
+                case QJsonValue::Object:
+                {
+                    headerString.append(key+assignOperator+QVariant(parameter.value(key).toObject()).toString());
+                    break;
+                }
+                case QJsonValue::Null:
+                case QJsonValue::Undefined:
+                    break;
+            }
+            count++;
+        }
+        input.headers.insert("Accept-Language", headerString);
+    }
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectBankaccountApi::bankaccountGetListV1Callback);
+    connect(this, &ObjectBankaccountApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectBankaccountApi::bankaccountGetListV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Bankaccount_getList_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT bankaccountGetListV1Signal(output);
+        Q_EMIT bankaccountGetListV1SignalFull(worker, output);
+    } else {
+        Q_EMIT bankaccountGetListV1SignalError(output, error_type, error_str);
+        Q_EMIT bankaccountGetListV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

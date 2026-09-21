@@ -90,8 +90,14 @@ HEADERS += \
     $${PWD}/Attachment_ResponseCompound.h \
     $${PWD}/Attachment_delete_v1_Response.h \
     $${PWD}/Attachment_delete_v1_Response_mPayload.h \
+    $${PWD}/Attachment_documentType_v1_Request.h \
+    $${PWD}/Attachment_documentType_v1_Response.h \
+    $${PWD}/Attachment_documentType_v1_Response_mPayload.h \
     $${PWD}/Attachment_getAttachmentlogs_v1_Response.h \
     $${PWD}/Attachment_getAttachmentlogs_v1_Response_mPayload.h \
+    $${PWD}/Attachment_privacy_v1_Request.h \
+    $${PWD}/Attachment_privacy_v1_Response.h \
+    $${PWD}/Attachment_privacy_v1_Response_mPayload.h \
     $${PWD}/Attachment_rename_v1_Request.h \
     $${PWD}/Attachment_rename_v1_Response.h \
     $${PWD}/Attachment_rename_v1_Response_mPayload.h \
@@ -103,6 +109,9 @@ HEADERS += \
     $${PWD}/Attachment_validate_v1_Response_mPayload.h \
     $${PWD}/Attachmentlog_Response.h \
     $${PWD}/Attachmentlog_ResponseCompound.h \
+    $${PWD}/Attachmentrejectreason_AutocompleteElement_Response.h \
+    $${PWD}/Attachmentrejectreason_getAutocomplete_v2_Response.h \
+    $${PWD}/Attachmentrejectreason_getAutocomplete_v2_Response_mPayload.h \
     $${PWD}/Attempt_Response.h \
     $${PWD}/Attempt_ResponseCompound.h \
     $${PWD}/Authenticationexternal_AutocompleteElement_Response.h \
@@ -125,6 +134,7 @@ HEADERS += \
     $${PWD}/Authenticationexternal_getObject_v2_Response_mPayload.h \
     $${PWD}/Authenticationexternal_resetAuthorization_v1_Response.h \
     $${PWD}/Bankaccount_AutocompleteElement_Response.h \
+    $${PWD}/Bankaccount_ListElement.h \
     $${PWD}/Bankaccount_batchDownload_v1_Request.h \
     $${PWD}/Bankaccount_getAttachments_v1_Response.h \
     $${PWD}/Bankaccount_getAttachments_v1_Response_mPayload.h \
@@ -138,6 +148,8 @@ HEADERS += \
     $${PWD}/Bankaccount_getCommunicationrecipients_v1_Response_mPayload.h \
     $${PWD}/Bankaccount_getCommunicationsenders_v1_Response.h \
     $${PWD}/Bankaccount_getCommunicationsenders_v1_Response_mPayload.h \
+    $${PWD}/Bankaccount_getList_v1_Response.h \
+    $${PWD}/Bankaccount_getList_v1_Response_mPayload.h \
     $${PWD}/Bankaccount_importIntoEDM_v1_Request.h \
     $${PWD}/Bankaccount_importIntoEDM_v1_Response.h \
     $${PWD}/Bankaccount_importIntoEDM_v1_Response_mPayload.h \
@@ -473,6 +485,7 @@ HEADERS += \
     $${PWD}/Department_AutocompleteElement_Response.h \
     $${PWD}/Department_getAutocomplete_v2_Response.h \
     $${PWD}/Department_getAutocomplete_v2_Response_mPayload.h \
+    $${PWD}/Deposit_ListElement.h \
     $${PWD}/Deposit_batchDownload_v1_Request.h \
     $${PWD}/Deposit_getAttachments_v1_Response.h \
     $${PWD}/Deposit_getAttachments_v1_Response_mPayload.h \
@@ -484,9 +497,12 @@ HEADERS += \
     $${PWD}/Deposit_getCommunicationrecipients_v1_Response_mPayload.h \
     $${PWD}/Deposit_getCommunicationsenders_v1_Response.h \
     $${PWD}/Deposit_getCommunicationsenders_v1_Response_mPayload.h \
+    $${PWD}/Deposit_getList_v1_Response.h \
+    $${PWD}/Deposit_getList_v1_Response_mPayload.h \
     $${PWD}/Deposit_importIntoEDM_v1_Request.h \
     $${PWD}/Deposit_importIntoEDM_v1_Response.h \
     $${PWD}/Deposit_importIntoEDM_v1_Response_mPayload.h \
+    $${PWD}/Deposittransitcheque_ListElement.h \
     $${PWD}/Deposittransitcheque_batchDownload_v1_Request.h \
     $${PWD}/Deposittransitcheque_getAttachments_v1_Response.h \
     $${PWD}/Deposittransitcheque_getAttachments_v1_Response_mPayload.h \
@@ -498,9 +514,12 @@ HEADERS += \
     $${PWD}/Deposittransitcheque_getCommunicationrecipients_v1_Response_mPayload.h \
     $${PWD}/Deposittransitcheque_getCommunicationsenders_v1_Response.h \
     $${PWD}/Deposittransitcheque_getCommunicationsenders_v1_Response_mPayload.h \
+    $${PWD}/Deposittransitcheque_getList_v1_Response.h \
+    $${PWD}/Deposittransitcheque_getList_v1_Response_mPayload.h \
     $${PWD}/Deposittransitcheque_importIntoEDM_v1_Request.h \
     $${PWD}/Deposittransitcheque_importIntoEDM_v1_Response.h \
     $${PWD}/Deposittransitcheque_importIntoEDM_v1_Response_mPayload.h \
+    $${PWD}/Disclosure_ListElement.h \
     $${PWD}/Disclosure_batchDownload_v1_Request.h \
     $${PWD}/Disclosure_getAttachments_v1_Response.h \
     $${PWD}/Disclosure_getAttachments_v1_Response_mPayload.h \
@@ -512,6 +531,8 @@ HEADERS += \
     $${PWD}/Disclosure_getCommunicationrecipients_v1_Response_mPayload.h \
     $${PWD}/Disclosure_getCommunicationsenders_v1_Response.h \
     $${PWD}/Disclosure_getCommunicationsenders_v1_Response_mPayload.h \
+    $${PWD}/Disclosure_getList_v1_Response.h \
+    $${PWD}/Disclosure_getList_v1_Response_mPayload.h \
     $${PWD}/Disclosure_importIntoEDM_v1_Request.h \
     $${PWD}/Disclosure_importIntoEDM_v1_Response.h \
     $${PWD}/Disclosure_importIntoEDM_v1_Response_mPayload.h \
@@ -1524,6 +1545,7 @@ HEADERS += \
     $${PWD}/Field_eAttachmentVerified.h \
     $${PWD}/Field_eAttachmentlogType.h \
     $${PWD}/Field_eAuthenticationexternalType.h \
+    $${PWD}/Field_eBankaccountType.h \
     $${PWD}/Field_eBrandingAlignlogo.h \
     $${PWD}/Field_eBrandingLogo.h \
     $${PWD}/Field_eBuyercontractRemunerationtype.h \
@@ -1542,6 +1564,7 @@ HEADERS += \
     $${PWD}/Field_eCreditcardtypeCodename.h \
     $${PWD}/Field_eCustomerMarketingcorrespondence.h \
     $${PWD}/Field_eCustomerType.h \
+    $${PWD}/Field_eDisclosureInteresttype.h \
     $${PWD}/Field_eDiscussionRobot.h \
     $${PWD}/Field_eDiscussionmessageStatus.h \
     $${PWD}/Field_eErrorCode.h \
@@ -1637,6 +1660,7 @@ HEADERS += \
     $${PWD}/Field_eInscriptionnotauthenticatedResidenceType.h \
     $${PWD}/Field_eInscriptionnotauthenticatedType.h \
     $${PWD}/Field_eInscriptiontempStatus.h \
+    $${PWD}/Field_eInvoiceType.h \
     $${PWD}/Field_eLeadStatus.h \
     $${PWD}/Field_eNotificationpreferenceStatus.h \
     $${PWD}/Field_eOtherincomeRemunerationtype.h \
@@ -1669,6 +1693,14 @@ HEADERS += \
     $${PWD}/Folder_batchDownload_v1_Request.h \
     $${PWD}/Folder_getAttachments_v1_Response.h \
     $${PWD}/Folder_getAttachments_v1_Response_mPayload.h \
+    $${PWD}/Folder_getCommunicationCount_v1_Response.h \
+    $${PWD}/Folder_getCommunicationCount_v1_Response_mPayload.h \
+    $${PWD}/Folder_getCommunicationList_v1_Response.h \
+    $${PWD}/Folder_getCommunicationList_v1_Response_mPayload.h \
+    $${PWD}/Folder_getCommunicationrecipients_v1_Response.h \
+    $${PWD}/Folder_getCommunicationrecipients_v1_Response_mPayload.h \
+    $${PWD}/Folder_getCommunicationsenders_v1_Response.h \
+    $${PWD}/Folder_getCommunicationsenders_v1_Response_mPayload.h \
     $${PWD}/Folder_importIntoEDM_v1_Request.h \
     $${PWD}/Folder_importIntoEDM_v1_Response.h \
     $${PWD}/Folder_importIntoEDM_v1_Response_mPayload.h \
@@ -1775,6 +1807,7 @@ HEADERS += \
     $${PWD}/Inscriptiontype_AutocompleteElement_Response.h \
     $${PWD}/Inscriptiontype_getAutocomplete_v2_Response.h \
     $${PWD}/Inscriptiontype_getAutocomplete_v2_Response_mPayload.h \
+    $${PWD}/Invoice_ListElement.h \
     $${PWD}/Invoice_batchDownload_v1_Request.h \
     $${PWD}/Invoice_getAttachments_v1_Response.h \
     $${PWD}/Invoice_getAttachments_v1_Response_mPayload.h \
@@ -1786,6 +1819,8 @@ HEADERS += \
     $${PWD}/Invoice_getCommunicationrecipients_v1_Response_mPayload.h \
     $${PWD}/Invoice_getCommunicationsenders_v1_Response.h \
     $${PWD}/Invoice_getCommunicationsenders_v1_Response_mPayload.h \
+    $${PWD}/Invoice_getList_v1_Response.h \
+    $${PWD}/Invoice_getList_v1_Response_mPayload.h \
     $${PWD}/Invoice_importIntoEDM_v1_Request.h \
     $${PWD}/Invoice_importIntoEDM_v1_Response.h \
     $${PWD}/Invoice_importIntoEDM_v1_Response_mPayload.h \
@@ -1796,6 +1831,14 @@ HEADERS += \
     $${PWD}/Lead_batchDownload_v1_Request.h \
     $${PWD}/Lead_getAttachments_v1_Response.h \
     $${PWD}/Lead_getAttachments_v1_Response_mPayload.h \
+    $${PWD}/Lead_getCommunicationCount_v1_Response.h \
+    $${PWD}/Lead_getCommunicationCount_v1_Response_mPayload.h \
+    $${PWD}/Lead_getCommunicationList_v1_Response.h \
+    $${PWD}/Lead_getCommunicationList_v1_Response_mPayload.h \
+    $${PWD}/Lead_getCommunicationrecipients_v1_Response.h \
+    $${PWD}/Lead_getCommunicationrecipients_v1_Response_mPayload.h \
+    $${PWD}/Lead_getCommunicationsenders_v1_Response.h \
+    $${PWD}/Lead_getCommunicationsenders_v1_Response_mPayload.h \
     $${PWD}/Lead_getList_v1_Response.h \
     $${PWD}/Lead_getList_v1_Response_mPayload.h \
     $${PWD}/Lead_importIntoEDM_v1_Request.h \
@@ -1844,9 +1887,20 @@ HEADERS += \
     $${PWD}/Multilingual_UserlogintypeDescription.h \
     $${PWD}/Multilingual_VariableexpenseDescription.h \
     $${PWD}/Multilingual_VersionhistoryDetail.h \
+    $${PWD}/Notary_ListElement.h \
     $${PWD}/Notary_batchDownload_v1_Request.h \
     $${PWD}/Notary_getAttachments_v1_Response.h \
     $${PWD}/Notary_getAttachments_v1_Response_mPayload.h \
+    $${PWD}/Notary_getCommunicationCount_v1_Response.h \
+    $${PWD}/Notary_getCommunicationCount_v1_Response_mPayload.h \
+    $${PWD}/Notary_getCommunicationList_v1_Response.h \
+    $${PWD}/Notary_getCommunicationList_v1_Response_mPayload.h \
+    $${PWD}/Notary_getCommunicationrecipients_v1_Response.h \
+    $${PWD}/Notary_getCommunicationrecipients_v1_Response_mPayload.h \
+    $${PWD}/Notary_getCommunicationsenders_v1_Response.h \
+    $${PWD}/Notary_getCommunicationsenders_v1_Response_mPayload.h \
+    $${PWD}/Notary_getList_v1_Response.h \
+    $${PWD}/Notary_getList_v1_Response_mPayload.h \
     $${PWD}/Notary_importIntoEDM_v1_Request.h \
     $${PWD}/Notary_importIntoEDM_v1_Response.h \
     $${PWD}/Notary_importIntoEDM_v1_Response_mPayload.h \
@@ -1856,9 +1910,20 @@ HEADERS += \
     $${PWD}/Notificationtest_Response.h \
     $${PWD}/Notificationtest_getElements_v2_Response.h \
     $${PWD}/Notificationtest_getElements_v2_Response_mPayload.h \
+    $${PWD}/Officetaxreport_ListElement.h \
     $${PWD}/Officetaxreport_batchDownload_v1_Request.h \
     $${PWD}/Officetaxreport_getAttachments_v1_Response.h \
     $${PWD}/Officetaxreport_getAttachments_v1_Response_mPayload.h \
+    $${PWD}/Officetaxreport_getCommunicationCount_v1_Response.h \
+    $${PWD}/Officetaxreport_getCommunicationCount_v1_Response_mPayload.h \
+    $${PWD}/Officetaxreport_getCommunicationList_v1_Response.h \
+    $${PWD}/Officetaxreport_getCommunicationList_v1_Response_mPayload.h \
+    $${PWD}/Officetaxreport_getCommunicationrecipients_v1_Response.h \
+    $${PWD}/Officetaxreport_getCommunicationrecipients_v1_Response_mPayload.h \
+    $${PWD}/Officetaxreport_getCommunicationsenders_v1_Response.h \
+    $${PWD}/Officetaxreport_getCommunicationsenders_v1_Response_mPayload.h \
+    $${PWD}/Officetaxreport_getList_v1_Response.h \
+    $${PWD}/Officetaxreport_getList_v1_Response_mPayload.h \
     $${PWD}/Officetaxreport_importIntoEDM_v1_Request.h \
     $${PWD}/Officetaxreport_importIntoEDM_v1_Response.h \
     $${PWD}/Officetaxreport_importIntoEDM_v1_Response_mPayload.h \
@@ -1955,9 +2020,12 @@ HEADERS += \
     $${PWD}/Province_AutocompleteElement_Response.h \
     $${PWD}/Province_getAutocomplete_v2_Response.h \
     $${PWD}/Province_getAutocomplete_v2_Response_mPayload.h \
+    $${PWD}/Purchase_ListElement.h \
     $${PWD}/Purchase_batchDownload_v1_Request.h \
     $${PWD}/Purchase_getAttachments_v1_Response.h \
     $${PWD}/Purchase_getAttachments_v1_Response_mPayload.h \
+    $${PWD}/Purchase_getList_v1_Response.h \
+    $${PWD}/Purchase_getList_v1_Response_mPayload.h \
     $${PWD}/Purchase_importIntoEDM_v1_Request.h \
     $${PWD}/Purchase_importIntoEDM_v1_Response.h \
     $${PWD}/Purchase_importIntoEDM_v1_Response_mPayload.h \
@@ -1990,9 +2058,12 @@ HEADERS += \
     $${PWD}/Rejectedoffertopurchase_importIntoEDM_v1_Request.h \
     $${PWD}/Rejectedoffertopurchase_importIntoEDM_v1_Response.h \
     $${PWD}/Rejectedoffertopurchase_importIntoEDM_v1_Response_mPayload.h \
+    $${PWD}/Salary_ListElement.h \
     $${PWD}/Salary_batchDownload_v1_Request.h \
     $${PWD}/Salary_getAttachments_v1_Response.h \
     $${PWD}/Salary_getAttachments_v1_Response_mPayload.h \
+    $${PWD}/Salary_getList_v1_Response.h \
+    $${PWD}/Salary_getList_v1_Response_mPayload.h \
     $${PWD}/Salary_importIntoEDM_v1_Request.h \
     $${PWD}/Salary_importIntoEDM_v1_Response.h \
     $${PWD}/Salary_importIntoEDM_v1_Response_mPayload.h \
@@ -2340,6 +2411,7 @@ HEADERS += \
     $${PWD}/ObjectAgenttypeApi.h \
     $${PWD}/ObjectApikeyApi.h \
     $${PWD}/ObjectAttachmentApi.h \
+    $${PWD}/ObjectAttachmentrejectreasonApi.h \
     $${PWD}/ObjectAuthenticationexternalApi.h \
     $${PWD}/ObjectBankaccountApi.h \
     $${PWD}/ObjectBillingentityexternalApi.h \
@@ -2579,8 +2651,14 @@ SOURCES += \
     $${PWD}/Attachment_ResponseCompound.cpp \
     $${PWD}/Attachment_delete_v1_Response.cpp \
     $${PWD}/Attachment_delete_v1_Response_mPayload.cpp \
+    $${PWD}/Attachment_documentType_v1_Request.cpp \
+    $${PWD}/Attachment_documentType_v1_Response.cpp \
+    $${PWD}/Attachment_documentType_v1_Response_mPayload.cpp \
     $${PWD}/Attachment_getAttachmentlogs_v1_Response.cpp \
     $${PWD}/Attachment_getAttachmentlogs_v1_Response_mPayload.cpp \
+    $${PWD}/Attachment_privacy_v1_Request.cpp \
+    $${PWD}/Attachment_privacy_v1_Response.cpp \
+    $${PWD}/Attachment_privacy_v1_Response_mPayload.cpp \
     $${PWD}/Attachment_rename_v1_Request.cpp \
     $${PWD}/Attachment_rename_v1_Response.cpp \
     $${PWD}/Attachment_rename_v1_Response_mPayload.cpp \
@@ -2592,6 +2670,9 @@ SOURCES += \
     $${PWD}/Attachment_validate_v1_Response_mPayload.cpp \
     $${PWD}/Attachmentlog_Response.cpp \
     $${PWD}/Attachmentlog_ResponseCompound.cpp \
+    $${PWD}/Attachmentrejectreason_AutocompleteElement_Response.cpp \
+    $${PWD}/Attachmentrejectreason_getAutocomplete_v2_Response.cpp \
+    $${PWD}/Attachmentrejectreason_getAutocomplete_v2_Response_mPayload.cpp \
     $${PWD}/Attempt_Response.cpp \
     $${PWD}/Attempt_ResponseCompound.cpp \
     $${PWD}/Authenticationexternal_AutocompleteElement_Response.cpp \
@@ -2614,6 +2695,7 @@ SOURCES += \
     $${PWD}/Authenticationexternal_getObject_v2_Response_mPayload.cpp \
     $${PWD}/Authenticationexternal_resetAuthorization_v1_Response.cpp \
     $${PWD}/Bankaccount_AutocompleteElement_Response.cpp \
+    $${PWD}/Bankaccount_ListElement.cpp \
     $${PWD}/Bankaccount_batchDownload_v1_Request.cpp \
     $${PWD}/Bankaccount_getAttachments_v1_Response.cpp \
     $${PWD}/Bankaccount_getAttachments_v1_Response_mPayload.cpp \
@@ -2627,6 +2709,8 @@ SOURCES += \
     $${PWD}/Bankaccount_getCommunicationrecipients_v1_Response_mPayload.cpp \
     $${PWD}/Bankaccount_getCommunicationsenders_v1_Response.cpp \
     $${PWD}/Bankaccount_getCommunicationsenders_v1_Response_mPayload.cpp \
+    $${PWD}/Bankaccount_getList_v1_Response.cpp \
+    $${PWD}/Bankaccount_getList_v1_Response_mPayload.cpp \
     $${PWD}/Bankaccount_importIntoEDM_v1_Request.cpp \
     $${PWD}/Bankaccount_importIntoEDM_v1_Response.cpp \
     $${PWD}/Bankaccount_importIntoEDM_v1_Response_mPayload.cpp \
@@ -2962,6 +3046,7 @@ SOURCES += \
     $${PWD}/Department_AutocompleteElement_Response.cpp \
     $${PWD}/Department_getAutocomplete_v2_Response.cpp \
     $${PWD}/Department_getAutocomplete_v2_Response_mPayload.cpp \
+    $${PWD}/Deposit_ListElement.cpp \
     $${PWD}/Deposit_batchDownload_v1_Request.cpp \
     $${PWD}/Deposit_getAttachments_v1_Response.cpp \
     $${PWD}/Deposit_getAttachments_v1_Response_mPayload.cpp \
@@ -2973,9 +3058,12 @@ SOURCES += \
     $${PWD}/Deposit_getCommunicationrecipients_v1_Response_mPayload.cpp \
     $${PWD}/Deposit_getCommunicationsenders_v1_Response.cpp \
     $${PWD}/Deposit_getCommunicationsenders_v1_Response_mPayload.cpp \
+    $${PWD}/Deposit_getList_v1_Response.cpp \
+    $${PWD}/Deposit_getList_v1_Response_mPayload.cpp \
     $${PWD}/Deposit_importIntoEDM_v1_Request.cpp \
     $${PWD}/Deposit_importIntoEDM_v1_Response.cpp \
     $${PWD}/Deposit_importIntoEDM_v1_Response_mPayload.cpp \
+    $${PWD}/Deposittransitcheque_ListElement.cpp \
     $${PWD}/Deposittransitcheque_batchDownload_v1_Request.cpp \
     $${PWD}/Deposittransitcheque_getAttachments_v1_Response.cpp \
     $${PWD}/Deposittransitcheque_getAttachments_v1_Response_mPayload.cpp \
@@ -2987,9 +3075,12 @@ SOURCES += \
     $${PWD}/Deposittransitcheque_getCommunicationrecipients_v1_Response_mPayload.cpp \
     $${PWD}/Deposittransitcheque_getCommunicationsenders_v1_Response.cpp \
     $${PWD}/Deposittransitcheque_getCommunicationsenders_v1_Response_mPayload.cpp \
+    $${PWD}/Deposittransitcheque_getList_v1_Response.cpp \
+    $${PWD}/Deposittransitcheque_getList_v1_Response_mPayload.cpp \
     $${PWD}/Deposittransitcheque_importIntoEDM_v1_Request.cpp \
     $${PWD}/Deposittransitcheque_importIntoEDM_v1_Response.cpp \
     $${PWD}/Deposittransitcheque_importIntoEDM_v1_Response_mPayload.cpp \
+    $${PWD}/Disclosure_ListElement.cpp \
     $${PWD}/Disclosure_batchDownload_v1_Request.cpp \
     $${PWD}/Disclosure_getAttachments_v1_Response.cpp \
     $${PWD}/Disclosure_getAttachments_v1_Response_mPayload.cpp \
@@ -3001,6 +3092,8 @@ SOURCES += \
     $${PWD}/Disclosure_getCommunicationrecipients_v1_Response_mPayload.cpp \
     $${PWD}/Disclosure_getCommunicationsenders_v1_Response.cpp \
     $${PWD}/Disclosure_getCommunicationsenders_v1_Response_mPayload.cpp \
+    $${PWD}/Disclosure_getList_v1_Response.cpp \
+    $${PWD}/Disclosure_getList_v1_Response_mPayload.cpp \
     $${PWD}/Disclosure_importIntoEDM_v1_Request.cpp \
     $${PWD}/Disclosure_importIntoEDM_v1_Response.cpp \
     $${PWD}/Disclosure_importIntoEDM_v1_Response_mPayload.cpp \
@@ -4013,6 +4106,7 @@ SOURCES += \
     $${PWD}/Field_eAttachmentVerified.cpp \
     $${PWD}/Field_eAttachmentlogType.cpp \
     $${PWD}/Field_eAuthenticationexternalType.cpp \
+    $${PWD}/Field_eBankaccountType.cpp \
     $${PWD}/Field_eBrandingAlignlogo.cpp \
     $${PWD}/Field_eBrandingLogo.cpp \
     $${PWD}/Field_eBuyercontractRemunerationtype.cpp \
@@ -4031,6 +4125,7 @@ SOURCES += \
     $${PWD}/Field_eCreditcardtypeCodename.cpp \
     $${PWD}/Field_eCustomerMarketingcorrespondence.cpp \
     $${PWD}/Field_eCustomerType.cpp \
+    $${PWD}/Field_eDisclosureInteresttype.cpp \
     $${PWD}/Field_eDiscussionRobot.cpp \
     $${PWD}/Field_eDiscussionmessageStatus.cpp \
     $${PWD}/Field_eErrorCode.cpp \
@@ -4126,6 +4221,7 @@ SOURCES += \
     $${PWD}/Field_eInscriptionnotauthenticatedResidenceType.cpp \
     $${PWD}/Field_eInscriptionnotauthenticatedType.cpp \
     $${PWD}/Field_eInscriptiontempStatus.cpp \
+    $${PWD}/Field_eInvoiceType.cpp \
     $${PWD}/Field_eLeadStatus.cpp \
     $${PWD}/Field_eNotificationpreferenceStatus.cpp \
     $${PWD}/Field_eOtherincomeRemunerationtype.cpp \
@@ -4158,6 +4254,14 @@ SOURCES += \
     $${PWD}/Folder_batchDownload_v1_Request.cpp \
     $${PWD}/Folder_getAttachments_v1_Response.cpp \
     $${PWD}/Folder_getAttachments_v1_Response_mPayload.cpp \
+    $${PWD}/Folder_getCommunicationCount_v1_Response.cpp \
+    $${PWD}/Folder_getCommunicationCount_v1_Response_mPayload.cpp \
+    $${PWD}/Folder_getCommunicationList_v1_Response.cpp \
+    $${PWD}/Folder_getCommunicationList_v1_Response_mPayload.cpp \
+    $${PWD}/Folder_getCommunicationrecipients_v1_Response.cpp \
+    $${PWD}/Folder_getCommunicationrecipients_v1_Response_mPayload.cpp \
+    $${PWD}/Folder_getCommunicationsenders_v1_Response.cpp \
+    $${PWD}/Folder_getCommunicationsenders_v1_Response_mPayload.cpp \
     $${PWD}/Folder_importIntoEDM_v1_Request.cpp \
     $${PWD}/Folder_importIntoEDM_v1_Response.cpp \
     $${PWD}/Folder_importIntoEDM_v1_Response_mPayload.cpp \
@@ -4264,6 +4368,7 @@ SOURCES += \
     $${PWD}/Inscriptiontype_AutocompleteElement_Response.cpp \
     $${PWD}/Inscriptiontype_getAutocomplete_v2_Response.cpp \
     $${PWD}/Inscriptiontype_getAutocomplete_v2_Response_mPayload.cpp \
+    $${PWD}/Invoice_ListElement.cpp \
     $${PWD}/Invoice_batchDownload_v1_Request.cpp \
     $${PWD}/Invoice_getAttachments_v1_Response.cpp \
     $${PWD}/Invoice_getAttachments_v1_Response_mPayload.cpp \
@@ -4275,6 +4380,8 @@ SOURCES += \
     $${PWD}/Invoice_getCommunicationrecipients_v1_Response_mPayload.cpp \
     $${PWD}/Invoice_getCommunicationsenders_v1_Response.cpp \
     $${PWD}/Invoice_getCommunicationsenders_v1_Response_mPayload.cpp \
+    $${PWD}/Invoice_getList_v1_Response.cpp \
+    $${PWD}/Invoice_getList_v1_Response_mPayload.cpp \
     $${PWD}/Invoice_importIntoEDM_v1_Request.cpp \
     $${PWD}/Invoice_importIntoEDM_v1_Response.cpp \
     $${PWD}/Invoice_importIntoEDM_v1_Response_mPayload.cpp \
@@ -4285,6 +4392,14 @@ SOURCES += \
     $${PWD}/Lead_batchDownload_v1_Request.cpp \
     $${PWD}/Lead_getAttachments_v1_Response.cpp \
     $${PWD}/Lead_getAttachments_v1_Response_mPayload.cpp \
+    $${PWD}/Lead_getCommunicationCount_v1_Response.cpp \
+    $${PWD}/Lead_getCommunicationCount_v1_Response_mPayload.cpp \
+    $${PWD}/Lead_getCommunicationList_v1_Response.cpp \
+    $${PWD}/Lead_getCommunicationList_v1_Response_mPayload.cpp \
+    $${PWD}/Lead_getCommunicationrecipients_v1_Response.cpp \
+    $${PWD}/Lead_getCommunicationrecipients_v1_Response_mPayload.cpp \
+    $${PWD}/Lead_getCommunicationsenders_v1_Response.cpp \
+    $${PWD}/Lead_getCommunicationsenders_v1_Response_mPayload.cpp \
     $${PWD}/Lead_getList_v1_Response.cpp \
     $${PWD}/Lead_getList_v1_Response_mPayload.cpp \
     $${PWD}/Lead_importIntoEDM_v1_Request.cpp \
@@ -4333,9 +4448,20 @@ SOURCES += \
     $${PWD}/Multilingual_UserlogintypeDescription.cpp \
     $${PWD}/Multilingual_VariableexpenseDescription.cpp \
     $${PWD}/Multilingual_VersionhistoryDetail.cpp \
+    $${PWD}/Notary_ListElement.cpp \
     $${PWD}/Notary_batchDownload_v1_Request.cpp \
     $${PWD}/Notary_getAttachments_v1_Response.cpp \
     $${PWD}/Notary_getAttachments_v1_Response_mPayload.cpp \
+    $${PWD}/Notary_getCommunicationCount_v1_Response.cpp \
+    $${PWD}/Notary_getCommunicationCount_v1_Response_mPayload.cpp \
+    $${PWD}/Notary_getCommunicationList_v1_Response.cpp \
+    $${PWD}/Notary_getCommunicationList_v1_Response_mPayload.cpp \
+    $${PWD}/Notary_getCommunicationrecipients_v1_Response.cpp \
+    $${PWD}/Notary_getCommunicationrecipients_v1_Response_mPayload.cpp \
+    $${PWD}/Notary_getCommunicationsenders_v1_Response.cpp \
+    $${PWD}/Notary_getCommunicationsenders_v1_Response_mPayload.cpp \
+    $${PWD}/Notary_getList_v1_Response.cpp \
+    $${PWD}/Notary_getList_v1_Response_mPayload.cpp \
     $${PWD}/Notary_importIntoEDM_v1_Request.cpp \
     $${PWD}/Notary_importIntoEDM_v1_Response.cpp \
     $${PWD}/Notary_importIntoEDM_v1_Response_mPayload.cpp \
@@ -4345,9 +4471,20 @@ SOURCES += \
     $${PWD}/Notificationtest_Response.cpp \
     $${PWD}/Notificationtest_getElements_v2_Response.cpp \
     $${PWD}/Notificationtest_getElements_v2_Response_mPayload.cpp \
+    $${PWD}/Officetaxreport_ListElement.cpp \
     $${PWD}/Officetaxreport_batchDownload_v1_Request.cpp \
     $${PWD}/Officetaxreport_getAttachments_v1_Response.cpp \
     $${PWD}/Officetaxreport_getAttachments_v1_Response_mPayload.cpp \
+    $${PWD}/Officetaxreport_getCommunicationCount_v1_Response.cpp \
+    $${PWD}/Officetaxreport_getCommunicationCount_v1_Response_mPayload.cpp \
+    $${PWD}/Officetaxreport_getCommunicationList_v1_Response.cpp \
+    $${PWD}/Officetaxreport_getCommunicationList_v1_Response_mPayload.cpp \
+    $${PWD}/Officetaxreport_getCommunicationrecipients_v1_Response.cpp \
+    $${PWD}/Officetaxreport_getCommunicationrecipients_v1_Response_mPayload.cpp \
+    $${PWD}/Officetaxreport_getCommunicationsenders_v1_Response.cpp \
+    $${PWD}/Officetaxreport_getCommunicationsenders_v1_Response_mPayload.cpp \
+    $${PWD}/Officetaxreport_getList_v1_Response.cpp \
+    $${PWD}/Officetaxreport_getList_v1_Response_mPayload.cpp \
     $${PWD}/Officetaxreport_importIntoEDM_v1_Request.cpp \
     $${PWD}/Officetaxreport_importIntoEDM_v1_Response.cpp \
     $${PWD}/Officetaxreport_importIntoEDM_v1_Response_mPayload.cpp \
@@ -4444,9 +4581,12 @@ SOURCES += \
     $${PWD}/Province_AutocompleteElement_Response.cpp \
     $${PWD}/Province_getAutocomplete_v2_Response.cpp \
     $${PWD}/Province_getAutocomplete_v2_Response_mPayload.cpp \
+    $${PWD}/Purchase_ListElement.cpp \
     $${PWD}/Purchase_batchDownload_v1_Request.cpp \
     $${PWD}/Purchase_getAttachments_v1_Response.cpp \
     $${PWD}/Purchase_getAttachments_v1_Response_mPayload.cpp \
+    $${PWD}/Purchase_getList_v1_Response.cpp \
+    $${PWD}/Purchase_getList_v1_Response_mPayload.cpp \
     $${PWD}/Purchase_importIntoEDM_v1_Request.cpp \
     $${PWD}/Purchase_importIntoEDM_v1_Response.cpp \
     $${PWD}/Purchase_importIntoEDM_v1_Response_mPayload.cpp \
@@ -4479,9 +4619,12 @@ SOURCES += \
     $${PWD}/Rejectedoffertopurchase_importIntoEDM_v1_Request.cpp \
     $${PWD}/Rejectedoffertopurchase_importIntoEDM_v1_Response.cpp \
     $${PWD}/Rejectedoffertopurchase_importIntoEDM_v1_Response_mPayload.cpp \
+    $${PWD}/Salary_ListElement.cpp \
     $${PWD}/Salary_batchDownload_v1_Request.cpp \
     $${PWD}/Salary_getAttachments_v1_Response.cpp \
     $${PWD}/Salary_getAttachments_v1_Response_mPayload.cpp \
+    $${PWD}/Salary_getList_v1_Response.cpp \
+    $${PWD}/Salary_getList_v1_Response_mPayload.cpp \
     $${PWD}/Salary_importIntoEDM_v1_Request.cpp \
     $${PWD}/Salary_importIntoEDM_v1_Response.cpp \
     $${PWD}/Salary_importIntoEDM_v1_Response_mPayload.cpp \
@@ -4829,6 +4972,7 @@ SOURCES += \
     $${PWD}/ObjectAgenttypeApi.cpp \
     $${PWD}/ObjectApikeyApi.cpp \
     $${PWD}/ObjectAttachmentApi.cpp \
+    $${PWD}/ObjectAttachmentrejectreasonApi.cpp \
     $${PWD}/ObjectAuthenticationexternalApi.cpp \
     $${PWD}/ObjectBankaccountApi.cpp \
     $${PWD}/ObjectBillingentityexternalApi.cpp \

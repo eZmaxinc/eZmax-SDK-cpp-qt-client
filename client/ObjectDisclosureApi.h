@@ -25,8 +25,10 @@
 #include "Disclosure_getCommunicationList_v1_Response.h"
 #include "Disclosure_getCommunicationrecipients_v1_Response.h"
 #include "Disclosure_getCommunicationsenders_v1_Response.h"
+#include "Disclosure_getList_v1_Response.h"
 #include "Disclosure_importIntoEDM_v1_Request.h"
 #include "Disclosure_importIntoEDM_v1_Response.h"
+#include "Header_Accept_Language.h"
 #include "HttpFileElement.h"
 #include <QString>
 
@@ -99,6 +101,15 @@ public:
     virtual void disclosureGetCommunicationsendersV1(const qint32 &pki_disclosure_id);
 
     /**
+    * @param[in]  e_order_by QString [optional]
+    * @param[in]  i_row_max qint32 [optional]
+    * @param[in]  i_row_offset qint32 [optional]
+    * @param[in]  accept_language Header_Accept_Language [optional]
+    * @param[in]  s_filter QString [optional]
+    */
+    virtual void disclosureGetListV1(const ::Ezmaxapi::OptionalParam<QString> &e_order_by = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<qint32> &i_row_max = ::Ezmaxapi::OptionalParam<qint32>(), const ::Ezmaxapi::OptionalParam<qint32> &i_row_offset = ::Ezmaxapi::OptionalParam<qint32>(), const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<Header_Accept_Language>(), const ::Ezmaxapi::OptionalParam<QString> &s_filter = ::Ezmaxapi::OptionalParam<QString>());
+
+    /**
     * @param[in]  pki_disclosure_id qint32 [required]
     * @param[in]  disclosure_import_into_edm_v1_request Disclosure_importIntoEDM_v1_Request [required]
     */
@@ -140,6 +151,7 @@ private:
     void disclosureGetCommunicationListV1Callback(HttpRequestWorker *worker);
     void disclosureGetCommunicationrecipientsV1Callback(HttpRequestWorker *worker);
     void disclosureGetCommunicationsendersV1Callback(HttpRequestWorker *worker);
+    void disclosureGetListV1Callback(HttpRequestWorker *worker);
     void disclosureImportIntoEDMV1Callback(HttpRequestWorker *worker);
 
 Q_SIGNALS:
@@ -150,6 +162,7 @@ Q_SIGNALS:
     void disclosureGetCommunicationListV1Signal(Disclosure_getCommunicationList_v1_Response summary);
     void disclosureGetCommunicationrecipientsV1Signal(Disclosure_getCommunicationrecipients_v1_Response summary);
     void disclosureGetCommunicationsendersV1Signal(Disclosure_getCommunicationsenders_v1_Response summary);
+    void disclosureGetListV1Signal(Disclosure_getList_v1_Response summary);
     void disclosureImportIntoEDMV1Signal(Disclosure_importIntoEDM_v1_Response summary);
 
 
@@ -159,6 +172,7 @@ Q_SIGNALS:
     void disclosureGetCommunicationListV1SignalFull(HttpRequestWorker *worker, Disclosure_getCommunicationList_v1_Response summary);
     void disclosureGetCommunicationrecipientsV1SignalFull(HttpRequestWorker *worker, Disclosure_getCommunicationrecipients_v1_Response summary);
     void disclosureGetCommunicationsendersV1SignalFull(HttpRequestWorker *worker, Disclosure_getCommunicationsenders_v1_Response summary);
+    void disclosureGetListV1SignalFull(HttpRequestWorker *worker, Disclosure_getList_v1_Response summary);
     void disclosureImportIntoEDMV1SignalFull(HttpRequestWorker *worker, Disclosure_importIntoEDM_v1_Response summary);
 
     void disclosureBatchDownloadV1SignalError(HttpFileElement summary, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -167,6 +181,7 @@ Q_SIGNALS:
     void disclosureGetCommunicationListV1SignalError(Disclosure_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void disclosureGetCommunicationrecipientsV1SignalError(Disclosure_getCommunicationrecipients_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void disclosureGetCommunicationsendersV1SignalError(Disclosure_getCommunicationsenders_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void disclosureGetListV1SignalError(Disclosure_getList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void disclosureImportIntoEDMV1SignalError(Disclosure_importIntoEDM_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void disclosureBatchDownloadV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -175,6 +190,7 @@ Q_SIGNALS:
     void disclosureGetCommunicationListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void disclosureGetCommunicationrecipientsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void disclosureGetCommunicationsendersV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void disclosureGetListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void disclosureImportIntoEDMV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();

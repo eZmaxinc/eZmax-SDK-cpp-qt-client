@@ -63,6 +63,14 @@ void ObjectLeadApi::initializeServerConfigs() {
     _serverIndices.insert("leadBatchDownloadV1", 0);
     _serverConfigs.insert("leadGetAttachmentsV1", defaultConf);
     _serverIndices.insert("leadGetAttachmentsV1", 0);
+    _serverConfigs.insert("leadGetCommunicationCountV1", defaultConf);
+    _serverIndices.insert("leadGetCommunicationCountV1", 0);
+    _serverConfigs.insert("leadGetCommunicationListV1", defaultConf);
+    _serverIndices.insert("leadGetCommunicationListV1", 0);
+    _serverConfigs.insert("leadGetCommunicationrecipientsV1", defaultConf);
+    _serverIndices.insert("leadGetCommunicationrecipientsV1", 0);
+    _serverConfigs.insert("leadGetCommunicationsendersV1", defaultConf);
+    _serverIndices.insert("leadGetCommunicationsendersV1", 0);
     _serverConfigs.insert("leadGetListV1", defaultConf);
     _serverIndices.insert("leadGetListV1", 0);
     _serverConfigs.insert("leadImportIntoEDMV1", defaultConf);
@@ -374,6 +382,254 @@ void ObjectLeadApi::leadGetAttachmentsV1Callback(HttpRequestWorker *worker) {
     } else {
         Q_EMIT leadGetAttachmentsV1SignalError(output, error_type, error_str);
         Q_EMIT leadGetAttachmentsV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectLeadApi::leadGetCommunicationCountV1(const qint32 &pki_lead_id) {
+    QString fullPath = QString(_serverConfigs["leadGetCommunicationCountV1"][_serverIndices.value("leadGetCommunicationCountV1")].URL()+"/1/object/lead/{pkiLeadID}/getCommunicationCount");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_lead_idPathParam("{");
+        pki_lead_idPathParam.append("pkiLeadID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiLeadID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiLeadID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_lead_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_lead_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectLeadApi::leadGetCommunicationCountV1Callback);
+    connect(this, &ObjectLeadApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectLeadApi::leadGetCommunicationCountV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Lead_getCommunicationCount_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT leadGetCommunicationCountV1Signal(output);
+        Q_EMIT leadGetCommunicationCountV1SignalFull(worker, output);
+    } else {
+        Q_EMIT leadGetCommunicationCountV1SignalError(output, error_type, error_str);
+        Q_EMIT leadGetCommunicationCountV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectLeadApi::leadGetCommunicationListV1(const qint32 &pki_lead_id) {
+    QString fullPath = QString(_serverConfigs["leadGetCommunicationListV1"][_serverIndices.value("leadGetCommunicationListV1")].URL()+"/1/object/lead/{pkiLeadID}/getCommunicationList");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_lead_idPathParam("{");
+        pki_lead_idPathParam.append("pkiLeadID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiLeadID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiLeadID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_lead_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_lead_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectLeadApi::leadGetCommunicationListV1Callback);
+    connect(this, &ObjectLeadApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectLeadApi::leadGetCommunicationListV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Lead_getCommunicationList_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT leadGetCommunicationListV1Signal(output);
+        Q_EMIT leadGetCommunicationListV1SignalFull(worker, output);
+    } else {
+        Q_EMIT leadGetCommunicationListV1SignalError(output, error_type, error_str);
+        Q_EMIT leadGetCommunicationListV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectLeadApi::leadGetCommunicationrecipientsV1(const qint32 &pki_lead_id) {
+    QString fullPath = QString(_serverConfigs["leadGetCommunicationrecipientsV1"][_serverIndices.value("leadGetCommunicationrecipientsV1")].URL()+"/1/object/lead/{pkiLeadID}/getCommunicationrecipients");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_lead_idPathParam("{");
+        pki_lead_idPathParam.append("pkiLeadID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiLeadID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiLeadID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_lead_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_lead_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectLeadApi::leadGetCommunicationrecipientsV1Callback);
+    connect(this, &ObjectLeadApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectLeadApi::leadGetCommunicationrecipientsV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Lead_getCommunicationrecipients_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT leadGetCommunicationrecipientsV1Signal(output);
+        Q_EMIT leadGetCommunicationrecipientsV1SignalFull(worker, output);
+    } else {
+        Q_EMIT leadGetCommunicationrecipientsV1SignalError(output, error_type, error_str);
+        Q_EMIT leadGetCommunicationrecipientsV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectLeadApi::leadGetCommunicationsendersV1(const qint32 &pki_lead_id) {
+    QString fullPath = QString(_serverConfigs["leadGetCommunicationsendersV1"][_serverIndices.value("leadGetCommunicationsendersV1")].URL()+"/1/object/lead/{pkiLeadID}/getCommunicationsenders");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_lead_idPathParam("{");
+        pki_lead_idPathParam.append("pkiLeadID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiLeadID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiLeadID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_lead_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_lead_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectLeadApi::leadGetCommunicationsendersV1Callback);
+    connect(this, &ObjectLeadApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectLeadApi::leadGetCommunicationsendersV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Lead_getCommunicationsenders_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT leadGetCommunicationsendersV1Signal(output);
+        Q_EMIT leadGetCommunicationsendersV1SignalFull(worker, output);
+    } else {
+        Q_EMIT leadGetCommunicationsendersV1SignalError(output, error_type, error_str);
+        Q_EMIT leadGetCommunicationsendersV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

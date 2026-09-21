@@ -34,8 +34,23 @@ Attachment_validate_v1_Request::~Attachment_validate_v1_Request() {}
 
 void Attachment_validate_v1_Request::initializeModel() {
 
+    m_fki_attachmentrejectreason_id_isSet = false;
+    m_fki_attachmentrejectreason_id_isValid = false;
+
     m_e_attachment_verified_isSet = false;
     m_e_attachment_verified_isValid = false;
+
+    m_t_attachment_rejectioncomment_isSet = false;
+    m_t_attachment_rejectioncomment_isValid = false;
+
+    m_a_s_notification_email_address_isSet = false;
+    m_a_s_notification_email_address_isValid = false;
+
+    m_t_notification_message_isSet = false;
+    m_t_notification_message_isValid = false;
+
+    m_b_notification_include_attachment_isSet = false;
+    m_b_notification_include_attachment_isValid = false;
 }
 
 void Attachment_validate_v1_Request::fromJson(const QString &jsonString) {
@@ -47,8 +62,23 @@ void Attachment_validate_v1_Request::fromJson(const QString &jsonString) {
 
 void Attachment_validate_v1_Request::fromJsonObject(QJsonObject json) {
 
+    m_fki_attachmentrejectreason_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_attachmentrejectreason_id, json[QString("fkiAttachmentrejectreasonID")]);
+    m_fki_attachmentrejectreason_id_isSet = !json[QString("fkiAttachmentrejectreasonID")].isNull() && m_fki_attachmentrejectreason_id_isValid;
+
     m_e_attachment_verified_isValid = ::Ezmaxapi::fromJsonValue(m_e_attachment_verified, json[QString("eAttachmentVerified")]);
     m_e_attachment_verified_isSet = !json[QString("eAttachmentVerified")].isNull() && m_e_attachment_verified_isValid;
+
+    m_t_attachment_rejectioncomment_isValid = ::Ezmaxapi::fromJsonValue(m_t_attachment_rejectioncomment, json[QString("tAttachmentRejectioncomment")]);
+    m_t_attachment_rejectioncomment_isSet = !json[QString("tAttachmentRejectioncomment")].isNull() && m_t_attachment_rejectioncomment_isValid;
+
+    m_a_s_notification_email_address_isValid = ::Ezmaxapi::fromJsonValue(m_a_s_notification_email_address, json[QString("a_sNotificationEmailAddress")]);
+    m_a_s_notification_email_address_isSet = !json[QString("a_sNotificationEmailAddress")].isNull() && m_a_s_notification_email_address_isValid;
+
+    m_t_notification_message_isValid = ::Ezmaxapi::fromJsonValue(m_t_notification_message, json[QString("tNotificationMessage")]);
+    m_t_notification_message_isSet = !json[QString("tNotificationMessage")].isNull() && m_t_notification_message_isValid;
+
+    m_b_notification_include_attachment_isValid = ::Ezmaxapi::fromJsonValue(m_b_notification_include_attachment, json[QString("bNotificationIncludeAttachment")]);
+    m_b_notification_include_attachment_isSet = !json[QString("bNotificationIncludeAttachment")].isNull() && m_b_notification_include_attachment_isValid;
 }
 
 QString Attachment_validate_v1_Request::asJson() const {
@@ -60,10 +90,41 @@ QString Attachment_validate_v1_Request::asJson() const {
 
 QJsonObject Attachment_validate_v1_Request::asJsonObject() const {
     QJsonObject obj;
+    if (m_fki_attachmentrejectreason_id_isSet) {
+        obj.insert(QString("fkiAttachmentrejectreasonID"), ::Ezmaxapi::toJsonValue(m_fki_attachmentrejectreason_id));
+    }
     if (m_e_attachment_verified.isSet()) {
         obj.insert(QString("eAttachmentVerified"), ::Ezmaxapi::toJsonValue(m_e_attachment_verified));
     }
+    if (m_t_attachment_rejectioncomment_isSet) {
+        obj.insert(QString("tAttachmentRejectioncomment"), ::Ezmaxapi::toJsonValue(m_t_attachment_rejectioncomment));
+    }
+    if (m_a_s_notification_email_address.size() > 0) {
+        obj.insert(QString("a_sNotificationEmailAddress"), ::Ezmaxapi::toJsonValue(m_a_s_notification_email_address));
+    }
+    if (m_t_notification_message_isSet) {
+        obj.insert(QString("tNotificationMessage"), ::Ezmaxapi::toJsonValue(m_t_notification_message));
+    }
+    if (m_b_notification_include_attachment_isSet) {
+        obj.insert(QString("bNotificationIncludeAttachment"), ::Ezmaxapi::toJsonValue(m_b_notification_include_attachment));
+    }
     return obj;
+}
+
+qint32 Attachment_validate_v1_Request::getFkiAttachmentrejectreasonId() const {
+    return m_fki_attachmentrejectreason_id;
+}
+void Attachment_validate_v1_Request::setFkiAttachmentrejectreasonId(const qint32 &fki_attachmentrejectreason_id) {
+    m_fki_attachmentrejectreason_id = fki_attachmentrejectreason_id;
+    m_fki_attachmentrejectreason_id_isSet = true;
+}
+
+bool Attachment_validate_v1_Request::is_fki_attachmentrejectreason_id_Set() const{
+    return m_fki_attachmentrejectreason_id_isSet;
+}
+
+bool Attachment_validate_v1_Request::is_fki_attachmentrejectreason_id_Valid() const{
+    return m_fki_attachmentrejectreason_id_isValid;
 }
 
 Field_eAttachmentVerified Attachment_validate_v1_Request::getEAttachmentVerified() const {
@@ -82,10 +143,99 @@ bool Attachment_validate_v1_Request::is_e_attachment_verified_Valid() const{
     return m_e_attachment_verified_isValid;
 }
 
+QString Attachment_validate_v1_Request::getTAttachmentRejectioncomment() const {
+    return m_t_attachment_rejectioncomment;
+}
+void Attachment_validate_v1_Request::setTAttachmentRejectioncomment(const QString &t_attachment_rejectioncomment) {
+    m_t_attachment_rejectioncomment = t_attachment_rejectioncomment;
+    m_t_attachment_rejectioncomment_isSet = true;
+}
+
+bool Attachment_validate_v1_Request::is_t_attachment_rejectioncomment_Set() const{
+    return m_t_attachment_rejectioncomment_isSet;
+}
+
+bool Attachment_validate_v1_Request::is_t_attachment_rejectioncomment_Valid() const{
+    return m_t_attachment_rejectioncomment_isValid;
+}
+
+QSet<QString> Attachment_validate_v1_Request::getASNotificationEmailAddress() const {
+    return m_a_s_notification_email_address;
+}
+void Attachment_validate_v1_Request::setASNotificationEmailAddress(const QSet<QString> &a_s_notification_email_address) {
+    m_a_s_notification_email_address = a_s_notification_email_address;
+    m_a_s_notification_email_address_isSet = true;
+}
+
+bool Attachment_validate_v1_Request::is_a_s_notification_email_address_Set() const{
+    return m_a_s_notification_email_address_isSet;
+}
+
+bool Attachment_validate_v1_Request::is_a_s_notification_email_address_Valid() const{
+    return m_a_s_notification_email_address_isValid;
+}
+
+QString Attachment_validate_v1_Request::getTNotificationMessage() const {
+    return m_t_notification_message;
+}
+void Attachment_validate_v1_Request::setTNotificationMessage(const QString &t_notification_message) {
+    m_t_notification_message = t_notification_message;
+    m_t_notification_message_isSet = true;
+}
+
+bool Attachment_validate_v1_Request::is_t_notification_message_Set() const{
+    return m_t_notification_message_isSet;
+}
+
+bool Attachment_validate_v1_Request::is_t_notification_message_Valid() const{
+    return m_t_notification_message_isValid;
+}
+
+bool Attachment_validate_v1_Request::isBNotificationIncludeAttachment() const {
+    return m_b_notification_include_attachment;
+}
+void Attachment_validate_v1_Request::setBNotificationIncludeAttachment(const bool &b_notification_include_attachment) {
+    m_b_notification_include_attachment = b_notification_include_attachment;
+    m_b_notification_include_attachment_isSet = true;
+}
+
+bool Attachment_validate_v1_Request::is_b_notification_include_attachment_Set() const{
+    return m_b_notification_include_attachment_isSet;
+}
+
+bool Attachment_validate_v1_Request::is_b_notification_include_attachment_Valid() const{
+    return m_b_notification_include_attachment_isValid;
+}
+
 bool Attachment_validate_v1_Request::isSet() const {
     bool isObjectUpdated = false;
     do {
+        if (m_fki_attachmentrejectreason_id_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (m_e_attachment_verified.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_t_attachment_rejectioncomment_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_a_s_notification_email_address.size() > 0) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_t_notification_message_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_b_notification_include_attachment_isSet) {
             isObjectUpdated = true;
             break;
         }

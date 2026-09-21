@@ -19,6 +19,7 @@
 #include "Oauth.h"
 
 #include "Common_Response_Error.h"
+#include "Header_Accept_Language.h"
 #include "HttpFileElement.h"
 #include "Invoice_batchDownload_v1_Request.h"
 #include "Invoice_getAttachments_v1_Response.h"
@@ -26,6 +27,7 @@
 #include "Invoice_getCommunicationList_v1_Response.h"
 #include "Invoice_getCommunicationrecipients_v1_Response.h"
 #include "Invoice_getCommunicationsenders_v1_Response.h"
+#include "Invoice_getList_v1_Response.h"
 #include "Invoice_importIntoEDM_v1_Request.h"
 #include "Invoice_importIntoEDM_v1_Response.h"
 #include <QString>
@@ -99,6 +101,15 @@ public:
     virtual void invoiceGetCommunicationsendersV1(const qint32 &pki_invoice_id);
 
     /**
+    * @param[in]  e_order_by QString [optional]
+    * @param[in]  i_row_max qint32 [optional]
+    * @param[in]  i_row_offset qint32 [optional]
+    * @param[in]  accept_language Header_Accept_Language [optional]
+    * @param[in]  s_filter QString [optional]
+    */
+    virtual void invoiceGetListV1(const ::Ezmaxapi::OptionalParam<QString> &e_order_by = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<qint32> &i_row_max = ::Ezmaxapi::OptionalParam<qint32>(), const ::Ezmaxapi::OptionalParam<qint32> &i_row_offset = ::Ezmaxapi::OptionalParam<qint32>(), const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<Header_Accept_Language>(), const ::Ezmaxapi::OptionalParam<QString> &s_filter = ::Ezmaxapi::OptionalParam<QString>());
+
+    /**
     * @param[in]  pki_invoice_id qint32 [required]
     * @param[in]  invoice_import_into_edm_v1_request Invoice_importIntoEDM_v1_Request [required]
     */
@@ -140,6 +151,7 @@ private:
     void invoiceGetCommunicationListV1Callback(HttpRequestWorker *worker);
     void invoiceGetCommunicationrecipientsV1Callback(HttpRequestWorker *worker);
     void invoiceGetCommunicationsendersV1Callback(HttpRequestWorker *worker);
+    void invoiceGetListV1Callback(HttpRequestWorker *worker);
     void invoiceImportIntoEDMV1Callback(HttpRequestWorker *worker);
 
 Q_SIGNALS:
@@ -150,6 +162,7 @@ Q_SIGNALS:
     void invoiceGetCommunicationListV1Signal(Invoice_getCommunicationList_v1_Response summary);
     void invoiceGetCommunicationrecipientsV1Signal(Invoice_getCommunicationrecipients_v1_Response summary);
     void invoiceGetCommunicationsendersV1Signal(Invoice_getCommunicationsenders_v1_Response summary);
+    void invoiceGetListV1Signal(Invoice_getList_v1_Response summary);
     void invoiceImportIntoEDMV1Signal(Invoice_importIntoEDM_v1_Response summary);
 
 
@@ -159,6 +172,7 @@ Q_SIGNALS:
     void invoiceGetCommunicationListV1SignalFull(HttpRequestWorker *worker, Invoice_getCommunicationList_v1_Response summary);
     void invoiceGetCommunicationrecipientsV1SignalFull(HttpRequestWorker *worker, Invoice_getCommunicationrecipients_v1_Response summary);
     void invoiceGetCommunicationsendersV1SignalFull(HttpRequestWorker *worker, Invoice_getCommunicationsenders_v1_Response summary);
+    void invoiceGetListV1SignalFull(HttpRequestWorker *worker, Invoice_getList_v1_Response summary);
     void invoiceImportIntoEDMV1SignalFull(HttpRequestWorker *worker, Invoice_importIntoEDM_v1_Response summary);
 
     void invoiceBatchDownloadV1SignalError(HttpFileElement summary, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -167,6 +181,7 @@ Q_SIGNALS:
     void invoiceGetCommunicationListV1SignalError(Invoice_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void invoiceGetCommunicationrecipientsV1SignalError(Invoice_getCommunicationrecipients_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void invoiceGetCommunicationsendersV1SignalError(Invoice_getCommunicationsenders_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void invoiceGetListV1SignalError(Invoice_getList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void invoiceImportIntoEDMV1SignalError(Invoice_importIntoEDM_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void invoiceBatchDownloadV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -175,6 +190,7 @@ Q_SIGNALS:
     void invoiceGetCommunicationListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void invoiceGetCommunicationrecipientsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void invoiceGetCommunicationsendersV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void invoiceGetListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void invoiceImportIntoEDMV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();

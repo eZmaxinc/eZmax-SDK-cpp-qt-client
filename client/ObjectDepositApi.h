@@ -25,8 +25,10 @@
 #include "Deposit_getCommunicationList_v1_Response.h"
 #include "Deposit_getCommunicationrecipients_v1_Response.h"
 #include "Deposit_getCommunicationsenders_v1_Response.h"
+#include "Deposit_getList_v1_Response.h"
 #include "Deposit_importIntoEDM_v1_Request.h"
 #include "Deposit_importIntoEDM_v1_Response.h"
+#include "Header_Accept_Language.h"
 #include "HttpFileElement.h"
 #include <QString>
 
@@ -99,6 +101,15 @@ public:
     virtual void depositGetCommunicationsendersV1(const qint32 &pki_deposit_id);
 
     /**
+    * @param[in]  e_order_by QString [optional]
+    * @param[in]  i_row_max qint32 [optional]
+    * @param[in]  i_row_offset qint32 [optional]
+    * @param[in]  accept_language Header_Accept_Language [optional]
+    * @param[in]  s_filter QString [optional]
+    */
+    virtual void depositGetListV1(const ::Ezmaxapi::OptionalParam<QString> &e_order_by = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<qint32> &i_row_max = ::Ezmaxapi::OptionalParam<qint32>(), const ::Ezmaxapi::OptionalParam<qint32> &i_row_offset = ::Ezmaxapi::OptionalParam<qint32>(), const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<Header_Accept_Language>(), const ::Ezmaxapi::OptionalParam<QString> &s_filter = ::Ezmaxapi::OptionalParam<QString>());
+
+    /**
     * @param[in]  pki_deposit_id qint32 [required]
     * @param[in]  deposit_import_into_edm_v1_request Deposit_importIntoEDM_v1_Request [required]
     */
@@ -140,6 +151,7 @@ private:
     void depositGetCommunicationListV1Callback(HttpRequestWorker *worker);
     void depositGetCommunicationrecipientsV1Callback(HttpRequestWorker *worker);
     void depositGetCommunicationsendersV1Callback(HttpRequestWorker *worker);
+    void depositGetListV1Callback(HttpRequestWorker *worker);
     void depositImportIntoEDMV1Callback(HttpRequestWorker *worker);
 
 Q_SIGNALS:
@@ -150,6 +162,7 @@ Q_SIGNALS:
     void depositGetCommunicationListV1Signal(Deposit_getCommunicationList_v1_Response summary);
     void depositGetCommunicationrecipientsV1Signal(Deposit_getCommunicationrecipients_v1_Response summary);
     void depositGetCommunicationsendersV1Signal(Deposit_getCommunicationsenders_v1_Response summary);
+    void depositGetListV1Signal(Deposit_getList_v1_Response summary);
     void depositImportIntoEDMV1Signal(Deposit_importIntoEDM_v1_Response summary);
 
 
@@ -159,6 +172,7 @@ Q_SIGNALS:
     void depositGetCommunicationListV1SignalFull(HttpRequestWorker *worker, Deposit_getCommunicationList_v1_Response summary);
     void depositGetCommunicationrecipientsV1SignalFull(HttpRequestWorker *worker, Deposit_getCommunicationrecipients_v1_Response summary);
     void depositGetCommunicationsendersV1SignalFull(HttpRequestWorker *worker, Deposit_getCommunicationsenders_v1_Response summary);
+    void depositGetListV1SignalFull(HttpRequestWorker *worker, Deposit_getList_v1_Response summary);
     void depositImportIntoEDMV1SignalFull(HttpRequestWorker *worker, Deposit_importIntoEDM_v1_Response summary);
 
     void depositBatchDownloadV1SignalError(HttpFileElement summary, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -167,6 +181,7 @@ Q_SIGNALS:
     void depositGetCommunicationListV1SignalError(Deposit_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void depositGetCommunicationrecipientsV1SignalError(Deposit_getCommunicationrecipients_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void depositGetCommunicationsendersV1SignalError(Deposit_getCommunicationsenders_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void depositGetListV1SignalError(Deposit_getList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void depositImportIntoEDMV1SignalError(Deposit_importIntoEDM_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void depositBatchDownloadV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -175,6 +190,7 @@ Q_SIGNALS:
     void depositGetCommunicationListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void depositGetCommunicationrecipientsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void depositGetCommunicationsendersV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void depositGetListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void depositImportIntoEDMV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();

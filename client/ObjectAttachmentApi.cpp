@@ -61,10 +61,14 @@ void ObjectAttachmentApi::initializeServerConfigs() {
     
     _serverConfigs.insert("attachmentDeleteV1", defaultConf);
     _serverIndices.insert("attachmentDeleteV1", 0);
+    _serverConfigs.insert("attachmentDocumentTypeV1", defaultConf);
+    _serverIndices.insert("attachmentDocumentTypeV1", 0);
     _serverConfigs.insert("attachmentDownloadV1", defaultConf);
     _serverIndices.insert("attachmentDownloadV1", 0);
     _serverConfigs.insert("attachmentGetAttachmentlogsV1", defaultConf);
     _serverIndices.insert("attachmentGetAttachmentlogsV1", 0);
+    _serverConfigs.insert("attachmentPrivacyV1", defaultConf);
+    _serverIndices.insert("attachmentPrivacyV1", 0);
     _serverConfigs.insert("attachmentRenameV1", defaultConf);
     _serverIndices.insert("attachmentRenameV1", 0);
     _serverConfigs.insert("attachmentRestoreV1", defaultConf);
@@ -319,6 +323,73 @@ void ObjectAttachmentApi::attachmentDeleteV1Callback(HttpRequestWorker *worker) 
     }
 }
 
+void ObjectAttachmentApi::attachmentDocumentTypeV1(const qint32 &pki_attachment_id, const Attachment_documentType_v1_Request &attachment_document_type_v1_request) {
+    QString fullPath = QString(_serverConfigs["attachmentDocumentTypeV1"][_serverIndices.value("attachmentDocumentTypeV1")].URL()+"/1/object/attachment/{pkiAttachmentID}/documentType");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_attachment_idPathParam("{");
+        pki_attachment_idPathParam.append("pkiAttachmentID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiAttachmentID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiAttachmentID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_attachment_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_attachment_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "POST");
+
+    {
+
+        
+        QByteArray output = attachment_document_type_v1_request.asJson().toUtf8();
+        input.request_body.append(output);
+    }
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectAttachmentApi::attachmentDocumentTypeV1Callback);
+    connect(this, &ObjectAttachmentApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectAttachmentApi::attachmentDocumentTypeV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Attachment_documentType_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT attachmentDocumentTypeV1Signal(output);
+        Q_EMIT attachmentDocumentTypeV1SignalFull(worker, output);
+    } else {
+        Q_EMIT attachmentDocumentTypeV1SignalError(output, error_type, error_str);
+        Q_EMIT attachmentDocumentTypeV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
 void ObjectAttachmentApi::attachmentDownloadV1(const qint32 &pki_attachment_id) {
     QString fullPath = QString(_serverConfigs["attachmentDownloadV1"][_serverIndices.value("attachmentDownloadV1")].URL()+"/1/object/attachment/{pkiAttachmentID}/download");
     
@@ -447,6 +518,73 @@ void ObjectAttachmentApi::attachmentGetAttachmentlogsV1Callback(HttpRequestWorke
     } else {
         Q_EMIT attachmentGetAttachmentlogsV1SignalError(output, error_type, error_str);
         Q_EMIT attachmentGetAttachmentlogsV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectAttachmentApi::attachmentPrivacyV1(const qint32 &pki_attachment_id, const Attachment_privacy_v1_Request &attachment_privacy_v1_request) {
+    QString fullPath = QString(_serverConfigs["attachmentPrivacyV1"][_serverIndices.value("attachmentPrivacyV1")].URL()+"/1/object/attachment/{pkiAttachmentID}/privacy");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_attachment_idPathParam("{");
+        pki_attachment_idPathParam.append("pkiAttachmentID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiAttachmentID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiAttachmentID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_attachment_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_attachment_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "POST");
+
+    {
+
+        
+        QByteArray output = attachment_privacy_v1_request.asJson().toUtf8();
+        input.request_body.append(output);
+    }
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectAttachmentApi::attachmentPrivacyV1Callback);
+    connect(this, &ObjectAttachmentApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectAttachmentApi::attachmentPrivacyV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Attachment_privacy_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT attachmentPrivacyV1Signal(output);
+        Q_EMIT attachmentPrivacyV1SignalFull(worker, output);
+    } else {
+        Q_EMIT attachmentPrivacyV1SignalError(output, error_type, error_str);
+        Q_EMIT attachmentPrivacyV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -608,7 +746,7 @@ void ObjectAttachmentApi::attachmentValidateV1(const qint32 &pki_attachment_id, 
     HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
     worker->setWorkingDirectory(_workingDirectory);
-    HttpRequestInput input(fullPath, "PATCH");
+    HttpRequestInput input(fullPath, "POST");
 
     {
 

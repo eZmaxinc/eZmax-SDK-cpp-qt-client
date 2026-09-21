@@ -21,6 +21,7 @@
 
 #include <QJsonObject>
 
+#include "Custom_UserName_Response.h"
 #include "Field_eAttachmentlogType.h"
 #include <QString>
 
@@ -28,6 +29,7 @@
 #include "Object.h"
 
 namespace Ezmaxapi {
+class Custom_UserName_Response;
 
 class Attachmentlog_Response : public Object {
 public:
@@ -49,6 +51,11 @@ public:
     void setFkiUserId(const qint32 &fki_user_id);
     bool is_fki_user_id_Set() const;
     bool is_fki_user_id_Valid() const;
+
+    Custom_UserName_Response getObjUser() const;
+    void setObjUser(const Custom_UserName_Response &obj_user);
+    bool is_obj_user_Set() const;
+    bool is_obj_user_Valid() const;
 
     QString getDtAttachmentlogDatetime() const;
     void setDtAttachmentlogDatetime(const QString &dt_attachmentlog_datetime);
@@ -78,6 +85,10 @@ private:
     qint32 m_fki_user_id;
     bool m_fki_user_id_isSet;
     bool m_fki_user_id_isValid;
+
+    Custom_UserName_Response m_obj_user;
+    bool m_obj_user_isSet;
+    bool m_obj_user_isValid;
 
     QString m_dt_attachmentlog_datetime;
     bool m_dt_attachmentlog_datetime_isSet;

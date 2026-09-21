@@ -19,9 +19,11 @@
 #include "Oauth.h"
 
 #include "Common_Response_Error.h"
+#include "Header_Accept_Language.h"
 #include "HttpFileElement.h"
 #include "Purchase_batchDownload_v1_Request.h"
 #include "Purchase_getAttachments_v1_Response.h"
+#include "Purchase_getList_v1_Response.h"
 #include "Purchase_importIntoEDM_v1_Request.h"
 #include "Purchase_importIntoEDM_v1_Response.h"
 #include <QString>
@@ -75,6 +77,15 @@ public:
     virtual void purchaseGetAttachmentsV1(const qint32 &pki_purchase_id);
 
     /**
+    * @param[in]  e_order_by QString [optional]
+    * @param[in]  i_row_max qint32 [optional]
+    * @param[in]  i_row_offset qint32 [optional]
+    * @param[in]  accept_language Header_Accept_Language [optional]
+    * @param[in]  s_filter QString [optional]
+    */
+    virtual void purchaseGetListV1(const ::Ezmaxapi::OptionalParam<QString> &e_order_by = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<qint32> &i_row_max = ::Ezmaxapi::OptionalParam<qint32>(), const ::Ezmaxapi::OptionalParam<qint32> &i_row_offset = ::Ezmaxapi::OptionalParam<qint32>(), const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<Header_Accept_Language>(), const ::Ezmaxapi::OptionalParam<QString> &s_filter = ::Ezmaxapi::OptionalParam<QString>());
+
+    /**
     * @param[in]  pki_purchase_id qint32 [required]
     * @param[in]  purchase_import_into_edm_v1_request Purchase_importIntoEDM_v1_Request [required]
     */
@@ -112,25 +123,30 @@ private:
 
     void purchaseBatchDownloadV1Callback(HttpRequestWorker *worker);
     void purchaseGetAttachmentsV1Callback(HttpRequestWorker *worker);
+    void purchaseGetListV1Callback(HttpRequestWorker *worker);
     void purchaseImportIntoEDMV1Callback(HttpRequestWorker *worker);
 
 Q_SIGNALS:
 
     void purchaseBatchDownloadV1Signal(HttpFileElement summary);
     void purchaseGetAttachmentsV1Signal(Purchase_getAttachments_v1_Response summary);
+    void purchaseGetListV1Signal(Purchase_getList_v1_Response summary);
     void purchaseImportIntoEDMV1Signal(Purchase_importIntoEDM_v1_Response summary);
 
 
     void purchaseBatchDownloadV1SignalFull(HttpRequestWorker *worker, HttpFileElement summary);
     void purchaseGetAttachmentsV1SignalFull(HttpRequestWorker *worker, Purchase_getAttachments_v1_Response summary);
+    void purchaseGetListV1SignalFull(HttpRequestWorker *worker, Purchase_getList_v1_Response summary);
     void purchaseImportIntoEDMV1SignalFull(HttpRequestWorker *worker, Purchase_importIntoEDM_v1_Response summary);
 
     void purchaseBatchDownloadV1SignalError(HttpFileElement summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void purchaseGetAttachmentsV1SignalError(Purchase_getAttachments_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void purchaseGetListV1SignalError(Purchase_getList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void purchaseImportIntoEDMV1SignalError(Purchase_importIntoEDM_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void purchaseBatchDownloadV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void purchaseGetAttachmentsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void purchaseGetListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void purchaseImportIntoEDMV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
