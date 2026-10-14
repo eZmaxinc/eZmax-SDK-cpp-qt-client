@@ -24,9 +24,11 @@
 #include "Adjustment_getCommunicationList_v1_Response.h"
 #include "Adjustment_getCommunicationrecipients_v1_Response.h"
 #include "Adjustment_getCommunicationsenders_v1_Response.h"
+#include "Adjustment_getList_v1_Response.h"
 #include "Adjustment_importIntoEDM_v1_Request.h"
 #include "Adjustment_importIntoEDM_v1_Response.h"
 #include "Common_Response_Error.h"
+#include "Header_Accept_Language.h"
 #include "HttpFileElement.h"
 #include <QString>
 
@@ -99,6 +101,15 @@ public:
     virtual void adjustmentGetCommunicationsendersV1(const qint32 &pki_adjustment_id);
 
     /**
+    * @param[in]  e_order_by QString [optional]
+    * @param[in]  i_row_max qint32 [optional]
+    * @param[in]  i_row_offset qint32 [optional]
+    * @param[in]  accept_language Header_Accept_Language [optional]
+    * @param[in]  s_filter QString [optional]
+    */
+    virtual void adjustmentGetListV1(const ::Ezmaxapi::OptionalParam<QString> &e_order_by = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<qint32> &i_row_max = ::Ezmaxapi::OptionalParam<qint32>(), const ::Ezmaxapi::OptionalParam<qint32> &i_row_offset = ::Ezmaxapi::OptionalParam<qint32>(), const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<Header_Accept_Language>(), const ::Ezmaxapi::OptionalParam<QString> &s_filter = ::Ezmaxapi::OptionalParam<QString>());
+
+    /**
     * @param[in]  pki_adjustment_id qint32 [required]
     * @param[in]  adjustment_import_into_edm_v1_request Adjustment_importIntoEDM_v1_Request [required]
     */
@@ -140,6 +151,7 @@ private:
     void adjustmentGetCommunicationListV1Callback(HttpRequestWorker *worker);
     void adjustmentGetCommunicationrecipientsV1Callback(HttpRequestWorker *worker);
     void adjustmentGetCommunicationsendersV1Callback(HttpRequestWorker *worker);
+    void adjustmentGetListV1Callback(HttpRequestWorker *worker);
     void adjustmentImportIntoEDMV1Callback(HttpRequestWorker *worker);
 
 Q_SIGNALS:
@@ -150,6 +162,7 @@ Q_SIGNALS:
     void adjustmentGetCommunicationListV1Signal(Adjustment_getCommunicationList_v1_Response summary);
     void adjustmentGetCommunicationrecipientsV1Signal(Adjustment_getCommunicationrecipients_v1_Response summary);
     void adjustmentGetCommunicationsendersV1Signal(Adjustment_getCommunicationsenders_v1_Response summary);
+    void adjustmentGetListV1Signal(Adjustment_getList_v1_Response summary);
     void adjustmentImportIntoEDMV1Signal(Adjustment_importIntoEDM_v1_Response summary);
 
 
@@ -159,6 +172,7 @@ Q_SIGNALS:
     void adjustmentGetCommunicationListV1SignalFull(HttpRequestWorker *worker, Adjustment_getCommunicationList_v1_Response summary);
     void adjustmentGetCommunicationrecipientsV1SignalFull(HttpRequestWorker *worker, Adjustment_getCommunicationrecipients_v1_Response summary);
     void adjustmentGetCommunicationsendersV1SignalFull(HttpRequestWorker *worker, Adjustment_getCommunicationsenders_v1_Response summary);
+    void adjustmentGetListV1SignalFull(HttpRequestWorker *worker, Adjustment_getList_v1_Response summary);
     void adjustmentImportIntoEDMV1SignalFull(HttpRequestWorker *worker, Adjustment_importIntoEDM_v1_Response summary);
 
     void adjustmentBatchDownloadV1SignalError(HttpFileElement summary, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -167,6 +181,7 @@ Q_SIGNALS:
     void adjustmentGetCommunicationListV1SignalError(Adjustment_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void adjustmentGetCommunicationrecipientsV1SignalError(Adjustment_getCommunicationrecipients_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void adjustmentGetCommunicationsendersV1SignalError(Adjustment_getCommunicationsenders_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void adjustmentGetListV1SignalError(Adjustment_getList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void adjustmentImportIntoEDMV1SignalError(Adjustment_importIntoEDM_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void adjustmentBatchDownloadV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -175,6 +190,7 @@ Q_SIGNALS:
     void adjustmentGetCommunicationListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void adjustmentGetCommunicationrecipientsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void adjustmentGetCommunicationsendersV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void adjustmentGetListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void adjustmentImportIntoEDMV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();

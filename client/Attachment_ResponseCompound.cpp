@@ -193,6 +193,9 @@ void Attachment_ResponseCompound::initializeModel() {
     m_fki_user_id_specific_isSet = false;
     m_fki_user_id_specific_isValid = false;
 
+    m_obj_user_specific_isSet = false;
+    m_obj_user_specific_isValid = false;
+
     m_e_attachment_type_isSet = false;
     m_e_attachment_type_isValid = false;
 
@@ -392,6 +395,9 @@ void Attachment_ResponseCompound::fromJsonObject(QJsonObject json) {
     m_fki_user_id_specific_isValid = ::Ezmaxapi::fromJsonValue(m_fki_user_id_specific, json[QString("fkiUserIDSpecific")]);
     m_fki_user_id_specific_isSet = !json[QString("fkiUserIDSpecific")].isNull() && m_fki_user_id_specific_isValid;
 
+    m_obj_user_specific_isValid = ::Ezmaxapi::fromJsonValue(m_obj_user_specific, json[QString("objUserSpecific")]);
+    m_obj_user_specific_isSet = !json[QString("objUserSpecific")].isNull() && m_obj_user_specific_isValid;
+
     m_e_attachment_type_isValid = ::Ezmaxapi::fromJsonValue(m_e_attachment_type, json[QString("eAttachmentType")]);
     m_e_attachment_type_isSet = !json[QString("eAttachmentType")].isNull() && m_e_attachment_type_isValid;
 
@@ -590,6 +596,9 @@ QJsonObject Attachment_ResponseCompound::asJsonObject() const {
     }
     if (m_fki_user_id_specific_isSet) {
         obj.insert(QString("fkiUserIDSpecific"), ::Ezmaxapi::toJsonValue(m_fki_user_id_specific));
+    }
+    if (m_obj_user_specific.isSet()) {
+        obj.insert(QString("objUserSpecific"), ::Ezmaxapi::toJsonValue(m_obj_user_specific));
     }
     if (m_e_attachment_type.isSet()) {
         obj.insert(QString("eAttachmentType"), ::Ezmaxapi::toJsonValue(m_e_attachment_type));
@@ -1472,6 +1481,22 @@ bool Attachment_ResponseCompound::is_fki_user_id_specific_Valid() const{
     return m_fki_user_id_specific_isValid;
 }
 
+Custom_UserName_Response Attachment_ResponseCompound::getObjUserSpecific() const {
+    return m_obj_user_specific;
+}
+void Attachment_ResponseCompound::setObjUserSpecific(const Custom_UserName_Response &obj_user_specific) {
+    m_obj_user_specific = obj_user_specific;
+    m_obj_user_specific_isSet = true;
+}
+
+bool Attachment_ResponseCompound::is_obj_user_specific_Set() const{
+    return m_obj_user_specific_isSet;
+}
+
+bool Attachment_ResponseCompound::is_obj_user_specific_Valid() const{
+    return m_obj_user_specific_isValid;
+}
+
 Field_eAttachmentType Attachment_ResponseCompound::getEAttachmentType() const {
     return m_e_attachment_type;
 }
@@ -1896,6 +1921,11 @@ bool Attachment_ResponseCompound::isSet() const {
         }
 
         if (m_fki_user_id_specific_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_obj_user_specific.isSet()) {
             isObjectUpdated = true;
             break;
         }

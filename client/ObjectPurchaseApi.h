@@ -23,6 +23,10 @@
 #include "HttpFileElement.h"
 #include "Purchase_batchDownload_v1_Request.h"
 #include "Purchase_getAttachments_v1_Response.h"
+#include "Purchase_getCommunicationCount_v1_Response.h"
+#include "Purchase_getCommunicationList_v1_Response.h"
+#include "Purchase_getCommunicationrecipients_v1_Response.h"
+#include "Purchase_getCommunicationsenders_v1_Response.h"
 #include "Purchase_getList_v1_Response.h"
 #include "Purchase_importIntoEDM_v1_Request.h"
 #include "Purchase_importIntoEDM_v1_Response.h"
@@ -77,6 +81,26 @@ public:
     virtual void purchaseGetAttachmentsV1(const qint32 &pki_purchase_id);
 
     /**
+    * @param[in]  pki_purchase_id qint32 [required]
+    */
+    virtual void purchaseGetCommunicationCountV1(const qint32 &pki_purchase_id);
+
+    /**
+    * @param[in]  pki_purchase_id qint32 [required]
+    */
+    virtual void purchaseGetCommunicationListV1(const qint32 &pki_purchase_id);
+
+    /**
+    * @param[in]  pki_purchase_id qint32 [required]
+    */
+    virtual void purchaseGetCommunicationrecipientsV1(const qint32 &pki_purchase_id);
+
+    /**
+    * @param[in]  pki_purchase_id qint32 [required]
+    */
+    virtual void purchaseGetCommunicationsendersV1(const qint32 &pki_purchase_id);
+
+    /**
     * @param[in]  e_order_by QString [optional]
     * @param[in]  i_row_max qint32 [optional]
     * @param[in]  i_row_offset qint32 [optional]
@@ -123,6 +147,10 @@ private:
 
     void purchaseBatchDownloadV1Callback(HttpRequestWorker *worker);
     void purchaseGetAttachmentsV1Callback(HttpRequestWorker *worker);
+    void purchaseGetCommunicationCountV1Callback(HttpRequestWorker *worker);
+    void purchaseGetCommunicationListV1Callback(HttpRequestWorker *worker);
+    void purchaseGetCommunicationrecipientsV1Callback(HttpRequestWorker *worker);
+    void purchaseGetCommunicationsendersV1Callback(HttpRequestWorker *worker);
     void purchaseGetListV1Callback(HttpRequestWorker *worker);
     void purchaseImportIntoEDMV1Callback(HttpRequestWorker *worker);
 
@@ -130,22 +158,38 @@ Q_SIGNALS:
 
     void purchaseBatchDownloadV1Signal(HttpFileElement summary);
     void purchaseGetAttachmentsV1Signal(Purchase_getAttachments_v1_Response summary);
+    void purchaseGetCommunicationCountV1Signal(Purchase_getCommunicationCount_v1_Response summary);
+    void purchaseGetCommunicationListV1Signal(Purchase_getCommunicationList_v1_Response summary);
+    void purchaseGetCommunicationrecipientsV1Signal(Purchase_getCommunicationrecipients_v1_Response summary);
+    void purchaseGetCommunicationsendersV1Signal(Purchase_getCommunicationsenders_v1_Response summary);
     void purchaseGetListV1Signal(Purchase_getList_v1_Response summary);
     void purchaseImportIntoEDMV1Signal(Purchase_importIntoEDM_v1_Response summary);
 
 
     void purchaseBatchDownloadV1SignalFull(HttpRequestWorker *worker, HttpFileElement summary);
     void purchaseGetAttachmentsV1SignalFull(HttpRequestWorker *worker, Purchase_getAttachments_v1_Response summary);
+    void purchaseGetCommunicationCountV1SignalFull(HttpRequestWorker *worker, Purchase_getCommunicationCount_v1_Response summary);
+    void purchaseGetCommunicationListV1SignalFull(HttpRequestWorker *worker, Purchase_getCommunicationList_v1_Response summary);
+    void purchaseGetCommunicationrecipientsV1SignalFull(HttpRequestWorker *worker, Purchase_getCommunicationrecipients_v1_Response summary);
+    void purchaseGetCommunicationsendersV1SignalFull(HttpRequestWorker *worker, Purchase_getCommunicationsenders_v1_Response summary);
     void purchaseGetListV1SignalFull(HttpRequestWorker *worker, Purchase_getList_v1_Response summary);
     void purchaseImportIntoEDMV1SignalFull(HttpRequestWorker *worker, Purchase_importIntoEDM_v1_Response summary);
 
     void purchaseBatchDownloadV1SignalError(HttpFileElement summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void purchaseGetAttachmentsV1SignalError(Purchase_getAttachments_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void purchaseGetCommunicationCountV1SignalError(Purchase_getCommunicationCount_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void purchaseGetCommunicationListV1SignalError(Purchase_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void purchaseGetCommunicationrecipientsV1SignalError(Purchase_getCommunicationrecipients_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void purchaseGetCommunicationsendersV1SignalError(Purchase_getCommunicationsenders_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void purchaseGetListV1SignalError(Purchase_getList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void purchaseImportIntoEDMV1SignalError(Purchase_importIntoEDM_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void purchaseBatchDownloadV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void purchaseGetAttachmentsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void purchaseGetCommunicationCountV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void purchaseGetCommunicationListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void purchaseGetCommunicationrecipientsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void purchaseGetCommunicationsendersV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void purchaseGetListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void purchaseImportIntoEDMV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 

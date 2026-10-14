@@ -63,6 +63,14 @@ void ObjectReconciliationApi::initializeServerConfigs() {
     _serverIndices.insert("reconciliationBatchDownloadV1", 0);
     _serverConfigs.insert("reconciliationGetAttachmentsV1", defaultConf);
     _serverIndices.insert("reconciliationGetAttachmentsV1", 0);
+    _serverConfigs.insert("reconciliationGetCommunicationCountV1", defaultConf);
+    _serverIndices.insert("reconciliationGetCommunicationCountV1", 0);
+    _serverConfigs.insert("reconciliationGetCommunicationListV1", defaultConf);
+    _serverIndices.insert("reconciliationGetCommunicationListV1", 0);
+    _serverConfigs.insert("reconciliationGetCommunicationrecipientsV1", defaultConf);
+    _serverIndices.insert("reconciliationGetCommunicationrecipientsV1", 0);
+    _serverConfigs.insert("reconciliationGetCommunicationsendersV1", defaultConf);
+    _serverIndices.insert("reconciliationGetCommunicationsendersV1", 0);
     _serverConfigs.insert("reconciliationImportIntoEDMV1", defaultConf);
     _serverIndices.insert("reconciliationImportIntoEDMV1", 0);
 }
@@ -372,6 +380,254 @@ void ObjectReconciliationApi::reconciliationGetAttachmentsV1Callback(HttpRequest
     } else {
         Q_EMIT reconciliationGetAttachmentsV1SignalError(output, error_type, error_str);
         Q_EMIT reconciliationGetAttachmentsV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectReconciliationApi::reconciliationGetCommunicationCountV1(const qint32 &pki_reconciliation_id) {
+    QString fullPath = QString(_serverConfigs["reconciliationGetCommunicationCountV1"][_serverIndices.value("reconciliationGetCommunicationCountV1")].URL()+"/1/object/reconciliation/{pkiReconciliationID}/getCommunicationCount");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_reconciliation_idPathParam("{");
+        pki_reconciliation_idPathParam.append("pkiReconciliationID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiReconciliationID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiReconciliationID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_reconciliation_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_reconciliation_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectReconciliationApi::reconciliationGetCommunicationCountV1Callback);
+    connect(this, &ObjectReconciliationApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectReconciliationApi::reconciliationGetCommunicationCountV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Reconciliation_getCommunicationCount_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT reconciliationGetCommunicationCountV1Signal(output);
+        Q_EMIT reconciliationGetCommunicationCountV1SignalFull(worker, output);
+    } else {
+        Q_EMIT reconciliationGetCommunicationCountV1SignalError(output, error_type, error_str);
+        Q_EMIT reconciliationGetCommunicationCountV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectReconciliationApi::reconciliationGetCommunicationListV1(const qint32 &pki_reconciliation_id) {
+    QString fullPath = QString(_serverConfigs["reconciliationGetCommunicationListV1"][_serverIndices.value("reconciliationGetCommunicationListV1")].URL()+"/1/object/reconciliation/{pkiReconciliationID}/getCommunicationList");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_reconciliation_idPathParam("{");
+        pki_reconciliation_idPathParam.append("pkiReconciliationID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiReconciliationID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiReconciliationID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_reconciliation_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_reconciliation_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectReconciliationApi::reconciliationGetCommunicationListV1Callback);
+    connect(this, &ObjectReconciliationApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectReconciliationApi::reconciliationGetCommunicationListV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Reconciliation_getCommunicationList_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT reconciliationGetCommunicationListV1Signal(output);
+        Q_EMIT reconciliationGetCommunicationListV1SignalFull(worker, output);
+    } else {
+        Q_EMIT reconciliationGetCommunicationListV1SignalError(output, error_type, error_str);
+        Q_EMIT reconciliationGetCommunicationListV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectReconciliationApi::reconciliationGetCommunicationrecipientsV1(const qint32 &pki_reconciliation_id) {
+    QString fullPath = QString(_serverConfigs["reconciliationGetCommunicationrecipientsV1"][_serverIndices.value("reconciliationGetCommunicationrecipientsV1")].URL()+"/1/object/reconciliation/{pkiReconciliationID}/getCommunicationrecipients");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_reconciliation_idPathParam("{");
+        pki_reconciliation_idPathParam.append("pkiReconciliationID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiReconciliationID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiReconciliationID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_reconciliation_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_reconciliation_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectReconciliationApi::reconciliationGetCommunicationrecipientsV1Callback);
+    connect(this, &ObjectReconciliationApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectReconciliationApi::reconciliationGetCommunicationrecipientsV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Reconciliation_getCommunicationrecipients_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT reconciliationGetCommunicationrecipientsV1Signal(output);
+        Q_EMIT reconciliationGetCommunicationrecipientsV1SignalFull(worker, output);
+    } else {
+        Q_EMIT reconciliationGetCommunicationrecipientsV1SignalError(output, error_type, error_str);
+        Q_EMIT reconciliationGetCommunicationrecipientsV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectReconciliationApi::reconciliationGetCommunicationsendersV1(const qint32 &pki_reconciliation_id) {
+    QString fullPath = QString(_serverConfigs["reconciliationGetCommunicationsendersV1"][_serverIndices.value("reconciliationGetCommunicationsendersV1")].URL()+"/1/object/reconciliation/{pkiReconciliationID}/getCommunicationsenders");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_reconciliation_idPathParam("{");
+        pki_reconciliation_idPathParam.append("pkiReconciliationID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiReconciliationID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiReconciliationID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_reconciliation_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_reconciliation_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectReconciliationApi::reconciliationGetCommunicationsendersV1Callback);
+    connect(this, &ObjectReconciliationApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectReconciliationApi::reconciliationGetCommunicationsendersV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Reconciliation_getCommunicationsenders_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT reconciliationGetCommunicationsendersV1Signal(output);
+        Q_EMIT reconciliationGetCommunicationsendersV1SignalFull(worker, output);
+    } else {
+        Q_EMIT reconciliationGetCommunicationsendersV1SignalError(output, error_type, error_str);
+        Q_EMIT reconciliationGetCommunicationsendersV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

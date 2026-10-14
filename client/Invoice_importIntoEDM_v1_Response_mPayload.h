@@ -21,12 +21,14 @@
 
 #include <QJsonObject>
 
+#include "Custom_AttachmentImportIntoEDM_Response.h"
 #include <QList>
 
 #include "Enum.h"
 #include "Object.h"
 
 namespace Ezmaxapi {
+class Custom_AttachmentImportIntoEDM_Response;
 
 class Invoice_importIntoEDM_v1_Response_mPayload : public Object {
 public:
@@ -39,10 +41,10 @@ public:
     void fromJsonObject(QJsonObject json) override;
     void fromJson(const QString &jsonString) override;
 
-    QList<qint32> getAPkiAttachmentId() const;
-    void setAPkiAttachmentId(const QList<qint32> &a_pki_attachment_id);
-    bool is_a_pki_attachment_id_Set() const;
-    bool is_a_pki_attachment_id_Valid() const;
+    QList<Custom_AttachmentImportIntoEDM_Response> getAObjAttachment() const;
+    void setAObjAttachment(const QList<Custom_AttachmentImportIntoEDM_Response> &a_obj_attachment);
+    bool is_a_obj_attachment_Set() const;
+    bool is_a_obj_attachment_Valid() const;
 
     virtual bool isSet() const override;
     virtual bool isValid() const override;
@@ -50,9 +52,9 @@ public:
 private:
     void initializeModel();
 
-    QList<qint32> m_a_pki_attachment_id;
-    bool m_a_pki_attachment_id_isSet;
-    bool m_a_pki_attachment_id_isValid;
+    QList<Custom_AttachmentImportIntoEDM_Response> m_a_obj_attachment;
+    bool m_a_obj_attachment_isSet;
+    bool m_a_obj_attachment_isValid;
 };
 
 } // namespace Ezmaxapi

@@ -645,7 +645,7 @@ void ObjectUserApi::userGetApikeysV1Callback(HttpRequestWorker *worker) {
     }
 }
 
-void ObjectUserApi::userGetAutocompleteV2(const QString &s_selector, const ::Ezmaxapi::OptionalParam<QString> &e_filter_active, const ::Ezmaxapi::OptionalParam<QString> &s_query, const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language) {
+void ObjectUserApi::userGetAutocompleteV2(const QString &s_selector, const ::Ezmaxapi::OptionalParam<QString> &e_filter_active, const ::Ezmaxapi::OptionalParam<QString> &fki_attachment_id, const ::Ezmaxapi::OptionalParam<QString> &s_query, const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language) {
     QString fullPath = QString(_serverConfigs["userGetAutocompleteV2"][_serverIndices.value("userGetAutocompleteV2")].URL()+"/2/object/user/getAutocomplete/{sSelector}");
     
     if (_apiKeys.contains("Authorization")) {
@@ -681,6 +681,21 @@ void ObjectUserApi::userGetAutocompleteV2(const QString &s_selector, const ::Ezm
             fullPath.append("?");
 
         fullPath.append(QUrl::toPercentEncoding("eFilterActive")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(e_filter_active.stringValue())));
+    }
+    if (fki_attachment_id.hasValue())
+    {
+        queryStyle = "form";
+        if (queryStyle == "")
+            queryStyle = "form";
+        queryPrefix = getParamStylePrefix(queryStyle);
+        querySuffix = getParamStyleSuffix(queryStyle);
+        queryDelimiter = getParamStyleDelimiter(queryStyle, "fkiAttachmentID", true);
+        if (fullPath.indexOf("?") > 0)
+            fullPath.append(queryPrefix);
+        else
+            fullPath.append("?");
+
+        fullPath.append(QUrl::toPercentEncoding("fkiAttachmentID")).append(querySuffix).append(QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(fki_attachment_id.stringValue())));
     }
     if (s_query.hasValue())
     {

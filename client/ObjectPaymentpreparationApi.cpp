@@ -63,6 +63,14 @@ void ObjectPaymentpreparationApi::initializeServerConfigs() {
     _serverIndices.insert("paymentpreparationBatchDownloadV1", 0);
     _serverConfigs.insert("paymentpreparationGetAttachmentsV1", defaultConf);
     _serverIndices.insert("paymentpreparationGetAttachmentsV1", 0);
+    _serverConfigs.insert("paymentpreparationGetCommunicationCountV1", defaultConf);
+    _serverIndices.insert("paymentpreparationGetCommunicationCountV1", 0);
+    _serverConfigs.insert("paymentpreparationGetCommunicationListV1", defaultConf);
+    _serverIndices.insert("paymentpreparationGetCommunicationListV1", 0);
+    _serverConfigs.insert("paymentpreparationGetCommunicationrecipientsV1", defaultConf);
+    _serverIndices.insert("paymentpreparationGetCommunicationrecipientsV1", 0);
+    _serverConfigs.insert("paymentpreparationGetCommunicationsendersV1", defaultConf);
+    _serverIndices.insert("paymentpreparationGetCommunicationsendersV1", 0);
     _serverConfigs.insert("paymentpreparationImportIntoEDMV1", defaultConf);
     _serverIndices.insert("paymentpreparationImportIntoEDMV1", 0);
 }
@@ -372,6 +380,254 @@ void ObjectPaymentpreparationApi::paymentpreparationGetAttachmentsV1Callback(Htt
     } else {
         Q_EMIT paymentpreparationGetAttachmentsV1SignalError(output, error_type, error_str);
         Q_EMIT paymentpreparationGetAttachmentsV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectPaymentpreparationApi::paymentpreparationGetCommunicationCountV1(const qint32 &pki_paymentpreparation_id) {
+    QString fullPath = QString(_serverConfigs["paymentpreparationGetCommunicationCountV1"][_serverIndices.value("paymentpreparationGetCommunicationCountV1")].URL()+"/1/object/paymentpreparation/{pkiPaymentpreparationID}/getCommunicationCount");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_paymentpreparation_idPathParam("{");
+        pki_paymentpreparation_idPathParam.append("pkiPaymentpreparationID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiPaymentpreparationID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiPaymentpreparationID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_paymentpreparation_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_paymentpreparation_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectPaymentpreparationApi::paymentpreparationGetCommunicationCountV1Callback);
+    connect(this, &ObjectPaymentpreparationApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectPaymentpreparationApi::paymentpreparationGetCommunicationCountV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Paymentpreparation_getCommunicationCount_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT paymentpreparationGetCommunicationCountV1Signal(output);
+        Q_EMIT paymentpreparationGetCommunicationCountV1SignalFull(worker, output);
+    } else {
+        Q_EMIT paymentpreparationGetCommunicationCountV1SignalError(output, error_type, error_str);
+        Q_EMIT paymentpreparationGetCommunicationCountV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectPaymentpreparationApi::paymentpreparationGetCommunicationListV1(const qint32 &pki_paymentpreparation_id) {
+    QString fullPath = QString(_serverConfigs["paymentpreparationGetCommunicationListV1"][_serverIndices.value("paymentpreparationGetCommunicationListV1")].URL()+"/1/object/paymentpreparation/{pkiPaymentpreparationID}/getCommunicationList");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_paymentpreparation_idPathParam("{");
+        pki_paymentpreparation_idPathParam.append("pkiPaymentpreparationID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiPaymentpreparationID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiPaymentpreparationID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_paymentpreparation_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_paymentpreparation_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectPaymentpreparationApi::paymentpreparationGetCommunicationListV1Callback);
+    connect(this, &ObjectPaymentpreparationApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectPaymentpreparationApi::paymentpreparationGetCommunicationListV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Paymentpreparation_getCommunicationList_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT paymentpreparationGetCommunicationListV1Signal(output);
+        Q_EMIT paymentpreparationGetCommunicationListV1SignalFull(worker, output);
+    } else {
+        Q_EMIT paymentpreparationGetCommunicationListV1SignalError(output, error_type, error_str);
+        Q_EMIT paymentpreparationGetCommunicationListV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectPaymentpreparationApi::paymentpreparationGetCommunicationrecipientsV1(const qint32 &pki_paymentpreparation_id) {
+    QString fullPath = QString(_serverConfigs["paymentpreparationGetCommunicationrecipientsV1"][_serverIndices.value("paymentpreparationGetCommunicationrecipientsV1")].URL()+"/1/object/paymentpreparation/{pkiPaymentpreparationID}/getCommunicationrecipients");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_paymentpreparation_idPathParam("{");
+        pki_paymentpreparation_idPathParam.append("pkiPaymentpreparationID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiPaymentpreparationID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiPaymentpreparationID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_paymentpreparation_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_paymentpreparation_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectPaymentpreparationApi::paymentpreparationGetCommunicationrecipientsV1Callback);
+    connect(this, &ObjectPaymentpreparationApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectPaymentpreparationApi::paymentpreparationGetCommunicationrecipientsV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Paymentpreparation_getCommunicationrecipients_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT paymentpreparationGetCommunicationrecipientsV1Signal(output);
+        Q_EMIT paymentpreparationGetCommunicationrecipientsV1SignalFull(worker, output);
+    } else {
+        Q_EMIT paymentpreparationGetCommunicationrecipientsV1SignalError(output, error_type, error_str);
+        Q_EMIT paymentpreparationGetCommunicationrecipientsV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectPaymentpreparationApi::paymentpreparationGetCommunicationsendersV1(const qint32 &pki_paymentpreparation_id) {
+    QString fullPath = QString(_serverConfigs["paymentpreparationGetCommunicationsendersV1"][_serverIndices.value("paymentpreparationGetCommunicationsendersV1")].URL()+"/1/object/paymentpreparation/{pkiPaymentpreparationID}/getCommunicationsenders");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_paymentpreparation_idPathParam("{");
+        pki_paymentpreparation_idPathParam.append("pkiPaymentpreparationID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiPaymentpreparationID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiPaymentpreparationID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_paymentpreparation_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_paymentpreparation_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectPaymentpreparationApi::paymentpreparationGetCommunicationsendersV1Callback);
+    connect(this, &ObjectPaymentpreparationApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectPaymentpreparationApi::paymentpreparationGetCommunicationsendersV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Paymentpreparation_getCommunicationsenders_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT paymentpreparationGetCommunicationsendersV1Signal(output);
+        Q_EMIT paymentpreparationGetCommunicationsendersV1SignalFull(worker, output);
+    } else {
+        Q_EMIT paymentpreparationGetCommunicationsendersV1SignalError(output, error_type, error_str);
+        Q_EMIT paymentpreparationGetCommunicationsendersV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

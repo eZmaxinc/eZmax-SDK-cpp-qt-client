@@ -22,6 +22,10 @@
 #include "HttpFileElement.h"
 #include "Reconciliation_batchDownload_v1_Request.h"
 #include "Reconciliation_getAttachments_v1_Response.h"
+#include "Reconciliation_getCommunicationCount_v1_Response.h"
+#include "Reconciliation_getCommunicationList_v1_Response.h"
+#include "Reconciliation_getCommunicationrecipients_v1_Response.h"
+#include "Reconciliation_getCommunicationsenders_v1_Response.h"
 #include "Reconciliation_importIntoEDM_v1_Request.h"
 #include "Reconciliation_importIntoEDM_v1_Response.h"
 #include <QString>
@@ -76,6 +80,26 @@ public:
 
     /**
     * @param[in]  pki_reconciliation_id qint32 [required]
+    */
+    virtual void reconciliationGetCommunicationCountV1(const qint32 &pki_reconciliation_id);
+
+    /**
+    * @param[in]  pki_reconciliation_id qint32 [required]
+    */
+    virtual void reconciliationGetCommunicationListV1(const qint32 &pki_reconciliation_id);
+
+    /**
+    * @param[in]  pki_reconciliation_id qint32 [required]
+    */
+    virtual void reconciliationGetCommunicationrecipientsV1(const qint32 &pki_reconciliation_id);
+
+    /**
+    * @param[in]  pki_reconciliation_id qint32 [required]
+    */
+    virtual void reconciliationGetCommunicationsendersV1(const qint32 &pki_reconciliation_id);
+
+    /**
+    * @param[in]  pki_reconciliation_id qint32 [required]
     * @param[in]  reconciliation_import_into_edm_v1_request Reconciliation_importIntoEDM_v1_Request [required]
     */
     virtual void reconciliationImportIntoEDMV1(const qint32 &pki_reconciliation_id, const Reconciliation_importIntoEDM_v1_Request &reconciliation_import_into_edm_v1_request);
@@ -112,25 +136,45 @@ private:
 
     void reconciliationBatchDownloadV1Callback(HttpRequestWorker *worker);
     void reconciliationGetAttachmentsV1Callback(HttpRequestWorker *worker);
+    void reconciliationGetCommunicationCountV1Callback(HttpRequestWorker *worker);
+    void reconciliationGetCommunicationListV1Callback(HttpRequestWorker *worker);
+    void reconciliationGetCommunicationrecipientsV1Callback(HttpRequestWorker *worker);
+    void reconciliationGetCommunicationsendersV1Callback(HttpRequestWorker *worker);
     void reconciliationImportIntoEDMV1Callback(HttpRequestWorker *worker);
 
 Q_SIGNALS:
 
     void reconciliationBatchDownloadV1Signal(HttpFileElement summary);
     void reconciliationGetAttachmentsV1Signal(Reconciliation_getAttachments_v1_Response summary);
+    void reconciliationGetCommunicationCountV1Signal(Reconciliation_getCommunicationCount_v1_Response summary);
+    void reconciliationGetCommunicationListV1Signal(Reconciliation_getCommunicationList_v1_Response summary);
+    void reconciliationGetCommunicationrecipientsV1Signal(Reconciliation_getCommunicationrecipients_v1_Response summary);
+    void reconciliationGetCommunicationsendersV1Signal(Reconciliation_getCommunicationsenders_v1_Response summary);
     void reconciliationImportIntoEDMV1Signal(Reconciliation_importIntoEDM_v1_Response summary);
 
 
     void reconciliationBatchDownloadV1SignalFull(HttpRequestWorker *worker, HttpFileElement summary);
     void reconciliationGetAttachmentsV1SignalFull(HttpRequestWorker *worker, Reconciliation_getAttachments_v1_Response summary);
+    void reconciliationGetCommunicationCountV1SignalFull(HttpRequestWorker *worker, Reconciliation_getCommunicationCount_v1_Response summary);
+    void reconciliationGetCommunicationListV1SignalFull(HttpRequestWorker *worker, Reconciliation_getCommunicationList_v1_Response summary);
+    void reconciliationGetCommunicationrecipientsV1SignalFull(HttpRequestWorker *worker, Reconciliation_getCommunicationrecipients_v1_Response summary);
+    void reconciliationGetCommunicationsendersV1SignalFull(HttpRequestWorker *worker, Reconciliation_getCommunicationsenders_v1_Response summary);
     void reconciliationImportIntoEDMV1SignalFull(HttpRequestWorker *worker, Reconciliation_importIntoEDM_v1_Response summary);
 
     void reconciliationBatchDownloadV1SignalError(HttpFileElement summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void reconciliationGetAttachmentsV1SignalError(Reconciliation_getAttachments_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void reconciliationGetCommunicationCountV1SignalError(Reconciliation_getCommunicationCount_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void reconciliationGetCommunicationListV1SignalError(Reconciliation_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void reconciliationGetCommunicationrecipientsV1SignalError(Reconciliation_getCommunicationrecipients_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void reconciliationGetCommunicationsendersV1SignalError(Reconciliation_getCommunicationsenders_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void reconciliationImportIntoEDMV1SignalError(Reconciliation_importIntoEDM_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void reconciliationBatchDownloadV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void reconciliationGetAttachmentsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void reconciliationGetCommunicationCountV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void reconciliationGetCommunicationListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void reconciliationGetCommunicationrecipientsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void reconciliationGetCommunicationsendersV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void reconciliationImportIntoEDMV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();

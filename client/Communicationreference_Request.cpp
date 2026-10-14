@@ -46,6 +46,9 @@ void Communicationreference_Request::initializeModel() {
     m_fki_inscription_id_isSet = false;
     m_fki_inscription_id_isValid = false;
 
+    m_fki_inscriptionnotauthenticated_id_isSet = false;
+    m_fki_inscriptionnotauthenticated_id_isValid = false;
+
     m_fki_inscriptiontemp_id_isSet = false;
     m_fki_inscriptiontemp_id_isValid = false;
 
@@ -83,6 +86,9 @@ void Communicationreference_Request::fromJsonObject(QJsonObject json) {
     m_fki_inscription_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_inscription_id, json[QString("fkiInscriptionID")]);
     m_fki_inscription_id_isSet = !json[QString("fkiInscriptionID")].isNull() && m_fki_inscription_id_isValid;
 
+    m_fki_inscriptionnotauthenticated_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_inscriptionnotauthenticated_id, json[QString("fkiInscriptionnotauthenticatedID")]);
+    m_fki_inscriptionnotauthenticated_id_isSet = !json[QString("fkiInscriptionnotauthenticatedID")].isNull() && m_fki_inscriptionnotauthenticated_id_isValid;
+
     m_fki_inscriptiontemp_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_inscriptiontemp_id, json[QString("fkiInscriptiontempID")]);
     m_fki_inscriptiontemp_id_isSet = !json[QString("fkiInscriptiontempID")].isNull() && m_fki_inscriptiontemp_id_isValid;
 
@@ -119,6 +125,9 @@ QJsonObject Communicationreference_Request::asJsonObject() const {
     }
     if (m_fki_inscription_id_isSet) {
         obj.insert(QString("fkiInscriptionID"), ::Ezmaxapi::toJsonValue(m_fki_inscription_id));
+    }
+    if (m_fki_inscriptionnotauthenticated_id_isSet) {
+        obj.insert(QString("fkiInscriptionnotauthenticatedID"), ::Ezmaxapi::toJsonValue(m_fki_inscriptionnotauthenticated_id));
     }
     if (m_fki_inscriptiontemp_id_isSet) {
         obj.insert(QString("fkiInscriptiontempID"), ::Ezmaxapi::toJsonValue(m_fki_inscriptiontemp_id));
@@ -200,6 +209,22 @@ bool Communicationreference_Request::is_fki_inscription_id_Set() const{
 
 bool Communicationreference_Request::is_fki_inscription_id_Valid() const{
     return m_fki_inscription_id_isValid;
+}
+
+qint32 Communicationreference_Request::getFkiInscriptionnotauthenticatedId() const {
+    return m_fki_inscriptionnotauthenticated_id;
+}
+void Communicationreference_Request::setFkiInscriptionnotauthenticatedId(const qint32 &fki_inscriptionnotauthenticated_id) {
+    m_fki_inscriptionnotauthenticated_id = fki_inscriptionnotauthenticated_id;
+    m_fki_inscriptionnotauthenticated_id_isSet = true;
+}
+
+bool Communicationreference_Request::is_fki_inscriptionnotauthenticated_id_Set() const{
+    return m_fki_inscriptionnotauthenticated_id_isSet;
+}
+
+bool Communicationreference_Request::is_fki_inscriptionnotauthenticated_id_Valid() const{
+    return m_fki_inscriptionnotauthenticated_id_isValid;
 }
 
 qint32 Communicationreference_Request::getFkiInscriptiontempId() const {
@@ -301,6 +326,11 @@ bool Communicationreference_Request::isSet() const {
         }
 
         if (m_fki_inscription_id_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_fki_inscriptionnotauthenticated_id_isSet) {
             isObjectUpdated = true;
             break;
         }

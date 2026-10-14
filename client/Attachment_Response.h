@@ -22,6 +22,7 @@
 #include <QJsonObject>
 
 #include "Common_Audit.h"
+#include "Custom_UserName_Response.h"
 #include "Field_eAttachmentDocumenttype.h"
 #include "Field_eAttachmentPrivacy.h"
 #include "Field_eAttachmentType.h"
@@ -32,6 +33,7 @@
 #include "Object.h"
 
 namespace Ezmaxapi {
+class Custom_UserName_Response;
 class Common_Audit;
 
 class Attachment_Response : public Object {
@@ -310,6 +312,11 @@ public:
     bool is_fki_user_id_specific_Set() const;
     bool is_fki_user_id_specific_Valid() const;
 
+    Custom_UserName_Response getObjUserSpecific() const;
+    void setObjUserSpecific(const Custom_UserName_Response &obj_user_specific);
+    bool is_obj_user_specific_Set() const;
+    bool is_obj_user_specific_Valid() const;
+
     Field_eAttachmentType getEAttachmentType() const;
     void setEAttachmentType(const Field_eAttachmentType &e_attachment_type);
     bool is_e_attachment_type_Set() const;
@@ -577,6 +584,10 @@ private:
     qint32 m_fki_user_id_specific;
     bool m_fki_user_id_specific_isSet;
     bool m_fki_user_id_specific_isValid;
+
+    Custom_UserName_Response m_obj_user_specific;
+    bool m_obj_user_specific_isSet;
+    bool m_obj_user_specific_isValid;
 
     Field_eAttachmentType m_e_attachment_type;
     bool m_e_attachment_type_isSet;

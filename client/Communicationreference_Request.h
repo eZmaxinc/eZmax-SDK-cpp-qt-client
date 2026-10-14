@@ -58,6 +58,11 @@ public:
     bool is_fki_inscription_id_Set() const;
     bool is_fki_inscription_id_Valid() const;
 
+    qint32 getFkiInscriptionnotauthenticatedId() const;
+    void setFkiInscriptionnotauthenticatedId(const qint32 &fki_inscriptionnotauthenticated_id);
+    bool is_fki_inscriptionnotauthenticated_id_Set() const;
+    bool is_fki_inscriptionnotauthenticated_id_Valid() const;
+
     qint32 getFkiInscriptiontempId() const;
     void setFkiInscriptiontempId(const qint32 &fki_inscriptiontemp_id);
     bool is_fki_inscriptiontemp_id_Set() const;
@@ -104,6 +109,10 @@ private:
     qint32 m_fki_inscription_id;
     bool m_fki_inscription_id_isSet;
     bool m_fki_inscription_id_isValid;
+
+    qint32 m_fki_inscriptionnotauthenticated_id;
+    bool m_fki_inscriptionnotauthenticated_id_isSet;
+    bool m_fki_inscriptionnotauthenticated_id_isValid;
 
     qint32 m_fki_inscriptiontemp_id;
     bool m_fki_inscriptiontemp_id_isSet;

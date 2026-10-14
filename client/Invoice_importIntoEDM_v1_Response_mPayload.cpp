@@ -34,8 +34,8 @@ Invoice_importIntoEDM_v1_Response_mPayload::~Invoice_importIntoEDM_v1_Response_m
 
 void Invoice_importIntoEDM_v1_Response_mPayload::initializeModel() {
 
-    m_a_pki_attachment_id_isSet = false;
-    m_a_pki_attachment_id_isValid = false;
+    m_a_obj_attachment_isSet = false;
+    m_a_obj_attachment_isValid = false;
 }
 
 void Invoice_importIntoEDM_v1_Response_mPayload::fromJson(const QString &jsonString) {
@@ -47,8 +47,8 @@ void Invoice_importIntoEDM_v1_Response_mPayload::fromJson(const QString &jsonStr
 
 void Invoice_importIntoEDM_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_pki_attachment_id_isValid = ::Ezmaxapi::fromJsonValue(m_a_pki_attachment_id, json[QString("a_pkiAttachmentID")]);
-    m_a_pki_attachment_id_isSet = !json[QString("a_pkiAttachmentID")].isNull() && m_a_pki_attachment_id_isValid;
+    m_a_obj_attachment_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_attachment, json[QString("a_objAttachment")]);
+    m_a_obj_attachment_isSet = !json[QString("a_objAttachment")].isNull() && m_a_obj_attachment_isValid;
 }
 
 QString Invoice_importIntoEDM_v1_Response_mPayload::asJson() const {
@@ -60,32 +60,32 @@ QString Invoice_importIntoEDM_v1_Response_mPayload::asJson() const {
 
 QJsonObject Invoice_importIntoEDM_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (m_a_pki_attachment_id.size() > 0) {
-        obj.insert(QString("a_pkiAttachmentID"), ::Ezmaxapi::toJsonValue(m_a_pki_attachment_id));
+    if (m_a_obj_attachment.size() > 0) {
+        obj.insert(QString("a_objAttachment"), ::Ezmaxapi::toJsonValue(m_a_obj_attachment));
     }
     return obj;
 }
 
-QList<qint32> Invoice_importIntoEDM_v1_Response_mPayload::getAPkiAttachmentId() const {
-    return m_a_pki_attachment_id;
+QList<Custom_AttachmentImportIntoEDM_Response> Invoice_importIntoEDM_v1_Response_mPayload::getAObjAttachment() const {
+    return m_a_obj_attachment;
 }
-void Invoice_importIntoEDM_v1_Response_mPayload::setAPkiAttachmentId(const QList<qint32> &a_pki_attachment_id) {
-    m_a_pki_attachment_id = a_pki_attachment_id;
-    m_a_pki_attachment_id_isSet = true;
-}
-
-bool Invoice_importIntoEDM_v1_Response_mPayload::is_a_pki_attachment_id_Set() const{
-    return m_a_pki_attachment_id_isSet;
+void Invoice_importIntoEDM_v1_Response_mPayload::setAObjAttachment(const QList<Custom_AttachmentImportIntoEDM_Response> &a_obj_attachment) {
+    m_a_obj_attachment = a_obj_attachment;
+    m_a_obj_attachment_isSet = true;
 }
 
-bool Invoice_importIntoEDM_v1_Response_mPayload::is_a_pki_attachment_id_Valid() const{
-    return m_a_pki_attachment_id_isValid;
+bool Invoice_importIntoEDM_v1_Response_mPayload::is_a_obj_attachment_Set() const{
+    return m_a_obj_attachment_isSet;
+}
+
+bool Invoice_importIntoEDM_v1_Response_mPayload::is_a_obj_attachment_Valid() const{
+    return m_a_obj_attachment_isValid;
 }
 
 bool Invoice_importIntoEDM_v1_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (m_a_pki_attachment_id.size() > 0) {
+        if (m_a_obj_attachment.size() > 0) {
             isObjectUpdated = true;
             break;
         }
@@ -95,7 +95,7 @@ bool Invoice_importIntoEDM_v1_Response_mPayload::isSet() const {
 
 bool Invoice_importIntoEDM_v1_Response_mPayload::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_a_pki_attachment_id_isValid && true;
+    return m_a_obj_attachment_isValid && true;
 }
 
 } // namespace Ezmaxapi

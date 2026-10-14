@@ -23,6 +23,10 @@
 #include "HttpFileElement.h"
 #include "Salary_batchDownload_v1_Request.h"
 #include "Salary_getAttachments_v1_Response.h"
+#include "Salary_getCommunicationCount_v1_Response.h"
+#include "Salary_getCommunicationList_v1_Response.h"
+#include "Salary_getCommunicationrecipients_v1_Response.h"
+#include "Salary_getCommunicationsenders_v1_Response.h"
 #include "Salary_getList_v1_Response.h"
 #include "Salary_importIntoEDM_v1_Request.h"
 #include "Salary_importIntoEDM_v1_Response.h"
@@ -77,6 +81,26 @@ public:
     virtual void salaryGetAttachmentsV1(const qint32 &pki_salary_id);
 
     /**
+    * @param[in]  pki_salary_id qint32 [required]
+    */
+    virtual void salaryGetCommunicationCountV1(const qint32 &pki_salary_id);
+
+    /**
+    * @param[in]  pki_salary_id qint32 [required]
+    */
+    virtual void salaryGetCommunicationListV1(const qint32 &pki_salary_id);
+
+    /**
+    * @param[in]  pki_salary_id qint32 [required]
+    */
+    virtual void salaryGetCommunicationrecipientsV1(const qint32 &pki_salary_id);
+
+    /**
+    * @param[in]  pki_salary_id qint32 [required]
+    */
+    virtual void salaryGetCommunicationsendersV1(const qint32 &pki_salary_id);
+
+    /**
     * @param[in]  e_order_by QString [optional]
     * @param[in]  i_row_max qint32 [optional]
     * @param[in]  i_row_offset qint32 [optional]
@@ -123,6 +147,10 @@ private:
 
     void salaryBatchDownloadV1Callback(HttpRequestWorker *worker);
     void salaryGetAttachmentsV1Callback(HttpRequestWorker *worker);
+    void salaryGetCommunicationCountV1Callback(HttpRequestWorker *worker);
+    void salaryGetCommunicationListV1Callback(HttpRequestWorker *worker);
+    void salaryGetCommunicationrecipientsV1Callback(HttpRequestWorker *worker);
+    void salaryGetCommunicationsendersV1Callback(HttpRequestWorker *worker);
     void salaryGetListV1Callback(HttpRequestWorker *worker);
     void salaryImportIntoEDMV1Callback(HttpRequestWorker *worker);
 
@@ -130,22 +158,38 @@ Q_SIGNALS:
 
     void salaryBatchDownloadV1Signal(HttpFileElement summary);
     void salaryGetAttachmentsV1Signal(Salary_getAttachments_v1_Response summary);
+    void salaryGetCommunicationCountV1Signal(Salary_getCommunicationCount_v1_Response summary);
+    void salaryGetCommunicationListV1Signal(Salary_getCommunicationList_v1_Response summary);
+    void salaryGetCommunicationrecipientsV1Signal(Salary_getCommunicationrecipients_v1_Response summary);
+    void salaryGetCommunicationsendersV1Signal(Salary_getCommunicationsenders_v1_Response summary);
     void salaryGetListV1Signal(Salary_getList_v1_Response summary);
     void salaryImportIntoEDMV1Signal(Salary_importIntoEDM_v1_Response summary);
 
 
     void salaryBatchDownloadV1SignalFull(HttpRequestWorker *worker, HttpFileElement summary);
     void salaryGetAttachmentsV1SignalFull(HttpRequestWorker *worker, Salary_getAttachments_v1_Response summary);
+    void salaryGetCommunicationCountV1SignalFull(HttpRequestWorker *worker, Salary_getCommunicationCount_v1_Response summary);
+    void salaryGetCommunicationListV1SignalFull(HttpRequestWorker *worker, Salary_getCommunicationList_v1_Response summary);
+    void salaryGetCommunicationrecipientsV1SignalFull(HttpRequestWorker *worker, Salary_getCommunicationrecipients_v1_Response summary);
+    void salaryGetCommunicationsendersV1SignalFull(HttpRequestWorker *worker, Salary_getCommunicationsenders_v1_Response summary);
     void salaryGetListV1SignalFull(HttpRequestWorker *worker, Salary_getList_v1_Response summary);
     void salaryImportIntoEDMV1SignalFull(HttpRequestWorker *worker, Salary_importIntoEDM_v1_Response summary);
 
     void salaryBatchDownloadV1SignalError(HttpFileElement summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void salaryGetAttachmentsV1SignalError(Salary_getAttachments_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void salaryGetCommunicationCountV1SignalError(Salary_getCommunicationCount_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void salaryGetCommunicationListV1SignalError(Salary_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void salaryGetCommunicationrecipientsV1SignalError(Salary_getCommunicationrecipients_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void salaryGetCommunicationsendersV1SignalError(Salary_getCommunicationsenders_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void salaryGetListV1SignalError(Salary_getList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void salaryImportIntoEDMV1SignalError(Salary_importIntoEDM_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void salaryBatchDownloadV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void salaryGetAttachmentsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void salaryGetCommunicationCountV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void salaryGetCommunicationListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void salaryGetCommunicationrecipientsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void salaryGetCommunicationsendersV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void salaryGetListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void salaryImportIntoEDMV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 

@@ -66,10 +66,20 @@ public:
     bool is_fki_language_id_Set() const;
     bool is_fki_language_id_Valid() const;
 
+    qint32 getFkiCompanyId() const;
+    void setFkiCompanyId(const qint32 &fki_company_id);
+    bool is_fki_company_id_Set() const;
+    bool is_fki_company_id_Valid() const;
+
     QString getSCompanyNameX() const;
     void setSCompanyNameX(const QString &s_company_name_x);
     bool is_s_company_name_x_Set() const;
     bool is_s_company_name_x_Valid() const;
+
+    qint32 getFkiDepartmentId() const;
+    void setFkiDepartmentId(const qint32 &fki_department_id);
+    bool is_fki_department_id_Set() const;
+    bool is_fki_department_id_Valid() const;
 
     QString getSDepartmentNameX() const;
     void setSDepartmentNameX(const QString &s_department_name_x);
@@ -163,9 +173,17 @@ private:
     bool m_fki_language_id_isSet;
     bool m_fki_language_id_isValid;
 
+    qint32 m_fki_company_id;
+    bool m_fki_company_id_isSet;
+    bool m_fki_company_id_isValid;
+
     QString m_s_company_name_x;
     bool m_s_company_name_x_isSet;
     bool m_s_company_name_x_isValid;
+
+    qint32 m_fki_department_id;
+    bool m_fki_department_id_isSet;
+    bool m_fki_department_id_isValid;
 
     QString m_s_department_name_x;
     bool m_s_department_name_x_isSet;

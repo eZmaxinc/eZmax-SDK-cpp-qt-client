@@ -121,10 +121,11 @@ public:
     /**
     * @param[in]  s_selector QString [required]
     * @param[in]  e_filter_active QString [optional]
+    * @param[in]  fki_attachment_id QString [optional]
     * @param[in]  s_query QString [optional]
     * @param[in]  accept_language Header_Accept_Language [optional]
     */
-    virtual void userGetAutocompleteV2(const QString &s_selector, const ::Ezmaxapi::OptionalParam<QString> &e_filter_active = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<QString> &s_query = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<Header_Accept_Language>());
+    virtual void userGetAutocompleteV2(const QString &s_selector, const ::Ezmaxapi::OptionalParam<QString> &e_filter_active = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<QString> &fki_attachment_id = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<QString> &s_query = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<Header_Accept_Language>());
 
     /**
     * @param[in]  pki_user_id qint32 [required]

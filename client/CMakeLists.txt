@@ -29,6 +29,7 @@ add_library(${PROJECT_NAME}
   Address_RequestCompound.h
   Address_Response.h
   Address_ResponseCompound.h
+  Adjustment_ListElement.h
   Adjustment_batchDownload_v1_Request.h
   Adjustment_getAttachments_v1_Response.h
   Adjustment_getAttachments_v1_Response_mPayload.h
@@ -40,9 +41,14 @@ add_library(${PROJECT_NAME}
   Adjustment_getCommunicationrecipients_v1_Response_mPayload.h
   Adjustment_getCommunicationsenders_v1_Response.h
   Adjustment_getCommunicationsenders_v1_Response_mPayload.h
+  Adjustment_getList_v1_Response.h
+  Adjustment_getList_v1_Response_mPayload.h
   Adjustment_importIntoEDM_v1_Request.h
   Adjustment_importIntoEDM_v1_Response.h
   Adjustment_importIntoEDM_v1_Response_mPayload.h
+  Adjustmentreminder_ListElement.h
+  Adjustmentreminder_getList_v1_Response.h
+  Adjustmentreminder_getList_v1_Response_mPayload.h
   Agent_AutocompleteElement_Response.h
   Agent_ListElement.h
   Agent_batchDownload_v1_Request.h
@@ -597,6 +603,7 @@ add_library(${PROJECT_NAME}
   Domain_getList_v1_Response_mPayload.h
   Domain_getObject_v2_Response.h
   Domain_getObject_v2_Response_mPayload.h
+  Electronicfundstransfer_ListElement.h
   Electronicfundstransfer_batchDownload_v1_Request.h
   Electronicfundstransfer_getAttachments_v1_Response.h
   Electronicfundstransfer_getAttachments_v1_Response_mPayload.h
@@ -608,9 +615,14 @@ add_library(${PROJECT_NAME}
   Electronicfundstransfer_getCommunicationrecipients_v1_Response_mPayload.h
   Electronicfundstransfer_getCommunicationsenders_v1_Response.h
   Electronicfundstransfer_getCommunicationsenders_v1_Response_mPayload.h
+  Electronicfundstransfer_getList_v1_Response.h
+  Electronicfundstransfer_getList_v1_Response_mPayload.h
   Electronicfundstransfer_importIntoEDM_v1_Request.h
   Electronicfundstransfer_importIntoEDM_v1_Response.h
   Electronicfundstransfer_importIntoEDM_v1_Response_mPayload.h
+  Electronicfundstransfertransaction_ListElement.h
+  Electronicfundstransfertransaction_getList_v1_Response.h
+  Electronicfundstransfertransaction_getList_v1_Response_mPayload.h
   Email_Request.h
   Email_RequestCompound.h
   Email_Response.h
@@ -1547,6 +1559,7 @@ add_library(${PROJECT_NAME}
   Field_eActivesessionRealestateinprogress.h
   Field_eActivesessionUsertype.h
   Field_eActivesessionWeekdaystart.h
+  Field_eAdjustmentreminderType.h
   Field_eAgentSchedule.h
   Field_eAttachmentDocumenttype.h
   Field_eAttachmentPrivacy.h
@@ -1979,6 +1992,14 @@ add_library(${PROJECT_NAME}
   Paymentpreparation_batchDownload_v1_Request.h
   Paymentpreparation_getAttachments_v1_Response.h
   Paymentpreparation_getAttachments_v1_Response_mPayload.h
+  Paymentpreparation_getCommunicationCount_v1_Response.h
+  Paymentpreparation_getCommunicationCount_v1_Response_mPayload.h
+  Paymentpreparation_getCommunicationList_v1_Response.h
+  Paymentpreparation_getCommunicationList_v1_Response_mPayload.h
+  Paymentpreparation_getCommunicationrecipients_v1_Response.h
+  Paymentpreparation_getCommunicationrecipients_v1_Response_mPayload.h
+  Paymentpreparation_getCommunicationsenders_v1_Response.h
+  Paymentpreparation_getCommunicationsenders_v1_Response_mPayload.h
   Paymentpreparation_importIntoEDM_v1_Request.h
   Paymentpreparation_importIntoEDM_v1_Response.h
   Paymentpreparation_importIntoEDM_v1_Response_mPayload.h
@@ -2033,6 +2054,14 @@ add_library(${PROJECT_NAME}
   Purchase_batchDownload_v1_Request.h
   Purchase_getAttachments_v1_Response.h
   Purchase_getAttachments_v1_Response_mPayload.h
+  Purchase_getCommunicationCount_v1_Response.h
+  Purchase_getCommunicationCount_v1_Response_mPayload.h
+  Purchase_getCommunicationList_v1_Response.h
+  Purchase_getCommunicationList_v1_Response_mPayload.h
+  Purchase_getCommunicationrecipients_v1_Response.h
+  Purchase_getCommunicationrecipients_v1_Response_mPayload.h
+  Purchase_getCommunicationsenders_v1_Response.h
+  Purchase_getCommunicationsenders_v1_Response_mPayload.h
   Purchase_getList_v1_Response.h
   Purchase_getList_v1_Response_mPayload.h
   Purchase_importIntoEDM_v1_Request.h
@@ -2047,6 +2076,14 @@ add_library(${PROJECT_NAME}
   Reconciliation_batchDownload_v1_Request.h
   Reconciliation_getAttachments_v1_Response.h
   Reconciliation_getAttachments_v1_Response_mPayload.h
+  Reconciliation_getCommunicationCount_v1_Response.h
+  Reconciliation_getCommunicationCount_v1_Response_mPayload.h
+  Reconciliation_getCommunicationList_v1_Response.h
+  Reconciliation_getCommunicationList_v1_Response_mPayload.h
+  Reconciliation_getCommunicationrecipients_v1_Response.h
+  Reconciliation_getCommunicationrecipients_v1_Response_mPayload.h
+  Reconciliation_getCommunicationsenders_v1_Response.h
+  Reconciliation_getCommunicationsenders_v1_Response_mPayload.h
   Reconciliation_importIntoEDM_v1_Request.h
   Reconciliation_importIntoEDM_v1_Response.h
   Reconciliation_importIntoEDM_v1_Response_mPayload.h
@@ -2071,6 +2108,14 @@ add_library(${PROJECT_NAME}
   Salary_batchDownload_v1_Request.h
   Salary_getAttachments_v1_Response.h
   Salary_getAttachments_v1_Response_mPayload.h
+  Salary_getCommunicationCount_v1_Response.h
+  Salary_getCommunicationCount_v1_Response_mPayload.h
+  Salary_getCommunicationList_v1_Response.h
+  Salary_getCommunicationList_v1_Response_mPayload.h
+  Salary_getCommunicationrecipients_v1_Response.h
+  Salary_getCommunicationrecipients_v1_Response_mPayload.h
+  Salary_getCommunicationsenders_v1_Response.h
+  Salary_getCommunicationsenders_v1_Response_mPayload.h
   Salary_getList_v1_Response.h
   Salary_getList_v1_Response_mPayload.h
   Salary_importIntoEDM_v1_Request.h
@@ -2125,6 +2170,14 @@ add_library(${PROJECT_NAME}
   Supplier_batchDownload_v1_Request.h
   Supplier_getAttachments_v1_Response.h
   Supplier_getAttachments_v1_Response_mPayload.h
+  Supplier_getCommunicationCount_v1_Response.h
+  Supplier_getCommunicationCount_v1_Response_mPayload.h
+  Supplier_getCommunicationList_v1_Response.h
+  Supplier_getCommunicationList_v1_Response_mPayload.h
+  Supplier_getCommunicationrecipients_v1_Response.h
+  Supplier_getCommunicationrecipients_v1_Response_mPayload.h
+  Supplier_getCommunicationsenders_v1_Response.h
+  Supplier_getCommunicationsenders_v1_Response_mPayload.h
   Supplier_getList_v1_Response.h
   Supplier_getList_v1_Response_mPayload.h
   Supplier_importIntoEDM_v1_Request.h
@@ -2415,6 +2468,7 @@ add_library(${PROJECT_NAME}
   ModuleUserApi.h
   ObjectActivesessionApi.h
   ObjectAdjustmentApi.h
+  ObjectAdjustmentreminderApi.h
   ObjectAgentApi.h
   ObjectAgenttypeApi.h
   ObjectApikeyApi.h
@@ -2449,6 +2503,7 @@ add_library(${PROJECT_NAME}
   ObjectDiscussionmessageApi.h
   ObjectDomainApi.h
   ObjectElectronicfundstransferApi.h
+  ObjectElectronicfundstransfertransactionApi.h
   ObjectEmailtypeApi.h
   ObjectEmployeeApi.h
   ObjectExternalbrokerApi.h
@@ -2585,6 +2640,7 @@ add_library(${PROJECT_NAME}
   Address_RequestCompound.cpp
   Address_Response.cpp
   Address_ResponseCompound.cpp
+  Adjustment_ListElement.cpp
   Adjustment_batchDownload_v1_Request.cpp
   Adjustment_getAttachments_v1_Response.cpp
   Adjustment_getAttachments_v1_Response_mPayload.cpp
@@ -2596,9 +2652,14 @@ add_library(${PROJECT_NAME}
   Adjustment_getCommunicationrecipients_v1_Response_mPayload.cpp
   Adjustment_getCommunicationsenders_v1_Response.cpp
   Adjustment_getCommunicationsenders_v1_Response_mPayload.cpp
+  Adjustment_getList_v1_Response.cpp
+  Adjustment_getList_v1_Response_mPayload.cpp
   Adjustment_importIntoEDM_v1_Request.cpp
   Adjustment_importIntoEDM_v1_Response.cpp
   Adjustment_importIntoEDM_v1_Response_mPayload.cpp
+  Adjustmentreminder_ListElement.cpp
+  Adjustmentreminder_getList_v1_Response.cpp
+  Adjustmentreminder_getList_v1_Response_mPayload.cpp
   Agent_AutocompleteElement_Response.cpp
   Agent_ListElement.cpp
   Agent_batchDownload_v1_Request.cpp
@@ -3153,6 +3214,7 @@ add_library(${PROJECT_NAME}
   Domain_getList_v1_Response_mPayload.cpp
   Domain_getObject_v2_Response.cpp
   Domain_getObject_v2_Response_mPayload.cpp
+  Electronicfundstransfer_ListElement.cpp
   Electronicfundstransfer_batchDownload_v1_Request.cpp
   Electronicfundstransfer_getAttachments_v1_Response.cpp
   Electronicfundstransfer_getAttachments_v1_Response_mPayload.cpp
@@ -3164,9 +3226,14 @@ add_library(${PROJECT_NAME}
   Electronicfundstransfer_getCommunicationrecipients_v1_Response_mPayload.cpp
   Electronicfundstransfer_getCommunicationsenders_v1_Response.cpp
   Electronicfundstransfer_getCommunicationsenders_v1_Response_mPayload.cpp
+  Electronicfundstransfer_getList_v1_Response.cpp
+  Electronicfundstransfer_getList_v1_Response_mPayload.cpp
   Electronicfundstransfer_importIntoEDM_v1_Request.cpp
   Electronicfundstransfer_importIntoEDM_v1_Response.cpp
   Electronicfundstransfer_importIntoEDM_v1_Response_mPayload.cpp
+  Electronicfundstransfertransaction_ListElement.cpp
+  Electronicfundstransfertransaction_getList_v1_Response.cpp
+  Electronicfundstransfertransaction_getList_v1_Response_mPayload.cpp
   Email_Request.cpp
   Email_RequestCompound.cpp
   Email_Response.cpp
@@ -4103,6 +4170,7 @@ add_library(${PROJECT_NAME}
   Field_eActivesessionRealestateinprogress.cpp
   Field_eActivesessionUsertype.cpp
   Field_eActivesessionWeekdaystart.cpp
+  Field_eAdjustmentreminderType.cpp
   Field_eAgentSchedule.cpp
   Field_eAttachmentDocumenttype.cpp
   Field_eAttachmentPrivacy.cpp
@@ -4535,6 +4603,14 @@ add_library(${PROJECT_NAME}
   Paymentpreparation_batchDownload_v1_Request.cpp
   Paymentpreparation_getAttachments_v1_Response.cpp
   Paymentpreparation_getAttachments_v1_Response_mPayload.cpp
+  Paymentpreparation_getCommunicationCount_v1_Response.cpp
+  Paymentpreparation_getCommunicationCount_v1_Response_mPayload.cpp
+  Paymentpreparation_getCommunicationList_v1_Response.cpp
+  Paymentpreparation_getCommunicationList_v1_Response_mPayload.cpp
+  Paymentpreparation_getCommunicationrecipients_v1_Response.cpp
+  Paymentpreparation_getCommunicationrecipients_v1_Response_mPayload.cpp
+  Paymentpreparation_getCommunicationsenders_v1_Response.cpp
+  Paymentpreparation_getCommunicationsenders_v1_Response_mPayload.cpp
   Paymentpreparation_importIntoEDM_v1_Request.cpp
   Paymentpreparation_importIntoEDM_v1_Response.cpp
   Paymentpreparation_importIntoEDM_v1_Response_mPayload.cpp
@@ -4589,6 +4665,14 @@ add_library(${PROJECT_NAME}
   Purchase_batchDownload_v1_Request.cpp
   Purchase_getAttachments_v1_Response.cpp
   Purchase_getAttachments_v1_Response_mPayload.cpp
+  Purchase_getCommunicationCount_v1_Response.cpp
+  Purchase_getCommunicationCount_v1_Response_mPayload.cpp
+  Purchase_getCommunicationList_v1_Response.cpp
+  Purchase_getCommunicationList_v1_Response_mPayload.cpp
+  Purchase_getCommunicationrecipients_v1_Response.cpp
+  Purchase_getCommunicationrecipients_v1_Response_mPayload.cpp
+  Purchase_getCommunicationsenders_v1_Response.cpp
+  Purchase_getCommunicationsenders_v1_Response_mPayload.cpp
   Purchase_getList_v1_Response.cpp
   Purchase_getList_v1_Response_mPayload.cpp
   Purchase_importIntoEDM_v1_Request.cpp
@@ -4603,6 +4687,14 @@ add_library(${PROJECT_NAME}
   Reconciliation_batchDownload_v1_Request.cpp
   Reconciliation_getAttachments_v1_Response.cpp
   Reconciliation_getAttachments_v1_Response_mPayload.cpp
+  Reconciliation_getCommunicationCount_v1_Response.cpp
+  Reconciliation_getCommunicationCount_v1_Response_mPayload.cpp
+  Reconciliation_getCommunicationList_v1_Response.cpp
+  Reconciliation_getCommunicationList_v1_Response_mPayload.cpp
+  Reconciliation_getCommunicationrecipients_v1_Response.cpp
+  Reconciliation_getCommunicationrecipients_v1_Response_mPayload.cpp
+  Reconciliation_getCommunicationsenders_v1_Response.cpp
+  Reconciliation_getCommunicationsenders_v1_Response_mPayload.cpp
   Reconciliation_importIntoEDM_v1_Request.cpp
   Reconciliation_importIntoEDM_v1_Response.cpp
   Reconciliation_importIntoEDM_v1_Response_mPayload.cpp
@@ -4627,6 +4719,14 @@ add_library(${PROJECT_NAME}
   Salary_batchDownload_v1_Request.cpp
   Salary_getAttachments_v1_Response.cpp
   Salary_getAttachments_v1_Response_mPayload.cpp
+  Salary_getCommunicationCount_v1_Response.cpp
+  Salary_getCommunicationCount_v1_Response_mPayload.cpp
+  Salary_getCommunicationList_v1_Response.cpp
+  Salary_getCommunicationList_v1_Response_mPayload.cpp
+  Salary_getCommunicationrecipients_v1_Response.cpp
+  Salary_getCommunicationrecipients_v1_Response_mPayload.cpp
+  Salary_getCommunicationsenders_v1_Response.cpp
+  Salary_getCommunicationsenders_v1_Response_mPayload.cpp
   Salary_getList_v1_Response.cpp
   Salary_getList_v1_Response_mPayload.cpp
   Salary_importIntoEDM_v1_Request.cpp
@@ -4681,6 +4781,14 @@ add_library(${PROJECT_NAME}
   Supplier_batchDownload_v1_Request.cpp
   Supplier_getAttachments_v1_Response.cpp
   Supplier_getAttachments_v1_Response_mPayload.cpp
+  Supplier_getCommunicationCount_v1_Response.cpp
+  Supplier_getCommunicationCount_v1_Response_mPayload.cpp
+  Supplier_getCommunicationList_v1_Response.cpp
+  Supplier_getCommunicationList_v1_Response_mPayload.cpp
+  Supplier_getCommunicationrecipients_v1_Response.cpp
+  Supplier_getCommunicationrecipients_v1_Response_mPayload.cpp
+  Supplier_getCommunicationsenders_v1_Response.cpp
+  Supplier_getCommunicationsenders_v1_Response_mPayload.cpp
   Supplier_getList_v1_Response.cpp
   Supplier_getList_v1_Response_mPayload.cpp
   Supplier_importIntoEDM_v1_Request.cpp
@@ -4971,6 +5079,7 @@ add_library(${PROJECT_NAME}
   ModuleUserApi.cpp
   ObjectActivesessionApi.cpp
   ObjectAdjustmentApi.cpp
+  ObjectAdjustmentreminderApi.cpp
   ObjectAgentApi.cpp
   ObjectAgenttypeApi.cpp
   ObjectApikeyApi.cpp
@@ -5005,6 +5114,7 @@ add_library(${PROJECT_NAME}
   ObjectDiscussionmessageApi.cpp
   ObjectDomainApi.cpp
   ObjectElectronicfundstransferApi.cpp
+  ObjectElectronicfundstransfertransactionApi.cpp
   ObjectEmailtypeApi.cpp
   ObjectEmployeeApi.cpp
   ObjectExternalbrokerApi.cpp

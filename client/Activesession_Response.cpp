@@ -46,8 +46,14 @@ void Activesession_Response::initializeModel() {
     m_fki_language_id_isSet = false;
     m_fki_language_id_isValid = false;
 
+    m_fki_company_id_isSet = false;
+    m_fki_company_id_isValid = false;
+
     m_s_company_name_x_isSet = false;
     m_s_company_name_x_isValid = false;
+
+    m_fki_department_id_isSet = false;
+    m_fki_department_id_isValid = false;
 
     m_s_department_name_x_isSet = false;
     m_s_department_name_x_isValid = false;
@@ -113,8 +119,14 @@ void Activesession_Response::fromJsonObject(QJsonObject json) {
     m_fki_language_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_language_id, json[QString("fkiLanguageID")]);
     m_fki_language_id_isSet = !json[QString("fkiLanguageID")].isNull() && m_fki_language_id_isValid;
 
+    m_fki_company_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_company_id, json[QString("fkiCompanyID")]);
+    m_fki_company_id_isSet = !json[QString("fkiCompanyID")].isNull() && m_fki_company_id_isValid;
+
     m_s_company_name_x_isValid = ::Ezmaxapi::fromJsonValue(m_s_company_name_x, json[QString("sCompanyNameX")]);
     m_s_company_name_x_isSet = !json[QString("sCompanyNameX")].isNull() && m_s_company_name_x_isValid;
+
+    m_fki_department_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_department_id, json[QString("fkiDepartmentID")]);
+    m_fki_department_id_isSet = !json[QString("fkiDepartmentID")].isNull() && m_fki_department_id_isValid;
 
     m_s_department_name_x_isValid = ::Ezmaxapi::fromJsonValue(m_s_department_name_x, json[QString("sDepartmentNameX")]);
     m_s_department_name_x_isSet = !json[QString("sDepartmentNameX")].isNull() && m_s_department_name_x_isValid;
@@ -180,8 +192,14 @@ QJsonObject Activesession_Response::asJsonObject() const {
     if (m_fki_language_id_isSet) {
         obj.insert(QString("fkiLanguageID"), ::Ezmaxapi::toJsonValue(m_fki_language_id));
     }
+    if (m_fki_company_id_isSet) {
+        obj.insert(QString("fkiCompanyID"), ::Ezmaxapi::toJsonValue(m_fki_company_id));
+    }
     if (m_s_company_name_x_isSet) {
         obj.insert(QString("sCompanyNameX"), ::Ezmaxapi::toJsonValue(m_s_company_name_x));
+    }
+    if (m_fki_department_id_isSet) {
+        obj.insert(QString("fkiDepartmentID"), ::Ezmaxapi::toJsonValue(m_fki_department_id));
     }
     if (m_s_department_name_x_isSet) {
         obj.insert(QString("sDepartmentNameX"), ::Ezmaxapi::toJsonValue(m_s_department_name_x));
@@ -292,6 +310,22 @@ bool Activesession_Response::is_fki_language_id_Valid() const{
     return m_fki_language_id_isValid;
 }
 
+qint32 Activesession_Response::getFkiCompanyId() const {
+    return m_fki_company_id;
+}
+void Activesession_Response::setFkiCompanyId(const qint32 &fki_company_id) {
+    m_fki_company_id = fki_company_id;
+    m_fki_company_id_isSet = true;
+}
+
+bool Activesession_Response::is_fki_company_id_Set() const{
+    return m_fki_company_id_isSet;
+}
+
+bool Activesession_Response::is_fki_company_id_Valid() const{
+    return m_fki_company_id_isValid;
+}
+
 QString Activesession_Response::getSCompanyNameX() const {
     return m_s_company_name_x;
 }
@@ -306,6 +340,22 @@ bool Activesession_Response::is_s_company_name_x_Set() const{
 
 bool Activesession_Response::is_s_company_name_x_Valid() const{
     return m_s_company_name_x_isValid;
+}
+
+qint32 Activesession_Response::getFkiDepartmentId() const {
+    return m_fki_department_id;
+}
+void Activesession_Response::setFkiDepartmentId(const qint32 &fki_department_id) {
+    m_fki_department_id = fki_department_id;
+    m_fki_department_id_isSet = true;
+}
+
+bool Activesession_Response::is_fki_department_id_Set() const{
+    return m_fki_department_id_isSet;
+}
+
+bool Activesession_Response::is_fki_department_id_Valid() const{
+    return m_fki_department_id_isValid;
 }
 
 QString Activesession_Response::getSDepartmentNameX() const {
@@ -555,7 +605,17 @@ bool Activesession_Response::isSet() const {
             break;
         }
 
+        if (m_fki_company_id_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (m_s_company_name_x_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_fki_department_id_isSet) {
             isObjectUpdated = true;
             break;
         }
@@ -635,7 +695,7 @@ bool Activesession_Response::isSet() const {
 
 bool Activesession_Response::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_e_activesession_usertype_isValid && m_e_activesession_origin_isValid && m_e_activesession_weekdaystart_isValid && m_fki_language_id_isValid && m_s_company_name_x_isValid && m_s_department_name_x_isValid && m_b_activesession_debug_isValid && m_b_activesession_issuperadmin_isValid && m_e_activesession_ezsignaccess_isValid && m_pks_customer_code_isValid && m_fki_systemconfigurationtype_id_isValid && true;
+    return m_e_activesession_usertype_isValid && m_e_activesession_origin_isValid && m_e_activesession_weekdaystart_isValid && m_fki_language_id_isValid && m_fki_company_id_isValid && m_s_company_name_x_isValid && m_fki_department_id_isValid && m_s_department_name_x_isValid && m_b_activesession_debug_isValid && m_b_activesession_issuperadmin_isValid && m_e_activesession_ezsignaccess_isValid && m_pks_customer_code_isValid && m_fki_systemconfigurationtype_id_isValid && true;
 }
 
 } // namespace Ezmaxapi

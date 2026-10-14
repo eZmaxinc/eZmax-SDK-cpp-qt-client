@@ -22,6 +22,10 @@
 #include "HttpFileElement.h"
 #include "Paymentpreparation_batchDownload_v1_Request.h"
 #include "Paymentpreparation_getAttachments_v1_Response.h"
+#include "Paymentpreparation_getCommunicationCount_v1_Response.h"
+#include "Paymentpreparation_getCommunicationList_v1_Response.h"
+#include "Paymentpreparation_getCommunicationrecipients_v1_Response.h"
+#include "Paymentpreparation_getCommunicationsenders_v1_Response.h"
 #include "Paymentpreparation_importIntoEDM_v1_Request.h"
 #include "Paymentpreparation_importIntoEDM_v1_Response.h"
 #include <QString>
@@ -76,6 +80,26 @@ public:
 
     /**
     * @param[in]  pki_paymentpreparation_id qint32 [required]
+    */
+    virtual void paymentpreparationGetCommunicationCountV1(const qint32 &pki_paymentpreparation_id);
+
+    /**
+    * @param[in]  pki_paymentpreparation_id qint32 [required]
+    */
+    virtual void paymentpreparationGetCommunicationListV1(const qint32 &pki_paymentpreparation_id);
+
+    /**
+    * @param[in]  pki_paymentpreparation_id qint32 [required]
+    */
+    virtual void paymentpreparationGetCommunicationrecipientsV1(const qint32 &pki_paymentpreparation_id);
+
+    /**
+    * @param[in]  pki_paymentpreparation_id qint32 [required]
+    */
+    virtual void paymentpreparationGetCommunicationsendersV1(const qint32 &pki_paymentpreparation_id);
+
+    /**
+    * @param[in]  pki_paymentpreparation_id qint32 [required]
     * @param[in]  paymentpreparation_import_into_edm_v1_request Paymentpreparation_importIntoEDM_v1_Request [required]
     */
     virtual void paymentpreparationImportIntoEDMV1(const qint32 &pki_paymentpreparation_id, const Paymentpreparation_importIntoEDM_v1_Request &paymentpreparation_import_into_edm_v1_request);
@@ -112,25 +136,45 @@ private:
 
     void paymentpreparationBatchDownloadV1Callback(HttpRequestWorker *worker);
     void paymentpreparationGetAttachmentsV1Callback(HttpRequestWorker *worker);
+    void paymentpreparationGetCommunicationCountV1Callback(HttpRequestWorker *worker);
+    void paymentpreparationGetCommunicationListV1Callback(HttpRequestWorker *worker);
+    void paymentpreparationGetCommunicationrecipientsV1Callback(HttpRequestWorker *worker);
+    void paymentpreparationGetCommunicationsendersV1Callback(HttpRequestWorker *worker);
     void paymentpreparationImportIntoEDMV1Callback(HttpRequestWorker *worker);
 
 Q_SIGNALS:
 
     void paymentpreparationBatchDownloadV1Signal(HttpFileElement summary);
     void paymentpreparationGetAttachmentsV1Signal(Paymentpreparation_getAttachments_v1_Response summary);
+    void paymentpreparationGetCommunicationCountV1Signal(Paymentpreparation_getCommunicationCount_v1_Response summary);
+    void paymentpreparationGetCommunicationListV1Signal(Paymentpreparation_getCommunicationList_v1_Response summary);
+    void paymentpreparationGetCommunicationrecipientsV1Signal(Paymentpreparation_getCommunicationrecipients_v1_Response summary);
+    void paymentpreparationGetCommunicationsendersV1Signal(Paymentpreparation_getCommunicationsenders_v1_Response summary);
     void paymentpreparationImportIntoEDMV1Signal(Paymentpreparation_importIntoEDM_v1_Response summary);
 
 
     void paymentpreparationBatchDownloadV1SignalFull(HttpRequestWorker *worker, HttpFileElement summary);
     void paymentpreparationGetAttachmentsV1SignalFull(HttpRequestWorker *worker, Paymentpreparation_getAttachments_v1_Response summary);
+    void paymentpreparationGetCommunicationCountV1SignalFull(HttpRequestWorker *worker, Paymentpreparation_getCommunicationCount_v1_Response summary);
+    void paymentpreparationGetCommunicationListV1SignalFull(HttpRequestWorker *worker, Paymentpreparation_getCommunicationList_v1_Response summary);
+    void paymentpreparationGetCommunicationrecipientsV1SignalFull(HttpRequestWorker *worker, Paymentpreparation_getCommunicationrecipients_v1_Response summary);
+    void paymentpreparationGetCommunicationsendersV1SignalFull(HttpRequestWorker *worker, Paymentpreparation_getCommunicationsenders_v1_Response summary);
     void paymentpreparationImportIntoEDMV1SignalFull(HttpRequestWorker *worker, Paymentpreparation_importIntoEDM_v1_Response summary);
 
     void paymentpreparationBatchDownloadV1SignalError(HttpFileElement summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void paymentpreparationGetAttachmentsV1SignalError(Paymentpreparation_getAttachments_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void paymentpreparationGetCommunicationCountV1SignalError(Paymentpreparation_getCommunicationCount_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void paymentpreparationGetCommunicationListV1SignalError(Paymentpreparation_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void paymentpreparationGetCommunicationrecipientsV1SignalError(Paymentpreparation_getCommunicationrecipients_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void paymentpreparationGetCommunicationsendersV1SignalError(Paymentpreparation_getCommunicationsenders_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void paymentpreparationImportIntoEDMV1SignalError(Paymentpreparation_importIntoEDM_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void paymentpreparationBatchDownloadV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void paymentpreparationGetAttachmentsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void paymentpreparationGetCommunicationCountV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void paymentpreparationGetCommunicationListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void paymentpreparationGetCommunicationrecipientsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void paymentpreparationGetCommunicationsendersV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void paymentpreparationImportIntoEDMV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
