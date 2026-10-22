@@ -587,6 +587,39 @@ add_library(${PROJECT_NAME}
   Discussionmessage_deleteObject_v1_Response.h
   Discussionmessage_patchObject_v1_Request.h
   Discussionmessage_patchObject_v1_Response.h
+  Documenttype_AutocompleteElement_Response.h
+  Documenttype_ListElement.h
+  Documenttype_Request.h
+  Documenttype_RequestCompound.h
+  Documenttype_Response.h
+  Documenttype_ResponseCompound.h
+  Documenttype_createObject_v1_Request.h
+  Documenttype_createObject_v1_Response.h
+  Documenttype_createObject_v1_Response_mPayload.h
+  Documenttype_deleteObject_v1_Response.h
+  Documenttype_editObject_v1_Request.h
+  Documenttype_editObject_v1_Response.h
+  Documenttype_getAutocomplete_v2_Response.h
+  Documenttype_getAutocomplete_v2_Response_mPayload.h
+  Documenttype_getList_v1_Response.h
+  Documenttype_getList_v1_Response_mPayload.h
+  Documenttype_getObject_v2_Response.h
+  Documenttype_getObject_v2_Response_mPayload.h
+  Documenttypechecklist_ListElement.h
+  Documenttypechecklist_Request.h
+  Documenttypechecklist_RequestCompound.h
+  Documenttypechecklist_Response.h
+  Documenttypechecklist_ResponseCompound.h
+  Documenttypechecklist_createObject_v1_Request.h
+  Documenttypechecklist_createObject_v1_Response.h
+  Documenttypechecklist_createObject_v1_Response_mPayload.h
+  Documenttypechecklist_deleteObject_v1_Response.h
+  Documenttypechecklist_editObject_v1_Request.h
+  Documenttypechecklist_editObject_v1_Response.h
+  Documenttypechecklist_getList_v1_Response.h
+  Documenttypechecklist_getList_v1_Response_mPayload.h
+  Documenttypechecklist_getObject_v2_Response.h
+  Documenttypechecklist_getObject_v2_Response_mPayload.h
   Domain_AutocompleteElement_Response.h
   Domain_ListElement.h
   Domain_Request.h
@@ -1589,6 +1622,14 @@ add_library(${PROJECT_NAME}
   Field_eDisclosureInteresttype.h
   Field_eDiscussionRobot.h
   Field_eDiscussionmessageStatus.h
+  Field_eDocumenttypeEzcom.h
+  Field_eDocumenttypePrivacydefault.h
+  Field_eDocumenttypeRepossession.h
+  Field_eDocumenttypeSalebyowner.h
+  Field_eDocumenttypeSaledisplaybyrole.h
+  Field_eDocumenttypeStatusdefault.h
+  Field_eDocumenttypeTransactiontype.h
+  Field_eDocumenttypechecklistStatus.h
   Field_eErrorCode.h
   Field_eEzdoctemplatedocumentPrivacylevel.h
   Field_eEzmaxinvoicingPaymenttype.h
@@ -1883,6 +1924,7 @@ add_library(${PROJECT_NAME}
   Multilingual_ApikeyDescription.h
   Multilingual_BillingentityinternalDescription.h
   Multilingual_BrandingDescription.h
+  Multilingual_DocumenttypeName.h
   Multilingual_EzdoctemplatedocumentName.h
   Multilingual_EzmaxcustomerCompany.h
   Multilingual_EzmaxcustomerNote.h
@@ -2501,6 +2543,8 @@ add_library(${PROJECT_NAME}
   ObjectDiscussionApi.h
   ObjectDiscussionmembershipApi.h
   ObjectDiscussionmessageApi.h
+  ObjectDocumenttypeApi.h
+  ObjectDocumenttypechecklistApi.h
   ObjectDomainApi.h
   ObjectElectronicfundstransferApi.h
   ObjectElectronicfundstransfertransactionApi.h
@@ -3198,6 +3242,39 @@ add_library(${PROJECT_NAME}
   Discussionmessage_deleteObject_v1_Response.cpp
   Discussionmessage_patchObject_v1_Request.cpp
   Discussionmessage_patchObject_v1_Response.cpp
+  Documenttype_AutocompleteElement_Response.cpp
+  Documenttype_ListElement.cpp
+  Documenttype_Request.cpp
+  Documenttype_RequestCompound.cpp
+  Documenttype_Response.cpp
+  Documenttype_ResponseCompound.cpp
+  Documenttype_createObject_v1_Request.cpp
+  Documenttype_createObject_v1_Response.cpp
+  Documenttype_createObject_v1_Response_mPayload.cpp
+  Documenttype_deleteObject_v1_Response.cpp
+  Documenttype_editObject_v1_Request.cpp
+  Documenttype_editObject_v1_Response.cpp
+  Documenttype_getAutocomplete_v2_Response.cpp
+  Documenttype_getAutocomplete_v2_Response_mPayload.cpp
+  Documenttype_getList_v1_Response.cpp
+  Documenttype_getList_v1_Response_mPayload.cpp
+  Documenttype_getObject_v2_Response.cpp
+  Documenttype_getObject_v2_Response_mPayload.cpp
+  Documenttypechecklist_ListElement.cpp
+  Documenttypechecklist_Request.cpp
+  Documenttypechecklist_RequestCompound.cpp
+  Documenttypechecklist_Response.cpp
+  Documenttypechecklist_ResponseCompound.cpp
+  Documenttypechecklist_createObject_v1_Request.cpp
+  Documenttypechecklist_createObject_v1_Response.cpp
+  Documenttypechecklist_createObject_v1_Response_mPayload.cpp
+  Documenttypechecklist_deleteObject_v1_Response.cpp
+  Documenttypechecklist_editObject_v1_Request.cpp
+  Documenttypechecklist_editObject_v1_Response.cpp
+  Documenttypechecklist_getList_v1_Response.cpp
+  Documenttypechecklist_getList_v1_Response_mPayload.cpp
+  Documenttypechecklist_getObject_v2_Response.cpp
+  Documenttypechecklist_getObject_v2_Response_mPayload.cpp
   Domain_AutocompleteElement_Response.cpp
   Domain_ListElement.cpp
   Domain_Request.cpp
@@ -4200,6 +4277,14 @@ add_library(${PROJECT_NAME}
   Field_eDisclosureInteresttype.cpp
   Field_eDiscussionRobot.cpp
   Field_eDiscussionmessageStatus.cpp
+  Field_eDocumenttypeEzcom.cpp
+  Field_eDocumenttypePrivacydefault.cpp
+  Field_eDocumenttypeRepossession.cpp
+  Field_eDocumenttypeSalebyowner.cpp
+  Field_eDocumenttypeSaledisplaybyrole.cpp
+  Field_eDocumenttypeStatusdefault.cpp
+  Field_eDocumenttypeTransactiontype.cpp
+  Field_eDocumenttypechecklistStatus.cpp
   Field_eErrorCode.cpp
   Field_eEzdoctemplatedocumentPrivacylevel.cpp
   Field_eEzmaxinvoicingPaymenttype.cpp
@@ -4494,6 +4579,7 @@ add_library(${PROJECT_NAME}
   Multilingual_ApikeyDescription.cpp
   Multilingual_BillingentityinternalDescription.cpp
   Multilingual_BrandingDescription.cpp
+  Multilingual_DocumenttypeName.cpp
   Multilingual_EzdoctemplatedocumentName.cpp
   Multilingual_EzmaxcustomerCompany.cpp
   Multilingual_EzmaxcustomerNote.cpp
@@ -5112,6 +5198,8 @@ add_library(${PROJECT_NAME}
   ObjectDiscussionApi.cpp
   ObjectDiscussionmembershipApi.cpp
   ObjectDiscussionmessageApi.cpp
+  ObjectDocumenttypeApi.cpp
+  ObjectDocumenttypechecklistApi.cpp
   ObjectDomainApi.cpp
   ObjectElectronicfundstransferApi.cpp
   ObjectElectronicfundstransfertransactionApi.cpp

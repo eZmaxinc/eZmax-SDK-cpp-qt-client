@@ -578,6 +578,39 @@ HEADERS += \
     $${PWD}/Discussionmessage_deleteObject_v1_Response.h \
     $${PWD}/Discussionmessage_patchObject_v1_Request.h \
     $${PWD}/Discussionmessage_patchObject_v1_Response.h \
+    $${PWD}/Documenttype_AutocompleteElement_Response.h \
+    $${PWD}/Documenttype_ListElement.h \
+    $${PWD}/Documenttype_Request.h \
+    $${PWD}/Documenttype_RequestCompound.h \
+    $${PWD}/Documenttype_Response.h \
+    $${PWD}/Documenttype_ResponseCompound.h \
+    $${PWD}/Documenttype_createObject_v1_Request.h \
+    $${PWD}/Documenttype_createObject_v1_Response.h \
+    $${PWD}/Documenttype_createObject_v1_Response_mPayload.h \
+    $${PWD}/Documenttype_deleteObject_v1_Response.h \
+    $${PWD}/Documenttype_editObject_v1_Request.h \
+    $${PWD}/Documenttype_editObject_v1_Response.h \
+    $${PWD}/Documenttype_getAutocomplete_v2_Response.h \
+    $${PWD}/Documenttype_getAutocomplete_v2_Response_mPayload.h \
+    $${PWD}/Documenttype_getList_v1_Response.h \
+    $${PWD}/Documenttype_getList_v1_Response_mPayload.h \
+    $${PWD}/Documenttype_getObject_v2_Response.h \
+    $${PWD}/Documenttype_getObject_v2_Response_mPayload.h \
+    $${PWD}/Documenttypechecklist_ListElement.h \
+    $${PWD}/Documenttypechecklist_Request.h \
+    $${PWD}/Documenttypechecklist_RequestCompound.h \
+    $${PWD}/Documenttypechecklist_Response.h \
+    $${PWD}/Documenttypechecklist_ResponseCompound.h \
+    $${PWD}/Documenttypechecklist_createObject_v1_Request.h \
+    $${PWD}/Documenttypechecklist_createObject_v1_Response.h \
+    $${PWD}/Documenttypechecklist_createObject_v1_Response_mPayload.h \
+    $${PWD}/Documenttypechecklist_deleteObject_v1_Response.h \
+    $${PWD}/Documenttypechecklist_editObject_v1_Request.h \
+    $${PWD}/Documenttypechecklist_editObject_v1_Response.h \
+    $${PWD}/Documenttypechecklist_getList_v1_Response.h \
+    $${PWD}/Documenttypechecklist_getList_v1_Response_mPayload.h \
+    $${PWD}/Documenttypechecklist_getObject_v2_Response.h \
+    $${PWD}/Documenttypechecklist_getObject_v2_Response_mPayload.h \
     $${PWD}/Domain_AutocompleteElement_Response.h \
     $${PWD}/Domain_ListElement.h \
     $${PWD}/Domain_Request.h \
@@ -1580,6 +1613,14 @@ HEADERS += \
     $${PWD}/Field_eDisclosureInteresttype.h \
     $${PWD}/Field_eDiscussionRobot.h \
     $${PWD}/Field_eDiscussionmessageStatus.h \
+    $${PWD}/Field_eDocumenttypeEzcom.h \
+    $${PWD}/Field_eDocumenttypePrivacydefault.h \
+    $${PWD}/Field_eDocumenttypeRepossession.h \
+    $${PWD}/Field_eDocumenttypeSalebyowner.h \
+    $${PWD}/Field_eDocumenttypeSaledisplaybyrole.h \
+    $${PWD}/Field_eDocumenttypeStatusdefault.h \
+    $${PWD}/Field_eDocumenttypeTransactiontype.h \
+    $${PWD}/Field_eDocumenttypechecklistStatus.h \
     $${PWD}/Field_eErrorCode.h \
     $${PWD}/Field_eEzdoctemplatedocumentPrivacylevel.h \
     $${PWD}/Field_eEzmaxinvoicingPaymenttype.h \
@@ -1874,6 +1915,7 @@ HEADERS += \
     $${PWD}/Multilingual_ApikeyDescription.h \
     $${PWD}/Multilingual_BillingentityinternalDescription.h \
     $${PWD}/Multilingual_BrandingDescription.h \
+    $${PWD}/Multilingual_DocumenttypeName.h \
     $${PWD}/Multilingual_EzdoctemplatedocumentName.h \
     $${PWD}/Multilingual_EzmaxcustomerCompany.h \
     $${PWD}/Multilingual_EzmaxcustomerNote.h \
@@ -2493,6 +2535,8 @@ HEADERS += \
     $${PWD}/ObjectDiscussionApi.h \
     $${PWD}/ObjectDiscussionmembershipApi.h \
     $${PWD}/ObjectDiscussionmessageApi.h \
+    $${PWD}/ObjectDocumenttypeApi.h \
+    $${PWD}/ObjectDocumenttypechecklistApi.h \
     $${PWD}/ObjectDomainApi.h \
     $${PWD}/ObjectElectronicfundstransferApi.h \
     $${PWD}/ObjectElectronicfundstransfertransactionApi.h \
@@ -3194,6 +3238,39 @@ SOURCES += \
     $${PWD}/Discussionmessage_deleteObject_v1_Response.cpp \
     $${PWD}/Discussionmessage_patchObject_v1_Request.cpp \
     $${PWD}/Discussionmessage_patchObject_v1_Response.cpp \
+    $${PWD}/Documenttype_AutocompleteElement_Response.cpp \
+    $${PWD}/Documenttype_ListElement.cpp \
+    $${PWD}/Documenttype_Request.cpp \
+    $${PWD}/Documenttype_RequestCompound.cpp \
+    $${PWD}/Documenttype_Response.cpp \
+    $${PWD}/Documenttype_ResponseCompound.cpp \
+    $${PWD}/Documenttype_createObject_v1_Request.cpp \
+    $${PWD}/Documenttype_createObject_v1_Response.cpp \
+    $${PWD}/Documenttype_createObject_v1_Response_mPayload.cpp \
+    $${PWD}/Documenttype_deleteObject_v1_Response.cpp \
+    $${PWD}/Documenttype_editObject_v1_Request.cpp \
+    $${PWD}/Documenttype_editObject_v1_Response.cpp \
+    $${PWD}/Documenttype_getAutocomplete_v2_Response.cpp \
+    $${PWD}/Documenttype_getAutocomplete_v2_Response_mPayload.cpp \
+    $${PWD}/Documenttype_getList_v1_Response.cpp \
+    $${PWD}/Documenttype_getList_v1_Response_mPayload.cpp \
+    $${PWD}/Documenttype_getObject_v2_Response.cpp \
+    $${PWD}/Documenttype_getObject_v2_Response_mPayload.cpp \
+    $${PWD}/Documenttypechecklist_ListElement.cpp \
+    $${PWD}/Documenttypechecklist_Request.cpp \
+    $${PWD}/Documenttypechecklist_RequestCompound.cpp \
+    $${PWD}/Documenttypechecklist_Response.cpp \
+    $${PWD}/Documenttypechecklist_ResponseCompound.cpp \
+    $${PWD}/Documenttypechecklist_createObject_v1_Request.cpp \
+    $${PWD}/Documenttypechecklist_createObject_v1_Response.cpp \
+    $${PWD}/Documenttypechecklist_createObject_v1_Response_mPayload.cpp \
+    $${PWD}/Documenttypechecklist_deleteObject_v1_Response.cpp \
+    $${PWD}/Documenttypechecklist_editObject_v1_Request.cpp \
+    $${PWD}/Documenttypechecklist_editObject_v1_Response.cpp \
+    $${PWD}/Documenttypechecklist_getList_v1_Response.cpp \
+    $${PWD}/Documenttypechecklist_getList_v1_Response_mPayload.cpp \
+    $${PWD}/Documenttypechecklist_getObject_v2_Response.cpp \
+    $${PWD}/Documenttypechecklist_getObject_v2_Response_mPayload.cpp \
     $${PWD}/Domain_AutocompleteElement_Response.cpp \
     $${PWD}/Domain_ListElement.cpp \
     $${PWD}/Domain_Request.cpp \
@@ -4196,6 +4273,14 @@ SOURCES += \
     $${PWD}/Field_eDisclosureInteresttype.cpp \
     $${PWD}/Field_eDiscussionRobot.cpp \
     $${PWD}/Field_eDiscussionmessageStatus.cpp \
+    $${PWD}/Field_eDocumenttypeEzcom.cpp \
+    $${PWD}/Field_eDocumenttypePrivacydefault.cpp \
+    $${PWD}/Field_eDocumenttypeRepossession.cpp \
+    $${PWD}/Field_eDocumenttypeSalebyowner.cpp \
+    $${PWD}/Field_eDocumenttypeSaledisplaybyrole.cpp \
+    $${PWD}/Field_eDocumenttypeStatusdefault.cpp \
+    $${PWD}/Field_eDocumenttypeTransactiontype.cpp \
+    $${PWD}/Field_eDocumenttypechecklistStatus.cpp \
     $${PWD}/Field_eErrorCode.cpp \
     $${PWD}/Field_eEzdoctemplatedocumentPrivacylevel.cpp \
     $${PWD}/Field_eEzmaxinvoicingPaymenttype.cpp \
@@ -4490,6 +4575,7 @@ SOURCES += \
     $${PWD}/Multilingual_ApikeyDescription.cpp \
     $${PWD}/Multilingual_BillingentityinternalDescription.cpp \
     $${PWD}/Multilingual_BrandingDescription.cpp \
+    $${PWD}/Multilingual_DocumenttypeName.cpp \
     $${PWD}/Multilingual_EzdoctemplatedocumentName.cpp \
     $${PWD}/Multilingual_EzmaxcustomerCompany.cpp \
     $${PWD}/Multilingual_EzmaxcustomerNote.cpp \
@@ -5109,6 +5195,8 @@ SOURCES += \
     $${PWD}/ObjectDiscussionApi.cpp \
     $${PWD}/ObjectDiscussionmembershipApi.cpp \
     $${PWD}/ObjectDiscussionmessageApi.cpp \
+    $${PWD}/ObjectDocumenttypeApi.cpp \
+    $${PWD}/ObjectDocumenttypechecklistApi.cpp \
     $${PWD}/ObjectDomainApi.cpp \
     $${PWD}/ObjectElectronicfundstransferApi.cpp \
     $${PWD}/ObjectElectronicfundstransfertransactionApi.cpp \
