@@ -40,6 +40,9 @@ void Documenttype_RequestCompound::initializeModel() {
     m_obj_documenttype_name_isSet = false;
     m_obj_documenttype_name_isValid = false;
 
+    m_e_documenttype_step_isSet = false;
+    m_e_documenttype_step_isValid = false;
+
     m_s_documenttype_defaultfilename_isSet = false;
     m_s_documenttype_defaultfilename_isValid = false;
 
@@ -102,6 +105,9 @@ void Documenttype_RequestCompound::initializeModel() {
 
     m_e_documenttype_repossession_isSet = false;
     m_e_documenttype_repossession_isValid = false;
+
+    m_a_fki_inscriptiontype_id_isSet = false;
+    m_a_fki_inscriptiontype_id_isValid = false;
 }
 
 void Documenttype_RequestCompound::fromJson(const QString &jsonString) {
@@ -118,6 +124,9 @@ void Documenttype_RequestCompound::fromJsonObject(QJsonObject json) {
 
     m_obj_documenttype_name_isValid = ::Ezmaxapi::fromJsonValue(m_obj_documenttype_name, json[QString("objDocumenttypeName")]);
     m_obj_documenttype_name_isSet = !json[QString("objDocumenttypeName")].isNull() && m_obj_documenttype_name_isValid;
+
+    m_e_documenttype_step_isValid = ::Ezmaxapi::fromJsonValue(m_e_documenttype_step, json[QString("eDocumenttypeStep")]);
+    m_e_documenttype_step_isSet = !json[QString("eDocumenttypeStep")].isNull() && m_e_documenttype_step_isValid;
 
     m_s_documenttype_defaultfilename_isValid = ::Ezmaxapi::fromJsonValue(m_s_documenttype_defaultfilename, json[QString("sDocumenttypeDefaultfilename")]);
     m_s_documenttype_defaultfilename_isSet = !json[QString("sDocumenttypeDefaultfilename")].isNull() && m_s_documenttype_defaultfilename_isValid;
@@ -181,6 +190,9 @@ void Documenttype_RequestCompound::fromJsonObject(QJsonObject json) {
 
     m_e_documenttype_repossession_isValid = ::Ezmaxapi::fromJsonValue(m_e_documenttype_repossession, json[QString("eDocumenttypeRepossession")]);
     m_e_documenttype_repossession_isSet = !json[QString("eDocumenttypeRepossession")].isNull() && m_e_documenttype_repossession_isValid;
+
+    m_a_fki_inscriptiontype_id_isValid = ::Ezmaxapi::fromJsonValue(m_a_fki_inscriptiontype_id, json[QString("a_fkiInscriptiontypeID")]);
+    m_a_fki_inscriptiontype_id_isSet = !json[QString("a_fkiInscriptiontypeID")].isNull() && m_a_fki_inscriptiontype_id_isValid;
 }
 
 QString Documenttype_RequestCompound::asJson() const {
@@ -197,6 +209,9 @@ QJsonObject Documenttype_RequestCompound::asJsonObject() const {
     }
     if (m_obj_documenttype_name.isSet()) {
         obj.insert(QString("objDocumenttypeName"), ::Ezmaxapi::toJsonValue(m_obj_documenttype_name));
+    }
+    if (m_e_documenttype_step.isSet()) {
+        obj.insert(QString("eDocumenttypeStep"), ::Ezmaxapi::toJsonValue(m_e_documenttype_step));
     }
     if (m_s_documenttype_defaultfilename_isSet) {
         obj.insert(QString("sDocumenttypeDefaultfilename"), ::Ezmaxapi::toJsonValue(m_s_documenttype_defaultfilename));
@@ -261,6 +276,9 @@ QJsonObject Documenttype_RequestCompound::asJsonObject() const {
     if (m_e_documenttype_repossession.isSet()) {
         obj.insert(QString("eDocumenttypeRepossession"), ::Ezmaxapi::toJsonValue(m_e_documenttype_repossession));
     }
+    if (m_a_fki_inscriptiontype_id.size() > 0) {
+        obj.insert(QString("a_fkiInscriptiontypeID"), ::Ezmaxapi::toJsonValue(m_a_fki_inscriptiontype_id));
+    }
     return obj;
 }
 
@@ -294,6 +312,22 @@ bool Documenttype_RequestCompound::is_obj_documenttype_name_Set() const{
 
 bool Documenttype_RequestCompound::is_obj_documenttype_name_Valid() const{
     return m_obj_documenttype_name_isValid;
+}
+
+Computed_eDocumenttypeStep Documenttype_RequestCompound::getEDocumenttypeStep() const {
+    return m_e_documenttype_step;
+}
+void Documenttype_RequestCompound::setEDocumenttypeStep(const Computed_eDocumenttypeStep &e_documenttype_step) {
+    m_e_documenttype_step = e_documenttype_step;
+    m_e_documenttype_step_isSet = true;
+}
+
+bool Documenttype_RequestCompound::is_e_documenttype_step_Set() const{
+    return m_e_documenttype_step_isSet;
+}
+
+bool Documenttype_RequestCompound::is_e_documenttype_step_Valid() const{
+    return m_e_documenttype_step_isValid;
 }
 
 QString Documenttype_RequestCompound::getSDocumenttypeDefaultfilename() const {
@@ -632,6 +666,22 @@ bool Documenttype_RequestCompound::is_e_documenttype_repossession_Valid() const{
     return m_e_documenttype_repossession_isValid;
 }
 
+QList<qint32> Documenttype_RequestCompound::getAFkiInscriptiontypeId() const {
+    return m_a_fki_inscriptiontype_id;
+}
+void Documenttype_RequestCompound::setAFkiInscriptiontypeId(const QList<qint32> &a_fki_inscriptiontype_id) {
+    m_a_fki_inscriptiontype_id = a_fki_inscriptiontype_id;
+    m_a_fki_inscriptiontype_id_isSet = true;
+}
+
+bool Documenttype_RequestCompound::is_a_fki_inscriptiontype_id_Set() const{
+    return m_a_fki_inscriptiontype_id_isSet;
+}
+
+bool Documenttype_RequestCompound::is_a_fki_inscriptiontype_id_Valid() const{
+    return m_a_fki_inscriptiontype_id_isValid;
+}
+
 bool Documenttype_RequestCompound::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -641,6 +691,11 @@ bool Documenttype_RequestCompound::isSet() const {
         }
 
         if (m_obj_documenttype_name.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_e_documenttype_step.isSet()) {
             isObjectUpdated = true;
             break;
         }
@@ -749,13 +804,18 @@ bool Documenttype_RequestCompound::isSet() const {
             isObjectUpdated = true;
             break;
         }
+
+        if (m_a_fki_inscriptiontype_id.size() > 0) {
+            isObjectUpdated = true;
+            break;
+        }
     } while (false);
     return isObjectUpdated;
 }
 
 bool Documenttype_RequestCompound::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_obj_documenttype_name_isValid && m_s_documenttype_defaultfilename_isValid && m_b_documenttype_showagent_isValid && m_b_documenttype_isactive_isValid && m_b_documenttype_isrequired_isValid && m_b_documenttype_sale_isValid && m_b_documenttype_rental_isValid && m_b_documenttype_reference_isValid && m_b_documenttype_mortgagereference_isValid && m_b_documenttype_evaluation_isValid && m_b_documenttype_consultation_isValid && m_b_documenttype_otherservices_isValid && m_b_documenttype_foreclosedsale_isValid && m_b_documenttype_commercialfunding_isValid && m_b_documenttype_canafe_isValid && m_e_documenttype_ezcom_isValid && m_e_documenttype_privacydefault_isValid && m_e_documenttype_statusdefault_isValid && m_e_documenttype_salebyowner_isValid && m_e_documenttype_saledisplaybyrole_isValid && m_e_documenttype_transactiontype_isValid && m_e_documenttype_repossession_isValid && true;
+    return m_obj_documenttype_name_isValid && m_e_documenttype_step_isValid && m_s_documenttype_defaultfilename_isValid && m_b_documenttype_showagent_isValid && m_b_documenttype_isactive_isValid && m_b_documenttype_isrequired_isValid && m_b_documenttype_sale_isValid && m_b_documenttype_rental_isValid && m_b_documenttype_reference_isValid && m_b_documenttype_mortgagereference_isValid && m_b_documenttype_evaluation_isValid && m_b_documenttype_consultation_isValid && m_b_documenttype_otherservices_isValid && m_b_documenttype_foreclosedsale_isValid && m_b_documenttype_commercialfunding_isValid && m_b_documenttype_canafe_isValid && m_e_documenttype_privacydefault_isValid && m_e_documenttype_statusdefault_isValid && m_e_documenttype_salebyowner_isValid && m_e_documenttype_saledisplaybyrole_isValid && m_e_documenttype_transactiontype_isValid && m_e_documenttype_repossession_isValid && m_a_fki_inscriptiontype_id_isValid && true;
 }
 
 } // namespace Ezmaxapi

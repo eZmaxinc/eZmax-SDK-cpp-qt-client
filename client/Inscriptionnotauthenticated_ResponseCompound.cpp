@@ -40,6 +40,9 @@ void Inscriptionnotauthenticated_ResponseCompound::initializeModel() {
     m_fki_inscription_id_isSet = false;
     m_fki_inscription_id_isValid = false;
 
+    m_obj_inscription_isSet = false;
+    m_obj_inscription_isValid = false;
+
     m_fki_department_id_isSet = false;
     m_fki_department_id_isValid = false;
 
@@ -167,6 +170,9 @@ void Inscriptionnotauthenticated_ResponseCompound::fromJsonObject(QJsonObject js
     m_fki_inscription_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_inscription_id, json[QString("fkiInscriptionID")]);
     m_fki_inscription_id_isSet = !json[QString("fkiInscriptionID")].isNull() && m_fki_inscription_id_isValid;
 
+    m_obj_inscription_isValid = ::Ezmaxapi::fromJsonValue(m_obj_inscription, json[QString("objInscription")]);
+    m_obj_inscription_isSet = !json[QString("objInscription")].isNull() && m_obj_inscription_isValid;
+
     m_fki_department_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_department_id, json[QString("fkiDepartmentID")]);
     m_fki_department_id_isSet = !json[QString("fkiDepartmentID")].isNull() && m_fki_department_id_isValid;
 
@@ -293,6 +299,9 @@ QJsonObject Inscriptionnotauthenticated_ResponseCompound::asJsonObject() const {
     }
     if (m_fki_inscription_id_isSet) {
         obj.insert(QString("fkiInscriptionID"), ::Ezmaxapi::toJsonValue(m_fki_inscription_id));
+    }
+    if (m_obj_inscription.isSet()) {
+        obj.insert(QString("objInscription"), ::Ezmaxapi::toJsonValue(m_obj_inscription));
     }
     if (m_fki_department_id_isSet) {
         obj.insert(QString("fkiDepartmentID"), ::Ezmaxapi::toJsonValue(m_fki_department_id));
@@ -438,6 +447,22 @@ bool Inscriptionnotauthenticated_ResponseCompound::is_fki_inscription_id_Set() c
 
 bool Inscriptionnotauthenticated_ResponseCompound::is_fki_inscription_id_Valid() const{
     return m_fki_inscription_id_isValid;
+}
+
+Custom_Inscription Inscriptionnotauthenticated_ResponseCompound::getObjInscription() const {
+    return m_obj_inscription;
+}
+void Inscriptionnotauthenticated_ResponseCompound::setObjInscription(const Custom_Inscription &obj_inscription) {
+    m_obj_inscription = obj_inscription;
+    m_obj_inscription_isSet = true;
+}
+
+bool Inscriptionnotauthenticated_ResponseCompound::is_obj_inscription_Set() const{
+    return m_obj_inscription_isSet;
+}
+
+bool Inscriptionnotauthenticated_ResponseCompound::is_obj_inscription_Valid() const{
+    return m_obj_inscription_isValid;
 }
 
 qint32 Inscriptionnotauthenticated_ResponseCompound::getFkiDepartmentId() const {
@@ -1045,6 +1070,11 @@ bool Inscriptionnotauthenticated_ResponseCompound::isSet() const {
             break;
         }
 
+        if (m_obj_inscription.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (m_fki_department_id_isSet) {
             isObjectUpdated = true;
             break;
@@ -1235,7 +1265,7 @@ bool Inscriptionnotauthenticated_ResponseCompound::isSet() const {
 
 bool Inscriptionnotauthenticated_ResponseCompound::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_pki_inscriptionnotauthenticated_id_isValid && m_fki_inscription_id_isValid && m_fki_taxassignment_id_isValid && m_e_inscriptionnotauthenticated_type_isValid && m_d_inscriptionnotauthenticated_mortgageloan_isValid && m_et_inscriptionnotauthenticated_mortgagetype_isValid && m_d_inscriptionnotauthenticated_transactionprice_isValid && m_e_inscriptionnotauthenticated_remunerationtype_isValid && m_d_inscriptionnotauthenticated_remuneration_isValid && m_d_inscriptionnotauthenticated_remunerationsubtotal_isValid && m_d_inscriptionnotauthenticated_remunerationtotal_isValid && m_s_inscriptionnotauthenticated_offertopurchasenumber_isValid && m_b_inscriptionnotauthenticated_conditional_isValid && m_b_inscriptionnotauthenticated_mortgageisreferenced_isValid && m_b_inscriptionnotauthenticated_homeowner_isValid && m_t_inscriptionnotauthenticated_conditions_isValid && m_i_inscriptionnotauthenticated_order_isValid && m_b_inscriptionnotauthenticated_isactive_isValid && m_e_inscriptionnotauthenticated_residence_type_isValid && m_t_inscriptionnotauthenticated_checklistnote_isValid && m_d_inscriptionnotauthenticated_selleronlyretribution_isValid && m_b_inscriptionnotauthenticated_draft_isValid && true;
+    return m_pki_inscriptionnotauthenticated_id_isValid && m_fki_inscription_id_isValid && m_obj_inscription_isValid && m_fki_taxassignment_id_isValid && m_e_inscriptionnotauthenticated_type_isValid && m_d_inscriptionnotauthenticated_mortgageloan_isValid && m_et_inscriptionnotauthenticated_mortgagetype_isValid && m_d_inscriptionnotauthenticated_transactionprice_isValid && m_e_inscriptionnotauthenticated_remunerationtype_isValid && m_d_inscriptionnotauthenticated_remuneration_isValid && m_d_inscriptionnotauthenticated_remunerationsubtotal_isValid && m_d_inscriptionnotauthenticated_remunerationtotal_isValid && m_s_inscriptionnotauthenticated_offertopurchasenumber_isValid && m_b_inscriptionnotauthenticated_conditional_isValid && m_b_inscriptionnotauthenticated_mortgageisreferenced_isValid && m_b_inscriptionnotauthenticated_homeowner_isValid && m_t_inscriptionnotauthenticated_conditions_isValid && m_i_inscriptionnotauthenticated_order_isValid && m_b_inscriptionnotauthenticated_isactive_isValid && m_e_inscriptionnotauthenticated_residence_type_isValid && m_t_inscriptionnotauthenticated_checklistnote_isValid && m_d_inscriptionnotauthenticated_selleronlyretribution_isValid && m_b_inscriptionnotauthenticated_draft_isValid && true;
 }
 
 } // namespace Ezmaxapi

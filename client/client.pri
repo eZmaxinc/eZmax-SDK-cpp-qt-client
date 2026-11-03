@@ -96,20 +96,20 @@ HEADERS += \
     $${PWD}/Attachment_ResponseCompound.h \
     $${PWD}/Attachment_delete_v1_Response.h \
     $${PWD}/Attachment_delete_v1_Response_mPayload.h \
-    $${PWD}/Attachment_documentType_v1_Request.h \
-    $${PWD}/Attachment_documentType_v1_Response.h \
-    $${PWD}/Attachment_documentType_v1_Response_mPayload.h \
     $${PWD}/Attachment_getAttachmentlogs_v1_Response.h \
     $${PWD}/Attachment_getAttachmentlogs_v1_Response_mPayload.h \
-    $${PWD}/Attachment_privacy_v1_Request.h \
-    $${PWD}/Attachment_privacy_v1_Response.h \
-    $${PWD}/Attachment_privacy_v1_Response_mPayload.h \
     $${PWD}/Attachment_rename_v1_Request.h \
     $${PWD}/Attachment_rename_v1_Response.h \
     $${PWD}/Attachment_rename_v1_Response_mPayload.h \
     $${PWD}/Attachment_restore_v1_Request.h \
     $${PWD}/Attachment_restore_v1_Response.h \
     $${PWD}/Attachment_restore_v1_Response_mPayload.h \
+    $${PWD}/Attachment_setDocumentType_v1_Request.h \
+    $${PWD}/Attachment_setDocumentType_v1_Response.h \
+    $${PWD}/Attachment_setDocumentType_v1_Response_mPayload.h \
+    $${PWD}/Attachment_setPrivacy_v1_Request.h \
+    $${PWD}/Attachment_setPrivacy_v1_Response.h \
+    $${PWD}/Attachment_setPrivacy_v1_Response_mPayload.h \
     $${PWD}/Attachment_validate_v1_Request.h \
     $${PWD}/Attachment_validate_v1_Response.h \
     $${PWD}/Attachment_validate_v1_Response_mPayload.h \
@@ -315,6 +315,7 @@ HEADERS += \
     $${PWD}/Company_getAutocomplete_v2_Response.h \
     $${PWD}/Company_getAutocomplete_v2_Response_mPayload.h \
     $${PWD}/Computed_eCommunicationDirection.h \
+    $${PWD}/Computed_eDocumenttypeStep.h \
     $${PWD}/Computed_eEzsigndocumentSteptype.h \
     $${PWD}/Computed_eEzsignfolderAccess.h \
     $${PWD}/Computed_eEzsignimportfolderStatus.h \
@@ -455,6 +456,7 @@ HEADERS += \
     $${PWD}/Custom_FormDataSigner_Response.h \
     $${PWD}/Custom_FormsDataFolder_Response.h \
     $${PWD}/Custom_ImportEzsigntemplatepackageRelation_Request.h \
+    $${PWD}/Custom_Inscription.h \
     $${PWD}/Custom_Inscriptionnotauthenticatedcondition_Request.h \
     $${PWD}/Custom_Notificationsubsectiongetnotificationtests_Response.h \
     $${PWD}/Custom_Notificationtestgetelements_Response.h \
@@ -587,7 +589,6 @@ HEADERS += \
     $${PWD}/Documenttype_createObject_v1_Request.h \
     $${PWD}/Documenttype_createObject_v1_Response.h \
     $${PWD}/Documenttype_createObject_v1_Response_mPayload.h \
-    $${PWD}/Documenttype_deleteObject_v1_Response.h \
     $${PWD}/Documenttype_editObject_v1_Request.h \
     $${PWD}/Documenttype_editObject_v1_Response.h \
     $${PWD}/Documenttype_getAutocomplete_v2_Response.h \
@@ -596,21 +597,10 @@ HEADERS += \
     $${PWD}/Documenttype_getList_v1_Response_mPayload.h \
     $${PWD}/Documenttype_getObject_v2_Response.h \
     $${PWD}/Documenttype_getObject_v2_Response_mPayload.h \
-    $${PWD}/Documenttypechecklist_ListElement.h \
-    $${PWD}/Documenttypechecklist_Request.h \
-    $${PWD}/Documenttypechecklist_RequestCompound.h \
-    $${PWD}/Documenttypechecklist_Response.h \
-    $${PWD}/Documenttypechecklist_ResponseCompound.h \
-    $${PWD}/Documenttypechecklist_createObject_v1_Request.h \
-    $${PWD}/Documenttypechecklist_createObject_v1_Response.h \
-    $${PWD}/Documenttypechecklist_createObject_v1_Response_mPayload.h \
+    $${PWD}/Documenttypechecklist_RequestPatch.h \
     $${PWD}/Documenttypechecklist_deleteObject_v1_Response.h \
-    $${PWD}/Documenttypechecklist_editObject_v1_Request.h \
-    $${PWD}/Documenttypechecklist_editObject_v1_Response.h \
-    $${PWD}/Documenttypechecklist_getList_v1_Response.h \
-    $${PWD}/Documenttypechecklist_getList_v1_Response_mPayload.h \
-    $${PWD}/Documenttypechecklist_getObject_v2_Response.h \
-    $${PWD}/Documenttypechecklist_getObject_v2_Response_mPayload.h \
+    $${PWD}/Documenttypechecklist_patchObject_v1_Request.h \
+    $${PWD}/Documenttypechecklist_patchObject_v1_Response.h \
     $${PWD}/Domain_AutocompleteElement_Response.h \
     $${PWD}/Domain_ListElement.h \
     $${PWD}/Domain_Request.h \
@@ -1811,6 +1801,7 @@ HEADERS += \
     $${PWD}/Inscription_prepareFilesTransfer_v1_Request.h \
     $${PWD}/Inscription_prepareFilesTransfer_v1_Response.h \
     $${PWD}/Inscription_prepareFilesTransfer_v1_Response_mPayload.h \
+    $${PWD}/Inscription_synchronizationDocumenttype_v1_Response.h \
     $${PWD}/Inscriptionchecklist_AutocompleteElement_Response.h \
     $${PWD}/Inscriptionchecklist_getAutocomplete_v3_Response.h \
     $${PWD}/Inscriptionchecklist_getAutocomplete_v3_Response_mPayload.h \
@@ -2756,20 +2747,20 @@ SOURCES += \
     $${PWD}/Attachment_ResponseCompound.cpp \
     $${PWD}/Attachment_delete_v1_Response.cpp \
     $${PWD}/Attachment_delete_v1_Response_mPayload.cpp \
-    $${PWD}/Attachment_documentType_v1_Request.cpp \
-    $${PWD}/Attachment_documentType_v1_Response.cpp \
-    $${PWD}/Attachment_documentType_v1_Response_mPayload.cpp \
     $${PWD}/Attachment_getAttachmentlogs_v1_Response.cpp \
     $${PWD}/Attachment_getAttachmentlogs_v1_Response_mPayload.cpp \
-    $${PWD}/Attachment_privacy_v1_Request.cpp \
-    $${PWD}/Attachment_privacy_v1_Response.cpp \
-    $${PWD}/Attachment_privacy_v1_Response_mPayload.cpp \
     $${PWD}/Attachment_rename_v1_Request.cpp \
     $${PWD}/Attachment_rename_v1_Response.cpp \
     $${PWD}/Attachment_rename_v1_Response_mPayload.cpp \
     $${PWD}/Attachment_restore_v1_Request.cpp \
     $${PWD}/Attachment_restore_v1_Response.cpp \
     $${PWD}/Attachment_restore_v1_Response_mPayload.cpp \
+    $${PWD}/Attachment_setDocumentType_v1_Request.cpp \
+    $${PWD}/Attachment_setDocumentType_v1_Response.cpp \
+    $${PWD}/Attachment_setDocumentType_v1_Response_mPayload.cpp \
+    $${PWD}/Attachment_setPrivacy_v1_Request.cpp \
+    $${PWD}/Attachment_setPrivacy_v1_Response.cpp \
+    $${PWD}/Attachment_setPrivacy_v1_Response_mPayload.cpp \
     $${PWD}/Attachment_validate_v1_Request.cpp \
     $${PWD}/Attachment_validate_v1_Response.cpp \
     $${PWD}/Attachment_validate_v1_Response_mPayload.cpp \
@@ -2975,6 +2966,7 @@ SOURCES += \
     $${PWD}/Company_getAutocomplete_v2_Response.cpp \
     $${PWD}/Company_getAutocomplete_v2_Response_mPayload.cpp \
     $${PWD}/Computed_eCommunicationDirection.cpp \
+    $${PWD}/Computed_eDocumenttypeStep.cpp \
     $${PWD}/Computed_eEzsigndocumentSteptype.cpp \
     $${PWD}/Computed_eEzsignfolderAccess.cpp \
     $${PWD}/Computed_eEzsignimportfolderStatus.cpp \
@@ -3115,6 +3107,7 @@ SOURCES += \
     $${PWD}/Custom_FormDataSigner_Response.cpp \
     $${PWD}/Custom_FormsDataFolder_Response.cpp \
     $${PWD}/Custom_ImportEzsigntemplatepackageRelation_Request.cpp \
+    $${PWD}/Custom_Inscription.cpp \
     $${PWD}/Custom_Inscriptionnotauthenticatedcondition_Request.cpp \
     $${PWD}/Custom_Notificationsubsectiongetnotificationtests_Response.cpp \
     $${PWD}/Custom_Notificationtestgetelements_Response.cpp \
@@ -3247,7 +3240,6 @@ SOURCES += \
     $${PWD}/Documenttype_createObject_v1_Request.cpp \
     $${PWD}/Documenttype_createObject_v1_Response.cpp \
     $${PWD}/Documenttype_createObject_v1_Response_mPayload.cpp \
-    $${PWD}/Documenttype_deleteObject_v1_Response.cpp \
     $${PWD}/Documenttype_editObject_v1_Request.cpp \
     $${PWD}/Documenttype_editObject_v1_Response.cpp \
     $${PWD}/Documenttype_getAutocomplete_v2_Response.cpp \
@@ -3256,21 +3248,10 @@ SOURCES += \
     $${PWD}/Documenttype_getList_v1_Response_mPayload.cpp \
     $${PWD}/Documenttype_getObject_v2_Response.cpp \
     $${PWD}/Documenttype_getObject_v2_Response_mPayload.cpp \
-    $${PWD}/Documenttypechecklist_ListElement.cpp \
-    $${PWD}/Documenttypechecklist_Request.cpp \
-    $${PWD}/Documenttypechecklist_RequestCompound.cpp \
-    $${PWD}/Documenttypechecklist_Response.cpp \
-    $${PWD}/Documenttypechecklist_ResponseCompound.cpp \
-    $${PWD}/Documenttypechecklist_createObject_v1_Request.cpp \
-    $${PWD}/Documenttypechecklist_createObject_v1_Response.cpp \
-    $${PWD}/Documenttypechecklist_createObject_v1_Response_mPayload.cpp \
+    $${PWD}/Documenttypechecklist_RequestPatch.cpp \
     $${PWD}/Documenttypechecklist_deleteObject_v1_Response.cpp \
-    $${PWD}/Documenttypechecklist_editObject_v1_Request.cpp \
-    $${PWD}/Documenttypechecklist_editObject_v1_Response.cpp \
-    $${PWD}/Documenttypechecklist_getList_v1_Response.cpp \
-    $${PWD}/Documenttypechecklist_getList_v1_Response_mPayload.cpp \
-    $${PWD}/Documenttypechecklist_getObject_v2_Response.cpp \
-    $${PWD}/Documenttypechecklist_getObject_v2_Response_mPayload.cpp \
+    $${PWD}/Documenttypechecklist_patchObject_v1_Request.cpp \
+    $${PWD}/Documenttypechecklist_patchObject_v1_Response.cpp \
     $${PWD}/Domain_AutocompleteElement_Response.cpp \
     $${PWD}/Domain_ListElement.cpp \
     $${PWD}/Domain_Request.cpp \
@@ -4471,6 +4452,7 @@ SOURCES += \
     $${PWD}/Inscription_prepareFilesTransfer_v1_Request.cpp \
     $${PWD}/Inscription_prepareFilesTransfer_v1_Response.cpp \
     $${PWD}/Inscription_prepareFilesTransfer_v1_Response_mPayload.cpp \
+    $${PWD}/Inscription_synchronizationDocumenttype_v1_Response.cpp \
     $${PWD}/Inscriptionchecklist_AutocompleteElement_Response.cpp \
     $${PWD}/Inscriptionchecklist_getAutocomplete_v3_Response.cpp \
     $${PWD}/Inscriptionchecklist_getAutocomplete_v3_Response_mPayload.cpp \

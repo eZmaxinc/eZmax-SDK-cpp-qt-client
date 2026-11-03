@@ -61,8 +61,6 @@ void ObjectDocumenttypeApi::initializeServerConfigs() {
     
     _serverConfigs.insert("documenttypeCreateObjectV1", defaultConf);
     _serverIndices.insert("documenttypeCreateObjectV1", 0);
-    _serverConfigs.insert("documenttypeDeleteObjectV1", defaultConf);
-    _serverIndices.insert("documenttypeDeleteObjectV1", 0);
     _serverConfigs.insert("documenttypeEditObjectV1", defaultConf);
     _serverIndices.insert("documenttypeEditObjectV1", 0);
     _serverConfigs.insert("documenttypeGetAutocompleteV2", defaultConf);
@@ -302,68 +300,6 @@ void ObjectDocumenttypeApi::documenttypeCreateObjectV1Callback(HttpRequestWorker
     } else {
         Q_EMIT documenttypeCreateObjectV1SignalError(output, error_type, error_str);
         Q_EMIT documenttypeCreateObjectV1SignalErrorFull(worker, error_type, error_str);
-    }
-}
-
-void ObjectDocumenttypeApi::documenttypeDeleteObjectV1(const qint32 &pki_documenttype_id) {
-    QString fullPath = QString(_serverConfigs["documenttypeDeleteObjectV1"][_serverIndices.value("documenttypeDeleteObjectV1")].URL()+"/1/object/documenttype/{pkiDocumenttypeID}");
-    
-    if (_apiKeys.contains("Authorization")) {
-        addHeaders("Authorization",_apiKeys.find("Authorization").value());
-    }
-    
-    
-    {
-        QString pki_documenttype_idPathParam("{");
-        pki_documenttype_idPathParam.append("pkiDocumenttypeID").append("}");
-        QString pathPrefix, pathSuffix, pathDelimiter;
-        QString pathStyle = "simple";
-        if (pathStyle == "")
-            pathStyle = "simple";
-        pathPrefix = getParamStylePrefix(pathStyle);
-        pathSuffix = getParamStyleSuffix(pathStyle);
-        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiDocumenttypeID", false);
-        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiDocumenttypeID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_documenttype_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_documenttype_id)));
-    }
-    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
-    worker->setTimeOut(_timeOut);
-    worker->setWorkingDirectory(_workingDirectory);
-    HttpRequestInput input(fullPath, "DELETE");
-
-
-    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
-        input.headers.insert(keyValueIt->first, keyValueIt->second);
-    }
-
-
-    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectDocumenttypeApi::documenttypeDeleteObjectV1Callback);
-    connect(this, &ObjectDocumenttypeApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
-        if (findChildren<HttpRequestWorker*>().count() == 0) {
-            Q_EMIT allPendingRequestsCompleted();
-        }
-    });
-
-    worker->execute(&input);
-}
-
-void ObjectDocumenttypeApi::documenttypeDeleteObjectV1Callback(HttpRequestWorker *worker) {
-    QString error_str = worker->error_str;
-    QNetworkReply::NetworkError error_type = worker->error_type;
-
-    if (worker->error_type != QNetworkReply::NoError) {
-        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
-    }
-    Documenttype_deleteObject_v1_Response output(QString(worker->response));
-    worker->deleteLater();
-
-    if (worker->error_type == QNetworkReply::NoError) {
-        Q_EMIT documenttypeDeleteObjectV1Signal(output);
-        Q_EMIT documenttypeDeleteObjectV1SignalFull(worker, output);
-    } else {
-        Q_EMIT documenttypeDeleteObjectV1SignalError(output, error_type, error_str);
-        Q_EMIT documenttypeDeleteObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

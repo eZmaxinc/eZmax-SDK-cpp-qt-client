@@ -21,7 +21,6 @@
 #include "Common_Response_Error.h"
 #include "Documenttype_createObject_v1_Request.h"
 #include "Documenttype_createObject_v1_Response.h"
-#include "Documenttype_deleteObject_v1_Response.h"
 #include "Documenttype_editObject_v1_Request.h"
 #include "Documenttype_editObject_v1_Response.h"
 #include "Documenttype_getAutocomplete_v2_Response.h"
@@ -72,11 +71,6 @@ public:
     * @param[in]  documenttype_create_object_v1_request Documenttype_createObject_v1_Request [required]
     */
     virtual void documenttypeCreateObjectV1(const Documenttype_createObject_v1_Request &documenttype_create_object_v1_request);
-
-    /**
-    * @param[in]  pki_documenttype_id qint32 [required]
-    */
-    virtual void documenttypeDeleteObjectV1(const qint32 &pki_documenttype_id);
 
     /**
     * @param[in]  pki_documenttype_id qint32 [required]
@@ -137,7 +131,6 @@ private:
     OauthMethod _OauthMethod = OauthMethod::INVALID_VALUE_OPENAPI_GENERATED;
 
     void documenttypeCreateObjectV1Callback(HttpRequestWorker *worker);
-    void documenttypeDeleteObjectV1Callback(HttpRequestWorker *worker);
     void documenttypeEditObjectV1Callback(HttpRequestWorker *worker);
     void documenttypeGetAutocompleteV2Callback(HttpRequestWorker *worker);
     void documenttypeGetListV1Callback(HttpRequestWorker *worker);
@@ -146,7 +139,6 @@ private:
 Q_SIGNALS:
 
     void documenttypeCreateObjectV1Signal(Documenttype_createObject_v1_Response summary);
-    void documenttypeDeleteObjectV1Signal(Documenttype_deleteObject_v1_Response summary);
     void documenttypeEditObjectV1Signal(Documenttype_editObject_v1_Response summary);
     void documenttypeGetAutocompleteV2Signal(Documenttype_getAutocomplete_v2_Response summary);
     void documenttypeGetListV1Signal(Documenttype_getList_v1_Response summary);
@@ -154,21 +146,18 @@ Q_SIGNALS:
 
 
     void documenttypeCreateObjectV1SignalFull(HttpRequestWorker *worker, Documenttype_createObject_v1_Response summary);
-    void documenttypeDeleteObjectV1SignalFull(HttpRequestWorker *worker, Documenttype_deleteObject_v1_Response summary);
     void documenttypeEditObjectV1SignalFull(HttpRequestWorker *worker, Documenttype_editObject_v1_Response summary);
     void documenttypeGetAutocompleteV2SignalFull(HttpRequestWorker *worker, Documenttype_getAutocomplete_v2_Response summary);
     void documenttypeGetListV1SignalFull(HttpRequestWorker *worker, Documenttype_getList_v1_Response summary);
     void documenttypeGetObjectV2SignalFull(HttpRequestWorker *worker, Documenttype_getObject_v2_Response summary);
 
     void documenttypeCreateObjectV1SignalError(Documenttype_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    void documenttypeDeleteObjectV1SignalError(Documenttype_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void documenttypeEditObjectV1SignalError(Documenttype_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void documenttypeGetAutocompleteV2SignalError(Documenttype_getAutocomplete_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void documenttypeGetListV1SignalError(Documenttype_getList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void documenttypeGetObjectV2SignalError(Documenttype_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void documenttypeCreateObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    void documenttypeDeleteObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void documenttypeEditObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void documenttypeGetAutocompleteV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void documenttypeGetListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);

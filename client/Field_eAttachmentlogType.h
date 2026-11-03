@@ -59,6 +59,7 @@ public:
         IMPORTEDFROMPROSPECTS, 
         MOVE, 
         OPENFROMEMAIL, 
+        PENDING, 
         PURGED, 
         REJECT, 
         RENAME, 

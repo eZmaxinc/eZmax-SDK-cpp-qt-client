@@ -117,6 +117,10 @@ void Field_eAttachmentlogType::fromJson(const QString &jsonString) {
         m_value = eField_eAttachmentlogType::OPENFROMEMAIL;
         m_value_isSet = m_value_isValid = true;
     }
+    else if ( jsonString.compare("Pending", Qt::CaseInsensitive) == 0) {
+        m_value = eField_eAttachmentlogType::PENDING;
+        m_value_isSet = m_value_isValid = true;
+    }
     else if ( jsonString.compare("Purged", Qt::CaseInsensitive) == 0) {
         m_value = eField_eAttachmentlogType::PURGED;
         m_value_isSet = m_value_isValid = true;
@@ -223,6 +227,9 @@ QString Field_eAttachmentlogType::asJson() const {
             break;
         case eField_eAttachmentlogType::OPENFROMEMAIL:
             val = "OpenFromEmail";
+            break;
+        case eField_eAttachmentlogType::PENDING:
+            val = "Pending";
             break;
         case eField_eAttachmentlogType::PURGED:
             val = "Purged";

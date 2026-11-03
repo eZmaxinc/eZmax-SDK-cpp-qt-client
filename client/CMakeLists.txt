@@ -105,20 +105,20 @@ add_library(${PROJECT_NAME}
   Attachment_ResponseCompound.h
   Attachment_delete_v1_Response.h
   Attachment_delete_v1_Response_mPayload.h
-  Attachment_documentType_v1_Request.h
-  Attachment_documentType_v1_Response.h
-  Attachment_documentType_v1_Response_mPayload.h
   Attachment_getAttachmentlogs_v1_Response.h
   Attachment_getAttachmentlogs_v1_Response_mPayload.h
-  Attachment_privacy_v1_Request.h
-  Attachment_privacy_v1_Response.h
-  Attachment_privacy_v1_Response_mPayload.h
   Attachment_rename_v1_Request.h
   Attachment_rename_v1_Response.h
   Attachment_rename_v1_Response_mPayload.h
   Attachment_restore_v1_Request.h
   Attachment_restore_v1_Response.h
   Attachment_restore_v1_Response_mPayload.h
+  Attachment_setDocumentType_v1_Request.h
+  Attachment_setDocumentType_v1_Response.h
+  Attachment_setDocumentType_v1_Response_mPayload.h
+  Attachment_setPrivacy_v1_Request.h
+  Attachment_setPrivacy_v1_Response.h
+  Attachment_setPrivacy_v1_Response_mPayload.h
   Attachment_validate_v1_Request.h
   Attachment_validate_v1_Response.h
   Attachment_validate_v1_Response_mPayload.h
@@ -324,6 +324,7 @@ add_library(${PROJECT_NAME}
   Company_getAutocomplete_v2_Response.h
   Company_getAutocomplete_v2_Response_mPayload.h
   Computed_eCommunicationDirection.h
+  Computed_eDocumenttypeStep.h
   Computed_eEzsigndocumentSteptype.h
   Computed_eEzsignfolderAccess.h
   Computed_eEzsignimportfolderStatus.h
@@ -464,6 +465,7 @@ add_library(${PROJECT_NAME}
   Custom_FormDataSigner_Response.h
   Custom_FormsDataFolder_Response.h
   Custom_ImportEzsigntemplatepackageRelation_Request.h
+  Custom_Inscription.h
   Custom_Inscriptionnotauthenticatedcondition_Request.h
   Custom_Notificationsubsectiongetnotificationtests_Response.h
   Custom_Notificationtestgetelements_Response.h
@@ -596,7 +598,6 @@ add_library(${PROJECT_NAME}
   Documenttype_createObject_v1_Request.h
   Documenttype_createObject_v1_Response.h
   Documenttype_createObject_v1_Response_mPayload.h
-  Documenttype_deleteObject_v1_Response.h
   Documenttype_editObject_v1_Request.h
   Documenttype_editObject_v1_Response.h
   Documenttype_getAutocomplete_v2_Response.h
@@ -605,21 +606,10 @@ add_library(${PROJECT_NAME}
   Documenttype_getList_v1_Response_mPayload.h
   Documenttype_getObject_v2_Response.h
   Documenttype_getObject_v2_Response_mPayload.h
-  Documenttypechecklist_ListElement.h
-  Documenttypechecklist_Request.h
-  Documenttypechecklist_RequestCompound.h
-  Documenttypechecklist_Response.h
-  Documenttypechecklist_ResponseCompound.h
-  Documenttypechecklist_createObject_v1_Request.h
-  Documenttypechecklist_createObject_v1_Response.h
-  Documenttypechecklist_createObject_v1_Response_mPayload.h
+  Documenttypechecklist_RequestPatch.h
   Documenttypechecklist_deleteObject_v1_Response.h
-  Documenttypechecklist_editObject_v1_Request.h
-  Documenttypechecklist_editObject_v1_Response.h
-  Documenttypechecklist_getList_v1_Response.h
-  Documenttypechecklist_getList_v1_Response_mPayload.h
-  Documenttypechecklist_getObject_v2_Response.h
-  Documenttypechecklist_getObject_v2_Response_mPayload.h
+  Documenttypechecklist_patchObject_v1_Request.h
+  Documenttypechecklist_patchObject_v1_Response.h
   Domain_AutocompleteElement_Response.h
   Domain_ListElement.h
   Domain_Request.h
@@ -1820,6 +1810,7 @@ add_library(${PROJECT_NAME}
   Inscription_prepareFilesTransfer_v1_Request.h
   Inscription_prepareFilesTransfer_v1_Response.h
   Inscription_prepareFilesTransfer_v1_Response_mPayload.h
+  Inscription_synchronizationDocumenttype_v1_Response.h
   Inscriptionchecklist_AutocompleteElement_Response.h
   Inscriptionchecklist_getAutocomplete_v3_Response.h
   Inscriptionchecklist_getAutocomplete_v3_Response_mPayload.h
@@ -2760,20 +2751,20 @@ add_library(${PROJECT_NAME}
   Attachment_ResponseCompound.cpp
   Attachment_delete_v1_Response.cpp
   Attachment_delete_v1_Response_mPayload.cpp
-  Attachment_documentType_v1_Request.cpp
-  Attachment_documentType_v1_Response.cpp
-  Attachment_documentType_v1_Response_mPayload.cpp
   Attachment_getAttachmentlogs_v1_Response.cpp
   Attachment_getAttachmentlogs_v1_Response_mPayload.cpp
-  Attachment_privacy_v1_Request.cpp
-  Attachment_privacy_v1_Response.cpp
-  Attachment_privacy_v1_Response_mPayload.cpp
   Attachment_rename_v1_Request.cpp
   Attachment_rename_v1_Response.cpp
   Attachment_rename_v1_Response_mPayload.cpp
   Attachment_restore_v1_Request.cpp
   Attachment_restore_v1_Response.cpp
   Attachment_restore_v1_Response_mPayload.cpp
+  Attachment_setDocumentType_v1_Request.cpp
+  Attachment_setDocumentType_v1_Response.cpp
+  Attachment_setDocumentType_v1_Response_mPayload.cpp
+  Attachment_setPrivacy_v1_Request.cpp
+  Attachment_setPrivacy_v1_Response.cpp
+  Attachment_setPrivacy_v1_Response_mPayload.cpp
   Attachment_validate_v1_Request.cpp
   Attachment_validate_v1_Response.cpp
   Attachment_validate_v1_Response_mPayload.cpp
@@ -2979,6 +2970,7 @@ add_library(${PROJECT_NAME}
   Company_getAutocomplete_v2_Response.cpp
   Company_getAutocomplete_v2_Response_mPayload.cpp
   Computed_eCommunicationDirection.cpp
+  Computed_eDocumenttypeStep.cpp
   Computed_eEzsigndocumentSteptype.cpp
   Computed_eEzsignfolderAccess.cpp
   Computed_eEzsignimportfolderStatus.cpp
@@ -3119,6 +3111,7 @@ add_library(${PROJECT_NAME}
   Custom_FormDataSigner_Response.cpp
   Custom_FormsDataFolder_Response.cpp
   Custom_ImportEzsigntemplatepackageRelation_Request.cpp
+  Custom_Inscription.cpp
   Custom_Inscriptionnotauthenticatedcondition_Request.cpp
   Custom_Notificationsubsectiongetnotificationtests_Response.cpp
   Custom_Notificationtestgetelements_Response.cpp
@@ -3251,7 +3244,6 @@ add_library(${PROJECT_NAME}
   Documenttype_createObject_v1_Request.cpp
   Documenttype_createObject_v1_Response.cpp
   Documenttype_createObject_v1_Response_mPayload.cpp
-  Documenttype_deleteObject_v1_Response.cpp
   Documenttype_editObject_v1_Request.cpp
   Documenttype_editObject_v1_Response.cpp
   Documenttype_getAutocomplete_v2_Response.cpp
@@ -3260,21 +3252,10 @@ add_library(${PROJECT_NAME}
   Documenttype_getList_v1_Response_mPayload.cpp
   Documenttype_getObject_v2_Response.cpp
   Documenttype_getObject_v2_Response_mPayload.cpp
-  Documenttypechecklist_ListElement.cpp
-  Documenttypechecklist_Request.cpp
-  Documenttypechecklist_RequestCompound.cpp
-  Documenttypechecklist_Response.cpp
-  Documenttypechecklist_ResponseCompound.cpp
-  Documenttypechecklist_createObject_v1_Request.cpp
-  Documenttypechecklist_createObject_v1_Response.cpp
-  Documenttypechecklist_createObject_v1_Response_mPayload.cpp
+  Documenttypechecklist_RequestPatch.cpp
   Documenttypechecklist_deleteObject_v1_Response.cpp
-  Documenttypechecklist_editObject_v1_Request.cpp
-  Documenttypechecklist_editObject_v1_Response.cpp
-  Documenttypechecklist_getList_v1_Response.cpp
-  Documenttypechecklist_getList_v1_Response_mPayload.cpp
-  Documenttypechecklist_getObject_v2_Response.cpp
-  Documenttypechecklist_getObject_v2_Response_mPayload.cpp
+  Documenttypechecklist_patchObject_v1_Request.cpp
+  Documenttypechecklist_patchObject_v1_Response.cpp
   Domain_AutocompleteElement_Response.cpp
   Domain_ListElement.cpp
   Domain_Request.cpp
@@ -4475,6 +4456,7 @@ add_library(${PROJECT_NAME}
   Inscription_prepareFilesTransfer_v1_Request.cpp
   Inscription_prepareFilesTransfer_v1_Response.cpp
   Inscription_prepareFilesTransfer_v1_Response_mPayload.cpp
+  Inscription_synchronizationDocumenttype_v1_Response.cpp
   Inscriptionchecklist_AutocompleteElement_Response.cpp
   Inscriptionchecklist_getAutocomplete_v3_Response.cpp
   Inscriptionchecklist_getAutocomplete_v3_Response_mPayload.cpp

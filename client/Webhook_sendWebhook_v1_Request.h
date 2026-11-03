@@ -22,6 +22,7 @@
 #include <QJsonObject>
 
 #include "Custom_eWebhookEzsignevent.h"
+#include "Field_eWebhookEzmaxpartnerevent.h"
 #include "Field_eWebhookManagementevent.h"
 #include "Field_eWebhookModule.h"
 #include "Field_eWebhookRealestateevent.h"
@@ -51,6 +52,11 @@ public:
     void setEWebhookEzsignevent(const Custom_eWebhookEzsignevent &e_webhook_ezsignevent);
     bool is_e_webhook_ezsignevent_Set() const;
     bool is_e_webhook_ezsignevent_Valid() const;
+
+    Field_eWebhookEzmaxpartnerevent getEWebhookEzmaxpartnerevent() const;
+    void setEWebhookEzmaxpartnerevent(const Field_eWebhookEzmaxpartnerevent &e_webhook_ezmaxpartnerevent);
+    bool is_e_webhook_ezmaxpartnerevent_Set() const;
+    bool is_e_webhook_ezmaxpartnerevent_Valid() const;
 
     Field_eWebhookManagementevent getEWebhookManagementevent() const;
     void setEWebhookManagementevent(const Field_eWebhookManagementevent &e_webhook_managementevent);
@@ -100,6 +106,10 @@ private:
     Custom_eWebhookEzsignevent m_e_webhook_ezsignevent;
     bool m_e_webhook_ezsignevent_isSet;
     bool m_e_webhook_ezsignevent_isValid;
+
+    Field_eWebhookEzmaxpartnerevent m_e_webhook_ezmaxpartnerevent;
+    bool m_e_webhook_ezmaxpartnerevent_isSet;
+    bool m_e_webhook_ezmaxpartnerevent_isValid;
 
     Field_eWebhookManagementevent m_e_webhook_managementevent;
     bool m_e_webhook_managementevent_isSet;

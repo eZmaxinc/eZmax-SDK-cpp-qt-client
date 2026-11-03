@@ -44,10 +44,10 @@ public:
     bool is_pki_attachmentrejectreason_id_Set() const;
     bool is_pki_attachmentrejectreason_id_Valid() const;
 
-    QString getSAttachmentrejectreasonnameX() const;
-    void setSAttachmentrejectreasonnameX(const QString &s_attachmentrejectreasonname_x);
-    bool is_s_attachmentrejectreasonname_x_Set() const;
-    bool is_s_attachmentrejectreasonname_x_Valid() const;
+    QString getSAttachmentrejectreasonNameX() const;
+    void setSAttachmentrejectreasonNameX(const QString &s_attachmentrejectreason_name_x);
+    bool is_s_attachmentrejectreason_name_x_Set() const;
+    bool is_s_attachmentrejectreason_name_x_Valid() const;
 
     bool isBAttachmentrejectreasonIsactive() const;
     void setBAttachmentrejectreasonIsactive(const bool &b_attachmentrejectreason_isactive);
@@ -64,9 +64,9 @@ private:
     bool m_pki_attachmentrejectreason_id_isSet;
     bool m_pki_attachmentrejectreason_id_isValid;
 
-    QString m_s_attachmentrejectreasonname_x;
-    bool m_s_attachmentrejectreasonname_x_isSet;
-    bool m_s_attachmentrejectreasonname_x_isValid;
+    QString m_s_attachmentrejectreason_name_x;
+    bool m_s_attachmentrejectreason_name_x_isSet;
+    bool m_s_attachmentrejectreason_name_x_isValid;
 
     bool m_b_attachmentrejectreason_isactive;
     bool m_b_attachmentrejectreason_isactive_isSet;

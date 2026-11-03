@@ -21,6 +21,7 @@
 
 #include <QJsonObject>
 
+#include "Computed_eDocumenttypeStep.h"
 #include "Field_eDocumenttypeEzcom.h"
 #include "Field_eDocumenttypePrivacydefault.h"
 #include "Field_eDocumenttypeRepossession.h"
@@ -29,6 +30,7 @@
 #include "Field_eDocumenttypeStatusdefault.h"
 #include "Field_eDocumenttypeTransactiontype.h"
 #include "Multilingual_DocumenttypeName.h"
+#include <QList>
 #include <QString>
 
 #include "Enum.h"
@@ -57,6 +59,11 @@ public:
     void setObjDocumenttypeName(const Multilingual_DocumenttypeName &obj_documenttype_name);
     bool is_obj_documenttype_name_Set() const;
     bool is_obj_documenttype_name_Valid() const;
+
+    Computed_eDocumenttypeStep getEDocumenttypeStep() const;
+    void setEDocumenttypeStep(const Computed_eDocumenttypeStep &e_documenttype_step);
+    bool is_e_documenttype_step_Set() const;
+    bool is_e_documenttype_step_Valid() const;
 
     QString getSDocumenttypeDefaultfilename() const;
     void setSDocumenttypeDefaultfilename(const QString &s_documenttype_defaultfilename);
@@ -163,6 +170,11 @@ public:
     bool is_e_documenttype_repossession_Set() const;
     bool is_e_documenttype_repossession_Valid() const;
 
+    QList<qint32> getAFkiInscriptiontypeId() const;
+    void setAFkiInscriptiontypeId(const QList<qint32> &a_fki_inscriptiontype_id);
+    bool is_a_fki_inscriptiontype_id_Set() const;
+    bool is_a_fki_inscriptiontype_id_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -176,6 +188,10 @@ private:
     Multilingual_DocumenttypeName m_obj_documenttype_name;
     bool m_obj_documenttype_name_isSet;
     bool m_obj_documenttype_name_isValid;
+
+    Computed_eDocumenttypeStep m_e_documenttype_step;
+    bool m_e_documenttype_step_isSet;
+    bool m_e_documenttype_step_isValid;
 
     QString m_s_documenttype_defaultfilename;
     bool m_s_documenttype_defaultfilename_isSet;
@@ -260,6 +276,10 @@ private:
     Field_eDocumenttypeRepossession m_e_documenttype_repossession;
     bool m_e_documenttype_repossession_isSet;
     bool m_e_documenttype_repossession_isValid;
+
+    QList<qint32> m_a_fki_inscriptiontype_id;
+    bool m_a_fki_inscriptiontype_id_isSet;
+    bool m_a_fki_inscriptiontype_id_isValid;
 };
 
 } // namespace Ezmaxapi

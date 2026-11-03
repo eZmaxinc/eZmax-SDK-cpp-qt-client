@@ -37,8 +37,8 @@ void Attachmentrejectreason_AutocompleteElement_Response::initializeModel() {
     m_pki_attachmentrejectreason_id_isSet = false;
     m_pki_attachmentrejectreason_id_isValid = false;
 
-    m_s_attachmentrejectreasonname_x_isSet = false;
-    m_s_attachmentrejectreasonname_x_isValid = false;
+    m_s_attachmentrejectreason_name_x_isSet = false;
+    m_s_attachmentrejectreason_name_x_isValid = false;
 
     m_b_attachmentrejectreason_isactive_isSet = false;
     m_b_attachmentrejectreason_isactive_isValid = false;
@@ -56,8 +56,8 @@ void Attachmentrejectreason_AutocompleteElement_Response::fromJsonObject(QJsonOb
     m_pki_attachmentrejectreason_id_isValid = ::Ezmaxapi::fromJsonValue(m_pki_attachmentrejectreason_id, json[QString("pkiAttachmentrejectreasonID")]);
     m_pki_attachmentrejectreason_id_isSet = !json[QString("pkiAttachmentrejectreasonID")].isNull() && m_pki_attachmentrejectreason_id_isValid;
 
-    m_s_attachmentrejectreasonname_x_isValid = ::Ezmaxapi::fromJsonValue(m_s_attachmentrejectreasonname_x, json[QString("sAttachmentrejectreasonnameX")]);
-    m_s_attachmentrejectreasonname_x_isSet = !json[QString("sAttachmentrejectreasonnameX")].isNull() && m_s_attachmentrejectreasonname_x_isValid;
+    m_s_attachmentrejectreason_name_x_isValid = ::Ezmaxapi::fromJsonValue(m_s_attachmentrejectreason_name_x, json[QString("sAttachmentrejectreasonNameX")]);
+    m_s_attachmentrejectreason_name_x_isSet = !json[QString("sAttachmentrejectreasonNameX")].isNull() && m_s_attachmentrejectreason_name_x_isValid;
 
     m_b_attachmentrejectreason_isactive_isValid = ::Ezmaxapi::fromJsonValue(m_b_attachmentrejectreason_isactive, json[QString("bAttachmentrejectreasonIsactive")]);
     m_b_attachmentrejectreason_isactive_isSet = !json[QString("bAttachmentrejectreasonIsactive")].isNull() && m_b_attachmentrejectreason_isactive_isValid;
@@ -75,8 +75,8 @@ QJsonObject Attachmentrejectreason_AutocompleteElement_Response::asJsonObject() 
     if (m_pki_attachmentrejectreason_id_isSet) {
         obj.insert(QString("pkiAttachmentrejectreasonID"), ::Ezmaxapi::toJsonValue(m_pki_attachmentrejectreason_id));
     }
-    if (m_s_attachmentrejectreasonname_x_isSet) {
-        obj.insert(QString("sAttachmentrejectreasonnameX"), ::Ezmaxapi::toJsonValue(m_s_attachmentrejectreasonname_x));
+    if (m_s_attachmentrejectreason_name_x_isSet) {
+        obj.insert(QString("sAttachmentrejectreasonNameX"), ::Ezmaxapi::toJsonValue(m_s_attachmentrejectreason_name_x));
     }
     if (m_b_attachmentrejectreason_isactive_isSet) {
         obj.insert(QString("bAttachmentrejectreasonIsactive"), ::Ezmaxapi::toJsonValue(m_b_attachmentrejectreason_isactive));
@@ -100,20 +100,20 @@ bool Attachmentrejectreason_AutocompleteElement_Response::is_pki_attachmentrejec
     return m_pki_attachmentrejectreason_id_isValid;
 }
 
-QString Attachmentrejectreason_AutocompleteElement_Response::getSAttachmentrejectreasonnameX() const {
-    return m_s_attachmentrejectreasonname_x;
+QString Attachmentrejectreason_AutocompleteElement_Response::getSAttachmentrejectreasonNameX() const {
+    return m_s_attachmentrejectreason_name_x;
 }
-void Attachmentrejectreason_AutocompleteElement_Response::setSAttachmentrejectreasonnameX(const QString &s_attachmentrejectreasonname_x) {
-    m_s_attachmentrejectreasonname_x = s_attachmentrejectreasonname_x;
-    m_s_attachmentrejectreasonname_x_isSet = true;
-}
-
-bool Attachmentrejectreason_AutocompleteElement_Response::is_s_attachmentrejectreasonname_x_Set() const{
-    return m_s_attachmentrejectreasonname_x_isSet;
+void Attachmentrejectreason_AutocompleteElement_Response::setSAttachmentrejectreasonNameX(const QString &s_attachmentrejectreason_name_x) {
+    m_s_attachmentrejectreason_name_x = s_attachmentrejectreason_name_x;
+    m_s_attachmentrejectreason_name_x_isSet = true;
 }
 
-bool Attachmentrejectreason_AutocompleteElement_Response::is_s_attachmentrejectreasonname_x_Valid() const{
-    return m_s_attachmentrejectreasonname_x_isValid;
+bool Attachmentrejectreason_AutocompleteElement_Response::is_s_attachmentrejectreason_name_x_Set() const{
+    return m_s_attachmentrejectreason_name_x_isSet;
+}
+
+bool Attachmentrejectreason_AutocompleteElement_Response::is_s_attachmentrejectreason_name_x_Valid() const{
+    return m_s_attachmentrejectreason_name_x_isValid;
 }
 
 bool Attachmentrejectreason_AutocompleteElement_Response::isBAttachmentrejectreasonIsactive() const {
@@ -140,7 +140,7 @@ bool Attachmentrejectreason_AutocompleteElement_Response::isSet() const {
             break;
         }
 
-        if (m_s_attachmentrejectreasonname_x_isSet) {
+        if (m_s_attachmentrejectreason_name_x_isSet) {
             isObjectUpdated = true;
             break;
         }
@@ -155,7 +155,7 @@ bool Attachmentrejectreason_AutocompleteElement_Response::isSet() const {
 
 bool Attachmentrejectreason_AutocompleteElement_Response::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_pki_attachmentrejectreason_id_isValid && m_s_attachmentrejectreasonname_x_isValid && m_b_attachmentrejectreason_isactive_isValid && true;
+    return m_pki_attachmentrejectreason_id_isValid && m_s_attachmentrejectreason_name_x_isValid && m_b_attachmentrejectreason_isactive_isValid && true;
 }
 
 } // namespace Ezmaxapi

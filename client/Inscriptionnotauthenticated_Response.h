@@ -21,6 +21,7 @@
 
 #include <QJsonObject>
 
+#include "Custom_Inscription.h"
 #include "Field_eInscriptionnotauthenticatedRemunerationtype.h"
 #include "Field_eInscriptionnotauthenticatedResidenceType.h"
 #include "Field_eInscriptionnotauthenticatedType.h"
@@ -31,6 +32,7 @@
 #include "Object.h"
 
 namespace Ezmaxapi {
+class Custom_Inscription;
 
 class Inscriptionnotauthenticated_Response : public Object {
 public:
@@ -52,6 +54,11 @@ public:
     void setFkiInscriptionId(const qint32 &fki_inscription_id);
     bool is_fki_inscription_id_Set() const;
     bool is_fki_inscription_id_Valid() const;
+
+    Custom_Inscription getObjInscription() const;
+    void setObjInscription(const Custom_Inscription &obj_inscription);
+    bool is_obj_inscription_Set() const;
+    bool is_obj_inscription_Valid() const;
 
     qint32 getFkiDepartmentId() const;
     void setFkiDepartmentId(const qint32 &fki_department_id);
@@ -251,6 +258,10 @@ private:
     qint32 m_fki_inscription_id;
     bool m_fki_inscription_id_isSet;
     bool m_fki_inscription_id_isValid;
+
+    Custom_Inscription m_obj_inscription;
+    bool m_obj_inscription_isSet;
+    bool m_obj_inscription_isValid;
 
     qint32 m_fki_department_id;
     bool m_fki_department_id_isSet;

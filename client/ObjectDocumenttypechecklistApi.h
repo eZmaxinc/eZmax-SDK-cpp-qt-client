@@ -19,15 +19,9 @@
 #include "Oauth.h"
 
 #include "Common_Response_Error.h"
-#include "Documenttypechecklist_createObject_v1_Request.h"
-#include "Documenttypechecklist_createObject_v1_Response.h"
 #include "Documenttypechecklist_deleteObject_v1_Response.h"
-#include "Documenttypechecklist_editObject_v1_Request.h"
-#include "Documenttypechecklist_editObject_v1_Response.h"
-#include "Documenttypechecklist_getList_v1_Response.h"
-#include "Documenttypechecklist_getObject_v2_Response.h"
-#include "Header_Accept_Language.h"
-#include "HttpFileElement.h"
+#include "Documenttypechecklist_patchObject_v1_Request.h"
+#include "Documenttypechecklist_patchObject_v1_Response.h"
 #include <QString>
 
 #include <QObject>
@@ -68,34 +62,15 @@ public:
     QString getParamStyleDelimiter(const QString &style, const QString &name, bool isExplode);
 
     /**
-    * @param[in]  documenttypechecklist_create_object_v1_request Documenttypechecklist_createObject_v1_Request [required]
-    */
-    virtual void documenttypechecklistCreateObjectV1(const Documenttypechecklist_createObject_v1_Request &documenttypechecklist_create_object_v1_request);
-
-    /**
     * @param[in]  pki_documenttypechecklist_id qint32 [required]
     */
     virtual void documenttypechecklistDeleteObjectV1(const qint32 &pki_documenttypechecklist_id);
 
     /**
     * @param[in]  pki_documenttypechecklist_id qint32 [required]
-    * @param[in]  documenttypechecklist_edit_object_v1_request Documenttypechecklist_editObject_v1_Request [required]
+    * @param[in]  documenttypechecklist_patch_object_v1_request Documenttypechecklist_patchObject_v1_Request [required]
     */
-    virtual void documenttypechecklistEditObjectV1(const qint32 &pki_documenttypechecklist_id, const Documenttypechecklist_editObject_v1_Request &documenttypechecklist_edit_object_v1_request);
-
-    /**
-    * @param[in]  e_order_by QString [optional]
-    * @param[in]  i_row_max qint32 [optional]
-    * @param[in]  i_row_offset qint32 [optional]
-    * @param[in]  accept_language Header_Accept_Language [optional]
-    * @param[in]  s_filter QString [optional]
-    */
-    virtual void documenttypechecklistGetListV1(const ::Ezmaxapi::OptionalParam<QString> &e_order_by = ::Ezmaxapi::OptionalParam<QString>(), const ::Ezmaxapi::OptionalParam<qint32> &i_row_max = ::Ezmaxapi::OptionalParam<qint32>(), const ::Ezmaxapi::OptionalParam<qint32> &i_row_offset = ::Ezmaxapi::OptionalParam<qint32>(), const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language = ::Ezmaxapi::OptionalParam<Header_Accept_Language>(), const ::Ezmaxapi::OptionalParam<QString> &s_filter = ::Ezmaxapi::OptionalParam<QString>());
-
-    /**
-    * @param[in]  pki_documenttypechecklist_id qint32 [required]
-    */
-    virtual void documenttypechecklistGetObjectV2(const qint32 &pki_documenttypechecklist_id);
+    virtual void documenttypechecklistPatchObjectV1(const qint32 &pki_documenttypechecklist_id, const Documenttypechecklist_patchObject_v1_Request &documenttypechecklist_patch_object_v1_request);
 
 
 private:
@@ -127,38 +102,23 @@ private:
     OauthPassword _passwordFlow;
     OauthMethod _OauthMethod = OauthMethod::INVALID_VALUE_OPENAPI_GENERATED;
 
-    void documenttypechecklistCreateObjectV1Callback(HttpRequestWorker *worker);
     void documenttypechecklistDeleteObjectV1Callback(HttpRequestWorker *worker);
-    void documenttypechecklistEditObjectV1Callback(HttpRequestWorker *worker);
-    void documenttypechecklistGetListV1Callback(HttpRequestWorker *worker);
-    void documenttypechecklistGetObjectV2Callback(HttpRequestWorker *worker);
+    void documenttypechecklistPatchObjectV1Callback(HttpRequestWorker *worker);
 
 Q_SIGNALS:
 
-    void documenttypechecklistCreateObjectV1Signal(Documenttypechecklist_createObject_v1_Response summary);
     void documenttypechecklistDeleteObjectV1Signal(Documenttypechecklist_deleteObject_v1_Response summary);
-    void documenttypechecklistEditObjectV1Signal(Documenttypechecklist_editObject_v1_Response summary);
-    void documenttypechecklistGetListV1Signal(Documenttypechecklist_getList_v1_Response summary);
-    void documenttypechecklistGetObjectV2Signal(Documenttypechecklist_getObject_v2_Response summary);
+    void documenttypechecklistPatchObjectV1Signal(Documenttypechecklist_patchObject_v1_Response summary);
 
 
-    void documenttypechecklistCreateObjectV1SignalFull(HttpRequestWorker *worker, Documenttypechecklist_createObject_v1_Response summary);
     void documenttypechecklistDeleteObjectV1SignalFull(HttpRequestWorker *worker, Documenttypechecklist_deleteObject_v1_Response summary);
-    void documenttypechecklistEditObjectV1SignalFull(HttpRequestWorker *worker, Documenttypechecklist_editObject_v1_Response summary);
-    void documenttypechecklistGetListV1SignalFull(HttpRequestWorker *worker, Documenttypechecklist_getList_v1_Response summary);
-    void documenttypechecklistGetObjectV2SignalFull(HttpRequestWorker *worker, Documenttypechecklist_getObject_v2_Response summary);
+    void documenttypechecklistPatchObjectV1SignalFull(HttpRequestWorker *worker, Documenttypechecklist_patchObject_v1_Response summary);
 
-    void documenttypechecklistCreateObjectV1SignalError(Documenttypechecklist_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void documenttypechecklistDeleteObjectV1SignalError(Documenttypechecklist_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    void documenttypechecklistEditObjectV1SignalError(Documenttypechecklist_editObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    void documenttypechecklistGetListV1SignalError(Documenttypechecklist_getList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    void documenttypechecklistGetObjectV2SignalError(Documenttypechecklist_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void documenttypechecklistPatchObjectV1SignalError(Documenttypechecklist_patchObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
-    void documenttypechecklistCreateObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void documenttypechecklistDeleteObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    void documenttypechecklistEditObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    void documenttypechecklistGetListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    void documenttypechecklistGetObjectV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void documenttypechecklistPatchObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();

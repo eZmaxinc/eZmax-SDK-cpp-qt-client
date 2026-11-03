@@ -40,6 +40,9 @@ void Webhook_sendWebhook_v1_Request::initializeModel() {
     m_e_webhook_ezsignevent_isSet = false;
     m_e_webhook_ezsignevent_isValid = false;
 
+    m_e_webhook_ezmaxpartnerevent_isSet = false;
+    m_e_webhook_ezmaxpartnerevent_isValid = false;
+
     m_e_webhook_managementevent_isSet = false;
     m_e_webhook_managementevent_isValid = false;
 
@@ -77,6 +80,9 @@ void Webhook_sendWebhook_v1_Request::fromJsonObject(QJsonObject json) {
     m_e_webhook_ezsignevent_isValid = ::Ezmaxapi::fromJsonValue(m_e_webhook_ezsignevent, json[QString("eWebhookEzsignevent")]);
     m_e_webhook_ezsignevent_isSet = !json[QString("eWebhookEzsignevent")].isNull() && m_e_webhook_ezsignevent_isValid;
 
+    m_e_webhook_ezmaxpartnerevent_isValid = ::Ezmaxapi::fromJsonValue(m_e_webhook_ezmaxpartnerevent, json[QString("eWebhookEzmaxpartnerevent")]);
+    m_e_webhook_ezmaxpartnerevent_isSet = !json[QString("eWebhookEzmaxpartnerevent")].isNull() && m_e_webhook_ezmaxpartnerevent_isValid;
+
     m_e_webhook_managementevent_isValid = ::Ezmaxapi::fromJsonValue(m_e_webhook_managementevent, json[QString("eWebhookManagementevent")]);
     m_e_webhook_managementevent_isSet = !json[QString("eWebhookManagementevent")].isNull() && m_e_webhook_managementevent_isValid;
 
@@ -113,6 +119,9 @@ QJsonObject Webhook_sendWebhook_v1_Request::asJsonObject() const {
     }
     if (m_e_webhook_ezsignevent.isSet()) {
         obj.insert(QString("eWebhookEzsignevent"), ::Ezmaxapi::toJsonValue(m_e_webhook_ezsignevent));
+    }
+    if (m_e_webhook_ezmaxpartnerevent.isSet()) {
+        obj.insert(QString("eWebhookEzmaxpartnerevent"), ::Ezmaxapi::toJsonValue(m_e_webhook_ezmaxpartnerevent));
     }
     if (m_e_webhook_managementevent.isSet()) {
         obj.insert(QString("eWebhookManagementevent"), ::Ezmaxapi::toJsonValue(m_e_webhook_managementevent));
@@ -168,6 +177,22 @@ bool Webhook_sendWebhook_v1_Request::is_e_webhook_ezsignevent_Set() const{
 
 bool Webhook_sendWebhook_v1_Request::is_e_webhook_ezsignevent_Valid() const{
     return m_e_webhook_ezsignevent_isValid;
+}
+
+Field_eWebhookEzmaxpartnerevent Webhook_sendWebhook_v1_Request::getEWebhookEzmaxpartnerevent() const {
+    return m_e_webhook_ezmaxpartnerevent;
+}
+void Webhook_sendWebhook_v1_Request::setEWebhookEzmaxpartnerevent(const Field_eWebhookEzmaxpartnerevent &e_webhook_ezmaxpartnerevent) {
+    m_e_webhook_ezmaxpartnerevent = e_webhook_ezmaxpartnerevent;
+    m_e_webhook_ezmaxpartnerevent_isSet = true;
+}
+
+bool Webhook_sendWebhook_v1_Request::is_e_webhook_ezmaxpartnerevent_Set() const{
+    return m_e_webhook_ezmaxpartnerevent_isSet;
+}
+
+bool Webhook_sendWebhook_v1_Request::is_e_webhook_ezmaxpartnerevent_Valid() const{
+    return m_e_webhook_ezmaxpartnerevent_isValid;
 }
 
 Field_eWebhookManagementevent Webhook_sendWebhook_v1_Request::getEWebhookManagementevent() const {
@@ -291,6 +316,11 @@ bool Webhook_sendWebhook_v1_Request::isSet() const {
         }
 
         if (m_e_webhook_ezsignevent.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_e_webhook_ezmaxpartnerevent.isSet()) {
             isObjectUpdated = true;
             break;
         }
