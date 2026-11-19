@@ -816,6 +816,8 @@ client/Custom_CreateEzsignelementsPositionedByWord_Request.cpp
 client/Custom_CreateEzsignelementsPositionedByWord_Request.h
 client/Custom_Creditcard_Request.cpp
 client/Custom_Creditcard_Request.h
+client/Custom_Creditcardmerchant_Response.cpp
+client/Custom_Creditcardmerchant_Response.h
 client/Custom_Creditcardtransaction_Response.cpp
 client/Custom_Creditcardtransaction_Response.h
 client/Custom_Creditcardtransactionresponse_Response.cpp

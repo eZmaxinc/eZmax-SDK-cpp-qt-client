@@ -43,6 +43,16 @@ void ObjectEzsignimportdocumentApi::initializeServerConfigs() {
     QSet<QString>{ {"ca-central-1"} })}, }));
     
     defaultConf.append(ServerConfiguration(
+    QUrl("https://{sInfrastructureenvironmenttypeDescription}.payment.{sInfrastructureregionCode}.ezmax.com/rest"),
+    "",
+    QMap<QString, ServerVariable>{ 
+    {"sInfrastructureenvironmenttypeDescription", ServerVariable("The environment on on which to call the API. Should always be "prod" unless instructed otherwise by support.","prod",
+    QSet<QString>{ {"prod"},{"dev"} })},
+    
+    {"sInfrastructureregionCode", ServerVariable("The region where your services are hosted.","ca-central-1",
+    QSet<QString>{ {"ca-central-1"} })}, }));
+    
+    defaultConf.append(ServerConfiguration(
     QUrl("https://{sInfrastructureenvironmenttypeDescription}.api.global.ezmax.com"),
     "The server endpoint where to send your global API requests.",
     QMap<QString, ServerVariable>{ 
@@ -59,6 +69,10 @@ void ObjectEzsignimportdocumentApi::initializeServerConfigs() {
     {"sInfrastructureregionCode", ServerVariable("The region where your services are hosted.","ca-central-1",
     QSet<QString>{ {"ca-central-1"} })}, }));
     
+    defaultConf.append(ServerConfiguration(
+    QUrl("https://www.example.com"),
+    "This is an example of an external server.",
+    QMap<QString, ServerVariable>()));
     _serverConfigs.insert("ezsignimportdocumentDownloadV1", defaultConf);
     _serverIndices.insert("ezsignimportdocumentDownloadV1", 0);
 }

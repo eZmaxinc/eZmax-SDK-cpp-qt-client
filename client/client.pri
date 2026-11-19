@@ -409,6 +409,7 @@ HEADERS += \
     $${PWD}/Custom_ContactName_Response.h \
     $${PWD}/Custom_CreateEzsignelementsPositionedByWord_Request.h \
     $${PWD}/Custom_Creditcard_Request.h \
+    $${PWD}/Custom_Creditcardmerchant_Response.h \
     $${PWD}/Custom_Creditcardtransaction_Response.h \
     $${PWD}/Custom_Creditcardtransactionresponse_Response.h \
     $${PWD}/Custom_Discussionconfiguration_Response.h \
@@ -3060,6 +3061,7 @@ SOURCES += \
     $${PWD}/Custom_ContactName_Response.cpp \
     $${PWD}/Custom_CreateEzsignelementsPositionedByWord_Request.cpp \
     $${PWD}/Custom_Creditcard_Request.cpp \
+    $${PWD}/Custom_Creditcardmerchant_Response.cpp \
     $${PWD}/Custom_Creditcardtransaction_Response.cpp \
     $${PWD}/Custom_Creditcardtransactionresponse_Response.cpp \
     $${PWD}/Custom_Discussionconfiguration_Response.cpp \

@@ -418,6 +418,7 @@ add_library(${PROJECT_NAME}
   Custom_ContactName_Response.h
   Custom_CreateEzsignelementsPositionedByWord_Request.h
   Custom_Creditcard_Request.h
+  Custom_Creditcardmerchant_Response.h
   Custom_Creditcardtransaction_Response.h
   Custom_Creditcardtransactionresponse_Response.h
   Custom_Discussionconfiguration_Response.h
@@ -3064,6 +3065,7 @@ add_library(${PROJECT_NAME}
   Custom_ContactName_Response.cpp
   Custom_CreateEzsignelementsPositionedByWord_Request.cpp
   Custom_Creditcard_Request.cpp
+  Custom_Creditcardmerchant_Response.cpp
   Custom_Creditcardtransaction_Response.cpp
   Custom_Creditcardtransactionresponse_Response.cpp
   Custom_Discussionconfiguration_Response.cpp

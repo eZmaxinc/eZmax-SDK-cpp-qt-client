@@ -189,6 +189,9 @@ void Ezsignsignature_ResponseCompound::initializeModel() {
 
     m_a_obj_ezsignsignaturepaymentdetail_isSet = false;
     m_a_obj_ezsignsignaturepaymentdetail_isValid = false;
+
+    m_obj_creditcardmerchant_isSet = false;
+    m_obj_creditcardmerchant_isValid = false;
 }
 
 void Ezsignsignature_ResponseCompound::fromJson(const QString &jsonString) {
@@ -355,6 +358,9 @@ void Ezsignsignature_ResponseCompound::fromJsonObject(QJsonObject json) {
 
     m_a_obj_ezsignsignaturepaymentdetail_isValid = ::Ezmaxapi::fromJsonValue(m_a_obj_ezsignsignaturepaymentdetail, json[QString("a_objEzsignsignaturepaymentdetail")]);
     m_a_obj_ezsignsignaturepaymentdetail_isSet = !json[QString("a_objEzsignsignaturepaymentdetail")].isNull() && m_a_obj_ezsignsignaturepaymentdetail_isValid;
+
+    m_obj_creditcardmerchant_isValid = ::Ezmaxapi::fromJsonValue(m_obj_creditcardmerchant, json[QString("objCreditcardmerchant")]);
+    m_obj_creditcardmerchant_isSet = !json[QString("objCreditcardmerchant")].isNull() && m_obj_creditcardmerchant_isValid;
 }
 
 QString Ezsignsignature_ResponseCompound::asJson() const {
@@ -521,6 +527,9 @@ QJsonObject Ezsignsignature_ResponseCompound::asJsonObject() const {
     }
     if (m_a_obj_ezsignsignaturepaymentdetail.size() > 0) {
         obj.insert(QString("a_objEzsignsignaturepaymentdetail"), ::Ezmaxapi::toJsonValue(m_a_obj_ezsignsignaturepaymentdetail));
+    }
+    if (m_obj_creditcardmerchant.isSet()) {
+        obj.insert(QString("objCreditcardmerchant"), ::Ezmaxapi::toJsonValue(m_obj_creditcardmerchant));
     }
     return obj;
 }
@@ -1357,6 +1366,22 @@ bool Ezsignsignature_ResponseCompound::is_a_obj_ezsignsignaturepaymentdetail_Val
     return m_a_obj_ezsignsignaturepaymentdetail_isValid;
 }
 
+Custom_Creditcardmerchant_Response Ezsignsignature_ResponseCompound::getObjCreditcardmerchant() const {
+    return m_obj_creditcardmerchant;
+}
+void Ezsignsignature_ResponseCompound::setObjCreditcardmerchant(const Custom_Creditcardmerchant_Response &obj_creditcardmerchant) {
+    m_obj_creditcardmerchant = obj_creditcardmerchant;
+    m_obj_creditcardmerchant_isSet = true;
+}
+
+bool Ezsignsignature_ResponseCompound::is_obj_creditcardmerchant_Set() const{
+    return m_obj_creditcardmerchant_isSet;
+}
+
+bool Ezsignsignature_ResponseCompound::is_obj_creditcardmerchant_Valid() const{
+    return m_obj_creditcardmerchant_isValid;
+}
+
 bool Ezsignsignature_ResponseCompound::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -1616,6 +1641,11 @@ bool Ezsignsignature_ResponseCompound::isSet() const {
         }
 
         if (m_a_obj_ezsignsignaturepaymentdetail.size() > 0) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_obj_creditcardmerchant.isSet()) {
             isObjectUpdated = true;
             break;
         }

@@ -22,6 +22,7 @@
 #include <QJsonObject>
 
 #include "Custom_ContactName_Response.h"
+#include "Custom_Creditcardmerchant_Response.h"
 #include "Custom_Creditcardtransaction_Response.h"
 #include "Custom_TimezoneWithCode_Response.h"
 #include "Enum_Textvalidation.h"
@@ -51,6 +52,7 @@ class Custom_Creditcardtransaction_Response;
 class Ezsignelementdependency_ResponseCompound;
 class Custom_TimezoneWithCode_Response;
 class Ezsignsignaturepaymentdetail_ResponseCompound;
+class Custom_Creditcardmerchant_Response;
 
 class Ezsignsignature_ResponseCompound : public Object {
 public:
@@ -323,6 +325,11 @@ public:
     bool is_a_obj_ezsignsignaturepaymentdetail_Set() const;
     bool is_a_obj_ezsignsignaturepaymentdetail_Valid() const;
 
+    Custom_Creditcardmerchant_Response getObjCreditcardmerchant() const;
+    void setObjCreditcardmerchant(const Custom_Creditcardmerchant_Response &obj_creditcardmerchant);
+    bool is_obj_creditcardmerchant_Set() const;
+    bool is_obj_creditcardmerchant_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -536,6 +543,10 @@ private:
     QList<Ezsignsignaturepaymentdetail_ResponseCompound> m_a_obj_ezsignsignaturepaymentdetail;
     bool m_a_obj_ezsignsignaturepaymentdetail_isSet;
     bool m_a_obj_ezsignsignaturepaymentdetail_isValid;
+
+    Custom_Creditcardmerchant_Response m_obj_creditcardmerchant;
+    bool m_obj_creditcardmerchant_isSet;
+    bool m_obj_creditcardmerchant_isValid;
 };
 
 } // namespace Ezmaxapi
