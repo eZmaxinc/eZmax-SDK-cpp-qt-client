@@ -81,6 +81,8 @@ void ObjectDiscussionApi::initializeServerConfigs() {
     _serverIndices.insert("discussionDeleteObjectV1", 0);
     _serverConfigs.insert("discussionGetObjectV2", defaultConf);
     _serverIndices.insert("discussionGetObjectV2", 0);
+    _serverConfigs.insert("discussionImproveMessageV1", defaultConf);
+    _serverIndices.insert("discussionImproveMessageV1", 0);
     _serverConfigs.insert("discussionPatchObjectV1", defaultConf);
     _serverIndices.insert("discussionPatchObjectV1", 0);
     _serverConfigs.insert("discussionUpdateDiscussionreadstatusV1", defaultConf);
@@ -493,6 +495,59 @@ void ObjectDiscussionApi::discussionGetObjectV2Callback(HttpRequestWorker *worke
     } else {
         Q_EMIT discussionGetObjectV2SignalError(output, error_type, error_str);
         Q_EMIT discussionGetObjectV2SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectDiscussionApi::discussionImproveMessageV1(const Discussion_improveMessage_v1_Request &discussion_improve_message_v1_request) {
+    QString fullPath = QString(_serverConfigs["discussionImproveMessageV1"][_serverIndices.value("discussionImproveMessageV1")].URL()+"/1/object/discussion/improveMessage");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "POST");
+
+    {
+
+        
+        QByteArray output = discussion_improve_message_v1_request.asJson().toUtf8();
+        input.request_body.append(output);
+    }
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectDiscussionApi::discussionImproveMessageV1Callback);
+    connect(this, &ObjectDiscussionApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectDiscussionApi::discussionImproveMessageV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Discussion_improveMessage_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT discussionImproveMessageV1Signal(output);
+        Q_EMIT discussionImproveMessageV1SignalFull(worker, output);
+    } else {
+        Q_EMIT discussionImproveMessageV1SignalError(output, error_type, error_str);
+        Q_EMIT discussionImproveMessageV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

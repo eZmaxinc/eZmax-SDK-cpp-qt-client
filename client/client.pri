@@ -459,6 +459,9 @@ HEADERS += \
     $${PWD}/Custom_ImportEzsigntemplatepackageRelation_Request.h \
     $${PWD}/Custom_Inscription.h \
     $${PWD}/Custom_Inscriptionnotauthenticatedcondition_Request.h \
+    $${PWD}/Custom_Module_Partner_ResponseCompound.h \
+    $${PWD}/Custom_Modulegroup_Partner_ResponseCompound.h \
+    $${PWD}/Custom_Modulesection_Partner_ResponseCompound.h \
     $${PWD}/Custom_Notificationsubsectiongetnotificationtests_Response.h \
     $${PWD}/Custom_Notificationtestgetelements_Response.h \
     $${PWD}/Custom_Notificationtestgetnotificationtests_Response.h \
@@ -558,6 +561,9 @@ HEADERS += \
     $${PWD}/Discussion_deleteObject_v1_Response.h \
     $${PWD}/Discussion_getObject_v2_Response.h \
     $${PWD}/Discussion_getObject_v2_Response_mPayload.h \
+    $${PWD}/Discussion_improveMessage_v1_Request.h \
+    $${PWD}/Discussion_improveMessage_v1_Response.h \
+    $${PWD}/Discussion_improveMessage_v1_Response_mPayload.h \
     $${PWD}/Discussion_patchObject_v1_Request.h \
     $${PWD}/Discussion_patchObject_v1_Response.h \
     $${PWD}/Discussion_updateDiscussionreadstatus_v1_Request.h \
@@ -754,6 +760,22 @@ HEADERS += \
     $${PWD}/Ezmaxpartner_getObject_v2_Response_mPayload.h \
     $${PWD}/Ezmaxpartner_subscribe_v1_Request.h \
     $${PWD}/Ezmaxpartner_subscribe_v1_Response.h \
+    $${PWD}/Ezmaxpartnerproductstage_ListElement.h \
+    $${PWD}/Ezmaxpartnerproductstage_Response.h \
+    $${PWD}/Ezmaxpartnerproductstage_ResponseCompound.h \
+    $${PWD}/Ezmaxpartnerproductstage_getEzmaxpartnerproductstagepermissions_v1_Response.h \
+    $${PWD}/Ezmaxpartnerproductstage_getEzmaxpartnerproductstagepermissions_v1_Response_mPayload.h \
+    $${PWD}/Ezmaxpartnerproductstage_getEzmaxpartnerproductstagewebhooks_v1_Response.h \
+    $${PWD}/Ezmaxpartnerproductstage_getEzmaxpartnerproductstagewebhooks_v1_Response_mPayload.h \
+    $${PWD}/Ezmaxpartnerproductstage_getList_v1_Response.h \
+    $${PWD}/Ezmaxpartnerproductstage_getList_v1_Response_mPayload.h \
+    $${PWD}/Ezmaxpartnerproductstage_getObject_v2_Response.h \
+    $${PWD}/Ezmaxpartnerproductstage_getObject_v2_Response_mPayload.h \
+    $${PWD}/Ezmaxpartnerproductstage_subscribe_v1_Response.h \
+    $${PWD}/Ezmaxpartnerproductstage_unsubscribe_v1_Response.h \
+    $${PWD}/Ezmaxpartnerproductstagesubscription_Response.h \
+    $${PWD}/Ezmaxpartnerproductstagewebhook_Response.h \
+    $${PWD}/Ezmaxpartnerproductstagewebhook_ResponseCompound.h \
     $${PWD}/Ezmaxproduct_AutocompleteElement_Response.h \
     $${PWD}/Ezmaxproduct_getAutocomplete_v2_Response.h \
     $${PWD}/Ezmaxproduct_getAutocomplete_v2_Response_mPayload.h \
@@ -1620,6 +1642,13 @@ HEADERS += \
     $${PWD}/Field_eEzmaxinvoicingcontractPaymenttype.h \
     $${PWD}/Field_eEzmaxinvoicinguserVariationezsign.h \
     $${PWD}/Field_eEzmaxpartnerCustomdevelopment.h \
+    $${PWD}/Field_eEzmaxpartnerproductstageCode.h \
+    $${PWD}/Field_eEzmaxpartnerproductstageInstallationtype.h \
+    $${PWD}/Field_eEzmaxpartnerproductstagewebhookEzmaxpartnerevent.h \
+    $${PWD}/Field_eEzmaxpartnerproductstagewebhookEzsignevent.h \
+    $${PWD}/Field_eEzmaxpartnerproductstagewebhookManagementevent.h \
+    $${PWD}/Field_eEzmaxpartnerproductstagewebhookModule.h \
+    $${PWD}/Field_eEzmaxpartnerproductstagewebhookRealestateevent.h \
     $${PWD}/Field_eEzsignannotationType.h \
     $${PWD}/Field_eEzsignbulksendEzsignformfieldorder.h \
     $${PWD}/Field_eEzsignbulksendsignermappingRole.h \
@@ -2543,6 +2572,7 @@ HEADERS += \
     $${PWD}/ObjectEzmaxinvoicingApi.h \
     $${PWD}/ObjectEzmaxmaillinglistApi.h \
     $${PWD}/ObjectEzmaxpartnerApi.h \
+    $${PWD}/ObjectEzmaxpartnerproductstageApi.h \
     $${PWD}/ObjectEzmaxproductApi.h \
     $${PWD}/ObjectEzsignannotationApi.h \
     $${PWD}/ObjectEzsignbulksendApi.h \
@@ -3111,6 +3141,9 @@ SOURCES += \
     $${PWD}/Custom_ImportEzsigntemplatepackageRelation_Request.cpp \
     $${PWD}/Custom_Inscription.cpp \
     $${PWD}/Custom_Inscriptionnotauthenticatedcondition_Request.cpp \
+    $${PWD}/Custom_Module_Partner_ResponseCompound.cpp \
+    $${PWD}/Custom_Modulegroup_Partner_ResponseCompound.cpp \
+    $${PWD}/Custom_Modulesection_Partner_ResponseCompound.cpp \
     $${PWD}/Custom_Notificationsubsectiongetnotificationtests_Response.cpp \
     $${PWD}/Custom_Notificationtestgetelements_Response.cpp \
     $${PWD}/Custom_Notificationtestgetnotificationtests_Response.cpp \
@@ -3210,6 +3243,9 @@ SOURCES += \
     $${PWD}/Discussion_deleteObject_v1_Response.cpp \
     $${PWD}/Discussion_getObject_v2_Response.cpp \
     $${PWD}/Discussion_getObject_v2_Response_mPayload.cpp \
+    $${PWD}/Discussion_improveMessage_v1_Request.cpp \
+    $${PWD}/Discussion_improveMessage_v1_Response.cpp \
+    $${PWD}/Discussion_improveMessage_v1_Response_mPayload.cpp \
     $${PWD}/Discussion_patchObject_v1_Request.cpp \
     $${PWD}/Discussion_patchObject_v1_Response.cpp \
     $${PWD}/Discussion_updateDiscussionreadstatus_v1_Request.cpp \
@@ -3406,6 +3442,22 @@ SOURCES += \
     $${PWD}/Ezmaxpartner_getObject_v2_Response_mPayload.cpp \
     $${PWD}/Ezmaxpartner_subscribe_v1_Request.cpp \
     $${PWD}/Ezmaxpartner_subscribe_v1_Response.cpp \
+    $${PWD}/Ezmaxpartnerproductstage_ListElement.cpp \
+    $${PWD}/Ezmaxpartnerproductstage_Response.cpp \
+    $${PWD}/Ezmaxpartnerproductstage_ResponseCompound.cpp \
+    $${PWD}/Ezmaxpartnerproductstage_getEzmaxpartnerproductstagepermissions_v1_Response.cpp \
+    $${PWD}/Ezmaxpartnerproductstage_getEzmaxpartnerproductstagepermissions_v1_Response_mPayload.cpp \
+    $${PWD}/Ezmaxpartnerproductstage_getEzmaxpartnerproductstagewebhooks_v1_Response.cpp \
+    $${PWD}/Ezmaxpartnerproductstage_getEzmaxpartnerproductstagewebhooks_v1_Response_mPayload.cpp \
+    $${PWD}/Ezmaxpartnerproductstage_getList_v1_Response.cpp \
+    $${PWD}/Ezmaxpartnerproductstage_getList_v1_Response_mPayload.cpp \
+    $${PWD}/Ezmaxpartnerproductstage_getObject_v2_Response.cpp \
+    $${PWD}/Ezmaxpartnerproductstage_getObject_v2_Response_mPayload.cpp \
+    $${PWD}/Ezmaxpartnerproductstage_subscribe_v1_Response.cpp \
+    $${PWD}/Ezmaxpartnerproductstage_unsubscribe_v1_Response.cpp \
+    $${PWD}/Ezmaxpartnerproductstagesubscription_Response.cpp \
+    $${PWD}/Ezmaxpartnerproductstagewebhook_Response.cpp \
+    $${PWD}/Ezmaxpartnerproductstagewebhook_ResponseCompound.cpp \
     $${PWD}/Ezmaxproduct_AutocompleteElement_Response.cpp \
     $${PWD}/Ezmaxproduct_getAutocomplete_v2_Response.cpp \
     $${PWD}/Ezmaxproduct_getAutocomplete_v2_Response_mPayload.cpp \
@@ -4272,6 +4324,13 @@ SOURCES += \
     $${PWD}/Field_eEzmaxinvoicingcontractPaymenttype.cpp \
     $${PWD}/Field_eEzmaxinvoicinguserVariationezsign.cpp \
     $${PWD}/Field_eEzmaxpartnerCustomdevelopment.cpp \
+    $${PWD}/Field_eEzmaxpartnerproductstageCode.cpp \
+    $${PWD}/Field_eEzmaxpartnerproductstageInstallationtype.cpp \
+    $${PWD}/Field_eEzmaxpartnerproductstagewebhookEzmaxpartnerevent.cpp \
+    $${PWD}/Field_eEzmaxpartnerproductstagewebhookEzsignevent.cpp \
+    $${PWD}/Field_eEzmaxpartnerproductstagewebhookManagementevent.cpp \
+    $${PWD}/Field_eEzmaxpartnerproductstagewebhookModule.cpp \
+    $${PWD}/Field_eEzmaxpartnerproductstagewebhookRealestateevent.cpp \
     $${PWD}/Field_eEzsignannotationType.cpp \
     $${PWD}/Field_eEzsignbulksendEzsignformfieldorder.cpp \
     $${PWD}/Field_eEzsignbulksendsignermappingRole.cpp \
@@ -5195,6 +5254,7 @@ SOURCES += \
     $${PWD}/ObjectEzmaxinvoicingApi.cpp \
     $${PWD}/ObjectEzmaxmaillinglistApi.cpp \
     $${PWD}/ObjectEzmaxpartnerApi.cpp \
+    $${PWD}/ObjectEzmaxpartnerproductstageApi.cpp \
     $${PWD}/ObjectEzmaxproductApi.cpp \
     $${PWD}/ObjectEzsignannotationApi.cpp \
     $${PWD}/ObjectEzsignbulksendApi.cpp \

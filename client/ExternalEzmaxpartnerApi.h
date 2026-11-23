@@ -18,6 +18,7 @@
 #include "ServerConfiguration.h"
 #include "Oauth.h"
 
+#include "Common_Response_Error.h"
 #include "Ezmaxpartner_subscribe_v1_Request.h"
 #include "Ezmaxpartner_subscribe_v1_Response.h"
 #include <QString>

@@ -468,6 +468,9 @@ add_library(${PROJECT_NAME}
   Custom_ImportEzsigntemplatepackageRelation_Request.h
   Custom_Inscription.h
   Custom_Inscriptionnotauthenticatedcondition_Request.h
+  Custom_Module_Partner_ResponseCompound.h
+  Custom_Modulegroup_Partner_ResponseCompound.h
+  Custom_Modulesection_Partner_ResponseCompound.h
   Custom_Notificationsubsectiongetnotificationtests_Response.h
   Custom_Notificationtestgetelements_Response.h
   Custom_Notificationtestgetnotificationtests_Response.h
@@ -567,6 +570,9 @@ add_library(${PROJECT_NAME}
   Discussion_deleteObject_v1_Response.h
   Discussion_getObject_v2_Response.h
   Discussion_getObject_v2_Response_mPayload.h
+  Discussion_improveMessage_v1_Request.h
+  Discussion_improveMessage_v1_Response.h
+  Discussion_improveMessage_v1_Response_mPayload.h
   Discussion_patchObject_v1_Request.h
   Discussion_patchObject_v1_Response.h
   Discussion_updateDiscussionreadstatus_v1_Request.h
@@ -763,6 +769,22 @@ add_library(${PROJECT_NAME}
   Ezmaxpartner_getObject_v2_Response_mPayload.h
   Ezmaxpartner_subscribe_v1_Request.h
   Ezmaxpartner_subscribe_v1_Response.h
+  Ezmaxpartnerproductstage_ListElement.h
+  Ezmaxpartnerproductstage_Response.h
+  Ezmaxpartnerproductstage_ResponseCompound.h
+  Ezmaxpartnerproductstage_getEzmaxpartnerproductstagepermissions_v1_Response.h
+  Ezmaxpartnerproductstage_getEzmaxpartnerproductstagepermissions_v1_Response_mPayload.h
+  Ezmaxpartnerproductstage_getEzmaxpartnerproductstagewebhooks_v1_Response.h
+  Ezmaxpartnerproductstage_getEzmaxpartnerproductstagewebhooks_v1_Response_mPayload.h
+  Ezmaxpartnerproductstage_getList_v1_Response.h
+  Ezmaxpartnerproductstage_getList_v1_Response_mPayload.h
+  Ezmaxpartnerproductstage_getObject_v2_Response.h
+  Ezmaxpartnerproductstage_getObject_v2_Response_mPayload.h
+  Ezmaxpartnerproductstage_subscribe_v1_Response.h
+  Ezmaxpartnerproductstage_unsubscribe_v1_Response.h
+  Ezmaxpartnerproductstagesubscription_Response.h
+  Ezmaxpartnerproductstagewebhook_Response.h
+  Ezmaxpartnerproductstagewebhook_ResponseCompound.h
   Ezmaxproduct_AutocompleteElement_Response.h
   Ezmaxproduct_getAutocomplete_v2_Response.h
   Ezmaxproduct_getAutocomplete_v2_Response_mPayload.h
@@ -1629,6 +1651,13 @@ add_library(${PROJECT_NAME}
   Field_eEzmaxinvoicingcontractPaymenttype.h
   Field_eEzmaxinvoicinguserVariationezsign.h
   Field_eEzmaxpartnerCustomdevelopment.h
+  Field_eEzmaxpartnerproductstageCode.h
+  Field_eEzmaxpartnerproductstageInstallationtype.h
+  Field_eEzmaxpartnerproductstagewebhookEzmaxpartnerevent.h
+  Field_eEzmaxpartnerproductstagewebhookEzsignevent.h
+  Field_eEzmaxpartnerproductstagewebhookManagementevent.h
+  Field_eEzmaxpartnerproductstagewebhookModule.h
+  Field_eEzmaxpartnerproductstagewebhookRealestateevent.h
   Field_eEzsignannotationType.h
   Field_eEzsignbulksendEzsignformfieldorder.h
   Field_eEzsignbulksendsignermappingRole.h
@@ -2551,6 +2580,7 @@ add_library(${PROJECT_NAME}
   ObjectEzmaxinvoicingApi.h
   ObjectEzmaxmaillinglistApi.h
   ObjectEzmaxpartnerApi.h
+  ObjectEzmaxpartnerproductstageApi.h
   ObjectEzmaxproductApi.h
   ObjectEzsignannotationApi.h
   ObjectEzsignbulksendApi.h
@@ -3115,6 +3145,9 @@ add_library(${PROJECT_NAME}
   Custom_ImportEzsigntemplatepackageRelation_Request.cpp
   Custom_Inscription.cpp
   Custom_Inscriptionnotauthenticatedcondition_Request.cpp
+  Custom_Module_Partner_ResponseCompound.cpp
+  Custom_Modulegroup_Partner_ResponseCompound.cpp
+  Custom_Modulesection_Partner_ResponseCompound.cpp
   Custom_Notificationsubsectiongetnotificationtests_Response.cpp
   Custom_Notificationtestgetelements_Response.cpp
   Custom_Notificationtestgetnotificationtests_Response.cpp
@@ -3214,6 +3247,9 @@ add_library(${PROJECT_NAME}
   Discussion_deleteObject_v1_Response.cpp
   Discussion_getObject_v2_Response.cpp
   Discussion_getObject_v2_Response_mPayload.cpp
+  Discussion_improveMessage_v1_Request.cpp
+  Discussion_improveMessage_v1_Response.cpp
+  Discussion_improveMessage_v1_Response_mPayload.cpp
   Discussion_patchObject_v1_Request.cpp
   Discussion_patchObject_v1_Response.cpp
   Discussion_updateDiscussionreadstatus_v1_Request.cpp
@@ -3410,6 +3446,22 @@ add_library(${PROJECT_NAME}
   Ezmaxpartner_getObject_v2_Response_mPayload.cpp
   Ezmaxpartner_subscribe_v1_Request.cpp
   Ezmaxpartner_subscribe_v1_Response.cpp
+  Ezmaxpartnerproductstage_ListElement.cpp
+  Ezmaxpartnerproductstage_Response.cpp
+  Ezmaxpartnerproductstage_ResponseCompound.cpp
+  Ezmaxpartnerproductstage_getEzmaxpartnerproductstagepermissions_v1_Response.cpp
+  Ezmaxpartnerproductstage_getEzmaxpartnerproductstagepermissions_v1_Response_mPayload.cpp
+  Ezmaxpartnerproductstage_getEzmaxpartnerproductstagewebhooks_v1_Response.cpp
+  Ezmaxpartnerproductstage_getEzmaxpartnerproductstagewebhooks_v1_Response_mPayload.cpp
+  Ezmaxpartnerproductstage_getList_v1_Response.cpp
+  Ezmaxpartnerproductstage_getList_v1_Response_mPayload.cpp
+  Ezmaxpartnerproductstage_getObject_v2_Response.cpp
+  Ezmaxpartnerproductstage_getObject_v2_Response_mPayload.cpp
+  Ezmaxpartnerproductstage_subscribe_v1_Response.cpp
+  Ezmaxpartnerproductstage_unsubscribe_v1_Response.cpp
+  Ezmaxpartnerproductstagesubscription_Response.cpp
+  Ezmaxpartnerproductstagewebhook_Response.cpp
+  Ezmaxpartnerproductstagewebhook_ResponseCompound.cpp
   Ezmaxproduct_AutocompleteElement_Response.cpp
   Ezmaxproduct_getAutocomplete_v2_Response.cpp
   Ezmaxproduct_getAutocomplete_v2_Response_mPayload.cpp
@@ -4276,6 +4328,13 @@ add_library(${PROJECT_NAME}
   Field_eEzmaxinvoicingcontractPaymenttype.cpp
   Field_eEzmaxinvoicinguserVariationezsign.cpp
   Field_eEzmaxpartnerCustomdevelopment.cpp
+  Field_eEzmaxpartnerproductstageCode.cpp
+  Field_eEzmaxpartnerproductstageInstallationtype.cpp
+  Field_eEzmaxpartnerproductstagewebhookEzmaxpartnerevent.cpp
+  Field_eEzmaxpartnerproductstagewebhookEzsignevent.cpp
+  Field_eEzmaxpartnerproductstagewebhookManagementevent.cpp
+  Field_eEzmaxpartnerproductstagewebhookModule.cpp
+  Field_eEzmaxpartnerproductstagewebhookRealestateevent.cpp
   Field_eEzsignannotationType.cpp
   Field_eEzsignbulksendEzsignformfieldorder.cpp
   Field_eEzsignbulksendsignermappingRole.cpp
@@ -5198,6 +5257,7 @@ add_library(${PROJECT_NAME}
   ObjectEzmaxinvoicingApi.cpp
   ObjectEzmaxmaillinglistApi.cpp
   ObjectEzmaxpartnerApi.cpp
+  ObjectEzmaxpartnerproductstageApi.cpp
   ObjectEzmaxproductApi.cpp
   ObjectEzsignannotationApi.cpp
   ObjectEzsignbulksendApi.cpp
