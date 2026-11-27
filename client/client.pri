@@ -580,9 +580,6 @@ HEADERS += \
     $${PWD}/Discussionmessage_deleteObject_v1_Response.h \
     $${PWD}/Discussionmessage_patchObject_v1_Request.h \
     $${PWD}/Discussionmessage_patchObject_v1_Response.h \
-    $${PWD}/Documenttypechecklist_RequestPatch.h \
-    $${PWD}/Documenttypechecklist_patchObject_v1_Request.h \
-    $${PWD}/Documenttypechecklist_patchObject_v1_Response.h \
     $${PWD}/Domain_AutocompleteElement_Response.h \
     $${PWD}/Domain_ListElement.h \
     $${PWD}/Domain_Request.h \
@@ -1601,7 +1598,6 @@ HEADERS += \
     $${PWD}/Field_eDisclosureInteresttype.h \
     $${PWD}/Field_eDiscussionRobot.h \
     $${PWD}/Field_eDiscussionmessageStatus.h \
-    $${PWD}/Field_eDocumenttypechecklistStatus.h \
     $${PWD}/Field_eErrorCode.h \
     $${PWD}/Field_eEzdoctemplatedocumentPrivacylevel.h \
     $${PWD}/Field_eEzmaxinvoicingPaymenttype.h \
@@ -2522,7 +2518,6 @@ HEADERS += \
     $${PWD}/ObjectDiscussionApi.h \
     $${PWD}/ObjectDiscussionmembershipApi.h \
     $${PWD}/ObjectDiscussionmessageApi.h \
-    $${PWD}/ObjectDocumenttypechecklistApi.h \
     $${PWD}/ObjectDomainApi.h \
     $${PWD}/ObjectElectronicfundstransferApi.h \
     $${PWD}/ObjectElectronicfundstransfertransactionApi.h \
@@ -3227,9 +3222,6 @@ SOURCES += \
     $${PWD}/Discussionmessage_deleteObject_v1_Response.cpp \
     $${PWD}/Discussionmessage_patchObject_v1_Request.cpp \
     $${PWD}/Discussionmessage_patchObject_v1_Response.cpp \
-    $${PWD}/Documenttypechecklist_RequestPatch.cpp \
-    $${PWD}/Documenttypechecklist_patchObject_v1_Request.cpp \
-    $${PWD}/Documenttypechecklist_patchObject_v1_Response.cpp \
     $${PWD}/Domain_AutocompleteElement_Response.cpp \
     $${PWD}/Domain_ListElement.cpp \
     $${PWD}/Domain_Request.cpp \
@@ -4248,7 +4240,6 @@ SOURCES += \
     $${PWD}/Field_eDisclosureInteresttype.cpp \
     $${PWD}/Field_eDiscussionRobot.cpp \
     $${PWD}/Field_eDiscussionmessageStatus.cpp \
-    $${PWD}/Field_eDocumenttypechecklistStatus.cpp \
     $${PWD}/Field_eErrorCode.cpp \
     $${PWD}/Field_eEzdoctemplatedocumentPrivacylevel.cpp \
     $${PWD}/Field_eEzmaxinvoicingPaymenttype.cpp \
@@ -5169,7 +5160,6 @@ SOURCES += \
     $${PWD}/ObjectDiscussionApi.cpp \
     $${PWD}/ObjectDiscussionmembershipApi.cpp \
     $${PWD}/ObjectDiscussionmessageApi.cpp \
-    $${PWD}/ObjectDocumenttypechecklistApi.cpp \
     $${PWD}/ObjectDomainApi.cpp \
     $${PWD}/ObjectElectronicfundstransferApi.cpp \
     $${PWD}/ObjectElectronicfundstransfertransactionApi.cpp \

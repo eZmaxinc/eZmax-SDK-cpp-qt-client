@@ -1158,12 +1158,6 @@ client/Discussionmessage_patchObject_v1_Request.cpp
 client/Discussionmessage_patchObject_v1_Request.h
 client/Discussionmessage_patchObject_v1_Response.cpp
 client/Discussionmessage_patchObject_v1_Response.h
-client/Documenttypechecklist_RequestPatch.cpp
-client/Documenttypechecklist_RequestPatch.h
-client/Documenttypechecklist_patchObject_v1_Request.cpp
-client/Documenttypechecklist_patchObject_v1_Request.h
-client/Documenttypechecklist_patchObject_v1_Response.cpp
-client/Documenttypechecklist_patchObject_v1_Response.h
 client/Domain_AutocompleteElement_Response.cpp
 client/Domain_AutocompleteElement_Response.h
 client/Domain_ListElement.cpp
@@ -3203,8 +3197,6 @@ client/Field_eDiscussionRobot.cpp
 client/Field_eDiscussionRobot.h
 client/Field_eDiscussionmessageStatus.cpp
 client/Field_eDiscussionmessageStatus.h
-client/Field_eDocumenttypechecklistStatus.cpp
-client/Field_eDocumenttypechecklistStatus.h
 client/Field_eErrorCode.cpp
 client/Field_eErrorCode.h
 client/Field_eEzdoctemplatedocumentPrivacylevel.cpp
@@ -3996,8 +3988,6 @@ client/ObjectDiscussionmembershipApi.cpp
 client/ObjectDiscussionmembershipApi.h
 client/ObjectDiscussionmessageApi.cpp
 client/ObjectDiscussionmessageApi.h
-client/ObjectDocumenttypechecklistApi.cpp
-client/ObjectDocumenttypechecklistApi.h
 client/ObjectDomainApi.cpp
 client/ObjectDomainApi.h
 client/ObjectElectronicfundstransferApi.cpp

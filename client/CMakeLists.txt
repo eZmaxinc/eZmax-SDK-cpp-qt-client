@@ -589,9 +589,6 @@ add_library(${PROJECT_NAME}
   Discussionmessage_deleteObject_v1_Response.h
   Discussionmessage_patchObject_v1_Request.h
   Discussionmessage_patchObject_v1_Response.h
-  Documenttypechecklist_RequestPatch.h
-  Documenttypechecklist_patchObject_v1_Request.h
-  Documenttypechecklist_patchObject_v1_Response.h
   Domain_AutocompleteElement_Response.h
   Domain_ListElement.h
   Domain_Request.h
@@ -1610,7 +1607,6 @@ add_library(${PROJECT_NAME}
   Field_eDisclosureInteresttype.h
   Field_eDiscussionRobot.h
   Field_eDiscussionmessageStatus.h
-  Field_eDocumenttypechecklistStatus.h
   Field_eErrorCode.h
   Field_eEzdoctemplatedocumentPrivacylevel.h
   Field_eEzmaxinvoicingPaymenttype.h
@@ -2530,7 +2526,6 @@ add_library(${PROJECT_NAME}
   ObjectDiscussionApi.h
   ObjectDiscussionmembershipApi.h
   ObjectDiscussionmessageApi.h
-  ObjectDocumenttypechecklistApi.h
   ObjectDomainApi.h
   ObjectElectronicfundstransferApi.h
   ObjectElectronicfundstransfertransactionApi.h
@@ -3231,9 +3226,6 @@ add_library(${PROJECT_NAME}
   Discussionmessage_deleteObject_v1_Response.cpp
   Discussionmessage_patchObject_v1_Request.cpp
   Discussionmessage_patchObject_v1_Response.cpp
-  Documenttypechecklist_RequestPatch.cpp
-  Documenttypechecklist_patchObject_v1_Request.cpp
-  Documenttypechecklist_patchObject_v1_Response.cpp
   Domain_AutocompleteElement_Response.cpp
   Domain_ListElement.cpp
   Domain_Request.cpp
@@ -4252,7 +4244,6 @@ add_library(${PROJECT_NAME}
   Field_eDisclosureInteresttype.cpp
   Field_eDiscussionRobot.cpp
   Field_eDiscussionmessageStatus.cpp
-  Field_eDocumenttypechecklistStatus.cpp
   Field_eErrorCode.cpp
   Field_eEzdoctemplatedocumentPrivacylevel.cpp
   Field_eEzmaxinvoicingPaymenttype.cpp
@@ -5172,7 +5163,6 @@ add_library(${PROJECT_NAME}
   ObjectDiscussionApi.cpp
   ObjectDiscussionmembershipApi.cpp
   ObjectDiscussionmessageApi.cpp
-  ObjectDocumenttypechecklistApi.cpp
   ObjectDomainApi.cpp
   ObjectElectronicfundstransferApi.cpp
   ObjectElectronicfundstransfertransactionApi.cpp
