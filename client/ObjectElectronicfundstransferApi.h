@@ -25,11 +25,14 @@
 #include "Electronicfundstransfer_getCommunicationList_v1_Response.h"
 #include "Electronicfundstransfer_getCommunicationrecipients_v1_Response.h"
 #include "Electronicfundstransfer_getCommunicationsenders_v1_Response.h"
+#include "Electronicfundstransfer_getDocumenttypechecklist_v1_Response.h"
 #include "Electronicfundstransfer_getList_v1_Response.h"
 #include "Electronicfundstransfer_importIntoEDM_v1_Request.h"
 #include "Electronicfundstransfer_importIntoEDM_v1_Response.h"
+#include "Electronicfundstransfer_syncDocumenttypechecklist_v1_Response.h"
 #include "Header_Accept_Language.h"
 #include "HttpFileElement.h"
+#include "Object.h"
 #include <QString>
 
 #include <QObject>
@@ -101,6 +104,11 @@ public:
     virtual void electronicfundstransferGetCommunicationsendersV1(const qint32 &pki_electronicfundstransfer_id);
 
     /**
+    * @param[in]  pki_electronicfundstransfer_id qint32 [required]
+    */
+    virtual void electronicfundstransferGetDocumenttypechecklistV1(const qint32 &pki_electronicfundstransfer_id);
+
+    /**
     * @param[in]  e_order_by QString [optional]
     * @param[in]  i_row_max qint32 [optional]
     * @param[in]  i_row_offset qint32 [optional]
@@ -114,6 +122,12 @@ public:
     * @param[in]  electronicfundstransfer_import_into_edm_v1_request Electronicfundstransfer_importIntoEDM_v1_Request [required]
     */
     virtual void electronicfundstransferImportIntoEDMV1(const qint32 &pki_electronicfundstransfer_id, const Electronicfundstransfer_importIntoEDM_v1_Request &electronicfundstransfer_import_into_edm_v1_request);
+
+    /**
+    * @param[in]  pki_electronicfundstransfer_id qint32 [required]
+    * @param[in]  body Object [optional]
+    */
+    virtual void electronicfundstransferSyncDocumenttypechecklistV1(const qint32 &pki_electronicfundstransfer_id, const ::Ezmaxapi::OptionalParam<Object> &body = ::Ezmaxapi::OptionalParam<Object>());
 
 
 private:
@@ -151,8 +165,10 @@ private:
     void electronicfundstransferGetCommunicationListV1Callback(HttpRequestWorker *worker);
     void electronicfundstransferGetCommunicationrecipientsV1Callback(HttpRequestWorker *worker);
     void electronicfundstransferGetCommunicationsendersV1Callback(HttpRequestWorker *worker);
+    void electronicfundstransferGetDocumenttypechecklistV1Callback(HttpRequestWorker *worker);
     void electronicfundstransferGetListV1Callback(HttpRequestWorker *worker);
     void electronicfundstransferImportIntoEDMV1Callback(HttpRequestWorker *worker);
+    void electronicfundstransferSyncDocumenttypechecklistV1Callback(HttpRequestWorker *worker);
 
 Q_SIGNALS:
 
@@ -162,8 +178,10 @@ Q_SIGNALS:
     void electronicfundstransferGetCommunicationListV1Signal(Electronicfundstransfer_getCommunicationList_v1_Response summary);
     void electronicfundstransferGetCommunicationrecipientsV1Signal(Electronicfundstransfer_getCommunicationrecipients_v1_Response summary);
     void electronicfundstransferGetCommunicationsendersV1Signal(Electronicfundstransfer_getCommunicationsenders_v1_Response summary);
+    void electronicfundstransferGetDocumenttypechecklistV1Signal(Electronicfundstransfer_getDocumenttypechecklist_v1_Response summary);
     void electronicfundstransferGetListV1Signal(Electronicfundstransfer_getList_v1_Response summary);
     void electronicfundstransferImportIntoEDMV1Signal(Electronicfundstransfer_importIntoEDM_v1_Response summary);
+    void electronicfundstransferSyncDocumenttypechecklistV1Signal(Electronicfundstransfer_syncDocumenttypechecklist_v1_Response summary);
 
 
     void electronicfundstransferBatchDownloadV1SignalFull(HttpRequestWorker *worker, HttpFileElement summary);
@@ -172,8 +190,10 @@ Q_SIGNALS:
     void electronicfundstransferGetCommunicationListV1SignalFull(HttpRequestWorker *worker, Electronicfundstransfer_getCommunicationList_v1_Response summary);
     void electronicfundstransferGetCommunicationrecipientsV1SignalFull(HttpRequestWorker *worker, Electronicfundstransfer_getCommunicationrecipients_v1_Response summary);
     void electronicfundstransferGetCommunicationsendersV1SignalFull(HttpRequestWorker *worker, Electronicfundstransfer_getCommunicationsenders_v1_Response summary);
+    void electronicfundstransferGetDocumenttypechecklistV1SignalFull(HttpRequestWorker *worker, Electronicfundstransfer_getDocumenttypechecklist_v1_Response summary);
     void electronicfundstransferGetListV1SignalFull(HttpRequestWorker *worker, Electronicfundstransfer_getList_v1_Response summary);
     void electronicfundstransferImportIntoEDMV1SignalFull(HttpRequestWorker *worker, Electronicfundstransfer_importIntoEDM_v1_Response summary);
+    void electronicfundstransferSyncDocumenttypechecklistV1SignalFull(HttpRequestWorker *worker, Electronicfundstransfer_syncDocumenttypechecklist_v1_Response summary);
 
     void electronicfundstransferBatchDownloadV1SignalError(HttpFileElement summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void electronicfundstransferGetAttachmentsV1SignalError(Electronicfundstransfer_getAttachments_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -181,8 +201,10 @@ Q_SIGNALS:
     void electronicfundstransferGetCommunicationListV1SignalError(Electronicfundstransfer_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void electronicfundstransferGetCommunicationrecipientsV1SignalError(Electronicfundstransfer_getCommunicationrecipients_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void electronicfundstransferGetCommunicationsendersV1SignalError(Electronicfundstransfer_getCommunicationsenders_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void electronicfundstransferGetDocumenttypechecklistV1SignalError(Electronicfundstransfer_getDocumenttypechecklist_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void electronicfundstransferGetListV1SignalError(Electronicfundstransfer_getList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void electronicfundstransferImportIntoEDMV1SignalError(Electronicfundstransfer_importIntoEDM_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void electronicfundstransferSyncDocumenttypechecklistV1SignalError(Electronicfundstransfer_syncDocumenttypechecklist_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void electronicfundstransferBatchDownloadV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void electronicfundstransferGetAttachmentsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -190,8 +212,10 @@ Q_SIGNALS:
     void electronicfundstransferGetCommunicationListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void electronicfundstransferGetCommunicationrecipientsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void electronicfundstransferGetCommunicationsendersV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void electronicfundstransferGetDocumenttypechecklistV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void electronicfundstransferGetListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void electronicfundstransferImportIntoEDMV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void electronicfundstransferSyncDocumenttypechecklistV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();

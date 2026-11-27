@@ -27,9 +27,12 @@
 #include "Inscriptiontemp_getCommunicationList_v1_Response.h"
 #include "Inscriptiontemp_getCommunicationrecipients_v1_Response.h"
 #include "Inscriptiontemp_getCommunicationsenders_v1_Response.h"
+#include "Inscriptiontemp_getDocumenttypechecklist_v1_Response.h"
 #include "Inscriptiontemp_getList_v1_Response.h"
 #include "Inscriptiontemp_importIntoEDM_v1_Request.h"
 #include "Inscriptiontemp_importIntoEDM_v1_Response.h"
+#include "Inscriptiontemp_syncDocumenttypechecklist_v1_Response.h"
+#include "Object.h"
 #include <QString>
 
 #include <QObject>
@@ -101,6 +104,11 @@ public:
     virtual void inscriptiontempGetCommunicationsendersV1(const qint32 &pki_inscriptiontemp_id);
 
     /**
+    * @param[in]  pki_inscriptiontemp_id qint32 [required]
+    */
+    virtual void inscriptiontempGetDocumenttypechecklistV1(const qint32 &pki_inscriptiontemp_id);
+
+    /**
     * @param[in]  e_order_by QString [optional]
     * @param[in]  i_row_max qint32 [optional]
     * @param[in]  i_row_offset qint32 [optional]
@@ -114,6 +122,12 @@ public:
     * @param[in]  inscriptiontemp_import_into_edm_v1_request Inscriptiontemp_importIntoEDM_v1_Request [required]
     */
     virtual void inscriptiontempImportIntoEDMV1(const qint32 &pki_inscriptiontemp_id, const Inscriptiontemp_importIntoEDM_v1_Request &inscriptiontemp_import_into_edm_v1_request);
+
+    /**
+    * @param[in]  pki_inscriptiontemp_id qint32 [required]
+    * @param[in]  body Object [optional]
+    */
+    virtual void inscriptiontempSyncDocumenttypechecklistV1(const qint32 &pki_inscriptiontemp_id, const ::Ezmaxapi::OptionalParam<Object> &body = ::Ezmaxapi::OptionalParam<Object>());
 
 
 private:
@@ -151,8 +165,10 @@ private:
     void inscriptiontempGetCommunicationListV1Callback(HttpRequestWorker *worker);
     void inscriptiontempGetCommunicationrecipientsV1Callback(HttpRequestWorker *worker);
     void inscriptiontempGetCommunicationsendersV1Callback(HttpRequestWorker *worker);
+    void inscriptiontempGetDocumenttypechecklistV1Callback(HttpRequestWorker *worker);
     void inscriptiontempGetListV1Callback(HttpRequestWorker *worker);
     void inscriptiontempImportIntoEDMV1Callback(HttpRequestWorker *worker);
+    void inscriptiontempSyncDocumenttypechecklistV1Callback(HttpRequestWorker *worker);
 
 Q_SIGNALS:
 
@@ -162,8 +178,10 @@ Q_SIGNALS:
     void inscriptiontempGetCommunicationListV1Signal(Inscriptiontemp_getCommunicationList_v1_Response summary);
     void inscriptiontempGetCommunicationrecipientsV1Signal(Inscriptiontemp_getCommunicationrecipients_v1_Response summary);
     void inscriptiontempGetCommunicationsendersV1Signal(Inscriptiontemp_getCommunicationsenders_v1_Response summary);
+    void inscriptiontempGetDocumenttypechecklistV1Signal(Inscriptiontemp_getDocumenttypechecklist_v1_Response summary);
     void inscriptiontempGetListV1Signal(Inscriptiontemp_getList_v1_Response summary);
     void inscriptiontempImportIntoEDMV1Signal(Inscriptiontemp_importIntoEDM_v1_Response summary);
+    void inscriptiontempSyncDocumenttypechecklistV1Signal(Inscriptiontemp_syncDocumenttypechecklist_v1_Response summary);
 
 
     void inscriptiontempBatchDownloadV1SignalFull(HttpRequestWorker *worker, HttpFileElement summary);
@@ -172,8 +190,10 @@ Q_SIGNALS:
     void inscriptiontempGetCommunicationListV1SignalFull(HttpRequestWorker *worker, Inscriptiontemp_getCommunicationList_v1_Response summary);
     void inscriptiontempGetCommunicationrecipientsV1SignalFull(HttpRequestWorker *worker, Inscriptiontemp_getCommunicationrecipients_v1_Response summary);
     void inscriptiontempGetCommunicationsendersV1SignalFull(HttpRequestWorker *worker, Inscriptiontemp_getCommunicationsenders_v1_Response summary);
+    void inscriptiontempGetDocumenttypechecklistV1SignalFull(HttpRequestWorker *worker, Inscriptiontemp_getDocumenttypechecklist_v1_Response summary);
     void inscriptiontempGetListV1SignalFull(HttpRequestWorker *worker, Inscriptiontemp_getList_v1_Response summary);
     void inscriptiontempImportIntoEDMV1SignalFull(HttpRequestWorker *worker, Inscriptiontemp_importIntoEDM_v1_Response summary);
+    void inscriptiontempSyncDocumenttypechecklistV1SignalFull(HttpRequestWorker *worker, Inscriptiontemp_syncDocumenttypechecklist_v1_Response summary);
 
     void inscriptiontempBatchDownloadV1SignalError(HttpFileElement summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void inscriptiontempGetAttachmentsV1SignalError(Inscriptiontemp_getAttachments_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -181,8 +201,10 @@ Q_SIGNALS:
     void inscriptiontempGetCommunicationListV1SignalError(Inscriptiontemp_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void inscriptiontempGetCommunicationrecipientsV1SignalError(Inscriptiontemp_getCommunicationrecipients_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void inscriptiontempGetCommunicationsendersV1SignalError(Inscriptiontemp_getCommunicationsenders_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void inscriptiontempGetDocumenttypechecklistV1SignalError(Inscriptiontemp_getDocumenttypechecklist_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void inscriptiontempGetListV1SignalError(Inscriptiontemp_getList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void inscriptiontempImportIntoEDMV1SignalError(Inscriptiontemp_importIntoEDM_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void inscriptiontempSyncDocumenttypechecklistV1SignalError(Inscriptiontemp_syncDocumenttypechecklist_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void inscriptiontempBatchDownloadV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void inscriptiontempGetAttachmentsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -190,8 +212,10 @@ Q_SIGNALS:
     void inscriptiontempGetCommunicationListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void inscriptiontempGetCommunicationrecipientsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void inscriptiontempGetCommunicationsendersV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void inscriptiontempGetDocumenttypechecklistV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void inscriptiontempGetListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void inscriptiontempImportIntoEDMV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void inscriptiontempSyncDocumenttypechecklistV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();

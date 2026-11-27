@@ -13,7 +13,7 @@
 /*
  * Field_eDocumenttypeStatusdefault.h
  *
- * The statusdefault of the Documenttype
+ * The default status requirement for the document type
  */
 
 #ifndef Field_eDocumenttypeStatusdefault_H
@@ -41,7 +41,8 @@ public:
     enum class eField_eDocumenttypeStatusdefault {
         INVALID_VALUE_OPENAPI_GENERATED = 0,
         NOT_REQUIRED, 
-        REQUIRED
+        REQUIRED, 
+        MANDATORY
     };
     Field_eDocumenttypeStatusdefault::eField_eDocumenttypeStatusdefault getValue() const;
     void setValue(const Field_eDocumenttypeStatusdefault::eField_eDocumenttypeStatusdefault& value);

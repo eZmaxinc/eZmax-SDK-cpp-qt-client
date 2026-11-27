@@ -85,10 +85,14 @@ void ObjectDeposittransitchequeApi::initializeServerConfigs() {
     _serverIndices.insert("deposittransitchequeGetCommunicationrecipientsV1", 0);
     _serverConfigs.insert("deposittransitchequeGetCommunicationsendersV1", defaultConf);
     _serverIndices.insert("deposittransitchequeGetCommunicationsendersV1", 0);
+    _serverConfigs.insert("deposittransitchequeGetDocumenttypechecklistV1", defaultConf);
+    _serverIndices.insert("deposittransitchequeGetDocumenttypechecklistV1", 0);
     _serverConfigs.insert("deposittransitchequeGetListV1", defaultConf);
     _serverIndices.insert("deposittransitchequeGetListV1", 0);
     _serverConfigs.insert("deposittransitchequeImportIntoEDMV1", defaultConf);
     _serverIndices.insert("deposittransitchequeImportIntoEDMV1", 0);
+    _serverConfigs.insert("deposittransitchequeSyncDocumenttypechecklistV1", defaultConf);
+    _serverIndices.insert("deposittransitchequeSyncDocumenttypechecklistV1", 0);
 }
 
 /**
@@ -647,6 +651,68 @@ void ObjectDeposittransitchequeApi::deposittransitchequeGetCommunicationsendersV
     }
 }
 
+void ObjectDeposittransitchequeApi::deposittransitchequeGetDocumenttypechecklistV1(const qint32 &pki_deposittransitcheque_id) {
+    QString fullPath = QString(_serverConfigs["deposittransitchequeGetDocumenttypechecklistV1"][_serverIndices.value("deposittransitchequeGetDocumenttypechecklistV1")].URL()+"/1/object/deposittransitcheque/{pkiDeposittransitchequeID}/getDocumenttypechecklist");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_deposittransitcheque_idPathParam("{");
+        pki_deposittransitcheque_idPathParam.append("pkiDeposittransitchequeID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiDeposittransitchequeID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiDeposittransitchequeID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_deposittransitcheque_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_deposittransitcheque_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectDeposittransitchequeApi::deposittransitchequeGetDocumenttypechecklistV1Callback);
+    connect(this, &ObjectDeposittransitchequeApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectDeposittransitchequeApi::deposittransitchequeGetDocumenttypechecklistV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Deposittransitcheque_getDocumenttypechecklist_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT deposittransitchequeGetDocumenttypechecklistV1Signal(output);
+        Q_EMIT deposittransitchequeGetDocumenttypechecklistV1SignalFull(worker, output);
+    } else {
+        Q_EMIT deposittransitchequeGetDocumenttypechecklistV1SignalError(output, error_type, error_str);
+        Q_EMIT deposittransitchequeGetDocumenttypechecklistV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
 void ObjectDeposittransitchequeApi::deposittransitchequeGetListV1(const ::Ezmaxapi::OptionalParam<QString> &e_order_by, const ::Ezmaxapi::OptionalParam<qint32> &i_row_max, const ::Ezmaxapi::OptionalParam<qint32> &i_row_offset, const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language, const ::Ezmaxapi::OptionalParam<QString> &s_filter) {
     QString fullPath = QString(_serverConfigs["deposittransitchequeGetListV1"][_serverIndices.value("deposittransitchequeGetListV1")].URL()+"/1/object/deposittransitcheque/getList");
     
@@ -864,6 +930,73 @@ void ObjectDeposittransitchequeApi::deposittransitchequeImportIntoEDMV1Callback(
     } else {
         Q_EMIT deposittransitchequeImportIntoEDMV1SignalError(output, error_type, error_str);
         Q_EMIT deposittransitchequeImportIntoEDMV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectDeposittransitchequeApi::deposittransitchequeSyncDocumenttypechecklistV1(const qint32 &pki_deposittransitcheque_id, const ::Ezmaxapi::OptionalParam<Object> &body) {
+    QString fullPath = QString(_serverConfigs["deposittransitchequeSyncDocumenttypechecklistV1"][_serverIndices.value("deposittransitchequeSyncDocumenttypechecklistV1")].URL()+"/1/object/deposittransitcheque/{pkiDeposittransitchequeID}/syncDocumenttypechecklist");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_deposittransitcheque_idPathParam("{");
+        pki_deposittransitcheque_idPathParam.append("pkiDeposittransitchequeID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiDeposittransitchequeID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiDeposittransitchequeID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_deposittransitcheque_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_deposittransitcheque_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "POST");
+
+    if (body.hasValue()){
+
+        
+        QByteArray output = body.value().asJson().toUtf8();
+        input.request_body.append(output);
+    }
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectDeposittransitchequeApi::deposittransitchequeSyncDocumenttypechecklistV1Callback);
+    connect(this, &ObjectDeposittransitchequeApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectDeposittransitchequeApi::deposittransitchequeSyncDocumenttypechecklistV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Deposittransitcheque_syncDocumenttypechecklist_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT deposittransitchequeSyncDocumenttypechecklistV1Signal(output);
+        Q_EMIT deposittransitchequeSyncDocumenttypechecklistV1SignalFull(worker, output);
+    } else {
+        Q_EMIT deposittransitchequeSyncDocumenttypechecklistV1SignalError(output, error_type, error_str);
+        Q_EMIT deposittransitchequeSyncDocumenttypechecklistV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

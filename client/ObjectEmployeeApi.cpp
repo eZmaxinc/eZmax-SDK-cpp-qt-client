@@ -85,10 +85,14 @@ void ObjectEmployeeApi::initializeServerConfigs() {
     _serverIndices.insert("employeeGetCommunicationrecipientsV1", 0);
     _serverConfigs.insert("employeeGetCommunicationsendersV1", defaultConf);
     _serverIndices.insert("employeeGetCommunicationsendersV1", 0);
+    _serverConfigs.insert("employeeGetDocumenttypechecklistV1", defaultConf);
+    _serverIndices.insert("employeeGetDocumenttypechecklistV1", 0);
     _serverConfigs.insert("employeeGetListV1", defaultConf);
     _serverIndices.insert("employeeGetListV1", 0);
     _serverConfigs.insert("employeeImportIntoEDMV1", defaultConf);
     _serverIndices.insert("employeeImportIntoEDMV1", 0);
+    _serverConfigs.insert("employeeSyncDocumenttypechecklistV1", defaultConf);
+    _serverIndices.insert("employeeSyncDocumenttypechecklistV1", 0);
 }
 
 /**
@@ -647,6 +651,68 @@ void ObjectEmployeeApi::employeeGetCommunicationsendersV1Callback(HttpRequestWor
     }
 }
 
+void ObjectEmployeeApi::employeeGetDocumenttypechecklistV1(const qint32 &pki_employee_id) {
+    QString fullPath = QString(_serverConfigs["employeeGetDocumenttypechecklistV1"][_serverIndices.value("employeeGetDocumenttypechecklistV1")].URL()+"/1/object/employee/{pkiEmployeeID}/getDocumenttypechecklist");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_employee_idPathParam("{");
+        pki_employee_idPathParam.append("pkiEmployeeID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEmployeeID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEmployeeID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_employee_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_employee_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEmployeeApi::employeeGetDocumenttypechecklistV1Callback);
+    connect(this, &ObjectEmployeeApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectEmployeeApi::employeeGetDocumenttypechecklistV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Employee_getDocumenttypechecklist_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT employeeGetDocumenttypechecklistV1Signal(output);
+        Q_EMIT employeeGetDocumenttypechecklistV1SignalFull(worker, output);
+    } else {
+        Q_EMIT employeeGetDocumenttypechecklistV1SignalError(output, error_type, error_str);
+        Q_EMIT employeeGetDocumenttypechecklistV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
 void ObjectEmployeeApi::employeeGetListV1(const ::Ezmaxapi::OptionalParam<QString> &e_order_by, const ::Ezmaxapi::OptionalParam<qint32> &i_row_max, const ::Ezmaxapi::OptionalParam<qint32> &i_row_offset, const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language, const ::Ezmaxapi::OptionalParam<QString> &s_filter) {
     QString fullPath = QString(_serverConfigs["employeeGetListV1"][_serverIndices.value("employeeGetListV1")].URL()+"/1/object/employee/getList");
     
@@ -864,6 +930,73 @@ void ObjectEmployeeApi::employeeImportIntoEDMV1Callback(HttpRequestWorker *worke
     } else {
         Q_EMIT employeeImportIntoEDMV1SignalError(output, error_type, error_str);
         Q_EMIT employeeImportIntoEDMV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectEmployeeApi::employeeSyncDocumenttypechecklistV1(const qint32 &pki_employee_id, const ::Ezmaxapi::OptionalParam<Object> &body) {
+    QString fullPath = QString(_serverConfigs["employeeSyncDocumenttypechecklistV1"][_serverIndices.value("employeeSyncDocumenttypechecklistV1")].URL()+"/1/object/employee/{pkiEmployeeID}/syncDocumenttypechecklist");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_employee_idPathParam("{");
+        pki_employee_idPathParam.append("pkiEmployeeID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiEmployeeID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiEmployeeID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_employee_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_employee_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "POST");
+
+    if (body.hasValue()){
+
+        
+        QByteArray output = body.value().asJson().toUtf8();
+        input.request_body.append(output);
+    }
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectEmployeeApi::employeeSyncDocumenttypechecklistV1Callback);
+    connect(this, &ObjectEmployeeApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectEmployeeApi::employeeSyncDocumenttypechecklistV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Employee_syncDocumenttypechecklist_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT employeeSyncDocumenttypechecklistV1Signal(output);
+        Q_EMIT employeeSyncDocumenttypechecklistV1SignalFull(worker, output);
+    } else {
+        Q_EMIT employeeSyncDocumenttypechecklistV1SignalError(output, error_type, error_str);
+        Q_EMIT employeeSyncDocumenttypechecklistV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

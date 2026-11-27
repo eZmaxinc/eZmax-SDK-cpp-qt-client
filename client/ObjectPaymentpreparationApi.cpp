@@ -85,8 +85,12 @@ void ObjectPaymentpreparationApi::initializeServerConfigs() {
     _serverIndices.insert("paymentpreparationGetCommunicationrecipientsV1", 0);
     _serverConfigs.insert("paymentpreparationGetCommunicationsendersV1", defaultConf);
     _serverIndices.insert("paymentpreparationGetCommunicationsendersV1", 0);
+    _serverConfigs.insert("paymentpreparationGetDocumenttypechecklistV1", defaultConf);
+    _serverIndices.insert("paymentpreparationGetDocumenttypechecklistV1", 0);
     _serverConfigs.insert("paymentpreparationImportIntoEDMV1", defaultConf);
     _serverIndices.insert("paymentpreparationImportIntoEDMV1", 0);
+    _serverConfigs.insert("paymentpreparationSyncDocumenttypechecklistV1", defaultConf);
+    _serverIndices.insert("paymentpreparationSyncDocumenttypechecklistV1", 0);
 }
 
 /**
@@ -645,6 +649,68 @@ void ObjectPaymentpreparationApi::paymentpreparationGetCommunicationsendersV1Cal
     }
 }
 
+void ObjectPaymentpreparationApi::paymentpreparationGetDocumenttypechecklistV1(const qint32 &pki_paymentpreparation_id) {
+    QString fullPath = QString(_serverConfigs["paymentpreparationGetDocumenttypechecklistV1"][_serverIndices.value("paymentpreparationGetDocumenttypechecklistV1")].URL()+"/1/object/paymentpreparation/{pkiPaymentpreparationID}/getDocumenttypechecklist");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_paymentpreparation_idPathParam("{");
+        pki_paymentpreparation_idPathParam.append("pkiPaymentpreparationID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiPaymentpreparationID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiPaymentpreparationID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_paymentpreparation_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_paymentpreparation_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectPaymentpreparationApi::paymentpreparationGetDocumenttypechecklistV1Callback);
+    connect(this, &ObjectPaymentpreparationApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectPaymentpreparationApi::paymentpreparationGetDocumenttypechecklistV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Paymentpreparation_getDocumenttypechecklist_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT paymentpreparationGetDocumenttypechecklistV1Signal(output);
+        Q_EMIT paymentpreparationGetDocumenttypechecklistV1SignalFull(worker, output);
+    } else {
+        Q_EMIT paymentpreparationGetDocumenttypechecklistV1SignalError(output, error_type, error_str);
+        Q_EMIT paymentpreparationGetDocumenttypechecklistV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
 void ObjectPaymentpreparationApi::paymentpreparationImportIntoEDMV1(const qint32 &pki_paymentpreparation_id, const Paymentpreparation_importIntoEDM_v1_Request &paymentpreparation_import_into_edm_v1_request) {
     QString fullPath = QString(_serverConfigs["paymentpreparationImportIntoEDMV1"][_serverIndices.value("paymentpreparationImportIntoEDMV1")].URL()+"/1/object/paymentpreparation/{pkiPaymentpreparationID}/importIntoEDM");
     
@@ -709,6 +775,73 @@ void ObjectPaymentpreparationApi::paymentpreparationImportIntoEDMV1Callback(Http
     } else {
         Q_EMIT paymentpreparationImportIntoEDMV1SignalError(output, error_type, error_str);
         Q_EMIT paymentpreparationImportIntoEDMV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectPaymentpreparationApi::paymentpreparationSyncDocumenttypechecklistV1(const qint32 &pki_paymentpreparation_id, const ::Ezmaxapi::OptionalParam<Object> &body) {
+    QString fullPath = QString(_serverConfigs["paymentpreparationSyncDocumenttypechecklistV1"][_serverIndices.value("paymentpreparationSyncDocumenttypechecklistV1")].URL()+"/1/object/paymentpreparation/{pkiPaymentpreparationID}/syncDocumenttypechecklist");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_paymentpreparation_idPathParam("{");
+        pki_paymentpreparation_idPathParam.append("pkiPaymentpreparationID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiPaymentpreparationID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiPaymentpreparationID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_paymentpreparation_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_paymentpreparation_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "POST");
+
+    if (body.hasValue()){
+
+        
+        QByteArray output = body.value().asJson().toUtf8();
+        input.request_body.append(output);
+    }
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectPaymentpreparationApi::paymentpreparationSyncDocumenttypechecklistV1Callback);
+    connect(this, &ObjectPaymentpreparationApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectPaymentpreparationApi::paymentpreparationSyncDocumenttypechecklistV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Paymentpreparation_syncDocumenttypechecklist_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT paymentpreparationSyncDocumenttypechecklistV1Signal(output);
+        Q_EMIT paymentpreparationSyncDocumenttypechecklistV1SignalFull(worker, output);
+    } else {
+        Q_EMIT paymentpreparationSyncDocumenttypechecklistV1SignalError(output, error_type, error_str);
+        Q_EMIT paymentpreparationSyncDocumenttypechecklistV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

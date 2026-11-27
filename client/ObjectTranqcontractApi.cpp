@@ -81,8 +81,12 @@ void ObjectTranqcontractApi::initializeServerConfigs() {
     _serverIndices.insert("tranqcontractGetCommunicationrecipientsV1", 0);
     _serverConfigs.insert("tranqcontractGetCommunicationsendersV1", defaultConf);
     _serverIndices.insert("tranqcontractGetCommunicationsendersV1", 0);
+    _serverConfigs.insert("tranqcontractGetDocumenttypechecklistV1", defaultConf);
+    _serverIndices.insert("tranqcontractGetDocumenttypechecklistV1", 0);
     _serverConfigs.insert("tranqcontractImportIntoEDMV1", defaultConf);
     _serverIndices.insert("tranqcontractImportIntoEDMV1", 0);
+    _serverConfigs.insert("tranqcontractSyncDocumenttypechecklistV1", defaultConf);
+    _serverIndices.insert("tranqcontractSyncDocumenttypechecklistV1", 0);
 }
 
 /**
@@ -512,6 +516,68 @@ void ObjectTranqcontractApi::tranqcontractGetCommunicationsendersV1Callback(Http
     }
 }
 
+void ObjectTranqcontractApi::tranqcontractGetDocumenttypechecklistV1(const qint32 &pki_tranqcontract_id) {
+    QString fullPath = QString(_serverConfigs["tranqcontractGetDocumenttypechecklistV1"][_serverIndices.value("tranqcontractGetDocumenttypechecklistV1")].URL()+"/1/object/tranqcontract/{pkiTranqcontractID}/getDocumenttypechecklist");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_tranqcontract_idPathParam("{");
+        pki_tranqcontract_idPathParam.append("pkiTranqcontractID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiTranqcontractID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiTranqcontractID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_tranqcontract_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_tranqcontract_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectTranqcontractApi::tranqcontractGetDocumenttypechecklistV1Callback);
+    connect(this, &ObjectTranqcontractApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectTranqcontractApi::tranqcontractGetDocumenttypechecklistV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Tranqcontract_getDocumenttypechecklist_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT tranqcontractGetDocumenttypechecklistV1Signal(output);
+        Q_EMIT tranqcontractGetDocumenttypechecklistV1SignalFull(worker, output);
+    } else {
+        Q_EMIT tranqcontractGetDocumenttypechecklistV1SignalError(output, error_type, error_str);
+        Q_EMIT tranqcontractGetDocumenttypechecklistV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
 void ObjectTranqcontractApi::tranqcontractImportIntoEDMV1(const qint32 &pki_tranqcontract_id, const Tranqcontract_importIntoEDM_v1_Request &tranqcontract_import_into_edm_v1_request) {
     QString fullPath = QString(_serverConfigs["tranqcontractImportIntoEDMV1"][_serverIndices.value("tranqcontractImportIntoEDMV1")].URL()+"/1/object/tranqcontract/{pkiTranqcontractID}/importIntoEDM");
     
@@ -576,6 +642,73 @@ void ObjectTranqcontractApi::tranqcontractImportIntoEDMV1Callback(HttpRequestWor
     } else {
         Q_EMIT tranqcontractImportIntoEDMV1SignalError(output, error_type, error_str);
         Q_EMIT tranqcontractImportIntoEDMV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectTranqcontractApi::tranqcontractSyncDocumenttypechecklistV1(const qint32 &pki_tranqcontract_id, const ::Ezmaxapi::OptionalParam<Object> &body) {
+    QString fullPath = QString(_serverConfigs["tranqcontractSyncDocumenttypechecklistV1"][_serverIndices.value("tranqcontractSyncDocumenttypechecklistV1")].URL()+"/1/object/tranqcontract/{pkiTranqcontractID}/syncDocumenttypechecklist");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_tranqcontract_idPathParam("{");
+        pki_tranqcontract_idPathParam.append("pkiTranqcontractID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiTranqcontractID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiTranqcontractID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_tranqcontract_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_tranqcontract_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "POST");
+
+    if (body.hasValue()){
+
+        
+        QByteArray output = body.value().asJson().toUtf8();
+        input.request_body.append(output);
+    }
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectTranqcontractApi::tranqcontractSyncDocumenttypechecklistV1Callback);
+    connect(this, &ObjectTranqcontractApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectTranqcontractApi::tranqcontractSyncDocumenttypechecklistV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Tranqcontract_syncDocumenttypechecklist_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT tranqcontractSyncDocumenttypechecklistV1Signal(output);
+        Q_EMIT tranqcontractSyncDocumenttypechecklistV1SignalFull(worker, output);
+    } else {
+        Q_EMIT tranqcontractSyncDocumenttypechecklistV1SignalError(output, error_type, error_str);
+        Q_EMIT tranqcontractSyncDocumenttypechecklistV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

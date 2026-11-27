@@ -34,12 +34,6 @@ Discussion_improveMessage_v1_Request::~Discussion_improveMessage_v1_Request() {}
 
 void Discussion_improveMessage_v1_Request::initializeModel() {
 
-    m_fki_discussion_id_isSet = false;
-    m_fki_discussion_id_isValid = false;
-
-    m_e_discussion_robot_isSet = false;
-    m_e_discussion_robot_isValid = false;
-
     m_t_discussion_message_isSet = false;
     m_t_discussion_message_isValid = false;
 }
@@ -52,12 +46,6 @@ void Discussion_improveMessage_v1_Request::fromJson(const QString &jsonString) {
 }
 
 void Discussion_improveMessage_v1_Request::fromJsonObject(QJsonObject json) {
-
-    m_fki_discussion_id_isValid = ::Ezmaxapi::fromJsonValue(m_fki_discussion_id, json[QString("fkiDiscussionID")]);
-    m_fki_discussion_id_isSet = !json[QString("fkiDiscussionID")].isNull() && m_fki_discussion_id_isValid;
-
-    m_e_discussion_robot_isValid = ::Ezmaxapi::fromJsonValue(m_e_discussion_robot, json[QString("eDiscussionRobot")]);
-    m_e_discussion_robot_isSet = !json[QString("eDiscussionRobot")].isNull() && m_e_discussion_robot_isValid;
 
     m_t_discussion_message_isValid = ::Ezmaxapi::fromJsonValue(m_t_discussion_message, json[QString("tDiscussionMessage")]);
     m_t_discussion_message_isSet = !json[QString("tDiscussionMessage")].isNull() && m_t_discussion_message_isValid;
@@ -72,48 +60,10 @@ QString Discussion_improveMessage_v1_Request::asJson() const {
 
 QJsonObject Discussion_improveMessage_v1_Request::asJsonObject() const {
     QJsonObject obj;
-    if (m_fki_discussion_id_isSet) {
-        obj.insert(QString("fkiDiscussionID"), ::Ezmaxapi::toJsonValue(m_fki_discussion_id));
-    }
-    if (m_e_discussion_robot.isSet()) {
-        obj.insert(QString("eDiscussionRobot"), ::Ezmaxapi::toJsonValue(m_e_discussion_robot));
-    }
     if (m_t_discussion_message_isSet) {
         obj.insert(QString("tDiscussionMessage"), ::Ezmaxapi::toJsonValue(m_t_discussion_message));
     }
     return obj;
-}
-
-qint32 Discussion_improveMessage_v1_Request::getFkiDiscussionId() const {
-    return m_fki_discussion_id;
-}
-void Discussion_improveMessage_v1_Request::setFkiDiscussionId(const qint32 &fki_discussion_id) {
-    m_fki_discussion_id = fki_discussion_id;
-    m_fki_discussion_id_isSet = true;
-}
-
-bool Discussion_improveMessage_v1_Request::is_fki_discussion_id_Set() const{
-    return m_fki_discussion_id_isSet;
-}
-
-bool Discussion_improveMessage_v1_Request::is_fki_discussion_id_Valid() const{
-    return m_fki_discussion_id_isValid;
-}
-
-Field_eDiscussionRobot Discussion_improveMessage_v1_Request::getEDiscussionRobot() const {
-    return m_e_discussion_robot;
-}
-void Discussion_improveMessage_v1_Request::setEDiscussionRobot(const Field_eDiscussionRobot &e_discussion_robot) {
-    m_e_discussion_robot = e_discussion_robot;
-    m_e_discussion_robot_isSet = true;
-}
-
-bool Discussion_improveMessage_v1_Request::is_e_discussion_robot_Set() const{
-    return m_e_discussion_robot_isSet;
-}
-
-bool Discussion_improveMessage_v1_Request::is_e_discussion_robot_Valid() const{
-    return m_e_discussion_robot_isValid;
 }
 
 QString Discussion_improveMessage_v1_Request::getTDiscussionMessage() const {
@@ -135,16 +85,6 @@ bool Discussion_improveMessage_v1_Request::is_t_discussion_message_Valid() const
 bool Discussion_improveMessage_v1_Request::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (m_fki_discussion_id_isSet) {
-            isObjectUpdated = true;
-            break;
-        }
-
-        if (m_e_discussion_robot.isSet()) {
-            isObjectUpdated = true;
-            break;
-        }
-
         if (m_t_discussion_message_isSet) {
             isObjectUpdated = true;
             break;
@@ -155,7 +95,7 @@ bool Discussion_improveMessage_v1_Request::isSet() const {
 
 bool Discussion_improveMessage_v1_Request::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_e_discussion_robot_isValid && m_t_discussion_message_isValid && true;
+    return m_t_discussion_message_isValid && true;
 }
 
 } // namespace Ezmaxapi

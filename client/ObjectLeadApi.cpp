@@ -85,10 +85,14 @@ void ObjectLeadApi::initializeServerConfigs() {
     _serverIndices.insert("leadGetCommunicationrecipientsV1", 0);
     _serverConfigs.insert("leadGetCommunicationsendersV1", defaultConf);
     _serverIndices.insert("leadGetCommunicationsendersV1", 0);
+    _serverConfigs.insert("leadGetDocumenttypechecklistV1", defaultConf);
+    _serverIndices.insert("leadGetDocumenttypechecklistV1", 0);
     _serverConfigs.insert("leadGetListV1", defaultConf);
     _serverIndices.insert("leadGetListV1", 0);
     _serverConfigs.insert("leadImportIntoEDMV1", defaultConf);
     _serverIndices.insert("leadImportIntoEDMV1", 0);
+    _serverConfigs.insert("leadSyncDocumenttypechecklistV1", defaultConf);
+    _serverIndices.insert("leadSyncDocumenttypechecklistV1", 0);
 }
 
 /**
@@ -647,6 +651,68 @@ void ObjectLeadApi::leadGetCommunicationsendersV1Callback(HttpRequestWorker *wor
     }
 }
 
+void ObjectLeadApi::leadGetDocumenttypechecklistV1(const qint32 &pki_lead_id) {
+    QString fullPath = QString(_serverConfigs["leadGetDocumenttypechecklistV1"][_serverIndices.value("leadGetDocumenttypechecklistV1")].URL()+"/1/object/lead/{pkiLeadID}/getDocumenttypechecklist");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_lead_idPathParam("{");
+        pki_lead_idPathParam.append("pkiLeadID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiLeadID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiLeadID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_lead_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_lead_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectLeadApi::leadGetDocumenttypechecklistV1Callback);
+    connect(this, &ObjectLeadApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectLeadApi::leadGetDocumenttypechecklistV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Lead_getDocumenttypechecklist_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT leadGetDocumenttypechecklistV1Signal(output);
+        Q_EMIT leadGetDocumenttypechecklistV1SignalFull(worker, output);
+    } else {
+        Q_EMIT leadGetDocumenttypechecklistV1SignalError(output, error_type, error_str);
+        Q_EMIT leadGetDocumenttypechecklistV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
 void ObjectLeadApi::leadGetListV1(const ::Ezmaxapi::OptionalParam<QString> &e_order_by, const ::Ezmaxapi::OptionalParam<qint32> &i_row_max, const ::Ezmaxapi::OptionalParam<qint32> &i_row_offset, const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language, const ::Ezmaxapi::OptionalParam<QString> &s_filter) {
     QString fullPath = QString(_serverConfigs["leadGetListV1"][_serverIndices.value("leadGetListV1")].URL()+"/1/object/lead/getList");
     
@@ -864,6 +930,73 @@ void ObjectLeadApi::leadImportIntoEDMV1Callback(HttpRequestWorker *worker) {
     } else {
         Q_EMIT leadImportIntoEDMV1SignalError(output, error_type, error_str);
         Q_EMIT leadImportIntoEDMV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectLeadApi::leadSyncDocumenttypechecklistV1(const qint32 &pki_lead_id, const ::Ezmaxapi::OptionalParam<Object> &body) {
+    QString fullPath = QString(_serverConfigs["leadSyncDocumenttypechecklistV1"][_serverIndices.value("leadSyncDocumenttypechecklistV1")].URL()+"/1/object/lead/{pkiLeadID}/syncDocumenttypechecklist");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_lead_idPathParam("{");
+        pki_lead_idPathParam.append("pkiLeadID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiLeadID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiLeadID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_lead_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_lead_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "POST");
+
+    if (body.hasValue()){
+
+        
+        QByteArray output = body.value().asJson().toUtf8();
+        input.request_body.append(output);
+    }
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectLeadApi::leadSyncDocumenttypechecklistV1Callback);
+    connect(this, &ObjectLeadApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectLeadApi::leadSyncDocumenttypechecklistV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Lead_syncDocumenttypechecklist_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT leadSyncDocumenttypechecklistV1Signal(output);
+        Q_EMIT leadSyncDocumenttypechecklistV1SignalFull(worker, output);
+    } else {
+        Q_EMIT leadSyncDocumenttypechecklistV1SignalError(output, error_type, error_str);
+        Q_EMIT leadSyncDocumenttypechecklistV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

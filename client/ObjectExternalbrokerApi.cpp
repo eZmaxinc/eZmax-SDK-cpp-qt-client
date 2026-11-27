@@ -85,8 +85,12 @@ void ObjectExternalbrokerApi::initializeServerConfigs() {
     _serverIndices.insert("externalbrokerGetCommunicationrecipientsV1", 0);
     _serverConfigs.insert("externalbrokerGetCommunicationsendersV1", defaultConf);
     _serverIndices.insert("externalbrokerGetCommunicationsendersV1", 0);
+    _serverConfigs.insert("externalbrokerGetDocumenttypechecklistV1", defaultConf);
+    _serverIndices.insert("externalbrokerGetDocumenttypechecklistV1", 0);
     _serverConfigs.insert("externalbrokerImportIntoEDMV1", defaultConf);
     _serverIndices.insert("externalbrokerImportIntoEDMV1", 0);
+    _serverConfigs.insert("externalbrokerSyncDocumenttypechecklistV1", defaultConf);
+    _serverIndices.insert("externalbrokerSyncDocumenttypechecklistV1", 0);
 }
 
 /**
@@ -645,6 +649,68 @@ void ObjectExternalbrokerApi::externalbrokerGetCommunicationsendersV1Callback(Ht
     }
 }
 
+void ObjectExternalbrokerApi::externalbrokerGetDocumenttypechecklistV1(const qint32 &pki_externalbroker_id) {
+    QString fullPath = QString(_serverConfigs["externalbrokerGetDocumenttypechecklistV1"][_serverIndices.value("externalbrokerGetDocumenttypechecklistV1")].URL()+"/1/object/externalbroker/{pkiExternalbrokerID}/getDocumenttypechecklist");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_externalbroker_idPathParam("{");
+        pki_externalbroker_idPathParam.append("pkiExternalbrokerID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiExternalbrokerID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiExternalbrokerID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_externalbroker_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_externalbroker_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectExternalbrokerApi::externalbrokerGetDocumenttypechecklistV1Callback);
+    connect(this, &ObjectExternalbrokerApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectExternalbrokerApi::externalbrokerGetDocumenttypechecklistV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Externalbroker_getDocumenttypechecklist_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT externalbrokerGetDocumenttypechecklistV1Signal(output);
+        Q_EMIT externalbrokerGetDocumenttypechecklistV1SignalFull(worker, output);
+    } else {
+        Q_EMIT externalbrokerGetDocumenttypechecklistV1SignalError(output, error_type, error_str);
+        Q_EMIT externalbrokerGetDocumenttypechecklistV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
 void ObjectExternalbrokerApi::externalbrokerImportIntoEDMV1(const qint32 &pki_externalbroker_id, const Externalbroker_importIntoEDM_v1_Request &externalbroker_import_into_edm_v1_request) {
     QString fullPath = QString(_serverConfigs["externalbrokerImportIntoEDMV1"][_serverIndices.value("externalbrokerImportIntoEDMV1")].URL()+"/1/object/externalbroker/{pkiExternalbrokerID}/importIntoEDM");
     
@@ -709,6 +775,73 @@ void ObjectExternalbrokerApi::externalbrokerImportIntoEDMV1Callback(HttpRequestW
     } else {
         Q_EMIT externalbrokerImportIntoEDMV1SignalError(output, error_type, error_str);
         Q_EMIT externalbrokerImportIntoEDMV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectExternalbrokerApi::externalbrokerSyncDocumenttypechecklistV1(const qint32 &pki_externalbroker_id, const ::Ezmaxapi::OptionalParam<Object> &body) {
+    QString fullPath = QString(_serverConfigs["externalbrokerSyncDocumenttypechecklistV1"][_serverIndices.value("externalbrokerSyncDocumenttypechecklistV1")].URL()+"/1/object/externalbroker/{pkiExternalbrokerID}/syncDocumenttypechecklist");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_externalbroker_idPathParam("{");
+        pki_externalbroker_idPathParam.append("pkiExternalbrokerID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiExternalbrokerID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiExternalbrokerID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_externalbroker_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_externalbroker_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "POST");
+
+    if (body.hasValue()){
+
+        
+        QByteArray output = body.value().asJson().toUtf8();
+        input.request_body.append(output);
+    }
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectExternalbrokerApi::externalbrokerSyncDocumenttypechecklistV1Callback);
+    connect(this, &ObjectExternalbrokerApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectExternalbrokerApi::externalbrokerSyncDocumenttypechecklistV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Externalbroker_syncDocumenttypechecklist_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT externalbrokerSyncDocumenttypechecklistV1Signal(output);
+        Q_EMIT externalbrokerSyncDocumenttypechecklistV1SignalFull(worker, output);
+    } else {
+        Q_EMIT externalbrokerSyncDocumenttypechecklistV1SignalError(output, error_type, error_str);
+        Q_EMIT externalbrokerSyncDocumenttypechecklistV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

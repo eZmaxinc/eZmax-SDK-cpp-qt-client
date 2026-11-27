@@ -13,7 +13,7 @@
 /*
  * Field_eDocumenttypeSaledisplaybyrole.h
  *
- * The saledisplaybyrole of the Documenttype
+ * The role that determines document display in sale transactions
  */
 
 #ifndef Field_eDocumenttypeSaledisplaybyrole_H

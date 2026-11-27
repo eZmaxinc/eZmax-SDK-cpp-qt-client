@@ -85,8 +85,12 @@ void ObjectReconciliationApi::initializeServerConfigs() {
     _serverIndices.insert("reconciliationGetCommunicationrecipientsV1", 0);
     _serverConfigs.insert("reconciliationGetCommunicationsendersV1", defaultConf);
     _serverIndices.insert("reconciliationGetCommunicationsendersV1", 0);
+    _serverConfigs.insert("reconciliationGetDocumenttypechecklistV1", defaultConf);
+    _serverIndices.insert("reconciliationGetDocumenttypechecklistV1", 0);
     _serverConfigs.insert("reconciliationImportIntoEDMV1", defaultConf);
     _serverIndices.insert("reconciliationImportIntoEDMV1", 0);
+    _serverConfigs.insert("reconciliationSyncDocumenttypechecklistV1", defaultConf);
+    _serverIndices.insert("reconciliationSyncDocumenttypechecklistV1", 0);
 }
 
 /**
@@ -645,6 +649,68 @@ void ObjectReconciliationApi::reconciliationGetCommunicationsendersV1Callback(Ht
     }
 }
 
+void ObjectReconciliationApi::reconciliationGetDocumenttypechecklistV1(const qint32 &pki_reconciliation_id) {
+    QString fullPath = QString(_serverConfigs["reconciliationGetDocumenttypechecklistV1"][_serverIndices.value("reconciliationGetDocumenttypechecklistV1")].URL()+"/1/object/reconciliation/{pkiReconciliationID}/getDocumenttypechecklist");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_reconciliation_idPathParam("{");
+        pki_reconciliation_idPathParam.append("pkiReconciliationID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiReconciliationID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiReconciliationID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_reconciliation_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_reconciliation_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectReconciliationApi::reconciliationGetDocumenttypechecklistV1Callback);
+    connect(this, &ObjectReconciliationApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectReconciliationApi::reconciliationGetDocumenttypechecklistV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Reconciliation_getDocumenttypechecklist_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT reconciliationGetDocumenttypechecklistV1Signal(output);
+        Q_EMIT reconciliationGetDocumenttypechecklistV1SignalFull(worker, output);
+    } else {
+        Q_EMIT reconciliationGetDocumenttypechecklistV1SignalError(output, error_type, error_str);
+        Q_EMIT reconciliationGetDocumenttypechecklistV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
 void ObjectReconciliationApi::reconciliationImportIntoEDMV1(const qint32 &pki_reconciliation_id, const Reconciliation_importIntoEDM_v1_Request &reconciliation_import_into_edm_v1_request) {
     QString fullPath = QString(_serverConfigs["reconciliationImportIntoEDMV1"][_serverIndices.value("reconciliationImportIntoEDMV1")].URL()+"/1/object/reconciliation/{pkiReconciliationID}/importIntoEDM");
     
@@ -709,6 +775,73 @@ void ObjectReconciliationApi::reconciliationImportIntoEDMV1Callback(HttpRequestW
     } else {
         Q_EMIT reconciliationImportIntoEDMV1SignalError(output, error_type, error_str);
         Q_EMIT reconciliationImportIntoEDMV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectReconciliationApi::reconciliationSyncDocumenttypechecklistV1(const qint32 &pki_reconciliation_id, const ::Ezmaxapi::OptionalParam<Object> &body) {
+    QString fullPath = QString(_serverConfigs["reconciliationSyncDocumenttypechecklistV1"][_serverIndices.value("reconciliationSyncDocumenttypechecklistV1")].URL()+"/1/object/reconciliation/{pkiReconciliationID}/syncDocumenttypechecklist");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_reconciliation_idPathParam("{");
+        pki_reconciliation_idPathParam.append("pkiReconciliationID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiReconciliationID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiReconciliationID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_reconciliation_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_reconciliation_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "POST");
+
+    if (body.hasValue()){
+
+        
+        QByteArray output = body.value().asJson().toUtf8();
+        input.request_body.append(output);
+    }
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectReconciliationApi::reconciliationSyncDocumenttypechecklistV1Callback);
+    connect(this, &ObjectReconciliationApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectReconciliationApi::reconciliationSyncDocumenttypechecklistV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Reconciliation_syncDocumenttypechecklist_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT reconciliationSyncDocumenttypechecklistV1Signal(output);
+        Q_EMIT reconciliationSyncDocumenttypechecklistV1SignalFull(worker, output);
+    } else {
+        Q_EMIT reconciliationSyncDocumenttypechecklistV1SignalError(output, error_type, error_str);
+        Q_EMIT reconciliationSyncDocumenttypechecklistV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

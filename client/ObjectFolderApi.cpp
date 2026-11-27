@@ -85,8 +85,12 @@ void ObjectFolderApi::initializeServerConfigs() {
     _serverIndices.insert("folderGetCommunicationrecipientsV1", 0);
     _serverConfigs.insert("folderGetCommunicationsendersV1", defaultConf);
     _serverIndices.insert("folderGetCommunicationsendersV1", 0);
+    _serverConfigs.insert("folderGetDocumenttypechecklistV1", defaultConf);
+    _serverIndices.insert("folderGetDocumenttypechecklistV1", 0);
     _serverConfigs.insert("folderImportIntoEDMV1", defaultConf);
     _serverIndices.insert("folderImportIntoEDMV1", 0);
+    _serverConfigs.insert("folderSyncDocumenttypechecklistV1", defaultConf);
+    _serverIndices.insert("folderSyncDocumenttypechecklistV1", 0);
 }
 
 /**
@@ -645,6 +649,68 @@ void ObjectFolderApi::folderGetCommunicationsendersV1Callback(HttpRequestWorker 
     }
 }
 
+void ObjectFolderApi::folderGetDocumenttypechecklistV1(const qint32 &pki_folder_id) {
+    QString fullPath = QString(_serverConfigs["folderGetDocumenttypechecklistV1"][_serverIndices.value("folderGetDocumenttypechecklistV1")].URL()+"/1/object/folder/{pkiFolderID}/getDocumenttypechecklist");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_folder_idPathParam("{");
+        pki_folder_idPathParam.append("pkiFolderID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiFolderID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiFolderID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_folder_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_folder_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectFolderApi::folderGetDocumenttypechecklistV1Callback);
+    connect(this, &ObjectFolderApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectFolderApi::folderGetDocumenttypechecklistV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Folder_getDocumenttypechecklist_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT folderGetDocumenttypechecklistV1Signal(output);
+        Q_EMIT folderGetDocumenttypechecklistV1SignalFull(worker, output);
+    } else {
+        Q_EMIT folderGetDocumenttypechecklistV1SignalError(output, error_type, error_str);
+        Q_EMIT folderGetDocumenttypechecklistV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
 void ObjectFolderApi::folderImportIntoEDMV1(const qint32 &pki_folder_id, const Folder_importIntoEDM_v1_Request &folder_import_into_edm_v1_request) {
     QString fullPath = QString(_serverConfigs["folderImportIntoEDMV1"][_serverIndices.value("folderImportIntoEDMV1")].URL()+"/1/object/folder/{pkiFolderID}/importIntoEDM");
     
@@ -709,6 +775,73 @@ void ObjectFolderApi::folderImportIntoEDMV1Callback(HttpRequestWorker *worker) {
     } else {
         Q_EMIT folderImportIntoEDMV1SignalError(output, error_type, error_str);
         Q_EMIT folderImportIntoEDMV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectFolderApi::folderSyncDocumenttypechecklistV1(const qint32 &pki_folder_id, const ::Ezmaxapi::OptionalParam<Object> &body) {
+    QString fullPath = QString(_serverConfigs["folderSyncDocumenttypechecklistV1"][_serverIndices.value("folderSyncDocumenttypechecklistV1")].URL()+"/1/object/folder/{pkiFolderID}/syncDocumenttypechecklist");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_folder_idPathParam("{");
+        pki_folder_idPathParam.append("pkiFolderID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiFolderID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiFolderID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_folder_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_folder_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "POST");
+
+    if (body.hasValue()){
+
+        
+        QByteArray output = body.value().asJson().toUtf8();
+        input.request_body.append(output);
+    }
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectFolderApi::folderSyncDocumenttypechecklistV1Callback);
+    connect(this, &ObjectFolderApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectFolderApi::folderSyncDocumenttypechecklistV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Folder_syncDocumenttypechecklist_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT folderSyncDocumenttypechecklistV1Signal(output);
+        Q_EMIT folderSyncDocumenttypechecklistV1SignalFull(worker, output);
+    } else {
+        Q_EMIT folderSyncDocumenttypechecklistV1SignalError(output, error_type, error_str);
+        Q_EMIT folderSyncDocumenttypechecklistV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

@@ -25,9 +25,12 @@
 #include "Folder_getCommunicationList_v1_Response.h"
 #include "Folder_getCommunicationrecipients_v1_Response.h"
 #include "Folder_getCommunicationsenders_v1_Response.h"
+#include "Folder_getDocumenttypechecklist_v1_Response.h"
 #include "Folder_importIntoEDM_v1_Request.h"
 #include "Folder_importIntoEDM_v1_Response.h"
+#include "Folder_syncDocumenttypechecklist_v1_Response.h"
 #include "HttpFileElement.h"
+#include "Object.h"
 #include <QString>
 
 #include <QObject>
@@ -100,9 +103,20 @@ public:
 
     /**
     * @param[in]  pki_folder_id qint32 [required]
+    */
+    virtual void folderGetDocumenttypechecklistV1(const qint32 &pki_folder_id);
+
+    /**
+    * @param[in]  pki_folder_id qint32 [required]
     * @param[in]  folder_import_into_edm_v1_request Folder_importIntoEDM_v1_Request [required]
     */
     virtual void folderImportIntoEDMV1(const qint32 &pki_folder_id, const Folder_importIntoEDM_v1_Request &folder_import_into_edm_v1_request);
+
+    /**
+    * @param[in]  pki_folder_id qint32 [required]
+    * @param[in]  body Object [optional]
+    */
+    virtual void folderSyncDocumenttypechecklistV1(const qint32 &pki_folder_id, const ::Ezmaxapi::OptionalParam<Object> &body = ::Ezmaxapi::OptionalParam<Object>());
 
 
 private:
@@ -140,7 +154,9 @@ private:
     void folderGetCommunicationListV1Callback(HttpRequestWorker *worker);
     void folderGetCommunicationrecipientsV1Callback(HttpRequestWorker *worker);
     void folderGetCommunicationsendersV1Callback(HttpRequestWorker *worker);
+    void folderGetDocumenttypechecklistV1Callback(HttpRequestWorker *worker);
     void folderImportIntoEDMV1Callback(HttpRequestWorker *worker);
+    void folderSyncDocumenttypechecklistV1Callback(HttpRequestWorker *worker);
 
 Q_SIGNALS:
 
@@ -150,7 +166,9 @@ Q_SIGNALS:
     void folderGetCommunicationListV1Signal(Folder_getCommunicationList_v1_Response summary);
     void folderGetCommunicationrecipientsV1Signal(Folder_getCommunicationrecipients_v1_Response summary);
     void folderGetCommunicationsendersV1Signal(Folder_getCommunicationsenders_v1_Response summary);
+    void folderGetDocumenttypechecklistV1Signal(Folder_getDocumenttypechecklist_v1_Response summary);
     void folderImportIntoEDMV1Signal(Folder_importIntoEDM_v1_Response summary);
+    void folderSyncDocumenttypechecklistV1Signal(Folder_syncDocumenttypechecklist_v1_Response summary);
 
 
     void folderBatchDownloadV1SignalFull(HttpRequestWorker *worker, HttpFileElement summary);
@@ -159,7 +177,9 @@ Q_SIGNALS:
     void folderGetCommunicationListV1SignalFull(HttpRequestWorker *worker, Folder_getCommunicationList_v1_Response summary);
     void folderGetCommunicationrecipientsV1SignalFull(HttpRequestWorker *worker, Folder_getCommunicationrecipients_v1_Response summary);
     void folderGetCommunicationsendersV1SignalFull(HttpRequestWorker *worker, Folder_getCommunicationsenders_v1_Response summary);
+    void folderGetDocumenttypechecklistV1SignalFull(HttpRequestWorker *worker, Folder_getDocumenttypechecklist_v1_Response summary);
     void folderImportIntoEDMV1SignalFull(HttpRequestWorker *worker, Folder_importIntoEDM_v1_Response summary);
+    void folderSyncDocumenttypechecklistV1SignalFull(HttpRequestWorker *worker, Folder_syncDocumenttypechecklist_v1_Response summary);
 
     void folderBatchDownloadV1SignalError(HttpFileElement summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void folderGetAttachmentsV1SignalError(Folder_getAttachments_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -167,7 +187,9 @@ Q_SIGNALS:
     void folderGetCommunicationListV1SignalError(Folder_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void folderGetCommunicationrecipientsV1SignalError(Folder_getCommunicationrecipients_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void folderGetCommunicationsendersV1SignalError(Folder_getCommunicationsenders_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void folderGetDocumenttypechecklistV1SignalError(Folder_getDocumenttypechecklist_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void folderImportIntoEDMV1SignalError(Folder_importIntoEDM_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void folderSyncDocumenttypechecklistV1SignalError(Folder_syncDocumenttypechecklist_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void folderBatchDownloadV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void folderGetAttachmentsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -175,7 +197,9 @@ Q_SIGNALS:
     void folderGetCommunicationListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void folderGetCommunicationrecipientsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void folderGetCommunicationsendersV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void folderGetDocumenttypechecklistV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void folderImportIntoEDMV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void folderSyncDocumenttypechecklistV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();

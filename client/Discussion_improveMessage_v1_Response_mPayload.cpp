@@ -34,8 +34,8 @@ Discussion_improveMessage_v1_Response_mPayload::~Discussion_improveMessage_v1_Re
 
 void Discussion_improveMessage_v1_Response_mPayload::initializeModel() {
 
-    m_a_pki_discussion_id_isSet = false;
-    m_a_pki_discussion_id_isValid = false;
+    m_t_discussion_message_isSet = false;
+    m_t_discussion_message_isValid = false;
 }
 
 void Discussion_improveMessage_v1_Response_mPayload::fromJson(const QString &jsonString) {
@@ -47,8 +47,8 @@ void Discussion_improveMessage_v1_Response_mPayload::fromJson(const QString &jso
 
 void Discussion_improveMessage_v1_Response_mPayload::fromJsonObject(QJsonObject json) {
 
-    m_a_pki_discussion_id_isValid = ::Ezmaxapi::fromJsonValue(m_a_pki_discussion_id, json[QString("a_pkiDiscussionID")]);
-    m_a_pki_discussion_id_isSet = !json[QString("a_pkiDiscussionID")].isNull() && m_a_pki_discussion_id_isValid;
+    m_t_discussion_message_isValid = ::Ezmaxapi::fromJsonValue(m_t_discussion_message, json[QString("tDiscussionMessage")]);
+    m_t_discussion_message_isSet = !json[QString("tDiscussionMessage")].isNull() && m_t_discussion_message_isValid;
 }
 
 QString Discussion_improveMessage_v1_Response_mPayload::asJson() const {
@@ -60,32 +60,32 @@ QString Discussion_improveMessage_v1_Response_mPayload::asJson() const {
 
 QJsonObject Discussion_improveMessage_v1_Response_mPayload::asJsonObject() const {
     QJsonObject obj;
-    if (m_a_pki_discussion_id.size() > 0) {
-        obj.insert(QString("a_pkiDiscussionID"), ::Ezmaxapi::toJsonValue(m_a_pki_discussion_id));
+    if (m_t_discussion_message_isSet) {
+        obj.insert(QString("tDiscussionMessage"), ::Ezmaxapi::toJsonValue(m_t_discussion_message));
     }
     return obj;
 }
 
-QList<qint32> Discussion_improveMessage_v1_Response_mPayload::getAPkiDiscussionId() const {
-    return m_a_pki_discussion_id;
+QString Discussion_improveMessage_v1_Response_mPayload::getTDiscussionMessage() const {
+    return m_t_discussion_message;
 }
-void Discussion_improveMessage_v1_Response_mPayload::setAPkiDiscussionId(const QList<qint32> &a_pki_discussion_id) {
-    m_a_pki_discussion_id = a_pki_discussion_id;
-    m_a_pki_discussion_id_isSet = true;
-}
-
-bool Discussion_improveMessage_v1_Response_mPayload::is_a_pki_discussion_id_Set() const{
-    return m_a_pki_discussion_id_isSet;
+void Discussion_improveMessage_v1_Response_mPayload::setTDiscussionMessage(const QString &t_discussion_message) {
+    m_t_discussion_message = t_discussion_message;
+    m_t_discussion_message_isSet = true;
 }
 
-bool Discussion_improveMessage_v1_Response_mPayload::is_a_pki_discussion_id_Valid() const{
-    return m_a_pki_discussion_id_isValid;
+bool Discussion_improveMessage_v1_Response_mPayload::is_t_discussion_message_Set() const{
+    return m_t_discussion_message_isSet;
+}
+
+bool Discussion_improveMessage_v1_Response_mPayload::is_t_discussion_message_Valid() const{
+    return m_t_discussion_message_isValid;
 }
 
 bool Discussion_improveMessage_v1_Response_mPayload::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (m_a_pki_discussion_id.size() > 0) {
+        if (m_t_discussion_message_isSet) {
             isObjectUpdated = true;
             break;
         }
@@ -95,7 +95,7 @@ bool Discussion_improveMessage_v1_Response_mPayload::isSet() const {
 
 bool Discussion_improveMessage_v1_Response_mPayload::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_a_pki_discussion_id_isValid && true;
+    return m_t_discussion_message_isValid && true;
 }
 
 } // namespace Ezmaxapi

@@ -13,7 +13,7 @@
 /*
  * Field_eDocumenttypeRepossession.h
  *
- * The repossession of the Documenttype
+ * Whether the document type applies to repossession transactions
  */
 
 #ifndef Field_eDocumenttypeRepossession_H

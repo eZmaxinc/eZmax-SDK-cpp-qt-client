@@ -57,6 +57,10 @@ void Field_eDocumenttypechecklistStatus::fromJson(const QString &jsonString) {
         m_value = eField_eDocumenttypechecklistStatus::JUSTIFIED;
         m_value_isSet = m_value_isValid = true;
     }
+    else if ( jsonString.compare("Mandatory", Qt::CaseInsensitive) == 0) {
+        m_value = eField_eDocumenttypechecklistStatus::MANDATORY;
+        m_value_isSet = m_value_isValid = true;
+    }
 }
 
 void Field_eDocumenttypechecklistStatus::fromJsonValue(QJsonValue json) {
@@ -78,6 +82,9 @@ QString Field_eDocumenttypechecklistStatus::asJson() const {
             break;
         case eField_eDocumenttypechecklistStatus::JUSTIFIED:
             val = "Justified";
+            break;
+        case eField_eDocumenttypechecklistStatus::MANDATORY:
+            val = "Mandatory";
             break;
         default:
             break;

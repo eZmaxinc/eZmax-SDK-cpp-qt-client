@@ -75,8 +75,12 @@ void ObjectCommunicationApi::initializeServerConfigs() {
     QMap<QString, ServerVariable>()));
     _serverConfigs.insert("communicationGetCommunicationBodyV1", defaultConf);
     _serverIndices.insert("communicationGetCommunicationBodyV1", 0);
+    _serverConfigs.insert("communicationGetDocumenttypechecklistV1", defaultConf);
+    _serverIndices.insert("communicationGetDocumenttypechecklistV1", 0);
     _serverConfigs.insert("communicationSendV1", defaultConf);
     _serverIndices.insert("communicationSendV1", 0);
+    _serverConfigs.insert("communicationSyncDocumenttypechecklistV1", defaultConf);
+    _serverIndices.insert("communicationSyncDocumenttypechecklistV1", 0);
 }
 
 /**
@@ -319,6 +323,68 @@ void ObjectCommunicationApi::communicationGetCommunicationBodyV1Callback(HttpReq
     }
 }
 
+void ObjectCommunicationApi::communicationGetDocumenttypechecklistV1(const qint32 &pki_communication_id) {
+    QString fullPath = QString(_serverConfigs["communicationGetDocumenttypechecklistV1"][_serverIndices.value("communicationGetDocumenttypechecklistV1")].URL()+"/1/object/communication/{pkiCommunicationID}/getDocumenttypechecklist");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_communication_idPathParam("{");
+        pki_communication_idPathParam.append("pkiCommunicationID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiCommunicationID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiCommunicationID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_communication_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_communication_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectCommunicationApi::communicationGetDocumenttypechecklistV1Callback);
+    connect(this, &ObjectCommunicationApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectCommunicationApi::communicationGetDocumenttypechecklistV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Communication_getDocumenttypechecklist_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT communicationGetDocumenttypechecklistV1Signal(output);
+        Q_EMIT communicationGetDocumenttypechecklistV1SignalFull(worker, output);
+    } else {
+        Q_EMIT communicationGetDocumenttypechecklistV1SignalError(output, error_type, error_str);
+        Q_EMIT communicationGetDocumenttypechecklistV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
 void ObjectCommunicationApi::communicationSendV1(const Communication_send_v1_Request &communication_send_v1_request) {
     QString fullPath = QString(_serverConfigs["communicationSendV1"][_serverIndices.value("communicationSendV1")].URL()+"/1/object/communication/send");
     
@@ -369,6 +435,73 @@ void ObjectCommunicationApi::communicationSendV1Callback(HttpRequestWorker *work
     } else {
         Q_EMIT communicationSendV1SignalError(output, error_type, error_str);
         Q_EMIT communicationSendV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectCommunicationApi::communicationSyncDocumenttypechecklistV1(const qint32 &pki_communication_id, const ::Ezmaxapi::OptionalParam<Object> &body) {
+    QString fullPath = QString(_serverConfigs["communicationSyncDocumenttypechecklistV1"][_serverIndices.value("communicationSyncDocumenttypechecklistV1")].URL()+"/1/object/communication/{pkiCommunicationID}/syncDocumenttypechecklist");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_communication_idPathParam("{");
+        pki_communication_idPathParam.append("pkiCommunicationID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiCommunicationID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiCommunicationID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_communication_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_communication_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "POST");
+
+    if (body.hasValue()){
+
+        
+        QByteArray output = body.value().asJson().toUtf8();
+        input.request_body.append(output);
+    }
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectCommunicationApi::communicationSyncDocumenttypechecklistV1Callback);
+    connect(this, &ObjectCommunicationApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectCommunicationApi::communicationSyncDocumenttypechecklistV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Communication_syncDocumenttypechecklist_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT communicationSyncDocumenttypechecklistV1Signal(output);
+        Q_EMIT communicationSyncDocumenttypechecklistV1SignalFull(worker, output);
+    } else {
+        Q_EMIT communicationSyncDocumenttypechecklistV1SignalError(output, error_type, error_str);
+        Q_EMIT communicationSyncDocumenttypechecklistV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

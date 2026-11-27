@@ -13,7 +13,7 @@
 /*
  * Field_eDocumenttypeSalebyowner.h
  *
- * The salebyowner of the Documenttype
+ * Whether the document type applies to sale by owner transactions
  */
 
 #ifndef Field_eDocumenttypeSalebyowner_H

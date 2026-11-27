@@ -19,12 +19,15 @@
 #include "Oauth.h"
 
 #include "Common_Response_Error.h"
+#include "Object.h"
 #include "Tranqcontract_getCommunicationCount_v1_Response.h"
 #include "Tranqcontract_getCommunicationList_v1_Response.h"
 #include "Tranqcontract_getCommunicationrecipients_v1_Response.h"
 #include "Tranqcontract_getCommunicationsenders_v1_Response.h"
+#include "Tranqcontract_getDocumenttypechecklist_v1_Response.h"
 #include "Tranqcontract_importIntoEDM_v1_Request.h"
 #include "Tranqcontract_importIntoEDM_v1_Response.h"
+#include "Tranqcontract_syncDocumenttypechecklist_v1_Response.h"
 #include <QString>
 
 #include <QObject>
@@ -86,9 +89,20 @@ public:
 
     /**
     * @param[in]  pki_tranqcontract_id qint32 [required]
+    */
+    virtual void tranqcontractGetDocumenttypechecklistV1(const qint32 &pki_tranqcontract_id);
+
+    /**
+    * @param[in]  pki_tranqcontract_id qint32 [required]
     * @param[in]  tranqcontract_import_into_edm_v1_request Tranqcontract_importIntoEDM_v1_Request [required]
     */
     virtual void tranqcontractImportIntoEDMV1(const qint32 &pki_tranqcontract_id, const Tranqcontract_importIntoEDM_v1_Request &tranqcontract_import_into_edm_v1_request);
+
+    /**
+    * @param[in]  pki_tranqcontract_id qint32 [required]
+    * @param[in]  body Object [optional]
+    */
+    virtual void tranqcontractSyncDocumenttypechecklistV1(const qint32 &pki_tranqcontract_id, const ::Ezmaxapi::OptionalParam<Object> &body = ::Ezmaxapi::OptionalParam<Object>());
 
 
 private:
@@ -124,7 +138,9 @@ private:
     void tranqcontractGetCommunicationListV1Callback(HttpRequestWorker *worker);
     void tranqcontractGetCommunicationrecipientsV1Callback(HttpRequestWorker *worker);
     void tranqcontractGetCommunicationsendersV1Callback(HttpRequestWorker *worker);
+    void tranqcontractGetDocumenttypechecklistV1Callback(HttpRequestWorker *worker);
     void tranqcontractImportIntoEDMV1Callback(HttpRequestWorker *worker);
+    void tranqcontractSyncDocumenttypechecklistV1Callback(HttpRequestWorker *worker);
 
 Q_SIGNALS:
 
@@ -132,26 +148,34 @@ Q_SIGNALS:
     void tranqcontractGetCommunicationListV1Signal(Tranqcontract_getCommunicationList_v1_Response summary);
     void tranqcontractGetCommunicationrecipientsV1Signal(Tranqcontract_getCommunicationrecipients_v1_Response summary);
     void tranqcontractGetCommunicationsendersV1Signal(Tranqcontract_getCommunicationsenders_v1_Response summary);
+    void tranqcontractGetDocumenttypechecklistV1Signal(Tranqcontract_getDocumenttypechecklist_v1_Response summary);
     void tranqcontractImportIntoEDMV1Signal(Tranqcontract_importIntoEDM_v1_Response summary);
+    void tranqcontractSyncDocumenttypechecklistV1Signal(Tranqcontract_syncDocumenttypechecklist_v1_Response summary);
 
 
     void tranqcontractGetCommunicationCountV1SignalFull(HttpRequestWorker *worker, Tranqcontract_getCommunicationCount_v1_Response summary);
     void tranqcontractGetCommunicationListV1SignalFull(HttpRequestWorker *worker, Tranqcontract_getCommunicationList_v1_Response summary);
     void tranqcontractGetCommunicationrecipientsV1SignalFull(HttpRequestWorker *worker, Tranqcontract_getCommunicationrecipients_v1_Response summary);
     void tranqcontractGetCommunicationsendersV1SignalFull(HttpRequestWorker *worker, Tranqcontract_getCommunicationsenders_v1_Response summary);
+    void tranqcontractGetDocumenttypechecklistV1SignalFull(HttpRequestWorker *worker, Tranqcontract_getDocumenttypechecklist_v1_Response summary);
     void tranqcontractImportIntoEDMV1SignalFull(HttpRequestWorker *worker, Tranqcontract_importIntoEDM_v1_Response summary);
+    void tranqcontractSyncDocumenttypechecklistV1SignalFull(HttpRequestWorker *worker, Tranqcontract_syncDocumenttypechecklist_v1_Response summary);
 
     void tranqcontractGetCommunicationCountV1SignalError(Tranqcontract_getCommunicationCount_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void tranqcontractGetCommunicationListV1SignalError(Tranqcontract_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void tranqcontractGetCommunicationrecipientsV1SignalError(Tranqcontract_getCommunicationrecipients_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void tranqcontractGetCommunicationsendersV1SignalError(Tranqcontract_getCommunicationsenders_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void tranqcontractGetDocumenttypechecklistV1SignalError(Tranqcontract_getDocumenttypechecklist_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void tranqcontractImportIntoEDMV1SignalError(Tranqcontract_importIntoEDM_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void tranqcontractSyncDocumenttypechecklistV1SignalError(Tranqcontract_syncDocumenttypechecklist_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void tranqcontractGetCommunicationCountV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void tranqcontractGetCommunicationListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void tranqcontractGetCommunicationrecipientsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void tranqcontractGetCommunicationsendersV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void tranqcontractGetDocumenttypechecklistV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void tranqcontractImportIntoEDMV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void tranqcontractSyncDocumenttypechecklistV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();

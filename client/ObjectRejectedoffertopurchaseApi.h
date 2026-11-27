@@ -21,15 +21,18 @@
 #include "Common_Response_Error.h"
 #include "Header_Accept_Language.h"
 #include "HttpFileElement.h"
+#include "Object.h"
 #include "Rejectedoffertopurchase_batchDownload_v1_Request.h"
 #include "Rejectedoffertopurchase_getAttachments_v1_Response.h"
 #include "Rejectedoffertopurchase_getCommunicationCount_v1_Response.h"
 #include "Rejectedoffertopurchase_getCommunicationList_v1_Response.h"
 #include "Rejectedoffertopurchase_getCommunicationrecipients_v1_Response.h"
 #include "Rejectedoffertopurchase_getCommunicationsenders_v1_Response.h"
+#include "Rejectedoffertopurchase_getDocumenttypechecklist_v1_Response.h"
 #include "Rejectedoffertopurchase_getList_v1_Response.h"
 #include "Rejectedoffertopurchase_importIntoEDM_v1_Request.h"
 #include "Rejectedoffertopurchase_importIntoEDM_v1_Response.h"
+#include "Rejectedoffertopurchase_syncDocumenttypechecklist_v1_Response.h"
 #include <QString>
 
 #include <QObject>
@@ -101,6 +104,11 @@ public:
     virtual void rejectedoffertopurchaseGetCommunicationsendersV1(const qint32 &pki_rejectedoffertopurchase_id);
 
     /**
+    * @param[in]  pki_rejectedoffertopurchase_id qint32 [required]
+    */
+    virtual void rejectedoffertopurchaseGetDocumenttypechecklistV1(const qint32 &pki_rejectedoffertopurchase_id);
+
+    /**
     * @param[in]  e_order_by QString [optional]
     * @param[in]  i_row_max qint32 [optional]
     * @param[in]  i_row_offset qint32 [optional]
@@ -114,6 +122,12 @@ public:
     * @param[in]  rejectedoffertopurchase_import_into_edm_v1_request Rejectedoffertopurchase_importIntoEDM_v1_Request [required]
     */
     virtual void rejectedoffertopurchaseImportIntoEDMV1(const qint32 &pki_rejectedoffertopurchase_id, const Rejectedoffertopurchase_importIntoEDM_v1_Request &rejectedoffertopurchase_import_into_edm_v1_request);
+
+    /**
+    * @param[in]  pki_rejectedoffertopurchase_id qint32 [required]
+    * @param[in]  body Object [optional]
+    */
+    virtual void rejectedoffertopurchaseSyncDocumenttypechecklistV1(const qint32 &pki_rejectedoffertopurchase_id, const ::Ezmaxapi::OptionalParam<Object> &body = ::Ezmaxapi::OptionalParam<Object>());
 
 
 private:
@@ -151,8 +165,10 @@ private:
     void rejectedoffertopurchaseGetCommunicationListV1Callback(HttpRequestWorker *worker);
     void rejectedoffertopurchaseGetCommunicationrecipientsV1Callback(HttpRequestWorker *worker);
     void rejectedoffertopurchaseGetCommunicationsendersV1Callback(HttpRequestWorker *worker);
+    void rejectedoffertopurchaseGetDocumenttypechecklistV1Callback(HttpRequestWorker *worker);
     void rejectedoffertopurchaseGetListV1Callback(HttpRequestWorker *worker);
     void rejectedoffertopurchaseImportIntoEDMV1Callback(HttpRequestWorker *worker);
+    void rejectedoffertopurchaseSyncDocumenttypechecklistV1Callback(HttpRequestWorker *worker);
 
 Q_SIGNALS:
 
@@ -162,8 +178,10 @@ Q_SIGNALS:
     void rejectedoffertopurchaseGetCommunicationListV1Signal(Rejectedoffertopurchase_getCommunicationList_v1_Response summary);
     void rejectedoffertopurchaseGetCommunicationrecipientsV1Signal(Rejectedoffertopurchase_getCommunicationrecipients_v1_Response summary);
     void rejectedoffertopurchaseGetCommunicationsendersV1Signal(Rejectedoffertopurchase_getCommunicationsenders_v1_Response summary);
+    void rejectedoffertopurchaseGetDocumenttypechecklistV1Signal(Rejectedoffertopurchase_getDocumenttypechecklist_v1_Response summary);
     void rejectedoffertopurchaseGetListV1Signal(Rejectedoffertopurchase_getList_v1_Response summary);
     void rejectedoffertopurchaseImportIntoEDMV1Signal(Rejectedoffertopurchase_importIntoEDM_v1_Response summary);
+    void rejectedoffertopurchaseSyncDocumenttypechecklistV1Signal(Rejectedoffertopurchase_syncDocumenttypechecklist_v1_Response summary);
 
 
     void rejectedoffertopurchaseBatchDownloadV1SignalFull(HttpRequestWorker *worker, HttpFileElement summary);
@@ -172,8 +190,10 @@ Q_SIGNALS:
     void rejectedoffertopurchaseGetCommunicationListV1SignalFull(HttpRequestWorker *worker, Rejectedoffertopurchase_getCommunicationList_v1_Response summary);
     void rejectedoffertopurchaseGetCommunicationrecipientsV1SignalFull(HttpRequestWorker *worker, Rejectedoffertopurchase_getCommunicationrecipients_v1_Response summary);
     void rejectedoffertopurchaseGetCommunicationsendersV1SignalFull(HttpRequestWorker *worker, Rejectedoffertopurchase_getCommunicationsenders_v1_Response summary);
+    void rejectedoffertopurchaseGetDocumenttypechecklistV1SignalFull(HttpRequestWorker *worker, Rejectedoffertopurchase_getDocumenttypechecklist_v1_Response summary);
     void rejectedoffertopurchaseGetListV1SignalFull(HttpRequestWorker *worker, Rejectedoffertopurchase_getList_v1_Response summary);
     void rejectedoffertopurchaseImportIntoEDMV1SignalFull(HttpRequestWorker *worker, Rejectedoffertopurchase_importIntoEDM_v1_Response summary);
+    void rejectedoffertopurchaseSyncDocumenttypechecklistV1SignalFull(HttpRequestWorker *worker, Rejectedoffertopurchase_syncDocumenttypechecklist_v1_Response summary);
 
     void rejectedoffertopurchaseBatchDownloadV1SignalError(HttpFileElement summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void rejectedoffertopurchaseGetAttachmentsV1SignalError(Rejectedoffertopurchase_getAttachments_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -181,8 +201,10 @@ Q_SIGNALS:
     void rejectedoffertopurchaseGetCommunicationListV1SignalError(Rejectedoffertopurchase_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void rejectedoffertopurchaseGetCommunicationrecipientsV1SignalError(Rejectedoffertopurchase_getCommunicationrecipients_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void rejectedoffertopurchaseGetCommunicationsendersV1SignalError(Rejectedoffertopurchase_getCommunicationsenders_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void rejectedoffertopurchaseGetDocumenttypechecklistV1SignalError(Rejectedoffertopurchase_getDocumenttypechecklist_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void rejectedoffertopurchaseGetListV1SignalError(Rejectedoffertopurchase_getList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void rejectedoffertopurchaseImportIntoEDMV1SignalError(Rejectedoffertopurchase_importIntoEDM_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void rejectedoffertopurchaseSyncDocumenttypechecklistV1SignalError(Rejectedoffertopurchase_syncDocumenttypechecklist_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void rejectedoffertopurchaseBatchDownloadV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void rejectedoffertopurchaseGetAttachmentsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -190,8 +212,10 @@ Q_SIGNALS:
     void rejectedoffertopurchaseGetCommunicationListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void rejectedoffertopurchaseGetCommunicationrecipientsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void rejectedoffertopurchaseGetCommunicationsendersV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void rejectedoffertopurchaseGetDocumenttypechecklistV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void rejectedoffertopurchaseGetListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void rejectedoffertopurchaseImportIntoEDMV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void rejectedoffertopurchaseSyncDocumenttypechecklistV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();

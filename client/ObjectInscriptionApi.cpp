@@ -85,6 +85,8 @@ void ObjectInscriptionApi::initializeServerConfigs() {
     _serverIndices.insert("inscriptionGetCommunicationrecipientsV1", 0);
     _serverConfigs.insert("inscriptionGetCommunicationsendersV1", defaultConf);
     _serverIndices.insert("inscriptionGetCommunicationsendersV1", 0);
+    _serverConfigs.insert("inscriptionGetDocumenttypechecklistV1", defaultConf);
+    _serverIndices.insert("inscriptionGetDocumenttypechecklistV1", 0);
     _serverConfigs.insert("inscriptionGetInscriptionnotauthenticatedsV1", defaultConf);
     _serverIndices.insert("inscriptionGetInscriptionnotauthenticatedsV1", 0);
     _serverConfigs.insert("inscriptionGetListV1", defaultConf);
@@ -95,6 +97,8 @@ void ObjectInscriptionApi::initializeServerConfigs() {
     _serverIndices.insert("inscriptionImportIntoEDMV1", 0);
     _serverConfigs.insert("inscriptionPrepareFilesTransferV1", defaultConf);
     _serverIndices.insert("inscriptionPrepareFilesTransferV1", 0);
+    _serverConfigs.insert("inscriptionSyncDocumenttypechecklistV1", defaultConf);
+    _serverIndices.insert("inscriptionSyncDocumenttypechecklistV1", 0);
     _serverConfigs.insert("inscriptionSynchronizationDocumenttypeV1", defaultConf);
     _serverIndices.insert("inscriptionSynchronizationDocumenttypeV1", 0);
 }
@@ -655,6 +659,68 @@ void ObjectInscriptionApi::inscriptionGetCommunicationsendersV1Callback(HttpRequ
     }
 }
 
+void ObjectInscriptionApi::inscriptionGetDocumenttypechecklistV1(const qint32 &pki_inscription_id) {
+    QString fullPath = QString(_serverConfigs["inscriptionGetDocumenttypechecklistV1"][_serverIndices.value("inscriptionGetDocumenttypechecklistV1")].URL()+"/1/object/inscription/{pkiInscriptionID}/getDocumenttypechecklist");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_inscription_idPathParam("{");
+        pki_inscription_idPathParam.append("pkiInscriptionID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiInscriptionID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiInscriptionID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_inscription_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_inscription_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectInscriptionApi::inscriptionGetDocumenttypechecklistV1Callback);
+    connect(this, &ObjectInscriptionApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectInscriptionApi::inscriptionGetDocumenttypechecklistV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Inscription_getDocumenttypechecklist_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT inscriptionGetDocumenttypechecklistV1Signal(output);
+        Q_EMIT inscriptionGetDocumenttypechecklistV1SignalFull(worker, output);
+    } else {
+        Q_EMIT inscriptionGetDocumenttypechecklistV1SignalError(output, error_type, error_str);
+        Q_EMIT inscriptionGetDocumenttypechecklistV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
 void ObjectInscriptionApi::inscriptionGetInscriptionnotauthenticatedsV1(const qint32 &pki_inscription_id) {
     QString fullPath = QString(_serverConfigs["inscriptionGetInscriptionnotauthenticatedsV1"][_serverIndices.value("inscriptionGetInscriptionnotauthenticatedsV1")].URL()+"/1/object/inscription/{pkiInscriptionID}/getInscriptionnotauthenticateds");
     
@@ -1063,6 +1129,73 @@ void ObjectInscriptionApi::inscriptionPrepareFilesTransferV1Callback(HttpRequest
     } else {
         Q_EMIT inscriptionPrepareFilesTransferV1SignalError(output, error_type, error_str);
         Q_EMIT inscriptionPrepareFilesTransferV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectInscriptionApi::inscriptionSyncDocumenttypechecklistV1(const qint32 &pki_inscription_id, const ::Ezmaxapi::OptionalParam<Object> &body) {
+    QString fullPath = QString(_serverConfigs["inscriptionSyncDocumenttypechecklistV1"][_serverIndices.value("inscriptionSyncDocumenttypechecklistV1")].URL()+"/1/object/inscription/{pkiInscriptionID}/syncDocumenttypechecklist");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_inscription_idPathParam("{");
+        pki_inscription_idPathParam.append("pkiInscriptionID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiInscriptionID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiInscriptionID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_inscription_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_inscription_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "POST");
+
+    if (body.hasValue()){
+
+        
+        QByteArray output = body.value().asJson().toUtf8();
+        input.request_body.append(output);
+    }
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectInscriptionApi::inscriptionSyncDocumenttypechecklistV1Callback);
+    connect(this, &ObjectInscriptionApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectInscriptionApi::inscriptionSyncDocumenttypechecklistV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Inscription_syncDocumenttypechecklist_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT inscriptionSyncDocumenttypechecklistV1Signal(output);
+        Q_EMIT inscriptionSyncDocumenttypechecklistV1SignalFull(worker, output);
+    } else {
+        Q_EMIT inscriptionSyncDocumenttypechecklistV1SignalError(output, error_type, error_str);
+        Q_EMIT inscriptionSyncDocumenttypechecklistV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

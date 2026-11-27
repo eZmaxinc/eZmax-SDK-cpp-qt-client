@@ -24,12 +24,15 @@
 #include "Buyercontract_getCommunicationList_v1_Response.h"
 #include "Buyercontract_getCommunicationrecipients_v1_Response.h"
 #include "Buyercontract_getCommunicationsenders_v1_Response.h"
+#include "Buyercontract_getDocumenttypechecklist_v1_Response.h"
 #include "Buyercontract_getList_v1_Response.h"
 #include "Buyercontract_importIntoEDM_v1_Request.h"
 #include "Buyercontract_importIntoEDM_v1_Response.h"
+#include "Buyercontract_syncDocumenttypechecklist_v1_Response.h"
 #include "Common_Response_Error.h"
 #include "Header_Accept_Language.h"
 #include "HttpFileElement.h"
+#include "Object.h"
 #include <QString>
 
 #include <QObject>
@@ -101,6 +104,11 @@ public:
     virtual void buyercontractGetCommunicationsendersV1(const qint32 &pki_buyercontract_id);
 
     /**
+    * @param[in]  pki_buyercontract_id qint32 [required]
+    */
+    virtual void buyercontractGetDocumenttypechecklistV1(const qint32 &pki_buyercontract_id);
+
+    /**
     * @param[in]  e_order_by QString [optional]
     * @param[in]  i_row_max qint32 [optional]
     * @param[in]  i_row_offset qint32 [optional]
@@ -114,6 +122,12 @@ public:
     * @param[in]  buyercontract_import_into_edm_v1_request Buyercontract_importIntoEDM_v1_Request [required]
     */
     virtual void buyercontractImportIntoEDMV1(const qint32 &pki_buyercontract_id, const Buyercontract_importIntoEDM_v1_Request &buyercontract_import_into_edm_v1_request);
+
+    /**
+    * @param[in]  pki_buyercontract_id qint32 [required]
+    * @param[in]  body Object [optional]
+    */
+    virtual void buyercontractSyncDocumenttypechecklistV1(const qint32 &pki_buyercontract_id, const ::Ezmaxapi::OptionalParam<Object> &body = ::Ezmaxapi::OptionalParam<Object>());
 
 
 private:
@@ -151,8 +165,10 @@ private:
     void buyercontractGetCommunicationListV1Callback(HttpRequestWorker *worker);
     void buyercontractGetCommunicationrecipientsV1Callback(HttpRequestWorker *worker);
     void buyercontractGetCommunicationsendersV1Callback(HttpRequestWorker *worker);
+    void buyercontractGetDocumenttypechecklistV1Callback(HttpRequestWorker *worker);
     void buyercontractGetListV1Callback(HttpRequestWorker *worker);
     void buyercontractImportIntoEDMV1Callback(HttpRequestWorker *worker);
+    void buyercontractSyncDocumenttypechecklistV1Callback(HttpRequestWorker *worker);
 
 Q_SIGNALS:
 
@@ -162,8 +178,10 @@ Q_SIGNALS:
     void buyercontractGetCommunicationListV1Signal(Buyercontract_getCommunicationList_v1_Response summary);
     void buyercontractGetCommunicationrecipientsV1Signal(Buyercontract_getCommunicationrecipients_v1_Response summary);
     void buyercontractGetCommunicationsendersV1Signal(Buyercontract_getCommunicationsenders_v1_Response summary);
+    void buyercontractGetDocumenttypechecklistV1Signal(Buyercontract_getDocumenttypechecklist_v1_Response summary);
     void buyercontractGetListV1Signal(Buyercontract_getList_v1_Response summary);
     void buyercontractImportIntoEDMV1Signal(Buyercontract_importIntoEDM_v1_Response summary);
+    void buyercontractSyncDocumenttypechecklistV1Signal(Buyercontract_syncDocumenttypechecklist_v1_Response summary);
 
 
     void buyercontractBatchDownloadV1SignalFull(HttpRequestWorker *worker, HttpFileElement summary);
@@ -172,8 +190,10 @@ Q_SIGNALS:
     void buyercontractGetCommunicationListV1SignalFull(HttpRequestWorker *worker, Buyercontract_getCommunicationList_v1_Response summary);
     void buyercontractGetCommunicationrecipientsV1SignalFull(HttpRequestWorker *worker, Buyercontract_getCommunicationrecipients_v1_Response summary);
     void buyercontractGetCommunicationsendersV1SignalFull(HttpRequestWorker *worker, Buyercontract_getCommunicationsenders_v1_Response summary);
+    void buyercontractGetDocumenttypechecklistV1SignalFull(HttpRequestWorker *worker, Buyercontract_getDocumenttypechecklist_v1_Response summary);
     void buyercontractGetListV1SignalFull(HttpRequestWorker *worker, Buyercontract_getList_v1_Response summary);
     void buyercontractImportIntoEDMV1SignalFull(HttpRequestWorker *worker, Buyercontract_importIntoEDM_v1_Response summary);
+    void buyercontractSyncDocumenttypechecklistV1SignalFull(HttpRequestWorker *worker, Buyercontract_syncDocumenttypechecklist_v1_Response summary);
 
     void buyercontractBatchDownloadV1SignalError(HttpFileElement summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void buyercontractGetAttachmentsV1SignalError(Buyercontract_getAttachments_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -181,8 +201,10 @@ Q_SIGNALS:
     void buyercontractGetCommunicationListV1SignalError(Buyercontract_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void buyercontractGetCommunicationrecipientsV1SignalError(Buyercontract_getCommunicationrecipients_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void buyercontractGetCommunicationsendersV1SignalError(Buyercontract_getCommunicationsenders_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void buyercontractGetDocumenttypechecklistV1SignalError(Buyercontract_getDocumenttypechecklist_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void buyercontractGetListV1SignalError(Buyercontract_getList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void buyercontractImportIntoEDMV1SignalError(Buyercontract_importIntoEDM_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void buyercontractSyncDocumenttypechecklistV1SignalError(Buyercontract_syncDocumenttypechecklist_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void buyercontractBatchDownloadV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void buyercontractGetAttachmentsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -190,8 +212,10 @@ Q_SIGNALS:
     void buyercontractGetCommunicationListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void buyercontractGetCommunicationrecipientsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void buyercontractGetCommunicationsendersV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void buyercontractGetDocumenttypechecklistV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void buyercontractGetListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void buyercontractImportIntoEDMV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void buyercontractSyncDocumenttypechecklistV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();

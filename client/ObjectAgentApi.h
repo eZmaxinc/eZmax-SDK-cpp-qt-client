@@ -25,12 +25,15 @@
 #include "Agent_getCommunicationList_v1_Response.h"
 #include "Agent_getCommunicationrecipients_v1_Response.h"
 #include "Agent_getCommunicationsenders_v1_Response.h"
+#include "Agent_getDocumenttypechecklist_v1_Response.h"
 #include "Agent_getList_v1_Response.h"
 #include "Agent_importIntoEDM_v1_Request.h"
 #include "Agent_importIntoEDM_v1_Response.h"
+#include "Agent_syncDocumenttypechecklist_v1_Response.h"
 #include "Common_Response_Error.h"
 #include "Header_Accept_Language.h"
 #include "HttpFileElement.h"
+#include "Object.h"
 #include <QString>
 
 #include <QObject>
@@ -110,6 +113,11 @@ public:
     virtual void agentGetCommunicationsendersV1(const qint32 &pki_agent_id);
 
     /**
+    * @param[in]  pki_agent_id qint32 [required]
+    */
+    virtual void agentGetDocumenttypechecklistV1(const qint32 &pki_agent_id);
+
+    /**
     * @param[in]  e_order_by QString [optional]
     * @param[in]  i_row_max qint32 [optional]
     * @param[in]  i_row_offset qint32 [optional]
@@ -123,6 +131,12 @@ public:
     * @param[in]  agent_import_into_edm_v1_request Agent_importIntoEDM_v1_Request [required]
     */
     virtual void agentImportIntoEDMV1(const qint32 &pki_agent_id, const Agent_importIntoEDM_v1_Request &agent_import_into_edm_v1_request);
+
+    /**
+    * @param[in]  pki_agent_id qint32 [required]
+    * @param[in]  body Object [optional]
+    */
+    virtual void agentSyncDocumenttypechecklistV1(const qint32 &pki_agent_id, const ::Ezmaxapi::OptionalParam<Object> &body = ::Ezmaxapi::OptionalParam<Object>());
 
 
 private:
@@ -161,8 +175,10 @@ private:
     void agentGetCommunicationListV1Callback(HttpRequestWorker *worker);
     void agentGetCommunicationrecipientsV1Callback(HttpRequestWorker *worker);
     void agentGetCommunicationsendersV1Callback(HttpRequestWorker *worker);
+    void agentGetDocumenttypechecklistV1Callback(HttpRequestWorker *worker);
     void agentGetListV1Callback(HttpRequestWorker *worker);
     void agentImportIntoEDMV1Callback(HttpRequestWorker *worker);
+    void agentSyncDocumenttypechecklistV1Callback(HttpRequestWorker *worker);
 
 Q_SIGNALS:
 
@@ -173,8 +189,10 @@ Q_SIGNALS:
     void agentGetCommunicationListV1Signal(Agent_getCommunicationList_v1_Response summary);
     void agentGetCommunicationrecipientsV1Signal(Agent_getCommunicationrecipients_v1_Response summary);
     void agentGetCommunicationsendersV1Signal(Agent_getCommunicationsenders_v1_Response summary);
+    void agentGetDocumenttypechecklistV1Signal(Agent_getDocumenttypechecklist_v1_Response summary);
     void agentGetListV1Signal(Agent_getList_v1_Response summary);
     void agentImportIntoEDMV1Signal(Agent_importIntoEDM_v1_Response summary);
+    void agentSyncDocumenttypechecklistV1Signal(Agent_syncDocumenttypechecklist_v1_Response summary);
 
 
     void agentBatchDownloadV1SignalFull(HttpRequestWorker *worker, HttpFileElement summary);
@@ -184,8 +202,10 @@ Q_SIGNALS:
     void agentGetCommunicationListV1SignalFull(HttpRequestWorker *worker, Agent_getCommunicationList_v1_Response summary);
     void agentGetCommunicationrecipientsV1SignalFull(HttpRequestWorker *worker, Agent_getCommunicationrecipients_v1_Response summary);
     void agentGetCommunicationsendersV1SignalFull(HttpRequestWorker *worker, Agent_getCommunicationsenders_v1_Response summary);
+    void agentGetDocumenttypechecklistV1SignalFull(HttpRequestWorker *worker, Agent_getDocumenttypechecklist_v1_Response summary);
     void agentGetListV1SignalFull(HttpRequestWorker *worker, Agent_getList_v1_Response summary);
     void agentImportIntoEDMV1SignalFull(HttpRequestWorker *worker, Agent_importIntoEDM_v1_Response summary);
+    void agentSyncDocumenttypechecklistV1SignalFull(HttpRequestWorker *worker, Agent_syncDocumenttypechecklist_v1_Response summary);
 
     void agentBatchDownloadV1SignalError(HttpFileElement summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void agentGetAttachmentsV1SignalError(Agent_getAttachments_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -194,8 +214,10 @@ Q_SIGNALS:
     void agentGetCommunicationListV1SignalError(Agent_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void agentGetCommunicationrecipientsV1SignalError(Agent_getCommunicationrecipients_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void agentGetCommunicationsendersV1SignalError(Agent_getCommunicationsenders_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void agentGetDocumenttypechecklistV1SignalError(Agent_getDocumenttypechecklist_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void agentGetListV1SignalError(Agent_getList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void agentImportIntoEDMV1SignalError(Agent_importIntoEDM_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void agentSyncDocumenttypechecklistV1SignalError(Agent_syncDocumenttypechecklist_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void agentBatchDownloadV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void agentGetAttachmentsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -204,8 +226,10 @@ Q_SIGNALS:
     void agentGetCommunicationListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void agentGetCommunicationrecipientsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void agentGetCommunicationsendersV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void agentGetDocumenttypechecklistV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void agentGetListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void agentImportIntoEDMV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void agentSyncDocumenttypechecklistV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();

@@ -87,10 +87,14 @@ void ObjectBankaccountApi::initializeServerConfigs() {
     _serverIndices.insert("bankaccountGetCommunicationrecipientsV1", 0);
     _serverConfigs.insert("bankaccountGetCommunicationsendersV1", defaultConf);
     _serverIndices.insert("bankaccountGetCommunicationsendersV1", 0);
+    _serverConfigs.insert("bankaccountGetDocumenttypechecklistV1", defaultConf);
+    _serverIndices.insert("bankaccountGetDocumenttypechecklistV1", 0);
     _serverConfigs.insert("bankaccountGetListV1", defaultConf);
     _serverIndices.insert("bankaccountGetListV1", 0);
     _serverConfigs.insert("bankaccountImportIntoEDMV1", defaultConf);
     _serverIndices.insert("bankaccountImportIntoEDMV1", 0);
+    _serverConfigs.insert("bankaccountSyncDocumenttypechecklistV1", defaultConf);
+    _serverIndices.insert("bankaccountSyncDocumenttypechecklistV1", 0);
 }
 
 /**
@@ -786,6 +790,68 @@ void ObjectBankaccountApi::bankaccountGetCommunicationsendersV1Callback(HttpRequ
     }
 }
 
+void ObjectBankaccountApi::bankaccountGetDocumenttypechecklistV1(const qint32 &pki_bankaccount_id) {
+    QString fullPath = QString(_serverConfigs["bankaccountGetDocumenttypechecklistV1"][_serverIndices.value("bankaccountGetDocumenttypechecklistV1")].URL()+"/1/object/bankaccount/{pkiBankaccountID}/getDocumenttypechecklist");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_bankaccount_idPathParam("{");
+        pki_bankaccount_idPathParam.append("pkiBankaccountID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiBankaccountID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiBankaccountID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_bankaccount_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_bankaccount_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectBankaccountApi::bankaccountGetDocumenttypechecklistV1Callback);
+    connect(this, &ObjectBankaccountApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectBankaccountApi::bankaccountGetDocumenttypechecklistV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Bankaccount_getDocumenttypechecklist_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT bankaccountGetDocumenttypechecklistV1Signal(output);
+        Q_EMIT bankaccountGetDocumenttypechecklistV1SignalFull(worker, output);
+    } else {
+        Q_EMIT bankaccountGetDocumenttypechecklistV1SignalError(output, error_type, error_str);
+        Q_EMIT bankaccountGetDocumenttypechecklistV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
 void ObjectBankaccountApi::bankaccountGetListV1(const ::Ezmaxapi::OptionalParam<QString> &e_order_by, const ::Ezmaxapi::OptionalParam<qint32> &i_row_max, const ::Ezmaxapi::OptionalParam<qint32> &i_row_offset, const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language, const ::Ezmaxapi::OptionalParam<QString> &s_filter) {
     QString fullPath = QString(_serverConfigs["bankaccountGetListV1"][_serverIndices.value("bankaccountGetListV1")].URL()+"/1/object/bankaccount/getList");
     
@@ -1003,6 +1069,73 @@ void ObjectBankaccountApi::bankaccountImportIntoEDMV1Callback(HttpRequestWorker 
     } else {
         Q_EMIT bankaccountImportIntoEDMV1SignalError(output, error_type, error_str);
         Q_EMIT bankaccountImportIntoEDMV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectBankaccountApi::bankaccountSyncDocumenttypechecklistV1(const qint32 &pki_bankaccount_id, const ::Ezmaxapi::OptionalParam<Object> &body) {
+    QString fullPath = QString(_serverConfigs["bankaccountSyncDocumenttypechecklistV1"][_serverIndices.value("bankaccountSyncDocumenttypechecklistV1")].URL()+"/1/object/bankaccount/{pkiBankaccountID}/syncDocumenttypechecklist");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_bankaccount_idPathParam("{");
+        pki_bankaccount_idPathParam.append("pkiBankaccountID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiBankaccountID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiBankaccountID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_bankaccount_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_bankaccount_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "POST");
+
+    if (body.hasValue()){
+
+        
+        QByteArray output = body.value().asJson().toUtf8();
+        input.request_body.append(output);
+    }
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectBankaccountApi::bankaccountSyncDocumenttypechecklistV1Callback);
+    connect(this, &ObjectBankaccountApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectBankaccountApi::bankaccountSyncDocumenttypechecklistV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Bankaccount_syncDocumenttypechecklist_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT bankaccountSyncDocumenttypechecklistV1Signal(output);
+        Q_EMIT bankaccountSyncDocumenttypechecklistV1SignalFull(worker, output);
+    } else {
+        Q_EMIT bankaccountSyncDocumenttypechecklistV1SignalError(output, error_type, error_str);
+        Q_EMIT bankaccountSyncDocumenttypechecklistV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

@@ -43,7 +43,8 @@ public:
         NOT_REQUIRED, 
         REQUIRED, 
         FILED, 
-        JUSTIFIED
+        JUSTIFIED, 
+        MANDATORY
     };
     Field_eDocumenttypechecklistStatus::eField_eDocumenttypechecklistStatus getValue() const;
     void setValue(const Field_eDocumenttypechecklistStatus::eField_eDocumenttypechecklistStatus& value);

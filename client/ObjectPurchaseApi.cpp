@@ -85,10 +85,14 @@ void ObjectPurchaseApi::initializeServerConfigs() {
     _serverIndices.insert("purchaseGetCommunicationrecipientsV1", 0);
     _serverConfigs.insert("purchaseGetCommunicationsendersV1", defaultConf);
     _serverIndices.insert("purchaseGetCommunicationsendersV1", 0);
+    _serverConfigs.insert("purchaseGetDocumenttypechecklistV1", defaultConf);
+    _serverIndices.insert("purchaseGetDocumenttypechecklistV1", 0);
     _serverConfigs.insert("purchaseGetListV1", defaultConf);
     _serverIndices.insert("purchaseGetListV1", 0);
     _serverConfigs.insert("purchaseImportIntoEDMV1", defaultConf);
     _serverIndices.insert("purchaseImportIntoEDMV1", 0);
+    _serverConfigs.insert("purchaseSyncDocumenttypechecklistV1", defaultConf);
+    _serverIndices.insert("purchaseSyncDocumenttypechecklistV1", 0);
 }
 
 /**
@@ -647,6 +651,68 @@ void ObjectPurchaseApi::purchaseGetCommunicationsendersV1Callback(HttpRequestWor
     }
 }
 
+void ObjectPurchaseApi::purchaseGetDocumenttypechecklistV1(const qint32 &pki_purchase_id) {
+    QString fullPath = QString(_serverConfigs["purchaseGetDocumenttypechecklistV1"][_serverIndices.value("purchaseGetDocumenttypechecklistV1")].URL()+"/1/object/purchase/{pkiPurchaseID}/getDocumenttypechecklist");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_purchase_idPathParam("{");
+        pki_purchase_idPathParam.append("pkiPurchaseID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiPurchaseID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiPurchaseID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_purchase_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_purchase_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectPurchaseApi::purchaseGetDocumenttypechecklistV1Callback);
+    connect(this, &ObjectPurchaseApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectPurchaseApi::purchaseGetDocumenttypechecklistV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Purchase_getDocumenttypechecklist_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT purchaseGetDocumenttypechecklistV1Signal(output);
+        Q_EMIT purchaseGetDocumenttypechecklistV1SignalFull(worker, output);
+    } else {
+        Q_EMIT purchaseGetDocumenttypechecklistV1SignalError(output, error_type, error_str);
+        Q_EMIT purchaseGetDocumenttypechecklistV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
 void ObjectPurchaseApi::purchaseGetListV1(const ::Ezmaxapi::OptionalParam<QString> &e_order_by, const ::Ezmaxapi::OptionalParam<qint32> &i_row_max, const ::Ezmaxapi::OptionalParam<qint32> &i_row_offset, const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language, const ::Ezmaxapi::OptionalParam<QString> &s_filter) {
     QString fullPath = QString(_serverConfigs["purchaseGetListV1"][_serverIndices.value("purchaseGetListV1")].URL()+"/1/object/purchase/getList");
     
@@ -864,6 +930,73 @@ void ObjectPurchaseApi::purchaseImportIntoEDMV1Callback(HttpRequestWorker *worke
     } else {
         Q_EMIT purchaseImportIntoEDMV1SignalError(output, error_type, error_str);
         Q_EMIT purchaseImportIntoEDMV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectPurchaseApi::purchaseSyncDocumenttypechecklistV1(const qint32 &pki_purchase_id, const ::Ezmaxapi::OptionalParam<Object> &body) {
+    QString fullPath = QString(_serverConfigs["purchaseSyncDocumenttypechecklistV1"][_serverIndices.value("purchaseSyncDocumenttypechecklistV1")].URL()+"/1/object/purchase/{pkiPurchaseID}/syncDocumenttypechecklist");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_purchase_idPathParam("{");
+        pki_purchase_idPathParam.append("pkiPurchaseID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiPurchaseID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiPurchaseID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_purchase_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_purchase_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "POST");
+
+    if (body.hasValue()){
+
+        
+        QByteArray output = body.value().asJson().toUtf8();
+        input.request_body.append(output);
+    }
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectPurchaseApi::purchaseSyncDocumenttypechecklistV1Callback);
+    connect(this, &ObjectPurchaseApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectPurchaseApi::purchaseSyncDocumenttypechecklistV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Purchase_syncDocumenttypechecklist_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT purchaseSyncDocumenttypechecklistV1Signal(output);
+        Q_EMIT purchaseSyncDocumenttypechecklistV1SignalFull(worker, output);
+    } else {
+        Q_EMIT purchaseSyncDocumenttypechecklistV1SignalError(output, error_type, error_str);
+        Q_EMIT purchaseSyncDocumenttypechecklistV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

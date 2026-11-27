@@ -85,10 +85,14 @@ void ObjectRejectedoffertopurchaseApi::initializeServerConfigs() {
     _serverIndices.insert("rejectedoffertopurchaseGetCommunicationrecipientsV1", 0);
     _serverConfigs.insert("rejectedoffertopurchaseGetCommunicationsendersV1", defaultConf);
     _serverIndices.insert("rejectedoffertopurchaseGetCommunicationsendersV1", 0);
+    _serverConfigs.insert("rejectedoffertopurchaseGetDocumenttypechecklistV1", defaultConf);
+    _serverIndices.insert("rejectedoffertopurchaseGetDocumenttypechecklistV1", 0);
     _serverConfigs.insert("rejectedoffertopurchaseGetListV1", defaultConf);
     _serverIndices.insert("rejectedoffertopurchaseGetListV1", 0);
     _serverConfigs.insert("rejectedoffertopurchaseImportIntoEDMV1", defaultConf);
     _serverIndices.insert("rejectedoffertopurchaseImportIntoEDMV1", 0);
+    _serverConfigs.insert("rejectedoffertopurchaseSyncDocumenttypechecklistV1", defaultConf);
+    _serverIndices.insert("rejectedoffertopurchaseSyncDocumenttypechecklistV1", 0);
 }
 
 /**
@@ -647,6 +651,68 @@ void ObjectRejectedoffertopurchaseApi::rejectedoffertopurchaseGetCommunicationse
     }
 }
 
+void ObjectRejectedoffertopurchaseApi::rejectedoffertopurchaseGetDocumenttypechecklistV1(const qint32 &pki_rejectedoffertopurchase_id) {
+    QString fullPath = QString(_serverConfigs["rejectedoffertopurchaseGetDocumenttypechecklistV1"][_serverIndices.value("rejectedoffertopurchaseGetDocumenttypechecklistV1")].URL()+"/1/object/rejectedoffertopurchase/{pkiRejectedoffertopurchaseID}/getDocumenttypechecklist");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_rejectedoffertopurchase_idPathParam("{");
+        pki_rejectedoffertopurchase_idPathParam.append("pkiRejectedoffertopurchaseID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiRejectedoffertopurchaseID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiRejectedoffertopurchaseID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_rejectedoffertopurchase_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_rejectedoffertopurchase_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "GET");
+
+
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectRejectedoffertopurchaseApi::rejectedoffertopurchaseGetDocumenttypechecklistV1Callback);
+    connect(this, &ObjectRejectedoffertopurchaseApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectRejectedoffertopurchaseApi::rejectedoffertopurchaseGetDocumenttypechecklistV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Rejectedoffertopurchase_getDocumenttypechecklist_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT rejectedoffertopurchaseGetDocumenttypechecklistV1Signal(output);
+        Q_EMIT rejectedoffertopurchaseGetDocumenttypechecklistV1SignalFull(worker, output);
+    } else {
+        Q_EMIT rejectedoffertopurchaseGetDocumenttypechecklistV1SignalError(output, error_type, error_str);
+        Q_EMIT rejectedoffertopurchaseGetDocumenttypechecklistV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
 void ObjectRejectedoffertopurchaseApi::rejectedoffertopurchaseGetListV1(const ::Ezmaxapi::OptionalParam<QString> &e_order_by, const ::Ezmaxapi::OptionalParam<qint32> &i_row_max, const ::Ezmaxapi::OptionalParam<qint32> &i_row_offset, const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language, const ::Ezmaxapi::OptionalParam<QString> &s_filter) {
     QString fullPath = QString(_serverConfigs["rejectedoffertopurchaseGetListV1"][_serverIndices.value("rejectedoffertopurchaseGetListV1")].URL()+"/1/object/rejectedoffertopurchase/getList");
     
@@ -864,6 +930,73 @@ void ObjectRejectedoffertopurchaseApi::rejectedoffertopurchaseImportIntoEDMV1Cal
     } else {
         Q_EMIT rejectedoffertopurchaseImportIntoEDMV1SignalError(output, error_type, error_str);
         Q_EMIT rejectedoffertopurchaseImportIntoEDMV1SignalErrorFull(worker, error_type, error_str);
+    }
+}
+
+void ObjectRejectedoffertopurchaseApi::rejectedoffertopurchaseSyncDocumenttypechecklistV1(const qint32 &pki_rejectedoffertopurchase_id, const ::Ezmaxapi::OptionalParam<Object> &body) {
+    QString fullPath = QString(_serverConfigs["rejectedoffertopurchaseSyncDocumenttypechecklistV1"][_serverIndices.value("rejectedoffertopurchaseSyncDocumenttypechecklistV1")].URL()+"/1/object/rejectedoffertopurchase/{pkiRejectedoffertopurchaseID}/syncDocumenttypechecklist");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString pki_rejectedoffertopurchase_idPathParam("{");
+        pki_rejectedoffertopurchase_idPathParam.append("pkiRejectedoffertopurchaseID").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "simple";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiRejectedoffertopurchaseID", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiRejectedoffertopurchaseID"+pathSuffix : pathPrefix;
+        fullPath.replace(pki_rejectedoffertopurchase_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_rejectedoffertopurchase_id)));
+    }
+    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    HttpRequestInput input(fullPath, "POST");
+
+    if (body.hasValue()){
+
+        
+        QByteArray output = body.value().asJson().toUtf8();
+        input.request_body.append(output);
+    }
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+
+
+    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectRejectedoffertopurchaseApi::rejectedoffertopurchaseSyncDocumenttypechecklistV1Callback);
+    connect(this, &ObjectRejectedoffertopurchaseApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this] {
+        if (findChildren<HttpRequestWorker*>().count() == 0) {
+            Q_EMIT allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void ObjectRejectedoffertopurchaseApi::rejectedoffertopurchaseSyncDocumenttypechecklistV1Callback(HttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    Rejectedoffertopurchase_syncDocumenttypechecklist_v1_Response output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        Q_EMIT rejectedoffertopurchaseSyncDocumenttypechecklistV1Signal(output);
+        Q_EMIT rejectedoffertopurchaseSyncDocumenttypechecklistV1SignalFull(worker, output);
+    } else {
+        Q_EMIT rejectedoffertopurchaseSyncDocumenttypechecklistV1SignalError(output, error_type, error_str);
+        Q_EMIT rejectedoffertopurchaseSyncDocumenttypechecklistV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

@@ -24,10 +24,13 @@
 #include "Commissionadvance_getCommunicationList_v1_Response.h"
 #include "Commissionadvance_getCommunicationrecipients_v1_Response.h"
 #include "Commissionadvance_getCommunicationsenders_v1_Response.h"
+#include "Commissionadvance_getDocumenttypechecklist_v1_Response.h"
 #include "Commissionadvance_importIntoEDM_v1_Request.h"
 #include "Commissionadvance_importIntoEDM_v1_Response.h"
+#include "Commissionadvance_syncDocumenttypechecklist_v1_Response.h"
 #include "Common_Response_Error.h"
 #include "HttpFileElement.h"
+#include "Object.h"
 #include <QString>
 
 #include <QObject>
@@ -100,9 +103,20 @@ public:
 
     /**
     * @param[in]  pki_commissionadvance_id qint32 [required]
+    */
+    virtual void commissionadvanceGetDocumenttypechecklistV1(const qint32 &pki_commissionadvance_id);
+
+    /**
+    * @param[in]  pki_commissionadvance_id qint32 [required]
     * @param[in]  commissionadvance_import_into_edm_v1_request Commissionadvance_importIntoEDM_v1_Request [required]
     */
     virtual void commissionadvanceImportIntoEDMV1(const qint32 &pki_commissionadvance_id, const Commissionadvance_importIntoEDM_v1_Request &commissionadvance_import_into_edm_v1_request);
+
+    /**
+    * @param[in]  pki_commissionadvance_id qint32 [required]
+    * @param[in]  body Object [optional]
+    */
+    virtual void commissionadvanceSyncDocumenttypechecklistV1(const qint32 &pki_commissionadvance_id, const ::Ezmaxapi::OptionalParam<Object> &body = ::Ezmaxapi::OptionalParam<Object>());
 
 
 private:
@@ -140,7 +154,9 @@ private:
     void commissionadvanceGetCommunicationListV1Callback(HttpRequestWorker *worker);
     void commissionadvanceGetCommunicationrecipientsV1Callback(HttpRequestWorker *worker);
     void commissionadvanceGetCommunicationsendersV1Callback(HttpRequestWorker *worker);
+    void commissionadvanceGetDocumenttypechecklistV1Callback(HttpRequestWorker *worker);
     void commissionadvanceImportIntoEDMV1Callback(HttpRequestWorker *worker);
+    void commissionadvanceSyncDocumenttypechecklistV1Callback(HttpRequestWorker *worker);
 
 Q_SIGNALS:
 
@@ -150,7 +166,9 @@ Q_SIGNALS:
     void commissionadvanceGetCommunicationListV1Signal(Commissionadvance_getCommunicationList_v1_Response summary);
     void commissionadvanceGetCommunicationrecipientsV1Signal(Commissionadvance_getCommunicationrecipients_v1_Response summary);
     void commissionadvanceGetCommunicationsendersV1Signal(Commissionadvance_getCommunicationsenders_v1_Response summary);
+    void commissionadvanceGetDocumenttypechecklistV1Signal(Commissionadvance_getDocumenttypechecklist_v1_Response summary);
     void commissionadvanceImportIntoEDMV1Signal(Commissionadvance_importIntoEDM_v1_Response summary);
+    void commissionadvanceSyncDocumenttypechecklistV1Signal(Commissionadvance_syncDocumenttypechecklist_v1_Response summary);
 
 
     void commissionadvanceBatchDownloadV1SignalFull(HttpRequestWorker *worker, HttpFileElement summary);
@@ -159,7 +177,9 @@ Q_SIGNALS:
     void commissionadvanceGetCommunicationListV1SignalFull(HttpRequestWorker *worker, Commissionadvance_getCommunicationList_v1_Response summary);
     void commissionadvanceGetCommunicationrecipientsV1SignalFull(HttpRequestWorker *worker, Commissionadvance_getCommunicationrecipients_v1_Response summary);
     void commissionadvanceGetCommunicationsendersV1SignalFull(HttpRequestWorker *worker, Commissionadvance_getCommunicationsenders_v1_Response summary);
+    void commissionadvanceGetDocumenttypechecklistV1SignalFull(HttpRequestWorker *worker, Commissionadvance_getDocumenttypechecklist_v1_Response summary);
     void commissionadvanceImportIntoEDMV1SignalFull(HttpRequestWorker *worker, Commissionadvance_importIntoEDM_v1_Response summary);
+    void commissionadvanceSyncDocumenttypechecklistV1SignalFull(HttpRequestWorker *worker, Commissionadvance_syncDocumenttypechecklist_v1_Response summary);
 
     void commissionadvanceBatchDownloadV1SignalError(HttpFileElement summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void commissionadvanceGetAttachmentsV1SignalError(Commissionadvance_getAttachments_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -167,7 +187,9 @@ Q_SIGNALS:
     void commissionadvanceGetCommunicationListV1SignalError(Commissionadvance_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void commissionadvanceGetCommunicationrecipientsV1SignalError(Commissionadvance_getCommunicationrecipients_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void commissionadvanceGetCommunicationsendersV1SignalError(Commissionadvance_getCommunicationsenders_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void commissionadvanceGetDocumenttypechecklistV1SignalError(Commissionadvance_getDocumenttypechecklist_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void commissionadvanceImportIntoEDMV1SignalError(Commissionadvance_importIntoEDM_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void commissionadvanceSyncDocumenttypechecklistV1SignalError(Commissionadvance_syncDocumenttypechecklist_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void commissionadvanceBatchDownloadV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void commissionadvanceGetAttachmentsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -175,7 +197,9 @@ Q_SIGNALS:
     void commissionadvanceGetCommunicationListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void commissionadvanceGetCommunicationrecipientsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void commissionadvanceGetCommunicationsendersV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void commissionadvanceGetDocumenttypechecklistV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void commissionadvanceImportIntoEDMV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void commissionadvanceSyncDocumenttypechecklistV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();

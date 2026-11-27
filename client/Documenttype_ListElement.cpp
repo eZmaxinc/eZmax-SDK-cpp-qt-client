@@ -49,9 +49,6 @@ void Documenttype_ListElement::initializeModel() {
     m_b_documenttype_isactive_isSet = false;
     m_b_documenttype_isactive_isValid = false;
 
-    m_b_documenttype_isrequired_isSet = false;
-    m_b_documenttype_isrequired_isValid = false;
-
     m_b_documenttype_sale_isSet = false;
     m_b_documenttype_sale_isValid = false;
 
@@ -128,9 +125,6 @@ void Documenttype_ListElement::fromJsonObject(QJsonObject json) {
     m_b_documenttype_isactive_isValid = ::Ezmaxapi::fromJsonValue(m_b_documenttype_isactive, json[QString("bDocumenttypeIsactive")]);
     m_b_documenttype_isactive_isSet = !json[QString("bDocumenttypeIsactive")].isNull() && m_b_documenttype_isactive_isValid;
 
-    m_b_documenttype_isrequired_isValid = ::Ezmaxapi::fromJsonValue(m_b_documenttype_isrequired, json[QString("bDocumenttypeIsrequired")]);
-    m_b_documenttype_isrequired_isSet = !json[QString("bDocumenttypeIsrequired")].isNull() && m_b_documenttype_isrequired_isValid;
-
     m_b_documenttype_sale_isValid = ::Ezmaxapi::fromJsonValue(m_b_documenttype_sale, json[QString("bDocumenttypeSale")]);
     m_b_documenttype_sale_isSet = !json[QString("bDocumenttypeSale")].isNull() && m_b_documenttype_sale_isValid;
 
@@ -206,9 +200,6 @@ QJsonObject Documenttype_ListElement::asJsonObject() const {
     }
     if (m_b_documenttype_isactive_isSet) {
         obj.insert(QString("bDocumenttypeIsactive"), ::Ezmaxapi::toJsonValue(m_b_documenttype_isactive));
-    }
-    if (m_b_documenttype_isrequired_isSet) {
-        obj.insert(QString("bDocumenttypeIsrequired"), ::Ezmaxapi::toJsonValue(m_b_documenttype_isrequired));
     }
     if (m_b_documenttype_sale_isSet) {
         obj.insert(QString("bDocumenttypeSale"), ::Ezmaxapi::toJsonValue(m_b_documenttype_sale));
@@ -342,22 +333,6 @@ bool Documenttype_ListElement::is_b_documenttype_isactive_Set() const{
 
 bool Documenttype_ListElement::is_b_documenttype_isactive_Valid() const{
     return m_b_documenttype_isactive_isValid;
-}
-
-bool Documenttype_ListElement::isBDocumenttypeIsrequired() const {
-    return m_b_documenttype_isrequired;
-}
-void Documenttype_ListElement::setBDocumenttypeIsrequired(const bool &b_documenttype_isrequired) {
-    m_b_documenttype_isrequired = b_documenttype_isrequired;
-    m_b_documenttype_isrequired_isSet = true;
-}
-
-bool Documenttype_ListElement::is_b_documenttype_isrequired_Set() const{
-    return m_b_documenttype_isrequired_isSet;
-}
-
-bool Documenttype_ListElement::is_b_documenttype_isrequired_Valid() const{
-    return m_b_documenttype_isrequired_isValid;
 }
 
 bool Documenttype_ListElement::isBDocumenttypeSale() const {
@@ -660,11 +635,6 @@ bool Documenttype_ListElement::isSet() const {
             break;
         }
 
-        if (m_b_documenttype_isrequired_isSet) {
-            isObjectUpdated = true;
-            break;
-        }
-
         if (m_b_documenttype_sale_isSet) {
             isObjectUpdated = true;
             break;
@@ -755,7 +725,7 @@ bool Documenttype_ListElement::isSet() const {
 
 bool Documenttype_ListElement::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_pki_documenttype_id_isValid && m_s_documenttype_name_x_isValid && m_s_documenttype_defaultfilename_isValid && m_b_documenttype_showagent_isValid && m_b_documenttype_isactive_isValid && m_b_documenttype_isrequired_isValid && m_b_documenttype_sale_isValid && m_b_documenttype_rental_isValid && m_b_documenttype_reference_isValid && m_b_documenttype_mortgagereference_isValid && m_b_documenttype_evaluation_isValid && m_b_documenttype_consultation_isValid && m_b_documenttype_otherservices_isValid && m_b_documenttype_foreclosedsale_isValid && m_b_documenttype_commercialfunding_isValid && m_b_documenttype_canafe_isValid && m_e_documenttype_privacydefault_isValid && m_e_documenttype_statusdefault_isValid && m_e_documenttype_salebyowner_isValid && m_e_documenttype_saledisplaybyrole_isValid && m_e_documenttype_transactiontype_isValid && m_e_documenttype_repossession_isValid && true;
+    return m_pki_documenttype_id_isValid && m_s_documenttype_name_x_isValid && m_s_documenttype_defaultfilename_isValid && m_b_documenttype_showagent_isValid && m_b_documenttype_isactive_isValid && m_b_documenttype_sale_isValid && m_b_documenttype_rental_isValid && m_b_documenttype_reference_isValid && m_b_documenttype_mortgagereference_isValid && m_b_documenttype_evaluation_isValid && m_b_documenttype_consultation_isValid && m_b_documenttype_otherservices_isValid && m_b_documenttype_foreclosedsale_isValid && m_b_documenttype_commercialfunding_isValid && m_b_documenttype_canafe_isValid && m_e_documenttype_privacydefault_isValid && m_e_documenttype_statusdefault_isValid && m_e_documenttype_salebyowner_isValid && m_e_documenttype_saledisplaybyrole_isValid && m_e_documenttype_transactiontype_isValid && m_e_documenttype_repossession_isValid && true;
 }
 
 } // namespace Ezmaxapi

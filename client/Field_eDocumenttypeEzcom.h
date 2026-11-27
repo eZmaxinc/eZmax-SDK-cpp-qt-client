@@ -13,7 +13,7 @@
 /*
  * Field_eDocumenttypeEzcom.h
  *
- * The ezcom of the Documenttype
+ * The ezcom document type category
  */
 
 #ifndef Field_eDocumenttypeEzcom_H

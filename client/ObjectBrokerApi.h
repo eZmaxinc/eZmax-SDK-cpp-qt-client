@@ -25,12 +25,15 @@
 #include "Broker_getCommunicationList_v1_Response.h"
 #include "Broker_getCommunicationrecipients_v1_Response.h"
 #include "Broker_getCommunicationsenders_v1_Response.h"
+#include "Broker_getDocumenttypechecklist_v1_Response.h"
 #include "Broker_getList_v1_Response.h"
 #include "Broker_importIntoEDM_v1_Request.h"
 #include "Broker_importIntoEDM_v1_Response.h"
+#include "Broker_syncDocumenttypechecklist_v1_Response.h"
 #include "Common_Response_Error.h"
 #include "Header_Accept_Language.h"
 #include "HttpFileElement.h"
+#include "Object.h"
 #include <QString>
 
 #include <QObject>
@@ -110,6 +113,11 @@ public:
     virtual void brokerGetCommunicationsendersV1(const qint32 &pki_broker_id);
 
     /**
+    * @param[in]  pki_broker_id qint32 [required]
+    */
+    virtual void brokerGetDocumenttypechecklistV1(const qint32 &pki_broker_id);
+
+    /**
     * @param[in]  e_order_by QString [optional]
     * @param[in]  i_row_max qint32 [optional]
     * @param[in]  i_row_offset qint32 [optional]
@@ -123,6 +131,12 @@ public:
     * @param[in]  broker_import_into_edm_v1_request Broker_importIntoEDM_v1_Request [required]
     */
     virtual void brokerImportIntoEDMV1(const qint32 &pki_broker_id, const Broker_importIntoEDM_v1_Request &broker_import_into_edm_v1_request);
+
+    /**
+    * @param[in]  pki_broker_id qint32 [required]
+    * @param[in]  body Object [optional]
+    */
+    virtual void brokerSyncDocumenttypechecklistV1(const qint32 &pki_broker_id, const ::Ezmaxapi::OptionalParam<Object> &body = ::Ezmaxapi::OptionalParam<Object>());
 
 
 private:
@@ -161,8 +175,10 @@ private:
     void brokerGetCommunicationListV1Callback(HttpRequestWorker *worker);
     void brokerGetCommunicationrecipientsV1Callback(HttpRequestWorker *worker);
     void brokerGetCommunicationsendersV1Callback(HttpRequestWorker *worker);
+    void brokerGetDocumenttypechecklistV1Callback(HttpRequestWorker *worker);
     void brokerGetListV1Callback(HttpRequestWorker *worker);
     void brokerImportIntoEDMV1Callback(HttpRequestWorker *worker);
+    void brokerSyncDocumenttypechecklistV1Callback(HttpRequestWorker *worker);
 
 Q_SIGNALS:
 
@@ -173,8 +189,10 @@ Q_SIGNALS:
     void brokerGetCommunicationListV1Signal(Broker_getCommunicationList_v1_Response summary);
     void brokerGetCommunicationrecipientsV1Signal(Broker_getCommunicationrecipients_v1_Response summary);
     void brokerGetCommunicationsendersV1Signal(Broker_getCommunicationsenders_v1_Response summary);
+    void brokerGetDocumenttypechecklistV1Signal(Broker_getDocumenttypechecklist_v1_Response summary);
     void brokerGetListV1Signal(Broker_getList_v1_Response summary);
     void brokerImportIntoEDMV1Signal(Broker_importIntoEDM_v1_Response summary);
+    void brokerSyncDocumenttypechecklistV1Signal(Broker_syncDocumenttypechecklist_v1_Response summary);
 
 
     void brokerBatchDownloadV1SignalFull(HttpRequestWorker *worker, HttpFileElement summary);
@@ -184,8 +202,10 @@ Q_SIGNALS:
     void brokerGetCommunicationListV1SignalFull(HttpRequestWorker *worker, Broker_getCommunicationList_v1_Response summary);
     void brokerGetCommunicationrecipientsV1SignalFull(HttpRequestWorker *worker, Broker_getCommunicationrecipients_v1_Response summary);
     void brokerGetCommunicationsendersV1SignalFull(HttpRequestWorker *worker, Broker_getCommunicationsenders_v1_Response summary);
+    void brokerGetDocumenttypechecklistV1SignalFull(HttpRequestWorker *worker, Broker_getDocumenttypechecklist_v1_Response summary);
     void brokerGetListV1SignalFull(HttpRequestWorker *worker, Broker_getList_v1_Response summary);
     void brokerImportIntoEDMV1SignalFull(HttpRequestWorker *worker, Broker_importIntoEDM_v1_Response summary);
+    void brokerSyncDocumenttypechecklistV1SignalFull(HttpRequestWorker *worker, Broker_syncDocumenttypechecklist_v1_Response summary);
 
     void brokerBatchDownloadV1SignalError(HttpFileElement summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void brokerGetAttachmentsV1SignalError(Broker_getAttachments_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -194,8 +214,10 @@ Q_SIGNALS:
     void brokerGetCommunicationListV1SignalError(Broker_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void brokerGetCommunicationrecipientsV1SignalError(Broker_getCommunicationrecipients_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void brokerGetCommunicationsendersV1SignalError(Broker_getCommunicationsenders_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void brokerGetDocumenttypechecklistV1SignalError(Broker_getDocumenttypechecklist_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void brokerGetListV1SignalError(Broker_getList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void brokerImportIntoEDMV1SignalError(Broker_importIntoEDM_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void brokerSyncDocumenttypechecklistV1SignalError(Broker_syncDocumenttypechecklist_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void brokerBatchDownloadV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void brokerGetAttachmentsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -204,8 +226,10 @@ Q_SIGNALS:
     void brokerGetCommunicationListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void brokerGetCommunicationrecipientsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void brokerGetCommunicationsendersV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void brokerGetDocumenttypechecklistV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void brokerGetListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void brokerImportIntoEDMV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void brokerSyncDocumenttypechecklistV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();

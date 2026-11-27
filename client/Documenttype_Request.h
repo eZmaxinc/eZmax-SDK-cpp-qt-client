@@ -80,11 +80,6 @@ public:
     bool is_b_documenttype_isactive_Set() const;
     bool is_b_documenttype_isactive_Valid() const;
 
-    bool isBDocumenttypeIsrequired() const;
-    void setBDocumenttypeIsrequired(const bool &b_documenttype_isrequired);
-    bool is_b_documenttype_isrequired_Set() const;
-    bool is_b_documenttype_isrequired_Valid() const;
-
     bool isBDocumenttypeSale() const;
     void setBDocumenttypeSale(const bool &b_documenttype_sale);
     bool is_b_documenttype_sale_Set() const;
@@ -204,10 +199,6 @@ private:
     bool m_b_documenttype_isactive;
     bool m_b_documenttype_isactive_isSet;
     bool m_b_documenttype_isactive_isValid;
-
-    bool m_b_documenttype_isrequired;
-    bool m_b_documenttype_isrequired_isSet;
-    bool m_b_documenttype_isrequired_isValid;
 
     bool m_b_documenttype_sale;
     bool m_b_documenttype_sale_isSet;

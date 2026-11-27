@@ -13,7 +13,7 @@
 /*
  * Field_eDocumenttypeTransactiontype.h
  *
- * The transactiontype of the Documenttype
+ * The transaction type for which the document is applicable
  */
 
 #ifndef Field_eDocumenttypeTransactiontype_H

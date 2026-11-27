@@ -13,7 +13,7 @@
 /*
  * Field_eAttachmentVerified.h
  *
- * The verified of the Attachment
+ * The verification status of the Attachment
  */
 
 #ifndef Field_eAttachmentVerified_H

@@ -52,9 +52,6 @@ void Documenttype_ResponseCompound::initializeModel() {
     m_b_documenttype_isactive_isSet = false;
     m_b_documenttype_isactive_isValid = false;
 
-    m_b_documenttype_isrequired_isSet = false;
-    m_b_documenttype_isrequired_isValid = false;
-
     m_b_documenttype_sale_isSet = false;
     m_b_documenttype_sale_isValid = false;
 
@@ -137,9 +134,6 @@ void Documenttype_ResponseCompound::fromJsonObject(QJsonObject json) {
     m_b_documenttype_isactive_isValid = ::Ezmaxapi::fromJsonValue(m_b_documenttype_isactive, json[QString("bDocumenttypeIsactive")]);
     m_b_documenttype_isactive_isSet = !json[QString("bDocumenttypeIsactive")].isNull() && m_b_documenttype_isactive_isValid;
 
-    m_b_documenttype_isrequired_isValid = ::Ezmaxapi::fromJsonValue(m_b_documenttype_isrequired, json[QString("bDocumenttypeIsrequired")]);
-    m_b_documenttype_isrequired_isSet = !json[QString("bDocumenttypeIsrequired")].isNull() && m_b_documenttype_isrequired_isValid;
-
     m_b_documenttype_sale_isValid = ::Ezmaxapi::fromJsonValue(m_b_documenttype_sale, json[QString("bDocumenttypeSale")]);
     m_b_documenttype_sale_isSet = !json[QString("bDocumenttypeSale")].isNull() && m_b_documenttype_sale_isValid;
 
@@ -221,9 +215,6 @@ QJsonObject Documenttype_ResponseCompound::asJsonObject() const {
     }
     if (m_b_documenttype_isactive_isSet) {
         obj.insert(QString("bDocumenttypeIsactive"), ::Ezmaxapi::toJsonValue(m_b_documenttype_isactive));
-    }
-    if (m_b_documenttype_isrequired_isSet) {
-        obj.insert(QString("bDocumenttypeIsrequired"), ::Ezmaxapi::toJsonValue(m_b_documenttype_isrequired));
     }
     if (m_b_documenttype_sale_isSet) {
         obj.insert(QString("bDocumenttypeSale"), ::Ezmaxapi::toJsonValue(m_b_documenttype_sale));
@@ -376,22 +367,6 @@ bool Documenttype_ResponseCompound::is_b_documenttype_isactive_Set() const{
 
 bool Documenttype_ResponseCompound::is_b_documenttype_isactive_Valid() const{
     return m_b_documenttype_isactive_isValid;
-}
-
-bool Documenttype_ResponseCompound::isBDocumenttypeIsrequired() const {
-    return m_b_documenttype_isrequired;
-}
-void Documenttype_ResponseCompound::setBDocumenttypeIsrequired(const bool &b_documenttype_isrequired) {
-    m_b_documenttype_isrequired = b_documenttype_isrequired;
-    m_b_documenttype_isrequired_isSet = true;
-}
-
-bool Documenttype_ResponseCompound::is_b_documenttype_isrequired_Set() const{
-    return m_b_documenttype_isrequired_isSet;
-}
-
-bool Documenttype_ResponseCompound::is_b_documenttype_isrequired_Valid() const{
-    return m_b_documenttype_isrequired_isValid;
 }
 
 bool Documenttype_ResponseCompound::isBDocumenttypeSale() const {
@@ -715,11 +690,6 @@ bool Documenttype_ResponseCompound::isSet() const {
             break;
         }
 
-        if (m_b_documenttype_isrequired_isSet) {
-            isObjectUpdated = true;
-            break;
-        }
-
         if (m_b_documenttype_sale_isSet) {
             isObjectUpdated = true;
             break;
@@ -815,7 +785,7 @@ bool Documenttype_ResponseCompound::isSet() const {
 
 bool Documenttype_ResponseCompound::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_pki_documenttype_id_isValid && m_obj_documenttype_name_isValid && m_e_documenttype_step_isValid && m_s_documenttype_defaultfilename_isValid && m_b_documenttype_showagent_isValid && m_b_documenttype_isactive_isValid && m_b_documenttype_isrequired_isValid && m_a_fki_inscriptiontype_id_isValid && true;
+    return m_pki_documenttype_id_isValid && m_obj_documenttype_name_isValid && m_e_documenttype_step_isValid && m_s_documenttype_defaultfilename_isValid && m_b_documenttype_showagent_isValid && m_b_documenttype_isactive_isValid && m_a_fki_inscriptiontype_id_isValid && true;
 }
 
 } // namespace Ezmaxapi

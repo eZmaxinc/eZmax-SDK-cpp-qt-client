@@ -13,7 +13,7 @@
 /*
  * Discussion_improveMessage_v1_Response.h
  *
- * Response for POST /1/object/discussion
+ * Response for POST /1/object/discussion/improveMessage
  */
 
 #ifndef Discussion_improveMessage_v1_Response_H

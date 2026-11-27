@@ -13,7 +13,7 @@
 /*
  * Discussion_improveMessage_v1_Response_mPayload.h
  *
- * Payload for POST /1/object/discussion
+ * Payload for POST /1/object/discussion/improveMessage
  */
 
 #ifndef Discussion_improveMessage_v1_Response_mPayload_H
@@ -21,7 +21,7 @@
 
 #include <QJsonObject>
 
-#include <QList>
+#include <QString>
 
 #include "Enum.h"
 #include "Object.h"
@@ -39,10 +39,10 @@ public:
     void fromJsonObject(QJsonObject json) override;
     void fromJson(const QString &jsonString) override;
 
-    QList<qint32> getAPkiDiscussionId() const;
-    void setAPkiDiscussionId(const QList<qint32> &a_pki_discussion_id);
-    bool is_a_pki_discussion_id_Set() const;
-    bool is_a_pki_discussion_id_Valid() const;
+    QString getTDiscussionMessage() const;
+    void setTDiscussionMessage(const QString &t_discussion_message);
+    bool is_t_discussion_message_Set() const;
+    bool is_t_discussion_message_Valid() const;
 
     virtual bool isSet() const override;
     virtual bool isValid() const override;
@@ -50,9 +50,9 @@ public:
 private:
     void initializeModel();
 
-    QList<qint32> m_a_pki_discussion_id;
-    bool m_a_pki_discussion_id_isSet;
-    bool m_a_pki_discussion_id_isValid;
+    QString m_t_discussion_message;
+    bool m_t_discussion_message_isSet;
+    bool m_t_discussion_message_isValid;
 };
 
 } // namespace Ezmaxapi

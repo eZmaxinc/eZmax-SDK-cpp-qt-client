@@ -25,11 +25,14 @@
 #include "Disclosure_getCommunicationList_v1_Response.h"
 #include "Disclosure_getCommunicationrecipients_v1_Response.h"
 #include "Disclosure_getCommunicationsenders_v1_Response.h"
+#include "Disclosure_getDocumenttypechecklist_v1_Response.h"
 #include "Disclosure_getList_v1_Response.h"
 #include "Disclosure_importIntoEDM_v1_Request.h"
 #include "Disclosure_importIntoEDM_v1_Response.h"
+#include "Disclosure_syncDocumenttypechecklist_v1_Response.h"
 #include "Header_Accept_Language.h"
 #include "HttpFileElement.h"
+#include "Object.h"
 #include <QString>
 
 #include <QObject>
@@ -101,6 +104,11 @@ public:
     virtual void disclosureGetCommunicationsendersV1(const qint32 &pki_disclosure_id);
 
     /**
+    * @param[in]  pki_disclosure_id qint32 [required]
+    */
+    virtual void disclosureGetDocumenttypechecklistV1(const qint32 &pki_disclosure_id);
+
+    /**
     * @param[in]  e_order_by QString [optional]
     * @param[in]  i_row_max qint32 [optional]
     * @param[in]  i_row_offset qint32 [optional]
@@ -114,6 +122,12 @@ public:
     * @param[in]  disclosure_import_into_edm_v1_request Disclosure_importIntoEDM_v1_Request [required]
     */
     virtual void disclosureImportIntoEDMV1(const qint32 &pki_disclosure_id, const Disclosure_importIntoEDM_v1_Request &disclosure_import_into_edm_v1_request);
+
+    /**
+    * @param[in]  pki_disclosure_id qint32 [required]
+    * @param[in]  body Object [optional]
+    */
+    virtual void disclosureSyncDocumenttypechecklistV1(const qint32 &pki_disclosure_id, const ::Ezmaxapi::OptionalParam<Object> &body = ::Ezmaxapi::OptionalParam<Object>());
 
 
 private:
@@ -151,8 +165,10 @@ private:
     void disclosureGetCommunicationListV1Callback(HttpRequestWorker *worker);
     void disclosureGetCommunicationrecipientsV1Callback(HttpRequestWorker *worker);
     void disclosureGetCommunicationsendersV1Callback(HttpRequestWorker *worker);
+    void disclosureGetDocumenttypechecklistV1Callback(HttpRequestWorker *worker);
     void disclosureGetListV1Callback(HttpRequestWorker *worker);
     void disclosureImportIntoEDMV1Callback(HttpRequestWorker *worker);
+    void disclosureSyncDocumenttypechecklistV1Callback(HttpRequestWorker *worker);
 
 Q_SIGNALS:
 
@@ -162,8 +178,10 @@ Q_SIGNALS:
     void disclosureGetCommunicationListV1Signal(Disclosure_getCommunicationList_v1_Response summary);
     void disclosureGetCommunicationrecipientsV1Signal(Disclosure_getCommunicationrecipients_v1_Response summary);
     void disclosureGetCommunicationsendersV1Signal(Disclosure_getCommunicationsenders_v1_Response summary);
+    void disclosureGetDocumenttypechecklistV1Signal(Disclosure_getDocumenttypechecklist_v1_Response summary);
     void disclosureGetListV1Signal(Disclosure_getList_v1_Response summary);
     void disclosureImportIntoEDMV1Signal(Disclosure_importIntoEDM_v1_Response summary);
+    void disclosureSyncDocumenttypechecklistV1Signal(Disclosure_syncDocumenttypechecklist_v1_Response summary);
 
 
     void disclosureBatchDownloadV1SignalFull(HttpRequestWorker *worker, HttpFileElement summary);
@@ -172,8 +190,10 @@ Q_SIGNALS:
     void disclosureGetCommunicationListV1SignalFull(HttpRequestWorker *worker, Disclosure_getCommunicationList_v1_Response summary);
     void disclosureGetCommunicationrecipientsV1SignalFull(HttpRequestWorker *worker, Disclosure_getCommunicationrecipients_v1_Response summary);
     void disclosureGetCommunicationsendersV1SignalFull(HttpRequestWorker *worker, Disclosure_getCommunicationsenders_v1_Response summary);
+    void disclosureGetDocumenttypechecklistV1SignalFull(HttpRequestWorker *worker, Disclosure_getDocumenttypechecklist_v1_Response summary);
     void disclosureGetListV1SignalFull(HttpRequestWorker *worker, Disclosure_getList_v1_Response summary);
     void disclosureImportIntoEDMV1SignalFull(HttpRequestWorker *worker, Disclosure_importIntoEDM_v1_Response summary);
+    void disclosureSyncDocumenttypechecklistV1SignalFull(HttpRequestWorker *worker, Disclosure_syncDocumenttypechecklist_v1_Response summary);
 
     void disclosureBatchDownloadV1SignalError(HttpFileElement summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void disclosureGetAttachmentsV1SignalError(Disclosure_getAttachments_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -181,8 +201,10 @@ Q_SIGNALS:
     void disclosureGetCommunicationListV1SignalError(Disclosure_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void disclosureGetCommunicationrecipientsV1SignalError(Disclosure_getCommunicationrecipients_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void disclosureGetCommunicationsendersV1SignalError(Disclosure_getCommunicationsenders_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void disclosureGetDocumenttypechecklistV1SignalError(Disclosure_getDocumenttypechecklist_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void disclosureGetListV1SignalError(Disclosure_getList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void disclosureImportIntoEDMV1SignalError(Disclosure_importIntoEDM_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void disclosureSyncDocumenttypechecklistV1SignalError(Disclosure_syncDocumenttypechecklist_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void disclosureBatchDownloadV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void disclosureGetAttachmentsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -190,8 +212,10 @@ Q_SIGNALS:
     void disclosureGetCommunicationListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void disclosureGetCommunicationrecipientsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void disclosureGetCommunicationsendersV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void disclosureGetDocumenttypechecklistV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void disclosureGetListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void disclosureImportIntoEDMV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void disclosureSyncDocumenttypechecklistV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();

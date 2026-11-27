@@ -49,6 +49,10 @@ void Field_eDocumenttypeStatusdefault::fromJson(const QString &jsonString) {
         m_value = eField_eDocumenttypeStatusdefault::REQUIRED;
         m_value_isSet = m_value_isValid = true;
     }
+    else if ( jsonString.compare("Mandatory", Qt::CaseInsensitive) == 0) {
+        m_value = eField_eDocumenttypeStatusdefault::MANDATORY;
+        m_value_isSet = m_value_isValid = true;
+    }
 }
 
 void Field_eDocumenttypeStatusdefault::fromJsonValue(QJsonValue json) {
@@ -64,6 +68,9 @@ QString Field_eDocumenttypeStatusdefault::asJson() const {
             break;
         case eField_eDocumenttypeStatusdefault::REQUIRED:
             val = "Required";
+            break;
+        case eField_eDocumenttypeStatusdefault::MANDATORY:
+            val = "Mandatory";
             break;
         default:
             break;

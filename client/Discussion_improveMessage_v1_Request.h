@@ -21,7 +21,6 @@
 
 #include <QJsonObject>
 
-#include "Field_eDiscussionRobot.h"
 #include <QString>
 
 #include "Enum.h"
@@ -40,16 +39,6 @@ public:
     void fromJsonObject(QJsonObject json) override;
     void fromJson(const QString &jsonString) override;
 
-    qint32 getFkiDiscussionId() const;
-    void setFkiDiscussionId(const qint32 &fki_discussion_id);
-    bool is_fki_discussion_id_Set() const;
-    bool is_fki_discussion_id_Valid() const;
-
-    Field_eDiscussionRobot getEDiscussionRobot() const;
-    void setEDiscussionRobot(const Field_eDiscussionRobot &e_discussion_robot);
-    bool is_e_discussion_robot_Set() const;
-    bool is_e_discussion_robot_Valid() const;
-
     QString getTDiscussionMessage() const;
     void setTDiscussionMessage(const QString &t_discussion_message);
     bool is_t_discussion_message_Set() const;
@@ -60,14 +49,6 @@ public:
 
 private:
     void initializeModel();
-
-    qint32 m_fki_discussion_id;
-    bool m_fki_discussion_id_isSet;
-    bool m_fki_discussion_id_isValid;
-
-    Field_eDiscussionRobot m_e_discussion_robot;
-    bool m_e_discussion_robot_isSet;
-    bool m_e_discussion_robot_isValid;
 
     QString m_t_discussion_message;
     bool m_t_discussion_message_isSet;
