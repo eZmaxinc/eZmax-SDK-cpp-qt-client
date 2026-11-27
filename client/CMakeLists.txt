@@ -113,9 +113,6 @@ add_library(${PROJECT_NAME}
   Attachment_restore_v1_Request.h
   Attachment_restore_v1_Response.h
   Attachment_restore_v1_Response_mPayload.h
-  Attachment_setDocumentType_v1_Request.h
-  Attachment_setDocumentType_v1_Response.h
-  Attachment_setDocumentType_v1_Response_mPayload.h
   Attachment_setPrivacy_v1_Request.h
   Attachment_setPrivacy_v1_Response.h
   Attachment_setPrivacy_v1_Response_mPayload.h
@@ -324,7 +321,6 @@ add_library(${PROJECT_NAME}
   Company_getAutocomplete_v2_Response.h
   Company_getAutocomplete_v2_Response_mPayload.h
   Computed_eCommunicationDirection.h
-  Computed_eDocumenttypeStep.h
   Computed_eEzsigndocumentSteptype.h
   Computed_eEzsignfolderAccess.h
   Computed_eEzsignimportfolderStatus.h
@@ -593,25 +589,7 @@ add_library(${PROJECT_NAME}
   Discussionmessage_deleteObject_v1_Response.h
   Discussionmessage_patchObject_v1_Request.h
   Discussionmessage_patchObject_v1_Response.h
-  Documenttype_AutocompleteElement_Response.h
-  Documenttype_ListElement.h
-  Documenttype_Request.h
-  Documenttype_RequestCompound.h
-  Documenttype_Response.h
-  Documenttype_ResponseCompound.h
-  Documenttype_createObject_v1_Request.h
-  Documenttype_createObject_v1_Response.h
-  Documenttype_createObject_v1_Response_mPayload.h
-  Documenttype_editObject_v1_Request.h
-  Documenttype_editObject_v1_Response.h
-  Documenttype_getAutocomplete_v2_Response.h
-  Documenttype_getAutocomplete_v2_Response_mPayload.h
-  Documenttype_getList_v1_Response.h
-  Documenttype_getList_v1_Response_mPayload.h
-  Documenttype_getObject_v2_Response.h
-  Documenttype_getObject_v2_Response_mPayload.h
   Documenttypechecklist_RequestPatch.h
-  Documenttypechecklist_deleteObject_v1_Response.h
   Documenttypechecklist_patchObject_v1_Request.h
   Documenttypechecklist_patchObject_v1_Response.h
   Domain_AutocompleteElement_Response.h
@@ -1632,13 +1610,6 @@ add_library(${PROJECT_NAME}
   Field_eDisclosureInteresttype.h
   Field_eDiscussionRobot.h
   Field_eDiscussionmessageStatus.h
-  Field_eDocumenttypeEzcom.h
-  Field_eDocumenttypePrivacydefault.h
-  Field_eDocumenttypeRepossession.h
-  Field_eDocumenttypeSalebyowner.h
-  Field_eDocumenttypeSaledisplaybyrole.h
-  Field_eDocumenttypeStatusdefault.h
-  Field_eDocumenttypeTransactiontype.h
   Field_eDocumenttypechecklistStatus.h
   Field_eErrorCode.h
   Field_eEzdoctemplatedocumentPrivacylevel.h
@@ -1837,7 +1808,6 @@ add_library(${PROJECT_NAME}
   Inscription_prepareFilesTransfer_v1_Request.h
   Inscription_prepareFilesTransfer_v1_Response.h
   Inscription_prepareFilesTransfer_v1_Response_mPayload.h
-  Inscription_synchronizationDocumenttype_v1_Response.h
   Inscriptionchecklist_AutocompleteElement_Response.h
   Inscriptionchecklist_getAutocomplete_v3_Response.h
   Inscriptionchecklist_getAutocomplete_v3_Response_mPayload.h
@@ -1942,7 +1912,6 @@ add_library(${PROJECT_NAME}
   Multilingual_ApikeyDescription.h
   Multilingual_BillingentityinternalDescription.h
   Multilingual_BrandingDescription.h
-  Multilingual_DocumenttypeName.h
   Multilingual_EzdoctemplatedocumentName.h
   Multilingual_EzmaxcustomerCompany.h
   Multilingual_EzmaxcustomerNote.h
@@ -2561,7 +2530,6 @@ add_library(${PROJECT_NAME}
   ObjectDiscussionApi.h
   ObjectDiscussionmembershipApi.h
   ObjectDiscussionmessageApi.h
-  ObjectDocumenttypeApi.h
   ObjectDocumenttypechecklistApi.h
   ObjectDomainApi.h
   ObjectElectronicfundstransferApi.h
@@ -2787,9 +2755,6 @@ add_library(${PROJECT_NAME}
   Attachment_restore_v1_Request.cpp
   Attachment_restore_v1_Response.cpp
   Attachment_restore_v1_Response_mPayload.cpp
-  Attachment_setDocumentType_v1_Request.cpp
-  Attachment_setDocumentType_v1_Response.cpp
-  Attachment_setDocumentType_v1_Response_mPayload.cpp
   Attachment_setPrivacy_v1_Request.cpp
   Attachment_setPrivacy_v1_Response.cpp
   Attachment_setPrivacy_v1_Response_mPayload.cpp
@@ -2998,7 +2963,6 @@ add_library(${PROJECT_NAME}
   Company_getAutocomplete_v2_Response.cpp
   Company_getAutocomplete_v2_Response_mPayload.cpp
   Computed_eCommunicationDirection.cpp
-  Computed_eDocumenttypeStep.cpp
   Computed_eEzsigndocumentSteptype.cpp
   Computed_eEzsignfolderAccess.cpp
   Computed_eEzsignimportfolderStatus.cpp
@@ -3267,25 +3231,7 @@ add_library(${PROJECT_NAME}
   Discussionmessage_deleteObject_v1_Response.cpp
   Discussionmessage_patchObject_v1_Request.cpp
   Discussionmessage_patchObject_v1_Response.cpp
-  Documenttype_AutocompleteElement_Response.cpp
-  Documenttype_ListElement.cpp
-  Documenttype_Request.cpp
-  Documenttype_RequestCompound.cpp
-  Documenttype_Response.cpp
-  Documenttype_ResponseCompound.cpp
-  Documenttype_createObject_v1_Request.cpp
-  Documenttype_createObject_v1_Response.cpp
-  Documenttype_createObject_v1_Response_mPayload.cpp
-  Documenttype_editObject_v1_Request.cpp
-  Documenttype_editObject_v1_Response.cpp
-  Documenttype_getAutocomplete_v2_Response.cpp
-  Documenttype_getAutocomplete_v2_Response_mPayload.cpp
-  Documenttype_getList_v1_Response.cpp
-  Documenttype_getList_v1_Response_mPayload.cpp
-  Documenttype_getObject_v2_Response.cpp
-  Documenttype_getObject_v2_Response_mPayload.cpp
   Documenttypechecklist_RequestPatch.cpp
-  Documenttypechecklist_deleteObject_v1_Response.cpp
   Documenttypechecklist_patchObject_v1_Request.cpp
   Documenttypechecklist_patchObject_v1_Response.cpp
   Domain_AutocompleteElement_Response.cpp
@@ -4306,13 +4252,6 @@ add_library(${PROJECT_NAME}
   Field_eDisclosureInteresttype.cpp
   Field_eDiscussionRobot.cpp
   Field_eDiscussionmessageStatus.cpp
-  Field_eDocumenttypeEzcom.cpp
-  Field_eDocumenttypePrivacydefault.cpp
-  Field_eDocumenttypeRepossession.cpp
-  Field_eDocumenttypeSalebyowner.cpp
-  Field_eDocumenttypeSaledisplaybyrole.cpp
-  Field_eDocumenttypeStatusdefault.cpp
-  Field_eDocumenttypeTransactiontype.cpp
   Field_eDocumenttypechecklistStatus.cpp
   Field_eErrorCode.cpp
   Field_eEzdoctemplatedocumentPrivacylevel.cpp
@@ -4511,7 +4450,6 @@ add_library(${PROJECT_NAME}
   Inscription_prepareFilesTransfer_v1_Request.cpp
   Inscription_prepareFilesTransfer_v1_Response.cpp
   Inscription_prepareFilesTransfer_v1_Response_mPayload.cpp
-  Inscription_synchronizationDocumenttype_v1_Response.cpp
   Inscriptionchecklist_AutocompleteElement_Response.cpp
   Inscriptionchecklist_getAutocomplete_v3_Response.cpp
   Inscriptionchecklist_getAutocomplete_v3_Response_mPayload.cpp
@@ -4616,7 +4554,6 @@ add_library(${PROJECT_NAME}
   Multilingual_ApikeyDescription.cpp
   Multilingual_BillingentityinternalDescription.cpp
   Multilingual_BrandingDescription.cpp
-  Multilingual_DocumenttypeName.cpp
   Multilingual_EzdoctemplatedocumentName.cpp
   Multilingual_EzmaxcustomerCompany.cpp
   Multilingual_EzmaxcustomerNote.cpp
@@ -5235,7 +5172,6 @@ add_library(${PROJECT_NAME}
   ObjectDiscussionApi.cpp
   ObjectDiscussionmembershipApi.cpp
   ObjectDiscussionmessageApi.cpp
-  ObjectDocumenttypeApi.cpp
   ObjectDocumenttypechecklistApi.cpp
   ObjectDomainApi.cpp
   ObjectElectronicfundstransferApi.cpp

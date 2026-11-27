@@ -73,8 +73,6 @@ void ObjectDocumenttypechecklistApi::initializeServerConfigs() {
     QUrl("https://www.example.com"),
     "This is an example of an external server.",
     QMap<QString, ServerVariable>()));
-    _serverConfigs.insert("documenttypechecklistDeleteObjectV1", defaultConf);
-    _serverIndices.insert("documenttypechecklistDeleteObjectV1", 0);
     _serverConfigs.insert("documenttypechecklistPatchObjectV1", defaultConf);
     _serverIndices.insert("documenttypechecklistPatchObjectV1", 0);
 }
@@ -255,68 +253,6 @@ QString ObjectDocumenttypechecklistApi::getParamStyleDelimiter(const QString &st
 
     } else {
         return "none";
-    }
-}
-
-void ObjectDocumenttypechecklistApi::documenttypechecklistDeleteObjectV1(const qint32 &pki_documenttypechecklist_id) {
-    QString fullPath = QString(_serverConfigs["documenttypechecklistDeleteObjectV1"][_serverIndices.value("documenttypechecklistDeleteObjectV1")].URL()+"/1/object/documenttypechecklist/{pkiDocumenttypechecklistID}");
-    
-    if (_apiKeys.contains("Authorization")) {
-        addHeaders("Authorization",_apiKeys.find("Authorization").value());
-    }
-    
-    
-    {
-        QString pki_documenttypechecklist_idPathParam("{");
-        pki_documenttypechecklist_idPathParam.append("pkiDocumenttypechecklistID").append("}");
-        QString pathPrefix, pathSuffix, pathDelimiter;
-        QString pathStyle = "simple";
-        if (pathStyle == "")
-            pathStyle = "simple";
-        pathPrefix = getParamStylePrefix(pathStyle);
-        pathSuffix = getParamStyleSuffix(pathStyle);
-        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiDocumenttypechecklistID", false);
-        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiDocumenttypechecklistID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_documenttypechecklist_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_documenttypechecklist_id)));
-    }
-    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
-    worker->setTimeOut(_timeOut);
-    worker->setWorkingDirectory(_workingDirectory);
-    HttpRequestInput input(fullPath, "DELETE");
-
-
-    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
-        input.headers.insert(keyValueIt->first, keyValueIt->second);
-    }
-
-
-    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectDocumenttypechecklistApi::documenttypechecklistDeleteObjectV1Callback);
-    connect(this, &ObjectDocumenttypechecklistApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
-        if (findChildren<HttpRequestWorker*>().count() == 0) {
-            Q_EMIT allPendingRequestsCompleted();
-        }
-    });
-
-    worker->execute(&input);
-}
-
-void ObjectDocumenttypechecklistApi::documenttypechecklistDeleteObjectV1Callback(HttpRequestWorker *worker) {
-    QString error_str = worker->error_str;
-    QNetworkReply::NetworkError error_type = worker->error_type;
-
-    if (worker->error_type != QNetworkReply::NoError) {
-        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
-    }
-    Documenttypechecklist_deleteObject_v1_Response output(QString(worker->response));
-    worker->deleteLater();
-
-    if (worker->error_type == QNetworkReply::NoError) {
-        Q_EMIT documenttypechecklistDeleteObjectV1Signal(output);
-        Q_EMIT documenttypechecklistDeleteObjectV1SignalFull(worker, output);
-    } else {
-        Q_EMIT documenttypechecklistDeleteObjectV1SignalError(output, error_type, error_str);
-        Q_EMIT documenttypechecklistDeleteObjectV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

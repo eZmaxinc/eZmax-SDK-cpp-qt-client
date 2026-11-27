@@ -24,8 +24,6 @@
 #include "Attachment_rename_v1_Response.h"
 #include "Attachment_restore_v1_Request.h"
 #include "Attachment_restore_v1_Response.h"
-#include "Attachment_setDocumentType_v1_Request.h"
-#include "Attachment_setDocumentType_v1_Response.h"
 #include "Attachment_setPrivacy_v1_Request.h"
 #include "Attachment_setPrivacy_v1_Response.h"
 #include "Attachment_validate_v1_Request.h"
@@ -101,12 +99,6 @@ public:
 
     /**
     * @param[in]  pki_attachment_id qint32 [required]
-    * @param[in]  attachment_set_document_type_v1_request Attachment_setDocumentType_v1_Request [required]
-    */
-    virtual void attachmentSetDocumentTypeV1(const qint32 &pki_attachment_id, const Attachment_setDocumentType_v1_Request &attachment_set_document_type_v1_request);
-
-    /**
-    * @param[in]  pki_attachment_id qint32 [required]
     * @param[in]  attachment_set_privacy_v1_request Attachment_setPrivacy_v1_Request [required]
     */
     virtual void attachmentSetPrivacyV1(const qint32 &pki_attachment_id, const Attachment_setPrivacy_v1_Request &attachment_set_privacy_v1_request);
@@ -152,7 +144,6 @@ private:
     void attachmentGetAttachmentlogsV1Callback(HttpRequestWorker *worker);
     void attachmentRenameV1Callback(HttpRequestWorker *worker);
     void attachmentRestoreV1Callback(HttpRequestWorker *worker);
-    void attachmentSetDocumentTypeV1Callback(HttpRequestWorker *worker);
     void attachmentSetPrivacyV1Callback(HttpRequestWorker *worker);
     void attachmentValidateV1Callback(HttpRequestWorker *worker);
 
@@ -163,7 +154,6 @@ Q_SIGNALS:
     void attachmentGetAttachmentlogsV1Signal(Attachment_getAttachmentlogs_v1_Response summary);
     void attachmentRenameV1Signal(Attachment_rename_v1_Response summary);
     void attachmentRestoreV1Signal(Attachment_restore_v1_Response summary);
-    void attachmentSetDocumentTypeV1Signal(Attachment_setDocumentType_v1_Response summary);
     void attachmentSetPrivacyV1Signal(Attachment_setPrivacy_v1_Response summary);
     void attachmentValidateV1Signal(Attachment_validate_v1_Response summary);
 
@@ -173,7 +163,6 @@ Q_SIGNALS:
     void attachmentGetAttachmentlogsV1SignalFull(HttpRequestWorker *worker, Attachment_getAttachmentlogs_v1_Response summary);
     void attachmentRenameV1SignalFull(HttpRequestWorker *worker, Attachment_rename_v1_Response summary);
     void attachmentRestoreV1SignalFull(HttpRequestWorker *worker, Attachment_restore_v1_Response summary);
-    void attachmentSetDocumentTypeV1SignalFull(HttpRequestWorker *worker, Attachment_setDocumentType_v1_Response summary);
     void attachmentSetPrivacyV1SignalFull(HttpRequestWorker *worker, Attachment_setPrivacy_v1_Response summary);
     void attachmentValidateV1SignalFull(HttpRequestWorker *worker, Attachment_validate_v1_Response summary);
 
@@ -182,7 +171,6 @@ Q_SIGNALS:
     void attachmentGetAttachmentlogsV1SignalError(Attachment_getAttachmentlogs_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void attachmentRenameV1SignalError(Attachment_rename_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void attachmentRestoreV1SignalError(Attachment_restore_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    void attachmentSetDocumentTypeV1SignalError(Attachment_setDocumentType_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void attachmentSetPrivacyV1SignalError(Attachment_setPrivacy_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void attachmentValidateV1SignalError(Attachment_validate_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
@@ -191,7 +179,6 @@ Q_SIGNALS:
     void attachmentGetAttachmentlogsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void attachmentRenameV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void attachmentRestoreV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    void attachmentSetDocumentTypeV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void attachmentSetPrivacyV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void attachmentValidateV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 

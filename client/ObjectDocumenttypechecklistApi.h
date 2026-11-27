@@ -19,7 +19,6 @@
 #include "Oauth.h"
 
 #include "Common_Response_Error.h"
-#include "Documenttypechecklist_deleteObject_v1_Response.h"
 #include "Documenttypechecklist_patchObject_v1_Request.h"
 #include "Documenttypechecklist_patchObject_v1_Response.h"
 #include <QString>
@@ -63,11 +62,6 @@ public:
 
     /**
     * @param[in]  pki_documenttypechecklist_id qint32 [required]
-    */
-    virtual void documenttypechecklistDeleteObjectV1(const qint32 &pki_documenttypechecklist_id);
-
-    /**
-    * @param[in]  pki_documenttypechecklist_id qint32 [required]
     * @param[in]  documenttypechecklist_patch_object_v1_request Documenttypechecklist_patchObject_v1_Request [required]
     */
     virtual void documenttypechecklistPatchObjectV1(const qint32 &pki_documenttypechecklist_id, const Documenttypechecklist_patchObject_v1_Request &documenttypechecklist_patch_object_v1_request);
@@ -102,22 +96,17 @@ private:
     OauthPassword _passwordFlow;
     OauthMethod _OauthMethod = OauthMethod::INVALID_VALUE_OPENAPI_GENERATED;
 
-    void documenttypechecklistDeleteObjectV1Callback(HttpRequestWorker *worker);
     void documenttypechecklistPatchObjectV1Callback(HttpRequestWorker *worker);
 
 Q_SIGNALS:
 
-    void documenttypechecklistDeleteObjectV1Signal(Documenttypechecklist_deleteObject_v1_Response summary);
     void documenttypechecklistPatchObjectV1Signal(Documenttypechecklist_patchObject_v1_Response summary);
 
 
-    void documenttypechecklistDeleteObjectV1SignalFull(HttpRequestWorker *worker, Documenttypechecklist_deleteObject_v1_Response summary);
     void documenttypechecklistPatchObjectV1SignalFull(HttpRequestWorker *worker, Documenttypechecklist_patchObject_v1_Response summary);
 
-    void documenttypechecklistDeleteObjectV1SignalError(Documenttypechecklist_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void documenttypechecklistPatchObjectV1SignalError(Documenttypechecklist_patchObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
-    void documenttypechecklistDeleteObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void documenttypechecklistPatchObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
