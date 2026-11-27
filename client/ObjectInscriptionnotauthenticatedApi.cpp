@@ -87,8 +87,6 @@ void ObjectInscriptionnotauthenticatedApi::initializeServerConfigs() {
     _serverIndices.insert("inscriptionnotauthenticatedGetCommunicationrecipientsV1", 0);
     _serverConfigs.insert("inscriptionnotauthenticatedGetCommunicationsendersV1", defaultConf);
     _serverIndices.insert("inscriptionnotauthenticatedGetCommunicationsendersV1", 0);
-    _serverConfigs.insert("inscriptionnotauthenticatedGetDocumenttypechecklistV1", defaultConf);
-    _serverIndices.insert("inscriptionnotauthenticatedGetDocumenttypechecklistV1", 0);
     _serverConfigs.insert("inscriptionnotauthenticatedGetInscriptionnotauthenticatedconditionsV1", defaultConf);
     _serverIndices.insert("inscriptionnotauthenticatedGetInscriptionnotauthenticatedconditionsV1", 0);
     _serverConfigs.insert("inscriptionnotauthenticatedGetListV1", defaultConf);
@@ -97,8 +95,6 @@ void ObjectInscriptionnotauthenticatedApi::initializeServerConfigs() {
     _serverIndices.insert("inscriptionnotauthenticatedGetObjectV2", 0);
     _serverConfigs.insert("inscriptionnotauthenticatedImportIntoEDMV1", defaultConf);
     _serverIndices.insert("inscriptionnotauthenticatedImportIntoEDMV1", 0);
-    _serverConfigs.insert("inscriptionnotauthenticatedSyncDocumenttypechecklistV1", defaultConf);
-    _serverIndices.insert("inscriptionnotauthenticatedSyncDocumenttypechecklistV1", 0);
 }
 
 /**
@@ -724,68 +720,6 @@ void ObjectInscriptionnotauthenticatedApi::inscriptionnotauthenticatedGetCommuni
     }
 }
 
-void ObjectInscriptionnotauthenticatedApi::inscriptionnotauthenticatedGetDocumenttypechecklistV1(const qint32 &pki_inscriptionnotauthenticated_id) {
-    QString fullPath = QString(_serverConfigs["inscriptionnotauthenticatedGetDocumenttypechecklistV1"][_serverIndices.value("inscriptionnotauthenticatedGetDocumenttypechecklistV1")].URL()+"/1/object/inscriptionnotauthenticated/{pkiInscriptionnotauthenticatedID}/getDocumenttypechecklist");
-    
-    if (_apiKeys.contains("Authorization")) {
-        addHeaders("Authorization",_apiKeys.find("Authorization").value());
-    }
-    
-    
-    {
-        QString pki_inscriptionnotauthenticated_idPathParam("{");
-        pki_inscriptionnotauthenticated_idPathParam.append("pkiInscriptionnotauthenticatedID").append("}");
-        QString pathPrefix, pathSuffix, pathDelimiter;
-        QString pathStyle = "simple";
-        if (pathStyle == "")
-            pathStyle = "simple";
-        pathPrefix = getParamStylePrefix(pathStyle);
-        pathSuffix = getParamStyleSuffix(pathStyle);
-        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiInscriptionnotauthenticatedID", false);
-        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiInscriptionnotauthenticatedID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_inscriptionnotauthenticated_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_inscriptionnotauthenticated_id)));
-    }
-    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
-    worker->setTimeOut(_timeOut);
-    worker->setWorkingDirectory(_workingDirectory);
-    HttpRequestInput input(fullPath, "GET");
-
-
-    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
-        input.headers.insert(keyValueIt->first, keyValueIt->second);
-    }
-
-
-    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectInscriptionnotauthenticatedApi::inscriptionnotauthenticatedGetDocumenttypechecklistV1Callback);
-    connect(this, &ObjectInscriptionnotauthenticatedApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
-        if (findChildren<HttpRequestWorker*>().count() == 0) {
-            Q_EMIT allPendingRequestsCompleted();
-        }
-    });
-
-    worker->execute(&input);
-}
-
-void ObjectInscriptionnotauthenticatedApi::inscriptionnotauthenticatedGetDocumenttypechecklistV1Callback(HttpRequestWorker *worker) {
-    QString error_str = worker->error_str;
-    QNetworkReply::NetworkError error_type = worker->error_type;
-
-    if (worker->error_type != QNetworkReply::NoError) {
-        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
-    }
-    Inscriptionnotauthenticated_getDocumenttypechecklist_v1_Response output(QString(worker->response));
-    worker->deleteLater();
-
-    if (worker->error_type == QNetworkReply::NoError) {
-        Q_EMIT inscriptionnotauthenticatedGetDocumenttypechecklistV1Signal(output);
-        Q_EMIT inscriptionnotauthenticatedGetDocumenttypechecklistV1SignalFull(worker, output);
-    } else {
-        Q_EMIT inscriptionnotauthenticatedGetDocumenttypechecklistV1SignalError(output, error_type, error_str);
-        Q_EMIT inscriptionnotauthenticatedGetDocumenttypechecklistV1SignalErrorFull(worker, error_type, error_str);
-    }
-}
-
 void ObjectInscriptionnotauthenticatedApi::inscriptionnotauthenticatedGetInscriptionnotauthenticatedconditionsV1(const qint32 &pki_inscriptionnotauthenticated_id) {
     QString fullPath = QString(_serverConfigs["inscriptionnotauthenticatedGetInscriptionnotauthenticatedconditionsV1"][_serverIndices.value("inscriptionnotauthenticatedGetInscriptionnotauthenticatedconditionsV1")].URL()+"/1/object/inscriptionnotauthenticated/{pkiInscriptionnotauthenticatedID}/getInscriptionnotauthenticatedconditions");
     
@@ -1127,73 +1061,6 @@ void ObjectInscriptionnotauthenticatedApi::inscriptionnotauthenticatedImportInto
     } else {
         Q_EMIT inscriptionnotauthenticatedImportIntoEDMV1SignalError(output, error_type, error_str);
         Q_EMIT inscriptionnotauthenticatedImportIntoEDMV1SignalErrorFull(worker, error_type, error_str);
-    }
-}
-
-void ObjectInscriptionnotauthenticatedApi::inscriptionnotauthenticatedSyncDocumenttypechecklistV1(const qint32 &pki_inscriptionnotauthenticated_id, const ::Ezmaxapi::OptionalParam<Object> &body) {
-    QString fullPath = QString(_serverConfigs["inscriptionnotauthenticatedSyncDocumenttypechecklistV1"][_serverIndices.value("inscriptionnotauthenticatedSyncDocumenttypechecklistV1")].URL()+"/1/object/inscriptionnotauthenticated/{pkiInscriptionnotauthenticatedID}/syncDocumenttypechecklist");
-    
-    if (_apiKeys.contains("Authorization")) {
-        addHeaders("Authorization",_apiKeys.find("Authorization").value());
-    }
-    
-    
-    {
-        QString pki_inscriptionnotauthenticated_idPathParam("{");
-        pki_inscriptionnotauthenticated_idPathParam.append("pkiInscriptionnotauthenticatedID").append("}");
-        QString pathPrefix, pathSuffix, pathDelimiter;
-        QString pathStyle = "simple";
-        if (pathStyle == "")
-            pathStyle = "simple";
-        pathPrefix = getParamStylePrefix(pathStyle);
-        pathSuffix = getParamStyleSuffix(pathStyle);
-        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiInscriptionnotauthenticatedID", false);
-        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiInscriptionnotauthenticatedID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_inscriptionnotauthenticated_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_inscriptionnotauthenticated_id)));
-    }
-    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
-    worker->setTimeOut(_timeOut);
-    worker->setWorkingDirectory(_workingDirectory);
-    HttpRequestInput input(fullPath, "POST");
-
-    if (body.hasValue()){
-
-        
-        QByteArray output = body.value().asJson().toUtf8();
-        input.request_body.append(output);
-    }
-    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
-        input.headers.insert(keyValueIt->first, keyValueIt->second);
-    }
-
-
-    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectInscriptionnotauthenticatedApi::inscriptionnotauthenticatedSyncDocumenttypechecklistV1Callback);
-    connect(this, &ObjectInscriptionnotauthenticatedApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
-        if (findChildren<HttpRequestWorker*>().count() == 0) {
-            Q_EMIT allPendingRequestsCompleted();
-        }
-    });
-
-    worker->execute(&input);
-}
-
-void ObjectInscriptionnotauthenticatedApi::inscriptionnotauthenticatedSyncDocumenttypechecklistV1Callback(HttpRequestWorker *worker) {
-    QString error_str = worker->error_str;
-    QNetworkReply::NetworkError error_type = worker->error_type;
-
-    if (worker->error_type != QNetworkReply::NoError) {
-        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
-    }
-    Inscriptionnotauthenticated_syncDocumenttypechecklist_v1_Response output(QString(worker->response));
-    worker->deleteLater();
-
-    if (worker->error_type == QNetworkReply::NoError) {
-        Q_EMIT inscriptionnotauthenticatedSyncDocumenttypechecklistV1Signal(output);
-        Q_EMIT inscriptionnotauthenticatedSyncDocumenttypechecklistV1SignalFull(worker, output);
-    } else {
-        Q_EMIT inscriptionnotauthenticatedSyncDocumenttypechecklistV1SignalError(output, error_type, error_str);
-        Q_EMIT inscriptionnotauthenticatedSyncDocumenttypechecklistV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

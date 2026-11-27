@@ -46,7 +46,6 @@
 #include "Ezsignfolder_getCommunicationList_v1_Response.h"
 #include "Ezsignfolder_getCommunicationrecipients_v1_Response.h"
 #include "Ezsignfolder_getCommunicationsenders_v1_Response.h"
-#include "Ezsignfolder_getDocumenttypechecklist_v1_Response.h"
 #include "Ezsignfolder_getEzsignannotations_v1_Response.h"
 #include "Ezsignfolder_getEzsigndocuments_v1_Response.h"
 #include "Ezsignfolder_getEzsigndocuments_v2_Response.h"
@@ -74,7 +73,6 @@
 #include "Ezsignfolder_send_v1_Response.h"
 #include "Ezsignfolder_send_v3_Request.h"
 #include "Ezsignfolder_send_v3_Response.h"
-#include "Ezsignfolder_syncDocumenttypechecklist_v1_Response.h"
 #include "Ezsignfolder_unsend_v1_Response.h"
 #include "Header_Accept_Language.h"
 #include "HttpFileElement.h"
@@ -235,11 +233,6 @@ public:
     /**
     * @param[in]  pki_ezsignfolder_id qint32 [required]
     */
-    virtual void ezsignfolderGetDocumenttypechecklistV1(const qint32 &pki_ezsignfolder_id);
-
-    /**
-    * @param[in]  pki_ezsignfolder_id qint32 [required]
-    */
     virtual void ezsignfolderGetEzsignannotationsV1(const qint32 &pki_ezsignfolder_id);
 
     /**
@@ -350,12 +343,6 @@ public:
 
     /**
     * @param[in]  pki_ezsignfolder_id qint32 [required]
-    * @param[in]  body Object [optional]
-    */
-    virtual void ezsignfolderSyncDocumenttypechecklistV1(const qint32 &pki_ezsignfolder_id, const ::Ezmaxapi::OptionalParam<Object> &body = ::Ezmaxapi::OptionalParam<Object>());
-
-    /**
-    * @param[in]  pki_ezsignfolder_id qint32 [required]
     * @param[in]  body Object [required]
     */
     virtual void ezsignfolderUnsendV1(const qint32 &pki_ezsignfolder_id, const Object &body);
@@ -411,7 +398,6 @@ private:
     void ezsignfolderGetCommunicationListV1Callback(HttpRequestWorker *worker);
     void ezsignfolderGetCommunicationrecipientsV1Callback(HttpRequestWorker *worker);
     void ezsignfolderGetCommunicationsendersV1Callback(HttpRequestWorker *worker);
-    void ezsignfolderGetDocumenttypechecklistV1Callback(HttpRequestWorker *worker);
     void ezsignfolderGetEzsignannotationsV1Callback(HttpRequestWorker *worker);
     void ezsignfolderGetEzsigndocumentsV1Callback(HttpRequestWorker *worker);
     void ezsignfolderGetEzsigndocumentsV2Callback(HttpRequestWorker *worker);
@@ -432,7 +418,6 @@ private:
     void ezsignfolderReorderV2Callback(HttpRequestWorker *worker);
     void ezsignfolderSendV1Callback(HttpRequestWorker *worker);
     void ezsignfolderSendV3Callback(HttpRequestWorker *worker);
-    void ezsignfolderSyncDocumenttypechecklistV1Callback(HttpRequestWorker *worker);
     void ezsignfolderUnsendV1Callback(HttpRequestWorker *worker);
 
 Q_SIGNALS:
@@ -458,7 +443,6 @@ Q_SIGNALS:
     void ezsignfolderGetCommunicationListV1Signal(Ezsignfolder_getCommunicationList_v1_Response summary);
     void ezsignfolderGetCommunicationrecipientsV1Signal(Ezsignfolder_getCommunicationrecipients_v1_Response summary);
     void ezsignfolderGetCommunicationsendersV1Signal(Ezsignfolder_getCommunicationsenders_v1_Response summary);
-    void ezsignfolderGetDocumenttypechecklistV1Signal(Ezsignfolder_getDocumenttypechecklist_v1_Response summary);
     void ezsignfolderGetEzsignannotationsV1Signal(Ezsignfolder_getEzsignannotations_v1_Response summary);
     void ezsignfolderGetEzsigndocumentsV1Signal(Ezsignfolder_getEzsigndocuments_v1_Response summary);
     void ezsignfolderGetEzsigndocumentsV2Signal(Ezsignfolder_getEzsigndocuments_v2_Response summary);
@@ -479,7 +463,6 @@ Q_SIGNALS:
     void ezsignfolderReorderV2Signal(Ezsignfolder_reorder_v2_Response summary);
     void ezsignfolderSendV1Signal(Ezsignfolder_send_v1_Response summary);
     void ezsignfolderSendV3Signal(Ezsignfolder_send_v3_Response summary);
-    void ezsignfolderSyncDocumenttypechecklistV1Signal(Ezsignfolder_syncDocumenttypechecklist_v1_Response summary);
     void ezsignfolderUnsendV1Signal(Ezsignfolder_unsend_v1_Response summary);
 
 
@@ -504,7 +487,6 @@ Q_SIGNALS:
     void ezsignfolderGetCommunicationListV1SignalFull(HttpRequestWorker *worker, Ezsignfolder_getCommunicationList_v1_Response summary);
     void ezsignfolderGetCommunicationrecipientsV1SignalFull(HttpRequestWorker *worker, Ezsignfolder_getCommunicationrecipients_v1_Response summary);
     void ezsignfolderGetCommunicationsendersV1SignalFull(HttpRequestWorker *worker, Ezsignfolder_getCommunicationsenders_v1_Response summary);
-    void ezsignfolderGetDocumenttypechecklistV1SignalFull(HttpRequestWorker *worker, Ezsignfolder_getDocumenttypechecklist_v1_Response summary);
     void ezsignfolderGetEzsignannotationsV1SignalFull(HttpRequestWorker *worker, Ezsignfolder_getEzsignannotations_v1_Response summary);
     void ezsignfolderGetEzsigndocumentsV1SignalFull(HttpRequestWorker *worker, Ezsignfolder_getEzsigndocuments_v1_Response summary);
     void ezsignfolderGetEzsigndocumentsV2SignalFull(HttpRequestWorker *worker, Ezsignfolder_getEzsigndocuments_v2_Response summary);
@@ -525,7 +507,6 @@ Q_SIGNALS:
     void ezsignfolderReorderV2SignalFull(HttpRequestWorker *worker, Ezsignfolder_reorder_v2_Response summary);
     void ezsignfolderSendV1SignalFull(HttpRequestWorker *worker, Ezsignfolder_send_v1_Response summary);
     void ezsignfolderSendV3SignalFull(HttpRequestWorker *worker, Ezsignfolder_send_v3_Response summary);
-    void ezsignfolderSyncDocumenttypechecklistV1SignalFull(HttpRequestWorker *worker, Ezsignfolder_syncDocumenttypechecklist_v1_Response summary);
     void ezsignfolderUnsendV1SignalFull(HttpRequestWorker *worker, Ezsignfolder_unsend_v1_Response summary);
 
     void ezsignfolderArchiveV1SignalError(Ezsignfolder_archive_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -549,7 +530,6 @@ Q_SIGNALS:
     void ezsignfolderGetCommunicationListV1SignalError(Ezsignfolder_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void ezsignfolderGetCommunicationrecipientsV1SignalError(Ezsignfolder_getCommunicationrecipients_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void ezsignfolderGetCommunicationsendersV1SignalError(Ezsignfolder_getCommunicationsenders_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    void ezsignfolderGetDocumenttypechecklistV1SignalError(Ezsignfolder_getDocumenttypechecklist_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void ezsignfolderGetEzsignannotationsV1SignalError(Ezsignfolder_getEzsignannotations_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void ezsignfolderGetEzsigndocumentsV1SignalError(Ezsignfolder_getEzsigndocuments_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void ezsignfolderGetEzsigndocumentsV2SignalError(Ezsignfolder_getEzsigndocuments_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -570,7 +550,6 @@ Q_SIGNALS:
     void ezsignfolderReorderV2SignalError(Ezsignfolder_reorder_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void ezsignfolderSendV1SignalError(Ezsignfolder_send_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void ezsignfolderSendV3SignalError(Ezsignfolder_send_v3_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    void ezsignfolderSyncDocumenttypechecklistV1SignalError(Ezsignfolder_syncDocumenttypechecklist_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void ezsignfolderUnsendV1SignalError(Ezsignfolder_unsend_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void ezsignfolderArchiveV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -594,7 +573,6 @@ Q_SIGNALS:
     void ezsignfolderGetCommunicationListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void ezsignfolderGetCommunicationrecipientsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void ezsignfolderGetCommunicationsendersV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    void ezsignfolderGetDocumenttypechecklistV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void ezsignfolderGetEzsignannotationsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void ezsignfolderGetEzsigndocumentsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void ezsignfolderGetEzsigndocumentsV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -615,7 +593,6 @@ Q_SIGNALS:
     void ezsignfolderReorderV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void ezsignfolderSendV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void ezsignfolderSendV3SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    void ezsignfolderSyncDocumenttypechecklistV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void ezsignfolderUnsendV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();

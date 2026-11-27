@@ -25,14 +25,11 @@
 #include "Deposittransitcheque_getCommunicationList_v1_Response.h"
 #include "Deposittransitcheque_getCommunicationrecipients_v1_Response.h"
 #include "Deposittransitcheque_getCommunicationsenders_v1_Response.h"
-#include "Deposittransitcheque_getDocumenttypechecklist_v1_Response.h"
 #include "Deposittransitcheque_getList_v1_Response.h"
 #include "Deposittransitcheque_importIntoEDM_v1_Request.h"
 #include "Deposittransitcheque_importIntoEDM_v1_Response.h"
-#include "Deposittransitcheque_syncDocumenttypechecklist_v1_Response.h"
 #include "Header_Accept_Language.h"
 #include "HttpFileElement.h"
-#include "Object.h"
 #include <QString>
 
 #include <QObject>
@@ -104,11 +101,6 @@ public:
     virtual void deposittransitchequeGetCommunicationsendersV1(const qint32 &pki_deposittransitcheque_id);
 
     /**
-    * @param[in]  pki_deposittransitcheque_id qint32 [required]
-    */
-    virtual void deposittransitchequeGetDocumenttypechecklistV1(const qint32 &pki_deposittransitcheque_id);
-
-    /**
     * @param[in]  e_order_by QString [optional]
     * @param[in]  i_row_max qint32 [optional]
     * @param[in]  i_row_offset qint32 [optional]
@@ -122,12 +114,6 @@ public:
     * @param[in]  deposittransitcheque_import_into_edm_v1_request Deposittransitcheque_importIntoEDM_v1_Request [required]
     */
     virtual void deposittransitchequeImportIntoEDMV1(const qint32 &pki_deposittransitcheque_id, const Deposittransitcheque_importIntoEDM_v1_Request &deposittransitcheque_import_into_edm_v1_request);
-
-    /**
-    * @param[in]  pki_deposittransitcheque_id qint32 [required]
-    * @param[in]  body Object [optional]
-    */
-    virtual void deposittransitchequeSyncDocumenttypechecklistV1(const qint32 &pki_deposittransitcheque_id, const ::Ezmaxapi::OptionalParam<Object> &body = ::Ezmaxapi::OptionalParam<Object>());
 
 
 private:
@@ -165,10 +151,8 @@ private:
     void deposittransitchequeGetCommunicationListV1Callback(HttpRequestWorker *worker);
     void deposittransitchequeGetCommunicationrecipientsV1Callback(HttpRequestWorker *worker);
     void deposittransitchequeGetCommunicationsendersV1Callback(HttpRequestWorker *worker);
-    void deposittransitchequeGetDocumenttypechecklistV1Callback(HttpRequestWorker *worker);
     void deposittransitchequeGetListV1Callback(HttpRequestWorker *worker);
     void deposittransitchequeImportIntoEDMV1Callback(HttpRequestWorker *worker);
-    void deposittransitchequeSyncDocumenttypechecklistV1Callback(HttpRequestWorker *worker);
 
 Q_SIGNALS:
 
@@ -178,10 +162,8 @@ Q_SIGNALS:
     void deposittransitchequeGetCommunicationListV1Signal(Deposittransitcheque_getCommunicationList_v1_Response summary);
     void deposittransitchequeGetCommunicationrecipientsV1Signal(Deposittransitcheque_getCommunicationrecipients_v1_Response summary);
     void deposittransitchequeGetCommunicationsendersV1Signal(Deposittransitcheque_getCommunicationsenders_v1_Response summary);
-    void deposittransitchequeGetDocumenttypechecklistV1Signal(Deposittransitcheque_getDocumenttypechecklist_v1_Response summary);
     void deposittransitchequeGetListV1Signal(Deposittransitcheque_getList_v1_Response summary);
     void deposittransitchequeImportIntoEDMV1Signal(Deposittransitcheque_importIntoEDM_v1_Response summary);
-    void deposittransitchequeSyncDocumenttypechecklistV1Signal(Deposittransitcheque_syncDocumenttypechecklist_v1_Response summary);
 
 
     void deposittransitchequeBatchDownloadV1SignalFull(HttpRequestWorker *worker, HttpFileElement summary);
@@ -190,10 +172,8 @@ Q_SIGNALS:
     void deposittransitchequeGetCommunicationListV1SignalFull(HttpRequestWorker *worker, Deposittransitcheque_getCommunicationList_v1_Response summary);
     void deposittransitchequeGetCommunicationrecipientsV1SignalFull(HttpRequestWorker *worker, Deposittransitcheque_getCommunicationrecipients_v1_Response summary);
     void deposittransitchequeGetCommunicationsendersV1SignalFull(HttpRequestWorker *worker, Deposittransitcheque_getCommunicationsenders_v1_Response summary);
-    void deposittransitchequeGetDocumenttypechecklistV1SignalFull(HttpRequestWorker *worker, Deposittransitcheque_getDocumenttypechecklist_v1_Response summary);
     void deposittransitchequeGetListV1SignalFull(HttpRequestWorker *worker, Deposittransitcheque_getList_v1_Response summary);
     void deposittransitchequeImportIntoEDMV1SignalFull(HttpRequestWorker *worker, Deposittransitcheque_importIntoEDM_v1_Response summary);
-    void deposittransitchequeSyncDocumenttypechecklistV1SignalFull(HttpRequestWorker *worker, Deposittransitcheque_syncDocumenttypechecklist_v1_Response summary);
 
     void deposittransitchequeBatchDownloadV1SignalError(HttpFileElement summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void deposittransitchequeGetAttachmentsV1SignalError(Deposittransitcheque_getAttachments_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -201,10 +181,8 @@ Q_SIGNALS:
     void deposittransitchequeGetCommunicationListV1SignalError(Deposittransitcheque_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void deposittransitchequeGetCommunicationrecipientsV1SignalError(Deposittransitcheque_getCommunicationrecipients_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void deposittransitchequeGetCommunicationsendersV1SignalError(Deposittransitcheque_getCommunicationsenders_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    void deposittransitchequeGetDocumenttypechecklistV1SignalError(Deposittransitcheque_getDocumenttypechecklist_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void deposittransitchequeGetListV1SignalError(Deposittransitcheque_getList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void deposittransitchequeImportIntoEDMV1SignalError(Deposittransitcheque_importIntoEDM_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    void deposittransitchequeSyncDocumenttypechecklistV1SignalError(Deposittransitcheque_syncDocumenttypechecklist_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void deposittransitchequeBatchDownloadV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void deposittransitchequeGetAttachmentsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -212,10 +190,8 @@ Q_SIGNALS:
     void deposittransitchequeGetCommunicationListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void deposittransitchequeGetCommunicationrecipientsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void deposittransitchequeGetCommunicationsendersV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    void deposittransitchequeGetDocumenttypechecklistV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void deposittransitchequeGetListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void deposittransitchequeImportIntoEDMV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    void deposittransitchequeSyncDocumenttypechecklistV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();

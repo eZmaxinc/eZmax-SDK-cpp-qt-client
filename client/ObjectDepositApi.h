@@ -25,14 +25,11 @@
 #include "Deposit_getCommunicationList_v1_Response.h"
 #include "Deposit_getCommunicationrecipients_v1_Response.h"
 #include "Deposit_getCommunicationsenders_v1_Response.h"
-#include "Deposit_getDocumenttypechecklist_v1_Response.h"
 #include "Deposit_getList_v1_Response.h"
 #include "Deposit_importIntoEDM_v1_Request.h"
 #include "Deposit_importIntoEDM_v1_Response.h"
-#include "Deposit_syncDocumenttypechecklist_v1_Response.h"
 #include "Header_Accept_Language.h"
 #include "HttpFileElement.h"
-#include "Object.h"
 #include <QString>
 
 #include <QObject>
@@ -104,11 +101,6 @@ public:
     virtual void depositGetCommunicationsendersV1(const qint32 &pki_deposit_id);
 
     /**
-    * @param[in]  pki_deposit_id qint32 [required]
-    */
-    virtual void depositGetDocumenttypechecklistV1(const qint32 &pki_deposit_id);
-
-    /**
     * @param[in]  e_order_by QString [optional]
     * @param[in]  i_row_max qint32 [optional]
     * @param[in]  i_row_offset qint32 [optional]
@@ -122,12 +114,6 @@ public:
     * @param[in]  deposit_import_into_edm_v1_request Deposit_importIntoEDM_v1_Request [required]
     */
     virtual void depositImportIntoEDMV1(const qint32 &pki_deposit_id, const Deposit_importIntoEDM_v1_Request &deposit_import_into_edm_v1_request);
-
-    /**
-    * @param[in]  pki_deposit_id qint32 [required]
-    * @param[in]  body Object [optional]
-    */
-    virtual void depositSyncDocumenttypechecklistV1(const qint32 &pki_deposit_id, const ::Ezmaxapi::OptionalParam<Object> &body = ::Ezmaxapi::OptionalParam<Object>());
 
 
 private:
@@ -165,10 +151,8 @@ private:
     void depositGetCommunicationListV1Callback(HttpRequestWorker *worker);
     void depositGetCommunicationrecipientsV1Callback(HttpRequestWorker *worker);
     void depositGetCommunicationsendersV1Callback(HttpRequestWorker *worker);
-    void depositGetDocumenttypechecklistV1Callback(HttpRequestWorker *worker);
     void depositGetListV1Callback(HttpRequestWorker *worker);
     void depositImportIntoEDMV1Callback(HttpRequestWorker *worker);
-    void depositSyncDocumenttypechecklistV1Callback(HttpRequestWorker *worker);
 
 Q_SIGNALS:
 
@@ -178,10 +162,8 @@ Q_SIGNALS:
     void depositGetCommunicationListV1Signal(Deposit_getCommunicationList_v1_Response summary);
     void depositGetCommunicationrecipientsV1Signal(Deposit_getCommunicationrecipients_v1_Response summary);
     void depositGetCommunicationsendersV1Signal(Deposit_getCommunicationsenders_v1_Response summary);
-    void depositGetDocumenttypechecklistV1Signal(Deposit_getDocumenttypechecklist_v1_Response summary);
     void depositGetListV1Signal(Deposit_getList_v1_Response summary);
     void depositImportIntoEDMV1Signal(Deposit_importIntoEDM_v1_Response summary);
-    void depositSyncDocumenttypechecklistV1Signal(Deposit_syncDocumenttypechecklist_v1_Response summary);
 
 
     void depositBatchDownloadV1SignalFull(HttpRequestWorker *worker, HttpFileElement summary);
@@ -190,10 +172,8 @@ Q_SIGNALS:
     void depositGetCommunicationListV1SignalFull(HttpRequestWorker *worker, Deposit_getCommunicationList_v1_Response summary);
     void depositGetCommunicationrecipientsV1SignalFull(HttpRequestWorker *worker, Deposit_getCommunicationrecipients_v1_Response summary);
     void depositGetCommunicationsendersV1SignalFull(HttpRequestWorker *worker, Deposit_getCommunicationsenders_v1_Response summary);
-    void depositGetDocumenttypechecklistV1SignalFull(HttpRequestWorker *worker, Deposit_getDocumenttypechecklist_v1_Response summary);
     void depositGetListV1SignalFull(HttpRequestWorker *worker, Deposit_getList_v1_Response summary);
     void depositImportIntoEDMV1SignalFull(HttpRequestWorker *worker, Deposit_importIntoEDM_v1_Response summary);
-    void depositSyncDocumenttypechecklistV1SignalFull(HttpRequestWorker *worker, Deposit_syncDocumenttypechecklist_v1_Response summary);
 
     void depositBatchDownloadV1SignalError(HttpFileElement summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void depositGetAttachmentsV1SignalError(Deposit_getAttachments_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -201,10 +181,8 @@ Q_SIGNALS:
     void depositGetCommunicationListV1SignalError(Deposit_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void depositGetCommunicationrecipientsV1SignalError(Deposit_getCommunicationrecipients_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void depositGetCommunicationsendersV1SignalError(Deposit_getCommunicationsenders_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    void depositGetDocumenttypechecklistV1SignalError(Deposit_getDocumenttypechecklist_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void depositGetListV1SignalError(Deposit_getList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void depositImportIntoEDMV1SignalError(Deposit_importIntoEDM_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    void depositSyncDocumenttypechecklistV1SignalError(Deposit_syncDocumenttypechecklist_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void depositBatchDownloadV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void depositGetAttachmentsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -212,10 +190,8 @@ Q_SIGNALS:
     void depositGetCommunicationListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void depositGetCommunicationrecipientsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void depositGetCommunicationsendersV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    void depositGetDocumenttypechecklistV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void depositGetListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void depositImportIntoEDMV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    void depositSyncDocumenttypechecklistV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();

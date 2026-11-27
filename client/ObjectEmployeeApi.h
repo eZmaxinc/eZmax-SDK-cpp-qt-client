@@ -25,14 +25,11 @@
 #include "Employee_getCommunicationList_v1_Response.h"
 #include "Employee_getCommunicationrecipients_v1_Response.h"
 #include "Employee_getCommunicationsenders_v1_Response.h"
-#include "Employee_getDocumenttypechecklist_v1_Response.h"
 #include "Employee_getList_v1_Response.h"
 #include "Employee_importIntoEDM_v1_Request.h"
 #include "Employee_importIntoEDM_v1_Response.h"
-#include "Employee_syncDocumenttypechecklist_v1_Response.h"
 #include "Header_Accept_Language.h"
 #include "HttpFileElement.h"
-#include "Object.h"
 #include <QString>
 
 #include <QObject>
@@ -104,11 +101,6 @@ public:
     virtual void employeeGetCommunicationsendersV1(const qint32 &pki_employee_id);
 
     /**
-    * @param[in]  pki_employee_id qint32 [required]
-    */
-    virtual void employeeGetDocumenttypechecklistV1(const qint32 &pki_employee_id);
-
-    /**
     * @param[in]  e_order_by QString [optional]
     * @param[in]  i_row_max qint32 [optional]
     * @param[in]  i_row_offset qint32 [optional]
@@ -122,12 +114,6 @@ public:
     * @param[in]  employee_import_into_edm_v1_request Employee_importIntoEDM_v1_Request [required]
     */
     virtual void employeeImportIntoEDMV1(const qint32 &pki_employee_id, const Employee_importIntoEDM_v1_Request &employee_import_into_edm_v1_request);
-
-    /**
-    * @param[in]  pki_employee_id qint32 [required]
-    * @param[in]  body Object [optional]
-    */
-    virtual void employeeSyncDocumenttypechecklistV1(const qint32 &pki_employee_id, const ::Ezmaxapi::OptionalParam<Object> &body = ::Ezmaxapi::OptionalParam<Object>());
 
 
 private:
@@ -165,10 +151,8 @@ private:
     void employeeGetCommunicationListV1Callback(HttpRequestWorker *worker);
     void employeeGetCommunicationrecipientsV1Callback(HttpRequestWorker *worker);
     void employeeGetCommunicationsendersV1Callback(HttpRequestWorker *worker);
-    void employeeGetDocumenttypechecklistV1Callback(HttpRequestWorker *worker);
     void employeeGetListV1Callback(HttpRequestWorker *worker);
     void employeeImportIntoEDMV1Callback(HttpRequestWorker *worker);
-    void employeeSyncDocumenttypechecklistV1Callback(HttpRequestWorker *worker);
 
 Q_SIGNALS:
 
@@ -178,10 +162,8 @@ Q_SIGNALS:
     void employeeGetCommunicationListV1Signal(Employee_getCommunicationList_v1_Response summary);
     void employeeGetCommunicationrecipientsV1Signal(Employee_getCommunicationrecipients_v1_Response summary);
     void employeeGetCommunicationsendersV1Signal(Employee_getCommunicationsenders_v1_Response summary);
-    void employeeGetDocumenttypechecklistV1Signal(Employee_getDocumenttypechecklist_v1_Response summary);
     void employeeGetListV1Signal(Employee_getList_v1_Response summary);
     void employeeImportIntoEDMV1Signal(Employee_importIntoEDM_v1_Response summary);
-    void employeeSyncDocumenttypechecklistV1Signal(Employee_syncDocumenttypechecklist_v1_Response summary);
 
 
     void employeeBatchDownloadV1SignalFull(HttpRequestWorker *worker, HttpFileElement summary);
@@ -190,10 +172,8 @@ Q_SIGNALS:
     void employeeGetCommunicationListV1SignalFull(HttpRequestWorker *worker, Employee_getCommunicationList_v1_Response summary);
     void employeeGetCommunicationrecipientsV1SignalFull(HttpRequestWorker *worker, Employee_getCommunicationrecipients_v1_Response summary);
     void employeeGetCommunicationsendersV1SignalFull(HttpRequestWorker *worker, Employee_getCommunicationsenders_v1_Response summary);
-    void employeeGetDocumenttypechecklistV1SignalFull(HttpRequestWorker *worker, Employee_getDocumenttypechecklist_v1_Response summary);
     void employeeGetListV1SignalFull(HttpRequestWorker *worker, Employee_getList_v1_Response summary);
     void employeeImportIntoEDMV1SignalFull(HttpRequestWorker *worker, Employee_importIntoEDM_v1_Response summary);
-    void employeeSyncDocumenttypechecklistV1SignalFull(HttpRequestWorker *worker, Employee_syncDocumenttypechecklist_v1_Response summary);
 
     void employeeBatchDownloadV1SignalError(HttpFileElement summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void employeeGetAttachmentsV1SignalError(Employee_getAttachments_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -201,10 +181,8 @@ Q_SIGNALS:
     void employeeGetCommunicationListV1SignalError(Employee_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void employeeGetCommunicationrecipientsV1SignalError(Employee_getCommunicationrecipients_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void employeeGetCommunicationsendersV1SignalError(Employee_getCommunicationsenders_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    void employeeGetDocumenttypechecklistV1SignalError(Employee_getDocumenttypechecklist_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void employeeGetListV1SignalError(Employee_getList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void employeeImportIntoEDMV1SignalError(Employee_importIntoEDM_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    void employeeSyncDocumenttypechecklistV1SignalError(Employee_syncDocumenttypechecklist_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void employeeBatchDownloadV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void employeeGetAttachmentsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -212,10 +190,8 @@ Q_SIGNALS:
     void employeeGetCommunicationListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void employeeGetCommunicationrecipientsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void employeeGetCommunicationsendersV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    void employeeGetDocumenttypechecklistV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void employeeGetListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void employeeImportIntoEDMV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    void employeeSyncDocumenttypechecklistV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();

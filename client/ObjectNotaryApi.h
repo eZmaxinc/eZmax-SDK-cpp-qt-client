@@ -27,12 +27,9 @@
 #include "Notary_getCommunicationList_v1_Response.h"
 #include "Notary_getCommunicationrecipients_v1_Response.h"
 #include "Notary_getCommunicationsenders_v1_Response.h"
-#include "Notary_getDocumenttypechecklist_v1_Response.h"
 #include "Notary_getList_v1_Response.h"
 #include "Notary_importIntoEDM_v1_Request.h"
 #include "Notary_importIntoEDM_v1_Response.h"
-#include "Notary_syncDocumenttypechecklist_v1_Response.h"
-#include "Object.h"
 #include <QString>
 
 #include <QObject>
@@ -104,11 +101,6 @@ public:
     virtual void notaryGetCommunicationsendersV1(const qint32 &pki_notary_id);
 
     /**
-    * @param[in]  pki_notary_id qint32 [required]
-    */
-    virtual void notaryGetDocumenttypechecklistV1(const qint32 &pki_notary_id);
-
-    /**
     * @param[in]  e_order_by QString [optional]
     * @param[in]  i_row_max qint32 [optional]
     * @param[in]  i_row_offset qint32 [optional]
@@ -122,12 +114,6 @@ public:
     * @param[in]  notary_import_into_edm_v1_request Notary_importIntoEDM_v1_Request [required]
     */
     virtual void notaryImportIntoEDMV1(const qint32 &pki_notary_id, const Notary_importIntoEDM_v1_Request &notary_import_into_edm_v1_request);
-
-    /**
-    * @param[in]  pki_notary_id qint32 [required]
-    * @param[in]  body Object [optional]
-    */
-    virtual void notarySyncDocumenttypechecklistV1(const qint32 &pki_notary_id, const ::Ezmaxapi::OptionalParam<Object> &body = ::Ezmaxapi::OptionalParam<Object>());
 
 
 private:
@@ -165,10 +151,8 @@ private:
     void notaryGetCommunicationListV1Callback(HttpRequestWorker *worker);
     void notaryGetCommunicationrecipientsV1Callback(HttpRequestWorker *worker);
     void notaryGetCommunicationsendersV1Callback(HttpRequestWorker *worker);
-    void notaryGetDocumenttypechecklistV1Callback(HttpRequestWorker *worker);
     void notaryGetListV1Callback(HttpRequestWorker *worker);
     void notaryImportIntoEDMV1Callback(HttpRequestWorker *worker);
-    void notarySyncDocumenttypechecklistV1Callback(HttpRequestWorker *worker);
 
 Q_SIGNALS:
 
@@ -178,10 +162,8 @@ Q_SIGNALS:
     void notaryGetCommunicationListV1Signal(Notary_getCommunicationList_v1_Response summary);
     void notaryGetCommunicationrecipientsV1Signal(Notary_getCommunicationrecipients_v1_Response summary);
     void notaryGetCommunicationsendersV1Signal(Notary_getCommunicationsenders_v1_Response summary);
-    void notaryGetDocumenttypechecklistV1Signal(Notary_getDocumenttypechecklist_v1_Response summary);
     void notaryGetListV1Signal(Notary_getList_v1_Response summary);
     void notaryImportIntoEDMV1Signal(Notary_importIntoEDM_v1_Response summary);
-    void notarySyncDocumenttypechecklistV1Signal(Notary_syncDocumenttypechecklist_v1_Response summary);
 
 
     void notaryBatchDownloadV1SignalFull(HttpRequestWorker *worker, HttpFileElement summary);
@@ -190,10 +172,8 @@ Q_SIGNALS:
     void notaryGetCommunicationListV1SignalFull(HttpRequestWorker *worker, Notary_getCommunicationList_v1_Response summary);
     void notaryGetCommunicationrecipientsV1SignalFull(HttpRequestWorker *worker, Notary_getCommunicationrecipients_v1_Response summary);
     void notaryGetCommunicationsendersV1SignalFull(HttpRequestWorker *worker, Notary_getCommunicationsenders_v1_Response summary);
-    void notaryGetDocumenttypechecklistV1SignalFull(HttpRequestWorker *worker, Notary_getDocumenttypechecklist_v1_Response summary);
     void notaryGetListV1SignalFull(HttpRequestWorker *worker, Notary_getList_v1_Response summary);
     void notaryImportIntoEDMV1SignalFull(HttpRequestWorker *worker, Notary_importIntoEDM_v1_Response summary);
-    void notarySyncDocumenttypechecklistV1SignalFull(HttpRequestWorker *worker, Notary_syncDocumenttypechecklist_v1_Response summary);
 
     void notaryBatchDownloadV1SignalError(HttpFileElement summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void notaryGetAttachmentsV1SignalError(Notary_getAttachments_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -201,10 +181,8 @@ Q_SIGNALS:
     void notaryGetCommunicationListV1SignalError(Notary_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void notaryGetCommunicationrecipientsV1SignalError(Notary_getCommunicationrecipients_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void notaryGetCommunicationsendersV1SignalError(Notary_getCommunicationsenders_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    void notaryGetDocumenttypechecklistV1SignalError(Notary_getDocumenttypechecklist_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void notaryGetListV1SignalError(Notary_getList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void notaryImportIntoEDMV1SignalError(Notary_importIntoEDM_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    void notarySyncDocumenttypechecklistV1SignalError(Notary_syncDocumenttypechecklist_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void notaryBatchDownloadV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void notaryGetAttachmentsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -212,10 +190,8 @@ Q_SIGNALS:
     void notaryGetCommunicationListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void notaryGetCommunicationrecipientsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void notaryGetCommunicationsendersV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    void notaryGetDocumenttypechecklistV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void notaryGetListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void notaryImportIntoEDMV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    void notarySyncDocumenttypechecklistV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();

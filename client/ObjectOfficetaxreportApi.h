@@ -21,18 +21,15 @@
 #include "Common_Response_Error.h"
 #include "Header_Accept_Language.h"
 #include "HttpFileElement.h"
-#include "Object.h"
 #include "Officetaxreport_batchDownload_v1_Request.h"
 #include "Officetaxreport_getAttachments_v1_Response.h"
 #include "Officetaxreport_getCommunicationCount_v1_Response.h"
 #include "Officetaxreport_getCommunicationList_v1_Response.h"
 #include "Officetaxreport_getCommunicationrecipients_v1_Response.h"
 #include "Officetaxreport_getCommunicationsenders_v1_Response.h"
-#include "Officetaxreport_getDocumenttypechecklist_v1_Response.h"
 #include "Officetaxreport_getList_v1_Response.h"
 #include "Officetaxreport_importIntoEDM_v1_Request.h"
 #include "Officetaxreport_importIntoEDM_v1_Response.h"
-#include "Officetaxreport_syncDocumenttypechecklist_v1_Response.h"
 #include <QString>
 
 #include <QObject>
@@ -104,11 +101,6 @@ public:
     virtual void officetaxreportGetCommunicationsendersV1(const qint32 &pki_officetaxreport_id);
 
     /**
-    * @param[in]  pki_officetaxreport_id qint32 [required]
-    */
-    virtual void officetaxreportGetDocumenttypechecklistV1(const qint32 &pki_officetaxreport_id);
-
-    /**
     * @param[in]  e_order_by QString [optional]
     * @param[in]  i_row_max qint32 [optional]
     * @param[in]  i_row_offset qint32 [optional]
@@ -122,12 +114,6 @@ public:
     * @param[in]  officetaxreport_import_into_edm_v1_request Officetaxreport_importIntoEDM_v1_Request [required]
     */
     virtual void officetaxreportImportIntoEDMV1(const qint32 &pki_officetaxreport_id, const Officetaxreport_importIntoEDM_v1_Request &officetaxreport_import_into_edm_v1_request);
-
-    /**
-    * @param[in]  pki_officetaxreport_id qint32 [required]
-    * @param[in]  body Object [optional]
-    */
-    virtual void officetaxreportSyncDocumenttypechecklistV1(const qint32 &pki_officetaxreport_id, const ::Ezmaxapi::OptionalParam<Object> &body = ::Ezmaxapi::OptionalParam<Object>());
 
 
 private:
@@ -165,10 +151,8 @@ private:
     void officetaxreportGetCommunicationListV1Callback(HttpRequestWorker *worker);
     void officetaxreportGetCommunicationrecipientsV1Callback(HttpRequestWorker *worker);
     void officetaxreportGetCommunicationsendersV1Callback(HttpRequestWorker *worker);
-    void officetaxreportGetDocumenttypechecklistV1Callback(HttpRequestWorker *worker);
     void officetaxreportGetListV1Callback(HttpRequestWorker *worker);
     void officetaxreportImportIntoEDMV1Callback(HttpRequestWorker *worker);
-    void officetaxreportSyncDocumenttypechecklistV1Callback(HttpRequestWorker *worker);
 
 Q_SIGNALS:
 
@@ -178,10 +162,8 @@ Q_SIGNALS:
     void officetaxreportGetCommunicationListV1Signal(Officetaxreport_getCommunicationList_v1_Response summary);
     void officetaxreportGetCommunicationrecipientsV1Signal(Officetaxreport_getCommunicationrecipients_v1_Response summary);
     void officetaxreportGetCommunicationsendersV1Signal(Officetaxreport_getCommunicationsenders_v1_Response summary);
-    void officetaxreportGetDocumenttypechecklistV1Signal(Officetaxreport_getDocumenttypechecklist_v1_Response summary);
     void officetaxreportGetListV1Signal(Officetaxreport_getList_v1_Response summary);
     void officetaxreportImportIntoEDMV1Signal(Officetaxreport_importIntoEDM_v1_Response summary);
-    void officetaxreportSyncDocumenttypechecklistV1Signal(Officetaxreport_syncDocumenttypechecklist_v1_Response summary);
 
 
     void officetaxreportBatchDownloadV1SignalFull(HttpRequestWorker *worker, HttpFileElement summary);
@@ -190,10 +172,8 @@ Q_SIGNALS:
     void officetaxreportGetCommunicationListV1SignalFull(HttpRequestWorker *worker, Officetaxreport_getCommunicationList_v1_Response summary);
     void officetaxreportGetCommunicationrecipientsV1SignalFull(HttpRequestWorker *worker, Officetaxreport_getCommunicationrecipients_v1_Response summary);
     void officetaxreportGetCommunicationsendersV1SignalFull(HttpRequestWorker *worker, Officetaxreport_getCommunicationsenders_v1_Response summary);
-    void officetaxreportGetDocumenttypechecklistV1SignalFull(HttpRequestWorker *worker, Officetaxreport_getDocumenttypechecklist_v1_Response summary);
     void officetaxreportGetListV1SignalFull(HttpRequestWorker *worker, Officetaxreport_getList_v1_Response summary);
     void officetaxreportImportIntoEDMV1SignalFull(HttpRequestWorker *worker, Officetaxreport_importIntoEDM_v1_Response summary);
-    void officetaxreportSyncDocumenttypechecklistV1SignalFull(HttpRequestWorker *worker, Officetaxreport_syncDocumenttypechecklist_v1_Response summary);
 
     void officetaxreportBatchDownloadV1SignalError(HttpFileElement summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void officetaxreportGetAttachmentsV1SignalError(Officetaxreport_getAttachments_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -201,10 +181,8 @@ Q_SIGNALS:
     void officetaxreportGetCommunicationListV1SignalError(Officetaxreport_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void officetaxreportGetCommunicationrecipientsV1SignalError(Officetaxreport_getCommunicationrecipients_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void officetaxreportGetCommunicationsendersV1SignalError(Officetaxreport_getCommunicationsenders_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    void officetaxreportGetDocumenttypechecklistV1SignalError(Officetaxreport_getDocumenttypechecklist_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void officetaxreportGetListV1SignalError(Officetaxreport_getList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void officetaxreportImportIntoEDMV1SignalError(Officetaxreport_importIntoEDM_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    void officetaxreportSyncDocumenttypechecklistV1SignalError(Officetaxreport_syncDocumenttypechecklist_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void officetaxreportBatchDownloadV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void officetaxreportGetAttachmentsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -212,10 +190,8 @@ Q_SIGNALS:
     void officetaxreportGetCommunicationListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void officetaxreportGetCommunicationrecipientsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void officetaxreportGetCommunicationsendersV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    void officetaxreportGetDocumenttypechecklistV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void officetaxreportGetListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void officetaxreportImportIntoEDMV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    void officetaxreportSyncDocumenttypechecklistV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();

@@ -20,17 +20,14 @@
 
 #include "Common_Response_Error.h"
 #include "HttpFileElement.h"
-#include "Object.h"
 #include "Reconciliation_batchDownload_v1_Request.h"
 #include "Reconciliation_getAttachments_v1_Response.h"
 #include "Reconciliation_getCommunicationCount_v1_Response.h"
 #include "Reconciliation_getCommunicationList_v1_Response.h"
 #include "Reconciliation_getCommunicationrecipients_v1_Response.h"
 #include "Reconciliation_getCommunicationsenders_v1_Response.h"
-#include "Reconciliation_getDocumenttypechecklist_v1_Response.h"
 #include "Reconciliation_importIntoEDM_v1_Request.h"
 #include "Reconciliation_importIntoEDM_v1_Response.h"
-#include "Reconciliation_syncDocumenttypechecklist_v1_Response.h"
 #include <QString>
 
 #include <QObject>
@@ -103,20 +100,9 @@ public:
 
     /**
     * @param[in]  pki_reconciliation_id qint32 [required]
-    */
-    virtual void reconciliationGetDocumenttypechecklistV1(const qint32 &pki_reconciliation_id);
-
-    /**
-    * @param[in]  pki_reconciliation_id qint32 [required]
     * @param[in]  reconciliation_import_into_edm_v1_request Reconciliation_importIntoEDM_v1_Request [required]
     */
     virtual void reconciliationImportIntoEDMV1(const qint32 &pki_reconciliation_id, const Reconciliation_importIntoEDM_v1_Request &reconciliation_import_into_edm_v1_request);
-
-    /**
-    * @param[in]  pki_reconciliation_id qint32 [required]
-    * @param[in]  body Object [optional]
-    */
-    virtual void reconciliationSyncDocumenttypechecklistV1(const qint32 &pki_reconciliation_id, const ::Ezmaxapi::OptionalParam<Object> &body = ::Ezmaxapi::OptionalParam<Object>());
 
 
 private:
@@ -154,9 +140,7 @@ private:
     void reconciliationGetCommunicationListV1Callback(HttpRequestWorker *worker);
     void reconciliationGetCommunicationrecipientsV1Callback(HttpRequestWorker *worker);
     void reconciliationGetCommunicationsendersV1Callback(HttpRequestWorker *worker);
-    void reconciliationGetDocumenttypechecklistV1Callback(HttpRequestWorker *worker);
     void reconciliationImportIntoEDMV1Callback(HttpRequestWorker *worker);
-    void reconciliationSyncDocumenttypechecklistV1Callback(HttpRequestWorker *worker);
 
 Q_SIGNALS:
 
@@ -166,9 +150,7 @@ Q_SIGNALS:
     void reconciliationGetCommunicationListV1Signal(Reconciliation_getCommunicationList_v1_Response summary);
     void reconciliationGetCommunicationrecipientsV1Signal(Reconciliation_getCommunicationrecipients_v1_Response summary);
     void reconciliationGetCommunicationsendersV1Signal(Reconciliation_getCommunicationsenders_v1_Response summary);
-    void reconciliationGetDocumenttypechecklistV1Signal(Reconciliation_getDocumenttypechecklist_v1_Response summary);
     void reconciliationImportIntoEDMV1Signal(Reconciliation_importIntoEDM_v1_Response summary);
-    void reconciliationSyncDocumenttypechecklistV1Signal(Reconciliation_syncDocumenttypechecklist_v1_Response summary);
 
 
     void reconciliationBatchDownloadV1SignalFull(HttpRequestWorker *worker, HttpFileElement summary);
@@ -177,9 +159,7 @@ Q_SIGNALS:
     void reconciliationGetCommunicationListV1SignalFull(HttpRequestWorker *worker, Reconciliation_getCommunicationList_v1_Response summary);
     void reconciliationGetCommunicationrecipientsV1SignalFull(HttpRequestWorker *worker, Reconciliation_getCommunicationrecipients_v1_Response summary);
     void reconciliationGetCommunicationsendersV1SignalFull(HttpRequestWorker *worker, Reconciliation_getCommunicationsenders_v1_Response summary);
-    void reconciliationGetDocumenttypechecklistV1SignalFull(HttpRequestWorker *worker, Reconciliation_getDocumenttypechecklist_v1_Response summary);
     void reconciliationImportIntoEDMV1SignalFull(HttpRequestWorker *worker, Reconciliation_importIntoEDM_v1_Response summary);
-    void reconciliationSyncDocumenttypechecklistV1SignalFull(HttpRequestWorker *worker, Reconciliation_syncDocumenttypechecklist_v1_Response summary);
 
     void reconciliationBatchDownloadV1SignalError(HttpFileElement summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void reconciliationGetAttachmentsV1SignalError(Reconciliation_getAttachments_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -187,9 +167,7 @@ Q_SIGNALS:
     void reconciliationGetCommunicationListV1SignalError(Reconciliation_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void reconciliationGetCommunicationrecipientsV1SignalError(Reconciliation_getCommunicationrecipients_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void reconciliationGetCommunicationsendersV1SignalError(Reconciliation_getCommunicationsenders_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    void reconciliationGetDocumenttypechecklistV1SignalError(Reconciliation_getDocumenttypechecklist_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void reconciliationImportIntoEDMV1SignalError(Reconciliation_importIntoEDM_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    void reconciliationSyncDocumenttypechecklistV1SignalError(Reconciliation_syncDocumenttypechecklist_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void reconciliationBatchDownloadV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void reconciliationGetAttachmentsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -197,9 +175,7 @@ Q_SIGNALS:
     void reconciliationGetCommunicationListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void reconciliationGetCommunicationrecipientsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void reconciliationGetCommunicationsendersV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    void reconciliationGetDocumenttypechecklistV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void reconciliationImportIntoEDMV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    void reconciliationSyncDocumenttypechecklistV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();

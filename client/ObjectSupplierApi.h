@@ -21,18 +21,15 @@
 #include "Common_Response_Error.h"
 #include "Header_Accept_Language.h"
 #include "HttpFileElement.h"
-#include "Object.h"
 #include "Supplier_batchDownload_v1_Request.h"
 #include "Supplier_getAttachments_v1_Response.h"
 #include "Supplier_getCommunicationCount_v1_Response.h"
 #include "Supplier_getCommunicationList_v1_Response.h"
 #include "Supplier_getCommunicationrecipients_v1_Response.h"
 #include "Supplier_getCommunicationsenders_v1_Response.h"
-#include "Supplier_getDocumenttypechecklist_v1_Response.h"
 #include "Supplier_getList_v1_Response.h"
 #include "Supplier_importIntoEDM_v1_Request.h"
 #include "Supplier_importIntoEDM_v1_Response.h"
-#include "Supplier_syncDocumenttypechecklist_v1_Response.h"
 #include <QString>
 
 #include <QObject>
@@ -104,11 +101,6 @@ public:
     virtual void supplierGetCommunicationsendersV1(const qint32 &pki_supplier_id);
 
     /**
-    * @param[in]  pki_supplier_id qint32 [required]
-    */
-    virtual void supplierGetDocumenttypechecklistV1(const qint32 &pki_supplier_id);
-
-    /**
     * @param[in]  e_order_by QString [optional]
     * @param[in]  i_row_max qint32 [optional]
     * @param[in]  i_row_offset qint32 [optional]
@@ -122,12 +114,6 @@ public:
     * @param[in]  supplier_import_into_edm_v1_request Supplier_importIntoEDM_v1_Request [required]
     */
     virtual void supplierImportIntoEDMV1(const qint32 &pki_supplier_id, const Supplier_importIntoEDM_v1_Request &supplier_import_into_edm_v1_request);
-
-    /**
-    * @param[in]  pki_supplier_id qint32 [required]
-    * @param[in]  body Object [optional]
-    */
-    virtual void supplierSyncDocumenttypechecklistV1(const qint32 &pki_supplier_id, const ::Ezmaxapi::OptionalParam<Object> &body = ::Ezmaxapi::OptionalParam<Object>());
 
 
 private:
@@ -165,10 +151,8 @@ private:
     void supplierGetCommunicationListV1Callback(HttpRequestWorker *worker);
     void supplierGetCommunicationrecipientsV1Callback(HttpRequestWorker *worker);
     void supplierGetCommunicationsendersV1Callback(HttpRequestWorker *worker);
-    void supplierGetDocumenttypechecklistV1Callback(HttpRequestWorker *worker);
     void supplierGetListV1Callback(HttpRequestWorker *worker);
     void supplierImportIntoEDMV1Callback(HttpRequestWorker *worker);
-    void supplierSyncDocumenttypechecklistV1Callback(HttpRequestWorker *worker);
 
 Q_SIGNALS:
 
@@ -178,10 +162,8 @@ Q_SIGNALS:
     void supplierGetCommunicationListV1Signal(Supplier_getCommunicationList_v1_Response summary);
     void supplierGetCommunicationrecipientsV1Signal(Supplier_getCommunicationrecipients_v1_Response summary);
     void supplierGetCommunicationsendersV1Signal(Supplier_getCommunicationsenders_v1_Response summary);
-    void supplierGetDocumenttypechecklistV1Signal(Supplier_getDocumenttypechecklist_v1_Response summary);
     void supplierGetListV1Signal(Supplier_getList_v1_Response summary);
     void supplierImportIntoEDMV1Signal(Supplier_importIntoEDM_v1_Response summary);
-    void supplierSyncDocumenttypechecklistV1Signal(Supplier_syncDocumenttypechecklist_v1_Response summary);
 
 
     void supplierBatchDownloadV1SignalFull(HttpRequestWorker *worker, HttpFileElement summary);
@@ -190,10 +172,8 @@ Q_SIGNALS:
     void supplierGetCommunicationListV1SignalFull(HttpRequestWorker *worker, Supplier_getCommunicationList_v1_Response summary);
     void supplierGetCommunicationrecipientsV1SignalFull(HttpRequestWorker *worker, Supplier_getCommunicationrecipients_v1_Response summary);
     void supplierGetCommunicationsendersV1SignalFull(HttpRequestWorker *worker, Supplier_getCommunicationsenders_v1_Response summary);
-    void supplierGetDocumenttypechecklistV1SignalFull(HttpRequestWorker *worker, Supplier_getDocumenttypechecklist_v1_Response summary);
     void supplierGetListV1SignalFull(HttpRequestWorker *worker, Supplier_getList_v1_Response summary);
     void supplierImportIntoEDMV1SignalFull(HttpRequestWorker *worker, Supplier_importIntoEDM_v1_Response summary);
-    void supplierSyncDocumenttypechecklistV1SignalFull(HttpRequestWorker *worker, Supplier_syncDocumenttypechecklist_v1_Response summary);
 
     void supplierBatchDownloadV1SignalError(HttpFileElement summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void supplierGetAttachmentsV1SignalError(Supplier_getAttachments_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -201,10 +181,8 @@ Q_SIGNALS:
     void supplierGetCommunicationListV1SignalError(Supplier_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void supplierGetCommunicationrecipientsV1SignalError(Supplier_getCommunicationrecipients_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void supplierGetCommunicationsendersV1SignalError(Supplier_getCommunicationsenders_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    void supplierGetDocumenttypechecklistV1SignalError(Supplier_getDocumenttypechecklist_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void supplierGetListV1SignalError(Supplier_getList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void supplierImportIntoEDMV1SignalError(Supplier_importIntoEDM_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    void supplierSyncDocumenttypechecklistV1SignalError(Supplier_syncDocumenttypechecklist_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void supplierBatchDownloadV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void supplierGetAttachmentsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -212,10 +190,8 @@ Q_SIGNALS:
     void supplierGetCommunicationListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void supplierGetCommunicationrecipientsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void supplierGetCommunicationsendersV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    void supplierGetDocumenttypechecklistV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void supplierGetListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void supplierImportIntoEDMV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    void supplierSyncDocumenttypechecklistV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();

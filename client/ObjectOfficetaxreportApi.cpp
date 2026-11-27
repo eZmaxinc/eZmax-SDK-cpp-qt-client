@@ -85,14 +85,10 @@ void ObjectOfficetaxreportApi::initializeServerConfigs() {
     _serverIndices.insert("officetaxreportGetCommunicationrecipientsV1", 0);
     _serverConfigs.insert("officetaxreportGetCommunicationsendersV1", defaultConf);
     _serverIndices.insert("officetaxreportGetCommunicationsendersV1", 0);
-    _serverConfigs.insert("officetaxreportGetDocumenttypechecklistV1", defaultConf);
-    _serverIndices.insert("officetaxreportGetDocumenttypechecklistV1", 0);
     _serverConfigs.insert("officetaxreportGetListV1", defaultConf);
     _serverIndices.insert("officetaxreportGetListV1", 0);
     _serverConfigs.insert("officetaxreportImportIntoEDMV1", defaultConf);
     _serverIndices.insert("officetaxreportImportIntoEDMV1", 0);
-    _serverConfigs.insert("officetaxreportSyncDocumenttypechecklistV1", defaultConf);
-    _serverIndices.insert("officetaxreportSyncDocumenttypechecklistV1", 0);
 }
 
 /**
@@ -651,68 +647,6 @@ void ObjectOfficetaxreportApi::officetaxreportGetCommunicationsendersV1Callback(
     }
 }
 
-void ObjectOfficetaxreportApi::officetaxreportGetDocumenttypechecklistV1(const qint32 &pki_officetaxreport_id) {
-    QString fullPath = QString(_serverConfigs["officetaxreportGetDocumenttypechecklistV1"][_serverIndices.value("officetaxreportGetDocumenttypechecklistV1")].URL()+"/1/object/officetaxreport/{pkiOfficetaxreportID}/getDocumenttypechecklist");
-    
-    if (_apiKeys.contains("Authorization")) {
-        addHeaders("Authorization",_apiKeys.find("Authorization").value());
-    }
-    
-    
-    {
-        QString pki_officetaxreport_idPathParam("{");
-        pki_officetaxreport_idPathParam.append("pkiOfficetaxreportID").append("}");
-        QString pathPrefix, pathSuffix, pathDelimiter;
-        QString pathStyle = "simple";
-        if (pathStyle == "")
-            pathStyle = "simple";
-        pathPrefix = getParamStylePrefix(pathStyle);
-        pathSuffix = getParamStyleSuffix(pathStyle);
-        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiOfficetaxreportID", false);
-        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiOfficetaxreportID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_officetaxreport_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_officetaxreport_id)));
-    }
-    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
-    worker->setTimeOut(_timeOut);
-    worker->setWorkingDirectory(_workingDirectory);
-    HttpRequestInput input(fullPath, "GET");
-
-
-    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
-        input.headers.insert(keyValueIt->first, keyValueIt->second);
-    }
-
-
-    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectOfficetaxreportApi::officetaxreportGetDocumenttypechecklistV1Callback);
-    connect(this, &ObjectOfficetaxreportApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
-        if (findChildren<HttpRequestWorker*>().count() == 0) {
-            Q_EMIT allPendingRequestsCompleted();
-        }
-    });
-
-    worker->execute(&input);
-}
-
-void ObjectOfficetaxreportApi::officetaxreportGetDocumenttypechecklistV1Callback(HttpRequestWorker *worker) {
-    QString error_str = worker->error_str;
-    QNetworkReply::NetworkError error_type = worker->error_type;
-
-    if (worker->error_type != QNetworkReply::NoError) {
-        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
-    }
-    Officetaxreport_getDocumenttypechecklist_v1_Response output(QString(worker->response));
-    worker->deleteLater();
-
-    if (worker->error_type == QNetworkReply::NoError) {
-        Q_EMIT officetaxreportGetDocumenttypechecklistV1Signal(output);
-        Q_EMIT officetaxreportGetDocumenttypechecklistV1SignalFull(worker, output);
-    } else {
-        Q_EMIT officetaxreportGetDocumenttypechecklistV1SignalError(output, error_type, error_str);
-        Q_EMIT officetaxreportGetDocumenttypechecklistV1SignalErrorFull(worker, error_type, error_str);
-    }
-}
-
 void ObjectOfficetaxreportApi::officetaxreportGetListV1(const ::Ezmaxapi::OptionalParam<QString> &e_order_by, const ::Ezmaxapi::OptionalParam<qint32> &i_row_max, const ::Ezmaxapi::OptionalParam<qint32> &i_row_offset, const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language, const ::Ezmaxapi::OptionalParam<QString> &s_filter) {
     QString fullPath = QString(_serverConfigs["officetaxreportGetListV1"][_serverIndices.value("officetaxreportGetListV1")].URL()+"/1/object/officetaxreport/getList");
     
@@ -930,73 +864,6 @@ void ObjectOfficetaxreportApi::officetaxreportImportIntoEDMV1Callback(HttpReques
     } else {
         Q_EMIT officetaxreportImportIntoEDMV1SignalError(output, error_type, error_str);
         Q_EMIT officetaxreportImportIntoEDMV1SignalErrorFull(worker, error_type, error_str);
-    }
-}
-
-void ObjectOfficetaxreportApi::officetaxreportSyncDocumenttypechecklistV1(const qint32 &pki_officetaxreport_id, const ::Ezmaxapi::OptionalParam<Object> &body) {
-    QString fullPath = QString(_serverConfigs["officetaxreportSyncDocumenttypechecklistV1"][_serverIndices.value("officetaxreportSyncDocumenttypechecklistV1")].URL()+"/1/object/officetaxreport/{pkiOfficetaxreportID}/syncDocumenttypechecklist");
-    
-    if (_apiKeys.contains("Authorization")) {
-        addHeaders("Authorization",_apiKeys.find("Authorization").value());
-    }
-    
-    
-    {
-        QString pki_officetaxreport_idPathParam("{");
-        pki_officetaxreport_idPathParam.append("pkiOfficetaxreportID").append("}");
-        QString pathPrefix, pathSuffix, pathDelimiter;
-        QString pathStyle = "simple";
-        if (pathStyle == "")
-            pathStyle = "simple";
-        pathPrefix = getParamStylePrefix(pathStyle);
-        pathSuffix = getParamStyleSuffix(pathStyle);
-        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiOfficetaxreportID", false);
-        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiOfficetaxreportID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_officetaxreport_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_officetaxreport_id)));
-    }
-    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
-    worker->setTimeOut(_timeOut);
-    worker->setWorkingDirectory(_workingDirectory);
-    HttpRequestInput input(fullPath, "POST");
-
-    if (body.hasValue()){
-
-        
-        QByteArray output = body.value().asJson().toUtf8();
-        input.request_body.append(output);
-    }
-    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
-        input.headers.insert(keyValueIt->first, keyValueIt->second);
-    }
-
-
-    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectOfficetaxreportApi::officetaxreportSyncDocumenttypechecklistV1Callback);
-    connect(this, &ObjectOfficetaxreportApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
-        if (findChildren<HttpRequestWorker*>().count() == 0) {
-            Q_EMIT allPendingRequestsCompleted();
-        }
-    });
-
-    worker->execute(&input);
-}
-
-void ObjectOfficetaxreportApi::officetaxreportSyncDocumenttypechecklistV1Callback(HttpRequestWorker *worker) {
-    QString error_str = worker->error_str;
-    QNetworkReply::NetworkError error_type = worker->error_type;
-
-    if (worker->error_type != QNetworkReply::NoError) {
-        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
-    }
-    Officetaxreport_syncDocumenttypechecklist_v1_Response output(QString(worker->response));
-    worker->deleteLater();
-
-    if (worker->error_type == QNetworkReply::NoError) {
-        Q_EMIT officetaxreportSyncDocumenttypechecklistV1Signal(output);
-        Q_EMIT officetaxreportSyncDocumenttypechecklistV1SignalFull(worker, output);
-    } else {
-        Q_EMIT officetaxreportSyncDocumenttypechecklistV1SignalError(output, error_type, error_str);
-        Q_EMIT officetaxreportSyncDocumenttypechecklistV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

@@ -85,14 +85,10 @@ void ObjectElectronicfundstransferApi::initializeServerConfigs() {
     _serverIndices.insert("electronicfundstransferGetCommunicationrecipientsV1", 0);
     _serverConfigs.insert("electronicfundstransferGetCommunicationsendersV1", defaultConf);
     _serverIndices.insert("electronicfundstransferGetCommunicationsendersV1", 0);
-    _serverConfigs.insert("electronicfundstransferGetDocumenttypechecklistV1", defaultConf);
-    _serverIndices.insert("electronicfundstransferGetDocumenttypechecklistV1", 0);
     _serverConfigs.insert("electronicfundstransferGetListV1", defaultConf);
     _serverIndices.insert("electronicfundstransferGetListV1", 0);
     _serverConfigs.insert("electronicfundstransferImportIntoEDMV1", defaultConf);
     _serverIndices.insert("electronicfundstransferImportIntoEDMV1", 0);
-    _serverConfigs.insert("electronicfundstransferSyncDocumenttypechecklistV1", defaultConf);
-    _serverIndices.insert("electronicfundstransferSyncDocumenttypechecklistV1", 0);
 }
 
 /**
@@ -651,68 +647,6 @@ void ObjectElectronicfundstransferApi::electronicfundstransferGetCommunicationse
     }
 }
 
-void ObjectElectronicfundstransferApi::electronicfundstransferGetDocumenttypechecklistV1(const qint32 &pki_electronicfundstransfer_id) {
-    QString fullPath = QString(_serverConfigs["electronicfundstransferGetDocumenttypechecklistV1"][_serverIndices.value("electronicfundstransferGetDocumenttypechecklistV1")].URL()+"/1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/getDocumenttypechecklist");
-    
-    if (_apiKeys.contains("Authorization")) {
-        addHeaders("Authorization",_apiKeys.find("Authorization").value());
-    }
-    
-    
-    {
-        QString pki_electronicfundstransfer_idPathParam("{");
-        pki_electronicfundstransfer_idPathParam.append("pkiElectronicfundstransferID").append("}");
-        QString pathPrefix, pathSuffix, pathDelimiter;
-        QString pathStyle = "simple";
-        if (pathStyle == "")
-            pathStyle = "simple";
-        pathPrefix = getParamStylePrefix(pathStyle);
-        pathSuffix = getParamStyleSuffix(pathStyle);
-        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiElectronicfundstransferID", false);
-        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiElectronicfundstransferID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_electronicfundstransfer_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_electronicfundstransfer_id)));
-    }
-    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
-    worker->setTimeOut(_timeOut);
-    worker->setWorkingDirectory(_workingDirectory);
-    HttpRequestInput input(fullPath, "GET");
-
-
-    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
-        input.headers.insert(keyValueIt->first, keyValueIt->second);
-    }
-
-
-    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectElectronicfundstransferApi::electronicfundstransferGetDocumenttypechecklistV1Callback);
-    connect(this, &ObjectElectronicfundstransferApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
-        if (findChildren<HttpRequestWorker*>().count() == 0) {
-            Q_EMIT allPendingRequestsCompleted();
-        }
-    });
-
-    worker->execute(&input);
-}
-
-void ObjectElectronicfundstransferApi::electronicfundstransferGetDocumenttypechecklistV1Callback(HttpRequestWorker *worker) {
-    QString error_str = worker->error_str;
-    QNetworkReply::NetworkError error_type = worker->error_type;
-
-    if (worker->error_type != QNetworkReply::NoError) {
-        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
-    }
-    Electronicfundstransfer_getDocumenttypechecklist_v1_Response output(QString(worker->response));
-    worker->deleteLater();
-
-    if (worker->error_type == QNetworkReply::NoError) {
-        Q_EMIT electronicfundstransferGetDocumenttypechecklistV1Signal(output);
-        Q_EMIT electronicfundstransferGetDocumenttypechecklistV1SignalFull(worker, output);
-    } else {
-        Q_EMIT electronicfundstransferGetDocumenttypechecklistV1SignalError(output, error_type, error_str);
-        Q_EMIT electronicfundstransferGetDocumenttypechecklistV1SignalErrorFull(worker, error_type, error_str);
-    }
-}
-
 void ObjectElectronicfundstransferApi::electronicfundstransferGetListV1(const ::Ezmaxapi::OptionalParam<QString> &e_order_by, const ::Ezmaxapi::OptionalParam<qint32> &i_row_max, const ::Ezmaxapi::OptionalParam<qint32> &i_row_offset, const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language, const ::Ezmaxapi::OptionalParam<QString> &s_filter) {
     QString fullPath = QString(_serverConfigs["electronicfundstransferGetListV1"][_serverIndices.value("electronicfundstransferGetListV1")].URL()+"/1/object/electronicfundstransfer/getList");
     
@@ -930,73 +864,6 @@ void ObjectElectronicfundstransferApi::electronicfundstransferImportIntoEDMV1Cal
     } else {
         Q_EMIT electronicfundstransferImportIntoEDMV1SignalError(output, error_type, error_str);
         Q_EMIT electronicfundstransferImportIntoEDMV1SignalErrorFull(worker, error_type, error_str);
-    }
-}
-
-void ObjectElectronicfundstransferApi::electronicfundstransferSyncDocumenttypechecklistV1(const qint32 &pki_electronicfundstransfer_id, const ::Ezmaxapi::OptionalParam<Object> &body) {
-    QString fullPath = QString(_serverConfigs["electronicfundstransferSyncDocumenttypechecklistV1"][_serverIndices.value("electronicfundstransferSyncDocumenttypechecklistV1")].URL()+"/1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/syncDocumenttypechecklist");
-    
-    if (_apiKeys.contains("Authorization")) {
-        addHeaders("Authorization",_apiKeys.find("Authorization").value());
-    }
-    
-    
-    {
-        QString pki_electronicfundstransfer_idPathParam("{");
-        pki_electronicfundstransfer_idPathParam.append("pkiElectronicfundstransferID").append("}");
-        QString pathPrefix, pathSuffix, pathDelimiter;
-        QString pathStyle = "simple";
-        if (pathStyle == "")
-            pathStyle = "simple";
-        pathPrefix = getParamStylePrefix(pathStyle);
-        pathSuffix = getParamStyleSuffix(pathStyle);
-        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiElectronicfundstransferID", false);
-        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiElectronicfundstransferID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_electronicfundstransfer_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_electronicfundstransfer_id)));
-    }
-    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
-    worker->setTimeOut(_timeOut);
-    worker->setWorkingDirectory(_workingDirectory);
-    HttpRequestInput input(fullPath, "POST");
-
-    if (body.hasValue()){
-
-        
-        QByteArray output = body.value().asJson().toUtf8();
-        input.request_body.append(output);
-    }
-    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
-        input.headers.insert(keyValueIt->first, keyValueIt->second);
-    }
-
-
-    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectElectronicfundstransferApi::electronicfundstransferSyncDocumenttypechecklistV1Callback);
-    connect(this, &ObjectElectronicfundstransferApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
-        if (findChildren<HttpRequestWorker*>().count() == 0) {
-            Q_EMIT allPendingRequestsCompleted();
-        }
-    });
-
-    worker->execute(&input);
-}
-
-void ObjectElectronicfundstransferApi::electronicfundstransferSyncDocumenttypechecklistV1Callback(HttpRequestWorker *worker) {
-    QString error_str = worker->error_str;
-    QNetworkReply::NetworkError error_type = worker->error_type;
-
-    if (worker->error_type != QNetworkReply::NoError) {
-        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
-    }
-    Electronicfundstransfer_syncDocumenttypechecklist_v1_Response output(QString(worker->response));
-    worker->deleteLater();
-
-    if (worker->error_type == QNetworkReply::NoError) {
-        Q_EMIT electronicfundstransferSyncDocumenttypechecklistV1Signal(output);
-        Q_EMIT electronicfundstransferSyncDocumenttypechecklistV1SignalFull(worker, output);
-    } else {
-        Q_EMIT electronicfundstransferSyncDocumenttypechecklistV1SignalError(output, error_type, error_str);
-        Q_EMIT electronicfundstransferSyncDocumenttypechecklistV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

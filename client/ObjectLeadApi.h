@@ -27,12 +27,9 @@
 #include "Lead_getCommunicationList_v1_Response.h"
 #include "Lead_getCommunicationrecipients_v1_Response.h"
 #include "Lead_getCommunicationsenders_v1_Response.h"
-#include "Lead_getDocumenttypechecklist_v1_Response.h"
 #include "Lead_getList_v1_Response.h"
 #include "Lead_importIntoEDM_v1_Request.h"
 #include "Lead_importIntoEDM_v1_Response.h"
-#include "Lead_syncDocumenttypechecklist_v1_Response.h"
-#include "Object.h"
 #include <QString>
 
 #include <QObject>
@@ -104,11 +101,6 @@ public:
     virtual void leadGetCommunicationsendersV1(const qint32 &pki_lead_id);
 
     /**
-    * @param[in]  pki_lead_id qint32 [required]
-    */
-    virtual void leadGetDocumenttypechecklistV1(const qint32 &pki_lead_id);
-
-    /**
     * @param[in]  e_order_by QString [optional]
     * @param[in]  i_row_max qint32 [optional]
     * @param[in]  i_row_offset qint32 [optional]
@@ -122,12 +114,6 @@ public:
     * @param[in]  lead_import_into_edm_v1_request Lead_importIntoEDM_v1_Request [required]
     */
     virtual void leadImportIntoEDMV1(const qint32 &pki_lead_id, const Lead_importIntoEDM_v1_Request &lead_import_into_edm_v1_request);
-
-    /**
-    * @param[in]  pki_lead_id qint32 [required]
-    * @param[in]  body Object [optional]
-    */
-    virtual void leadSyncDocumenttypechecklistV1(const qint32 &pki_lead_id, const ::Ezmaxapi::OptionalParam<Object> &body = ::Ezmaxapi::OptionalParam<Object>());
 
 
 private:
@@ -165,10 +151,8 @@ private:
     void leadGetCommunicationListV1Callback(HttpRequestWorker *worker);
     void leadGetCommunicationrecipientsV1Callback(HttpRequestWorker *worker);
     void leadGetCommunicationsendersV1Callback(HttpRequestWorker *worker);
-    void leadGetDocumenttypechecklistV1Callback(HttpRequestWorker *worker);
     void leadGetListV1Callback(HttpRequestWorker *worker);
     void leadImportIntoEDMV1Callback(HttpRequestWorker *worker);
-    void leadSyncDocumenttypechecklistV1Callback(HttpRequestWorker *worker);
 
 Q_SIGNALS:
 
@@ -178,10 +162,8 @@ Q_SIGNALS:
     void leadGetCommunicationListV1Signal(Lead_getCommunicationList_v1_Response summary);
     void leadGetCommunicationrecipientsV1Signal(Lead_getCommunicationrecipients_v1_Response summary);
     void leadGetCommunicationsendersV1Signal(Lead_getCommunicationsenders_v1_Response summary);
-    void leadGetDocumenttypechecklistV1Signal(Lead_getDocumenttypechecklist_v1_Response summary);
     void leadGetListV1Signal(Lead_getList_v1_Response summary);
     void leadImportIntoEDMV1Signal(Lead_importIntoEDM_v1_Response summary);
-    void leadSyncDocumenttypechecklistV1Signal(Lead_syncDocumenttypechecklist_v1_Response summary);
 
 
     void leadBatchDownloadV1SignalFull(HttpRequestWorker *worker, HttpFileElement summary);
@@ -190,10 +172,8 @@ Q_SIGNALS:
     void leadGetCommunicationListV1SignalFull(HttpRequestWorker *worker, Lead_getCommunicationList_v1_Response summary);
     void leadGetCommunicationrecipientsV1SignalFull(HttpRequestWorker *worker, Lead_getCommunicationrecipients_v1_Response summary);
     void leadGetCommunicationsendersV1SignalFull(HttpRequestWorker *worker, Lead_getCommunicationsenders_v1_Response summary);
-    void leadGetDocumenttypechecklistV1SignalFull(HttpRequestWorker *worker, Lead_getDocumenttypechecklist_v1_Response summary);
     void leadGetListV1SignalFull(HttpRequestWorker *worker, Lead_getList_v1_Response summary);
     void leadImportIntoEDMV1SignalFull(HttpRequestWorker *worker, Lead_importIntoEDM_v1_Response summary);
-    void leadSyncDocumenttypechecklistV1SignalFull(HttpRequestWorker *worker, Lead_syncDocumenttypechecklist_v1_Response summary);
 
     void leadBatchDownloadV1SignalError(HttpFileElement summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void leadGetAttachmentsV1SignalError(Lead_getAttachments_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -201,10 +181,8 @@ Q_SIGNALS:
     void leadGetCommunicationListV1SignalError(Lead_getCommunicationList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void leadGetCommunicationrecipientsV1SignalError(Lead_getCommunicationrecipients_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void leadGetCommunicationsendersV1SignalError(Lead_getCommunicationsenders_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    void leadGetDocumenttypechecklistV1SignalError(Lead_getDocumenttypechecklist_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void leadGetListV1SignalError(Lead_getList_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void leadImportIntoEDMV1SignalError(Lead_importIntoEDM_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    void leadSyncDocumenttypechecklistV1SignalError(Lead_syncDocumenttypechecklist_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void leadBatchDownloadV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void leadGetAttachmentsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -212,10 +190,8 @@ Q_SIGNALS:
     void leadGetCommunicationListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void leadGetCommunicationrecipientsV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void leadGetCommunicationsendersV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    void leadGetDocumenttypechecklistV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void leadGetListV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void leadImportIntoEDMV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    void leadSyncDocumenttypechecklistV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();

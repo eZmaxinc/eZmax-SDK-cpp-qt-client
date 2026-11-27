@@ -85,14 +85,10 @@ void ObjectNotaryApi::initializeServerConfigs() {
     _serverIndices.insert("notaryGetCommunicationrecipientsV1", 0);
     _serverConfigs.insert("notaryGetCommunicationsendersV1", defaultConf);
     _serverIndices.insert("notaryGetCommunicationsendersV1", 0);
-    _serverConfigs.insert("notaryGetDocumenttypechecklistV1", defaultConf);
-    _serverIndices.insert("notaryGetDocumenttypechecklistV1", 0);
     _serverConfigs.insert("notaryGetListV1", defaultConf);
     _serverIndices.insert("notaryGetListV1", 0);
     _serverConfigs.insert("notaryImportIntoEDMV1", defaultConf);
     _serverIndices.insert("notaryImportIntoEDMV1", 0);
-    _serverConfigs.insert("notarySyncDocumenttypechecklistV1", defaultConf);
-    _serverIndices.insert("notarySyncDocumenttypechecklistV1", 0);
 }
 
 /**
@@ -651,68 +647,6 @@ void ObjectNotaryApi::notaryGetCommunicationsendersV1Callback(HttpRequestWorker 
     }
 }
 
-void ObjectNotaryApi::notaryGetDocumenttypechecklistV1(const qint32 &pki_notary_id) {
-    QString fullPath = QString(_serverConfigs["notaryGetDocumenttypechecklistV1"][_serverIndices.value("notaryGetDocumenttypechecklistV1")].URL()+"/1/object/notary/{pkiNotaryID}/getDocumenttypechecklist");
-    
-    if (_apiKeys.contains("Authorization")) {
-        addHeaders("Authorization",_apiKeys.find("Authorization").value());
-    }
-    
-    
-    {
-        QString pki_notary_idPathParam("{");
-        pki_notary_idPathParam.append("pkiNotaryID").append("}");
-        QString pathPrefix, pathSuffix, pathDelimiter;
-        QString pathStyle = "simple";
-        if (pathStyle == "")
-            pathStyle = "simple";
-        pathPrefix = getParamStylePrefix(pathStyle);
-        pathSuffix = getParamStyleSuffix(pathStyle);
-        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiNotaryID", false);
-        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiNotaryID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_notary_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_notary_id)));
-    }
-    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
-    worker->setTimeOut(_timeOut);
-    worker->setWorkingDirectory(_workingDirectory);
-    HttpRequestInput input(fullPath, "GET");
-
-
-    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
-        input.headers.insert(keyValueIt->first, keyValueIt->second);
-    }
-
-
-    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectNotaryApi::notaryGetDocumenttypechecklistV1Callback);
-    connect(this, &ObjectNotaryApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
-        if (findChildren<HttpRequestWorker*>().count() == 0) {
-            Q_EMIT allPendingRequestsCompleted();
-        }
-    });
-
-    worker->execute(&input);
-}
-
-void ObjectNotaryApi::notaryGetDocumenttypechecklistV1Callback(HttpRequestWorker *worker) {
-    QString error_str = worker->error_str;
-    QNetworkReply::NetworkError error_type = worker->error_type;
-
-    if (worker->error_type != QNetworkReply::NoError) {
-        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
-    }
-    Notary_getDocumenttypechecklist_v1_Response output(QString(worker->response));
-    worker->deleteLater();
-
-    if (worker->error_type == QNetworkReply::NoError) {
-        Q_EMIT notaryGetDocumenttypechecklistV1Signal(output);
-        Q_EMIT notaryGetDocumenttypechecklistV1SignalFull(worker, output);
-    } else {
-        Q_EMIT notaryGetDocumenttypechecklistV1SignalError(output, error_type, error_str);
-        Q_EMIT notaryGetDocumenttypechecklistV1SignalErrorFull(worker, error_type, error_str);
-    }
-}
-
 void ObjectNotaryApi::notaryGetListV1(const ::Ezmaxapi::OptionalParam<QString> &e_order_by, const ::Ezmaxapi::OptionalParam<qint32> &i_row_max, const ::Ezmaxapi::OptionalParam<qint32> &i_row_offset, const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language, const ::Ezmaxapi::OptionalParam<QString> &s_filter) {
     QString fullPath = QString(_serverConfigs["notaryGetListV1"][_serverIndices.value("notaryGetListV1")].URL()+"/1/object/notary/getList");
     
@@ -930,73 +864,6 @@ void ObjectNotaryApi::notaryImportIntoEDMV1Callback(HttpRequestWorker *worker) {
     } else {
         Q_EMIT notaryImportIntoEDMV1SignalError(output, error_type, error_str);
         Q_EMIT notaryImportIntoEDMV1SignalErrorFull(worker, error_type, error_str);
-    }
-}
-
-void ObjectNotaryApi::notarySyncDocumenttypechecklistV1(const qint32 &pki_notary_id, const ::Ezmaxapi::OptionalParam<Object> &body) {
-    QString fullPath = QString(_serverConfigs["notarySyncDocumenttypechecklistV1"][_serverIndices.value("notarySyncDocumenttypechecklistV1")].URL()+"/1/object/notary/{pkiNotaryID}/syncDocumenttypechecklist");
-    
-    if (_apiKeys.contains("Authorization")) {
-        addHeaders("Authorization",_apiKeys.find("Authorization").value());
-    }
-    
-    
-    {
-        QString pki_notary_idPathParam("{");
-        pki_notary_idPathParam.append("pkiNotaryID").append("}");
-        QString pathPrefix, pathSuffix, pathDelimiter;
-        QString pathStyle = "simple";
-        if (pathStyle == "")
-            pathStyle = "simple";
-        pathPrefix = getParamStylePrefix(pathStyle);
-        pathSuffix = getParamStyleSuffix(pathStyle);
-        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiNotaryID", false);
-        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiNotaryID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_notary_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_notary_id)));
-    }
-    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
-    worker->setTimeOut(_timeOut);
-    worker->setWorkingDirectory(_workingDirectory);
-    HttpRequestInput input(fullPath, "POST");
-
-    if (body.hasValue()){
-
-        
-        QByteArray output = body.value().asJson().toUtf8();
-        input.request_body.append(output);
-    }
-    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
-        input.headers.insert(keyValueIt->first, keyValueIt->second);
-    }
-
-
-    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectNotaryApi::notarySyncDocumenttypechecklistV1Callback);
-    connect(this, &ObjectNotaryApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
-        if (findChildren<HttpRequestWorker*>().count() == 0) {
-            Q_EMIT allPendingRequestsCompleted();
-        }
-    });
-
-    worker->execute(&input);
-}
-
-void ObjectNotaryApi::notarySyncDocumenttypechecklistV1Callback(HttpRequestWorker *worker) {
-    QString error_str = worker->error_str;
-    QNetworkReply::NetworkError error_type = worker->error_type;
-
-    if (worker->error_type != QNetworkReply::NoError) {
-        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
-    }
-    Notary_syncDocumenttypechecklist_v1_Response output(QString(worker->response));
-    worker->deleteLater();
-
-    if (worker->error_type == QNetworkReply::NoError) {
-        Q_EMIT notarySyncDocumenttypechecklistV1Signal(output);
-        Q_EMIT notarySyncDocumenttypechecklistV1SignalFull(worker, output);
-    } else {
-        Q_EMIT notarySyncDocumenttypechecklistV1SignalError(output, error_type, error_str);
-        Q_EMIT notarySyncDocumenttypechecklistV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

@@ -85,14 +85,10 @@ void ObjectDisclosureApi::initializeServerConfigs() {
     _serverIndices.insert("disclosureGetCommunicationrecipientsV1", 0);
     _serverConfigs.insert("disclosureGetCommunicationsendersV1", defaultConf);
     _serverIndices.insert("disclosureGetCommunicationsendersV1", 0);
-    _serverConfigs.insert("disclosureGetDocumenttypechecklistV1", defaultConf);
-    _serverIndices.insert("disclosureGetDocumenttypechecklistV1", 0);
     _serverConfigs.insert("disclosureGetListV1", defaultConf);
     _serverIndices.insert("disclosureGetListV1", 0);
     _serverConfigs.insert("disclosureImportIntoEDMV1", defaultConf);
     _serverIndices.insert("disclosureImportIntoEDMV1", 0);
-    _serverConfigs.insert("disclosureSyncDocumenttypechecklistV1", defaultConf);
-    _serverIndices.insert("disclosureSyncDocumenttypechecklistV1", 0);
 }
 
 /**
@@ -651,68 +647,6 @@ void ObjectDisclosureApi::disclosureGetCommunicationsendersV1Callback(HttpReques
     }
 }
 
-void ObjectDisclosureApi::disclosureGetDocumenttypechecklistV1(const qint32 &pki_disclosure_id) {
-    QString fullPath = QString(_serverConfigs["disclosureGetDocumenttypechecklistV1"][_serverIndices.value("disclosureGetDocumenttypechecklistV1")].URL()+"/1/object/disclosure/{pkiDisclosureID}/getDocumenttypechecklist");
-    
-    if (_apiKeys.contains("Authorization")) {
-        addHeaders("Authorization",_apiKeys.find("Authorization").value());
-    }
-    
-    
-    {
-        QString pki_disclosure_idPathParam("{");
-        pki_disclosure_idPathParam.append("pkiDisclosureID").append("}");
-        QString pathPrefix, pathSuffix, pathDelimiter;
-        QString pathStyle = "simple";
-        if (pathStyle == "")
-            pathStyle = "simple";
-        pathPrefix = getParamStylePrefix(pathStyle);
-        pathSuffix = getParamStyleSuffix(pathStyle);
-        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiDisclosureID", false);
-        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiDisclosureID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_disclosure_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_disclosure_id)));
-    }
-    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
-    worker->setTimeOut(_timeOut);
-    worker->setWorkingDirectory(_workingDirectory);
-    HttpRequestInput input(fullPath, "GET");
-
-
-    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
-        input.headers.insert(keyValueIt->first, keyValueIt->second);
-    }
-
-
-    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectDisclosureApi::disclosureGetDocumenttypechecklistV1Callback);
-    connect(this, &ObjectDisclosureApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
-        if (findChildren<HttpRequestWorker*>().count() == 0) {
-            Q_EMIT allPendingRequestsCompleted();
-        }
-    });
-
-    worker->execute(&input);
-}
-
-void ObjectDisclosureApi::disclosureGetDocumenttypechecklistV1Callback(HttpRequestWorker *worker) {
-    QString error_str = worker->error_str;
-    QNetworkReply::NetworkError error_type = worker->error_type;
-
-    if (worker->error_type != QNetworkReply::NoError) {
-        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
-    }
-    Disclosure_getDocumenttypechecklist_v1_Response output(QString(worker->response));
-    worker->deleteLater();
-
-    if (worker->error_type == QNetworkReply::NoError) {
-        Q_EMIT disclosureGetDocumenttypechecklistV1Signal(output);
-        Q_EMIT disclosureGetDocumenttypechecklistV1SignalFull(worker, output);
-    } else {
-        Q_EMIT disclosureGetDocumenttypechecklistV1SignalError(output, error_type, error_str);
-        Q_EMIT disclosureGetDocumenttypechecklistV1SignalErrorFull(worker, error_type, error_str);
-    }
-}
-
 void ObjectDisclosureApi::disclosureGetListV1(const ::Ezmaxapi::OptionalParam<QString> &e_order_by, const ::Ezmaxapi::OptionalParam<qint32> &i_row_max, const ::Ezmaxapi::OptionalParam<qint32> &i_row_offset, const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language, const ::Ezmaxapi::OptionalParam<QString> &s_filter) {
     QString fullPath = QString(_serverConfigs["disclosureGetListV1"][_serverIndices.value("disclosureGetListV1")].URL()+"/1/object/disclosure/getList");
     
@@ -930,73 +864,6 @@ void ObjectDisclosureApi::disclosureImportIntoEDMV1Callback(HttpRequestWorker *w
     } else {
         Q_EMIT disclosureImportIntoEDMV1SignalError(output, error_type, error_str);
         Q_EMIT disclosureImportIntoEDMV1SignalErrorFull(worker, error_type, error_str);
-    }
-}
-
-void ObjectDisclosureApi::disclosureSyncDocumenttypechecklistV1(const qint32 &pki_disclosure_id, const ::Ezmaxapi::OptionalParam<Object> &body) {
-    QString fullPath = QString(_serverConfigs["disclosureSyncDocumenttypechecklistV1"][_serverIndices.value("disclosureSyncDocumenttypechecklistV1")].URL()+"/1/object/disclosure/{pkiDisclosureID}/syncDocumenttypechecklist");
-    
-    if (_apiKeys.contains("Authorization")) {
-        addHeaders("Authorization",_apiKeys.find("Authorization").value());
-    }
-    
-    
-    {
-        QString pki_disclosure_idPathParam("{");
-        pki_disclosure_idPathParam.append("pkiDisclosureID").append("}");
-        QString pathPrefix, pathSuffix, pathDelimiter;
-        QString pathStyle = "simple";
-        if (pathStyle == "")
-            pathStyle = "simple";
-        pathPrefix = getParamStylePrefix(pathStyle);
-        pathSuffix = getParamStyleSuffix(pathStyle);
-        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiDisclosureID", false);
-        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiDisclosureID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_disclosure_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_disclosure_id)));
-    }
-    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
-    worker->setTimeOut(_timeOut);
-    worker->setWorkingDirectory(_workingDirectory);
-    HttpRequestInput input(fullPath, "POST");
-
-    if (body.hasValue()){
-
-        
-        QByteArray output = body.value().asJson().toUtf8();
-        input.request_body.append(output);
-    }
-    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
-        input.headers.insert(keyValueIt->first, keyValueIt->second);
-    }
-
-
-    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectDisclosureApi::disclosureSyncDocumenttypechecklistV1Callback);
-    connect(this, &ObjectDisclosureApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
-        if (findChildren<HttpRequestWorker*>().count() == 0) {
-            Q_EMIT allPendingRequestsCompleted();
-        }
-    });
-
-    worker->execute(&input);
-}
-
-void ObjectDisclosureApi::disclosureSyncDocumenttypechecklistV1Callback(HttpRequestWorker *worker) {
-    QString error_str = worker->error_str;
-    QNetworkReply::NetworkError error_type = worker->error_type;
-
-    if (worker->error_type != QNetworkReply::NoError) {
-        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
-    }
-    Disclosure_syncDocumenttypechecklist_v1_Response output(QString(worker->response));
-    worker->deleteLater();
-
-    if (worker->error_type == QNetworkReply::NoError) {
-        Q_EMIT disclosureSyncDocumenttypechecklistV1Signal(output);
-        Q_EMIT disclosureSyncDocumenttypechecklistV1SignalFull(worker, output);
-    } else {
-        Q_EMIT disclosureSyncDocumenttypechecklistV1SignalError(output, error_type, error_str);
-        Q_EMIT disclosureSyncDocumenttypechecklistV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

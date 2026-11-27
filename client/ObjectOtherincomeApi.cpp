@@ -85,14 +85,10 @@ void ObjectOtherincomeApi::initializeServerConfigs() {
     _serverIndices.insert("otherincomeGetCommunicationrecipientsV1", 0);
     _serverConfigs.insert("otherincomeGetCommunicationsendersV1", defaultConf);
     _serverIndices.insert("otherincomeGetCommunicationsendersV1", 0);
-    _serverConfigs.insert("otherincomeGetDocumenttypechecklistV1", defaultConf);
-    _serverIndices.insert("otherincomeGetDocumenttypechecklistV1", 0);
     _serverConfigs.insert("otherincomeGetListV1", defaultConf);
     _serverIndices.insert("otherincomeGetListV1", 0);
     _serverConfigs.insert("otherincomeImportIntoEDMV1", defaultConf);
     _serverIndices.insert("otherincomeImportIntoEDMV1", 0);
-    _serverConfigs.insert("otherincomeSyncDocumenttypechecklistV1", defaultConf);
-    _serverIndices.insert("otherincomeSyncDocumenttypechecklistV1", 0);
 }
 
 /**
@@ -651,68 +647,6 @@ void ObjectOtherincomeApi::otherincomeGetCommunicationsendersV1Callback(HttpRequ
     }
 }
 
-void ObjectOtherincomeApi::otherincomeGetDocumenttypechecklistV1(const qint32 &pki_otherincome_id) {
-    QString fullPath = QString(_serverConfigs["otherincomeGetDocumenttypechecklistV1"][_serverIndices.value("otherincomeGetDocumenttypechecklistV1")].URL()+"/1/object/otherincome/{pkiOtherincomeID}/getDocumenttypechecklist");
-    
-    if (_apiKeys.contains("Authorization")) {
-        addHeaders("Authorization",_apiKeys.find("Authorization").value());
-    }
-    
-    
-    {
-        QString pki_otherincome_idPathParam("{");
-        pki_otherincome_idPathParam.append("pkiOtherincomeID").append("}");
-        QString pathPrefix, pathSuffix, pathDelimiter;
-        QString pathStyle = "simple";
-        if (pathStyle == "")
-            pathStyle = "simple";
-        pathPrefix = getParamStylePrefix(pathStyle);
-        pathSuffix = getParamStyleSuffix(pathStyle);
-        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiOtherincomeID", false);
-        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiOtherincomeID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_otherincome_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_otherincome_id)));
-    }
-    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
-    worker->setTimeOut(_timeOut);
-    worker->setWorkingDirectory(_workingDirectory);
-    HttpRequestInput input(fullPath, "GET");
-
-
-    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
-        input.headers.insert(keyValueIt->first, keyValueIt->second);
-    }
-
-
-    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectOtherincomeApi::otherincomeGetDocumenttypechecklistV1Callback);
-    connect(this, &ObjectOtherincomeApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
-        if (findChildren<HttpRequestWorker*>().count() == 0) {
-            Q_EMIT allPendingRequestsCompleted();
-        }
-    });
-
-    worker->execute(&input);
-}
-
-void ObjectOtherincomeApi::otherincomeGetDocumenttypechecklistV1Callback(HttpRequestWorker *worker) {
-    QString error_str = worker->error_str;
-    QNetworkReply::NetworkError error_type = worker->error_type;
-
-    if (worker->error_type != QNetworkReply::NoError) {
-        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
-    }
-    Otherincome_getDocumenttypechecklist_v1_Response output(QString(worker->response));
-    worker->deleteLater();
-
-    if (worker->error_type == QNetworkReply::NoError) {
-        Q_EMIT otherincomeGetDocumenttypechecklistV1Signal(output);
-        Q_EMIT otherincomeGetDocumenttypechecklistV1SignalFull(worker, output);
-    } else {
-        Q_EMIT otherincomeGetDocumenttypechecklistV1SignalError(output, error_type, error_str);
-        Q_EMIT otherincomeGetDocumenttypechecklistV1SignalErrorFull(worker, error_type, error_str);
-    }
-}
-
 void ObjectOtherincomeApi::otherincomeGetListV1(const ::Ezmaxapi::OptionalParam<QString> &e_order_by, const ::Ezmaxapi::OptionalParam<qint32> &i_row_max, const ::Ezmaxapi::OptionalParam<qint32> &i_row_offset, const ::Ezmaxapi::OptionalParam<Header_Accept_Language> &accept_language, const ::Ezmaxapi::OptionalParam<QString> &s_filter) {
     QString fullPath = QString(_serverConfigs["otherincomeGetListV1"][_serverIndices.value("otherincomeGetListV1")].URL()+"/1/object/otherincome/getList");
     
@@ -930,73 +864,6 @@ void ObjectOtherincomeApi::otherincomeImportIntoEDMV1Callback(HttpRequestWorker 
     } else {
         Q_EMIT otherincomeImportIntoEDMV1SignalError(output, error_type, error_str);
         Q_EMIT otherincomeImportIntoEDMV1SignalErrorFull(worker, error_type, error_str);
-    }
-}
-
-void ObjectOtherincomeApi::otherincomeSyncDocumenttypechecklistV1(const qint32 &pki_otherincome_id, const ::Ezmaxapi::OptionalParam<Object> &body) {
-    QString fullPath = QString(_serverConfigs["otherincomeSyncDocumenttypechecklistV1"][_serverIndices.value("otherincomeSyncDocumenttypechecklistV1")].URL()+"/1/object/otherincome/{pkiOtherincomeID}/syncDocumenttypechecklist");
-    
-    if (_apiKeys.contains("Authorization")) {
-        addHeaders("Authorization",_apiKeys.find("Authorization").value());
-    }
-    
-    
-    {
-        QString pki_otherincome_idPathParam("{");
-        pki_otherincome_idPathParam.append("pkiOtherincomeID").append("}");
-        QString pathPrefix, pathSuffix, pathDelimiter;
-        QString pathStyle = "simple";
-        if (pathStyle == "")
-            pathStyle = "simple";
-        pathPrefix = getParamStylePrefix(pathStyle);
-        pathSuffix = getParamStyleSuffix(pathStyle);
-        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiOtherincomeID", false);
-        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiOtherincomeID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_otherincome_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_otherincome_id)));
-    }
-    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
-    worker->setTimeOut(_timeOut);
-    worker->setWorkingDirectory(_workingDirectory);
-    HttpRequestInput input(fullPath, "POST");
-
-    if (body.hasValue()){
-
-        
-        QByteArray output = body.value().asJson().toUtf8();
-        input.request_body.append(output);
-    }
-    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
-        input.headers.insert(keyValueIt->first, keyValueIt->second);
-    }
-
-
-    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectOtherincomeApi::otherincomeSyncDocumenttypechecklistV1Callback);
-    connect(this, &ObjectOtherincomeApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
-        if (findChildren<HttpRequestWorker*>().count() == 0) {
-            Q_EMIT allPendingRequestsCompleted();
-        }
-    });
-
-    worker->execute(&input);
-}
-
-void ObjectOtherincomeApi::otherincomeSyncDocumenttypechecklistV1Callback(HttpRequestWorker *worker) {
-    QString error_str = worker->error_str;
-    QNetworkReply::NetworkError error_type = worker->error_type;
-
-    if (worker->error_type != QNetworkReply::NoError) {
-        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
-    }
-    Otherincome_syncDocumenttypechecklist_v1_Response output(QString(worker->response));
-    worker->deleteLater();
-
-    if (worker->error_type == QNetworkReply::NoError) {
-        Q_EMIT otherincomeSyncDocumenttypechecklistV1Signal(output);
-        Q_EMIT otherincomeSyncDocumenttypechecklistV1SignalFull(worker, output);
-    } else {
-        Q_EMIT otherincomeSyncDocumenttypechecklistV1SignalError(output, error_type, error_str);
-        Q_EMIT otherincomeSyncDocumenttypechecklistV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

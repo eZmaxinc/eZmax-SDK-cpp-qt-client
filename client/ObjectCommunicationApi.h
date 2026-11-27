@@ -19,11 +19,8 @@
 #include "Oauth.h"
 
 #include "Common_Response_Error.h"
-#include "Communication_getDocumenttypechecklist_v1_Response.h"
 #include "Communication_send_v1_Request.h"
 #include "Communication_send_v1_Response.h"
-#include "Communication_syncDocumenttypechecklist_v1_Response.h"
-#include "Object.h"
 #include <QString>
 
 #include <QObject>
@@ -69,20 +66,9 @@ public:
     virtual void communicationGetCommunicationBodyV1(const qint32 &pki_communication_id);
 
     /**
-    * @param[in]  pki_communication_id qint32 [required]
-    */
-    virtual void communicationGetDocumenttypechecklistV1(const qint32 &pki_communication_id);
-
-    /**
     * @param[in]  communication_send_v1_request Communication_send_v1_Request [required]
     */
     virtual void communicationSendV1(const Communication_send_v1_Request &communication_send_v1_request);
-
-    /**
-    * @param[in]  pki_communication_id qint32 [required]
-    * @param[in]  body Object [optional]
-    */
-    virtual void communicationSyncDocumenttypechecklistV1(const qint32 &pki_communication_id, const ::Ezmaxapi::OptionalParam<Object> &body = ::Ezmaxapi::OptionalParam<Object>());
 
 
 private:
@@ -115,32 +101,22 @@ private:
     OauthMethod _OauthMethod = OauthMethod::INVALID_VALUE_OPENAPI_GENERATED;
 
     void communicationGetCommunicationBodyV1Callback(HttpRequestWorker *worker);
-    void communicationGetDocumenttypechecklistV1Callback(HttpRequestWorker *worker);
     void communicationSendV1Callback(HttpRequestWorker *worker);
-    void communicationSyncDocumenttypechecklistV1Callback(HttpRequestWorker *worker);
 
 Q_SIGNALS:
 
     void communicationGetCommunicationBodyV1Signal();
-    void communicationGetDocumenttypechecklistV1Signal(Communication_getDocumenttypechecklist_v1_Response summary);
     void communicationSendV1Signal(Communication_send_v1_Response summary);
-    void communicationSyncDocumenttypechecklistV1Signal(Communication_syncDocumenttypechecklist_v1_Response summary);
 
 
     void communicationGetCommunicationBodyV1SignalFull(HttpRequestWorker *worker);
-    void communicationGetDocumenttypechecklistV1SignalFull(HttpRequestWorker *worker, Communication_getDocumenttypechecklist_v1_Response summary);
     void communicationSendV1SignalFull(HttpRequestWorker *worker, Communication_send_v1_Response summary);
-    void communicationSyncDocumenttypechecklistV1SignalFull(HttpRequestWorker *worker, Communication_syncDocumenttypechecklist_v1_Response summary);
 
     void communicationGetCommunicationBodyV1SignalError(QNetworkReply::NetworkError error_type, const QString &error_str);
-    void communicationGetDocumenttypechecklistV1SignalError(Communication_getDocumenttypechecklist_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void communicationSendV1SignalError(Communication_send_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    void communicationSyncDocumenttypechecklistV1SignalError(Communication_syncDocumenttypechecklist_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void communicationGetCommunicationBodyV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    void communicationGetDocumenttypechecklistV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void communicationSendV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    void communicationSyncDocumenttypechecklistV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();

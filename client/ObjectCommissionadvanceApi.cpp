@@ -85,12 +85,8 @@ void ObjectCommissionadvanceApi::initializeServerConfigs() {
     _serverIndices.insert("commissionadvanceGetCommunicationrecipientsV1", 0);
     _serverConfigs.insert("commissionadvanceGetCommunicationsendersV1", defaultConf);
     _serverIndices.insert("commissionadvanceGetCommunicationsendersV1", 0);
-    _serverConfigs.insert("commissionadvanceGetDocumenttypechecklistV1", defaultConf);
-    _serverIndices.insert("commissionadvanceGetDocumenttypechecklistV1", 0);
     _serverConfigs.insert("commissionadvanceImportIntoEDMV1", defaultConf);
     _serverIndices.insert("commissionadvanceImportIntoEDMV1", 0);
-    _serverConfigs.insert("commissionadvanceSyncDocumenttypechecklistV1", defaultConf);
-    _serverIndices.insert("commissionadvanceSyncDocumenttypechecklistV1", 0);
 }
 
 /**
@@ -649,68 +645,6 @@ void ObjectCommissionadvanceApi::commissionadvanceGetCommunicationsendersV1Callb
     }
 }
 
-void ObjectCommissionadvanceApi::commissionadvanceGetDocumenttypechecklistV1(const qint32 &pki_commissionadvance_id) {
-    QString fullPath = QString(_serverConfigs["commissionadvanceGetDocumenttypechecklistV1"][_serverIndices.value("commissionadvanceGetDocumenttypechecklistV1")].URL()+"/1/object/commissionadvance/{pkiCommissionadvanceID}/getDocumenttypechecklist");
-    
-    if (_apiKeys.contains("Authorization")) {
-        addHeaders("Authorization",_apiKeys.find("Authorization").value());
-    }
-    
-    
-    {
-        QString pki_commissionadvance_idPathParam("{");
-        pki_commissionadvance_idPathParam.append("pkiCommissionadvanceID").append("}");
-        QString pathPrefix, pathSuffix, pathDelimiter;
-        QString pathStyle = "simple";
-        if (pathStyle == "")
-            pathStyle = "simple";
-        pathPrefix = getParamStylePrefix(pathStyle);
-        pathSuffix = getParamStyleSuffix(pathStyle);
-        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiCommissionadvanceID", false);
-        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiCommissionadvanceID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_commissionadvance_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_commissionadvance_id)));
-    }
-    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
-    worker->setTimeOut(_timeOut);
-    worker->setWorkingDirectory(_workingDirectory);
-    HttpRequestInput input(fullPath, "GET");
-
-
-    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
-        input.headers.insert(keyValueIt->first, keyValueIt->second);
-    }
-
-
-    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectCommissionadvanceApi::commissionadvanceGetDocumenttypechecklistV1Callback);
-    connect(this, &ObjectCommissionadvanceApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
-        if (findChildren<HttpRequestWorker*>().count() == 0) {
-            Q_EMIT allPendingRequestsCompleted();
-        }
-    });
-
-    worker->execute(&input);
-}
-
-void ObjectCommissionadvanceApi::commissionadvanceGetDocumenttypechecklistV1Callback(HttpRequestWorker *worker) {
-    QString error_str = worker->error_str;
-    QNetworkReply::NetworkError error_type = worker->error_type;
-
-    if (worker->error_type != QNetworkReply::NoError) {
-        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
-    }
-    Commissionadvance_getDocumenttypechecklist_v1_Response output(QString(worker->response));
-    worker->deleteLater();
-
-    if (worker->error_type == QNetworkReply::NoError) {
-        Q_EMIT commissionadvanceGetDocumenttypechecklistV1Signal(output);
-        Q_EMIT commissionadvanceGetDocumenttypechecklistV1SignalFull(worker, output);
-    } else {
-        Q_EMIT commissionadvanceGetDocumenttypechecklistV1SignalError(output, error_type, error_str);
-        Q_EMIT commissionadvanceGetDocumenttypechecklistV1SignalErrorFull(worker, error_type, error_str);
-    }
-}
-
 void ObjectCommissionadvanceApi::commissionadvanceImportIntoEDMV1(const qint32 &pki_commissionadvance_id, const Commissionadvance_importIntoEDM_v1_Request &commissionadvance_import_into_edm_v1_request) {
     QString fullPath = QString(_serverConfigs["commissionadvanceImportIntoEDMV1"][_serverIndices.value("commissionadvanceImportIntoEDMV1")].URL()+"/1/object/commissionadvance/{pkiCommissionadvanceID}/importIntoEDM");
     
@@ -775,73 +709,6 @@ void ObjectCommissionadvanceApi::commissionadvanceImportIntoEDMV1Callback(HttpRe
     } else {
         Q_EMIT commissionadvanceImportIntoEDMV1SignalError(output, error_type, error_str);
         Q_EMIT commissionadvanceImportIntoEDMV1SignalErrorFull(worker, error_type, error_str);
-    }
-}
-
-void ObjectCommissionadvanceApi::commissionadvanceSyncDocumenttypechecklistV1(const qint32 &pki_commissionadvance_id, const ::Ezmaxapi::OptionalParam<Object> &body) {
-    QString fullPath = QString(_serverConfigs["commissionadvanceSyncDocumenttypechecklistV1"][_serverIndices.value("commissionadvanceSyncDocumenttypechecklistV1")].URL()+"/1/object/commissionadvance/{pkiCommissionadvanceID}/syncDocumenttypechecklist");
-    
-    if (_apiKeys.contains("Authorization")) {
-        addHeaders("Authorization",_apiKeys.find("Authorization").value());
-    }
-    
-    
-    {
-        QString pki_commissionadvance_idPathParam("{");
-        pki_commissionadvance_idPathParam.append("pkiCommissionadvanceID").append("}");
-        QString pathPrefix, pathSuffix, pathDelimiter;
-        QString pathStyle = "simple";
-        if (pathStyle == "")
-            pathStyle = "simple";
-        pathPrefix = getParamStylePrefix(pathStyle);
-        pathSuffix = getParamStyleSuffix(pathStyle);
-        pathDelimiter = getParamStyleDelimiter(pathStyle, "pkiCommissionadvanceID", false);
-        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pkiCommissionadvanceID"+pathSuffix : pathPrefix;
-        fullPath.replace(pki_commissionadvance_idPathParam, paramString+QUrl::toPercentEncoding(::Ezmaxapi::toStringValue(pki_commissionadvance_id)));
-    }
-    HttpRequestWorker *worker = new HttpRequestWorker(this, _manager);
-    worker->setTimeOut(_timeOut);
-    worker->setWorkingDirectory(_workingDirectory);
-    HttpRequestInput input(fullPath, "POST");
-
-    if (body.hasValue()){
-
-        
-        QByteArray output = body.value().asJson().toUtf8();
-        input.request_body.append(output);
-    }
-    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
-        input.headers.insert(keyValueIt->first, keyValueIt->second);
-    }
-
-
-    connect(worker, &HttpRequestWorker::on_execution_finished, this, &ObjectCommissionadvanceApi::commissionadvanceSyncDocumenttypechecklistV1Callback);
-    connect(this, &ObjectCommissionadvanceApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
-        if (findChildren<HttpRequestWorker*>().count() == 0) {
-            Q_EMIT allPendingRequestsCompleted();
-        }
-    });
-
-    worker->execute(&input);
-}
-
-void ObjectCommissionadvanceApi::commissionadvanceSyncDocumenttypechecklistV1Callback(HttpRequestWorker *worker) {
-    QString error_str = worker->error_str;
-    QNetworkReply::NetworkError error_type = worker->error_type;
-
-    if (worker->error_type != QNetworkReply::NoError) {
-        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
-    }
-    Commissionadvance_syncDocumenttypechecklist_v1_Response output(QString(worker->response));
-    worker->deleteLater();
-
-    if (worker->error_type == QNetworkReply::NoError) {
-        Q_EMIT commissionadvanceSyncDocumenttypechecklistV1Signal(output);
-        Q_EMIT commissionadvanceSyncDocumenttypechecklistV1SignalFull(worker, output);
-    } else {
-        Q_EMIT commissionadvanceSyncDocumenttypechecklistV1SignalError(output, error_type, error_str);
-        Q_EMIT commissionadvanceSyncDocumenttypechecklistV1SignalErrorFull(worker, error_type, error_str);
     }
 }
 

@@ -25,8 +25,6 @@
 #include "Discussion_createObject_v1_Response.h"
 #include "Discussion_deleteObject_v1_Response.h"
 #include "Discussion_getObject_v2_Response.h"
-#include "Discussion_improveMessage_v1_Request.h"
-#include "Discussion_improveMessage_v1_Response.h"
 #include "Discussion_patchObject_v1_Request.h"
 #include "Discussion_patchObject_v1_Response.h"
 #include "Discussion_updateDiscussionreadstatus_v1_Request.h"
@@ -91,11 +89,6 @@ public:
     virtual void discussionGetObjectV2(const qint32 &pki_discussion_id);
 
     /**
-    * @param[in]  discussion_improve_message_v1_request Discussion_improveMessage_v1_Request [required]
-    */
-    virtual void discussionImproveMessageV1(const Discussion_improveMessage_v1_Request &discussion_improve_message_v1_request);
-
-    /**
     * @param[in]  pki_discussion_id qint32 [required]
     * @param[in]  discussion_patch_object_v1_request Discussion_patchObject_v1_Request [required]
     */
@@ -141,7 +134,6 @@ private:
     void discussionCreateObjectV1Callback(HttpRequestWorker *worker);
     void discussionDeleteObjectV1Callback(HttpRequestWorker *worker);
     void discussionGetObjectV2Callback(HttpRequestWorker *worker);
-    void discussionImproveMessageV1Callback(HttpRequestWorker *worker);
     void discussionPatchObjectV1Callback(HttpRequestWorker *worker);
     void discussionUpdateDiscussionreadstatusV1Callback(HttpRequestWorker *worker);
 
@@ -151,7 +143,6 @@ Q_SIGNALS:
     void discussionCreateObjectV1Signal(Discussion_createObject_v1_Response summary);
     void discussionDeleteObjectV1Signal(Discussion_deleteObject_v1_Response summary);
     void discussionGetObjectV2Signal(Discussion_getObject_v2_Response summary);
-    void discussionImproveMessageV1Signal(Discussion_improveMessage_v1_Response summary);
     void discussionPatchObjectV1Signal(Discussion_patchObject_v1_Response summary);
     void discussionUpdateDiscussionreadstatusV1Signal(Discussion_updateDiscussionreadstatus_v1_Response summary);
 
@@ -160,7 +151,6 @@ Q_SIGNALS:
     void discussionCreateObjectV1SignalFull(HttpRequestWorker *worker, Discussion_createObject_v1_Response summary);
     void discussionDeleteObjectV1SignalFull(HttpRequestWorker *worker, Discussion_deleteObject_v1_Response summary);
     void discussionGetObjectV2SignalFull(HttpRequestWorker *worker, Discussion_getObject_v2_Response summary);
-    void discussionImproveMessageV1SignalFull(HttpRequestWorker *worker, Discussion_improveMessage_v1_Response summary);
     void discussionPatchObjectV1SignalFull(HttpRequestWorker *worker, Discussion_patchObject_v1_Response summary);
     void discussionUpdateDiscussionreadstatusV1SignalFull(HttpRequestWorker *worker, Discussion_updateDiscussionreadstatus_v1_Response summary);
 
@@ -168,7 +158,6 @@ Q_SIGNALS:
     void discussionCreateObjectV1SignalError(Discussion_createObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void discussionDeleteObjectV1SignalError(Discussion_deleteObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void discussionGetObjectV2SignalError(Discussion_getObject_v2_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    void discussionImproveMessageV1SignalError(Discussion_improveMessage_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void discussionPatchObjectV1SignalError(Discussion_patchObject_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     void discussionUpdateDiscussionreadstatusV1SignalError(Discussion_updateDiscussionreadstatus_v1_Response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
@@ -176,7 +165,6 @@ Q_SIGNALS:
     void discussionCreateObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void discussionDeleteObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void discussionGetObjectV2SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    void discussionImproveMessageV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void discussionPatchObjectV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
     void discussionUpdateDiscussionreadstatusV1SignalErrorFull(HttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
